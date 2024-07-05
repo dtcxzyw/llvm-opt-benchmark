@@ -34,8 +34,8 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @rbt_find(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %.013 = load ptr, ptr %0, align 8
-  %.not14 = icmp eq ptr %.013, @sentinel
+  %.01113 = load ptr, ptr %0, align 8
+  %.not14 = icmp eq ptr %.01113, @sentinel
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -43,30 +43,30 @@ define dso_local noundef ptr @rbt_find(ptr nocapture noundef readonly %0, ptr no
   br label %5
 
 5:                                                ; preds = %.lr.ph, %10
-  %.015 = phi ptr [ %.013, %.lr.ph ], [ %.0, %10 ]
+  %.01115 = phi ptr [ %.01113, %.lr.ph ], [ %.011, %10 ]
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.015, ptr noundef %7) #7
+  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.01115, ptr noundef %7) #7
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %._crit_edge, label %10
 
 10:                                               ; preds = %5
   %11 = icmp slt i32 %8, 0
   %.1.in.v = select i1 %11, i64 8, i64 16
-  %.1.in = getelementptr inbounds i8, ptr %.015, i64 %.1.in.v
-  %.0 = load ptr, ptr %.1.in, align 8
-  %.not = icmp eq ptr %.0, @sentinel
+  %.1.in = getelementptr inbounds i8, ptr %.01115, i64 %.1.in.v
+  %.011 = load ptr, ptr %.1.in, align 8
+  %.not = icmp eq ptr %.011, @sentinel
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %5, %10, %2
-  %.011 = phi ptr [ null, %2 ], [ null, %10 ], [ %.015, %5 ]
-  ret ptr %.011
+  %.0 = phi ptr [ null, %2 ], [ null, %10 ], [ %.01115, %5 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @rbt_find_great(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  %.01518 = load ptr, ptr %0, align 8
-  %.not19 = icmp eq ptr %.01518, @sentinel
+  %.01618 = load ptr, ptr %0, align 8
+  %.not19 = icmp eq ptr %.01618, @sentinel
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -75,46 +75,46 @@ define dso_local ptr @rbt_find_great(ptr nocapture noundef readonly %0, ptr noun
   br i1 %2, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.01521.us = phi ptr [ %.015.us, %.lr.ph.split.us ], [ %.01518, %.lr.ph ]
-  %.020.us = phi ptr [ %.1.us, %.lr.ph.split.us ], [ null, %.lr.ph ]
+  %.01621.us = phi ptr [ %.016.us, %.lr.ph.split.us ], [ %.01618, %.lr.ph ]
+  %.01520.us = phi ptr [ %.1.us, %.lr.ph.split.us ], [ null, %.lr.ph ]
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
-  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.01521.us, ptr noundef %7) #7
+  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.01621.us, ptr noundef %7) #7
   %9 = icmp slt i32 %8, 0
-  %.116.in.v.us = select i1 %9, i64 8, i64 16
-  %.116.in.us = getelementptr inbounds i8, ptr %.01521.us, i64 %.116.in.v.us
-  %.1.us = select i1 %9, ptr %.01521.us, ptr %.020.us
-  %.015.us = load ptr, ptr %.116.in.us, align 8
-  %.not.us = icmp eq ptr %.015.us, @sentinel
+  %.117.in.v.us = select i1 %9, i64 8, i64 16
+  %.117.in.us = getelementptr inbounds i8, ptr %.01621.us, i64 %.117.in.v.us
+  %.1.us = select i1 %9, ptr %.01621.us, ptr %.01520.us
+  %.016.us = load ptr, ptr %.117.in.us, align 8
+  %.not.us = icmp eq ptr %.016.us, @sentinel
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %14
-  %.01521 = phi ptr [ %.015, %14 ], [ %.01518, %.lr.ph ]
-  %.020 = phi ptr [ %.1, %14 ], [ null, %.lr.ph ]
+  %.01621 = phi ptr [ %.016, %14 ], [ %.01618, %.lr.ph ]
+  %.01520 = phi ptr [ %.1, %14 ], [ null, %.lr.ph ]
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = tail call i32 %10(ptr noundef %1, ptr noundef %.01521, ptr noundef %11) #7
+  %12 = tail call i32 %10(ptr noundef %1, ptr noundef %.01621, ptr noundef %11) #7
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %._crit_edge, label %14
 
 14:                                               ; preds = %.lr.ph.split
   %15 = icmp slt i32 %12, 0
-  %.116.in.v = select i1 %15, i64 8, i64 16
-  %.116.in = getelementptr inbounds i8, ptr %.01521, i64 %.116.in.v
-  %.1 = select i1 %15, ptr %.01521, ptr %.020
-  %.015 = load ptr, ptr %.116.in, align 8
-  %.not = icmp eq ptr %.015, @sentinel
+  %.117.in.v = select i1 %15, i64 8, i64 16
+  %.117.in = getelementptr inbounds i8, ptr %.01621, i64 %.117.in.v
+  %.1 = select i1 %15, ptr %.01621, ptr %.01520
+  %.016 = load ptr, ptr %.117.in, align 8
+  %.not = icmp eq ptr %.016, @sentinel
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %14, %3
-  %.017 = phi ptr [ null, %3 ], [ %.1, %14 ], [ %.01521, %.lr.ph.split ], [ %.1.us, %.lr.ph.split.us ]
-  ret ptr %.017
+  %.0 = phi ptr [ null, %3 ], [ %.1, %14 ], [ %.01621, %.lr.ph.split ], [ %.1.us, %.lr.ph.split.us ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @rbt_find_less(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  %.01518 = load ptr, ptr %0, align 8
-  %.not19 = icmp eq ptr %.01518, @sentinel
+  %.01618 = load ptr, ptr %0, align 8
+  %.not19 = icmp eq ptr %.01618, @sentinel
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -123,40 +123,40 @@ define dso_local ptr @rbt_find_less(ptr nocapture noundef readonly %0, ptr nound
   br i1 %2, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.01521.us = phi ptr [ %.015.us, %.lr.ph.split.us ], [ %.01518, %.lr.ph ]
-  %.020.us = phi ptr [ %.1.us, %.lr.ph.split.us ], [ null, %.lr.ph ]
+  %.01621.us = phi ptr [ %.016.us, %.lr.ph.split.us ], [ %.01618, %.lr.ph ]
+  %.01520.us = phi ptr [ %.1.us, %.lr.ph.split.us ], [ null, %.lr.ph ]
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
-  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.01521.us, ptr noundef %7) #7
+  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.01621.us, ptr noundef %7) #7
   %9 = icmp sgt i32 %8, 0
-  %.116.in.v.us = select i1 %9, i64 16, i64 8
-  %.116.in.us = getelementptr inbounds i8, ptr %.01521.us, i64 %.116.in.v.us
-  %.1.us = select i1 %9, ptr %.01521.us, ptr %.020.us
-  %.015.us = load ptr, ptr %.116.in.us, align 8
-  %.not.us = icmp eq ptr %.015.us, @sentinel
+  %.117.in.v.us = select i1 %9, i64 16, i64 8
+  %.117.in.us = getelementptr inbounds i8, ptr %.01621.us, i64 %.117.in.v.us
+  %.1.us = select i1 %9, ptr %.01621.us, ptr %.01520.us
+  %.016.us = load ptr, ptr %.117.in.us, align 8
+  %.not.us = icmp eq ptr %.016.us, @sentinel
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %14
-  %.01521 = phi ptr [ %.015, %14 ], [ %.01518, %.lr.ph ]
-  %.020 = phi ptr [ %.1, %14 ], [ null, %.lr.ph ]
+  %.01621 = phi ptr [ %.016, %14 ], [ %.01618, %.lr.ph ]
+  %.01520 = phi ptr [ %.1, %14 ], [ null, %.lr.ph ]
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = tail call i32 %10(ptr noundef %1, ptr noundef %.01521, ptr noundef %11) #7
+  %12 = tail call i32 %10(ptr noundef %1, ptr noundef %.01621, ptr noundef %11) #7
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %._crit_edge, label %14
 
 14:                                               ; preds = %.lr.ph.split
   %15 = icmp sgt i32 %12, 0
-  %.116.in.v = select i1 %15, i64 16, i64 8
-  %.116.in = getelementptr inbounds i8, ptr %.01521, i64 %.116.in.v
-  %.1 = select i1 %15, ptr %.01521, ptr %.020
-  %.015 = load ptr, ptr %.116.in, align 8
-  %.not = icmp eq ptr %.015, @sentinel
+  %.117.in.v = select i1 %15, i64 16, i64 8
+  %.117.in = getelementptr inbounds i8, ptr %.01621, i64 %.117.in.v
+  %.1 = select i1 %15, ptr %.01621, ptr %.01520
+  %.016 = load ptr, ptr %.117.in, align 8
+  %.not = icmp eq ptr %.016, @sentinel
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %14, %3
-  %.017 = phi ptr [ null, %3 ], [ %.1, %14 ], [ %.01521, %.lr.ph.split ], [ %.1.us, %.lr.ph.split.us ]
-  ret ptr %.017
+  %.0 = phi ptr [ null, %3 ], [ %.1, %14 ], [ %.01621, %.lr.ph.split ], [ %.1.us, %.lr.ph.split.us ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -181,8 +181,8 @@ define dso_local ptr @rbt_leftmost(ptr nocapture noundef readonly %0) local_unna
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
-  %.04047 = load ptr, ptr %0, align 8
-  %.not48 = icmp eq ptr %.04047, @sentinel
+  %.04147 = load ptr, ptr %0, align 8
+  %.not48 = icmp eq ptr %.04147, @sentinel
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -191,10 +191,10 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   br label %6
 
 6:                                                ; preds = %.lr.ph, %15
-  %.04049 = phi ptr [ %.04047, %.lr.ph ], [ %.040, %15 ]
+  %.04149 = phi ptr [ %.04147, %.lr.ph ], [ %.041, %15 ]
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = tail call i32 %7(ptr noundef %1, ptr noundef %.04049, ptr noundef %8) #7
+  %9 = tail call i32 %7(ptr noundef %1, ptr noundef %.04149, ptr noundef %8) #7
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %15
 
@@ -202,16 +202,16 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %5, align 8
-  tail call void %13(ptr noundef %.04049, ptr noundef %1, ptr noundef %14) #7
+  tail call void %13(ptr noundef %.04149, ptr noundef %1, ptr noundef %14) #7
   store i8 0, ptr %2, align 1
   br label %160
 
 15:                                               ; preds = %6
   %16 = icmp slt i32 %9, 0
   %.in.v = select i1 %16, i64 8, i64 16
-  %.in = getelementptr inbounds i8, ptr %.04049, i64 %.in.v
-  %.040 = load ptr, ptr %.in, align 8
-  %.not = icmp eq ptr %.040, @sentinel
+  %.in = getelementptr inbounds i8, ptr %.04149, i64 %.in.v
+  %.041 = load ptr, ptr %.in, align 8
+  %.not = icmp eq ptr %.041, @sentinel
   br i1 %.not, label %._crit_edge.loopexit, label %6, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %15
@@ -219,7 +219,7 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.039.lcssa = phi ptr [ null, %3 ], [ %.04049, %._crit_edge.loopexit ]
+  %.040.lcssa = phi ptr [ null, %3 ], [ %.04149, %._crit_edge.loopexit ]
   %.0.lcssa = phi i1 [ false, %3 ], [ %17, %._crit_edge.loopexit ]
   store i8 1, ptr %2, align 1
   %18 = getelementptr inbounds i8, ptr %0, i64 32
@@ -233,25 +233,25 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   %24 = getelementptr inbounds i8, ptr %22, i64 16
   store ptr @sentinel, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %22, i64 24
-  store ptr %.039.lcssa, ptr %25, align 8
+  store ptr %.040.lcssa, ptr %25, align 8
   %26 = getelementptr i8, ptr %0, i64 8
   %.val = load i64, ptr %26, align 8
   %27 = getelementptr i8, ptr %22, i64 32
   %28 = getelementptr i8, ptr %1, i64 32
   %29 = add i64 %.val, -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr readonly align 8 %28, i64 %29, i1 false)
-  %.not43 = icmp eq ptr %.039.lcssa, null
+  %.not43 = icmp eq ptr %.040.lcssa, null
   br i1 %.not43, label %35, label %30
 
 30:                                               ; preds = %._crit_edge
   br i1 %.0.lcssa, label %31, label %33
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %.039.lcssa, i64 8
+  %32 = getelementptr inbounds i8, ptr %.040.lcssa, i64 8
   br label %35
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %.039.lcssa, i64 16
+  %34 = getelementptr inbounds i8, ptr %.040.lcssa, i64 16
   br label %35
 
 35:                                               ; preds = %._crit_edge, %31, %33
@@ -563,8 +563,8 @@ rbt_insert_fixup.exit:                            ; preds = %rbt_rotate_right.ex
   br label %160
 
 160:                                              ; preds = %rbt_insert_fixup.exit, %11
-  %.041 = phi ptr [ %.04049, %11 ], [ %22, %rbt_insert_fixup.exit ]
-  ret ptr %.041
+  %.039 = phi ptr [ %.04149, %11 ], [ %22, %rbt_insert_fixup.exit ]
+  ret ptr %.039
 }
 
 ; Function Attrs: nounwind uwtable

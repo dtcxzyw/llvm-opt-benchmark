@@ -142,10 +142,10 @@ for.body:                                         ; preds = %if.then, %for.body
 
 do.body90:                                        ; preds = %do.end, %for.end110
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %for.end110 ], [ 1, %do.end ]
-  %symbol.1 = phi i32 [ %symbol.2.lcssa, %for.end110 ], [ 0, %do.end ]
   %key.1 = phi i64 [ %key.2.lcssa, %for.end110 ], [ 0, %do.end ]
   %key_step.0 = phi i64 [ %shr, %for.end110 ], [ 128, %do.end ]
   %step.0 = phi i32 [ %shl, %for.end110 ], [ 2, %do.end ]
+  %symbol.1 = phi i32 [ %symbol.2.lcssa, %for.end110 ], [ 0, %do.end ]
   %arrayidx92 = getelementptr inbounds i16, ptr %count, i64 %indvars.iv91
   %30 = load i16, ptr %arrayidx92, align 2
   %cmp95.not71 = icmp eq i16 %30, 0
@@ -163,12 +163,12 @@ for.body97.lr.ph:                                 ; preds = %do.body90
 for.body97:                                       ; preds = %for.body97.lr.ph, %ReplicateValue.exit
   %indvars.iv88 = phi i64 [ %34, %for.body97.lr.ph ], [ %indvars.iv.next89, %ReplicateValue.exit ]
   %bits_count.074 = phi i32 [ %conv93, %for.body97.lr.ph ], [ %dec109, %ReplicateValue.exit ]
-  %key.273 = phi i64 [ %key.1, %for.body97.lr.ph ], [ %add107, %ReplicateValue.exit ]
+  %key.272 = phi i64 [ %key.1, %for.body97.lr.ph ], [ %add107, %ReplicateValue.exit ]
   %arrayidx102 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %indvars.iv88
   %36 = load i32, ptr %arrayidx102, align 4
   %retval.i.sroa.266.0.insert.ext = shl i32 %36, 16
   %retval.i.sroa.0.0.insert.insert = or disjoint i32 %retval.i.sroa.266.0.insert.ext, %35
-  %arrayidx.i120 = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %key.273
+  %arrayidx.i120 = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %key.272
   %37 = load i8, ptr %arrayidx.i120, align 1
   %conv.i = zext i8 %37 to i64
   %arrayidx106 = getelementptr inbounds %struct.HuffmanCode, ptr %table, i64 %conv.i
@@ -185,7 +185,7 @@ do.body.i:                                        ; preds = %do.body.i, %for.bod
 
 ReplicateValue.exit:                              ; preds = %do.body.i
   %indvars.iv.next89 = add nsw i64 %indvars.iv88, 1
-  %add107 = add i64 %key.273, %key_step.0
+  %add107 = add i64 %key.272, %key_step.0
   %dec109 = add nsw i32 %bits_count.074, -1
   %cmp95.not = icmp eq i32 %dec109, 0
   br i1 %cmp95.not, label %for.end110.loopexit, label %for.body97, !llvm.loop !8
@@ -195,8 +195,8 @@ for.end110.loopexit:                              ; preds = %ReplicateValue.exit
   br label %for.end110
 
 for.end110:                                       ; preds = %for.end110.loopexit, %do.body90
-  %symbol.2.lcssa = phi i32 [ %symbol.1, %do.body90 ], [ %39, %for.end110.loopexit ]
   %key.2.lcssa = phi i64 [ %key.1, %do.body90 ], [ %add107, %for.end110.loopexit ]
+  %symbol.2.lcssa = phi i32 [ %symbol.1, %do.body90 ], [ %39, %for.end110.loopexit ]
   %shl = shl i32 %step.0, 1
   %shr = lshr i64 %key_step.0, 1
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1

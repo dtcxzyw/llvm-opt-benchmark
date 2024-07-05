@@ -1905,14 +1905,14 @@ if.then69:                                        ; preds = %cond.end61
   br label %return
 
 for.cond:                                         ; preds = %for.body
-  %inc = add nuw nsw i32 %i.051, 1
+  %inc = add nuw nsw i32 %i.052, 1
   %exitcond.not = icmp eq i32 %inc, %conv63
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.body:                                         ; preds = %cond.end61, %for.cond
-  %b.052 = phi i32 [ %dec, %for.cond ], [ %10, %cond.end61 ]
-  %i.051 = phi i32 [ %inc, %for.cond ], [ 0, %cond.end61 ]
-  %dec = add i32 %b.052, -1
+  %i.052 = phi i32 [ %inc, %for.cond ], [ 0, %cond.end61 ]
+  %b.051 = phi i32 [ %dec, %for.cond ], [ %10, %cond.end61 ]
+  %dec = add i32 %b.051, -1
   %idxprom74 = zext i32 %dec to i64
   %arrayidx75 = getelementptr inbounds [32 x i8], ptr %final, i64 0, i64 %idxprom74
   %16 = load i8, ptr %arrayidx75, align 1
@@ -2308,9 +2308,9 @@ if.end77:                                         ; preds = %if.end62
 
 if.end82:                                         ; preds = %if.end41, %if.end77
   %storemerge = phi i32 [ %2, %if.end77 ], [ 0, %if.end41 ]
-  %out.addr.0 = phi ptr [ %add.ptr79, %if.end77 ], [ %out, %if.end41 ]
   %in.addr.0 = phi ptr [ %add.ptr69, %if.end77 ], [ %in, %if.end41 ]
   %inl.addr.0 = phi i32 [ %sub55, %if.end77 ], [ %inl, %if.end41 ]
+  %out.addr.0 = phi ptr [ %add.ptr79, %if.end77 ], [ %out, %if.end41 ]
   store i32 %storemerge, ptr %outl, align 4
   %sub83 = add nsw i32 %2, -1
   %and84 = and i32 %inl.addr.0, %sub83

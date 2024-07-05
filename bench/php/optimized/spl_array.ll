@@ -384,8 +384,8 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   br label %spl_hash_key_release.exit
 
 spl_hash_key_release.exit:                        ; preds = %90, %85, %81, %77, %91
-  %.0 = phi ptr [ %94, %91 ], [ %78, %77 ], [ %78, %81 ], [ %78, %85 ], [ %78, %90 ]
-  %.not49 = icmp eq ptr %.0, null
+  %.039 = phi ptr [ %94, %91 ], [ %78, %77 ], [ %78, %81 ], [ %78, %85 ], [ %78, %90 ]
+  %.not49 = icmp eq ptr %.039, null
   br i1 %.not49, label %120, label %95
 
 95:                                               ; preds = %spl_hash_key_release.exit
@@ -426,7 +426,7 @@ spl_array_read_dimension_ex.exit:                 ; preds = %100, %101
   br label %109
 
 109:                                              ; preds = %25, %96, %97, %95, %spl_array_read_dimension_ex.exit
-  %.1 = phi ptr [ %executor_globals..i, %25 ], [ %executor_globals..i62, %spl_array_read_dimension_ex.exit ], [ %.0, %95 ], [ %.0, %97 ], [ %.0, %96 ]
+  %.1 = phi ptr [ %executor_globals..i, %25 ], [ %executor_globals..i62, %spl_array_read_dimension_ex.exit ], [ %.039, %95 ], [ %.039, %97 ], [ %.039, %96 ]
   %110 = icmp eq ptr %.1, %7
   br i1 %110, label %111, label %112
 
@@ -450,8 +450,8 @@ spl_array_read_dimension_ex.exit:                 ; preds = %100, %101
   br label %120
 
 120:                                              ; preds = %13, %113, %116, %95, %spl_hash_key_release.exit, %18, %70
-  %.040 = phi i1 [ false, %70 ], [ true, %18 ], [ false, %spl_hash_key_release.exit ], [ true, %95 ], [ %115, %113 ], [ %119, %116 ], [ false, %13 ]
-  ret i1 %.040
+  %.0 = phi i1 [ false, %70 ], [ true, %18 ], [ false, %spl_hash_key_release.exit ], [ true, %95 ], [ %115, %113 ], [ %119, %116 ], [ false, %13 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2374,13 +2374,13 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
   br i1 %.not43, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %73
-  %.03453.us = phi i32 [ %74, %73 ], [ %50, %.lr.ph ]
-  %.03552.us = phi ptr [ %56, %73 ], [ %52, %.lr.ph ]
-  %.04049.us = phi i64 [ %.141.us, %73 ], [ 0, %.lr.ph ]
-  %56 = getelementptr inbounds i8, ptr %.03552.us, i64 32
-  %57 = getelementptr inbounds i8, ptr %.03552.us, i64 24
+  %.03453.us = phi i64 [ %.1.us, %73 ], [ 0, %.lr.ph ]
+  %.03552.us = phi i32 [ %74, %73 ], [ %50, %.lr.ph ]
+  %.03651.us = phi ptr [ %56, %73 ], [ %52, %.lr.ph ]
+  %56 = getelementptr inbounds i8, ptr %.03651.us, i64 32
+  %57 = getelementptr inbounds i8, ptr %.03651.us, i64 24
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %.03552.us, i64 8
+  %59 = getelementptr inbounds i8, ptr %.03651.us, i64 8
   %60 = load i8, ptr %59, align 8
   switch i8 %60, label %71 [
     i8 0, label %73
@@ -2388,7 +2388,7 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
   ]
 
 61:                                               ; preds = %.lr.ph.split.us
-  %62 = load ptr, ptr %.03552.us, align 8
+  %62 = load ptr, ptr %.03651.us, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   %64 = load i8, ptr %63, align 8
   %65 = icmp eq i8 %64, 0
@@ -2405,21 +2405,21 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
   br i1 %70, label %73, label %71
 
 71:                                               ; preds = %67, %66, %.lr.ph.split.us
-  %72 = add nsw i64 %.04049.us, 1
+  %72 = add nsw i64 %.03453.us, 1
   br label %73
 
 73:                                               ; preds = %71, %67, %61, %.lr.ph.split.us
-  %.141.us = phi i64 [ %.04049.us, %.lr.ph.split.us ], [ %.04049.us, %61 ], [ %.04049.us, %67 ], [ %72, %71 ]
-  %74 = add i32 %.03453.us, -1
+  %.1.us = phi i64 [ %.03453.us, %.lr.ph.split.us ], [ %.03453.us, %61 ], [ %.03453.us, %67 ], [ %72, %71 ]
+  %74 = add i32 %.03552.us, -1
   %.not.us = icmp eq i32 %74, 0
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %85
-  %.03453 = phi i32 [ %86, %85 ], [ %50, %.lr.ph ]
-  %.03552 = phi ptr [ %75, %85 ], [ %52, %.lr.ph ]
-  %.04049 = phi i64 [ %.141, %85 ], [ 0, %.lr.ph ]
-  %75 = getelementptr inbounds i8, ptr %.03552, i64 16
-  %76 = getelementptr inbounds i8, ptr %.03552, i64 8
+  %.03453 = phi i64 [ %.1, %85 ], [ 0, %.lr.ph ]
+  %.03552 = phi i32 [ %86, %85 ], [ %50, %.lr.ph ]
+  %.03651 = phi ptr [ %75, %85 ], [ %52, %.lr.ph ]
+  %75 = getelementptr inbounds i8, ptr %.03651, i64 16
+  %76 = getelementptr inbounds i8, ptr %.03651, i64 8
   %77 = load i8, ptr %76, align 8
   switch i8 %77, label %83 [
     i8 0, label %85
@@ -2427,19 +2427,19 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
   ]
 
 78:                                               ; preds = %.lr.ph.split
-  %79 = load ptr, ptr %.03552, align 8
+  %79 = load ptr, ptr %.03651, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   %81 = load i8, ptr %80, align 8
   %82 = icmp eq i8 %81, 0
   br i1 %82, label %85, label %83
 
 83:                                               ; preds = %78, %.lr.ph.split
-  %84 = add nsw i64 %.04049, 1
+  %84 = add nsw i64 %.03453, 1
   br label %85
 
 85:                                               ; preds = %.lr.ph.split, %78, %83
-  %.141 = phi i64 [ %.04049, %.lr.ph.split ], [ %.04049, %78 ], [ %84, %83 ]
-  %86 = add i32 %.03453, -1
+  %.1 = phi i64 [ %.03453, %.lr.ph.split ], [ %.03453, %78 ], [ %84, %83 ]
+  %86 = add i32 %.03552, -1
   %.not = icmp eq i32 %86, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.split
 
@@ -2450,7 +2450,7 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %85, %73, %spl_array_is_object.exit.thread, %87
-  %.0 = phi i64 [ %90, %87 ], [ 0, %spl_array_is_object.exit.thread ], [ %.141.us, %73 ], [ %.141, %85 ]
+  %.0 = phi i64 [ %90, %87 ], [ 0, %spl_array_is_object.exit.thread ], [ %.1.us, %73 ], [ %.1, %85 ]
   ret i64 %.0
 }
 
@@ -6336,8 +6336,8 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
   br label %.critedge
 
 .critedge:                                        ; preds = %5, %spl_array_is_object.exit, %spl_array_is_object.exit.thread, %25, %21, %20, %10, %8
-  %.058 = phi i32 [ 0, %8 ], [ 0, %10 ], [ 0, %20 ], [ 0, %21 ], [ 0, %25 ], [ 0, %spl_array_is_object.exit.thread ], [ 0, %spl_array_is_object.exit ], [ -1, %5 ]
-  ret i32 %.058
+  %.059 = phi i32 [ 0, %8 ], [ 0, %10 ], [ 0, %20 ], [ 0, %21 ], [ 0, %25 ], [ 0, %spl_array_is_object.exit.thread ], [ 0, %spl_array_is_object.exit ], [ -1, %5 ]
+  ret i32 %.059
 }
 
 declare void @zend_illegal_container_offset(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -6563,7 +6563,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   br label %94
 
 94:                                               ; preds = %82, %86, %90, %64, %73, %77, %81, %68
-  %.0 = phi ptr [ %69, %73 ], [ %69, %81 ], [ @executor_globals, %77 ], [ %69, %68 ], [ %63, %64 ], [ null, %82 ], [ %93, %90 ], [ @executor_globals, %86 ]
+  %.033 = phi ptr [ %69, %73 ], [ %69, %81 ], [ @executor_globals, %77 ], [ %69, %68 ], [ %63, %64 ], [ null, %82 ], [ %93, %90 ], [ @executor_globals, %86 ]
   %.val = load ptr, ptr %5, align 8
   %95 = getelementptr inbounds i8, ptr %5, i64 16
   %.val44 = load i8, ptr %95, align 8
@@ -6627,8 +6627,8 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   br label %spl_hash_key_release.exit
 
 spl_hash_key_release.exit:                        ; preds = %106, %101, %97, %94, %112, %115, %118, %107, %spl_array_get_hash_table.exit, %44, %58, %54
-  %.033 = phi ptr [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %54 ], [ %59, %58 ], [ @executor_globals, %44 ], [ @executor_globals, %spl_array_get_hash_table.exit ], [ null, %112 ], [ %121, %118 ], [ @executor_globals, %115 ], [ %110, %107 ], [ %.0, %94 ], [ %.0, %97 ], [ %.0, %101 ], [ %.0, %106 ]
-  ret ptr %.033
+  %.0 = phi ptr [ getelementptr inbounds (i8, ptr @executor_globals, i64 16), %54 ], [ %59, %58 ], [ @executor_globals, %44 ], [ @executor_globals, %spl_array_get_hash_table.exit ], [ null, %112 ], [ %121, %118 ], [ @executor_globals, %115 ], [ %110, %107 ], [ %.033, %94 ], [ %.033, %97 ], [ %.033, %101 ], [ %.033, %106 ]
+  ret ptr %.0
 }
 
 declare noalias ptr @_emalloc_32() local_unnamed_addr #1

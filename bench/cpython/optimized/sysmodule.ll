@@ -2100,8 +2100,8 @@ if.then1.i.i84:                                   ; preds = %if.end.i.i81
   br label %if.then.i87
 
 if.then.i87:                                      ; preds = %if.then1.i.i84, %if.end.i.i81, %if.then.i78, %if.end37
-  %res.0140148174 = phi i32 [ -1, %if.end37 ], [ %spec.select51, %if.then.i78 ], [ %spec.select51, %if.end.i.i81 ], [ %spec.select51, %if.then1.i.i84 ]
-  %tobool76.not139149173 = phi i1 [ false, %if.end37 ], [ %retval.0.i74, %if.then.i78 ], [ %retval.0.i74, %if.end.i.i81 ], [ %retval.0.i74, %if.then1.i.i84 ]
+  %res.0138149173 = phi i32 [ -1, %if.end37 ], [ %spec.select51, %if.then.i78 ], [ %spec.select51, %if.end.i.i81 ], [ %spec.select51, %if.then1.i.i84 ]
+  %tobool76.not137150172 = phi i1 [ false, %if.end37 ], [ %retval.0.i74, %if.then.i78 ], [ %retval.0.i74, %if.end.i.i81 ], [ %retval.0.i74, %if.then1.i.i84 ]
   %39 = load i64, ptr %call34, align 8
   %40 = and i64 %39, 2147483648
   %cmp.i2.not.i88 = icmp eq i64 %40, 0
@@ -2118,8 +2118,8 @@ if.then1.i.i93:                                   ; preds = %if.end.i.i90
   br label %if.then.i96
 
 if.then.i96:                                      ; preds = %for.body, %if.end.i.i90, %if.then.i87, %if.then33, %if.end30, %if.then1.i.i93
-  %tobool76.not139149161177 = phi i1 [ %tobool76.not139149173, %if.then1.i.i93 ], [ false, %if.then33 ], [ true, %if.end30 ], [ %tobool76.not139149173, %if.then.i87 ], [ %tobool76.not139149173, %if.end.i.i90 ], [ false, %for.body ]
-  %res.0140148162175 = phi i32 [ %res.0140148174, %if.then1.i.i93 ], [ -1, %if.then33 ], [ 0, %if.end30 ], [ %res.0140148174, %if.then.i87 ], [ %res.0140148174, %if.end.i.i90 ], [ -1, %for.body ]
+  %tobool76.not137150161177 = phi i1 [ %tobool76.not137150172, %if.then1.i.i93 ], [ false, %if.then33 ], [ true, %if.end30 ], [ %tobool76.not137150172, %if.then.i87 ], [ %tobool76.not137150172, %if.end.i.i90 ], [ false, %for.body ]
+  %res.0138149162175 = phi i32 [ %res.0138149173, %if.then1.i.i93 ], [ -1, %if.then33 ], [ 0, %if.end30 ], [ %res.0138149173, %if.then.i87 ], [ %res.0138149173, %if.end.i.i90 ], [ -1, %for.body ]
   %41 = load i64, ptr %eventArgs.0125, align 8
   %42 = and i64 %41, 2147483648
   %cmp.i2.not.i97 = icmp eq i64 %42, 0
@@ -2133,17 +2133,17 @@ if.end.i.i99:                                     ; preds = %if.then.i96
 
 if.then1.i.i102:                                  ; preds = %if.end.i.i99
   call void @_Py_Dealloc(ptr noundef nonnull %eventArgs.0125) #15
-  br i1 %tobool76.not139149161177, label %if.then77, label %if.else78
+  br i1 %tobool76.not137150161177, label %if.then77, label %if.else78
 
 Py_XDECREF.exit103:                               ; preds = %if.then.i96, %if.end.i.i99
-  br i1 %tobool76.not139149161177, label %if.then77, label %if.else78
+  br i1 %tobool76.not137150161177, label %if.then77, label %if.else78
 
 if.then77:                                        ; preds = %if.then1.i.i102, %Py_XDECREF.exit103
   call void @_PyErr_SetRaisedException(ptr noundef nonnull %ts, ptr noundef %call5) #15
   br label %return
 
 if.else78:                                        ; preds = %if.then8, %if.end19, %if.then1.i.i102, %Py_XDECREF.exit103
-  %res.0140148162176181 = phi i32 [ %res.0140148162175, %if.then1.i.i102 ], [ %res.0140148162175, %Py_XDECREF.exit103 ], [ -1, %if.end19 ], [ -1, %if.then8 ]
+  %res.0138149162176181 = phi i32 [ %res.0138149162175, %if.then1.i.i102 ], [ %res.0138149162175, %Py_XDECREF.exit103 ], [ -1, %if.end19 ], [ -1, %if.then8 ]
   %cmp.not.i104 = icmp eq ptr %call5, null
   br i1 %cmp.not.i104, label %return, label %if.then.i105
 
@@ -2164,7 +2164,7 @@ if.then1.i.i111:                                  ; preds = %if.end.i.i108
   br label %return
 
 return:                                           ; preds = %if.end, %if.then1.i.i111, %if.end.i.i108, %if.then.i105, %if.else78, %if.then77, %should_audit.exit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %should_audit.exit ], [ %res.0140148162175, %if.then77 ], [ %res.0140148162176181, %if.else78 ], [ %res.0140148162176181, %if.then.i105 ], [ %res.0140148162176181, %if.end.i.i108 ], [ %res.0140148162176181, %if.then1.i.i111 ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %should_audit.exit ], [ %res.0138149162175, %if.then77 ], [ %res.0138149162176181, %if.else78 ], [ %res.0138149162176181, %if.then.i105 ], [ %res.0138149162176181, %if.end.i.i108 ], [ %res.0138149162176181, %if.then1.i.i111 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -3195,8 +3195,8 @@ if.end12.i:                                       ; preds = %if.else.i
   br i1 %cmp14.i, label %if.then.i.i, label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.end12.i, %if.end.i.i.i, %if.end7.i
-  %name.0.i = phi ptr [ %call9.i, %if.end12.i ], [ %call4.i, %if.end7.i ], [ %call4.i, %if.end.i.i.i ]
   %value.0.i = phi ptr [ %call13.i, %if.end12.i ], [ @_Py_TrueStruct, %if.end7.i ], [ @_Py_TrueStruct, %if.end.i.i.i ]
+  %name.0.i = phi ptr [ %call9.i, %if.end12.i ], [ %call4.i, %if.end7.i ], [ %call4.i, %if.end.i.i.i ]
   %call18.i = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call1.i, ptr noundef nonnull %name.0.i, ptr noundef nonnull %value.0.i) #15
   %cmp19.i = icmp slt i32 %call18.i, 0
   br i1 %cmp19.i, label %if.then.i.i, label %if.end21.i
@@ -3230,8 +3230,8 @@ if.end.i.i:                                       ; preds = %Py_DECREF.exit30.i
   br i1 %cmp.i.i, label %_PySys_AddXOptionWithError.exit, label %if.end5
 
 if.then.i.i:                                      ; preds = %if.end17.i, %if.end12.i
-  %name.1.i = phi ptr [ %call9.i, %if.end12.i ], [ %name.0.i, %if.end17.i ]
   %value.1.i = phi ptr [ null, %if.end12.i ], [ %value.0.i, %if.end17.i ]
+  %name.1.i = phi ptr [ %call9.i, %if.end12.i ], [ %name.0.i, %if.end17.i ]
   %7 = load i64, ptr %name.1.i, align 8
   %8 = and i64 %7, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %8, 0
@@ -5423,8 +5423,8 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end19.i, %for.cond.preheader.i
-  %path.addr.0.i = phi ptr [ %add.ptr20.i, %if.end19.i ], [ %path, %for.cond.preheader.i ]
   %i.0.i = phi i32 [ %inc21.i, %if.end19.i ], [ 0, %for.cond.preheader.i ]
+  %path.addr.0.i = phi ptr [ %add.ptr20.i, %if.end19.i ], [ %path, %for.cond.preheader.i ]
   %call4.i = tail call ptr @wcschr(ptr noundef %path.addr.0.i, i32 noundef 58) #16
   %cmp5.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.i, label %if.then7.i, label %if.end9.i
@@ -5528,8 +5528,8 @@ entry:
   %cmp = icmp slt i32 %argc, 1
   %cmp1 = icmp eq ptr %argv, null
   %or.cond = or i1 %cmp, %cmp1
+  %spec.select = select i1 %or.cond, ptr %empty_argv, ptr %argv
   %2 = zext nneg i32 %argc to i64
-  %spec.select18 = select i1 %or.cond, ptr %empty_argv, ptr %argv
   %conv.i = select i1 %or.cond, i64 1, i64 %2
   %call.i = tail call ptr @PyList_New(i64 noundef %conv.i) #15
   %cmp.i19 = icmp eq ptr %call.i, null
@@ -5541,7 +5541,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
 
 for.body.i:                                       ; preds = %if.end9.i, %for.body.lr.ph.i
   %i.012.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %if.end9.i ]
-  %arrayidx.i = getelementptr ptr, ptr %spec.select18, i64 %i.012.i
+  %arrayidx.i = getelementptr ptr, ptr %spec.select, i64 %i.012.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %call5.i = tail call ptr @PyUnicode_FromWideChar(ptr noundef %4, i64 noundef -1) #15
   %cmp6.i = icmp eq ptr %call5.i, null
@@ -5648,7 +5648,7 @@ Py_DECREF.exit47:                                 ; preds = %if.end9, %if.then1.
 if.then10:                                        ; preds = %Py_DECREF.exit47
   store i64 %conv.i, ptr %argv_list, align 8
   %items = getelementptr inbounds i8, ptr %argv_list, i64 8
-  store ptr %spec.select18, ptr %items, align 8
+  store ptr %spec.select, ptr %items, align 8
   store ptr null, ptr %path0, align 8
   %call11 = call i32 @_PyPathConfig_ComputeSysPath0(ptr noundef nonnull %argv_list, ptr noundef nonnull %path0) #15
   %tobool12.not = icmp eq i32 %call11, 0
@@ -6337,8 +6337,8 @@ if.then18:                                        ; preds = %if.else16
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then18, %if.then14
-  %attrname.0 = phi ptr [ %call7, %if.then14 ], [ %add.ptr, %if.then18 ]
   %modulepath.0 = phi ptr [ %call15, %if.then14 ], [ %call19, %if.then18 ]
+  %attrname.0 = phi ptr [ %call7, %if.then14 ], [ %add.ptr, %if.then18 ]
   %cmp23 = icmp eq ptr %modulepath.0, null
   br i1 %cmp23, label %if.then24, label %if.end25
 

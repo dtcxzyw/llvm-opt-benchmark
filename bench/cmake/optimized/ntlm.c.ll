@@ -123,8 +123,8 @@ define dso_local noundef i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef %0
   br i1 %.not29.i, label %56, label %ntlm_decode_type2_target.exit
 
 ntlm_decode_type2_target.exit:                    ; preds = %23, %27, %47
-  %.0.i = phi i16 [ %29, %47 ], [ 0, %27 ], [ 0, %23 ]
-  %54 = zext i16 %.0.i to i32
+  %.024.i = phi i16 [ %29, %47 ], [ 0, %27 ], [ 0, %23 ]
+  %54 = zext i16 %.024.i to i32
   %55 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 %54, ptr %55, align 4
   br label %.thread41
@@ -134,7 +134,7 @@ ntlm_decode_type2_target.exit:                    ; preds = %23, %27, %47
   br i1 %.not31, label %.thread41, label %.thread
 
 .thread:                                          ; preds = %46, %42, %56
-  %.024.i.ph40 = phi i32 [ 27, %56 ], [ 61, %42 ], [ 61, %46 ]
+  %.0.i.ph40 = phi i32 [ 27, %56 ], [ 61, %42 ], [ 61, %46 ]
   %57 = getelementptr inbounds i8, ptr %0, i64 2642
   %58 = load i64, ptr %57, align 2
   %59 = and i64 %58, 268435456
@@ -146,7 +146,7 @@ ntlm_decode_type2_target.exit:                    ; preds = %23, %27, %47
   br label %.thread41
 
 .thread41:                                        ; preds = %41, %ntlm_decode_type2_target.exit, %16, %60, %.thread, %56, %15, %11, %10
-  %.0 = phi i32 [ 61, %10 ], [ 61, %11 ], [ 61, %15 ], [ 27, %56 ], [ %.024.i.ph40, %.thread ], [ %.024.i.ph40, %60 ], [ 0, %ntlm_decode_type2_target.exit ], [ 0, %16 ], [ 61, %41 ]
+  %.0 = phi i32 [ 61, %10 ], [ 61, %11 ], [ 61, %15 ], [ 27, %56 ], [ %.0.i.ph40, %.thread ], [ %.0.i.ph40, %60 ], [ 0, %ntlm_decode_type2_target.exit ], [ 0, %16 ], [ 61, %41 ]
   ret i32 %.0
 }
 
@@ -301,7 +301,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
 52:                                               ; preds = %49, %42
   %53 = phi i32 [ %.pre157, %42 ], [ %51, %49 ]
   %54 = phi i32 [ %.pre, %42 ], [ 24, %49 ]
-  %.0122 = phi ptr [ %43, %42 ], [ %9, %49 ]
+  %.0123 = phi ptr [ %43, %42 ], [ %9, %49 ]
   %.0118 = select i1 %.not, i64 11, i64 22
   %55 = zext nneg i32 %18 to i64
   %.0117 = shl i64 %27, %55
@@ -364,7 +364,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
 
 101:                                              ; preds = %95
   %102 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %.0124
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr align 1 %.0122, i64 %97, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr align 1 %.0123, i64 %97, i1 false)
   %103 = load ptr, ptr @Curl_cfree, align 8
   %104 = load ptr, ptr %10, align 8
   call void %103(ptr noundef %104) #7
@@ -473,8 +473,8 @@ unicodecpy.exit154:                               ; preds = %.lr.ph.i151, %unico
   br label %153
 
 153:                                              ; preds = %46, %44, %40, %37, %35, %33, %31, %unicodecpy.exit154, %109, %100
-  %.0123 = phi i32 [ 27, %100 ], [ 27, %109 ], [ %148, %unicodecpy.exit154 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %39, %37 ], [ %41, %40 ], [ %45, %44 ], [ %48, %46 ]
-  ret i32 %.0123
+  %.0122 = phi i32 [ 27, %100 ], [ 27, %109 ], [ %148, %unicodecpy.exit154 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %39, %37 ], [ %41, %40 ], [ %45, %44 ], [ %48, %46 ]
+  ret i32 %.0122
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -4438,8 +4438,8 @@ _ZN7QVectorI7QPointFEC2Ei.exit:                   ; preds = %82, %.lr.ph.prehead
 
 121:                                              ; preds = %.lr.ph, %262
   %122 = phi ptr [ %94, %.lr.ph ], [ %271, %262 ]
-  %.0101157 = phi i64 [ 0, %.lr.ph ], [ %269, %262 ]
-  %123 = getelementptr inbounds %class.QPointF, ptr %122, i64 %.0101157
+  %.0102157 = phi i64 [ 0, %.lr.ph ], [ %269, %262 ]
+  %123 = getelementptr inbounds %class.QPointF, ptr %122, i64 %.0102157
   %124 = load double, ptr %123, align 8
   %125 = fmul double %124, %95
   %126 = fptrunc double %125 to float
@@ -4471,18 +4471,18 @@ _ZN7QVectorI7QPointFEC2Ei.exit:                   ; preds = %82, %.lr.ph.prehead
   %150 = ptrtoint ptr %148 to i64
   %151 = sub i64 %149, %150
   %152 = ashr exact i64 %151, 4
-  %.not.i.i112 = icmp ugt i64 %152, %.0101157
+  %.not.i.i112 = icmp ugt i64 %152, %.0102157
   br i1 %.not.i.i112, label %154, label %153
 
 153:                                              ; preds = %146
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.25, i64 noundef %.0101157, i64 noundef %152) #29
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.25, i64 noundef %.0102157, i64 noundef %152) #29
           to label %.noexc113 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc113:                                        ; preds = %153
   unreachable
 
 154:                                              ; preds = %146
-  %155 = getelementptr inbounds %class.QPointF, ptr %148, i64 %.0101157
+  %155 = getelementptr inbounds %class.QPointF, ptr %148, i64 %.0102157
   %156 = load double, ptr %155, align 8
   %157 = fmul double %156, %95
   %158 = fptrunc double %157 to float
@@ -4532,9 +4532,9 @@ _ZN7QVectorI7QPointFEC2Ei.exit:                   ; preds = %82, %.lr.ph.prehead
   br label %200
 
 200:                                              ; preds = %241, %178
-  %.098 = phi double [ %190, %178 ], [ %226, %241 ]
-  %.093 = phi double [ %189, %178 ], [ %.1, %241 ]
-  %.092 = phi i32 [ 0, %178 ], [ %249, %241 ]
+  %.099 = phi double [ %190, %178 ], [ %226, %241 ]
+  %.094 = phi double [ %189, %178 ], [ %.1, %241 ]
+  %.093 = phi i32 [ 0, %178 ], [ %249, %241 ]
   %201 = phi <2 x double> [ %187, %178 ], [ %225, %241 ]
   %202 = phi <2 x double> [ %186, %178 ], [ %247, %241 ]
   %203 = extractelement <2 x double> %202, i64 1
@@ -4590,8 +4590,8 @@ _ZN7QVectorI7QPointFEC2Ei.exit:                   ; preds = %82, %.lr.ph.prehead
 224:                                              ; preds = %217, %212, %206, %200
   %.091 = phi double [ %223, %217 ], [ 9.990000e+02, %212 ], [ 9.990000e+02, %206 ], [ 9.990000e+02, %200 ]
   %225 = fmul <2 x double> %201, <double 5.000000e-01, double 5.000000e-01>
-  %226 = fmul double %.098, 5.000000e-01
-  %227 = fsub double %.091, %.093
+  %226 = fmul double %.099, 5.000000e-01
+  %227 = fsub double %.091, %.094
   %228 = call noundef double @llvm.fabs.f64(double %227)
   %229 = fcmp olt double %228, 1.000000e-03
   br i1 %229, label %230, label %241
@@ -4623,15 +4623,15 @@ _ZN7QVectorI7QPointFEC2Ei.exit:                   ; preds = %82, %.lr.ph.prehead
   br label %262
 
 241:                                              ; preds = %224
-  %242 = fcmp ogt double %.091, %.093
+  %242 = fcmp ogt double %.091, %.094
   %243 = fadd <2 x double> %225, %202
-  %244 = fadd double %226, %.093
+  %244 = fadd double %226, %.094
   %245 = fsub <2 x double> %202, %225
-  %246 = fsub double %.093, %226
+  %246 = fsub double %.094, %226
   %.1 = select i1 %242, double %244, double %246
   %247 = select i1 %242, <2 x double> %243, <2 x double> %245
-  %248 = icmp eq i32 %.092, 29
-  %249 = add nuw nsw i32 %.092, 1
+  %248 = icmp eq i32 %.093, 29
+  %249 = add nuw nsw i32 %.093, 1
   br i1 %248, label %250, label %200, !llvm.loop !34
 
 250:                                              ; preds = %241
@@ -4663,20 +4663,20 @@ _ZN7QVectorI7QPointFEC2Ei.exit:                   ; preds = %82, %.lr.ph.prehead
 
 262:                                              ; preds = %250, %259, %.noexc121, %230, %238, %.noexc118
   %.sink180 = phi ptr [ %231, %230 ], [ %239, %238 ], [ %.pre.i.i, %.noexc118 ], [ %251, %250 ], [ %260, %259 ], [ %.pre.i.i120, %.noexc121 ]
-  %.096.lcssa.sink = phi double [ %203, %230 ], [ %203, %238 ], [ %203, %.noexc118 ], [ %254, %250 ], [ %254, %259 ], [ %254, %.noexc121 ]
+  %.097.lcssa.sink = phi double [ %203, %230 ], [ %203, %238 ], [ %203, %.noexc118 ], [ %254, %250 ], [ %254, %259 ], [ %254, %.noexc121 ]
   %.pn = sitofp i32 %197 to double
   %263 = extractelement <2 x double> %202, i64 0
   %.sink = fsub double %.pn, %263
   %264 = getelementptr inbounds i8, ptr %.sink180, i64 16
   %265 = load i64, ptr %264, align 8
   %266 = getelementptr inbounds i8, ptr %.sink180, i64 %265
-  %sext140 = shl i64 %.0101157, 32
+  %sext140 = shl i64 %.0102157, 32
   %267 = ashr exact i64 %sext140, 28
   %268 = getelementptr inbounds i8, ptr %266, i64 %267
-  store double %.096.lcssa.sink, ptr %268, align 8
+  store double %.097.lcssa.sink, ptr %268, align 8
   %.sroa.2134.0..sroa_idx = getelementptr inbounds i8, ptr %268, i64 8
   store double %.sink, ptr %.sroa.2134.0..sroa_idx, align 8
-  %269 = add nuw i64 %.0101157, 1
+  %269 = add nuw i64 %.0102157, 1
   %270 = load ptr, ptr %70, align 8
   %271 = load ptr, ptr %8, align 8
   %272 = ptrtoint ptr %270 to i64
@@ -5453,7 +5453,7 @@ _ZN8Paintbox11getSizeUnitEv.exit:                 ; preds = %_ZN8Paintbox17getPa
 
 244:                                              ; preds = %167, %_ZN8Paintbox11getSizeUnitEv.exit
   %.086 = phi double [ %243, %167 ], [ 1.000000e+00, %_ZN8Paintbox11getSizeUnitEv.exit ]
-  %.085 = phi double [ %sqrt, %167 ], [ 1.000000e+00, %_ZN8Paintbox11getSizeUnitEv.exit ]
+  %.078 = phi double [ %sqrt, %167 ], [ 1.000000e+00, %_ZN8Paintbox11getSizeUnitEv.exit ]
   %.not402 = icmp eq ptr %.sroa.15.7, %.sroa.0221.8
   br i1 %.not402, label %._crit_edge, label %.lr.ph399
 
@@ -5487,7 +5487,7 @@ _ZN8Paintbox11getSizeUnitEv.exit:                 ; preds = %_ZN8Paintbox17getPa
 
 270:                                              ; preds = %.lr.ph399, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread279
   %271 = phi i64 [ 0, %.lr.ph399 ], [ %764, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread279 ]
-  %.084398 = phi i32 [ 0, %.lr.ph399 ], [ %763, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread279 ]
+  %.085398 = phi i32 [ 0, %.lr.ph399 ], [ %763, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread279 ]
   %.sroa.0221.9397 = phi ptr [ %.sroa.0221.8, %.lr.ph399 ], [ %.sroa.0221.13, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread279 ]
   %.sroa.15.8396 = phi ptr [ %.sroa.15.7, %.lr.ph399 ], [ %.sroa.15.12, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread279 ]
   %.sroa.33.8395 = phi ptr [ %.sroa.33.7, %.lr.ph399 ], [ %.sroa.33.12, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread279 ]
@@ -5500,7 +5500,7 @@ _ZN8Paintbox11getSizeUnitEv.exit:                 ; preds = %_ZN8Paintbox17getPa
 
 275:                                              ; preds = %270, %344
   %indvars.iv = phi i64 [ 0, %270 ], [ %indvars.iv.next, %344 ]
-  %.080375 = phi i32 [ 0, %270 ], [ %.2, %344 ]
+  %.081375 = phi i32 [ 0, %270 ], [ %.2, %344 ]
   %276 = getelementptr inbounds [3 x ptr], ptr %274, i64 0, i64 %indvars.iv
   %277 = load ptr, ptr %276, align 8
   %278 = getelementptr inbounds i8, ptr %277, i64 8
@@ -5518,7 +5518,7 @@ _ZN8Paintbox11getSizeUnitEv.exit:                 ; preds = %_ZN8Paintbox17getPa
 288:                                              ; preds = %275
   %289 = icmp eq i32 %287, 1
   %290 = zext i1 %289 to i32
-  %spec.select = add nsw i32 %.080375, %290
+  %spec.select = add nsw i32 %.081375, %290
   %291 = load double, ptr %9, align 8
   %292 = fcmp olt double %291, 0.000000e+00
   %293 = fcmp ogt double %291, 1.000000e+00
@@ -5632,7 +5632,7 @@ _ZN8Paintbox11getSizeUnitEv.exit:                 ; preds = %_ZN8Paintbox17getPa
 
 367:                                              ; preds = %.preheader518, %.thread267
   %indvars.iv435 = phi i64 [ %indvars.iv.next436, %.thread267 ], [ 0, %.preheader518 ]
-  %.081377 = phi i8 [ %.283, %.thread267 ], [ 0, %.preheader518 ]
+  %.082377 = phi i8 [ %.284, %.thread267 ], [ 0, %.preheader518 ]
   br i1 %161, label %375, label %368
 
 368:                                              ; preds = %367
@@ -5651,7 +5651,7 @@ _ZN8Paintbox11getSizeUnitEv.exit:                 ; preds = %_ZN8Paintbox17getPa
 376:                                              ; preds = %375
   %377 = load float, ptr %261, align 4
   %378 = fpext float %377 to double
-  %379 = fmul double %.085, %378
+  %379 = fmul double %.078, %378
   %380 = load i32, ptr %249, align 4
   %381 = sitofp i32 %380 to double
   %382 = fmul double %379, %381
@@ -5827,7 +5827,7 @@ _ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE9push_ba
   br i1 %264, label %478, label %.thread267
 
 478:                                              ; preds = %477
-  %479 = trunc nuw i8 %.081377 to i1
+  %479 = trunc nuw i8 %.082377 to i1
   br i1 %479, label %.thread267, label %480
 
 480:                                              ; preds = %478
@@ -5893,14 +5893,14 @@ _Z14lineHitsCircleR7QPointFS0_S0_f.exit.thread:   ; preds = %480, %514, %_Z14lin
   br label %.thread267
 
 .thread267:                                       ; preds = %490, %403, %464, %_Z14lineHitsCircleR7QPointFS0_S0_f.exit.thread, %_Z14lineHitsCircleR7QPointFS0_S0_f.exit, %514, %368, %478, %477, %402
-  %.283 = phi i8 [ 1, %402 ], [ %.081377, %478 ], [ %.081377, %477 ], [ %.081377, %368 ], [ 1, %_Z14lineHitsCircleR7QPointFS0_S0_f.exit.thread ], [ %.081377, %_Z14lineHitsCircleR7QPointFS0_S0_f.exit ], [ %.081377, %514 ], [ 1, %464 ], [ 1, %403 ], [ %.081377, %490 ]
+  %.284 = phi i8 [ 1, %402 ], [ %.082377, %478 ], [ %.082377, %477 ], [ %.082377, %368 ], [ 1, %_Z14lineHitsCircleR7QPointFS0_S0_f.exit.thread ], [ %.082377, %_Z14lineHitsCircleR7QPointFS0_S0_f.exit ], [ %.082377, %514 ], [ 1, %464 ], [ 1, %403 ], [ %.082377, %490 ]
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
   %exitcond437.not = icmp eq i64 %indvars.iv.next436, 3
   br i1 %exitcond437.not, label %523, label %367, !llvm.loop !49
 
 523:                                              ; preds = %.thread267
   %524 = icmp eq i32 %.2, 3
-  %525 = trunc nuw i8 %.283 to i1
+  %525 = trunc nuw i8 %.284 to i1
   br i1 %524, label %526, label %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137
 
 526:                                              ; preds = %523
@@ -6341,7 +6341,7 @@ _Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread279: ; preds = %_ZNSt6vecto
   %.sroa.33.12 = phi ptr [ %.sroa.33.8395, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread277 ], [ %.sroa.33.8395, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137 ], [ %.sroa.33.8395, %346 ], [ %.sroa.33.8395, %.preheader ], [ %.sroa.33.8395, %592 ], [ %.sroa.33.8395, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit ], [ %.sroa.33.11, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit173 ]
   %.sroa.15.12 = phi ptr [ %.sroa.15.8396, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread277 ], [ %.sroa.15.8396, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137 ], [ %.sroa.15.8396, %346 ], [ %.sroa.15.8396, %.preheader ], [ %.sroa.15.8396, %592 ], [ %.sroa.15.8396, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit ], [ %.sroa.15.11, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit173 ]
   %.sroa.0221.13 = phi ptr [ %.sroa.0221.9397, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137.thread277 ], [ %.sroa.0221.9397, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit137 ], [ %.sroa.0221.9397, %346 ], [ %.sroa.0221.9397, %.preheader ], [ %.sroa.0221.9397, %592 ], [ %.sroa.0221.9397, %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit ], [ %.sroa.0221.12, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit173 ]
-  %763 = add i32 %.084398, 1
+  %763 = add i32 %.085398, 1
   %764 = zext i32 %763 to i64
   %765 = ptrtoint ptr %.sroa.15.12 to i64
   %766 = ptrtoint ptr %.sroa.0221.13 to i64
@@ -6553,7 +6553,7 @@ _ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.ex
 _ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit: ; preds = %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit.lr.ph, %331
   %42 = phi ptr [ %9, %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit.lr.ph ], [ %335, %331 ]
   %43 = phi i64 [ 0, %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit.lr.ph ], [ %333, %331 ]
-  %.02154 = phi i32 [ 0, %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit.lr.ph ], [ %332, %331 ]
+  %.054 = phi i32 [ 0, %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit.lr.ph ], [ %332, %331 ]
   %44 = getelementptr inbounds %"struct.std::pair.256", ptr %42, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %44, i64 40, i1 false)
   %45 = load ptr, ptr %14, align 8
@@ -7015,7 +7015,7 @@ _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit42: ; preds = %315
   br label %341
 
 331:                                              ; preds = %_Z5brush5Brushffff.exit, %83, %86, %219, %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit42, %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit
-  %332 = add i32 %.02154, 1
+  %332 = add i32 %.054, 1
   %333 = zext i32 %332 to i64
   %334 = load ptr, ptr %7, align 8
   %335 = load ptr, ptr %1, align 8
@@ -7705,7 +7705,7 @@ _ZN8Paintbox23getPressureDisplacementEv.exit:     ; preds = %_ZN8Paintbox11getHa
   %28 = sitofp i32 %14 to double
   %29 = fmul double %27, %28
   %30 = fptosi double %29 to i32
-  %.089 = select i1 %22, i32 %30, i32 %14
+  %.085 = select i1 %22, i32 %30, i32 %14
   %31 = getelementptr inbounds i8, ptr %8, i64 12
   %32 = getelementptr inbounds i8, ptr %0, i64 696
   %33 = getelementptr inbounds i8, ptr %0, i64 304
@@ -7715,7 +7715,7 @@ _ZN8Paintbox23getPressureDisplacementEv.exit:     ; preds = %_ZN8Paintbox11getHa
   %37 = fneg double %36
   %38 = fpext float %35 to double
   %39 = getelementptr inbounds i8, ptr %6, i64 8
-  %40 = sitofp i32 %.089 to float
+  %40 = sitofp i32 %.085 to float
   %41 = getelementptr inbounds i8, ptr %4, i64 1
   %42 = getelementptr inbounds i8, ptr %4, i64 2
   %43 = getelementptr inbounds i8, ptr %5, i64 1
@@ -8003,31 +8003,31 @@ _ZN8Paintbox12getUndoStackEv.exit129:             ; preds = %116
   %.096 = phi i32 [ 0, %163 ], [ %.399, %330 ]
   %.092 = phi i32 [ 0, %163 ], [ %.395, %330 ]
   %.090 = phi i32 [ 0, %163 ], [ %.3, %330 ]
-  %.087 = phi ptr [ %174, %163 ], [ %190, %330 ]
-  %.085 = phi i32 [ %176, %163 ], [ %.186, %330 ]
-  %.084 = phi i32 [ 0, %163 ], [ %.1, %330 ]
+  %.089 = phi ptr [ %174, %163 ], [ %190, %330 ]
+  %.087 = phi i32 [ %176, %163 ], [ %.188, %330 ]
+  %.086 = phi i32 [ 0, %163 ], [ %.1, %330 ]
   %178 = phi <2 x float> [ zeroinitializer, %163 ], [ %331, %330 ]
-  %179 = load ptr, ptr %.087, align 8
+  %179 = load ptr, ptr %.089, align 8
   %180 = getelementptr inbounds i8, ptr %179, i64 216
   %181 = load ptr, ptr %179, align 8
-  %182 = ptrtoint ptr %.087 to i64
+  %182 = ptrtoint ptr %.089 to i64
   %183 = ptrtoint ptr %181 to i64
   %184 = sub i64 %182, %183
   %185 = sdiv exact i64 %184, 48
   %186 = load ptr, ptr %180, align 8
   %187 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %186, i64 %185
-  %188 = sext i32 %.085 to i64
+  %188 = sext i32 %.087 to i64
   %189 = getelementptr inbounds [3 x ptr], ptr %187, i64 0, i64 %188
   %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %.087, i64 32
+  %191 = getelementptr inbounds i8, ptr %.089, i64 32
   %192 = load i32, ptr %191, align 8
   %193 = and i32 %192, 1
   %.not178 = icmp eq i32 %193, 0
   br i1 %.not178, label %.preheader, label %330
 
 .preheader:                                       ; preds = %177
-  %194 = getelementptr inbounds i8, ptr %.087, i64 8
-  %195 = zext i32 %.085 to i64
+  %194 = getelementptr inbounds i8, ptr %.089, i64 8
+  %195 = zext i32 %.087 to i64
   br label %196
 
 196:                                              ; preds = %.preheader, %316
@@ -8255,12 +8255,12 @@ _ZN9QHashData8willGrowEv.exit.i:                  ; preds = %277, %275, %.noexc1
   br label %308
 
 308:                                              ; preds = %.thread175, %301, %.loopexit
-  %.sroa.4157.0.in.in = phi i32 [ %.sroa.4.0.copyload, %.loopexit ], [ %202, %301 ], [ %202, %.thread175 ]
+  %.sroa.0152.0.in = phi i32 [ %.sroa.4.0.copyload, %.loopexit ], [ %202, %301 ], [ %202, %.thread175 ]
   %.2111 = phi float [ %296, %.loopexit ], [ %307, %301 ], [ %.1110201, %.thread175 ]
   %309 = phi <2 x float> [ %295, %.loopexit ], [ %304, %301 ], [ %197, %.thread175 ]
-  %.sroa.3154.0.in = lshr i32 %.sroa.4157.0.in.in, 8
-  %.sroa.4157.0.in = lshr i32 %.sroa.4157.0.in.in, 16
-  %310 = and i32 %.sroa.4157.0.in.in, 255
+  %.sroa.4157.0.in = lshr i32 %.sroa.0152.0.in, 16
+  %.sroa.3154.0.in = lshr i32 %.sroa.0152.0.in, 8
+  %310 = and i32 %.sroa.0152.0.in, 255
   %311 = add nsw i32 %310, %.191206
   %312 = and i32 %.sroa.3154.0.in, 255
   %313 = add nsw i32 %312, %.193205
@@ -8279,7 +8279,7 @@ _ZN9QHashData8willGrowEv.exit.i:                  ; preds = %277, %275, %.noexc1
   br i1 %exitcond227.not, label %318, label %196, !llvm.loop !69
 
 318:                                              ; preds = %316
-  %319 = load ptr, ptr %.087, align 8
+  %319 = load ptr, ptr %.089, align 8
   %320 = getelementptr inbounds i8, ptr %319, i64 216
   %321 = load ptr, ptr %319, align 8
   %322 = ptrtoint ptr %321 to i64
@@ -8289,7 +8289,7 @@ _ZN9QHashData8willGrowEv.exit.i:                  ; preds = %277, %275, %.noexc1
   %326 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %325, i64 %324, i32 1, i64 %188
   %327 = load i8, ptr %326, align 1
   %328 = sext i8 %327 to i32
-  %329 = add nsw i32 %.084, 2
+  %329 = add nsw i32 %.086, 2
   br label %330
 
 330:                                              ; preds = %318, %177
@@ -8297,8 +8297,8 @@ _ZN9QHashData8willGrowEv.exit.i:                  ; preds = %277, %275, %.noexc1
   %.399 = phi i32 [ %.096, %177 ], [ %.298, %318 ]
   %.395 = phi i32 [ %.092, %177 ], [ %.294, %318 ]
   %.3 = phi i32 [ %.090, %177 ], [ %.2, %318 ]
-  %.186 = phi i32 [ %.085, %177 ], [ %328, %318 ]
-  %.1 = phi i32 [ %.084, %177 ], [ %329, %318 ]
+  %.188 = phi i32 [ %.087, %177 ], [ %328, %318 ]
+  %.1 = phi i32 [ %.086, %177 ], [ %329, %318 ]
   %331 = phi <2 x float> [ %178, %177 ], [ %317, %318 ]
   %332 = icmp ne ptr %190, %174
   %333 = icmp ne ptr %190, null

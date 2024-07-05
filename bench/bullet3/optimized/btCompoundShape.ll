@@ -1358,9 +1358,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = extractelement <2 x float> %1, i64 0
   %3 = extractelement <2 x float> %1, i64 1
   %cmp9 = fcmp ogt float %3, %2
-  %q.0 = select i1 %cmp9, i64 2, i64 1
-  %r.0 = select i1 %cmp9, i64 1, i64 2
   %max.0 = select i1 %cmp9, float %3, float %2
+  %r.0 = select i1 %cmp9, i64 1, i64 2
+  %q.0 = select i1 %cmp9, i64 2, i64 1
   %4 = load float, ptr %arrayidx13, align 4
   %5 = tail call noundef float @llvm.fabs.f32(float %4)
   %cmp15 = fcmp ogt float %5, %max.0
@@ -1370,10 +1370,10 @@ if.then16:                                        ; preds = %for.body
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %for.body
-  %p.0 = phi i64 [ 1, %if.then16 ], [ 0, %for.body ]
-  %q.1 = phi i64 [ 2, %if.then16 ], [ %q.0, %for.body ]
-  %r.1 = phi i64 [ 0, %if.then16 ], [ %r.0, %for.body ]
   %max.1 = phi float [ %5, %if.then16 ], [ %max.0, %for.body ]
+  %r.1 = phi i64 [ 0, %if.then16 ], [ %r.0, %for.body ]
+  %q.1 = phi i64 [ 2, %if.then16 ], [ %q.0, %for.body ]
+  %p.0 = phi i64 [ 1, %if.then16 ], [ 0, %for.body ]
   %6 = load float, ptr %this, align 4
   %7 = tail call noundef float @llvm.fabs.f32(float %6)
   %8 = load float, ptr %arrayidx26, align 4

@@ -1247,8 +1247,8 @@ if.then226:                                       ; preds = %if.then219
   br label %if.end245
 
 if.end245:                                        ; preds = %if.then226, %if.then217
-  %cuWordLength.3 = phi i32 [ %add238, %if.then226 ], [ %cuWordLength.2.lcssa, %if.then217 ]
   %uc.0 = phi i32 [ %call240, %if.then226 ], [ %call213, %if.then217 ]
+  %cuWordLength.3 = phi i32 [ %add238, %if.then226 ], [ %cuWordLength.2.lcssa, %if.then217 ]
   %cmp246 = icmp eq i32 %uc.0, 3654
   br i1 %cmp246, label %if.then247, label %if.end274
 

@@ -545,8 +545,8 @@ define noundef ptr @uat_get_table_by_name(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not, label %5, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5, %1
-  %.06 = phi ptr [ null, %1 ], [ null, %5 ], [ %14, %.lr.ph ]
-  ret ptr %.06
+  %.0 = phi ptr [ null, %1 ], [ null, %5 ], [ %14, %.lr.ph ]
+  ret ptr %.0
 }
 
 declare i32 @g_str_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -695,7 +695,7 @@ define noundef zeroext i1 @uat_save(ptr nocapture noundef %0, ptr nocapture noun
   br label %179
 
 .thread79:                                        ; preds = %12, %24
-  %.06582 = phi ptr [ %25, %24 ], [ %13, %12 ]
+  %.06682 = phi ptr [ %25, %24 ], [ %13, %12 ]
   store ptr null, ptr %1, align 8
   call void @g_free(ptr noundef nonnull %11) #16
   %29 = getelementptr inbounds i8, ptr %0, i64 128
@@ -821,7 +821,7 @@ define noundef zeroext i1 @uat_save(ptr nocapture noundef %0, ptr nocapture noun
   br i1 %102, label %62, label %._crit_edge88, !llvm.loop !12
 
 ._crit_edge88:                                    ; preds = %97, %._crit_edge
-  %103 = call i64 @fwrite(ptr nonnull @.str.7, i64 55, i64 1, ptr nonnull %.06582)
+  %103 = call i64 @fwrite(ptr nonnull @.str.7, i64 55, i64 1, ptr nonnull %.06682)
   %104 = load ptr, ptr %29, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 8
@@ -883,7 +883,7 @@ define noundef zeroext i1 @uat_save(ptr nocapture noundef %0, ptr nocapture noun
   br i1 %.not28.i, label %putfld.exit, label %.lr.ph.i
 
 129:                                              ; preds = %.lr.ph91, %.lr.ph91, %.lr.ph91, %.lr.ph91, %.lr.ph91, %.lr.ph91, %.lr.ph91, %.lr.ph91, %.lr.ph91
-  %130 = call i32 @putc(i32 noundef 34, ptr noundef nonnull %.06582)
+  %130 = call i32 @putc(i32 noundef 34, ptr noundef nonnull %.06682)
   %131 = load i32, ptr %3, align 4
   %.not29.i = icmp eq i32 %131, 0
   br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph27.i
@@ -909,11 +909,11 @@ define noundef zeroext i1 @uat_save(ptr nocapture noundef %0, ptr nocapture noun
 
 141:                                              ; preds = %136, %.lr.ph27.i, %.lr.ph27.i
   %142 = zext i8 %134 to i32
-  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.06582, ptr noundef nonnull @.str.25, i32 noundef %142) #16
+  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.06682, ptr noundef nonnull @.str.25, i32 noundef %142) #16
   br label %146
 
 144:                                              ; preds = %136
-  %145 = call i32 @putc(i32 noundef %135, ptr noundef nonnull %.06582)
+  %145 = call i32 @putc(i32 noundef %135, ptr noundef nonnull %.06682)
   br label %146
 
 146:                                              ; preds = %144, %141
@@ -924,7 +924,7 @@ define noundef zeroext i1 @uat_save(ptr nocapture noundef %0, ptr nocapture noun
   br i1 %149, label %.lr.ph27.i, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %146, %129
-  %150 = call i32 @putc(i32 noundef 34, ptr noundef nonnull %.06582)
+  %150 = call i32 @putc(i32 noundef 34, ptr noundef nonnull %.06682)
   br label %putfld.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -933,7 +933,7 @@ define noundef zeroext i1 @uat_save(ptr nocapture noundef %0, ptr nocapture noun
   %152 = getelementptr i8, ptr %151, i64 %indvars.iv.i
   %153 = load i8, ptr %152, align 1
   %154 = zext i8 %153 to i32
-  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.06582, ptr noundef nonnull @.str.27, i32 noundef %154) #16
+  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.06682, ptr noundef nonnull @.str.27, i32 noundef %154) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %156 = load i32, ptr %3, align 4
   %157 = zext i32 %156 to i64
@@ -942,7 +942,7 @@ define noundef zeroext i1 @uat_save(ptr nocapture noundef %0, ptr nocapture noun
 
 159:                                              ; preds = %.lr.ph91
   %160 = load ptr, ptr %4, align 8
-  %161 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.06582, ptr noundef nonnull @.str.28, ptr noundef %160) #16
+  %161 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.06682, ptr noundef nonnull @.str.28, ptr noundef %160) #16
   br label %putfld.exit
 
 162:                                              ; preds = %.lr.ph91
@@ -959,7 +959,7 @@ putfld.exit:                                      ; preds = %.lr.ph.i, %.prehead
   %166 = zext i32 %165 to i64
   %167 = icmp eq i64 %indvars.iv109, %166
   %chari = select i1 %167, i32 10, i32 44
-  %fputc = call i32 @fputc(i32 %chari, ptr nonnull %.06582)
+  %fputc = call i32 @fputc(i32 %chari, ptr nonnull %.06682)
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %168 = load i32, ptr %109, align 8
   %169 = zext i32 %168 to i64
@@ -981,7 +981,7 @@ putfld.exit:                                      ; preds = %.lr.ph.i, %.prehead
   br i1 %176, label %.lr.ph95.split, label %._crit_edge96, !llvm.loop !16
 
 ._crit_edge96:                                    ; preds = %._crit_edge92, %.lr.ph95, %._crit_edge88
-  %177 = call i32 @fclose(ptr noundef nonnull %.06582)
+  %177 = call i32 @fclose(ptr noundef nonnull %.06682)
   %178 = getelementptr inbounds i8, ptr %0, i64 152
   store i8 0, ptr %178, align 8
   br label %179
@@ -1047,8 +1047,8 @@ define hidden noundef ptr @uat_find(ptr nocapture noundef readonly %0) local_unn
   br i1 %17, label %._crit_edge, label %6
 
 ._crit_edge:                                      ; preds = %13, %7, %6, %1
-  %.08 = phi ptr [ null, %1 ], [ null, %6 ], [ %9, %7 ], [ %9, %13 ]
-  ret ptr %.08
+  %.0 = phi ptr [ null, %1 ], [ null, %6 ], [ %9, %7 ], [ %9, %13 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -1832,7 +1832,7 @@ define noundef zeroext i1 @uat_fld_chk_enum(ptr nocapture noundef readnone %0, p
   br i1 %.not18.not, label %._crit_edge, label %.lr.ph
 
 11:                                               ; preds = %.lr.ph
-  %12 = add i32 %.019, 1
+  %12 = add i32 %.01419, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13, i32 1
   %15 = load ptr, ptr %14, align 8
@@ -1841,7 +1841,7 @@ define noundef zeroext i1 @uat_fld_chk_enum(ptr nocapture noundef readnone %0, p
 
 .lr.ph:                                           ; preds = %6, %11
   %16 = phi ptr [ %15, %11 ], [ %10, %6 ]
-  %.019 = phi i32 [ %12, %11 ], [ 0, %6 ]
+  %.01419 = phi i32 [ %12, %11 ], [ 0, %6 ]
   %17 = tail call i32 @g_strcmp0(ptr noundef nonnull %16, ptr noundef %8) #16
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit, label %11
@@ -1992,15 +1992,15 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly %0, i32 noundef %1, pt
   br label %11
 
 11:                                               ; preds = %.lr.ph, %78
-  %.06479 = phi ptr [ %0, %.lr.ph ], [ %79, %78 ]
-  %.06578 = phi i32 [ 0, %.lr.ph ], [ %.166, %78 ]
-  %.06777 = phi ptr [ %6, %.lr.ph ], [ %.269, %78 ]
-  %12 = load i8, ptr %.06479, align 1
+  %.079 = phi ptr [ %6, %.lr.ph ], [ %.2, %78 ]
+  %.06278 = phi i32 [ 0, %.lr.ph ], [ %.163, %78 ]
+  %.06777 = phi ptr [ %0, %.lr.ph ], [ %79, %78 ]
+  %12 = load i8, ptr %.06777, align 1
   %cond = icmp eq i8 %12, 92
   br i1 %cond, label %13, label %76
 
 13:                                               ; preds = %11
-  %14 = getelementptr i8, ptr %.06479, i64 1
+  %14 = getelementptr i8, ptr %.06777, i64 1
   %15 = load i8, ptr %14, align 1
   switch i8 %15, label %75 [
     i8 97, label %16
@@ -2023,49 +2023,49 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly %0, i32 noundef %1, pt
   ]
 
 16:                                               ; preds = %13
-  store i8 7, ptr %.06777, align 1
-  %17 = add i32 %.06578, 1
+  store i8 7, ptr %.079, align 1
+  %17 = add i32 %.06278, 1
   br label %78
 
 18:                                               ; preds = %13
-  store i8 8, ptr %.06777, align 1
-  %19 = add i32 %.06578, 1
+  store i8 8, ptr %.079, align 1
+  %19 = add i32 %.06278, 1
   br label %78
 
 20:                                               ; preds = %13
-  store i8 27, ptr %.06777, align 1
-  %21 = add i32 %.06578, 1
+  store i8 27, ptr %.079, align 1
+  %21 = add i32 %.06278, 1
   br label %78
 
 22:                                               ; preds = %13
-  store i8 12, ptr %.06777, align 1
-  %23 = add i32 %.06578, 1
+  store i8 12, ptr %.079, align 1
+  %23 = add i32 %.06278, 1
   br label %78
 
 24:                                               ; preds = %13
-  store i8 10, ptr %.06777, align 1
-  %25 = add i32 %.06578, 1
+  store i8 10, ptr %.079, align 1
+  %25 = add i32 %.06278, 1
   br label %78
 
 26:                                               ; preds = %13
-  store i8 13, ptr %.06777, align 1
-  %27 = add i32 %.06578, 1
+  store i8 13, ptr %.079, align 1
+  %27 = add i32 %.06278, 1
   br label %78
 
 28:                                               ; preds = %13
-  store i8 9, ptr %.06777, align 1
-  %29 = add i32 %.06578, 1
+  store i8 9, ptr %.079, align 1
+  %29 = add i32 %.06278, 1
   br label %78
 
 30:                                               ; preds = %13
-  store i8 11, ptr %.06777, align 1
-  %31 = add i32 %.06578, 1
+  store i8 11, ptr %.079, align 1
+  %31 = add i32 %.06278, 1
   br label %78
 
 32:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13
   %33 = zext nneg i8 %15 to i32
   %34 = add nsw i32 %33, -48
-  %35 = getelementptr i8, ptr %.06479, i64 2
+  %35 = getelementptr i8, ptr %.06777, i64 2
   %36 = load i8, ptr %35, align 1
   %37 = and i8 %36, -8
   %or.cond = icmp eq i8 %37, 48
@@ -2074,7 +2074,7 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly %0, i32 noundef %1, pt
 38:                                               ; preds = %32
   %narrow = add nsw i8 %36, -48
   %39 = zext nneg i8 %narrow to i32
-  %40 = getelementptr i8, ptr %.06479, i64 3
+  %40 = getelementptr i8, ptr %.06777, i64 3
   %41 = load i8, ptr %40, align 1
   %42 = and i8 %41, -8
   %or.cond76 = icmp eq i8 %42, 48
@@ -2086,24 +2086,24 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly %0, i32 noundef %1, pt
   br label %45
 
 45:                                               ; preds = %38, %43, %32
-  %.1 = phi ptr [ %40, %43 ], [ %35, %38 ], [ %14, %32 ]
-  %.063 = phi i32 [ %44, %43 ], [ %39, %38 ], [ %34, %32 ]
-  %.062 = phi i32 [ %39, %43 ], [ %34, %38 ], [ 0, %32 ]
-  %.0 = phi i32 [ %34, %43 ], [ 0, %38 ], [ 0, %32 ]
-  %46 = shl nuw nsw i32 %.0, 6
-  %47 = shl nuw nsw i32 %.062, 3
-  %48 = add nuw nsw i32 %47, %.063
+  %.168 = phi ptr [ %40, %43 ], [ %35, %38 ], [ %14, %32 ]
+  %.066 = phi i32 [ %44, %43 ], [ %39, %38 ], [ %34, %32 ]
+  %.065 = phi i32 [ %39, %43 ], [ %34, %38 ], [ 0, %32 ]
+  %.064 = phi i32 [ %34, %43 ], [ 0, %38 ], [ 0, %32 ]
+  %46 = shl nuw nsw i32 %.064, 6
+  %47 = shl nuw nsw i32 %.065, 3
+  %48 = add nuw nsw i32 %47, %.066
   %49 = add nuw nsw i32 %48, %46
   %50 = tail call i32 @llvm.umin.i32(i32 %49, i32 255)
   %51 = trunc nuw i32 %50 to i8
-  store i8 %51, ptr %.06777, align 1
-  %52 = add i32 %.06578, 1
+  store i8 %51, ptr %.079, align 1
+  %52 = add i32 %.06278, 1
   br label %78
 
 53:                                               ; preds = %13
-  %54 = getelementptr i8, ptr %.06479, i64 2
+  %54 = getelementptr i8, ptr %.06777, i64 2
   %55 = load i8, ptr %54, align 1
-  %56 = getelementptr i8, ptr %.06479, i64 3
+  %56 = getelementptr i8, ptr %.06777, i64 3
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %55 to i64
   %59 = getelementptr i16, ptr %10, i64 %58
@@ -2130,35 +2130,35 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly %0, i32 noundef %1, pt
 
 73:                                               ; preds = %53, %62, %67
   %storemerge = phi i8 [ %72, %67 ], [ 120, %62 ], [ 120, %53 ]
-  %.2 = phi ptr [ %56, %67 ], [ %14, %62 ], [ %14, %53 ]
-  store i8 %storemerge, ptr %.06777, align 1
-  %74 = add i32 %.06578, 1
+  %.269 = phi ptr [ %56, %67 ], [ %14, %62 ], [ %14, %53 ]
+  store i8 %storemerge, ptr %.079, align 1
+  %74 = add i32 %.06278, 1
   br label %78
 
 75:                                               ; preds = %13
-  store i8 %15, ptr %.06777, align 1
+  store i8 %15, ptr %.079, align 1
   br label %78
 
 76:                                               ; preds = %11
-  store i8 %12, ptr %.06777, align 1
-  %77 = add i32 %.06578, 1
+  store i8 %12, ptr %.079, align 1
+  %77 = add i32 %.06278, 1
   br label %78
 
 78:                                               ; preds = %76, %75, %73, %45, %30, %28, %26, %24, %22, %20, %18, %16
-  %.166 = phi i32 [ %.06578, %75 ], [ %74, %73 ], [ %52, %45 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %77, %76 ]
-  %.3 = phi ptr [ %14, %75 ], [ %.2, %73 ], [ %.1, %45 ], [ %14, %30 ], [ %14, %28 ], [ %14, %26 ], [ %14, %24 ], [ %14, %22 ], [ %14, %20 ], [ %14, %18 ], [ %14, %16 ], [ %.06479, %76 ]
-  %.269 = getelementptr i8, ptr %.06777, i64 1
+  %.3 = phi ptr [ %14, %75 ], [ %.269, %73 ], [ %.168, %45 ], [ %14, %30 ], [ %14, %28 ], [ %14, %26 ], [ %14, %24 ], [ %14, %22 ], [ %14, %20 ], [ %14, %18 ], [ %14, %16 ], [ %.06777, %76 ]
+  %.163 = phi i32 [ %.06278, %75 ], [ %74, %73 ], [ %52, %45 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %77, %76 ]
+  %.2 = getelementptr i8, ptr %.079, i64 1
   %79 = getelementptr i8, ptr %.3, i64 1
   %80 = icmp ult ptr %79, %8
   br i1 %80, label %11, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %78, %3
-  %.065.lcssa = phi i32 [ 0, %3 ], [ %.166, %78 ]
+  %.062.lcssa = phi i32 [ 0, %3 ], [ %.163, %78 ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %82, label %81
 
 81:                                               ; preds = %._crit_edge
-  store i32 %.065.lcssa, ptr %2, align 4
+  store i32 %.062.lcssa, ptr %2, align 4
   br label %82
 
 82:                                               ; preds = %81, %._crit_edge

@@ -2889,18 +2889,18 @@ dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
 
 .lr.ph.us:                                        ; preds = %.lr.ph98, %.lr.ph.us
   %.08896.us = phi i32 [ %39, %.lr.ph.us ], [ 16, %.lr.ph98 ]
-  %.09195.us = phi i32 [ %40, %.lr.ph.us ], [ 0, %.lr.ph98 ]
+  %.08995.us = phi i32 [ %40, %.lr.ph.us ], [ 0, %.lr.ph98 ]
   %36 = load i32, ptr @hf_sflow_245_dst_as, align 4
   %37 = add i32 %.08896.us, %.087
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef 4, i32 noundef 0) #7
   %39 = add i32 %.08896.us, 4
-  %40 = add nuw nsw i32 %.09195.us, 1
+  %40 = add nuw nsw i32 %.08995.us, 1
   %exitcond113.not = icmp eq i32 %40, %29
   br i1 %exitcond113.not, label %._crit_edge99, label %.lr.ph.us, !llvm.loop !14
 
 .lr.ph98.split:                                   ; preds = %.lr.ph98, %._crit_edge
   %.08896 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 16, %.lr.ph98 ]
-  %.09195 = phi i32 [ %57, %._crit_edge ], [ 0, %.lr.ph98 ]
+  %.08995 = phi i32 [ %57, %._crit_edge ], [ 0, %.lr.ph98 ]
   %41 = add i32 %.08896, %.087
   %42 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %41) #7
   %43 = add i32 %23, %.08896
@@ -2916,18 +2916,18 @@ dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
 
 .lr.ph:                                           ; preds = %.lr.ph98.split, %.lr.ph
   %.294 = phi i32 [ %55, %.lr.ph ], [ %45, %.lr.ph98.split ]
-  %.09093 = phi i32 [ %56, %.lr.ph ], [ 0, %.lr.ph98.split ]
+  %.09193 = phi i32 [ %56, %.lr.ph ], [ 0, %.lr.ph98.split ]
   %52 = load i32, ptr @hf_sflow_245_dst_as, align 4
   %53 = add i32 %.294, %.087
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef 0) #7
   %55 = add i32 %.294, 4
-  %56 = add nuw nsw i32 %.09093, 1
+  %56 = add nuw nsw i32 %.09193, 1
   %exitcond.not = icmp eq i32 %56, %44
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph98.split
   %.2.lcssa = phi i32 [ %45, %.lr.ph98.split ], [ %55, %.lr.ph ]
-  %57 = add nuw nsw i32 %.09195, 1
+  %57 = add nuw nsw i32 %.08995, 1
   %exitcond112.not = icmp eq i32 %57, %29
   br i1 %exitcond112.not, label %._crit_edge99, label %.lr.ph98.split, !llvm.loop !14
 
@@ -2949,11 +2949,11 @@ dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
 
 .lr.ph105:                                        ; preds = %59, %.lr.ph105
   %.3103 = phi i32 [ %.3, %.lr.ph105 ], [ %.3101, %59 ]
-  %.192102 = phi i32 [ %70, %.lr.ph105 ], [ 0, %59 ]
+  %.190102 = phi i32 [ %70, %.lr.ph105 ], [ 0, %59 ]
   %67 = load i32, ptr @hf_sflow_245_dst_as, align 4
   %68 = add i32 %.3103, %.087
   %69 = tail call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %67, ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef 0) #7
-  %70 = add nuw nsw i32 %.192102, 1
+  %70 = add nuw nsw i32 %.190102, 1
   %.3 = add i32 %.3103, 4
   %exitcond114.not = icmp eq i32 %70, %61
   br i1 %exitcond114.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !16

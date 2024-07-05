@@ -3603,8 +3603,8 @@ cond.end1552:                                     ; preds = %cond.false1537, %co
   br label %run_rebase
 
 run_rebase:                                       ; preds = %if.end708, %if.end696, %cond.end1552, %sw.bb767, %sw.bb766
-  %squash_onto_name.2.ph = phi ptr [ null, %if.end696 ], [ null, %if.end708 ], [ null, %sw.bb766 ], [ null, %sw.bb767 ], [ %squash_onto_name.1, %cond.end1552 ]
   %keep_base_onto_name.1.ph = phi ptr [ null, %if.end696 ], [ null, %if.end708 ], [ null, %sw.bb766 ], [ null, %sw.bb767 ], [ %keep_base_onto_name.0, %cond.end1552 ]
+  %squash_onto_name.2.ph = phi ptr [ null, %if.end696 ], [ null, %if.end708 ], [ null, %sw.bb766 ], [ null, %sw.bb767 ], [ %squash_onto_name.1, %cond.end1552 ]
   %.pr363 = load i32, ptr %options, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %dir.i)
   switch i32 %.pr363, label %if.else15.i [
@@ -3613,8 +3613,8 @@ run_rebase:                                       ; preds = %if.end708, %if.end6
   ]
 
 if.then.i315:                                     ; preds = %run_rebase.thread, %run_rebase
-  %keep_base_onto_name.1431 = phi ptr [ %keep_base_onto_name.0, %run_rebase.thread ], [ %keep_base_onto_name.1.ph, %run_rebase ]
-  %squash_onto_name.2429 = phi ptr [ %squash_onto_name.1, %run_rebase.thread ], [ %squash_onto_name.2.ph, %run_rebase ]
+  %squash_onto_name.2431 = phi ptr [ %squash_onto_name.1, %run_rebase.thread ], [ %squash_onto_name.2.ph, %run_rebase ]
+  %keep_base_onto_name.1429 = phi ptr [ %keep_base_onto_name.0, %run_rebase.thread ], [ %keep_base_onto_name.1.ph, %run_rebase ]
   %call.i316 = call i32 @setenv(ptr noundef nonnull @.str.238, ptr noundef nonnull @.str.244, i32 noundef 1) #19
   %296 = load i32, ptr %flags32, align 4
   %and.i = and i32 %296, 16
@@ -4281,8 +4281,8 @@ if.else15.i:                                      ; preds = %run_rebase
   unreachable
 
 if.end18.i:                                       ; preds = %run_am.exit.i, %run_sequencer_rebase.exit.i
-  %keep_base_onto_name.1430 = phi ptr [ %keep_base_onto_name.1431, %run_sequencer_rebase.exit.i ], [ %keep_base_onto_name.1.ph, %run_am.exit.i ]
-  %squash_onto_name.2428 = phi ptr [ %squash_onto_name.2429, %run_sequencer_rebase.exit.i ], [ %squash_onto_name.2.ph, %run_am.exit.i ]
+  %squash_onto_name.2430 = phi ptr [ %squash_onto_name.2431, %run_sequencer_rebase.exit.i ], [ %squash_onto_name.2.ph, %run_am.exit.i ]
+  %keep_base_onto_name.1428 = phi ptr [ %keep_base_onto_name.1429, %run_sequencer_rebase.exit.i ], [ %keep_base_onto_name.1.ph, %run_am.exit.i ]
   %status.0.i = phi i32 [ %ret.0.i.i, %run_sequencer_rebase.exit.i ], [ %retval.0.i.i, %run_am.exit.i ]
   %dont_finish_rebase.i = getelementptr inbounds i8, ptr %options, i64 120
   %376 = load i32, ptr %dont_finish_rebase.i, align 8
@@ -4363,8 +4363,8 @@ run_specific_rebase.exit:                         ; preds = %if.end18.i, %if.els
   br label %cleanup
 
 cleanup:                                          ; preds = %_.exit234, %if.then1388, %if.then752, %_.exit, %strbuf_setlen.exit110, %run_specific_rebase.exit, %_.exit310, %if.end1411, %if.end745
-  %squash_onto_name.3 = phi ptr [ %squash_onto_name.2428, %run_specific_rebase.exit ], [ %squash_onto_name.1, %_.exit310 ], [ %squash_onto_name.1, %if.then1388 ], [ %squash_onto_name.1, %if.end1411 ], [ null, %if.then752 ], [ null, %_.exit ], [ null, %strbuf_setlen.exit110 ], [ null, %if.end745 ], [ %squash_onto_name.1, %_.exit234 ]
-  %keep_base_onto_name.2 = phi ptr [ %keep_base_onto_name.1430, %run_specific_rebase.exit ], [ %keep_base_onto_name.0, %_.exit310 ], [ %keep_base_onto_name.0, %if.then1388 ], [ %keep_base_onto_name.0, %if.end1411 ], [ null, %if.then752 ], [ null, %_.exit ], [ null, %strbuf_setlen.exit110 ], [ null, %if.end745 ], [ %keep_base_onto_name.0, %_.exit234 ]
+  %keep_base_onto_name.2 = phi ptr [ %keep_base_onto_name.1428, %run_specific_rebase.exit ], [ %keep_base_onto_name.0, %_.exit310 ], [ %keep_base_onto_name.0, %if.then1388 ], [ %keep_base_onto_name.0, %if.end1411 ], [ null, %if.then752 ], [ null, %_.exit ], [ null, %strbuf_setlen.exit110 ], [ null, %if.end745 ], [ %keep_base_onto_name.0, %_.exit234 ]
+  %squash_onto_name.3 = phi ptr [ %squash_onto_name.2430, %run_specific_rebase.exit ], [ %squash_onto_name.1, %_.exit310 ], [ %squash_onto_name.1, %if.then1388 ], [ %squash_onto_name.1, %if.end1411 ], [ null, %if.then752 ], [ null, %_.exit ], [ null, %strbuf_setlen.exit110 ], [ null, %if.end745 ], [ %squash_onto_name.1, %_.exit234 ]
   %ret.0 = phi i32 [ %cond.i311, %run_specific_rebase.exit ], [ %call1528, %_.exit310 ], [ -1, %if.then1388 ], [ %call1412, %if.end1411 ], [ %call754, %if.then752 ], [ -1, %_.exit ], [ 0, %strbuf_setlen.exit110 ], [ %call746, %if.end745 ], [ -1, %_.exit234 ]
   call void @strbuf_release(ptr noundef nonnull %buf) #19
   call void @strbuf_release(ptr noundef nonnull %revisions) #19

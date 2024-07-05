@@ -574,21 +574,21 @@ define dso_local noundef zeroext i1 @rpc_enqueue(ptr noundef %0) local_unnamed_a
 
 7:                                                ; preds = %.lr.ph, %31
   %8 = phi i16 [ %4, %.lr.ph ], [ %33, %31 ]
-  %.026 = phi ptr [ @slurmctld_rpcs, %.lr.ph ], [ %32, %31 ]
+  %.01626 = phi ptr [ @slurmctld_rpcs, %.lr.ph ], [ %32, %31 ]
   %9 = icmp eq i16 %8, %6
   br i1 %9, label %10, label %31
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %.026, i64 56
+  %11 = getelementptr inbounds i8, ptr %.01626, i64 56
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %.loopexit
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %.026, i64 160
+  %15 = getelementptr inbounds i8, ptr %.01626, i64 160
   %16 = load ptr, ptr %15, align 8
   tail call void @list_enqueue(ptr noundef %16, ptr noundef nonnull %0) #7
-  %17 = getelementptr inbounds i8, ptr %.026, i64 120
+  %17 = getelementptr inbounds i8, ptr %.01626, i64 120
   %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %17) #7
   %.not21 = icmp eq i32 %18, 0
   br i1 %.not21, label %21, label %19
@@ -600,7 +600,7 @@ define dso_local noundef zeroext i1 @rpc_enqueue(ptr noundef %0) local_unnamed_a
   unreachable
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %.026, i64 72
+  %22 = getelementptr inbounds i8, ptr %.01626, i64 72
   %23 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %22) #7
   %.not22 = icmp eq i32 %23, 0
   br i1 %.not22, label %27, label %24
@@ -623,14 +623,14 @@ define dso_local noundef zeroext i1 @rpc_enqueue(ptr noundef %0) local_unnamed_a
   unreachable
 
 31:                                               ; preds = %7
-  %32 = getelementptr inbounds i8, ptr %.026, i64 168
+  %32 = getelementptr inbounds i8, ptr %.01626, i64 168
   %33 = load i16, ptr %32, align 8
   %.not = icmp eq i16 %33, 0
   br i1 %.not, label %.loopexit, label %7, !llvm.loop !11
 
 .loopexit:                                        ; preds = %31, %.preheader, %10, %27, %1
-  %.016 = phi i1 [ false, %1 ], [ true, %27 ], [ false, %10 ], [ false, %.preheader ], [ false, %31 ]
-  ret i1 %.016
+  %.0 = phi i1 [ false, %1 ], [ true, %27 ], [ false, %10 ], [ false, %.preheader ], [ false, %31 ]
+  ret i1 %.0
 }
 
 declare void @list_enqueue(ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -75,10 +75,10 @@ define dso_local void @WalWriterMain() local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %30, %20
-  %.011 = phi i32 [ 50, %20 ], [ %.112, %30 ]
-  %.010 = phi i1 [ false, %20 ], [ %.1, %30 ]
-  %27 = icmp slt i32 %.011, 2
-  %28 = xor i1 %27, %.010
+  %.011 = phi i1 [ false, %20 ], [ %.112, %30 ]
+  %.010 = phi i32 [ 50, %20 ], [ %.1, %30 ]
+  %27 = icmp slt i32 %.010, 2
+  %28 = xor i1 %.011, %27
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %26
@@ -86,17 +86,17 @@ define dso_local void @WalWriterMain() local_unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %29, %26
-  %.1 = phi i1 [ %27, %29 ], [ %.010, %26 ]
+  %.112 = phi i1 [ %27, %29 ], [ %.011, %26 ]
   %31 = load ptr, ptr @MyLatch, align 8
   call void @ResetLatch(ptr noundef %31) #4
   call void @HandleMainLoopInterrupts() #4
   %32 = call zeroext i1 @XLogBackgroundFlush() #4
-  %33 = icmp sgt i32 %.011, 0
+  %33 = icmp sgt i32 %.010, 0
   %34 = sext i1 %33 to i32
-  %spec.select = add nsw i32 %.011, %34
-  %.112 = select i1 %32, i32 50, i32 %spec.select
+  %spec.select = add nsw i32 %.010, %34
+  %.1 = select i1 %32, i32 50, i32 %spec.select
   call void @pgstat_report_wal(i1 noundef zeroext false) #4
-  %35 = icmp sgt i32 %.112, 0
+  %35 = icmp sgt i32 %.1, 0
   %36 = load i32, ptr @WalWriterDelay, align 4
   %37 = mul i32 %36, 25
   %.0.in = select i1 %35, i32 %36, i32 %37

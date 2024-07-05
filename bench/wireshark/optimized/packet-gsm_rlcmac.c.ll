@@ -6513,8 +6513,8 @@ define internal fastcc noundef zeroext i8 @dissect_gprs_data_segments(ptr nounde
 17:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %18 = phi i32 [ 0, %.lr.ph ], [ %51, %50 ]
-  %.not113116 = phi ptr [ @.str.2664, %.lr.ph ], [ @.str.2665, %50 ]
-  %.0105114 = phi i8 [ %3, %.lr.ph ], [ %.1, %50 ]
+  %.0116 = phi i8 [ %3, %.lr.ph ], [ %.1, %50 ]
+  %.not113115 = phi ptr [ @.str.2664, %.lr.ph ], [ @.str.2665, %50 ]
   %19 = getelementptr %struct.length_indicator_t, ptr %8, i64 %indvars.iv
   %20 = getelementptr inbounds i8, ptr %19, i64 4
   %21 = load i8, ptr %20, align 4
@@ -6528,7 +6528,7 @@ define internal fastcc noundef zeroext i8 @dissect_gprs_data_segments(ptr nounde
 
 25:                                               ; preds = %17
   %26 = load ptr, ptr %15, align 8
-  %27 = zext i8 %.0105114 to i32
+  %27 = zext i8 %.0116 to i32
   %28 = sub nsw i32 %.pre, %27
   tail call void @col_append_str_uint(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.2662, i32 noundef %28, ptr noundef nonnull @.str.2649) #6
   %29 = load i32, ptr %19, align 4
@@ -6539,9 +6539,9 @@ define internal fastcc noundef zeroext i8 @dissect_gprs_data_segments(ptr nounde
   br label %50
 
 34:                                               ; preds = %17
-  %35 = zext i8 %.0105114 to i32
+  %35 = zext i8 %.0116 to i32
   %36 = load i32, ptr @ett_data_segments, align 4
-  %37 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %35, i32 noundef 63, i32 noundef %36, ptr noundef null, ptr noundef nonnull %.not113116, i32 noundef %18, i32 noundef 63) #6
+  %37 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %35, i32 noundef 63, i32 noundef %36, ptr noundef null, ptr noundef nonnull %.not113115, i32 noundef %18, i32 noundef 63) #6
   %38 = sub nsw i32 %.pre, %35
   %39 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %35, i32 noundef %38) #6
   %40 = tail call i32 @call_data_dissector(ptr noundef %39, ptr noundef %1, ptr noundef %37) #6
@@ -6551,12 +6551,12 @@ define internal fastcc noundef zeroext i8 @dissect_gprs_data_segments(ptr nounde
   %42 = zext nneg i8 %22 to i32
   %43 = load ptr, ptr %15, align 8
   tail call void @col_append_str_uint(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.2662, i32 noundef %42, ptr noundef nonnull @.str.2649) #6
-  %44 = zext i8 %.0105114 to i32
+  %44 = zext i8 %.0116 to i32
   %45 = load i32, ptr @ett_data_segments, align 4
   %46 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %44, i32 noundef %42, i32 noundef %45, ptr noundef null, ptr noundef nonnull @.str.2666, i32 noundef %18, i32 noundef %42, i32 noundef %42) #6
   %47 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %44, i32 noundef %42) #6
   %48 = tail call i32 @call_data_dissector(ptr noundef %47, ptr noundef %1, ptr noundef %46) #6
-  %49 = add i8 %22, %.0105114
+  %49 = add i8 %22, %.0116
   br label %50
 
 50:                                               ; preds = %41, %34, %25
@@ -6668,8 +6668,8 @@ define internal fastcc void @dissect_egprs_data_segments(ptr noundef %0, ptr nou
 9:                                                ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
   %10 = phi i32 [ 0, %.lr.ph ], [ %63, %62 ]
-  %.not128 = phi i1 [ false, %.lr.ph ], [ true, %62 ]
-  %.0116126 = phi i32 [ %3, %.lr.ph ], [ %.1, %62 ]
+  %.0128 = phi i32 [ %3, %.lr.ph ], [ %.1, %62 ]
+  %.not127 = phi i1 [ false, %.lr.ph ], [ true, %62 ]
   %11 = getelementptr %struct.length_indicator_t, ptr %6, i64 %indvars.iv
   %12 = getelementptr inbounds i8, ptr %11, i64 4
   %13 = load i8, ptr %12, align 4
@@ -6682,7 +6682,7 @@ define internal fastcc void @dissect_egprs_data_segments(ptr noundef %0, ptr nou
   ]
 
 16:                                               ; preds = %9
-  br i1 %.not128, label %25, label %17
+  br i1 %.not127, label %25, label %17
 
 17:                                               ; preds = %16
   %18 = and i32 %14, 1
@@ -6707,12 +6707,12 @@ define internal fastcc void @dissect_egprs_data_segments(ptr noundef %0, ptr nou
 
 29:                                               ; preds = %21, %23, %25
   %30 = load ptr, ptr %8, align 8
-  %31 = sub i32 %.pre, %.0116126
+  %31 = sub i32 %.pre, %.0128
   tail call void @col_append_str_uint(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.2662, i32 noundef %31, ptr noundef nonnull @.str.2649) #6
   br label %62
 
 32:                                               ; preds = %9
-  br i1 %.not128, label %41, label %33
+  br i1 %.not127, label %41, label %33
 
 33:                                               ; preds = %32
   %34 = and i32 %14, 1
@@ -6737,16 +6737,16 @@ define internal fastcc void @dissect_egprs_data_segments(ptr noundef %0, ptr nou
 
 45:                                               ; preds = %37, %39, %41
   %46 = load ptr, ptr %8, align 8
-  %47 = sub i32 %.pre, %.0116126
+  %47 = sub i32 %.pre, %.0128
   tail call void @col_append_str_uint(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.2662, i32 noundef %47, ptr noundef nonnull @.str.2649) #6
   br label %62
 
 48:                                               ; preds = %9
-  %49 = sub i32 %.pre, %.0116126
+  %49 = sub i32 %.pre, %.0128
   %50 = load i32, ptr @ett_data_segments, align 4
-  %.str.2665..str.2664 = select i1 %.not128, ptr @.str.2665, ptr @.str.2664
-  %51 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0116126, i32 noundef %49, i32 noundef %50, ptr noundef null, ptr noundef nonnull %.str.2665..str.2664, i32 noundef %10, i32 noundef 127) #6
-  %52 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0116126, i32 noundef %49) #6
+  %.str.2665..str.2664 = select i1 %.not127, ptr @.str.2665, ptr @.str.2664
+  %51 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0128, i32 noundef %49, i32 noundef %50, ptr noundef null, ptr noundef nonnull %.str.2665..str.2664, i32 noundef %10, i32 noundef 127) #6
+  %52 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0128, i32 noundef %49) #6
   %53 = tail call i32 @call_data_dissector(ptr noundef %52, ptr noundef %1, ptr noundef %51) #6
   br label %62
 
@@ -6755,32 +6755,32 @@ define internal fastcc void @dissect_egprs_data_segments(ptr noundef %0, ptr nou
   %56 = load ptr, ptr %8, align 8
   tail call void @col_append_str_uint(ptr noundef %56, i32 noundef 25, ptr noundef nonnull @.str.2662, i32 noundef %55, ptr noundef nonnull @.str.2649) #6
   %57 = load i32, ptr @ett_data_segments, align 4
-  %58 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0116126, i32 noundef %55, i32 noundef %57, ptr noundef null, ptr noundef nonnull @.str.2666, i32 noundef %10, i32 noundef %55, i32 noundef %55) #6
-  %59 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0116126, i32 noundef %55) #6
+  %58 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0128, i32 noundef %55, i32 noundef %57, ptr noundef null, ptr noundef nonnull @.str.2666, i32 noundef %10, i32 noundef %55, i32 noundef %55) #6
+  %59 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0128, i32 noundef %55) #6
   %60 = tail call i32 @call_data_dissector(ptr noundef %59, ptr noundef %1, ptr noundef %58) #6
-  %61 = add i32 %.0116126, %55
+  %61 = add i32 %.0128, %55
   br label %62
 
 62:                                               ; preds = %54, %48, %45, %29
-  %.1 = phi i32 [ %61, %54 ], [ %.pre, %48 ], [ %.0116126, %45 ], [ %.0116126, %29 ]
+  %.1 = phi i32 [ %61, %54 ], [ %.pre, %48 ], [ %.0128, %45 ], [ %.0128, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = trunc nuw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %62, %7
-  %.0116.lcssa = phi i32 [ %3, %7 ], [ %.1, %62 ]
-  %64 = icmp ult i32 %.0116.lcssa, %.pre
+  %.0.lcssa = phi i32 [ %3, %7 ], [ %.1, %62 ]
+  %64 = icmp ult i32 %.0.lcssa, %.pre
   br i1 %64, label %65, label %73
 
 65:                                               ; preds = %._crit_edge
   %66 = getelementptr inbounds i8, ptr %1, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = sub nsw i32 %.pre, %.0116.lcssa
+  %68 = sub nsw i32 %.pre, %.0.lcssa
   tail call void @col_append_str_uint(ptr noundef %67, i32 noundef 25, ptr noundef nonnull @.str.2662, i32 noundef %68, ptr noundef nonnull @.str.2649) #6
   %69 = load i32, ptr @ett_data_segments, align 4
-  %70 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.0116.lcssa, i32 noundef %68, i32 noundef %69, ptr noundef null, ptr noundef nonnull @.str.2667) #6
-  %71 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0116.lcssa, i32 noundef %68) #6
+  %70 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %68, i32 noundef %69, ptr noundef null, ptr noundef nonnull @.str.2667) #6
+  %71 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %68) #6
   %72 = tail call i32 @call_data_dissector(ptr noundef %71, ptr noundef %1, ptr noundef %70) #6
   br label %73
 
@@ -6929,28 +6929,28 @@ define internal signext i16 @callback_UTRAN_TDD_compute_TDD_CELL_INFORMATION(ptr
 24:                                               ; preds = %.preheader, %30
   %.083 = phi i32 [ %31, %30 ], [ %11, %.preheader ]
   %.05582 = phi i32 [ %28, %30 ], [ %4, %.preheader ]
-  %.05781 = phi i32 [ %36, %30 ], [ 1, %.preheader ]
-  %.05980 = phi i32 [ %.160, %30 ], [ 0, %.preheader ]
-  %.06179 = phi i32 [ %.162, %30 ], [ 1, %.preheader ]
-  %.06378 = phi i32 [ %.164, %30 ], [ 10, %.preheader ]
-  %25 = tail call i32 @tvb_get_bits(ptr noundef %1, i32 noundef %.05582, i32 noundef %.06378, i32 noundef 0) #6
-  %26 = sext i32 %.05781 to i64
+  %.05781 = phi i32 [ %.158, %30 ], [ 10, %.preheader ]
+  %.05980 = phi i32 [ %36, %30 ], [ 1, %.preheader ]
+  %.06179 = phi i32 [ %.162, %30 ], [ 0, %.preheader ]
+  %.06378 = phi i32 [ %.164, %30 ], [ 1, %.preheader ]
+  %25 = tail call i32 @tvb_get_bits(ptr noundef %1, i32 noundef %.05582, i32 noundef %.05781, i32 noundef 0) #6
+  %26 = sext i32 %.05980 to i64
   %27 = getelementptr [64 x i32], ptr %8, i64 0, i64 %26
   store i32 %25, ptr %27, align 4
-  %28 = add i32 %.05582, %.06378
+  %28 = add i32 %.05582, %.05781
   %29 = icmp eq i32 %25, 0
   br i1 %29, label %.thread.loopexit, label %30
 
 30:                                               ; preds = %24
-  %31 = sub i32 %.083, %.06378
-  %32 = add i32 %.05980, 1
-  %33 = icmp eq i32 %32, %.06179
-  %34 = sext i1 %33 to i32
-  %.164 = add i32 %.06378, %34
-  %35 = zext i1 %33 to i32
-  %.162 = shl i32 %.06179, %35
-  %.160 = select i1 %33, i32 0, i32 %32
-  %36 = add i32 %.05781, 1
+  %31 = sub i32 %.083, %.05781
+  %32 = add i32 %.06179, 1
+  %33 = icmp eq i32 %32, %.06378
+  %34 = zext i1 %33 to i32
+  %.164 = shl i32 %.06378, %34
+  %.162 = select i1 %33, i32 0, i32 %32
+  %35 = sext i1 %33 to i32
+  %.158 = add i32 %.05781, %35
+  %36 = add i32 %.05980, 1
   %37 = icmp sgt i32 %31, 0
   br i1 %37, label %24, label %38, !llvm.loop !10
 
@@ -6959,13 +6959,13 @@ define internal signext i16 @callback_UTRAN_TDD_compute_TDD_CELL_INFORMATION(ptr
   br label %.thread
 
 .thread.loopexit:                                 ; preds = %24
-  %40 = add i32 %.05781, -1
+  %40 = add i32 %.05980, -1
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %38
-  %.05777 = phi i32 [ %.05781, %38 ], [ %40, %.thread.loopexit ]
+  %.05977 = phi i32 [ %.05980, %38 ], [ %40, %.thread.loopexit ]
   %41 = phi i32 [ %39, %38 ], [ %28, %.thread.loopexit ]
-  %.not6884 = icmp slt i32 %.05777, 1
+  %.not6884 = icmp slt i32 %.05977, 1
   br i1 %.not6884, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread
@@ -6973,8 +6973,8 @@ define internal signext i16 @callback_UTRAN_TDD_compute_TDD_CELL_INFORMATION(ptr
   br label %43
 
 43:                                               ; preds = %.lr.ph, %43
-  %.15885 = phi i32 [ 1, %.lr.ph ], [ %56, %43 ]
-  %44 = call i32 @f_k(i32 noundef %.15885, ptr noundef nonnull %8, i32 noundef 1024) #6
+  %.16085 = phi i32 [ 1, %.lr.ph ], [ %56, %43 ]
+  %44 = call i32 @f_k(i32 noundef %.16085, ptr noundef nonnull %8, i32 noundef 1024) #6
   %45 = load i32, ptr @hf_gsm_rlcmac_cell_parameter, align 4
   %46 = and i32 %44, 127
   %47 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %45, ptr noundef %1, i32 noundef %42, i32 noundef 0, i32 noundef %46) #6
@@ -6986,8 +6986,8 @@ define internal signext i16 @callback_UTRAN_TDD_compute_TDD_CELL_INFORMATION(ptr
   %53 = lshr i32 %44, 8
   %54 = and i32 %53, 1
   %55 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %52, ptr noundef %1, i32 noundef %42, i32 noundef 0, i32 noundef %54) #6
-  %56 = add i32 %.15885, 1
-  %.not68 = icmp sgt i32 %56, %.05777
+  %56 = add i32 %.16085, 1
+  %.not68 = icmp sgt i32 %56, %.05977
   br i1 %.not68, label %.loopexit, label %43, !llvm.loop !11
 
 .loopexit:                                        ; preds = %43, %.thread, %7

@@ -2194,13 +2194,13 @@ Vec_IntAlloc.exit:                                ; preds = %2, %10
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %Vec_IntAlloc.exit
-  %.041.lcssa = phi i32 [ 0, %Vec_IntAlloc.exit ], [ %35, %.critedge.loopexit ]
-  %36 = icmp slt i32 %.041.lcssa, %.val54
+  %.042.lcssa = phi i32 [ 0, %Vec_IntAlloc.exit ], [ %35, %.critedge.loopexit ]
+  %36 = icmp slt i32 %.042.lcssa, %.val54
   br i1 %36, label %.lr.ph91, label %.critedge2
 
 .lr.ph91:                                         ; preds = %.critedge
   %37 = getelementptr inbounds i8, ptr %4, i64 4
-  %38 = zext i32 %.041.lcssa to i64
+  %38 = zext i32 %.042.lcssa to i64
   br label %39
 
 39:                                               ; preds = %.lr.ph91, %220

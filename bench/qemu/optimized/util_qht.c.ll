@@ -1337,8 +1337,8 @@ do.body10:                                        ; preds = %do.cond38, %for.bod
   br label %do.body11
 
 do.body11:                                        ; preds = %for.end, %do.body10
-  %buckets8.0 = phi i64 [ 0, %do.body10 ], [ %inc29, %for.end ]
   %entries9.0 = phi i64 [ 0, %do.body10 ], [ %entries9.1.lcssa, %for.end ]
+  %buckets8.0 = phi i64 [ 0, %do.body10 ], [ %inc29, %for.end ]
   %b.0 = phi ptr [ %arrayidx, %do.body10 ], [ %8, %for.end ]
   %pointers = getelementptr inbounds i8, ptr %b.0, i64 24
   %5 = add i64 %entries9.0, 4
@@ -1346,20 +1346,20 @@ do.body11:                                        ; preds = %for.end, %do.body10
 
 while.end20:                                      ; preds = %do.body11, %if.end27
   %indvars.iv = phi i64 [ 0, %do.body11 ], [ %indvars.iv.next, %if.end27 ]
-  %entries9.128 = phi i64 [ %entries9.0, %do.body11 ], [ %inc, %if.end27 ]
+  %entries9.129 = phi i64 [ %entries9.0, %do.body11 ], [ %inc, %if.end27 ]
   %arrayidx23 = getelementptr [4 x ptr], ptr %pointers, i64 0, i64 %indvars.iv
   %6 = load atomic i64, ptr %arrayidx23 monotonic, align 8
   %cmp24 = icmp eq i64 %6, 0
   br i1 %cmp24, label %for.end, label %if.end27
 
 if.end27:                                         ; preds = %while.end20
-  %inc = add i64 %entries9.128, 1
+  %inc = add i64 %entries9.129, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %for.end, label %while.end20, !llvm.loop !37
 
 for.end:                                          ; preds = %while.end20, %if.end27
-  %entries9.1.lcssa = phi i64 [ %entries9.128, %while.end20 ], [ %5, %if.end27 ]
+  %entries9.1.lcssa = phi i64 [ %entries9.129, %while.end20 ], [ %5, %if.end27 ]
   %inc29 = add i64 %buckets8.0, 1
   %next = getelementptr inbounds i8, ptr %b.0, i64 56
   %7 = load atomic i64, ptr %next monotonic, align 8

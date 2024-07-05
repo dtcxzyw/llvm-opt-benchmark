@@ -565,24 +565,24 @@ entry:
   %is_inline = getelementptr inbounds i8, ptr %attr, i64 3
   %is_extern = getelementptr inbounds i8, ptr %attr, i64 2
   %is_static = getelementptr inbounds i8, ptr %attr, i64 1
-  br label %while.cond.outer.outer
-
-while.cond.outer.outer:                           ; preds = %while.cond.outer.outer.backedge, %entry
-  %ty.0.ph.ph = phi ptr [ %0, %entry ], [ %ty.0.ph.ph.be, %while.cond.outer.outer.backedge ]
-  %counter.0.ph.ph = phi i32 [ 0, %entry ], [ %counter.0.ph.ph.be, %while.cond.outer.outer.backedge ]
-  %is_atomic.0.ph.ph = phi i1 [ false, %entry ], [ %is_atomic.0.ph, %while.cond.outer.outer.backedge ]
-  br label %while.cond.outer.outer113
-
-while.cond.outer.outer113:                        ; preds = %if.then75, %while.cond.outer.outer
-  %ty.0.ph.ph114 = phi ptr [ %call77, %if.then75 ], [ %ty.0.ph.ph, %while.cond.outer.outer ]
-  %is_atomic.0.ph.ph115 = phi i1 [ true, %if.then75 ], [ %is_atomic.0.ph.ph, %while.cond.outer.outer ]
   br label %while.cond.outer
 
-while.cond.outer:                                 ; preds = %while.cond.outer.outer113, %if.then72
-  %is_atomic.0.ph = phi i1 [ true, %if.then72 ], [ %is_atomic.0.ph.ph115, %while.cond.outer.outer113 ]
+while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %entry
+  %counter.0.ph = phi i32 [ 0, %entry ], [ %counter.0.ph.be, %while.cond.outer.backedge ]
+  %is_atomic.0.ph = phi i1 [ false, %entry ], [ %is_atomic.0.ph35, %while.cond.outer.backedge ]
+  %ty.0.ph = phi ptr [ %0, %entry ], [ %ty.0.ph.be, %while.cond.outer.backedge ]
+  br label %while.cond.outer34.outer
+
+while.cond.outer34.outer:                         ; preds = %if.then75, %while.cond.outer
+  %is_atomic.0.ph35.ph = phi i1 [ true, %if.then75 ], [ %is_atomic.0.ph, %while.cond.outer ]
+  %ty.0.ph36.ph = phi ptr [ %call77, %if.then75 ], [ %ty.0.ph, %while.cond.outer ]
+  br label %while.cond.outer34
+
+while.cond.outer34:                               ; preds = %while.cond.outer34.outer, %if.then72
+  %is_atomic.0.ph35 = phi i1 [ true, %if.then72 ], [ %is_atomic.0.ph35.ph, %while.cond.outer34.outer ]
   br label %while.cond
 
-while.cond:                                       ; preds = %while.cond.backedge, %while.cond.outer
+while.cond:                                       ; preds = %while.cond.backedge, %while.cond.outer34
   %1 = load ptr, ptr %tok.addr, align 8
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @is_typename.map, i64 8), align 8
   %cmp.i = icmp eq i32 %2, 0
@@ -786,7 +786,7 @@ if.then72:                                        ; preds = %if.end70
   %37 = load ptr, ptr %next73, align 8
   store ptr %37, ptr %tok.addr, align 8
   %call74 = call zeroext i1 @equal(ptr noundef %37, ptr noundef nonnull @.str.23) #13
-  br i1 %call74, label %if.then75, label %while.cond.outer, !llvm.loop !15
+  br i1 %call74, label %if.then75, label %while.cond.outer34, !llvm.loop !15
 
 if.then75:                                        ; preds = %if.then72
   %38 = load ptr, ptr %tok.addr, align 8
@@ -796,7 +796,7 @@ if.then75:                                        ; preds = %if.then72
   %40 = load ptr, ptr %tok.addr, align 8
   %call78 = call ptr @skip(ptr noundef %40, ptr noundef nonnull @.str.24) #13
   store ptr %call78, ptr %tok.addr, align 8
-  br label %while.cond.outer.outer113, !llvm.loop !15
+  br label %while.cond.outer34.outer, !llvm.loop !15
 
 if.end80:                                         ; preds = %if.end70
   %call81 = call zeroext i1 @equal(ptr noundef %36, ptr noundef nonnull @.str.38) #13
@@ -863,7 +863,7 @@ lor.lhs.false108:                                 ; preds = %lor.lhs.false105
   br i1 %or.cond, label %if.then113, label %if.end143
 
 if.then113:                                       ; preds = %lor.lhs.false108, %lor.lhs.false105, %lor.lhs.false102, %if.end98
-  %tobool114.not = icmp eq i32 %counter.0.ph.ph, 0
+  %tobool114.not = icmp eq i32 %counter.0.ph, 0
   br i1 %tobool114.not, label %if.end116, label %while.end
 
 if.end116:                                        ; preds = %if.then113
@@ -876,12 +876,12 @@ if.then118:                                       ; preds = %if.end116
   %next119 = getelementptr inbounds i8, ptr %51, i64 8
   %52 = load ptr, ptr %next119, align 8
   %call120 = call fastcc ptr @struct_decl(ptr noundef nonnull %tok.addr, ptr noundef %52)
-  br label %while.cond.outer.outer.backedge
+  br label %while.cond.outer.backedge
 
-while.cond.outer.outer.backedge:                  ; preds = %if.then118, %if.then128, %if.else136, %if.then133, %if.then123, %sw.epilog
-  %ty.0.ph.ph.be = phi ptr [ %ty.3, %sw.epilog ], [ %call120, %if.then118 ], [ %call125, %if.then123 ], [ %call130, %if.then128 ], [ %call135, %if.then133 ], [ %call99, %if.else136 ]
-  %counter.0.ph.ph.be = phi i32 [ %counter.1, %sw.epilog ], [ 65536, %if.then118 ], [ 65536, %if.then123 ], [ 65536, %if.then128 ], [ 65536, %if.then133 ], [ 65536, %if.else136 ]
-  br label %while.cond.outer.outer, !llvm.loop !15
+while.cond.outer.backedge:                        ; preds = %if.then118, %if.then128, %if.else136, %if.then133, %if.then123, %sw.epilog
+  %counter.0.ph.be = phi i32 [ %counter.1, %sw.epilog ], [ 65536, %if.then123 ], [ 65536, %if.then133 ], [ 65536, %if.else136 ], [ 65536, %if.then128 ], [ 65536, %if.then118 ]
+  %ty.0.ph.be = phi ptr [ %ty.3, %sw.epilog ], [ %call125, %if.then123 ], [ %call135, %if.then133 ], [ %call99, %if.else136 ], [ %call130, %if.then128 ], [ %call120, %if.then118 ]
+  br label %while.cond.outer, !llvm.loop !15
 
 if.else121:                                       ; preds = %if.end116
   %call122 = call zeroext i1 @equal(ptr noundef %51, ptr noundef nonnull @.str.33) #13
@@ -892,7 +892,7 @@ if.then123:                                       ; preds = %if.else121
   %next124 = getelementptr inbounds i8, ptr %53, i64 8
   %54 = load ptr, ptr %next124, align 8
   %call125 = call fastcc ptr @union_decl(ptr noundef nonnull %tok.addr, ptr noundef %54)
-  br label %while.cond.outer.outer.backedge
+  br label %while.cond.outer.backedge
 
 if.else126:                                       ; preds = %if.else121
   %call127 = call zeroext i1 @equal(ptr noundef %53, ptr noundef nonnull @.str.35) #13
@@ -903,7 +903,7 @@ if.then128:                                       ; preds = %if.else126
   %next129 = getelementptr inbounds i8, ptr %55, i64 8
   %56 = load ptr, ptr %next129, align 8
   %call130 = call fastcc ptr @enum_specifier(ptr noundef nonnull %tok.addr, ptr noundef %56)
-  br label %while.cond.outer.outer.backedge
+  br label %while.cond.outer.backedge
 
 if.else131:                                       ; preds = %if.else126
   %call132 = call zeroext i1 @equal(ptr noundef %55, ptr noundef nonnull @.str.51) #13
@@ -914,11 +914,11 @@ if.else131:                                       ; preds = %if.else126
 
 if.then133:                                       ; preds = %if.else131
   %call135 = call fastcc ptr @typeof_specifier(ptr noundef nonnull %tok.addr, ptr noundef %58)
-  br label %while.cond.outer.outer.backedge
+  br label %while.cond.outer.backedge
 
 if.else136:                                       ; preds = %if.else131
   store ptr %58, ptr %tok.addr, align 8
-  br label %while.cond.outer.outer.backedge
+  br label %while.cond.outer.backedge
 
 if.end143:                                        ; preds = %lor.lhs.false108
   %59 = load ptr, ptr %tok.addr, align 8
@@ -926,7 +926,7 @@ if.end143:                                        ; preds = %lor.lhs.false108
   br i1 %call144, label %if.then145, label %if.else147
 
 if.then145:                                       ; preds = %if.end143
-  %add146 = add nsw i32 %counter.0.ph.ph, 1
+  %add146 = add nsw i32 %counter.0.ph, 1
   br label %if.end192
 
 if.else147:                                       ; preds = %if.end143
@@ -935,7 +935,7 @@ if.else147:                                       ; preds = %if.end143
   br i1 %call148, label %if.then149, label %if.else151
 
 if.then149:                                       ; preds = %if.else147
-  %add150 = add nsw i32 %counter.0.ph.ph, 4
+  %add150 = add nsw i32 %counter.0.ph, 4
   br label %if.end192
 
 if.else151:                                       ; preds = %if.else147
@@ -944,7 +944,7 @@ if.else151:                                       ; preds = %if.else147
   br i1 %call152, label %if.then153, label %if.else155
 
 if.then153:                                       ; preds = %if.else151
-  %add154 = add nsw i32 %counter.0.ph.ph, 16
+  %add154 = add nsw i32 %counter.0.ph, 16
   br label %if.end192
 
 if.else155:                                       ; preds = %if.else151
@@ -953,7 +953,7 @@ if.else155:                                       ; preds = %if.else151
   br i1 %call156, label %if.then157, label %if.else159
 
 if.then157:                                       ; preds = %if.else155
-  %add158 = add nsw i32 %counter.0.ph.ph, 64
+  %add158 = add nsw i32 %counter.0.ph, 64
   br label %if.end192
 
 if.else159:                                       ; preds = %if.else155
@@ -962,7 +962,7 @@ if.else159:                                       ; preds = %if.else155
   br i1 %call160, label %if.then161, label %if.else163
 
 if.then161:                                       ; preds = %if.else159
-  %add162 = add nsw i32 %counter.0.ph.ph, 256
+  %add162 = add nsw i32 %counter.0.ph, 256
   br label %if.end192
 
 if.else163:                                       ; preds = %if.else159
@@ -971,7 +971,7 @@ if.else163:                                       ; preds = %if.else159
   br i1 %call164, label %if.then165, label %if.else167
 
 if.then165:                                       ; preds = %if.else163
-  %add166 = add nsw i32 %counter.0.ph.ph, 1024
+  %add166 = add nsw i32 %counter.0.ph, 1024
   br label %if.end192
 
 if.else167:                                       ; preds = %if.else163
@@ -980,7 +980,7 @@ if.else167:                                       ; preds = %if.else163
   br i1 %call168, label %if.then169, label %if.else171
 
 if.then169:                                       ; preds = %if.else167
-  %add170 = add nsw i32 %counter.0.ph.ph, 4096
+  %add170 = add nsw i32 %counter.0.ph, 4096
   br label %if.end192
 
 if.else171:                                       ; preds = %if.else167
@@ -989,7 +989,7 @@ if.else171:                                       ; preds = %if.else167
   br i1 %call172, label %if.then173, label %if.else175
 
 if.then173:                                       ; preds = %if.else171
-  %add174 = add nsw i32 %counter.0.ph.ph, 16384
+  %add174 = add nsw i32 %counter.0.ph, 16384
   br label %if.end192
 
 if.else175:                                       ; preds = %if.else171
@@ -998,7 +998,7 @@ if.else175:                                       ; preds = %if.else171
   br i1 %call176, label %if.then177, label %if.else178
 
 if.then177:                                       ; preds = %if.else175
-  %or = or i32 %counter.0.ph.ph, 131072
+  %or = or i32 %counter.0.ph, 131072
   br label %if.end192
 
 if.else178:                                       ; preds = %if.else175
@@ -1007,7 +1007,7 @@ if.else178:                                       ; preds = %if.else175
   br i1 %call179, label %if.then180, label %if.else182
 
 if.then180:                                       ; preds = %if.else178
-  %or181 = or i32 %counter.0.ph.ph, 262144
+  %or181 = or i32 %counter.0.ph, 262144
   br label %if.end192
 
 if.else182:                                       ; preds = %if.else178
@@ -1098,19 +1098,19 @@ sw.epilog:                                        ; preds = %if.end192, %sw.bb20
   %next205 = getelementptr inbounds i8, ptr %70, i64 8
   %71 = load ptr, ptr %next205, align 8
   store ptr %71, ptr %tok.addr, align 8
-  br label %while.cond.outer.outer.backedge
+  br label %while.cond.outer.backedge
 
 while.end:                                        ; preds = %if.then113, %lor.rhs.i, %is_typename.exit, %for.cond.i.i.i
-  br i1 %is_atomic.0.ph, label %if.then207, label %if.end210
+  br i1 %is_atomic.0.ph35, label %if.then207, label %if.end210
 
 if.then207:                                       ; preds = %while.end
-  %call208 = call ptr @copy_type(ptr noundef %ty.0.ph.ph114) #13
+  %call208 = call ptr @copy_type(ptr noundef %ty.0.ph36.ph) #13
   %is_atomic209 = getelementptr inbounds i8, ptr %call208, i64 13
   store i8 1, ptr %is_atomic209, align 1
   br label %if.end210
 
 if.end210:                                        ; preds = %if.then207, %while.end
-  %ty.4 = phi ptr [ %call208, %if.then207 ], [ %ty.0.ph.ph114, %while.end ]
+  %ty.4 = phi ptr [ %call208, %if.then207 ], [ %ty.0.ph36.ph, %while.end ]
   %72 = load ptr, ptr %tok.addr, align 8
   store ptr %72, ptr %rest, align 8
   ret ptr %ty.4
@@ -7819,9 +7819,9 @@ while.body.i.lr.ph:                               ; preds = %cond.end.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %if.end40.i
-  %cur.0.i314 = phi ptr [ %head.i41, %while.body.i.lr.ph ], [ %arg.1.i, %if.end40.i ]
-  %param_ty.0.i313 = phi ptr [ %135, %while.body.i.lr.ph ], [ %param_ty.1.i, %if.end40.i ]
-  %cmp15.not.i = icmp eq ptr %cur.0.i314, %head.i41
+  %param_ty.0.i314 = phi ptr [ %135, %while.body.i.lr.ph ], [ %param_ty.1.i, %if.end40.i ]
+  %cur.0.i313 = phi ptr [ %head.i41, %while.body.i.lr.ph ], [ %arg.1.i, %if.end40.i ]
+  %cmp15.not.i = icmp eq ptr %cur.0.i313, %head.i41
   %.pre338 = load ptr, ptr %tok.addr.i40, align 8
   br i1 %cmp15.not.i, label %if.end18.i, label %if.then16.i
 
@@ -7834,7 +7834,7 @@ if.end18.i:                                       ; preds = %if.then16.i, %while
   %137 = phi ptr [ %call17.i, %if.then16.i ], [ %.pre338, %while.body.i ]
   %call19.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i40, ptr noundef %137)
   call void @add_type(ptr noundef %call19.i) #13
-  %tobool.not.i47 = icmp eq ptr %param_ty.0.i313, null
+  %tobool.not.i47 = icmp eq ptr %param_ty.0.i314, null
   br i1 %tobool.not.i47, label %land.lhs.true20.i, label %if.then25.i
 
 land.lhs.true20.i:                                ; preds = %if.end18.i
@@ -7848,7 +7848,7 @@ if.then22.i:                                      ; preds = %land.lhs.true20.i
   unreachable
 
 if.then25.i:                                      ; preds = %if.end18.i
-  %140 = load i32, ptr %param_ty.0.i313, align 8
+  %140 = load i32, ptr %param_ty.0.i314, align 8
   %141 = and i32 %140, -2
   %switch.i = icmp eq i32 %141, 14
   br i1 %switch.i, label %if.end33.i, label %if.then31.i
@@ -7863,14 +7863,14 @@ if.then31.i:                                      ; preds = %if.then25.i
   store ptr %142, ptr %tok1.i276, align 8
   %lhs.i277 = getelementptr inbounds i8, ptr %call.i274, i64 32
   store ptr %call19.i, ptr %lhs.i277, align 16
-  %call2.i278 = call ptr @copy_type(ptr noundef nonnull %param_ty.0.i313) #13
+  %call2.i278 = call ptr @copy_type(ptr noundef nonnull %param_ty.0.i314) #13
   %ty3.i279 = getelementptr inbounds i8, ptr %call.i274, i64 16
   store ptr %call2.i278, ptr %ty3.i279, align 16
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then31.i, %if.then25.i
   %arg.0.i = phi ptr [ %call.i274, %if.then31.i ], [ %call19.i, %if.then25.i ]
-  %next.i48 = getelementptr inbounds i8, ptr %param_ty.0.i313, i64 112
+  %next.i48 = getelementptr inbounds i8, ptr %param_ty.0.i314, i64 112
   %143 = load ptr, ptr %next.i48, align 8
   br label %if.end40.i
 
@@ -7898,9 +7898,9 @@ if.then37.i:                                      ; preds = %if.else.i49
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.then37.i, %if.else.i49, %if.end33.i
-  %param_ty.1.i = phi ptr [ %143, %if.end33.i ], [ null, %if.then37.i ], [ null, %if.else.i49 ]
   %arg.1.i = phi ptr [ %arg.0.i, %if.end33.i ], [ %call.i272, %if.then37.i ], [ %call19.i, %if.else.i49 ]
-  %next41.i = getelementptr inbounds i8, ptr %cur.0.i314, i64 8
+  %param_ty.1.i = phi ptr [ %143, %if.end33.i ], [ null, %if.then37.i ], [ null, %if.else.i49 ]
+  %next41.i = getelementptr inbounds i8, ptr %cur.0.i313, i64 8
   store ptr %arg.1.i, ptr %next41.i, align 8
   %148 = load ptr, ptr %tok.addr.i40, align 8
   %call.i46 = call zeroext i1 @equal(ptr noundef %148, ptr noundef nonnull @.str.24) #13
@@ -9668,8 +9668,8 @@ land.rhs.lr.ph:                                   ; preds = %entry
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end6
-  %first.07 = phi i1 [ true, %land.rhs.lr.ph ], [ false, %if.end6 ]
-  %mem.addr.06 = phi ptr [ %mem, %land.rhs.lr.ph ], [ %9, %if.end6 ]
+  %mem.addr.07 = phi ptr [ %mem, %land.rhs.lr.ph ], [ %9, %if.end6 ]
+  %first.06 = phi i1 [ true, %land.rhs.lr.ph ], [ false, %if.end6 ]
   %0 = load ptr, ptr %tok.addr, align 8
   %call.i = call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.69) #13
   br i1 %call.i, label %for.end.loopexit, label %lor.rhs.i
@@ -9686,7 +9686,7 @@ is_end.exit:                                      ; preds = %lor.rhs.i
 
 for.body:                                         ; preds = %lor.rhs.i, %is_end.exit
   %2 = load ptr, ptr %tok.addr, align 8
-  br i1 %first.07, label %if.end, label %if.then
+  br i1 %first.06, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
   %call2 = call ptr @skip(ptr noundef %2, ptr noundef nonnull @.str.57) #13
@@ -9706,13 +9706,13 @@ lor.lhs.false:                                    ; preds = %if.end
 if.end6:                                          ; preds = %lor.lhs.false
   %5 = load ptr, ptr %tok.addr, align 8
   %6 = load ptr, ptr %children, align 8
-  %idx = getelementptr inbounds i8, ptr %mem.addr.06, i64 32
+  %idx = getelementptr inbounds i8, ptr %mem.addr.07, i64 32
   %7 = load i32, ptr %idx, align 8
   %idxprom = sext i32 %7 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
   %8 = load ptr, ptr %arrayidx, align 8
   call fastcc void @initializer2(ptr noundef nonnull %tok.addr, ptr noundef %5, ptr noundef %8)
-  %9 = load ptr, ptr %mem.addr.06, align 8
+  %9 = load ptr, ptr %mem.addr.07, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %for.end.loopexit, label %land.rhs, !llvm.loop !46
 

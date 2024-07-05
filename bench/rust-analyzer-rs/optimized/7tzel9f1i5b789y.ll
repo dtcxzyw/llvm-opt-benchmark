@@ -307,20 +307,20 @@ define void @_ZN4span6ast_id8AstIdMap11from_source17h7d2c2749b6a8b9c5E(ptr noali
   ret void
 
 56:                                               ; preds = %.lr.ph, %159
-  %.sroa.021.034 = phi ptr [ %.val10, %.lr.ph ], [ %57, %159 ]
-  %.sroa.7.033 = phi i32 [ 0, %.lr.ph ], [ %58, %159 ]
-  %57 = getelementptr inbounds i8, ptr %.sroa.021.034, i64 12
-  %58 = add i32 %.sroa.7.033, 1
-  %59 = getelementptr inbounds i8, ptr %.sroa.021.034, i64 8
+  %.sroa.7.034 = phi i32 [ 0, %.lr.ph ], [ %58, %159 ]
+  %.sroa.021.033 = phi ptr [ %.val10, %.lr.ph ], [ %57, %159 ]
+  %57 = getelementptr inbounds i8, ptr %.sroa.021.033, i64 12
+  %58 = add i32 %.sroa.7.034, 1
+  %59 = getelementptr inbounds i8, ptr %.sroa.021.033, i64 8
   %60 = load i16, ptr %59, align 2, !range !32, !alias.scope !61, !noalias !70, !noundef !11
   %61 = zext nneg i16 %60 to i64
   %62 = mul i64 %61, 5871781006564002453
-  %63 = load i32, ptr %.sroa.021.034, align 4, !alias.scope !76, !noalias !77, !noundef !11
+  %63 = load i32, ptr %.sroa.021.033, align 4, !alias.scope !76, !noalias !77, !noundef !11
   %64 = zext i32 %63 to i64
   %65 = call i64 @llvm.fshl.i64(i64 %62, i64 %62, i64 5)
   %66 = xor i64 %65, %64
   %67 = mul i64 %66, 5871781006564002453
-  %68 = getelementptr inbounds i8, ptr %.sroa.021.034, i64 4
+  %68 = getelementptr inbounds i8, ptr %.sroa.021.033, i64 4
   %69 = load i32, ptr %68, align 4, !alias.scope !76, !noalias !77, !noundef !11
   %70 = zext i32 %69 to i64
   %71 = call i64 @llvm.fshl.i64(i64 %67, i64 %67, i64 5)
@@ -366,7 +366,7 @@ define void @_ZN4span6ast_id8AstIdMap11from_source17h7d2c2749b6a8b9c5E(ptr noali
   %94 = sub nsw i64 0, %93
   %gep.i.i = getelementptr i32, ptr %invariant.gep.i.i, i64 %94
   %.val4.i.i.i = load i32, ptr %gep.i.i, align 4, !noalias !91, !noundef !11
-  %95 = icmp eq i32 %.val4.i.i.i, %.sroa.7.033
+  %95 = icmp eq i32 %.val4.i.i.i, %.sroa.7.034
   br i1 %95, label %100, label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i"
 
 96:                                               ; preds = %83
@@ -519,7 +519,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.exi
   %174 = sub nsw i64 0, %.03.i.i.i
   %175 = getelementptr inbounds i32, ptr %161, i64 %174
   %176 = getelementptr inbounds i8, ptr %175, i64 -4
-  store i32 %.sroa.7.033, ptr %176, align 4, !noalias !122
+  store i32 %.sroa.7.034, ptr %176, align 4, !noalias !122
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %177 = icmp eq ptr %57, %43
   br i1 %177, label %._crit_edge.loopexit, label %56

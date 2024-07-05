@@ -1154,8 +1154,8 @@ countarray.exit:                                  ; preds = %if.then4.i, %for.en
 
 for.body.i11:                                     ; preds = %for.inc.i, %countarray.exit
   %indvars.iv.i12 = phi i64 [ 0, %countarray.exit ], [ %indvars.iv.next.i16, %for.inc.i ]
+  %total.03.i = phi i32 [ 0, %countarray.exit ], [ %total.1.i, %for.inc.i ]
   %na.02.i = phi i32 [ 0, %countarray.exit ], [ %na.1.i, %for.inc.i ]
-  %total.01.i = phi i32 [ 0, %countarray.exit ], [ %total.1.i, %for.inc.i ]
   %arrayidx.i13 = getelementptr inbounds %struct.Node, ptr %10, i64 %indvars.iv.i12
   %12 = load i64, ptr %arrayidx.i13, align 8
   %cmp3.i = icmp eq i64 %12, -1
@@ -1192,12 +1192,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
 countint.exit.i:                                  ; preds = %if.then8.i.i, %if.then.i.i, %if.then.i
   %retval.0.i.i = phi i32 [ 1, %if.then8.i.i ], [ 0, %if.then.i.i ], [ 0, %if.then.i ]
   %add.i14 = add i32 %retval.0.i.i, %na.02.i
-  %inc.i15 = add i32 %total.01.i, 1
+  %inc.i15 = add i32 %total.03.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %countint.exit.i, %for.body.i11
-  %total.1.i = phi i32 [ %total.01.i, %for.body.i11 ], [ %inc.i15, %countint.exit.i ]
   %na.1.i = phi i32 [ %na.02.i, %for.body.i11 ], [ %add.i14, %countint.exit.i ]
+  %total.1.i = phi i32 [ %total.03.i, %for.body.i11 ], [ %inc.i15, %countint.exit.i ]
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i16, %wide.trip.count.i
   br i1 %exitcond.i, label %counthash.exit, label %for.body.i11, !llvm.loop !16
@@ -1241,32 +1241,32 @@ countint.exit:                                    ; preds = %counthash.exit, %if
 
 for.body.i27:                                     ; preds = %countint.exit, %for.inc.i31
   %shl17.i = phi i32 [ %shl.i34, %for.inc.i31 ], [ 1, %countint.exit ]
-  %sz.016.i = phi i32 [ %sz.1.i, %for.inc.i31 ], [ 0, %countint.exit ]
-  %na.015.i = phi i32 [ %na.1.i32, %for.inc.i31 ], [ 0, %countint.exit ]
-  %sum.014.i = phi i32 [ %sum.1.i, %for.inc.i31 ], [ 0, %countint.exit ]
-  %b.013.i = phi i32 [ %inc.i33, %for.inc.i31 ], [ 0, %countint.exit ]
-  %idxprom.i28 = zext i32 %b.013.i to i64
+  %b.016.i = phi i32 [ %inc.i33, %for.inc.i31 ], [ 0, %countint.exit ]
+  %sz.015.i = phi i32 [ %sz.1.i, %for.inc.i31 ], [ 0, %countint.exit ]
+  %na.014.i = phi i32 [ %na.1.i32, %for.inc.i31 ], [ 0, %countint.exit ]
+  %sum.013.i = phi i32 [ %sum.1.i, %for.inc.i31 ], [ 0, %countint.exit ]
+  %idxprom.i28 = zext i32 %b.016.i to i64
   %arrayidx.i29 = getelementptr inbounds i32, ptr %bins, i64 %idxprom.i28
   %21 = load i32, ptr %arrayidx.i29, align 4
   %cmp2.not.i = icmp eq i32 %21, 0
   br i1 %cmp2.not.i, label %for.inc.i31, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i27
-  %add.i30 = add i32 %21, %sum.014.i
+  %add.i30 = add i32 %21, %sum.013.i
   %mul5.i = shl i32 %add.i30, 1
   %cmp7.i = icmp ugt i32 %mul5.i, %shl17.i
   br i1 %cmp7.i, label %if.then.i37, label %for.inc.i31
 
 if.then.i37:                                      ; preds = %land.lhs.true.i
-  %shl8.i = shl i32 2, %b.013.i
+  %shl8.i = shl i32 2, %b.016.i
   %add9.i = or disjoint i32 %shl8.i, 1
   br label %for.inc.i31
 
 for.inc.i31:                                      ; preds = %if.then.i37, %land.lhs.true.i, %for.body.i27
-  %sum.1.i = phi i32 [ %add.i30, %if.then.i37 ], [ %add.i30, %land.lhs.true.i ], [ %sum.014.i, %for.body.i27 ]
-  %na.1.i32 = phi i32 [ %add.i30, %if.then.i37 ], [ %na.015.i, %land.lhs.true.i ], [ %na.015.i, %for.body.i27 ]
-  %sz.1.i = phi i32 [ %add9.i, %if.then.i37 ], [ %sz.016.i, %land.lhs.true.i ], [ %sz.016.i, %for.body.i27 ]
-  %inc.i33 = add i32 %b.013.i, 1
+  %sum.1.i = phi i32 [ %add.i30, %if.then.i37 ], [ %add.i30, %land.lhs.true.i ], [ %sum.013.i, %for.body.i27 ]
+  %na.1.i32 = phi i32 [ %add.i30, %if.then.i37 ], [ %na.014.i, %land.lhs.true.i ], [ %na.014.i, %for.body.i27 ]
+  %sz.1.i = phi i32 [ %add9.i, %if.then.i37 ], [ %sz.015.i, %land.lhs.true.i ], [ %sz.015.i, %for.body.i27 ]
+  %inc.i33 = add i32 %b.016.i, 1
   %shl.i34 = shl nuw i32 1, %inc.i33
   %cmp.i35 = icmp ugt i32 %mul.i, %shl.i34
   %cmp1.i = icmp ne i32 %sum.1.i, %add6
@@ -2327,8 +2327,8 @@ cond.true:                                        ; preds = %if.end18
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %cond.true
-  %hi.addr.0.i = phi i64 [ %inc.i, %cond.true ], [ %add.i, %while.body.i ]
   %lo.0.i = phi i64 [ %hi.0, %cond.true ], [ %hi.addr.0.i, %while.body.i ]
+  %hi.addr.0.i = phi i64 [ %inc.i, %cond.true ], [ %add.i, %while.body.i ]
   %conv.i = trunc nuw i64 %hi.addr.0.i to i32
   %cmp.i = icmp ugt i32 %0, %conv.i
   br i1 %cmp.i, label %cond.end.i, label %cond.false.i
@@ -2461,9 +2461,9 @@ while.end33.i:                                    ; preds = %land.rhs.i, %cond.e
   br i1 %cmp36124.i, label %while.body38.i, label %while.end60.i
 
 while.body38.i:                                   ; preds = %while.end33.i, %if.end59.i
-  %lo.2126.i = phi i64 [ %lo.3.i, %if.end59.i ], [ %lo.0.i, %while.end33.i ]
-  %hi.addr.1125.i = phi i64 [ %hi.addr.2.i, %if.end59.i ], [ %hi.addr.0.i, %while.end33.i ]
-  %add39.i = add nuw nsw i64 %hi.addr.1125.i, %lo.2126.i
+  %hi.addr.1126.i = phi i64 [ %hi.addr.2.i, %if.end59.i ], [ %hi.addr.0.i, %while.end33.i ]
+  %lo.2125.i = phi i64 [ %lo.3.i, %if.end59.i ], [ %lo.0.i, %while.end33.i ]
+  %add39.i = add nuw nsw i64 %lo.2125.i, %hi.addr.1126.i
   %shr.i = lshr i64 %add39.i, 1
   %conv40.i = trunc nuw i64 %shr.i to i32
   %cmp42.i = icmp ugt i32 %0, %conv40.i
@@ -2526,8 +2526,8 @@ if.else.i:                                        ; preds = %do.cond.i85.i, %lan
   br label %if.end59.i
 
 if.end59.i:                                       ; preds = %if.else.i, %land.lhs.true.i
-  %hi.addr.2.i = phi i64 [ %shr.i, %if.else.i ], [ %hi.addr.1125.i, %land.lhs.true.i ]
-  %lo.3.i = phi i64 [ %lo.2126.i, %if.else.i ], [ %shr.i, %land.lhs.true.i ]
+  %lo.3.i = phi i64 [ %lo.2125.i, %if.else.i ], [ %shr.i, %land.lhs.true.i ]
+  %hi.addr.2.i = phi i64 [ %shr.i, %if.else.i ], [ %hi.addr.1126.i, %land.lhs.true.i ]
   %sub35.i = sub nsw i64 %hi.addr.2.i, %lo.3.i
   %cmp36.i = icmp ugt i64 %sub35.i, 1
   br i1 %cmp36.i, label %while.body38.i, label %while.end60.i, !llvm.loop !31

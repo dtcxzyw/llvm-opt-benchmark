@@ -262,9 +262,9 @@ for.end:                                          ; preds = %if.end78, %if.end38
   br label %err
 
 err:                                              ; preds = %prov_crngt_compare_previous.exit.thread, %crngt_get_entropy.exit46.thread57, %crngt_get_entropy.exit46.thread, %if.then32, %for.end
-  %ent.0 = phi ptr [ %call25, %if.then32 ], [ null, %for.end ], [ %call25, %crngt_get_entropy.exit46.thread ], [ %call25, %crngt_get_entropy.exit46.thread57 ], [ %call25, %prov_crngt_compare_previous.exit.thread ]
   %r.0 = phi i64 [ 0, %if.then32 ], [ %spec.select, %for.end ], [ 0, %crngt_get_entropy.exit46.thread ], [ 0, %crngt_get_entropy.exit46.thread57 ], [ 0, %prov_crngt_compare_previous.exit.thread ]
   %crng_test_pass.0 = phi i32 [ 1, %if.then32 ], [ 1, %for.end ], [ 1, %crngt_get_entropy.exit46.thread ], [ 1, %crngt_get_entropy.exit46.thread57 ], [ 0, %prov_crngt_compare_previous.exit.thread ]
+  %ent.0 = phi ptr [ %call25, %if.then32 ], [ null, %for.end ], [ %call25, %crngt_get_entropy.exit46.thread ], [ %call25, %crngt_get_entropy.exit46.thread57 ], [ %call25, %prov_crngt_compare_previous.exit.thread ]
   %st.1 = phi ptr [ null, %if.then32 ], [ %st.0, %for.end ], [ %st.0, %crngt_get_entropy.exit46.thread ], [ %st.0, %crngt_get_entropy.exit46.thread57 ], [ %st.0, %prov_crngt_compare_previous.exit.thread ]
   call void @OSSL_SELF_TEST_onend(ptr noundef %st.1, i32 noundef %crng_test_pass.0) #6
   call void @OSSL_SELF_TEST_free(ptr noundef %st.1) #6

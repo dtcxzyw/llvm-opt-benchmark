@@ -1329,8 +1329,8 @@ define hidden noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17h442
   br i1 %switch.not.not, label %10, label %12
 
 9:                                                ; preds = %10, %12, %2
-  %.0 = phi i1 [ false, %2 ], [ %13, %12 ], [ %11, %10 ]
-  ret i1 %.0
+  %.016 = phi i1 [ false, %2 ], [ %13, %12 ], [ %11, %10 ]
+  ret i1 %.016
 
 10:                                               ; preds = %5
   %11 = icmp ule i64 %4, %8

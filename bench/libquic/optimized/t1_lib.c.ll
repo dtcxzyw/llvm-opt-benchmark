@@ -1739,8 +1739,8 @@ if.end78:                                         ; preds = %if.end71
   br label %done
 
 done:                                             ; preds = %if.end48, %if.end19, %lor.lhs.false, %if.end9, %if.then5, %if.end58, %if.end37, %if.end29, %if.else, %entry, %if.end78, %if.then77, %if.then70
-  %ret.0 = phi i32 [ 1, %entry ], [ 1, %if.end9 ], [ 1, %if.end29 ], [ 1, %if.end37 ], [ 1, %if.end58 ], [ 1, %if.then77 ], [ 1, %if.end78 ], [ 1, %if.then70 ], [ 1, %if.else ], [ 0, %if.then5 ], [ 0, %lor.lhs.false ], [ 0, %if.end19 ], [ 0, %if.end48 ]
   %plaintext.0 = phi ptr [ null, %entry ], [ null, %if.end9 ], [ null, %if.end29 ], [ null, %if.end37 ], [ %call54, %if.end58 ], [ %call54, %if.then77 ], [ %call54, %if.end78 ], [ %call54, %if.then70 ], [ null, %if.else ], [ null, %if.then5 ], [ null, %lor.lhs.false ], [ null, %if.end19 ], [ null, %if.end48 ]
+  %ret.0 = phi i32 [ 1, %entry ], [ 1, %if.end9 ], [ 1, %if.end29 ], [ 1, %if.end37 ], [ 1, %if.end58 ], [ 1, %if.then77 ], [ 1, %if.end78 ], [ 1, %if.then70 ], [ 1, %if.else ], [ 0, %if.then5 ], [ 0, %lor.lhs.false ], [ 0, %if.end19 ], [ 0, %if.end48 ]
   call void @free(ptr noundef %plaintext.0) #20
   call void @HMAC_CTX_cleanup(ptr noundef nonnull %hmac_ctx) #20
   %call82 = call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %cipher_ctx) #20

@@ -834,9 +834,9 @@ define dso_local void @_ZNK6cmUuid14BinaryToStringB5cxx11EPKh(ptr dead_on_unwind
   br label %7
 
 7:                                                ; preds = %3, %._crit_edge
-  %.01529 = phi i64 [ 0, %3 ], [ %47, %._crit_edge ]
-  %.01628 = phi i64 [ 0, %3 ], [ %.1.lcssa, %._crit_edge ]
-  %.not = icmp eq i64 %.01529, 0
+  %.01329 = phi i64 [ 0, %3 ], [ %.1.lcssa, %._crit_edge ]
+  %.01628 = phi i64 [ 0, %3 ], [ %47, %._crit_edge ]
+  %.not = icmp eq i64 %.01628, 0
   br i1 %.not, label %.split, label %8
 
 8:                                                ; preds = %7
@@ -844,7 +844,7 @@ define dso_local void @_ZNK6cmUuid14BinaryToStringB5cxx11EPKh(ptr dead_on_unwind
           to label %.split17 unwind label %11
 
 .split17:                                         ; preds = %8
-  %10 = getelementptr inbounds [5 x i32], ptr @_ZL11kUuidGroups, i64 0, i64 %.01529
+  %10 = getelementptr inbounds [5 x i32], ptr @_ZL11kUuidGroups, i64 0, i64 %.01628
   br label %.split
 
 11:                                               ; preds = %8
@@ -860,11 +860,11 @@ define dso_local void @_ZNK6cmUuid14BinaryToStringB5cxx11EPKh(ptr dead_on_unwind
 
 .lr.ph.preheader:                                 ; preds = %.split
   %14 = sext i32 %13 to i64
-  %15 = add i64 %.01628, %14
+  %15 = add i64 %.01329, %14
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %44
-  %.126 = phi i64 [ %16, %44 ], [ %.01628, %.lr.ph.preheader ]
+  %.126 = phi i64 [ %16, %44 ], [ %.01329, %.lr.ph.preheader ]
   %16 = add i64 %.126, 1
   %17 = getelementptr inbounds i8, ptr %2, i64 %.126
   %18 = load i8, ptr %17, align 1
@@ -962,8 +962,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %.body
 
 ._crit_edge:                                      ; preds = %44, %.split
-  %.1.lcssa = phi i64 [ %.01628, %.split ], [ %15, %44 ]
-  %47 = add nuw nsw i64 %.01529, 1
+  %.1.lcssa = phi i64 [ %.01329, %.split ], [ %15, %44 ]
+  %47 = add nuw nsw i64 %.01628, 1
   %exitcond36.not = icmp eq i64 %47, 5
   br i1 %exitcond36.not, label %48, label %7, !llvm.loop !17
 
@@ -1117,7 +1117,7 @@ define dso_local noundef zeroext i1 @_ZNK6cmUuid18StringToBinaryImplERKNSt7__cxx
   br label %21
 
 21:                                               ; preds = %19, %15, %9
-  %.022.ph = phi i8 [ %12, %9 ], [ %16, %15 ], [ %20, %19 ]
+  %.021.ph = phi i8 [ %12, %9 ], [ %16, %15 ], [ %20, %19 ]
   %22 = or disjoint i64 %.029, 1
   %23 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %22) #16
   %24 = load i8, ptr %23, align 1
@@ -1144,9 +1144,9 @@ define dso_local noundef zeroext i1 @_ZNK6cmUuid18StringToBinaryImplERKNSt7__cxx
   br label %34
 
 34:                                               ; preds = %32, %28, %21
-  %.021.ph = phi i8 [ %25, %21 ], [ %29, %28 ], [ %33, %32 ]
-  %35 = shl nuw i8 %.022.ph, 4
-  %36 = or i8 %.021.ph, %35
+  %.022.ph = phi i8 [ %25, %21 ], [ %29, %28 ], [ %33, %32 ]
+  %35 = shl nuw i8 %.021.ph, 4
+  %36 = or i8 %.022.ph, %35
   %37 = load ptr, ptr %7, align 8
   %38 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %37, %38

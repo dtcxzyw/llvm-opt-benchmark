@@ -86,30 +86,30 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %10
 
 8:                                                ; preds = %596, %69
-  %.0248 = phi ptr [ %574, %596 ], [ %.2250, %69 ]
-  %.0243 = phi ptr [ %575, %596 ], [ %72, %69 ]
+  %.0247 = phi ptr [ %575, %596 ], [ %72, %69 ]
+  %.0241 = phi ptr [ %574, %596 ], [ %.2243, %69 ]
   %.0232.shrunk = phi i8 [ %.in, %596 ], [ %71, %69 ]
   %.0232 = zext i8 %.0232.shrunk to i32
-  %9 = getelementptr inbounds i8, ptr %.0248, i64 1
+  %9 = getelementptr inbounds i8, ptr %.0241, i64 1
   br label %10
 
 10:                                               ; preds = %8, %0
-  %.0255 = phi ptr [ %1, %0 ], [ %.1256, %8 ]
-  %.1249 = phi ptr [ %1, %0 ], [ %9, %8 ]
-  %.0246 = phi ptr [ %2, %0 ], [ %.1247, %8 ]
-  %.1244 = phi ptr [ %2, %0 ], [ %.0243, %8 ]
+  %.1248 = phi ptr [ %2, %0 ], [ %.0247, %8 ]
+  %.0245 = phi ptr [ %2, %0 ], [ %.1246, %8 ]
+  %.1242 = phi ptr [ %1, %0 ], [ %9, %8 ]
+  %.0238 = phi ptr [ %1, %0 ], [ %.1239, %8 ]
   %.0236 = phi i64 [ 200, %0 ], [ %.1237, %8 ]
   %.1 = phi i32 [ 0, %0 ], [ %.0232, %8 ]
   %11 = trunc nuw i32 %.1 to i8
-  store i8 %11, ptr %.1249, align 1
-  %12 = getelementptr inbounds i8, ptr %.0255, i64 %.0236
+  store i8 %11, ptr %.1242, align 1
+  %12 = getelementptr inbounds i8, ptr %.0238, i64 %.0236
   %13 = getelementptr inbounds i8, ptr %12, i64 -1
-  %.not = icmp ugt ptr %13, %.1249
+  %.not = icmp ugt ptr %13, %.1242
   br i1 %.not, label %35, label %14
 
 14:                                               ; preds = %10
-  %15 = ptrtoint ptr %.1249 to i64
-  %16 = ptrtoint ptr %.0255 to i64
+  %15 = ptrtoint ptr %.1242 to i64
+  %16 = ptrtoint ptr %.0238 to i64
   %17 = sub i64 %15, %16
   %18 = add nsw i64 %17, 1
   %19 = icmp sgt i64 %.0236, 9999
@@ -125,17 +125,17 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %.not284, label %601, label %25
 
 25:                                               ; preds = %20
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 1 %.0255, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 1 %.0238, i64 %18, i1 false)
   %26 = add nsw i64 %spec.store.select, 7
   %27 = sdiv i64 %26, 8
   %28 = getelementptr inbounds %union.yyalloc, ptr %24, i64 %27
   %29 = shl i64 %18, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %.0246, i64 %29, i1 false)
-  %.not285 = icmp eq ptr %.0255, %1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %.0245, i64 %29, i1 false)
+  %.not285 = icmp eq ptr %.0238, %1
   br i1 %.not285, label %31, label %30
 
 30:                                               ; preds = %25
-  call void @free(ptr noundef %.0255) #9
+  call void @free(ptr noundef %.0238) #9
   br label %31
 
 31:                                               ; preds = %30, %25
@@ -146,10 +146,10 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %.not286, label %35, label %.loopexit.thread
 
 35:                                               ; preds = %31, %10
-  %.1256 = phi ptr [ %24, %31 ], [ %.0255, %10 ]
-  %.2250 = phi ptr [ %32, %31 ], [ %.1249, %10 ]
-  %.1247 = phi ptr [ %28, %31 ], [ %.0246, %10 ]
-  %.2245 = phi ptr [ %34, %31 ], [ %.1244, %10 ]
+  %.2249 = phi ptr [ %34, %31 ], [ %.1248, %10 ]
+  %.1246 = phi ptr [ %28, %31 ], [ %.0245, %10 ]
+  %.2243 = phi ptr [ %32, %31 ], [ %.1242, %10 ]
+  %.1239 = phi ptr [ %24, %31 ], [ %.0238, %10 ]
   %.1237 = phi i64 [ %spec.store.select, %31 ], [ %.0236, %10 ]
   %36 = icmp eq i32 %.1, 61
   br i1 %36, label %.loopexit, label %37
@@ -201,8 +201,8 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %62
 
 62:                                               ; preds = %57, %55, %51
-  %.0240 = phi i32 [ 0, %51 ], [ %61, %57 ], [ 2, %55 ]
-  %63 = add nsw i32 %.0240, %41
+  %.0256 = phi i32 [ 0, %51 ], [ %61, %57 ], [ 2, %55 ]
+  %63 = add nsw i32 %.0256, %41
   %or.cond3 = icmp ugt i32 %63, 206
   br i1 %or.cond3, label %74, label %64
 
@@ -211,13 +211,13 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %66 = getelementptr inbounds [207 x i8], ptr @yycheck, i64 0, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = sext i8 %67 to i32
-  %.not287 = icmp eq i32 %.0240, %68
+  %.not287 = icmp eq i32 %.0256, %68
   br i1 %.not287, label %69, label %74
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds [207 x i8], ptr @yytable, i64 0, i64 %65
   %71 = load i8, ptr %70, align 1
-  %72 = getelementptr inbounds i8, ptr %.2245, i64 8
+  %72 = getelementptr inbounds i8, ptr %.2249, i64 8
   %73 = load i64, ptr @H5LTyylval, align 8
   store i64 %73, ptr %72, align 8
   store i32 -2, ptr @H5LTyychar, align 4
@@ -235,7 +235,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %81 = load i8, ptr %80, align 1
   %82 = sext i8 %81 to i64
   %83 = sub nsw i64 1, %82
-  %84 = getelementptr inbounds %union.YYSTYPE, ptr %.2245, i64 %83
+  %84 = getelementptr inbounds %union.YYSTYPE, ptr %.2249, i64 %83
   %.sroa.0.0.copyload = load ptr, ptr %84, align 8
   switch i8 %76, label %571 [
     i8 2, label %85
@@ -620,15 +620,15 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %299, label %300, label %318
 
 300:                                              ; preds = %292
-  %301 = getelementptr inbounds i8, ptr %.2245, i64 -32
+  %301 = getelementptr inbounds i8, ptr %.2249, i64 -32
   %302 = load i64, ptr %301, align 8
   %303 = call i64 @H5Tget_size(i64 noundef %302) #9
-  %304 = getelementptr inbounds i8, ptr %.2245, i64 -8
+  %304 = getelementptr inbounds i8, ptr %.2249, i64 -8
   %305 = load i32, ptr %304, align 8
   %306 = sext i32 %305 to i64
   %307 = add i64 %303, %306
   %308 = call i32 @H5Tset_size(i64 noundef %296, i64 noundef %307) #9
-  %309 = getelementptr inbounds i8, ptr %.2245, i64 -16
+  %309 = getelementptr inbounds i8, ptr %.2249, i64 -16
   %310 = load ptr, ptr %309, align 8
   %311 = load i32, ptr %304, align 8
   %312 = sext i32 %311 to i64
@@ -642,18 +642,18 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 318:                                              ; preds = %292
   %319 = call i64 @H5Tget_size(i64 noundef %296) #9
-  %320 = getelementptr inbounds i8, ptr %.2245, i64 -8
+  %320 = getelementptr inbounds i8, ptr %.2249, i64 -8
   %321 = load i32, ptr %320, align 8
   %322 = icmp eq i32 %321, 0
   br i1 %322, label %323, label %333
 
 323:                                              ; preds = %318
-  %324 = getelementptr inbounds i8, ptr %.2245, i64 -32
+  %324 = getelementptr inbounds i8, ptr %.2249, i64 -32
   %325 = load i64, ptr %324, align 8
   %326 = call i64 @H5Tget_size(i64 noundef %325) #9
   %327 = add i64 %326, %319
   %328 = call i32 @H5Tset_size(i64 noundef %296, i64 noundef %327) #9
-  %329 = getelementptr inbounds i8, ptr %.2245, i64 -16
+  %329 = getelementptr inbounds i8, ptr %.2249, i64 -16
   %330 = load ptr, ptr %329, align 8
   %331 = load i64, ptr %324, align 8
   %332 = call i32 @H5Tinsert(i64 noundef %296, ptr noundef %330, i64 noundef %319, i64 noundef %331) #9
@@ -661,12 +661,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 333:                                              ; preds = %318
   %334 = sext i32 %321 to i64
-  %335 = getelementptr inbounds i8, ptr %.2245, i64 -32
+  %335 = getelementptr inbounds i8, ptr %.2249, i64 -32
   %336 = load i64, ptr %335, align 8
   %337 = call i64 @H5Tget_size(i64 noundef %336) #9
   %338 = add i64 %337, %334
   %339 = call i32 @H5Tset_size(i64 noundef %296, i64 noundef %338) #9
-  %340 = getelementptr inbounds i8, ptr %.2245, i64 -16
+  %340 = getelementptr inbounds i8, ptr %.2249, i64 -16
   %341 = load ptr, ptr %340, align 8
   %342 = load i32, ptr %320, align 8
   %343 = sext i32 %342 to i64
@@ -675,7 +675,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %346
 
 346:                                              ; preds = %323, %333, %300
-  %347 = getelementptr inbounds i8, ptr %.2245, i64 -16
+  %347 = getelementptr inbounds i8, ptr %.2249, i64 -16
   %348 = load ptr, ptr %347, align 8
   %.not308 = icmp eq ptr %348, null
   br i1 %.not308, label %350, label %349
@@ -690,7 +690,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %352 = sext i32 %351 to i64
   %353 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %352, i32 1
   store i8 0, ptr %353, align 8
-  %354 = getelementptr inbounds i8, ptr %.2245, i64 -32
+  %354 = getelementptr inbounds i8, ptr %.2249, i64 -32
   %355 = load i64, ptr %354, align 8
   %356 = call i32 @H5Tclose(i64 noundef %355) #9
   %357 = call i64 @H5Tget_size(i64 noundef %296) #9
@@ -725,7 +725,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %571
 
 371:                                              ; preds = %78
-  %372 = getelementptr inbounds i8, ptr %.2245, i64 -8
+  %372 = getelementptr inbounds i8, ptr %.2249, i64 -8
   %373 = load i64, ptr %372, align 8
   %374 = load i32, ptr @asindex, align 4
   %375 = sext i32 %374 to i64
@@ -771,7 +771,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %571
 
 405:                                              ; preds = %78
-  %406 = getelementptr inbounds i8, ptr %.2245, i64 -8
+  %406 = getelementptr inbounds i8, ptr %.2249, i64 -8
   %407 = load i64, ptr %406, align 8
   %408 = call i64 @H5Tvlen_create(i64 noundef %407) #9
   %409 = inttoptr i64 %408 to ptr
@@ -787,7 +787,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %571
 
 417:                                              ; preds = %78
-  %418 = getelementptr inbounds i8, ptr %.2245, i64 -24
+  %418 = getelementptr inbounds i8, ptr %.2249, i64 -24
   %419 = load i64, ptr %418, align 8
   %420 = load ptr, ptr @H5LTyylval, align 8
   %421 = call i32 @H5Tset_tag(i64 noundef %419, ptr noundef %420) #9
@@ -797,13 +797,13 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %571
 
 423:                                              ; preds = %78
-  %424 = getelementptr inbounds i8, ptr %.2245, i64 -40
+  %424 = getelementptr inbounds i8, ptr %.2249, i64 -40
   %425 = load i64, ptr %424, align 8
   %426 = inttoptr i64 %425 to ptr
   br label %571
 
 427:                                              ; preds = %78
-  %428 = getelementptr inbounds i8, ptr %.2245, i64 -8
+  %428 = getelementptr inbounds i8, ptr %.2249, i64 -8
   %429 = load i32, ptr %428, align 8
   %430 = icmp eq i32 %429, 300
   br i1 %430, label %431, label %432
@@ -819,7 +819,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %571
 
 435:                                              ; preds = %78
-  %436 = getelementptr inbounds i8, ptr %.2245, i64 -8
+  %436 = getelementptr inbounds i8, ptr %.2249, i64 -8
   %437 = load i32, ptr %436, align 8
   switch i32 %437, label %571 [
     i32 301, label %438
@@ -840,7 +840,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %571
 
 441:                                              ; preds = %78
-  %442 = getelementptr inbounds i8, ptr %.2245, i64 -8
+  %442 = getelementptr inbounds i8, ptr %.2249, i64 -8
   %443 = load i32, ptr %442, align 8
   switch i32 %443, label %571 [
     i32 304, label %444
@@ -856,7 +856,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %571
 
 446:                                              ; preds = %78
-  %447 = getelementptr inbounds i8, ptr %.2245, i64 -8
+  %447 = getelementptr inbounds i8, ptr %.2249, i64 -8
   %448 = load i64, ptr %447, align 8
   switch i64 %448, label %571 [
     i64 306, label %449
@@ -878,7 +878,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %571
 
 459:                                              ; preds = %78
-  %460 = getelementptr inbounds i8, ptr %.2245, i64 -8
+  %460 = getelementptr inbounds i8, ptr %.2249, i64 -8
   %461 = load i64, ptr %460, align 8
   %.b307 = load i1, ptr @is_variable, align 1
   br i1 %.b307, label %462, label %464
@@ -952,7 +952,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 493:                                              ; preds = %78
   store i1 true, ptr @is_enum, align 1
-  %494 = getelementptr inbounds i8, ptr %.2245, i64 -8
+  %494 = getelementptr inbounds i8, ptr %.2249, i64 -8
   %495 = load i64, ptr %494, align 8
   %496 = call i64 @H5Tenum_create(i64 noundef %495) #9
   store i64 %496, ptr @enum_id, align 8
@@ -1117,8 +1117,8 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 571:                                              ; preds = %446, %441, %435, %78, %449, %454, %444, %445, %438, %440, %439, %431, %432, %568, %502, %499, %493, %492, %491, %488, %485, %482, %479, %476, %473, %467, %423, %417, %412, %405, %391, %387, %371, %368, %364, %361, %358, %350, %288, %280, %273, %268, %263, %258, %253, %248, %243, %238, %233, %228, %223, %218, %213, %208, %203, %198, %193, %188, %183, %178, %173, %168, %163, %158, %153, %148, %143, %138, %133, %128, %123, %118, %113, %108, %103, %98, %93, %88, %85
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %78 ], [ %.sroa.0.0.copyload, %568 ], [ %.sroa.0.0.copyload, %502 ], [ %501, %499 ], [ %.sroa.0.0.copyload, %493 ], [ inttoptr (i64 307 to ptr), %492 ], [ inttoptr (i64 306 to ptr), %491 ], [ %490, %488 ], [ %487, %485 ], [ %484, %482 ], [ %481, %479 ], [ %478, %476 ], [ %475, %473 ], [ %472, %467 ], [ %453, %449 ], [ %458, %454 ], [ %.sroa.0.0.copyload, %444 ], [ %.sroa.0.0.copyload, %445 ], [ %.sroa.0.0.copyload, %438 ], [ %.sroa.0.0.copyload, %439 ], [ %.sroa.0.0.copyload, %440 ], [ %.sroa.0.0.copyload, %431 ], [ %.sroa.0.0.copyload, %432 ], [ %426, %423 ], [ %.sroa.0.0.copyload, %417 ], [ %416, %412 ], [ %409, %405 ], [ %.sroa.0.0.copyload, %391 ], [ %.sroa.0.0.copyload, %387 ], [ %380, %371 ], [ %.sroa.0.0.copyload, %368 ], [ %367, %364 ], [ %363, %361 ], [ %360, %358 ], [ %.sroa.0.0.copyload, %350 ], [ %.sroa.0.0.copyload, %288 ], [ %285, %280 ], [ %.sroa.0.0.copyload, %273 ], [ %272, %268 ], [ %267, %263 ], [ %262, %258 ], [ %257, %253 ], [ %252, %248 ], [ %247, %243 ], [ %242, %238 ], [ %237, %233 ], [ %232, %228 ], [ %227, %223 ], [ %222, %218 ], [ %217, %213 ], [ %212, %208 ], [ %207, %203 ], [ %202, %198 ], [ %197, %193 ], [ %192, %188 ], [ %187, %183 ], [ %182, %178 ], [ %177, %173 ], [ %172, %168 ], [ %167, %163 ], [ %162, %158 ], [ %157, %153 ], [ %152, %148 ], [ %147, %143 ], [ %142, %138 ], [ %137, %133 ], [ %132, %128 ], [ %127, %123 ], [ %122, %118 ], [ %117, %113 ], [ %112, %108 ], [ %107, %103 ], [ %102, %98 ], [ %97, %93 ], [ %92, %88 ], [ %.sroa.0.0.copyload, %85 ], [ %.sroa.0.0.copyload, %435 ], [ %.sroa.0.0.copyload, %441 ], [ %.sroa.0.0.copyload, %446 ]
   %572 = sub nsw i64 0, %82
-  %573 = getelementptr inbounds %union.YYSTYPE, ptr %.2245, i64 %572
-  %574 = getelementptr inbounds i8, ptr %.2250, i64 %572
+  %573 = getelementptr inbounds %union.YYSTYPE, ptr %.2249, i64 %572
+  %574 = getelementptr inbounds i8, ptr %.2243, i64 %572
   %575 = getelementptr inbounds i8, ptr %573, i64 8
   store ptr %.sroa.0.0, ptr %575, align 8
   %576 = getelementptr inbounds [96 x i8], ptr @yyr1, i64 0, i64 %79
@@ -1167,19 +1167,19 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %54, %597, %601
-  %.3258 = phi ptr [ %.0255, %601 ], [ %.1256, %597 ], [ %.1256, %54 ], [ %.1256, %35 ]
-  %.0241 = phi i64 [ 2, %601 ], [ 1, %597 ], [ 1, %54 ], [ 0, %35 ]
-  %.not312 = icmp eq ptr %.3258, %1
+  %.0255 = phi i64 [ 2, %601 ], [ 1, %597 ], [ 1, %54 ], [ 0, %35 ]
+  %.3 = phi ptr [ %.0238, %601 ], [ %.1239, %597 ], [ %.1239, %54 ], [ %.1239, %35 ]
+  %.not312 = icmp eq ptr %.3, %1
   br i1 %.not312, label %603, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %31, %.loopexit
-  %.0241358 = phi i64 [ %.0241, %.loopexit ], [ 1, %31 ]
-  %.3258357 = phi ptr [ %.3258, %.loopexit ], [ %24, %31 ]
-  call void @free(ptr noundef %.3258357) #9
+  %.3358 = phi ptr [ %.3, %.loopexit ], [ %24, %31 ]
+  %.0255357 = phi i64 [ %.0255, %.loopexit ], [ 1, %31 ]
+  call void @free(ptr noundef %.3358) #9
   br label %603
 
 603:                                              ; preds = %.loopexit, %.loopexit.thread, %86
-  %.0 = phi i64 [ %87, %86 ], [ %.0241358, %.loopexit.thread ], [ %.0241, %.loopexit ]
+  %.0 = phi i64 [ %87, %86 ], [ %.0255357, %.loopexit.thread ], [ %.0255, %.loopexit ]
   ret i64 %.0
 }
 

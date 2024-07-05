@@ -835,9 +835,9 @@ define dso_local void @CheckpointWriteDelay(i32 noundef %0, double noundef %1) l
   br label %27
 
 27:                                               ; preds = %25, %23
-  %.0.i = phi i64 [ %24, %23 ], [ %26, %25 ]
+  %.09.i = phi i64 [ %24, %23 ], [ %26, %25 ]
   %28 = load i64, ptr @ckpt_start_recptr, align 8
-  %29 = sub i64 %.0.i, %28
+  %29 = sub i64 %.09.i, %28
   %30 = uitofp i64 %29 to double
   %31 = load i32, ptr @wal_segment_size, align 4
   %32 = sitofp i32 %31 to double
@@ -1350,7 +1350,7 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr nocapture noundef re
 .lr.ph.i:                                         ; preds = %25, %53
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %25 ]
   %41 = phi ptr [ %56, %53 ], [ %37, %25 ]
-  %.02228.i = phi i32 [ %.1.i, %53 ], [ 0, %25 ]
+  %.02527.i = phi i32 [ %.126.i, %53 ], [ 0, %25 ]
   %42 = getelementptr inbounds i8, ptr %41, i64 56
   %43 = getelementptr [0 x %struct.CheckpointerRequest], ptr %42, i64 0, i64 %indvars.iv.i
   %44 = call ptr @hash_search(ptr noundef %36, ptr noundef %43, i32 noundef 1, ptr noundef nonnull %4) #13
@@ -1364,11 +1364,11 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr nocapture noundef re
   %50 = sext i32 %49 to i64
   %51 = getelementptr i8, ptr %27, i64 %50
   store i8 1, ptr %51, align 1
-  %52 = add i32 %.02228.i, 1
+  %52 = add i32 %.02527.i, 1
   br label %53
 
 53:                                               ; preds = %47, %.lr.ph.i
-  %.1.i = phi i32 [ %52, %47 ], [ %.02228.i, %.lr.ph.i ]
+  %.126.i = phi i32 [ %52, %47 ], [ %.02527.i, %.lr.ph.i ]
   %54 = getelementptr inbounds i8, ptr %44, i64 32
   %55 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %55, ptr %54, align 8
@@ -1381,7 +1381,7 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr nocapture noundef re
   br i1 %60, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %53
-  %.not9 = icmp eq i32 %.1.i, 0
+  %.not9 = icmp eq i32 %.126.i, 0
   call void @hash_destroy(ptr noundef %36) #13
   br i1 %.not9, label %CompactCheckpointerRequestQueue.exit.thread, label %.preheader.i
 
@@ -1399,15 +1399,15 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr nocapture noundef re
 66:                                               ; preds = %76, %.lr.ph31.i
   %67 = phi i32 [ %63, %.lr.ph31.i ], [ %77, %76 ]
   %indvars.iv35.i = phi i64 [ 0, %.lr.ph31.i ], [ %indvars.iv.next36.i, %76 ]
-  %.02330.i = phi i32 [ 0, %.lr.ph31.i ], [ %.124.i, %76 ]
+  %.02329.i = phi i32 [ 0, %.lr.ph31.i ], [ %.124.i, %76 ]
   %68 = getelementptr i8, ptr %27, i64 %indvars.iv35.i
   %69 = load i8, ptr %68, align 1
   %70 = trunc i8 %69 to i1
   br i1 %70, label %76, label %71
 
 71:                                               ; preds = %66
-  %72 = add i32 %.02330.i, 1
-  %73 = sext i32 %.02330.i to i64
+  %72 = add i32 %.02329.i, 1
+  %73 = sext i32 %.02329.i to i64
   %74 = getelementptr [0 x %struct.CheckpointerRequest], ptr %65, i64 0, i64 %73
   %75 = getelementptr [0 x %struct.CheckpointerRequest], ptr %65, i64 0, i64 %indvars.iv35.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %75, i64 32, i1 false)
@@ -1416,7 +1416,7 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr nocapture noundef re
 
 76:                                               ; preds = %71, %66
   %77 = phi i32 [ %67, %66 ], [ %.pre.i, %71 ]
-  %.124.i = phi i32 [ %.02330.i, %66 ], [ %72, %71 ]
+  %.124.i = phi i32 [ %.02329.i, %66 ], [ %72, %71 ]
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next36.i, %78

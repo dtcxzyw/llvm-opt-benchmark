@@ -72,11 +72,11 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %1 = phi ptr [ %8, %for.inc ], [ %0, %for.cond.preheader ]
   %argp.0104 = phi ptr [ %argp.0, %for.inc ], [ %argp.097, %for.cond.preheader ]
-  %argv.pn103 = phi ptr [ %argp.0104, %for.inc ], [ %argv, %for.cond.preheader ]
-  %dir.0102 = phi ptr [ %dir.1, %for.inc ], [ null, %for.cond.preheader ]
-  %allow_bare.0101 = phi i32 [ %allow_bare.1, %for.inc ], [ 0, %for.cond.preheader ]
-  %nr_prec.0100 = phi i32 [ %nr_prec.1, %for.inc ], [ 4, %for.cond.preheader ]
-  %nr.099 = phi i32 [ %nr.1, %for.inc ], [ 0, %for.cond.preheader ]
+  %nr.0103 = phi i32 [ %nr.1, %for.inc ], [ 0, %for.cond.preheader ]
+  %argv.pn102 = phi ptr [ %argp.0104, %for.inc ], [ %argv, %for.cond.preheader ]
+  %dir.0101 = phi ptr [ %dir.1, %for.inc ], [ null, %for.cond.preheader ]
+  %allow_bare.0100 = phi i32 [ %allow_bare.1, %for.inc ], [ 0, %for.cond.preheader ]
+  %nr_prec.099 = phi i32 [ %nr_prec.1, %for.inc ], [ 4, %for.cond.preheader ]
   %2 = load i8, ptr %1, align 1
   %cmp.not = icmp eq i8 %2, 45
   br i1 %cmp.not, label %if.end4, label %for.end
@@ -163,7 +163,7 @@ land.lhs.true64:                                  ; preds = %if.else59
   br i1 %tobool66.not, label %if.then67, label %if.else68
 
 if.then67:                                        ; preds = %land.lhs.true64
-  %incdec.ptr = getelementptr inbounds i8, ptr %argv.pn103, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %argv.pn102, i64 16
   br label %for.end
 
 if.else68:                                        ; preds = %land.lhs.true64, %if.else59
@@ -171,29 +171,29 @@ if.else68:                                        ; preds = %land.lhs.true64, %i
   unreachable
 
 for.inc:                                          ; preds = %land.lhs.true49, %land.lhs.true, %if.then43, %if.then58, %if.then22, %if.then9
-  %nr.1 = phi i32 [ %nr.099, %if.then9 ], [ %conv25, %if.then22 ], [ %nr.099, %if.then58 ], [ %nr.099, %if.then43 ], [ %nr.099, %land.lhs.true ], [ %nr.099, %land.lhs.true49 ]
-  %nr_prec.1 = phi i32 [ %conv11, %if.then9 ], [ %nr_prec.0100, %if.then22 ], [ %nr_prec.0100, %if.then58 ], [ %nr_prec.0100, %if.then43 ], [ %nr_prec.0100, %land.lhs.true ], [ %nr_prec.0100, %land.lhs.true49 ]
-  %allow_bare.1 = phi i32 [ %allow_bare.0101, %if.then9 ], [ %allow_bare.0101, %if.then22 ], [ %allow_bare.0101, %if.then58 ], [ %allow_bare.0101, %if.then43 ], [ 1, %land.lhs.true ], [ %allow_bare.0101, %land.lhs.true49 ]
-  %dir.1 = phi ptr [ %dir.0102, %if.then9 ], [ %dir.0102, %if.then22 ], [ %dir.0102, %if.then58 ], [ %dir.0102, %if.then43 ], [ %dir.0102, %land.lhs.true ], [ %arrayidx50, %land.lhs.true49 ]
+  %nr_prec.1 = phi i32 [ %conv11, %if.then9 ], [ %nr_prec.099, %if.then22 ], [ %nr_prec.099, %if.then58 ], [ %nr_prec.099, %if.then43 ], [ %nr_prec.099, %land.lhs.true ], [ %nr_prec.099, %land.lhs.true49 ]
+  %allow_bare.1 = phi i32 [ %allow_bare.0100, %if.then9 ], [ %allow_bare.0100, %if.then22 ], [ %allow_bare.0100, %if.then58 ], [ %allow_bare.0100, %if.then43 ], [ 1, %land.lhs.true ], [ %allow_bare.0100, %land.lhs.true49 ]
+  %dir.1 = phi ptr [ %dir.0101, %if.then9 ], [ %dir.0101, %if.then22 ], [ %dir.0101, %if.then58 ], [ %dir.0101, %if.then43 ], [ %dir.0101, %land.lhs.true ], [ %arrayidx50, %land.lhs.true49 ]
+  %nr.1 = phi i32 [ %nr.0103, %if.then9 ], [ %conv25, %if.then22 ], [ %nr.0103, %if.then58 ], [ %nr.0103, %if.then43 ], [ %nr.0103, %land.lhs.true ], [ %nr.0103, %land.lhs.true49 ]
   %argp.0 = getelementptr inbounds i8, ptr %argp.0104, i64 8
   %8 = load ptr, ptr %argp.0, align 8
   %tobool1.not = icmp eq ptr %8, null
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %for.body, %if.then67
-  %nr.093 = phi i32 [ %nr.099, %if.then67 ], [ %nr.1, %for.inc ], [ %nr.099, %for.body ]
-  %nr_prec.089 = phi i32 [ %nr_prec.0100, %if.then67 ], [ %nr_prec.1, %for.inc ], [ %nr_prec.0100, %for.body ]
-  %allow_bare.085 = phi i32 [ %allow_bare.0101, %if.then67 ], [ %allow_bare.1, %for.inc ], [ %allow_bare.0101, %for.body ]
-  %dir.081 = phi ptr [ %dir.0102, %if.then67 ], [ %dir.1, %for.inc ], [ %dir.0102, %for.body ]
+  %nr_prec.093 = phi i32 [ %nr_prec.099, %if.then67 ], [ %nr_prec.1, %for.inc ], [ %nr_prec.099, %for.body ]
+  %allow_bare.089 = phi i32 [ %allow_bare.0100, %if.then67 ], [ %allow_bare.1, %for.inc ], [ %allow_bare.0100, %for.body ]
+  %dir.085 = phi ptr [ %dir.0101, %if.then67 ], [ %dir.1, %for.inc ], [ %dir.0101, %for.body ]
+  %nr.078 = phi i32 [ %nr.0103, %if.then67 ], [ %nr.1, %for.inc ], [ %nr.0103, %for.body ]
   %argp.1 = phi ptr [ %incdec.ptr, %if.then67 ], [ %argp.0, %for.inc ], [ %argp.0104, %for.body ]
-  %tobool77.not = icmp eq ptr %dir.081, null
+  %tobool77.not = icmp eq ptr %dir.085, null
   br i1 %tobool77.not, label %if.then78, label %if.else84
 
 if.then78:                                        ; preds = %for.cond.preheader, %for.end
   %argp.1164 = phi ptr [ %argp.1, %for.end ], [ %argp.097, %for.cond.preheader ]
-  %allow_bare.085163 = phi i32 [ %allow_bare.085, %for.end ], [ 0, %for.cond.preheader ]
-  %nr_prec.089161 = phi i32 [ %nr_prec.089, %for.end ], [ 4, %for.cond.preheader ]
-  %nr.093159 = phi i32 [ %nr.093, %for.end ], [ 0, %for.cond.preheader ]
+  %nr.078163 = phi i32 [ %nr.078, %for.end ], [ 0, %for.cond.preheader ]
+  %allow_bare.089161 = phi i32 [ %allow_bare.089, %for.end ], [ 0, %for.cond.preheader ]
+  %nr_prec.093159 = phi i32 [ %nr_prec.093, %for.end ], [ 4, %for.cond.preheader ]
   %conv79 = sext i32 %argc to i64
   %sub.ptr.lhs.cast = ptrtoint ptr %argp.1164 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %argv to i64
@@ -227,19 +227,19 @@ if.else84:                                        ; preds = %for.end
   br label %if.end88thread-pre-split
 
 if.end88thread-pre-split:                         ; preds = %if.else84, %sw.bb
-  %allow_bare.085162.ph = phi i32 [ %allow_bare.085163, %sw.bb ], [ %allow_bare.085, %if.else84 ]
-  %nr_prec.089160.ph = phi i32 [ %nr_prec.089161, %sw.bb ], [ %nr_prec.089, %if.else84 ]
-  %nr.093158.ph = phi i32 [ %nr.093159, %sw.bb ], [ %nr.093, %if.else84 ]
-  %dir.2.ph = phi ptr [ %9, %sw.bb ], [ %dir.081, %if.else84 ]
+  %nr.078162.ph = phi i32 [ %nr.078163, %sw.bb ], [ %nr.078, %if.else84 ]
+  %allow_bare.089160.ph = phi i32 [ %allow_bare.089161, %sw.bb ], [ %allow_bare.089, %if.else84 ]
+  %nr_prec.093158.ph = phi i32 [ %nr_prec.093159, %sw.bb ], [ %nr_prec.093, %if.else84 ]
+  %dir.2.ph = phi ptr [ %9, %sw.bb ], [ %dir.085, %if.else84 ]
   %argp.2.ph = phi ptr [ @cmd_mailsplit.stdin_only, %sw.bb ], [ %spec.store.select, %if.else84 ]
   %.pr = load ptr, ptr %argp.2.ph, align 8
   br label %if.end88
 
 if.end88:                                         ; preds = %if.end88thread-pre-split, %sw.bb81
   %13 = phi ptr [ %.pr, %if.end88thread-pre-split ], [ %10, %sw.bb81 ]
-  %allow_bare.085162 = phi i32 [ %allow_bare.085162.ph, %if.end88thread-pre-split ], [ %allow_bare.085163, %sw.bb81 ]
-  %nr_prec.089160 = phi i32 [ %nr_prec.089160.ph, %if.end88thread-pre-split ], [ %nr_prec.089161, %sw.bb81 ]
-  %nr.093158 = phi i32 [ %nr.093158.ph, %if.end88thread-pre-split ], [ %nr.093159, %sw.bb81 ]
+  %nr.078162 = phi i32 [ %nr.078162.ph, %if.end88thread-pre-split ], [ %nr.078163, %sw.bb81 ]
+  %allow_bare.089160 = phi i32 [ %allow_bare.089160.ph, %if.end88thread-pre-split ], [ %allow_bare.089161, %sw.bb81 ]
+  %nr_prec.093158 = phi i32 [ %nr_prec.093158.ph, %if.end88thread-pre-split ], [ %nr_prec.093159, %sw.bb81 ]
   %dir.2 = phi ptr [ %dir.2.ph, %if.end88thread-pre-split ], [ %11, %sw.bb81 ]
   %argp.2 = phi ptr [ %argp.2.ph, %if.end88thread-pre-split ], [ @cmd_mailsplit.stdin_only, %sw.bb81 ]
   %tobool89.not115 = icmp eq ptr %13, null
@@ -254,10 +254,10 @@ while.body.lr.ph:                                 ; preds = %if.end88
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %15 = phi ptr [ %13, %while.body.lr.ph ], [ %18, %while.cond.backedge ]
-  %argp.3118 = phi ptr [ %argp.2, %while.body.lr.ph ], [ %incdec.ptr91, %while.cond.backedge ]
-  %num.0117 = phi i32 [ 0, %while.body.lr.ph ], [ %add, %while.cond.backedge ]
-  %nr.2116 = phi i32 [ %nr.093158, %while.body.lr.ph ], [ %call102.sink, %while.cond.backedge ]
-  %incdec.ptr91 = getelementptr inbounds i8, ptr %argp.3118, i64 8
+  %nr.2118 = phi i32 [ %nr.078162, %while.body.lr.ph ], [ %call102.sink, %while.cond.backedge ]
+  %argp.3117 = phi ptr [ %argp.2, %while.body.lr.ph ], [ %incdec.ptr91, %while.cond.backedge ]
+  %num.0116 = phi i32 [ 0, %while.body.lr.ph ], [ %add, %while.cond.backedge ]
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %argp.3117, i64 8
   %16 = load i8, ptr %15, align 1
   %cmp94 = icmp eq i8 %16, 45
   br i1 %cmp94, label %land.lhs.true96, label %if.end110
@@ -269,7 +269,7 @@ land.lhs.true96:                                  ; preds = %while.body
   br i1 %cmp99, label %if.then101, label %if.end110
 
 if.then101:                                       ; preds = %land.lhs.true96
-  %call102 = call fastcc i32 @split_mbox(ptr noundef nonnull %15, ptr noundef %dir.2, i32 noundef %allow_bare.085162, i32 noundef %nr_prec.089160, i32 noundef %nr.2116)
+  %call102 = call fastcc i32 @split_mbox(ptr noundef nonnull %15, ptr noundef %dir.2, i32 noundef %allow_bare.089160, i32 noundef %nr_prec.093158, i32 noundef %nr.2118)
   %cmp103 = icmp slt i32 %call102, 0
   br i1 %cmp103, label %if.then105, label %while.cond.backedge
 
@@ -279,7 +279,7 @@ if.then105:                                       ; preds = %if.then101
 
 while.cond.backedge:                              ; preds = %if.then101, %if.end124
   %call102.sink = phi i32 [ %ret.0, %if.end124 ], [ %call102, %if.then101 ]
-  %sub109 = sub i32 %num.0117, %nr.2116
+  %sub109 = sub i32 %num.0116, %nr.2118
   %add = add i32 %sub109, %call102.sink
   %18 = load ptr, ptr %incdec.ptr91, align 8
   %tobool89.not = icmp eq ptr %18, null
@@ -369,7 +369,7 @@ populate_maildir_list.exit.i:                     ; preds = %for.inc.i.i
 
 for.body.i:                                       ; preds = %populate_maildir_list.exit.i, %if.end15.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end15.i ], [ 0, %populate_maildir_list.exit.i ]
-  %skip.addr.034.i = phi i32 [ %inc.i, %if.end15.i ], [ %nr.2116, %populate_maildir_list.exit.i ]
+  %skip.addr.034.i = phi i32 [ %inc.i, %if.end15.i ], [ %nr.2118, %populate_maildir_list.exit.i ]
   %file.032.i = phi ptr [ %call4.i, %if.end15.i ], [ null, %populate_maildir_list.exit.i ]
   call void @free(ptr noundef %file.032.i) #16
   %25 = load ptr, ptr %list.i, align 8
@@ -391,7 +391,7 @@ if.end9.i:                                        ; preds = %for.body.i
 
 if.end15.i:                                       ; preds = %if.end9.i
   %inc.i = add nsw i32 %skip.addr.034.i, 1
-  %call16.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.15, ptr noundef %dir.2, i32 noundef %nr_prec.089160, i32 noundef %inc.i) #16
+  %call16.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.15, ptr noundef %dir.2, i32 noundef %nr_prec.093158, i32 noundef %inc.i) #16
   %call17.i = call fastcc i32 @split_one(ptr noundef nonnull %call5.i, ptr noundef %call16.i, i32 noundef 1)
   call void @free(ptr noundef %call16.i) #16
   %call18.i = call i32 @fclose(ptr noundef nonnull %call5.i)
@@ -406,7 +406,7 @@ if.then21.i:                                      ; preds = %if.end9.i
   br label %split_maildir.exit
 
 split_maildir.exit:                               ; preds = %if.end15.i, %populate_maildir_list.exit.thread.i, %populate_maildir_list.exit.i, %if.then6.i, %if.then21.i
-  %ret.023.i = phi i32 [ -1, %if.then21.i ], [ -1, %populate_maildir_list.exit.thread.i ], [ -1, %if.then6.i ], [ %nr.2116, %populate_maildir_list.exit.i ], [ %inc.i, %if.end15.i ]
+  %ret.023.i = phi i32 [ -1, %if.then21.i ], [ -1, %populate_maildir_list.exit.thread.i ], [ -1, %if.then6.i ], [ %nr.2118, %populate_maildir_list.exit.i ], [ %inc.i, %if.end15.i ]
   %file.122.i = phi ptr [ %call4.i, %if.then21.i ], [ null, %populate_maildir_list.exit.thread.i ], [ %call4.i, %if.then6.i ], [ null, %populate_maildir_list.exit.i ], [ %call4.i, %if.end15.i ]
   call void @free(ptr noundef %file.122.i) #16
   call void @string_list_clear(ptr noundef nonnull %list.i, i32 noundef 1) #16
@@ -414,7 +414,7 @@ split_maildir.exit:                               ; preds = %if.end15.i, %popula
   br label %if.end124
 
 if.else122:                                       ; preds = %if.end117
-  %call123 = call fastcc i32 @split_mbox(ptr noundef nonnull %15, ptr noundef %dir.2, i32 noundef %allow_bare.085162, i32 noundef %nr_prec.089160, i32 noundef %nr.2116)
+  %call123 = call fastcc i32 @split_mbox(ptr noundef nonnull %15, ptr noundef %dir.2, i32 noundef %allow_bare.089160, i32 noundef %nr_prec.093158, i32 noundef %nr.2118)
   br label %if.end124
 
 if.end124:                                        ; preds = %if.else122, %split_maildir.exit

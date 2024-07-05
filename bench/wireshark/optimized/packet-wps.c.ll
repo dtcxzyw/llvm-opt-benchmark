@@ -828,33 +828,33 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %10, label %._crit_edge, label %.lr.ph769
 
 11:                                               ; preds = %dissect_wps_vendor_ext.exit
-  %12 = add i32 %21, %.0698762767
+  %12 = add i32 %21, %.0696763767
   %13 = icmp ult i32 %722, 4
   br i1 %13, label %._crit_edge, label %.lr.ph769, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %11, %.lr.ph
-  %.0697763.lcssa = phi ptr [ null, %.lr.ph ], [ %.1737, %11 ]
-  %14 = icmp ne ptr %.0697763.lcssa, null
+  %.0698762.lcssa = phi ptr [ null, %.lr.ph ], [ %.1737, %11 ]
+  %14 = icmp ne ptr %.0698762.lcssa, null
   %or.cond = and i1 %8, %14
   br i1 %or.cond, label %15, label %.loopexit
 
 15:                                               ; preds = %._crit_edge
-  %16 = call ptr @expert_add_info(ptr noundef nonnull %4, ptr noundef nonnull %.0697763.lcssa, ptr noundef nonnull @ei_eapwps_packet_too_short) #3
+  %16 = call ptr @expert_add_info(ptr noundef nonnull %4, ptr noundef nonnull %.0698762.lcssa, ptr noundef nonnull @ei_eapwps_packet_too_short) #3
   br label %.loopexit
 
 .lr.ph769:                                        ; preds = %.lr.ph, %11
   %.0699761768 = phi i32 [ %722, %11 ], [ %3, %.lr.ph ]
-  %.0698762767 = phi i32 [ %12, %11 ], [ %2, %.lr.ph ]
-  %17 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.0698762767) #3
-  %18 = add i32 %.0698762767, 2
+  %.0696763767 = phi i32 [ %12, %11 ], [ %2, %.lr.ph ]
+  %17 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.0696763767) #3
+  %18 = add i32 %.0696763767, 2
   %19 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %18) #3
   %20 = zext i16 %19 to i32
   %21 = add nuw nsw i32 %20, 4
   %22 = load i32, ptr @ett_wps_tlv, align 4
   %23 = zext i16 %17 to i32
-  %24 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %.0698762767, i32 noundef %21, i32 noundef %22, ptr noundef nonnull %6, ptr noundef nonnull @.str.2, i32 noundef %23) #3
+  %24 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %.0696763767, i32 noundef %21, i32 noundef %22, ptr noundef nonnull %6, ptr noundef nonnull @.str.2, i32 noundef %23) #3
   %25 = load i32, ptr @hf_eapwps_tlv_type, align 4
-  %26 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %1, i32 noundef %.0698762767, i32 noundef 2, i32 noundef 0) #3
+  %26 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %1, i32 noundef %.0696763767, i32 noundef 2, i32 noundef 0) #3
   %27 = load i32, ptr @hf_eapwps_tlv_len, align 4
   %28 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %27, ptr noundef %1, i32 noundef %18, i32 noundef 2, i32 noundef 0) #3
   switch i16 %17, label %.thread [
@@ -949,28 +949,28 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 29:                                               ; preds = %.lr.ph769
   %30 = load i32, ptr @hf_eapwps_tlv_ap_channel, align 4
-  %31 = add i32 %.0698762767, 4
+  %31 = add i32 %.0696763767, 4
   %32 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %30, ptr noundef %1, i32 noundef %31, i32 noundef 2, i32 noundef 0) #3
   %33 = load i32, ptr @hf_eapwps_tlv_ap_channel, align 4
   br label %665
 
 34:                                               ; preds = %.lr.ph769
   %35 = load i32, ptr @hf_eapwps_tlv_association_state, align 4
-  %36 = add i32 %.0698762767, 4
+  %36 = add i32 %.0696763767, 4
   %37 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %35, ptr noundef %1, i32 noundef %36, i32 noundef 2, i32 noundef 0) #3
   %38 = load i32, ptr @hf_eapwps_tlv_association_state, align 4
   br label %665
 
 39:                                               ; preds = %.lr.ph769
   %40 = load i32, ptr @hf_eapwps_tlv_authentication_type, align 4
-  %41 = add i32 %.0698762767, 4
+  %41 = add i32 %.0696763767, 4
   %42 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %40, ptr noundef %1, i32 noundef %41, i32 noundef 2, i32 noundef 0) #3
   %43 = load i32, ptr @hf_eapwps_tlv_authentication_type, align 4
   br label %665
 
 44:                                               ; preds = %.lr.ph769
   %45 = load i32, ptr @hf_eapwps_tlv_authentication_type_flags, align 4
-  %46 = add i32 %.0698762767, 4
+  %46 = add i32 %.0696763767, 4
   %47 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %45, ptr noundef %1, i32 noundef %46, i32 noundef 2, i32 noundef 0) #3
   %48 = load i32, ptr @hf_eapwps_tlv_authentication_type_flags, align 4
   %49 = load i32, ptr @hf_eapwps_tlv_authentication_type_flags_open, align 4
@@ -989,7 +989,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 61:                                               ; preds = %.lr.ph769
   %62 = load i32, ptr @hf_eapwps_tlv_authenticator, align 4
-  %63 = add i32 %.0698762767, 4
+  %63 = add i32 %.0696763767, 4
   %64 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %62, ptr noundef %1, i32 noundef %63, i32 noundef 8, i32 noundef 0) #3
   %65 = load i32, ptr @hf_eapwps_tlv_authenticator, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %64, ptr noundef nonnull @.str.3) #3
@@ -997,7 +997,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 66:                                               ; preds = %.lr.ph769
   %67 = load i32, ptr @hf_eapwps_tlv_config_methods, align 4
-  %68 = add i32 %.0698762767, 4
+  %68 = add i32 %.0696763767, 4
   %69 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %67, ptr noundef %1, i32 noundef %68, i32 noundef 2, i32 noundef 0) #3
   %70 = load i32, ptr @hf_eapwps_tlv_config_methods, align 4
   %71 = load i32, ptr @hf_eapwps_tlv_config_methods_usba, align 4
@@ -1030,14 +1030,14 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 97:                                               ; preds = %.lr.ph769
   %98 = load i32, ptr @hf_eapwps_tlv_configuration_error, align 4
-  %99 = add i32 %.0698762767, 4
+  %99 = add i32 %.0696763767, 4
   %100 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %98, ptr noundef %1, i32 noundef %99, i32 noundef 2, i32 noundef 0) #3
   %101 = load i32, ptr @hf_eapwps_tlv_configuration_error, align 4
   br label %665
 
 102:                                              ; preds = %.lr.ph769
   %103 = load i32, ptr @hf_eapwps_tlv_confirmation_url4, align 4
-  %104 = add i32 %.0698762767, 4
+  %104 = add i32 %.0696763767, 4
   %105 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %103, ptr noundef %1, i32 noundef %104, i32 noundef %20, i32 noundef 0) #3
   %106 = load i32, ptr @hf_eapwps_tlv_confirmation_url4, align 4
   %107 = icmp ugt i16 %19, 64
@@ -1049,7 +1049,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 110:                                              ; preds = %.lr.ph769
   %111 = load i32, ptr @hf_eapwps_tlv_confirmation_url6, align 4
-  %112 = add i32 %.0698762767, 4
+  %112 = add i32 %.0696763767, 4
   %113 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %111, ptr noundef %1, i32 noundef %112, i32 noundef %20, i32 noundef 0) #3
   %114 = load i32, ptr @hf_eapwps_tlv_confirmation_url6, align 4
   %115 = icmp ugt i16 %19, 76
@@ -1061,14 +1061,14 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 118:                                              ; preds = %.lr.ph769
   %119 = load i32, ptr @hf_eapwps_tlv_connection_type, align 4
-  %120 = add i32 %.0698762767, 4
+  %120 = add i32 %.0696763767, 4
   %121 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %119, ptr noundef %1, i32 noundef %120, i32 noundef 1, i32 noundef 0) #3
   %122 = load i32, ptr @hf_eapwps_tlv_connection_type, align 4
   br label %665
 
 123:                                              ; preds = %.lr.ph769
   %124 = load i32, ptr @hf_eapwps_tlv_connection_type_flags, align 4
-  %125 = add i32 %.0698762767, 4
+  %125 = add i32 %.0696763767, 4
   %126 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %124, ptr noundef %1, i32 noundef %125, i32 noundef 1, i32 noundef 0) #3
   %127 = load i32, ptr @hf_eapwps_tlv_connection_type_flags, align 4
   %128 = load i32, ptr @hf_eapwps_tlv_connection_type_flags_ess, align 4
@@ -1079,14 +1079,14 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 132:                                              ; preds = %.lr.ph769
   %133 = load i32, ptr @hf_eapwps_tlv_credential, align 4
-  %134 = add i32 %.0698762767, 4
+  %134 = add i32 %.0696763767, 4
   %135 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %133, ptr noundef %1, i32 noundef %134, i32 noundef %20, i32 noundef 0) #3
   %136 = load i32, ptr @hf_eapwps_tlv_credential, align 4
   br label %665
 
 137:                                              ; preds = %.lr.ph769
   %138 = load i32, ptr @hf_eapwps_tlv_device_name, align 4
-  %139 = add i32 %.0698762767, 4
+  %139 = add i32 %.0696763767, 4
   %140 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %138, ptr noundef %1, i32 noundef %139, i32 noundef %20, i32 noundef 0) #3
   %141 = load i32, ptr @hf_eapwps_tlv_device_name, align 4
   %142 = icmp ugt i16 %19, 32
@@ -1099,14 +1099,14 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 145:                                              ; preds = %.lr.ph769
   %146 = load i32, ptr @hf_eapwps_tlv_device_password_id, align 4
-  %147 = add i32 %.0698762767, 4
+  %147 = add i32 %.0696763767, 4
   %148 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %146, ptr noundef %1, i32 noundef %147, i32 noundef 2, i32 noundef 0) #3
   %149 = load i32, ptr @hf_eapwps_tlv_device_password_id, align 4
   br label %665
 
 150:                                              ; preds = %.lr.ph769
   %151 = load i32, ptr @hf_eapwps_tlv_e_hash1, align 4
-  %152 = add i32 %.0698762767, 4
+  %152 = add i32 %.0696763767, 4
   %153 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %151, ptr noundef %1, i32 noundef %152, i32 noundef 32, i32 noundef 0) #3
   %154 = load i32, ptr @hf_eapwps_tlv_e_hash1, align 4
   %155 = icmp ne i16 %19, 32
@@ -1119,7 +1119,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 158:                                              ; preds = %.lr.ph769
   %159 = load i32, ptr @hf_eapwps_tlv_e_hash2, align 4
-  %160 = add i32 %.0698762767, 4
+  %160 = add i32 %.0696763767, 4
   %161 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %159, ptr noundef %1, i32 noundef %160, i32 noundef 32, i32 noundef 0) #3
   %162 = load i32, ptr @hf_eapwps_tlv_e_hash2, align 4
   %163 = icmp ne i16 %19, 32
@@ -1132,7 +1132,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 166:                                              ; preds = %.lr.ph769
   %167 = load i32, ptr @hf_eapwps_tlv_e_snonce1, align 4
-  %168 = add i32 %.0698762767, 4
+  %168 = add i32 %.0696763767, 4
   %169 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %167, ptr noundef %1, i32 noundef %168, i32 noundef 16, i32 noundef 0) #3
   %170 = load i32, ptr @hf_eapwps_tlv_e_snonce1, align 4
   %171 = icmp ne i16 %19, 16
@@ -1145,7 +1145,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 174:                                              ; preds = %.lr.ph769
   %175 = load i32, ptr @hf_eapwps_tlv_e_snonce2, align 4
-  %176 = add i32 %.0698762767, 4
+  %176 = add i32 %.0696763767, 4
   %177 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %175, ptr noundef %1, i32 noundef %176, i32 noundef 16, i32 noundef 0) #3
   %178 = load i32, ptr @hf_eapwps_tlv_e_snonce2, align 4
   %179 = icmp ne i16 %19, 16
@@ -1158,21 +1158,21 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 182:                                              ; preds = %.lr.ph769
   %183 = load i32, ptr @hf_eapwps_tlv_encrypted_settings, align 4
-  %184 = add i32 %.0698762767, 4
+  %184 = add i32 %.0696763767, 4
   %185 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %183, ptr noundef %1, i32 noundef %184, i32 noundef %20, i32 noundef 0) #3
   %186 = load i32, ptr @hf_eapwps_tlv_encrypted_settings, align 4
   br label %665
 
 187:                                              ; preds = %.lr.ph769
   %188 = load i32, ptr @hf_eapwps_tlv_encryption_type, align 4
-  %189 = add i32 %.0698762767, 4
+  %189 = add i32 %.0696763767, 4
   %190 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %188, ptr noundef %1, i32 noundef %189, i32 noundef 2, i32 noundef 0) #3
   %191 = load i32, ptr @hf_eapwps_tlv_encryption_type, align 4
   br label %665
 
 192:                                              ; preds = %.lr.ph769
   %193 = load i32, ptr @hf_eapwps_tlv_encryption_type_flags, align 4
-  %194 = add i32 %.0698762767, 4
+  %194 = add i32 %.0696763767, 4
   %195 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %193, ptr noundef %1, i32 noundef %194, i32 noundef 2, i32 noundef 0) #3
   %196 = load i32, ptr @hf_eapwps_tlv_encryption_type_flags, align 4
   %197 = load i32, ptr @hf_eapwps_tlv_encryption_type_flags_none, align 4
@@ -1187,7 +1187,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 205:                                              ; preds = %.lr.ph769
   %206 = load i32, ptr @hf_eapwps_tlv_enrollee_nonce, align 4
-  %207 = add i32 %.0698762767, 4
+  %207 = add i32 %.0696763767, 4
   %208 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %206, ptr noundef %1, i32 noundef %207, i32 noundef 16, i32 noundef 0) #3
   %209 = load i32, ptr @hf_eapwps_tlv_enrollee_nonce, align 4
   %210 = icmp ne i16 %19, 16
@@ -1200,14 +1200,14 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 213:                                              ; preds = %.lr.ph769
   %214 = load i32, ptr @hf_eapwps_tlv_feature_id, align 4
-  %215 = add i32 %.0698762767, 4
+  %215 = add i32 %.0696763767, 4
   %216 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %214, ptr noundef %1, i32 noundef %215, i32 noundef 4, i32 noundef 0) #3
   %217 = load i32, ptr @hf_eapwps_tlv_feature_id, align 4
   br label %665
 
 218:                                              ; preds = %.lr.ph769
   %219 = load i32, ptr @hf_eapwps_tlv_identity, align 4
-  %220 = add i32 %.0698762767, 4
+  %220 = add i32 %.0696763767, 4
   %221 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %219, ptr noundef %1, i32 noundef %220, i32 noundef %20, i32 noundef 0) #3
   %222 = load i32, ptr @hf_eapwps_tlv_identity, align 4
   %223 = icmp ugt i16 %19, 80
@@ -1220,35 +1220,35 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 226:                                              ; preds = %.lr.ph769
   %227 = load i32, ptr @hf_eapwps_tlv_identity_proof, align 4
-  %228 = add i32 %.0698762767, 4
+  %228 = add i32 %.0696763767, 4
   %229 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %227, ptr noundef %1, i32 noundef %228, i32 noundef %20, i32 noundef 0) #3
   %230 = load i32, ptr @hf_eapwps_tlv_identity_proof, align 4
   br label %665
 
 231:                                              ; preds = %.lr.ph769
   %232 = load i32, ptr @hf_eapwps_tlv_key_wrap_authenticator, align 4
-  %233 = add i32 %.0698762767, 4
+  %233 = add i32 %.0696763767, 4
   %234 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %232, ptr noundef %1, i32 noundef %233, i32 noundef 8, i32 noundef 0) #3
   %235 = load i32, ptr @hf_eapwps_tlv_key_wrap_authenticator, align 4
   br label %665
 
 236:                                              ; preds = %.lr.ph769
   %237 = load i32, ptr @hf_eapwps_tlv_key_identifier, align 4
-  %238 = add i32 %.0698762767, 4
+  %238 = add i32 %.0696763767, 4
   %239 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %237, ptr noundef %1, i32 noundef %238, i32 noundef 16, i32 noundef 0) #3
   %240 = load i32, ptr @hf_eapwps_tlv_key_identifier, align 4
   br label %665
 
 241:                                              ; preds = %.lr.ph769
   %242 = load i32, ptr @hf_eapwps_tlv_mac_address, align 4
-  %243 = add i32 %.0698762767, 4
+  %243 = add i32 %.0696763767, 4
   %244 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %242, ptr noundef %1, i32 noundef %243, i32 noundef 6, i32 noundef 0) #3
   %245 = load i32, ptr @hf_eapwps_tlv_mac_address, align 4
   br label %665
 
 246:                                              ; preds = %.lr.ph769
   %247 = load i32, ptr @hf_eapwps_tlv_manufacturer, align 4
-  %248 = add i32 %.0698762767, 4
+  %248 = add i32 %.0696763767, 4
   %249 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %247, ptr noundef %1, i32 noundef %248, i32 noundef %20, i32 noundef 0) #3
   %250 = load i32, ptr @hf_eapwps_tlv_manufacturer, align 4
   %251 = icmp ugt i16 %19, 64
@@ -1261,7 +1261,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 254:                                              ; preds = %.lr.ph769
   %255 = load i32, ptr @hf_eapwps_tlv_message_type, align 4
-  %256 = add i32 %.0698762767, 4
+  %256 = add i32 %.0696763767, 4
   %257 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %255, ptr noundef %1, i32 noundef %256, i32 noundef 1, i32 noundef 0) #3
   %258 = load i32, ptr @hf_eapwps_tlv_message_type, align 4
   br i1 %.not, label %665, label %259
@@ -1276,7 +1276,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 264:                                              ; preds = %.lr.ph769
   %265 = load i32, ptr @hf_eapwps_tlv_model_name, align 4
-  %266 = add i32 %.0698762767, 4
+  %266 = add i32 %.0696763767, 4
   %267 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %265, ptr noundef %1, i32 noundef %266, i32 noundef %20, i32 noundef 0) #3
   %268 = load i32, ptr @hf_eapwps_tlv_model_name, align 4
   %269 = icmp ugt i16 %19, 32
@@ -1289,7 +1289,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 272:                                              ; preds = %.lr.ph769
   %273 = load i32, ptr @hf_eapwps_tlv_model_number, align 4
-  %274 = add i32 %.0698762767, 4
+  %274 = add i32 %.0696763767, 4
   %275 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %273, ptr noundef %1, i32 noundef %274, i32 noundef %20, i32 noundef 0) #3
   %276 = load i32, ptr @hf_eapwps_tlv_model_number, align 4
   %277 = icmp ugt i16 %19, 32
@@ -1302,14 +1302,14 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 280:                                              ; preds = %.lr.ph769
   %281 = load i32, ptr @hf_eapwps_tlv_network_index, align 4
-  %282 = add i32 %.0698762767, 4
+  %282 = add i32 %.0696763767, 4
   %283 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %281, ptr noundef %1, i32 noundef %282, i32 noundef 1, i32 noundef 0) #3
   %284 = load i32, ptr @hf_eapwps_tlv_network_index, align 4
   br label %665
 
 285:                                              ; preds = %.lr.ph769
   %286 = load i32, ptr @hf_eapwps_tlv_network_key, align 4
-  %287 = add i32 %.0698762767, 4
+  %287 = add i32 %.0696763767, 4
   %288 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %286, ptr noundef %1, i32 noundef %287, i32 noundef %20, i32 noundef 0) #3
   %289 = load i32, ptr @hf_eapwps_tlv_network_key, align 4
   %290 = icmp ugt i16 %19, 64
@@ -1322,14 +1322,14 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 293:                                              ; preds = %.lr.ph769
   %294 = load i32, ptr @hf_eapwps_tlv_network_key_index, align 4
-  %295 = add i32 %.0698762767, 4
+  %295 = add i32 %.0696763767, 4
   %296 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %294, ptr noundef %1, i32 noundef %295, i32 noundef 1, i32 noundef 0) #3
   %297 = load i32, ptr @hf_eapwps_tlv_network_key_index, align 4
   br label %665
 
 298:                                              ; preds = %.lr.ph769
   %299 = load i32, ptr @hf_eapwps_tlv_new_device_name, align 4
-  %300 = add i32 %.0698762767, 4
+  %300 = add i32 %.0696763767, 4
   %301 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %299, ptr noundef %1, i32 noundef %300, i32 noundef %20, i32 noundef 0) #3
   %302 = load i32, ptr @hf_eapwps_tlv_new_device_name, align 4
   %303 = icmp ugt i16 %19, 32
@@ -1342,7 +1342,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 306:                                              ; preds = %.lr.ph769
   %307 = load i32, ptr @hf_eapwps_tlv_new_password, align 4
-  %308 = add i32 %.0698762767, 4
+  %308 = add i32 %.0696763767, 4
   %309 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %307, ptr noundef %1, i32 noundef %308, i32 noundef %20, i32 noundef 0) #3
   %310 = load i32, ptr @hf_eapwps_tlv_new_password, align 4
   %311 = icmp ugt i16 %19, 64
@@ -1355,7 +1355,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 314:                                              ; preds = %.lr.ph769
   %315 = load i32, ptr @hf_eapwps_tlv_oob_device_password, align 4
-  %316 = add i32 %.0698762767, 4
+  %316 = add i32 %.0696763767, 4
   %317 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %315, ptr noundef %1, i32 noundef %316, i32 noundef %20, i32 noundef 0) #3
   %318 = load i32, ptr @hf_eapwps_tlv_oob_device_password, align 4
   %319 = icmp ugt i16 %19, 56
@@ -1368,35 +1368,35 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 322:                                              ; preds = %.lr.ph769
   %323 = load i32, ptr @hf_eapwps_tlv_os_version, align 4
-  %324 = add i32 %.0698762767, 4
+  %324 = add i32 %.0696763767, 4
   %325 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %323, ptr noundef %1, i32 noundef %324, i32 noundef 4, i32 noundef 0) #3
   %326 = load i32, ptr @hf_eapwps_tlv_os_version, align 4
   br label %665
 
 327:                                              ; preds = %.lr.ph769
   %328 = load i32, ptr @hf_eapwps_tlv_power_level, align 4
-  %329 = add i32 %.0698762767, 4
+  %329 = add i32 %.0696763767, 4
   %330 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %328, ptr noundef %1, i32 noundef %329, i32 noundef 1, i32 noundef 0) #3
   %331 = load i32, ptr @hf_eapwps_tlv_power_level, align 4
   br label %665
 
 332:                                              ; preds = %.lr.ph769
   %333 = load i32, ptr @hf_eapwps_tlv_psk_current, align 4
-  %334 = add i32 %.0698762767, 4
+  %334 = add i32 %.0696763767, 4
   %335 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %333, ptr noundef %1, i32 noundef %334, i32 noundef 1, i32 noundef 0) #3
   %336 = load i32, ptr @hf_eapwps_tlv_psk_current, align 4
   br label %665
 
 337:                                              ; preds = %.lr.ph769
   %338 = load i32, ptr @hf_eapwps_tlv_psk_max, align 4
-  %339 = add i32 %.0698762767, 4
+  %339 = add i32 %.0696763767, 4
   %340 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %338, ptr noundef %1, i32 noundef %339, i32 noundef 1, i32 noundef 0) #3
   %341 = load i32, ptr @hf_eapwps_tlv_psk_max, align 4
   br label %665
 
 342:                                              ; preds = %.lr.ph769
   %343 = load i32, ptr @hf_eapwps_tlv_public_key, align 4
-  %344 = add i32 %.0698762767, 4
+  %344 = add i32 %.0696763767, 4
   %345 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %343, ptr noundef %1, i32 noundef %344, i32 noundef 192, i32 noundef 0) #3
   %346 = load i32, ptr @hf_eapwps_tlv_public_key, align 4
   %347 = icmp ne i16 %19, 192
@@ -1409,112 +1409,112 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 350:                                              ; preds = %.lr.ph769
   %351 = load i32, ptr @hf_eapwps_tlv_radio_enabled, align 4
-  %352 = add i32 %.0698762767, 4
+  %352 = add i32 %.0696763767, 4
   %353 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %351, ptr noundef %1, i32 noundef %352, i32 noundef 1, i32 noundef 0) #3
   %354 = load i32, ptr @hf_eapwps_tlv_radio_enabled, align 4
   br label %665
 
 355:                                              ; preds = %.lr.ph769
   %356 = load i32, ptr @hf_eapwps_tlv_reboot, align 4
-  %357 = add i32 %.0698762767, 4
+  %357 = add i32 %.0696763767, 4
   %358 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %356, ptr noundef %1, i32 noundef %357, i32 noundef 1, i32 noundef 0) #3
   %359 = load i32, ptr @hf_eapwps_tlv_reboot, align 4
   br label %665
 
 360:                                              ; preds = %.lr.ph769
   %361 = load i32, ptr @hf_eapwps_tlv_registrar_current, align 4
-  %362 = add i32 %.0698762767, 4
+  %362 = add i32 %.0696763767, 4
   %363 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %361, ptr noundef %1, i32 noundef %362, i32 noundef 1, i32 noundef 0) #3
   %364 = load i32, ptr @hf_eapwps_tlv_registrar_current, align 4
   br label %665
 
 365:                                              ; preds = %.lr.ph769
   %366 = load i32, ptr @hf_eapwps_tlv_registrar_established, align 4
-  %367 = add i32 %.0698762767, 4
+  %367 = add i32 %.0696763767, 4
   %368 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %366, ptr noundef %1, i32 noundef %367, i32 noundef 1, i32 noundef 0) #3
   %369 = load i32, ptr @hf_eapwps_tlv_registrar_established, align 4
   br label %665
 
 370:                                              ; preds = %.lr.ph769
   %371 = load i32, ptr @hf_eapwps_tlv_registrar_list, align 4
-  %372 = add i32 %.0698762767, 4
+  %372 = add i32 %.0696763767, 4
   %373 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %371, ptr noundef %1, i32 noundef %372, i32 noundef %20, i32 noundef 0) #3
   %374 = load i32, ptr @hf_eapwps_tlv_registrar_list, align 4
   br label %665
 
 375:                                              ; preds = %.lr.ph769
   %376 = load i32, ptr @hf_eapwps_tlv_registrar_max, align 4
-  %377 = add i32 %.0698762767, 4
+  %377 = add i32 %.0696763767, 4
   %378 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %376, ptr noundef %1, i32 noundef %377, i32 noundef 1, i32 noundef 0) #3
   %379 = load i32, ptr @hf_eapwps_tlv_registrar_max, align 4
   br label %665
 
 380:                                              ; preds = %.lr.ph769
   %381 = load i32, ptr @hf_eapwps_tlv_registrar_nonce, align 4
-  %382 = add i32 %.0698762767, 4
+  %382 = add i32 %.0696763767, 4
   %383 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %381, ptr noundef %1, i32 noundef %382, i32 noundef 16, i32 noundef 0) #3
   %384 = load i32, ptr @hf_eapwps_tlv_registrar_nonce, align 4
   br label %665
 
 385:                                              ; preds = %.lr.ph769
   %386 = load i32, ptr @hf_eapwps_tlv_request_type, align 4
-  %387 = add i32 %.0698762767, 4
+  %387 = add i32 %.0696763767, 4
   %388 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %386, ptr noundef %1, i32 noundef %387, i32 noundef 1, i32 noundef 0) #3
   %389 = load i32, ptr @hf_eapwps_tlv_request_type, align 4
   br label %665
 
 390:                                              ; preds = %.lr.ph769
   %391 = load i32, ptr @hf_eapwps_tlv_response_type, align 4
-  %392 = add i32 %.0698762767, 4
+  %392 = add i32 %.0696763767, 4
   %393 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %391, ptr noundef %1, i32 noundef %392, i32 noundef 1, i32 noundef 0) #3
   %394 = load i32, ptr @hf_eapwps_tlv_response_type, align 4
   br label %665
 
 395:                                              ; preds = %.lr.ph769
   %396 = load i32, ptr @hf_eapwps_tlv_rf_bands, align 4
-  %397 = add i32 %.0698762767, 4
+  %397 = add i32 %.0696763767, 4
   %398 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %396, ptr noundef %1, i32 noundef %397, i32 noundef 1, i32 noundef 0) #3
   %399 = load i32, ptr @hf_eapwps_tlv_rf_bands, align 4
   br label %665
 
 400:                                              ; preds = %.lr.ph769
   %401 = load i32, ptr @hf_eapwps_tlv_r_hash1, align 4
-  %402 = add i32 %.0698762767, 4
+  %402 = add i32 %.0696763767, 4
   %403 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %401, ptr noundef %1, i32 noundef %402, i32 noundef 32, i32 noundef 0) #3
   %404 = load i32, ptr @hf_eapwps_tlv_r_hash1, align 4
   br label %665
 
 405:                                              ; preds = %.lr.ph769
   %406 = load i32, ptr @hf_eapwps_tlv_r_hash2, align 4
-  %407 = add i32 %.0698762767, 4
+  %407 = add i32 %.0696763767, 4
   %408 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %406, ptr noundef %1, i32 noundef %407, i32 noundef 32, i32 noundef 0) #3
   %409 = load i32, ptr @hf_eapwps_tlv_r_hash2, align 4
   br label %665
 
 410:                                              ; preds = %.lr.ph769
   %411 = load i32, ptr @hf_eapwps_tlv_r_snonce1, align 4
-  %412 = add i32 %.0698762767, 4
+  %412 = add i32 %.0696763767, 4
   %413 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %411, ptr noundef %1, i32 noundef %412, i32 noundef 16, i32 noundef 0) #3
   %414 = load i32, ptr @hf_eapwps_tlv_r_snonce1, align 4
   br label %665
 
 415:                                              ; preds = %.lr.ph769
   %416 = load i32, ptr @hf_eapwps_tlv_r_snonce2, align 4
-  %417 = add i32 %.0698762767, 4
+  %417 = add i32 %.0696763767, 4
   %418 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %416, ptr noundef %1, i32 noundef %417, i32 noundef 16, i32 noundef 0) #3
   %419 = load i32, ptr @hf_eapwps_tlv_r_snonce2, align 4
   br label %665
 
 420:                                              ; preds = %.lr.ph769
   %421 = load i32, ptr @hf_eapwps_tlv_selected_registrar, align 4
-  %422 = add i32 %.0698762767, 4
+  %422 = add i32 %.0696763767, 4
   %423 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %421, ptr noundef %1, i32 noundef %422, i32 noundef 1, i32 noundef 0) #3
   %424 = load i32, ptr @hf_eapwps_tlv_selected_registrar, align 4
   br label %665
 
 425:                                              ; preds = %.lr.ph769
   %426 = load i32, ptr @hf_eapwps_tlv_serial_number, align 4
-  %427 = add i32 %.0698762767, 4
+  %427 = add i32 %.0696763767, 4
   %428 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %426, ptr noundef %1, i32 noundef %427, i32 noundef %20, i32 noundef 0) #3
   %429 = load i32, ptr @hf_eapwps_tlv_serial_number, align 4
   %430 = icmp ugt i16 %19, 32
@@ -1527,14 +1527,14 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 433:                                              ; preds = %.lr.ph769
   %434 = load i32, ptr @hf_eapwps_tlv_wifi_protected_setup_state, align 4
-  %435 = add i32 %.0698762767, 4
+  %435 = add i32 %.0696763767, 4
   %436 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %434, ptr noundef %1, i32 noundef %435, i32 noundef 1, i32 noundef 0) #3
   %437 = load i32, ptr @hf_eapwps_tlv_wifi_protected_setup_state, align 4
   br label %665
 
 438:                                              ; preds = %.lr.ph769
   %439 = load i32, ptr @hf_eapwps_tlv_ssid, align 4
-  %440 = add i32 %.0698762767, 4
+  %440 = add i32 %.0696763767, 4
   %441 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %439, ptr noundef %1, i32 noundef %440, i32 noundef %20, i32 noundef 0) #3
   %442 = load i32, ptr @hf_eapwps_tlv_ssid, align 4
   %443 = icmp ugt i16 %19, 32
@@ -1547,14 +1547,14 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 446:                                              ; preds = %.lr.ph769
   %447 = load i32, ptr @hf_eapwps_tlv_total_networks, align 4
-  %448 = add i32 %.0698762767, 4
+  %448 = add i32 %.0696763767, 4
   %449 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %447, ptr noundef %1, i32 noundef %448, i32 noundef 1, i32 noundef 0) #3
   %450 = load i32, ptr @hf_eapwps_tlv_total_networks, align 4
   br label %665
 
 451:                                              ; preds = %.lr.ph769
   %452 = load i32, ptr @hf_eapwps_tlv_uuid_e, align 4
-  %453 = add i32 %.0698762767, 4
+  %453 = add i32 %.0696763767, 4
   %454 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %452, ptr noundef %1, i32 noundef %453, i32 noundef %20, i32 noundef 0) #3
   %455 = load i32, ptr @hf_eapwps_tlv_uuid_e, align 4
   %456 = icmp ugt i16 %19, 16
@@ -1567,7 +1567,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 459:                                              ; preds = %.lr.ph769
   %460 = load i32, ptr @hf_eapwps_tlv_uuid_r, align 4
-  %461 = add i32 %.0698762767, 4
+  %461 = add i32 %.0696763767, 4
   %462 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %460, ptr noundef %1, i32 noundef %461, i32 noundef %20, i32 noundef 0) #3
   %463 = load i32, ptr @hf_eapwps_tlv_uuid_r, align 4
   %464 = icmp ugt i16 %19, 16
@@ -1580,35 +1580,35 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 467:                                              ; preds = %.lr.ph769
   %468 = load i32, ptr @hf_eapwps_tlv_vendor_extension, align 4
-  %469 = add i32 %.0698762767, 4
+  %469 = add i32 %.0696763767, 4
   %470 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %468, ptr noundef %1, i32 noundef %469, i32 noundef %20, i32 noundef 0) #3
   %471 = load i32, ptr @hf_eapwps_tlv_vendor_extension, align 4
   br label %665
 
 472:                                              ; preds = %.lr.ph769
   %473 = load i32, ptr @hf_eapwps_tlv_version, align 4
-  %474 = add i32 %.0698762767, 4
+  %474 = add i32 %.0696763767, 4
   %475 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %473, ptr noundef %1, i32 noundef %474, i32 noundef 1, i32 noundef 0) #3
   %476 = load i32, ptr @hf_eapwps_tlv_version, align 4
   br label %665
 
 477:                                              ; preds = %.lr.ph769
   %478 = load i32, ptr @hf_eapwps_tlv_x509_certificate_request, align 4
-  %479 = add i32 %.0698762767, 4
+  %479 = add i32 %.0696763767, 4
   %480 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %478, ptr noundef %1, i32 noundef %479, i32 noundef %20, i32 noundef 0) #3
   %481 = load i32, ptr @hf_eapwps_tlv_x509_certificate_request, align 4
   br label %665
 
 482:                                              ; preds = %.lr.ph769
   %483 = load i32, ptr @hf_eapwps_tlv_x509_certificate, align 4
-  %484 = add i32 %.0698762767, 4
+  %484 = add i32 %.0696763767, 4
   %485 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %483, ptr noundef %1, i32 noundef %484, i32 noundef %20, i32 noundef 0) #3
   %486 = load i32, ptr @hf_eapwps_tlv_x509_certificate, align 4
   br label %665
 
 487:                                              ; preds = %.lr.ph769
   %488 = load i32, ptr @hf_eapwps_tlv_eap_identity, align 4
-  %489 = add i32 %.0698762767, 4
+  %489 = add i32 %.0696763767, 4
   %490 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %488, ptr noundef %1, i32 noundef %489, i32 noundef %20, i32 noundef 0) #3
   %491 = load i32, ptr @hf_eapwps_tlv_eap_identity, align 4
   %492 = icmp ugt i16 %19, 64
@@ -1621,35 +1621,35 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 495:                                              ; preds = %.lr.ph769
   %496 = load i32, ptr @hf_eapwps_tlv_message_counter, align 4
-  %497 = add i32 %.0698762767, 4
+  %497 = add i32 %.0696763767, 4
   %498 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %496, ptr noundef %1, i32 noundef %497, i32 noundef 8, i32 noundef 0) #3
   %499 = load i32, ptr @hf_eapwps_tlv_message_counter, align 4
   br label %665
 
 500:                                              ; preds = %.lr.ph769
   %501 = load i32, ptr @hf_eapwps_tlv_public_key_hash, align 4
-  %502 = add i32 %.0698762767, 4
+  %502 = add i32 %.0696763767, 4
   %503 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %501, ptr noundef %1, i32 noundef %502, i32 noundef 20, i32 noundef 0) #3
   %504 = load i32, ptr @hf_eapwps_tlv_public_key_hash, align 4
   br label %665
 
 505:                                              ; preds = %.lr.ph769
   %506 = load i32, ptr @hf_eapwps_tlv_rekey_key, align 4
-  %507 = add i32 %.0698762767, 4
+  %507 = add i32 %.0696763767, 4
   %508 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %506, ptr noundef %1, i32 noundef %507, i32 noundef 32, i32 noundef 0) #3
   %509 = load i32, ptr @hf_eapwps_tlv_rekey_key, align 4
   br label %665
 
 510:                                              ; preds = %.lr.ph769
   %511 = load i32, ptr @hf_eapwps_tlv_key_lifetime, align 4
-  %512 = add i32 %.0698762767, 4
+  %512 = add i32 %.0696763767, 4
   %513 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %511, ptr noundef %1, i32 noundef %512, i32 noundef 4, i32 noundef 0) #3
   %514 = load i32, ptr @hf_eapwps_tlv_key_lifetime, align 4
   br label %665
 
 515:                                              ; preds = %.lr.ph769
   %516 = load i32, ptr @hf_eapwps_tlv_permitted_config_methods, align 4
-  %517 = add i32 %.0698762767, 4
+  %517 = add i32 %.0696763767, 4
   %518 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %516, ptr noundef %1, i32 noundef %517, i32 noundef 2, i32 noundef 0) #3
   %519 = load i32, ptr @hf_eapwps_tlv_permitted_config_methods, align 4
   %520 = load i32, ptr @hf_eapwps_tlv_permitted_config_methods_usba, align 4
@@ -1682,7 +1682,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 546:                                              ; preds = %.lr.ph769
   %547 = load i32, ptr @hf_eapwps_tlv_selected_registrar_config_methods, align 4
-  %548 = add i32 %.0698762767, 4
+  %548 = add i32 %.0696763767, 4
   %549 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %547, ptr noundef %1, i32 noundef %548, i32 noundef 2, i32 noundef 0) #3
   %550 = load i32, ptr @hf_eapwps_tlv_selected_registrar_config_methods, align 4
   %551 = load i32, ptr @hf_eapwps_tlv_selected_registrar_config_methods_usba, align 4
@@ -1715,10 +1715,10 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 577:                                              ; preds = %.lr.ph769
   %578 = load i32, ptr @hf_eapwps_tlv_primary_device_type, align 4
-  %579 = add i32 %.0698762767, 4
+  %579 = add i32 %.0696763767, 4
   %580 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %578, ptr noundef %1, i32 noundef %579, i32 noundef 8, i32 noundef 0) #3
   %581 = load i32, ptr @hf_eapwps_tlv_primary_device_type, align 4
-  %582 = add i32 %.0698762767, 6
+  %582 = add i32 %.0696763767, 6
   %583 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %582) #3
   %584 = icmp eq i32 %583, 5304836
   br i1 %584, label %585, label %665
@@ -1737,13 +1737,13 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   %593 = and i64 %592, 4294967295
   %594 = getelementptr [11 x i32], ptr @hf_eapwps_tlv_primary_device_type_subcategory, i64 0, i64 %593
   %595 = load i32, ptr %594, align 4
-  %596 = add i32 %.0698762767, 10
+  %596 = add i32 %.0696763767, 10
   %597 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %595, ptr noundef %1, i32 noundef %596, i32 noundef 2, i32 noundef 0) #3
   br label %665
 
 598:                                              ; preds = %.lr.ph769
   %599 = load i32, ptr @hf_eapwps_tlv_secondary_device_type_list, align 4
-  %600 = add i32 %.0698762767, 4
+  %600 = add i32 %.0696763767, 4
   %601 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %599, ptr noundef %1, i32 noundef %600, i32 noundef %20, i32 noundef 0) #3
   %602 = load i32, ptr @hf_eapwps_tlv_secondary_device_type_list, align 4
   %603 = icmp ugt i16 %19, 128
@@ -1756,21 +1756,21 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 606:                                              ; preds = %.lr.ph769
   %607 = load i32, ptr @hf_eapwps_tlv_portable_device, align 4
-  %608 = add i32 %.0698762767, 4
+  %608 = add i32 %.0696763767, 4
   %609 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %607, ptr noundef %1, i32 noundef %608, i32 noundef 1, i32 noundef 0) #3
   %610 = load i32, ptr @hf_eapwps_tlv_portable_device, align 4
   br label %665
 
 611:                                              ; preds = %.lr.ph769
   %612 = load i32, ptr @hf_eapwps_tlv_ap_setup_locked, align 4
-  %613 = add i32 %.0698762767, 4
+  %613 = add i32 %.0696763767, 4
   %614 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %612, ptr noundef %1, i32 noundef %613, i32 noundef 1, i32 noundef 0) #3
   %615 = load i32, ptr @hf_eapwps_tlv_ap_setup_locked, align 4
   br label %665
 
 616:                                              ; preds = %.lr.ph769
   %617 = load i32, ptr @hf_eapwps_tlv_application_extension, align 4
-  %618 = add i32 %.0698762767, 4
+  %618 = add i32 %.0696763767, 4
   %619 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %617, ptr noundef %1, i32 noundef %618, i32 noundef %20, i32 noundef 0) #3
   %620 = load i32, ptr @hf_eapwps_tlv_application_extension, align 4
   %621 = icmp ugt i16 %19, 512
@@ -1783,7 +1783,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 624:                                              ; preds = %.lr.ph769
   %625 = load i32, ptr @hf_eapwps_tlv_eap_type, align 4
-  %626 = add i32 %.0698762767, 4
+  %626 = add i32 %.0696763767, 4
   %627 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %625, ptr noundef %1, i32 noundef %626, i32 noundef %20, i32 noundef 0) #3
   %628 = load i32, ptr @hf_eapwps_tlv_eap_type, align 4
   %629 = icmp ugt i16 %19, 8
@@ -1796,28 +1796,28 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 632:                                              ; preds = %.lr.ph769
   %633 = load i32, ptr @hf_eapwps_tlv_initialization_vector, align 4
-  %634 = add i32 %.0698762767, 4
+  %634 = add i32 %.0696763767, 4
   %635 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %633, ptr noundef %1, i32 noundef %634, i32 noundef 32, i32 noundef 0) #3
   %636 = load i32, ptr @hf_eapwps_tlv_initialization_vector, align 4
   br label %665
 
 637:                                              ; preds = %.lr.ph769
   %638 = load i32, ptr @hf_eapwps_tlv_key_provided_automatically, align 4
-  %639 = add i32 %.0698762767, 4
+  %639 = add i32 %.0696763767, 4
   %640 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %638, ptr noundef %1, i32 noundef %639, i32 noundef 1, i32 noundef 0) #3
   %641 = load i32, ptr @hf_eapwps_tlv_key_provided_automatically, align 4
   br label %665
 
 642:                                              ; preds = %.lr.ph769
   %643 = load i32, ptr @hf_eapwps_tlv_8021x_enabled, align 4
-  %644 = add i32 %.0698762767, 4
+  %644 = add i32 %.0696763767, 4
   %645 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %643, ptr noundef %1, i32 noundef %644, i32 noundef 1, i32 noundef 0) #3
   %646 = load i32, ptr @hf_eapwps_tlv_8021x_enabled, align 4
   br label %665
 
 647:                                              ; preds = %.lr.ph769
   %648 = load i32, ptr @hf_eapwps_tlv_appsessionkey, align 4
-  %649 = add i32 %.0698762767, 4
+  %649 = add i32 %.0696763767, 4
   %650 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %648, ptr noundef %1, i32 noundef %649, i32 noundef %20, i32 noundef 0) #3
   %651 = load i32, ptr @hf_eapwps_tlv_appsessionkey, align 4
   %652 = icmp ugt i16 %19, 128
@@ -1830,21 +1830,21 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 655:                                              ; preds = %.lr.ph769
   %656 = load i32, ptr @hf_eapwps_tlv_weptransmitkey, align 4
-  %657 = add i32 %.0698762767, 4
+  %657 = add i32 %.0696763767, 4
   %658 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %656, ptr noundef %1, i32 noundef %657, i32 noundef 1, i32 noundef 0) #3
   %659 = load i32, ptr @hf_eapwps_tlv_weptransmitkey, align 4
   br label %665
 
 660:                                              ; preds = %.lr.ph769
   %661 = load i32, ptr @hf_eapwps_tlv_requested_dev_type, align 4
-  %662 = add i32 %.0698762767, 4
+  %662 = add i32 %.0696763767, 4
   %663 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %661, ptr noundef %1, i32 noundef %662, i32 noundef 8, i32 noundef 0) #3
   %664 = load i32, ptr @hf_eapwps_tlv_requested_dev_type, align 4
   br label %665
 
 665:                                              ; preds = %647, %653, %624, %630, %616, %622, %598, %604, %577, %588, %585, %487, %493, %459, %465, %451, %457, %438, %444, %425, %431, %342, %348, %314, %320, %306, %312, %298, %304, %285, %291, %272, %278, %264, %270, %254, %259, %246, %252, %218, %224, %205, %211, %174, %180, %166, %172, %158, %164, %150, %156, %137, %143, %110, %116, %102, %108, %660, %655, %642, %637, %632, %611, %606, %546, %515, %510, %505, %500, %495, %482, %477, %472, %467, %446, %433, %420, %415, %410, %405, %400, %395, %390, %385, %380, %375, %370, %365, %360, %355, %350, %337, %332, %327, %322, %293, %280, %241, %236, %231, %226, %213, %192, %187, %182, %145, %132, %123, %118, %97, %66, %61, %44, %39, %34, %29
   %.1 = phi ptr [ %663, %660 ], [ %658, %655 ], [ %650, %653 ], [ %650, %647 ], [ %645, %642 ], [ %640, %637 ], [ %635, %632 ], [ %627, %630 ], [ %627, %624 ], [ %619, %622 ], [ %619, %616 ], [ %614, %611 ], [ %609, %606 ], [ %601, %604 ], [ %601, %598 ], [ %580, %588 ], [ %580, %585 ], [ %580, %577 ], [ %549, %546 ], [ %518, %515 ], [ %513, %510 ], [ %508, %505 ], [ %503, %500 ], [ %498, %495 ], [ %490, %493 ], [ %490, %487 ], [ %485, %482 ], [ %480, %477 ], [ %475, %472 ], [ %470, %467 ], [ %462, %465 ], [ %462, %459 ], [ %454, %457 ], [ %454, %451 ], [ %449, %446 ], [ %441, %444 ], [ %441, %438 ], [ %436, %433 ], [ %428, %431 ], [ %428, %425 ], [ %423, %420 ], [ %418, %415 ], [ %413, %410 ], [ %408, %405 ], [ %403, %400 ], [ %398, %395 ], [ %393, %390 ], [ %388, %385 ], [ %383, %380 ], [ %378, %375 ], [ %373, %370 ], [ %368, %365 ], [ %363, %360 ], [ %358, %355 ], [ %353, %350 ], [ %345, %348 ], [ %345, %342 ], [ %340, %337 ], [ %335, %332 ], [ %330, %327 ], [ %325, %322 ], [ %317, %320 ], [ %317, %314 ], [ %309, %312 ], [ %309, %306 ], [ %301, %304 ], [ %301, %298 ], [ %296, %293 ], [ %288, %291 ], [ %288, %285 ], [ %283, %280 ], [ %275, %278 ], [ %275, %272 ], [ %267, %270 ], [ %267, %264 ], [ %257, %259 ], [ %257, %254 ], [ %249, %252 ], [ %249, %246 ], [ %244, %241 ], [ %239, %236 ], [ %234, %231 ], [ %229, %226 ], [ %221, %224 ], [ %221, %218 ], [ %216, %213 ], [ %208, %211 ], [ %208, %205 ], [ %195, %192 ], [ %190, %187 ], [ %185, %182 ], [ %177, %180 ], [ %177, %174 ], [ %169, %172 ], [ %169, %166 ], [ %161, %164 ], [ %161, %158 ], [ %153, %156 ], [ %153, %150 ], [ %148, %145 ], [ %140, %143 ], [ %140, %137 ], [ %135, %132 ], [ %126, %123 ], [ %121, %118 ], [ %113, %116 ], [ %113, %110 ], [ %105, %108 ], [ %105, %102 ], [ %100, %97 ], [ %69, %66 ], [ %64, %61 ], [ %47, %44 ], [ %42, %39 ], [ %37, %34 ], [ %32, %29 ]
-  %.0696 = phi i32 [ %664, %660 ], [ %659, %655 ], [ %651, %653 ], [ %651, %647 ], [ %646, %642 ], [ %641, %637 ], [ %636, %632 ], [ %628, %630 ], [ %628, %624 ], [ %620, %622 ], [ %620, %616 ], [ %615, %611 ], [ %610, %606 ], [ %602, %604 ], [ %602, %598 ], [ %581, %588 ], [ %581, %585 ], [ %581, %577 ], [ %550, %546 ], [ %519, %515 ], [ %514, %510 ], [ %509, %505 ], [ %504, %500 ], [ %499, %495 ], [ %491, %493 ], [ %491, %487 ], [ %486, %482 ], [ %481, %477 ], [ %476, %472 ], [ %471, %467 ], [ %463, %465 ], [ %463, %459 ], [ %455, %457 ], [ %455, %451 ], [ %450, %446 ], [ %442, %444 ], [ %442, %438 ], [ %437, %433 ], [ %429, %431 ], [ %429, %425 ], [ %424, %420 ], [ %419, %415 ], [ %414, %410 ], [ %409, %405 ], [ %404, %400 ], [ %399, %395 ], [ %394, %390 ], [ %389, %385 ], [ %384, %380 ], [ %379, %375 ], [ %374, %370 ], [ %369, %365 ], [ %364, %360 ], [ %359, %355 ], [ %354, %350 ], [ %346, %348 ], [ %346, %342 ], [ %341, %337 ], [ %336, %332 ], [ %331, %327 ], [ %326, %322 ], [ %318, %320 ], [ %318, %314 ], [ %310, %312 ], [ %310, %306 ], [ %302, %304 ], [ %302, %298 ], [ %297, %293 ], [ %289, %291 ], [ %289, %285 ], [ %284, %280 ], [ %276, %278 ], [ %276, %272 ], [ %268, %270 ], [ %268, %264 ], [ %258, %259 ], [ %258, %254 ], [ %250, %252 ], [ %250, %246 ], [ %245, %241 ], [ %240, %236 ], [ %235, %231 ], [ %230, %226 ], [ %222, %224 ], [ %222, %218 ], [ %217, %213 ], [ %209, %211 ], [ %209, %205 ], [ %196, %192 ], [ %191, %187 ], [ %186, %182 ], [ %178, %180 ], [ %178, %174 ], [ %170, %172 ], [ %170, %166 ], [ %162, %164 ], [ %162, %158 ], [ %154, %156 ], [ %154, %150 ], [ %149, %145 ], [ %141, %143 ], [ %141, %137 ], [ %136, %132 ], [ %127, %123 ], [ %122, %118 ], [ %114, %116 ], [ %114, %110 ], [ %106, %108 ], [ %106, %102 ], [ %101, %97 ], [ %70, %66 ], [ %65, %61 ], [ %48, %44 ], [ %43, %39 ], [ %38, %34 ], [ %33, %29 ]
+  %.0697 = phi i32 [ %664, %660 ], [ %659, %655 ], [ %651, %653 ], [ %651, %647 ], [ %646, %642 ], [ %641, %637 ], [ %636, %632 ], [ %628, %630 ], [ %628, %624 ], [ %620, %622 ], [ %620, %616 ], [ %615, %611 ], [ %610, %606 ], [ %602, %604 ], [ %602, %598 ], [ %581, %588 ], [ %581, %585 ], [ %581, %577 ], [ %550, %546 ], [ %519, %515 ], [ %514, %510 ], [ %509, %505 ], [ %504, %500 ], [ %499, %495 ], [ %491, %493 ], [ %491, %487 ], [ %486, %482 ], [ %481, %477 ], [ %476, %472 ], [ %471, %467 ], [ %463, %465 ], [ %463, %459 ], [ %455, %457 ], [ %455, %451 ], [ %450, %446 ], [ %442, %444 ], [ %442, %438 ], [ %437, %433 ], [ %429, %431 ], [ %429, %425 ], [ %424, %420 ], [ %419, %415 ], [ %414, %410 ], [ %409, %405 ], [ %404, %400 ], [ %399, %395 ], [ %394, %390 ], [ %389, %385 ], [ %384, %380 ], [ %379, %375 ], [ %374, %370 ], [ %369, %365 ], [ %364, %360 ], [ %359, %355 ], [ %354, %350 ], [ %346, %348 ], [ %346, %342 ], [ %341, %337 ], [ %336, %332 ], [ %331, %327 ], [ %326, %322 ], [ %318, %320 ], [ %318, %314 ], [ %310, %312 ], [ %310, %306 ], [ %302, %304 ], [ %302, %298 ], [ %297, %293 ], [ %289, %291 ], [ %289, %285 ], [ %284, %280 ], [ %276, %278 ], [ %276, %272 ], [ %268, %270 ], [ %268, %264 ], [ %258, %259 ], [ %258, %254 ], [ %250, %252 ], [ %250, %246 ], [ %245, %241 ], [ %240, %236 ], [ %235, %231 ], [ %230, %226 ], [ %222, %224 ], [ %222, %218 ], [ %217, %213 ], [ %209, %211 ], [ %209, %205 ], [ %196, %192 ], [ %191, %187 ], [ %186, %182 ], [ %178, %180 ], [ %178, %174 ], [ %170, %172 ], [ %170, %166 ], [ %162, %164 ], [ %162, %158 ], [ %154, %156 ], [ %154, %150 ], [ %149, %145 ], [ %141, %143 ], [ %141, %137 ], [ %136, %132 ], [ %127, %123 ], [ %122, %118 ], [ %114, %116 ], [ %114, %110 ], [ %106, %108 ], [ %106, %102 ], [ %101, %97 ], [ %70, %66 ], [ %65, %61 ], [ %48, %44 ], [ %43, %39 ], [ %38, %34 ], [ %33, %29 ]
   %666 = icmp ne ptr %.1, null
   %667 = load ptr, ptr %6, align 8
   %668 = icmp ne ptr %667, null
@@ -1854,7 +1854,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 669:                                              ; preds = %665
   %670 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @eapwps_tlv_types, ptr noundef nonnull @.str.7) #3
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %667, ptr noundef nonnull @.str.6, ptr noundef %670) #3
-  %671 = call ptr @proto_registrar_get_nth(i32 noundef %.0696) #3
+  %671 = call ptr @proto_registrar_get_nth(i32 noundef %.0697) #3
   %.not727 = icmp eq ptr %671, null
   br i1 %.not727, label %.thread, label %672
 
@@ -1873,7 +1873,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   %677 = load ptr, ptr %676, align 8
   %.not730 = icmp eq ptr %677, null
   %678 = select i1 %.not730, ptr @.str.9, ptr @.str.8
-  %679 = add i32 %.0698762767, 4
+  %679 = add i32 %.0696763767, 4
   %680 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %679) #3
   %681 = zext i8 %680 to i32
   br label %699
@@ -1883,7 +1883,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   %684 = load ptr, ptr %683, align 8
   %.not729 = icmp eq ptr %684, null
   %685 = select i1 %.not729, ptr @.str.11, ptr @.str.10
-  %686 = add i32 %.0698762767, 4
+  %686 = add i32 %.0696763767, 4
   %687 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %686) #3
   %688 = zext i16 %687 to i32
   br label %699
@@ -1893,13 +1893,13 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   %691 = load ptr, ptr %690, align 8
   %.not728 = icmp eq ptr %691, null
   %692 = select i1 %.not728, ptr @.str.13, ptr @.str.12
-  %693 = add i32 %.0698762767, 4
+  %693 = add i32 %.0696763767, 4
   %694 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %693) #3
   br label %699
 
 695:                                              ; preds = %672
   %696 = call ptr @wmem_packet_scope() #3
-  %697 = add i32 %.0698762767, 4
+  %697 = add i32 %.0696763767, 4
   %698 = call ptr @tvb_get_string_enc(ptr noundef %696, ptr noundef %1, i32 noundef %697, i32 noundef %20, i32 noundef 0) #3
   br label %699
 
@@ -1944,7 +1944,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %or.cond759, label %dissect_wps_vendor_ext.exit, label %713
 
 713:                                              ; preds = %.thread
-  %714 = add i32 %.0698762767, 4
+  %714 = add i32 %.0696763767, 4
   %715 = call i32 @tvb_get_ntoh24(ptr noundef %1, i32 noundef %714) #3
   %716 = load i32, ptr @hf_eapwps_vendor_id, align 4
   %717 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %716, ptr noundef %1, i32 noundef %714, i32 noundef 3, i32 noundef 0) #3
@@ -1952,7 +1952,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %718, label %719, label %dissect_wps_vendor_ext.exit
 
 719:                                              ; preds = %713
-  %720 = add i32 %.0698762767, 7
+  %720 = add i32 %.0696763767, 7
   %721 = add nsw i32 %20, -3
   call fastcc void @dissect_wps_wfa_ext(ptr noundef %24, ptr noundef %1, i32 noundef %720, i32 noundef %721)
   br label %dissect_wps_vendor_ext.exit

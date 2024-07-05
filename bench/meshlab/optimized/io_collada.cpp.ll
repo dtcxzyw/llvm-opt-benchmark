@@ -63769,7 +63769,7 @@ _ZN7QVectorIiE5beginEv.exit:                      ; preds = %_ZN7QStringD2Ev.exi
 
 _ZN7QVectorIiE5beginEv.exit.split.us:             ; preds = %_ZN7QVectorIiE5beginEv.exit, %._crit_edge.us
   %63 = phi ptr [ %.pre, %._crit_edge.us ], [ %57, %_ZN7QVectorIiE5beginEv.exit ]
-  %.025.us = phi ptr [ %222, %._crit_edge.us ], [ %60, %_ZN7QVectorIiE5beginEv.exit ]
+  %.027.us = phi ptr [ %222, %._crit_edge.us ], [ %60, %_ZN7QVectorIiE5beginEv.exit ]
   %64 = load atomic i32, ptr %63 monotonic, align 4
   %65 = icmp ult i32 %64, 2
   br i1 %65, label %73, label %66
@@ -63803,15 +63803,15 @@ _ZN7QVectorIiE5beginEv.exit.split.us:             ; preds = %_ZN7QVectorIiE5begi
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i32, ptr %77, i64 %80
-  %.not.us = icmp eq ptr %.025.us, %81
+  %.not.us = icmp eq ptr %.027.us, %81
   br i1 %.not.us, label %.split.us, label %.preheader.us
 
 .preheader.us:                                    ; preds = %73, %_ZN7QStringD2Ev.exit86.us
-  %.02490.us = phi i32 [ %221, %_ZN7QStringD2Ev.exit86.us ], [ 0, %73 ]
-  %82 = load i32, ptr %.025.us, align 4
+  %.02690.us = phi i32 [ %221, %_ZN7QStringD2Ev.exit86.us ], [ 0, %73 ]
+  %82 = load i32, ptr %.027.us, align 4
   %83 = sext i32 %82 to i64
   %84 = load ptr, ptr %61, align 8
-  %85 = sext i32 %.02490.us to i64
+  %85 = sext i32 %.02690.us to i64
   %86 = getelementptr inbounds %class.CFaceO, ptr %84, i64 %83, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 %85
   %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr %62, align 8
@@ -63960,7 +63960,7 @@ _ZN7QStringD2Ev.exit60.us:                        ; preds = %_ZN9QtPrivate8RefCo
   br i1 %5, label %155, label %_ZN7QStringD2Ev.exit73.us
 
 155:                                              ; preds = %_ZN7QStringD2Ev.exit60.us
-  %156 = load i32, ptr %.025.us, align 4
+  %156 = load i32, ptr %.027.us, align 4
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %13, i32 noundef %156, i32 noundef 10)
           to label %157 unwind label %.loopexit.split.us
 
@@ -64031,9 +64031,9 @@ _ZN7QStringD2Ev.exit73.us:                        ; preds = %_ZN9QtPrivate8RefCo
   br i1 %6, label %187, label %_ZN7QStringD2Ev.exit86.us
 
 187:                                              ; preds = %_ZN7QStringD2Ev.exit73.us
-  %188 = load i32, ptr %.025.us, align 4
+  %188 = load i32, ptr %.027.us, align 4
   %189 = mul i32 %188, %2
-  %190 = add i32 %189, %.02490.us
+  %190 = add i32 %189, %.02690.us
   invoke void @_ZN7QString6numberEji(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %14, i32 noundef %190, i32 noundef 10)
           to label %191 unwind label %.loopexit.split.us
 
@@ -64101,12 +64101,12 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i81.us: ; preds = %_ZN9QtPrivate8Ref
   br label %_ZN7QStringD2Ev.exit86.us
 
 _ZN7QStringD2Ev.exit86.us:                        ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i81.us, %_ZN9QtPrivate8RefCount5derefEv.exit.i82.us, %204, %_ZN7QStringD2Ev.exit73.us
-  %221 = add nuw i32 %.02490.us, 1
+  %221 = add nuw i32 %.02690.us, 1
   %exitcond.not = icmp eq i32 %221, %2
   br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !514
 
 ._crit_edge.us:                                   ; preds = %_ZN7QStringD2Ev.exit86.us
-  %222 = getelementptr inbounds i8, ptr %.025.us, i64 4
+  %222 = getelementptr inbounds i8, ptr %.027.us, i64 4
   %.pre = load ptr, ptr %3, align 8
   br label %_ZN7QVectorIiE5beginEv.exit.split.us, !llvm.loop !515
 
@@ -64146,7 +64146,7 @@ _ZN7QStringD2Ev.exit86.us:                        ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QVectorIiE5beginEv.exit.split:                ; preds = %_ZN7QVectorIiE5beginEv.exit, %.preheader
   %227 = phi ptr [ %237, %.preheader ], [ %57, %_ZN7QVectorIiE5beginEv.exit ]
-  %.025 = phi ptr [ %245, %.preheader ], [ %60, %_ZN7QVectorIiE5beginEv.exit ]
+  %.027 = phi ptr [ %245, %.preheader ], [ %60, %_ZN7QVectorIiE5beginEv.exit ]
   %228 = load atomic i32, ptr %227 monotonic, align 4
   %229 = icmp ult i32 %228, 2
   br i1 %229, label %.preheader, label %230
@@ -64180,8 +64180,8 @@ _ZN7QVectorIiE5beginEv.exit.split:                ; preds = %_ZN7QVectorIiE5begi
   %242 = load i32, ptr %241, align 4
   %243 = sext i32 %242 to i64
   %244 = getelementptr inbounds i32, ptr %240, i64 %243
-  %.not = icmp eq ptr %.025, %244
-  %245 = getelementptr inbounds i8, ptr %.025, i64 4
+  %.not = icmp eq ptr %.027, %244
+  %245 = getelementptr inbounds i8, ptr %.027, i64 4
   br i1 %.not, label %.split.us, label %_ZN7QVectorIiE5beginEv.exit.split, !llvm.loop !515
 
 .body:                                            ; preds = %.body.i, %24

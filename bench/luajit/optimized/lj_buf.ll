@@ -706,8 +706,8 @@ if.else:                                          ; preds = %lj_buf_more.exit
   br label %do.body19
 
 do.body19:                                        ; preds = %do.cond28, %if.else
-  %rep.addr.1 = phi i32 [ %rep, %if.else ], [ %dec29, %do.cond28 ]
   %w.1 = phi ptr [ %retval.i.0, %if.else ], [ %incdec.ptr23, %do.cond28 ]
+  %rep.addr.1 = phi i32 [ %rep, %if.else ], [ %dec29, %do.cond28 ]
   br label %do.body21
 
 do.body21:                                        ; preds = %do.body21, %do.body19

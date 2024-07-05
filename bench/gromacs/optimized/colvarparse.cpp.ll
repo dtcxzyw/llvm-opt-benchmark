@@ -20039,7 +20039,7 @@ _ZN11colvarparse18getline_nocommentsERSiRNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !198
 
 ._crit_edge:                                      ; preds = %30, %.preheader
-  %.025.lcssa = phi i64 [ 0, %.preheader ], [ %25, %30 ]
+  %.027.lcssa = phi i64 [ 0, %.preheader ], [ %25, %30 ]
   %.1.lcssa = phi i32 [ %.0, %.preheader ], [ %spec.select42, %30 ]
   %.not34 = icmp ne i32 %.1.lcssa, 0
   %brmerge = or i1 %.not34, %2
@@ -20085,7 +20085,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br i1 %.not39, label %.loopexit49, label %49
 
 49:                                               ; preds = %48
-  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0, i64 noundef %.025.lcssa)
+  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0, i64 noundef %.027.lcssa)
           to label %50 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 50:                                               ; preds = %49

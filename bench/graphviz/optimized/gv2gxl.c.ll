@@ -360,8 +360,8 @@ iterate_subgs.exit:                               ; preds = %.lr.ph, %2
   br label %9
 
 9:                                                ; preds = %.lr.ph59, %._crit_edge
-  %.03558 = phi ptr [ %6, %.lr.ph59 ], [ %80, %._crit_edge ]
-  %10 = call ptr @agnameof(ptr noundef nonnull %.03558) #20
+  %.058 = phi ptr [ %6, %.lr.ph59 ], [ %80, %._crit_edge ]
+  %10 = call ptr @agnameof(ptr noundef nonnull %.058) #20
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr %12(ptr noundef nonnull %11, ptr noundef %10, i32 noundef 512) #20
@@ -375,7 +375,7 @@ mapLookup.exit:                                   ; preds = %9
   br i1 %.not38, label %mapLookup.exit.thread, label %51
 
 mapLookup.exit.thread:                            ; preds = %9, %mapLookup.exit
-  %16 = call ptr @agget(ptr noundef nonnull %.03558, ptr noundef nonnull @.str.6) #20
+  %16 = call ptr @agget(ptr noundef nonnull %.058, ptr noundef nonnull @.str.6) #20
   %17 = icmp eq ptr %16, null
   br i1 %17, label %21, label %18
 
@@ -388,15 +388,15 @@ mapLookup.exit.thread:                            ; preds = %9, %mapLookup.exit
   br label %22
 
 22:                                               ; preds = %21, %18
-  %.034 = phi ptr [ %10, %21 ], [ %16, %18 ]
+  %.035 = phi ptr [ %10, %21 ], [ %16, %18 ]
   %23 = load ptr, ptr %7, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = call ptr %24(ptr noundef nonnull %23, ptr noundef %.034, i32 noundef 512) #20
+  %25 = call ptr %24(ptr noundef nonnull %23, ptr noundef %.035, i32 noundef 512) #20
   %.not49 = icmp eq ptr %25, null
   br i1 %.not49, label %26, label %legalGXLName.exit
 
 26:                                               ; preds = %22
-  %27 = load i8, ptr %.034, align 1
+  %27 = load i8, ptr %.035, align 1
   %.fr33.i = freeze i8 %27
   %28 = and i8 %.fr33.i, -33
   %29 = sext i8 %28 to i32
@@ -411,7 +411,7 @@ switch.early.test.i:                              ; preds = %26
   ]
 
 .preheader.i:                                     ; preds = %switch.early.test.i, %switch.early.test.i, %26
-  %.036.i = getelementptr inbounds i8, ptr %.034, i64 1
+  %.036.i = getelementptr inbounds i8, ptr %.035, i64 1
   %32 = load i8, ptr %.036.i, align 1
   %.not3037.i = icmp eq i8 %32, 0
   br i1 %.not3037.i, label %.loopexit50, label %.lr.ph.i
@@ -450,7 +450,7 @@ legalGXLName.exit:                                ; preds = %switch.early.test31
 
 .loopexit50:                                      ; preds = %.backedge.i, %.preheader.i
   %44 = load ptr, ptr %7, align 8
-  %45 = call fastcc ptr @addid(ptr noundef %44, ptr noundef nonnull %.034)
+  %45 = call fastcc ptr @addid(ptr noundef %44, ptr noundef nonnull %.035)
   br label %46
 
 46:                                               ; preds = %.loopexit50, %legalGXLName.exit
@@ -467,19 +467,19 @@ legalGXLName.exit:                                ; preds = %switch.early.test31
   br label %51
 
 51:                                               ; preds = %46, %mapLookup.exit
-  %52 = call ptr @agfstout(ptr noundef %1, ptr noundef nonnull %.03558) #20
+  %52 = call ptr @agfstout(ptr noundef %1, ptr noundef nonnull %.058) #20
   %.not3954 = icmp eq ptr %52, null
   br i1 %.not3954, label %._crit_edge, label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %51, %writeEdgeTest.exit
-  %.055 = phi ptr [ %79, %writeEdgeTest.exit ], [ %52, %51 ]
+  %.03455 = phi ptr [ %79, %writeEdgeTest.exit ], [ %52, %51 ]
   %53 = call ptr @agfstsubg(ptr noundef %1) #20
   %.not8.i = icmp eq ptr %53, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i43
 
 .lr.ph.i43:                                       ; preds = %.lr.ph56, %55
   %.09.i = phi ptr [ %56, %55 ], [ %53, %.lr.ph56 ]
-  %54 = call ptr @agsubedge(ptr noundef nonnull %.09.i, ptr noundef nonnull %.055, i32 noundef 0) #20
+  %54 = call ptr @agsubedge(ptr noundef nonnull %.09.i, ptr noundef nonnull %.03455, i32 noundef 0) #20
   %.not7.i = icmp eq ptr %54, null
   br i1 %.not7.i, label %55, label %writeEdgeTest.exit
 
@@ -489,7 +489,7 @@ legalGXLName.exit:                                ; preds = %switch.early.test31
   br i1 %.not.i44, label %.loopexit, label %.lr.ph.i43
 
 .loopexit:                                        ; preds = %55, %.lr.ph56
-  %57 = call ptr @agget(ptr noundef nonnull %.055, ptr noundef nonnull @.str.6) #20
+  %57 = call ptr @agget(ptr noundef nonnull %.03455, ptr noundef nonnull @.str.6) #20
   %58 = icmp eq ptr %57, null
   br i1 %58, label %writeEdgeTest.exit, label %59
 
@@ -531,12 +531,12 @@ addid.exit:                                       ; preds = %gv_alloc.exit.i
   br label %writeEdgeTest.exit
 
 writeEdgeTest.exit:                               ; preds = %.lr.ph.i43, %addid.exit, %59, %.loopexit
-  %79 = call ptr @agnxtout(ptr noundef %1, ptr noundef nonnull %.055) #20
+  %79 = call ptr @agnxtout(ptr noundef %1, ptr noundef nonnull %.03455) #20
   %.not39 = icmp eq ptr %79, null
   br i1 %.not39, label %._crit_edge, label %.lr.ph56
 
 ._crit_edge:                                      ; preds = %writeEdgeTest.exit, %51
-  %80 = call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.03558) #20
+  %80 = call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.058) #20
   %.not = icmp eq ptr %80, null
   br i1 %.not, label %._crit_edge60, label %9
 
@@ -701,7 +701,7 @@ legalGXLName.exit:                                ; preds = %switch.early.test31
   br label %66
 
 66:                                               ; preds = %.loopexit, %legalGXLName.exit
-  %.0 = phi ptr [ %63, %legalGXLName.exit ], [ %65, %.loopexit ]
+  %.054 = phi ptr [ %63, %legalGXLName.exit ], [ %65, %.loopexit ]
   %67 = getelementptr inbounds i8, ptr %0, i64 16
   %68 = load ptr, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -711,7 +711,7 @@ legalGXLName.exit:                                ; preds = %switch.early.test31
   %70 = load ptr, ptr %68, align 8
   %71 = call ptr %70(ptr noundef nonnull %68, ptr noundef nonnull %5, i32 noundef 1) #20
   %72 = getelementptr inbounds i8, ptr %71, i64 24
-  store ptr %.0, ptr %72, align 8
+  store ptr %.054, ptr %72, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %73 = load i32, ptr @Level, align 4
   %.not1.i = icmp eq i32 %73, 0
@@ -725,7 +725,7 @@ legalGXLName.exit:                                ; preds = %switch.early.test31
   br i1 %.not.i, label %tabover.exit, label %.lr.ph.i62
 
 tabover.exit:                                     ; preds = %.lr.ph.i62, %66
-  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.12, ptr noundef %.0) #20
+  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.12, ptr noundef %.054) #20
   %.val61 = load i8, ptr %20, align 1
   %77 = icmp eq i8 %.val61, -1
   br i1 %77, label %78, label %agxbfree.exit

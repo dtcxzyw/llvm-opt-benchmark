@@ -520,8 +520,8 @@ _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit: ; preds = %.lr.ph263
   br i1 %.not.i.i.i66, label %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit, label %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit.sink.split
 
 81:                                               ; preds = %.lr.ph258, %._crit_edge248
-  %.sroa.0142.0253 = phi ptr [ %74, %.lr.ph258 ], [ %269, %._crit_edge248 ]
-  %82 = load ptr, ptr %.sroa.0142.0253, align 8
+  %.sroa.0142.0256 = phi ptr [ %74, %.lr.ph258 ], [ %269, %._crit_edge248 ]
+  %82 = load ptr, ptr %.sroa.0142.0256, align 8
   invoke void @_ZNK5Yosys5RTLIL6Module14selected_wiresEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.113") align 8 %10, ptr noundef nonnull align 8 dereferenceable(560) %82)
           to label %83 unwind label %89
 
@@ -1032,7 +1032,7 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringEPNS1_7ProcessEED2Ev.exit: ; preds = %_ZNSt6vec
   unreachable
 
 ._crit_edge248:                                   ; preds = %_ZNSt4pairIN5Yosys5RTLIL8IdStringEPNS1_7ProcessEED2Ev.exit, %127
-  %269 = getelementptr inbounds i8, ptr %.sroa.0142.0253, i64 8
+  %269 = getelementptr inbounds i8, ptr %.sroa.0142.0256, i64 8
   %.not = icmp eq ptr %269, %76
   br i1 %.not, label %._crit_edge259.loopexit, label %81
 
@@ -2979,14 +2979,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.073, i64 1
+  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -3433,8 +3433,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.016
+  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind

@@ -899,9 +899,9 @@ add_rms_values.exit:                              ; preds = %.lr.ph.i126, %.lr.p
   br label %204
 
 204:                                              ; preds = %203, %201
-  %.0109.i.i = phi i64 [ %202, %201 ], [ 20, %203 ]
-  %205 = getelementptr [240 x i8], ptr %7, i64 0, i64 %.0109.i.i
-  %206 = sub i64 240, %.0109.i.i
+  %.0.i.i = phi i64 [ %202, %201 ], [ 20, %203 ]
+  %205 = getelementptr [240 x i8], ptr %7, i64 0, i64 %.0.i.i
+  %206 = sub i64 240, %.0.i.i
   %207 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %205, i64 noundef %206, ptr noundef nonnull @.str.176, i32 noundef %196) #7
   %208 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 240, ptr noundef nonnull @.str.177, ptr noundef nonnull %7, ptr noundef %200) #7
   %209 = sext i32 %208 to i64
@@ -937,10 +937,10 @@ add_rms_values.exit:                              ; preds = %.lr.ph.i126, %.lr.p
 
 228:                                              ; preds = %226, %222
   %storemerge.i.i = phi i8 [ 45, %226 ], [ 0, %222 ]
-  %.0107.i.i = phi i64 [ %227, %226 ], [ %223, %222 ]
+  %.0108.i.i = phi i64 [ %227, %226 ], [ %223, %222 ]
   store i8 %storemerge.i.i, ptr %9, align 2
-  %.not116.i.i = icmp eq i64 %.0107.i.i, 0
-  %229 = uitofp i64 %.0107.i.i to double
+  %.not116.i.i = icmp eq i64 %.0108.i.i, 0
+  %229 = uitofp i64 %.0108.i.i to double
   %230 = fmul double %229, 1.000000e-09
   %231 = fdiv double 1.000000e+00, %230
   br i1 %.not116.i.i, label %232, label %.thread.i.i
@@ -949,11 +949,11 @@ add_rms_values.exit:                              ; preds = %.lr.ph.i126, %.lr.p
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %232, %228, %224
-  %.0107119.i.i = phi i64 [ %.0107.i.i, %228 ], [ 0, %232 ], [ 0, %224 ]
+  %.0108119.i.i = phi i64 [ %.0108.i.i, %228 ], [ 0, %232 ], [ 0, %224 ]
   %233 = phi double [ %231, %228 ], [ 0.000000e+00, %232 ], [ 0.000000e+00, %224 ]
   %234 = getelementptr [240 x i8], ptr %8, i64 0, i64 %209
   %235 = sub nsw i64 240, %209
-  %236 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %234, i64 noundef %235, ptr noundef nonnull @.str.178, ptr noundef nonnull %9, i64 noundef %.0107119.i.i) #7
+  %236 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %234, i64 noundef %235, ptr noundef nonnull @.str.178, ptr noundef nonnull %9, i64 noundef %.0108119.i.i) #7
   %237 = sext i32 %236 to i64
   %238 = add nsw i64 %237, %209
   %239 = fcmp une double %233, 0.000000e+00
@@ -968,9 +968,9 @@ add_rms_values.exit:                              ; preds = %.lr.ph.i126, %.lr.p
   br label %246
 
 246:                                              ; preds = %240, %.thread.i.i, %204
-  %.0108.i.i = phi i64 [ %245, %240 ], [ %238, %.thread.i.i ], [ %209, %204 ]
-  %247 = getelementptr [240 x i8], ptr %8, i64 0, i64 %.0108.i.i
-  %248 = sub nsw i64 240, %.0108.i.i
+  %.0107.i.i = phi i64 [ %245, %240 ], [ %238, %.thread.i.i ], [ %209, %204 ]
+  %247 = getelementptr [240 x i8], ptr %8, i64 0, i64 %.0107.i.i
+  %248 = sub nsw i64 240, %.0107.i.i
   %249 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %247, i64 noundef %248, ptr noundef nonnull @.str.180) #7
   %250 = call ptr @proto_tree_add_string(ptr noundef %165, i32 noundef %191, ptr noundef %1, i32 noundef %188, i32 noundef 10, ptr noundef nonnull %8) #7
   %251 = load i32, ptr @ett_samples_timestamps_sample, align 4

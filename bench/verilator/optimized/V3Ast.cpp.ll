@@ -7208,11 +7208,11 @@ default.unreachable:                              ; preds = %23
   br i1 %.not88, label %112, label %.preheader
 
 .preheader:                                       ; preds = %70, %.critedge98
-  %.071 = phi ptr [ %.070, %.critedge98 ], [ %0, %70 ]
-  %.070 = phi ptr [ %.pre, %.critedge98 ], [ %.069, %70 ]
-  tail call void @_ZNK7AstNode13checkTreeIterEPKS_(ptr noundef nonnull align 8 dereferenceable(152) %.070, ptr noundef nonnull %.071)
-  %71 = icmp eq ptr %.070, %.069
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.070, i64 8
+  %.071 = phi ptr [ %.pre, %.critedge98 ], [ %.069, %70 ]
+  %.070 = phi ptr [ %.071, %.critedge98 ], [ %0, %70 ]
+  tail call void @_ZNK7AstNode13checkTreeIterEPKS_(ptr noundef nonnull align 8 dereferenceable(152) %.071, ptr noundef nonnull %.070)
+  %71 = icmp eq ptr %.071, %.069
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.071, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %71, label %.critedge98, label %72
 
@@ -7221,7 +7221,7 @@ default.unreachable:                              ; preds = %23
   br i1 %.not89, label %.critedge98.thread, label %73
 
 73:                                               ; preds = %72
-  %74 = getelementptr inbounds i8, ptr %.070, i64 80
+  %74 = getelementptr inbounds i8, ptr %.071, i64 80
   %75 = load ptr, ptr %74, align 8
   %.not90 = icmp eq ptr %75, null
   br i1 %.not90, label %.critedge98, label %76
@@ -7230,7 +7230,7 @@ default.unreachable:                              ; preds = %23
   %77 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.557, i32 noundef 1152, i1 noundef zeroext false)
   %78 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %79 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull @.str.647)
-  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %.070, ptr noundef nonnull align 8 dereferenceable(112) %79) #25
+  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %.071, ptr noundef nonnull align 8 dereferenceable(112) %79) #25
   unreachable
 
 .critedge98:                                      ; preds = %.preheader, %73
@@ -7240,7 +7240,7 @@ default.unreachable:                              ; preds = %23
 .critedge98.thread:                               ; preds = %72, %.critedge98
   %80 = getelementptr inbounds i8, ptr %.069, i64 80
   %81 = load ptr, ptr %80, align 8
-  %.not92 = icmp eq ptr %81, %.070
+  %.not92 = icmp eq ptr %81, %.071
   br i1 %.not92, label %86, label %82
 
 82:                                               ; preds = %.critedge98.thread
@@ -7251,7 +7251,7 @@ default.unreachable:                              ; preds = %23
   unreachable
 
 86:                                               ; preds = %.critedge98.thread
-  %87 = getelementptr inbounds i8, ptr %.070, i64 80
+  %87 = getelementptr inbounds i8, ptr %.071, i64 80
   %88 = load ptr, ptr %87, align 8
   %.not93 = icmp eq ptr %88, %.069
   br i1 %.not93, label %112, label %89
@@ -7260,7 +7260,7 @@ default.unreachable:                              ; preds = %23
   %90 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.557, i32 noundef 1159, i1 noundef zeroext false)
   %91 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %92 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull @.str.649)
-  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %.070, ptr noundef nonnull align 8 dereferenceable(112) %92) #25
+  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %.071, ptr noundef nonnull align 8 dereferenceable(112) %92) #25
   unreachable
 
 93:                                               ; preds = %28

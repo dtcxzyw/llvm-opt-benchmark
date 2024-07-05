@@ -2184,8 +2184,8 @@ trace_usb_ohci_td_bad_direction.exit.i:           ; preds = %if.else.i.i124.i, %
   br label %ohci_service_td.exit.thread
 
 sw.epilog17.i:                                    ; preds = %sw.bb15.i, %sw.bb14.i, %if.end8.i
-  %str.0.i = phi ptr [ @.str.64, %sw.bb15.i ], [ @.str.63, %sw.bb14.i ], [ @.str.62, %if.end8.i ]
   %pid.0.i = phi i32 [ 45, %sw.bb15.i ], [ 225, %sw.bb14.i ], [ 105, %if.end8.i ]
+  %str.0.i = phi ptr [ @.str.64, %sw.bb15.i ], [ @.str.63, %sw.bb14.i ], [ @.str.62, %if.end8.i ]
   %59 = load i32, ptr %cbp.i, align 4
   %tobool18.i = icmp ne i32 %59, 0
   %60 = load i32, ptr %be.i, align 4
@@ -2308,8 +2308,8 @@ if.then70.i:                                      ; preds = %if.then66.i, %ohci_
   br label %if.end74.i
 
 if.end74.i:                                       ; preds = %if.end32.i, %if.then70.i, %ohci_copy_td.exit, %if.then56.i, %if.end47.i, %sw.epilog17.i
-  %len.1.i = phi i64 [ %spec.store.select.i, %if.then56.i ], [ %spec.store.select.i, %if.then70.i ], [ %spec.store.select.i, %ohci_copy_td.exit ], [ %spec.store.select.i, %if.end47.i ], [ 0, %sw.epilog17.i ], [ %spec.store.select.i, %if.end32.i ]
   %pktlen.1.i = phi i64 [ %spec.select.i, %if.then56.i ], [ %spec.select.i, %if.then70.i ], [ %spec.select.i, %ohci_copy_td.exit ], [ %spec.store.select.i, %if.end47.i ], [ 0, %sw.epilog17.i ], [ %spec.select.i, %if.end32.i ]
+  %len.1.i = phi i64 [ %spec.store.select.i, %if.then56.i ], [ %spec.store.select.i, %if.then70.i ], [ %spec.store.select.i, %ohci_copy_td.exit ], [ %spec.store.select.i, %if.end47.i ], [ 0, %sw.epilog17.i ], [ %spec.store.select.i, %if.end32.i ]
   %76 = load i32, ptr %td.i, align 4
   %and76.i = and i32 %76, 262144
   %cmp77.i = icmp ne i32 %and76.i, 0
@@ -3273,8 +3273,8 @@ trace_usb_ohci_iso_td_bad_direction.exit:         ; preds = %sw.default.i, %land
   br label %ohci_service_iso_td.exit.thread
 
 sw.epilog.i:                                      ; preds = %sw.bb88.i, %sw.bb87.i, %if.end83.i
-  %str.0.i89 = phi ptr [ @.str.64, %sw.bb88.i ], [ @.str.63, %sw.bb87.i ], [ @.str.62, %if.end83.i ]
-  %pid.0.i90 = phi i32 [ 45, %sw.bb88.i ], [ 225, %sw.bb87.i ], [ 105, %if.end83.i ]
+  %pid.0.i89 = phi i32 [ 45, %sw.bb88.i ], [ 225, %sw.bb87.i ], [ 105, %if.end83.i ]
+  %str.0.i90 = phi ptr [ @.str.64, %sw.bb88.i ], [ @.str.63, %sw.bb87.i ], [ @.str.62, %if.end83.i ]
   %234 = load i32, ptr %bp.i, align 4
   %tobool90.i = icmp ne i32 %234, 0
   %235 = load i32, ptr %be.i87, align 4
@@ -3513,7 +3513,7 @@ if.end211.i:                                      ; preds = %if.end202.i
   %262 = load i32, ptr %ed, align 4
   %and213.i = lshr i32 %262, 7
   %shr214.i = and i32 %and213.i, 15
-  %call215.i = call ptr @usb_ep_get(ptr noundef nonnull %call207.i, i32 noundef %pid.0.i90, i32 noundef %shr214.i) #8
+  %call215.i = call ptr @usb_ep_get(ptr noundef nonnull %call207.i, i32 noundef %pid.0.i89, i32 noundef %shr214.i) #8
   %call216.i = call noalias dereferenceable_or_null(136) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 136) #9
   call void @usb_packet_init(ptr noundef %call216.i) #8
   %cmp218.i = icmp eq i32 %shr7.i, %conv18.i
@@ -3521,7 +3521,7 @@ if.end211.i:                                      ; preds = %if.end202.i
   %264 = and i32 %263, 14680064
   %cmp223.i = icmp eq i32 %264, 0
   %265 = select i1 %cmp218.i, i1 %cmp223.i, i1 false
-  call void @usb_packet_setup(ptr noundef %call216.i, i32 noundef %pid.0.i90, ptr noundef %call215.i, i32 noundef 0, i64 noundef %conv.i, i1 noundef zeroext false, i1 noundef zeroext %265) #8
+  call void @usb_packet_setup(ptr noundef %call216.i, i32 noundef %pid.0.i89, ptr noundef %call215.i, i32 noundef 0, i64 noundef %conv.i, i1 noundef zeroext false, i1 noundef zeroext %265) #8
   call void @usb_packet_addbuf(ptr noundef %call216.i, ptr noundef nonnull %buf.i, i64 noundef %spec.store.select.i97) #8
   call void @usb_handle_packet(ptr noundef nonnull %call207.i, ptr noundef %call216.i) #8
   %status.i99 = getelementptr inbounds i8, ptr %call216.i, i64 84
@@ -3544,7 +3544,7 @@ if.then235.i:                                     ; preds = %if.end211.i
 if.end238.i:                                      ; preds = %if.then235.i, %if.end211.i
   %ret.0.i101 = phi i32 [ %267, %if.then235.i ], [ %266, %if.end211.i ]
   call void @g_free(ptr noundef nonnull %call216.i) #8
-  call fastcc void @trace_usb_ohci_iso_td_so(i32 noundef %conv99.i, i32 noundef %end_offset.0.i, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef nonnull %str.0.i89, i64 noundef %spec.store.select.i97, i32 noundef %ret.0.i101)
+  call fastcc void @trace_usb_ohci_iso_td_so(i32 noundef %conv99.i, i32 noundef %end_offset.0.i, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef nonnull %str.0.i90, i64 noundef %spec.store.select.i97, i32 noundef %ret.0.i101)
   %cmp242.i = icmp slt i32 %ret.0.i101, 0
   %cmp246.not.i = icmp ugt i32 %ret.0.i101, %258
   %or.cond159.i = select i1 %cmp194.i, i1 true, i1 %cmp246.not.i

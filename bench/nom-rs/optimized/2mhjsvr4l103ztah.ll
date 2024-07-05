@@ -495,8 +495,8 @@ define { i64, i64 } @"_ZN69_$LT$$RF$str$u20$as$u20$nom..traits..FindSubstring$LT
   br label %19
 
 .loopexit.i.i:                                    ; preds = %79, %77, %75
-  %.012.i.i.i = phi i64 [ 1, %75 ], [ %..i.i.i, %79 ], [ 2, %77 ]
-  %18 = add i64 %.012.i.i.i, %20
+  %.013.i.i.i = phi i64 [ 1, %75 ], [ %..i.i.i, %79 ], [ 2, %77 ]
+  %18 = add i64 %.013.i.i.i, %20
   br label %19
 
 19:                                               ; preds = %.loopexit.i.i, %.lr.ph106.i.i

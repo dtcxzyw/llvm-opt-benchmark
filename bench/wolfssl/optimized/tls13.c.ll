@@ -5425,10 +5425,10 @@ if.then58:                                        ; preds = %land.lhs.true54
   br label %if.end71
 
 if.end71:                                         ; preds = %if.end45, %land.lhs.true54, %entry, %if.then58
-  %certChainSz.0 = phi i32 [ %add66, %if.then58 ], [ 0, %entry ], [ 0, %land.lhs.true54 ], [ 0, %if.end45 ]
-  %headerSz.0 = phi i32 [ 7, %if.then58 ], [ 4, %entry ], [ 7, %land.lhs.true54 ], [ 7, %if.end45 ]
   %listSz.0 = phi i32 [ %add68, %if.then58 ], [ 0, %entry ], [ %add51, %land.lhs.true54 ], [ %add51, %if.end45 ]
+  %headerSz.0 = phi i32 [ 7, %if.then58 ], [ 4, %entry ], [ 7, %land.lhs.true54 ], [ 7, %if.end45 ]
   %length.0 = phi i32 [ %add67, %if.then58 ], [ 4, %entry ], [ %add48, %land.lhs.true54 ], [ %add48, %if.end45 ]
+  %certChainSz.0 = phi i32 [ %add66, %if.then58 ], [ 0, %entry ], [ 0, %land.lhs.true54 ], [ 0, %if.end45 ]
   %p.0 = phi ptr [ %9, %if.then58 ], [ null, %entry ], [ null, %land.lhs.true54 ], [ null, %if.end45 ]
   %certSz.0 = phi i32 [ %1, %if.then58 ], [ 0, %entry ], [ %1, %land.lhs.true54 ], [ 0, %if.end45 ]
   %ret.1 = phi i32 [ %ret.0, %if.then58 ], [ 0, %entry ], [ %ret.0, %land.lhs.true54 ], [ %ret.0, %if.end45 ]
@@ -5445,7 +5445,7 @@ if.end71:                                         ; preds = %if.end45, %land.lhs
   br i1 %12, label %while.body.lr.ph, label %if.then245
 
 while.body.lr.ph:                                 ; preds = %if.end71
-  %add87 = add i32 %headerSz.0, %certChainSz.0
+  %add87 = add i32 %certChainSz.0, %headerSz.0
   %add89 = add i32 %add87, %certSz.0
   %sub91 = add i32 %call78, -4
   %version.i = getelementptr inbounds i8, ptr %ssl, i64 694

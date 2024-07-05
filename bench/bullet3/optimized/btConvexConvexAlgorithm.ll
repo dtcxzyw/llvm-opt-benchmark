@@ -1086,7 +1086,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont295
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %planeEq.0779 = phi float [ 0x46293E5940000000, %for.body.lr.ph ], [ %planeEq.1, %for.body ]
+  %planeEq.0780 = phi float [ 0x46293E5940000000, %for.body.lr.ph ], [ %planeEq.1, %for.body ]
   %arrayidx.i356 = getelementptr inbounds i32, ptr %184, i64 %indvars.iv
   %187 = load i32, ptr %arrayidx.i356, align 4
   %idxprom = sext i32 %187 to i64
@@ -1099,8 +1099,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx10.i = getelementptr inbounds i8, ptr %arrayidx308, i64 8
   %191 = load float, ptr %arrayidx10.i, align 4
   %192 = call noundef float @llvm.fmuladd.f32(float %191, float %mul7.i.i.i354, float %190)
-  %cmp311 = fcmp ogt float %planeEq.0779, %192
-  %planeEq.1 = select i1 %cmp311, float %192, float %planeEq.0779
+  %cmp311 = fcmp ogt float %planeEq.0780, %192
+  %planeEq.1 = select i1 %cmp311, float %192, float %planeEq.0780
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5

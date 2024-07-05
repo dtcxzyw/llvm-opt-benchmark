@@ -1034,12 +1034,12 @@ onigenc_mbclen.exit:                              ; preds = %9, %32, %27, %17
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.02331 = phi ptr [ %.023, %.lr.ph ], [ %.02326, %.preheader ]
   %.030 = phi i32 [ %43, %.lr.ph ], [ %37, %.preheader ]
-  %.02129 = phi i32 [ %44, %.lr.ph ], [ 1, %.preheader ]
+  %.02229 = phi i32 [ %44, %.lr.ph ], [ 1, %.preheader ]
   %40 = load i8, ptr %.02331, align 1
   %41 = zext i8 %40 to i32
   %42 = shl i32 %.030, 8
   %43 = or disjoint i32 %42, %41
-  %44 = add nuw nsw i32 %.02129, 1
+  %44 = add nuw nsw i32 %.02229, 1
   %.023 = getelementptr i8, ptr %.02331, i64 1
   %45 = icmp slt i32 %44, %35
   %.not = icmp ult ptr %.023, %2
@@ -1047,8 +1047,8 @@ onigenc_mbclen.exit:                              ; preds = %9, %32, %27, %17
   br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader.thread, %.preheader, %onigenc_mbclen.exit
-  %.022 = phi i32 [ %37, %onigenc_mbclen.exit ], [ %37, %.preheader ], [ %12, %.preheader.thread ], [ %43, %.lr.ph ]
-  ret i32 %.022
+  %.021 = phi i32 [ %37, %onigenc_mbclen.exit ], [ %37, %.preheader ], [ %12, %.preheader.thread ], [ %43, %.lr.ph ]
+  ret i32 %.021
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1123,11 +1123,11 @@ onigenc_mbclen.exit:                              ; preds = %27, %21, %42, %37
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.028 = phi i32 [ %51, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.02127 = phi ptr [ %48, %.lr.ph ], [ %6, %.lr.ph.preheader ]
-  %.02226 = phi ptr [ %50, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+  %.02326 = phi ptr [ %50, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %48 = getelementptr i8, ptr %.02127, i64 1
   %49 = load i8, ptr %.02127, align 1
-  %50 = getelementptr i8, ptr %.02226, i64 1
-  store i8 %49, ptr %.02226, align 1
+  %50 = getelementptr i8, ptr %.02326, i64 1
+  store i8 %49, ptr %.02326, align 1
   %51 = add nuw nsw i32 %.028, 1
   %exitcond.not = icmp eq i32 %51, %47
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
@@ -1141,9 +1141,9 @@ onigenc_mbclen.exit:                              ; preds = %27, %21, %42, %37
 
 56:                                               ; preds = %._crit_edge, %9
   %storemerge = phi ptr [ %55, %._crit_edge ], [ %14, %9 ]
-  %.023 = phi i32 [ %52, %._crit_edge ], [ 1, %9 ]
+  %.022 = phi i32 [ %52, %._crit_edge ], [ 1, %9 ]
   store ptr %storemerge, ptr %2, align 8
-  ret i32 %.023
+  ret i32 %.022
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
@@ -1403,8 +1403,8 @@ onigenc_strlen.exit:                              ; preds = %onigenc_mbclen.exit
 
 31:                                               ; preds = %onigenc_strlen.exit, %onigenc_with_ascii_strnicmp.exit.thread37
   %indvars.iv = phi ptr [ getelementptr inbounds (i8, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 2), %onigenc_strlen.exit ], [ %scevgep, %onigenc_with_ascii_strnicmp.exit.thread37 ]
-  %.027 = phi ptr [ @onigenc_minimum_property_name_to_ctype.PBS, %onigenc_strlen.exit ], [ %83, %onigenc_with_ascii_strnicmp.exit.thread37 ]
-  %32 = load i16, ptr %.027, align 4
+  %.01327 = phi ptr [ @onigenc_minimum_property_name_to_ctype.PBS, %onigenc_strlen.exit ], [ %83, %onigenc_with_ascii_strnicmp.exit.thread37 ]
+  %32 = load i16, ptr %.01327, align 4
   %33 = sext i16 %32 to i32
   %34 = icmp eq i32 %.08.lcssa.i, %33
   br i1 %34, label %35, label %onigenc_with_ascii_strnicmp.exit.thread37
@@ -1414,12 +1414,12 @@ onigenc_strlen.exit:                              ; preds = %onigenc_mbclen.exit
   br i1 %36, label %.lr.ph.i15, label %onigenc_with_ascii_strnicmp.exit.thread
 
 .lr.ph.i15:                                       ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %.027, i64 2
+  %37 = getelementptr inbounds i8, ptr %.01327, i64 2
   %scevgep36 = getelementptr i8, ptr %indvars.iv, i64 %30
   br label %38
 
 38:                                               ; preds = %onigenc_mbclen.exit.i16, %.lr.ph.i15
-  %.02535.i = phi ptr [ %37, %.lr.ph.i15 ], [ %55, %onigenc_mbclen.exit.i16 ]
+  %.02635.i = phi ptr [ %37, %.lr.ph.i15 ], [ %55, %onigenc_mbclen.exit.i16 ]
   %.02734.i = phi ptr [ %1, %.lr.ph.i15 ], [ %78, %onigenc_mbclen.exit.i16 ]
   %.not.i = icmp ult ptr %.02734.i, %2
   br i1 %.not.i, label %39, label %onigenc_with_ascii_strnicmp.exit
@@ -1439,7 +1439,7 @@ onigenc_strlen.exit:                              ; preds = %onigenc_mbclen.exit
 
 48:                                               ; preds = %43, %39
   %.0.i = phi i32 [ %47, %43 ], [ %41, %39 ]
-  %49 = load i8, ptr %.02535.i, align 1
+  %49 = load i8, ptr %.02635.i, align 1
   %50 = zext i8 %49 to i64
   %51 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %50
   %52 = load i8, ptr %51, align 1
@@ -1448,7 +1448,7 @@ onigenc_strlen.exit:                              ; preds = %onigenc_mbclen.exit
   br i1 %.not32.i, label %54, label %onigenc_with_ascii_strnicmp.exit.thread37
 
 54:                                               ; preds = %48
-  %55 = getelementptr i8, ptr %.02535.i, i64 1
+  %55 = getelementptr i8, ptr %.02635.i, i64 1
   %56 = load i32, ptr %27, align 8
   %57 = load i32, ptr %28, align 4
   %58 = icmp eq i32 %56, %57
@@ -1484,28 +1484,28 @@ onigenc_mbclen.exit.i16:                          ; preds = %72, %70, %63, %54
   %76 = phi i32 [ %56, %54 ], [ %.0.i.i17, %63 ], [ %75, %72 ], [ 1, %70 ]
   %77 = sext i32 %76 to i64
   %78 = getelementptr i8, ptr %.02734.i, i64 %77
-  %exitcond.not = icmp eq ptr %.02535.i, %scevgep36
+  %exitcond.not = icmp eq ptr %.02635.i, %scevgep36
   br i1 %exitcond.not, label %onigenc_with_ascii_strnicmp.exit.thread, label %38, !llvm.loop !18
 
 onigenc_with_ascii_strnicmp.exit:                 ; preds = %38
-  %79 = load i8, ptr %.02535.i, align 1
+  %79 = load i8, ptr %.02635.i, align 1
   %80 = icmp eq i8 %79, 0
   br i1 %80, label %onigenc_with_ascii_strnicmp.exit.thread, label %onigenc_with_ascii_strnicmp.exit.thread37
 
 onigenc_with_ascii_strnicmp.exit.thread:          ; preds = %35, %onigenc_with_ascii_strnicmp.exit, %onigenc_mbclen.exit.i16
-  %81 = getelementptr inbounds i8, ptr %.027, i64 8
+  %81 = getelementptr inbounds i8, ptr %.01327, i64 8
   %82 = load i32, ptr %81, align 4
   br label %.loopexit
 
 onigenc_with_ascii_strnicmp.exit.thread37:        ; preds = %48, %31, %onigenc_with_ascii_strnicmp.exit
-  %83 = getelementptr i8, ptr %.027, i64 12
+  %83 = getelementptr i8, ptr %.01327, i64 12
   %84 = icmp ult ptr %83, getelementptr inbounds (i8, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 168)
   %scevgep = getelementptr i8, ptr %indvars.iv, i64 12
   br i1 %84, label %31, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %onigenc_with_ascii_strnicmp.exit.thread37, %onigenc_with_ascii_strnicmp.exit.thread
-  %.013 = phi i32 [ %82, %onigenc_with_ascii_strnicmp.exit.thread ], [ -223, %onigenc_with_ascii_strnicmp.exit.thread37 ]
-  ret i32 %.013
+  %.0 = phi i32 [ %82, %onigenc_with_ascii_strnicmp.exit.thread ], [ -223, %onigenc_with_ascii_strnicmp.exit.thread37 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1522,14 +1522,14 @@ define dso_local range(i32 -2147483647, 256) i32 @onigenc_with_ascii_strnicmp(pt
 
 11:                                               ; preds = %.lr.ph, %onigenc_mbclen.exit
   %.in = phi i32 [ %4, %.lr.ph ], [ %12, %onigenc_mbclen.exit ]
-  %.02535 = phi ptr [ %3, %.lr.ph ], [ %33, %onigenc_mbclen.exit ]
+  %.02635 = phi ptr [ %3, %.lr.ph ], [ %33, %onigenc_mbclen.exit ]
   %.02734 = phi ptr [ %1, %.lr.ph ], [ %56, %onigenc_mbclen.exit ]
   %12 = add nsw i32 %.in, -1
   %.not = icmp ult ptr %.02734, %2
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %11
-  %14 = load i8, ptr %.02535, align 1
+  %14 = load i8, ptr %.02635, align 1
   %15 = zext i8 %14 to i32
   br label %.loopexit
 
@@ -1548,7 +1548,7 @@ define dso_local range(i32 -2147483647, 256) i32 @onigenc_with_ascii_strnicmp(pt
 
 25:                                               ; preds = %20, %16
   %.0 = phi i32 [ %24, %20 ], [ %18, %16 ]
-  %26 = load i8, ptr %.02535, align 1
+  %26 = load i8, ptr %.02635, align 1
   %27 = zext i8 %26 to i64
   %28 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
@@ -1558,7 +1558,7 @@ define dso_local range(i32 -2147483647, 256) i32 @onigenc_with_ascii_strnicmp(pt
   br i1 %.not32, label %32, label %.loopexit
 
 32:                                               ; preds = %25
-  %33 = getelementptr i8, ptr %.02535, i64 1
+  %33 = getelementptr i8, ptr %.02635, i64 1
   %34 = load i32, ptr %8, align 8
   %35 = load i32, ptr %9, align 4
   %36 = icmp eq i32 %34, %35
@@ -1598,8 +1598,8 @@ onigenc_mbclen.exit:                              ; preds = %50, %41, %48, %32
   br i1 %57, label %11, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %25, %onigenc_mbclen.exit, %5, %13
-  %.026 = phi i32 [ %15, %13 ], [ 0, %5 ], [ %31, %25 ], [ 0, %onigenc_mbclen.exit ]
-  ret i32 %.026
+  %.024 = phi i32 [ %15, %13 ], [ 0, %5 ], [ %31, %25 ], [ 0, %onigenc_mbclen.exit ]
+  ret i32 %.024
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1684,28 +1684,28 @@ define dso_local i32 @onigenc_with_ascii_strncmp(ptr noundef %0, ptr noundef %1,
 
 11:                                               ; preds = %.lr.ph, %onigenc_mbclen.exit
   %.in = phi i32 [ %4, %.lr.ph ], [ %12, %onigenc_mbclen.exit ]
-  %.02331 = phi ptr [ %3, %.lr.ph ], [ %23, %onigenc_mbclen.exit ]
-  %.02430 = phi ptr [ %1, %.lr.ph ], [ %46, %onigenc_mbclen.exit ]
+  %.02231 = phi ptr [ %1, %.lr.ph ], [ %46, %onigenc_mbclen.exit ]
+  %.02430 = phi ptr [ %3, %.lr.ph ], [ %23, %onigenc_mbclen.exit ]
   %12 = add nsw i32 %.in, -1
-  %.not = icmp ult ptr %.02430, %2
+  %.not = icmp ult ptr %.02231, %2
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %11
-  %14 = load i8, ptr %.02331, align 1
+  %14 = load i8, ptr %.02430, align 1
   %15 = zext i8 %14 to i32
   br label %.loopexit
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %7, align 8
-  %18 = tail call i32 %17(ptr noundef %.02430, ptr noundef nonnull %2, ptr noundef %0) #11
-  %19 = load i8, ptr %.02331, align 1
+  %18 = tail call i32 %17(ptr noundef %.02231, ptr noundef nonnull %2, ptr noundef %0) #11
+  %19 = load i8, ptr %.02430, align 1
   %20 = zext i8 %19 to i32
   %21 = sub i32 %20, %18
   %.not28 = icmp eq i32 %21, 0
   br i1 %.not28, label %22, label %.loopexit
 
 22:                                               ; preds = %16
-  %23 = getelementptr i8, ptr %.02331, i64 1
+  %23 = getelementptr i8, ptr %.02430, i64 1
   %24 = load i32, ptr %8, align 8
   %25 = load i32, ptr %9, align 4
   %26 = icmp eq i32 %24, %25
@@ -1713,15 +1713,15 @@ define dso_local i32 @onigenc_with_ascii_strncmp(ptr noundef %0, ptr noundef %1,
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %0, align 8
-  %29 = tail call i32 %28(ptr noundef %.02430, ptr noundef nonnull %2, ptr noundef nonnull %0) #11
+  %29 = tail call i32 %28(ptr noundef %.02231, ptr noundef nonnull %2, ptr noundef nonnull %0) #11
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %38
 
 31:                                               ; preds = %27
   %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr i8, ptr %.02430, i64 %32
+  %33 = getelementptr i8, ptr %.02231, i64 %32
   %34 = icmp ugt ptr %33, %2
-  %35 = ptrtoint ptr %.02430 to i64
+  %35 = ptrtoint ptr %.02231 to i64
   %36 = sub i64 %10, %35
   %37 = trunc i64 %36 to i32
   %.0.i = select i1 %34, i32 %37, i32 %29
@@ -1732,7 +1732,7 @@ define dso_local i32 @onigenc_with_ascii_strncmp(ptr noundef %0, ptr noundef %1,
   br i1 %39, label %40, label %onigenc_mbclen.exit
 
 40:                                               ; preds = %38
-  %41 = ptrtoint ptr %.02430 to i64
+  %41 = ptrtoint ptr %.02231 to i64
   %42 = sub i64 %10, %41
   %43 = trunc i64 %42 to i32
   br label %onigenc_mbclen.exit
@@ -1740,7 +1740,7 @@ define dso_local i32 @onigenc_with_ascii_strncmp(ptr noundef %0, ptr noundef %1,
 onigenc_mbclen.exit:                              ; preds = %40, %31, %38, %22
   %44 = phi i32 [ %24, %22 ], [ %.0.i, %31 ], [ %43, %40 ], [ 1, %38 ]
   %45 = sext i32 %44 to i64
-  %46 = getelementptr i8, ptr %.02430, i64 %45
+  %46 = getelementptr i8, ptr %.02231, i64 %45
   %47 = icmp ugt i32 %.in, 1
   br i1 %47, label %11, label %.loopexit, !llvm.loop !20
 
@@ -1765,8 +1765,8 @@ define dso_local i32 @onigenc_ascii_only_case_map(ptr nocapture noundef %0, ptr 
 
 14:                                               ; preds = %.lr.ph, %37
   %15 = phi ptr [ %8, %.lr.ph ], [ %44, %37 ]
-  %.058 = phi i32 [ %7, %.lr.ph ], [ %spec.select, %37 ]
-  %.04457 = phi ptr [ %3, %.lr.ph ], [ %41, %37 ]
+  %.04258 = phi i32 [ %7, %.lr.ph ], [ %spec.select, %37 ]
+  %.04357 = phi ptr [ %3, %.lr.ph ], [ %41, %37 ]
   %16 = load ptr, ptr %5, align 8
   %17 = tail call i32 %16(ptr noundef %15, ptr noundef nonnull %2, ptr noundef nonnull %5) #11
   %18 = icmp slt i32 %17, 0
@@ -1782,36 +1782,36 @@ define dso_local i32 @onigenc_ascii_only_case_map(ptr nocapture noundef %0, ptr 
   store ptr %25, ptr %1, align 8
   %26 = add i32 %22, -123
   %or.cond = icmp ult i32 %26, -26
-  %27 = and i32 %.058, 8192
+  %27 = and i32 %.04258, 8192
   %.not = icmp eq i32 %27, 0
   %or.cond53 = select i1 %or.cond, i1 true, i1 %.not
   br i1 %or.cond53, label %31, label %28
 
 28:                                               ; preds = %19
-  %29 = or i32 %.058, 262144
+  %29 = or i32 %.04258, 262144
   %30 = add nsw i32 %22, -32
   br label %37
 
 31:                                               ; preds = %19
   %32 = add i32 %22, -91
   %or.cond3 = icmp ult i32 %32, -26
-  %33 = and i32 %.058, 540672
+  %33 = and i32 %.04258, 540672
   %.not51 = icmp eq i32 %33, 0
   %or.cond54 = select i1 %or.cond3, i1 true, i1 %.not51
   br i1 %or.cond54, label %37, label %34
 
 34:                                               ; preds = %31
-  %35 = or i32 %.058, 262144
+  %35 = or i32 %.04258, 262144
   %36 = or disjoint i32 %22, 32
   br label %37
 
 37:                                               ; preds = %31, %34, %28
-  %.042 = phi i32 [ %30, %28 ], [ %36, %34 ], [ %22, %31 ]
-  %.1 = phi i32 [ %29, %28 ], [ %35, %34 ], [ %.058, %31 ]
+  %.044 = phi i32 [ %30, %28 ], [ %36, %34 ], [ %22, %31 ]
+  %.1 = phi i32 [ %29, %28 ], [ %35, %34 ], [ %.04258, %31 ]
   %38 = load ptr, ptr %13, align 8
-  %39 = tail call i32 %38(i32 noundef %.042, ptr noundef %.04457, ptr noundef nonnull %5) #11
+  %39 = tail call i32 %38(i32 noundef %.044, ptr noundef %.04357, ptr noundef nonnull %5) #11
   %40 = sext i32 %39 to i64
-  %41 = getelementptr i8, ptr %.04457, i64 %40
+  %41 = getelementptr i8, ptr %.04357, i64 %40
   %42 = and i32 %.1, 32768
   %.not52 = icmp eq i32 %42, 0
   %43 = xor i32 %.1, 57344
@@ -1823,18 +1823,18 @@ define dso_local i32 @onigenc_ascii_only_case_map(ptr nocapture noundef %0, ptr 
   br i1 %47, label %14, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %37, %6
-  %.044.lcssa = phi ptr [ %3, %6 ], [ %41, %37 ]
-  %.0.lcssa = phi i32 [ %7, %6 ], [ %spec.select, %37 ]
-  store i32 %.0.lcssa, ptr %0, align 4
-  %48 = ptrtoint ptr %.044.lcssa to i64
+  %.043.lcssa = phi ptr [ %3, %6 ], [ %41, %37 ]
+  %.042.lcssa = phi i32 [ %7, %6 ], [ %spec.select, %37 ]
+  store i32 %.042.lcssa, ptr %0, align 4
+  %48 = ptrtoint ptr %.043.lcssa to i64
   %49 = ptrtoint ptr %3 to i64
   %50 = sub i64 %48, %49
   %51 = trunc i64 %50 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %._crit_edge
-  %.043 = phi i32 [ %51, %._crit_edge ], [ %17, %14 ]
-  ret i32 %.043
+  %.0 = phi i32 [ %51, %._crit_edge ], [ %17, %14 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
@@ -1849,7 +1849,7 @@ define dso_local i32 @onigenc_single_byte_ascii_only_case_map(ptr nocapture noun
 .lr.ph:                                           ; preds = %6, %26
   %12 = phi ptr [ %30, %26 ], [ %8, %6 ]
   %.037 = phi i32 [ %spec.select, %26 ], [ %7, %6 ]
-  %.02836 = phi ptr [ %27, %26 ], [ %3, %6 ]
+  %.02736 = phi ptr [ %27, %26 ], [ %3, %6 ]
   %13 = getelementptr i8, ptr %12, i64 1
   store ptr %13, ptr %1, align 8
   %14 = load i8, ptr %12, align 1
@@ -1879,10 +1879,10 @@ define dso_local i32 @onigenc_single_byte_ascii_only_case_map(ptr nocapture noun
   br label %26
 
 26:                                               ; preds = %20, %23, %17
-  %.027 = phi i8 [ %19, %17 ], [ %25, %23 ], [ %14, %20 ]
+  %.028 = phi i8 [ %19, %17 ], [ %25, %23 ], [ %14, %20 ]
   %.1 = phi i32 [ %18, %17 ], [ %24, %23 ], [ %.037, %20 ]
-  %27 = getelementptr i8, ptr %.02836, i64 1
-  store i8 %.027, ptr %.02836, align 1
+  %27 = getelementptr i8, ptr %.02736, i64 1
+  store i8 %.028, ptr %.02736, align 1
   %28 = and i32 %.1, 32768
   %.not33 = icmp eq i32 %28, 0
   %29 = xor i32 %.1, 57344
@@ -1894,10 +1894,10 @@ define dso_local i32 @onigenc_single_byte_ascii_only_case_map(ptr nocapture noun
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %26, %6
-  %.028.lcssa = phi ptr [ %3, %6 ], [ %27, %26 ]
+  %.027.lcssa = phi ptr [ %3, %6 ], [ %27, %26 ]
   %.0.lcssa = phi i32 [ %7, %6 ], [ %spec.select, %26 ]
   store i32 %.0.lcssa, ptr %0, align 4
-  %34 = ptrtoint ptr %.028.lcssa to i64
+  %34 = ptrtoint ptr %.027.lcssa to i64
   %35 = ptrtoint ptr %3 to i64
   %36 = sub i64 %34, %35
   %37 = trunc i64 %36 to i32

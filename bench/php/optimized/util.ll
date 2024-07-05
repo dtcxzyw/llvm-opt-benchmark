@@ -143,8 +143,8 @@ phar_get_link_location.exit:                      ; preds = %8, %11, %15
   br i1 %.not38, label %36, label %31
 
 31:                                               ; preds = %26, %phar_get_link_location.exit
-  %.0.in = phi ptr [ %25, %phar_get_link_location.exit ], [ %30, %26 ]
-  %.0 = load ptr, ptr %.0.in, align 8, !nonnull !4, !noundef !4
+  %.030.in = phi ptr [ %25, %phar_get_link_location.exit ], [ %30, %26 ]
+  %.030 = load ptr, ptr %.030.in, align 8, !nonnull !4, !noundef !4
   %32 = load ptr, ptr %3, align 8
   %.not41 = icmp eq ptr %.0.i, %32
   br i1 %.not41, label %34, label %33
@@ -154,7 +154,7 @@ phar_get_link_location.exit:                      ; preds = %8, %11, %15
   br label %34
 
 34:                                               ; preds = %33, %31
-  %35 = call ptr @phar_get_link_source(ptr noundef nonnull %.0)
+  %35 = call ptr @phar_get_link_source(ptr noundef nonnull %.030)
   br label %39
 
 36:                                               ; preds = %26
@@ -167,8 +167,8 @@ phar_get_link_location.exit:                      ; preds = %8, %11, %15
   br label %39
 
 39:                                               ; preds = %36, %38, %1, %34
-  %.031 = phi ptr [ %35, %34 ], [ %0, %1 ], [ null, %38 ], [ null, %36 ]
-  ret ptr %.031
+  %.032 = phi ptr [ %35, %34 ], [ %0, %1 ], [ null, %38 ], [ null, %36 ]
+  ret ptr %.032
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -470,8 +470,8 @@ define hidden i32 @phar_seek_efp(ptr noundef %0, i64 noundef %1, i32 noundef %2,
   br label %10
 
 10:                                               ; preds = %8, %7
-  %.026 = phi ptr [ %0, %7 ], [ %spec.select, %8 ]
-  %11 = getelementptr inbounds i8, ptr %.026, i64 154
+  %.025 = phi ptr [ %0, %7 ], [ %spec.select, %8 ]
+  %11 = getelementptr inbounds i8, ptr %.025, i64 154
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 8
   %.not31 = icmp eq i16 %13, 0
@@ -483,19 +483,19 @@ define hidden i32 @phar_seek_efp(ptr noundef %0, i64 noundef %1, i32 noundef %2,
   br i1 %.not.i, label %16, label %18
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %.026, i64 80
+  %17 = getelementptr inbounds i8, ptr %.025, i64 80
   br label %phar_get_fp_offset.exit
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 112), align 8
-  %20 = getelementptr inbounds i8, ptr %.026, i64 128
+  %20 = getelementptr inbounds i8, ptr %.025, i64 128
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 320
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds %struct._phar_entry_fp, ptr %19, i64 %24, i32 2
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.026, i64 148
+  %27 = getelementptr inbounds i8, ptr %.025, i64 148
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds %struct._phar_entry_fp_info, ptr %26, i64 %29
@@ -510,7 +510,7 @@ define hidden i32 @phar_seek_efp(ptr noundef %0, i64 noundef %1, i32 noundef %2,
   br i1 %.not11.i, label %36, label %39
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %.026, i64 80
+  %37 = getelementptr inbounds i8, ptr %.025, i64 80
   %38 = load i64, ptr %37, align 8
   store i64 %38, ptr %34, align 8
   %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 112), align 8
@@ -540,7 +540,7 @@ phar_get_fp_offset.exit:                          ; preds = %16, %39
   ]
 
 42:                                               ; preds = %phar_get_fp_offset.exit
-  %43 = load i32, ptr %.026, align 8
+  %43 = load i32, ptr %.025, align 8
   %44 = zext i32 %43 to i64
   %45 = add i64 %.0.i, %1
   %46 = add i64 %45, %44
@@ -556,22 +556,22 @@ phar_get_fp_offset.exit:                          ; preds = %16, %39
   br label %52
 
 52:                                               ; preds = %phar_get_fp_offset.exit, %50, %47, %42
-  %.0 = phi i64 [ %51, %50 ], [ %49, %47 ], [ %46, %42 ], [ 0, %phar_get_fp_offset.exit ]
-  %53 = load i32, ptr %.026, align 8
+  %.026 = phi i64 [ %51, %50 ], [ %49, %47 ], [ %46, %42 ], [ 0, %phar_get_fp_offset.exit ]
+  %53 = load i32, ptr %.025, align 8
   %54 = zext i32 %53 to i64
   %55 = add nsw i64 %.0.i, %54
-  %56 = icmp sgt i64 %.0, %55
-  %57 = icmp slt i64 %.0, %.0.i
+  %56 = icmp sgt i64 %.026, %55
+  %57 = icmp slt i64 %.026, %.0.i
   %or.cond = or i1 %57, %56
   br i1 %or.cond, label %60, label %58
 
 58:                                               ; preds = %52
-  %59 = tail call i32 @_php_stream_seek(ptr noundef nonnull %6, i64 noundef %.0, i32 noundef 0) #15
+  %59 = tail call i32 @_php_stream_seek(ptr noundef nonnull %6, i64 noundef %.026, i32 noundef 0) #15
   br label %60
 
 60:                                               ; preds = %52, %10, %5, %58
-  %.025 = phi i32 [ %59, %58 ], [ -1, %5 ], [ 0, %10 ], [ -1, %52 ]
-  ret i32 %.025
+  %.0 = phi i32 [ %59, %58 ], [ -1, %5 ], [ 0, %10 ], [ -1, %52 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -830,8 +830,8 @@ define hidden range(i32 -1, 1) i32 @phar_mount_entry(ptr noundef %0, ptr noundef
   br label %76
 
 76:                                               ; preds = %74, %17, %5, %.critedge, %55, %45, %40
-  %.069 = phi i32 [ -1, %45 ], [ -1, %55 ], [ -1, %.critedge ], [ -1, %40 ], [ -1, %5 ], [ -1, %17 ], [ 0, %74 ]
-  ret i32 %.069
+  %.070 = phi i32 [ -1, %45 ], [ -1, %55 ], [ -1, %.critedge ], [ -1, %40 ], [ -1, %5 ], [ -1, %17 ], [ 0, %74 ]
+  ret i32 %.070
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -864,7 +864,7 @@ define hidden ptr @phar_find_in_include_path(ptr noundef %0, ptr noundef writeon
   br label %11
 
 11:                                               ; preds = %2, %10
-  %.0 = phi ptr [ %1, %10 ], [ %8, %2 ]
+  %.071 = phi ptr [ %1, %10 ], [ %8, %2 ]
   %12 = tail call zeroext i1 @zend_is_executing() #15
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 408), align 8
   %.not79 = icmp ne ptr %13, null
@@ -949,7 +949,7 @@ define hidden ptr @phar_find_in_include_path(ptr noundef %0, ptr noundef writeon
 
 49:                                               ; preds = %._crit_edge, %30
   %50 = phi ptr [ %.pre, %._crit_edge ], [ %34, %30 ]
-  store ptr %50, ptr %.0, align 8
+  store ptr %50, ptr %.071, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load i64, ptr %51, align 8
   store i64 %52, ptr %9, align 8
@@ -1040,7 +1040,7 @@ define hidden ptr @phar_find_in_include_path(ptr noundef %0, ptr noundef writeon
   br i1 %.not93, label %103, label %.sink.split.sink.split
 
 103:                                              ; preds = %99
-  store ptr null, ptr %.0, align 8
+  store ptr null, ptr %.071, align 8
   %104 = load i32, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 192), align 8
   %.not95 = icmp eq i32 %104, 0
   br i1 %.not95, label %110, label %105
@@ -1059,7 +1059,7 @@ define hidden ptr @phar_find_in_include_path(ptr noundef %0, ptr noundef writeon
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %105
   %.sink = phi ptr [ null, %105 ], [ %109, %.sink.split.sink.split ]
-  store ptr %.sink, ptr %.0, align 8
+  store ptr %.sink, ptr %.071, align 8
   br label %110
 
 110:                                              ; preds = %.sink.split, %103
@@ -1070,8 +1070,8 @@ define hidden ptr @phar_find_in_include_path(ptr noundef %0, ptr noundef writeon
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %77, %95, %110, %91, %97, %35, %.thread, %14, %11, %72, %65, %47
-  %.069 = phi ptr [ null, %47 ], [ %67, %65 ], [ %74, %72 ], [ null, %11 ], [ null, %14 ], [ null, %.thread ], [ null, %35 ], [ %89, %97 ], [ %89, %91 ], [ %89, %110 ], [ %89, %95 ], [ null, %77 ], [ null, %16 ]
-  ret ptr %.069
+  %.070 = phi ptr [ null, %47 ], [ %67, %65 ], [ %74, %72 ], [ null, %11 ], [ null, %14 ], [ null, %.thread ], [ null, %35 ], [ %89, %97 ], [ %89, %91 ], [ %89, %110 ], [ %89, %95 ], [ null, %77 ], [ null, %16 ]
+  ret ptr %.070
 }
 
 declare zeroext i1 @zend_is_executing() local_unnamed_addr #2
@@ -1567,8 +1567,8 @@ phar_free_alias.exit:                             ; preds = %91
   br label %phar_free_alias.exit.thread
 
 phar_free_alias.exit.thread:                      ; preds = %91, %84, %87, %.critedge, %.thread389, %.thread383, %170, %171, %124, %125, %phar_free_alias.exit, %96, %18, %58, %216, %196, %183, %174, %145, %98, %37
-  %.0267 = phi i32 [ 0, %98 ], [ 0, %145 ], [ 0, %174 ], [ 0, %183 ], [ 0, %196 ], [ 0, %216 ], [ -1, %37 ], [ 0, %58 ], [ 0, %18 ], [ -1, %96 ], [ -1, %phar_free_alias.exit ], [ -1, %125 ], [ -1, %124 ], [ -1, %171 ], [ -1, %170 ], [ -1, %.thread383 ], [ -1, %.thread389 ], [ -1, %.critedge ], [ -1, %87 ], [ -1, %84 ], [ -1, %91 ]
-  ret i32 %.0267
+  %.0270 = phi i32 [ 0, %98 ], [ 0, %145 ], [ 0, %174 ], [ 0, %183 ], [ 0, %196 ], [ 0, %216 ], [ -1, %37 ], [ 0, %58 ], [ 0, %18 ], [ -1, %96 ], [ -1, %phar_free_alias.exit ], [ -1, %125 ], [ -1, %124 ], [ -1, %171 ], [ -1, %170 ], [ -1, %.thread383 ], [ -1, %.thread389 ], [ -1, %.critedge ], [ -1, %87 ], [ -1, %84 ], [ -1, %91 ]
+  ret i32 %.0270
 }
 
 declare ptr @phar_fix_filepath(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1901,7 +1901,7 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef %0, ptr noun
 
 149:                                              ; preds = %.thread155, %.split167.us
   %150 = phi ptr [ %131, %.thread155 ], [ %140, %.split167.us ]
-  %.0160 = phi ptr [ %.us-phi165, %.thread155 ], [ %.us-phi168, %.split167.us ]
+  %.0115160 = phi ptr [ %.us-phi165, %.thread155 ], [ %.us-phi168, %.split167.us ]
   %151 = phi ptr [ %136, %.thread155 ], [ %143, %.split167.us ]
   %152 = phi ptr [ %132, %.thread155 ], [ %141, %.split167.us ]
   %153 = phi i16 [ %133, %.thread155 ], [ %142, %.split167.us ]
@@ -1935,7 +1935,7 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef %0, ptr noun
   %167 = and i8 %166, -8
   %168 = or disjoint i8 %167, %165
   %169 = getelementptr inbounds i8, ptr %162, i64 40
-  store ptr %.0160, ptr %169, align 8
+  store ptr %.0115160, ptr %169, align 8
   %170 = load i16, ptr %152, align 2
   %171 = trunc i16 %170 to i8
   %172 = lshr i8 %171, 6
@@ -1952,7 +1952,7 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef %0, ptr noun
   br i1 %.not146, label %181, label %260
 
 181:                                              ; preds = %161
-  %182 = getelementptr inbounds i8, ptr %.0160, i64 128
+  %182 = getelementptr inbounds i8, ptr %.0115160, i64 128
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds i8, ptr %183, i64 272
   %185 = load i32, ptr %184, align 8
@@ -1964,7 +1964,7 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef %0, ptr noun
   br label %260
 
 189:                                              ; preds = %158
-  %190 = getelementptr inbounds i8, ptr %.0160, i64 64
+  %190 = getelementptr inbounds i8, ptr %.0115160, i64 64
   %191 = load i32, ptr %190, align 8
   %192 = icmp eq i32 %191, 2
   br i1 %192, label %193, label %200
@@ -1973,7 +1973,7 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef %0, ptr noun
   br i1 %19, label %194, label %197
 
 194:                                              ; preds = %193
-  %195 = tail call i32 @phar_create_writeable_entry(ptr noundef %150, ptr noundef nonnull %.0160, ptr noundef %7)
+  %195 = tail call i32 @phar_create_writeable_entry(ptr noundef %150, ptr noundef nonnull %.0115160, ptr noundef %7)
   %196 = icmp eq i32 %195, -1
   br i1 %196, label %260, label %219
 
@@ -1981,14 +1981,14 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef %0, ptr noun
   br i1 %18, label %198, label %219
 
 198:                                              ; preds = %197
-  %199 = tail call i32 @phar_seek_efp(ptr noundef nonnull %.0160, i64 noundef 0, i32 noundef 2, i64 noundef 0, i32 noundef 0)
+  %199 = tail call i32 @phar_seek_efp(ptr noundef nonnull %.0115160, i64 noundef 0, i32 noundef 2, i64 noundef 0, i32 noundef 0)
   br label %219
 
 200:                                              ; preds = %189
   br i1 %.fr, label %201, label %216
 
 201:                                              ; preds = %200
-  %202 = getelementptr inbounds i8, ptr %.0160, i64 136
+  %202 = getelementptr inbounds i8, ptr %.0115160, i64 136
   %203 = load ptr, ptr %202, align 8
   %.not141 = icmp eq ptr %203, null
   br i1 %.not141, label %209, label %204
@@ -2000,7 +2000,7 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef %0, ptr noun
   %206 = and i16 %205, 64
   %.not142 = icmp eq i16 %206, 0
   %207 = select i1 %.not142, i8 0, i8 48
-  %208 = getelementptr inbounds i8, ptr %.0160, i64 144
+  %208 = getelementptr inbounds i8, ptr %.0115160, i64 144
   store i8 %207, ptr %208, align 8
   br label %209
 
@@ -2008,17 +2008,17 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef %0, ptr noun
   br i1 %19, label %210, label %213
 
 210:                                              ; preds = %209
-  %211 = tail call i32 @phar_create_writeable_entry(ptr noundef %150, ptr noundef nonnull %.0160, ptr noundef %7)
+  %211 = tail call i32 @phar_create_writeable_entry(ptr noundef %150, ptr noundef nonnull %.0115160, ptr noundef %7)
   %212 = icmp eq i32 %211, -1
   br i1 %212, label %260, label %219
 
 213:                                              ; preds = %209
-  %214 = tail call i32 @phar_separate_entry_fp(ptr noundef nonnull %.0160, ptr noundef %7)
+  %214 = tail call i32 @phar_separate_entry_fp(ptr noundef nonnull %.0115160, ptr noundef %7)
   %215 = icmp eq i32 %214, -1
   br i1 %215, label %260, label %219
 
 216:                                              ; preds = %200
-  %217 = tail call i32 @phar_open_entry_fp(ptr noundef nonnull %.0160, ptr noundef %7, i32 noundef 1)
+  %217 = tail call i32 @phar_open_entry_fp(ptr noundef nonnull %.0115160, ptr noundef %7, i32 noundef 1)
   %218 = icmp eq i32 %217, -1
   br i1 %218, label %260, label %219
 
@@ -2034,7 +2034,7 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef %0, ptr noun
   %225 = and i8 %224, -8
   %226 = or disjoint i8 %225, %223
   %227 = getelementptr inbounds i8, ptr %220, i64 40
-  store ptr %.0160, ptr %227, align 8
+  store ptr %.0115160, ptr %227, align 8
   %228 = load i16, ptr %152, align 2
   %229 = trunc i16 %228 to i8
   %230 = lshr i8 %229, 6
@@ -2044,17 +2044,17 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef %0, ptr noun
   %234 = and i8 %233, 4
   %235 = or disjoint i8 %232, %234
   store i8 %235, ptr %222, align 8
-  %236 = tail call ptr @phar_get_efp(ptr noundef nonnull %.0160, i32 noundef 1)
+  %236 = tail call ptr @phar_get_efp(ptr noundef nonnull %.0115160, i32 noundef 1)
   %237 = load ptr, ptr %0, align 8
   %238 = getelementptr inbounds i8, ptr %237, i64 8
   store ptr %236, ptr %238, align 8
-  %239 = getelementptr inbounds i8, ptr %.0160, i64 136
+  %239 = getelementptr inbounds i8, ptr %.0115160, i64 136
   %240 = load ptr, ptr %239, align 8
   %.not143 = icmp eq ptr %240, null
   br i1 %.not143, label %245, label %241
 
 241:                                              ; preds = %219
-  %242 = tail call ptr @phar_get_link_source(ptr noundef nonnull %.0160)
+  %242 = tail call ptr @phar_get_link_source(ptr noundef nonnull %.0115160)
   %.not144 = icmp eq ptr %242, null
   br i1 %.not144, label %243, label %245
 
@@ -2064,8 +2064,8 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef %0, ptr noun
   br label %260
 
 245:                                              ; preds = %219, %241
-  %.0160.sink = phi ptr [ %242, %241 ], [ %.0160, %219 ]
-  %246 = tail call fastcc i64 @phar_get_fp_offset(ptr noundef nonnull %.0160.sink)
+  %.0115160.sink = phi ptr [ %242, %241 ], [ %.0115160, %219 ]
+  %246 = tail call fastcc i64 @phar_get_fp_offset(ptr noundef nonnull %.0115160.sink)
   %247 = load ptr, ptr %0, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 24
   store i64 %246, ptr %248, align 8
@@ -2079,7 +2079,7 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef %0, ptr noun
   %253 = load i32, ptr %151, align 8
   %254 = add nsw i32 %253, 1
   store i32 %254, ptr %151, align 8
-  %255 = getelementptr inbounds i8, ptr %.0160, i64 128
+  %255 = getelementptr inbounds i8, ptr %.0115160, i64 128
   %256 = load ptr, ptr %255, align 8
   %257 = getelementptr inbounds i8, ptr %256, i64 272
   %258 = load i32, ptr %257, align 8
@@ -2088,8 +2088,8 @@ define hidden range(i32 -1, 1) i32 @phar_get_entry_data(ptr noundef %0, ptr noun
   br label %260
 
 260:                                              ; preds = %245, %252, %216, %213, %210, %194, %161, %181, %155, %146, %147, %137, %138, %.split170.us, %129, %122, %124, %115, %117, %102, %103, %32, %33, %23, %16, %243, %128, %121
-  %.0115 = phi i32 [ -1, %121 ], [ -1, %243 ], [ -1, %128 ], [ -1, %16 ], [ -1, %23 ], [ -1, %33 ], [ -1, %32 ], [ -1, %103 ], [ -1, %102 ], [ 0, %117 ], [ 0, %115 ], [ 0, %124 ], [ 0, %122 ], [ -1, %129 ], [ -1, %.split170.us ], [ -1, %138 ], [ -1, %137 ], [ -1, %147 ], [ -1, %146 ], [ -1, %155 ], [ 0, %181 ], [ 0, %161 ], [ -1, %194 ], [ -1, %210 ], [ -1, %213 ], [ -1, %216 ], [ 0, %252 ], [ 0, %245 ]
-  ret i32 %.0115
+  %.0 = phi i32 [ -1, %121 ], [ -1, %243 ], [ -1, %128 ], [ -1, %16 ], [ -1, %23 ], [ -1, %33 ], [ -1, %32 ], [ -1, %103 ], [ -1, %102 ], [ 0, %117 ], [ 0, %115 ], [ 0, %124 ], [ 0, %122 ], [ -1, %129 ], [ -1, %.split170.us ], [ -1, %138 ], [ -1, %137 ], [ -1, %147 ], [ -1, %146 ], [ -1, %155 ], [ 0, %181 ], [ 0, %161 ], [ -1, %194 ], [ -1, %210 ], [ -1, %213 ], [ -1, %216 ], [ 0, %252 ], [ 0, %245 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2224,7 +2224,7 @@ define hidden ptr @phar_get_entry_info_dir(ptr noundef %0, ptr noundef %1, i64 n
   %71 = icmp eq i8 %3, 2
   %or.cond8 = and i1 %71, %65
   %brmerge.not = and i1 %.not124, %or.cond8
-  %.0113.mux = select i1 %or.cond8, ptr null, ptr %59
+  %.0112.mux = select i1 %or.cond8, ptr null, ptr %59
   br i1 %brmerge.not, label %72, label %.loopexit
 
 72:                                               ; preds = %70
@@ -2295,14 +2295,14 @@ define hidden ptr @phar_get_entry_info_dir(ptr noundef %0, ptr noundef %1, i64 n
   br label %113
 
 113:                                              ; preds = %.lr.ph, %187
-  %.0112158 = phi ptr [ %105, %.lr.ph ], [ %188, %187 ]
-  %114 = getelementptr inbounds i8, ptr %.0112158, i64 8
+  %.0114158 = phi ptr [ %105, %.lr.ph ], [ %188, %187 ]
+  %114 = getelementptr inbounds i8, ptr %.0114158, i64 8
   %115 = load i8, ptr %114, align 8
   %116 = icmp eq i8 %115, 0
   br i1 %116, label %187, label %117
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds i8, ptr %.0112158, i64 24
+  %118 = getelementptr inbounds i8, ptr %.0114158, i64 24
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 16
   %121 = load i64, ptr %120, align 8
@@ -2435,12 +2435,12 @@ define hidden ptr @phar_get_entry_info_dir(ptr noundef %0, ptr noundef %1, i64 n
   br label %.loopexit
 
 187:                                              ; preds = %117, %122, %113
-  %188 = getelementptr inbounds i8, ptr %.0112158, i64 32
+  %188 = getelementptr inbounds i8, ptr %.0114158, i64 32
   %.not131 = icmp eq ptr %188, %109
   br i1 %.not131, label %.loopexit, label %113
 
 .loopexit:                                        ; preds = %187, %103, %.thread149, %182, %70, %95, %100, %183, %172, %173, %163, %164, %156, %158, %139, %140, %128, %129, %72, %66, %67, %58, %50, %43, %38, %39, %31, %32, %25, %26, %149, %81
-  %.0115 = phi ptr [ %82, %81 ], [ null, %149 ], [ null, %26 ], [ null, %25 ], [ null, %32 ], [ null, %31 ], [ null, %39 ], [ null, %38 ], [ null, %43 ], [ null, %50 ], [ null, %58 ], [ null, %67 ], [ null, %66 ], [ null, %72 ], [ %.0113.mux, %70 ], [ null, %129 ], [ null, %128 ], [ null, %140 ], [ null, %139 ], [ null, %158 ], [ null, %156 ], [ null, %164 ], [ null, %163 ], [ null, %173 ], [ null, %172 ], [ null, %183 ], [ null, %182 ], [ null, %100 ], [ null, %95 ], [ %181, %.thread149 ], [ null, %103 ], [ null, %187 ]
+  %.0115 = phi ptr [ %82, %81 ], [ null, %149 ], [ null, %26 ], [ null, %25 ], [ null, %32 ], [ null, %31 ], [ null, %39 ], [ null, %38 ], [ null, %43 ], [ null, %50 ], [ null, %58 ], [ null, %67 ], [ null, %66 ], [ null, %72 ], [ %.0112.mux, %70 ], [ null, %129 ], [ null, %128 ], [ null, %140 ], [ null, %139 ], [ null, %158 ], [ null, %156 ], [ null, %164 ], [ null, %163 ], [ null, %173 ], [ null, %172 ], [ null, %183 ], [ null, %182 ], [ null, %100 ], [ null, %95 ], [ %181, %.thread149 ], [ null, %103 ], [ null, %187 ]
   ret ptr %.0115
 }
 
@@ -3584,8 +3584,8 @@ define hidden void @phar_add_virtual_dirs(ptr noundef %0, ptr noundef %1, i64 no
   br label %7
 
 7:                                                ; preds = %41, %3
-  %.080 = phi i64 [ %2, %3 ], [ %11, %41 ]
-  %8 = tail call ptr @memrchr(ptr noundef %1, i32 noundef 47, i64 noundef %.080) #16
+  %.0 = phi i64 [ %2, %3 ], [ %11, %41 ]
+  %8 = tail call ptr @memrchr(ptr noundef %1, i32 noundef 47, i64 noundef %.0) #16
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %43, label %9
 
@@ -3624,20 +3624,20 @@ define hidden void @phar_add_virtual_dirs(ptr noundef %0, ptr noundef %1, i64 no
   br label %27
 
 27:                                               ; preds = %18, %15
-  %.0 = phi ptr [ %17, %15 ], [ %21, %18 ]
-  %28 = tail call ptr @zend_hash_add_empty_element(ptr noundef nonnull %5, ptr noundef %.0) #15
-  %29 = getelementptr inbounds i8, ptr %.0, i64 4
+  %.080 = phi ptr [ %17, %15 ], [ %21, %18 ]
+  %28 = tail call ptr @zend_hash_add_empty_element(ptr noundef nonnull %5, ptr noundef %.080) #15
+  %29 = getelementptr inbounds i8, ptr %.080, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 64
   %.not86 = icmp eq i32 %31, 0
   br i1 %.not86, label %32, label %41
 
 32:                                               ; preds = %27
-  %33 = load i32, ptr %.0, align 4
+  %33 = load i32, ptr %.080, align 4
   %34 = icmp ne i32 %33, 0
   tail call void @llvm.assume(i1 %34)
   %35 = add i32 %33, -1
-  store i32 %35, ptr %.0, align 4
+  store i32 %35, ptr %.080, align 4
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %41
 
@@ -3647,11 +3647,11 @@ define hidden void @phar_add_virtual_dirs(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not87, label %40, label %39
 
 39:                                               ; preds = %37
-  tail call void @free(ptr noundef nonnull %.0) #15
+  tail call void @free(ptr noundef nonnull %.080) #15
   br label %41
 
 40:                                               ; preds = %37
-  tail call void @_efree(ptr noundef nonnull %.0) #15
+  tail call void @_efree(ptr noundef nonnull %.080) #15
   br label %41
 
 41:                                               ; preds = %32, %40, %39, %27
@@ -4139,11 +4139,11 @@ phar_hex_str.exit:                                ; preds = %76, %._crit_edge.lo
 
 .lr.ph248:                                        ; preds = %104, %.lr.ph248
   %106 = phi i64 [ %108, %.lr.ph248 ], [ %105, %104 ]
-  %.0246 = phi i64 [ %107, %.lr.ph248 ], [ %1, %104 ]
-  %.1120245 = phi i64 [ %spec.select, %.lr.ph248 ], [ %., %104 ]
+  %.0119246 = phi i64 [ %107, %.lr.ph248 ], [ %1, %104 ]
+  %.1121245 = phi i64 [ %spec.select, %.lr.ph248 ], [ %., %104 ]
   call void @PHP_SHA512Update(ptr noundef nonnull %15, ptr noundef nonnull %11, i64 noundef %106) #15
-  %107 = sub nsw i64 %.0246, %106
-  %spec.select = call i64 @llvm.umin.i64(i64 %107, i64 %.1120245)
+  %107 = sub nsw i64 %.0119246, %106
+  %spec.select = call i64 @llvm.umin.i64(i64 %107, i64 %.1121245)
   %108 = call i64 @_php_stream_read(ptr noundef %0, ptr noundef nonnull %11, i64 noundef %spec.select) #15
   %.not164 = icmp eq i64 %108, 0
   br i1 %.not164, label %._crit_edge249, label %.lr.ph248
@@ -4507,8 +4507,8 @@ phar_hex_str.exit224:                             ; preds = %.lr.ph.i216
   br label %258
 
 258:                                              ; preds = %phar_hex_str.exit, %phar_hex_str.exit194, %phar_hex_str.exit204, %phar_hex_str.exit214, %phar_hex_str.exit224, %255, %256, %226, %227, %218, %219, %187, %188, %179, %180, %148, %149, %140, %141, %109, %110, %101, %102, %58, %59, %.critedge, %40, %25, %26
-  %.0123 = phi i32 [ -1, %26 ], [ -1, %25 ], [ -1, %40 ], [ -1, %.critedge ], [ -1, %59 ], [ -1, %58 ], [ -1, %102 ], [ -1, %101 ], [ -1, %110 ], [ -1, %109 ], [ -1, %141 ], [ -1, %140 ], [ -1, %149 ], [ -1, %148 ], [ -1, %180 ], [ -1, %179 ], [ -1, %188 ], [ -1, %187 ], [ -1, %219 ], [ -1, %218 ], [ -1, %227 ], [ -1, %226 ], [ -1, %256 ], [ -1, %255 ], [ 0, %phar_hex_str.exit224 ], [ 0, %phar_hex_str.exit214 ], [ 0, %phar_hex_str.exit204 ], [ 0, %phar_hex_str.exit194 ], [ 0, %phar_hex_str.exit ]
-  ret i32 %.0123
+  %.0 = phi i32 [ -1, %26 ], [ -1, %25 ], [ -1, %40 ], [ -1, %.critedge ], [ -1, %59 ], [ -1, %58 ], [ -1, %102 ], [ -1, %101 ], [ -1, %110 ], [ -1, %109 ], [ -1, %141 ], [ -1, %140 ], [ -1, %149 ], [ -1, %148 ], [ -1, %180 ], [ -1, %179 ], [ -1, %188 ], [ -1, %187 ], [ -1, %219 ], [ -1, %218 ], [ -1, %227 ], [ -1, %226 ], [ -1, %256 ], [ -1, %255 ], [ 0, %phar_hex_str.exit224 ], [ 0, %phar_hex_str.exit214 ], [ 0, %phar_hex_str.exit204 ], [ 0, %phar_hex_str.exit194 ], [ 0, %phar_hex_str.exit ]
+  ret i32 %.0
 }
 
 declare ptr @_php_stream_copy_to_mem(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2

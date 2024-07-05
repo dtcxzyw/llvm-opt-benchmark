@@ -687,7 +687,7 @@ switch.lookup:                                    ; preds = %17
   br label %20
 
 20:                                               ; preds = %switch.lookup, %17
-  %.0 = phi float [ 0.000000e+00, %17 ], [ %switch.load, %switch.lookup ]
+  %.051 = phi float [ 0.000000e+00, %17 ], [ %switch.load, %switch.lookup ]
   %21 = getelementptr inbounds i8, ptr %13, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = call i32 @pthread_getschedparam(i64 noundef %22, ptr noundef nonnull %7, ptr noundef nonnull %6) #3
@@ -786,7 +786,7 @@ _ZN7mitsuba6Thread6threadEv.exit64:               ; preds = %47, %49
   %64 = sitofp i32 %43 to float
   %65 = sub nsw i32 %45, %43
   %66 = sitofp i32 %65 to float
-  %67 = fmul contract float %.0, %66
+  %67 = fmul contract float %.051, %66
   %68 = fadd contract float %67, %64
   %69 = fptosi float %68 to i32
   store i32 %69, ptr %6, align 4
@@ -839,8 +839,8 @@ _ZN7mitsuba6Thread6threadEv.exit66:               ; preds = %72, %75
   br label %89
 
 89:                                               ; preds = %.sink.split, %63, %82, %_ZN7mitsuba6Thread6threadEv.exit66, %56, %_ZN7mitsuba6Thread6threadEv.exit64, %34, %_ZN7mitsuba6Thread6threadEv.exit, %2
-  %.051 = phi i1 [ true, %2 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit ], [ false, %34 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit64 ], [ false, %56 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit66 ], [ false, %82 ], [ true, %63 ], [ false, %.sink.split ]
-  ret i1 %.051
+  %.0 = phi i1 [ true, %2 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit ], [ false, %34 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit64 ], [ false, %56 ], [ false, %_ZN7mitsuba6Thread6threadEv.exit66 ], [ false, %82 ], [ true, %63 ], [ false, %.sink.split ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind
@@ -885,9 +885,9 @@ define void @_ZN7mitsuba6Thread17set_core_affinityEi(ptr nocapture noundef nonnu
   br label %20
 
 20:                                               ; preds = %17, %51
-  %.092120 = phi i32 [ 0, %17 ], [ %53, %51 ]
-  %.096119 = phi i32 [ %19, %17 ], [ %52, %51 ]
-  %21 = sext i32 %.096119 to i64
+  %.0120 = phi i32 [ %19, %17 ], [ %52, %51 ]
+  %.096119 = phi i32 [ 0, %17 ], [ %53, %51 ]
+  %21 = sext i32 %.0120 to i64
   %22 = add nsw i64 %21, 63
   %23 = lshr i64 %22, 3
   %24 = and i64 %23, 2305843009213693944
@@ -956,18 +956,18 @@ common.resume:                                    ; preds = %120, %85, %41
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %49
-  %52 = shl nsw i32 %.096119, 1
-  %53 = add nuw nsw i32 %.092120, 1
+  %52 = shl nsw i32 %.0120, 1
+  %53 = add nuw nsw i32 %.096119, 1
   %exitcond.not = icmp eq i32 %53, 10
   br i1 %exitcond.not, label %54, label %20, !llvm.loop !5
 
 54:                                               ; preds = %51, %43, %49
-  %.096.lcssa = phi i32 [ %52, %51 ], [ %.096119, %43 ], [ %.096119, %49 ]
-  %55 = icmp sgt i32 %.096.lcssa, 0
+  %.0.lcssa = phi i32 [ %52, %51 ], [ %.0120, %43 ], [ %.0120, %49 ]
+  %55 = icmp sgt i32 %.0.lcssa, 0
   br i1 %55, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %54
-  %wide.trip.count = zext nneg i32 %.096.lcssa to i64
+  %wide.trip.count = zext nneg i32 %.0.lcssa to i64
   br label %56
 
 56:                                               ; preds = %.lr.ph, %.thread

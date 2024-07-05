@@ -4396,27 +4396,27 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
 
 22:                                               ; preds = %.lr.ph, %129
   %.05980 = phi i64 [ 0, %.lr.ph ], [ %124, %129 ]
-  %.06079 = phi i8 [ 0, %.lr.ph ], [ %130, %129 ]
-  %.06376 = phi i32 [ %20, %.lr.ph ], [ %121, %129 ]
-  %23 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.06376) #14
+  %.06177 = phi i32 [ %20, %.lr.ph ], [ %121, %129 ]
+  %.06376 = phi i8 [ 0, %.lr.ph ], [ %130, %129 ]
+  %23 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.06177) #14
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %8)
-  %26 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.06376) #14
+  %26 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.06177) #14
   %27 = load i32, ptr @ett_dvbci_cc_item, align 4
   %28 = zext i8 %26 to i32
   %29 = call ptr @val_to_str_const(i32 noundef %28, ptr noundef nonnull @dvbci_cc_dat_id, ptr noundef nonnull @.str.947) #14
-  %30 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %4, ptr noundef %1, i32 noundef %.06376, i32 noundef -1, i32 noundef %27, ptr noundef nonnull %7, ptr noundef nonnull @.str.968, ptr noundef %29) #14
+  %30 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %4, ptr noundef %1, i32 noundef %.06177, i32 noundef -1, i32 noundef %27, ptr noundef nonnull %7, ptr noundef nonnull @.str.968, ptr noundef %29) #14
   %31 = load i32, ptr @hf_dvbci_cc_dat_id, align 4
-  %32 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %1, i32 noundef %.06376, i32 noundef 1, i32 noundef 0) #14
-  %33 = add i32 %.06376, 1
+  %32 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %1, i32 noundef %.06177, i32 noundef 1, i32 noundef 0) #14
+  %33 = add i32 %.06177, 1
   %34 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %33) #14
   %35 = load i32, ptr @hf_dvbci_cc_dat_len, align 4
   %36 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %35, ptr noundef %1, i32 noundef %33, i32 noundef 2, i32 noundef 0) #14
-  %37 = add i32 %.06376, 3
+  %37 = add i32 %.06177, 3
   switch i8 %26, label %113 [
     i8 7, label %38
     i8 8, label %38
@@ -4450,7 +4450,7 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
   %46 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %37) #14
   %47 = load i32, ptr @hf_dvbci_uri_ver, align 4
   %48 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %47, ptr noundef %1, i32 noundef %37, i32 noundef 1, i32 noundef 0) #14
-  %49 = add i32 %.06376, 4
+  %49 = add i32 %.06177, 4
   %50 = load i32, ptr @hf_dvbci_uri_aps, align 4
   %51 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %50, ptr noundef %1, i32 noundef %49, i32 noundef 1, i32 noundef 0) #14
   %52 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %49) #14
@@ -4481,11 +4481,11 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
 .thread60.i.i:                                    ; preds = %65
   %68 = load i32, ptr @hf_dvbci_uri_dot, align 4
   %69 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %68, ptr noundef %1, i32 noundef %49, i32 noundef 1, i32 noundef 0) #14
-  %70 = add i32 %.06376, 5
+  %70 = add i32 %.06177, 5
   br label %78
 
 71:                                               ; preds = %65
-  %72 = add i32 %.06376, 5
+  %72 = add i32 %.06177, 5
   br i1 %67, label %73, label %117
 
 73:                                               ; preds = %71
@@ -4582,7 +4582,7 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
   call void @proto_item_set_len(ptr noundef %119, i32 noundef %120) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %8)
-  %121 = add i32 %120, %.06376
+  %121 = add i32 %120, %.06177
   %122 = shl i64 %.05980, 8
   %123 = zext i8 %26 to i64
   %124 = or disjoint i64 %122, %123
@@ -4600,48 +4600,48 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
   br label %129
 
 129:                                              ; preds = %128, %117, %125
-  %130 = add nuw i8 %.06079, 1
+  %130 = add nuw i8 %.06376, 1
   %exitcond.not = icmp eq i8 %130, %17
   br i1 %exitcond.not, label %.critedge, label %22, !llvm.loop !20
 
 .critedge:                                        ; preds = %22, %129, %13
-  %.063.lcssa = phi i32 [ %20, %13 ], [ %121, %129 ], [ %.06376, %22 ]
+  %.061.lcssa = phi i32 [ %20, %13 ], [ %121, %129 ], [ %.06177, %22 ]
   %.059.lcssa = phi i64 [ 0, %13 ], [ %124, %129 ], [ %.05980, %22 ]
   %131 = and i32 %0, -5
   %or.cond = icmp eq i32 %131, 10457091
   br i1 %or.cond, label %132, label %.critedge3.thread
 
 132:                                              ; preds = %.critedge
-  %133 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.063.lcssa) #14
+  %133 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.061.lcssa) #14
   %134 = load i32, ptr @hf_dvbci_cc_req_dat_nbr, align 4
-  %135 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %134, ptr noundef %1, i32 noundef %.063.lcssa, i32 noundef 1, i32 noundef 0) #14
-  %.16485 = add i32 %.063.lcssa, 1
+  %135 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %134, ptr noundef %1, i32 noundef %.061.lcssa, i32 noundef 1, i32 noundef 0) #14
+  %.16285 = add i32 %.061.lcssa, 1
   %.not96 = icmp eq i8 %133, 0
   br i1 %.not96, label %.critedge3.thread, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %132, %138
-  %.16488 = phi i32 [ %.164, %138 ], [ %.16485, %132 ]
+  %.16288 = phi i32 [ %.162, %138 ], [ %.16285, %132 ]
   %.087 = phi i64 [ %142, %138 ], [ 0, %132 ]
-  %.16186 = phi i8 [ %145, %138 ], [ 0, %132 ]
-  %136 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.16488) #14
+  %.16486 = phi i8 [ %145, %138 ], [ 0, %132 ]
+  %136 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.16288) #14
   %137 = icmp sgt i32 %136, 0
   br i1 %137, label %138, label %.critedge3
 
 138:                                              ; preds = %.lr.ph89
-  %139 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.16488) #14
+  %139 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.16288) #14
   %140 = shl i64 %.087, 8
   %141 = zext i8 %139 to i64
   %142 = or disjoint i64 %140, %141
   %143 = load i32, ptr @hf_dvbci_cc_dat_id, align 4
-  %144 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %143, ptr noundef %1, i32 noundef %.16488, i32 noundef 1, i32 noundef 0) #14
-  %145 = add nuw i8 %.16186, 1
-  %.164 = add i32 %.16488, 1
+  %144 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %143, ptr noundef %1, i32 noundef %.16288, i32 noundef 1, i32 noundef 0) #14
+  %145 = add nuw i8 %.16486, 1
+  %.162 = add i32 %.16288, 1
   %exitcond97.not = icmp eq i8 %145, %133
   br i1 %exitcond97.not, label %.critedge3, label %.lr.ph89, !llvm.loop !21
 
 .critedge3:                                       ; preds = %138, %.lr.ph89
   %.0.lcssa = phi i64 [ %142, %138 ], [ %.087, %.lr.ph89 ]
-  %.164.lcssa = phi i32 [ %.164, %138 ], [ %.16488, %.lr.ph89 ]
+  %.162.lcssa = phi i32 [ %.162, %138 ], [ %.16288, %.lr.ph89 ]
   switch i64 %.0.lcssa, label %.critedge3.thread [
     i64 219221767, label %.critedge.sink.split.i
     i64 30, label %146
@@ -4699,7 +4699,7 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
   br label %.critedge.sink.split.i
 
 .critedge3.thread:                                ; preds = %132, %.critedge, %.critedge3
-  %.273 = phi i32 [ %.164.lcssa, %.critedge3 ], [ %.063.lcssa, %.critedge ], [ %.16485, %132 ]
+  %.273 = phi i32 [ %.162.lcssa, %.critedge3 ], [ %.061.lcssa, %.critedge ], [ %.16285, %132 ]
   switch i64 %.059.lcssa, label %174 [
     i64 219221767, label %.critedge.sink.split.i
     i64 30, label %159
@@ -4757,7 +4757,7 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
   br label %.critedge.sink.split.i
 
 .critedge.sink.split.i:                           ; preds = %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %.critedge3.thread, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %.critedge3
-  %.272 = phi i32 [ %.164.lcssa, %158 ], [ %.164.lcssa, %157 ], [ %.164.lcssa, %156 ], [ %.164.lcssa, %155 ], [ %.164.lcssa, %154 ], [ %.164.lcssa, %153 ], [ %.164.lcssa, %152 ], [ %.164.lcssa, %151 ], [ %.164.lcssa, %150 ], [ %.164.lcssa, %149 ], [ %.164.lcssa, %148 ], [ %.164.lcssa, %147 ], [ %.164.lcssa, %146 ], [ %.273, %171 ], [ %.273, %170 ], [ %.273, %169 ], [ %.273, %168 ], [ %.273, %167 ], [ %.273, %166 ], [ %.273, %165 ], [ %.273, %164 ], [ %.273, %163 ], [ %.273, %162 ], [ %.273, %161 ], [ %.273, %160 ], [ %.273, %159 ], [ %.164.lcssa, %.critedge3 ], [ %.273, %.critedge3.thread ]
+  %.272 = phi i32 [ %.162.lcssa, %158 ], [ %.162.lcssa, %157 ], [ %.162.lcssa, %156 ], [ %.162.lcssa, %155 ], [ %.162.lcssa, %154 ], [ %.162.lcssa, %153 ], [ %.162.lcssa, %152 ], [ %.162.lcssa, %151 ], [ %.162.lcssa, %150 ], [ %.162.lcssa, %149 ], [ %.162.lcssa, %148 ], [ %.162.lcssa, %147 ], [ %.162.lcssa, %146 ], [ %.273, %171 ], [ %.273, %170 ], [ %.273, %169 ], [ %.273, %168 ], [ %.273, %167 ], [ %.273, %166 ], [ %.273, %165 ], [ %.273, %164 ], [ %.273, %163 ], [ %.273, %162 ], [ %.273, %161 ], [ %.273, %160 ], [ %.273, %159 ], [ %.162.lcssa, %.critedge3 ], [ %.273, %.critedge3.thread ]
   %.str.989.sink.i = phi ptr [ @.str.989, %158 ], [ @.str.988, %157 ], [ @.str.987, %156 ], [ @.str.986, %155 ], [ @.str.985, %154 ], [ @.str.984, %153 ], [ @.str.983, %152 ], [ @.str.982, %151 ], [ @.str.981, %150 ], [ @.str.980, %149 ], [ @.str.979, %148 ], [ @.str.978, %147 ], [ @.str.977, %146 ], [ @.str.1003, %171 ], [ @.str.1002, %170 ], [ @.str.1001, %169 ], [ @.str.1000, %168 ], [ @.str.999, %167 ], [ @.str.998, %166 ], [ @.str.997, %165 ], [ @.str.996, %164 ], [ @.str.995, %163 ], [ @.str.994, %162 ], [ @.str.993, %161 ], [ @.str.992, %160 ], [ @.str.991, %159 ], [ @.str.976, %.critedge3 ], [ @.str.990, %.critedge3.thread ]
   %172 = getelementptr inbounds i8, ptr %3, i64 8
   %173 = load ptr, ptr %172, align 8
@@ -4800,7 +4800,7 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   br label %27
 
 27:                                               ; preds = %25, %6
-  %.0106 = phi i8 [ 0, %25 ], [ %20, %6 ]
+  %.0 = phi i8 [ 0, %25 ], [ %20, %6 ]
   %28 = add i32 %2, 5
   %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %28) #14
   %30 = load i32, ptr @hf_dvbci_sac_enc_cip, align 4
@@ -4815,7 +4815,7 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   br i1 %38, label %118, label %39
 
 39:                                               ; preds = %27
-  %.not = icmp eq i8 %.0106, 0
+  %.not = icmp eq i8 %.0, 0
   br i1 %.not, label %71, label %40
 
 40:                                               ; preds = %39
@@ -4904,14 +4904,14 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   br label %80
 
 80:                                               ; preds = %71, %.thread115
-  %.0114118 = phi ptr [ %74, %.thread115 ], [ %72, %71 ]
+  %.0105114118 = phi ptr [ %74, %.thread115 ], [ %72, %71 ]
   %81 = zext i16 %33 to i32
   %.not110 = icmp eq i16 %33, 0
   br i1 %.not110, label %98, label %82
 
 82:                                               ; preds = %80
   %83 = load i32, ptr @ett_dvbci_sac_msg_body, align 4
-  %84 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef nonnull %.0114118, i32 noundef 0, i32 noundef %81, i32 noundef %83, ptr noundef null, ptr noundef nonnull @.str.1006) #14
+  %84 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef nonnull %.0105114118, i32 noundef 0, i32 noundef %81, i32 noundef %83, ptr noundef null, ptr noundef nonnull @.str.1006) #14
   %85 = add i32 %0, -10457095
   %or.cond4 = icmp ult i32 %85, 2
   br i1 %or.cond4, label %90, label %86
@@ -4922,29 +4922,29 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
 
 87:                                               ; preds = %86
   %88 = load i32, ptr @hf_dvbci_cc_status_field, align 4
-  %89 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %88, ptr noundef nonnull %.0114118, i32 noundef 0, i32 noundef 1, i32 noundef 0) #14
+  %89 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %88, ptr noundef nonnull %.0105114118, i32 noundef 0, i32 noundef 1, i32 noundef 0) #14
   br label %.thread119
 
 90:                                               ; preds = %82
-  %91 = call fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef nonnull %.0114118, i32 noundef 0, ptr noundef nonnull %3, ptr noundef %84, ptr noundef nonnull %8)
+  %91 = call fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef nonnull %.0105114118, i32 noundef 0, ptr noundef nonnull %3, ptr noundef %84, ptr noundef nonnull %8)
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %118, label %.thread119
 
 .thread119:                                       ; preds = %86, %87, %90
-  %.0105121 = phi i32 [ %91, %90 ], [ 0, %86 ], [ 1, %87 ]
-  %93 = icmp ult i32 %.0105121, %81
+  %.0106121 = phi i32 [ %91, %90 ], [ 0, %86 ], [ 1, %87 ]
+  %93 = icmp ult i32 %.0106121, %81
   br i1 %93, label %94, label %98
 
 94:                                               ; preds = %.thread119
   %95 = load i32, ptr @hf_dvbci_sac_padding, align 4
-  %96 = sub nsw i32 %81, %.0105121
-  %97 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %95, ptr noundef nonnull %.0114118, i32 noundef %.0105121, i32 noundef %96, i32 noundef 0) #14
+  %96 = sub nsw i32 %81, %.0106121
+  %97 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %95, ptr noundef nonnull %.0105114118, i32 noundef %.0106121, i32 noundef %96, i32 noundef 0) #14
   br label %98
 
 98:                                               ; preds = %.thread119, %94, %80
   %99 = load i32, ptr @hf_dvbci_sac_signature, align 4
-  %100 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.0114118, i32 noundef %81) #14
-  %101 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %99, ptr noundef nonnull %.0114118, i32 noundef %81, i32 noundef %100, i32 noundef 0) #14
+  %100 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.0105114118, i32 noundef %81) #14
+  %101 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %99, ptr noundef nonnull %.0105114118, i32 noundef %81, i32 noundef %100, i32 noundef 0) #14
   %102 = icmp eq i32 %5, 0
   %103 = load i32, ptr %8, align 4
   %104 = icmp ne i32 %103, 0
@@ -4961,7 +4961,7 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   %109 = call ptr @tvb_new_composite() #14
   %110 = call ptr @tvb_clone_offset_len(ptr noundef %1, i32 noundef %2, i32 noundef 8) #14
   call void @tvb_composite_append(ptr noundef %109, ptr noundef %110) #14
-  call void @tvb_composite_append(ptr noundef %109, ptr noundef nonnull %.0114118) #14
+  call void @tvb_composite_append(ptr noundef %109, ptr noundef nonnull %.0105114118) #14
   call void @tvb_composite_finalize(ptr noundef %109) #14
   %111 = call ptr @export_pdu_create_tags(ptr noundef nonnull %3, ptr noundef nonnull @.str.594, i16 noundef zeroext 12, ptr noundef nonnull @dissect_sac_msg.dvbci_exp_pdu_items) #14
   %112 = call i32 @tvb_captured_length(ptr noundef %109) #14
@@ -5273,10 +5273,10 @@ define internal fastcc void @dissect_dvbci_ami_file_ack(ptr noundef %0, i32 noun
   br i1 %65, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %60, %.lr.ph
-  %.08893 = phi i32 [ %68, %.lr.ph ], [ %26, %60 ]
+  %.093 = phi i32 [ %68, %.lr.ph ], [ %26, %60 ]
   %66 = load i32, ptr @hf_dvbci_req_type, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %66, ptr noundef %0, i32 noundef %.08893, i32 noundef 1, i32 noundef 0) #14
-  %68 = add i32 %.08893, 1
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %66, ptr noundef %0, i32 noundef %.093, i32 noundef 1, i32 noundef 0) #14
+  %68 = add i32 %.093, 1
   %69 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %68) #14
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %.lr.ph, label %.loopexit, !llvm.loop !22
@@ -5512,7 +5512,7 @@ dissect_dvbci_tpdu_hdr.exit.thread70.i:           ; preds = %64
   br label %dissect_dvbci_tpdu_hdr.exit.thread.i
 
 75:                                               ; preds = %72, %61
-  %.0.i.i = phi ptr [ %9, %61 ], [ %10, %72 ]
+  %.062.i.i = phi ptr [ %9, %61 ], [ %10, %72 ]
   %76 = call i32 @dissect_ber_length(ptr noundef nonnull %1, ptr noundef %52, ptr noundef nonnull %.049, i32 noundef 1, ptr noundef nonnull %11, ptr noundef null) #14
   %77 = load i32, ptr %11, align 4
   %78 = icmp eq i32 %77, 0
@@ -5545,7 +5545,7 @@ dissect_dvbci_tpdu_hdr.exit.thread70.i:           ; preds = %64
   br i1 %.not78.i.i, label %97, label %93
 
 93:                                               ; preds = %88
-  %94 = load i8, ptr %.0.i.i, align 1
+  %94 = load i8, ptr %.062.i.i, align 1
   switch i8 %94, label %dissect_dvbci_tpdu_hdr.exit.i [
     i8 -127, label %95
     i8 -95, label %95
@@ -5569,7 +5569,7 @@ dissect_dvbci_tpdu_hdr.exit.thread.i:             ; preds = %84, %73, %62
 
 dissect_dvbci_tpdu_hdr.exit.i:                    ; preds = %97, %95, %93
   %99 = add i32 %76, 1
-  %100 = load i8, ptr %.0.i.i, align 1
+  %100 = load i8, ptr %.062.i.i, align 1
   %101 = load i32, ptr %11, align 4
   %102 = add i32 %101, -1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
@@ -5579,18 +5579,18 @@ dissect_dvbci_tpdu_hdr.exit.i:                    ; preds = %97, %95, %93
   br i1 %103, label %dissect_dvbci_tpdu.exit, label %104
 
 104:                                              ; preds = %dissect_dvbci_tpdu_hdr.exit.i, %dissect_dvbci_tpdu_hdr.exit.thread70.i
-  %.062.i76.i = phi i32 [ 0, %dissect_dvbci_tpdu_hdr.exit.thread70.i ], [ %99, %dissect_dvbci_tpdu_hdr.exit.i ]
+  %.0.i76.i = phi i32 [ 0, %dissect_dvbci_tpdu_hdr.exit.thread70.i ], [ %99, %dissect_dvbci_tpdu_hdr.exit.i ]
   %.06575.i = phi i8 [ 0, %dissect_dvbci_tpdu_hdr.exit.thread70.i ], [ %100, %dissect_dvbci_tpdu_hdr.exit.i ]
   %.06674.i = phi i32 [ 0, %dissect_dvbci_tpdu_hdr.exit.thread70.i ], [ %102, %dissect_dvbci_tpdu_hdr.exit.i ]
   %105 = load ptr, ptr %12, align 8
-  call void @proto_item_set_len(ptr noundef %105, i32 noundef %.062.i76.i) #14
-  %106 = icmp sgt i32 %.062.i76.i, 0
+  call void @proto_item_set_len(ptr noundef %105, i32 noundef %.0.i76.i) #14
+  %106 = icmp sgt i32 %.0.i76.i, 0
   %107 = icmp ne i32 %.06674.i, 0
   %or.cond.i = select i1 %106, i1 %107, i1 false
   br i1 %or.cond.i, label %108, label %120
 
 108:                                              ; preds = %104
-  %109 = call ptr @tvb_new_subset_length(ptr noundef nonnull %.049, i32 noundef %.062.i76.i, i32 noundef %.06674.i) #14
+  %109 = call ptr @tvb_new_subset_length(ptr noundef nonnull %.049, i32 noundef %.0.i76.i, i32 noundef %.06674.i) #14
   %110 = add nuw nsw i32 %20, 2417
   %111 = icmp eq i8 %.06575.i, -95
   %112 = zext i1 %111 to i32
@@ -5610,11 +5610,11 @@ dissect_dvbci_tpdu_hdr.exit.i:                    ; preds = %97, %95, %93
 
 118:                                              ; preds = %115, %108
   %.0.i = phi ptr [ %.mux.i, %108 ], [ null, %115 ]
-  %119 = add i32 %.06674.i, %.062.i76.i
+  %119 = add i32 %.06674.i, %.0.i76.i
   br label %120
 
 120:                                              ; preds = %118, %104
-  %.049.i = phi i32 [ %119, %118 ], [ %.062.i76.i, %104 ]
+  %.049.i = phi i32 [ %119, %118 ], [ %.0.i76.i, %104 ]
   %.1.i = phi ptr [ %.0.i, %118 ], [ null, %104 ]
   %121 = icmp eq i8 %3, -1
   br i1 %121, label %122, label %163

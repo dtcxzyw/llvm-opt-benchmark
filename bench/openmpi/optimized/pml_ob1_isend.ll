@@ -272,8 +272,8 @@ opal_convertor_get_packed_size.exit:              ; preds = %121, %opal_thread_a
   br label %.thread
 
 .thread:                                          ; preds = %ompi_comm_peer_lookup.exit, %opal_convertor_get_packed_size.exit
-  %.056 = phi i32 [ 0, %opal_convertor_get_packed_size.exit ], [ -2, %ompi_comm_peer_lookup.exit ]
-  ret i32 %.056
+  %.0 = phi i32 [ 0, %opal_convertor_get_packed_size.exit ], [ -2, %ompi_comm_peer_lookup.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -810,12 +810,12 @@ opal_thread_add_fetch_32.exit:                    ; preds = %60, %63
   br label %68
 
 68:                                               ; preds = %mca_bml_base_get_endpoint.exit.thread, %opal_thread_add_fetch_32.exit
-  %.0 = phi i16 [ %67, %opal_thread_add_fetch_32.exit ], [ 0, %mca_bml_base_get_endpoint.exit.thread ]
+  %.0143 = phi i16 [ %67, %opal_thread_add_fetch_32.exit ], [ 0, %mca_bml_base_get_endpoint.exit.thread ]
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %72, label %69
 
 69:                                               ; preds = %68
-  %70 = tail call fastcc i32 @mca_pml_ob1_send_inline(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %4, i16 noundef signext %.0, ptr noundef nonnull %28, ptr noundef nonnull %26, ptr noundef nonnull %50, ptr noundef nonnull %6)
+  %70 = tail call fastcc i32 @mca_pml_ob1_send_inline(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %4, i16 noundef signext %.0143, ptr noundef nonnull %28, ptr noundef nonnull %26, ptr noundef nonnull %50, ptr noundef nonnull %6)
   %71 = icmp sgt i32 %70, -1
   br i1 %71, label %.thread.sink.split, label %72
 
@@ -1002,7 +1002,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %167, %opal_thread_a
   store ptr null, ptr %170, align 8
   %171 = getelementptr inbounds i8, ptr %100, i64 544
   store ptr %26, ptr %171, align 8
-  %172 = sext i16 %.0 to i32
+  %172 = sext i16 %.0143 to i32
   %173 = tail call fastcc i32 @mca_pml_ob1_send_request_start_seq(ptr noundef nonnull %100, ptr noundef nonnull %50, i32 noundef %172)
   br label %.thread.sink.split
 
@@ -1222,13 +1222,13 @@ opal_convertor_get_packed_size.exit175:           ; preds = %270, %opal_thread_a
 
 .thread.sink.split:                               ; preds = %.critedge.i, %287, %69, %opal_convertor_get_packed_size.exit
   %.sink = phi ptr [ %100, %opal_convertor_get_packed_size.exit ], [ @ompi_request_empty, %69 ], [ %202, %287 ], [ %202, %.critedge.i ]
-  %.0143.ph = phi i32 [ %173, %opal_convertor_get_packed_size.exit ], [ 0, %69 ], [ 0, %287 ], [ 0, %.critedge.i ]
+  %.0.ph = phi i32 [ %173, %opal_convertor_get_packed_size.exit ], [ 0, %69 ], [ 0, %287 ], [ 0, %.critedge.i ]
   store ptr %.sink, ptr %7, align 8
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %ompi_comm_peer_lookup.exit165, %ompi_comm_peer_lookup.exit, %46
-  %.0143 = phi i32 [ -12, %46 ], [ -2, %ompi_comm_peer_lookup.exit ], [ -2, %ompi_comm_peer_lookup.exit165 ], [ %.0143.ph, %.thread.sink.split ]
-  ret i32 %.0143
+  %.0 = phi i32 [ -12, %46 ], [ -2, %ompi_comm_peer_lookup.exit ], [ -2, %ompi_comm_peer_lookup.exit165 ], [ %.0.ph, %.thread.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1676,8 +1676,8 @@ opal_convertor_need_buffers.exit.thread69.i:      ; preds = %opal_convertor_need
   br label %mca_pml_ob1_send_request_start_btl.exit
 
 mca_pml_ob1_send_request_start_btl.exit:          ; preds = %72, %74, %76, %82, %84, %91, %mca_pml_ob1_free_rdma_resources.exit, %134, %137, %139
-  %.056.i = phi i32 [ %138, %137 ], [ %83, %82 ], [ %85, %84 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %92, %91 ], [ %140, %139 ], [ %116, %mca_pml_ob1_free_rdma_resources.exit ], [ %135, %134 ]
-  switch i32 %.056.i, label %ompi_request_complete.exit [
+  %.055.i = phi i32 [ %138, %137 ], [ %83, %82 ], [ %85, %84 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %92, %91 ], [ %140, %139 ], [ %116, %mca_pml_ob1_free_rdma_resources.exit ], [ %135, %134 ]
+  switch i32 %.055.i, label %ompi_request_complete.exit [
     i32 -2, label %156
     i32 -12, label %141
   ]
@@ -1773,7 +1773,7 @@ add_request_to_send_pending.exit:                 ; preds = %175, %185
   br label %ompi_request_complete.exit
 
 ompi_request_complete.exit:                       ; preds = %mca_pml_ob1_send_request_start_btl.exit, %114, %.critedge.i, %153, %168, %add_request_to_send_pending.exit
-  %.0 = phi i32 [ 0, %add_request_to_send_pending.exit ], [ %169, %168 ], [ 0, %153 ], [ 0, %.critedge.i ], [ %.056.i, %mca_pml_ob1_send_request_start_btl.exit ], [ 0, %114 ]
+  %.0 = phi i32 [ 0, %add_request_to_send_pending.exit ], [ %169, %168 ], [ 0, %153 ], [ 0, %.critedge.i ], [ %.055.i, %mca_pml_ob1_send_request_start_btl.exit ], [ 0, %114 ]
   ret i32 %.0
 }
 
@@ -1905,12 +1905,12 @@ opal_thread_add_fetch_32.exit:                    ; preds = %69, %72
   br label %77
 
 77:                                               ; preds = %59, %opal_thread_add_fetch_32.exit
-  %.098 = phi i16 [ %76, %opal_thread_add_fetch_32.exit ], [ 0, %59 ]
+  %.099 = phi i16 [ %76, %opal_thread_add_fetch_32.exit ], [ 0, %59 ]
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %81, label %78
 
 78:                                               ; preds = %77
-  %79 = tail call fastcc i32 @mca_pml_ob1_send_inline(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %4, i16 noundef signext %.098, ptr noundef nonnull %28, ptr noundef nonnull %26, ptr noundef nonnull %50, ptr noundef nonnull %6)
+  %79 = tail call fastcc i32 @mca_pml_ob1_send_inline(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %4, i16 noundef signext %.099, ptr noundef nonnull %28, ptr noundef nonnull %26, ptr noundef nonnull %50, ptr noundef nonnull %6)
   %80 = icmp sgt i32 %79, -1
   br i1 %80, label %opal_free_list_return.exit, label %81
 
@@ -2116,7 +2116,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %184, %opal_thread_a
   store ptr null, ptr %187, align 8
   %188 = getelementptr inbounds i8, ptr %.2, i64 544
   store ptr %26, ptr %188, align 8
-  %189 = sext i16 %.098 to i32
+  %189 = sext i16 %.099 to i32
   %190 = tail call fastcc i32 @mca_pml_ob1_send_request_start_seq(ptr noundef nonnull %.2, ptr noundef nonnull %50, i32 noundef %189)
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %192, label %195
@@ -2128,7 +2128,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %184, %opal_thread_a
   br label %195
 
 195:                                              ; preds = %192, %opal_convertor_get_packed_size.exit
-  %.0 = phi i32 [ %194, %192 ], [ %190, %opal_convertor_get_packed_size.exit ]
+  %.098 = phi i32 [ %194, %192 ], [ %190, %opal_convertor_get_packed_size.exit ]
   %196 = load i8, ptr @ompi_mpi_thread_multiple, align 1
   %197 = trunc i8 %196 to i1
   %198 = load ptr, ptr @mca_pml_ob1_sendreq, align 8
@@ -2207,8 +2207,8 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %226, %216
   br label %opal_free_list_return.exit
 
 opal_free_list_return.exit:                       ; preds = %ompi_comm_peer_lookup.exit, %opal_free_list_return_mt.exit.sink.split.i, %226, %218, %216, %opal_lifo_push_atomic.exit.i.i, %230, %78, %52, %46, %54
-  %.0100 = phi i32 [ 0, %54 ], [ %., %46 ], [ %53, %52 ], [ 0, %78 ], [ %.0, %230 ], [ %.0, %opal_lifo_push_atomic.exit.i.i ], [ %.0, %216 ], [ %.0, %218 ], [ %.0, %226 ], [ %.0, %opal_free_list_return_mt.exit.sink.split.i ], [ -3, %ompi_comm_peer_lookup.exit ]
-  ret i32 %.0100
+  %.0 = phi i32 [ 0, %54 ], [ %., %46 ], [ %53, %52 ], [ 0, %78 ], [ %.098, %230 ], [ %.098, %opal_lifo_push_atomic.exit.i.i ], [ %.098, %216 ], [ %.098, %218 ], [ %.098, %226 ], [ %.098, %opal_free_list_return_mt.exit.sink.split.i ], [ -3, %ompi_comm_peer_lookup.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

@@ -61,7 +61,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %53
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
-  %.0162178 = phi i32 [ %8, %.lr.ph.preheader ], [ %.1163, %53 ]
+  %.0147179 = phi i32 [ %8, %.lr.ph.preheader ], [ %.1, %53 ]
   %38 = add nsw i64 %indvars.iv, -1
   %39 = getelementptr inbounds i16, ptr %1, i64 %38
   %40 = load i16, ptr %39, align 2
@@ -75,8 +75,8 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
   %46 = add i16 %43, 1
   store i16 %46, ptr %44, align 2
   %47 = trunc i64 %38 to i8
-  %48 = add i32 %.0162178, -1
-  %49 = zext i32 %.0162178 to i64
+  %48 = add i32 %.0147179, -1
+  %49 = zext i32 %.0147179 to i64
   %50 = getelementptr inbounds i8, ptr %20, i64 %49
   store i8 %47, ptr %50, align 1
   br label %53
@@ -87,7 +87,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
   br label %53
 
 53:                                               ; preds = %45, %51
-  %.1163 = phi i32 [ %48, %45 ], [ %.0162178, %51 ]
+  %.1 = phi i32 [ %48, %45 ], [ %.0147179, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -98,7 +98,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
   %56 = zext i32 %17 to i64
   %57 = getelementptr inbounds i16, ptr %4, i64 %56
   store i16 %55, ptr %57, align 2
-  %58 = icmp eq i32 %.1163, %8
+  %58 = icmp eq i32 %.1, %8
   br i1 %58, label %59, label %.preheader175
 
 .preheader175:                                    ; preds = %._crit_edge
@@ -119,12 +119,12 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
 
 .lr.ph197:                                        ; preds = %59, %._crit_edge192
   %indvars.iv217 = phi i64 [ %indvars.iv.next218, %._crit_edge192 ], [ 0, %59 ]
-  %.0159194 = phi i64 [ %76, %._crit_edge192 ], [ 0, %59 ]
-  %.0160193 = phi i64 [ %75, %._crit_edge192 ], [ 0, %59 ]
+  %.0153195 = phi i64 [ %75, %._crit_edge192 ], [ 0, %59 ]
+  %.0158194 = phi i64 [ %76, %._crit_edge192 ], [ 0, %59 ]
   %67 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv217
   %68 = load i16, ptr %67, align 2
-  %69 = getelementptr inbounds i8, ptr %61, i64 %.0160193
-  store i64 %.0159194, ptr %69, align 1
+  %69 = getelementptr inbounds i8, ptr %61, i64 %.0153195
+  store i64 %.0158194, ptr %69, align 1
   %70 = icmp sgt i16 %68, 8
   br i1 %70, label %.lr.ph191.preheader, label %._crit_edge192
 
@@ -135,43 +135,43 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
 .lr.ph191:                                        ; preds = %.lr.ph191.preheader, %.lr.ph191
   %indvars.iv214 = phi i64 [ 8, %.lr.ph191.preheader ], [ %indvars.iv.next215, %.lr.ph191 ]
   %72 = getelementptr inbounds i8, ptr %69, i64 %indvars.iv214
-  store i64 %.0159194, ptr %72, align 1
+  store i64 %.0158194, ptr %72, align 1
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 8
   %73 = icmp ult i64 %indvars.iv.next215, %71
   br i1 %73, label %.lr.ph191, label %._crit_edge192, !llvm.loop !7
 
 ._crit_edge192:                                   ; preds = %.lr.ph191, %.lr.ph197
   %74 = sext i16 %68 to i64
-  %75 = add i64 %.0160193, %74
+  %75 = add i64 %.0153195, %74
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
-  %76 = add i64 %.0159194, 72340172838076673
+  %76 = add i64 %.0158194, 72340172838076673
   %exitcond221.not = icmp eq i64 %indvars.iv.next218, %56
   br i1 %exitcond221.not, label %.preheader173, label %.lr.ph197, !llvm.loop !8
 
 .preheader172:                                    ; preds = %.preheader173, %.preheader172
-  %.0155200 = phi i64 [ 0, %.preheader173 ], [ %89, %.preheader172 ]
-  %.0156199 = phi i64 [ 0, %.preheader173 ], [ %88, %.preheader172 ]
-  %77 = and i64 %.0156199, %65
-  %78 = getelementptr inbounds i8, ptr %62, i64 %.0155200
+  %.0161200 = phi i64 [ 0, %.preheader173 ], [ %89, %.preheader172 ]
+  %.0162199 = phi i64 [ 0, %.preheader173 ], [ %88, %.preheader172 ]
+  %77 = and i64 %.0162199, %65
+  %78 = getelementptr inbounds i8, ptr %62, i64 %.0161200
   %79 = load i8, ptr %78, align 1
   %80 = getelementptr inbounds i8, ptr %20, i64 %77
   store i8 %79, ptr %80, align 1
-  %81 = add nuw nsw i64 %.0156199, %64
+  %81 = add nuw nsw i64 %.0162199, %64
   %82 = and i64 %81, %65
-  %83 = or disjoint i64 %.0155200, 1
+  %83 = or disjoint i64 %.0161200, 1
   %84 = getelementptr inbounds i8, ptr %62, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = getelementptr inbounds i8, ptr %20, i64 %82
   store i8 %85, ptr %86, align 1
-  %87 = add nuw nsw i64 %.0156199, %66
+  %87 = add nuw nsw i64 %.0162199, %66
   %88 = and i64 %87, %65
-  %89 = add nuw nsw i64 %.0155200, 2
+  %89 = add nuw nsw i64 %.0161200, 2
   %90 = icmp ult i64 %89, %63
   br i1 %90, label %.preheader172, label %.loopexit174, !llvm.loop !9
 
 .lr.ph188:                                        ; preds = %.preheader175, %._crit_edge184
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %._crit_edge184 ], [ 0, %.preheader175 ]
-  %.0152186 = phi i32 [ %.1153.lcssa, %._crit_edge184 ], [ 0, %.preheader175 ]
+  %.0156186 = phi i32 [ %.1157.lcssa, %._crit_edge184 ], [ 0, %.preheader175 ]
   %91 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv209
   %92 = load i16, ptr %91, align 2
   %93 = sext i16 %92 to i32
@@ -183,27 +183,27 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
   br label %96
 
 96:                                               ; preds = %.lr.ph183, %101
-  %.0150181 = phi i32 [ 0, %.lr.ph183 ], [ %102, %101 ]
-  %.1153180 = phi i32 [ %.0152186, %.lr.ph183 ], [ %.2, %101 ]
-  %97 = zext i32 %.1153180 to i64
+  %.0154181 = phi i32 [ 0, %.lr.ph183 ], [ %102, %101 ]
+  %.1157180 = phi i32 [ %.0156186, %.lr.ph183 ], [ %.2, %101 ]
+  %97 = zext i32 %.1157180 to i64
   %98 = getelementptr inbounds i8, ptr %20, i64 %97
   store i8 %95, ptr %98, align 1
   br label %99
 
 99:                                               ; preds = %99, %96
-  %.1153.pn = phi i32 [ %.1153180, %96 ], [ %.2, %99 ]
-  %.pn = add i32 %.1153.pn, %16
+  %.1157.pn = phi i32 [ %.1157180, %96 ], [ %.2, %99 ]
+  %.pn = add i32 %.1157.pn, %16
   %.2 = and i32 %.pn, %8
-  %100 = icmp ugt i32 %.2, %.1163
+  %100 = icmp ugt i32 %.2, %.1
   br i1 %100, label %99, label %101, !llvm.loop !10
 
 101:                                              ; preds = %99
-  %102 = add nuw nsw i32 %.0150181, 1
+  %102 = add nuw nsw i32 %.0154181, 1
   %exitcond208.not = icmp eq i32 %102, %93
   br i1 %exitcond208.not, label %._crit_edge184, label %96, !llvm.loop !11
 
 ._crit_edge184:                                   ; preds = %101, %.lr.ph188
-  %.1153.lcssa = phi i32 [ %.0152186, %.lr.ph188 ], [ %.2, %101 ]
+  %.1157.lcssa = phi i32 [ %.0156186, %.lr.ph188 ], [ %.2, %101 ]
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond213.not = icmp eq i64 %indvars.iv.next210, %56
   br i1 %exitcond213.not, label %.loopexit174, label %.lr.ph188, !llvm.loop !12
@@ -242,7 +242,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
 
 119:                                              ; preds = %.preheader, %146
   %indvars.iv228 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next229, %146 ]
-  %.0148202 = phi i32 [ 0, %.preheader ], [ %.1, %146 ]
+  %.0149202 = phi i32 [ 0, %.preheader ], [ %.1150, %146 ]
   %120 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv228
   %121 = load i16, ptr %120, align 2
   switch i16 %121, label %129 [
@@ -260,9 +260,9 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
   %125 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228
   %126 = getelementptr inbounds i8, ptr %125, i64 4
   store i32 %104, ptr %126, align 4
-  %127 = add i32 %.0148202, -1
+  %127 = add i32 %.0149202, -1
   store i32 %127, ptr %125, align 4
-  %128 = add i32 %.0148202, 1
+  %128 = add i32 %.0149202, 1
   br label %146
 
 129:                                              ; preds = %119
@@ -279,15 +279,15 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture nound
   store i32 %137, ptr %139, align 4
   %140 = load i16, ptr %120, align 2
   %141 = sext i16 %140 to i32
-  %142 = sub i32 %.0148202, %141
+  %142 = sub i32 %.0149202, %141
   store i32 %142, ptr %138, align 4
   %143 = load i16, ptr %120, align 2
   %144 = sext i16 %143 to i32
-  %145 = add i32 %.0148202, %144
+  %145 = add i32 %.0149202, %144
   br label %146
 
 146:                                              ; preds = %122, %124, %129
-  %.1 = phi i32 [ %145, %129 ], [ %128, %124 ], [ %.0148202, %122 ]
+  %.1150 = phi i32 [ %145, %129 ], [ %128, %124 ], [ %.0149202, %122 ]
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %exitcond233 = icmp eq i64 %indvars.iv.next229, %wide.trip.count232
   br i1 %exitcond233, label %.loopexit, label %119, !llvm.loop !14
@@ -356,23 +356,23 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   br label %15
 
 15:                                               ; preds = %.lr.ph207, %102
-  %.0112205 = phi i32 [ 0, %.lr.ph207 ], [ %85, %102 ]
-  %.0113204 = phi i32 [ 0, %.lr.ph207 ], [ %67, %102 ]
-  %.0115203 = phi i32 [ 4, %.lr.ph207 ], [ %.3, %102 ]
-  %.0118202 = phi i32 [ %9, %.lr.ph207 ], [ %.4, %102 ]
-  %.0122201 = phi i32 [ %10, %.lr.ph207 ], [ %.1123.lcssa, %102 ]
-  %.0124200 = phi i32 [ %11, %.lr.ph207 ], [ %76, %102 ]
-  %.0126199 = phi i32 [ %12, %.lr.ph207 ], [ %.1127.lcssa, %102 ]
-  %.0128198 = phi ptr [ %0, %.lr.ph207 ], [ %.3131, %102 ]
-  %.not = icmp eq i32 %.0112205, 0
+  %.0113205 = phi i32 [ 0, %.lr.ph207 ], [ %85, %102 ]
+  %.0114204 = phi ptr [ %0, %.lr.ph207 ], [ %.3, %102 ]
+  %.0116203 = phi i32 [ 0, %.lr.ph207 ], [ %67, %102 ]
+  %.0119202 = phi i32 [ 4, %.lr.ph207 ], [ %.3122, %102 ]
+  %.0123201 = phi i32 [ %9, %.lr.ph207 ], [ %.4, %102 ]
+  %.0127200 = phi i32 [ %10, %.lr.ph207 ], [ %.1128.lcssa, %102 ]
+  %.0129199 = phi i32 [ %11, %.lr.ph207 ], [ %76, %102 ]
+  %.0130198 = phi i32 [ %12, %.lr.ph207 ], [ %.1131.lcssa, %102 ]
+  %.not = icmp eq i32 %.0113205, 0
   br i1 %.not, label %66, label %.preheader160
 
 .preheader160:                                    ; preds = %15
-  %16 = icmp ult i32 %.0113204, %8
+  %16 = icmp ult i32 %.0116203, %8
   br i1 %16, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader160
-  %17 = zext i32 %.0113204 to i64
+  %17 = zext i32 %.0116203 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
@@ -392,126 +392,126 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader160
-  %.1114.lcssa = phi i32 [ %.0113204, %.preheader160 ], [ %21, %.critedge.loopexit ]
-  %22 = icmp eq i32 %.1114.lcssa, %8
+  %.1117.lcssa = phi i32 [ %.0116203, %.preheader160 ], [ %21, %.critedge.loopexit ]
+  %22 = icmp eq i32 %.1117.lcssa, %8
   br i1 %22, label %.critedge._crit_edge, label %.preheader159
 
 .preheader159:                                    ; preds = %.critedge
-  %23 = add i32 %.0113204, 24
-  %.not143176 = icmp ult i32 %.1114.lcssa, %23
+  %23 = add i32 %.0116203, 24
+  %.not143176 = icmp ult i32 %.1117.lcssa, %23
   br i1 %.not143176, label %.preheader158, label %.lr.ph179
 
 .lr.ph179:                                        ; preds = %.preheader159
-  %24 = shl i32 65535, %.0115203
+  %24 = shl i32 65535, %.0119202
   br i1 %.not148, label %.lr.ph179.split, label %.lr.ph179.split.us
 
 .lr.ph179.split.us:                               ; preds = %.lr.ph179, %.lr.ph179.split.us
   %25 = phi i32 [ %33, %.lr.ph179.split.us ], [ %23, %.lr.ph179 ]
-  %.1119178.us = phi i32 [ %32, %.lr.ph179.split.us ], [ %.0118202, %.lr.ph179 ]
-  %.1129177.us = phi ptr [ %31, %.lr.ph179.split.us ], [ %.0128198, %.lr.ph179 ]
-  %26 = add i32 %.1119178.us, %24
+  %.1115178.us = phi ptr [ %31, %.lr.ph179.split.us ], [ %.0114204, %.lr.ph179 ]
+  %.1124177.us = phi i32 [ %32, %.lr.ph179.split.us ], [ %.0123201, %.lr.ph179 ]
+  %26 = add i32 %.1124177.us, %24
   %27 = trunc i32 %26 to i8
-  store i8 %27, ptr %.1129177.us, align 1
+  store i8 %27, ptr %.1115178.us, align 1
   %28 = lshr i32 %26, 8
   %29 = trunc i32 %28 to i8
-  %30 = getelementptr inbounds i8, ptr %.1129177.us, i64 1
+  %30 = getelementptr inbounds i8, ptr %.1115178.us, i64 1
   store i8 %29, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %.1129177.us, i64 2
+  %31 = getelementptr inbounds i8, ptr %.1115178.us, i64 2
   %32 = lshr i32 %26, 16
   %33 = add i32 %25, 24
-  %.not143.us = icmp ult i32 %.1114.lcssa, %33
+  %.not143.us = icmp ult i32 %.1117.lcssa, %33
   br i1 %.not143.us, label %.preheader158, label %.lr.ph179.split.us, !llvm.loop !16
 
 .preheader158:                                    ; preds = %.lr.ph179.split.us, %37, %.preheader159
-  %.1129.lcssa = phi ptr [ %.0128198, %.preheader159 ], [ %43, %37 ], [ %31, %.lr.ph179.split.us ]
-  %.1119.lcssa = phi i32 [ %.0118202, %.preheader159 ], [ %44, %37 ], [ %32, %.lr.ph179.split.us ]
-  %.0111.lcssa = phi i32 [ %.0113204, %.preheader159 ], [ %35, %37 ], [ %25, %.lr.ph179.split.us ]
-  %34 = add i32 %.0111.lcssa, 3
-  %.not144185 = icmp ult i32 %.1114.lcssa, %34
+  %.1124.lcssa = phi i32 [ %.0123201, %.preheader159 ], [ %44, %37 ], [ %32, %.lr.ph179.split.us ]
+  %.1115.lcssa = phi ptr [ %.0114204, %.preheader159 ], [ %43, %37 ], [ %31, %.lr.ph179.split.us ]
+  %.0112.lcssa = phi i32 [ %.0116203, %.preheader159 ], [ %35, %37 ], [ %25, %.lr.ph179.split.us ]
+  %34 = add i32 %.0112.lcssa, 3
+  %.not144185 = icmp ult i32 %.1117.lcssa, %34
   br i1 %.not144185, label %._crit_edge, label %.lr.ph188
 
 .lr.ph179.split:                                  ; preds = %.lr.ph179, %37
   %35 = phi i32 [ %45, %37 ], [ %23, %.lr.ph179 ]
-  %.1119178 = phi i32 [ %44, %37 ], [ %.0118202, %.lr.ph179 ]
-  %.1129177 = phi ptr [ %43, %37 ], [ %.0128198, %.lr.ph179 ]
-  %36 = icmp ugt ptr %.1129177, %13
+  %.1115178 = phi ptr [ %43, %37 ], [ %.0114204, %.lr.ph179 ]
+  %.1124177 = phi i32 [ %44, %37 ], [ %.0123201, %.lr.ph179 ]
+  %36 = icmp ugt ptr %.1115178, %13
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %.lr.ph179.split
-  %38 = add i32 %.1119178, %24
+  %38 = add i32 %.1124177, %24
   %39 = trunc i32 %38 to i8
-  store i8 %39, ptr %.1129177, align 1
+  store i8 %39, ptr %.1115178, align 1
   %40 = lshr i32 %38, 8
   %41 = trunc i32 %40 to i8
-  %42 = getelementptr inbounds i8, ptr %.1129177, i64 1
+  %42 = getelementptr inbounds i8, ptr %.1115178, i64 1
   store i8 %41, ptr %42, align 1
-  %43 = getelementptr inbounds i8, ptr %.1129177, i64 2
+  %43 = getelementptr inbounds i8, ptr %.1115178, i64 2
   %44 = lshr i32 %38, 16
   %45 = add i32 %35, 24
-  %.not143 = icmp ult i32 %.1114.lcssa, %45
+  %.not143 = icmp ult i32 %.1117.lcssa, %45
   br i1 %.not143, label %.preheader158, label %.lr.ph179.split, !llvm.loop !16
 
 .lr.ph188:                                        ; preds = %.preheader158, %.lr.ph188
   %46 = phi i32 [ %50, %.lr.ph188 ], [ %34, %.preheader158 ]
-  %.1116187 = phi i32 [ %49, %.lr.ph188 ], [ %.0115203, %.preheader158 ]
-  %.2120186 = phi i32 [ %48, %.lr.ph188 ], [ %.1119.lcssa, %.preheader158 ]
-  %47 = shl i32 3, %.1116187
-  %48 = add i32 %47, %.2120186
-  %49 = add nsw i32 %.1116187, 2
+  %.1120187 = phi i32 [ %49, %.lr.ph188 ], [ %.0119202, %.preheader158 ]
+  %.2125186 = phi i32 [ %48, %.lr.ph188 ], [ %.1124.lcssa, %.preheader158 ]
+  %47 = shl i32 3, %.1120187
+  %48 = add i32 %47, %.2125186
+  %49 = add nsw i32 %.1120187, 2
   %50 = add i32 %46, 3
-  %.not144 = icmp ult i32 %.1114.lcssa, %50
+  %.not144 = icmp ult i32 %.1117.lcssa, %50
   br i1 %.not144, label %._crit_edge, label %.lr.ph188, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph188, %.preheader158
-  %.2120.lcssa = phi i32 [ %.1119.lcssa, %.preheader158 ], [ %48, %.lr.ph188 ]
-  %.1116.lcssa = phi i32 [ %.0115203, %.preheader158 ], [ %49, %.lr.ph188 ]
-  %.1.lcssa = phi i32 [ %.0111.lcssa, %.preheader158 ], [ %46, %.lr.ph188 ]
-  %51 = sub i32 %.1114.lcssa, %.1.lcssa
-  %52 = shl i32 %51, %.1116.lcssa
-  %53 = add i32 %52, %.2120.lcssa
-  %54 = add nsw i32 %.1116.lcssa, 2
-  %55 = icmp sgt i32 %.1116.lcssa, 14
+  %.2125.lcssa = phi i32 [ %.1124.lcssa, %.preheader158 ], [ %48, %.lr.ph188 ]
+  %.1120.lcssa = phi i32 [ %.0119202, %.preheader158 ], [ %49, %.lr.ph188 ]
+  %.1.lcssa = phi i32 [ %.0112.lcssa, %.preheader158 ], [ %46, %.lr.ph188 ]
+  %51 = sub i32 %.1117.lcssa, %.1.lcssa
+  %52 = shl i32 %51, %.1120.lcssa
+  %53 = add i32 %52, %.2125.lcssa
+  %54 = add nsw i32 %.1120.lcssa, 2
+  %55 = icmp sgt i32 %.1120.lcssa, 14
   br i1 %55, label %56, label %66
 
 56:                                               ; preds = %._crit_edge
-  %57 = icmp ugt ptr %.1129.lcssa, %13
+  %57 = icmp ugt ptr %.1115.lcssa, %13
   %or.cond153 = select i1 %.not148, i1 %57, i1 false
   br i1 %or.cond153, label %.loopexit, label %58
 
 58:                                               ; preds = %56
   %59 = trunc i32 %53 to i8
-  store i8 %59, ptr %.1129.lcssa, align 1
+  store i8 %59, ptr %.1115.lcssa, align 1
   %60 = lshr i32 %53, 8
   %61 = trunc i32 %60 to i8
-  %62 = getelementptr inbounds i8, ptr %.1129.lcssa, i64 1
+  %62 = getelementptr inbounds i8, ptr %.1115.lcssa, i64 1
   store i8 %61, ptr %62, align 1
-  %63 = getelementptr inbounds i8, ptr %.1129.lcssa, i64 2
+  %63 = getelementptr inbounds i8, ptr %.1115.lcssa, i64 2
   %64 = lshr i32 %53, 16
-  %65 = add nsw i32 %.1116.lcssa, -14
+  %65 = add nsw i32 %.1120.lcssa, -14
   br label %66
 
 66:                                               ; preds = %._crit_edge, %58, %15
-  %.2130 = phi ptr [ %63, %58 ], [ %.1129.lcssa, %._crit_edge ], [ %.0128198, %15 ]
-  %.3121 = phi i32 [ %64, %58 ], [ %53, %._crit_edge ], [ %.0118202, %15 ]
-  %.2117 = phi i32 [ %65, %58 ], [ %54, %._crit_edge ], [ %.0115203, %15 ]
-  %.2 = phi i32 [ %.1114.lcssa, %58 ], [ %.1114.lcssa, %._crit_edge ], [ %.0113204, %15 ]
-  %67 = add nuw i32 %.2, 1
-  %68 = zext i32 %.2 to i64
+  %.3126 = phi i32 [ %64, %58 ], [ %53, %._crit_edge ], [ %.0123201, %15 ]
+  %.2121 = phi i32 [ %65, %58 ], [ %54, %._crit_edge ], [ %.0119202, %15 ]
+  %.2118 = phi i32 [ %.1117.lcssa, %58 ], [ %.1117.lcssa, %._crit_edge ], [ %.0116203, %15 ]
+  %.2 = phi ptr [ %63, %58 ], [ %.1115.lcssa, %._crit_edge ], [ %.0114204, %15 ]
+  %67 = add nuw i32 %.2118, 1
+  %68 = zext i32 %.2118 to i64
   %69 = getelementptr inbounds i16, ptr %2, i64 %68
   %70 = load i16, ptr %69, align 2
   %71 = sext i16 %70 to i32
-  %72 = shl nsw i32 %.0122201, 1
-  %73 = xor i32 %.0124200, -1
+  %72 = shl nsw i32 %.0127200, 1
+  %73 = xor i32 %.0129199, -1
   %74 = add i32 %72, %73
   %75 = tail call i32 @llvm.abs.i32(i32 %71, i1 true)
-  %76 = sub nsw i32 %.0124200, %75
+  %76 = sub nsw i32 %.0129199, %75
   %77 = add nsw i32 %71, 1
-  %.not146 = icmp slt i32 %77, %.0122201
+  %.not146 = icmp slt i32 %77, %.0127200
   %78 = select i1 %.not146, i32 0, i32 %74
   %spec.select = add nsw i32 %78, %77
-  %79 = shl i32 %spec.select, %.2117
-  %80 = add i32 %79, %.3121
-  %81 = add nsw i32 %.2117, %.0126199
+  %79 = shl i32 %spec.select, %.2121
+  %80 = add i32 %79, %.3126
+  %81 = add nsw i32 %.2121, %.0130198
   %82 = icmp slt i32 %spec.select, %74
   %.neg = sext i1 %82 to i32
   %83 = add i32 %81, %.neg
@@ -521,56 +521,56 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   br i1 %86, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %66
-  %87 = icmp slt i32 %76, %.0122201
+  %87 = icmp slt i32 %76, %.0127200
   br i1 %87, label %.lr.ph194, label %._crit_edge195
 
 .lr.ph194:                                        ; preds = %.preheader, %.lr.ph194
-  %.1123193 = phi i32 [ %89, %.lr.ph194 ], [ %.0122201, %.preheader ]
-  %.1127192 = phi i32 [ %88, %.lr.ph194 ], [ %.0126199, %.preheader ]
-  %88 = add nsw i32 %.1127192, -1
-  %89 = ashr i32 %.1123193, 1
+  %.1128193 = phi i32 [ %89, %.lr.ph194 ], [ %.0127200, %.preheader ]
+  %.1131192 = phi i32 [ %88, %.lr.ph194 ], [ %.0130198, %.preheader ]
+  %88 = add nsw i32 %.1131192, -1
+  %89 = ashr i32 %.1128193, 1
   %90 = icmp slt i32 %76, %89
   br i1 %90, label %.lr.ph194, label %._crit_edge195, !llvm.loop !18
 
 ._crit_edge195:                                   ; preds = %.lr.ph194, %.preheader
-  %.1127.lcssa = phi i32 [ %.0126199, %.preheader ], [ %88, %.lr.ph194 ]
-  %.1123.lcssa = phi i32 [ %.0122201, %.preheader ], [ %89, %.lr.ph194 ]
+  %.1131.lcssa = phi i32 [ %.0130198, %.preheader ], [ %88, %.lr.ph194 ]
+  %.1128.lcssa = phi i32 [ %.0127200, %.preheader ], [ %89, %.lr.ph194 ]
   %91 = icmp sgt i32 %83, 16
   br i1 %91, label %92, label %102
 
 92:                                               ; preds = %._crit_edge195
-  %93 = icmp ugt ptr %.2130, %13
+  %93 = icmp ugt ptr %.2, %13
   %or.cond155 = select i1 %.not148, i1 %93, i1 false
   br i1 %or.cond155, label %.loopexit, label %94
 
 94:                                               ; preds = %92
   %95 = trunc i32 %80 to i8
-  store i8 %95, ptr %.2130, align 1
+  store i8 %95, ptr %.2, align 1
   %96 = lshr i32 %80, 8
   %97 = trunc i32 %96 to i8
-  %98 = getelementptr inbounds i8, ptr %.2130, i64 1
+  %98 = getelementptr inbounds i8, ptr %.2, i64 1
   store i8 %97, ptr %98, align 1
-  %99 = getelementptr inbounds i8, ptr %.2130, i64 2
+  %99 = getelementptr inbounds i8, ptr %.2, i64 2
   %100 = lshr i32 %80, 16
   %101 = add nsw i32 %83, -16
   br label %102
 
 102:                                              ; preds = %94, %._crit_edge195
-  %.3131 = phi ptr [ %99, %94 ], [ %.2130, %._crit_edge195 ]
   %.4 = phi i32 [ %100, %94 ], [ %80, %._crit_edge195 ]
-  %.3 = phi i32 [ %101, %94 ], [ %83, %._crit_edge195 ]
+  %.3122 = phi i32 [ %101, %94 ], [ %83, %._crit_edge195 ]
+  %.3 = phi ptr [ %99, %94 ], [ %.2, %._crit_edge195 ]
   %103 = icmp ult i32 %67, %8
   %104 = icmp ne i32 %76, 1
   %105 = and i1 %103, %104
   br i1 %105, label %15, label %.critedge._crit_edge, !llvm.loop !19
 
 .critedge._crit_edge:                             ; preds = %102, %.critedge, %20
-  %.0128.lcssa.ph = phi ptr [ %.0128198, %20 ], [ %.0128198, %.critedge ], [ %.3131, %102 ]
-  %.0124.lcssa.ph = phi i32 [ %.0124200, %20 ], [ %.0124200, %.critedge ], [ %76, %102 ]
-  %.0118.lcssa.ph = phi i32 [ %.0118202, %20 ], [ %.0118202, %.critedge ], [ %.4, %102 ]
-  %.0115.lcssa.ph = phi i32 [ %.0115203, %20 ], [ %.0115203, %.critedge ], [ %.3, %102 ]
-  %106 = icmp eq i32 %.0124.lcssa.ph, 1
-  %107 = add nsw i32 %.0115.lcssa.ph, 7
+  %.0129.lcssa.ph = phi i32 [ %.0129199, %20 ], [ %.0129199, %.critedge ], [ %76, %102 ]
+  %.0123.lcssa.ph = phi i32 [ %.0123201, %20 ], [ %.0123201, %.critedge ], [ %.4, %102 ]
+  %.0119.lcssa.ph = phi i32 [ %.0119202, %20 ], [ %.0119202, %.critedge ], [ %.3122, %102 ]
+  %.0114.lcssa.ph = phi ptr [ %.0114204, %20 ], [ %.0114204, %.critedge ], [ %.3, %102 ]
+  %106 = icmp eq i32 %.0129.lcssa.ph, 1
+  %107 = add nsw i32 %.0119.lcssa.ph, 7
   %108 = sdiv i32 %107, 8
   %109 = sext i32 %108 to i64
   br i1 %106, label %110, label %.loopexit
@@ -578,26 +578,26 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
 110:                                              ; preds = %.critedge._crit_edge
   %.not150 = icmp eq i32 %5, 0
   %111 = getelementptr inbounds i8, ptr %7, i64 -2
-  %112 = icmp ugt ptr %.0128.lcssa.ph, %111
+  %112 = icmp ugt ptr %.0114.lcssa.ph, %111
   %or.cond157 = select i1 %.not150, i1 %112, i1 false
   br i1 %or.cond157, label %.loopexit, label %113
 
 113:                                              ; preds = %110
-  %114 = trunc i32 %.0118.lcssa.ph to i8
-  store i8 %114, ptr %.0128.lcssa.ph, align 1
-  %115 = lshr i32 %.0118.lcssa.ph, 8
+  %114 = trunc i32 %.0123.lcssa.ph to i8
+  store i8 %114, ptr %.0114.lcssa.ph, align 1
+  %115 = lshr i32 %.0123.lcssa.ph, 8
   %116 = trunc i32 %115 to i8
-  %117 = getelementptr inbounds i8, ptr %.0128.lcssa.ph, i64 1
+  %117 = getelementptr inbounds i8, ptr %.0114.lcssa.ph, i64 1
   store i8 %116, ptr %117, align 1
-  %118 = getelementptr inbounds i8, ptr %.0128.lcssa.ph, i64 %109
+  %118 = getelementptr inbounds i8, ptr %.0114.lcssa.ph, i64 %109
   %119 = ptrtoint ptr %118 to i64
   %120 = ptrtoint ptr %0 to i64
   %121 = sub i64 %119, %120
   br label %.loopexit
 
 .loopexit:                                        ; preds = %92, %66, %56, %.lr.ph179.split, %6, %110, %.critedge._crit_edge, %113
-  %.0125 = phi i64 [ %121, %113 ], [ -1, %.critedge._crit_edge ], [ -70, %110 ], [ -1, %6 ], [ -70, %.lr.ph179.split ], [ -70, %92 ], [ -1, %66 ], [ -70, %56 ]
-  ret i64 %.0125
+  %.0 = phi i64 [ %121, %113 ], [ -1, %.critedge._crit_edge ], [ -70, %110 ], [ -1, %6 ], [ -70, %.lr.ph179.split ], [ -70, %92 ], [ -1, %66 ], [ -70, %56 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -677,11 +677,11 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
   br label %30
 
 30:                                               ; preds = %19, %68
-  %.06994 = phi i16 [ 0, %19 ], [ %.2, %68 ]
-  %.07093 = phi i32 [ 0, %19 ], [ %.272, %68 ]
-  %.07392 = phi i32 [ 0, %19 ], [ %69, %68 ]
-  %.07491 = phi i32 [ %26, %19 ], [ %.175, %68 ]
-  %31 = zext i32 %.07392 to i64
+  %.06994 = phi i32 [ %26, %19 ], [ %.1, %68 ]
+  %.07093 = phi i16 [ 0, %19 ], [ %.2, %68 ]
+  %.07292 = phi i32 [ 0, %19 ], [ %.274, %68 ]
+  %.07591 = phi i32 [ 0, %19 ], [ %69, %68 ]
+  %31 = zext i32 %.07591 to i64
   %32 = getelementptr inbounds i32, ptr %2, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
@@ -704,7 +704,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
 41:                                               ; preds = %40
   %42 = getelementptr inbounds i16, ptr %0, i64 %31
   store i16 %20, ptr %42, align 2
-  %43 = add nsw i32 %.07491, -1
+  %43 = add nsw i32 %.06994, -1
   br label %68
 
 44:                                               ; preds = %40
@@ -733,25 +733,25 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
 63:                                               ; preds = %51, %44
   %.068 = phi i16 [ %62, %51 ], [ %47, %44 ]
   %64 = zext nneg i16 %.068 to i32
-  %65 = icmp ugt i16 %.068, %.06994
-  %spec.select = select i1 %65, i32 %.07392, i32 %.07093
-  %spec.select84 = tail call i16 @llvm.umax.i16(i16 %.068, i16 %.06994)
+  %65 = icmp ugt i16 %.068, %.07093
+  %spec.select = select i1 %65, i32 %.07591, i32 %.07292
+  %spec.select84 = tail call i16 @llvm.umax.i16(i16 %.068, i16 %.07093)
   %66 = getelementptr inbounds i16, ptr %0, i64 %31
   store i16 %.068, ptr %66, align 2
-  %67 = sub nsw i32 %.07491, %64
+  %67 = sub nsw i32 %.06994, %64
   br label %68
 
 68:                                               ; preds = %41, %63, %38
-  %.175 = phi i32 [ %.07491, %38 ], [ %43, %41 ], [ %67, %63 ]
-  %.272 = phi i32 [ %.07093, %38 ], [ %.07093, %41 ], [ %spec.select, %63 ]
-  %.2 = phi i16 [ %.06994, %38 ], [ %.06994, %41 ], [ %spec.select84, %63 ]
-  %69 = add i32 %.07392, 1
+  %.274 = phi i32 [ %.07292, %38 ], [ %.07292, %41 ], [ %spec.select, %63 ]
+  %.2 = phi i16 [ %.07093, %38 ], [ %.07093, %41 ], [ %spec.select84, %63 ]
+  %.1 = phi i32 [ %.06994, %38 ], [ %43, %41 ], [ %67, %63 ]
+  %69 = add i32 %.07591, 1
   %.not80 = icmp ugt i32 %69, %4
   br i1 %.not80, label %70, label %30, !llvm.loop !20
 
 70:                                               ; preds = %68
-  %71 = sub nsw i32 0, %.175
-  %72 = zext i32 %.272 to i64
+  %71 = sub nsw i32 0, %.1
+  %72 = zext i32 %.274 to i64
   %73 = getelementptr inbounds i16, ptr %0, i64 %72
   %74 = load i16, ptr %73, align 2
   %75 = ashr i16 %74, 1
@@ -772,7 +772,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
 84:                                               ; preds = %105, %77
   %indvars.iv.i = phi i64 [ 0, %77 ], [ %indvars.iv.next.i, %105 ]
   %.0106144.i = phi i64 [ %3, %77 ], [ %.1.i, %105 ]
-  %.0114142.i = phi i32 [ 0, %77 ], [ %.1115.i, %105 ]
+  %.0112142.i = phi i32 [ 0, %77 ], [ %.1113.i, %105 ]
   %85 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %86, 0
@@ -790,7 +790,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
 91:                                               ; preds = %90
   %92 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i
   store i16 %20, ptr %92, align 2
-  %93 = add i32 %.0114142.i, 1
+  %93 = add i32 %.0112142.i, 1
   %94 = load i32, ptr %85, align 4
   %95 = zext i32 %94 to i64
   %96 = sub i64 %.0106144.i, %95
@@ -803,7 +803,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
 
 99:                                               ; preds = %97
   store i16 1, ptr %98, align 2
-  %100 = add i32 %.0114142.i, 1
+  %100 = add i32 %.0112142.i, 1
   %101 = load i32, ptr %85, align 4
   %102 = zext i32 %101 to i64
   %103 = sub i64 %.0106144.i, %102
@@ -814,14 +814,14 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
   br label %105
 
 105:                                              ; preds = %104, %99, %91, %88
-  %.1115.i = phi i32 [ %.0114142.i, %88 ], [ %93, %91 ], [ %100, %99 ], [ %.0114142.i, %104 ]
+  %.1113.i = phi i32 [ %.0112142.i, %88 ], [ %93, %91 ], [ %100, %99 ], [ %.0112142.i, %104 ]
   %.1.i = phi i64 [ %.0106144.i, %88 ], [ %96, %91 ], [ %103, %99 ], [ %.0106144.i, %104 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.i, label %106, label %84, !llvm.loop !21
 
 106:                                              ; preds = %105
-  %107 = sub i32 %26, %.1115.i
+  %107 = sub i32 %26, %.1113.i
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %FSE_normalizeM2.exit.thread, label %109
 
@@ -843,7 +843,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
 120:                                              ; preds = %132, %114
   %indvars.iv158.i = phi i64 [ 0, %114 ], [ %indvars.iv.next159.i, %132 ]
   %.2147.i = phi i64 [ %.1.i, %114 ], [ %.3.i, %132 ]
-  %.2116145.i = phi i32 [ %.1115.i, %114 ], [ %.3117.i, %132 ]
+  %.2114145.i = phi i32 [ %.1113.i, %114 ], [ %.3115.i, %132 ]
   %121 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv158.i
   %122 = load i16, ptr %121, align 2
   %123 = icmp eq i16 %122, -2
@@ -857,46 +857,46 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
 
 127:                                              ; preds = %124
   store i16 1, ptr %121, align 2
-  %128 = add i32 %.2116145.i, 1
+  %128 = add i32 %.2114145.i, 1
   %129 = load i32, ptr %125, align 4
   %130 = zext i32 %129 to i64
   %131 = sub i64 %.2147.i, %130
   br label %132
 
 132:                                              ; preds = %127, %124, %120
-  %.3117.i = phi i32 [ %128, %127 ], [ %.2116145.i, %124 ], [ %.2116145.i, %120 ]
+  %.3115.i = phi i32 [ %128, %127 ], [ %.2114145.i, %124 ], [ %.2114145.i, %120 ]
   %.3.i = phi i64 [ %131, %127 ], [ %.2147.i, %124 ], [ %.2147.i, %120 ]
   %indvars.iv.next159.i = add nuw nsw i64 %indvars.iv158.i, 1
   %exitcond162.i = icmp eq i64 %indvars.iv.next159.i, %wide.trip.count.i
   br i1 %exitcond162.i, label %133, label %120, !llvm.loop !22
 
 133:                                              ; preds = %132
-  %134 = sub i32 %26, %.3117.i
+  %134 = sub i32 %26, %.3115.i
   br label %135
 
 135:                                              ; preds = %133, %109
-  %.0123.i = phi i32 [ %134, %133 ], [ %107, %109 ]
-  %.4118.i = phi i32 [ %.3117.i, %133 ], [ %.1115.i, %109 ]
+  %.0119.i = phi i32 [ %134, %133 ], [ %107, %109 ]
+  %.4116.i = phi i32 [ %.3115.i, %133 ], [ %.1113.i, %109 ]
   %.4.i = phi i64 [ %.3.i, %133 ], [ %.1.i, %109 ]
-  %136 = icmp eq i32 %.4118.i, %83
+  %136 = icmp eq i32 %.4116.i, %83
   br i1 %136, label %.preheader.i, label %145
 
 .preheader.i:                                     ; preds = %135, %.preheader.i
   %indvars.iv163.i = phi i64 [ %indvars.iv.next164.i, %.preheader.i ], [ 0, %135 ]
-  %.0119154.i = phi i32 [ %spec.select139.i, %.preheader.i ], [ 0, %135 ]
-  %.0121153.i = phi i32 [ %spec.select.i, %.preheader.i ], [ 0, %135 ]
+  %.0122154.i = phi i32 [ %spec.select139.i, %.preheader.i ], [ 0, %135 ]
+  %.0124153.i = phi i32 [ %spec.select.i, %.preheader.i ], [ 0, %135 ]
   %137 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv163.i
   %138 = load i32, ptr %137, align 4
-  %139 = icmp ugt i32 %138, %.0119154.i
+  %139 = icmp ugt i32 %138, %.0124153.i
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %138, i32 %.0124153.i)
   %140 = trunc nuw i64 %indvars.iv163.i to i32
-  %spec.select.i = select i1 %139, i32 %140, i32 %.0121153.i
-  %spec.select139.i = tail call i32 @llvm.umax.i32(i32 %138, i32 %.0119154.i)
+  %spec.select139.i = select i1 %139, i32 %140, i32 %.0122154.i
   %indvars.iv.next164.i = add nuw nsw i64 %indvars.iv163.i, 1
   %exitcond167.i = icmp eq i64 %indvars.iv.next164.i, %wide.trip.count.i
   br i1 %exitcond167.i, label %141, label %.preheader.i, !llvm.loop !23
 
 141:                                              ; preds = %.preheader.i
-  %142 = zext i32 %spec.select.i to i64
+  %142 = zext i32 %spec.select139.i to i64
   %143 = getelementptr inbounds i16, ptr %0, i64 %142
   %144 = load i16, ptr %143, align 2
   br label %FSE_normalizeM2.exit.thread.sink.split
@@ -906,37 +906,37 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
   br i1 %146, label %.preheader140.i, label %158
 
 .preheader140.i:                                  ; preds = %145
-  %.not134150.i = icmp eq i32 %.0123.i, 0
+  %.not134150.i = icmp eq i32 %.0119.i, 0
   br i1 %.not134150.i, label %FSE_normalizeM2.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader140.i, %154
-  %.3112152.i = phi i32 [ %157, %154 ], [ 0, %.preheader140.i ]
-  %.1124151.i = phi i32 [ %.2125.i, %154 ], [ %.0123.i, %.preheader140.i ]
-  %147 = zext i32 %.3112152.i to i64
+  %.3110152.i = phi i32 [ %157, %154 ], [ 0, %.preheader140.i ]
+  %.1120151.i = phi i32 [ %.2121.i, %154 ], [ %.0119.i, %.preheader140.i ]
+  %147 = zext i32 %.3110152.i to i64
   %148 = getelementptr inbounds i16, ptr %0, i64 %147
   %149 = load i16, ptr %148, align 2
   %150 = icmp sgt i16 %149, 0
   br i1 %150, label %151, label %154
 
 151:                                              ; preds = %.lr.ph.i
-  %152 = add i32 %.1124151.i, -1
+  %152 = add i32 %.1120151.i, -1
   %153 = add nuw i16 %149, 1
   store i16 %153, ptr %148, align 2
   br label %154
 
 154:                                              ; preds = %151, %.lr.ph.i
-  %.2125.i = phi i32 [ %152, %151 ], [ %.1124151.i, %.lr.ph.i ]
-  %155 = add i32 %.3112152.i, 1
-  %156 = icmp eq i32 %.3112152.i, %4
+  %.2121.i = phi i32 [ %152, %151 ], [ %.1120151.i, %.lr.ph.i ]
+  %155 = add i32 %.3110152.i, 1
+  %156 = icmp eq i32 %.3110152.i, %4
   %157 = select i1 %156, i32 0, i32 %155
-  %.not134.i = icmp eq i32 %.2125.i, 0
+  %.not134.i = icmp eq i32 %.2121.i, 0
   br i1 %.not134.i, label %FSE_normalizeM2.exit.thread, label %.lr.ph.i, !llvm.loop !24
 
 158:                                              ; preds = %145
   %159 = add nsw i64 %22, -1
   %notmask.i = shl nsw i64 -1, %159
   %160 = xor i64 %notmask.i, -1
-  %161 = zext i32 %.0123.i to i64
+  %161 = zext i32 %.0119.i to i64
   %162 = shl i64 %161, %22
   %163 = add i64 %162, %160
   %164 = and i64 %.4.i, 4294967295
@@ -944,9 +944,9 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
   br label %166
 
 166:                                              ; preds = %184, %158
-  %.0107149.i = phi i64 [ %160, %158 ], [ %.1108.i, %184 ]
-  %.4113148.i = phi i32 [ 0, %158 ], [ %185, %184 ]
-  %167 = zext i32 %.4113148.i to i64
+  %.4111149.i = phi i32 [ 0, %158 ], [ %185, %184 ]
+  %.0117148.i = phi i64 [ %160, %158 ], [ %.1118.i, %184 ]
+  %167 = zext i32 %.4111149.i to i64
   %168 = getelementptr inbounds i16, ptr %0, i64 %167
   %169 = load i16, ptr %168, align 2
   %170 = icmp eq i16 %169, -2
@@ -957,8 +957,8 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
   %173 = load i32, ptr %172, align 4
   %174 = zext i32 %173 to i64
   %175 = mul i64 %165, %174
-  %176 = add i64 %175, %.0107149.i
-  %177 = lshr i64 %.0107149.i, %22
+  %176 = add i64 %175, %.0117148.i
+  %177 = lshr i64 %.0117148.i, %22
   %178 = lshr i64 %176, %22
   %179 = icmp eq i64 %178, %177
   br i1 %179, label %FSE_normalizeM2.exit.thread, label %180
@@ -971,16 +971,16 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
   br label %184
 
 184:                                              ; preds = %180, %166
-  %.1108.i = phi i64 [ %176, %180 ], [ %.0107149.i, %166 ]
-  %185 = add i32 %.4113148.i, 1
+  %.1118.i = phi i64 [ %176, %180 ], [ %.0117148.i, %166 ]
+  %185 = add i32 %.4111149.i, 1
   %.not133.i = icmp ugt i32 %185, %4
   br i1 %.not133.i, label %FSE_normalizeM2.exit.thread, label %166, !llvm.loop !25
 
 FSE_normalizeM2.exit.thread.sink.split:           ; preds = %70, %141
-  %.0123.i.sink = phi i32 [ %.0123.i, %141 ], [ %.175, %70 ]
+  %.0119.i.sink = phi i32 [ %.0119.i, %141 ], [ %.1, %70 ]
   %.sink100 = phi i16 [ %144, %141 ], [ %74, %70 ]
   %.sink99 = phi ptr [ %143, %141 ], [ %73, %70 ]
-  %186 = trunc i32 %.0123.i.sink to i16
+  %186 = trunc i32 %.0119.i.sink to i16
   %187 = add i16 %.sink100, %186
   store i16 %187, ptr %.sink99, align 2
   br label %FSE_normalizeM2.exit.thread

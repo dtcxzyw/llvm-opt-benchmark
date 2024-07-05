@@ -404,9 +404,9 @@ IsKeyFrame.exit.thread126:                        ; preds = %45, %IsKeyFrame.exi
   br label %121
 
 121:                                              ; preds = %.lr.ph142, %121
-  %.0100141 = phi i32 [ 0, %.lr.ph142 ], [ %133, %121 ]
+  %.099141 = phi i32 [ 0, %.lr.ph142 ], [ %133, %121 ]
   %122 = load i32, ptr %74, align 4
-  %123 = add nsw i32 %122, %.0100141
+  %123 = add nsw i32 %122, %.099141
   %124 = mul i32 %123, %14
   %125 = load i32, ptr %75, align 8
   %126 = add i32 %124, %125
@@ -417,15 +417,15 @@ IsKeyFrame.exit.thread126:                        ; preds = %45, %IsKeyFrame.exi
   %131 = getelementptr inbounds i32, ptr %130, i64 %127
   %132 = load i32, ptr %120, align 8
   call void %18(ptr noundef %129, ptr noundef %131, i32 noundef %132) #8
-  %133 = add nuw nsw i32 %.0100141, 1
+  %133 = add nuw nsw i32 %.099141, 1
   %134 = load i32, ptr %76, align 4
   %135 = icmp slt i32 %133, %134
   br i1 %135, label %121, label %.loopexit, !llvm.loop !4
 
 136:                                              ; preds = %.lr.ph, %172
-  %.099140 = phi i32 [ 0, %.lr.ph ], [ %173, %172 ]
+  %.0100140 = phi i32 [ 0, %.lr.ph ], [ %173, %172 ]
   %137 = load i32, ptr %74, align 4
-  %138 = add nsw i32 %137, %.099140
+  %138 = add nsw i32 %137, %.0100140
   %139 = load i32, ptr %75, align 8
   %140 = load i32, ptr %113, align 8
   %141 = add nsw i32 %140, %139
@@ -489,7 +489,7 @@ FindBlendRangeAtRow.exit.thread:                  ; preds = %149, %155, %FindBle
   br label %172
 
 172:                                              ; preds = %FindBlendRangeAtRow.exit.thread, %164
-  %173 = add nuw nsw i32 %.099140, 1
+  %173 = add nuw nsw i32 %.0100140, 1
   %174 = load i32, ptr %76, align 4
   %175 = icmp slt i32 %173, %174
   br i1 %175, label %136, label %.loopexit, !llvm.loop !6

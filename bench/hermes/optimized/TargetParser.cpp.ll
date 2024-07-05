@@ -434,11 +434,11 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.409 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @switch.table._ZN4llvh3ARM16parseArchProfileENS_9StringRefE = private unnamed_addr constant [34 x i32] [i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 1, i32 1, i32 2, i32 3, i32 3, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 3, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1], align 4
 @switch.table._ZN4llvh3ARM16parseArchVersionENS_9StringRefE = private unnamed_addr constant [34 x i32] [i32 0, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 5, i32 6, i32 6, i32 6, i32 6, i32 6, i32 7, i32 7, i32 7, i32 7, i32 7, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 5, i32 5, i32 5, i32 7, i32 7], align 4
-@switch.table._ZN4llvh3ARM23computeDefaultTargetABIERKNS_6TripleENS_9StringRefE = private unnamed_addr constant [10 x i64] [i64 11, i64 11, i64 11, i64 11, i64 5, i64 5, i64 11, i64 11, i64 11, i64 11], align 8
-@switch.table._ZN4llvh3ARM23computeDefaultTargetABIERKNS_6TripleENS_9StringRefE.22 = private unnamed_addr constant [10 x ptr] [ptr @.str.148, ptr @.str.148, ptr @.str.148, ptr @.str.148, ptr @.str.145, ptr @.str.145, ptr @.str.148, ptr @.str.148, ptr @.str.148, ptr @.str.148], align 8
-@switch.table._ZN4llvh6AMDGPU13getIsaVersionENS_9StringRefE = private unnamed_addr constant [32 x i32] [i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 2, i32 3, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 2, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i32 6], align 4
+@switch.table._ZN4llvh3ARM23computeDefaultTargetABIERKNS_6TripleENS_9StringRefE = private unnamed_addr constant [10 x ptr] [ptr @.str.148, ptr @.str.148, ptr @.str.148, ptr @.str.148, ptr @.str.145, ptr @.str.145, ptr @.str.148, ptr @.str.148, ptr @.str.148, ptr @.str.148], align 8
+@switch.table._ZN4llvh3ARM23computeDefaultTargetABIERKNS_6TripleENS_9StringRefE.22 = private unnamed_addr constant [10 x i64] [i64 11, i64 11, i64 11, i64 11, i64 5, i64 5, i64 11, i64 11, i64 11, i64 11], align 8
+@switch.table._ZN4llvh6AMDGPU13getIsaVersionENS_9StringRefE = private unnamed_addr constant [32 x i64] [i64 6, i64 6, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 7, i64 7, i64 7, i64 7, i64 7, i64 0, i64 0, i64 0, i64 0, i64 0, i64 8, i64 8, i64 8, i64 8, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 9, i64 9, i64 9, i64 9], align 8
 @switch.table._ZN4llvh6AMDGPU13getIsaVersionENS_9StringRefE.23 = private unnamed_addr constant [32 x i64] [i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0], align 8
-@switch.table._ZN4llvh6AMDGPU13getIsaVersionENS_9StringRefE.24 = private unnamed_addr constant [32 x i64] [i64 6, i64 6, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 7, i64 7, i64 7, i64 7, i64 7, i64 0, i64 0, i64 0, i64 0, i64 0, i64 8, i64 8, i64 8, i64 8, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 9, i64 9, i64 9, i64 9], align 8
+@switch.table._ZN4llvh6AMDGPU13getIsaVersionENS_9StringRefE.24 = private unnamed_addr constant [32 x i32] [i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 2, i32 3, i32 4, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 2, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 4, i32 6], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @_ZN4llvh3ARM10getFPUNameEj(i32 noundef %FPUKind) local_unnamed_addr #0 {
@@ -7736,8 +7736,8 @@ return.sink.split:                                ; preds = %_ZN4llvh9StringRef1
   br label %return
 
 return:                                           ; preds = %for.inc22, %return.sink.split
-  %retval.sroa.0.0 = phi ptr [ %.lcssa.sink, %return.sink.split ], [ null, %for.inc22 ]
   %retval.sroa.5.0 = phi i64 [ %call.i48, %return.sink.split ], [ 0, %for.inc22 ]
+  %retval.sroa.0.0 = phi ptr [ %.lcssa.sink, %return.sink.split ], [ null, %for.inc22 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -8086,8 +8086,8 @@ if.end65:                                         ; preds = %if.end44, %_ZN4llvh
   br label %return
 
 return:                                           ; preds = %if.end44.thread, %_ZN4llvh9StringRefC2EPKc.exit160, %land.lhs.true52, %lor.lhs.false, %if.end44, %_ZN4llvh9StringRefC2EPKc.exit120, %if.end65
-  %retval.sroa.6.0 = phi i64 [ %retval.sroa.6.0.copyload17, %if.end65 ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit120 ], [ %Arch.coerce1, %if.end44 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true52 ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit160 ], [ %Arch.coerce1, %if.end44.thread ]
   %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload12, %if.end65 ], [ @.str.135, %_ZN4llvh9StringRefC2EPKc.exit120 ], [ %Arch.coerce0, %if.end44 ], [ @.str.135, %lor.lhs.false ], [ @.str.135, %land.lhs.true52 ], [ @.str.135, %_ZN4llvh9StringRefC2EPKc.exit160 ], [ %Arch.coerce0, %if.end44.thread ]
+  %retval.sroa.6.0 = phi i64 [ %retval.sroa.6.0.copyload17, %if.end65 ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit120 ], [ %Arch.coerce1, %if.end44 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true52 ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit160 ], [ %Arch.coerce1, %if.end44.thread ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -8244,13 +8244,13 @@ land.lhs.true.i.thread.i:                         ; preds = %if.end.i.i.i414.i, 
 if.end.i.i.i:                                     ; preds = %if.end.i.i35.i.i
   %bcmp88.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %FPU.coerce0, ptr noundef nonnull dereferenceable(10) @.str.321, i64 10)
   %3 = icmp eq i32 %bcmp88.i, 0
-  %spec.select.i = select i1 %3, i64 4, i64 10
-  %spec.select392.i = select i1 %3, ptr @.str.164, ptr %FPU.coerce0
+  %spec.select.i = select i1 %3, ptr @.str.164, ptr %FPU.coerce0
+  %spec.select392.i = select i1 %3, i64 4, i64 10
   br label %_ZL13getFPUSynonymN4llvh9StringRefE.exit
 
 _ZL13getFPUSynonymN4llvh9StringRefE.exit:         ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i619.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i37.i.i.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i354.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i319.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i284.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i249.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i214.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i37.i573.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i562.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i37.i494.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i483.i, %if.end.i.i177.i, %if.end.i.i35.i.i, %if.end.i.i.i414.i, %land.lhs.true.i.thread.i, %if.end.i.i.i
-  %retval.i.sroa.3.0.i = phi i64 [ %FPU.coerce1, %land.lhs.true.i.thread.i ], [ 7, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ], [ 7, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i619.i ], [ 7, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i37.i.i.i ], [ 7, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ 5, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i354.i ], [ 5, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i319.i ], [ 5, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i284.i ], [ 9, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i249.i ], [ 9, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i214.i ], [ 11, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i37.i573.i ], [ 11, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i562.i ], [ 9, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i37.i494.i ], [ 9, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i483.i ], [ 11, %if.end.i.i177.i ], [ 8, %if.end.i.i35.i.i ], [ 8, %if.end.i.i.i414.i ], [ %spec.select.i, %if.end.i.i.i ]
-  %retval.i.sroa.0.0.i = phi ptr [ %FPU.coerce0, %land.lhs.true.i.thread.i ], [ @.str.83, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ], [ @.str.83, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i619.i ], [ @.str.83, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i37.i.i.i ], [ @.str.83, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ @.str.151, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i354.i ], [ @.str.152, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i319.i ], [ @.str.158, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i284.i ], [ @.str.154, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i249.i ], [ @.str.159, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i214.i ], [ @.str.160, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i37.i573.i ], [ @.str.160, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i562.i ], [ @.str.159, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i37.i494.i ], [ @.str.159, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i483.i ], [ @.str.162, %if.end.i.i177.i ], [ @.str.161, %if.end.i.i35.i.i ], [ @.str.161, %if.end.i.i.i414.i ], [ %spec.select392.i, %if.end.i.i.i ]
+  %retval.i.sroa.0.0.i = phi ptr [ %FPU.coerce0, %land.lhs.true.i.thread.i ], [ @.str.83, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ], [ @.str.83, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i619.i ], [ @.str.83, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i37.i.i.i ], [ @.str.83, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ @.str.151, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i354.i ], [ @.str.152, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i319.i ], [ @.str.158, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i284.i ], [ @.str.154, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i249.i ], [ @.str.159, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i214.i ], [ @.str.160, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i37.i573.i ], [ @.str.160, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i562.i ], [ @.str.159, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i37.i494.i ], [ @.str.159, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i483.i ], [ @.str.162, %if.end.i.i177.i ], [ @.str.161, %if.end.i.i35.i.i ], [ @.str.161, %if.end.i.i.i414.i ], [ %spec.select.i, %if.end.i.i.i ]
+  %retval.i.sroa.3.0.i = phi i64 [ %FPU.coerce1, %land.lhs.true.i.thread.i ], [ 7, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ], [ 7, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i619.i ], [ 7, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i37.i.i.i ], [ 7, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ 5, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i354.i ], [ 5, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i319.i ], [ 5, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i284.i ], [ 9, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i249.i ], [ 9, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i214.i ], [ 11, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i37.i573.i ], [ 11, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i562.i ], [ 9, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i37.i494.i ], [ 9, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i483.i ], [ 11, %if.end.i.i177.i ], [ 8, %if.end.i.i35.i.i ], [ 8, %if.end.i.i.i414.i ], [ %spec.select392.i, %if.end.i.i.i ]
   %cmp.i7 = icmp eq i64 %retval.i.sroa.3.0.i, 0
   br label %for.body
 
@@ -8931,8 +8931,8 @@ if.end:                                           ; preds = %lor.lhs.false8
   %SubArch.i.i = getelementptr inbounds i8, ptr %TT, i64 36
   %5 = load i32, ptr %SubArch.i.i, align 4
   %cmp.i33 = icmp eq i32 %5, 14
-  %spec.select = select i1 %cmp.i33, i64 7, i64 8
-  %spec.select29 = select i1 %cmp.i33, ptr @.str.146, ptr @.str.147
+  %spec.select = select i1 %cmp.i33, ptr @.str.146, ptr @.str.147
+  %spec.select29 = select i1 %cmp.i33, i64 7, i64 8
   br label %return
 
 if.else:                                          ; preds = %cond.end
@@ -8954,8 +8954,8 @@ sw.default:                                       ; preds = %switch.hole_check, 
 
 if.end24:                                         ; preds = %sw.default
   %cmp.i39 = icmp eq i32 %6, 13
-  %spec.select30 = select i1 %cmp.i39, i64 11, i64 5
-  %spec.select31 = select i1 %cmp.i39, ptr @.str.148, ptr @.str.145
+  %spec.select30 = select i1 %cmp.i39, ptr @.str.148, ptr @.str.145
+  %spec.select31 = select i1 %cmp.i39, i64 11, i64 5
   br label %return
 
 switch.hole_check:                                ; preds = %if.end19
@@ -8966,16 +8966,16 @@ switch.hole_check:                                ; preds = %if.end19
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN4llvh3ARM23computeDefaultTargetABIERKNS_6TripleENS_9StringRefE, i64 0, i64 %9
-  %switch.load = load i64, ptr %switch.gep, align 8
+  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN4llvh3ARM23computeDefaultTargetABIERKNS_6TripleENS_9StringRefE, i64 0, i64 %9
+  %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep44 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN4llvh3ARM23computeDefaultTargetABIERKNS_6TripleENS_9StringRefE.22, i64 0, i64 %10
-  %switch.load45 = load ptr, ptr %switch.gep44, align 8
+  %switch.gep44 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN4llvh3ARM23computeDefaultTargetABIERKNS_6TripleENS_9StringRefE.22, i64 0, i64 %10
+  %switch.load45 = load i64, ptr %switch.gep44, align 8
   br label %return
 
 return:                                           ; preds = %switch.lookup, %if.end24, %if.end, %sw.default, %if.else, %if.then, %lor.lhs.false8
-  %retval.sroa.10.0 = phi i64 [ 5, %lor.lhs.false8 ], [ 5, %if.then ], [ 5, %if.else ], [ 8, %sw.default ], [ %spec.select, %if.end ], [ %spec.select30, %if.end24 ], [ %switch.load, %switch.lookup ]
-  %retval.sroa.0.0 = phi ptr [ @.str.145, %lor.lhs.false8 ], [ @.str.145, %if.then ], [ @.str.145, %if.else ], [ @.str.147, %sw.default ], [ %spec.select29, %if.end ], [ %spec.select31, %if.end24 ], [ %switch.load45, %switch.lookup ]
+  %retval.sroa.0.0 = phi ptr [ @.str.145, %lor.lhs.false8 ], [ @.str.145, %if.then ], [ @.str.145, %if.else ], [ @.str.147, %sw.default ], [ %spec.select, %if.end ], [ %spec.select30, %if.end24 ], [ %switch.load, %switch.lookup ]
+  %retval.sroa.10.0 = phi i64 [ 5, %lor.lhs.false8 ], [ 5, %if.then ], [ 5, %if.else ], [ 8, %sw.default ], [ %spec.select29, %if.end ], [ %spec.select31, %if.end24 ], [ %switch.load45, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.10.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -9170,18 +9170,18 @@ entry:
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
-  %__len.05.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ 32, %entry ]
-  %__first.addr.04.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ @_ZN12_GLOBAL__N_110AMDGCNGPUsE, %entry ]
-  %shr.i.i.i = lshr i64 %__len.05.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %__first.addr.04.i.i.i, i64 %shr.i.i.i
+  %__first.addr.05.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ @_ZN12_GLOBAL__N_110AMDGCNGPUsE, %entry ]
+  %__len.04.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ 32, %entry ]
+  %shr.i.i.i = lshr i64 %__len.04.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %__first.addr.05.i.i.i, i64 %shr.i.i.i
   %0 = getelementptr i8, ptr %add.ptr.i.i.i.i.i, i64 32
   %.val.i.i.i = load i32, ptr %0, align 8
   %cmp.i.i8.i.i.i = icmp ult i32 %.val.i.i.i, %AK
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 40
   %1 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.05.i.i.i, %1
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.04.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.04.i.i.i, %1
   %__len.1.i.i.i = select i1 %cmp.i.i8.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.05.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
@@ -9212,18 +9212,18 @@ entry:
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
-  %__len.05.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ 26, %entry ]
-  %__first.addr.04.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ @_ZN12_GLOBAL__N_18R600GPUsE, %entry ]
-  %shr.i.i.i = lshr i64 %__len.05.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %__first.addr.04.i.i.i, i64 %shr.i.i.i
+  %__first.addr.05.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ @_ZN12_GLOBAL__N_18R600GPUsE, %entry ]
+  %__len.04.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ 26, %entry ]
+  %shr.i.i.i = lshr i64 %__len.04.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %__first.addr.05.i.i.i, i64 %shr.i.i.i
   %0 = getelementptr i8, ptr %add.ptr.i.i.i.i.i, i64 32
   %.val.i.i.i = load i32, ptr %0, align 8
   %cmp.i.i8.i.i.i = icmp ult i32 %.val.i.i.i, %AK
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 40
   %1 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.05.i.i.i, %1
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.04.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.04.i.i.i, %1
   %__len.1.i.i.i = select i1 %cmp.i.i8.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.05.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
@@ -9330,18 +9330,18 @@ entry:
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
-  %__len.05.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ 32, %entry ]
-  %__first.addr.04.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ @_ZN12_GLOBAL__N_110AMDGCNGPUsE, %entry ]
-  %shr.i.i.i = lshr i64 %__len.05.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %__first.addr.04.i.i.i, i64 %shr.i.i.i
+  %__first.addr.05.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ @_ZN12_GLOBAL__N_110AMDGCNGPUsE, %entry ]
+  %__len.04.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ 32, %entry ]
+  %shr.i.i.i = lshr i64 %__len.04.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %__first.addr.05.i.i.i, i64 %shr.i.i.i
   %0 = getelementptr i8, ptr %add.ptr.i.i.i.i.i, i64 32
   %.val.i.i.i = load i32, ptr %0, align 8
   %cmp.i.i8.i.i.i = icmp ult i32 %.val.i.i.i, %AK
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 40
   %1 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.05.i.i.i, %1
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.04.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.04.i.i.i, %1
   %__len.1.i.i.i = select i1 %cmp.i.i8.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.05.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
@@ -9367,18 +9367,18 @@ entry:
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
-  %__len.05.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ 26, %entry ]
-  %__first.addr.04.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ @_ZN12_GLOBAL__N_18R600GPUsE, %entry ]
-  %shr.i.i.i = lshr i64 %__len.05.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %__first.addr.04.i.i.i, i64 %shr.i.i.i
+  %__first.addr.05.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ @_ZN12_GLOBAL__N_18R600GPUsE, %entry ]
+  %__len.04.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ 26, %entry ]
+  %shr.i.i.i = lshr i64 %__len.04.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %__first.addr.05.i.i.i, i64 %shr.i.i.i
   %0 = getelementptr i8, ptr %add.ptr.i.i.i.i.i, i64 32
   %.val.i.i.i = load i32, ptr %0, align 8
   %cmp.i.i8.i.i.i = icmp ult i32 %.val.i.i.i, %AK
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 40
   %1 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.05.i.i.i, %1
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.04.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.04.i.i.i, %1
   %__len.1.i.i.i = select i1 %cmp.i.i8.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.05.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit, !llvm.loop !266
 
@@ -9535,21 +9535,21 @@ _ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit: ; preds = %for.body.i.us, 
 
 switch.lookup:                                    ; preds = %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [32 x i32], ptr @switch.table._ZN4llvh6AMDGPU13getIsaVersionENS_9StringRefE, i64 0, i64 %4
-  %switch.load = load i32, ptr %switch.gep, align 4
+  %switch.gep = getelementptr inbounds [32 x i64], ptr @switch.table._ZN4llvh6AMDGPU13getIsaVersionENS_9StringRefE, i64 0, i64 %4
+  %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep23 = getelementptr inbounds [32 x i64], ptr @switch.table._ZN4llvh6AMDGPU13getIsaVersionENS_9StringRefE.23, i64 0, i64 %5
   %switch.load24 = load i64, ptr %switch.gep23, align 8
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep25 = getelementptr inbounds [32 x i64], ptr @switch.table._ZN4llvh6AMDGPU13getIsaVersionENS_9StringRefE.24, i64 0, i64 %6
-  %switch.load26 = load i64, ptr %switch.gep25, align 8
+  %switch.gep25 = getelementptr inbounds [32 x i32], ptr @switch.table._ZN4llvh6AMDGPU13getIsaVersionENS_9StringRefE.24, i64 0, i64 %6
+  %switch.load26 = load i32, ptr %switch.gep25, align 4
   br label %return
 
 return:                                           ; preds = %for.inc.i.us, %for.inc.i, %switch.lookup, %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, %if.end.i
-  %retval.sroa.37.0 = phi i32 [ 0, %if.end.i ], [ 0, %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ %switch.load, %switch.lookup ], [ 0, %for.inc.i ], [ 0, %for.inc.i.us ]
+  %retval.sroa.0.0 = phi i64 [ 7, %if.end.i ], [ 0, %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ %switch.load, %switch.lookup ], [ 0, %for.inc.i ], [ 0, %for.inc.i.us ]
   %retval.sroa.19.0 = phi i64 [ 0, %if.end.i ], [ 0, %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ %switch.load24, %switch.lookup ], [ 0, %for.inc.i ], [ 0, %for.inc.i.us ]
-  %retval.sroa.0.0 = phi i64 [ 7, %if.end.i ], [ 0, %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ %switch.load26, %switch.lookup ], [ 0, %for.inc.i ], [ 0, %for.inc.i.us ]
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.0.0, %retval.sroa.19.0
+  %retval.sroa.37.0 = phi i32 [ 0, %if.end.i ], [ 0, %_ZN4llvh6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit ], [ %switch.load26, %switch.lookup ], [ 0, %for.inc.i ], [ 0, %for.inc.i.us ]
+  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.19.0, %retval.sroa.0.0
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %retval.sroa.37.0, 1
   ret { i64, i32 } %.fca.1.insert

@@ -924,10 +924,10 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.loopexit.i.i, %.preheader.lr.ph.i.i
-  %.03337.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %141, %.loopexit.i.i ]
-  %133 = sext i32 %.03337.i.i to i64
-  %smax.i.i = call i32 @llvm.smax.i32(i32 %.03337.i.i, i32 %12)
-  %134 = sub i32 %smax.i.i, %.03337.i.i
+  %.037.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %141, %.loopexit.i.i ]
+  %133 = sext i32 %.037.i.i to i64
+  %smax.i.i = call i32 @llvm.smax.i32(i32 %.037.i.i, i32 %12)
+  %134 = sub i32 %smax.i.i, %.037.i.i
   %wide.trip.count.i.i = zext i32 %134 to i64
   %invariant.gep.i.i = getelementptr i8, ptr %118, i64 %133
   br label %135
@@ -949,7 +949,7 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   br i1 %exitcond39.not.i.i, label %.loopexit.i.i, label %135, !llvm.loop !6
 
 .loopexit.i.i:                                    ; preds = %136, %135
-  %.1.i.i = phi i32 [ %132, %135 ], [ %.03337.i.i, %136 ]
+  %.1.i.i = phi i32 [ %132, %135 ], [ %.037.i.i, %136 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %130, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
   call void @gcry_md_hash_buffer(i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %124, i64 noundef %123) #9
   %141 = add i32 %.1.i.i, 16
@@ -976,7 +976,7 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
 
 .thread103:                                       ; preds = %.thread99, %145
   %.096102105 = phi ptr [ %143, %145 ], [ %144, %.thread99 ]
-  %.082 = phi ptr [ %147, %145 ], [ %109, %.thread99 ]
+  %.081 = phi ptr [ %147, %145 ], [ %109, %.thread99 ]
   %148 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #9
   %149 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #9
   %150 = zext i8 %149 to i32
@@ -998,8 +998,8 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
 155:                                              ; preds = %153
   %156 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.096102105, i32 noundef 0) #9
   %157 = load i32, ptr @hf_tacplus_authen_action, align 4
-  %158 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %157, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %159 = call fastcc i32 @proto_tree_add_tacplus_common_fields(ptr noundef nonnull %.096102105, ptr noundef %.082, i32 noundef 1, i32 noundef 8)
+  %158 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %157, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %159 = call fastcc i32 @proto_tree_add_tacplus_common_fields(ptr noundef nonnull %.096102105, ptr noundef %.081, i32 noundef 1, i32 noundef 8)
   %cond.i.i = icmp eq i8 %156, 1
   br i1 %cond.i.i, label %160, label %dissect_tacplus_body.exit
 
@@ -1017,36 +1017,36 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
 
 163:                                              ; preds = %160
   %164 = load i32, ptr @hf_tacplus_ascii_length, align 4
-  %165 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %164, ptr noundef nonnull %.096102105, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
+  %165 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %164, ptr noundef nonnull %.096102105, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
   br i1 %.not86.i.i.i, label %dissect_tacplus_body.exit, label %166
 
 166:                                              ; preds = %163
   %167 = load i32, ptr @hf_tacplus_data, align 4
   %168 = zext i8 %161 to i32
-  %169 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %167, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef %168, i32 noundef 0) #9
+  %169 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %167, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef %168, i32 noundef 0) #9
   br label %dissect_tacplus_body.exit
 
 170:                                              ; preds = %160
   %171 = load i32, ptr @hf_tacplus_password_length, align 4
-  %172 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %171, ptr noundef nonnull %.096102105, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
+  %172 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %171, ptr noundef nonnull %.096102105, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
   br i1 %.not86.i.i.i, label %dissect_tacplus_body.exit, label %173
 
 173:                                              ; preds = %170
   %174 = load i32, ptr @hf_tacplus_auth_password, align 4
   %175 = zext i8 %161 to i32
-  %176 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %174, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef %175, i32 noundef 0) #9
+  %176 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %174, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef %175, i32 noundef 0) #9
   br label %dissect_tacplus_body.exit
 
 177:                                              ; preds = %160
   %178 = load i32, ptr @hf_tacplus_chap_data_length, align 4
-  %179 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %178, ptr noundef nonnull %.096102105, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
+  %179 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %178, ptr noundef nonnull %.096102105, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
   br i1 %.not86.i.i.i, label %dissect_tacplus_body.exit, label %180
 
 180:                                              ; preds = %177
   %181 = zext i8 %161 to i32
   %182 = add i8 %161, -17
   %183 = load i32, ptr @ett_tacplus_body_chap, align 4
-  %184 = call ptr @proto_tree_add_subtree(ptr noundef %.082, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef %181, i32 noundef %183, ptr noundef null, ptr noundef nonnull @.str.249) #9
+  %184 = call ptr @proto_tree_add_subtree(ptr noundef %.081, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef %181, i32 noundef %183, ptr noundef null, ptr noundef nonnull @.str.249) #9
   %185 = load i32, ptr @hf_tacplus_chap_id, align 4
   %186 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %185, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef 1, i32 noundef 0) #9
   %187 = add i32 %159, 1
@@ -1060,14 +1060,14 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
 
 194:                                              ; preds = %160
   %195 = load i32, ptr @hf_tacplus_mschap_data_length, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %195, ptr noundef nonnull %.096102105, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
+  %196 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %195, ptr noundef nonnull %.096102105, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
   br i1 %.not86.i.i.i, label %dissect_tacplus_body.exit, label %197
 
 197:                                              ; preds = %194
   %198 = zext i8 %161 to i32
   %199 = add i8 %161, -50
   %200 = load i32, ptr @ett_tacplus_body_chap, align 4
-  %201 = call ptr @proto_tree_add_subtree(ptr noundef %.082, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef %198, i32 noundef %200, ptr noundef null, ptr noundef nonnull @.str.250) #9
+  %201 = call ptr @proto_tree_add_subtree(ptr noundef %.081, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef %198, i32 noundef %200, ptr noundef null, ptr noundef nonnull @.str.250) #9
   %202 = load i32, ptr @hf_tacplus_mschap_id, align 4
   %203 = call ptr @proto_tree_add_item(ptr noundef %201, i32 noundef %202, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef 1, i32 noundef 0) #9
   %204 = add i32 %159, 1
@@ -1081,13 +1081,13 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
 
 211:                                              ; preds = %160
   %212 = load i32, ptr @hf_tacplus_arap_data_length, align 4
-  %213 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %212, ptr noundef nonnull %.096102105, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
+  %213 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %212, ptr noundef nonnull %.096102105, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
   br i1 %.not86.i.i.i, label %dissect_tacplus_body.exit, label %214
 
 214:                                              ; preds = %211
   %215 = zext i8 %161 to i32
   %216 = load i32, ptr @ett_tacplus_body_chap, align 4
-  %217 = call ptr @proto_tree_add_subtree(ptr noundef %.082, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef %215, i32 noundef %216, ptr noundef null, ptr noundef nonnull @.str.251) #9
+  %217 = call ptr @proto_tree_add_subtree(ptr noundef %.081, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef %215, i32 noundef %216, ptr noundef null, ptr noundef nonnull @.str.251) #9
   %218 = load i32, ptr @hf_tacplus_arap_nas_challenge, align 4
   %219 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %218, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef 8, i32 noundef 0) #9
   %220 = add i32 %159, 8
@@ -1100,19 +1100,19 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
 
 226:                                              ; preds = %160
   %227 = load i32, ptr @hf_tacplus_data_length, align 4
-  %228 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %227, ptr noundef nonnull %.096102105, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
+  %228 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %227, ptr noundef nonnull %.096102105, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
   br i1 %.not86.i.i.i, label %dissect_tacplus_body.exit, label %229
 
 229:                                              ; preds = %226
   %230 = load i32, ptr @hf_tacplus_data, align 4
   %231 = zext i8 %161 to i32
-  %232 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %230, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef %231, i32 noundef 0) #9
+  %232 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %230, ptr noundef nonnull %.096102105, i32 noundef %159, i32 noundef %231, i32 noundef 0) #9
   br label %dissect_tacplus_body.exit
 
 233:                                              ; preds = %153
   %234 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.096102105, i32 noundef 4) #9
   %235 = load i32, ptr @hf_tacplus_body_authen_req_cont_flags, align 4
-  %236 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %235, ptr noundef nonnull %.096102105, i32 noundef 4, i32 noundef 1, i32 noundef 0) #9
+  %236 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %235, ptr noundef nonnull %.096102105, i32 noundef 4, i32 noundef 1, i32 noundef 0) #9
   %237 = and i8 %234, 1
   %.not.i.i = icmp eq i8 %237, 0
   br i1 %.not.i.i, label %239, label %238
@@ -1125,13 +1125,13 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   %240 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.096102105, i32 noundef 0) #9
   %241 = zext i16 %240 to i32
   %242 = load i32, ptr @hf_tacplus_body_authen_req_cont_user_length, align 4
-  %243 = call ptr @proto_tree_add_uint(ptr noundef %.082, i32 noundef %242, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef 2, i32 noundef %241) #9
+  %243 = call ptr @proto_tree_add_uint(ptr noundef %.081, i32 noundef %242, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef 2, i32 noundef %241) #9
   %.not26.i.i = icmp eq i16 %240, 0
   br i1 %.not26.i.i, label %248, label %244
 
 244:                                              ; preds = %239
   %245 = load i32, ptr @hf_tacplus_body_authen_req_cont_user, align 4
-  %246 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %245, ptr noundef nonnull %.096102105, i32 noundef 5, i32 noundef %241, i32 noundef 0) #9
+  %246 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %245, ptr noundef nonnull %.096102105, i32 noundef 5, i32 noundef %241, i32 noundef 0) #9
   %247 = add nuw nsw i32 %241, 5
   br label %248
 
@@ -1140,21 +1140,21 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   %249 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.096102105, i32 noundef 2) #9
   %250 = zext i16 %249 to i32
   %251 = load i32, ptr @hf_tacplus_body_authen_req_cont_data_length, align 4
-  %252 = call ptr @proto_tree_add_uint(ptr noundef %.082, i32 noundef %251, ptr noundef nonnull %.096102105, i32 noundef 2, i32 noundef 2, i32 noundef %250) #9
+  %252 = call ptr @proto_tree_add_uint(ptr noundef %.081, i32 noundef %251, ptr noundef nonnull %.096102105, i32 noundef 2, i32 noundef 2, i32 noundef %250) #9
   %.not27.i.i = icmp eq i16 %249, 0
   br i1 %.not27.i.i, label %dissect_tacplus_body.exit, label %253
 
 253:                                              ; preds = %248
   %254 = load i32, ptr @hf_tacplus_data, align 4
-  %255 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %254, ptr noundef nonnull %.096102105, i32 noundef %.0.i.i, i32 noundef %250, i32 noundef 0) #9
+  %255 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %254, ptr noundef nonnull %.096102105, i32 noundef %.0.i.i, i32 noundef %250, i32 noundef 0) #9
   br label %dissect_tacplus_body.exit
 
 256:                                              ; preds = %151
   %257 = load i32, ptr @hf_tacplus_body_authen_rep_status, align 4
-  %258 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %257, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %258 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %257, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
   %259 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.096102105, i32 noundef 1) #9
   %260 = load i32, ptr @hf_tacplus_body_authen_rep_flags, align 4
-  %261 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %260, ptr noundef nonnull %.096102105, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %261 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %260, ptr noundef nonnull %.096102105, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
   %262 = and i8 %259, 1
   %.not.i25.i = icmp eq i8 %262, 0
   br i1 %.not.i25.i, label %264, label %263
@@ -1167,13 +1167,13 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   %265 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.096102105, i32 noundef 2) #9
   %266 = zext i16 %265 to i32
   %267 = load i32, ptr @hf_tacplus_body_authen_rep_server_msg_len, align 4
-  %268 = call ptr @proto_tree_add_uint(ptr noundef %.082, i32 noundef %267, ptr noundef nonnull %.096102105, i32 noundef 2, i32 noundef 2, i32 noundef %266) #9
+  %268 = call ptr @proto_tree_add_uint(ptr noundef %.081, i32 noundef %267, ptr noundef nonnull %.096102105, i32 noundef 2, i32 noundef 2, i32 noundef %266) #9
   %.not28.i.i = icmp eq i16 %265, 0
   br i1 %.not28.i.i, label %273, label %269
 
 269:                                              ; preds = %264
   %270 = load i32, ptr @hf_tacplus_body_authen_rep_server_msg, align 4
-  %271 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %270, ptr noundef nonnull %.096102105, i32 noundef 6, i32 noundef %266, i32 noundef 0) #9
+  %271 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %270, ptr noundef nonnull %.096102105, i32 noundef 6, i32 noundef %266, i32 noundef 0) #9
   %272 = add nuw nsw i32 %266, 6
   br label %273
 
@@ -1182,13 +1182,13 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   %274 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.096102105, i32 noundef 4) #9
   %275 = zext i16 %274 to i32
   %276 = load i32, ptr @hf_tacplus_body_authen_rep_server_data_len, align 4
-  %277 = call ptr @proto_tree_add_uint(ptr noundef %.082, i32 noundef %276, ptr noundef nonnull %.096102105, i32 noundef 4, i32 noundef 2, i32 noundef %275) #9
+  %277 = call ptr @proto_tree_add_uint(ptr noundef %.081, i32 noundef %276, ptr noundef nonnull %.096102105, i32 noundef 4, i32 noundef 2, i32 noundef %275) #9
   %.not29.i.i = icmp eq i16 %274, 0
   br i1 %.not29.i.i, label %dissect_tacplus_body.exit, label %278
 
 278:                                              ; preds = %273
   %279 = load i32, ptr @hf_tacplus_data, align 4
-  %280 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %279, ptr noundef nonnull %.096102105, i32 noundef %.0.i26.i, i32 noundef %275, i32 noundef 0) #9
+  %280 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %279, ptr noundef nonnull %.096102105, i32 noundef %.0.i26.i, i32 noundef %275, i32 noundef 0) #9
   br label %dissect_tacplus_body.exit
 
 281:                                              ; preds = %.thread103
@@ -1198,35 +1198,35 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
 
 283:                                              ; preds = %281
   %284 = load i32, ptr @hf_tacplus_body_author_req_auth_method, align 4
-  %285 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %284, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %285 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %284, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
   %286 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.096102105, i32 noundef 7) #9
   %287 = zext i8 %286 to i32
   %288 = add nuw nsw i32 %287, 8
-  %289 = call fastcc i32 @proto_tree_add_tacplus_common_fields(ptr noundef nonnull %.096102105, ptr noundef %.082, i32 noundef 1, i32 noundef %288)
+  %289 = call fastcc i32 @proto_tree_add_tacplus_common_fields(ptr noundef nonnull %.096102105, ptr noundef %.081, i32 noundef 1, i32 noundef %288)
   %290 = load i32, ptr @hf_tacplus_body_author_req_arg_count, align 4
-  %291 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %290, ptr noundef nonnull %.096102105, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
-  call fastcc void @dissect_tacplus_args_list(ptr noundef nonnull %.096102105, ptr noundef %.082, i32 noundef %289, i32 noundef 8, i32 noundef %287)
+  %291 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %290, ptr noundef nonnull %.096102105, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
+  call fastcc void @dissect_tacplus_args_list(ptr noundef nonnull %.096102105, ptr noundef %.081, i32 noundef %289, i32 noundef 8, i32 noundef %287)
   br label %dissect_tacplus_body.exit
 
 292:                                              ; preds = %281
   %293 = load i32, ptr @hf_tacplus_body_author_rep_auth_status, align 4
-  %294 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %293, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %294 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %293, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
   %295 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.096102105, i32 noundef 2) #9
   %296 = zext i16 %295 to i32
   %297 = add nuw nsw i32 %296, 6
   %298 = load i32, ptr @hf_tacplus_body_author_rep_server_msg_len, align 4
-  %299 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %298, ptr noundef nonnull %.096102105, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
+  %299 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %298, ptr noundef nonnull %.096102105, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
   %300 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.096102105, i32 noundef 4) #9
   %301 = zext i16 %300 to i32
   %302 = add nuw nsw i32 %297, %301
   %303 = load i32, ptr @hf_tacplus_body_author_rep_server_data_len, align 4
-  %304 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %303, ptr noundef nonnull %.096102105, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
+  %304 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %303, ptr noundef nonnull %.096102105, i32 noundef 4, i32 noundef 2, i32 noundef 0) #9
   %305 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.096102105, i32 noundef 1) #9
   %306 = zext i8 %305 to i32
   %307 = add nuw nsw i32 %302, %306
   %308 = load i32, ptr @hf_tacplus_body_author_rep_arg_count, align 4
-  %309 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %308, ptr noundef nonnull %.096102105, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
-  call fastcc void @dissect_tacplus_args_list(ptr noundef nonnull %.096102105, ptr noundef %.082, i32 noundef %307, i32 noundef 6, i32 noundef %306)
+  %309 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %308, ptr noundef nonnull %.096102105, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  call fastcc void @dissect_tacplus_args_list(ptr noundef nonnull %.096102105, ptr noundef %.081, i32 noundef %307, i32 noundef 6, i32 noundef %306)
   br label %dissect_tacplus_body.exit
 
 310:                                              ; preds = %.thread103
@@ -1236,7 +1236,7 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
 
 312:                                              ; preds = %310
   %313 = load i32, ptr @hf_tacplus_acct_flags, align 4
-  %314 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %313, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %314 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %313, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
   %315 = load i32, ptr @ett_tacplus_acct_flags, align 4
   %316 = call ptr @proto_item_add_subtree(ptr noundef %314, i32 noundef %315) #9
   %317 = load i32, ptr @hf_tacplus_acct_flags_more, align 4
@@ -1248,29 +1248,29 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   %323 = load i32, ptr @hf_tacplus_acct_flags_watchdog, align 4
   %324 = call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %323, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
   %325 = load i32, ptr @hf_tacplus_acct_authen_method, align 4
-  %326 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %325, ptr noundef nonnull %.096102105, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
+  %326 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %325, ptr noundef nonnull %.096102105, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
   %327 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.096102105, i32 noundef 8) #9
   %328 = zext i8 %327 to i32
   %329 = add nuw nsw i32 %328, 9
-  %330 = call fastcc i32 @proto_tree_add_tacplus_common_fields(ptr noundef nonnull %.096102105, ptr noundef %.082, i32 noundef 2, i32 noundef %329)
+  %330 = call fastcc i32 @proto_tree_add_tacplus_common_fields(ptr noundef nonnull %.096102105, ptr noundef %.081, i32 noundef 2, i32 noundef %329)
   %331 = load i32, ptr @hf_tacplus_acct_arg_count, align 4
-  %332 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %331, ptr noundef nonnull %.096102105, i32 noundef 8, i32 noundef 1, i32 noundef 0) #9
-  call fastcc void @dissect_tacplus_args_list(ptr noundef nonnull %.096102105, ptr noundef %.082, i32 noundef %330, i32 noundef 9, i32 noundef %328)
+  %332 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %331, ptr noundef nonnull %.096102105, i32 noundef 8, i32 noundef 1, i32 noundef 0) #9
+  call fastcc void @dissect_tacplus_args_list(ptr noundef nonnull %.096102105, ptr noundef %.081, i32 noundef %330, i32 noundef 9, i32 noundef %328)
   br label %dissect_tacplus_body.exit
 
 333:                                              ; preds = %310
   %334 = load i32, ptr @hf_tacplus_body_acct_status, align 4
-  %335 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %334, ptr noundef nonnull %.096102105, i32 noundef 4, i32 noundef 1, i32 noundef 0) #9
+  %335 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %334, ptr noundef nonnull %.096102105, i32 noundef 4, i32 noundef 1, i32 noundef 0) #9
   %336 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.096102105, i32 noundef 0) #9
   %337 = load i32, ptr @hf_tacplus_body_acct_server_msg_len, align 4
-  %338 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %337, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef 2, i32 noundef 0) #9
+  %338 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %337, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef 2, i32 noundef 0) #9
   %.not.i27.i = icmp eq i16 %336, 0
   br i1 %.not.i27.i, label %344, label %339
 
 339:                                              ; preds = %333
   %340 = zext i16 %336 to i32
   %341 = load i32, ptr @hf_tacplus_body_acct_server_msg, align 4
-  %342 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %341, ptr noundef nonnull %.096102105, i32 noundef 5, i32 noundef %340, i32 noundef 0) #9
+  %342 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %341, ptr noundef nonnull %.096102105, i32 noundef 5, i32 noundef %340, i32 noundef 0) #9
   %343 = add nuw nsw i32 %340, 5
   br label %344
 
@@ -1278,18 +1278,18 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   %.0.i28.i = phi i32 [ %343, %339 ], [ 5, %333 ]
   %345 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.096102105, i32 noundef 2) #9
   %346 = load i32, ptr @hf_tacplus_body_acct_data_len, align 4
-  %347 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %346, ptr noundef nonnull %.096102105, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
+  %347 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %346, ptr noundef nonnull %.096102105, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
   %.not21.i.i = icmp eq i16 %345, 0
   br i1 %.not21.i.i, label %dissect_tacplus_body.exit, label %348
 
 348:                                              ; preds = %344
   %349 = zext i16 %345 to i32
   %350 = load i32, ptr @hf_tacplus_body_acct_data, align 4
-  %351 = call ptr @proto_tree_add_item(ptr noundef %.082, i32 noundef %350, ptr noundef nonnull %.096102105, i32 noundef %.0.i28.i, i32 noundef %349, i32 noundef 0) #9
+  %351 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %350, ptr noundef nonnull %.096102105, i32 noundef %.0.i28.i, i32 noundef %349, i32 noundef 0) #9
   br label %dissect_tacplus_body.exit
 
 352:                                              ; preds = %.thread103
-  %353 = call ptr @proto_tree_add_expert(ptr noundef %.082, ptr noundef %1, ptr noundef nonnull @ei_tacplus_bogus_data, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef -1) #9
+  %353 = call ptr @proto_tree_add_expert(ptr noundef %.081, ptr noundef %1, ptr noundef nonnull @ei_tacplus_bogus_data, ptr noundef nonnull %.096102105, i32 noundef 0, i32 noundef -1) #9
   br label %dissect_tacplus_body.exit
 
 dissect_tacplus_body.exit:                        ; preds = %111, %110, %352, %348, %344, %312, %292, %283, %278, %273, %253, %248, %229, %226, %214, %211, %197, %194, %180, %177, %173, %170, %166, %163, %155, %.thread99, %.loopexit

@@ -757,13 +757,13 @@ define double @N_VMaxNorm_SensWrapper(ptr nocapture noundef readonly %0) #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %6 = phi ptr [ %12, %.lr.ph ], [ %2, %1 ]
-  %.011 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %1 ]
+  %.0810 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %1 ]
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = tail call double @N_VMaxNorm(ptr noundef %9) #5
-  %11 = fcmp ogt double %10, %.011
-  %.1 = select i1 %11, double %10, double %.011
+  %11 = fcmp ogt double %10, %.0810
+  %.1 = select i1 %11, double %10, double %.0810
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
@@ -773,8 +773,8 @@ define double @N_VMaxNorm_SensWrapper(ptr nocapture noundef readonly %0) #0 {
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %.1, %.lr.ph ]
-  ret double %.0.lcssa
+  %.08.lcssa = phi double [ 0.000000e+00, %1 ], [ %.1, %.lr.ph ]
+  ret double %.08.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -788,7 +788,7 @@ define double @N_VWrmsNormMask_SensWrapper(ptr nocapture noundef readonly %0, pt
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %8 = phi ptr [ %22, %.lr.ph ], [ %4, %3 ]
-  %.015 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %3 ]
+  %.01214 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %3 ]
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
@@ -801,8 +801,8 @@ define double @N_VWrmsNormMask_SensWrapper(ptr nocapture noundef readonly %0, pt
   %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = tail call double @N_VWrmsNormMask(ptr noundef %11, ptr noundef %15, ptr noundef %19) #5
-  %21 = fcmp ogt double %20, %.015
-  %.1 = select i1 %21, double %20, double %.015
+  %21 = fcmp ogt double %20, %.01214
+  %.1 = select i1 %21, double %20, double %.01214
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
@@ -812,8 +812,8 @@ define double @N_VWrmsNormMask_SensWrapper(ptr nocapture noundef readonly %0, pt
   br i1 %26, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0.lcssa = phi double [ 0.000000e+00, %3 ], [ %.1, %.lr.ph ]
-  ret double %.0.lcssa
+  %.012.lcssa = phi double [ 0.000000e+00, %3 ], [ %.1, %.lr.ph ]
+  ret double %.012.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -827,7 +827,7 @@ define double @N_VWrmsNorm_SensWrapper(ptr nocapture noundef readonly %0, ptr no
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %7 = phi ptr [ %17, %.lr.ph ], [ %3, %2 ]
-  %.013 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %2 ]
+  %.01012 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %2 ]
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
@@ -836,8 +836,8 @@ define double @N_VWrmsNorm_SensWrapper(ptr nocapture noundef readonly %0, ptr no
   %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call double @N_VWrmsNorm(ptr noundef %10, ptr noundef %14) #5
-  %16 = fcmp ogt double %15, %.013
-  %.1 = select i1 %16, double %15, double %.013
+  %16 = fcmp ogt double %15, %.01012
+  %.1 = select i1 %16, double %15, double %.01012
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
@@ -847,8 +847,8 @@ define double @N_VWrmsNorm_SensWrapper(ptr nocapture noundef readonly %0, ptr no
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %.1, %.lr.ph ]
-  ret double %.0.lcssa
+  %.010.lcssa = phi double [ 0.000000e+00, %2 ], [ %.1, %.lr.ph ]
+  ret double %.010.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -866,13 +866,13 @@ define double @N_VMin_SensWrapper(ptr nocapture noundef readonly %0) #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %1 ]
   %10 = phi ptr [ %16, %.lr.ph ], [ %6, %1 ]
-  %.012 = phi double [ %.1, %.lr.ph ], [ %5, %1 ]
+  %.0911 = phi double [ %.1, %.lr.ph ], [ %5, %1 ]
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call double @N_VMin(ptr noundef %13) #5
-  %15 = fcmp olt double %14, %.012
-  %.1 = select i1 %15, double %14, double %.012
+  %15 = fcmp olt double %14, %.0911
+  %.1 = select i1 %15, double %14, double %.0911
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
@@ -882,8 +882,8 @@ define double @N_VMin_SensWrapper(ptr nocapture noundef readonly %0) #0 {
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi double [ %5, %1 ], [ %.1, %.lr.ph ]
-  ret double %.0.lcssa
+  %.09.lcssa = phi double [ %5, %1 ], [ %.1, %.lr.ph ]
+  ret double %.09.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -897,7 +897,7 @@ define double @N_VWL2Norm_SensWrapper(ptr nocapture noundef readonly %0, ptr noc
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %7 = phi ptr [ %17, %.lr.ph ], [ %3, %2 ]
-  %.013 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %2 ]
+  %.01012 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %2 ]
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
@@ -906,8 +906,8 @@ define double @N_VWL2Norm_SensWrapper(ptr nocapture noundef readonly %0, ptr noc
   %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call double @N_VWL2Norm(ptr noundef %10, ptr noundef %14) #5
-  %16 = fcmp ogt double %15, %.013
-  %.1 = select i1 %16, double %15, double %.013
+  %16 = fcmp ogt double %15, %.01012
+  %.1 = select i1 %16, double %15, double %.01012
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
@@ -917,8 +917,8 @@ define double @N_VWL2Norm_SensWrapper(ptr nocapture noundef readonly %0, ptr noc
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi double [ 0.000000e+00, %2 ], [ %.1, %.lr.ph ]
-  ret double %.0.lcssa
+  %.010.lcssa = phi double [ 0.000000e+00, %2 ], [ %.1, %.lr.ph ]
+  ret double %.010.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -932,13 +932,13 @@ define double @N_VL1Norm_SensWrapper(ptr nocapture noundef readonly %0) #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %6 = phi ptr [ %12, %.lr.ph ], [ %2, %1 ]
-  %.011 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %1 ]
+  %.0810 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %1 ]
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = tail call double @N_VL1Norm(ptr noundef %9) #5
-  %11 = fcmp ogt double %10, %.011
-  %.1 = select i1 %11, double %10, double %.011
+  %11 = fcmp ogt double %10, %.0810
+  %.1 = select i1 %11, double %10, double %.0810
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
@@ -948,8 +948,8 @@ define double @N_VL1Norm_SensWrapper(ptr nocapture noundef readonly %0) #0 {
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %.1, %.lr.ph ]
-  ret double %.0.lcssa
+  %.08.lcssa = phi double [ 0.000000e+00, %1 ], [ %.1, %.lr.ph ]
+  ret double %.08.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1071,7 +1071,7 @@ define double @N_VMinQuotient_SensWrapper(ptr nocapture noundef readonly %0, ptr
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %2 ]
   %14 = phi ptr [ %24, %.lr.ph ], [ %10, %2 ]
-  %.015 = phi double [ %.1, %.lr.ph ], [ %9, %2 ]
+  %.01214 = phi double [ %.1, %.lr.ph ], [ %9, %2 ]
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
@@ -1080,8 +1080,8 @@ define double @N_VMinQuotient_SensWrapper(ptr nocapture noundef readonly %0, ptr
   %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = tail call double @N_VMinQuotient(ptr noundef %17, ptr noundef %21) #5
-  %23 = fcmp olt double %22, %.015
-  %.1 = select i1 %23, double %22, double %.015
+  %23 = fcmp olt double %22, %.01214
+  %.1 = select i1 %23, double %22, double %.01214
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
@@ -1091,8 +1091,8 @@ define double @N_VMinQuotient_SensWrapper(ptr nocapture noundef readonly %0, ptr
   br i1 %28, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi double [ %9, %2 ], [ %.1, %.lr.ph ]
-  ret double %.0.lcssa
+  %.012.lcssa = phi double [ %9, %2 ], [ %.1, %.lr.ph ]
+  ret double %.012.lcssa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

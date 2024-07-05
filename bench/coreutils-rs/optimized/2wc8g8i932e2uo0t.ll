@@ -762,23 +762,23 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   br i1 %76, label %.lr.ph.i38, label %._crit_edge.i
 
 .preheader.i:                                     ; preds = %89, %81
-  %.165138.i = phi i8 [ %.2.i, %81 ], [ %.064139.i, %89 ]
-  %.sroa.025.0137.i = phi i64 [ %77, %81 ], [ 0, %89 ]
-  %77 = add nuw nsw i64 %.sroa.025.0137.i, 1
-  %78 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0137.i
+  %.sroa.025.0138.i = phi i64 [ %77, %81 ], [ 0, %89 ]
+  %.165137.i = phi i8 [ %.2.i, %81 ], [ %.064139.i, %89 ]
+  %77 = add nuw nsw i64 %.sroa.025.0138.i, 1
+  %78 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0138.i
   %79 = load i16, ptr %78, align 2, !noalias !71, !noundef !5
   %80 = icmp eq i16 %79, 0
   br i1 %80, label %81, label %82
 
 81:                                               ; preds = %82, %.preheader.i
-  %.2.i = phi i8 [ %.165138.i, %.preheader.i ], [ %88, %82 ]
+  %.2.i = phi i8 [ %.165137.i, %.preheader.i ], [ %88, %82 ]
   %exitcond155.not.i = icmp eq i64 %77, 4
   br i1 %exitcond155.not.i, label %73, label %.preheader.i
 
 82:                                               ; preds = %.preheader.i
-  %83 = shl nuw nsw i64 %.sroa.025.0137.i, 4
+  %83 = shl nuw nsw i64 %.sroa.025.0138.i, 4
   %84 = add nuw nsw i64 %83, %.062140.i
-  %85 = trunc nuw i8 %.165138.i to i1
+  %85 = trunc nuw i8 %.165137.i to i1
   %86 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h97701bba781d9f50E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %84, i16 noundef %79, i1 noundef zeroext %85)
   %87 = or i1 %86, %85
   %88 = zext i1 %87 to i8
@@ -902,8 +902,8 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit: ; preds = %39, %18
   br label %143
 
 .loopexit.i:                                      ; preds = %203, %201, %199
-  %.012.i.i = phi i64 [ 1, %199 ], [ %..i.i, %203 ], [ 2, %201 ]
-  %142 = add i64 %.012.i.i, %144
+  %.013.i.i = phi i64 [ 1, %199 ], [ %..i.i, %203 ], [ 2, %201 ]
+  %142 = add i64 %.013.i.i, %144
   br label %143
 
 143:                                              ; preds = %.loopexit.i, %.lr.ph106.i

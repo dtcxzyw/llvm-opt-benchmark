@@ -1162,16 +1162,16 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
-  %vflag.0 = phi i1 [ false, %entry ], [ %vflag.0.be, %while.cond.backedge ]
-  %Pflag.0 = phi i1 [ false, %entry ], [ %Pflag.0.be, %while.cond.backedge ]
-  %sflag.0 = phi i1 [ false, %entry ], [ %sflag.0.be, %while.cond.backedge ]
-  %lflag.0 = phi i8 [ 0, %entry ], [ %lflag.0.be, %while.cond.backedge ]
   %bflag.0 = phi i1 [ false, %entry ], [ %bflag.0.be, %while.cond.backedge ]
-  %qflag.0 = phi i1 [ false, %entry ], [ %qflag.0.be, %while.cond.backedge ]
+  %lflag.0 = phi i8 [ 0, %entry ], [ %lflag.0.be, %while.cond.backedge ]
+  %sflag.0 = phi i1 [ false, %entry ], [ %sflag.0.be, %while.cond.backedge ]
+  %Pflag.0 = phi i1 [ false, %entry ], [ %Pflag.0.be, %while.cond.backedge ]
+  %vflag.0 = phi i1 [ false, %entry ], [ %vflag.0.be, %while.cond.backedge ]
   %pattern.0 = phi i8 [ 0, %entry ], [ %pattern.0.be, %while.cond.backedge ]
   %pattern_offset.0 = phi i64 [ 0, %entry ], [ %pattern_offset.0.be, %while.cond.backedge ]
   %pattern_count.0 = phi i64 [ 0, %entry ], [ %pattern_count.0.be, %while.cond.backedge ]
   %flags.0 = phi i32 [ 0, %entry ], [ %flags.0.be, %while.cond.backedge ]
+  %qflag.0 = phi i1 [ false, %entry ], [ %qflag.0.be, %while.cond.backedge ]
   %Cflag.0 = phi i1 [ false, %entry ], [ %Cflag.0.be, %while.cond.backedge ]
   %call = call i32 @getopt(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull @.str.22) #24
   switch i32 %call, label %sw.default [
@@ -1242,16 +1242,16 @@ parse_pattern.exit:                               ; preds = %lor.lhs.false2.i
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %parse_pattern.exit, %while.cond, %sw.bb14, %sw.bb2, %sw.bb21, %sw.bb13, %sw.bb12, %sw.bb1, %sw.bb
-  %vflag.0.be = phi i1 [ true, %sw.bb21 ], [ %vflag.0, %sw.bb14 ], [ %vflag.0, %sw.bb13 ], [ %vflag.0, %sw.bb12 ], [ %vflag.0, %parse_pattern.exit ], [ %vflag.0, %sw.bb2 ], [ %vflag.0, %sw.bb1 ], [ %vflag.0, %sw.bb ], [ %vflag.0, %while.cond ]
-  %Pflag.0.be = phi i1 [ %Pflag.0, %sw.bb21 ], [ %Pflag.0, %sw.bb14 ], [ %Pflag.0, %sw.bb13 ], [ %Pflag.0, %sw.bb12 ], [ true, %parse_pattern.exit ], [ %Pflag.0, %sw.bb2 ], [ %Pflag.0, %sw.bb1 ], [ %Pflag.0, %sw.bb ], [ %Pflag.0, %while.cond ]
-  %sflag.0.be = phi i1 [ %sflag.0, %sw.bb21 ], [ true, %sw.bb14 ], [ %sflag.0, %sw.bb13 ], [ %sflag.0, %sw.bb12 ], [ %sflag.0, %parse_pattern.exit ], [ %sflag.0, %sw.bb2 ], [ %sflag.0, %sw.bb1 ], [ %sflag.0, %sw.bb ], [ %sflag.0, %while.cond ]
-  %lflag.0.be = phi i8 [ %lflag.0, %sw.bb21 ], [ %lflag.0, %sw.bb14 ], [ %lflag.0, %sw.bb13 ], [ %lflag.0, %sw.bb12 ], [ %lflag.0, %parse_pattern.exit ], [ 1, %sw.bb2 ], [ %lflag.0, %sw.bb1 ], [ %lflag.0, %sw.bb ], [ %lflag.0, %while.cond ]
   %bflag.0.be = phi i1 [ %bflag.0, %sw.bb21 ], [ %bflag.0, %sw.bb14 ], [ %bflag.0, %sw.bb13 ], [ %bflag.0, %sw.bb12 ], [ %bflag.0, %parse_pattern.exit ], [ %bflag.0, %sw.bb2 ], [ %bflag.0, %sw.bb1 ], [ true, %sw.bb ], [ %bflag.0, %while.cond ]
-  %qflag.0.be = phi i1 [ %qflag.0, %sw.bb21 ], [ %qflag.0, %sw.bb14 ], [ %qflag.0, %sw.bb13 ], [ true, %sw.bb12 ], [ %qflag.0, %parse_pattern.exit ], [ %qflag.0, %sw.bb2 ], [ %qflag.0, %sw.bb1 ], [ %qflag.0, %sw.bb ], [ %qflag.0, %while.cond ]
+  %lflag.0.be = phi i8 [ %lflag.0, %sw.bb21 ], [ %lflag.0, %sw.bb14 ], [ %lflag.0, %sw.bb13 ], [ %lflag.0, %sw.bb12 ], [ %lflag.0, %parse_pattern.exit ], [ 1, %sw.bb2 ], [ %lflag.0, %sw.bb1 ], [ %lflag.0, %sw.bb ], [ %lflag.0, %while.cond ]
+  %sflag.0.be = phi i1 [ %sflag.0, %sw.bb21 ], [ true, %sw.bb14 ], [ %sflag.0, %sw.bb13 ], [ %sflag.0, %sw.bb12 ], [ %sflag.0, %parse_pattern.exit ], [ %sflag.0, %sw.bb2 ], [ %sflag.0, %sw.bb1 ], [ %sflag.0, %sw.bb ], [ %sflag.0, %while.cond ]
+  %Pflag.0.be = phi i1 [ %Pflag.0, %sw.bb21 ], [ %Pflag.0, %sw.bb14 ], [ %Pflag.0, %sw.bb13 ], [ %Pflag.0, %sw.bb12 ], [ true, %parse_pattern.exit ], [ %Pflag.0, %sw.bb2 ], [ %Pflag.0, %sw.bb1 ], [ %Pflag.0, %sw.bb ], [ %Pflag.0, %while.cond ]
+  %vflag.0.be = phi i1 [ true, %sw.bb21 ], [ %vflag.0, %sw.bb14 ], [ %vflag.0, %sw.bb13 ], [ %vflag.0, %sw.bb12 ], [ %vflag.0, %parse_pattern.exit ], [ %vflag.0, %sw.bb2 ], [ %vflag.0, %sw.bb1 ], [ %vflag.0, %sw.bb ], [ %vflag.0, %while.cond ]
   %pattern.0.be = phi i8 [ %pattern.0, %sw.bb21 ], [ %pattern.0, %sw.bb14 ], [ %pattern.0, %sw.bb13 ], [ %pattern.0, %sw.bb12 ], [ %conv6.i, %parse_pattern.exit ], [ %pattern.0, %sw.bb2 ], [ %pattern.0, %sw.bb1 ], [ %pattern.0, %sw.bb ], [ %pattern.0, %while.cond ]
   %pattern_offset.0.be = phi i64 [ %pattern_offset.0, %sw.bb21 ], [ %retval.0.i72, %sw.bb14 ], [ %pattern_offset.0, %sw.bb13 ], [ %pattern_offset.0, %sw.bb12 ], [ %pattern_offset.0, %parse_pattern.exit ], [ %pattern_offset.0, %sw.bb2 ], [ %pattern_offset.0, %sw.bb1 ], [ %pattern_offset.0, %sw.bb ], [ %pattern_offset.0, %while.cond ]
   %pattern_count.0.be = phi i64 [ %pattern_count.0, %sw.bb21 ], [ %pattern_count.0, %sw.bb14 ], [ %pattern_count.0, %sw.bb13 ], [ %pattern_count.0, %sw.bb12 ], [ %pattern_count.0, %parse_pattern.exit ], [ %retval.0.i, %sw.bb2 ], [ %pattern_count.0, %sw.bb1 ], [ %pattern_count.0, %sw.bb ], [ %pattern_count.0, %while.cond ]
   %flags.0.be = phi i32 [ %flags.0, %sw.bb21 ], [ %flags.0, %sw.bb14 ], [ %or, %sw.bb13 ], [ %flags.0, %sw.bb12 ], [ %flags.0, %parse_pattern.exit ], [ %flags.0, %sw.bb2 ], [ %flags.0, %sw.bb1 ], [ %flags.0, %sw.bb ], [ %flags.0, %while.cond ]
+  %qflag.0.be = phi i1 [ %qflag.0, %sw.bb21 ], [ %qflag.0, %sw.bb14 ], [ %qflag.0, %sw.bb13 ], [ true, %sw.bb12 ], [ %qflag.0, %parse_pattern.exit ], [ %qflag.0, %sw.bb2 ], [ %qflag.0, %sw.bb1 ], [ %qflag.0, %sw.bb ], [ %qflag.0, %while.cond ]
   %Cflag.0.be = phi i1 [ %Cflag.0, %sw.bb21 ], [ %Cflag.0, %sw.bb14 ], [ %Cflag.0, %sw.bb13 ], [ %Cflag.0, %sw.bb12 ], [ %Cflag.0, %parse_pattern.exit ], [ %Cflag.0, %sw.bb2 ], [ true, %sw.bb1 ], [ %Cflag.0, %sw.bb ], [ %Cflag.0, %while.cond ]
   br label %while.cond, !llvm.loop !10
 
@@ -1864,36 +1864,35 @@ entry:
 
 while.cond.outer:                                 ; preds = %sw.bb6, %entry
   %vflag.0.ph = phi i1 [ true, %sw.bb6 ], [ false, %entry ]
-  %qflag.0.ph = phi i1 [ %qflag.0.ph91, %sw.bb6 ], [ false, %entry ]
-  %pattern.0.ph = phi i8 [ %pattern.0.ph97, %sw.bb6 ], [ 0, %entry ]
-  %Pflag.0.ph = phi i1 [ %Pflag.0.ph98, %sw.bb6 ], [ false, %entry ]
-  %flags.0.ph = phi i32 [ %flags.0.ph102, %sw.bb6 ], [ 0, %entry ]
+  %pattern.0.ph = phi i8 [ %pattern.0.ph91, %sw.bb6 ], [ 0, %entry ]
+  %Pflag.0.ph = phi i1 [ %Pflag.0.ph92, %sw.bb6 ], [ false, %entry ]
+  %flags.0.ph = phi i32 [ %flags.0.ph97, %sw.bb6 ], [ 0, %entry ]
+  %qflag.0.ph = phi i1 [ %qflag.0.ph101, %sw.bb6 ], [ false, %entry ]
   %Cflag.0.ph = phi i1 [ %Cflag.0, %sw.bb6 ], [ false, %entry ]
   br label %while.cond.outer90
 
-while.cond.outer90:                               ; preds = %while.cond.outer, %sw.bb4
-  %qflag.0.ph91 = phi i1 [ %qflag.0.ph, %while.cond.outer ], [ true, %sw.bb4 ]
-  %pattern.0.ph92 = phi i8 [ %pattern.0.ph, %while.cond.outer ], [ %pattern.0.ph97, %sw.bb4 ]
-  %Pflag.0.ph93 = phi i1 [ %Pflag.0.ph, %while.cond.outer ], [ %Pflag.0.ph98, %sw.bb4 ]
-  %flags.0.ph94 = phi i32 [ %flags.0.ph, %while.cond.outer ], [ %flags.0.ph102, %sw.bb4 ]
-  %Cflag.0.ph95 = phi i1 [ %Cflag.0.ph, %while.cond.outer ], [ %Cflag.0, %sw.bb4 ]
+while.cond.outer90:                               ; preds = %while.cond.outer, %parse_pattern.exit
+  %pattern.0.ph91 = phi i8 [ %pattern.0.ph, %while.cond.outer ], [ %conv6.i, %parse_pattern.exit ]
+  %Pflag.0.ph92 = phi i1 [ %Pflag.0.ph, %while.cond.outer ], [ true, %parse_pattern.exit ]
+  %flags.0.ph93 = phi i32 [ %flags.0.ph, %while.cond.outer ], [ %flags.0.ph97, %parse_pattern.exit ]
+  %qflag.0.ph94 = phi i1 [ %qflag.0.ph, %while.cond.outer ], [ %qflag.0.ph101, %parse_pattern.exit ]
+  %Cflag.0.ph95 = phi i1 [ %Cflag.0.ph, %while.cond.outer ], [ %Cflag.0, %parse_pattern.exit ]
+  %or = or i32 %flags.0.ph93, 8
   br label %while.cond.outer96
 
-while.cond.outer96:                               ; preds = %while.cond.outer90, %parse_pattern.exit
-  %pattern.0.ph97 = phi i8 [ %pattern.0.ph92, %while.cond.outer90 ], [ %conv6.i, %parse_pattern.exit ]
-  %Pflag.0.ph98 = phi i1 [ %Pflag.0.ph93, %while.cond.outer90 ], [ true, %parse_pattern.exit ]
-  %flags.0.ph99 = phi i32 [ %flags.0.ph94, %while.cond.outer90 ], [ %flags.0.ph102, %parse_pattern.exit ]
-  %Cflag.0.ph100 = phi i1 [ %Cflag.0.ph95, %while.cond.outer90 ], [ %Cflag.0, %parse_pattern.exit ]
-  %or = or i32 %flags.0.ph99, 8
-  br label %while.cond.outer101
+while.cond.outer96:                               ; preds = %while.cond.outer90, %sw.bb5
+  %flags.0.ph97 = phi i32 [ %flags.0.ph93, %while.cond.outer90 ], [ %or, %sw.bb5 ]
+  %qflag.0.ph98 = phi i1 [ %qflag.0.ph94, %while.cond.outer90 ], [ %qflag.0.ph101, %sw.bb5 ]
+  %Cflag.0.ph99 = phi i1 [ %Cflag.0.ph95, %while.cond.outer90 ], [ %Cflag.0, %sw.bb5 ]
+  br label %while.cond.outer100
 
-while.cond.outer101:                              ; preds = %while.cond.outer96, %sw.bb5
-  %flags.0.ph102 = phi i32 [ %flags.0.ph99, %while.cond.outer96 ], [ %or, %sw.bb5 ]
-  %Cflag.0.ph103 = phi i1 [ %Cflag.0.ph100, %while.cond.outer96 ], [ %Cflag.0, %sw.bb5 ]
+while.cond.outer100:                              ; preds = %while.cond.outer96, %sw.bb4
+  %qflag.0.ph101 = phi i1 [ %qflag.0.ph98, %while.cond.outer96 ], [ true, %sw.bb4 ]
+  %Cflag.0.ph102 = phi i1 [ %Cflag.0.ph99, %while.cond.outer96 ], [ %Cflag.0, %sw.bb4 ]
   br label %while.cond
 
-while.cond:                                       ; preds = %while.cond.outer101, %while.cond
-  %Cflag.0 = phi i1 [ true, %while.cond ], [ %Cflag.0.ph103, %while.cond.outer101 ]
+while.cond:                                       ; preds = %while.cond.outer100, %while.cond
+  %Cflag.0 = phi i1 [ true, %while.cond ], [ %Cflag.0.ph102, %while.cond.outer100 ]
   %call = tail call i32 @getopt(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull @.str.58) #24
   switch i32 %call, label %sw.default [
     i32 -1, label %while.end
@@ -1926,13 +1925,13 @@ parse_pattern.exit.thread:                        ; preds = %sw.bb1, %lor.lhs.fa
 parse_pattern.exit:                               ; preds = %lor.lhs.false2.i
   %conv6.i = trunc nuw i64 %call.i to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i)
-  br label %while.cond.outer96, !llvm.loop !14
-
-sw.bb4:                                           ; preds = %while.cond
   br label %while.cond.outer90, !llvm.loop !14
 
+sw.bb4:                                           ; preds = %while.cond
+  br label %while.cond.outer100, !llvm.loop !14
+
 sw.bb5:                                           ; preds = %while.cond
-  br label %while.cond.outer101, !llvm.loop !14
+  br label %while.cond.outer96, !llvm.loop !14
 
 sw.bb6:                                           ; preds = %while.cond
   br label %while.cond.outer, !llvm.loop !14
@@ -1986,7 +1985,7 @@ if.end15:                                         ; preds = %if.end9
   %sub16 = sub i32 %argc, %inc
   %idxprom17 = sext i32 %inc to i64
   %arrayidx18 = getelementptr ptr, ptr %argv, i64 %idxprom17
-  %and = and i32 %flags.0.ph102, 8
+  %and = and i32 %flags.0.ph97, 8
   %tobool = icmp ne i32 %and, 0
   %call19 = call fastcc ptr @create_iovec(ptr noundef %blk, ptr noundef nonnull %qiov, ptr noundef %arrayidx18, i32 noundef %sub16, i32 noundef 171, i1 noundef zeroext %tobool)
   %cmp20 = icmp eq ptr %call19, null
@@ -1996,7 +1995,7 @@ if.end23:                                         ; preds = %if.end15
   %call24 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t1) #24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %async_ret.i)
   store i32 2147483647, ptr %async_ret.i, align 4
-  %call.i30 = call ptr @blk_aio_preadv(ptr noundef %blk, i64 noundef %retval.0.i29, ptr noundef nonnull %qiov, i32 noundef %flags.0.ph102, ptr noundef nonnull @aio_rw_done, ptr noundef nonnull %async_ret.i) #24
+  %call.i30 = call ptr @blk_aio_preadv(ptr noundef %blk, i64 noundef %retval.0.i29, ptr noundef nonnull %qiov, i32 noundef %flags.0.ph97, ptr noundef nonnull @aio_rw_done, ptr noundef nonnull %async_ret.i) #24
   %8 = load i32, ptr %async_ret.i, align 4
   %cmp2.i = icmp eq i32 %8, 2147483647
   br i1 %cmp2.i, label %while.body.i, label %do_aio_readv.exit
@@ -2023,13 +2022,13 @@ if.then29:                                        ; preds = %do_aio_readv.exit
   br label %out
 
 if.end33:                                         ; preds = %do_aio_readv.exit
-  br i1 %Pflag.0.ph98, label %if.then35, label %if.end45
+  br i1 %Pflag.0.ph92, label %if.then35, label %if.end45
 
 if.then35:                                        ; preds = %if.end33
   %11 = load i64, ptr %size.i, align 8
   %call36 = call noalias ptr @g_malloc(i64 noundef %11) #28
   %12 = load i64, ptr %size.i, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %call36, i8 %pattern.0.ph97, i64 %12, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %call36, i8 %pattern.0.ph91, i64 %12, i1 false)
   %bcmp = call i32 @bcmp(ptr nonnull %call19, ptr %call36, i64 %12)
   %tobool40.not = icmp eq i32 %bcmp, 0
   br i1 %tobool40.not, label %if.end44, label %if.then41
@@ -2045,7 +2044,7 @@ if.end44:                                         ; preds = %if.then41, %if.then
 
 if.end45:                                         ; preds = %if.end44, %if.end33
   %ret.1 = phi i32 [ %ret.0, %if.end44 ], [ 0, %if.end33 ]
-  br i1 %qflag.0.ph91, label %out, label %if.end48
+  br i1 %qflag.0.ph101, label %out, label %if.end48
 
 if.end48:                                         ; preds = %if.end45
   br i1 %vflag.0.ph, label %if.then50, label %if.end52
@@ -2124,7 +2123,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %if.end14
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end14 ]
-  %count.035 = phi i64 [ 0, %for.body.preheader ], [ %add, %if.end14 ]
+  %count.036 = phi i64 [ 0, %for.body.preheader ], [ %add, %if.end14 ]
   %arrayidx = getelementptr ptr, ptr %argv, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
@@ -2157,7 +2156,7 @@ if.then7:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.end
   %sub = sub nuw nsw i64 2147483136, %retval.0.i
-  %cmp10 = icmp ugt i64 %count.035, %sub
+  %cmp10 = icmp ugt i64 %count.036, %sub
   br i1 %cmp10, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.end9
@@ -2167,7 +2166,7 @@ if.then12:                                        ; preds = %if.end9
 if.end14:                                         ; preds = %if.end9
   %arrayidx16 = getelementptr i64, ptr %call, i64 %indvars.iv
   store i64 %retval.0.i, ptr %arrayidx16, align 8
-  %add = add nuw nsw i64 %retval.0.i, %count.035
+  %add = add nuw nsw i64 %retval.0.i, %count.036
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
@@ -2243,12 +2242,12 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
-  %bflag.0 = phi i1 [ false, %entry ], [ %bflag.0.be, %while.cond.backedge ]
-  %Pflag.0 = phi i8 [ 0, %entry ], [ %Pflag.0.be, %while.cond.backedge ]
-  %zflag.0 = phi i8 [ 0, %entry ], [ %zflag.0.be, %while.cond.backedge ]
   %cflag.0 = phi i8 [ 0, %entry ], [ %cflag.0.be, %while.cond.backedge ]
   %sflag.0 = phi i8 [ 0, %entry ], [ %sflag.0.be, %while.cond.backedge ]
   %flags.0 = phi i32 [ 0, %entry ], [ %flags.0.be, %while.cond.backedge ]
+  %zflag.0 = phi i8 [ 0, %entry ], [ %zflag.0.be, %while.cond.backedge ]
+  %Pflag.0 = phi i8 [ 0, %entry ], [ %Pflag.0.be, %while.cond.backedge ]
+  %bflag.0 = phi i1 [ false, %entry ], [ %bflag.0.be, %while.cond.backedge ]
   %qflag.0 = phi i1 [ false, %entry ], [ %qflag.0.be, %while.cond.backedge ]
   %pattern.0 = phi i32 [ 205, %entry ], [ %pattern.0.be, %while.cond.backedge ]
   %file_name.0 = phi ptr [ null, %entry ], [ %file_name.0.be, %while.cond.backedge ]
@@ -2312,12 +2311,12 @@ parse_pattern.exit:                               ; preds = %lor.lhs.false2.i
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %parse_pattern.exit, %while.cond, %sw.bb16, %sw.bb14, %sw.bb13, %sw.bb11, %sw.bb10, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %bflag.0.be = phi i1 [ %bflag.0, %sw.bb16 ], [ %bflag.0, %sw.bb14 ], [ %bflag.0, %sw.bb13 ], [ %bflag.0, %sw.bb11 ], [ %bflag.0, %sw.bb10 ], [ %bflag.0, %parse_pattern.exit ], [ %bflag.0, %sw.bb4 ], [ %bflag.0, %sw.bb3 ], [ %bflag.0, %sw.bb2 ], [ %bflag.0, %sw.bb1 ], [ true, %sw.bb ], [ %bflag.0, %while.cond ]
-  %Pflag.0.be = phi i8 [ %Pflag.0, %sw.bb16 ], [ %Pflag.0, %sw.bb14 ], [ %Pflag.0, %sw.bb13 ], [ %Pflag.0, %sw.bb11 ], [ %Pflag.0, %sw.bb10 ], [ 1, %parse_pattern.exit ], [ %Pflag.0, %sw.bb4 ], [ %Pflag.0, %sw.bb3 ], [ %Pflag.0, %sw.bb2 ], [ %Pflag.0, %sw.bb1 ], [ %Pflag.0, %sw.bb ], [ %Pflag.0, %while.cond ]
-  %zflag.0.be = phi i8 [ 1, %sw.bb16 ], [ %zflag.0, %sw.bb14 ], [ %zflag.0, %sw.bb13 ], [ %zflag.0, %sw.bb11 ], [ %zflag.0, %sw.bb10 ], [ %zflag.0, %parse_pattern.exit ], [ %zflag.0, %sw.bb4 ], [ %zflag.0, %sw.bb3 ], [ %zflag.0, %sw.bb2 ], [ %zflag.0, %sw.bb1 ], [ %zflag.0, %sw.bb ], [ %zflag.0, %while.cond ]
   %cflag.0.be = phi i8 [ %cflag.0, %sw.bb16 ], [ %cflag.0, %sw.bb14 ], [ %cflag.0, %sw.bb13 ], [ %cflag.0, %sw.bb11 ], [ %cflag.0, %sw.bb10 ], [ %cflag.0, %parse_pattern.exit ], [ %cflag.0, %sw.bb4 ], [ %cflag.0, %sw.bb3 ], [ %cflag.0, %sw.bb2 ], [ 1, %sw.bb1 ], [ %cflag.0, %sw.bb ], [ %cflag.0, %while.cond ]
   %sflag.0.be = phi i8 [ %sflag.0, %sw.bb16 ], [ %sflag.0, %sw.bb14 ], [ 1, %sw.bb13 ], [ %sflag.0, %sw.bb11 ], [ %sflag.0, %sw.bb10 ], [ %sflag.0, %parse_pattern.exit ], [ %sflag.0, %sw.bb4 ], [ %sflag.0, %sw.bb3 ], [ %sflag.0, %sw.bb2 ], [ %sflag.0, %sw.bb1 ], [ %sflag.0, %sw.bb ], [ %sflag.0, %while.cond ]
   %flags.0.be = phi i32 [ %flags.0, %sw.bb16 ], [ %or15, %sw.bb14 ], [ %flags.0, %sw.bb13 ], [ %or12, %sw.bb11 ], [ %flags.0, %sw.bb10 ], [ %flags.0, %parse_pattern.exit ], [ %or5, %sw.bb4 ], [ %or, %sw.bb3 ], [ %flags.0, %sw.bb2 ], [ %flags.0, %sw.bb1 ], [ %flags.0, %sw.bb ], [ %flags.0, %while.cond ]
+  %zflag.0.be = phi i8 [ 1, %sw.bb16 ], [ %zflag.0, %sw.bb14 ], [ %zflag.0, %sw.bb13 ], [ %zflag.0, %sw.bb11 ], [ %zflag.0, %sw.bb10 ], [ %zflag.0, %parse_pattern.exit ], [ %zflag.0, %sw.bb4 ], [ %zflag.0, %sw.bb3 ], [ %zflag.0, %sw.bb2 ], [ %zflag.0, %sw.bb1 ], [ %zflag.0, %sw.bb ], [ %zflag.0, %while.cond ]
+  %Pflag.0.be = phi i8 [ %Pflag.0, %sw.bb16 ], [ %Pflag.0, %sw.bb14 ], [ %Pflag.0, %sw.bb13 ], [ %Pflag.0, %sw.bb11 ], [ %Pflag.0, %sw.bb10 ], [ 1, %parse_pattern.exit ], [ %Pflag.0, %sw.bb4 ], [ %Pflag.0, %sw.bb3 ], [ %Pflag.0, %sw.bb2 ], [ %Pflag.0, %sw.bb1 ], [ %Pflag.0, %sw.bb ], [ %Pflag.0, %while.cond ]
+  %bflag.0.be = phi i1 [ %bflag.0, %sw.bb16 ], [ %bflag.0, %sw.bb14 ], [ %bflag.0, %sw.bb13 ], [ %bflag.0, %sw.bb11 ], [ %bflag.0, %sw.bb10 ], [ %bflag.0, %parse_pattern.exit ], [ %bflag.0, %sw.bb4 ], [ %bflag.0, %sw.bb3 ], [ %bflag.0, %sw.bb2 ], [ %bflag.0, %sw.bb1 ], [ true, %sw.bb ], [ %bflag.0, %while.cond ]
   %qflag.0.be = phi i1 [ %qflag.0, %sw.bb16 ], [ %qflag.0, %sw.bb14 ], [ %qflag.0, %sw.bb13 ], [ %qflag.0, %sw.bb11 ], [ true, %sw.bb10 ], [ %qflag.0, %parse_pattern.exit ], [ %qflag.0, %sw.bb4 ], [ %qflag.0, %sw.bb3 ], [ %qflag.0, %sw.bb2 ], [ %qflag.0, %sw.bb1 ], [ %qflag.0, %sw.bb ], [ %qflag.0, %while.cond ]
   %pattern.0.be = phi i32 [ %pattern.0, %sw.bb16 ], [ %pattern.0, %sw.bb14 ], [ %pattern.0, %sw.bb13 ], [ %pattern.0, %sw.bb11 ], [ %pattern.0, %sw.bb10 ], [ %conv6.i, %parse_pattern.exit ], [ %pattern.0, %sw.bb4 ], [ %pattern.0, %sw.bb3 ], [ %pattern.0, %sw.bb2 ], [ %pattern.0, %sw.bb1 ], [ %pattern.0, %sw.bb ], [ %pattern.0, %while.cond ]
   %file_name.0.be = phi ptr [ %file_name.0, %sw.bb16 ], [ %file_name.0, %sw.bb14 ], [ %3, %sw.bb13 ], [ %file_name.0, %sw.bb11 ], [ %file_name.0, %sw.bb10 ], [ %file_name.0, %parse_pattern.exit ], [ %file_name.0, %sw.bb4 ], [ %file_name.0, %sw.bb3 ], [ %file_name.0, %sw.bb2 ], [ %file_name.0, %sw.bb1 ], [ %file_name.0, %sw.bb ], [ %file_name.0, %while.cond ]
@@ -2412,9 +2411,9 @@ if.then42:                                        ; preds = %if.end37
   br label %return
 
 if.end44:                                         ; preds = %if.end37
-  %narrow = add nuw nsw i8 %zflag.0, %Pflag.0
   %tobool48 = trunc nuw i8 %sflag.0 to i1
-  %narrow69 = add nuw nsw i8 %narrow, %sflag.0
+  %narrow = add nuw nsw i8 %zflag.0, %sflag.0
+  %narrow69 = add nuw nsw i8 %narrow, %Pflag.0
   %cmp51 = icmp ugt i8 %narrow69, 1
   br i1 %cmp51, label %if.then53, label %if.end55
 
@@ -4591,11 +4590,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 while.body:                                       ; preds = %while.cond.preheader.split, %if.end13
-  %bytes.025 = phi i64 [ %sub21, %if.end13 ], [ %call, %while.cond.preheader.split ]
-  %offset.024 = phi i64 [ %add, %if.end13 ], [ 0, %while.cond.preheader.split ]
+  %offset.025 = phi i64 [ %add, %if.end13 ], [ 0, %while.cond.preheader.split ]
+  %bytes.024 = phi i64 [ %sub21, %if.end13 ], [ %call, %while.cond.preheader.split ]
   %call3 = call ptr @blk_bs(ptr noundef %blk) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %num.i)
-  %call.i = call i32 @bdrv_is_allocated(ptr noundef %call3, i64 noundef %offset.024, i64 noundef %bytes.025, ptr noundef nonnull %num.i) #24
+  %call.i = call i32 @bdrv_is_allocated(ptr noundef %call3, i64 noundef %offset.025, i64 noundef %bytes.024, ptr noundef nonnull %num.i) #24
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %map_is_allocated.exit.thread, label %if.end.i
 
@@ -4608,7 +4607,7 @@ map_is_allocated.exit.thread:                     ; preds = %while.body
 
 if.end.i:                                         ; preds = %while.body
   %1 = load i64, ptr %num.i, align 8
-  %cmp114.i = icmp sgt i64 %bytes.025, 0
+  %cmp114.i = icmp sgt i64 %bytes.024, 0
   br i1 %cmp114.i, label %while.body.i, label %map_is_allocated.exit.thread17
 
 map_is_allocated.exit.thread17:                   ; preds = %if.end.i
@@ -4618,10 +4617,10 @@ map_is_allocated.exit.thread17:                   ; preds = %if.end.i
 while.body.i:                                     ; preds = %if.end.i, %if.then5.i
   %num.1 = phi i64 [ %add6.i, %if.then5.i ], [ %1, %if.end.i ]
   %2 = phi i64 [ %3, %if.then5.i ], [ %1, %if.end.i ]
-  %bytes.addr.016.i = phi i64 [ %sub.i, %if.then5.i ], [ %bytes.025, %if.end.i ]
-  %offset.addr.015.i = phi i64 [ %add.i, %if.then5.i ], [ %offset.024, %if.end.i ]
-  %add.i = add i64 %offset.addr.015.i, %2
-  %sub.i = sub i64 %bytes.addr.016.i, %2
+  %offset.addr.016.i = phi i64 [ %add.i, %if.then5.i ], [ %offset.025, %if.end.i ]
+  %bytes.addr.015.i = phi i64 [ %sub.i, %if.then5.i ], [ %bytes.024, %if.end.i ]
+  %add.i = add i64 %offset.addr.016.i, %2
+  %sub.i = sub i64 %bytes.addr.015.i, %2
   %call3.i = call i32 @bdrv_is_allocated(ptr noundef %call3, i64 noundef %add.i, i64 noundef %sub.i, ptr noundef nonnull %num.i) #24
   %cmp4.i = icmp eq i32 %call3.i, %call.i
   %3 = load i64, ptr %num.i, align 8
@@ -4653,11 +4652,11 @@ if.end13:                                         ; preds = %if.else
   %cond = select i1 %tobool14.not, ptr @.str.174, ptr @.str.173
   %conv15 = sitofp i64 %num.219 to double
   call fastcc void @cvtstr(double noundef %conv15, ptr noundef nonnull %s1)
-  %conv16 = sitofp i64 %offset.024 to double
+  %conv16 = sitofp i64 %offset.025 to double
   call fastcc void @cvtstr(double noundef %conv16, ptr noundef nonnull %s2)
-  %call20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.175, ptr noundef nonnull %s1, i64 noundef %num.219, ptr noundef nonnull %cond, ptr noundef nonnull %s2, i64 noundef %offset.024)
-  %add = add i64 %num.219, %offset.024
-  %sub21 = sub i64 %bytes.025, %num.219
+  %call20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.175, ptr noundef nonnull %s1, i64 noundef %num.219, ptr noundef nonnull %cond, ptr noundef nonnull %s2, i64 noundef %offset.025)
+  %add = add i64 %num.219, %offset.025
+  %sub21 = sub i64 %bytes.024, %num.219
   %tobool.not = icmp eq i64 %sub21, 0
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !29
 

@@ -2837,40 +2837,40 @@ era_build_tree_structure.exit.i.i.i:              ; preds = %.critedge.i.i.i.i, 
   br label %352
 
 352:                                              ; preds = %369, %.lr.ph.i45.i.i.i
-  %.030.i.i.i.i = phi i32 [ 0, %.lr.ph.i45.i.i.i ], [ %.1.i.i.i.i, %369 ]
-  %.02129.i.i.i.i = phi i32 [ 0, %.lr.ph.i45.i.i.i ], [ %.122.i.i.i.i, %369 ]
-  %.02327.i.i.i.i = phi i32 [ 0, %.lr.ph.i45.i.i.i ], [ %370, %369 ]
+  %.029.i.i.i.i = phi i32 [ 0, %.lr.ph.i45.i.i.i ], [ %370, %369 ]
+  %.02128.i.i.i.i = phi i32 [ 0, %.lr.ph.i45.i.i.i ], [ %.1.i.i.i.i, %369 ]
+  %.02227.i.i.i.i = phi i32 [ 0, %.lr.ph.i45.i.i.i ], [ %.123.i.i.i.i, %369 ]
   %353 = load i32, ptr %350, align 8
-  %354 = icmp slt i32 %.030.i.i.i.i, %353
+  %354 = icmp slt i32 %.02227.i.i.i.i, %353
   br i1 %354, label %355, label %363
 
 355:                                              ; preds = %352
   %356 = load ptr, ptr %351, align 8
-  %357 = sext i32 %.030.i.i.i.i to i64
+  %357 = sext i32 %.02227.i.i.i.i to i64
   %358 = getelementptr inbounds i32, ptr %356, i64 %357
   %359 = load i32, ptr %358, align 4
-  %360 = icmp eq i32 %359, %.02327.i.i.i.i
+  %360 = icmp eq i32 %359, %.029.i.i.i.i
   br i1 %360, label %361, label %363
 
 361:                                              ; preds = %355
-  %362 = add nsw i32 %.030.i.i.i.i, 1
+  %362 = add nsw i32 %.02227.i.i.i.i, 1
   br label %369
 
 363:                                              ; preds = %355, %352
-  %364 = call zeroext i1 @ompi_comm_is_proc_active(ptr noundef nonnull %337, i32 noundef %.02327.i.i.i.i, i1 noundef zeroext false) #19
+  %364 = call zeroext i1 @ompi_comm_is_proc_active(ptr noundef nonnull %337, i32 noundef %.029.i.i.i.i, i1 noundef zeroext false) #19
   br i1 %364, label %369, label %365
 
 365:                                              ; preds = %363
-  %366 = add nsw i32 %.02129.i.i.i.i, 1
-  %367 = sext i32 %.02129.i.i.i.i to i64
+  %366 = add nsw i32 %.02128.i.i.i.i, 1
+  %367 = sext i32 %.02128.i.i.i.i to i64
   %368 = getelementptr inbounds i32, ptr %348, i64 %367
-  store i32 %.02327.i.i.i.i, ptr %368, align 4
+  store i32 %.029.i.i.i.i, ptr %368, align 4
   br label %369
 
 369:                                              ; preds = %365, %363, %361
-  %.122.i.i.i.i = phi i32 [ %.02129.i.i.i.i, %361 ], [ %.02129.i.i.i.i, %363 ], [ %366, %365 ]
-  %.1.i.i.i.i = phi i32 [ %362, %361 ], [ %.030.i.i.i.i, %363 ], [ %.030.i.i.i.i, %365 ]
-  %370 = add nuw nsw i32 %.02327.i.i.i.i, 1
+  %.123.i.i.i.i = phi i32 [ %362, %361 ], [ %.02227.i.i.i.i, %363 ], [ %.02227.i.i.i.i, %365 ]
+  %.1.i.i.i.i = phi i32 [ %.02128.i.i.i.i, %361 ], [ %.02128.i.i.i.i, %363 ], [ %366, %365 ]
+  %370 = add nuw nsw i32 %.029.i.i.i.i, 1
   %371 = load ptr, ptr %340, align 8
   %372 = getelementptr i8, ptr %371, i64 16
   %.val.i46.i.i.i = load i32, ptr %372, align 8
@@ -2878,7 +2878,7 @@ era_build_tree_structure.exit.i.i.i:              ; preds = %.critedge.i.i.i.i, 
   br i1 %373, label %352, label %._crit_edge.i.i.i.i, !llvm.loop !30
 
 ._crit_edge.i.i.i.i:                              ; preds = %369, %344
-  %.021.lcssa.i.i.i.i = phi i32 [ 0, %344 ], [ %.122.i.i.i.i, %369 ]
+  %.021.lcssa.i.i.i.i = phi i32 [ 0, %344 ], [ %.1.i.i.i.i, %369 ]
   call fastcc void @era_merge_new_dead_list(ptr noundef readonly %.0.i39, i32 noundef %.021.lcssa.i.i.i.i, ptr noundef %348)
   call void @free(ptr noundef %348) #19
   %.pre54.i.i.i = load ptr, ptr %231, align 8
@@ -2960,9 +2960,9 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i88.i, %397
   br i1 %408, label %.lr.ph.i92.i, label %era_agreement_value_set_gcrange.exit.i
 
 .lr.ph.i92.i:                                     ; preds = %405, %420
-  %.02740.i.i = phi i64 [ %.1.i.i, %420 ], [ 0, %405 ]
-  %.02839.i.i = phi i64 [ %.2.i.i, %420 ], [ 0, %405 ]
-  %.03138.i.i = phi ptr [ %.233.i.i, %420 ], [ null, %405 ]
+  %.040.i.i = phi ptr [ %.2.i.i, %420 ], [ null, %405 ]
+  %.02839.i.i = phi i64 [ %.230.i.i, %420 ], [ 0, %405 ]
+  %.03238.i.i = phi i64 [ %.133.i.i, %420 ], [ 0, %405 ]
   %409 = load i64, ptr %10, align 8
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %409 to i16
   %.unshifted36.i.i = xor i64 %409, %.sroa.8.0.insert.insert.i
@@ -2970,57 +2970,57 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i88.i, %397
   br i1 %or.cond.i.i, label %410, label %420
 
 410:                                              ; preds = %.lr.ph.i92.i
-  %411 = icmp eq i64 %.02740.i.i, %.02839.i.i
+  %411 = icmp eq i64 %.03238.i.i, %.02839.i.i
   br i1 %411, label %412, label %417
 
 412:                                              ; preds = %410
-  %.not37.i.i = icmp eq i64 %.02740.i.i, 0
-  %413 = shl i64 %.02740.i.i, 1
+  %.not37.i.i = icmp eq i64 %.02839.i.i, 0
+  %413 = shl i64 %.02839.i.i, 1
   %414 = select i1 %.not37.i.i, i64 1, i64 %413
   %415 = shl i64 %414, 1
-  %416 = call ptr @realloc(ptr noundef %.03138.i.i, i64 noundef %415) #21
+  %416 = call ptr @realloc(ptr noundef %.040.i.i, i64 noundef %415) #21
   br label %417
 
 417:                                              ; preds = %412, %410
-  %.132.i.i = phi ptr [ %416, %412 ], [ %.03138.i.i, %410 ]
   %.129.i.i = phi i64 [ %414, %412 ], [ %.02839.i.i, %410 ]
-  %418 = add i64 %.02740.i.i, 1
-  %419 = getelementptr inbounds i16, ptr %.132.i.i, i64 %.02740.i.i
+  %.1.i.i = phi ptr [ %416, %412 ], [ %.040.i.i, %410 ]
+  %418 = add i64 %.03238.i.i, 1
+  %419 = getelementptr inbounds i16, ptr %.1.i.i, i64 %.03238.i.i
   store i16 %.sroa.0.0.extract.trunc.i.i, ptr %419, align 2
   br label %420
 
 420:                                              ; preds = %417, %.lr.ph.i92.i
-  %.233.i.i = phi ptr [ %.132.i.i, %417 ], [ %.03138.i.i, %.lr.ph.i92.i ]
-  %.2.i.i = phi i64 [ %.129.i.i, %417 ], [ %.02839.i.i, %.lr.ph.i92.i ]
-  %.1.i.i = phi i64 [ %418, %417 ], [ %.02740.i.i, %.lr.ph.i92.i ]
+  %.133.i.i = phi i64 [ %418, %417 ], [ %.03238.i.i, %.lr.ph.i92.i ]
+  %.230.i.i = phi i64 [ %.129.i.i, %417 ], [ %.02839.i.i, %.lr.ph.i92.i ]
+  %.2.i.i = phi ptr [ %.1.i.i, %417 ], [ %.040.i.i, %.lr.ph.i92.i ]
   %421 = load ptr, ptr %12, align 8
   %422 = call i32 @opal_hash_table_get_next_key_uint64(ptr noundef nonnull @era_passed_agreements, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %421, ptr noundef nonnull %12) #19
   %423 = icmp eq i32 %422, 0
   br i1 %423, label %.lr.ph.i92.i, label %._crit_edge.i93.i, !llvm.loop !31
 
 ._crit_edge.i93.i:                                ; preds = %420
-  switch i64 %.1.i.i, label %.lr.ph44.preheader.i.i [
+  switch i64 %.133.i.i, label %.lr.ph44.preheader.i.i [
     i64 0, label %era_agreement_value_set_gcrange.exit.i
     i64 1, label %424
   ]
 
 424:                                              ; preds = %._crit_edge.i93.i
-  %425 = load i16, ptr %.233.i.i, align 2
+  %425 = load i16, ptr %.2.i.i, align 2
   %426 = getelementptr inbounds i8, ptr %15, i64 20
   store i16 %425, ptr %426, align 4
   br label %._crit_edge45.i.i
 
 .lr.ph44.preheader.i.i:                           ; preds = %._crit_edge.i93.i
-  call void @qsort(ptr noundef %.233.i.i, i64 noundef %.1.i.i, i64 noundef 2, ptr noundef nonnull @compare_uint16_ts) #19
-  %427 = load i16, ptr %.233.i.i, align 2
+  call void @qsort(ptr noundef %.2.i.i, i64 noundef %.133.i.i, i64 noundef 2, ptr noundef nonnull @compare_uint16_ts) #19
+  %427 = load i16, ptr %.2.i.i, align 2
   %428 = getelementptr inbounds i8, ptr %15, i64 20
   store i16 %427, ptr %428, align 4
   br label %.lr.ph44.i.i
 
 .lr.ph44.i.i:                                     ; preds = %435, %.lr.ph44.preheader.i.i
   %429 = phi i16 [ %431, %435 ], [ %427, %.lr.ph44.preheader.i.i ]
-  %.03042.i.i = phi i64 [ %436, %435 ], [ 1, %.lr.ph44.preheader.i.i ]
-  %430 = getelementptr inbounds i16, ptr %.233.i.i, i64 %.03042.i.i
+  %.02742.i.i = phi i64 [ %436, %435 ], [ 1, %.lr.ph44.preheader.i.i ]
+  %430 = getelementptr inbounds i16, ptr %.2.i.i, i64 %.02742.i.i
   %431 = load i16, ptr %430, align 2
   %432 = zext i16 %431 to i32
   %433 = zext i16 %429 to i32
@@ -3029,14 +3029,14 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i88.i, %397
   br i1 %.not35.i.i, label %435, label %._crit_edge45.loopexit.i.i
 
 435:                                              ; preds = %.lr.ph44.i.i
-  %436 = add nuw i64 %.03042.i.i, 1
-  %exitcond.not.i94.i = icmp eq i64 %436, %.1.i.i
+  %436 = add nuw i64 %.02742.i.i, 1
+  %exitcond.not.i94.i = icmp eq i64 %436, %.133.i.i
   br i1 %exitcond.not.i94.i, label %._crit_edge45.loopexit.i.i, label %.lr.ph44.i.i, !llvm.loop !32
 
 ._crit_edge45.loopexit.i.i:                       ; preds = %435, %.lr.ph44.i.i
-  %.030.lcssa.ph.i.i = phi i64 [ %.1.i.i, %435 ], [ %.03042.i.i, %.lr.ph44.i.i ]
-  %437 = add i64 %.030.lcssa.ph.i.i, -1
-  %.phi.trans.insert.i = getelementptr inbounds i16, ptr %.233.i.i, i64 %437
+  %.027.lcssa.ph.i.i = phi i64 [ %.133.i.i, %435 ], [ %.02742.i.i, %.lr.ph44.i.i ]
+  %437 = add i64 %.027.lcssa.ph.i.i, -1
+  %.phi.trans.insert.i = getelementptr inbounds i16, ptr %.2.i.i, i64 %437
   %.pre.i = load i16, ptr %.phi.trans.insert.i, align 2
   br label %._crit_edge45.i.i
 
@@ -3044,7 +3044,7 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i88.i, %397
   %438 = phi i16 [ %425, %424 ], [ %.pre.i, %._crit_edge45.loopexit.i.i ]
   %439 = getelementptr inbounds i8, ptr %15, i64 22
   store i16 %438, ptr %439, align 2
-  call void @free(ptr noundef nonnull %.233.i.i) #19
+  call void @free(ptr noundef nonnull %.2.i.i) #19
   br label %era_agreement_value_set_gcrange.exit.i
 
 era_agreement_value_set_gcrange.exit.i:           ; preds = %._crit_edge45.i.i, %._crit_edge.i93.i, %405
@@ -4409,8 +4409,8 @@ define internal fastcc void @send_msg(ptr noundef readonly %0, i32 noundef %1, p
   %.sroa.4.0.extract.shift = lshr i64 %3, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %12 = icmp eq ptr %0, null
-  %.0104.sroa.gep = getelementptr inbounds i8, ptr %9, i64 32
-  %.0104.sroa.gep133 = getelementptr inbounds i8, ptr %9, i64 16
+  %.0.sroa.gep = getelementptr inbounds i8, ptr %9, i64 32
+  %.0.sroa.gep133 = getelementptr inbounds i8, ptr %9, i64 16
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %8
@@ -4461,8 +4461,8 @@ define internal fastcc void @send_msg(ptr noundef readonly %0, i32 noundef %1, p
   br label %ompi_comm_peer_lookup.exit
 
 ompi_comm_peer_lookup.exit:                       ; preds = %40, %38, %24, %15, %13
-  %.097 = phi ptr [ %14, %13 ], [ %21, %15 ], [ %28, %40 ], [ %28, %38 ], [ %28, %24 ]
-  %44 = getelementptr inbounds i8, ptr %.097, i64 72
+  %.0105 = phi ptr [ %14, %13 ], [ %21, %15 ], [ %28, %40 ], [ %28, %38 ], [ %28, %24 ]
+  %44 = getelementptr inbounds i8, ptr %.0105, i64 72
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   %.pre147 = load i8, ptr @opal_uses_threads, align 1
@@ -4480,7 +4480,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %40, %38, %24, %15, 
 
 .thread.i:                                        ; preds = %49, %47
   %52 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml, i64 8), align 8
-  %53 = tail call i32 %52(ptr noundef nonnull %.097) #19
+  %53 = tail call i32 %52(ptr noundef nonnull %.0105) #19
   br label %54
 
 54:                                               ; preds = %.thread.i, %49
@@ -4666,7 +4666,7 @@ opal_pointer_array_get_item.exit128:              ; preds = %142, %149
 156:                                              ; preds = %opal_pointer_array_get_item.exit128
   %157 = getelementptr inbounds i8, ptr %5, i64 40
   %158 = load ptr, ptr %157, align 8
-  store ptr %158, ptr %.0104.sroa.gep133, align 16
+  store ptr %158, ptr %.0.sroa.gep133, align 16
   %159 = load i32, ptr %92, align 8
   %160 = icmp sgt i32 %159, -1
   %161 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_datatype_f_to_c_table, i64 88), align 8
@@ -4706,8 +4706,8 @@ opal_pointer_array_get_item.exit132:              ; preds = %166, %173
   br label %181
 
 181:                                              ; preds = %opal_pointer_array_get_item.exit132, %opal_pointer_array_get_item.exit128
-  %.0104.sroa.phi = phi ptr [ %.0104.sroa.gep, %opal_pointer_array_get_item.exit132 ], [ %.0104.sroa.gep133, %opal_pointer_array_get_item.exit128 ]
-  %.0104 = phi i64 [ 2, %opal_pointer_array_get_item.exit132 ], [ 1, %opal_pointer_array_get_item.exit128 ]
+  %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %opal_pointer_array_get_item.exit132 ], [ %.0.sroa.gep133, %opal_pointer_array_get_item.exit128 ]
+  %.0 = phi i64 [ 2, %opal_pointer_array_get_item.exit132 ], [ 1, %opal_pointer_array_get_item.exit128 ]
   %182 = load i32, ptr %114, align 4
   %183 = icmp sgt i32 %182, 0
   br i1 %183, label %184, label %191
@@ -4715,22 +4715,22 @@ opal_pointer_array_get_item.exit132:              ; preds = %166, %173
 184:                                              ; preds = %181
   %185 = getelementptr inbounds i8, ptr %5, i64 48
   %186 = load ptr, ptr %185, align 8
-  store ptr %186, ptr %.0104.sroa.phi, align 16
+  store ptr %186, ptr %.0.sroa.phi, align 16
   %187 = zext nneg i32 %182 to i64
   %188 = shl nuw nsw i64 %187, 2
-  %189 = getelementptr inbounds i8, ptr %.0104.sroa.phi, i64 8
+  %189 = getelementptr inbounds i8, ptr %.0.sroa.phi, i64 8
   store i64 %188, ptr %189, align 8
-  %190 = add nuw nsw i64 %.0104, 1
+  %190 = add nuw nsw i64 %.0, 1
   br label %191
 
 191:                                              ; preds = %184, %181
-  %.1105 = phi i64 [ %190, %184 ], [ %.0104, %181 ]
+  %.1 = phi i64 [ %190, %184 ], [ %.0, %181 ]
   %192 = icmp sgt i32 %6, 0
   %or.cond = and i1 %132, %192
   br i1 %or.cond, label %193, label %196
 
 193:                                              ; preds = %191
-  %194 = getelementptr inbounds [4 x %struct.iovec], ptr %9, i64 0, i64 %.1105
+  %194 = getelementptr inbounds [4 x %struct.iovec], ptr %9, i64 0, i64 %.1
   store ptr %7, ptr %194, align 16
   %195 = getelementptr inbounds i8, ptr %194, i64 8
   store i64 %119, ptr %195, align 8
@@ -4751,11 +4751,11 @@ opal_pointer_array_get_item.exit132:              ; preds = %166, %173
   br label %203
 
 203:                                              ; preds = %.lr.ph145, %._crit_edge
-  %.0143 = phi i32 [ 0, %.lr.ph145 ], [ %239, %._crit_edge ]
-  %.0100142 = phi i64 [ 0, %.lr.ph145 ], [ %.1.lcssa, %._crit_edge ]
-  %.0101141 = phi i64 [ 0, %.lr.ph145 ], [ %.1102.lcssa, %._crit_edge ]
+  %.097143 = phi i32 [ 0, %.lr.ph145 ], [ %239, %._crit_edge ]
+  %.098142 = phi i64 [ 0, %.lr.ph145 ], [ %.199.lcssa, %._crit_edge ]
+  %.0100141 = phi i64 [ 0, %.lr.ph145 ], [ %.1101.lcssa, %._crit_edge ]
   %204 = load ptr, ptr %199, align 8
-  %205 = zext i32 %.0143 to i64
+  %205 = zext i32 %.097143 to i64
   %206 = sub nsw i64 %201, %205
   %207 = call ptr %204(ptr noundef %90, ptr noundef %88, i8 noundef zeroext -1, i64 noundef %206, i32 noundef 3) #19
   %208 = getelementptr inbounds i8, ptr %207, i64 56
@@ -4773,7 +4773,7 @@ opal_pointer_array_get_item.exit132:              ; preds = %166, %173
   %217 = getelementptr inbounds i8, ptr %215, i64 8
   store i64 %197, ptr %217, align 8
   %218 = getelementptr inbounds i8, ptr %215, i64 20
-  store i32 %.0143, ptr %218, align 4
+  store i32 %.097143, ptr %218, align 4
   %219 = trunc i64 %212 to i32
   %220 = getelementptr inbounds i8, ptr %215, i64 24
   store i32 %219, ptr %220, align 8
@@ -4787,34 +4787,34 @@ opal_pointer_array_get_item.exit132:              ; preds = %166, %173
   br label %223
 
 223:                                              ; preds = %.lr.ph, %223
-  %.099139 = phi i64 [ 0, %.lr.ph ], [ %235, %223 ]
-  %.1138 = phi i64 [ %.0100142, %.lr.ph ], [ %.2, %223 ]
-  %.1102137 = phi i64 [ %.0101141, %.lr.ph ], [ %.2103, %223 ]
-  %224 = sub i64 %212, %.099139
-  %225 = getelementptr inbounds [4 x %struct.iovec], ptr %9, i64 0, i64 %.1138
+  %.199139 = phi i64 [ %.098142, %.lr.ph ], [ %.2, %223 ]
+  %.1101138 = phi i64 [ %.0100141, %.lr.ph ], [ %.2102, %223 ]
+  %.0103137 = phi i64 [ 0, %.lr.ph ], [ %235, %223 ]
+  %224 = sub i64 %212, %.0103137
+  %225 = getelementptr inbounds [4 x %struct.iovec], ptr %9, i64 0, i64 %.1101138
   %226 = getelementptr inbounds i8, ptr %225, i64 8
   %227 = load i64, ptr %226, align 8
-  %228 = sub i64 %227, %.1102137
+  %228 = sub i64 %227, %.199139
   %. = call i64 @llvm.umin.i64(i64 %224, i64 %228)
-  %229 = getelementptr inbounds i8, ptr %222, i64 %.099139
+  %229 = getelementptr inbounds i8, ptr %222, i64 %.0103137
   %230 = load ptr, ptr %225, align 16
-  %231 = getelementptr inbounds i8, ptr %230, i64 %.1102137
+  %231 = getelementptr inbounds i8, ptr %230, i64 %.199139
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %229, ptr align 1 %231, i64 %., i1 false)
-  %232 = add i64 %., %.1102137
+  %232 = add i64 %., %.199139
   %233 = icmp eq i64 %232, %227
-  %.2103 = select i1 %233, i64 0, i64 %232
   %234 = zext i1 %233 to i64
-  %.2 = add i64 %.1138, %234
-  %235 = add i64 %., %.099139
+  %.2102 = add i64 %.1101138, %234
+  %.2 = select i1 %233, i64 0, i64 %232
+  %235 = add i64 %., %.0103137
   %236 = icmp ult i64 %235, %212
   br i1 %236, label %223, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %223, %203
-  %.1102.lcssa = phi i64 [ %.0101141, %203 ], [ %.2103, %223 ]
-  %.1.lcssa = phi i64 [ %.0100142, %203 ], [ %.2, %223 ]
+  %.1101.lcssa = phi i64 [ %.0100141, %203 ], [ %.2102, %223 ]
+  %.199.lcssa = phi i64 [ %.098142, %203 ], [ %.2, %223 ]
   %237 = load ptr, ptr %202, align 8
   %238 = call i32 %237(ptr noundef %90, ptr noundef %88, ptr noundef %207, i8 noundef zeroext 49) #19
-  %239 = add i32 %.0143, %219
+  %239 = add i32 %.097143, %219
   %240 = icmp ult i32 %239, %123
   br i1 %240, label %203, label %.loopexit, !llvm.loop !38
 
@@ -4858,8 +4858,8 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
 
 .preheader141:                                    ; preds = %15, %.preheader141
   %16 = phi ptr [ %21, %.preheader141 ], [ %6, %15 ]
-  %.0116 = phi i32 [ %23, %.preheader141 ], [ %12, %15 ]
-  %17 = sext i32 %.0116 to i64
+  %.0118 = phi i32 [ %23, %.preheader141 ], [ %12, %15 ]
+  %17 = sext i32 %.0118 to i64
   %18 = getelementptr inbounds %struct.era_tree_s, ptr %16, i64 %17, i32 1
   store i32 %10, ptr %18, align 4
   %19 = load ptr, ptr %3, align 8
@@ -4875,7 +4875,7 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
 .loopexit142:                                     ; preds = %.preheader141, %15
   %27 = phi i32 [ %12, %15 ], [ %23, %.preheader141 ]
   %28 = phi ptr [ %6, %15 ], [ %21, %.preheader141 ]
-  %.1117 = phi i32 [ %12, %15 ], [ %.0116, %.preheader141 ]
+  %.1119 = phi i32 [ %12, %15 ], [ %.0118, %.preheader141 ]
   %29 = sext i32 %10 to i64
   %30 = getelementptr inbounds %struct.era_tree_s, ptr %28, i64 %29, i32 3
   %31 = load i32, ptr %30, align 4
@@ -4899,14 +4899,14 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds %struct.era_tree_s, ptr %41, i64 %7, i32 2
   %43 = load i32, ptr %42, align 4
-  %44 = sext i32 %.1117 to i64
+  %44 = sext i32 %.1119 to i64
   %45 = getelementptr inbounds %struct.era_tree_s, ptr %41, i64 %44, i32 2
   store i32 %43, ptr %45, align 4
   br label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit142, %.preheader
-  %.0115 = phi i32 [ %48, %.preheader ], [ %31, %.loopexit142 ]
-  %46 = sext i32 %.0115 to i64
+  %.0117 = phi i32 [ %48, %.preheader ], [ %31, %.loopexit142 ]
+  %46 = sext i32 %.0117 to i64
   %47 = getelementptr inbounds %struct.era_tree_s, ptr %28, i64 %46, i32 2
   %48 = load i32, ptr %47, align 4
   %.not138 = icmp eq i32 %48, %1
@@ -4929,7 +4929,7 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds %struct.era_tree_s, ptr %57, i64 %7, i32 2
   %59 = load i32, ptr %58, align 4
-  %60 = sext i32 %.1117 to i64
+  %60 = sext i32 %.1119 to i64
   %61 = getelementptr inbounds %struct.era_tree_s, ptr %57, i64 %60, i32 2
   store i32 %59, ptr %61, align 4
   br label %.loopexit
@@ -4944,22 +4944,22 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
   br label %76
 
 .lr.ph:                                           ; preds = %62, %.lr.ph
-  %.0110147 = phi i32 [ %spec.select139, %.lr.ph ], [ -1, %62 ]
-  %.0111146 = phi i32 [ %spec.select, %.lr.ph ], [ %12, %62 ]
-  %.0113145 = phi i32 [ %.0118144, %.lr.ph ], [ -1, %62 ]
-  %.0118144 = phi i32 [ %69, %.lr.ph ], [ %12, %62 ]
-  %66 = icmp sgt i32 %.0111146, %.0118144
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %.0111146, i32 %.0118144)
-  %spec.select139 = select i1 %66, i32 %.0113145, i32 %.0110147
-  %67 = sext i32 %.0118144 to i64
+  %.0147 = phi i32 [ %69, %.lr.ph ], [ %12, %62 ]
+  %.0111146 = phi i32 [ %spec.select139, %.lr.ph ], [ -1, %62 ]
+  %.0113145 = phi i32 [ %spec.select, %.lr.ph ], [ %12, %62 ]
+  %.0115144 = phi i32 [ %.0147, %.lr.ph ], [ -1, %62 ]
+  %66 = icmp sgt i32 %.0113145, %.0147
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.0113145, i32 %.0147)
+  %spec.select139 = select i1 %66, i32 %.0115144, i32 %.0111146
+  %67 = sext i32 %.0147 to i64
   %68 = getelementptr inbounds %struct.era_tree_s, ptr %6, i64 %67, i32 2
   %69 = load i32, ptr %68, align 4
   %.not130 = icmp eq i32 %69, %14
   br i1 %.not130, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.not172 = icmp sgt i32 %.0118144, %.0111146
-  %spec.select140 = select i1 %.not172, i32 %.0118144, i32 %spec.select139
+  %.not172 = icmp sgt i32 %.0147, %.0113145
+  %spec.select140 = select i1 %.not172, i32 %.0147, i32 %spec.select139
   %70 = sext i32 %spec.select to i64
   %71 = getelementptr inbounds %struct.era_tree_s, ptr %6, i64 %70, i32 2
   %72 = load i32, ptr %71, align 4
@@ -4981,7 +4981,7 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
   %77 = phi i32 [ %72, %73 ], [ %72, %._crit_edge ], [ %65, %._crit_edge.thread ]
   %78 = phi i64 [ %70, %73 ], [ %70, %._crit_edge ], [ %63, %._crit_edge.thread ]
   %spec.select140169 = phi i32 [ %spec.select140, %73 ], [ %spec.select140, %._crit_edge ], [ -1, %._crit_edge.thread ]
-  %.0111.lcssa168 = phi i32 [ %spec.select, %73 ], [ %spec.select, %._crit_edge ], [ %12, %._crit_edge.thread ]
+  %.0113.lcssa168 = phi i32 [ %spec.select, %73 ], [ %spec.select, %._crit_edge ], [ %12, %._crit_edge.thread ]
   %79 = phi ptr [ %.pre157, %73 ], [ %6, %._crit_edge ], [ %6, %._crit_edge.thread ]
   %80 = phi i32 [ %.pre155, %73 ], [ %14, %._crit_edge ], [ %14, %._crit_edge.thread ]
   %81 = getelementptr inbounds %struct.era_tree_s, ptr %79, i64 %78, i32 2
@@ -4990,13 +4990,13 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
   %83 = getelementptr inbounds i8, ptr %82, i64 32
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds %struct.era_tree_s, ptr %84, i64 %78, i32 1
-  store i32 %.0111.lcssa168, ptr %85, align 4
+  store i32 %.0113.lcssa168, ptr %85, align 4
   %86 = load ptr, ptr %3, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 32
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds %struct.era_tree_s, ptr %88, i64 %7, i32 3
   %90 = load i32, ptr %89, align 4
-  %.not132 = icmp eq i32 %.0111.lcssa168, %90
+  %.not132 = icmp eq i32 %.0113.lcssa168, %90
   br i1 %.not132, label %91, label %97
 
 91:                                               ; preds = %76
@@ -5011,10 +5011,10 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
   br label %97
 
 97:                                               ; preds = %91, %76, %94
-  %.0 = phi i32 [ %96, %94 ], [ %90, %76 ], [ %77, %91 ]
+  %.0110 = phi i32 [ %96, %94 ], [ %90, %76 ], [ %77, %91 ]
   %98 = getelementptr inbounds %struct.era_tree_s, ptr %88, i64 %78, i32 3
   %99 = load i32, ptr %98, align 4
-  %.not134 = icmp eq i32 %.0, %99
+  %.not134 = icmp eq i32 %.0110, %99
   br i1 %.not134, label %.loopexit, label %100
 
 100:                                              ; preds = %97
@@ -5033,11 +5033,11 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
 104:                                              ; preds = %101, %100
   %105 = phi ptr [ %.pre160, %101 ], [ %88, %100 ]
   %106 = getelementptr inbounds %struct.era_tree_s, ptr %105, i64 %78, i32 3
-  store i32 %.0, ptr %106, align 4
+  store i32 %.0110, ptr %106, align 4
   %107 = load ptr, ptr %3, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 40
   %109 = load i32, ptr %108, align 8
-  %.not136150 = icmp eq i32 %.0, %109
+  %.not136150 = icmp eq i32 %.0110, %109
   br i1 %.not136150, label %.loopexit, label %.lr.ph153.preheader
 
 .lr.ph153.preheader:                              ; preds = %104
@@ -5047,11 +5047,11 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
 
 .lr.ph153:                                        ; preds = %.lr.ph153.preheader, %114
   %110 = phi ptr [ %117, %114 ], [ %.pre162, %.lr.ph153.preheader ]
-  %.1119151 = phi i32 [ %119, %114 ], [ %.0, %.lr.ph153.preheader ]
-  %111 = sext i32 %.1119151 to i64
+  %.1151 = phi i32 [ %119, %114 ], [ %.0110, %.lr.ph153.preheader ]
+  %111 = sext i32 %.1151 to i64
   %112 = getelementptr inbounds %struct.era_tree_s, ptr %110, i64 %111, i32 1
-  store i32 %.0111.lcssa168, ptr %112, align 4
-  %113 = icmp eq i32 %.1119151, %spec.select140169
+  store i32 %.0113.lcssa168, ptr %112, align 4
+  %113 = icmp eq i32 %.1151, %spec.select140169
   br i1 %113, label %.loopexit, label %114
 
 114:                                              ; preds = %.lr.ph153
@@ -6358,11 +6358,11 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %13
 .preheader:                                       ; preds = %.preheader.lr.ph, %115
   %40 = phi i32 [ %37, %.preheader.lr.ph ], [ %116, %115 ]
   %indvars.iv140 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next141, %115 ]
-  %.0119 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1.lcssa, %115 ]
+  %.083119 = phi i32 [ 0, %.preheader.lr.ph ], [ %.184.lcssa, %115 ]
   %41 = load ptr, ptr %25, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 24
   %43 = load i32, ptr %42, align 8
-  %44 = icmp slt i32 %.0119, %43
+  %44 = icmp slt i32 %.083119, %43
   br i1 %44, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -6371,7 +6371,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %13
   %47 = load ptr, ptr %39, align 8
   %48 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv140
   %49 = load i32, ptr %48, align 4
-  %50 = sext i32 %.0119 to i64
+  %50 = sext i32 %.083119 to i64
   %51 = sext i32 %43 to i64
   br label %52
 
@@ -6392,8 +6392,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %13
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
-  %.1.lcssa = phi i32 [ %.0119, %.preheader ], [ %57, %.critedge.loopexit ]
-  %58 = icmp eq i32 %.1.lcssa, %43
+  %.184.lcssa = phi i32 [ %.083119, %.preheader ], [ %57, %.critedge.loopexit ]
+  %58 = icmp eq i32 %.184.lcssa, %43
   br i1 %58, label %.critedge.thread, label %82
 
 .critedge.thread:                                 ; preds = %.critedge, %56
@@ -6431,7 +6431,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %13
 82:                                               ; preds = %.critedge
   %83 = getelementptr inbounds i8, ptr %41, i64 16
   %84 = load ptr, ptr %83, align 8
-  %85 = sext i32 %.1.lcssa to i64
+  %85 = sext i32 %.184.lcssa to i64
   %86 = getelementptr inbounds i32, ptr %84, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = load ptr, ptr %39, align 8
@@ -6442,7 +6442,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %13
 
 92:                                               ; preds = %82
   %93 = getelementptr inbounds i8, ptr %86, i64 4
-  %94 = sub nsw i32 %43, %.1.lcssa
+  %94 = sub nsw i32 %43, %.184.lcssa
   %95 = sext i32 %94 to i64
   %96 = shl nsw i64 %95, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %93, ptr nonnull align 4 %86, i64 %96, i1 false)
@@ -6504,22 +6504,22 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %13
   br i1 %.not98, label %.loopexit104, label %129
 
 129:                                              ; preds = %126
-  %.085120 = load volatile ptr, ptr %124, align 8
-  %.not99121 = icmp eq ptr %.085120, %125
+  %.0120 = load volatile ptr, ptr %124, align 8
+  %.not99121 = icmp eq ptr %.0120, %125
   br i1 %.not99121, label %.loopexit104, label %.lr.ph123
 
 .lr.ph123:                                        ; preds = %129, %146
-  %.085122 = phi ptr [ %134, %146 ], [ %.085120, %129 ]
-  %130 = getelementptr inbounds i8, ptr %.085122, i64 40
+  %.0122 = phi ptr [ %134, %146 ], [ %.0120, %129 ]
+  %130 = getelementptr inbounds i8, ptr %.0122, i64 40
   %131 = load i32, ptr %130, align 8
   %132 = icmp eq i32 %131, %127
-  %133 = getelementptr inbounds i8, ptr %.085122, i64 16
+  %133 = getelementptr inbounds i8, ptr %.0122, i64 16
   %134 = load volatile ptr, ptr %133, align 8
   br i1 %132, label %135, label %146
 
 135:                                              ; preds = %.lr.ph123
-  %136 = getelementptr inbounds i8, ptr %.085122, i64 16
-  %137 = getelementptr inbounds i8, ptr %.085122, i64 24
+  %136 = getelementptr inbounds i8, ptr %.0122, i64 16
+  %137 = getelementptr inbounds i8, ptr %.0122, i64 24
   %138 = load volatile ptr, ptr %137, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 16
   store volatile ptr %134, ptr %139, align 8
@@ -6556,19 +6556,19 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %13
 153:                                              ; preds = %._crit_edge
   %154 = getelementptr inbounds i8, ptr %1, i64 240
   %155 = getelementptr inbounds i8, ptr %1, i64 224
-  %.186127 = load volatile ptr, ptr %154, align 8
-  %.not95128 = icmp eq ptr %.186127, %155
+  %.1127 = load volatile ptr, ptr %154, align 8
+  %.not95128 = icmp eq ptr %.1127, %155
   br i1 %.not95128, label %.loopexit, label %.lr.ph131
 
 .lr.ph131:                                        ; preds = %153, %.lr.ph131
-  %.186129 = phi ptr [ %.186, %.lr.ph131 ], [ %.186127, %153 ]
-  %156 = getelementptr inbounds i8, ptr %.186129, i64 40
+  %.1129 = phi ptr [ %.1, %.lr.ph131 ], [ %.1127, %153 ]
+  %156 = getelementptr inbounds i8, ptr %.1129, i64 40
   %157 = load i32, ptr %156, align 8
   %158 = load i64, ptr %17, align 8
   tail call fastcc void @send_msg(ptr noundef %21, i32 noundef %157, ptr noundef null, i64 %158, i32 noundef 2, ptr noundef %0, i32 noundef 0, ptr noundef null)
-  %159 = getelementptr inbounds i8, ptr %.186129, i64 16
-  %.186 = load volatile ptr, ptr %159, align 8
-  %.not95 = icmp eq ptr %.186, %155
+  %159 = getelementptr inbounds i8, ptr %.1129, i64 16
+  %.1 = load volatile ptr, ptr %159, align 8
+  %.not95 = icmp eq ptr %.1, %155
   br i1 %.not95, label %.loopexit, label %.lr.ph131, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph131, %153, %._crit_edge

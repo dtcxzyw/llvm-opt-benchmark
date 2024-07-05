@@ -138,13 +138,13 @@ Py_XDECREF.exit19:                                ; preds = %if.end23, %if.end27
 
 Py_XDECREF.exit22.sink.split:                     ; preds = %Py_XDECREF.exit19, %if.end11
   %call8.sink = phi ptr [ %call8, %if.end11 ], [ %call16, %Py_XDECREF.exit19 ]
-  %result.0333953.ph = phi ptr [ null, %if.end11 ], [ %result.0.ph.ph, %Py_XDECREF.exit19 ]
+  %result.0294053.ph = phi ptr [ null, %if.end11 ], [ %result.0.ph.ph, %Py_XDECREF.exit19 ]
   call void @_Py_DecRef(ptr noundef nonnull %call8.sink) #7
   br label %Py_XDECREF.exit22
 
 Py_XDECREF.exit22:                                ; preds = %Py_XDECREF.exit22.sink.split, %entry, %if.end, %Py_XDECREF.exit19
-  %result.0333953 = phi ptr [ %result.0.ph.ph, %Py_XDECREF.exit19 ], [ null, %if.end ], [ null, %entry ], [ %result.0333953.ph, %Py_XDECREF.exit22.sink.split ]
-  ret ptr %result.0333953
+  %result.0294053 = phi ptr [ %result.0.ph.ph, %Py_XDECREF.exit19 ], [ null, %if.end ], [ null, %entry ], [ %result.0294053.ph, %Py_XDECREF.exit22.sink.split ]
+  ret ptr %result.0294053
 }
 
 ; Function Attrs: nounwind uwtable

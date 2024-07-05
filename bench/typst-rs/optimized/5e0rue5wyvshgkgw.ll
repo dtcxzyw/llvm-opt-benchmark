@@ -304,7 +304,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h64ba8f93d6f65e87E(ptr noal
 
 43:                                               ; preds = %.backedge, %.outer
   %44 = phi i64 [ %.ph, %.outer ], [ %106, %.backedge ]
-  %.050 = phi i64 [ %.050.ph, %.outer ], [ %84, %.backedge ]
+  %.052 = phi i64 [ %.052.ph, %.outer ], [ %84, %.backedge ]
   %45 = load i64, ptr %2, align 8, !noundef !4
   %46 = icmp eq i64 %44, %45
   %47 = icmp eq i64 %45, %12
@@ -368,12 +368,12 @@ define hidden void @_ZN3std2io19default_read_to_end17h64ba8f93d6f65e87E(ptr noal
   %72 = sub i64 %68, %69
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %72, i64 %.1.ph)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !35
-  %73 = icmp ugt i64 %.050, %.0.sroa.speculated.i
+  %73 = icmp ugt i64 %.052, %.0.sroa.speculated.i
   br i1 %73, label %._crit_edge, label %_ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17h8b2d562cc2b9389eE.exit.i.i.lr.ph
 
 _ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17h8b2d562cc2b9389eE.exit.i.i.lr.ph: ; preds = %67
-  %74 = sub nuw i64 %.0.sroa.speculated.i, %.050
-  %75 = getelementptr inbounds i8, ptr %71, i64 %.050
+  %74 = sub nuw i64 %.0.sroa.speculated.i, %.052
+  %75 = getelementptr inbounds i8, ptr %71, i64 %.052
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %75, i8 0, i64 %74, i1 false), !noalias !35
   call void @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h433226223b1e4bbdE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(208) %1, ptr noalias noundef nonnull align 1 %71, i64 noundef %.0.sroa.speculated.i), !noalias !42
   %76 = load i64, ptr %7, align 8, !range !9, !noalias !35, !noundef !4
@@ -388,7 +388,7 @@ _ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17h8b2d562cc2b9389eE.exit.i
   br label %115
 
 ._crit_edge:                                      ; preds = %67
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %.050, i64 noundef %.0.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6637ff289535c904c86e8ee1f38e1654.12) #11, !noalias !35
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %.052, i64 noundef %.0.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6637ff289535c904c86e8ee1f38e1654.12) #11, !noalias !35
   unreachable
 
 _ZN3std2io4Read8read_buf17he6a3e3a8bf67e3c4E.exit: ; preds = %_ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17h8b2d562cc2b9389eE.exit.i.i.lr.ph, %_ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17h8b2d562cc2b9389eE.exit.i.i
@@ -475,7 +475,7 @@ default.unreachable:                              ; preds = %86
 
 .outer:                                           ; preds = %110, %.split143
   %.ph = phi i64 [ %106, %110 ], [ %.pre, %.split143 ]
-  %.050.ph = phi i64 [ %84, %110 ], [ 0, %.split143 ]
+  %.052.ph = phi i64 [ %84, %110 ], [ 0, %.split143 ]
   %.1.ph = phi i64 [ %spec.select.i73, %110 ], [ %25, %.split143 ]
   br label %43
 

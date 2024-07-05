@@ -95,7 +95,7 @@ if.then:                                          ; preds = %entry
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 256
   %tobool.not = icmp eq i64 %and, 0
-  %spec.select = select i1 %tobool.not, i32 11, i32 13
+  %spec.select109 = select i1 %tobool.not, i32 11, i32 13
   br label %if.end13
 
 if.then4:                                         ; preds = %entry
@@ -103,14 +103,14 @@ if.then4:                                         ; preds = %entry
   %2 = load i64, ptr %flags5, align 8
   %and6 = and i64 %2, 256
   %tobool7.not = icmp eq i64 %and6, 0
-  %. = select i1 %tobool7.not, i32 13, i32 15
+  %.110 = select i1 %tobool7.not, i32 13, i32 15
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then, %if.then4
-  %min_l.0 = phi i32 [ %spec.select, %if.then ], [ %., %if.then4 ]
   %tobool18.not = phi i1 [ %tobool.not, %if.then ], [ %tobool7.not, %if.then4 ]
   %end.0 = phi i32 [ 6, %if.then ], [ 7, %if.then4 ]
   %btz.0 = phi i32 [ 5, %if.then ], [ 6, %if.then4 ]
+  %min_l.0 = phi i32 [ %spec.select109, %if.then ], [ %.110, %if.then4 ]
   %3 = load i32, ptr %d, align 8
   %data = getelementptr inbounds i8, ptr %d, i64 8
   %4 = load ptr, ptr %data, align 8

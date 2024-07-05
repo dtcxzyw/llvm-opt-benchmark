@@ -200,15 +200,15 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 
 58:                                               ; preds = %58, %57
   %59 = phi i8 [ %.pre.i, %57 ], [ %66, %58 ]
-  %.012.i = phi ptr [ %54, %57 ], [ %64, %58 ]
+  %.013.i = phi ptr [ %54, %57 ], [ %64, %58 ]
   %.0.i = phi i64 [ 1, %57 ], [ %spec.select.i, %58 ]
   %60 = icmp eq i8 %59, 92
   %61 = zext i1 %60 to i64
   %spec.select.i = add i64 %.0.i, %61
-  %62 = getelementptr inbounds i8, ptr %.012.i, i64 %spec.select.i
+  %62 = getelementptr inbounds i8, ptr %.013.i, i64 %spec.select.i
   %63 = load i8, ptr %62, align 1
-  store i8 %63, ptr %.012.i, align 1
-  %64 = getelementptr inbounds i8, ptr %.012.i, i64 1
+  store i8 %63, ptr %.013.i, align 1
+  %64 = getelementptr inbounds i8, ptr %.013.i, i64 1
   %65 = getelementptr inbounds i8, ptr %64, i64 %spec.select.i
   %66 = load i8, ptr %65, align 1
   %.not.i = icmp eq i8 %66, %56
@@ -220,8 +220,8 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   br label %unescape_string.exit
 
 unescape_string.exit:                             ; preds = %.loopexit, %67
-  %.013.i.neg = phi i32 [ %.neg, %67 ], [ 0, %.loopexit ]
-  %69 = add i32 %.013.i.neg, %55
+  %.012.i.neg = phi i32 [ %.neg, %67 ], [ 0, %.loopexit ]
+  %69 = add i32 %.012.i.neg, %55
   %70 = zext i32 %69 to i64
   %71 = tail call noalias ptr @_estrndup(ptr noundef nonnull %54, i64 noundef %70) #8
   store ptr %71, ptr %52, align 8

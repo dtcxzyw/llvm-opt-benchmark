@@ -30,15 +30,15 @@ define void @Ptngc_bwt_merge_sort_inner(ptr noundef %0, i32 noundef %1, ptr noun
   br label %.lr.ph83.i
 
 .lr.ph83.i:                                       ; preds = %.lr.ph83.i.preheader, %65
-  %.05981.i = phi i32 [ %66, %65 ], [ 0, %.lr.ph83.i.preheader ]
-  %.06180.i = phi i32 [ %.162.i, %65 ], [ %18, %.lr.ph83.i.preheader ]
-  %.06379.i = phi i32 [ %.164.i, %65 ], [ %16, %.lr.ph83.i.preheader ]
-  %19 = sext i32 %.06180.i to i64
+  %.05881.i = phi i32 [ %.1.i, %65 ], [ %18, %.lr.ph83.i.preheader ]
+  %.06080.i = phi i32 [ %.161.i, %65 ], [ %16, %.lr.ph83.i.preheader ]
+  %.06279.i = phi i32 [ %66, %65 ], [ 0, %.lr.ph83.i.preheader ]
+  %19 = sext i32 %.05881.i to i64
   %20 = getelementptr inbounds i32, ptr %5, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = lshr i32 %21, 8
   %23 = and i32 %21, 255
-  %24 = sext i32 %.06379.i to i64
+  %24 = sext i32 %.06080.i to i64
   %25 = getelementptr inbounds i32, ptr %5, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = lshr i32 %26, 8
@@ -55,18 +55,18 @@ define void @Ptngc_bwt_merge_sort_inner(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %.not88.i, label %._crit_edge.i, label %.lr.ph.i
 
 33:                                               ; preds = %46
-  %34 = add nuw nsw i32 %.05878.i, 1
+  %34 = add nuw nsw i32 %.06478.i, 1
   %exitcond.not.i = icmp eq i32 %34, %23
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %33
-  %.05878.i = phi i32 [ %34, %33 ], [ 0, %.preheader.i ]
-  %35 = add nsw i32 %.05878.i, %.06180.i
+  %.06478.i = phi i32 [ %34, %33 ], [ 0, %.preheader.i ]
+  %35 = add nsw i32 %.06478.i, %.05881.i
   %36 = srem i32 %35, %1
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i32, ptr %2, i64 %37
   %39 = load i32, ptr %38, align 4
-  %40 = add nsw i32 %.05878.i, %.06379.i
+  %40 = add nsw i32 %.06478.i, %.06080.i
   %41 = srem i32 %40, %1
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i32, ptr %2, i64 %42
@@ -80,11 +80,11 @@ define void @Ptngc_bwt_merge_sort_inner(ptr noundef %0, i32 noundef %1, ptr noun
 
 ._crit_edge.i:                                    ; preds = %33, %.preheader.i
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %27, i32 %22)
-  %48 = add nsw i32 %spec.select.i, %.06180.i
+  %48 = add nsw i32 %spec.select.i, %.05881.i
   %49 = srem i32 %48, %1
-  %50 = add nsw i32 %spec.select.i, %.06379.i
+  %50 = add nsw i32 %spec.select.i, %.06080.i
   %51 = srem i32 %50, %1
-  %52 = add nsw i32 %.05981.i, -1
+  %52 = add nsw i32 %.06279.i, -1
   %53 = add i32 %52, %spec.select.i
   br label %65
 
@@ -101,19 +101,19 @@ define void @Ptngc_bwt_merge_sort_inner(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %61, label %.lr.ph.preheader, label %62
 
 62:                                               ; preds = %60
-  %63 = add nsw i32 %.06180.i, 1
+  %63 = add nsw i32 %.05881.i, 1
   %.not.i = icmp slt i32 %63, %1
   %spec.store.select.i = select i1 %.not.i, i32 %63, i32 0
-  %64 = add nsw i32 %.06379.i, 1
+  %64 = add nsw i32 %.06080.i, 1
   %.not73.i = icmp slt i32 %64, %1
   %spec.store.select2.i = select i1 %.not73.i, i32 %64, i32 0
   br label %65
 
 65:                                               ; preds = %62, %._crit_edge.i
-  %.164.i = phi i32 [ %51, %._crit_edge.i ], [ %spec.store.select2.i, %62 ]
-  %.162.i = phi i32 [ %49, %._crit_edge.i ], [ %spec.store.select.i, %62 ]
-  %.1.i = phi i32 [ %53, %._crit_edge.i ], [ %.05981.i, %62 ]
-  %66 = add nsw i32 %.1.i, 1
+  %.163.i = phi i32 [ %53, %._crit_edge.i ], [ %.06279.i, %62 ]
+  %.161.i = phi i32 [ %51, %._crit_edge.i ], [ %spec.store.select2.i, %62 ]
+  %.1.i = phi i32 [ %49, %._crit_edge.i ], [ %spec.store.select.i, %62 ]
+  %66 = add nsw i32 %.163.i, 1
   %67 = icmp slt i32 %66, %1
   br i1 %67, label %.lr.ph83.i, label %compare_index.exit.thread, !llvm.loop !6
 
@@ -158,15 +158,15 @@ define void @Ptngc_bwt_merge_sort_inner(ptr noundef %0, i32 noundef %1, ptr noun
   br label %.lr.ph83.i73
 
 .lr.ph83.i73:                                     ; preds = %.lr.ph83.i73.preheader, %132
-  %.05981.i74 = phi i32 [ %133, %132 ], [ 0, %.lr.ph83.i73.preheader ]
-  %.06180.i75 = phi i32 [ %.162.i83, %132 ], [ %79, %.lr.ph83.i73.preheader ]
-  %.06379.i76 = phi i32 [ %.164.i82, %132 ], [ %85, %.lr.ph83.i73.preheader ]
-  %86 = sext i32 %.06180.i75 to i64
+  %.05881.i74 = phi i32 [ %.1.i84, %132 ], [ %79, %.lr.ph83.i73.preheader ]
+  %.06080.i75 = phi i32 [ %.161.i83, %132 ], [ %85, %.lr.ph83.i73.preheader ]
+  %.06279.i76 = phi i32 [ %133, %132 ], [ 0, %.lr.ph83.i73.preheader ]
+  %86 = sext i32 %.05881.i74 to i64
   %87 = getelementptr inbounds i32, ptr %5, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = lshr i32 %88, 8
   %90 = and i32 %88, 255
-  %91 = sext i32 %.06379.i76 to i64
+  %91 = sext i32 %.06080.i75 to i64
   %92 = getelementptr inbounds i32, ptr %5, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = lshr i32 %93, 8
@@ -183,18 +183,18 @@ define void @Ptngc_bwt_merge_sort_inner(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %.not88.i86, label %._crit_edge.i90, label %.lr.ph.i87
 
 100:                                              ; preds = %113
-  %101 = add nuw nsw i32 %.05878.i88, 1
+  %101 = add nuw nsw i32 %.06478.i88, 1
   %exitcond.not.i89 = icmp eq i32 %101, %90
   br i1 %exitcond.not.i89, label %._crit_edge.i90, label %.lr.ph.i87, !llvm.loop !4
 
 .lr.ph.i87:                                       ; preds = %.preheader.i85, %100
-  %.05878.i88 = phi i32 [ %101, %100 ], [ 0, %.preheader.i85 ]
-  %102 = add nsw i32 %.05878.i88, %.06180.i75
+  %.06478.i88 = phi i32 [ %101, %100 ], [ 0, %.preheader.i85 ]
+  %102 = add nsw i32 %.06478.i88, %.05881.i74
   %103 = srem i32 %102, %1
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds i32, ptr %2, i64 %104
   %106 = load i32, ptr %105, align 4
-  %107 = add nsw i32 %.05878.i88, %.06379.i76
+  %107 = add nsw i32 %.06478.i88, %.06080.i75
   %108 = srem i32 %107, %1
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds i32, ptr %2, i64 %109
@@ -208,11 +208,11 @@ define void @Ptngc_bwt_merge_sort_inner(ptr noundef %0, i32 noundef %1, ptr noun
 
 ._crit_edge.i90:                                  ; preds = %100, %.preheader.i85
   %spec.select.i91 = tail call i32 @llvm.umin.i32(i32 %94, i32 %89)
-  %115 = add nsw i32 %spec.select.i91, %.06180.i75
+  %115 = add nsw i32 %spec.select.i91, %.05881.i74
   %116 = srem i32 %115, %1
-  %117 = add nsw i32 %spec.select.i91, %.06379.i76
+  %117 = add nsw i32 %spec.select.i91, %.06080.i75
   %118 = srem i32 %117, %1
-  %119 = add nsw i32 %.05981.i74, -1
+  %119 = add nsw i32 %.06279.i76, -1
   %120 = add i32 %119, %spec.select.i91
   br label %132
 
@@ -229,19 +229,19 @@ define void @Ptngc_bwt_merge_sort_inner(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %128, label %compare_index.exit92, label %129
 
 129:                                              ; preds = %127
-  %130 = add nsw i32 %.06180.i75, 1
+  %130 = add nsw i32 %.05881.i74, 1
   %.not.i78 = icmp slt i32 %130, %1
   %spec.store.select.i79 = select i1 %.not.i78, i32 %130, i32 0
-  %131 = add nsw i32 %.06379.i76, 1
+  %131 = add nsw i32 %.06080.i75, 1
   %.not73.i80 = icmp slt i32 %131, %1
   %spec.store.select2.i81 = select i1 %.not73.i80, i32 %131, i32 0
   br label %132
 
 132:                                              ; preds = %129, %._crit_edge.i90
-  %.164.i82 = phi i32 [ %118, %._crit_edge.i90 ], [ %spec.store.select2.i81, %129 ]
-  %.162.i83 = phi i32 [ %116, %._crit_edge.i90 ], [ %spec.store.select.i79, %129 ]
-  %.1.i84 = phi i32 [ %120, %._crit_edge.i90 ], [ %.05981.i74, %129 ]
-  %133 = add nsw i32 %.1.i84, 1
+  %.163.i82 = phi i32 [ %120, %._crit_edge.i90 ], [ %.06279.i76, %129 ]
+  %.161.i83 = phi i32 [ %118, %._crit_edge.i90 ], [ %spec.store.select2.i81, %129 ]
+  %.1.i84 = phi i32 [ %116, %._crit_edge.i90 ], [ %spec.store.select.i79, %129 ]
+  %133 = add nsw i32 %.163.i82, 1
   %134 = icmp slt i32 %133, %1
   br i1 %134, label %.lr.ph83.i73, label %.loopexit, !llvm.loop !6
 
@@ -602,9 +602,9 @@ define void @Ptngc_comp_from_bwt(ptr nocapture noundef readonly %0, i32 noundef 
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %.lr.ph45
   %indvars.iv51 = phi i64 [ %21, %.lr.ph45.preheader ], [ %indvars.iv.next52, %.lr.ph45 ]
-  %.03743 = phi i32 [ %2, %.lr.ph45.preheader ], [ %34, %.lr.ph45 ]
+  %.03644 = phi i32 [ %2, %.lr.ph45.preheader ], [ %34, %.lr.ph45 ]
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, -1
-  %25 = sext i32 %.03743 to i64
+  %25 = sext i32 %.03644 to i64
   %26 = getelementptr inbounds i32, ptr %0, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next52

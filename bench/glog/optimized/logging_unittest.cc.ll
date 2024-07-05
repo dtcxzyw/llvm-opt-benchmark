@@ -7368,21 +7368,21 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 1278:                                             ; preds = %1278, %.preheader48.i
   %.sroa.0.0.copyload.i2.i.i.i = phi i64 [ %.sroa.0.0.copyload.i2.i.i.pre.i, %.preheader48.i ], [ %.sroa.0.0.copyload.i.i.i.i, %1278 ]
-  %.02649.i = phi i64 [ 1, %.preheader48.i ], [ %1283, %1278 ]
-  %1279 = add nsw i64 %.02649.i, -1
-  %1280 = getelementptr inbounds [10 x %"class.std::chrono::time_point.29"], ptr %1255, i64 0, i64 %.02649.i
+  %.02949.i = phi i64 [ 1, %.preheader48.i ], [ %1283, %1278 ]
+  %1279 = add nsw i64 %.02949.i, -1
+  %1280 = getelementptr inbounds [10 x %"class.std::chrono::time_point.29"], ptr %1255, i64 0, i64 %.02949.i
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %1280, align 8
   %1281 = sub nsw i64 %.sroa.0.0.copyload.i.i.i.i, %.sroa.0.0.copyload.i2.i.i.i
   %1282 = getelementptr inbounds [9 x i64], ptr %5, i64 0, i64 %1279
   store i64 %1281, ptr %1282, align 8
-  %1283 = add nuw nsw i64 %.02649.i, 1
+  %1283 = add nuw nsw i64 %.02949.i, 1
   %exitcond.not.i = icmp eq i64 %1283, 10
   br i1 %exitcond.not.i, label %.preheader.i, label %1278, !llvm.loop !59
 
 1284:                                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i253, %.preheader.i
-  %.024.idx50.i = phi i64 [ 0, %.preheader.i ], [ %.024.add.i, %_ZN7testing15AssertionResultD2Ev.exit.i253 ]
-  %.024.ptr.i = getelementptr inbounds i8, ptr %5, i64 %.024.idx50.i
-  %1285 = load i64, ptr %.024.ptr.i, align 8
+  %.025.idx50.i = phi i64 [ 0, %.preheader.i ], [ %.025.add.i, %_ZN7testing15AssertionResultD2Ev.exit.i253 ]
+  %.025.ptr.i = getelementptr inbounds i8, ptr %5, i64 %.025.idx50.i
+  %1285 = load i64, ptr %.025.ptr.i, align 8
   %1286 = sitofp i64 %1285 to double
   invoke void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %6, ptr noundef nonnull @.str.442, ptr noundef nonnull @.str.443, ptr noundef nonnull @.str.444, double noundef %1286, double noundef 1.000000e+07, double noundef 5.000000e+05)
           to label %.noexc257 unwind label %.loopexit
@@ -7476,8 +7476,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit.i253:       ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i252, %1312
   store ptr null, ptr %1277, align 8
-  %.024.add.i = add nuw nsw i64 %.024.idx50.i, 8
-  %.not.i254 = icmp eq i64 %.024.add.i, 72
+  %.025.add.i = add nuw nsw i64 %.025.idx50.i, 8
+  %.not.i254 = icmp eq i64 %.025.add.i, 72
   br i1 %.not.i254, label %1318, label %1284
 
 1314:                                             ; preds = %_ZN7testing7MessageD2Ev.exit37.i, %1301
@@ -28215,8 +28215,8 @@ define internal fastcc void @_ZL15TestOneTruncatePKcmmmmm(ptr noundef %0, i64 no
   br label %55
 
 38:                                               ; preds = %.lr.ph, %.critedge78
-  %.066111 = phi i64 [ 0, %.lr.ph ], [ %49, %.critedge78 ]
-  %39 = sub nsw i64 %3, %.066111
+  %.068111 = phi i64 [ 0, %.lr.ph ], [ %49, %.critedge78 ]
+  %39 = sub nsw i64 %3, %.068111
   %.sroa.speculated99 = call i64 @llvm.umin.i64(i64 %39, i64 10)
   %40 = invoke i64 @write(i32 noundef %30, ptr noundef nonnull @.str.431, i64 noundef %.sroa.speculated99)
           to label %41 unwind label %.loopexit.split-lp.loopexit
@@ -28244,7 +28244,7 @@ define internal fastcc void @_ZL15TestOneTruncatePKcmmmmm(ptr noundef %0, i64 no
           to label %.critedge78 unwind label %.loopexit.split-lp.loopexit
 
 .critedge78:                                      ; preds = %41, %48
-  %49 = add i64 %.sroa.speculated99, %.066111
+  %49 = add i64 %.sroa.speculated99, %.068111
   %50 = icmp ult i64 %49, %3
   br i1 %50, label %38, label %.preheader, !llvm.loop !333
 
@@ -28276,8 +28276,8 @@ define internal fastcc void @_ZL15TestOneTruncatePKcmmmmm(ptr noundef %0, i64 no
           to label %.loopexit.split-lp unwind label %152
 
 55:                                               ; preds = %.lr.ph113, %.critedge80
-  %.167112 = phi i64 [ 0, %.lr.ph113 ], [ %66, %.critedge80 ]
-  %56 = sub nsw i64 %4, %.167112
+  %.169112 = phi i64 [ 0, %.lr.ph113 ], [ %66, %.critedge80 ]
+  %56 = sub nsw i64 %4, %.169112
   %.sroa.speculated95 = call i64 @llvm.umin.i64(i64 %56, i64 7)
   %57 = invoke i64 @write(i32 noundef %30, ptr noundef nonnull @.str.432, i64 noundef %.sroa.speculated95)
           to label %58 unwind label %.loopexit
@@ -28305,7 +28305,7 @@ define internal fastcc void @_ZL15TestOneTruncatePKcmmmmm(ptr noundef %0, i64 no
           to label %.critedge80 unwind label %.loopexit
 
 .critedge80:                                      ; preds = %58, %65
-  %66 = add i64 %.sroa.speculated95, %.167112
+  %66 = add i64 %.sroa.speculated95, %.169112
   %67 = icmp ult i64 %66, %4
   br i1 %67, label %55, label %._crit_edge, !llvm.loop !334
 
@@ -28490,13 +28490,13 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.critedge84
   br i1 %.not118, label %._crit_edge115, label %.critedge88
 
 123:                                              ; preds = %.critedge88
-  %124 = add i64 %.sroa.speculated, %.059114
+  %124 = add i64 %.sroa.speculated, %.060114
   %125 = icmp ult i64 %124, %5
   br i1 %125, label %.critedge88, label %._crit_edge115, !llvm.loop !335
 
 .critedge88:                                      ; preds = %.critedge86, %123
-  %.059114 = phi i64 [ %124, %123 ], [ 0, %.critedge86 ]
-  %126 = sub nsw i64 %5, %.059114
+  %.060114 = phi i64 [ %124, %123 ], [ 0, %.critedge86 ]
+  %126 = sub nsw i64 %5, %.060114
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %126, i64 7)
   %bcmp = call i32 @bcmp(ptr %122, ptr nonnull @.str.432, i64 %.sroa.speculated)
   %.not.not = icmp eq i32 %bcmp, 0

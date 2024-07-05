@@ -343,19 +343,19 @@ if.end11.i:                                       ; preds = %for.body.i
   br i1 %cmp7.i.i, label %while.body.i.i32, label %cond.end17.i
 
 while.body.i.i32:                                 ; preds = %if.end11.i, %while.body.i.i32
-  %right.09.i.i = phi i32 [ %add2.right.0.i.i, %while.body.i.i32 ], [ %longest.041.i, %if.end11.i ]
-  %left.08.i.i = phi i32 [ %left.0.add2.i.i, %while.body.i.i32 ], [ -1, %if.end11.i ]
-  %sub.i.i = sub nsw i32 %right.09.i.i, %left.08.i.i
+  %left.09.i.i = phi i32 [ %left.0.add2.i.i, %while.body.i.i32 ], [ -1, %if.end11.i ]
+  %right.08.i.i = phi i32 [ %add2.right.0.i.i, %while.body.i.i32 ], [ %longest.041.i, %if.end11.i ]
+  %sub.i.i = sub nsw i32 %right.08.i.i, %left.09.i.i
   %div.i.i = sdiv i32 %sub.i.i, 2
-  %add2.i.i = add nsw i32 %div.i.i, %left.08.i.i
+  %add2.i.i = add nsw i32 %div.i.i, %left.09.i.i
   %idxprom.i.i = sext i32 %add2.i.i to i64
   %arrayidx.i.i33 = getelementptr inbounds ptr, ptr %call.i28, i64 %idxprom.i.i
   %34 = load ptr, ptr %arrayidx.i.i33, align 8
   %line2.i.i34 = getelementptr inbounds i8, ptr %34, i64 16
   %35 = load i64, ptr %line2.i.i34, align 8
   %cmp4.i.i = icmp ugt i64 %35, %33
-  %left.0.add2.i.i = select i1 %cmp4.i.i, i32 %left.08.i.i, i32 %add2.i.i
-  %add2.right.0.i.i = select i1 %cmp4.i.i, i32 %add2.i.i, i32 %right.09.i.i
+  %add2.right.0.i.i = select i1 %cmp4.i.i, i32 %add2.i.i, i32 %right.08.i.i
+  %left.0.add2.i.i = select i1 %cmp4.i.i, i32 %left.09.i.i, i32 %add2.i.i
   %add.i.i = add nsw i32 %left.0.add2.i.i, 1
   %cmp.i.i = icmp slt i32 %add.i.i, %add2.right.0.i.i
   br i1 %cmp.i.i, label %while.body.i.i32, label %binary_search.exit.i, !llvm.loop !14
@@ -443,9 +443,9 @@ if.then48:                                        ; preds = %while.body.i30, %if
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %while.end58.i, %if.then48
+  %line2.addr.0.i = phi i32 [ %line2, %if.then48 ], [ %conv64.i, %while.end58.i ]
   %line1.addr.0.i = phi i32 [ %line1, %if.then48 ], [ %conv61.i, %while.end58.i ]
   %first.addr.0.i = phi ptr [ %entry1.1.lcssa.sink.i, %if.then48 ], [ %68, %while.end58.i ]
-  %line2.addr.0.i = phi i32 [ %line2, %if.then48 ], [ %conv64.i, %while.end58.i ]
   %tobool.not.i36 = icmp eq ptr %first.addr.0.i, null
   br i1 %tobool.not.i36, label %if.end.i39, label %if.then.i
 
@@ -506,20 +506,20 @@ land.rhs17.i.lr.ph:                               ; preds = %if.end.i39
   %map.val42.val43.i = load ptr, ptr %recs2.i.i, align 8
   %invariant.gep146 = getelementptr i8, ptr %map.val42.val.i, i64 -8
   %invariant.gep148 = getelementptr i8, ptr %map.val42.val43.i, i64 -8
-  %58 = sext i32 %line2.addr.0.i to i64
-  %59 = sext i32 %next2.1.i to i64
-  %60 = sext i32 %line1.addr.0.i to i64
-  %61 = sext i32 %next1.1.i to i64
+  %58 = sext i32 %line1.addr.0.i to i64
+  %59 = sext i32 %next1.1.i to i64
+  %60 = sext i32 %line2.addr.0.i to i64
+  %61 = sext i32 %next2.1.i to i64
   br label %land.rhs17.i
 
 land.rhs17.i:                                     ; preds = %land.rhs17.i.lr.ph, %while.body21.i
   %indvars.iv189 = phi i64 [ %60, %land.rhs17.i.lr.ph ], [ %indvars.iv.next190, %while.body21.i ]
   %indvars.iv187 = phi i64 [ %58, %land.rhs17.i.lr.ph ], [ %indvars.iv.next188, %while.body21.i ]
-  %line2.addr.1.i135 = phi i32 [ %line2.addr.0.i, %land.rhs17.i.lr.ph ], [ %inc22.i, %while.body21.i ]
-  %line1.addr.1.i134 = phi i32 [ %line1.addr.0.i, %land.rhs17.i.lr.ph ], [ %inc.i44, %while.body21.i ]
-  %gep147 = getelementptr ptr, ptr %invariant.gep146, i64 %indvars.iv189
+  %line1.addr.1.i135 = phi i32 [ %line1.addr.0.i, %land.rhs17.i.lr.ph ], [ %inc.i44, %while.body21.i ]
+  %line2.addr.1.i134 = phi i32 [ %line2.addr.0.i, %land.rhs17.i.lr.ph ], [ %inc22.i, %while.body21.i ]
+  %gep147 = getelementptr ptr, ptr %invariant.gep146, i64 %indvars.iv187
   %62 = load ptr, ptr %gep147, align 8
-  %gep149 = getelementptr ptr, ptr %invariant.gep148, i64 %indvars.iv187
+  %gep149 = getelementptr ptr, ptr %invariant.gep148, i64 %indvars.iv189
   %63 = load ptr, ptr %gep149, align 8
   %ha.i71 = getelementptr inbounds i8, ptr %62, i64 24
   %64 = load i64, ptr %ha.i71, align 8
@@ -529,18 +529,18 @@ land.rhs17.i:                                     ; preds = %land.rhs17.i.lr.ph,
   br i1 %cmp.i72.not, label %while.body21.i, label %if.then28.i.loopexit
 
 while.body21.i:                                   ; preds = %land.rhs17.i
-  %indvars.iv.next190 = add nsw i64 %indvars.iv189, 1
-  %inc.i44 = add nsw i32 %line1.addr.1.i134, 1
   %indvars.iv.next188 = add nsw i64 %indvars.iv187, 1
-  %inc22.i = add nsw i32 %line2.addr.1.i135, 1
-  %cmp12.i = icmp slt i64 %indvars.iv.next190, %61
-  %cmp15.i = icmp slt i64 %indvars.iv.next188, %59
+  %inc.i44 = add nsw i32 %line1.addr.1.i135, 1
+  %indvars.iv.next190 = add nsw i64 %indvars.iv189, 1
+  %inc22.i = add nsw i32 %line2.addr.1.i134, 1
+  %cmp12.i = icmp slt i64 %indvars.iv.next188, %59
+  %cmp15.i = icmp slt i64 %indvars.iv.next190, %61
   %or.cond40.i = select i1 %cmp12.i, i1 %cmp15.i, i1 false
   br i1 %or.cond40.i, label %land.rhs17.i, label %while.end23.i, !llvm.loop !18
 
 while.end23.i:                                    ; preds = %while.body21.i, %if.end.i39
-  %line1.addr.1.i.lcssa = phi i32 [ %line1.addr.0.i, %if.end.i39 ], [ %inc.i44, %while.body21.i ]
   %line2.addr.1.i.lcssa = phi i32 [ %line2.addr.0.i, %if.end.i39 ], [ %inc22.i, %while.body21.i ]
+  %line1.addr.1.i.lcssa = phi i32 [ %line1.addr.0.i, %if.end.i39 ], [ %inc.i44, %while.body21.i ]
   %cmp12.i.lcssa = phi i1 [ %cmp12.i131, %if.end.i39 ], [ %cmp12.i, %while.body21.i ]
   %cmp15.i.lcssa = phi i1 [ %cmp15.i132, %if.end.i39 ], [ %cmp15.i, %while.body21.i ]
   %or.cond41.i = select i1 %cmp12.i.lcssa, i1 true, i1 %cmp15.i.lcssa
@@ -552,11 +552,11 @@ if.then28.i.loopexit:                             ; preds = %land.rhs17.i
   br label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.then28.i.loopexit, %while.end23.i
-  %line2.addr.1.i.lcssa210 = phi i32 [ %line2.addr.1.i.lcssa, %while.end23.i ], [ %66, %if.then28.i.loopexit ]
-  %line1.addr.1.i.lcssa209 = phi i32 [ %line1.addr.1.i.lcssa, %while.end23.i ], [ %67, %if.then28.i.loopexit ]
-  %sub29.i = sub nsw i32 %next1.1.i, %line1.addr.1.i.lcssa209
-  %sub30.i = sub nsw i32 %next2.1.i, %line2.addr.1.i.lcssa210
-  %call31.i = tail call fastcc i32 @patience_diff(ptr noundef %xpp, ptr noundef %env, i32 noundef %line1.addr.1.i.lcssa209, i32 noundef %sub29.i, i32 noundef %line2.addr.1.i.lcssa210, i32 noundef %sub30.i)
+  %line1.addr.1.i.lcssa210 = phi i32 [ %line1.addr.1.i.lcssa, %while.end23.i ], [ %66, %if.then28.i.loopexit ]
+  %line2.addr.1.i.lcssa209 = phi i32 [ %line2.addr.1.i.lcssa, %while.end23.i ], [ %67, %if.then28.i.loopexit ]
+  %sub29.i = sub nsw i32 %next1.1.i, %line1.addr.1.i.lcssa210
+  %sub30.i = sub nsw i32 %next2.1.i, %line2.addr.1.i.lcssa209
+  %call31.i = tail call fastcc i32 @patience_diff(ptr noundef %xpp, ptr noundef %env, i32 noundef %line1.addr.1.i.lcssa210, i32 noundef %sub29.i, i32 noundef %line2.addr.1.i.lcssa209, i32 noundef %sub30.i)
   %tobool32.not.i = icmp ne i32 %call31.i, 0
   %brmerge.i = or i1 %tobool.not.i36, %tobool32.not.i
   br i1 %brmerge.i, label %out.loopexit.split.loop.exit, label %while.cond39.i.preheader

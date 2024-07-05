@@ -4001,7 +4001,7 @@ _ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit: ; preds = %._crit_edge.i, %1
 
 .lr.ph278.split:                                  ; preds = %.lr.ph278, %261
   %indvars.iv339 = phi i64 [ %indvars.iv.next340, %261 ], [ 2, %.lr.ph278 ]
-  %.0113276 = phi i32 [ %.1114, %261 ], [ -1, %.lr.ph278 ]
+  %.0112277 = phi i32 [ %.1113, %261 ], [ -1, %.lr.ph278 ]
   %249 = getelementptr inbounds [0 x %union.anon], ptr %208, i64 0, i64 %indvars.iv339
   %.sroa.013.0.copyload = load i32, ptr %249, align 4
   %250 = ashr i32 %.sroa.013.0.copyload, 1
@@ -4022,13 +4022,13 @@ _ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit: ; preds = %._crit_edge.i, %1
   br i1 %or.cond, label %261, label %.critedge2.thread
 
 261:                                              ; preds = %257, %.lr.ph278.split
-  %.1114 = phi i32 [ %.0113276, %.lr.ph278.split ], [ %260, %257 ]
+  %.1113 = phi i32 [ %.0112277, %.lr.ph278.split ], [ %260, %257 ]
   %indvars.iv.next340 = add nuw nsw i64 %indvars.iv339, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next340, %wide.trip.count345
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph278.split, !llvm.loop !21
 
 .critedge2:                                       ; preds = %261
-  %.not120 = icmp eq i32 %.1114, -1
+  %.not120 = icmp eq i32 %.1113, -1
   br i1 %.not120, label %.loopexit, label %.critedge2.thread
 
 .critedge2.thread.loopexit:                       ; preds = %.lr.ph278.split.us
@@ -4036,8 +4036,8 @@ _ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit: ; preds = %._crit_edge.i, %1
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %257, %.critedge2.thread.loopexit, %.critedge2
-  %.2115221 = phi i32 [ %.1114, %.critedge2 ], [ %262, %.critedge2.thread.loopexit ], [ %260, %257 ]
-  %263 = sext i32 %.2115221 to i64
+  %.2114221 = phi i32 [ %.1113, %.critedge2 ], [ %262, %.critedge2.thread.loopexit ], [ %260, %257 ]
+  %263 = sext i32 %.2114221 to i64
   %264 = getelementptr inbounds [0 x %union.anon], ptr %208, i64 0, i64 %263
   %265 = getelementptr inbounds i8, ptr %207, i64 16
   %266 = load i32, ptr %264, align 4
@@ -7437,14 +7437,14 @@ thread-pre-split:                                 ; preds = %.loopexit312, %576
 
 582:                                              ; preds = %.lr.ph386, %582
   %indvars.iv450 = phi i64 [ 2, %.lr.ph386 ], [ %indvars.iv.next451, %582 ]
-  %.0214385 = phi i32 [ 1, %.lr.ph386 ], [ %spec.select, %582 ]
+  %.0213385 = phi i32 [ 1, %.lr.ph386 ], [ %spec.select, %582 ]
   %583 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.pre490, i64 %indvars.iv450
   %.sroa.023.0.copyload = load i32, ptr %583, align 4
   %584 = ashr i32 %.sroa.023.0.copyload, 1
   %585 = sext i32 %584 to i64
   %586 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %581, i64 %585, i32 1
   %587 = load i32, ptr %586, align 4
-  %588 = sext i32 %.0214385 to i64
+  %588 = sext i32 %.0213385 to i64
   %589 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.pre490, i64 %588
   %.sroa.022.0.copyload = load i32, ptr %589, align 4
   %590 = ashr i32 %.sroa.022.0.copyload, 1
@@ -7453,14 +7453,14 @@ thread-pre-split:                                 ; preds = %.loopexit312, %576
   %593 = load i32, ptr %592, align 4
   %594 = icmp sgt i32 %587, %593
   %595 = trunc nuw nsw i64 %indvars.iv450 to i32
-  %spec.select = select i1 %594, i32 %595, i32 %.0214385
+  %spec.select = select i1 %594, i32 %595, i32 %.0213385
   %indvars.iv.next451 = add nuw nsw i64 %indvars.iv450, 1
   %exitcond454.not = icmp eq i64 %indvars.iv.next451, %wide.trip.count453
   br i1 %exitcond454.not, label %._crit_edge387, label %582, !llvm.loop !53
 
 ._crit_edge387:                                   ; preds = %582, %.preheader310
-  %.0214.lcssa = phi i32 [ 1, %.preheader310 ], [ %spec.select, %582 ]
-  %596 = sext i32 %.0214.lcssa to i64
+  %.0213.lcssa = phi i32 [ 1, %.preheader310 ], [ %spec.select, %582 ]
+  %596 = sext i32 %.0213.lcssa to i64
   %597 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.pre490, i64 %596
   %.sroa.020.0.copyload = load i32, ptr %597, align 4
   %598 = getelementptr inbounds i8, ptr %.pre490, i64 4

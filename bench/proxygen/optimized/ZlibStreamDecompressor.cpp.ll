@@ -196,8 +196,8 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %invoke.cont105, %entry
-  %crtBuf.0 = phi ptr [ %crtBuf.1, %invoke.cont105 ], [ %in, %entry ]
   %offset.0 = phi i64 [ %add, %invoke.cont105 ], [ 0, %entry ]
+  %crtBuf.0 = phi ptr [ %crtBuf.1, %invoke.cont105 ], [ %in, %entry ]
   %4 = load i64, ptr %crtBuf.0, align 8
   %cmp = icmp eq i64 %4, %offset.0
   br i1 %cmp, label %if.then, label %if.end31
@@ -219,8 +219,8 @@ if.then:                                          ; preds = %while.cond
   br i1 %cmp29, label %cleanup.thread, label %if.end31
 
 if.end31:                                         ; preds = %if.then, %while.cond
-  %crtBuf.1 = phi ptr [ %5, %if.then ], [ %crtBuf.0, %while.cond ]
   %offset.1 = phi i64 [ 0, %if.then ], [ %offset.0, %while.cond ]
+  %crtBuf.1 = phi ptr [ %5, %if.then ], [ %crtBuf.0, %while.cond ]
   %6 = load i32, ptr %status_, align 8
   %cmp32 = icmp eq i32 %6, 1
   br i1 %cmp32, label %if.then33, label %if.end42

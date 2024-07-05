@@ -14593,10 +14593,10 @@ _ZN4core3mem4swap17hef4e5343614c92c5E.exit.i.i:   ; preds = %229
   br label %.body.i.i
 
 346:                                              ; preds = %338, %328
-  %.sroa.10.0.ph.i.i = phi i64 [ undef, %328 ], [ %.sroa.571.0.copyload73.i.i.i, %338 ]
   %.sroa.947.0.ph.i.i = phi ptr [ %.sroa.6.0.copyload.i.i.i, %328 ], [ %.sroa.468.0.copyload70.i.i.i, %338 ]
   %.sroa.8.0.ph.i.i = phi ptr [ %.sroa.5.0.copyload.i.i.i, %328 ], [ %.sroa.365.0.copyload67.i.i.i, %338 ]
   %.sroa.6.0.ph.i.i = phi ptr [ null, %328 ], [ %.sroa.063.0.copyload64.i.i.i, %338 ]
+  %.sroa.10.0.ph.i.i = phi i64 [ undef, %328 ], [ %.sroa.571.0.copyload73.i.i.i, %338 ]
   store i8 1, ptr %247, align 8, !noalias !1984
   invoke void @"_ZN4core3ptr111drop_in_place$LT$aws_smithy_runtime..client..orchestrator..http..body_to_bytes..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3abca133ccd5cb3aE.llvm.12157159997382047896"(ptr noundef nonnull align 8 %196)
           to label %350 unwind label %348, !noalias !1971

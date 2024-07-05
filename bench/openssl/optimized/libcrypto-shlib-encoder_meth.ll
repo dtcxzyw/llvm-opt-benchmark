@@ -564,10 +564,10 @@ if.end8:                                          ; preds = %if.end
   br i1 %cmp109.not, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end8, %for.inc
-  %i.011 = phi i64 [ %inc, %for.inc ], [ 0, %if.end8 ]
-  %ok.010 = phi i32 [ %ok.1, %for.inc ], [ 1, %if.end8 ]
+  %ok.011 = phi i32 [ %ok.1, %for.inc ], [ 1, %if.end8 ]
+  %i.010 = phi i64 [ %inc, %for.inc ], [ 0, %if.end8 ]
   %1 = load ptr, ptr %encoder_insts, align 8
-  %conv13 = trunc i64 %i.011 to i32
+  %conv13 = trunc i64 %i.010 to i32
   %call.i = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %conv13) #7
   %call15 = tail call ptr @OSSL_ENCODER_INSTANCE_get_encoder(ptr noundef %call.i) #7
   %call16 = tail call ptr @OSSL_ENCODER_INSTANCE_get_encoder_ctx(ptr noundef %call.i) #7
@@ -583,12 +583,12 @@ lor.lhs.false:                                    ; preds = %for.body
 if.end22:                                         ; preds = %lor.lhs.false
   %call24 = tail call i32 %2(ptr noundef nonnull %call16, ptr noundef %params) #7
   %tobool25.not = icmp eq i32 %call24, 0
-  %spec.select = select i1 %tobool25.not, i32 0, i32 %ok.010
+  %spec.select = select i1 %tobool25.not, i32 0, i32 %ok.011
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end22, %for.body, %lor.lhs.false
-  %ok.1 = phi i32 [ %ok.010, %for.body ], [ %ok.010, %lor.lhs.false ], [ %spec.select, %if.end22 ]
-  %inc = add nuw i64 %i.011, 1
+  %ok.1 = phi i32 [ %ok.011, %for.body ], [ %ok.011, %lor.lhs.false ], [ %spec.select, %if.end22 ]
+  %inc = add nuw i64 %i.010, 1
   %exitcond.not = icmp eq i64 %inc, %conv9
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 

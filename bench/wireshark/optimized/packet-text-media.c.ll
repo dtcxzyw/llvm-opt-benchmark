@@ -98,10 +98,10 @@ define internal i32 @dissect_text_lines(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not49, label %48, label %28
 
 .thread55:                                        ; preds = %24, %17
-  %.038 = phi ptr [ %16, %17 ], [ %23, %24 ]
+  %.039 = phi ptr [ %16, %17 ], [ %23, %24 ]
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
-  tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef nonnull %.038) #2
+  tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef nonnull %.039) #2
   %.not4958 = icmp eq ptr %2, null
   br i1 %.not4958, label %48, label %31
 
@@ -113,7 +113,7 @@ define internal i32 @dissect_text_lines(ptr noundef %0, ptr noundef %1, ptr noun
 31:                                               ; preds = %.thread55
   %32 = load i32, ptr @proto_text_lines, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %32, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef nonnull @.str.25, ptr noundef nonnull %.038) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef nonnull @.str.25, ptr noundef nonnull %.039) #2
   br label %34
 
 34:                                               ; preds = %28, %31

@@ -2007,9 +2007,9 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
   %18 = ptrtoint ptr %17 to i64
   %.not.i.i.i.i.i.i.i = icmp sgt ptr %17, inttoptr (i64 -4096 to ptr)
   %19 = icmp slt ptr %17, null
-  %.0.i.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i.i, %19
+  %.014.i.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i.i, %19
   %.tr.i.i.i = trunc i64 %18 to i32
-  br i1 %.0.i.i.i.i.i.i.i, label %29, label %20
+  br i1 %.014.i.i.i.i.i.i.i, label %29, label %20
 
 20:                                               ; preds = %.noexc.i
   %21 = lshr i32 %.tr.i.i.i, 10
@@ -2322,9 +2322,9 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
   %18 = ptrtoint ptr %17 to i64
   %.not.i.i.i.i.i.i.i = icmp sgt ptr %17, inttoptr (i64 -4096 to ptr)
   %19 = icmp slt ptr %17, null
-  %.0.i.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i.i, %19
+  %.014.i.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i.i, %19
   %.tr.i.i.i = trunc i64 %18 to i32
-  br i1 %.0.i.i.i.i.i.i.i, label %29, label %20
+  br i1 %.014.i.i.i.i.i.i.i, label %29, label %20
 
 20:                                               ; preds = %.noexc.i
   %21 = lshr i32 %.tr.i.i.i, 10
@@ -15900,8 +15900,8 @@ define hidden void @"_ZN66_$LT$T$u20$as$u20$system_interface..fs..file_io_ext..F
   %14 = ptrtoint ptr %13 to i64
   %.not.i.i.i.i = icmp sgt ptr %13, inttoptr (i64 -4096 to ptr)
   %15 = icmp slt ptr %13, null
-  %.0.i.i.i.i = and i1 %.not.i.i.i.i, %15
-  br i1 %.0.i.i.i.i, label %16, label %101
+  %.014.i.i.i.i = and i1 %.not.i.i.i.i, %15
+  br i1 %.014.i.i.i.i, label %16, label %101
 
 16:                                               ; preds = %4
   %17 = trunc i64 %14 to i16
@@ -15920,8 +15920,8 @@ define hidden void @"_ZN66_$LT$T$u20$as$u20$system_interface..fs..file_io_ext..F
   %24 = ptrtoint ptr %23 to i64
   %.not.i.i.i.i81 = icmp sgt ptr %23, inttoptr (i64 -4096 to ptr)
   %25 = icmp slt ptr %23, null
-  %.0.i.i.i.i82 = and i1 %.not.i.i.i.i81, %25
-  br i1 %.0.i.i.i.i82, label %33, label %26
+  %.014.i.i.i.i82 = and i1 %.not.i.i.i.i81, %25
+  br i1 %.014.i.i.i.i82, label %33, label %26
 
 26:                                               ; preds = %18
   %27 = call noundef range(i32 0, -1) i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1), !range !501, !noalias !2152
@@ -15931,8 +15931,8 @@ define hidden void @"_ZN66_$LT$T$u20$as$u20$system_interface..fs..file_io_ext..F
   %31 = extractvalue { ptr, i32, i32 } %30, 0
   %.not.i.i.i.i83 = icmp sgt ptr %31, inttoptr (i64 -4096 to ptr)
   %32 = icmp slt ptr %31, null
-  %.0.i.i.i.i84 = and i1 %.not.i.i.i.i83, %32
-  br i1 %.0.i.i.i.i84, label %52, label %43
+  %.014.i.i.i.i84 = and i1 %.not.i.i.i.i83, %32
+  br i1 %.014.i.i.i.i84, label %52, label %43
 
 33:                                               ; preds = %18
   %34 = trunc i64 %24 to i32
@@ -15982,7 +15982,7 @@ _ZN6rustix2io10read_write5write17h7ea8d0b8b10cd6f0E.exit: ; preds = %43
   %64 = ptrtoint ptr %63 to i64
   %.not.i.i.i = icmp sle ptr %63, inttoptr (i64 -4096 to ptr)
   %65 = icmp sge ptr %63, null
-  %.0.i.i.i.not = or i1 %.not.i.i.i, %65
+  %.014.i.i.i.not = or i1 %.not.i.i.i, %65
   %66 = call noundef range(i32 0, -1) i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1), !range !501
   %67 = zext i32 %66 to i64
   %68 = inttoptr i64 %67 to ptr
@@ -16010,8 +16010,8 @@ _ZN6rustix2io10read_write5write17h7ea8d0b8b10cd6f0E.exit: ; preds = %43
   %82 = extractvalue { ptr, i32, i32 } %81, 0
   %.not.i.i.i.i87 = icmp sgt ptr %82, inttoptr (i64 -4096 to ptr)
   %83 = icmp slt ptr %82, null
-  %.0.i.i.i.i88 = and i1 %.not.i.i.i.i87, %83
-  br i1 %.0.i.i.i.i88, label %84, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hca976a35d6ee566eE.exit"
+  %.014.i.i.i.i88 = and i1 %.not.i.i.i.i87, %83
+  br i1 %.014.i.i.i.i88, label %84, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hca976a35d6ee566eE.exit"
 
 84:                                               ; preds = %77
   %85 = ptrtoint ptr %82 to i64
@@ -16022,7 +16022,7 @@ _ZN6rustix2io10read_write5write17h7ea8d0b8b10cd6f0E.exit: ; preds = %43
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hca976a35d6ee566eE.exit": ; preds = %77
-  br i1 %.0.i.i.i.not, label %93, label %95
+  br i1 %.014.i.i.i.not, label %93, label %95
 
 87:                                               ; preds = %43
   %88 = ptrtoint ptr %51 to i64
@@ -16133,9 +16133,9 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %8 = ptrtoint ptr %7 to i64
   %.not.i.i.i.i = icmp sgt ptr %7, inttoptr (i64 -4096 to ptr)
   %9 = icmp slt ptr %7, null
-  %.0.i.i.i.i = and i1 %.not.i.i.i.i, %9
+  %.014.i.i.i.i = and i1 %.not.i.i.i.i, %9
   %.tr = trunc i64 %8 to i32
-  br i1 %.0.i.i.i.i, label %20, label %10
+  br i1 %.014.i.i.i.i, label %20, label %10
 
 10:                                               ; preds = %2
   %11 = lshr i32 %.tr, 10
@@ -16184,9 +16184,9 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %8 = ptrtoint ptr %7 to i64
   %.not.i.i.i.i = icmp sgt ptr %7, inttoptr (i64 -4096 to ptr)
   %9 = icmp slt ptr %7, null
-  %.0.i.i.i.i = and i1 %.not.i.i.i.i, %9
+  %.014.i.i.i.i = and i1 %.not.i.i.i.i, %9
   %.tr = trunc i64 %8 to i32
-  br i1 %.0.i.i.i.i, label %20, label %10
+  br i1 %.014.i.i.i.i, label %20, label %10
 
 10:                                               ; preds = %2
   %11 = lshr i32 %.tr, 10
@@ -17291,9 +17291,9 @@ define hidden void @_ZN13wasmtime_wasi10filesystem4File15_spawn_blocking17h23342
   %20 = ptrtoint ptr %19 to i64
   %.not.i.i.i.i.i.i = icmp sgt ptr %19, inttoptr (i64 -4096 to ptr)
   %21 = icmp slt ptr %19, null
-  %.0.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i, %21
+  %.014.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i, %21
   %.tr.i.i = trunc i64 %20 to i32
-  br i1 %.0.i.i.i.i.i.i, label %31, label %22
+  br i1 %.014.i.i.i.i.i.i, label %31, label %22
 
 22:                                               ; preds = %13
   %23 = lshr i32 %.tr.i.i, 10
@@ -18530,9 +18530,9 @@ define hidden void @"_ZN13wasmtime_wasi10filesystem4File15_spawn_blocking28_$u7b
   %10 = ptrtoint ptr %9 to i64
   %.not.i.i.i.i.i.i = icmp sgt ptr %9, inttoptr (i64 -4096 to ptr)
   %11 = icmp slt ptr %9, null
-  %.0.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i, %11
+  %.014.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i, %11
   %.tr.i.i = trunc i64 %10 to i32
-  br i1 %.0.i.i.i.i.i.i, label %22, label %12
+  br i1 %.014.i.i.i.i.i.i, label %22, label %12
 
 12:                                               ; preds = %.noexc
   %13 = lshr i32 %.tr.i.i, 10
@@ -18902,9 +18902,9 @@ define hidden void @"_ZN13wasmtime_wasi10filesystem3Dir14spawn_blocking28_$u7b$$
   %10 = ptrtoint ptr %9 to i64
   %.not.i.i.i.i.i.i = icmp sgt ptr %9, inttoptr (i64 -4096 to ptr)
   %11 = icmp slt ptr %9, null
-  %.0.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i, %11
+  %.014.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i, %11
   %.tr.i.i = trunc i64 %10 to i32
-  br i1 %.0.i.i.i.i.i.i, label %22, label %12
+  br i1 %.014.i.i.i.i.i.i, label %22, label %12
 
 12:                                               ; preds = %.noexc
   %13 = lshr i32 %.tr.i.i, 10
@@ -22858,9 +22858,9 @@ define hidden void @"_ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$wasmtim
   %8 = ptrtoint ptr %7 to i64
   %.not.i.i.i.i.i = icmp sgt ptr %7, inttoptr (i64 -4096 to ptr)
   %9 = icmp slt ptr %7, null
-  %.0.i.i.i.i.i = and i1 %.not.i.i.i.i.i, %9
+  %.014.i.i.i.i.i = and i1 %.not.i.i.i.i.i, %9
   %.tr.i = trunc i64 %8 to i32
-  br i1 %.0.i.i.i.i.i, label %20, label %10
+  br i1 %.014.i.i.i.i.i, label %20, label %10
 
 10:                                               ; preds = %2
   %11 = lshr i32 %.tr.i, 10
@@ -22910,9 +22910,9 @@ define hidden void @"_ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$wasmtim
   %8 = ptrtoint ptr %7 to i64
   %.not.i.i.i.i.i = icmp sgt ptr %7, inttoptr (i64 -4096 to ptr)
   %9 = icmp slt ptr %7, null
-  %.0.i.i.i.i.i = and i1 %.not.i.i.i.i.i, %9
+  %.014.i.i.i.i.i = and i1 %.not.i.i.i.i.i, %9
   %.tr.i = trunc i64 %8 to i32
-  br i1 %.0.i.i.i.i.i, label %20, label %10
+  br i1 %.014.i.i.i.i.i, label %20, label %10
 
 10:                                               ; preds = %2
   %11 = lshr i32 %.tr.i, 10

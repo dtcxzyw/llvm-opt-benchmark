@@ -440,14 +440,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not92, label %.preheader, label %189
 
 .preheader:                                       ; preds = %189, %.preheader
-  %.080113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
-  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.080113
+  %.081113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
+  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.081113
   %195 = load i8, ptr %194, align 1
-  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.080113
+  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.081113
   %197 = load i8, ptr %196, align 1
   %198 = xor i8 %197, %195
   store i8 %198, ptr %196, align 1
-  %199 = add nuw nsw i64 %.080113, 1
+  %199 = add nuw nsw i64 %.081113, 1
   %exitcond.not = icmp eq i64 %199, 16
   br i1 %exitcond.not, label %200, label %.preheader, !llvm.loop !6
 
@@ -853,14 +853,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not92, label %.preheader, label %189
 
 .preheader:                                       ; preds = %189, %.preheader
-  %.080113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
-  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.080113
+  %.081113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
+  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.081113
   %195 = load i8, ptr %194, align 1
-  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.080113
+  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.081113
   %197 = load i8, ptr %196, align 1
   %198 = xor i8 %197, %195
   store i8 %198, ptr %196, align 1
-  %199 = add nuw nsw i64 %.080113, 1
+  %199 = add nuw nsw i64 %.081113, 1
   %exitcond.not = icmp eq i64 %199, 16
   br i1 %exitcond.not, label %200, label %.preheader, !llvm.loop !8
 
@@ -1241,14 +1241,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not92, label %.preheader, label %189
 
 .preheader:                                       ; preds = %189, %.preheader
-  %.080113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
-  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.080113
+  %.081113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
+  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.081113
   %195 = load i8, ptr %194, align 1
-  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.080113
+  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.081113
   %197 = load i8, ptr %196, align 1
   %198 = xor i8 %197, %195
   store i8 %198, ptr %196, align 1
-  %199 = add nuw nsw i64 %.080113, 1
+  %199 = add nuw nsw i64 %.081113, 1
   %exitcond.not = icmp eq i64 %199, 16
   br i1 %exitcond.not, label %200, label %.preheader, !llvm.loop !10
 
@@ -1631,14 +1631,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not92, label %.preheader, label %189
 
 .preheader:                                       ; preds = %189, %.preheader
-  %.080113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
-  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.080113
+  %.081113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
+  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.081113
   %195 = load i8, ptr %194, align 1
-  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.080113
+  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.081113
   %197 = load i8, ptr %196, align 1
   %198 = xor i8 %197, %195
   store i8 %198, ptr %196, align 1
-  %199 = add nuw nsw i64 %.080113, 1
+  %199 = add nuw nsw i64 %.081113, 1
   %exitcond.not = icmp eq i64 %199, 16
   br i1 %exitcond.not, label %200, label %.preheader, !llvm.loop !12
 
@@ -2019,14 +2019,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not92, label %.preheader, label %189
 
 .preheader:                                       ; preds = %189, %.preheader
-  %.080113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
-  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.080113
+  %.081113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
+  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.081113
   %195 = load i8, ptr %194, align 1
-  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.080113
+  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.081113
   %197 = load i8, ptr %196, align 1
   %198 = xor i8 %197, %195
   store i8 %198, ptr %196, align 1
-  %199 = add nuw nsw i64 %.080113, 1
+  %199 = add nuw nsw i64 %.081113, 1
   %exitcond.not = icmp eq i64 %199, 16
   br i1 %exitcond.not, label %200, label %.preheader, !llvm.loop !14
 
@@ -2409,14 +2409,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not92, label %.preheader, label %189
 
 .preheader:                                       ; preds = %189, %.preheader
-  %.080113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
-  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.080113
+  %.081113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
+  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.081113
   %195 = load i8, ptr %194, align 1
-  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.080113
+  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.081113
   %197 = load i8, ptr %196, align 1
   %198 = xor i8 %197, %195
   store i8 %198, ptr %196, align 1
-  %199 = add nuw nsw i64 %.080113, 1
+  %199 = add nuw nsw i64 %.081113, 1
   %exitcond.not = icmp eq i64 %199, 16
   br i1 %exitcond.not, label %200, label %.preheader, !llvm.loop !16
 
@@ -2797,14 +2797,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not92, label %.preheader, label %189
 
 .preheader:                                       ; preds = %189, %.preheader
-  %.080113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
-  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.080113
+  %.081113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
+  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.081113
   %195 = load i8, ptr %194, align 1
-  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.080113
+  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.081113
   %197 = load i8, ptr %196, align 1
   %198 = xor i8 %197, %195
   store i8 %198, ptr %196, align 1
-  %199 = add nuw nsw i64 %.080113, 1
+  %199 = add nuw nsw i64 %.081113, 1
   %exitcond.not = icmp eq i64 %199, 16
   br i1 %exitcond.not, label %200, label %.preheader, !llvm.loop !18
 
@@ -3187,14 +3187,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not92, label %.preheader, label %189
 
 .preheader:                                       ; preds = %189, %.preheader
-  %.080113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
-  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.080113
+  %.081113 = phi i64 [ %199, %.preheader ], [ 0, %189 ]
+  %194 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.081113
   %195 = load i8, ptr %194, align 1
-  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.080113
+  %196 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.081113
   %197 = load i8, ptr %196, align 1
   %198 = xor i8 %197, %195
   store i8 %198, ptr %196, align 1
-  %199 = add nuw nsw i64 %.080113, 1
+  %199 = add nuw nsw i64 %.081113, 1
   %exitcond.not = icmp eq i64 %199, 16
   br i1 %exitcond.not, label %200, label %.preheader, !llvm.loop !20
 

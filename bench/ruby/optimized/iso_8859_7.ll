@@ -100,7 +100,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 .lr.ph:                                           ; preds = %6, %53
   %12 = phi ptr [ %57, %53 ], [ %8, %6 ]
   %.060 = phi i32 [ %spec.select58, %53 ], [ %7, %6 ]
-  %.04559 = phi ptr [ %54, %53 ], [ %3, %6 ]
+  %.04459 = phi ptr [ %54, %53 ], [ %3, %6 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 1
   store ptr %13, ptr %1, align 8
   %14 = load i8, ptr %12, align 1
@@ -186,10 +186,10 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
   br label %53
 
 53:                                               ; preds = %20, %45, %38, %29, %35, %43, %49, %51, %33, %18
-  %.044 = phi i8 [ -45, %18 ], [ %32, %29 ], [ %14, %33 ], [ %44, %43 ], [ %50, %49 ], [ %52, %51 ], [ %14, %35 ], [ %spec.select, %20 ], [ -74, %38 ], [ -68, %45 ]
+  %.045 = phi i8 [ -45, %18 ], [ %32, %29 ], [ %14, %33 ], [ %44, %43 ], [ %50, %49 ], [ %52, %51 ], [ %14, %35 ], [ %spec.select, %20 ], [ -74, %38 ], [ -68, %45 ]
   %.1 = phi i32 [ %19, %18 ], [ %30, %29 ], [ %.060, %33 ], [ %39, %43 ], [ %39, %49 ], [ %39, %51 ], [ %.060, %35 ], [ %spec.select55, %20 ], [ %39, %38 ], [ %39, %45 ]
-  %54 = getelementptr inbounds i8, ptr %.04559, i64 1
-  store i8 %.044, ptr %.04559, align 1
+  %54 = getelementptr inbounds i8, ptr %.04459, i64 1
+  store i8 %.045, ptr %.04459, align 1
   %55 = and i32 %.1, 32768
   %.not54 = icmp eq i32 %55, 0
   %56 = xor i32 %.1, 57344
@@ -201,10 +201,10 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
   br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %53, %6
-  %.045.lcssa = phi ptr [ %3, %6 ], [ %54, %53 ]
+  %.044.lcssa = phi ptr [ %3, %6 ], [ %54, %53 ]
   %.0.lcssa = phi i32 [ %7, %6 ], [ %spec.select58, %53 ]
   store i32 %.0.lcssa, ptr %0, align 4
-  %61 = ptrtoint ptr %.045.lcssa to i64
+  %61 = ptrtoint ptr %.044.lcssa to i64
   %62 = ptrtoint ptr %3 to i64
   %63 = sub i64 %61, %62
   %64 = trunc i64 %63 to i32

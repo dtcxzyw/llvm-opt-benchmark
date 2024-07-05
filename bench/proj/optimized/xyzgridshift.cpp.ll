@@ -817,11 +817,11 @@ define internal fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_1
   br label %15
 
 15:                                               ; preds = %20, %5
-  %.036 = phi i32 [ 0, %5 ], [ %46, %20 ]
-  %.sroa.9.033 = phi double [ %.sroa.9.0.copyload, %5 ], [ %44, %20 ]
+  %.sroa.9.036 = phi double [ %.sroa.9.0.copyload, %5 ], [ %44, %20 ]
+  %.035 = phi i32 [ 0, %5 ], [ %46, %20 ]
   %16 = phi <2 x double> [ %12, %5 ], [ %43, %20 ]
   store <2 x double> %16, ptr %8, align 16
-  store double %.sroa.9.033, ptr %.sroa.9.0..sroa_idx12, align 16
+  store double %.sroa.9.036, ptr %.sroa.9.0..sroa_idx12, align 16
   %17 = load ptr, ptr %2, align 8
   call void @_Z8pj_inv3d6PJ_XYZP8PJconsts(ptr dead_on_unwind nonnull writable sret(%struct.PJ_LPZ) align 8 %7, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %8, ptr noundef %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -855,13 +855,13 @@ define internal fastcc void @_ZL20iterative_adjustmentP8PJconstsPN12_GLOBAL__N_1
   %37 = extractelement <2 x double> %36, i64 1
   %38 = call double @llvm.fmuladd.f64(double %33, double %33, double %37)
   %39 = load double, ptr %.sroa.9.0..sroa_idx, align 8
-  %40 = fsub double %.sroa.9.033, %39
+  %40 = fsub double %.sroa.9.036, %39
   %41 = fsub double %40, %24
   %42 = call double @llvm.fmuladd.f64(double %41, double %41, double %38)
   %43 = fadd <2 x double> %27, %30
   %44 = fadd double %24, %39
   %45 = fcmp olt double %42, 1.000000e-10
-  %46 = add nuw nsw i32 %.036, 1
+  %46 = add nuw nsw i32 %.035, 1
   %exitcond.not = icmp eq i32 %46, 10
   %or.cond = select i1 %45, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %47, label %15, !llvm.loop !12

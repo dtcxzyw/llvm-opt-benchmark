@@ -3800,11 +3800,11 @@ _ZN10AstSenTree9cloneTreeEb.exit:                 ; preds = %48, %47
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN10AstSenTree9cloneTreeEb.exit, %_ZN10AstSenTree9cloneTreeEb.exit32
-  %.02051 = phi ptr [ %.1, %_ZN10AstSenTree9cloneTreeEb.exit32 ], [ %51, %_ZN10AstSenTree9cloneTreeEb.exit ]
+  %.02151 = phi ptr [ %.1, %_ZN10AstSenTree9cloneTreeEb.exit32 ], [ %51, %_ZN10AstSenTree9cloneTreeEb.exit ]
   %.sroa.037.050 = phi ptr [ %63, %_ZN10AstSenTree9cloneTreeEb.exit32 ], [ %52, %_ZN10AstSenTree9cloneTreeEb.exit ]
   %53 = getelementptr inbounds i8, ptr %.sroa.037.050, i64 32
   %54 = load ptr, ptr %53, align 8
-  %.not23 = icmp eq ptr %.02051, null
+  %.not23 = icmp eq ptr %.02151, null
   br i1 %.not23, label %55, label %57
 
 55:                                               ; preds = %.lr.ph
@@ -3822,28 +3822,28 @@ _ZN10AstSenItem9cloneTreeEb.exit:                 ; preds = %57
   br i1 %.not.i.i, label %_ZN10AstSenTree10addSensespEP10AstSenItem.exit, label %61
 
 61:                                               ; preds = %_ZN10AstSenItem9cloneTreeEb.exit
-  invoke void @_ZN7AstNode7addOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %.02051, ptr noundef nonnull %60)
+  invoke void @_ZN7AstNode7addOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %.02151, ptr noundef nonnull %60)
           to label %_ZN10AstSenTree10addSensespEP10AstSenItem.exit unwind label %.loopexit
 
 _ZN10AstSenTree10addSensespEP10AstSenItem.exit:   ; preds = %_ZN10AstSenItem9cloneTreeEb.exit, %61
-  %62 = getelementptr inbounds i8, ptr %.02051, i64 152
+  %62 = getelementptr inbounds i8, ptr %.02151, i64 152
   store i8 1, ptr %62, align 8
   br label %_ZN10AstSenTree9cloneTreeEb.exit32
 
 _ZN10AstSenTree9cloneTreeEb.exit32:               ; preds = %55, %_ZN10AstSenTree10addSensespEP10AstSenItem.exit
-  %.1 = phi ptr [ %.02051, %_ZN10AstSenTree10addSensespEP10AstSenItem.exit ], [ %56, %55 ]
+  %.1 = phi ptr [ %.02151, %_ZN10AstSenTree10addSensespEP10AstSenItem.exit ], [ %56, %55 ]
   %63 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.037.050) #20
   %.not = icmp eq ptr %63, %17
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN10AstSenTree9cloneTreeEb.exit32, %_ZN10AstSenTree9cloneTreeEb.exit
-  %.020.lcssa = phi ptr [ %51, %_ZN10AstSenTree9cloneTreeEb.exit ], [ %.1, %_ZN10AstSenTree9cloneTreeEb.exit32 ]
-  store ptr %.020.lcssa, ptr %44, align 8
-  %.not.i.i35 = icmp eq ptr %.020.lcssa, null
+  %.021.lcssa = phi ptr [ %51, %_ZN10AstSenTree9cloneTreeEb.exit ], [ %.1, %_ZN10AstSenTree9cloneTreeEb.exit32 ]
+  store ptr %.021.lcssa, ptr %44, align 8
+  %.not.i.i35 = icmp eq ptr %.021.lcssa, null
   br i1 %.not.i.i35, label %_ZN9AstActive12sensesStorepEP10AstSenTree.exit, label %64
 
 64:                                               ; preds = %._crit_edge
-  invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %32, ptr noundef nonnull %.020.lcssa)
+  invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %32, ptr noundef nonnull %.021.lcssa)
           to label %_ZN9AstActive12sensesStorepEP10AstSenTree.exit unwind label %.loopexit.split-lp
 
 _ZN9AstActive12sensesStorepEP10AstSenTree.exit:   ; preds = %25, %._crit_edge, %64, %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit
@@ -14360,7 +14360,7 @@ _ZN7AstNode9privateIsI13AstNodeAssignPKS_EEbS3_.exit.i60: ; preds = %_ZN14Delaye
 _ZN14DelayedVisitor20containingAssignmentEPK7AstNode.exit66: ; preds = %_ZN7AstNode9privateIsI13AstNodeAssignPKS_EEbS3_.exit.i60, %106, %_ZN14DelayedVisitor20containingAssignmentEPK7AstNode.exit
   %.0.lcssa.i65 = phi ptr [ null, %_ZN14DelayedVisitor20containingAssignmentEPK7AstNode.exit ], [ %.05.i61, %_ZN7AstNode9privateIsI13AstNodeAssignPKS_EEbS3_.exit.i60 ], [ null, %106 ]
   %.not44 = icmp eq ptr %.0.lcssa.i65, null
-  %.037 = select i1 %.not44, ptr %103, ptr %.0.lcssa.i65
+  %.038 = select i1 %.not44, ptr %103, ptr %.0.lcssa.i65
   %109 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb(i8 26, i1 noundef zeroext true)
   %110 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %111 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull @.str.497)
@@ -14410,7 +14410,7 @@ _ZNK7AstNode18warnContextPrimaryB5cxx11Ev.exit:   ; preds = %122
           to label %128 unwind label %152
 
 128:                                              ; preds = %126
-  %129 = getelementptr inbounds i8, ptr %.037, i64 88
+  %129 = getelementptr inbounds i8, ptr %.038, i64 88
   %130 = load ptr, ptr %129, align 8, !noalias !158
   invoke void @_ZNK8FileLine9warnOtherB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(40) %130)
           to label %_ZNK7AstNode9warnOtherB5cxx11Ev.exit unwind label %152

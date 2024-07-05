@@ -338,7 +338,7 @@ select_common_collation.exit:                     ; preds = %71
 
 .thread148:                                       ; preds = %87, %92, %94
   %.0112154 = phi i32 [ %95, %94 ], [ %90, %87 ], [ %90, %92 ]
-  %.0114153 = phi i32 [ %96, %94 ], [ %90, %87 ], [ 1, %92 ]
+  %.0113153 = phi i32 [ %96, %94 ], [ %90, %87 ], [ 1, %92 ]
   %.0117152 = phi i32 [ %97, %94 ], [ -1, %87 ], [ %93, %92 ]
   call void @exprSetCollation(ptr noundef nonnull %0, i32 noundef %.0112154) #5
   br label %237
@@ -578,7 +578,7 @@ select_common_collation.exit:                     ; preds = %71
 .thread160:                                       ; preds = %228, %226, %221
   %.1169.sink = phi i32 [ 0, %221 ], [ %223, %226 ], [ %spec.select196, %228 ]
   %.1168 = phi i32 [ 0, %221 ], [ %223, %226 ], [ %229, %228 ]
-  %.2116166 = phi i32 [ 0, %221 ], [ 1, %226 ], [ %225, %228 ]
+  %.2115166 = phi i32 [ 0, %221 ], [ 1, %226 ], [ %225, %228 ]
   %.1118164 = phi i32 [ -1, %221 ], [ %227, %226 ], [ %230, %228 ]
   call void @exprSetCollation(ptr noundef nonnull %0, i32 noundef %.1169.sink) #5
   %232 = load i32, ptr %14, align 4
@@ -596,7 +596,7 @@ select_common_collation.exit:                     ; preds = %71
 
 237:                                              ; preds = %25, %234, %235, %100, %106, %99, %.thread148, %29, %144, %139, %133, %19
   %.2119 = phi i32 [ %.1118164, %234 ], [ %.1118164, %235 ], [ %146, %144 ], [ %143, %139 ], [ %138, %133 ], [ %104, %106 ], [ %104, %100 ], [ %97, %99 ], [ %.0117152, %.thread148 ], [ %30, %29 ], [ %24, %19 ], [ -1, %25 ]
-  %.3 = phi i32 [ %.2116166, %234 ], [ %.2116166, %235 ], [ %., %144 ], [ %142, %139 ], [ 1, %133 ], [ 2, %106 ], [ %103, %100 ], [ 2, %99 ], [ %.0114153, %.thread148 ], [ 1, %29 ], [ 3, %19 ], [ 0, %25 ]
+  %.3 = phi i32 [ %.2115166, %234 ], [ %.2115166, %235 ], [ %., %144 ], [ %142, %139 ], [ 1, %133 ], [ 2, %106 ], [ %103, %100 ], [ 2, %99 ], [ %.0113153, %.thread148 ], [ 1, %29 ], [ 3, %19 ], [ 0, %25 ]
   %.2 = phi i32 [ %.1168, %234 ], [ %.1168, %235 ], [ %145, %144 ], [ %141, %139 ], [ %136, %133 ], [ %102, %106 ], [ %102, %100 ], [ %95, %99 ], [ %.0112154, %.thread148 ], [ %28, %29 ], [ %22, %19 ], [ 0, %25 ]
   %238 = load i32, ptr %16, align 4
   %239 = load i32, ptr %17, align 8
@@ -899,8 +899,8 @@ list_length.exit43:                               ; preds = %list_length.exit41,
 
 .lr.ph:                                           ; preds = %list_length.exit43, %.lr.ph
   %.049 = phi ptr [ %..i, %.lr.ph ], [ %9, %list_length.exit43 ]
-  %.02848 = phi i32 [ %44, %.lr.ph ], [ %34, %list_length.exit43 ]
-  %44 = add nsw i32 %.02848, -1
+  %.02948 = phi i32 [ %44, %.lr.ph ], [ %34, %list_length.exit43 ]
+  %44 = add nsw i32 %.02948, -1
   %45 = load ptr, ptr %.049, align 8
   %46 = tail call zeroext i1 @assign_collations_walker(ptr noundef %45, ptr noundef %1)
   %47 = load ptr, ptr %4, align 8
@@ -913,14 +913,14 @@ list_length.exit43:                               ; preds = %list_length.exit41,
   %52 = getelementptr %union.ListCell, ptr %.val32, i64 %51
   %53 = icmp ult ptr %50, %52
   %..i = select i1 %53, ptr %50, ptr null
-  %54 = icmp ugt i32 %.02848, 1
+  %54 = icmp ugt i32 %.02948, 1
   br i1 %54, label %.lr.ph, label %.preheader, !llvm.loop !7
 
 55:                                               ; preds = %.lr.ph52, %93
   %.151 = phi ptr [ %.0.lcssa, %.lr.ph52 ], [ %97, %93 ]
-  %.02950 = phi ptr [ %23, %.lr.ph52 ], [ %104, %93 ]
+  %.02850 = phi ptr [ %23, %.lr.ph52 ], [ %104, %93 ]
   %56 = load ptr, ptr %.151, align 8
-  %57 = load ptr, ptr %.02950, align 8
+  %57 = load ptr, ptr %.02850, align 8
   %58 = load ptr, ptr %1, align 8
   store ptr %58, ptr %3, align 8
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 0>, ptr %39, align 8
@@ -994,7 +994,7 @@ list_length.exit43:                               ; preds = %list_length.exit41,
   %.val35 = load i32, ptr %102, align 4
   %103 = getelementptr i8, ptr %101, i64 16
   %.val36 = load ptr, ptr %103, align 8
-  %104 = getelementptr i8, ptr %.02950, i64 8
+  %104 = getelementptr i8, ptr %.02850, i64 8
   %105 = sext i32 %.val35 to i64
   %106 = getelementptr %union.ListCell, ptr %.val36, i64 %105
   %107 = icmp ult ptr %104, %106

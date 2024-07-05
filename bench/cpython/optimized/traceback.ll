@@ -2509,10 +2509,10 @@ while.cond7.preheader.i:                          ; preds = %while.body4.i, %whi
   br i1 %cmp8.not110.i, label %return, label %while.body9.i
 
 while.body4.i:                                    ; preds = %while.cond1.preheader.i, %while.body4.i
-  %depth.1108.i = phi i64 [ %dec.i, %while.body4.i ], [ %inc.i, %while.cond1.preheader.i ]
-  %tb.addr.0107.i = phi ptr [ %6, %while.body4.i ], [ %v, %while.cond1.preheader.i ]
-  %dec.i = add nsw i64 %depth.1108.i, -1
-  %tb_next5.i = getelementptr inbounds i8, ptr %tb.addr.0107.i, i64 16
+  %tb.addr.0108.i = phi ptr [ %6, %while.body4.i ], [ %v, %while.cond1.preheader.i ]
+  %depth.1107.i = phi i64 [ %dec.i, %while.body4.i ], [ %inc.i, %while.cond1.preheader.i ]
+  %dec.i = add nsw i64 %depth.1107.i, -1
+  %tb_next5.i = getelementptr inbounds i8, ptr %tb.addr.0108.i, i64 16
   %6 = load ptr, ptr %tb_next5.i, align 8
   %cmp2.i = icmp ne ptr %6, null
   %cmp3.i = icmp sgt i64 %dec.i, %limit.0
@@ -2520,22 +2520,22 @@ while.body4.i:                                    ; preds = %while.cond1.prehead
   br i1 %7, label %while.body4.i, label %while.cond7.preheader.i, !llvm.loop !11
 
 while.body9.i:                                    ; preds = %while.cond7.preheader.i, %do.end.i
-  %cnt.0115.i = phi i64 [ %inc3483.i, %do.end.i ], [ 0, %while.cond7.preheader.i ]
-  %last_name.0114.i = phi ptr [ %last_name.181.i, %do.end.i ], [ null, %while.cond7.preheader.i ]
-  %last_line.0113.i = phi i32 [ %last_line.179.i, %do.end.i ], [ -1, %while.cond7.preheader.i ]
-  %last_file.0112.i = phi ptr [ %last_file.177.i, %do.end.i ], [ null, %while.cond7.preheader.i ]
-  %tb.addr.1111.i = phi ptr [ %29, %do.end.i ], [ %tb.addr.0.lcssa.i, %while.cond7.preheader.i ]
-  %tb_frame.i = getelementptr inbounds i8, ptr %tb.addr.1111.i, i64 24
+  %tb.addr.1115.i = phi ptr [ %29, %do.end.i ], [ %tb.addr.0.lcssa.i, %while.cond7.preheader.i ]
+  %cnt.0114.i = phi i64 [ %inc3483.i, %do.end.i ], [ 0, %while.cond7.preheader.i ]
+  %last_name.0113.i = phi ptr [ %last_name.181.i, %do.end.i ], [ null, %while.cond7.preheader.i ]
+  %last_line.0112.i = phi i32 [ %last_line.179.i, %do.end.i ], [ -1, %while.cond7.preheader.i ]
+  %last_file.0111.i = phi ptr [ %last_file.177.i, %do.end.i ], [ null, %while.cond7.preheader.i ]
+  %tb_frame.i = getelementptr inbounds i8, ptr %tb.addr.1115.i, i64 24
   %8 = load ptr, ptr %tb_frame.i, align 8
   %call.i = call ptr @PyFrame_GetCode(ptr noundef %8) #10
-  %tb_lineno10.i = getelementptr inbounds i8, ptr %tb.addr.1111.i, i64 36
+  %tb_lineno10.i = getelementptr inbounds i8, ptr %tb.addr.1115.i, i64 36
   %9 = load i32, ptr %tb_lineno10.i, align 4
   %cmp11.i = icmp eq i32 %9, -1
   br i1 %cmp11.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.body9.i
   %tb.addr.1.val.i = load ptr, ptr %tb_frame.i, align 8
-  %10 = getelementptr i8, ptr %tb.addr.1111.i, i64 32
+  %10 = getelementptr i8, ptr %tb.addr.1115.i, i64 32
   %tb.addr.1.val38.i = load i32, ptr %10, align 8
   %11 = getelementptr i8, ptr %tb.addr.1.val.i, i64 24
   %tb.addr.1.val.val.i = load ptr, ptr %11, align 8
@@ -2545,36 +2545,36 @@ if.then.i:                                        ; preds = %while.body9.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body9.i
   %tb_lineno.0.i = phi i32 [ %call1.i.i, %if.then.i ], [ %9, %while.body9.i ]
-  %cmp13.i = icmp eq ptr %last_file.0112.i, null
+  %cmp13.i = icmp eq ptr %last_file.0111.i, null
   br i1 %cmp13.i, label %if.then23.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %co_filename.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %12 = load ptr, ptr %co_filename.i, align 8
-  %cmp14.i = icmp ne ptr %12, %last_file.0112.i
-  %cmp16.i = icmp eq i32 %last_line.0113.i, -1
+  %cmp14.i = icmp ne ptr %12, %last_file.0111.i
+  %cmp16.i = icmp eq i32 %last_line.0112.i, -1
   %or.cond.i = select i1 %cmp14.i, i1 true, i1 %cmp16.i
   br i1 %or.cond.i, label %if.then23.i, label %lor.lhs.false17.i
 
 lor.lhs.false17.i:                                ; preds = %lor.lhs.false.i
-  %cmp18.i = icmp ne i32 %tb_lineno.0.i, %last_line.0113.i
-  %cmp20.i = icmp eq ptr %last_name.0114.i, null
+  %cmp18.i = icmp ne i32 %tb_lineno.0.i, %last_line.0112.i
+  %cmp20.i = icmp eq ptr %last_name.0113.i, null
   %or.cond1.i = select i1 %cmp18.i, i1 true, i1 %cmp20.i
   br i1 %or.cond1.i, label %if.then23.i, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %lor.lhs.false17.i
   %co_name.i = getelementptr inbounds i8, ptr %call.i, i64 120
   %13 = load ptr, ptr %co_name.i, align 8
-  %cmp22.not.i = icmp eq ptr %13, %last_name.0114.i
+  %cmp22.not.i = icmp eq ptr %13, %last_name.0113.i
   br i1 %cmp22.not.i, label %if.end33.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %lor.lhs.false21.i, %lor.lhs.false17.i, %lor.lhs.false.i, %if.end.i
-  %cmp24.i = icmp sgt i64 %cnt.0115.i, 3
+  %cmp24.i = icmp sgt i64 %cnt.0114.i, 3
   br i1 %cmp24.i, label %if.then25.i, label %if.end33.thread.i
 
 if.then25.i:                                      ; preds = %if.then23.i
-  %sub.i.i = add nsw i64 %cnt.0115.i, -3
-  %cmp.i39.not.i = icmp eq i64 %cnt.0115.i, 4
+  %sub.i.i = add nsw i64 %cnt.0114.i, -3
+  %cmp.i39.not.i = icmp eq i64 %cnt.0114.i, 4
   %cond.i.i = select i1 %cmp.i39.not.i, ptr @.str.33, ptr @.str.32
   %call.i.i = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull %cond.i.i, i64 noundef %sub.i.i) #10
   %cmp1.i.i = icmp eq ptr %call.i.i, null
@@ -2609,7 +2609,7 @@ if.end33.thread.i:                                ; preds = %tb_print_line_repea
   br label %if.then36.i
 
 if.end33.i:                                       ; preds = %lor.lhs.false21.i
-  %inc34.i = add i64 %cnt.0115.i, 1
+  %inc34.i = add i64 %cnt.0114.i, 1
   %cmp35.i = icmp slt i64 %inc34.i, 4
   br i1 %cmp35.i, label %if.then36.i, label %if.then50.i
 
@@ -2617,9 +2617,9 @@ if.then36.i:                                      ; preds = %if.end33.i, %if.end
   %18 = phi ptr [ %17, %if.end33.thread.i ], [ %13, %if.end33.i ]
   %19 = phi ptr [ %16, %if.end33.thread.i ], [ %12, %if.end33.i ]
   %inc3484.i = phi i64 [ 1, %if.end33.thread.i ], [ %inc34.i, %if.end33.i ]
-  %last_name.182.i = phi ptr [ %17, %if.end33.thread.i ], [ %last_name.0114.i, %if.end33.i ]
-  %last_line.180.i = phi i32 [ %tb_lineno.0.i, %if.end33.thread.i ], [ %last_line.0113.i, %if.end33.i ]
-  %last_file.178.i = phi ptr [ %16, %if.end33.thread.i ], [ %last_file.0112.i, %if.end33.i ]
+  %last_name.182.i = phi ptr [ %17, %if.end33.thread.i ], [ %last_name.0113.i, %if.end33.i ]
+  %last_line.180.i = phi i32 [ %tb_lineno.0.i, %if.end33.thread.i ], [ %last_line.0112.i, %if.end33.i ]
+  %last_file.178.i = phi ptr [ %16, %if.end33.thread.i ], [ %last_file.0111.i, %if.end33.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %truncation.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %source_line.i.i)
   %cmp.i41.i = icmp eq ptr %19, null
@@ -2721,9 +2721,9 @@ if.end43.i:                                       ; preds = %tb_displayline.exit
 
 if.then50.i:                                      ; preds = %if.end43.i, %if.end33.i
   %inc3483.i = phi i64 [ %inc34.i, %if.end33.i ], [ %inc3484.i, %if.end43.i ]
-  %last_name.181.i = phi ptr [ %last_name.0114.i, %if.end33.i ], [ %last_name.182.i, %if.end43.i ]
-  %last_line.179.i = phi i32 [ %last_line.0113.i, %if.end33.i ], [ %last_line.180.i, %if.end43.i ]
-  %last_file.177.i = phi ptr [ %last_file.0112.i, %if.end33.i ], [ %last_file.178.i, %if.end43.i ]
+  %last_name.181.i = phi ptr [ %last_name.0113.i, %if.end33.i ], [ %last_name.182.i, %if.end43.i ]
+  %last_line.179.i = phi i32 [ %last_line.0112.i, %if.end33.i ], [ %last_line.180.i, %if.end43.i ]
+  %last_file.177.i = phi ptr [ %last_file.0111.i, %if.end33.i ], [ %last_file.178.i, %if.end43.i ]
   %27 = load i64, ptr %call.i, align 8
   %28 = and i64 %27, 2147483648
   %cmp.i62.not.i = icmp eq i64 %28, 0
@@ -2740,7 +2740,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then1.i.i, %if.end.i.i, %if.then50.i
-  %tb_next52.i = getelementptr inbounds i8, ptr %tb.addr.1111.i, i64 16
+  %tb_next52.i = getelementptr inbounds i8, ptr %tb.addr.1115.i, i64 16
   %29 = load ptr, ptr %tb_next52.i, align 8
   %cmp8.not.i = icmp eq ptr %29, null
   br i1 %cmp8.not.i, label %while.end53.i, label %while.body9.i, !llvm.loop !12

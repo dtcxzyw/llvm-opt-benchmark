@@ -170,8 +170,8 @@ if.end35:                                         ; preds = %if.end
 
 if.end.i.preheader:                               ; preds = %if.end35.thread, %if.end35
   %mTextureCoords.i347 = phi ptr [ %mTextureCoords.i342, %if.end35.thread ], [ %mTextureCoords.i, %if.end35 ]
-  %pvBitangents.0346 = phi ptr [ %pvBitangents.0.ph, %if.end35.thread ], [ null, %if.end35 ]
-  %pvTangents.0344 = phi ptr [ %call16, %if.end35.thread ], [ null, %if.end35 ]
+  %pvTangents.0346 = phi ptr [ %call16, %if.end35.thread ], [ null, %if.end35 ]
+  %pvBitangents.0344 = phi ptr [ %pvBitangents.0.ph, %if.end35.thread ], [ null, %if.end35 ]
   %19 = add nsw i64 %2, -12
   %20 = urem i64 %19, 12
   %21 = sub nuw nsw i64 %19, %20
@@ -229,8 +229,8 @@ arrayctor.cont59:                                 ; preds = %new.ctorloop53, %wh
   br i1 %exitcond285, label %while.end63.split, label %_ZNK6aiMesh15HasVertexColorsEj.exit, !llvm.loop !7
 
 while.end63.split:                                ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit, %arrayctor.cont59, %if.end35, %while.cond47.preheader.split
-  %pvTangents.0343355 = phi ptr [ %pvTangents.0344, %while.cond47.preheader.split ], [ null, %if.end35 ], [ %pvTangents.0344, %arrayctor.cont59 ], [ %pvTangents.0344, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
-  %pvBitangents.0345354 = phi ptr [ %pvBitangents.0346, %while.cond47.preheader.split ], [ null, %if.end35 ], [ %pvBitangents.0346, %arrayctor.cont59 ], [ %pvBitangents.0346, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %pvBitangents.0343355 = phi ptr [ %pvBitangents.0344, %while.cond47.preheader.split ], [ null, %if.end35 ], [ %pvBitangents.0344, %arrayctor.cont59 ], [ %pvBitangents.0344, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %pvTangents.0345354 = phi ptr [ %pvTangents.0346, %while.cond47.preheader.split ], [ null, %if.end35 ], [ %pvTangents.0346, %arrayctor.cont59 ], [ %pvTangents.0346, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
   %mTextureCoords.i348353 = phi ptr [ %mTextureCoords.i347, %while.cond47.preheader.split ], [ %mTextureCoords.i, %if.end35 ], [ %mTextureCoords.i347, %arrayctor.cont59 ], [ %mTextureCoords.i347, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
   %mNumBones = getelementptr inbounds i8, ptr %pcMesh, i64 216
   %27 = load i32, ptr %mNumBones, align 8
@@ -546,10 +546,10 @@ if.end139:                                        ; preds = %if.then131, %for.en
 
 if.then141:                                       ; preds = %if.end139
   %arrayidx146 = getelementptr inbounds %class.aiVector3t, ptr %80, i64 %idxprom126
-  %arrayidx148 = getelementptr inbounds %class.aiVector3t, ptr %pvTangents.0343355, i64 %idxprom128
+  %arrayidx148 = getelementptr inbounds %class.aiVector3t, ptr %pvTangents.0345354, i64 %idxprom128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx148, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx146, i64 12, i1 false)
   %arrayidx153 = getelementptr inbounds %class.aiVector3t, ptr %81, i64 %idxprom126
-  %arrayidx155 = getelementptr inbounds %class.aiVector3t, ptr %pvBitangents.0345354, i64 %idxprom128
+  %arrayidx155 = getelementptr inbounds %class.aiVector3t, ptr %pvBitangents.0343355, i64 %idxprom128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx155, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx153, i64 12, i1 false)
   br label %if.end.i179.preheader
 
@@ -812,7 +812,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit246:  ; preds = %if.end305
 
 delete.end311:                                    ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit246
   tail call void @_ZdaPv(ptr noundef nonnull %133) #12
-  store ptr %pvTangents.0343355, ptr %mTangents.i, align 8
+  store ptr %pvTangents.0345354, ptr %mTangents.i, align 8
   %135 = load ptr, ptr %mBitangents.i, align 8
   %isnull314 = icmp eq ptr %135, null
   br i1 %isnull314, label %delete.end316, label %delete.notnull315
@@ -822,7 +822,7 @@ delete.notnull315:                                ; preds = %delete.end311
   br label %delete.end316
 
 delete.end316:                                    ; preds = %delete.notnull315, %delete.end311
-  store ptr %pvBitangents.0345354, ptr %mBitangents.i, align 8
+  store ptr %pvBitangents.0343355, ptr %mBitangents.i, align 8
   %.pre327 = load i32, ptr %mNumVertices, align 4
   br label %if.end318
 

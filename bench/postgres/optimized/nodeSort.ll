@@ -90,7 +90,7 @@ define internal ptr @ExecSort(ptr nocapture noundef %0) #0 {
   %24 = load i8, ptr %23, align 1
   %25 = trunc i8 %24 to i1
   %26 = or disjoint i32 %spec.select, 2
-  %.1 = select i1 %25, i32 %26, i32 %spec.select
+  %.169 = select i1 %25, i32 %26, i32 %spec.select
   %27 = getelementptr inbounds i8, ptr %0, i64 265
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
@@ -110,7 +110,7 @@ define internal ptr @ExecSort(ptr nocapture noundef %0) #0 {
   %41 = load i8, ptr %31, align 1
   %42 = trunc i8 %41 to i1
   %43 = load i32, ptr @work_mem, align 4
-  %44 = tail call ptr @tuplesort_begin_datum(i32 noundef %34, i32 noundef %37, i32 noundef %40, i1 noundef zeroext %42, i32 noundef %43, ptr noundef null, i32 noundef %.1) #4
+  %44 = tail call ptr @tuplesort_begin_datum(i32 noundef %34, i32 noundef %37, i32 noundef %40, i1 noundef zeroext %42, i32 noundef %43, ptr noundef null, i32 noundef %.169) #4
   br label %56
 
 45:                                               ; preds = %14
@@ -123,11 +123,11 @@ define internal ptr @ExecSort(ptr nocapture noundef %0) #0 {
   %52 = getelementptr inbounds i8, ptr %16, i64 128
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr @work_mem, align 4
-  %55 = tail call ptr @tuplesort_begin_heap(ptr noundef %19, i32 noundef %47, ptr noundef %49, ptr noundef %51, ptr noundef %53, ptr noundef %31, i32 noundef %54, ptr noundef null, i32 noundef %.1) #4
+  %55 = tail call ptr @tuplesort_begin_heap(ptr noundef %19, i32 noundef %47, ptr noundef %49, ptr noundef %51, ptr noundef %53, ptr noundef %31, i32 noundef %54, ptr noundef null, i32 noundef %.169) #4
   br label %56
 
 56:                                               ; preds = %45, %32
-  %.068 = phi ptr [ %44, %32 ], [ %55, %45 ]
+  %.0 = phi ptr [ %44, %32 ], [ %55, %45 ]
   %57 = load i8, ptr %23, align 1
   %58 = trunc i8 %57 to i1
   br i1 %58, label %59, label %62
@@ -135,11 +135,11 @@ define internal ptr @ExecSort(ptr nocapture noundef %0) #0 {
 59:                                               ; preds = %56
   %60 = getelementptr inbounds i8, ptr %0, i64 232
   %61 = load i64, ptr %60, align 8
-  tail call void @tuplesort_set_bound(ptr noundef %.068, i64 noundef %61) #4
+  tail call void @tuplesort_set_bound(ptr noundef %.0, i64 noundef %61) #4
   br label %62
 
 62:                                               ; preds = %59, %56
-  store ptr %.068, ptr %9, align 8
+  store ptr %.0, ptr %9, align 8
   %63 = load i8, ptr %27, align 1
   %64 = trunc i8 %63 to i1
   %65 = getelementptr inbounds i8, ptr %18, i64 104
@@ -186,7 +186,7 @@ slot_getsomeattrs.exit:                           ; preds = %76, %80
   %85 = load ptr, ptr %84, align 8
   %86 = load i8, ptr %85, align 1
   %87 = trunc i8 %86 to i1
-  tail call void @tuplesort_putdatum(ptr noundef %.068, i64 noundef %83, i1 noundef zeroext %87) #4
+  tail call void @tuplesort_putdatum(ptr noundef %.0, i64 noundef %83, i1 noundef zeroext %87) #4
   br label %.preheader
 
 .preheader78:                                     ; preds = %62, %97
@@ -212,11 +212,11 @@ ExecProcNode.exit77:                              ; preds = %.preheader78, %89
   br i1 %.not73, label %97, label %.loopexit
 
 97:                                               ; preds = %93
-  tail call void @tuplesort_puttupleslot(ptr noundef %.068, ptr noundef nonnull %91) #4
+  tail call void @tuplesort_puttupleslot(ptr noundef %.0, ptr noundef nonnull %91) #4
   br label %.preheader78
 
 .loopexit:                                        ; preds = %93, %ExecProcNode.exit77, %72, %ExecProcNode.exit
-  tail call void @tuplesort_performsort(ptr noundef %.068) #4
+  tail call void @tuplesort_performsort(ptr noundef %.0) #4
   store i32 %8, ptr %7, align 4
   store i8 1, ptr %11, align 8
   %98 = load i8, ptr %23, align 1
@@ -243,11 +243,11 @@ ExecProcNode.exit77:                              ; preds = %.preheader78, %89
   %112 = load i32, ptr @ParallelWorkerNumber, align 4
   %113 = sext i32 %112 to i64
   %114 = getelementptr [0 x %struct.TuplesortInstrumentation], ptr %111, i64 0, i64 %113
-  tail call void @tuplesort_get_stats(ptr noundef %.068, ptr noundef %114) #4
+  tail call void @tuplesort_get_stats(ptr noundef %.0, ptr noundef %114) #4
   br label %115
 
 115:                                              ; preds = %.loopexit, %106, %110, %4
-  %.169 = phi ptr [ %10, %4 ], [ %.068, %110 ], [ %.068, %106 ], [ %.068, %.loopexit ]
+  %.1 = phi ptr [ %10, %4 ], [ %.0, %110 ], [ %.0, %106 ], [ %.0, %.loopexit ]
   %116 = getelementptr inbounds i8, ptr %0, i64 120
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds i8, ptr %0, i64 265
@@ -266,7 +266,7 @@ ExecProcNode.exit77:                              ; preds = %.preheader78, %89
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %117, i64 32
   %130 = load ptr, ptr %129, align 8
-  %131 = tail call zeroext i1 @tuplesort_getdatum(ptr noundef %.169, i1 noundef zeroext %126, i1 noundef zeroext false, ptr noundef %128, ptr noundef %130, ptr noundef null) #4
+  %131 = tail call zeroext i1 @tuplesort_getdatum(ptr noundef %.1, i1 noundef zeroext %126, i1 noundef zeroext false, ptr noundef %128, ptr noundef %130, ptr noundef null) #4
   br i1 %131, label %132, label %137
 
 132:                                              ; preds = %121
@@ -275,7 +275,7 @@ ExecProcNode.exit77:                              ; preds = %.preheader78, %89
 
 134:                                              ; preds = %115
   %135 = icmp eq i32 %8, 1
-  %136 = tail call zeroext i1 @tuplesort_gettupleslot(ptr noundef %.169, i1 noundef zeroext %135, i1 noundef zeroext false, ptr noundef %117, ptr noundef null) #4
+  %136 = tail call zeroext i1 @tuplesort_gettupleslot(ptr noundef %.1, i1 noundef zeroext %135, i1 noundef zeroext false, ptr noundef %117, ptr noundef null) #4
   br label %137
 
 137:                                              ; preds = %121, %132, %134

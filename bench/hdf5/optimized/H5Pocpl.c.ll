@@ -1252,13 +1252,13 @@ define noundef i32 @H5P__get_filter(ptr nocapture noundef readonly %0, ptr nound
   br i1 %18, label %.lr.ph67, label %.critedge.thread
 
 .lr.ph67:                                         ; preds = %.lr.ph, %16
-  %.0386066 = phi i64 [ %23, %16 ], [ 0, %.lr.ph ]
+  %.06066 = phi i64 [ %23, %16 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr inbounds i32, ptr %19, i64 %.0386066
+  %20 = getelementptr inbounds i32, ptr %19, i64 %.06066
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i32, ptr %3, i64 %.0386066
+  %22 = getelementptr inbounds i32, ptr %3, i64 %.06066
   store i32 %21, ptr %22, align 4
-  %23 = add nuw i64 %.0386066, 1
+  %23 = add nuw i64 %.06066, 1
   %24 = load i64, ptr %12, align 8
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %16, label %.critedge..critedge.thread_crit_edge
@@ -1302,8 +1302,8 @@ define noundef i32 @H5P__get_filter(ptr nocapture noundef readonly %0, ptr nound
   br i1 %.not51, label %.thread, label %.thread56
 
 .thread56:                                        ; preds = %30, %36
-  %.059 = phi ptr [ %38, %36 ], [ %32, %30 ]
-  %39 = tail call ptr @strncpy(ptr noundef nonnull %5, ptr noundef nonnull %.059, i64 noundef %4) #9
+  %.03859 = phi ptr [ %38, %36 ], [ %32, %30 ]
+  %39 = tail call ptr @strncpy(ptr noundef nonnull %5, ptr noundef nonnull %.03859, i64 noundef %4) #9
   %40 = getelementptr i8, ptr %5, i64 %4
   %41 = getelementptr i8, ptr %40, i64 -1
   br label %.sink.split
@@ -2942,15 +2942,15 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_dec(ptr nocapture nound
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %16 = phi ptr [ %18, %.lr.ph ], [ %14, %10 ]
-  %.08597 = phi i64 [ %22, %.lr.ph ], [ 0, %10 ]
-  %.08896 = phi i64 [ %21, %.lr.ph ], [ 0, %10 ]
-  %17 = shl i64 %.08896, 8
+  %.08597 = phi i64 [ %21, %.lr.ph ], [ 0, %10 ]
+  %.08696 = phi i64 [ %22, %.lr.ph ], [ 0, %10 ]
+  %17 = shl i64 %.08597, 8
   %18 = getelementptr inbounds i8, ptr %16, i64 -1
   store ptr %18, ptr %0, align 8
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
   %21 = or disjoint i64 %17, %20
-  %22 = add nuw nsw i64 %.08597, 1
+  %22 = add nuw nsw i64 %.08696, 1
   %exitcond.not = icmp eq i64 %22, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
@@ -2962,7 +2962,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_dec(ptr nocapture nound
   br i1 %.not114, label %.loopexit, label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %._crit_edge, %120
-  %.087110 = phi i64 [ %122, %120 ], [ 0, %._crit_edge ]
+  %.088110 = phi i64 [ %122, %120 ], [ 0, %._crit_edge ]
   %24 = load ptr, ptr %0, align 8
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -3117,13 +3117,13 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_dec(ptr nocapture nound
 
 120:                                              ; preds = %._crit_edge108
   %121 = tail call ptr @H5MM_xfree(ptr noundef %.sroa.23.0130) #9
-  %122 = add nuw i64 %.087110, 1
+  %122 = add nuw i64 %.088110, 1
   %exitcond119.not = icmp eq i64 %122, %21
   br i1 %exitcond119.not, label %.loopexit, label %.lr.ph112
 
 .loopexit:                                        ; preds = %120, %._crit_edge.thread, %._crit_edge, %116, %86, %6
-  %.086 = phi i32 [ -1, %6 ], [ -1, %86 ], [ -1, %116 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 0, %120 ]
-  ret i32 %.086
+  %.087 = phi i32 [ -1, %6 ], [ -1, %86 ], [ -1, %116 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 0, %120 ]
+  ret i32 %.087
 }
 
 ; Function Attrs: nounwind uwtable

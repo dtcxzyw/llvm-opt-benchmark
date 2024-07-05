@@ -339,13 +339,13 @@ define internal range(i32 0, 2) i32 @dissect_teredo_heur(ptr noundef %0, ptr nou
   br label %22
 
 22:                                               ; preds = %19, %7
+  %.040 = phi i32 [ %20, %19 ], [ 0, %7 ]
   %.039 = phi i16 [ %21, %19 ], [ %8, %7 ]
-  %.0 = phi i32 [ %20, %19 ], [ 0, %7 ]
   %23 = icmp eq i16 %.039, 0
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %22
-  %25 = add nuw nsw i32 %.0, 8
+  %25 = add nuw nsw i32 %.040, 8
   %26 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %25) #2
   %27 = icmp slt i32 %26, 40
   br i1 %27, label %42, label %28
@@ -355,21 +355,21 @@ define internal range(i32 0, 2) i32 @dissect_teredo_heur(ptr noundef %0, ptr nou
   br label %30
 
 30:                                               ; preds = %28, %22
-  %.140 = phi i16 [ %29, %28 ], [ %.039, %22 ]
-  %.1 = phi i32 [ %25, %28 ], [ %.0, %22 ]
-  %.mask = and i16 %.140, -4096
+  %.141 = phi i32 [ %25, %28 ], [ %.040, %22 ]
+  %.1 = phi i16 [ %29, %28 ], [ %.039, %22 ]
+  %.mask = and i16 %.1, -4096
   %31 = icmp eq i16 %.mask, 24576
   br i1 %31, label %32, label %42
 
 32:                                               ; preds = %30
-  %33 = add nuw nsw i32 %.1, 4
+  %33 = add nuw nsw i32 %.141, 4
   %34 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %33) #2
   %35 = icmp ugt i16 %34, -69
   br i1 %35, label %42, label %36
 
 36:                                               ; preds = %32
   %37 = zext i16 %34 to i32
-  %38 = add nuw nsw i32 %.1, 40
+  %38 = add nuw nsw i32 %.141, 40
   %39 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %38) #2
   %.not = icmp eq i32 %39, %37
   br i1 %.not, label %40, label %42
@@ -379,8 +379,8 @@ define internal range(i32 0, 2) i32 @dissect_teredo_heur(ptr noundef %0, ptr nou
   br label %42
 
 42:                                               ; preds = %30, %36, %32, %24, %10, %4, %40
-  %.041 = phi i32 [ 1, %40 ], [ 0, %4 ], [ 0, %10 ], [ 0, %24 ], [ 0, %32 ], [ 0, %36 ], [ 0, %30 ]
-  ret i32 %.041
+  %.0 = phi i32 [ 1, %40 ], [ 0, %4 ], [ 0, %10 ], [ 0, %24 ], [ 0, %32 ], [ 0, %36 ], [ 0, %30 ]
+  ret i32 %.0
 }
 
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

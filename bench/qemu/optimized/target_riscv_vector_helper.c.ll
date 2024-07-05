@@ -89734,7 +89734,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i8, ptr %vs2, i64 %indvars.iv18
   %5 = load i8, ptr %add.ptr7.us, align 1
   %6 = trunc nuw i64 %indvars.iv18 to i32
@@ -89748,17 +89748,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %add.us = select i1 %tobool9.not.us, i8 0, i8 %5
-  %s1.1.us = add i8 %s1.016.us, %add.us
+  %s1.1.us = add i8 %s1.015.us, %add.us
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count20
   br i1 %exitcond21.not, label %for.end, label %for.body.us, !llvm.loop !497
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i8 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i8 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i8, ptr %vs2, i64 %indvars.iv
   %10 = load i8, ptr %add.ptr7, align 1
-  %add = add i8 %10, %s1.016
+  %add = add i8 %10, %s1.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count20
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !497
@@ -89798,7 +89798,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv18
   %5 = load i16, ptr %add.ptr7.us, align 2
   %6 = trunc nuw i64 %indvars.iv18 to i32
@@ -89812,17 +89812,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %add.us = select i1 %tobool9.not.us, i16 0, i16 %5
-  %s1.1.us = add i16 %s1.016.us, %add.us
+  %s1.1.us = add i16 %s1.015.us, %add.us
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count20
   br i1 %exitcond21.not, label %for.end, label %for.body.us, !llvm.loop !498
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i16 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i16 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %10 = load i16, ptr %add.ptr7, align 2
-  %add = add i16 %10, %s1.016
+  %add = add i16 %10, %s1.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count20
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !498
@@ -89862,7 +89862,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv19
   %5 = load i32, ptr %add.ptr7.us, align 4
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -89876,17 +89876,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %add.us = select i1 %tobool9.not.us, i32 0, i32 %5
-  %s1.1.us = add i32 %s1.016.us, %add.us
+  %s1.1.us = add i32 %s1.015.us, %add.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !499
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i32 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i32 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
-  %add = add i32 %10, %s1.016
+  %add = add i32 %10, %s1.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !499
@@ -89926,7 +89926,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i64, ptr %vs2, i64 %indvars.iv19
   %5 = load i64, ptr %add.ptr7.us, align 8
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -89940,17 +89940,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %add.us = select i1 %tobool9.not.us, i64 0, i64 %5
-  %s1.1.us = add i64 %s1.016.us, %add.us
+  %s1.1.us = add i64 %s1.015.us, %add.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !500
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i64 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i64 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i64, ptr %vs2, i64 %indvars.iv
   %10 = load i64, ptr %add.ptr7, align 8
-  %add = add i64 %10, %s1.016
+  %add = add i64 %10, %s1.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !500
@@ -89990,7 +89990,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i8, ptr %vs2, i64 %indvars.iv20
   %5 = load i8, ptr %add.ptr7.us, align 1
   %6 = trunc nuw i64 %indvars.iv20 to i32
@@ -90003,18 +90003,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %10 = tail call i8 @llvm.umax.i8(i8 %s1.018.us, i8 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i8 %s1.018.us, i8 %10
+  %10 = tail call i8 @llvm.umax.i8(i8 %s1.017.us, i8 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i8 %s1.017.us, i8 %10
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !501
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i8 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i8 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i8, ptr %vs2, i64 %indvars.iv
   %11 = load i8, ptr %add.ptr7, align 1
-  %12 = tail call i8 @llvm.umax.i8(i8 %s1.018, i8 %11)
+  %12 = tail call i8 @llvm.umax.i8(i8 %s1.017, i8 %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !501
@@ -90054,7 +90054,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv20
   %5 = load i16, ptr %add.ptr7.us, align 2
   %6 = trunc nuw i64 %indvars.iv20 to i32
@@ -90067,18 +90067,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %10 = tail call i16 @llvm.umax.i16(i16 %s1.018.us, i16 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i16 %s1.018.us, i16 %10
+  %10 = tail call i16 @llvm.umax.i16(i16 %s1.017.us, i16 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i16 %s1.017.us, i16 %10
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !502
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i16 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i16 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %11 = load i16, ptr %add.ptr7, align 2
-  %12 = tail call i16 @llvm.umax.i16(i16 %s1.018, i16 %11)
+  %12 = tail call i16 @llvm.umax.i16(i16 %s1.017, i16 %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !502
@@ -90118,7 +90118,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv21
   %5 = load i32, ptr %add.ptr7.us, align 4
   %6 = trunc nuw i64 %indvars.iv21 to i32
@@ -90131,18 +90131,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %cond.us = tail call i32 @llvm.umax.i32(i32 %s1.018.us, i32 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i32 %s1.018.us, i32 %cond.us
+  %cond.us = tail call i32 @llvm.umax.i32(i32 %s1.017.us, i32 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i32 %s1.017.us, i32 %cond.us
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
   br i1 %exitcond25.not, label %for.end, label %for.body.us, !llvm.loop !503
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i32 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i32 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
-  %cond = tail call i32 @llvm.umax.i32(i32 %s1.018, i32 %10)
+  %cond = tail call i32 @llvm.umax.i32(i32 %s1.017, i32 %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !503
@@ -90182,7 +90182,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i64, ptr %vs2, i64 %indvars.iv21
   %5 = load i64, ptr %add.ptr7.us, align 8
   %6 = trunc nuw i64 %indvars.iv21 to i32
@@ -90195,18 +90195,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %cond.us = tail call i64 @llvm.umax.i64(i64 %s1.018.us, i64 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i64 %s1.018.us, i64 %cond.us
+  %cond.us = tail call i64 @llvm.umax.i64(i64 %s1.017.us, i64 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i64 %s1.017.us, i64 %cond.us
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
   br i1 %exitcond25.not, label %for.end, label %for.body.us, !llvm.loop !504
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i64 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i64 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i64, ptr %vs2, i64 %indvars.iv
   %10 = load i64, ptr %add.ptr7, align 8
-  %cond = tail call i64 @llvm.umax.i64(i64 %s1.018, i64 %10)
+  %cond = tail call i64 @llvm.umax.i64(i64 %s1.017, i64 %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !504
@@ -90246,7 +90246,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i8, ptr %vs2, i64 %indvars.iv20
   %5 = load i8, ptr %add.ptr7.us, align 1
   %6 = trunc nuw i64 %indvars.iv20 to i32
@@ -90259,18 +90259,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %10 = tail call i8 @llvm.smax.i8(i8 %s1.018.us, i8 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i8 %s1.018.us, i8 %10
+  %10 = tail call i8 @llvm.smax.i8(i8 %s1.017.us, i8 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i8 %s1.017.us, i8 %10
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !505
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i8 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i8 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i8, ptr %vs2, i64 %indvars.iv
   %11 = load i8, ptr %add.ptr7, align 1
-  %12 = tail call i8 @llvm.smax.i8(i8 %s1.018, i8 %11)
+  %12 = tail call i8 @llvm.smax.i8(i8 %s1.017, i8 %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !505
@@ -90310,7 +90310,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv20
   %5 = load i16, ptr %add.ptr7.us, align 2
   %6 = trunc nuw i64 %indvars.iv20 to i32
@@ -90323,18 +90323,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %10 = tail call i16 @llvm.smax.i16(i16 %s1.018.us, i16 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i16 %s1.018.us, i16 %10
+  %10 = tail call i16 @llvm.smax.i16(i16 %s1.017.us, i16 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i16 %s1.017.us, i16 %10
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !506
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i16 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i16 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %11 = load i16, ptr %add.ptr7, align 2
-  %12 = tail call i16 @llvm.smax.i16(i16 %s1.018, i16 %11)
+  %12 = tail call i16 @llvm.smax.i16(i16 %s1.017, i16 %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !506
@@ -90374,7 +90374,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv21
   %5 = load i32, ptr %add.ptr7.us, align 4
   %6 = trunc nuw i64 %indvars.iv21 to i32
@@ -90387,18 +90387,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %cond.us = tail call i32 @llvm.smax.i32(i32 %s1.018.us, i32 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i32 %s1.018.us, i32 %cond.us
+  %cond.us = tail call i32 @llvm.smax.i32(i32 %s1.017.us, i32 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i32 %s1.017.us, i32 %cond.us
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
   br i1 %exitcond25.not, label %for.end, label %for.body.us, !llvm.loop !507
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i32 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i32 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
-  %cond = tail call i32 @llvm.smax.i32(i32 %s1.018, i32 %10)
+  %cond = tail call i32 @llvm.smax.i32(i32 %s1.017, i32 %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !507
@@ -90438,7 +90438,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i64, ptr %vs2, i64 %indvars.iv21
   %5 = load i64, ptr %add.ptr7.us, align 8
   %6 = trunc nuw i64 %indvars.iv21 to i32
@@ -90451,18 +90451,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %cond.us = tail call i64 @llvm.smax.i64(i64 %s1.018.us, i64 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i64 %s1.018.us, i64 %cond.us
+  %cond.us = tail call i64 @llvm.smax.i64(i64 %s1.017.us, i64 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i64 %s1.017.us, i64 %cond.us
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
   br i1 %exitcond25.not, label %for.end, label %for.body.us, !llvm.loop !508
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i64 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i64 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i64, ptr %vs2, i64 %indvars.iv
   %10 = load i64, ptr %add.ptr7, align 8
-  %cond = tail call i64 @llvm.smax.i64(i64 %s1.018, i64 %10)
+  %cond = tail call i64 @llvm.smax.i64(i64 %s1.017, i64 %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !508
@@ -90502,7 +90502,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i8, ptr %vs2, i64 %indvars.iv20
   %5 = load i8, ptr %add.ptr7.us, align 1
   %6 = trunc nuw i64 %indvars.iv20 to i32
@@ -90515,18 +90515,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %10 = tail call i8 @llvm.umin.i8(i8 %s1.018.us, i8 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i8 %s1.018.us, i8 %10
+  %10 = tail call i8 @llvm.umin.i8(i8 %s1.017.us, i8 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i8 %s1.017.us, i8 %10
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !509
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i8 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i8 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i8, ptr %vs2, i64 %indvars.iv
   %11 = load i8, ptr %add.ptr7, align 1
-  %12 = tail call i8 @llvm.umin.i8(i8 %s1.018, i8 %11)
+  %12 = tail call i8 @llvm.umin.i8(i8 %s1.017, i8 %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !509
@@ -90566,7 +90566,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv20
   %5 = load i16, ptr %add.ptr7.us, align 2
   %6 = trunc nuw i64 %indvars.iv20 to i32
@@ -90579,18 +90579,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %10 = tail call i16 @llvm.umin.i16(i16 %s1.018.us, i16 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i16 %s1.018.us, i16 %10
+  %10 = tail call i16 @llvm.umin.i16(i16 %s1.017.us, i16 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i16 %s1.017.us, i16 %10
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !510
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i16 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i16 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %11 = load i16, ptr %add.ptr7, align 2
-  %12 = tail call i16 @llvm.umin.i16(i16 %s1.018, i16 %11)
+  %12 = tail call i16 @llvm.umin.i16(i16 %s1.017, i16 %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !510
@@ -90630,7 +90630,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv21
   %5 = load i32, ptr %add.ptr7.us, align 4
   %6 = trunc nuw i64 %indvars.iv21 to i32
@@ -90643,18 +90643,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %cond.us = tail call i32 @llvm.umin.i32(i32 %s1.018.us, i32 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i32 %s1.018.us, i32 %cond.us
+  %cond.us = tail call i32 @llvm.umin.i32(i32 %s1.017.us, i32 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i32 %s1.017.us, i32 %cond.us
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
   br i1 %exitcond25.not, label %for.end, label %for.body.us, !llvm.loop !511
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i32 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i32 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
-  %cond = tail call i32 @llvm.umin.i32(i32 %s1.018, i32 %10)
+  %cond = tail call i32 @llvm.umin.i32(i32 %s1.017, i32 %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !511
@@ -90694,7 +90694,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i64, ptr %vs2, i64 %indvars.iv21
   %5 = load i64, ptr %add.ptr7.us, align 8
   %6 = trunc nuw i64 %indvars.iv21 to i32
@@ -90707,18 +90707,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %cond.us = tail call i64 @llvm.umin.i64(i64 %s1.018.us, i64 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i64 %s1.018.us, i64 %cond.us
+  %cond.us = tail call i64 @llvm.umin.i64(i64 %s1.017.us, i64 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i64 %s1.017.us, i64 %cond.us
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
   br i1 %exitcond25.not, label %for.end, label %for.body.us, !llvm.loop !512
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i64 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i64 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i64, ptr %vs2, i64 %indvars.iv
   %10 = load i64, ptr %add.ptr7, align 8
-  %cond = tail call i64 @llvm.umin.i64(i64 %s1.018, i64 %10)
+  %cond = tail call i64 @llvm.umin.i64(i64 %s1.017, i64 %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !512
@@ -90758,7 +90758,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i8, ptr %vs2, i64 %indvars.iv20
   %5 = load i8, ptr %add.ptr7.us, align 1
   %6 = trunc nuw i64 %indvars.iv20 to i32
@@ -90771,18 +90771,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %10 = tail call i8 @llvm.smin.i8(i8 %s1.018.us, i8 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i8 %s1.018.us, i8 %10
+  %10 = tail call i8 @llvm.smin.i8(i8 %s1.017.us, i8 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i8 %s1.017.us, i8 %10
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !513
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i8 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i8 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i8, ptr %vs2, i64 %indvars.iv
   %11 = load i8, ptr %add.ptr7, align 1
-  %12 = tail call i8 @llvm.smin.i8(i8 %s1.018, i8 %11)
+  %12 = tail call i8 @llvm.smin.i8(i8 %s1.017, i8 %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !513
@@ -90822,7 +90822,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv20
   %5 = load i16, ptr %add.ptr7.us, align 2
   %6 = trunc nuw i64 %indvars.iv20 to i32
@@ -90835,18 +90835,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %10 = tail call i16 @llvm.smin.i16(i16 %s1.018.us, i16 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i16 %s1.018.us, i16 %10
+  %10 = tail call i16 @llvm.smin.i16(i16 %s1.017.us, i16 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i16 %s1.017.us, i16 %10
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !514
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i16 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i16 [ %12, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %11 = load i16, ptr %add.ptr7, align 2
-  %12 = tail call i16 @llvm.smin.i16(i16 %s1.018, i16 %11)
+  %12 = tail call i16 @llvm.smin.i16(i16 %s1.017, i16 %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !514
@@ -90886,7 +90886,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv21
   %5 = load i32, ptr %add.ptr7.us, align 4
   %6 = trunc nuw i64 %indvars.iv21 to i32
@@ -90899,18 +90899,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %cond.us = tail call i32 @llvm.smin.i32(i32 %s1.018.us, i32 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i32 %s1.018.us, i32 %cond.us
+  %cond.us = tail call i32 @llvm.smin.i32(i32 %s1.017.us, i32 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i32 %s1.017.us, i32 %cond.us
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
   br i1 %exitcond25.not, label %for.end, label %for.body.us, !llvm.loop !515
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i32 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i32 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
-  %cond = tail call i32 @llvm.smin.i32(i32 %s1.018, i32 %10)
+  %cond = tail call i32 @llvm.smin.i32(i32 %s1.017, i32 %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !515
@@ -90950,7 +90950,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.018.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.017.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i64, ptr %vs2, i64 %indvars.iv21
   %5 = load i64, ptr %add.ptr7.us, align 8
   %6 = trunc nuw i64 %indvars.iv21 to i32
@@ -90963,18 +90963,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %8 = shl nuw i64 1, %sh_prom.i.us
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
-  %cond.us = tail call i64 @llvm.smin.i64(i64 %s1.018.us, i64 %5)
-  %s1.1.us = select i1 %tobool9.not.us, i64 %s1.018.us, i64 %cond.us
+  %cond.us = tail call i64 @llvm.smin.i64(i64 %s1.017.us, i64 %5)
+  %s1.1.us = select i1 %tobool9.not.us, i64 %s1.017.us, i64 %cond.us
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
   br i1 %exitcond25.not, label %for.end, label %for.body.us, !llvm.loop !516
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.018 = phi i64 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.017 = phi i64 [ %cond, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i64, ptr %vs2, i64 %indvars.iv
   %10 = load i64, ptr %add.ptr7, align 8
-  %cond = tail call i64 @llvm.smin.i64(i64 %s1.018, i64 %10)
+  %cond = tail call i64 @llvm.smin.i64(i64 %s1.017, i64 %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !516
@@ -91014,7 +91014,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i8, ptr %vs2, i64 %indvars.iv19
   %5 = load i8, ptr %add.ptr7.us, align 1
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -91028,17 +91028,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %and10.us = select i1 %tobool9.not.us, i8 -1, i8 %5
-  %s1.1.us = and i8 %s1.017.us, %and10.us
+  %s1.1.us = and i8 %s1.016.us, %and10.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count21
   br i1 %exitcond22.not, label %for.end, label %for.body.us, !llvm.loop !517
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i8 [ %and10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i8 [ %and10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i8, ptr %vs2, i64 %indvars.iv
   %10 = load i8, ptr %add.ptr7, align 1
-  %and10 = and i8 %10, %s1.017
+  %and10 = and i8 %10, %s1.016
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count21
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !517
@@ -91078,7 +91078,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv19
   %5 = load i16, ptr %add.ptr7.us, align 2
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -91092,17 +91092,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %and10.us = select i1 %tobool9.not.us, i16 -1, i16 %5
-  %s1.1.us = and i16 %s1.017.us, %and10.us
+  %s1.1.us = and i16 %s1.016.us, %and10.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count21
   br i1 %exitcond22.not, label %for.end, label %for.body.us, !llvm.loop !518
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i16 [ %and10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i16 [ %and10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %10 = load i16, ptr %add.ptr7, align 2
-  %and10 = and i16 %10, %s1.017
+  %and10 = and i16 %10, %s1.016
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count21
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !518
@@ -91142,7 +91142,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv19
   %5 = load i32, ptr %add.ptr7.us, align 4
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -91156,17 +91156,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %and.us = select i1 %tobool9.not.us, i32 -1, i32 %5
-  %s1.1.us = and i32 %s1.016.us, %and.us
+  %s1.1.us = and i32 %s1.015.us, %and.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !519
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i32 [ %and, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i32 [ %and, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
-  %and = and i32 %10, %s1.016
+  %and = and i32 %10, %s1.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !519
@@ -91206,7 +91206,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i64, ptr %vs2, i64 %indvars.iv19
   %5 = load i64, ptr %add.ptr7.us, align 8
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -91220,17 +91220,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %and.us = select i1 %tobool9.not.us, i64 -1, i64 %5
-  %s1.1.us = and i64 %s1.016.us, %and.us
+  %s1.1.us = and i64 %s1.015.us, %and.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !520
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i64 [ %and, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i64 [ %and, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i64, ptr %vs2, i64 %indvars.iv
   %10 = load i64, ptr %add.ptr7, align 8
-  %and = and i64 %10, %s1.016
+  %and = and i64 %10, %s1.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !520
@@ -91270,7 +91270,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i8, ptr %vs2, i64 %indvars.iv19
   %5 = load i8, ptr %add.ptr7.us, align 1
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -91284,17 +91284,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %or10.us = select i1 %tobool9.not.us, i8 0, i8 %5
-  %s1.1.us = or i8 %s1.017.us, %or10.us
+  %s1.1.us = or i8 %s1.016.us, %or10.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count21
   br i1 %exitcond22.not, label %for.end, label %for.body.us, !llvm.loop !521
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i8 [ %or10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i8 [ %or10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i8, ptr %vs2, i64 %indvars.iv
   %10 = load i8, ptr %add.ptr7, align 1
-  %or10 = or i8 %10, %s1.017
+  %or10 = or i8 %10, %s1.016
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count21
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !521
@@ -91334,7 +91334,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv19
   %5 = load i16, ptr %add.ptr7.us, align 2
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -91348,17 +91348,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %or10.us = select i1 %tobool9.not.us, i16 0, i16 %5
-  %s1.1.us = or i16 %s1.017.us, %or10.us
+  %s1.1.us = or i16 %s1.016.us, %or10.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count21
   br i1 %exitcond22.not, label %for.end, label %for.body.us, !llvm.loop !522
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i16 [ %or10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i16 [ %or10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %10 = load i16, ptr %add.ptr7, align 2
-  %or10 = or i16 %10, %s1.017
+  %or10 = or i16 %10, %s1.016
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count21
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !522
@@ -91398,7 +91398,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv19
   %5 = load i32, ptr %add.ptr7.us, align 4
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -91412,17 +91412,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %or.us = select i1 %tobool9.not.us, i32 0, i32 %5
-  %s1.1.us = or i32 %s1.016.us, %or.us
+  %s1.1.us = or i32 %s1.015.us, %or.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !523
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i32 [ %or, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i32 [ %or, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
-  %or = or i32 %10, %s1.016
+  %or = or i32 %10, %s1.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !523
@@ -91462,7 +91462,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i64, ptr %vs2, i64 %indvars.iv19
   %5 = load i64, ptr %add.ptr7.us, align 8
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -91476,17 +91476,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %or.us = select i1 %tobool9.not.us, i64 0, i64 %5
-  %s1.1.us = or i64 %s1.016.us, %or.us
+  %s1.1.us = or i64 %s1.015.us, %or.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !524
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i64 [ %or, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i64 [ %or, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i64, ptr %vs2, i64 %indvars.iv
   %10 = load i64, ptr %add.ptr7, align 8
-  %or = or i64 %10, %s1.016
+  %or = or i64 %10, %s1.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !524
@@ -91526,7 +91526,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i8 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i8, ptr %vs2, i64 %indvars.iv19
   %5 = load i8, ptr %add.ptr7.us, align 1
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -91540,17 +91540,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %xor10.us = select i1 %tobool9.not.us, i8 0, i8 %5
-  %s1.1.us = xor i8 %s1.017.us, %xor10.us
+  %s1.1.us = xor i8 %s1.016.us, %xor10.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count21
   br i1 %exitcond22.not, label %for.end, label %for.body.us, !llvm.loop !525
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i8 [ %xor10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i8 [ %xor10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i8, ptr %vs2, i64 %indvars.iv
   %10 = load i8, ptr %add.ptr7, align 1
-  %xor10 = xor i8 %10, %s1.017
+  %xor10 = xor i8 %10, %s1.016
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count21
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !525
@@ -91590,7 +91590,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv19
   %5 = load i16, ptr %add.ptr7.us, align 2
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -91604,17 +91604,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %xor10.us = select i1 %tobool9.not.us, i16 0, i16 %5
-  %s1.1.us = xor i16 %s1.017.us, %xor10.us
+  %s1.1.us = xor i16 %s1.016.us, %xor10.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count21
   br i1 %exitcond22.not, label %for.end, label %for.body.us, !llvm.loop !526
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i16 [ %xor10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i16 [ %xor10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %10 = load i16, ptr %add.ptr7, align 2
-  %xor10 = xor i16 %10, %s1.017
+  %xor10 = xor i16 %10, %s1.016
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count21
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !526
@@ -91654,7 +91654,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv19
   %5 = load i32, ptr %add.ptr7.us, align 4
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -91668,17 +91668,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %xor.us = select i1 %tobool9.not.us, i32 0, i32 %5
-  %s1.1.us = xor i32 %s1.016.us, %xor.us
+  %s1.1.us = xor i32 %s1.015.us, %xor.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !527
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i32 [ %xor, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i32 [ %xor, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
-  %xor = xor i32 %10, %s1.016
+  %xor = xor i32 %10, %s1.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !527
@@ -91718,7 +91718,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i64, ptr %vs2, i64 %indvars.iv19
   %5 = load i64, ptr %add.ptr7.us, align 8
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -91732,17 +91732,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %9 = and i64 %7, %8
   %tobool9.not.us = icmp eq i64 %9, 0
   %xor.us = select i1 %tobool9.not.us, i64 0, i64 %5
-  %s1.1.us = xor i64 %s1.016.us, %xor.us
+  %s1.1.us = xor i64 %s1.015.us, %xor.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !528
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i64 [ %xor, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i64 [ %xor, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i64, ptr %vs2, i64 %indvars.iv
   %10 = load i64, ptr %add.ptr7, align 8
-  %xor = xor i64 %10, %s1.016
+  %xor = xor i64 %10, %s1.015
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !528
@@ -91782,7 +91782,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i8, ptr %vs2, i64 %indvars.iv18
   %5 = load i8, ptr %add.ptr7.us, align 1
   %6 = trunc nuw i64 %indvars.iv18 to i32
@@ -91797,18 +91797,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %tobool9.not.us = icmp eq i64 %9, 0
   %conv12.us = sext i8 %5 to i16
   %add.us = select i1 %tobool9.not.us, i16 0, i16 %conv12.us
-  %s1.1.us = add i16 %s1.016.us, %add.us
+  %s1.1.us = add i16 %s1.015.us, %add.us
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count20
   br i1 %exitcond21.not, label %for.end, label %for.body.us, !llvm.loop !529
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i16 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i16 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i8, ptr %vs2, i64 %indvars.iv
   %10 = load i8, ptr %add.ptr7, align 1
   %conv12 = sext i8 %10 to i16
-  %add = add i16 %s1.016, %conv12
+  %add = add i16 %s1.015, %conv12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count20
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !529
@@ -91848,7 +91848,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv19
   %5 = load i16, ptr %add.ptr7.us, align 2
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -91863,18 +91863,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %tobool9.not.us = icmp eq i64 %9, 0
   %conv10.us = sext i16 %5 to i32
   %add.us = select i1 %tobool9.not.us, i32 0, i32 %conv10.us
-  %s1.1.us = add i32 %s1.016.us, %add.us
+  %s1.1.us = add i32 %s1.015.us, %add.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !530
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i32 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i32 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %10 = load i16, ptr %add.ptr7, align 2
   %conv10 = sext i16 %10 to i32
-  %add = add i32 %s1.016, %conv10
+  %add = add i32 %s1.015, %conv10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !530
@@ -91914,7 +91914,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv19
   %5 = load i32, ptr %add.ptr7.us, align 4
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -91929,18 +91929,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %tobool9.not.us = icmp eq i64 %9, 0
   %conv10.us = sext i32 %5 to i64
   %add.us = select i1 %tobool9.not.us, i64 0, i64 %conv10.us
-  %s1.1.us = add i64 %s1.016.us, %add.us
+  %s1.1.us = add i64 %s1.015.us, %add.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !531
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i64 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i64 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
   %conv10 = sext i32 %10 to i64
-  %add = add i64 %s1.016, %conv10
+  %add = add i64 %s1.015, %conv10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !531
@@ -91980,7 +91980,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i16 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i8, ptr %vs2, i64 %indvars.iv18
   %5 = load i8, ptr %add.ptr7.us, align 1
   %6 = trunc nuw i64 %indvars.iv18 to i32
@@ -91995,18 +91995,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %tobool9.not.us = icmp eq i64 %9, 0
   %conv12.us = zext i8 %5 to i16
   %add.us = select i1 %tobool9.not.us, i16 0, i16 %conv12.us
-  %s1.1.us = add i16 %s1.016.us, %add.us
+  %s1.1.us = add i16 %s1.015.us, %add.us
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count20
   br i1 %exitcond21.not, label %for.end, label %for.body.us, !llvm.loop !532
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i16 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i16 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i8, ptr %vs2, i64 %indvars.iv
   %10 = load i8, ptr %add.ptr7, align 1
   %conv12 = zext i8 %10 to i16
-  %add = add i16 %s1.016, %conv12
+  %add = add i16 %s1.015, %conv12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count20
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !532
@@ -92046,7 +92046,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i32 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv19
   %5 = load i16, ptr %add.ptr7.us, align 2
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -92061,18 +92061,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %tobool9.not.us = icmp eq i64 %9, 0
   %conv10.us = zext i16 %5 to i32
   %add.us = select i1 %tobool9.not.us, i32 0, i32 %conv10.us
-  %s1.1.us = add i32 %s1.016.us, %add.us
+  %s1.1.us = add i32 %s1.015.us, %add.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !533
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i32 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i32 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %10 = load i16, ptr %add.ptr7, align 2
   %conv10 = zext i16 %10 to i32
-  %add = add i32 %s1.016, %conv10
+  %add = add i32 %s1.015, %conv10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !533
@@ -92112,7 +92112,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.body.us ], [ %4, %for.body.lr.ph ]
-  %s1.016.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
+  %s1.015.us = phi i64 [ %s1.1.us, %for.body.us ], [ %1, %for.body.lr.ph ]
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv19
   %5 = load i32, ptr %add.ptr7.us, align 4
   %6 = trunc nuw i64 %indvars.iv19 to i32
@@ -92127,18 +92127,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %tobool9.not.us = icmp eq i64 %9, 0
   %conv10.us = zext i32 %5 to i64
   %add.us = select i1 %tobool9.not.us, i64 0, i64 %conv10.us
-  %s1.1.us = add i64 %s1.016.us, %add.us
+  %s1.1.us = add i64 %s1.015.us, %add.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !534
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.016 = phi i64 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.015 = phi i64 [ %add, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
   %conv10 = zext i32 %10 to i64
-  %add = add i64 %s1.016, %conv10
+  %add = add i64 %s1.015, %conv10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !534
@@ -92178,7 +92178,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i16 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i16 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv19 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -92194,11 +92194,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv19
   %9 = load i16, ptr %add.ptr7.us, align 2
-  %call10.us = tail call zeroext i16 @float16_add(i16 noundef zeroext %s1.017.us, i16 noundef zeroext %9, ptr noundef nonnull %fp_status) #10
+  %call10.us = tail call zeroext i16 @float16_add(i16 noundef zeroext %s1.016.us, i16 noundef zeroext %9, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i16 [ %call10.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i16 [ %call10.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %lftr.wideiv21 = trunc i64 %indvars.iv.next20 to i32
   %exitcond22.not = icmp eq i32 %lftr.wideiv21, %conv
@@ -92206,10 +92206,10 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i16 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i16 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %10 = load i16, ptr %add.ptr7, align 2
-  %call10 = tail call zeroext i16 @float16_add(i16 noundef zeroext %s1.017, i16 noundef zeroext %10, ptr noundef nonnull %fp_status) #10
+  %call10 = tail call zeroext i16 @float16_add(i16 noundef zeroext %s1.016, i16 noundef zeroext %10, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv
@@ -92252,7 +92252,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i32 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i32 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv20 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -92268,11 +92268,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv20
   %9 = load i32, ptr %add.ptr7.us, align 4
-  %call10.us = tail call i32 @float32_add(i32 noundef %s1.017.us, i32 noundef %9, ptr noundef nonnull %fp_status) #10
+  %call10.us = tail call i32 @float32_add(i32 noundef %s1.016.us, i32 noundef %9, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i32 [ %call10.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i32 [ %call10.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %lftr.wideiv23 = trunc i64 %indvars.iv.next21 to i32
   %exitcond24.not = icmp eq i32 %lftr.wideiv23, %conv
@@ -92280,10 +92280,10 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i32 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i32 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
-  %call10 = tail call i32 @float32_add(i32 noundef %s1.017, i32 noundef %10, ptr noundef nonnull %fp_status) #10
+  %call10 = tail call i32 @float32_add(i32 noundef %s1.016, i32 noundef %10, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv
@@ -92326,7 +92326,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i64 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i64 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv20 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -92342,11 +92342,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i64, ptr %vs2, i64 %indvars.iv20
   %9 = load i64, ptr %add.ptr7.us, align 8
-  %call10.us = tail call i64 @float64_add(i64 noundef %s1.017.us, i64 noundef %9, ptr noundef nonnull %fp_status) #10
+  %call10.us = tail call i64 @float64_add(i64 noundef %s1.016.us, i64 noundef %9, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i64 [ %call10.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i64 [ %call10.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %lftr.wideiv23 = trunc i64 %indvars.iv.next21 to i32
   %exitcond24.not = icmp eq i32 %lftr.wideiv23, %conv
@@ -92354,10 +92354,10 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i64 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i64 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i64, ptr %vs2, i64 %indvars.iv
   %10 = load i64, ptr %add.ptr7, align 8
-  %call10 = tail call i64 @float64_add(i64 noundef %s1.017, i64 noundef %10, ptr noundef nonnull %fp_status) #10
+  %call10 = tail call i64 @float64_add(i64 noundef %s1.016, i64 noundef %10, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv
@@ -92400,7 +92400,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i16 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i16 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv19 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -92416,11 +92416,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv19
   %9 = load i16, ptr %add.ptr7.us, align 2
-  %call10.us = tail call zeroext i16 @float16_add(i16 noundef zeroext %s1.017.us, i16 noundef zeroext %9, ptr noundef nonnull %fp_status) #10
+  %call10.us = tail call zeroext i16 @float16_add(i16 noundef zeroext %s1.016.us, i16 noundef zeroext %9, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i16 [ %call10.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i16 [ %call10.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %lftr.wideiv21 = trunc i64 %indvars.iv.next20 to i32
   %exitcond22.not = icmp eq i32 %lftr.wideiv21, %conv
@@ -92428,10 +92428,10 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i16 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i16 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %10 = load i16, ptr %add.ptr7, align 2
-  %call10 = tail call zeroext i16 @float16_add(i16 noundef zeroext %s1.017, i16 noundef zeroext %10, ptr noundef nonnull %fp_status) #10
+  %call10 = tail call zeroext i16 @float16_add(i16 noundef zeroext %s1.016, i16 noundef zeroext %10, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv
@@ -92472,7 +92472,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i32 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i32 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv20 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -92488,11 +92488,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv20
   %9 = load i32, ptr %add.ptr7.us, align 4
-  %call10.us = tail call i32 @float32_add(i32 noundef %s1.017.us, i32 noundef %9, ptr noundef nonnull %fp_status) #10
+  %call10.us = tail call i32 @float32_add(i32 noundef %s1.016.us, i32 noundef %9, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i32 [ %call10.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i32 [ %call10.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %lftr.wideiv23 = trunc i64 %indvars.iv.next21 to i32
   %exitcond24.not = icmp eq i32 %lftr.wideiv23, %conv
@@ -92500,10 +92500,10 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i32 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i32 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
-  %call10 = tail call i32 @float32_add(i32 noundef %s1.017, i32 noundef %10, ptr noundef nonnull %fp_status) #10
+  %call10 = tail call i32 @float32_add(i32 noundef %s1.016, i32 noundef %10, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv
@@ -92544,7 +92544,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i64 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i64 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv20 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -92560,11 +92560,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i64, ptr %vs2, i64 %indvars.iv20
   %9 = load i64, ptr %add.ptr7.us, align 8
-  %call10.us = tail call i64 @float64_add(i64 noundef %s1.017.us, i64 noundef %9, ptr noundef nonnull %fp_status) #10
+  %call10.us = tail call i64 @float64_add(i64 noundef %s1.016.us, i64 noundef %9, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i64 [ %call10.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i64 [ %call10.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %lftr.wideiv23 = trunc i64 %indvars.iv.next21 to i32
   %exitcond24.not = icmp eq i32 %lftr.wideiv23, %conv
@@ -92572,10 +92572,10 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i64 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i64 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i64, ptr %vs2, i64 %indvars.iv
   %10 = load i64, ptr %add.ptr7, align 8
-  %call10 = tail call i64 @float64_add(i64 noundef %s1.017, i64 noundef %10, ptr noundef nonnull %fp_status) #10
+  %call10 = tail call i64 @float64_add(i64 noundef %s1.016, i64 noundef %10, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv
@@ -92616,7 +92616,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i16 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i16 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv19 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -92632,11 +92632,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv19
   %9 = load i16, ptr %add.ptr7.us, align 2
-  %call10.us = tail call zeroext i16 @float16_maximum_number(i16 noundef zeroext %s1.017.us, i16 noundef zeroext %9, ptr noundef nonnull %fp_status) #10
+  %call10.us = tail call zeroext i16 @float16_maximum_number(i16 noundef zeroext %s1.016.us, i16 noundef zeroext %9, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i16 [ %call10.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i16 [ %call10.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %lftr.wideiv21 = trunc i64 %indvars.iv.next20 to i32
   %exitcond22.not = icmp eq i32 %lftr.wideiv21, %conv
@@ -92644,10 +92644,10 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i16 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i16 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %10 = load i16, ptr %add.ptr7, align 2
-  %call10 = tail call zeroext i16 @float16_maximum_number(i16 noundef zeroext %s1.017, i16 noundef zeroext %10, ptr noundef nonnull %fp_status) #10
+  %call10 = tail call zeroext i16 @float16_maximum_number(i16 noundef zeroext %s1.016, i16 noundef zeroext %10, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv
@@ -92690,7 +92690,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i32 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i32 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv20 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -92706,11 +92706,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv20
   %9 = load i32, ptr %add.ptr7.us, align 4
-  %call10.us = tail call i32 @float32_maximum_number(i32 noundef %s1.017.us, i32 noundef %9, ptr noundef nonnull %fp_status) #10
+  %call10.us = tail call i32 @float32_maximum_number(i32 noundef %s1.016.us, i32 noundef %9, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i32 [ %call10.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i32 [ %call10.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %lftr.wideiv23 = trunc i64 %indvars.iv.next21 to i32
   %exitcond24.not = icmp eq i32 %lftr.wideiv23, %conv
@@ -92718,10 +92718,10 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i32 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i32 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
-  %call10 = tail call i32 @float32_maximum_number(i32 noundef %s1.017, i32 noundef %10, ptr noundef nonnull %fp_status) #10
+  %call10 = tail call i32 @float32_maximum_number(i32 noundef %s1.016, i32 noundef %10, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv
@@ -92764,7 +92764,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i64 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i64 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv20 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -92780,11 +92780,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i64, ptr %vs2, i64 %indvars.iv20
   %9 = load i64, ptr %add.ptr7.us, align 8
-  %call10.us = tail call i64 @float64_maximum_number(i64 noundef %s1.017.us, i64 noundef %9, ptr noundef nonnull %fp_status) #10
+  %call10.us = tail call i64 @float64_maximum_number(i64 noundef %s1.016.us, i64 noundef %9, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i64 [ %call10.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i64 [ %call10.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %lftr.wideiv23 = trunc i64 %indvars.iv.next21 to i32
   %exitcond24.not = icmp eq i32 %lftr.wideiv23, %conv
@@ -92792,10 +92792,10 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i64 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i64 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i64, ptr %vs2, i64 %indvars.iv
   %10 = load i64, ptr %add.ptr7, align 8
-  %call10 = tail call i64 @float64_maximum_number(i64 noundef %s1.017, i64 noundef %10, ptr noundef nonnull %fp_status) #10
+  %call10 = tail call i64 @float64_maximum_number(i64 noundef %s1.016, i64 noundef %10, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv
@@ -92838,7 +92838,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i16 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i16 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv19 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -92854,11 +92854,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv19
   %9 = load i16, ptr %add.ptr7.us, align 2
-  %call10.us = tail call zeroext i16 @float16_minimum_number(i16 noundef zeroext %s1.017.us, i16 noundef zeroext %9, ptr noundef nonnull %fp_status) #10
+  %call10.us = tail call zeroext i16 @float16_minimum_number(i16 noundef zeroext %s1.016.us, i16 noundef zeroext %9, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i16 [ %call10.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i16 [ %call10.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %lftr.wideiv21 = trunc i64 %indvars.iv.next20 to i32
   %exitcond22.not = icmp eq i32 %lftr.wideiv21, %conv
@@ -92866,10 +92866,10 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i16 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i16 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %10 = load i16, ptr %add.ptr7, align 2
-  %call10 = tail call zeroext i16 @float16_minimum_number(i16 noundef zeroext %s1.017, i16 noundef zeroext %10, ptr noundef nonnull %fp_status) #10
+  %call10 = tail call zeroext i16 @float16_minimum_number(i16 noundef zeroext %s1.016, i16 noundef zeroext %10, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv
@@ -92912,7 +92912,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i32 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i32 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv20 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -92928,11 +92928,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv20
   %9 = load i32, ptr %add.ptr7.us, align 4
-  %call10.us = tail call i32 @float32_minimum_number(i32 noundef %s1.017.us, i32 noundef %9, ptr noundef nonnull %fp_status) #10
+  %call10.us = tail call i32 @float32_minimum_number(i32 noundef %s1.016.us, i32 noundef %9, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i32 [ %call10.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i32 [ %call10.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %lftr.wideiv23 = trunc i64 %indvars.iv.next21 to i32
   %exitcond24.not = icmp eq i32 %lftr.wideiv23, %conv
@@ -92940,10 +92940,10 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i32 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i32 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
-  %call10 = tail call i32 @float32_minimum_number(i32 noundef %s1.017, i32 noundef %10, ptr noundef nonnull %fp_status) #10
+  %call10 = tail call i32 @float32_minimum_number(i32 noundef %s1.016, i32 noundef %10, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv
@@ -92986,7 +92986,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i64 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i64 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv20 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -93002,11 +93002,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i64, ptr %vs2, i64 %indvars.iv20
   %9 = load i64, ptr %add.ptr7.us, align 8
-  %call10.us = tail call i64 @float64_minimum_number(i64 noundef %s1.017.us, i64 noundef %9, ptr noundef nonnull %fp_status) #10
+  %call10.us = tail call i64 @float64_minimum_number(i64 noundef %s1.016.us, i64 noundef %9, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i64 [ %call10.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i64 [ %call10.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %lftr.wideiv23 = trunc i64 %indvars.iv.next21 to i32
   %exitcond24.not = icmp eq i32 %lftr.wideiv23, %conv
@@ -93014,10 +93014,10 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i64 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i64 [ %call10, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i64, ptr %vs2, i64 %indvars.iv
   %10 = load i64, ptr %add.ptr7, align 8
-  %call10 = tail call i64 @float64_minimum_number(i64 noundef %s1.017, i64 noundef %10, ptr noundef nonnull %fp_status) #10
+  %call10 = tail call i64 @float64_minimum_number(i64 noundef %s1.016, i64 noundef %10, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv
@@ -93060,7 +93060,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i32 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i32 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv20 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -93077,11 +93077,11 @@ if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv20
   %9 = load i16, ptr %add.ptr7.us, align 2
   %call.i.us = tail call i32 @float16_to_float32(i16 noundef zeroext %9, i1 noundef zeroext true, ptr noundef nonnull %fp_status) #10
-  %call1.i.us = tail call i32 @float32_add(i32 noundef %s1.017.us, i32 noundef %call.i.us, ptr noundef nonnull %fp_status) #10
+  %call1.i.us = tail call i32 @float32_add(i32 noundef %s1.016.us, i32 noundef %call.i.us, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i32 [ %call1.i.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i32 [ %call1.i.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %lftr.wideiv23 = trunc i64 %indvars.iv.next21 to i32
   %exitcond24.not = icmp eq i32 %lftr.wideiv23, %conv
@@ -93089,11 +93089,11 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i32 [ %call1.i, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i32 [ %call1.i, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %10 = load i16, ptr %add.ptr7, align 2
   %call.i = tail call i32 @float16_to_float32(i16 noundef zeroext %10, i1 noundef zeroext true, ptr noundef nonnull %fp_status) #10
-  %call1.i = tail call i32 @float32_add(i32 noundef %s1.017, i32 noundef %call.i, ptr noundef nonnull %fp_status) #10
+  %call1.i = tail call i32 @float32_add(i32 noundef %s1.016, i32 noundef %call.i, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv
@@ -93134,7 +93134,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i64 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i64 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv20 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -93151,11 +93151,11 @@ if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv20
   %9 = load i32, ptr %add.ptr7.us, align 4
   %call.i.us = tail call i64 @float32_to_float64(i32 noundef %9, ptr noundef nonnull %fp_status) #10
-  %call1.i.us = tail call i64 @float64_add(i64 noundef %s1.017.us, i64 noundef %call.i.us, ptr noundef nonnull %fp_status) #10
+  %call1.i.us = tail call i64 @float64_add(i64 noundef %s1.016.us, i64 noundef %call.i.us, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i64 [ %call1.i.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i64 [ %call1.i.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %lftr.wideiv23 = trunc i64 %indvars.iv.next21 to i32
   %exitcond24.not = icmp eq i32 %lftr.wideiv23, %conv
@@ -93163,11 +93163,11 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i64 [ %call1.i, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i64 [ %call1.i, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
   %call.i = tail call i64 @float32_to_float64(i32 noundef %10, ptr noundef nonnull %fp_status) #10
-  %call1.i = tail call i64 @float64_add(i64 noundef %s1.017, i64 noundef %call.i, ptr noundef nonnull %fp_status) #10
+  %call1.i = tail call i64 @float64_add(i64 noundef %s1.016, i64 noundef %call.i, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv
@@ -93208,7 +93208,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i32 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i32 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv20 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -93225,11 +93225,11 @@ if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i16, ptr %vs2, i64 %indvars.iv20
   %9 = load i16, ptr %add.ptr7.us, align 2
   %call.i.us = tail call i32 @float16_to_float32(i16 noundef zeroext %9, i1 noundef zeroext true, ptr noundef nonnull %fp_status) #10
-  %call1.i.us = tail call i32 @float32_add(i32 noundef %s1.017.us, i32 noundef %call.i.us, ptr noundef nonnull %fp_status) #10
+  %call1.i.us = tail call i32 @float32_add(i32 noundef %s1.016.us, i32 noundef %call.i.us, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i32 [ %call1.i.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i32 [ %call1.i.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %lftr.wideiv23 = trunc i64 %indvars.iv.next21 to i32
   %exitcond24.not = icmp eq i32 %lftr.wideiv23, %conv
@@ -93237,11 +93237,11 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i32 [ %call1.i, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i32 [ %call1.i, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i16, ptr %vs2, i64 %indvars.iv
   %10 = load i16, ptr %add.ptr7, align 2
   %call.i = tail call i32 @float16_to_float32(i16 noundef zeroext %10, i1 noundef zeroext true, ptr noundef nonnull %fp_status) #10
-  %call1.i = tail call i32 @float32_add(i32 noundef %s1.017, i32 noundef %call.i, ptr noundef nonnull %fp_status) #10
+  %call1.i = tail call i32 @float32_add(i32 noundef %s1.016, i32 noundef %call.i, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv
@@ -93282,7 +93282,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %s1.017.us = phi i64 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
+  %s1.016.us = phi i64 [ %s1.1.us, %for.inc.us ], [ %1, %for.body.lr.ph ]
   %5 = trunc nuw i64 %indvars.iv20 to i32
   %div.i.us = sdiv i32 %5, 64
   %rem.i.us = srem i32 %5, 64
@@ -93299,11 +93299,11 @@ if.end.us:                                        ; preds = %for.body.us
   %add.ptr7.us = getelementptr i32, ptr %vs2, i64 %indvars.iv20
   %9 = load i32, ptr %add.ptr7.us, align 4
   %call.i.us = tail call i64 @float32_to_float64(i32 noundef %9, ptr noundef nonnull %fp_status) #10
-  %call1.i.us = tail call i64 @float64_add(i64 noundef %s1.017.us, i64 noundef %call.i.us, ptr noundef nonnull %fp_status) #10
+  %call1.i.us = tail call i64 @float64_add(i64 noundef %s1.016.us, i64 noundef %call.i.us, ptr noundef nonnull %fp_status) #10
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %s1.1.us = phi i64 [ %call1.i.us, %if.end.us ], [ %s1.017.us, %for.body.us ]
+  %s1.1.us = phi i64 [ %call1.i.us, %if.end.us ], [ %s1.016.us, %for.body.us ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %lftr.wideiv23 = trunc i64 %indvars.iv.next21 to i32
   %exitcond24.not = icmp eq i32 %lftr.wideiv23, %conv
@@ -93311,11 +93311,11 @@ for.inc.us:                                       ; preds = %if.end.us, %for.bod
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %4, %for.body.lr.ph ]
-  %s1.017 = phi i64 [ %call1.i, %for.body ], [ %1, %for.body.lr.ph ]
+  %s1.016 = phi i64 [ %call1.i, %for.body ], [ %1, %for.body.lr.ph ]
   %add.ptr7 = getelementptr i32, ptr %vs2, i64 %indvars.iv
   %10 = load i32, ptr %add.ptr7, align 4
   %call.i = tail call i64 @float32_to_float64(i32 noundef %10, ptr noundef nonnull %fp_status) #10
-  %call1.i = tail call i64 @float64_add(i64 noundef %s1.017, i64 noundef %call.i, ptr noundef nonnull %fp_status) #10
+  %call1.i = tail call i64 @float64_add(i64 noundef %s1.016, i64 noundef %call.i, ptr noundef nonnull %fp_status) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %conv

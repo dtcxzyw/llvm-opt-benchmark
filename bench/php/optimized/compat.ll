@@ -877,13 +877,13 @@ define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = icmp sgt i32 %4, 0
-  br i1 %12, label %13, label %.loopexit141
+  br i1 %12, label %13, label %.loopexit143
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 104
   %15 = load ptr, ptr %14, align 8
   %.not.not = icmp eq ptr %15, null
-  br i1 %.not.not, label %.loopexit141, label %.lr.ph
+  br i1 %.not.not, label %.loopexit143, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %16 = getelementptr inbounds i8, ptr %0, i64 16
@@ -891,7 +891,7 @@ define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %.0104142 = phi i32 [ 0, %.lr.ph ], [ %25, %17 ]
+  %.098145 = phi i32 [ 0, %.lr.ph ], [ %25, %17 ]
   %18 = load ptr, ptr %14, align 8
   %19 = load ptr, ptr %16, align 8
   %20 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
@@ -901,25 +901,25 @@ define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %
   %24 = load ptr, ptr %23, align 8
   tail call void %18(ptr noundef %19, ptr noundef %21, ptr noundef %24) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %25 = add nuw nsw i32 %.0104142, 1
+  %25 = add nuw nsw i32 %.098145, 1
   %exitcond.not = icmp eq i32 %25, %4
-  br i1 %exitcond.not, label %.loopexit141, label %17
+  br i1 %exitcond.not, label %.loopexit143, label %17
 
-.loopexit141:                                     ; preds = %17, %13, %9
+.loopexit143:                                     ; preds = %17, %13, %9
   %26 = getelementptr inbounds i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %86
 
-29:                                               ; preds = %.loopexit141
+29:                                               ; preds = %.loopexit143
   %30 = getelementptr inbounds i8, ptr %0, i64 72
   %31 = load ptr, ptr %30, align 8
-  %.not118 = icmp eq ptr %31, null
-  br i1 %.not118, label %146, label %32
+  %.not119 = icmp eq ptr %31, null
+  br i1 %.not119, label %146, label %32
 
 32:                                               ; preds = %29
-  %.not119 = icmp eq ptr %2, null
-  br i1 %.not119, label %39, label %33
+  %.not120 = icmp eq ptr %2, null
+  br i1 %.not120, label %39, label %33
 
 33:                                               ; preds = %32
   %34 = tail call i32 @xmlStrlen(ptr noundef nonnull %2) #9
@@ -936,81 +936,81 @@ define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %
 
 42:                                               ; preds = %39, %33
   %storemerge = phi ptr [ %41, %39 ], [ %38, %33 ]
-  %.not120 = icmp ne ptr %5, null
-  %or.cond161 = and i1 %.not120, %12
-  br i1 %or.cond161, label %.lr.ph154, label %.loopexit138
+  %.not121 = icmp ne ptr %5, null
+  %or.cond163 = and i1 %.not121, %12
+  br i1 %or.cond163, label %.lr.ph156, label %.loopexit140
 
-.lr.ph154:                                        ; preds = %42, %52
-  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %52 ], [ 0, %42 ]
-  %.099153 = phi i32 [ %56, %52 ], [ 0, %42 ]
-  %.0134151 = phi ptr [ %54, %52 ], [ %storemerge, %42 ]
-  %43 = or disjoint i64 %indvars.iv177, 1
-  %44 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv177
+.lr.ph156:                                        ; preds = %42, %52
+  %indvars.iv179 = phi i64 [ %indvars.iv.next180, %52 ], [ 0, %42 ]
+  %.0107154 = phi i32 [ %56, %52 ], [ 0, %42 ]
+  %.0135153 = phi ptr [ %54, %52 ], [ %storemerge, %42 ]
+  %43 = or disjoint i64 %indvars.iv179, 1
+  %44 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv179
   %45 = load ptr, ptr %44, align 8
-  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 2
+  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 2
   %46 = getelementptr inbounds ptr, ptr %5, i64 %43
   %47 = load ptr, ptr %46, align 8
-  %.not123 = icmp eq ptr %45, null
-  br i1 %.not123, label %50, label %48
+  %.not124 = icmp eq ptr %45, null
+  br i1 %.not124, label %50, label %48
 
-48:                                               ; preds = %.lr.ph154
+48:                                               ; preds = %.lr.ph156
   %49 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %10, i64 noundef 0, ptr noundef nonnull @.str.11, ptr noundef nonnull %45, ptr noundef %47) #9
   br label %52
 
-50:                                               ; preds = %.lr.ph154
+50:                                               ; preds = %.lr.ph156
   %51 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %10, i64 noundef 0, ptr noundef nonnull @.str.12, ptr noundef %47) #9
   br label %52
 
 52:                                               ; preds = %50, %48
-  %.098.in = phi i64 [ %49, %48 ], [ %51, %50 ]
-  %.098 = trunc i64 %.098.in to i32
+  %.0108.in = phi i64 [ %49, %48 ], [ %51, %50 ]
+  %.0108 = trunc i64 %.0108.in to i32
   %53 = load ptr, ptr %10, align 8
-  %54 = call ptr @xmlStrncat(ptr noundef %.0134151, ptr noundef %53, i32 noundef %.098) #9
+  %54 = call ptr @xmlStrncat(ptr noundef %.0135153, ptr noundef %53, i32 noundef %.0108) #9
   %55 = load ptr, ptr %10, align 8
   call void @_efree(ptr noundef %55) #9
-  %56 = add nuw nsw i32 %.099153, 1
-  %exitcond180.not = icmp eq i32 %56, %4
-  br i1 %exitcond180.not, label %.loopexit138, label %.lr.ph154
+  %56 = add nuw nsw i32 %.0107154, 1
+  %exitcond182.not = icmp eq i32 %56, %4
+  br i1 %exitcond182.not, label %.loopexit140, label %.lr.ph156
 
-.loopexit138:                                     ; preds = %52, %42
-  %.1 = phi ptr [ %storemerge, %42 ], [ %54, %52 ]
-  %.not121 = icmp eq ptr %8, null
-  br i1 %.not121, label %.loopexit, label %.preheader
+.loopexit140:                                     ; preds = %52, %42
+  %.1136 = phi ptr [ %storemerge, %42 ], [ %54, %52 ]
+  %.not122 = icmp eq ptr %8, null
+  br i1 %.not122, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit138
+.preheader:                                       ; preds = %.loopexit140
   %invariant.gep = getelementptr inbounds i8, ptr %8, i64 32
   %57 = icmp sgt i32 %6, 0
-  br i1 %57, label %.lr.ph159, label %.loopexit
+  br i1 %57, label %.lr.ph161, label %.loopexit
 
-.lr.ph159:                                        ; preds = %.preheader, %69
-  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %69 ], [ 0, %.preheader ]
-  %.1105157 = phi i32 [ %79, %69 ], [ 0, %.preheader ]
-  %.2135156 = phi ptr [ %77, %69 ], [ %.1, %.preheader ]
-  %58 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv181
+.lr.ph161:                                        ; preds = %.preheader, %69
+  %indvars.iv183 = phi i64 [ %indvars.iv.next184, %69 ], [ 0, %.preheader ]
+  %.1160 = phi i32 [ %79, %69 ], [ 0, %.preheader ]
+  %.2137158 = phi ptr [ %77, %69 ], [ %.1136, %.preheader ]
+  %58 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv183
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr i8, ptr %58, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr i8, ptr %58, i64 24
   %63 = load ptr, ptr %62, align 8
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 5
-  %gep = getelementptr inbounds ptr, ptr %invariant.gep, i64 %indvars.iv181
+  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 5
+  %gep = getelementptr inbounds ptr, ptr %invariant.gep, i64 %indvars.iv183
   %64 = load ptr, ptr %gep, align 8
-  %.not122 = icmp eq ptr %61, null
-  br i1 %.not122, label %67, label %65
+  %.not123 = icmp eq ptr %61, null
+  br i1 %.not123, label %67, label %65
 
-65:                                               ; preds = %.lr.ph159
+65:                                               ; preds = %.lr.ph161
   %66 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull @.str.13, ptr noundef nonnull %61, ptr noundef %59) #9
   br label %69
 
-67:                                               ; preds = %.lr.ph159
+67:                                               ; preds = %.lr.ph161
   %68 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %59) #9
   br label %69
 
 69:                                               ; preds = %67, %65
-  %.0.in = phi i64 [ %66, %65 ], [ %68, %67 ]
-  %.0 = trunc i64 %.0.in to i32
+  %.0105.in = phi i64 [ %66, %65 ], [ %68, %67 ]
+  %.0105 = trunc i64 %.0105.in to i32
   %70 = load ptr, ptr %11, align 8
-  %71 = call ptr @xmlStrncat(ptr noundef %.2135156, ptr noundef %70, i32 noundef %.0) #9
+  %71 = call ptr @xmlStrncat(ptr noundef %.2137158, ptr noundef %70, i32 noundef %.0105) #9
   %72 = ptrtoint ptr %64 to i64
   %73 = ptrtoint ptr %63 to i64
   %74 = sub i64 %72, %73
@@ -1019,13 +1019,13 @@ define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %
   %77 = call ptr @xmlStrncat(ptr noundef %76, ptr noundef nonnull @.str.15, i32 noundef 1) #9
   %78 = load ptr, ptr %11, align 8
   call void @_efree(ptr noundef %78) #9
-  %79 = add nuw nsw i32 %.1105157, 1
-  %exitcond184.not = icmp eq i32 %79, %6
-  br i1 %exitcond184.not, label %.loopexit, label %.lr.ph159
+  %79 = add nuw nsw i32 %.1160, 1
+  %exitcond186.not = icmp eq i32 %79, %6
+  br i1 %exitcond186.not, label %.loopexit, label %.lr.ph161
 
-.loopexit:                                        ; preds = %69, %.preheader, %.loopexit138
-  %.3136 = phi ptr [ %.1, %.loopexit138 ], [ %.1, %.preheader ], [ %77, %69 ]
-  %80 = call ptr @xmlStrncat(ptr noundef %.3136, ptr noundef nonnull @.str.5, i32 noundef 1) #9
+.loopexit:                                        ; preds = %69, %.preheader, %.loopexit140
+  %.3138 = phi ptr [ %.1136, %.loopexit140 ], [ %.1136, %.preheader ], [ %77, %69 ]
+  %80 = call ptr @xmlStrncat(ptr noundef %.3138, ptr noundef nonnull @.str.5, i32 noundef 1) #9
   %81 = load ptr, ptr %30, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 16
   %83 = load ptr, ptr %82, align 8
@@ -1035,7 +1035,7 @@ define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %
   call void %85(ptr noundef %80) #9
   br label %146
 
-86:                                               ; preds = %.loopexit141
+86:                                               ; preds = %.loopexit143
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %94, label %87
 
@@ -1054,8 +1054,8 @@ define internal void @_start_element_handler_ns(ptr nocapture noundef readonly %
 
 _qualify_namespace.exit:                          ; preds = %87, %94
   %storemerge.i = phi ptr [ %95, %94 ], [ %93, %87 ]
-  %.not115 = icmp eq ptr %8, null
-  br i1 %.not115, label %137, label %96
+  %.not116 = icmp eq ptr %8, null
+  br i1 %.not116, label %137, label %96
 
 96:                                               ; preds = %_qualify_namespace.exit
   %97 = shl nsw i32 %6, 1
@@ -1063,28 +1063,28 @@ _qualify_namespace.exit:                          ; preds = %87, %94
   %99 = sext i32 %98 to i64
   %100 = tail call noalias ptr @_safe_emalloc(i64 noundef %99, i64 noundef 8, i64 noundef 0) #9
   %101 = icmp sgt i32 %6, 0
-  br i1 %101, label %.lr.ph147, label %._crit_edge
+  br i1 %101, label %.lr.ph149, label %._crit_edge
 
-.lr.ph147:                                        ; preds = %96
+.lr.ph149:                                        ; preds = %96
   %102 = getelementptr inbounds i8, ptr %0, i64 8
   br label %103
 
-103:                                              ; preds = %.lr.ph147, %_qualify_namespace.exit126
-  %indvars.iv167 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next168, %_qualify_namespace.exit126 ]
-  %indvars.iv165 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next166, %_qualify_namespace.exit126 ]
-  %.2106144 = phi i32 [ 0, %.lr.ph147 ], [ %133, %_qualify_namespace.exit126 ]
-  %104 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv165
+103:                                              ; preds = %.lr.ph149, %_qualify_namespace.exit127
+  %indvars.iv169 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next170, %_qualify_namespace.exit127 ]
+  %indvars.iv167 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next168, %_qualify_namespace.exit127 ]
+  %.2148 = phi i32 [ 0, %.lr.ph149 ], [ %133, %_qualify_namespace.exit127 ]
+  %104 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv169
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
-  %.not117 = icmp eq ptr %106, null
+  %.not118 = icmp eq ptr %106, null
   %107 = load ptr, ptr %104, align 8
-  br i1 %.not117, label %119, label %108
+  br i1 %.not118, label %119, label %108
 
 108:                                              ; preds = %103
   %109 = getelementptr inbounds i8, ptr %104, i64 16
   %110 = load ptr, ptr %109, align 8
-  %.not.i124 = icmp eq ptr %110, null
-  br i1 %.not.i124, label %117, label %111
+  %.not.i125 = icmp eq ptr %110, null
+  br i1 %.not.i125, label %117, label %111
 
 111:                                              ; preds = %108
   %112 = tail call ptr @xmlStrdup(ptr noundef nonnull %110) #9
@@ -1092,20 +1092,20 @@ _qualify_namespace.exit:                          ; preds = %87, %94
   %114 = tail call ptr @xmlStrncat(ptr noundef %112, ptr noundef %113, i32 noundef 1) #9
   %115 = tail call i32 @xmlStrlen(ptr noundef %107) #9
   %116 = tail call ptr @xmlStrncat(ptr noundef %114, ptr noundef %107, i32 noundef %115) #9
-  br label %_qualify_namespace.exit126
+  br label %_qualify_namespace.exit127
 
 117:                                              ; preds = %108
   %118 = tail call ptr @xmlStrdup(ptr noundef %107) #9
-  br label %_qualify_namespace.exit126
+  br label %_qualify_namespace.exit127
 
 119:                                              ; preds = %103
   %120 = tail call ptr @xmlStrdup(ptr noundef %107) #9
-  br label %_qualify_namespace.exit126
+  br label %_qualify_namespace.exit127
 
-_qualify_namespace.exit126:                       ; preds = %117, %111, %119
-  %.0133 = phi ptr [ %120, %119 ], [ %118, %117 ], [ %116, %111 ]
+_qualify_namespace.exit127:                       ; preds = %117, %111, %119
+  %.0134 = phi ptr [ %120, %119 ], [ %118, %117 ], [ %116, %111 ]
   %121 = getelementptr inbounds ptr, ptr %100, i64 %indvars.iv167
-  store ptr %.0133, ptr %121, align 8
+  store ptr %.0134, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %104, i64 24
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds i8, ptr %104, i64 32
@@ -1119,55 +1119,55 @@ _qualify_namespace.exit126:                       ; preds = %117, %111, %119
   %132 = getelementptr inbounds ptr, ptr %100, i64 %131
   store ptr %130, ptr %132, align 8
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 2
-  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 5
-  %133 = add nuw nsw i32 %.2106144, 1
-  %exitcond172.not = icmp eq i32 %133, %6
-  br i1 %exitcond172.not, label %._crit_edge.loopexit, label %103
+  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 5
+  %133 = add nuw nsw i32 %.2148, 1
+  %exitcond174.not = icmp eq i32 %133, %6
+  br i1 %exitcond174.not, label %._crit_edge.loopexit, label %103
 
-._crit_edge.loopexit:                             ; preds = %_qualify_namespace.exit126
+._crit_edge.loopexit:                             ; preds = %_qualify_namespace.exit127
   %134 = trunc nuw i64 %indvars.iv.next168 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %96
-  %.0102.lcssa = phi i32 [ 0, %96 ], [ %134, %._crit_edge.loopexit ]
-  %135 = zext nneg i32 %.0102.lcssa to i64
+  %.099.lcssa = phi i32 [ 0, %96 ], [ %134, %._crit_edge.loopexit ]
+  %135 = zext nneg i32 %.099.lcssa to i64
   %136 = getelementptr inbounds ptr, ptr %100, i64 %135
   store ptr null, ptr %136, align 8
   br label %137
 
 137:                                              ; preds = %._crit_edge, %_qualify_namespace.exit
-  %.0108 = phi ptr [ %100, %._crit_edge ], [ null, %_qualify_namespace.exit ]
-  %.1103 = phi i32 [ %.0102.lcssa, %._crit_edge ], [ 0, %_qualify_namespace.exit ]
+  %.1100 = phi i32 [ %.099.lcssa, %._crit_edge ], [ 0, %_qualify_namespace.exit ]
+  %.0 = phi ptr [ %100, %._crit_edge ], [ null, %_qualify_namespace.exit ]
   %138 = load ptr, ptr %26, align 8
   %139 = getelementptr inbounds i8, ptr %0, i64 16
   %140 = load ptr, ptr %139, align 8
-  tail call void %138(ptr noundef %140, ptr noundef %storemerge.i, ptr noundef %.0108) #9
-  %.not116 = icmp eq ptr %.0108, null
-  br i1 %.not116, label %144, label %.preheader139
+  tail call void %138(ptr noundef %140, ptr noundef %storemerge.i, ptr noundef %.0) #9
+  %.not117 = icmp eq ptr %.0, null
+  br i1 %.not117, label %144, label %.preheader141
 
-.preheader139:                                    ; preds = %137
-  %.not = icmp eq i32 %.1103, 0
-  br i1 %.not, label %._crit_edge150, label %.lr.ph149.preheader
+.preheader141:                                    ; preds = %137
+  %.not = icmp eq i32 %.1100, 0
+  br i1 %.not, label %._crit_edge152, label %.lr.ph151.preheader
 
-.lr.ph149.preheader:                              ; preds = %.preheader139
-  %wide.trip.count = zext i32 %.1103 to i64
-  br label %.lr.ph149
+.lr.ph151.preheader:                              ; preds = %.preheader141
+  %wide.trip.count = zext i32 %.1100 to i64
+  br label %.lr.ph151
 
-.lr.ph149:                                        ; preds = %.lr.ph149.preheader, %.lr.ph149
-  %indvars.iv173 = phi i64 [ 0, %.lr.ph149.preheader ], [ %indvars.iv.next174, %.lr.ph149 ]
+.lr.ph151:                                        ; preds = %.lr.ph151.preheader, %.lr.ph151
+  %indvars.iv175 = phi i64 [ 0, %.lr.ph151.preheader ], [ %indvars.iv.next176, %.lr.ph151 ]
   %141 = load ptr, ptr @xmlFree, align 8
-  %142 = getelementptr inbounds ptr, ptr %.0108, i64 %indvars.iv173
+  %142 = getelementptr inbounds ptr, ptr %.0, i64 %indvars.iv175
   %143 = load ptr, ptr %142, align 8
   tail call void %141(ptr noundef %143) #9
-  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
-  %exitcond176.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count
-  br i1 %exitcond176.not, label %._crit_edge150, label %.lr.ph149
+  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
+  %exitcond178.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count
+  br i1 %exitcond178.not, label %._crit_edge152, label %.lr.ph151
 
-._crit_edge150:                                   ; preds = %.lr.ph149, %.preheader139
-  tail call void @_efree(ptr noundef nonnull %.0108) #9
+._crit_edge152:                                   ; preds = %.lr.ph151, %.preheader141
+  tail call void @_efree(ptr noundef nonnull %.0) #9
   br label %144
 
-144:                                              ; preds = %._crit_edge150, %137
+144:                                              ; preds = %._crit_edge152, %137
   %145 = load ptr, ptr @xmlFree, align 8
   tail call void %145(ptr noundef %storemerge.i) #9
   br label %146

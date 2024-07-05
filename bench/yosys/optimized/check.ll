@@ -17369,14 +17369,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.073, i64 1
+  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !152
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -17823,8 +17823,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.016
+  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20297,10 +20297,10 @@ define linkonce_odr noundef zeroext i1 @_ZSt30__lexicographical_compare_implISt2
   br i1 %or.cond25, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %4, %20
-  %.sroa.012.027 = phi ptr [ %22, %20 ], [ %2, %4 ]
-  %.sroa.016.026 = phi ptr [ %21, %20 ], [ %0, %4 ]
-  %7 = getelementptr inbounds i8, ptr %.sroa.016.026, i64 32
-  %8 = getelementptr inbounds i8, ptr %.sroa.012.027, i64 32
+  %.sroa.016.027 = phi ptr [ %21, %20 ], [ %0, %4 ]
+  %.sroa.012.026 = phi ptr [ %22, %20 ], [ %2, %4 ]
+  %7 = getelementptr inbounds i8, ptr %.sroa.016.027, i64 32
+  %8 = getelementptr inbounds i8, ptr %.sroa.012.026, i64 32
   %9 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESA_EEbT_T0_.exit unwind label %10
 
@@ -20331,16 +20331,16 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorINSt7__cxx111
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESA_EEbT_T0_.exit11
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.016.026) #25
-  %22 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.012.027) #25
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.016.027) #25
+  %22 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.012.026) #25
   %23 = icmp ne ptr %21, %1
   %24 = icmp ne ptr %22, %3
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !198
 
 .critedge:                                        ; preds = %20, %4
-  %.sroa.016.0.lcssa = phi ptr [ %0, %4 ], [ %21, %20 ]
   %.sroa.012.0.lcssa = phi ptr [ %2, %4 ], [ %22, %20 ]
+  %.sroa.016.0.lcssa = phi ptr [ %0, %4 ], [ %21, %20 ]
   %25 = icmp eq ptr %.sroa.016.0.lcssa, %1
   %26 = icmp ne ptr %.sroa.012.0.lcssa, %3
   %spec.select = select i1 %25, i1 %26, i1 false

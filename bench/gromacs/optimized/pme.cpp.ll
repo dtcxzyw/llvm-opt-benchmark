@@ -798,30 +798,30 @@ _ZNSt6vectorI13SlabCommSetupSaIS0_EE6resizeEm.exit: ; preds = %64
   br label %74
 
 74:                                               ; preds = %98, %.lr.ph.i
-  %.031.i = phi i32 [ 1, %.lr.ph.i ], [ %99, %98 ]
-  %.02830.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %98 ]
+  %.031.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %98 ]
+  %.02830.i = phi i32 [ 1, %.lr.ph.i ], [ %99, %98 ]
   %75 = load i32, ptr %10, align 8
-  %76 = add nsw i32 %75, %.031.i
+  %76 = add nsw i32 %75, %.02830.i
   %77 = srem i32 %76, %71
-  %78 = sub nsw i32 %71, %.031.i
+  %78 = sub nsw i32 %71, %.02830.i
   %79 = add i32 %78, %75
   %80 = srem i32 %79, %71
-  %81 = icmp slt i32 %.02830.i, %73
+  %81 = icmp slt i32 %.031.i, %73
   br i1 %81, label %82, label %89
 
 82:                                               ; preds = %74
-  %83 = sext i32 %.02830.i to i64
+  %83 = sext i32 %.031.i to i64
   %84 = load ptr, ptr %11, align 8
   %85 = getelementptr inbounds %struct.SlabCommSetup, ptr %84, i64 %83
   store i32 %77, ptr %85, align 4
   %86 = load ptr, ptr %11, align 8
   %87 = getelementptr inbounds %struct.SlabCommSetup, ptr %86, i64 %83, i32 1
   store i32 %80, ptr %87, align 4
-  %88 = add nsw i32 %.02830.i, 1
+  %88 = add nsw i32 %.031.i, 1
   br label %89
 
 89:                                               ; preds = %82, %74
-  %.1.i = phi i32 [ %88, %82 ], [ %.02830.i, %74 ]
+  %.1.i = phi i32 [ %88, %82 ], [ %.031.i, %74 ]
   %90 = icmp slt i32 %.1.i, %73
   br i1 %90, label %91, label %98
 
@@ -838,8 +838,8 @@ _ZNSt6vectorI13SlabCommSetupSaIS0_EE6resizeEm.exit: ; preds = %64
 
 98:                                               ; preds = %91, %89
   %.2.i = phi i32 [ %97, %91 ], [ %.1.i, %89 ]
-  %99 = add nuw nsw i32 %.031.i, 1
-  %exitcond.not.i = icmp eq i32 %.031.i, %72
+  %99 = add nuw nsw i32 %.02830.i, 1
+  %exitcond.not.i = icmp eq i32 %.02830.i, %72
   br i1 %exitcond.not.i, label %_ZL30setup_coordinate_communicationP11PmeAtomComm.exit.loopexit, label %74, !llvm.loop !5
 
 _ZL30setup_coordinate_communicationP11PmeAtomComm.exit.loopexit: ; preds = %98
@@ -1958,7 +1958,7 @@ define noundef float @_Z21getGridSpacingFromBoxPA3_KfPKi(ptr nocapture noundef r
 
 3:                                                ; preds = %2, %19
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %19 ]
-  %.01113 = phi float [ 0.000000e+00, %2 ], [ %.1, %19 ]
+  %.014 = phi float [ 0.000000e+00, %2 ], [ %.1, %19 ]
   %4 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -1981,8 +1981,8 @@ define noundef float @_Z21getGridSpacingFromBoxPA3_KfPKi(ptr nocapture noundef r
 
 19:                                               ; preds = %3, %7
   %20 = phi float [ %18, %7 ], [ 0.000000e+00, %3 ]
-  %21 = fcmp ogt float %20, %.01113
-  %.1 = select i1 %21, float %20, float %.01113
+  %21 = fcmp ogt float %20, %.014
+  %.1 = select i1 %21, float %20, float %.014
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %22, label %3, !llvm.loop !25
@@ -3141,7 +3141,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:  ; preds = %296, %282
 
 306:                                              ; preds = %322, %_ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit
   %indvars.iv.i = phi i64 [ 0, %_ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit ], [ %indvars.iv.next.i, %322 ]
-  %.01113.i = phi float [ 0.000000e+00, %_ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit ], [ %.1.i, %322 ]
+  %.014.i = phi float [ 0.000000e+00, %_ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit ], [ %.1.i, %322 ]
   %307 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.i
   %308 = load i32, ptr %307, align 4
   %309 = icmp sgt i32 %308, 0
@@ -3164,8 +3164,8 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:  ; preds = %296, %282
 
 322:                                              ; preds = %310, %306
   %323 = phi float [ %321, %310 ], [ 0.000000e+00, %306 ]
-  %324 = fcmp ogt float %323, %.01113.i
-  %.1.i = select i1 %324, float %323, float %.01113.i
+  %324 = fcmp ogt float %323, %.014.i
+  %.1.i = select i1 %324, float %323, float %.014.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_Z21getGridSpacingFromBoxPA3_KfPKi.exit, label %306, !llvm.loop !25
@@ -8959,13 +8959,13 @@ _ZL22calc_initial_lb_coeffsN3gmx8ArrayRefIfEENS0_IKfEES3_.exit232: ; preds = %_Z
   br label %922
 
 922:                                              ; preds = %.lr.ph435, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit241
-  %.0175434.in = phi i64 [ %921, %.lr.ph435 ], [ %.0175434, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit241 ]
+  %.0176434.in = phi i64 [ %921, %.lr.ph435 ], [ %.0176434, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit241 ]
   %.3433 = phi i8 [ %912, %.lr.ph435 ], [ 0, %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit241 ]
-  %.0175434 = add nsw i64 %.0175434.in, -1
+  %.0176434 = add nsw i64 %.0176434.in, -1
   %923 = load ptr, ptr %30, align 8
   %924 = getelementptr inbounds i8, ptr %923, i64 224
   %925 = load ptr, ptr %924, align 8
-  %926 = getelementptr inbounds %struct.PmeAndFftGrids, ptr %925, i64 %.0175434
+  %926 = getelementptr inbounds %struct.PmeAndFftGrids, ptr %925, i64 %.0176434
   %927 = getelementptr inbounds i8, ptr %926, i64 216
   %928 = load ptr, ptr %927, align 8
   store ptr %928, ptr %46, align 8
@@ -9044,7 +9044,7 @@ _ZL19calc_next_lb_coeffsN3gmx8ArrayRefIfEENS0_IKfEE.exit236: ; preds = %_ZL19cal
   %967 = load i8, ptr %966, align 1
   %968 = trunc i8 %967 to i1
   %969 = select i1 %968, float %narrow.sel, float 1.000000e+00
-  %970 = getelementptr inbounds [7 x float], ptr @_ZL15lb_scale_factor, i64 0, i64 %.0175434
+  %970 = getelementptr inbounds [7 x float], ptr @_ZL15lb_scale_factor, i64 0, i64 %.0176434
   %971 = load float, ptr %970, align 4
   %972 = fmul float %969, %971
   store float %972, ptr %48, align 4
@@ -9134,7 +9134,7 @@ _ZL19calc_next_lb_coeffsN3gmx8ArrayRefIfEENS0_IKfEE.exit236: ; preds = %_ZL19cal
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit241
 
 _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit241: ; preds = %1008, %1019, %1024, %990
-  %1027 = icmp sgt i64 %.0175434.in, 1
+  %1027 = icmp sgt i64 %.0176434.in, 1
   br i1 %1027, label %922, label %._crit_edge436
 
 ._crit_edge436:                                   ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit241, %_ZL22calc_initial_lb_coeffsN3gmx8ArrayRefIfEENS0_IKfEES3_.exit232

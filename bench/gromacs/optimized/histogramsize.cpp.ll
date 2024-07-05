@@ -237,23 +237,23 @@ define noundef double @_ZN3gmx13HistogramSize16newHistogramSizeERKNS_10BiasParam
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %37
-  %46 = fadd double %.03254.i, %34
+  %46 = fadd double %.03453.i, %34
   br label %49
 
 47:                                               ; preds = %37
-  %48 = fadd double %.03453.i, %34
+  %48 = fadd double %.03254.i, %34
   br label %49
 
 49:                                               ; preds = %47, %45, %.lr.ph56.i
-  %.135.i = phi double [ %.03453.i, %45 ], [ %48, %47 ], [ %.03453.i, %.lr.ph56.i ]
-  %.133.i = phi double [ %46, %45 ], [ %.03254.i, %47 ], [ %.03254.i, %.lr.ph56.i ]
+  %.135.i = phi double [ %46, %45 ], [ %.03453.i, %47 ], [ %.03453.i, %.lr.ph56.i ]
+  %.133.i = phi double [ %.03254.i, %45 ], [ %48, %47 ], [ %.03254.i, %.lr.ph56.i ]
   %50 = getelementptr inbounds i8, ptr %.sroa.0.052.i, i64 96
   %.not45.i = icmp eq ptr %50, %5
   br i1 %.not45.i, label %_ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit, label %.lr.ph56.i
 
 _ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit: ; preds = %49
   %51 = fadd double %.135.i, %.133.i
-  %52 = fdiv double %.135.i, %51
+  %52 = fdiv double %.133.i, %51
   %53 = fcmp ule double %52, 8.000000e-01
   %54 = zext i1 %53 to i8
   store i8 %54, ptr %14, align 8

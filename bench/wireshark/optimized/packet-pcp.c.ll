@@ -1125,11 +1125,11 @@ get_pcp_conversation_info.exit.i.i129:            ; preds = %214
   br label %226
 
 226:                                              ; preds = %239, %.lr.ph.i.i.i
-  %.014.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %241, %239 ]
-  %.01213.i.i.i = phi i32 [ 20, %.lr.ph.i.i.i ], [ %240, %239 ]
-  %227 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.01213.i.i.i) #5
+  %.014.i.i.i = phi i32 [ 20, %.lr.ph.i.i.i ], [ %240, %239 ]
+  %.01213.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %241, %239 ]
+  %227 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.014.i.i.i) #5
   %228 = load ptr, ptr %216, align 8
-  %229 = tail call ptr @wmem_array_index(ptr noundef %228, i32 noundef %.014.i.i.i) #5
+  %229 = tail call ptr @wmem_array_index(ptr noundef %228, i32 noundef %.01213.i.i.i) #5
   %230 = load ptr, ptr %229, align 8
   %231 = load ptr, ptr %225, align 8
   %232 = zext i32 %227 to i64
@@ -1144,8 +1144,8 @@ get_pcp_conversation_info.exit.i.i129:            ; preds = %214
   br label %239
 
 239:                                              ; preds = %236, %226
-  %240 = add i32 %.01213.i.i.i, 4
-  %241 = add nuw i32 %.014.i.i.i, 1
+  %240 = add i32 %.014.i.i.i, 4
+  %241 = add nuw i32 %.01213.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %241, %211
   br i1 %exitcond.not.i.i.i, label %create_pmid_to_name_map_from_candidates.exit.loopexit.i.i, label %226, !llvm.loop !7
 
@@ -1527,20 +1527,20 @@ populate_pmids_to_names.exit.i:                   ; preds = %create_pmid_to_name
   br i1 %.not5.i, label %dissect_pcp_message_creds.exit, label %.lr.ph.i154
 
 .lr.ph.i154:                                      ; preds = %478, %.thread.i
-  %.04.i = phi i32 [ %511, %.thread.i ], [ 0, %478 ]
-  %.0493.i = phi i32 [ %.2.i156, %.thread.i ], [ 20, %478 ]
-  %489 = add i32 %.0493.i, 4
+  %.04.i = phi i32 [ %.2.i156, %.thread.i ], [ 20, %478 ]
+  %.0493.i = phi i32 [ %511, %.thread.i ], [ 0, %478 ]
+  %489 = add i32 %.04.i, 4
   %490 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %489) #5
   %491 = load i32, ptr @hf_pcp_instance, align 4
   %492 = add i32 %490, 8
-  %493 = tail call ptr @proto_tree_add_item(ptr noundef %483, i32 noundef %491, ptr noundef %0, i32 noundef %.0493.i, i32 noundef %492, i32 noundef 0) #5
+  %493 = tail call ptr @proto_tree_add_item(ptr noundef %483, i32 noundef %491, ptr noundef %0, i32 noundef %.04.i, i32 noundef %492, i32 noundef 0) #5
   %494 = load i32, ptr @ett_pcp, align 4
   %495 = tail call ptr @proto_item_add_subtree(ptr noundef %493, i32 noundef %494) #5
   %496 = load i32, ptr @hf_pcp_pmid_inst, align 4
-  %497 = tail call ptr @proto_tree_add_item(ptr noundef %495, i32 noundef %496, ptr noundef %0, i32 noundef %.0493.i, i32 noundef 4, i32 noundef 0) #5
+  %497 = tail call ptr @proto_tree_add_item(ptr noundef %495, i32 noundef %496, ptr noundef %0, i32 noundef %.04.i, i32 noundef 4, i32 noundef 0) #5
   %498 = load i32, ptr @hf_pcp_instance_namelen, align 4
   %499 = tail call ptr @proto_tree_add_item(ptr noundef %495, i32 noundef %498, ptr noundef %0, i32 noundef %489, i32 noundef 4, i32 noundef 0) #5
-  %500 = add i32 %.0493.i, 8
+  %500 = add i32 %.04.i, 8
   %.not.i155 = icmp eq i32 %490, 0
   br i1 %.not.i155, label %.thread.i, label %501
 
@@ -1561,7 +1561,7 @@ populate_pmids_to_names.exit.i:                   ; preds = %create_pmid_to_name
 
 .thread.i:                                        ; preds = %506, %501, %.lr.ph.i154
   %.2.i156 = phi i32 [ %510, %506 ], [ %504, %501 ], [ %500, %.lr.ph.i154 ]
-  %511 = add nuw i32 %.04.i, 1
+  %511 = add nuw i32 %.0493.i, 1
   %exitcond.not.i157 = icmp eq i32 %511, %488
   br i1 %exitcond.not.i157, label %dissect_pcp_message_creds.exit, label %.lr.ph.i154, !llvm.loop !13
 

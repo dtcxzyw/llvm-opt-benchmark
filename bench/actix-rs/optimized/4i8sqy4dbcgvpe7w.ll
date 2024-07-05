@@ -4210,12 +4210,12 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 .lr.ph409.i.i:                                    ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i", %1141
   %.0118408.i.i = phi float [ %.4.i.i, %1141 ], [ 0x47D2CED320000000, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i" ]
-  %.sroa.0219.0407.i.i = phi ptr [ %1061, %1141 ], [ %355, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i" ]
-  %.sroa.7221.0406.i.i = phi i64 [ %1060, %1141 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i" ]
-  %1060 = add nuw nsw i64 %.sroa.7221.0406.i.i, 1
+  %.sroa.7221.0407.i.i = phi i64 [ %1060, %1141 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i" ]
+  %.sroa.0219.0406.i.i = phi ptr [ %1061, %1141 ], [ %355, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i" ]
+  %1060 = add nuw nsw i64 %.sroa.7221.0407.i.i, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %149), !noalias !761
-  %1061 = getelementptr inbounds i8, ptr %.sroa.0219.0407.i.i, i64 32
-  %1062 = shl i64 %.sroa.7221.0406.i.i, 3
+  %1061 = getelementptr inbounds i8, ptr %.sroa.0219.0406.i.i, i64 32
+  %1062 = shl i64 %.sroa.7221.0407.i.i, 3
   %.not.i.i198.i.i = icmp ugt i64 %1062, %1053
   br i1 %.not.i.i198.i.i, label %1136, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i"
 
@@ -4277,26 +4277,26 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.lr.ph417.i.i
 
 .lr.ph417.i.i:                                    ; preds = %.lr.ph417.i.i.preheader, %1086
-  %.sroa.0240.0416.i.i = phi ptr [ %1088, %1086 ], [ %355, %.lr.ph417.i.i.preheader ]
-  %.sroa.7242.0415.i.i = phi i64 [ %1087, %1086 ], [ 0, %.lr.ph417.i.i.preheader ]
-  %1084 = add nuw i64 %.sroa.7242.0415.i.i, %1048
+  %.sroa.7242.0416.i.i = phi i64 [ %1087, %1086 ], [ 0, %.lr.ph417.i.i.preheader ]
+  %.sroa.0240.0415.i.i = phi ptr [ %1088, %1086 ], [ %355, %.lr.ph417.i.i.preheader ]
+  %1084 = add nuw i64 %.sroa.7242.0416.i.i, %1048
   %1085 = icmp ult i64 %1084, %368
   br i1 %1085, label %1086, label %.invoke1270.i, !prof !296
 
 1086:                                             ; preds = %.lr.ph417.i.i
-  %.sroa.12.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.0240.0416.i.i, i64 16
-  %1087 = add nuw nsw i64 %.sroa.7242.0415.i.i, 1
-  %1088 = getelementptr inbounds i8, ptr %.sroa.0240.0416.i.i, i64 32
+  %.sroa.12.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.0240.0415.i.i, i64 16
+  %1087 = add nuw nsw i64 %.sroa.7242.0416.i.i, 1
+  %1088 = getelementptr inbounds i8, ptr %.sroa.0240.0415.i.i, i64 32
   %1089 = getelementptr inbounds [0 x i8], ptr %366, i64 0, i64 %1084
   %1090 = load i8, ptr %1089, align 1, !alias.scope !793, !noalias !794, !noundef !4
-  %1091 = load <4 x float>, ptr %.sroa.0240.0416.i.i, align 4, !alias.scope !750, !noalias !762
+  %1091 = load <4 x float>, ptr %.sroa.0240.0415.i.i, align 4, !alias.scope !750, !noalias !762
   %1092 = fsub <4 x float> %1091, %1073
   %1093 = extractelement <4 x float> %1092, i64 0
   %1094 = fcmp oge float %1093, %1082
   %.neg.i.i.i = zext i1 %1094 to i8
   %1095 = fcmp olt <4 x float> %1092, %1080
   %1096 = select <4 x i1> %1095, <4 x float> %1092, <4 x float> %1080
-  store <4 x float> %1096, ptr %.sroa.0240.0416.i.i, align 4, !alias.scope !750, !noalias !762
+  store <4 x float> %1096, ptr %.sroa.0240.0415.i.i, align 4, !alias.scope !750, !noalias !762
   %1097 = load <4 x float>, ptr %.sroa.12.0..sroa_idx.i.i, align 4, !alias.scope !750, !noalias !762
   %1098 = fsub <4 x float> %1097, %1074
   %1099 = shufflevector <4 x float> %1092, <4 x float> %1098, <4 x i32> <i32 1, i32 2, i32 3, i32 4>
@@ -4402,7 +4402,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   %1144 = add nuw nsw i64 %.sroa.054.0404.i.i, 1
   %1145 = getelementptr inbounds [8 x float], ptr %149, i64 0, i64 %.sroa.054.0404.i.i
   %1146 = load float, ptr %1145, align 4, !noalias !761, !noundef !4
-  %1147 = getelementptr inbounds [0 x float], ptr %.sroa.0219.0407.i.i, i64 0, i64 %.sroa.054.0404.i.i
+  %1147 = getelementptr inbounds [0 x float], ptr %.sroa.0219.0406.i.i, i64 0, i64 %.sroa.054.0404.i.i
   %1148 = load float, ptr %1147, align 4, !alias.scope !750, !noalias !762, !noundef !4
   %1149 = fadd float %1146, %1148
   store float %1149, ptr %1147, align 4, !alias.scope !750, !noalias !762
@@ -7427,12 +7427,12 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 .lr.ph409.i.i155:                                 ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i154", %2261
   %.0118408.i.i156 = phi float [ %.4.i.i165, %2261 ], [ 0x47D2CED320000000, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i154" ]
-  %.sroa.0219.0407.i.i157 = phi ptr [ %2181, %2261 ], [ %1469, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i154" ]
-  %.sroa.7221.0406.i.i158 = phi i64 [ %2180, %2261 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i154" ]
-  %2180 = add nuw nsw i64 %.sroa.7221.0406.i.i158, 1
+  %.sroa.7221.0407.i.i157 = phi i64 [ %2180, %2261 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i154" ]
+  %.sroa.0219.0406.i.i158 = phi ptr [ %2181, %2261 ], [ %1469, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i154" ]
+  %2180 = add nuw nsw i64 %.sroa.7221.0407.i.i157, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %89), !noalias !1490
-  %2181 = getelementptr inbounds i8, ptr %.sroa.0219.0407.i.i157, i64 32
-  %2182 = shl i64 %.sroa.7221.0406.i.i158, 3
+  %2181 = getelementptr inbounds i8, ptr %.sroa.0219.0406.i.i158, i64 32
+  %2182 = shl i64 %.sroa.7221.0407.i.i157, 3
   %.not.i.i198.i.i159 = icmp ugt i64 %2182, %2173
   br i1 %.not.i.i198.i.i159, label %2256, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i160"
 
@@ -7494,26 +7494,26 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.lr.ph417.i.i198
 
 .lr.ph417.i.i198:                                 ; preds = %.lr.ph417.i.i198.preheader, %2206
-  %.sroa.0240.0416.i.i199 = phi ptr [ %2208, %2206 ], [ %1469, %.lr.ph417.i.i198.preheader ]
-  %.sroa.7242.0415.i.i200 = phi i64 [ %2207, %2206 ], [ 0, %.lr.ph417.i.i198.preheader ]
-  %2204 = add nuw i64 %.sroa.7242.0415.i.i200, %2168
+  %.sroa.7242.0416.i.i199 = phi i64 [ %2207, %2206 ], [ 0, %.lr.ph417.i.i198.preheader ]
+  %.sroa.0240.0415.i.i200 = phi ptr [ %2208, %2206 ], [ %1469, %.lr.ph417.i.i198.preheader ]
+  %2204 = add nuw i64 %.sroa.7242.0416.i.i199, %2168
   %2205 = icmp ult i64 %2204, %1482
   br i1 %2205, label %2206, label %.invoke1368.i, !prof !296
 
 2206:                                             ; preds = %.lr.ph417.i.i198
-  %.sroa.12.0..sroa_idx.i.i209 = getelementptr inbounds i8, ptr %.sroa.0240.0416.i.i199, i64 16
-  %2207 = add nuw nsw i64 %.sroa.7242.0415.i.i200, 1
-  %2208 = getelementptr inbounds i8, ptr %.sroa.0240.0416.i.i199, i64 32
+  %.sroa.12.0..sroa_idx.i.i209 = getelementptr inbounds i8, ptr %.sroa.0240.0415.i.i200, i64 16
+  %2207 = add nuw nsw i64 %.sroa.7242.0416.i.i199, 1
+  %2208 = getelementptr inbounds i8, ptr %.sroa.0240.0415.i.i200, i64 32
   %2209 = getelementptr inbounds [0 x i8], ptr %1480, i64 0, i64 %2204
   %2210 = load i8, ptr %2209, align 1, !alias.scope !1522, !noalias !1523, !noundef !4
-  %2211 = load <4 x float>, ptr %.sroa.0240.0416.i.i199, align 4, !alias.scope !1479, !noalias !1491
+  %2211 = load <4 x float>, ptr %.sroa.0240.0415.i.i200, align 4, !alias.scope !1479, !noalias !1491
   %2212 = fsub <4 x float> %2211, %2193
   %2213 = extractelement <4 x float> %2212, i64 0
   %2214 = fcmp oge float %2213, %2202
   %.neg.i.i.i204 = zext i1 %2214 to i8
   %2215 = fcmp olt <4 x float> %2212, %2200
   %2216 = select <4 x i1> %2215, <4 x float> %2212, <4 x float> %2200
-  store <4 x float> %2216, ptr %.sroa.0240.0416.i.i199, align 4, !alias.scope !1479, !noalias !1491
+  store <4 x float> %2216, ptr %.sroa.0240.0415.i.i200, align 4, !alias.scope !1479, !noalias !1491
   %2217 = load <4 x float>, ptr %.sroa.12.0..sroa_idx.i.i209, align 4, !alias.scope !1479, !noalias !1491
   %2218 = fsub <4 x float> %2217, %2194
   %2219 = shufflevector <4 x float> %2212, <4 x float> %2218, <4 x i32> <i32 1, i32 2, i32 3, i32 4>
@@ -7619,7 +7619,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   %2264 = add nuw nsw i64 %.sroa.054.0404.i.i164, 1
   %2265 = getelementptr inbounds [8 x float], ptr %89, i64 0, i64 %.sroa.054.0404.i.i164
   %2266 = load float, ptr %2265, align 4, !noalias !1490, !noundef !4
-  %2267 = getelementptr inbounds [0 x float], ptr %.sroa.0219.0407.i.i157, i64 0, i64 %.sroa.054.0404.i.i164
+  %2267 = getelementptr inbounds [0 x float], ptr %.sroa.0219.0406.i.i158, i64 0, i64 %.sroa.054.0404.i.i164
   %2268 = load float, ptr %2267, align 4, !alias.scope !1479, !noalias !1491, !noundef !4
   %2269 = fadd float %2266, %2268
   store float %2269, ptr %2267, align 4, !alias.scope !1479, !noalias !1491
@@ -10658,12 +10658,12 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 .lr.ph409.i.i568:                                 ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i567", %3384
   %.0118408.i.i569 = phi float [ %.4.i.i578, %3384 ], [ 0x47D2CED320000000, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i567" ]
-  %.sroa.0219.0407.i.i570 = phi ptr [ %3304, %3384 ], [ %2592, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i567" ]
-  %.sroa.7221.0406.i.i571 = phi i64 [ %3303, %3384 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i567" ]
-  %3303 = add nuw nsw i64 %.sroa.7221.0406.i.i571, 1
+  %.sroa.7221.0407.i.i570 = phi i64 [ %3303, %3384 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i567" ]
+  %.sroa.0219.0406.i.i571 = phi ptr [ %3304, %3384 ], [ %2592, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i567" ]
+  %3303 = add nuw nsw i64 %.sroa.7221.0407.i.i570, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29), !noalias !2218
-  %3304 = getelementptr inbounds i8, ptr %.sroa.0219.0407.i.i570, i64 32
-  %3305 = shl i64 %.sroa.7221.0406.i.i571, 3
+  %3304 = getelementptr inbounds i8, ptr %.sroa.0219.0406.i.i571, i64 32
+  %3305 = shl i64 %.sroa.7221.0407.i.i570, 3
   %.not.i.i198.i.i572 = icmp ugt i64 %3305, %3296
   br i1 %.not.i.i198.i.i572, label %3379, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i573"
 
@@ -10725,26 +10725,26 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.lr.ph417.i.i613
 
 .lr.ph417.i.i613:                                 ; preds = %.lr.ph417.i.i613.preheader, %3329
-  %.sroa.0240.0416.i.i614 = phi ptr [ %3331, %3329 ], [ %2592, %.lr.ph417.i.i613.preheader ]
-  %.sroa.7242.0415.i.i615 = phi i64 [ %3330, %3329 ], [ 0, %.lr.ph417.i.i613.preheader ]
-  %3327 = add nuw i64 %.sroa.7242.0415.i.i615, %3291
+  %.sroa.7242.0416.i.i614 = phi i64 [ %3330, %3329 ], [ 0, %.lr.ph417.i.i613.preheader ]
+  %.sroa.0240.0415.i.i615 = phi ptr [ %3331, %3329 ], [ %2592, %.lr.ph417.i.i613.preheader ]
+  %3327 = add nuw i64 %.sroa.7242.0416.i.i614, %3291
   %3328 = icmp ult i64 %3327, %2605
   br i1 %3328, label %3329, label %.invoke1368.i547, !prof !296
 
 3329:                                             ; preds = %.lr.ph417.i.i613
-  %.sroa.12.0..sroa_idx.i.i624 = getelementptr inbounds i8, ptr %.sroa.0240.0416.i.i614, i64 16
-  %3330 = add nuw nsw i64 %.sroa.7242.0415.i.i615, 1
-  %3331 = getelementptr inbounds i8, ptr %.sroa.0240.0416.i.i614, i64 32
+  %.sroa.12.0..sroa_idx.i.i624 = getelementptr inbounds i8, ptr %.sroa.0240.0415.i.i615, i64 16
+  %3330 = add nuw nsw i64 %.sroa.7242.0416.i.i614, 1
+  %3331 = getelementptr inbounds i8, ptr %.sroa.0240.0415.i.i615, i64 32
   %3332 = getelementptr inbounds [0 x i8], ptr %2603, i64 0, i64 %3327
   %3333 = load i8, ptr %3332, align 1, !alias.scope !2250, !noalias !2251, !noundef !4
-  %3334 = load <4 x float>, ptr %.sroa.0240.0416.i.i614, align 4, !alias.scope !2207, !noalias !2219
+  %3334 = load <4 x float>, ptr %.sroa.0240.0415.i.i615, align 4, !alias.scope !2207, !noalias !2219
   %3335 = fsub <4 x float> %3334, %3316
   %3336 = extractelement <4 x float> %3335, i64 0
   %3337 = fcmp oge float %3336, %3325
   %.neg.i.i.i619 = zext i1 %3337 to i8
   %3338 = fcmp olt <4 x float> %3335, %3323
   %3339 = select <4 x i1> %3338, <4 x float> %3335, <4 x float> %3323
-  store <4 x float> %3339, ptr %.sroa.0240.0416.i.i614, align 4, !alias.scope !2207, !noalias !2219
+  store <4 x float> %3339, ptr %.sroa.0240.0415.i.i615, align 4, !alias.scope !2207, !noalias !2219
   %3340 = load <4 x float>, ptr %.sroa.12.0..sroa_idx.i.i624, align 4, !alias.scope !2207, !noalias !2219
   %3341 = fsub <4 x float> %3340, %3317
   %3342 = shufflevector <4 x float> %3335, <4 x float> %3341, <4 x i32> <i32 1, i32 2, i32 3, i32 4>
@@ -10850,7 +10850,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   %3387 = add nuw nsw i64 %.sroa.054.0404.i.i577, 1
   %3388 = getelementptr inbounds [8 x float], ptr %29, i64 0, i64 %.sroa.054.0404.i.i577
   %3389 = load float, ptr %3388, align 4, !noalias !2218, !noundef !4
-  %3390 = getelementptr inbounds [0 x float], ptr %.sroa.0219.0407.i.i570, i64 0, i64 %.sroa.054.0404.i.i577
+  %3390 = getelementptr inbounds [0 x float], ptr %.sroa.0219.0406.i.i571, i64 0, i64 %.sroa.054.0404.i.i577
   %3391 = load float, ptr %3390, align 4, !alias.scope !2207, !noalias !2219, !noundef !4
   %3392 = fadd float %3389, %3391
   store float %3392, ptr %3390, align 4, !alias.scope !2207, !noalias !2219

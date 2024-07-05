@@ -173,7 +173,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %badTags.035 = phi i32 [ 0, %for.body.lr.ph ], [ %badTags.2, %if.end13 ]
   %openTags.034 = phi i32 [ 0, %for.body.lr.ph ], [ %openTags.1, %if.end13 ]
   %inMarkup.033 = phi i8 [ 0, %for.body.lr.ph ], [ %spec.select22, %if.end13 ]
-  %dsti.032 = phi i32 [ 0, %for.body.lr.ph ], [ %dsti.1, %if.end13 ]
+  %dsti.031 = phi i32 [ 0, %for.body.lr.ph ], [ %dsti.1, %if.end13 ]
   %1 = load ptr, ptr %fRawInput, align 8
   %arrayidx = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx, align 1
@@ -190,8 +190,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 if.then10:                                        ; preds = %for.body
   %4 = load ptr, ptr %this, align 8
-  %inc = add nsw i32 %dsti.032, 1
-  %idxprom11 = sext i32 %dsti.032 to i64
+  %inc = add nsw i32 %dsti.031, 1
+  %idxprom11 = sext i32 %dsti.031 to i64
   %arrayidx12 = getelementptr inbounds i8, ptr %4, i64 %idxprom11
   store i8 %2, ptr %arrayidx12, align 1
   %.pre = load i32, ptr %fRawLength28.phi.trans.insert, align 8
@@ -199,7 +199,7 @@ if.then10:                                        ; preds = %for.body
 
 if.end13:                                         ; preds = %if.then10, %for.body
   %5 = phi i32 [ %0, %for.body ], [ %.pre, %if.then10 ]
-  %dsti.1 = phi i32 [ %dsti.032, %for.body ], [ %inc, %if.then10 ]
+  %dsti.1 = phi i32 [ %dsti.031, %for.body ], [ %inc, %if.then10 ]
   %cmp15 = icmp eq i8 %2, 62
   %spec.select22 = select i1 %cmp15, i8 0, i8 %inMarkup.1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -1862,8 +1862,8 @@ define internal fastcc void @pmix_bfrops_base_tma_data_array_destruct(ptr nounde
   br label %10
 
 10:                                               ; preds = %.lr.ph324, %pmix_tma_free.exit
-  %.0135322 = phi i64 [ 0, %.lr.ph324 ], [ %17, %pmix_tma_free.exit ]
-  %11 = getelementptr inbounds ptr, ptr %6, i64 %.0135322
+  %.0131322 = phi i64 [ 0, %.lr.ph324 ], [ %17, %pmix_tma_free.exit ]
+  %11 = getelementptr inbounds ptr, ptr %6, i64 %.0131322
   %12 = load ptr, ptr %11, align 8
   %.not145 = icmp eq ptr %12, null
   br i1 %.not145, label %pmix_tma_free.exit, label %13
@@ -1881,7 +1881,7 @@ define internal fastcc void @pmix_bfrops_base_tma_data_array_destruct(ptr nounde
   br label %pmix_tma_free.exit
 
 pmix_tma_free.exit:                               ; preds = %16, %14, %10
-  %17 = add nuw i64 %.0135322, 1
+  %17 = add nuw i64 %.0131322, 1
   %18 = load i64, ptr %7, align 8
   %19 = icmp ult i64 %17, %18
   br i1 %19, label %10, label %._crit_edge325.loopexit, !llvm.loop !20
@@ -2254,8 +2254,8 @@ pmix_bfrops_base_tma_info_destruct.exit:          ; preds = %.lr.ph310, %112
 
 .lr.ph304:                                        ; preds = %130, %pmix_obj_run_destructors.exit
   %135 = phi i64 [ %145, %pmix_obj_run_destructors.exit ], [ %134, %130 ]
-  %.0134302 = phi i64 [ %146, %pmix_obj_run_destructors.exit ], [ 0, %130 ]
-  %136 = getelementptr inbounds %struct.pmix_buffer_t, ptr %132, i64 %.0134302
+  %.0133302 = phi i64 [ %146, %pmix_obj_run_destructors.exit ], [ 0, %130 ]
+  %136 = getelementptr inbounds %struct.pmix_buffer_t, ptr %132, i64 %.0133302
   %137 = getelementptr inbounds i8, ptr %136, i64 40
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 48
@@ -2279,7 +2279,7 @@ pmix_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
 
 pmix_obj_run_destructors.exit:                    ; preds = %pmix_obj_run_destructors.exit.loopexit, %.lr.ph304
   %145 = phi i64 [ %.pre353, %pmix_obj_run_destructors.exit.loopexit ], [ %135, %.lr.ph304 ]
-  %146 = add nuw i64 %.0134302, 1
+  %146 = add nuw i64 %.0133302, 1
   %147 = icmp ult i64 %146, %145
   br i1 %147, label %.lr.ph304, label %._crit_edge305.loopexit, !llvm.loop !25
 
@@ -2316,8 +2316,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %pmix_obj_run_destru
   br label %159
 
 159:                                              ; preds = %.lr.ph300, %pmix_tma_free.exit160
-  %.0133298 = phi i64 [ 0, %.lr.ph300 ], [ %166, %pmix_tma_free.exit160 ]
-  %160 = getelementptr inbounds %struct.pmix_byte_object, ptr %155, i64 %.0133298
+  %.0135298 = phi i64 [ 0, %.lr.ph300 ], [ %166, %pmix_tma_free.exit160 ]
+  %160 = getelementptr inbounds %struct.pmix_byte_object, ptr %155, i64 %.0135298
   %161 = load ptr, ptr %160, align 8
   %.not144 = icmp eq ptr %161, null
   br i1 %.not144, label %pmix_tma_free.exit160, label %162
@@ -2335,7 +2335,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %pmix_obj_run_destru
   br label %pmix_tma_free.exit160
 
 pmix_tma_free.exit160:                            ; preds = %165, %163, %159
-  %166 = add nuw i64 %.0133298, 1
+  %166 = add nuw i64 %.0135298, 1
   %167 = load i64, ptr %156, align 8
   %168 = icmp ult i64 %166, %167
   br i1 %168, label %159, label %._crit_edge301.loopexit, !llvm.loop !26
@@ -2373,8 +2373,8 @@ pmix_tma_free.exit160:                            ; preds = %165, %163, %159
   br label %180
 
 180:                                              ; preds = %.lr.ph296, %pmix_bfrops_base_tma_value_free.exit167
-  %.0132294 = phi i64 [ 0, %.lr.ph296 ], [ %197, %pmix_bfrops_base_tma_value_free.exit167 ]
-  %181 = getelementptr inbounds %struct.pmix_kval_t, ptr %176, i64 %.0132294
+  %.0134294 = phi i64 [ 0, %.lr.ph296 ], [ %197, %pmix_bfrops_base_tma_value_free.exit167 ]
+  %181 = getelementptr inbounds %struct.pmix_kval_t, ptr %176, i64 %.0134294
   %182 = getelementptr inbounds i8, ptr %181, i64 144
   %183 = load ptr, ptr %182, align 8
   %.not142 = icmp eq ptr %183, null
@@ -2428,7 +2428,7 @@ pmix_tma_free.exit164.thread:                     ; preds = %184
   br label %pmix_bfrops_base_tma_value_free.exit167
 
 pmix_bfrops_base_tma_value_free.exit167:          ; preds = %pmix_tma_free.exit164.thread357, %pmix_tma_free.exit164.thread, %192, %195, %pmix_tma_free.exit164
-  %197 = add nuw i64 %.0132294, 1
+  %197 = add nuw i64 %.0134294, 1
   %198 = load i64, ptr %177, align 8
   %199 = icmp ult i64 %197, %198
   br i1 %199, label %180, label %._crit_edge297.loopexit, !llvm.loop !27
@@ -2844,8 +2844,8 @@ pmix_bfrops_base_tma_coord_destruct.exit.i:       ; preds = %pmix_tma_free.exit.
 
 .lr.ph284:                                        ; preds = %338, %349
   %343 = phi i64 [ %350, %349 ], [ %342, %338 ]
-  %.0131282 = phi i64 [ %351, %349 ], [ 0, %338 ]
-  %344 = getelementptr inbounds %struct.pmix_byte_object, ptr %340, i64 %.0131282
+  %.0132282 = phi i64 [ %351, %349 ], [ 0, %338 ]
+  %344 = getelementptr inbounds %struct.pmix_byte_object, ptr %340, i64 %.0132282
   %345 = load ptr, ptr %344, align 8
   %.not = icmp eq ptr %345, null
   br i1 %.not, label %349, label %346
@@ -2858,7 +2858,7 @@ pmix_bfrops_base_tma_coord_destruct.exit.i:       ; preds = %pmix_tma_free.exit.
 
 349:                                              ; preds = %.lr.ph284, %346
   %350 = phi i64 [ %343, %.lr.ph284 ], [ %.pre349, %346 ]
-  %351 = add nuw i64 %.0131282, 1
+  %351 = add nuw i64 %.0132282, 1
   %352 = icmp ult i64 %351, %350
   br i1 %352, label %.lr.ph284, label %._crit_edge285.loopexit, !llvm.loop !30
 

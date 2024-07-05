@@ -1589,12 +1589,12 @@ if.end426:                                        ; preds = %if.end415.thread, %
   br i1 %cmp22.i, label %for.body.i158, label %list_objects.exit
 
 for.body.i158:                                    ; preds = %if.end426, %for.inc.i169
-  %oid_size.025.i = phi i32 [ %oid_size.2.i, %for.inc.i169 ], [ 0, %if.end426 ]
+  %i.025.i = phi i32 [ %inc.i170, %for.inc.i169 ], [ 1, %if.end426 ]
   %oid_buf.024.i = phi ptr [ %oid_buf.2.i, %for.inc.i169 ], [ null, %if.end426 ]
-  %i.023.i = phi i32 [ %inc.i170, %for.inc.i169 ], [ 1, %if.end426 ]
-  %call1.i159 = call ptr @OBJ_nid2obj(i32 noundef %i.023.i) #6
-  %call2.i160 = call ptr @OBJ_nid2sn(i32 noundef %i.023.i) #6
-  %call3.i161 = call ptr @OBJ_nid2ln(i32 noundef %i.023.i) #6
+  %oid_size.023.i = phi i32 [ %oid_size.2.i, %for.inc.i169 ], [ 0, %if.end426 ]
+  %call1.i159 = call ptr @OBJ_nid2obj(i32 noundef %i.025.i) #6
+  %call2.i160 = call ptr @OBJ_nid2sn(i32 noundef %i.025.i) #6
+  %call3.i161 = call ptr @OBJ_nid2ln(i32 noundef %i.025.i) #6
   call void @ERR_clear_error() #6
   %call4.i162 = call i32 @OBJ_obj2nid(ptr noundef %call1.i159) #6
   %cmp5.i163 = icmp eq i32 %call4.i162, 0
@@ -1615,7 +1615,7 @@ if.end10.i:                                       ; preds = %if.end.i164
   br i1 %cmp11.i, label %list_objects.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end10.i
-  %cmp14.i = icmp sgt i32 %call6.i165, %oid_size.025.i
+  %cmp14.i = icmp sgt i32 %call6.i165, %oid_size.023.i
   br i1 %cmp14.i, label %if.then15.i, label %if.end23.i166
 
 if.then15.i:                                      ; preds = %if.end13.i
@@ -1631,8 +1631,8 @@ if.then19.i175:                                   ; preds = %if.then15.i
   br label %list_objects.exit
 
 if.end23.i166:                                    ; preds = %if.then15.i, %if.end13.i
+  %oid_size.1.i = phi i32 [ %oid_size.023.i, %if.end13.i ], [ %add.i, %if.then15.i ]
   %oid_buf.1.i = phi ptr [ %oid_buf.024.i, %if.end13.i ], [ %call16.i174, %if.then15.i ]
-  %oid_size.1.i = phi i32 [ %oid_size.025.i, %if.end13.i ], [ %add.i, %if.then15.i ]
   %call24.i167 = call i32 @OBJ_obj2txt(ptr noundef %oid_buf.1.i, i32 noundef %oid_size.1.i, ptr noundef %call1.i159, i32 noundef 1) #6
   %cmp25.i = icmp slt i32 %call24.i167, 0
   br i1 %cmp25.i, label %list_objects.exit, label %if.end28.i
@@ -1657,9 +1657,9 @@ if.else.i168:                                     ; preds = %lor.lhs.false.i
   br label %for.inc.i169
 
 for.inc.i169:                                     ; preds = %if.else.i168, %if.then34.i172, %if.then8.i, %for.body.i158
+  %oid_size.2.i = phi i32 [ %oid_size.023.i, %for.body.i158 ], [ %oid_size.023.i, %if.then8.i ], [ %oid_size.1.i, %if.then34.i172 ], [ %oid_size.1.i, %if.else.i168 ]
   %oid_buf.2.i = phi ptr [ %oid_buf.024.i, %for.body.i158 ], [ %oid_buf.024.i, %if.then8.i ], [ %oid_buf.1.i, %if.then34.i172 ], [ %oid_buf.1.i, %if.else.i168 ]
-  %oid_size.2.i = phi i32 [ %oid_size.025.i, %for.body.i158 ], [ %oid_size.025.i, %if.then8.i ], [ %oid_size.1.i, %if.then34.i172 ], [ %oid_size.1.i, %if.else.i168 ]
-  %inc.i170 = add nuw nsw i32 %i.023.i, 1
+  %inc.i170 = add nuw nsw i32 %i.025.i, 1
   %exitcond.not.i171 = icmp eq i32 %inc.i170, %call.i156
   br i1 %exitcond.not.i171, label %list_objects.exit, label %for.body.i158, !llvm.loop !14
 
@@ -2339,9 +2339,9 @@ for.end.thread:                                   ; preds = %entry
   br label %if.then33
 
 for.body:                                         ; preds = %entry, %for.inc
-  %count.022 = phi i32 [ %count.2, %for.inc ], [ 0, %entry ]
-  %i.021 = phi i32 [ %inc31, %for.inc ], [ 0, %entry ]
-  %call.i18 = tail call ptr @OPENSSL_sk_value(ptr noundef %call.i, i32 noundef %i.021) #6
+  %i.022 = phi i32 [ %inc31, %for.inc ], [ 0, %entry ]
+  %count.021 = phi i32 [ %count.2, %for.inc ], [ 0, %entry ]
+  %call.i18 = tail call ptr @OPENSSL_sk_value(ptr noundef %call.i, i32 noundef %i.022) #6
   %0 = load ptr, ptr @select_name, align 8
   %cmp4.not = icmp eq ptr %0, null
   br i1 %cmp4.not, label %if.end, label %land.lhs.true
@@ -2362,7 +2362,7 @@ land.lhs.true9:                                   ; preds = %if.end
   br i1 %tobool11.not, label %if.end29, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true9
-  %inc = add nsw i32 %count.022, 1
+  %inc = add nsw i32 %count.021, 1
   %1 = load ptr, ptr @bio_out, align 8
   %call13 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.88) #6
   %2 = load ptr, ptr @bio_out, align 8
@@ -2392,13 +2392,13 @@ if.end23:                                         ; preds = %if.then21, %if.then
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then12, %if.end23, %land.lhs.true9, %if.end
-  %count.1 = phi i32 [ %inc, %if.end23 ], [ %inc, %if.then12 ], [ %count.022, %land.lhs.true9 ], [ %count.022, %if.end ]
+  %count.1 = phi i32 [ %inc, %if.end23 ], [ %inc, %if.then12 ], [ %count.021, %land.lhs.true9 ], [ %count.021, %if.end ]
   tail call void @OPENSSL_sk_free(ptr noundef %call7) #6
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true, %if.end29
-  %count.2 = phi i32 [ %count.1, %if.end29 ], [ %count.022, %land.lhs.true ]
-  %inc31 = add nuw nsw i32 %i.021, 1
+  %count.2 = phi i32 [ %count.1, %if.end29 ], [ %count.021, %land.lhs.true ]
+  %inc31 = add nuw nsw i32 %i.022, 1
   %call.i17 = tail call i32 @OPENSSL_sk_num(ptr noundef %call.i) #6
   %cmp = icmp slt i32 %inc31, %call.i17
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !20
@@ -2433,9 +2433,9 @@ for.end.thread:                                   ; preds = %entry
   br label %if.then33
 
 for.body:                                         ; preds = %entry, %for.inc
-  %count.022 = phi i32 [ %count.2, %for.inc ], [ 0, %entry ]
-  %i.021 = phi i32 [ %inc31, %for.inc ], [ 0, %entry ]
-  %call.i18 = tail call ptr @OPENSSL_sk_value(ptr noundef %call.i, i32 noundef %i.021) #6
+  %i.022 = phi i32 [ %inc31, %for.inc ], [ 0, %entry ]
+  %count.021 = phi i32 [ %count.2, %for.inc ], [ 0, %entry ]
+  %call.i18 = tail call ptr @OPENSSL_sk_value(ptr noundef %call.i, i32 noundef %i.022) #6
   %0 = load ptr, ptr @select_name, align 8
   %cmp4.not = icmp eq ptr %0, null
   br i1 %cmp4.not, label %if.end, label %land.lhs.true
@@ -2456,7 +2456,7 @@ land.lhs.true9:                                   ; preds = %if.end
   br i1 %tobool11.not, label %if.end29, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true9
-  %inc = add nsw i32 %count.022, 1
+  %inc = add nsw i32 %count.021, 1
   %1 = load ptr, ptr @bio_out, align 8
   %call13 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.88) #6
   %2 = load ptr, ptr @bio_out, align 8
@@ -2486,13 +2486,13 @@ if.end23:                                         ; preds = %if.then21, %if.then
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then12, %if.end23, %land.lhs.true9, %if.end
-  %count.1 = phi i32 [ %inc, %if.end23 ], [ %inc, %if.then12 ], [ %count.022, %land.lhs.true9 ], [ %count.022, %if.end ]
+  %count.1 = phi i32 [ %inc, %if.end23 ], [ %inc, %if.then12 ], [ %count.021, %land.lhs.true9 ], [ %count.021, %if.end ]
   tail call void @OPENSSL_sk_free(ptr noundef %call7) #6
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true, %if.end29
-  %count.2 = phi i32 [ %count.1, %if.end29 ], [ %count.022, %land.lhs.true ]
-  %inc31 = add nuw nsw i32 %i.021, 1
+  %count.2 = phi i32 [ %count.1, %if.end29 ], [ %count.021, %land.lhs.true ]
+  %inc31 = add nuw nsw i32 %i.022, 1
   %call.i17 = tail call i32 @OPENSSL_sk_num(ptr noundef %call.i) #6
   %cmp = icmp slt i32 %inc31, %call.i17
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
@@ -2527,9 +2527,9 @@ for.end.thread:                                   ; preds = %entry
   br label %if.then33
 
 for.body:                                         ; preds = %entry, %for.inc
-  %count.022 = phi i32 [ %count.2, %for.inc ], [ 0, %entry ]
-  %i.021 = phi i32 [ %inc31, %for.inc ], [ 0, %entry ]
-  %call.i18 = tail call ptr @OPENSSL_sk_value(ptr noundef %call.i, i32 noundef %i.021) #6
+  %i.022 = phi i32 [ %inc31, %for.inc ], [ 0, %entry ]
+  %count.021 = phi i32 [ %count.2, %for.inc ], [ 0, %entry ]
+  %call.i18 = tail call ptr @OPENSSL_sk_value(ptr noundef %call.i, i32 noundef %i.022) #6
   %0 = load ptr, ptr @select_name, align 8
   %cmp4.not = icmp eq ptr %0, null
   br i1 %cmp4.not, label %if.end, label %land.lhs.true
@@ -2550,7 +2550,7 @@ land.lhs.true9:                                   ; preds = %if.end
   br i1 %tobool11.not, label %if.end29, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true9
-  %inc = add nsw i32 %count.022, 1
+  %inc = add nsw i32 %count.021, 1
   %1 = load ptr, ptr @bio_out, align 8
   %call13 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.88) #6
   %2 = load ptr, ptr @bio_out, align 8
@@ -2580,13 +2580,13 @@ if.end23:                                         ; preds = %if.then21, %if.then
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then12, %if.end23, %land.lhs.true9, %if.end
-  %count.1 = phi i32 [ %inc, %if.end23 ], [ %inc, %if.then12 ], [ %count.022, %land.lhs.true9 ], [ %count.022, %if.end ]
+  %count.1 = phi i32 [ %inc, %if.end23 ], [ %inc, %if.then12 ], [ %count.021, %land.lhs.true9 ], [ %count.021, %if.end ]
   tail call void @OPENSSL_sk_free(ptr noundef %call7) #6
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true, %if.end29
-  %count.2 = phi i32 [ %count.1, %if.end29 ], [ %count.022, %land.lhs.true ]
-  %inc31 = add nuw nsw i32 %i.021, 1
+  %count.2 = phi i32 [ %count.1, %if.end29 ], [ %count.021, %land.lhs.true ]
+  %inc31 = add nuw nsw i32 %i.022, 1
   %call.i17 = tail call i32 @OPENSSL_sk_num(ptr noundef %call.i) #6
   %cmp = icmp slt i32 %inc31, %call.i17
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
@@ -2621,9 +2621,9 @@ for.end.thread:                                   ; preds = %entry
   br label %if.then33
 
 for.body:                                         ; preds = %entry, %for.inc
-  %count.022 = phi i32 [ %count.2, %for.inc ], [ 0, %entry ]
-  %i.021 = phi i32 [ %inc31, %for.inc ], [ 0, %entry ]
-  %call.i18 = tail call ptr @OPENSSL_sk_value(ptr noundef %call.i, i32 noundef %i.021) #6
+  %i.022 = phi i32 [ %inc31, %for.inc ], [ 0, %entry ]
+  %count.021 = phi i32 [ %count.2, %for.inc ], [ 0, %entry ]
+  %call.i18 = tail call ptr @OPENSSL_sk_value(ptr noundef %call.i, i32 noundef %i.022) #6
   %0 = load ptr, ptr @select_name, align 8
   %cmp4.not = icmp eq ptr %0, null
   br i1 %cmp4.not, label %if.end, label %land.lhs.true
@@ -2644,7 +2644,7 @@ land.lhs.true9:                                   ; preds = %if.end
   br i1 %tobool11.not, label %if.end29, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true9
-  %inc = add nsw i32 %count.022, 1
+  %inc = add nsw i32 %count.021, 1
   %1 = load ptr, ptr @bio_out, align 8
   %call13 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.88) #6
   %2 = load ptr, ptr @bio_out, align 8
@@ -2674,13 +2674,13 @@ if.end23:                                         ; preds = %if.then21, %if.then
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then12, %if.end23, %land.lhs.true9, %if.end
-  %count.1 = phi i32 [ %inc, %if.end23 ], [ %inc, %if.then12 ], [ %count.022, %land.lhs.true9 ], [ %count.022, %if.end ]
+  %count.1 = phi i32 [ %inc, %if.end23 ], [ %inc, %if.then12 ], [ %count.021, %land.lhs.true9 ], [ %count.021, %if.end ]
   tail call void @OPENSSL_sk_free(ptr noundef %call7) #6
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true, %if.end29
-  %count.2 = phi i32 [ %count.1, %if.end29 ], [ %count.022, %land.lhs.true ]
-  %inc31 = add nuw nsw i32 %i.021, 1
+  %count.2 = phi i32 [ %count.1, %if.end29 ], [ %count.021, %land.lhs.true ]
+  %inc31 = add nuw nsw i32 %i.022, 1
   %call.i17 = tail call i32 @OPENSSL_sk_num(ptr noundef %call.i) #6
   %cmp = icmp slt i32 %inc31, %call.i17
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23

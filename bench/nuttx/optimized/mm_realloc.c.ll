@@ -62,21 +62,21 @@ define ptr @mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unn
   br label %36
 
 36:                                               ; preds = %29, %21
-  %.0142 = phi ptr [ %32, %29 ], [ null, %21 ]
-  %.0141 = phi i64 [ %35, %29 ], [ 0, %21 ]
+  %.0143 = phi i64 [ %35, %29 ], [ 0, %21 ]
+  %.0140 = phi ptr [ %32, %29 ], [ null, %21 ]
   %37 = add i64 %spec.select, %16
-  %38 = add i64 %37, %.0141
+  %38 = add i64 %37, %.0143
   %.not155 = icmp ult i64 %38, %9
   br i1 %.not155, label %117, label %39
 
 39:                                               ; preds = %36
   %40 = sub i64 %9, %16
-  %41 = icmp ugt i64 %spec.select, %.0141
+  %41 = icmp ugt i64 %spec.select, %.0143
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %39
-  %spec.select164 = tail call i64 @llvm.umin.i64(i64 %40, i64 %.0141)
-  %spec.select165 = tail call i64 @llvm.usub.sat.i64(i64 %40, i64 %.0141)
+  %spec.select164 = tail call i64 @llvm.umin.i64(i64 %40, i64 %.0143)
+  %spec.select165 = tail call i64 @llvm.usub.sat.i64(i64 %40, i64 %.0143)
   br label %select.unfold
 
 43:                                               ; preds = %39
@@ -85,15 +85,15 @@ define ptr @mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unn
   br i1 %44, label %select.unfold, label %.thread
 
 select.unfold:                                    ; preds = %43, %42
-  %.0135 = phi i64 [ %spec.select164, %42 ], [ %45, %43 ]
-  %.0134 = phi i64 [ %spec.select165, %42 ], [ %spec.select, %43 ]
-  %.not157 = icmp eq i64 %.0135, 0
+  %.0136 = phi i64 [ %spec.select164, %42 ], [ %45, %43 ]
+  %.0135 = phi i64 [ %spec.select165, %42 ], [ %spec.select, %43 ]
+  %.not157 = icmp eq i64 %.0136, 0
   br i1 %.not157, label %.thread, label %46
 
 46:                                               ; preds = %select.unfold
-  %47 = getelementptr inbounds i8, ptr %.0142, i64 16
+  %47 = getelementptr inbounds i8, ptr %.0140, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %.0142, i64 24
+  %49 = getelementptr inbounds i8, ptr %.0140, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 16
   store ptr %48, ptr %51, align 8
@@ -107,17 +107,17 @@ select.unfold:                                    ; preds = %43, %42
   br label %55
 
 55:                                               ; preds = %52, %46
-  %56 = add i64 %.0135, 32
-  %57 = icmp ult i64 %.0141, %56
-  %spec.select162 = select i1 %57, i64 %.0141, i64 %.0135
+  %56 = add i64 %.0136, 32
+  %57 = icmp ult i64 %.0143, %56
+  %spec.select162 = select i1 %57, i64 %.0143, i64 %.0136
   %58 = sub i64 0, %spec.select162
   %59 = getelementptr inbounds i8, ptr %12, i64 %58
-  %60 = icmp ult i64 %spec.select162, %.0141
+  %60 = icmp ult i64 %spec.select162, %.0143
   br i1 %60, label %61, label %70
 
 61:                                               ; preds = %55
-  %62 = sub i64 %.0141, %spec.select162
-  %63 = getelementptr inbounds i8, ptr %.0142, i64 8
+  %62 = sub i64 %.0143, %spec.select162
+  %63 = getelementptr inbounds i8, ptr %.0140, i64 8
   %64 = load i64, ptr %63, align 8
   %65 = and i64 %64, 3
   %66 = or i64 %65, %62
@@ -127,11 +127,11 @@ select.unfold:                                    ; preds = %43, %42
   %69 = getelementptr inbounds i8, ptr %59, i64 8
   store i64 %68, ptr %69, align 8
   store i64 %62, ptr %59, align 8
-  tail call void @mm_addfreechunk(ptr noundef %0, ptr noundef nonnull %.0142) #6
+  tail call void @mm_addfreechunk(ptr noundef %0, ptr noundef nonnull %.0140) #6
   br label %77
 
 70:                                               ; preds = %55
-  %71 = add i64 %.0141, %16
+  %71 = add i64 %.0143, %16
   %72 = getelementptr inbounds i8, ptr %59, i64 8
   %73 = load i64, ptr %72, align 8
   %74 = and i64 %73, 2
@@ -141,16 +141,16 @@ select.unfold:                                    ; preds = %43, %42
   br label %77
 
 77:                                               ; preds = %70, %61
-  %.0137 = phi i64 [ %67, %61 ], [ %71, %70 ]
+  %.0138 = phi i64 [ %67, %61 ], [ %71, %70 ]
   %78 = getelementptr inbounds i8, ptr %59, i64 16
   br label %.thread
 
 .thread:                                          ; preds = %43, %77, %select.unfold
-  %.0134171 = phi i64 [ %.0134, %77 ], [ %.0134, %select.unfold ], [ %40, %43 ]
-  %.0143 = phi ptr [ %59, %77 ], [ %12, %select.unfold ], [ %12, %43 ]
-  %.0139 = phi ptr [ %78, %77 ], [ %1, %select.unfold ], [ %1, %43 ]
-  %.1138 = phi i64 [ %.0137, %77 ], [ %16, %select.unfold ], [ %16, %43 ]
-  %.not159 = icmp eq i64 %.0134171, 0
+  %.0135171 = phi i64 [ %.0135, %77 ], [ %.0135, %select.unfold ], [ %40, %43 ]
+  %.0141 = phi ptr [ %78, %77 ], [ %1, %select.unfold ], [ %1, %43 ]
+  %.1139 = phi i64 [ %.0138, %77 ], [ %16, %select.unfold ], [ %16, %43 ]
+  %.0134 = phi ptr [ %59, %77 ], [ %12, %select.unfold ], [ %12, %43 ]
+  %.not159 = icmp eq i64 %.0135171, 0
   br i1 %.not159, label %106, label %79
 
 79:                                               ; preds = %.thread
@@ -171,11 +171,11 @@ select.unfold:                                    ; preds = %43, %42
   br label %89
 
 89:                                               ; preds = %86, %79
-  %90 = add i64 %.0134171, 32
+  %90 = add i64 %.0135171, 32
   %91 = icmp ult i64 %spec.select, %90
-  %spec.select163 = select i1 %91, i64 %spec.select, i64 %.0134171
-  %92 = add i64 %.1138, %spec.select163
-  %93 = getelementptr inbounds i8, ptr %.0143, i64 8
+  %spec.select163 = select i1 %91, i64 %spec.select, i64 %.0135171
+  %92 = add i64 %spec.select163, %.1139
+  %93 = getelementptr inbounds i8, ptr %.0134, i64 8
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %94, 3
   %96 = or i64 %95, %92
@@ -184,7 +184,7 @@ select.unfold:                                    ; preds = %43, %42
   br i1 %97, label %98, label %102
 
 98:                                               ; preds = %89
-  %99 = getelementptr inbounds i8, ptr %.0143, i64 %92
+  %99 = getelementptr inbounds i8, ptr %.0134, i64 %92
   %100 = sub i64 %spec.select, %spec.select163
   %101 = getelementptr inbounds i8, ptr %99, i64 8
   store i64 %100, ptr %101, align 8
@@ -215,12 +215,12 @@ select.unfold:                                    ; preds = %43, %42
 
 114:                                              ; preds = %113, %106
   tail call void @mm_unlock(ptr noundef nonnull %0) #6
-  %.not161 = icmp eq ptr %.0139, %1
+  %.not161 = icmp eq ptr %.0141, %1
   br i1 %.not161, label %121, label %115
 
 115:                                              ; preds = %114
   %116 = add i64 %16, -8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0139, ptr nonnull align 1 %1, i64 %116, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0141, ptr nonnull align 1 %1, i64 %116, i1 false)
   br label %121
 
 117:                                              ; preds = %36
@@ -236,7 +236,7 @@ select.unfold:                                    ; preds = %43, %42
   br label %121
 
 121:                                              ; preds = %117, %119, %114, %115, %7, %20, %5
-  %.0 = phi ptr [ %6, %5 ], [ %1, %20 ], [ null, %7 ], [ %.0139, %115 ], [ %.0139, %114 ], [ %118, %119 ], [ null, %117 ]
+  %.0 = phi ptr [ %6, %5 ], [ %1, %20 ], [ null, %7 ], [ %.0141, %115 ], [ %.0141, %114 ], [ %118, %119 ], [ null, %117 ]
   ret ptr %.0
 }
 

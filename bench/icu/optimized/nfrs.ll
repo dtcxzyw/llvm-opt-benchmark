@@ -2305,8 +2305,8 @@ if.end22.thread:                                  ; preds = %if.else10
   br i1 %tobool233854.not, label %if.end35, label %if.then34
 
 if.end22:                                         ; preds = %if.else10, %if.then9
-  %len.addr.0 = phi i32 [ %len, %if.else10 ], [ %dec, %if.then9 ]
   %p.0 = phi ptr [ %buf, %if.else10 ], [ %incdec.ptr, %if.then9 ]
+  %len.addr.0 = phi i32 [ %len, %if.else10 ], [ %dec, %if.then9 ]
   %w.addr.0 = phi i64 [ %w, %if.else10 ], [ %sub, %if.then9 ]
   %tobool2338 = icmp ne i32 %len.addr.0, 0
   %cmp2439 = icmp ne i64 %w.addr.0, 0
@@ -2318,8 +2318,8 @@ while.body.lr.ph:                                 ; preds = %if.end22
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.body.us
   %w.addr.142.us = phi i64 [ %div.us, %while.body.us ], [ %w.addr.0, %while.body.lr.ph ]
-  %p.141.us = phi ptr [ %incdec.ptr31.us, %while.body.us ], [ %p.0, %while.body.lr.ph ]
-  %len.addr.140.us = phi i32 [ %dec32.us, %while.body.us ], [ %len.addr.0, %while.body.lr.ph ]
+  %len.addr.141.us = phi i32 [ %dec32.us, %while.body.us ], [ %len.addr.0, %while.body.lr.ph ]
+  %p.140.us = phi ptr [ %incdec.ptr31.us, %while.body.us ], [ %p.0, %while.body.lr.ph ]
   %div.us = sdiv i64 %w.addr.142.us, %conv
   %mul.us = mul nsw i64 %div.us, %conv
   %sub25.us.recomposed = srem i64 %w.addr.142.us, %conv
@@ -2328,9 +2328,9 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %arrayidx.us = getelementptr inbounds [36 x i8], ptr @_ZN6icu_75L11asciiDigitsE, i64 0, i64 %idxprom.us
   %2 = load i8, ptr %arrayidx.us, align 1
   %conv28.us = zext i8 %2 to i16
-  %incdec.ptr31.us = getelementptr inbounds i8, ptr %p.141.us, i64 2
-  store i16 %conv28.us, ptr %p.141.us, align 2
-  %dec32.us = add i32 %len.addr.140.us, -1
+  %incdec.ptr31.us = getelementptr inbounds i8, ptr %p.140.us, i64 2
+  store i16 %conv28.us, ptr %p.140.us, align 2
+  %dec32.us = add i32 %len.addr.141.us, -1
   %tobool23.us = icmp ne i32 %dec32.us, 0
   %cmp24.us = icmp ne i64 %div.us, 0
   %3 = and i1 %tobool23.us, %cmp24.us
@@ -2338,15 +2338,15 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %w.addr.142 = phi i64 [ %div, %while.body ], [ %w.addr.0, %while.body.lr.ph ]
-  %p.141 = phi ptr [ %incdec.ptr31, %while.body ], [ %p.0, %while.body.lr.ph ]
-  %len.addr.140 = phi i32 [ %dec32, %while.body ], [ %len.addr.0, %while.body.lr.ph ]
+  %len.addr.141 = phi i32 [ %dec32, %while.body ], [ %len.addr.0, %while.body.lr.ph ]
+  %p.140 = phi ptr [ %incdec.ptr31, %while.body ], [ %p.0, %while.body.lr.ph ]
   %div = sdiv i64 %w.addr.142, %conv
   %mul = mul nsw i64 %div, %conv
   %sub25.recomposed = srem i64 %w.addr.142, %conv
   %conv26 = trunc i64 %sub25.recomposed to i16
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %p.141, i64 2
-  store i16 %conv26, ptr %p.141, align 2
-  %dec32 = add i32 %len.addr.140, -1
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %p.140, i64 2
+  store i16 %conv26, ptr %p.140, align 2
+  %dec32 = add i32 %len.addr.141, -1
   %tobool23 = icmp ne i32 %dec32, 0
   %cmp24 = icmp ne i64 %div, 0
   %4 = select i1 %tobool23, i1 %cmp24, i1 false

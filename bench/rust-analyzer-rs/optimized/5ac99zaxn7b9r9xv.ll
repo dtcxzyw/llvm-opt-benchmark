@@ -2508,8 +2508,8 @@ switch.lookup:
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %10 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %217, %.outer ]
   %11 = phi ptr [ %5, %.lr.ph.lr.ph ], [ %216, %.outer ]
-  %.sroa.619.0.ph128 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.619.1, %.outer ]
-  %.sroa.10.sroa.0.0.ph127 = phi i48 [ undef, %.lr.ph.lr.ph ], [ %.sroa.10.sroa.0.1, %.outer ]
+  %.sroa.10.sroa.0.0.ph128 = phi i48 [ undef, %.lr.ph.lr.ph ], [ %.sroa.10.sroa.0.1, %.outer ]
+  %.sroa.619.0.ph127 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.619.1, %.outer ]
   br label %12
 
 12:                                               ; preds = %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h3b66f11463a501fbE.exit, %.lr.ph
@@ -2611,7 +2611,7 @@ switch.lookup:
 
 65:                                               ; preds = %62
   %or.cond3.not = and i1 %.not78, %switch.masked
-  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph128, i32 %.sroa.4.0.i.ph7177
+  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph127, i32 %.sroa.4.0.i.ph7177
   %.51 = zext i1 %or.cond3.not to i64
   %.sroa.619.0.insert.ext = zext i32 %.0..sroa.619.0 to i64
   %.sroa.619.0.insert.shift = shl nuw i64 %.sroa.619.0.insert.ext, 32
@@ -2926,8 +2926,8 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h3b66f11463a501fbE.exit:
 .outer:                                           ; preds = %62, %.outer.loopexit, %65, %.thread75
   %210 = phi ptr [ %14, %65 ], [ %.pre159, %.thread75 ], [ %14, %.outer.loopexit ], [ %14, %62 ]
   %211 = phi ptr [ %64, %65 ], [ %.pre, %.thread75 ], [ %64, %.outer.loopexit ], [ %64, %62 ]
-  %.sroa.10.sroa.0.1 = phi i48 [ %.sroa.544.0.extract.trunc, %65 ], [ %.sroa.541.0.extract.trunc, %.thread75 ], [ %.sroa.10.sroa.0.0.ph127, %.outer.loopexit ], [ %.sroa.10.sroa.0.0.ph127, %62 ]
-  %.sroa.619.1 = phi i32 [ %.0..sroa.619.0, %65 ], [ %.sroa.619.0.ph128, %.thread75 ], [ %.sroa.619.0.ph128, %.outer.loopexit ], [ %.sroa.619.0.ph128, %62 ]
+  %.sroa.619.1 = phi i32 [ %.0..sroa.619.0, %65 ], [ %.sroa.619.0.ph127, %.thread75 ], [ %.sroa.619.0.ph127, %.outer.loopexit ], [ %.sroa.619.0.ph127, %62 ]
+  %.sroa.10.sroa.0.1 = phi i48 [ %.sroa.544.0.extract.trunc, %65 ], [ %.sroa.541.0.extract.trunc, %.thread75 ], [ %.sroa.10.sroa.0.0.ph128, %.outer.loopexit ], [ %.sroa.10.sroa.0.0.ph128, %62 ]
   %.sroa.8.0 = phi i64 [ %.sroa.443.0.extract.shift, %65 ], [ %105, %.thread75 ], [ 1024, %.outer.loopexit ], [ 1536, %62 ]
   %.sroa.0.0 = phi i64 [ %.sroa.03.0.insert.insert.i, %65 ], [ %105, %.thread75 ], [ 1, %.outer.loopexit ], [ 1, %62 ]
   %.pn = sub i64 %1, %63
@@ -2939,7 +2939,7 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h3b66f11463a501fbE.exit:
   %.sroa.529.0.insert.ext = zext i48 %.sroa.10.sroa.0.1 to i64
   %.sroa.529.0.insert.shift = shl nuw i64 %.sroa.529.0.insert.ext, 16
   %.sroa.428.0.insert.ext = and i64 %.sroa.8.0, 65280
-  %.sroa.428.0.insert.insert = or disjoint i64 %.sroa.428.0.insert.ext, %.sroa.529.0.insert.shift
+  %.sroa.428.0.insert.insert = or disjoint i64 %.sroa.529.0.insert.shift, %.sroa.428.0.insert.ext
   %.sroa.027.0.insert.ext = and i64 %.sroa.0.0, 255
   %.sroa.027.0.insert.insert = or disjoint i64 %.sroa.428.0.insert.insert, %.sroa.027.0.insert.ext
   call void @"_ZN6syntax3ast9token_ext60_$LT$impl$u20$syntax..ast..generated..tokens..ByteString$GT$5value28_$u7b$$u7b$closure$u7d$$u7d$17h23cce49a6197486aE.llvm.11162169574061779932"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, i64 noundef %212, i64 noundef %215, i64 %.sroa.027.0.insert.insert)
@@ -3416,8 +3416,8 @@ switch.lookup:
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit"
   %11 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %299, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit" ]
   %12 = phi ptr [ %6, %.lr.ph.lr.ph ], [ %298, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit" ]
-  %.sroa.619.0.ph161 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.619.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit" ]
-  %.sroa.10.sroa.0.0.ph160 = phi i48 [ undef, %.lr.ph.lr.ph ], [ %.sroa.10.sroa.0.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit" ]
+  %.sroa.10.sroa.0.0.ph161 = phi i48 [ undef, %.lr.ph.lr.ph ], [ %.sroa.10.sroa.0.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit" ]
+  %.sroa.619.0.ph160 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.619.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit" ]
   br label %13
 
 13:                                               ; preds = %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17hebd02bf52e029b50E.exit, %.lr.ph
@@ -3521,7 +3521,7 @@ switch.lookup:
 
 68:                                               ; preds = %63
   %or.cond3.not = and i1 %.not81, %switch.masked
-  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph161, i32 %.sroa.4.0.i.ph7480
+  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph160, i32 %.sroa.4.0.i.ph7480
   %.sroa.619.0.insert.ext = zext i32 %.0..sroa.619.0 to i64
   %.sroa.619.0.insert.shift = shl nuw i64 %.sroa.619.0.insert.ext, 32
   %.sroa.34.0.insert.insert.i = select i1 %or.cond3.not, i64 4864, i64 %.sroa.619.0.insert.shift
@@ -3954,8 +3954,8 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17hebd02bf52e029b50E.exit:
 .loopexit:                                        ; preds = %63, %.loopexit.loopexit, %68, %.thread78
   %266 = phi ptr [ %15, %68 ], [ %.pre241, %.thread78 ], [ %15, %.loopexit.loopexit ], [ %15, %63 ]
   %267 = phi ptr [ %65, %68 ], [ %.pre, %.thread78 ], [ %65, %.loopexit.loopexit ], [ %65, %63 ]
-  %.sroa.10.sroa.0.1 = phi i48 [ %.sroa.544.0.extract.trunc, %68 ], [ %.sroa.541.0.extract.trunc, %.thread78 ], [ %.sroa.10.sroa.0.0.ph160, %.loopexit.loopexit ], [ %.sroa.10.sroa.0.0.ph160, %63 ]
-  %.sroa.619.1 = phi i32 [ %.0..sroa.619.0, %68 ], [ %.sroa.619.0.ph161, %.thread78 ], [ %.sroa.619.0.ph161, %.loopexit.loopexit ], [ %.sroa.619.0.ph161, %63 ]
+  %.sroa.619.1 = phi i32 [ %.0..sroa.619.0, %68 ], [ %.sroa.619.0.ph160, %.thread78 ], [ %.sroa.619.0.ph160, %.loopexit.loopexit ], [ %.sroa.619.0.ph160, %63 ]
+  %.sroa.10.sroa.0.1 = phi i48 [ %.sroa.544.0.extract.trunc, %68 ], [ %.sroa.541.0.extract.trunc, %.thread78 ], [ %.sroa.10.sroa.0.0.ph161, %.loopexit.loopexit ], [ %.sroa.10.sroa.0.0.ph161, %63 ]
   %.sroa.8.0 = phi i64 [ %.sroa.34.0.insert.insert.i, %68 ], [ %108, %.thread78 ], [ 1536, %.loopexit.loopexit ], [ 1024, %63 ]
   %.sroa.0.0 = phi i64 [ %.sroa.03.0.insert.insert.i, %68 ], [ %108, %.thread78 ], [ 2, %.loopexit.loopexit ], [ 2, %63 ]
   %268 = ptrtoint ptr %266 to i64
@@ -4501,8 +4501,8 @@ switch.lookup:
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit"
   %8 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %217, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
   %9 = phi ptr [ %5, %.lr.ph.lr.ph ], [ %216, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
-  %.sroa.619.0.ph112 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.619.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
-  %.sroa.10.sroa.0.0.ph111 = phi i48 [ undef, %.lr.ph.lr.ph ], [ %.sroa.10.sroa.0.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
+  %.sroa.10.sroa.0.0.ph112 = phi i48 [ undef, %.lr.ph.lr.ph ], [ %.sroa.10.sroa.0.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
+  %.sroa.619.0.ph111 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.619.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
   br label %10
 
 10:                                               ; preds = %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h02f45b36973fe20fE.exit, %.lr.ph
@@ -4606,7 +4606,7 @@ switch.lookup:
 
 65:                                               ; preds = %60
   %or.cond3.not = and i1 %.not80, %switch.masked
-  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph112, i32 %.sroa.4.0.i.ph7379
+  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph111, i32 %.sroa.4.0.i.ph7379
   %.sroa.619.0.insert.ext = zext i32 %.0..sroa.619.0 to i64
   %.sroa.619.0.insert.shift = shl nuw i64 %.sroa.619.0.insert.ext, 32
   %.sroa.34.0.insert.insert.i = select i1 %or.cond3.not, i64 4864, i64 %.sroa.619.0.insert.shift
@@ -4916,8 +4916,8 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h02f45b36973fe20fE.exit:
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %.loopexit.loopexit, %65, %.thread77
-  %.sroa.10.sroa.0.1 = phi i48 [ %.sroa.544.0.extract.trunc, %65 ], [ %.sroa.541.0.extract.trunc, %.thread77 ], [ %.sroa.10.sroa.0.0.ph111, %.loopexit.loopexit ], [ %.sroa.10.sroa.0.0.ph111, %60 ]
-  %.sroa.619.1 = phi i32 [ %.0..sroa.619.0, %65 ], [ %.sroa.619.0.ph112, %.thread77 ], [ %.sroa.619.0.ph112, %.loopexit.loopexit ], [ %.sroa.619.0.ph112, %60 ]
+  %.sroa.619.1 = phi i32 [ %.0..sroa.619.0, %65 ], [ %.sroa.619.0.ph111, %.thread77 ], [ %.sroa.619.0.ph111, %.loopexit.loopexit ], [ %.sroa.619.0.ph111, %60 ]
+  %.sroa.10.sroa.0.1 = phi i48 [ %.sroa.544.0.extract.trunc, %65 ], [ %.sroa.541.0.extract.trunc, %.thread77 ], [ %.sroa.10.sroa.0.0.ph112, %.loopexit.loopexit ], [ %.sroa.10.sroa.0.0.ph112, %60 ]
   %.sroa.8.0 = phi i64 [ %.sroa.34.0.insert.insert.i, %65 ], [ %105, %.thread77 ], [ 1536, %.loopexit.loopexit ], [ 1024, %60 ]
   %.sroa.0.0 = phi i64 [ %.sroa.03.0.insert.insert.i, %65 ], [ %105, %.thread77 ], [ 2, %.loopexit.loopexit ], [ 2, %60 ]
   %.sroa.529.0.insert.ext = zext i48 %.sroa.10.sroa.0.1 to i64
@@ -4968,8 +4968,8 @@ switch.lookup:
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %10 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %217, %.outer ]
   %11 = phi ptr [ %5, %.lr.ph.lr.ph ], [ %216, %.outer ]
-  %.sroa.619.0.ph128 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.619.1, %.outer ]
-  %.sroa.10.sroa.0.0.ph127 = phi i48 [ undef, %.lr.ph.lr.ph ], [ %.sroa.10.sroa.0.1, %.outer ]
+  %.sroa.10.sroa.0.0.ph128 = phi i48 [ undef, %.lr.ph.lr.ph ], [ %.sroa.10.sroa.0.1, %.outer ]
+  %.sroa.619.0.ph127 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.619.1, %.outer ]
   br label %12
 
 12:                                               ; preds = %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h8ae4fac37ef9f9c3E.exit, %.lr.ph
@@ -5071,7 +5071,7 @@ switch.lookup:
 
 65:                                               ; preds = %62
   %or.cond3.not = and i1 %.not78, %switch.masked
-  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph128, i32 %.sroa.4.0.i.ph7177
+  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph127, i32 %.sroa.4.0.i.ph7177
   %.51 = zext i1 %or.cond3.not to i64
   %.sroa.619.0.insert.ext = zext i32 %.0..sroa.619.0 to i64
   %.sroa.619.0.insert.shift = shl nuw i64 %.sroa.619.0.insert.ext, 32
@@ -5386,8 +5386,8 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h8ae4fac37ef9f9c3E.exit:
 .outer:                                           ; preds = %62, %.outer.loopexit, %65, %.thread75
   %210 = phi ptr [ %14, %65 ], [ %.pre159, %.thread75 ], [ %14, %.outer.loopexit ], [ %14, %62 ]
   %211 = phi ptr [ %64, %65 ], [ %.pre, %.thread75 ], [ %64, %.outer.loopexit ], [ %64, %62 ]
-  %.sroa.10.sroa.0.1 = phi i48 [ %.sroa.544.0.extract.trunc, %65 ], [ %.sroa.541.0.extract.trunc, %.thread75 ], [ %.sroa.10.sroa.0.0.ph127, %.outer.loopexit ], [ %.sroa.10.sroa.0.0.ph127, %62 ]
-  %.sroa.619.1 = phi i32 [ %.0..sroa.619.0, %65 ], [ %.sroa.619.0.ph128, %.thread75 ], [ %.sroa.619.0.ph128, %.outer.loopexit ], [ %.sroa.619.0.ph128, %62 ]
+  %.sroa.619.1 = phi i32 [ %.0..sroa.619.0, %65 ], [ %.sroa.619.0.ph127, %.thread75 ], [ %.sroa.619.0.ph127, %.outer.loopexit ], [ %.sroa.619.0.ph127, %62 ]
+  %.sroa.10.sroa.0.1 = phi i48 [ %.sroa.544.0.extract.trunc, %65 ], [ %.sroa.541.0.extract.trunc, %.thread75 ], [ %.sroa.10.sroa.0.0.ph128, %.outer.loopexit ], [ %.sroa.10.sroa.0.0.ph128, %62 ]
   %.sroa.8.0 = phi i64 [ %.sroa.443.0.extract.shift, %65 ], [ %105, %.thread75 ], [ 1024, %.outer.loopexit ], [ 1536, %62 ]
   %.sroa.0.0 = phi i64 [ %.sroa.03.0.insert.insert.i, %65 ], [ %105, %.thread75 ], [ 1, %.outer.loopexit ], [ 1, %62 ]
   %.pn = sub i64 %1, %63
@@ -5399,7 +5399,7 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h8ae4fac37ef9f9c3E.exit:
   %.sroa.529.0.insert.ext = zext i48 %.sroa.10.sroa.0.1 to i64
   %.sroa.529.0.insert.shift = shl nuw i64 %.sroa.529.0.insert.ext, 16
   %.sroa.428.0.insert.ext = and i64 %.sroa.8.0, 65280
-  %.sroa.428.0.insert.insert = or disjoint i64 %.sroa.428.0.insert.ext, %.sroa.529.0.insert.shift
+  %.sroa.428.0.insert.insert = or disjoint i64 %.sroa.529.0.insert.shift, %.sroa.428.0.insert.ext
   %.sroa.027.0.insert.ext = and i64 %.sroa.0.0, 255
   %.sroa.027.0.insert.insert = or disjoint i64 %.sroa.428.0.insert.insert, %.sroa.027.0.insert.ext
   call void @"_ZN6syntax3ast9token_ext56_$LT$impl$u20$syntax..ast..generated..tokens..String$GT$5value28_$u7b$$u7b$closure$u7d$$u7d$17h5d159828f4408856E.llvm.11162169574061779932"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, i64 noundef %212, i64 noundef %215, i64 %.sroa.027.0.insert.insert)
@@ -5877,8 +5877,8 @@ switch.lookup:
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h3bf6a2da0679e9e9E.exit"
   %12 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %270, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h3bf6a2da0679e9e9E.exit" ]
   %13 = phi ptr [ %5, %.lr.ph.lr.ph ], [ %269, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h3bf6a2da0679e9e9E.exit" ]
-  %.sroa.619.0.ph133 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.619.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h3bf6a2da0679e9e9E.exit" ]
-  %.sroa.10.sroa.0.0.ph132 = phi i48 [ undef, %.lr.ph.lr.ph ], [ %.sroa.10.sroa.0.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h3bf6a2da0679e9e9E.exit" ]
+  %.sroa.10.sroa.0.0.ph133 = phi i48 [ undef, %.lr.ph.lr.ph ], [ %.sroa.10.sroa.0.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h3bf6a2da0679e9e9E.exit" ]
+  %.sroa.619.0.ph132 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.619.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h3bf6a2da0679e9e9E.exit" ]
   br label %14
 
 14:                                               ; preds = %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17hc0fb008e0439a2a1E.exit, %.lr.ph
@@ -5980,7 +5980,7 @@ switch.lookup:
 
 67:                                               ; preds = %64
   %or.cond3.not = and i1 %.not80, %switch.masked
-  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph133, i32 %.sroa.4.0.i.ph7379
+  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph132, i32 %.sroa.4.0.i.ph7379
   %.sroa.619.0.insert.ext = zext i32 %.0..sroa.619.0 to i64
   %.sroa.619.0.insert.shift = shl nuw i64 %.sroa.619.0.insert.ext, 32
   %.sroa.34.0.insert.insert.i = select i1 %or.cond3.not, i64 4864, i64 %.sroa.619.0.insert.shift
@@ -6296,8 +6296,8 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17hc0fb008e0439a2a1E.exit:
 .loopexit:                                        ; preds = %64, %.loopexit.loopexit278, %67, %.thread77
   %214 = phi ptr [ %16, %67 ], [ %.pre174, %.thread77 ], [ %16, %.loopexit.loopexit278 ], [ %16, %64 ]
   %215 = phi ptr [ %66, %67 ], [ %.pre, %.thread77 ], [ %66, %.loopexit.loopexit278 ], [ %66, %64 ]
-  %.sroa.10.sroa.0.1 = phi i48 [ %.sroa.544.0.extract.trunc, %67 ], [ %.sroa.541.0.extract.trunc, %.thread77 ], [ %.sroa.10.sroa.0.0.ph132, %.loopexit.loopexit278 ], [ %.sroa.10.sroa.0.0.ph132, %64 ]
-  %.sroa.619.1 = phi i32 [ %.0..sroa.619.0, %67 ], [ %.sroa.619.0.ph133, %.thread77 ], [ %.sroa.619.0.ph133, %.loopexit.loopexit278 ], [ %.sroa.619.0.ph133, %64 ]
+  %.sroa.619.1 = phi i32 [ %.0..sroa.619.0, %67 ], [ %.sroa.619.0.ph132, %.thread77 ], [ %.sroa.619.0.ph132, %.loopexit.loopexit278 ], [ %.sroa.619.0.ph132, %64 ]
+  %.sroa.10.sroa.0.1 = phi i48 [ %.sroa.544.0.extract.trunc, %67 ], [ %.sroa.541.0.extract.trunc, %.thread77 ], [ %.sroa.10.sroa.0.0.ph133, %.loopexit.loopexit278 ], [ %.sroa.10.sroa.0.0.ph133, %64 ]
   %.sroa.8.0 = phi i64 [ %.sroa.34.0.insert.insert.i, %67 ], [ %107, %.thread77 ], [ 1024, %.loopexit.loopexit278 ], [ 1536, %64 ]
   %.sroa.0.0 = phi i64 [ %.sroa.03.0.insert.insert.i, %67 ], [ %107, %.thread77 ], [ 2, %.loopexit.loopexit278 ], [ 2, %64 ]
   %.pn = sub i64 %1, %65

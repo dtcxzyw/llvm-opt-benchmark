@@ -879,8 +879,8 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h152
   br label %28
 
 .loopexit.i.i:                                    ; preds = %88, %86, %84
-  %.015.i.i.i = phi i64 [ 1, %84 ], [ %..i.i.i, %88 ], [ 2, %86 ]
-  %27 = add i64 %.015.i.i.i, %30
+  %.016.i.i.i = phi i64 [ 1, %84 ], [ %..i.i.i, %88 ], [ 2, %86 ]
+  %27 = add i64 %.016.i.i.i, %30
   br label %28
 
 28:                                               ; preds = %.loopexit.i.i, %.lr.ph125.i.i
@@ -5940,16 +5940,16 @@ _ZN12clap_builder6output13help_template12HelpTemplate14will_args_wrap17h3c3e8e7d
   ret void
 
 238:                                              ; preds = %.lr.ph, %_ZN12clap_builder6output13help_template12HelpTemplate9write_arg17h3ce42201365da970E.exit
-  %.sroa.01.063 = phi ptr [ %164, %.lr.ph ], [ %239, %_ZN12clap_builder6output13help_template12HelpTemplate9write_arg17h3ce42201365da970E.exit ]
-  %.sroa.73.062 = phi i64 [ 0, %.lr.ph ], [ %240, %_ZN12clap_builder6output13help_template12HelpTemplate9write_arg17h3ce42201365da970E.exit ]
-  %239 = getelementptr inbounds i8, ptr %.sroa.01.063, i64 40
-  %240 = add nuw nsw i64 %.sroa.73.062, 1
-  %241 = icmp eq i64 %.sroa.73.062, 0
+  %.sroa.73.063 = phi i64 [ 0, %.lr.ph ], [ %240, %_ZN12clap_builder6output13help_template12HelpTemplate9write_arg17h3ce42201365da970E.exit ]
+  %.sroa.01.062 = phi ptr [ %164, %.lr.ph ], [ %239, %_ZN12clap_builder6output13help_template12HelpTemplate9write_arg17h3ce42201365da970E.exit ]
+  %239 = getelementptr inbounds i8, ptr %.sroa.01.062, i64 40
+  %240 = add nuw nsw i64 %.sroa.73.063, 1
+  %241 = icmp eq i64 %.sroa.73.063, 0
   br i1 %241, label %._crit_edge92, label %382
 
 ._crit_edge92:                                    ; preds = %387, %238, %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit50
   %.val.i = phi i8 [ %.val.i.pre93, %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit50 ], [ %.val.i.pre93, %387 ], [ %.val.i.pre, %238 ]
-  %242 = getelementptr inbounds i8, ptr %.sroa.01.063, i64 32
+  %242 = getelementptr inbounds i8, ptr %.sroa.01.062, i64 32
   %243 = load ptr, ptr %242, align 8, !nonnull !12, !align !101, !noundef !12
   call void @llvm.experimental.noalias.scope.decl(metadata !1191)
   call void @llvm.experimental.noalias.scope.decl(metadata !1194)

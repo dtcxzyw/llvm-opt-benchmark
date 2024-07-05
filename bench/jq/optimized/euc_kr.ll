@@ -90,20 +90,20 @@ define internal ptr @euckr_left_adjust_char_head(ptr noundef readnone %0, ptr no
   br i1 %.not, label %.preheader, label %18
 
 .preheader:                                       ; preds = %2, %.preheader
-  %.0 = phi ptr [ %6, %.preheader ], [ %1, %2 ]
-  %3 = load i8, ptr %.0, align 1
+  %.019 = phi ptr [ %6, %.preheader ], [ %1, %2 ]
+  %3 = load i8, ptr %.019, align 1
   %4 = add i8 %3, 95
   %or.cond = icmp ult i8 %4, 94
-  %5 = icmp ugt ptr %.0, %0
+  %5 = icmp ugt ptr %.019, %0
   %or.cond24 = and i1 %5, %or.cond
-  %6 = getelementptr inbounds i8, ptr %.0, i64 -1
+  %6 = getelementptr inbounds i8, ptr %.019, i64 -1
   br i1 %or.cond24, label %.preheader, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %.preheader
   %7 = load ptr, ptr @OnigEncodingEUC_KR, align 8
-  %8 = tail call i32 %7(ptr noundef nonnull %.0) #5
+  %8 = tail call i32 %7(ptr noundef nonnull %.019) #5
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %.0, i64 %9
+  %10 = getelementptr inbounds i8, ptr %.019, i64 %9
   %11 = icmp ugt ptr %10, %1
   br i1 %11, label %18, label %12
 
@@ -116,8 +116,8 @@ define internal ptr @euckr_left_adjust_char_head(ptr noundef readnone %0, ptr no
   br label %18
 
 18:                                               ; preds = %.critedge, %2, %12
-  %.019 = phi ptr [ %17, %12 ], [ %1, %2 ], [ %.0, %.critedge ]
-  ret ptr %.019
+  %.0 = phi ptr [ %17, %12 ], [ %1, %2 ], [ %.019, %.critedge ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

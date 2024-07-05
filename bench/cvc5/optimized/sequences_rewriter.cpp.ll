@@ -16877,8 +16877,8 @@ if.end560:                                        ; preds = %invoke.cont521
   br i1 %cmp.i1803.not2765, label %for.end789, label %for.body567
 
 for.body567:                                      ; preds = %if.end560, %for.inc787
-  %__begin3.sroa.0.02766 = phi ptr [ %incdec.ptr.i2323, %for.inc787 ], [ %418, %if.end560 ]
-  %420 = load ptr, ptr %__begin3.sroa.0.02766, align 8
+  %__begin3.sroa.0.02767 = phi ptr [ %incdec.ptr.i2323, %for.inc787 ], [ %418, %if.end560 ]
+  %420 = load ptr, ptr %__begin3.sroa.0.02767, align 8
   %d_kind.i1804 = getelementptr inbounds i8, ptr %420, i64 8
   %bf.load.i1805 = load i16, ptr %d_kind.i1804, align 8
   %bf.clear.i1806 = and i16 %bf.load.i1805, 1023
@@ -16931,7 +16931,7 @@ if.then13.i.i.i1827:                              ; preds = %if.else.i.i.i1825
 
 invoke.cont575:                                   ; preds = %if.else.i.i.i1825, %if.then.i.i.i1829, %if.then13.i.i.i1827
   call void @llvm.experimental.noalias.scope.decl(metadata !224)
-  %424 = load ptr, ptr %__begin3.sroa.0.02766, align 8, !noalias !224
+  %424 = load ptr, ptr %__begin3.sroa.0.02767, align 8, !noalias !224
   %d_kind.i.i.i.i1837 = getelementptr inbounds i8, ptr %424, i64 8
   %bf.load.i.i.i.i1838 = load i16, ptr %d_kind.i.i.i.i1837, align 8, !noalias !224
   %bf.clear.i.i.i.i1839 = and i16 %bf.load.i.i.i.i1838, 1023
@@ -17123,7 +17123,7 @@ if.then13.i.i.i1914:                              ; preds = %if.else.i.i.i1912
 
 invoke.cont593:                                   ; preds = %if.else.i.i.i1912, %if.then.i.i.i1916, %if.then13.i.i.i1914
   call void @llvm.experimental.noalias.scope.decl(metadata !230)
-  %445 = load ptr, ptr %__begin3.sroa.0.02766, align 8, !noalias !230
+  %445 = load ptr, ptr %__begin3.sroa.0.02767, align 8, !noalias !230
   %d_kind.i.i.i.i1924 = getelementptr inbounds i8, ptr %445, i64 8
   %bf.load.i.i.i.i1925 = load i16, ptr %d_kind.i.i.i.i1924, align 8, !noalias !230
   %bf.clear.i.i.i.i1926 = and i16 %bf.load.i.i.i.i1925, 1023
@@ -17446,7 +17446,7 @@ if.then13.i.i.i2023:                              ; preds = %if.else.i.i.i2021
 
 invoke.cont630:                                   ; preds = %if.else.i.i.i2021, %if.then.i.i.i2025, %if.then13.i.i.i2023
   call void @llvm.experimental.noalias.scope.decl(metadata !236)
-  %477 = load ptr, ptr %__begin3.sroa.0.02766, align 8, !noalias !236
+  %477 = load ptr, ptr %__begin3.sroa.0.02767, align 8, !noalias !236
   %d_kind.i.i.i.i2033 = getelementptr inbounds i8, ptr %477, i64 8
   %bf.load.i.i.i.i2034 = load i16, ptr %d_kind.i.i.i.i2033, align 8, !noalias !236
   %bf.clear.i.i.i.i2035 = and i16 %bf.load.i.i.i.i2034, 1023
@@ -17537,7 +17537,7 @@ if.then13.i.i.i2082:                              ; preds = %if.else.i.i.i2080
           to label %invoke.cont638 unwind label %lpad634
 
 invoke.cont638:                                   ; preds = %if.else.i.i.i2080, %if.then.i.i.i2084, %if.then13.i.i.i2082
-  %483 = load ptr, ptr %__begin3.sroa.0.02766, align 8, !noalias !242
+  %483 = load ptr, ptr %__begin3.sroa.0.02767, align 8, !noalias !242
   %d_kind.i.i.i.i2092 = getelementptr inbounds i8, ptr %483, i64 8
   %bf.load.i.i.i.i2093 = load i16, ptr %d_kind.i.i.i.i2092, align 8, !noalias !242
   %bf.clear.i.i.i.i2094 = and i16 %bf.load.i.i.i.i2093, 1023
@@ -17726,7 +17726,7 @@ invoke.cont673:                                   ; preds = %invoke.cont670
 for.body683:                                      ; preds = %invoke.cont673, %for.inc735
   %__begin7675.sroa.0.02769 = phi ptr [ %incdec.ptr.i2310, %for.inc735 ], [ %501, %invoke.cont673 ]
   %503 = load ptr, ptr %__begin7675.sroa.0.02769, align 8
-  %504 = load ptr, ptr %__begin3.sroa.0.02766, align 8
+  %504 = load ptr, ptr %__begin3.sroa.0.02767, align 8
   %cmp.i2173 = icmp eq ptr %503, %504
   br i1 %cmp.i2173, label %if.then688, label %if.else715
 
@@ -18269,7 +18269,7 @@ ehcleanup785:                                     ; preds = %lpad583.loopexit, %
   br label %ehcleanup1873
 
 for.inc787:                                       ; preds = %if.then13.i.i2320, %if.then.i.i2313, %cleanup782, %for.body567
-  %incdec.ptr.i2323 = getelementptr inbounds i8, ptr %__begin3.sroa.0.02766, i64 8
+  %incdec.ptr.i2323 = getelementptr inbounds i8, ptr %__begin3.sroa.0.02767, i64 8
   %cmp.i1803.not = icmp eq ptr %incdec.ptr.i2323, %419
   br i1 %cmp.i1803.not, label %for.end789, label %for.body567
 

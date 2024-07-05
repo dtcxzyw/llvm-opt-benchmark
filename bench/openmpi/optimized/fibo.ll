@@ -68,16 +68,16 @@ define hidden ptr @tm_fiboTreeMin(ptr noundef readonly %0) local_unnamed_addr #4
   br label %10
 
 .lr.ph107.preheader.i:                            ; preds = %48, %1
-  %.083.lcssa.i = phi i32 [ 0, %1 ], [ %.285.i, %48 ]
-  %9 = add nuw nsw i32 %.083.lcssa.i, 1
+  %.0.lcssa.i = phi i32 [ 0, %1 ], [ %.2.i, %48 ]
+  %9 = add nuw nsw i32 %.0.lcssa.i, 1
   %wide.trip.count.i = zext nneg i32 %9 to i64
   br label %.lr.ph107.i
 
 10:                                               ; preds = %48, %.lr.ph.i
-  %.075103.i = phi ptr [ %7, %.lr.ph.i ], [ %.176.i, %48 ]
-  %.077102.i = phi ptr [ %5, %.lr.ph.i ], [ %.279.i, %48 ]
-  %.083101.i = phi i32 [ 0, %.lr.ph.i ], [ %.285.i, %48 ]
-  %11 = getelementptr inbounds i8, ptr %.077102.i, i64 32
+  %.0103.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %48 ]
+  %.081102.i = phi ptr [ %7, %.lr.ph.i ], [ %.182.i, %48 ]
+  %.083101.i = phi ptr [ %5, %.lr.ph.i ], [ %.285.i, %48 ]
+  %11 = getelementptr inbounds i8, ptr %.083101.i, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = ashr i32 %12, 1
   %14 = sext i32 %13 to i64
@@ -87,15 +87,15 @@ define hidden ptr @tm_fiboTreeMin(ptr noundef readonly %0) local_unnamed_addr #4
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %10
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %13, i32 %.083101.i)
-  store ptr %.077102.i, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %.075103.i, i64 24
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %13, i32 %.0103.i)
+  store ptr %.083101.i, ptr %15, align 8
+  %19 = getelementptr inbounds i8, ptr %.081102.i, i64 24
   %20 = load ptr, ptr %19, align 8
   br label %48
 
 21:                                               ; preds = %10
   %22 = load ptr, ptr %8, align 8
-  %23 = tail call i32 %22(ptr noundef nonnull %16, ptr noundef nonnull %.077102.i) #8
+  %23 = tail call i32 %22(ptr noundef nonnull %16, ptr noundef nonnull %.083101.i) #8
   %24 = icmp slt i32 %23, 1
   br i1 %24, label %25, label %27
 
@@ -104,11 +104,11 @@ define hidden ptr @tm_fiboTreeMin(ptr noundef readonly %0) local_unnamed_addr #4
   br label %27
 
 27:                                               ; preds = %25, %21
-  %.178.i = phi ptr [ %26, %25 ], [ %.077102.i, %21 ]
-  %.0.i = phi ptr [ %.077102.i, %25 ], [ %16, %21 ]
+  %.184.i = phi ptr [ %26, %25 ], [ %.083101.i, %21 ]
+  %.077.i = phi ptr [ %.083101.i, %25 ], [ %16, %21 ]
   store ptr null, ptr %15, align 8
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %28 = getelementptr inbounds i8, ptr %.077.i, i64 16
+  %29 = getelementptr inbounds i8, ptr %.077.i, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %28, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 24
@@ -116,15 +116,15 @@ define hidden ptr @tm_fiboTreeMin(ptr noundef readonly %0) local_unnamed_addr #4
   %33 = load ptr, ptr %28, align 8
   %34 = getelementptr inbounds i8, ptr %30, i64 16
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %35 = getelementptr inbounds i8, ptr %.077.i, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, -2
   store i32 %37, ptr %35, align 8
-  store ptr %.178.i, ptr %.0.i, align 8
-  %38 = getelementptr inbounds i8, ptr %.178.i, i64 8
+  store ptr %.184.i, ptr %.077.i, align 8
+  %38 = getelementptr inbounds i8, ptr %.184.i, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not97.i = icmp eq ptr %39, null
-  %40 = getelementptr inbounds i8, ptr %.178.i, i64 32
+  %40 = getelementptr inbounds i8, ptr %.184.i, i64 32
   br i1 %.not97.i, label %47, label %41
 
 41:                                               ; preds = %27
@@ -136,22 +136,22 @@ define hidden ptr @tm_fiboTreeMin(ptr noundef readonly %0) local_unnamed_addr #4
   store ptr %45, ptr %29, align 8
   store ptr %39, ptr %28, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 16
-  store ptr %.0.i, ptr %46, align 8
-  store ptr %.0.i, ptr %44, align 8
+  store ptr %.077.i, ptr %46, align 8
+  store ptr %.077.i, ptr %44, align 8
   br label %48
 
 47:                                               ; preds = %27
   store i32 2, ptr %40, align 8
-  store ptr %.0.i, ptr %38, align 8
-  store ptr %.0.i, ptr %29, align 8
-  store ptr %.0.i, ptr %28, align 8
+  store ptr %.077.i, ptr %38, align 8
+  store ptr %.077.i, ptr %29, align 8
+  store ptr %.077.i, ptr %28, align 8
   br label %48
 
 48:                                               ; preds = %47, %41, %18
-  %.285.i = phi i32 [ %spec.select.i, %18 ], [ %.083101.i, %41 ], [ %.083101.i, %47 ]
-  %.279.i = phi ptr [ %.075103.i, %18 ], [ %.178.i, %41 ], [ %.178.i, %47 ]
-  %.176.i = phi ptr [ %20, %18 ], [ %.075103.i, %41 ], [ %.075103.i, %47 ]
-  %.not.i = icmp eq ptr %.279.i, %0
+  %.285.i = phi ptr [ %.081102.i, %18 ], [ %.184.i, %41 ], [ %.184.i, %47 ]
+  %.182.i = phi ptr [ %20, %18 ], [ %.081102.i, %41 ], [ %.081102.i, %47 ]
+  %.2.i = phi i32 [ %spec.select.i, %18 ], [ %.0103.i, %41 ], [ %.0103.i, %47 ]
+  %.not.i = icmp eq ptr %.285.i, %0
   br i1 %.not.i, label %.lr.ph107.preheader.i, label %10, !llvm.loop !4
 
 .lr.ph107.i:                                      ; preds = %51, %.lr.ph107.preheader.i
@@ -171,7 +171,7 @@ define hidden ptr @tm_fiboTreeMin(ptr noundef readonly %0) local_unnamed_addr #4
   %53 = trunc nuw nsw i64 %indvars.iv.i to i32
   store ptr null, ptr %52, align 8
   %.pre = add i32 %53, 1
-  %.not95109.i = icmp sgt i32 %.pre, %.083.lcssa.i
+  %.not95109.i = icmp sgt i32 %.pre, %.0.lcssa.i
   br i1 %.not95109.i, label %fiboTreeConsolidate.exit, label %.lr.ph112.i
 
 .lr.ph112.i:                                      ; preds = %.loopexit.i
@@ -181,7 +181,7 @@ define hidden ptr @tm_fiboTreeMin(ptr noundef readonly %0) local_unnamed_addr #4
 
 56:                                               ; preds = %66, %.lr.ph112.i
   %indvars.iv120.i = phi i64 [ %55, %.lr.ph112.i ], [ %indvars.iv.next121.i, %66 ]
-  %.1111.i = phi ptr [ %50, %.lr.ph112.i ], [ %.3.i, %66 ]
+  %.179110.i = phi ptr [ %50, %.lr.ph112.i ], [ %.3.i, %66 ]
   %57 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv120.i
   %58 = load ptr, ptr %57, align 8
   %.not96.i = icmp eq ptr %58, null
@@ -189,7 +189,7 @@ define hidden ptr @tm_fiboTreeMin(ptr noundef readonly %0) local_unnamed_addr #4
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr %54, align 8
-  %61 = tail call i32 %60(ptr noundef nonnull %58, ptr noundef %.1111.i) #8
+  %61 = tail call i32 %60(ptr noundef nonnull %58, ptr noundef %.179110.i) #8
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %63, label %65
 
@@ -198,20 +198,20 @@ define hidden ptr @tm_fiboTreeMin(ptr noundef readonly %0) local_unnamed_addr #4
   br label %65
 
 65:                                               ; preds = %63, %59
-  %.2.i = phi ptr [ %64, %63 ], [ %.1111.i, %59 ]
+  %.280.i = phi ptr [ %64, %63 ], [ %.179110.i, %59 ]
   store ptr null, ptr %57, align 8
   br label %66
 
 66:                                               ; preds = %65, %56
-  %.3.i = phi ptr [ %.2.i, %65 ], [ %.1111.i, %56 ]
+  %.3.i = phi ptr [ %.280.i, %65 ], [ %.179110.i, %56 ]
   %indvars.iv.next121.i = add nsw i64 %indvars.iv120.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next121.i to i32
   %exitcond123.not.i = icmp eq i32 %9, %lftr.wideiv.i
   br i1 %exitcond123.not.i, label %fiboTreeConsolidate.exit, label %56, !llvm.loop !7
 
 fiboTreeConsolidate.exit:                         ; preds = %51, %66, %.loopexit.i
-  %.1.lcssa.i = phi ptr [ %50, %.loopexit.i ], [ %.3.i, %66 ], [ null, %51 ]
-  ret ptr %.1.lcssa.i
+  %.179.lcssa.i = phi ptr [ %50, %.loopexit.i ], [ %.3.i, %66 ], [ null, %51 ]
+  ret ptr %.179.lcssa.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

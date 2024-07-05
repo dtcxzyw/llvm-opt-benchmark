@@ -3504,7 +3504,7 @@ dissect_tetra_UNITDATA_REQ.exit:                  ; preds = %get_tx_pdu_length.e
 
 119:                                              ; preds = %get_rx_pdu_length.exit.i, %.lr.ph.i
   %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i67, %get_rx_pdu_length.exit.i ]
-  %.05358.i = phi i32 [ %116, %.lr.ph.i ], [ %142, %get_rx_pdu_length.exit.i ]
+  %.05557.i = phi i32 [ %116, %.lr.ph.i ], [ %142, %get_rx_pdu_length.exit.i ]
   %120 = load i32, ptr @hf_tetra_rxchannel1, align 4
   store i32 %120, ptr %5, align 4
   %121 = load i32, ptr @hf_tetra_rxchannel2, align 4
@@ -3543,11 +3543,11 @@ get_rx_pdu_length.exit.i:                         ; preds = %119, %switch.lookup
   %.not56.i = icmp ne i32 %138, 0
   %139 = zext i1 %.not56.i to i32
   %spec.select.i70 = add nuw nsw i32 %137, %139
-  %140 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.05358.i, i32 noundef %spec.select.i70) #3
+  %140 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.05557.i, i32 noundef %spec.select.i70) #3
   tail call void @tetra_dissect_pdu(i32 noundef %125, i32 noundef 0, ptr noundef %140, ptr noundef %115, ptr noundef %1)
   %141 = add nsw i32 %spec.select.i70, -1
   %.1.i = select i1 %.not56.i, i32 %141, i32 %137
-  %142 = add i32 %.1.i, %.05358.i
+  %142 = add i32 %.1.i, %.05557.i
   %exitcond.not.i71 = icmp eq i64 %indvars.iv.next.i67, %wide.trip.count.i65
   br i1 %exitcond.not.i71, label %dissect_tetra_UNITDATA_IND.exit, label %119, !llvm.loop !6
 

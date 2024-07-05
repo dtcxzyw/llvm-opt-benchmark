@@ -56,13 +56,13 @@ define internal fastcc i32 @nbc_reduce_scatter_block_init(ptr noundef %0, ptr no
 
 14:                                               ; preds = %12
   %15 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
-  %spec.select = select i1 %15, ptr %0, ptr %1
+  %spec.select256 = select i1 %15, ptr %0, ptr %1
   br label %16
 
 16:                                               ; preds = %14, %12, %9
-  %.0220 = phi ptr [ %1, %9 ], [ %1, %12 ], [ %spec.select, %14 ]
-  %.0219 = phi ptr [ %0, %9 ], [ %1, %12 ], [ %0, %14 ]
   %17 = phi i1 [ true, %9 ], [ true, %12 ], [ %15, %14 ]
+  %.0218 = phi ptr [ %1, %9 ], [ %1, %12 ], [ %spec.select256, %14 ]
+  %.0213 = phi ptr [ %0, %9 ], [ %1, %12 ], [ %0, %14 ]
   %18 = getelementptr i8, ptr %5, i64 220
   %.val = load i32, ptr %18, align 4
   %19 = getelementptr i8, ptr %5, i64 248
@@ -224,7 +224,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %83
 97:                                               ; preds = %91
   %98 = getelementptr inbounds i8, ptr %70, i64 %68
   %99 = getelementptr inbounds i8, ptr %98, i64 %92
-  %100 = tail call i32 @NBC_Sched_copy(ptr noundef %.0219, i8 noundef signext 0, i64 noundef %45, ptr noundef nonnull %3, ptr noundef nonnull %99, i8 noundef signext 0, i64 noundef %45, ptr noundef nonnull %3, ptr noundef %28, i1 noundef zeroext false) #8
+  %100 = tail call i32 @NBC_Sched_copy(ptr noundef %.0213, i8 noundef signext 0, i64 noundef %45, ptr noundef nonnull %3, ptr noundef nonnull %99, i8 noundef signext 0, i64 noundef %45, ptr noundef nonnull %3, ptr noundef %28, i1 noundef zeroext false) #8
   %.not242 = icmp eq i32 %100, 0
   br i1 %.not242, label %121, label %101
 
@@ -282,8 +282,8 @@ opal_obj_run_destructors.exit269:                 ; preds = %.lr.ph.i266, %112
 .lr.ph:                                           ; preds = %121, %205
   %.0210356 = phi i32 [ %.2, %205 ], [ 1, %121 ]
   %.0211355 = phi i32 [ %206, %205 ], [ 1, %121 ]
-  %.0213354 = phi ptr [ %.1214, %205 ], [ %95, %121 ]
-  %.0215353 = phi ptr [ %.1216, %205 ], [ %93, %121 ]
+  %.0214354 = phi ptr [ %.1215, %205 ], [ %95, %121 ]
+  %.0216353 = phi ptr [ %.1217, %205 ], [ %93, %121 ]
   %notmask = shl nsw i32 -1, %.0211355
   %122 = xor i32 %notmask, -1
   %123 = and i32 %.val, %122
@@ -298,7 +298,7 @@ opal_obj_run_destructors.exit269:                 ; preds = %.lr.ph.i266, %112
   br i1 %129, label %130, label %205
 
 130:                                              ; preds = %126
-  %131 = tail call i32 @NBC_Sched_recv(ptr noundef %.0215353, i8 noundef signext 1, i64 noundef %45, ptr noundef %3, i32 noundef %128, ptr noundef %28, i1 noundef zeroext true) #8
+  %131 = tail call i32 @NBC_Sched_recv(ptr noundef %.0216353, i8 noundef signext 1, i64 noundef %45, ptr noundef %3, i32 noundef %128, ptr noundef %28, i1 noundef zeroext true) #8
   %.not253 = icmp eq i32 %131, 0
   br i1 %.not253, label %152, label %132
 
@@ -354,11 +354,11 @@ opal_obj_run_destructors.exit276:                 ; preds = %.lr.ph.i273, %143
   br i1 %.not254, label %155, label %153
 
 153:                                              ; preds = %152
-  %154 = tail call i32 @NBC_Sched_op(ptr noundef %.0219, i8 noundef signext 0, ptr noundef %.0215353, i8 noundef signext 1, i64 noundef %45, ptr noundef %3, ptr noundef %4, ptr noundef %28, i1 noundef zeroext true) #8
+  %154 = tail call i32 @NBC_Sched_op(ptr noundef %.0213, i8 noundef signext 0, ptr noundef %.0216353, i8 noundef signext 1, i64 noundef %45, ptr noundef %3, ptr noundef %4, ptr noundef %28, i1 noundef zeroext true) #8
   br label %157
 
 155:                                              ; preds = %152
-  %156 = tail call i32 @NBC_Sched_op(ptr noundef %.0213354, i8 noundef signext 1, ptr noundef %.0215353, i8 noundef signext 1, i64 noundef %45, ptr noundef %3, ptr noundef %4, ptr noundef %28, i1 noundef zeroext true) #8
+  %156 = tail call i32 @NBC_Sched_op(ptr noundef %.0214354, i8 noundef signext 1, ptr noundef %.0216353, i8 noundef signext 1, i64 noundef %45, ptr noundef %3, ptr noundef %4, ptr noundef %28, i1 noundef zeroext true) #8
   br label %157
 
 157:                                              ; preds = %155, %153
@@ -420,11 +420,11 @@ opal_obj_run_destructors.exit283:                 ; preds = %.lr.ph.i280, %169
   br i1 %.not244, label %182, label %180
 
 180:                                              ; preds = %178
-  %181 = tail call i32 @NBC_Sched_send(ptr noundef %.0219, i8 noundef signext 0, i64 noundef %45, ptr noundef %3, i32 noundef %179, ptr noundef %28, i1 noundef zeroext false) #8
+  %181 = tail call i32 @NBC_Sched_send(ptr noundef %.0213, i8 noundef signext 0, i64 noundef %45, ptr noundef %3, i32 noundef %179, ptr noundef %28, i1 noundef zeroext false) #8
   br label %184
 
 182:                                              ; preds = %178
-  %183 = tail call i32 @NBC_Sched_send(ptr noundef %.0213354, i8 noundef signext 1, i64 noundef %45, ptr noundef %3, i32 noundef %179, ptr noundef %28, i1 noundef zeroext false) #8
+  %183 = tail call i32 @NBC_Sched_send(ptr noundef %.0214354, i8 noundef signext 1, i64 noundef %45, ptr noundef %3, i32 noundef %179, ptr noundef %28, i1 noundef zeroext false) #8
   br label %184
 
 184:                                              ; preds = %182, %180
@@ -480,15 +480,15 @@ opal_obj_run_destructors.exit290:                 ; preds = %.lr.ph.i287, %196
   br label %opal_obj_new.exit.thread
 
 205:                                              ; preds = %157, %126
-  %.1216 = phi ptr [ %.0215353, %126 ], [ %.0213354, %157 ]
-  %.1214 = phi ptr [ %.0213354, %126 ], [ %.0215353, %157 ]
+  %.1217 = phi ptr [ %.0216353, %126 ], [ %.0214354, %157 ]
+  %.1215 = phi ptr [ %.0214354, %126 ], [ %.0216353, %157 ]
   %.2 = phi i32 [ %.0210356, %126 ], [ 0, %157 ]
   %206 = add nuw i32 %.0211355, 1
   %exitcond.not = icmp eq i32 %206, %indvars.iv
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %205, %121, %184
-  %.0213349 = phi ptr [ %.0213354, %184 ], [ %95, %121 ], [ %.1214, %205 ]
+  %.0214349 = phi ptr [ %.0214354, %184 ], [ %95, %121 ], [ %.1215, %205 ]
   %207 = tail call i32 @NBC_Sched_barrier(ptr noundef %28) #8
   %.not246 = icmp eq i32 %207, 0
   br i1 %.not246, label %228, label %208
@@ -549,7 +549,7 @@ opal_obj_run_destructors.exit297:                 ; preds = %.lr.ph.i294, %219
   br i1 %229, label %.lr.ph359, label %._crit_edge
 
 230:                                              ; preds = %228
-  %231 = tail call i32 @NBC_Sched_recv(ptr noundef %.0220, i8 noundef signext 0, i64 noundef %44, ptr noundef %3, i32 noundef 0, ptr noundef %28, i1 noundef zeroext false) #8
+  %231 = tail call i32 @NBC_Sched_recv(ptr noundef %.0218, i8 noundef signext 0, i64 noundef %44, ptr noundef %3, i32 noundef 0, ptr noundef %28, i1 noundef zeroext false) #8
   %.not250 = icmp eq i32 %231, 0
   br i1 %.not250, label %.thread, label %232
 
@@ -610,7 +610,7 @@ opal_obj_run_destructors.exit304:                 ; preds = %.lr.ph.i301, %243
   %.0209357 = phi i64 [ %254, %252 ], [ 0, %.preheader ]
   %254 = add i64 %.0209357, %44
   %255 = mul i64 %254, %23
-  %256 = getelementptr inbounds i8, ptr %.0213349, i64 %255
+  %256 = getelementptr inbounds i8, ptr %.0214349, i64 %255
   %257 = tail call i32 @NBC_Sched_send(ptr noundef %256, i8 noundef signext 1, i64 noundef %44, ptr noundef %3, i32 noundef %.0358, ptr noundef %28, i1 noundef zeroext false) #8
   %.not249 = icmp eq i32 %257, 0
   br i1 %.not249, label %252, label %258
@@ -668,7 +668,7 @@ opal_obj_run_destructors.exit311:                 ; preds = %.lr.ph.i308, %269
   br i1 %or.cond7, label %.thread, label %279
 
 279:                                              ; preds = %._crit_edge
-  %280 = tail call i32 @NBC_Sched_copy(ptr noundef %.0213349, i8 noundef signext 1, i64 noundef %44, ptr noundef %3, ptr noundef %.0220, i8 noundef signext 0, i64 noundef %44, ptr noundef %3, ptr noundef %28, i1 noundef zeroext false) #8
+  %280 = tail call i32 @NBC_Sched_copy(ptr noundef %.0214349, i8 noundef signext 1, i64 noundef %44, ptr noundef %3, ptr noundef %.0218, i8 noundef signext 0, i64 noundef %44, ptr noundef %3, ptr noundef %28, i1 noundef zeroext false) #8
   %.not248 = icmp eq i32 %280, 0
   br i1 %.not248, label %.thread, label %281
 
@@ -720,7 +720,7 @@ opal_obj_run_destructors.exit318:                 ; preds = %.lr.ph.i315, %292
   br label %opal_obj_new.exit.thread
 
 .thread:                                          ; preds = %._crit_edge, %230, %279, %ceil_of_log2.exit
-  %.0217 = phi ptr [ %70, %230 ], [ %70, %279 ], [ null, %ceil_of_log2.exit ], [ %70, %._crit_edge ]
+  %.0219 = phi ptr [ %70, %230 ], [ %70, %279 ], [ null, %ceil_of_log2.exit ], [ %70, %._crit_edge ]
   %301 = tail call i32 @NBC_Sched_commit(ptr noundef %28) #8
   %.not251 = icmp eq i32 %301, 0
   br i1 %.not251, label %322, label %302
@@ -769,11 +769,11 @@ opal_obj_run_destructors.exit325:                 ; preds = %.lr.ph.i322, %313
   br label %321
 
 321:                                              ; preds = %opal_thread_add_fetch_32.exit320, %opal_obj_run_destructors.exit325
-  tail call void @free(ptr noundef %.0217) #8
+  tail call void @free(ptr noundef %.0219) #8
   br label %opal_obj_new.exit.thread
 
 322:                                              ; preds = %.thread
-  %323 = tail call i32 @NBC_Schedule_request(ptr noundef %28, ptr noundef %5, ptr noundef %7, i1 noundef zeroext %8, ptr noundef %6, ptr noundef %.0217) #8
+  %323 = tail call i32 @NBC_Schedule_request(ptr noundef %28, ptr noundef %5, ptr noundef %7, i1 noundef zeroext %8, ptr noundef %6, ptr noundef %.0219) #8
   %.not252 = icmp eq i32 %323, 0
   br i1 %.not252, label %opal_obj_new.exit.thread, label %324
 
@@ -821,7 +821,7 @@ opal_obj_run_destructors.exit332:                 ; preds = %.lr.ph.i329, %335
   br label %343
 
 343:                                              ; preds = %opal_thread_add_fetch_32.exit327, %opal_obj_run_destructors.exit332
-  tail call void @free(ptr noundef %.0217) #8
+  tail call void @free(ptr noundef %.0219) #8
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %32, %322, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %343, %321, %300, %277, %251, %227, %204, %177, %151, %120, %25

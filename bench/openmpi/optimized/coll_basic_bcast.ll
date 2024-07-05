@@ -70,26 +70,26 @@ define i32 @mca_coll_basic_bcast_log_intra(ptr noundef %0, i32 noundef %1, ptr n
   br label %39
 
 39:                                               ; preds = %.lr.ph, %68
-  %.096 = phi ptr [ %33, %.lr.ph ], [ %.1, %68 ]
-  %.05795 = phi i32 [ 0, %.lr.ph ], [ %.158, %68 ]
-  %.06194 = phi i32 [ %37, %.lr.ph ], [ %70, %68 ]
+  %.05796 = phi ptr [ %33, %.lr.ph ], [ %.1, %68 ]
+  %.05895 = phi i32 [ 0, %.lr.ph ], [ %.159, %68 ]
+  %.06294 = phi i32 [ %37, %.lr.ph ], [ %70, %68 ]
   %.06393 = phi i32 [ %36, %.lr.ph ], [ %69, %68 ]
-  %40 = or i32 %.06194, %12
+  %40 = or i32 %.06294, %12
   %41 = icmp slt i32 %40, %.val.val
   br i1 %41, label %42, label %68
 
 42:                                               ; preds = %39
   %43 = add nsw i32 %40, %3
   %44 = srem i32 %43, %.val.val
-  %45 = add nsw i32 %.05795, 1
+  %45 = add nsw i32 %.05895, 1
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
-  %47 = getelementptr inbounds i8, ptr %.096, i64 8
-  %48 = tail call i32 %46(ptr noundef %0, i64 noundef %38, ptr noundef %2, i32 noundef %44, i32 noundef -17, i32 noundef 4, ptr noundef %4, ptr noundef %.096) #4
+  %47 = getelementptr inbounds i8, ptr %.05796, i64 8
+  %48 = tail call i32 %46(ptr noundef %0, i64 noundef %38, ptr noundef %2, i32 noundef %44, i32 noundef -17, i32 noundef 4, ptr noundef %4, ptr noundef %.05796) #4
   %.not75 = icmp eq i32 %48, 0
   br i1 %.not75, label %68, label %49
 
 49:                                               ; preds = %42
-  %50 = icmp sgt i32 %.05795, -1
+  %50 = icmp sgt i32 %.05895, -1
   br i1 %50, label %.lr.ph.preheader.i, label %ompi_coll_base_free_reqs.exit
 
 .lr.ph.preheader.i:                               ; preds = %49
@@ -137,20 +137,20 @@ ompi_request_cancel.exit.i:                       ; preds = %59, %56
   br i1 %exitcond.not.i, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i, !llvm.loop !4
 
 68:                                               ; preds = %39, %42
-  %.158 = phi i32 [ %45, %42 ], [ %.05795, %39 ]
-  %.1 = phi ptr [ %47, %42 ], [ %.096, %39 ]
+  %.159 = phi i32 [ %45, %42 ], [ %.05895, %39 ]
+  %.1 = phi ptr [ %47, %42 ], [ %.05796, %39 ]
   %69 = add i32 %.06393, 1
-  %70 = shl i32 %.06194, 1
+  %70 = shl i32 %.06294, 1
   %exitcond.not = icmp eq i32 %69, %14
   br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %68
-  %71 = icmp sgt i32 %.158, 0
+  %71 = icmp sgt i32 %.159, 0
   br i1 %71, label %72, label %ompi_coll_base_free_reqs.exit
 
 72:                                               ; preds = %._crit_edge
   %73 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
-  %74 = zext nneg i32 %.158 to i64
+  %74 = zext nneg i32 %.159 to i64
   %75 = tail call i32 %73(i64 noundef %74, ptr noundef nonnull %33, ptr noundef null) #4
   %.not74 = icmp eq i32 %75, 0
   br i1 %.not74, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i79
@@ -196,8 +196,8 @@ ompi_request_cancel.exit.i87:                     ; preds = %84, %81
   br i1 %exitcond.not.i85, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i79, !llvm.loop !4
 
 ompi_coll_base_free_reqs.exit:                    ; preds = %67, %92, %35, %49, %._crit_edge, %72, %30, %21
-  %.062 = phi i32 [ %29, %21 ], [ -2, %30 ], [ 0, %72 ], [ 0, %._crit_edge ], [ %48, %49 ], [ 0, %35 ], [ %75, %92 ], [ %48, %67 ]
-  ret i32 %.062
+  %.0 = phi i32 [ %29, %21 ], [ -2, %30 ], [ 0, %72 ], [ 0, %._crit_edge ], [ %48, %49 ], [ 0, %35 ], [ %75, %92 ], [ %48, %67 ]
+  ret i32 %.0
 }
 
 declare ptr @ompi_coll_base_comm_get_reqs(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -357,8 +357,8 @@ ompi_request_cancel.exit.i50:                     ; preds = %62, %59
   br i1 %exitcond.not.i48, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i42, !llvm.loop !4
 
 ompi_coll_base_free_reqs.exit:                    ; preds = %49, %70, %._crit_edge, %16, %ompi_comm_remote_size.exit, %20
-  %.032 = phi i32 [ -2, %20 ], [ %19, %16 ], [ %53, %._crit_edge ], [ 0, %ompi_comm_remote_size.exit ], [ %53, %70 ], [ %31, %49 ]
-  ret i32 %.032
+  %.031 = phi i32 [ -2, %20 ], [ %19, %16 ], [ %53, %._crit_edge ], [ 0, %ompi_comm_remote_size.exit ], [ %53, %70 ], [ %31, %49 ]
+  ret i32 %.031
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

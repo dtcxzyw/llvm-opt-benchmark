@@ -154,26 +154,26 @@ define internal fastcc range(i32 0, 2) i32 @dct3trace_get_packet(ptr noundef %0,
   %15 = getelementptr inbounds i8, ptr %1, i64 85
   %16 = getelementptr inbounds i8, ptr %1, i64 92
   %17 = getelementptr inbounds i8, ptr %1, i64 94
+  br label %.outer.outer.outer
+
+.outer.outer.outer:                               ; preds = %5, %164
+  %.078.ph.ph.ph = phi i32 [ 0, %5 ], [ %165, %164 ]
+  %.076.ph.ph221.ph = phi i32 [ 0, %5 ], [ 1, %164 ]
+  %.075.ph.ph.ph = phi ptr [ %7, %5 ], [ %125, %164 ]
+  %18 = ptrtoint ptr %.075.ph.ph.ph to i64
   br label %.outer.outer
 
-.outer.outer:                                     ; preds = %164, %5
-  %.077.ph.ph = phi ptr [ %125, %164 ], [ %7, %5 ]
-  %.075.ph.ph221 = phi i32 [ 1, %164 ], [ 0, %5 ]
-  %.0.ph.ph = phi i32 [ %165, %164 ], [ 0, %5 ]
-  %18 = ptrtoint ptr %.077.ph.ph to i64
-  br label %.outer.outer222
-
-.outer.outer222:                                  ; preds = %.outer.outer, %hex2bin.exit
-  %.075.ph.ph223 = phi i32 [ %.075.ph.ph221, %.outer.outer ], [ 1, %hex2bin.exit ]
-  %.0.ph.ph224 = phi i32 [ %.0.ph.ph, %.outer.outer ], [ %111, %hex2bin.exit ]
+.outer.outer:                                     ; preds = %.outer.outer.outer, %hex2bin.exit
+  %.078.ph.ph = phi i32 [ %111, %hex2bin.exit ], [ %.078.ph.ph.ph, %.outer.outer.outer ]
+  %.076.ph.ph221 = phi i32 [ 1, %hex2bin.exit ], [ %.076.ph.ph221.ph, %.outer.outer.outer ]
   br label %.outer
 
-.outer:                                           ; preds = %.outer.backedge, %.outer.outer222
-  %.075.ph = phi i32 [ %.075.ph.ph223, %.outer.outer222 ], [ %.075.ph.be, %.outer.backedge ]
+.outer:                                           ; preds = %.outer.backedge, %.outer.outer
+  %.076.ph = phi i32 [ %.076.ph.ph221, %.outer.outer ], [ %.076.ph.be, %.outer.backedge ]
   br label %19
 
 19:                                               ; preds = %.outer, %118
-  %.075 = phi i32 [ 0, %118 ], [ %.075.ph, %.outer ]
+  %.076 = phi i32 [ 0, %118 ], [ %.076.ph, %.outer ]
   %20 = call ptr @file_gets(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef %0) #7
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %169, label %21
@@ -193,7 +193,7 @@ define internal fastcc range(i32 0, 2) i32 @dct3trace_get_packet(ptr noundef %0,
   br i1 %25, label %26, label %45
 
 26:                                               ; preds = %24
-  %.not100 = icmp eq i32 %.075, 0
+  %.not100 = icmp eq i32 %.076, 0
   br i1 %.not100, label %43, label %27
 
 27:                                               ; preds = %26
@@ -208,9 +208,9 @@ define internal fastcc range(i32 0, 2) i32 @dct3trace_get_packet(ptr noundef %0,
   %32 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %1, i64 64
-  store i32 %.0.ph.ph224, ptr %33, align 8
+  store i32 %.078.ph.ph, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %1, i64 68
-  store i32 %.0.ph.ph224, ptr %34, align 4
+  store i32 %.078.ph.ph, ptr %34, align 4
   store i32 0, ptr %3, align 4
   %35 = load i32, ptr %33, align 8
   %36 = zext i32 %35 to i64
@@ -307,7 +307,7 @@ define internal fastcc range(i32 0, 2) i32 @dct3trace_get_packet(ptr noundef %0,
   br i1 %.not99, label %.outer.backedge, label %78
 
 .outer.backedge:                                  ; preds = %117, %116, %72
-  %.075.ph.be = phi i32 [ %.075, %72 ], [ 1, %116 ], [ 0, %117 ]
+  %.076.ph.be = phi i32 [ %.076, %72 ], [ 1, %116 ], [ 0, %117 ]
   br label %.outer, !llvm.loop !4
 
 78:                                               ; preds = %72
@@ -318,14 +318,14 @@ define internal fastcc range(i32 0, 2) i32 @dct3trace_get_packet(ptr noundef %0,
 
 .lr.ph.i:                                         ; preds = %78, %.outer.i
   %81 = phi i8 [ %108, %.outer.i ], [ %80, %78 ]
-  %.0.ph30.i = phi i32 [ %.1.i, %.outer.i ], [ 0, %78 ]
-  %.016.ph29.i = phi ptr [ %107, %.outer.i ], [ %79, %78 ]
-  %.018.ph28.i = phi ptr [ %.119.i, %.outer.i ], [ %.077.ph.ph, %78 ]
+  %.016.ph30.i = phi i32 [ %.1.i, %.outer.i ], [ 0, %78 ]
+  %.017.ph29.i = phi ptr [ %.118.i, %.outer.i ], [ %.075.ph.ph.ph, %78 ]
+  %.019.ph28.i = phi ptr [ %107, %.outer.i ], [ %79, %78 ]
   br label %82
 
 82:                                               ; preds = %hc2b.exit.thread.i, %.lr.ph.i
   %83 = phi i8 [ %81, %.lr.ph.i ], [ %94, %hc2b.exit.thread.i ]
-  %.01625.i = phi ptr [ %.016.ph29.i, %.lr.ph.i ], [ %93, %hc2b.exit.thread.i ]
+  %.01925.i = phi ptr [ %.019.ph28.i, %.lr.ph.i ], [ %93, %hc2b.exit.thread.i ]
   %84 = call signext i8 @g_ascii_tolower(i8 noundef signext %83) #9
   %85 = zext i8 %84 to i32
   %86 = add i8 %84, -48
@@ -348,17 +348,17 @@ hc2b.exit.i:                                      ; preds = %89, %87
   br i1 %92, label %hc2b.exit.thread.i, label %95
 
 hc2b.exit.thread.i:                               ; preds = %hc2b.exit.i, %89
-  %93 = getelementptr i8, ptr %.01625.i, i64 1
+  %93 = getelementptr i8, ptr %.01925.i, i64 1
   %94 = load i8, ptr %93, align 1
   %.not.i = icmp eq i8 %94, 0
   br i1 %.not.i, label %hex2bin.exit, label %82, !llvm.loop !6
 
 95:                                               ; preds = %hc2b.exit.i
-  %96 = icmp eq ptr %.018.ph28.i, %11
+  %96 = icmp eq ptr %.017.ph29.i, %11
   br i1 %96, label %hex2bin.exit.thread, label %97
 
 97:                                               ; preds = %95
-  %98 = icmp eq i32 %.0.ph30.i, 0
+  %98 = icmp eq i32 %.016.ph30.i, 0
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %97
@@ -367,30 +367,30 @@ hc2b.exit.thread.i:                               ; preds = %hc2b.exit.i, %89
   br label %.outer.i
 
 101:                                              ; preds = %97
-  %102 = load i8, ptr %.018.ph28.i, align 1
+  %102 = load i8, ptr %.017.ph29.i, align 1
   %103 = trunc i32 %.0.i.i to i8
   %104 = and i8 %103, 15
   %105 = or i8 %102, %104
-  %106 = getelementptr i8, ptr %.018.ph28.i, i64 1
+  %106 = getelementptr i8, ptr %.017.ph29.i, i64 1
   br label %.outer.i
 
 .outer.i:                                         ; preds = %101, %99
   %.sink.i = phi i8 [ %100, %99 ], [ %105, %101 ]
-  %.119.i = phi ptr [ %.018.ph28.i, %99 ], [ %106, %101 ]
+  %.118.i = phi ptr [ %.017.ph29.i, %99 ], [ %106, %101 ]
   %.1.i = phi i32 [ 1, %99 ], [ 0, %101 ]
-  store i8 %.sink.i, ptr %.018.ph28.i, align 1
-  %107 = getelementptr i8, ptr %.01625.i, i64 1
+  store i8 %.sink.i, ptr %.017.ph29.i, align 1
+  %107 = getelementptr i8, ptr %.01925.i, i64 1
   %108 = load i8, ptr %107, align 1
   %.not24.i = icmp eq i8 %108, 0
   br i1 %.not24.i, label %hex2bin.exit, label %.lr.ph.i, !llvm.loop !6
 
 hex2bin.exit:                                     ; preds = %.outer.i, %hc2b.exit.thread.i, %78
-  %.018.ph.lcssa23.i = phi ptr [ %.077.ph.ph, %78 ], [ %.018.ph28.i, %hc2b.exit.thread.i ], [ %.119.i, %.outer.i ]
-  %109 = ptrtoint ptr %.018.ph.lcssa23.i to i64
+  %.017.ph.lcssa23.i = phi ptr [ %.075.ph.ph.ph, %78 ], [ %.017.ph29.i, %hc2b.exit.thread.i ], [ %.118.i, %.outer.i ]
+  %109 = ptrtoint ptr %.017.ph.lcssa23.i to i64
   %110 = sub i64 %109, %18
   %111 = trunc i64 %110 to i32
   %112 = icmp eq i32 %111, -1
-  br i1 %112, label %hex2bin.exit.thread, label %.outer.outer222, !llvm.loop !4
+  br i1 %112, label %hex2bin.exit.thread, label %.outer.outer, !llvm.loop !4
 
 hex2bin.exit.thread:                              ; preds = %hex2bin.exit, %95
   %113 = getelementptr inbounds i8, ptr %1, i64 64
@@ -401,7 +401,7 @@ hex2bin.exit.thread:                              ; preds = %hex2bin.exit, %95
   br label %.loopexit
 
 116:                                              ; preds = %45
-  %.not87 = icmp eq i32 %.075, 0
+  %.not87 = icmp eq i32 %.076, 0
   br i1 %.not87, label %117, label %.outer.backedge, !llvm.loop !4
 
 117:                                              ; preds = %116
@@ -420,13 +420,13 @@ hex2bin.exit.thread:                              ; preds = %hex2bin.exit, %95
   br i1 %switch, label %122, label %123
 
 122:                                              ; preds = %120
-  store i16 257, ptr %.077.ph.ph, align 1
+  store i16 257, ptr %.075.ph.ph.ph, align 1
   br label %123
 
 123:                                              ; preds = %120, %122
-  %.1 = phi i32 [ 3, %122 ], [ 1, %120 ]
-  %124 = zext nneg i32 %.1 to i64
-  %125 = getelementptr i8, ptr %.077.ph.ph, i64 %124
+  %.179 = phi i32 [ 3, %122 ], [ 1, %120 ]
+  %124 = zext nneg i32 %.179 to i64
+  %125 = getelementptr i8, ptr %.075.ph.ph.ph, i64 %124
   %126 = getelementptr i8, ptr %119, i64 6
   %127 = load i8, ptr %126, align 1
   %.not2427.i101 = icmp eq i8 %127, 0
@@ -434,14 +434,14 @@ hex2bin.exit.thread:                              ; preds = %hex2bin.exit, %95
 
 .lr.ph.i102:                                      ; preds = %123, %.outer.i116
   %128 = phi i8 [ %155, %.outer.i116 ], [ %127, %123 ]
-  %.0.ph30.i103 = phi i32 [ %.1.i119, %.outer.i116 ], [ 0, %123 ]
-  %.016.ph29.i104 = phi ptr [ %154, %.outer.i116 ], [ %126, %123 ]
-  %.018.ph28.i105 = phi ptr [ %.119.i118, %.outer.i116 ], [ %125, %123 ]
+  %.016.ph30.i103 = phi i32 [ %.1.i119, %.outer.i116 ], [ 0, %123 ]
+  %.017.ph29.i104 = phi ptr [ %.118.i118, %.outer.i116 ], [ %125, %123 ]
+  %.019.ph28.i105 = phi ptr [ %154, %.outer.i116 ], [ %126, %123 ]
   br label %129
 
 129:                                              ; preds = %hc2b.exit.thread.i109, %.lr.ph.i102
   %130 = phi i8 [ %128, %.lr.ph.i102 ], [ %141, %hc2b.exit.thread.i109 ]
-  %.01625.i106 = phi ptr [ %.016.ph29.i104, %.lr.ph.i102 ], [ %140, %hc2b.exit.thread.i109 ]
+  %.01925.i106 = phi ptr [ %.019.ph28.i105, %.lr.ph.i102 ], [ %140, %hc2b.exit.thread.i109 ]
   %131 = call signext i8 @g_ascii_tolower(i8 noundef signext %130) #9
   %132 = zext i8 %131 to i32
   %133 = add i8 %131, -48
@@ -464,17 +464,17 @@ hc2b.exit.i114:                                   ; preds = %136, %134
   br i1 %139, label %hc2b.exit.thread.i109, label %142
 
 hc2b.exit.thread.i109:                            ; preds = %hc2b.exit.i114, %136
-  %140 = getelementptr i8, ptr %.01625.i106, i64 1
+  %140 = getelementptr i8, ptr %.01925.i106, i64 1
   %141 = load i8, ptr %140, align 1
   %.not.i110 = icmp eq i8 %141, 0
   br i1 %.not.i110, label %hex2bin.exit122, label %129, !llvm.loop !6
 
 142:                                              ; preds = %hc2b.exit.i114
-  %143 = icmp eq ptr %.018.ph28.i105, %11
+  %143 = icmp eq ptr %.017.ph29.i104, %11
   br i1 %143, label %hex2bin.exit122.thread, label %144
 
 144:                                              ; preds = %142
-  %145 = icmp eq i32 %.0.ph30.i103, 0
+  %145 = icmp eq i32 %.016.ph30.i103, 0
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %144
@@ -483,26 +483,26 @@ hc2b.exit.thread.i109:                            ; preds = %hc2b.exit.i114, %13
   br label %.outer.i116
 
 148:                                              ; preds = %144
-  %149 = load i8, ptr %.018.ph28.i105, align 1
+  %149 = load i8, ptr %.017.ph29.i104, align 1
   %150 = trunc i32 %.0.i.i115 to i8
   %151 = and i8 %150, 15
   %152 = or i8 %149, %151
-  %153 = getelementptr i8, ptr %.018.ph28.i105, i64 1
+  %153 = getelementptr i8, ptr %.017.ph29.i104, i64 1
   br label %.outer.i116
 
 .outer.i116:                                      ; preds = %148, %146
   %.sink.i117 = phi i8 [ %147, %146 ], [ %152, %148 ]
-  %.119.i118 = phi ptr [ %.018.ph28.i105, %146 ], [ %153, %148 ]
+  %.118.i118 = phi ptr [ %.017.ph29.i104, %146 ], [ %153, %148 ]
   %.1.i119 = phi i32 [ 1, %146 ], [ 0, %148 ]
-  store i8 %.sink.i117, ptr %.018.ph28.i105, align 1
-  %154 = getelementptr i8, ptr %.01625.i106, i64 1
+  store i8 %.sink.i117, ptr %.017.ph29.i104, align 1
+  %154 = getelementptr i8, ptr %.01925.i106, i64 1
   %155 = load i8, ptr %154, align 1
   %.not24.i120 = icmp eq i8 %155, 0
   br i1 %.not24.i120, label %hex2bin.exit122, label %.lr.ph.i102, !llvm.loop !6
 
 hex2bin.exit122:                                  ; preds = %.outer.i116, %hc2b.exit.thread.i109, %123
-  %.018.ph.lcssa23.i112 = phi ptr [ %125, %123 ], [ %.018.ph28.i105, %hc2b.exit.thread.i109 ], [ %.119.i118, %.outer.i116 ]
-  %156 = ptrtoint ptr %.018.ph.lcssa23.i112 to i64
+  %.017.ph.lcssa23.i112 = phi ptr [ %125, %123 ], [ %.017.ph29.i104, %hc2b.exit.thread.i109 ], [ %.118.i118, %.outer.i116 ]
+  %156 = ptrtoint ptr %.017.ph.lcssa23.i112 to i64
   %157 = ptrtoint ptr %125 to i64
   %158 = sub i64 %156, %157
   %159 = trunc i64 %158 to i32
@@ -518,13 +518,13 @@ hex2bin.exit122.thread:                           ; preds = %hex2bin.exit122, %1
   br label %.loopexit
 
 164:                                              ; preds = %hex2bin.exit122
-  %165 = add i32 %.1, %159
+  %165 = add i32 %.179, %159
   %.tr = trunc i64 %158 to i8
   %166 = shl i8 %.tr, 2
   %167 = or disjoint i8 %166, 1
   %168 = getelementptr i8, ptr %125, i64 -1
   store i8 %167, ptr %168, align 1
-  br label %.outer.outer, !llvm.loop !4
+  br label %.outer.outer.outer, !llvm.loop !4
 
 169:                                              ; preds = %19
   %170 = call i32 @file_error(ptr noundef %0, ptr noundef %4) #7
@@ -534,8 +534,8 @@ hex2bin.exit122.thread:                           ; preds = %hex2bin.exit122, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %65, %61, %58, %54, %52, %46, %169, %hex2bin.exit122.thread, %hex2bin.exit.thread, %43, %27, %23
-  %.079 = phi i32 [ 0, %23 ], [ 1, %27 ], [ 0, %43 ], [ 0, %hex2bin.exit.thread ], [ 0, %hex2bin.exit122.thread ], [ 0, %169 ], [ 0, %46 ], [ 0, %52 ], [ 0, %54 ], [ 0, %58 ], [ 0, %61 ], [ 0, %65 ]
-  ret i32 %.079
+  %.0 = phi i32 [ 0, %23 ], [ 1, %27 ], [ 0, %43 ], [ 0, %hex2bin.exit.thread ], [ 0, %hex2bin.exit122.thread ], [ 0, %169 ], [ 0, %46 ], [ 0, %52 ], [ 0, %54 ], [ 0, %58 ], [ 0, %61 ], [ 0, %65 ]
+  ret i32 %.0
 }
 
 declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1

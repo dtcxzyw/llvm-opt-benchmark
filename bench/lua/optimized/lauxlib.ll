@@ -89,8 +89,8 @@ entry:
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %entry
-  %li.0.i = phi i32 [ 1, %entry ], [ %le.0.i, %while.cond.i ]
   %le.0.i = phi i32 [ 1, %entry ], [ %mul.i, %while.cond.i ]
+  %li.0.i = phi i32 [ 1, %entry ], [ %le.0.i, %while.cond.i ]
   %call.i = call i32 @lua_getstack(ptr noundef %L1, i32 noundef %le.0.i, ptr noundef nonnull %ar.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   %mul.i = shl nsw i32 %le.0.i, 1
@@ -101,15 +101,15 @@ while.cond1.preheader.i:                          ; preds = %while.cond.i
   br i1 %cmp10.i, label %while.body2.i, label %lastlevel.exit
 
 while.body2.i:                                    ; preds = %while.cond1.preheader.i, %while.body2.i
-  %le.112.i = phi i32 [ %le.2.i, %while.body2.i ], [ %le.0.i, %while.cond1.preheader.i ]
-  %li.111.i = phi i32 [ %li.2.i, %while.body2.i ], [ %li.0.i, %while.cond1.preheader.i ]
-  %add.i = add nsw i32 %li.111.i, %le.112.i
+  %li.112.i = phi i32 [ %li.2.i, %while.body2.i ], [ %li.0.i, %while.cond1.preheader.i ]
+  %le.111.i = phi i32 [ %le.2.i, %while.body2.i ], [ %le.0.i, %while.cond1.preheader.i ]
+  %add.i = add nsw i32 %le.111.i, %li.112.i
   %div.i = sdiv i32 %add.i, 2
   %call3.i = call i32 @lua_getstack(ptr noundef %L1, i32 noundef %div.i, ptr noundef nonnull %ar.i) #18
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   %add5.i = add nsw i32 %div.i, 1
-  %li.2.i = select i1 %tobool4.not.i, i32 %li.111.i, i32 %add5.i
-  %le.2.i = select i1 %tobool4.not.i, i32 %div.i, i32 %le.112.i
+  %le.2.i = select i1 %tobool4.not.i, i32 %div.i, i32 %le.111.i
+  %li.2.i = select i1 %tobool4.not.i, i32 %li.112.i, i32 %add5.i
   %cmp.i = icmp slt i32 %li.2.i, %le.2.i
   br i1 %cmp.i, label %while.body2.i, label %lastlevel.exit, !llvm.loop !7
 

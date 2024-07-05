@@ -15,11 +15,11 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br label %5
 
 5:                                                ; preds = %.lr.ph, %.thread
-  %.0113266 = phi ptr [ %0, %.lr.ph ], [ %168, %.thread ]
-  %.0114265 = phi i64 [ %1, %.lr.ph ], [ %.1115, %.thread ]
-  %6 = load i8, ptr %.0113266, align 1
+  %.0113266 = phi i64 [ %1, %.lr.ph ], [ %.1, %.thread ]
+  %.0114265 = phi ptr [ %0, %.lr.ph ], [ %168, %.thread ]
+  %6 = load i8, ptr %.0114265, align 1
   %7 = zext i8 %6 to i32
-  %8 = add i64 %.0114265, -1
+  %8 = add i64 %.0113266, -1
   %9 = icmp sgt i8 %6, -1
   br i1 %9, label %.thread, label %10
 
@@ -28,7 +28,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %10
-  %13 = ptrtoint ptr %.0113266 to i64
+  %13 = ptrtoint ptr %.0114265 to i64
   %14 = sub i64 %13, %4
   store i64 %14, ptr %2, align 8
   br label %.loopexit
@@ -38,7 +38,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %15
-  %18 = ptrtoint ptr %.0113266 to i64
+  %18 = ptrtoint ptr %.0114265 to i64
   %19 = sub i64 %18, %4
   store i64 %19, ptr %2, align 8
   br label %.loopexit
@@ -53,16 +53,16 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %20
-  %28 = ptrtoint ptr %.0113266 to i64
+  %28 = ptrtoint ptr %.0114265 to i64
   %29 = sub i64 %28, %4
   store i64 %29, ptr %2, align 8
-  %switch.tableidx = sub i64 %25, %.0114265
+  %switch.tableidx = sub i64 %25, %.0113266
   %30 = icmp ult i64 %switch.tableidx, 5
   br i1 %30, label %switch.lookup, label %31
 
 31:                                               ; preds = %27, %20
   %32 = sub i64 %8, %25
-  %33 = getelementptr inbounds i8, ptr %.0113266, i64 1
+  %33 = getelementptr inbounds i8, ptr %.0114265, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = and i32 %35, 192
@@ -98,7 +98,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br label %.loopexit
 
 49:                                               ; preds = %41
-  %50 = getelementptr inbounds i8, ptr %.0113266, i64 2
+  %50 = getelementptr inbounds i8, ptr %.0114265, i64 2
   %51 = load i8, ptr %50, align 1
   %52 = and i8 %51, -64
   %.not130 = icmp eq i8 %52, -128
@@ -139,14 +139,14 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br label %.loopexit
 
 69:                                               ; preds = %41
-  %70 = getelementptr inbounds i8, ptr %.0113266, i64 2
+  %70 = getelementptr inbounds i8, ptr %.0114265, i64 2
   %71 = load i8, ptr %70, align 1
   %72 = and i8 %71, -64
   %.not128 = icmp eq i8 %72, -128
   br i1 %.not128, label %77, label %73
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %.0113266, i64 2
+  %74 = getelementptr inbounds i8, ptr %.0114265, i64 2
   %75 = ptrtoint ptr %74 to i64
   %reass.sub277 = sub i64 %75, %4
   %76 = add i64 %reass.sub277, -2
@@ -154,7 +154,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br label %.loopexit
 
 77:                                               ; preds = %69
-  %78 = getelementptr inbounds i8, ptr %.0113266, i64 3
+  %78 = getelementptr inbounds i8, ptr %.0114265, i64 3
   %79 = load i8, ptr %78, align 1
   %80 = and i8 %79, -64
   %.not129 = icmp eq i8 %80, -128
@@ -199,7 +199,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br label %.loopexit
 
 99:                                               ; preds = %41
-  %100 = getelementptr inbounds i8, ptr %.0113266, i64 2
+  %100 = getelementptr inbounds i8, ptr %.0114265, i64 2
   %101 = load i8, ptr %100, align 1
   %102 = and i8 %101, -64
   %.not125 = icmp eq i8 %102, -128
@@ -213,7 +213,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br label %.loopexit
 
 106:                                              ; preds = %99
-  %107 = getelementptr inbounds i8, ptr %.0113266, i64 3
+  %107 = getelementptr inbounds i8, ptr %.0114265, i64 3
   %108 = load i8, ptr %107, align 1
   %109 = and i8 %108, -64
   %.not126 = icmp eq i8 %109, -128
@@ -227,7 +227,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br label %.loopexit
 
 113:                                              ; preds = %106
-  %114 = getelementptr inbounds i8, ptr %.0113266, i64 4
+  %114 = getelementptr inbounds i8, ptr %.0114265, i64 4
   %115 = load i8, ptr %114, align 1
   %116 = and i8 %115, -64
   %.not127 = icmp eq i8 %116, -128
@@ -255,7 +255,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br label %.loopexit
 
 127:                                              ; preds = %41
-  %128 = getelementptr inbounds i8, ptr %.0113266, i64 2
+  %128 = getelementptr inbounds i8, ptr %.0114265, i64 2
   %129 = load i8, ptr %128, align 1
   %130 = and i8 %129, -64
   %.not121 = icmp eq i8 %130, -128
@@ -269,7 +269,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br label %.loopexit
 
 134:                                              ; preds = %127
-  %135 = getelementptr inbounds i8, ptr %.0113266, i64 3
+  %135 = getelementptr inbounds i8, ptr %.0114265, i64 3
   %136 = load i8, ptr %135, align 1
   %137 = and i8 %136, -64
   %.not122 = icmp eq i8 %137, -128
@@ -283,7 +283,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br label %.loopexit
 
 141:                                              ; preds = %134
-  %142 = getelementptr inbounds i8, ptr %.0113266, i64 4
+  %142 = getelementptr inbounds i8, ptr %.0114265, i64 4
   %143 = load i8, ptr %142, align 1
   %144 = and i8 %143, -64
   %.not123 = icmp eq i8 %144, -128
@@ -297,7 +297,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br label %.loopexit
 
 148:                                              ; preds = %141
-  %149 = getelementptr inbounds i8, ptr %.0113266, i64 5
+  %149 = getelementptr inbounds i8, ptr %.0114265, i64 5
   %150 = load i8, ptr %149, align 1
   %151 = and i8 %150, -64
   %.not124 = icmp eq i8 %151, -128
@@ -330,18 +330,18 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
 
 .thread142:                                       ; preds = %162, %120, %155
   %164 = phi i32 [ -13, %120 ], [ -14, %155 ], [ -14, %162 ]
-  %.1144 = phi ptr [ %114, %120 ], [ %149, %155 ], [ %33, %162 ]
-  %165 = ptrtoint ptr %.1144 to i64
+  %.1115144 = phi ptr [ %114, %120 ], [ %149, %155 ], [ %33, %162 ]
+  %165 = ptrtoint ptr %.1115144 to i64
   %166 = add i64 %25, %4
   %167 = sub i64 %165, %166
   store i64 %167, ptr %2, align 8
   br label %.loopexit
 
 .thread:                                          ; preds = %42, %63, %93, %162, %5
-  %.1115 = phi i64 [ %8, %5 ], [ %32, %162 ], [ %32, %93 ], [ %32, %63 ], [ %32, %42 ]
-  %.2 = phi ptr [ %.0113266, %5 ], [ %33, %162 ], [ %78, %93 ], [ %50, %63 ], [ %33, %42 ]
+  %.2 = phi ptr [ %.0114265, %5 ], [ %33, %162 ], [ %33, %42 ], [ %50, %63 ], [ %78, %93 ]
+  %.1 = phi i64 [ %8, %5 ], [ %32, %162 ], [ %32, %42 ], [ %32, %63 ], [ %32, %93 ]
   %168 = getelementptr inbounds i8, ptr %.2, i64 1
-  %.not = icmp eq i64 %.1115, 0
+  %.not = icmp eq i64 %.1, 0
   br i1 %.not, label %.loopexit, label %5
 
 switch.lookup:                                    ; preds = %27

@@ -450,30 +450,30 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
   br i1 %7, label %.preheader.us, label %._crit_edge132
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.0108131.us = phi i32 [ %22, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %19 = mul nuw nsw i32 %.0108131.us, %1
-  %.not120.us = icmp ule i32 %.0108131.us, %12
-  %20 = icmp ugt i32 %.0108131.us, %14
-  %21 = icmp slt i32 %.0108131.us, %15
-  %22 = add nuw nsw i32 %.0108131.us, 1
+  %.0131.us = phi i32 [ %22, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %19 = mul nuw nsw i32 %.0131.us, %1
+  %.not120.us = icmp ule i32 %.0131.us, %12
+  %20 = icmp ugt i32 %.0131.us, %14
+  %21 = icmp slt i32 %.0131.us, %15
+  %22 = add nuw nsw i32 %.0131.us, 1
   %23 = mul nuw nsw i32 %22, %1
   %24 = add nuw i32 %23, 1
-  %25 = icmp ne i32 %.0108131.us, 0
-  %26 = icmp eq i32 %.0108131.us, %15
-  %27 = icmp eq i32 %.0108131.us, 0
+  %25 = icmp ne i32 %.0131.us, 0
+  %26 = icmp eq i32 %.0131.us, %15
+  %27 = icmp eq i32 %.0131.us, 0
   br label %28
 
 28:                                               ; preds = %.preheader.us, %63
-  %.0130.us = phi i32 [ 0, %.preheader.us ], [ %64, %63 ]
-  %29 = add nuw nsw i32 %.0130.us, %19
+  %.0108130.us = phi i32 [ 0, %.preheader.us ], [ %64, %63 ]
+  %29 = add nuw nsw i32 %.0108130.us, %19
   %30 = add nuw nsw i32 %29, 1
-  %31 = icmp slt i32 %.0130.us, %8
+  %31 = icmp slt i32 %.0108130.us, %8
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %28
-  %33 = icmp slt i32 %.0130.us, %9
+  %33 = icmp slt i32 %.0108130.us, %9
   %or.cond122.us.not135.not138 = or i1 %.not, %33
-  %.not119.us = icmp sge i32 %.0130.us, %11
+  %.not119.us = icmp sge i32 %.0108130.us, %11
   %or.cond123.us.not139 = or i1 %.not120.us, %.not119.us
   %or.cond.not136 = select i1 %or.cond122.us.not135.not138, i1 true, i1 %or.cond123.us.not139
   %brmerge = select i1 %or.cond.not136, i1 true, i1 %20
@@ -488,7 +488,7 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
   br i1 %21, label %37, label %39
 
 37:                                               ; preds = %36
-  %38 = add i32 %24, %.0130.us
+  %38 = add i32 %24, %.0108130.us
   tail call void %4(i32 noundef %30, i32 noundef %38) #13
   br label %39
 
@@ -499,17 +499,17 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
   ]
 
 40:                                               ; preds = %39
-  %41 = or i32 %.0130.us, %.0108131.us
+  %41 = or i32 %.0108130.us, %.0131.us
   %or.cond5.us = icmp eq i32 %41, 0
   br i1 %or.cond5.us, label %50, label %42
 
 42:                                               ; preds = %40
-  %43 = icmp eq i32 %.0130.us, 0
+  %43 = icmp eq i32 %.0108130.us, 0
   %or.cond7.us = and i1 %26, %43
   br i1 %or.cond7.us, label %48, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp eq i32 %.0130.us, %8
+  %45 = icmp eq i32 %.0108130.us, %8
   %46 = and i1 %25, %45
   %or.cond129.us = and i1 %26, %46
   %47 = icmp slt i32 %29, %16
@@ -525,17 +525,17 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
   br i1 %51, label %.sink.split, label %63
 
 52:                                               ; preds = %39
-  %53 = or i32 %.0130.us, %.0108131.us
+  %53 = or i32 %.0108130.us, %.0131.us
   %or.cond.us = icmp eq i32 %53, 0
   br i1 %or.cond.us, label %61, label %54
 
 54:                                               ; preds = %52
-  %55 = icmp eq i32 %.0130.us, 0
+  %55 = icmp eq i32 %.0108130.us, 0
   %or.cond3.us = and i1 %26, %55
   br i1 %or.cond3.us, label %59, label %56
 
 56:                                               ; preds = %54
-  %57 = icmp eq i32 %.0130.us, %8
+  %57 = icmp eq i32 %.0108130.us, %8
   %or.cond124.us = and i1 %27, %57
   %58 = icmp slt i32 %29, %16
   %or.cond = select i1 %or.cond124.us, i1 %58, i1 false
@@ -555,7 +555,7 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
   br label %63
 
 63:                                               ; preds = %.sink.split, %56, %61, %59, %50, %48, %44, %39
-  %64 = add nuw nsw i32 %.0130.us, 1
+  %64 = add nuw nsw i32 %.0108130.us, 1
   %exitcond.not = icmp eq i32 %64, %1
   br i1 %exitcond.not, label %._crit_edge.us, label %28
 
@@ -1062,15 +1062,15 @@ define dso_local void @makeHypercube(i32 noundef %0, ptr nocapture noundef reado
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.01316.us = phi i32 [ %5, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %5 = add nuw nsw i32 %.01316.us, 1
+  %.016.us = phi i32 [ %5, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %5 = add nuw nsw i32 %.016.us, 1
   br label %6
 
 6:                                                ; preds = %.preheader.us, %11
-  %.015.us = phi i32 [ 0, %.preheader.us ], [ %12, %11 ]
-  %7 = shl nuw i32 1, %.015.us
-  %8 = xor i32 %7, %.01316.us
-  %.not.us = icmp sgt i32 %.01316.us, %8
+  %.01315.us = phi i32 [ 0, %.preheader.us ], [ %12, %11 ]
+  %7 = shl nuw i32 1, %.01315.us
+  %8 = xor i32 %7, %.016.us
+  %.not.us = icmp sgt i32 %.016.us, %8
   br i1 %.not.us, label %11, label %9
 
 9:                                                ; preds = %6
@@ -1079,7 +1079,7 @@ define dso_local void @makeHypercube(i32 noundef %0, ptr nocapture noundef reado
   br label %11
 
 11:                                               ; preds = %9, %6
-  %12 = add nuw nsw i32 %.015.us, 1
+  %12 = add nuw nsw i32 %.01315.us, 1
   %exitcond.not = icmp eq i32 %12, %0
   br i1 %exitcond.not, label %._crit_edge.us, label %6
 
@@ -1263,21 +1263,21 @@ define dso_local void @makeRandom(i32 noundef %0, i32 noundef %1, ptr nocapture 
   br i1 %.not52, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.054 = phi i32 [ %9, %.lr.ph ], [ 0, %3 ]
-  %.03653 = phi i32 [ %8, %.lr.ph ], [ 0, %3 ]
-  %7 = shl nuw i32 1, %.054
-  %8 = add nsw i32 %7, %.03653
-  %9 = add nuw nsw i32 %.054, 1
+  %.03654 = phi i32 [ %9, %.lr.ph ], [ 0, %3 ]
+  %.03753 = phi i32 [ %8, %.lr.ph ], [ 0, %3 ]
+  %7 = shl nuw i32 1, %.03654
+  %8 = add nsw i32 %7, %.03753
+  %9 = add nuw nsw i32 %.03654, 1
   %.not = icmp sgt i32 %8, %0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.036.lcssa = phi i32 [ 0, %3 ], [ %8, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %9, %.lr.ph ]
-  %10 = add nsw i32 %.0.lcssa, -1
+  %.037.lcssa = phi i32 [ 0, %3 ], [ %8, %.lr.ph ]
+  %.036.lcssa = phi i32 [ 0, %3 ], [ %9, %.lr.ph ]
+  %10 = add nsw i32 %.036.lcssa, -1
   %.neg = shl nsw i32 -1, %10
-  %11 = add i32 %.neg, %.036.lcssa
-  %12 = add nsw i32 %.0.lcssa, -2
+  %11 = add i32 %.neg, %.037.lcssa
+  %12 = add nsw i32 %.036.lcssa, -2
   %13 = and i32 %6, 1
   %.not42 = icmp eq i32 %13, 0
   br i1 %.not42, label %18, label %14
@@ -1330,39 +1330,39 @@ makeBinaryTree.exit:                              ; preds = %.lr.ph.i, %.lr.ph.i
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge58
   %indvars.iv = phi i32 [ 2, %.preheader.lr.ph ], [ %indvars.iv.next, %._crit_edge58 ]
-  %.03960 = phi i32 [ 3, %.preheader.lr.ph ], [ %41, %._crit_edge58 ]
-  %26 = icmp sgt i32 %.03960, 2
+  %.060 = phi i32 [ 3, %.preheader.lr.ph ], [ %41, %._crit_edge58 ]
+  %26 = icmp sgt i32 %.060, 2
   br i1 %26, label %.lr.ph57, label %._crit_edge58
 
 .lr.ph57:                                         ; preds = %.preheader
-  %27 = icmp ult i32 %.03960, 5
+  %27 = icmp ult i32 %.060, 5
   br i1 %27, label %.lr.ph57.split.us, label %.lr.ph57.split
 
 .lr.ph57.split.us:                                ; preds = %.lr.ph57, %31
-  %.03856.us = phi i32 [ %32, %31 ], [ 1, %.lr.ph57 ]
+  %.03956.us = phi i32 [ %32, %31 ], [ 1, %.lr.ph57 ]
   %28 = tail call i32 @rand() #13
   %29 = srem i32 %28, %23
   %or.cond = icmp sgt i32 %29, %invariant.smax
   br i1 %or.cond, label %31, label %30
 
 30:                                               ; preds = %.lr.ph57.split.us
-  tail call void %2(i32 noundef %.03856.us, i32 noundef %.03960) #13
+  tail call void %2(i32 noundef %.03956.us, i32 noundef %.060) #13
   br label %31
 
 31:                                               ; preds = %.lr.ph57.split.us, %30
-  %32 = add nuw nsw i32 %.03856.us, 1
+  %32 = add nuw nsw i32 %.03956.us, 1
   %exitcond66.not = icmp eq i32 %32, %indvars.iv
   br i1 %exitcond66.not, label %._crit_edge58, label %.lr.ph57.split.us
 
 .lr.ph57.split:                                   ; preds = %.lr.ph57, %39
-  %.03856 = phi i32 [ %40, %39 ], [ 1, %.lr.ph57 ]
+  %.03956 = phi i32 [ %40, %39 ], [ 1, %.lr.ph57 ]
   %33 = tail call i32 @rand() #13
   %34 = srem i32 %33, %23
   %.not44 = icmp sgt i32 %34, %24
   br i1 %.not44, label %37, label %35
 
 35:                                               ; preds = %.lr.ph57.split
-  %36 = icmp sle i32 %.03856, %25
+  %36 = icmp sle i32 %.03956, %25
   %.not45 = icmp sgt i32 %34, %1
   %or.cond46 = and i1 %36, %.not45
   br i1 %or.cond46, label %39, label %38
@@ -1372,16 +1372,16 @@ makeBinaryTree.exit:                              ; preds = %.lr.ph.i, %.lr.ph.i
   br i1 %.not45.old, label %39, label %38
 
 38:                                               ; preds = %35, %37
-  tail call void %2(i32 noundef %.03856, i32 noundef %.03960) #13
+  tail call void %2(i32 noundef %.03956, i32 noundef %.060) #13
   br label %39
 
 39:                                               ; preds = %35, %37, %38
-  %40 = add nuw nsw i32 %.03856, 1
+  %40 = add nuw nsw i32 %.03956, 1
   %exitcond.not = icmp eq i32 %40, %indvars.iv
   br i1 %exitcond.not, label %._crit_edge58, label %.lr.ph57.split
 
 ._crit_edge58:                                    ; preds = %39, %31, %.preheader
-  %41 = add i32 %.03960, 1
+  %41 = add i32 %.060, 1
   %.not43 = icmp sgt i32 %41, %11
   %indvars.iv.next = add i32 %indvars.iv, 1
   br i1 %.not43, label %._crit_edge62, label %.preheader
@@ -1569,12 +1569,12 @@ gv_alloc.exit:                                    ; preds = %1
 22:                                               ; preds = %23, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 1, %14 ]
   %.134.i = phi i32 [ %29, %23 ], [ %.02636.i, %14 ]
-  %.02832.i = phi i32 [ %24, %23 ], [ %12, %14 ]
+  %.02932.i = phi i32 [ %24, %23 ], [ %12, %14 ]
   %exitcond.i = icmp eq i64 %indvars.iv, %21
   br i1 %exitcond.i, label %30, label %23
 
 23:                                               ; preds = %22
-  %24 = sub nsw i32 %.02832.i, %17
+  %24 = sub nsw i32 %.02932.i, %17
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr inbounds i32, ptr %9, i64 %25
   %27 = load i32, ptr %26, align 4
@@ -1646,14 +1646,14 @@ define dso_local void @makeRandomTree(ptr nocapture noundef %0, ptr nocapture no
   br label %15
 
 15:                                               ; preds = %._crit_edge69.i, %2
-  %.040.i = phi i32 [ %8, %2 ], [ %.lcssa64.i, %._crit_edge69.i ]
-  %16 = icmp sgt i32 %.040.i, 2
+  %.044.i = phi i32 [ %8, %2 ], [ %.lcssa64.i, %._crit_edge69.i ]
+  %16 = icmp sgt i32 %.044.i, 2
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %15, %int_stack_push.exit.i
-  %.14166.i = phi i32 [ %35, %int_stack_push.exit.i ], [ %.040.i, %15 ]
-  %17 = add nsw i32 %.14166.i, -1
-  %18 = zext nneg i32 %.14166.i to i64
+  %.14566.i = phi i32 [ %35, %int_stack_push.exit.i ], [ %.044.i, %15 ]
+  %17 = add nsw i32 %.14566.i, -1
+  %18 = zext nneg i32 %.14566.i to i64
   %19 = getelementptr inbounds i32, ptr %10, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = mul nsw i32 %20, %17
@@ -1667,7 +1667,7 @@ define dso_local void @makeRandomTree(ptr nocapture noundef %0, ptr nocapture no
 
 28:                                               ; preds = %45, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %45 ], [ 0, %.lr.ph.i ]
-  %.043.i = phi i32 [ %.245.i, %45 ], [ %27, %.lr.ph.i ]
+  %.0.i = phi i32 [ %.2.i, %45 ], [ %27, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %29 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.next.i
   %30 = load i32, ptr %29, align 4
@@ -1676,12 +1676,12 @@ define dso_local void @makeRandomTree(ptr nocapture noundef %0, ptr nocapture no
   br label %33
 
 33:                                               ; preds = %37, %28
-  %.144.i = phi i32 [ %.043.i, %28 ], [ %42, %37 ]
-  %.039.i = phi i32 [ 0, %28 ], [ %34, %37 ]
-  %.038.i = phi i32 [ %.14166.i, %28 ], [ %35, %37 ]
-  %.1.i = phi i32 [ 1, %28 ], [ %spec.select.i, %37 ]
-  %34 = add nuw nsw i32 %.039.i, 1
-  %35 = sub nsw i32 %.038.i, %31
+  %.043.i = phi i32 [ 0, %28 ], [ %34, %37 ]
+  %.041.i = phi i32 [ %.14566.i, %28 ], [ %35, %37 ]
+  %.139.i = phi i32 [ 1, %28 ], [ %spec.select.i, %37 ]
+  %.1.i = phi i32 [ %.0.i, %28 ], [ %42, %37 ]
+  %34 = add nuw nsw i32 %.043.i, 1
+  %35 = sub nsw i32 %.041.i, %31
   %36 = icmp slt i32 %35, 1
   br i1 %36, label %45, label %37
 
@@ -1690,15 +1690,15 @@ define dso_local void @makeRandomTree(ptr nocapture noundef %0, ptr nocapture no
   %39 = getelementptr inbounds i32, ptr %10, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = mul nsw i32 %32, %40
-  %42 = sub nsw i32 %.144.i, %41
+  %42 = sub nsw i32 %.1.i, %41
   %43 = icmp slt i32 %42, 0
-  %spec.select.i = select i1 %43, i32 0, i32 %.1.i
+  %spec.select.i = select i1 %43, i32 0, i32 %.139.i
   %44 = icmp sgt i32 %42, -1
   br i1 %44, label %33, label %45
 
 45:                                               ; preds = %37, %33
-  %.245.i = phi i32 [ %.144.i, %33 ], [ %42, %37 ]
-  %.3.i = phi i32 [ %.1.i, %33 ], [ %spec.select.i, %37 ]
+  %.3.i = phi i32 [ %.139.i, %33 ], [ %spec.select.i, %37 ]
+  %.2.i = phi i32 [ %.1.i, %33 ], [ %42, %37 ]
   %.not49.i = icmp eq i32 %.3.i, 0
   br i1 %.not49.i, label %46, label %28
 
@@ -1808,7 +1808,7 @@ int_stack_push.exit.i:                            ; preds = %83, %._crit_edge.i.
   br i1 %98, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %int_stack_push.exit.i, %15
-  %.141.lcssa.i = phi i32 [ %.040.i, %15 ], [ %35, %int_stack_push.exit.i ]
+  %.145.lcssa.i = phi i32 [ %.044.i, %15 ], [ %35, %int_stack_push.exit.i ]
   %99 = load i32, ptr %13, align 4
   %100 = load ptr, ptr %14, align 8
   %101 = load i32, ptr %11, align 8
@@ -1819,9 +1819,9 @@ int_stack_push.exit.i:                            ; preds = %83, %._crit_edge.i.
   %105 = load i32, ptr %11, align 8
   %106 = add nsw i32 %105, 1
   store i32 %106, ptr %13, align 4
-  %107 = add nsw i32 %105, %.141.lcssa.i
+  %107 = add nsw i32 %105, %.145.lcssa.i
   store i32 %107, ptr %11, align 8
-  %108 = icmp eq i32 %.141.lcssa.i, 2
+  %108 = icmp eq i32 %.145.lcssa.i, 2
   br i1 %108, label %109, label %addTree.exit.i
 
 109:                                              ; preds = %._crit_edge.i

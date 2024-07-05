@@ -378,29 +378,29 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %.sroa.46.0612 = phi i32 [ %.sroa.46.0.copyload, %2 ], [ %.sroa.46.1, %850 ]
   %.sroa.38.0611 = phi i32 [ %.sroa.38.0.copyload, %2 ], [ %.sroa.38.1, %850 ]
   %.sroa.29.0610 = phi i32 [ %.sroa.29.0.copyload, %2 ], [ %.sroa.29.1, %850 ]
-  %.sroa.050.0609 = phi i32 [ %.sroa.050.0.copyload, %2 ], [ %.sroa.79.0605, %850 ]
-  %.sroa.23.0608 = phi i32 [ %.sroa.23.0.copyload, %2 ], [ %.sroa.96.0604, %850 ]
-  %.sroa.43.0607 = phi i32 [ %.sroa.43.0.copyload, %2 ], [ %.sroa.113.0603, %850 ]
-  %.sroa.61.0606 = phi i32 [ %.sroa.61.0.copyload, %2 ], [ %.sroa.133.0602, %850 ]
-  %.sroa.79.0605 = phi i32 [ %.sroa.79.0.copyload, %2 ], [ %851, %850 ]
-  %.sroa.96.0604 = phi i32 [ %.sroa.96.0.copyload, %2 ], [ %853, %850 ]
-  %.sroa.113.0603 = phi i32 [ %.sroa.113.0.copyload, %2 ], [ %852, %850 ]
-  %.sroa.133.0602 = phi i32 [ %.sroa.133.0.copyload, %2 ], [ %854, %850 ]
-  %.sroa.0181.0601 = phi i32 [ %.sroa.0181.0.copyload, %2 ], [ %.sroa.0181.1, %850 ]
-  %.sroa.10187.0600 = phi i32 [ %.sroa.10187.0.copyload, %2 ], [ %.sroa.10187.1, %850 ]
-  %.sroa.20194.0599 = phi i32 [ %.sroa.20194.0.copyload, %2 ], [ %.sroa.20194.1, %850 ]
-  %10 = xor i32 %.sroa.050.0609, %.sroa.0181.0601
-  %11 = xor i32 %.sroa.23.0608, %.sroa.10187.0600
-  %12 = xor i32 %.sroa.43.0607, %.sroa.20194.0599
-  %13 = xor i32 %.sroa.29.0610, %.sroa.61.0606
-  %14 = xor i32 %.sroa.38.0611, %.sroa.79.0605
-  %15 = xor i32 %.sroa.46.0612, %.sroa.96.0604
-  %16 = xor i32 %.sroa.54.0613, %.sroa.113.0603
-  %17 = xor i32 %.sroa.63.0614, %.sroa.133.0602
+  %.sroa.20194.0609 = phi i32 [ %.sroa.20194.0.copyload, %2 ], [ %.sroa.20194.1, %850 ]
+  %.sroa.10187.0608 = phi i32 [ %.sroa.10187.0.copyload, %2 ], [ %.sroa.10187.1, %850 ]
+  %.sroa.050.0607 = phi i32 [ %.sroa.050.0.copyload, %2 ], [ %.sroa.79.0603, %850 ]
+  %.sroa.23.0606 = phi i32 [ %.sroa.23.0.copyload, %2 ], [ %.sroa.96.0602, %850 ]
+  %.sroa.43.0605 = phi i32 [ %.sroa.43.0.copyload, %2 ], [ %.sroa.113.0601, %850 ]
+  %.sroa.61.0604 = phi i32 [ %.sroa.61.0.copyload, %2 ], [ %.sroa.133.0600, %850 ]
+  %.sroa.79.0603 = phi i32 [ %.sroa.79.0.copyload, %2 ], [ %851, %850 ]
+  %.sroa.96.0602 = phi i32 [ %.sroa.96.0.copyload, %2 ], [ %853, %850 ]
+  %.sroa.113.0601 = phi i32 [ %.sroa.113.0.copyload, %2 ], [ %852, %850 ]
+  %.sroa.133.0600 = phi i32 [ %.sroa.133.0.copyload, %2 ], [ %854, %850 ]
+  %.sroa.0181.0599 = phi i32 [ %.sroa.0181.0.copyload, %2 ], [ %.sroa.0181.1, %850 ]
+  %10 = xor i32 %.sroa.050.0607, %.sroa.0181.0599
+  %11 = xor i32 %.sroa.10187.0608, %.sroa.23.0606
+  %12 = xor i32 %.sroa.20194.0609, %.sroa.43.0605
+  %13 = xor i32 %.sroa.29.0610, %.sroa.61.0604
+  %14 = xor i32 %.sroa.38.0611, %.sroa.79.0603
+  %15 = xor i32 %.sroa.46.0612, %.sroa.96.0602
+  %16 = xor i32 %.sroa.54.0613, %.sroa.113.0601
+  %17 = xor i32 %.sroa.63.0614, %.sroa.133.0600
   %18 = and i32 %10, 255
   %19 = shl i32 %12, 8
   %20 = and i32 %19, 65280
-  %21 = or disjoint i32 %18, %20
+  %21 = or disjoint i32 %20, %18
   %22 = shl i32 %14, 16
   %23 = and i32 %22, 16711680
   %24 = or disjoint i32 %21, %23
@@ -409,7 +409,7 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %27 = lshr i32 %10, 8
   %28 = and i32 %27, 255
   %29 = and i32 %12, 65280
-  %30 = or disjoint i32 %28, %29
+  %30 = or disjoint i32 %29, %28
   %31 = shl i32 %14, 8
   %32 = and i32 %31, 16711680
   %33 = or disjoint i32 %30, %32
@@ -420,7 +420,7 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %38 = and i32 %37, 255
   %39 = lshr i32 %12, 8
   %40 = and i32 %39, 65280
-  %41 = or disjoint i32 %38, %40
+  %41 = or disjoint i32 %40, %38
   %42 = and i32 %14, 16711680
   %43 = or disjoint i32 %41, %42
   %44 = shl i32 %16, 8
@@ -429,7 +429,7 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %47 = lshr i32 %10, 24
   %48 = lshr i32 %12, 16
   %49 = and i32 %48, 65280
-  %50 = or disjoint i32 %47, %49
+  %50 = or disjoint i32 %49, %47
   %51 = lshr i32 %14, 8
   %52 = and i32 %51, 16711680
   %53 = or disjoint i32 %50, %52
@@ -1222,13 +1222,13 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   br i1 %.not, label %.thread, label %837
 
 837:                                              ; preds = %9
-  %838 = xor i32 %.sroa.0181.0601, %.sroa.20194.0599
-  %839 = xor i32 %.sroa.29.0610, %.sroa.10187.0600
+  %838 = xor i32 %.sroa.20194.0609, %.sroa.0181.0599
+  %839 = xor i32 %.sroa.29.0610, %.sroa.10187.0608
   %840 = icmp eq i64 %indvars.iv, 2
   br i1 %840, label %841, label %850
 
 841:                                              ; preds = %837
-  %842 = xor i32 %.sroa.20194.0599, -16711936
+  %842 = xor i32 %.sroa.20194.0609, -16711936
   %843 = xor i32 %.sroa.29.0610, -16711936
   %844 = xor i32 %.sroa.38.0611, 16711935
   %845 = xor i32 %.sroa.46.0612, 16711935
@@ -1239,18 +1239,18 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   br label %850
 
 850:                                              ; preds = %837, %841
-  %.sroa.20194.1 = phi i32 [ %844, %841 ], [ %.sroa.38.0611, %837 ]
+  %.sroa.0181.1 = phi i32 [ %842, %841 ], [ %.sroa.20194.0609, %837 ]
   %.sroa.10187.1 = phi i32 [ %843, %841 ], [ %.sroa.29.0610, %837 ]
-  %.sroa.0181.1 = phi i32 [ %842, %841 ], [ %.sroa.20194.0599, %837 ]
+  %.sroa.20194.1 = phi i32 [ %844, %841 ], [ %.sroa.38.0611, %837 ]
   %.sroa.29.1 = phi i32 [ %845, %841 ], [ %.sroa.46.0612, %837 ]
   %.sroa.38.1 = phi i32 [ %846, %841 ], [ %.sroa.54.0613, %837 ]
   %.sroa.46.1 = phi i32 [ %847, %841 ], [ %.sroa.63.0614, %837 ]
   %.sroa.54.1 = phi i32 [ %848, %841 ], [ %838, %837 ]
   %.sroa.63.1 = phi i32 [ %849, %841 ], [ %839, %837 ]
-  %851 = xor i32 %.sroa.050.0609, %.sroa.43.0607
-  %852 = xor i32 %.sroa.43.0607, %.sroa.79.0605
-  %853 = xor i32 %.sroa.23.0608, %.sroa.61.0606
-  %854 = xor i32 %.sroa.61.0606, %.sroa.96.0604
+  %851 = xor i32 %.sroa.050.0607, %.sroa.43.0605
+  %852 = xor i32 %.sroa.43.0605, %.sroa.79.0603
+  %853 = xor i32 %.sroa.23.0606, %.sroa.61.0604
+  %854 = xor i32 %.sroa.61.0604, %.sroa.96.0602
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %855 = icmp ult i64 %indvars.iv, 6
   br i1 %855, label %9, label %.thread

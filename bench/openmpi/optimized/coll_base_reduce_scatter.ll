@@ -335,9 +335,9 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br label %80
 
 80:                                               ; preds = %73, %78
-  %.0234 = phi i32 [ %76, %73 ], [ 0, %78 ]
-  %.0233 = phi i32 [ %77, %73 ], [ %79, %78 ]
-  %81 = icmp sgt i32 %.0233, -1
+  %.0239 = phi i32 [ %76, %73 ], [ 0, %78 ]
+  %.0238 = phi i32 [ %77, %73 ], [ %79, %78 ]
+  %81 = icmp sgt i32 %.0238, -1
   br i1 %81, label %82, label %203
 
 82:                                               ; preds = %80
@@ -426,22 +426,22 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br i1 %113, label %.lr.ph358, label %._crit_edge359
 
 .lr.ph358:                                        ; preds = %._crit_edge334, %188
-  %.0226356 = phi i32 [ %189, %188 ], [ %62, %._crit_edge334 ]
-  %.0227355 = phi i32 [ %.1228397, %188 ], [ 0, %._crit_edge334 ]
-  %.0231354 = phi i32 [ %190, %188 ], [ %112, %._crit_edge334 ]
-  %.1235353 = phi i32 [ %.4, %188 ], [ %.0234, %._crit_edge334 ]
-  %114 = xor i32 %.0231354, %.0233
+  %.0228356 = phi i32 [ %189, %188 ], [ %62, %._crit_edge334 ]
+  %.0229355 = phi i32 [ %.1230397, %188 ], [ 0, %._crit_edge334 ]
+  %.0233354 = phi i32 [ %190, %188 ], [ %112, %._crit_edge334 ]
+  %.1240353 = phi i32 [ %.4243, %188 ], [ %.0239, %._crit_edge334 ]
+  %114 = xor i32 %.0233354, %.0238
   %115 = icmp slt i32 %114, %63
   %116 = shl nuw nsw i32 %114, 1
   %117 = or disjoint i32 %116, 1
   %118 = add nsw i32 %114, %63
   %119 = select i1 %115, i32 %117, i32 %118
-  %120 = icmp slt i32 %.0233, %114
-  %121 = add i32 %.0227355, %.0231354
+  %120 = icmp slt i32 %.0238, %114
+  %121 = add i32 %.0229355, %.0233354
   br i1 %120, label %122, label %.lr.ph338.preheader
 
 122:                                              ; preds = %.lr.ph358
-  %123 = icmp slt i32 %121, %.0226356
+  %123 = icmp slt i32 %121, %.0228356
   br i1 %123, label %.lr.ph347.preheader, label %.lr.ph351.preheader
 
 .lr.ph347.preheader:                              ; preds = %122
@@ -450,7 +450,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 
 .lr.ph351.preheader:                              ; preds = %.lr.ph347, %122
   %.0223.lcssa = phi i32 [ 0, %122 ], [ %129, %.lr.ph347 ]
-  %125 = sext i32 %.0227355 to i64
+  %125 = sext i32 %.0229355 to i64
   %126 = sext i32 %121 to i64
   br label %.lr.ph351
 
@@ -462,7 +462,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %129 = add nsw i32 %128, %.0223345
   %indvars.iv.next387 = add nuw nsw i64 %indvars.iv386, 1
   %130 = trunc nuw i64 %indvars.iv.next387 to i32
-  %131 = icmp sgt i32 %.0226356, %130
+  %131 = icmp sgt i32 %.0228356, %130
   br i1 %131, label %.lr.ph347, label %.lr.ph351.preheader, !llvm.loop !10
 
 .lr.ph351:                                        ; preds = %.lr.ph351.preheader, %.lr.ph351
@@ -476,12 +476,12 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br i1 %135, label %.lr.ph351, label %.loopexit, !llvm.loop !11
 
 .lr.ph338.preheader:                              ; preds = %.lr.ph358
-  %136 = sext i32 %.0227355 to i64
+  %136 = sext i32 %.0229355 to i64
   %137 = sext i32 %121 to i64
   br label %.lr.ph338
 
 .preheader318:                                    ; preds = %.lr.ph338
-  %138 = icmp slt i32 %121, %.0226356
+  %138 = icmp slt i32 %121, %.0228356
   br i1 %138, label %.lr.ph342.preheader, label %.loopexit.thread
 
 .lr.ph342.preheader:                              ; preds = %.preheader318
@@ -506,12 +506,12 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %146 = add nsw i32 %145, %.1341
   %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
   %147 = trunc nuw i64 %indvars.iv.next384 to i32
-  %148 = icmp sgt i32 %.0226356, %147
+  %148 = icmp sgt i32 %.0228356, %147
   br i1 %148, label %.lr.ph342, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph342, %.lr.ph351
-  %.1230 = phi i32 [ %121, %.lr.ph351 ], [ %.0227355, %.lr.ph342 ]
-  %.1228 = phi i32 [ %.0227355, %.lr.ph351 ], [ %121, %.lr.ph342 ]
+  %.1232 = phi i32 [ %121, %.lr.ph351 ], [ %.0229355, %.lr.ph342 ]
+  %.1230 = phi i32 [ %.0229355, %.lr.ph351 ], [ %121, %.lr.ph342 ]
   %.2225 = phi i32 [ %.0223.lcssa, %.lr.ph351 ], [ %142, %.lr.ph342 ]
   %.2 = phi i32 [ %134, %.lr.ph351 ], [ %146, %.lr.ph342 ]
   %149 = icmp sgt i32 %.2, 0
@@ -519,7 +519,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 
 150:                                              ; preds = %.loopexit
   %151 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
-  %152 = zext nneg i32 %.1228 to i64
+  %152 = zext nneg i32 %.1230 to i64
   %153 = getelementptr inbounds i32, ptr %88, i64 %152
   %154 = load i32, ptr %153, align 4
   %155 = sext i32 %154 to i64
@@ -539,15 +539,15 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %161 = phi i1 [ true, %150 ], [ false, %.loopexit ], [ false, %.preheader318 ]
   %.2399 = phi i32 [ %.2, %150 ], [ %.2, %.loopexit ], [ 0, %.preheader318 ]
   %.2225398 = phi i32 [ %.2225, %150 ], [ %.2225, %.loopexit ], [ %142, %.preheader318 ]
-  %.1228397 = phi i32 [ %.1228, %150 ], [ %.1228, %.loopexit ], [ %121, %.preheader318 ]
-  %.1230396 = phi i32 [ %.1230, %150 ], [ %.1230, %.loopexit ], [ %.0227355, %.preheader318 ]
-  %.2236 = phi i32 [ 0, %150 ], [ %.1235353, %.loopexit ], [ %.1235353, %.preheader318 ]
+  %.1230397 = phi i32 [ %.1230, %150 ], [ %.1230, %.loopexit ], [ %121, %.preheader318 ]
+  %.1232396 = phi i32 [ %.1232, %150 ], [ %.1232, %.loopexit ], [ %.0229355, %.preheader318 ]
+  %.2241 = phi i32 [ 0, %150 ], [ %.1240353, %.loopexit ], [ %.1240353, %.preheader318 ]
   %162 = icmp sgt i32 %.2225398, 0
   br i1 %162, label %163, label %174
 
 163:                                              ; preds = %.loopexit.thread
   %164 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
-  %165 = zext nneg i32 %.1230396 to i64
+  %165 = zext nneg i32 %.1232396 to i64
   %166 = getelementptr inbounds i32, ptr %88, i64 %165
   %167 = load i32, ptr %166, align 4
   %168 = sext i32 %167 to i64
@@ -564,7 +564,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br label %227
 
 174:                                              ; preds = %163, %.loopexit.thread
-  %.3 = phi i32 [ 0, %163 ], [ %.2236, %.loopexit.thread ]
+  %.3242 = phi i32 [ 0, %163 ], [ %.2241, %.loopexit.thread ]
   br i1 %161, label %175, label %188
 
 175:                                              ; preds = %174
@@ -579,7 +579,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br label %227
 
 179:                                              ; preds = %175
-  %180 = zext nneg i32 %.1228397 to i64
+  %180 = zext nneg i32 %.1230397 to i64
   %181 = getelementptr inbounds i32, ptr %88, i64 %180
   %182 = load i32, ptr %181, align 4
   %183 = sext i32 %182 to i64
@@ -591,14 +591,14 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br label %188
 
 188:                                              ; preds = %179, %174
-  %.4 = phi i32 [ 0, %179 ], [ %.3, %174 ]
-  %189 = add nuw nsw i32 %.1228397, %.0231354
-  %190 = lshr i32 %.0231354, 1
-  %.not361 = icmp ult i32 %.0231354, 2
+  %.4243 = phi i32 [ 0, %179 ], [ %.3242, %174 ]
+  %189 = add nuw nsw i32 %.1230397, %.0233354
+  %190 = lshr i32 %.0233354, 1
+  %.not361 = icmp ult i32 %.0233354, 2
   br i1 %.not361, label %._crit_edge359, label %.lr.ph358, !llvm.loop !14
 
 ._crit_edge359:                                   ; preds = %188, %._crit_edge334
-  %.1235.lcssa = phi i32 [ %.0234, %._crit_edge334 ], [ %.4, %188 ]
+  %.1240.lcssa = phi i32 [ %.0239, %._crit_edge334 ], [ %.4243, %188 ]
   %191 = sext i32 %.val to i64
   %192 = getelementptr inbounds i32, ptr %2, i64 %191
   %193 = load i32, ptr %192, align 4
@@ -621,13 +621,13 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br label %227
 
 202:                                              ; preds = %194, %._crit_edge359
-  %.5 = phi i32 [ 0, %194 ], [ %.1235.lcssa, %._crit_edge359 ]
+  %.5244 = phi i32 [ 0, %194 ], [ %.1240.lcssa, %._crit_edge359 ]
   call void @free(ptr noundef nonnull %85) #8
   call void @free(ptr noundef %88) #8
   br label %203
 
 203:                                              ; preds = %202, %80
-  %.6 = phi i32 [ %.5, %202 ], [ %.0234, %80 ]
+  %.6245 = phi i32 [ %.5244, %202 ], [ %.0239, %80 ]
   br i1 %65, label %.thread301, label %227
 
 .thread301:                                       ; preds = %203
@@ -636,7 +636,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br i1 %204, label %.thread301.thread, label %213
 
 .thread301.thread:                                ; preds = %69, %.thread301
-  %.6303402 = phi i32 [ %.6, %.thread301 ], [ 0, %69 ]
+  %.6245303402 = phi i32 [ %.6245, %.thread301 ], [ 0, %69 ]
   %205 = sext i32 %.val to i64
   %206 = getelementptr inbounds i32, ptr %2, i64 %205
   %207 = load i32, ptr %206, align 4
@@ -675,7 +675,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br label %228
 
 227:                                              ; preds = %160, %173, %178, %201, %.thread301.thread, %213, %203, %208, %218
-  %.7 = phi i32 [ %159, %160 ], [ %172, %173 ], [ %177, %178 ], [ %200, %201 ], [ %212, %208 ], [ %.6303402, %.thread301.thread ], [ %226, %218 ], [ %.6, %213 ], [ %.6, %203 ]
+  %.7 = phi i32 [ %159, %160 ], [ %172, %173 ], [ %177, %178 ], [ %200, %201 ], [ %212, %208 ], [ %.6245303402, %.thread301.thread ], [ %226, %218 ], [ %.6245, %213 ], [ %.6245, %203 ]
   call void @free(ptr noundef %14) #8
   br label %228
 
@@ -690,8 +690,8 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br label %230
 
 230:                                              ; preds = %.thread314, %228, %229, %7, %31
-  %.0244 = phi i32 [ 0, %31 ], [ -2, %7 ], [ %.7307, %229 ], [ %.7307, %228 ], [ -2, %.thread314 ]
-  ret i32 %.0244
+  %.0226 = phi i32 [ 0, %31 ], [ -2, %7 ], [ %.7307, %229 ], [ %.7307, %228 ], [ -2, %.thread314 ]
+  ret i32 %.0226
 }
 
 declare i32 @ompi_datatype_sndrcv(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -823,7 +823,7 @@ define i32 @ompi_coll_base_reduce_scatter_intra_ring(ptr noundef %0, ptr noundef
   %14 = shl nsw i64 %13, 2
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #9
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.thread241, label %17
+  br i1 %16, label %.thread242, label %17
 
 17:                                               ; preds = %7
   store i32 0, ptr %15, align 4
@@ -837,21 +837,21 @@ define i32 @ompi_coll_base_reduce_scatter_intra_ring(ptr noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0141254 = phi i32 [ %18, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %.0142253 = phi i32 [ %18, %.lr.ph.preheader ], [ %23, %.lr.ph ]
+  %.0143255 = phi i32 [ %18, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
+  %.0144254 = phi i32 [ %18, %.lr.ph.preheader ], [ %23, %.lr.ph ]
   %20 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
-  store i32 %.0142253, ptr %20, align 4
+  store i32 %.0144254, ptr %20, align 4
   %21 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
-  %23 = add nsw i32 %22, %.0142253
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.0141254, i32 %22)
+  %23 = add nsw i32 %22, %.0144254
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.0143255, i32 %22)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
-  %.0142.lcssa = phi i32 [ %18, %17 ], [ %23, %.lr.ph ]
-  %.0141.lcssa = phi i32 [ %18, %17 ], [ %spec.select, %.lr.ph ]
+  %.0144.lcssa = phi i32 [ %18, %17 ], [ %23, %.lr.ph ]
+  %.0143.lcssa = phi i32 [ %18, %17 ], [ %spec.select, %.lr.ph ]
   %24 = icmp eq i32 %.val181.val, 1
   br i1 %24, label %25, label %38
 
@@ -865,38 +865,38 @@ define i32 @ompi_coll_base_reduce_scatter_intra_ring(ptr noundef %0, ptr noundef
   %28 = getelementptr i8, ptr %3, i64 56
   %.val23.i = load i64, ptr %28, align 8
   %29 = sub nsw i64 %.val23.i, %.val.i
-  %.not25.i = icmp eq i32 %.0142.lcssa, 0
+  %.not25.i = icmp eq i32 %.0144.lcssa, 0
   br i1 %.not25.i, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %26
-  %30 = sext i32 %.0142.lcssa to i64
+  %30 = sext i32 %.0144.lcssa to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %32
-  %.01728.i = phi ptr [ %35, %32 ], [ %0, %.lr.ph.i.preheader ]
-  %.01827.i = phi ptr [ %34, %32 ], [ %1, %.lr.ph.i.preheader ]
-  %.01926.i = phi i64 [ %36, %32 ], [ %30, %.lr.ph.i.preheader ]
-  %spec.select24.i = tail call i64 @llvm.umin.i64(i64 %.01926.i, i64 2147483647)
+  %.01828.i = phi ptr [ %35, %32 ], [ %0, %.lr.ph.i.preheader ]
+  %.01927.i = phi ptr [ %34, %32 ], [ %1, %.lr.ph.i.preheader ]
+  %.02026.i = phi i64 [ %36, %32 ], [ %30, %.lr.ph.i.preheader ]
+  %spec.select24.i = tail call i64 @llvm.umin.i64(i64 %.02026.i, i64 2147483647)
   %spec.select.i = trunc nuw nsw i64 %spec.select24.i to i32
-  %31 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i, ptr noundef %.01827.i, ptr noundef %.01728.i) #8
+  %31 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i, ptr noundef %.01927.i, ptr noundef %.01828.i) #8
   %.not22.i = icmp eq i32 %31, 0
   br i1 %.not22.i, label %32, label %ompi_datatype_copy_content_same_ddt.exit
 
 32:                                               ; preds = %.lr.ph.i
   %33 = mul nsw i64 %spec.select24.i, %29
-  %34 = getelementptr inbounds i8, ptr %.01827.i, i64 %33
-  %35 = getelementptr inbounds i8, ptr %.01728.i, i64 %33
-  %36 = sub i64 %.01926.i, %spec.select24.i
+  %34 = getelementptr inbounds i8, ptr %.01927.i, i64 %33
+  %35 = getelementptr inbounds i8, ptr %.01828.i, i64 %33
+  %36 = sub i64 %.02026.i, %spec.select24.i
   %.not.i = icmp eq i64 %36, 0
   br i1 %.not.i, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %.lr.ph.i, !llvm.loop !17
 
 ompi_datatype_copy_content_same_ddt.exit:         ; preds = %.lr.ph.i
   %37 = icmp slt i32 %31, 0
-  br i1 %37, label %.thread295, label %ompi_datatype_copy_content_same_ddt.exit.thread
+  br i1 %37, label %.thread296, label %ompi_datatype_copy_content_same_ddt.exit.thread
 
 ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %32, %26, %ompi_datatype_copy_content_same_ddt.exit, %25
   tail call void @free(ptr noundef %15) #8
-  br label %.thread241
+  br label %.thread242
 
 38:                                               ; preds = %._crit_edge
   %39 = getelementptr i8, ptr %3, i64 48
@@ -904,11 +904,11 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %32, %26, %ompi_data
   %40 = getelementptr i8, ptr %3, i64 56
   %.val183 = load i64, ptr %40, align 8
   %41 = sub nsw i64 %.val183, %.val182
-  %42 = sext i32 %.0141.lcssa to i64
+  %42 = sext i32 %.0143.lcssa to i64
   %43 = getelementptr inbounds i8, ptr %3, i64 24
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %44, 0
-  %46 = icmp eq i32 %.0141.lcssa, 0
+  %46 = icmp eq i32 %.0143.lcssa, 0
   %or.cond.i = or i1 %46, %45
   br i1 %or.cond.i, label %opal_datatype_span.exit, label %47
 
@@ -924,11 +924,11 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %32, %26, %ompi_data
   br label %opal_datatype_span.exit
 
 opal_datatype_span.exit:                          ; preds = %38, %47
-  %.0.i = phi i64 [ %55, %47 ], [ 0, %38 ]
-  %56 = sext i32 %.0142.lcssa to i64
-  %57 = icmp eq i32 %.0142.lcssa, 0
-  %or.cond.i184 = or i1 %57, %45
-  br i1 %or.cond.i184, label %opal_datatype_span.exit186, label %58
+  %.0.i184 = phi i64 [ %55, %47 ], [ 0, %38 ]
+  %56 = sext i32 %.0144.lcssa to i64
+  %57 = icmp eq i32 %.0144.lcssa, 0
+  %or.cond.i185 = or i1 %57, %45
+  br i1 %or.cond.i185, label %opal_datatype_span.exit187, label %58
 
 58:                                               ; preds = %opal_datatype_span.exit
   %59 = getelementptr inbounds i8, ptr %3, i64 32
@@ -939,21 +939,21 @@ opal_datatype_span.exit:                          ; preds = %38, %47
   %64 = mul i64 %41, %63
   %65 = sub i64 %64, %60
   %66 = add i64 %65, %62
-  br label %opal_datatype_span.exit186
+  br label %opal_datatype_span.exit187
 
-opal_datatype_span.exit186:                       ; preds = %opal_datatype_span.exit, %58
-  %.0205 = phi i64 [ %60, %58 ], [ 0, %opal_datatype_span.exit ]
-  %.0.i185 = phi i64 [ %66, %58 ], [ 0, %opal_datatype_span.exit ]
-  %67 = tail call noalias ptr @malloc(i64 noundef %.0.i185) #9
+opal_datatype_span.exit187:                       ; preds = %opal_datatype_span.exit, %58
+  %.0206 = phi i64 [ %60, %58 ], [ 0, %opal_datatype_span.exit ]
+  %.0.i186 = phi i64 [ %66, %58 ], [ 0, %opal_datatype_span.exit ]
+  %67 = tail call noalias ptr @malloc(i64 noundef %.0.i186) #9
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %.thread295, label %69
+  br i1 %68, label %.thread296, label %69
 
-69:                                               ; preds = %opal_datatype_span.exit186
-  %70 = sub i64 0, %.0205
+69:                                               ; preds = %opal_datatype_span.exit187
+  %70 = sub i64 0, %.0206
   %71 = getelementptr inbounds i8, ptr %67, i64 %70
-  %72 = tail call noalias ptr @malloc(i64 noundef %.0.i) #9
+  %72 = tail call noalias ptr @malloc(i64 noundef %.0.i184) #9
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %.thread.thread278, label %74
+  br i1 %73, label %.thread.thread279, label %74
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds i8, ptr %72, i64 %70
@@ -962,9 +962,9 @@ opal_datatype_span.exit186:                       ; preds = %opal_datatype_span.
   br i1 %76, label %77, label %83
 
 77:                                               ; preds = %74
-  %78 = tail call noalias ptr @malloc(i64 noundef %.0.i) #9
+  %78 = tail call noalias ptr @malloc(i64 noundef %.0.i184) #9
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %.thread.thread278, label %80
+  br i1 %79, label %.thread.thread279, label %80
 
 80:                                               ; preds = %77
   %81 = getelementptr inbounds i8, ptr %78, i64 %70
@@ -974,36 +974,36 @@ opal_datatype_span.exit186:                       ; preds = %opal_datatype_span.
 
 83:                                               ; preds = %80, %74
   %.sroa.8.0 = phi ptr [ %78, %80 ], [ null, %74 ]
-  br i1 %57, label %ompi_datatype_copy_content_same_ddt.exit199.thread, label %.lr.ph.i190.preheader
+  br i1 %57, label %ompi_datatype_copy_content_same_ddt.exit200.thread, label %.lr.ph.i191.preheader
 
-.lr.ph.i190.preheader:                            ; preds = %83
+.lr.ph.i191.preheader:                            ; preds = %83
   %84 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
   %spec.select180 = select i1 %84, ptr %1, ptr %0
-  br label %.lr.ph.i190
+  br label %.lr.ph.i191
 
-.lr.ph.i190:                                      ; preds = %.lr.ph.i190.preheader, %86
-  %.01728.i191 = phi ptr [ %89, %86 ], [ %spec.select180, %.lr.ph.i190.preheader ]
-  %.01827.i192 = phi ptr [ %88, %86 ], [ %71, %.lr.ph.i190.preheader ]
-  %.01926.i193 = phi i64 [ %90, %86 ], [ %56, %.lr.ph.i190.preheader ]
-  %spec.select24.i194 = tail call i64 @llvm.umin.i64(i64 %.01926.i193, i64 2147483647)
-  %spec.select.i195 = trunc nuw nsw i64 %spec.select24.i194 to i32
-  %85 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i195, ptr noundef %.01827.i192, ptr noundef %.01728.i191) #8
-  %.not22.i196 = icmp eq i32 %85, 0
-  br i1 %.not22.i196, label %86, label %ompi_datatype_copy_content_same_ddt.exit199
+.lr.ph.i191:                                      ; preds = %.lr.ph.i191.preheader, %86
+  %.01828.i192 = phi ptr [ %89, %86 ], [ %spec.select180, %.lr.ph.i191.preheader ]
+  %.01927.i193 = phi ptr [ %88, %86 ], [ %71, %.lr.ph.i191.preheader ]
+  %.02026.i194 = phi i64 [ %90, %86 ], [ %56, %.lr.ph.i191.preheader ]
+  %spec.select24.i195 = tail call i64 @llvm.umin.i64(i64 %.02026.i194, i64 2147483647)
+  %spec.select.i196 = trunc nuw nsw i64 %spec.select24.i195 to i32
+  %85 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i196, ptr noundef %.01927.i193, ptr noundef %.01828.i192) #8
+  %.not22.i197 = icmp eq i32 %85, 0
+  br i1 %.not22.i197, label %86, label %ompi_datatype_copy_content_same_ddt.exit200
 
-86:                                               ; preds = %.lr.ph.i190
-  %87 = mul nsw i64 %spec.select24.i194, %41
-  %88 = getelementptr inbounds i8, ptr %.01827.i192, i64 %87
-  %89 = getelementptr inbounds i8, ptr %.01728.i191, i64 %87
-  %90 = sub i64 %.01926.i193, %spec.select24.i194
-  %.not.i198 = icmp eq i64 %90, 0
-  br i1 %.not.i198, label %ompi_datatype_copy_content_same_ddt.exit199.thread, label %.lr.ph.i190, !llvm.loop !17
+86:                                               ; preds = %.lr.ph.i191
+  %87 = mul nsw i64 %spec.select24.i195, %41
+  %88 = getelementptr inbounds i8, ptr %.01927.i193, i64 %87
+  %89 = getelementptr inbounds i8, ptr %.01828.i192, i64 %87
+  %90 = sub i64 %.02026.i194, %spec.select24.i195
+  %.not.i199 = icmp eq i64 %90, 0
+  br i1 %.not.i199, label %ompi_datatype_copy_content_same_ddt.exit200.thread, label %.lr.ph.i191, !llvm.loop !17
 
-ompi_datatype_copy_content_same_ddt.exit199:      ; preds = %.lr.ph.i190
+ompi_datatype_copy_content_same_ddt.exit200:      ; preds = %.lr.ph.i191
   %91 = icmp slt i32 %85, 0
-  br i1 %91, label %.thread.thread278, label %ompi_datatype_copy_content_same_ddt.exit199.thread
+  br i1 %91, label %.thread.thread279, label %ompi_datatype_copy_content_same_ddt.exit200.thread
 
-ompi_datatype_copy_content_same_ddt.exit199.thread: ; preds = %86, %83, %ompi_datatype_copy_content_same_ddt.exit199
+ompi_datatype_copy_content_same_ddt.exit200.thread: ; preds = %86, %83, %ompi_datatype_copy_content_same_ddt.exit200
   %92 = add nsw i32 %.val, 1
   %93 = srem i32 %92, %.val181.val
   %94 = add nsw i32 %.val, %.val181.val
@@ -1012,9 +1012,9 @@ ompi_datatype_copy_content_same_ddt.exit199.thread: ; preds = %86, %83, %ompi_da
   %97 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %98 = call i32 %97(ptr noundef nonnull %75, i64 noundef %42, ptr noundef %3, i32 noundef %96, i32 noundef -22, ptr noundef %5, ptr noundef nonnull %9) #8
   %.not = icmp eq i32 %98, 0
-  br i1 %.not, label %99, label %.thread.thread278
+  br i1 %.not, label %99, label %.thread.thread279
 
-99:                                               ; preds = %ompi_datatype_copy_content_same_ddt.exit199.thread
+99:                                               ; preds = %ompi_datatype_copy_content_same_ddt.exit200.thread
   %100 = sext i32 %96 to i64
   %101 = getelementptr inbounds i32, ptr %15, i64 %100
   %102 = load i32, ptr %101, align 4
@@ -1027,22 +1027,22 @@ ompi_datatype_copy_content_same_ddt.exit199.thread: ; preds = %86, %83, %ompi_da
   %109 = sext i32 %108 to i64
   %110 = call i32 %106(ptr noundef nonnull %105, i64 noundef %109, ptr noundef %3, i32 noundef %93, i32 noundef -22, i32 noundef 4, ptr noundef %5) #8
   %.not169 = icmp eq i32 %110, 0
-  br i1 %.not169, label %.preheader, label %.thread.thread278
+  br i1 %.not169, label %.preheader, label %.thread.thread279
 
 .preheader:                                       ; preds = %99
-  br i1 %76, label %.lr.ph258, label %._crit_edge259
+  br i1 %76, label %.lr.ph259, label %._crit_edge260
 
 111:                                              ; preds = %127
-  %112 = add nuw nsw i32 %.0143256, 1
-  %exitcond268.not = icmp eq i32 %112, %.val181.val
-  br i1 %exitcond268.not, label %._crit_edge259.loopexit, label %.lr.ph258, !llvm.loop !18
+  %112 = add nuw nsw i32 %.0146257, 1
+  %exitcond269.not = icmp eq i32 %112, %.val181.val
+  br i1 %exitcond269.not, label %._crit_edge260.loopexit, label %.lr.ph259, !llvm.loop !18
 
-.lr.ph258:                                        ; preds = %.preheader, %111
-  %.0140257 = phi i32 [ %115, %111 ], [ 0, %.preheader ]
-  %.0143256 = phi i32 [ %112, %111 ], [ 2, %.preheader ]
-  %113 = sub nsw i32 %94, %.0143256
+.lr.ph259:                                        ; preds = %.preheader, %111
+  %.0142258 = phi i32 [ %115, %111 ], [ 0, %.preheader ]
+  %.0146257 = phi i32 [ %112, %111 ], [ 2, %.preheader ]
+  %113 = sub nsw i32 %94, %.0146257
   %114 = srem i32 %113, %.val181.val
-  %115 = xor i32 %.0140257, 1
+  %115 = xor i32 %.0142258, 1
   %116 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %117 = zext nneg i32 %115 to i64
   %118 = getelementptr inbounds [2 x ptr], ptr %8, i64 0, i64 %117
@@ -1050,15 +1050,15 @@ ompi_datatype_copy_content_same_ddt.exit199.thread: ; preds = %86, %83, %ompi_da
   %120 = getelementptr inbounds [2 x ptr], ptr %9, i64 0, i64 %117
   %121 = call i32 %116(ptr noundef %119, i64 noundef %42, ptr noundef %3, i32 noundef %96, i32 noundef -22, ptr noundef %5, ptr noundef nonnull %120) #8
   %.not172 = icmp eq i32 %121, 0
-  br i1 %.not172, label %122, label %.thread.thread278
+  br i1 %.not172, label %122, label %.thread.thread279
 
-122:                                              ; preds = %.lr.ph258
+122:                                              ; preds = %.lr.ph259
   %123 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
-  %124 = zext nneg i32 %.0140257 to i64
+  %124 = zext nneg i32 %.0142258 to i64
   %125 = getelementptr inbounds [2 x ptr], ptr %9, i64 0, i64 %124
   %126 = call i32 %123(ptr noundef nonnull %125, ptr noundef null) #8
   %.not173 = icmp eq i32 %126, 0
-  br i1 %.not173, label %127, label %.thread.thread278
+  br i1 %.not173, label %127, label %.thread.thread279
 
 127:                                              ; preds = %122
   %128 = sext i32 %114 to i64
@@ -1078,28 +1078,28 @@ ompi_datatype_copy_content_same_ddt.exit199.thread: ; preds = %86, %83, %ompi_da
   %141 = sext i32 %140 to i64
   %142 = call i32 %139(ptr noundef nonnull %133, i64 noundef %141, ptr noundef %3, i32 noundef %93, i32 noundef -22, i32 noundef 4, ptr noundef %5) #8
   %.not174 = icmp eq i32 %142, 0
-  br i1 %.not174, label %111, label %.thread.thread278
+  br i1 %.not174, label %111, label %.thread.thread279
 
-._crit_edge259.loopexit:                          ; preds = %111
+._crit_edge260.loopexit:                          ; preds = %111
   %143 = zext nneg i32 %115 to i64
-  br label %._crit_edge259
+  br label %._crit_edge260
 
-._crit_edge259:                                   ; preds = %.preheader, %._crit_edge259.loopexit
-  %.0140.lcssa = phi i64 [ %143, %._crit_edge259.loopexit ], [ 0, %.preheader ]
+._crit_edge260:                                   ; preds = %.preheader, %._crit_edge260.loopexit
+  %.0142.lcssa = phi i64 [ %143, %._crit_edge260.loopexit ], [ 0, %.preheader ]
   %144 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
-  %145 = getelementptr inbounds [2 x ptr], ptr %9, i64 0, i64 %.0140.lcssa
+  %145 = getelementptr inbounds [2 x ptr], ptr %9, i64 0, i64 %.0142.lcssa
   %146 = call i32 %144(ptr noundef nonnull %145, ptr noundef null) #8
   %.not170 = icmp eq i32 %146, 0
-  br i1 %.not170, label %147, label %.thread.thread278
+  br i1 %.not170, label %147, label %.thread.thread279
 
-147:                                              ; preds = %._crit_edge259
+147:                                              ; preds = %._crit_edge260
   %148 = sext i32 %.val to i64
   %149 = getelementptr inbounds i32, ptr %15, i64 %148
   %150 = load i32, ptr %149, align 4
   %151 = sext i32 %150 to i64
   %152 = mul nsw i64 %41, %151
   %153 = getelementptr inbounds i8, ptr %71, i64 %152
-  %154 = getelementptr inbounds [2 x ptr], ptr %8, i64 0, i64 %.0140.lcssa
+  %154 = getelementptr inbounds [2 x ptr], ptr %8, i64 0, i64 %.0142.lcssa
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds i32, ptr %2, i64 %148
   %157 = load i32, ptr %156, align 4
@@ -1109,46 +1109,46 @@ ompi_datatype_copy_content_same_ddt.exit199.thread: ; preds = %86, %83, %ompi_da
   %160 = sext i32 %159 to i64
   %161 = call fastcc i32 @ompi_datatype_copy_content_same_ddt(ptr noundef %3, i64 noundef %160, ptr noundef %1, ptr noundef nonnull %153)
   %162 = icmp slt i32 %161, 0
-  br i1 %162, label %.thread.thread278, label %163
+  br i1 %162, label %.thread.thread279, label %163
 
 163:                                              ; preds = %147
   call void @free(ptr noundef nonnull %15) #8
   call void @free(ptr noundef %67) #8
   call void @free(ptr noundef %72) #8
   %.not171 = icmp eq ptr %.sroa.8.0, null
-  br i1 %.not171, label %.thread241, label %164
+  br i1 %.not171, label %.thread242, label %164
 
 164:                                              ; preds = %163
   call void @free(ptr noundef nonnull %.sroa.8.0) #8
-  br label %.thread241
+  br label %.thread242
 
-.thread295:                                       ; preds = %opal_datatype_span.exit186, %ompi_datatype_copy_content_same_ddt.exit
-  %.0145212.ph = phi i32 [ %31, %ompi_datatype_copy_content_same_ddt.exit ], [ -1, %opal_datatype_span.exit186 ]
+.thread296:                                       ; preds = %opal_datatype_span.exit187, %ompi_datatype_copy_content_same_ddt.exit
+  %.0140219.ph = phi i32 [ %31, %ompi_datatype_copy_content_same_ddt.exit ], [ -1, %opal_datatype_span.exit187 ]
   tail call void @free(ptr noundef nonnull %15) #8
-  br label %.thread241
+  br label %.thread242
 
-.thread.thread278:                                ; preds = %122, %.lr.ph258, %127, %147, %._crit_edge259, %99, %ompi_datatype_copy_content_same_ddt.exit199.thread, %ompi_datatype_copy_content_same_ddt.exit199, %69, %77
-  %.0145212287 = phi i32 [ -1, %77 ], [ -1, %69 ], [ %161, %147 ], [ %146, %._crit_edge259 ], [ %110, %99 ], [ %85, %ompi_datatype_copy_content_same_ddt.exit199 ], [ %98, %ompi_datatype_copy_content_same_ddt.exit199.thread ], [ %121, %.lr.ph258 ], [ %126, %122 ], [ %142, %127 ]
-  %.sroa.8.1218284 = phi ptr [ null, %77 ], [ null, %69 ], [ %.sroa.8.0, %147 ], [ %.sroa.8.0, %._crit_edge259 ], [ %.sroa.8.0, %99 ], [ %.sroa.8.0, %ompi_datatype_copy_content_same_ddt.exit199 ], [ %.sroa.8.0, %ompi_datatype_copy_content_same_ddt.exit199.thread ], [ %.sroa.8.0, %127 ], [ %.sroa.8.0, %.lr.ph258 ], [ %.sroa.8.0, %122 ]
+.thread.thread279:                                ; preds = %122, %.lr.ph259, %127, %147, %._crit_edge260, %99, %ompi_datatype_copy_content_same_ddt.exit200.thread, %ompi_datatype_copy_content_same_ddt.exit200, %69, %77
+  %.sroa.8.1217286 = phi ptr [ null, %77 ], [ null, %69 ], [ %.sroa.8.0, %ompi_datatype_copy_content_same_ddt.exit200 ], [ %.sroa.8.0, %ompi_datatype_copy_content_same_ddt.exit200.thread ], [ %.sroa.8.0, %99 ], [ %.sroa.8.0, %._crit_edge260 ], [ %.sroa.8.0, %147 ], [ %.sroa.8.0, %127 ], [ %.sroa.8.0, %.lr.ph259 ], [ %.sroa.8.0, %122 ]
+  %.0140219285 = phi i32 [ -1, %77 ], [ -1, %69 ], [ %85, %ompi_datatype_copy_content_same_ddt.exit200 ], [ %98, %ompi_datatype_copy_content_same_ddt.exit200.thread ], [ %110, %99 ], [ %146, %._crit_edge260 ], [ %161, %147 ], [ %126, %122 ], [ %121, %.lr.ph259 ], [ %142, %127 ]
   call void @free(ptr noundef nonnull %15) #8
   call void @free(ptr noundef nonnull %67) #8
   %.not178 = icmp eq ptr %72, null
   br i1 %.not178, label %166, label %165
 
-165:                                              ; preds = %.thread.thread278
+165:                                              ; preds = %.thread.thread279
   call void @free(ptr noundef nonnull %72) #8
   br label %166
 
-166:                                              ; preds = %165, %.thread.thread278
-  %.not179 = icmp eq ptr %.sroa.8.1218284, null
-  br i1 %.not179, label %.thread241, label %167
+166:                                              ; preds = %165, %.thread.thread279
+  %.not179 = icmp eq ptr %.sroa.8.1217286, null
+  br i1 %.not179, label %.thread242, label %167
 
 167:                                              ; preds = %166
-  call void @free(ptr noundef nonnull %.sroa.8.1218284) #8
-  br label %.thread241
+  call void @free(ptr noundef nonnull %.sroa.8.1217286) #8
+  br label %.thread242
 
-.thread241:                                       ; preds = %.thread295, %7, %166, %167, %163, %164, %ompi_datatype_copy_content_same_ddt.exit.thread
-  %.0 = phi i32 [ 0, %ompi_datatype_copy_content_same_ddt.exit.thread ], [ 0, %164 ], [ 0, %163 ], [ %.0145212287, %167 ], [ %.0145212287, %166 ], [ -1, %7 ], [ %.0145212.ph, %.thread295 ]
+.thread242:                                       ; preds = %.thread296, %7, %166, %167, %163, %164, %ompi_datatype_copy_content_same_ddt.exit.thread
+  %.0 = phi i32 [ 0, %ompi_datatype_copy_content_same_ddt.exit.thread ], [ 0, %164 ], [ 0, %163 ], [ %.0140219285, %167 ], [ %.0140219285, %166 ], [ -1, %7 ], [ %.0140219.ph, %.thread296 ]
   ret i32 %.0
 }
 
@@ -1169,26 +1169,26 @@ define internal fastcc i32 @ompi_datatype_copy_content_same_ddt(ptr noundef %0, 
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %9
-  %.01728 = phi ptr [ %12, %9 ], [ %3, %4 ]
-  %.01827 = phi ptr [ %11, %9 ], [ %2, %4 ]
-  %.01926 = phi i64 [ %13, %9 ], [ %1, %4 ]
-  %spec.select24 = tail call i64 @llvm.umin.i64(i64 %.01926, i64 2147483647)
+  %.01828 = phi ptr [ %12, %9 ], [ %3, %4 ]
+  %.01927 = phi ptr [ %11, %9 ], [ %2, %4 ]
+  %.02026 = phi i64 [ %13, %9 ], [ %1, %4 ]
+  %spec.select24 = tail call i64 @llvm.umin.i64(i64 %.02026, i64 2147483647)
   %spec.select = trunc nuw nsw i64 %spec.select24 to i32
-  %8 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %0, i32 noundef %spec.select, ptr noundef %.01827, ptr noundef %.01728) #8
+  %8 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %0, i32 noundef %spec.select, ptr noundef %.01927, ptr noundef %.01828) #8
   %.not22 = icmp eq i32 %8, 0
   br i1 %.not22, label %9, label %._crit_edge
 
 9:                                                ; preds = %.lr.ph
   %10 = mul nsw i64 %spec.select24, %7
-  %11 = getelementptr inbounds i8, ptr %.01827, i64 %10
-  %12 = getelementptr inbounds i8, ptr %.01728, i64 %10
-  %13 = sub i64 %.01926, %spec.select24
+  %11 = getelementptr inbounds i8, ptr %.01927, i64 %10
+  %12 = getelementptr inbounds i8, ptr %.01828, i64 %10
+  %13 = sub i64 %.02026, %spec.select24
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9, %4
-  %.020 = phi i32 [ 0, %4 ], [ 0, %9 ], [ %8, %.lr.ph ]
-  ret i32 %.020
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ %8, %.lr.ph ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1200,14 +1200,14 @@ define i32 @ompi_coll_base_reduce_scatter_intra_butterfly(ptr noundef %0, ptr no
   %10 = getelementptr i8, ptr %5, i64 220
   %.val = load i32, ptr %10, align 4
   %11 = icmp slt i32 %.val260.val, 2
-  br i1 %11, label %.thread315, label %12
+  br i1 %11, label %.thread316, label %12
 
 12:                                               ; preds = %7
   %13 = zext nneg i32 %.val260.val to i64
   %14 = shl nuw nsw i64 %13, 2
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #9
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.thread315, label %.lr.ph.preheader
+  br i1 %16, label %.thread316, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %12
   store i32 0, ptr %15, align 4
@@ -1259,17 +1259,17 @@ define i32 @ompi_coll_base_reduce_scatter_intra_butterfly(ptr noundef %0, ptr no
   br label %opal_datatype_span.exit
 
 opal_datatype_span.exit:                          ; preds = %._crit_edge, %36
-  %.0286 = phi i64 [ %38, %36 ], [ 0, %._crit_edge ]
+  %.0287 = phi i64 [ %38, %36 ], [ 0, %._crit_edge ]
   %.0.i = phi i64 [ %44, %36 ], [ 0, %._crit_edge ]
   %45 = tail call noalias ptr @malloc(i64 noundef %.0.i) #9
   %46 = tail call noalias ptr @malloc(i64 noundef %.0.i) #9
   %47 = icmp eq ptr %45, null
   %48 = icmp eq ptr %46, null
   %or.cond = or i1 %47, %48
-  br i1 %or.cond, label %ompi_datatype_copy_content_same_ddt.exit.thread294, label %49
+  br i1 %or.cond, label %ompi_datatype_copy_content_same_ddt.exit.thread295, label %49
 
 49:                                               ; preds = %opal_datatype_span.exit
-  %50 = sub i64 0, %.0286
+  %50 = sub i64 0, %.0287
   %51 = getelementptr inbounds i8, ptr %45, i64 %50
   %52 = getelementptr inbounds i8, ptr %46, i64 %50
   %.not = icmp eq ptr %0, inttoptr (i64 1 to ptr)
@@ -1279,43 +1279,43 @@ opal_datatype_span.exit:                          ; preds = %._crit_edge, %36
   br i1 %35, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %53, %55
-  %.01728.i = phi ptr [ %58, %55 ], [ %0, %53 ]
-  %.01827.i = phi ptr [ %57, %55 ], [ %51, %53 ]
-  %.01926.i = phi i64 [ %59, %55 ], [ %28, %53 ]
-  %spec.select24.i = tail call i64 @llvm.umin.i64(i64 %.01926.i, i64 2147483647)
+  %.01828.i = phi ptr [ %58, %55 ], [ %0, %53 ]
+  %.01927.i = phi ptr [ %57, %55 ], [ %51, %53 ]
+  %.02026.i = phi i64 [ %59, %55 ], [ %28, %53 ]
+  %spec.select24.i = tail call i64 @llvm.umin.i64(i64 %.02026.i, i64 2147483647)
   %spec.select.i = trunc nuw nsw i64 %spec.select24.i to i32
-  %54 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i, ptr noundef %.01827.i, ptr noundef %.01728.i) #8
+  %54 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i, ptr noundef %.01927.i, ptr noundef %.01828.i) #8
   %.not22.i = icmp eq i32 %54, 0
-  br i1 %.not22.i, label %55, label %ompi_datatype_copy_content_same_ddt.exit.thread294
+  br i1 %.not22.i, label %55, label %ompi_datatype_copy_content_same_ddt.exit.thread295
 
 55:                                               ; preds = %.lr.ph.i
   %56 = mul nsw i64 %spec.select24.i, %31
-  %57 = getelementptr inbounds i8, ptr %.01827.i, i64 %56
-  %58 = getelementptr inbounds i8, ptr %.01728.i, i64 %56
-  %59 = sub i64 %.01926.i, %spec.select24.i
+  %57 = getelementptr inbounds i8, ptr %.01927.i, i64 %56
+  %58 = getelementptr inbounds i8, ptr %.01828.i, i64 %56
+  %59 = sub i64 %.02026.i, %spec.select24.i
   %.not.i = icmp eq i64 %59, 0
   br i1 %.not.i, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %.lr.ph.i, !llvm.loop !17
 
 60:                                               ; preds = %49
-  br i1 %35, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %.lr.ph.i266
+  br i1 %35, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %.lr.ph.i267
 
-.lr.ph.i266:                                      ; preds = %60, %62
-  %.01728.i267 = phi ptr [ %65, %62 ], [ %1, %60 ]
-  %.01827.i268 = phi ptr [ %64, %62 ], [ %51, %60 ]
-  %.01926.i269 = phi i64 [ %66, %62 ], [ %28, %60 ]
-  %spec.select24.i270 = tail call i64 @llvm.umin.i64(i64 %.01926.i269, i64 2147483647)
-  %spec.select.i271 = trunc nuw nsw i64 %spec.select24.i270 to i32
-  %61 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i271, ptr noundef %.01827.i268, ptr noundef %.01728.i267) #8
-  %.not22.i272 = icmp eq i32 %61, 0
-  br i1 %.not22.i272, label %62, label %ompi_datatype_copy_content_same_ddt.exit.thread294
+.lr.ph.i267:                                      ; preds = %60, %62
+  %.01828.i268 = phi ptr [ %65, %62 ], [ %1, %60 ]
+  %.01927.i269 = phi ptr [ %64, %62 ], [ %51, %60 ]
+  %.02026.i270 = phi i64 [ %66, %62 ], [ %28, %60 ]
+  %spec.select24.i271 = tail call i64 @llvm.umin.i64(i64 %.02026.i270, i64 2147483647)
+  %spec.select.i272 = trunc nuw nsw i64 %spec.select24.i271 to i32
+  %61 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i272, ptr noundef %.01927.i269, ptr noundef %.01828.i268) #8
+  %.not22.i273 = icmp eq i32 %61, 0
+  br i1 %.not22.i273, label %62, label %ompi_datatype_copy_content_same_ddt.exit.thread295
 
-62:                                               ; preds = %.lr.ph.i266
-  %63 = mul nsw i64 %spec.select24.i270, %31
-  %64 = getelementptr inbounds i8, ptr %.01827.i268, i64 %63
-  %65 = getelementptr inbounds i8, ptr %.01728.i267, i64 %63
-  %66 = sub i64 %.01926.i269, %spec.select24.i270
-  %.not.i274 = icmp eq i64 %66, 0
-  br i1 %.not.i274, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %.lr.ph.i266, !llvm.loop !17
+62:                                               ; preds = %.lr.ph.i267
+  %63 = mul nsw i64 %spec.select24.i271, %31
+  %64 = getelementptr inbounds i8, ptr %.01927.i269, i64 %63
+  %65 = getelementptr inbounds i8, ptr %.01828.i268, i64 %63
+  %66 = sub i64 %.02026.i270, %spec.select24.i271
+  %.not.i275 = icmp eq i64 %66, 0
+  br i1 %.not.i275, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %.lr.ph.i267, !llvm.loop !17
 
 ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %55, %62, %60, %53
   %67 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.val260.val, i1 true)
@@ -1327,7 +1327,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %55, %62, %60, %53
   %72 = add nsw i32 %69, -1
   %73 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %72, i1 true)
   %74 = sub nuw nsw i32 32, %73
-  %.0.i277 = select i1 %71, i32 0, i32 %74
+  %.0.i278 = select i1 %71, i32 0, i32 %74
   %75 = shl nsw i32 %70, 1
   %76 = icmp slt i32 %.val, %75
   br i1 %76, label %77, label %90
@@ -1342,14 +1342,14 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %55, %62, %60, %53
   %82 = or disjoint i32 %.val, 1
   %83 = tail call i32 %81(ptr noundef %51, i64 noundef %28, ptr noundef %3, i32 noundef %82, i32 noundef -22, i32 noundef 4, ptr noundef %5) #8
   %.not252 = icmp eq i32 %83, 0
-  br i1 %.not252, label %.thread, label %ompi_datatype_copy_content_same_ddt.exit.thread294
+  br i1 %.not252, label %.thread, label %ompi_datatype_copy_content_same_ddt.exit.thread295
 
 84:                                               ; preds = %77
   %85 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %86 = add nsw i32 %.val, -1
   %87 = tail call i32 %85(ptr noundef %52, i64 noundef %28, ptr noundef %3, i32 noundef %86, i32 noundef -22, ptr noundef %5, ptr noundef null) #8
   %.not251 = icmp eq i32 %87, 0
-  br i1 %.not251, label %88, label %ompi_datatype_copy_content_same_ddt.exit.thread294
+  br i1 %.not251, label %88, label %ompi_datatype_copy_content_same_ddt.exit.thread295
 
 88:                                               ; preds = %84
   tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef %52, ptr noundef %51, i64 noundef %28, ptr noundef %3)
@@ -1361,43 +1361,43 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %55, %62, %60, %53
   br label %92
 
 92:                                               ; preds = %88, %90
-  %.0219 = phi i32 [ %89, %88 ], [ %91, %90 ]
-  %.not253 = icmp eq i32 %.0219, -1
+  %.0220 = phi i32 [ %89, %88 ], [ %91, %90 ]
+  %.not253 = icmp eq i32 %.0220, -1
   br i1 %.not253, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %92
   %93 = icmp sgt i32 %69, 1
-  br i1 %93, label %.lr.ph336, label %._crit_edge337
+  br i1 %93, label %.lr.ph337, label %._crit_edge338
 
-.lr.ph336:                                        ; preds = %.preheader, %162
-  %.0214335 = phi i32 [ %163, %162 ], [ 1, %.preheader ]
-  %.0215334 = phi i32 [ %.1, %162 ], [ 0, %.preheader ]
-  %.0218333 = phi i32 [ %100, %162 ], [ %69, %.preheader ]
-  %.0223332 = phi ptr [ %.1224, %162 ], [ %52, %.preheader ]
-  %.0225331 = phi ptr [ %.1226, %162 ], [ %51, %.preheader ]
-  %94 = xor i32 %.0214335, %.0219
+.lr.ph337:                                        ; preds = %.preheader, %162
+  %.0214336 = phi ptr [ %.1, %162 ], [ %51, %.preheader ]
+  %.0215335 = phi ptr [ %.1216, %162 ], [ %52, %.preheader ]
+  %.0221334 = phi i32 [ %163, %162 ], [ 1, %.preheader ]
+  %.0222333 = phi i32 [ %.1223, %162 ], [ 0, %.preheader ]
+  %.0226332 = phi i32 [ %100, %162 ], [ %69, %.preheader ]
+  %94 = xor i32 %.0221334, %.0220
   %95 = icmp slt i32 %94, %70
   %96 = shl nsw i32 %94, 1
   %97 = or disjoint i32 %96, 1
   %98 = add nsw i32 %94, %70
   %99 = select i1 %95, i32 %97, i32 %98
-  %100 = sdiv i32 %.0218333, 2
-  %101 = and i32 %.0214335, %.0219
+  %100 = sdiv i32 %.0226332, 2
+  %101 = and i32 %.0221334, %.0220
   %102 = icmp eq i32 %101, 0
-  %103 = add nsw i32 %.0215334, %100
-  %.1217 = select i1 %102, i32 %103, i32 %.0215334
-  %.1 = select i1 %102, i32 %.0215334, i32 %103
-  %104 = add nsw i32 %.1217, %100
+  %103 = add nsw i32 %.0222333, %100
+  %.1225 = select i1 %102, i32 %103, i32 %.0222333
+  %.1223 = select i1 %102, i32 %.0222333, i32 %103
+  %104 = add nsw i32 %.1225, %100
   %105 = add nsw i32 %104, -1
-  %106 = icmp slt i32 %.1217, %70
-  %107 = shl nsw i32 %.1217, 1
-  %108 = add nsw i32 %.1217, %70
+  %106 = icmp slt i32 %.1225, %70
+  %107 = shl nsw i32 %.1225, 1
+  %108 = add nsw i32 %.1225, %70
   %109 = select i1 %106, i32 %107, i32 %108
-  %.not319 = icmp sgt i32 %104, %70
+  %.not320 = icmp sgt i32 %104, %70
   %110 = shl nsw i32 %105, 1
   %111 = or disjoint i32 %110, 1
   %112 = add nsw i32 %105, %70
-  %113 = select i1 %.not319, i32 %112, i32 %111
+  %113 = select i1 %.not320, i32 %112, i32 %111
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds i32, ptr %15, i64 %114
   %116 = load i32, ptr %115, align 4
@@ -1409,17 +1409,17 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %55, %62, %60, %53
   %122 = load i32, ptr %121, align 4
   %123 = sub i32 %119, %122
   %124 = sext i32 %122 to i64
-  %125 = add nsw i32 %.1, %100
+  %125 = add nsw i32 %.1223, %100
   %126 = add nsw i32 %125, -1
-  %127 = icmp slt i32 %.1, %70
-  %128 = shl nsw i32 %.1, 1
-  %129 = add nsw i32 %.1, %70
+  %127 = icmp slt i32 %.1223, %70
+  %128 = shl nsw i32 %.1223, 1
+  %129 = add nsw i32 %.1223, %70
   %130 = select i1 %127, i32 %128, i32 %129
-  %.not320 = icmp sgt i32 %125, %70
+  %.not321 = icmp sgt i32 %125, %70
   %131 = shl nsw i32 %126, 1
   %132 = or disjoint i32 %131, 1
   %133 = add nsw i32 %126, %70
-  %134 = select i1 %.not320, i32 %133, i32 %132
+  %134 = select i1 %.not321, i32 %133, i32 %132
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds i32, ptr %15, i64 %135
   %137 = load i32, ptr %136, align 4
@@ -1432,30 +1432,30 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %55, %62, %60, %53
   %144 = sub i32 %140, %143
   %145 = sext i32 %143 to i64
   %146 = mul nsw i64 %31, %124
-  %147 = getelementptr inbounds i8, ptr %.0225331, i64 %146
+  %147 = getelementptr inbounds i8, ptr %.0214336, i64 %146
   %148 = mul nsw i64 %31, %145
-  %149 = getelementptr inbounds i8, ptr %.0223332, i64 %148
+  %149 = getelementptr inbounds i8, ptr %.0215335, i64 %148
   %150 = sext i32 %144 to i64
   %151 = icmp eq i32 %99, %.val
   br i1 %151, label %152, label %154
 
-152:                                              ; preds = %.lr.ph336
+152:                                              ; preds = %.lr.ph337
   %153 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %147, i32 noundef %123, ptr noundef %3, ptr noundef %149, i32 noundef %144, ptr noundef %3) #8
   br label %ompi_coll_base_sendrecv.exit
 
-154:                                              ; preds = %.lr.ph336
+154:                                              ; preds = %.lr.ph337
   %155 = sext i32 %123 to i64
   %156 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %147, i64 noundef %155, ptr noundef %3, i32 noundef %99, i32 noundef -22, ptr noundef %149, i64 noundef %150, ptr noundef %3, i32 noundef %99, i32 noundef -22, ptr noundef %5, ptr noundef null) #8
   br label %ompi_coll_base_sendrecv.exit
 
 ompi_coll_base_sendrecv.exit:                     ; preds = %152, %154
-  %.0.i279 = phi i32 [ %153, %152 ], [ %156, %154 ]
-  %.not256 = icmp eq i32 %.0.i279, 0
-  br i1 %.not256, label %157, label %ompi_datatype_copy_content_same_ddt.exit.thread294
+  %.0.i280 = phi i32 [ %153, %152 ], [ %156, %154 ]
+  %.not256 = icmp eq i32 %.0.i280, 0
+  br i1 %.not256, label %157, label %ompi_datatype_copy_content_same_ddt.exit.thread295
 
 157:                                              ; preds = %ompi_coll_base_sendrecv.exit
-  %158 = icmp slt i32 %.0219, %94
-  %159 = getelementptr inbounds i8, ptr %.0225331, i64 %148
+  %158 = icmp slt i32 %.0220, %94
+  %159 = getelementptr inbounds i8, ptr %.0214336, i64 %148
   br i1 %158, label %160, label %161
 
 160:                                              ; preds = %157
@@ -1467,44 +1467,44 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %152, %154
   br label %162
 
 162:                                              ; preds = %161, %160
-  %.1226 = phi ptr [ %.0223332, %160 ], [ %.0225331, %161 ]
-  %.1224 = phi ptr [ %.0225331, %160 ], [ %.0223332, %161 ]
-  %163 = shl i32 %.0214335, 1
+  %.1216 = phi ptr [ %.0214336, %160 ], [ %.0215335, %161 ]
+  %.1 = phi ptr [ %.0215335, %160 ], [ %.0214336, %161 ]
+  %163 = shl i32 %.0221334, 1
   %164 = icmp slt i32 %163, %69
-  br i1 %164, label %.lr.ph336, label %._crit_edge337, !llvm.loop !20
+  br i1 %164, label %.lr.ph337, label %._crit_edge338, !llvm.loop !20
 
-._crit_edge337:                                   ; preds = %162, %.preheader
-  %.0225.lcssa = phi ptr [ %51, %.preheader ], [ %.1226, %162 ]
-  %.0215.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %162 ]
-  %165 = tail call i32 @ompi_mirror_perm(i32 noundef %.0219, i32 noundef %.0.i277) #8
+._crit_edge338:                                   ; preds = %162, %.preheader
+  %.0222.lcssa = phi i32 [ 0, %.preheader ], [ %.1223, %162 ]
+  %.0214.lcssa = phi ptr [ %51, %.preheader ], [ %.1, %162 ]
+  %165 = tail call i32 @ompi_mirror_perm(i32 noundef %.0220, i32 noundef %.0.i278) #8
   %166 = icmp slt i32 %165, %70
   %167 = shl nsw i32 %165, 1
   %168 = or disjoint i32 %167, 1
   %169 = add nsw i32 %165, %70
   %170 = select i1 %166, i32 %168, i32 %169
-  %171 = icmp slt i32 %.0215.lcssa, %70
-  %172 = shl nsw i32 %.0215.lcssa, 1
-  %173 = add nsw i32 %.0215.lcssa, %70
+  %171 = icmp slt i32 %.0222.lcssa, %70
+  %172 = shl nsw i32 %.0222.lcssa, 1
+  %173 = add nsw i32 %.0222.lcssa, %70
   %174 = select i1 %171, i32 %172, i32 %173
   br i1 %166, label %175, label %187
 
-175:                                              ; preds = %._crit_edge337
+175:                                              ; preds = %._crit_edge338
   %176 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %177 = sext i32 %174 to i64
   %178 = getelementptr inbounds i32, ptr %15, i64 %177
   %179 = load i32, ptr %178, align 4
   %180 = sext i32 %179 to i64
   %181 = mul nsw i64 %31, %180
-  %182 = getelementptr inbounds i8, ptr %.0225.lcssa, i64 %181
+  %182 = getelementptr inbounds i8, ptr %.0214.lcssa, i64 %181
   %183 = getelementptr inbounds i32, ptr %2, i64 %177
   %184 = load i32, ptr %183, align 4
   %185 = sext i32 %184 to i64
   %186 = tail call i32 %176(ptr noundef %182, i64 noundef %185, ptr noundef %3, i32 noundef %167, i32 noundef -22, i32 noundef 4, ptr noundef %5) #8
   %.not254 = icmp eq i32 %186, 0
-  br i1 %.not254, label %187, label %ompi_datatype_copy_content_same_ddt.exit.thread294
+  br i1 %.not254, label %187, label %ompi_datatype_copy_content_same_ddt.exit.thread295
 
-187:                                              ; preds = %175, %._crit_edge337
-  %.not255 = icmp eq i32 %165, %.0219
+187:                                              ; preds = %175, %._crit_edge338
+  %.not255 = icmp eq i32 %165, %.0220
   br i1 %.not255, label %204, label %188
 
 188:                                              ; preds = %187
@@ -1515,7 +1515,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %152, %154
   %192 = load i32, ptr %191, align 4
   %193 = sext i32 %192 to i64
   %194 = mul nsw i64 %31, %193
-  %195 = getelementptr inbounds i8, ptr %.0225.lcssa, i64 %194
+  %195 = getelementptr inbounds i8, ptr %.0214.lcssa, i64 %194
   %196 = getelementptr inbounds i32, ptr %2, i64 %190
   %197 = load i32, ptr %196, align 4
   %198 = sext i32 %197 to i64
@@ -1524,7 +1524,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %152, %154
   %201 = load i32, ptr %200, align 4
   %202 = sext i32 %201 to i64
   %203 = tail call fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %195, i64 noundef %198, ptr noundef %3, i32 noundef %170, ptr noundef %1, i64 noundef %202, ptr noundef %3, i32 noundef %170, ptr noundef %5, i32 noundef %.val)
-  br label %ompi_datatype_copy_content_same_ddt.exit.thread294
+  br label %ompi_datatype_copy_content_same_ddt.exit.thread295
 
 204:                                              ; preds = %187
   %205 = sext i32 %.val to i64
@@ -1535,14 +1535,14 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %152, %154
   %210 = load i32, ptr %209, align 4
   %211 = sext i32 %210 to i64
   %212 = mul nsw i64 %31, %211
-  %213 = getelementptr inbounds i8, ptr %.0225.lcssa, i64 %212
+  %213 = getelementptr inbounds i8, ptr %.0214.lcssa, i64 %212
   %214 = tail call fastcc i32 @ompi_datatype_copy_content_same_ddt(ptr noundef %3, i64 noundef %208, ptr noundef %1, ptr noundef %213)
-  br label %ompi_datatype_copy_content_same_ddt.exit.thread294
+  br label %ompi_datatype_copy_content_same_ddt.exit.thread295
 
 .thread:                                          ; preds = %80, %92
   %215 = add nsw i32 %.val, 1
   %216 = sdiv i32 %215, 2
-  %217 = tail call i32 @ompi_mirror_perm(i32 noundef %216, i32 noundef %.0.i277) #8
+  %217 = tail call i32 @ompi_mirror_perm(i32 noundef %216, i32 noundef %.0.i278) #8
   %218 = icmp slt i32 %217, %70
   %219 = shl nsw i32 %217, 1
   %220 = or disjoint i32 %219, 1
@@ -1554,26 +1554,26 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %152, %154
   %226 = load i32, ptr %225, align 4
   %227 = sext i32 %226 to i64
   %228 = tail call i32 %223(ptr noundef %1, i64 noundef %227, ptr noundef %3, i32 noundef %222, i32 noundef -22, ptr noundef %5, ptr noundef null) #8
-  br label %ompi_datatype_copy_content_same_ddt.exit.thread294
+  br label %ompi_datatype_copy_content_same_ddt.exit.thread295
 
-ompi_datatype_copy_content_same_ddt.exit.thread294: ; preds = %.lr.ph.i, %.lr.ph.i266, %ompi_coll_base_sendrecv.exit, %80, %84, %.thread, %175, %188, %204, %opal_datatype_span.exit
-  %.0221300 = phi i32 [ -2, %opal_datatype_span.exit ], [ %214, %204 ], [ %203, %188 ], [ %186, %175 ], [ %83, %80 ], [ %228, %.thread ], [ %87, %84 ], [ %.0.i279, %ompi_coll_base_sendrecv.exit ], [ %61, %.lr.ph.i266 ], [ %54, %.lr.ph.i ]
+ompi_datatype_copy_content_same_ddt.exit.thread295: ; preds = %.lr.ph.i, %.lr.ph.i267, %ompi_coll_base_sendrecv.exit, %80, %84, %.thread, %175, %188, %204, %opal_datatype_span.exit
+  %.0218299 = phi i32 [ -2, %opal_datatype_span.exit ], [ %214, %204 ], [ %203, %188 ], [ %186, %175 ], [ %83, %80 ], [ %228, %.thread ], [ %87, %84 ], [ %.0.i280, %ompi_coll_base_sendrecv.exit ], [ %61, %.lr.ph.i267 ], [ %54, %.lr.ph.i ]
   tail call void @free(ptr noundef nonnull %15) #8
   br i1 %47, label %230, label %229
 
-229:                                              ; preds = %ompi_datatype_copy_content_same_ddt.exit.thread294
+229:                                              ; preds = %ompi_datatype_copy_content_same_ddt.exit.thread295
   tail call void @free(ptr noundef nonnull %45) #8
   br label %230
 
-230:                                              ; preds = %229, %ompi_datatype_copy_content_same_ddt.exit.thread294
-  br i1 %48, label %.thread315, label %231
+230:                                              ; preds = %229, %ompi_datatype_copy_content_same_ddt.exit.thread295
+  br i1 %48, label %.thread316, label %231
 
 231:                                              ; preds = %230
   tail call void @free(ptr noundef nonnull %46) #8
-  br label %.thread315
+  br label %.thread316
 
-.thread315:                                       ; preds = %12, %230, %231, %7
-  %.0 = phi i32 [ 0, %7 ], [ %.0221300, %231 ], [ %.0221300, %230 ], [ -2, %12 ]
+.thread316:                                       ; preds = %12, %230, %231, %7
+  %.0 = phi i32 [ 0, %7 ], [ %.0218299, %231 ], [ %.0218299, %230 ], [ -2, %12 ]
   ret i32 %.0
 }
 

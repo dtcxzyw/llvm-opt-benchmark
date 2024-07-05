@@ -362,7 +362,7 @@ define range(i32 -31, 4) i32 @cvDoProjection(ptr noundef %0, ptr nocapture nound
   br label %.thread
 
 .thread:                                          ; preds = %9, %14
-  %.057 = phi ptr [ %16, %14 ], [ null, %9 ]
+  %.04957 = phi ptr [ %16, %14 ], [ null, %9 ]
   %19 = getelementptr inbounds i8, ptr %6, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 360
@@ -373,7 +373,7 @@ define range(i32 -31, 4) i32 @cvDoProjection(ptr noundef %0, ptr nocapture nound
   %26 = load double, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 %20(double noundef %22, ptr noundef %24, ptr noundef %11, double noundef %26, ptr noundef %.057, ptr noundef %28) #8
+  %29 = tail call i32 %20(double noundef %22, ptr noundef %24, ptr noundef %11, double noundef %26, ptr noundef %.04957, ptr noundef %28) #8
   %30 = getelementptr inbounds i8, ptr %6, i64 64
   %31 = load i64, ptr %30, align 8
   %32 = add nsw i64 %31, 1
@@ -391,7 +391,7 @@ define range(i32 -31, 4) i32 @cvDoProjection(ptr noundef %0, ptr nocapture nound
 37:                                               ; preds = %35
   %38 = getelementptr inbounds i8, ptr %0, i64 200
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call double @N_VWrmsNorm(ptr noundef %.057, ptr noundef %39) #8
+  %40 = tail call double @N_VWrmsNorm(ptr noundef %.04957, ptr noundef %39) #8
   %41 = getelementptr inbounds i8, ptr %0, i64 688
   store double %40, ptr %41, align 8
   br label %42
@@ -447,8 +447,8 @@ define range(i32 -31, 4) i32 @cvDoProjection(ptr noundef %0, ptr nocapture nound
   br label %72
 
 72:                                               ; preds = %50, %61, %44, %66, %42, %8
-  %.049 = phi i32 [ -29, %8 ], [ 0, %42 ], [ 3, %66 ], [ -30, %44 ], [ -31, %61 ], [ -31, %50 ]
-  ret i32 %.049
+  %.0 = phi i32 [ -29, %8 ], [ 0, %42 ], [ 3, %66 ], [ -30, %44 ], [ -31, %61 ], [ -31, %50 ]
+  ret i32 %.0
 }
 
 declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -269,8 +269,8 @@ define dso_local void @pg_reg_getcharacters(ptr nocapture noundef readonly %0, i
 
 21:                                               ; preds = %.preheader, %32
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %32 ]
-  %.01523 = phi i32 [ %3, %.preheader ], [ %.1, %32 ]
-  %.01622 = phi ptr [ %2, %.preheader ], [ %.117, %32 ]
+  %.01523 = phi ptr [ %2, %.preheader ], [ %.1, %32 ]
+  %.01622 = phi i32 [ %3, %.preheader ], [ %.117, %32 ]
   %22 = load ptr, ptr %20, align 8
   %23 = getelementptr i16, ptr %22, i64 %indvars.iv
   %24 = load i16, ptr %23, align 2
@@ -279,16 +279,16 @@ define dso_local void @pg_reg_getcharacters(ptr nocapture noundef readonly %0, i
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %21
-  %28 = getelementptr i8, ptr %.01622, i64 4
+  %28 = getelementptr i8, ptr %.01523, i64 4
   %29 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %29, ptr %.01622, align 4
-  %30 = add nsw i32 %.01523, -1
+  store i32 %29, ptr %.01523, align 4
+  %30 = add nsw i32 %.01622, -1
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %21, %27
-  %.117 = phi ptr [ %28, %27 ], [ %.01622, %21 ]
-  %.1 = phi i32 [ %30, %27 ], [ %.01523, %21 ]
+  %.117 = phi i32 [ %30, %27 ], [ %.01622, %21 ]
+  %.1 = phi ptr [ %28, %27 ], [ %.01523, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2048
   br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !7

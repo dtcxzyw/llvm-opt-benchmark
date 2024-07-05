@@ -204,9 +204,9 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
 
 63:                                               ; preds = %61, %57
   %64 = phi i32 [ %58, %57 ], [ %.pre, %61 ]
-  %.0 = phi i32 [ %60, %57 ], [ %spec.select86, %61 ]
-  %65 = icmp ugt i32 %.0, %64
-  %66 = call i32 @llvm.usub.sat.i32(i32 %64, i32 %.0)
+  %.057 = phi i32 [ %60, %57 ], [ %spec.select86, %61 ]
+  %65 = icmp ugt i32 %.057, %64
+  %66 = call i32 @llvm.usub.sat.i32(i32 %64, i32 %.057)
   store i32 %66, ptr %2, align 4
   %67 = call zeroext i1 @type_is_abi_aggregate(ptr noundef %0) #5
   br i1 %67, label %92, label %68
@@ -231,8 +231,8 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   br label %78
 
 78:                                               ; preds = %74, %72
-  %.058 = phi i32 [ %77, %74 ], [ %69, %72 ]
-  %79 = add i32 %.058, -13
+  %.0 = phi i32 [ %77, %74 ], [ %69, %72 ]
+  %79 = add i32 %.0, -13
   %80 = icmp ult i32 %79, -11
   %brmerge = select i1 %80, i1 true, i1 %65
   br i1 %brmerge, label %90, label %81
@@ -644,10 +644,10 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
   br label %13
 
 13:                                               ; preds = %6, %9
-  %.080 = phi i32 [ %12, %9 ], [ %7, %6 ]
-  %.in = add i32 %.080, -2
+  %.078 = phi i32 [ %12, %9 ], [ %7, %6 ]
+  %.in = add i32 %.078, -2
   %14 = icmp ult i32 %.in, 11
-  %15 = add i32 %.080, -13
+  %15 = add i32 %.078, -13
   %16 = icmp ult i32 %15, 5
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 244), align 4
   %18 = tail call i32 @type_size(ptr noundef nonnull %0) #5
@@ -719,14 +719,14 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
   br i1 %.not105, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %45
-  %.076100 = phi i64 [ %47, %45 ], [ 0, %37 ]
-  %.07999 = phi i32 [ %46, %45 ], [ %1, %37 ]
-  %44 = tail call fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef %42, i32 noundef %.07999, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %.079100 = phi i64 [ %47, %45 ], [ 0, %37 ]
+  %.08299 = phi i32 [ %46, %45 ], [ %1, %37 ]
+  %44 = tail call fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef %42, i32 noundef %.08299, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %.lr.ph
-  %46 = add i32 %.07999, %43
-  %47 = add nuw nsw i64 %.076100, 1
+  %46 = add i32 %.08299, %43
+  %47 = add nuw nsw i64 %.079100, 1
   %exitcond.not = icmp eq i64 %47, %41
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 

@@ -3017,7 +3017,7 @@ define range(i32 -2147483646, -2147483648) i32 @Cec_ManSatSolveExractPattern(ptr
 
 13:                                               ; preds = %.preheader, %Vec_IntPush.exit
   %indvars.iv = phi i64 [ %12, %.preheader ], [ %indvars.iv.next, %Vec_IntPush.exit ]
-  %.018 = phi i32 [ 0, %.preheader ], [ %44, %Vec_IntPush.exit ]
+  %.01318 = phi i32 [ 0, %.preheader ], [ %44, %Vec_IntPush.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.val = load ptr, ptr %6, align 8
   %14 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv
@@ -3084,7 +3084,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %42 = sext i32 %40 to i64
   %43 = getelementptr inbounds i32, ptr %39, i64 %42
   store i32 %15, ptr %43, align 4
-  %44 = add nuw nsw i32 %.018, 1
+  %44 = add nuw nsw i32 %.01318, 1
   %exitcond.not = icmp eq i32 %44, %10
   br i1 %exitcond.not, label %.loopexit.loopexit, label %13, !llvm.loop !15
 
@@ -3093,8 +3093,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
-  %.013 = phi i32 [ %5, %3 ], [ %45, %.loopexit.loopexit ]
-  ret i32 %.013
+  %.0 = phi i32 [ %5, %3 ], [ %45, %.loopexit.loopexit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3161,7 +3161,7 @@ define void @Cec_ManSatSolveCSat(ptr noundef %0, ptr noundef %1, ptr nocapture n
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %65
   %indvars.iv60 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next61, %65 ]
   %39 = phi ptr [ %17, %.lr.ph.split.us.preheader ], [ %66, %65 ]
-  %.055.us = phi i32 [ 0, %.lr.ph.split.us.preheader ], [ %.1.us, %65 ]
+  %.03354.us = phi i32 [ 0, %.lr.ph.split.us.preheader ], [ %.1.us, %65 ]
   %.val43.us = load ptr, ptr %15, align 8
   %.not37.us = icmp eq ptr %.val43.us, null
   br i1 %.not37.us, label %.critedge, label %40
@@ -3194,11 +3194,11 @@ define void @Cec_ManSatSolveCSat(ptr noundef %0, ptr noundef %1, ptr nocapture n
   br i1 %or.cond.us, label %60, label %62
 
 60:                                               ; preds = %40
-  %61 = call i32 @Cec_ManSatSolveExractPattern(ptr noundef nonnull %13, i32 noundef %.055.us, ptr noundef nonnull %7)
+  %61 = call i32 @Cec_ManSatSolveExractPattern(ptr noundef nonnull %13, i32 noundef %.03354.us, ptr noundef nonnull %7)
   br label %62
 
 62:                                               ; preds = %60, %40
-  %.1.us = phi i32 [ %61, %60 ], [ %.055.us, %40 ]
+  %.1.us = phi i32 [ %61, %60 ], [ %.03354.us, %40 ]
   br i1 %50, label %63, label %65
 
 63:                                               ; preds = %62
@@ -3218,7 +3218,7 @@ define void @Cec_ManSatSolveCSat(ptr noundef %0, ptr noundef %1, ptr nocapture n
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %115
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %115 ]
   %70 = phi ptr [ %29, %.lr.ph.split.preheader ], [ %116, %115 ]
-  %.055 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1, %115 ]
+  %.03354 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1, %115 ]
   %.val43 = load ptr, ptr %27, align 8
   %.not37 = icmp eq ptr %.val43, null
   br i1 %.not37, label %.critedge, label %71
@@ -3251,11 +3251,11 @@ define void @Cec_ManSatSolveCSat(ptr noundef %0, ptr noundef %1, ptr nocapture n
   br i1 %or.cond, label %91, label %93
 
 91:                                               ; preds = %71
-  %92 = call i32 @Cec_ManSatSolveExractPattern(ptr noundef nonnull %13, i32 noundef %.055, ptr noundef nonnull %7)
+  %92 = call i32 @Cec_ManSatSolveExractPattern(ptr noundef nonnull %13, i32 noundef %.03354, ptr noundef nonnull %7)
   br label %93
 
 93:                                               ; preds = %91, %71
-  %.1 = phi i32 [ %92, %91 ], [ %.055, %71 ]
+  %.1 = phi i32 [ %92, %91 ], [ %.03354, %71 ]
   br i1 %81, label %94, label %115
 
 94:                                               ; preds = %93
@@ -3563,8 +3563,8 @@ Vec_StrAlloc.exit:                                ; preds = %Abc_Clock.exit, %29
 41:                                               ; preds = %.lr.ph, %204
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %204 ]
   %42 = phi ptr [ %37, %.lr.ph ], [ %205, %204 ]
-  %.051106 = phi i32 [ %19, %.lr.ph ], [ %.2, %204 ]
-  %.052105 = phi i32 [ 0, %.lr.ph ], [ %.254, %204 ]
+  %.0107 = phi i32 [ 0, %.lr.ph ], [ %.2, %204 ]
+  %.051106 = phi i32 [ %19, %.lr.ph ], [ %.253, %204 ]
   %.val68 = load ptr, ptr %36, align 8
   %43 = getelementptr i8, ptr %42, i64 8
   %.val69.val = load ptr, ptr %43, align 8
@@ -3799,7 +3799,7 @@ Vec_StrPush.exit90:                               ; preds = %.Vec_StrGrow.exit10
   br i1 %.not60, label %147, label %204
 
 147:                                              ; preds = %Vec_StrPush.exit90
-  %148 = icmp eq i32 %.052105, %.051106
+  %148 = icmp eq i32 %.0107, %.051106
   br i1 %148, label %149, label %195
 
 149:                                              ; preds = %147
@@ -3910,11 +3910,11 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %Vec_PtrCleanSimInfo
   br label %195
 
 195:                                              ; preds = %Vec_PtrCleanSimInfo.exit, %147
-  %.1 = phi i32 [ %194, %Vec_PtrCleanSimInfo.exit ], [ %.051106, %147 ]
-  %196 = srem i32 %.052105, %19
+  %.152 = phi i32 [ %194, %Vec_PtrCleanSimInfo.exit ], [ %.051106, %147 ]
+  %196 = srem i32 %.0107, %19
   %197 = icmp eq i32 %196, 0
   %198 = zext i1 %197 to i32
-  %spec.select = add nsw i32 %.052105, %198
+  %spec.select = add nsw i32 %.0107, %198
   call void @Gia_ManIncrementTravId(ptr noundef %1) #15
   %199 = load i64, ptr %47, align 4
   %200 = and i64 %199, 536870911
@@ -3925,8 +3925,8 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %Vec_PtrCleanSimInfo
   br label %204
 
 204:                                              ; preds = %Vec_StrPush.exit90, %Vec_StrPush.exit, %Vec_StrPush.exit83, %195
-  %.254 = phi i32 [ %.052105, %Vec_StrPush.exit ], [ %.052105, %Vec_StrPush.exit83 ], [ %.052105, %Vec_StrPush.exit90 ], [ %203, %195 ]
-  %.2 = phi i32 [ %.051106, %Vec_StrPush.exit ], [ %.051106, %Vec_StrPush.exit83 ], [ %.051106, %Vec_StrPush.exit90 ], [ %.1, %195 ]
+  %.253 = phi i32 [ %.051106, %Vec_StrPush.exit ], [ %.051106, %Vec_StrPush.exit83 ], [ %.051106, %Vec_StrPush.exit90 ], [ %.152, %195 ]
+  %.2 = phi i32 [ %.0107, %Vec_StrPush.exit ], [ %.0107, %Vec_StrPush.exit83 ], [ %.0107, %Vec_StrPush.exit90 ], [ %203, %195 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %205 = load ptr, ptr %23, align 8
   %206 = getelementptr i8, ptr %205, i64 4
@@ -3936,12 +3936,12 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %Vec_PtrCleanSimInfo
   br i1 %208, label %41, label %.critedge.loopexit, !llvm.loop !20
 
 .critedge.loopexit:                               ; preds = %204, %41
-  %.052.lcssa.ph = phi i32 [ %.052105, %41 ], [ %.254, %204 ]
-  %209 = add nsw i32 %.052.lcssa.ph, -1
+  %.0.lcssa.ph = phi i32 [ %.0107, %41 ], [ %.2, %204 ]
+  %209 = add nsw i32 %.0.lcssa.ph, -1
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %Vec_StrAlloc.exit
-  %.052.lcssa = phi i32 [ -1, %Vec_StrAlloc.exit ], [ %209, %.critedge.loopexit ]
+  %.0.lcssa = phi i32 [ -1, %Vec_StrAlloc.exit ], [ %209, %.critedge.loopexit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %210 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #15
   %211 = icmp slt i32 %210, 0
@@ -3979,7 +3979,7 @@ Abc_Clock.exit99:                                 ; preds = %.critedge, %212
   br i1 %.not58, label %227, label %226
 
 226:                                              ; preds = %225
-  store i32 %.052.lcssa, ptr %4, align 4
+  store i32 %.0.lcssa, ptr %4, align 4
   br label %227
 
 227:                                              ; preds = %226, %225

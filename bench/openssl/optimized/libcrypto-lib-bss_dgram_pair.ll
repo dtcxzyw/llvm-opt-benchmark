@@ -898,9 +898,9 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %ring_buf_push_pop.exit
   %0 = phi i64 [ %.pre56, %while.body.lr.ph ], [ %18, %ring_buf_push_pop.exit ]
   %1 = phi i64 [ %.pre, %while.body.lr.ph ], [ %15, %ring_buf_push_pop.exit ]
-  %total_written.047 = phi i64 [ 0, %while.body.lr.ph ], [ %add16, %ring_buf_push_pop.exit ]
-  %sz.addr.046 = phi i64 [ %sz, %while.body.lr.ph ], [ %sub, %ring_buf_push_pop.exit ]
-  %buf.addr.045 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr, %ring_buf_push_pop.exit ]
+  %buf.addr.048 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr, %ring_buf_push_pop.exit ]
+  %total_written.046 = phi i64 [ 0, %while.body.lr.ph ], [ %add16, %ring_buf_push_pop.exit ]
+  %sz.addr.045 = phi i64 [ %sz, %while.body.lr.ph ], [ %sub, %ring_buf_push_pop.exit ]
   %sub.i = sub i64 %1, %0
   %2 = load i64, ptr %count.i, align 8
   %sub4.i = sub i64 %1, %2
@@ -918,7 +918,7 @@ if.then:                                          ; preds = %while.body
 
 if.end:                                           ; preds = %if.then
   %5 = load i64, ptr %req_buf_len, align 8
-  %add = add i64 %5, %sz.addr.046
+  %add = add i64 %5, %sz.addr.045
   %cmp6.i = icmp ult i64 %5, %add
   br i1 %cmp6.i, label %while.body.i, label %compute_rbuf_growth.exit
 
@@ -1025,8 +1025,8 @@ if.end9:                                          ; preds = %if.end39.i, %if.end
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end9, %while.body
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %sz.addr.046)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %buf.addr.045, i64 %spec.select, i1 false)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %sz.addr.045)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %buf.addr.048, i64 %spec.select, i1 false)
   %15 = load i64, ptr %len1.i, align 8
   %16 = load i64, ptr %idx2.i, align 8
   %sub.i25 = sub i64 %15, %16
@@ -1049,14 +1049,14 @@ if.else.i28:                                      ; preds = %if.end.i26
 
 ring_buf_push_pop.exit:                           ; preds = %if.end11, %if.end.i26, %if.else.i28
   %18 = phi i64 [ %16, %if.end11 ], [ %16, %if.end.i26 ], [ %spec.store.select22.i, %if.else.i28 ]
-  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.045, i64 %spec.select
-  %sub = sub i64 %sz.addr.046, %spec.select
-  %add16 = add i64 %spec.select, %total_written.047
+  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.048, i64 %spec.select
+  %sub = sub i64 %sz.addr.045, %spec.select
+  %add16 = add i64 %spec.select, %total_written.046
   %cmp.not = icmp eq i64 %sub, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %ring_buf_push_pop.exit, %if.then, %compute_rbuf_growth.exit, %if.end3.i18, %if.end8.i, %if.then.i, %while.body.i, %entry
-  %total_written.043 = phi i64 [ 0, %entry ], [ %total_written.047, %while.body.i ], [ %add16, %ring_buf_push_pop.exit ], [ %total_written.047, %if.then ], [ %total_written.047, %compute_rbuf_growth.exit ], [ %total_written.047, %if.end3.i18 ], [ %total_written.047, %if.end8.i ], [ %total_written.047, %if.then.i ]
+  %total_written.043 = phi i64 [ 0, %entry ], [ %total_written.046, %while.body.i ], [ %add16, %ring_buf_push_pop.exit ], [ %total_written.046, %if.then ], [ %total_written.046, %compute_rbuf_growth.exit ], [ %total_written.046, %if.end3.i18 ], [ %total_written.046, %if.end8.i ], [ %total_written.046, %if.then.i ]
   ret i64 %total_written.043
 }
 
@@ -1237,8 +1237,8 @@ if.then80:                                        ; preds = %if.then74
   br label %return
 
 if.end88:                                         ; preds = %if.end65, %if.else70, %if.then74
-  %sz.addr.0 = phi i64 [ %sz, %if.then74 ], [ %sz, %if.else70 ], [ %18, %if.end65 ]
   %trunc.0 = phi i64 [ %sub, %if.then74 ], [ 0, %if.else70 ], [ 0, %if.end65 ]
+  %sz.addr.0 = phi i64 [ %sz, %if.then74 ], [ %sz, %if.else70 ], [ %18, %if.end65 ]
   %call89 = call fastcc i64 @dgram_pair_read_inner(ptr noundef nonnull %readb.036, ptr noundef %buf, i64 noundef %sz.addr.0)
   %cmp90 = icmp eq i64 %call89, %sz.addr.0
   br i1 %cmp90, label %if.end101, label %return

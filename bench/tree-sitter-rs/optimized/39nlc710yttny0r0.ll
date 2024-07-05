@@ -516,17 +516,17 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   %.sroa.065.0.ph513 = phi i32 [ 0, %.lr.ph486.lr.ph ], [ %.sroa.065.1, %.outer ]
   %.sroa.364.0.ph509 = phi i32 [ undef, %.lr.ph486.lr.ph ], [ %.sroa.364.1, %.outer ]
   %.sroa.063.0.ph505 = phi i32 [ 0, %.lr.ph486.lr.ph ], [ %.sroa.063.1, %.outer ]
-  %.sroa.0229.0.ph504 = phi ptr [ %75, %.lr.ph486.lr.ph ], [ %88, %.outer ]
-  %.sroa.8230.0.ph503 = phi i64 [ 0, %.lr.ph486.lr.ph ], [ %89, %.outer ]
+  %.sroa.8230.0.ph504 = phi i64 [ 0, %.lr.ph486.lr.ph ], [ %89, %.outer ]
+  %.sroa.0229.0.ph503 = phi ptr [ %75, %.lr.ph486.lr.ph ], [ %88, %.outer ]
   br label %87
 
 87:                                               ; preds = %.lr.ph486, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit191"
-  %.sroa.0229.0485 = phi ptr [ %.sroa.0229.0.ph504, %.lr.ph486 ], [ %88, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit191" ]
-  %.sroa.8230.0484 = phi i64 [ %.sroa.8230.0.ph503, %.lr.ph486 ], [ %89, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit191" ]
-  %88 = getelementptr inbounds i8, ptr %.sroa.0229.0485, i64 16
-  %89 = add i64 %.sroa.8230.0484, 1
-  %90 = load ptr, ptr %.sroa.0229.0485, align 8, !nonnull !4, !align !6, !noundef !4
-  %91 = getelementptr inbounds i8, ptr %.sroa.0229.0485, i64 8
+  %.sroa.8230.0485 = phi i64 [ %.sroa.8230.0.ph504, %.lr.ph486 ], [ %89, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit191" ]
+  %.sroa.0229.0484 = phi ptr [ %.sroa.0229.0.ph503, %.lr.ph486 ], [ %88, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit191" ]
+  %88 = getelementptr inbounds i8, ptr %.sroa.0229.0484, i64 16
+  %89 = add i64 %.sroa.8230.0485, 1
+  %90 = load ptr, ptr %.sroa.0229.0484, align 8, !nonnull !4, !align !6, !noundef !4
+  %91 = getelementptr inbounds i8, ptr %.sroa.0229.0484, i64 8
   %92 = load i64, ptr %91, align 8, !noundef !4
   switch i64 %92, label %.thread294 [
     i64 4, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit"
@@ -682,7 +682,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   br i1 %124, label %125, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hc1bb21da45e1b56dE.exit198.thread"
 
 125:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit"
-  %126 = trunc i64 %.sroa.8230.0484 to i32
+  %126 = trunc i64 %.sroa.8230.0485 to i32
   br label %.outer
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit171": ; preds = %87
@@ -691,7 +691,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   br i1 %127, label %128, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hc1bb21da45e1b56dE.exit198.thread"
 
 128:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit171"
-  %129 = trunc i64 %.sroa.8230.0484 to i32
+  %129 = trunc i64 %.sroa.8230.0485 to i32
   br label %.outer
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit175": ; preds = %87
@@ -700,7 +700,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   br i1 %130, label %131, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hc1bb21da45e1b56dE.exit198.thread"
 
 131:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit175"
-  %132 = trunc i64 %.sroa.8230.0484 to i32
+  %132 = trunc i64 %.sroa.8230.0485 to i32
   store i32 1, ptr %22, align 8
   store i32 %132, ptr %80, align 4
   br label %.outer
@@ -711,7 +711,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   br i1 %133, label %134, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hc1bb21da45e1b56dE.exit"
 
 134:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit179"
-  %135 = trunc i64 %.sroa.8230.0484 to i32
+  %135 = trunc i64 %.sroa.8230.0485 to i32
   br label %.outer
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit183": ; preds = %87
@@ -720,7 +720,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   br i1 %136, label %137, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hc1bb21da45e1b56dE.exit"
 
 137:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit183"
-  %138 = trunc i64 %.sroa.8230.0484 to i32
+  %138 = trunc i64 %.sroa.8230.0485 to i32
   br label %.outer
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit187": ; preds = %87
@@ -1023,7 +1023,7 @@ _ZN4core3str7pattern8Searcher11next_reject17h457c6773a69dcd14E.llvm.179485739290
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h736c55e5ea0bfbb5E.exit": ; preds = %223, %219, %212
   %.024.i = phi i64 [ %217, %212 ], [ %.014.i, %219 ], [ %.014.i, %223 ]
   %224 = trunc i64 %.024.i to i32
-  %225 = trunc i64 %.sroa.8230.0484 to i32
+  %225 = trunc i64 %.sroa.8230.0485 to i32
   %226 = invoke { i32, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17ha9bf37c61ea4322dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %24, i32 noundef %225, i32 noundef %224, i1 noundef zeroext %.0.i193302)
           to label %227 unwind label %202
 

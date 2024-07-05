@@ -135616,16 +135616,16 @@ for.body:                                         ; preds = %if.then3, %_ZN7open
   %this_bbox.sroa.35.066 = phi i32 [ %17, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_10PointIndexIjLj1EEELj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
   %this_bbox.sroa.29.065 = phi i32 [ %16, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_10PointIndexIjLj1EEELj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
   %iter.sroa.1.064 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_10PointIndexIjLj1EEELj3EEEEppEv.exit ], [ %add.i.i.i, %if.then3 ]
-  %this_bbox.sroa.14.063 = phi i32 [ %14, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_10PointIndexIjLj1EEELj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
-  %this_bbox.sroa.21.062 = phi i32 [ %15, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_10PointIndexIjLj1EEELj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
+  %this_bbox.sroa.21.063 = phi i32 [ %15, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_10PointIndexIjLj1EEELj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
+  %this_bbox.sroa.14.062 = phi i32 [ %14, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeINS0_10PointIndexIjLj1EEELj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
   %shr.i = lshr i32 %iter.sroa.1.064, 6
   %and.i = lshr i32 %iter.sroa.1.064, 3
   %shr1.i = and i32 %and.i, 7
   %and3.i = and i32 %iter.sroa.1.064, 7
   %12 = tail call i32 @llvm.smin.i32(i32 %shr.i, i32 %this_bbox.sroa.0.sroa.0.067)
   %13 = tail call i32 @llvm.smin.i32(i32 %shr1.i, i32 %this_bbox.sroa.0.sroa.8.068)
-  %14 = tail call i32 @llvm.smin.i32(i32 %and3.i, i32 %this_bbox.sroa.14.063)
-  %15 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.21.062, i32 %shr.i)
+  %14 = tail call i32 @llvm.smin.i32(i32 %and3.i, i32 %this_bbox.sroa.14.062)
+  %15 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.21.063, i32 %shr.i)
   %16 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.29.065, i32 %shr1.i)
   %17 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.35.066, i32 %and3.i)
   %add.i.i.i7 = add i32 %iter.sroa.1.064, 1
@@ -135690,8 +135690,8 @@ for.end:                                          ; preds = %for.body, %_ZN7open
   br label %if.end11
 
 if.end11:                                         ; preds = %for.end, %if.then3
-  %this_bbox.sroa.21.1 = phi i32 [ %add.i2.i, %for.end ], [ %add.i.i.i.i, %if.then3 ]
   %this_bbox.sroa.14.1 = phi i32 [ %add10.i.i, %for.end ], [ %2, %if.then3 ]
+  %this_bbox.sroa.21.1 = phi i32 [ %add.i2.i, %for.end ], [ %add.i.i.i.i, %if.then3 ]
   %this_bbox.sroa.29.1 = phi i32 [ %add6.i5.i, %for.end ], [ %add4.i.i.i.i, %if.then3 ]
   %this_bbox.sroa.35.1 = phi i32 [ %add10.i8.i, %for.end ], [ %add7.i.i.i.i, %if.then3 ]
   %this_bbox.sroa.0.sroa.0.1 = phi i32 [ %add.i.i, %for.end ], [ %this_bbox.sroa.0.sroa.0.0.extract.trunc, %if.then3 ]
@@ -180625,35 +180625,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.021.i, 2
+  %add8.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.021.i, 3
+  %add13.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
+  %0 = udiv i32 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !1405
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
@@ -185329,8 +185329,8 @@ entry:
   br i1 %cmp.i.not16, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %i.sroa.0.019 = phi ptr [ %call.i, %for.inc ], [ %0, %entry ]
-  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.019, i64 48
+  %i.sroa.0.017 = phi ptr [ %call.i, %for.inc ], [ %0, %entry ]
+  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.017, i64 48
   %1 = load ptr, ptr %second.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %for.inc, label %if.end
@@ -185401,14 +185401,14 @@ _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLe
   tail call void @_ZN7openvdb5v11_04tree12InternalNodeINS2_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EED2Ev(ptr noundef nonnull align 8 dereferenceable(270352) %2) #14
   tail call void @_ZdlPv(ptr noundef nonnull %2) #28
   store ptr null, ptr %second.i, align 8
-  %tile.i.i = getelementptr inbounds i8, ptr %i.sroa.0.019, i64 56
+  %tile.i.i = getelementptr inbounds i8, ptr %i.sroa.0.017, i64 56
   store i32 %6, ptr %tile.i.i, align 8
-  %ref.tmp.sroa.2.0.tile.i.i.sroa_idx = getelementptr inbounds i8, ptr %i.sroa.0.019, i64 60
+  %ref.tmp.sroa.2.0.tile.i.i.sroa_idx = getelementptr inbounds i8, ptr %i.sroa.0.017, i64 60
   store i8 %frombool.i, ptr %ref.tmp.sroa.2.0.tile.i.i.sroa_idx, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs.i.i, %land.rhs.i5.i, %for.body.i, %lor.lhs.false.i, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEE7setTileERKSt17_Rb_tree_iteratorISt4pairIKNS0_4math5CoordENSB_10NodeStructEEERKNSB_4TileE.exit, %for.body
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.019) #29
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.017) #29
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !1460
 

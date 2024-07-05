@@ -664,7 +664,7 @@ define internal fastcc i32 @_forward_comm_set(ptr noundef %0) unnamed_addr #0 {
 
 8:                                                ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %.021 = phi i32 [ 0, %.lr.ph ], [ %.1, %32 ]
+  %.01920 = phi i32 [ 0, %.lr.ph ], [ %.1, %32 ]
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds %struct.kvs_hosts, ptr %9, i64 %indvars.iv, i32 1
   %11 = load i16, ptr %10, align 4
@@ -701,23 +701,23 @@ define internal fastcc i32 @_forward_comm_set(ptr noundef %0) unnamed_addr #0 {
 
 27:                                               ; preds = %._crit_edge23, %22
   %28 = phi i32 [ %.pre, %._crit_edge23 ], [ 1, %22 ]
-  %29 = call i32 @llvm.smax.i32(i32 %.021, i32 %28)
+  %29 = call i32 @llvm.smax.i32(i32 %.01920, i32 %28)
   %30 = load ptr, ptr %5, align 8
   %31 = getelementptr inbounds %struct.kvs_hosts, ptr %30, i64 %indvars.iv, i32 2
   call void @slurm_xfree(ptr noundef nonnull %31) #11
   br label %32
 
 32:                                               ; preds = %8, %27
-  %.1 = phi i32 [ %.021, %8 ], [ %29, %27 ]
+  %.1 = phi i32 [ %.01920, %8 ], [ %29, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %32, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %32 ]
+  %.019.lcssa = phi i32 [ 0, %1 ], [ %.1, %32 ]
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   call void @slurm_xfree(ptr noundef nonnull %33) #11
-  ret i32 %.0.lcssa
+  ret i32 %.019.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

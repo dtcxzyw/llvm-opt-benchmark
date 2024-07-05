@@ -127,9 +127,9 @@ while.body56.lr.ph.split:                         ; preds = %while.body56.lr.ph.
   br i1 %cmp82183, label %if.then84, label %if.else133
 
 while.cond.preheader:                             ; preds = %if.end79.us, %if.end
-  %bits.addr.0.lcssa = phi i64 [ %sub73.us, %if.end79.us ], [ %bits, %if.end ]
   %bitoff.0.lcssa = phi i32 [ %bitoff.5.us, %if.end79.us ], [ %0, %if.end ]
   %inp.0.lcssa = phi ptr [ %incdec.ptr.us, %if.end79.us ], [ %_inp, %if.end ]
+  %bits.addr.0.lcssa = phi i64 [ %sub73.us, %if.end79.us ], [ %bits, %if.end ]
   %tobool.not172 = icmp eq i64 %bits.addr.0.lcssa, 0
   br i1 %tobool.not172, label %if.end179, label %while.body.lr.ph
 
@@ -138,71 +138,71 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end52
-  %inp.1175 = phi ptr [ %inp.0.lcssa, %while.body.lr.ph ], [ %inp.3, %if.end52 ]
-  %bitoff.1174 = phi i32 [ %bitoff.0.lcssa, %while.body.lr.ph ], [ %bitoff.3, %if.end52 ]
-  %bits.addr.1173 = phi i64 [ %bits.addr.0.lcssa, %while.body.lr.ph ], [ %bits.addr.3, %if.end52 ]
-  %cmp20 = icmp ne i32 %bitoff.1174, 0
-  %tobool23.not = icmp ult i64 %bits.addr.1173, 512
-  %or.cond112 = or i1 %tobool23.not, %cmp20
+  %bits.addr.1175 = phi i64 [ %bits.addr.0.lcssa, %while.body.lr.ph ], [ %bits.addr.3, %if.end52 ]
+  %inp.1174 = phi ptr [ %inp.0.lcssa, %while.body.lr.ph ], [ %inp.3, %if.end52 ]
+  %bitoff.1173 = phi i32 [ %bitoff.0.lcssa, %while.body.lr.ph ], [ %bitoff.3, %if.end52 ]
+  %cmp20 = icmp ne i32 %bitoff.1173, 0
+  %tobool23.not = icmp ult i64 %bits.addr.1175, 512
+  %or.cond112 = or i1 %cmp20, %tobool23.not
   br i1 %or.cond112, label %if.else, label %if.then24
 
 if.then24:                                        ; preds = %while.body
-  %div106 = lshr i64 %bits.addr.1173, 9
-  tail call void @whirlpool_block(ptr noundef %c, ptr noundef %inp.1175, i64 noundef %div106) #6
-  %mul = lshr i64 %bits.addr.1173, 3
+  %div106 = lshr i64 %bits.addr.1175, 9
+  tail call void @whirlpool_block(ptr noundef %c, ptr noundef %inp.1174, i64 noundef %div106) #6
+  %mul = lshr i64 %bits.addr.1175, 3
   %div25110 = and i64 %mul, 2305843009213693888
-  %add.ptr = getelementptr inbounds i8, ptr %inp.1175, i64 %div25110
-  %rem26 = and i64 %bits.addr.1173, 511
+  %add.ptr = getelementptr inbounds i8, ptr %inp.1174, i64 %div25110
+  %rem26 = and i64 %bits.addr.1175, 511
   br label %if.end52
 
 if.else:                                          ; preds = %while.body
-  %div27107 = lshr i32 %bitoff.1174, 3
-  %sub28 = sub i32 512, %bitoff.1174
+  %div27107 = lshr i32 %bitoff.1173, 3
+  %sub28 = sub i32 512, %bitoff.1173
   %conv29 = zext i32 %sub28 to i64
-  %cmp30.not = icmp ult i64 %bits.addr.1173, %conv29
+  %cmp30.not = icmp ult i64 %bits.addr.1175, %conv29
   br i1 %cmp30.not, label %if.else42, label %if.then32
 
 if.then32:                                        ; preds = %if.else
-  %sub34 = sub i64 %bits.addr.1173, %conv29
+  %sub34 = sub i64 %bits.addr.1175, %conv29
   %div35109 = lshr i32 %sub28, 3
   %idx.ext = zext nneg i32 %div27107 to i64
   %add.ptr36 = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %conv37 = zext nneg i32 %div35109 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr36, ptr align 1 %inp.1175, i64 %conv37, i1 false)
-  %add.ptr39 = getelementptr inbounds i8, ptr %inp.1175, i64 %conv37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr36, ptr align 1 %inp.1174, i64 %conv37, i1 false)
+  %add.ptr39 = getelementptr inbounds i8, ptr %inp.1174, i64 %conv37
   tail call void @whirlpool_block(ptr noundef %c, ptr noundef nonnull %data, i64 noundef 1) #6
   br label %if.end50
 
 if.else42:                                        ; preds = %if.else
   %idx.ext45 = zext nneg i32 %div27107 to i64
   %add.ptr46 = getelementptr inbounds i8, ptr %data, i64 %idx.ext45
-  %div47108 = lshr i64 %bits.addr.1173, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr46, ptr align 1 %inp.1175, i64 %div47108, i1 false)
-  %conv48 = trunc nuw i64 %bits.addr.1173 to i32
-  %add49 = add i32 %bitoff.1174, %conv48
+  %div47108 = lshr i64 %bits.addr.1175, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr46, ptr align 1 %inp.1174, i64 %div47108, i1 false)
+  %conv48 = trunc nuw i64 %bits.addr.1175 to i32
+  %add49 = add i32 %bitoff.1173, %conv48
   br label %if.end50
 
 if.end50:                                         ; preds = %if.else42, %if.then32
-  %bits.addr.2 = phi i64 [ %sub34, %if.then32 ], [ 0, %if.else42 ]
   %bitoff.2 = phi i32 [ 0, %if.then32 ], [ %add49, %if.else42 ]
-  %inp.2 = phi ptr [ %add.ptr39, %if.then32 ], [ %inp.1175, %if.else42 ]
+  %inp.2 = phi ptr [ %add.ptr39, %if.then32 ], [ %inp.1174, %if.else42 ]
+  %bits.addr.2 = phi i64 [ %sub34, %if.then32 ], [ 0, %if.else42 ]
   store i32 %bitoff.2, ptr %bitoff1, align 8
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end50, %if.then24
-  %bits.addr.3 = phi i64 [ %rem26, %if.then24 ], [ %bits.addr.2, %if.end50 ]
   %bitoff.3 = phi i32 [ 0, %if.then24 ], [ %bitoff.2, %if.end50 ]
   %inp.3 = phi ptr [ %add.ptr, %if.then24 ], [ %inp.2, %if.end50 ]
+  %bits.addr.3 = phi i64 [ %rem26, %if.then24 ], [ %bits.addr.2, %if.end50 ]
   %tobool.not = icmp eq i64 %bits.addr.3, 0
   br i1 %tobool.not, label %if.end179, label %while.body, !llvm.loop !7
 
 if.then84:                                        ; preds = %while.body56.lr.ph.split, %if.end176
   %div58105187 = phi i32 [ %div58105, %if.end176 ], [ %div58105182, %while.body56.lr.ph.split ]
-  %bits.addr.4121186 = phi i64 [ %sub114, %if.end176 ], [ %bits, %while.body56.lr.ph.split ]
-  %bitoff.4122185 = phi i32 [ %bitoff.6, %if.end176 ], [ %0, %while.body56.lr.ph.split ]
-  %inp.4123184 = phi ptr [ %arrayidx87, %if.end176 ], [ %_inp, %while.body56.lr.ph.split ]
-  %8 = load i8, ptr %inp.4123184, align 1
-  %arrayidx87 = getelementptr inbounds i8, ptr %inp.4123184, i64 1
+  %bitoff.4121186 = phi i32 [ %bitoff.6, %if.end176 ], [ %0, %while.body56.lr.ph.split ]
+  %inp.4122185 = phi ptr [ %arrayidx87, %if.end176 ], [ %_inp, %while.body56.lr.ph.split ]
+  %bits.addr.4123184 = phi i64 [ %sub114, %if.end176 ], [ %bits, %while.body56.lr.ph.split ]
+  %8 = load i8, ptr %inp.4122185, align 1
+  %arrayidx87 = getelementptr inbounds i8, ptr %inp.4122185, i64 1
   %9 = load i8, ptr %arrayidx87, align 1
   %conv92 = tail call i8 @llvm.fshl.i8(i8 %8, i8 %9, i8 %7)
   br i1 %cmp17144, label %if.else107, label %if.then97
@@ -226,8 +226,8 @@ if.else107:                                       ; preds = %if.then84
 
 if.end112:                                        ; preds = %if.else107, %if.then97
   %byteoff57.0 = add nuw nsw i32 %div58105187, 1
-  %add113 = add i32 %bitoff.4122185, 8
-  %sub114 = add i64 %bits.addr.4121186, -8
+  %add113 = add i32 %bitoff.4121186, 8
+  %sub114 = add i64 %bits.addr.4123184, -8
   %cmp116 = icmp ugt i32 %add113, 511
   br i1 %cmp116, label %if.then118, label %if.end122
 
@@ -251,11 +251,11 @@ if.then124:                                       ; preds = %if.end122
   br label %if.end176
 
 if.else133:                                       ; preds = %if.end176, %while.body56.lr.ph.split
-  %inp.4123.lcssa = phi ptr [ %_inp, %while.body56.lr.ph.split ], [ %arrayidx87, %if.end176 ]
-  %bitoff.4122.lcssa = phi i32 [ %0, %while.body56.lr.ph.split ], [ %bitoff.6, %if.end176 ]
-  %bits.addr.4121.lcssa = phi i64 [ %bits, %while.body56.lr.ph.split ], [ %sub114, %if.end176 ]
+  %bits.addr.4123.lcssa = phi i64 [ %bits, %while.body56.lr.ph.split ], [ %sub114, %if.end176 ]
+  %inp.4122.lcssa = phi ptr [ %_inp, %while.body56.lr.ph.split ], [ %arrayidx87, %if.end176 ]
+  %bitoff.4121.lcssa = phi i32 [ %0, %while.body56.lr.ph.split ], [ %bitoff.6, %if.end176 ]
   %div58105.lcssa = phi i32 [ %div58105182, %while.body56.lr.ph.split ], [ %div58105, %if.end176 ]
-  %12 = load i8, ptr %inp.4123.lcssa, align 1
+  %12 = load i8, ptr %inp.4122.lcssa, align 1
   %conv135 = zext i8 %12 to i32
   %shl136 = shl nuw nsw i32 %conv135, %and
   br i1 %cmp17144, label %if.else150, label %if.then140
@@ -280,8 +280,8 @@ if.else150:                                       ; preds = %if.else133
 
 if.end155:                                        ; preds = %if.else150, %if.then140
   %byteoff57.2 = add nuw nsw i32 %div58105.lcssa, 1
-  %conv156 = trunc nuw nsw i64 %bits.addr.4121.lcssa to i32
-  %add157 = add i32 %bitoff.4122.lcssa, %conv156
+  %conv156 = trunc nuw nsw i64 %bits.addr.4123.lcssa to i32
+  %add157 = add i32 %bitoff.4121.lcssa, %conv156
   %cmp158 = icmp eq i32 %add157, 512
   br i1 %cmp158, label %if.then160, label %if.end164
 

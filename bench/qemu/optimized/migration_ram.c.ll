@@ -4157,8 +4157,8 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %entry, %if.end110
-  %matches_target_page_size.093 = phi i8 [ 0, %entry ], [ %matches_target_page_size.1, %if.end110 ]
-  %place_needed.092 = phi i1 [ false, %entry ], [ %place_needed.3, %if.end110 ]
+  %place_needed.093 = phi i1 [ false, %entry ], [ %place_needed.3, %if.end110 ]
+  %matches_target_page_size.092 = phi i8 [ 0, %entry ], [ %matches_target_page_size.1, %if.end110 ]
   store ptr null, ptr %place_source, align 8
   %call2 = call i64 @qemu_get_be64(ptr noundef %f) #16
   %call3 = call i32 @qemu_file_get_error(ptr noundef %f) #16
@@ -4276,13 +4276,13 @@ if.end35:                                         ; preds = %if.else, %if.then24
   %conv37 = zext i32 %inc to i64
   %div69 = lshr i64 %21, 12
   %cmp39 = icmp eq i64 %div69, %conv37
-  %spec.select = select i1 %cmp39, i1 true, i1 %place_needed.092
+  %spec.select = select i1 %cmp39, i1 true, i1 %place_needed.093
   store ptr %12, ptr %place_source, align 8
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end35, %trace_ram_load_postcopy_loop.exit
-  %place_needed.2 = phi i1 [ %spec.select, %if.end35 ], [ %place_needed.092, %trace_ram_load_postcopy_loop.exit ]
-  %matches_target_page_size.1 = phi i8 [ %frombool, %if.end35 ], [ %matches_target_page_size.093, %trace_ram_load_postcopy_loop.exit ]
+  %matches_target_page_size.1 = phi i8 [ %frombool, %if.end35 ], [ %matches_target_page_size.092, %trace_ram_load_postcopy_loop.exit ]
+  %place_needed.2 = phi i1 [ %spec.select, %if.end35 ], [ %place_needed.093, %trace_ram_load_postcopy_loop.exit ]
   %page_buffer.0 = phi ptr [ %add.ptr, %if.end35 ], [ null, %trace_ram_load_postcopy_loop.exit ]
   %block.0 = phi ptr [ %call10, %if.end35 ], [ null, %trace_ram_load_postcopy_loop.exit ]
   %and45 = and i32 %1, 4063
@@ -4416,10 +4416,10 @@ if.end109:                                        ; preds = %if.else106, %if.the
   br label %if.end110
 
 if.end110:                                        ; preds = %if.end88, %if.end95, %if.end109
-  %ret.5 = phi i32 [ %ret.3, %if.end95 ], [ %ret.4, %if.end109 ], [ %ret.2, %if.end88 ]
   %place_needed.3 = phi i1 [ %place_needed.2, %if.end95 ], [ false, %if.end109 ], [ %place_needed.2, %if.end88 ]
+  %ret.5 = phi i32 [ %ret.3, %if.end95 ], [ %ret.4, %if.end109 ], [ %ret.2, %if.end88 ]
   %and = and i32 %1, 16
-  %25 = or i32 %ret.5, %and
+  %25 = or i32 %and, %ret.5
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %while.body, label %while.end, !llvm.loop !74
 
@@ -7128,9 +7128,9 @@ for.body:                                         ; preds = %rcu_read_auto_lock.
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end93.i, %for.body
-  %i.0119.i = phi i32 [ 0, %for.body ], [ %inc.i, %if.end93.i ]
-  %ret.0118.i = phi i32 [ 0, %for.body ], [ %ret.2105.i, %if.end93.i ]
-  %and3.i = and i32 %i.0119.i, 32767
+  %ret.0119.i = phi i32 [ 0, %for.body ], [ %ret.2105.i, %if.end93.i ]
+  %i.0118.i = phi i32 [ 0, %for.body ], [ %inc.i, %if.end93.i ]
+  %and3.i = and i32 %i.0118.i, 32767
   %cmp.i = icmp eq i32 %and3.i, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end8.i
 
@@ -7146,7 +7146,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then5.i, %land.lhs.true.i, %while.body.i
-  %inc.i = add i32 %i.0119.i, 1
+  %inc.i = add i32 %i.0118.i, 1
   %call9.i = call i64 @qemu_get_be64(ptr noundef %f) #16
   %14 = trunc i64 %call9.i to i32
   %conv.i = and i32 %14, 4095
@@ -7580,7 +7580,7 @@ sw.default.i:                                     ; preds = %if.end40.i
   br label %if.end93.i
 
 sw.epilog.i:                                      ; preds = %if.then77.i, %land.lhs.true74.i, %sw.bb71.i, %sw.bb70.i, %load_xbzrle.exit.i, %if.end63.i, %sw.bb52.i, %if.then.i83.i, %if.end51.i, %parse_ramblocks.exit.i
-  %ret.1.i = phi i32 [ %ret.0118.i, %if.then77.i ], [ %ret.0118.i, %land.lhs.true74.i ], [ %ret.0118.i, %sw.bb71.i ], [ %ret.0118.i, %sw.bb70.i ], [ %ret.0118.i, %load_xbzrle.exit.i ], [ %ret.0118.i, %if.end63.i ], [ %ret.0118.i, %sw.bb52.i ], [ %ret.0.lcssa.i.i, %parse_ramblocks.exit.i ], [ %ret.0118.i, %if.end51.i ], [ %ret.0118.i, %if.then.i83.i ]
+  %ret.1.i = phi i32 [ %ret.0119.i, %if.then77.i ], [ %ret.0119.i, %land.lhs.true74.i ], [ %ret.0119.i, %sw.bb71.i ], [ %ret.0119.i, %sw.bb70.i ], [ %ret.0119.i, %load_xbzrle.exit.i ], [ %ret.0119.i, %if.end63.i ], [ %ret.0119.i, %sw.bb52.i ], [ %ret.0.lcssa.i.i, %parse_ramblocks.exit.i ], [ %ret.0119.i, %if.end51.i ], [ %ret.0119.i, %if.then.i83.i ]
   %tobool85.not.i = icmp eq i32 %ret.1.i, 0
   br i1 %tobool85.not.i, label %if.end88.i, label %if.end93.i
 

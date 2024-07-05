@@ -1484,22 +1484,22 @@ Vec_IntSum.exit:                                  ; preds = %81, %._crit_edge
   br label %99
 
 .loopexit181:                                     ; preds = %319, %.critedge2, %.preheader180
-  %.1.lcssa242 = phi i64 [ %.3, %.preheader180 ], [ %.0, %.critedge2 ], [ %.3, %319 ]
-  %.1121.lcssa241 = phi i32 [ %.5, %.preheader180 ], [ %.0120, %.critedge2 ], [ %.5, %319 ]
-  %.1118.lcssa = phi i32 [ 0, %.preheader180 ], [ 0, %.critedge2 ], [ %.2119, %319 ]
+  %.1121.lcssa242 = phi i64 [ %.3123, %.preheader180 ], [ %.0120, %.critedge2 ], [ %.3123, %319 ]
+  %.1128.lcssa241 = phi i32 [ %.5, %.preheader180 ], [ %.0127, %.critedge2 ], [ %.5, %319 ]
+  %.1125.lcssa = phi i32 [ 0, %.preheader180 ], [ 0, %.critedge2 ], [ %.2126, %319 ]
   br label %99, !llvm.loop !25
 
 99:                                               ; preds = %.loopexit181, %Vec_IntSum.exit
-  %.0120 = phi i32 [ %.0.lcssa.i, %Vec_IntSum.exit ], [ %.1121.lcssa241, %.loopexit181 ]
-  %.0117 = phi i32 [ 1, %Vec_IntSum.exit ], [ %.1118.lcssa, %.loopexit181 ]
-  %.0 = phi i64 [ 0, %Vec_IntSum.exit ], [ %.1.lcssa242, %.loopexit181 ]
-  %100 = icmp sgt i32 %.0120, 0
+  %.0127 = phi i32 [ %.0.lcssa.i, %Vec_IntSum.exit ], [ %.1128.lcssa241, %.loopexit181 ]
+  %.0124 = phi i32 [ 1, %Vec_IntSum.exit ], [ %.1125.lcssa, %.loopexit181 ]
+  %.0120 = phi i64 [ 0, %Vec_IntSum.exit ], [ %.1121.lcssa242, %.loopexit181 ]
+  %100 = icmp sgt i32 %.0127, 0
   br i1 %100, label %.critedge2, label %101
 
 101:                                              ; preds = %99
   %.val152 = load i32, ptr %14, align 4
   %102 = icmp sgt i32 %.val152, 0
-  %103 = icmp ne i32 %.0117, 0
+  %103 = icmp ne i32 %.0124, 0
   %or.cond = select i1 %102, i1 true, i1 %103
   br i1 %or.cond, label %.critedge2, label %.preheader
 
@@ -1521,8 +1521,8 @@ Vec_IntSum.exit:                                  ; preds = %81, %._crit_edge
 
 .lr.ph195:                                        ; preds = %.critedge2, %310
   %indvars.iv214 = phi i64 [ %indvars.iv.next215, %310 ], [ 0, %.critedge2 ]
-  %.1194 = phi i64 [ %.3, %310 ], [ %.0, %.critedge2 ]
-  %.1121193 = phi i32 [ %.5, %310 ], [ %.0120, %.critedge2 ]
+  %.1121193 = phi i64 [ %.3123, %310 ], [ %.0120, %.critedge2 ]
+  %.1128192 = phi i32 [ %.5, %310 ], [ %.0127, %.critedge2 ]
   %105 = getelementptr inbounds [100 x %struct.Kf_ThData_t_], ptr %5, i64 0, i64 %indvars.iv214
   %106 = getelementptr inbounds i8, ptr %105, i64 12
   %107 = load i32, ptr %106, align 4
@@ -1741,7 +1741,7 @@ Kf_ObjSetCuts.exit:                               ; preds = %200, %201
 Abc_Clock.exit162:                                ; preds = %Kf_ObjSetCuts.exit, %230
   %.0.i161 = phi i64 [ %235, %230 ], [ -1, %Kf_ObjSetCuts.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %236 = add i64 %.0.i.neg, %.1194
+  %236 = add i64 %.0.i.neg, %.1121193
   %237 = add i64 %236, %.0.i161
   %238 = load ptr, ptr %0, align 8
   %239 = getelementptr i8, ptr %238, i64 248
@@ -1755,15 +1755,15 @@ Abc_Clock.exit162:                                ; preds = %Kf_ObjSetCuts.exit,
 
 .lr.ph191:                                        ; preds = %Abc_Clock.exit162, %294
   %244 = phi ptr [ %295, %294 ], [ %238, %Abc_Clock.exit162 ]
-  %.2122190 = phi i32 [ %.3123, %294 ], [ %.1121193, %Abc_Clock.exit162 ]
-  %.1125189 = phi i32 [ %296, %294 ], [ 0, %Abc_Clock.exit162 ]
+  %.1118190 = phi i32 [ %296, %294 ], [ 0, %Abc_Clock.exit162 ]
+  %.2129189 = phi i32 [ %.3130, %294 ], [ %.1128192, %Abc_Clock.exit162 ]
   %245 = getelementptr i8, ptr %244, i64 256
   %.val160 = load ptr, ptr %245, align 8
   %246 = getelementptr i8, ptr %.val160, i64 8
   %.val160.val = load ptr, ptr %246, align 8
   %247 = getelementptr inbounds i32, ptr %.val160.val, i64 %129
   %248 = load i32, ptr %247, align 4
-  %249 = add nsw i32 %248, %.1125189
+  %249 = add nsw i32 %248, %.1118190
   %250 = sext i32 %249 to i64
   %251 = getelementptr inbounds i32, ptr %.val160.val, i64 %250
   %252 = load i32, ptr %251, align 4
@@ -1853,14 +1853,14 @@ Vec_IntPush.exit171:                              ; preds = %.Vec_IntGrow.exit10
   br label %292
 
 292:                                              ; preds = %Vec_IntPush.exit171, %259
-  %293 = add nsw i32 %.2122190, -1
+  %293 = add nsw i32 %.2129189, -1
   %.pre = load ptr, ptr %0, align 8
   br label %294
 
 294:                                              ; preds = %.lr.ph191, %292
   %295 = phi ptr [ %.pre, %292 ], [ %244, %.lr.ph191 ]
-  %.3123 = phi i32 [ %293, %292 ], [ %.2122190, %.lr.ph191 ]
-  %296 = add nuw nsw i32 %.1125189, 1
+  %.3130 = phi i32 [ %293, %292 ], [ %.2129189, %.lr.ph191 ]
+  %296 = add nuw nsw i32 %.1118190, 1
   %297 = getelementptr i8, ptr %295, i64 248
   %.val159 = load ptr, ptr %297, align 8
   %298 = getelementptr i8, ptr %.val159, i64 8
@@ -1871,13 +1871,13 @@ Vec_IntPush.exit171:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %301, label %.lr.ph191, label %.critedge4, !llvm.loop !26
 
 .critedge4:                                       ; preds = %294, %Abc_Clock.exit162
-  %.2122.lcssa = phi i32 [ %.1121193, %Abc_Clock.exit162 ], [ %.3123, %294 ]
+  %.2129.lcssa = phi i32 [ %.1128192, %Abc_Clock.exit162 ], [ %.3130, %294 ]
   store i32 -1, ptr %109, align 8
   br label %302
 
 302:                                              ; preds = %.critedge4, %108
-  %.4 = phi i32 [ %.2122.lcssa, %.critedge4 ], [ %.1121193, %108 ]
-  %.2 = phi i64 [ %237, %.critedge4 ], [ %.1194, %108 ]
+  %.4131 = phi i32 [ %.2129.lcssa, %.critedge4 ], [ %.1128192, %108 ]
+  %.2122 = phi i64 [ %237, %.critedge4 ], [ %.1121193, %108 ]
   %.val151 = load i32, ptr %14, align 4
   %303 = icmp sgt i32 %.val151, 0
   br i1 %303, label %304, label %310
@@ -1894,15 +1894,15 @@ Vec_IntPush.exit171:                              ; preds = %.Vec_IntGrow.exit10
   br label %310
 
 310:                                              ; preds = %302, %304, %.lr.ph195
-  %.5 = phi i32 [ %.1121193, %.lr.ph195 ], [ %.4, %304 ], [ %.4, %302 ]
-  %.3 = phi i64 [ %.1194, %.lr.ph195 ], [ %.2, %304 ], [ %.2, %302 ]
+  %.5 = phi i32 [ %.1128192, %.lr.ph195 ], [ %.4131, %304 ], [ %.4131, %302 ]
+  %.3123 = phi i64 [ %.1121193, %.lr.ph195 ], [ %.2122, %304 ], [ %.2122, %302 ]
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
   br i1 %exitcond218.not, label %.preheader180, label %.lr.ph195, !llvm.loop !27
 
 .lr.ph200:                                        ; preds = %.preheader180, %319
   %indvars.iv219 = phi i64 [ %indvars.iv.next220, %319 ], [ 0, %.preheader180 ]
-  %.1118199 = phi i32 [ %.2119, %319 ], [ 0, %.preheader180 ]
+  %.1125198 = phi i32 [ %.2126, %319 ], [ 0, %.preheader180 ]
   %311 = getelementptr inbounds [100 x %struct.Kf_ThData_t_], ptr %5, i64 0, i64 %indvars.iv219
   %312 = getelementptr inbounds i8, ptr %311, i64 12
   %313 = load i32, ptr %312, align 4
@@ -1921,7 +1921,7 @@ Vec_IntPush.exit171:                              ; preds = %.Vec_IntGrow.exit10
   br label %319
 
 319:                                              ; preds = %.lr.ph200, %314, %318
-  %.2119 = phi i32 [ 1, %318 ], [ %.1118199, %314 ], [ %.1118199, %.lr.ph200 ]
+  %.2126 = phi i32 [ 1, %318 ], [ %.1125198, %314 ], [ %.1125198, %.lr.ph200 ]
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %.loopexit181, label %.lr.ph200, !llvm.loop !28
@@ -1998,7 +1998,7 @@ Vec_IntFree.exit174:                              ; preds = %Vec_IntFree.exit, %
 341:                                              ; preds = %Vec_IntFree.exit174
   %342 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.2)
-  %343 = sitofp i64 %.0 to double
+  %343 = sitofp i64 %.0120 to double
   %344 = fdiv double %343, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.23, double noundef %344)
   br i1 %66, label %.lr.ph208.preheader, label %.loopexit

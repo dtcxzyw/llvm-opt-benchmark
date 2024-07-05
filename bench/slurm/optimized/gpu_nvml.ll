@@ -736,9 +736,9 @@ _nvml_get_device_affinity.exit.i:                 ; preds = %175, %173
   br label %199
 
 199:                                              ; preds = %240, %192
-  %.02735.i.i = phi i32 [ 0, %192 ], [ %241, %240 ]
+  %.035.i.i = phi i32 [ 0, %192 ], [ %241, %240 ]
   %200 = load ptr, ptr %37, align 8
-  %201 = call i32 @nvmlDeviceGetNvLinkState(ptr noundef %200, i32 noundef %.02735.i.i, ptr noundef nonnull %26) #12
+  %201 = call i32 @nvmlDeviceGetNvLinkState(ptr noundef %200, i32 noundef %.035.i.i, ptr noundef nonnull %26) #12
   switch i32 %201, label %210 [
     i32 2, label %202
     i32 3, label %206
@@ -751,7 +751,7 @@ _nvml_get_device_affinity.exit.i:                 ; preds = %175, %173
   br i1 %204, label %205, label %240
 
 205:                                              ; preds = %202
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.60, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._nvml_get_nvlink_info, i32 noundef %.02735.i.i) #12
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.60, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._nvml_get_nvlink_info, i32 noundef %.035.i.i) #12
   br label %240
 
 206:                                              ; preds = %199
@@ -760,7 +760,7 @@ _nvml_get_device_affinity.exit.i:                 ; preds = %175, %173
   br i1 %208, label %209, label %.loopexit.i.i
 
 209:                                              ; preds = %206
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.61, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._nvml_get_nvlink_info, i32 noundef %.02735.i.i) #12
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.61, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._nvml_get_nvlink_info, i32 noundef %.035.i.i) #12
   br label %.loopexit.i.i
 
 210:                                              ; preds = %199
@@ -779,20 +779,20 @@ _nvml_get_device_affinity.exit.i:                 ; preds = %175, %173
   br i1 %217, label %219, label %220
 
 219:                                              ; preds = %218
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.63, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._nvml_get_nvlink_info, i32 noundef %.02735.i.i) #12
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.63, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._nvml_get_nvlink_info, i32 noundef %.035.i.i) #12
   br label %220
 
 220:                                              ; preds = %219, %218
   %.val.i.i = load ptr, ptr %37, align 8
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %25, i8 0, i64 68, i1 false)
-  %221 = call i32 @nvmlDeviceGetNvLinkRemotePciInfo_v2(ptr noundef %.val.i.i, i32 noundef %.02735.i.i, ptr noundef nonnull %25) #12
+  %221 = call i32 @nvmlDeviceGetNvLinkRemotePciInfo_v2(ptr noundef %.val.i.i, i32 noundef %.035.i.i, ptr noundef nonnull %25) #12
   %.not.i.i.i = icmp eq i32 %221, 0
   br i1 %.not.i.i.i, label %_nvml_get_nvlink_remote_pcie.exit.i.i, label %222
 
 222:                                              ; preds = %220
   %223 = call ptr @nvmlErrorString(i32 noundef %221) #12
-  %224 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.67, i32 noundef %.02735.i.i, ptr noundef %223) #12
+  %224 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.67, i32 noundef %.035.i.i, ptr noundef %223) #12
   br label %_nvml_get_nvlink_remote_pcie.exit.i.i
 
 _nvml_get_nvlink_remote_pcie.exit.i.i:            ; preds = %222, %220
@@ -840,11 +840,11 @@ _get_index_from_str_arr.exit.thread.i.i:          ; preds = %231, %233, %_get_in
   br i1 %217, label %239, label %240
 
 239:                                              ; preds = %238
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.64, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._nvml_get_nvlink_info, i32 noundef %.02735.i.i) #12
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.64, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._nvml_get_nvlink_info, i32 noundef %.035.i.i) #12
   br label %240
 
 240:                                              ; preds = %239, %238, %_get_index_from_str_arr.exit.thread.i.i, %205, %202
-  %241 = add nuw nsw i32 %.02735.i.i, 1
+  %241 = add nuw nsw i32 %.035.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %241, 12
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %199, !llvm.loop !10
 
@@ -854,10 +854,10 @@ _get_index_from_str_arr.exit.thread.i.i:          ; preds = %231, %233, %_get_in
 
 .lr.ph.i.i:                                       ; preds = %.loopexit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.loopexit.i.i ]
-  %.038.i.i = phi ptr [ @.str.66, %.lr.ph.i.i ], [ @.str.7, %.loopexit.i.i ]
+  %.02737.i.i = phi ptr [ @.str.66, %.lr.ph.i.i ], [ @.str.7, %.loopexit.i.i ]
   %242 = getelementptr inbounds i32, ptr %195, i64 %indvars.iv.i.i
   %243 = load i32, ptr %242, align 4
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %28, ptr noundef nonnull @.str.65, ptr noundef nonnull %.038.i.i, i32 noundef %243) #12
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %28, ptr noundef nonnull @.str.65, ptr noundef nonnull %.02737.i.i, i32 noundef %243) #12
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond43.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %194
   br i1 %exitcond43.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
@@ -1054,17 +1054,17 @@ _nvml_get_mig_handle.exit.i:                      ; preds = %.lr.ph100.i
   br i1 %322, label %.lr.ph100.i, label %_nvml_get_mig_handle.exit.thread.i, !llvm.loop !12
 
 _nvml_get_mig_handle.exit.thread.i:               ; preds = %_nvml_get_mig_handle.exit.i, %.lr.ph100.i, %317, %_nvml_get_max_mig_device_count.exit.i, %_nvml_get_max_mig_device_count.exit.thread.i
-  %.03890.i = phi i32 [ %.03799.i, %317 ], [ 0, %_nvml_get_max_mig_device_count.exit.i ], [ 0, %_nvml_get_max_mig_device_count.exit.thread.i ], [ %.03799.i, %.lr.ph100.i ], [ %320, %_nvml_get_mig_handle.exit.i ]
+  %.03990.i = phi i32 [ %.03799.i, %317 ], [ 0, %_nvml_get_max_mig_device_count.exit.i ], [ 0, %_nvml_get_max_mig_device_count.exit.thread.i ], [ %.03799.i, %.lr.ph100.i ], [ %320, %_nvml_get_mig_handle.exit.i ]
   %323 = call i32 @slurm_get_log_level() #12
   %324 = icmp sgt i32 %323, 5
   br i1 %324, label %325, label %326
 
 325:                                              ; preds = %_nvml_get_mig_handle.exit.thread.i
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.47, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_system_gpu_list_nvml, i32 noundef %.03890.i) #12
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.47, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_system_gpu_list_nvml, i32 noundef %.03990.i) #12
   br label %326
 
 326:                                              ; preds = %325, %_nvml_get_mig_handle.exit.thread.i
-  %327 = icmp eq i32 %.03890.i, 0
+  %327 = icmp eq i32 %.03990.i, 0
   br i1 %327, label %328, label %.preheader.i
 
 328:                                              ; preds = %326
@@ -1496,7 +1496,7 @@ _nvml_use_mig_uuid.exit.i.i:                      ; preds = %416
   call void @slurm_xfree(ptr noundef nonnull %140) #12
   call void @slurm_xfree(ptr noundef nonnull %144) #12
   %475 = add nuw i32 %.0103.i, 1
-  %exitcond.not.i = icmp eq i32 %475, %.03890.i
+  %exitcond.not.i = icmp eq i32 %475, %.03990.i
   br i1 %exitcond.not.i, label %476, label %.preheader.i, !llvm.loop !13
 
 476:                                              ; preds = %474
@@ -2618,8 +2618,8 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
   br label %66
 
 66:                                               ; preds = %62, %65, %47, %15, %8
-  %.032 = phi ptr [ %17, %15 ], [ %49, %47 ], [ %10, %8 ], [ %64, %65 ], [ %64, %62 ]
-  ret ptr %.032
+  %.0 = phi ptr [ %17, %15 ], [ %49, %47 ], [ %10, %8 ], [ %64, %65 ], [ %64, %62 ]
+  ret ptr %.0
 }
 
 declare i32 @slurm_xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -2645,13 +2645,13 @@ define internal fastcc void @_set_cpu_set_bitstr(ptr noundef %0, ptr nocapture n
 
 .preheader31:                                     ; preds = %2, %21
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %21 ], [ 511, %2 ]
-  %.02537 = phi i32 [ %.3, %21 ], [ 32767, %2 ]
+  %.02737 = phi i32 [ %.3, %21 ], [ 32767, %2 ]
   %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv43
   br label %7
 
 7:                                                ; preds = %.preheader31, %.loopexit
   %indvars.iv40 = phi i64 [ 7, %.preheader31 ], [ %indvars.iv.next41, %.loopexit ]
-  %.136 = phi i32 [ %.02537, %.preheader31 ], [ %.3, %.loopexit ]
+  %.135 = phi i32 [ %.02737, %.preheader31 ], [ %.3, %.loopexit ]
   %8 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv40
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
@@ -2659,17 +2659,17 @@ define internal fastcc void @_set_cpu_set_bitstr(ptr noundef %0, ptr nocapture n
   br i1 %11, label %13, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %7
-  %12 = sext i32 %.136 to i64
+  %12 = sext i32 %.135 to i64
   br label %.preheader
 
 13:                                               ; preds = %7
-  %14 = add nsw i32 %.136, -8
+  %14 = add nsw i32 %.135, -8
   br label %.loopexit
 
 .preheader:                                       ; preds = %.preheader.preheader, %17
   %indvars.iv = phi i64 [ %12, %.preheader.preheader ], [ %indvars.iv.next, %17 ]
   %.034 = phi i32 [ 128, %.preheader.preheader ], [ %18, %17 ]
-  %.02632 = phi i32 [ 0, %.preheader.preheader ], [ %19, %17 ]
+  %.02633 = phi i32 [ 0, %.preheader.preheader ], [ %19, %17 ]
   %15 = and i32 %.034, %10
   %.not30 = icmp eq i32 %15, 0
   br i1 %.not30, label %17, label %16
@@ -2681,7 +2681,7 @@ define internal fastcc void @_set_cpu_set_bitstr(ptr noundef %0, ptr nocapture n
 17:                                               ; preds = %16, %.preheader
   %18 = lshr i32 %.034, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %19 = add nuw nsw i32 %.02632, 1
+  %19 = add nuw nsw i32 %.02633, 1
   %exitcond.not = icmp eq i32 %19, 8
   br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !20
 

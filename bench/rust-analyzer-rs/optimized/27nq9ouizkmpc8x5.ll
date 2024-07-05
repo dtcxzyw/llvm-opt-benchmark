@@ -2549,11 +2549,11 @@ _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i: ; preds = %.noexc82
 _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit91.thread: ; preds = %562, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit91, %525
   %switch = xor i1 %.sroa.66.0.i, true
   %531 = zext i1 %switch to i8
-  %.037 = add nuw nsw i8 %.sroa.34.0.i, %531
+  %.035 = add nuw nsw i8 %.sroa.34.0.i, %531
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %41)
   store i64 -9223372036854775807, ptr %41, align 8
-  invoke void @_ZN6parser7grammar11expressions7expr_bp17h3b809f27b71c632cE.llvm.5157266897356781390(ptr noalias nocapture noundef nonnull sret({ [2 x i16], i16, [3 x i16] }) align 4 dereferenceable(12) %42, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %41, i1 noundef zeroext %3, i1 noundef zeroext false, i8 noundef %.037)
+  invoke void @_ZN6parser7grammar11expressions7expr_bp17h3b809f27b71c632cE.llvm.5157266897356781390(ptr noalias nocapture noundef nonnull sret({ [2 x i16], i16, [3 x i16] }) align 4 dereferenceable(12) %42, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %41, i1 noundef zeroext %3, i1 noundef zeroext false, i8 noundef %.035)
           to label %568 unwind label %.loopexit286
 
 532:                                              ; preds = %525

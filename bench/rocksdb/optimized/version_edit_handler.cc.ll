@@ -7908,13 +7908,13 @@ for.body110.lr.ph:                                ; preds = %for.end98
   br label %for.body110
 
 for.body110:                                      ; preds = %for.body110.lr.ph, %for.inc141
-  %__begin1102.sroa.0.0467 = phi ptr [ %77, %for.body110.lr.ph ], [ %incdec.ptr.i239, %for.inc141 ]
-  %missing_blob_file_num.0466 = phi i64 [ %19, %for.body110.lr.ph ], [ %missing_blob_file_num.1, %for.inc141 ]
-  %79 = load i64, ptr %__begin1102.sroa.0.0467, align 8
+  %missing_blob_file_num.0467 = phi i64 [ %19, %for.body110.lr.ph ], [ %missing_blob_file_num.1, %for.inc141 ]
+  %__begin1102.sroa.0.0466 = phi ptr [ %77, %for.body110.lr.ph ], [ %incdec.ptr.i239, %for.inc141 ]
+  %79 = load i64, ptr %__begin1102.sroa.0.0466, align 8
   %vtable117 = load ptr, ptr %this, align 8
   %vfn118 = getelementptr inbounds i8, ptr %vtable117, i64 88
   %80 = load ptr, ptr %vfn118, align 8
-  invoke void %80(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp116, ptr noundef nonnull align 8 dereferenceable(1064) %this, ptr noundef nonnull %cfd, i64 noundef %79, ptr noundef nonnull align 8 dereferenceable(88) %__begin1102.sroa.0.0467)
+  invoke void %80(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp116, ptr noundef nonnull align 8 dereferenceable(1064) %this, ptr noundef nonnull %cfd, i64 noundef %79, ptr noundef nonnull align 8 dereferenceable(88) %__begin1102.sroa.0.0466)
           to label %invoke.cont119 unwind label %lpad.loopexit
 
 invoke.cont119:                                   ; preds = %for.body110
@@ -7978,7 +7978,7 @@ _ZNK7rocksdb6Status14IsPathNotFoundEv.exit210:    ; preds = %_ZN7rocksdb6StatusD
   br i1 %or.cond437, label %invoke.cont133, label %for.end143
 
 invoke.cont133:                                   ; preds = %_ZN7rocksdb6StatusD2Ev.exit206, %_ZNK7rocksdb6Status14IsPathNotFoundEv.exit210
-  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %missing_blob_file_num.0466, i64 %79)
+  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %missing_blob_file_num.0467, i64 %79)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
   %93 = load ptr, ptr %state_.i, align 8
   store ptr null, ptr %state_.i, align 8
@@ -7990,13 +7990,13 @@ _ZN7rocksdb6StatusaSEOS0_.exit233:                ; preds = %invoke.cont133
   br label %for.inc141
 
 for.inc141:                                       ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit233, %invoke.cont133, %_ZN7rocksdb6StatusD2Ev.exit206
-  %missing_blob_file_num.1 = phi i64 [ %missing_blob_file_num.0466, %_ZN7rocksdb6StatusD2Ev.exit206 ], [ %.sroa.speculated, %invoke.cont133 ], [ %.sroa.speculated, %_ZN7rocksdb6StatusaSEOS0_.exit233 ]
-  %incdec.ptr.i239 = getelementptr inbounds i8, ptr %__begin1102.sroa.0.0467, i64 88
+  %missing_blob_file_num.1 = phi i64 [ %missing_blob_file_num.0467, %_ZN7rocksdb6StatusD2Ev.exit206 ], [ %.sroa.speculated, %invoke.cont133 ], [ %.sroa.speculated, %_ZN7rocksdb6StatusaSEOS0_.exit233 ]
+  %incdec.ptr.i239 = getelementptr inbounds i8, ptr %__begin1102.sroa.0.0466, i64 88
   %cmp.i183.not = icmp eq ptr %incdec.ptr.i239, %78
   br i1 %cmp.i183.not, label %for.end143, label %for.body110
 
 for.end143:                                       ; preds = %for.inc141, %_ZNK7rocksdb6Status14IsPathNotFoundEv.exit210, %_ZN7rocksdb6StatusD2Ev.exit206, %for.end98
-  %missing_blob_file_num.0.lcssa = phi i64 [ %19, %for.end98 ], [ %missing_blob_file_num.1, %for.inc141 ], [ %missing_blob_file_num.0466, %_ZNK7rocksdb6Status14IsPathNotFoundEv.exit210 ], [ %missing_blob_file_num.0466, %_ZN7rocksdb6StatusD2Ev.exit206 ]
+  %missing_blob_file_num.0.lcssa = phi i64 [ %19, %for.end98 ], [ %missing_blob_file_num.1, %for.inc141 ], [ %missing_blob_file_num.0467, %_ZNK7rocksdb6Status14IsPathNotFoundEv.exit210 ], [ %missing_blob_file_num.0467, %_ZN7rocksdb6StatusD2Ev.exit206 ]
   %cmp144.not = icmp eq i64 %missing_blob_file_num.0.lcssa, 0
   %cmp145.not = icmp ult i64 %missing_blob_file_num.0.lcssa, %19
   %or.cond = or i1 %cmp144.not, %cmp145.not

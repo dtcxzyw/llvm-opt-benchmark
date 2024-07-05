@@ -1576,7 +1576,7 @@ define range(i32 0, 2) i32 @Cec_ManSRunSimInt(ptr nocapture noundef %0) local_un
 
 10:                                               ; preds = %.lr.ph52, %.critedge2
   %indvars.iv55 = phi i64 [ %9, %.lr.ph52 ], [ %indvars.iv.next56, %.critedge2 ]
-  %.051 = phi i32 [ 0, %.lr.ph52 ], [ %.1.lcssa, %.critedge2 ]
+  %.03050 = phi i32 [ 0, %.lr.ph52 ], [ %.1.lcssa, %.critedge2 ]
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr i8, ptr %11, i64 8
   %.val42 = load ptr, ptr %12, align 8
@@ -1592,7 +1592,7 @@ define range(i32 0, 2) i32 @Cec_ManSRunSimInt(ptr nocapture noundef %0) local_un
 
 17:                                               ; preds = %.lr.ph, %Abc_TtClear.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_TtClear.exit ]
-  %.148 = phi i32 [ %.051, %.lr.ph ], [ %.260, %Abc_TtClear.exit ]
+  %.148 = phi i32 [ %.03050, %.lr.ph ], [ %.260, %Abc_TtClear.exit ]
   %.val39 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i32, ptr %.val39, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
@@ -1673,7 +1673,7 @@ Abc_TtClear.exit:                                 ; preds = %26, %Abc_TtIsConst1
   br i1 %51, label %17, label %.critedge2, !llvm.loop !18
 
 .critedge2:                                       ; preds = %Abc_TtClear.exit, %10
-  %.1.lcssa = phi i32 [ %.051, %10 ], [ %.260, %Abc_TtClear.exit ]
+  %.1.lcssa = phi i32 [ %.03050, %10 ], [ %.260, %Abc_TtClear.exit ]
   store i32 0, ptr %14, align 4
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
   %52 = load i32, ptr %4, align 8
@@ -1682,8 +1682,8 @@ Abc_TtClear.exit:                                 ; preds = %26, %Abc_TtIsConst1
   br i1 %.not.not, label %10, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %.critedge2, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1.lcssa, %.critedge2 ]
-  ret i32 %.0.lcssa
+  %.030.lcssa = phi i32 [ 0, %1 ], [ %.1.lcssa, %.critedge2 ]
+  ret i32 %.030.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2012,15 +2012,15 @@ Gia_ObjIsHead.exit:                               ; preds = %.lr.ph32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.028 = phi i32 [ %.0, %.lr.ph ], [ %24, %.lr.ph.preheader ]
-  %27 = call i32 @Cec_ManSRunSim(ptr noundef nonnull %11, i32 noundef %26, i32 noundef %.028)
+  %.01928 = phi i32 [ %.019, %.lr.ph ], [ %24, %.lr.ph.preheader ]
+  %27 = call i32 @Cec_ManSRunSim(ptr noundef nonnull %11, i32 noundef %26, i32 noundef %.01928)
   %28 = load ptr, ptr %12, align 8
   %29 = getelementptr i8, ptr %28, i64 200
   %.val21 = load ptr, ptr %29, align 8
-  %30 = zext nneg i32 %.028 to i64
+  %30 = zext nneg i32 %.01928 to i64
   %31 = getelementptr inbounds i32, ptr %.val21, i64 %30
-  %.0 = load i32, ptr %31, align 4
-  %32 = icmp sgt i32 %.0, 0
+  %.019 = load i32, ptr %31, align 4
+  %32 = icmp sgt i32 %.019, 0
   br i1 %32, label %.lr.ph, label %Gia_ObjIsHead.exit.thread, !llvm.loop !22
 
 Gia_ObjIsHead.exit.thread:                        ; preds = %.lr.ph, %.lr.ph32, %Gia_ObjIsHead.exit

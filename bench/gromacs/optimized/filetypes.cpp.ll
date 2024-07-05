@@ -572,7 +572,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit29:        ; preds = %_ZNSt10filesystem7_
   br label %.split.loop.exit39
 
 .split.loop.exit39:                               ; preds = %68, %.split.loop.exit
-  %.0.lcssa = phi i32 [ %69, %.split.loop.exit ], [ 44, %68 ]
+  %.014.lcssa = phi i32 [ %69, %.split.loop.exit ], [ 44, %68 ]
   %70 = getelementptr inbounds i8, ptr %8, i64 32
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i33 = icmp eq ptr %71, null
@@ -588,8 +588,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit34:        ; preds = %.split.loop.exit39,
   br label %73
 
 73:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit29, %1, %_ZNSt10filesystem7__cxx114pathD2Ev.exit34
-  %.019 = phi i32 [ %.0.lcssa, %_ZNSt10filesystem7__cxx114pathD2Ev.exit34 ], [ 44, %1 ], [ 44, %_ZNSt10filesystem7__cxx114pathD2Ev.exit29 ]
-  ret i32 %.019
+  %.0 = phi i32 [ %.014.lcssa, %_ZNSt10filesystem7__cxx114pathD2Ev.exit34 ], [ 44, %1 ], [ 44, %_ZNSt10filesystem7__cxx114pathD2Ev.exit29 ]
+  ret i32 %.0
 
 .body30:                                          ; preds = %66, %59, %41, %.body
   %.sink = phi ptr [ %5, %.body ], [ %5, %41 ], [ %8, %59 ], [ %8, %66 ]

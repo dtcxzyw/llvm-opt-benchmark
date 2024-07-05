@@ -933,45 +933,45 @@ define hidden range(i32 -50, 1) i32 @mbedtls_des_crypt_cbc(ptr nocapture noundef
   br i1 %.not5161, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader52, %17
-  %.04164 = phi ptr [ %21, %17 ], [ %5, %.preheader52 ]
-  %.04363 = phi ptr [ %20, %17 ], [ %4, %.preheader52 ]
+  %.04264 = phi ptr [ %21, %17 ], [ %5, %.preheader52 ]
+  %.04463 = phi ptr [ %20, %17 ], [ %4, %.preheader52 ]
   %.04662 = phi i64 [ %22, %17 ], [ %2, %.preheader52 ]
   br label %10
 
 10:                                               ; preds = %.preheader, %10
   %indvars.iv67 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next68, %10 ]
-  %11 = getelementptr inbounds i8, ptr %.04363, i64 %indvars.iv67
+  %11 = getelementptr inbounds i8, ptr %.04463, i64 %indvars.iv67
   %12 = load i8, ptr %11, align 1
   %13 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv67
   %14 = load i8, ptr %13, align 1
   %15 = xor i8 %14, %12
-  %16 = getelementptr inbounds i8, ptr %.04164, i64 %indvars.iv67
+  %16 = getelementptr inbounds i8, ptr %.04264, i64 %indvars.iv67
   store i8 %15, ptr %16, align 1
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 8
   br i1 %exitcond70.not, label %17, label %10, !llvm.loop !13
 
 17:                                               ; preds = %10
-  %18 = tail call i32 @mbedtls_des_crypt_ecb(ptr noundef %0, ptr noundef nonnull %.04164, ptr noundef nonnull %.04164)
-  %19 = load i64, ptr %.04164, align 1
+  %18 = tail call i32 @mbedtls_des_crypt_ecb(ptr noundef %0, ptr noundef nonnull %.04264, ptr noundef nonnull %.04264)
+  %19 = load i64, ptr %.04264, align 1
   store i64 %19, ptr %3, align 1
-  %20 = getelementptr inbounds i8, ptr %.04363, i64 8
-  %21 = getelementptr inbounds i8, ptr %.04164, i64 8
+  %20 = getelementptr inbounds i8, ptr %.04463, i64 8
+  %21 = getelementptr inbounds i8, ptr %.04264, i64 8
   %22 = add i64 %.04662, -8
   %.not51 = icmp eq i64 %22, 0
   br i1 %.not51, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.preheader53, %30
-  %.14259 = phi ptr [ %32, %30 ], [ %5, %.preheader53 ]
-  %.14458 = phi ptr [ %31, %30 ], [ %4, %.preheader53 ]
+  %.14359 = phi ptr [ %32, %30 ], [ %5, %.preheader53 ]
+  %.14558 = phi ptr [ %31, %30 ], [ %4, %.preheader53 ]
   %.14757 = phi i64 [ %33, %30 ], [ %2, %.preheader53 ]
-  %.sroa.0.0.copyload = load i64, ptr %.14458, align 1
-  %23 = tail call i32 @mbedtls_des_crypt_ecb(ptr noundef %0, ptr noundef nonnull %.14458, ptr noundef %.14259)
+  %.sroa.0.0.copyload = load i64, ptr %.14558, align 1
+  %23 = tail call i32 @mbedtls_des_crypt_ecb(ptr noundef %0, ptr noundef nonnull %.14558, ptr noundef %.14359)
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds i8, ptr %.14259, i64 %indvars.iv
+  %25 = getelementptr inbounds i8, ptr %.14359, i64 %indvars.iv
   %26 = load i8, ptr %25, align 1
   %27 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
   %28 = load i8, ptr %27, align 1
@@ -983,15 +983,15 @@ define hidden range(i32 -50, 1) i32 @mbedtls_des_crypt_cbc(ptr nocapture noundef
 
 30:                                               ; preds = %24
   store i64 %.sroa.0.0.copyload, ptr %3, align 1
-  %31 = getelementptr inbounds i8, ptr %.14458, i64 8
-  %32 = getelementptr inbounds i8, ptr %.14259, i64 8
+  %31 = getelementptr inbounds i8, ptr %.14558, i64 8
+  %32 = getelementptr inbounds i8, ptr %.14359, i64 8
   %33 = add i64 %.14757, -8
   %.not50 = icmp eq i64 %33, 0
   br i1 %.not50, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %30, %17, %.preheader53, %.preheader52, %6
-  %.045 = phi i32 [ -50, %6 ], [ 0, %.preheader52 ], [ 0, %.preheader53 ], [ 0, %17 ], [ 0, %30 ]
-  ret i32 %.045
+  %.0 = phi i32 [ -50, %6 ], [ 0, %.preheader52 ], [ 0, %.preheader53 ], [ 0, %17 ], [ 0, %30 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1497,45 +1497,45 @@ define hidden range(i32 -50, 1) i32 @mbedtls_des3_crypt_cbc(ptr nocapture nounde
   br i1 %.not5161, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader52, %17
-  %.04164 = phi ptr [ %21, %17 ], [ %5, %.preheader52 ]
-  %.04363 = phi ptr [ %20, %17 ], [ %4, %.preheader52 ]
+  %.04264 = phi ptr [ %21, %17 ], [ %5, %.preheader52 ]
+  %.04463 = phi ptr [ %20, %17 ], [ %4, %.preheader52 ]
   %.04662 = phi i64 [ %22, %17 ], [ %2, %.preheader52 ]
   br label %10
 
 10:                                               ; preds = %.preheader, %10
   %indvars.iv67 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next68, %10 ]
-  %11 = getelementptr inbounds i8, ptr %.04363, i64 %indvars.iv67
+  %11 = getelementptr inbounds i8, ptr %.04463, i64 %indvars.iv67
   %12 = load i8, ptr %11, align 1
   %13 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv67
   %14 = load i8, ptr %13, align 1
   %15 = xor i8 %14, %12
-  %16 = getelementptr inbounds i8, ptr %.04164, i64 %indvars.iv67
+  %16 = getelementptr inbounds i8, ptr %.04264, i64 %indvars.iv67
   store i8 %15, ptr %16, align 1
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 8
   br i1 %exitcond70.not, label %17, label %10, !llvm.loop !20
 
 17:                                               ; preds = %10
-  %18 = tail call i32 @mbedtls_des3_crypt_ecb(ptr noundef %0, ptr noundef nonnull %.04164, ptr noundef nonnull %.04164)
-  %19 = load i64, ptr %.04164, align 1
+  %18 = tail call i32 @mbedtls_des3_crypt_ecb(ptr noundef %0, ptr noundef nonnull %.04264, ptr noundef nonnull %.04264)
+  %19 = load i64, ptr %.04264, align 1
   store i64 %19, ptr %3, align 1
-  %20 = getelementptr inbounds i8, ptr %.04363, i64 8
-  %21 = getelementptr inbounds i8, ptr %.04164, i64 8
+  %20 = getelementptr inbounds i8, ptr %.04463, i64 8
+  %21 = getelementptr inbounds i8, ptr %.04264, i64 8
   %22 = add i64 %.04662, -8
   %.not51 = icmp eq i64 %22, 0
   br i1 %.not51, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.preheader53, %30
-  %.14259 = phi ptr [ %32, %30 ], [ %5, %.preheader53 ]
-  %.14458 = phi ptr [ %31, %30 ], [ %4, %.preheader53 ]
+  %.14359 = phi ptr [ %32, %30 ], [ %5, %.preheader53 ]
+  %.14558 = phi ptr [ %31, %30 ], [ %4, %.preheader53 ]
   %.14757 = phi i64 [ %33, %30 ], [ %2, %.preheader53 ]
-  %.sroa.0.0.copyload = load i64, ptr %.14458, align 1
-  %23 = tail call i32 @mbedtls_des3_crypt_ecb(ptr noundef %0, ptr noundef nonnull %.14458, ptr noundef %.14259)
+  %.sroa.0.0.copyload = load i64, ptr %.14558, align 1
+  %23 = tail call i32 @mbedtls_des3_crypt_ecb(ptr noundef %0, ptr noundef nonnull %.14558, ptr noundef %.14359)
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds i8, ptr %.14259, i64 %indvars.iv
+  %25 = getelementptr inbounds i8, ptr %.14359, i64 %indvars.iv
   %26 = load i8, ptr %25, align 1
   %27 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
   %28 = load i8, ptr %27, align 1
@@ -1547,15 +1547,15 @@ define hidden range(i32 -50, 1) i32 @mbedtls_des3_crypt_cbc(ptr nocapture nounde
 
 30:                                               ; preds = %24
   store i64 %.sroa.0.0.copyload, ptr %3, align 1
-  %31 = getelementptr inbounds i8, ptr %.14458, i64 8
-  %32 = getelementptr inbounds i8, ptr %.14259, i64 8
+  %31 = getelementptr inbounds i8, ptr %.14558, i64 8
+  %32 = getelementptr inbounds i8, ptr %.14359, i64 8
   %33 = add i64 %.14757, -8
   %.not50 = icmp eq i64 %33, 0
   br i1 %.not50, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %30, %17, %.preheader53, %.preheader52, %6
-  %.045 = phi i32 [ -50, %6 ], [ 0, %.preheader52 ], [ 0, %.preheader53 ], [ 0, %17 ], [ 0, %30 ]
-  ret i32 %.045
+  %.0 = phi i32 [ -50, %6 ], [ 0, %.preheader52 ], [ 0, %.preheader53 ], [ 0, %17 ], [ 0, %30 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

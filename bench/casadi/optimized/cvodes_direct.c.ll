@@ -357,16 +357,16 @@ define i32 @cvDlsDenseDQJac(i64 noundef %0, double noundef %1, ptr noundef %2, p
   br label %39
 
 39:                                               ; preds = %.lr.ph, %63
-  %.05762 = phi i64 [ 0, %.lr.ph ], [ %69, %63 ]
+  %.062 = phi i64 [ 0, %.lr.ph ], [ %69, %63 ]
   %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %.05762
+  %41 = getelementptr inbounds ptr, ptr %40, i64 %.062
   %42 = load ptr, ptr %41, align 8
   tail call void @N_VSetArrayPointer(ptr noundef %42, ptr noundef %7) #6
-  %43 = getelementptr inbounds double, ptr %16, i64 %.05762
+  %43 = getelementptr inbounds double, ptr %16, i64 %.062
   %44 = load double, ptr %43, align 8
   %45 = tail call double @SUNRabs(double noundef %44) #6
   %46 = fmul double %18, %45
-  %47 = getelementptr inbounds double, ptr %15, i64 %.05762
+  %47 = getelementptr inbounds double, ptr %15, i64 %.062
   %48 = load double, ptr %47, align 8
   %49 = fdiv double %33, %48
   %50 = fcmp ogt double %46, %49
@@ -398,9 +398,9 @@ define i32 @cvDlsDenseDQJac(i64 noundef %0, double noundef %1, ptr noundef %2, p
   tail call void @N_VLinearSum(double noundef %64, ptr noundef %6, double noundef %65, ptr noundef %3, ptr noundef %7) #6
   %66 = tail call ptr @N_VGetArrayPointer(ptr noundef %7) #6
   %67 = load ptr, ptr %35, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %.05762
+  %68 = getelementptr inbounds ptr, ptr %67, i64 %.062
   store ptr %66, ptr %68, align 8
-  %69 = add nuw nsw i64 %.05762, 1
+  %69 = add nuw nsw i64 %.062, 1
   %exitcond.not = icmp eq i64 %69, %0
   br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !4
 
@@ -472,17 +472,17 @@ define i32 @cvDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doubl
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge124, %.lr.ph128
-  %.0105126 = phi i64 [ 1, %.lr.ph128 ], [ %109, %._crit_edge124 ]
-  %48 = add nsw i64 %.0105126, -1
+  %.0126 = phi i64 [ 1, %.lr.ph128 ], [ %109, %._crit_edge124 ]
+  %48 = add nsw i64 %.0126, -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
-  %.0102116 = phi i64 [ %66, %61 ], [ %48, %.lr.ph.preheader ]
-  %49 = getelementptr inbounds double, ptr %19, i64 %.0102116
+  %.0104116 = phi i64 [ %66, %61 ], [ %48, %.lr.ph.preheader ]
+  %49 = getelementptr inbounds double, ptr %19, i64 %.0104116
   %50 = load double, ptr %49, align 8
   %51 = tail call double @SUNRabs(double noundef %50) #6
   %52 = fmul double %22, %51
-  %53 = getelementptr inbounds double, ptr %16, i64 %.0102116
+  %53 = getelementptr inbounds double, ptr %16, i64 %.0104116
   %54 = load double, ptr %53, align 8
   %55 = fdiv double %37, %54
   %56 = fcmp ogt double %52, %55
@@ -496,11 +496,11 @@ define i32 @cvDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doubl
 
 61:                                               ; preds = %.lr.ph, %57
   %62 = phi double [ %60, %57 ], [ %55, %.lr.ph ]
-  %63 = getelementptr inbounds double, ptr %20, i64 %.0102116
+  %63 = getelementptr inbounds double, ptr %20, i64 %.0104116
   %64 = load double, ptr %63, align 8
   %65 = fadd double %62, %64
   store double %65, ptr %63, align 8
-  %66 = add nsw i64 %.0102116, %39
+  %66 = add nsw i64 %.0104116, %39
   %67 = icmp slt i64 %66, %0
   br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
@@ -516,19 +516,19 @@ define i32 @cvDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doubl
   br i1 %.not114, label %.lr.ph123, label %._crit_edge129
 
 .lr.ph123:                                        ; preds = %._crit_edge, %._crit_edge121
-  %.1103122 = phi i64 [ %107, %._crit_edge121 ], [ %48, %._crit_edge ]
-  %74 = getelementptr inbounds double, ptr %19, i64 %.1103122
+  %.1105122 = phi i64 [ %107, %._crit_edge121 ], [ %48, %._crit_edge ]
+  %74 = getelementptr inbounds double, ptr %19, i64 %.1105122
   %75 = load double, ptr %74, align 8
-  %76 = getelementptr inbounds double, ptr %20, i64 %.1103122
+  %76 = getelementptr inbounds double, ptr %20, i64 %.1105122
   store double %75, ptr %76, align 8
   %77 = load ptr, ptr %45, align 8
-  %78 = getelementptr inbounds ptr, ptr %77, i64 %.1103122
+  %78 = getelementptr inbounds ptr, ptr %77, i64 %.1105122
   %79 = load ptr, ptr %78, align 8
   %80 = load i64, ptr %46, align 8
   %81 = getelementptr inbounds double, ptr %79, i64 %80
   %82 = tail call double @SUNRabs(double noundef %75) #6
   %83 = fmul double %22, %82
-  %84 = getelementptr inbounds double, ptr %16, i64 %.1103122
+  %84 = getelementptr inbounds double, ptr %16, i64 %.1105122
   %85 = load double, ptr %84, align 8
   %86 = fdiv double %37, %85
   %87 = fcmp ogt double %83, %86
@@ -543,36 +543,36 @@ define i32 @cvDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doubl
 92:                                               ; preds = %.lr.ph123, %88
   %93 = phi double [ %91, %88 ], [ %86, %.lr.ph123 ]
   %94 = fdiv double 1.000000e+00, %93
-  %95 = sub nsw i64 %.1103122, %1
+  %95 = sub nsw i64 %.1105122, %1
   %96 = tail call i64 @llvm.smax.i64(i64 %95, i64 0)
-  %97 = add nsw i64 %.1103122, %2
+  %97 = add nsw i64 %.1105122, %2
   %. = tail call i64 @llvm.smin.i64(i64 %97, i64 %47)
   %.not115117 = icmp sgt i64 %96, %.
   br i1 %.not115117, label %._crit_edge121, label %.lr.ph120
 
 .lr.ph120:                                        ; preds = %92, %.lr.ph120
-  %.0104118 = phi i64 [ %106, %.lr.ph120 ], [ %96, %92 ]
-  %98 = getelementptr inbounds double, ptr %18, i64 %.0104118
+  %.0103118 = phi i64 [ %106, %.lr.ph120 ], [ %96, %92 ]
+  %98 = getelementptr inbounds double, ptr %18, i64 %.0103118
   %99 = load double, ptr %98, align 8
-  %100 = getelementptr inbounds double, ptr %17, i64 %.0104118
+  %100 = getelementptr inbounds double, ptr %17, i64 %.0103118
   %101 = load double, ptr %100, align 8
   %102 = fsub double %99, %101
   %103 = fmul double %94, %102
-  %104 = sub nsw i64 %.0104118, %.1103122
+  %104 = sub nsw i64 %.0103118, %.1105122
   %105 = getelementptr inbounds double, ptr %81, i64 %104
   store double %103, ptr %105, align 8
-  %106 = add nuw nsw i64 %.0104118, 1
-  %.not115.not = icmp slt i64 %.0104118, %.
+  %106 = add nuw nsw i64 %.0103118, 1
+  %.not115.not = icmp slt i64 %.0103118, %.
   br i1 %.not115.not, label %.lr.ph120, label %._crit_edge121, !llvm.loop !7
 
 ._crit_edge121:                                   ; preds = %.lr.ph120, %92
-  %107 = add nsw i64 %.1103122, %39
+  %107 = add nsw i64 %.1105122, %39
   %108 = icmp slt i64 %107, %0
   br i1 %108, label %.lr.ph123, label %._crit_edge124, !llvm.loop !8
 
 ._crit_edge124:                                   ; preds = %._crit_edge121
-  %109 = add nuw i64 %.0105126, 1
-  %exitcond.not = icmp eq i64 %.0105126, %40
+  %109 = add nuw i64 %.0126, 1
+  %exitcond.not = icmp eq i64 %.0126, %40
   br i1 %exitcond.not, label %._crit_edge129, label %.lr.ph.preheader, !llvm.loop !9
 
 ._crit_edge129:                                   ; preds = %._crit_edge124, %._crit_edge, %36

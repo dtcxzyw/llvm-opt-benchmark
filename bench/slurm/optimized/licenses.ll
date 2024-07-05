@@ -452,14 +452,14 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @cluster_license_list, align 8
-  %.not35 = icmp eq ptr %12, null
-  br i1 %.not35, label %13, label %17
+  %.not34 = icmp eq ptr %12, null
+  br i1 %.not34, label %13, label %17
 
 13:                                               ; preds = %11
   store ptr %.fr, ptr @cluster_license_list, align 8
   %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @license_mutex) #11
-  %.not36 = icmp eq i32 %14, 0
-  br i1 %.not36, label %68, label %15
+  %.not35 = icmp eq i32 %14, 0
+  br i1 %.not35, label %68, label %15
 
 15:                                               ; preds = %13
   %16 = tail call ptr @__errno_location() #12
@@ -470,21 +470,21 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 17:                                               ; preds = %11
   %18 = tail call ptr @list_iterator_create(ptr noundef nonnull %12) #11
   %19 = tail call ptr @list_next(ptr noundef %18) #11
-  %.not374750 = icmp eq ptr %19, null
-  br i1 %.not374750, label %.outer._crit_edge, label %.lr.ph
+  %.not364649 = icmp eq ptr %19, null
+  br i1 %.not364649, label %.outer._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %.outer
   %20 = phi ptr [ %39, %.outer ], [ %19, %17 ]
-  %.0.ph51 = phi ptr [ %.1, %.outer ], [ %.fr, %17 ]
-  %.not41 = icmp eq ptr %.0.ph51, null
-  br i1 %.not41, label %.lr.ph.split.us, label %.lr.ph.split
+  %.028.ph50 = phi ptr [ %.1, %.outer ], [ %.fr, %17 ]
+  %.not40 = icmp eq ptr %.028.ph50, null
+  br i1 %.not40, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %30
   %21 = phi ptr [ %31, %30 ], [ %20, %.lr.ph ]
   %22 = getelementptr inbounds i8, ptr %21, i64 20
   %23 = load i8, ptr %22, align 4
-  %.not40.us = icmp eq i8 %23, 0
-  br i1 %.not40.us, label %.thread.us, label %.split.us
+  %.not39.us = icmp eq i8 %23, 0
+  br i1 %.not39.us, label %.thread.us, label %.split.us
 
 .thread.us:                                       ; preds = %.lr.ph.split.us
   %24 = tail call i32 @get_log_level() #11
@@ -500,39 +500,39 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 
 30:                                               ; preds = %26, %.thread.us
   %31 = tail call ptr @list_next(ptr noundef %18) #11
-  %.not37.us = icmp eq ptr %31, null
-  br i1 %.not37.us, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
+  %.not36.us = icmp eq ptr %31, null
+  br i1 %.not36.us, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %60
   %32 = phi ptr [ %61, %60 ], [ %20, %.lr.ph ]
   %33 = getelementptr inbounds i8, ptr %32, i64 20
   %34 = load i8, ptr %33, align 4
-  %.not40 = icmp eq i8 %34, 0
-  br i1 %.not40, label %40, label %.split.us
+  %.not39 = icmp eq i8 %34, 0
+  br i1 %.not39, label %40, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi ptr [ %21, %.lr.ph.split.us ], [ %32, %.lr.ph.split ]
   %35 = tail call ptr @list_remove(ptr noundef %18) #11
-  br i1 %.not41, label %36, label %.outer
+  br i1 %.not40, label %36, label %.outer
 
 36:                                               ; preds = %.split.us
   %37 = tail call ptr @list_create(ptr noundef nonnull @license_free_rec) #11
   br label %.outer
 
 .outer:                                           ; preds = %36, %.split.us
-  %.1 = phi ptr [ %.0.ph51, %.split.us ], [ %37, %36 ]
+  %.1 = phi ptr [ %.028.ph50, %.split.us ], [ %37, %36 ]
   %38 = getelementptr inbounds i8, ptr %.us-phi, i64 12
   store i32 0, ptr %38, align 4
   tail call void @list_append(ptr noundef %.1, ptr noundef nonnull %.us-phi) #11
   %39 = tail call ptr @list_next(ptr noundef %18) #11
-  %.not3747 = icmp eq ptr %39, null
-  br i1 %.not3747, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !12
+  %.not3646 = icmp eq ptr %39, null
+  br i1 %.not3646, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !12
 
 40:                                               ; preds = %.lr.ph.split
   %41 = load ptr, ptr %32, align 8
-  %42 = tail call ptr @list_find_first(ptr noundef nonnull %.0.ph51, ptr noundef nonnull @_license_find_rec, ptr noundef %41) #11
-  %.not42 = icmp eq ptr %42, null
-  br i1 %.not42, label %.thread, label %49
+  %42 = tail call ptr @list_find_first(ptr noundef nonnull %.028.ph50, ptr noundef nonnull @_license_find_rec, ptr noundef %41) #11
+  %.not41 = icmp eq ptr %42, null
+  br i1 %.not41, label %.thread, label %49
 
 .thread:                                          ; preds = %40
   %43 = tail call i32 @get_log_level() #11
@@ -566,26 +566,26 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 
 60:                                               ; preds = %49, %58, %55, %.thread, %45
   %61 = tail call ptr @list_next(ptr noundef %18) #11
-  %.not37 = icmp eq ptr %61, null
-  br i1 %.not37, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !12
+  %.not36 = icmp eq ptr %61, null
+  br i1 %.not36, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 .outer._crit_edge:                                ; preds = %.outer, %60, %30, %17
-  %.0.ph.lcssa = phi ptr [ %.fr, %17 ], [ null, %30 ], [ %.0.ph51, %60 ], [ %.1, %.outer ]
+  %.028.ph.lcssa = phi ptr [ %.fr, %17 ], [ null, %30 ], [ %.028.ph50, %60 ], [ %.1, %.outer ]
   tail call void @list_iterator_destroy(ptr noundef %18) #11
   %62 = load ptr, ptr @cluster_license_list, align 8
-  %.not38 = icmp eq ptr %62, null
-  br i1 %.not38, label %64, label %63
+  %.not37 = icmp eq ptr %62, null
+  br i1 %.not37, label %64, label %63
 
 63:                                               ; preds = %.outer._crit_edge
   tail call void @list_destroy(ptr noundef nonnull %62) #11
   br label %64
 
 64:                                               ; preds = %63, %.outer._crit_edge
-  store ptr %.0.ph.lcssa, ptr @cluster_license_list, align 8
-  tail call fastcc void @_licenses_print(ptr noundef nonnull @.str.11, ptr noundef %.0.ph.lcssa, ptr noundef null)
+  store ptr %.028.ph.lcssa, ptr @cluster_license_list, align 8
+  tail call fastcc void @_licenses_print(ptr noundef nonnull @.str.11, ptr noundef %.028.ph.lcssa, ptr noundef null)
   %65 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @license_mutex) #11
-  %.not39 = icmp eq i32 %65, 0
-  br i1 %.not39, label %68, label %66
+  %.not38 = icmp eq i32 %65, 0
+  br i1 %.not38, label %68, label %66
 
 66:                                               ; preds = %64
   %67 = tail call ptr @__errno_location() #12
@@ -1585,8 +1585,8 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
   br label %119
 
 119:                                              ; preds = %115, %118, %24
-  %.044 = phi ptr [ null, %24 ], [ %25, %115 ], [ null, %118 ]
-  ret ptr %.044
+  %.0 = phi ptr [ null, %24 ], [ %25, %115 ], [ null, %118 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1853,7 +1853,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_get(ptr noundef %0, i1 nounde
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %33
   %15 = phi ptr [ %34, %33 ], [ %13, %.lr.ph ]
-  %.040.us = phi i32 [ %.1.us, %33 ], [ 0, %.lr.ph ]
+  %.02640.us = phi i32 [ %.1.us, %33 ], [ 0, %.lr.ph ]
   %16 = load ptr, ptr @cluster_license_list, align 8
   %17 = load ptr, ptr %15, align 8
   %18 = tail call ptr @list_find_first(ptr noundef %16, ptr noundef nonnull @_license_find_rec, ptr noundef %17) #11
@@ -1881,14 +1881,14 @@ define dso_local range(i32 -1, 1) i32 @license_job_get(ptr noundef %0, i1 nounde
   br label %33
 
 33:                                               ; preds = %19, %29
-  %.1.us = phi i32 [ %.040.us, %19 ], [ -1, %29 ]
+  %.1.us = phi i32 [ %.02640.us, %19 ], [ -1, %29 ]
   %34 = tail call ptr @list_next(ptr noundef %12) #11
   %.not34.us = icmp eq ptr %34, null
   br i1 %.not34.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %62
   %35 = phi ptr [ %63, %62 ], [ %13, %.lr.ph ]
-  %.040 = phi i32 [ %.1, %62 ], [ 0, %.lr.ph ]
+  %.02640 = phi i32 [ %.1, %62 ], [ 0, %.lr.ph ]
   %36 = load ptr, ptr @cluster_license_list, align 8
   %37 = load ptr, ptr %35, align 8
   %38 = tail call ptr @list_find_first(ptr noundef %36, ptr noundef nonnull @_license_find_rec, ptr noundef %37) #11
@@ -1934,13 +1934,13 @@ define dso_local range(i32 -1, 1) i32 @license_job_get(ptr noundef %0, i1 nounde
   br label %62
 
 62:                                               ; preds = %39, %56, %55, %58
-  %.1 = phi i32 [ %.040, %55 ], [ %.040, %56 ], [ %.040, %39 ], [ -1, %58 ]
+  %.1 = phi i32 [ %.02640, %55 ], [ %.02640, %56 ], [ %.02640, %39 ], [ -1, %58 ]
   %63 = tail call ptr @list_next(ptr noundef %12) #11
   %.not34 = icmp eq ptr %63, null
   br i1 %.not34, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %33, %62, %10
-  %.0.lcssa = phi i32 [ 0, %10 ], [ %.1, %62 ], [ %.1.us, %33 ]
+  %.026.lcssa = phi i32 [ 0, %10 ], [ %.1, %62 ], [ %.1.us, %33 ]
   tail call void @list_iterator_destroy(ptr noundef %12) #11
   %64 = load ptr, ptr @cluster_license_list, align 8
   tail call fastcc void @_licenses_print(ptr noundef nonnull @.str.23, ptr noundef %64, ptr noundef %0)
@@ -1955,8 +1955,8 @@ define dso_local range(i32 -1, 1) i32 @license_job_get(ptr noundef %0, i1 nounde
   unreachable
 
 68:                                               ; preds = %._crit_edge, %2
-  %.026 = phi i32 [ 0, %2 ], [ %.0.lcssa, %._crit_edge ]
-  ret i32 %.026
+  %.0 = phi i32 [ 0, %2 ], [ %.026.lcssa, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2003,7 +2003,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_return_to_list(ptr noundef %0
 
 .lr.ph:                                           ; preds = %17, %39
   %21 = phi ptr [ %40, %39 ], [ %20, %17 ]
-  %.036 = phi i32 [ %.2, %39 ], [ 0, %17 ]
+  %.02236 = phi i32 [ %.2, %39 ], [ 0, %17 ]
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @list_find_first(ptr noundef %1, ptr noundef nonnull @_license_find_rec, ptr noundef %22) #11
   %.not33 = icmp eq ptr %23, null
@@ -2028,7 +2028,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_return_to_list(ptr noundef %0
 
 34:                                               ; preds = %31, %29
   %storemerge = phi i32 [ 0, %31 ], [ %30, %29 ]
-  %.1 = phi i32 [ -1, %31 ], [ %.036, %29 ]
+  %.1 = phi i32 [ -1, %31 ], [ %.02236, %29 ]
   store i32 %storemerge, ptr %25, align 4
   %35 = getelementptr inbounds i8, ptr %21, i64 12
   store i32 0, ptr %35, align 4
@@ -2040,13 +2040,13 @@ define dso_local range(i32 -1, 1) i32 @license_job_return_to_list(ptr noundef %0
   br label %39
 
 39:                                               ; preds = %36, %34
-  %.2 = phi i32 [ %.1, %34 ], [ %.036, %36 ]
+  %.2 = phi i32 [ %.1, %34 ], [ %.02236, %36 ]
   %40 = tail call ptr @list_next(ptr noundef %19) #11
   %.not31 = icmp eq ptr %40, null
   br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %39, %17
-  %.0.lcssa = phi i32 [ 0, %17 ], [ %.2, %39 ]
+  %.022.lcssa = phi i32 [ 0, %17 ], [ %.2, %39 ]
   tail call void @list_iterator_destroy(ptr noundef %19) #11
   %41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @license_mutex) #11
   %.not32 = icmp eq i32 %41, 0
@@ -2059,8 +2059,8 @@ define dso_local range(i32 -1, 1) i32 @license_job_return_to_list(ptr noundef %0
   unreachable
 
 44:                                               ; preds = %._crit_edge, %2
-  %.022 = phi i32 [ 0, %2 ], [ %.0.lcssa, %._crit_edge ]
-  ret i32 %.022
+  %.0 = phi i32 [ 0, %2 ], [ %.022.lcssa, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2869,8 +2869,8 @@ define dso_local noundef zeroext i1 @slurm_bf_licenses_avail(ptr noundef %0, ptr
   br label %31
 
 31:                                               ; preds = %2, %.critedge._crit_edge
-  %.022 = phi i1 [ %.not27.lcssa, %.critedge._crit_edge ], [ true, %2 ]
-  ret i1 %.022
+  %.021 = phi i1 [ %.not27.lcssa, %.critedge._crit_edge ], [ true, %2 ]
+  ret i1 %.021
 }
 
 ; Function Attrs: nounwind uwtable

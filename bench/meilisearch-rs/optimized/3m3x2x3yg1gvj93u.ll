@@ -4227,7 +4227,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %.val4.i.i = load ptr, ptr %36, align 8, !noalias !1071, !nonnull !9, !noundef !9
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %20, ptr nonnull readonly %.val4.i.i, i64 %18), !alias.scope !1072, !noalias !1076
   %37 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
-  br i1 %37, label %64, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7e3f0c3a8c7b1f76E.exit.backedge.i"
+  br i1 %37, label %63, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7e3f0c3a8c7b1f76E.exit.backedge.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7e3f0c3a8c7b1f76E.exit.backedge.i": ; preds = %35, %.lr.ph.i
   %38 = icmp eq i16 %29, 0
@@ -4278,32 +4278,32 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !noalias !1086
   br label %74
 
-63:                                               ; preds = %74, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit"
-  %.sroa.0.0 = phi i1 [ false, %74 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit" ]
-  ret i1 %.sroa.0.0
-
-64:                                               ; preds = %35
+63:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1090
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdccf034b0721b487E.llvm.7557364402226394005"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-  %65 = getelementptr inbounds i8, ptr %3, i64 8
-  %66 = load i64, ptr %65, align 8, !range !248, !noalias !1090, !noundef !9
-  %67 = icmp eq i64 %66, 0
-  br i1 %67, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit", label %68
+  %64 = getelementptr inbounds i8, ptr %3, i64 8
+  %65 = load i64, ptr %64, align 8, !range !248, !noalias !1090, !noundef !9
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit", label %67
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %3, i64 16
-  %70 = load i64, ptr %69, align 8, !noalias !1090, !noundef !9
-  %71 = icmp eq i64 %70, 0
-  br i1 %71, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit", label %72
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds i8, ptr %3, i64 16
+  %69 = load i64, ptr %68, align 8, !noalias !1090, !noundef !9
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit", label %71
 
-72:                                               ; preds = %68
-  %73 = load ptr, ptr %3, align 8, !noalias !1090, !nonnull !9, !noundef !9
-  tail call void @__rust_dealloc(ptr noundef nonnull %73, i64 noundef %70, i64 noundef %66) #34
+71:                                               ; preds = %67
+  %72 = load ptr, ptr %3, align 8, !noalias !1090, !nonnull !9, !noundef !9
+  tail call void @__rust_dealloc(ptr noundef nonnull %72, i64 noundef %69, i64 noundef %65) #34
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit": ; preds = %64, %68, %72
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit": ; preds = %63, %67, %71
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1090
-  br label %63
+  br label %73
+
+73:                                               ; preds = %74, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit"
+  %.sroa.0.0 = phi i1 [ false, %74 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h31db3b6058ec61a7E.exit" ]
+  ret i1 %.sroa.0.0
 
 74:                                               ; preds = %52, %56
   %75 = phi i8 [ %54, %52 ], [ %.pre, %56 ]
@@ -4332,7 +4332,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %90 = getelementptr inbounds i8, ptr %89, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !1099
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %63
+  br label %73
 
 91:                                               ; preds = %92
   resume { ptr, i32 } %93
@@ -4417,7 +4417,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %.val4.i.i = load ptr, ptr %33, align 8, !noalias !1114, !nonnull !9, !align !593, !noundef !9
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %1, ptr nonnull readonly %.val4.i.i, i64 %2), !alias.scope !1117, !noalias !1114
   %34 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  br i1 %34, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17ha73acfc09fb85e0dE.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h698f6bb345decec5E.exit.backedge.i"
+  br i1 %34, label %.loopexit, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h698f6bb345decec5E.exit.backedge.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h698f6bb345decec5E.exit.backedge.i": ; preds = %32, %.lr.ph.i
   %35 = icmp eq i16 %26, 0
@@ -4494,9 +4494,9 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   store ptr %1, ptr %76, align 8, !noalias !1127
   %77 = getelementptr inbounds i8, ptr %75, i64 -8
   store i64 %2, ptr %77, align 8, !noalias !1131
-  br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17ha73acfc09fb85e0dE.exit.thread"
+  br label %.loopexit
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17ha73acfc09fb85e0dE.exit.thread": ; preds = %32, %60
+.loopexit:                                        ; preds = %32, %60
   %.sroa.0.0 = phi i1 [ false, %60 ], [ true, %32 ]
   ret i1 %.sroa.0.0
 }

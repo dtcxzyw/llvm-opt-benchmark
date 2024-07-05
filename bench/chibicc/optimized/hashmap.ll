@@ -244,7 +244,7 @@ while.cond.i.preheader:                           ; preds = %for.inc.i22, %if.th
 
 for.body.i19:                                     ; preds = %for.body.i19.preheader, %for.inc.i22
   %indvars.iv = phi i64 [ 0, %for.body.i19.preheader ], [ %indvars.iv.next, %for.inc.i22 ]
-  %nkeys.0.i29 = phi i32 [ 0, %for.body.i19.preheader ], [ %nkeys.1.i, %for.inc.i22 ]
+  %nkeys.0.i30 = phi i32 [ 0, %for.body.i19.preheader ], [ %nkeys.1.i, %for.inc.i22 ]
   %arrayidx.i20 = getelementptr inbounds %struct.HashEntry, ptr %0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.i20, align 8
   %magicptr.i21 = ptrtoint ptr %3 to i64
@@ -254,11 +254,11 @@ for.body.i19:                                     ; preds = %for.body.i19.prehea
   ]
 
 if.then.i23:                                      ; preds = %for.body.i19
-  %inc.i24 = add nsw i32 %nkeys.0.i29, 1
+  %inc.i24 = add nsw i32 %nkeys.0.i30, 1
   br label %for.inc.i22
 
 for.inc.i22:                                      ; preds = %if.then.i23, %for.body.i19, %for.body.i19
-  %nkeys.1.i = phi i32 [ %inc.i24, %if.then.i23 ], [ %nkeys.0.i29, %for.body.i19 ], [ %nkeys.0.i29, %for.body.i19 ]
+  %nkeys.1.i = phi i32 [ %inc.i24, %if.then.i23 ], [ %nkeys.0.i30, %for.body.i19 ], [ %nkeys.0.i30, %for.body.i19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %while.cond.i.preheader, label %for.body.i19, !llvm.loop !10

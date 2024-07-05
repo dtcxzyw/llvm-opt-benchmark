@@ -2196,14 +2196,14 @@ _Z22add_subblocks_enxblockP10t_enxblocki.exit:    ; preds = %216, %._crit_edge.i
   br label %251
 
 251:                                              ; preds = %_Z22add_subblocks_enxblockP10t_enxblocki.exit, %_Z19add_blocks_enxframeP10t_enxframei.exit
-  %.0185 = phi i32 [ 1, %_Z22add_subblocks_enxblockP10t_enxblocki.exit ], [ 0, %_Z19add_blocks_enxframeP10t_enxframei.exit ]
+  %.0186 = phi i32 [ 1, %_Z22add_subblocks_enxblockP10t_enxblocki.exit ], [ 0, %_Z19add_blocks_enxframeP10t_enxframei.exit ]
   %252 = load i32, ptr %140, align 8
-  %253 = icmp slt i32 %.0185, %252
+  %253 = icmp slt i32 %.0186, %252
   br i1 %253, label %.lr.ph239, label %._crit_edge
 
 .lr.ph239:                                        ; preds = %251
   %254 = getelementptr inbounds i8, ptr %2, i64 64
-  %255 = zext nneg i32 %.0185 to i64
+  %255 = zext nneg i32 %.0186 to i64
   br label %256
 
 256:                                              ; preds = %.lr.ph239, %.loopexit
@@ -2370,7 +2370,7 @@ _Z22add_subblocks_enxblockP10t_enxblocki.exit227: ; preds = %._crit_edge.i221, %
   %317 = load ptr, ptr %254, align 8
   %318 = getelementptr inbounds %struct.t_enxblock, ptr %317, i64 %indvars.iv241
   %319 = trunc i64 %indvars.iv241 to i32
-  %320 = sub i32 %319, %.0185
+  %320 = sub i32 %319, %.0186
   store i32 %320, ptr %318, align 8
   %321 = load i32, ptr %18, align 4
   %322 = load ptr, ptr %254, align 8
@@ -2601,8 +2601,8 @@ _Z22add_subblocks_enxblockP10t_enxblocki.exit234: ; preds = %._crit_edge.i228, %
   br label %437
 
 437:                                              ; preds = %405, %407, %424, %.thread252, %31, %_ZL11enx_warningPKc.exit215, %172, %_ZL11enx_warningPKc.exit213, %_ZL11enx_warningPKc.exit
-  %.0184 = phi i1 [ false, %_ZL11enx_warningPKc.exit213 ], [ %174, %172 ], [ false, %_ZL11enx_warningPKc.exit215 ], [ false, %_ZL11enx_warningPKc.exit ], [ false, %31 ], [ %.pre251, %424 ], [ true, %407 ], [ false, %405 ], [ false, %.thread252 ]
-  ret i1 %.0184
+  %.0 = phi i1 [ false, %_ZL11enx_warningPKc.exit213 ], [ %174, %172 ], [ false, %_ZL11enx_warningPKc.exit215 ], [ false, %_ZL11enx_warningPKc.exit ], [ false, %31 ], [ %.pre251, %424 ], [ true, %407 ], [ false, %405 ], [ false, %.thread252 ]
+  ret i1 %.0
 }
 
 declare void @_Z14gmx_fio_rewindP8t_fileio(ptr noundef) local_unnamed_addr #2
@@ -2807,8 +2807,8 @@ define noundef zeroext i1 @_Z6do_enxP9ener_fileP10t_enxframe(ptr nocapture nound
 
 90:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %.0130.in174 = phi i1 [ %85, %.lr.ph ], [ %97, %96 ]
-  br i1 %.0130.in174, label %96, label %91
+  %.0133.in174 = phi i1 [ %85, %.lr.ph ], [ %97, %96 ]
+  br i1 %.0133.in174, label %96, label %91
 
 91:                                               ; preds = %90
   %92 = load ptr, ptr %89, align 8
@@ -2824,11 +2824,11 @@ define noundef zeroext i1 @_Z6do_enxP9ener_fileP10t_enxframe(ptr nocapture nound
   br i1 %exitcond.not, label %._crit_edge, label %90, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %96, %.thread164
-  %.0130.in.lcssa = phi i1 [ %85, %.thread164 ], [ %97, %96 ]
+  %.0133.in.lcssa = phi i1 [ %85, %.thread164 ], [ %97, %96 ]
   %98 = getelementptr inbounds i8, ptr %1, i64 8
   %99 = load i64, ptr %98, align 8
   %100 = icmp sgt i64 %99, -1
-  %brmerge.not169 = select i1 %100, i1 %.0130.in.lcssa, i1 false
+  %brmerge.not169 = select i1 %100, i1 %.0133.in.lcssa, i1 false
   %.not157 = xor i1 %26, true
   %brmerge158 = or i1 %brmerge.not169, %.not157
   br i1 %brmerge158, label %119, label %101
@@ -3069,7 +3069,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %107, %112
 214:                                              ; preds = %214, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %214 ]
   %.087.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %214 ]
-  %.07885.i = phi i32 [ 0, %.lr.ph.i ], [ %.179.i, %214 ]
+  %.07686.i = phi i32 [ 0, %.lr.ph.i ], [ %.177.i, %214 ]
   %215 = getelementptr inbounds %struct.t_energy, ptr %213, i64 %indvars.iv.i
   %216 = load float, ptr %215, align 8
   %217 = fcmp une float %216, 0.000000e+00
@@ -3079,14 +3079,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %107, %112
   %220 = load double, ptr %219, align 8
   %221 = fcmp une double %220, 0.000000e+00
   %222 = zext i1 %221 to i32
-  %.179.i = add nuw nsw i32 %.07885.i, %222
+  %.177.i = add nuw nsw i32 %.07686.i, %222
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %214, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %214
   %223 = icmp ne i32 %.1.i, 0
-  %224 = icmp eq i32 %.179.i, 0
+  %224 = icmp eq i32 %.177.i, 0
   %225 = select i1 %223, i1 %224, i1 false
   br i1 %225, label %226, label %._crit_edge.thread.i
 
@@ -3559,9 +3559,9 @@ _ZL17enxsubblock_allocP13t_enxsubblock.exit:      ; preds = %335, %340, %346, %3
   br label %common.resume
 
 472:                                              ; preds = %454, %448, %442, %436, %430, %424
-  %.0131.in = phi i1 [ %459, %454 ], [ %453, %448 ], [ %447, %442 ], [ %441, %436 ], [ %435, %430 ], [ %429, %424 ]
+  %.0134.in = phi i1 [ %459, %454 ], [ %453, %448 ], [ %447, %442 ], [ %441, %436 ], [ %435, %430 ], [ %429, %424 ]
   %473 = trunc i8 %327 to i1
-  %474 = and i1 %.0131.in, %473
+  %474 = and i1 %.0134.in, %473
   %475 = zext i1 %474 to i8
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond222.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count221
@@ -3670,8 +3670,8 @@ _ZL17enxsubblock_allocP13t_enxsubblock.exit:      ; preds = %335, %340, %346, %3
   br label %512
 
 512:                                              ; preds = %.sink.split, %.thread165, %495, %34
-  %.0132 = phi i1 [ false, %34 ], [ true, %495 ], [ true, %.thread165 ], [ false, %.sink.split ]
-  ret i1 %.0132
+  %.0 = phi i1 [ false, %34 ], [ true, %495 ], [ true, %.thread165 ], [ false, %.sink.split ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -4860,7 +4860,7 @@ switch.early.test.i:                              ; preds = %.lr.ph94.i
 
 285:                                              ; preds = %317, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %317 ]
-  %.056.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %317 ]
+  %.04456.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %317 ]
   %286 = phi <2 x float> [ <float 1.000000e+00, float 1.000000e+00>, %.lr.ph.i.i ], [ %318, %317 ]
   %287 = getelementptr inbounds i32, ptr %235, i64 %indvars.iv.i.i
   %288 = load i32, ptr %287, align 4
@@ -4900,11 +4900,11 @@ switch.early.test.i:                              ; preds = %.lr.ph94.i
   %313 = insertelement <2 x float> %312, float %311, i64 1
   %314 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %313)
   %315 = fmul <2 x float> %286, %314
-  %316 = add nsw i32 %.056.i.i, 1
+  %316 = add nsw i32 %.04456.i.i, 1
   br label %317
 
 317:                                              ; preds = %304, %301, %298, %290, %285
-  %.1.i.i = phi i32 [ %316, %304 ], [ %.056.i.i, %298 ], [ %.056.i.i, %290 ], [ %.056.i.i, %285 ], [ %.056.i.i, %301 ]
+  %.1.i.i = phi i32 [ %316, %304 ], [ %.04456.i.i, %298 ], [ %.04456.i.i, %290 ], [ %.04456.i.i, %285 ], [ %.04456.i.i, %301 ]
   %318 = phi <2 x float> [ %315, %304 ], [ %286, %298 ], [ %286, %290 ], [ %286, %285 ], [ %286, %301 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -4924,8 +4924,8 @@ switch.early.test.i:                              ; preds = %.lr.ph94.i
   br label %_ZL16ener_tensor_diagiPKiS0_P11gmx_enxnm_tS0_iP8t_energyS4_.exit.i
 
 _ZL16ener_tensor_diagiPKiS0_P11gmx_enxnm_tS0_iP8t_energyS4_.exit.i: ; preds = %320, %._crit_edge.i.i, %273
-  %.049.i.i = phi float [ %326, %320 ], [ 0.000000e+00, %._crit_edge.i.i ], [ 0.000000e+00, %273 ]
-  %327 = fmul float %.049.i.i, %2
+  %.0.i.i = phi float [ %326, %320 ], [ 0.000000e+00, %._crit_edge.i.i ], [ 0.000000e+00, %273 ]
+  %327 = fmul float %.0.i.i, %2
   %328 = load ptr, ptr @debug, align 8
   %.not79.i = icmp eq ptr %328, null
   br i1 %.not79.i, label %338, label %329

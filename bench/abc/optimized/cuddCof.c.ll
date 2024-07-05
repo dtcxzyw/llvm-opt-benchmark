@@ -99,8 +99,8 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %40
 
 40:                                               ; preds = %21, %35
-  %.094 = phi ptr [ %37, %35 ], [ %6, %21 ]
-  %.093 = phi ptr [ %39, %35 ], [ %6, %21 ]
+  %.097 = phi ptr [ %39, %35 ], [ %6, %21 ]
+  %.096 = phi ptr [ %37, %35 ], [ %6, %21 ]
   %.not108 = icmp ugt i32 %34, %27
   br i1 %.not108, label %74, label %41
 
@@ -116,32 +116,32 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %49 = ptrtoint ptr %45 to i64
   %50 = xor i64 %49, 1
   %51 = inttoptr i64 %50 to ptr
-  %.096.ph = select i1 %.not109, ptr %43, ptr %48
-  %.095.ph = select i1 %.not109, ptr %45, ptr %51
+  %.094.ph = select i1 %.not109, ptr %45, ptr %51
+  %.093.ph = select i1 %.not109, ptr %43, ptr %48
   %52 = ptrtoint ptr %11 to i64
   %53 = xor i64 %52, 1
   %54 = inttoptr i64 %53 to ptr
-  %55 = icmp eq ptr %.095.ph, %54
+  %55 = icmp eq ptr %.094.ph, %54
   br i1 %55, label %60, label %56
 
 56:                                               ; preds = %41
   %57 = getelementptr inbounds i8, ptr %0, i64 48
   %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %.095.ph, %58
+  %59 = icmp eq ptr %.094.ph, %58
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %56, %41
-  %61 = tail call ptr @cuddCofactorRecur(ptr noundef nonnull %0, ptr noundef %.094, ptr noundef %.096.ph)
+  %61 = tail call ptr @cuddCofactorRecur(ptr noundef nonnull %0, ptr noundef %.096, ptr noundef %.093.ph)
   br label %72
 
 62:                                               ; preds = %56
-  %63 = icmp eq ptr %.096.ph, %54
-  %64 = icmp eq ptr %.096.ph, %58
+  %63 = icmp eq ptr %.093.ph, %54
+  %64 = icmp eq ptr %.093.ph, %58
   %or.cond = or i1 %63, %64
   br i1 %or.cond, label %65, label %67
 
 65:                                               ; preds = %62
-  %66 = tail call ptr @cuddCofactorRecur(ptr noundef nonnull %0, ptr noundef %.093, ptr noundef %.095.ph)
+  %66 = tail call ptr @cuddCofactorRecur(ptr noundef nonnull %0, ptr noundef %.097, ptr noundef %.094.ph)
   br label %72
 
 67:                                               ; preds = %62
@@ -153,12 +153,12 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %119
 
 72:                                               ; preds = %65, %60
-  %.0 = phi ptr [ %61, %60 ], [ %66, %65 ]
-  %73 = icmp eq ptr %.0, null
+  %.095 = phi ptr [ %61, %60 ], [ %66, %65 ]
+  %73 = icmp eq ptr %.095, null
   br i1 %73, label %119, label %114
 
 74:                                               ; preds = %40
-  %75 = tail call ptr @cuddCofactorRecur(ptr noundef nonnull %0, ptr noundef %.094, ptr noundef %2)
+  %75 = tail call ptr @cuddCofactorRecur(ptr noundef nonnull %0, ptr noundef %.096, ptr noundef %2)
   %76 = icmp eq ptr %75, null
   br i1 %76, label %119, label %77
 
@@ -170,7 +170,7 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %82 = load i32, ptr %81, align 4
   %83 = add i32 %82, 1
   store i32 %83, ptr %81, align 4
-  %84 = tail call ptr @cuddCofactorRecur(ptr noundef nonnull %0, ptr noundef %.093, ptr noundef %2)
+  %84 = tail call ptr @cuddCofactorRecur(ptr noundef nonnull %0, ptr noundef %.097, ptr noundef %2)
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %87
 
@@ -233,7 +233,7 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %114
 
 114:                                              ; preds = %72, %.thread118
-  %.2 = phi ptr [ %.0, %72 ], [ %.1120, %.thread118 ]
+  %.2 = phi ptr [ %.095, %72 ], [ %.1120, %.thread118 ]
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_Cofactor, ptr noundef nonnull %6, ptr noundef %2, ptr noundef nonnull %.2) #5
   %115 = ptrtoint ptr %.2 to i64
   %116 = zext i1 %14 to i64
@@ -242,8 +242,8 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %119
 
 119:                                              ; preds = %74, %72, %9, %3, %114, %.thread116, %86, %67, %16
-  %.097 = phi ptr [ %20, %16 ], [ %118, %114 ], [ null, %67 ], [ null, %86 ], [ null, %.thread116 ], [ %1, %3 ], [ %1, %9 ], [ null, %72 ], [ null, %74 ]
-  ret ptr %.097
+  %.0 = phi ptr [ %20, %16 ], [ %118, %114 ], [ null, %67 ], [ null, %86 ], [ null, %.thread116 ], [ %1, %3 ], [ %1, %9 ], [ null, %72 ], [ null, %74 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

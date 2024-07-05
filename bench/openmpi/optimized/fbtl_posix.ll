@@ -89,8 +89,8 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
 
 18:                                               ; preds = %.lr.ph, %104
   %indvars.iv = phi i64 [ %17, %.lr.ph ], [ %indvars.iv.next, %104 ]
-  %.0152213 = phi i32 [ 0, %.lr.ph ], [ %.1, %104 ]
-  %.0153212 = phi i32 [ 0, %.lr.ph ], [ %.1154, %104 ]
+  %.0155212 = phi i32 [ 0, %.lr.ph ], [ %.1156, %104 ]
+  %.0157211 = phi i32 [ 0, %.lr.ph ], [ %.1158, %104 ]
   %19 = load ptr, ptr %10, align 8
   %20 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
@@ -218,7 +218,7 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
   %95 = load i32, ptr %16, align 4
   %96 = add nsw i32 %95, -1
   store i32 %96, ptr %16, align 4
-  %97 = add nsw i32 %.0153212, 1
+  %97 = add nsw i32 %.0157211, 1
   br label %104
 
 98:                                               ; preds = %23
@@ -230,12 +230,12 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
   br label %.loopexit171
 
 102:                                              ; preds = %18
-  %103 = add nsw i32 %.0153212, 1
+  %103 = add nsw i32 %.0157211, 1
   br label %104
 
 104:                                              ; preds = %23, %42, %102, %94, %87, %74
-  %.1154 = phi i32 [ %.0153212, %74 ], [ %.0153212, %87 ], [ %97, %94 ], [ %103, %102 ], [ %.0153212, %42 ], [ %.0153212, %23 ]
-  %.1 = phi i32 [ %70, %74 ], [ %83, %87 ], [ %.0152213, %94 ], [ %.0152213, %102 ], [ %.0152213, %42 ], [ %.0152213, %23 ]
+  %.1158 = phi i32 [ %.0157211, %74 ], [ %.0157211, %87 ], [ %97, %94 ], [ %103, %102 ], [ %.0157211, %42 ], [ %.0157211, %23 ]
+  %.1156 = phi i32 [ %70, %74 ], [ %83, %87 ], [ %.0155212, %94 ], [ %.0155212, %102 ], [ %.0155212, %42 ], [ %.0155212, %23 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %105 = load i32, ptr %6, align 4
   %106 = sext i32 %105 to i64
@@ -243,12 +243,12 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
   br i1 %107, label %18, label %.loopexit171, !llvm.loop !4
 
 .loopexit171:                                     ; preds = %104, %1, %98
-  %.0153196 = phi i32 [ %.0153212, %98 ], [ 0, %1 ], [ %.1154, %104 ]
-  %.0152190 = phi i32 [ %.0152213, %98 ], [ 0, %1 ], [ %.1, %104 ]
+  %.0157196 = phi i32 [ %.0157211, %98 ], [ 0, %1 ], [ %.1158, %104 ]
+  %.0155190 = phi i32 [ %.0155212, %98 ], [ 0, %1 ], [ %.1156, %104 ]
   %108 = phi i1 [ true, %98 ], [ false, %1 ], [ false, %104 ]
   %109 = getelementptr inbounds i8, ptr %3, i64 12
   %110 = load i32, ptr %109, align 4
-  %111 = icmp eq i32 %.0153196, %110
+  %111 = icmp eq i32 %.0157196, %110
   br i1 %111, label %112, label %.loopexit
 
 112:                                              ; preds = %.loopexit171
@@ -302,7 +302,7 @@ define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 
   br label %144
 
 144:                                              ; preds = %.sink.split, %115
-  %.2 = phi i32 [ %.0152190, %115 ], [ %143, %.sink.split ]
+  %.2 = phi i32 [ %.0155190, %115 ], [ %143, %.sink.split ]
   %145 = icmp sgt i32 %.2, 0
   br i1 %145, label %146, label %148
 

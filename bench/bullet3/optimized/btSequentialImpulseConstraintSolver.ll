@@ -3274,12 +3274,12 @@ cond.true185:                                     ; preds = %if.end174
   br label %cond.end190
 
 cond.end190:                                      ; preds = %if.end174, %cond.true185
-  %externalForceImpulseA.sroa.0.0489 = phi float [ %externalForceImpulseA.sroa.0.0.copyload, %cond.true185 ], [ 0.000000e+00, %if.end174 ]
+  %externalForceImpulseA.sroa.5.0489 = phi float [ %externalForceImpulseA.sroa.5.0.copyload, %cond.true185 ], [ 0.000000e+00, %if.end174 ]
   %externalForceImpulseA.sroa.3.0487 = phi float [ %externalForceImpulseA.sroa.3.0.copyload, %cond.true185 ], [ 0.000000e+00, %if.end174 ]
-  %externalForceImpulseA.sroa.5.0485 = phi float [ %externalForceImpulseA.sroa.5.0.copyload, %cond.true185 ], [ 0.000000e+00, %if.end174 ]
-  %externalTorqueImpulseA.sroa.5.0 = phi float [ %externalTorqueImpulseA.sroa.5.0.copyload, %cond.true185 ], [ 0.000000e+00, %if.end174 ]
-  %externalTorqueImpulseA.sroa.3.0 = phi float [ %externalTorqueImpulseA.sroa.3.0.copyload, %cond.true185 ], [ 0.000000e+00, %if.end174 ]
+  %externalForceImpulseA.sroa.0.0485 = phi float [ %externalForceImpulseA.sroa.0.0.copyload, %cond.true185 ], [ 0.000000e+00, %if.end174 ]
   %externalTorqueImpulseA.sroa.0.0 = phi float [ %externalTorqueImpulseA.sroa.0.0.copyload, %cond.true185 ], [ 0.000000e+00, %if.end174 ]
+  %externalTorqueImpulseA.sroa.3.0 = phi float [ %externalTorqueImpulseA.sroa.3.0.copyload, %cond.true185 ], [ 0.000000e+00, %if.end174 ]
+  %externalTorqueImpulseA.sroa.5.0 = phi float [ %externalTorqueImpulseA.sroa.5.0.copyload, %cond.true185 ], [ 0.000000e+00, %if.end174 ]
   %245 = load ptr, ptr %m_originalBody4, align 8
   %tobool192.not = icmp eq ptr %245, null
   br i1 %tobool192.not, label %cond.end208, label %cond.true202
@@ -3326,13 +3326,13 @@ cond.end208:                                      ; preds = %cond.end190, %cond.
   %m_contactNormal1209 = getelementptr inbounds i8, ptr %solverConstraint, i64 16
   %m_linearVelocity = getelementptr inbounds i8, ptr %arrayidx.i, i64 176
   %252 = load float, ptr %m_linearVelocity, align 4
-  %add.i = fadd float %externalForceImpulseA.sroa.0.0489, %252
+  %add.i = fadd float %externalForceImpulseA.sroa.0.0485, %252
   %arrayidx5.i405 = getelementptr inbounds i8, ptr %arrayidx.i, i64 180
   %253 = load float, ptr %arrayidx5.i405, align 4
   %add8.i = fadd float %externalForceImpulseA.sroa.3.0487, %253
   %arrayidx11.i407 = getelementptr inbounds i8, ptr %arrayidx.i, i64 184
   %254 = load float, ptr %arrayidx11.i407, align 4
-  %add14.i = fadd float %externalForceImpulseA.sroa.5.0485, %254
+  %add14.i = fadd float %externalForceImpulseA.sroa.5.0489, %254
   %255 = load float, ptr %m_contactNormal1209, align 8
   %arrayidx5.i414 = getelementptr inbounds i8, ptr %solverConstraint, i64 20
   %256 = load float, ptr %arrayidx5.i414, align 4

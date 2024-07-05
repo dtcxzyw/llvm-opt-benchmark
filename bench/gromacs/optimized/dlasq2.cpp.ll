@@ -109,10 +109,10 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 64:                                               ; preds = %59, %53
   %.pn577 = phi double [ %58, %53 ], [ %63, %59 ]
   %.pn = fdiv double %27, %.pn577
-  %.0533 = fmul double %39, %.pn
+  %.0539 = fmul double %39, %.pn
   %65 = load double, ptr %1, align 8
   %66 = load double, ptr %26, align 8
-  %67 = fadd double %.0533, %66
+  %67 = fadd double %.0539, %66
   %68 = fadd double %65, %67
   %69 = fdiv double %65, %68
   %70 = load double, ptr %30, align 8
@@ -143,8 +143,8 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 
 .lr.ph:                                           ; preds = %77, %98
   %indvars.iv = phi i64 [ %indvars.iv.next, %98 ], [ 1, %77 ]
-  %.0540591 = phi double [ %100, %98 ], [ 0.000000e+00, %77 ]
-  %.0542590 = phi double [ %99, %98 ], [ 0.000000e+00, %77 ]
+  %.0594 = phi double [ %99, %98 ], [ 0.000000e+00, %77 ]
+  %.0517593 = phi double [ %100, %98 ], [ 0.000000e+00, %77 ]
   %84 = phi double [ %102, %98 ], [ 0.000000e+00, %77 ]
   %85 = getelementptr inbounds double, ptr %16, i64 %indvars.iv
   %86 = load double, ptr %85, align 8
@@ -170,8 +170,8 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %490
 
 98:                                               ; preds = %91
-  %99 = fadd double %.0542590, %86
-  %100 = fadd double %.0540591, %93
+  %99 = fadd double %.0594, %86
+  %100 = fadd double %.0517593, %93
   %101 = fcmp ogt double %84, %86
   %102 = select i1 %101, double %84, double %86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
@@ -181,8 +181,8 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 
 ._crit_edge:                                      ; preds = %98, %77
   %104 = phi double [ 0.000000e+00, %77 ], [ %102, %98 ]
-  %.0542.lcssa = phi double [ 0.000000e+00, %77 ], [ %99, %98 ]
-  %.0540.lcssa = phi double [ 0.000000e+00, %77 ], [ %100, %98 ]
+  %.0517.lcssa = phi double [ 0.000000e+00, %77 ], [ %100, %98 ]
+  %.0.lcssa = phi double [ 0.000000e+00, %77 ], [ %99, %98 ]
   %105 = sext i32 %82 to i64
   %106 = getelementptr double, ptr %16, i64 %105
   %107 = getelementptr i8, ptr %106, i64 -8
@@ -196,11 +196,11 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %490
 
 112:                                              ; preds = %._crit_edge
-  %113 = fadd double %.0542.lcssa, %108
+  %113 = fadd double %.0.lcssa, %108
   %114 = fcmp ogt double %104, %108
   %115 = select i1 %114, double %104, double %108
   store double %115, ptr %11, align 8
-  %116 = tail call noundef double @llvm.fabs.f64(double %.0540.lcssa)
+  %116 = tail call noundef double @llvm.fabs.f64(double %.0517.lcssa)
   %117 = fcmp olt double %116, 0x10000000000000
   br i1 %117, label %.preheader, label %128
 
@@ -238,7 +238,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %490
 
 128:                                              ; preds = %112
-  %129 = fadd double %.0540.lcssa, %113
+  %129 = fadd double %.0517.lcssa, %113
   %130 = tail call noundef double @llvm.fabs.f64(double %129)
   %131 = fcmp olt double %130, 0x10000000000000
   br i1 %131, label %132, label %133
@@ -336,7 +336,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %172
 
 172:                                              ; preds = %.loopexit582, %._crit_edge623
-  %.3537633 = phi i32 [ 1, %.loopexit582 ], [ %248, %._crit_edge623 ]
+  %.3536633 = phi i32 [ 1, %.loopexit582 ], [ %248, %._crit_edge623 ]
   %173 = phi i32 [ 0, %.loopexit582 ], [ %247, %._crit_edge623 ]
   %174 = add nuw nsw i32 %173, 4
   %175 = add i32 %171, %173
@@ -359,11 +359,11 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 
 .lr.ph608:                                        ; preds = %.lr.ph608.preheader, %196
   %indvars.iv725 = phi i64 [ %180, %.lr.ph608.preheader ], [ %indvars.iv.next726, %196 ]
-  %.1543605 = phi double [ %179, %.lr.ph608.preheader ], [ %.2544, %196 ]
+  %.1606 = phi double [ %179, %.lr.ph608.preheader ], [ %.2, %196 ]
   %182 = getelementptr double, ptr %16, i64 %indvars.iv725
   %183 = getelementptr i8, ptr %182, i64 -8
   %184 = load double, ptr %183, align 8
-  %185 = fmul double %.1543605, 0x3A43880000000000
+  %185 = fmul double %.1606, 0x3A43880000000000
   %186 = fcmp ugt double %184, %185
   br i1 %186, label %190, label %187
 
@@ -376,13 +376,13 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 190:                                              ; preds = %.lr.ph608
   %191 = getelementptr i8, ptr %182, i64 -24
   %192 = load double, ptr %191, align 8
-  %193 = fadd double %.1543605, %184
-  %194 = fdiv double %.1543605, %193
+  %193 = fadd double %.1606, %184
+  %194 = fdiv double %.1606, %193
   %195 = fmul double %194, %192
   br label %196
 
 196:                                              ; preds = %187, %190
-  %.2544 = phi double [ %189, %187 ], [ %195, %190 ]
+  %.2 = phi double [ %189, %187 ], [ %195, %190 ]
   %indvars.iv.next726 = add nsw i64 %indvars.iv725, -4
   %.not573 = icmp slt i64 %indvars.iv.next726, %181
   br i1 %.not573, label %._crit_edge609, label %.lr.ph608, !llvm.loop !9
@@ -400,23 +400,23 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 
 201:                                              ; preds = %.lr.ph615, %232
   %indvars.iv728 = phi i64 [ %181, %.lr.ph615 ], [ %indvars.iv.next729, %232 ]
-  %.3545611 = phi double [ %197, %.lr.ph615 ], [ %.4546, %232 ]
+  %.3613 = phi double [ %197, %.lr.ph615 ], [ %.4, %232 ]
   %202 = getelementptr double, ptr %16, i64 %indvars.iv728
   %203 = getelementptr i8, ptr %202, i64 -8
   %204 = load double, ptr %203, align 8
-  %205 = fadd double %.3545611, %204
+  %205 = fadd double %.3613, %204
   %206 = sub nsw i64 %indvars.iv728, %199
   %207 = getelementptr double, ptr %16, i64 %206
   %208 = getelementptr i8, ptr %207, i64 -16
   store double %205, ptr %208, align 8
   %209 = load double, ptr %203, align 8
-  %210 = fmul double %.3545611, 0x3A43880000000000
+  %210 = fmul double %.3613, 0x3A43880000000000
   %211 = fcmp ugt double %209, %210
   br i1 %211, label %215, label %212
 
 212:                                              ; preds = %201
   store double -0.000000e+00, ptr %203, align 8
-  store double %.3545611, ptr %208, align 8
+  store double %.3613, ptr %208, align 8
   store double 0.000000e+00, ptr %207, align 8
   %213 = getelementptr i8, ptr %202, i64 8
   %214 = load double, ptr %213, align 8
@@ -436,7 +436,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %223 = fdiv double %217, %205
   %224 = fmul double %209, %223
   store double %224, ptr %207, align 8
-  %225 = fmul double %.3545611, %223
+  %225 = fmul double %.3613, %223
   br label %232
 
 226:                                              ; preds = %215
@@ -444,22 +444,22 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %228 = fmul double %227, %217
   store double %228, ptr %207, align 8
   %229 = load double, ptr %216, align 8
-  %230 = fdiv double %.3545611, %205
+  %230 = fdiv double %.3613, %205
   %231 = fmul double %230, %229
   br label %232
 
 232:                                              ; preds = %222, %226, %212
-  %.4546 = phi double [ %214, %212 ], [ %225, %222 ], [ %231, %226 ]
+  %.4 = phi double [ %214, %212 ], [ %225, %222 ], [ %231, %226 ]
   %indvars.iv.next729 = add nuw nsw i64 %indvars.iv728, 4
   %.not574 = icmp sgt i64 %indvars.iv.next729, %200
   br i1 %.not574, label %._crit_edge616, label %201, !llvm.loop !10
 
 ._crit_edge616:                                   ; preds = %232, %._crit_edge609.thread, %._crit_edge609
-  %.3545.lcssa = phi double [ %197, %._crit_edge609 ], [ %176, %._crit_edge609.thread ], [ %.4546, %232 ]
+  %.3.lcssa = phi double [ %197, %._crit_edge609 ], [ %176, %._crit_edge609.thread ], [ %.4, %232 ]
   %233 = sub nsw i32 %148, %173
   %234 = sext i32 %233 to i64
   %gep625 = getelementptr double, ptr %invariant.gep624, i64 %234
-  store double %.3545.lcssa, ptr %gep625, align 8
+  store double %.3.lcssa, ptr %gep625, align 8
   %235 = sub nuw nsw i32 4, %173
   %236 = zext nneg i32 %235 to i64
   %gep627 = getelementptr double, ptr %invariant.gep624, i64 %236
@@ -488,7 +488,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 ._crit_edge623:                                   ; preds = %.lr.ph622, %._crit_edge616
   %.lcssa632 = phi double [ %237, %._crit_edge616 ], [ %246, %.lr.ph622 ]
   %247 = sub nuw nsw i32 1, %173
-  %248 = add nuw nsw i32 %.3537633, 1
+  %248 = add nuw nsw i32 %.3536633, 1
   %exitcond.not = icmp eq i32 %248, 3
   br i1 %exitcond.not, label %249, label %172, !llvm.loop !12
 
@@ -512,7 +512,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 
 .lr.ph690:                                        ; preds = %.lr.ph690.preheader, %438
   %254 = phi i32 [ %362, %438 ], [ %145, %.lr.ph690.preheader ]
-  %.0512688 = phi i32 [ %439, %438 ], [ 1, %.lr.ph690.preheader ]
+  %.0514688 = phi i32 [ %439, %438 ], [ 1, %.lr.ph690.preheader ]
   %255 = icmp slt i32 %254, 1
   br i1 %255, label %440, label %256
 
@@ -555,8 +555,8 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 
 .lr.ph640:                                        ; preds = %.lr.ph640.preheader, %284
   %indvars.iv734 = phi i64 [ %268, %.lr.ph640.preheader ], [ %indvars.iv.next735, %284 ]
-  %.0518638 = phi double [ %266, %.lr.ph640.preheader ], [ %.1519, %284 ]
-  %.0522637 = phi double [ 0.000000e+00, %.lr.ph640.preheader ], [ %.1523, %284 ]
+  %.0522638 = phi double [ %266, %.lr.ph640.preheader ], [ %.1523, %284 ]
+  %.0526637 = phi double [ 0.000000e+00, %.lr.ph640.preheader ], [ %.1527, %284 ]
   %269 = phi double [ %266, %.lr.ph640.preheader ], [ %289, %284 ]
   %270 = getelementptr double, ptr %16, i64 %indvars.iv734
   %271 = getelementptr i8, ptr %270, i64 -40
@@ -565,22 +565,22 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br i1 %273, label %274, label %._crit_edge641.loopexit.split.loop.exit784
 
 274:                                              ; preds = %.lr.ph640
-  %275 = fmul double %.0522637, 4.000000e+00
-  %276 = fcmp ult double %.0518638, %275
+  %275 = fmul double %.0526637, 4.000000e+00
+  %276 = fcmp ult double %.0522638, %275
   br i1 %276, label %284, label %277
 
 277:                                              ; preds = %274
   %278 = getelementptr i8, ptr %270, i64 -24
   %279 = load double, ptr %278, align 8
-  %280 = fcmp olt double %.0518638, %279
-  %281 = select i1 %280, double %.0518638, double %279
-  %282 = fcmp ogt double %.0522637, %272
-  %283 = select i1 %282, double %.0522637, double %272
+  %280 = fcmp olt double %.0522638, %279
+  %281 = select i1 %280, double %.0522638, double %279
+  %282 = fcmp ogt double %.0526637, %272
+  %283 = select i1 %282, double %.0526637, double %272
   br label %284
 
 284:                                              ; preds = %277, %274
-  %.1523 = phi double [ %283, %277 ], [ %.0522637, %274 ]
-  %.1519 = phi double [ %281, %277 ], [ %.0518638, %274 ]
+  %.1527 = phi double [ %283, %277 ], [ %.0526637, %274 ]
+  %.1523 = phi double [ %281, %277 ], [ %.0522638, %274 ]
   %285 = getelementptr i8, ptr %270, i64 -56
   %286 = load double, ptr %285, align 8
   %287 = fadd double %272, %286
@@ -596,10 +596,10 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %._crit_edge641
 
 ._crit_edge641:                                   ; preds = %284, %._crit_edge641.loopexit.split.loop.exit784, %._crit_edge762
-  %.0522.lcssa = phi double [ 0.000000e+00, %._crit_edge762 ], [ %.0522637, %._crit_edge641.loopexit.split.loop.exit784 ], [ %.1523, %284 ]
-  %.0518.lcssa = phi double [ %266, %._crit_edge762 ], [ %.0518638, %._crit_edge641.loopexit.split.loop.exit784 ], [ %.1519, %284 ]
-  %.5532 = phi i32 [ 4, %._crit_edge762 ], [ %291, %._crit_edge641.loopexit.split.loop.exit784 ], [ 4, %284 ]
-  %292 = lshr i32 %.5532, 2
+  %.0526.lcssa = phi double [ 0.000000e+00, %._crit_edge762 ], [ %.0526637, %._crit_edge641.loopexit.split.loop.exit784 ], [ %.1527, %284 ]
+  %.0522.lcssa = phi double [ %266, %._crit_edge762 ], [ %.0522638, %._crit_edge641.loopexit.split.loop.exit784 ], [ %.1523, %284 ]
+  %.5545 = phi i32 [ 4, %._crit_edge762 ], [ %291, %._crit_edge641.loopexit.split.loop.exit784 ], [ 4, %284 ]
+  %292 = lshr i32 %.5545, 2
   store i32 %292, ptr %4, align 4
   store i32 0, ptr %6, align 4
   %293 = sub nsw i32 %254, %292
@@ -607,7 +607,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br i1 %294, label %295, label %.loopexit
 
 295:                                              ; preds = %._crit_edge641
-  %296 = and i32 %.5532, 2147483644
+  %296 = and i32 %.5545, 2147483644
   %297 = zext nneg i32 %296 to i64
   %gep789 = getelementptr double, ptr %invariant.gep788, i64 %297
   %298 = load double, ptr %gep789, align 8
@@ -616,7 +616,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 
 .lr.ph655.preheader:                              ; preds = %295
   %299 = add nsw i32 %.pre-phi766, -3
-  %300 = and i32 %.5532, 2147483644
+  %300 = and i32 %.5545, 2147483644
   %301 = zext nneg i32 %300 to i64
   %302 = add nsw i64 %301, -3
   %303 = sext i32 %299 to i64
@@ -624,39 +624,39 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 
 .lr.ph655:                                        ; preds = %.lr.ph655.preheader, %.lr.ph655
   %indvars.iv737 = phi i64 [ %302, %.lr.ph655.preheader ], [ %indvars.iv.next738, %.lr.ph655 ]
-  %.0513653 = phi double [ %298, %.lr.ph655.preheader ], [ %.1514, %.lr.ph655 ]
-  %.0520652 = phi i32 [ %292, %.lr.ph655.preheader ], [ %.1521, %.lr.ph655 ]
-  %.0526651 = phi double [ %298, %.lr.ph655.preheader ], [ %310, %.lr.ph655 ]
+  %.0515653 = phi double [ %298, %.lr.ph655.preheader ], [ %.1516, %.lr.ph655 ]
+  %.0524652 = phi i32 [ %292, %.lr.ph655.preheader ], [ %.1525, %.lr.ph655 ]
+  %.0546650 = phi double [ %298, %.lr.ph655.preheader ], [ %310, %.lr.ph655 ]
   %304 = getelementptr inbounds double, ptr %16, i64 %indvars.iv737
   %305 = load double, ptr %304, align 8
   %306 = getelementptr i8, ptr %304, i64 -16
   %307 = load double, ptr %306, align 8
-  %308 = fadd double %.0526651, %307
-  %309 = fdiv double %.0526651, %308
+  %308 = fadd double %.0546650, %307
+  %309 = fdiv double %.0546650, %308
   %310 = fmul double %305, %309
-  %311 = fcmp ugt double %310, %.0513653
+  %311 = fcmp ugt double %310, %.0515653
   %312 = add nsw i64 %indvars.iv737, 3
   %313 = lshr i64 %312, 2
   %314 = trunc nuw nsw i64 %313 to i32
-  %.1521 = select i1 %311, i32 %.0520652, i32 %314
-  %.1514 = select i1 %311, double %.0513653, double %310
+  %.1525 = select i1 %311, i32 %.0524652, i32 %314
+  %.1516 = select i1 %311, double %.0515653, double %310
   %indvars.iv.next738 = add nsw i64 %indvars.iv737, 4
   %.not568 = icmp sgt i64 %indvars.iv.next738, %303
   br i1 %.not568, label %._crit_edge656.loopexit, label %.lr.ph655, !llvm.loop !14
 
 ._crit_edge656.loopexit:                          ; preds = %.lr.ph655
-  %.pre761 = sub nsw i32 %254, %.1521
+  %.pre761 = sub nsw i32 %254, %.1525
   br label %._crit_edge656
 
 ._crit_edge656:                                   ; preds = %._crit_edge656.loopexit, %295
   %.pre-phi = phi i32 [ %.pre761, %._crit_edge656.loopexit ], [ %293, %295 ]
-  %.0520.lcssa = phi i32 [ %.1521, %._crit_edge656.loopexit ], [ %292, %295 ]
-  %.0513.lcssa = phi double [ %.1514, %._crit_edge656.loopexit ], [ %298, %295 ]
-  %315 = sub nsw i32 %.0520.lcssa, %292
+  %.0524.lcssa = phi i32 [ %.1525, %._crit_edge656.loopexit ], [ %292, %295 ]
+  %.0515.lcssa = phi double [ %.1516, %._crit_edge656.loopexit ], [ %298, %295 ]
+  %315 = sub nsw i32 %.0524.lcssa, %292
   %316 = shl nsw i32 %315, 1
   %317 = icmp sge i32 %316, %.pre-phi
   %318 = fmul double %266, 5.000000e-01
-  %319 = fcmp ugt double %.0513.lcssa, %318
+  %319 = fcmp ugt double %.0515.lcssa, %318
   %or.cond581 = select i1 %317, i1 true, i1 %319
   br i1 %or.cond581, label %.loopexit, label %320
 
@@ -670,7 +670,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 
 .lr.ph662.preheader:                              ; preds = %320
   %324 = shl nsw i32 %321, 2
-  %325 = and i32 %.5532, 2147483644
+  %325 = and i32 %.5545, 2147483644
   %326 = zext nneg i32 %325 to i64
   %327 = zext nneg i32 %324 to i64
   %328 = sext i32 %323 to i64
@@ -709,10 +709,10 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br i1 %.not569, label %.loopexit, label %.lr.ph662, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph662, %320, %._crit_edge656, %._crit_edge641
-  %347 = call double @sqrt(double noundef %.0518.lcssa) #4
-  %348 = call double @sqrt(double noundef %.0522.lcssa) #4
+  %347 = call double @sqrt(double noundef %.0522.lcssa) #4
+  %348 = call double @sqrt(double noundef %.0526.lcssa) #4
   %349 = fmul double %347, -2.000000e+00
-  %350 = call double @llvm.fmuladd.f64(double %349, double %348, double %.0518.lcssa)
+  %350 = call double @llvm.fmuladd.f64(double %349, double %348, double %.0522.lcssa)
   %351 = fcmp olt double %350, 0.000000e+00
   %.neg = fneg double %350
   %352 = select i1 %351, double -0.000000e+00, double %.neg
@@ -733,7 +733,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %.lr.ph678
 
 .lr.ph678:                                        ; preds = %.lr.ph678.preheader, %436
-  %.0511676 = phi i32 [ %437, %436 ], [ 1, %.lr.ph678.preheader ]
+  %.0513676 = phi i32 [ %437, %436 ], [ 1, %.lr.ph678.preheader ]
   %361 = load i32, ptr %4, align 4
   %362 = load i32, ptr %5, align 4
   %363 = icmp sgt i32 %361, %362
@@ -795,7 +795,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 
 401:                                              ; preds = %.lr.ph670, %430
   %indvars.iv744 = phi i64 [ %390, %.lr.ph670 ], [ %indvars.iv.next745, %430 ]
-  %.0515667 = phi i32 [ %388, %.lr.ph670 ], [ %.1516, %430 ]
+  %.0519667 = phi i32 [ %388, %.lr.ph670 ], [ %.1520, %430 ]
   %402 = phi double [ %393, %.lr.ph670 ], [ %431, %430 ]
   %403 = phi <2 x double> [ %395, %.lr.ph670 ], [ %432, %430 ]
   %404 = getelementptr inbounds double, ptr %16, i64 %indvars.iv744
@@ -837,23 +837,23 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 
 430:                                              ; preds = %414, %421
   %431 = phi double [ 0.000000e+00, %414 ], [ %425, %421 ]
-  %.1516 = phi i32 [ %417, %414 ], [ %.0515667, %421 ]
+  %.1520 = phi i32 [ %417, %414 ], [ %.0519667, %421 ]
   %432 = phi <2 x double> [ %420, %414 ], [ %429, %421 ]
   %indvars.iv.next745 = add nsw i64 %indvars.iv744, 4
   %.not571 = icmp sgt i64 %indvars.iv.next745, %400
   br i1 %.not571, label %._crit_edge671, label %401, !llvm.loop !16
 
 ._crit_edge671:                                   ; preds = %430, %387
-  %.0515.lcssa = phi i32 [ %388, %387 ], [ %.1516, %430 ]
+  %.0519.lcssa = phi i32 [ %388, %387 ], [ %.1520, %430 ]
   %433 = phi <2 x double> [ %395, %387 ], [ %432, %430 ]
   %434 = getelementptr i8, ptr %376, i64 -8
   store <2 x double> %433, ptr %434, align 8
-  %435 = add nsw i32 %.0515.lcssa, 1
+  %435 = add nsw i32 %.0519.lcssa, 1
   store i32 %435, ptr %4, align 4
   br label %436
 
 436:                                              ; preds = %364, %368, %._crit_edge671, %381
-  %437 = add nuw nsw i32 %.0511676, 1
+  %437 = add nuw nsw i32 %.0513676, 1
   %exitcond747.not = icmp eq i32 %437, %360
   br i1 %exitcond747.not, label %._crit_edge679, label %.lr.ph678, !llvm.loop !17
 
@@ -862,8 +862,8 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %490
 
 438:                                              ; preds = %.lr.ph678
-  %439 = add nuw i32 %.0512688, 1
-  %exitcond748 = icmp eq i32 %.0512688, %253
+  %439 = add nuw i32 %.0514688, 1
+  %exitcond748 = icmp eq i32 %.0514688, %253
   br i1 %exitcond748, label %._crit_edge691, label %.lr.ph690, !llvm.loop !18
 
 ._crit_edge691:                                   ; preds = %438, %249
@@ -905,16 +905,16 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 
 .lr.ph702:                                        ; preds = %.lr.ph702.preheader, %.lr.ph702
   %indvars.iv753 = phi i64 [ %450, %.lr.ph702.preheader ], [ %indvars.iv.next754, %.lr.ph702 ]
-  %.1541699 = phi double [ 0.000000e+00, %.lr.ph702.preheader ], [ %453, %.lr.ph702 ]
+  %.1518700 = phi double [ 0.000000e+00, %.lr.ph702.preheader ], [ %453, %.lr.ph702 ]
   %451 = getelementptr inbounds double, ptr %16, i64 %indvars.iv753
   %452 = load double, ptr %451, align 8
-  %453 = fadd double %.1541699, %452
+  %453 = fadd double %.1518700, %452
   %indvars.iv.next754 = add nsw i64 %indvars.iv753, -1
   %454 = icmp ugt i64 %indvars.iv753, 1
   br i1 %454, label %.lr.ph702, label %._crit_edge703, !llvm.loop !20
 
 ._crit_edge703:                                   ; preds = %.lr.ph702, %._crit_edge698
-  %.1541.lcssa = phi double [ 0.000000e+00, %._crit_edge698 ], [ %453, %.lr.ph702 ]
+  %.1518.lcssa = phi double [ 0.000000e+00, %._crit_edge698 ], [ %453, %.lr.ph702 ]
   %455 = shl i32 %448, 1
   %456 = or disjoint i32 %455, 1
   %457 = sext i32 %456 to i64
@@ -925,7 +925,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %461 = sext i32 %460 to i64
   %462 = getelementptr double, ptr %16, i64 %461
   %463 = getelementptr i8, ptr %462, i64 16
-  store double %.1541.lcssa, ptr %463, align 8
+  store double %.1518.lcssa, ptr %463, align 8
   %464 = load i32, ptr %10, align 4
   %465 = sitofp i32 %464 to double
   %466 = load i32, ptr %0, align 4

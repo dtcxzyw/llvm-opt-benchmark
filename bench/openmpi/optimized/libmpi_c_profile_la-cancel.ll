@@ -92,8 +92,8 @@ ompi_request_cancel.exit:                         ; preds = %18
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 0, %.preheader.i ]
   %30 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 88), align 8
   %31 = sext i32 %30 to i64
-  %.not.i15 = icmp slt i64 %indvars.iv.i, %31
-  br i1 %.not.i15, label %32, label %opal_pointer_array_get_item.exit.i
+  %.not.i16 = icmp slt i64 %indvars.iv.i, %31
+  br i1 %.not.i16, label %32, label %opal_pointer_array_get_item.exit.i
 
 32:                                               ; preds = %.lr.ph.i
   %33 = load i8, ptr @opal_uses_threads, align 1
@@ -130,12 +130,12 @@ opal_pointer_array_get_item.exit.i:               ; preds = %43, %37, %.lr.ph.i
   br label %ompi_request_cancel.exit.thread.sink.split
 
 ompi_request_cancel.exit.thread.sink.split:       ; preds = %26, %48, %.preheader.i, %22, %9, %11
-  %.010.i.sink = phi i32 [ 7, %11 ], [ 7, %9 ], [ %21, %22 ], [ %50, %48 ], [ 14, %.preheader.i ], [ 14, %26 ]
-  %51 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.010.i.sink, ptr noundef nonnull @FUNC_NAME) #3
+  %.0.i15.sink = phi i32 [ 7, %11 ], [ 7, %9 ], [ %21, %22 ], [ %50, %48 ], [ 14, %.preheader.i ], [ 14, %26 ]
+  %51 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.0.i15.sink, ptr noundef nonnull @FUNC_NAME) #3
   br label %ompi_request_cancel.exit.thread
 
 ompi_request_cancel.exit.thread:                  ; preds = %ompi_request_cancel.exit.thread.sink.split, %18, %ompi_request_cancel.exit, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %ompi_request_cancel.exit ], [ 0, %18 ], [ %.010.i.sink, %ompi_request_cancel.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %ompi_request_cancel.exit ], [ 0, %18 ], [ %.0.i15.sink, %ompi_request_cancel.exit.thread.sink.split ]
   ret i32 %.0
 }
 

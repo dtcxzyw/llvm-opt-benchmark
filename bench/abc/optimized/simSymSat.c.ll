@@ -450,11 +450,11 @@ Abc_Clock.exit45.i:                               ; preds = %175, %Abc_Clock.exi
   br label %Sim_SymmsSatProveOne.exit
 
 Sim_SymmsSatProveOne.exit:                        ; preds = %Abc_Clock.exit45.i, %._crit_edge.i, %220
-  %.037.i = phi i32 [ 0, %._crit_edge.i ], [ 0, %220 ], [ %184, %Abc_Clock.exit45.i ]
+  %.0.i = phi i32 [ 0, %._crit_edge.i ], [ 0, %220 ], [ %184, %Abc_Clock.exit45.i ]
   call void @Fraig_ManFree(ptr noundef %156) #7
   call void @Abc_NtkDelete(ptr noundef %150) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
-  %.not120 = icmp eq i32 %.037.i, 0
+  %.not120 = icmp eq i32 %.0.i, 0
   br i1 %.not120, label %254, label %224
 
 224:                                              ; preds = %Sim_SymmsSatProveOne.exit
@@ -616,8 +616,8 @@ Sim_SymmsSatProveOne.exit:                        ; preds = %Abc_Clock.exit45.i,
   br label %294
 
 294:                                              ; preds = %._crit_edge, %.critedge10
-  %.0117 = phi i32 [ 1, %.critedge10 ], [ 0, %._crit_edge ]
-  ret i32 %.0117
+  %.0111 = phi i32 [ 1, %.critedge10 ], [ 0, %._crit_edge ]
+  ret i32 %.0111
 }
 
 declare i32 @Extra_BitMatrixLookup1(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

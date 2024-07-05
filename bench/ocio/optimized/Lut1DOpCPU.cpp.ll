@@ -4388,37 +4388,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i8, ptr %in.015, align 1
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i8, ptr %in.016, align 1
   %idxprom.i = zext i8 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
-  store i8 %3, ptr %out.016, align 1
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 1
+  store i8 %3, ptr %out.015, align 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 1
   %arrayidx3.val = load i8, ptr %arrayidx3, align 1
   %idxprom.i10 = zext i8 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i8, ptr %1, i64 %idxprom.i10
   %4 = load i8, ptr %arrayidx.i11, align 1
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 1
   store i8 %4, ptr %arrayidx5, align 1
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx6.val = load i8, ptr %arrayidx6, align 1
   %idxprom.i12 = zext i8 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i8, ptr %2, i64 %idxprom.i12
   %5 = load i8, ptr %arrayidx.i13, align 1
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i8 %5, ptr %arrayidx8, align 1
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 3
   %6 = load i8, ptr %arrayidx9, align 1
   %conv10 = uitofp i8 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i8
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 3
   store i8 %conv11, ptr %arrayidx12, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 4
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 4
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 4
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !167
@@ -7345,17 +7345,17 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load i8, ptr %in.023, align 1
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load i8, ptr %in.025, align 1
   %conv = uitofp i8 %3 to float
   store float %conv, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.023, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.025, i64 1
   %4 = load i8, ptr %arrayidx2, align 1
   %conv3 = uitofp i8 %4 to float
   store float %conv3, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 2
   %5 = load i8, ptr %arrayidx5, align 1
   %conv6 = uitofp i8 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 4
@@ -7430,7 +7430,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %20 to i8
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 2
   store i8 %conv40, ptr %arrayidx41, align 1
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 3
   %21 = load i8, ptr %arrayidx42, align 1
   %conv44 = uitofp i8 %21 to float
   %22 = load float, ptr %m_alphaScaling, align 8
@@ -7438,9 +7438,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i8
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 3
   store i8 %conv45, ptr %arrayidx46, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 4
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 4
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !173
 
@@ -7623,37 +7623,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i8, ptr %in.015, align 1
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i8, ptr %in.016, align 1
   %idxprom.i = zext i8 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
-  store i8 %3, ptr %out.016, align 1
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 1
+  store i8 %3, ptr %out.015, align 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 1
   %arrayidx3.val = load i8, ptr %arrayidx3, align 1
   %idxprom.i10 = zext i8 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i8, ptr %1, i64 %idxprom.i10
   %4 = load i8, ptr %arrayidx.i11, align 1
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 1
   store i8 %4, ptr %arrayidx5, align 1
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx6.val = load i8, ptr %arrayidx6, align 1
   %idxprom.i12 = zext i8 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i8, ptr %2, i64 %idxprom.i12
   %5 = load i8, ptr %arrayidx.i13, align 1
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i8 %5, ptr %arrayidx8, align 1
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 3
   %6 = load i8, ptr %arrayidx9, align 1
   %conv10 = uitofp i8 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i8
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 3
   store i8 %conv11, ptr %arrayidx12, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 4
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 4
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 4
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !174
@@ -7762,17 +7762,17 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load i8, ptr %in.023, align 1
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load i8, ptr %in.025, align 1
   %conv = uitofp i8 %3 to float
   store float %conv, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.023, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.025, i64 1
   %4 = load i8, ptr %arrayidx2, align 1
   %conv3 = uitofp i8 %4 to float
   store float %conv3, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 2
   %5 = load i8, ptr %arrayidx5, align 1
   %conv6 = uitofp i8 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 4
@@ -7847,7 +7847,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %20 to i8
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 2
   store i8 %conv40, ptr %arrayidx41, align 1
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 3
   %21 = load i8, ptr %arrayidx42, align 1
   %conv44 = uitofp i8 %21 to float
   %22 = load float, ptr %m_alphaScaling, align 8
@@ -7855,9 +7855,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i8
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 3
   store i8 %conv45, ptr %arrayidx46, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 4
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 4
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !175
 
@@ -9032,17 +9032,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -9104,22 +9104,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -9177,22 +9177,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -9757,17 +9757,17 @@ entry:
   br i1 %cmp11.i.i, label %while.body.i.i, label %_ZSt11lower_boundIPKffET_S2_S2_RKT0_.exit
 
 while.body.i.i:                                   ; preds = %entry, %while.body.i.i
-  %__len.013.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i, %entry ]
-  %__first.addr.012.i.i = phi ptr [ %__first.addr.1.i.i, %while.body.i.i ], [ %start, %entry ]
-  %shr.i.i = lshr i64 %__len.013.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i, i64 %shr.i.i
+  %__first.addr.013.i.i = phi ptr [ %__first.addr.1.i.i, %while.body.i.i ], [ %start, %entry ]
+  %__len.012.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i, %entry ]
+  %shr.i.i = lshr i64 %__len.012.i.i, 1
+  %add.ptr.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i, i64 %shr.i.i
   %4 = load float, ptr %add.ptr.i.i.i.i, align 4
   %cmp.i.i.i = fcmp olt float %4, %3
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 4
   %5 = xor i64 %shr.i.i, -1
-  %sub2.i.i = add nsw i64 %__len.013.i.i, %5
-  %__first.addr.1.i.i = select i1 %cmp.i.i.i, ptr %incdec.ptr.i.i, ptr %__first.addr.012.i.i
+  %sub2.i.i = add nsw i64 %__len.012.i.i, %5
   %__len.1.i.i = select i1 %cmp.i.i.i, i64 %sub2.i.i, i64 %shr.i.i
+  %__first.addr.1.i.i = select i1 %cmp.i.i.i, ptr %incdec.ptr.i.i, ptr %__first.addr.013.i.i
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11lower_boundIPKffET_S2_S2_RKT0_.exit, !llvm.loop !179
 
@@ -10758,17 +10758,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -10814,22 +10814,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -10870,22 +10870,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -11154,37 +11154,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i8, ptr %in.015, align 1
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i8, ptr %in.016, align 1
   %idxprom.i = zext i8 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 1
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 1
   %arrayidx3.val = load i8, ptr %arrayidx3, align 1
   %idxprom.i10 = zext i8 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx6.val = load i8, ptr %arrayidx6, align 1
   %idxprom.i12 = zext i8 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 3
   %6 = load i8, ptr %arrayidx9, align 1
   %conv10 = uitofp i8 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 4
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 4
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !184
@@ -13987,17 +13987,17 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load i8, ptr %in.023, align 1
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load i8, ptr %in.025, align 1
   %conv = uitofp i8 %3 to float
   store float %conv, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.023, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.025, i64 1
   %4 = load i8, ptr %arrayidx2, align 1
   %conv3 = uitofp i8 %4 to float
   store float %conv3, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 2
   %5 = load i8, ptr %arrayidx5, align 1
   %conv6 = uitofp i8 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 4
@@ -14068,7 +14068,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %20 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 3
   %21 = load i8, ptr %arrayidx42, align 1
   %conv44 = uitofp i8 %21 to float
   %22 = load float, ptr %m_alphaScaling, align 8
@@ -14076,9 +14076,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 4
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !189
 
@@ -14261,37 +14261,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i8, ptr %in.015, align 1
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i8, ptr %in.016, align 1
   %idxprom.i = zext i8 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 1
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 1
   %arrayidx3.val = load i8, ptr %arrayidx3, align 1
   %idxprom.i10 = zext i8 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx6.val = load i8, ptr %arrayidx6, align 1
   %idxprom.i12 = zext i8 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 3
   %6 = load i8, ptr %arrayidx9, align 1
   %conv10 = uitofp i8 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 4
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 4
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !190
@@ -14400,17 +14400,17 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load i8, ptr %in.023, align 1
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load i8, ptr %in.025, align 1
   %conv = uitofp i8 %3 to float
   store float %conv, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.023, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.025, i64 1
   %4 = load i8, ptr %arrayidx2, align 1
   %conv3 = uitofp i8 %4 to float
   store float %conv3, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 2
   %5 = load i8, ptr %arrayidx5, align 1
   %conv6 = uitofp i8 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 4
@@ -14481,7 +14481,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %20 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 3
   %21 = load i8, ptr %arrayidx42, align 1
   %conv44 = uitofp i8 %21 to float
   %22 = load float, ptr %m_alphaScaling, align 8
@@ -14489,9 +14489,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 4
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !191
 
@@ -15666,17 +15666,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -15738,22 +15738,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -15811,22 +15811,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -17147,17 +17147,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -17203,22 +17203,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -17259,22 +17259,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -17543,37 +17543,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i8, ptr %in.015, align 1
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i8, ptr %in.016, align 1
   %idxprom.i = zext i8 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 1
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 1
   %arrayidx3.val = load i8, ptr %arrayidx3, align 1
   %idxprom.i10 = zext i8 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx6.val = load i8, ptr %arrayidx6, align 1
   %idxprom.i12 = zext i8 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 3
   %6 = load i8, ptr %arrayidx9, align 1
   %conv10 = uitofp i8 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 4
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 4
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !199
@@ -20376,17 +20376,17 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load i8, ptr %in.023, align 1
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load i8, ptr %in.025, align 1
   %conv = uitofp i8 %3 to float
   store float %conv, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.023, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.025, i64 1
   %4 = load i8, ptr %arrayidx2, align 1
   %conv3 = uitofp i8 %4 to float
   store float %conv3, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 2
   %5 = load i8, ptr %arrayidx5, align 1
   %conv6 = uitofp i8 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 4
@@ -20457,7 +20457,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %20 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 3
   %21 = load i8, ptr %arrayidx42, align 1
   %conv44 = uitofp i8 %21 to float
   %22 = load float, ptr %m_alphaScaling, align 8
@@ -20465,9 +20465,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 4
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !204
 
@@ -20650,37 +20650,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i8, ptr %in.015, align 1
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i8, ptr %in.016, align 1
   %idxprom.i = zext i8 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 1
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 1
   %arrayidx3.val = load i8, ptr %arrayidx3, align 1
   %idxprom.i10 = zext i8 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx6.val = load i8, ptr %arrayidx6, align 1
   %idxprom.i12 = zext i8 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 3
   %6 = load i8, ptr %arrayidx9, align 1
   %conv10 = uitofp i8 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 4
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 4
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !205
@@ -20789,17 +20789,17 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load i8, ptr %in.023, align 1
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load i8, ptr %in.025, align 1
   %conv = uitofp i8 %3 to float
   store float %conv, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.023, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.025, i64 1
   %4 = load i8, ptr %arrayidx2, align 1
   %conv3 = uitofp i8 %4 to float
   store float %conv3, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 2
   %5 = load i8, ptr %arrayidx5, align 1
   %conv6 = uitofp i8 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 4
@@ -20870,7 +20870,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %20 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 3
   %21 = load i8, ptr %arrayidx42, align 1
   %conv44 = uitofp i8 %21 to float
   %22 = load float, ptr %m_alphaScaling, align 8
@@ -20878,9 +20878,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 4
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !206
 
@@ -22055,17 +22055,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -22127,22 +22127,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -22200,22 +22200,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -23536,17 +23536,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -23592,22 +23592,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -23648,22 +23648,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -23932,37 +23932,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i8, ptr %in.015, align 1
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i8, ptr %in.016, align 1
   %idxprom.i = zext i8 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 1
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 1
   %arrayidx3.val = load i8, ptr %arrayidx3, align 1
   %idxprom.i10 = zext i8 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx6.val = load i8, ptr %arrayidx6, align 1
   %idxprom.i12 = zext i8 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 3
   %6 = load i8, ptr %arrayidx9, align 1
   %conv10 = uitofp i8 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 4
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 4
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !214
@@ -26765,17 +26765,17 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load i8, ptr %in.023, align 1
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load i8, ptr %in.025, align 1
   %conv = uitofp i8 %3 to float
   store float %conv, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.023, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.025, i64 1
   %4 = load i8, ptr %arrayidx2, align 1
   %conv3 = uitofp i8 %4 to float
   store float %conv3, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 2
   %5 = load i8, ptr %arrayidx5, align 1
   %conv6 = uitofp i8 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 4
@@ -26846,7 +26846,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %20 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 3
   %21 = load i8, ptr %arrayidx42, align 1
   %conv44 = uitofp i8 %21 to float
   %22 = load float, ptr %m_alphaScaling, align 8
@@ -26854,9 +26854,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 4
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !219
 
@@ -27039,37 +27039,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i8, ptr %in.015, align 1
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i8, ptr %in.016, align 1
   %idxprom.i = zext i8 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 1
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 1
   %arrayidx3.val = load i8, ptr %arrayidx3, align 1
   %idxprom.i10 = zext i8 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx6.val = load i8, ptr %arrayidx6, align 1
   %idxprom.i12 = zext i8 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 3
   %6 = load i8, ptr %arrayidx9, align 1
   %conv10 = uitofp i8 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 4
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 4
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !220
@@ -27178,17 +27178,17 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load i8, ptr %in.023, align 1
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load i8, ptr %in.025, align 1
   %conv = uitofp i8 %3 to float
   store float %conv, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.023, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.025, i64 1
   %4 = load i8, ptr %arrayidx2, align 1
   %conv3 = uitofp i8 %4 to float
   store float %conv3, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 2
   %5 = load i8, ptr %arrayidx5, align 1
   %conv6 = uitofp i8 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 4
@@ -27259,7 +27259,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %20 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 3
   %21 = load i8, ptr %arrayidx42, align 1
   %conv44 = uitofp i8 %21 to float
   %22 = load float, ptr %m_alphaScaling, align 8
@@ -27267,9 +27267,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 4
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !221
 
@@ -28444,17 +28444,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -28516,22 +28516,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -28589,22 +28589,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -29925,17 +29925,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -29981,22 +29981,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -30037,22 +30037,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -33231,17 +33231,17 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9Imath_3_14halfC2Ef.exit168
-  %idx.0175 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %in.0175 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
   %out.0174 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %in.0173 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %3 = load i8, ptr %in.0173, align 1
+  %idx.0173 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %3 = load i8, ptr %in.0175, align 1
   %conv = uitofp i8 %3 to float
   store float %conv, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.0173, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.0175, i64 1
   %4 = load i8, ptr %arrayidx2, align 1
   %conv3 = uitofp i8 %4 to float
   store float %conv3, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.0173, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.0175, i64 2
   %5 = load i8, ptr %arrayidx5, align 1
   %conv6 = uitofp i8 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 4
@@ -33547,7 +33547,7 @@ _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %i
   %retval.0.i.i94 = phi i16 [ %conv19.i.i117, %if.end.i.i113 ], [ %conv26.i.i109, %if.then23.i.i108 ], [ %conv36.i.i107, %if.end27.i.i99 ], [ %conv6.i.i111, %if.then4.i.i110 ], [ %conv.i.i71, %if.end37.i.i73 ], [ %inc.i.i93, %if.then55.i.i92 ], [ %conv49.i.i85, %lor.lhs.false.i.i87 ]
   %arrayidx40 = getelementptr inbounds i8, ptr %out.0174, i64 4
   store i16 %retval.0.i.i94, ptr %arrayidx40, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.0173, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.0175, i64 3
   %39 = load i8, ptr %arrayidx42, align 1
   %conv44 = uitofp i8 %39 to float
   %40 = load float, ptr %m_alphaScaling, align 8
@@ -33632,9 +33632,9 @@ _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %i
   %retval.0.i.i144 = phi i16 [ %conv19.i.i167, %if.end.i.i163 ], [ %conv26.i.i159, %if.then23.i.i158 ], [ %conv36.i.i157, %if.end27.i.i149 ], [ %conv6.i.i161, %if.then4.i.i160 ], [ %conv.i.i121, %if.end37.i.i123 ], [ %inc.i.i143, %if.then55.i.i142 ], [ %conv49.i.i135, %lor.lhs.false.i.i137 ]
   %arrayidx45 = getelementptr inbounds i8, ptr %out.0174, i64 6
   store i16 %retval.0.i.i144, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.0173, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.0175, i64 4
   %add.ptr46 = getelementptr inbounds i8, ptr %out.0174, i64 8
-  %inc = add nuw nsw i64 %idx.0175, 1
+  %inc = add nuw nsw i64 %idx.0173, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !234
 
@@ -34033,17 +34033,17 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9Imath_3_14halfC2Ef.exit168
-  %idx.0175 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %in.0175 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
   %out.0174 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %in.0173 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %3 = load i8, ptr %in.0173, align 1
+  %idx.0173 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %3 = load i8, ptr %in.0175, align 1
   %conv = uitofp i8 %3 to float
   store float %conv, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.0173, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.0175, i64 1
   %4 = load i8, ptr %arrayidx2, align 1
   %conv3 = uitofp i8 %4 to float
   store float %conv3, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.0173, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.0175, i64 2
   %5 = load i8, ptr %arrayidx5, align 1
   %conv6 = uitofp i8 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 4
@@ -34349,7 +34349,7 @@ _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %i
   %retval.0.i.i94 = phi i16 [ %conv19.i.i117, %if.end.i.i113 ], [ %conv26.i.i109, %if.then23.i.i108 ], [ %conv36.i.i107, %if.end27.i.i99 ], [ %conv6.i.i111, %if.then4.i.i110 ], [ %conv.i.i71, %if.end37.i.i73 ], [ %inc.i.i93, %if.then55.i.i92 ], [ %conv49.i.i85, %lor.lhs.false.i.i87 ]
   %arrayidx40 = getelementptr inbounds i8, ptr %out.0174, i64 4
   store i16 %retval.0.i.i94, ptr %arrayidx40, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.0173, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.0175, i64 3
   %39 = load i8, ptr %arrayidx42, align 1
   %conv44 = uitofp i8 %39 to float
   %40 = load float, ptr %m_alphaScaling, align 8
@@ -34434,9 +34434,9 @@ _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %i
   %retval.0.i.i144 = phi i16 [ %conv19.i.i167, %if.end.i.i163 ], [ %conv26.i.i159, %if.then23.i.i158 ], [ %conv36.i.i157, %if.end27.i.i149 ], [ %conv6.i.i161, %if.then4.i.i160 ], [ %conv.i.i121, %if.end37.i.i123 ], [ %inc.i.i143, %if.then55.i.i142 ], [ %conv49.i.i135, %lor.lhs.false.i.i137 ]
   %arrayidx45 = getelementptr inbounds i8, ptr %out.0174, i64 6
   store i16 %retval.0.i.i144, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.0173, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.0175, i64 4
   %add.ptr46 = getelementptr inbounds i8, ptr %out.0174, i64 8
-  %inc = add nuw nsw i64 %idx.0175, 1
+  %inc = add nuw nsw i64 %idx.0173, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !236
 
@@ -35875,17 +35875,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -36013,22 +36013,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %30 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %30, %29
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %31 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %31
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %31
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %20
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -36152,22 +36152,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104: ; pred
   br i1 %cmp11.i.i.i112, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147
 
 while.body.i.i.i132:                              ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104, %while.body.i.i.i132
-  %__len.013.i.i.i133 = phi i64 [ %__len.1.i.i.i145, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
-  %__first.addr.012.i.i.i134 = phi ptr [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ], [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
-  %shr.i.i.i135 = lshr i64 %__len.013.i.i.i133, 1
-  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i134, i64 %shr.i.i.i135
+  %__first.addr.013.i.i.i133 = phi ptr [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ], [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
+  %__len.012.i.i.i134 = phi i64 [ %__len.1.i.i.i144, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
+  %shr.i.i.i135 = lshr i64 %__len.012.i.i.i134, 1
+  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i133, i64 %shr.i.i.i135
   %50 = load float, ptr %add.ptr.i.i.i.i.i138, align 4
   %cmp.i.i.i.i141 = fcmp olt float %50, %49
   %incdec.ptr.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i138, i64 4
   %51 = xor i64 %shr.i.i.i135, -1
-  %sub2.i.i.i143 = add nsw i64 %__len.013.i.i.i133, %51
-  %__first.addr.1.i.i.i144 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.012.i.i.i134
-  %__len.1.i.i.i145 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
-  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i145, 0
+  %sub2.i.i.i143 = add nsw i64 %__len.012.i.i.i134, %51
+  %__len.1.i.i.i144 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
+  %__first.addr.1.i.i.i145 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.013.i.i.i133
+  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i144, 0
   br i1 %cmp.i.i.i146, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147: ; preds = %while.body.i.i.i132, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104
-  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ], [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ]
+  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ], [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ]
   %cmp.i114 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i113, %40
   %spec.select.idx.i115 = select i1 %cmp.i114, i64 -4, i64 0
   %spec.select.i116 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i113, i64 %spec.select.idx.i115
@@ -37884,17 +37884,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -37940,22 +37940,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -37996,22 +37996,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -38544,36 +38544,36 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i8, ptr %in.015, align 1
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
+  %in.0.val = load i8, ptr %in.016, align 1
   %idxprom.i = zext i8 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds float, ptr %0, i64 %idxprom.i
   %3 = load float, ptr %arrayidx.i, align 4
-  store float %3, ptr %out.016, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 1
+  store float %3, ptr %out.015, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 1
   %arrayidx3.val = load i8, ptr %arrayidx3, align 1
   %idxprom.i10 = zext i8 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds float, ptr %1, i64 %idxprom.i10
   %4 = load float, ptr %arrayidx.i11, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 4
   store float %4, ptr %arrayidx5, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx6.val = load i8, ptr %arrayidx6, align 1
   %idxprom.i12 = zext i8 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds float, ptr %2, i64 %idxprom.i12
   %5 = load float, ptr %arrayidx.i13, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 8
   store float %5, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 3
   %6 = load i8, ptr %arrayidx9, align 1
   %conv10 = uitofp i8 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 12
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 12
   store float %mul, ptr %arrayidx11, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 4
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 4
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 16
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !244
@@ -41376,17 +41376,17 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr43, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load i8, ptr %in.023, align 1
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load i8, ptr %in.025, align 1
   %conv = uitofp i8 %3 to float
   store float %conv, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.023, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.025, i64 1
   %4 = load i8, ptr %arrayidx2, align 1
   %conv3 = uitofp i8 %4 to float
   store float %conv3, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 2
   %5 = load i8, ptr %arrayidx5, align 1
   %conv6 = uitofp i8 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 4
@@ -41455,16 +41455,16 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %19 = load float, ptr %arrayinit.element21, align 8
   %arrayidx38 = getelementptr inbounds i8, ptr %out.024, i64 8
   store float %19, ptr %arrayidx38, align 4
-  %arrayidx39 = getelementptr inbounds i8, ptr %in.023, i64 3
+  %arrayidx39 = getelementptr inbounds i8, ptr %in.025, i64 3
   %20 = load i8, ptr %arrayidx39, align 1
   %conv41 = uitofp i8 %20 to float
   %21 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %21, %conv41
   %arrayidx42 = getelementptr inbounds i8, ptr %out.024, i64 12
   store float %mul, ptr %arrayidx42, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 4
   %add.ptr43 = getelementptr inbounds i8, ptr %out.024, i64 16
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !249
 
@@ -41647,36 +41647,36 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i8, ptr %in.015, align 1
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
+  %in.0.val = load i8, ptr %in.016, align 1
   %idxprom.i = zext i8 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds float, ptr %0, i64 %idxprom.i
   %3 = load float, ptr %arrayidx.i, align 4
-  store float %3, ptr %out.016, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 1
+  store float %3, ptr %out.015, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 1
   %arrayidx3.val = load i8, ptr %arrayidx3, align 1
   %idxprom.i10 = zext i8 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds float, ptr %1, i64 %idxprom.i10
   %4 = load float, ptr %arrayidx.i11, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 4
   store float %4, ptr %arrayidx5, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx6.val = load i8, ptr %arrayidx6, align 1
   %idxprom.i12 = zext i8 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds float, ptr %2, i64 %idxprom.i12
   %5 = load float, ptr %arrayidx.i13, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 8
   store float %5, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 3
   %6 = load i8, ptr %arrayidx9, align 1
   %conv10 = uitofp i8 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 12
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 12
   store float %mul, ptr %arrayidx11, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 4
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 4
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 16
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !250
@@ -41785,17 +41785,17 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr43, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load i8, ptr %in.023, align 1
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load i8, ptr %in.025, align 1
   %conv = uitofp i8 %3 to float
   store float %conv, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.023, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.025, i64 1
   %4 = load i8, ptr %arrayidx2, align 1
   %conv3 = uitofp i8 %4 to float
   store float %conv3, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 2
   %5 = load i8, ptr %arrayidx5, align 1
   %conv6 = uitofp i8 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 4
@@ -41864,16 +41864,16 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %19 = load float, ptr %arrayinit.element21, align 8
   %arrayidx38 = getelementptr inbounds i8, ptr %out.024, i64 8
   store float %19, ptr %arrayidx38, align 4
-  %arrayidx39 = getelementptr inbounds i8, ptr %in.023, i64 3
+  %arrayidx39 = getelementptr inbounds i8, ptr %in.025, i64 3
   %20 = load i8, ptr %arrayidx39, align 1
   %conv41 = uitofp i8 %20 to float
   %21 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %21, %conv41
   %arrayidx42 = getelementptr inbounds i8, ptr %out.024, i64 12
   store float %mul, ptr %arrayidx42, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 4
   %add.ptr43 = getelementptr inbounds i8, ptr %out.024, i64 16
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !251
 
@@ -43000,17 +43000,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -43060,22 +43060,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i17, label %while.body.i.i.i37, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52
 
 while.body.i.i.i37:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i37
-  %__len.013.i.i.i38 = phi i64 [ %__len.1.i.i.i50, %while.body.i.i.i37 ], [ %sub.ptr.div.i.i.i.i.i16, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i39 = phi ptr [ %__first.addr.1.i.i.i49, %while.body.i.i.i37 ], [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i40 = lshr i64 %__len.013.i.i.i38, 1
-  %add.ptr.i.i.i.i.i43 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i39, i64 %shr.i.i.i40
+  %__first.addr.013.i.i.i38 = phi ptr [ %__first.addr.1.i.i.i50, %while.body.i.i.i37 ], [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i39 = phi i64 [ %__len.1.i.i.i49, %while.body.i.i.i37 ], [ %sub.ptr.div.i.i.i.i.i16, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i40 = lshr i64 %__len.012.i.i.i39, 1
+  %add.ptr.i.i.i.i.i43 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i38, i64 %shr.i.i.i40
   %24 = load float, ptr %add.ptr.i.i.i.i.i43, align 4
   %cmp.i.i.i.i46 = fcmp olt float %24, %23
   %incdec.ptr.i.i.i47 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i43, i64 4
   %25 = xor i64 %shr.i.i.i40, -1
-  %sub2.i.i.i48 = add nsw i64 %__len.013.i.i.i38, %25
-  %__first.addr.1.i.i.i49 = select i1 %cmp.i.i.i.i46, ptr %incdec.ptr.i.i.i47, ptr %__first.addr.012.i.i.i39
-  %__len.1.i.i.i50 = select i1 %cmp.i.i.i.i46, i64 %sub2.i.i.i48, i64 %shr.i.i.i40
-  %cmp.i.i.i51 = icmp sgt i64 %__len.1.i.i.i50, 0
+  %sub2.i.i.i48 = add nsw i64 %__len.012.i.i.i39, %25
+  %__len.1.i.i.i49 = select i1 %cmp.i.i.i.i46, i64 %sub2.i.i.i48, i64 %shr.i.i.i40
+  %__first.addr.1.i.i.i50 = select i1 %cmp.i.i.i.i46, ptr %incdec.ptr.i.i.i47, ptr %__first.addr.013.i.i.i38
+  %cmp.i.i.i51 = icmp sgt i64 %__len.1.i.i.i49, 0
   br i1 %cmp.i.i.i51, label %while.body.i.i.i37, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52: ; preds = %while.body.i.i.i37, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i18 = phi ptr [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i49, %while.body.i.i.i37 ]
+  %__first.addr.0.lcssa.i.i.i18 = phi ptr [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i50, %while.body.i.i.i37 ]
   %cmp.i19 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i18, %14
   %spec.select.idx.i20 = select i1 %cmp.i19, i64 -4, i64 0
   %spec.select.i21 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i18, i64 %spec.select.idx.i20
@@ -43121,22 +43121,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i60, label %while.body.i.i.i80, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit95
 
 while.body.i.i.i80:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52, %while.body.i.i.i80
-  %__len.013.i.i.i81 = phi i64 [ %__len.1.i.i.i93, %while.body.i.i.i80 ], [ %sub.ptr.div.i.i.i.i.i59, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
-  %__first.addr.012.i.i.i82 = phi ptr [ %__first.addr.1.i.i.i92, %while.body.i.i.i80 ], [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
-  %shr.i.i.i83 = lshr i64 %__len.013.i.i.i81, 1
-  %add.ptr.i.i.i.i.i86 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i82, i64 %shr.i.i.i83
+  %__first.addr.013.i.i.i81 = phi ptr [ %__first.addr.1.i.i.i93, %while.body.i.i.i80 ], [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
+  %__len.012.i.i.i82 = phi i64 [ %__len.1.i.i.i92, %while.body.i.i.i80 ], [ %sub.ptr.div.i.i.i.i.i59, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
+  %shr.i.i.i83 = lshr i64 %__len.012.i.i.i82, 1
+  %add.ptr.i.i.i.i.i86 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i81, i64 %shr.i.i.i83
   %38 = load float, ptr %add.ptr.i.i.i.i.i86, align 4
   %cmp.i.i.i.i89 = fcmp olt float %38, %37
   %incdec.ptr.i.i.i90 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i86, i64 4
   %39 = xor i64 %shr.i.i.i83, -1
-  %sub2.i.i.i91 = add nsw i64 %__len.013.i.i.i81, %39
-  %__first.addr.1.i.i.i92 = select i1 %cmp.i.i.i.i89, ptr %incdec.ptr.i.i.i90, ptr %__first.addr.012.i.i.i82
-  %__len.1.i.i.i93 = select i1 %cmp.i.i.i.i89, i64 %sub2.i.i.i91, i64 %shr.i.i.i83
-  %cmp.i.i.i94 = icmp sgt i64 %__len.1.i.i.i93, 0
+  %sub2.i.i.i91 = add nsw i64 %__len.012.i.i.i82, %39
+  %__len.1.i.i.i92 = select i1 %cmp.i.i.i.i89, i64 %sub2.i.i.i91, i64 %shr.i.i.i83
+  %__first.addr.1.i.i.i93 = select i1 %cmp.i.i.i.i89, ptr %incdec.ptr.i.i.i90, ptr %__first.addr.013.i.i.i81
+  %cmp.i.i.i94 = icmp sgt i64 %__len.1.i.i.i92, 0
   br i1 %cmp.i.i.i94, label %while.body.i.i.i80, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit95, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit95: ; preds = %while.body.i.i.i80, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52
-  %__first.addr.0.lcssa.i.i.i61 = phi ptr [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ], [ %__first.addr.1.i.i.i92, %while.body.i.i.i80 ]
+  %__first.addr.0.lcssa.i.i.i61 = phi ptr [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ], [ %__first.addr.1.i.i.i93, %while.body.i.i.i80 ]
   %cmp.i62 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i61, %28
   %spec.select.idx.i63 = select i1 %cmp.i62, i64 -4, i64 0
   %spec.select.i64 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i61, i64 %spec.select.idx.i63
@@ -44382,17 +44382,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -44438,22 +44438,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -44494,22 +44494,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -46563,37 +46563,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
-  store i8 %3, ptr %out.016, align 1
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i8 %3, ptr %out.015, align 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i8, ptr %1, i64 %idxprom.i10
   %4 = load i8, ptr %arrayidx.i11, align 1
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 1
   store i8 %4, ptr %arrayidx5, align 1
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i8, ptr %2, i64 %idxprom.i12
   %5 = load i8, ptr %arrayidx.i13, align 1
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i8 %5, ptr %arrayidx8, align 1
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i8
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 3
   store i8 %conv11, ptr %arrayidx12, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 4
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !421
@@ -49395,13 +49395,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -49480,7 +49480,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i8
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 2
   store i8 %conv40, ptr %arrayidx41, align 1
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -49488,9 +49488,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i8
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 3
   store i8 %conv45, ptr %arrayidx46, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 4
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !426
 
@@ -49673,37 +49673,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
-  store i8 %3, ptr %out.016, align 1
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i8 %3, ptr %out.015, align 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i8, ptr %1, i64 %idxprom.i10
   %4 = load i8, ptr %arrayidx.i11, align 1
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 1
   store i8 %4, ptr %arrayidx5, align 1
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i8, ptr %2, i64 %idxprom.i12
   %5 = load i8, ptr %arrayidx.i13, align 1
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i8 %5, ptr %arrayidx8, align 1
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i8
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 3
   store i8 %conv11, ptr %arrayidx12, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 4
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !427
@@ -49811,13 +49811,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -49896,7 +49896,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i8
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 2
   store i8 %conv40, ptr %arrayidx41, align 1
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -49904,9 +49904,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i8
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 3
   store i8 %conv45, ptr %arrayidx46, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 4
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !428
 
@@ -51081,17 +51081,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -51153,22 +51153,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -51226,22 +51226,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -52562,17 +52562,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -52618,22 +52618,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -52674,22 +52674,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -52958,37 +52958,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !436
@@ -55790,13 +55790,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -55871,7 +55871,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -55879,9 +55879,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !441
 
@@ -56064,37 +56064,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !442
@@ -56202,13 +56202,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -56283,7 +56283,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -56291,9 +56291,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !443
 
@@ -57468,17 +57468,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -57540,22 +57540,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -57613,22 +57613,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -58949,17 +58949,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -59005,22 +59005,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -59061,22 +59061,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -59345,37 +59345,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !451
@@ -62177,13 +62177,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -62258,7 +62258,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -62266,9 +62266,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !456
 
@@ -62451,37 +62451,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !457
@@ -62589,13 +62589,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -62670,7 +62670,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -62678,9 +62678,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !458
 
@@ -63855,17 +63855,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -63927,22 +63927,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -64000,22 +64000,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -65336,17 +65336,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -65392,22 +65392,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -65448,22 +65448,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -65732,37 +65732,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !466
@@ -68564,13 +68564,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -68645,7 +68645,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -68653,9 +68653,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !471
 
@@ -68838,37 +68838,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !472
@@ -68976,13 +68976,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -69057,7 +69057,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -69065,9 +69065,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !473
 
@@ -70242,17 +70242,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -70314,22 +70314,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -70387,22 +70387,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -71723,17 +71723,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -71779,22 +71779,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -71835,22 +71835,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -75028,13 +75028,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9Imath_3_14halfC2Ef.exit168
-  %idx.0175 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %in.0175 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
   %out.0174 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %in.0173 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %3 = load <2 x i16>, ptr %in.0173, align 2
+  %idx.0173 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %3 = load <2 x i16>, ptr %in.0175, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.0173, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.0175, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -75344,7 +75344,7 @@ _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %i
   %retval.0.i.i94 = phi i16 [ %conv19.i.i117, %if.end.i.i113 ], [ %conv26.i.i109, %if.then23.i.i108 ], [ %conv36.i.i107, %if.end27.i.i99 ], [ %conv6.i.i111, %if.then4.i.i110 ], [ %conv.i.i71, %if.end37.i.i73 ], [ %inc.i.i93, %if.then55.i.i92 ], [ %conv49.i.i85, %lor.lhs.false.i.i87 ]
   %arrayidx40 = getelementptr inbounds i8, ptr %out.0174, i64 4
   store i16 %retval.0.i.i94, ptr %arrayidx40, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.0173, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.0175, i64 6
   %43 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %43 to float
   %44 = load float, ptr %m_alphaScaling, align 8
@@ -75429,9 +75429,9 @@ _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %i
   %retval.0.i.i144 = phi i16 [ %conv19.i.i167, %if.end.i.i163 ], [ %conv26.i.i159, %if.then23.i.i158 ], [ %conv36.i.i157, %if.end27.i.i149 ], [ %conv6.i.i161, %if.then4.i.i160 ], [ %conv.i.i121, %if.end37.i.i123 ], [ %inc.i.i143, %if.then55.i.i142 ], [ %conv49.i.i135, %lor.lhs.false.i.i137 ]
   %arrayidx45 = getelementptr inbounds i8, ptr %out.0174, i64 6
   store i16 %retval.0.i.i144, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.0173, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.0175, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.0174, i64 8
-  %inc = add nuw nsw i64 %idx.0175, 1
+  %inc = add nuw nsw i64 %idx.0173, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !486
 
@@ -75829,13 +75829,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9Imath_3_14halfC2Ef.exit168
-  %idx.0175 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %in.0175 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
   %out.0174 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %in.0173 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %3 = load <2 x i16>, ptr %in.0173, align 2
+  %idx.0173 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %3 = load <2 x i16>, ptr %in.0175, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.0173, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.0175, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -76145,7 +76145,7 @@ _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %i
   %retval.0.i.i94 = phi i16 [ %conv19.i.i117, %if.end.i.i113 ], [ %conv26.i.i109, %if.then23.i.i108 ], [ %conv36.i.i107, %if.end27.i.i99 ], [ %conv6.i.i111, %if.then4.i.i110 ], [ %conv.i.i71, %if.end37.i.i73 ], [ %inc.i.i93, %if.then55.i.i92 ], [ %conv49.i.i85, %lor.lhs.false.i.i87 ]
   %arrayidx40 = getelementptr inbounds i8, ptr %out.0174, i64 4
   store i16 %retval.0.i.i94, ptr %arrayidx40, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.0173, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.0175, i64 6
   %43 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %43 to float
   %44 = load float, ptr %m_alphaScaling, align 8
@@ -76230,9 +76230,9 @@ _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %i
   %retval.0.i.i144 = phi i16 [ %conv19.i.i167, %if.end.i.i163 ], [ %conv26.i.i159, %if.then23.i.i158 ], [ %conv36.i.i157, %if.end27.i.i149 ], [ %conv6.i.i161, %if.then4.i.i160 ], [ %conv.i.i121, %if.end37.i.i123 ], [ %inc.i.i143, %if.then55.i.i142 ], [ %conv49.i.i135, %lor.lhs.false.i.i137 ]
   %arrayidx45 = getelementptr inbounds i8, ptr %out.0174, i64 6
   store i16 %retval.0.i.i144, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.0173, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.0175, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.0174, i64 8
-  %inc = add nuw nsw i64 %idx.0175, 1
+  %inc = add nuw nsw i64 %idx.0173, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !488
 
@@ -77671,17 +77671,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -77809,22 +77809,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %30 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %30, %29
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %31 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %31
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %31
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %20
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -77948,22 +77948,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104: ; pred
   br i1 %cmp11.i.i.i112, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147
 
 while.body.i.i.i132:                              ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104, %while.body.i.i.i132
-  %__len.013.i.i.i133 = phi i64 [ %__len.1.i.i.i145, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
-  %__first.addr.012.i.i.i134 = phi ptr [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ], [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
-  %shr.i.i.i135 = lshr i64 %__len.013.i.i.i133, 1
-  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i134, i64 %shr.i.i.i135
+  %__first.addr.013.i.i.i133 = phi ptr [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ], [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
+  %__len.012.i.i.i134 = phi i64 [ %__len.1.i.i.i144, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
+  %shr.i.i.i135 = lshr i64 %__len.012.i.i.i134, 1
+  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i133, i64 %shr.i.i.i135
   %50 = load float, ptr %add.ptr.i.i.i.i.i138, align 4
   %cmp.i.i.i.i141 = fcmp olt float %50, %49
   %incdec.ptr.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i138, i64 4
   %51 = xor i64 %shr.i.i.i135, -1
-  %sub2.i.i.i143 = add nsw i64 %__len.013.i.i.i133, %51
-  %__first.addr.1.i.i.i144 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.012.i.i.i134
-  %__len.1.i.i.i145 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
-  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i145, 0
+  %sub2.i.i.i143 = add nsw i64 %__len.012.i.i.i134, %51
+  %__len.1.i.i.i144 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
+  %__first.addr.1.i.i.i145 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.013.i.i.i133
+  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i144, 0
   br i1 %cmp.i.i.i146, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147: ; preds = %while.body.i.i.i132, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104
-  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ], [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ]
+  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ], [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ]
   %cmp.i114 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i113, %40
   %spec.select.idx.i115 = select i1 %cmp.i114, i64 -4, i64 0
   %spec.select.i116 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i113, i64 %spec.select.idx.i115
@@ -79680,17 +79680,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -79736,22 +79736,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -79792,22 +79792,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -80340,36 +80340,36 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds float, ptr %0, i64 %idxprom.i
   %3 = load float, ptr %arrayidx.i, align 4
-  store float %3, ptr %out.016, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store float %3, ptr %out.015, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds float, ptr %1, i64 %idxprom.i10
   %4 = load float, ptr %arrayidx.i11, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 4
   store float %4, ptr %arrayidx5, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds float, ptr %2, i64 %idxprom.i12
   %5 = load float, ptr %arrayidx.i13, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 8
   store float %5, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 12
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 12
   store float %mul, ptr %arrayidx11, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 16
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !496
@@ -83171,13 +83171,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr43, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -83250,16 +83250,16 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %23 = load float, ptr %arrayinit.element21, align 8
   %arrayidx38 = getelementptr inbounds i8, ptr %out.024, i64 8
   store float %23, ptr %arrayidx38, align 4
-  %arrayidx39 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx39 = getelementptr inbounds i8, ptr %in.025, i64 6
   %24 = load i16, ptr %arrayidx39, align 2
   %conv41 = uitofp i16 %24 to float
   %25 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %25, %conv41
   %arrayidx42 = getelementptr inbounds i8, ptr %out.024, i64 12
   store float %mul, ptr %arrayidx42, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr43 = getelementptr inbounds i8, ptr %out.024, i64 16
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !501
 
@@ -83442,36 +83442,36 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds float, ptr %0, i64 %idxprom.i
   %3 = load float, ptr %arrayidx.i, align 4
-  store float %3, ptr %out.016, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store float %3, ptr %out.015, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds float, ptr %1, i64 %idxprom.i10
   %4 = load float, ptr %arrayidx.i11, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 4
   store float %4, ptr %arrayidx5, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds float, ptr %2, i64 %idxprom.i12
   %5 = load float, ptr %arrayidx.i13, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 8
   store float %5, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 12
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 12
   store float %mul, ptr %arrayidx11, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 16
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !502
@@ -83579,13 +83579,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr43, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -83658,16 +83658,16 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %23 = load float, ptr %arrayinit.element21, align 8
   %arrayidx38 = getelementptr inbounds i8, ptr %out.024, i64 8
   store float %23, ptr %arrayidx38, align 4
-  %arrayidx39 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx39 = getelementptr inbounds i8, ptr %in.025, i64 6
   %24 = load i16, ptr %arrayidx39, align 2
   %conv41 = uitofp i16 %24 to float
   %25 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %25, %conv41
   %arrayidx42 = getelementptr inbounds i8, ptr %out.024, i64 12
   store float %mul, ptr %arrayidx42, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr43 = getelementptr inbounds i8, ptr %out.024, i64 16
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !503
 
@@ -84794,17 +84794,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -84854,22 +84854,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i17, label %while.body.i.i.i37, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52
 
 while.body.i.i.i37:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i37
-  %__len.013.i.i.i38 = phi i64 [ %__len.1.i.i.i50, %while.body.i.i.i37 ], [ %sub.ptr.div.i.i.i.i.i16, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i39 = phi ptr [ %__first.addr.1.i.i.i49, %while.body.i.i.i37 ], [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i40 = lshr i64 %__len.013.i.i.i38, 1
-  %add.ptr.i.i.i.i.i43 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i39, i64 %shr.i.i.i40
+  %__first.addr.013.i.i.i38 = phi ptr [ %__first.addr.1.i.i.i50, %while.body.i.i.i37 ], [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i39 = phi i64 [ %__len.1.i.i.i49, %while.body.i.i.i37 ], [ %sub.ptr.div.i.i.i.i.i16, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i40 = lshr i64 %__len.012.i.i.i39, 1
+  %add.ptr.i.i.i.i.i43 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i38, i64 %shr.i.i.i40
   %24 = load float, ptr %add.ptr.i.i.i.i.i43, align 4
   %cmp.i.i.i.i46 = fcmp olt float %24, %23
   %incdec.ptr.i.i.i47 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i43, i64 4
   %25 = xor i64 %shr.i.i.i40, -1
-  %sub2.i.i.i48 = add nsw i64 %__len.013.i.i.i38, %25
-  %__first.addr.1.i.i.i49 = select i1 %cmp.i.i.i.i46, ptr %incdec.ptr.i.i.i47, ptr %__first.addr.012.i.i.i39
-  %__len.1.i.i.i50 = select i1 %cmp.i.i.i.i46, i64 %sub2.i.i.i48, i64 %shr.i.i.i40
-  %cmp.i.i.i51 = icmp sgt i64 %__len.1.i.i.i50, 0
+  %sub2.i.i.i48 = add nsw i64 %__len.012.i.i.i39, %25
+  %__len.1.i.i.i49 = select i1 %cmp.i.i.i.i46, i64 %sub2.i.i.i48, i64 %shr.i.i.i40
+  %__first.addr.1.i.i.i50 = select i1 %cmp.i.i.i.i46, ptr %incdec.ptr.i.i.i47, ptr %__first.addr.013.i.i.i38
+  %cmp.i.i.i51 = icmp sgt i64 %__len.1.i.i.i49, 0
   br i1 %cmp.i.i.i51, label %while.body.i.i.i37, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52: ; preds = %while.body.i.i.i37, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i18 = phi ptr [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i49, %while.body.i.i.i37 ]
+  %__first.addr.0.lcssa.i.i.i18 = phi ptr [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i50, %while.body.i.i.i37 ]
   %cmp.i19 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i18, %14
   %spec.select.idx.i20 = select i1 %cmp.i19, i64 -4, i64 0
   %spec.select.i21 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i18, i64 %spec.select.idx.i20
@@ -84915,22 +84915,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i60, label %while.body.i.i.i80, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit95
 
 while.body.i.i.i80:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52, %while.body.i.i.i80
-  %__len.013.i.i.i81 = phi i64 [ %__len.1.i.i.i93, %while.body.i.i.i80 ], [ %sub.ptr.div.i.i.i.i.i59, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
-  %__first.addr.012.i.i.i82 = phi ptr [ %__first.addr.1.i.i.i92, %while.body.i.i.i80 ], [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
-  %shr.i.i.i83 = lshr i64 %__len.013.i.i.i81, 1
-  %add.ptr.i.i.i.i.i86 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i82, i64 %shr.i.i.i83
+  %__first.addr.013.i.i.i81 = phi ptr [ %__first.addr.1.i.i.i93, %while.body.i.i.i80 ], [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
+  %__len.012.i.i.i82 = phi i64 [ %__len.1.i.i.i92, %while.body.i.i.i80 ], [ %sub.ptr.div.i.i.i.i.i59, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
+  %shr.i.i.i83 = lshr i64 %__len.012.i.i.i82, 1
+  %add.ptr.i.i.i.i.i86 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i81, i64 %shr.i.i.i83
   %38 = load float, ptr %add.ptr.i.i.i.i.i86, align 4
   %cmp.i.i.i.i89 = fcmp olt float %38, %37
   %incdec.ptr.i.i.i90 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i86, i64 4
   %39 = xor i64 %shr.i.i.i83, -1
-  %sub2.i.i.i91 = add nsw i64 %__len.013.i.i.i81, %39
-  %__first.addr.1.i.i.i92 = select i1 %cmp.i.i.i.i89, ptr %incdec.ptr.i.i.i90, ptr %__first.addr.012.i.i.i82
-  %__len.1.i.i.i93 = select i1 %cmp.i.i.i.i89, i64 %sub2.i.i.i91, i64 %shr.i.i.i83
-  %cmp.i.i.i94 = icmp sgt i64 %__len.1.i.i.i93, 0
+  %sub2.i.i.i91 = add nsw i64 %__len.012.i.i.i82, %39
+  %__len.1.i.i.i92 = select i1 %cmp.i.i.i.i89, i64 %sub2.i.i.i91, i64 %shr.i.i.i83
+  %__first.addr.1.i.i.i93 = select i1 %cmp.i.i.i.i89, ptr %incdec.ptr.i.i.i90, ptr %__first.addr.013.i.i.i81
+  %cmp.i.i.i94 = icmp sgt i64 %__len.1.i.i.i92, 0
   br i1 %cmp.i.i.i94, label %while.body.i.i.i80, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit95, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit95: ; preds = %while.body.i.i.i80, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52
-  %__first.addr.0.lcssa.i.i.i61 = phi ptr [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ], [ %__first.addr.1.i.i.i92, %while.body.i.i.i80 ]
+  %__first.addr.0.lcssa.i.i.i61 = phi ptr [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ], [ %__first.addr.1.i.i.i93, %while.body.i.i.i80 ]
   %cmp.i62 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i61, %28
   %spec.select.idx.i63 = select i1 %cmp.i62, i64 -4, i64 0
   %spec.select.i64 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i61, i64 %spec.select.idx.i63
@@ -86176,17 +86176,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -86232,22 +86232,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -86288,22 +86288,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -88357,37 +88357,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
-  store i8 %3, ptr %out.016, align 1
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i8 %3, ptr %out.015, align 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i8, ptr %1, i64 %idxprom.i10
   %4 = load i8, ptr %arrayidx.i11, align 1
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 1
   store i8 %4, ptr %arrayidx5, align 1
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i8, ptr %2, i64 %idxprom.i12
   %5 = load i8, ptr %arrayidx.i13, align 1
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i8 %5, ptr %arrayidx8, align 1
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i8
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 3
   store i8 %conv11, ptr %arrayidx12, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 4
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !673
@@ -91189,13 +91189,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -91274,7 +91274,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i8
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 2
   store i8 %conv40, ptr %arrayidx41, align 1
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -91282,9 +91282,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i8
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 3
   store i8 %conv45, ptr %arrayidx46, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 4
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !678
 
@@ -91467,37 +91467,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
-  store i8 %3, ptr %out.016, align 1
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i8 %3, ptr %out.015, align 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i8, ptr %1, i64 %idxprom.i10
   %4 = load i8, ptr %arrayidx.i11, align 1
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 1
   store i8 %4, ptr %arrayidx5, align 1
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i8, ptr %2, i64 %idxprom.i12
   %5 = load i8, ptr %arrayidx.i13, align 1
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i8 %5, ptr %arrayidx8, align 1
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i8
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 3
   store i8 %conv11, ptr %arrayidx12, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 4
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !679
@@ -91605,13 +91605,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -91690,7 +91690,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i8
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 2
   store i8 %conv40, ptr %arrayidx41, align 1
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -91698,9 +91698,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i8
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 3
   store i8 %conv45, ptr %arrayidx46, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 4
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !680
 
@@ -92875,17 +92875,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -92947,22 +92947,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -93020,22 +93020,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -94356,17 +94356,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -94412,22 +94412,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -94468,22 +94468,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -94752,37 +94752,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !688
@@ -97584,13 +97584,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -97665,7 +97665,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -97673,9 +97673,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !693
 
@@ -97858,37 +97858,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !694
@@ -97996,13 +97996,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -98077,7 +98077,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -98085,9 +98085,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !695
 
@@ -99262,17 +99262,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -99334,22 +99334,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -99407,22 +99407,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -100743,17 +100743,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -100799,22 +100799,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -100855,22 +100855,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -101139,37 +101139,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !703
@@ -103971,13 +103971,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -104052,7 +104052,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -104060,9 +104060,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !708
 
@@ -104245,37 +104245,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !709
@@ -104383,13 +104383,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -104464,7 +104464,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -104472,9 +104472,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !710
 
@@ -105649,17 +105649,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -105721,22 +105721,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -105794,22 +105794,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -107130,17 +107130,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -107186,22 +107186,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -107242,22 +107242,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -107526,37 +107526,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !718
@@ -110358,13 +110358,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -110439,7 +110439,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -110447,9 +110447,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !723
 
@@ -110632,37 +110632,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !724
@@ -110770,13 +110770,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -110851,7 +110851,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -110859,9 +110859,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !725
 
@@ -112036,17 +112036,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -112108,22 +112108,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -112181,22 +112181,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -113517,17 +113517,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -113573,22 +113573,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -113629,22 +113629,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -116822,13 +116822,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9Imath_3_14halfC2Ef.exit168
-  %idx.0175 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %in.0175 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
   %out.0174 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %in.0173 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %3 = load <2 x i16>, ptr %in.0173, align 2
+  %idx.0173 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %3 = load <2 x i16>, ptr %in.0175, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.0173, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.0175, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -117138,7 +117138,7 @@ _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %i
   %retval.0.i.i94 = phi i16 [ %conv19.i.i117, %if.end.i.i113 ], [ %conv26.i.i109, %if.then23.i.i108 ], [ %conv36.i.i107, %if.end27.i.i99 ], [ %conv6.i.i111, %if.then4.i.i110 ], [ %conv.i.i71, %if.end37.i.i73 ], [ %inc.i.i93, %if.then55.i.i92 ], [ %conv49.i.i85, %lor.lhs.false.i.i87 ]
   %arrayidx40 = getelementptr inbounds i8, ptr %out.0174, i64 4
   store i16 %retval.0.i.i94, ptr %arrayidx40, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.0173, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.0175, i64 6
   %43 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %43 to float
   %44 = load float, ptr %m_alphaScaling, align 8
@@ -117223,9 +117223,9 @@ _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %i
   %retval.0.i.i144 = phi i16 [ %conv19.i.i167, %if.end.i.i163 ], [ %conv26.i.i159, %if.then23.i.i158 ], [ %conv36.i.i157, %if.end27.i.i149 ], [ %conv6.i.i161, %if.then4.i.i160 ], [ %conv.i.i121, %if.end37.i.i123 ], [ %inc.i.i143, %if.then55.i.i142 ], [ %conv49.i.i135, %lor.lhs.false.i.i137 ]
   %arrayidx45 = getelementptr inbounds i8, ptr %out.0174, i64 6
   store i16 %retval.0.i.i144, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.0173, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.0175, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.0174, i64 8
-  %inc = add nuw nsw i64 %idx.0175, 1
+  %inc = add nuw nsw i64 %idx.0173, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !738
 
@@ -117623,13 +117623,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9Imath_3_14halfC2Ef.exit168
-  %idx.0175 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %in.0175 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
   %out.0174 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %in.0173 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %3 = load <2 x i16>, ptr %in.0173, align 2
+  %idx.0173 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %3 = load <2 x i16>, ptr %in.0175, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.0173, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.0175, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -117939,7 +117939,7 @@ _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %i
   %retval.0.i.i94 = phi i16 [ %conv19.i.i117, %if.end.i.i113 ], [ %conv26.i.i109, %if.then23.i.i108 ], [ %conv36.i.i107, %if.end27.i.i99 ], [ %conv6.i.i111, %if.then4.i.i110 ], [ %conv.i.i71, %if.end37.i.i73 ], [ %inc.i.i93, %if.then55.i.i92 ], [ %conv49.i.i85, %lor.lhs.false.i.i87 ]
   %arrayidx40 = getelementptr inbounds i8, ptr %out.0174, i64 4
   store i16 %retval.0.i.i94, ptr %arrayidx40, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.0173, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.0175, i64 6
   %43 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %43 to float
   %44 = load float, ptr %m_alphaScaling, align 8
@@ -118024,9 +118024,9 @@ _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %i
   %retval.0.i.i144 = phi i16 [ %conv19.i.i167, %if.end.i.i163 ], [ %conv26.i.i159, %if.then23.i.i158 ], [ %conv36.i.i157, %if.end27.i.i149 ], [ %conv6.i.i161, %if.then4.i.i160 ], [ %conv.i.i121, %if.end37.i.i123 ], [ %inc.i.i143, %if.then55.i.i142 ], [ %conv49.i.i135, %lor.lhs.false.i.i137 ]
   %arrayidx45 = getelementptr inbounds i8, ptr %out.0174, i64 6
   store i16 %retval.0.i.i144, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.0173, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.0175, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.0174, i64 8
-  %inc = add nuw nsw i64 %idx.0175, 1
+  %inc = add nuw nsw i64 %idx.0173, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !740
 
@@ -119465,17 +119465,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -119603,22 +119603,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %30 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %30, %29
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %31 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %31
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %31
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %20
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -119742,22 +119742,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104: ; pred
   br i1 %cmp11.i.i.i112, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147
 
 while.body.i.i.i132:                              ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104, %while.body.i.i.i132
-  %__len.013.i.i.i133 = phi i64 [ %__len.1.i.i.i145, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
-  %__first.addr.012.i.i.i134 = phi ptr [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ], [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
-  %shr.i.i.i135 = lshr i64 %__len.013.i.i.i133, 1
-  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i134, i64 %shr.i.i.i135
+  %__first.addr.013.i.i.i133 = phi ptr [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ], [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
+  %__len.012.i.i.i134 = phi i64 [ %__len.1.i.i.i144, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
+  %shr.i.i.i135 = lshr i64 %__len.012.i.i.i134, 1
+  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i133, i64 %shr.i.i.i135
   %50 = load float, ptr %add.ptr.i.i.i.i.i138, align 4
   %cmp.i.i.i.i141 = fcmp olt float %50, %49
   %incdec.ptr.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i138, i64 4
   %51 = xor i64 %shr.i.i.i135, -1
-  %sub2.i.i.i143 = add nsw i64 %__len.013.i.i.i133, %51
-  %__first.addr.1.i.i.i144 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.012.i.i.i134
-  %__len.1.i.i.i145 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
-  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i145, 0
+  %sub2.i.i.i143 = add nsw i64 %__len.012.i.i.i134, %51
+  %__len.1.i.i.i144 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
+  %__first.addr.1.i.i.i145 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.013.i.i.i133
+  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i144, 0
   br i1 %cmp.i.i.i146, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147: ; preds = %while.body.i.i.i132, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104
-  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ], [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ]
+  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ], [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ]
   %cmp.i114 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i113, %40
   %spec.select.idx.i115 = select i1 %cmp.i114, i64 -4, i64 0
   %spec.select.i116 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i113, i64 %spec.select.idx.i115
@@ -121474,17 +121474,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -121530,22 +121530,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -121586,22 +121586,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -122134,36 +122134,36 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds float, ptr %0, i64 %idxprom.i
   %3 = load float, ptr %arrayidx.i, align 4
-  store float %3, ptr %out.016, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store float %3, ptr %out.015, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds float, ptr %1, i64 %idxprom.i10
   %4 = load float, ptr %arrayidx.i11, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 4
   store float %4, ptr %arrayidx5, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds float, ptr %2, i64 %idxprom.i12
   %5 = load float, ptr %arrayidx.i13, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 8
   store float %5, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 12
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 12
   store float %mul, ptr %arrayidx11, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 16
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !748
@@ -124965,13 +124965,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr43, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -125044,16 +125044,16 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %23 = load float, ptr %arrayinit.element21, align 8
   %arrayidx38 = getelementptr inbounds i8, ptr %out.024, i64 8
   store float %23, ptr %arrayidx38, align 4
-  %arrayidx39 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx39 = getelementptr inbounds i8, ptr %in.025, i64 6
   %24 = load i16, ptr %arrayidx39, align 2
   %conv41 = uitofp i16 %24 to float
   %25 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %25, %conv41
   %arrayidx42 = getelementptr inbounds i8, ptr %out.024, i64 12
   store float %mul, ptr %arrayidx42, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr43 = getelementptr inbounds i8, ptr %out.024, i64 16
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !753
 
@@ -125236,36 +125236,36 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds float, ptr %0, i64 %idxprom.i
   %3 = load float, ptr %arrayidx.i, align 4
-  store float %3, ptr %out.016, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store float %3, ptr %out.015, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds float, ptr %1, i64 %idxprom.i10
   %4 = load float, ptr %arrayidx.i11, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 4
   store float %4, ptr %arrayidx5, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds float, ptr %2, i64 %idxprom.i12
   %5 = load float, ptr %arrayidx.i13, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 8
   store float %5, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 12
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 12
   store float %mul, ptr %arrayidx11, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 16
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !754
@@ -125373,13 +125373,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr43, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -125452,16 +125452,16 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %23 = load float, ptr %arrayinit.element21, align 8
   %arrayidx38 = getelementptr inbounds i8, ptr %out.024, i64 8
   store float %23, ptr %arrayidx38, align 4
-  %arrayidx39 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx39 = getelementptr inbounds i8, ptr %in.025, i64 6
   %24 = load i16, ptr %arrayidx39, align 2
   %conv41 = uitofp i16 %24 to float
   %25 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %25, %conv41
   %arrayidx42 = getelementptr inbounds i8, ptr %out.024, i64 12
   store float %mul, ptr %arrayidx42, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr43 = getelementptr inbounds i8, ptr %out.024, i64 16
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !755
 
@@ -126588,17 +126588,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -126648,22 +126648,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i17, label %while.body.i.i.i37, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52
 
 while.body.i.i.i37:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i37
-  %__len.013.i.i.i38 = phi i64 [ %__len.1.i.i.i50, %while.body.i.i.i37 ], [ %sub.ptr.div.i.i.i.i.i16, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i39 = phi ptr [ %__first.addr.1.i.i.i49, %while.body.i.i.i37 ], [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i40 = lshr i64 %__len.013.i.i.i38, 1
-  %add.ptr.i.i.i.i.i43 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i39, i64 %shr.i.i.i40
+  %__first.addr.013.i.i.i38 = phi ptr [ %__first.addr.1.i.i.i50, %while.body.i.i.i37 ], [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i39 = phi i64 [ %__len.1.i.i.i49, %while.body.i.i.i37 ], [ %sub.ptr.div.i.i.i.i.i16, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i40 = lshr i64 %__len.012.i.i.i39, 1
+  %add.ptr.i.i.i.i.i43 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i38, i64 %shr.i.i.i40
   %24 = load float, ptr %add.ptr.i.i.i.i.i43, align 4
   %cmp.i.i.i.i46 = fcmp olt float %24, %23
   %incdec.ptr.i.i.i47 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i43, i64 4
   %25 = xor i64 %shr.i.i.i40, -1
-  %sub2.i.i.i48 = add nsw i64 %__len.013.i.i.i38, %25
-  %__first.addr.1.i.i.i49 = select i1 %cmp.i.i.i.i46, ptr %incdec.ptr.i.i.i47, ptr %__first.addr.012.i.i.i39
-  %__len.1.i.i.i50 = select i1 %cmp.i.i.i.i46, i64 %sub2.i.i.i48, i64 %shr.i.i.i40
-  %cmp.i.i.i51 = icmp sgt i64 %__len.1.i.i.i50, 0
+  %sub2.i.i.i48 = add nsw i64 %__len.012.i.i.i39, %25
+  %__len.1.i.i.i49 = select i1 %cmp.i.i.i.i46, i64 %sub2.i.i.i48, i64 %shr.i.i.i40
+  %__first.addr.1.i.i.i50 = select i1 %cmp.i.i.i.i46, ptr %incdec.ptr.i.i.i47, ptr %__first.addr.013.i.i.i38
+  %cmp.i.i.i51 = icmp sgt i64 %__len.1.i.i.i49, 0
   br i1 %cmp.i.i.i51, label %while.body.i.i.i37, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52: ; preds = %while.body.i.i.i37, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i18 = phi ptr [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i49, %while.body.i.i.i37 ]
+  %__first.addr.0.lcssa.i.i.i18 = phi ptr [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i50, %while.body.i.i.i37 ]
   %cmp.i19 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i18, %14
   %spec.select.idx.i20 = select i1 %cmp.i19, i64 -4, i64 0
   %spec.select.i21 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i18, i64 %spec.select.idx.i20
@@ -126709,22 +126709,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i60, label %while.body.i.i.i80, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit95
 
 while.body.i.i.i80:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52, %while.body.i.i.i80
-  %__len.013.i.i.i81 = phi i64 [ %__len.1.i.i.i93, %while.body.i.i.i80 ], [ %sub.ptr.div.i.i.i.i.i59, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
-  %__first.addr.012.i.i.i82 = phi ptr [ %__first.addr.1.i.i.i92, %while.body.i.i.i80 ], [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
-  %shr.i.i.i83 = lshr i64 %__len.013.i.i.i81, 1
-  %add.ptr.i.i.i.i.i86 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i82, i64 %shr.i.i.i83
+  %__first.addr.013.i.i.i81 = phi ptr [ %__first.addr.1.i.i.i93, %while.body.i.i.i80 ], [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
+  %__len.012.i.i.i82 = phi i64 [ %__len.1.i.i.i92, %while.body.i.i.i80 ], [ %sub.ptr.div.i.i.i.i.i59, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
+  %shr.i.i.i83 = lshr i64 %__len.012.i.i.i82, 1
+  %add.ptr.i.i.i.i.i86 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i81, i64 %shr.i.i.i83
   %38 = load float, ptr %add.ptr.i.i.i.i.i86, align 4
   %cmp.i.i.i.i89 = fcmp olt float %38, %37
   %incdec.ptr.i.i.i90 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i86, i64 4
   %39 = xor i64 %shr.i.i.i83, -1
-  %sub2.i.i.i91 = add nsw i64 %__len.013.i.i.i81, %39
-  %__first.addr.1.i.i.i92 = select i1 %cmp.i.i.i.i89, ptr %incdec.ptr.i.i.i90, ptr %__first.addr.012.i.i.i82
-  %__len.1.i.i.i93 = select i1 %cmp.i.i.i.i89, i64 %sub2.i.i.i91, i64 %shr.i.i.i83
-  %cmp.i.i.i94 = icmp sgt i64 %__len.1.i.i.i93, 0
+  %sub2.i.i.i91 = add nsw i64 %__len.012.i.i.i82, %39
+  %__len.1.i.i.i92 = select i1 %cmp.i.i.i.i89, i64 %sub2.i.i.i91, i64 %shr.i.i.i83
+  %__first.addr.1.i.i.i93 = select i1 %cmp.i.i.i.i89, ptr %incdec.ptr.i.i.i90, ptr %__first.addr.013.i.i.i81
+  %cmp.i.i.i94 = icmp sgt i64 %__len.1.i.i.i92, 0
   br i1 %cmp.i.i.i94, label %while.body.i.i.i80, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit95, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit95: ; preds = %while.body.i.i.i80, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52
-  %__first.addr.0.lcssa.i.i.i61 = phi ptr [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ], [ %__first.addr.1.i.i.i92, %while.body.i.i.i80 ]
+  %__first.addr.0.lcssa.i.i.i61 = phi ptr [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ], [ %__first.addr.1.i.i.i93, %while.body.i.i.i80 ]
   %cmp.i62 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i61, %28
   %spec.select.idx.i63 = select i1 %cmp.i62, i64 -4, i64 0
   %spec.select.i64 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i61, i64 %spec.select.idx.i63
@@ -127970,17 +127970,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -128026,22 +128026,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -128082,22 +128082,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -130151,37 +130151,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
-  store i8 %3, ptr %out.016, align 1
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i8 %3, ptr %out.015, align 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i8, ptr %1, i64 %idxprom.i10
   %4 = load i8, ptr %arrayidx.i11, align 1
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 1
   store i8 %4, ptr %arrayidx5, align 1
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i8, ptr %2, i64 %idxprom.i12
   %5 = load i8, ptr %arrayidx.i13, align 1
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i8 %5, ptr %arrayidx8, align 1
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i8
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 3
   store i8 %conv11, ptr %arrayidx12, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 4
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !925
@@ -132983,13 +132983,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -133068,7 +133068,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i8
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 2
   store i8 %conv40, ptr %arrayidx41, align 1
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -133076,9 +133076,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i8
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 3
   store i8 %conv45, ptr %arrayidx46, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 4
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !930
 
@@ -133261,37 +133261,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
-  store i8 %3, ptr %out.016, align 1
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i8 %3, ptr %out.015, align 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i8, ptr %1, i64 %idxprom.i10
   %4 = load i8, ptr %arrayidx.i11, align 1
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 1
   store i8 %4, ptr %arrayidx5, align 1
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i8, ptr %2, i64 %idxprom.i12
   %5 = load i8, ptr %arrayidx.i13, align 1
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i8 %5, ptr %arrayidx8, align 1
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i8
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 3
   store i8 %conv11, ptr %arrayidx12, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 4
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !931
@@ -133399,13 +133399,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -133484,7 +133484,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i8
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 2
   store i8 %conv40, ptr %arrayidx41, align 1
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -133492,9 +133492,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i8
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 3
   store i8 %conv45, ptr %arrayidx46, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 4
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !932
 
@@ -134669,17 +134669,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -134741,22 +134741,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -134814,22 +134814,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -136150,17 +136150,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -136206,22 +136206,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -136262,22 +136262,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -136546,37 +136546,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !940
@@ -139378,13 +139378,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -139459,7 +139459,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -139467,9 +139467,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !945
 
@@ -139652,37 +139652,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !946
@@ -139790,13 +139790,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -139871,7 +139871,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -139879,9 +139879,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !947
 
@@ -141056,17 +141056,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -141128,22 +141128,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -141201,22 +141201,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -142537,17 +142537,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -142593,22 +142593,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -142649,22 +142649,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -142933,37 +142933,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !955
@@ -145765,13 +145765,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -145846,7 +145846,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -145854,9 +145854,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !960
 
@@ -146039,37 +146039,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !961
@@ -146177,13 +146177,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -146258,7 +146258,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -146266,9 +146266,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !962
 
@@ -147443,17 +147443,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -147515,22 +147515,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -147588,22 +147588,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -148924,17 +148924,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -148980,22 +148980,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -149036,22 +149036,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -149320,37 +149320,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !970
@@ -152152,13 +152152,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -152233,7 +152233,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -152241,9 +152241,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !975
 
@@ -152426,37 +152426,37 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr13, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
   %conv11 = fptoui float %mul to i16
-  %arrayidx12 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx12 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv11, ptr %arrayidx12, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !976
@@ -152564,13 +152564,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr47, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -152645,7 +152645,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv40 = fptoui float %24 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.025, i64 6
   %25 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %25 to float
   %26 = load float, ptr %m_alphaScaling, align 8
@@ -152653,9 +152653,9 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %conv45 = fptoui float %mul to i16
   %arrayidx46 = getelementptr inbounds i8, ptr %out.024, i64 6
   store i16 %conv45, ptr %arrayidx46, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr47 = getelementptr inbounds i8, ptr %out.024, i64 8
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !977
 
@@ -153830,17 +153830,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -153902,22 +153902,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -153975,22 +153975,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -155311,17 +155311,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -155367,22 +155367,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -155423,22 +155423,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -158616,13 +158616,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9Imath_3_14halfC2Ef.exit168
-  %idx.0175 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %in.0175 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
   %out.0174 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %in.0173 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %3 = load <2 x i16>, ptr %in.0173, align 2
+  %idx.0173 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %3 = load <2 x i16>, ptr %in.0175, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.0173, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.0175, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -158932,7 +158932,7 @@ _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %i
   %retval.0.i.i94 = phi i16 [ %conv19.i.i117, %if.end.i.i113 ], [ %conv26.i.i109, %if.then23.i.i108 ], [ %conv36.i.i107, %if.end27.i.i99 ], [ %conv6.i.i111, %if.then4.i.i110 ], [ %conv.i.i71, %if.end37.i.i73 ], [ %inc.i.i93, %if.then55.i.i92 ], [ %conv49.i.i85, %lor.lhs.false.i.i87 ]
   %arrayidx40 = getelementptr inbounds i8, ptr %out.0174, i64 4
   store i16 %retval.0.i.i94, ptr %arrayidx40, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.0173, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.0175, i64 6
   %43 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %43 to float
   %44 = load float, ptr %m_alphaScaling, align 8
@@ -159017,9 +159017,9 @@ _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %i
   %retval.0.i.i144 = phi i16 [ %conv19.i.i167, %if.end.i.i163 ], [ %conv26.i.i159, %if.then23.i.i158 ], [ %conv36.i.i157, %if.end27.i.i149 ], [ %conv6.i.i161, %if.then4.i.i160 ], [ %conv.i.i121, %if.end37.i.i123 ], [ %inc.i.i143, %if.then55.i.i142 ], [ %conv49.i.i135, %lor.lhs.false.i.i137 ]
   %arrayidx45 = getelementptr inbounds i8, ptr %out.0174, i64 6
   store i16 %retval.0.i.i144, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.0173, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.0175, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.0174, i64 8
-  %inc = add nuw nsw i64 %idx.0175, 1
+  %inc = add nuw nsw i64 %idx.0173, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !990
 
@@ -159417,13 +159417,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9Imath_3_14halfC2Ef.exit168
-  %idx.0175 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %in.0175 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
   %out.0174 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %in.0173 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit168 ]
-  %3 = load <2 x i16>, ptr %in.0173, align 2
+  %idx.0173 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit168 ]
+  %3 = load <2 x i16>, ptr %in.0175, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.0173, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.0175, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -159733,7 +159733,7 @@ _ZN9Imath_3_14halfC2Ef.exit118:                   ; preds = %if.then4.i.i110, %i
   %retval.0.i.i94 = phi i16 [ %conv19.i.i117, %if.end.i.i113 ], [ %conv26.i.i109, %if.then23.i.i108 ], [ %conv36.i.i107, %if.end27.i.i99 ], [ %conv6.i.i111, %if.then4.i.i110 ], [ %conv.i.i71, %if.end37.i.i73 ], [ %inc.i.i93, %if.then55.i.i92 ], [ %conv49.i.i85, %lor.lhs.false.i.i87 ]
   %arrayidx40 = getelementptr inbounds i8, ptr %out.0174, i64 4
   store i16 %retval.0.i.i94, ptr %arrayidx40, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.0173, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.0175, i64 6
   %43 = load i16, ptr %arrayidx42, align 2
   %conv44 = uitofp i16 %43 to float
   %44 = load float, ptr %m_alphaScaling, align 8
@@ -159818,9 +159818,9 @@ _ZN9Imath_3_14halfC2Ef.exit168:                   ; preds = %if.then4.i.i160, %i
   %retval.0.i.i144 = phi i16 [ %conv19.i.i167, %if.end.i.i163 ], [ %conv26.i.i159, %if.then23.i.i158 ], [ %conv36.i.i157, %if.end27.i.i149 ], [ %conv6.i.i161, %if.then4.i.i160 ], [ %conv.i.i121, %if.end37.i.i123 ], [ %inc.i.i143, %if.then55.i.i142 ], [ %conv49.i.i135, %lor.lhs.false.i.i137 ]
   %arrayidx45 = getelementptr inbounds i8, ptr %out.0174, i64 6
   store i16 %retval.0.i.i144, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.0173, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.0175, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.0174, i64 8
-  %inc = add nuw nsw i64 %idx.0175, 1
+  %inc = add nuw nsw i64 %idx.0173, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !992
 
@@ -161259,17 +161259,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -161397,22 +161397,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %30 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %30, %29
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %31 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %31
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %31
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %20
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -161536,22 +161536,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104: ; pred
   br i1 %cmp11.i.i.i112, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147
 
 while.body.i.i.i132:                              ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104, %while.body.i.i.i132
-  %__len.013.i.i.i133 = phi i64 [ %__len.1.i.i.i145, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
-  %__first.addr.012.i.i.i134 = phi ptr [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ], [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
-  %shr.i.i.i135 = lshr i64 %__len.013.i.i.i133, 1
-  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i134, i64 %shr.i.i.i135
+  %__first.addr.013.i.i.i133 = phi ptr [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ], [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
+  %__len.012.i.i.i134 = phi i64 [ %__len.1.i.i.i144, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
+  %shr.i.i.i135 = lshr i64 %__len.012.i.i.i134, 1
+  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i133, i64 %shr.i.i.i135
   %50 = load float, ptr %add.ptr.i.i.i.i.i138, align 4
   %cmp.i.i.i.i141 = fcmp olt float %50, %49
   %incdec.ptr.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i138, i64 4
   %51 = xor i64 %shr.i.i.i135, -1
-  %sub2.i.i.i143 = add nsw i64 %__len.013.i.i.i133, %51
-  %__first.addr.1.i.i.i144 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.012.i.i.i134
-  %__len.1.i.i.i145 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
-  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i145, 0
+  %sub2.i.i.i143 = add nsw i64 %__len.012.i.i.i134, %51
+  %__len.1.i.i.i144 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
+  %__first.addr.1.i.i.i145 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.013.i.i.i133
+  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i144, 0
   br i1 %cmp.i.i.i146, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147: ; preds = %while.body.i.i.i132, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104
-  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ], [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ]
+  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ], [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ]
   %cmp.i114 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i113, %40
   %spec.select.idx.i115 = select i1 %cmp.i114, i64 -4, i64 0
   %spec.select.i116 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i113, i64 %spec.select.idx.i115
@@ -163268,17 +163268,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -163324,22 +163324,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -163380,22 +163380,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -163928,36 +163928,36 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds float, ptr %0, i64 %idxprom.i
   %3 = load float, ptr %arrayidx.i, align 4
-  store float %3, ptr %out.016, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store float %3, ptr %out.015, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds float, ptr %1, i64 %idxprom.i10
   %4 = load float, ptr %arrayidx.i11, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 4
   store float %4, ptr %arrayidx5, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds float, ptr %2, i64 %idxprom.i12
   %5 = load float, ptr %arrayidx.i13, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 8
   store float %5, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 12
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 12
   store float %mul, ptr %arrayidx11, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 16
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1000
@@ -166759,13 +166759,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr43, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -166838,16 +166838,16 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %23 = load float, ptr %arrayinit.element21, align 8
   %arrayidx38 = getelementptr inbounds i8, ptr %out.024, i64 8
   store float %23, ptr %arrayidx38, align 4
-  %arrayidx39 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx39 = getelementptr inbounds i8, ptr %in.025, i64 6
   %24 = load i16, ptr %arrayidx39, align 2
   %conv41 = uitofp i16 %24 to float
   %25 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %25, %conv41
   %arrayidx42 = getelementptr inbounds i8, ptr %out.024, i64 12
   store float %mul, ptr %arrayidx42, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr43 = getelementptr inbounds i8, ptr %out.024, i64 16
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1005
 
@@ -167030,36 +167030,36 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds float, ptr %0, i64 %idxprom.i
   %3 = load float, ptr %arrayidx.i, align 4
-  store float %3, ptr %out.016, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store float %3, ptr %out.015, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds float, ptr %1, i64 %idxprom.i10
   %4 = load float, ptr %arrayidx.i11, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 4
   store float %4, ptr %arrayidx5, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds float, ptr %2, i64 %idxprom.i12
   %5 = load float, ptr %arrayidx.i13, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 8
   store float %5, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv10 = uitofp i16 %6 to float
   %7 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %7, %conv10
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 12
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 12
   store float %mul, ptr %arrayidx11, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 16
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1006
@@ -167167,13 +167167,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end
-  %idx.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %in.025 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
   %out.024 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr43, %cond.end ]
-  %in.023 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end ]
-  %3 = load <2 x i16>, ptr %in.023, align 2
+  %idx.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end ]
+  %3 = load <2 x i16>, ptr %in.025, align 2
   %4 = uitofp <2 x i16> %3 to <2 x float>
   store <2 x float> %4, ptr %RGB, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.023, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.025, i64 4
   %5 = load i16, ptr %arrayidx5, align 2
   %conv6 = uitofp i16 %5 to float
   store float %conv6, ptr %arrayinit.element4, align 8
@@ -167246,16 +167246,16 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %23 = load float, ptr %arrayinit.element21, align 8
   %arrayidx38 = getelementptr inbounds i8, ptr %out.024, i64 8
   store float %23, ptr %arrayidx38, align 4
-  %arrayidx39 = getelementptr inbounds i8, ptr %in.023, i64 6
+  %arrayidx39 = getelementptr inbounds i8, ptr %in.025, i64 6
   %24 = load i16, ptr %arrayidx39, align 2
   %conv41 = uitofp i16 %24 to float
   %25 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %25, %conv41
   %arrayidx42 = getelementptr inbounds i8, ptr %out.024, i64 12
   store float %mul, ptr %arrayidx42, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.025, i64 8
   %add.ptr43 = getelementptr inbounds i8, ptr %out.024, i64 16
-  %inc = add nuw nsw i64 %idx.025, 1
+  %inc = add nuw nsw i64 %idx.023, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1007
 
@@ -168382,17 +168382,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -168442,22 +168442,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i17, label %while.body.i.i.i37, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52
 
 while.body.i.i.i37:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i37
-  %__len.013.i.i.i38 = phi i64 [ %__len.1.i.i.i50, %while.body.i.i.i37 ], [ %sub.ptr.div.i.i.i.i.i16, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i39 = phi ptr [ %__first.addr.1.i.i.i49, %while.body.i.i.i37 ], [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i40 = lshr i64 %__len.013.i.i.i38, 1
-  %add.ptr.i.i.i.i.i43 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i39, i64 %shr.i.i.i40
+  %__first.addr.013.i.i.i38 = phi ptr [ %__first.addr.1.i.i.i50, %while.body.i.i.i37 ], [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i39 = phi i64 [ %__len.1.i.i.i49, %while.body.i.i.i37 ], [ %sub.ptr.div.i.i.i.i.i16, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i40 = lshr i64 %__len.012.i.i.i39, 1
+  %add.ptr.i.i.i.i.i43 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i38, i64 %shr.i.i.i40
   %24 = load float, ptr %add.ptr.i.i.i.i.i43, align 4
   %cmp.i.i.i.i46 = fcmp olt float %24, %23
   %incdec.ptr.i.i.i47 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i43, i64 4
   %25 = xor i64 %shr.i.i.i40, -1
-  %sub2.i.i.i48 = add nsw i64 %__len.013.i.i.i38, %25
-  %__first.addr.1.i.i.i49 = select i1 %cmp.i.i.i.i46, ptr %incdec.ptr.i.i.i47, ptr %__first.addr.012.i.i.i39
-  %__len.1.i.i.i50 = select i1 %cmp.i.i.i.i46, i64 %sub2.i.i.i48, i64 %shr.i.i.i40
-  %cmp.i.i.i51 = icmp sgt i64 %__len.1.i.i.i50, 0
+  %sub2.i.i.i48 = add nsw i64 %__len.012.i.i.i39, %25
+  %__len.1.i.i.i49 = select i1 %cmp.i.i.i.i46, i64 %sub2.i.i.i48, i64 %shr.i.i.i40
+  %__first.addr.1.i.i.i50 = select i1 %cmp.i.i.i.i46, ptr %incdec.ptr.i.i.i47, ptr %__first.addr.013.i.i.i38
+  %cmp.i.i.i51 = icmp sgt i64 %__len.1.i.i.i49, 0
   br i1 %cmp.i.i.i51, label %while.body.i.i.i37, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52: ; preds = %while.body.i.i.i37, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i18 = phi ptr [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i49, %while.body.i.i.i37 ]
+  %__first.addr.0.lcssa.i.i.i18 = phi ptr [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i50, %while.body.i.i.i37 ]
   %cmp.i19 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i18, %14
   %spec.select.idx.i20 = select i1 %cmp.i19, i64 -4, i64 0
   %spec.select.i21 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i18, i64 %spec.select.idx.i20
@@ -168503,22 +168503,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i60, label %while.body.i.i.i80, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit95
 
 while.body.i.i.i80:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52, %while.body.i.i.i80
-  %__len.013.i.i.i81 = phi i64 [ %__len.1.i.i.i93, %while.body.i.i.i80 ], [ %sub.ptr.div.i.i.i.i.i59, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
-  %__first.addr.012.i.i.i82 = phi ptr [ %__first.addr.1.i.i.i92, %while.body.i.i.i80 ], [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
-  %shr.i.i.i83 = lshr i64 %__len.013.i.i.i81, 1
-  %add.ptr.i.i.i.i.i86 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i82, i64 %shr.i.i.i83
+  %__first.addr.013.i.i.i81 = phi ptr [ %__first.addr.1.i.i.i93, %while.body.i.i.i80 ], [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
+  %__len.012.i.i.i82 = phi i64 [ %__len.1.i.i.i92, %while.body.i.i.i80 ], [ %sub.ptr.div.i.i.i.i.i59, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
+  %shr.i.i.i83 = lshr i64 %__len.012.i.i.i82, 1
+  %add.ptr.i.i.i.i.i86 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i81, i64 %shr.i.i.i83
   %38 = load float, ptr %add.ptr.i.i.i.i.i86, align 4
   %cmp.i.i.i.i89 = fcmp olt float %38, %37
   %incdec.ptr.i.i.i90 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i86, i64 4
   %39 = xor i64 %shr.i.i.i83, -1
-  %sub2.i.i.i91 = add nsw i64 %__len.013.i.i.i81, %39
-  %__first.addr.1.i.i.i92 = select i1 %cmp.i.i.i.i89, ptr %incdec.ptr.i.i.i90, ptr %__first.addr.012.i.i.i82
-  %__len.1.i.i.i93 = select i1 %cmp.i.i.i.i89, i64 %sub2.i.i.i91, i64 %shr.i.i.i83
-  %cmp.i.i.i94 = icmp sgt i64 %__len.1.i.i.i93, 0
+  %sub2.i.i.i91 = add nsw i64 %__len.012.i.i.i82, %39
+  %__len.1.i.i.i92 = select i1 %cmp.i.i.i.i89, i64 %sub2.i.i.i91, i64 %shr.i.i.i83
+  %__first.addr.1.i.i.i93 = select i1 %cmp.i.i.i.i89, ptr %incdec.ptr.i.i.i90, ptr %__first.addr.013.i.i.i81
+  %cmp.i.i.i94 = icmp sgt i64 %__len.1.i.i.i92, 0
   br i1 %cmp.i.i.i94, label %while.body.i.i.i80, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit95, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit95: ; preds = %while.body.i.i.i80, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52
-  %__first.addr.0.lcssa.i.i.i61 = phi ptr [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ], [ %__first.addr.1.i.i.i92, %while.body.i.i.i80 ]
+  %__first.addr.0.lcssa.i.i.i61 = phi ptr [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ], [ %__first.addr.1.i.i.i93, %while.body.i.i.i80 ]
   %cmp.i62 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i61, %28
   %spec.select.idx.i63 = select i1 %cmp.i62, i64 -4, i64 0
   %spec.select.i64 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i61, i64 %spec.select.idx.i63
@@ -169764,17 +169764,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %11, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %20 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %20, %19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %21 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %21
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %21
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -169820,22 +169820,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %32 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %32, %31
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %33 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %33
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %33
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %24, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %24
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -169876,22 +169876,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %44 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %44, %43
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %45 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %45
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %45
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %36, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %36
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -171945,28 +171945,28 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
-  store i8 %3, ptr %out.016, align 1
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i8 %3, ptr %out.015, align 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i8, ptr %1, i64 %idxprom.i10
   %4 = load i8, ptr %arrayidx.i11, align 1
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 1
   store i8 %4, ptr %arrayidx5, align 1
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i8, ptr %2, i64 %idxprom.i12
   %5 = load i8, ptr %arrayidx.i13, align 1
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i8 %5, ptr %arrayidx8, align 1
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv.i.i = zext i16 %6 to i32
   %7 = shl nuw nsw i32 %conv.i.i, 13
@@ -172009,10 +172009,10 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %10 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %10, %9
   %conv = fptoui float %mul to i8
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 3
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 3
   store i8 %conv, ptr %arrayidx11, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 4
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1177
@@ -174815,10 +174815,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit87
-  %idx.094 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %in.094 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
   %out.093 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %in.092 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %3 = load i16, ptr %in.092, align 2
+  %idx.092 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %3 = load i16, ptr %in.094, align 2
   %conv.i.i = zext i16 %3 to i32
   %4 = shl nuw nsw i32 %conv.i.i, 13
   %shr.i.i = and i32 %4, 268427264
@@ -174858,7 +174858,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %v.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.then7.i.i ], [ %or8.i.i, %if.else.i.i ], [ %sub16.i.i, %if.then11.i.i ], [ %shl3.i.i, %if.else9.i.i ]
   %6 = bitcast i32 %v.sroa.0.0.i.i to float
   store i32 %v.sroa.0.0.i.i, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.092, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.094, i64 2
   %7 = load i16, ptr %arrayidx2, align 2
   %conv.i.i14 = zext i16 %7 to i32
   %8 = shl nuw nsw i32 %conv.i.i14, 13
@@ -174899,7 +174899,7 @@ _ZNK9Imath_3_14halfcvfEv.exit36:                  ; preds = %if.then7.i.i34, %if
   %v.sroa.0.0.i.i28 = phi i32 [ %add.i.i35, %if.then7.i.i34 ], [ %or8.i.i33, %if.else.i.i32 ], [ %sub16.i.i27, %if.then11.i.i21 ], [ %shl3.i.i17, %if.else9.i.i19 ]
   %10 = bitcast i32 %v.sroa.0.0.i.i28 to float
   store i32 %v.sroa.0.0.i.i28, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.092, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.094, i64 4
   %11 = load i16, ptr %arrayidx5, align 2
   %conv.i.i37 = zext i16 %11 to i32
   %12 = shl nuw nsw i32 %conv.i.i37, 13
@@ -175011,7 +175011,7 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %conv40 = fptoui float %29 to i8
   %arrayidx41 = getelementptr inbounds i8, ptr %out.093, i64 2
   store i8 %conv40, ptr %arrayidx41, align 1
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.092, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.094, i64 6
   %30 = load i16, ptr %arrayidx42, align 2
   %conv.i.i65 = zext i16 %30 to i32
   %31 = shl nuw nsw i32 %conv.i.i65, 13
@@ -175056,9 +175056,9 @@ _ZNK9Imath_3_14halfcvfEv.exit87:                  ; preds = %if.then7.i.i85, %if
   %conv44 = fptoui float %mul to i8
   %arrayidx45 = getelementptr inbounds i8, ptr %out.093, i64 3
   store i8 %conv44, ptr %arrayidx45, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.092, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.094, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.093, i64 4
-  %inc = add nuw nsw i64 %idx.094, 1
+  %inc = add nuw nsw i64 %idx.092, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1182
 
@@ -175241,28 +175241,28 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
-  store i8 %3, ptr %out.016, align 1
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i8 %3, ptr %out.015, align 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i8, ptr %1, i64 %idxprom.i10
   %4 = load i8, ptr %arrayidx.i11, align 1
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 1
   store i8 %4, ptr %arrayidx5, align 1
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i8, ptr %2, i64 %idxprom.i12
   %5 = load i8, ptr %arrayidx.i13, align 1
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i8 %5, ptr %arrayidx8, align 1
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv.i.i = zext i16 %6 to i32
   %7 = shl nuw nsw i32 %conv.i.i, 13
@@ -175305,10 +175305,10 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %10 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %10, %9
   %conv = fptoui float %mul to i8
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 3
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 3
   store i8 %conv, ptr %arrayidx11, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 4
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1183
@@ -175417,10 +175417,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit87
-  %idx.094 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %in.094 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
   %out.093 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %in.092 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %3 = load i16, ptr %in.092, align 2
+  %idx.092 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %3 = load i16, ptr %in.094, align 2
   %conv.i.i = zext i16 %3 to i32
   %4 = shl nuw nsw i32 %conv.i.i, 13
   %shr.i.i = and i32 %4, 268427264
@@ -175460,7 +175460,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %v.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.then7.i.i ], [ %or8.i.i, %if.else.i.i ], [ %sub16.i.i, %if.then11.i.i ], [ %shl3.i.i, %if.else9.i.i ]
   %6 = bitcast i32 %v.sroa.0.0.i.i to float
   store i32 %v.sroa.0.0.i.i, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.092, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.094, i64 2
   %7 = load i16, ptr %arrayidx2, align 2
   %conv.i.i14 = zext i16 %7 to i32
   %8 = shl nuw nsw i32 %conv.i.i14, 13
@@ -175501,7 +175501,7 @@ _ZNK9Imath_3_14halfcvfEv.exit36:                  ; preds = %if.then7.i.i34, %if
   %v.sroa.0.0.i.i28 = phi i32 [ %add.i.i35, %if.then7.i.i34 ], [ %or8.i.i33, %if.else.i.i32 ], [ %sub16.i.i27, %if.then11.i.i21 ], [ %shl3.i.i17, %if.else9.i.i19 ]
   %10 = bitcast i32 %v.sroa.0.0.i.i28 to float
   store i32 %v.sroa.0.0.i.i28, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.092, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.094, i64 4
   %11 = load i16, ptr %arrayidx5, align 2
   %conv.i.i37 = zext i16 %11 to i32
   %12 = shl nuw nsw i32 %conv.i.i37, 13
@@ -175613,7 +175613,7 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %conv40 = fptoui float %29 to i8
   %arrayidx41 = getelementptr inbounds i8, ptr %out.093, i64 2
   store i8 %conv40, ptr %arrayidx41, align 1
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.092, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.094, i64 6
   %30 = load i16, ptr %arrayidx42, align 2
   %conv.i.i65 = zext i16 %30 to i32
   %31 = shl nuw nsw i32 %conv.i.i65, 13
@@ -175658,9 +175658,9 @@ _ZNK9Imath_3_14halfcvfEv.exit87:                  ; preds = %if.then7.i.i85, %if
   %conv44 = fptoui float %mul to i8
   %arrayidx45 = getelementptr inbounds i8, ptr %out.093, i64 3
   store i8 %conv44, ptr %arrayidx45, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %in.092, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.094, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.093, i64 4
-  %inc = add nuw nsw i64 %idx.094, 1
+  %inc = add nuw nsw i64 %idx.092, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1184
 
@@ -177020,17 +177020,17 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %_ZNK9Imath_3_14halfcvfEv.exit, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %13 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %13, %12
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %14 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %14
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %14
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -177129,22 +177129,22 @@ _ZNK9Imath_3_14halfcvfEv.exit35:                  ; preds = %if.then7.i.i33, %if
   br i1 %cmp11.i.i.i43, label %while.body.i.i.i63, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit78
 
 while.body.i.i.i63:                               ; preds = %_ZNK9Imath_3_14halfcvfEv.exit35, %while.body.i.i.i63
-  %__len.013.i.i.i64 = phi i64 [ %__len.1.i.i.i76, %while.body.i.i.i63 ], [ %sub.ptr.div.i.i.i.i.i42, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
-  %__first.addr.012.i.i.i65 = phi ptr [ %__first.addr.1.i.i.i75, %while.body.i.i.i63 ], [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
-  %shr.i.i.i66 = lshr i64 %__len.013.i.i.i64, 1
-  %add.ptr.i.i.i.i.i69 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i65, i64 %shr.i.i.i66
+  %__first.addr.013.i.i.i64 = phi ptr [ %__first.addr.1.i.i.i76, %while.body.i.i.i63 ], [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
+  %__len.012.i.i.i65 = phi i64 [ %__len.1.i.i.i75, %while.body.i.i.i63 ], [ %sub.ptr.div.i.i.i.i.i42, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
+  %shr.i.i.i66 = lshr i64 %__len.012.i.i.i65, 1
+  %add.ptr.i.i.i.i.i69 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i64, i64 %shr.i.i.i66
   %31 = load float, ptr %add.ptr.i.i.i.i.i69, align 4
   %cmp.i.i.i.i72 = fcmp olt float %31, %30
   %incdec.ptr.i.i.i73 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i69, i64 4
   %32 = xor i64 %shr.i.i.i66, -1
-  %sub2.i.i.i74 = add nsw i64 %__len.013.i.i.i64, %32
-  %__first.addr.1.i.i.i75 = select i1 %cmp.i.i.i.i72, ptr %incdec.ptr.i.i.i73, ptr %__first.addr.012.i.i.i65
-  %__len.1.i.i.i76 = select i1 %cmp.i.i.i.i72, i64 %sub2.i.i.i74, i64 %shr.i.i.i66
-  %cmp.i.i.i77 = icmp sgt i64 %__len.1.i.i.i76, 0
+  %sub2.i.i.i74 = add nsw i64 %__len.012.i.i.i65, %32
+  %__len.1.i.i.i75 = select i1 %cmp.i.i.i.i72, i64 %sub2.i.i.i74, i64 %shr.i.i.i66
+  %__first.addr.1.i.i.i76 = select i1 %cmp.i.i.i.i72, ptr %incdec.ptr.i.i.i73, ptr %__first.addr.013.i.i.i64
+  %cmp.i.i.i77 = icmp sgt i64 %__len.1.i.i.i75, 0
   br i1 %cmp.i.i.i77, label %while.body.i.i.i63, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit78, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit78: ; preds = %while.body.i.i.i63, %_ZNK9Imath_3_14halfcvfEv.exit35
-  %__first.addr.0.lcssa.i.i.i44 = phi ptr [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ], [ %__first.addr.1.i.i.i75, %while.body.i.i.i63 ]
+  %__first.addr.0.lcssa.i.i.i44 = phi ptr [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ], [ %__first.addr.1.i.i.i76, %while.body.i.i.i63 ]
   %cmp.i45 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i44, %18
   %spec.select.idx.i46 = select i1 %cmp.i45, i64 -4, i64 0
   %spec.select.i47 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i44, i64 %spec.select.idx.i46
@@ -177239,22 +177239,22 @@ _ZNK9Imath_3_14halfcvfEv.exit108:                 ; preds = %if.then7.i.i106, %i
   br i1 %cmp11.i.i.i116, label %while.body.i.i.i136, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit151
 
 while.body.i.i.i136:                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit108, %while.body.i.i.i136
-  %__len.013.i.i.i137 = phi i64 [ %__len.1.i.i.i149, %while.body.i.i.i136 ], [ %sub.ptr.div.i.i.i.i.i115, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
-  %__first.addr.012.i.i.i138 = phi ptr [ %__first.addr.1.i.i.i148, %while.body.i.i.i136 ], [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
-  %shr.i.i.i139 = lshr i64 %__len.013.i.i.i137, 1
-  %add.ptr.i.i.i.i.i142 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i138, i64 %shr.i.i.i139
+  %__first.addr.013.i.i.i137 = phi ptr [ %__first.addr.1.i.i.i149, %while.body.i.i.i136 ], [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
+  %__len.012.i.i.i138 = phi i64 [ %__len.1.i.i.i148, %while.body.i.i.i136 ], [ %sub.ptr.div.i.i.i.i.i115, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
+  %shr.i.i.i139 = lshr i64 %__len.012.i.i.i138, 1
+  %add.ptr.i.i.i.i.i142 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i137, i64 %shr.i.i.i139
   %49 = load float, ptr %add.ptr.i.i.i.i.i142, align 4
   %cmp.i.i.i.i145 = fcmp olt float %49, %48
   %incdec.ptr.i.i.i146 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i142, i64 4
   %50 = xor i64 %shr.i.i.i139, -1
-  %sub2.i.i.i147 = add nsw i64 %__len.013.i.i.i137, %50
-  %__first.addr.1.i.i.i148 = select i1 %cmp.i.i.i.i145, ptr %incdec.ptr.i.i.i146, ptr %__first.addr.012.i.i.i138
-  %__len.1.i.i.i149 = select i1 %cmp.i.i.i.i145, i64 %sub2.i.i.i147, i64 %shr.i.i.i139
-  %cmp.i.i.i150 = icmp sgt i64 %__len.1.i.i.i149, 0
+  %sub2.i.i.i147 = add nsw i64 %__len.012.i.i.i138, %50
+  %__len.1.i.i.i148 = select i1 %cmp.i.i.i.i145, i64 %sub2.i.i.i147, i64 %shr.i.i.i139
+  %__first.addr.1.i.i.i149 = select i1 %cmp.i.i.i.i145, ptr %incdec.ptr.i.i.i146, ptr %__first.addr.013.i.i.i137
+  %cmp.i.i.i150 = icmp sgt i64 %__len.1.i.i.i148, 0
   br i1 %cmp.i.i.i150, label %while.body.i.i.i136, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit151, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit151: ; preds = %while.body.i.i.i136, %_ZNK9Imath_3_14halfcvfEv.exit108
-  %__first.addr.0.lcssa.i.i.i117 = phi ptr [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ], [ %__first.addr.1.i.i.i148, %while.body.i.i.i136 ]
+  %__first.addr.0.lcssa.i.i.i117 = phi ptr [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ], [ %__first.addr.1.i.i.i149, %while.body.i.i.i136 ]
   %cmp.i118 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i117, %36
   %spec.select.idx.i119 = select i1 %cmp.i118, i64 -4, i64 0
   %spec.select.i120 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i117, i64 %spec.select.idx.i119
@@ -178877,17 +178877,17 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %18, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %18, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %27 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %27, %26
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %28 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %28
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %28
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -178933,22 +178933,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %39 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %39, %38
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %40 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %40
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %40
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %31
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -178989,22 +178989,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i112, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147
 
 while.body.i.i.i132:                              ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, %while.body.i.i.i132
-  %__len.013.i.i.i133 = phi i64 [ %__len.1.i.i.i145, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
-  %__first.addr.012.i.i.i134 = phi ptr [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ], [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
-  %shr.i.i.i135 = lshr i64 %__len.013.i.i.i133, 1
-  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i134, i64 %shr.i.i.i135
+  %__first.addr.013.i.i.i133 = phi ptr [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ], [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
+  %__len.012.i.i.i134 = phi i64 [ %__len.1.i.i.i144, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
+  %shr.i.i.i135 = lshr i64 %__len.012.i.i.i134, 1
+  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i133, i64 %shr.i.i.i135
   %51 = load float, ptr %add.ptr.i.i.i.i.i138, align 4
   %cmp.i.i.i.i141 = fcmp olt float %51, %50
   %incdec.ptr.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i138, i64 4
   %52 = xor i64 %shr.i.i.i135, -1
-  %sub2.i.i.i143 = add nsw i64 %__len.013.i.i.i133, %52
-  %__first.addr.1.i.i.i144 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.012.i.i.i134
-  %__len.1.i.i.i145 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
-  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i145, 0
+  %sub2.i.i.i143 = add nsw i64 %__len.012.i.i.i134, %52
+  %__len.1.i.i.i144 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
+  %__first.addr.1.i.i.i145 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.013.i.i.i133
+  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i144, 0
   br i1 %cmp.i.i.i146, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147: ; preds = %while.body.i.i.i132, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
-  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ], [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ]
+  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ], [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ]
   %cmp.i114 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i113, %43
   %spec.select.idx.i115 = select i1 %cmp.i114, i64 -4, i64 0
   %spec.select.i116 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i113, i64 %spec.select.idx.i115
@@ -179310,28 +179310,28 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv.i.i = zext i16 %6 to i32
   %7 = shl nuw nsw i32 %conv.i.i, 13
@@ -179374,10 +179374,10 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %10 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %10, %9
   %conv = fptoui float %mul to i16
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv, ptr %arrayidx11, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1192
@@ -182180,10 +182180,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit87
-  %idx.094 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %in.094 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
   %out.093 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %in.092 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %3 = load i16, ptr %in.092, align 2
+  %idx.092 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %3 = load i16, ptr %in.094, align 2
   %conv.i.i = zext i16 %3 to i32
   %4 = shl nuw nsw i32 %conv.i.i, 13
   %shr.i.i = and i32 %4, 268427264
@@ -182223,7 +182223,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %v.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.then7.i.i ], [ %or8.i.i, %if.else.i.i ], [ %sub16.i.i, %if.then11.i.i ], [ %shl3.i.i, %if.else9.i.i ]
   %6 = bitcast i32 %v.sroa.0.0.i.i to float
   store i32 %v.sroa.0.0.i.i, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.092, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.094, i64 2
   %7 = load i16, ptr %arrayidx2, align 2
   %conv.i.i14 = zext i16 %7 to i32
   %8 = shl nuw nsw i32 %conv.i.i14, 13
@@ -182264,7 +182264,7 @@ _ZNK9Imath_3_14halfcvfEv.exit36:                  ; preds = %if.then7.i.i34, %if
   %v.sroa.0.0.i.i28 = phi i32 [ %add.i.i35, %if.then7.i.i34 ], [ %or8.i.i33, %if.else.i.i32 ], [ %sub16.i.i27, %if.then11.i.i21 ], [ %shl3.i.i17, %if.else9.i.i19 ]
   %10 = bitcast i32 %v.sroa.0.0.i.i28 to float
   store i32 %v.sroa.0.0.i.i28, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.092, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.094, i64 4
   %11 = load i16, ptr %arrayidx5, align 2
   %conv.i.i37 = zext i16 %11 to i32
   %12 = shl nuw nsw i32 %conv.i.i37, 13
@@ -182372,7 +182372,7 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %conv40 = fptoui float %29 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.093, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.092, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.094, i64 6
   %30 = load i16, ptr %arrayidx42, align 2
   %conv.i.i65 = zext i16 %30 to i32
   %31 = shl nuw nsw i32 %conv.i.i65, 13
@@ -182417,9 +182417,9 @@ _ZNK9Imath_3_14halfcvfEv.exit87:                  ; preds = %if.then7.i.i85, %if
   %conv44 = fptoui float %mul to i16
   %arrayidx45 = getelementptr inbounds i8, ptr %out.093, i64 6
   store i16 %conv44, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.092, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.094, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.093, i64 8
-  %inc = add nuw nsw i64 %idx.094, 1
+  %inc = add nuw nsw i64 %idx.092, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1197
 
@@ -182602,28 +182602,28 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv.i.i = zext i16 %6 to i32
   %7 = shl nuw nsw i32 %conv.i.i, 13
@@ -182666,10 +182666,10 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %10 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %10, %9
   %conv = fptoui float %mul to i16
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv, ptr %arrayidx11, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1198
@@ -182778,10 +182778,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit87
-  %idx.094 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %in.094 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
   %out.093 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %in.092 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %3 = load i16, ptr %in.092, align 2
+  %idx.092 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %3 = load i16, ptr %in.094, align 2
   %conv.i.i = zext i16 %3 to i32
   %4 = shl nuw nsw i32 %conv.i.i, 13
   %shr.i.i = and i32 %4, 268427264
@@ -182821,7 +182821,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %v.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.then7.i.i ], [ %or8.i.i, %if.else.i.i ], [ %sub16.i.i, %if.then11.i.i ], [ %shl3.i.i, %if.else9.i.i ]
   %6 = bitcast i32 %v.sroa.0.0.i.i to float
   store i32 %v.sroa.0.0.i.i, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.092, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.094, i64 2
   %7 = load i16, ptr %arrayidx2, align 2
   %conv.i.i14 = zext i16 %7 to i32
   %8 = shl nuw nsw i32 %conv.i.i14, 13
@@ -182862,7 +182862,7 @@ _ZNK9Imath_3_14halfcvfEv.exit36:                  ; preds = %if.then7.i.i34, %if
   %v.sroa.0.0.i.i28 = phi i32 [ %add.i.i35, %if.then7.i.i34 ], [ %or8.i.i33, %if.else.i.i32 ], [ %sub16.i.i27, %if.then11.i.i21 ], [ %shl3.i.i17, %if.else9.i.i19 ]
   %10 = bitcast i32 %v.sroa.0.0.i.i28 to float
   store i32 %v.sroa.0.0.i.i28, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.092, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.094, i64 4
   %11 = load i16, ptr %arrayidx5, align 2
   %conv.i.i37 = zext i16 %11 to i32
   %12 = shl nuw nsw i32 %conv.i.i37, 13
@@ -182970,7 +182970,7 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %conv40 = fptoui float %29 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.093, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.092, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.094, i64 6
   %30 = load i16, ptr %arrayidx42, align 2
   %conv.i.i65 = zext i16 %30 to i32
   %31 = shl nuw nsw i32 %conv.i.i65, 13
@@ -183015,9 +183015,9 @@ _ZNK9Imath_3_14halfcvfEv.exit87:                  ; preds = %if.then7.i.i85, %if
   %conv44 = fptoui float %mul to i16
   %arrayidx45 = getelementptr inbounds i8, ptr %out.093, i64 6
   store i16 %conv44, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.092, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.094, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.093, i64 8
-  %inc = add nuw nsw i64 %idx.094, 1
+  %inc = add nuw nsw i64 %idx.092, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1199
 
@@ -184377,17 +184377,17 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %_ZNK9Imath_3_14halfcvfEv.exit, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %13 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %13, %12
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %14 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %14
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %14
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -184486,22 +184486,22 @@ _ZNK9Imath_3_14halfcvfEv.exit35:                  ; preds = %if.then7.i.i33, %if
   br i1 %cmp11.i.i.i43, label %while.body.i.i.i63, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit78
 
 while.body.i.i.i63:                               ; preds = %_ZNK9Imath_3_14halfcvfEv.exit35, %while.body.i.i.i63
-  %__len.013.i.i.i64 = phi i64 [ %__len.1.i.i.i76, %while.body.i.i.i63 ], [ %sub.ptr.div.i.i.i.i.i42, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
-  %__first.addr.012.i.i.i65 = phi ptr [ %__first.addr.1.i.i.i75, %while.body.i.i.i63 ], [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
-  %shr.i.i.i66 = lshr i64 %__len.013.i.i.i64, 1
-  %add.ptr.i.i.i.i.i69 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i65, i64 %shr.i.i.i66
+  %__first.addr.013.i.i.i64 = phi ptr [ %__first.addr.1.i.i.i76, %while.body.i.i.i63 ], [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
+  %__len.012.i.i.i65 = phi i64 [ %__len.1.i.i.i75, %while.body.i.i.i63 ], [ %sub.ptr.div.i.i.i.i.i42, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
+  %shr.i.i.i66 = lshr i64 %__len.012.i.i.i65, 1
+  %add.ptr.i.i.i.i.i69 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i64, i64 %shr.i.i.i66
   %31 = load float, ptr %add.ptr.i.i.i.i.i69, align 4
   %cmp.i.i.i.i72 = fcmp olt float %31, %30
   %incdec.ptr.i.i.i73 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i69, i64 4
   %32 = xor i64 %shr.i.i.i66, -1
-  %sub2.i.i.i74 = add nsw i64 %__len.013.i.i.i64, %32
-  %__first.addr.1.i.i.i75 = select i1 %cmp.i.i.i.i72, ptr %incdec.ptr.i.i.i73, ptr %__first.addr.012.i.i.i65
-  %__len.1.i.i.i76 = select i1 %cmp.i.i.i.i72, i64 %sub2.i.i.i74, i64 %shr.i.i.i66
-  %cmp.i.i.i77 = icmp sgt i64 %__len.1.i.i.i76, 0
+  %sub2.i.i.i74 = add nsw i64 %__len.012.i.i.i65, %32
+  %__len.1.i.i.i75 = select i1 %cmp.i.i.i.i72, i64 %sub2.i.i.i74, i64 %shr.i.i.i66
+  %__first.addr.1.i.i.i76 = select i1 %cmp.i.i.i.i72, ptr %incdec.ptr.i.i.i73, ptr %__first.addr.013.i.i.i64
+  %cmp.i.i.i77 = icmp sgt i64 %__len.1.i.i.i75, 0
   br i1 %cmp.i.i.i77, label %while.body.i.i.i63, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit78, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit78: ; preds = %while.body.i.i.i63, %_ZNK9Imath_3_14halfcvfEv.exit35
-  %__first.addr.0.lcssa.i.i.i44 = phi ptr [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ], [ %__first.addr.1.i.i.i75, %while.body.i.i.i63 ]
+  %__first.addr.0.lcssa.i.i.i44 = phi ptr [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ], [ %__first.addr.1.i.i.i76, %while.body.i.i.i63 ]
   %cmp.i45 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i44, %18
   %spec.select.idx.i46 = select i1 %cmp.i45, i64 -4, i64 0
   %spec.select.i47 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i44, i64 %spec.select.idx.i46
@@ -184596,22 +184596,22 @@ _ZNK9Imath_3_14halfcvfEv.exit108:                 ; preds = %if.then7.i.i106, %i
   br i1 %cmp11.i.i.i116, label %while.body.i.i.i136, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit151
 
 while.body.i.i.i136:                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit108, %while.body.i.i.i136
-  %__len.013.i.i.i137 = phi i64 [ %__len.1.i.i.i149, %while.body.i.i.i136 ], [ %sub.ptr.div.i.i.i.i.i115, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
-  %__first.addr.012.i.i.i138 = phi ptr [ %__first.addr.1.i.i.i148, %while.body.i.i.i136 ], [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
-  %shr.i.i.i139 = lshr i64 %__len.013.i.i.i137, 1
-  %add.ptr.i.i.i.i.i142 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i138, i64 %shr.i.i.i139
+  %__first.addr.013.i.i.i137 = phi ptr [ %__first.addr.1.i.i.i149, %while.body.i.i.i136 ], [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
+  %__len.012.i.i.i138 = phi i64 [ %__len.1.i.i.i148, %while.body.i.i.i136 ], [ %sub.ptr.div.i.i.i.i.i115, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
+  %shr.i.i.i139 = lshr i64 %__len.012.i.i.i138, 1
+  %add.ptr.i.i.i.i.i142 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i137, i64 %shr.i.i.i139
   %49 = load float, ptr %add.ptr.i.i.i.i.i142, align 4
   %cmp.i.i.i.i145 = fcmp olt float %49, %48
   %incdec.ptr.i.i.i146 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i142, i64 4
   %50 = xor i64 %shr.i.i.i139, -1
-  %sub2.i.i.i147 = add nsw i64 %__len.013.i.i.i137, %50
-  %__first.addr.1.i.i.i148 = select i1 %cmp.i.i.i.i145, ptr %incdec.ptr.i.i.i146, ptr %__first.addr.012.i.i.i138
-  %__len.1.i.i.i149 = select i1 %cmp.i.i.i.i145, i64 %sub2.i.i.i147, i64 %shr.i.i.i139
-  %cmp.i.i.i150 = icmp sgt i64 %__len.1.i.i.i149, 0
+  %sub2.i.i.i147 = add nsw i64 %__len.012.i.i.i138, %50
+  %__len.1.i.i.i148 = select i1 %cmp.i.i.i.i145, i64 %sub2.i.i.i147, i64 %shr.i.i.i139
+  %__first.addr.1.i.i.i149 = select i1 %cmp.i.i.i.i145, ptr %incdec.ptr.i.i.i146, ptr %__first.addr.013.i.i.i137
+  %cmp.i.i.i150 = icmp sgt i64 %__len.1.i.i.i148, 0
   br i1 %cmp.i.i.i150, label %while.body.i.i.i136, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit151, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit151: ; preds = %while.body.i.i.i136, %_ZNK9Imath_3_14halfcvfEv.exit108
-  %__first.addr.0.lcssa.i.i.i117 = phi ptr [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ], [ %__first.addr.1.i.i.i148, %while.body.i.i.i136 ]
+  %__first.addr.0.lcssa.i.i.i117 = phi ptr [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ], [ %__first.addr.1.i.i.i149, %while.body.i.i.i136 ]
   %cmp.i118 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i117, %36
   %spec.select.idx.i119 = select i1 %cmp.i118, i64 -4, i64 0
   %spec.select.i120 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i117, i64 %spec.select.idx.i119
@@ -186234,17 +186234,17 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %18, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %18, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %27 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %27, %26
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %28 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %28
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %28
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -186290,22 +186290,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %39 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %39, %38
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %40 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %40
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %40
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %31
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -186346,22 +186346,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i112, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147
 
 while.body.i.i.i132:                              ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, %while.body.i.i.i132
-  %__len.013.i.i.i133 = phi i64 [ %__len.1.i.i.i145, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
-  %__first.addr.012.i.i.i134 = phi ptr [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ], [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
-  %shr.i.i.i135 = lshr i64 %__len.013.i.i.i133, 1
-  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i134, i64 %shr.i.i.i135
+  %__first.addr.013.i.i.i133 = phi ptr [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ], [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
+  %__len.012.i.i.i134 = phi i64 [ %__len.1.i.i.i144, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
+  %shr.i.i.i135 = lshr i64 %__len.012.i.i.i134, 1
+  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i133, i64 %shr.i.i.i135
   %51 = load float, ptr %add.ptr.i.i.i.i.i138, align 4
   %cmp.i.i.i.i141 = fcmp olt float %51, %50
   %incdec.ptr.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i138, i64 4
   %52 = xor i64 %shr.i.i.i135, -1
-  %sub2.i.i.i143 = add nsw i64 %__len.013.i.i.i133, %52
-  %__first.addr.1.i.i.i144 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.012.i.i.i134
-  %__len.1.i.i.i145 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
-  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i145, 0
+  %sub2.i.i.i143 = add nsw i64 %__len.012.i.i.i134, %52
+  %__len.1.i.i.i144 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
+  %__first.addr.1.i.i.i145 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.013.i.i.i133
+  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i144, 0
   br i1 %cmp.i.i.i146, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147: ; preds = %while.body.i.i.i132, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
-  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ], [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ]
+  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ], [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ]
   %cmp.i114 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i113, %43
   %spec.select.idx.i115 = select i1 %cmp.i114, i64 -4, i64 0
   %spec.select.i116 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i113, i64 %spec.select.idx.i115
@@ -186667,28 +186667,28 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv.i.i = zext i16 %6 to i32
   %7 = shl nuw nsw i32 %conv.i.i, 13
@@ -186731,10 +186731,10 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %10 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %10, %9
   %conv = fptoui float %mul to i16
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv, ptr %arrayidx11, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1207
@@ -189537,10 +189537,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit87
-  %idx.094 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %in.094 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
   %out.093 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %in.092 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %3 = load i16, ptr %in.092, align 2
+  %idx.092 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %3 = load i16, ptr %in.094, align 2
   %conv.i.i = zext i16 %3 to i32
   %4 = shl nuw nsw i32 %conv.i.i, 13
   %shr.i.i = and i32 %4, 268427264
@@ -189580,7 +189580,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %v.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.then7.i.i ], [ %or8.i.i, %if.else.i.i ], [ %sub16.i.i, %if.then11.i.i ], [ %shl3.i.i, %if.else9.i.i ]
   %6 = bitcast i32 %v.sroa.0.0.i.i to float
   store i32 %v.sroa.0.0.i.i, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.092, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.094, i64 2
   %7 = load i16, ptr %arrayidx2, align 2
   %conv.i.i14 = zext i16 %7 to i32
   %8 = shl nuw nsw i32 %conv.i.i14, 13
@@ -189621,7 +189621,7 @@ _ZNK9Imath_3_14halfcvfEv.exit36:                  ; preds = %if.then7.i.i34, %if
   %v.sroa.0.0.i.i28 = phi i32 [ %add.i.i35, %if.then7.i.i34 ], [ %or8.i.i33, %if.else.i.i32 ], [ %sub16.i.i27, %if.then11.i.i21 ], [ %shl3.i.i17, %if.else9.i.i19 ]
   %10 = bitcast i32 %v.sroa.0.0.i.i28 to float
   store i32 %v.sroa.0.0.i.i28, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.092, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.094, i64 4
   %11 = load i16, ptr %arrayidx5, align 2
   %conv.i.i37 = zext i16 %11 to i32
   %12 = shl nuw nsw i32 %conv.i.i37, 13
@@ -189729,7 +189729,7 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %conv40 = fptoui float %29 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.093, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.092, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.094, i64 6
   %30 = load i16, ptr %arrayidx42, align 2
   %conv.i.i65 = zext i16 %30 to i32
   %31 = shl nuw nsw i32 %conv.i.i65, 13
@@ -189774,9 +189774,9 @@ _ZNK9Imath_3_14halfcvfEv.exit87:                  ; preds = %if.then7.i.i85, %if
   %conv44 = fptoui float %mul to i16
   %arrayidx45 = getelementptr inbounds i8, ptr %out.093, i64 6
   store i16 %conv44, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.092, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.094, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.093, i64 8
-  %inc = add nuw nsw i64 %idx.094, 1
+  %inc = add nuw nsw i64 %idx.092, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1212
 
@@ -189959,28 +189959,28 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv.i.i = zext i16 %6 to i32
   %7 = shl nuw nsw i32 %conv.i.i, 13
@@ -190023,10 +190023,10 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %10 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %10, %9
   %conv = fptoui float %mul to i16
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv, ptr %arrayidx11, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1213
@@ -190135,10 +190135,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit87
-  %idx.094 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %in.094 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
   %out.093 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %in.092 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %3 = load i16, ptr %in.092, align 2
+  %idx.092 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %3 = load i16, ptr %in.094, align 2
   %conv.i.i = zext i16 %3 to i32
   %4 = shl nuw nsw i32 %conv.i.i, 13
   %shr.i.i = and i32 %4, 268427264
@@ -190178,7 +190178,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %v.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.then7.i.i ], [ %or8.i.i, %if.else.i.i ], [ %sub16.i.i, %if.then11.i.i ], [ %shl3.i.i, %if.else9.i.i ]
   %6 = bitcast i32 %v.sroa.0.0.i.i to float
   store i32 %v.sroa.0.0.i.i, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.092, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.094, i64 2
   %7 = load i16, ptr %arrayidx2, align 2
   %conv.i.i14 = zext i16 %7 to i32
   %8 = shl nuw nsw i32 %conv.i.i14, 13
@@ -190219,7 +190219,7 @@ _ZNK9Imath_3_14halfcvfEv.exit36:                  ; preds = %if.then7.i.i34, %if
   %v.sroa.0.0.i.i28 = phi i32 [ %add.i.i35, %if.then7.i.i34 ], [ %or8.i.i33, %if.else.i.i32 ], [ %sub16.i.i27, %if.then11.i.i21 ], [ %shl3.i.i17, %if.else9.i.i19 ]
   %10 = bitcast i32 %v.sroa.0.0.i.i28 to float
   store i32 %v.sroa.0.0.i.i28, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.092, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.094, i64 4
   %11 = load i16, ptr %arrayidx5, align 2
   %conv.i.i37 = zext i16 %11 to i32
   %12 = shl nuw nsw i32 %conv.i.i37, 13
@@ -190327,7 +190327,7 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %conv40 = fptoui float %29 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.093, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.092, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.094, i64 6
   %30 = load i16, ptr %arrayidx42, align 2
   %conv.i.i65 = zext i16 %30 to i32
   %31 = shl nuw nsw i32 %conv.i.i65, 13
@@ -190372,9 +190372,9 @@ _ZNK9Imath_3_14halfcvfEv.exit87:                  ; preds = %if.then7.i.i85, %if
   %conv44 = fptoui float %mul to i16
   %arrayidx45 = getelementptr inbounds i8, ptr %out.093, i64 6
   store i16 %conv44, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.092, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.094, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.093, i64 8
-  %inc = add nuw nsw i64 %idx.094, 1
+  %inc = add nuw nsw i64 %idx.092, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1214
 
@@ -191734,17 +191734,17 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %_ZNK9Imath_3_14halfcvfEv.exit, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %13 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %13, %12
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %14 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %14
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %14
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -191843,22 +191843,22 @@ _ZNK9Imath_3_14halfcvfEv.exit35:                  ; preds = %if.then7.i.i33, %if
   br i1 %cmp11.i.i.i43, label %while.body.i.i.i63, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit78
 
 while.body.i.i.i63:                               ; preds = %_ZNK9Imath_3_14halfcvfEv.exit35, %while.body.i.i.i63
-  %__len.013.i.i.i64 = phi i64 [ %__len.1.i.i.i76, %while.body.i.i.i63 ], [ %sub.ptr.div.i.i.i.i.i42, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
-  %__first.addr.012.i.i.i65 = phi ptr [ %__first.addr.1.i.i.i75, %while.body.i.i.i63 ], [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
-  %shr.i.i.i66 = lshr i64 %__len.013.i.i.i64, 1
-  %add.ptr.i.i.i.i.i69 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i65, i64 %shr.i.i.i66
+  %__first.addr.013.i.i.i64 = phi ptr [ %__first.addr.1.i.i.i76, %while.body.i.i.i63 ], [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
+  %__len.012.i.i.i65 = phi i64 [ %__len.1.i.i.i75, %while.body.i.i.i63 ], [ %sub.ptr.div.i.i.i.i.i42, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
+  %shr.i.i.i66 = lshr i64 %__len.012.i.i.i65, 1
+  %add.ptr.i.i.i.i.i69 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i64, i64 %shr.i.i.i66
   %31 = load float, ptr %add.ptr.i.i.i.i.i69, align 4
   %cmp.i.i.i.i72 = fcmp olt float %31, %30
   %incdec.ptr.i.i.i73 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i69, i64 4
   %32 = xor i64 %shr.i.i.i66, -1
-  %sub2.i.i.i74 = add nsw i64 %__len.013.i.i.i64, %32
-  %__first.addr.1.i.i.i75 = select i1 %cmp.i.i.i.i72, ptr %incdec.ptr.i.i.i73, ptr %__first.addr.012.i.i.i65
-  %__len.1.i.i.i76 = select i1 %cmp.i.i.i.i72, i64 %sub2.i.i.i74, i64 %shr.i.i.i66
-  %cmp.i.i.i77 = icmp sgt i64 %__len.1.i.i.i76, 0
+  %sub2.i.i.i74 = add nsw i64 %__len.012.i.i.i65, %32
+  %__len.1.i.i.i75 = select i1 %cmp.i.i.i.i72, i64 %sub2.i.i.i74, i64 %shr.i.i.i66
+  %__first.addr.1.i.i.i76 = select i1 %cmp.i.i.i.i72, ptr %incdec.ptr.i.i.i73, ptr %__first.addr.013.i.i.i64
+  %cmp.i.i.i77 = icmp sgt i64 %__len.1.i.i.i75, 0
   br i1 %cmp.i.i.i77, label %while.body.i.i.i63, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit78, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit78: ; preds = %while.body.i.i.i63, %_ZNK9Imath_3_14halfcvfEv.exit35
-  %__first.addr.0.lcssa.i.i.i44 = phi ptr [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ], [ %__first.addr.1.i.i.i75, %while.body.i.i.i63 ]
+  %__first.addr.0.lcssa.i.i.i44 = phi ptr [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ], [ %__first.addr.1.i.i.i76, %while.body.i.i.i63 ]
   %cmp.i45 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i44, %18
   %spec.select.idx.i46 = select i1 %cmp.i45, i64 -4, i64 0
   %spec.select.i47 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i44, i64 %spec.select.idx.i46
@@ -191953,22 +191953,22 @@ _ZNK9Imath_3_14halfcvfEv.exit108:                 ; preds = %if.then7.i.i106, %i
   br i1 %cmp11.i.i.i116, label %while.body.i.i.i136, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit151
 
 while.body.i.i.i136:                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit108, %while.body.i.i.i136
-  %__len.013.i.i.i137 = phi i64 [ %__len.1.i.i.i149, %while.body.i.i.i136 ], [ %sub.ptr.div.i.i.i.i.i115, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
-  %__first.addr.012.i.i.i138 = phi ptr [ %__first.addr.1.i.i.i148, %while.body.i.i.i136 ], [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
-  %shr.i.i.i139 = lshr i64 %__len.013.i.i.i137, 1
-  %add.ptr.i.i.i.i.i142 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i138, i64 %shr.i.i.i139
+  %__first.addr.013.i.i.i137 = phi ptr [ %__first.addr.1.i.i.i149, %while.body.i.i.i136 ], [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
+  %__len.012.i.i.i138 = phi i64 [ %__len.1.i.i.i148, %while.body.i.i.i136 ], [ %sub.ptr.div.i.i.i.i.i115, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
+  %shr.i.i.i139 = lshr i64 %__len.012.i.i.i138, 1
+  %add.ptr.i.i.i.i.i142 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i137, i64 %shr.i.i.i139
   %49 = load float, ptr %add.ptr.i.i.i.i.i142, align 4
   %cmp.i.i.i.i145 = fcmp olt float %49, %48
   %incdec.ptr.i.i.i146 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i142, i64 4
   %50 = xor i64 %shr.i.i.i139, -1
-  %sub2.i.i.i147 = add nsw i64 %__len.013.i.i.i137, %50
-  %__first.addr.1.i.i.i148 = select i1 %cmp.i.i.i.i145, ptr %incdec.ptr.i.i.i146, ptr %__first.addr.012.i.i.i138
-  %__len.1.i.i.i149 = select i1 %cmp.i.i.i.i145, i64 %sub2.i.i.i147, i64 %shr.i.i.i139
-  %cmp.i.i.i150 = icmp sgt i64 %__len.1.i.i.i149, 0
+  %sub2.i.i.i147 = add nsw i64 %__len.012.i.i.i138, %50
+  %__len.1.i.i.i148 = select i1 %cmp.i.i.i.i145, i64 %sub2.i.i.i147, i64 %shr.i.i.i139
+  %__first.addr.1.i.i.i149 = select i1 %cmp.i.i.i.i145, ptr %incdec.ptr.i.i.i146, ptr %__first.addr.013.i.i.i137
+  %cmp.i.i.i150 = icmp sgt i64 %__len.1.i.i.i148, 0
   br i1 %cmp.i.i.i150, label %while.body.i.i.i136, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit151, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit151: ; preds = %while.body.i.i.i136, %_ZNK9Imath_3_14halfcvfEv.exit108
-  %__first.addr.0.lcssa.i.i.i117 = phi ptr [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ], [ %__first.addr.1.i.i.i148, %while.body.i.i.i136 ]
+  %__first.addr.0.lcssa.i.i.i117 = phi ptr [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ], [ %__first.addr.1.i.i.i149, %while.body.i.i.i136 ]
   %cmp.i118 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i117, %36
   %spec.select.idx.i119 = select i1 %cmp.i118, i64 -4, i64 0
   %spec.select.i120 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i117, i64 %spec.select.idx.i119
@@ -193591,17 +193591,17 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %18, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %18, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %27 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %27, %26
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %28 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %28
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %28
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -193647,22 +193647,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %39 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %39, %38
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %40 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %40
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %40
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %31
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -193703,22 +193703,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i112, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147
 
 while.body.i.i.i132:                              ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, %while.body.i.i.i132
-  %__len.013.i.i.i133 = phi i64 [ %__len.1.i.i.i145, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
-  %__first.addr.012.i.i.i134 = phi ptr [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ], [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
-  %shr.i.i.i135 = lshr i64 %__len.013.i.i.i133, 1
-  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i134, i64 %shr.i.i.i135
+  %__first.addr.013.i.i.i133 = phi ptr [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ], [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
+  %__len.012.i.i.i134 = phi i64 [ %__len.1.i.i.i144, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
+  %shr.i.i.i135 = lshr i64 %__len.012.i.i.i134, 1
+  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i133, i64 %shr.i.i.i135
   %51 = load float, ptr %add.ptr.i.i.i.i.i138, align 4
   %cmp.i.i.i.i141 = fcmp olt float %51, %50
   %incdec.ptr.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i138, i64 4
   %52 = xor i64 %shr.i.i.i135, -1
-  %sub2.i.i.i143 = add nsw i64 %__len.013.i.i.i133, %52
-  %__first.addr.1.i.i.i144 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.012.i.i.i134
-  %__len.1.i.i.i145 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
-  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i145, 0
+  %sub2.i.i.i143 = add nsw i64 %__len.012.i.i.i134, %52
+  %__len.1.i.i.i144 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
+  %__first.addr.1.i.i.i145 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.013.i.i.i133
+  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i144, 0
   br i1 %cmp.i.i.i146, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147: ; preds = %while.body.i.i.i132, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
-  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ], [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ]
+  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ], [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ]
   %cmp.i114 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i113, %43
   %spec.select.idx.i115 = select i1 %cmp.i114, i64 -4, i64 0
   %spec.select.i116 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i113, i64 %spec.select.idx.i115
@@ -194024,28 +194024,28 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv.i.i = zext i16 %6 to i32
   %7 = shl nuw nsw i32 %conv.i.i, 13
@@ -194088,10 +194088,10 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %10 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %10, %9
   %conv = fptoui float %mul to i16
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv, ptr %arrayidx11, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1222
@@ -196894,10 +196894,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit87
-  %idx.094 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %in.094 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
   %out.093 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %in.092 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %3 = load i16, ptr %in.092, align 2
+  %idx.092 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %3 = load i16, ptr %in.094, align 2
   %conv.i.i = zext i16 %3 to i32
   %4 = shl nuw nsw i32 %conv.i.i, 13
   %shr.i.i = and i32 %4, 268427264
@@ -196937,7 +196937,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %v.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.then7.i.i ], [ %or8.i.i, %if.else.i.i ], [ %sub16.i.i, %if.then11.i.i ], [ %shl3.i.i, %if.else9.i.i ]
   %6 = bitcast i32 %v.sroa.0.0.i.i to float
   store i32 %v.sroa.0.0.i.i, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.092, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.094, i64 2
   %7 = load i16, ptr %arrayidx2, align 2
   %conv.i.i14 = zext i16 %7 to i32
   %8 = shl nuw nsw i32 %conv.i.i14, 13
@@ -196978,7 +196978,7 @@ _ZNK9Imath_3_14halfcvfEv.exit36:                  ; preds = %if.then7.i.i34, %if
   %v.sroa.0.0.i.i28 = phi i32 [ %add.i.i35, %if.then7.i.i34 ], [ %or8.i.i33, %if.else.i.i32 ], [ %sub16.i.i27, %if.then11.i.i21 ], [ %shl3.i.i17, %if.else9.i.i19 ]
   %10 = bitcast i32 %v.sroa.0.0.i.i28 to float
   store i32 %v.sroa.0.0.i.i28, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.092, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.094, i64 4
   %11 = load i16, ptr %arrayidx5, align 2
   %conv.i.i37 = zext i16 %11 to i32
   %12 = shl nuw nsw i32 %conv.i.i37, 13
@@ -197086,7 +197086,7 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %conv40 = fptoui float %29 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.093, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.092, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.094, i64 6
   %30 = load i16, ptr %arrayidx42, align 2
   %conv.i.i65 = zext i16 %30 to i32
   %31 = shl nuw nsw i32 %conv.i.i65, 13
@@ -197131,9 +197131,9 @@ _ZNK9Imath_3_14halfcvfEv.exit87:                  ; preds = %if.then7.i.i85, %if
   %conv44 = fptoui float %mul to i16
   %arrayidx45 = getelementptr inbounds i8, ptr %out.093, i64 6
   store i16 %conv44, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.092, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.094, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.093, i64 8
-  %inc = add nuw nsw i64 %idx.094, 1
+  %inc = add nuw nsw i64 %idx.092, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1227
 
@@ -197316,28 +197316,28 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
-  store i16 %3, ptr %out.016, align 2
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store i16 %3, ptr %out.015, align 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i10
   %4 = load i16, ptr %arrayidx.i11, align 2
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 2
   store i16 %4, ptr %arrayidx5, align 2
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds i16, ptr %2, i64 %idxprom.i12
   %5 = load i16, ptr %arrayidx.i13, align 2
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 4
   store i16 %5, ptr %arrayidx8, align 2
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv.i.i = zext i16 %6 to i32
   %7 = shl nuw nsw i32 %conv.i.i, 13
@@ -197380,10 +197380,10 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %10 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %10, %9
   %conv = fptoui float %mul to i16
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 6
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 6
   store i16 %conv, ptr %arrayidx11, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 8
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1228
@@ -197492,10 +197492,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit87
-  %idx.094 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %in.094 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
   %out.093 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %in.092 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %3 = load i16, ptr %in.092, align 2
+  %idx.092 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %3 = load i16, ptr %in.094, align 2
   %conv.i.i = zext i16 %3 to i32
   %4 = shl nuw nsw i32 %conv.i.i, 13
   %shr.i.i = and i32 %4, 268427264
@@ -197535,7 +197535,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %v.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.then7.i.i ], [ %or8.i.i, %if.else.i.i ], [ %sub16.i.i, %if.then11.i.i ], [ %shl3.i.i, %if.else9.i.i ]
   %6 = bitcast i32 %v.sroa.0.0.i.i to float
   store i32 %v.sroa.0.0.i.i, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.092, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.094, i64 2
   %7 = load i16, ptr %arrayidx2, align 2
   %conv.i.i14 = zext i16 %7 to i32
   %8 = shl nuw nsw i32 %conv.i.i14, 13
@@ -197576,7 +197576,7 @@ _ZNK9Imath_3_14halfcvfEv.exit36:                  ; preds = %if.then7.i.i34, %if
   %v.sroa.0.0.i.i28 = phi i32 [ %add.i.i35, %if.then7.i.i34 ], [ %or8.i.i33, %if.else.i.i32 ], [ %sub16.i.i27, %if.then11.i.i21 ], [ %shl3.i.i17, %if.else9.i.i19 ]
   %10 = bitcast i32 %v.sroa.0.0.i.i28 to float
   store i32 %v.sroa.0.0.i.i28, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.092, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.094, i64 4
   %11 = load i16, ptr %arrayidx5, align 2
   %conv.i.i37 = zext i16 %11 to i32
   %12 = shl nuw nsw i32 %conv.i.i37, 13
@@ -197684,7 +197684,7 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %conv40 = fptoui float %29 to i16
   %arrayidx41 = getelementptr inbounds i8, ptr %out.093, i64 4
   store i16 %conv40, ptr %arrayidx41, align 2
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.092, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.094, i64 6
   %30 = load i16, ptr %arrayidx42, align 2
   %conv.i.i65 = zext i16 %30 to i32
   %31 = shl nuw nsw i32 %conv.i.i65, 13
@@ -197729,9 +197729,9 @@ _ZNK9Imath_3_14halfcvfEv.exit87:                  ; preds = %if.then7.i.i85, %if
   %conv44 = fptoui float %mul to i16
   %arrayidx45 = getelementptr inbounds i8, ptr %out.093, i64 6
   store i16 %conv44, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.092, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.094, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.093, i64 8
-  %inc = add nuw nsw i64 %idx.094, 1
+  %inc = add nuw nsw i64 %idx.092, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1229
 
@@ -199091,17 +199091,17 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %_ZNK9Imath_3_14halfcvfEv.exit, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %13 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %13, %12
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %14 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %14
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %14
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -199200,22 +199200,22 @@ _ZNK9Imath_3_14halfcvfEv.exit35:                  ; preds = %if.then7.i.i33, %if
   br i1 %cmp11.i.i.i43, label %while.body.i.i.i63, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit78
 
 while.body.i.i.i63:                               ; preds = %_ZNK9Imath_3_14halfcvfEv.exit35, %while.body.i.i.i63
-  %__len.013.i.i.i64 = phi i64 [ %__len.1.i.i.i76, %while.body.i.i.i63 ], [ %sub.ptr.div.i.i.i.i.i42, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
-  %__first.addr.012.i.i.i65 = phi ptr [ %__first.addr.1.i.i.i75, %while.body.i.i.i63 ], [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
-  %shr.i.i.i66 = lshr i64 %__len.013.i.i.i64, 1
-  %add.ptr.i.i.i.i.i69 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i65, i64 %shr.i.i.i66
+  %__first.addr.013.i.i.i64 = phi ptr [ %__first.addr.1.i.i.i76, %while.body.i.i.i63 ], [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
+  %__len.012.i.i.i65 = phi i64 [ %__len.1.i.i.i75, %while.body.i.i.i63 ], [ %sub.ptr.div.i.i.i.i.i42, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
+  %shr.i.i.i66 = lshr i64 %__len.012.i.i.i65, 1
+  %add.ptr.i.i.i.i.i69 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i64, i64 %shr.i.i.i66
   %31 = load float, ptr %add.ptr.i.i.i.i.i69, align 4
   %cmp.i.i.i.i72 = fcmp olt float %31, %30
   %incdec.ptr.i.i.i73 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i69, i64 4
   %32 = xor i64 %shr.i.i.i66, -1
-  %sub2.i.i.i74 = add nsw i64 %__len.013.i.i.i64, %32
-  %__first.addr.1.i.i.i75 = select i1 %cmp.i.i.i.i72, ptr %incdec.ptr.i.i.i73, ptr %__first.addr.012.i.i.i65
-  %__len.1.i.i.i76 = select i1 %cmp.i.i.i.i72, i64 %sub2.i.i.i74, i64 %shr.i.i.i66
-  %cmp.i.i.i77 = icmp sgt i64 %__len.1.i.i.i76, 0
+  %sub2.i.i.i74 = add nsw i64 %__len.012.i.i.i65, %32
+  %__len.1.i.i.i75 = select i1 %cmp.i.i.i.i72, i64 %sub2.i.i.i74, i64 %shr.i.i.i66
+  %__first.addr.1.i.i.i76 = select i1 %cmp.i.i.i.i72, ptr %incdec.ptr.i.i.i73, ptr %__first.addr.013.i.i.i64
+  %cmp.i.i.i77 = icmp sgt i64 %__len.1.i.i.i75, 0
   br i1 %cmp.i.i.i77, label %while.body.i.i.i63, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit78, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit78: ; preds = %while.body.i.i.i63, %_ZNK9Imath_3_14halfcvfEv.exit35
-  %__first.addr.0.lcssa.i.i.i44 = phi ptr [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ], [ %__first.addr.1.i.i.i75, %while.body.i.i.i63 ]
+  %__first.addr.0.lcssa.i.i.i44 = phi ptr [ %18, %_ZNK9Imath_3_14halfcvfEv.exit35 ], [ %__first.addr.1.i.i.i76, %while.body.i.i.i63 ]
   %cmp.i45 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i44, %18
   %spec.select.idx.i46 = select i1 %cmp.i45, i64 -4, i64 0
   %spec.select.i47 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i44, i64 %spec.select.idx.i46
@@ -199310,22 +199310,22 @@ _ZNK9Imath_3_14halfcvfEv.exit108:                 ; preds = %if.then7.i.i106, %i
   br i1 %cmp11.i.i.i116, label %while.body.i.i.i136, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit151
 
 while.body.i.i.i136:                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit108, %while.body.i.i.i136
-  %__len.013.i.i.i137 = phi i64 [ %__len.1.i.i.i149, %while.body.i.i.i136 ], [ %sub.ptr.div.i.i.i.i.i115, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
-  %__first.addr.012.i.i.i138 = phi ptr [ %__first.addr.1.i.i.i148, %while.body.i.i.i136 ], [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
-  %shr.i.i.i139 = lshr i64 %__len.013.i.i.i137, 1
-  %add.ptr.i.i.i.i.i142 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i138, i64 %shr.i.i.i139
+  %__first.addr.013.i.i.i137 = phi ptr [ %__first.addr.1.i.i.i149, %while.body.i.i.i136 ], [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
+  %__len.012.i.i.i138 = phi i64 [ %__len.1.i.i.i148, %while.body.i.i.i136 ], [ %sub.ptr.div.i.i.i.i.i115, %_ZNK9Imath_3_14halfcvfEv.exit108 ]
+  %shr.i.i.i139 = lshr i64 %__len.012.i.i.i138, 1
+  %add.ptr.i.i.i.i.i142 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i137, i64 %shr.i.i.i139
   %49 = load float, ptr %add.ptr.i.i.i.i.i142, align 4
   %cmp.i.i.i.i145 = fcmp olt float %49, %48
   %incdec.ptr.i.i.i146 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i142, i64 4
   %50 = xor i64 %shr.i.i.i139, -1
-  %sub2.i.i.i147 = add nsw i64 %__len.013.i.i.i137, %50
-  %__first.addr.1.i.i.i148 = select i1 %cmp.i.i.i.i145, ptr %incdec.ptr.i.i.i146, ptr %__first.addr.012.i.i.i138
-  %__len.1.i.i.i149 = select i1 %cmp.i.i.i.i145, i64 %sub2.i.i.i147, i64 %shr.i.i.i139
-  %cmp.i.i.i150 = icmp sgt i64 %__len.1.i.i.i149, 0
+  %sub2.i.i.i147 = add nsw i64 %__len.012.i.i.i138, %50
+  %__len.1.i.i.i148 = select i1 %cmp.i.i.i.i145, i64 %sub2.i.i.i147, i64 %shr.i.i.i139
+  %__first.addr.1.i.i.i149 = select i1 %cmp.i.i.i.i145, ptr %incdec.ptr.i.i.i146, ptr %__first.addr.013.i.i.i137
+  %cmp.i.i.i150 = icmp sgt i64 %__len.1.i.i.i148, 0
   br i1 %cmp.i.i.i150, label %while.body.i.i.i136, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit151, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit151: ; preds = %while.body.i.i.i136, %_ZNK9Imath_3_14halfcvfEv.exit108
-  %__first.addr.0.lcssa.i.i.i117 = phi ptr [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ], [ %__first.addr.1.i.i.i148, %while.body.i.i.i136 ]
+  %__first.addr.0.lcssa.i.i.i117 = phi ptr [ %36, %_ZNK9Imath_3_14halfcvfEv.exit108 ], [ %__first.addr.1.i.i.i149, %while.body.i.i.i136 ]
   %cmp.i118 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i117, %36
   %spec.select.idx.i119 = select i1 %cmp.i118, i64 -4, i64 0
   %spec.select.i120 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i117, i64 %spec.select.idx.i119
@@ -200948,17 +200948,17 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %18, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %18, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %27 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %27, %26
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %28 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %28
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %28
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -201004,22 +201004,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %39 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %39, %38
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %40 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %40
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %40
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %31
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -201060,22 +201060,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i112, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147
 
 while.body.i.i.i132:                              ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, %while.body.i.i.i132
-  %__len.013.i.i.i133 = phi i64 [ %__len.1.i.i.i145, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
-  %__first.addr.012.i.i.i134 = phi ptr [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ], [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
-  %shr.i.i.i135 = lshr i64 %__len.013.i.i.i133, 1
-  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i134, i64 %shr.i.i.i135
+  %__first.addr.013.i.i.i133 = phi ptr [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ], [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
+  %__len.012.i.i.i134 = phi i64 [ %__len.1.i.i.i144, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
+  %shr.i.i.i135 = lshr i64 %__len.012.i.i.i134, 1
+  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i133, i64 %shr.i.i.i135
   %51 = load float, ptr %add.ptr.i.i.i.i.i138, align 4
   %cmp.i.i.i.i141 = fcmp olt float %51, %50
   %incdec.ptr.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i138, i64 4
   %52 = xor i64 %shr.i.i.i135, -1
-  %sub2.i.i.i143 = add nsw i64 %__len.013.i.i.i133, %52
-  %__first.addr.1.i.i.i144 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.012.i.i.i134
-  %__len.1.i.i.i145 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
-  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i145, 0
+  %sub2.i.i.i143 = add nsw i64 %__len.012.i.i.i134, %52
+  %__len.1.i.i.i144 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
+  %__first.addr.1.i.i.i145 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.013.i.i.i133
+  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i144, 0
   br i1 %cmp.i.i.i146, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147: ; preds = %while.body.i.i.i132, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
-  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ], [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ]
+  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ], [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ]
   %cmp.i114 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i113, %43
   %spec.select.idx.i115 = select i1 %cmp.i114, i64 -4, i64 0
   %spec.select.i116 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i113, i64 %spec.select.idx.i115
@@ -204328,10 +204328,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9Imath_3_14halfC2Ef.exit242
-  %idx.0249 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit242 ]
+  %in.0249 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit242 ]
   %out.0248 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZN9Imath_3_14halfC2Ef.exit242 ]
-  %in.0247 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit242 ]
-  %3 = load i16, ptr %in.0247, align 2
+  %idx.0247 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit242 ]
+  %3 = load i16, ptr %in.0249, align 2
   %conv.i.i = zext i16 %3 to i32
   %4 = shl nuw nsw i32 %conv.i.i, 13
   %shr.i.i = and i32 %4, 268427264
@@ -204371,7 +204371,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %v.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.then7.i.i ], [ %or8.i.i, %if.else.i.i ], [ %sub16.i.i, %if.then11.i.i ], [ %shl3.i.i, %if.else9.i.i ]
   %6 = bitcast i32 %v.sroa.0.0.i.i to float
   store i32 %v.sroa.0.0.i.i, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.0247, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.0249, i64 2
   %7 = load i16, ptr %arrayidx2, align 2
   %conv.i.i14 = zext i16 %7 to i32
   %8 = shl nuw nsw i32 %conv.i.i14, 13
@@ -204412,7 +204412,7 @@ _ZNK9Imath_3_14halfcvfEv.exit36:                  ; preds = %if.then7.i.i34, %if
   %v.sroa.0.0.i.i28 = phi i32 [ %add.i.i35, %if.then7.i.i34 ], [ %or8.i.i33, %if.else.i.i32 ], [ %sub16.i.i27, %if.then11.i.i21 ], [ %shl3.i.i17, %if.else9.i.i19 ]
   %10 = bitcast i32 %v.sroa.0.0.i.i28 to float
   store i32 %v.sroa.0.0.i.i28, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.0247, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.0249, i64 4
   %11 = load i16, ptr %arrayidx5, align 2
   %conv.i.i37 = zext i16 %11 to i32
   %12 = shl nuw nsw i32 %conv.i.i37, 13
@@ -204755,7 +204755,7 @@ _ZN9Imath_3_14halfC2Ef.exit169:                   ; preds = %if.then4.i.i161, %i
   %retval.0.i.i145 = phi i16 [ %conv19.i.i168, %if.end.i.i164 ], [ %conv26.i.i160, %if.then23.i.i159 ], [ %conv36.i.i158, %if.end27.i.i150 ], [ %conv6.i.i162, %if.then4.i.i161 ], [ %conv.i.i122, %if.end37.i.i124 ], [ %inc.i.i144, %if.then55.i.i143 ], [ %conv49.i.i136, %lor.lhs.false.i.i138 ]
   %arrayidx41 = getelementptr inbounds i8, ptr %out.0248, i64 4
   store i16 %retval.0.i.i145, ptr %arrayidx41, align 2
-  %arrayidx43 = getelementptr inbounds i8, ptr %in.0247, i64 6
+  %arrayidx43 = getelementptr inbounds i8, ptr %in.0249, i64 6
   %48 = load i16, ptr %arrayidx43, align 2
   %conv.i.i170 = zext i16 %48 to i32
   %49 = shl nuw nsw i32 %conv.i.i170, 13
@@ -204877,9 +204877,9 @@ _ZN9Imath_3_14halfC2Ef.exit242:                   ; preds = %if.then4.i.i234, %i
   %retval.0.i.i218 = phi i16 [ %conv19.i.i241, %if.end.i.i237 ], [ %conv26.i.i233, %if.then23.i.i232 ], [ %conv36.i.i231, %if.end27.i.i223 ], [ %conv6.i.i235, %if.then4.i.i234 ], [ %conv.i.i195, %if.end37.i.i197 ], [ %inc.i.i217, %if.then55.i.i216 ], [ %conv49.i.i209, %lor.lhs.false.i.i211 ]
   %arrayidx45 = getelementptr inbounds i8, ptr %out.0248, i64 6
   store i16 %retval.0.i.i218, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.0247, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.0249, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.0248, i64 8
-  %inc = add nuw nsw i64 %idx.0249, 1
+  %inc = add nuw nsw i64 %idx.0247, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1242
 
@@ -205315,10 +205315,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9Imath_3_14halfC2Ef.exit242
-  %idx.0249 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit242 ]
+  %in.0249 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit242 ]
   %out.0248 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr46, %_ZN9Imath_3_14halfC2Ef.exit242 ]
-  %in.0247 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZN9Imath_3_14halfC2Ef.exit242 ]
-  %3 = load i16, ptr %in.0247, align 2
+  %idx.0247 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN9Imath_3_14halfC2Ef.exit242 ]
+  %3 = load i16, ptr %in.0249, align 2
   %conv.i.i = zext i16 %3 to i32
   %4 = shl nuw nsw i32 %conv.i.i, 13
   %shr.i.i = and i32 %4, 268427264
@@ -205358,7 +205358,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %v.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.then7.i.i ], [ %or8.i.i, %if.else.i.i ], [ %sub16.i.i, %if.then11.i.i ], [ %shl3.i.i, %if.else9.i.i ]
   %6 = bitcast i32 %v.sroa.0.0.i.i to float
   store i32 %v.sroa.0.0.i.i, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.0247, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.0249, i64 2
   %7 = load i16, ptr %arrayidx2, align 2
   %conv.i.i14 = zext i16 %7 to i32
   %8 = shl nuw nsw i32 %conv.i.i14, 13
@@ -205399,7 +205399,7 @@ _ZNK9Imath_3_14halfcvfEv.exit36:                  ; preds = %if.then7.i.i34, %if
   %v.sroa.0.0.i.i28 = phi i32 [ %add.i.i35, %if.then7.i.i34 ], [ %or8.i.i33, %if.else.i.i32 ], [ %sub16.i.i27, %if.then11.i.i21 ], [ %shl3.i.i17, %if.else9.i.i19 ]
   %10 = bitcast i32 %v.sroa.0.0.i.i28 to float
   store i32 %v.sroa.0.0.i.i28, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.0247, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.0249, i64 4
   %11 = load i16, ptr %arrayidx5, align 2
   %conv.i.i37 = zext i16 %11 to i32
   %12 = shl nuw nsw i32 %conv.i.i37, 13
@@ -205742,7 +205742,7 @@ _ZN9Imath_3_14halfC2Ef.exit169:                   ; preds = %if.then4.i.i161, %i
   %retval.0.i.i145 = phi i16 [ %conv19.i.i168, %if.end.i.i164 ], [ %conv26.i.i160, %if.then23.i.i159 ], [ %conv36.i.i158, %if.end27.i.i150 ], [ %conv6.i.i162, %if.then4.i.i161 ], [ %conv.i.i122, %if.end37.i.i124 ], [ %inc.i.i144, %if.then55.i.i143 ], [ %conv49.i.i136, %lor.lhs.false.i.i138 ]
   %arrayidx41 = getelementptr inbounds i8, ptr %out.0248, i64 4
   store i16 %retval.0.i.i145, ptr %arrayidx41, align 2
-  %arrayidx43 = getelementptr inbounds i8, ptr %in.0247, i64 6
+  %arrayidx43 = getelementptr inbounds i8, ptr %in.0249, i64 6
   %48 = load i16, ptr %arrayidx43, align 2
   %conv.i.i170 = zext i16 %48 to i32
   %49 = shl nuw nsw i32 %conv.i.i170, 13
@@ -205864,9 +205864,9 @@ _ZN9Imath_3_14halfC2Ef.exit242:                   ; preds = %if.then4.i.i234, %i
   %retval.0.i.i218 = phi i16 [ %conv19.i.i241, %if.end.i.i237 ], [ %conv26.i.i233, %if.then23.i.i232 ], [ %conv36.i.i231, %if.end27.i.i223 ], [ %conv6.i.i235, %if.then4.i.i234 ], [ %conv.i.i195, %if.end37.i.i197 ], [ %inc.i.i217, %if.then55.i.i216 ], [ %conv49.i.i209, %lor.lhs.false.i.i211 ]
   %arrayidx45 = getelementptr inbounds i8, ptr %out.0248, i64 6
   store i16 %retval.0.i.i218, ptr %arrayidx45, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %in.0247, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.0249, i64 8
   %add.ptr46 = getelementptr inbounds i8, ptr %out.0248, i64 8
-  %inc = add nuw nsw i64 %idx.0249, 1
+  %inc = add nuw nsw i64 %idx.0247, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1244
 
@@ -207490,17 +207490,17 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %_ZNK9Imath_3_14halfcvfEv.exit, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %13 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %13, %12
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %14 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %14
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %14
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -207665,22 +207665,22 @@ _ZNK9Imath_3_14halfcvfEv.exit35:                  ; preds = %if.then7.i.i33, %if
   br i1 %cmp11.i.i.i43, label %while.body.i.i.i63, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit78
 
 while.body.i.i.i63:                               ; preds = %_ZNK9Imath_3_14halfcvfEv.exit35, %while.body.i.i.i63
-  %__len.013.i.i.i64 = phi i64 [ %__len.1.i.i.i76, %while.body.i.i.i63 ], [ %sub.ptr.div.i.i.i.i.i42, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
-  %__first.addr.012.i.i.i65 = phi ptr [ %__first.addr.1.i.i.i75, %while.body.i.i.i63 ], [ %23, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
-  %shr.i.i.i66 = lshr i64 %__len.013.i.i.i64, 1
-  %add.ptr.i.i.i.i.i69 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i65, i64 %shr.i.i.i66
+  %__first.addr.013.i.i.i64 = phi ptr [ %__first.addr.1.i.i.i76, %while.body.i.i.i63 ], [ %23, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
+  %__len.012.i.i.i65 = phi i64 [ %__len.1.i.i.i75, %while.body.i.i.i63 ], [ %sub.ptr.div.i.i.i.i.i42, %_ZNK9Imath_3_14halfcvfEv.exit35 ]
+  %shr.i.i.i66 = lshr i64 %__len.012.i.i.i65, 1
+  %add.ptr.i.i.i.i.i69 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i64, i64 %shr.i.i.i66
   %36 = load float, ptr %add.ptr.i.i.i.i.i69, align 4
   %cmp.i.i.i.i72 = fcmp olt float %36, %35
   %incdec.ptr.i.i.i73 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i69, i64 4
   %37 = xor i64 %shr.i.i.i66, -1
-  %sub2.i.i.i74 = add nsw i64 %__len.013.i.i.i64, %37
-  %__first.addr.1.i.i.i75 = select i1 %cmp.i.i.i.i72, ptr %incdec.ptr.i.i.i73, ptr %__first.addr.012.i.i.i65
-  %__len.1.i.i.i76 = select i1 %cmp.i.i.i.i72, i64 %sub2.i.i.i74, i64 %shr.i.i.i66
-  %cmp.i.i.i77 = icmp sgt i64 %__len.1.i.i.i76, 0
+  %sub2.i.i.i74 = add nsw i64 %__len.012.i.i.i65, %37
+  %__len.1.i.i.i75 = select i1 %cmp.i.i.i.i72, i64 %sub2.i.i.i74, i64 %shr.i.i.i66
+  %__first.addr.1.i.i.i76 = select i1 %cmp.i.i.i.i72, ptr %incdec.ptr.i.i.i73, ptr %__first.addr.013.i.i.i64
+  %cmp.i.i.i77 = icmp sgt i64 %__len.1.i.i.i75, 0
   br i1 %cmp.i.i.i77, label %while.body.i.i.i63, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit78, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit78: ; preds = %while.body.i.i.i63, %_ZNK9Imath_3_14halfcvfEv.exit35
-  %__first.addr.0.lcssa.i.i.i44 = phi ptr [ %23, %_ZNK9Imath_3_14halfcvfEv.exit35 ], [ %__first.addr.1.i.i.i75, %while.body.i.i.i63 ]
+  %__first.addr.0.lcssa.i.i.i44 = phi ptr [ %23, %_ZNK9Imath_3_14halfcvfEv.exit35 ], [ %__first.addr.1.i.i.i76, %while.body.i.i.i63 ]
   %cmp.i45 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i44, %23
   %spec.select.idx.i46 = select i1 %cmp.i45, i64 -4, i64 0
   %spec.select.i47 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i44, i64 %spec.select.idx.i46
@@ -207841,22 +207841,22 @@ _ZNK9Imath_3_14halfcvfEv.exit151:                 ; preds = %if.then7.i.i149, %i
   br i1 %cmp11.i.i.i159, label %while.body.i.i.i179, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit194
 
 while.body.i.i.i179:                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit151, %while.body.i.i.i179
-  %__len.013.i.i.i180 = phi i64 [ %__len.1.i.i.i192, %while.body.i.i.i179 ], [ %sub.ptr.div.i.i.i.i.i158, %_ZNK9Imath_3_14halfcvfEv.exit151 ]
-  %__first.addr.012.i.i.i181 = phi ptr [ %__first.addr.1.i.i.i191, %while.body.i.i.i179 ], [ %46, %_ZNK9Imath_3_14halfcvfEv.exit151 ]
-  %shr.i.i.i182 = lshr i64 %__len.013.i.i.i180, 1
-  %add.ptr.i.i.i.i.i185 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i181, i64 %shr.i.i.i182
+  %__first.addr.013.i.i.i180 = phi ptr [ %__first.addr.1.i.i.i192, %while.body.i.i.i179 ], [ %46, %_ZNK9Imath_3_14halfcvfEv.exit151 ]
+  %__len.012.i.i.i181 = phi i64 [ %__len.1.i.i.i191, %while.body.i.i.i179 ], [ %sub.ptr.div.i.i.i.i.i158, %_ZNK9Imath_3_14halfcvfEv.exit151 ]
+  %shr.i.i.i182 = lshr i64 %__len.012.i.i.i181, 1
+  %add.ptr.i.i.i.i.i185 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i180, i64 %shr.i.i.i182
   %59 = load float, ptr %add.ptr.i.i.i.i.i185, align 4
   %cmp.i.i.i.i188 = fcmp olt float %59, %58
   %incdec.ptr.i.i.i189 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i185, i64 4
   %60 = xor i64 %shr.i.i.i182, -1
-  %sub2.i.i.i190 = add nsw i64 %__len.013.i.i.i180, %60
-  %__first.addr.1.i.i.i191 = select i1 %cmp.i.i.i.i188, ptr %incdec.ptr.i.i.i189, ptr %__first.addr.012.i.i.i181
-  %__len.1.i.i.i192 = select i1 %cmp.i.i.i.i188, i64 %sub2.i.i.i190, i64 %shr.i.i.i182
-  %cmp.i.i.i193 = icmp sgt i64 %__len.1.i.i.i192, 0
+  %sub2.i.i.i190 = add nsw i64 %__len.012.i.i.i181, %60
+  %__len.1.i.i.i191 = select i1 %cmp.i.i.i.i188, i64 %sub2.i.i.i190, i64 %shr.i.i.i182
+  %__first.addr.1.i.i.i192 = select i1 %cmp.i.i.i.i188, ptr %incdec.ptr.i.i.i189, ptr %__first.addr.013.i.i.i180
+  %cmp.i.i.i193 = icmp sgt i64 %__len.1.i.i.i191, 0
   br i1 %cmp.i.i.i193, label %while.body.i.i.i179, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit194, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit194: ; preds = %while.body.i.i.i179, %_ZNK9Imath_3_14halfcvfEv.exit151
-  %__first.addr.0.lcssa.i.i.i160 = phi ptr [ %46, %_ZNK9Imath_3_14halfcvfEv.exit151 ], [ %__first.addr.1.i.i.i191, %while.body.i.i.i179 ]
+  %__first.addr.0.lcssa.i.i.i160 = phi ptr [ %46, %_ZNK9Imath_3_14halfcvfEv.exit151 ], [ %__first.addr.1.i.i.i192, %while.body.i.i.i179 ]
   %cmp.i161 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i160, %46
   %spec.select.idx.i162 = select i1 %cmp.i161, i64 -4, i64 0
   %spec.select.i163 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i160, i64 %spec.select.idx.i162
@@ -209875,17 +209875,17 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %18, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %18, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %27 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %27, %26
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %28 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %28
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %28
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -209931,22 +209931,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %39 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %39, %38
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %40 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %40
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %40
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %31
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -209987,22 +209987,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i112, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147
 
 while.body.i.i.i132:                              ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, %while.body.i.i.i132
-  %__len.013.i.i.i133 = phi i64 [ %__len.1.i.i.i145, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
-  %__first.addr.012.i.i.i134 = phi ptr [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ], [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
-  %shr.i.i.i135 = lshr i64 %__len.013.i.i.i133, 1
-  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i134, i64 %shr.i.i.i135
+  %__first.addr.013.i.i.i133 = phi ptr [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ], [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
+  %__len.012.i.i.i134 = phi i64 [ %__len.1.i.i.i144, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
+  %shr.i.i.i135 = lshr i64 %__len.012.i.i.i134, 1
+  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i133, i64 %shr.i.i.i135
   %51 = load float, ptr %add.ptr.i.i.i.i.i138, align 4
   %cmp.i.i.i.i141 = fcmp olt float %51, %50
   %incdec.ptr.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i138, i64 4
   %52 = xor i64 %shr.i.i.i135, -1
-  %sub2.i.i.i143 = add nsw i64 %__len.013.i.i.i133, %52
-  %__first.addr.1.i.i.i144 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.012.i.i.i134
-  %__len.1.i.i.i145 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
-  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i145, 0
+  %sub2.i.i.i143 = add nsw i64 %__len.012.i.i.i134, %52
+  %__len.1.i.i.i144 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
+  %__first.addr.1.i.i.i145 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.013.i.i.i133
+  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i144, 0
   br i1 %cmp.i.i.i146, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147: ; preds = %while.body.i.i.i132, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
-  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ], [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ]
+  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ], [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ]
   %cmp.i114 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i113, %43
   %spec.select.idx.i115 = select i1 %cmp.i114, i64 -4, i64 0
   %spec.select.i116 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i113, i64 %spec.select.idx.i115
@@ -210572,28 +210572,28 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds float, ptr %0, i64 %idxprom.i
   %3 = load float, ptr %arrayidx.i, align 4
-  store float %3, ptr %out.016, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store float %3, ptr %out.015, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds float, ptr %1, i64 %idxprom.i10
   %4 = load float, ptr %arrayidx.i11, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 4
   store float %4, ptr %arrayidx5, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds float, ptr %2, i64 %idxprom.i12
   %5 = load float, ptr %arrayidx.i13, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 8
   store float %5, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv.i.i = zext i16 %6 to i32
   %7 = shl nuw nsw i32 %conv.i.i, 13
@@ -210635,10 +210635,10 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %9 = bitcast i32 %v.sroa.0.0.i.i to float
   %10 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %10, %9
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 12
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 12
   store float %mul, ptr %arrayidx11, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 16
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1252
@@ -213441,10 +213441,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit87
-  %idx.094 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %in.094 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
   %out.093 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr43, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %in.092 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %3 = load i16, ptr %in.092, align 2
+  %idx.092 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %3 = load i16, ptr %in.094, align 2
   %conv.i.i = zext i16 %3 to i32
   %4 = shl nuw nsw i32 %conv.i.i, 13
   %shr.i.i = and i32 %4, 268427264
@@ -213484,7 +213484,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %v.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.then7.i.i ], [ %or8.i.i, %if.else.i.i ], [ %sub16.i.i, %if.then11.i.i ], [ %shl3.i.i, %if.else9.i.i ]
   %6 = bitcast i32 %v.sroa.0.0.i.i to float
   store i32 %v.sroa.0.0.i.i, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.092, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.094, i64 2
   %7 = load i16, ptr %arrayidx2, align 2
   %conv.i.i14 = zext i16 %7 to i32
   %8 = shl nuw nsw i32 %conv.i.i14, 13
@@ -213525,7 +213525,7 @@ _ZNK9Imath_3_14halfcvfEv.exit36:                  ; preds = %if.then7.i.i34, %if
   %v.sroa.0.0.i.i28 = phi i32 [ %add.i.i35, %if.then7.i.i34 ], [ %or8.i.i33, %if.else.i.i32 ], [ %sub16.i.i27, %if.then11.i.i21 ], [ %shl3.i.i17, %if.else9.i.i19 ]
   %10 = bitcast i32 %v.sroa.0.0.i.i28 to float
   store i32 %v.sroa.0.0.i.i28, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.092, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.094, i64 4
   %11 = load i16, ptr %arrayidx5, align 2
   %conv.i.i37 = zext i16 %11 to i32
   %12 = shl nuw nsw i32 %conv.i.i37, 13
@@ -213631,7 +213631,7 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %28 = load float, ptr %arrayinit.element22, align 8
   %arrayidx39 = getelementptr inbounds i8, ptr %out.093, i64 8
   store float %28, ptr %arrayidx39, align 4
-  %arrayidx40 = getelementptr inbounds i8, ptr %in.092, i64 6
+  %arrayidx40 = getelementptr inbounds i8, ptr %in.094, i64 6
   %29 = load i16, ptr %arrayidx40, align 2
   %conv.i.i65 = zext i16 %29 to i32
   %30 = shl nuw nsw i32 %conv.i.i65, 13
@@ -213675,9 +213675,9 @@ _ZNK9Imath_3_14halfcvfEv.exit87:                  ; preds = %if.then7.i.i85, %if
   %mul = fmul float %33, %32
   %arrayidx42 = getelementptr inbounds i8, ptr %out.093, i64 12
   store float %mul, ptr %arrayidx42, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.092, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.094, i64 8
   %add.ptr43 = getelementptr inbounds i8, ptr %out.093, i64 16
-  %inc = add nuw nsw i64 %idx.094, 1
+  %inc = add nuw nsw i64 %idx.092, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1257
 
@@ -213860,28 +213860,28 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit
   %idx.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %out.016 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.015 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %in.0.val = load i16, ptr %in.015, align 2
+  %in.016 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %out.015 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %in.0.val = load i16, ptr %in.016, align 2
   %idxprom.i = zext i16 %in.0.val to i64
   %arrayidx.i = getelementptr inbounds float, ptr %0, i64 %idxprom.i
   %3 = load float, ptr %arrayidx.i, align 4
-  store float %3, ptr %out.016, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.015, i64 2
+  store float %3, ptr %out.015, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.016, i64 2
   %arrayidx3.val = load i16, ptr %arrayidx3, align 2
   %idxprom.i10 = zext i16 %arrayidx3.val to i64
   %arrayidx.i11 = getelementptr inbounds float, ptr %1, i64 %idxprom.i10
   %4 = load float, ptr %arrayidx.i11, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %out.016, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %out.015, i64 4
   store float %4, ptr %arrayidx5, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.015, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.016, i64 4
   %arrayidx6.val = load i16, ptr %arrayidx6, align 2
   %idxprom.i12 = zext i16 %arrayidx6.val to i64
   %arrayidx.i13 = getelementptr inbounds float, ptr %2, i64 %idxprom.i12
   %5 = load float, ptr %arrayidx.i13, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %out.016, i64 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %out.015, i64 8
   store float %5, ptr %arrayidx8, align 4
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.015, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %in.016, i64 6
   %6 = load i16, ptr %arrayidx9, align 2
   %conv.i.i = zext i16 %6 to i32
   %7 = shl nuw nsw i32 %conv.i.i, 13
@@ -213923,10 +213923,10 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %9 = bitcast i32 %v.sroa.0.0.i.i to float
   %10 = load float, ptr %m_alphaScaling, align 8
   %mul = fmul float %10, %9
-  %arrayidx11 = getelementptr inbounds i8, ptr %out.016, i64 12
+  %arrayidx11 = getelementptr inbounds i8, ptr %out.015, i64 12
   store float %mul, ptr %arrayidx11, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.015, i64 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.016, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.016, i64 8
+  %add.ptr12 = getelementptr inbounds i8, ptr %out.015, i64 16
   %inc = add nuw nsw i64 %idx.017, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1258
@@ -214035,10 +214035,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9Imath_3_14halfcvfEv.exit87
-  %idx.094 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %in.094 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
   %out.093 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr43, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %in.092 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
-  %3 = load i16, ptr %in.092, align 2
+  %idx.092 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK9Imath_3_14halfcvfEv.exit87 ]
+  %3 = load i16, ptr %in.094, align 2
   %conv.i.i = zext i16 %3 to i32
   %4 = shl nuw nsw i32 %conv.i.i, 13
   %shr.i.i = and i32 %4, 268427264
@@ -214078,7 +214078,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   %v.sroa.0.0.i.i = phi i32 [ %add.i.i, %if.then7.i.i ], [ %or8.i.i, %if.else.i.i ], [ %sub16.i.i, %if.then11.i.i ], [ %shl3.i.i, %if.else9.i.i ]
   %6 = bitcast i32 %v.sroa.0.0.i.i to float
   store i32 %v.sroa.0.0.i.i, ptr %RGB, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.092, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.094, i64 2
   %7 = load i16, ptr %arrayidx2, align 2
   %conv.i.i14 = zext i16 %7 to i32
   %8 = shl nuw nsw i32 %conv.i.i14, 13
@@ -214119,7 +214119,7 @@ _ZNK9Imath_3_14halfcvfEv.exit36:                  ; preds = %if.then7.i.i34, %if
   %v.sroa.0.0.i.i28 = phi i32 [ %add.i.i35, %if.then7.i.i34 ], [ %or8.i.i33, %if.else.i.i32 ], [ %sub16.i.i27, %if.then11.i.i21 ], [ %shl3.i.i17, %if.else9.i.i19 ]
   %10 = bitcast i32 %v.sroa.0.0.i.i28 to float
   store i32 %v.sroa.0.0.i.i28, ptr %arrayinit.element, align 4
-  %arrayidx5 = getelementptr inbounds i8, ptr %in.092, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %in.094, i64 4
   %11 = load i16, ptr %arrayidx5, align 2
   %conv.i.i37 = zext i16 %11 to i32
   %12 = shl nuw nsw i32 %conv.i.i37, 13
@@ -214225,7 +214225,7 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   %28 = load float, ptr %arrayinit.element22, align 8
   %arrayidx39 = getelementptr inbounds i8, ptr %out.093, i64 8
   store float %28, ptr %arrayidx39, align 4
-  %arrayidx40 = getelementptr inbounds i8, ptr %in.092, i64 6
+  %arrayidx40 = getelementptr inbounds i8, ptr %in.094, i64 6
   %29 = load i16, ptr %arrayidx40, align 2
   %conv.i.i65 = zext i16 %29 to i32
   %30 = shl nuw nsw i32 %conv.i.i65, 13
@@ -214269,9 +214269,9 @@ _ZNK9Imath_3_14halfcvfEv.exit87:                  ; preds = %if.then7.i.i85, %if
   %mul = fmul float %33, %32
   %arrayidx42 = getelementptr inbounds i8, ptr %out.093, i64 12
   store float %mul, ptr %arrayidx42, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.092, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %in.094, i64 8
   %add.ptr43 = getelementptr inbounds i8, ptr %out.093, i64 16
-  %inc = add nuw nsw i64 %idx.094, 1
+  %inc = add nuw nsw i64 %idx.092, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !1259
 
@@ -215583,17 +215583,17 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %if.then7.i.i, %if.e
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %_ZNK9Imath_3_14halfcvfEv.exit, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %_ZNK9Imath_3_14halfcvfEv.exit ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK9Imath_3_14halfcvfEv.exit ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %13 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %13, %12
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %14 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %14
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %14
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -215680,22 +215680,22 @@ _ZNK9Imath_3_14halfcvfEv.exit33:                  ; preds = %if.then7.i.i31, %if
   br i1 %cmp11.i.i.i41, label %while.body.i.i.i61, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit76
 
 while.body.i.i.i61:                               ; preds = %_ZNK9Imath_3_14halfcvfEv.exit33, %while.body.i.i.i61
-  %__len.013.i.i.i62 = phi i64 [ %__len.1.i.i.i74, %while.body.i.i.i61 ], [ %sub.ptr.div.i.i.i.i.i40, %_ZNK9Imath_3_14halfcvfEv.exit33 ]
-  %__first.addr.012.i.i.i63 = phi ptr [ %__first.addr.1.i.i.i73, %while.body.i.i.i61 ], [ %17, %_ZNK9Imath_3_14halfcvfEv.exit33 ]
-  %shr.i.i.i64 = lshr i64 %__len.013.i.i.i62, 1
-  %add.ptr.i.i.i.i.i67 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i63, i64 %shr.i.i.i64
+  %__first.addr.013.i.i.i62 = phi ptr [ %__first.addr.1.i.i.i74, %while.body.i.i.i61 ], [ %17, %_ZNK9Imath_3_14halfcvfEv.exit33 ]
+  %__len.012.i.i.i63 = phi i64 [ %__len.1.i.i.i73, %while.body.i.i.i61 ], [ %sub.ptr.div.i.i.i.i.i40, %_ZNK9Imath_3_14halfcvfEv.exit33 ]
+  %shr.i.i.i64 = lshr i64 %__len.012.i.i.i63, 1
+  %add.ptr.i.i.i.i.i67 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i62, i64 %shr.i.i.i64
   %30 = load float, ptr %add.ptr.i.i.i.i.i67, align 4
   %cmp.i.i.i.i70 = fcmp olt float %30, %29
   %incdec.ptr.i.i.i71 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i67, i64 4
   %31 = xor i64 %shr.i.i.i64, -1
-  %sub2.i.i.i72 = add nsw i64 %__len.013.i.i.i62, %31
-  %__first.addr.1.i.i.i73 = select i1 %cmp.i.i.i.i70, ptr %incdec.ptr.i.i.i71, ptr %__first.addr.012.i.i.i63
-  %__len.1.i.i.i74 = select i1 %cmp.i.i.i.i70, i64 %sub2.i.i.i72, i64 %shr.i.i.i64
-  %cmp.i.i.i75 = icmp sgt i64 %__len.1.i.i.i74, 0
+  %sub2.i.i.i72 = add nsw i64 %__len.012.i.i.i63, %31
+  %__len.1.i.i.i73 = select i1 %cmp.i.i.i.i70, i64 %sub2.i.i.i72, i64 %shr.i.i.i64
+  %__first.addr.1.i.i.i74 = select i1 %cmp.i.i.i.i70, ptr %incdec.ptr.i.i.i71, ptr %__first.addr.013.i.i.i62
+  %cmp.i.i.i75 = icmp sgt i64 %__len.1.i.i.i73, 0
   br i1 %cmp.i.i.i75, label %while.body.i.i.i61, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit76, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit76: ; preds = %while.body.i.i.i61, %_ZNK9Imath_3_14halfcvfEv.exit33
-  %__first.addr.0.lcssa.i.i.i42 = phi ptr [ %17, %_ZNK9Imath_3_14halfcvfEv.exit33 ], [ %__first.addr.1.i.i.i73, %while.body.i.i.i61 ]
+  %__first.addr.0.lcssa.i.i.i42 = phi ptr [ %17, %_ZNK9Imath_3_14halfcvfEv.exit33 ], [ %__first.addr.1.i.i.i74, %while.body.i.i.i61 ]
   %cmp.i43 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i42, %17
   %spec.select.idx.i44 = select i1 %cmp.i43, i64 -4, i64 0
   %spec.select.i45 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i42, i64 %spec.select.idx.i44
@@ -215778,22 +215778,22 @@ _ZNK9Imath_3_14halfcvfEv.exit99:                  ; preds = %if.then7.i.i97, %if
   br i1 %cmp11.i.i.i107, label %while.body.i.i.i127, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit142
 
 while.body.i.i.i127:                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit99, %while.body.i.i.i127
-  %__len.013.i.i.i128 = phi i64 [ %__len.1.i.i.i140, %while.body.i.i.i127 ], [ %sub.ptr.div.i.i.i.i.i106, %_ZNK9Imath_3_14halfcvfEv.exit99 ]
-  %__first.addr.012.i.i.i129 = phi ptr [ %__first.addr.1.i.i.i139, %while.body.i.i.i127 ], [ %34, %_ZNK9Imath_3_14halfcvfEv.exit99 ]
-  %shr.i.i.i130 = lshr i64 %__len.013.i.i.i128, 1
-  %add.ptr.i.i.i.i.i133 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i129, i64 %shr.i.i.i130
+  %__first.addr.013.i.i.i128 = phi ptr [ %__first.addr.1.i.i.i140, %while.body.i.i.i127 ], [ %34, %_ZNK9Imath_3_14halfcvfEv.exit99 ]
+  %__len.012.i.i.i129 = phi i64 [ %__len.1.i.i.i139, %while.body.i.i.i127 ], [ %sub.ptr.div.i.i.i.i.i106, %_ZNK9Imath_3_14halfcvfEv.exit99 ]
+  %shr.i.i.i130 = lshr i64 %__len.012.i.i.i129, 1
+  %add.ptr.i.i.i.i.i133 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i128, i64 %shr.i.i.i130
   %47 = load float, ptr %add.ptr.i.i.i.i.i133, align 4
   %cmp.i.i.i.i136 = fcmp olt float %47, %46
   %incdec.ptr.i.i.i137 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i133, i64 4
   %48 = xor i64 %shr.i.i.i130, -1
-  %sub2.i.i.i138 = add nsw i64 %__len.013.i.i.i128, %48
-  %__first.addr.1.i.i.i139 = select i1 %cmp.i.i.i.i136, ptr %incdec.ptr.i.i.i137, ptr %__first.addr.012.i.i.i129
-  %__len.1.i.i.i140 = select i1 %cmp.i.i.i.i136, i64 %sub2.i.i.i138, i64 %shr.i.i.i130
-  %cmp.i.i.i141 = icmp sgt i64 %__len.1.i.i.i140, 0
+  %sub2.i.i.i138 = add nsw i64 %__len.012.i.i.i129, %48
+  %__len.1.i.i.i139 = select i1 %cmp.i.i.i.i136, i64 %sub2.i.i.i138, i64 %shr.i.i.i130
+  %__first.addr.1.i.i.i140 = select i1 %cmp.i.i.i.i136, ptr %incdec.ptr.i.i.i137, ptr %__first.addr.013.i.i.i128
+  %cmp.i.i.i141 = icmp sgt i64 %__len.1.i.i.i139, 0
   br i1 %cmp.i.i.i141, label %while.body.i.i.i127, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit142, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit142: ; preds = %while.body.i.i.i127, %_ZNK9Imath_3_14halfcvfEv.exit99
-  %__first.addr.0.lcssa.i.i.i108 = phi ptr [ %34, %_ZNK9Imath_3_14halfcvfEv.exit99 ], [ %__first.addr.1.i.i.i139, %while.body.i.i.i127 ]
+  %__first.addr.0.lcssa.i.i.i108 = phi ptr [ %34, %_ZNK9Imath_3_14halfcvfEv.exit99 ], [ %__first.addr.1.i.i.i140, %while.body.i.i.i127 ]
   %cmp.i109 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i108, %34
   %spec.select.idx.i110 = select i1 %cmp.i109, i64 -4, i64 0
   %spec.select.i111 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i108, i64 %spec.select.idx.i110
@@ -217341,17 +217341,17 @@ cond.end:                                         ; preds = %_ZNK9Imath_3_14half
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %18, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %18, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %27 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %27, %26
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %28 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %28
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %28
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -217397,22 +217397,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %39 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %39, %38
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %40 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %40
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %40
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %31, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %31
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -217453,22 +217453,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i112, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147
 
 while.body.i.i.i132:                              ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, %while.body.i.i.i132
-  %__len.013.i.i.i133 = phi i64 [ %__len.1.i.i.i145, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
-  %__first.addr.012.i.i.i134 = phi ptr [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ], [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
-  %shr.i.i.i135 = lshr i64 %__len.013.i.i.i133, 1
-  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i134, i64 %shr.i.i.i135
+  %__first.addr.013.i.i.i133 = phi ptr [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ], [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
+  %__len.012.i.i.i134 = phi i64 [ %__len.1.i.i.i144, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ]
+  %shr.i.i.i135 = lshr i64 %__len.012.i.i.i134, 1
+  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i133, i64 %shr.i.i.i135
   %51 = load float, ptr %add.ptr.i.i.i.i.i138, align 4
   %cmp.i.i.i.i141 = fcmp olt float %51, %50
   %incdec.ptr.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i138, i64 4
   %52 = xor i64 %shr.i.i.i135, -1
-  %sub2.i.i.i143 = add nsw i64 %__len.013.i.i.i133, %52
-  %__first.addr.1.i.i.i144 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.012.i.i.i134
-  %__len.1.i.i.i145 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
-  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i145, 0
+  %sub2.i.i.i143 = add nsw i64 %__len.012.i.i.i134, %52
+  %__len.1.i.i.i144 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
+  %__first.addr.1.i.i.i145 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.013.i.i.i133
+  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i144, 0
   br i1 %cmp.i.i.i146, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147: ; preds = %while.body.i.i.i132, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
-  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ], [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ]
+  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %43, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104 ], [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ]
   %cmp.i114 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i113, %43
   %spec.select.idx.i115 = select i1 %cmp.i114, i64 -4, i64 0
   %spec.select.i116 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i113, i64 %spec.select.idx.i115
@@ -222927,17 +222927,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -222998,22 +222998,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -223070,22 +223070,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE1EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -224400,17 +224400,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %10, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %10, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %19 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %19, %18
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %20 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %20
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %20
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -224456,22 +224456,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %31 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %31, %30
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %32 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %32
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %32
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %23
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -224512,22 +224512,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %43 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %43, %42
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %44 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %44
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %44
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %35
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -227888,17 +227888,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -227959,22 +227959,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -228031,22 +228031,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE2EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -229361,17 +229361,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %10, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %10, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %19 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %19, %18
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %20 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %20
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %20
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -229417,22 +229417,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %31 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %31, %30
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %32 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %32
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %32
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %23
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -229473,22 +229473,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %43 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %43, %42
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %44 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %44
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %44
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %35
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -232849,17 +232849,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -232920,22 +232920,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -232992,22 +232992,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE3EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -234322,17 +234322,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %10, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %10, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %19 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %19, %18
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %20 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %20
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %20
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -234378,22 +234378,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %31 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %31, %30
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %32 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %32
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %32
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %23
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -234434,22 +234434,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %43 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %43, %42
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %44 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %44
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %44
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %35
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -237810,17 +237810,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -237881,22 +237881,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %25 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %25, %24
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %26 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %26
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %26
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %15, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %15
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -237953,22 +237953,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61: ; preds
   br i1 %cmp11.i.i.i69, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104
 
 while.body.i.i.i89:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61, %while.body.i.i.i89
-  %__len.013.i.i.i90 = phi i64 [ %__len.1.i.i.i102, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
-  %__first.addr.012.i.i.i91 = phi ptr [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
-  %shr.i.i.i92 = lshr i64 %__len.013.i.i.i90, 1
-  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i91, i64 %shr.i.i.i92
+  %__first.addr.013.i.i.i90 = phi ptr [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ], [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
+  %__len.012.i.i.i91 = phi i64 [ %__len.1.i.i.i101, %while.body.i.i.i89 ], [ %sub.ptr.div.i.i.i.i.i68, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ]
+  %shr.i.i.i92 = lshr i64 %__len.012.i.i.i91, 1
+  %add.ptr.i.i.i.i.i95 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i90, i64 %shr.i.i.i92
   %40 = load float, ptr %add.ptr.i.i.i.i.i95, align 4
   %cmp.i.i.i.i98 = fcmp olt float %40, %39
   %incdec.ptr.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i95, i64 4
   %41 = xor i64 %shr.i.i.i92, -1
-  %sub2.i.i.i100 = add nsw i64 %__len.013.i.i.i90, %41
-  %__first.addr.1.i.i.i101 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.012.i.i.i91
-  %__len.1.i.i.i102 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
-  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i102, 0
+  %sub2.i.i.i100 = add nsw i64 %__len.012.i.i.i91, %41
+  %__len.1.i.i.i101 = select i1 %cmp.i.i.i.i98, i64 %sub2.i.i.i100, i64 %shr.i.i.i92
+  %__first.addr.1.i.i.i102 = select i1 %cmp.i.i.i.i98, ptr %incdec.ptr.i.i.i99, ptr %__first.addr.013.i.i.i90
+  %cmp.i.i.i103 = icmp sgt i64 %__len.1.i.i.i101, 0
   br i1 %cmp.i.i.i103, label %while.body.i.i.i89, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit104: ; preds = %while.body.i.i.i89, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61
-  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i101, %while.body.i.i.i89 ]
+  %__first.addr.0.lcssa.i.i.i70 = phi ptr [ %30, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE5EE9CastValueEf.exit61 ], [ %__first.addr.1.i.i.i102, %while.body.i.i.i89 ]
   %cmp.i71 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i70, %30
   %spec.select.idx.i72 = select i1 %cmp.i71, i64 -4, i64 0
   %spec.select.i73 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i70, i64 %spec.select.idx.i72
@@ -239283,17 +239283,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %10, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %10, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %19 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %19, %18
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %20 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %20
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %20
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -239339,22 +239339,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %31 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %31, %30
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %32 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %32
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %32
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %23
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -239395,22 +239395,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %43 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %43, %42
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %44 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %44
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %44
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %35
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -244091,17 +244091,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -244228,22 +244228,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br i1 %cmp11.i.i.i19, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54
 
 while.body.i.i.i39:                               ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit, %while.body.i.i.i39
-  %__len.013.i.i.i40 = phi i64 [ %__len.1.i.i.i52, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
-  %__first.addr.012.i.i.i41 = phi ptr [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ], [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
-  %shr.i.i.i42 = lshr i64 %__len.013.i.i.i40, 1
-  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i41, i64 %shr.i.i.i42
+  %__first.addr.013.i.i.i40 = phi ptr [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ], [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
+  %__len.012.i.i.i41 = phi i64 [ %__len.1.i.i.i51, %while.body.i.i.i39 ], [ %sub.ptr.div.i.i.i.i.i18, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ]
+  %shr.i.i.i42 = lshr i64 %__len.012.i.i.i41, 1
+  %add.ptr.i.i.i.i.i45 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i40, i64 %shr.i.i.i42
   %30 = load float, ptr %add.ptr.i.i.i.i.i45, align 4
   %cmp.i.i.i.i48 = fcmp olt float %30, %29
   %incdec.ptr.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i45, i64 4
   %31 = xor i64 %shr.i.i.i42, -1
-  %sub2.i.i.i50 = add nsw i64 %__len.013.i.i.i40, %31
-  %__first.addr.1.i.i.i51 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.012.i.i.i41
-  %__len.1.i.i.i52 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
-  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i52, 0
+  %sub2.i.i.i50 = add nsw i64 %__len.012.i.i.i41, %31
+  %__len.1.i.i.i51 = select i1 %cmp.i.i.i.i48, i64 %sub2.i.i.i50, i64 %shr.i.i.i42
+  %__first.addr.1.i.i.i52 = select i1 %cmp.i.i.i.i48, ptr %incdec.ptr.i.i.i49, ptr %__first.addr.013.i.i.i40
+  %cmp.i.i.i53 = icmp sgt i64 %__len.1.i.i.i51, 0
   br i1 %cmp.i.i.i53, label %while.body.i.i.i39, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit54: ; preds = %while.body.i.i.i39, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
-  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i51, %while.body.i.i.i39 ]
+  %__first.addr.0.lcssa.i.i.i20 = phi ptr [ %20, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit ], [ %__first.addr.1.i.i.i52, %while.body.i.i.i39 ]
   %cmp.i21 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i20, %20
   %spec.select.idx.i22 = select i1 %cmp.i21, i64 -4, i64 0
   %spec.select.i23 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i20, i64 %spec.select.idx.i22
@@ -244366,22 +244366,22 @@ _ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104: ; pred
   br i1 %cmp11.i.i.i112, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147
 
 while.body.i.i.i132:                              ; preds = %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104, %while.body.i.i.i132
-  %__len.013.i.i.i133 = phi i64 [ %__len.1.i.i.i145, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
-  %__first.addr.012.i.i.i134 = phi ptr [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ], [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
-  %shr.i.i.i135 = lshr i64 %__len.013.i.i.i133, 1
-  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i134, i64 %shr.i.i.i135
+  %__first.addr.013.i.i.i133 = phi ptr [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ], [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
+  %__len.012.i.i.i134 = phi i64 [ %__len.1.i.i.i144, %while.body.i.i.i132 ], [ %sub.ptr.div.i.i.i.i.i111, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ]
+  %shr.i.i.i135 = lshr i64 %__len.012.i.i.i134, 1
+  %add.ptr.i.i.i.i.i138 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i133, i64 %shr.i.i.i135
   %50 = load float, ptr %add.ptr.i.i.i.i.i138, align 4
   %cmp.i.i.i.i141 = fcmp olt float %50, %49
   %incdec.ptr.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i138, i64 4
   %51 = xor i64 %shr.i.i.i135, -1
-  %sub2.i.i.i143 = add nsw i64 %__len.013.i.i.i133, %51
-  %__first.addr.1.i.i.i144 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.012.i.i.i134
-  %__len.1.i.i.i145 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
-  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i145, 0
+  %sub2.i.i.i143 = add nsw i64 %__len.012.i.i.i134, %51
+  %__len.1.i.i.i144 = select i1 %cmp.i.i.i.i141, i64 %sub2.i.i.i143, i64 %shr.i.i.i135
+  %__first.addr.1.i.i.i145 = select i1 %cmp.i.i.i.i141, ptr %incdec.ptr.i.i.i142, ptr %__first.addr.013.i.i.i133
+  %cmp.i.i.i146 = icmp sgt i64 %__len.1.i.i.i144, 0
   br i1 %cmp.i.i.i146, label %while.body.i.i.i132, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit147: ; preds = %while.body.i.i.i132, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104
-  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ], [ %__first.addr.1.i.i.i144, %while.body.i.i.i132 ]
+  %__first.addr.0.lcssa.i.i.i113 = phi ptr [ %40, %_ZN19OpenColorIO_v2_4dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit104 ], [ %__first.addr.1.i.i.i145, %while.body.i.i.i132 ]
   %cmp.i114 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i113, %40
   %spec.select.idx.i115 = select i1 %cmp.i114, i64 -4, i64 0
   %spec.select.i116 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i113, i64 %spec.select.idx.i115
@@ -246092,17 +246092,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %10, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %10, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %19 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %19, %18
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %20 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %20
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %20
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -246148,22 +246148,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %31 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %31, %30
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %32 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %32
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %32
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %23
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -246204,22 +246204,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %43 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %43, %42
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %44 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %44
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %44
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %35
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68
@@ -249596,17 +249596,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %for.body ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %10 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %10, %9
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %11 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %11
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %11
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -249655,22 +249655,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i17, label %while.body.i.i.i37, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52
 
 while.body.i.i.i37:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i37
-  %__len.013.i.i.i38 = phi i64 [ %__len.1.i.i.i50, %while.body.i.i.i37 ], [ %sub.ptr.div.i.i.i.i.i16, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i39 = phi ptr [ %__first.addr.1.i.i.i49, %while.body.i.i.i37 ], [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i40 = lshr i64 %__len.013.i.i.i38, 1
-  %add.ptr.i.i.i.i.i43 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i39, i64 %shr.i.i.i40
+  %__first.addr.013.i.i.i38 = phi ptr [ %__first.addr.1.i.i.i50, %while.body.i.i.i37 ], [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i39 = phi i64 [ %__len.1.i.i.i49, %while.body.i.i.i37 ], [ %sub.ptr.div.i.i.i.i.i16, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i40 = lshr i64 %__len.012.i.i.i39, 1
+  %add.ptr.i.i.i.i.i43 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i38, i64 %shr.i.i.i40
   %24 = load float, ptr %add.ptr.i.i.i.i.i43, align 4
   %cmp.i.i.i.i46 = fcmp olt float %24, %23
   %incdec.ptr.i.i.i47 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i43, i64 4
   %25 = xor i64 %shr.i.i.i40, -1
-  %sub2.i.i.i48 = add nsw i64 %__len.013.i.i.i38, %25
-  %__first.addr.1.i.i.i49 = select i1 %cmp.i.i.i.i46, ptr %incdec.ptr.i.i.i47, ptr %__first.addr.012.i.i.i39
-  %__len.1.i.i.i50 = select i1 %cmp.i.i.i.i46, i64 %sub2.i.i.i48, i64 %shr.i.i.i40
-  %cmp.i.i.i51 = icmp sgt i64 %__len.1.i.i.i50, 0
+  %sub2.i.i.i48 = add nsw i64 %__len.012.i.i.i39, %25
+  %__len.1.i.i.i49 = select i1 %cmp.i.i.i.i46, i64 %sub2.i.i.i48, i64 %shr.i.i.i40
+  %__first.addr.1.i.i.i50 = select i1 %cmp.i.i.i.i46, ptr %incdec.ptr.i.i.i47, ptr %__first.addr.013.i.i.i38
+  %cmp.i.i.i51 = icmp sgt i64 %__len.1.i.i.i49, 0
   br i1 %cmp.i.i.i51, label %while.body.i.i.i37, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52: ; preds = %while.body.i.i.i37, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i18 = phi ptr [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i49, %while.body.i.i.i37 ]
+  %__first.addr.0.lcssa.i.i.i18 = phi ptr [ %14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i50, %while.body.i.i.i37 ]
   %cmp.i19 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i18, %14
   %spec.select.idx.i20 = select i1 %cmp.i19, i64 -4, i64 0
   %spec.select.i21 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i18, i64 %spec.select.idx.i20
@@ -249715,22 +249715,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i60, label %while.body.i.i.i80, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit95
 
 while.body.i.i.i80:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52, %while.body.i.i.i80
-  %__len.013.i.i.i81 = phi i64 [ %__len.1.i.i.i93, %while.body.i.i.i80 ], [ %sub.ptr.div.i.i.i.i.i59, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
-  %__first.addr.012.i.i.i82 = phi ptr [ %__first.addr.1.i.i.i92, %while.body.i.i.i80 ], [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
-  %shr.i.i.i83 = lshr i64 %__len.013.i.i.i81, 1
-  %add.ptr.i.i.i.i.i86 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i82, i64 %shr.i.i.i83
+  %__first.addr.013.i.i.i81 = phi ptr [ %__first.addr.1.i.i.i93, %while.body.i.i.i80 ], [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
+  %__len.012.i.i.i82 = phi i64 [ %__len.1.i.i.i92, %while.body.i.i.i80 ], [ %sub.ptr.div.i.i.i.i.i59, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ]
+  %shr.i.i.i83 = lshr i64 %__len.012.i.i.i82, 1
+  %add.ptr.i.i.i.i.i86 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i81, i64 %shr.i.i.i83
   %38 = load float, ptr %add.ptr.i.i.i.i.i86, align 4
   %cmp.i.i.i.i89 = fcmp olt float %38, %37
   %incdec.ptr.i.i.i90 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i86, i64 4
   %39 = xor i64 %shr.i.i.i83, -1
-  %sub2.i.i.i91 = add nsw i64 %__len.013.i.i.i81, %39
-  %__first.addr.1.i.i.i92 = select i1 %cmp.i.i.i.i89, ptr %incdec.ptr.i.i.i90, ptr %__first.addr.012.i.i.i82
-  %__len.1.i.i.i93 = select i1 %cmp.i.i.i.i89, i64 %sub2.i.i.i91, i64 %shr.i.i.i83
-  %cmp.i.i.i94 = icmp sgt i64 %__len.1.i.i.i93, 0
+  %sub2.i.i.i91 = add nsw i64 %__len.012.i.i.i82, %39
+  %__len.1.i.i.i92 = select i1 %cmp.i.i.i.i89, i64 %sub2.i.i.i91, i64 %shr.i.i.i83
+  %__first.addr.1.i.i.i93 = select i1 %cmp.i.i.i.i89, ptr %incdec.ptr.i.i.i90, ptr %__first.addr.013.i.i.i81
+  %cmp.i.i.i94 = icmp sgt i64 %__len.1.i.i.i92, 0
   br i1 %cmp.i.i.i94, label %while.body.i.i.i80, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit95, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit95: ; preds = %while.body.i.i.i80, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52
-  %__first.addr.0.lcssa.i.i.i61 = phi ptr [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ], [ %__first.addr.1.i.i.i92, %while.body.i.i.i80 ]
+  %__first.addr.0.lcssa.i.i.i61 = phi ptr [ %28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit52 ], [ %__first.addr.1.i.i.i93, %while.body.i.i.i80 ]
   %cmp.i62 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i61, %28
   %spec.select.idx.i63 = select i1 %cmp.i62, i64 -4, i64 0
   %spec.select.i64 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i61, i64 %spec.select.idx.i63
@@ -250970,17 +250970,17 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   br i1 %cmp11.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
 
 while.body.i.i.i:                                 ; preds = %cond.end, %while.body.i.i.i
-  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
-  %__first.addr.012.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %10, %cond.end ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %10, %cond.end ]
+  %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %cond.end ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %19 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp olt float %19, %18
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %20 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %20
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.012.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %20
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, !llvm.loop !179
 
@@ -251026,22 +251026,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i22, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
 
 while.body.i.i.i42:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit, %while.body.i.i.i42
-  %__len.013.i.i.i43 = phi i64 [ %__len.1.i.i.i55, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %__first.addr.012.i.i.i44 = phi ptr [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ], [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
-  %shr.i.i.i45 = lshr i64 %__len.013.i.i.i43, 1
-  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i44, i64 %shr.i.i.i45
+  %__first.addr.013.i.i.i43 = phi ptr [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ], [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %__len.012.i.i.i44 = phi i64 [ %__len.1.i.i.i54, %while.body.i.i.i42 ], [ %sub.ptr.div.i.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ]
+  %shr.i.i.i45 = lshr i64 %__len.012.i.i.i44, 1
+  %add.ptr.i.i.i.i.i48 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i43, i64 %shr.i.i.i45
   %31 = load float, ptr %add.ptr.i.i.i.i.i48, align 4
   %cmp.i.i.i.i51 = fcmp olt float %31, %30
   %incdec.ptr.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i48, i64 4
   %32 = xor i64 %shr.i.i.i45, -1
-  %sub2.i.i.i53 = add nsw i64 %__len.013.i.i.i43, %32
-  %__first.addr.1.i.i.i54 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.012.i.i.i44
-  %__len.1.i.i.i55 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
-  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i55, 0
+  %sub2.i.i.i53 = add nsw i64 %__len.012.i.i.i44, %32
+  %__len.1.i.i.i54 = select i1 %cmp.i.i.i.i51, i64 %sub2.i.i.i53, i64 %shr.i.i.i45
+  %__first.addr.1.i.i.i55 = select i1 %cmp.i.i.i.i51, ptr %incdec.ptr.i.i.i52, ptr %__first.addr.013.i.i.i43
+  %cmp.i.i.i56 = icmp sgt i64 %__len.1.i.i.i54, 0
   br i1 %cmp.i.i.i56, label %while.body.i.i.i42, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57: ; preds = %while.body.i.i.i42, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
-  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i54, %while.body.i.i.i42 ]
+  %__first.addr.0.lcssa.i.i.i23 = phi ptr [ %23, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit ], [ %__first.addr.1.i.i.i55, %while.body.i.i.i42 ]
   %cmp.i24 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i23, %23
   %spec.select.idx.i25 = select i1 %cmp.i24, i64 -4, i64 0
   %spec.select.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i23, i64 %spec.select.idx.i25
@@ -251082,22 +251082,22 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit
   br i1 %cmp11.i.i.i65, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100
 
 while.body.i.i.i85:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57, %while.body.i.i.i85
-  %__len.013.i.i.i86 = phi i64 [ %__len.1.i.i.i98, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %__first.addr.012.i.i.i87 = phi ptr [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ], [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
-  %shr.i.i.i88 = lshr i64 %__len.013.i.i.i86, 1
-  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.012.i.i.i87, i64 %shr.i.i.i88
+  %__first.addr.013.i.i.i86 = phi ptr [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ], [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %__len.012.i.i.i87 = phi i64 [ %__len.1.i.i.i97, %while.body.i.i.i85 ], [ %sub.ptr.div.i.i.i.i.i64, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ]
+  %shr.i.i.i88 = lshr i64 %__len.012.i.i.i87, 1
+  %add.ptr.i.i.i.i.i91 = getelementptr inbounds float, ptr %__first.addr.013.i.i.i86, i64 %shr.i.i.i88
   %43 = load float, ptr %add.ptr.i.i.i.i.i91, align 4
   %cmp.i.i.i.i94 = fcmp olt float %43, %42
   %incdec.ptr.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i91, i64 4
   %44 = xor i64 %shr.i.i.i88, -1
-  %sub2.i.i.i96 = add nsw i64 %__len.013.i.i.i86, %44
-  %__first.addr.1.i.i.i97 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.012.i.i.i87
-  %__len.1.i.i.i98 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
-  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i98, 0
+  %sub2.i.i.i96 = add nsw i64 %__len.012.i.i.i87, %44
+  %__len.1.i.i.i97 = select i1 %cmp.i.i.i.i94, i64 %sub2.i.i.i96, i64 %shr.i.i.i88
+  %__first.addr.1.i.i.i98 = select i1 %cmp.i.i.i.i94, ptr %incdec.ptr.i.i.i95, ptr %__first.addr.013.i.i.i86
+  %cmp.i.i.i99 = icmp sgt i64 %__len.1.i.i.i97, 0
   br i1 %cmp.i.i.i99, label %while.body.i.i.i85, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100, !llvm.loop !179
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit100: ; preds = %while.body.i.i.i85, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57
-  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i97, %while.body.i.i.i85 ]
+  %__first.addr.0.lcssa.i.i.i66 = phi ptr [ %35, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_110FindLutInvEPKffS3_fff.exit57 ], [ %__first.addr.1.i.i.i98, %while.body.i.i.i85 ]
   %cmp.i67 = icmp ugt ptr %__first.addr.0.lcssa.i.i.i66, %35
   %spec.select.idx.i68 = select i1 %cmp.i67, i64 -4, i64 0
   %spec.select.i69 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i66, i64 %spec.select.idx.i68

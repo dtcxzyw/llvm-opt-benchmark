@@ -1957,13 +1957,13 @@ if.then76:                                        ; preds = %if.end72.thread
   br i1 %tobool.not53.i, label %if.end87, label %for.body.outer.i
 
 for.body.outer.i:                                 ; preds = %if.then76, %for.inc.thread.i
+  %root.055.ph.i = phi ptr [ %33, %for.inc.thread.i ], [ %26, %if.then76 ]
   %27 = phi i1 [ false, %for.inc.thread.i ], [ true, %if.then76 ]
-  %root.054.ph.i = phi ptr [ %33, %for.inc.thread.i ], [ %26, %if.then76 ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.outer.i
-  %root.054.i = phi ptr [ %32, %for.inc.i ], [ %root.054.ph.i, %for.body.outer.i ]
-  %28 = load ptr, ptr %root.054.i, align 8
+  %root.055.i = phi ptr [ %32, %for.inc.i ], [ %root.055.ph.i, %for.body.outer.i ]
+  %28 = load ptr, ptr %root.055.i, align 8
   %bf.load2.i = load i32, ptr %28, align 4
   %29 = and i32 %bf.load2.i, 14
   %cmp.not.i = icmp eq i32 %29, 2
@@ -2006,13 +2006,13 @@ if.else.i.i:                                      ; preds = %if.end.i32.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i.i, %if.then2.i.i, %bitmap_walk_contains.exit.i, %for.body.i
-  %next.i58 = getelementptr inbounds i8, ptr %root.054.i, i64 8
+  %next.i58 = getelementptr inbounds i8, ptr %root.055.i, i64 8
   %32 = load ptr, ptr %next.i58, align 8
   %tobool.not.i59 = icmp eq ptr %32, null
   br i1 %tobool.not.i59, label %for.end.i, label %for.body.i, !llvm.loop !17
 
 for.inc.thread.i:                                 ; preds = %if.end.i
-  %next61.i = getelementptr inbounds i8, ptr %root.054.i, i64 8
+  %next61.i = getelementptr inbounds i8, ptr %root.055.i, i64 8
   %33 = load ptr, ptr %next61.i, align 8
   %tobool.not62.i = icmp eq ptr %33, null
   br i1 %tobool.not62.i, label %if.end14.i, label %for.body.outer.i, !llvm.loop !17
@@ -2407,14 +2407,14 @@ while.cond10.preheader:                           ; preds = %while.end
   br i1 %cmp18, label %while.body12.us, label %while.body12.outer
 
 while.body12.outer:                               ; preds = %while.cond10.preheader, %if.end38.thread
+  %roots.addr.135.ph = phi ptr [ %7, %if.end38.thread ], [ %.pr, %while.cond10.preheader ]
   %3 = phi i1 [ false, %if.end38.thread ], [ true, %while.cond10.preheader ]
-  %roots.addr.134.ph = phi ptr [ %7, %if.end38.thread ], [ %.pr, %while.cond10.preheader ]
   br label %while.body12
 
 while.body12.us:                                  ; preds = %while.cond10.preheader, %while.body12.us
-  %roots.addr.134.us = phi ptr [ %5, %while.body12.us ], [ %.pr, %while.cond10.preheader ]
-  %4 = load ptr, ptr %roots.addr.134.us, align 8
-  %next15.us = getelementptr inbounds i8, ptr %roots.addr.134.us, i64 8
+  %roots.addr.135.us = phi ptr [ %5, %while.body12.us ], [ %.pr, %while.cond10.preheader ]
+  %4 = load ptr, ptr %roots.addr.135.us, align 8
+  %next15.us = getelementptr inbounds i8, ptr %roots.addr.135.us, i64 8
   %5 = load ptr, ptr %next15.us, align 8
   %oid.us = getelementptr inbounds i8, ptr %4, i64 4
   %call16.us = call fastcc i32 @bitmap_position(ptr noundef %bitmap_git, ptr noundef nonnull %oid.us)
@@ -2426,9 +2426,9 @@ while.body12.us:                                  ; preds = %while.cond10.prehea
   br i1 %tobool11.not.us, label %if.then41, label %while.body12.us, !llvm.loop !22
 
 while.body12:                                     ; preds = %while.body12.outer, %if.end38
-  %roots.addr.134 = phi ptr [ %7, %if.end38 ], [ %roots.addr.134.ph, %while.body12.outer ]
-  %6 = load ptr, ptr %roots.addr.134, align 8
-  %next15 = getelementptr inbounds i8, ptr %roots.addr.134, i64 8
+  %roots.addr.135 = phi ptr [ %7, %if.end38 ], [ %roots.addr.135.ph, %while.body12.outer ]
+  %6 = load ptr, ptr %roots.addr.135, align 8
+  %next15 = getelementptr inbounds i8, ptr %roots.addr.135, i64 8
   %7 = load ptr, ptr %next15, align 8
   %oid = getelementptr inbounds i8, ptr %6, i64 4
   %call16 = call fastcc i32 @bitmap_position(ptr noundef %bitmap_git, ptr noundef nonnull %oid)
@@ -3912,15 +3912,15 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %while.body
   %conv19 = phi i64 [ %conv, %while.body ], [ 0, %entry ]
-  %count.018 = phi i32 [ %add, %while.body ], [ 0, %entry ]
-  %i.017 = phi i32 [ %inc, %while.body ], [ 0, %entry ]
+  %i.018 = phi i32 [ %inc, %while.body ], [ 0, %entry ]
+  %count.017 = phi i32 [ %add, %while.body ], [ 0, %entry ]
   %call = call i32 @ewah_iterator_next(ptr noundef nonnull %filter, ptr noundef nonnull %it) #18
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %4 = load ptr, ptr %0, align 8
-  %inc = add i32 %i.017, 1
+  %inc = add i32 %i.018, 1
   %arrayidx = getelementptr inbounds i64, ptr %4, i64 %conv19
   %5 = load i64, ptr %arrayidx, align 8
   %6 = load i64, ptr %filter, align 8
@@ -3940,14 +3940,14 @@ while.body:                                       ; preds = %land.rhs
   %mul.i = mul i64 %add9.i, 72340172838076673
   %shr10.i = lshr i64 %mul.i, 56
   %conv.i = trunc nuw nsw i64 %shr10.i to i32
-  %add = add i32 %count.018, %conv.i
+  %add = add i32 %count.017, %conv.i
   %conv = zext i32 %inc to i64
   %7 = load i64, ptr %word_alloc, align 8
   %cmp = icmp ugt i64 %7, %conv
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !37
 
 while.end:                                        ; preds = %land.rhs, %while.body, %entry
-  %count.0.lcssa = phi i32 [ 0, %entry ], [ %add, %while.body ], [ %count.018, %land.rhs ]
+  %count.0.lcssa = phi i32 [ 0, %entry ], [ %add, %while.body ], [ %count.017, %land.rhs ]
   %count3 = getelementptr inbounds i8, ptr %bitmap_git, i64 136
   %8 = load i32, ptr %count3, align 8
   %cmp421.not = icmp eq i32 %8, 0
@@ -3960,7 +3960,7 @@ for.body.lr.ph:                                   ; preds = %while.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %9 = phi i32 [ %8, %for.body.lr.ph ], [ %14, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %count.123 = phi i32 [ %count.0.lcssa, %for.body.lr.ph ], [ %count.2, %for.inc ]
+  %count.122 = phi i32 [ %count.0.lcssa, %for.body.lr.ph ], [ %count.2, %for.inc ]
   %10 = load ptr, ptr %ext_index, align 8
   %arrayidx8 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   %11 = load ptr, ptr %arrayidx8, align 8
@@ -3992,13 +3992,13 @@ bitmap_num_objects.exit:                          ; preds = %if.then.i, %if.end.
   %call15 = call i32 @bitmap_get(ptr noundef %0, i64 noundef %add.i15) #18
   %tobool16.not = icmp ne i32 %call15, 0
   %inc17 = zext i1 %tobool16.not to i32
-  %spec.select = add i32 %count.123, %inc17
+  %spec.select = add i32 %count.122, %inc17
   %.pre = load i32, ptr %count3, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %bitmap_num_objects.exit, %for.body
   %14 = phi i32 [ %9, %for.body ], [ %.pre, %bitmap_num_objects.exit ]
-  %count.2 = phi i32 [ %count.123, %for.body ], [ %spec.select, %bitmap_num_objects.exit ]
+  %count.2 = phi i32 [ %count.122, %for.body ], [ %spec.select, %bitmap_num_objects.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = zext i32 %14 to i64
   %cmp4 = icmp ult i64 %indvars.iv.next, %15
@@ -4988,10 +4988,10 @@ for.body.lr.ph.i:                                 ; preds = %if.end20
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %i.013.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %total.012.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %total.1.i, %for.inc.i ]
+  %total.013.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %total.1.i, %for.inc.i ]
+  %i.012.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %5 = load ptr, ptr %ext_index.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %i.013.i
+  %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %i.012.i
   %6 = load ptr, ptr %arrayidx.i, align 8
   %7 = load ptr, ptr %midx.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
@@ -5010,7 +5010,7 @@ bitmap_num_objects.exit.i:                        ; preds = %if.end.i.i, %if.the
   %retval.0.in.i.i = phi ptr [ %num_objects.i.i, %if.then.i.i ], [ %num_objects2.i.i, %if.end.i.i ]
   %retval.0.i.i = load i32, ptr %retval.0.in.i.i, align 4
   %conv3.i = zext i32 %retval.0.i.i to i64
-  %add.i.i = add nuw nsw i64 %i.013.i, %conv3.i
+  %add.i.i = add nuw nsw i64 %i.012.i, %conv3.i
   %call5.i = call i32 @bitmap_get(ptr noundef %3, i64 noundef %add.i.i) #18
   %tobool.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool.not.i, label %for.inc.i, label %if.end.i
@@ -5030,12 +5030,12 @@ if.then9.i:                                       ; preds = %if.end.i
 
 if.end13.i:                                       ; preds = %if.end.i
   %10 = load i64, ptr %object_size.i, align 8
-  %add.i = add nsw i64 %10, %total.012.i
+  %add.i = add nsw i64 %10, %total.013.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end13.i, %bitmap_num_objects.exit.i
-  %total.1.i = phi i64 [ %add.i, %if.end13.i ], [ %total.012.i, %bitmap_num_objects.exit.i ]
-  %inc.i = add nuw nsw i64 %i.013.i, 1
+  %total.1.i = phi i64 [ %add.i, %if.end13.i ], [ %total.013.i, %bitmap_num_objects.exit.i ]
+  %inc.i = add nuw nsw i64 %i.012.i, 1
   %11 = load i32, ptr %count.i, align 8
   %conv.i = zext i32 %11 to i64
   %cmp.i = icmp ult i64 %inc.i, %conv.i
@@ -5933,8 +5933,8 @@ while.cond.preheader.i:                           ; preds = %if.end5.i
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %while.cond.preheader.i
-  %i.0.i = phi i32 [ %and49.i, %while.body.i ], [ %and.i, %while.cond.preheader.i ]
   %site.0.i = phi i32 [ %spec.select.i, %while.body.i ], [ %45, %while.cond.preheader.i ]
+  %i.0.i = phi i32 [ %and49.i, %while.body.i ], [ %and.i, %while.cond.preheader.i ]
   %step.0.i = phi i32 [ %inc.i, %while.body.i ], [ 0, %while.cond.preheader.i ]
   %shr16.i = lshr i32 %i.0.i, 4
   %idxprom17.i = zext nneg i32 %shr16.i to i64
@@ -5992,7 +5992,7 @@ oideq_by_value.exit.i:                            ; preds = %if.end.i.i.i.i, %if
 
 while.body.i:                                     ; preds = %oideq_by_value.exit.i, %land.rhs.i
   %56 = shl nuw nsw i32 1, %shl20.i
-  %57 = and i32 %51, %56
+  %57 = and i32 %56, %51
   %tobool45.not.i = icmp eq i32 %57, 0
   %spec.select.i = select i1 %tobool45.not.i, i32 %site.0.i, i32 %i.0.i
   %inc.i = add i32 %step.0.i, 1
@@ -6013,11 +6013,11 @@ if.then55.loopexit.i:                             ; preds = %oideq_by_value.exit
 
 if.then55.i:                                      ; preds = %if.then55.loopexit.i, %while.end.i
   %.pre-phi72.i = phi i1 [ %58, %if.then55.loopexit.i ], [ true, %while.end.i ]
-  %site.266.i = phi i32 [ %site.0.i, %if.then55.loopexit.i ], [ %45, %while.end.i ]
-  %i.165.i = phi i32 [ %i.0.i, %if.then55.loopexit.i ], [ %and.i, %while.end.i ]
-  %cmp66.not.i = icmp eq i32 %site.266.i, %45
+  %i.166.i = phi i32 [ %i.0.i, %if.then55.loopexit.i ], [ %and.i, %while.end.i ]
+  %site.265.i = phi i32 [ %site.0.i, %if.then55.loopexit.i ], [ %45, %while.end.i ]
+  %cmp66.not.i = icmp eq i32 %site.265.i, %45
   %or.cond.i = select i1 %.pre-phi72.i, i1 true, i1 %cmp66.not.i
-  %spec.select60.i = select i1 %or.cond.i, i32 %i.165.i, i32 %site.266.i
+  %spec.select60.i = select i1 %or.cond.i, i32 %i.166.i, i32 %site.265.i
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.then55.i, %while.end.i, %if.end5.i
@@ -6647,8 +6647,8 @@ while.cond.preheader.i:                           ; preds = %if.end5.i
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %while.cond.preheader.i
-  %i.0.i = phi i32 [ %and49.i, %while.body.i ], [ %and.i, %while.cond.preheader.i ]
   %site.0.i = phi i32 [ %spec.select.i, %while.body.i ], [ %44, %while.cond.preheader.i ]
+  %i.0.i = phi i32 [ %and49.i, %while.body.i ], [ %and.i, %while.cond.preheader.i ]
   %step.0.i = phi i32 [ %inc.i, %while.body.i ], [ 0, %while.cond.preheader.i ]
   %shr16.i = lshr i32 %i.0.i, 4
   %idxprom17.i = zext nneg i32 %shr16.i to i64
@@ -6706,7 +6706,7 @@ oideq_by_value.exit.i:                            ; preds = %if.end.i.i.i.i, %if
 
 while.body.i:                                     ; preds = %oideq_by_value.exit.i, %land.rhs.i
   %55 = shl nuw nsw i32 1, %shl20.i
-  %56 = and i32 %50, %55
+  %56 = and i32 %55, %50
   %tobool45.not.i = icmp eq i32 %56, 0
   %spec.select.i = select i1 %tobool45.not.i, i32 %site.0.i, i32 %i.0.i
   %inc.i = add i32 %step.0.i, 1
@@ -6727,11 +6727,11 @@ if.then55.loopexit.i:                             ; preds = %oideq_by_value.exit
 
 if.then55.i:                                      ; preds = %if.then55.loopexit.i, %while.end.i
   %.pre-phi72.i = phi i1 [ %57, %if.then55.loopexit.i ], [ true, %while.end.i ]
-  %site.266.i = phi i32 [ %site.0.i, %if.then55.loopexit.i ], [ %44, %while.end.i ]
-  %i.165.i = phi i32 [ %i.0.i, %if.then55.loopexit.i ], [ %and.i, %while.end.i ]
-  %cmp66.not.i = icmp eq i32 %site.266.i, %44
+  %i.166.i = phi i32 [ %i.0.i, %if.then55.loopexit.i ], [ %and.i, %while.end.i ]
+  %site.265.i = phi i32 [ %site.0.i, %if.then55.loopexit.i ], [ %44, %while.end.i ]
+  %cmp66.not.i = icmp eq i32 %site.265.i, %44
   %or.cond.i = select i1 %.pre-phi72.i, i1 true, i1 %cmp66.not.i
-  %spec.select60.i = select i1 %or.cond.i, i32 %i.165.i, i32 %site.266.i
+  %spec.select60.i = select i1 %or.cond.i, i32 %i.166.i, i32 %site.265.i
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.then55.i, %while.end.i, %if.end5.i

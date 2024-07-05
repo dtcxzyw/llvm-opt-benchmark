@@ -99,19 +99,19 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
   br label %while.body.i
 
 while.cond.i:                                     ; preds = %if.end10.i
-  %sub.i = sub nsw i64 %len.addr.017.i, %conv13.pre-phi.i
+  %sub.i = sub nsw i64 %len.addr.018.i, %conv13.pre-phi.i
   %tobool2.not.i = icmp eq i64 %sub.i, 0
   br i1 %tobool2.not.i, label %if.end11, label %while.body.i, !llvm.loop !4
 
 while.body.i:                                     ; preds = %while.cond.i, %while.body.lr.ph.i
-  %tobool7.not18.i = phi i1 [ false, %while.body.lr.ph.i ], [ true, %while.cond.i ]
-  %len.addr.017.i = phi i64 [ %2, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
+  %len.addr.018.i = phi i64 [ %2, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
+  %tobool7.not17.i = phi i1 [ false, %while.body.lr.ph.i ], [ true, %while.cond.i ]
   %4 = load i32, ptr %size, align 8
   %conv.i = zext i32 %4 to i64
-  %cmp3.i = icmp slt i64 %len.addr.017.i, %conv.i
-  %conv5.i = trunc i64 %len.addr.017.i to i32
+  %cmp3.i = icmp slt i64 %len.addr.018.i, %conv.i
+  %conv5.i = trunc i64 %len.addr.018.i to i32
   %cond.i = select i1 %cmp3.i, i32 %conv5.i, i32 %4
-  br i1 %tobool7.not18.i, label %while.body.if.end10_crit_edge.i, label %if.then8.i
+  br i1 %tobool7.not17.i, label %while.body.if.end10_crit_edge.i, label %if.then8.i
 
 while.body.if.end10_crit_edge.i:                  ; preds = %while.body.i
   %.pre.i = zext i32 %cond.i to i64
@@ -149,8 +149,8 @@ do.body.preheader:                                ; preds = %if.end11
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %land.lhs.true47
-  %buf.addr.0 = phi ptr [ %add.ptr43, %land.lhs.true47 ], [ %buf, %do.body.preheader ]
   %len.addr.0 = phi i64 [ %sub45, %land.lhs.true47 ], [ %len, %do.body.preheader ]
+  %buf.addr.0 = phi ptr [ %add.ptr43, %land.lhs.true47 ], [ %buf, %do.body.preheader ]
   %9 = load i32, ptr %avail_in, align 8
   %cmp16 = icmp eq i32 %9, 0
   br i1 %cmp16, label %if.then18, label %do.body.if.end20_crit_edge
@@ -334,19 +334,19 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
   br label %while.body.i
 
 while.cond.i:                                     ; preds = %if.end10.i
-  %sub.i = sub nsw i64 %len.addr.017.i, %conv13.pre-phi.i
+  %sub.i = sub nsw i64 %len.addr.018.i, %conv13.pre-phi.i
   %tobool2.not.i = icmp eq i64 %sub.i, 0
   br i1 %tobool2.not.i, label %if.end11, label %while.body.i, !llvm.loop !4
 
 while.body.i:                                     ; preds = %while.cond.i, %while.body.lr.ph.i
-  %tobool7.not18.i = phi i1 [ false, %while.body.lr.ph.i ], [ true, %while.cond.i ]
-  %len.addr.017.i = phi i64 [ %3, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
+  %len.addr.018.i = phi i64 [ %3, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
+  %tobool7.not17.i = phi i1 [ false, %while.body.lr.ph.i ], [ true, %while.cond.i ]
   %5 = load i32, ptr %size.i, align 8
   %conv.i = zext i32 %5 to i64
-  %cmp3.i = icmp slt i64 %len.addr.017.i, %conv.i
-  %conv5.i = trunc i64 %len.addr.017.i to i32
+  %cmp3.i = icmp slt i64 %len.addr.018.i, %conv.i
+  %conv5.i = trunc i64 %len.addr.018.i to i32
   %cond.i = select i1 %cmp3.i, i32 %conv5.i, i32 %5
-  br i1 %tobool7.not18.i, label %while.body.if.end10_crit_edge.i, label %if.then8.i
+  br i1 %tobool7.not17.i, label %while.body.if.end10_crit_edge.i, label %if.then8.i
 
 while.body.if.end10_crit_edge.i:                  ; preds = %while.body.i
   %.pre.i = zext i32 %cond.i to i64
@@ -541,19 +541,19 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
   br label %while.body.i
 
 while.cond.i:                                     ; preds = %if.end10.i
-  %sub.i = sub nsw i64 %len.addr.017.i, %conv13.pre-phi.i
+  %sub.i = sub nsw i64 %len.addr.018.i, %conv13.pre-phi.i
   %tobool2.not.i = icmp eq i64 %sub.i, 0
   br i1 %tobool2.not.i, label %if.end18, label %while.body.i, !llvm.loop !4
 
 while.body.i:                                     ; preds = %while.cond.i, %while.body.lr.ph.i
-  %tobool7.not18.i = phi i1 [ false, %while.body.lr.ph.i ], [ true, %while.cond.i ]
-  %len.addr.017.i = phi i64 [ %5, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
+  %len.addr.018.i = phi i64 [ %5, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
+  %tobool7.not17.i = phi i1 [ false, %while.body.lr.ph.i ], [ true, %while.cond.i ]
   %7 = load i32, ptr %size, align 8
   %conv.i = zext i32 %7 to i64
-  %cmp3.i = icmp slt i64 %len.addr.017.i, %conv.i
-  %conv5.i = trunc i64 %len.addr.017.i to i32
+  %cmp3.i = icmp slt i64 %len.addr.018.i, %conv.i
+  %conv5.i = trunc i64 %len.addr.018.i to i32
   %cond.i = select i1 %cmp3.i, i32 %conv5.i, i32 %7
-  br i1 %tobool7.not18.i, label %while.body.if.end10_crit_edge.i, label %if.then8.i
+  br i1 %tobool7.not17.i, label %while.body.if.end10_crit_edge.i, label %if.then8.i
 
 while.body.if.end10_crit_edge.i:                  ; preds = %while.body.i
   %.pre.i = zext i32 %cond.i to i64
@@ -1059,19 +1059,19 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
   br label %while.body.i
 
 while.cond.i:                                     ; preds = %if.end10.i
-  %sub.i = sub nsw i64 %len.addr.017.i, %conv13.pre-phi.i
+  %sub.i = sub nsw i64 %len.addr.018.i, %conv13.pre-phi.i
   %tobool2.not.i = icmp eq i64 %sub.i, 0
   br i1 %tobool2.not.i, label %if.end16, label %while.body.i, !llvm.loop !4
 
 while.body.i:                                     ; preds = %while.cond.i, %while.body.lr.ph.i
-  %tobool7.not18.i = phi i1 [ false, %while.body.lr.ph.i ], [ true, %while.cond.i ]
-  %len.addr.017.i = phi i64 [ %3, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
+  %len.addr.018.i = phi i64 [ %3, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
+  %tobool7.not17.i = phi i1 [ false, %while.body.lr.ph.i ], [ true, %while.cond.i ]
   %5 = load i32, ptr %size.i, align 8
   %conv.i = zext i32 %5 to i64
-  %cmp3.i = icmp slt i64 %len.addr.017.i, %conv.i
-  %conv5.i = trunc i64 %len.addr.017.i to i32
+  %cmp3.i = icmp slt i64 %len.addr.018.i, %conv.i
+  %conv5.i = trunc i64 %len.addr.018.i to i32
   %cond.i = select i1 %cmp3.i, i32 %conv5.i, i32 %5
-  br i1 %tobool7.not18.i, label %while.body.if.end10_crit_edge.i, label %if.then8.i
+  br i1 %tobool7.not17.i, label %while.body.if.end10_crit_edge.i, label %if.then8.i
 
 while.body.if.end10_crit_edge.i:                  ; preds = %while.body.i
   %.pre.i = zext i32 %cond.i to i64
@@ -1176,19 +1176,19 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
   br label %while.body.i
 
 while.cond.i:                                     ; preds = %if.end10.i
-  %sub.i = sub nsw i64 %len.addr.017.i, %conv13.pre-phi.i
+  %sub.i = sub nsw i64 %len.addr.018.i, %conv13.pre-phi.i
   %tobool2.not.i = icmp eq i64 %sub.i, 0
   br i1 %tobool2.not.i, label %if.end20, label %while.body.i, !llvm.loop !4
 
 while.body.i:                                     ; preds = %while.cond.i, %while.body.lr.ph.i
-  %tobool7.not18.i = phi i1 [ false, %while.body.lr.ph.i ], [ true, %while.cond.i ]
-  %len.addr.017.i = phi i64 [ %6, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
+  %len.addr.018.i = phi i64 [ %6, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
+  %tobool7.not17.i = phi i1 [ false, %while.body.lr.ph.i ], [ true, %while.cond.i ]
   %8 = load i32, ptr %size.i, align 8
   %conv.i = zext i32 %8 to i64
-  %cmp3.i = icmp slt i64 %len.addr.017.i, %conv.i
-  %conv5.i = trunc i64 %len.addr.017.i to i32
+  %cmp3.i = icmp slt i64 %len.addr.018.i, %conv.i
+  %conv5.i = trunc i64 %len.addr.018.i to i32
   %cond.i = select i1 %cmp3.i, i32 %conv5.i, i32 %8
-  br i1 %tobool7.not18.i, label %while.body.if.end10_crit_edge.i, label %if.then8.i
+  br i1 %tobool7.not17.i, label %while.body.if.end10_crit_edge.i, label %if.then8.i
 
 while.body.if.end10_crit_edge.i:                  ; preds = %while.body.i
   %.pre.i = zext i32 %cond.i to i64
@@ -1298,19 +1298,19 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
   br label %while.body.i
 
 while.cond.i:                                     ; preds = %if.end10.i
-  %sub.i = sub nsw i64 %len.addr.017.i, %conv13.pre-phi.i
+  %sub.i = sub nsw i64 %len.addr.018.i, %conv13.pre-phi.i
   %tobool2.not.i = icmp eq i64 %sub.i, 0
   br i1 %tobool2.not.i, label %if.end9, label %while.body.i, !llvm.loop !4
 
 while.body.i:                                     ; preds = %while.cond.i, %while.body.lr.ph.i
-  %tobool7.not18.i = phi i1 [ false, %while.body.lr.ph.i ], [ true, %while.cond.i ]
-  %len.addr.017.i = phi i64 [ %2, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
+  %len.addr.018.i = phi i64 [ %2, %while.body.lr.ph.i ], [ %sub.i, %while.cond.i ]
+  %tobool7.not17.i = phi i1 [ false, %while.body.lr.ph.i ], [ true, %while.cond.i ]
   %4 = load i32, ptr %size.i, align 8
   %conv.i = zext i32 %4 to i64
-  %cmp3.i = icmp slt i64 %len.addr.017.i, %conv.i
-  %conv5.i = trunc i64 %len.addr.017.i to i32
+  %cmp3.i = icmp slt i64 %len.addr.018.i, %conv.i
+  %conv5.i = trunc i64 %len.addr.018.i to i32
   %cond.i = select i1 %cmp3.i, i32 %conv5.i, i32 %4
-  br i1 %tobool7.not18.i, label %while.body.if.end10_crit_edge.i, label %if.then8.i
+  br i1 %tobool7.not17.i, label %while.body.if.end10_crit_edge.i, label %if.then8.i
 
 while.body.if.end10_crit_edge.i:                  ; preds = %while.body.i
   %.pre.i = zext i32 %cond.i to i64

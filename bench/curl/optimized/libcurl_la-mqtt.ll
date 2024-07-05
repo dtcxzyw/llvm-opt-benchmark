@@ -1090,8 +1090,8 @@ mqtt_send.exit:                                   ; preds = %if.end16, %if.then1
   br label %fail
 
 fail:                                             ; preds = %if.end5.sink.split.i, %if.then.i, %mqtt_encode_len.exit, %mqtt_send.exit
-  %result.0 = phi i32 [ %retval.0.i, %mqtt_send.exit ], [ 27, %mqtt_encode_len.exit ], [ 3, %if.end5.sink.split.i ], [ %call2.i, %if.then.i ]
-  %pkt.0 = phi ptr [ %call13, %mqtt_send.exit ], [ null, %mqtt_encode_len.exit ], [ null, %if.end5.sink.split.i ], [ null, %if.then.i ]
+  %pkt.0 = phi ptr [ %call13, %mqtt_send.exit ], [ null, %mqtt_encode_len.exit ], [ null, %if.then.i ], [ null, %if.end5.sink.split.i ]
+  %result.0 = phi i32 [ %retval.0.i, %mqtt_send.exit ], [ 27, %mqtt_encode_len.exit ], [ %call2.i, %if.then.i ], [ 3, %if.end5.sink.split.i ]
   %16 = load ptr, ptr @Curl_cfree, align 8
   call void %16(ptr noundef %pkt.0) #8
   %17 = load ptr, ptr @Curl_cfree, align 8
@@ -1283,8 +1283,8 @@ mqtt_send.exit:                                   ; preds = %if.end8, %if.then1.
   br label %fail
 
 fail:                                             ; preds = %if.end5.sink.split.i, %if.then.i, %mqtt_encode_len.exit, %mqtt_send.exit
-  %result.0 = phi i32 [ %retval.0.i, %mqtt_send.exit ], [ 27, %mqtt_encode_len.exit ], [ 3, %if.end5.sink.split.i ], [ %call2.i, %if.then.i ]
-  %packet.0 = phi ptr [ %call5, %mqtt_send.exit ], [ null, %mqtt_encode_len.exit ], [ null, %if.end5.sink.split.i ], [ null, %if.then.i ]
+  %packet.0 = phi ptr [ %call5, %mqtt_send.exit ], [ null, %mqtt_encode_len.exit ], [ null, %if.then.i ], [ null, %if.end5.sink.split.i ]
+  %result.0 = phi i32 [ %retval.0.i, %mqtt_send.exit ], [ 27, %mqtt_encode_len.exit ], [ %call2.i, %if.then.i ], [ 3, %if.end5.sink.split.i ]
   %18 = load ptr, ptr @Curl_cfree, align 8
   %19 = load ptr, ptr %topic, align 8
   call void %18(ptr noundef %19) #8

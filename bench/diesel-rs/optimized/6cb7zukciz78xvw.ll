@@ -4336,8 +4336,8 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$8replacen17he8046bda5f4
   br label %39
 
 .loopexit.i.i:                                    ; preds = %99, %97, %95
-  %.015.i.i.i = phi i64 [ 1, %95 ], [ %..i.i.i, %99 ], [ 2, %97 ]
-  %38 = add i64 %.015.i.i.i, %41
+  %.016.i.i.i = phi i64 [ 1, %95 ], [ %..i.i.i, %99 ], [ 2, %97 ]
+  %38 = add i64 %.016.i.i.i, %41
   br label %39
 
 39:                                               ; preds = %.loopexit.i.i, %.lr.ph125.i.i

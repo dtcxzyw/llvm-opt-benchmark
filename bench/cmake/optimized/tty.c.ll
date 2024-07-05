@@ -104,7 +104,7 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %39
 
 .thread51:                                        ; preds = %.critedge46, %26
-  %.039.ph = phi i32 [ %24, %26 ], [ %2, %.critedge46 ]
+  %.037.ph = phi i32 [ %24, %26 ], [ %2, %.critedge46 ]
   call void @uv__stream_init(ptr noundef %0, ptr noundef %1, i32 noundef 14) #8
   br label %32
 
@@ -114,27 +114,27 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not42, label %32, label %34
 
 32:                                               ; preds = %.thread51, %.thread
-  %.03956 = phi i32 [ %.039.ph, %.thread51 ], [ %2, %.thread ]
-  %33 = call i32 @uv__nonblock_ioctl(i32 noundef %.03956, i32 noundef 1) #8
+  %.03758 = phi i32 [ %.037.ph, %.thread51 ], [ %2, %.thread ]
+  %33 = call i32 @uv__nonblock_ioctl(i32 noundef %.03758, i32 noundef 1) #8
   br label %34
 
 34:                                               ; preds = %32, %.thread
-  %.03757 = phi i32 [ 0, %32 ], [ 1048576, %.thread ]
-  %.03955 = phi i32 [ %.03956, %32 ], [ %2, %.thread ]
+  %.03757 = phi i32 [ %.03758, %32 ], [ %2, %.thread ]
+  %.03955 = phi i32 [ 0, %32 ], [ 1048576, %.thread ]
   %.not44 = icmp eq i32 %15, 1
-  %35 = or disjoint i32 %.03757, 16384
-  %spec.select48 = select i1 %.not44, i32 %.03757, i32 %35
+  %35 = or disjoint i32 %.03955, 16384
+  %spec.select48 = select i1 %.not44, i32 %.03955, i32 %35
   %.not45 = icmp eq i32 %15, 0
   %36 = or disjoint i32 %spec.select48, 32768
   %.2 = select i1 %.not45, i32 %35, i32 %36
-  %37 = call i32 @uv__stream_open(ptr noundef %1, i32 noundef %.03955, i32 noundef %.2) #8
+  %37 = call i32 @uv__stream_open(ptr noundef %1, i32 noundef %.03757, i32 noundef %.2) #8
   %38 = getelementptr inbounds i8, ptr %1, i64 308
   store i32 0, ptr %38, align 4
   br label %39
 
 39:                                               ; preds = %4, %4, %34, %30, %.critedge
-  %.038 = phi i32 [ %14, %.critedge ], [ 0, %34 ], [ %27, %30 ], [ -22, %4 ], [ -22, %4 ]
-  ret i32 %.038
+  %.0 = phi i32 [ %14, %.critedge ], [ 0, %34 ], [ %27, %30 ], [ -22, %4 ], [ -22, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

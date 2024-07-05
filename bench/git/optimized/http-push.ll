@@ -210,8 +210,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %0 = phi ptr [ %30, %for.inc ], [ %call, %entry ]
   %argv.addr.0174.pn = phi ptr [ %argv.addr.0174, %for.inc ], [ %argv, %entry ]
   %i.0173 = phi i32 [ %inc, %for.inc ], [ 1, %entry ]
-  %force_delete.0172 = phi i32 [ %force_delete.1, %for.inc ], [ 0, %entry ]
-  %delete_branch.0171 = phi i32 [ %delete_branch.1, %for.inc ], [ 0, %entry ]
+  %delete_branch.0172 = phi i32 [ %delete_branch.1, %for.inc ], [ 0, %entry ]
+  %force_delete.0171 = phi i32 [ %force_delete.1, %for.inc ], [ 0, %entry ]
   %argv.addr.0174 = getelementptr inbounds i8, ptr %argv.addr.0174.pn, i64 8
   %1 = load ptr, ptr %argv.addr.0174, align 8
   %2 = load i8, ptr %1, align 1
@@ -364,16 +364,16 @@ if.end54:                                         ; preds = %if.end33
 
 for.inc:                                          ; preds = %if.end24.tail, %if.end20.tail, %if.then35, %if.then47, %if.then42, %if.then19, %if.then15, %if.then11, %if.then7, %if.then4
   %30 = phi ptr [ %28, %if.then47 ], [ %28, %if.then42 ], [ %28, %if.then35 ], [ %0, %if.then19 ], [ %0, %if.then15 ], [ %0, %if.then11 ], [ %0, %if.then7 ], [ %0, %if.then4 ], [ %0, %if.end20.tail ], [ %0, %if.end24.tail ]
-  %delete_branch.1 = phi i32 [ %delete_branch.0171, %if.then47 ], [ %delete_branch.0171, %if.then42 ], [ %delete_branch.0171, %if.then35 ], [ %delete_branch.0171, %if.then19 ], [ %delete_branch.0171, %if.then15 ], [ %delete_branch.0171, %if.then11 ], [ %delete_branch.0171, %if.then7 ], [ %delete_branch.0171, %if.then4 ], [ 1, %if.end20.tail ], [ 1, %if.end24.tail ]
-  %force_delete.1 = phi i32 [ %force_delete.0172, %if.then47 ], [ %force_delete.0172, %if.then42 ], [ %force_delete.0172, %if.then35 ], [ %force_delete.0172, %if.then19 ], [ %force_delete.0172, %if.then15 ], [ %force_delete.0172, %if.then11 ], [ %force_delete.0172, %if.then7 ], [ %force_delete.0172, %if.then4 ], [ %force_delete.0172, %if.end20.tail ], [ 1, %if.end24.tail ]
+  %force_delete.1 = phi i32 [ %force_delete.0171, %if.then47 ], [ %force_delete.0171, %if.then42 ], [ %force_delete.0171, %if.then35 ], [ %force_delete.0171, %if.then19 ], [ %force_delete.0171, %if.then15 ], [ %force_delete.0171, %if.then11 ], [ %force_delete.0171, %if.then7 ], [ %force_delete.0171, %if.then4 ], [ %force_delete.0171, %if.end20.tail ], [ 1, %if.end24.tail ]
+  %delete_branch.1 = phi i32 [ %delete_branch.0172, %if.then47 ], [ %delete_branch.0172, %if.then42 ], [ %delete_branch.0172, %if.then35 ], [ %delete_branch.0172, %if.then19 ], [ %delete_branch.0172, %if.then15 ], [ %delete_branch.0172, %if.then11 ], [ %delete_branch.0172, %if.then7 ], [ %delete_branch.0172, %if.then4 ], [ 1, %if.end20.tail ], [ 1, %if.end24.tail ]
   %inc = add nuw nsw i32 %i.0173, 1
   %exitcond.not = icmp eq i32 %inc, %argc
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %entry, %if.end54
   %31 = phi ptr [ %.pre, %if.end54 ], [ %call, %entry ], [ %30, %for.inc ]
-  %delete_branch.0168 = phi i32 [ %delete_branch.0171, %if.end54 ], [ 0, %entry ], [ %delete_branch.1, %for.inc ]
-  %force_delete.0165 = phi i32 [ %force_delete.0172, %if.end54 ], [ 0, %entry ], [ %force_delete.1, %for.inc ]
+  %force_delete.0168 = phi i32 [ %force_delete.0171, %if.end54 ], [ 0, %entry ], [ %force_delete.1, %for.inc ]
+  %delete_branch.0165 = phi i32 [ %delete_branch.0172, %if.end54 ], [ 0, %entry ], [ %delete_branch.1, %for.inc ]
   %i.0162 = phi i32 [ %i.0173, %if.end54 ], [ 1, %entry ], [ %argc, %for.inc ]
   %32 = load ptr, ptr %31, align 8
   %tobool57.not = icmp eq ptr %32, null
@@ -384,7 +384,7 @@ if.then58:                                        ; preds = %for.end
   unreachable
 
 if.end59:                                         ; preds = %for.end
-  %tobool60 = icmp ne i32 %delete_branch.0168, 0
+  %tobool60 = icmp ne i32 %delete_branch.0165, 0
   %nr = getelementptr inbounds i8, ptr %rs, i64 12
   %33 = load i32, ptr %nr, align 4
   %cmp61 = icmp ne i32 %33, 1
@@ -643,7 +643,7 @@ if.then92:                                        ; preds = %run_request_queue.e
   %idxprom = zext nneg i32 %i.0162 to i64
   %src = getelementptr inbounds %struct.refspec_item, ptr %72, i64 %idxprom, i32 1
   %73 = load ptr, ptr %src, align 8
-  %call93 = call fastcc i32 @delete_remote_branch(ptr noundef %73, i32 noundef %force_delete.0165)
+  %call93 = call fastcc i32 @delete_remote_branch(ptr noundef %73, i32 noundef %force_delete.0168)
   %cmp94 = icmp eq i32 %call93, -1
   br i1 %cmp94, label %if.then96, label %cleanup
 
@@ -1080,12 +1080,12 @@ cleanup:                                          ; preds = %if.then109, %if.the
   br i1 %tobool318.not, label %if.end321, label %if.then319
 
 if.then319:                                       ; preds = %if.then312, %if.then309, %cleanup
-  %rc.4147 = phi i32 [ %rc.4, %cleanup ], [ %rc.3, %if.then309 ], [ %rc.3, %if.then312 ]
+  %rc.4146 = phi i32 [ %rc.4, %cleanup ], [ %rc.3, %if.then309 ], [ %rc.3, %if.then312 ]
   call fastcc void @unlock_remote(ptr noundef nonnull %info_ref_lock.0)
   br label %if.end321
 
 if.end321:                                        ; preds = %locking_available.exit, %if.else, %if.then319, %cleanup
-  %rc.4140 = phi i32 [ %rc.4147, %if.then319 ], [ %rc.4, %cleanup ], [ 1, %if.else ], [ 1, %locking_available.exit ]
+  %rc.4140 = phi i32 [ %rc.4146, %if.then319 ], [ %rc.4, %cleanup ], [ 1, %if.else ], [ 1, %locking_available.exit ]
   %118 = load ptr, ptr @repo, align 8
   call void @free(ptr noundef %118) #14
   call void @http_cleanup() #14
@@ -1442,10 +1442,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %match.042 = phi i32 [ 0, %for.body.lr.ph ], [ %match.1, %for.inc ]
+  %refs.042 = phi ptr [ %0, %for.body.lr.ph ], [ %3, %for.inc ]
   %remote_ref.041 = phi ptr [ null, %for.body.lr.ph ], [ %remote_ref.1, %for.inc ]
-  %refs.040 = phi ptr [ %0, %for.body.lr.ph ], [ %3, %for.inc ]
-  %name1 = getelementptr inbounds i8, ptr %refs.040, i64 176
+  %match.040 = phi i32 [ 0, %for.body.lr.ph ], [ %match.1, %for.inc ]
+  %name1 = getelementptr inbounds i8, ptr %refs.042, i64 176
   %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name1) #15
   %conv3 = trunc i64 %call2 to i32
   %cmp = icmp slt i32 %conv3, %conv
@@ -1474,13 +1474,13 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp14.not, label %if.end17, label %for.inc
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end
-  %inc = add nsw i32 %match.042, 1
+  %inc = add nsw i32 %match.040, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true, %for.body, %lor.lhs.false, %if.end17
-  %remote_ref.1 = phi ptr [ %remote_ref.041, %for.body ], [ %remote_ref.041, %lor.lhs.false ], [ %remote_ref.041, %land.lhs.true ], [ %refs.040, %if.end17 ]
-  %match.1 = phi i32 [ %match.042, %for.body ], [ %match.042, %lor.lhs.false ], [ %match.042, %land.lhs.true ], [ %inc, %if.end17 ]
-  %3 = load ptr, ptr %refs.040, align 8
+  %match.1 = phi i32 [ %match.040, %for.body ], [ %match.040, %lor.lhs.false ], [ %match.040, %land.lhs.true ], [ %inc, %if.end17 ]
+  %remote_ref.1 = phi ptr [ %remote_ref.041, %for.body ], [ %remote_ref.041, %lor.lhs.false ], [ %remote_ref.041, %land.lhs.true ], [ %refs.042, %if.end17 ]
+  %3 = load ptr, ptr %refs.042, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !13
 
@@ -1746,8 +1746,8 @@ entry:
   br i1 %cmp.not25, label %for.cond.preheader, label %while.body
 
 for.cond.preheader:                               ; preds = %if.end, %entry
-  %p.0.lcssa = phi ptr [ @objects, %entry ], [ %call2, %if.end ]
   %count.0.lcssa = phi i32 [ 0, %entry ], [ %count.1, %if.end ]
+  %p.0.lcssa = phi ptr [ @objects, %entry ], [ %call2, %if.end ]
   %pending = getelementptr inbounds i8, ptr %revs, i64 8
   %0 = load i32, ptr %pending, align 8
   %cmp930.not = icmp eq i32 %0, 0
@@ -1759,11 +1759,11 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 while.body:                                       ; preds = %entry, %if.end
   %call28 = phi ptr [ %call, %if.end ], [ %call24, %entry ]
-  %count.027 = phi i32 [ %count.1, %if.end ], [ 0, %entry ]
-  %p.026 = phi ptr [ %call2, %if.end ], [ @objects, %entry ]
+  %p.027 = phi ptr [ %call2, %if.end ], [ @objects, %entry ]
+  %count.026 = phi i32 [ %count.1, %if.end ], [ 0, %entry ]
   %1 = load ptr, ptr @the_repository, align 8
   %call1 = tail call ptr @repo_get_commit_tree(ptr noundef %1, ptr noundef nonnull %call28) #14
-  %call2 = tail call fastcc ptr @process_tree(ptr noundef %call1, ptr noundef %p.026)
+  %call2 = tail call fastcc ptr @process_tree(ptr noundef %call1, ptr noundef %p.027)
   %bf.load = load i32, ptr %call28, align 8
   %bf.set = or i32 %bf.load, 32768
   store i32 %bf.set, ptr %call28, align 8
@@ -1773,11 +1773,11 @@ while.body:                                       ; preds = %entry, %if.end
 
 if.then:                                          ; preds = %while.body
   %call8 = tail call fastcc i32 @add_send_request(ptr noundef nonnull %call28, ptr noundef %lock)
-  %add = add nsw i32 %call8, %count.027
+  %add = add nsw i32 %call8, %count.026
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.body
-  %count.1 = phi i32 [ %count.027, %while.body ], [ %add, %if.then ]
+  %count.1 = phi i32 [ %count.026, %while.body ], [ %add, %if.then ]
   %call = tail call ptr @get_revision(ptr noundef %revs) #14
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %for.cond.preheader, label %while.body, !llvm.loop !15

@@ -1407,9 +1407,9 @@ define i32 @mca_btl_tcp_send_blocking(i32 noundef %0, ptr noundef %1, i64 nounde
   br i1 %.not, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %3, %.outer
-  %.0.ph26 = phi i64 [ %15, %.outer ], [ 0, %3 ]
-  %4 = getelementptr inbounds i8, ptr %1, i64 %.0.ph26
-  %5 = sub i64 %2, %.0.ph26
+  %.012.ph26 = phi i64 [ %15, %.outer ], [ 0, %3 ]
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.012.ph26
+  %5 = sub i64 %2, %.012.ph26
   %6 = tail call i64 @send(i32 noundef %0, ptr noundef %4, i64 noundef %5, i32 noundef 0) #10
   %7 = and i64 %6, 2147483648
   %.not.us23 = icmp eq i64 %7, 0
@@ -1435,7 +1435,7 @@ define i32 @mca_btl_tcp_send_blocking(i32 noundef %0, ptr noundef %1, i64 nounde
 .outer:                                           ; preds = %11, %.lr.ph.split.us
   %.us-phi = phi i64 [ %6, %.lr.ph.split.us ], [ %12, %11 ]
   %14 = and i64 %.us-phi, 2147483647
-  %15 = add i64 %14, %.0.ph26
+  %15 = add i64 %14, %.012.ph26
   %16 = icmp ult i64 %15, %2
   br i1 %16, label %.lr.ph.split.us, label %.outer._crit_edge.loopexit, !llvm.loop !14
 
@@ -1444,8 +1444,8 @@ define i32 @mca_btl_tcp_send_blocking(i32 noundef %0, ptr noundef %1, i64 nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %3, %.outer._crit_edge.loopexit
-  %.012 = phi i32 [ 0, %3 ], [ %17, %.outer._crit_edge.loopexit ], [ -1, %9 ]
-  ret i32 %.012
+  %.0 = phi i32 [ 0, %3 ], [ %17, %.outer._crit_edge.loopexit ], [ -1, %9 ]
+  ret i32 %.0
 }
 
 declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2

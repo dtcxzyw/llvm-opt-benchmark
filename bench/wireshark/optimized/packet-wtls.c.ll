@@ -406,13 +406,13 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not83, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %.backedge
-  %.07482 = phi i32 [ %40, %.backedge ], [ 0, %14 ]
-  %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.07482) #4
-  %21 = add nuw i32 %.07482, 1
+  %.07682 = phi i32 [ %40, %.backedge ], [ 0, %14 ]
+  %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.07682) #4
+  %21 = add nuw i32 %.07682, 1
   %22 = sext i8 %20 to i32
   %23 = and i32 %22, 64
   %.not78 = icmp eq i32 %23, 0
-  %24 = add i32 %.07482, 3
+  %24 = add i32 %.07682, 3
   %25 = and i32 %22, 128
   %.not79 = icmp eq i32 %25, 0
   br i1 %.not79, label %31, label %26
@@ -421,24 +421,24 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   %spec.select = select i1 %.not78, i32 %21, i32 %24
   %27 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %spec.select) #4
   %28 = zext i16 %27 to i32
-  %reass.sub = sub i32 %spec.select, %.07482
+  %reass.sub = sub i32 %spec.select, %.07682
   %29 = add i32 %reass.sub, 2
   %30 = add i32 %29, %28
   br label %33
 
 31:                                               ; preds = %.lr.ph
-  %32 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.07482) #4
+  %32 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.07682) #4
   br label %33
 
 33:                                               ; preds = %31, %26
-  %.075 = phi i32 [ %30, %26 ], [ %32, %31 ]
+  %.074 = phi i32 [ %30, %26 ], [ %32, %31 ]
   %34 = load i32, ptr @hf_wtls_record, align 4
-  %35 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %34, ptr noundef %0, i32 noundef %.07482, i32 noundef %.075, i32 noundef %22) #4
+  %35 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %34, ptr noundef %0, i32 noundef %.07682, i32 noundef %.074, i32 noundef %22) #4
   %36 = load i32, ptr @ett_wtls_rec, align 4
   %37 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #4
   %38 = load i32, ptr @hf_wtls_record_type, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef %.07482, i32 noundef 1, i32 noundef 0) #4
-  %40 = add i32 %.075, %.07482
+  %39 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef %.07682, i32 noundef 1, i32 noundef 0) #4
+  %40 = add i32 %.074, %.07682
   br i1 %.not78, label %44, label %41
 
 41:                                               ; preds = %33
@@ -463,7 +463,7 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   br label %53
 
 53:                                               ; preds = %51, %45
-  %.176 = phi i32 [ %47, %45 ], [ %52, %51 ]
+  %.175 = phi i32 [ %47, %45 ], [ %52, %51 ]
   %.2 = phi i32 [ %50, %45 ], [ %.1, %51 ]
   %54 = and i32 %22, 32
   %.not80 = icmp eq i32 %54, 0
@@ -471,7 +471,7 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
 
 55:                                               ; preds = %53
   %56 = load i32, ptr @hf_wtls_record_ciphered, align 4
-  %57 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %56, ptr noundef %0, i32 noundef %.2, i32 noundef %.176, i32 noundef 0) #4
+  %57 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %56, ptr noundef %0, i32 noundef %.2, i32 noundef %.175, i32 noundef 0) #4
   br label %.backedge
 
 .backedge:                                        ; preds = %dissect_wtls_handshake.exit, %470, %61, %55
@@ -492,7 +492,7 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   %64 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #4
   %65 = load i32, ptr @hf_wtls_hands, align 4
   %66 = sext i8 %64 to i32
-  %67 = call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %65, ptr noundef %0, i32 noundef %.2, i32 noundef %.176, i32 noundef %66) #4
+  %67 = call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %65, ptr noundef %0, i32 noundef %.2, i32 noundef %.175, i32 noundef %66) #4
   %68 = load i32, ptr @ett_wtls_msg_type, align 4
   %69 = call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68) #4
   %70 = load i32, ptr @hf_wtls_hands_type, align 4
@@ -540,21 +540,21 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not503513.i, label %._crit_edge.i, label %.lr.ph516.i
 
 .lr.ph516.i:                                      ; preds = %78, %174
-  %.0486515.i = phi i32 [ %.2488.i, %174 ], [ %104, %78 ]
+  %.0515.i = phi i32 [ %.2.i, %174 ], [ %104, %78 ]
   %.0495514.i = phi i32 [ %175, %174 ], [ %96, %78 ]
-  %105 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0486515.i) #4
+  %105 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0515.i) #4
   %106 = zext i8 %105 to i32
   %107 = load i32, ptr @hf_wtls_hands_cli_hello_key_exchange, align 4
-  %108 = call ptr @proto_tree_add_uint(ptr noundef %101, i32 noundef %107, ptr noundef %0, i32 noundef %.0486515.i, i32 noundef 1, i32 noundef %106) #4
+  %108 = call ptr @proto_tree_add_uint(ptr noundef %101, i32 noundef %107, ptr noundef %0, i32 noundef %.0515.i, i32 noundef 1, i32 noundef %106) #4
   %109 = load i32, ptr @ett_wtls_msg_type_item_sub_sub, align 4
   %110 = call ptr @proto_item_add_subtree(ptr noundef %108, i32 noundef %109) #4
   %111 = load i32, ptr @hf_wtls_hands_cli_hello_key_exchange_suite, align 4
-  %112 = call ptr @proto_tree_add_uint(ptr noundef %110, i32 noundef %111, ptr noundef %0, i32 noundef %.0486515.i, i32 noundef 1, i32 noundef %106) #4
-  %113 = add i32 %.0486515.i, 1
+  %112 = call ptr @proto_tree_add_uint(ptr noundef %110, i32 noundef %111, ptr noundef %0, i32 noundef %.0515.i, i32 noundef 1, i32 noundef %106) #4
+  %113 = add i32 %.0515.i, 1
   %114 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %113) #4
   %115 = load i32, ptr @hf_wtls_hands_cli_hello_key_parameter_index, align 4
   %116 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %115, ptr noundef %0, i32 noundef %113, i32 noundef 1, i32 noundef 0) #4
-  %117 = add i32 %.0486515.i, 2
+  %117 = add i32 %.0515.i, 2
   %118 = icmp eq i8 %114, -1
   br i1 %118, label %119, label %127
 
@@ -569,13 +569,13 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   br label %127
 
 127:                                              ; preds = %119, %.lr.ph516.i
-  %.1487.i = phi i32 [ %125, %119 ], [ %117, %.lr.ph516.i ]
-  %.0.i = phi i32 [ %126, %119 ], [ 2, %.lr.ph516.i ]
-  %128 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1487.i) #4
+  %.0486.i = phi i32 [ %126, %119 ], [ 2, %.lr.ph516.i ]
+  %.1.i = phi i32 [ %125, %119 ], [ %117, %.lr.ph516.i ]
+  %128 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1.i) #4
   %129 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier_type, align 4
-  %130 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %129, ptr noundef %0, i32 noundef %.1487.i, i32 noundef 1, i32 noundef 0) #4
-  %131 = add i32 %.1487.i, 1
-  %132 = add nuw nsw i32 %.0.i, 1
+  %130 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %129, ptr noundef %0, i32 noundef %.1.i, i32 noundef 1, i32 noundef 0) #4
+  %131 = add i32 %.1.i, 1
+  %132 = add nuw nsw i32 %.0486.i, 1
   switch i8 %128, label %174 [
     i8 1, label %133
     i8 2, label %147
@@ -588,10 +588,10 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   %135 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier_size, align 4
   %136 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier_str, align 4
   %137 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %134, ptr noundef %0, i32 noundef %131, i32 noundef 2, i32 noundef 0) #4
-  %138 = add i32 %.1487.i, 3
+  %138 = add i32 %.1.i, 3
   %139 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %138) #4
   %140 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %135, ptr noundef %0, i32 noundef %138, i32 noundef 1, i32 noundef 0) #4
-  %141 = add i32 %.1487.i, 4
+  %141 = add i32 %.1.i, 4
   %142 = zext i8 %139 to i32
   %143 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %136, ptr noundef %0, i32 noundef %141, i32 noundef %142, i32 noundef 0) #4
   %144 = add nuw nsw i32 %142, 3
@@ -604,19 +604,19 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   %149 = zext i8 %148 to i32
   %150 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier_size, align 4
   %151 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %150, ptr noundef %0, i32 noundef %131, i32 noundef 1, i32 noundef 0) #4
-  %152 = add i32 %.1487.i, 2
+  %152 = add i32 %.1.i, 2
   %153 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier, align 4
   %154 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %153, ptr noundef %0, i32 noundef %152, i32 noundef %149, i32 noundef 0) #4
   %155 = add i32 %152, %149
-  %156 = add nuw nsw i32 %.0.i, 2
+  %156 = add nuw nsw i32 %.0486.i, 2
   %157 = add nuw nsw i32 %156, %149
   br label %174
 
 158:                                              ; preds = %127
   %159 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier, align 4
   %160 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %159, ptr noundef %0, i32 noundef %131, i32 noundef 20, i32 noundef 0) #4
-  %161 = add i32 %.1487.i, 21
-  %162 = add nuw nsw i32 %.0.i, 21
+  %161 = add i32 %.1.i, 21
+  %162 = add nuw nsw i32 %.0486.i, 21
   br label %174
 
 163:                                              ; preds = %127
@@ -624,53 +624,53 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   %165 = zext i8 %164 to i32
   %166 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier_size, align 4
   %167 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %166, ptr noundef %0, i32 noundef %131, i32 noundef 1, i32 noundef 0) #4
-  %168 = add i32 %.1487.i, 2
+  %168 = add i32 %.1.i, 2
   %169 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier, align 4
   %170 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %169, ptr noundef %0, i32 noundef %168, i32 noundef %165, i32 noundef 0) #4
   %171 = add i32 %168, %165
-  %172 = add nuw nsw i32 %.0.i, 2
+  %172 = add nuw nsw i32 %.0486.i, 2
   %173 = add nuw nsw i32 %172, %165
   br label %174
 
 174:                                              ; preds = %163, %158, %147, %133, %127
-  %.2488.i = phi i32 [ %131, %127 ], [ %171, %163 ], [ %161, %158 ], [ %155, %147 ], [ %145, %133 ]
-  %.1.i = phi i32 [ %132, %127 ], [ %173, %163 ], [ %162, %158 ], [ %157, %147 ], [ %146, %133 ]
-  call void @proto_item_set_len(ptr noundef %108, i32 noundef %.1.i) #4
-  %175 = sub i32 %.0495514.i, %.1.i
+  %.1487.i = phi i32 [ %132, %127 ], [ %173, %163 ], [ %162, %158 ], [ %157, %147 ], [ %146, %133 ]
+  %.2.i = phi i32 [ %131, %127 ], [ %171, %163 ], [ %161, %158 ], [ %155, %147 ], [ %145, %133 ]
+  call void @proto_item_set_len(ptr noundef %108, i32 noundef %.1487.i) #4
+  %175 = sub i32 %.0495514.i, %.1487.i
   %.not503.i = icmp eq i32 %175, 0
   br i1 %.not503.i, label %._crit_edge.i, label %.lr.ph516.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %174, %78
-  %.0486.lcssa.i = phi i32 [ %104, %78 ], [ %.2488.i, %174 ]
-  %176 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0486.lcssa.i) #4
+  %.0.lcssa.i = phi i32 [ %104, %78 ], [ %.2.i, %174 ]
+  %176 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0.lcssa.i) #4
   %177 = zext i16 %176 to i32
   %178 = load i32, ptr @hf_wtls_hands_cli_hello_trust_key_id, align 4
   %179 = add nuw nsw i32 %177, 2
-  %180 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %178, ptr noundef %0, i32 noundef %.0486.lcssa.i, i32 noundef %179, i32 noundef 0) #4
+  %180 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %178, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef %179, i32 noundef 0) #4
   %181 = load i32, ptr @ett_wtls_msg_type_item_sub, align 4
   %182 = call ptr @proto_item_add_subtree(ptr noundef %180, i32 noundef %181) #4
   %183 = load i32, ptr @hf_wtls_hands_cli_hello_cli_key_len, align 4
-  %184 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %183, ptr noundef %0, i32 noundef %.0486.lcssa.i, i32 noundef 2, i32 noundef 0) #4
-  %185 = add i32 %.0486.lcssa.i, 2
+  %184 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %183, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef 2, i32 noundef 0) #4
+  %185 = add i32 %.0.lcssa.i, 2
   %.not504517.i = icmp eq i16 %176, 0
   br i1 %.not504517.i, label %._crit_edge522.i, label %.lr.ph521.i
 
 .lr.ph521.i:                                      ; preds = %._crit_edge.i, %255
-  %.3489519.i = phi i32 [ %.5491.i, %255 ], [ %185, %._crit_edge.i ]
+  %.3519.i = phi i32 [ %.5.i, %255 ], [ %185, %._crit_edge.i ]
   %.1496518.i = phi i32 [ %256, %255 ], [ %177, %._crit_edge.i ]
-  %186 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3489519.i) #4
+  %186 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3519.i) #4
   %187 = zext i8 %186 to i32
   %188 = load i32, ptr @hf_wtls_hands_cli_hello_key_exchange, align 4
-  %189 = call ptr @proto_tree_add_uint(ptr noundef %182, i32 noundef %188, ptr noundef %0, i32 noundef %.3489519.i, i32 noundef 1, i32 noundef %187) #4
+  %189 = call ptr @proto_tree_add_uint(ptr noundef %182, i32 noundef %188, ptr noundef %0, i32 noundef %.3519.i, i32 noundef 1, i32 noundef %187) #4
   %190 = load i32, ptr @ett_wtls_msg_type_item_sub_sub, align 4
   %191 = call ptr @proto_item_add_subtree(ptr noundef %189, i32 noundef %190) #4
   %192 = load i32, ptr @hf_wtls_hands_cli_hello_key_exchange_suite, align 4
-  %193 = call ptr @proto_tree_add_uint(ptr noundef %191, i32 noundef %192, ptr noundef %0, i32 noundef %.3489519.i, i32 noundef 1, i32 noundef %187) #4
-  %194 = add i32 %.3489519.i, 1
+  %193 = call ptr @proto_tree_add_uint(ptr noundef %191, i32 noundef %192, ptr noundef %0, i32 noundef %.3519.i, i32 noundef 1, i32 noundef %187) #4
+  %194 = add i32 %.3519.i, 1
   %195 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %194) #4
   %196 = load i32, ptr @hf_wtls_hands_cli_hello_key_parameter_index, align 4
   %197 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %196, ptr noundef %0, i32 noundef %194, i32 noundef 1, i32 noundef 0) #4
-  %198 = add i32 %.3489519.i, 2
+  %198 = add i32 %.3519.i, 2
   %199 = icmp eq i8 %195, -1
   br i1 %199, label %200, label %208
 
@@ -685,13 +685,13 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   br label %208
 
 208:                                              ; preds = %200, %.lr.ph521.i
-  %.4490.i = phi i32 [ %206, %200 ], [ %198, %.lr.ph521.i ]
-  %.2.i = phi i32 [ %207, %200 ], [ 2, %.lr.ph521.i ]
-  %209 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4490.i) #4
+  %.2488.i = phi i32 [ %207, %200 ], [ 2, %.lr.ph521.i ]
+  %.4.i = phi i32 [ %206, %200 ], [ %198, %.lr.ph521.i ]
+  %209 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4.i) #4
   %210 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier_type, align 4
-  %211 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %210, ptr noundef %0, i32 noundef %.4490.i, i32 noundef 1, i32 noundef 0) #4
-  %212 = add i32 %.4490.i, 1
-  %213 = add nuw nsw i32 %.2.i, 1
+  %211 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %210, ptr noundef %0, i32 noundef %.4.i, i32 noundef 1, i32 noundef 0) #4
+  %212 = add i32 %.4.i, 1
+  %213 = add nuw nsw i32 %.2488.i, 1
   switch i8 %209, label %255 [
     i8 1, label %214
     i8 2, label %228
@@ -704,10 +704,10 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   %216 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier_size, align 4
   %217 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier_str, align 4
   %218 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %215, ptr noundef %0, i32 noundef %212, i32 noundef 2, i32 noundef 0) #4
-  %219 = add i32 %.4490.i, 3
+  %219 = add i32 %.4.i, 3
   %220 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %219) #4
   %221 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %216, ptr noundef %0, i32 noundef %219, i32 noundef 1, i32 noundef 0) #4
-  %222 = add i32 %.4490.i, 4
+  %222 = add i32 %.4.i, 4
   %223 = zext i8 %220 to i32
   %224 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %217, ptr noundef %0, i32 noundef %222, i32 noundef %223, i32 noundef 0) #4
   %225 = add nuw nsw i32 %223, 3
@@ -720,19 +720,19 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   %230 = zext i8 %229 to i32
   %231 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier_size, align 4
   %232 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %231, ptr noundef %0, i32 noundef %212, i32 noundef 1, i32 noundef 0) #4
-  %233 = add i32 %.4490.i, 2
+  %233 = add i32 %.4.i, 2
   %234 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier, align 4
   %235 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %234, ptr noundef %0, i32 noundef %233, i32 noundef %230, i32 noundef 0) #4
   %236 = add i32 %233, %230
-  %237 = add nuw nsw i32 %.2.i, 2
+  %237 = add nuw nsw i32 %.2488.i, 2
   %238 = add nuw nsw i32 %237, %230
   br label %255
 
 239:                                              ; preds = %208
   %240 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier, align 4
   %241 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %240, ptr noundef %0, i32 noundef %212, i32 noundef 20, i32 noundef 0) #4
-  %242 = add i32 %.4490.i, 21
-  %243 = add nuw nsw i32 %.2.i, 21
+  %242 = add i32 %.4.i, 21
+  %243 = add nuw nsw i32 %.2488.i, 21
   br label %255
 
 244:                                              ; preds = %208
@@ -740,43 +740,43 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   %246 = zext i8 %245 to i32
   %247 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier_size, align 4
   %248 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %247, ptr noundef %0, i32 noundef %212, i32 noundef 1, i32 noundef 0) #4
-  %249 = add i32 %.4490.i, 2
+  %249 = add i32 %.4.i, 2
   %250 = load i32, ptr @hf_wtls_hands_cli_hello_key_identifier, align 4
   %251 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %250, ptr noundef %0, i32 noundef %249, i32 noundef %246, i32 noundef 0) #4
   %252 = add i32 %249, %246
-  %253 = add nuw nsw i32 %.2.i, 2
+  %253 = add nuw nsw i32 %.2488.i, 2
   %254 = add nuw nsw i32 %253, %246
   br label %255
 
 255:                                              ; preds = %244, %239, %228, %214, %208
-  %.5491.i = phi i32 [ %212, %208 ], [ %252, %244 ], [ %242, %239 ], [ %236, %228 ], [ %226, %214 ]
-  %.3.i = phi i32 [ %213, %208 ], [ %254, %244 ], [ %243, %239 ], [ %238, %228 ], [ %227, %214 ]
-  call void @proto_item_set_len(ptr noundef %189, i32 noundef %.3.i) #4
-  %256 = sub i32 %.1496518.i, %.3.i
+  %.3489.i = phi i32 [ %213, %208 ], [ %254, %244 ], [ %243, %239 ], [ %238, %228 ], [ %227, %214 ]
+  %.5.i = phi i32 [ %212, %208 ], [ %252, %244 ], [ %242, %239 ], [ %236, %228 ], [ %226, %214 ]
+  call void @proto_item_set_len(ptr noundef %189, i32 noundef %.3489.i) #4
+  %256 = sub i32 %.1496518.i, %.3489.i
   %.not504.i = icmp eq i32 %256, 0
   br i1 %.not504.i, label %._crit_edge522.i, label %.lr.ph521.i, !llvm.loop !7
 
 ._crit_edge522.i:                                 ; preds = %255, %._crit_edge.i
-  %.3489.lcssa.i = phi i32 [ %185, %._crit_edge.i ], [ %.5491.i, %255 ]
-  %257 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3489.lcssa.i) #4
+  %.3.lcssa.i = phi i32 [ %185, %._crit_edge.i ], [ %.5.i, %255 ]
+  %257 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3.lcssa.i) #4
   %258 = zext i8 %257 to i32
   %259 = load i32, ptr @hf_wtls_hands_cli_hello_cipher_suite, align 4
   %260 = add nuw nsw i32 %258, 1
-  %261 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %259, ptr noundef %0, i32 noundef %.3489.lcssa.i, i32 noundef %260, i32 noundef 0) #4
+  %261 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %259, ptr noundef %0, i32 noundef %.3.lcssa.i, i32 noundef %260, i32 noundef 0) #4
   %262 = load i32, ptr @ett_wtls_msg_type_item_sub, align 4
   %263 = call ptr @proto_item_add_subtree(ptr noundef %261, i32 noundef %262) #4
-  %.6492524.i = add i32 %.3489.lcssa.i, 1
+  %.6524.i = add i32 %.3.lcssa.i, 1
   %.not505525.i = icmp eq i8 %257, 0
   br i1 %.not505525.i, label %._crit_edge531.i, label %.lr.ph530.i
 
 .lr.ph530.i:                                      ; preds = %._crit_edge522.i, %285
-  %.6492528.i = phi i32 [ %.6492.i, %285 ], [ %.6492524.i, %._crit_edge522.i ]
-  %.6492.in527.i = phi i32 [ %267, %285 ], [ %.3489.lcssa.i, %._crit_edge522.i ]
+  %.6528.i = phi i32 [ %.6.i, %285 ], [ %.6524.i, %._crit_edge522.i ]
+  %.6.in527.i = phi i32 [ %267, %285 ], [ %.3.lcssa.i, %._crit_edge522.i ]
   %.2497526.i = phi i32 [ %288, %285 ], [ %258, %._crit_edge522.i ]
-  %264 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6492528.i) #4
+  %264 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6528.i) #4
   %265 = zext i8 %264 to i32
   %266 = call ptr @try_val_to_str_ext(i32 noundef %265, ptr noundef nonnull @wtls_vals_cipher_bulk_ext) #4
-  %267 = add i32 %.6492.in527.i, 2
+  %267 = add i32 %.6.in527.i, 2
   %268 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %267) #4
   %269 = zext i8 %268 to i32
   %270 = call ptr @try_val_to_str_ext(i32 noundef %269, ptr noundef nonnull @wtls_vals_cipher_mac_ext) #4
@@ -812,41 +812,41 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
 
 285:                                              ; preds = %281, %279, %274, %272
   %286 = load i32, ptr @hf_wtls_hands_cli_hello_cipher_suite_item, align 4
-  %287 = call ptr @proto_tree_add_string(ptr noundef %263, i32 noundef %286, ptr noundef %0, i32 noundef %.6492528.i, i32 noundef 2, ptr noundef nonnull %5) #4
+  %287 = call ptr @proto_tree_add_string(ptr noundef %263, i32 noundef %286, ptr noundef %0, i32 noundef %.6528.i, i32 noundef 2, ptr noundef nonnull %5) #4
   %288 = add i32 %.2497526.i, -2
-  %.6492.i = add i32 %.6492.in527.i, 3
+  %.6.i = add i32 %.6.in527.i, 3
   %.not505.i = icmp eq i32 %288, 0
   br i1 %.not505.i, label %._crit_edge531.i, label %.lr.ph530.i, !llvm.loop !8
 
 ._crit_edge531.i:                                 ; preds = %285, %._crit_edge522.i
-  %.6492.in.lcssa.i = phi i32 [ %.3489.lcssa.i, %._crit_edge522.i ], [ %267, %285 ]
-  %.6492.lcssa.i = phi i32 [ %.6492524.i, %._crit_edge522.i ], [ %.6492.i, %285 ]
-  %289 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6492.lcssa.i) #4
+  %.6.in.lcssa.i = phi i32 [ %.3.lcssa.i, %._crit_edge522.i ], [ %267, %285 ]
+  %.6.lcssa.i = phi i32 [ %.6524.i, %._crit_edge522.i ], [ %.6.i, %285 ]
+  %289 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6.lcssa.i) #4
   %290 = zext i8 %289 to i32
   %291 = load i32, ptr @hf_wtls_hands_cli_hello_compression_methods, align 4
   %292 = add nuw nsw i32 %290, 1
-  %293 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %291, ptr noundef %0, i32 noundef %.6492.lcssa.i, i32 noundef %292, i32 noundef 0) #4
+  %293 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %291, ptr noundef %0, i32 noundef %.6.lcssa.i, i32 noundef %292, i32 noundef 0) #4
   %294 = load i32, ptr @ett_wtls_msg_type_item_sub, align 4
   %295 = call ptr @proto_item_add_subtree(ptr noundef %293, i32 noundef %294) #4
-  %296 = add i32 %.6492.in.lcssa.i, 2
+  %296 = add i32 %.6.in.lcssa.i, 2
   %.not506534.i = icmp eq i8 %289, 0
   br i1 %.not506534.i, label %._crit_edge539.i, label %.lr.ph538.i
 
 .lr.ph538.i:                                      ; preds = %._crit_edge531.i, %.lr.ph538.i
-  %.7493536.i = phi i32 [ %299, %.lr.ph538.i ], [ %296, %._crit_edge531.i ]
+  %.7536.i = phi i32 [ %299, %.lr.ph538.i ], [ %296, %._crit_edge531.i ]
   %.3498535.i = phi i32 [ %300, %.lr.ph538.i ], [ %290, %._crit_edge531.i ]
   %297 = load i32, ptr @hf_wtls_hands_cli_hello_compression, align 4
-  %298 = call ptr @proto_tree_add_item(ptr noundef %295, i32 noundef %297, ptr noundef %0, i32 noundef %.7493536.i, i32 noundef 1, i32 noundef -2147483648) #4
-  %299 = add i32 %.7493536.i, 1
+  %298 = call ptr @proto_tree_add_item(ptr noundef %295, i32 noundef %297, ptr noundef %0, i32 noundef %.7536.i, i32 noundef 1, i32 noundef -2147483648) #4
+  %299 = add i32 %.7536.i, 1
   %300 = add nsw i32 %.3498535.i, -1
   %.not506.i = icmp eq i32 %300, 0
   br i1 %.not506.i, label %._crit_edge539.i, label %.lr.ph538.i, !llvm.loop !9
 
 ._crit_edge539.i:                                 ; preds = %.lr.ph538.i, %._crit_edge531.i
-  %.7493.lcssa.i = phi i32 [ %296, %._crit_edge531.i ], [ %299, %.lr.ph538.i ]
+  %.7.lcssa.i = phi i32 [ %296, %._crit_edge531.i ], [ %299, %.lr.ph538.i ]
   %301 = load i32, ptr @hf_wtls_hands_cli_hello_sequence_mode, align 4
-  %302 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %301, ptr noundef %0, i32 noundef %.7493.lcssa.i, i32 noundef 1, i32 noundef -2147483648) #4
-  %303 = add i32 %.7493.lcssa.i, 1
+  %302 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %301, ptr noundef %0, i32 noundef %.7.lcssa.i, i32 noundef 1, i32 noundef -2147483648) #4
+  %303 = add i32 %.7.lcssa.i, 1
   %304 = load i32, ptr @hf_wtls_hands_cli_hello_key_refresh, align 4
   %305 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %304, ptr noundef %0, i32 noundef %303, i32 noundef 1, i32 noundef -2147483648) #4
   br label %dissect_wtls_handshake.exit
@@ -906,17 +906,17 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %468, %.lr.ph.preheader.i
-  %.8494512.i = phi i32 [ %.13.i, %468 ], [ %350, %.lr.ph.preheader.i ]
+  %.8512.i = phi i32 [ %.13.i, %468 ], [ %350, %.lr.ph.preheader.i ]
   %.4499511.i = phi i32 [ %469, %468 ], [ %351, %.lr.ph.preheader.i ]
   %352 = load i32, ptr @hf_wtls_hands_certificate, align 4
-  %353 = call ptr @proto_tree_add_item(ptr noundef %348, i32 noundef %352, ptr noundef %0, i32 noundef %.8494512.i, i32 noundef 1, i32 noundef 0) #4
+  %353 = call ptr @proto_tree_add_item(ptr noundef %348, i32 noundef %352, ptr noundef %0, i32 noundef %.8512.i, i32 noundef 1, i32 noundef 0) #4
   %354 = load i32, ptr @ett_wtls_msg_type_item_sub, align 4
   %355 = call ptr @proto_item_add_subtree(ptr noundef %353, i32 noundef %354) #4
   call void @proto_item_set_len(ptr noundef %353, i32 noundef 0) #4
-  %356 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.8494512.i) #4
+  %356 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.8512.i) #4
   %357 = load i32, ptr @hf_wtls_hands_certificate_type, align 4
-  %358 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %357, ptr noundef %0, i32 noundef %.8494512.i, i32 noundef 1, i32 noundef -2147483648) #4
-  %359 = add i32 %.8494512.i, 1
+  %358 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %357, ptr noundef %0, i32 noundef %.8512.i, i32 noundef 1, i32 noundef -2147483648) #4
+  %359 = add i32 %.8512.i, 1
   switch i8 %356, label %468 [
     i8 1, label %360
     i8 2, label %456
@@ -927,14 +927,14 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
 360:                                              ; preds = %.lr.ph.i
   %361 = load i32, ptr @hf_wtls_hands_certificate_wtls_version, align 4
   %362 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %361, ptr noundef %0, i32 noundef %359, i32 noundef 1, i32 noundef -2147483648) #4
-  %363 = add i32 %.8494512.i, 2
+  %363 = add i32 %.8512.i, 2
   %364 = load i32, ptr @hf_wtls_hands_certificate_wtls_signature_type, align 4
   %365 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %364, ptr noundef %0, i32 noundef %363, i32 noundef 1, i32 noundef -2147483648) #4
-  %366 = add i32 %.8494512.i, 3
+  %366 = add i32 %.8512.i, 3
   %367 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %366) #4
   %368 = load i32, ptr @hf_wtls_hands_certificate_wtls_issuer_type, align 4
   %369 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %368, ptr noundef %0, i32 noundef %366, i32 noundef 1, i32 noundef -2147483648) #4
-  %370 = add i32 %.8494512.i, 4
+  %370 = add i32 %.8512.i, 4
   %cond.i = icmp eq i8 %367, 1
   br i1 %cond.i, label %371, label %384
 
@@ -943,10 +943,10 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   %373 = load i32, ptr @hf_wtls_hands_certificate_wtls_issuer_size, align 4
   %374 = load i32, ptr @hf_wtls_hands_certificate_wtls_issuer_name, align 4
   %375 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %372, ptr noundef %0, i32 noundef %370, i32 noundef 2, i32 noundef 0) #4
-  %376 = add i32 %.8494512.i, 6
+  %376 = add i32 %.8512.i, 6
   %377 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %376) #4
   %378 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %373, ptr noundef %0, i32 noundef %376, i32 noundef 1, i32 noundef 0) #4
-  %379 = add i32 %.8494512.i, 7
+  %379 = add i32 %.8512.i, 7
   %380 = zext i8 %377 to i32
   %381 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %374, ptr noundef %0, i32 noundef %379, i32 noundef %380, i32 noundef 0) #4
   %382 = add i32 %379, %380
@@ -954,8 +954,8 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   br label %384
 
 384:                                              ; preds = %371, %360
+  %.4490.i = phi i32 [ %383, %371 ], [ 4, %360 ]
   %.9.i = phi i32 [ %382, %371 ], [ %370, %360 ]
-  %.4.i = phi i32 [ %383, %371 ], [ 4, %360 ]
   %385 = load i32, ptr @hf_wtls_hands_certificate_wtls_valid_not_before, align 4
   %386 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %385, ptr noundef %0, i32 noundef %.9.i, i32 noundef 4, i32 noundef 18) #4
   %387 = add i32 %.9.i, 4
@@ -966,7 +966,7 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   %392 = load i32, ptr @hf_wtls_hands_certificate_wtls_subject_type, align 4
   %393 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %392, ptr noundef %0, i32 noundef %390, i32 noundef 1, i32 noundef -2147483648) #4
   %394 = add i32 %.9.i, 9
-  %395 = add nuw nsw i32 %.4.i, 9
+  %395 = add nuw nsw i32 %.4490.i, 9
   %cond1.i = icmp eq i8 %391, 1
   br i1 %cond1.i, label %396, label %410
 
@@ -987,8 +987,8 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   br label %410
 
 410:                                              ; preds = %396, %384
+  %.5491.i = phi i32 [ %409, %396 ], [ %395, %384 ]
   %.10.i = phi i32 [ %408, %396 ], [ %394, %384 ]
-  %.5.i = phi i32 [ %409, %396 ], [ %395, %384 ]
   %411 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.10.i) #4
   %412 = load i32, ptr @hf_wtls_hands_certificate_wtls_public_key_type, align 4
   %413 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %412, ptr noundef %0, i32 noundef %.10.i, i32 noundef 1, i32 noundef -2147483648) #4
@@ -997,7 +997,7 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   %416 = load i32, ptr @hf_wtls_hands_certificate_wtls_key_parameter_index, align 4
   %417 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %416, ptr noundef %0, i32 noundef %414, i32 noundef 1, i32 noundef 0) #4
   %418 = add i32 %.10.i, 2
-  %419 = add nuw nsw i32 %.5.i, 2
+  %419 = add nuw nsw i32 %.5491.i, 2
   %420 = icmp eq i8 %415, -1
   br i1 %420, label %421, label %429
 
@@ -1012,8 +1012,8 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   br label %429
 
 429:                                              ; preds = %421, %410
+  %.6492.i = phi i32 [ %428, %421 ], [ %419, %410 ]
   %.11.i = phi i32 [ %427, %421 ], [ %418, %410 ]
-  %.6.i = phi i32 [ %428, %421 ], [ %419, %410 ]
   %cond2.i = icmp eq i8 %411, 2
   br i1 %cond2.i, label %430, label %447
 
@@ -1025,7 +1025,7 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   %435 = shl nuw nsw i32 %432, 3
   %436 = call ptr @proto_tree_add_uint(ptr noundef %355, i32 noundef %433, ptr noundef %0, i32 noundef %.11.i, i32 noundef %434, i32 noundef %435) #4
   %437 = add i32 %434, %.11.i
-  %438 = add nuw nsw i32 %434, %.6.i
+  %438 = add nuw nsw i32 %434, %.6492.i
   %439 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %437) #4
   %440 = zext i16 %439 to i32
   %441 = load i32, ptr @hf_wtls_hands_certificate_wtls_rsa_modules, align 4
@@ -1037,8 +1037,8 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   br label %447
 
 447:                                              ; preds = %430, %429
+  %.7493.i = phi i32 [ %446, %430 ], [ %.6492.i, %429 ]
   %.12.i = phi i32 [ %445, %430 ], [ %.11.i, %429 ]
-  %.7.i = phi i32 [ %446, %430 ], [ %.6.i, %429 ]
   %448 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.12.i) #4
   %449 = zext i16 %448 to i32
   %450 = load i32, ptr @hf_wtls_hands_certificate_wtls_signature, align 4
@@ -1046,13 +1046,13 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
   %452 = shl nuw nsw i32 %449, 3
   %453 = call ptr @proto_tree_add_uint(ptr noundef %355, i32 noundef %450, ptr noundef %0, i32 noundef %.12.i, i32 noundef %451, i32 noundef %452) #4
   %454 = add i32 %451, %.12.i
-  %455 = add nuw nsw i32 %451, %.7.i
+  %455 = add nuw nsw i32 %451, %.7493.i
   br label %468
 
 456:                                              ; preds = %.lr.ph.i, %.lr.ph.i
   %457 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %359) #4
   %458 = zext i16 %457 to i32
-  %459 = add i32 %.8494512.i, 3
+  %459 = add i32 %.8512.i, 3
   %460 = add nuw nsw i32 %458, 3
   %461 = add i32 %459, %458
   br label %468
@@ -1060,16 +1060,16 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
 462:                                              ; preds = %.lr.ph.i
   %463 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %359) #4
   %464 = zext i8 %463 to i32
-  %465 = add i32 %.8494512.i, 2
+  %465 = add i32 %.8512.i, 2
   %466 = add nuw nsw i32 %464, 2
   %467 = add i32 %465, %464
   br label %468
 
 468:                                              ; preds = %462, %456, %447, %.lr.ph.i
+  %.8494.i = phi i32 [ 1, %.lr.ph.i ], [ %466, %462 ], [ %460, %456 ], [ %455, %447 ]
   %.13.i = phi i32 [ %359, %.lr.ph.i ], [ %467, %462 ], [ %461, %456 ], [ %454, %447 ]
-  %.8.i = phi i32 [ 1, %.lr.ph.i ], [ %466, %462 ], [ %460, %456 ], [ %455, %447 ]
-  call void @proto_item_set_len(ptr noundef %353, i32 noundef %.8.i) #4
-  %469 = sub i32 %.4499511.i, %.8.i
+  call void @proto_item_set_len(ptr noundef %353, i32 noundef %.8494.i) #4
+  %469 = sub i32 %.4499511.i, %.8494.i
   %.not.i = icmp eq i32 %469, 0
   br i1 %.not.i, label %dissect_wtls_handshake.exit, label %.lr.ph.i, !llvm.loop !10
 
@@ -1079,7 +1079,7 @@ dissect_wtls_handshake.exit:                      ; preds = %468, %63, %._crit_e
 
 470:                                              ; preds = %61
   %471 = load i32, ptr @hf_wtls_alert, align 4
-  %472 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %471, ptr noundef %0, i32 noundef %.2, i32 noundef %.176, i32 noundef 0) #4
+  %472 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %471, ptr noundef %0, i32 noundef %.2, i32 noundef %.175, i32 noundef 0) #4
   %473 = load i32, ptr @ett_wtls_msg_type, align 4
   %474 = call ptr @proto_item_add_subtree(ptr noundef %472, i32 noundef %473) #4
   %475 = load i32, ptr @hf_wtls_alert_level, align 4

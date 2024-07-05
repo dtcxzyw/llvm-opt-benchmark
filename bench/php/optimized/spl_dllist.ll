@@ -1815,7 +1815,7 @@ define hidden void @zim_SplDoublyLinkedList_serialize(ptr nocapture noundef read
   br label %22
 
 22:                                               ; preds = %.lr.ph, %30
-  %.0132151 = phi ptr [ %15, %.lr.ph ], [ %38, %30 ]
+  %.0134151 = phi ptr [ %15, %.lr.ph ], [ %38, %30 ]
   %23 = load ptr, ptr %3, align 8
   %.not148 = icmp eq ptr %23, null
   br i1 %.not148, label %29, label %24
@@ -1829,14 +1829,14 @@ define hidden void @zim_SplDoublyLinkedList_serialize(ptr nocapture noundef read
   br i1 %.not149, label %30, label %29
 
 29:                                               ; preds = %22, %24
-  %.0134 = phi i64 [ 1, %22 ], [ %27, %24 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.0134) #13
+  %.0133 = phi i64 [ 1, %22 ], [ %27, %24 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.0133) #13
   %.pre = load ptr, ptr %3, align 8
   br label %30
 
 30:                                               ; preds = %29, %24
   %31 = phi ptr [ %.pre, %29 ], [ %23, %24 ]
-  %.1 = phi i64 [ %.0134, %29 ], [ %27, %24 ]
+  %.1 = phi i64 [ %.0133, %29 ], [ %27, %24 ]
   %32 = getelementptr inbounds i8, ptr %31, i64 24
   %33 = add i64 %.1, -1
   %34 = getelementptr inbounds [1 x i8], ptr %32, i64 0, i64 %33
@@ -1844,9 +1844,9 @@ define hidden void @zim_SplDoublyLinkedList_serialize(ptr nocapture noundef read
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   store i64 %.1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0132151, i64 8
+  %37 = getelementptr inbounds i8, ptr %.0134151, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %.0132151, i64 16
+  %39 = getelementptr inbounds i8, ptr %.0134151, i64 16
   call void @php_var_serialize(ptr noundef nonnull %3, ptr noundef nonnull %39, ptr noundef nonnull %5) #13
   %.not142 = icmp eq ptr %38, null
   br i1 %.not142, label %._crit_edge, label %22
@@ -1947,9 +1947,9 @@ define hidden void @zim_SplDoublyLinkedList_serialize(ptr nocapture noundef read
   br label %92
 
 92:                                               ; preds = %90, %88
-  %.0133 = phi ptr [ %89, %88 ], [ %91, %90 ]
-  store ptr %.0133, ptr %1, align 8
-  %93 = getelementptr inbounds i8, ptr %.0133, i64 4
+  %.0132 = phi ptr [ %89, %88 ], [ %91, %90 ]
+  store ptr %.0132, ptr %1, align 8
+  %93 = getelementptr inbounds i8, ptr %.0132, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, 64
   %.not147 = icmp eq i32 %95, 0
@@ -2666,13 +2666,13 @@ define hidden void @zim_SplDoublyLinkedList___debugInfo(ptr nocapture noundef re
 
 .lr.ph.i:                                         ; preds = %37, %51
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %37 ]
-  %.04854.i = phi ptr [ %41, %51 ], [ %14, %37 ]
-  %40 = getelementptr inbounds i8, ptr %.04854.i, i64 8
+  %.055.i = phi ptr [ %41, %51 ], [ %14, %37 ]
+  %40 = getelementptr inbounds i8, ptr %.055.i, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %.04854.i, i64 16
+  %42 = getelementptr inbounds i8, ptr %.055.i, i64 16
   %43 = load ptr, ptr %4, align 8
   %44 = call ptr @zend_hash_index_update(ptr noundef %43, i64 noundef %indvars.iv.i, ptr noundef nonnull %42) #13
-  %45 = getelementptr inbounds i8, ptr %.04854.i, i64 25
+  %45 = getelementptr inbounds i8, ptr %.055.i, i64 25
   %46 = load i8, ptr %45, align 1
   %.not52.i = icmp eq i8 %46, 0
   br i1 %.not52.i, label %51, label %47
@@ -3425,12 +3425,12 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
 
 73:                                               ; preds = %.lr.ph, %81
   %.not127138 = phi i1 [ true, %.lr.ph ], [ false, %81 ]
-  %.0108137 = phi ptr [ %0, %.lr.ph ], [ %83, %81 ]
-  %74 = icmp eq ptr %.0108137, %70
+  %.0109137 = phi ptr [ %0, %.lr.ph ], [ %83, %81 ]
+  %74 = icmp eq ptr %.0109137, %70
   br i1 %74, label %.sink.split, label %75
 
 75:                                               ; preds = %73
-  %76 = icmp eq ptr %.0108137, %71
+  %76 = icmp eq ptr %.0109137, %71
   br i1 %76, label %.sink.split, label %79
 
 .sink.split:                                      ; preds = %75, %73
@@ -3441,11 +3441,11 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   br label %79
 
 79:                                               ; preds = %.sink.split, %75
-  %80 = icmp eq ptr %.0108137, %72
+  %80 = icmp eq ptr %.0109137, %72
   br i1 %80, label %._crit_edge, label %81
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %.0108137, i64 16
+  %82 = getelementptr inbounds i8, ptr %.0109137, i64 16
   %83 = load ptr, ptr %82, align 8
   %.not147 = icmp eq ptr %83, null
   br i1 %.not147, label %._crit_edge.thread155, label %73
@@ -3458,7 +3458,7 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   br i1 %.not127138, label %119, label %84
 
 84:                                               ; preds = %._crit_edge.thread155, %._crit_edge
-  %.0108.lcssa159 = phi ptr [ null, %._crit_edge.thread155 ], [ %72, %._crit_edge ]
+  %.0109.lcssa159 = phi ptr [ null, %._crit_edge.thread155 ], [ %72, %._crit_edge ]
   %85 = getelementptr inbounds i8, ptr %0, i64 64
   %86 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %85, ptr noundef nonnull @.str.51, i64 noundef 9) #13
   %.not128 = icmp ne ptr %86, null
@@ -3468,7 +3468,7 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %87, i64 16
   %90 = load ptr, ptr %89, align 8
-  %91 = icmp eq ptr %90, %.0108.lcssa159
+  %91 = icmp eq ptr %90, %.0109.lcssa159
   %spec.store.select = select i1 %91, ptr null, ptr %87
   store ptr %spec.store.select, ptr %88, align 8
   %92 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %85, ptr noundef nonnull @.str.52, i64 noundef 9) #13
@@ -3479,7 +3479,7 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %93, i64 16
   %96 = load ptr, ptr %95, align 8
-  %97 = icmp eq ptr %96, %.0108.lcssa159
+  %97 = icmp eq ptr %96, %.0109.lcssa159
   %spec.store.select135 = select i1 %97, ptr null, ptr %93
   store ptr %spec.store.select135, ptr %94, align 8
   %98 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %85, ptr noundef nonnull @.str.53, i64 noundef 12) #13
@@ -3490,7 +3490,7 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %99, i64 16
   %102 = load ptr, ptr %101, align 8
-  %103 = icmp eq ptr %102, %.0108.lcssa159
+  %103 = icmp eq ptr %102, %.0109.lcssa159
   %spec.store.select133 = select i1 %103, ptr null, ptr %99
   store ptr %spec.store.select133, ptr %100, align 8
   %104 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %85, ptr noundef nonnull @.str.54, i64 noundef 11) #13
@@ -3501,7 +3501,7 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds i8, ptr %105, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, %.0108.lcssa159
+  %109 = icmp eq ptr %108, %.0109.lcssa159
   %spec.store.select136 = select i1 %109, ptr null, ptr %105
   store ptr %spec.store.select136, ptr %106, align 8
   %110 = load ptr, ptr @zend_known_strings, align 8
@@ -3515,7 +3515,7 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   store ptr %114, ptr %115, align 8
   %116 = getelementptr inbounds i8, ptr %114, i64 16
   %117 = load ptr, ptr %116, align 8
-  %118 = icmp eq ptr %117, %.0108.lcssa159
+  %118 = icmp eq ptr %117, %.0109.lcssa159
   %spec.store.select134 = select i1 %118, ptr null, ptr %114
   store ptr %spec.store.select134, ptr %115, align 8
   br label %119

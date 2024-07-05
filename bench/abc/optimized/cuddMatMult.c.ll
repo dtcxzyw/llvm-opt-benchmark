@@ -64,8 +64,8 @@ define ptr @Cudd_addMatrixMultiply(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %29
 
 29:                                               ; preds = %28, %15
-  %.024 = phi ptr [ null, %15 ], [ %25, %28 ]
-  ret ptr %.024
+  %.0 = phi ptr [ null, %15 ], [ %25, %28 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -108,7 +108,7 @@ define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 26:                                               ; preds = %.lr.ph236, %36
   %indvars.iv245 = phi i64 [ 0, %.lr.ph236 ], [ %indvars.iv.next246, %36 ]
-  %.0184234 = phi double [ %21, %.lr.ph236 ], [ %.1, %36 ]
+  %.0187234 = phi double [ %21, %.lr.ph236 ], [ %.1, %36 ]
   %27 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv245
   %28 = load i32, ptr %27, align 4
   %.not221 = icmp eq i32 %28, 0
@@ -122,18 +122,18 @@ define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %29
-  %35 = fmul double %.0184234, 2.000000e+00
+  %35 = fmul double %.0187234, 2.000000e+00
   br label %36
 
 36:                                               ; preds = %26, %34, %29
-  %.1 = phi double [ %35, %34 ], [ %.0184234, %29 ], [ %.0184234, %26 ]
+  %.1 = phi double [ %35, %34 ], [ %.0187234, %29 ], [ %.0187234, %26 ]
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %exitcond249.not = icmp eq i64 %indvars.iv.next246, %wide.trip.count248
   br i1 %exitcond249.not, label %._crit_edge237, label %26, !llvm.loop !7
 
 ._crit_edge237:                                   ; preds = %36, %16
-  %.0184.lcssa = phi double [ %21, %16 ], [ %.1, %36 ]
-  %37 = tail call ptr @cuddUniqueConst(ptr noundef nonnull %0, double noundef %.0184.lcssa) #7
+  %.0187.lcssa = phi double [ %21, %16 ], [ %.1, %36 ]
+  %37 = tail call ptr @cuddUniqueConst(ptr noundef nonnull %0, double noundef %.0187.lcssa) #7
   br label %._crit_edge.thread
 
 38:                                               ; preds = %13, %10
@@ -190,7 +190,7 @@ define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 68:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %.0185227 = phi double [ 1.000000e+00, %.lr.ph ], [ %.1186, %79 ]
+  %.0189227 = phi double [ 1.000000e+00, %.lr.ph ], [ %.1190, %79 ]
   %69 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4
   %.not220 = icmp eq i32 %70, 0
@@ -206,17 +206,17 @@ define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %or.cond223, label %77, label %79
 
 77:                                               ; preds = %71
-  %78 = fmul double %.0185227, 2.000000e+00
+  %78 = fmul double %.0189227, 2.000000e+00
   br label %79
 
 79:                                               ; preds = %68, %77, %71
-  %.1186 = phi double [ %78, %77 ], [ %.0185227, %71 ], [ %.0185227, %68 ]
+  %.1190 = phi double [ %78, %77 ], [ %.0189227, %71 ], [ %.0189227, %68 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %79
-  %80 = fcmp ogt double %.1186, 1.000000e+00
+  %80 = fcmp ogt double %.1190, 1.000000e+00
   br i1 %80, label %81, label %._crit_edge.thread
 
 81:                                               ; preds = %._crit_edge
@@ -227,7 +227,7 @@ define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %86 = load i32, ptr %85, align 4
   %87 = add i32 %86, 1
   store i32 %87, ptr %85, align 4
-  %88 = tail call ptr @cuddUniqueConst(ptr noundef nonnull %0, double noundef %.1186) #7
+  %88 = tail call ptr @cuddUniqueConst(ptr noundef nonnull %0, double noundef %.1190) #7
   %89 = icmp eq ptr %88, null
   br i1 %89, label %90, label %91
 
@@ -279,8 +279,8 @@ define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %116
 
 116:                                              ; preds = %110, %111
-  %.0196 = phi ptr [ %113, %111 ], [ %spec.select222, %110 ]
-  %.0195 = phi ptr [ %115, %111 ], [ %spec.select222, %110 ]
+  %.0186 = phi ptr [ %115, %111 ], [ %spec.select222, %110 ]
+  %.0185 = phi ptr [ %113, %111 ], [ %spec.select222, %110 ]
   %.not217 = icmp ugt i32 %59, %49
   br i1 %.not217, label %122, label %117
 
@@ -292,9 +292,9 @@ define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %122
 
 122:                                              ; preds = %116, %117
-  %.0194 = phi ptr [ %119, %117 ], [ %spec.select, %116 ]
-  %.0193 = phi ptr [ %121, %117 ], [ %spec.select, %116 ]
-  %123 = tail call ptr @addMMRecur(ptr noundef nonnull %0, ptr noundef %.0196, ptr noundef %.0194, i32 noundef %60, ptr noundef %4)
+  %.0197 = phi ptr [ %121, %117 ], [ %spec.select, %116 ]
+  %.0188 = phi ptr [ %119, %117 ], [ %spec.select, %116 ]
+  %123 = tail call ptr @addMMRecur(ptr noundef nonnull %0, ptr noundef %.0185, ptr noundef %.0188, i32 noundef %60, ptr noundef %4)
   %124 = icmp eq ptr %123, null
   br i1 %124, label %._crit_edge.thread, label %125
 
@@ -306,7 +306,7 @@ define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %130 = load i32, ptr %129, align 4
   %131 = add i32 %130, 1
   store i32 %131, ptr %129, align 4
-  %132 = tail call ptr @addMMRecur(ptr noundef nonnull %0, ptr noundef %.0195, ptr noundef %.0193, i32 noundef %60, ptr noundef %4)
+  %132 = tail call ptr @addMMRecur(ptr noundef nonnull %0, ptr noundef %.0186, ptr noundef %.0197, i32 noundef %60, ptr noundef %4)
   %133 = icmp eq ptr %132, null
   br i1 %133, label %134, label %135
 
@@ -391,9 +391,9 @@ define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %176
 
 176:                                              ; preds = %169, %.thread
-  %.1191 = phi ptr [ %157, %.thread ], [ %166, %169 ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @addMMRecur, ptr noundef nonnull %spec.select222, ptr noundef nonnull %spec.select, ptr noundef nonnull %.1191) #7
-  %.not218 = icmp eq ptr %.1191, %7
+  %.1195 = phi ptr [ %157, %.thread ], [ %166, %169 ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @addMMRecur, ptr noundef nonnull %spec.select222, ptr noundef nonnull %spec.select, ptr noundef nonnull %.1195) #7
+  %.not218 = icmp eq ptr %.1195, %7
   br i1 %.not218, label %._crit_edge231.thread, label %.preheader
 
 .preheader:                                       ; preds = %176
@@ -444,7 +444,7 @@ define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %196, label %197, label %198
 
 197:                                              ; preds = %194
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %.1191) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %.1195) #7
   br label %._crit_edge.thread
 
 198:                                              ; preds = %194
@@ -455,12 +455,12 @@ define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %203 = load i32, ptr %202, align 4
   %204 = add i32 %203, 1
   store i32 %204, ptr %202, align 4
-  %205 = tail call ptr @cuddAddApplyRecur(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_addTimes, ptr noundef nonnull %.1191, ptr noundef nonnull %195) #7
+  %205 = tail call ptr @cuddAddApplyRecur(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_addTimes, ptr noundef nonnull %.1195, ptr noundef nonnull %195) #7
   %206 = icmp eq ptr %205, null
   br i1 %206, label %207, label %208
 
 207:                                              ; preds = %198
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %.1191) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %.1195) #7
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %195) #7
   br label %._crit_edge.thread
 
@@ -473,12 +473,12 @@ define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %214 = add i32 %213, 1
   store i32 %214, ptr %212, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %195) #7
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %.1191) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %.1195) #7
   br label %._crit_edge231.thread
 
 ._crit_edge231.thread:                            ; preds = %.preheader, %._crit_edge231, %208, %176
-  %.2192 = phi ptr [ %205, %208 ], [ %.1191, %._crit_edge231 ], [ %.1191, %176 ], [ %.1191, %.preheader ]
-  %215 = ptrtoint ptr %.2192 to i64
+  %.2196 = phi ptr [ %205, %208 ], [ %.1195, %._crit_edge231 ], [ %.1195, %176 ], [ %.1195, %.preheader ]
+  %215 = ptrtoint ptr %.2196 to i64
   %216 = and i64 %215, -2
   %217 = inttoptr i64 %216 to ptr
   %218 = getelementptr inbounds i8, ptr %217, i64 4
@@ -488,7 +488,7 @@ define internal ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader225, %122, %._crit_edge, %101, %62, %5, %._crit_edge231.thread, %207, %197, %168, %156, %134, %100, %90, %._crit_edge237
-  %.0 = phi ptr [ %37, %._crit_edge237 ], [ null, %90 ], [ null, %100 ], [ null, %134 ], [ null, %156 ], [ null, %197 ], [ null, %207 ], [ %.2192, %._crit_edge231.thread ], [ null, %168 ], [ %7, %5 ], [ %61, %62 ], [ %98, %101 ], [ %61, %._crit_edge ], [ null, %122 ], [ %61, %.preheader225 ]
+  %.0 = phi ptr [ %37, %._crit_edge237 ], [ null, %90 ], [ null, %100 ], [ null, %134 ], [ null, %156 ], [ null, %197 ], [ null, %207 ], [ %.2196, %._crit_edge231.thread ], [ null, %168 ], [ %7, %5 ], [ %61, %62 ], [ %98, %101 ], [ %61, %._crit_edge ], [ null, %122 ], [ %61, %.preheader225 ]
   ret ptr %.0
 }
 
@@ -516,12 +516,12 @@ define ptr @Cudd_addTimesPlus(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 14:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %.03643 = phi ptr [ %10, %.lr.ph ], [ %18, %21 ]
+  %.03743 = phi ptr [ %10, %.lr.ph ], [ %18, %21 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %15 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.next
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %12, align 8
-  %18 = tail call ptr @Cudd_addIte(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %.03643, ptr noundef %17) #7
+  %18 = tail call ptr @Cudd_addIte(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %.03743, ptr noundef %17) #7
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
 
@@ -531,31 +531,31 @@ define ptr @Cudd_addTimesPlus(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 21:                                               ; preds = %14
   tail call void @Cudd_Ref(ptr noundef nonnull %18) #7
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.03643) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.03743) #7
   %22 = icmp ugt i64 %indvars.iv, 1
   br i1 %22, label %14, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %21, %8
-  %.036.lcssa = phi ptr [ %10, %8 ], [ %18, %21 ]
-  %23 = tail call ptr @Cudd_addExistAbstract(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %.036.lcssa) #7
+  %.037.lcssa = phi ptr [ %10, %8 ], [ %18, %21 ]
+  %23 = tail call ptr @Cudd_addExistAbstract(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %.037.lcssa) #7
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %._crit_edge
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.036.lcssa) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.037.lcssa) #7
   br label %27
 
 26:                                               ; preds = %._crit_edge
   tail call void @Cudd_Ref(ptr noundef nonnull %23) #7
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.036.lcssa) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.037.lcssa) #7
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
   tail call void @Cudd_Deref(ptr noundef nonnull %23) #7
   br label %27
 
 27:                                               ; preds = %5, %26, %25, %20
-  %.037 = phi ptr [ null, %20 ], [ null, %25 ], [ %23, %26 ], [ null, %5 ]
-  ret ptr %.037
+  %.036 = phi ptr [ null, %20 ], [ null, %25 ], [ %23, %26 ], [ null, %5 ]
+  ret ptr %.036
 }
 
 declare ptr @Cudd_addApply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -672,8 +672,8 @@ define ptr @Cudd_addTriangle(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %50
 
 50:                                               ; preds = %49, %26, %15
-  %.039 = phi ptr [ null, %15 ], [ null, %26 ], [ %36, %49 ]
-  ret ptr %.039
+  %.0 = phi ptr [ null, %15 ], [ null, %26 ], [ %36, %49 ]
+  ret ptr %.0
 }
 
 declare ptr @Cudd_addComputeCube(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -767,8 +767,8 @@ define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr
   br label %59
 
 59:                                               ; preds = %51, %54
-  %.0108 = phi ptr [ %56, %54 ], [ %spec.select127, %51 ]
-  %.0107 = phi ptr [ %58, %54 ], [ %spec.select127, %51 ]
+  %.0106 = phi ptr [ %58, %54 ], [ %spec.select127, %51 ]
+  %.0105 = phi ptr [ %56, %54 ], [ %spec.select127, %51 ]
   %.not124 = icmp sgt i32 %52, %42
   br i1 %.not124, label %65, label %60
 
@@ -780,9 +780,9 @@ define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr
   br label %65
 
 65:                                               ; preds = %59, %60
-  %.0106 = phi ptr [ %62, %60 ], [ %spec.select, %59 ]
-  %.0105 = phi ptr [ %64, %60 ], [ %spec.select, %59 ]
-  %66 = tail call fastcc ptr @addTriangleRecur(ptr noundef nonnull %0, ptr noundef %.0108, ptr noundef %.0106, ptr noundef %3, ptr noundef %4)
+  %.0109 = phi ptr [ %64, %60 ], [ %spec.select, %59 ]
+  %.0107 = phi ptr [ %62, %60 ], [ %spec.select, %59 ]
+  %66 = tail call fastcc ptr @addTriangleRecur(ptr noundef nonnull %0, ptr noundef %.0105, ptr noundef %.0107, ptr noundef %3, ptr noundef %4)
   %67 = icmp eq ptr %66, null
   br i1 %67, label %122, label %68
 
@@ -794,7 +794,7 @@ define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr
   %73 = load i32, ptr %72, align 4
   %74 = add i32 %73, 1
   store i32 %74, ptr %72, align 4
-  %75 = tail call fastcc ptr @addTriangleRecur(ptr noundef nonnull %0, ptr noundef %.0107, ptr noundef %.0105, ptr noundef %3, ptr noundef %4)
+  %75 = tail call fastcc ptr @addTriangleRecur(ptr noundef nonnull %0, ptr noundef %.0106, ptr noundef %.0109, ptr noundef %3, ptr noundef %4)
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %78
 
@@ -866,7 +866,7 @@ define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr
 
 114:                                              ; preds = %107, %.thread
   %.sink = phi ptr [ %111, %107 ], [ %82, %.thread ]
-  %.0104 = phi ptr [ %104, %107 ], [ %100, %.thread ]
+  %.0108 = phi ptr [ %104, %107 ], [ %100, %.thread ]
   %115 = load i32, ptr %.sink, align 4
   %116 = add i32 %115, -1
   store i32 %116, ptr %.sink, align 4
@@ -881,11 +881,11 @@ define internal fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not126, label %122, label %121
 
 121:                                              ; preds = %118, %114
-  tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 134, ptr noundef nonnull %spec.select127, ptr noundef nonnull %spec.select, ptr noundef %4, ptr noundef nonnull %.0104) #7
+  tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 134, ptr noundef nonnull %spec.select127, ptr noundef nonnull %spec.select, ptr noundef %4, ptr noundef nonnull %.0108) #7
   br label %122
 
 122:                                              ; preds = %5, %118, %121, %65, %30, %106, %99, %77, %16
-  %.0 = phi ptr [ %22, %16 ], [ null, %77 ], [ null, %99 ], [ null, %106 ], [ %31, %30 ], [ null, %65 ], [ %.0104, %121 ], [ %.0104, %118 ], [ %7, %5 ]
+  %.0 = phi ptr [ %22, %16 ], [ null, %77 ], [ null, %99 ], [ null, %106 ], [ %31, %30 ], [ null, %65 ], [ %.0108, %121 ], [ %.0108, %118 ], [ %7, %5 ]
   ret ptr %.0
 }
 
@@ -1040,8 +1040,8 @@ define internal fastcc ptr @cuddAddOuterSumRecur(ptr noundef %0, ptr noundef %1,
   br label %93
 
 93:                                               ; preds = %85, %88
-  %.0110 = phi ptr [ %90, %88 ], [ %1, %85 ]
-  %.0109 = phi ptr [ %92, %88 ], [ %1, %85 ]
+  %.0107 = phi ptr [ %92, %88 ], [ %1, %85 ]
+  %.0106 = phi ptr [ %90, %88 ], [ %1, %85 ]
   %94 = icmp eq i32 %76, %.
   br i1 %94, label %95, label %100
 
@@ -1053,8 +1053,8 @@ define internal fastcc ptr @cuddAddOuterSumRecur(ptr noundef %0, ptr noundef %1,
   br label %100
 
 100:                                              ; preds = %93, %95
+  %.0109 = phi ptr [ %99, %95 ], [ %2, %93 ]
   %.0108 = phi ptr [ %97, %95 ], [ %2, %93 ]
-  %.0107 = phi ptr [ %99, %95 ], [ %2, %93 ]
   %101 = icmp eq i32 %86, %.
   br i1 %101, label %102, label %107
 
@@ -1066,9 +1066,9 @@ define internal fastcc ptr @cuddAddOuterSumRecur(ptr noundef %0, ptr noundef %1,
   br label %107
 
 107:                                              ; preds = %100, %102
-  %.0106 = phi ptr [ %104, %102 ], [ %3, %100 ]
-  %.0 = phi ptr [ %106, %102 ], [ %3, %100 ]
-  %108 = tail call fastcc ptr @cuddAddOuterSumRecur(ptr noundef nonnull %0, ptr noundef %.0110, ptr noundef %.0108, ptr noundef %.0106)
+  %.0111 = phi ptr [ %106, %102 ], [ %3, %100 ]
+  %.0110 = phi ptr [ %104, %102 ], [ %3, %100 ]
+  %108 = tail call fastcc ptr @cuddAddOuterSumRecur(ptr noundef nonnull %0, ptr noundef %.0106, ptr noundef %.0108, ptr noundef %.0110)
   %109 = icmp eq ptr %108, null
   br i1 %109, label %142, label %110
 
@@ -1080,7 +1080,7 @@ define internal fastcc ptr @cuddAddOuterSumRecur(ptr noundef %0, ptr noundef %1,
   %115 = load i32, ptr %114, align 4
   %116 = add i32 %115, 1
   store i32 %116, ptr %114, align 4
-  %117 = tail call fastcc ptr @cuddAddOuterSumRecur(ptr noundef nonnull %0, ptr noundef %.0109, ptr noundef %.0107, ptr noundef %.0)
+  %117 = tail call fastcc ptr @cuddAddOuterSumRecur(ptr noundef nonnull %0, ptr noundef %.0107, ptr noundef %.0109, ptr noundef %.0111)
   %118 = icmp eq ptr %117, null
   br i1 %118, label %119, label %120
 
@@ -1126,8 +1126,8 @@ define internal fastcc ptr @cuddAddOuterSumRecur(ptr noundef %0, ptr noundef %1,
   br label %142
 
 142:                                              ; preds = %107, %54, %4, %.thread, %136, %119, %44, %43, %42
-  %.0111 = phi ptr [ %27, %42 ], [ %1, %43 ], [ %45, %44 ], [ null, %119 ], [ null, %136 ], [ %137, %.thread ], [ %1, %4 ], [ %55, %54 ], [ null, %107 ]
-  ret ptr %.0111
+  %.0 = phi ptr [ %27, %42 ], [ %1, %43 ], [ %45, %44 ], [ null, %119 ], [ null, %136 ], [ %137, %.thread ], [ %1, %4 ], [ %55, %54 ], [ null, %107 ]
+  ret ptr %.0
 }
 
 declare ptr @cuddUniqueConst(ptr noundef, double noundef) local_unnamed_addr #3

@@ -23,8 +23,8 @@ define range(i32 0, 2) i32 @Fxu_PreprocessCubePairs(ptr noundef %0, ptr nocaptur
 11:                                               ; preds = %.lr.ph, %55
   %12 = phi i32 [ %8, %.lr.ph ], [ %56, %55 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %.099144 = phi i32 [ 0, %.lr.ph ], [ %.1100, %55 ]
-  %.0106143 = phi i32 [ -1, %.lr.ph ], [ %.1107, %55 ]
+  %.0100144 = phi i32 [ 0, %.lr.ph ], [ %.1101, %55 ]
+  %.0107143 = phi i32 [ -1, %.lr.ph ], [ %.1108, %55 ]
   %13 = load ptr, ptr %10, align 8
   %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
@@ -33,7 +33,7 @@ define range(i32 0, 2) i32 @Fxu_PreprocessCubePairs(ptr noundef %0, ptr nocaptur
 
 16:                                               ; preds = %11
   %17 = tail call i32 @Abc_SopGetVarNum(ptr noundef nonnull %15) #9
-  %18 = sext i32 %.099144 to i64
+  %18 = sext i32 %.0100144 to i64
   %19 = getelementptr inbounds i8, ptr %6, i64 %18
   %20 = tail call i32 @Abc_SopGetVarNum(ptr noundef nonnull %15) #9
   %.fr35.i = freeze i32 %20
@@ -52,33 +52,33 @@ define range(i32 0, 2) i32 @Fxu_PreprocessCubePairs(ptr noundef %0, ptr nocaptur
   br label %.preheader26.us.i
 
 .preheader26.us.i:                                ; preds = %.split.us.us.i, %.preheader26.us.preheader.i
-  %.02134.us.i = phi i32 [ %.2.us.us.i, %.split.us.us.i ], [ 0, %.preheader26.us.preheader.i ]
-  %.02433.us.i = phi ptr [ %39, %.split.us.us.i ], [ %15, %.preheader26.us.preheader.i ]
+  %.02134.us.i = phi ptr [ %39, %.split.us.us.i ], [ %15, %.preheader26.us.preheader.i ]
+  %.02233.us.i = phi i32 [ %.2.us.us.i, %.split.us.us.i ], [ 0, %.preheader26.us.preheader.i ]
   br label %25
 
 25:                                               ; preds = %34, %.preheader26.us.i
-  %.131.us.us.i = phi i32 [ %.02134.us.i, %.preheader26.us.i ], [ %.2.us.us.i, %34 ]
-  %.02329.us.us.i = phi ptr [ %.02433.us.i, %.preheader26.us.i ], [ %35, %34 ]
-  %26 = icmp eq ptr %.02433.us.i, %.02329.us.us.i
+  %.131.us.us.i = phi i32 [ %.02233.us.i, %.preheader26.us.i ], [ %.2.us.us.i, %34 ]
+  %.02429.us.us.i = phi ptr [ %.02134.us.i, %.preheader26.us.i ], [ %35, %34 ]
+  %26 = icmp eq ptr %.02134.us.i, %.02429.us.us.i
   br i1 %26, label %34, label %.preheader.us.us.i
 
 .preheader.us.us.i:                               ; preds = %25, %.preheader.us.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.us.i ], [ 0, %25 ]
-  %.02227.us.us.i = phi i8 [ %33, %.preheader.us.us.i ], [ 0, %25 ]
-  %27 = getelementptr inbounds i8, ptr %.02433.us.i, i64 %indvars.iv.i
+  %.02327.us.us.i = phi i8 [ %33, %.preheader.us.us.i ], [ 0, %25 ]
+  %27 = getelementptr inbounds i8, ptr %.02134.us.i, i64 %indvars.iv.i
   %28 = load i8, ptr %27, align 1
-  %29 = getelementptr inbounds i8, ptr %.02329.us.us.i, i64 %indvars.iv.i
+  %29 = getelementptr inbounds i8, ptr %.02429.us.us.i, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = icmp ne i8 %28, %30
   %32 = zext i1 %31 to i8
-  %33 = add i8 %.02227.us.us.i, %32
+  %33 = add i8 %.02327.us.us.i, %32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %.preheader.us.us.i, !llvm.loop !4
 
 34:                                               ; preds = %._crit_edge.us.us.i, %25
   %.2.us.us.i = phi i32 [ %.131.us.us.i, %25 ], [ %36, %._crit_edge.us.us.i ]
-  %35 = getelementptr inbounds i8, ptr %.02329.us.us.i, i64 %23
+  %35 = getelementptr inbounds i8, ptr %.02429.us.us.i, i64 %23
   %.pr.us.us.i = load i8, ptr %35, align 1
   %.not25.us.us.i = icmp eq i8 %.pr.us.us.i, 0
   br i1 %.not25.us.us.i, label %.split.us.us.i, label %25, !llvm.loop !6
@@ -91,20 +91,20 @@ define range(i32 0, 2) i32 @Fxu_PreprocessCubePairs(ptr noundef %0, ptr nocaptur
   br label %34
 
 .split.us.us.i:                                   ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %.02433.us.i, i64 %23
+  %39 = getelementptr inbounds i8, ptr %.02134.us.i, i64 %23
   %40 = load i8, ptr %39, align 1
   %.not.us.i = icmp eq i8 %40, 0
   br i1 %.not.us.i, label %Fxu_CountPairDiffs.exit, label %.preheader26.us.i, !llvm.loop !7
 
 .preheader26.i:                                   ; preds = %.preheader26.lr.ph.i, %.split.i
-  %.02134.i = phi i32 [ %.2.i, %.split.i ], [ 0, %.preheader26.lr.ph.i ]
-  %.02433.i = phi ptr [ %48, %.split.i ], [ %15, %.preheader26.lr.ph.i ]
+  %.02134.i = phi ptr [ %48, %.split.i ], [ %15, %.preheader26.lr.ph.i ]
+  %.02233.i = phi i32 [ %.2.i, %.split.i ], [ 0, %.preheader26.lr.ph.i ]
   br label %41
 
 41:                                               ; preds = %46, %.preheader26.i
-  %.131.i = phi i32 [ %.02134.i, %.preheader26.i ], [ %.2.i, %46 ]
-  %.02329.i = phi ptr [ %.02433.i, %.preheader26.i ], [ %47, %46 ]
-  %42 = icmp eq ptr %.02433.i, %.02329.i
+  %.131.i = phi i32 [ %.02233.i, %.preheader26.i ], [ %.2.i, %46 ]
+  %.02429.i = phi ptr [ %.02134.i, %.preheader26.i ], [ %47, %46 ]
+  %42 = icmp eq ptr %.02134.i, %.02429.i
   br i1 %42, label %46, label %.preheader.i
 
 .preheader.i:                                     ; preds = %41
@@ -116,13 +116,13 @@ define range(i32 0, 2) i32 @Fxu_PreprocessCubePairs(ptr noundef %0, ptr nocaptur
 
 46:                                               ; preds = %.preheader.i, %41
   %.2.i = phi i32 [ %.131.i, %41 ], [ %43, %.preheader.i ]
-  %47 = getelementptr inbounds i8, ptr %.02329.i, i64 %23
+  %47 = getelementptr inbounds i8, ptr %.02429.i, i64 %23
   %.pr.i = load i8, ptr %47, align 1
   %.not25.i = icmp eq i8 %.pr.i, 0
   br i1 %.not25.i, label %.split.i, label %41, !llvm.loop !6
 
 .split.i:                                         ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %.02433.i, i64 %23
+  %48 = getelementptr inbounds i8, ptr %.02134.i, i64 %23
   %49 = load i8, ptr %48, align 1
   %.not.i = icmp eq i8 %49, 0
   br i1 %.not.i, label %Fxu_CountPairDiffs.exit, label %.preheader26.i, !llvm.loop !7
@@ -132,15 +132,15 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   %51 = add nsw i32 %50, -1
   %52 = mul nsw i32 %51, %50
   %53 = sdiv i32 %52, 2
-  %54 = add nsw i32 %53, %.099144
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.0106143, i32 %17)
+  %54 = add nsw i32 %53, %.0100144
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.0107143, i32 %17)
   %.pre = load i32, ptr %7, align 4
   br label %55
 
 55:                                               ; preds = %Fxu_CountPairDiffs.exit, %11
   %56 = phi i32 [ %12, %11 ], [ %.pre, %Fxu_CountPairDiffs.exit ]
-  %.1107 = phi i32 [ %.0106143, %11 ], [ %spec.select, %Fxu_CountPairDiffs.exit ]
-  %.1100 = phi i32 [ %.099144, %11 ], [ %54, %Fxu_CountPairDiffs.exit ]
+  %.1108 = phi i32 [ %.0107143, %11 ], [ %spec.select, %Fxu_CountPairDiffs.exit ]
+  %.1101 = phi i32 [ %.0100144, %11 ], [ %54, %Fxu_CountPairDiffs.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
@@ -148,8 +148,8 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
 
 ._crit_edge:                                      ; preds = %55, %4
   %59 = phi i32 [ %8, %4 ], [ %56, %55 ]
-  %.0106.lcssa = phi i32 [ -1, %4 ], [ %.1107, %55 ]
-  %60 = shl nsw i32 %.0106.lcssa, 1
+  %.0107.lcssa = phi i32 [ -1, %4 ], [ %.1108, %55 ]
+  %60 = shl nsw i32 %.0107.lcssa, 1
   %61 = sext i32 %60 to i64
   %62 = tail call noalias ptr @calloc(i64 noundef %61, i64 noundef 4) #10
   %63 = icmp sgt i32 %2, 0
@@ -190,7 +190,7 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   br i1 %.not122, label %.preheader136, label %74
 
 .preheader136:                                    ; preds = %._crit_edge149.thread
-  %73 = icmp sgt i32 %.0106.lcssa, 0
+  %73 = icmp sgt i32 %.0107.lcssa, 0
   br i1 %73, label %.lr.ph152.preheader, label %.loopexit137
 
 .lr.ph152.preheader:                              ; preds = %.preheader136
@@ -213,10 +213,10 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
 
 .lr.ph152:                                        ; preds = %.lr.ph152.preheader, %83
   %indvars.iv192 = phi i64 [ 0, %.lr.ph152.preheader ], [ %indvars.iv.next193, %83 ]
-  %.0105150 = phi i32 [ 0, %.lr.ph152.preheader ], [ %79, %83 ]
+  %.0106150 = phi i32 [ 0, %.lr.ph152.preheader ], [ %79, %83 ]
   %77 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv192
   %78 = load i32, ptr %77, align 4
-  %79 = add nsw i32 %78, %.0105150
+  %79 = add nsw i32 %78, %.0106150
   %.not123 = icmp slt i32 %79, %3
   br i1 %.not123, label %83, label %80
 
@@ -232,8 +232,8 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   br i1 %exitcond196.not, label %.loopexit137, label %.lr.ph152, !llvm.loop !10
 
 .loopexit137:                                     ; preds = %83, %.preheader136, %80
-  %.0104 = phi i32 [ %81, %80 ], [ -1, %.preheader136 ], [ -1, %83 ]
-  %.0103 = phi i32 [ %82, %80 ], [ -1, %.preheader136 ], [ -1, %83 ]
+  %.0105 = phi i32 [ %81, %80 ], [ -1, %.preheader136 ], [ -1, %83 ]
+  %.0104 = phi i32 [ %82, %80 ], [ -1, %.preheader136 ], [ -1, %83 ]
   tail call void @free(ptr noundef nonnull %62) #9
   br i1 %63, label %.lr.ph157.preheader, label %.preheader135
 
@@ -252,29 +252,29 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %95
   %indvars.iv197 = phi i64 [ 0, %.lr.ph157.preheader ], [ %indvars.iv.next198, %95 ]
-  %.097154 = phi i32 [ 0, %.lr.ph157.preheader ], [ %.198, %95 ]
+  %.098154 = phi i32 [ 0, %.lr.ph157.preheader ], [ %.199, %95 ]
   %87 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv197
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
-  %90 = icmp slt i32 %.0104, %89
+  %90 = icmp slt i32 %.0105, %89
   br i1 %90, label %.sink.split, label %91
 
 91:                                               ; preds = %.lr.ph157
-  %92 = icmp eq i32 %.0104, %89
+  %92 = icmp eq i32 %.0105, %89
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %91
-  %94 = add nsw i32 %.097154, 1
-  %.not129 = icmp slt i32 %.097154, %.0103
+  %94 = add nsw i32 %.098154, 1
+  %.not129 = icmp slt i32 %.098154, %.0104
   br i1 %.not129, label %95, label %.sink.split
 
 .sink.split:                                      ; preds = %93, %.lr.ph157
-  %.198.ph = phi i32 [ %.097154, %.lr.ph157 ], [ %94, %93 ]
+  %.199.ph = phi i32 [ %.098154, %.lr.ph157 ], [ %94, %93 ]
   store i8 0, ptr %87, align 1
   br label %95
 
 95:                                               ; preds = %.sink.split, %91, %93
-  %.198 = phi i32 [ %94, %93 ], [ %.097154, %91 ], [ %.198.ph, %.sink.split ]
+  %.199 = phi i32 [ %94, %93 ], [ %.098154, %91 ], [ %.199.ph, %.sink.split ]
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
   br i1 %exitcond201.not, label %.preheader135, label %.lr.ph157, !llvm.loop !11
@@ -378,8 +378,8 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   br label %128
 
 128:                                              ; preds = %127, %._crit_edge179, %76, %70
-  %.0108 = phi i32 [ 0, %70 ], [ 0, %76 ], [ 1, %._crit_edge179 ], [ 1, %127 ]
-  ret i32 %.0108
+  %.0 = phi i32 [ 0, %70 ], [ 0, %76 ], [ 1, %._crit_edge179 ], [ 1, %127 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

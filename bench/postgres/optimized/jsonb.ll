@@ -584,26 +584,26 @@ define internal fastcc ptr @JsonbToCStringWorker(ptr noundef %0, ptr noundef %1,
   br label %11
 
 11:                                               ; preds = %9, %4
-  %.092 = phi ptr [ %10, %9 ], [ %0, %4 ]
+  %.083 = phi ptr [ %10, %9 ], [ %0, %4 ]
   %12 = icmp sgt i32 %2, -1
   %13 = select i1 %12, i32 %2, i32 64
-  tail call void @enlargeStringInfo(ptr noundef %.092, i32 noundef %13) #11
+  tail call void @enlargeStringInfo(ptr noundef %.083, i32 noundef %13) #11
   %14 = tail call ptr @JsonbIteratorInit(ptr noundef %1) #11
   store ptr %14, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %.092, i64 8
-  %16 = getelementptr inbounds i8, ptr %.092, i64 12
+  %15 = getelementptr inbounds i8, ptr %.083, i64 8
+  %16 = getelementptr inbounds i8, ptr %.083, i64 12
   %17 = getelementptr inbounds i8, ptr %6, i64 24
   br label %18
 
 18:                                               ; preds = %208, %11
-  %.090 = phi i8 [ 1, %11 ], [ %.191, %208 ]
-  %.087 = phi i32 [ 0, %11 ], [ %.289, %208 ]
-  %.085 = phi i32 [ 0, %11 ], [ %.186, %208 ]
-  %.083 = phi i8 [ 0, %11 ], [ %.184, %208 ]
+  %.091 = phi i8 [ 1, %11 ], [ %.192, %208 ]
+  %.088 = phi i32 [ 0, %11 ], [ %.290, %208 ]
+  %.086 = phi i32 [ 0, %11 ], [ %.187, %208 ]
+  %.084 = phi i8 [ 0, %11 ], [ %.185, %208 ]
   %.082 = phi i1 [ false, %11 ], [ %3, %208 ]
   %.081 = phi i8 [ 0, %11 ], [ %.2, %208 ]
   %.0 = phi i1 [ false, %11 ], [ %209, %208 ]
-  %19 = trunc nuw i8 %.083 to i1
+  %19 = trunc nuw i8 %.084 to i1
   br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %18
@@ -612,8 +612,8 @@ define internal fastcc ptr @JsonbToCStringWorker(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %210, label %.critedge
 
 .critedge:                                        ; preds = %18, %20
-  %.188 = phi i32 [ %.087, %18 ], [ %21, %20 ]
-  switch i32 %.188, label %205 [
+  %.189 = phi i32 [ %.088, %18 ], [ %21, %20 ]
+  switch i32 %.189, label %205 [
     i32 4, label %22
     i32 6, label %61
     i32 1, label %97
@@ -623,11 +623,11 @@ define internal fastcc ptr @JsonbToCStringWorker(ptr noundef %0, ptr noundef %1,
   ]
 
 22:                                               ; preds = %.critedge
-  %23 = trunc nuw i8 %.090 to i1
+  %23 = trunc nuw i8 %.091 to i1
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %22
-  call void @appendBinaryStringInfo(ptr noundef %.092, ptr noundef nonnull @.str.37, i32 noundef %7) #11
+  call void @appendBinaryStringInfo(ptr noundef %.083, ptr noundef nonnull @.str.37, i32 noundef %7) #11
   br label %25
 
 25:                                               ; preds = %24, %22
@@ -648,15 +648,15 @@ define internal fastcc ptr @JsonbToCStringWorker(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %35, label %34
 
 34:                                               ; preds = %30
-  call void @appendStringInfoChar(ptr noundef nonnull %.092, i8 noundef signext 10) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 10) #11
   br label %44
 
 35:                                               ; preds = %30
-  %36 = load ptr, ptr %.092, align 8
+  %36 = load ptr, ptr %.083, align 8
   %37 = sext i32 %31 to i64
   %38 = getelementptr i8, ptr %36, i64 %37
   store i8 10, ptr %38, align 1
-  %39 = load ptr, ptr %.092, align 8
+  %39 = load ptr, ptr %.083, align 8
   %40 = load i32, ptr %15, align 8
   %41 = add i32 %40, 1
   store i32 %41, ptr %15, align 8
@@ -666,8 +666,8 @@ define internal fastcc ptr @JsonbToCStringWorker(ptr noundef %0, ptr noundef %1,
   br label %44
 
 44:                                               ; preds = %35, %34
-  %45 = shl i32 %.085, 2
-  call void @appendStringInfoSpaces(ptr noundef nonnull %.092, i32 noundef %45) #11
+  %45 = shl i32 %.086, 2
+  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %45) #11
   br label %add_indent.exit
 
 add_indent.exit:                                  ; preds = %28, %44
@@ -678,15 +678,15 @@ add_indent.exit:                                  ; preds = %28, %44
   br i1 %.not100, label %50, label %49
 
 49:                                               ; preds = %add_indent.exit
-  call void @appendStringInfoChar(ptr noundef nonnull %.092, i8 noundef signext 91) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 91) #11
   br label %59
 
 50:                                               ; preds = %add_indent.exit
-  %51 = load ptr, ptr %.092, align 8
+  %51 = load ptr, ptr %.083, align 8
   %52 = sext i32 %46 to i64
   %53 = getelementptr i8, ptr %51, i64 %52
   store i8 91, ptr %53, align 1
-  %54 = load ptr, ptr %.092, align 8
+  %54 = load ptr, ptr %.083, align 8
   %55 = load i32, ptr %15, align 8
   %56 = add i32 %55, 1
   store i32 %56, ptr %15, align 8
@@ -697,15 +697,15 @@ add_indent.exit:                                  ; preds = %28, %44
 
 59:                                               ; preds = %25, %49, %50
   %.1 = phi i8 [ %.081, %49 ], [ %.081, %50 ], [ 1, %25 ]
-  %60 = add i32 %.085, 1
+  %60 = add i32 %.086, 1
   br label %208
 
 61:                                               ; preds = %.critedge
-  %62 = trunc nuw i8 %.090 to i1
+  %62 = trunc nuw i8 %.091 to i1
   br i1 %62, label %64, label %63
 
 63:                                               ; preds = %61
-  call void @appendBinaryStringInfo(ptr noundef %.092, ptr noundef nonnull @.str.37, i32 noundef %7) #11
+  call void @appendBinaryStringInfo(ptr noundef %.083, ptr noundef nonnull @.str.37, i32 noundef %7) #11
   br label %64
 
 64:                                               ; preds = %63, %61
@@ -721,15 +721,15 @@ add_indent.exit:                                  ; preds = %28, %44
   br i1 %.not.i101, label %71, label %70
 
 70:                                               ; preds = %66
-  call void @appendStringInfoChar(ptr noundef nonnull %.092, i8 noundef signext 10) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 10) #11
   br label %80
 
 71:                                               ; preds = %66
-  %72 = load ptr, ptr %.092, align 8
+  %72 = load ptr, ptr %.083, align 8
   %73 = sext i32 %67 to i64
   %74 = getelementptr i8, ptr %72, i64 %73
   store i8 10, ptr %74, align 1
-  %75 = load ptr, ptr %.092, align 8
+  %75 = load ptr, ptr %.083, align 8
   %76 = load i32, ptr %15, align 8
   %77 = add i32 %76, 1
   store i32 %77, ptr %15, align 8
@@ -739,8 +739,8 @@ add_indent.exit:                                  ; preds = %28, %44
   br label %80
 
 80:                                               ; preds = %71, %70
-  %81 = shl i32 %.085, 2
-  call void @appendStringInfoSpaces(ptr noundef nonnull %.092, i32 noundef %81) #11
+  %81 = shl i32 %.086, 2
+  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %81) #11
   br label %add_indent.exit102
 
 add_indent.exit102:                               ; preds = %64, %80
@@ -751,15 +751,15 @@ add_indent.exit102:                               ; preds = %64, %80
   br i1 %.not99, label %86, label %85
 
 85:                                               ; preds = %add_indent.exit102
-  call void @appendStringInfoChar(ptr noundef nonnull %.092, i8 noundef signext 123) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 123) #11
   br label %95
 
 86:                                               ; preds = %add_indent.exit102
-  %87 = load ptr, ptr %.092, align 8
+  %87 = load ptr, ptr %.083, align 8
   %88 = sext i32 %82 to i64
   %89 = getelementptr i8, ptr %87, i64 %88
   store i8 123, ptr %89, align 1
-  %90 = load ptr, ptr %.092, align 8
+  %90 = load ptr, ptr %.083, align 8
   %91 = load i32, ptr %15, align 8
   %92 = add i32 %91, 1
   store i32 %92, ptr %15, align 8
@@ -769,15 +769,15 @@ add_indent.exit102:                               ; preds = %64, %80
   br label %95
 
 95:                                               ; preds = %86, %85
-  %96 = add i32 %.085, 1
+  %96 = add i32 %.086, 1
   br label %208
 
 97:                                               ; preds = %.critedge
-  %98 = trunc nuw i8 %.090 to i1
+  %98 = trunc nuw i8 %.091 to i1
   br i1 %98, label %100, label %99
 
 99:                                               ; preds = %97
-  call void @appendBinaryStringInfo(ptr noundef %.092, ptr noundef nonnull @.str.37, i32 noundef %7) #11
+  call void @appendBinaryStringInfo(ptr noundef %.083, ptr noundef nonnull @.str.37, i32 noundef %7) #11
   br label %100
 
 100:                                              ; preds = %99, %97
@@ -791,15 +791,15 @@ add_indent.exit102:                               ; preds = %64, %80
   br i1 %.not.i103, label %106, label %105
 
 105:                                              ; preds = %101
-  call void @appendStringInfoChar(ptr noundef nonnull %.092, i8 noundef signext 10) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 10) #11
   br label %115
 
 106:                                              ; preds = %101
-  %107 = load ptr, ptr %.092, align 8
+  %107 = load ptr, ptr %.083, align 8
   %108 = sext i32 %102 to i64
   %109 = getelementptr i8, ptr %107, i64 %108
   store i8 10, ptr %109, align 1
-  %110 = load ptr, ptr %.092, align 8
+  %110 = load ptr, ptr %.083, align 8
   %111 = load i32, ptr %15, align 8
   %112 = add i32 %111, 1
   store i32 %112, ptr %15, align 8
@@ -809,27 +809,27 @@ add_indent.exit102:                               ; preds = %64, %80
   br label %115
 
 115:                                              ; preds = %106, %105
-  %116 = shl i32 %.085, 2
-  call void @appendStringInfoSpaces(ptr noundef nonnull %.092, i32 noundef %116) #11
+  %116 = shl i32 %.086, 2
+  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %116) #11
   br label %add_indent.exit104
 
 add_indent.exit104:                               ; preds = %100, %115
-  call fastcc void @jsonb_put_escaped_value(ptr noundef %.092, ptr noundef nonnull %6)
-  call void @appendBinaryStringInfo(ptr noundef %.092, ptr noundef nonnull @.str.38, i32 noundef 2) #11
+  call fastcc void @jsonb_put_escaped_value(ptr noundef %.083, ptr noundef nonnull %6)
+  call void @appendBinaryStringInfo(ptr noundef %.083, ptr noundef nonnull @.str.38, i32 noundef 2) #11
   %117 = call i32 @JsonbIteratorNext(ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext false) #11
   %118 = icmp eq i32 %117, 2
   br i1 %118, label %119, label %208
 
 119:                                              ; preds = %add_indent.exit104
-  call fastcc void @jsonb_put_escaped_value(ptr noundef %.092, ptr noundef nonnull %6)
+  call fastcc void @jsonb_put_escaped_value(ptr noundef %.083, ptr noundef nonnull %6)
   br label %208
 
 120:                                              ; preds = %.critedge
-  %121 = trunc nuw i8 %.090 to i1
+  %121 = trunc nuw i8 %.091 to i1
   br i1 %121, label %123, label %122
 
 122:                                              ; preds = %120
-  call void @appendBinaryStringInfo(ptr noundef %.092, ptr noundef nonnull @.str.37, i32 noundef %7) #11
+  call void @appendBinaryStringInfo(ptr noundef %.083, ptr noundef nonnull @.str.37, i32 noundef %7) #11
   br label %123
 
 123:                                              ; preds = %122, %120
@@ -846,15 +846,15 @@ add_indent.exit104:                               ; preds = %100, %115
   br i1 %.not.i105, label %130, label %129
 
 129:                                              ; preds = %125
-  call void @appendStringInfoChar(ptr noundef nonnull %.092, i8 noundef signext 10) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 10) #11
   br label %139
 
 130:                                              ; preds = %125
-  %131 = load ptr, ptr %.092, align 8
+  %131 = load ptr, ptr %.083, align 8
   %132 = sext i32 %126 to i64
   %133 = getelementptr i8, ptr %131, i64 %132
   store i8 10, ptr %133, align 1
-  %134 = load ptr, ptr %.092, align 8
+  %134 = load ptr, ptr %.083, align 8
   %135 = load i32, ptr %15, align 8
   %136 = add i32 %135, 1
   store i32 %136, ptr %15, align 8
@@ -864,16 +864,16 @@ add_indent.exit104:                               ; preds = %100, %115
   br label %139
 
 139:                                              ; preds = %130, %129
-  %140 = shl i32 %.085, 2
-  call void @appendStringInfoSpaces(ptr noundef nonnull %.092, i32 noundef %140) #11
+  %140 = shl i32 %.086, 2
+  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %140) #11
   br label %add_indent.exit106
 
 add_indent.exit106:                               ; preds = %123, %139
-  call fastcc void @jsonb_put_escaped_value(ptr noundef %.092, ptr noundef nonnull %6)
+  call fastcc void @jsonb_put_escaped_value(ptr noundef %.083, ptr noundef nonnull %6)
   br label %208
 
 141:                                              ; preds = %.critedge
-  %142 = add i32 %.085, -1
+  %142 = add i32 %.086, -1
   %143 = trunc nuw i8 %.081 to i1
   br i1 %143, label %208, label %144
 
@@ -888,15 +888,15 @@ add_indent.exit106:                               ; preds = %123, %139
   br i1 %.not.i107, label %150, label %149
 
 149:                                              ; preds = %145
-  call void @appendStringInfoChar(ptr noundef nonnull %.092, i8 noundef signext 10) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 10) #11
   br label %159
 
 150:                                              ; preds = %145
-  %151 = load ptr, ptr %.092, align 8
+  %151 = load ptr, ptr %.083, align 8
   %152 = sext i32 %146 to i64
   %153 = getelementptr i8, ptr %151, i64 %152
   store i8 10, ptr %153, align 1
-  %154 = load ptr, ptr %.092, align 8
+  %154 = load ptr, ptr %.083, align 8
   %155 = load i32, ptr %15, align 8
   %156 = add i32 %155, 1
   store i32 %156, ptr %15, align 8
@@ -907,7 +907,7 @@ add_indent.exit106:                               ; preds = %123, %139
 
 159:                                              ; preds = %150, %149
   %160 = shl i32 %142, 2
-  call void @appendStringInfoSpaces(ptr noundef nonnull %.092, i32 noundef %160) #11
+  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %160) #11
   br label %add_indent.exit108
 
 add_indent.exit108:                               ; preds = %144, %159
@@ -918,15 +918,15 @@ add_indent.exit108:                               ; preds = %144, %159
   br i1 %.not98, label %165, label %164
 
 164:                                              ; preds = %add_indent.exit108
-  call void @appendStringInfoChar(ptr noundef nonnull %.092, i8 noundef signext 93) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 93) #11
   br label %208
 
 165:                                              ; preds = %add_indent.exit108
-  %166 = load ptr, ptr %.092, align 8
+  %166 = load ptr, ptr %.083, align 8
   %167 = sext i32 %161 to i64
   %168 = getelementptr i8, ptr %166, i64 %167
   store i8 93, ptr %168, align 1
-  %169 = load ptr, ptr %.092, align 8
+  %169 = load ptr, ptr %.083, align 8
   %170 = load i32, ptr %15, align 8
   %171 = add i32 %170, 1
   store i32 %171, ptr %15, align 8
@@ -936,7 +936,7 @@ add_indent.exit108:                               ; preds = %144, %159
   br label %208
 
 174:                                              ; preds = %.critedge
-  %175 = add i32 %.085, -1
+  %175 = add i32 %.086, -1
   br i1 %.082, label %176, label %add_indent.exit110
 
 176:                                              ; preds = %174
@@ -947,15 +947,15 @@ add_indent.exit108:                               ; preds = %144, %159
   br i1 %.not.i109, label %181, label %180
 
 180:                                              ; preds = %176
-  call void @appendStringInfoChar(ptr noundef nonnull %.092, i8 noundef signext 10) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 10) #11
   br label %190
 
 181:                                              ; preds = %176
-  %182 = load ptr, ptr %.092, align 8
+  %182 = load ptr, ptr %.083, align 8
   %183 = sext i32 %177 to i64
   %184 = getelementptr i8, ptr %182, i64 %183
   store i8 10, ptr %184, align 1
-  %185 = load ptr, ptr %.092, align 8
+  %185 = load ptr, ptr %.083, align 8
   %186 = load i32, ptr %15, align 8
   %187 = add i32 %186, 1
   store i32 %187, ptr %15, align 8
@@ -966,7 +966,7 @@ add_indent.exit108:                               ; preds = %144, %159
 
 190:                                              ; preds = %181, %180
   %191 = shl i32 %175, 2
-  call void @appendStringInfoSpaces(ptr noundef nonnull %.092, i32 noundef %191) #11
+  call void @appendStringInfoSpaces(ptr noundef nonnull %.083, i32 noundef %191) #11
   br label %add_indent.exit110
 
 add_indent.exit110:                               ; preds = %174, %190
@@ -977,15 +977,15 @@ add_indent.exit110:                               ; preds = %174, %190
   br i1 %.not97, label %196, label %195
 
 195:                                              ; preds = %add_indent.exit110
-  call void @appendStringInfoChar(ptr noundef nonnull %.092, i8 noundef signext 125) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %.083, i8 noundef signext 125) #11
   br label %208
 
 196:                                              ; preds = %add_indent.exit110
-  %197 = load ptr, ptr %.092, align 8
+  %197 = load ptr, ptr %.083, align 8
   %198 = sext i32 %192 to i64
   %199 = getelementptr i8, ptr %197, i64 %198
   store i8 125, ptr %199, align 1
-  %200 = load ptr, ptr %.092, align 8
+  %200 = load ptr, ptr %.083, align 8
   %201 = load i32, ptr %15, align 8
   %202 = add i32 %201, 1
   store i32 %202, ptr %15, align 8
@@ -1002,16 +1002,16 @@ add_indent.exit110:                               ; preds = %174, %190
   unreachable
 
 208:                                              ; preds = %195, %196, %141, %165, %164, %add_indent.exit104, %119, %add_indent.exit106, %95, %59
-  %.191 = phi i8 [ 0, %add_indent.exit106 ], [ 0, %119 ], [ 1, %95 ], [ 1, %59 ], [ 1, %add_indent.exit104 ], [ 0, %164 ], [ 0, %165 ], [ 0, %141 ], [ 0, %196 ], [ 0, %195 ]
-  %.289 = phi i32 [ 3, %add_indent.exit106 ], [ 2, %119 ], [ 6, %95 ], [ 4, %59 ], [ %117, %add_indent.exit104 ], [ 5, %164 ], [ 5, %165 ], [ 5, %141 ], [ 7, %196 ], [ 7, %195 ]
-  %.186 = phi i32 [ %.085, %add_indent.exit106 ], [ %.085, %119 ], [ %96, %95 ], [ %60, %59 ], [ %.085, %add_indent.exit104 ], [ %142, %164 ], [ %142, %165 ], [ %142, %141 ], [ %175, %196 ], [ %175, %195 ]
-  %.184 = phi i8 [ 0, %add_indent.exit106 ], [ 0, %119 ], [ 0, %95 ], [ 0, %59 ], [ 1, %add_indent.exit104 ], [ 0, %164 ], [ 0, %165 ], [ 0, %141 ], [ 0, %196 ], [ 0, %195 ]
+  %.192 = phi i8 [ 0, %add_indent.exit106 ], [ 0, %119 ], [ 1, %95 ], [ 1, %59 ], [ 1, %add_indent.exit104 ], [ 0, %164 ], [ 0, %165 ], [ 0, %141 ], [ 0, %196 ], [ 0, %195 ]
+  %.290 = phi i32 [ 3, %add_indent.exit106 ], [ 2, %119 ], [ 6, %95 ], [ 4, %59 ], [ %117, %add_indent.exit104 ], [ 5, %164 ], [ 5, %165 ], [ 5, %141 ], [ 7, %196 ], [ 7, %195 ]
+  %.187 = phi i32 [ %.086, %add_indent.exit106 ], [ %.086, %119 ], [ %96, %95 ], [ %60, %59 ], [ %.086, %add_indent.exit104 ], [ %142, %164 ], [ %142, %165 ], [ %142, %141 ], [ %175, %196 ], [ %175, %195 ]
+  %.185 = phi i8 [ 0, %add_indent.exit106 ], [ 0, %119 ], [ 0, %95 ], [ 0, %59 ], [ 1, %add_indent.exit104 ], [ 0, %164 ], [ 0, %165 ], [ 0, %141 ], [ 0, %196 ], [ 0, %195 ]
   %.2 = phi i8 [ %.081, %add_indent.exit106 ], [ %.081, %119 ], [ %.081, %95 ], [ %.1, %59 ], [ %.081, %add_indent.exit104 ], [ %.081, %164 ], [ %.081, %165 ], [ %.081, %141 ], [ %.081, %196 ], [ %.081, %195 ]
-  %209 = trunc nuw i8 %.184 to i1
+  %209 = trunc nuw i8 %.185 to i1
   br label %18, !llvm.loop !8
 
 210:                                              ; preds = %20
-  %211 = load ptr, ptr %.092, align 8
+  %211 = load ptr, ptr %.083, align 8
   ret ptr %211
 }
 
@@ -2481,7 +2481,7 @@ define internal fastcc i64 @jsonb_agg_transfn_worker(ptr noundef %0, i1 noundef 
   br label %37
 
 37:                                               ; preds = %32, %23
-  %.044 = phi ptr [ %27, %23 ], [ %36, %32 ]
+  %.043 = phi ptr [ %27, %23 ], [ %36, %32 ]
   %.042 = phi ptr [ %26, %23 ], [ %35, %32 ]
   %38 = getelementptr i8, ptr %0, i64 56
   %39 = load i8, ptr %38, align 8
@@ -2519,12 +2519,12 @@ define internal fastcc i64 @jsonb_agg_transfn_worker(ptr noundef %0, i1 noundef 
   store ptr %58, ptr %5, align 8
   %59 = getelementptr inbounds i8, ptr %6, i64 8
   %60 = getelementptr inbounds i8, ptr %6, i64 16
-  %61 = getelementptr inbounds i8, ptr %.044, i64 8
+  %61 = getelementptr inbounds i8, ptr %.043, i64 8
   %62 = getelementptr inbounds i8, ptr %6, i64 24
   br label %63
 
 63:                                               ; preds = %.backedge, %46
-  %.043 = phi i1 [ false, %46 ], [ %.043.be, %.backedge ]
+  %.044 = phi i1 [ false, %46 ], [ %.044.be, %.backedge ]
   %64 = call i32 @JsonbIteratorNext(ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext false) #11
   switch i32 %64, label %95 [
     i32 0, label %98
@@ -2543,18 +2543,18 @@ define internal fastcc i64 @jsonb_agg_transfn_worker(ptr noundef %0, i1 noundef 
   br i1 %67, label %.backedge, label %68
 
 68:                                               ; preds = %65
-  %69 = call ptr @pushJsonbValue(ptr noundef %.044, i32 noundef 4, ptr noundef null) #11
+  %69 = call ptr @pushJsonbValue(ptr noundef %.043, i32 noundef 4, ptr noundef null) #11
   br label %.sink.split
 
 70:                                               ; preds = %63
-  br i1 %.043, label %.backedge, label %71
+  br i1 %.044, label %.backedge, label %71
 
 71:                                               ; preds = %70
-  %72 = call ptr @pushJsonbValue(ptr noundef %.044, i32 noundef 5, ptr noundef null) #11
+  %72 = call ptr @pushJsonbValue(ptr noundef %.043, i32 noundef 5, ptr noundef null) #11
   br label %.sink.split
 
 73:                                               ; preds = %63, %63
-  %74 = call ptr @pushJsonbValue(ptr noundef %.044, i32 noundef %64, ptr noundef null) #11
+  %74 = call ptr @pushJsonbValue(ptr noundef %.043, i32 noundef %64, ptr noundef null) #11
   br label %.sink.split
 
 75:                                               ; preds = %63, %63, %63
@@ -2587,7 +2587,7 @@ define internal fastcc i64 @jsonb_agg_transfn_worker(ptr noundef %0, i1 noundef 
   br label %93
 
 93:                                               ; preds = %75, %87, %77
-  %94 = call ptr @pushJsonbValue(ptr noundef %.044, i32 noundef %64, ptr noundef nonnull %6) #11
+  %94 = call ptr @pushJsonbValue(ptr noundef %.043, i32 noundef %64, ptr noundef nonnull %6) #11
   br label %.sink.split
 
 95:                                               ; preds = %63
@@ -2599,12 +2599,12 @@ define internal fastcc i64 @jsonb_agg_transfn_worker(ptr noundef %0, i1 noundef 
 
 .sink.split:                                      ; preds = %73, %93, %68, %71
   %.sink = phi ptr [ %72, %71 ], [ %69, %68 ], [ %94, %93 ], [ %74, %73 ]
-  %.1.ph = phi i1 [ false, %71 ], [ %.043, %68 ], [ %.043, %93 ], [ %.043, %73 ]
+  %.1.ph = phi i1 [ false, %71 ], [ %.044, %68 ], [ %.044, %93 ], [ %.044, %73 ]
   store ptr %.sink, ptr %61, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %65, %70
-  %.043.be = phi i1 [ true, %70 ], [ true, %65 ], [ %.1.ph, %.sink.split ]
+  %.044.be = phi i1 [ true, %70 ], [ true, %65 ], [ %.1.ph, %.sink.split ]
   br label %63, !llvm.loop !16
 
 98:                                               ; preds = %63
@@ -2807,8 +2807,8 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   br label %54
 
 54:                                               ; preds = %49, %46
-  %.072 = phi ptr [ %21, %46 ], [ %52, %49 ]
   %.071 = phi ptr [ %22, %46 ], [ %53, %49 ]
+  %.070 = phi ptr [ %21, %46 ], [ %52, %49 ]
   %55 = getelementptr i8, ptr %0, i64 48
   %56 = getelementptr i8, ptr %0, i64 56
   %57 = load i8, ptr %56, align 8
@@ -2838,9 +2838,9 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   %68 = phi i1 [ %67, %64 ], [ false, %63 ]
   %69 = load i64, ptr %55, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %70 = getelementptr inbounds i8, ptr %.072, i64 8
+  %70 = getelementptr inbounds i8, ptr %.070, i64 8
   %71 = load i32, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.072, i64 12
+  %72 = getelementptr inbounds i8, ptr %.070, i64 12
   %73 = load i32, ptr %72, align 4
   call fastcc void @datum_to_jsonb_internal(i64 noundef %69, i1 noundef zeroext false, ptr noundef nonnull %5, i32 noundef %71, i32 noundef %73, i1 noundef zeroext true)
   %74 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2859,9 +2859,9 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
 83:                                               ; preds = %.thread, %80
   %84 = phi i64 [ %82, %80 ], [ 0, %.thread ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %85 = getelementptr inbounds i8, ptr %.072, i64 16
+  %85 = getelementptr inbounds i8, ptr %.070, i64 16
   %86 = load i32, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %.072, i64 20
+  %87 = getelementptr inbounds i8, ptr %.070, i64 20
   %88 = load i32, ptr %87, align 4
   call fastcc void @datum_to_jsonb_internal(i64 noundef %84, i1 noundef zeroext %79, ptr noundef nonnull %5, i32 noundef %86, i32 noundef %88, i1 noundef zeroext false)
   %89 = load ptr, ptr %74, align 8
@@ -2985,7 +2985,7 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   br label %.outer
 
 .outer:                                           ; preds = %146, %.split86.us
-  %.070.ph = phi i1 [ false, %.split86.us ], [ true, %146 ]
+  %.072.ph = phi i1 [ false, %.split86.us ], [ true, %146 ]
   br label %144
 
 144:                                              ; preds = %.backedge, %.outer
@@ -3011,7 +3011,7 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   br label %.sink.split
 
 151:                                              ; preds = %144
-  br i1 %.070.ph, label %.backedge, label %152
+  br i1 %.072.ph, label %.backedge, label %152
 
 152:                                              ; preds = %151
   %153 = call ptr @pushJsonbValue(ptr noundef %.071, i32 noundef 5, ptr noundef null) #11
@@ -3051,7 +3051,7 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   br label %174
 
 174:                                              ; preds = %156, %168, %158
-  %175 = select i1 %.070.ph, i32 2, i32 %145
+  %175 = select i1 %.072.ph, i32 2, i32 %145
   %176 = call ptr @pushJsonbValue(ptr noundef %.071, i32 noundef %175, ptr noundef nonnull %7) #11
   br label %.sink.split
 
@@ -3075,7 +3075,7 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   br label %180
 
 180:                                              ; preds = %.sink.split99, %64
-  %.0 = ptrtoint ptr %.072 to i64
+  %.0 = ptrtoint ptr %.070 to i64
   ret i64 %.0
 }
 

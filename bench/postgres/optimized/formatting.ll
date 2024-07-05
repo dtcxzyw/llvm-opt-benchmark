@@ -5605,7 +5605,7 @@ NUM_prepare_locale.exit:                          ; preds = %89, %123, %125
   %.sroa.115.1 = phi ptr [ %spec.select649, %.lr.ph ], [ %.sroa.115.6, %NUM_numpart_to_char.exit ]
   %.sroa.147.0 = phi ptr [ %2, %.lr.ph ], [ %.sroa.147.20, %NUM_numpart_to_char.exit ]
   %156 = phi i8 [ %126, %.lr.ph ], [ %636, %NUM_numpart_to_char.exit ]
-  %.0252414 = phi ptr [ %0, %.lr.ph ], [ %635, %NUM_numpart_to_char.exit ]
+  %.0251414 = phi ptr [ %0, %.lr.ph ], [ %635, %NUM_numpart_to_char.exit ]
   br i1 %7, label %158, label %157
 
 157:                                              ; preds = %155
@@ -5621,7 +5621,7 @@ NUM_prepare_locale.exit:                          ; preds = %89, %123, %125
   br i1 %160, label %161, label %630
 
 161:                                              ; preds = %.thread396, %158
-  %162 = getelementptr inbounds i8, ptr %.0252414, i64 8
+  %162 = getelementptr inbounds i8, ptr %.0251414, i64 8
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 12
   %165 = load i32, ptr %164, align 4
@@ -6655,7 +6655,7 @@ asc_tolower_z.exit344:                            ; preds = %.lr.ph.i.i340, %514
   br label %NUM_numpart_to_char.exit
 
 625:                                              ; preds = %158
-  %626 = getelementptr inbounds i8, ptr %.0252414, i64 1
+  %626 = getelementptr inbounds i8, ptr %.0251414, i64 1
   %627 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.sroa.147.0, ptr noundef nonnull dereferenceable(1) %626) #18
   %628 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.147.0) #20
   %629 = getelementptr i8, ptr %.sroa.147.0, i64 %628
@@ -6685,7 +6685,7 @@ NUM_numpart_to_char.exit:                         ; preds = %568, %563, %.prehea
   %.sroa.92.3 = phi i32 [ %.sroa.92.0, %161 ], [ %.sroa.92.2, %NUM_numpart_from_char.exit ], [ %.sroa.92.0, %595 ], [ %.sroa.92.0, %576 ], [ %.sroa.92.0, %553 ], [ %.sroa.92.0, %550 ], [ %.sroa.92.0, %530 ], [ %.sroa.92.0, %527 ], [ %.sroa.92.0, %471 ], [ %.sroa.92.0, %436 ], [ %.sroa.92.0, %454 ], [ %.sroa.92.0, %458 ], [ %.sroa.92.0, %451 ], [ %.sroa.92.0, %421 ], [ %.sroa.92.0, %430 ], [ %.sroa.92.0, %427 ], [ %.sroa.92.0, %167 ], [ %.sroa.92.0, %625 ], [ %.sroa.92.0, %630 ], [ %.sroa.92.0, %._crit_edge633 ], [ %.sroa.92.0, %273 ], [ %.sroa.92.0, %270 ], [ %.sroa.92.0, %268 ], [ %.sroa.92.0, %266 ], [ %.sroa.92.0, %._crit_edge170.i ], [ %.sroa.92.0, %588 ], [ %.sroa.92.0, %.preheader ], [ %.sroa.92.0, %584 ], [ %.sroa.92.0, %607 ], [ %.sroa.92.0, %.preheader419 ], [ %.sroa.92.0, %603 ], [ %.sroa.92.0, %621 ], [ %.sroa.92.0, %.preheader421 ], [ %.sroa.92.0, %617 ], [ %.sroa.92.0, %.lr.ph.i ], [ %.sroa.92.0, %475 ], [ %.sroa.92.0, %480 ], [ %.sroa.92.0, %.preheader1 ], [ %.sroa.92.0, %540 ], [ %.sroa.92.0, %545 ], [ %.sroa.92.0, %.preheader4 ], [ %.sroa.92.0, %563 ], [ %.sroa.92.0, %568 ]
   %.sroa.115.6 = phi ptr [ %.sroa.115.1, %161 ], [ %.sroa.115.5, %NUM_numpart_from_char.exit ], [ %.sroa.115.1, %595 ], [ %.sroa.115.1, %576 ], [ %.sroa.115.1, %553 ], [ %.sroa.115.1, %550 ], [ %.sroa.115.1, %530 ], [ %.sroa.115.1, %527 ], [ %.sroa.115.1, %471 ], [ %.sroa.115.1, %436 ], [ %.sroa.115.1, %454 ], [ %.sroa.115.1, %458 ], [ %.sroa.115.1, %451 ], [ %.sroa.115.1, %421 ], [ %.sroa.115.1, %430 ], [ %.sroa.115.1, %427 ], [ %.sroa.115.1, %167 ], [ %.sroa.115.1, %625 ], [ %.sroa.115.1, %630 ], [ %.sroa.115.1, %._crit_edge633 ], [ %.sroa.115.2, %273 ], [ %.sroa.115.2, %270 ], [ %.sroa.115.2, %268 ], [ %.sroa.115.2, %266 ], [ %.sroa.115.2, %._crit_edge170.i ], [ %.sroa.115.1, %588 ], [ %.sroa.115.1, %.preheader ], [ %.sroa.115.1, %584 ], [ %.sroa.115.1, %607 ], [ %.sroa.115.1, %.preheader419 ], [ %.sroa.115.1, %603 ], [ %.sroa.115.1, %621 ], [ %.sroa.115.1, %.preheader421 ], [ %.sroa.115.1, %617 ], [ %.sroa.115.1, %.lr.ph.i ], [ %.sroa.115.1, %475 ], [ %.sroa.115.1, %480 ], [ %.sroa.115.1, %.preheader1 ], [ %.sroa.115.1, %540 ], [ %.sroa.115.1, %545 ], [ %.sroa.115.1, %.preheader4 ], [ %.sroa.115.1, %563 ], [ %.sroa.115.1, %568 ]
   %.sroa.147.20 = phi ptr [ %.sroa.147.0, %161 ], [ %634, %NUM_numpart_from_char.exit ], [ %.sroa.147.0, %595 ], [ %.sroa.147.0, %576 ], [ %.sroa.147.0, %553 ], [ %.sroa.147.0, %550 ], [ %.sroa.147.0, %530 ], [ %.sroa.147.0, %527 ], [ %.sroa.147.0, %471 ], [ %.sroa.147.0, %436 ], [ %.sroa.147.0, %454 ], [ %.sroa.147.0, %458 ], [ %.sroa.147.0, %451 ], [ %.sroa.147.0, %421 ], [ %.sroa.147.0, %430 ], [ %.sroa.147.0, %427 ], [ %.sroa.147.0, %167 ], [ %629, %625 ], [ %633, %630 ], [ %.sroa.147.2, %._crit_edge633 ], [ %276, %273 ], [ %.sroa.147.4, %270 ], [ %.sroa.147.4, %268 ], [ %267, %266 ], [ %.sroa.147.4, %._crit_edge170.i ], [ %591, %588 ], [ %.sroa.147.0, %.preheader ], [ %.sroa.147.0, %584 ], [ %610, %607 ], [ %.sroa.147.0, %.preheader419 ], [ %.sroa.147.0, %603 ], [ %624, %621 ], [ %.sroa.147.0, %.preheader421 ], [ %.sroa.147.0, %617 ], [ %483, %480 ], [ %.sroa.147.10, %475 ], [ %.sroa.147.10, %.lr.ph.i ], [ %548, %545 ], [ %.sroa.147.11, %540 ], [ %.sroa.147.11, %.preheader1 ], [ %571, %568 ], [ %.sroa.147.12, %563 ], [ %.sroa.147.12, %.preheader4 ]
-  %635 = getelementptr i8, ptr %.0252414, i64 16
+  %635 = getelementptr i8, ptr %.0251414, i64 16
   %636 = load i8, ptr %635, align 8
   %.not273 = icmp eq i8 %636, 1
   br i1 %.not273, label %._crit_edge, label %155, !llvm.loop !27
@@ -6888,8 +6888,8 @@ define dso_local i64 @numeric_to_char(ptr nocapture noundef readonly %0) local_u
   br label %110
 
 110:                                              ; preds = %92, %90
-  %.060 = phi ptr [ %107, %92 ], [ %7, %90 ]
-  %111 = ptrtoint ptr %.060 to i64
+  %.062 = phi ptr [ %107, %92 ], [ %7, %90 ]
+  %111 = ptrtoint ptr %.062 to i64
   %112 = getelementptr inbounds i8, ptr %2, i64 4
   %113 = load i32, ptr %112, align 4
   %114 = sext i32 %113 to i64
@@ -6901,36 +6901,36 @@ define dso_local i64 @numeric_to_char(ptr nocapture noundef readonly %0) local_u
   %120 = inttoptr i64 %119 to ptr
   %121 = load i8, ptr %120, align 1
   %122 = icmp eq i8 %121, 45
-  %.063 = select i1 %122, i32 45, i32 43
-  %.062.idx = zext i1 %122 to i64
-  %.062 = getelementptr i8, ptr %120, i64 %.062.idx
-  %123 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.062, i32 noundef 46) #20
+  %.064.idx = zext i1 %122 to i64
+  %.064 = getelementptr i8, ptr %120, i64 %.064.idx
+  %.061 = select i1 %122, i32 45, i32 43
+  %123 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.064, i32 noundef 46) #20
   %.not75 = icmp eq ptr %123, null
   br i1 %.not75, label %128, label %124
 
 124:                                              ; preds = %110
   %125 = ptrtoint ptr %123 to i64
-  %126 = ptrtoint ptr %.062 to i64
+  %126 = ptrtoint ptr %.064 to i64
   %127 = sub i64 %125, %126
   br label %130
 
 128:                                              ; preds = %110
-  %129 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.062) #20
+  %129 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.064) #20
   br label %130
 
 130:                                              ; preds = %128, %124
-  %.061.in = phi i64 [ %127, %124 ], [ %129, %128 ]
-  %.061 = trunc i64 %.061.in to i32
+  %.063.in = phi i64 [ %127, %124 ], [ %129, %128 ]
+  %.063 = trunc i64 %.063.in to i32
   %131 = load i32, ptr %2, align 4
-  %132 = icmp sgt i32 %131, %.061
+  %132 = icmp sgt i32 %131, %.063
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %130
-  %134 = sub i32 %131, %.061
+  %134 = sub i32 %131, %.063
   br label %147
 
 135:                                              ; preds = %130
-  %136 = icmp slt i32 %131, %.061
+  %136 = icmp slt i32 %131, %.063
   br i1 %136, label %137, label %147
 
 137:                                              ; preds = %135
@@ -6949,11 +6949,11 @@ define dso_local i64 @numeric_to_char(ptr nocapture noundef readonly %0) local_u
   br label %147
 
 147:                                              ; preds = %82, %47, %133, %137, %135, %70, %84
-  %.065 = phi i32 [ 0, %47 ], [ 0, %70 ], [ 0, %84 ], [ %134, %133 ], [ 0, %137 ], [ 0, %135 ], [ 0, %82 ]
-  %.164 = phi i32 [ 0, %47 ], [ 0, %70 ], [ 0, %84 ], [ %.063, %133 ], [ %.063, %137 ], [ %.063, %135 ], [ 0, %82 ]
-  %.1 = phi ptr [ %55, %47 ], [ %75, %70 ], [ %87, %84 ], [ %.062, %133 ], [ %141, %137 ], [ %.062, %135 ], [ %61, %82 ]
+  %.165 = phi ptr [ %55, %47 ], [ %75, %70 ], [ %87, %84 ], [ %.064, %133 ], [ %141, %137 ], [ %.064, %135 ], [ %61, %82 ]
+  %.1 = phi i32 [ 0, %47 ], [ 0, %70 ], [ 0, %84 ], [ %.061, %133 ], [ %.061, %137 ], [ %.061, %135 ], [ 0, %82 ]
+  %.060 = phi i32 [ 0, %47 ], [ 0, %70 ], [ 0, %84 ], [ %134, %133 ], [ 0, %137 ], [ 0, %135 ], [ 0, %82 ]
   %148 = getelementptr inbounds i8, ptr %42, i64 4
-  call fastcc void @NUM_processor(ptr noundef %43, ptr noundef nonnull %2, ptr noundef nonnull %148, ptr noundef %.1, i32 noundef 0, i32 noundef %.065, i32 noundef %.164, i1 noundef zeroext true)
+  call fastcc void @NUM_processor(ptr noundef %43, ptr noundef nonnull %2, ptr noundef nonnull %148, ptr noundef %.165, i32 noundef 0, i32 noundef %.060, i32 noundef %.1, i1 noundef zeroext true)
   %149 = load i8, ptr %3, align 1
   %150 = trunc i8 %149 to i1
   br i1 %150, label %151, label %152
@@ -6995,42 +6995,42 @@ define internal fastcc noundef ptr @int_to_roman(i32 noundef %0) unnamed_addr #0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %3, i8 35, i64 15, i1 false)
   %6 = getelementptr i8, ptr %3, i64 15
   store i8 0, ptr %6, align 1
-  br label %.loopexit32
+  br label %.loopexit31
 
 7:                                                ; preds = %1
   %8 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 12, ptr noundef nonnull @.str.175, i32 noundef %0) #18
   %9 = load i8, ptr %2, align 1
-  %.not35 = icmp eq i8 %9, 0
-  br i1 %.not35, label %.loopexit32, label %.lr.ph38
+  %.not34 = icmp eq i8 %9, 0
+  br i1 %.not34, label %.loopexit31, label %.lr.ph37
 
-.lr.ph38:                                         ; preds = %7, %.loopexit
+.lr.ph37:                                         ; preds = %7, %.loopexit
   %10 = phi i8 [ %26, %.loopexit ], [ %9, %7 ]
-  %.037 = phi ptr [ %24, %.loopexit ], [ %2, %7 ]
-  %.02636 = phi i32 [ %25, %.loopexit ], [ %8, %7 ]
+  %.02536 = phi ptr [ %24, %.loopexit ], [ %2, %7 ]
+  %.02735 = phi i32 [ %25, %.loopexit ], [ %8, %7 ]
   %11 = sext i8 %10 to i32
   %12 = add nsw i32 %11, -49
   %13 = icmp slt i8 %10, 49
   br i1 %13, label %.loopexit, label %14
 
-14:                                               ; preds = %.lr.ph38
-  %15 = icmp sgt i32 %.02636, 3
+14:                                               ; preds = %.lr.ph37
+  %15 = icmp sgt i32 %.02735, 3
   br i1 %15, label %.preheader, label %17
 
 .preheader:                                       ; preds = %14
-  %.not3133 = icmp eq i32 %12, -1
-  br i1 %.not3133, label %.loopexit, label %.lr.ph
+  %.not3032 = icmp eq i32 %12, -1
+  br i1 %.not3032, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.02534 = phi i32 [ %16, %.lr.ph ], [ %12, %.preheader ]
-  %16 = add nsw i32 %.02534, -1
+  %.02633 = phi i32 [ %16, %.lr.ph ], [ %12, %.preheader ]
+  %16 = add nsw i32 %.02633, -1
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %3)
   %endptr = getelementptr inbounds i8, ptr %3, i64 %strlen
   store i16 77, ptr %endptr, align 1
-  %.not31 = icmp eq i32 %.02534, 0
-  br i1 %.not31, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  %.not30 = icmp eq i32 %.02633, 0
+  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
 17:                                               ; preds = %14
-  %switch.tableidx = add i32 %.02636, -1
+  %switch.tableidx = add i32 %.02735, -1
   %18 = icmp ult i32 %switch.tableidx, 3
   br i1 %18, label %switch.lookup, label %.loopexit
 
@@ -7044,14 +7044,14 @@ switch.lookup:                                    ; preds = %17
   %23 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %22) #18
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %17, %switch.lookup, %.preheader, %.lr.ph38
-  %24 = getelementptr i8, ptr %.037, i64 1
-  %25 = add i32 %.02636, -1
+.loopexit:                                        ; preds = %.lr.ph, %17, %switch.lookup, %.preheader, %.lr.ph37
+  %24 = getelementptr i8, ptr %.02536, i64 1
+  %25 = add i32 %.02735, -1
   %26 = load i8, ptr %24, align 1
   %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %.loopexit32, label %.lr.ph38, !llvm.loop !29
+  br i1 %.not, label %.loopexit31, label %.lr.ph37, !llvm.loop !29
 
-.loopexit32:                                      ; preds = %.loopexit, %7, %5
+.loopexit31:                                      ; preds = %.loopexit, %7, %5
   ret ptr %3
 }
 
@@ -7189,14 +7189,14 @@ define dso_local i64 @int4_to_char(ptr nocapture noundef readonly %0) local_unna
   br label %74
 
 74:                                               ; preds = %71, %60
-  %.052.in = phi i64 [ %68, %60 ], [ %73, %71 ]
-  %.052 = inttoptr i64 %.052.in to ptr
-  %75 = load i8, ptr %.052, align 1
+  %.056.in = phi i64 [ %68, %60 ], [ %73, %71 ]
+  %.056 = inttoptr i64 %.056.in to ptr
+  %75 = load i8, ptr %.056, align 1
   %76 = icmp eq i8 %75, 45
-  %.055 = select i1 %76, i32 45, i32 43
-  %.1.idx = zext i1 %76 to i64
-  %.1 = getelementptr i8, ptr %.052, i64 %.1.idx
-  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #20
+  %.157.idx = zext i1 %76 to i64
+  %.157 = getelementptr i8, ptr %.056, i64 %.157.idx
+  %.053 = select i1 %76, i32 45, i32 43
+  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.157) #20
   %78 = trunc i64 %77 to i32
   %79 = getelementptr inbounds i8, ptr %2, i64 4
   %80 = load i32, ptr %79, align 4
@@ -7208,7 +7208,7 @@ define dso_local i64 @int4_to_char(ptr nocapture noundef readonly %0) local_unna
   %83 = add i32 %82, %80
   %84 = sext i32 %83 to i64
   %85 = tail call ptr @palloc(i64 noundef %84) #18
-  %86 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(1) %.1) #18
+  %86 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(1) %.157) #18
   %sext = shl i64 %77, 32
   %87 = ashr exact i64 %sext, 32
   %88 = getelementptr i8, ptr %85, i64 %87
@@ -7222,7 +7222,7 @@ define dso_local i64 @int4_to_char(ptr nocapture noundef readonly %0) local_unna
   br label %93
 
 93:                                               ; preds = %74, %81
-  %.053 = phi ptr [ %85, %81 ], [ %.1, %74 ]
+  %.054 = phi ptr [ %85, %81 ], [ %.157, %74 ]
   %94 = load i32, ptr %2, align 4
   %95 = icmp sgt i32 %94, %78
   br i1 %95, label %96, label %98
@@ -7251,11 +7251,11 @@ define dso_local i64 @int4_to_char(ptr nocapture noundef readonly %0) local_unna
   br label %110
 
 110:                                              ; preds = %50, %57, %46, %96, %100, %98
-  %.057 = phi i32 [ 0, %46 ], [ %97, %96 ], [ 0, %100 ], [ 0, %98 ], [ 0, %57 ], [ 0, %50 ]
-  %.156 = phi i32 [ 0, %46 ], [ %.055, %96 ], [ %.055, %100 ], [ %.055, %98 ], [ 0, %57 ], [ 0, %50 ]
-  %.154 = phi ptr [ %47, %46 ], [ %.053, %96 ], [ %104, %100 ], [ %.053, %98 ], [ %54, %57 ], [ %54, %50 ]
+  %.155 = phi ptr [ %47, %46 ], [ %.054, %96 ], [ %104, %100 ], [ %.054, %98 ], [ %54, %57 ], [ %54, %50 ]
+  %.1 = phi i32 [ 0, %46 ], [ %.053, %96 ], [ %.053, %100 ], [ %.053, %98 ], [ 0, %57 ], [ 0, %50 ]
+  %.052 = phi i32 [ 0, %46 ], [ %97, %96 ], [ 0, %100 ], [ 0, %98 ], [ 0, %57 ], [ 0, %50 ]
   %111 = getelementptr inbounds i8, ptr %41, i64 4
-  call fastcc void @NUM_processor(ptr noundef %42, ptr noundef nonnull %2, ptr noundef nonnull %111, ptr noundef %.154, i32 noundef 0, i32 noundef %.057, i32 noundef %.156, i1 noundef zeroext true)
+  call fastcc void @NUM_processor(ptr noundef %42, ptr noundef nonnull %2, ptr noundef nonnull %111, ptr noundef %.155, i32 noundef 0, i32 noundef %.052, i32 noundef %.1, i1 noundef zeroext true)
   %112 = load i8, ptr %3, align 1
   %113 = trunc i8 %112 to i1
   br i1 %113, label %114, label %115
@@ -7403,10 +7403,10 @@ define dso_local i64 @int8_to_char(ptr nocapture noundef readonly %0) local_unna
   %77 = inttoptr i64 %76 to ptr
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, 45
-  %.058 = select i1 %79, i32 45, i32 43
-  %.056.idx = zext i1 %79 to i64
-  %.056 = getelementptr i8, ptr %77, i64 %.056.idx
-  %80 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.056) #20
+  %.058.idx = zext i1 %79 to i64
+  %.058 = getelementptr i8, ptr %77, i64 %.058.idx
+  %.057 = select i1 %79, i32 45, i32 43
+  %80 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.058) #20
   %81 = trunc i64 %80 to i32
   %82 = getelementptr inbounds i8, ptr %2, i64 4
   %83 = load i32, ptr %82, align 4
@@ -7418,7 +7418,7 @@ define dso_local i64 @int8_to_char(ptr nocapture noundef readonly %0) local_unna
   %86 = add i32 %85, %83
   %87 = sext i32 %86 to i64
   %88 = tail call ptr @palloc(i64 noundef %87) #18
-  %89 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) %.056) #18
+  %89 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) %.058) #18
   %sext = shl i64 %80, 32
   %90 = ashr exact i64 %sext, 32
   %91 = getelementptr i8, ptr %88, i64 %90
@@ -7432,7 +7432,7 @@ define dso_local i64 @int8_to_char(ptr nocapture noundef readonly %0) local_unna
   br label %96
 
 96:                                               ; preds = %75, %84
-  %.057 = phi ptr [ %88, %84 ], [ %.056, %75 ]
+  %.059 = phi ptr [ %88, %84 ], [ %.058, %75 ]
   %97 = load i32, ptr %2, align 4
   %98 = icmp sgt i32 %97, %81
   br i1 %98, label %99, label %101
@@ -7461,11 +7461,11 @@ define dso_local i64 @int8_to_char(ptr nocapture noundef readonly %0) local_unna
   br label %113
 
 113:                                              ; preds = %51, %45, %99, %103, %101, %57
-  %.060 = phi i32 [ 0, %45 ], [ 0, %57 ], [ %100, %99 ], [ 0, %103 ], [ 0, %101 ], [ 0, %51 ]
-  %.159 = phi i32 [ 0, %45 ], [ 0, %57 ], [ %.058, %99 ], [ %.058, %103 ], [ %.058, %101 ], [ 0, %51 ]
-  %.1 = phi ptr [ %48, %45 ], [ %60, %57 ], [ %.057, %99 ], [ %107, %103 ], [ %.057, %101 ], [ %55, %51 ]
+  %.160 = phi ptr [ %48, %45 ], [ %60, %57 ], [ %.059, %99 ], [ %107, %103 ], [ %.059, %101 ], [ %55, %51 ]
+  %.1 = phi i32 [ 0, %45 ], [ 0, %57 ], [ %.057, %99 ], [ %.057, %103 ], [ %.057, %101 ], [ 0, %51 ]
+  %.056 = phi i32 [ 0, %45 ], [ 0, %57 ], [ %100, %99 ], [ 0, %103 ], [ 0, %101 ], [ 0, %51 ]
   %114 = getelementptr inbounds i8, ptr %40, i64 4
-  call fastcc void @NUM_processor(ptr noundef %41, ptr noundef nonnull %2, ptr noundef nonnull %114, ptr noundef %.1, i32 noundef 0, i32 noundef %.060, i32 noundef %.159, i1 noundef zeroext true)
+  call fastcc void @NUM_processor(ptr noundef %41, ptr noundef nonnull %2, ptr noundef nonnull %114, ptr noundef %.160, i32 noundef 0, i32 noundef %.056, i32 noundef %.1, i1 noundef zeroext true)
   %115 = load i8, ptr %3, align 1
   %116 = trunc i8 %115 to i1
   br i1 %116, label %117, label %118
@@ -7630,8 +7630,8 @@ define dso_local i64 @float4_to_char(ptr nocapture noundef readonly %0) local_un
   br label %88
 
 88:                                               ; preds = %79, %77
-  %.057 = phi float [ %85, %79 ], [ %7, %77 ]
-  %89 = fpext float %.057 to double
+  %.058 = phi float [ %85, %79 ], [ %7, %77 ]
+  %89 = fpext float %.058 to double
   %90 = tail call double @llvm.fabs.f64(double %89)
   %91 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.21, double noundef %90) #18
   %92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #20
@@ -7660,36 +7660,36 @@ define dso_local i64 @float4_to_char(ptr nocapture noundef readonly %0) local_un
   %104 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.22, i32 noundef %103, double noundef %89) #18
   %105 = load i8, ptr %104, align 1
   %106 = icmp eq i8 %105, 45
+  %.060.idx = zext i1 %106 to i64
+  %.060 = getelementptr i8, ptr %104, i64 %.060.idx
   %.059 = select i1 %106, i32 45, i32 43
-  %.058.idx = zext i1 %106 to i64
-  %.058 = getelementptr i8, ptr %104, i64 %.058.idx
-  %107 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.058, i32 noundef 46) #20
+  %107 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.060, i32 noundef 46) #20
   %.not72 = icmp eq ptr %107, null
   br i1 %.not72, label %112, label %108
 
 108:                                              ; preds = %102
   %109 = ptrtoint ptr %107 to i64
-  %110 = ptrtoint ptr %.058 to i64
+  %110 = ptrtoint ptr %.060 to i64
   %111 = sub i64 %109, %110
   br label %114
 
 112:                                              ; preds = %102
-  %113 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.058) #20
+  %113 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.060) #20
   br label %114
 
 114:                                              ; preds = %112, %108
-  %.056.in = phi i64 [ %111, %108 ], [ %113, %112 ]
-  %.056 = trunc i64 %.056.in to i32
+  %.057.in = phi i64 [ %111, %108 ], [ %113, %112 ]
+  %.057 = trunc i64 %.057.in to i32
   %115 = load i32, ptr %2, align 4
-  %116 = icmp sgt i32 %115, %.056
+  %116 = icmp sgt i32 %115, %.057
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %114
-  %118 = sub i32 %115, %.056
+  %118 = sub i32 %115, %.057
   br label %131
 
 119:                                              ; preds = %114
-  %120 = icmp slt i32 %115, %.056
+  %120 = icmp slt i32 %115, %.057
   br i1 %120, label %121, label %131
 
 121:                                              ; preds = %119
@@ -7708,11 +7708,11 @@ define dso_local i64 @float4_to_char(ptr nocapture noundef readonly %0) local_un
   br label %131
 
 131:                                              ; preds = %47, %117, %121, %119, %55, %76, %69
-  %.061 = phi i32 [ 0, %47 ], [ 0, %55 ], [ 0, %76 ], [ 0, %69 ], [ %118, %117 ], [ 0, %121 ], [ 0, %119 ]
-  %.160 = phi i32 [ 0, %47 ], [ 0, %55 ], [ 0, %76 ], [ 0, %69 ], [ %.059, %117 ], [ %.059, %121 ], [ %.059, %119 ]
-  %.1 = phi ptr [ %50, %47 ], [ %62, %55 ], [ %73, %76 ], [ %73, %69 ], [ %.058, %117 ], [ %125, %121 ], [ %.058, %119 ]
+  %.161 = phi ptr [ %50, %47 ], [ %62, %55 ], [ %73, %76 ], [ %73, %69 ], [ %.060, %117 ], [ %125, %121 ], [ %.060, %119 ]
+  %.1 = phi i32 [ 0, %47 ], [ 0, %55 ], [ 0, %76 ], [ 0, %69 ], [ %.059, %117 ], [ %.059, %121 ], [ %.059, %119 ]
+  %.056 = phi i32 [ 0, %47 ], [ 0, %55 ], [ 0, %76 ], [ 0, %69 ], [ %118, %117 ], [ 0, %121 ], [ 0, %119 ]
   %132 = getelementptr inbounds i8, ptr %42, i64 4
-  call fastcc void @NUM_processor(ptr noundef %43, ptr noundef nonnull %2, ptr noundef nonnull %132, ptr noundef %.1, i32 noundef 0, i32 noundef %.061, i32 noundef %.160, i1 noundef zeroext true)
+  call fastcc void @NUM_processor(ptr noundef %43, ptr noundef nonnull %2, ptr noundef nonnull %132, ptr noundef %.161, i32 noundef 0, i32 noundef %.056, i32 noundef %.1, i1 noundef zeroext true)
   %133 = load i8, ptr %3, align 1
   %134 = trunc i8 %133 to i1
   br i1 %134, label %135, label %136
@@ -7871,8 +7871,8 @@ define dso_local i64 @float8_to_char(ptr nocapture noundef readonly %0) local_un
   br label %84
 
 84:                                               ; preds = %76, %74
-  %.057 = phi double [ %81, %76 ], [ %5, %74 ]
-  %85 = tail call double @llvm.fabs.f64(double %.057)
+  %.058 = phi double [ %81, %76 ], [ %5, %74 ]
+  %85 = tail call double @llvm.fabs.f64(double %.058)
   %86 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.21, double noundef %85) #18
   %87 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #20
   %88 = trunc i64 %87 to i32
@@ -7897,39 +7897,39 @@ define dso_local i64 @float8_to_char(ptr nocapture noundef readonly %0) local_un
 
 97:                                               ; preds = %.sink.split, %91
   %98 = phi i32 [ %92, %91 ], [ %.sink, %.sink.split ]
-  %99 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.22, i32 noundef %98, double noundef %.057) #18
+  %99 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.22, i32 noundef %98, double noundef %.058) #18
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 45
+  %.060.idx = zext i1 %101 to i64
+  %.060 = getelementptr i8, ptr %99, i64 %.060.idx
   %.059 = select i1 %101, i32 45, i32 43
-  %.058.idx = zext i1 %101 to i64
-  %.058 = getelementptr i8, ptr %99, i64 %.058.idx
-  %102 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.058, i32 noundef 46) #20
+  %102 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.060, i32 noundef 46) #20
   %.not72 = icmp eq ptr %102, null
   br i1 %.not72, label %107, label %103
 
 103:                                              ; preds = %97
   %104 = ptrtoint ptr %102 to i64
-  %105 = ptrtoint ptr %.058 to i64
+  %105 = ptrtoint ptr %.060 to i64
   %106 = sub i64 %104, %105
   br label %109
 
 107:                                              ; preds = %97
-  %108 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.058) #20
+  %108 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.060) #20
   br label %109
 
 109:                                              ; preds = %107, %103
-  %.056.in = phi i64 [ %106, %103 ], [ %108, %107 ]
-  %.056 = trunc i64 %.056.in to i32
+  %.057.in = phi i64 [ %106, %103 ], [ %108, %107 ]
+  %.057 = trunc i64 %.057.in to i32
   %110 = load i32, ptr %2, align 4
-  %111 = icmp sgt i32 %110, %.056
+  %111 = icmp sgt i32 %110, %.057
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %109
-  %113 = sub i32 %110, %.056
+  %113 = sub i32 %110, %.057
   br label %126
 
 114:                                              ; preds = %109
-  %115 = icmp slt i32 %110, %.056
+  %115 = icmp slt i32 %110, %.057
   br i1 %115, label %116, label %126
 
 116:                                              ; preds = %114
@@ -7948,11 +7948,11 @@ define dso_local i64 @float8_to_char(ptr nocapture noundef readonly %0) local_un
   br label %126
 
 126:                                              ; preds = %45, %112, %116, %114, %53, %73, %67
-  %.061 = phi i32 [ 0, %45 ], [ 0, %53 ], [ 0, %73 ], [ 0, %67 ], [ %113, %112 ], [ 0, %116 ], [ 0, %114 ]
-  %.160 = phi i32 [ 0, %45 ], [ 0, %53 ], [ 0, %73 ], [ 0, %67 ], [ %.059, %112 ], [ %.059, %116 ], [ %.059, %114 ]
-  %.1 = phi ptr [ %48, %45 ], [ %60, %53 ], [ %70, %73 ], [ %70, %67 ], [ %.058, %112 ], [ %120, %116 ], [ %.058, %114 ]
+  %.161 = phi ptr [ %48, %45 ], [ %60, %53 ], [ %70, %73 ], [ %70, %67 ], [ %.060, %112 ], [ %120, %116 ], [ %.060, %114 ]
+  %.1 = phi i32 [ 0, %45 ], [ 0, %53 ], [ 0, %73 ], [ 0, %67 ], [ %.059, %112 ], [ %.059, %116 ], [ %.059, %114 ]
+  %.056 = phi i32 [ 0, %45 ], [ 0, %53 ], [ 0, %73 ], [ 0, %67 ], [ %113, %112 ], [ 0, %116 ], [ 0, %114 ]
   %127 = getelementptr inbounds i8, ptr %40, i64 4
-  call fastcc void @NUM_processor(ptr noundef %41, ptr noundef nonnull %2, ptr noundef nonnull %127, ptr noundef %.1, i32 noundef 0, i32 noundef %.061, i32 noundef %.160, i1 noundef zeroext true)
+  call fastcc void @NUM_processor(ptr noundef %41, ptr noundef nonnull %2, ptr noundef nonnull %127, ptr noundef %.161, i32 noundef 0, i32 noundef %.056, i32 noundef %.1, i1 noundef zeroext true)
   %128 = load i8, ptr %3, align 1
   %129 = trunc i8 %128 to i1
   br i1 %129, label %130, label %131
@@ -8904,7 +8904,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   br label %16
 
 16:                                               ; preds = %1226, %5
-  %.0642 = phi ptr [ %3, %5 ], [ %.1, %1226 ]
+  %.0641 = phi ptr [ %3, %5 ], [ %.1, %1226 ]
   %.0640 = phi ptr [ %0, %5 ], [ %1227, %1226 ]
   %17 = load i8, ptr %.0640, align 8
   switch i8 %17, label %18 [
@@ -8914,7 +8914,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %.0640, i64 1
-  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %19) #18
+  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %19) #18
   br label %.sink.split
 
 21:                                               ; preds = %16
@@ -9000,7 +9000,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %28 = srem i64 %27, 24
   %29 = icmp sgt i64 %28, 11
   %30 = select i1 %29, ptr @.str.80, ptr @.str.41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.0642, ptr noundef nonnull align 1 dereferenceable(5) %30, i64 5, i1 false) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.0641, ptr noundef nonnull align 1 dereferenceable(5) %30, i64 5, i1 false) #18
   br label %.sink.split
 
 31:                                               ; preds = %21, %21
@@ -9008,7 +9008,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %33 = srem i64 %32, 24
   %34 = icmp sgt i64 %33, 11
   %35 = select i1 %34, ptr @.str.81, ptr @.str.43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0642, ptr noundef nonnull align 1 dereferenceable(3) %35, i64 3, i1 false) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0641, ptr noundef nonnull align 1 dereferenceable(3) %35, i64 3, i1 false) #18
   br label %.sink.split
 
 36:                                               ; preds = %21, %21
@@ -9016,7 +9016,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %38 = srem i64 %37, 24
   %39 = icmp sgt i64 %38, 11
   %40 = select i1 %39, ptr @.str.134, ptr @.str.99
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.0642, ptr noundef nonnull align 1 dereferenceable(5) %40, i64 5, i1 false) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.0641, ptr noundef nonnull align 1 dereferenceable(5) %40, i64 5, i1 false) #18
   br label %.sink.split
 
 41:                                               ; preds = %21, %21
@@ -9024,7 +9024,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %43 = srem i64 %42, 24
   %44 = icmp sgt i64 %43, 11
   %45 = select i1 %44, ptr @.str.135, ptr @.str.101
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0642, ptr noundef nonnull align 1 dereferenceable(3) %45, i64 3, i1 false) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0641, ptr noundef nonnull align 1 dereferenceable(3) %45, i64 3, i1 false) #18
   br label %.sink.split
 
 46:                                               ; preds = %21, %21
@@ -9039,7 +9039,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %53 = srem i64 %.pre987, 12
   %54 = icmp eq i64 %53, 0
   %spec.select = select i1 %54, i64 12, i64 %53
-  %55 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.159, i32 noundef %52, i64 noundef %spec.select) #18
+  %55 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.159, i32 noundef %52, i64 noundef %spec.select) #18
   %56 = load i8, ptr %47, align 2
   %57 = and i8 %56, 6
   %or.cond816 = icmp eq i8 %57, 0
@@ -9049,8 +9049,8 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %59 = and i8 %56, 2
   %.not815 = icmp eq i8 %59, 0
   %60 = select i1 %.not815, i32 2, i32 1
-  %61 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %60)
-  %62 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %61) #18
+  %61 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %60)
+  %62 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %61) #18
   br label %.sink.split
 
 63:                                               ; preds = %21
@@ -9062,7 +9062,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %67 = icmp sgt i64 %.pre986, -1
   %68 = select i1 %67, i32 2, i32 3
   %69 = select i1 %.not808, i32 %68, i32 0
-  %70 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.159, i32 noundef %69, i64 noundef %.pre986) #18
+  %70 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.159, i32 noundef %69, i64 noundef %.pre986) #18
   %71 = load i8, ptr %64, align 2
   %72 = and i8 %71, 6
   %or.cond817 = icmp eq i8 %72, 0
@@ -9072,8 +9072,8 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %74 = and i8 %71, 2
   %.not811 = icmp eq i8 %74, 0
   %75 = select i1 %.not811, i32 2, i32 1
-  %76 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %75)
-  %77 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %76) #18
+  %76 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %75)
+  %77 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %76) #18
   br label %.sink.split
 
 78:                                               ; preds = %21
@@ -9085,7 +9085,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %82 = icmp sgt i32 %.pre985, -1
   %83 = select i1 %82, i32 2, i32 3
   %84 = select i1 %.not804, i32 %83, i32 0
-  %85 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.160, i32 noundef %84, i32 noundef %.pre985) #18
+  %85 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.160, i32 noundef %84, i32 noundef %.pre985) #18
   %86 = load i8, ptr %79, align 2
   %87 = and i8 %86, 6
   %or.cond818 = icmp eq i8 %87, 0
@@ -9095,8 +9095,8 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %89 = and i8 %86, 2
   %.not807 = icmp eq i8 %89, 0
   %90 = select i1 %.not807, i32 2, i32 1
-  %91 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %90)
-  %92 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %91) #18
+  %91 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %90)
+  %92 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %91) #18
   br label %.sink.split
 
 93:                                               ; preds = %21
@@ -9108,7 +9108,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %97 = icmp sgt i32 %.pre, -1
   %98 = select i1 %97, i32 2, i32 3
   %99 = select i1 %.not800, i32 %98, i32 0
-  %100 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.160, i32 noundef %99, i32 noundef %.pre) #18
+  %100 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.160, i32 noundef %99, i32 noundef %.pre) #18
   %101 = load i8, ptr %94, align 2
   %102 = and i8 %101, 6
   %or.cond819 = icmp eq i8 %102, 0
@@ -9118,14 +9118,14 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %104 = and i8 %101, 2
   %.not803 = icmp eq i8 %104, 0
   %105 = select i1 %.not803, i32 2, i32 1
-  %106 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %105)
-  %107 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %106) #18
+  %106 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %105)
+  %107 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %106) #18
   br label %.sink.split
 
 108:                                              ; preds = %21
   %109 = load i32, ptr %15, align 8
   %110 = sdiv i32 %109, 100000
-  %111 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.161, i32 noundef %110) #18
+  %111 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.161, i32 noundef %110) #18
   %112 = getelementptr inbounds i8, ptr %.0640, i64 6
   %113 = load i8, ptr %112, align 2
   %114 = and i8 %113, 6
@@ -9136,14 +9136,14 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %116 = and i8 %113, 2
   %.not799 = icmp eq i8 %116, 0
   %117 = select i1 %.not799, i32 2, i32 1
-  %118 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %117)
-  %119 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %118) #18
+  %118 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %117)
+  %119 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %118) #18
   br label %.sink.split
 
 120:                                              ; preds = %21
   %121 = load i32, ptr %15, align 8
   %122 = sdiv i32 %121, 10000
-  %123 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.162, i32 noundef %122) #18
+  %123 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.162, i32 noundef %122) #18
   %124 = getelementptr inbounds i8, ptr %.0640, i64 6
   %125 = load i8, ptr %124, align 2
   %126 = and i8 %125, 6
@@ -9154,14 +9154,14 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %128 = and i8 %125, 2
   %.not796 = icmp eq i8 %128, 0
   %129 = select i1 %.not796, i32 2, i32 1
-  %130 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %129)
-  %131 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %130) #18
+  %130 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %129)
+  %131 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %130) #18
   br label %.sink.split
 
 132:                                              ; preds = %21, %21
   %133 = load i32, ptr %15, align 8
   %134 = sdiv i32 %133, 1000
-  %135 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.163, i32 noundef %134) #18
+  %135 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.163, i32 noundef %134) #18
   %136 = getelementptr inbounds i8, ptr %.0640, i64 6
   %137 = load i8, ptr %136, align 2
   %138 = and i8 %137, 6
@@ -9172,14 +9172,14 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %140 = and i8 %137, 2
   %.not793 = icmp eq i8 %140, 0
   %141 = select i1 %.not793, i32 2, i32 1
-  %142 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %141)
-  %143 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %142) #18
+  %142 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %141)
+  %143 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %142) #18
   br label %.sink.split
 
 144:                                              ; preds = %21
   %145 = load i32, ptr %15, align 8
   %146 = sdiv i32 %145, 100
-  %147 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.164, i32 noundef %146) #18
+  %147 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.164, i32 noundef %146) #18
   %148 = getelementptr inbounds i8, ptr %.0640, i64 6
   %149 = load i8, ptr %148, align 2
   %150 = and i8 %149, 6
@@ -9190,14 +9190,14 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %152 = and i8 %149, 2
   %.not790 = icmp eq i8 %152, 0
   %153 = select i1 %.not790, i32 2, i32 1
-  %154 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %153)
-  %155 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %154) #18
+  %154 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %153)
+  %155 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %154) #18
   br label %.sink.split
 
 156:                                              ; preds = %21
   %157 = load i32, ptr %15, align 8
   %158 = sdiv i32 %157, 10
-  %159 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.165, i32 noundef %158) #18
+  %159 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.165, i32 noundef %158) #18
   %160 = getelementptr inbounds i8, ptr %.0640, i64 6
   %161 = load i8, ptr %160, align 2
   %162 = and i8 %161, 6
@@ -9208,13 +9208,13 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %164 = and i8 %161, 2
   %.not787 = icmp eq i8 %164, 0
   %165 = select i1 %.not787, i32 2, i32 1
-  %166 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %165)
-  %167 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %166) #18
+  %166 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %165)
+  %167 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %166) #18
   br label %.sink.split
 
 168:                                              ; preds = %21, %21
   %169 = load i32, ptr %15, align 8
-  %170 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.166, i32 noundef %169) #18
+  %170 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.166, i32 noundef %169) #18
   %171 = getelementptr inbounds i8, ptr %.0640, i64 6
   %172 = load i8, ptr %171, align 2
   %173 = and i8 %172, 6
@@ -9225,8 +9225,8 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %175 = and i8 %172, 2
   %.not784 = icmp eq i8 %175, 0
   %176 = select i1 %.not784, i32 2, i32 1
-  %177 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %176)
-  %178 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %177) #18
+  %177 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %176)
+  %178 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %177) #18
   br label %.sink.split
 
 179:                                              ; preds = %21
@@ -9239,7 +9239,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %186 = load i32, ptr %2, align 8
   %187 = sext i32 %186 to i64
   %188 = add i64 %185, %187
-  %189 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.167, i64 noundef %188) #18
+  %189 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.167, i64 noundef %188) #18
   %190 = getelementptr inbounds i8, ptr %.0640, i64 6
   %191 = load i8, ptr %190, align 2
   %192 = and i8 %191, 6
@@ -9250,8 +9250,8 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   %194 = and i8 %191, 2
   %.not781 = icmp eq i8 %194, 0
   %195 = select i1 %.not781, i32 2, i32 1
-  %196 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %195)
-  %197 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %196) #18
+  %196 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %195)
+  %197 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %196) #18
   br label %.sink.split
 
 198:                                              ; preds = %21
@@ -9289,7 +9289,7 @@ define internal fastcc void @DCH_to_char(ptr noundef readonly %0, i1 noundef zer
   br i1 %.not12.i.i, label %asc_tolower_z.exit, label %.lr.ph.i.i, !llvm.loop !5
 
 asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %206
-  %214 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %208) #18
+  %214 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %208) #18
   tail call void @pfree(ptr noundef nonnull %208) #18
   br label %.sink.split
 
@@ -9311,7 +9311,7 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %206
   br i1 %.not777, label %1226, label %223
 
 223:                                              ; preds = %221
-  %224 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %222) #18
+  %224 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %222) #18
   br label %.sink.split
 
 225:                                              ; preds = %21
@@ -9333,7 +9333,7 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %206
   %235 = trunc i64 %232 to i32
   %236 = tail call i32 @llvm.abs.i32(i32 %235, i1 false)
   %237 = sdiv i32 %236, 3600
-  %238 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.170, i32 noundef %234, i32 noundef %237) #18
+  %238 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.170, i32 noundef %234, i32 noundef %237) #18
   br label %.sink.split
 
 239:                                              ; preds = %21
@@ -9356,7 +9356,7 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %206
   %.lhs.trunc = trunc nsw i32 %249 to i16
   %250 = sdiv i16 %.lhs.trunc, 60
   %.sext = sext i16 %250 to i32
-  %251 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.162, i32 noundef %.sext) #18
+  %251 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.162, i32 noundef %.sext) #18
   br label %.sink.split
 
 252:                                              ; preds = %21
@@ -9384,9 +9384,9 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %206
   %268 = trunc i64 %259 to i32
   %269 = tail call i32 @llvm.abs.i32(i32 %268, i1 false)
   %270 = sdiv i32 %269, 3600
-  %271 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.171, i32 noundef %261, i32 noundef %267, i32 noundef %270) #18
-  %272 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0642) #20
-  %273 = getelementptr i8, ptr %.0642, i64 %272
+  %271 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.171, i32 noundef %261, i32 noundef %267, i32 noundef %270) #18
+  %272 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0641) #20
+  %273 = getelementptr i8, ptr %.0641, i64 %272
   %274 = load i64, ptr %11, align 8
   %275 = trunc i64 %274 to i32
   %276 = tail call i32 @llvm.abs.i32(i32 %275, i1 false)
@@ -9417,7 +9417,7 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %206
   %288 = load i32, ptr %6, align 8
   %289 = icmp slt i32 %288, 1
   %290 = select i1 %289, ptr @.str.44, ptr @.str.40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.0642, ptr noundef nonnull align 1 dereferenceable(5) %290, i64 5, i1 false) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.0641, ptr noundef nonnull align 1 dereferenceable(5) %290, i64 5, i1 false) #18
   br label %.sink.split
 
 291:                                              ; preds = %21, %21
@@ -9436,7 +9436,7 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %206
   %298 = load i32, ptr %6, align 8
   %299 = icmp slt i32 %298, 1
   %300 = select i1 %299, ptr @.str.45, ptr @.str.42
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0642, ptr noundef nonnull align 1 dereferenceable(3) %300, i64 3, i1 false) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0641, ptr noundef nonnull align 1 dereferenceable(3) %300, i64 3, i1 false) #18
   br label %.sink.split
 
 301:                                              ; preds = %21, %21
@@ -9455,7 +9455,7 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %206
   %308 = load i32, ptr %6, align 8
   %309 = icmp slt i32 %308, 1
   %310 = select i1 %309, ptr @.str.102, ptr @.str.98
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.0642, ptr noundef nonnull align 1 dereferenceable(5) %310, i64 5, i1 false) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.0641, ptr noundef nonnull align 1 dereferenceable(5) %310, i64 5, i1 false) #18
   br label %.sink.split
 
 311:                                              ; preds = %21, %21
@@ -9474,7 +9474,7 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %206
   %318 = load i32, ptr %6, align 8
   %319 = icmp slt i32 %318, 1
   %320 = select i1 %319, ptr @.str.103, ptr @.str.100
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0642, ptr noundef nonnull align 1 dereferenceable(3) %320, i64 3, i1 false) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0641, ptr noundef nonnull align 1 dereferenceable(3) %320, i64 3, i1 false) #18
   br label %.sink.split
 
 321:                                              ; preds = %21
@@ -9520,7 +9520,7 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %206
   br i1 %.not774, label %350, label %348
 
 348:                                              ; preds = %334
-  %349 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %340) #18
+  %349 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %340) #18
   br label %.sink.split
 
 350:                                              ; preds = %334
@@ -9562,7 +9562,7 @@ asc_tolower_z.exit:                               ; preds = %.lr.ph.i.i, %206
 
 asc_toupper_z.exit:                               ; preds = %.lr.ph.i.i855, %354, %360
   %.09.i.i858 = phi ptr [ null, %354 ], [ %364, %360 ], [ %364, %.lr.ph.i.i855 ]
-  %370 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.174, i32 noundef %356, ptr noundef %.09.i.i858) #18
+  %370 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.174, i32 noundef %356, ptr noundef %.09.i.i858) #18
   br label %.sink.split
 
 371:                                              ; preds = %21
@@ -9608,7 +9608,7 @@ asc_toupper_z.exit:                               ; preds = %.lr.ph.i.i855, %354
   br i1 %.not770, label %400, label %398
 
 398:                                              ; preds = %384
-  %399 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %390) #18
+  %399 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %390) #18
   br label %.sink.split
 
 400:                                              ; preds = %384
@@ -9627,7 +9627,7 @@ asc_toupper_z.exit:                               ; preds = %.lr.ph.i.i855, %354
   %408 = sext i32 %407 to i64
   %409 = getelementptr [13 x ptr], ptr @months_full, i64 0, i64 %408
   %410 = load ptr, ptr %409, align 8
-  %411 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.174, i32 noundef %406, ptr noundef %410) #18
+  %411 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.174, i32 noundef %406, ptr noundef %410) #18
   br label %.sink.split
 
 412:                                              ; preds = %21
@@ -9673,7 +9673,7 @@ asc_toupper_z.exit:                               ; preds = %.lr.ph.i.i855, %354
   br i1 %.not766, label %441, label %439
 
 439:                                              ; preds = %425
-  %440 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %431) #18
+  %440 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %431) #18
   br label %.sink.split
 
 441:                                              ; preds = %425
@@ -9715,7 +9715,7 @@ asc_toupper_z.exit:                               ; preds = %.lr.ph.i.i855, %354
 
 asc_tolower_z.exit865:                            ; preds = %.lr.ph.i.i861, %445, %451
   %.09.i.i864 = phi ptr [ null, %445 ], [ %455, %451 ], [ %455, %.lr.ph.i.i861 ]
-  %461 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.174, i32 noundef %447, ptr noundef %.09.i.i864) #18
+  %461 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.174, i32 noundef %447, ptr noundef %.09.i.i864) #18
   br label %.sink.split
 
 462:                                              ; preds = %21
@@ -9788,7 +9788,7 @@ asc_tolower_z.exit865:                            ; preds = %.lr.ph.i.i861, %445
 
 asc_toupper_z.exit872:                            ; preds = %.lr.ph.i.i868, %492, %476
   %.sink = phi ptr [ %480, %476 ], [ %496, %492 ], [ %496, %.lr.ph.i.i868 ]
-  %502 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %.sink) #18
+  %502 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %.sink) #18
   br label %.sink.split
 
 503:                                              ; preds = %21
@@ -9847,7 +9847,7 @@ asc_toupper_z.exit872:                            ; preds = %.lr.ph.i.i868, %492
 
 536:                                              ; preds = %517, %533
   %.sink1023 = phi ptr [ %535, %533 ], [ %521, %517 ]
-  %537 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %.sink1023) #18
+  %537 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %.sink1023) #18
   br label %.sink.split
 
 538:                                              ; preds = %21
@@ -9920,7 +9920,7 @@ asc_toupper_z.exit872:                            ; preds = %.lr.ph.i.i868, %492
 
 asc_tolower_z.exit879:                            ; preds = %.lr.ph.i.i875, %568, %552
   %.sink1024 = phi ptr [ %556, %552 ], [ %572, %568 ], [ %572, %.lr.ph.i.i875 ]
-  %578 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %.sink1024) #18
+  %578 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %.sink1024) #18
   br label %.sink.split
 
 579:                                              ; preds = %21
@@ -9939,7 +9939,7 @@ asc_tolower_z.exit879:                            ; preds = %.lr.ph.i.i875, %568
 587:                                              ; preds = %579, %583
   %588 = phi i32 [ %586, %583 ], [ 0, %579 ]
   %589 = load i32, ptr %7, align 4
-  %590 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.160, i32 noundef %588, i32 noundef %589) #18
+  %590 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.160, i32 noundef %588, i32 noundef %589) #18
   %591 = load i8, ptr %580, align 2
   %592 = and i8 %591, 6
   %or.cond827 = icmp eq i8 %592, 0
@@ -9949,8 +9949,8 @@ asc_tolower_z.exit879:                            ; preds = %.lr.ph.i.i875, %568
   %594 = and i8 %591, 2
   %.not753 = icmp eq i8 %594, 0
   %595 = select i1 %.not753, i32 2, i32 1
-  %596 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %595)
-  %597 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %596) #18
+  %596 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %595)
+  %597 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %596) #18
   br label %.sink.split
 
 598:                                              ; preds = %21
@@ -9991,7 +9991,7 @@ asc_tolower_z.exit879:                            ; preds = %.lr.ph.i.i875, %568
   br i1 %.not749, label %625, label %623
 
 623:                                              ; preds = %609
-  %624 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %615) #18
+  %624 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %615) #18
   br label %.sink.split
 
 625:                                              ; preds = %609
@@ -10032,7 +10032,7 @@ asc_tolower_z.exit879:                            ; preds = %.lr.ph.i.i875, %568
 
 asc_toupper_z.exit886:                            ; preds = %.lr.ph.i.i882, %629, %636
   %.09.i.i885 = phi ptr [ null, %629 ], [ %638, %636 ], [ %638, %.lr.ph.i.i882 ]
-  %644 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.174, i32 noundef %631, ptr noundef %.09.i.i885) #18
+  %644 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.174, i32 noundef %631, ptr noundef %.09.i.i885) #18
   br label %.sink.split
 
 645:                                              ; preds = %21
@@ -10073,7 +10073,7 @@ asc_toupper_z.exit886:                            ; preds = %.lr.ph.i.i882, %629
   br i1 %.not746, label %672, label %670
 
 670:                                              ; preds = %656
-  %671 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %662) #18
+  %671 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %662) #18
   br label %.sink.split
 
 672:                                              ; preds = %656
@@ -10092,7 +10092,7 @@ asc_toupper_z.exit886:                            ; preds = %.lr.ph.i.i882, %629
   %680 = sext i32 %679 to i64
   %681 = getelementptr [0 x ptr], ptr @days, i64 0, i64 %680
   %682 = load ptr, ptr %681, align 8
-  %683 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.174, i32 noundef %678, ptr noundef %682) #18
+  %683 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.174, i32 noundef %678, ptr noundef %682) #18
   br label %.sink.split
 
 684:                                              ; preds = %21
@@ -10133,7 +10133,7 @@ asc_toupper_z.exit886:                            ; preds = %.lr.ph.i.i882, %629
   br i1 %.not743, label %711, label %709
 
 709:                                              ; preds = %695
-  %710 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %701) #18
+  %710 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %701) #18
   br label %.sink.split
 
 711:                                              ; preds = %695
@@ -10174,7 +10174,7 @@ asc_toupper_z.exit886:                            ; preds = %.lr.ph.i.i882, %629
 
 asc_tolower_z.exit893:                            ; preds = %.lr.ph.i.i889, %715, %722
   %.09.i.i892 = phi ptr [ null, %715 ], [ %724, %722 ], [ %724, %.lr.ph.i.i889 ]
-  %730 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.174, i32 noundef %717, ptr noundef %.09.i.i892) #18
+  %730 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.174, i32 noundef %717, ptr noundef %.09.i.i892) #18
   br label %.sink.split
 
 731:                                              ; preds = %21
@@ -10245,7 +10245,7 @@ asc_tolower_z.exit893:                            ; preds = %.lr.ph.i.i889, %715
 
 asc_toupper_z.exit900:                            ; preds = %.lr.ph.i.i896, %759, %743
   %.sink1025 = phi ptr [ %747, %743 ], [ %764, %759 ], [ %764, %.lr.ph.i.i896 ]
-  %770 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %.sink1025) #18
+  %770 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %.sink1025) #18
   br label %.sink.split
 
 771:                                              ; preds = %21
@@ -10299,7 +10299,7 @@ asc_toupper_z.exit900:                            ; preds = %.lr.ph.i.i896, %759
 
 802:                                              ; preds = %783, %799
   %.sink1026 = phi ptr [ %801, %799 ], [ %787, %783 ]
-  %803 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %.sink1026) #18
+  %803 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %.sink1026) #18
   br label %.sink.split
 
 804:                                              ; preds = %21
@@ -10370,7 +10370,7 @@ asc_toupper_z.exit900:                            ; preds = %.lr.ph.i.i896, %759
 
 asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832, %816
   %.sink1027 = phi ptr [ %820, %816 ], [ %837, %832 ], [ %837, %.lr.ph.i.i903 ]
-  %843 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %.sink1027) #18
+  %843 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %.sink1027) #18
   br label %.sink.split
 
 844:                                              ; preds = %21, %21
@@ -10395,7 +10395,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
 
 857:                                              ; preds = %852, %850
   %858 = phi i32 [ %851, %850 ], [ %856, %852 ]
-  %859 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.160, i32 noundef %848, i32 noundef %858) #18
+  %859 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.160, i32 noundef %848, i32 noundef %858) #18
   %860 = load i8, ptr %845, align 2
   %861 = and i8 %860, 6
   %or.cond828 = icmp eq i8 %861, 0
@@ -10405,8 +10405,8 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %863 = and i8 %860, 2
   %.not734 = icmp eq i8 %863, 0
   %864 = select i1 %.not734, i32 2, i32 1
-  %865 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %864)
-  %866 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %865) #18
+  %865 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %864)
+  %866 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %865) #18
   br label %.sink.split
 
 867:                                              ; preds = %21
@@ -10417,7 +10417,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %872 = xor i8 %871, 2
   %873 = zext nneg i8 %872 to i32
   %874 = load i32, ptr %8, align 8
-  %875 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.160, i32 noundef %873, i32 noundef %874) #18
+  %875 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.160, i32 noundef %873, i32 noundef %874) #18
   %876 = load i8, ptr %868, align 2
   %877 = and i8 %876, 6
   %or.cond829 = icmp eq i8 %877, 0
@@ -10427,8 +10427,8 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %879 = and i8 %876, 2
   %.not730 = icmp eq i8 %879, 0
   %880 = select i1 %.not730, i32 2, i32 1
-  %881 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %880)
-  %882 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %881) #18
+  %881 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %880)
+  %882 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %881) #18
   br label %.sink.split
 
 883:                                              ; preds = %21
@@ -10446,7 +10446,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
 889:                                              ; preds = %883
   %890 = load i32, ptr %10, align 4
   %891 = add i32 %890, 1
-  %892 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.175, i32 noundef %891) #18
+  %892 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.175, i32 noundef %891) #18
   %893 = getelementptr inbounds i8, ptr %.0640, i64 6
   %894 = load i8, ptr %893, align 2
   %895 = and i8 %894, 6
@@ -10457,8 +10457,8 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %897 = and i8 %894, 2
   %.not726 = icmp eq i8 %897, 0
   %898 = select i1 %.not726, i32 2, i32 1
-  %899 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %898)
-  %900 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %899) #18
+  %899 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %898)
+  %900 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %899) #18
   br label %.sink.split
 
 901:                                              ; preds = %21
@@ -10477,7 +10477,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %908 = load i32, ptr %10, align 4
   %909 = icmp eq i32 %908, 0
   %spec.select831 = select i1 %909, i32 7, i32 %908
-  %910 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.175, i32 noundef %spec.select831) #18
+  %910 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.175, i32 noundef %spec.select831) #18
   %911 = getelementptr inbounds i8, ptr %.0640, i64 6
   %912 = load i8, ptr %911, align 2
   %913 = and i8 %912, 6
@@ -10488,8 +10488,8 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %915 = and i8 %912, 2
   %.not723 = icmp eq i8 %915, 0
   %916 = select i1 %.not723, i32 2, i32 1
-  %917 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %916)
-  %918 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %917) #18
+  %917 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %916)
+  %918 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %917) #18
   br label %.sink.split
 
 919:                                              ; preds = %21
@@ -10503,7 +10503,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %927 = add i32 %926, -1
   %928 = sdiv i32 %927, 7
   %929 = add nsw i32 %928, 1
-  %930 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.160, i32 noundef %925, i32 noundef %929) #18
+  %930 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.160, i32 noundef %925, i32 noundef %929) #18
   %931 = load i8, ptr %920, align 2
   %932 = and i8 %931, 6
   %or.cond833 = icmp eq i8 %932, 0
@@ -10513,8 +10513,8 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %934 = and i8 %931, 2
   %.not720 = icmp eq i8 %934, 0
   %935 = select i1 %.not720, i32 2, i32 1
-  %936 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %935)
-  %937 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %936) #18
+  %936 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %935)
+  %937 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %936) #18
   br label %.sink.split
 
 938:                                              ; preds = %21
@@ -10528,7 +10528,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %946 = load i32, ptr %7, align 4
   %947 = load i32, ptr %8, align 8
   %948 = tail call i32 @date2isoweek(i32 noundef %945, i32 noundef %946, i32 noundef %947) #18
-  %949 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.160, i32 noundef %944, i32 noundef %948) #18
+  %949 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.160, i32 noundef %944, i32 noundef %948) #18
   %950 = load i8, ptr %939, align 2
   %951 = and i8 %950, 6
   %or.cond834 = icmp eq i8 %951, 0
@@ -10538,8 +10538,8 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %953 = and i8 %950, 2
   %.not716 = icmp eq i8 %953, 0
   %954 = select i1 %.not716, i32 2, i32 1
-  %955 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %954)
-  %956 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %955) #18
+  %955 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %954)
+  %956 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %955) #18
   br label %.sink.split
 
 957:                                              ; preds = %21
@@ -10551,7 +10551,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %960 = add i32 %958, -1
   %961 = sdiv i32 %960, 3
   %962 = add nsw i32 %961, 1
-  %963 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.175, i32 noundef %962) #18
+  %963 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.175, i32 noundef %962) #18
   %964 = getelementptr inbounds i8, ptr %.0640, i64 6
   %965 = load i8, ptr %964, align 2
   %966 = and i8 %965, 6
@@ -10562,8 +10562,8 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %968 = and i8 %965, 2
   %.not712 = icmp eq i8 %968, 0
   %969 = select i1 %.not712, i32 2, i32 1
-  %970 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %969)
-  %971 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %970) #18
+  %970 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %969)
+  %971 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %970) #18
   br label %.sink.split
 
 972:                                              ; preds = %21
@@ -10591,8 +10591,8 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   br label %985
 
 985:                                              ; preds = %978, %982, %974
-  %.0641 = phi i32 [ %975, %974 ], [ %981, %978 ], [ %984, %982 ]
-  %986 = add nsw i32 %.0641, 99
+  %.0642 = phi i32 [ %975, %974 ], [ %981, %978 ], [ %984, %982 ]
+  %986 = add nsw i32 %.0642, 99
   %or.cond = icmp ult i32 %986, 199
   br i1 %or.cond, label %987, label %995
 
@@ -10601,14 +10601,14 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %989 = load i8, ptr %988, align 2
   %990 = and i8 %989, 1
   %.not705 = icmp eq i8 %990, 0
-  %991 = icmp sgt i32 %.0641, -1
+  %991 = icmp sgt i32 %.0642, -1
   %992 = select i1 %991, i32 2, i32 3
   %993 = select i1 %.not705, i32 %992, i32 0
-  %994 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.160, i32 noundef %993, i32 noundef %.0641) #18
+  %994 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.160, i32 noundef %993, i32 noundef %.0642) #18
   br label %997
 
 995:                                              ; preds = %985
-  %996 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.175, i32 noundef %.0641) #18
+  %996 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.175, i32 noundef %.0642) #18
   br label %997
 
 997:                                              ; preds = %995, %987
@@ -10622,8 +10622,8 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1002 = and i8 %999, 2
   %.not708 = icmp eq i8 %1002, 0
   %1003 = select i1 %.not708, i32 2, i32 1
-  %1004 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %1003)
-  %1005 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %1004) #18
+  %1004 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1003)
+  %1005 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1004) #18
   br label %.sink.split
 
 1006:                                             ; preds = %21
@@ -10635,7 +10635,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1010 = sdiv i32 %.in, 1000
   %.neg = mul nsw i32 %1010, -1000
   %1011 = add i32 %.neg, %.in
-  %1012 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.176, i32 noundef %1010, i32 noundef %1011) #18
+  %1012 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.176, i32 noundef %1010, i32 noundef %1011) #18
   %1013 = getelementptr inbounds i8, ptr %.0640, i64 6
   %1014 = load i8, ptr %1013, align 2
   %1015 = and i8 %1014, 6
@@ -10646,8 +10646,8 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1017 = and i8 %1014, 2
   %.not704 = icmp eq i8 %1017, 0
   %1018 = select i1 %.not704, i32 2, i32 1
-  %1019 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %1018)
-  %1020 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %1019) #18
+  %1019 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1018)
+  %1020 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1019) #18
   br label %.sink.split
 
 1021:                                             ; preds = %21, %21
@@ -10700,7 +10700,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
 
 1051:                                             ; preds = %1044, %1040, %1036, %1037
   %1052 = phi i32 [ %spec.select847, %1037 ], [ %1035, %1036 ], [ %1043, %1040 ], [ %spec.select1030, %1044 ]
-  %1053 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.160, i32 noundef %1033, i32 noundef %1052) #18
+  %1053 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.160, i32 noundef %1033, i32 noundef %1052) #18
   %1054 = load i8, ptr %1022, align 2
   %1055 = and i8 %1054, 6
   %or.cond838 = icmp eq i8 %1055, 0
@@ -10710,8 +10710,8 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1057 = and i8 %1054, 2
   %.not701 = icmp eq i8 %1057, 0
   %1058 = select i1 %.not701, i32 2, i32 1
-  %1059 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %1058)
-  %1060 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %1059) #18
+  %1059 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1058)
+  %1060 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1059) #18
   br label %.sink.split
 
 1061:                                             ; preds = %21, %21
@@ -10765,7 +10765,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
 1091:                                             ; preds = %1084, %1080, %1076, %1077
   %1092 = phi i32 [ %spec.select849, %1077 ], [ %1075, %1076 ], [ %1083, %1080 ], [ %spec.select1031, %1084 ]
   %1093 = srem i32 %1092, 1000
-  %1094 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.160, i32 noundef %1073, i32 noundef %1093) #18
+  %1094 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.160, i32 noundef %1073, i32 noundef %1093) #18
   %1095 = load i8, ptr %1062, align 2
   %1096 = and i8 %1095, 6
   %or.cond839 = icmp eq i8 %1096, 0
@@ -10775,8 +10775,8 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1098 = and i8 %1095, 2
   %.not697 = icmp eq i8 %1098, 0
   %1099 = select i1 %.not697, i32 2, i32 1
-  %1100 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %1099)
-  %1101 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %1100) #18
+  %1100 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1099)
+  %1101 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1100) #18
   br label %.sink.split
 
 1102:                                             ; preds = %21, %21
@@ -10830,7 +10830,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
 1132:                                             ; preds = %1125, %1121, %1117, %1118
   %1133 = phi i32 [ %spec.select851, %1118 ], [ %1116, %1117 ], [ %1124, %1121 ], [ %spec.select1032, %1125 ]
   %1134 = srem i32 %1133, 100
-  %1135 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.160, i32 noundef %1114, i32 noundef %1134) #18
+  %1135 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.160, i32 noundef %1114, i32 noundef %1134) #18
   %1136 = load i8, ptr %1103, align 2
   %1137 = and i8 %1136, 6
   %or.cond840 = icmp eq i8 %1137, 0
@@ -10840,8 +10840,8 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1139 = and i8 %1136, 2
   %.not693 = icmp eq i8 %1139, 0
   %1140 = select i1 %.not693, i32 2, i32 1
-  %1141 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %1140)
-  %1142 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %1141) #18
+  %1141 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1140)
+  %1142 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1141) #18
   br label %.sink.split
 
 1143:                                             ; preds = %21, %21
@@ -10877,7 +10877,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
 1161:                                             ; preds = %1154, %1150, %1146, %1147
   %1162 = phi i32 [ %spec.select852, %1147 ], [ %1145, %1146 ], [ %1153, %1150 ], [ %spec.select1033, %1154 ]
   %1163 = srem i32 %1162, 10
-  %1164 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.177, i32 noundef %1163) #18
+  %1164 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.177, i32 noundef %1163) #18
   %1165 = getelementptr inbounds i8, ptr %.0640, i64 6
   %1166 = load i8, ptr %1165, align 2
   %1167 = and i8 %1166, 6
@@ -10888,8 +10888,8 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1169 = and i8 %1166, 2
   %.not689 = icmp eq i8 %1169, 0
   %1170 = select i1 %.not689, i32 2, i32 1
-  %1171 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %1170)
-  %1172 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %1171) #18
+  %1171 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1170)
+  %1172 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1171) #18
   br label %.sink.split
 
 1173:                                             ; preds = %21, %21
@@ -10934,7 +10934,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1192 = sext i32 %.0639 to i64
   %1193 = getelementptr ptr, ptr %rm_months_upper.rm_months_lower910, i64 %1192
   %1194 = load ptr, ptr %1193, align 8
-  %1195 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.174, i32 noundef %1191, ptr noundef %1194) #18
+  %1195 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.174, i32 noundef %1191, ptr noundef %1194) #18
   br label %.sink.split
 
 1196:                                             ; preds = %21
@@ -10942,7 +10942,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1198 = add i32 %1197, -1
   %1199 = sdiv i32 %1198, 7
   %1200 = add nsw i32 %1199, 1
-  %1201 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.175, i32 noundef %1200) #18
+  %1201 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.175, i32 noundef %1200) #18
   %1202 = getelementptr inbounds i8, ptr %.0640, i64 6
   %1203 = load i8, ptr %1202, align 2
   %1204 = and i8 %1203, 6
@@ -10953,8 +10953,8 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1206 = and i8 %1203, 2
   %.not683 = icmp eq i8 %1206, 0
   %1207 = select i1 %.not683, i32 2, i32 1
-  %1208 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %1207)
-  %1209 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %1208) #18
+  %1208 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1207)
+  %1209 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1208) #18
   br label %.sink.split
 
 1210:                                             ; preds = %21
@@ -10962,7 +10962,7 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1212 = load i32, ptr %7, align 4
   %1213 = load i32, ptr %8, align 8
   %1214 = tail call i32 @date2j(i32 noundef %1211, i32 noundef %1212, i32 noundef %1213) #18
-  %1215 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0642, ptr noundef nonnull @.str.175, i32 noundef %1214) #18
+  %1215 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0641, ptr noundef nonnull @.str.175, i32 noundef %1214) #18
   %1216 = getelementptr inbounds i8, ptr %.0640, i64 6
   %1217 = load i8, ptr %1216, align 2
   %1218 = and i8 %1217, 6
@@ -10973,23 +10973,23 @@ asc_tolower_z.exit907:                            ; preds = %.lr.ph.i.i903, %832
   %1220 = and i8 %1217, 2
   %.not680 = icmp eq i8 %1220, 0
   %1221 = select i1 %.not680, i32 2, i32 1
-  %1222 = tail call fastcc ptr @get_th(ptr noundef %.0642, i32 noundef %1221)
-  %1223 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0642, ptr noundef nonnull dereferenceable(1) %1222) #18
+  %1222 = tail call fastcc ptr @get_th(ptr noundef %.0641, i32 noundef %1221)
+  %1223 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0641, ptr noundef nonnull dereferenceable(1) %1222) #18
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1219, %1210, %1205, %1196, %1168, %1161, %1138, %1132, %1097, %1091, %1056, %1051, %1016, %1006, %1001, %997, %967, %959, %952, %938, %933, %919, %914, %907, %896, %889, %878, %867, %862, %857, %709, %asc_tolower_z.exit893, %670, %676, %623, %asc_toupper_z.exit886, %593, %587, %439, %asc_tolower_z.exit865, %398, %404, %348, %asc_toupper_z.exit, %193, %179, %174, %168, %163, %156, %151, %144, %139, %132, %127, %120, %115, %108, %103, %93, %88, %78, %73, %63, %58, %46, %18, %278, %223, %asc_tolower_z.exit, %1187, %asc_tolower_z.exit907, %802, %asc_toupper_z.exit900, %asc_tolower_z.exit879, %536, %asc_toupper_z.exit872, %317, %307, %297, %287, %245, %231, %41, %36, %31, %26
-  %.0642.sink1029 = phi ptr [ %.0642, %26 ], [ %.0642, %31 ], [ %.0642, %36 ], [ %.0642, %41 ], [ %.0642, %231 ], [ %.0642, %245 ], [ %.0642, %287 ], [ %.0642, %297 ], [ %.0642, %307 ], [ %.0642, %317 ], [ %.0642, %asc_toupper_z.exit872 ], [ %.0642, %536 ], [ %.0642, %asc_tolower_z.exit879 ], [ %.0642, %asc_toupper_z.exit900 ], [ %.0642, %802 ], [ %.0642, %asc_tolower_z.exit907 ], [ %.0642, %1187 ], [ %.0642, %asc_tolower_z.exit ], [ %.0642, %223 ], [ %273, %278 ], [ %.0642, %18 ], [ %.0642, %46 ], [ %.0642, %58 ], [ %.0642, %63 ], [ %.0642, %73 ], [ %.0642, %78 ], [ %.0642, %88 ], [ %.0642, %93 ], [ %.0642, %103 ], [ %.0642, %108 ], [ %.0642, %115 ], [ %.0642, %120 ], [ %.0642, %127 ], [ %.0642, %132 ], [ %.0642, %139 ], [ %.0642, %144 ], [ %.0642, %151 ], [ %.0642, %156 ], [ %.0642, %163 ], [ %.0642, %168 ], [ %.0642, %174 ], [ %.0642, %179 ], [ %.0642, %193 ], [ %.0642, %asc_toupper_z.exit ], [ %.0642, %348 ], [ %.0642, %404 ], [ %.0642, %398 ], [ %.0642, %asc_tolower_z.exit865 ], [ %.0642, %439 ], [ %.0642, %587 ], [ %.0642, %593 ], [ %.0642, %asc_toupper_z.exit886 ], [ %.0642, %623 ], [ %.0642, %676 ], [ %.0642, %670 ], [ %.0642, %asc_tolower_z.exit893 ], [ %.0642, %709 ], [ %.0642, %857 ], [ %.0642, %862 ], [ %.0642, %867 ], [ %.0642, %878 ], [ %.0642, %889 ], [ %.0642, %896 ], [ %.0642, %907 ], [ %.0642, %914 ], [ %.0642, %919 ], [ %.0642, %933 ], [ %.0642, %938 ], [ %.0642, %952 ], [ %.0642, %959 ], [ %.0642, %967 ], [ %.0642, %997 ], [ %.0642, %1001 ], [ %.0642, %1006 ], [ %.0642, %1016 ], [ %.0642, %1051 ], [ %.0642, %1056 ], [ %.0642, %1091 ], [ %.0642, %1097 ], [ %.0642, %1132 ], [ %.0642, %1138 ], [ %.0642, %1161 ], [ %.0642, %1168 ], [ %.0642, %1196 ], [ %.0642, %1205 ], [ %.0642, %1210 ], [ %.0642, %1219 ]
-  %1224 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0642.sink1029) #20
-  %1225 = getelementptr i8, ptr %.0642.sink1029, i64 %1224
+  %.0641.sink1029 = phi ptr [ %.0641, %26 ], [ %.0641, %31 ], [ %.0641, %36 ], [ %.0641, %41 ], [ %.0641, %231 ], [ %.0641, %245 ], [ %.0641, %287 ], [ %.0641, %297 ], [ %.0641, %307 ], [ %.0641, %317 ], [ %.0641, %asc_toupper_z.exit872 ], [ %.0641, %536 ], [ %.0641, %asc_tolower_z.exit879 ], [ %.0641, %asc_toupper_z.exit900 ], [ %.0641, %802 ], [ %.0641, %asc_tolower_z.exit907 ], [ %.0641, %1187 ], [ %.0641, %asc_tolower_z.exit ], [ %.0641, %223 ], [ %273, %278 ], [ %.0641, %18 ], [ %.0641, %46 ], [ %.0641, %58 ], [ %.0641, %63 ], [ %.0641, %73 ], [ %.0641, %78 ], [ %.0641, %88 ], [ %.0641, %93 ], [ %.0641, %103 ], [ %.0641, %108 ], [ %.0641, %115 ], [ %.0641, %120 ], [ %.0641, %127 ], [ %.0641, %132 ], [ %.0641, %139 ], [ %.0641, %144 ], [ %.0641, %151 ], [ %.0641, %156 ], [ %.0641, %163 ], [ %.0641, %168 ], [ %.0641, %174 ], [ %.0641, %179 ], [ %.0641, %193 ], [ %.0641, %asc_toupper_z.exit ], [ %.0641, %348 ], [ %.0641, %404 ], [ %.0641, %398 ], [ %.0641, %asc_tolower_z.exit865 ], [ %.0641, %439 ], [ %.0641, %587 ], [ %.0641, %593 ], [ %.0641, %asc_toupper_z.exit886 ], [ %.0641, %623 ], [ %.0641, %676 ], [ %.0641, %670 ], [ %.0641, %asc_tolower_z.exit893 ], [ %.0641, %709 ], [ %.0641, %857 ], [ %.0641, %862 ], [ %.0641, %867 ], [ %.0641, %878 ], [ %.0641, %889 ], [ %.0641, %896 ], [ %.0641, %907 ], [ %.0641, %914 ], [ %.0641, %919 ], [ %.0641, %933 ], [ %.0641, %938 ], [ %.0641, %952 ], [ %.0641, %959 ], [ %.0641, %967 ], [ %.0641, %997 ], [ %.0641, %1001 ], [ %.0641, %1006 ], [ %.0641, %1016 ], [ %.0641, %1051 ], [ %.0641, %1056 ], [ %.0641, %1091 ], [ %.0641, %1097 ], [ %.0641, %1132 ], [ %.0641, %1138 ], [ %.0641, %1161 ], [ %.0641, %1168 ], [ %.0641, %1196 ], [ %.0641, %1205 ], [ %.0641, %1210 ], [ %.0641, %1219 ]
+  %1224 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0641.sink1029) #20
+  %1225 = getelementptr i8, ptr %.0641.sink1029, i64 %1224
   br label %1226
 
 1226:                                             ; preds = %.sink.split, %21, %204, %221, %258, %327, %377, %418, %468, %509, %544, %957, %1175
-  %.1 = phi ptr [ %.0642, %21 ], [ %.0642, %1175 ], [ %.0642, %957 ], [ %.0642, %544 ], [ %.0642, %509 ], [ %.0642, %468 ], [ %.0642, %418 ], [ %.0642, %377 ], [ %.0642, %327 ], [ %273, %258 ], [ %.0642, %221 ], [ %.0642, %204 ], [ %1225, %.sink.split ]
+  %.1 = phi ptr [ %.0641, %21 ], [ %.0641, %1175 ], [ %.0641, %957 ], [ %.0641, %544 ], [ %.0641, %509 ], [ %.0641, %468 ], [ %.0641, %418 ], [ %.0641, %377 ], [ %.0641, %327 ], [ %273, %258 ], [ %.0641, %221 ], [ %.0641, %204 ], [ %1225, %.sink.split ]
   %1227 = getelementptr i8, ptr %.0640, i64 16
   br label %16, !llvm.loop !38
 
 1228:                                             ; preds = %16
-  store i8 0, ptr %.0642, align 1
+  store i8 0, ptr %.0641, align 1
   ret void
 }
 
@@ -11240,10 +11240,10 @@ seq_search_ascii.exit.thread:                     ; preds = %.loopexit.i, %11, %
 
 seq_search_ascii.exit:                            ; preds = %.lr.ph.i25, %60, %23
   %.155.i.lcssa.sink = phi ptr [ %.155.i, %60 ], [ %.02234.i, %23 ], [ %.04253.i, %.lr.ph.i25 ]
-  %.sink63 = phi ptr [ %3, %60 ], [ %2, %23 ], [ %3, %.lr.ph.i25 ]
+  %.sink62 = phi ptr [ %3, %60 ], [ %2, %23 ], [ %3, %.lr.ph.i25 ]
   %.2.in = phi i64 [ %56, %60 ], [ %26, %23 ], [ %39, %.lr.ph.i25 ]
   %64 = ptrtoint ptr %.155.i.lcssa.sink to i64
-  %65 = ptrtoint ptr %.sink63 to i64
+  %65 = ptrtoint ptr %.sink62 to i64
   %66 = sub i64 %64, %65
   %storemerge.in = lshr exact i64 %66, 3
   %storemerge = trunc i64 %storemerge.in to i32
@@ -11256,21 +11256,21 @@ seq_search_ascii.exit:                            ; preds = %.lr.ph.i25, %60, %2
   %69 = load ptr, ptr %1, align 8
   %70 = tail call ptr @pstrdup(ptr noundef %69) #18
   %71 = load i8, ptr %70, align 1
-  %.not40 = icmp eq i8 %71, 0
-  br i1 %.not40, label %.loopexit, label %.lr.ph
+  %.not39 = icmp eq i8 %71, 0
+  br i1 %.not39, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %68, %75
   %72 = phi i8 [ %77, %75 ], [ %71, %68 ]
-  %.041 = phi ptr [ %76, %75 ], [ %70, %68 ]
+  %.02040 = phi ptr [ %76, %75 ], [ %70, %68 ]
   %73 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %72) #18
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %.lr.ph
-  store i8 0, ptr %.041, align 1
+  store i8 0, ptr %.02040, align 1
   br label %.loopexit
 
 75:                                               ; preds = %.lr.ph
-  %76 = getelementptr i8, ptr %.041, i64 1
+  %76 = getelementptr i8, ptr %.02040, i64 1
   %77 = load i8, ptr %76, align 1
   %.not = icmp eq i8 %77, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !42
@@ -11463,7 +11463,7 @@ is_next_separator.exit.thread61:                  ; preds = %43, %32, %is_next_s
 
 95:                                               ; preds = %91, %is_next_separator.exit.thread
   %storemerge = phi ptr [ %94, %91 ], [ %59, %is_next_separator.exit.thread ]
-  %.0 = phi i64 [ %73, %91 ], [ %58, %is_next_separator.exit.thread ]
+  %.050 = phi i64 [ %73, %91 ], [ %58, %is_next_separator.exit.thread ]
   store ptr %storemerge, ptr %1, align 8
   %96 = icmp eq ptr %storemerge, %9
   br i1 %96, label %97, label %106
@@ -11486,7 +11486,7 @@ is_next_separator.exit.thread61:                  ; preds = %43, %32, %is_next_s
   %107 = tail call ptr @__errno_location() #19
   %108 = load i32, ptr %107, align 4
   %109 = icmp eq i32 %108, 34
-  %110 = add i64 %.0, -2147483648
+  %110 = add i64 %.050, -2147483648
   %111 = icmp ult i64 %110, -4294967296
   %or.cond3 = select i1 %109, i1 true, i1 %111
   br i1 %or.cond3, label %112, label %121
@@ -11510,7 +11510,7 @@ is_next_separator.exit.thread61:                  ; preds = %43, %32, %is_next_s
   br i1 %.not56, label %134, label %122
 
 122:                                              ; preds = %121
-  %123 = trunc nsw i64 %.0 to i32
+  %123 = trunc nsw i64 %.050 to i32
   %124 = load i32, ptr %0, align 4
   %.not.i57 = icmp eq i32 %124, 0
   %.not10.i = icmp eq i32 %124, %123
@@ -11545,8 +11545,8 @@ from_char_set_int.exit:                           ; preds = %122
   br label %from_char_set_int.exit.thread
 
 from_char_set_int.exit.thread:                    ; preds = %127, %125, %114, %112, %99, %97, %83, %81, %63, %61, %134
-  %.050 = phi i32 [ %139, %134 ], [ -1, %61 ], [ -1, %63 ], [ -1, %81 ], [ -1, %83 ], [ -1, %97 ], [ -1, %99 ], [ -1, %112 ], [ -1, %114 ], [ -1, %125 ], [ -1, %127 ]
-  ret i32 %.050
+  %.0 = phi i32 [ %139, %134 ], [ -1, %61 ], [ -1, %63 ], [ -1, %81 ], [ -1, %83 ], [ -1, %97 ], [ -1, %99 ], [ -1, %112 ], [ -1, %114 ], [ -1, %125 ], [ -1, %127 ]
+  ret i32 %.0
 }
 
 declare i32 @DecodeTimezoneAbbrevPrefix(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

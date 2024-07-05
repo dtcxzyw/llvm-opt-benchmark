@@ -1888,8 +1888,8 @@ define dso_local noundef zeroext i1 @_ZNK9Statement11has_edge_inEbb(ptr noundef 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
-  %.013 = phi i64 [ %32, %31 ], [ 0, %.lr.ph.preheader ]
-  %16 = getelementptr inbounds ptr, ptr %11, i64 %.013
+  %.01113 = phi i64 [ %32, %31 ], [ 0, %.lr.ph.preheader ]
+  %16 = getelementptr inbounds ptr, ptr %11, i64 %.01113
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
@@ -1911,13 +1911,13 @@ define dso_local noundef zeroext i1 @_ZNK9Statement11has_edge_inEbb(ptr noundef 
   br i1 %30, label %31, label %.loopexit
 
 31:                                               ; preds = %.lr.ph, %21, %26
-  %32 = add nuw i64 %.013, 1
+  %32 = add nuw i64 %.01113, 1
   %exitcond.not = icmp eq i64 %32, %umax
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %26, %31, %6, %3
-  %.011 = phi i1 [ false, %3 ], [ false, %6 ], [ true, %26 ], [ false, %31 ]
-  ret i1 %.011
+  %.0 = phi i1 [ false, %3 ], [ false, %6 ], [ true, %26 ], [ false, %31 ]
+  ret i1 %.0
 }
 
 declare noundef ptr @_Z21get_fact_mgr_for_funcPK8Function(ptr noundef) local_unnamed_addr #0
@@ -2860,8 +2860,8 @@ define dso_local noundef zeroext i1 @_ZNK9Statement21contains_unfixed_gotoEv(ptr
 
 25:                                               ; preds = %.lr.ph, %.loopexit
   %26 = phi ptr [ %18, %.lr.ph ], [ %162, %.loopexit ]
-  %.03496 = phi i64 [ 0, %.lr.ph ], [ %160, %.loopexit ]
-  %27 = getelementptr inbounds ptr, ptr %26, i64 %.03496
+  %.03396 = phi i64 [ 0, %.lr.ph ], [ %160, %.loopexit ]
+  %27 = getelementptr inbounds ptr, ptr %26, i64 %.03396
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
@@ -3011,7 +3011,7 @@ _ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEE
   br label %93
 
 93:                                               ; preds = %.preheader, %158
-  %.033 = phi i64 [ %159, %158 ], [ 0, %.preheader ]
+  %.034 = phi i64 [ %159, %158 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   %94 = load ptr, ptr %23, align 8
@@ -3063,7 +3063,7 @@ _ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEE
   %111 = ptrtoint ptr %109 to i64
   %112 = sub i64 %110, %111
   %113 = ashr exact i64 %112, 3
-  %114 = icmp ult i64 %.033, %113
+  %114 = icmp ult i64 %.034, %113
   br i1 %114, label %115, label %.loopexit
 
 115:                                              ; preds = %_ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEEixERSC_.exit63
@@ -3112,7 +3112,7 @@ _ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEE
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.033
+  %130 = getelementptr inbounds ptr, ptr %129, i64 %.034
   %131 = load ptr, ptr %130, align 8
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 120
@@ -3180,11 +3180,11 @@ _ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEE
   br i1 %157, label %158, label %.loopexit93
 
 158:                                              ; preds = %_ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEEixERSC_.exit77, %153, %_ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEEixERSC_.exit91
-  %159 = add i64 %.033, 1
+  %159 = add i64 %.034, 1
   br label %93, !llvm.loop !56
 
 .loopexit:                                        ; preds = %_ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEEixERSC_.exit63, %44, %49, %53
-  %160 = add nuw i64 %.03496, 1
+  %160 = add nuw i64 %.03396, 1
   %161 = load ptr, ptr %16, align 8
   %162 = load ptr, ptr %15, align 8
   %163 = ptrtoint ptr %161 to i64
@@ -4825,8 +4825,8 @@ _ZNSt6vectorIPK7CFGEdgeSaIS2_EED2Ev.exit:         ; preds = %.loopexit.split-lp,
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %53, %.lr.ph.preheader.i
-  %.013.i = phi i64 [ %54, %53 ], [ 0, %.lr.ph.preheader.i ]
-  %40 = getelementptr inbounds ptr, ptr %35, i64 %.013.i
+  %.01113.i = phi i64 [ %54, %53 ], [ 0, %.lr.ph.preheader.i ]
+  %40 = getelementptr inbounds ptr, ptr %35, i64 %.01113.i
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
@@ -4846,7 +4846,7 @@ _ZNSt6vectorIPK7CFGEdgeSaIS2_EED2Ev.exit:         ; preds = %.loopexit.split-lp,
   br i1 %52, label %53, label %_ZNK9Statement11has_edge_inEbb.exit
 
 53:                                               ; preds = %49, %45, %.lr.ph.i
-  %54 = add nuw i64 %.013.i, 1
+  %54 = add nuw i64 %.01113.i, 1
   %exitcond.not.i = icmp eq i64 %54, %umax.i
   br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !25
 
@@ -5027,8 +5027,8 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_
   br label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %142, %.lr.ph.preheader.i38
-  %.013.i41 = phi i64 [ %143, %142 ], [ 0, %.lr.ph.preheader.i38 ]
-  %129 = getelementptr inbounds ptr, ptr %124, i64 %.013.i41
+  %.01113.i41 = phi i64 [ %143, %142 ], [ 0, %.lr.ph.preheader.i38 ]
+  %129 = getelementptr inbounds ptr, ptr %124, i64 %.01113.i41
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 16
   %132 = load ptr, ptr %131, align 8
@@ -5048,7 +5048,7 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_
   br i1 %141, label %142, label %_ZNK9Statement11has_edge_inEbb.exit45
 
 142:                                              ; preds = %138, %134, %.lr.ph.i40
-  %143 = add nuw i64 %.013.i41, 1
+  %143 = add nuw i64 %.01113.i41, 1
   %exitcond.not.i42 = icmp eq i64 %143, %umax.i39
   br i1 %exitcond.not.i42, label %_ZNK9Statement11has_edge_inEbb.exit45.thread, label %.lr.ph.i40, !llvm.loop !25
 

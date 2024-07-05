@@ -268,18 +268,18 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %while.body
-  %6 = phi <4 x i32> [ zeroinitializer, %while.body ], [ %add.i62.i, %do.body.i ]
-  %7 = phi <8 x i16> [ zeroinitializer, %while.body ], [ %add.i83, %do.body.i ]
+  %6 = phi <8 x i16> [ zeroinitializer, %while.body ], [ %add.i74, %do.body.i ]
+  %7 = phi <8 x i16> [ zeroinitializer, %while.body ], [ %add.i77, %do.body.i ]
   %8 = phi <8 x i16> [ zeroinitializer, %while.body ], [ %add.i80, %do.body.i ]
-  %9 = phi <8 x i16> [ zeroinitializer, %while.body ], [ %add.i77, %do.body.i ]
-  %10 = phi <8 x i16> [ zeroinitializer, %while.body ], [ %add.i74, %do.body.i ]
+  %9 = phi <8 x i16> [ zeroinitializer, %while.body ], [ %add.i83, %do.body.i ]
+  %10 = phi <4 x i32> [ zeroinitializer, %while.body ], [ %add.i62.i, %do.body.i ]
   %11 = phi <4 x i32> [ zeroinitializer, %while.body ], [ %add.i56.i, %do.body.i ]
   %p.addr.i.0 = phi ptr [ %p.addr.281, %while.body ], [ %incdec.ptr5.i, %do.body.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.i.0, i64 16
   %12 = load <16 x i8>, ptr %p.addr.i.0, align 16
   %incdec.ptr5.i = getelementptr inbounds i8, ptr %p.addr.i.0, i64 32
   %13 = load <16 x i8>, ptr %incdec.ptr.i, align 16
-  %add.i62.i = add <4 x i32> %11, %6
+  %add.i62.i = add <4 x i32> %11, %10
   %14 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %12, <16 x i8> zeroinitializer)
   %15 = bitcast <2 x i64> %14 to <4 x i32>
   %add.i59.i = add <4 x i32> %11, %15
@@ -288,16 +288,16 @@ do.body.i:                                        ; preds = %do.body.i, %while.b
   %add.i56.i = add <4 x i32> %add.i59.i, %17
   %shuffle.i88 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %18 = bitcast <16 x i8> %shuffle.i88 to <8 x i16>
-  %add.i83 = add <8 x i16> %7, %18
+  %add.i83 = add <8 x i16> %9, %18
   %shuffle.i94 = shufflevector <16 x i8> %12, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %19 = bitcast <16 x i8> %shuffle.i94 to <8 x i16>
   %add.i80 = add <8 x i16> %8, %19
   %shuffle.i = shufflevector <16 x i8> %13, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %20 = bitcast <16 x i8> %shuffle.i to <8 x i16>
-  %add.i77 = add <8 x i16> %9, %20
+  %add.i77 = add <8 x i16> %7, %20
   %shuffle.i91 = shufflevector <16 x i8> %13, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %21 = bitcast <16 x i8> %shuffle.i91 to <8 x i16>
-  %add.i74 = add <8 x i16> %10, %21
+  %add.i74 = add <8 x i16> %6, %21
   %cmp.i.not = icmp eq ptr %incdec.ptr5.i, %add.ptr24
   br i1 %cmp.i.not, label %adler32_sse2_chunk.exit, label %do.body.i
 

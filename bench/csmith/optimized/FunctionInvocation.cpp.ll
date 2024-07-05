@@ -1150,7 +1150,7 @@ define dso_local noundef ptr @_ZN18FunctionInvocation33make_random_binary_ptr_co
           to label %94 unwind label %44
 
 94:                                               ; preds = %90, %77, %36, %38
-  %.034 = phi ptr [ null, %38 ], [ null, %36 ], [ null, %77 ], [ %17, %90 ]
+  %.0 = phi ptr [ null, %38 ], [ null, %36 ], [ null, %77 ], [ %17, %90 ]
   call void @_ZN9CGContextD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #23
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %2) #23
   br label %97
@@ -1166,8 +1166,8 @@ define dso_local noundef ptr @_ZN18FunctionInvocation33make_random_binary_ptr_co
   resume { ptr, i32 } %.pn46.pn
 
 97:                                               ; preds = %20, %22, %12, %1, %94
-  %.135 = phi ptr [ %.034, %94 ], [ null, %1 ], [ null, %12 ], [ null, %22 ], [ null, %20 ]
-  ret ptr %.135
+  %.1 = phi ptr [ %.0, %94 ], [ null, %1 ], [ null, %12 ], [ null, %22 ], [ null, %20 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -3160,7 +3160,7 @@ define dso_local noundef zeroext i1 @_ZNK18FunctionInvocation11visit_factsERSt6v
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 26:                                               ; preds = %86
-  %27 = add nuw i64 %.05284, 1
+  %27 = add nuw i64 %.03884, 1
   %28 = load ptr, ptr %23, align 8
   %29 = load ptr, ptr %22, align 8
   %30 = ptrtoint ptr %28 to i64
@@ -3172,7 +3172,7 @@ define dso_local noundef zeroext i1 @_ZNK18FunctionInvocation11visit_factsERSt6v
 
 .lr.ph:                                           ; preds = %3, %26
   %.085 = phi i1 [ %.1, %26 ], [ undef, %3 ]
-  %.05284 = phi i64 [ %27, %26 ], [ 0, %3 ]
+  %.03884 = phi i64 [ %27, %26 ], [ 0, %3 ]
   invoke void @_ZN6EffectC1Ev(ptr noundef nonnull align 8 dereferenceable(74) %5)
           to label %35 unwind label %.loopexit
 
@@ -3185,7 +3185,7 @@ define dso_local noundef zeroext i1 @_ZNK18FunctionInvocation11visit_factsERSt6v
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %22, align 8
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %.05284
+  %40 = getelementptr inbounds ptr, ptr %39, i64 %.03884
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 64
@@ -3217,7 +3217,7 @@ define dso_local noundef zeroext i1 @_ZNK18FunctionInvocation11visit_factsERSt6v
           to label %50 unwind label %70
 
 50:                                               ; preds = %49
-  invoke void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, i64 noundef %.05284)
+  invoke void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, i64 noundef %.03884)
           to label %51 unwind label %72
 
 51:                                               ; preds = %50
@@ -3573,40 +3573,40 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind
   br i1 %4, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %16
-  %.029.i = phi i32 [ %18, %16 ], [ 1, %2 ]
-  %.02328.i = phi i64 [ %17, %16 ], [ %1, %2 ]
-  %5 = icmp ult i64 %.02328.i, 100
+  %.02229.i = phi i64 [ %17, %16 ], [ %1, %2 ]
+  %.02328.i = phi i32 [ %18, %16 ], [ 1, %2 ]
+  %5 = icmp ult i64 %.02229.i, 100
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = add i32 %.029.i, 1
+  %7 = add i32 %.02328.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = icmp ult i64 %.02328.i, 1000
+  %9 = icmp ult i64 %.02229.i, 1000
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = add i32 %.029.i, 2
+  %11 = add i32 %.02328.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 12:                                               ; preds = %8
-  %13 = icmp ult i64 %.02328.i, 10000
+  %13 = icmp ult i64 %.02229.i, 10000
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = add i32 %.029.i, 3
+  %15 = add i32 %.02328.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 16:                                               ; preds = %12
-  %17 = udiv i64 %.02328.i, 10000
-  %18 = add i32 %.029.i, 4
-  %19 = icmp ult i64 %.02328.i, 100000
+  %17 = udiv i64 %.02229.i, 10000
+  %18 = add i32 %.02328.i, 4
+  %19 = icmp ult i64 %.02229.i, 100000
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i, !llvm.loop !22
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.022.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
-  %20 = zext i32 %.022.i to i64
+  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %20 = zext i32 %.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %20, i8 noundef signext 0, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %21 unwind label %55

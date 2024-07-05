@@ -2794,9 +2794,9 @@ if.else:                                          ; preds = %if.end36
   br i1 %cmp42, label %return, label %if.end46
 
 if.end46:                                         ; preds = %if.end36, %if.else
-  %ext.addr.0 = phi ptr [ %2, %if.else ], [ %ext, %if.end36 ]
-  %i.0 = phi i32 [ 0, %if.else ], [ -1, %if.end36 ]
   %x.0 = phi ptr [ %call41, %if.else ], [ null, %if.end36 ]
+  %i.0 = phi i32 [ 0, %if.else ], [ -1, %if.end36 ]
+  %ext.addr.0 = phi ptr [ %2, %if.else ], [ %ext, %if.end36 ]
   %call47 = tail call i32 @X509v3_addr_is_canonical(ptr noundef nonnull %ext.addr.0)
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %do.body, label %if.end62
@@ -3125,8 +3125,8 @@ for.inc290:                                       ; preds = %if.end262, %land.lh
   br i1 %cmp252, label %for.body254, label %done, !llvm.loop !28
 
 done:                                             ; preds = %do.body173, %do.body124, %do.body88, %if.end183, %if.end134, %if.end98, %do.body220, %if.end230, %if.end190, %lor.lhs.false193, %for.body114, %for.body254, %for.inc290, %land.lhs.true, %for.body254.us, %do.body273.us, %for.inc290.us, %for.cond248.preheader, %do.body, %for.end243, %if.then70, %if.then73, %if.then52
-  %child.0 = phi ptr [ null, %if.then73 ], [ null, %if.then70 ], [ null, %if.then52 ], [ %call67, %for.end243 ], [ null, %do.body ], [ %call67, %for.cond248.preheader ], [ %call67, %for.inc290.us ], [ %call67, %do.body273.us ], [ %call67, %for.body254.us ], [ %call67, %land.lhs.true ], [ %call67, %for.inc290 ], [ %call67, %for.body254 ], [ %call67, %for.body114 ], [ %call67, %lor.lhs.false193 ], [ %call67, %if.end190 ], [ %call67, %if.end230 ], [ %call67, %do.body220 ], [ %call67, %if.end98 ], [ %call67, %if.end134 ], [ %call67, %if.end183 ], [ %call67, %do.body88 ], [ %call67, %do.body124 ], [ %call67, %do.body173 ]
   %ret.0 = phi i32 [ 0, %if.then73 ], [ 0, %if.then70 ], [ 0, %if.then52 ], [ 1, %for.end243 ], [ 0, %do.body ], [ 1, %for.cond248.preheader ], [ 0, %for.body254.us ], [ 0, %do.body273.us ], [ 1, %for.inc290.us ], [ 0, %for.body254 ], [ 1, %for.inc290 ], [ 0, %land.lhs.true ], [ 0, %for.body114 ], [ 0, %lor.lhs.false193 ], [ 0, %if.end190 ], [ 0, %if.end230 ], [ 0, %do.body220 ], [ 0, %if.end98 ], [ 0, %if.end134 ], [ 0, %if.end183 ], [ 0, %do.body88 ], [ 0, %do.body124 ], [ 0, %do.body173 ]
+  %child.0 = phi ptr [ null, %if.then73 ], [ null, %if.then70 ], [ null, %if.then52 ], [ %call67, %for.end243 ], [ null, %do.body ], [ %call67, %for.cond248.preheader ], [ %call67, %for.inc290.us ], [ %call67, %do.body273.us ], [ %call67, %for.body254.us ], [ %call67, %land.lhs.true ], [ %call67, %for.inc290 ], [ %call67, %for.body254 ], [ %call67, %for.body114 ], [ %call67, %lor.lhs.false193 ], [ %call67, %if.end190 ], [ %call67, %if.end230 ], [ %call67, %do.body220 ], [ %call67, %if.end98 ], [ %call67, %if.end134 ], [ %call67, %if.end183 ], [ %call67, %do.body88 ], [ %call67, %do.body124 ], [ %call67, %do.body173 ]
   tail call void @OPENSSL_sk_free(ptr noundef %child.0) #15
   br label %return
 

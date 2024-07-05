@@ -1797,22 +1797,22 @@ get_message_config.exit:                          ; preds = %4, %14
   br label %56
 
 56:                                               ; preds = %54, %.thread
-  %.0 = phi i32 [ %55, %54 ], [ %51, %.thread ]
+  %.081 = phi i32 [ %55, %54 ], [ %51, %.thread ]
   %57 = load i32, ptr @hf_pdu, align 4
-  %58 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %57, ptr noundef %0, i32 noundef %44, i32 noundef %.0, i32 noundef 0) #7
+  %58 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %57, ptr noundef %0, i32 noundef %44, i32 noundef %.081, i32 noundef 0) #7
   %59 = load i32, ptr @ett_ipdum_pdu, align 4
   %60 = call ptr @proto_item_add_subtree(ptr noundef %58, i32 noundef %59) #7
   %61 = load i32, ptr @hf_pdu_name, align 4
   %62 = load ptr, ptr %25, align 8
   %63 = getelementptr %struct._ipdum_message_item, ptr %62, i64 %indvars.iv, i32 2
   %64 = load ptr, ptr %63, align 8
-  %65 = call ptr @proto_tree_add_string(ptr noundef %60, i32 noundef %61, ptr noundef %0, i32 noundef %44, i32 noundef %.0, ptr noundef %64) #7
+  %65 = call ptr @proto_tree_add_string(ptr noundef %60, i32 noundef %61, ptr noundef %0, i32 noundef %44, i32 noundef %.081, ptr noundef %64) #7
   %66 = load i32, ptr @hf_pdu_id, align 4
   %67 = load ptr, ptr %25, align 8
   %68 = getelementptr %struct._ipdum_message_item, ptr %67, i64 %indvars.iv, i32 1
   %69 = load i32, ptr %68, align 4
-  %70 = call ptr @proto_tree_add_uint(ptr noundef %60, i32 noundef %66, ptr noundef %0, i32 noundef %44, i32 noundef %.0, i32 noundef %69) #7
-  %71 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %44, i32 noundef %.0) #7
+  %70 = call ptr @proto_tree_add_uint(ptr noundef %60, i32 noundef %66, ptr noundef %0, i32 noundef %44, i32 noundef %.081, i32 noundef %69) #7
+  %71 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %44, i32 noundef %.081) #7
   %.not90 = icmp eq ptr %71, null
   br i1 %.not90, label %78, label %72
 

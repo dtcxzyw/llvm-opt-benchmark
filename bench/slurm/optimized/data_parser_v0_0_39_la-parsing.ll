@@ -1189,7 +1189,7 @@ _match_flag_bit.exit.thread.i:                    ; preds = %108, %_match_flag_b
   unreachable
 
 129:                                              ; preds = %125, %122, %119, %117
-  %.058.i = phi i64 [ %118, %117 ], [ %121, %119 ], [ %124, %122 ], [ %127, %125 ]
+  %.059.i = phi i64 [ %118, %117 ], [ %121, %119 ], [ %124, %122 ], [ %127, %125 ]
   %130 = load i32, ptr %60, align 8
   %131 = tail call i32 @get_log_level() #5
   %132 = icmp sgt i32 %131, 3
@@ -1210,7 +1210,7 @@ _match_flag_bit.exit.thread.i:                    ; preds = %108, %_match_flag_b
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds i8, ptr %59, i64 48
   %143 = load i64, ptr %142, align 8
-  %144 = and i64 %139, %.058.i
+  %144 = and i64 %139, %.059.i
   %145 = and i64 %144, %143
   %146 = load i64, ptr %48, align 8
   %147 = load ptr, ptr %49, align 8
@@ -1218,7 +1218,7 @@ _match_flag_bit.exit.thread.i:                    ; preds = %108, %_match_flag_b
   %149 = load ptr, ptr %52, align 8
   %150 = load ptr, ptr %53, align 8
   %151 = tail call ptr @data_get_type_string(ptr noundef %3) #5
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__._dump_flag_bit_array, ptr noundef nonnull %.057.in6.i, ptr noundef %135, ptr noundef nonnull %switch.select66.i, ptr noundef %135, ptr noundef %137, i64 noundef %139, ptr noundef %141, i64 noundef %143, i64 noundef %.058.i, i64 noundef %145, i64 noundef %146, ptr noundef %147, i64 noundef %50, i64 noundef %148, ptr noundef %149, ptr noundef %150, i64 noundef %54, ptr noundef %151, i64 noundef %55) #5
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__._dump_flag_bit_array, ptr noundef nonnull %.057.in6.i, ptr noundef %135, ptr noundef nonnull %switch.select66.i, ptr noundef %135, ptr noundef %137, i64 noundef %139, ptr noundef %141, i64 noundef %143, i64 noundef %.059.i, i64 noundef %145, i64 noundef %146, ptr noundef %147, i64 noundef %50, i64 noundef %148, ptr noundef %149, ptr noundef %150, i64 noundef %54, ptr noundef %151, i64 noundef %55) #5
   br label %152
 
 152:                                              ; preds = %133, %129, %_match_flag_bit.exit.thread.i
@@ -1253,7 +1253,7 @@ _match_flag_bit.exit.thread.i:                    ; preds = %108, %_match_flag_b
   br label %170
 
 170:                                              ; preds = %168, %161
-  %.062.i = phi ptr [ %169, %168 ], [ %3, %161 ]
+  %.063.i = phi ptr [ %169, %168 ], [ %3, %161 ]
   %171 = getelementptr inbounds i8, ptr %163, i64 4
   %172 = load i32, ptr %171, align 4
   switch i32 %172, label %228 [
@@ -1283,7 +1283,7 @@ _match_flag_bit.exit.thread.i:                    ; preds = %108, %_match_flag_b
   %187 = ptrtoint ptr %spec.select.i to i64
   %188 = load ptr, ptr %32, align 8
   %189 = load i64, ptr %33, align 8
-  %190 = ptrtoint ptr %.062.i to i64
+  %190 = ptrtoint ptr %.063.i to i64
   %191 = load ptr, ptr %31, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.40, ptr noundef %181, ptr noundef %182, ptr noundef %184, i64 noundef %185, ptr noundef %186, i64 noundef %187, ptr noundef %188, i64 noundef %189, i64 noundef %190, ptr noundef %191, i64 noundef %190) #5
   br label %_dump_linked.exit
@@ -1311,7 +1311,7 @@ _match_flag_bit.exit.thread.i:                    ; preds = %108, %_match_flag_b
   %207 = ptrtoint ptr %163 to i64
   %208 = load ptr, ptr %30, align 8
   %209 = ptrtoint ptr %spec.select.i to i64
-  %210 = ptrtoint ptr %.062.i to i64
+  %210 = ptrtoint ptr %.063.i to i64
   %211 = load ptr, ptr %31, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.41, ptr noundef %203, ptr noundef %204, ptr noundef %206, i64 noundef %207, ptr noundef %208, i64 noundef %209, i64 noundef %210, ptr noundef %211, i64 noundef %210) #5
   br label %212
@@ -1336,27 +1336,27 @@ _match_flag_bit.exit.thread.i:                    ; preds = %108, %_match_flag_b
   ]
 
 215:                                              ; preds = %212, %212, %212
-  %216 = tail call ptr @data_set_int(ptr noundef %.062.i, i64 noundef 0) #5
+  %216 = tail call ptr @data_set_int(ptr noundef %.063.i, i64 noundef 0) #5
   br label %_dump_linked.exit
 
 217:                                              ; preds = %212, %212, %212
-  %218 = tail call ptr @data_set_float(ptr noundef %.062.i, double noundef 0.000000e+00) #5
+  %218 = tail call ptr @data_set_float(ptr noundef %.063.i, double noundef 0.000000e+00) #5
   br label %_dump_linked.exit
 
 219:                                              ; preds = %212, %212
-  %220 = tail call ptr @data_set_string(ptr noundef %.062.i, ptr noundef nonnull @.str.3) #5
+  %220 = tail call ptr @data_set_string(ptr noundef %.063.i, ptr noundef nonnull @.str.3) #5
   br label %_dump_linked.exit
 
 221:                                              ; preds = %212
-  %222 = tail call ptr @data_set_bool(ptr noundef %.062.i, i1 noundef zeroext false) #5
+  %222 = tail call ptr @data_set_bool(ptr noundef %.063.i, i1 noundef zeroext false) #5
   br label %223
 
 223:                                              ; preds = %221, %212
-  %224 = tail call ptr @data_set_dict(ptr noundef %.062.i) #5
+  %224 = tail call ptr @data_set_dict(ptr noundef %.063.i) #5
   br label %_dump_linked.exit
 
 225:                                              ; preds = %212
-  %226 = tail call ptr @data_set_list(ptr noundef %.062.i) #5
+  %226 = tail call ptr @data_set_list(ptr noundef %.063.i) #5
   br label %_dump_linked.exit
 
 227:                                              ; preds = %212, %212
@@ -1384,7 +1384,7 @@ _match_flag_bit.exit.thread.i:                    ; preds = %108, %_match_flag_b
   %241 = ptrtoint ptr %spec.select.i to i64
   %242 = load ptr, ptr %32, align 8
   %243 = load i64, ptr %33, align 8
-  %244 = ptrtoint ptr %.062.i to i64
+  %244 = ptrtoint ptr %.063.i to i64
   %245 = load ptr, ptr %31, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.43, ptr noundef %236, ptr noundef %237, ptr noundef %239, i64 noundef %240, ptr noundef %236, i64 noundef %241, ptr noundef %242, i64 noundef %243, i64 noundef %244, ptr noundef %245, i64 noundef %244) #5
   br label %246
@@ -1393,7 +1393,7 @@ _match_flag_bit.exit.thread.i:                    ; preds = %108, %_match_flag_b
   %247 = getelementptr inbounds i8, ptr %163, i64 8
   %248 = load i32, ptr %247, align 8
   %249 = tail call ptr @find_parser_by_type(i32 noundef %248) #5
-  %250 = tail call i32 @dump(ptr noundef %spec.select.i, i64 noundef 4294967294, ptr noundef %249, ptr noundef %.062.i, ptr noundef %4)
+  %250 = tail call i32 @dump(ptr noundef %spec.select.i, i64 noundef 4294967294, ptr noundef %249, ptr noundef %.063.i, ptr noundef %4)
   %251 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %252 = and i64 %251, 256
   %.not69.i = icmp eq i64 %252, 0
@@ -1415,15 +1415,15 @@ _match_flag_bit.exit.thread.i:                    ; preds = %108, %_match_flag_b
   %264 = ptrtoint ptr %spec.select.i to i64
   %265 = load ptr, ptr %32, align 8
   %266 = load i64, ptr %33, align 8
-  %267 = ptrtoint ptr %.062.i to i64
+  %267 = ptrtoint ptr %.063.i to i64
   %268 = load ptr, ptr %31, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.44, ptr noundef %258, ptr noundef %259, ptr noundef %261, i64 noundef %262, ptr noundef %263, i64 noundef %264, ptr noundef %265, i64 noundef %266, i64 noundef %267, ptr noundef %268, i64 noundef %267) #5
   br label %_dump_linked.exit
 
 _dump_linked.exit:                                ; preds = %173, %176, %179, %212, %215, %217, %219, %223, %225, %246, %253, %256
-  %.0.i70 = phi i32 [ %250, %256 ], [ %250, %253 ], [ %250, %246 ], [ 0, %173 ], [ 0, %176 ], [ 0, %179 ], [ 0, %225 ], [ 0, %223 ], [ 0, %219 ], [ 0, %217 ], [ 0, %215 ], [ 0, %212 ]
+  %.062.i = phi i32 [ %250, %256 ], [ %250, %253 ], [ %250, %246 ], [ 0, %173 ], [ 0, %176 ], [ 0, %179 ], [ 0, %225 ], [ 0, %223 ], [ 0, %219 ], [ 0, %217 ], [ 0, %215 ], [ 0, %212 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not66 = icmp eq i32 %.0.i70, 0
+  %.not66 = icmp eq i32 %.062.i, 0
   br i1 %.not66, label %158, label %.critedge, !llvm.loop !10
 
 269:                                              ; preds = %24
@@ -1436,8 +1436,8 @@ _dump_linked.exit:                                ; preds = %173, %176, %179, %2
   %272 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %2, ptr %272, align 8
   %273 = getelementptr inbounds i8, ptr %6, i64 32
-  %.not.i71 = icmp eq ptr %0, null
-  br i1 %.not.i71, label %276, label %274
+  %.not.i70 = icmp eq ptr %0, null
+  br i1 %.not.i70, label %276, label %274
 
 274:                                              ; preds = %269
   %275 = load ptr, ptr %0, align 8
@@ -1479,7 +1479,7 @@ _dump_linked.exit:                                ; preds = %173, %176, %179, %2
   br label %_dump_list.exit
 
 _dump_list.exit:                                  ; preds = %283, %284, %286, %289
-  %.0.i72 = phi i32 [ %292, %289 ], [ 0, %284 ], [ 0, %283 ], [ 0, %286 ]
+  %.0.i71 = phi i32 [ %292, %289 ], [ 0, %284 ], [ 0, %283 ], [ 0, %286 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   br label %.critedge
 
@@ -1488,8 +1488,8 @@ _dump_list.exit:                                  ; preds = %283, %284, %286, %2
   %295 = load i32, ptr %294, align 4
   %296 = tail call ptr @find_parser_by_type(i32 noundef %295) #5
   %297 = load ptr, ptr %0, align 8
-  %.not.i73 = icmp eq ptr %297, null
-  br i1 %.not.i73, label %298, label %313
+  %.not.i72 = icmp eq ptr %297, null
+  br i1 %.not.i72, label %298, label %313
 
 298:                                              ; preds = %293
   %299 = getelementptr inbounds i8, ptr %296, i64 4
@@ -1537,14 +1537,14 @@ _dump_list.exit:                                  ; preds = %283, %284, %286, %2
 318:                                              ; preds = %315
   %319 = load ptr, ptr %0, align 8
   %.not45.i = icmp eq ptr %319, null
-  br i1 %.not45.i, label %.critedge, label %.preheader.i78
+  br i1 %.not45.i, label %.critedge, label %.preheader.i77
 
-.preheader.i78:                                   ; preds = %318
+.preheader.i77:                                   ; preds = %318
   %320 = getelementptr inbounds i8, ptr %2, i64 96
   br label %321
 
-321:                                              ; preds = %324, %.preheader.i78
-  %indvars.iv60.i = phi i64 [ 0, %.preheader.i78 ], [ %indvars.iv.next61.i, %324 ]
+321:                                              ; preds = %324, %.preheader.i77
+  %indvars.iv60.i = phi i64 [ 0, %.preheader.i77 ], [ %indvars.iv.next61.i, %324 ]
   %322 = getelementptr inbounds ptr, ptr %319, i64 %indvars.iv60.i
   %323 = load ptr, ptr %322, align 8
   %.not47.i = icmp eq ptr %323, null
@@ -1563,8 +1563,8 @@ _dump_list.exit:                                  ; preds = %283, %284, %286, %2
   %330 = load i32, ptr %329, align 8
   %331 = tail call ptr @find_parser_by_type(i32 noundef %330) #5
   %332 = load ptr, ptr %0, align 8
-  %.not.i75 = icmp eq ptr %332, null
-  br i1 %.not.i75, label %.critedge, label %.preheader48.i
+  %.not.i74 = icmp eq ptr %332, null
+  br i1 %.not.i74, label %.critedge, label %.preheader48.i
 
 .preheader48.i:                                   ; preds = %328
   %333 = getelementptr inbounds i8, ptr %331, i64 48
@@ -1577,21 +1577,21 @@ _dump_list.exit:                                  ; preds = %283, %284, %286, %2
   %337 = mul nsw i64 %336, %indvars.iv57.i
   %338 = getelementptr inbounds i8, ptr %335, i64 %337
   %339 = icmp sgt i64 %336, 0
-  br i1 %339, label %.lr.ph.i76, label %.critedge
+  br i1 %339, label %.lr.ph.i75, label %.critedge
 
-.lr.ph.i76:                                       ; preds = %334, %.lr.ph.i76
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i76 ], [ 0, %334 ]
-  %.03350.i = phi i1 [ %spec.select.i77, %.lr.ph.i76 ], [ true, %334 ]
+.lr.ph.i75:                                       ; preds = %334, %.lr.ph.i75
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i75 ], [ 0, %334 ]
+  %.03450.i = phi i1 [ %spec.select.i76, %.lr.ph.i75 ], [ true, %334 ]
   %340 = getelementptr inbounds i8, ptr %338, i64 %indvars.iv.i
   %341 = load i8, ptr %340, align 1
   %.not44.i = icmp eq i8 %341, 0
-  %spec.select.i77 = select i1 %.not44.i, i1 %.03350.i, i1 false
+  %spec.select.i76 = select i1 %.not44.i, i1 %.03450.i, i1 false
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %336
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i76, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i75, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i76
-  br i1 %spec.select.i77, label %.critedge, label %342
+._crit_edge.i:                                    ; preds = %.lr.ph.i75
+  br i1 %spec.select.i76, label %.critedge, label %342
 
 342:                                              ; preds = %._crit_edge.i
   %343 = load i32, ptr %329, align 8
@@ -1628,7 +1628,7 @@ _dump_list.exit:                                  ; preds = %283, %284, %286, %2
   unreachable
 
 .critedge:                                        ; preds = %342, %._crit_edge.i, %334, %324, %321, %158, %_dump_linked.exit, %152, %328, %318, %313, %311, %309, %306, %.preheader.i, %43, %22, %347, %_dump_list.exit, %24
-  %.1 = phi i32 [ %23, %22 ], [ 0, %24 ], [ %350, %347 ], [ %.0.i72, %_dump_list.exit ], [ 9202, %43 ], [ 0, %.preheader.i ], [ %314, %313 ], [ 0, %309 ], [ 0, %311 ], [ 0, %306 ], [ 0, %318 ], [ 0, %328 ], [ 0, %152 ], [ 0, %158 ], [ %.0.i70, %_dump_linked.exit ], [ %327, %324 ], [ 0, %321 ], [ 0, %334 ], [ %345, %342 ], [ 0, %._crit_edge.i ]
+  %.1 = phi i32 [ %23, %22 ], [ 0, %24 ], [ %350, %347 ], [ %.0.i71, %_dump_list.exit ], [ 9202, %43 ], [ 0, %.preheader.i ], [ %314, %313 ], [ 0, %309 ], [ 0, %311 ], [ 0, %306 ], [ 0, %318 ], [ 0, %328 ], [ 0, %152 ], [ 0, %158 ], [ %.062.i, %_dump_linked.exit ], [ %327, %324 ], [ 0, %321 ], [ 0, %334 ], [ %345, %342 ], [ 0, %._crit_edge.i ]
   %355 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %356 = and i64 %355, 256
   %.not68 = icmp eq i64 %356, 0
@@ -1698,17 +1698,17 @@ _flag_parent_path.exit:                           ; preds = %2, %15
   br label %21
 
 21:                                               ; preds = %.lr.ph, %_set_flag_bit.exit
-  %.051 = phi i8 [ 0, %.lr.ph ], [ %166, %_set_flag_bit.exit ]
-  %.04350 = phi i1 [ false, %.lr.ph ], [ %spec.select, %_set_flag_bit.exit ]
+  %.04351 = phi i1 [ false, %.lr.ph ], [ %spec.select, %_set_flag_bit.exit ]
+  %.04450 = phi i8 [ 0, %.lr.ph ], [ %166, %_set_flag_bit.exit ]
   %22 = load ptr, ptr %18, align 8
-  %23 = sext i8 %.051 to i64
+  %23 = sext i8 %.04450 to i64
   %24 = getelementptr inbounds %struct.flag_bit_t, ptr %22, i64 %23
   %25 = call ptr @data_get_string(ptr noundef %0) #5
   %26 = getelementptr inbounds i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @xstrcasecmp(ptr noundef %25, ptr noundef %27) #5
   %.not = icmp eq i32 %28, 0
-  %spec.select = select i1 %.not, i1 true, i1 %.04350
+  %spec.select = select i1 %.not, i1 true, i1 %.04351
   %29 = getelementptr inbounds i8, ptr %24, i64 16
   %30 = load i32, ptr %29, align 8
   switch i32 %30, label %163 [
@@ -1954,7 +1954,7 @@ _set_flag_bit.exit:                               ; preds = %37, %43, %46, %53, 
   %164 = load i64, ptr %19, align 8
   %165 = or i64 %164, %.sink59
   store i64 %165, ptr %19, align 8
-  %166 = add i8 %.051, 1
+  %166 = add i8 %.04450, 1
   %167 = sext i8 %166 to i32
   %168 = load i8, ptr %16, align 8
   %169 = zext i8 %168 to i32
@@ -1984,9 +1984,9 @@ _set_flag_bit.exit:                               ; preds = %37, %43, %46, %53, 
   br label %183
 
 183:                                              ; preds = %._crit_edge, %175
-  %.044 = phi i32 [ 4, %175 ], [ 1, %._crit_edge ]
+  %.0 = phi i32 [ 4, %175 ], [ 1, %._crit_edge ]
   call void @slurm_xfree(ptr noundef nonnull %3) #5
-  ret i32 %.044
+  ret i32 %.0
 }
 
 declare ptr @data_get_string(ptr noundef) local_unnamed_addr #1
@@ -2172,10 +2172,10 @@ define internal range(i32 1, 5) i32 @_foreach_array_entry(ptr noundef %0, ptr no
 
 33:                                               ; preds = %17, %24, %22
   %34 = phi ptr [ %.pre, %22 ], [ %19, %24 ], [ %19, %17 ]
-  %.0 = phi ptr [ %23, %22 ], [ %32, %24 ], [ null, %17 ]
+  %.033 = phi ptr [ %23, %22 ], [ %32, %24 ], [ null, %17 ]
   %35 = getelementptr inbounds i8, ptr %1, i64 48
   %36 = load ptr, ptr %35, align 8
-  %37 = call i32 @parse(ptr noundef %.0, i64 noundef 4294967294, ptr noundef %34, ptr noundef %0, ptr noundef %36, ptr noundef %6)
+  %37 = call i32 @parse(ptr noundef %.033, i64 noundef 4294967294, ptr noundef %34, ptr noundef %0, ptr noundef %36, ptr noundef %6)
   %.not37 = icmp eq i32 %37, 0
   br i1 %.not37, label %52, label %38
 
@@ -2194,14 +2194,14 @@ define internal range(i32 1, 5) i32 @_foreach_array_entry(ptr noundef %0, ptr no
   %45 = load ptr, ptr %18, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
-  %48 = ptrtoint ptr %.0 to i64
+  %48 = ptrtoint ptr %.033 to i64
   %49 = call ptr @slurm_strerror(i32 noundef %37) #5
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.23, ptr noundef %47, i64 noundef %48, ptr noundef %49) #5
   br label %50
 
 50:                                               ; preds = %38, %41, %44
   %51 = load ptr, ptr %18, align 8
-  call void @free_parser_obj(ptr noundef %51, ptr noundef %.0) #5
+  call void @free_parser_obj(ptr noundef %51, ptr noundef %.033) #5
   %.not40 = icmp eq ptr %6, null
   br i1 %.not40, label %66, label %.sink.split
 
@@ -2218,7 +2218,7 @@ define internal range(i32 1, 5) i32 @_foreach_array_entry(ptr noundef %0, ptr no
   %60 = load i32, ptr %8, align 8
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds ptr, ptr %59, i64 %61
-  store ptr %.0, ptr %62, align 8
+  store ptr %.033, ptr %62, align 8
   br label %63
 
 63:                                               ; preds = %57, %52
@@ -2229,13 +2229,13 @@ define internal range(i32 1, 5) i32 @_foreach_array_entry(ptr noundef %0, ptr no
   br i1 %.not38, label %66, label %.sink.split
 
 .sink.split:                                      ; preds = %63, %50
-  %.033.ph = phi i32 [ 4, %50 ], [ 1, %63 ]
+  %.0.ph = phi i32 [ 4, %50 ], [ 1, %63 ]
   call void @data_free(ptr noundef nonnull %6) #5
   br label %66
 
 66:                                               ; preds = %.sink.split, %63, %50
-  %.033 = phi i32 [ 4, %50 ], [ 1, %63 ], [ %.033.ph, %.sink.split ]
-  ret i32 %.033
+  %.0 = phi i32 [ 4, %50 ], [ 1, %63 ], [ %.0.ph, %.sink.split ]
+  ret i32 %.0
 }
 
 declare i32 @openapi_type_format_to_data_type(i32 noundef) local_unnamed_addr #1

@@ -2320,56 +2320,56 @@ while.cond.preheader:                             ; preds = %invoke.cont31
   br i1 %12, label %while.body, label %while.cond55.preheader
 
 while.cond55.preheader:                           ; preds = %if.end54, %while.cond.preheader
-  %di.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %di.1, %if.end54 ]
-  %destPtr.0.lcssa = phi ptr [ %5, %while.cond.preheader ], [ %destPtr.1, %if.end54 ]
   %sourcePtr.0.lcssa = phi ptr [ %8, %while.cond.preheader ], [ %sourcePtr.1, %if.end54 ]
+  %destPtr.0.lcssa = phi ptr [ %5, %while.cond.preheader ], [ %destPtr.1, %if.end54 ]
+  %di.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %di.1, %if.end54 ]
   br label %while.cond55
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end54
-  %sourcePtr.091 = phi ptr [ %sourcePtr.1, %if.end54 ], [ %8, %while.cond.preheader ]
+  %di.091 = phi i32 [ %di.1, %if.end54 ], [ 0, %while.cond.preheader ]
   %destPtr.090 = phi ptr [ %destPtr.1, %if.end54 ], [ %5, %while.cond.preheader ]
-  %di.089 = phi i32 [ %di.1, %if.end54 ], [ 0, %while.cond.preheader ]
+  %sourcePtr.089 = phi ptr [ %sourcePtr.1, %if.end54 ], [ %8, %while.cond.preheader ]
   %13 = load ptr, ptr %destPtr.090, align 8
-  %14 = load ptr, ptr %sourcePtr.091, align 8
+  %14 = load ptr, ptr %sourcePtr.089, align 8
   %cmp39 = icmp eq ptr %13, %14
   br i1 %cmp39, label %if.then40, label %if.else
 
 if.then40:                                        ; preds = %while.body
-  invoke void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %dest, ptr noundef %14, i32 noundef %di.089)
+  invoke void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %dest, ptr noundef %14, i32 noundef %di.091)
           to label %invoke.cont41 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont41:                                    ; preds = %if.then40
-  %incdec.ptr = getelementptr inbounds i8, ptr %sourcePtr.091, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %sourcePtr.089, i64 8
   %incdec.ptr42 = getelementptr inbounds i8, ptr %destPtr.090, i64 8
   br label %if.end54
 
 if.else:                                          ; preds = %while.body
-  %call43 = call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %destPtr.090, ptr noundef nonnull dereferenceable(8) %sourcePtr.091, i64 noundef 8) #15
+  %call43 = call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %destPtr.090, ptr noundef nonnull dereferenceable(8) %sourcePtr.089, i64 noundef 8) #15
   %cmp44 = icmp slt i32 %call43, 0
   br i1 %cmp44, label %if.then45, label %if.else49
 
 if.then45:                                        ; preds = %if.else
   %incdec.ptr46 = getelementptr inbounds i8, ptr %destPtr.090, i64 8
-  invoke void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %dest, ptr noundef %13, i32 noundef %di.089)
+  invoke void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %dest, ptr noundef %13, i32 noundef %di.091)
           to label %if.end54 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else49:                                        ; preds = %if.else
-  %incdec.ptr50 = getelementptr inbounds i8, ptr %sourcePtr.091, i64 8
-  invoke void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %dest, ptr noundef %14, i32 noundef %di.089)
+  %incdec.ptr50 = getelementptr inbounds i8, ptr %sourcePtr.089, i64 8
+  invoke void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %dest, ptr noundef %14, i32 noundef %di.091)
           to label %if.end54 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end54:                                         ; preds = %if.then45, %if.else49, %invoke.cont41
+  %sourcePtr.1 = phi ptr [ %incdec.ptr, %invoke.cont41 ], [ %sourcePtr.089, %if.then45 ], [ %incdec.ptr50, %if.else49 ]
   %destPtr.1 = phi ptr [ %incdec.ptr42, %invoke.cont41 ], [ %incdec.ptr46, %if.then45 ], [ %destPtr.090, %if.else49 ]
-  %sourcePtr.1 = phi ptr [ %incdec.ptr, %invoke.cont41 ], [ %sourcePtr.091, %if.then45 ], [ %incdec.ptr50, %if.else49 ]
-  %di.1 = add nuw nsw i32 %di.089, 1
+  %di.1 = add nuw nsw i32 %di.091, 1
   %cmp37 = icmp ult ptr %sourcePtr.1, %add.ptr26
   %cmp38 = icmp ult ptr %destPtr.1, %add.ptr
   %15 = select i1 %cmp37, i1 %cmp38, i1 false
   br i1 %15, label %while.body, label %while.cond55.preheader, !llvm.loop !29
 
 while.cond55:                                     ; preds = %while.cond55.preheader, %while.body57
-  %di.2 = phi i32 [ %inc59, %while.body57 ], [ %di.0.lcssa, %while.cond55.preheader ]
   %destPtr.2 = phi ptr [ %incdec.ptr58, %while.body57 ], [ %destPtr.0.lcssa, %while.cond55.preheader ]
+  %di.2 = phi i32 [ %inc59, %while.body57 ], [ %di.0.lcssa, %while.cond55.preheader ]
   %cmp56 = icmp ult ptr %destPtr.2, %add.ptr
   br i1 %cmp56, label %while.body57, label %while.cond62
 
@@ -2381,8 +2381,8 @@ while.body57:                                     ; preds = %while.cond55
           to label %while.cond55 unwind label %lpad3.loopexit.split-lp.loopexit, !llvm.loop !30
 
 while.cond62:                                     ; preds = %while.cond55, %while.body64
-  %di.3 = phi i32 [ %inc66, %while.body64 ], [ %di.2, %while.cond55 ]
   %sourcePtr.2 = phi ptr [ %incdec.ptr65, %while.body64 ], [ %sourcePtr.0.lcssa, %while.cond55 ]
+  %di.3 = phi i32 [ %inc66, %while.body64 ], [ %di.2, %while.cond55 ]
   %cmp63 = icmp ult ptr %sourcePtr.2, %add.ptr26
   br i1 %cmp63, label %while.body64, label %while.end68
 

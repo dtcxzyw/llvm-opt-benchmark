@@ -30705,11 +30705,11 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i.i: ; preds = %2403
   %2531 = phi ptr [ %2503, %"_ZN114_$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$u20$as$u20$core..clone..Clone$GT$5clone17h835c456712b0c4cbE.exit.i.i" ], [ %2376, %.thread214.i ]
   %2532 = phi ptr [ %.pre821, %"_ZN114_$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$u20$as$u20$core..clone..Clone$GT$5clone17h835c456712b0c4cbE.exit.i.i" ], [ %2441, %.thread214.i ]
   %2533 = phi ptr [ %.sroa.3114.0..sroa_idx.i, %"_ZN114_$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$u20$as$u20$core..clone..Clone$GT$5clone17h835c456712b0c4cbE.exit.i.i" ], [ %2445, %.thread214.i ]
-  %.sroa.10132.0.i = phi i8 [ %2464, %"_ZN114_$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$u20$as$u20$core..clone..Clone$GT$5clone17h835c456712b0c4cbE.exit.i.i" ], [ undef, %.thread214.i ]
-  %.sroa.9129.0.i = phi i64 [ %2457, %"_ZN114_$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$u20$as$u20$core..clone..Clone$GT$5clone17h835c456712b0c4cbE.exit.i.i" ], [ undef, %.thread214.i ]
-  %.sroa.8126.0.i = phi i64 [ %2466, %"_ZN114_$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$u20$as$u20$core..clone..Clone$GT$5clone17h835c456712b0c4cbE.exit.i.i" ], [ undef, %.thread214.i ]
-  %.sroa.7123.0.i = phi ptr [ %2461, %"_ZN114_$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$u20$as$u20$core..clone..Clone$GT$5clone17h835c456712b0c4cbE.exit.i.i" ], [ undef, %.thread214.i ]
   %.sroa.6117.0.i = phi i8 [ %.sroa.0.i.sroa.4.0.copyload.i, %"_ZN114_$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$u20$as$u20$core..clone..Clone$GT$5clone17h835c456712b0c4cbE.exit.i.i" ], [ 2, %.thread214.i ]
+  %.sroa.7123.0.i = phi ptr [ %2461, %"_ZN114_$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$u20$as$u20$core..clone..Clone$GT$5clone17h835c456712b0c4cbE.exit.i.i" ], [ undef, %.thread214.i ]
+  %.sroa.8126.0.i = phi i64 [ %2466, %"_ZN114_$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$u20$as$u20$core..clone..Clone$GT$5clone17h835c456712b0c4cbE.exit.i.i" ], [ undef, %.thread214.i ]
+  %.sroa.9129.0.i = phi i64 [ %2457, %"_ZN114_$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$u20$as$u20$core..clone..Clone$GT$5clone17h835c456712b0c4cbE.exit.i.i" ], [ undef, %.thread214.i ]
+  %.sroa.10132.0.i = phi i8 [ %2464, %"_ZN114_$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$u20$as$u20$core..clone..Clone$GT$5clone17h835c456712b0c4cbE.exit.i.i" ], [ undef, %.thread214.i ]
   %2534 = getelementptr inbounds i8, ptr %2532, i64 120
   %2535 = load i8, ptr %2534, align 8, !range !635, !alias.scope !4272, !noalias !4165, !noundef !4
   %2536 = icmp eq i8 %2535, 2
@@ -36401,8 +36401,8 @@ define internal fastcc void @"_ZN120_$LT$ockam_identity..secure_channel..message
           to label %40 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %222, %215, %206, %197, %170, %156, %108, %101, %92, %82
-  %.0174 = phi i8 [ 1, %101 ], [ 1, %108 ], [ 1, %82 ], [ 1, %92 ], [ %.10184, %156 ], [ 1, %170 ], [ 1, %215 ], [ 1, %222 ], [ 1, %197 ], [ 1, %206 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.1175.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.0172 = phi i8 [ 1, %101 ], [ 1, %108 ], [ 1, %82 ], [ 1, %92 ], [ 0, %156 ], [ 1, %170 ], [ 1, %215 ], [ 1, %222 ], [ 1, %197 ], [ 1, %206 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.1173.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.0173 = phi i8 [ 1, %101 ], [ 1, %108 ], [ 1, %82 ], [ 1, %92 ], [ %.10183, %156 ], [ 1, %170 ], [ 1, %215 ], [ 1, %222 ], [ 1, %197 ], [ 1, %206 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.1174.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.0171 = phi i8 [ 1, %101 ], [ 1, %108 ], [ 1, %82 ], [ 1, %92 ], [ 0, %156 ], [ 1, %170 ], [ 1, %215 ], [ 1, %222 ], [ 1, %197 ], [ 1, %206 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.1172.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn212 = phi { ptr, i32 } [ %.pn203, %101 ], [ %.pn203, %108 ], [ %.pn205, %82 ], [ %.pn205, %92 ], [ %.pn210, %156 ], [ %171, %170 ], [ %.pn, %215 ], [ %.pn, %222 ], [ %.pn201, %197 ], [ %.pn201, %206 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit293, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp294, %.loopexit.split-lp.loopexit.split-lp ]
   %39 = load ptr, ptr %36, align 8, !noundef !4
   %.not214 = icmp eq ptr %39, null
@@ -36419,8 +36419,8 @@ define internal fastcc void @"_ZN120_$LT$ockam_identity..secure_channel..message
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %178, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit", %131, %3
-  %.1175.ph.ph = phi i8 [ 1, %131 ], [ 1, %3 ], [ %.12186, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit" ], [ 1, %178 ]
-  %.1173.ph.ph = phi i8 [ 1, %131 ], [ 1, %3 ], [ 0, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit" ], [ 1, %178 ]
+  %.1174.ph.ph = phi i8 [ 1, %131 ], [ 1, %3 ], [ %.12185, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit" ], [ 1, %178 ]
+  %.1172.ph.ph = phi i8 [ 1, %131 ], [ 1, %3 ], [ 0, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit" ], [ 1, %178 ]
   %lpad.loopexit.split-lp294 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -36705,7 +36705,7 @@ define internal fastcc void @"_ZN120_$LT$ockam_identity..secure_channel..message
 123:                                              ; preds = %.preheader, %204
   %.sroa.066.3 = phi ptr [ %.sroa.066.4, %204 ], [ null, %.preheader ]
   %.sroa.5.3 = phi i64 [ %.sroa.5.4, %204 ], [ undef, %.preheader ]
-  %.0171 = phi i32 [ %205, %204 ], [ 0, %.preheader ]
+  %.0190 = phi i32 [ %205, %204 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28)
   invoke void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %124 unwind label %.loopexit
@@ -36744,7 +36744,7 @@ define internal fastcc void @"_ZN120_$LT$ockam_identity..secure_channel..message
           to label %132 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .critedge:                                        ; preds = %128
-  switch i32 %.0171, label %181 [
+  switch i32 %.0190, label %181 [
     i32 0, label %182
     i32 1, label %185
     i32 2, label %188
@@ -36824,7 +36824,7 @@ define internal fastcc void @"_ZN120_$LT$ockam_identity..secure_channel..message
           to label %152 unwind label %150
 
 145:                                              ; preds = %245, %243, %147, %.loopexit.split-lp
-  %.10 = phi i8 [ %.13, %147 ], [ %.0172, %245 ], [ %.0172, %243 ], [ %.0172, %.loopexit.split-lp ]
+  %.10 = phi i8 [ %.13, %147 ], [ %.0171, %245 ], [ %.0171, %243 ], [ %.0171, %.loopexit.split-lp ]
   %.pn216 = phi { ptr, i32 } [ %148, %147 ], [ %.pn212, %245 ], [ %.pn212, %243 ], [ %.pn212, %.loopexit.split-lp ]
   %146 = load ptr, ptr %37, align 8, !noundef !4
   %.not218 = icmp eq ptr %146, null
@@ -36863,19 +36863,19 @@ define internal fastcc void @"_ZN120_$LT$ockam_identity..secure_channel..message
           to label %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit" unwind label %157
 
 156:                                              ; preds = %159, %157, %150
-  %.10184 = phi i8 [ %.11185, %157 ], [ 0, %150 ], [ 1, %159 ]
+  %.10183 = phi i8 [ %.11184, %157 ], [ 0, %150 ], [ 1, %159 ]
   %.pn210 = phi { ptr, i32 } [ %158, %157 ], [ %151, %150 ], [ %160, %159 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20) #31
           to label %.loopexit.split-lp unwind label %90
 
 157:                                              ; preds = %167, %154
-  %.11185 = phi i8 [ 0, %154 ], [ 1, %167 ]
+  %.11184 = phi i8 [ 0, %154 ], [ 1, %167 ]
   %158 = landingpad { ptr, i32 }
           cleanup
   br label %156
 
 "_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit": ; preds = %154, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E.exit240"
-  %.12186 = phi i8 [ 1, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E.exit240" ], [ 0, %154 ]
+  %.12185 = phi i8 [ 1, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E.exit240" ], [ 0, %154 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   invoke void @"_ZN4core3ptr105drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$ockam_core..routing..address..Address$GT$$GT$17h268ab72a55a6c0bbE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20)
           to label %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit238" unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -36914,11 +36914,11 @@ define internal fastcc void @"_ZN120_$LT$ockam_identity..secure_channel..message
   br label %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit"
 
 "_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit238": ; preds = %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit", %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E.exit242"
-  %.13187 = phi i8 [ 1, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E.exit242" ], [ %.12186, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit" ]
+  %.13186 = phi i8 [ 1, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E.exit242" ], [ %.12185, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit" ]
   %.12 = phi i8 [ 1, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E.exit242" ], [ 0, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.080)
-  %168 = trunc nuw i8 %.13187 to i1
+  %168 = trunc nuw i8 %.13186 to i1
   %169 = xor i1 %168, true
   br label %179
 
@@ -36956,11 +36956,11 @@ define internal fastcc void @"_ZN120_$LT$ockam_identity..secure_channel..message
   br label %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit238"
 
 179:                                              ; preds = %61, %136, %121, %115, %106, %87, %235, %229, %220, %202, %129, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit238"
-  %.14188 = phi i1 [ %169, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit238" ], [ false, %129 ], [ false, %202 ], [ false, %220 ], [ false, %229 ], [ false, %235 ], [ false, %87 ], [ false, %106 ], [ false, %115 ], [ false, %121 ], [ false, %136 ], [ false, %61 ]
+  %.14187 = phi i1 [ %169, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit238" ], [ false, %129 ], [ false, %202 ], [ false, %220 ], [ false, %229 ], [ false, %235 ], [ false, %87 ], [ false, %106 ], [ false, %115 ], [ false, %121 ], [ false, %136 ], [ false, %61 ]
   %.13 = phi i8 [ %.12, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit238" ], [ 1, %129 ], [ 1, %202 ], [ 1, %220 ], [ 1, %229 ], [ 1, %235 ], [ 1, %87 ], [ 1, %106 ], [ 1, %115 ], [ 1, %121 ], [ 1, %136 ], [ 1, %61 ]
   %180 = load ptr, ptr %36, align 8, !noundef !4
   %.not215 = icmp eq ptr %180, null
-  %brmerge = select i1 %.not215, i1 true, i1 %.14188
+  %brmerge = select i1 %.not215, i1 true, i1 %.14187
   br i1 %brmerge, label %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit266", label %238
 
 181:                                              ; preds = %.critedge
@@ -37059,7 +37059,7 @@ define internal fastcc void @"_ZN120_$LT$ockam_identity..secure_channel..message
 204:                                              ; preds = %234, %226, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E.exit262", %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E.exit258"
   %.sroa.066.4 = phi ptr [ %.sroa.066.3, %234 ], [ %227, %226 ], [ %.sroa.066.3, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E.exit262" ], [ %.sroa.066.3, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E.exit258" ]
   %.sroa.5.4 = phi i64 [ %.sroa.5.3, %234 ], [ %228, %226 ], [ %.sroa.5.3, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E.exit262" ], [ %.sroa.5.3, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h6fd9ead8a4d7c542E.exit258" ]
-  %205 = add i32 %.0171, 1
+  %205 = add i32 %.0190, 1
   br label %123
 
 206:                                              ; preds = %197
@@ -37185,7 +37185,7 @@ define internal fastcc void @"_ZN120_$LT$ockam_identity..secure_channel..message
   br label %241
 
 243:                                              ; preds = %.loopexit.split-lp
-  %244 = trunc nuw i8 %.0174 to i1
+  %244 = trunc nuw i8 %.0173 to i1
   br i1 %244, label %245, label %145
 
 245:                                              ; preds = %243
@@ -37327,7 +37327,7 @@ define internal fastcc void @"_ZN122_$LT$ockam_identity..secure_channel..message
           to label %38 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .body212:                                         ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %181, %158, %250, %244, %232, %221, %171, %152, %113, %107, %95, %.body203
-  %.0160 = phi i8 [ 1, %107 ], [ 1, %113 ], [ 1, %.body203 ], [ 1, %95 ], [ 0, %152 ], [ 1, %171 ], [ 1, %244 ], [ 1, %250 ], [ 1, %221 ], [ 1, %232 ], [ 0, %158 ], [ 1, %181 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.1161.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.0159 = phi i8 [ 1, %107 ], [ 1, %113 ], [ 1, %.body203 ], [ 1, %95 ], [ 0, %152 ], [ 1, %171 ], [ 1, %244 ], [ 1, %250 ], [ 1, %221 ], [ 1, %232 ], [ 0, %158 ], [ 1, %181 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.1160.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn190 = phi { ptr, i32 } [ %.pn182, %107 ], [ %.pn182, %113 ], [ %.pn184, %.body203 ], [ %.pn184, %95 ], [ %.pn188, %152 ], [ %172, %171 ], [ %.pn, %244 ], [ %.pn, %250 ], [ %.pn180, %221 ], [ %.pn180, %232 ], [ %159, %158 ], [ %182, %181 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit269, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp270, %.loopexit.split-lp.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$GT$$GT$$GT$17h6ec81f107481326bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #31
           to label %139 unwind label %93
@@ -37343,7 +37343,7 @@ define internal fastcc void @"_ZN122_$LT$ockam_identity..secure_channel..message
   br label %.body212
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h83c5191d79ab3263E.llvm.13826239688354340414.exit.i.i.i214", %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h83c5191d79ab3263E.llvm.13826239688354340414.exit.i.i", %126, %3
-  %.1161.ph.ph = phi i8 [ 1, %126 ], [ 1, %3 ], [ 0, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h83c5191d79ab3263E.llvm.13826239688354340414.exit.i.i" ], [ 1, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h83c5191d79ab3263E.llvm.13826239688354340414.exit.i.i.i214" ]
+  %.1160.ph.ph = phi i8 [ 1, %126 ], [ 1, %3 ], [ 0, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h83c5191d79ab3263E.llvm.13826239688354340414.exit.i.i" ], [ 1, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h83c5191d79ab3263E.llvm.13826239688354340414.exit.i.i.i214" ]
   %lpad.loopexit.split-lp270 = landingpad { ptr, i32 }
           cleanup
   br label %.body212
@@ -37620,7 +37620,7 @@ define internal fastcc void @"_ZN122_$LT$ockam_identity..secure_channel..message
   br label %193
 
 119:                                              ; preds = %.preheader, %229
-  %.0159 = phi i32 [ %230, %229 ], [ 0, %.preheader ]
+  %.0169 = phi i32 [ %230, %229 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28)
   invoke void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %120 unwind label %.loopexit
@@ -37657,7 +37657,7 @@ define internal fastcc void @"_ZN122_$LT$ockam_identity..secure_channel..message
           to label %127 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .critedge:                                        ; preds = %124
-  switch i32 %.0159, label %197 [
+  switch i32 %.0169, label %197 [
     i32 0, label %198
     i32 1, label %201
   ]
@@ -37718,7 +37718,7 @@ define internal fastcc void @"_ZN122_$LT$ockam_identity..secure_channel..message
           to label %146 unwind label %144
 
 139:                                              ; preds = %141, %.body212
-  %.10 = phi i8 [ %.13, %141 ], [ %.0160, %.body212 ]
+  %.10 = phi i8 [ %.13, %141 ], [ %.0159, %.body212 ]
   %.pn192 = phi { ptr, i32 } [ %142, %141 ], [ %.pn190, %.body212 ]
   %140 = load ptr, ptr %36, align 8, !noundef !4
   %.not194 = icmp eq ptr %140, null
@@ -38039,7 +38039,7 @@ define internal fastcc void @"_ZN122_$LT$ockam_identity..secure_channel..message
   br label %193
 
 229:                                              ; preds = %254, %"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_identity..models..credential_and_purpose_key..CredentialAndPurposeKey$GT$$GT$$GT$17h6ec81f107481326bE.exit239", %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$ockam_identity..models..change_history..ChangeHistory$GT$$GT$17h5ace282a713314b4E.exit237"
-  %230 = add i32 %.0159, 1
+  %230 = add i32 %.0169, 1
   br label %119
 
 231:                                              ; preds = %227

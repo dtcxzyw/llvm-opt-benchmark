@@ -1026,8 +1026,8 @@ define dso_local range(i64 0, 2) i64 @tsq_mcontains(ptr nocapture noundef readon
 .lr.ph.i:                                         ; preds = %1, %37
   %18 = phi i32 [ %38, %37 ], [ %16, %1 ]
   %.026.i = phi ptr [ %39, %37 ], [ %8, %1 ]
-  %.02225.i = phi i32 [ %40, %37 ], [ 0, %1 ]
-  %.02324.i = phi i32 [ %.1.i, %37 ], [ 0, %1 ]
+  %.02225.i = phi i32 [ %.1.i, %37 ], [ 0, %1 ]
+  %.02324.i = phi i32 [ %40, %37 ], [ 0, %1 ]
   %19 = load i8, ptr %.026.i, align 4
   %20 = icmp eq i8 %19, 1
   br i1 %20, label %21, label %37
@@ -1047,8 +1047,8 @@ define dso_local range(i64 0, 2) i64 @tsq_mcontains(ptr nocapture noundef readon
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr readonly align 1 %31, i64 %32, i1 false)
   %33 = getelementptr i8, ptr %27, i64 %32
   store i8 0, ptr %33, align 1
-  %34 = add i32 %.02324.i, 1
-  %35 = sext i32 %.02324.i to i64
+  %34 = add i32 %.02225.i, 1
+  %35 = sext i32 %.02225.i to i64
   %36 = getelementptr ptr, ptr %15, i64 %35
   store ptr %27, ptr %36, align 8
   %.pre.i = load i32, ptr %9, align 4
@@ -1056,14 +1056,14 @@ define dso_local range(i64 0, 2) i64 @tsq_mcontains(ptr nocapture noundef readon
 
 37:                                               ; preds = %21, %.lr.ph.i
   %38 = phi i32 [ %.pre.i, %21 ], [ %18, %.lr.ph.i ]
-  %.1.i = phi i32 [ %34, %21 ], [ %.02324.i, %.lr.ph.i ]
+  %.1.i = phi i32 [ %34, %21 ], [ %.02225.i, %.lr.ph.i ]
   %39 = getelementptr i8, ptr %.026.i, i64 12
-  %40 = add nuw nsw i32 %.02225.i, 1
+  %40 = add nuw nsw i32 %.02324.i, 1
   %41 = icmp slt i32 %40, %38
   br i1 %41, label %.lr.ph.i, label %collectTSQueryValues.exit, !llvm.loop !7
 
 collectTSQueryValues.exit:                        ; preds = %37, %1
-  %.023.lcssa.i = phi i32 [ 0, %1 ], [ %.1.i, %37 ]
+  %.022.lcssa.i = phi i32 [ 0, %1 ], [ %.1.i, %37 ]
   %42 = getelementptr i8, ptr %7, i64 8
   %43 = getelementptr inbounds i8, ptr %7, i64 4
   %44 = load i32, ptr %43, align 4
@@ -1079,8 +1079,8 @@ collectTSQueryValues.exit:                        ; preds = %37, %1
 .lr.ph.i20:                                       ; preds = %collectTSQueryValues.exit, %71
   %52 = phi i32 [ %72, %71 ], [ %50, %collectTSQueryValues.exit ]
   %.026.i21 = phi ptr [ %73, %71 ], [ %42, %collectTSQueryValues.exit ]
-  %.02225.i22 = phi i32 [ %74, %71 ], [ 0, %collectTSQueryValues.exit ]
-  %.02324.i23 = phi i32 [ %.1.i24, %71 ], [ 0, %collectTSQueryValues.exit ]
+  %.02225.i22 = phi i32 [ %.1.i24, %71 ], [ 0, %collectTSQueryValues.exit ]
+  %.02324.i23 = phi i32 [ %74, %71 ], [ 0, %collectTSQueryValues.exit ]
   %53 = load i8, ptr %.026.i21, align 4
   %54 = icmp eq i8 %53, 1
   br i1 %54, label %55, label %71
@@ -1100,8 +1100,8 @@ collectTSQueryValues.exit:                        ; preds = %37, %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr readonly align 1 %65, i64 %66, i1 false)
   %67 = getelementptr i8, ptr %61, i64 %66
   store i8 0, ptr %67, align 1
-  %68 = add i32 %.02324.i23, 1
-  %69 = sext i32 %.02324.i23 to i64
+  %68 = add i32 %.02225.i22, 1
+  %69 = sext i32 %.02225.i22 to i64
   %70 = getelementptr ptr, ptr %49, i64 %69
   store ptr %61, ptr %70, align 8
   %.pre.i25 = load i32, ptr %43, align 4
@@ -1109,17 +1109,17 @@ collectTSQueryValues.exit:                        ; preds = %37, %1
 
 71:                                               ; preds = %55, %.lr.ph.i20
   %72 = phi i32 [ %.pre.i25, %55 ], [ %52, %.lr.ph.i20 ]
-  %.1.i24 = phi i32 [ %68, %55 ], [ %.02324.i23, %.lr.ph.i20 ]
+  %.1.i24 = phi i32 [ %68, %55 ], [ %.02225.i22, %.lr.ph.i20 ]
   %73 = getelementptr i8, ptr %.026.i21, i64 12
-  %74 = add nuw nsw i32 %.02225.i22, 1
+  %74 = add nuw nsw i32 %.02324.i23, 1
   %75 = icmp slt i32 %74, %72
   br i1 %75, label %.lr.ph.i20, label %collectTSQueryValues.exit26, !llvm.loop !7
 
 collectTSQueryValues.exit26:                      ; preds = %71, %collectTSQueryValues.exit
-  %.023.lcssa.i19 = phi i32 [ 0, %collectTSQueryValues.exit ], [ %.1.i24, %71 ]
-  %76 = sext i32 %.023.lcssa.i to i64
+  %.022.lcssa.i19 = phi i32 [ 0, %collectTSQueryValues.exit ], [ %.1.i24, %71 ]
+  %76 = sext i32 %.022.lcssa.i to i64
   tail call void @pg_qsort(ptr noundef %15, i64 noundef %76, i64 noundef 8, ptr noundef nonnull @cmp_string) #9
-  %77 = icmp ult i32 %.023.lcssa.i, 2
+  %77 = icmp ult i32 %.022.lcssa.i, 2
   br i1 %77, label %qunique.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %collectTSQueryValues.exit26, %91
@@ -1159,10 +1159,10 @@ collectTSQueryValues.exit26:                      ; preds = %71, %collectTSQuery
   br label %qunique.exit
 
 qunique.exit:                                     ; preds = %collectTSQueryValues.exit26, %93
-  %.024.i = phi i32 [ %95, %93 ], [ %.023.lcssa.i, %collectTSQueryValues.exit26 ]
-  %96 = sext i32 %.023.lcssa.i19 to i64
+  %.024.i = phi i32 [ %95, %93 ], [ %.022.lcssa.i, %collectTSQueryValues.exit26 ]
+  %96 = sext i32 %.022.lcssa.i19 to i64
   tail call void @pg_qsort(ptr noundef %49, i64 noundef %96, i64 noundef 8, ptr noundef nonnull @cmp_string) #9
-  %97 = icmp ult i32 %.023.lcssa.i19, 2
+  %97 = icmp ult i32 %.022.lcssa.i19, 2
   br i1 %97, label %qunique.exit36, label %.preheader.i28
 
 .preheader.i28:                                   ; preds = %qunique.exit, %111
@@ -1202,7 +1202,7 @@ qunique.exit:                                     ; preds = %collectTSQueryValue
   br label %qunique.exit36
 
 qunique.exit36:                                   ; preds = %qunique.exit, %113
-  %.024.i35 = phi i32 [ %115, %113 ], [ %.023.lcssa.i19, %qunique.exit ]
+  %.024.i35 = phi i32 [ %115, %113 ], [ %.022.lcssa.i19, %qunique.exit ]
   %116 = icmp slt i32 %.024.i, %.024.i35
   br i1 %116, label %.loopexit, label %.preheader44
 

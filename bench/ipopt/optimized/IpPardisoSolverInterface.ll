@@ -5026,7 +5026,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %25, %21, %5
   br label %50
 
 50:                                               ; preds = %47, %._crit_edge
-  %.038 = phi i32 [ %49, %47 ], [ 0, %._crit_edge ]
+  %.039 = phi i32 [ %49, %47 ], [ 0, %._crit_edge ]
   %51 = getelementptr inbounds i8, ptr %0, i64 64
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 144
@@ -5059,7 +5059,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %25, %21, %5
   br label %65
 
 65:                                               ; preds = %64, %62
-  %66 = call noundef i32 (ptr, i64, ptr, ...) @_ZN5Ipopt8SnprintfEPclPKcz(ptr noundef nonnull %6, i64 noundef 127, ptr noundef nonnull @.str.102, ptr noundef nonnull %7, i32 noundef %.038, i32 noundef %54)
+  %66 = call noundef i32 (ptr, i64, ptr, ...) @_ZN5Ipopt8SnprintfEPclPKcz(ptr noundef nonnull %6, i64 noundef 127, ptr noundef nonnull @.str.102, ptr noundef nonnull %7, i32 noundef %.039, i32 noundef %54)
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %8, ptr noundef nonnull %6, i32 noundef 16)
   %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 16)
           to label %68 unwind label %.loopexit.split-lp63.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
@@ -5218,7 +5218,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %25, %21, %5
   br label %109
 
 109:                                              ; preds = %108, %106
-  %110 = call noundef i32 (ptr, i64, ptr, ...) @_ZN5Ipopt8SnprintfEPclPKcz(ptr noundef nonnull %9, i64 noundef 127, ptr noundef nonnull @.str.104, ptr noundef nonnull %10, i32 noundef %.038, i32 noundef %54)
+  %110 = call noundef i32 (ptr, i64, ptr, ...) @_ZN5Ipopt8SnprintfEPclPKcz(ptr noundef nonnull %9, i64 noundef 127, ptr noundef nonnull @.str.104, ptr noundef nonnull %10, i32 noundef %.039, i32 noundef %54)
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef nonnull %9, i32 noundef 16)
   %111 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 16)
           to label %.preheader.i unwind label %.loopexit.split-lp.i
@@ -5347,7 +5347,7 @@ _ZN5IpoptL18write_iajaa_matrixEiPKiS1_PdS2_ii.exit: ; preds = %102, %._crit_edge
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %171
-  %.03754 = phi i32 [ 0, %.preheader.lr.ph ], [ %202, %171 ]
+  %.03854 = phi i32 [ 0, %.preheader.lr.ph ], [ %202, %171 ]
   %160 = load i32, ptr %13, align 4
   %161 = icmp sgt i32 %160, 0
   br i1 %161, label %.lr.ph52.preheader, label %._crit_edge53
@@ -5407,7 +5407,7 @@ _ZN5IpoptL18write_iajaa_matrixEiPKiS1_PdS2_ii.exit: ; preds = %102, %._crit_edge
   %200 = getelementptr inbounds i8, ptr %199, i64 16
   %201 = load ptr, ptr %200, align 8
   call void (ptr, i32, i32, ptr, ...) %201(ptr noundef nonnull align 8 dereferenceable(40) %193, i32 noundef 4, i32 noundef 7, ptr noundef nonnull @.str.95, double noundef %196, double noundef %198)
-  %202 = add nuw nsw i32 %.03754, 1
+  %202 = add nuw nsw i32 %.03854, 1
   store i32 0, ptr %16, align 4
   %203 = icmp slt i32 %202, %149
   br i1 %203, label %.preheader, label %._crit_edge55, !llvm.loop !12
@@ -5535,8 +5535,8 @@ _ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %208, %230, %226, %2
   br label %261
 
 261:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit, %255
-  %.040 = phi i32 [ 4, %255 ], [ 0, %_ZN5Ipopt9TimedTask3EndEv.exit ]
-  ret i32 %.040
+  %.037 = phi i32 [ 4, %255 ], [ 0, %_ZN5Ipopt9TimedTask3EndEv.exit ]
+  ret i32 %.037
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

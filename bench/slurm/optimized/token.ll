@@ -69,8 +69,8 @@ define ptr @slurm_fetch_token(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %24
 
 24:                                               ; preds = %.sink.split, %11, %19
-  %.09 = phi ptr [ null, %11 ], [ %22, %19 ], [ null, %.sink.split ]
-  ret ptr %.09
+  %.0 = phi ptr [ null, %11 ], [ %22, %19 ], [ null, %.sink.split ]
+  ret ptr %.0
 }
 
 declare void @slurm_msg_t_init(ptr noundef) local_unnamed_addr #1

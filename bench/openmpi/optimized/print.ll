@@ -2397,9 +2397,9 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_array(ptr nocapture noundef wri
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %20, %42
-  %.012 = phi i64 [ %44, %42 ], [ 0, %20 ]
+  %.01112 = phi i64 [ %44, %42 ], [ 0, %20 ]
   %24 = load ptr, ptr %9, align 8
-  %25 = getelementptr inbounds %struct.pmix_info, ptr %22, i64 %.012
+  %25 = getelementptr inbounds %struct.pmix_info, ptr %22, i64 %.01112
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %26 = getelementptr inbounds i8, ptr %25, i64 520
   %27 = call i32 @pmix20_bfrop_print_value(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %26, i16 zeroext poison)
@@ -2432,7 +2432,7 @@ pmix20_bfrop_print_info.exit:                     ; preds = %.lr.ph, %35
 42:                                               ; preds = %pmix20_bfrop_print_info.exit
   %43 = load ptr, ptr %8, align 8
   store ptr %43, ptr %6, align 8
-  %44 = add nuw i64 %.012, 1
+  %44 = add nuw i64 %.01112, 1
   %45 = load i64, ptr %2, align 8
   %46 = icmp ult i64 %44, %45
   br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !7
@@ -2443,8 +2443,8 @@ pmix20_bfrop_print_info.exit:                     ; preds = %.lr.ph, %35
   br label %.loopexit
 
 .loopexit:                                        ; preds = %pmix20_bfrop_print_info.exit, %4, %._crit_edge, %18
-  %.011 = phi i32 [ -32, %18 ], [ 0, %._crit_edge ], [ -32, %4 ], [ -32, %pmix20_bfrop_print_info.exit ]
-  ret i32 %.011
+  %.0 = phi i32 [ -32, %18 ], [ 0, %._crit_edge ], [ -32, %4 ], [ -32, %pmix20_bfrop_print_info.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

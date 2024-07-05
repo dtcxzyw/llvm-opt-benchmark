@@ -538,26 +538,26 @@ if.then150:                                       ; preds = %lor.lhs.false142, %
   br label %if.end162
 
 if.end162:                                        ; preds = %if.then86, %if.then129, %if.then150, %if.then109, %if.then63, %if.then26
-  %result.0 = phi i32 [ %call66, %if.then63 ], [ %call89, %if.then86 ], [ %call111, %if.then109 ], [ %call132, %if.then129 ], [ %call152, %if.then150 ], [ %call, %if.then26 ]
-  %mech.0 = phi ptr [ @.str.4, %if.then63 ], [ @.str.5, %if.then86 ], [ @.str.6, %if.then109 ], [ @.str.7, %if.then129 ], [ @.str.8, %if.then150 ], [ @.str.1, %if.then26 ]
   %state1.0 = phi i32 [ 8, %if.then63 ], [ 13, %if.then86 ], [ 13, %if.then109 ], [ 1, %if.then129 ], [ 2, %if.then150 ], [ 4, %if.then26 ]
   %state2.0 = phi i32 [ 9, %if.then63 ], [ 14, %if.then86 ], [ 17, %if.then109 ], [ 17, %if.then129 ], [ 3, %if.then150 ], [ 17, %if.then26 ]
+  %mech.0 = phi ptr [ @.str.4, %if.then63 ], [ @.str.5, %if.then86 ], [ @.str.6, %if.then109 ], [ @.str.7, %if.then129 ], [ @.str.8, %if.then150 ], [ @.str.1, %if.then26 ]
+  %result.0 = phi i32 [ %call66, %if.then63 ], [ %call89, %if.then86 ], [ %call111, %if.then109 ], [ %call132, %if.then129 ], [ %call152, %if.then150 ], [ %call, %if.then26 ]
   %tobool163 = icmp eq i32 %result.0, 0
   br i1 %tobool163, label %if.then166, label %if.end196
 
 if.then166.sink.split:                            ; preds = %if.else38, %land.lhs.true33
   %.sink = phi i16 [ 8, %land.lhs.true33 ], [ 4, %if.else38 ]
-  %state1.091.ph = phi i32 [ 6, %land.lhs.true33 ], [ 5, %if.else38 ]
-  %mech.090.ph = phi ptr [ @.str.2, %land.lhs.true33 ], [ @.str.3, %if.else38 ]
+  %mech.092.ph = phi ptr [ @.str.2, %land.lhs.true33 ], [ @.str.3, %if.else38 ]
+  %state1.090.ph = phi i32 [ 6, %land.lhs.true33 ], [ 5, %if.else38 ]
   store i16 %.sink, ptr %authused, align 4
   br label %if.then166
 
 if.then166:                                       ; preds = %if.then166.sink.split, %lor.lhs.false, %lor.lhs.false142, %lor.lhs.false121, %lor.lhs.false101, %lor.lhs.false78, %lor.lhs.false55, %if.end162
-  %state2.092 = phi i32 [ %state2.0, %if.end162 ], [ 17, %lor.lhs.false ], [ 3, %lor.lhs.false142 ], [ 17, %lor.lhs.false121 ], [ 17, %lor.lhs.false101 ], [ 14, %lor.lhs.false78 ], [ 9, %lor.lhs.false55 ], [ 17, %if.then166.sink.split ]
-  %state1.091 = phi i32 [ %state1.0, %if.end162 ], [ 4, %lor.lhs.false ], [ 2, %lor.lhs.false142 ], [ 1, %lor.lhs.false121 ], [ 13, %lor.lhs.false101 ], [ 13, %lor.lhs.false78 ], [ 8, %lor.lhs.false55 ], [ %state1.091.ph, %if.then166.sink.split ]
-  %mech.090 = phi ptr [ %mech.0, %if.end162 ], [ @.str.1, %lor.lhs.false ], [ @.str.8, %lor.lhs.false142 ], [ @.str.7, %lor.lhs.false121 ], [ @.str.6, %lor.lhs.false101 ], [ @.str.5, %lor.lhs.false78 ], [ @.str.4, %lor.lhs.false55 ], [ %mech.090.ph, %if.then166.sink.split ]
+  %mech.092 = phi ptr [ %mech.0, %if.end162 ], [ @.str.1, %lor.lhs.false ], [ @.str.8, %lor.lhs.false142 ], [ @.str.7, %lor.lhs.false121 ], [ @.str.6, %lor.lhs.false101 ], [ @.str.5, %lor.lhs.false78 ], [ @.str.4, %lor.lhs.false55 ], [ %mech.092.ph, %if.then166.sink.split ]
+  %state2.091 = phi i32 [ %state2.0, %if.end162 ], [ 17, %lor.lhs.false ], [ 3, %lor.lhs.false142 ], [ 17, %lor.lhs.false121 ], [ 17, %lor.lhs.false101 ], [ 14, %lor.lhs.false78 ], [ 9, %lor.lhs.false55 ], [ 17, %if.then166.sink.split ]
+  %state1.090 = phi i32 [ %state1.0, %if.end162 ], [ 4, %lor.lhs.false ], [ 2, %lor.lhs.false142 ], [ 1, %lor.lhs.false121 ], [ 13, %lor.lhs.false101 ], [ 13, %lor.lhs.false78 ], [ 8, %lor.lhs.false55 ], [ %state1.090.ph, %if.then166.sink.split ]
   %curmech = getelementptr inbounds i8, ptr %sasl, i64 16
-  store ptr %mech.090, ptr %curmech, align 8
+  store ptr %mech.092, ptr %curmech, align 8
   %call167 = call ptr @Curl_bufref_ptr(ptr noundef nonnull %resp) #7
   %tobool168.not = icmp eq ptr %call167, null
   br i1 %tobool168.not, label %if.end171, label %if.then169
@@ -578,7 +578,7 @@ if.end171:                                        ; preds = %if.then169, %if.the
   br i1 %tobool173.not, label %if.end181, label %land.lhs.true174
 
 land.lhs.true174:                                 ; preds = %if.end171
-  %call175 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %mech.090) #8
+  %call175 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %mech.092) #8
   %call176 = call i64 @Curl_bufref_len(ptr noundef nonnull %resp) #7
   %add = add i64 %call176, %call175
   %31 = load ptr, ptr %sasl, align 8
@@ -599,7 +599,7 @@ if.end186:                                        ; preds = %if.end181
   %33 = load ptr, ptr %sasl, align 8
   %sendauth = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load ptr, ptr %sendauth, align 8
-  %call185 = call i32 %34(ptr noundef nonnull %data, ptr noundef nonnull %mech.090, ptr noundef nonnull %resp) #7
+  %call185 = call i32 %34(ptr noundef nonnull %data, ptr noundef nonnull %mech.092, ptr noundef nonnull %resp) #7
   %tobool187.not = icmp eq i32 %call185, 0
   br i1 %tobool187.not, label %if.then188, label %if.end196
 
@@ -607,7 +607,7 @@ if.then188:                                       ; preds = %if.end186
   store i32 1, ptr %progress, align 4
   %call189 = call ptr @Curl_bufref_ptr(ptr noundef nonnull %resp) #7
   %tobool190.not = icmp eq ptr %call189, null
-  %cond194 = select i1 %tobool190.not, i32 %state1.091, i32 %state2.092
+  %cond194 = select i1 %tobool190.not, i32 %state1.090, i32 %state2.091
   %state.i = getelementptr inbounds i8, ptr %sasl, i64 8
   store i32 %cond194, ptr %state.i, align 8
   br label %if.end196
@@ -938,8 +938,8 @@ sw.epilog.thread:                                 ; preds = %if.then96, %if.end2
   br label %sw.bb108
 
 sw.epilog:                                        ; preds = %sw.bb60, %sw.bb41, %if.then78, %if.else, %if.end66, %if.then68, %if.end48, %sw.bb33, %if.then36, %sw.bb56, %sw.bb30, %sw.bb27, %sw.bb24, %sw.bb23
-  %result.3 = phi i32 [ %call81, %if.then78 ], [ %call83, %if.else ], [ %call65, %if.end66 ], [ %call72, %if.then68 ], [ %call59, %sw.bb56 ], [ %call47, %if.end48 ], [ %call34, %sw.bb33 ], [ %call39, %if.then36 ], [ %call32, %sw.bb30 ], [ %call29, %sw.bb27 ], [ %call26, %sw.bb24 ], [ %call, %sw.bb23 ], [ %call42, %sw.bb41 ], [ %call61, %sw.bb60 ]
   %newstate.0 = phi i32 [ 14, %if.then78 ], [ 17, %if.else ], [ 17, %if.end66 ], [ 17, %if.then68 ], [ 9, %sw.bb56 ], [ 17, %if.end48 ], [ 17, %sw.bb33 ], [ 17, %if.then36 ], [ 17, %sw.bb30 ], [ 17, %sw.bb27 ], [ 3, %sw.bb24 ], [ 17, %sw.bb23 ], [ 17, %sw.bb41 ], [ 17, %sw.bb60 ]
+  %result.3 = phi i32 [ %call81, %if.then78 ], [ %call83, %if.else ], [ %call65, %if.end66 ], [ %call72, %if.then68 ], [ %call59, %sw.bb56 ], [ %call47, %if.end48 ], [ %call34, %sw.bb33 ], [ %call39, %if.then36 ], [ %call32, %sw.bb30 ], [ %call29, %sw.bb27 ], [ %call26, %sw.bb24 ], [ %call, %sw.bb23 ], [ %call42, %sw.bb41 ], [ %call61, %sw.bb60 ]
   call void @Curl_bufref_free(ptr noundef nonnull %serverdata) #7
   switch i32 %result.3, label %sw.default116 [
     i32 61, label %sw.bb105
@@ -979,8 +979,8 @@ sw.default116:                                    ; preds = %sw.epilog.thread102
   br label %sw.epilog117
 
 sw.epilog117:                                     ; preds = %sw.bb108, %if.then111, %sw.default116, %sw.bb105
-  %result.4 = phi i32 [ %result.3105, %sw.default116 ], [ %call109, %sw.bb108 ], [ %call114, %if.then111 ], [ %call107, %sw.bb105 ]
   %newstate.1 = phi i32 [ 0, %sw.default116 ], [ %newstate.0101, %sw.bb108 ], [ %newstate.0101, %if.then111 ], [ 16, %sw.bb105 ]
+  %result.4 = phi i32 [ %result.3105, %sw.default116 ], [ %call109, %sw.bb108 ], [ %call114, %if.then111 ], [ %call107, %sw.bb105 ]
   call void @Curl_bufref_free(ptr noundef nonnull %resp) #7
   store i32 %newstate.1, ptr %state, align 8
   br label %return

@@ -369,8 +369,8 @@ if.end21:                                         ; preds = %if.end6
 
 do.body:                                          ; preds = %if.end55, %if.end21
   %7 = phi i64 [ %.pre, %if.end21 ], [ %spec.store.select.sink, %if.end55 ]
-  %buf.addr.0 = phi ptr [ %buf, %if.end21 ], [ %buf.addr.1, %if.end55 ]
   %rest.0 = phi i64 [ %spec.select, %if.end21 ], [ %sub56, %if.end55 ]
+  %buf.addr.0 = phi ptr [ %buf, %if.end21 ], [ %buf.addr.1, %if.end55 ]
   %add = add i64 %7, %rest.0
   %8 = load i64, ptr %size28, align 8
   %cmp29.not = icmp ugt i64 %add, %8
@@ -897,8 +897,8 @@ if.end21.i:                                       ; preds = %if.end.i
 
 do.body.i:                                        ; preds = %if.end55.i, %if.end21.i
   %13 = phi i64 [ %.pre.i, %if.end21.i ], [ %spec.store.select.sink.i, %if.end55.i ]
-  %buf.addr.0.i = phi ptr [ %dummy, %if.end21.i ], [ %buf.addr.1.i, %if.end55.i ]
   %rest.0.i = phi i64 [ 1, %if.end21.i ], [ %sub56.i, %if.end55.i ]
+  %buf.addr.0.i = phi ptr [ %dummy, %if.end21.i ], [ %buf.addr.1.i, %if.end55.i ]
   %add.i = add i64 %rest.0.i, %13
   %14 = load i64, ptr %size28.i, align 8
   %cmp29.not.i = icmp ugt i64 %add.i, %14

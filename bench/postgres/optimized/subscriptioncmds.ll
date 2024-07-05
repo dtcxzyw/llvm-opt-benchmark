@@ -1533,13 +1533,13 @@ define internal fastcc void @check_publications(ptr noundef %0, ptr noundef %1) 
 
 .lr.ph30.i:                                       ; preds = %.lr.ph.i, %15
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %15 ], [ 0, %.lr.ph.i ]
-  %.019.us29.i = phi i1 [ false, %15 ], [ true, %.lr.ph.i ]
+  %.01420.us28.i = phi i1 [ false, %15 ], [ true, %.lr.ph.i ]
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv32.i
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  br i1 %.019.us29.i, label %15, label %14
+  br i1 %.01420.us28.i, label %15, label %14
 
 14:                                               ; preds = %.lr.ph30.i
   tail call void @appendStringInfoString(ptr noundef %4, ptr noundef nonnull @.str.83) #10
@@ -1668,13 +1668,13 @@ list_length.exit:                                 ; preds = %walrcv_clear_result
 
 .lr.ph27.i:                                       ; preds = %.lr.ph.i29, %78
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %78 ], [ 0, %.lr.ph.i29 ]
-  %.01926.i = phi i1 [ false, %78 ], [ true, %.lr.ph.i29 ]
+  %.0142025.i = phi i1 [ false, %78 ], [ true, %.lr.ph.i29 ]
   %72 = load ptr, ptr %69, align 8
   %73 = getelementptr %union.ListCell, ptr %72, i64 %indvars.iv.i
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
-  br i1 %.01926.i, label %78, label %77
+  br i1 %.0142025.i, label %78, label %77
 
 77:                                               ; preds = %.lr.ph27.i
   call void @appendStringInfoString(ptr noundef %68, ptr noundef nonnull @.str.83) #10
@@ -1736,13 +1736,13 @@ define internal fastcc void @check_publications_origin(ptr noundef %0, ptr nound
 
 .lr.ph30.i:                                       ; preds = %.lr.ph.i, %24
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %24 ], [ 0, %.lr.ph.i ]
-  %.019.us29.i = phi i1 [ false, %24 ], [ true, %.lr.ph.i ]
+  %.01420.us28.i = phi i1 [ false, %24 ], [ true, %.lr.ph.i ]
   %18 = load ptr, ptr %15, align 8
   %19 = getelementptr %union.ListCell, ptr %18, i64 %indvars.iv32.i
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  br i1 %.019.us29.i, label %24, label %23
+  br i1 %.01420.us28.i, label %24, label %23
 
 23:                                               ; preds = %.lr.ph30.i
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull @.str.83) #10
@@ -1854,13 +1854,13 @@ slot_getattr.exit:                                ; preds = %58, %slot_getsomeat
 
 .lr.ph27.i:                                       ; preds = %.lr.ph.i36, %83
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %83 ], [ 0, %.lr.ph.i36 ]
-  %.01926.i = phi i1 [ false, %83 ], [ true, %.lr.ph.i36 ]
+  %.0142025.i = phi i1 [ false, %83 ], [ true, %.lr.ph.i36 ]
   %77 = load ptr, ptr %74, align 8
   %78 = getelementptr %union.ListCell, ptr %77, i64 %indvars.iv.i
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
-  br i1 %.01926.i, label %83, label %82
+  br i1 %.0142025.i, label %83, label %82
 
 82:                                               ; preds = %.lr.ph27.i
   call void @appendStringInfoString(ptr noundef %72, ptr noundef nonnull @.str.83) #10
@@ -1960,13 +1960,13 @@ define internal fastcc ptr @fetch_table_list(ptr noundef %0, ptr noundef readonl
 
 .lr.ph30.i:                                       ; preds = %.lr.ph.i, %24
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %24 ], [ 0, %.lr.ph.i ]
-  %.019.us29.i = phi i1 [ false, %24 ], [ true, %.lr.ph.i ]
+  %.01420.us28.i = phi i1 [ false, %24 ], [ true, %.lr.ph.i ]
   %18 = load ptr, ptr %15, align 8
   %19 = getelementptr %union.ListCell, ptr %18, i64 %indvars.iv32.i
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  br i1 %.019.us29.i, label %24, label %23
+  br i1 %.01420.us28.i, label %24, label %23
 
 23:                                               ; preds = %.lr.ph30.i
   call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.83) #10
@@ -2011,13 +2011,13 @@ get_publications_str.exit:                        ; preds = %24, %13, %.lr.ph.i
 
 .lr.ph30.i29:                                     ; preds = %.lr.ph.i28, %44
   %indvars.iv32.i30 = phi i64 [ %indvars.iv.next33.i32, %44 ], [ 0, %.lr.ph.i28 ]
-  %.019.us29.i31 = phi i1 [ false, %44 ], [ true, %.lr.ph.i28 ]
+  %.01420.us28.i31 = phi i1 [ false, %44 ], [ true, %.lr.ph.i28 ]
   %38 = load ptr, ptr %35, align 8
   %39 = getelementptr %union.ListCell, ptr %38, i64 %indvars.iv32.i30
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  br i1 %.019.us29.i31, label %44, label %43
+  br i1 %.01420.us28.i31, label %44, label %43
 
 43:                                               ; preds = %.lr.ph30.i29
   call void @appendStringInfoString(ptr noundef nonnull %3, ptr noundef nonnull @.str.83) #10
@@ -3316,17 +3316,17 @@ list_length.exit123:                              ; preds = %105, %.lr.ph141, %l
   br label %114
 
 .preheader:                                       ; preds = %150
-  %113 = icmp sgt i32 %.197, 0
+  %113 = icmp sgt i32 %.196, 0
   br i1 %113, label %.lr.ph148.preheader, label %.loopexit
 
 .lr.ph148.preheader:                              ; preds = %.preheader
-  %wide.trip.count163 = zext nneg i32 %.197 to i64
+  %wide.trip.count163 = zext nneg i32 %.196 to i64
   br label %.lr.ph148
 
 114:                                              ; preds = %.lr.ph145, %150
   %indvars.iv157 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next158, %150 ]
-  %.094144 = phi ptr [ null, %.lr.ph145 ], [ %.2, %150 ]
-  %.096143 = phi i32 [ 0, %.lr.ph145 ], [ %.197, %150 ]
+  %.095143 = phi i32 [ 0, %.lr.ph145 ], [ %.196, %150 ]
+  %.097142 = phi ptr [ null, %.lr.ph145 ], [ %.299, %150 ]
   %115 = getelementptr i32, ptr %63, i64 %indvars.iv157
   %116 = load i32, ptr %115, align 4
   store i32 %116, ptr %7, align 4
@@ -3344,7 +3344,7 @@ list_length.exit125:                              ; preds = %114, %117
   br i1 %.not116, label %122, label %150
 
 122:                                              ; preds = %list_length.exit125
-  %.not117 = icmp eq ptr %.094144, null
+  %.not117 = icmp eq ptr %.097142, null
   br i1 %.not117, label %123, label %125
 
 123:                                              ; preds = %122
@@ -3352,15 +3352,15 @@ list_length.exit125:                              ; preds = %114, %117
   br label %125
 
 125:                                              ; preds = %123, %122
-  %.195 = phi ptr [ %.094144, %122 ], [ %124, %123 ]
+  %.198 = phi ptr [ %.097142, %122 ], [ %124, %123 ]
   %126 = load i32, ptr %0, align 8
   %127 = load i32, ptr %7, align 4
   %128 = call signext i8 @GetSubscriptionRelState(i32 noundef %126, i32 noundef %127, ptr noundef nonnull %8) #10
   %129 = load i32, ptr %7, align 4
-  %130 = sext i32 %.096143 to i64
+  %130 = sext i32 %.095143 to i64
   %131 = getelementptr %struct.SubRemoveRels, ptr %71, i64 %130
   store i32 %129, ptr %131, align 4
-  %132 = add i32 %.096143, 1
+  %132 = add i32 %.095143, 1
   %133 = getelementptr inbounds i8, ptr %131, i64 4
   store i8 %128, ptr %133, align 4
   %134 = load i32, ptr %0, align 8
@@ -3394,8 +3394,8 @@ list_length.exit125:                              ; preds = %114, %117
   br label %150
 
 150:                                              ; preds = %list_length.exit125, %140, %142
-  %.197 = phi i32 [ %.096143, %list_length.exit125 ], [ %132, %142 ], [ %132, %140 ]
-  %.2 = phi ptr [ %.094144, %list_length.exit125 ], [ %.195, %142 ], [ %.195, %140 ]
+  %.299 = phi ptr [ %.097142, %list_length.exit125 ], [ %.198, %142 ], [ %.198, %140 ]
+  %.196 = phi i32 [ %.095143, %list_length.exit125 ], [ %132, %142 ], [ %132, %140 ]
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %114, !llvm.loop !10
@@ -3423,7 +3423,7 @@ list_length.exit125:                              ; preds = %114, %117
   br i1 %exitcond164.not, label %.loopexit, label %.lr.ph148, !llvm.loop !11
 
 .loopexit:                                        ; preds = %158, %list_length.exit123, %.preheader, %33
-  %.3 = phi ptr [ null, %33 ], [ %.2, %.preheader ], [ null, %list_length.exit123 ], [ %.2, %158 ]
+  %.3100 = phi ptr [ null, %33 ], [ %.299, %.preheader ], [ null, %list_length.exit123 ], [ %.299, %158 ]
   store ptr %34, ptr @PG_exception_stack, align 8
   store ptr %35, ptr @error_context_stack, align 8
   %159 = load ptr, ptr @WalReceiverFunctions, align 8
@@ -3439,11 +3439,11 @@ list_length.exit125:                              ; preds = %114, %117
 163:                                              ; preds = %.loopexit
   store ptr %34, ptr @PG_exception_stack, align 8
   store ptr %35, ptr @error_context_stack, align 8
-  %.not113 = icmp eq ptr %.3, null
+  %.not113 = icmp eq ptr %.3100, null
   br i1 %.not113, label %165, label %164
 
 164:                                              ; preds = %163
-  call void @table_close(ptr noundef nonnull %.3, i32 noundef 0) #10
+  call void @table_close(ptr noundef nonnull %.3100, i32 noundef 0) #10
   br label %165
 
 165:                                              ; preds = %164, %163
@@ -3574,7 +3574,7 @@ define dso_local void @DropSubscription(ptr nocapture noundef readonly %0, i1 no
 
 .thread:                                          ; preds = %55, %65, %68
   %.not103117 = phi i1 [ true, %65 ], [ false, %68 ], [ true, %55 ]
-  %.095116 = phi ptr [ null, %65 ], [ %67, %68 ], [ null, %55 ]
+  %.0116 = phi ptr [ null, %65 ], [ %67, %68 ], [ null, %55 ]
   store i32 6100, ptr %4, align 4
   %69 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %38, ptr %69, align 4
@@ -3731,7 +3731,7 @@ define dso_local void @DropSubscription(ptr nocapture noundef readonly %0, i1 no
   %135 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %135)
   %136 = call i32 @errcode(i32 noundef 100663808) #10
-  %137 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.100, ptr noundef %.095116, ptr noundef %116) #10
+  %137 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.100, ptr noundef %.0116, ptr noundef %116) #10
   %138 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103) #10
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2295, ptr noundef nonnull @__func__.ReportSlotConnectionError) #10
   unreachable
@@ -3788,7 +3788,7 @@ define dso_local void @DropSubscription(ptr nocapture noundef readonly %0, i1 no
   br i1 %.not103117, label %165, label %160
 
 160:                                              ; preds = %._crit_edge147
-  call void @ReplicationSlotDropAtPubNode(ptr noundef nonnull %111, ptr noundef nonnull %.095116, i1 noundef zeroext false)
+  call void @ReplicationSlotDropAtPubNode(ptr noundef nonnull %111, ptr noundef nonnull %.0116, i1 noundef zeroext false)
   br label %165
 
 161:                                              ; preds = %139

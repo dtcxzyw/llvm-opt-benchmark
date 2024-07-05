@@ -479,7 +479,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   br label %88
 
 88:                                               ; preds = %84, %86, %76
-  %.0 = phi i32 [ 0, %76 ], [ %81, %86 ], [ 3, %84 ]
+  %.042 = phi i32 [ 0, %76 ], [ %81, %86 ], [ 3, %84 ]
   store i32 0, ptr %9, align 4
   br label %229
 
@@ -628,7 +628,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   br label %229
 
 166:                                              ; preds = %72, %89
-  %.04280 = phi i1 [ false, %89 ], [ true, %72 ]
+  %.04180 = phi i1 [ false, %89 ], [ true, %72 ]
   %167 = getelementptr inbounds i8, ptr %1, i64 8204
   %168 = load i8, ptr %167, align 4
   %169 = trunc i8 %168 to i1
@@ -649,7 +649,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
 178:                                              ; preds = %174, %170
   %179 = load i32, ptr %13, align 8
   %180 = icmp ne i32 %179, 0
-  %or.cond63.not = select i1 %.04280, i1 true, i1 %180
+  %or.cond63.not = select i1 %.04180, i1 true, i1 %180
   br i1 %or.cond63.not, label %190, label %181
 
 181:                                              ; preds = %178
@@ -683,11 +683,11 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   br i1 %199, label %200, label %202
 
 200:                                              ; preds = %195, %193
-  %201 = select i1 %.04280, i32 1, i32 3
+  %201 = select i1 %.04180, i32 1, i32 3
   br label %229
 
 202:                                              ; preds = %195, %190
-  br i1 %.04280, label %205, label %203
+  br i1 %.04180, label %205, label %203
 
 203:                                              ; preds = %202
   %204 = call noundef ptr @_Z11PointToNamePKw(ptr noundef nonnull %9)
@@ -741,7 +741,7 @@ _Z5uiMsgIJRA2048_wRA2_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %215
   %223 = load i32, ptr %13, align 8
   %224 = add nsw i32 %223, 1
   store i32 %224, ptr %13, align 8
-  br i1 %.04280, label %.thread82, label %.critedge67
+  br i1 %.04180, label %.thread82, label %.critedge67
 
 .thread82:                                        ; preds = %222
   %225 = getelementptr inbounds i8, ptr %0, i64 8196
@@ -749,7 +749,7 @@ _Z5uiMsgIJRA2048_wRA2_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %215
   br label %228
 
 226:                                              ; preds = %174, %166
-  br i1 %.04280, label %228, label %.critedge67
+  br i1 %.04180, label %228, label %.critedge67
 
 .critedge67:                                      ; preds = %222, %226
   %227 = call noundef zeroext i1 @_Z7CmpNamePKwS0_i(ptr noundef nonnull %9, ptr noundef nonnull %1, i32 noundef 0)
@@ -759,8 +759,8 @@ _Z5uiMsgIJRA2048_wRA2_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %215
   br label %229
 
 229:                                              ; preds = %.critedge67, %._crit_edge, %123, %2, %228, %_Z5uiMsgIJRA2048_wRA2_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit, %200, %185, %162, %155, %88
-  %.041 = phi i32 [ 0, %228 ], [ %201, %200 ], [ 2, %_Z5uiMsgIJRA2048_wRA2_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit ], [ %189, %185 ], [ %161, %155 ], [ %165, %162 ], [ %.0, %88 ], [ 3, %2 ], [ 1, %123 ], [ 1, %._crit_edge ], [ 3, %.critedge67 ]
-  ret i32 %.041
+  %.0 = phi i32 [ 0, %228 ], [ %201, %200 ], [ 2, %_Z5uiMsgIJRA2048_wRA2_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit ], [ %189, %185 ], [ %161, %155 ], [ %165, %162 ], [ %.042, %88 ], [ 3, %2 ], [ 1, %123 ], [ 1, %._crit_edge ], [ 3, %.critedge67 ]
+  ret i32 %.0
 }
 
 declare noundef zeroext i1 @_ZN11CommandData9CheckArgsEP10StringListbPKwbi(ptr noundef, i1 noundef zeroext, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1

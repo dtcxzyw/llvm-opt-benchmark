@@ -571,9 +571,9 @@ while.body.lr.ph:                                 ; preds = %lor.end21
   br i1 %tobool25.not.not, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end.us
-  %posi.139.us = phi i64 [ %sub.ptr.sub.us, %if.end.us ], [ %posi.0, %while.body.lr.ph ]
-  %n.038.us = phi i64 [ %inc.us, %if.end.us ], [ 0, %while.body.lr.ph ]
-  %add.ptr.us = getelementptr inbounds i8, ptr %call, i64 %posi.139.us
+  %n.039.us = phi i64 [ %inc.us, %if.end.us ], [ 0, %while.body.lr.ph ]
+  %posi.138.us = phi i64 [ %sub.ptr.sub.us, %if.end.us ], [ %posi.0, %while.body.lr.ph ]
+  %add.ptr.us = getelementptr inbounds i8, ptr %call, i64 %posi.138.us
   %5 = load i8, ptr %add.ptr.us, align 1
   %conv.i.us = zext i8 %5 to i32
   %cmp.i26.us = icmp sgt i8 %5, -1
@@ -646,14 +646,14 @@ if.end.us:                                        ; preds = %if.end24.i.us
   %add.ptr40.i.us = getelementptr inbounds i8, ptr %s.addr.0.i.us, i64 1
   %sub.ptr.lhs.cast.us = ptrtoint ptr %add.ptr40.i.us to i64
   %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast.us, %sub.ptr.rhs.cast
-  %inc.us = add nuw nsw i64 %n.038.us, 1
+  %inc.us = add nuw nsw i64 %n.039.us, 1
   %cmp23.not.not.us = icmp slt i64 %sub.ptr.sub.us, %retval.0.i24
   br i1 %cmp23.not.not.us, label %while.body.us, label %return, !llvm.loop !14
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end24.i
-  %posi.139 = phi i64 [ %sub.ptr.sub, %if.end24.i ], [ %posi.0, %while.body.lr.ph ]
-  %n.038 = phi i64 [ %inc, %if.end24.i ], [ 0, %while.body.lr.ph ]
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 %posi.139
+  %n.039 = phi i64 [ %inc, %if.end24.i ], [ 0, %while.body.lr.ph ]
+  %posi.138 = phi i64 [ %sub.ptr.sub, %if.end24.i ], [ %posi.0, %while.body.lr.ph ]
+  %add.ptr = getelementptr inbounds i8, ptr %call, i64 %posi.138
   %11 = load i8, ptr %add.ptr, align 1
   %cmp.i26 = icmp sgt i8 %11, -1
   br i1 %cmp.i26, label %if.end24.i, label %for.cond.preheader.i
@@ -718,14 +718,14 @@ if.end24.i:                                       ; preds = %if.end23.i, %while.
   %add.ptr40.i = getelementptr inbounds i8, ptr %s.addr.0.i, i64 1
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr40.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %inc = add nuw nsw i64 %n.038, 1
+  %inc = add nuw nsw i64 %n.039, 1
   %cmp23.not.not = icmp slt i64 %sub.ptr.sub, %retval.0.i24
   br i1 %cmp23.not.not, label %while.body, label %return, !llvm.loop !14
 
 if.then:                                          ; preds = %for.end.i, %lor.lhs.false17.i, %for.body.i, %if.end24.i.us, %lor.lhs.false17.i.us, %for.end.i.us, %for.body.i.us
-  %posi.134 = phi i64 [ %posi.139.us, %for.body.i.us ], [ %posi.139.us, %for.end.i.us ], [ %posi.139.us, %lor.lhs.false17.i.us ], [ %posi.139.us, %if.end24.i.us ], [ %posi.139, %for.body.i ], [ %posi.139, %lor.lhs.false17.i ], [ %posi.139, %for.end.i ]
+  %posi.136 = phi i64 [ %posi.138.us, %for.body.i.us ], [ %posi.138.us, %for.end.i.us ], [ %posi.138.us, %lor.lhs.false17.i.us ], [ %posi.138.us, %if.end24.i.us ], [ %posi.138, %for.body.i ], [ %posi.138, %lor.lhs.false17.i ], [ %posi.138, %for.end.i ]
   call void @lua_pushnil(ptr noundef %L) #2
-  %add = add nsw i64 %posi.134, 1
+  %add = add nsw i64 %posi.136, 1
   br label %return
 
 return:                                           ; preds = %if.end24.i, %if.end.us, %lor.end21, %if.then

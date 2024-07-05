@@ -2360,7 +2360,7 @@ for.body15.i.preheader:                           ; preds = %if.then10.i, %for.e
 
 for.body15.i:                                     ; preds = %for.body15.i.preheader, %for.inc72.i
   %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %for.inc72.i ], [ 0, %for.body15.i.preheader ]
-  %result.035.i = phi i32 [ %result.2.i, %for.inc72.i ], [ 0, %for.body15.i.preheader ]
+  %result.034.i = phi i32 [ %result.2.i, %for.inc72.i ], [ 0, %for.body15.i.preheader ]
   br i1 %cmp8.i, label %land.lhs.true26.i, label %land.lhs.true17.i
 
 land.lhs.true17.i:                                ; preds = %for.body15.i
@@ -2429,13 +2429,13 @@ _.exit32.i:                                       ; preds = %if.end3.i29.i, %if.
   br label %if.end68.i
 
 if.end68.i:                                       ; preds = %_.exit32.i, %if.end54.i
-  %result.1.i = phi i32 [ 1, %_.exit32.i ], [ %result.035.i, %if.end54.i ]
+  %result.1.i = phi i32 [ 1, %_.exit32.i ], [ %result.034.i, %if.end54.i ]
   %30 = load ptr, ptr %arrayidx56.i, align 8
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.112, i32 noundef 1361, ptr noundef nonnull @.str.158, ptr noundef %30, ptr noundef %12) #20
   br label %for.inc72.i
 
 for.inc72.i:                                      ; preds = %if.end68.i, %land.lhs.true46.i, %lor.lhs.false.i, %land.lhs.true34.i, %land.lhs.true26.i, %land.lhs.true17.i
-  %result.2.i = phi i32 [ %result.035.i, %land.lhs.true17.i ], [ %result.035.i, %land.lhs.true46.i ], [ %result.1.i, %if.end68.i ], [ %result.035.i, %lor.lhs.false.i ], [ %result.035.i, %land.lhs.true34.i ], [ %result.035.i, %land.lhs.true26.i ]
+  %result.2.i = phi i32 [ %result.034.i, %land.lhs.true17.i ], [ %result.034.i, %land.lhs.true46.i ], [ %result.1.i, %if.end68.i ], [ %result.034.i, %lor.lhs.false.i ], [ %result.034.i, %land.lhs.true34.i ], [ %result.034.i, %land.lhs.true26.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %exitcond.not.i9 = icmp eq i64 %indvars.iv.next38.i, 6
   br i1 %exitcond.not.i9, label %for.end74.i, label %for.body15.i, !llvm.loop !13

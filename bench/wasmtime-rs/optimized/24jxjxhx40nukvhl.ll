@@ -933,7 +933,7 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..fmt..Subscribe
   %3 = alloca { [16 x i8], i8, [7 x i8] }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 736
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %.014.sroa.gep.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.0.sroa.gep.i = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZN18tracing_subscriber8registry7sharded8Registry11start_close17ha4936b329813de2cE(ptr noalias nocapture noundef nonnull sret({ i64, ptr, i8, [7 x i8] }) align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %4, i64 noundef %1)
   %5 = invoke noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$9try_close17hb7e35f3d34d46896E"(ptr noundef nonnull align 8 %4, i64 noundef %1)
           to label %11 unwind label %6
@@ -941,7 +941,7 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..fmt..Subscribe
 6:                                                ; preds = %18, %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  %8 = load i8, ptr %.014.sroa.gep.i, align 8, !range !216, !alias.scope !249, !noundef !4
+  %8 = load i8, ptr %.0.sroa.gep.i, align 8, !range !216, !alias.scope !249, !noundef !4
   %9 = icmp eq i8 %8, 2
   br i1 %9, label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..sharded..CloseGuard$GT$$GT$17hcd416ec304847a9cE.exit.i", label %10
 
@@ -953,12 +953,12 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..fmt..Subscribe
   br i1 %5, label %12, label %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_close17ha7c342906869d1d0E.exit.i"
 
 12:                                               ; preds = %11
-  %13 = load i8, ptr %.014.sroa.gep.i, align 8, !range !216, !noundef !4
+  %13 = load i8, ptr %.0.sroa.gep.i, align 8, !range !216, !noundef !4
   %.not.i = icmp eq i8 %13, 2
   br i1 %.not.i, label %18, label %17
 
 "_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$8on_close17ha7c342906869d1d0E.exit.i": ; preds = %18, %11
-  %14 = load i8, ptr %.014.sroa.gep.i, align 8, !range !216, !alias.scope !252, !noundef !4
+  %14 = load i8, ptr %.0.sroa.gep.i, align 8, !range !216, !alias.scope !252, !noundef !4
   %15 = icmp eq i8 %14, 2
   br i1 %15, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$9try_close17ha347787540309b71E.exit", label %16
 
@@ -967,7 +967,7 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..fmt..Subscribe
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$9try_close17ha347787540309b71E.exit"
 
 17:                                               ; preds = %12
-  store i8 1, ptr %.014.sroa.gep.i, align 8
+  store i8 1, ptr %.0.sroa.gep.i, align 8
   br label %18
 
 18:                                               ; preds = %17, %12
@@ -1225,8 +1225,8 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN113_$LT$tracing_subscriber..layer
   ]
 
 7:                                                ; preds = %16, %15, %2
-  %.0.i = phi i64 [ %.1.i, %15 ], [ %18, %16 ], [ %6, %2 ]
-  %8 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17h33d4bc69cb262de8E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.0.i)
+  %.010.i = phi i64 [ %.1.i, %15 ], [ %18, %16 ], [ %6, %2 ]
+  %8 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17h33d4bc69cb262de8E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.010.i)
   %9 = extractvalue { i64, i64 } %8, 0
   %switch.i = icmp eq i64 %9, 0
   br i1 %switch.i, label %19, label %"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$8new_span17h699839550d6e5b21E.exit"
@@ -1273,7 +1273,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN113_$LT$tracing_subscriber..layer
 define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$9try_close17hb7e35f3d34d46896E"(ptr noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { [16 x i8], i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %.014.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
+  %.0.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZN18tracing_subscriber8registry7sharded8Registry11start_close17ha4936b329813de2cE(ptr noalias nocapture noundef nonnull sret({ i64, ptr, i8, [7 x i8] }) align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 %0, i64 noundef %1)
   %4 = invoke noundef zeroext i1 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$9try_close17hf0c29c8820973674E"(ptr noundef nonnull align 8 %0, i64 noundef %1)
           to label %10 unwind label %5
@@ -1281,7 +1281,7 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..layer..layered
 5:                                                ; preds = %18, %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = load i8, ptr %.014.sroa.gep, align 8, !range !216, !alias.scope !263, !noundef !4
+  %7 = load i8, ptr %.0.sroa.gep, align 8, !range !216, !alias.scope !263, !noundef !4
   %8 = icmp eq i8 %7, 2
   br i1 %8, label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..sharded..CloseGuard$GT$$GT$17hcd416ec304847a9cE.exit", label %9
 
@@ -1293,12 +1293,12 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..layer..layered
   br i1 %4, label %11, label %13
 
 11:                                               ; preds = %10
-  %12 = load i8, ptr %.014.sroa.gep, align 8, !range !216, !noundef !4
+  %12 = load i8, ptr %.0.sroa.gep, align 8, !range !216, !noundef !4
   %.not = icmp eq i8 %12, 2
   br i1 %.not, label %18, label %17
 
 13:                                               ; preds = %18, %10
-  %14 = load i8, ptr %.014.sroa.gep, align 8, !range !216, !alias.scope !266, !noundef !4
+  %14 = load i8, ptr %.0.sroa.gep, align 8, !range !216, !alias.scope !266, !noundef !4
   %15 = icmp eq i8 %14, 2
   br i1 %15, label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$tracing_subscriber..registry..sharded..CloseGuard$GT$$GT$17hcd416ec304847a9cE.exit15", label %16
 
@@ -1311,7 +1311,7 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..layer..layered
   ret i1 %4
 
 17:                                               ; preds = %11
-  store i8 1, ptr %.014.sroa.gep, align 8
+  store i8 1, ptr %.0.sroa.gep, align 8
   br label %18
 
 18:                                               ; preds = %17, %11

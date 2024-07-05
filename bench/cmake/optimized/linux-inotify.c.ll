@@ -146,28 +146,28 @@ watcher_root_RB_NEXT.exit:                        ; preds = %.preheader.i, %22, 
   br i1 %.not3.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %53, %64
-  %.04.i.i.i = phi ptr [ %.0.i.i.i, %64 ], [ %.val.i, %53 ]
-  %59 = getelementptr i8, ptr %.04.i.i.i, i64 64
-  %.0.val.i.i.i = load i32, ptr %59, align 8
-  %60 = icmp sgt i32 %.0.val.i.i.i, %57
+  %.094.i.i.i = phi ptr [ %.09.i.i.i, %64 ], [ %.val.i, %53 ]
+  %59 = getelementptr i8, ptr %.094.i.i.i, i64 64
+  %.09.val.i.i.i = load i32, ptr %59, align 8
+  %60 = icmp sgt i32 %.09.val.i.i.i, %57
   br i1 %60, label %64, label %61
 
 61:                                               ; preds = %.lr.ph.i.i.i
-  %.not1.i.i.i = icmp slt i32 %.0.val.i.i.i, %57
+  %.not1.i.i.i = icmp slt i32 %.09.val.i.i.i, %57
   br i1 %.not1.i.i.i, label %62, label %.loopexit.i
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %.04.i.i.i, i64 8
+  %63 = getelementptr inbounds i8, ptr %.094.i.i.i, i64 8
   br label %64
 
 64:                                               ; preds = %62, %.lr.ph.i.i.i
-  %.1.in.i.i.i = phi ptr [ %63, %62 ], [ %.04.i.i.i, %.lr.ph.i.i.i ]
-  %.0.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
-  %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
+  %.1.in.i.i.i = phi ptr [ %63, %62 ], [ %.094.i.i.i, %.lr.ph.i.i.i ]
+  %.09.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
+  %.not.i.i.i = icmp eq ptr %.09.i.i.i, null
   br i1 %.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %64, %61, %53
-  %.0.lcssa.i.i.i = phi ptr [ null, %53 ], [ %.04.i.i.i, %61 ], [ null, %64 ]
+  %.09.lcssa.i.i.i = phi ptr [ null, %53 ], [ %.094.i.i.i, %61 ], [ null, %64 ]
   store i32 -1, ptr %56, align 8
   store ptr null, ptr %41, align 8
   %65 = and i32 %51, -5
@@ -191,7 +191,7 @@ watcher_root_RB_NEXT.exit:                        ; preds = %.preheader.i, %22, 
   %75 = getelementptr inbounds i8, ptr %72, i64 8
   store ptr %74, ptr %75, align 8
   %76 = load ptr, ptr %54, align 8
-  call fastcc void @maybe_free_watcher_list(ptr noundef %.0.lcssa.i.i.i, ptr noundef %76)
+  call fastcc void @maybe_free_watcher_list(ptr noundef %.09.lcssa.i.i.i, ptr noundef %76)
   br label %uv_fs_event_stop.exit
 
 uv_fs_event_stop.exit:                            ; preds = %39, %71
@@ -288,28 +288,28 @@ define dso_local noundef i32 @uv_fs_event_stop(ptr nocapture noundef %0) local_u
   br i1 %.not3.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %5, %16
-  %.04.i.i = phi ptr [ %.0.i.i, %16 ], [ %.val, %5 ]
-  %11 = getelementptr i8, ptr %.04.i.i, i64 64
-  %.0.val.i.i = load i32, ptr %11, align 8
-  %12 = icmp sgt i32 %.0.val.i.i, %9
+  %.094.i.i = phi ptr [ %.09.i.i, %16 ], [ %.val, %5 ]
+  %11 = getelementptr i8, ptr %.094.i.i, i64 64
+  %.09.val.i.i = load i32, ptr %11, align 8
+  %12 = icmp sgt i32 %.09.val.i.i, %9
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %.lr.ph.i.i
-  %.not1.i.i = icmp slt i32 %.0.val.i.i, %9
+  %.not1.i.i = icmp slt i32 %.09.val.i.i, %9
   br i1 %.not1.i.i, label %14, label %.loopexit
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.04.i.i, i64 8
+  %15 = getelementptr inbounds i8, ptr %.094.i.i, i64 8
   br label %16
 
 16:                                               ; preds = %14, %.lr.ph.i.i
-  %.1.in.i.i = phi ptr [ %15, %14 ], [ %.04.i.i, %.lr.ph.i.i ]
-  %.0.i.i = load ptr, ptr %.1.in.i.i, align 8
-  %.not.i.i = icmp eq ptr %.0.i.i, null
+  %.1.in.i.i = phi ptr [ %15, %14 ], [ %.094.i.i, %.lr.ph.i.i ]
+  %.09.i.i = load ptr, ptr %.1.in.i.i, align 8
+  %.not.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !9
 
 .loopexit:                                        ; preds = %16, %13, %5
-  %.0.lcssa.i.i = phi ptr [ null, %5 ], [ null, %16 ], [ %.04.i.i, %13 ]
+  %.09.lcssa.i.i = phi ptr [ null, %5 ], [ null, %16 ], [ %.094.i.i, %13 ]
   store i32 -1, ptr %8, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %17, align 8
@@ -336,7 +336,7 @@ define dso_local noundef i32 @uv_fs_event_stop(ptr nocapture noundef %0) local_u
   %30 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %29, ptr %30, align 8
   %31 = load ptr, ptr %6, align 8
-  tail call fastcc void @maybe_free_watcher_list(ptr noundef %.0.lcssa.i.i, ptr noundef %31)
+  tail call fastcc void @maybe_free_watcher_list(ptr noundef %.09.lcssa.i.i, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %1, %24
@@ -376,17 +376,17 @@ define internal fastcc void @maybe_free_watcher_list(ptr noundef %0, ptr nocaptu
   br label %54
 
 .preheader91.i:                                   ; preds = %15, %.preheader91.i
-  %.067.i = phi ptr [ %21, %.preheader91.i ], [ %14, %15 ]
-  %21 = load ptr, ptr %.067.i, align 8
+  %.064.i = phi ptr [ %21, %.preheader91.i ], [ %14, %15 ]
+  %21 = load ptr, ptr %.064.i, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %22, label %.preheader91.i, !llvm.loop !13
 
 22:                                               ; preds = %.preheader91.i
-  %23 = getelementptr inbounds i8, ptr %.067.i, i64 8
+  %23 = getelementptr inbounds i8, ptr %.064.i, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %.067.i, i64 16
+  %25 = getelementptr inbounds i8, ptr %.064.i, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.067.i, i64 24
+  %27 = getelementptr inbounds i8, ptr %.064.i, i64 24
   %28 = load i32, ptr %27, align 8
   %.not77.i = icmp eq ptr %24, null
   br i1 %.not77.i, label %31, label %29
@@ -402,7 +402,7 @@ define internal fastcc void @maybe_free_watcher_list(ptr noundef %0, ptr nocaptu
 
 32:                                               ; preds = %31
   %33 = load ptr, ptr %26, align 8
-  %34 = icmp eq ptr %33, %.067.i
+  %34 = icmp eq ptr %33, %.064.i
   %spec.select179.idx.i = select i1 %34, i64 0, i64 8
   %spec.select179.i = getelementptr inbounds i8, ptr %26, i64 %spec.select179.idx.i
   br label %35
@@ -412,8 +412,8 @@ define internal fastcc void @maybe_free_watcher_list(ptr noundef %0, ptr nocaptu
   store ptr %24, ptr %.sink.i, align 8
   %36 = load ptr, ptr %25, align 8
   %37 = icmp eq ptr %36, %0
-  %spec.select.i = select i1 %37, ptr %.067.i, ptr %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.067.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
+  %spec.select.i = select i1 %37, ptr %.064.i, ptr %26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.064.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
   %38 = getelementptr inbounds i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not79.i = icmp eq ptr %39, null
@@ -428,17 +428,17 @@ define internal fastcc void @maybe_free_watcher_list(ptr noundef %0, ptr nocaptu
 
 43:                                               ; preds = %40, %35
   %.sink176.i = phi ptr [ %10, %35 ], [ %spec.select180.i, %40 ]
-  store ptr %.067.i, ptr %.sink176.i, align 8
+  store ptr %.064.i, ptr %.sink176.i, align 8
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 16
-  store ptr %.067.i, ptr %45, align 8
+  store ptr %.064.i, ptr %45, align 8
   %46 = load ptr, ptr %13, align 8
   %.not80.i = icmp eq ptr %46, null
   br i1 %.not80.i, label %.loopexit.i, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %46, i64 16
-  store ptr %.067.i, ptr %48, align 8
+  store ptr %.064.i, ptr %48, align 8
   br label %.loopexit.i
 
 49:                                               ; preds = %9
@@ -452,15 +452,15 @@ define internal fastcc void @maybe_free_watcher_list(ptr noundef %0, ptr nocaptu
 54:                                               ; preds = %49, %.thread.i
   %55 = phi i32 [ %20, %.thread.i ], [ %53, %49 ]
   %56 = phi ptr [ %18, %.thread.i ], [ %51, %49 ]
-  %.06587.i = phi ptr [ %11, %.thread.i ], [ %14, %49 ]
-  %57 = getelementptr inbounds i8, ptr %.06587.i, i64 16
+  %.06687.i = phi ptr [ %11, %.thread.i ], [ %14, %49 ]
+  %57 = getelementptr inbounds i8, ptr %.06687.i, i64 16
   store ptr %56, ptr %57, align 8
   br label %58
 
 58:                                               ; preds = %54, %49
   %59 = phi i32 [ %55, %54 ], [ %53, %49 ]
   %60 = phi ptr [ %56, %54 ], [ %51, %49 ]
-  %.06588.i = phi ptr [ %.06587.i, %54 ], [ null, %49 ]
+  %.06688.i = phi ptr [ %.06687.i, %54 ], [ null, %49 ]
   %.not84.i = icmp eq ptr %60, null
   br i1 %.not84.i, label %.loopexit.sink.split.i, label %61
 
@@ -473,11 +473,11 @@ define internal fastcc void @maybe_free_watcher_list(ptr noundef %0, ptr nocaptu
 
 .loopexit.sink.split.i:                           ; preds = %61, %58
   %.sink178.i = phi ptr [ %10, %58 ], [ %spec.select181.i, %61 ]
-  store ptr %.06588.i, ptr %.sink178.i, align 8
+  store ptr %.06688.i, ptr %.sink178.i, align 8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %43, %47, %.loopexit.sink.split.i
-  %.166.i = phi ptr [ %.06588.i, %.loopexit.sink.split.i ], [ %24, %47 ], [ %24, %43 ]
+  %.167.i = phi ptr [ %.06688.i, %.loopexit.sink.split.i ], [ %24, %47 ], [ %24, %43 ]
   %.1.i = phi ptr [ %60, %.loopexit.sink.split.i ], [ %spec.select.i, %47 ], [ %spec.select.i, %43 ]
   %.063.i = phi i32 [ %59, %.loopexit.sink.split.i ], [ %28, %47 ], [ %28, %43 ]
   %64 = icmp eq i32 %.063.i, 0
@@ -485,7 +485,7 @@ define internal fastcc void @maybe_free_watcher_list(ptr noundef %0, ptr nocaptu
 
 .preheader.i:                                     ; preds = %.loopexit.i, %224
   %.0179.i.i = phi ptr [ %.1180.i.i, %224 ], [ %.1.i, %.loopexit.i ]
-  %.0176.i.i = phi ptr [ %.0179.i.i, %224 ], [ %.166.i, %.loopexit.i ]
+  %.0176.i.i = phi ptr [ %.0179.i.i, %224 ], [ %.167.i, %.loopexit.i ]
   %65 = icmp eq ptr %.0176.i.i, null
   br i1 %65, label %70, label %66
 
@@ -940,24 +940,24 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   br i1 %.not3.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %30, %38
-  %.04.i.i = phi ptr [ %.0.i.i, %38 ], [ %.val, %30 ]
-  %33 = getelementptr i8, ptr %.04.i.i, i64 64
-  %.0.val.i.i = load i32, ptr %33, align 8
-  %34 = icmp sgt i32 %.0.val.i.i, %24
+  %.094.i.i = phi ptr [ %.09.i.i, %38 ], [ %.val, %30 ]
+  %33 = getelementptr i8, ptr %.094.i.i, i64 64
+  %.09.val.i.i = load i32, ptr %33, align 8
+  %34 = icmp sgt i32 %.09.val.i.i, %24
   br i1 %34, label %38, label %35
 
 35:                                               ; preds = %.lr.ph.i.i
-  %.not1.i.i = icmp slt i32 %.0.val.i.i, %24
+  %.not1.i.i = icmp slt i32 %.09.val.i.i, %24
   br i1 %.not1.i.i, label %36, label %find_watcher.exit
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %.04.i.i, i64 8
+  %37 = getelementptr inbounds i8, ptr %.094.i.i, i64 8
   br label %38
 
 38:                                               ; preds = %36, %.lr.ph.i.i
-  %.1.in.i.i = phi ptr [ %37, %36 ], [ %.04.i.i, %.lr.ph.i.i ]
-  %.0.i.i = load ptr, ptr %.1.in.i.i, align 8
-  %.not.i.i = icmp eq ptr %.0.i.i, null
+  %.1.in.i.i = phi ptr [ %37, %36 ], [ %.094.i.i, %.lr.ph.i.i ]
+  %.09.i.i = load ptr, ptr %.1.in.i.i, align 8
+  %.not.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !9
 
 .loopexit:                                        ; preds = %38, %30
@@ -983,13 +983,13 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   store i32 0, ptr %50, align 8
   %51 = load ptr, ptr %9, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 832
-  %.02635.i = load ptr, ptr %52, align 8
-  %.not36.i = icmp eq ptr %.02635.i, null
-  br i1 %.not36.i, label %63, label %.lr.ph.i
+  %.02634.i = load ptr, ptr %52, align 8
+  %.not35.i = icmp eq ptr %.02634.i, null
+  br i1 %.not35.i, label %63, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43, %59
-  %.02637.i = phi ptr [ %.026.i, %59 ], [ %.02635.i, %43 ]
-  %53 = getelementptr i8, ptr %.02637.i, i64 64
+  %.02636.i = phi ptr [ %.026.i, %59 ], [ %.02634.i, %43 ]
+  %53 = getelementptr i8, ptr %.02636.i, i64 64
   %.026.val.i = load i32, ptr %53, align 8
   %54 = icmp slt i32 %24, %.026.val.i
   br i1 %54, label %59, label %55
@@ -999,23 +999,23 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   br i1 %56, label %57, label %find_watcher.exit
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %.02637.i, i64 8
+  %58 = getelementptr inbounds i8, ptr %.02636.i, i64 8
   br label %59
 
 59:                                               ; preds = %57, %.lr.ph.i
-  %.1.in.i = phi ptr [ %58, %57 ], [ %.02637.i, %.lr.ph.i ]
+  %.1.in.i = phi ptr [ %58, %57 ], [ %.02636.i, %.lr.ph.i ]
   %.026.i = load ptr, ptr %.1.in.i, align 8
   %.not.i54 = icmp eq ptr %.026.i, null
   br i1 %.not.i54, label %60, label %.lr.ph.i, !llvm.loop !15
 
 60:                                               ; preds = %59
   %61 = getelementptr inbounds i8, ptr %41, i64 16
-  store ptr %.02637.i, ptr %61, align 8
+  store ptr %.02636.i, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %41, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   store i32 1, ptr %62, align 8
   %spec.select.idx.i = select i1 %54, i64 0, i64 8
-  %spec.select.i = getelementptr inbounds i8, ptr %.02637.i, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds i8, ptr %.02636.i, i64 %spec.select.idx.i
   br label %66
 
 63:                                               ; preds = %43
@@ -1026,16 +1026,16 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   br label %66
 
 66:                                               ; preds = %63, %60
-  %.02637.sink.i = phi ptr [ %52, %63 ], [ %spec.select.i, %60 ]
+  %.02636.sink.i = phi ptr [ %52, %63 ], [ %spec.select.i, %60 ]
   %67 = phi ptr [ %64, %63 ], [ %61, %60 ]
-  store ptr %41, ptr %.02637.sink.i, align 8
+  store ptr %41, ptr %.02636.sink.i, align 8
   %68 = load ptr, ptr %67, align 8
   %.not131.i.i = icmp eq ptr %68, null
   br i1 %.not131.i.i, label %watcher_root_RB_INSERT_COLOR.exit.i, label %.lr.ph.i.i55
 
 .lr.ph.i.i55:                                     ; preds = %66, %.backedge.i.i
   %69 = phi ptr [ %88, %.backedge.i.i ], [ %68, %66 ]
-  %.0114132.i.i = phi ptr [ %.0114.be.i.i, %.backedge.i.i ], [ %41, %66 ]
+  %.0132.i.i = phi ptr [ %.0.be.i.i, %.backedge.i.i ], [ %41, %66 ]
   %70 = getelementptr inbounds i8, ptr %69, i64 24
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, 1
@@ -1068,8 +1068,8 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %157, %125, %119, %85
-  %.0114.be.i.i = phi ptr [ %75, %85 ], [ %75, %125 ], [ %.1115.i.i, %119 ], [ %.2.i.i, %157 ]
-  %87 = getelementptr inbounds i8, ptr %.0114.be.i.i, i64 16
+  %.0.be.i.i = phi ptr [ %75, %85 ], [ %75, %125 ], [ %.1.i.i, %119 ], [ %.2.i.i, %157 ]
+  %87 = getelementptr inbounds i8, ptr %.0.be.i.i, i64 16
   %88 = load ptr, ptr %87, align 8
   %.not.i.i56 = icmp eq ptr %88, null
   br i1 %.not.i.i56, label %watcher_root_RB_INSERT_COLOR.exit.i, label %.lr.ph.i.i55, !llvm.loop !16
@@ -1077,7 +1077,7 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
 89:                                               ; preds = %81, %78
   %90 = getelementptr inbounds i8, ptr %69, i64 8
   %91 = load ptr, ptr %90, align 8
-  %92 = icmp eq ptr %91, %.0114132.i.i
+  %92 = icmp eq ptr %91, %.0132.i.i
   br i1 %92, label %93, label %104
 
 93:                                               ; preds = %89
@@ -1089,7 +1089,7 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
 .thread.i.i:                                      ; preds = %93
   %95 = getelementptr inbounds i8, ptr %91, i64 16
   store ptr %75, ptr %95, align 8
-  %.pre41.i = load ptr, ptr %74, align 8
+  %.pre40.i = load ptr, ptr %74, align 8
   br label %99
 
 96:                                               ; preds = %93
@@ -1102,7 +1102,7 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   br i1 %.not128.i.i, label %103, label %99
 
 99:                                               ; preds = %96, %.thread.i.i
-  %100 = phi ptr [ %.pre134.i.i, %96 ], [ %.pre41.i, %.thread.i.i ]
+  %100 = phi ptr [ %.pre134.i.i, %96 ], [ %.pre40.i, %.thread.i.i ]
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %69, %101
   %spec.select.idx.i.i = select i1 %102, i64 0, i64 8
@@ -1117,9 +1117,9 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   br label %104
 
 104:                                              ; preds = %103, %89
-  %.1115.i.i = phi ptr [ %69, %103 ], [ %.0114132.i.i, %89 ]
-  %.0.i31.i = phi ptr [ %.0114132.i.i, %103 ], [ %69, %89 ]
-  %105 = getelementptr inbounds i8, ptr %.0.i31.i, i64 24
+  %.0114.i.i = phi ptr [ %.0132.i.i, %103 ], [ %69, %89 ]
+  %.1.i.i = phi ptr [ %69, %103 ], [ %.0132.i.i, %89 ]
+  %105 = getelementptr inbounds i8, ptr %.0114.i.i, i64 24
   store i32 0, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %75, i64 24
   store i32 1, ptr %106, align 8
@@ -1176,7 +1176,7 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
 
 127:                                              ; preds = %121, %120
   %128 = load ptr, ptr %69, align 8
-  %129 = icmp eq ptr %128, %.0114132.i.i
+  %129 = icmp eq ptr %128, %.0132.i.i
   br i1 %129, label %130, label %142
 
 130:                                              ; preds = %127
@@ -1217,9 +1217,9 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   br label %142
 
 142:                                              ; preds = %141, %127
-  %.2.i.i = phi ptr [ %69, %141 ], [ %.0114132.i.i, %127 ]
-  %.1.i.i = phi ptr [ %.0114132.i.i, %141 ], [ %69, %127 ]
-  %143 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
+  %.1115.i.i = phi ptr [ %.0132.i.i, %141 ], [ %69, %127 ]
+  %.2.i.i = phi ptr [ %69, %141 ], [ %.0132.i.i, %127 ]
+  %143 = getelementptr inbounds i8, ptr %.1115.i.i, i64 24
   store i32 0, ptr %143, align 8
   %144 = getelementptr inbounds i8, ptr %75, i64 24
   store i32 1, ptr %144, align 8
@@ -1264,7 +1264,7 @@ watcher_root_RB_INSERT_COLOR.exit.i:              ; preds = %.backedge.i.i, %.lr
   br label %find_watcher.exit
 
 find_watcher.exit:                                ; preds = %35, %55, %watcher_root_RB_INSERT_COLOR.exit.i
-  %.045 = phi ptr [ %41, %watcher_root_RB_INSERT_COLOR.exit.i ], [ %41, %55 ], [ %.04.i.i, %35 ]
+  %.045 = phi ptr [ %41, %watcher_root_RB_INSERT_COLOR.exit.i ], [ %41, %55 ], [ %.094.i.i, %35 ]
   %160 = load i32, ptr %5, align 8
   %161 = and i32 %160, 4
   %.not52 = icmp eq i32 %161, 0
@@ -1367,28 +1367,28 @@ define dso_local void @uv__fs_event_close(ptr nocapture noundef %0) local_unname
   br i1 %.not3.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %5, %16
-  %.04.i.i.i = phi ptr [ %.0.i.i.i, %16 ], [ %.val.i, %5 ]
-  %11 = getelementptr i8, ptr %.04.i.i.i, i64 64
-  %.0.val.i.i.i = load i32, ptr %11, align 8
-  %12 = icmp sgt i32 %.0.val.i.i.i, %9
+  %.094.i.i.i = phi ptr [ %.09.i.i.i, %16 ], [ %.val.i, %5 ]
+  %11 = getelementptr i8, ptr %.094.i.i.i, i64 64
+  %.09.val.i.i.i = load i32, ptr %11, align 8
+  %12 = icmp sgt i32 %.09.val.i.i.i, %9
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %.lr.ph.i.i.i
-  %.not1.i.i.i = icmp slt i32 %.0.val.i.i.i, %9
+  %.not1.i.i.i = icmp slt i32 %.09.val.i.i.i, %9
   br i1 %.not1.i.i.i, label %14, label %.loopexit.i
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.04.i.i.i, i64 8
+  %15 = getelementptr inbounds i8, ptr %.094.i.i.i, i64 8
   br label %16
 
 16:                                               ; preds = %14, %.lr.ph.i.i.i
-  %.1.in.i.i.i = phi ptr [ %15, %14 ], [ %.04.i.i.i, %.lr.ph.i.i.i ]
-  %.0.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
-  %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
+  %.1.in.i.i.i = phi ptr [ %15, %14 ], [ %.094.i.i.i, %.lr.ph.i.i.i ]
+  %.09.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
+  %.not.i.i.i = icmp eq ptr %.09.i.i.i, null
   br i1 %.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %16, %13, %5
-  %.0.lcssa.i.i.i = phi ptr [ null, %5 ], [ %.04.i.i.i, %13 ], [ null, %16 ]
+  %.09.lcssa.i.i.i = phi ptr [ null, %5 ], [ %.094.i.i.i, %13 ], [ null, %16 ]
   store i32 -1, ptr %8, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %17, align 8
@@ -1415,7 +1415,7 @@ define dso_local void @uv__fs_event_close(ptr nocapture noundef %0) local_unname
   %30 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %29, ptr %30, align 8
   %31 = load ptr, ptr %6, align 8
-  tail call fastcc void @maybe_free_watcher_list(ptr noundef %.0.lcssa.i.i.i, ptr noundef %31)
+  tail call fastcc void @maybe_free_watcher_list(ptr noundef %.09.lcssa.i.i.i, ptr noundef %31)
   br label %uv_fs_event_stop.exit
 
 uv_fs_event_stop.exit:                            ; preds = %1, %24
@@ -1481,24 +1481,24 @@ define internal void @uv__inotify_read(ptr nocapture noundef %0, ptr nocapture r
   br i1 %.not3.i.i, label %find_watcher.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph62.split, %31
-  %.04.i.i = phi ptr [ %.0.i.i, %31 ], [ %.val, %.lr.ph62.split ]
-  %26 = getelementptr i8, ptr %.04.i.i, i64 64
-  %.0.val.i.i = load i32, ptr %26, align 8
-  %27 = icmp sgt i32 %.0.val.i.i, %25
+  %.094.i.i = phi ptr [ %.09.i.i, %31 ], [ %.val, %.lr.ph62.split ]
+  %26 = getelementptr i8, ptr %.094.i.i, i64 64
+  %.09.val.i.i = load i32, ptr %26, align 8
+  %27 = icmp sgt i32 %.09.val.i.i, %25
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %.lr.ph.i.i
-  %.not1.i.i = icmp slt i32 %.0.val.i.i, %25
+  %.not1.i.i = icmp slt i32 %.09.val.i.i, %25
   br i1 %.not1.i.i, label %29, label %find_watcher.exit
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %.04.i.i, i64 8
+  %30 = getelementptr inbounds i8, ptr %.094.i.i, i64 8
   br label %31
 
 31:                                               ; preds = %29, %.lr.ph.i.i
-  %.1.in.i.i = phi ptr [ %30, %29 ], [ %.04.i.i, %.lr.ph.i.i ]
-  %.0.i.i = load ptr, ptr %.1.in.i.i, align 8
-  %.not.i.i = icmp eq ptr %.0.i.i, null
+  %.1.in.i.i = phi ptr [ %30, %29 ], [ %.094.i.i, %.lr.ph.i.i ]
+  %.09.i.i = load ptr, ptr %.1.in.i.i, align 8
+  %.not.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not.i.i, label %find_watcher.exit.thread, label %.lr.ph.i.i, !llvm.loop !9
 
 find_watcher.exit:                                ; preds = %28
@@ -1512,7 +1512,7 @@ find_watcher.exit:                                ; preds = %28
   br label %42
 
 36:                                               ; preds = %find_watcher.exit
-  %37 = getelementptr inbounds i8, ptr %.04.i.i, i64 56
+  %37 = getelementptr inbounds i8, ptr %.094.i.i, i64 56
   %38 = load ptr, ptr %37, align 8
   %39 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %38, i32 noundef 47) #11
   %40 = icmp eq ptr %39, null
@@ -1522,9 +1522,9 @@ find_watcher.exit:                                ; preds = %28
 
 42:                                               ; preds = %36, %34
   %43 = phi ptr [ %35, %34 ], [ %.0.i, %36 ]
-  %44 = getelementptr inbounds i8, ptr %.04.i.i, i64 48
+  %44 = getelementptr inbounds i8, ptr %.094.i.i, i64 48
   store i32 1, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %.04.i.i, i64 32
+  %45 = getelementptr inbounds i8, ptr %.094.i.i, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %45, %46
   br i1 %47, label %.thread, label %48
@@ -1535,7 +1535,7 @@ find_watcher.exit:                                ; preds = %28
   br label %._crit_edge
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %.04.i.i, i64 40
+  %49 = getelementptr inbounds i8, ptr %.094.i.i, i64 40
   %50 = load ptr, ptr %49, align 8
   store ptr %50, ptr %8, align 8
   store ptr %4, ptr %50, align 8
@@ -1550,7 +1550,7 @@ find_watcher.exit:                                ; preds = %28
   br i1 %.not5560, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %.04.i.i, i64 40
+  %53 = getelementptr inbounds i8, ptr %.094.i.i, i64 40
   br label %54
 
 54:                                               ; preds = %.lr.ph, %54
@@ -1577,7 +1577,7 @@ find_watcher.exit:                                ; preds = %28
 
 ._crit_edge:                                      ; preds = %54, %.thread, %48
   store i32 0, ptr %44, align 8
-  call fastcc void @maybe_free_watcher_list(ptr noundef nonnull %.04.i.i, ptr noundef %0)
+  call fastcc void @maybe_free_watcher_list(ptr noundef nonnull %.094.i.i, ptr noundef %0)
   br label %find_watcher.exit.thread
 
 find_watcher.exit.thread:                         ; preds = %31, %.lr.ph62.split, %._crit_edge

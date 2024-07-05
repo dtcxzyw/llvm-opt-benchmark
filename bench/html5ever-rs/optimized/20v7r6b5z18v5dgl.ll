@@ -343,8 +343,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %19
 
 19:                                               ; preds = %.noexc6, %15
-  %.0.i.i = phi i16 [ %18, %15 ], [ %32, %.noexc6 ]
-  %.not.not.i.i.i.not = icmp ne i16 %.0.i.i, 0
+  %.026.i.i = phi i16 [ %18, %15 ], [ %32, %.noexc6 ]
+  %.not.not.i.i.i.not = icmp ne i16 %.026.i.i, 0
   br i1 %.not.not.i.i.i.not, label %21, label %20
 
 20:                                               ; preds = %19
@@ -352,7 +352,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br i1 %.not.i.i, label %40, label %33
 
 21:                                               ; preds = %19
-  %22 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %22 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.026.i.i, i1 true)
   %23 = zext nneg i16 %22 to i64
   %24 = add i64 %.sroa.0.025.i.i, %23
   %25 = and i64 %24, %.val4.i
@@ -364,8 +364,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
           to label %.noexc6 unwind label %.loopexit
 
 .noexc6:                                          ; preds = %21
-  %31 = add i16 %.0.i.i, -1
-  %32 = and i16 %31, %.0.i.i
+  %31 = add i16 %.026.i.i, -1
+  %32 = and i16 %31, %.026.i.i
   br i1 %30, label %76, label %19
 
 33:                                               ; preds = %20

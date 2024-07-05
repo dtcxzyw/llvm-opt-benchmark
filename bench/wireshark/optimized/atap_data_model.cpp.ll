@@ -4083,12 +4083,12 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i247:   ; preds = %124
   br label %140
 
 140:                                              ; preds = %134, %130
-  %.0181 = phi i64 [ %139, %134 ], [ 0, %130 ]
+  %.0182 = phi i64 [ %139, %134 ], [ 0, %130 ]
   br i1 %38, label %141, label %143
 
 141:                                              ; preds = %140
   call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull @.str.32)
-  invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %.0181, i32 noundef 0, i32 noundef 10, i16 32)
+  invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %.0182, i32 noundef 0, i32 noundef 10, i16 32)
           to label %142 unwind label %153
 
 142:                                              ; preds = %141
@@ -4096,7 +4096,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i247:   ; preds = %124
           to label %144 unwind label %155
 
 143:                                              ; preds = %140
-  tail call void @_ZN8QVariantC1Ex(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0181)
+  tail call void @_ZN8QVariantC1Ex(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0182)
   br label %.critedge
 
 144:                                              ; preds = %142
@@ -4195,8 +4195,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i263:   ; preds = %161
   br label %187
 
 187:                                              ; preds = %177, %170, %166
-  %.0175 = phi double [ 0.000000e+00, %166 ], [ %186, %177 ], [ 0.000000e+00, %170 ]
-  call void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %13, double noundef %.0175, i8 noundef signext 102, i32 noundef 2)
+  %.0183 = phi double [ 0.000000e+00, %166 ], [ %186, %177 ], [ 0.000000e+00, %170 ]
+  call void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %13, double noundef %.0183, i8 noundef signext 102, i32 noundef 2)
   br i1 %38, label %188, label %190
 
 188:                                              ; preds = %187
@@ -6222,12 +6222,12 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i296:   ; preds = %195
   br label %214
 
 214:                                              ; preds = %208, %204
-  %.0212 = phi i64 [ %213, %208 ], [ 0, %204 ]
+  %.0189 = phi i64 [ %213, %208 ], [ 0, %204 ]
   br i1 %64, label %215, label %217
 
 215:                                              ; preds = %214
   call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull @.str.32)
-  invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %.0212, i32 noundef 0, i32 noundef 10, i16 32)
+  invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %.0189, i32 noundef 0, i32 noundef 10, i16 32)
           to label %216 unwind label %227
 
 216:                                              ; preds = %215
@@ -6235,7 +6235,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i296:   ; preds = %195
           to label %218 unwind label %229
 
 217:                                              ; preds = %214
-  tail call void @_ZN8QVariantC1Ex(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0212)
+  tail call void @_ZN8QVariantC1Ex(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0189)
   br label %.critedge
 
 218:                                              ; preds = %216
@@ -6334,8 +6334,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i312:   ; preds = %235
   br label %261
 
 261:                                              ; preds = %251, %244, %240
-  %.0206 = phi double [ 0.000000e+00, %240 ], [ %260, %251 ], [ 0.000000e+00, %244 ]
-  call void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %14, double noundef %.0206, i8 noundef signext 102, i32 noundef 2)
+  %.0203 = phi double [ 0.000000e+00, %240 ], [ %260, %251 ], [ 0.000000e+00, %244 ]
+  call void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %14, double noundef %.0203, i8 noundef signext 102, i32 noundef 2)
   br i1 %64, label %262, label %264
 
 262:                                              ; preds = %261

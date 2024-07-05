@@ -41,23 +41,23 @@ define noundef i32 @ecpg_hex_encode(ptr noundef readonly %0, i32 noundef %1, ptr
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.011 = phi ptr [ %18, %.lr.ph ], [ %2, %3 ]
-  %.0910 = phi ptr [ %19, %.lr.ph ], [ %0, %3 ]
-  %7 = load i8, ptr %.0910, align 1
+  %.011 = phi ptr [ %19, %.lr.ph ], [ %0, %3 ]
+  %.0910 = phi ptr [ %18, %.lr.ph ], [ %2, %3 ]
+  %7 = load i8, ptr %.011, align 1
   %8 = lshr i8 %7, 4
   %9 = zext nneg i8 %8 to i64
   %10 = getelementptr [17 x i8], ptr @ecpg_hex_encode.hextbl, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr i8, ptr %.011, i64 1
-  store i8 %11, ptr %.011, align 1
-  %13 = load i8, ptr %.0910, align 1
+  %12 = getelementptr i8, ptr %.0910, i64 1
+  store i8 %11, ptr %.0910, align 1
+  %13 = load i8, ptr %.011, align 1
   %14 = and i8 %13, 15
   %15 = zext nneg i8 %14 to i64
   %16 = getelementptr [17 x i8], ptr @ecpg_hex_encode.hextbl, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
-  %18 = getelementptr i8, ptr %.011, i64 2
+  %18 = getelementptr i8, ptr %.0910, i64 2
   store i8 %17, ptr %12, align 1
-  %19 = getelementptr i8, ptr %.0910, i64 1
+  %19 = getelementptr i8, ptr %.011, i64 1
   %exitcond.not = icmp eq ptr %19, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
@@ -922,16 +922,16 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   br label %384
 
 384:                                              ; preds = %382, %378
-  %.0516 = phi ptr [ %383, %382 ], [ %381, %378 ]
+  %.0517 = phi ptr [ %383, %382 ], [ %381, %378 ]
   br i1 %82, label %385, label %408
 
 385:                                              ; preds = %384
   br i1 %or.cond591, label %386, label %401
 
 386:                                              ; preds = %385
-  call void @llvm.memset.p0.i64(ptr align 1 %.0516, i8 32, i64 %8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0516, ptr align 1 %.1521, i64 %73, i1 false)
-  %387 = getelementptr i8, ptr %.0516, i64 %93
+  call void @llvm.memset.p0.i64(ptr align 1 %.0517, i8 32, i64 %8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0517, ptr align 1 %.1521, i64 %73, i1 false)
+  %387 = getelementptr i8, ptr %.0517, i64 %93
   store i8 0, ptr %387, align 1
   br i1 %94, label %388, label %.critedge
 
@@ -972,32 +972,32 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   br label %.critedge
 
 401:                                              ; preds = %385
-  %402 = call ptr @strncpy(ptr noundef %.0516, ptr noundef %.1521, i64 noundef %91) #11
-  %403 = getelementptr i8, ptr %.0516, i64 %73
-  %404 = icmp ugt ptr %403, %.0516
+  %402 = call ptr @strncpy(ptr noundef %.0517, ptr noundef %.1521, i64 noundef %91) #11
+  %403 = getelementptr i8, ptr %.0517, i64 %73
+  %404 = icmp ugt ptr %403, %.0517
   %or.cond775 = select i1 %92, i1 %404, i1 false
   br i1 %or.cond775, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %401, %.critedge5
-  %.0515764 = phi ptr [ %406, %.critedge5 ], [ %403, %401 ]
-  %405 = load i8, ptr %.0515764, align 1
+  %.0516764 = phi ptr [ %406, %.critedge5 ], [ %403, %401 ]
+  %405 = load i8, ptr %.0516764, align 1
   switch i8 %405, label %.critedge [
     i8 32, label %.critedge5
     i8 0, label %.critedge5
   ]
 
 .critedge5:                                       ; preds = %.lr.ph, %.lr.ph
-  store i8 0, ptr %.0515764, align 1
-  %406 = getelementptr i8, ptr %.0515764, i64 -1
-  %407 = icmp ugt ptr %406, %.0516
+  store i8 0, ptr %.0516764, align 1
+  %406 = getelementptr i8, ptr %.0516764, i64 -1
+  %407 = icmp ugt ptr %406, %.0517
   br i1 %407, label %.lr.ph, label %.critedge, !llvm.loop !8
 
 408:                                              ; preds = %384
-  %409 = call ptr @strncpy(ptr noundef %.0516, ptr noundef %.1521, i64 noundef %84) #11
+  %409 = call ptr @strncpy(ptr noundef %.0517, ptr noundef %.1521, i64 noundef %84) #11
   br i1 %brmerge772.not, label %410, label %412
 
 410:                                              ; preds = %408
-  %411 = getelementptr i8, ptr %.0516, i64 %89
+  %411 = getelementptr i8, ptr %.0517, i64 %89
   store i8 0, ptr %411, align 1
   br label %412
 
@@ -1112,8 +1112,8 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   br label %garbage_left.exit631.thread699
 
 453:                                              ; preds = %.preheader, %455
-  %.0522 = phi ptr [ %456, %455 ], [ %.1521, %.preheader ]
-  %454 = load i8, ptr %.0522, align 1
+  %.0525 = phi ptr [ %456, %455 ], [ %.1521, %.preheader ]
+  %454 = load i8, ptr %.0525, align 1
   switch i8 %454, label %455 [
     i8 0, label %.critedge9
     i8 44, label %.critedge9
@@ -1121,13 +1121,13 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   ]
 
 455:                                              ; preds = %453
-  %456 = getelementptr i8, ptr %.0522, i64 1
+  %456 = getelementptr i8, ptr %.0525, i64 1
   br label %453, !llvm.loop !9
 
 .critedge9:                                       ; preds = %453, %453, %453
-  store i8 0, ptr %.0522, align 1
+  store i8 0, ptr %.0525, align 1
   %457 = call ptr @PGTYPESnumeric_from_asc(ptr noundef %.1521, ptr noundef nonnull %15) #11
-  store i8 %454, ptr %.0522, align 1
+  store i8 %454, ptr %.0525, align 1
   %458 = icmp eq ptr %457, null
   br i1 %458, label %459, label %467
 
@@ -1155,7 +1155,7 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   br label %.critedge31
 
 467:                                              ; preds = %.critedge9, %464
-  %.0527 = phi ptr [ %463, %464 ], [ %457, %.critedge9 ]
+  %.0524 = phi ptr [ %463, %464 ], [ %457, %.critedge9 ]
   %468 = load ptr, ptr %15, align 8
   %469 = sext i32 %.0518 to i64
   %470 = mul i64 %469, %9
@@ -1163,15 +1163,15 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   br i1 %78, label %472, label %474
 
 472:                                              ; preds = %467
-  %473 = call i32 @PGTYPESnumeric_copy(ptr noundef nonnull %.0527, ptr noundef %471) #11
+  %473 = call i32 @PGTYPESnumeric_copy(ptr noundef nonnull %.0524, ptr noundef %471) #11
   br label %476
 
 474:                                              ; preds = %467
-  %475 = call i32 @PGTYPESnumeric_to_decimal(ptr noundef nonnull %.0527, ptr noundef %471) #11
+  %475 = call i32 @PGTYPESnumeric_to_decimal(ptr noundef nonnull %.0524, ptr noundef %471) #11
   br label %476
 
 476:                                              ; preds = %474, %472
-  call void @PGTYPESnumeric_free(ptr noundef nonnull %.0527) #11
+  call void @PGTYPESnumeric_free(ptr noundef nonnull %.0524) #11
   br label %garbage_left.exit631.thread699
 
 477:                                              ; preds = %128
@@ -1182,8 +1182,8 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   br label %480
 
 480:                                              ; preds = %482, %477
-  %.1523 = phi ptr [ %spec.select596, %477 ], [ %483, %482 ]
-  %481 = load i8, ptr %.1523, align 1
+  %.1526 = phi ptr [ %spec.select596, %477 ], [ %483, %482 ]
+  %481 = load i8, ptr %.1526, align 1
   switch i8 %481, label %482 [
     i8 0, label %.critedge13
     i8 44, label %.critedge13
@@ -1192,13 +1192,13 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   ]
 
 482:                                              ; preds = %480
-  %483 = getelementptr i8, ptr %.1523, i64 1
+  %483 = getelementptr i8, ptr %.1526, i64 1
   br label %480, !llvm.loop !10
 
 .critedge13:                                      ; preds = %480, %480, %480, %480
-  store i8 0, ptr %.1523, align 1
+  store i8 0, ptr %.1526, align 1
   %484 = call ptr @PGTYPESinterval_from_asc(ptr noundef %spec.select596, ptr noundef nonnull %15) #11
-  store i8 %481, ptr %.1523, align 1
+  store i8 %481, ptr %.1526, align 1
   %485 = icmp eq ptr %484, null
   br i1 %485, label %486, label %493
 
@@ -1235,12 +1235,12 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
 
 499:                                              ; preds = %493, %497, %491
   %500 = phi ptr [ %.pre812, %491 ], [ %498, %497 ], [ %494, %493 ]
-  %.0526 = phi ptr [ %490, %491 ], [ %484, %497 ], [ %484, %493 ]
+  %.0529 = phi ptr [ %490, %491 ], [ %484, %497 ], [ %484, %493 ]
   %501 = sext i32 %.0518 to i64
   %502 = mul i64 %501, %9
   %503 = getelementptr i8, ptr %6, i64 %502
-  %504 = call i32 @PGTYPESinterval_copy(ptr noundef nonnull %.0526, ptr noundef %503) #11
-  call void @free(ptr noundef nonnull %.0526) #11
+  %504 = call i32 @PGTYPESinterval_copy(ptr noundef nonnull %.0529, ptr noundef %503) #11
+  call void @free(ptr noundef nonnull %.0529) #11
   br label %garbage_left.exit631.thread699
 
 505:                                              ; preds = %128
@@ -1251,8 +1251,8 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   br label %508
 
 508:                                              ; preds = %510, %505
-  %.2524 = phi ptr [ %spec.select597, %505 ], [ %511, %510 ]
-  %509 = load i8, ptr %.2524, align 1
+  %.2527 = phi ptr [ %spec.select597, %505 ], [ %511, %510 ]
+  %509 = load i8, ptr %.2527, align 1
   switch i8 %509, label %510 [
     i8 0, label %.critedge17
     i8 44, label %.critedge17
@@ -1261,14 +1261,14 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   ]
 
 510:                                              ; preds = %508
-  %511 = getelementptr i8, ptr %.2524, i64 1
+  %511 = getelementptr i8, ptr %.2527, i64 1
   br label %508, !llvm.loop !11
 
 .critedge17:                                      ; preds = %508, %508, %508, %508
-  store i8 0, ptr %.2524, align 1
+  store i8 0, ptr %.2527, align 1
   %512 = call i64 @PGTYPESdate_from_asc(ptr noundef %spec.select597, ptr noundef nonnull %15) #11
   store i64 %512, ptr %16, align 8
-  store i8 %509, ptr %.2524, align 1
+  store i8 %509, ptr %.2527, align 1
   %513 = tail call ptr @__errno_location() #12
   %514 = load i32, ptr %513, align 4
   %.not570 = icmp eq i32 %514, 0
@@ -1315,8 +1315,8 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   br label %533
 
 533:                                              ; preds = %535, %530
-  %.3525 = phi ptr [ %spec.select598, %530 ], [ %536, %535 ]
-  %534 = load i8, ptr %.3525, align 1
+  %.3528 = phi ptr [ %spec.select598, %530 ], [ %536, %535 ]
+  %534 = load i8, ptr %.3528, align 1
   switch i8 %534, label %535 [
     i8 0, label %.critedge21
     i8 44, label %.critedge21
@@ -1325,14 +1325,14 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   ]
 
 535:                                              ; preds = %533
-  %536 = getelementptr i8, ptr %.3525, i64 1
+  %536 = getelementptr i8, ptr %.3528, i64 1
   br label %533, !llvm.loop !12
 
 .critedge21:                                      ; preds = %533, %533, %533, %533
-  store i8 0, ptr %.3525, align 1
+  store i8 0, ptr %.3528, align 1
   %537 = call i64 @PGTYPEStimestamp_from_asc(ptr noundef %spec.select598, ptr noundef nonnull %15) #11
   store i64 %537, ptr %17, align 8
-  store i8 %534, ptr %.3525, align 1
+  store i8 %534, ptr %.3528, align 1
   %538 = tail call ptr @__errno_location() #12
   %539 = load i32, ptr %538, align 4
   %.not564 = icmp eq i32 %539, 0
@@ -1440,8 +1440,8 @@ array_delimiter.exit683.thread720:                ; preds = %563, %227, %255, %a
   br i1 %or.cond732, label %.critedge31, label %array_boundary.exit687, !llvm.loop !14
 
 .critedge31:                                      ; preds = %array_delimiter.exit683.thread720, %489, %garbage_left.exit631.thread699.thread, %.critedge29, %.thread, %63, %555, %542, %517, %492, %466, %465, %.thread712, %garbage_left.exit663.thread, %garbage_left.exit647.thread, %garbage_left.exit631.thread, %garbage_left.exit615.thread, %garbage_left.exit.thread, %66, %61, %60, %33, %23
-  %.0517 = phi i1 [ false, %23 ], [ false, %61 ], [ false, %66 ], [ false, %555 ], [ false, %542 ], [ false, %517 ], [ false, %492 ], [ false, %465 ], [ false, %466 ], [ false, %.thread712 ], [ false, %garbage_left.exit663.thread ], [ false, %garbage_left.exit647.thread ], [ false, %garbage_left.exit631.thread ], [ false, %garbage_left.exit615.thread ], [ false, %garbage_left.exit.thread ], [ false, %60 ], [ false, %33 ], [ true, %63 ], [ true, %.thread ], [ true, %.critedge29 ], [ true, %garbage_left.exit631.thread699.thread ], [ true, %array_delimiter.exit683.thread720 ], [ false, %489 ]
-  ret i1 %.0517
+  %.0514 = phi i1 [ false, %23 ], [ false, %61 ], [ false, %66 ], [ false, %555 ], [ false, %542 ], [ false, %517 ], [ false, %492 ], [ false, %465 ], [ false, %466 ], [ false, %.thread712 ], [ false, %garbage_left.exit663.thread ], [ false, %garbage_left.exit647.thread ], [ false, %garbage_left.exit631.thread ], [ false, %garbage_left.exit615.thread ], [ false, %garbage_left.exit.thread ], [ false, %60 ], [ false, %33 ], [ true, %63 ], [ true, %.thread ], [ true, %.critedge29 ], [ true, %garbage_left.exit631.thread699.thread ], [ true, %array_delimiter.exit683.thread720 ], [ false, %489 ]
+  ret i1 %.0514
 }
 
 declare ptr @ECPGget_sqlca() local_unnamed_addr #3

@@ -88,7 +88,7 @@ define i64 @dsnowball_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   br i1 %12, label %.lr.ph60, label %._crit_edge
 
 .lr.ph60:                                         ; preds = %.lr.ph, %78
-  %.0183359 = phi i1 [ %.1, %78 ], [ false, %.lr.ph ]
+  %.03459 = phi i1 [ %.1, %78 ], [ false, %.lr.ph ]
   %indvars.iv58 = phi i64 [ %indvars.iv.next, %78 ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv58
@@ -100,7 +100,7 @@ define i64 @dsnowball_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %.lr.ph60
-  br i1 %.0183359, label %21, label %25
+  br i1 %.03459, label %21, label %25
 
 21:                                               ; preds = %20
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -213,7 +213,7 @@ locate_stem_module.exit:                          ; preds = %46, %56
   unreachable
 
 78:                                               ; preds = %25, %locate_stem_module.exit
-  %.1 = phi i1 [ true, %25 ], [ %.0183359, %locate_stem_module.exit ]
+  %.1 = phi i1 [ true, %25 ], [ %.03459, %locate_stem_module.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv58, 1
   %79 = load i32, ptr %6, align 4
   %80 = sext i32 %79 to i64

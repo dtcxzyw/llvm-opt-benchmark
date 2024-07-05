@@ -3797,8 +3797,8 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.12875954175451687458.exit
           to label %_ZN3std4path4Path4join17h7862befbb5430f8fE.exit unwind label %.thread268
 
 323:                                              ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$$GT$17h21b70a698c200d29E.exit", %319, %350
-  %.066 = phi i1 [ %336, %350 ], [ false, %319 ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$$GT$17h21b70a698c200d29E.exit" ]
-  %324 = zext i1 %.066 to i8
+  %.067 = phi i1 [ %336, %350 ], [ false, %319 ], [ false, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..path..PathBuf$GT$$GT$$GT$17h21b70a698c200d29E.exit" ]
+  %324 = zext i1 %.067 to i8
   store i8 %324, ptr %133, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %21)
@@ -4127,8 +4127,8 @@ _ZN3std4path4Path4join17h7862befbb5430f8fE.exit:  ; preds = %322
 
 426:                                              ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h6ceb7d1c1d02db62E.exit.backedge.i.i.i", %.lr.ph.i.i.i175
   %427 = phi i16 [ %425, %.lr.ph.i.i.i175 ], [ %439, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h6ceb7d1c1d02db62E.exit.backedge.i.i.i" ]
-  %.031.i.i.i = phi i16 [ %423, %.lr.ph.i.i.i175 ], [ %427, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h6ceb7d1c1d02db62E.exit.backedge.i.i.i" ]
-  %428 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.031.i.i.i, i1 true)
+  %.02631.i.i.i = phi i16 [ %423, %.lr.ph.i.i.i175 ], [ %427, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h6ceb7d1c1d02db62E.exit.backedge.i.i.i" ]
+  %428 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02631.i.i.i, i1 true)
   %429 = zext nneg i16 %428 to i64
   %430 = add i64 %.sroa.0.025.i.i.i, %429
   %431 = and i64 %430, %.val4.i.i

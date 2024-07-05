@@ -8502,8 +8502,8 @@ _ZN5boost4asio6detail27conditionally_enabled_event4waitERNS1_27conditionally_ena
   br i1 %177, label %.loopexit, label %26, !llvm.loop !32
 
 .loopexit:                                        ; preds = %_ZN5boost4asio6detail27conditionally_enabled_event4waitERNS1_27conditionally_enabled_mutex11scoped_lockE.exit, %4, %148
-  %.025 = phi i64 [ 1, %148 ], [ 0, %4 ], [ 0, %_ZN5boost4asio6detail27conditionally_enabled_event4waitERNS1_27conditionally_enabled_mutex11scoped_lockE.exit ]
-  ret i64 %.025
+  %.0 = phi i64 [ 1, %148 ], [ 0, %4 ], [ 0, %_ZN5boost4asio6detail27conditionally_enabled_event4waitERNS1_27conditionally_enabled_mutex11scoped_lockE.exit ]
+  ret i64 %.0
 
 178:                                              ; preds = %.body, %110
   %.pn = phi { ptr, i32 } [ %111, %110 ], [ %eh.lpad-body, %.body ]
@@ -8708,7 +8708,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit: ; pred
 
 53:                                               ; preds = %.lr.ph, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
-  %.02656 = phi i1 [ %49, %.lr.ph ], [ %.1, %75 ]
+  %.02856 = phi i1 [ %49, %.lr.ph ], [ %.1, %75 ]
   %54 = getelementptr inbounds [128 x %struct.epoll_event], ptr %4, i64 0, i64 %indvars.iv
   %55 = getelementptr inbounds i8, ptr %54, i64 4
   %56 = load ptr, ptr %55, align 4
@@ -8718,7 +8718,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit: ; pred
 58:                                               ; preds = %53
   %59 = load i32, ptr %47, align 4
   %60 = icmp eq i32 %59, -1
-  %spec.select = select i1 %60, i1 true, i1 %.02656
+  %spec.select = select i1 %60, i1 true, i1 %.02856
   br label %75
 
 61:                                               ; preds = %53
@@ -8752,14 +8752,14 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit: ; pred
   br label %75
 
 75:                                               ; preds = %58, %61, %70, %72
-  %.1 = phi i1 [ %.02656, %72 ], [ %.02656, %70 ], [ %spec.select, %58 ], [ true, %61 ]
+  %.1 = phi i1 [ %.02856, %72 ], [ %.02856, %70 ], [ %spec.select, %58 ], [ true, %61 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %75, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
-  %.026.lcssa = phi i1 [ %49, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit ], [ %.1, %75 ]
-  br i1 %.026.lcssa, label %76, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit48
+  %.028.lcssa = phi i1 [ %49, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit ], [ %.1, %75 ]
+  br i1 %.028.lcssa, label %76, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit48
 
 76:                                               ; preds = %._crit_edge
   %77 = getelementptr inbounds i8, ptr %0, i64 96

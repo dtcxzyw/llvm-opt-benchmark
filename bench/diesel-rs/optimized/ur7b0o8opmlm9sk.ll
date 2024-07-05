@@ -2194,8 +2194,8 @@ define void @"_ZN24all_about_inserts_sqlite1_149_$LT$impl$u20$diesel..insertable
   br label %19
 
 19:                                               ; preds = %2, %12
-  %.sroa.5.0 = phi i64 [ %18, %12 ], [ undef, %2 ]
   %.sroa.01.0 = phi ptr [ %16, %12 ], [ null, %2 ]
+  %.sroa.5.0 = phi i64 [ %18, %12 ], [ undef, %2 ]
   %20 = extractvalue { ptr, i64 } %6, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !368)
   %21 = tail call { ptr, i64 } @"_ZN180_$LT$diesel..insertable..private..InsertableOptionHelper$LT$T$C$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$GT$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17h0922783c39f59134E"(ptr noalias noundef nonnull readonly align 1 %7, i64 %20), !noalias !371

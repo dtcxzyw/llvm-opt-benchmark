@@ -1938,8 +1938,8 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   ret void
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit121": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i"
-  %.sroa.027.0 = getelementptr inbounds i8, ptr %11, i64 1
   %.pn177 = add i64 %13, -1
+  %.sroa.027.0 = getelementptr inbounds i8, ptr %11, i64 1
   %18 = getelementptr i8, ptr %11, i64 %13
   br label %19
 
@@ -2115,8 +2115,8 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   br i1 %103, label %159, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i144"
 
 104:                                              ; preds = %159, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit148", %99
-  %.sroa.21.1 = phi i64 [ %101, %99 ], [ %102, %159 ], [ %.sroa.21.3, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit148" ]
   %.sroa.027.1 = phi ptr [ %100, %99 ], [ %160, %159 ], [ %.sroa.027.3, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit148" ]
+  %.sroa.21.1 = phi i64 [ %101, %99 ], [ %102, %159 ], [ %.sroa.21.3, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit148" ]
   %.0103 = phi i32 [ 108, %99 ], [ 99, %159 ], [ %.2, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h9c06adab15bb11ffE.exit148" ]
   %105 = icmp ult i64 %.sroa.21.1, 16
   br i1 %105, label %111, label %106
@@ -2227,8 +2227,8 @@ define hidden void @_ZN7uu_tail5parse14parse_obsolete17h8da649a095194251E(ptr no
   %.ph170 = phi i64 [ %102, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i144" ], [ -1, %.thread157 ]
   %163 = phi ptr [ %spec.select.i147, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h74eabfca366c6e30E.exit.i144" ], [ null, %.thread157 ]
   %.not111 = icmp eq ptr %163, null
-  %.sroa.21.3 = select i1 %.not111, i64 %96, i64 %.ph170
   %.sroa.027.3 = select i1 %.not111, ptr %97, ptr %163
+  %.sroa.21.3 = select i1 %.not111, i64 %96, i64 %.ph170
   %.2 = select i1 %.not111, i32 108, i32 98
   br label %104
 

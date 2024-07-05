@@ -828,9 +828,9 @@ if.else:                                          ; preds = %if.end
   %3 = load i32, ptr @stbi__flip_vertically_on_write, align 4
   %tobool13.not = icmp eq i32 %3, 0
   %sub16 = add nsw i32 %y, -1
-  %j.0 = select i1 %tobool13.not, i32 %sub16, i32 0
   %jend.0 = select i1 %tobool13.not, i32 -1, i32 %y
   %jdir.0 = select i1 %tobool13.not, i64 4294967295, i64 1
+  %j.0 = select i1 %tobool13.not, i32 %sub16, i32 0
   %cmp18.not207 = icmp eq i32 %j.0, %jend.0
   br i1 %cmp18.not207, label %for.end107, label %for.body.lr.ph
 
@@ -5725,12 +5725,12 @@ for.cond363.preheader.us:                         ; preds = %for.cond363.prehead
   %indvars.iv299 = phi i32 [ %indvars.iv.next300, %for.cond363.for.inc463_crit_edge.us ], [ 8, %for.cond363.preheader.lr.ph ]
   %DCY.2219.us = phi i32 [ %call449.us, %for.cond363.for.inc463_crit_edge.us ], [ 0, %for.cond363.preheader.lr.ph ]
   %DCU.2218.us = phi i32 [ %call454.us, %for.cond363.for.inc463_crit_edge.us ], [ 0, %for.cond363.preheader.lr.ph ]
-  %y.1217.us = phi i32 [ %add464.us, %for.cond363.for.inc463_crit_edge.us ], [ 0, %for.cond363.preheader.lr.ph ]
-  %DCV.2216.us = phi i32 [ %call459.us, %for.cond363.for.inc463_crit_edge.us ], [ 0, %for.cond363.preheader.lr.ph ]
+  %DCV.2217.us = phi i32 [ %call459.us, %for.cond363.for.inc463_crit_edge.us ], [ 0, %for.cond363.preheader.lr.ph ]
+  %y.1216.us = phi i32 [ %add464.us, %for.cond363.for.inc463_crit_edge.us ], [ 0, %for.cond363.preheader.lr.ph ]
   br label %for.cond370.preheader.us
 
 for.body374.us221:                                ; preds = %for.cond370.preheader.us, %for.inc442.us227
-  %row.2207.us222 = phi i32 [ %inc443.us229, %for.inc442.us227 ], [ %y.1217.us, %for.cond370.preheader.us ]
+  %row.2207.us222 = phi i32 [ %inc443.us229, %for.inc442.us227 ], [ %y.1216.us, %for.cond370.preheader.us ]
   %pos.4206.us223 = phi i32 [ %47, %for.inc442.us227 ], [ 0, %for.cond370.preheader.us ]
   %cmp376.us224 = icmp slt i32 %row.2207.us222, %height
   %45 = sub i32 %sub380, %row.2207.us222
@@ -5747,7 +5747,7 @@ for.inc442.us227:                                 ; preds = %for.body397.us231
 
 for.body397.us231:                                ; preds = %for.body397.us231, %for.body374.us221
   %indvars.iv295 = phi i64 [ %indvars.iv.next296, %for.body397.us231 ], [ %46, %for.body374.us221 ]
-  %col.2205.us232 = phi i32 [ %inc439.us253, %for.body397.us231 ], [ %x.1210.us, %for.body374.us221 ]
+  %col.2205.us232 = phi i32 [ %inc439.us253, %for.body397.us231 ], [ %x.1209.us, %for.body374.us221 ]
   %cmp399.us234 = icmp slt i32 %col.2205.us232, %width
   %cond405.us235 = select i1 %cmp399.us234, i32 %col.2205.us232, i32 %sub403
   %mul392185.us236 = add i32 %cond405.us235, %mul391.us226
@@ -5787,8 +5787,8 @@ for.body397.us231:                                ; preds = %for.body397.us231, 
 for.cond370.preheader.us:                         ; preds = %for.cond363.preheader.us, %for.end444.us
   %DCY.3212.us = phi i32 [ %DCY.2219.us, %for.cond363.preheader.us ], [ %call449.us, %for.end444.us ]
   %DCU.3211.us = phi i32 [ %DCU.2218.us, %for.cond363.preheader.us ], [ %call454.us, %for.end444.us ]
-  %x.1210.us = phi i32 [ 0, %for.cond363.preheader.us ], [ %add461.us, %for.end444.us ]
-  %DCV.3209.us = phi i32 [ %DCV.2216.us, %for.cond363.preheader.us ], [ %call459.us, %for.end444.us ]
+  %DCV.3210.us = phi i32 [ %DCV.2217.us, %for.cond363.preheader.us ], [ %call459.us, %for.end444.us ]
+  %x.1209.us = phi i32 [ 0, %for.cond363.preheader.us ], [ %add461.us, %for.end444.us ]
   %57 = load i32, ptr @stbi__flip_vertically_on_write, align 4
   %.fr = freeze i32 %57
   %tobool384.not.us = icmp eq i32 %.fr, 0
@@ -5797,13 +5797,13 @@ for.cond370.preheader.us:                         ; preds = %for.cond363.prehead
 for.end444.us:                                    ; preds = %for.inc442.us227, %for.inc442.us.us
   %call449.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %Y367, i32 noundef 8, ptr noundef nonnull %fdtbl_Y, i32 noundef %DCY.3212.us, ptr noundef nonnull @__const.stbi_write_jpg_core.YDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.YAC_HT)
   %call454.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %U368, i32 noundef 8, ptr noundef nonnull %fdtbl_UV, i32 noundef %DCU.3211.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
-  %call459.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %V369, i32 noundef 8, ptr noundef nonnull %fdtbl_UV, i32 noundef %DCV.3209.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
-  %add461.us = add nuw nsw i32 %x.1210.us, 8
+  %call459.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %V369, i32 noundef 8, ptr noundef nonnull %fdtbl_UV, i32 noundef %DCV.3210.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
+  %add461.us = add nuw nsw i32 %x.1209.us, 8
   %cmp364.us = icmp slt i32 %add461.us, %width
   br i1 %cmp364.us, label %for.cond370.preheader.us, label %for.cond363.for.inc463_crit_edge.us, !llvm.loop !63
 
 for.body374.us.us:                                ; preds = %for.cond370.preheader.us, %for.inc442.us.us
-  %row.2207.us.us = phi i32 [ %inc443.us.us, %for.inc442.us.us ], [ %y.1217.us, %for.cond370.preheader.us ]
+  %row.2207.us.us = phi i32 [ %inc443.us.us, %for.inc442.us.us ], [ %y.1216.us, %for.cond370.preheader.us ]
   %pos.4206.us.us = phi i32 [ %59, %for.inc442.us.us ], [ 0, %for.cond370.preheader.us ]
   %cmp376.us.us = icmp slt i32 %row.2207.us.us, %height
   %cond382.us.us = select i1 %cmp376.us.us, i32 %row.2207.us.us, i32 %sub380
@@ -5819,7 +5819,7 @@ for.inc442.us.us:                                 ; preds = %for.body397.us.us
 
 for.body397.us.us:                                ; preds = %for.body397.us.us, %for.body374.us.us
   %indvars.iv302 = phi i64 [ %indvars.iv.next303, %for.body397.us.us ], [ %58, %for.body374.us.us ]
-  %col.2205.us.us = phi i32 [ %inc439.us.us, %for.body397.us.us ], [ %x.1210.us, %for.body374.us.us ]
+  %col.2205.us.us = phi i32 [ %inc439.us.us, %for.body397.us.us ], [ %x.1209.us, %for.body374.us.us ]
   %cmp399.us.us = icmp slt i32 %col.2205.us.us, %width
   %cond405.us.us = select i1 %cmp399.us.us, i32 %col.2205.us.us, i32 %sub403
   %mul392185.us.us = add i32 %cond405.us.us, %mul391.us.us
@@ -5857,7 +5857,7 @@ for.body397.us.us:                                ; preds = %for.body397.us.us, 
   br i1 %exitcond306.not, label %for.inc442.us.us, label %for.body397.us.us, !llvm.loop !62
 
 for.cond363.for.inc463_crit_edge.us:              ; preds = %for.end444.us
-  %add464.us = add nuw nsw i32 %y.1217.us, 8
+  %add464.us = add nuw nsw i32 %y.1216.us, 8
   %cmp360.us = icmp slt i32 %add464.us, %height
   %indvars.iv.next300 = add i32 %indvars.iv299, 8
   br i1 %cmp360.us, label %for.cond363.preheader.us, label %if.end466, !llvm.loop !64
@@ -5878,8 +5878,8 @@ for.cond194.preheader.us:                         ; preds = %for.cond194.prehead
   %indvars.iv313 = phi i32 [ %indvars.iv.next314, %for.cond194.for.inc356_crit_edge.us ], [ 16, %for.cond194.preheader.lr.ph ]
   %DCY.0276.us = phi i32 [ %call288.us, %for.cond194.for.inc356_crit_edge.us ], [ 0, %for.cond194.preheader.lr.ph ]
   %DCU.0275.us = phi i32 [ %call347.us, %for.cond194.for.inc356_crit_edge.us ], [ 0, %for.cond194.preheader.lr.ph ]
-  %y.0274.us = phi i32 [ %add357.us, %for.cond194.for.inc356_crit_edge.us ], [ 0, %for.cond194.preheader.lr.ph ]
-  %DCV.0273.us = phi i32 [ %call352.us, %for.cond194.for.inc356_crit_edge.us ], [ 0, %for.cond194.preheader.lr.ph ]
+  %DCV.0274.us = phi i32 [ %call352.us, %for.cond194.for.inc356_crit_edge.us ], [ 0, %for.cond194.preheader.lr.ph ]
+  %y.0273.us = phi i32 [ %add357.us, %for.cond194.for.inc356_crit_edge.us ], [ 0, %for.cond194.preheader.lr.ph ]
   br label %for.cond198.preheader.us
 
 for.end265.us:                                    ; preds = %for.inc263.us
@@ -5891,8 +5891,8 @@ for.end265.us:                                    ; preds = %for.inc263.us
 
 for.end342.us:                                    ; preds = %for.inc340.us
   %call347.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %subU, i32 noundef 8, ptr noundef nonnull %fdtbl_UV, i32 noundef %DCU.1268.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
-  %call352.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %subV, i32 noundef 8, ptr noundef nonnull %fdtbl_UV, i32 noundef %DCV.1266.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
-  %add354.us = add nuw nsw i32 %x.0267.us, 16
+  %call352.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %subV, i32 noundef 8, ptr noundef nonnull %fdtbl_UV, i32 noundef %DCV.1267.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
+  %add354.us = add nuw nsw i32 %x.0266.us, 16
   %cmp195.us = icmp slt i32 %add354.us, %width
   br i1 %cmp195.us, label %for.cond198.preheader.us, label %for.cond194.for.inc356_crit_edge.us, !llvm.loop !65
 
@@ -5943,7 +5943,7 @@ for.body296.us:                                   ; preds = %for.cond293.prehead
   br i1 %exitcond328.not, label %for.inc340.us, label %for.body296.us, !llvm.loop !67
 
 for.body202.us:                                   ; preds = %for.cond198.preheader.us, %for.inc263.us
-  %row.1260.us = phi i32 [ %y.0274.us, %for.cond198.preheader.us ], [ %inc264.us, %for.inc263.us ]
+  %row.1260.us = phi i32 [ %y.0273.us, %for.cond198.preheader.us ], [ %inc264.us, %for.inc263.us ]
   %pos.0259.us = phi i32 [ 0, %for.cond198.preheader.us ], [ %83, %for.inc263.us ]
   %cmp203.us = icmp slt i32 %row.1260.us, %height
   %cond209.us = select i1 %cmp203.us, i32 %row.1260.us, i32 %sub207
@@ -5961,7 +5961,7 @@ for.inc263.us:                                    ; preds = %for.body223.us
 
 for.body223.us:                                   ; preds = %for.body223.us, %for.body202.us
   %indvars.iv308 = phi i64 [ %indvars.iv.next309, %for.body223.us ], [ %82, %for.body202.us ]
-  %col.1258.us = phi i32 [ %inc260.us, %for.body223.us ], [ %x.0267.us, %for.body202.us ]
+  %col.1258.us = phi i32 [ %inc260.us, %for.body223.us ], [ %x.0266.us, %for.body202.us ]
   %cmp224.us = icmp slt i32 %col.1258.us, %width
   %cond230.us = select i1 %cmp224.us, i32 %col.1258.us, i32 %sub228
   %mul218186.us = add i32 %cond230.us, %mul217.us
@@ -6009,14 +6009,14 @@ for.cond293.preheader.us:                         ; preds = %for.inc340.us, %for
 for.cond198.preheader.us:                         ; preds = %for.cond194.preheader.us, %for.end342.us
   %DCY.1269.us = phi i32 [ %DCY.0276.us, %for.cond194.preheader.us ], [ %call288.us, %for.end342.us ]
   %DCU.1268.us = phi i32 [ %DCU.0275.us, %for.cond194.preheader.us ], [ %call347.us, %for.end342.us ]
-  %x.0267.us = phi i32 [ 0, %for.cond194.preheader.us ], [ %add354.us, %for.end342.us ]
-  %DCV.1266.us = phi i32 [ %DCV.0273.us, %for.cond194.preheader.us ], [ %call352.us, %for.end342.us ]
+  %DCV.1267.us = phi i32 [ %DCV.0274.us, %for.cond194.preheader.us ], [ %call352.us, %for.end342.us ]
+  %x.0266.us = phi i32 [ 0, %for.cond194.preheader.us ], [ %add354.us, %for.end342.us ]
   %95 = load i32, ptr @stbi__flip_vertically_on_write, align 4
   %tobool210.not.us = icmp eq i32 %95, 0
   br label %for.body202.us
 
 for.cond194.for.inc356_crit_edge.us:              ; preds = %for.end342.us
-  %add357.us = add nuw nsw i32 %y.0274.us, 16
+  %add357.us = add nuw nsw i32 %y.0273.us, 16
   %cmp191.us = icmp slt i32 %add357.us, %height
   %indvars.iv.next314 = add i32 %indvars.iv313, 16
   br i1 %cmp191.us, label %for.cond194.preheader.us, label %if.end466, !llvm.loop !70

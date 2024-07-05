@@ -960,11 +960,11 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %16
 
 16:                                               ; preds = %11, %4
-  %.0154 = phi ptr [ %15, %11 ], [ null, %4 ]
+  %.0 = phi ptr [ %15, %11 ], [ null, %4 ]
   %17 = load i32, ptr @hf_alcap_dsaid, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %.0154, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
   %19 = load i32, ptr @hf_alcap_msg_id, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %.0154, i32 noundef %19, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %19, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
   %21 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #4
   %22 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %21, ptr %22, align 4
@@ -977,7 +977,7 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %28 = tail call ptr @val_to_str_const(i32 noundef %27, ptr noundef nonnull @msg_type_strings, ptr noundef nonnull @.str.405) #4
   tail call void @col_set_str(ptr noundef %26, i32 noundef 25, ptr noundef %28) #4
   %29 = load i32, ptr @hf_alcap_compat, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %.0154, i32 noundef %29, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %29, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
   %31 = load i32, ptr @ett_compat, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #4
   %33 = load i32, ptr @hf_alcap_compat_pass_on_sni, align 4
@@ -993,14 +993,14 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %42, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
-  %.not183 = icmp eq ptr %.0154, null
+  %.not183 = icmp eq ptr %.0, null
   br label %43
 
 43:                                               ; preds = %.lr.ph, %79
-  %.0155194 = phi i32 [ 6, %.lr.ph ], [ %83, %79 ]
-  %.0156193 = phi i32 [ %41, %.lr.ph ], [ %82, %79 ]
-  %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0155194) #4
-  %45 = add i32 %.0155194, 2
+  %.0153194 = phi i32 [ %41, %.lr.ph ], [ %82, %79 ]
+  %.0154193 = phi i32 [ 6, %.lr.ph ], [ %83, %79 ]
+  %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0154193) #4
+  %45 = add i32 %.0154193, 2
   %46 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %45) #4
   %47 = zext i8 %46 to i32
   %48 = zext i8 %44 to i64
@@ -1008,11 +1008,11 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %50 = getelementptr [36 x %struct._alcap_param_info_t], ptr @param_infos, i64 0, i64 %48
   %51 = select i1 %49, ptr @param_infos, ptr %50
   %52 = load i32, ptr @hf_alcap_param_id, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %.0154, i32 noundef %52, ptr noundef %0, i32 noundef %.0155194, i32 noundef 1, i32 noundef 0) #4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %52, ptr noundef %0, i32 noundef %.0154193, i32 noundef 1, i32 noundef 0) #4
   %54 = load i32, ptr %51, align 16
   %55 = tail call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %54) #4
   %56 = load i32, ptr @hf_alcap_compat, align 4
-  %57 = add i32 %.0155194, 1
+  %57 = add i32 %.0154193, 1
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %0, i32 noundef %57, i32 noundef 1, i32 noundef 0) #4
   %59 = load i32, ptr @ett_compat, align 4
   %60 = tail call ptr @proto_item_add_subtree(ptr noundef %58, i32 noundef %59) #4
@@ -1037,17 +1037,17 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
 74:                                               ; preds = %71, %43
   %75 = getelementptr inbounds i8, ptr %51, i64 16
   %76 = load ptr, ptr %75, align 16
-  %77 = add i32 %.0155194, 3
+  %77 = add i32 %.0154193, 3
   %78 = tail call ptr %76(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %55, i32 noundef %77, i32 noundef %47, ptr noundef nonnull %7) #4
   br label %79
 
 79:                                               ; preds = %74, %71
-  %.0153 = phi ptr [ %78, %74 ], [ null, %71 ]
+  %.0156 = phi ptr [ %78, %74 ], [ null, %71 ]
   %80 = load ptr, ptr %9, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %80, i32 noundef 25, ptr noundef nonnull @.str.406, ptr noundef %.0153) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %80, i32 noundef 25, ptr noundef nonnull @.str.406, ptr noundef %.0156) #4
   %81 = add nuw nsw i32 %47, 3
-  %82 = sub nsw i32 %.0156193, %81
-  %83 = add i32 %81, %.0155194
+  %82 = sub nsw i32 %.0153194, %81
+  %83 = add i32 %81, %.0154193
   %84 = icmp sgt i32 %82, 0
   br i1 %84, label %43, label %._crit_edge, !llvm.loop !6
 
@@ -1178,14 +1178,14 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not173, label %.thread189, label %153
 
 153:                                              ; preds = %149, %145
-  %.0 = phi ptr [ %148, %145 ], [ %152, %149 ]
+  %.0155 = phi ptr [ %148, %145 ], [ %152, %149 ]
   %154 = getelementptr inbounds i8, ptr %7, i64 40
   %155 = load i32, ptr %154, align 8
   %.not174 = icmp eq i32 %155, 0
   br i1 %.not174, label %174, label %156
 
 156:                                              ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %.0, i64 48
+  %157 = getelementptr inbounds i8, ptr %.0155, i64 48
   store i32 %155, ptr %157, align 8
   br label %174
 
@@ -1218,7 +1218,7 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %174
 
 174:                                              ; preds = %162, %170, %156, %153, %141, %88, %132
-  %.1.ph = phi ptr [ %95, %132 ], [ %92, %88 ], [ %140, %141 ], [ %.0, %153 ], [ %.0, %156 ], [ %169, %170 ], [ %161, %162 ]
+  %.1.ph = phi ptr [ %95, %132 ], [ %92, %88 ], [ %140, %141 ], [ %.0155, %153 ], [ %.0155, %156 ], [ %169, %170 ], [ %161, %162 ]
   %175 = getelementptr inbounds i8, ptr %.1.ph, i64 40
   %176 = load ptr, ptr %175, align 8
   %.not181 = icmp eq ptr %176, null
@@ -1271,7 +1271,7 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not192, label %.thread189, label %203
 
 203:                                              ; preds = %202
-  tail call fastcc void @alcap_leg_tree(ptr noundef %.0154, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.1.ph)
+  tail call fastcc void @alcap_leg_tree(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.1.ph)
   br label %.thread189
 
 .thread189:                                       ; preds = %137, %149, %166, %86, %202, %203, %._crit_edge

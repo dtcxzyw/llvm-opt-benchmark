@@ -4081,8 +4081,8 @@ pmix_pointer_array_get_item.exit:                 ; preds = %11
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %11, %19, %pmix_pointer_array_get_item.exit, %9
-  %.011 = phi i32 [ %10, %9 ], [ %22, %19 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %11 ]
-  ret i32 %.011
+  %.0 = phi i32 [ %10, %9 ], [ %22, %19 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %11 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4142,8 +4142,8 @@ pmix_pointer_array_get_item.exit:                 ; preds = %16
   ]
 
 .thread:                                          ; preds = %16, %pmix_pointer_array_get_item.exit, %24
-  %.0166221 = phi i32 [ %27, %24 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %16 ]
-  %28 = call ptr @PMIx_Error_string(i32 noundef %.0166221) #12
+  %.0165221 = phi i32 [ %27, %24 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %16 ]
+  %28 = call ptr @PMIx_Error_string(i32 noundef %.0165221) #12
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.71, ptr noundef %28, ptr noundef nonnull @.str.72, i32 noundef 629) #12
   br label %209
 
@@ -4505,7 +4505,7 @@ pmix_pointer_array_get_item.exit218:              ; preds = %196
   br label %209
 
 209:                                              ; preds = %.thread260, %.thread254, %.thread248, %.thread242, %.thread236, %.thread230, %.thread224, %.thread, %.thread266, %24, %24, %14, %204, %204, %12, %10
-  %.0 = phi i32 [ %11, %10 ], [ %11, %12 ], [ %.0166221, %.thread ], [ %27, %24 ], [ %.8263, %.thread260 ], [ %.6257, %.thread254 ], [ %.5251, %.thread248 ], [ %.4245, %.thread242 ], [ %.3239, %.thread236 ], [ %.2233, %.thread230 ], [ %.1227, %.thread224 ], [ %.9268, %.thread266 ], [ %207, %204 ], [ %27, %24 ], [ -46, %14 ], [ %207, %204 ]
+  %.0 = phi i32 [ %11, %10 ], [ %11, %12 ], [ %.0165221, %.thread ], [ %27, %24 ], [ %.8263, %.thread260 ], [ %.6257, %.thread254 ], [ %.5251, %.thread248 ], [ %.4245, %.thread242 ], [ %.3239, %.thread236 ], [ %.2233, %.thread230 ], [ %.1227, %.thread224 ], [ %.9268, %.thread266 ], [ %207, %204 ], [ %27, %24 ], [ -46, %14 ], [ %207, %204 ]
   ret i32 %.0
 }
 
@@ -4550,8 +4550,8 @@ pmix_pointer_array_get_item.exit:                 ; preds = %11
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %11, %19, %pmix_pointer_array_get_item.exit, %9
-  %.011 = phi i32 [ %10, %9 ], [ %22, %19 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %11 ]
-  ret i32 %.011
+  %.0 = phi i32 [ %10, %9 ], [ %22, %19 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %11 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4643,7 +4643,7 @@ pmix_pointer_array_get_item.exit185:              ; preds = %26
   br i1 %49, label %.lr.ph267, label %.thread, !llvm.loop !15
 
 .thread:                                          ; preds = %.lr.ph267, %.preheader, %26, %pmix_pointer_array_get_item.exit185, %37
-  %.0155211 = phi i32 [ -16, %37 ], [ -16, %pmix_pointer_array_get_item.exit185 ], [ -16, %26 ], [ %40, %.preheader ], [ %40, %.lr.ph267 ]
+  %.0154211 = phi i32 [ -16, %37 ], [ -16, %pmix_pointer_array_get_item.exit185 ], [ -16, %26 ], [ %40, %.preheader ], [ %40, %.lr.ph267 ]
   call void @free(ptr noundef %29) #12
   br label %pmix_pointer_array_get_item.exit.thread
 
@@ -4949,7 +4949,7 @@ pmix_pointer_array_get_item.exit206:              ; preds = %193
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %193, %14, %.thread244, %.thread238, %.thread232, %.thread226, %.thread220, %.thread214, %.thread, %22, %201, %pmix_pointer_array_get_item.exit, %12, %pmix_pointer_array_get_item.exit206, %10
-  %.0 = phi i32 [ %11, %10 ], [ %25, %22 ], [ %.7247, %.thread244 ], [ %.6241, %.thread238 ], [ %.4235, %.thread232 ], [ %.3229, %.thread226 ], [ %.2223, %.thread220 ], [ %.1217, %.thread214 ], [ %.0155211, %.thread ], [ %204, %201 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -46, %12 ], [ -16, %pmix_pointer_array_get_item.exit206 ], [ -16, %14 ], [ -16, %193 ]
+  %.0 = phi i32 [ %11, %10 ], [ %25, %22 ], [ %.7247, %.thread244 ], [ %.6241, %.thread238 ], [ %.4235, %.thread232 ], [ %.3229, %.thread226 ], [ %.2223, %.thread220 ], [ %.1217, %.thread214 ], [ %.0154211, %.thread ], [ %204, %201 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -46, %12 ], [ -16, %pmix_pointer_array_get_item.exit206 ], [ -16, %14 ], [ -16, %193 ]
   ret i32 %.0
 }
 
@@ -5185,8 +5185,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %54, %.preheader, %42, %31, %switch.lookup, %16, %52, %48, %24
-  %.038 = phi i32 [ -27, %24 ], [ -20, %48 ], [ -63, %52 ], [ -50, %16 ], [ %28, %switch.lookup ], [ %28, %31 ], [ %41, %42 ], [ 0, %.preheader ], [ %41, %54 ], [ %41, %.lr.ph ]
-  ret i32 %.038
+  %.036 = phi i32 [ -27, %24 ], [ -20, %48 ], [ -63, %52 ], [ -50, %16 ], [ %28, %switch.lookup ], [ %28, %31 ], [ %41, %42 ], [ 0, %.preheader ], [ %41, %54 ], [ %41, %.lr.ph ]
+  ret i32 %.036
 }
 
 declare i32 @pmix_bfrops_base_print_int16(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) #1

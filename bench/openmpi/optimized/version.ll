@@ -195,8 +195,8 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %.thread, %34
-  %.02243 = phi ptr [ %.str.20., %.thread ], [ @.str.20, %34 ]
-  tail call void @prte_info_show_prte_version(ptr noundef nonnull %.02243)
+  %.043 = phi ptr [ %.str.20., %.thread ], [ @.str.20, %34 ]
+  tail call void @prte_info_show_prte_version(ptr noundef nonnull %.043)
   br label %47
 
 44:                                               ; preds = %.thread
@@ -302,13 +302,13 @@ pmix_pointer_array_get_item.exit39:               ; preds = %pmix_pointer_array_
 38:                                               ; preds = %35
   %39 = getelementptr i8, ptr %34, i64 240
   %40 = getelementptr inbounds i8, ptr %34, i64 120
-  %.02945 = load ptr, ptr %39, align 8
-  %.not3446 = icmp eq ptr %40, %.02945
+  %.03045 = load ptr, ptr %39, align 8
+  %.not3446 = icmp eq ptr %40, %.03045
   br i1 %.not3446, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38, %142
-  %.02947 = phi ptr [ %.029, %142 ], [ %.02945, %38 ]
-  %41 = getelementptr inbounds i8, ptr %.02947, i64 144
+  %.03047 = phi ptr [ %.030, %142 ], [ %.03045, %38 ]
+  %41 = getelementptr inbounds i8, ptr %.03047, i64 144
   %42 = load ptr, ptr %41, align 8
   br i1 %11, label %47, label %43
 
@@ -336,9 +336,9 @@ pmix_pointer_array_get_item.exit39:               ; preds = %pmix_pointer_array_
   br label %56
 
 56:                                               ; preds = %.thread.i, %47
-  %.03853.i = phi i1 [ true, %47 ], [ %53, %.thread.i ]
-  %.0394350.i = phi i1 [ true, %47 ], [ %51, %.thread.i ]
-  %.0.i40 = phi i1 [ true, %47 ], [ %55, %.thread.i ]
+  %.03953.i = phi i1 [ true, %47 ], [ %53, %.thread.i ]
+  %.0384350.i = phi i1 [ true, %47 ], [ %51, %.thread.i ]
+  %.040.i = phi i1 [ true, %47 ], [ %55, %.thread.i ]
   %57 = load i32, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %42, i64 4
   %59 = load i32, ptr %58, align 4
@@ -368,7 +368,7 @@ pmix_pointer_array_get_item.exit39:               ; preds = %pmix_pointer_array_
   %81 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.18, ptr noundef nonnull %79) #6
   %82 = getelementptr inbounds i8, ptr %42, i64 84
   %83 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.22, ptr noundef nonnull %82) #6
-  br i1 %.0394350.i, label %84, label %89
+  br i1 %.0384350.i, label %84, label %89
 
 84:                                               ; preds = %80
   %85 = load ptr, ptr %6, align 8
@@ -380,11 +380,11 @@ pmix_pointer_array_get_item.exit39:               ; preds = %pmix_pointer_array_
   br label %89
 
 89:                                               ; preds = %84, %80
-  %.040.i = phi i8 [ 1, %84 ], [ 0, %80 ]
-  br i1 %.03853.i, label %90, label %101
+  %.0.i40 = phi i8 [ 1, %84 ], [ 0, %80 ]
+  br i1 %.03953.i, label %90, label %101
 
 90:                                               ; preds = %89
-  %91 = trunc nuw i8 %.040.i to i1
+  %91 = trunc nuw i8 %.0.i40 to i1
   %.pre.i = load ptr, ptr %6, align 8
   br i1 %91, label %92, label %96
 
@@ -406,8 +406,8 @@ pmix_pointer_array_get_item.exit39:               ; preds = %pmix_pointer_array_
   br label %101
 
 101:                                              ; preds = %96, %89
-  %.1.i = phi i8 [ 1, %96 ], [ %.040.i, %89 ]
-  br i1 %.0.i40, label %102, label %thread-pre-split.i
+  %.1.i = phi i8 [ 1, %96 ], [ %.0.i40, %89 ]
+  br i1 %.040.i, label %102, label %thread-pre-split.i
 
 102:                                              ; preds = %101
   %103 = trunc nuw i8 %.1.i to i1
@@ -459,7 +459,7 @@ thread-pre-split.i:                               ; preds = %101
 123:                                              ; preds = %56
   %124 = getelementptr inbounds i8, ptr %42, i64 84
   %125 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.29, ptr noundef nonnull %79, ptr noundef nonnull %124) #6
-  br i1 %.0394350.i, label %126, label %131
+  br i1 %.0384350.i, label %126, label %131
 
 126:                                              ; preds = %123
   %127 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.30, ptr noundef %62) #6
@@ -471,7 +471,7 @@ thread-pre-split.i:                               ; preds = %101
   br label %131
 
 131:                                              ; preds = %126, %123
-  br i1 %.03853.i, label %132, label %137
+  br i1 %.03953.i, label %132, label %137
 
 132:                                              ; preds = %131
   %133 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.31, ptr noundef %69) #6
@@ -483,7 +483,7 @@ thread-pre-split.i:                               ; preds = %101
   br label %137
 
 137:                                              ; preds = %132, %131
-  br i1 %.0.i40, label %138, label %show_mca_version.exit
+  br i1 %.040.i, label %138, label %show_mca_version.exit
 
 138:                                              ; preds = %137
   %139 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.32, ptr noundef %76) #6
@@ -512,9 +512,9 @@ show_mca_version.exit:                            ; preds = %show_mca_version.ex
   br label %142
 
 142:                                              ; preds = %43, %show_mca_version.exit
-  %143 = getelementptr inbounds i8, ptr %.02947, i64 120
-  %.029 = load ptr, ptr %143, align 8
-  %.not34 = icmp eq ptr %40, %.029
+  %143 = getelementptr inbounds i8, ptr %.03047, i64 120
+  %.030 = load ptr, ptr %143, align 8
+  %.not34 = icmp eq ptr %40, %.030
   br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .thread:                                          ; preds = %31, %.preheader, %32

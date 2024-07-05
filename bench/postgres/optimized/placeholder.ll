@@ -531,7 +531,7 @@ define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr nocapture
   br i1 %23, label %.lr.ph42, label %._crit_edge
 
 .lr.ph42:                                         ; preds = %.lr.ph, %73
-  %.0303541 = phi i64 [ %.2, %73 ], [ %13, %.lr.ph ]
+  %.03641 = phi i64 [ %.2, %73 ], [ %13, %.lr.ph ]
   %indvars.iv40 = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr %union.ListCell, ptr %24, i64 %indvars.iv40
@@ -588,11 +588,11 @@ define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr nocapture
   %64 = getelementptr inbounds i8, ptr %26, i64 40
   %65 = load i32, ptr %64, align 8
   %66 = sext i32 %65 to i64
-  %67 = add i64 %.0303541, %66
+  %67 = add i64 %.03641, %66
   br label %68
 
 68:                                               ; preds = %34, %38, %42, %30
-  %.1 = phi i64 [ %.0303541, %34 ], [ %.0303541, %38 ], [ %67, %42 ], [ %.0303541, %30 ]
+  %.1 = phi i64 [ %.03641, %34 ], [ %.03641, %38 ], [ %67, %42 ], [ %.03641, %30 ]
   %69 = load ptr, ptr %21, align 8
   %70 = getelementptr inbounds i8, ptr %26, i64 24
   %71 = load ptr, ptr %70, align 8
@@ -601,7 +601,7 @@ define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr nocapture
   br label %73
 
 73:                                               ; preds = %.lr.ph42, %68
-  %.2 = phi i64 [ %.1, %68 ], [ %.0303541, %.lr.ph42 ]
+  %.2 = phi i64 [ %.1, %68 ], [ %.03641, %.lr.ph42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv40, 1
   %74 = load i32, ptr %16, align 4
   %75 = sext i32 %74 to i64
@@ -609,8 +609,8 @@ define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr nocapture
   br i1 %76, label %.lr.ph42, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %73, %.lr.ph, %5
-  %.030.lcssa = phi i64 [ %13, %5 ], [ %13, %.lr.ph ], [ %.2, %73 ]
-  %77 = call i32 @clamp_width_est(i64 noundef %.030.lcssa) #4
+  %.0.lcssa = phi i64 [ %13, %5 ], [ %13, %.lr.ph ], [ %.2, %73 ]
+  %77 = call i32 @clamp_width_est(i64 noundef %.0.lcssa) #4
   %78 = load ptr, ptr %9, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 40
   store i32 %77, ptr %79, align 8

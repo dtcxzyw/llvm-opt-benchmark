@@ -4125,8 +4125,8 @@ for.end:                                          ; preds = %for.body
   br i1 %or.cond67, label %if.then71, label %if.end74
 
 if.then71:                                        ; preds = %if.end60, %for.end
-  %off_pos.0141 = phi i64 [ %sub, %for.end ], [ -1, %if.end60 ]
-  %off_idx.0140 = phi i32 [ %39, %for.end ], [ -1, %if.end60 ]
+  %off_idx.0141 = phi i32 [ %39, %for.end ], [ -1, %if.end60 ]
+  %off_pos.0140 = phi i64 [ %sub, %for.end ], [ -1, %if.end60 ]
   %40 = load ptr, ptr %hba, align 8
   %41 = load i32, ptr %port_no, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i111)
@@ -4154,11 +4154,11 @@ if.then8.i.i121:                                  ; preds = %if.then.i.i118
   %46 = load i64, ptr %_now.i.i111, align 8
   %tv_usec.i.i124 = getelementptr inbounds i8, ptr %_now.i.i111, i64 8
   %47 = load i64, ptr %tv_usec.i.i124, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.146, i32 noundef %call10.i.i123, i64 noundef %46, i64 noundef %47, ptr noundef %40, i32 noundef %41, i32 noundef %off_idx.0140, i64 noundef %off_pos.0141) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.146, i32 noundef %call10.i.i123, i64 noundef %46, i64 noundef %47, ptr noundef %40, i32 noundef %41, i32 noundef %off_idx.0141, i64 noundef %off_pos.0140) #12
   br label %trace_ahci_populate_sglist_bad_offset.exit
 
 if.else.i.i120:                                   ; preds = %if.then.i.i118
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.147, ptr noundef %40, i32 noundef %41, i32 noundef %off_idx.0140, i64 noundef %off_pos.0141) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.147, ptr noundef %40, i32 noundef %41, i32 noundef %off_idx.0141, i64 noundef %off_pos.0140) #12
   br label %trace_ahci_populate_sglist_bad_offset.exit
 
 trace_ahci_populate_sglist_bad_offset.exit:       ; preds = %if.then71, %land.lhs.true5.i.i115, %if.then8.i.i121, %if.else.i.i120

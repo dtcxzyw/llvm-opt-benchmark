@@ -1538,7 +1538,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %.lr.ph.i155, %Vec_P
   br label %137
 
 137:                                              ; preds = %131, %Vec_PtrCleanSimInfo.exit
-  %.0117 = phi ptr [ %136, %131 ], [ null, %Vec_PtrCleanSimInfo.exit ]
+  %.0 = phi ptr [ %136, %131 ], [ null, %Vec_PtrCleanSimInfo.exit ]
   %138 = getelementptr inbounds i8, ptr %0, i64 208
   store i32 0, ptr %138, align 8
   %139 = load ptr, ptr %19, align 8
@@ -1550,7 +1550,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %.lr.ph.i155, %Vec_P
   br i1 %143, label %.lr.ph196, label %.critedge2
 
 .lr.ph196:                                        ; preds = %137
-  %.not.i = icmp eq ptr %.0117, null
+  %.not.i = icmp eq ptr %.0, null
   %144 = getelementptr inbounds i8, ptr %0, i64 64
   %145 = getelementptr inbounds i8, ptr %0, i64 104
   %146 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1591,14 +1591,14 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %.lr.ph.i155, %Vec_P
   br i1 %.not.i, label %171, label %167
 
 167:                                              ; preds = %166
-  %168 = load i32, ptr %.0117, align 4
+  %168 = load i32, ptr %.0, align 4
   %169 = sext i32 %168 to i64
   %170 = icmp slt i64 %indvars.iv200, %169
   br i1 %170, label %Bar_ProgressUpdate.exit, label %171
 
 171:                                              ; preds = %167, %166
   %172 = trunc nuw nsw i64 %indvars.iv200 to i32
-  call void @Bar_ProgressUpdate_int(ptr noundef %.0117, i32 noundef %172, ptr noundef null) #10
+  call void @Bar_ProgressUpdate_int(ptr noundef %.0, i32 noundef %172, ptr noundef null) #10
   br label %Bar_ProgressUpdate.exit
 
 Bar_ProgressUpdate.exit:                          ; preds = %171, %167, %162
@@ -1932,7 +1932,7 @@ Ssw_ManLabelPiNodes.exit185:                      ; preds = %.critedge.i174, %25
   br i1 %.not122, label %355, label %354
 
 354:                                              ; preds = %350
-  call void @Bar_ProgressStop(ptr noundef %.0117) #10
+  call void @Bar_ProgressStop(ptr noundef %.0) #10
   br label %355
 
 355:                                              ; preds = %354, %350

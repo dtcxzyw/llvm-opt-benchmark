@@ -6603,7 +6603,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %or.i.i73 = phi i32 [ %29, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %or.i19.i71 = phi i32 [ %30, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i30, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %result.028.i = phi i32 [ %result.1.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
+  %result.029.i = phi i32 [ %result.1.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %22 = phi i32 [ %32, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %23 = phi i32 [ %31, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %24 = trunc nuw nsw i64 %indvars.iv.i26 to i32
@@ -6631,7 +6631,7 @@ if.end.i28:                                       ; preds = %cond.end.i
   br i1 %cmp8.i, label %if.then9.i, label %if.else.i29
 
 if.then9.i:                                       ; preds = %if.end.i28, %cond.end.thread.i
-  %add.i = add nuw nsw i32 %result.028.i, 65536
+  %add.i = add nuw nsw i32 %result.029.i, 65536
   %or.i.i = or i32 %23, %shl.i
   br label %for.inc.i
 
@@ -6640,14 +6640,14 @@ if.else.i29:                                      ; preds = %if.end.i28
   br i1 %cmp10.i, label %if.then11.i, label %if.else13.i
 
 if.then11.i:                                      ; preds = %if.else.i29
-  %add12.i = add nuw nsw i32 %result.028.i, 4096
+  %add12.i = add nuw nsw i32 %result.029.i, 4096
   %or.i19.i = or i32 %22, %shl.i
   br label %for.inc.i
 
 if.else13.i:                                      ; preds = %if.else.i29
   %sub.i = sub nsw i32 %25, %26
   %28 = call i32 @llvm.abs.i32(i32 %sub.i, i1 true)
-  %add14.i = add nuw nsw i32 %28, %result.028.i
+  %add14.i = add nuw nsw i32 %28, %result.029.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else13.i, %if.then11.i, %if.then9.i, %cond.end.thread.i, %cond.end.i
@@ -6655,7 +6655,7 @@ for.inc.i:                                        ; preds = %if.else13.i, %if.th
   %30 = phi i32 [ %or.i19.i71, %cond.end.i ], [ %or.i19.i71, %if.then9.i ], [ %or.i19.i, %if.then11.i ], [ %or.i19.i71, %if.else13.i ], [ %or.i19.i71, %cond.end.thread.i ]
   %31 = phi i32 [ %23, %cond.end.i ], [ %or.i.i, %if.then9.i ], [ %23, %if.then11.i ], [ %23, %if.else13.i ], [ %23, %cond.end.thread.i ]
   %32 = phi i32 [ %22, %cond.end.i ], [ %22, %if.then9.i ], [ %or.i19.i, %if.then11.i ], [ %22, %if.else13.i ], [ %22, %cond.end.thread.i ]
-  %result.1.i = phi i32 [ %result.028.i, %cond.end.i ], [ %add.i, %if.then9.i ], [ %add12.i, %if.then11.i ], [ %add14.i, %if.else13.i ], [ %result.028.i, %cond.end.thread.i ]
+  %result.1.i = phi i32 [ %result.029.i, %cond.end.i ], [ %add.i, %if.then9.i ], [ %add12.i, %if.then11.i ], [ %add14.i, %if.else13.i ], [ %result.029.i, %cond.end.thread.i ]
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, 16
   br i1 %exitcond.not.i31, label %invoke.cont17, label %for.body.i, !llvm.loop !40
@@ -9230,7 +9230,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %result.028 = phi i32 [ 0, %entry ], [ %result.1, %for.inc ]
+  %result.029 = phi i32 [ 0, %entry ], [ %result.1, %for.inc ]
   %0 = phi i32 [ 0, %entry ], [ %8, %for.inc ]
   %1 = phi i32 [ 0, %entry ], [ %7, %for.inc ]
   %2 = trunc nuw nsw i64 %indvars.iv to i32
@@ -9258,7 +9258,7 @@ if.end:                                           ; preds = %cond.end
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %cond.end.thread, %if.end
-  %add = add nuw nsw i32 %result.028, 65536
+  %add = add nuw nsw i32 %result.029, 65536
   %or.i = or i32 %1, %shl
   store i32 %or.i, ptr %extraFieldMask.i, align 4
   br label %for.inc
@@ -9268,7 +9268,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp10, label %if.then11, label %if.else13
 
 if.then11:                                        ; preds = %if.else
-  %add12 = add nuw nsw i32 %result.028, 4096
+  %add12 = add nuw nsw i32 %result.029, 4096
   %or.i19 = or i32 %0, %shl
   store i32 %or.i19, ptr %missingFieldMask.i, align 8
   br label %for.inc
@@ -9276,13 +9276,13 @@ if.then11:                                        ; preds = %if.else
 if.else13:                                        ; preds = %if.else
   %sub = sub nsw i32 %3, %4
   %6 = tail call i32 @llvm.abs.i32(i32 %sub, i1 true)
-  %add14 = add nuw nsw i32 %6, %result.028
+  %add14 = add nuw nsw i32 %6, %result.029
   br label %for.inc
 
 for.inc:                                          ; preds = %cond.end.thread, %if.then9, %if.else13, %if.then11, %cond.end
   %7 = phi i32 [ %1, %cond.end ], [ %or.i, %if.then9 ], [ %1, %if.then11 ], [ %1, %if.else13 ], [ %1, %cond.end.thread ]
   %8 = phi i32 [ %0, %cond.end ], [ %0, %if.then9 ], [ %or.i19, %if.then11 ], [ %0, %if.else13 ], [ %0, %cond.end.thread ]
-  %result.1 = phi i32 [ %result.028, %cond.end ], [ %add, %if.then9 ], [ %add12, %if.then11 ], [ %add14, %if.else13 ], [ %result.028, %cond.end.thread ]
+  %result.1 = phi i32 [ %result.029, %cond.end ], [ %add, %if.then9 ], [ %add12, %if.then11 ], [ %add14, %if.else13 ], [ %result.029, %cond.end.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !40

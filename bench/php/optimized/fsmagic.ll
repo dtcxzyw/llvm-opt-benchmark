@@ -86,7 +86,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
 
 30:                                               ; preds = %._crit_edge, %23
   %31 = phi i32 [ %.pre, %._crit_edge ], [ %25, %23 ]
-  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %23 ]
+  %.073 = phi i32 [ 1, %._crit_edge ], [ 0, %23 ]
   %32 = and i32 %31, 1024
   %.not80 = icmp eq i32 %32, 0
   br i1 %.not80, label %38, label %33
@@ -98,13 +98,13 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %36, label %handle_mime.exit.thread, label %._crit_edge102
 
 ._crit_edge102:                                   ; preds = %33
-  %37 = add nuw nsw i32 %.0, 1
+  %37 = add nuw nsw i32 %.073, 1
   %.pre103 = load i32, ptr %24, align 8
   br label %38
 
 38:                                               ; preds = %._crit_edge102, %30
   %39 = phi i32 [ %.pre103, %._crit_edge102 ], [ %31, %30 ]
-  %.1 = phi i32 [ %37, %._crit_edge102 ], [ %.0, %30 ]
+  %.1 = phi i32 [ %37, %._crit_edge102 ], [ %.073, %30 ]
   %40 = and i32 %39, 512
   %.not82 = icmp eq i32 %40, 0
   br i1 %.not82, label %46, label %41
@@ -296,8 +296,8 @@ handle_mime.exit.thread96.thread108:              ; preds = %111, %68, %.thread1
   br label %handle_mime.exit.thread
 
 handle_mime.exit.thread:                          ; preds = %111, %68, %.thread10.i, %handle_mime.exit.thread96.thread108, %handle_mime.exit.thread96, %handle_mime.exit.thread96.thread, %90, %85, %121, %115, %98, %76, %72, %59, %56, %41, %33, %27, %17, %3, %119, %79, %63, %16
-  %.073 = phi i32 [ -1, %16 ], [ -1, %119 ], [ -1, %79 ], [ 1, %63 ], [ 0, %3 ], [ %., %17 ], [ -1, %27 ], [ -1, %33 ], [ -1, %41 ], [ -1, %56 ], [ -1, %59 ], [ %.mux115, %68 ], [ -1, %72 ], [ 1, %76 ], [ -1, %98 ], [ %.mux117, %111 ], [ -1, %115 ], [ -1, %121 ], [ -1, %85 ], [ -1, %90 ], [ %.mux, %.thread10.i ], [ 0, %handle_mime.exit.thread96.thread108 ], [ 1, %handle_mime.exit.thread96 ], [ %.072101.ph, %handle_mime.exit.thread96.thread ]
-  ret i32 %.073
+  %.0 = phi i32 [ -1, %16 ], [ -1, %119 ], [ -1, %79 ], [ 1, %63 ], [ 0, %3 ], [ %., %17 ], [ -1, %27 ], [ -1, %33 ], [ -1, %41 ], [ -1, %56 ], [ -1, %59 ], [ %.mux115, %68 ], [ -1, %72 ], [ 1, %76 ], [ -1, %98 ], [ %.mux117, %111 ], [ -1, %115 ], [ -1, %121 ], [ -1, %85 ], [ -1, %90 ], [ %.mux, %.thread10.i ], [ 0, %handle_mime.exit.thread96.thread108 ], [ 1, %handle_mime.exit.thread96 ], [ %.072101.ph, %handle_mime.exit.thread96.thread ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind

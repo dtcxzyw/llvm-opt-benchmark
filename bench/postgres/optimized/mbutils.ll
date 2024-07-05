@@ -212,7 +212,7 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
 18:                                               ; preds = %.lr.ph, %43
   %.sroa.0.040 = phi ptr [ %15, %.lr.ph ], [ %.sroa.0.1, %43 ]
   %.sroa.5.039 = phi i32 [ 0, %.lr.ph ], [ %44, %43 ]
-  %.02938 = phi i8 [ 0, %.lr.ph ], [ %.1, %43 ]
+  %.03038 = phi i8 [ 0, %.lr.ph ], [ %.1, %43 ]
   %19 = getelementptr inbounds i8, ptr %.sroa.0.040, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %.sroa.5.039, %20
@@ -235,7 +235,7 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
   br i1 %33, label %34, label %43
 
 34:                                               ; preds = %30
-  %35 = trunc nuw i8 %.02938 to i1
+  %35 = trunc nuw i8 %.03038 to i1
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %34
@@ -255,7 +255,7 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
   br label %43
 
 43:                                               ; preds = %22, %30, %39, %36
-  %.1 = phi i8 [ %.02938, %39 ], [ 1, %36 ], [ %.02938, %30 ], [ %.02938, %22 ]
+  %.1 = phi i8 [ %.03038, %39 ], [ 1, %36 ], [ %.03038, %30 ], [ %.03038, %22 ]
   %.sroa.5.1 = phi i32 [ %41, %39 ], [ %.sroa.5.039, %36 ], [ %.sroa.5.039, %30 ], [ %.sroa.5.039, %22 ]
   %.sroa.0.1 = phi ptr [ %42, %39 ], [ %.sroa.0.040, %36 ], [ %.sroa.0.040, %30 ], [ %.sroa.0.040, %22 ]
   %44 = add i32 %.sroa.5.1, 1
@@ -263,20 +263,20 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
   br i1 %.not, label %._crit_edge.loopexit, label %18, !llvm.loop !5
 
 ._crit_edge.loopexit:                             ; preds = %18, %43
-  %.029.lcssa.ph = phi i8 [ %.1, %43 ], [ %.02938, %18 ]
-  %45 = and i8 %.029.lcssa.ph, 1
+  %.030.lcssa.ph = phi i8 [ %.1, %43 ], [ %.03038, %18 ]
+  %45 = and i8 %.030.lcssa.ph, 1
   %46 = xor i8 %45, 1
   %47 = zext nneg i8 %46 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
-  %.029.lcssa = phi i32 [ 1, %14 ], [ %47, %._crit_edge.loopexit ]
-  %. = sub nsw i32 0, %.029.lcssa
+  %.030.lcssa = phi i32 [ 1, %14 ], [ %47, %._crit_edge.loopexit ]
+  %. = sub nsw i32 0, %.030.lcssa
   br label %48
 
 48:                                               ; preds = %._crit_edge, %1, %11, %3
-  %.030 = phi i32 [ 0, %11 ], [ 0, %3 ], [ -1, %1 ], [ %., %._crit_edge ]
-  ret i32 %.030
+  %.0 = phi i32 [ 0, %11 ], [ 0, %3 ], [ -1, %1 ], [ %., %._crit_edge ]
+  ret i32 %.0
 }
 
 declare ptr @list_delete_nth_cell(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -456,8 +456,8 @@ define dso_local ptr @pg_do_encoding_conversion(ptr noundef %0, i32 noundef %1, 
   br label %pg_verify_mbstr.exit
 
 pg_verify_mbstr.exit:                             ; preds = %10, %32, %52, %4
-  %.033 = phi ptr [ %0, %4 ], [ %54, %52 ], [ %37, %32 ], [ %0, %10 ]
-  ret ptr %.033
+  %.0 = phi ptr [ %0, %4 ], [ %54, %52 ], [ %37, %32 ], [ %0, %10 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -775,10 +775,10 @@ define dso_local i32 @pg_verify_mbstr_len(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %12, %.backedge
-  %.047 = phi i32 [ %.0.be, %.backedge ], [ 0, %12 ]
-  %.03446 = phi i32 [ %.034.be, %.backedge ], [ %2, %12 ]
-  %.03545 = phi ptr [ %.035.be, %.backedge ], [ %1, %12 ]
-  %17 = load i8, ptr %.03545, align 1
+  %.03347 = phi ptr [ %.033.be, %.backedge ], [ %1, %12 ]
+  %.03446 = phi i32 [ %.034.be, %.backedge ], [ 0, %12 ]
+  %.03545 = phi i32 [ %.035.be, %.backedge ], [ %2, %12 ]
+  %17 = load i8, ptr %.03347, align 1
   %.not = icmp sgt i8 %17, -1
   br i1 %.not, label %18, label %25
 
@@ -787,26 +787,26 @@ define dso_local i32 @pg_verify_mbstr_len(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %.not38, label %23, label %19
 
 19:                                               ; preds = %18
-  %20 = getelementptr i8, ptr %.03545, i64 1
-  %21 = add nsw i32 %.03446, -1
+  %20 = getelementptr i8, ptr %.03347, i64 1
+  %21 = add nsw i32 %.03545, -1
   br label %.backedge
 
 .backedge:                                        ; preds = %19, %30
-  %.035.be = phi ptr [ %32, %30 ], [ %20, %19 ]
-  %.034.be = phi i32 [ %33, %30 ], [ %21, %19 ]
-  %.0.be = add i32 %.047, 1
-  %22 = icmp sgt i32 %.034.be, 0
+  %.035.be = phi i32 [ %33, %30 ], [ %21, %19 ]
+  %.033.be = phi ptr [ %32, %30 ], [ %20, %19 ]
+  %.034.be = add i32 %.03446, 1
+  %22 = icmp sgt i32 %.035.be, 0
   br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 23:                                               ; preds = %18
   br i1 %3, label %.loopexit, label %24
 
 24:                                               ; preds = %23
-  tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef nonnull %.03545, i32 noundef %.03446) #15
+  tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef nonnull %.03347, i32 noundef %.03545) #15
   unreachable
 
 25:                                               ; preds = %.lr.ph
-  %26 = tail call i32 %15(ptr noundef nonnull %.03545, i32 noundef %.03446) #13
+  %26 = tail call i32 %15(ptr noundef nonnull %.03347, i32 noundef %.03545) #13
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %30
 
@@ -814,18 +814,18 @@ define dso_local i32 @pg_verify_mbstr_len(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %3, label %.loopexit, label %29
 
 29:                                               ; preds = %28
-  tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef nonnull %.03545, i32 noundef %.03446) #15
+  tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef nonnull %.03347, i32 noundef %.03545) #15
   unreachable
 
 30:                                               ; preds = %25
   %31 = zext nneg i32 %26 to i64
-  %32 = getelementptr i8, ptr %.03545, i64 %31
-  %33 = sub nsw i32 %.03446, %26
+  %32 = getelementptr i8, ptr %.03347, i64 %31
+  %33 = sub nsw i32 %.03545, %26
   br label %.backedge
 
 .loopexit:                                        ; preds = %.backedge, %12, %7, %28, %23
-  %.033 = phi i32 [ %.mux, %7 ], [ -1, %23 ], [ -1, %28 ], [ 0, %12 ], [ %.0.be, %.backedge ]
-  ret i32 %.033
+  %.0 = phi i32 [ %.mux, %7 ], [ -1, %23 ], [ -1, %28 ], [ 0, %12 ], [ %.034.be, %.backedge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -966,30 +966,30 @@ pg_verify_mbstr.exit:                             ; preds = %32, %23, %11, %3, %
 define internal fastcc ptr @perform_default_encoding_conversion(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %ToServerConvProc.val = load ptr, ptr @ToServerConvProc, align 8
   %ToClientConvProc.val = load ptr, ptr @ToClientConvProc, align 8
-  %.019 = select i1 %2, ptr %ToServerConvProc.val, ptr %ToClientConvProc.val
-  %4 = icmp eq ptr %.019, null
+  %.020 = select i1 %2, ptr %ToServerConvProc.val, ptr %ToClientConvProc.val
+  %4 = icmp eq ptr %.020, null
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %3
   %ClientEncoding.val27 = load ptr, ptr @ClientEncoding, align 8
   %DatabaseEncoding.val28 = load ptr, ptr @DatabaseEncoding, align 8
   %.pn = select i1 %2, ptr %ClientEncoding.val27, ptr %DatabaseEncoding.val28
-  %.021.in = getelementptr inbounds i8, ptr %.pn, i64 8
-  %.021 = load i32, ptr %.021.in, align 8
+  %.022.in = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.022 = load i32, ptr %.022.in, align 8
   %.pn26 = select i1 %2, ptr %DatabaseEncoding.val28, ptr %ClientEncoding.val27
-  %.020.in = getelementptr inbounds i8, ptr %.pn26, i64 8
-  %.020 = load i32, ptr %.020.in, align 8
+  %.021.in = getelementptr inbounds i8, ptr %.pn26, i64 8
+  %.021 = load i32, ptr %.021.in, align 8
   %6 = zext nneg i32 %1 to i64
   %7 = load ptr, ptr @CurrentMemoryContext, align 8
   %8 = shl nuw nsw i64 %6, 2
   %9 = or disjoint i64 %8, 1
   %10 = tail call ptr @MemoryContextAllocHuge(ptr noundef %7, i64 noundef %9) #13
-  %11 = sext i32 %.021 to i64
-  %12 = sext i32 %.020 to i64
+  %11 = sext i32 %.022 to i64
+  %12 = sext i32 %.021 to i64
   %13 = ptrtoint ptr %0 to i64
   %14 = ptrtoint ptr %10 to i64
   %15 = sext i32 %1 to i64
-  %16 = tail call i64 @FunctionCall6Coll(ptr noundef nonnull %.019, i32 noundef 0, i64 noundef %11, i64 noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15, i64 noundef 0) #13
+  %16 = tail call i64 @FunctionCall6Coll(ptr noundef nonnull %.020, i32 noundef 0, i64 noundef %11, i64 noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15, i64 noundef 0) #13
   %17 = icmp sgt i32 %1, 1000000
   br i1 %17, label %18, label %29
 
@@ -1488,16 +1488,16 @@ define dso_local i32 @pg_mbcliplen(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %20, label %.lr.ph.i, label %pg_encoding_mbcliplen.exit
 
 .lr.ph.i:                                         ; preds = %16, %28
-  %.030.i = phi i32 [ %24, %28 ], [ 0, %16 ]
-  %.02229.i = phi i32 [ %29, %28 ], [ %1, %16 ]
-  %.02328.i = phi ptr [ %31, %28 ], [ %0, %16 ]
-  %21 = load i8, ptr %.02328.i, align 1
+  %.02130.i = phi i32 [ %24, %28 ], [ 0, %16 ]
+  %.02229.i = phi ptr [ %31, %28 ], [ %0, %16 ]
+  %.02328.i = phi i32 [ %29, %28 ], [ %1, %16 ]
+  %21 = load i8, ptr %.02229.i, align 1
   %.not.i = icmp eq i8 %21, 0
   br i1 %.not.i, label %pg_encoding_mbcliplen.exit, label %22
 
 22:                                               ; preds = %.lr.ph.i
-  %23 = tail call i32 %19(ptr noundef nonnull %.02328.i) #13
-  %24 = add i32 %23, %.030.i
+  %23 = tail call i32 %19(ptr noundef nonnull %.02229.i) #13
+  %24 = add i32 %23, %.02130.i
   %25 = icmp sgt i32 %24, %2
   br i1 %25, label %pg_encoding_mbcliplen.exit, label %26
 
@@ -1506,15 +1506,15 @@ define dso_local i32 @pg_mbcliplen(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %27, label %pg_encoding_mbcliplen.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = sub i32 %.02229.i, %23
+  %29 = sub i32 %.02328.i, %23
   %30 = sext i32 %23 to i64
-  %31 = getelementptr i8, ptr %.02328.i, i64 %30
+  %31 = getelementptr i8, ptr %.02229.i, i64 %30
   %32 = icmp sgt i32 %29, 0
   br i1 %32, label %.lr.ph.i, label %pg_encoding_mbcliplen.exit, !llvm.loop !12
 
 pg_encoding_mbcliplen.exit:                       ; preds = %.lr.ph.i, %22, %26, %28, %14, %9, %.critedge.loopexit.split.loop.exit13.i.i, %16
-  %.021.i = phi i32 [ 0, %9 ], [ %15, %.critedge.loopexit.split.loop.exit13.i.i ], [ 0, %16 ], [ %10, %14 ], [ %.030.i, %.lr.ph.i ], [ %.030.i, %22 ], [ %2, %26 ], [ %24, %28 ]
-  ret i32 %.021.i
+  %.0.i = phi i32 [ 0, %9 ], [ %15, %.critedge.loopexit.split.loop.exit13.i.i ], [ 0, %16 ], [ %10, %14 ], [ %.02130.i, %.lr.ph.i ], [ %.02130.i, %22 ], [ %2, %26 ], [ %24, %28 ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1556,16 +1556,16 @@ define dso_local i32 @pg_encoding_mbcliplen(i32 noundef %0, ptr noundef %1, i32 
   br i1 %18, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %14, %26
-  %.030 = phi i32 [ %22, %26 ], [ 0, %14 ]
-  %.02229 = phi i32 [ %27, %26 ], [ %2, %14 ]
-  %.02328 = phi ptr [ %29, %26 ], [ %1, %14 ]
-  %19 = load i8, ptr %.02328, align 1
+  %.02130 = phi i32 [ %22, %26 ], [ 0, %14 ]
+  %.02229 = phi ptr [ %29, %26 ], [ %1, %14 ]
+  %.02328 = phi i32 [ %27, %26 ], [ %2, %14 ]
+  %19 = load i8, ptr %.02229, align 1
   %.not = icmp eq i8 %19, 0
   br i1 %.not, label %.critedge, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = tail call i32 %17(ptr noundef nonnull %.02328) #13
-  %22 = add i32 %21, %.030
+  %21 = tail call i32 %17(ptr noundef nonnull %.02229) #13
+  %22 = add i32 %21, %.02130
   %23 = icmp sgt i32 %22, %3
   br i1 %23, label %.critedge, label %24
 
@@ -1574,15 +1574,15 @@ define dso_local i32 @pg_encoding_mbcliplen(i32 noundef %0, ptr noundef %1, i32 
   br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %24
-  %27 = sub i32 %.02229, %21
+  %27 = sub i32 %.02328, %21
   %28 = sext i32 %21 to i64
-  %29 = getelementptr i8, ptr %.02328, i64 %28
+  %29 = getelementptr i8, ptr %.02229, i64 %28
   %30 = icmp sgt i32 %27, 0
   br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %26, %24, %20, %.lr.ph, %12, %14, %.critedge.loopexit.split.loop.exit13.i, %7
-  %.021 = phi i32 [ 0, %7 ], [ %13, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %14 ], [ %8, %12 ], [ %22, %26 ], [ %3, %24 ], [ %.030, %20 ], [ %.030, %.lr.ph ]
-  ret i32 %.021
+  %.0 = phi i32 [ 0, %7 ], [ %13, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %14 ], [ %8, %12 ], [ %22, %26 ], [ %3, %24 ], [ %.02130, %20 ], [ %.02130, %.lr.ph ]
+  ret i32 %.0
 }
 
 declare i32 @pg_encoding_max_length(i32 noundef) local_unnamed_addr #2
@@ -1628,11 +1628,11 @@ define dso_local i32 @pg_mbcharcliplen(ptr noundef %0, i32 noundef %1, i32 nound
   br label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %30
-  %.026 = phi i32 [ %28, %30 ], [ 0, %.preheader ]
-  %.01625 = phi i32 [ %31, %30 ], [ 0, %.preheader ]
-  %.01824 = phi i32 [ %32, %30 ], [ %1, %.preheader ]
-  %.01923 = phi ptr [ %34, %30 ], [ %0, %.preheader ]
-  %19 = load i8, ptr %.01923, align 1
+  %.01626 = phi i32 [ %28, %30 ], [ 0, %.preheader ]
+  %.01725 = phi i32 [ %31, %30 ], [ 0, %.preheader ]
+  %.01824 = phi ptr [ %34, %30 ], [ %0, %.preheader ]
+  %.01923 = phi i32 [ %32, %30 ], [ %1, %.preheader ]
+  %19 = load i8, ptr %.01824, align 1
   %.not = icmp eq i8 %19, 0
   br i1 %.not, label %.critedge, label %20
 
@@ -1643,22 +1643,22 @@ define dso_local i32 @pg_mbcharcliplen(ptr noundef %0, i32 noundef %1, i32 nound
   %24 = zext i32 %23 to i64
   %25 = getelementptr [0 x %struct.pg_wchar_tbl], ptr @pg_wchar_table, i64 0, i64 %24, i32 2
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef nonnull %.01923) #13
-  %28 = add i32 %.026, 1
+  %27 = tail call i32 %26(ptr noundef nonnull %.01824) #13
+  %28 = add i32 %.01626, 1
   %29 = icmp sgt i32 %28, %2
   br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %20
-  %31 = add i32 %27, %.01625
-  %32 = sub i32 %.01824, %27
+  %31 = add i32 %27, %.01725
+  %32 = sub i32 %.01923, %27
   %33 = sext i32 %27 to i64
-  %34 = getelementptr i8, ptr %.01923, i64 %33
+  %34 = getelementptr i8, ptr %.01824, i64 %33
   %35 = icmp sgt i32 %32, 0
   br i1 %35, label %.lr.ph, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %30, %20, %.lr.ph, %17, %.preheader, %.critedge.loopexit.split.loop.exit13.i, %12
-  %.017 = phi i32 [ 0, %12 ], [ %18, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %.preheader ], [ %13, %17 ], [ %31, %30 ], [ %.01625, %20 ], [ %.01625, %.lr.ph ]
-  ret i32 %.017
+  %.0 = phi i32 [ 0, %12 ], [ %18, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %.preheader ], [ %13, %17 ], [ %31, %30 ], [ %.01725, %20 ], [ %.01725, %.lr.ph ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

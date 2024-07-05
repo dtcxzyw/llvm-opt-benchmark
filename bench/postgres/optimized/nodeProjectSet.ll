@@ -278,7 +278,7 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef %0, i1 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %48
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %48 ], [ 0, %.lr.ph ]
-  %.03941.us = phi i1 [ %.2.us, %48 ], [ false, %.lr.ph ]
+  %.03942.us = phi i1 [ %.2.us, %48 ], [ false, %.lr.ph ]
   %23 = load ptr, ptr %18, align 8
   %24 = getelementptr ptr, ptr %23, i64 %indvars.iv44
   %25 = load ptr, ptr %24, align 8
@@ -311,7 +311,7 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef %0, i1 
   store i64 %43, ptr %29, align 8
   %44 = load i32, ptr %27, align 4
   %.not.us = icmp ne i32 %44, 2
-  %spec.select.us = select i1 %.not.us, i1 true, i1 %.03941.us
+  %spec.select.us = select i1 %.not.us, i1 true, i1 %.03942.us
   %45 = icmp eq i32 %44, 1
   br i1 %45, label %46, label %48
 
@@ -325,7 +325,7 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef %0, i1 
   br label %48
 
 48:                                               ; preds = %47, %46, %41, %37
-  %.2.us = phi i1 [ %.03941.us, %47 ], [ %.03941.us, %37 ], [ %spec.select.us, %46 ], [ %spec.select.us, %41 ]
+  %.2.us = phi i1 [ %.03942.us, %47 ], [ %.03942.us, %37 ], [ %spec.select.us, %46 ], [ %spec.select.us, %41 ]
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %49 = load i32, ptr %15, align 8
   %50 = sext i32 %49 to i64
@@ -334,7 +334,7 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef %0, i1 
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
-  %.03941 = phi i1 [ %.2, %73 ], [ false, %.lr.ph ]
+  %.03942 = phi i1 [ %.2, %73 ], [ false, %.lr.ph ]
   %52 = load ptr, ptr %18, align 8
   %53 = getelementptr ptr, ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
@@ -354,7 +354,7 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef %0, i1 
   store i64 %65, ptr %58, align 8
   %66 = load i32, ptr %56, align 4
   %.not = icmp ne i32 %66, 2
-  %spec.select = select i1 %.not, i1 true, i1 %.03941
+  %spec.select = select i1 %.not, i1 true, i1 %.03942
   %67 = icmp eq i32 %66, 1
   br i1 %67, label %68, label %73
 
@@ -371,7 +371,7 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef %0, i1 
   br label %73
 
 73:                                               ; preds = %63, %68, %69
-  %.2 = phi i1 [ %.03941, %69 ], [ %spec.select, %68 ], [ %spec.select, %63 ]
+  %.2 = phi i1 [ %.03942, %69 ], [ %spec.select, %68 ], [ %spec.select, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = load i32, ptr %15, align 8
   %75 = sext i32 %74 to i64
@@ -392,8 +392,8 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef %0, i1 
   br label %79
 
 79:                                               ; preds = %.critedge, %._crit_edge, %77
-  %.040 = phi ptr [ %4, %77 ], [ null, %._crit_edge ], [ null, %.critedge ]
-  ret ptr %.040
+  %.0 = phi ptr [ %4, %77 ], [ null, %._crit_edge ], [ null, %.critedge ]
+  ret ptr %.0
 }
 
 declare i64 @ExecMakeFunctionResultSet(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

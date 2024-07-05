@@ -141,10 +141,10 @@ while.body.preheader.i:                           ; preds = %if.then24
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.preheader.i
-  %top.051.i = phi i32 [ %top.1.i, %if.end.i ], [ %share__optind.promoted269, %while.body.preheader.i ]
-  %bottom.050.i = phi i32 [ %bottom.1.i, %if.end.i ], [ %7, %while.body.preheader.i ]
-  %sub.i = sub nsw i32 %top.051.i, %5
-  %sub2.i = sub nsw i32 %5, %bottom.050.i
+  %bottom.051.i = phi i32 [ %bottom.1.i, %if.end.i ], [ %7, %while.body.preheader.i ]
+  %top.050.i = phi i32 [ %top.1.i, %if.end.i ], [ %share__optind.promoted269, %while.body.preheader.i ]
+  %sub.i = sub nsw i32 %top.050.i, %5
+  %sub2.i = sub nsw i32 %5, %bottom.051.i
   %cmp3.i = icmp sgt i32 %sub.i, %sub2.i
   br i1 %cmp3.i, label %for.cond.preheader.i, label %for.cond23.preheader.i
 
@@ -153,18 +153,18 @@ for.cond23.preheader.i:                           ; preds = %while.body.i
   br i1 %cmp2444.i, label %for.body25.preheader.i, label %for.end40.i
 
 for.body25.preheader.i:                           ; preds = %for.cond23.preheader.i
-  %11 = sext i32 %bottom.050.i to i64
+  %11 = sext i32 %bottom.051.i to i64
   %wide.trip.count.i = zext nneg i32 %sub.i to i64
   %invariant.gep.i = getelementptr ptr, ptr %argv, i64 %11
   br label %for.body25.i
 
 for.cond.preheader.i:                             ; preds = %while.body.i
   %cmp546.i = icmp sgt i32 %sub2.i, 0
-  %sub7.i = sub i32 %top.051.i, %sub2.i
+  %sub7.i = sub i32 %top.050.i, %sub2.i
   br i1 %cmp546.i, label %for.body.lr.ph.i, label %if.end.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %12 = sext i32 %bottom.050.i to i64
+  %12 = sext i32 %bottom.051.i to i64
   %13 = sext i32 %sub7.i to i64
   %wide.trip.count60.i = zext nneg i32 %sub2.i to i64
   %invariant.gep64.i = getelementptr ptr, ptr %argv, i64 %12
@@ -196,12 +196,12 @@ for.body25.i:                                     ; preds = %for.body25.i, %for.
   br i1 %exitcond.not.i, label %for.end40.i, label %for.body25.i, !llvm.loop !7
 
 for.end40.i:                                      ; preds = %for.body25.i, %for.cond23.preheader.i
-  %add41.i = add nsw i32 %sub.i, %bottom.050.i
+  %add41.i = add nsw i32 %sub.i, %bottom.051.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i, %for.end40.i, %for.cond.preheader.i
-  %bottom.1.i = phi i32 [ %add41.i, %for.end40.i ], [ %bottom.050.i, %for.cond.preheader.i ], [ %bottom.050.i, %for.body.i ]
-  %top.1.i = phi i32 [ %top.051.i, %for.end40.i ], [ %sub7.i, %for.cond.preheader.i ], [ %sub7.i, %for.body.i ]
+  %top.1.i = phi i32 [ %top.050.i, %for.end40.i ], [ %sub7.i, %for.cond.preheader.i ], [ %sub7.i, %for.body.i ]
+  %bottom.1.i = phi i32 [ %add41.i, %for.end40.i ], [ %bottom.051.i, %for.cond.preheader.i ], [ %bottom.051.i, %for.body.i ]
   %cmp.i = icmp sgt i32 %top.1.i, %5
   %cmp1.i = icmp sgt i32 %5, %bottom.1.i
   %18 = select i1 %cmp.i, i1 %cmp1.i, i1 false
@@ -316,10 +316,10 @@ while.body.preheader.i150:                        ; preds = %if.then57
   br label %while.body.i152
 
 while.body.i152:                                  ; preds = %if.end.i162, %while.body.preheader.i150
-  %top.051.i153 = phi i32 [ %top.1.i164, %if.end.i162 ], [ %inc51, %while.body.preheader.i150 ]
-  %bottom.050.i154 = phi i32 [ %bottom.1.i163, %if.end.i162 ], [ %29, %while.body.preheader.i150 ]
-  %sub.i155 = sub nsw i32 %top.051.i153, %28
-  %sub2.i156 = sub nsw i32 %28, %bottom.050.i154
+  %bottom.051.i153 = phi i32 [ %bottom.1.i164, %if.end.i162 ], [ %29, %while.body.preheader.i150 ]
+  %top.050.i154 = phi i32 [ %top.1.i163, %if.end.i162 ], [ %inc51, %while.body.preheader.i150 ]
+  %sub.i155 = sub nsw i32 %top.050.i154, %28
+  %sub2.i156 = sub nsw i32 %28, %bottom.051.i153
   %cmp3.i157 = icmp sgt i32 %sub.i155, %sub2.i156
   br i1 %cmp3.i157, label %for.cond.preheader.i176, label %for.cond23.preheader.i158
 
@@ -328,18 +328,18 @@ for.cond23.preheader.i158:                        ; preds = %while.body.i152
   br i1 %cmp2444.i159, label %for.body25.preheader.i167, label %for.end40.i160
 
 for.body25.preheader.i167:                        ; preds = %for.cond23.preheader.i158
-  %45 = sext i32 %bottom.050.i154 to i64
+  %45 = sext i32 %bottom.051.i153 to i64
   %wide.trip.count.i168 = zext nneg i32 %sub.i155 to i64
   %invariant.gep.i169 = getelementptr ptr, ptr %argv, i64 %45
   br label %for.body25.i170
 
 for.cond.preheader.i176:                          ; preds = %while.body.i152
   %cmp546.i177 = icmp sgt i32 %sub2.i156, 0
-  %sub7.i178 = sub i32 %top.051.i153, %sub2.i156
+  %sub7.i178 = sub i32 %top.050.i154, %sub2.i156
   br i1 %cmp546.i177, label %for.body.lr.ph.i179, label %if.end.i162
 
 for.body.lr.ph.i179:                              ; preds = %for.cond.preheader.i176
-  %46 = sext i32 %bottom.050.i154 to i64
+  %46 = sext i32 %bottom.051.i153 to i64
   %47 = sext i32 %sub7.i178 to i64
   %wide.trip.count60.i180 = zext nneg i32 %sub2.i156 to i64
   %invariant.gep64.i181 = getelementptr ptr, ptr %argv, i64 %46
@@ -371,14 +371,14 @@ for.body25.i170:                                  ; preds = %for.body25.i170, %f
   br i1 %exitcond.not.i175, label %for.end40.i160, label %for.body25.i170, !llvm.loop !7
 
 for.end40.i160:                                   ; preds = %for.body25.i170, %for.cond23.preheader.i158
-  %add41.i161 = add nsw i32 %sub.i155, %bottom.050.i154
+  %add41.i161 = add nsw i32 %sub.i155, %bottom.051.i153
   br label %if.end.i162
 
 if.end.i162:                                      ; preds = %for.body.i183, %for.end40.i160, %for.cond.preheader.i176
-  %bottom.1.i163 = phi i32 [ %add41.i161, %for.end40.i160 ], [ %bottom.050.i154, %for.cond.preheader.i176 ], [ %bottom.050.i154, %for.body.i183 ]
-  %top.1.i164 = phi i32 [ %top.051.i153, %for.end40.i160 ], [ %sub7.i178, %for.cond.preheader.i176 ], [ %sub7.i178, %for.body.i183 ]
-  %cmp.i165 = icmp sgt i32 %top.1.i164, %28
-  %cmp1.i166 = icmp sgt i32 %28, %bottom.1.i163
+  %top.1.i163 = phi i32 [ %top.050.i154, %for.end40.i160 ], [ %sub7.i178, %for.cond.preheader.i176 ], [ %sub7.i178, %for.body.i183 ]
+  %bottom.1.i164 = phi i32 [ %add41.i161, %for.end40.i160 ], [ %bottom.051.i153, %for.cond.preheader.i176 ], [ %bottom.051.i153, %for.body.i183 ]
+  %cmp.i165 = icmp sgt i32 %top.1.i163, %28
+  %cmp1.i166 = icmp sgt i32 %28, %bottom.1.i164
   %52 = select i1 %cmp.i165, i1 %cmp1.i166, i1 false
   br i1 %52, label %while.body.i152, label %exchange.exit189, !llvm.loop !8
 

@@ -531,18 +531,18 @@ define hidden i32 @mbedtls_mpi_safe_cond_swap(ptr noundef %0, ptr noundef %1, i8
   br i1 %.not44, label %.loopexit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.03745 = phi i64 [ %42, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.03845 = phi i64 [ %42, %.lr.ph.split ], [ 0, %.lr.ph ]
   %34 = load ptr, ptr %32, align 8
-  %35 = getelementptr inbounds i64, ptr %34, i64 %.03745
+  %35 = getelementptr inbounds i64, ptr %34, i64 %.03845
   %36 = load i64, ptr %35, align 8
   %37 = load ptr, ptr %33, align 8
-  %38 = getelementptr inbounds i64, ptr %37, i64 %.03745
+  %38 = getelementptr inbounds i64, ptr %37, i64 %.03845
   %39 = load i64, ptr %38, align 8
   store i64 %39, ptr %35, align 8
   %40 = load ptr, ptr %33, align 8
-  %41 = getelementptr inbounds i64, ptr %40, i64 %.03745
+  %41 = getelementptr inbounds i64, ptr %40, i64 %.03845
   store i64 %36, ptr %41, align 8
-  %42 = add nuw i64 %.03745, 1
+  %42 = add nuw i64 %.03845, 1
   %43 = load i64, ptr %10, align 8
   %44 = icmp ult i64 %42, %43
   br i1 %44, label %.lr.ph.split, label %.loopexit, !llvm.loop !11
@@ -582,10 +582,10 @@ define hidden range(i32 -4, 1) i32 @mbedtls_mpi_lt_mpi_ct(ptr nocapture noundef 
 
 20:                                               ; preds = %.lr.ph, %20
   %21 = phi i32 [ %15, %.lr.ph ], [ %59, %20 ]
-  %.03338 = phi i32 [ %14, %.lr.ph ], [ %60, %20 ]
-  %.03437 = phi i64 [ %16, %.lr.ph ], [ %23, %20 ]
+  %.03338 = phi i64 [ %16, %.lr.ph ], [ %23, %20 ]
+  %.03437 = phi i32 [ %14, %.lr.ph ], [ %60, %20 ]
   %22 = load ptr, ptr %17, align 8
-  %23 = add i64 %.03437, -1
+  %23 = add i64 %.03338, -1
   %24 = getelementptr inbounds i64, ptr %22, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = load ptr, ptr %18, align 8
@@ -599,12 +599,12 @@ define hidden range(i32 -4, 1) i32 @mbedtls_mpi_lt_mpi_ct(ptr nocapture noundef 
   %34 = or disjoint i64 %32, %33
   %35 = lshr i64 %34, 63
   %36 = trunc nuw nsw i64 %35 to i32
-  %37 = sub i32 1, %.03338
+  %37 = sub i32 1, %.03437
   %38 = and i32 %37, %10
   %39 = and i32 %38, %36
   %40 = or i32 %39, %21
   store i32 %40, ptr %2, align 4
-  %41 = or i32 %.03338, %36
+  %41 = or i32 %.03437, %36
   %42 = load ptr, ptr %18, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %23
   %44 = load i64, ptr %43, align 8

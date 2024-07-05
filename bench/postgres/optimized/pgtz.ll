@@ -80,27 +80,27 @@ pg_TZDIR.exit:                                    ; preds = %2, %4
   br label %28
 
 28:                                               ; preds = %60, %27
-  %.029 = phi ptr [ %0, %27 ], [ %67, %60 ]
-  %.028 = phi i32 [ %11, %27 ], [ %66, %60 ]
-  %29 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.029, i32 noundef 47) #11
+  %.029 = phi i32 [ %11, %27 ], [ %66, %60 ]
+  %.028 = phi ptr [ %0, %27 ], [ %67, %60 ]
+  %29 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.028, i32 noundef 47) #11
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %34, label %30
 
 30:                                               ; preds = %28
   %31 = ptrtoint ptr %29 to i64
-  %32 = ptrtoint ptr %.029 to i64
+  %32 = ptrtoint ptr %.028 to i64
   %33 = sub i64 %31, %32
   br label %36
 
 34:                                               ; preds = %28
-  %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.029) #11
+  %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.028) #11
   br label %36
 
 36:                                               ; preds = %34, %30
   %.0.in = phi i64 [ %33, %30 ], [ %35, %34 ]
-  %37 = sext i32 %.028 to i64
+  %37 = sext i32 %.029 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %37
-  %38 = sub i32 1023, %.028
+  %38 = sub i32 1023, %.029
   %39 = call ptr @AllocateDir(ptr noundef nonnull %3) #10
   %40 = call ptr @ReadDirExtended(ptr noundef %39, ptr noundef nonnull %3, i32 noundef 15) #10
   %.not17.not.i = icmp eq ptr %40, null
@@ -124,7 +124,7 @@ pg_TZDIR.exit:                                    ; preds = %2, %4
   br i1 %49, label %50, label %.backedge.i
 
 50:                                               ; preds = %47
-  %51 = call i32 @pg_strncasecmp(ptr noundef nonnull %44, ptr noundef %.029, i64 noundef %41) #10
+  %51 = call i32 @pg_strncasecmp(ptr noundef nonnull %44, ptr noundef %.028, i64 noundef %41) #10
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %55, label %.backedge.i
 
@@ -146,7 +146,7 @@ scan_directory_ci.exit.thread:                    ; preds = %36, %.backedge.i
   br i1 %.not, label %68, label %60
 
 60:                                               ; preds = %55
-  %61 = add i32 %.028, 1
+  %61 = add i32 %.029, 1
   %62 = sext i32 %61 to i64
   %63 = getelementptr i8, ptr %3, i64 %62
   %64 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #11

@@ -1394,8 +1394,8 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %invoke.cont54
   %start.0103 = phi i32 [ %1, %while.body.lr.ph ], [ %add53, %invoke.cont54 ]
-  %redoPrefix.0102 = phi i8 [ 0, %while.body.lr.ph ], [ %redoPrefix.2, %invoke.cont54 ]
-  %limit.0101 = phi i32 [ %2, %while.body.lr.ph ], [ %add56, %invoke.cont54 ]
+  %limit.0102 = phi i32 [ %2, %while.body.lr.ph ], [ %add56, %invoke.cont54 ]
+  %redoPrefix.0101 = phi i8 [ 0, %while.body.lr.ph ], [ %redoPrefix.2, %invoke.cont54 ]
   %7 = load i8, ptr %grokSupplementals, align 8
   %tobool.not = icmp eq i8 %7, 0
   %vtable.i22 = load ptr, ptr %text, align 8
@@ -1504,7 +1504,7 @@ lpad:                                             ; preds = %invoke.cont44, %if.
 if.else:                                          ; preds = %cond.end.thread, %land.lhs.true, %cond.end
   %cond1697 = phi i32 [ 1, %cond.end.thread ], [ %cond16, %land.lhs.true ], [ 1, %cond.end ]
   %cond95 = phi i32 [ %conv, %cond.end.thread ], [ %call.i21, %land.lhs.true ], [ %call.i21, %cond.end ]
-  %tobool32.not = icmp eq i8 %redoPrefix.0102, 0
+  %tobool32.not = icmp eq i8 %redoPrefix.0101, 0
   %29 = load i16, ptr %fUnion.i.i25, align 8
   %conv2.i5.i60 = and i16 %29, 1
   br i1 %tobool32.not, label %if.else39, label %if.then33
@@ -1608,7 +1608,7 @@ invoke.cont54:                                    ; preds = %if.end49
   %47 = load i32, ptr %fLength.i.i, align 4
   %cond.i85 = select i1 %cmp.i.i82, i32 %47, i32 %shr.i.i83
   %add53 = add nsw i32 %cond.i85, %start.0103
-  %sub = sub i32 %limit.0101, %cond1696
+  %sub = sub i32 %limit.0102, %cond1696
   %add56 = add i32 %sub, %cond.i85
   %cmp = icmp slt i32 %add53, %add56
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !5

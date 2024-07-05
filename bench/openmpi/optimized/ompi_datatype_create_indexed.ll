@@ -80,8 +80,8 @@ define i32 @ompi_datatype_create_indexed(i32 noundef %0, ptr nocapture noundef r
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %57
   %indvars.iv76 = phi i64 [ %36, %.lr.ph72.preheader ], [ %indvars.iv.next77, %57 ]
-  %.04870 = phi i64 [ %35, %.lr.ph72.preheader ], [ %.149, %57 ]
-  %.05069 = phi i64 [ %20, %.lr.ph72.preheader ], [ %.151, %57 ]
+  %.04970 = phi i64 [ %35, %.lr.ph72.preheader ], [ %.150, %57 ]
+  %.05169 = phi i64 [ %20, %.lr.ph72.preheader ], [ %.152, %57 ]
   %.06268 = phi i64 [ %23, %.lr.ph72.preheader ], [ %.163, %57 ]
   %37 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv76
   %38 = load i32, ptr %37, align 4
@@ -92,17 +92,17 @@ define i32 @ompi_datatype_create_indexed(i32 noundef %0, ptr nocapture noundef r
   %41 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv76
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
-  %44 = icmp eq i64 %.04870, %43
+  %44 = icmp eq i64 %.04970, %43
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %40
   %46 = sext i32 %38 to i64
   %47 = add i64 %.06268, %46
-  %48 = add nsw i64 %.04870, %46
+  %48 = add nsw i64 %.04970, %46
   br label %57
 
 49:                                               ; preds = %40
-  %50 = mul nsw i64 %.05069, %26
+  %50 = mul nsw i64 %.05169, %26
   %51 = tail call i32 @opal_datatype_add(ptr noundef %33, ptr noundef %3, i64 noundef %.06268, i64 noundef %50, i64 noundef %26) #2
   %52 = load i32, ptr %41, align 4
   %53 = sext i32 %52 to i64
@@ -113,8 +113,8 @@ define i32 @ompi_datatype_create_indexed(i32 noundef %0, ptr nocapture noundef r
 
 57:                                               ; preds = %45, %49, %.lr.ph72
   %.163 = phi i64 [ %.06268, %.lr.ph72 ], [ %47, %45 ], [ %55, %49 ]
-  %.151 = phi i64 [ %.05069, %.lr.ph72 ], [ %.05069, %45 ], [ %53, %49 ]
-  %.149 = phi i64 [ %.04870, %.lr.ph72 ], [ %48, %45 ], [ %56, %49 ]
+  %.152 = phi i64 [ %.05169, %.lr.ph72 ], [ %.05169, %45 ], [ %53, %49 ]
+  %.150 = phi i64 [ %.04970, %.lr.ph72 ], [ %48, %45 ], [ %56, %49 ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %58 = trunc nuw i64 %indvars.iv.next77 to i32
   %59 = icmp slt i32 %58, %0
@@ -122,15 +122,15 @@ define i32 @ompi_datatype_create_indexed(i32 noundef %0, ptr nocapture noundef r
 
 ._crit_edge:                                      ; preds = %57, %16
   %.062.lcssa = phi i64 [ %23, %16 ], [ %.163, %57 ]
-  %.050.lcssa = phi i64 [ %20, %16 ], [ %.151, %57 ]
-  %60 = mul nsw i64 %.050.lcssa, %26
+  %.051.lcssa = phi i64 [ %20, %16 ], [ %.152, %57 ]
+  %60 = mul nsw i64 %.051.lcssa, %26
   %61 = tail call i32 @opal_datatype_add(ptr noundef %33, ptr noundef %3, i64 noundef %.062.lcssa, i64 noundef %60, i64 noundef %26) #2
   store ptr %33, ptr %4, align 8
   br label %62
 
 62:                                               ; preds = %._crit_edge, %.critedge.thread
-  %.052 = phi i32 [ %15, %.critedge.thread ], [ 0, %._crit_edge ]
-  ret i32 %.052
+  %.048 = phi i32 [ %15, %.critedge.thread ], [ 0, %._crit_edge ]
+  ret i32 %.048
 }
 
 declare i32 @ompi_datatype_duplicate(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -206,8 +206,8 @@ define i32 @ompi_datatype_create_hindexed(i32 noundef %0, ptr nocapture noundef 
 
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %56
   %indvars.iv79 = phi i64 [ %36, %.lr.ph75.preheader ], [ %indvars.iv.next80, %56 ]
-  %.04873 = phi i64 [ %35, %.lr.ph75.preheader ], [ %.149, %56 ]
-  %.05072 = phi i64 [ %22, %.lr.ph75.preheader ], [ %.151, %56 ]
+  %.04973 = phi i64 [ %35, %.lr.ph75.preheader ], [ %.150, %56 ]
+  %.05172 = phi i64 [ %22, %.lr.ph75.preheader ], [ %.152, %56 ]
   %.06571 = phi i64 [ %25, %.lr.ph75.preheader ], [ %.166, %56 ]
   %37 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv79
   %38 = load i32, ptr %37, align 4
@@ -217,18 +217,18 @@ define i32 @ompi_datatype_create_hindexed(i32 noundef %0, ptr nocapture noundef 
 40:                                               ; preds = %.lr.ph75
   %41 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv79
   %42 = load i64, ptr %41, align 8
-  %43 = icmp eq i64 %.04873, %42
+  %43 = icmp eq i64 %.04973, %42
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %40
   %45 = sext i32 %38 to i64
   %46 = add i64 %.06571, %45
   %47 = mul nsw i64 %19, %45
-  %48 = add nsw i64 %47, %.04873
+  %48 = add nsw i64 %47, %.04973
   br label %56
 
 49:                                               ; preds = %40
-  %50 = tail call i32 @opal_datatype_add(ptr noundef %32, ptr noundef %3, i64 noundef %.06571, i64 noundef %.05072, i64 noundef %19) #2
+  %50 = tail call i32 @opal_datatype_add(ptr noundef %32, ptr noundef %3, i64 noundef %.06571, i64 noundef %.05172, i64 noundef %19) #2
   %51 = load i64, ptr %41, align 8
   %52 = load i32, ptr %37, align 4
   %53 = sext i32 %52 to i64
@@ -238,8 +238,8 @@ define i32 @ompi_datatype_create_hindexed(i32 noundef %0, ptr nocapture noundef 
 
 56:                                               ; preds = %44, %49, %.lr.ph75
   %.166 = phi i64 [ %.06571, %.lr.ph75 ], [ %46, %44 ], [ %53, %49 ]
-  %.151 = phi i64 [ %.05072, %.lr.ph75 ], [ %.05072, %44 ], [ %51, %49 ]
-  %.149 = phi i64 [ %.04873, %.lr.ph75 ], [ %48, %44 ], [ %55, %49 ]
+  %.152 = phi i64 [ %.05172, %.lr.ph75 ], [ %.05172, %44 ], [ %51, %49 ]
+  %.150 = phi i64 [ %.04973, %.lr.ph75 ], [ %48, %44 ], [ %55, %49 ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %57 = trunc nuw i64 %indvars.iv.next80 to i32
   %58 = icmp slt i32 %57, %0
@@ -247,14 +247,14 @@ define i32 @ompi_datatype_create_hindexed(i32 noundef %0, ptr nocapture noundef 
 
 ._crit_edge:                                      ; preds = %56, %16
   %.065.lcssa = phi i64 [ %25, %16 ], [ %.166, %56 ]
-  %.050.lcssa = phi i64 [ %22, %16 ], [ %.151, %56 ]
-  %59 = tail call i32 @opal_datatype_add(ptr noundef %32, ptr noundef %3, i64 noundef %.065.lcssa, i64 noundef %.050.lcssa, i64 noundef %19) #2
+  %.051.lcssa = phi i64 [ %22, %16 ], [ %.152, %56 ]
+  %59 = tail call i32 @opal_datatype_add(ptr noundef %32, ptr noundef %3, i64 noundef %.065.lcssa, i64 noundef %.051.lcssa, i64 noundef %19) #2
   store ptr %32, ptr %4, align 8
   br label %60
 
 60:                                               ; preds = %._crit_edge, %.critedge.thread
-  %.052 = phi i32 [ %15, %.critedge.thread ], [ 0, %._crit_edge ]
-  ret i32 %.052
+  %.048 = phi i32 [ %15, %.critedge.thread ], [ 0, %._crit_edge ]
+  ret i32 %.048
 }
 
 ; Function Attrs: nounwind uwtable
@@ -292,14 +292,14 @@ define i32 @ompi_datatype_create_indexed_block(i32 noundef %0, i32 noundef %1, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
-  %.037.pn.pn = phi i64 [ %21, %.lr.ph.preheader ], [ %.037.pn, %35 ]
+  %.038.pn.pn = phi i64 [ %21, %.lr.ph.preheader ], [ %.038.pn, %35 ]
   %.03648 = phi i64 [ %22, %.lr.ph.preheader ], [ %.1, %35 ]
-  %.03947 = phi i64 [ %21, %.lr.ph.preheader ], [ %.140, %35 ]
-  %.03750 = add nsw i64 %.037.pn.pn, %22
+  %.04047 = phi i64 [ %21, %.lr.ph.preheader ], [ %.141, %35 ]
+  %.03850 = add nsw i64 %.038.pn.pn, %22
   %24 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %27 = icmp eq i64 %.03750, %26
+  %27 = icmp eq i64 %.03850, %26
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %.lr.ph
@@ -307,31 +307,31 @@ define i32 @ompi_datatype_create_indexed_block(i32 noundef %0, i32 noundef %1, p
   br label %35
 
 30:                                               ; preds = %.lr.ph
-  %31 = mul nsw i64 %.03947, %13
+  %31 = mul nsw i64 %.04047, %13
   %32 = tail call i32 @opal_datatype_add(ptr noundef %19, ptr noundef %3, i64 noundef %.03648, i64 noundef %31, i64 noundef %13) #2
   %33 = load i32, ptr %24, align 4
   %34 = sext i32 %33 to i64
   br label %35
 
 35:                                               ; preds = %28, %30
-  %.140 = phi i64 [ %.03947, %28 ], [ %34, %30 ]
-  %.037.pn = phi i64 [ %.03750, %28 ], [ %34, %30 ]
+  %.141 = phi i64 [ %.04047, %28 ], [ %34, %30 ]
+  %.038.pn = phi i64 [ %.03850, %28 ], [ %34, %30 ]
   %.1 = phi i64 [ %29, %28 ], [ %22, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %35, %10
-  %.039.lcssa = phi i64 [ %21, %10 ], [ %.140, %35 ]
+  %.040.lcssa = phi i64 [ %21, %10 ], [ %.141, %35 ]
   %.036.lcssa = phi i64 [ %22, %10 ], [ %.1, %35 ]
-  %36 = mul nsw i64 %.039.lcssa, %13
+  %36 = mul nsw i64 %.040.lcssa, %13
   %37 = tail call i32 @opal_datatype_add(ptr noundef %19, ptr noundef %3, i64 noundef %.036.lcssa, i64 noundef %36, i64 noundef %13) #2
   store ptr %19, ptr %4, align 8
   br label %38
 
 38:                                               ; preds = %._crit_edge, %8
-  %.041 = phi i32 [ %9, %8 ], [ 0, %._crit_edge ]
-  ret i32 %.041
+  %.037 = phi i32 [ %9, %8 ], [ 0, %._crit_edge ]
+  ret i32 %.037
 }
 
 ; Function Attrs: nounwind uwtable
@@ -369,13 +369,13 @@ define i32 @ompi_datatype_create_hindexed_block(i32 noundef %0, i32 noundef %1, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
-  %.037.pn.pn = phi i64 [ %20, %.lr.ph.preheader ], [ %.037.pn, %32 ]
+  %.038.pn.pn = phi i64 [ %20, %.lr.ph.preheader ], [ %.038.pn, %32 ]
   %.03651 = phi i64 [ %21, %.lr.ph.preheader ], [ %.1, %32 ]
-  %.03950 = phi i64 [ %20, %.lr.ph.preheader ], [ %.140, %32 ]
-  %.03753 = add i64 %.037.pn.pn, %22
+  %.04050 = phi i64 [ %20, %.lr.ph.preheader ], [ %.141, %32 ]
+  %.03853 = add i64 %.038.pn.pn, %22
   %24 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8
-  %26 = icmp eq i64 %.03753, %25
+  %26 = icmp eq i64 %.03853, %25
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %.lr.ph
@@ -383,28 +383,28 @@ define i32 @ompi_datatype_create_hindexed_block(i32 noundef %0, i32 noundef %1, 
   br label %32
 
 29:                                               ; preds = %.lr.ph
-  %30 = tail call i32 @opal_datatype_add(ptr noundef %19, ptr noundef %3, i64 noundef %.03651, i64 noundef %.03950, i64 noundef %13) #2
+  %30 = tail call i32 @opal_datatype_add(ptr noundef %19, ptr noundef %3, i64 noundef %.03651, i64 noundef %.04050, i64 noundef %13) #2
   %31 = load i64, ptr %24, align 8
   br label %32
 
 32:                                               ; preds = %27, %29
-  %.140 = phi i64 [ %.03950, %27 ], [ %31, %29 ]
-  %.037.pn = phi i64 [ %.03753, %27 ], [ %31, %29 ]
+  %.141 = phi i64 [ %.04050, %27 ], [ %31, %29 ]
+  %.038.pn = phi i64 [ %.03853, %27 ], [ %31, %29 ]
   %.1 = phi i64 [ %28, %27 ], [ %21, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %32, %10
-  %.039.lcssa = phi i64 [ %20, %10 ], [ %.140, %32 ]
+  %.040.lcssa = phi i64 [ %20, %10 ], [ %.141, %32 ]
   %.036.lcssa = phi i64 [ %21, %10 ], [ %.1, %32 ]
-  %33 = tail call i32 @opal_datatype_add(ptr noundef %19, ptr noundef %3, i64 noundef %.036.lcssa, i64 noundef %.039.lcssa, i64 noundef %13) #2
+  %33 = tail call i32 @opal_datatype_add(ptr noundef %19, ptr noundef %3, i64 noundef %.036.lcssa, i64 noundef %.040.lcssa, i64 noundef %13) #2
   store ptr %19, ptr %4, align 8
   br label %34
 
 34:                                               ; preds = %._crit_edge, %8
-  %.041 = phi i32 [ %9, %8 ], [ 0, %._crit_edge ]
-  ret i32 %.041
+  %.037 = phi i32 [ %9, %8 ], [ 0, %._crit_edge ]
+  ret i32 %.037
 }
 
 declare i32 @opal_datatype_add(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1

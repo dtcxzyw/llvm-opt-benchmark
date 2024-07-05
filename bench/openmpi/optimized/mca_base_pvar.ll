@@ -703,7 +703,7 @@ opal_obj_new.exit.thread121:                      ; preds = %.lr.ph.i.i, %80
   br label %131
 
 112:                                              ; preds = %100, %opal_obj_new.exit.thread121, %90
-  %.0.ph = phi i32 [ -2, %90 ], [ -2, %opal_obj_new.exit.thread121 ], [ %101, %100 ]
+  %.067.ph = phi i32 [ -2, %90 ], [ -2, %opal_obj_new.exit.thread121 ], [ %101, %100 ]
   %113 = load i8, ptr @opal_uses_threads, align 1
   %114 = trunc i8 %113 to i1
   br i1 %114, label %115, label %118
@@ -812,8 +812,8 @@ opal_thread_add_fetch_32.exit98:                  ; preds = %144, %142, %133
   br label %mca_base_pvar_get_internal.exit
 
 mca_base_pvar_get_internal.exit:                  ; preds = %79, %27, %21, %opal_obj_run_destructors.exit96, %opal_thread_add_fetch_32.exit91, %70, %18, %23, %22, %20, %15, %158
-  %.067 = phi i32 [ %161, %158 ], [ -5, %15 ], [ -5, %20 ], [ -5, %22 ], [ -5, %23 ], [ -5, %18 ], [ %71, %70 ], [ %.0.ph, %opal_thread_add_fetch_32.exit91 ], [ %.0.ph, %opal_obj_run_destructors.exit96 ], [ -5, %21 ], [ -1, %27 ], [ -2, %79 ]
-  ret i32 %.067
+  %.0 = phi i32 [ %161, %158 ], [ -5, %15 ], [ -5, %20 ], [ -5, %22 ], [ -5, %23 ], [ -5, %18 ], [ %71, %70 ], [ %.067.ph, %opal_thread_add_fetch_32.exit91 ], [ %.067.ph, %opal_obj_run_destructors.exit96 ], [ -5, %21 ], [ -1, %27 ], [ -2, %79 ]
+  ret i32 %.0
 }
 
 declare i32 @mca_base_var_group_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1060,33 +1060,33 @@ mca_base_pvar_get_internal.exit:                  ; preds = %opal_pointer_array_
   %30 = getelementptr inbounds i8, ptr %.0.i.i, i64 136
   %31 = load volatile ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %.0.i.i, i64 120
-  %.0.in22 = getelementptr inbounds i8, ptr %31, i64 16
-  %.023 = load volatile ptr, ptr %.0.in22, align 8
+  %.011.in22 = getelementptr inbounds i8, ptr %31, i64 16
+  %.01123 = load volatile ptr, ptr %.011.in22, align 8
   %.not1424 = icmp eq ptr %31, %32
   br i1 %.not1424, label %mca_base_pvar_get_internal.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29, %38
-  %.026 = phi ptr [ %.0, %38 ], [ %.023, %29 ]
-  %.01125 = phi ptr [ %.026, %38 ], [ %31, %29 ]
-  %33 = getelementptr inbounds i8, ptr %.01125, i64 56
+  %.01126 = phi ptr [ %.011, %38 ], [ %.01123, %29 ]
+  %.01225 = phi ptr [ %.01126, %38 ], [ %31, %29 ]
+  %33 = getelementptr inbounds i8, ptr %.01225, i64 56
   %34 = load ptr, ptr %33, align 8
   %.not15 = icmp eq ptr %34, %1
   br i1 %.not15, label %35, label %38
 
 35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds i8, ptr %.01125, i64 -40
+  %36 = getelementptr inbounds i8, ptr %.01225, i64 -40
   %37 = tail call i32 @mca_base_pvar_handle_update(ptr noundef nonnull %36)
   br label %38
 
 38:                                               ; preds = %.lr.ph, %35
-  %.0.in = getelementptr inbounds i8, ptr %.026, i64 16
-  %.0 = load volatile ptr, ptr %.0.in, align 8
-  %.not14 = icmp eq ptr %.026, %32
+  %.011.in = getelementptr inbounds i8, ptr %.01126, i64 16
+  %.011 = load volatile ptr, ptr %.011.in, align 8
+  %.not14 = icmp eq ptr %.01126, %32
   br i1 %.not14, label %mca_base_pvar_get_internal.exit.thread, label %.lr.ph, !llvm.loop !8
 
 mca_base_pvar_get_internal.exit.thread:           ; preds = %38, %29, %opal_pointer_array_get_item.exit.i, %2, %mca_base_pvar_get_internal.exit
-  %.012 = phi i32 [ 0, %mca_base_pvar_get_internal.exit ], [ -18, %2 ], [ -18, %opal_pointer_array_get_item.exit.i ], [ 0, %29 ], [ 0, %38 ]
-  ret i32 %.012
+  %.0 = phi i32 [ 0, %mca_base_pvar_get_internal.exit ], [ -18, %2 ], [ -18, %opal_pointer_array_get_item.exit.i ], [ 0, %29 ], [ 0, %38 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1678,8 +1678,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %140
   br label %.thread
 
 .thread:                                          ; preds = %40, %opal_pointer_array_get_item.exit.i, %5, %32, %104, %128, %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit, %103
-  %.052 = phi i32 [ %.0, %103 ], [ %.1, %opal_obj_run_destructors.exit ], [ %.1, %opal_thread_add_fetch_32.exit ], [ 0, %104 ], [ 0, %128 ], [ -5, %32 ], [ -18, %5 ], [ -18, %opal_pointer_array_get_item.exit.i ], [ -2, %40 ]
-  ret i32 %.052
+  %.051 = phi i32 [ %.0, %103 ], [ %.1, %opal_obj_run_destructors.exit ], [ %.1, %opal_thread_add_fetch_32.exit ], [ 0, %104 ], [ 0, %128 ], [ -5, %32 ], [ -18, %5 ], [ -18, %opal_pointer_array_get_item.exit.i ], [ -2, %40 ]
+  ret i32 %.051
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)

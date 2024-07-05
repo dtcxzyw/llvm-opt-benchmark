@@ -726,13 +726,13 @@ for.inc:                                          ; preds = %if.end33, %if.then2
 
 for.body43:                                       ; preds = %for.cond41.preheader, %for.body43
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body43 ], [ 0, %for.cond41.preheader ]
-  %total_block_array_entries.0124 = phi i32 [ %total_block_array_entries.1, %for.body43 ], [ 0, %for.cond41.preheader ]
+  %total_block_array_entries.0125 = phi i32 [ %total_block_array_entries.1, %for.body43 ], [ 0, %for.cond41.preheader ]
   %add.ptr.i80 = getelementptr inbounds i32, ptr %num_blocks_per_bucket.sroa.0.0, i64 %indvars.iv
   %15 = load i32, ptr %add.ptr.i80, align 4
   %cmp47 = icmp ugt i32 %15, 1
   %add49 = add i32 %15, 1
   %add50 = select i1 %cmp47, i32 %add49, i32 0
-  %total_block_array_entries.1 = add i32 %add50, %total_block_array_entries.0124
+  %total_block_array_entries.1 = add i32 %add50, %total_block_array_entries.0125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv2
   br i1 %exitcond.not, label %for.end53, label %for.body43, !llvm.loop !6

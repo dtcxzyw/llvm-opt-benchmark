@@ -851,8 +851,8 @@ define range(i32 -1, 1) i32 @H5G__ent_to_link(ptr nocapture noundef readonly %0,
   br label %63
 
 63:                                               ; preds = %59, %61, %55, %54
-  %.045 = phi i32 [ 0, %54 ], [ 0, %55 ], [ -1, %61 ], [ -1, %59 ]
-  ret i32 %.045
+  %.03544 = phi i32 [ 0, %54 ], [ 0, %55 ], [ -1, %61 ], [ -1, %59 ]
+  ret i32 %.03544
 }
 
 declare i64 @H5HL_heap_get_size(ptr noundef) local_unnamed_addr #1

@@ -321,8 +321,8 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end266, %invoke.cont14
-  %first.0 = phi i32 [ 0, %invoke.cont14 ], [ %first.2, %if.end266 ]
   %last.0 = phi i32 [ 16777215, %invoke.cont14 ], [ %last.2, %if.end266 ]
+  %first.0 = phi i32 [ 0, %invoke.cont14 ], [ %first.2, %if.end266 ]
   %buffer.0 = phi ptr [ %5, %invoke.cont14 ], [ %buffer.14, %if.end266 ]
   br label %while.cond.i.i
 
@@ -959,11 +959,11 @@ while.cond132.preheader:                          ; preds = %arrayctor.cont, %if
 while.cond132:                                    ; preds = %while.cond132.preheader, %for.end230
   %49 = phi ptr [ %79, %for.end230 ], [ %41, %while.cond132.preheader ]
   %50 = phi ptr [ %80, %for.end230 ], [ %41, %while.cond132.preheader ]
-  %first.1 = phi i32 [ %value.0.lcssa.i, %for.end230 ], [ %first.0, %while.cond132.preheader ]
   %last.1 = phi i32 [ %.sroa.speculated268, %for.end230 ], [ %last.0, %while.cond132.preheader ]
+  %first.1 = phi i32 [ %value.0.lcssa.i, %for.end230 ], [ %first.0, %while.cond132.preheader ]
   %buffer.9 = phi ptr [ %buffer.11.lcssa, %for.end230 ], [ %add.ptr.i177, %while.cond132.preheader ]
-  %alloc.1 = phi i32 [ %spec.select, %for.end230 ], [ %alloc.1.ph, %while.cond132.preheader ]
   %filled.0 = phi i32 [ %inc235, %for.end230 ], [ 0, %while.cond132.preheader ]
+  %alloc.1 = phi i32 [ %spec.select, %for.end230 ], [ %alloc.1.ph, %while.cond132.preheader ]
   br label %while.cond.i.i179
 
 while.cond.i.i179:                                ; preds = %while.body.i.i181, %while.cond132
@@ -1318,8 +1318,8 @@ while.body10.i.i:                                 ; preds = %while.cond5.i.i, %w
   br label %while.cond5.i.i, !llvm.loop !15
 
 if.end266:                                        ; preds = %for.cond238, %while.cond5.i.i, %while.end236, %land.lhs.true.i174, %if.else108, %if.then.i.i.i, %invoke.cont98, %invoke.cont29, %invoke.cont44, %invoke.cont36
-  %first.2 = phi i32 [ %value.0.i, %invoke.cont29 ], [ %first.0, %invoke.cont36 ], [ %first.0, %invoke.cont44 ], [ %first.0, %invoke.cont98 ], [ %first.0, %if.then.i.i.i ], [ %first.0, %if.else108 ], [ %first.0, %land.lhs.true.i174 ], [ %first.1, %while.end236 ], [ %first.0, %while.cond5.i.i ], [ %first.1, %for.cond238 ]
   %last.2 = phi i32 [ %last.0, %invoke.cont29 ], [ %value.0.i110, %invoke.cont36 ], [ %last.0, %invoke.cont44 ], [ %last.0, %invoke.cont98 ], [ %last.0, %if.then.i.i.i ], [ %last.0, %if.else108 ], [ %last.0, %land.lhs.true.i174 ], [ %last.1, %while.end236 ], [ %last.0, %while.cond5.i.i ], [ %last.1, %for.cond238 ]
+  %first.2 = phi i32 [ %value.0.i, %invoke.cont29 ], [ %first.0, %invoke.cont36 ], [ %first.0, %invoke.cont44 ], [ %first.0, %invoke.cont98 ], [ %first.0, %if.then.i.i.i ], [ %first.0, %if.else108 ], [ %first.0, %land.lhs.true.i174 ], [ %first.1, %while.end236 ], [ %first.0, %while.cond5.i.i ], [ %first.1, %for.cond238 ]
   %buffer.14 = phi ptr [ %in.addr.0.lcssa.i.i330, %invoke.cont29 ], [ %in.addr.0.lcssa.i.i108343, %invoke.cont36 ], [ %call45, %invoke.cont44 ], [ %in.addr.0.i.i156, %invoke.cont98 ], [ %in.addr.0.i.i156, %if.then.i.i.i ], [ %incdec.ptr, %if.else108 ], [ %incdec.ptr, %land.lhs.true.i174 ], [ %in.addr.0.i.i190, %while.end236 ], [ %in.addr.1.i.i, %while.cond5.i.i ], [ %in.addr.0.i.i190, %for.cond238 ]
   br label %while.cond, !llvm.loop !16
 
@@ -2654,16 +2654,16 @@ invoke.cont:                                      ; preds = %cond.true
   br i1 %cmp.i.not5.i.i, label %cleanup.action, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %.noexc, %for.body.i.i
-  %__result.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
-  %__first.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
-  %0 = load i8, ptr %__first.sroa.0.06.i.i, align 1
+  %__first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
+  %__result.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
+  %0 = load i8, ptr %__first.sroa.0.07.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %call.i.i.i = call i32 @isprint(i32 noundef %conv.i.i.i) #19
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i8 %placeholder, i8 %0
-  store i8 %cond.i.i.i, ptr %__result.sroa.0.07.i.i, align 1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i, i64 1
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.07.i.i, i64 1
+  store i8 %cond.i.i.i, ptr %__result.sroa.0.06.i.i, align 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 1
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call2.i
   br i1 %cmp.i.not.i.i, label %cleanup.action, label %for.body.i.i, !llvm.loop !21
 

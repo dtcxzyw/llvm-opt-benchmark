@@ -6536,9 +6536,9 @@ if.then:                                          ; preds = %_ZN3netL12WriteLeng
   br label %for.cond16
 
 for.cond16:                                       ; preds = %for.cond16.backedge, %if.then
-  %cookie_values.sroa.0.1 = phi ptr [ null, %if.then ], [ %cookie_values.sroa.0.1.be, %for.cond16.backedge ]
-  %cookie_values.sroa.14.1 = phi ptr [ null, %if.then ], [ %cookie_values.sroa.14.1.be, %for.cond16.backedge ]
   %cookie_values.sroa.25.1 = phi ptr [ null, %if.then ], [ %cookie_values.sroa.25.1.be, %for.cond16.backedge ]
+  %cookie_values.sroa.14.1 = phi ptr [ null, %if.then ], [ %cookie_values.sroa.14.1.be, %for.cond16.backedge ]
+  %cookie_values.sroa.0.1 = phi ptr [ null, %if.then ], [ %cookie_values.sroa.0.1.be, %for.cond16.backedge ]
   %cookie_length.0 = phi i64 [ 0, %if.then ], [ %cookie_length.0.be, %for.cond16.backedge ]
   br label %while.cond
 
@@ -6730,7 +6730,7 @@ if.then.i.i:                                      ; preds = %invoke.cont50
   br label %invoke.cont52
 
 if.else.i.i:                                      ; preds = %invoke.cont50
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %cookie_values.sroa.14.1 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %cookie_values.sroa.25.1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %cookie_values.sroa.0.1 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775792
@@ -6757,7 +6757,7 @@ _ZNSt12_Vector_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char
   store ptr %6, ptr %add.ptr.i.i.i, align 8
   %ref.tmp49.sroa.3.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   store i64 %7, ptr %ref.tmp49.sroa.3.0.add.ptr.i.i.i.sroa_idx, align 8
-  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %cookie_values.sroa.0.1, %cookie_values.sroa.14.1
+  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %cookie_values.sroa.0.1, %cookie_values.sroa.25.1
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
@@ -6766,7 +6766,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !14
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 16
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %cookie_values.sroa.14.1
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %cookie_values.sroa.25.1
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !18
 
 _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_M_allocateEm.exit.i.i.i
@@ -6783,18 +6783,18 @@ _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traits
   br label %invoke.cont52
 
 invoke.cont52:                                    ; preds = %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, %if.then.i.i
-  %cookie_values.sroa.0.3 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %cookie_values.sroa.0.1, %if.then.i.i ]
-  %__cur.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %cookie_values.sroa.14.1, %if.then.i.i ]
   %cookie_values.sroa.25.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %cookie_values.sroa.25.1, %if.then.i.i ]
+  %__cur.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %cookie_values.sroa.14.1, %if.then.i.i ]
+  %cookie_values.sroa.0.3 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %cookie_values.sroa.0.1, %if.then.i.i ]
   %cookie_values.sroa.14.2 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.pn, i64 16
   %add = add i64 %cookie_length.0, 2
   %add53 = add i64 %add, %i.0
   br label %if.end54
 
 if.end54:                                         ; preds = %call.i.noexc, %invoke.cont52, %invoke.cont46
-  %cookie_values.sroa.0.4 = phi ptr [ %cookie_values.sroa.0.1, %invoke.cont46 ], [ %cookie_values.sroa.0.3, %invoke.cont52 ], [ %cookie_values.sroa.0.1, %call.i.noexc ]
-  %cookie_values.sroa.14.3 = phi ptr [ %cookie_values.sroa.14.1, %invoke.cont46 ], [ %cookie_values.sroa.14.2, %invoke.cont52 ], [ %cookie_values.sroa.14.1, %call.i.noexc ]
   %cookie_values.sroa.25.3 = phi ptr [ %cookie_values.sroa.25.1, %invoke.cont46 ], [ %cookie_values.sroa.25.2, %invoke.cont52 ], [ %cookie_values.sroa.25.1, %call.i.noexc ]
+  %cookie_values.sroa.14.3 = phi ptr [ %cookie_values.sroa.14.1, %invoke.cont46 ], [ %cookie_values.sroa.14.2, %invoke.cont52 ], [ %cookie_values.sroa.14.1, %call.i.noexc ]
+  %cookie_values.sroa.0.4 = phi ptr [ %cookie_values.sroa.0.1, %invoke.cont46 ], [ %cookie_values.sroa.0.3, %invoke.cont52 ], [ %cookie_values.sroa.0.1, %call.i.noexc ]
   %cookie_length.1 = phi i64 [ %cookie_length.0, %invoke.cont46 ], [ %add53, %invoke.cont52 ], [ %cookie_length.0, %call.i.noexc ]
   %add55 = add i64 %i.0, 1
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, i64 noundef %add55)
@@ -6873,7 +6873,7 @@ if.then.i:                                        ; preds = %if.then59
   br label %invoke.cont60
 
 if.else.i:                                        ; preds = %if.then59
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %cookie_values.sroa.14.1 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %cookie_values.sroa.25.1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %cookie_values.sroa.0.1 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775792
@@ -6905,7 +6905,7 @@ _ZNSt12_Vector_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char
   %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i110, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"class.base::BasicStringPiece", ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, i64 16, i1 false)
-  %cmp.not5.i.i.i.i.i = icmp eq ptr %cookie_values.sroa.0.1, %cookie_values.sroa.14.1
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %cookie_values.sroa.0.1, %cookie_values.sroa.25.1
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i
@@ -6914,7 +6914,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i, i64 16, i1 false), !alias.scope !19
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 16
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %cookie_values.sroa.14.1
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %cookie_values.sroa.25.1
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !18
 
 _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_M_allocateEm.exit.i.i
@@ -6931,9 +6931,9 @@ _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traits
   br label %invoke.cont60
 
 invoke.cont60:                                    ; preds = %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, %if.then.i
-  %cookie_values.sroa.0.5 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %cookie_values.sroa.0.1, %if.then.i ]
-  %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %cookie_values.sroa.14.1, %if.then.i ]
   %cookie_values.sroa.25.4 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %cookie_values.sroa.25.1, %if.then.i ]
+  %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %cookie_values.sroa.14.1, %if.then.i ]
+  %cookie_values.sroa.0.5 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %cookie_values.sroa.0.1, %if.then.i ]
   %call62 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data)
           to label %invoke.cont61 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -6949,17 +6949,17 @@ if.else64:                                        ; preds = %call.i.noexc92, %in
   br label %if.end68
 
 if.end68:                                         ; preds = %if.else64, %invoke.cont61
-  %cookie_values.sroa.0.6 = phi ptr [ %cookie_values.sroa.0.1, %if.else64 ], [ %cookie_values.sroa.0.5, %invoke.cont61 ]
-  %cookie_values.sroa.14.5 = phi ptr [ %cookie_values.sroa.14.1, %if.else64 ], [ %cookie_values.sroa.14.4, %invoke.cont61 ]
   %cookie_values.sroa.25.5 = phi ptr [ %cookie_values.sroa.25.1, %if.else64 ], [ %cookie_values.sroa.25.4, %invoke.cont61 ]
+  %cookie_values.sroa.14.5 = phi ptr [ %cookie_values.sroa.14.1, %if.else64 ], [ %cookie_values.sroa.14.4, %invoke.cont61 ]
+  %cookie_values.sroa.0.6 = phi ptr [ %cookie_values.sroa.0.1, %if.else64 ], [ %cookie_values.sroa.0.5, %invoke.cont61 ]
   %cookie_length.2 = phi i64 [ %spec.select, %if.else64 ], [ %add63, %invoke.cont61 ]
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, i64 noundef %i.0)
           to label %for.cond16.backedge unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.cond16.backedge:                              ; preds = %if.end68, %if.end54
-  %cookie_values.sroa.0.1.be = phi ptr [ %cookie_values.sroa.0.4, %if.end54 ], [ %cookie_values.sroa.0.6, %if.end68 ]
-  %cookie_values.sroa.14.1.be = phi ptr [ %cookie_values.sroa.14.3, %if.end54 ], [ %cookie_values.sroa.14.5, %if.end68 ]
   %cookie_values.sroa.25.1.be = phi ptr [ %cookie_values.sroa.25.3, %if.end54 ], [ %cookie_values.sroa.25.5, %if.end68 ]
+  %cookie_values.sroa.14.1.be = phi ptr [ %cookie_values.sroa.14.3, %if.end54 ], [ %cookie_values.sroa.14.5, %if.end68 ]
+  %cookie_values.sroa.0.1.be = phi ptr [ %cookie_values.sroa.0.4, %if.end54 ], [ %cookie_values.sroa.0.6, %if.end68 ]
   %cookie_length.0.be = phi i64 [ %cookie_length.1, %if.end54 ], [ %cookie_length.2, %if.end68 ]
   br label %for.cond16, !llvm.loop !23
 

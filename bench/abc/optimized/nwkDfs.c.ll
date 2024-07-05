@@ -153,8 +153,8 @@ define range(i32 0, 2) i32 @Nwk_ManVerifyTopoOrder(ptr noundef %0) local_unnamed
   br i1 %67, label %8, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %63, %1, %55, %30
-  %.039 = phi i32 [ 0, %30 ], [ 0, %55 ], [ 1, %1 ], [ 1, %63 ]
-  ret i32 %.039
+  %.0 = phi i32 [ 0, %30 ], [ 0, %55 ], [ 1, %1 ], [ 1, %63 ]
+  ret i32 %.0
 }
 
 declare void @Nwk_ManIncrementTravId(ptr noundef) local_unnamed_addr #1

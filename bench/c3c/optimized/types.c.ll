@@ -1091,12 +1091,12 @@ define dso_local ptr @type_find_largest_union_element(ptr nocapture noundef read
   br label %10
 
 10:                                               ; preds = %.lr.ph, %18
-  %.020 = phi i32 [ 0, %.lr.ph ], [ %19, %18 ]
-  %.01419 = phi ptr [ null, %.lr.ph ], [ %.1, %18 ]
-  %.01518 = phi i64 [ 0, %.lr.ph ], [ %.116, %18 ]
+  %.01320 = phi i32 [ 0, %.lr.ph ], [ %19, %18 ]
+  %.01419 = phi i64 [ 0, %.lr.ph ], [ %.1, %18 ]
+  %.01518 = phi ptr [ null, %.lr.ph ], [ %.116, %18 ]
   %11 = tail call i32 @type_size(ptr noundef %0)
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %.01518, %12
+  %13 = icmp ult i64 %.01419, %12
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
@@ -1106,15 +1106,15 @@ define dso_local ptr @type_find_largest_union_element(ptr nocapture noundef read
   br label %18
 
 18:                                               ; preds = %10, %14
-  %.116 = phi i64 [ %16, %14 ], [ %.01518, %10 ]
-  %.1 = phi ptr [ %17, %14 ], [ %.01419, %10 ]
-  %19 = add nuw i32 %.020, 1
+  %.116 = phi ptr [ %17, %14 ], [ %.01518, %10 ]
+  %.1 = phi i64 [ %16, %14 ], [ %.01419, %10 ]
+  %19 = add nuw i32 %.01320, 1
   %exitcond.not = icmp eq i32 %19, %8
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %18, %1, %6
-  %.014.lcssa = phi ptr [ null, %6 ], [ null, %1 ], [ %.1, %18 ]
-  ret ptr %.014.lcssa
+  %.015.lcssa = phi ptr [ null, %6 ], [ null, %1 ], [ %.116, %18 ]
+  ret ptr %.015.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -2841,8 +2841,8 @@ type_flatten.exit86:                              ; preds = %type_flatten.exit
   br i1 %.not80, label %95, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph104, %105, %95, %.lr.ph111, %87, %74, %33, %75, %92, %38, %.thread, %83, %56, %type_flatten.exit86, %52, %48
-  %.067 = phi i1 [ %49, %48 ], [ %53, %52 ], [ true, %type_flatten.exit86 ], [ false, %56 ], [ false, %83 ], [ false, %.thread ], [ false, %38 ], [ true, %92 ], [ false, %75 ], [ false, %33 ], [ false, %74 ], [ true, %87 ], [ %45, %.lr.ph111 ], [ false, %.lr.ph104 ], [ false, %105 ], [ true, %95 ], [ %82, %.lr.ph ]
-  ret i1 %.067
+  %.072 = phi i1 [ %49, %48 ], [ %53, %52 ], [ true, %type_flatten.exit86 ], [ false, %56 ], [ false, %83 ], [ false, %.thread ], [ false, %38 ], [ true, %92 ], [ false, %75 ], [ false, %33 ], [ false, %74 ], [ true, %87 ], [ %45, %.lr.ph111 ], [ false, %.lr.ph104 ], [ false, %105 ], [ true, %95 ], [ %82, %.lr.ph ]
+  ret i1 %.072
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2877,8 +2877,8 @@ define internal fastcc zeroext i1 @array_structurally_equivalent_to_struct(ptr n
   br label %19
 
 19:                                               ; preds = %15, %12
-  %.033 = phi i32 [ %18, %15 ], [ %13, %12 ]
-  %20 = and i32 %.033, -2
+  %.0 = phi i32 [ %18, %15 ], [ %13, %12 ]
+  %20 = and i32 %.0, -2
   %21 = icmp eq i32 %20, 26
   br i1 %21, label %22, label %.loopexit
 
@@ -2904,7 +2904,7 @@ define internal fastcc zeroext i1 @array_structurally_equivalent_to_struct(ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
-  %.03241 = phi i32 [ 0, %.lr.ph.preheader ], [ %43, %42 ]
+  %.03541 = phi i32 [ 0, %.lr.ph.preheader ], [ %43, %42 ]
   %32 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 72
@@ -2917,18 +2917,18 @@ define internal fastcc zeroext i1 @array_structurally_equivalent_to_struct(ptr n
   %39 = getelementptr inbounds i8, ptr %38, i64 48
   %40 = load i64, ptr %39, align 8
   %41 = trunc i64 %40 to i32
-  %.not40 = icmp eq i32 %.03241, %41
+  %.not40 = icmp eq i32 %.03541, %41
   br i1 %.not40, label %42, label %.loopexit
 
 42:                                               ; preds = %37
-  %43 = add i32 %.03241, %27
+  %43 = add i32 %.03541, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %37, %42, %22, %29, %19, %9, %6
-  %.035 = phi i1 [ %8, %6 ], [ true, %9 ], [ false, %19 ], [ true, %29 ], [ true, %22 ], [ false, %.lr.ph ], [ false, %37 ], [ true, %42 ]
-  ret i1 %.035
+  %.034 = phi i1 [ %8, %6 ], [ true, %9 ], [ false, %19 ], [ true, %29 ], [ true, %22 ], [ false, %.lr.ph ], [ false, %37 ], [ true, %42 ]
+  ret i1 %.034
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -3018,8 +3018,8 @@ define internal fastcc noundef ptr @type_create_array(ptr noundef %0, i32 nounde
   br label %8
 
 8:                                                ; preds = %5, %4
-  %.070 = phi ptr [ %7, %5 ], [ %0, %4 ]
-  %9 = getelementptr inbounds i8, ptr %.070, i64 24
+  %.071 = phi ptr [ %7, %5 ], [ %0, %4 ]
+  %9 = getelementptr inbounds i8, ptr %.071, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.preheader, label %44
@@ -3140,7 +3140,7 @@ create_type_cache.exit:                           ; preds = %35
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %65, %56, %create_type_cache.exit, %44
-  %66 = getelementptr inbounds i8, ptr %.070, i64 16
+  %66 = getelementptr inbounds i8, ptr %.071, i64 16
   %67 = load ptr, ptr %66, align 8
   %.str.55..str.56 = select i1 %2, ptr @.str.55, ptr @.str.56
   %. = select i1 %2, i32 37, i32 33
@@ -3151,16 +3151,16 @@ create_type_cache.exit:                           ; preds = %35
   store ptr %68, ptr %70, align 8
   tail call void @global_context_add_type(ptr noundef nonnull %69) #14
   %71 = getelementptr inbounds i8, ptr %69, i64 56
-  store ptr %.070, ptr %71, align 8
+  store ptr %.071, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %69, i64 64
   store i32 %1, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %.070, i64 8
+  %73 = getelementptr inbounds i8, ptr %.071, i64 8
   %74 = load ptr, ptr %73, align 8
-  %75 = icmp eq ptr %74, %.070
+  %75 = icmp eq ptr %74, %.071
   br i1 %75, label %78, label %76
 
 76:                                               ; preds = %._crit_edge
-  %77 = tail call fastcc ptr @type_create_array(ptr noundef nonnull %.070, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext true)
+  %77 = tail call fastcc ptr @type_create_array(ptr noundef nonnull %.071, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext true)
   br label %78
 
 78:                                               ; preds = %._crit_edge, %76
@@ -3225,8 +3225,8 @@ create_type_cache.exit:                           ; preds = %35
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %52, %104
-  %.071 = phi ptr [ %69, %104 ], [ %50, %52 ], [ %58, %61 ]
-  ret ptr %.071
+  %.070 = phi ptr [ %69, %104 ], [ %50, %52 ], [ %58, %61 ]
+  ret ptr %.070
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -3517,10 +3517,10 @@ define dso_local ptr @type_get_func(ptr nocapture noundef readonly %0, i32 nound
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.01821.i = phi i64 [ %15, %.lr.ph.preheader.i ], [ %30, %.lr.ph.i ]
+  %.01722.i = phi i64 [ %15, %.lr.ph.preheader.i ], [ %30, %.lr.ph.i ]
   %21 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
-  %23 = mul i64 %.01821.i, 31
+  %23 = mul i64 %.01722.i, 31
   %24 = getelementptr inbounds i8, ptr %22, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
@@ -3533,15 +3533,15 @@ define dso_local ptr @type_get_func(ptr nocapture noundef readonly %0, i32 nound
   br i1 %exitcond.not.i, label %hash_function.exit, label %.lr.ph.i, !llvm.loop !18
 
 hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
-  %.018.lcssa.i = phi i64 [ %15, %18 ], [ %15, %2 ], [ %30, %.lr.ph.i ]
-  %31 = lshr i64 %.018.lcssa.i, 16
-  %32 = xor i64 %31, %.018.lcssa.i
+  %.017.lcssa.i = phi i64 [ %15, %18 ], [ %15, %2 ], [ %30, %.lr.ph.i ]
+  %31 = lshr i64 %.017.lcssa.i, 16
+  %32 = xor i64 %31, %.017.lcssa.i
   %33 = trunc i64 %32 to i32
   %34 = load i32, ptr getelementptr inbounds (i8, ptr @map, i64 4), align 4
   %35 = add i32 %34, -1
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @map, i64 16), align 8
-  %.060 = and i32 %35, %33
-  %37 = zext i32 %.060 to i64
+  %.01760 = and i32 %35, %33
+  %37 = zext i32 %.01760 to i64
   %38 = getelementptr inbounds %struct.FuncTypeEntry, ptr %36, i64 %37
   %39 = load i32, ptr %38, align 8
   %.not61 = icmp eq i32 %39, 0
@@ -3563,7 +3563,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   br label %45
 
 45:                                               ; preds = %42, %._crit_edge
-  %.0137.i = phi i32 [ %44, %42 ], [ 0, %._crit_edge ]
+  %.0135.i = phi i32 [ %44, %42 ], [ 0, %._crit_edge ]
   %46 = tail call ptr @calloc_arena(i64 noundef 96) #14
   %47 = load i16, ptr %3, align 1
   %48 = and i16 %47, 56
@@ -3600,8 +3600,8 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   br label %71
 
 71:                                               ; preds = %67, %64
-  %.0136.i = phi i32 [ %70, %67 ], [ %65, %64 ]
-  %72 = icmp eq i32 %.0136.i, 40
+  %.0134.i = phi i32 [ %70, %67 ], [ %65, %64 ]
+  %72 = icmp eq i32 %.0134.i, 40
   br i1 %72, label %73, label %.critedge.i
 
 73:                                               ; preds = %71
@@ -3638,27 +3638,27 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   %91 = and i16 %87, -16
   %92 = or disjoint i16 %91, %90
   store i16 %92, ptr %46, align 8
-  %.not154.i = icmp eq i32 %.0137.i, 0
+  %.not154.i = icmp eq i32 %.0135.i, 0
   br i1 %.not154.i, label %162, label %93
 
 93:                                               ; preds = %86
-  %94 = zext i32 %.0137.i to i64
+  %94 = zext i32 %.0135.i to i64
   %95 = shl nuw nsw i64 %94, 3
   %96 = add nuw nsw i64 %95, 8
   %97 = tail call ptr @calloc_arena(i64 noundef %96) #14
   %98 = getelementptr inbounds i8, ptr %97, i64 4
-  store i32 %.0137.i, ptr %98, align 4
+  store i32 %.0135.i, ptr %98, align 4
   %99 = getelementptr inbounds i8, ptr %97, i64 8
   %100 = tail call ptr @calloc_arena(i64 noundef %96) #14
   %101 = getelementptr inbounds i8, ptr %100, i64 4
-  store i32 %.0137.i, ptr %101, align 4
+  store i32 %.0135.i, ptr %101, align 4
   %102 = getelementptr inbounds i8, ptr %100, i64 8
   br label %103
 
 103:                                              ; preds = %153, %93
   %indvars.iv.i20 = phi i64 [ 0, %93 ], [ %indvars.iv.next.i21, %153 ]
-  %.0139170.i = phi ptr [ %102, %93 ], [ %156, %153 ]
-  %.0140169.i = phi ptr [ %99, %93 ], [ %133, %153 ]
+  %.0139171.i = phi ptr [ %99, %93 ], [ %133, %153 ]
+  %.0142170.i = phi ptr [ %102, %93 ], [ %156, %153 ]
   %104 = load ptr, ptr %16, align 8
   %105 = getelementptr inbounds ptr, ptr %104, i64 %indvars.iv.i20
   %106 = load ptr, ptr %105, align 8
@@ -3674,8 +3674,8 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   %113 = getelementptr inbounds i8, ptr %107, i64 88
   store ptr null, ptr %113, align 8
   store ptr null, ptr %107, align 8
-  %114 = getelementptr inbounds i8, ptr %.0140169.i, i64 -8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.0140169.i, i64 -4
+  %114 = getelementptr inbounds i8, ptr %.0139171.i, i64 -8
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.0139171.i, i64 -4
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   %115 = load i32, ptr %114, align 4
   %116 = icmp eq i32 %115, %.pre.i.i
@@ -3710,8 +3710,8 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   %135 = zext i32 %131 to i64
   %136 = getelementptr inbounds ptr, ptr %133, i64 %135
   store ptr %134, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %.0139170.i, i64 -8
-  %.phi.trans.insert.i162.i = getelementptr inbounds i8, ptr %.0139170.i, i64 -4
+  %137 = getelementptr inbounds i8, ptr %.0142170.i, i64 -8
+  %.phi.trans.insert.i162.i = getelementptr inbounds i8, ptr %.0142170.i, i64 -4
   %.pre.i163.i = load i32, ptr %.phi.trans.insert.i162.i, align 4
   %138 = load i32, ptr %137, align 4
   %139 = icmp eq i32 %138, %.pre.i163.i
@@ -3886,7 +3886,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
 208:                                              ; preds = %.lr.ph, %compare_function.exit.thread
   %209 = phi i32 [ %39, %.lr.ph ], [ %306, %compare_function.exit.thread ]
   %210 = phi i64 [ %37, %.lr.ph ], [ %304, %compare_function.exit.thread ]
-  %.062 = phi i32 [ %.060, %.lr.ph ], [ %.0, %compare_function.exit.thread ]
+  %.01762 = phi i32 [ %.01760, %.lr.ph ], [ %.017, %compare_function.exit.thread ]
   %211 = icmp eq i32 %209, %33
   br i1 %211, label %212, label %compare_function.exit.thread
 
@@ -3927,8 +3927,8 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   br label %234
 
 234:                                              ; preds = %231, %230
-  %.033.i = phi i32 [ %233, %231 ], [ 0, %230 ]
-  %.not40.i = icmp eq i32 %.0.i26, %.033.i
+  %.032.i = phi i32 [ %233, %231 ], [ 0, %230 ]
+  %.not40.i = icmp eq i32 %.0.i26, %.032.i
   br i1 %.not40.i, label %235, label %compare_function.exit.thread
 
 235:                                              ; preds = %234
@@ -4085,17 +4085,17 @@ compare_function.exit:                            ; preds = %compare_func_param.
   br i1 %266, label %compare_function.exit.thread, label %func_create_new_func_proto.exit
 
 compare_function.exit.thread:                     ; preds = %251, %253, %248, %compare_func_param.exit52.i, %287, %289, %284, %234, %212, %compare_function.exit, %208
-  %303 = add i32 %.062, 1
-  %.0 = and i32 %303, %35
-  %304 = zext i32 %.0 to i64
+  %303 = add i32 %.01762, 1
+  %.017 = and i32 %303, %35
+  %304 = zext i32 %.017 to i64
   %305 = getelementptr inbounds %struct.FuncTypeEntry, ptr %36, i64 %304
   %306 = load i32, ptr %305, align 8
   %.not = icmp eq i32 %306, 0
   br i1 %.not, label %._crit_edge, label %208
 
 func_create_new_func_proto.exit:                  ; preds = %compare_func_param.exit.thread.i, %267, %compare_function.exit, %compare_func_param.exit52.thread.i, %._crit_edge177.i, %._crit_edge.i
-  %.017 = phi ptr [ %171, %._crit_edge.i ], [ %171, %._crit_edge177.i ], [ %214, %compare_func_param.exit52.thread.i ], [ %214, %compare_function.exit ], [ %214, %267 ], [ %214, %compare_func_param.exit.thread.i ]
-  ret ptr %.017
+  %.0 = phi ptr [ %171, %._crit_edge.i ], [ %171, %._crit_edge177.i ], [ %214, %compare_func_param.exit52.thread.i ], [ %214, %compare_function.exit ], [ %214, %267 ], [ %214, %compare_func_param.exit.thread.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5277,17 +5277,17 @@ define dso_local i32 @type_is_pointer_equivalent(ptr noundef %0, ptr noundef rea
 
 tailrecurse:                                      ; preds = %131, %4
   %.tr85 = phi ptr [ %1, %4 ], [ %134, %131 ]
-  %.tr86 = phi ptr [ %2, %4 ], [ %.156, %131 ]
+  %.tr86 = phi ptr [ %2, %4 ], [ %.158, %131 ]
   %5 = load ptr, ptr @type_voidptr, align 8
   br label %6
 
 6:                                                ; preds = %135, %tailrecurse
-  %.055 = phi ptr [ %.tr85, %tailrecurse ], [ %.053, %135 ]
-  %.054 = phi ptr [ %.tr86, %tailrecurse ], [ %.0, %135 ]
+  %.057 = phi ptr [ %.tr85, %tailrecurse ], [ %.054, %135 ]
+  %.056 = phi ptr [ %.tr86, %tailrecurse ], [ %.053, %135 ]
   br i1 %3, label %.preheader88, label %type_flatten.exit71
 
 .preheader88:                                     ; preds = %6, %19
-  %.0.i = phi ptr [ %.1.i, %19 ], [ %.055, %6 ]
+  %.0.i = phi ptr [ %.1.i, %19 ], [ %.057, %6 ]
   %7 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
@@ -5319,7 +5319,7 @@ tailrecurse:                                      ; preds = %131, %4
   br label %.preheader88
 
 type_flatten.exit:                                ; preds = %.preheader88, %32
-  %.0.i68 = phi ptr [ %.1.i70, %32 ], [ %.054, %.preheader88 ]
+  %.0.i68 = phi ptr [ %.1.i70, %32 ], [ %.056, %.preheader88 ]
   %20 = getelementptr inbounds i8, ptr %.0.i68, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 8
@@ -5351,19 +5351,19 @@ type_flatten.exit:                                ; preds = %.preheader88, %32
   br label %type_flatten.exit
 
 type_flatten.exit71:                              ; preds = %type_flatten.exit, %6
-  %.156 = phi ptr [ %.055, %6 ], [ %8, %type_flatten.exit ]
-  %.1 = phi ptr [ %.054, %6 ], [ %21, %type_flatten.exit ]
-  %33 = icmp eq ptr %.156, %.1
+  %.158 = phi ptr [ %.057, %6 ], [ %8, %type_flatten.exit ]
+  %.1 = phi ptr [ %.056, %6 ], [ %21, %type_flatten.exit ]
+  %33 = icmp eq ptr %.158, %.1
   br i1 %33, label %type_is_subtype.exit, label %34
 
 34:                                               ; preds = %type_flatten.exit71
-  %35 = icmp eq ptr %.156, %5
+  %35 = icmp eq ptr %.158, %5
   %36 = icmp eq ptr %.1, %5
   %or.cond = or i1 %35, %36
   br i1 %or.cond, label %type_is_subtype.exit, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %.156, i64 56
+  %38 = getelementptr inbounds i8, ptr %.158, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
@@ -5438,20 +5438,20 @@ type_flatten.exit75:                              ; preds = %.preheader, %71
   br label %type_flatten.exit75
 
 type_flatten.exit79:                              ; preds = %type_flatten.exit75, %37
-  %.053 = phi ptr [ %41, %37 ], [ %47, %type_flatten.exit75 ]
-  %.0 = phi ptr [ %45, %37 ], [ %60, %type_flatten.exit75 ]
-  %72 = icmp eq ptr %.053, %.0
+  %.054 = phi ptr [ %41, %37 ], [ %47, %type_flatten.exit75 ]
+  %.053 = phi ptr [ %45, %37 ], [ %60, %type_flatten.exit75 ]
+  %72 = icmp eq ptr %.054, %.053
   br i1 %72, label %type_is_subtype.exit, label %73
 
 73:                                               ; preds = %type_flatten.exit79
-  %.not8.not.i = icmp eq ptr %.0, null
+  %.not8.not.i = icmp eq ptr %.053, null
   br i1 %.not8.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %73, %type_find_parent_type.exit.i
-  %.09.i = phi ptr [ %98, %type_find_parent_type.exit.i ], [ %.0, %73 ]
+  %.09.i = phi ptr [ %98, %type_find_parent_type.exit.i ], [ %.053, %73 ]
   %74 = getelementptr inbounds i8, ptr %.09.i, i64 8
   %75 = load ptr, ptr %74, align 8
-  %76 = icmp eq ptr %75, %.053
+  %76 = icmp eq ptr %75, %.054
   br i1 %76, label %type_is_subtype.exit, label %77
 
 77:                                               ; preds = %.lr.ph.i
@@ -5498,8 +5498,8 @@ type_find_parent_type.exit.i:                     ; preds = %93, %85
   br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !23
 
 .loopexit:                                        ; preds = %77, %87, %79, %type_find_parent_type.exit.i, %73
-  %99 = load i32, ptr %.053, align 8
-  %100 = load i32, ptr %.0, align 8
+  %99 = load i32, ptr %.054, align 8
+  %100 = load i32, ptr %.053, align 8
   %.not = icmp eq i32 %99, %100
   br i1 %.not, label %135, label %101
 
@@ -5526,14 +5526,14 @@ type_is_matching_int.exit.thread:                 ; preds = %107, %104
   br i1 %112, label %113, label %117
 
 113:                                              ; preds = %type_is_matching_int.exit.thread
-  %114 = getelementptr inbounds i8, ptr %.0, i64 8
+  %114 = getelementptr inbounds i8, ptr %.053, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = load i32, ptr %115, align 8
   br label %117
 
 117:                                              ; preds = %113, %type_is_matching_int.exit.thread
-  %.057 = phi i32 [ %116, %113 ], [ %100, %type_is_matching_int.exit.thread ]
-  %118 = add i32 %.057, -33
+  %.0 = phi i32 [ %116, %113 ], [ %100, %type_is_matching_int.exit.thread ]
+  %118 = add i32 %.0, -33
   %119 = icmp ult i32 %118, 6
   br i1 %119, label %120, label %type_is_subtype.exit
 
@@ -5542,24 +5542,24 @@ type_is_matching_int.exit.thread:                 ; preds = %107, %104
   br i1 %121, label %122, label %126
 
 122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %.053, i64 8
+  %123 = getelementptr inbounds i8, ptr %.054, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = load i32, ptr %124, align 8
   br label %126
 
 126:                                              ; preds = %122, %120
-  %.059 = phi i32 [ %125, %122 ], [ %99, %120 ]
-  %127 = add i32 %.059, -33
+  %.055 = phi i32 [ %125, %122 ], [ %99, %120 ]
+  %127 = add i32 %.055, -33
   %128 = icmp ult i32 %127, 6
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %126
-  %130 = tail call fastcc i32 @type_array_is_equivalent(ptr noundef %0, ptr noundef nonnull %.053, ptr noundef nonnull %.0, i1 noundef zeroext %3)
+  %130 = tail call fastcc i32 @type_array_is_equivalent(ptr noundef %0, ptr noundef nonnull %.054, ptr noundef nonnull %.053, i1 noundef zeroext %3)
   %.not66 = icmp eq i32 %130, 0
   br i1 %.not66, label %131, label %type_is_subtype.exit
 
 131:                                              ; preds = %129, %126
-  %132 = getelementptr inbounds i8, ptr %.0, i64 56
+  %132 = getelementptr inbounds i8, ptr %.053, i64 56
   %133 = load ptr, ptr %132, align 8
   %134 = tail call fastcc ptr @type_generate_ptr(ptr noundef %133, i1 noundef zeroext false)
   br label %tailrecurse
@@ -5571,19 +5571,19 @@ type_is_matching_int.exit.thread:                 ; preds = %107, %104
   ]
 
 136:                                              ; preds = %135
-  %137 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.053) #14
+  %137 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.054) #14
   br i1 %137, label %138, label %type_is_subtype.exit
 
 138:                                              ; preds = %136
-  %139 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.0) #14
+  %139 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.053) #14
   br i1 %139, label %140, label %type_is_subtype.exit
 
 140:                                              ; preds = %138
-  %141 = getelementptr inbounds i8, ptr %.053, i64 72
+  %141 = getelementptr inbounds i8, ptr %.054, i64 72
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 88
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %.0, i64 72
+  %145 = getelementptr inbounds i8, ptr %.053, i64 72
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds i8, ptr %146, i64 88
   %148 = load ptr, ptr %147, align 8
@@ -5592,8 +5592,8 @@ type_is_matching_int.exit.thread:                 ; preds = %107, %104
   br label %type_is_subtype.exit
 
 type_is_subtype.exit:                             ; preds = %107, %104, %117, %129, %type_flatten.exit79, %34, %type_flatten.exit71, %135, %.lr.ph.i, %138, %136, %140
-  %.058 = phi i32 [ %150, %140 ], [ -1, %136 ], [ -1, %138 ], [ 1, %.lr.ph.i ], [ 1, %type_flatten.exit79 ], [ 1, %34 ], [ 1, %type_flatten.exit71 ], [ 0, %135 ], [ 2, %107 ], [ 2, %104 ], [ 0, %117 ], [ %130, %129 ]
-  ret i32 %.058
+  %.059 = phi i32 [ %150, %140 ], [ -1, %136 ], [ -1, %138 ], [ 1, %.lr.ph.i ], [ 1, %type_flatten.exit79 ], [ 1, %34 ], [ 1, %type_flatten.exit71 ], [ 0, %135 ], [ 2, %107 ], [ 2, %104 ], [ 0, %117 ], [ %130, %129 ]
+  ret i32 %.059
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5895,8 +5895,8 @@ define dso_local ptr @type_find_max_type(ptr nocapture noundef readonly %0, ptr 
   br i1 %16, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader128, %22
-  %.0101163 = phi ptr [ %26, %22 ], [ %11, %.preheader128 ]
-  %17 = getelementptr inbounds i8, ptr %.0101163, i64 56
+  %.0104163 = phi ptr [ %26, %22 ], [ %11, %.preheader128 ]
+  %17 = getelementptr inbounds i8, ptr %.0104163, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 24
   %20 = load i64, ptr %19, align 8
@@ -5914,15 +5914,15 @@ define dso_local ptr @type_find_max_type(ptr nocapture noundef readonly %0, ptr 
   br i1 %28, label %.lr.ph, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %.lr.ph, %22, %.preheader128
-  %.0101.lcssa = phi ptr [ %11, %.preheader128 ], [ %26, %22 ], [ %.0101163, %.lr.ph ]
+  %.0104.lcssa = phi ptr [ %11, %.preheader128 ], [ %26, %22 ], [ %.0104163, %.lr.ph ]
   %.lcssa = phi i32 [ %15, %.preheader128 ], [ %27, %22 ], [ 32, %.lr.ph ]
   %29 = load i32, ptr %10, align 8
   %30 = icmp eq i32 %29, 32
   br i1 %30, label %.lr.ph169, label %.critedge2
 
 .lr.ph169:                                        ; preds = %.critedge, %36
-  %.0100168 = phi ptr [ %40, %36 ], [ %10, %.critedge ]
-  %31 = getelementptr inbounds i8, ptr %.0100168, i64 56
+  %.0103168 = phi ptr [ %40, %36 ], [ %10, %.critedge ]
+  %31 = getelementptr inbounds i8, ptr %.0103168, i64 56
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load i64, ptr %33, align 8
@@ -5940,15 +5940,15 @@ define dso_local ptr @type_find_max_type(ptr nocapture noundef readonly %0, ptr 
   br i1 %42, label %.lr.ph169, label %.critedge2, !llvm.loop !25
 
 .critedge2:                                       ; preds = %.lr.ph169, %36, %.critedge
-  %.0100.lcssa = phi ptr [ %10, %.critedge ], [ %40, %36 ], [ %.0100168, %.lr.ph169 ]
+  %.0103.lcssa = phi ptr [ %10, %.critedge ], [ %40, %36 ], [ %.0103168, %.lr.ph169 ]
   %.lcssa130 = phi i32 [ %29, %.critedge ], [ %41, %36 ], [ 32, %.lr.ph169 ]
-  %43 = icmp eq ptr %.0101.lcssa, %.0100.lcssa
+  %43 = icmp eq ptr %.0104.lcssa, %.0103.lcssa
   br i1 %43, label %.critedge120, label %44
 
 44:                                               ; preds = %.critedge2
   %45 = icmp ugt i32 %.lcssa, %.lcssa130
-  %spec.select = select i1 %45, ptr %.0100.lcssa, ptr %.0101.lcssa
-  %spec.select118 = select i1 %45, ptr %.0101.lcssa, ptr %.0100.lcssa
+  %spec.select = select i1 %45, ptr %.0103.lcssa, ptr %.0104.lcssa
+  %spec.select118 = select i1 %45, ptr %.0104.lcssa, ptr %.0103.lcssa
   %46 = load i32, ptr %spec.select, align 8
   switch i32 %46, label %192 [
     i32 36, label %47
@@ -6042,7 +6042,7 @@ define dso_local ptr @type_find_max_type(ptr nocapture noundef readonly %0, ptr 
   br label %.preheader
 
 .lr.ph176:                                        ; preds = %.preheader, %type_flatten.exit
-  %.0104175 = phi ptr [ %74, %type_flatten.exit ], [ %51, %.preheader ]
+  %.0100175 = phi ptr [ %74, %type_flatten.exit ], [ %51, %.preheader ]
   %63 = phi i32 [ %.pr, %type_flatten.exit ], [ %52, %.preheader ]
   %64 = add i32 %63, -3
   %65 = icmp ult i32 %64, 15
@@ -6061,7 +6061,7 @@ define dso_local ptr @type_find_max_type(ptr nocapture noundef readonly %0, ptr 
   br i1 %72, label %type_flatten.exit, label %.thread123
 
 type_flatten.exit:                                ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %.0104175, i64 56
+  %73 = getelementptr inbounds i8, ptr %.0100175, i64 56
   %74 = load ptr, ptr %73, align 8
   %.pr = load i32, ptr %74, align 8
   %75 = icmp eq i32 %.pr, 31
@@ -6112,8 +6112,8 @@ tailrecurse:                                      ; preds = %48
   br label %105
 
 105:                                              ; preds = %101, %92
-  %.0105 = phi i32 [ %104, %101 ], [ %99, %92 ]
-  %106 = add i32 %.0105, -13
+  %.0102 = phi i32 [ %104, %101 ], [ %99, %92 ]
+  %106 = add i32 %.0102, -13
   %107 = icmp ult i32 %106, 5
   br i1 %107, label %.critedge120, label %.thread124
 
@@ -6267,8 +6267,8 @@ tailrecurse:                                      ; preds = %48
   unreachable
 
 .critedge120:                                     ; preds = %tailrecurse, %9, %13, %.critedge2, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %48, %.lr.ph176, %.thread, %2, %90, %169, %188, %188, %188, %188, %175, %152, %130, %109, %105, %190, %177, %173, %167, %147, %116, %112, %.thread124, %.thread123
-  %.0103 = phi ptr [ null, %190 ], [ %187, %177 ], [ %174, %173 ], [ %148, %147 ], [ %168, %167 ], [ %119, %116 ], [ %115, %112 ], [ %108, %.thread124 ], [ %89, %.thread123 ], [ %spec.select118, %105 ], [ %spec.select118, %109 ], [ %spec.select118, %130 ], [ %spec.select118, %152 ], [ null, %175 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select121, %169 ], [ %spec.select118, %90 ], [ %4, %2 ], [ %spec.select118, %.thread ], [ %spec.select118, %.lr.ph176 ], [ %85, %tailrecurse ], [ %10, %9 ], [ %11, %13 ], [ %.0101.lcssa, %.critedge2 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ %spec.select118, %48 ]
-  ret ptr %.0103
+  %.0106 = phi ptr [ null, %190 ], [ %187, %177 ], [ %174, %173 ], [ %148, %147 ], [ %168, %167 ], [ %119, %116 ], [ %115, %112 ], [ %108, %.thread124 ], [ %89, %.thread123 ], [ %spec.select118, %105 ], [ %spec.select118, %109 ], [ %spec.select118, %130 ], [ %spec.select118, %152 ], [ null, %175 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select118, %188 ], [ %spec.select121, %169 ], [ %spec.select118, %90 ], [ %4, %2 ], [ %spec.select118, %.thread ], [ %spec.select118, %.lr.ph176 ], [ %85, %tailrecurse ], [ %10, %9 ], [ %11, %13 ], [ %.0104.lcssa, %.critedge2 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ null, %44 ], [ %spec.select118, %48 ]
+  ret ptr %.0106
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6449,8 +6449,8 @@ type_find_parent_type.exit.i40:                   ; preds = %83, %75
   br label %type_is_subtype.exit
 
 type_is_subtype.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i37, %.loopexit, %2, %4, %90, %24, %10
-  %.029 = phi ptr [ %11, %10 ], [ %25, %24 ], [ %91, %90 ], [ null, %4 ], [ null, %2 ], [ null, %.loopexit ], [ %1, %.lr.ph.i37 ], [ %0, %.lr.ph.i ]
-  ret ptr %.029
+  %.0 = phi ptr [ %11, %10 ], [ %25, %24 ], [ %91, %90 ], [ null, %4 ], [ null, %2 ], [ null, %.loopexit ], [ %1, %.lr.ph.i37 ], [ %0, %.lr.ph.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6493,8 +6493,8 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly %0, ptr nou
 
 .preheader60:                                     ; preds = %13, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %13 ]
-  %.03963 = phi ptr [ %35, %37 ], [ %6, %13 ]
-  %22 = getelementptr inbounds i8, ptr %.03963, i64 56
+  %.03864 = phi ptr [ %35, %37 ], [ %6, %13 ]
+  %22 = getelementptr inbounds i8, ptr %.03864, i64 56
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 104
   %25 = load ptr, ptr %24, align 8
@@ -6607,8 +6607,8 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly %0, ptr nou
   br i1 %.not55, label %.loopexit58, label %.lr.ph67.split
 
 .loopexit58:                                      ; preds = %31, %..loopexit_crit_edge.us, %.lr.ph67.split.us, %56, %.loopexit, %.lr.ph67.split, %.preheader, %13, %20, %14, %10, %4, %2
-  %.040 = phi ptr [ %0, %2 ], [ %6, %4 ], [ null, %10 ], [ %21, %20 ], [ null, %14 ], [ null, %13 ], [ null, %.preheader ], [ null, %.lr.ph67.split ], [ null, %.loopexit ], [ %54, %56 ], [ null, %.lr.ph67.split.us ], [ null, %..loopexit_crit_edge.us ], [ %8, %31 ]
-  ret ptr %.040
+  %.037 = phi ptr [ %0, %2 ], [ %6, %4 ], [ null, %10 ], [ %21, %20 ], [ null, %14 ], [ null, %13 ], [ null, %.preheader ], [ null, %.lr.ph67.split ], [ null, %.loopexit ], [ %54, %56 ], [ null, %.lr.ph67.split.us ], [ null, %..loopexit_crit_edge.us ], [ %8, %31 ]
+  ret ptr %.037
 }
 
 ; Function Attrs: nounwind uwtable

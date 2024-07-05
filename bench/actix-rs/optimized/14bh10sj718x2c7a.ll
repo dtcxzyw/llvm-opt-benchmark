@@ -343,8 +343,8 @@ select.unfold:                                    ; preds = %60, %59
   %80 = bitcast i32 %.sroa.6.0.extract.trunc.i to float
   %81 = fcmp oge float %80, 0.000000e+00
   %82 = fcmp ole float %80, 1.000000e+00
-  %.0.i = and i1 %81, %82
-  br i1 %.0.i, label %84, label %86
+  %.014.i = and i1 %81, %82
+  br i1 %.014.i, label %84, label %86
 
 83:                                               ; preds = %.thread196
   %.sroa.387.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16

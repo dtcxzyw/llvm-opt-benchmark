@@ -1689,12 +1689,12 @@ if.end.i.i:                                       ; preds = %_ZN3url12_GLOBAL__N
   br label %for.cond.i.i.outer
 
 for.cond.i.i.outer:                               ; preds = %if.then53.i.i, %if.end.i.i
-  %i.0.i.i.ph = phi i32 [ %add54.i.i, %if.then53.i.i ], [ %add.i, %if.end.i.i ]
-  %ref.tmp.sroa.0.0.insert.ext.i.i = zext i32 %i.0.i.i.ph to i64
+  %cur_component_begin.0.i.i.ph = phi i32 [ %add54.i.i, %if.then53.i.i ], [ %add.i, %if.end.i.i ]
+  %ref.tmp.sroa.0.0.insert.ext.i.i = zext i32 %cur_component_begin.0.i.i.ph to i64
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.outer, %if.end60.for.inc_crit_edge.i.i
-  %i.0.i.i = phi i32 [ %.pre.i.i, %if.end60.for.inc_crit_edge.i.i ], [ %i.0.i.i.ph, %for.cond.i.i.outer ]
+  %i.0.i.i = phi i32 [ %.pre.i.i, %if.end60.for.inc_crit_edge.i.i ], [ %cur_component_begin.0.i.i.ph, %for.cond.i.i.outer ]
   %idxprom.i.i = sext i32 %i.0.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %spec, i64 %idxprom.i.i
   %5 = load i8, ptr %arrayidx.i.i, align 1
@@ -1718,12 +1718,12 @@ land.end.i.i:                                     ; preds = %for.cond.i.i
 if.then11.i.i:                                    ; preds = %land.end.i.i, %land.end.thread.i.i
   %cmp1055.i.i = phi i1 [ %cmp1053.i.i, %land.end.thread.i.i ], [ %cmp10.i.i, %land.end.i.i ]
   %7 = phi i1 [ %cmp7.i.i, %land.end.thread.i.i ], [ false, %land.end.i.i ]
-  %sub12.i.i = sub nsw i32 %i.0.i.i, %i.0.i.i.ph
+  %sub12.i.i = sub nsw i32 %i.0.i.i, %cur_component_begin.0.i.i.ph
   %cmp13.i.i = icmp sgt i32 %sub12.i.i, 4
   br i1 %cmp13.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then11.i.i
-  %cmp16.i.i = icmp ne i32 %i.0.i.i, %i.0.i.i.ph
+  %cmp16.i.i = icmp ne i32 %i.0.i.i, %cur_component_begin.0.i.i.ph
   %cmp20.i.i = icmp eq i32 %i.0.i.i, %add.i
   %or.cond45.i.i = select i1 %7, i1 %cmp20.i.i, i1 false
   %or.cond46.i.i = select i1 %cmp16.i.i, i1 true, i1 %or.cond45.i.i
@@ -1821,10 +1821,10 @@ if.then64.i.i:                                    ; preds = %if.end60.i.i
   br i1 %tobool.i.i51.not.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit, label %if.then68.i.i
 
 if.then68.i.i:                                    ; preds = %if.then64.i.i
-  %sub70.i.i = sub nsw i32 %add.i.i.i, %i.0.i.i.ph
+  %sub70.i.i = sub nsw i32 %add.i.i.i, %cur_component_begin.0.i.i.ph
   %ref.tmp69.sroa.2.0.insert.ext.i.i = zext i32 %sub70.i.i to i64
   %ref.tmp69.sroa.2.0.insert.shift.i.i = shl nuw i64 %ref.tmp69.sroa.2.0.insert.ext.i.i, 32
-  %ref.tmp69.sroa.0.0.insert.ext.i.i = zext i32 %i.0.i.i.ph to i64
+  %ref.tmp69.sroa.0.0.insert.ext.i.i = zext i32 %cur_component_begin.0.i.i.ph to i64
   %ref.tmp69.sroa.0.0.insert.insert.i.i = or disjoint i64 %ref.tmp69.sroa.2.0.insert.shift.i.i, %ref.tmp69.sroa.0.0.insert.ext.i.i
   store i64 %ref.tmp69.sroa.0.0.insert.insert.i.i, ptr %ipv4_component.i.i, align 4
   br label %if.end11.i
@@ -2051,12 +2051,12 @@ if.end.i.i:                                       ; preds = %_ZN3url12_GLOBAL__N
   br label %for.cond.i.i.outer
 
 for.cond.i.i.outer:                               ; preds = %if.then53.i.i, %if.end.i.i
-  %i.0.i.i.ph = phi i32 [ %add54.i.i, %if.then53.i.i ], [ %add.i, %if.end.i.i ]
-  %ref.tmp.sroa.0.0.insert.ext.i.i = zext i32 %i.0.i.i.ph to i64
+  %cur_component_begin.0.i.i.ph = phi i32 [ %add54.i.i, %if.then53.i.i ], [ %add.i, %if.end.i.i ]
+  %ref.tmp.sroa.0.0.insert.ext.i.i = zext i32 %cur_component_begin.0.i.i.ph to i64
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.outer, %if.end60.for.inc_crit_edge.i.i
-  %i.0.i.i = phi i32 [ %.pre.i.i, %if.end60.for.inc_crit_edge.i.i ], [ %i.0.i.i.ph, %for.cond.i.i.outer ]
+  %i.0.i.i = phi i32 [ %.pre.i.i, %if.end60.for.inc_crit_edge.i.i ], [ %cur_component_begin.0.i.i.ph, %for.cond.i.i.outer ]
   %idxprom.i.i = sext i32 %i.0.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i16, ptr %spec, i64 %idxprom.i.i
   %5 = load i16, ptr %arrayidx.i.i, align 2
@@ -2080,12 +2080,12 @@ land.end.i.i:                                     ; preds = %for.cond.i.i
 if.then11.i.i:                                    ; preds = %land.end.i.i, %land.end.thread.i.i
   %cmp1055.i.i = phi i1 [ %cmp1053.i.i, %land.end.thread.i.i ], [ %cmp10.i.i, %land.end.i.i ]
   %7 = phi i1 [ %cmp7.i.i, %land.end.thread.i.i ], [ false, %land.end.i.i ]
-  %sub12.i.i = sub nsw i32 %i.0.i.i, %i.0.i.i.ph
+  %sub12.i.i = sub nsw i32 %i.0.i.i, %cur_component_begin.0.i.i.ph
   %cmp13.i.i = icmp sgt i32 %sub12.i.i, 4
   br i1 %cmp13.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then11.i.i
-  %cmp16.i.i = icmp ne i32 %i.0.i.i, %i.0.i.i.ph
+  %cmp16.i.i = icmp ne i32 %i.0.i.i, %cur_component_begin.0.i.i.ph
   %cmp20.i.i = icmp eq i32 %i.0.i.i, %add.i
   %or.cond45.i.i = select i1 %7, i1 %cmp20.i.i, i1 false
   %or.cond46.i.i = select i1 %cmp16.i.i, i1 true, i1 %or.cond45.i.i
@@ -2183,10 +2183,10 @@ if.then65.i.i:                                    ; preds = %if.end60.i.i
   br i1 %tobool.i.i51.not.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit, label %if.then70.i.i
 
 if.then70.i.i:                                    ; preds = %if.then65.i.i
-  %sub72.i.i = sub nsw i32 %add.i.i.i, %i.0.i.i.ph
+  %sub72.i.i = sub nsw i32 %add.i.i.i, %cur_component_begin.0.i.i.ph
   %ref.tmp71.sroa.2.0.insert.ext.i.i = zext i32 %sub72.i.i to i64
   %ref.tmp71.sroa.2.0.insert.shift.i.i = shl nuw i64 %ref.tmp71.sroa.2.0.insert.ext.i.i, 32
-  %ref.tmp71.sroa.0.0.insert.ext.i.i = zext i32 %i.0.i.i.ph to i64
+  %ref.tmp71.sroa.0.0.insert.ext.i.i = zext i32 %cur_component_begin.0.i.i.ph to i64
   %ref.tmp71.sroa.0.0.insert.insert.i.i = or disjoint i64 %ref.tmp71.sroa.2.0.insert.shift.i.i, %ref.tmp71.sroa.0.0.insert.ext.i.i
   store i64 %ref.tmp71.sroa.0.0.insert.insert.i.i, ptr %ipv4_component.i.i, align 4
   br label %if.end11.i

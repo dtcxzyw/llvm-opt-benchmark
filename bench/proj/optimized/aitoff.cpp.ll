@@ -205,13 +205,13 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
   br label %11
 
 11:                                               ; preds = %.preheader, %162
-  %.0147 = phi i32 [ %163, %162 ], [ 0, %.preheader ]
+  %.0143 = phi i32 [ %163, %162 ], [ 0, %.preheader ]
   %.sroa.12.0 = phi double [ %.sroa.12.3, %162 ], [ %1, %.preheader ]
   %.sroa.0119.0 = phi double [ %.sroa.0119.2, %162 ], [ %0, %.preheader ]
   br label %12
 
 12:                                               ; preds = %110, %11
-  %.0149 = phi i32 [ 0, %11 ], [ %111, %110 ]
+  %.0141 = phi i32 [ 0, %11 ], [ %111, %110 ]
   %.sroa.12.1 = phi double [ %.sroa.12.0, %11 ], [ %104, %110 ]
   %.sroa.0119.1 = phi double [ %.sroa.0119.0, %11 ], [ %105, %110 ]
   %13 = fmul double %.sroa.0119.1, 5.000000e-01
@@ -292,20 +292,20 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
   br label %82
 
 82:                                               ; preds = %71, %25
-  %.0146 = phi double [ %74, %71 ], [ %31, %25 ]
-  %.0145 = phi double [ %76, %71 ], [ %33, %25 ]
-  %.0144 = phi double [ %77, %71 ], [ %41, %25 ]
-  %.0141 = phi double [ %81, %71 ], [ %68, %25 ]
+  %.0150 = phi double [ %74, %71 ], [ %31, %25 ]
+  %.0149 = phi double [ %76, %71 ], [ %33, %25 ]
+  %.0148 = phi double [ %77, %71 ], [ %41, %25 ]
+  %.0145 = phi double [ %81, %71 ], [ %68, %25 ]
   %83 = phi <2 x double> [ %80, %71 ], [ %60, %25 ]
-  %84 = fsub double %.0146, %0
-  %85 = fsub double %.0145, %1
+  %84 = fsub double %.0150, %0
+  %85 = fsub double %.0149, %1
   %86 = shufflevector <2 x double> %83, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
   %87 = insertelement <2 x double> %86, double %84, i64 0
   %88 = fneg <2 x double> %87
   %89 = fmul <2 x double> %83, %88
   %90 = insertelement <2 x double> poison, double %85, i64 0
-  %91 = insertelement <2 x double> %90, double %.0141, i64 1
-  %92 = insertelement <2 x double> poison, double %.0144, i64 0
+  %91 = insertelement <2 x double> %90, double %.0145, i64 1
+  %92 = insertelement <2 x double> poison, double %.0148, i64 0
   %93 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> zeroinitializer
   %94 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %91, <2 x double> %93, <2 x double> %89)
   %95 = extractelement <2 x double> %94, i64 0
@@ -314,7 +314,7 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
   %98 = fneg double %85
   %99 = extractelement <2 x double> %83, i64 1
   %100 = fmul double %99, %98
-  %101 = tail call double @llvm.fmuladd.f64(double %84, double %.0141, double %100)
+  %101 = tail call double @llvm.fmuladd.f64(double %84, double %.0145, double %100)
   %102 = fdiv double %101, %96
   %103 = tail call double @fmod(double noundef %97, double noundef 0x400921FB54442D18) #8
   %104 = fsub double %.sroa.12.1, %102
@@ -327,12 +327,12 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
   br i1 %or.cond157, label %110, label %.critedge
 
 110:                                              ; preds = %82
-  %111 = add nuw nsw i32 %.0149, 1
+  %111 = add nuw nsw i32 %.0141, 1
   %exitcond.not = icmp eq i32 %111, 11
   br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !4
 
 .critedge:                                        ; preds = %82, %110
-  %.1150 = phi i32 [ 11, %110 ], [ %.0149, %82 ]
+  %.1142 = phi i32 [ 11, %110 ], [ %.0141, %82 ]
   %112 = fcmp ogt double %104, 0x3FF921FB54442D18
   %113 = fadd double %104, 0xBFF921FB54442D18
   %114 = tail call double @llvm.fmuladd.f64(double %113, double -2.000000e+00, double %104)
@@ -409,13 +409,13 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
   br i1 %161, label %162, label %.critedge2
 
 162:                                              ; preds = %158, %154
-  %163 = add nuw nsw i32 %.0147, 1
+  %163 = add nuw nsw i32 %.0143, 1
   %exitcond178.not = icmp eq i32 %163, 21
   br i1 %exitcond178.not, label %.critedge2.thread, label %11, !llvm.loop !6
 
 .critedge2:                                       ; preds = %158
-  %164 = icmp eq i32 %.1150, 10
-  %165 = icmp eq i32 %.0147, 20
+  %164 = icmp eq i32 %.1142, 10
+  %165 = icmp eq i32 %.0143, 20
   %or.cond158 = and i1 %164, %165
   br i1 %or.cond158, label %166, label %.critedge2.thread
 

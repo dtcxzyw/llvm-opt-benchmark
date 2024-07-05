@@ -15,8 +15,8 @@ define void @softfloat_sub256M(ptr nocapture noundef readonly %0, ptr nocapture 
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %7 ]
   %8 = phi i64 [ %5, %3 ], [ %16, %7 ]
   %9 = phi i64 [ %4, %3 ], [ %14, %7 ]
-  %.020 = phi i8 [ 0, %3 ], [ %12, %7 ]
-  %.not = icmp eq i8 %.020, 0
+  %.01519 = phi i8 [ 0, %3 ], [ %12, %7 ]
+  %.not = icmp eq i8 %.01519, 0
   %10 = icmp ule i64 %9, %8
   %11 = icmp ult i64 %9, %8
   %.in = select i1 %.not, i1 %11, i1 %10

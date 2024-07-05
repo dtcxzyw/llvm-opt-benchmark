@@ -967,8 +967,8 @@ define void @_ZN15SequenceDiagram7setDataEP18_seq_analysis_info(ptr nocapture no
 
 47:                                               ; preds = %.lr.ph, %121
   %.024199 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %121 ]
-  %.031198 = phi ptr [ %29, %.lr.ph ], [ %123, %121 ]
-  %48 = load ptr, ptr %.031198, align 8
+  %.025198 = phi ptr [ %29, %.lr.ph ], [ %123, %121 ]
+  %48 = load ptr, ptr %.025198, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 112
   %50 = load i32, ptr %49, align 8
   %.not36 = icmp eq i32 %50, 0
@@ -1230,7 +1230,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i72:    ; preds = %_ZN7QStringD2Ev.exi
 
 121:                                              ; preds = %47, %_ZN7QStringD2Ev.exit62
   %.1 = phi double [ %102, %_ZN7QStringD2Ev.exit62 ], [ %.024199, %47 ]
-  %122 = getelementptr inbounds i8, ptr %.031198, i64 8
+  %122 = getelementptr inbounds i8, ptr %.025198, i64 8
   %123 = load ptr, ptr %122, align 8
   %.not33 = icmp eq ptr %123, null
   br i1 %.not33, label %.preheader, label %47, !llvm.loop !12
@@ -2897,12 +2897,12 @@ _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit: ; preds = %98, %92
 .lr.ph431:                                        ; preds = %193, %_ZN5QListIdED2Ev.exit224.thread
   %199 = phi ptr [ %239, %_ZN5QListIdED2Ev.exit224.thread ], [ %194, %193 ]
   %200 = phi double [ %238, %_ZN5QListIdED2Ev.exit224.thread ], [ %197, %193 ]
-  %.0144429 = phi i32 [ %237, %_ZN5QListIdED2Ev.exit224.thread ], [ %196, %193 ]
-  %201 = icmp sgt i32 %.0144429, -1
+  %.0143429 = phi i32 [ %237, %_ZN5QListIdED2Ev.exit224.thread ], [ %196, %193 ]
+  %201 = icmp sgt i32 %.0143429, -1
   br i1 %201, label %202, label %_ZN5QListIdED2Ev.exit224.thread
 
 202:                                              ; preds = %.lr.ph431
-  %203 = zext nneg i32 %.0144429 to i64
+  %203 = zext nneg i32 %.0143429 to i64
   %204 = getelementptr inbounds i8, ptr %199, i64 360
   %205 = load ptr, ptr %204, align 8, !noalias !52
   %206 = getelementptr inbounds i8, ptr %199, i64 376
@@ -2982,7 +2982,7 @@ _ZN10QCPPainter8drawLineERK7QPointFS2_.exit233:   ; preds = %227
   br label %_ZN5QListIdED2Ev.exit224.thread
 
 _ZN5QListIdED2Ev.exit224.thread:                  ; preds = %.lr.ph431, %210, %.thread394, %_ZN10QCPPainter8drawLineERK7QPointFS2_.exit233, %_ZN5QListIdED2Ev.exit224
-  %237 = add i32 %.0144429, 1
+  %237 = add i32 %.0143429, 1
   %238 = sitofp i32 %237 to double
   %239 = load ptr, ptr %43, align 8
   %.sroa.2.0..sroa_idx.i215 = getelementptr inbounds i8, ptr %239, i64 312

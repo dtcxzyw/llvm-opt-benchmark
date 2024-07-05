@@ -1236,7 +1236,7 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   ret void
 
 71:                                               ; preds = %54, %69
-  %.138.ph = phi i1 [ true, %69 ], [ false, %54 ]
+  %.1.ph = phi i1 [ true, %69 ], [ false, %54 ]
   %72 = load i64, ptr %1, align 8, !range !3, !noundef !4
   %73 = add nsw i64 %72, -8
   %74 = icmp ugt i64 %73, 3
@@ -1253,7 +1253,7 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %78
-  br i1 %.138.ph, label %82, label %70
+  br i1 %.1.ph, label %82, label %70
 
 81:                                               ; preds = %78
   call void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..value..Value$GT$17h1c8d1d4c864c20a8E"(ptr nonnull align 8 %1)
@@ -1265,17 +1265,17 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   br label %70
 
 .thread57:                                        ; preds = %.invoke, %54, %65, %55, %46, %43, %24, %26, %6
-  %.037.ph = phi i1 [ true, %6 ], [ true, %26 ], [ true, %24 ], [ true, %43 ], [ true, %46 ], [ true, %55 ], [ true, %65 ], [ false, %54 ], [ true, %.invoke ]
+  %.0.ph = phi i1 [ true, %6 ], [ true, %26 ], [ true, %24 ], [ true, %43 ], [ true, %46 ], [ true, %55 ], [ true, %65 ], [ false, %54 ], [ true, %.invoke ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %85
 
 84:                                               ; preds = %96, %95, %94, %91
-  resume { ptr, i32 } %.pn53
+  resume { ptr, i32 } %.pn55
 
 85:                                               ; preds = %.thread57, %.thread48
-  %.23954 = phi i1 [ false, %.thread48 ], [ %.037.ph, %.thread57 ]
-  %.pn53 = phi { ptr, i32 } [ %52, %.thread48 ], [ %lpad.thr_comm, %.thread57 ]
+  %.pn55 = phi { ptr, i32 } [ %52, %.thread48 ], [ %lpad.thr_comm, %.thread57 ]
+  %.253 = phi i1 [ false, %.thread48 ], [ %.0.ph, %.thread57 ]
   %86 = load i64, ptr %1, align 8, !range !3, !noundef !4
   %87 = add nsw i64 %86, -8
   %88 = icmp ugt i64 %87, 3
@@ -1292,7 +1292,7 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %92
-  br i1 %.23954, label %96, label %84
+  br i1 %.253, label %96, label %84
 
 95:                                               ; preds = %92
   invoke void @"_ZN4core3ptr44drop_in_place$LT$toml_edit..value..Value$GT$17h1c8d1d4c864c20a8E"(ptr nonnull align 8 %1) #7

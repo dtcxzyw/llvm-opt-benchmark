@@ -10,12 +10,12 @@ define noundef ptr @bsearch_arg(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %14
-  %.023 = phi i32 [ %18, %14 ], [ %7, %6 ]
-  %.01722 = phi ptr [ %.118, %14 ], [ %1, %6 ]
-  %8 = ashr i32 %.023, 1
+  %.01723 = phi ptr [ %.1, %14 ], [ %1, %6 ]
+  %.01822 = phi i32 [ %18, %14 ], [ %7, %6 ]
+  %8 = ashr i32 %.01822, 1
   %9 = sext i32 %8 to i64
   %10 = mul i64 %9, %3
-  %11 = getelementptr i8, ptr %.01722, i64 %10
+  %11 = getelementptr i8, ptr %.01723, i64 %10
   %12 = tail call i32 %4(ptr noundef %0, ptr noundef %11, ptr noundef %5) #1
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %._crit_edge, label %14
@@ -23,16 +23,16 @@ define noundef ptr @bsearch_arg(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
 14:                                               ; preds = %.lr.ph
   %15 = icmp sgt i32 %12, 0
   %16 = getelementptr i8, ptr %11, i64 %3
-  %.118 = select i1 %15, ptr %16, ptr %.01722
   %17 = sext i1 %15 to i32
-  %.1 = add i32 %.023, %17
-  %18 = ashr i32 %.1, 1
-  %.not = icmp ult i32 %.1, 2
+  %.119 = add i32 %.01822, %17
+  %.1 = select i1 %15, ptr %16, ptr %.01723
+  %18 = ashr i32 %.119, 1
+  %.not = icmp ult i32 %.119, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14, %6
-  %.019 = phi ptr [ null, %6 ], [ null, %14 ], [ %11, %.lr.ph ]
-  ret ptr %.019
+  %.0 = phi ptr [ null, %6 ], [ null, %14 ], [ %11, %.lr.ph ]
+  ret ptr %.0
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

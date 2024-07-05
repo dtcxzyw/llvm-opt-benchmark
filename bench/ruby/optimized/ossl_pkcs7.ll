@@ -690,8 +690,8 @@ define internal noundef i64 @ossl_pkcs7_initialize(i32 noundef %0, ptr noundef %
   call void @ossl_clear_error() #7
   %18 = call ptr @PEM_read_bio_PKCS7(ptr noundef %13, ptr noundef null, ptr noundef null, ptr noundef null) #7
   %19 = call i32 @BIO_free(ptr noundef %13) #7
-  %.not18 = icmp eq ptr %18, null
-  br i1 %.not18, label %20, label %22
+  %.not17 = icmp eq ptr %18, null
+  br i1 %.not17, label %20, label %22
 
 20:                                               ; preds = %16
   %21 = load i64, ptr @rb_eArgError, align 8
@@ -699,8 +699,8 @@ define internal noundef i64 @ossl_pkcs7_initialize(i32 noundef %0, ptr noundef %
   unreachable
 
 22:                                               ; preds = %.thread, %16
-  %.021 = phi ptr [ %14, %.thread ], [ %18, %16 ]
-  store ptr %.021, ptr %6, align 8
+  %.01620 = phi ptr [ %14, %.thread ], [ %18, %16 ]
+  store ptr %.01620, ptr %6, align 8
   call void @PKCS7_free(ptr noundef %7) #7
   %23 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.52, i64 noundef 4) #7
   %24 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.53, i64 noundef 4) #7
@@ -1139,8 +1139,8 @@ define internal i64 @ossl_pkcs7_get_signer(i64 noundef %0) #0 {
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %ossl_pkcs7si_new.exit
-  %.018 = phi i32 [ %45, %ossl_pkcs7si_new.exit ], [ 0, %24 ]
-  %27 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %6, i32 noundef %.018) #7
+  %.01318 = phi i32 [ %45, %ossl_pkcs7si_new.exit ], [ 0, %24 ]
+  %27 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %6, i32 noundef %.01318) #7
   %28 = load i64, ptr @cPKCS7Signer, align 8
   %29 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %28, ptr noundef null, ptr noundef nonnull @ossl_pkcs7_signer_info_type) #7
   %.not.i = icmp eq ptr %27, null
@@ -1180,13 +1180,13 @@ ossl_pkcs7si_new.exit:                            ; preds = %32, %35, %ossl_PKCS
   %43 = getelementptr inbounds i8, ptr %42, i64 32
   store ptr %41, ptr %43, align 8
   %44 = tail call i64 @rb_ary_push(i64 noundef %26, i64 noundef %29) #7
-  %45 = add nuw nsw i32 %.018, 1
+  %45 = add nuw nsw i32 %.01318, 1
   %exitcond.not = icmp eq i32 %45, %20
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %ossl_pkcs7si_new.exit, %24, %17
-  %.013 = phi i64 [ %18, %17 ], [ %26, %24 ], [ %26, %ossl_pkcs7si_new.exit ]
-  ret i64 %.013
+  %.0 = phi i64 [ %18, %17 ], [ %26, %24 ], [ %26, %ossl_pkcs7si_new.exit ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1289,8 +1289,8 @@ define internal i64 @ossl_pkcs7_get_recipient(i64 noundef %0) #0 {
   br i1 %.not25, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %ossl_pkcs7ri_new.exit
-  %.024 = phi i32 [ %41, %ossl_pkcs7ri_new.exit ], [ 0, %24 ]
-  %27 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %.018, i32 noundef %.024) #7
+  %.01724 = phi i32 [ %41, %ossl_pkcs7ri_new.exit ], [ 0, %24 ]
+  %27 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %.018, i32 noundef %.01724) #7
   %28 = load i64, ptr @cPKCS7Recipient, align 8
   %29 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %28, ptr noundef null, ptr noundef nonnull @ossl_pkcs7_recip_info_type) #7
   %.not.i = icmp eq ptr %27, null
@@ -1319,13 +1319,13 @@ ossl_pkcs7ri_new.exit:                            ; preds = %34
   %39 = getelementptr inbounds i8, ptr %38, i64 32
   store ptr %35, ptr %39, align 8
   %40 = tail call i64 @rb_ary_push(i64 noundef %26, i64 noundef %29) #7
-  %41 = add nuw nsw i32 %.024, 1
+  %41 = add nuw nsw i32 %.01724, 1
   %exitcond.not = icmp eq i32 %41, %20
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %ossl_pkcs7ri_new.exit, %24, %.thread
-  %.017 = phi i64 [ %18, %.thread ], [ %26, %24 ], [ %26, %ossl_pkcs7ri_new.exit ]
-  ret i64 %.017
+  %.0 = phi i64 [ %18, %.thread ], [ %26, %24 ], [ %26, %ossl_pkcs7ri_new.exit ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable

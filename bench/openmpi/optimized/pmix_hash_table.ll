@@ -284,8 +284,8 @@ define range(i32 -46, 1) i32 @pmix_hash_table_get_value_uint32(ptr nocapture nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %3, %22
-  %.014 = phi i32 [ 0, %22 ], [ -46, %3 ], [ -46, %13 ]
-  ret i32 %.014
+  %.0 = phi i32 [ 0, %22 ], [ -46, %3 ], [ -46, %13 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -356,8 +356,8 @@ define i32 @pmix_hash_table_set_value_uint32(ptr noundef %0, i32 noundef %1, ptr
   br label %37
 
 37:                                               ; preds = %28, %35, %30
-  %.027 = phi i32 [ 0, %35 ], [ 0, %30 ], [ %29, %28 ]
-  ret i32 %.027
+  %.0 = phi i32 [ 0, %35 ], [ 0, %30 ], [ %29, %28 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -422,9 +422,9 @@ pmix_tma_calloc.exit:                             ; preds = %20, %24
   br label %37
 
 37:                                               ; preds = %37, %31
-  %.0 = phi i64 [ %36, %31 ], [ %41, %37 ]
-  %38 = icmp eq i64 %.0, %19
-  %spec.store.select = select i1 %38, i64 0, i64 %.0
+  %.038 = phi i64 [ %36, %31 ], [ %41, %37 ]
+  %38 = icmp eq i64 %.038, %19
+  %spec.store.select = select i1 %38, i64 0, i64 %.038
   %39 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %.0.i, i64 %spec.store.select
   %40 = load i32, ptr %39, align 8
   %.not40 = icmp eq i32 %40, 0
@@ -466,8 +466,8 @@ pmix_tma_calloc.exit:                             ; preds = %20, %24
   br label %pmix_tma_free.exit
 
 pmix_tma_free.exit:                               ; preds = %57, %54, %pmix_tma_calloc.exit
-  %.038 = phi i32 [ -29, %pmix_tma_calloc.exit ], [ 0, %54 ], [ 0, %57 ]
-  ret i32 %.038
+  %.0 = phi i32 [ -29, %pmix_tma_calloc.exit ], [ 0, %54 ], [ 0, %57 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -569,8 +569,8 @@ pmix_hash_table_remove_elt_at.exit:               ; preds = %.loopexit.i, %20
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %44, %2, %pmix_hash_table_remove_elt_at.exit
-  %.014 = phi i32 [ 0, %pmix_hash_table_remove_elt_at.exit ], [ -46, %2 ], [ -46, %44 ]
-  ret i32 %.014
+  %.0 = phi i32 [ 0, %pmix_hash_table_remove_elt_at.exit ], [ -46, %2 ], [ -46, %44 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -611,8 +611,8 @@ define range(i32 -46, 1) i32 @pmix_hash_table_get_value_uint64(ptr nocapture nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %3, %21
-  %.014 = phi i32 [ 0, %21 ], [ -46, %3 ], [ -46, %12 ]
-  ret i32 %.014
+  %.0 = phi i32 [ 0, %21 ], [ -46, %3 ], [ -46, %12 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -682,8 +682,8 @@ define i32 @pmix_hash_table_set_value_uint64(ptr noundef %0, i64 noundef %1, ptr
   br label %36
 
 36:                                               ; preds = %27, %34, %29
-  %.027 = phi i32 [ 0, %34 ], [ 0, %29 ], [ %28, %27 ]
-  ret i32 %.027
+  %.0 = phi i32 [ 0, %34 ], [ 0, %29 ], [ %28, %27 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -784,8 +784,8 @@ pmix_hash_table_remove_elt_at.exit:               ; preds = %.loopexit.i, %19
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %43, %2, %pmix_hash_table_remove_elt_at.exit
-  %.014 = phi i32 [ 0, %pmix_hash_table_remove_elt_at.exit ], [ -46, %2 ], [ -46, %43 ]
-  ret i32 %.014
+  %.0 = phi i32 [ 0, %pmix_hash_table_remove_elt_at.exit ], [ -46, %2 ], [ -46, %43 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -851,8 +851,8 @@ pmix_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %4
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %30, %pmix_hash_hash_key_ptr.exit, %27
-  %.018 = phi i32 [ 0, %27 ], [ -46, %pmix_hash_hash_key_ptr.exit ], [ -46, %30 ]
-  ret i32 %.018
+  %.0 = phi i32 [ 0, %27 ], [ -46, %pmix_hash_hash_key_ptr.exit ], [ -46, %30 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1092,8 +1092,8 @@ pmix_hash_table_remove_elt_at.exit:               ; preds = %.loopexit.i, %30
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %54, %pmix_hash_hash_key_ptr.exit, %pmix_hash_table_remove_elt_at.exit
-  %.018 = phi i32 [ 0, %pmix_hash_table_remove_elt_at.exit ], [ -46, %pmix_hash_hash_key_ptr.exit ], [ -46, %54 ]
-  ret i32 %.018
+  %.0 = phi i32 [ 0, %pmix_hash_table_remove_elt_at.exit ], [ -46, %pmix_hash_hash_key_ptr.exit ], [ -46, %54 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1106,13 +1106,13 @@ define range(i32 -1, 1) i32 @pmix_hash_table_get_first_key_uint32(ptr nocapture 
   br i1 %.not, label %pmix_hash_table_get_next_key_uint32.exit, label %.lr.ph.i.i
 
 7:                                                ; preds = %.lr.ph.i.i
-  %8 = add nuw i64 %.01.i.i, 1
+  %8 = add nuw i64 %.0131.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %8, %.val5.i
   br i1 %exitcond.not.i.i, label %pmix_hash_table_get_next_key_uint32.exit, label %.lr.ph.i.i, !llvm.loop !8
 
 .lr.ph.i.i:                                       ; preds = %4, %7
-  %.01.i.i = phi i64 [ %8, %7 ], [ 0, %4 ]
-  %9 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %.val.i, i64 %.01.i.i
+  %.0131.i.i = phi i64 [ %8, %7 ], [ 0, %4 ]
+  %9 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %.val.i, i64 %.0131.i.i
   %10 = load i32, ptr %9, align 8
   %.not.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i, label %7, label %pmix_hash_table_get_next_elt.exit.i
@@ -1155,13 +1155,13 @@ define range(i32 -1, 1) i32 @pmix_hash_table_get_next_key_uint32(ptr nocapture n
   br i1 %17, label %.lr.ph.i, label %pmix_hash_table_get_next_elt.exit.thread
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = add i64 %.01.i, 1
+  %19 = add i64 %.0131.i, 1
   %exitcond.not.i = icmp eq i64 %19, %.val5
   br i1 %exitcond.not.i, label %pmix_hash_table_get_next_elt.exit.thread, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %15, %18
-  %.01.i = phi i64 [ %19, %18 ], [ %16, %15 ]
-  %20 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %.val, i64 %.01.i
+  %.0131.i = phi i64 [ %19, %18 ], [ %16, %15 ]
+  %20 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %.val, i64 %.0131.i
   %21 = load i32, ptr %20, align 8
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %18, label %pmix_hash_table_get_next_elt.exit
@@ -1191,13 +1191,13 @@ define range(i32 -1, 1) i32 @pmix_hash_table_get_first_key_ptr(ptr nocapture nou
   br i1 %.not, label %pmix_hash_table_get_next_key_ptr.exit, label %.lr.ph.i.i
 
 8:                                                ; preds = %.lr.ph.i.i
-  %9 = add nuw i64 %.01.i.i, 1
+  %9 = add nuw i64 %.0131.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %9, %.val6.i
   br i1 %exitcond.not.i.i, label %pmix_hash_table_get_next_key_ptr.exit, label %.lr.ph.i.i, !llvm.loop !8
 
 .lr.ph.i.i:                                       ; preds = %5, %8
-  %.01.i.i = phi i64 [ %9, %8 ], [ 0, %5 ]
-  %10 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %.val.i, i64 %.01.i.i
+  %.0131.i.i = phi i64 [ %9, %8 ], [ 0, %5 ]
+  %10 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %.val.i, i64 %.0131.i.i
   %11 = load i32, ptr %10, align 8
   %.not.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i, label %8, label %pmix_hash_table_get_next_elt.exit.i
@@ -1243,13 +1243,13 @@ define range(i32 -1, 1) i32 @pmix_hash_table_get_next_key_ptr(ptr nocapture noun
   br i1 %18, label %.lr.ph.i, label %pmix_hash_table_get_next_elt.exit.thread
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = add i64 %.01.i, 1
+  %20 = add i64 %.0131.i, 1
   %exitcond.not.i = icmp eq i64 %20, %.val6
   br i1 %exitcond.not.i, label %pmix_hash_table_get_next_elt.exit.thread, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %16, %19
-  %.01.i = phi i64 [ %20, %19 ], [ %17, %16 ]
-  %21 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %.val, i64 %.01.i
+  %.0131.i = phi i64 [ %20, %19 ], [ %17, %16 ]
+  %21 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %.val, i64 %.0131.i
   %22 = load i32, ptr %21, align 8
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %19, label %pmix_hash_table_get_next_elt.exit
@@ -1282,13 +1282,13 @@ define range(i32 -1, 1) i32 @pmix_hash_table_get_first_key_uint64(ptr nocapture 
   br i1 %.not, label %pmix_hash_table_get_next_key_uint64.exit, label %.lr.ph.i.i
 
 7:                                                ; preds = %.lr.ph.i.i
-  %8 = add nuw i64 %.01.i.i, 1
+  %8 = add nuw i64 %.0131.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %8, %.val5.i
   br i1 %exitcond.not.i.i, label %pmix_hash_table_get_next_key_uint64.exit, label %.lr.ph.i.i, !llvm.loop !8
 
 .lr.ph.i.i:                                       ; preds = %4, %7
-  %.01.i.i = phi i64 [ %8, %7 ], [ 0, %4 ]
-  %9 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %.val.i, i64 %.01.i.i
+  %.0131.i.i = phi i64 [ %8, %7 ], [ 0, %4 ]
+  %9 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %.val.i, i64 %.0131.i.i
   %10 = load i32, ptr %9, align 8
   %.not.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i, label %7, label %pmix_hash_table_get_next_elt.exit.i
@@ -1331,13 +1331,13 @@ define range(i32 -1, 1) i32 @pmix_hash_table_get_next_key_uint64(ptr nocapture n
   br i1 %17, label %.lr.ph.i, label %pmix_hash_table_get_next_elt.exit.thread
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = add i64 %.01.i, 1
+  %19 = add i64 %.0131.i, 1
   %exitcond.not.i = icmp eq i64 %19, %.val5
   br i1 %exitcond.not.i, label %pmix_hash_table_get_next_elt.exit.thread, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %15, %18
-  %.01.i = phi i64 [ %19, %18 ], [ %16, %15 ]
-  %20 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %.val, i64 %.01.i
+  %.0131.i = phi i64 [ %19, %18 ], [ %16, %15 ]
+  %20 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %.val, i64 %.0131.i
   %21 = load i32, ptr %20, align 8
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %18, label %pmix_hash_table_get_next_elt.exit

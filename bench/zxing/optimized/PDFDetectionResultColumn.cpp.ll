@@ -441,8 +441,8 @@ _ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8Codewo
 
 101:                                              ; preds = %.lr.ph90, %144
   %indvars.iv94 = phi i64 [ %99, %.lr.ph90 ], [ %indvars.iv.next95, %144 ]
-  %.04487 = phi i32 [ 1, %.lr.ph90 ], [ %.2, %144 ]
-  %.04586 = phi i32 [ -1, %.lr.ph90 ], [ %.247, %144 ]
+  %.04389 = phi i32 [ -1, %.lr.ph90 ], [ %.2, %144 ]
+  %.04586 = phi i32 [ 1, %.lr.ph90 ], [ %.247, %144 ]
   %.07385 = phi i32 [ 0, %.lr.ph90 ], [ %.174, %144 ]
   %.07584 = phi i32 [ 1, %.lr.ph90 ], [ %.176, %144 ]
   %102 = load ptr, ptr %6, align 8
@@ -455,7 +455,7 @@ _ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit: ; preds = %101
   %106 = getelementptr inbounds i8, ptr %103, i64 4
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %103, i64 20
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 4
-  %107 = icmp eq i32 %.04586, -1
+  %107 = icmp eq i32 %.04389, -1
   br i1 %107, label %108, label %114
 
 108:                                              ; preds = %_ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit
@@ -464,15 +464,15 @@ _ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit: ; preds = %101
   %111 = add nsw i32 %110, %109
   %112 = add nsw i32 %111, -1
   %113 = icmp eq i32 %.sroa.1.0.copyload, %112
-  %spec.select = select i1 %113, i32 %111, i32 -1
-  %spec.select80 = select i1 %113, i32 -1, i32 %.04487
+  %spec.select = select i1 %113, i32 -1, i32 %.04586
+  %spec.select80 = select i1 %113, i32 %111, i32 -1
   br label %114
 
 114:                                              ; preds = %108, %_ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit
   %.146 = phi i32 [ %.04586, %_ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit ], [ %spec.select, %108 ]
-  %.1 = phi i32 [ %.04487, %_ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit ], [ %spec.select80, %108 ]
-  %115 = sub nsw i32 %.sroa.1.0.copyload, %.146
-  %116 = icmp eq i32 %.sroa.1.0.copyload, %.146
+  %.1 = phi i32 [ %.04389, %_ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit ], [ %spec.select80, %108 ]
+  %115 = sub nsw i32 %.sroa.1.0.copyload, %.1
+  %116 = icmp eq i32 %.sroa.1.0.copyload, %.1
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %114
@@ -480,7 +480,7 @@ _ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit: ; preds = %101
   br label %144
 
 119:                                              ; preds = %114
-  %120 = icmp eq i32 %115, %.1
+  %120 = icmp eq i32 %115, %.146
   br i1 %120, label %121, label %122
 
 121:                                              ; preds = %119
@@ -542,8 +542,8 @@ _ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit: ; preds = %101
 144:                                              ; preds = %._crit_edge, %117, %130, %143, %121, %101
   %.176 = phi i32 [ %.07584, %101 ], [ %.07584, %117 ], [ %.sroa.speculated, %121 ], [ %.07584, %130 ], [ %.07584, %143 ], [ %.07584, %._crit_edge ]
   %.174 = phi i32 [ %.07385, %101 ], [ %118, %117 ], [ 1, %121 ], [ %.07385, %130 ], [ %.07385, %143 ], [ 1, %._crit_edge ]
-  %.247 = phi i32 [ %.04586, %101 ], [ %.sroa.1.0.copyload, %117 ], [ %.sroa.1.0.copyload, %121 ], [ %.146, %130 ], [ %.146, %143 ], [ %.sroa.1.0.copyload, %._crit_edge ]
-  %.2 = phi i32 [ %.04487, %101 ], [ %.1, %117 ], [ %.1, %121 ], [ %.1, %130 ], [ %.1, %143 ], [ %.1, %._crit_edge ]
+  %.247 = phi i32 [ %.04586, %101 ], [ %.146, %117 ], [ %.146, %121 ], [ %.146, %130 ], [ %.146, %143 ], [ %.146, %._crit_edge ]
+  %.2 = phi i32 [ %.04389, %101 ], [ %.sroa.1.0.copyload, %117 ], [ %.sroa.1.0.copyload, %121 ], [ %.1, %130 ], [ %.1, %143 ], [ %.sroa.1.0.copyload, %._crit_edge ]
   %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
   %145 = icmp slt i64 %indvars.iv.next95, %100
   br i1 %145, label %101, label %.loopexit, !llvm.loop !7

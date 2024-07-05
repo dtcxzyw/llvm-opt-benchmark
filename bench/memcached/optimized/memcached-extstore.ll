@@ -620,15 +620,15 @@ for.cond.preheader:                               ; preds = %while.body, %if.end
   br i1 %cmp872, label %for.body, label %if.end16
 
 for.body:                                         ; preds = %for.cond.preheader, %if.then9
-  %end.074 = phi ptr [ %4, %if.then9 ], [ %2, %for.cond.preheader ]
-  %i.073 = phi i32 [ %inc, %if.then9 ], [ 1, %for.cond.preheader ]
-  %next = getelementptr inbounds i8, ptr %end.074, i64 8
+  %i.074 = phi i32 [ %inc, %if.then9 ], [ 1, %for.cond.preheader ]
+  %end.073 = phi ptr [ %4, %if.then9 ], [ %2, %for.cond.preheader ]
+  %next = getelementptr inbounds i8, ptr %end.073, i64 8
   %4 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %inc = add nuw i32 %i.073, 1
+  %inc = add nuw i32 %i.074, 1
   %exitcond.not = icmp eq i32 %inc, %3
   br i1 %exitcond.not, label %if.end16, label %for.body, !llvm.loop !12
 
@@ -637,12 +637,12 @@ if.else:                                          ; preds = %for.body
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then9, %if.else, %for.cond.preheader
-  %i.071 = phi i32 [ %i.073, %if.else ], [ 1, %for.cond.preheader ], [ %3, %if.then9 ]
-  %end.069 = phi ptr [ %end.074, %if.else ], [ %2, %for.cond.preheader ], [ %4, %if.then9 ]
+  %end.071 = phi ptr [ %end.073, %if.else ], [ %2, %for.cond.preheader ], [ %4, %if.then9 ]
+  %i.069 = phi i32 [ %i.074, %if.else ], [ 1, %for.cond.preheader ], [ %3, %if.then9 ]
   %5 = load i32, ptr %depth, align 8
-  %sub = sub i32 %5, %i.071
+  %sub = sub i32 %5, %i.069
   store i32 %sub, ptr %depth, align 8
-  %next13 = getelementptr inbounds i8, ptr %end.069, i64 8
+  %next13 = getelementptr inbounds i8, ptr %end.071, i64 8
   %6 = load ptr, ptr %next13, align 8
   store ptr %6, ptr %queue, align 8
   store ptr null, ptr %next13, align 8
@@ -739,19 +739,19 @@ for.body.lr.ph.i:                                 ; preds = %if.else.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %off.03.i = phi i32 [ %sub6.i, %for.body.lr.ph.i ], [ %conv16.i, %for.body.i ]
+  %off.02.i = phi i32 [ %sub6.i, %for.body.lr.ph.i ], [ %conv16.i, %for.body.i ]
   %26 = load ptr, ptr %iov.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.iovec, ptr %26, i64 %indvars.iv.i
   %27 = load ptr, ptr %arrayidx.i, align 8
   %28 = load ptr, ptr %buf11.i, align 8
-  %idx.ext12.i = zext i32 %off.03.i to i64
+  %idx.ext12.i = zext i32 %off.02.i to i64
   %add.ptr13.i = getelementptr inbounds i8, ptr %28, i64 %idx.ext12.i
   %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %29 = load i64, ptr %iov_len.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %add.ptr13.i, i64 %29, i1 false)
   %30 = load i64, ptr %iov_len.i, align 8
   %31 = trunc i64 %30 to i32
-  %conv16.i = add i32 %off.03.i, %31
+  %conv16.i = add i32 %off.02.i, %31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %32 = load i32, ptr %iovcnt.i, align 8
   %33 = zext i32 %32 to i64
@@ -923,9 +923,9 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
-  %low_version.0138 = phi i64 [ %low_version.2, %for.inc ], [ -1, %if.end ]
-  %low_page.0137 = phi i32 [ %low_page.2, %for.inc ], [ 0, %if.end ]
-  %do_evict.1136 = phi i1 [ %do_evict.3, %for.inc ], [ %do_evict.0, %if.end ]
+  %do_evict.1134 = phi i1 [ %do_evict.3, %for.inc ], [ %do_evict.0, %if.end ]
+  %low_version.0133 = phi i64 [ %low_version.2, %for.inc ], [ -1, %if.end ]
+  %low_page.0132 = phi i32 [ %low_page.2, %for.inc ], [ 0, %if.end ]
   %5 = load ptr, ptr %pages, align 8
   %arrayidx = getelementptr inbounds %struct._store_page, ptr %5, i64 %indvars.iv
   %call18 = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx) #11
@@ -977,10 +977,10 @@ if.then33:                                        ; preds = %land.lhs.true
   br i1 %cmp48, label %land.lhs.true50, label %for.inc
 
 land.lhs.true50:                                  ; preds = %if.then33
-  %cmp53 = icmp ugt i64 %low_version.0138, %conv34
+  %cmp53 = icmp ugt i64 %low_version.0133, %conv34
   %15 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %cmp53, i32 %15, i32 %low_page.0137
-  %spec.select60 = tail call i64 @llvm.umin.i64(i64 %low_version.0138, i64 %conv34)
+  %spec.select = select i1 %cmp53, i32 %15, i32 %low_page.0132
+  %spec.select60 = tail call i64 @llvm.umin.i64(i64 %low_version.0133, i64 %conv34)
   br label %for.inc
 
 land.lhs.true67:                                  ; preds = %land.lhs.true, %if.end29
@@ -1085,9 +1085,9 @@ _free_page.exit:                                  ; preds = %if.then23.i, %if.el
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true67, %_free_page.exit, %land.lhs.true50, %if.then33, %for.body, %lor.lhs.false23
-  %do_evict.3 = phi i1 [ %do_evict.1136, %lor.lhs.false23 ], [ %do_evict.1136, %for.body ], [ false, %_free_page.exit ], [ %do_evict.1136, %land.lhs.true67 ], [ %do_evict.1136, %land.lhs.true50 ], [ %do_evict.1136, %if.then33 ]
-  %low_page.2 = phi i32 [ %low_page.0137, %lor.lhs.false23 ], [ %low_page.0137, %for.body ], [ %low_page.0137, %_free_page.exit ], [ %low_page.0137, %land.lhs.true67 ], [ %spec.select, %land.lhs.true50 ], [ %low_page.0137, %if.then33 ]
-  %low_version.2 = phi i64 [ %low_version.0138, %lor.lhs.false23 ], [ %low_version.0138, %for.body ], [ %low_version.0138, %_free_page.exit ], [ %low_version.0138, %land.lhs.true67 ], [ %spec.select60, %land.lhs.true50 ], [ %low_version.0138, %if.then33 ]
+  %low_page.2 = phi i32 [ %low_page.0132, %lor.lhs.false23 ], [ %low_page.0132, %for.body ], [ %low_page.0132, %_free_page.exit ], [ %low_page.0132, %land.lhs.true67 ], [ %low_page.0132, %if.then33 ], [ %spec.select, %land.lhs.true50 ]
+  %low_version.2 = phi i64 [ %low_version.0133, %lor.lhs.false23 ], [ %low_version.0133, %for.body ], [ %low_version.0133, %_free_page.exit ], [ %low_version.0133, %land.lhs.true67 ], [ %low_version.0133, %if.then33 ], [ %spec.select60, %land.lhs.true50 ]
+  %do_evict.3 = phi i1 [ %do_evict.1134, %lor.lhs.false23 ], [ %do_evict.1134, %for.body ], [ false, %_free_page.exit ], [ %do_evict.1134, %land.lhs.true67 ], [ %do_evict.1134, %if.then33 ], [ %do_evict.1134, %land.lhs.true50 ]
   %call73 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %page_count, align 4
@@ -1703,17 +1703,17 @@ entry:
   br i1 %cmp.not15, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
-  %tio.017 = phi ptr [ %0, %while.body ], [ %io, %entry ]
-  %depth.016 = phi i32 [ %inc, %while.body ], [ 0, %entry ]
-  %inc = add i32 %depth.016, 1
-  %next = getelementptr inbounds i8, ptr %tio.017, i64 8
+  %depth.017 = phi i32 [ %inc, %while.body ], [ 0, %entry ]
+  %tio.016 = phi ptr [ %0, %while.body ], [ %io, %entry ]
+  %inc = add i32 %depth.017, 1
+  %next = getelementptr inbounds i8, ptr %tio.016, i64 8
   %0 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !17
 
 while.end:                                        ; preds = %while.body, %entry
+  %tail.0.lcssa = phi ptr [ null, %entry ], [ %tio.016, %while.body ]
   %depth.0.lcssa = phi i32 [ 0, %entry ], [ %inc, %while.body ]
-  %tail.0.lcssa = phi ptr [ null, %entry ], [ %tio.017, %while.body ]
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %ptr) #11
   %io_threadcount.i = getelementptr inbounds i8, ptr %ptr, i64 120
   %1 = load i32, ptr %io_threadcount.i, align 8

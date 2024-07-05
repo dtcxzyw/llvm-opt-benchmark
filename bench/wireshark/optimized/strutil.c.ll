@@ -167,10 +167,10 @@ define range(i32 0, 2) i32 @hex_str_to_bytes(ptr noundef readonly %0, ptr nounde
 
 22:                                               ; preds = %.lr.ph, %.backedge
   %23 = phi i8 [ %13, %.lr.ph ], [ %57, %.backedge ]
-  %.089 = phi ptr [ %0, %.lr.ph ], [ %.0.be, %.backedge ]
-  %24 = getelementptr i8, ptr %.089, i64 1
-  %25 = getelementptr i8, ptr %.089, i64 2
-  %26 = getelementptr i8, ptr %.089, i64 3
+  %.05089 = phi ptr [ %0, %.lr.ph ], [ %.050.be, %.backedge ]
+  %24 = getelementptr i8, ptr %.05089, i64 1
+  %25 = getelementptr i8, ptr %.05089, i64 2
+  %26 = getelementptr i8, ptr %.05089, i64 3
   %27 = load i8, ptr %24, align 1
   %.not56 = icmp eq i8 %27, 0
   br i1 %.not56, label %75, label %28
@@ -228,7 +228,7 @@ define range(i32 0, 2) i32 @hex_str_to_bytes(ptr noundef readonly %0, ptr nounde
   %52 = trunc i64 %51 to i8
   store i8 %52, ptr %4, align 1
   %53 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1) #13
-  %54 = getelementptr i8, ptr %.089, i64 4
+  %54 = getelementptr i8, ptr %.05089, i64 4
   %55 = load i8, ptr %54, align 1
   switch i8 %55, label %58 [
     i8 0, label %.thread84
@@ -238,17 +238,17 @@ define range(i32 0, 2) i32 @hex_str_to_bytes(ptr noundef readonly %0, ptr nounde
   ]
 
 is_byte_sep.exit.thread:                          ; preds = %47, %47, %47
-  %56 = getelementptr i8, ptr %.089, i64 5
+  %56 = getelementptr i8, ptr %.05089, i64 5
   br label %.backedgethread-pre-split
 
 .backedgethread-pre-split:                        ; preds = %80, %is_byte_sep.exit77.thread, %70, %is_byte_sep.exit.thread, %64, %64, %64
-  %.0.be.ph = phi ptr [ %26, %64 ], [ %26, %64 ], [ %26, %64 ], [ %24, %80 ], [ %25, %is_byte_sep.exit77.thread ], [ %25, %70 ], [ %56, %is_byte_sep.exit.thread ]
-  %.pr = load i8, ptr %.0.be.ph, align 1
+  %.050.be.ph = phi ptr [ %26, %64 ], [ %26, %64 ], [ %26, %64 ], [ %24, %80 ], [ %25, %is_byte_sep.exit77.thread ], [ %25, %70 ], [ %56, %is_byte_sep.exit.thread ]
+  %.pr = load i8, ptr %.050.be.ph, align 1
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedgethread-pre-split, %58
   %57 = phi i8 [ %.pr, %.backedgethread-pre-split ], [ %55, %58 ]
-  %.0.be = phi ptr [ %.0.be.ph, %.backedgethread-pre-split ], [ %54, %58 ]
+  %.050.be = phi ptr [ %.050.be.ph, %.backedgethread-pre-split ], [ %54, %58 ]
   %.not = icmp eq i8 %57, 0
   br i1 %.not, label %.thread84, label %22, !llvm.loop !7
 
@@ -322,8 +322,8 @@ is_byte_sep.exit77.thread:                        ; preds = %71, %71, %71
   br label %.backedgethread-pre-split
 
 .thread84:                                        ; preds = %30, %59, %47, %41, %58, %69, %75, %.backedge, %71, %11, %3
-  %.050 = phi i32 [ 0, %3 ], [ 1, %11 ], [ 0, %30 ], [ 0, %59 ], [ 1, %47 ], [ 0, %41 ], [ 0, %58 ], [ 0, %69 ], [ 0, %75 ], [ 1, %.backedge ], [ 0, %71 ]
-  ret i32 %.050
+  %.0 = phi i32 [ 0, %3 ], [ 1, %11 ], [ 0, %30 ], [ 0, %59 ], [ 1, %47 ], [ 0, %41 ], [ 0, %58 ], [ 0, %69 ], [ 0, %75 ], [ 1, %.backedge ], [ 0, %71 ]
+  ret i32 %.0
 }
 
 declare ptr @g_byte_array_set_size(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -562,8 +562,8 @@ define range(i32 0, 2) i32 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 nou
   br label %12
 
 12:                                               ; preds = %.lr.ph, %41
-  %.024 = phi ptr [ %0, %.lr.ph ], [ %43, %41 ]
-  %13 = load i8, ptr %.024, align 1
+  %.01924 = phi ptr [ %0, %.lr.ph ], [ %43, %41 ]
+  %13 = load i8, ptr %.01924, align 1
   %14 = zext i8 %13 to i64
   %15 = getelementptr i16, ptr %10, i64 %14
   %16 = load i16, ptr %15, align 2
@@ -576,14 +576,14 @@ define range(i32 0, 2) i32 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %19, label %20, label %41
 
 20:                                               ; preds = %18
-  %21 = getelementptr i8, ptr %.024, i64 1
+  %21 = getelementptr i8, ptr %.01924, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %20
   store i8 %22, ptr %5, align 1
-  %25 = getelementptr i8, ptr %.024, i64 2
+  %25 = getelementptr i8, ptr %.01924, i64 2
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %.loopexit, label %28
@@ -613,16 +613,16 @@ define range(i32 0, 2) i32 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 nou
   br label %41
 
 41:                                               ; preds = %18, %38
-  %.024.sink = phi ptr [ %4, %38 ], [ %.024, %18 ]
-  %.1 = phi ptr [ %25, %38 ], [ %.024, %18 ]
-  %42 = call ptr @g_byte_array_append(ptr noundef %1, ptr noundef nonnull %.024.sink, i32 noundef 1) #13
+  %.01924.sink = phi ptr [ %4, %38 ], [ %.01924, %18 ]
+  %.1 = phi ptr [ %25, %38 ], [ %.01924, %18 ]
+  %42 = call ptr @g_byte_array_append(ptr noundef %1, ptr noundef nonnull %.01924.sink, i32 noundef 1) #13
   %43 = getelementptr i8, ptr %.1, i64 1
   %44 = icmp ult ptr %43, %6
   br i1 %44, label %12, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %12, %20, %24, %33, %28, %41, %.preheader, %3
-  %.019 = phi i32 [ 0, %3 ], [ 1, %.preheader ], [ 0, %12 ], [ 0, %20 ], [ 0, %24 ], [ 0, %33 ], [ 0, %28 ], [ 1, %41 ]
-  ret i32 %.019
+  %.0 = phi i32 [ 0, %3 ], [ 1, %.preheader ], [ 0, %12 ], [ 0, %20 ], [ 0, %24 ], [ 0, %33 ], [ 0, %28 ], [ 1, %41 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1027,14 +1027,14 @@ define noalias ptr @convert_string_to_hex(ptr nocapture noundef readonly %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer50
   %6 = phi i8 [ %3, %.lr.ph.lr.ph ], [ %28, %.outer50 ]
-  %.043.ph64 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %26, %.outer50 ]
-  %.044.ph63 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %27, %.outer50 ]
+  %.043.ph64 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %27, %.outer50 ]
+  %.044.ph63 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %26, %.outer50 ]
   br label %7
 
 7:                                                ; preds = %.lr.ph, %.backedge51
   %8 = phi i8 [ %6, %.lr.ph ], [ %15, %.backedge51 ]
-  %.04361 = phi ptr [ %.043.ph64, %.lr.ph ], [ %9, %.backedge51 ]
-  %9 = getelementptr i8, ptr %.04361, i64 1
+  %.04461 = phi ptr [ %.044.ph63, %.lr.ph ], [ %9, %.backedge51 ]
+  %9 = getelementptr i8, ptr %.04461, i64 1
   %10 = zext i8 %8 to i64
   %11 = getelementptr i16, ptr %5, i64 %10
   %12 = load i16, ptr %11, align 2
@@ -1070,19 +1070,19 @@ define noalias ptr @convert_string_to_hex(ptr nocapture noundef readonly %0, ptr
   br i1 %.not48, label %.loopexit, label %.outer50
 
 .outer50:                                         ; preds = %20
-  %26 = getelementptr i8, ptr %.04361, i64 2
-  %27 = add i64 %.044.ph63, 1
+  %26 = getelementptr i8, ptr %.04461, i64 2
+  %27 = add i64 %.043.ph64, 1
   %28 = load i8, ptr %26, align 1
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %.outer50._crit_edge, label %.lr.ph
 
 .outer50._crit_edge:                              ; preds = %.outer50, %.backedge51
-  %.044.ph.lcssa60 = phi i64 [ %.044.ph63, %.backedge51 ], [ %27, %.outer50 ]
-  %30 = icmp eq i64 %.044.ph.lcssa60, 0
+  %.043.ph.lcssa60 = phi i64 [ %.043.ph64, %.backedge51 ], [ %27, %.outer50 ]
+  %30 = icmp eq i64 %.043.ph.lcssa60, 0
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %.outer50._crit_edge
-  %32 = tail call noalias ptr @g_malloc(i64 noundef %.044.ph.lcssa60) #14
+  %32 = tail call noalias ptr @g_malloc(i64 noundef %.043.ph.lcssa60) #14
   %33 = load i8, ptr %0, align 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %.outer._crit_edge, label %.lr.ph67.lr.ph
@@ -1135,7 +1135,7 @@ define noalias ptr @convert_string_to_hex(ptr nocapture noundef readonly %0, ptr
   br i1 %56, label %.outer._crit_edge, label %.lr.ph67
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %31
-  store i64 %.044.ph.lcssa60, ptr %1, align 8
+  store i64 %.043.ph.lcssa60, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %18, %2, %.outer50._crit_edge, %.outer._crit_edge
@@ -1228,18 +1228,18 @@ define hidden zeroext i8 @module_check_valid_name(ptr nocapture noundef readonly
   br label %6
 
 6:                                                ; preds = %11, %5
-  %.018 = phi ptr [ %0, %5 ], [ %12, %11 ]
-  %.017 = phi i8 [ 46, %5 ], [ %7, %11 ]
-  %7 = load i8, ptr %.018, align 1
+  %.019 = phi ptr [ %0, %5 ], [ %12, %11 ]
+  %.018 = phi i8 [ 46, %5 ], [ %7, %11 ]
+  %7 = load i8, ptr %.019, align 1
   %8 = icmp ne i8 %7, 46
-  %9 = icmp ne i8 %.017, 46
+  %9 = icmp ne i8 %.018, 46
   %or.cond.not22 = or i1 %9, %8
   %10 = icmp sgt i8 %7, -1
   %or.cond5 = and i1 %10, %or.cond.not22
   br i1 %or.cond5, label %11, label %.critedge
 
 11:                                               ; preds = %6
-  %12 = getelementptr i8, ptr %.018, i64 1
+  %12 = getelementptr i8, ptr %.019, i64 1
   %13 = zext nneg i8 %7 to i64
   %14 = getelementptr i8, ptr %module_valid_chars.module_valid_chars_lower_case, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -1251,8 +1251,8 @@ define hidden zeroext i8 @module_check_valid_name(ptr nocapture noundef readonly
   br label %16
 
 16:                                               ; preds = %.critedge, %2
-  %.019 = phi i8 [ 45, %2 ], [ %., %.critedge ]
-  ret i8 %.019
+  %.017 = phi i8 [ 45, %2 ], [ %., %.critedge ]
+  ret i8 %.017
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1278,8 +1278,8 @@ define i64 @ws_label_strcpy(ptr nocapture noundef writeonly %0, i64 noundef %1, 
 14:                                               ; preds = %.lr.ph144, %.backedge
   %.0123142 = phi i64 [ %2, %.lr.ph144 ], [ %.0123.be, %.backedge ]
   %.0124141 = phi i64 [ %11, %.lr.ph144 ], [ %.0124.be, %.backedge ]
-  %.0125140 = phi i64 [ 0, %.lr.ph144 ], [ %.0125.be, %.backedge ]
-  %15 = getelementptr i8, ptr %3, i64 %.0125140
+  %.0126140 = phi i64 [ 0, %.lr.ph144 ], [ %.0126.be, %.backedge ]
+  %15 = getelementptr i8, ptr %3, i64 %.0126140
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
   %18 = getelementptr [256 x i32], ptr @ws_utf8_seqlen, i64 0, i64 %17
@@ -1317,15 +1317,15 @@ define i64 @ws_label_strcpy(ptr nocapture noundef writeonly %0, i64 noundef %1, 
 
 33:                                               ; preds = %30, %28
   %34 = add i64 %.0123142, 1
-  %35 = add nsw i64 %.0125140, 1
+  %35 = add nsw i64 %.0126140, 1
   %36 = add i64 %.0124141, -1
   br label %.backedge
 
 .backedge:                                        ; preds = %33, %46, %59, %81, %107, %120
-  %.0125.be = phi i64 [ %35, %33 ], [ %48, %46 ], [ %61, %59 ], [ %83, %81 ], [ %109, %107 ], [ %122, %120 ]
+  %.0126.be = phi i64 [ %35, %33 ], [ %48, %46 ], [ %61, %59 ], [ %83, %81 ], [ %109, %107 ], [ %122, %120 ]
   %.0124.be = phi i64 [ %36, %33 ], [ %49, %46 ], [ %62, %59 ], [ %84, %81 ], [ %110, %107 ], [ %123, %120 ]
   %.0123.be = phi i64 [ %34, %33 ], [ %47, %46 ], [ %60, %59 ], [ %82, %81 ], [ %108, %107 ], [ %121, %120 ]
-  %37 = icmp slt i64 %.0125.be, %8
+  %37 = icmp slt i64 %.0126.be, %8
   br i1 %37, label %14, label %.loopexit, !llvm.loop !17
 
 38:                                               ; preds = %24, %23
@@ -1352,7 +1352,7 @@ switch.lookup:                                    ; preds = %38
 
 46:                                               ; preds = %41, %switch.lookup
   %47 = add i64 %.0123142, 2
-  %48 = add nsw i64 %.0125140, 1
+  %48 = add nsw i64 %.0126140, 1
   %49 = add i64 %.0124141, -2
   br label %.backedge
 
@@ -1376,7 +1376,7 @@ switch.lookup:                                    ; preds = %38
 
 59:                                               ; preds = %56, %54
   %60 = add i64 %.0123142, 1
-  %61 = add nsw i64 %.0125140, 1
+  %61 = add nsw i64 %.0126140, 1
   %62 = add i64 %.0124141, -1
   br label %.backedge
 
@@ -1409,7 +1409,7 @@ switch.lookup:                                    ; preds = %38
 
 81:                                               ; preds = %65, %63
   %82 = add i64 %.0123142, 4
-  %83 = add nsw i64 %.0125140, 1
+  %83 = add nsw i64 %.0126140, 1
   %84 = add i64 %.0124141, -4
   br label %.backedge
 
@@ -1450,7 +1450,7 @@ switch.lookup:                                    ; preds = %38
 
 107:                                              ; preds = %92, %90
   %108 = add i64 %.0123142, 6
-  %109 = add i64 %.0125140, 2
+  %109 = add i64 %.0126140, 2
   %110 = add i64 %.0124141, -6
   br label %.backedge
 
@@ -1481,7 +1481,7 @@ switch.lookup:                                    ; preds = %38
 
 120:                                              ; preds = %._crit_edge, %111
   %121 = add i64 %.0123142, %20
-  %122 = add i64 %.0125140, %20
+  %122 = add i64 %.0126140, %20
   %123 = sub i64 %.0124141, %20
   br label %.backedge
 

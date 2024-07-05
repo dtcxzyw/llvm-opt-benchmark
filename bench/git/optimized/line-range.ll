@@ -566,15 +566,15 @@ if.else58:                                        ; preds = %if.then51
   br label %if.end60thread-pre-split
 
 if.end60thread-pre-split:                         ; preds = %if.end48, %if.else58
-  %spec.addr.0.ph = phi ptr [ %spec, %if.end48 ], [ %incdec.ptr, %if.else58 ]
   %begin.addr.0.ph = phi i64 [ %begin, %if.end48 ], [ 1, %if.else58 ]
+  %spec.addr.0.ph = phi ptr [ %spec, %if.end48 ], [ %incdec.ptr, %if.else58 ]
   %.pr = load i8, ptr %spec.addr.0.ph, align 1
   br label %if.end60
 
 if.end60:                                         ; preds = %if.end60thread-pre-split, %if.then56
   %5 = phi i8 [ %.pr, %if.end60thread-pre-split ], [ %4, %if.then56 ]
-  %spec.addr.0 = phi ptr [ %spec.addr.0.ph, %if.end60thread-pre-split ], [ %spec, %if.then56 ]
   %begin.addr.0 = phi i64 [ %begin.addr.0.ph, %if.end60thread-pre-split ], [ %sub57, %if.then56 ]
+  %spec.addr.0 = phi ptr [ %spec.addr.0.ph, %if.end60thread-pre-split ], [ %spec, %if.then56 ]
   %cmp63.not = icmp eq i8 %5, 47
   br i1 %cmp63.not, label %if.end66, label %return
 

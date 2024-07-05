@@ -357,21 +357,21 @@ _Z18cmHasLiteralPrefixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
   %.pre-phi169 = phi i64 [ %.pre168, %129 ], [ %.pre162, %127 ], [ %119, %114 ]
   %133 = phi ptr [ %.pre155, %129 ], [ %.pre157, %127 ], [ %116, %114 ]
   %134 = phi ptr [ %.pre154, %129 ], [ %.pre159, %127 ], [ %115, %114 ]
-  %.093 = phi i8 [ %spec.select, %129 ], [ 0, %127 ], [ 0, %114 ]
-  %.090 = phi i32 [ %spec.select109, %129 ], [ 0, %127 ], [ 0, %114 ]
+  %.094 = phi i8 [ %spec.select, %129 ], [ 0, %127 ], [ 0, %114 ]
+  %.091 = phi i32 [ %spec.select109, %129 ], [ 0, %127 ], [ 0, %114 ]
   %135 = ashr exact i64 %.pre-phi169, 5
   %136 = icmp ugt i64 %135, 3
   br i1 %136, label %137, label %144
 
 137:                                              ; preds = %.thread
-  %138 = zext nneg i8 %.093 to i64
+  %138 = zext nneg i8 %.094 to i64
   %reass.sub = sub nsw i64 %135, %138
   %139 = getelementptr %"class.std::__cxx11::basic_string", ptr %133, i64 %reass.sub
   %140 = getelementptr i8, ptr %139, i64 -96
   %141 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull @.str.8) #12
   %142 = icmp eq i32 %141, 0
-  %143 = add nuw nsw i32 %.090, 3
-  %spec.select111 = select i1 %142, i32 %143, i32 %.090
+  %143 = add nuw nsw i32 %.091, 3
+  %spec.select110 = select i1 %142, i32 %143, i32 %.091
   %.pre156 = load ptr, ptr %0, align 8
   %.pre158 = load ptr, ptr %22, align 8
   br label %144
@@ -379,12 +379,12 @@ _Z18cmHasLiteralPrefixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
 144:                                              ; preds = %137, %121, %.thread
   %145 = phi ptr [ %134, %.thread ], [ %.pre159, %121 ], [ %.pre158, %137 ]
   %146 = phi ptr [ %133, %.thread ], [ %.pre157, %121 ], [ %.pre156, %137 ]
-  %.095 = phi i1 [ false, %.thread ], [ false, %121 ], [ %142, %137 ]
-  %.194 = phi i8 [ %.093, %.thread ], [ 0, %121 ], [ %.093, %137 ]
-  %.092 = phi i1 [ false, %.thread ], [ true, %121 ], [ false, %137 ]
-  %.191 = phi i32 [ %.090, %.thread ], [ 1, %121 ], [ %spec.select111, %137 ]
+  %.195 = phi i8 [ %.094, %.thread ], [ 0, %121 ], [ %.094, %137 ]
+  %.093 = phi i1 [ false, %.thread ], [ true, %121 ], [ false, %137 ]
+  %.192 = phi i32 [ %.091, %.thread ], [ 1, %121 ], [ %spec.select110, %137 ]
+  %.090 = phi i1 [ false, %.thread ], [ false, %121 ], [ %142, %137 ]
   %147 = getelementptr inbounds i8, ptr %146, i64 32
-  %148 = zext nneg i32 %.191 to i64
+  %148 = zext nneg i32 %.192 to i64
   %149 = sub nsw i64 0, %148
   %150 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %145, i64 %149
   %151 = icmp eq ptr %150, %147
@@ -403,7 +403,7 @@ _Z18cmHasLiteralPrefixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
 _ZN6cmList9to_stringI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEETnNSt9enable_ifIXsr2cm8is_rangeIT_EE5valueEiE4typeELi0EEES9_RKSI_.exit: ; preds = %152, %153
   %154 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #12
-  br i1 %.092, label %155, label %158
+  br i1 %.093, label %155, label %158
 
 155:                                              ; preds = %_ZN6cmList9to_stringI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEETnNSt9enable_ifIXsr2cm8is_rangeIT_EE5valueEiE4typeELi0EEES9_RKSI_.exit
   %156 = load ptr, ptr %1, align 8
@@ -501,9 +501,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ;
   br label %255
 
 194:                                              ; preds = %180, %173
-  %195 = trunc nuw i8 %.194 to i1
+  %195 = trunc nuw i8 %.195 to i1
   %.not112 = xor i1 %195, true
-  %brmerge = or i1 %.095, %.not112
+  %brmerge = or i1 %.090, %.not112
   br i1 %brmerge, label %205, label %196
 
 196:                                              ; preds = %194
@@ -533,7 +533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ;
   br label %255
 
 205:                                              ; preds = %194
-  br i1 %.095, label %206, label %234
+  br i1 %.090, label %206, label %234
 
 206:                                              ; preds = %205
   %207 = load ptr, ptr %22, align 8
@@ -542,7 +542,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ;
   %210 = ptrtoint ptr %208 to i64
   %211 = sub i64 %209, %210
   %212 = ashr exact i64 %211, 5
-  %213 = zext nneg i8 %.194 to i64
+  %213 = zext nneg i8 %.195 to i64
   %reass.sub152 = sub nsw i64 %212, %213
   %214 = add nsw i64 %reass.sub152, -2
   %215 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %208, i64 %214
@@ -617,14 +617,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ;
 243:                                              ; preds = %242
   %244 = load i32, ptr %11, align 4
   %245 = icmp eq i32 %244, 4
-  %not..095 = xor i1 %.095, true
-  %or.cond = select i1 %not..095, i1 true, i1 %245
+  %not..090 = xor i1 %.090, true
+  %or.cond = select i1 %not..090, i1 true, i1 %245
   %brmerge113 = or i1 %or.cond, %195
   br i1 %brmerge113, label %246, label %254
 
 246:                                              ; preds = %243, %242, %239
   %247 = load ptr, ptr %1, align 8
-  br i1 %.095, label %248, label %250
+  br i1 %.090, label %248, label %250
 
 248:                                              ; preds = %246
   %249 = load i32, ptr %11, align 4

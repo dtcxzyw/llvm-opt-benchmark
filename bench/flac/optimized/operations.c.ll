@@ -1184,14 +1184,14 @@ for.body.lr.ph.i.i.i:                             ; preds = %sw.bb24.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.inc.i.i.i ]
-  %append_after.070.i.i.i = phi i32 [ -1, %for.body.lr.ph.i.i.i ], [ %append_after.1.i.i.i, %for.inc.i.i.i ]
+  %append_after.069.i.i.i = phi i32 [ -1, %for.body.lr.ph.i.i.i ], [ %append_after.1.i.i.i, %for.inc.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds %struct.Argument, ptr %159, i64 %indvars.iv.i.i.i
   %160 = load i32, ptr %arrayidx.i.i.i, align 8
   %cmp2.i.i.i = icmp eq i32 %160, 0
   br i1 %cmp2.i.i.i, label %if.then.i38.i.i, label %for.inc.i.i.i
 
 if.then.i38.i.i:                                  ; preds = %for.body.i.i.i
-  %cmp3.not.i.i.i = icmp eq i32 %append_after.070.i.i.i, -1
+  %cmp3.not.i.i.i = icmp eq i32 %append_after.069.i.i.i, -1
   br i1 %cmp3.not.i.i.i, label %lor.lhs.false.i.i.i, label %if.then9.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then.i38.i.i
@@ -1212,7 +1212,7 @@ if.end.i39.i.i:                                   ; preds = %lor.lhs.false.i.i.i
   br label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %if.end.i39.i.i, %for.body.i.i.i
-  %append_after.1.i.i.i = phi i32 [ %165, %if.end.i39.i.i ], [ %append_after.070.i.i.i, %for.body.i.i.i ]
+  %append_after.1.i.i.i = phi i32 [ %165, %if.end.i39.i.i ], [ %append_after.069.i.i.i, %for.body.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !16
@@ -1261,8 +1261,8 @@ for.end36.i.i.i:                                  ; preds = %for.body29.i.i.i, %
   br i1 %cmp3874.i.i.i, label %while.body.i.i.i, label %if.then102.i.i.i
 
 while.body.i.i.i:                                 ; preds = %for.end36.i.i.i, %if.end93.i.i.i
-  %has_vorbiscomment.276.i.i.i = phi i32 [ %spec.select46.i.i.i, %if.end93.i.i.i ], [ %spec.select.i.i.i, %for.end36.i.i.i ]
-  %num_objects.075.i.i.i = phi i32 [ %inc54.i.i.i, %if.end93.i.i.i ], [ 0, %for.end36.i.i.i ]
+  %num_objects.076.i.i.i = phi i32 [ %inc54.i.i.i, %if.end93.i.i.i ], [ 0, %for.end36.i.i.i ]
+  %has_vorbiscomment.275.i.i.i = phi i32 [ %spec.select46.i.i.i, %if.end93.i.i.i ], [ %spec.select.i.i.i, %for.end36.i.i.i ]
   %167 = load i8, ptr %arrayidx39.i.i.i, align 1
   %conv.i.i.i = zext i8 %167 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i, 16
@@ -1286,7 +1286,7 @@ if.then51.i.i.i:                                  ; preds = %while.body.i.i.i
 if.end52.i.i.i:                                   ; preds = %if.then51.i.i.i, %while.body.i.i.i
   %170 = load i32, ptr %header.i.i.i, align 4
   store i32 %170, ptr %call.i.i37.i.i, align 1
-  %inc54.i.i.i = add i32 %num_objects.075.i.i.i, 1
+  %inc54.i.i.i = add i32 %num_objects.076.i.i.i, 1
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i37.i.i, i64 4
   %conv55.i.i.i = zext nneg i32 %add45.i.i.i to i64
   %171 = load ptr, ptr @stdin, align 8
@@ -1315,7 +1315,7 @@ if.then67.i.i.i:                                  ; preds = %if.end62.i.i.i
 
 if.end69.i.i.i:                                   ; preds = %if.end62.i.i.i
   tail call void @free(ptr noundef nonnull %call.i.i37.i.i) #9
-  %tobool70.not.i.i.i = icmp ne i32 %has_vorbiscomment.276.i.i.i, 0
+  %tobool70.not.i.i.i = icmp ne i32 %has_vorbiscomment.275.i.i.i, 0
   %.pr.i.i.i = load i32, ptr %call64.i.i.i, align 8
   %cmp72.i.i.i = icmp eq i32 %.pr.i.i.i, 4
   %or.cond115.i.i.i = select i1 %tobool70.not.i.i.i, i1 %cmp72.i.i.i, i1 false
@@ -1363,7 +1363,7 @@ if.then91.i.i.i:                                  ; preds = %if.end88.i.i.i
 if.end93.i.i.i:                                   ; preds = %if.end88.i.i.i
   %call95.i.i.i = tail call i32 @FLAC__metadata_iterator_get_block_type(ptr noundef %call17.i.i.i) #9
   %cmp96.i.i.i = icmp eq i32 %call95.i.i.i, 4
-  %spec.select46.i.i.i = select i1 %cmp96.i.i.i, i32 1, i32 %has_vorbiscomment.276.i.i.i
+  %spec.select46.i.i.i = select i1 %cmp96.i.i.i, i32 1, i32 %has_vorbiscomment.275.i.i.i
   %181 = load ptr, ptr @stdin, align 8
   %call37.i.i.i = call i64 @fread(ptr noundef nonnull %header.i.i.i, i64 noundef 1, i64 noundef 4, ptr noundef %181)
   %cmp38.i.i.i = icmp eq i64 %call37.i.i.i, 4
@@ -1720,7 +1720,7 @@ for.body.i.i19:                                   ; preds = %if.end15.thread.i.i
   %218 = phi i32 [ %216, %for.body.lr.ph.i.i17 ], [ %224, %if.end15.thread.i.i ]
   %219 = phi ptr [ %.pre.i.i18, %for.body.lr.ph.i.i17 ], [ %223, %if.end15.thread.i.i ]
   %indvars.iv.i.i20 = phi i64 [ 0, %for.body.lr.ph.i.i17 ], [ %indvars.iv.next.i.i24, %if.end15.thread.i.i ]
-  %use_padding.042.i.i = phi i32 [ %215, %for.body.lr.ph.i.i17 ], [ %225, %if.end15.thread.i.i ]
+  %use_padding.041.i.i = phi i32 [ %215, %for.body.lr.ph.i.i17 ], [ %225, %if.end15.thread.i.i ]
   %arrayidx.i.i21 = getelementptr inbounds %struct.Operation, ptr %219, i64 %indvars.iv.i.i20
   %220 = load i32, ptr %arrayidx.i.i21, align 8
   %cmp8.not.i.i = icmp eq i32 %220, 31
@@ -1737,14 +1737,14 @@ if.end15.i.i:                                     ; preds = %for.body.i.i19
   %.pre58.i.i = load i32, ptr %arrayidx19.phi.trans.insert.i.i, align 8
   %.pre58.fr.i.i = freeze i32 %.pre58.i.i
   %cmp21.i.i = icmp eq i32 %.pre58.fr.i.i, 34
-  %spec.select.i.i23 = select i1 %cmp21.i.i, i32 0, i32 %use_padding.042.i.i
+  %spec.select.i.i23 = select i1 %cmp21.i.i, i32 0, i32 %use_padding.041.i.i
   br label %if.end15.thread.i.i
 
 if.end15.thread.i.i:                              ; preds = %if.end15.i.i, %for.body.i.i19
   %ok.167.i.i = phi i32 [ 1, %for.body.i.i19 ], [ %and.i.i, %if.end15.i.i ]
   %223 = phi ptr [ %219, %for.body.i.i19 ], [ %.pre55.i.i, %if.end15.i.i ]
   %224 = phi i32 [ %218, %for.body.i.i19 ], [ %.pre56.i.i, %if.end15.i.i ]
-  %225 = phi i32 [ %use_padding.042.i.i, %for.body.i.i19 ], [ %spec.select.i.i23, %if.end15.i.i ]
+  %225 = phi i32 [ %use_padding.041.i.i, %for.body.i.i19 ], [ %spec.select.i.i23, %if.end15.i.i ]
   %indvars.iv.next.i.i24 = add nuw nsw i64 %indvars.iv.i.i20, 1
   %226 = zext i32 %224 to i64
   %cmp5.i.i = icmp ult i64 %indvars.iv.next.i.i24, %226

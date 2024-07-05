@@ -256,8 +256,8 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
   br label %114
 
 114:                                              ; preds = %19, %113
-  %.050 = phi ptr [ %.1, %113 ], [ %15, %19 ]
-  ret ptr %.050
+  %.0 = phi ptr [ %.1, %113 ], [ %15, %19 ]
+  ret ptr %.0
 }
 
 declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -464,17 +464,17 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
 
 85:                                               ; preds = %77, %82
   %.sink79 = phi ptr [ %81, %77 ], [ %84, %82 ]
-  %.063 = phi ptr [ %79, %77 ], [ %28, %82 ]
+  %.061 = phi ptr [ %79, %77 ], [ %28, %82 ]
   %86 = call ptr @MemoryContextStrdup(ptr noundef %.sink79, ptr noundef nonnull %76) #9
   call void @MemoryContextSetIdentifier(ptr noundef %.sink79, ptr noundef %86) #9
-  %87 = ptrtoint ptr %.063 to i64
+  %87 = ptrtoint ptr %.061 to i64
   %88 = and i64 %87, 7
   %89 = icmp eq i64 %88, 0
   br i1 %89, label %90, label %99
 
 90:                                               ; preds = %85
-  %91 = getelementptr i8, ptr %.063, i64 80
-  %92 = icmp ult ptr %.063, %91
+  %91 = getelementptr i8, ptr %.061, i64 80
+  %92 = icmp ult ptr %.061, %91
   br i1 %92, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %90
@@ -485,21 +485,21 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   %96 = add i64 %umax, %95
   %97 = and i64 %96, -8
   %98 = add i64 %97, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %.063, i8 0, i64 %98, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %.061, i8 0, i64 %98, i1 false)
   br label %.loopexit
 
 99:                                               ; preds = %85
-  %100 = getelementptr inbounds i8, ptr %.063, i64 4
+  %100 = getelementptr inbounds i8, ptr %.061, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %100, i8 0, i64 76, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %90, %99
   %101 = load i32, ptr %2, align 4
-  store i32 %101, ptr %.063, align 8
-  %102 = getelementptr inbounds i8, ptr %.063, i64 64
+  store i32 %101, ptr %.061, align 8
+  %102 = getelementptr inbounds i8, ptr %.061, i64 64
   store ptr %.sink79, ptr %102, align 8
   %103 = load i32, ptr %69, align 4
-  %104 = getelementptr inbounds i8, ptr %.063, i64 8
+  %104 = getelementptr inbounds i8, ptr %.061, i64 8
   store i32 %103, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %68, i64 72
   %106 = load i32, ptr %105, align 4
@@ -520,11 +520,11 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   br label %115
 
 115:                                              ; preds = %107, %112
-  %.0 = phi i64 [ %114, %112 ], [ 0, %107 ]
+  %.062 = phi i64 [ %114, %112 ], [ 0, %107 ]
   %116 = load i32, ptr %105, align 4
-  %117 = call i64 @OidFunctionCall1Coll(i32 noundef %116, i32 noundef 0, i64 noundef %.0) #9
+  %117 = call i64 @OidFunctionCall1Coll(i32 noundef %116, i32 noundef 0, i64 noundef %.062) #9
   %118 = inttoptr i64 %117 to ptr
-  %119 = getelementptr inbounds i8, ptr %.063, i64 72
+  %119 = getelementptr inbounds i8, ptr %.061, i64 72
   store ptr %118, ptr %119, align 8
   store ptr %108, ptr @CurrentMemoryContext, align 8
   br label %120
@@ -533,21 +533,21 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   call void @ReleaseSysCache(ptr noundef nonnull %57) #9
   call void @ReleaseSysCache(ptr noundef nonnull %37) #9
   %121 = load i32, ptr %104, align 8
-  %122 = getelementptr inbounds i8, ptr %.063, i64 16
+  %122 = getelementptr inbounds i8, ptr %.061, i64 16
   %123 = load ptr, ptr %102, align 8
   call void @fmgr_info_cxt(i32 noundef %121, ptr noundef nonnull %122, ptr noundef %123) #9
-  %124 = getelementptr inbounds i8, ptr %.063, i64 4
+  %124 = getelementptr inbounds i8, ptr %.061, i64 4
   store i8 1, ptr %124, align 4
   br label %125
 
 125:                                              ; preds = %120, %30
-  %.1 = phi ptr [ %.063, %120 ], [ %28, %30 ]
+  %.1 = phi ptr [ %.061, %120 ], [ %28, %30 ]
   store ptr %.1, ptr @lastUsedDictionary, align 8
   br label %126
 
 126:                                              ; preds = %22, %125
-  %.062 = phi ptr [ %.1, %125 ], [ %18, %22 ]
-  ret ptr %.062
+  %.0 = phi ptr [ %.1, %125 ], [ %18, %22 ]
+  ret ptr %.0
 }
 
 declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -717,15 +717,15 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   br label %78
 
 78:                                               ; preds = %59, %._crit_edge, %62
-  %.0101 = phi ptr [ %61, %59 ], [ %31, %._crit_edge ], [ %31, %62 ]
-  %79 = ptrtoint ptr %.0101 to i64
+  %.0100 = phi ptr [ %61, %59 ], [ %31, %._crit_edge ], [ %31, %62 ]
+  %79 = ptrtoint ptr %.0100 to i64
   %80 = and i64 %79, 7
   %81 = icmp eq i64 %80, 0
   br i1 %81, label %82, label %91
 
 82:                                               ; preds = %78
-  %83 = getelementptr i8, ptr %.0101, i64 24
-  %84 = icmp ult ptr %.0101, %83
+  %83 = getelementptr i8, ptr %.0100, i64 24
+  %84 = icmp ult ptr %.0100, %83
   br i1 %84, label %.lr.ph131.preheader, label %.loopexit
 
 .lr.ph131.preheader:                              ; preds = %82
@@ -736,19 +736,19 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %88 = add i64 %umax, %87
   %89 = and i64 %88, -8
   %90 = add i64 %89, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %.0101, i8 0, i64 %90, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %.0100, i8 0, i64 %90, i1 false)
   br label %.loopexit
 
 91:                                               ; preds = %78
-  %92 = getelementptr inbounds i8, ptr %.0101, i64 4
+  %92 = getelementptr inbounds i8, ptr %.0100, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %92, i8 0, i64 20, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph131.preheader, %82, %91
   %93 = load i32, ptr %3, align 4
-  store i32 %93, ptr %.0101, align 8
+  store i32 %93, ptr %.0100, align 8
   %94 = load i32, ptr %52, align 4
-  %95 = getelementptr inbounds i8, ptr %.0101, i64 8
+  %95 = getelementptr inbounds i8, ptr %.0100, i64 8
   store i32 %94, ptr %95, align 8
   call void @ReleaseSysCache(ptr noundef nonnull %40) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %5, i8 0, i64 4112, i1 false)
@@ -764,8 +764,8 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
 
 .lr.ph136:                                        ; preds = %.loopexit, %146
   %102 = phi ptr [ %147, %146 ], [ %101, %.loopexit ]
-  %.0104134 = phi i32 [ %.1105, %146 ], [ 0, %.loopexit ]
-  %.0106133 = phi i32 [ %.1107, %146 ], [ 0, %.loopexit ]
+  %.0101134 = phi i32 [ %.1102, %146 ], [ 0, %.loopexit ]
+  %.0104133 = phi i32 [ %.1105, %146 ], [ 0, %.loopexit ]
   %103 = getelementptr inbounds i8, ptr %102, i64 16
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 22
@@ -786,7 +786,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   unreachable
 
 115:                                              ; preds = %.lr.ph136
-  %116 = icmp slt i32 %110, %.0106133
+  %116 = icmp slt i32 %110, %.0101134
   br i1 %116, label %117, label %120
 
 117:                                              ; preds = %115
@@ -797,19 +797,19 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   unreachable
 
 120:                                              ; preds = %115
-  %121 = icmp sgt i32 %110, %.0106133
+  %121 = icmp sgt i32 %110, %.0101134
   br i1 %121, label %122, label %135
 
 122:                                              ; preds = %120
-  %123 = icmp sgt i32 %.0104134, 0
+  %123 = icmp sgt i32 %.0104133, 0
   br i1 %123, label %124, label %132
 
 124:                                              ; preds = %122
-  %125 = zext nneg i32 %.0106133 to i64
+  %125 = zext nneg i32 %.0101134 to i64
   %126 = getelementptr [257 x %struct.ListDictionary], ptr %5, i64 0, i64 %125
-  store i32 %.0104134, ptr %126, align 16
+  store i32 %.0104133, ptr %126, align 16
   %127 = load ptr, ptr @CacheMemoryContext, align 8
-  %128 = zext nneg i32 %.0104134 to i64
+  %128 = zext nneg i32 %.0104133 to i64
   %129 = shl nuw nsw i64 %128, 2
   %130 = call ptr @MemoryContextAlloc(ptr noundef %127, i64 noundef %129) #9
   %131 = getelementptr inbounds i8, ptr %126, i64 8
@@ -824,7 +824,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   br label %146
 
 135:                                              ; preds = %120
-  %136 = icmp sgt i32 %.0104134, 99
+  %136 = icmp sgt i32 %.0104133, 99
   br i1 %136, label %137, label %140
 
 137:                                              ; preds = %135
@@ -837,22 +837,22 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
 140:                                              ; preds = %135
   %141 = getelementptr inbounds i8, ptr %108, i64 12
   %142 = load i32, ptr %141, align 4
-  %143 = add nsw i32 %.0104134, 1
-  %144 = sext i32 %.0104134 to i64
+  %143 = add nsw i32 %.0104133, 1
+  %144 = sext i32 %.0104133 to i64
   %145 = getelementptr [100 x i32], ptr %6, i64 0, i64 %144
   store i32 %142, ptr %145, align 4
   br label %146
 
 146:                                              ; preds = %140, %132
-  %.1107 = phi i32 [ %110, %132 ], [ %.0106133, %140 ]
   %.1105 = phi i32 [ 1, %132 ], [ %143, %140 ]
+  %.1102 = phi i32 [ %110, %132 ], [ %.0101134, %140 ]
   %147 = call ptr @systable_getnext_ordered(ptr noundef %100, i32 noundef 1) #9
   %.not119 = icmp eq ptr %147, null
   br i1 %.not119, label %._crit_edge137, label %.lr.ph136, !llvm.loop !8
 
 ._crit_edge137:                                   ; preds = %146, %.loopexit
-  %.0106.lcssa = phi i32 [ 0, %.loopexit ], [ %.1107, %146 ]
   %.0104.lcssa = phi i32 [ 0, %.loopexit ], [ %.1105, %146 ]
+  %.0101.lcssa = phi i32 [ 0, %.loopexit ], [ %.1102, %146 ]
   call void @systable_endscan_ordered(ptr noundef %100) #9
   call void @index_close(ptr noundef %99, i32 noundef 1) #9
   call void @table_close(ptr noundef %98, i32 noundef 1) #9
@@ -860,7 +860,7 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   br i1 %148, label %149, label %167
 
 149:                                              ; preds = %._crit_edge137
-  %150 = zext nneg i32 %.0106.lcssa to i64
+  %150 = zext nneg i32 %.0101.lcssa to i64
   %151 = getelementptr [257 x %struct.ListDictionary], ptr %5, i64 0, i64 %150
   store i32 %.0104.lcssa, ptr %151, align 16
   %152 = load ptr, ptr @CacheMemoryContext, align 8
@@ -870,14 +870,14 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %156 = getelementptr inbounds i8, ptr %151, i64 8
   store ptr %155, ptr %156, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %155, ptr nonnull align 16 %6, i64 %154, i1 false)
-  %157 = add nuw nsw i32 %.0106.lcssa, 1
-  %158 = getelementptr inbounds i8, ptr %.0101, i64 12
+  %157 = add nuw nsw i32 %.0101.lcssa, 1
+  %158 = getelementptr inbounds i8, ptr %.0100, i64 12
   store i32 %157, ptr %158, align 4
   %159 = load ptr, ptr @CacheMemoryContext, align 8
   %160 = zext nneg i32 %157 to i64
   %161 = shl nuw nsw i64 %160, 4
   %162 = call ptr @MemoryContextAlloc(ptr noundef %159, i64 noundef %161) #9
-  %163 = getelementptr inbounds i8, ptr %.0101, i64 16
+  %163 = getelementptr inbounds i8, ptr %.0100, i64 16
   store ptr %162, ptr %163, align 8
   %164 = load i32, ptr %158, align 4
   %165 = sext i32 %164 to i64
@@ -886,18 +886,18 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   br label %167
 
 167:                                              ; preds = %149, %._crit_edge137
-  %168 = getelementptr inbounds i8, ptr %.0101, i64 4
+  %168 = getelementptr inbounds i8, ptr %.0100, i64 4
   store i8 1, ptr %168, align 4
   br label %169
 
 169:                                              ; preds = %167, %33
-  %.1 = phi ptr [ %.0101, %167 ], [ %31, %33 ]
+  %.1 = phi ptr [ %.0100, %167 ], [ %31, %33 ]
   store ptr %.1, ptr @lastUsedConfig, align 8
   br label %170
 
 170:                                              ; preds = %25, %169
-  %.0100 = phi ptr [ %.1, %169 ], [ %20, %25 ]
-  ret ptr %.0100
+  %.0 = phi ptr [ %.1, %169 ], [ %20, %25 ]
+  ret ptr %.0
 }
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1

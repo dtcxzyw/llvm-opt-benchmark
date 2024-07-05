@@ -3218,9 +3218,9 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16BytesChunkBuffer5print17hb525581
   br label %30
 
 30:                                               ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit", %22
-  %.sroa.10.0 = phi ptr [ %24, %22 ], [ %.sroa.10.124, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit" ]
-  %.sroa.713.0 = phi ptr [ %26, %22 ], [ %.sroa.713.125, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit" ]
   %.sroa.012.0 = phi ptr [ %25, %22 ], [ %36, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit" ]
+  %.sroa.713.0 = phi ptr [ %26, %22 ], [ %.sroa.713.124, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit" ]
+  %.sroa.10.0 = phi ptr [ %24, %22 ], [ %.sroa.10.125, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit" ]
   %.sroa.13.0 = phi ptr [ %27, %22 ], [ %.sroa.13.126, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E.llvm.16008789196938893882.exit" ]
   %31 = icmp ne ptr %.sroa.713.0, null
   tail call void @llvm.assume(i1 %31)
@@ -3235,9 +3235,9 @@ define hidden { ptr, ptr } @_ZN7uu_tail6chunks16BytesChunkBuffer5print17hb525581
 
 "_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88aa7160074d713E.exit.thread19": ; preds = %30, %33
   %.sink6.i27 = phi ptr [ %.sroa.10.0, %33 ], [ %.sroa.012.0, %30 ]
-  %.sroa.13.126 = phi ptr [ %.sroa.713.0, %33 ], [ %.sroa.13.0, %30 ]
-  %.sroa.713.125 = phi ptr [ %.sroa.13.0, %33 ], [ %.sroa.713.0, %30 ]
-  %.sroa.10.124 = phi ptr [ %.sroa.012.0, %33 ], [ %.sroa.10.0, %30 ]
+  %.sroa.13.126 = phi ptr [ %.sroa.012.0, %33 ], [ %.sroa.13.0, %30 ]
+  %.sroa.10.125 = phi ptr [ %.sroa.012.0, %33 ], [ %.sroa.10.0, %30 ]
+  %.sroa.713.124 = phi ptr [ %.sroa.13.0, %33 ], [ %.sroa.713.0, %30 ]
   %36 = getelementptr inbounds i8, ptr %.sink6.i27, i64 8
   %37 = load ptr, ptr %.sink6.i27, align 8, !nonnull !9, !align !10, !noundef !9
   %38 = getelementptr inbounds i8, ptr %37, i64 8192

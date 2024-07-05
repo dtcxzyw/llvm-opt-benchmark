@@ -813,14 +813,14 @@ entry:
   br i1 %tobool116.not.i, label %if.end, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry, %if.end.i
-  %ptr.018.i = phi ptr [ %spec.select.i, %if.end.i ], [ %1, %entry ]
-  %2 = load i8, ptr %ptr.018.i, align 1
+  %ptr.017.i = phi ptr [ %spec.select.i, %if.end.i ], [ %1, %entry ]
+  %2 = load i8, ptr %ptr.017.i, align 1
   %tobool2.not.i = icmp eq i8 %2, 0
   br i1 %tobool2.not.i, label %if.end, label %while.cond3.i
 
 while.cond3.i:                                    ; preds = %land.rhs.i, %while.body10.i
   %3 = phi i8 [ %.pr.i, %while.body10.i ], [ %2, %land.rhs.i ]
-  %ptr.1.i = phi ptr [ %incdec.ptr.i, %while.body10.i ], [ %ptr.018.i, %land.rhs.i ]
+  %ptr.1.i = phi ptr [ %incdec.ptr.i, %while.body10.i ], [ %ptr.017.i, %land.rhs.i ]
   switch i8 %3, label %while.body10.i [
     i8 0, label %while.end.i
     i8 61, label %while.end.i
@@ -849,7 +849,7 @@ while.body19.i:                                   ; preds = %while.cond11.i
   br label %while.cond11.i, !llvm.loop !7
 
 while.end21.i:                                    ; preds = %while.cond11.i, %while.cond11.i
-  %call.i = tail call i32 @curl_strnequal(ptr noundef nonnull %ptr.018.i, ptr noundef nonnull @.str.38, i64 noundef 5) #8
+  %call.i = tail call i32 @curl_strnequal(ptr noundef nonnull %ptr.017.i, ptr noundef nonnull @.str.38, i64 noundef 5) #8
   %tobool22.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool22.not.i, label %return, label %if.end.i
 

@@ -783,8 +783,8 @@ define internal i32 @dissect_lwm2mtlv(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %31
 
 31:                                               ; preds = %10, %14, %16, %27, %24, %19, %8, %5, %4
-  %.040 = phi i32 [ %21, %27 ], [ %21, %24 ], [ %21, %19 ], [ -1, %16 ], [ -1, %14 ], [ -1, %10 ], [ -1, %8 ], [ -1, %5 ], [ -1, %4 ]
-  %.039 = phi i32 [ %30, %27 ], [ -1, %24 ], [ -1, %19 ], [ -1, %16 ], [ -1, %14 ], [ -1, %10 ], [ -1, %8 ], [ -1, %5 ], [ -1, %4 ]
+  %.040 = phi i32 [ %30, %27 ], [ -1, %24 ], [ -1, %19 ], [ -1, %16 ], [ -1, %14 ], [ -1, %10 ], [ -1, %8 ], [ -1, %5 ], [ -1, %4 ]
+  %.0 = phi i32 [ %21, %27 ], [ %21, %24 ], [ %21, %19 ], [ -1, %16 ], [ -1, %14 ], [ -1, %10 ], [ -1, %8 ], [ -1, %5 ], [ -1, %4 ]
   %.not53 = icmp eq ptr %2, null
   br i1 %.not53, label %60, label %32
 
@@ -793,7 +793,7 @@ define internal i32 @dissect_lwm2mtlv(ptr noundef %0, ptr noundef %1, ptr nounde
   %34 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %33, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #8
   %35 = load i32, ptr @ett_lwm2mtlv, align 4
   %36 = tail call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35) #8
-  %.not54 = icmp eq i32 %.040, -1
+  %.not54 = icmp eq i32 %.0, -1
   br i1 %.not54, label %59, label %.preheader
 
 .preheader:                                       ; preds = %32
@@ -815,7 +815,7 @@ define internal i32 @dissect_lwm2mtlv(ptr noundef %0, ptr noundef %1, ptr nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %41 = getelementptr %struct._lwm2m_object_name_t, ptr %38, i64 %indvars.iv
   %42 = load i32, ptr %41, align 8
-  %43 = icmp eq i32 %.040, %42
+  %43 = icmp eq i32 %.0, %42
   br i1 %43, label %44, label %39
 
 44:                                               ; preds = %40
@@ -825,7 +825,7 @@ define internal i32 @dissect_lwm2mtlv(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not55, label %.thread, label %.thread60
 
 .thread:                                          ; preds = %39, %.preheader, %44
-  %47 = tail call ptr @val_to_str_const(i32 noundef %.040, ptr noundef nonnull @lwm2m_oma_objects, ptr noundef nonnull @.str.73) #8
+  %47 = tail call ptr @val_to_str_const(i32 noundef %.0, ptr noundef nonnull @lwm2m_oma_objects, ptr noundef nonnull @.str.73) #8
   %.not56 = icmp eq ptr %47, null
   br i1 %.not56, label %59, label %.thread60
 
@@ -859,7 +859,7 @@ proto_item_set_generated.exit:                    ; preds = %49, %52, %55
   br label %59
 
 59:                                               ; preds = %.thread, %.thread60, %proto_item_set_generated.exit, %32
-  tail call fastcc void @parseArrayOfElements(ptr noundef %1, ptr noundef %0, ptr noundef %36, i32 noundef %.040, i32 noundef %.039)
+  tail call fastcc void @parseArrayOfElements(ptr noundef %1, ptr noundef %0, ptr noundef %36, i32 noundef %.0, i32 noundef %.040)
   br label %60
 
 60:                                               ; preds = %59, %31
@@ -1165,11 +1165,11 @@ define internal fastcc void @parseArrayOfElements(ptr noundef %0, ptr noundef %1
   br label %14
 
 14:                                               ; preds = %.preheader, %addValueTree.exit
-  %.026 = phi i32 [ %.127, %addValueTree.exit ], [ %4, %.preheader ]
-  %.025 = phi i32 [ %274, %addValueTree.exit ], [ %10, %.preheader ]
-  %.024 = phi i32 [ %275, %addValueTree.exit ], [ 0, %.preheader ]
-  %.0 = phi i32 [ %273, %addValueTree.exit ], [ 0, %.preheader ]
-  %15 = call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %.024, i32 noundef %.025) #8
+  %.027 = phi i32 [ %274, %addValueTree.exit ], [ %10, %.preheader ]
+  %.026 = phi i32 [ %275, %addValueTree.exit ], [ 0, %.preheader ]
+  %.024 = phi i32 [ %273, %addValueTree.exit ], [ 0, %.preheader ]
+  %.0 = phi i32 [ %.1, %addValueTree.exit ], [ %4, %.preheader ]
+  %15 = call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %.026, i32 noundef %.027) #8
   %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %15, i32 noundef 0) #8
   %17 = zext i8 %16 to i32
   %18 = lshr i32 %17, 6
@@ -1200,8 +1200,8 @@ parseTLVHeader.exit:                              ; preds = %.parseTLVHeader.exi
   %31 = add nuw nsw i32 %.pre-phi, %23
   %32 = add i32 %31, %.sroa.21.0
   %or.cond.not108 = icmp slt i8 %16, 0
-  %.127 = select i1 %or.cond.not108, i32 %25, i32 %.026
-  %33 = icmp ne i32 %.127, -1
+  %.1 = select i1 %or.cond.not108, i32 %25, i32 %.0
+  %33 = icmp ne i32 %.1, -1
   %or.cond.i = and i1 %11, %33
   br i1 %or.cond.i, label %34, label %addTlvElement.exit.thread
 
@@ -1227,7 +1227,7 @@ parseTLVHeader.exit:                              ; preds = %.parseTLVHeader.exi
 40:                                               ; preds = %.lr.ph.i36
   %41 = getelementptr inbounds i8, ptr %37, i64 4
   %42 = load i32, ptr %41, align 4
-  %43 = icmp eq i32 %42, %.127
+  %43 = icmp eq i32 %42, %.1
   br i1 %43, label %44, label %60
 
 44:                                               ; preds = %40
@@ -1258,7 +1258,7 @@ parseTLVHeader.exit:                              ; preds = %.parseTLVHeader.exi
 55:                                               ; preds = %51
   %56 = getelementptr inbounds i8, ptr %52, i64 4
   %57 = load i32, ptr %56, align 4
-  %58 = icmp eq i32 %57, %.127
+  %58 = icmp eq i32 %57, %.1
   br i1 %58, label %addTlvElement.exit.thread99, label %59
 
 59:                                               ; preds = %55, %51
@@ -1286,7 +1286,7 @@ lwm2m_search_fields.exit47.thread:                ; preds = %60, %59, %34, %50
 64:                                               ; preds = %.lr.ph.i
   %65 = getelementptr inbounds i8, ptr %61, i64 4
   %66 = load i32, ptr %65, align 4
-  %67 = icmp eq i32 %66, %.127
+  %67 = icmp eq i32 %66, %.1
   br i1 %67, label %68, label %84
 
 68:                                               ; preds = %64
@@ -1317,7 +1317,7 @@ lwm2m_search_fields.exit47.thread:                ; preds = %60, %59, %34, %50
 79:                                               ; preds = %75
   %80 = getelementptr inbounds i8, ptr %76, i64 4
   %81 = load i32, ptr %80, align 4
-  %82 = icmp eq i32 %81, %.127
+  %82 = icmp eq i32 %81, %.1
   br i1 %82, label %addTlvElement.exit.thread99, label %83
 
 83:                                               ; preds = %79, %75
@@ -1668,27 +1668,27 @@ addValueInterpretations.exit.i:                   ; preds = %261, %252, %247, %2
 
 271:                                              ; preds = %proto_item_set_generated.exit.i
   %272 = call ptr @tvb_new_subset_length(ptr noundef %15, i32 noundef %31, i32 noundef %.sroa.21.0) #8
-  call fastcc void @parseArrayOfElements(ptr noundef nonnull %0, ptr noundef %272, ptr noundef %.037.i, i32 noundef %3, i32 noundef %.127)
+  call fastcc void @parseArrayOfElements(ptr noundef nonnull %0, ptr noundef %272, ptr noundef %.037.i, i32 noundef %3, i32 noundef %.1)
   br label %addValueTree.exit
 
 addValueTree.exit:                                ; preds = %addValueInterpretations.exit.i, %271
-  %273 = add i32 %.0, 1
-  %274 = sub i32 %.025, %32
-  %275 = add i32 %32, %.024
+  %273 = add i32 %.024, 1
+  %274 = sub i32 %.027, %32
+  %275 = add i32 %32, %.026
   %276 = icmp ne i32 %32, 0
   %277 = icmp ne i32 %274, 0
   %or.cond4 = and i1 %276, %277
   br i1 %or.cond4, label %14, label %278, !llvm.loop !15
 
 278:                                              ; preds = %addValueTree.exit
-  %279 = icmp eq i32 %.0, 0
+  %279 = icmp eq i32 %.024, 0
   %spec.select107 = select i1 %279, ptr @.str.73, ptr @.str.99
   br label %.thread
 
 .thread:                                          ; preds = %278, %5
-  %.1105 = phi i32 [ 0, %5 ], [ %273, %278 ]
+  %.125105 = phi i32 [ 0, %5 ], [ %273, %278 ]
   %280 = phi ptr [ @.str.99, %5 ], [ %spec.select107, %278 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.98, i32 noundef %.1105, ptr noundef nonnull %280) #8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.98, i32 noundef %.125105, ptr noundef nonnull %280) #8
   ret void
 }
 

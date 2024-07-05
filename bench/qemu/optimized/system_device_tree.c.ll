@@ -356,11 +356,11 @@ entry:
   br i1 %cmp44, label %while.body, label %while.end19
 
 while.body:                                       ; preds = %entry, %if.end17
-  %offset.048 = phi i32 [ %call18, %if.end17 ], [ %call1, %entry ]
-  %path_list.047 = phi ptr [ %path_list.1, %if.end17 ], [ null, %entry ]
+  %path_len.049 = phi i32 [ %path_len.2, %if.end17 ], [ 16, %entry ]
+  %offset.047 = phi i32 [ %call18, %if.end17 ], [ %call1, %entry ]
   %n.046 = phi i32 [ %n.1, %if.end17 ], [ 0, %entry ]
-  %path_len.045 = phi i32 [ %path_len.2, %if.end17 ], [ 16, %entry ]
-  %call2 = call ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %offset.048, ptr noundef nonnull %len) #12
+  %path_list.045 = phi ptr [ %path_list.1, %if.end17 ], [ null, %entry ]
+  %call2 = call ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %offset.047, ptr noundef nonnull %len) #12
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -379,40 +379,40 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool6.not, label %if.end17, label %if.then7
 
 if.then7:                                         ; preds = %lor.lhs.false, %if.end
-  %conv = zext i32 %path_len.045 to i64
+  %conv = zext i32 %path_len.049 to i64
   %call8 = call noalias ptr @g_malloc(i64 noundef %conv) #11
-  %call1039 = call i32 @fdt_get_path(ptr noundef %fdt, i32 noundef %offset.048, ptr noundef %call8, i32 noundef %path_len.045) #12
+  %call1039 = call i32 @fdt_get_path(ptr noundef %fdt, i32 noundef %offset.047, ptr noundef %call8, i32 noundef %path_len.049) #12
   %cmp1140 = icmp eq i32 %call1039, -3
   br i1 %cmp1140, label %while.body13, label %while.end
 
 while.body13:                                     ; preds = %if.then7, %while.body13
   %path.042 = phi ptr [ %call15, %while.body13 ], [ %call8, %if.then7 ]
-  %path_len.141 = phi i32 [ %add, %while.body13 ], [ %path_len.045, %if.then7 ]
+  %path_len.141 = phi i32 [ %add, %while.body13 ], [ %path_len.049, %if.then7 ]
   %add = add i32 %path_len.141, 16
   %conv14 = zext i32 %add to i64
   %call15 = call ptr @g_realloc(ptr noundef %path.042, i64 noundef %conv14) #12
-  %call10 = call i32 @fdt_get_path(ptr noundef %fdt, i32 noundef %offset.048, ptr noundef %call15, i32 noundef %add) #12
+  %call10 = call i32 @fdt_get_path(ptr noundef %fdt, i32 noundef %offset.047, ptr noundef %call15, i32 noundef %add) #12
   %cmp11 = icmp eq i32 %call10, -3
   br i1 %cmp11, label %while.body13, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body13, %if.then7
-  %path_len.1.lcssa = phi i32 [ %path_len.045, %if.then7 ], [ %add, %while.body13 ]
+  %path_len.1.lcssa = phi i32 [ %path_len.049, %if.then7 ], [ %add, %while.body13 ]
   %path.0.lcssa = phi ptr [ %call8, %if.then7 ], [ %call15, %while.body13 ]
-  %call16 = call ptr @g_slist_prepend(ptr noundef %path_list.047, ptr noundef %path.0.lcssa) #12
+  %call16 = call ptr @g_slist_prepend(ptr noundef %path_list.045, ptr noundef %path.0.lcssa) #12
   %inc = add i32 %n.046, 1
   br label %if.end17
 
 if.end17:                                         ; preds = %while.end, %lor.lhs.false
-  %path_len.2 = phi i32 [ %path_len.1.lcssa, %while.end ], [ %path_len.045, %lor.lhs.false ]
+  %path_list.1 = phi ptr [ %call16, %while.end ], [ %path_list.045, %lor.lhs.false ]
   %n.1 = phi i32 [ %inc, %while.end ], [ %n.046, %lor.lhs.false ]
-  %path_list.1 = phi ptr [ %call16, %while.end ], [ %path_list.047, %lor.lhs.false ]
-  %call18 = call i32 @fdt_next_node(ptr noundef %fdt, i32 noundef %offset.048, ptr noundef null) #12
+  %path_len.2 = phi i32 [ %path_len.1.lcssa, %while.end ], [ %path_len.049, %lor.lhs.false ]
+  %call18 = call i32 @fdt_next_node(ptr noundef %fdt, i32 noundef %offset.047, ptr noundef null) #12
   %cmp = icmp sgt i32 %call18, -1
   br i1 %cmp, label %while.body, label %while.end19, !llvm.loop !8
 
 while.end19:                                      ; preds = %if.end17, %entry, %if.then
-  %n.038 = phi i32 [ %n.046, %if.then ], [ 0, %entry ], [ %n.1, %if.end17 ]
-  %path_list.036 = phi ptr [ %path_list.047, %if.then ], [ null, %entry ], [ %path_list.1, %if.end17 ]
+  %path_list.038 = phi ptr [ %path_list.045, %if.then ], [ null, %entry ], [ %path_list.1, %if.end17 ]
+  %n.036 = phi i32 [ %n.046, %if.then ], [ 0, %entry ], [ %n.1, %if.end17 ]
   %offset.1 = phi i32 [ %0, %if.then ], [ %call1, %entry ], [ %call18, %if.end17 ]
   call void @g_free(ptr noundef %call) #12
   %or.cond = icmp slt i32 %offset.1, -1
@@ -421,11 +421,11 @@ while.end19:                                      ; preds = %if.end17, %entry, %
 if.then24:                                        ; preds = %while.end19
   %call25 = call ptr @fdt_strerror(i32 noundef %offset.1) #12
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 280, ptr noundef nonnull @__func__.qemu_fdt_node_unit_path, ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.qemu_fdt_node_unit_path, ptr noundef %name, ptr noundef %call25) #12
-  %tobool26.not56 = icmp eq ptr %path_list.036, null
+  %tobool26.not56 = icmp eq ptr %path_list.038, null
   br i1 %tobool26.not56, label %return, label %for.body
 
 for.body:                                         ; preds = %if.then24, %for.body
-  %iter.057 = phi ptr [ %2, %for.body ], [ %path_list.036, %if.then24 ]
+  %iter.057 = phi ptr [ %2, %for.body ], [ %path_list.038, %if.then24 ]
   %1 = load ptr, ptr %iter.057, align 8
   call void @g_free(ptr noundef %1) #12
   %next = getelementptr inbounds i8, ptr %iter.057, i64 8
@@ -434,31 +434,31 @@ for.body:                                         ; preds = %if.then24, %for.bod
   br i1 %tobool26.not, label %return, label %for.body, !llvm.loop !9
 
 if.end27:                                         ; preds = %while.end19
-  %add28 = add i32 %n.038, 1
+  %add28 = add i32 %n.036, 1
   %conv29 = zext i32 %add28 to i64
   %call30 = call noalias ptr @g_malloc_n(i64 noundef %conv29, i64 noundef 8) #15
-  %idxprom = zext i32 %n.038 to i64
+  %idxprom = zext i32 %n.036 to i64
   %arrayidx = getelementptr ptr, ptr %call30, i64 %idxprom
   store ptr null, ptr %arrayidx, align 8
-  %tobool32.not53 = icmp eq ptr %path_list.036, null
+  %tobool32.not53 = icmp eq ptr %path_list.038, null
   br i1 %tobool32.not53, label %return, label %for.body33
 
 for.body33:                                       ; preds = %if.end27, %for.body33
-  %iter.155 = phi ptr [ %4, %for.body33 ], [ %path_list.036, %if.end27 ]
-  %n.2.in54 = phi i32 [ %n.2, %for.body33 ], [ %n.038, %if.end27 ]
-  %n.2 = add i32 %n.2.in54, -1
-  %3 = load ptr, ptr %iter.155, align 8
+  %n.2.in55 = phi i32 [ %n.2, %for.body33 ], [ %n.036, %if.end27 ]
+  %iter.154 = phi ptr [ %4, %for.body33 ], [ %path_list.038, %if.end27 ]
+  %n.2 = add i32 %n.2.in55, -1
+  %3 = load ptr, ptr %iter.154, align 8
   %idxprom36 = zext i32 %n.2 to i64
   %arrayidx37 = getelementptr ptr, ptr %call30, i64 %idxprom36
   store ptr %3, ptr %arrayidx37, align 8
-  %next39 = getelementptr inbounds i8, ptr %iter.155, i64 8
+  %next39 = getelementptr inbounds i8, ptr %iter.154, i64 8
   %4 = load ptr, ptr %next39, align 8
   %tobool32.not = icmp eq ptr %4, null
   br i1 %tobool32.not, label %return, label %for.body33, !llvm.loop !10
 
 return:                                           ; preds = %for.body33, %for.body, %if.end27, %if.then24
   %retval.0 = phi ptr [ null, %if.then24 ], [ %call30, %if.end27 ], [ null, %for.body ], [ %call30, %for.body33 ]
-  call void @g_slist_free(ptr noundef %path_list.036) #12
+  call void @g_slist_free(ptr noundef %path_list.038) #12
   ret ptr %retval.0
 }
 
@@ -1138,7 +1138,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %if.end22
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end22 ]
-  %cellnum.017 = phi i32 [ 0, %for.body.preheader ], [ %inc25, %if.end22 ]
+  %cellnum.018 = phi i32 [ 0, %for.body.preheader ], [ %inc25, %if.end22 ]
   %sext = shl i64 %indvars.iv, 33
   %0 = ashr exact i64 %sext, 29
   %arrayidx = getelementptr i8, ptr %values, i64 %0
@@ -1162,8 +1162,8 @@ if.then15:                                        ; preds = %if.end
   %shr = lshr i64 %5, 32
   %conv11 = trunc nuw i64 %shr to i32
   %6 = tail call noundef i32 @llvm.bswap.i32(i32 %conv11)
-  %inc = add i32 %cellnum.017, 1
-  %idxprom16 = sext i32 %cellnum.017 to i64
+  %inc = add i32 %cellnum.018, 1
+  %idxprom16 = sext i32 %cellnum.018 to i64
   %arrayidx17 = getelementptr i32, ptr %call, i64 %idxprom16
   store i32 %6, ptr %arrayidx17, align 4
   br label %if.end22
@@ -1173,7 +1173,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp18.not, label %if.end22, label %out
 
 if.end22:                                         ; preds = %if.else, %if.then15
-  %cellnum.1 = phi i32 [ %inc, %if.then15 ], [ %cellnum.017, %if.else ]
+  %cellnum.1 = phi i32 [ %inc, %if.then15 ], [ %cellnum.018, %if.else ]
   %conv23 = trunc i64 %5 to i32
   %7 = tail call noundef i32 @llvm.bswap.i32(i32 %conv23)
   %inc25 = add i32 %cellnum.1, 1

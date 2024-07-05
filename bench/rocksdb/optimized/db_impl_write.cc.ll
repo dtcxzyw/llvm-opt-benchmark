@@ -4465,11 +4465,11 @@ invoke.cont285:                                   ; preds = %invoke.cont276
   br i1 %cmp.i303.not712, label %for.end325, label %for.body290
 
 for.body290:                                      ; preds = %invoke.cont285, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322
-  %pre_release_callback_cnt.0718 = phi i64 [ %pre_release_callback_cnt.1, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ 0, %invoke.cont285 ]
-  %total_byte_size.0717 = phi i64 [ %total_byte_size.2, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ 0, %invoke.cont285 ]
+  %parallel.0718 = phi i8 [ %parallel.2, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ %frombool282, %invoke.cont285 ]
+  %total_count.0717 = phi i64 [ %total_count.2, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ 0, %invoke.cont285 ]
   %valid_batches.0716 = phi i64 [ %valid_batches.1, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ 0, %invoke.cont285 ]
-  %total_count.0715 = phi i64 [ %total_count.2, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ 0, %invoke.cont285 ]
-  %parallel.0714 = phi i8 [ %parallel.2, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ %frombool282, %invoke.cont285 ]
+  %total_byte_size.0715 = phi i64 [ %total_byte_size.2, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ 0, %invoke.cont285 ]
+  %pre_release_callback_cnt.0714 = phi i64 [ %pre_release_callback_cnt.1, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ 0, %invoke.cont285 ]
   %__begin2.sroa.0.0713 = phi ptr [ %121, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ %108, %invoke.cont285 ]
   %call294 = invoke noundef zeroext i1 @_ZN7rocksdb11WriteThread6Writer13CheckCallbackEPNS_2DBE(ptr noundef nonnull align 16 dereferenceable(256) %__begin2.sroa.0.0713, ptr noundef nonnull %this)
           to label %invoke.cont293 unwind label %lpad275.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4509,15 +4509,15 @@ if.then299:                                       ; preds = %invoke.cont297
 
 invoke.cont300:                                   ; preds = %if.then299
   %conv302 = zext i32 %call301 to i64
-  %add303 = add i64 %total_count.0715, %conv302
+  %add303 = add i64 %total_count.0717, %conv302
   %117 = load ptr, ptr %__begin2.sroa.0.0713, align 16
   %rep_.i = getelementptr inbounds i8, ptr %117, i64 64
   %call.i316 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_.i) #20
-  %call308 = invoke noundef i64 @_ZN7rocksdb18WriteBatchInternal16AppendedByteSizeEmm(i64 noundef %total_byte_size.0717, i64 noundef %call.i316)
+  %call308 = invoke noundef i64 @_ZN7rocksdb18WriteBatchInternal16AppendedByteSizeEmm(i64 noundef %total_byte_size.0715, i64 noundef %call.i316)
           to label %invoke.cont307 unwind label %lpad275.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont307:                                   ; preds = %invoke.cont300
-  %tobool309 = trunc nuw i8 %parallel.0714 to i1
+  %tobool309 = trunc nuw i8 %parallel.0718 to i1
   br i1 %tobool309, label %land.rhs310, label %land.end314
 
 land.rhs310:                                      ; preds = %invoke.cont307
@@ -4555,22 +4555,22 @@ lpad275.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.end
   br label %ehcleanup717
 
 if.end316:                                        ; preds = %if.then295, %land.lhs.true.i306, %land.end314, %invoke.cont297
-  %parallel.1 = phi i8 [ %frombool315, %land.end314 ], [ %parallel.0714, %invoke.cont297 ], [ %parallel.0714, %land.lhs.true.i306 ], [ %parallel.0714, %if.then295 ]
-  %total_count.1 = phi i64 [ %add303, %land.end314 ], [ %total_count.0715, %invoke.cont297 ], [ %total_count.0715, %land.lhs.true.i306 ], [ %total_count.0715, %if.then295 ]
-  %total_byte_size.1 = phi i64 [ %call308, %land.end314 ], [ %total_byte_size.0717, %invoke.cont297 ], [ %total_byte_size.0717, %land.lhs.true.i306 ], [ %total_byte_size.0717, %if.then295 ]
+  %total_byte_size.1 = phi i64 [ %call308, %land.end314 ], [ %total_byte_size.0715, %invoke.cont297 ], [ %total_byte_size.0715, %land.lhs.true.i306 ], [ %total_byte_size.0715, %if.then295 ]
+  %total_count.1 = phi i64 [ %add303, %land.end314 ], [ %total_count.0717, %invoke.cont297 ], [ %total_count.0717, %land.lhs.true.i306 ], [ %total_count.0717, %if.then295 ]
+  %parallel.1 = phi i8 [ %frombool315, %land.end314 ], [ %parallel.0718, %invoke.cont297 ], [ %parallel.0718, %land.lhs.true.i306 ], [ %parallel.0718, %if.then295 ]
   %pre_release_callback317 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0713, i64 40
   %120 = load ptr, ptr %pre_release_callback317, align 8
   %tobool318.not = icmp ne ptr %120, null
   %inc = zext i1 %tobool318.not to i64
-  %spec.select = add i64 %pre_release_callback_cnt.0718, %inc
+  %spec.select = add i64 %pre_release_callback_cnt.0714, %inc
   br label %for.inc322
 
 for.inc322:                                       ; preds = %if.end316, %invoke.cont293
-  %parallel.2 = phi i8 [ %parallel.0714, %invoke.cont293 ], [ %parallel.1, %if.end316 ]
-  %total_count.2 = phi i64 [ %total_count.0715, %invoke.cont293 ], [ %total_count.1, %if.end316 ]
+  %pre_release_callback_cnt.1 = phi i64 [ %pre_release_callback_cnt.0714, %invoke.cont293 ], [ %spec.select, %if.end316 ]
+  %total_byte_size.2 = phi i64 [ %total_byte_size.0715, %invoke.cont293 ], [ %total_byte_size.1, %if.end316 ]
   %valid_batches.1 = phi i64 [ %valid_batches.0716, %invoke.cont293 ], [ %add, %if.end316 ]
-  %total_byte_size.2 = phi i64 [ %total_byte_size.0717, %invoke.cont293 ], [ %total_byte_size.1, %if.end316 ]
-  %pre_release_callback_cnt.1 = phi i64 [ %pre_release_callback_cnt.0718, %invoke.cont293 ], [ %spec.select, %if.end316 ]
+  %total_count.2 = phi i64 [ %total_count.0717, %invoke.cont293 ], [ %total_count.1, %if.end316 ]
+  %parallel.2 = phi i8 [ %parallel.0718, %invoke.cont293 ], [ %parallel.1, %if.end316 ]
   %cmp.i318 = icmp eq ptr %__begin2.sroa.0.0713, %109
   br i1 %cmp.i318, label %for.end325, label %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322
 
@@ -4581,11 +4581,11 @@ _ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322: ; preds = %for.inc322
   br i1 %cmp.i303.not, label %for.end325, label %for.body290
 
 for.end325:                                       ; preds = %for.inc322, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322, %invoke.cont285
-  %parallel.0.lcssa = phi i8 [ %frombool282, %invoke.cont285 ], [ %parallel.2, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ %parallel.2, %for.inc322 ]
-  %total_count.0.lcssa = phi i64 [ 0, %invoke.cont285 ], [ %total_count.2, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ %total_count.2, %for.inc322 ]
-  %valid_batches.0.lcssa = phi i64 [ 0, %invoke.cont285 ], [ %valid_batches.1, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ %valid_batches.1, %for.inc322 ]
-  %total_byte_size.0.lcssa = phi i64 [ 0, %invoke.cont285 ], [ %total_byte_size.2, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ %total_byte_size.2, %for.inc322 ]
   %pre_release_callback_cnt.0.lcssa = phi i64 [ 0, %invoke.cont285 ], [ %pre_release_callback_cnt.1, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ %pre_release_callback_cnt.1, %for.inc322 ]
+  %total_byte_size.0.lcssa = phi i64 [ 0, %invoke.cont285 ], [ %total_byte_size.2, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ %total_byte_size.2, %for.inc322 ]
+  %valid_batches.0.lcssa = phi i64 [ 0, %invoke.cont285 ], [ %valid_batches.1, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ %valid_batches.1, %for.inc322 ]
+  %total_count.0.lcssa = phi i64 [ 0, %invoke.cont285 ], [ %total_count.2, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ %total_count.2, %for.inc322 ]
+  %parallel.0.lcssa = phi i8 [ %frombool282, %invoke.cont285 ], [ %parallel.2, %_ZN7rocksdb11WriteThread10WriteGroup8IteratorppEv.exit322 ], [ %parallel.2, %for.inc322 ]
   %122 = load ptr, ptr %tracer_, align 16
   %cmp.i323.not = icmp eq ptr %122, null
   br i1 %cmp.i323.not, label %if.end370, label %if.then328
@@ -13345,10 +13345,10 @@ for.body53.lr.ph:                                 ; preds = %if.end50
   br i1 %cmp.not.i57, label %for.body53.us, label %for.body53
 
 for.body53.us:                                    ; preds = %for.body53.lr.ph, %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit.us
-  %__begin2.sroa.0.0161.us = phi ptr [ %__begin2.sroa.0.1.us, %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit.us ], [ %35, %for.body53.lr.ph ]
+  %__begin2.sroa.11.0161.us = phi ptr [ %__begin2.sroa.11.1.us, %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit.us ], [ %37, %for.body53.lr.ph ]
   %__begin2.sroa.8.0160.us = phi ptr [ %__begin2.sroa.8.1.us, %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit.us ], [ %38, %for.body53.lr.ph ]
-  %__begin2.sroa.11.0159.us = phi ptr [ %__begin2.sroa.11.1.us, %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit.us ], [ %37, %for.body53.lr.ph ]
-  %writer56.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.0161.us, i64 8
+  %__begin2.sroa.0.0159.us = phi ptr [ %__begin2.sroa.0.1.us, %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit.us ], [ %35, %for.body53.lr.ph ]
+  %writer56.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.0159.us, i64 8
   %39 = load ptr, ptr %writer56.us, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = load i8, ptr %use_fsync, align 8
@@ -13372,20 +13372,20 @@ invoke.cont63.us:                                 ; preds = %_ZNKSt14default_del
   br i1 %cmp.i78.us, label %for.inc67.us, label %for.end69
 
 for.inc67.us:                                     ; preds = %invoke.cont63.us
-  %incdec.ptr.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.0161.us, i64 32
+  %incdec.ptr.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.0159.us, i64 32
   %cmp.i79.us = icmp eq ptr %incdec.ptr.i.us, %__begin2.sroa.8.0160.us
   br i1 %cmp.i79.us, label %if.then.i80.us, label %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit.us
 
 if.then.i80.us:                                   ; preds = %for.inc67.us
-  %add.ptr.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.11.0159.us, i64 8
+  %add.ptr.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.11.0161.us, i64 8
   %44 = load ptr, ptr %add.ptr.i.us, align 8
   %add.ptr.i.i.us = getelementptr inbounds i8, ptr %44, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit.us
 
 _ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit.us: ; preds = %if.then.i80.us, %for.inc67.us
-  %__begin2.sroa.11.1.us = phi ptr [ %add.ptr.i.us, %if.then.i80.us ], [ %__begin2.sroa.11.0159.us, %for.inc67.us ]
-  %__begin2.sroa.8.1.us = phi ptr [ %add.ptr.i.i.us, %if.then.i80.us ], [ %__begin2.sroa.8.0160.us, %for.inc67.us ]
   %__begin2.sroa.0.1.us = phi ptr [ %44, %if.then.i80.us ], [ %incdec.ptr.i.us, %for.inc67.us ]
+  %__begin2.sroa.8.1.us = phi ptr [ %add.ptr.i.i.us, %if.then.i80.us ], [ %__begin2.sroa.8.0160.us, %for.inc67.us ]
+  %__begin2.sroa.11.1.us = phi ptr [ %add.ptr.i.us, %if.then.i80.us ], [ %__begin2.sroa.11.0161.us, %for.inc67.us ]
   %cmp.i.i.not.us = icmp eq ptr %__begin2.sroa.0.1.us, %36
   br i1 %cmp.i.i.not.us, label %for.end69, label %for.body53.us
 
@@ -13395,10 +13395,10 @@ lpad48.loopexit.split.us:                         ; preds = %for.body53.us
   br label %ehcleanup92
 
 for.body53:                                       ; preds = %for.body53.lr.ph, %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit
-  %__begin2.sroa.0.0161 = phi ptr [ %__begin2.sroa.0.1, %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit ], [ %35, %for.body53.lr.ph ]
+  %__begin2.sroa.11.0161 = phi ptr [ %__begin2.sroa.11.1, %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit ], [ %37, %for.body53.lr.ph ]
   %__begin2.sroa.8.0160 = phi ptr [ %__begin2.sroa.8.1, %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit ], [ %38, %for.body53.lr.ph ]
-  %__begin2.sroa.11.0159 = phi ptr [ %__begin2.sroa.11.1, %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit ], [ %37, %for.body53.lr.ph ]
-  %writer56 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0161, i64 8
+  %__begin2.sroa.0.0159 = phi ptr [ %__begin2.sroa.0.1, %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit ], [ %35, %for.body53.lr.ph ]
+  %writer56 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0159, i64 8
   %45 = load ptr, ptr %writer56, align 8
   %46 = load ptr, ptr %45, align 8
   %47 = load i8, ptr %use_fsync, align 8
@@ -13446,20 +13446,20 @@ invoke.cont63:                                    ; preds = %invoke.cont61, %_ZN
   br i1 %cmp.i78, label %for.inc67, label %for.end69
 
 for.inc67:                                        ; preds = %invoke.cont63
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0161, i64 32
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0159, i64 32
   %cmp.i79 = icmp eq ptr %incdec.ptr.i, %__begin2.sroa.8.0160
   br i1 %cmp.i79, label %if.then.i80, label %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit
 
 if.then.i80:                                      ; preds = %for.inc67
-  %add.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.11.0159, i64 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.11.0161, i64 8
   %56 = load ptr, ptr %add.ptr.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %56, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit
 
 _ZNSt15_Deque_iteratorIN7rocksdb6DBImpl15LogWriterNumberERS2_PS2_EppEv.exit: ; preds = %for.inc67, %if.then.i80
-  %__begin2.sroa.11.1 = phi ptr [ %add.ptr.i, %if.then.i80 ], [ %__begin2.sroa.11.0159, %for.inc67 ]
-  %__begin2.sroa.8.1 = phi ptr [ %add.ptr.i.i, %if.then.i80 ], [ %__begin2.sroa.8.0160, %for.inc67 ]
   %__begin2.sroa.0.1 = phi ptr [ %56, %if.then.i80 ], [ %incdec.ptr.i, %for.inc67 ]
+  %__begin2.sroa.8.1 = phi ptr [ %add.ptr.i.i, %if.then.i80 ], [ %__begin2.sroa.8.0160, %for.inc67 ]
+  %__begin2.sroa.11.1 = phi ptr [ %add.ptr.i, %if.then.i80 ], [ %__begin2.sroa.11.0161, %for.inc67 ]
   %cmp.i.i.not = icmp eq ptr %__begin2.sroa.0.1, %36
   br i1 %cmp.i.i.not, label %for.end69, label %for.body53
 

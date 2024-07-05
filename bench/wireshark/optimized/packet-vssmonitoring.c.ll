@@ -153,7 +153,7 @@ define internal i32 @dissect_vssmonitoring(ptr noundef %0, ptr nocapture noundef
   br i1 %or.cond64, label %69, label %40
 
 40:                                               ; preds = %34, %31, %38, %37
-  %.0 = phi i32 [ %21, %37 ], [ 0, %38 ], [ %21, %31 ], [ %21, %34 ]
+  %.047 = phi i32 [ %21, %37 ], [ 0, %38 ], [ %21, %31 ], [ %21, %34 ]
   %.not62 = icmp eq ptr %2, null
   br i1 %.not62, label %.thread73, label %41
 
@@ -169,7 +169,7 @@ define internal i32 @dissect_vssmonitoring(ptr noundef %0, ptr nocapture noundef
   %48 = load i32, ptr @hf_vssmonitoring_time, align 4
   %49 = call ptr @proto_tree_add_time(ptr noundef %46, i32 noundef %48, ptr noundef %0, i32 noundef 0, i32 noundef 8, ptr noundef nonnull %5) #3
   %50 = load i32, ptr @hf_vssmonitoring_clksrc, align 4
-  %51 = call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %50, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %.0) #3
+  %51 = call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %50, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %.047) #3
   %52 = call ptr @localtime(ptr noundef nonnull %5) #3
   %.not63 = icmp eq ptr %52, null
   br i1 %.not63, label %62, label %53
@@ -191,7 +191,7 @@ define internal i32 @dissect_vssmonitoring(ptr noundef %0, ptr nocapture noundef
   br label %63
 
 63:                                               ; preds = %41, %62, %53
-  %.047 = phi i32 [ 0, %41 ], [ 8, %53 ], [ 8, %62 ]
+  %.050 = phi i32 [ 0, %41 ], [ 8, %53 ], [ 8, %62 ]
   br i1 %.not60, label %64, label %69
 
 .thread73:                                        ; preds = %40
@@ -200,19 +200,19 @@ define internal i32 @dissect_vssmonitoring(ptr noundef %0, ptr nocapture noundef
 
 64:                                               ; preds = %63
   %65 = load i32, ptr @hf_vssmonitoring_srcport, align 4
-  %66 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %46, i32 noundef %65, ptr noundef %0, i32 noundef %.047, i32 noundef %8, i32 noundef 0, ptr noundef nonnull %6) #3
+  %66 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %46, i32 noundef %65, ptr noundef %0, i32 noundef %.050, i32 noundef %8, i32 noundef 0, ptr noundef nonnull %6) #3
   %67 = load i32, ptr %6, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.28, i32 noundef %67) #3
   br label %.thread80
 
 .thread80:                                        ; preds = %.thread73, %64
-  %.0477984 = phi i32 [ %.047, %64 ], [ %.mux70, %.thread73 ]
-  %68 = or disjoint i32 %.0477984, %8
+  %.0507984 = phi i32 [ %.050, %64 ], [ %.mux70, %.thread73 ]
+  %68 = or disjoint i32 %.0507984, %8
   br label %69
 
 69:                                               ; preds = %.thread73, %63, %.thread80, %38, %37, %34, %31, %16, %12, %4
-  %.050 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %16 ], [ 0, %31 ], [ 0, %34 ], [ 0, %37 ], [ 0, %38 ], [ %68, %.thread80 ], [ %.047, %63 ], [ %.mux70, %.thread73 ]
-  ret i32 %.050
+  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %16 ], [ 0, %31 ], [ 0, %34 ], [ 0, %37 ], [ 0, %38 ], [ %68, %.thread80 ], [ %.050, %63 ], [ %.mux70, %.thread73 ]
+  ret i32 %.0
 }
 
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1

@@ -2220,24 +2220,24 @@ define internal fastcc void @dissect_fcdns_swils_entries(ptr noundef %0, ptr nou
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %97
-  %.0109 = phi i32 [ %98, %97 ], [ 0, %3 ]
-  %.0101108 = phi i32 [ %.3, %97 ], [ 20, %3 ]
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0101108) #4
+  %.0109 = phi i32 [ %.3, %97 ], [ 20, %3 ]
+  %.0101108 = phi i32 [ %98, %97 ], [ 0, %3 ]
+  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0109) #4
   %9 = load i32, ptr @hf_fcdns_sw2_objfmt, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %9, ptr noundef %0, i32 noundef %.0101108, i32 noundef 1, i32 noundef 0) #4
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %9, ptr noundef %0, i32 noundef %.0109, i32 noundef 1, i32 noundef 0) #4
   %11 = load i32, ptr @hf_fcdns_rply_ownerid, align 4
-  %12 = add i32 %.0101108, 1
+  %12 = add i32 %.0109, 1
   %13 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 3, i32 noundef 0) #4
   %14 = load i32, ptr @hf_fcdns_rply_ptype, align 4
-  %15 = add i32 %.0101108, 4
+  %15 = add i32 %.0109, 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %14, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef 0) #4
   %17 = load i32, ptr @hf_fcdns_rply_portid, align 4
-  %18 = add i32 %.0101108, 5
+  %18 = add i32 %.0109, 5
   %19 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %17, ptr noundef %0, i32 noundef %18, i32 noundef 3, i32 noundef 0) #4
   %20 = load i32, ptr @hf_fcdns_rply_pname, align 4
-  %21 = add i32 %.0101108, 8
+  %21 = add i32 %.0109, 8
   %22 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %20, ptr noundef %0, i32 noundef %21, i32 noundef 8, i32 noundef 0) #4
-  %23 = add i32 %.0101108, 16
+  %23 = add i32 %.0109, 16
   %24 = zext i8 %8 to i32
   %25 = and i32 %24, 1
   %.not103 = icmp eq i32 %25, 0
@@ -2254,24 +2254,24 @@ define internal fastcc void @dissect_fcdns_swils_entries(ptr noundef %0, ptr nou
   %32 = load i32, ptr @hf_fcdns_rply_spnamelen, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %32, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef 0) #4
   %34 = load i32, ptr @hf_fcdns_rply_spname, align 4
-  %35 = add i32 %.0101108, 17
+  %35 = add i32 %.0109, 17
   %36 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %34, ptr noundef %0, i32 noundef %35, i32 noundef %31, i32 noundef 0) #4
-  %37 = add i32 %.0101108, 272
+  %37 = add i32 %.0109, 272
   %38 = load i32, ptr @hf_fcdns_rply_nname, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %38, ptr noundef %0, i32 noundef %37, i32 noundef 8, i32 noundef 0) #4
-  %40 = add i32 %.0101108, 280
+  %40 = add i32 %.0109, 280
   %41 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %40) #4
   %42 = zext i8 %41 to i32
   %43 = load i32, ptr @hf_fcdns_rply_snamelen, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %43, ptr noundef %0, i32 noundef %40, i32 noundef 1, i32 noundef 0) #4
   %45 = load i32, ptr @hf_fcdns_rply_sname, align 4
-  %46 = add i32 %.0101108, 281
+  %46 = add i32 %.0109, 281
   %47 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %45, ptr noundef %0, i32 noundef %46, i32 noundef %42, i32 noundef 0) #4
   br label %48
 
 48:                                               ; preds = %26, %29
   %.sink = phi i32 [ 24, %26 ], [ 536, %29 ]
-  %49 = add i32 %.0101108, %.sink
+  %49 = add i32 %.0109, %.sink
   %50 = load i32, ptr @hf_fcdns_rply_ipa, align 4
   %51 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %50, ptr noundef %0, i32 noundef %49, i32 noundef 8, i32 noundef 0) #4
   %52 = load i32, ptr @hf_fcdns_rply_ipnode, align 4
@@ -2334,7 +2334,7 @@ define internal fastcc void @dissect_fcdns_swils_entries(ptr noundef %0, ptr nou
 
 97:                                               ; preds = %48, %95
   %.3 = phi i32 [ %96, %95 ], [ %70, %48 ]
-  %98 = add nuw nsw i32 %.0109, 1
+  %98 = add nuw nsw i32 %.0101108, 1
   %exitcond.not = icmp eq i32 %98, %4
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 

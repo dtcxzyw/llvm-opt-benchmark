@@ -72,9 +72,9 @@ Abc_UtilStrsav.exit:                              ; preds = %4, %13
   br i1 %.not, label %.critedge, label %.lr.ph277, !llvm.loop !4
 
 .lr.ph277:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0123199276 = phi i32 [ %22, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0199276 = phi i32 [ %22, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   tail call fastcc void @Gia_ManAppendCi(ptr noundef nonnull %11)
-  %22 = add nuw nsw i32 %.0123199276, 1
+  %22 = add nuw nsw i32 %.0199276, 1
   %.val141 = load i32, ptr %6, align 8
   %23 = icmp slt i32 %22, %.val141
   br i1 %23, label %.lr.ph, label %.critedge, !llvm.loop !4
@@ -239,7 +239,7 @@ Abc_UtilStrsav.exit:                              ; preds = %4, %13
 
 .preheader197:                                    ; preds = %.preheader197.lr.ph, %.critedge12
   %.val146225261 = phi i32 [ %.val156210252, %.preheader197.lr.ph ], [ %.val146225262, %.critedge12 ]
-  %.0230 = phi i32 [ 0, %.preheader197.lr.ph ], [ %248, %.critedge12 ]
+  %.0123230 = phi i32 [ 0, %.preheader197.lr.ph ], [ %248, %.critedge12 ]
   %.val157211 = load ptr, ptr %93, align 8
   %98 = getelementptr i8, ptr %.val157211, i64 4
   %.val157.val212 = load i32, ptr %98, align 4
@@ -535,7 +535,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
 
 .critedge12:                                      ; preds = %222, %.lr.ph228, %.critedge8, %.critedge10
   %.val146225262 = phi i32 [ %.val146225, %.critedge10 ], [ %.val146225268, %.critedge8 ], [ %.val146, %222 ], [ %.val146225264, %.lr.ph228 ]
-  %248 = add nuw nsw i32 %.0230, 1
+  %248 = add nuw nsw i32 %.0123230, 1
   %exitcond.not = icmp eq i32 %248, %1
   br i1 %exitcond.not, label %.preheader, label %.preheader197, !llvm.loop !12
 

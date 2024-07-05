@@ -86,9 +86,9 @@ define dso_local ptr @Curl_slist_duplicate(ptr noundef readonly %0) local_unname
   br i1 %.not28, label %curl_slist_free_all.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %curl_slist_append.exit.thread17
-  %.030 = phi ptr [ %.0.i20, %curl_slist_append.exit.thread17 ], [ null, %1 ]
-  %.0929 = phi ptr [ %20, %curl_slist_append.exit.thread17 ], [ %0, %1 ]
-  %2 = load ptr, ptr %.0929, align 8
+  %.0930 = phi ptr [ %.0.i20, %curl_slist_append.exit.thread17 ], [ null, %1 ]
+  %.01029 = phi ptr [ %20, %curl_slist_append.exit.thread17 ], [ %0, %1 ]
+  %2 = load ptr, ptr %.01029, align 8
   %3 = load ptr, ptr @Curl_cstrdup, align 8
   %4 = tail call ptr %3(ptr noundef %2) #1
   %.not.i = icmp eq ptr %4, null
@@ -104,11 +104,11 @@ define dso_local ptr @Curl_slist_duplicate(ptr noundef readonly %0) local_unname
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr null, ptr %9, align 8
   store ptr %4, ptr %7, align 8
-  %.not13.i.i = icmp eq ptr %.030, null
+  %.not13.i.i = icmp eq ptr %.0930, null
   br i1 %.not13.i.i, label %curl_slist_append.exit.thread17, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %8, %.preheader.i.i
-  %.0.i.i.i = phi ptr [ %11, %.preheader.i.i ], [ %.030, %8 ]
+  %.0.i.i.i = phi ptr [ %11, %.preheader.i.i ], [ %.0930, %8 ]
   %10 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %11, null
@@ -125,11 +125,11 @@ curl_slist_append.exit:                           ; preds = %.preheader.i.i
   br label %curl_slist_append.exit.thread17
 
 .loopexit:                                        ; preds = %.lr.ph, %Curl_slist_append_nodup.exit.thread.i
-  %.not.i13 = icmp eq ptr %.030, null
+  %.not.i13 = icmp eq ptr %.0930, null
   br i1 %.not.i13, label %curl_slist_free_all.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.loopexit, %.preheader.i
-  %.0.i14 = phi ptr [ %15, %.preheader.i ], [ %.030, %.loopexit ]
+  %.0.i14 = phi ptr [ %15, %.preheader.i ], [ %.0930, %.loopexit ]
   %14 = getelementptr inbounds i8, ptr %.0.i14, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @Curl_cfree, align 8
@@ -142,15 +142,15 @@ curl_slist_append.exit:                           ; preds = %.preheader.i.i
   br i1 %.not9.i, label %curl_slist_free_all.exit, label %.preheader.i, !llvm.loop !7
 
 curl_slist_append.exit.thread17:                  ; preds = %curl_slist_append.exit, %8
-  %.0.i20 = phi ptr [ %.030, %curl_slist_append.exit ], [ %7, %8 ]
-  %19 = getelementptr inbounds i8, ptr %.0929, i64 8
+  %.0.i20 = phi ptr [ %.0930, %curl_slist_append.exit ], [ %7, %8 ]
+  %19 = getelementptr inbounds i8, ptr %.01029, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %curl_slist_free_all.exit, label %.lr.ph, !llvm.loop !8
 
 curl_slist_free_all.exit:                         ; preds = %curl_slist_append.exit.thread17, %.preheader.i, %1, %.loopexit
-  %.010 = phi ptr [ null, %.loopexit ], [ null, %1 ], [ null, %.preheader.i ], [ %.0.i20, %curl_slist_append.exit.thread17 ]
-  ret ptr %.010
+  %.0 = phi ptr [ null, %.loopexit ], [ null, %1 ], [ null, %.preheader.i ], [ %.0.i20, %curl_slist_append.exit.thread17 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

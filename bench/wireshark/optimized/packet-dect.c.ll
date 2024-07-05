@@ -1722,22 +1722,22 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr nocapture
 
 21:                                               ; preds = %18, %18, %18, %18, %18, %19, %20
   %.ph = phi i1 [ true, %18 ], [ true, %18 ], [ true, %18 ], [ true, %18 ], [ true, %18 ], [ false, %19 ], [ false, %20 ]
-  %.091.ph = phi i32 [ 40, %18 ], [ 40, %18 ], [ 40, %18 ], [ 40, %18 ], [ 40, %18 ], [ 100, %19 ], [ 10, %20 ]
-  %.090.ph = phi ptr [ @.str.646, %18 ], [ @.str.646, %18 ], [ @.str.646, %18 ], [ @.str.646, %18 ], [ @.str.646, %18 ], [ @.str.647, %19 ], [ @.str.648, %20 ]
-  %.089.ph = phi ptr [ @.str.414, %18 ], [ @.str.414, %18 ], [ @.str.414, %18 ], [ @.str.414, %18 ], [ @.str.414, %18 ], [ @.str.410, %19 ], [ @.str.412, %20 ]
+  %.094.ph = phi i32 [ 40, %18 ], [ 40, %18 ], [ 40, %18 ], [ 40, %18 ], [ 40, %18 ], [ 100, %19 ], [ 10, %20 ]
+  %.092.ph = phi ptr [ @.str.646, %18 ], [ @.str.646, %18 ], [ @.str.646, %18 ], [ @.str.646, %18 ], [ @.str.646, %18 ], [ @.str.647, %19 ], [ @.str.648, %20 ]
+  %.091.ph = phi ptr [ @.str.414, %18 ], [ @.str.414, %18 ], [ @.str.414, %18 ], [ @.str.414, %18 ], [ @.str.414, %18 ], [ @.str.410, %19 ], [ @.str.412, %20 ]
   %22 = load i32, ptr @hf_dect_cc_BField, align 4
-  %23 = call ptr @proto_tree_add_string(ptr noundef %4, i32 noundef %22, ptr noundef %2, i32 noundef 19, i32 noundef 1, ptr noundef nonnull %.089.ph) #5
+  %23 = call ptr @proto_tree_add_string(ptr noundef %4, i32 noundef %22, ptr noundef %2, i32 noundef 19, i32 noundef 1, ptr noundef nonnull %.091.ph) #5
   %24 = load i32, ptr @hf_dect_B, align 4
-  %25 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %24, ptr noundef %2, i32 noundef 19, i32 noundef %.091.ph, i32 noundef 0) #5
+  %25 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %24, ptr noundef %2, i32 noundef 19, i32 noundef %.094.ph, i32 noundef 0) #5
   %26 = load i32, ptr @ett_bfield, align 4
   %27 = call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26) #5
   %28 = load i32, ptr @hf_dect_B_Data, align 4
-  %29 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %27, i32 noundef %28, ptr noundef %2, i32 noundef 19, i32 noundef %.091.ph, ptr noundef nonnull @.str.624, ptr noundef nonnull %.090.ph) #5
+  %29 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %27, i32 noundef %28, ptr noundef %2, i32 noundef 19, i32 noundef %.094.ph, ptr noundef nonnull @.str.624, ptr noundef nonnull %.092.ph) #5
   %30 = load i32, ptr @hf_dect_B_DescrambledData, align 4
-  %31 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %30, ptr noundef %2, i32 noundef 19, i32 noundef %.091.ph, i32 noundef 0) #5
+  %31 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %30, ptr noundef %2, i32 noundef 19, i32 noundef %.094.ph, i32 noundef 0) #5
   %32 = load i32, ptr @ett_bfdescrdata, align 4
   %33 = call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #5
-  %.not104 = icmp ult i32 %8, %.091.ph
+  %.not104 = icmp ult i32 %8, %.094.ph
   br i1 %.not104, label %70, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %21
@@ -1759,19 +1759,19 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr nocapture
 
 40:                                               ; preds = %.lr.ph.us, %.split.loop.exit
   %41 = phi i32 [ 0, %.lr.ph.us ], [ %53, %.split.loop.exit ]
-  %.0124.us = phi i16 [ 0, %.lr.ph.us ], [ %.1.lcssa.us, %.split.loop.exit ]
-  %.194123.us = phi i32 [ 19, %.lr.ph.us ], [ %51, %.split.loop.exit ]
+  %.1124.us = phi i32 [ 19, %.lr.ph.us ], [ %51, %.split.loop.exit ]
+  %.083123.us = phi i16 [ 0, %.lr.ph.us ], [ %.184.lcssa.us, %.split.loop.exit ]
   %42 = load ptr, ptr %34, align 8
   %43 = call noalias ptr @wmem_strbuf_new(ptr noundef %42, ptr noundef null) #5
   %44 = zext nneg i32 %41 to i64
-  %45 = call i32 @llvm.usub.sat.i32(i32 %.091.ph, i32 %41)
+  %45 = call i32 @llvm.usub.sat.i32(i32 %.094.ph, i32 %41)
   %wide.trip.count = zext nneg i32 %45 to i64
   br label %46
 
 46:                                               ; preds = %55, %40
   %indvars.iv134 = phi i32 [ %indvars.iv.next135, %55 ], [ 0, %40 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %40 ]
-  %.1122.us = phi i16 [ %65, %55 ], [ %.0124.us, %40 ]
+  %.184122.us = phi i16 [ %65, %55 ], [ %.083123.us, %40 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
   br i1 %exitcond.not, label %.split.loop.exit175, label %55
 
@@ -1780,29 +1780,29 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr nocapture
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %55, %.split.loop.exit175
-  %.1.lcssa.us = phi i16 [ %.1122.us, %.split.loop.exit175 ], [ %65, %55 ]
+  %.184.lcssa.us = phi i16 [ %.184122.us, %.split.loop.exit175 ], [ %65, %55 ]
   %.lcssa120.us = phi i32 [ %47, %.split.loop.exit175 ], [ %indvars.iv.next135, %55 ]
   %48 = load i32, ptr @hf_dect_B_Data, align 4
   %49 = call ptr @wmem_strbuf_get_str(ptr noundef %43) #5
-  %50 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %33, i32 noundef %48, ptr noundef %2, i32 noundef %.194123.us, i32 noundef %.lcssa120.us, ptr noundef nonnull @.str.651, ptr noundef %49) #5
-  %51 = add i32 %.lcssa120.us, %.194123.us
+  %50 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %33, i32 noundef %48, ptr noundef %2, i32 noundef %.1124.us, i32 noundef %.lcssa120.us, ptr noundef nonnull @.str.651, ptr noundef %49) #5
+  %51 = add i32 %.lcssa120.us, %.1124.us
   %52 = add nuw nsw i32 %41, 16
   %53 = and i32 %52, 65535
-  %54 = icmp ult i32 %53, %.091.ph
+  %54 = icmp ult i32 %53, %.094.ph
   br i1 %54, label %40, label %._crit_edge.us, !llvm.loop !7
 
 55:                                               ; preds = %46
   %56 = add nuw nsw i64 %indvars.iv, %44
   %57 = getelementptr [128 x i8], ptr %7, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1
-  %59 = urem i16 %.1122.us, 31
+  %59 = urem i16 %.184122.us, 31
   %60 = zext nneg i16 %59 to i64
   %61 = getelementptr [8 x [31 x i8]], ptr @scrt, i64 0, i64 %indvars.iv138, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = xor i8 %62, %58
   %64 = zext i8 %63 to i32
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %43, ptr noundef nonnull @.str.650, i32 noundef %64) #5
-  %65 = add i16 %.1122.us, 1
+  %65 = add i16 %.184122.us, 1
   %indvars.iv.next135 = add nuw nsw i32 %indvars.iv134, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next, 16
@@ -1814,11 +1814,11 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr nocapture
   br i1 %exitcond141.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !9
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %.preheader.split
-  %.085125 = phi i32 [ %69, %.preheader.split ], [ 0, %.preheader.split.preheader ]
+  %.087125 = phi i32 [ %69, %.preheader.split ], [ 0, %.preheader.split.preheader ]
   %66 = load i32, ptr @hf_dect_B_fn, align 4
-  %67 = or disjoint i32 %.085125, 8
-  %68 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef null, i32 noundef %66, ptr noundef %2, i32 noundef 19, i32 noundef 0, ptr noundef nonnull @.str.649, i32 noundef %.085125, i32 noundef %67) #5
-  %69 = add nuw nsw i32 %.085125, 1
+  %67 = or disjoint i32 %.087125, 8
+  %68 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef null, i32 noundef %66, ptr noundef %2, i32 noundef 19, i32 noundef 0, ptr noundef nonnull @.str.649, i32 noundef %.087125, i32 noundef %67) #5
+  %69 = add nuw nsw i32 %.087125, 1
   %exitcond142.not = icmp eq i32 %69, 8
   br i1 %exitcond142.not, label %.loopexit.thread, label %.preheader.split, !llvm.loop !9
 
@@ -1921,10 +1921,10 @@ calc_xcrc.exit:                                   ; preds = %.thread.i
 
 .loopexit.thread:                                 ; preds = %.preheader.split, %70, %.loopexit, %calc_xcrc.exit
   %.2165 = phi i32 [ %.2168, %calc_xcrc.exit ], [ %51, %.loopexit ], [ 19, %70 ], [ 19, %.preheader.split ]
-  %.091113148164 = phi i32 [ %.091.ph, %calc_xcrc.exit ], [ %.091.ph, %.loopexit ], [ %.091.ph, %70 ], [ 0, %.preheader.split ]
-  %.088150163 = phi ptr [ %25, %calc_xcrc.exit ], [ %25, %.loopexit ], [ %25, %70 ], [ null, %.preheader.split ]
-  %.092 = phi i32 [ %108, %calc_xcrc.exit ], [ 0, %.loopexit ], [ 0, %70 ], [ 0, %.preheader.split ]
-  %.not105.not = icmp ugt i32 %8, %.091113148164
+  %.094113148164 = phi i32 [ %.094.ph, %calc_xcrc.exit ], [ %.094.ph, %.loopexit ], [ %.094.ph, %70 ], [ 0, %.preheader.split ]
+  %.090150163 = phi ptr [ %25, %calc_xcrc.exit ], [ %25, %.loopexit ], [ %25, %70 ], [ null, %.preheader.split ]
+  %.093 = phi i32 [ %108, %calc_xcrc.exit ], [ 0, %.loopexit ], [ 0, %70 ], [ 0, %.preheader.split ]
+  %.not105.not = icmp ugt i32 %8, %.094113148164
   br i1 %.not105.not, label %109, label %119
 
 109:                                              ; preds = %.loopexit.thread
@@ -1932,21 +1932,21 @@ calc_xcrc.exit:                                   ; preds = %.thread.i
   %111 = load i8, ptr %110, align 8
   %112 = and i8 %111, -16
   %113 = zext i8 %112 to i32
-  %.not106 = icmp eq i32 %.092, %113
+  %.not106 = icmp eq i32 %.093, %113
   %114 = load i32, ptr @hf_dect_B_XCRC, align 4
   br i1 %.not106, label %117, label %115
 
 115:                                              ; preds = %109
-  %116 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.088150163, i32 noundef %114, ptr noundef %2, i32 noundef %.2165, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.653, i32 noundef %.092, i32 noundef %113) #5
+  %116 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.090150163, i32 noundef %114, ptr noundef %2, i32 noundef %.2165, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.653, i32 noundef %.093, i32 noundef %113) #5
   br label %122
 
 117:                                              ; preds = %109
-  %118 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.088150163, i32 noundef %114, ptr noundef %2, i32 noundef %.2165, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.654, i32 noundef %.092, i32 noundef %.092) #5
+  %118 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.090150163, i32 noundef %114, ptr noundef %2, i32 noundef %.2165, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.654, i32 noundef %.093, i32 noundef %.093) #5
   br label %122
 
 119:                                              ; preds = %.loopexit.thread
   %120 = load i32, ptr @hf_dect_B_XCRC, align 4
-  %121 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.088150163, i32 noundef %120, ptr noundef %2, i32 noundef %.2165, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.655, i32 noundef %.092) #5
+  %121 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.090150163, i32 noundef %120, ptr noundef %2, i32 noundef %.2165, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.655, i32 noundef %.093) #5
   br label %122
 
 122:                                              ; preds = %115, %117, %119

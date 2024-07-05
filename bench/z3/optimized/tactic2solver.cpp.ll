@@ -2174,8 +2174,8 @@ lpad41:                                           ; preds = %invoke.cont40
 
 ehcleanup:                                        ; preds = %lpad41, %lpad37
   %.pn = phi { ptr, i32 } [ %35, %lpad41 ], [ %34, %lpad37 ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %pr) #22
   br label %ehcleanup192
 
@@ -2810,23 +2810,23 @@ terminate.lpad.i141:                              ; preds = %if.then.i.i.i140
   unreachable
 
 ehcleanup187:                                     ; preds = %lpad136, %lpad110, %lpad167, %lpad126, %catch.fallthrough
-  %exn.slot.1 = phi ptr [ %75, %lpad126 ], [ %115, %lpad167 ], [ %78, %lpad136 ], [ %72, %lpad110 ], [ %42, %catch.fallthrough ]
   %ehselector.slot.1 = phi i32 [ %76, %lpad126 ], [ %116, %lpad167 ], [ %79, %lpad136 ], [ %73, %lpad110 ], [ %43, %catch.fallthrough ]
+  %exn.slot.1 = phi ptr [ %75, %lpad126 ], [ %115, %lpad167 ], [ %78, %lpad136 ], [ %72, %lpad110 ], [ %42, %catch.fallthrough ]
   call void @_ZN10labels_vecD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %labels) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %reason_unknown) #22
   br label %ehcleanup189
 
 ehcleanup189:                                     ; preds = %ehcleanup187, %lpad59.body
-  %exn.slot.3 = phi ptr [ %exn.slot.1, %ehcleanup187 ], [ %40, %lpad59.body ]
   %ehselector.slot.3 = phi i32 [ %ehselector.slot.1, %ehcleanup187 ], [ %41, %lpad59.body ]
+  %exn.slot.3 = phi ptr [ %exn.slot.1, %ehcleanup187 ], [ %40, %lpad59.body ]
   call void @_ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %core) #22
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %pr54) #22
   call void @_ZN3refI5modelED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %md) #22
   br label %ehcleanup192
 
 ehcleanup192:                                     ; preds = %ehcleanup189, %ehcleanup, %lpad
-  %exn.slot.4 = phi ptr [ %22, %lpad ], [ %exn.slot.0, %ehcleanup ], [ %exn.slot.3, %ehcleanup189 ]
   %ehselector.slot.4 = phi i32 [ %23, %lpad ], [ %ehselector.slot.0, %ehcleanup ], [ %ehselector.slot.3, %ehcleanup189 ]
+  %exn.slot.4 = phi ptr [ %22, %lpad ], [ %exn.slot.0, %ehcleanup ], [ %exn.slot.3, %ehcleanup189 ]
   call void @_ZN3refI4goalED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %g) #22
   %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.4, 0
   %lpad.val195 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.4, 1

@@ -1717,8 +1717,8 @@ sw.default:                                       ; preds = %if.else
   br label %return
 
 if.end5:                                          ; preds = %entry, %sw.bb3
-  %esize.0 = phi i64 [ %5, %sw.bb3 ], [ %e, %entry ]
   %reason.0 = phi ptr [ @.str.18, %sw.bb3 ], [ @.str.17, %entry ]
+  %esize.0 = phi i64 [ %5, %sw.bb3 ], [ %e, %entry ]
   %cmp6 = icmp eq ptr %errors, inttoptr (i64 3 to ptr)
   br i1 %cmp6, label %if.then7, label %if.end44
 
@@ -3098,8 +3098,8 @@ if.then1.i63:                                     ; preds = %if.end.i60
   br label %return
 
 if.end10:                                         ; preds = %entry, %if.else4
-  %unistr.addr.0 = phi ptr [ %call2, %if.else4 ], [ %unistr, %entry ]
   %ucvt.0 = phi ptr [ %call2, %if.else4 ], [ null, %entry ]
+  %unistr.addr.0 = phi ptr [ %call2, %if.else4 ], [ %unistr, %entry ]
   %pending = getelementptr inbounds i8, ptr %ctx, i64 40
   %9 = load ptr, ptr %pending, align 8
   %tobool11.not = icmp eq ptr %9, null
@@ -3822,8 +3822,8 @@ if.end11.i:                                       ; preds = %if.end.i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end11.i, %skip_optional_pos
-  %wdata.0.i = phi ptr [ %call7.i, %if.end11.i ], [ %input.val, %skip_optional_pos ]
   %wsize.0.i = phi i64 [ %add.i, %if.end11.i ], [ %input.val15, %skip_optional_pos ]
+  %wdata.0.i = phi ptr [ %call7.i, %if.end11.i ], [ %input.val, %skip_optional_pos ]
   %inbuf_top.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   store ptr %wdata.0.i, ptr %inbuf_top.i.i, align 8
   store ptr %wdata.0.i, ptr %buf.i, align 8

@@ -1192,11 +1192,11 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   br label %36
 
 36:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %20
-  %.037 = phi ptr [ %22, %20 ], [ %35, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
-  store ptr %12, ptr %.037, align 8
+  %.040 = phi ptr [ %22, %20 ], [ %35, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
+  store ptr %12, ptr %.040, align 8
   %37 = load i32, ptr %3, align 4
   store i32 %.0.i, ptr %3, align 4
-  %38 = getelementptr inbounds i8, ptr %.037, i64 8
+  %38 = getelementptr inbounds i8, ptr %.040, i64 8
   store ptr %38, ptr %7, align 8
   %39 = load i32, ptr %0, align 8
   %40 = icmp sgt i32 %39, 0
@@ -2455,11 +2455,11 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   br label %37
 
 37:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %21
-  %.037 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
-  store ptr %12, ptr %.037, align 8
+  %.040 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
+  store ptr %12, ptr %.040, align 8
   %38 = load i32, ptr %3, align 4
   store i32 %.0.i, ptr %3, align 4
-  %39 = getelementptr inbounds i8, ptr %.037, i64 8
+  %39 = getelementptr inbounds i8, ptr %.040, i64 8
   store ptr %39, ptr %7, align 8
   %40 = load i32, ptr %0, align 8
   %41 = icmp sgt i32 %40, 0
@@ -3704,11 +3704,11 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   br label %37
 
 37:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %21
-  %.037 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
-  store ptr %12, ptr %.037, align 8
+  %.040 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
+  store ptr %12, ptr %.040, align 8
   %38 = load i32, ptr %3, align 4
   store i32 %.0.i, ptr %3, align 4
-  %39 = getelementptr inbounds i8, ptr %.037, i64 8
+  %39 = getelementptr inbounds i8, ptr %.040, i64 8
   store ptr %39, ptr %7, align 8
   %40 = load i32, ptr %0, align 8
   %41 = icmp sgt i32 %40, 0
@@ -4953,11 +4953,11 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   br label %37
 
 37:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %21
-  %.037 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
-  store ptr %12, ptr %.037, align 8
+  %.040 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
+  store ptr %12, ptr %.040, align 8
   %38 = load i32, ptr %3, align 4
   store i32 %.0.i, ptr %3, align 4
-  %39 = getelementptr inbounds i8, ptr %.037, i64 8
+  %39 = getelementptr inbounds i8, ptr %.040, i64 8
   store ptr %39, ptr %7, align 8
   %40 = load i32, ptr %0, align 8
   %41 = icmp sgt i32 %40, 0
@@ -6202,11 +6202,11 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   br label %37
 
 37:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %21
-  %.037 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
-  store ptr %12, ptr %.037, align 8
+  %.040 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
+  store ptr %12, ptr %.040, align 8
   %38 = load i32, ptr %3, align 4
   store i32 %.0.i, ptr %3, align 4
-  %39 = getelementptr inbounds i8, ptr %.037, i64 8
+  %39 = getelementptr inbounds i8, ptr %.040, i64 8
   store ptr %39, ptr %7, align 8
   %40 = load i32, ptr %0, align 8
   %41 = icmp sgt i32 %40, 0
@@ -7451,11 +7451,11 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   br label %37
 
 37:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %21
-  %.037 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
-  store ptr %12, ptr %.037, align 8
+  %.040 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
+  store ptr %12, ptr %.040, align 8
   %38 = load i32, ptr %3, align 4
   store i32 %.0.i, ptr %3, align 4
-  %39 = getelementptr inbounds i8, ptr %.037, i64 8
+  %39 = getelementptr inbounds i8, ptr %.040, i64 8
   store ptr %39, ptr %7, align 8
   %40 = load i32, ptr %0, align 8
   %41 = icmp sgt i32 %40, 0
@@ -8700,11 +8700,11 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   br label %37
 
 37:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %21
-  %.037 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
-  store ptr %12, ptr %.037, align 8
+  %.040 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
+  store ptr %12, ptr %.040, align 8
   %38 = load i32, ptr %3, align 4
   store i32 %.0.i, ptr %3, align 4
-  %39 = getelementptr inbounds i8, ptr %.037, i64 8
+  %39 = getelementptr inbounds i8, ptr %.040, i64 8
   store ptr %39, ptr %7, align 8
   %40 = load i32, ptr %0, align 8
   %41 = icmp sgt i32 %40, 0

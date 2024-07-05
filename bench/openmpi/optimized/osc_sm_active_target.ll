@@ -269,8 +269,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %37
   br label %87
 
 87:                                               ; preds = %48, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit38, %86
-  %.033 = phi i32 [ 0, %86 ], [ -102, %opal_thread_add_fetch_32.exit38 ], [ -102, %opal_obj_run_destructors.exit ], [ -2, %48 ]
-  ret i32 %.033
+  %.0 = phi i32 [ 0, %86 ], [ -102, %opal_thread_add_fetch_32.exit38 ], [ -102, %opal_obj_run_destructors.exit ], [ -2, %48 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

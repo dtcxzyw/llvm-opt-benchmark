@@ -9149,9 +9149,9 @@ define void @"_ZN3syn8generics8printing80_$LT$impl$u20$quote..to_tokens..ToToken
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h80d29c1d9e628a7dE.exit"
 
 49:                                               ; preds = %37, %39
-  %.sroa.623.2.ph = phi ptr [ %.sroa.019.0, %39 ], [ %.sroa.621.0, %37 ]
   %.sroa.621.1.ph = phi ptr [ %.sroa.621.0, %39 ], [ null, %37 ]
   %.sroa.019.1.ph = phi ptr [ %40, %39 ], [ %.sroa.019.0, %37 ]
+  %.sroa.623.2.ph = phi ptr [ %.sroa.019.0, %39 ], [ %.sroa.621.0, %37 ]
   %.sroa.924.2.ph = phi ptr [ %41, %39 ], [ null, %37 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %.sroa.623.2.ph, ptr %6, align 8
@@ -9346,9 +9346,9 @@ default.unreachable:                              ; preds = %68
   br label %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h80d29c1d9e628a7dE.exit"
 
 62:                                               ; preds = %50, %52
-  %.sroa.7.2.ph = phi ptr [ %.sroa.044.0, %52 ], [ %.sroa.646.0, %50 ]
   %.sroa.646.1.ph = phi ptr [ %.sroa.646.0, %52 ], [ null, %50 ]
   %.sroa.044.1.ph = phi ptr [ %53, %52 ], [ %.sroa.044.0, %50 ]
+  %.sroa.7.2.ph = phi ptr [ %.sroa.044.0, %52 ], [ %.sroa.646.0, %50 ]
   %.sroa.10.2.ph = phi ptr [ %54, %52 ], [ null, %50 ]
   %63 = load i64, ptr %.sroa.7.2.ph, align 8, !range !372, !noundef !5
   %64 = icmp eq i64 %63, 17

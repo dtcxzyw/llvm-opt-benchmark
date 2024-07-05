@@ -1314,25 +1314,25 @@ uv_udp_using_recvmmsg.exit.i:                     ; preds = %33
   br label %53
 
 41:                                               ; preds = %41, %.lr.ph.i.i
-  %.060.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %52, %41 ]
-  %42 = shl nuw i64 %.060.i.i, 16
+  %.04960.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %52, %41 ]
+  %42 = shl nuw i64 %.04960.i.i, 16
   %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  %44 = getelementptr inbounds [20 x %struct.iovec], ptr %5, i64 0, i64 %.060.i.i
+  %44 = getelementptr inbounds [20 x %struct.iovec], ptr %5, i64 0, i64 %.04960.i.i
   store ptr %43, ptr %44, align 16
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   store i64 65536, ptr %45, align 8
-  %46 = getelementptr inbounds [20 x %struct.uv__mmsghdr], ptr %6, i64 0, i64 %.060.i.i
+  %46 = getelementptr inbounds [20 x %struct.uv__mmsghdr], ptr %6, i64 0, i64 %.04960.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %46, i8 0, i64 56, i1 false)
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   store ptr %44, ptr %47, align 16
   %48 = getelementptr inbounds i8, ptr %46, i64 24
   store i64 1, ptr %48, align 8
-  %49 = getelementptr inbounds %struct.sockaddr_in6, ptr %4, i64 %.060.i.i
+  %49 = getelementptr inbounds %struct.sockaddr_in6, ptr %4, i64 %.04960.i.i
   store ptr %49, ptr %46, align 16
   %50 = getelementptr inbounds i8, ptr %46, i64 8
   store i32 28, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %46, i64 32
-  %52 = add nuw nsw i64 %.060.i.i, 1
+  %52 = add nuw nsw i64 %.04960.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %52, %spec.store.select.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %51, i8 0, i64 20, i1 false)
   br i1 %exitcond.not.i.i, label %.preheader56.i.i, label %41, !llvm.loop !15
@@ -1707,9 +1707,9 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %14
   br label %29
 
 29:                                               ; preds = %28, %25
-  %.0.i18 = phi i32 [ 36, %28 ], [ 35, %25 ]
+  %.08.i = phi i32 [ 36, %28 ], [ 35, %25 ]
   %30 = load i32, ptr %15, align 8
-  %31 = call i32 @setsockopt(i32 noundef %30, i32 noundef 0, i32 noundef %.0.i18, ptr noundef nonnull %8, i32 noundef 8) #9
+  %31 = call i32 @setsockopt(i32 noundef %30, i32 noundef 0, i32 noundef %.08.i, ptr noundef nonnull %8, i32 noundef 8) #9
   %.not12.i = icmp eq i32 %31, 0
   br i1 %.not12.i, label %uv__udp_set_membership4.exit, label %32
 
@@ -1720,7 +1720,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %14
   br label %uv__udp_set_membership4.exit
 
 uv__udp_set_membership4.exit:                     ; preds = %19, %25, %29, %32
-  %.08.i = phi i32 [ %35, %32 ], [ %21, %19 ], [ -22, %25 ], [ 0, %29 ]
+  %.0.i18 = phi i32 [ %35, %32 ], [ %21, %19 ], [ -22, %25 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %61
 
@@ -1800,7 +1800,7 @@ uv__udp_set_membership6.exit:                     ; preds = %46, %51, %54, %57
   br label %61
 
 61:                                               ; preds = %36, %uv__udp_maybe_deferred_bind.exit21, %uv__udp_maybe_deferred_bind.exit, %uv__udp_set_membership6.exit, %uv__udp_set_membership4.exit
-  %.0 = phi i32 [ %.08.i, %uv__udp_set_membership4.exit ], [ %.06.i, %uv__udp_set_membership6.exit ], [ %17, %uv__udp_maybe_deferred_bind.exit ], [ %43, %uv__udp_maybe_deferred_bind.exit21 ], [ -22, %36 ]
+  %.0 = phi i32 [ %.0.i18, %uv__udp_set_membership4.exit ], [ %.06.i, %uv__udp_set_membership6.exit ], [ %17, %uv__udp_maybe_deferred_bind.exit ], [ %43, %uv__udp_maybe_deferred_bind.exit21 ], [ -22, %36 ]
   ret i32 %.0
 }
 

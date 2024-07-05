@@ -26,9 +26,9 @@ define internal range(i32 -30, 1) i32 @archive_set_format_option(ptr noundef %0,
   br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %4, %18
-  %.02435.us = phi i32 [ %.125.us, %18 ], [ -20, %4 ]
-  %.02634.us = phi i64 [ %19, %18 ], [ 0, %4 ]
-  %7 = getelementptr inbounds [16 x %struct.archive_format_descriptor], ptr %5, i64 0, i64 %.02634.us
+  %.02535.us = phi i32 [ %.126.us, %18 ], [ -20, %4 ]
+  %.02734.us = phi i64 [ %19, %18 ], [ 0, %4 ]
+  %7 = getelementptr inbounds [16 x %struct.archive_format_descriptor], ptr %5, i64 0, i64 %.02734.us
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -53,16 +53,16 @@ define internal range(i32 -30, 1) i32 @archive_set_format_option(ptr noundef %0,
   br label %18
 
 18:                                               ; preds = %17, %15, %11, %.split.us
-  %.125.us = phi i32 [ %.02435.us, %.split.us ], [ %.02435.us, %11 ], [ 0, %17 ], [ %.02435.us, %15 ]
-  %19 = add nuw nsw i64 %.02634.us, 1
+  %.126.us = phi i32 [ %.02535.us, %.split.us ], [ %.02535.us, %11 ], [ 0, %17 ], [ %.02535.us, %15 ]
+  %19 = add nuw nsw i64 %.02734.us, 1
   %exitcond42.not = icmp eq i64 %19, 16
   br i1 %exitcond42.not, label %.split38.us, label %.split.us, !llvm.loop !5
 
 .split:                                           ; preds = %4, %34
-  %.036 = phi i32 [ %.2, %34 ], [ 0, %4 ]
-  %.02435 = phi i32 [ %.125, %34 ], [ -20, %4 ]
-  %.02634 = phi i64 [ %35, %34 ], [ 0, %4 ]
-  %20 = getelementptr inbounds [16 x %struct.archive_format_descriptor], ptr %5, i64 0, i64 %.02634
+  %.02436 = phi i32 [ %.2, %34 ], [ 0, %4 ]
+  %.02535 = phi i32 [ %.126, %34 ], [ -20, %4 ]
+  %.02734 = phi i64 [ %35, %34 ], [ 0, %4 ]
+  %20 = getelementptr inbounds [16 x %struct.archive_format_descriptor], ptr %5, i64 0, i64 %.02734
   %21 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
@@ -80,7 +80,7 @@ define internal range(i32 -30, 1) i32 @archive_set_format_option(ptr noundef %0,
   br i1 %.not31, label %30, label %34
 
 30:                                               ; preds = %28
-  %31 = add nsw i32 %.036, 1
+  %31 = add nsw i32 %.02436, 1
   store ptr %20, ptr %6, align 8
   %32 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3) #4
   store ptr null, ptr %6, align 8
@@ -93,9 +93,9 @@ define internal range(i32 -30, 1) i32 @archive_set_format_option(ptr noundef %0,
   br label %34
 
 34:                                               ; preds = %30, %33, %28, %.split, %24
-  %.125 = phi i32 [ %.02435, %.split ], [ %.02435, %24 ], [ %.02435, %28 ], [ 0, %33 ], [ %.02435, %30 ]
-  %.2 = phi i32 [ %.036, %.split ], [ %.036, %24 ], [ %.036, %28 ], [ %31, %33 ], [ %31, %30 ]
-  %35 = add nuw nsw i64 %.02634, 1
+  %.126 = phi i32 [ %.02535, %.split ], [ %.02535, %24 ], [ %.02535, %28 ], [ 0, %33 ], [ %.02535, %30 ]
+  %.2 = phi i32 [ %.02436, %.split ], [ %.02436, %24 ], [ %.02436, %28 ], [ %31, %33 ], [ %31, %30 ]
+  %35 = add nuw nsw i64 %.02734, 1
   %exitcond.not = icmp eq i64 %35, 16
   br i1 %exitcond.not, label %.split38.us.loopexit41, label %.split, !llvm.loop !5
 
@@ -104,16 +104,16 @@ define internal range(i32 -30, 1) i32 @archive_set_format_option(ptr noundef %0,
   br label %.split38.us
 
 .split38.us:                                      ; preds = %18, %.split38.us.loopexit41
-  %.us-phi = phi i32 [ %.125, %.split38.us.loopexit41 ], [ %.125.us, %18 ]
+  %.us-phi = phi i32 [ %.126, %.split38.us.loopexit41 ], [ %.126.us, %18 ]
   %.us-phi39 = phi i1 [ %36, %.split38.us.loopexit41 ], [ true, %18 ]
   %37 = icmp ne ptr %1, null
   %or.cond = select i1 %37, i1 %.us-phi39, i1 false
-  %..024 = select i1 %or.cond, i32 -21, i32 %.us-phi
+  %..025 = select i1 %or.cond, i32 -21, i32 %.us-phi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %15, %.split38.us
-  %.027 = phi i32 [ %..024, %.split38.us ], [ %16, %15 ], [ %32, %30 ]
-  ret i32 %.027
+  %.0 = phi i32 [ %..025, %.split38.us ], [ %16, %15 ], [ %32, %30 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

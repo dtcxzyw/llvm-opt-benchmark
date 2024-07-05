@@ -244,7 +244,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
 62:                                               ; preds = %.lr.ph547, %_ZNSt6vectorIfSaIfEED2Ev.exit157
   %indvars.iv685 = phi i64 [ 0, %.lr.ph547 ], [ %indvars.iv.next686, %_ZNSt6vectorIfSaIfEED2Ev.exit157 ]
   %.081546 = phi i32 [ 1, %.lr.ph547 ], [ %.sroa.speculated241, %_ZNSt6vectorIfSaIfEED2Ev.exit157 ]
-  %.093545 = phi double [ 0.000000e+00, %.lr.ph547 ], [ %182, %_ZNSt6vectorIfSaIfEED2Ev.exit157 ]
+  %.091545 = phi double [ 0.000000e+00, %.lr.ph547 ], [ %182, %_ZNSt6vectorIfSaIfEED2Ev.exit157 ]
   %.sroa.0282.1543 = phi ptr [ %.sroa.0282.0, %.lr.ph547 ], [ %.sroa.0221.1, %_ZNSt6vectorIfSaIfEED2Ev.exit157 ]
   %.sroa.18.0542 = phi ptr [ %.sroa.26.0, %.lr.ph547 ], [ %.0.i.i.i.i.i130, %_ZNSt6vectorIfSaIfEED2Ev.exit157 ]
   %.sroa.0269.0541 = phi ptr [ null, %.lr.ph547 ], [ %.sroa.0213.1, %_ZNSt6vectorIfSaIfEED2Ev.exit157 ]
@@ -308,13 +308,13 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit114:            ; preds = %70, %.noexc
   br label %84
 
 84:                                               ; preds = %.lr.ph, %84
-  %.092534 = phi i64 [ 0, %.lr.ph ], [ %89, %84 ]
-  %85 = mul i64 %71, %.092534
+  %.093534 = phi i64 [ 0, %.lr.ph ], [ %89, %84 ]
+  %85 = mul i64 %71, %.093534
   %86 = getelementptr inbounds float, ptr %.sroa.0261.2, i64 %85
   %87 = mul i64 %85, %82
   %88 = getelementptr inbounds float, ptr %.sroa.0282.1543, i64 %87
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %86, ptr align 4 %88, i64 %83, i1 false)
-  %89 = add nuw i64 %.092534, 1
+  %89 = add nuw i64 %.093534, 1
   %exitcond.not = icmp eq i64 %89, %1
   br i1 %exitcond.not, label %._crit_edge, label %84, !llvm.loop !5
 
@@ -571,21 +571,21 @@ _ZN5faiss10ClusteringD2Ev.exit.sink.split:        ; preds = %_ZNSt6vectorIN5fais
   %.pre690.sink = phi ptr [ %157, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i ], [ %.pre690, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i124 ]
   %.sroa.0251.3.ph = phi ptr [ %146, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i ], [ %170, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i124 ]
   %.sroa.10.1.ph = phi ptr [ %147, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i ], [ %171, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i124 ]
-  %.091.ph = phi float [ %154, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i ], [ %174, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i124 ]
+  %.092.ph = phi float [ %154, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i ], [ %174, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i124 ]
   call void @_ZdlPv(ptr noundef nonnull %.pre690.sink) #15
   br label %_ZN5faiss10ClusteringD2Ev.exit
 
 _ZN5faiss10ClusteringD2Ev.exit:                   ; preds = %_ZN5faiss10ClusteringD2Ev.exit.sink.split, %169, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i124, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i
   %.sroa.0251.3 = phi ptr [ %146, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i ], [ %170, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i124 ], [ %170, %169 ], [ %.sroa.0251.3.ph, %_ZN5faiss10ClusteringD2Ev.exit.sink.split ]
   %.sroa.10.1 = phi ptr [ %147, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i ], [ %171, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i124 ], [ %171, %169 ], [ %.sroa.10.1.ph, %_ZN5faiss10ClusteringD2Ev.exit.sink.split ]
-  %.091 = phi float [ %154, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i ], [ %174, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i124 ], [ %174, %169 ], [ %.091.ph, %_ZN5faiss10ClusteringD2Ev.exit.sink.split ]
+  %.092 = phi float [ %154, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i ], [ %174, %_ZNSt6vectorIN5faiss24ClusteringIterationStatsESaIS1_EED2Ev.exit.i124 ], [ %174, %169 ], [ %.092.ph, %_ZN5faiss10ClusteringD2Ev.exit.sink.split ]
   %178 = invoke noundef double @_ZN5faiss12getmillisecsEv()
           to label %179 unwind label %123
 
 179:                                              ; preds = %_ZN5faiss10ClusteringD2Ev.exit
   %180 = fsub double %178, %131
   %181 = fdiv double %180, 1.000000e+03
-  %182 = fadd double %.093545, %181
+  %182 = fadd double %.091545, %181
   %183 = load ptr, ptr %7, align 8
   %184 = load ptr, ptr %10, align 8
   %185 = getelementptr inbounds i64, ptr %184, i64 %indvars.iv685
@@ -853,7 +853,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit140:            ; preds = %_ZSt6fill_nIPfmfET_
   %278 = getelementptr inbounds i64, ptr %277, i64 %indvars.iv685
   %279 = load i64, ptr %278, align 8
   %280 = trunc i64 %279 to i32
-  %281 = fpext float %.091 to double
+  %281 = fpext float %.092 to double
   %282 = fpext float %.080.lcssa to double
   %283 = trunc nuw nsw i64 %indvars.iv685 to i32
   %284 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %276, double noundef %182, i32 noundef %283, i32 noundef %280, double noundef %281, double noundef %282, i32 noundef %.081546, i32 noundef %.sroa.speculated241, i64 noundef %.084.in.sroa.speculated)
@@ -1322,11 +1322,11 @@ define void @_ZNK5faiss17ResidualQuantizer27compute_codes_add_centroidsEPKfPhmS2
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %62
-  %.02740.us = phi i64 [ %46, %62 ], [ 0, %.lr.ph ]
-  %46 = add i64 %.02740.us, %spec.store.select
+  %.02840.us = phi i64 [ %46, %62 ], [ 0, %.lr.ph ]
+  %46 = add i64 %.02840.us, %spec.store.select
   %.sroa.speculated.us = call i64 @llvm.umin.i64(i64 %46, i64 %3)
   %47 = load i64, ptr %32, align 8
-  %48 = mul i64 %47, %.02740.us
+  %48 = mul i64 %47, %.02840.us
   %49 = load i32, ptr %44, align 8
   switch i32 %49, label %62 [
     i32 0, label %56
@@ -1336,18 +1336,18 @@ define void @_ZNK5faiss17ResidualQuantizer27compute_codes_add_centroidsEPKfPhmS2
 50:                                               ; preds = %.lr.ph.split.us
   %51 = getelementptr inbounds float, ptr %1, i64 %48
   %52 = load i64, ptr %45, align 8
-  %53 = mul i64 %52, %.02740.us
+  %53 = mul i64 %52, %.02840.us
   %54 = getelementptr inbounds i8, ptr %2, i64 %53
-  %55 = sub i64 %.sroa.speculated.us, %.02740.us
+  %55 = sub i64 %.sroa.speculated.us, %.02840.us
   invoke void @_ZN5faiss15rq_encode_steps35compute_codes_add_centroids_mp_lut1ERKNS_17ResidualQuantizerEPKfPhmS5_RNS0_38ComputeCodesAddCentroidsLUT1MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef %51, ptr noundef %54, i64 noundef %55, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(216) %8)
           to label %62 unwind label %.split.us
 
 56:                                               ; preds = %.lr.ph.split.us
   %57 = getelementptr inbounds float, ptr %1, i64 %48
   %58 = load i64, ptr %45, align 8
-  %59 = mul i64 %58, %.02740.us
+  %59 = mul i64 %58, %.02840.us
   %60 = getelementptr inbounds i8, ptr %2, i64 %59
-  %61 = sub i64 %.sroa.speculated.us, %.02740.us
+  %61 = sub i64 %.sroa.speculated.us, %.02840.us
   invoke void @_ZN5faiss15rq_encode_steps35compute_codes_add_centroids_mp_lut0ERKNS_17ResidualQuantizerEPKfPhmS5_RNS0_38ComputeCodesAddCentroidsLUT0MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef %57, ptr noundef %60, i64 noundef %61, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(216) %7)
           to label %62 unwind label %.split.us
 
@@ -1361,11 +1361,11 @@ define void @_ZNK5faiss17ResidualQuantizer27compute_codes_add_centroidsEPKfPhmS2
   br label %77
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %84
-  %.02740 = phi i64 [ %65, %84 ], [ 0, %.lr.ph ]
-  %65 = add i64 %.02740, %spec.store.select
+  %.02840 = phi i64 [ %65, %84 ], [ 0, %.lr.ph ]
+  %65 = add i64 %.02840, %spec.store.select
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %65, i64 %3)
   %66 = load i64, ptr %32, align 8
-  %67 = mul i64 %66, %.02740
+  %67 = mul i64 %66, %.02840
   %68 = getelementptr inbounds float, ptr %4, i64 %67
   %69 = load i32, ptr %44, align 8
   switch i32 %69, label %84 [
@@ -1376,9 +1376,9 @@ define void @_ZNK5faiss17ResidualQuantizer27compute_codes_add_centroidsEPKfPhmS2
 70:                                               ; preds = %.lr.ph.split
   %71 = getelementptr inbounds float, ptr %1, i64 %67
   %72 = load i64, ptr %45, align 8
-  %73 = mul i64 %72, %.02740
+  %73 = mul i64 %72, %.02840
   %74 = getelementptr inbounds i8, ptr %2, i64 %73
-  %75 = sub i64 %.sroa.speculated, %.02740
+  %75 = sub i64 %.sroa.speculated, %.02840
   invoke void @_ZN5faiss15rq_encode_steps35compute_codes_add_centroids_mp_lut0ERKNS_17ResidualQuantizerEPKfPhmS5_RNS0_38ComputeCodesAddCentroidsLUT0MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef %71, ptr noundef %74, i64 noundef %75, ptr noundef nonnull %68, ptr noundef nonnull align 8 dereferenceable(216) %7)
           to label %84 unwind label %.split
 
@@ -1396,9 +1396,9 @@ define void @_ZNK5faiss17ResidualQuantizer27compute_codes_add_centroidsEPKfPhmS2
 78:                                               ; preds = %.lr.ph.split
   %79 = getelementptr inbounds float, ptr %1, i64 %67
   %80 = load i64, ptr %45, align 8
-  %81 = mul i64 %80, %.02740
+  %81 = mul i64 %80, %.02840
   %82 = getelementptr inbounds i8, ptr %2, i64 %81
-  %83 = sub i64 %.sroa.speculated, %.02740
+  %83 = sub i64 %.sroa.speculated, %.02840
   invoke void @_ZN5faiss15rq_encode_steps35compute_codes_add_centroids_mp_lut1ERKNS_17ResidualQuantizerEPKfPhmS5_RNS0_38ComputeCodesAddCentroidsLUT1MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef %79, ptr noundef %82, i64 noundef %83, ptr noundef nonnull %68, ptr noundef nonnull align 8 dereferenceable(216) %8)
           to label %84 unwind label %.split
 

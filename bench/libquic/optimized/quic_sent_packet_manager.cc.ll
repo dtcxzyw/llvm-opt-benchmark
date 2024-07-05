@@ -2667,8 +2667,8 @@ lpad:                                             ; preds = %invoke.cont5, %cond
   resume { ptr, i32 } %8
 
 if.end38:                                         ; preds = %for.cond, %if.then34, %cleanup.done
-  %packet_number.0 = phi i64 [ %6, %if.then34 ], [ %2, %cleanup.done ], [ %2, %for.cond ]
   %transmission_type.0 = phi i8 [ %7, %if.then34 ], [ %3, %cleanup.done ], [ %3, %for.cond ]
+  %packet_number.0 = phi i64 [ %6, %if.then34 ], [ %2, %cleanup.done ], [ %2, %for.cond ]
   %call40 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK3net20QuicUnackedPacketMap19GetTransmissionInfoEm(ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets_, i64 noundef %packet_number.0)
   %path_id_ = getelementptr inbounds i8, ptr %this, i64 212
   %9 = load i8, ptr %path_id_, align 4

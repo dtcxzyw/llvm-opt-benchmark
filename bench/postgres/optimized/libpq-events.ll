@@ -77,19 +77,19 @@ define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, 
   br label %33
 
 33:                                               ; preds = %31, %29
-  %.0 = phi ptr [ %30, %29 ], [ %32, %31 ]
-  %.not59 = icmp eq ptr %.0, null
+  %.048 = phi ptr [ %30, %29 ], [ %32, %31 ]
+  %.not59 = icmp eq ptr %.048, null
   br i1 %.not59, label %.loopexit, label %34
 
 34:                                               ; preds = %33
   store i32 %spec.select, ptr %21, align 4
-  store ptr %.0, ptr %25, align 8
+  store ptr %.048, ptr %25, align 8
   %.pre67 = load i32, ptr %11, align 8
   br label %35
 
 35:                                               ; preds = %._crit_edge._crit_edge, %34
   %36 = phi i32 [ %12, %._crit_edge._crit_edge ], [ %.pre67, %34 ]
-  %37 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %.0, %34 ]
+  %37 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %.048, %34 ]
   %38 = getelementptr inbounds i8, ptr %0, i64 360
   %39 = sext i32 %36 to i64
   %40 = getelementptr %struct.PGEvent, ptr %37, i64 %39
@@ -142,8 +142,8 @@ define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %52, %35, %33, %4, %9, %65
-  %.049 = phi i32 [ 0, %65 ], [ 0, %9 ], [ 0, %4 ], [ 0, %33 ], [ 0, %35 ], [ 1, %52 ], [ 0, %17 ]
-  ret i32 %.049
+  %.0 = phi i32 [ 0, %65 ], [ 0, %9 ], [ 0, %4 ], [ 0, %33 ], [ 0, %35 ], [ 1, %52 ], [ 0, %17 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)

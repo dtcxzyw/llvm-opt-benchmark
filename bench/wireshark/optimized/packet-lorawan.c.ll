@@ -865,10 +865,10 @@ aes128_lorawan_encrypt.exit.i:                    ; preds = %164
   br label %208
 
 208:                                              ; preds = %203, %187
-  %.091.i = phi i32 [ 28, %203 ], [ 12, %187 ]
+  %.090.i = phi i32 [ 28, %203 ], [ 12, %187 ]
   %209 = load i32, ptr @hf_lorawan_mic_type, align 4
   %210 = load i32, ptr @hf_lorawan_mic_status_type, align 4
-  %211 = call ptr @proto_tree_add_checksum(ptr noundef %13, ptr noundef %188, i32 noundef %.091.i, i32 noundef %209, i32 noundef %210, ptr noundef nonnull @ei_lorawan_mic, ptr noundef %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 9) #9
+  %211 = call ptr @proto_tree_add_checksum(ptr noundef %13, ptr noundef %188, i32 noundef %.090.i, i32 noundef %209, i32 noundef %210, ptr noundef nonnull @ei_lorawan_mic, ptr noundef %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 9) #9
   br label %216
 
 .critedge.i:                                      ; preds = %183, %179, %142

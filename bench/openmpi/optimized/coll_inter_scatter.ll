@@ -85,8 +85,8 @@ opal_datatype_span.exit:                          ; preds = %23, %35
   br i1 %.not47, label %56, label %72
 
 56:                                               ; preds = %51, %21
-  %.040 = phi ptr [ %49, %51 ], [ null, %21 ]
-  %.039 = phi ptr [ %53, %51 ], [ null, %21 ]
+  %.041 = phi ptr [ %49, %51 ], [ null, %21 ]
+  %.040 = phi ptr [ %53, %51 ], [ null, %21 ]
   %57 = getelementptr inbounds i8, ptr %7, i64 264
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 328
@@ -95,12 +95,12 @@ opal_datatype_span.exit:                          ; preds = %23, %35
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %60, i64 248
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call i32 %62(ptr noundef %.039, i32 noundef %4, ptr noundef %5, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef 0, ptr noundef %58, ptr noundef %64) #4
-  %.not48 = icmp eq ptr %.040, null
+  %65 = tail call i32 %62(ptr noundef %.040, i32 noundef %4, ptr noundef %5, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef 0, ptr noundef %58, ptr noundef %64) #4
+  %.not48 = icmp eq ptr %.041, null
   br i1 %.not48, label %72, label %66
 
 66:                                               ; preds = %56
-  tail call void @free(ptr noundef nonnull %.040) #4
+  tail call void @free(ptr noundef nonnull %.041) #4
   br label %72
 
 67:                                               ; preds = %ompi_comm_remote_size.exit

@@ -212,8 +212,8 @@ define internal i32 @dissect_quake3(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %37
 
 37:                                               ; preds = %31, %20
-  %.094.i = phi ptr [ %36, %31 ], [ null, %20 ]
-  %.093.i = phi ptr [ %34, %31 ], [ null, %20 ]
+  %.090.i = phi ptr [ %36, %31 ], [ null, %20 ]
+  %.0.i = phi ptr [ %34, %31 ], [ null, %20 ]
   %38 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(15) @.str.53, i64 noundef 14) #5
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %122, label %40
@@ -279,17 +279,17 @@ define internal i32 @dissect_quake3(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %75, label %76, label %110
 
 76:                                               ; preds = %73
-  %.not96.i = icmp eq ptr %.093.i, null
+  %.not96.i = icmp eq ptr %.0.i, null
   br i1 %.not96.i, label %79, label %77
 
 77:                                               ; preds = %76
   %78 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 4) #4
-  call void @proto_item_set_len(ptr noundef nonnull %.093.i, i32 noundef %78) #4
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %.093.i, ptr noundef nonnull @.str.66) #4
+  call void @proto_item_set_len(ptr noundef nonnull %.0.i, i32 noundef %78) #4
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.66) #4
   br label %79
 
 79:                                               ; preds = %77, %76
-  %.not97.i = icmp eq ptr %.094.i, null
+  %.not97.i = icmp eq ptr %.090.i, null
   br i1 %.not97.i, label %80, label %.thread104.i
 
 80:                                               ; preds = %79
@@ -300,37 +300,37 @@ define internal i32 @dissect_quake3(ptr noundef %0, ptr noundef %1, ptr noundef 
 .thread104.i:                                     ; preds = %79
   %83 = load i32, ptr @hf_quake3_connectionless_command, align 4
   %84 = call ptr @val_to_str_const(i32 noundef 13, ptr noundef nonnull @names_command, ptr noundef nonnull @.str.48) #4
-  %85 = call ptr @proto_tree_add_string(ptr noundef nonnull %.094.i, i32 noundef %83, ptr noundef %0, i32 noundef 4, i32 noundef 18, ptr noundef %84) #4
+  %85 = call ptr @proto_tree_add_string(ptr noundef nonnull %.090.i, i32 noundef %83, ptr noundef %0, i32 noundef 4, i32 noundef 18, ptr noundef %84) #4
   %86 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 22) #4
   %87 = icmp sgt i32 %86, 6
   br i1 %87, label %.lr.ph.split.i, label %dissect_quake3_ConnectionlessPacket.exit
 
 .lr.ph.split.us.i:                                ; preds = %80, %.lr.ph.split.us.i
-  %.0102.us.i = phi i32 [ %92, %.lr.ph.split.us.i ], [ 22, %80 ]
-  %88 = add i32 %.0102.us.i, 1
+  %.092102.us.i = phi i32 [ %92, %.lr.ph.split.us.i ], [ 22, %80 ]
+  %88 = add i32 %.092102.us.i, 1
   %89 = call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %88) #4
-  %90 = add i32 %.0102.us.i, 5
+  %90 = add i32 %.092102.us.i, 5
   %91 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %90) #4
-  %92 = add i32 %.0102.us.i, 7
+  %92 = add i32 %.092102.us.i, 7
   %93 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %92) #4
   %94 = icmp sgt i32 %93, 6
   br i1 %94, label %.lr.ph.split.us.i, label %dissect_quake3_ConnectionlessPacket.exit, !llvm.loop !4
 
 .lr.ph.split.i:                                   ; preds = %.thread104.i, %.lr.ph.split.i
-  %.0102.i = phi i32 [ %107, %.lr.ph.split.i ], [ 22, %.thread104.i ]
-  %95 = add i32 %.0102.i, 1
+  %.092102.i = phi i32 [ %107, %.lr.ph.split.i ], [ 22, %.thread104.i ]
+  %95 = add i32 %.092102.i, 1
   %96 = call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %95) #4
-  %97 = add i32 %.0102.i, 5
+  %97 = add i32 %.092102.i, 5
   %98 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %97) #4
   %99 = load i32, ptr @ett_quake3_server, align 4
   %100 = call ptr @get_hostname(i32 noundef %96) #4
   %101 = zext i16 %98 to i32
-  %102 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %.094.i, ptr noundef %0, i32 noundef %.0102.i, i32 noundef 7, i32 noundef %99, ptr noundef null, ptr noundef nonnull @.str.67, ptr noundef %100, i32 noundef %101) #4
+  %102 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %.090.i, ptr noundef %0, i32 noundef %.092102.i, i32 noundef 7, i32 noundef %99, ptr noundef null, ptr noundef nonnull @.str.67, ptr noundef %100, i32 noundef %101) #4
   %103 = load i32, ptr @hf_quake3_server_addr, align 4
   %104 = call ptr @proto_tree_add_ipv4(ptr noundef %102, i32 noundef %103, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef %96) #4
   %105 = load i32, ptr @hf_quake3_server_port, align 4
   %106 = call ptr @proto_tree_add_uint(ptr noundef %102, i32 noundef %105, ptr noundef %0, i32 noundef %97, i32 noundef 2, i32 noundef %101) #4
-  %107 = add i32 %.0102.i, 7
+  %107 = add i32 %.092102.i, 7
   %108 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %107) #4
   %109 = icmp sgt i32 %108, 6
   br i1 %109, label %.lr.ph.split.i, label %dissect_quake3_ConnectionlessPacket.exit, !llvm.loop !4
@@ -354,25 +354,25 @@ define internal i32 @dissect_quake3(ptr noundef %0, ptr noundef %1, ptr noundef 
   %120 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(12) @.str.71, i64 noundef 11) #5
   %121 = icmp eq i32 %120, 0
   %..i = select i1 %121, i32 4, i32 0
-  %.106.i = select i1 %121, i32 17, i32 0
-  %.107.i = select i1 %121, i32 11, i32 0
+  %.106.i = select i1 %121, i32 11, i32 0
+  %.107.i = select i1 %121, i32 17, i32 0
   br label %122
 
 122:                                              ; preds = %119, %116, %113, %110, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37
   %.sink.i = phi i32 [ 2, %37 ], [ 1, %40 ], [ 2, %43 ], [ 1, %46 ], [ 2, %49 ], [ 1, %52 ], [ 2, %55 ], [ 1, %58 ], [ 2, %61 ], [ 1, %64 ], [ 4, %67 ], [ 3, %70 ], [ 3, %110 ], [ 3, %113 ], [ 3, %116 ], [ %..i, %119 ]
-  %.092.i = phi i32 [ 1, %37 ], [ 2, %40 ], [ 3, %43 ], [ 4, %46 ], [ 5, %49 ], [ 6, %52 ], [ 7, %55 ], [ 8, %58 ], [ 9, %61 ], [ 10, %64 ], [ 11, %67 ], [ 12, %70 ], [ 14, %110 ], [ 15, %113 ], [ 16, %116 ], [ %.106.i, %119 ]
-  %.091.i = phi i32 [ 14, %37 ], [ 9, %40 ], [ 12, %43 ], [ 7, %46 ], [ 17, %49 ], [ 12, %52 ], [ 15, %55 ], [ 7, %58 ], [ 12, %61 ], [ 4, %64 ], [ 15, %67 ], [ 7, %70 ], [ 10, %110 ], [ 15, %113 ], [ 14, %116 ], [ %.107.i, %119 ]
-  %.not101.i = icmp eq ptr %.094.i, null
+  %.094.i = phi i32 [ 14, %37 ], [ 9, %40 ], [ 12, %43 ], [ 7, %46 ], [ 17, %49 ], [ 12, %52 ], [ 15, %55 ], [ 7, %58 ], [ 12, %61 ], [ 4, %64 ], [ 15, %67 ], [ 7, %70 ], [ 10, %110 ], [ 15, %113 ], [ 14, %116 ], [ %.106.i, %119 ]
+  %.091.i = phi i32 [ 1, %37 ], [ 2, %40 ], [ 3, %43 ], [ 4, %46 ], [ 5, %49 ], [ 6, %52 ], [ 7, %55 ], [ 8, %58 ], [ 9, %61 ], [ 10, %64 ], [ 11, %67 ], [ 12, %70 ], [ 14, %110 ], [ 15, %113 ], [ 16, %116 ], [ %.107.i, %119 ]
+  %.not101.i = icmp eq ptr %.090.i, null
   br i1 %.not101.i, label %dissect_quake3_ConnectionlessPacket.exit, label %123
 
 123:                                              ; preds = %122
   %124 = load i32, ptr @hf_quake3_connectionless_command, align 4
-  %125 = call ptr @val_to_str_const(i32 noundef %.092.i, ptr noundef nonnull @names_command, ptr noundef nonnull @.str.48) #4
-  %126 = call ptr @proto_tree_add_string(ptr noundef nonnull %.094.i, i32 noundef %124, ptr noundef %0, i32 noundef 4, i32 noundef %.091.i, ptr noundef %125) #4
+  %125 = call ptr @val_to_str_const(i32 noundef %.091.i, ptr noundef nonnull @names_command, ptr noundef nonnull @.str.48) #4
+  %126 = call ptr @proto_tree_add_string(ptr noundef nonnull %.090.i, i32 noundef %124, ptr noundef %0, i32 noundef 4, i32 noundef %.094.i, ptr noundef %125) #4
   br label %dissect_quake3_ConnectionlessPacket.exit
 
 dissect_quake3_ConnectionlessPacket.exit:         ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %80, %.thread104.i, %122, %123
-  %.034 = phi i32 [ %.sink.i, %122 ], [ %.sink.i, %123 ], [ 4, %80 ], [ 4, %.thread104.i ], [ 4, %.lr.ph.split.us.i ], [ 4, %.lr.ph.split.i ]
+  %.035 = phi i32 [ %.sink.i, %122 ], [ %.sink.i, %123 ], [ 4, %80 ], [ 4, %.thread104.i ], [ 4, %.lr.ph.split.us.i ], [ 4, %.lr.ph.split.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %dissect_quake3_GamePacket.exit
 
@@ -435,13 +435,13 @@ dissect_quake3_ConnectionlessPacket.exit:         ; preds = %.lr.ph.split.i, %.l
   br label %170
 
 170:                                              ; preds = %165, %163, %.thread70.i, %138
-  %.0.i = phi i32 [ 4, %138 ], [ 6, %165 ], [ 6, %163 ], [ 4, %.thread70.i ]
+  %.0.i29 = phi i32 [ 4, %138 ], [ 6, %165 ], [ 6, %163 ], [ 4, %.thread70.i ]
   %171 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %.not69.i = icmp eq i32 %171, %.0.i
+  %.not69.i = icmp eq i32 %171, %.0.i29
   br i1 %.not69.i, label %dissect_quake3_GamePacket.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %170
-  %172 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0.i) #4
+  %172 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0.i29) #4
   %.str.91..str.92.i = select i1 %133, ptr @.str.91, ptr @.str.92
   %ett_quake3_game_clc.val.i = load i32, ptr @ett_quake3_game_clc, align 4
   %ett_quake3_game_svc.val.i = load i32, ptr @ett_quake3_game_svc, align 4
@@ -451,7 +451,7 @@ dissect_quake3_ConnectionlessPacket.exit:         ; preds = %.lr.ph.split.i, %.l
   br label %dissect_quake3_GamePacket.exit
 
 dissect_quake3_GamePacket.exit:                   ; preds = %.sink.split.i, %170, %dissect_quake3_ConnectionlessPacket.exit
-  %.1 = phi i32 [ %.034, %dissect_quake3_ConnectionlessPacket.exit ], [ %134, %170 ], [ %134, %.sink.split.i ]
+  %.1 = phi i32 [ %.035, %dissect_quake3_ConnectionlessPacket.exit ], [ %134, %170 ], [ %134, %.sink.split.i ]
   %176 = icmp ne i32 %.1, 0
   %177 = icmp ne ptr %.025, null
   %or.cond = select i1 %176, i1 %177, i1 false

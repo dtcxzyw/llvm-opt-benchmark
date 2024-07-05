@@ -1428,7 +1428,7 @@ define linkonce_odr hidden ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_
   br label %_ZNSt3__111char_traitsIcE4moveB8ne190000EPcPKcm.exit.i
 
 _ZNSt3__111char_traitsIcE4moveB8ne190000EPcPKcm.exit.i: ; preds = %42, %38, %35
-  %.0.i = phi ptr [ %37, %35 ], [ %45, %42 ], [ %37, %38 ]
+  %.034.i = phi ptr [ %37, %35 ], [ %45, %42 ], [ %37, %38 ]
   %46 = add i64 %24, %4
   %47 = load i8, ptr %0, align 8
   %48 = and i8 %47, 1
@@ -1446,22 +1446,22 @@ _ZNSt3__111char_traitsIcE4moveB8ne190000EPcPKcm.exit.i: ; preds = %42, %38, %35
   br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne190000Em.exit.i
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne190000Em.exit.i: ; preds = %50, %49
-  %53 = getelementptr inbounds i8, ptr %.0.i, i64 %46
+  %53 = getelementptr inbounds i8, ptr %.034.i, i64 %46
   store i8 0, ptr %53, align 1
   %.not3944.i = icmp eq ptr %2, %3
   br i1 %.not3944.i, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE23__insert_from_safe_copyB8ne190000IPKcS8_EENS_11__wrap_iterIPcEEmmT_T0_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne190000Em.exit.i
-  %54 = getelementptr i8, ptr %.0.i, i64 %15
+  %54 = getelementptr i8, ptr %.034.i, i64 %15
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.146.i = phi ptr [ %56, %.lr.ph.i ], [ %54, %.lr.ph.preheader.i ]
-  %.03445.i = phi ptr [ %57, %.lr.ph.i ], [ %2, %.lr.ph.preheader.i ]
-  %55 = load i8, ptr %.03445.i, align 1
-  store i8 %55, ptr %.146.i, align 1
-  %56 = getelementptr inbounds i8, ptr %.146.i, i64 1
-  %57 = getelementptr inbounds i8, ptr %.03445.i, i64 1
+  %.046.i = phi ptr [ %57, %.lr.ph.i ], [ %2, %.lr.ph.preheader.i ]
+  %.145.i = phi ptr [ %56, %.lr.ph.i ], [ %54, %.lr.ph.preheader.i ]
+  %55 = load i8, ptr %.046.i, align 1
+  store i8 %55, ptr %.145.i, align 1
+  %56 = getelementptr inbounds i8, ptr %.145.i, i64 1
+  %57 = getelementptr inbounds i8, ptr %.046.i, i64 1
   %.not39.i = icmp eq ptr %57, %3
   br i1 %.not39.i, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE23__insert_from_safe_copyB8ne190000IPKcS8_EENS_11__wrap_iterIPcEEmmT_T0_.exit, label %.lr.ph.i, !llvm.loop !5
 
@@ -1595,7 +1595,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000IPKcS
   br label %_ZNSt3__111char_traitsIcE4moveB8ne190000EPcPKcm.exit.i22
 
 _ZNSt3__111char_traitsIcE4moveB8ne190000EPcPKcm.exit.i22: ; preds = %.noexc, %104, %100
-  %.0.i23 = phi ptr [ %103, %100 ], [ %111, %.noexc ], [ %103, %104 ]
+  %.0.i = phi ptr [ %103, %100 ], [ %111, %.noexc ], [ %103, %104 ]
   %112 = add i64 %94, %4
   %113 = load i8, ptr %0, align 8
   %114 = and i8 %113, 1
@@ -1604,35 +1604,35 @@ _ZNSt3__111char_traitsIcE4moveB8ne190000EPcPKcm.exit.i22: ; preds = %.noexc, %10
 
 115:                                              ; preds = %_ZNSt3__111char_traitsIcE4moveB8ne190000EPcPKcm.exit.i22
   store i64 %112, ptr %20, align 8
-  br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne190000Em.exit.i24
+  br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne190000Em.exit.i23
 
 116:                                              ; preds = %_ZNSt3__111char_traitsIcE4moveB8ne190000EPcPKcm.exit.i22
   %117 = trunc i64 %112 to i8
   %118 = shl i8 %117, 1
   store i8 %118, ptr %0, align 8
-  br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne190000Em.exit.i24
+  br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne190000Em.exit.i23
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne190000Em.exit.i24: ; preds = %116, %115
-  %119 = getelementptr inbounds i8, ptr %.0.i23, i64 %112
+_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne190000Em.exit.i23: ; preds = %116, %115
+  %119 = getelementptr inbounds i8, ptr %.0.i, i64 %112
   store i8 0, ptr %119, align 1
   %.not4243.i = icmp eq i64 %92, 0
-  br i1 %.not4243.i, label %.loopexit, label %.lr.ph.preheader.i25
+  br i1 %.not4243.i, label %.loopexit, label %.lr.ph.preheader.i24
 
-.lr.ph.preheader.i25:                             ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne190000Em.exit.i24
-  %120 = getelementptr i8, ptr %.0.i23, i64 %15
-  br label %.lr.ph.i26
+.lr.ph.preheader.i24:                             ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne190000Em.exit.i23
+  %120 = getelementptr i8, ptr %.0.i, i64 %15
+  br label %.lr.ph.i25
 
-.lr.ph.i26:                                       ; preds = %.lr.ph.i26, %.lr.ph.preheader.i25
-  %.145.i = phi ptr [ %122, %.lr.ph.i26 ], [ %120, %.lr.ph.preheader.i25 ]
-  %.sroa.039.044.i = phi ptr [ %123, %.lr.ph.i26 ], [ %89, %.lr.ph.preheader.i25 ]
+.lr.ph.i25:                                       ; preds = %.lr.ph.i25, %.lr.ph.preheader.i24
+  %.145.i26 = phi ptr [ %122, %.lr.ph.i25 ], [ %120, %.lr.ph.preheader.i24 ]
+  %.sroa.039.044.i = phi ptr [ %123, %.lr.ph.i25 ], [ %89, %.lr.ph.preheader.i24 ]
   %121 = load i8, ptr %.sroa.039.044.i, align 1
-  store i8 %121, ptr %.145.i, align 1
-  %122 = getelementptr inbounds i8, ptr %.145.i, i64 1
+  store i8 %121, ptr %.145.i26, align 1
+  %122 = getelementptr inbounds i8, ptr %.145.i26, i64 1
   %123 = getelementptr inbounds i8, ptr %.sroa.039.044.i, i64 1
   %.not42.i = icmp eq ptr %123, %93
-  br i1 %.not42.i, label %.loopexit, label %.lr.ph.i26, !llvm.loop !8
+  br i1 %.not42.i, label %.loopexit, label %.lr.ph.i25, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph.i26, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne190000Em.exit.i24
+.loopexit:                                        ; preds = %.lr.ph.i25, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne190000Em.exit.i23
   %124 = load i8, ptr %0, align 8
   %125 = and i8 %124, 1
   %.not.i.i37.i = icmp eq i8 %125, 0

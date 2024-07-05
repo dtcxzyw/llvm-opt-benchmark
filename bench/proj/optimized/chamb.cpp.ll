@@ -390,7 +390,7 @@ _ZL4vectP6pj_ctxdddddd.exit:                      ; preds = %43
   %85 = load double, ptr %84, align 8
   %86 = fcmp olt double %85, 0.000000e+00
   %87 = fneg double %83
-  %.066 = select i1 %86, double %87, double %83
+  %.0 = select i1 %86, double %87, double %83
   %88 = trunc nuw nsw i64 %indvars.iv78 to i32
   switch i32 %88, label %109 [
     i32 0, label %89
@@ -398,8 +398,8 @@ _ZL4vectP6pj_ctxdddddd.exit:                      ; preds = %43
   ]
 
 89:                                               ; preds = %64
-  %90 = tail call double @cos(double noundef %.066) #9
-  %91 = tail call double @sin(double noundef %.066) #9
+  %90 = tail call double @cos(double noundef %.0) #9
+  %91 = tail call double @sin(double noundef %.0) #9
   %92 = fneg double %72
   %93 = insertelement <2 x double> poison, double %72, i64 0
   %94 = insertelement <2 x double> %93, double %92, i64 1
@@ -410,7 +410,7 @@ _ZL4vectP6pj_ctxdddddd.exit:                      ; preds = %43
 
 98:                                               ; preds = %64
   %99 = load double, ptr %62, align 8
-  %100 = fsub double %99, %.066
+  %100 = fsub double %99, %.0
   %101 = tail call double @cos(double noundef %100) #9
   %102 = fneg double %72
   %103 = tail call double @sin(double noundef %100) #9
@@ -423,7 +423,7 @@ _ZL4vectP6pj_ctxdddddd.exit:                      ; preds = %43
 
 109:                                              ; preds = %64
   %110 = load double, ptr %63, align 8
-  %111 = fsub double %110, %.066
+  %111 = fsub double %110, %.0
   %112 = tail call double @cos(double noundef %111) #9
   %113 = tail call double @sin(double noundef %111) #9
   %114 = insertelement <2 x double> poison, double %72, i64 0

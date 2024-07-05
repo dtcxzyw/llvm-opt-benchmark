@@ -979,21 +979,21 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %9, %10
   %17 = add i64 %2, %1
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = getelementptr inbounds i8, ptr %0, i64 56
-  %.020.i = load volatile ptr, ptr %19, align 8
-  %.not21.not.i = icmp eq ptr %.020.i, %18
+  %.01420.i = load volatile ptr, ptr %19, align 8
+  %.not21.not.i = icmp eq ptr %.01420.i, %18
   br i1 %.not21.not.i, label %ompi_osc_rdma_find_conflicting_attachment.exit, label %.lr.ph.i
 
 20:                                               ; preds = %28
-  %21 = getelementptr inbounds i8, ptr %.022.i, i64 16
-  %.0.i = load volatile ptr, ptr %21, align 8
-  %.not.not.i = icmp eq ptr %.0.i, %18
+  %21 = getelementptr inbounds i8, ptr %.01422.i, i64 16
+  %.014.i = load volatile ptr, ptr %21, align 8
+  %.not.not.i = icmp eq ptr %.014.i, %18
   br i1 %.not.not.i, label %ompi_osc_rdma_find_conflicting_attachment.exit, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.i:                                         ; preds = %opal_obj_new.exit, %20
-  %.022.i = phi ptr [ %.0.i, %20 ], [ %.020.i, %opal_obj_new.exit ]
-  %22 = getelementptr inbounds i8, ptr %.022.i, i64 40
+  %.01422.i = phi ptr [ %.014.i, %20 ], [ %.01420.i, %opal_obj_new.exit ]
+  %22 = getelementptr inbounds i8, ptr %.01422.i, i64 40
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.022.i, i64 48
+  %24 = getelementptr inbounds i8, ptr %.01422.i, i64 48
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %23
   %.not17.i = icmp sle i64 %23, %1
@@ -2239,8 +2239,8 @@ define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_op(ptr noundef %0,
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 1080
-  %.070 = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %.070, i64 68
+  %.069 = load ptr, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %.069, i64 68
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 32768
   %.not = icmp eq i32 %14, 0
@@ -2389,14 +2389,14 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 
 78:                                               ; preds = %opal_thread_add_fetch_32.exit79, %opal_obj_run_destructors.exit
   %.pre = phi i8 [ %.pre.pre, %opal_obj_run_destructors.exit ], [ %.pre3, %opal_thread_add_fetch_32.exit79 ]
-  %.069 = phi ptr [ null, %opal_obj_run_destructors.exit ], [ %19, %opal_thread_add_fetch_32.exit79 ]
+  %.070 = phi ptr [ null, %opal_obj_run_destructors.exit ], [ %19, %opal_thread_add_fetch_32.exit79 ]
   %79 = icmp eq i32 %54, 1
   %spec.select = select i1 %79, i32 0, i32 %54
   br label %80
 
 80:                                               ; preds = %78, %59
   %81 = phi i8 [ %.pre3, %59 ], [ %.pre, %78 ]
-  %.1 = phi ptr [ %19, %59 ], [ %.069, %78 ]
+  %.1 = phi ptr [ %19, %59 ], [ %.070, %78 ]
   %.0 = phi i32 [ 0, %59 ], [ %spec.select, %78 ]
   %82 = getelementptr inbounds i8, ptr %.1, i64 8
   %83 = trunc i8 %81 to i1
@@ -2462,8 +2462,8 @@ define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_fop(ptr noundef %0
   br label %19
 
 19:                                               ; preds = %8, %13
-  %.069.in = phi ptr [ %18, %13 ], [ %12, %8 ]
-  %.069 = load ptr, ptr %.069.in, align 8
+  %.068.in = phi ptr [ %18, %13 ], [ %12, %8 ]
+  %.068 = load ptr, ptr %.068.in, align 8
   %20 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_osc_rdma_pending_op_t_class, i64 56), align 8
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #11
   %22 = load i32, ptr @opal_class_init_epoch, align 4
@@ -2596,7 +2596,7 @@ ompi_osc_rdma_btl_atomic_fop.exit:                ; preds = %65, %67
   %82 = load ptr, ptr %49, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 80
   %84 = load ptr, ptr %83, align 8
-  tail call void @ompi_osc_rdma_atomic_complete(ptr noundef %.069, ptr noundef %2, ptr noundef nonnull %80, ptr noundef %84, ptr noundef nonnull %21, ptr noundef null, i32 noundef 0) #9
+  tail call void @ompi_osc_rdma_atomic_complete(ptr noundef %.068, ptr noundef %2, ptr noundef nonnull %80, ptr noundef %84, ptr noundef nonnull %21, ptr noundef null, i32 noundef 0) #9
   br label %.loopexit
 
 85:                                               ; preds = %78

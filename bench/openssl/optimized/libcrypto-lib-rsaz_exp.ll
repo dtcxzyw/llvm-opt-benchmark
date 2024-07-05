@@ -21,9 +21,9 @@ entry:
   %tobool.not = icmp ult i64 %and, 3776
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 320
   %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 640
-  %a_inv.0 = select i1 %tobool.not, ptr %add.ptr4, ptr %add.ptr3
   %m.0 = select i1 %tobool.not, ptr %add.ptr, ptr %add.ptr4
   %result.0 = select i1 %tobool.not, ptr %add.ptr3, ptr %add.ptr
+  %a_inv.0 = select i1 %tobool.not, ptr %add.ptr4, ptr %add.ptr3
   call void @rsaz_1024_norm2red_avx2(ptr noundef nonnull %m.0, ptr noundef %m_norm) #2
   call void @rsaz_1024_norm2red_avx2(ptr noundef nonnull %a_inv.0, ptr noundef %base_norm) #2
   call void @rsaz_1024_norm2red_avx2(ptr noundef nonnull %add.ptr2, ptr noundef %RR) #2

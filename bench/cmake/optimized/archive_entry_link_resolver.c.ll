@@ -563,19 +563,19 @@ define internal fastcc ptr @find_entry(ptr nocapture noundef %0, ptr noundef %1)
   %19 = and i64 %18, %15
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds ptr, ptr %20, i64 %19
-  %.050 = load ptr, ptr %21, align 8
-  %.not4451 = icmp eq ptr %.050, null
+  %.04050 = load ptr, ptr %21, align 8
+  %.not4451 = icmp eq ptr %.04050, null
   br i1 %.not4451, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %57
-  %.052 = phi ptr [ %.0, %57 ], [ %.050, %12 ]
-  %22 = getelementptr inbounds i8, ptr %.052, i64 32
+  %.04052 = phi ptr [ %.040, %57 ], [ %.04050, %12 ]
+  %22 = getelementptr inbounds i8, ptr %.04052, i64 32
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, %15
   br i1 %24, label %25, label %57
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds i8, ptr %.052, i64 16
+  %26 = getelementptr inbounds i8, ptr %.04052, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i64 @archive_entry_dev(ptr noundef %27) #7
   %29 = icmp eq i64 %13, %28
@@ -588,7 +588,7 @@ define internal fastcc ptr @find_entry(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %33, label %34, label %57
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %.052, i64 40
+  %35 = getelementptr inbounds i8, ptr %.04052, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = add i32 %36, -1
   store i32 %37, ptr %35, align 8
@@ -596,10 +596,10 @@ define internal fastcc ptr @find_entry(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %.not45, label %38, label %.loopexit
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %.052, i64 8
+  %39 = getelementptr inbounds i8, ptr %.04052, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not46 = icmp eq ptr %40, null
-  %.pre = load ptr, ptr %.052, align 8
+  %.pre = load ptr, ptr %.04052, align 8
   br i1 %.not46, label %42, label %41
 
 41:                                               ; preds = %38
@@ -620,11 +620,11 @@ define internal fastcc ptr @find_entry(ptr nocapture noundef %0, ptr noundef %1)
   %47 = load ptr, ptr %0, align 8
   %48 = getelementptr inbounds ptr, ptr %47, i64 %19
   %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, %.052
+  %50 = icmp eq ptr %49, %.04052
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %46
-  %52 = load ptr, ptr %.052, align 8
+  %52 = load ptr, ptr %.04052, align 8
   store ptr %52, ptr %48, align 8
   br label %53
 
@@ -633,17 +633,17 @@ define internal fastcc ptr @find_entry(ptr nocapture noundef %0, ptr noundef %1)
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %55, -1
   store i64 %56, ptr %54, align 8
-  store ptr %.052, ptr %3, align 8
+  store ptr %.04052, ptr %3, align 8
   br label %.loopexit
 
 57:                                               ; preds = %.lr.ph, %25, %30
-  %.0 = load ptr, ptr %.052, align 8
-  %.not44 = icmp eq ptr %.0, null
+  %.040 = load ptr, ptr %.04052, align 8
+  %.not44 = icmp eq ptr %.040, null
   br i1 %.not44, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %57, %12, %34, %53
-  %.049 = phi ptr [ %.052, %34 ], [ %.052, %53 ], [ null, %12 ], [ null, %57 ]
-  ret ptr %.049
+  %.04049 = phi ptr [ %.04052, %34 ], [ %.04052, %53 ], [ null, %12 ], [ null, %57 ]
+  ret ptr %.04049
 }
 
 declare void @archive_entry_unset_size(ptr noundef) local_unnamed_addr #5

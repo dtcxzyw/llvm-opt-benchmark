@@ -1051,10 +1051,10 @@ init.exit:                                        ; preds = %432
   br i1 %.not32160, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %489, %closeOpen.exit
-  %.0161 = phi i32 [ %500, %closeOpen.exit ], [ 1, %489 ]
+  %.030161 = phi i32 [ %500, %closeOpen.exit ], [ 1, %489 ]
   tail call void @makeRandomTree(ptr noundef %491, ptr noundef nonnull %undirfn.dirfn) #9
   %493 = load i32, ptr @opts.2, align 8
-  %.not33 = icmp eq i32 %.0161, %493
+  %.not33 = icmp eq i32 %.030161, %493
   br i1 %.not33, label %closeOpen.exit, label %494
 
 494:                                              ; preds = %.lr.ph
@@ -1071,9 +1071,9 @@ init.exit:                                        ; preds = %432
   br label %closeOpen.exit
 
 closeOpen.exit:                                   ; preds = %498, %496, %.lr.ph
-  %500 = add nuw nsw i32 %.0161, 1
+  %500 = add nuw nsw i32 %.030161, 1
   %501 = load i32, ptr @opts.2, align 8
-  %.not32.not = icmp slt i32 %.0161, %501
+  %.not32.not = icmp slt i32 %.030161, %501
   br i1 %.not32.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %closeOpen.exit, %489

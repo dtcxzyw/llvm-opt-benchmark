@@ -304,16 +304,16 @@ define hidden range(i32 0, 256) i32 @process_netbios_name(ptr nocapture noundef 
   br label %6
 
 6:                                                ; preds = %3, %42
-  %.042 = phi i32 [ 0, %3 ], [ %43, %42 ]
-  %.02941 = phi i32 [ %2, %3 ], [ %.1, %42 ]
-  %.03040 = phi ptr [ %1, %3 ], [ %.4, %42 ]
-  %.03239 = phi ptr [ %0, %3 ], [ %7, %42 ]
-  %7 = getelementptr i8, ptr %.03239, i64 1
-  %8 = load i8, ptr %.03239, align 1
+  %.042 = phi ptr [ %0, %3 ], [ %7, %42 ]
+  %.02941 = phi ptr [ %1, %3 ], [ %.4, %42 ]
+  %.03040 = phi i32 [ %2, %3 ], [ %.131, %42 ]
+  %.03239 = phi i32 [ 0, %3 ], [ %43, %42 ]
+  %7 = getelementptr i8, ptr %.042, i64 1
+  %8 = load i8, ptr %.042, align 1
   %9 = zext i8 %8 to i32
   %10 = add i8 %8, -32
   %or.cond = icmp ult i8 %10, 95
-  %11 = add i32 %.02941, -1
+  %11 = add i32 %.03040, -1
   %12 = icmp sgt i32 %11, 0
   br i1 %or.cond, label %13, label %16
 
@@ -321,21 +321,21 @@ define hidden range(i32 0, 256) i32 @process_netbios_name(ptr nocapture noundef 
   br i1 %12, label %14, label %42
 
 14:                                               ; preds = %13
-  %15 = getelementptr i8, ptr %.03040, i64 1
-  store i8 %8, ptr %.03040, align 1
+  %15 = getelementptr i8, ptr %.02941, i64 1
+  store i8 %8, ptr %.02941, align 1
   br label %42
 
 16:                                               ; preds = %6
   br i1 %12, label %17, label %19
 
 17:                                               ; preds = %16
-  %18 = getelementptr i8, ptr %.03040, i64 1
-  store i8 60, ptr %.03040, align 1
+  %18 = getelementptr i8, ptr %.02941, i64 1
+  store i8 60, ptr %.02941, align 1
   br label %19
 
 19:                                               ; preds = %17, %16
-  %.131 = phi ptr [ %18, %17 ], [ %.03040, %16 ]
-  %20 = add i32 %.02941, -2
+  %.1 = phi ptr [ %18, %17 ], [ %.02941, %16 ]
+  %20 = add i32 %.03040, -2
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %22, label %28
 
@@ -344,13 +344,13 @@ define hidden range(i32 0, 256) i32 @process_netbios_name(ptr nocapture noundef 
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr [16 x i8], ptr @process_netbios_name.hex_digits, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr i8, ptr %.131, i64 1
-  store i8 %26, ptr %.131, align 1
+  %27 = getelementptr i8, ptr %.1, i64 1
+  store i8 %26, ptr %.1, align 1
   br label %28
 
 28:                                               ; preds = %22, %19
-  %.2 = phi ptr [ %27, %22 ], [ %.131, %19 ]
-  %29 = add i32 %.02941, -3
+  %.2 = phi ptr [ %27, %22 ], [ %.1, %19 ]
+  %29 = add i32 %.03040, -3
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %37
 
@@ -365,7 +365,7 @@ define hidden range(i32 0, 256) i32 @process_netbios_name(ptr nocapture noundef 
 
 37:                                               ; preds = %31, %28
   %.3 = phi ptr [ %36, %31 ], [ %.2, %28 ]
-  %38 = add i32 %.02941, -4
+  %38 = add i32 %.03040, -4
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %40, label %42
 
@@ -375,9 +375,9 @@ define hidden range(i32 0, 256) i32 @process_netbios_name(ptr nocapture noundef 
   br label %42
 
 42:                                               ; preds = %14, %13, %40, %37
-  %.4 = phi ptr [ %15, %14 ], [ %.03040, %13 ], [ %41, %40 ], [ %.3, %37 ]
-  %.1 = phi i32 [ %11, %14 ], [ %11, %13 ], [ %38, %40 ], [ %38, %37 ]
-  %43 = add nuw nsw i32 %.042, 1
+  %.131 = phi i32 [ %11, %14 ], [ %11, %13 ], [ %38, %40 ], [ %38, %37 ]
+  %.4 = phi ptr [ %15, %14 ], [ %.02941, %13 ], [ %41, %40 ], [ %.3, %37 ]
+  %43 = add nuw nsw i32 %.03239, 1
   %exitcond.not = icmp eq i32 %43, 15
   br i1 %exitcond.not, label %44, label %6, !llvm.loop !4
 
@@ -386,8 +386,8 @@ define hidden range(i32 0, 256) i32 @process_netbios_name(ptr nocapture noundef 
   br label %45
 
 45:                                               ; preds = %46, %44
-  %.030.pn = phi ptr [ %.4, %44 ], [ %.5, %46 ]
-  %.5 = getelementptr i8, ptr %.030.pn, i64 -1
+  %.029.pn = phi ptr [ %.4, %44 ], [ %.5, %46 ]
+  %.5 = getelementptr i8, ptr %.029.pn, i64 -1
   %.not = icmp ult ptr %.5, %1
   br i1 %.not, label %.loopexit, label %46
 
@@ -397,7 +397,7 @@ define hidden range(i32 0, 256) i32 @process_netbios_name(ptr nocapture noundef 
   br i1 %.not37, label %45, label %48, !llvm.loop !6
 
 48:                                               ; preds = %46
-  store i8 0, ptr %.030.pn, align 1
+  store i8 0, ptr %.029.pn, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %48
@@ -413,16 +413,16 @@ define hidden range(i32 0, 256) i32 @get_netbios_name(ptr noundef %0, i32 nounde
   br label %8
 
 8:                                                ; preds = %44, %4
-  %.042.i = phi i32 [ 0, %4 ], [ %45, %44 ]
-  %.02941.i = phi i32 [ %3, %4 ], [ %.1.i, %44 ]
-  %.03040.i = phi ptr [ %2, %4 ], [ %.4.i, %44 ]
-  %.03239.i = phi ptr [ %5, %4 ], [ %9, %44 ]
-  %9 = getelementptr i8, ptr %.03239.i, i64 1
-  %10 = load i8, ptr %.03239.i, align 1
+  %.042.i = phi ptr [ %5, %4 ], [ %9, %44 ]
+  %.02941.i = phi ptr [ %2, %4 ], [ %.4.i, %44 ]
+  %.03040.i = phi i32 [ %3, %4 ], [ %.131.i, %44 ]
+  %.03239.i = phi i32 [ 0, %4 ], [ %45, %44 ]
+  %9 = getelementptr i8, ptr %.042.i, i64 1
+  %10 = load i8, ptr %.042.i, align 1
   %11 = zext i8 %10 to i32
   %12 = add i8 %10, -32
   %or.cond.i = icmp ult i8 %12, 95
-  %13 = add i32 %.02941.i, -1
+  %13 = add i32 %.03040.i, -1
   %14 = icmp sgt i32 %13, 0
   br i1 %or.cond.i, label %15, label %18
 
@@ -430,21 +430,21 @@ define hidden range(i32 0, 256) i32 @get_netbios_name(ptr noundef %0, i32 nounde
   br i1 %14, label %16, label %44
 
 16:                                               ; preds = %15
-  %17 = getelementptr i8, ptr %.03040.i, i64 1
-  store i8 %10, ptr %.03040.i, align 1
+  %17 = getelementptr i8, ptr %.02941.i, i64 1
+  store i8 %10, ptr %.02941.i, align 1
   br label %44
 
 18:                                               ; preds = %8
   br i1 %14, label %19, label %21
 
 19:                                               ; preds = %18
-  %20 = getelementptr i8, ptr %.03040.i, i64 1
-  store i8 60, ptr %.03040.i, align 1
+  %20 = getelementptr i8, ptr %.02941.i, i64 1
+  store i8 60, ptr %.02941.i, align 1
   br label %21
 
 21:                                               ; preds = %19, %18
-  %.131.i = phi ptr [ %20, %19 ], [ %.03040.i, %18 ]
-  %22 = add i32 %.02941.i, -2
+  %.1.i = phi ptr [ %20, %19 ], [ %.02941.i, %18 ]
+  %22 = add i32 %.03040.i, -2
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %30
 
@@ -453,13 +453,13 @@ define hidden range(i32 0, 256) i32 @get_netbios_name(ptr noundef %0, i32 nounde
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr [16 x i8], ptr @process_netbios_name.hex_digits, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1
-  %29 = getelementptr i8, ptr %.131.i, i64 1
-  store i8 %28, ptr %.131.i, align 1
+  %29 = getelementptr i8, ptr %.1.i, i64 1
+  store i8 %28, ptr %.1.i, align 1
   br label %30
 
 30:                                               ; preds = %24, %21
-  %.2.i = phi ptr [ %29, %24 ], [ %.131.i, %21 ]
-  %31 = add i32 %.02941.i, -3
+  %.2.i = phi ptr [ %29, %24 ], [ %.1.i, %21 ]
+  %31 = add i32 %.03040.i, -3
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %39
 
@@ -474,7 +474,7 @@ define hidden range(i32 0, 256) i32 @get_netbios_name(ptr noundef %0, i32 nounde
 
 39:                                               ; preds = %33, %30
   %.3.i = phi ptr [ %38, %33 ], [ %.2.i, %30 ]
-  %40 = add i32 %.02941.i, -4
+  %40 = add i32 %.03040.i, -4
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %44
 
@@ -484,9 +484,9 @@ define hidden range(i32 0, 256) i32 @get_netbios_name(ptr noundef %0, i32 nounde
   br label %44
 
 44:                                               ; preds = %42, %39, %16, %15
-  %.4.i = phi ptr [ %17, %16 ], [ %.03040.i, %15 ], [ %43, %42 ], [ %.3.i, %39 ]
-  %.1.i = phi i32 [ %13, %16 ], [ %13, %15 ], [ %40, %42 ], [ %40, %39 ]
-  %45 = add nuw nsw i32 %.042.i, 1
+  %.131.i = phi i32 [ %13, %16 ], [ %13, %15 ], [ %40, %42 ], [ %40, %39 ]
+  %.4.i = phi ptr [ %17, %16 ], [ %.02941.i, %15 ], [ %43, %42 ], [ %.3.i, %39 ]
+  %45 = add nuw nsw i32 %.03239.i, 1
   %exitcond.not.i = icmp eq i32 %45, 15
   br i1 %exitcond.not.i, label %46, label %8, !llvm.loop !4
 
@@ -495,8 +495,8 @@ define hidden range(i32 0, 256) i32 @get_netbios_name(ptr noundef %0, i32 nounde
   br label %47
 
 47:                                               ; preds = %48, %46
-  %.030.pn.i = phi ptr [ %.4.i, %46 ], [ %.5.i, %48 ]
-  %.5.i = getelementptr i8, ptr %.030.pn.i, i64 -1
+  %.029.pn.i = phi ptr [ %.4.i, %46 ], [ %.5.i, %48 ]
+  %.5.i = getelementptr i8, ptr %.029.pn.i, i64 -1
   %.not.i = icmp ult ptr %.5.i, %2
   br i1 %.not.i, label %process_netbios_name.exit, label %48
 
@@ -506,7 +506,7 @@ define hidden range(i32 0, 256) i32 @get_netbios_name(ptr noundef %0, i32 nounde
   br i1 %.not37.i, label %47, label %50, !llvm.loop !6
 
 50:                                               ; preds = %48
-  store i8 0, ptr %.030.pn.i, align 1
+  store i8 0, ptr %.029.pn.i, align 1
   br label %process_netbios_name.exit
 
 process_netbios_name.exit:                        ; preds = %47, %50
@@ -533,16 +533,16 @@ define hidden void @netbios_add_name(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %9
 
 9:                                                ; preds = %45, %4
-  %.042.i.i = phi i32 [ 0, %4 ], [ %46, %45 ]
-  %.02941.i.i = phi i32 [ 61, %4 ], [ %.1.i.i, %45 ]
-  %.03040.i.i = phi ptr [ %5, %4 ], [ %.4.i.i, %45 ]
-  %.03239.i.i = phi ptr [ %6, %4 ], [ %10, %45 ]
-  %10 = getelementptr i8, ptr %.03239.i.i, i64 1
-  %11 = load i8, ptr %.03239.i.i, align 1
+  %.042.i.i = phi ptr [ %6, %4 ], [ %10, %45 ]
+  %.02941.i.i = phi ptr [ %5, %4 ], [ %.4.i.i, %45 ]
+  %.03040.i.i = phi i32 [ 61, %4 ], [ %.131.i.i, %45 ]
+  %.03239.i.i = phi i32 [ 0, %4 ], [ %46, %45 ]
+  %10 = getelementptr i8, ptr %.042.i.i, i64 1
+  %11 = load i8, ptr %.042.i.i, align 1
   %12 = zext i8 %11 to i32
   %13 = add i8 %11, -32
   %or.cond.i.i = icmp ult i8 %13, 95
-  %14 = add i32 %.02941.i.i, -1
+  %14 = add i32 %.03040.i.i, -1
   %15 = icmp sgt i32 %14, 0
   br i1 %or.cond.i.i, label %16, label %19
 
@@ -550,21 +550,21 @@ define hidden void @netbios_add_name(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %15, label %17, label %45
 
 17:                                               ; preds = %16
-  %18 = getelementptr i8, ptr %.03040.i.i, i64 1
-  store i8 %11, ptr %.03040.i.i, align 1
+  %18 = getelementptr i8, ptr %.02941.i.i, i64 1
+  store i8 %11, ptr %.02941.i.i, align 1
   br label %45
 
 19:                                               ; preds = %9
   br i1 %15, label %20, label %22
 
 20:                                               ; preds = %19
-  %21 = getelementptr i8, ptr %.03040.i.i, i64 1
-  store i8 60, ptr %.03040.i.i, align 1
+  %21 = getelementptr i8, ptr %.02941.i.i, i64 1
+  store i8 60, ptr %.02941.i.i, align 1
   br label %22
 
 22:                                               ; preds = %20, %19
-  %.131.i.i = phi ptr [ %21, %20 ], [ %.03040.i.i, %19 ]
-  %23 = add i32 %.02941.i.i, -2
+  %.1.i.i = phi ptr [ %21, %20 ], [ %.02941.i.i, %19 ]
+  %23 = add i32 %.03040.i.i, -2
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %25, label %31
 
@@ -573,13 +573,13 @@ define hidden void @netbios_add_name(ptr noundef %0, ptr noundef %1, i32 noundef
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr [16 x i8], ptr @process_netbios_name.hex_digits, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr i8, ptr %.131.i.i, i64 1
-  store i8 %29, ptr %.131.i.i, align 1
+  %30 = getelementptr i8, ptr %.1.i.i, i64 1
+  store i8 %29, ptr %.1.i.i, align 1
   br label %31
 
 31:                                               ; preds = %25, %22
-  %.2.i.i = phi ptr [ %30, %25 ], [ %.131.i.i, %22 ]
-  %32 = add i32 %.02941.i.i, -3
+  %.2.i.i = phi ptr [ %30, %25 ], [ %.1.i.i, %22 ]
+  %32 = add i32 %.03040.i.i, -3
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %34, label %40
 
@@ -594,7 +594,7 @@ define hidden void @netbios_add_name(ptr noundef %0, ptr noundef %1, i32 noundef
 
 40:                                               ; preds = %34, %31
   %.3.i.i = phi ptr [ %39, %34 ], [ %.2.i.i, %31 ]
-  %41 = add i32 %.02941.i.i, -4
+  %41 = add i32 %.03040.i.i, -4
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %45
 
@@ -604,9 +604,9 @@ define hidden void @netbios_add_name(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %45
 
 45:                                               ; preds = %43, %40, %17, %16
-  %.4.i.i = phi ptr [ %18, %17 ], [ %.03040.i.i, %16 ], [ %44, %43 ], [ %.3.i.i, %40 ]
-  %.1.i.i = phi i32 [ %14, %17 ], [ %14, %16 ], [ %41, %43 ], [ %41, %40 ]
-  %46 = add nuw nsw i32 %.042.i.i, 1
+  %.131.i.i = phi i32 [ %14, %17 ], [ %14, %16 ], [ %41, %43 ], [ %41, %40 ]
+  %.4.i.i = phi ptr [ %18, %17 ], [ %.02941.i.i, %16 ], [ %44, %43 ], [ %.3.i.i, %40 ]
+  %46 = add nuw nsw i32 %.03239.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %46, 15
   br i1 %exitcond.not.i.i, label %47, label %9, !llvm.loop !4
 
@@ -615,8 +615,8 @@ define hidden void @netbios_add_name(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %48
 
 48:                                               ; preds = %49, %47
-  %.030.pn.i.i = phi ptr [ %.4.i.i, %47 ], [ %.5.i.i, %49 ]
-  %.5.i.i = getelementptr i8, ptr %.030.pn.i.i, i64 -1
+  %.029.pn.i.i = phi ptr [ %.4.i.i, %47 ], [ %.5.i.i, %49 ]
+  %.5.i.i = getelementptr i8, ptr %.029.pn.i.i, i64 -1
   %.not.i.i = icmp ult ptr %.5.i.i, %5
   br i1 %.not.i.i, label %get_netbios_name.exit, label %49
 
@@ -626,7 +626,7 @@ define hidden void @netbios_add_name(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not37.i.i, label %48, label %51, !llvm.loop !6
 
 51:                                               ; preds = %49
-  store i8 0, ptr %.030.pn.i.i, align 1
+  store i8 0, ptr %.029.pn.i.i, align 1
   br label %get_netbios_name.exit
 
 get_netbios_name.exit:                            ; preds = %48, %51
@@ -732,16 +732,16 @@ define internal i32 @dissect_netbios(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %28
 
 28:                                               ; preds = %64, %23
-  %.042.i.i = phi i32 [ 0, %23 ], [ %65, %64 ]
-  %.02941.i.i = phi i32 [ 61, %23 ], [ %.1.i.i, %64 ]
-  %.03040.i.i = phi ptr [ %7, %23 ], [ %.4.i.i, %64 ]
-  %.03239.i.i = phi ptr [ %25, %23 ], [ %29, %64 ]
-  %29 = getelementptr i8, ptr %.03239.i.i, i64 1
-  %30 = load i8, ptr %.03239.i.i, align 1
+  %.042.i.i = phi ptr [ %25, %23 ], [ %29, %64 ]
+  %.02941.i.i = phi ptr [ %7, %23 ], [ %.4.i.i, %64 ]
+  %.03040.i.i = phi i32 [ 61, %23 ], [ %.131.i.i, %64 ]
+  %.03239.i.i = phi i32 [ 0, %23 ], [ %65, %64 ]
+  %29 = getelementptr i8, ptr %.042.i.i, i64 1
+  %30 = load i8, ptr %.042.i.i, align 1
   %31 = zext i8 %30 to i32
   %32 = add i8 %30, -32
   %or.cond.i.i = icmp ult i8 %32, 95
-  %33 = add i32 %.02941.i.i, -1
+  %33 = add i32 %.03040.i.i, -1
   %34 = icmp sgt i32 %33, 0
   br i1 %or.cond.i.i, label %35, label %38
 
@@ -749,21 +749,21 @@ define internal i32 @dissect_netbios(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %34, label %36, label %64
 
 36:                                               ; preds = %35
-  %37 = getelementptr i8, ptr %.03040.i.i, i64 1
-  store i8 %30, ptr %.03040.i.i, align 1
+  %37 = getelementptr i8, ptr %.02941.i.i, i64 1
+  store i8 %30, ptr %.02941.i.i, align 1
   br label %64
 
 38:                                               ; preds = %28
   br i1 %34, label %39, label %41
 
 39:                                               ; preds = %38
-  %40 = getelementptr i8, ptr %.03040.i.i, i64 1
-  store i8 60, ptr %.03040.i.i, align 1
+  %40 = getelementptr i8, ptr %.02941.i.i, i64 1
+  store i8 60, ptr %.02941.i.i, align 1
   br label %41
 
 41:                                               ; preds = %39, %38
-  %.131.i.i = phi ptr [ %40, %39 ], [ %.03040.i.i, %38 ]
-  %42 = add i32 %.02941.i.i, -2
+  %.1.i.i = phi ptr [ %40, %39 ], [ %.02941.i.i, %38 ]
+  %42 = add i32 %.03040.i.i, -2
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %44, label %50
 
@@ -772,13 +772,13 @@ define internal i32 @dissect_netbios(ptr noundef %0, ptr noundef %1, ptr noundef
   %46 = zext nneg i32 %45 to i64
   %47 = getelementptr [16 x i8], ptr @process_netbios_name.hex_digits, i64 0, i64 %46
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr i8, ptr %.131.i.i, i64 1
-  store i8 %48, ptr %.131.i.i, align 1
+  %49 = getelementptr i8, ptr %.1.i.i, i64 1
+  store i8 %48, ptr %.1.i.i, align 1
   br label %50
 
 50:                                               ; preds = %44, %41
-  %.2.i.i = phi ptr [ %49, %44 ], [ %.131.i.i, %41 ]
-  %51 = add i32 %.02941.i.i, -3
+  %.2.i.i = phi ptr [ %49, %44 ], [ %.1.i.i, %41 ]
+  %51 = add i32 %.03040.i.i, -3
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %59
 
@@ -793,7 +793,7 @@ define internal i32 @dissect_netbios(ptr noundef %0, ptr noundef %1, ptr noundef
 
 59:                                               ; preds = %53, %50
   %.3.i.i = phi ptr [ %58, %53 ], [ %.2.i.i, %50 ]
-  %60 = add i32 %.02941.i.i, -4
+  %60 = add i32 %.03040.i.i, -4
   %61 = icmp sgt i32 %60, 0
   br i1 %61, label %62, label %64
 
@@ -803,9 +803,9 @@ define internal i32 @dissect_netbios(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %64
 
 64:                                               ; preds = %62, %59, %36, %35
-  %.4.i.i = phi ptr [ %37, %36 ], [ %.03040.i.i, %35 ], [ %63, %62 ], [ %.3.i.i, %59 ]
-  %.1.i.i = phi i32 [ %33, %36 ], [ %33, %35 ], [ %60, %62 ], [ %60, %59 ]
-  %65 = add nuw nsw i32 %.042.i.i, 1
+  %.131.i.i = phi i32 [ %33, %36 ], [ %33, %35 ], [ %60, %62 ], [ %60, %59 ]
+  %.4.i.i = phi ptr [ %37, %36 ], [ %.02941.i.i, %35 ], [ %63, %62 ], [ %.3.i.i, %59 ]
+  %65 = add nuw nsw i32 %.03239.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %65, 15
   br i1 %exitcond.not.i.i, label %66, label %28, !llvm.loop !4
 
@@ -814,8 +814,8 @@ define internal i32 @dissect_netbios(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %67
 
 67:                                               ; preds = %68, %66
-  %.030.pn.i.i = phi ptr [ %.4.i.i, %66 ], [ %.5.i.i, %68 ]
-  %.5.i.i = getelementptr i8, ptr %.030.pn.i.i, i64 -1
+  %.029.pn.i.i = phi ptr [ %.4.i.i, %66 ], [ %.5.i.i, %68 ]
+  %.5.i.i = getelementptr i8, ptr %.029.pn.i.i, i64 -1
   %.not.i.i = icmp ult ptr %.5.i.i, %7
   br i1 %.not.i.i, label %get_netbios_name.exit, label %68
 
@@ -825,7 +825,7 @@ define internal i32 @dissect_netbios(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not37.i.i, label %67, label %70, !llvm.loop !6
 
 70:                                               ; preds = %68
-  store i8 0, ptr %.030.pn.i.i, align 1
+  store i8 0, ptr %.029.pn.i.i, align 1
   br label %get_netbios_name.exit
 
 get_netbios_name.exit:                            ; preds = %67, %70
@@ -842,16 +842,16 @@ get_netbios_name.exit:                            ; preds = %67, %70
   br label %78
 
 78:                                               ; preds = %114, %73
-  %.042.i.i110 = phi i32 [ 0, %73 ], [ %115, %114 ]
-  %.02941.i.i111 = phi i32 [ 61, %73 ], [ %.1.i.i119, %114 ]
-  %.03040.i.i112 = phi ptr [ %7, %73 ], [ %.4.i.i118, %114 ]
-  %.03239.i.i113 = phi ptr [ %75, %73 ], [ %79, %114 ]
-  %79 = getelementptr i8, ptr %.03239.i.i113, i64 1
-  %80 = load i8, ptr %.03239.i.i113, align 1
+  %.042.i.i110 = phi ptr [ %75, %73 ], [ %79, %114 ]
+  %.02941.i.i111 = phi ptr [ %7, %73 ], [ %.4.i.i119, %114 ]
+  %.03040.i.i112 = phi i32 [ 61, %73 ], [ %.131.i.i118, %114 ]
+  %.03239.i.i113 = phi i32 [ 0, %73 ], [ %115, %114 ]
+  %79 = getelementptr i8, ptr %.042.i.i110, i64 1
+  %80 = load i8, ptr %.042.i.i110, align 1
   %81 = zext i8 %80 to i32
   %82 = add i8 %80, -32
   %or.cond.i.i114 = icmp ult i8 %82, 95
-  %83 = add i32 %.02941.i.i111, -1
+  %83 = add i32 %.03040.i.i112, -1
   %84 = icmp sgt i32 %83, 0
   br i1 %or.cond.i.i114, label %85, label %88
 
@@ -859,21 +859,21 @@ get_netbios_name.exit:                            ; preds = %67, %70
   br i1 %84, label %86, label %114
 
 86:                                               ; preds = %85
-  %87 = getelementptr i8, ptr %.03040.i.i112, i64 1
-  store i8 %80, ptr %.03040.i.i112, align 1
+  %87 = getelementptr i8, ptr %.02941.i.i111, i64 1
+  store i8 %80, ptr %.02941.i.i111, align 1
   br label %114
 
 88:                                               ; preds = %78
   br i1 %84, label %89, label %91
 
 89:                                               ; preds = %88
-  %90 = getelementptr i8, ptr %.03040.i.i112, i64 1
-  store i8 60, ptr %.03040.i.i112, align 1
+  %90 = getelementptr i8, ptr %.02941.i.i111, i64 1
+  store i8 60, ptr %.02941.i.i111, align 1
   br label %91
 
 91:                                               ; preds = %89, %88
-  %.131.i.i115 = phi ptr [ %90, %89 ], [ %.03040.i.i112, %88 ]
-  %92 = add i32 %.02941.i.i111, -2
+  %.1.i.i115 = phi ptr [ %90, %89 ], [ %.02941.i.i111, %88 ]
+  %92 = add i32 %.03040.i.i112, -2
   %93 = icmp sgt i32 %92, 0
   br i1 %93, label %94, label %100
 
@@ -882,13 +882,13 @@ get_netbios_name.exit:                            ; preds = %67, %70
   %96 = zext nneg i32 %95 to i64
   %97 = getelementptr [16 x i8], ptr @process_netbios_name.hex_digits, i64 0, i64 %96
   %98 = load i8, ptr %97, align 1
-  %99 = getelementptr i8, ptr %.131.i.i115, i64 1
-  store i8 %98, ptr %.131.i.i115, align 1
+  %99 = getelementptr i8, ptr %.1.i.i115, i64 1
+  store i8 %98, ptr %.1.i.i115, align 1
   br label %100
 
 100:                                              ; preds = %94, %91
-  %.2.i.i116 = phi ptr [ %99, %94 ], [ %.131.i.i115, %91 ]
-  %101 = add i32 %.02941.i.i111, -3
+  %.2.i.i116 = phi ptr [ %99, %94 ], [ %.1.i.i115, %91 ]
+  %101 = add i32 %.03040.i.i112, -3
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %103, label %109
 
@@ -903,7 +903,7 @@ get_netbios_name.exit:                            ; preds = %67, %70
 
 109:                                              ; preds = %103, %100
   %.3.i.i117 = phi ptr [ %108, %103 ], [ %.2.i.i116, %100 ]
-  %110 = add i32 %.02941.i.i111, -4
+  %110 = add i32 %.03040.i.i112, -4
   %111 = icmp sgt i32 %110, 0
   br i1 %111, label %112, label %114
 
@@ -913,19 +913,19 @@ get_netbios_name.exit:                            ; preds = %67, %70
   br label %114
 
 114:                                              ; preds = %112, %109, %86, %85
-  %.4.i.i118 = phi ptr [ %87, %86 ], [ %.03040.i.i112, %85 ], [ %113, %112 ], [ %.3.i.i117, %109 ]
-  %.1.i.i119 = phi i32 [ %83, %86 ], [ %83, %85 ], [ %110, %112 ], [ %110, %109 ]
-  %115 = add nuw nsw i32 %.042.i.i110, 1
+  %.131.i.i118 = phi i32 [ %83, %86 ], [ %83, %85 ], [ %110, %112 ], [ %110, %109 ]
+  %.4.i.i119 = phi ptr [ %87, %86 ], [ %.02941.i.i111, %85 ], [ %113, %112 ], [ %.3.i.i117, %109 ]
+  %115 = add nuw nsw i32 %.03239.i.i113, 1
   %exitcond.not.i.i120 = icmp eq i32 %115, 15
   br i1 %exitcond.not.i.i120, label %116, label %78, !llvm.loop !4
 
 116:                                              ; preds = %114
-  store i8 0, ptr %.4.i.i118, align 1
+  store i8 0, ptr %.4.i.i119, align 1
   br label %117
 
 117:                                              ; preds = %118, %116
-  %.030.pn.i.i121 = phi ptr [ %.4.i.i118, %116 ], [ %.5.i.i122, %118 ]
-  %.5.i.i122 = getelementptr i8, ptr %.030.pn.i.i121, i64 -1
+  %.029.pn.i.i121 = phi ptr [ %.4.i.i119, %116 ], [ %.5.i.i122, %118 ]
+  %.5.i.i122 = getelementptr i8, ptr %.029.pn.i.i121, i64 -1
   %.not.i.i123 = icmp ult ptr %.5.i.i122, %7
   br i1 %.not.i.i123, label %get_netbios_name.exit125, label %118
 
@@ -935,7 +935,7 @@ get_netbios_name.exit:                            ; preds = %67, %70
   br i1 %.not37.i.i124, label %117, label %120, !llvm.loop !6
 
 120:                                              ; preds = %118
-  store i8 0, ptr %.030.pn.i.i121, align 1
+  store i8 0, ptr %.029.pn.i.i121, align 1
   br label %get_netbios_name.exit125
 
 get_netbios_name.exit125:                         ; preds = %117, %120

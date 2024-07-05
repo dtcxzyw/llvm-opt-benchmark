@@ -745,8 +745,8 @@ COVER_sum.exit120:                                ; preds = %.lr.ph.i114, %COVER
 181:                                              ; preds = %203, %.critedge.i
   %.038.i.i = phi ptr [ %.0201.i, %.critedge.i ], [ %204, %203 ]
   %.02637.i.i = phi i64 [ %179, %.critedge.i ], [ %.1.i.i, %203 ]
-  %.02736.i.i = phi ptr [ %176, %.critedge.i ], [ %.128.i.i, %203 ]
-  %.02935.i.i = phi i32 [ 0, %.critedge.i ], [ %.130.i.i, %203 ]
+  %.02736.i.i = phi i32 [ 0, %.critedge.i ], [ %.128.i.i, %203 ]
+  %.02935.i.i = phi ptr [ %176, %.critedge.i ], [ %.130.i.i, %203 ]
   %182 = load ptr, ptr %92, align 8
   %183 = load i32, ptr %.038.i.i, align 4
   %184 = zext i32 %183 to i64
@@ -758,44 +758,44 @@ COVER_sum.exit120:                                ; preds = %.lr.ph.i114, %COVER
   br i1 %188, label %203, label %189
 
 189:                                              ; preds = %181
-  %190 = add i32 %.02935.i.i, 1
+  %190 = add i32 %.02736.i.i, 1
   %.not33.i.i = icmp eq ptr %.038.i.i, %.020.pn.i
   br i1 %.not33.i.i, label %203, label %191
 
 191:                                              ; preds = %189
-  %.not15.i.i.i = icmp eq ptr %178, %.02736.i.i
+  %.not15.i.i.i = icmp eq ptr %178, %.02935.i.i
   br i1 %.not15.i.i.i, label %COVER_lower_bound.exit.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %191
-  %192 = ptrtoint ptr %.02736.i.i to i64
+  %192 = ptrtoint ptr %.02935.i.i to i64
   %193 = sub i64 %180, %192
   %194 = ashr exact i64 %193, 3
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
-  %.017.i.i.i = phi i64 [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %194, %.lr.ph.preheader.i.i.i ]
-  %.01316.i.i.i = phi ptr [ %.114.i.i.i, %.lr.ph.i.i.i ], [ %.02736.i.i, %.lr.ph.preheader.i.i.i ]
-  %195 = lshr i64 %.017.i.i.i, 1
-  %196 = getelementptr inbounds i64, ptr %.01316.i.i.i, i64 %195
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %.02935.i.i, %.lr.ph.preheader.i.i.i ]
+  %.01316.i.i.i = phi i64 [ %.114.i.i.i, %.lr.ph.i.i.i ], [ %194, %.lr.ph.preheader.i.i.i ]
+  %195 = lshr i64 %.01316.i.i.i, 1
+  %196 = getelementptr inbounds i64, ptr %.017.i.i.i, i64 %195
   %197 = load i64, ptr %196, align 8
   %198 = icmp ult i64 %197, %187
   %199 = getelementptr inbounds i8, ptr %196, i64 8
   %.neg.i.i.i = xor i64 %195, -1
-  %200 = add i64 %.017.i.i.i, %.neg.i.i.i
-  %.114.i.i.i = select i1 %198, ptr %199, ptr %.01316.i.i.i
-  %.1.i.i.i = select i1 %198, i64 %200, i64 %195
-  %.not.i.i.i = icmp eq i64 %.1.i.i.i, 0
+  %200 = add i64 %.01316.i.i.i, %.neg.i.i.i
+  %.114.i.i.i = select i1 %198, i64 %200, i64 %195
+  %.1.i.i.i = select i1 %198, ptr %199, ptr %.017.i.i.i
+  %.not.i.i.i = icmp eq i64 %.114.i.i.i, 0
   br i1 %.not.i.i.i, label %COVER_lower_bound.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 COVER_lower_bound.exit.i.i:                       ; preds = %.lr.ph.i.i.i, %191
-  %.013.lcssa.i.i.i = phi ptr [ %.02736.i.i, %191 ], [ %.114.i.i.i, %.lr.ph.i.i.i ]
-  %201 = load i64, ptr %.013.lcssa.i.i.i, align 8
-  %202 = getelementptr inbounds i8, ptr %.013.lcssa.i.i.i, i64 8
+  %.0.lcssa.i.i.i = phi ptr [ %.02935.i.i, %191 ], [ %.1.i.i.i, %.lr.ph.i.i.i ]
+  %201 = load i64, ptr %.0.lcssa.i.i.i, align 8
+  %202 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   br label %203
 
 203:                                              ; preds = %COVER_lower_bound.exit.i.i, %189, %181
-  %.130.i.i = phi i32 [ %.02935.i.i, %181 ], [ %190, %COVER_lower_bound.exit.i.i ], [ %190, %189 ]
-  %.128.i.i = phi ptr [ %.02736.i.i, %181 ], [ %202, %COVER_lower_bound.exit.i.i ], [ %.02736.i.i, %189 ]
+  %.130.i.i = phi ptr [ %.02935.i.i, %181 ], [ %202, %COVER_lower_bound.exit.i.i ], [ %.02935.i.i, %189 ]
+  %.128.i.i = phi i32 [ %.02736.i.i, %181 ], [ %190, %COVER_lower_bound.exit.i.i ], [ %190, %189 ]
   %.1.i.i = phi i64 [ %.02637.i.i, %181 ], [ %201, %COVER_lower_bound.exit.i.i ], [ %.02637.i.i, %189 ]
   %204 = getelementptr inbounds i8, ptr %.038.i.i, i64 4
   %.not.i.i = icmp eq ptr %.038.i.i, %.020.pn.i
@@ -805,7 +805,7 @@ COVER_group.exit.i:                               ; preds = %203
   %.pre.i.i = load ptr, ptr %90, align 8
   %205 = and i64 %174, 4294967295
   %206 = getelementptr inbounds i32, ptr %.pre.i.i, i64 %205
-  store i32 %.130.i.i, ptr %206, align 4
+  store i32 %.128.i.i, ptr %206, align 4
   %207 = icmp ult i64 %.1.lcssa.i, %160
   br i1 %207, label %.preheader.i, label %COVER_groupBy.exit.loopexit, !llvm.loop !13
 
@@ -912,8 +912,8 @@ COVER_computeEpochs.exit:                         ; preds = %5, %15
   %.sroa.048.sroa.0.012.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.048.sroa.0.1.i, %179 ]
   %.sroa.048.sroa.7.011.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.048.sroa.7.1.i, %179 ]
   %.sroa.1257.010.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.1257.1.i, %179 ]
-  %.sroa.022.09.i = phi i32 [ %40, %.lr.ph.i ], [ %.sroa.022.1.i, %179 ]
-  %.sroa.12.06.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.12.2.i, %179 ]
+  %.sroa.12.08.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.12.2.i, %179 ]
+  %.sroa.022.06.i = phi i32 [ %40, %.lr.ph.i ], [ %.sroa.022.1.i, %179 ]
   %48 = load ptr, ptr %31, align 8
   %49 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4
@@ -931,13 +931,13 @@ COVER_computeEpochs.exit:                         ; preds = %5, %15
 
 .lr.ph.i.i.i:                                     ; preds = %47, %62
   %60 = phi ptr [ %67, %62 ], [ %56, %47 ]
-  %.013.i.i.i = phi i32 [ %65, %62 ], [ %54, %47 ]
+  %.01213.i.i.i = phi i32 [ %65, %62 ], [ %54, %47 ]
   %61 = load i32, ptr %60, align 4
   %.not.i.i = icmp eq i32 %61, %50
   br i1 %.not.i.i, label %COVER_map_at.exit.i, label %62
 
 62:                                               ; preds = %.lr.ph.i.i.i
-  %63 = add i32 %.013.i.i.i, 1
+  %63 = add i32 %.01213.i.i.i, 1
   %64 = load i32, ptr %33, align 8
   %65 = and i32 %64, %63
   %66 = zext i32 %65 to i64
@@ -956,7 +956,7 @@ COVER_map_at.exit.thread.i:                       ; preds = %62, %47
   br label %75
 
 COVER_map_at.exit.i:                              ; preds = %.lr.ph.i.i.i
-  %.phi.trans.insert.phi.trans.insert.i.i = zext i32 %.013.i.i.i to i64
+  %.phi.trans.insert.phi.trans.insert.i.i = zext i32 %.01213.i.i.i to i64
   %73 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %51, i64 %.phi.trans.insert.phi.trans.insert.i.i, i32 1
   %.pr.i = load i32, ptr %73, align 4
   %74 = icmp eq i32 %.pr.i, 0
@@ -967,24 +967,24 @@ COVER_map_at.exit.i:                              ; preds = %.lr.ph.i.i.i
   %77 = zext i32 %50 to i64
   %78 = getelementptr inbounds i32, ptr %1, i64 %77
   %79 = load i32, ptr %78, align 4
-  %80 = add i32 %79, %.sroa.12.06.i
+  %80 = add i32 %79, %.sroa.12.08.i
   br label %81
 
 81:                                               ; preds = %75, %COVER_map_at.exit.i
   %82 = phi ptr [ %76, %75 ], [ %73, %COVER_map_at.exit.i ]
   %83 = phi i32 [ 0, %75 ], [ %.pr.i, %COVER_map_at.exit.i ]
-  %.sroa.12.1.i = phi i32 [ %80, %75 ], [ %.sroa.12.06.i, %COVER_map_at.exit.i ]
+  %.sroa.12.1.i = phi i32 [ %80, %75 ], [ %.sroa.12.08.i, %COVER_map_at.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 4
-  %85 = sub i32 %indvars.i, %.sroa.022.09.i
+  %85 = sub i32 %indvars.i, %.sroa.022.06.i
   %86 = icmp eq i32 %85, %35
   br i1 %86, label %87, label %179
 
 87:                                               ; preds = %81
   %88 = load ptr, ptr %31, align 8
-  %89 = zext i32 %.sroa.022.09.i to i64
+  %89 = zext i32 %.sroa.022.06.i to i64
   %90 = getelementptr inbounds i32, ptr %88, i64 %89
   %91 = load i32, ptr %90, align 4
   %92 = load ptr, ptr %2, align 8
@@ -1001,13 +1001,13 @@ COVER_map_at.exit.i:                              ; preds = %.lr.ph.i.i.i
 
 .lr.ph.i.i73.i:                                   ; preds = %87, %103
   %101 = phi ptr [ %108, %103 ], [ %97, %87 ]
-  %.013.i.i74.i = phi i32 [ %106, %103 ], [ %95, %87 ]
+  %.01213.i.i74.i = phi i32 [ %106, %103 ], [ %95, %87 ]
   %102 = load i32, ptr %101, align 4
   %.not.i75.i = icmp eq i32 %102, %91
   br i1 %.not.i75.i, label %COVER_map_at.exit80.i, label %103
 
 103:                                              ; preds = %.lr.ph.i.i73.i
-  %104 = add i32 %.013.i.i74.i, 1
+  %104 = add i32 %.01213.i.i74.i, 1
   %105 = load i32, ptr %33, align 8
   %106 = and i32 %105, %104
   %107 = zext i32 %106 to i64
@@ -1022,15 +1022,15 @@ COVER_map_at.exit80.thread.i:                     ; preds = %103, %87
   %112 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %92, i64 %.pre-phi.ph.i77.i
   %113 = getelementptr inbounds i8, ptr %112, i64 4
   store i32 %91, ptr %112, align 4
-  %114 = add i32 %.sroa.022.09.i, 1
+  %114 = add i32 %.sroa.022.06.i, 1
   store i32 -1, ptr %113, align 4
   br label %179
 
 COVER_map_at.exit80.i:                            ; preds = %.lr.ph.i.i73.i
-  %.phi.trans.insert.phi.trans.insert.i79.i = zext i32 %.013.i.i74.i to i64
+  %.phi.trans.insert.phi.trans.insert.i79.i = zext i32 %.01213.i.i74.i to i64
   %115 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %92, i64 %.phi.trans.insert.phi.trans.insert.i79.i, i32 1
   %.pre.i = load i32, ptr %115, align 4
-  %116 = add i32 %.sroa.022.09.i, 1
+  %116 = add i32 %.sroa.022.06.i, 1
   %117 = add i32 %.pre.i, -1
   store i32 %117, ptr %115, align 4
   %118 = icmp eq i32 %117, 0
@@ -1050,13 +1050,13 @@ COVER_map_at.exit80.i:                            ; preds = %.lr.ph.i.i73.i
 
 .lr.ph.i.i82.i:                                   ; preds = %119, %130
   %128 = phi ptr [ %135, %130 ], [ %124, %119 ]
-  %.013.i.i83.i = phi i32 [ %133, %130 ], [ %121, %119 ]
+  %.01213.i.i83.i = phi i32 [ %133, %130 ], [ %121, %119 ]
   %129 = load i32, ptr %128, align 4
   %.not38.i.i = icmp eq i32 %129, %91
   br i1 %.not38.i.i, label %139, label %130
 
 130:                                              ; preds = %.lr.ph.i.i82.i
-  %131 = add i32 %.013.i.i83.i, 1
+  %131 = add i32 %.01213.i.i83.i, 1
   %132 = load i32, ptr %33, align 8
   %133 = and i32 %132, %131
   %134 = zext i32 %133 to i64
@@ -1067,9 +1067,9 @@ COVER_map_at.exit80.i:                            ; preds = %.lr.ph.i.i73.i
   br i1 %138, label %COVER_map_remove.exit.i, label %.lr.ph.i.i82.i
 
 139:                                              ; preds = %.lr.ph.i.i82.i
-  %.phi.trans.insert.phi.trans.insert.i84.i = zext i32 %.013.i.i83.i to i64
+  %.phi.trans.insert.phi.trans.insert.i84.i = zext i32 %.01213.i.i83.i to i64
   %140 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %122, i64 %.phi.trans.insert.phi.trans.insert.i84.i
-  %141 = add i32 %.013.i.i83.i, 1
+  %141 = add i32 %.01213.i.i83.i, 1
   %142 = load i32, ptr %33, align 8
   %143 = and i32 %142, %141
   %144 = zext i32 %143 to i64
@@ -1080,8 +1080,8 @@ COVER_map_at.exit80.i:                            ; preds = %.lr.ph.i.i73.i
   br i1 %148, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %165, %139
-  %.023.lcssa.i.i = phi ptr [ %140, %139 ], [ %.124.i.i, %165 ]
-  %149 = getelementptr inbounds i8, ptr %.023.lcssa.i.i, i64 4
+  %.024.lcssa.i.i = phi ptr [ %140, %139 ], [ %.125.i.i, %165 ]
+  %149 = getelementptr inbounds i8, ptr %.024.lcssa.i.i, i64 4
   store i32 -1, ptr %149, align 4
   br label %COVER_map_remove.exit.i
 
@@ -1090,38 +1090,38 @@ COVER_map_at.exit80.i:                            ; preds = %.lr.ph.i.i73.i
   %151 = phi i32 [ %167, %165 ], [ %142, %139 ]
   %152 = phi ptr [ %172, %165 ], [ %146, %139 ]
   %153 = phi ptr [ %171, %165 ], [ %145, %139 ]
-  %.028.i.i = phi i32 [ %.1.i.i, %165 ], [ 1, %139 ]
-  %.02327.i.i = phi ptr [ %.124.i.i, %165 ], [ %140, %139 ]
-  %.02526.i.i = phi i32 [ %169, %165 ], [ %143, %139 ]
+  %.028.i.i = phi i32 [ %169, %165 ], [ %143, %139 ]
+  %.02327.i.i = phi i32 [ %.1.i.i, %165 ], [ 1, %139 ]
+  %.02426.i.i = phi ptr [ %.125.i.i, %165 ], [ %140, %139 ]
   %154 = load i32, ptr %153, align 4
   %.val.i.i = load i32, ptr %32, align 8
   %155 = mul i32 %154, -1640531535
   %156 = sub i32 32, %.val.i.i
   %157 = lshr i32 %155, %156
-  %158 = sub i32 %.02526.i.i, %157
+  %158 = sub i32 %.028.i.i, %157
   %159 = and i32 %158, %151
-  %.not.i85.i = icmp ult i32 %159, %.028.i.i
+  %.not.i85.i = icmp ult i32 %159, %.02327.i.i
   br i1 %.not.i85.i, label %163, label %160
 
 160:                                              ; preds = %.lr.ph.i.i
-  store i32 %154, ptr %.02327.i.i, align 4
+  store i32 %154, ptr %.02426.i.i, align 4
   %161 = load i32, ptr %152, align 4
-  %162 = getelementptr inbounds i8, ptr %.02327.i.i, i64 4
+  %162 = getelementptr inbounds i8, ptr %.02426.i.i, i64 4
   store i32 %161, ptr %162, align 4
   %.pre31.i.i = load i32, ptr %33, align 8
   %.pre32.i.i = load ptr, ptr %2, align 8
   br label %165
 
 163:                                              ; preds = %.lr.ph.i.i
-  %164 = add i32 %.028.i.i, 1
+  %164 = add i32 %.02327.i.i, 1
   br label %165
 
 165:                                              ; preds = %163, %160
   %166 = phi ptr [ %.pre32.i.i, %160 ], [ %150, %163 ]
   %167 = phi i32 [ %.pre31.i.i, %160 ], [ %151, %163 ]
-  %.124.i.i = phi ptr [ %153, %160 ], [ %.02327.i.i, %163 ]
+  %.125.i.i = phi ptr [ %153, %160 ], [ %.02426.i.i, %163 ]
   %.1.i.i = phi i32 [ 1, %160 ], [ %164, %163 ]
-  %168 = add i32 %.02526.i.i, 1
+  %168 = add i32 %.028.i.i, 1
   %169 = and i32 %167, %168
   %170 = zext i32 %169 to i64
   %171 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %166, i64 %170
@@ -1138,8 +1138,8 @@ COVER_map_remove.exit.i:                          ; preds = %130, %._crit_edge.i
   br label %179
 
 179:                                              ; preds = %COVER_map_remove.exit.i, %COVER_map_at.exit80.i, %COVER_map_at.exit80.thread.i, %81
+  %.sroa.022.1.i = phi i32 [ %116, %COVER_map_remove.exit.i ], [ %116, %COVER_map_at.exit80.i ], [ %.sroa.022.06.i, %81 ], [ %114, %COVER_map_at.exit80.thread.i ]
   %.sroa.12.2.i = phi i32 [ %178, %COVER_map_remove.exit.i ], [ %.sroa.12.1.i, %COVER_map_at.exit80.i ], [ %.sroa.12.1.i, %81 ], [ %.sroa.12.1.i, %COVER_map_at.exit80.thread.i ]
-  %.sroa.022.1.i = phi i32 [ %116, %COVER_map_remove.exit.i ], [ %116, %COVER_map_at.exit80.i ], [ %.sroa.022.09.i, %81 ], [ %114, %COVER_map_at.exit80.thread.i ]
   %180 = icmp ugt i32 %.sroa.12.2.i, %.sroa.1257.010.i
   %.sroa.1257.1.i = tail call i32 @llvm.umax.i32(i32 %.sroa.12.2.i, i32 %.sroa.1257.010.i)
   %.sroa.048.sroa.7.1.i = select i1 %180, i32 %indvars.i, i32 %.sroa.048.sroa.7.011.i
@@ -1272,18 +1272,18 @@ define dso_local i64 @COVER_checkTotalCompressedSize(ptr nocapture noundef reado
   br i1 %13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
-  %.052 = phi i64 [ %..0, %.lr.ph ], [ 0, %8 ]
-  %.04251 = phi i64 [ %16, %.lr.ph ], [ %12, %8 ]
-  %14 = getelementptr inbounds i64, ptr %1, i64 %.04251
+  %.04252 = phi i64 [ %..042, %.lr.ph ], [ 0, %8 ]
+  %.04351 = phi i64 [ %16, %.lr.ph ], [ %12, %8 ]
+  %14 = getelementptr inbounds i64, ptr %1, i64 %.04351
   %15 = load i64, ptr %14, align 8
-  %..0 = tail call i64 @llvm.umax.i64(i64 %15, i64 %.052)
-  %16 = add nuw i64 %.04251, 1
+  %..042 = tail call i64 @llvm.umax.i64(i64 %15, i64 %.04252)
+  %16 = add nuw i64 %.04351, 1
   %exitcond.not = icmp eq i64 %16, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
-  %.0.lcssa = phi i64 [ 0, %8 ], [ %..0, %.lr.ph ]
-  %17 = tail call i64 @ZSTD_compressBound(i64 noundef %.0.lcssa) #26
+  %.042.lcssa = phi i64 [ 0, %8 ], [ %..042, %.lr.ph ]
+  %17 = tail call i64 @ZSTD_compressBound(i64 noundef %.042.lcssa) #26
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #25
   %19 = tail call ptr @ZSTD_createCCtx() #26
   %20 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1299,25 +1299,25 @@ define dso_local i64 @COVER_checkTotalCompressedSize(ptr nocapture noundef reado
   br i1 %brmerge, label %.loopexit, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %._crit_edge, %33
-  %.154 = phi i64 [ %35, %33 ], [ %12, %._crit_edge ]
-  %.04353 = phi i64 [ %34, %33 ], [ %7, %._crit_edge ]
-  %26 = getelementptr inbounds i64, ptr %3, i64 %.154
+  %.054 = phi i64 [ %34, %33 ], [ %7, %._crit_edge ]
+  %.14453 = phi i64 [ %35, %33 ], [ %12, %._crit_edge ]
+  %26 = getelementptr inbounds i64, ptr %3, i64 %.14453
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %2, i64 %27
-  %29 = getelementptr inbounds i64, ptr %1, i64 %.154
+  %29 = getelementptr inbounds i64, ptr %1, i64 %.14453
   %30 = load i64, ptr %29, align 8
   %31 = tail call i64 @ZSTD_compress_usingCDict(ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef %17, ptr noundef %28, i64 noundef %30, ptr noundef nonnull %22) #26
   %32 = icmp ult i64 %31, -119
   br i1 %32, label %33, label %.loopexit
 
 33:                                               ; preds = %.lr.ph55
-  %34 = add i64 %31, %.04353
-  %35 = add i64 %.154, 1
+  %34 = add i64 %31, %.054
+  %35 = add i64 %.14453, 1
   %exitcond59.not = icmp eq i64 %35, %5
   br i1 %exitcond59.not, label %.loopexit, label %.lr.ph55, !llvm.loop !19
 
 .loopexit:                                        ; preds = %33, %.lr.ph55, %._crit_edge
-  %.144 = phi i64 [ %.mux, %._crit_edge ], [ %34, %33 ], [ %31, %.lr.ph55 ]
+  %.1 = phi i64 [ %.mux, %._crit_edge ], [ %34, %33 ], [ %31, %.lr.ph55 ]
   %36 = tail call i64 @ZSTD_freeCCtx(ptr noundef %19) #26
   %37 = tail call i64 @ZSTD_freeCDict(ptr noundef %22) #26
   br i1 %23, label %39, label %38
@@ -1327,7 +1327,7 @@ define dso_local i64 @COVER_checkTotalCompressedSize(ptr nocapture noundef reado
   br label %39
 
 39:                                               ; preds = %38, %.loopexit
-  ret i64 %.144
+  ret i64 %.1
 }
 
 declare i64 @ZSTD_compressBound(i64 noundef) local_unnamed_addr #5
@@ -1777,7 +1777,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
   br i1 %.not, label %239, label %80
 
 80:                                               ; preds = %77, %75
-  %.0110 = phi ptr [ %79, %77 ], [ null, %75 ]
+  %.0114 = phi ptr [ %79, %77 ], [ null, %75 ]
   %81 = getelementptr inbounds i8, ptr %7, i64 8
   %82 = getelementptr inbounds i8, ptr %7, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
@@ -1806,7 +1806,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
   %94 = uitofp i64 %1 to double
   %95 = icmp sgt i32 %36, 0
   %96 = trunc i64 %1 to i32
-  %.not139 = icmp eq ptr %.0110, null
+  %.not139 = icmp eq ptr %.0114, null
   %97 = icmp ugt i32 %36, 3
   %98 = getelementptr inbounds i8, ptr %8, i64 48
   %99 = getelementptr inbounds i8, ptr %8, i64 64
@@ -1815,20 +1815,20 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
   br label %102
 
 102:                                              ; preds = %.lr.ph176, %COVER_ctx_destroy.exit149
-  %.not135174 = phi i1 [ true, %.lr.ph176 ], [ false, %COVER_ctx_destroy.exit149 ]
-  %.0112173 = phi i32 [ %18, %.lr.ph176 ], [ %218, %COVER_ctx_destroy.exit149 ]
-  %.0113172 = phi i32 [ 1, %.lr.ph176 ], [ %.2, %COVER_ctx_destroy.exit149 ]
+  %.0109174 = phi i32 [ 1, %.lr.ph176 ], [ %.2, %COVER_ctx_destroy.exit149 ]
+  %.0110173 = phi i32 [ %18, %.lr.ph176 ], [ %218, %COVER_ctx_destroy.exit149 ]
+  %.not135172 = phi i1 [ true, %.lr.ph176 ], [ false, %COVER_ctx_destroy.exit149 ]
   br i1 %92, label %103, label %108
 
 103:                                              ; preds = %102
   %104 = load ptr, ptr @stderr, align 8
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, i32 noundef %.0112173) #23
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, i32 noundef %.0110173) #23
   %106 = load ptr, ptr @stderr, align 8
   %107 = call i32 @fflush(ptr noundef %106)
   br label %108
 
 108:                                              ; preds = %103, %102
-  %109 = call fastcc i64 @COVER_ctx_init(ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0112173, double noundef %14)
+  %109 = call fastcc i64 @COVER_ctx_init(ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0110173, double noundef %14)
   %110 = icmp ult i64 %109, -119
   br i1 %110, label %122, label %111
 
@@ -1861,11 +1861,11 @@ COVER_best_wait.exit.i:                           ; preds = %117
   br label %COVER_best_destroy.exit
 
 COVER_best_destroy.exit:                          ; preds = %COVER_best_wait.exit.i, %121
-  call void @POOL_free(ptr noundef %.0110) #26
+  call void @POOL_free(ptr noundef %.0114) #26
   br label %239
 
 122:                                              ; preds = %108
-  br i1 %.not135174, label %123, label %.lr.ph.preheader
+  br i1 %.not135172, label %123, label %.lr.ph.preheader
 
 123:                                              ; preds = %122
   %124 = load i64, ptr %93, align 8
@@ -1884,18 +1884,18 @@ COVER_best_destroy.exit:                          ; preds = %COVER_best_wait.exi
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %122, %123, %128
-  %134 = add i32 %.0112173, -1
+  %134 = add i32 %.0110173, -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %204
-  %.0111170 = phi i32 [ %205, %204 ], [ %22, %.lr.ph.preheader ]
-  %.1114169 = phi i32 [ %.2, %204 ], [ %.0113172, %.lr.ph.preheader ]
+  %.1170 = phi i32 [ %.2, %204 ], [ %.0109174, %.lr.ph.preheader ]
+  %.0111169 = phi i32 [ %205, %204 ], [ %22, %.lr.ph.preheader ]
   %135 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #25
   br i1 %92, label %136, label %141
 
 136:                                              ; preds = %.lr.ph
   %137 = load ptr, ptr @stderr, align 8
-  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.11, i32 noundef %.0111170) #23
+  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.11, i32 noundef %.0111169) #23
   %139 = load ptr, ptr @stderr, align 8
   %140 = call i32 @fflush(ptr noundef %139)
   br label %141
@@ -1973,7 +1973,7 @@ COVER_best_destroy.exit144:                       ; preds = %COVER_best_wait.exi
   br label %COVER_ctx_destroy.exit
 
 COVER_ctx_destroy.exit:                           ; preds = %161, %163
-  call void @POOL_free(ptr noundef %.0110) #26
+  call void @POOL_free(ptr noundef %.0114) #26
   br label %239
 
 164:                                              ; preds = %141
@@ -1984,9 +1984,9 @@ COVER_ctx_destroy.exit:                           ; preds = %161, %163
   store i64 %1, ptr %166, align 8
   %167 = getelementptr inbounds i8, ptr %135, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %167, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
-  store i32 %.0111170, ptr %167, align 8
+  store i32 %.0111169, ptr %167, align 8
   %168 = getelementptr inbounds i8, ptr %135, i64 28
-  store i32 %.0112173, ptr %168, align 4
+  store i32 %.0110173, ptr %168, align 4
   %169 = getelementptr inbounds i8, ptr %135, i64 40
   store double %14, ptr %169, align 8
   %170 = getelementptr inbounds i8, ptr %135, i64 32
@@ -1996,9 +1996,9 @@ COVER_ctx_destroy.exit:                           ; preds = %161, %163
   %172 = load i32, ptr @g_displayLevel, align 4
   %173 = getelementptr inbounds i8, ptr %135, i64 60
   store i32 %172, ptr %173, align 4
-  %174 = zext i32 %.0111170 to i64
+  %174 = zext i32 %.0111169 to i64
   %175 = icmp ugt i64 %174, %1
-  %176 = icmp uge i32 %134, %.0111170
+  %176 = icmp uge i32 %134, %.0111169
   %or.cond11.i = or i1 %175, %176
   br i1 %or.cond11.i, label %COVER_checkParameters.exit.thread, label %COVER_checkParameters.exit
 
@@ -2024,7 +2024,7 @@ COVER_checkParameters.exit:                       ; preds = %164
   br i1 %.not139, label %187, label %186
 
 186:                                              ; preds = %COVER_checkParameters.exit
-  call void @POOL_add(ptr noundef nonnull %.0110, ptr noundef nonnull @COVER_tryParameters, ptr noundef nonnull %135) #26
+  call void @POOL_add(ptr noundef nonnull %.0114, ptr noundef nonnull @COVER_tryParameters, ptr noundef nonnull %135) #26
   br label %188
 
 187:                                              ; preds = %COVER_checkParameters.exit
@@ -2046,7 +2046,7 @@ COVER_checkParameters.exit:                       ; preds = %164
   %195 = call i64 @clock() #26
   store i64 %195, ptr @g_time, align 8
   %196 = load ptr, ptr @stderr, align 8
-  %197 = mul i32 %.1114169, 100
+  %197 = mul i32 %.1170, 100
   %198 = udiv i32 %197, %34
   %199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.13, i32 noundef %198) #23
   %200 = load ptr, ptr @stderr, align 8
@@ -2054,12 +2054,12 @@ COVER_checkParameters.exit:                       ; preds = %164
   br label %202
 
 202:                                              ; preds = %194, %189, %188
-  %203 = add i32 %.1114169, 1
+  %203 = add i32 %.1170, 1
   br label %204
 
 204:                                              ; preds = %202, %183
-  %.2 = phi i32 [ %203, %202 ], [ %.1114169, %183 ]
-  %205 = add i32 %.0111170, %30
+  %.2 = phi i32 [ %203, %202 ], [ %.1170, %183 ]
+  %205 = add i32 %.0111169, %30
   %.not136 = icmp ugt i32 %205, %23
   br i1 %.not136, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
@@ -2112,7 +2112,7 @@ COVER_best_wait.exit:                             ; preds = %._crit_edge
   br label %COVER_ctx_destroy.exit149
 
 COVER_ctx_destroy.exit149:                        ; preds = %215, %217
-  %218 = add i32 %.0112173, 2
+  %218 = add i32 %.0110173, 2
   %.not132 = icmp ugt i32 %218, %19
   br i1 %.not132, label %._crit_edge177, label %102, !llvm.loop !65
 
@@ -2152,7 +2152,7 @@ COVER_best_wait.exit.i152:                        ; preds = %229
   br label %COVER_best_destroy.exit154
 
 COVER_best_destroy.exit154:                       ; preds = %COVER_best_wait.exit.i152, %233
-  call void @POOL_free(ptr noundef %.0110) #26
+  call void @POOL_free(ptr noundef %.0114) #26
   br label %239
 
 234:                                              ; preds = %224
@@ -2176,7 +2176,7 @@ COVER_best_wait.exit.i157:                        ; preds = %234
   br label %COVER_best_destroy.exit159
 
 COVER_best_destroy.exit159:                       ; preds = %COVER_best_wait.exit.i157, %238
-  call void @POOL_free(ptr noundef %.0110) #26
+  call void @POOL_free(ptr noundef %.0114) #26
   br label %239
 
 239:                                              ; preds = %77, %67, %70, %57, %60, %48, %50, %38, %40, %COVER_best_destroy.exit159, %COVER_best_destroy.exit154, %COVER_ctx_destroy.exit, %COVER_best_destroy.exit

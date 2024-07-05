@@ -83,7 +83,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %36
 
 36:                                               ; preds = %35, %8, %7
-  %.0 = phi i64 [ 16, %8 ], [ 16, %7 ], [ %spec.select, %35 ]
+  %.027 = phi i64 [ 16, %8 ], [ 16, %7 ], [ %spec.select, %35 ]
   %37 = getelementptr inbounds i8, ptr %6, i64 64
   store i64 %0, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %6, i64 208
@@ -95,7 +95,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %39, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = call ptr %42(ptr noundef nonnull %39, i64 noundef %0, i64 noundef %.0, i32 noundef 0) #5
+  %43 = call ptr %42(ptr noundef nonnull %39, i64 noundef %0, i64 noundef %.027, i32 noundef 0) #5
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.thread, label %49
 
@@ -103,7 +103,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   %45 = load ptr, ptr @mca_mpool_base_default_module, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = call ptr %47(ptr noundef %45, i64 noundef %0, i64 noundef %.0, i32 noundef 0) #5
+  %48 = call ptr %47(ptr noundef %45, i64 noundef %0, i64 noundef %.027, i32 noundef 0) #5
   call void @mca_mpool_base_tree_item_put(ptr noundef nonnull %6) #5
   br label %53
 
@@ -116,8 +116,8 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %53
 
 53:                                               ; preds = %.thread, %49, %3
-  %.028 = phi ptr [ null, %3 ], [ %48, %.thread ], [ %43, %49 ]
-  ret ptr %.028
+  %.0 = phi ptr [ null, %3 ], [ %48, %.thread ], [ %43, %49 ]
+  ret ptr %.0
 }
 
 declare ptr @mca_mpool_base_tree_item_get() local_unnamed_addr #1

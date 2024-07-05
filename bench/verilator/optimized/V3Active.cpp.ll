@@ -5457,7 +5457,7 @@ _ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssign
   br i1 %119, label %.lr.ph, label %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESH_.exit.thread, !llvm.loop !31
 
 _ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESH_.exit.thread: ; preds = %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESH_.exit33, %.noexc32, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESH_.exit.thread101, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESH_.exit, %.noexc16
-  %.011 = phi i1 [ false, %.noexc16 ], [ true, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESH_.exit ], [ true, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESH_.exit.thread101 ], [ true, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESH_.exit33 ], [ false, %.noexc32 ]
+  %.0 = phi i1 [ false, %.noexc16 ], [ true, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESH_.exit ], [ true, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESH_.exit.thread101 ], [ true, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESH_.exit33 ], [ false, %.noexc32 ]
   %120 = load ptr, ptr %3, align 8
   %.not.i.i.i34 = icmp eq ptr %120, null
   br i1 %.not.i.i.i34, label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit35, label %121
@@ -5467,7 +5467,7 @@ _ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssign
   br label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit35
 
 _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit35:        ; preds = %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveDlyVisitor5visitEP9AstAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESH_.exit.thread, %121
-  ret i1 %.011
+  ret i1 %.0
 }
 
 declare noundef zeroext i1 @_ZNK8FileLine9warnIsOffE11V3ErrorCode(ptr noundef nonnull align 8 dereferenceable(40), i8) #0

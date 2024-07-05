@@ -524,19 +524,19 @@ Abc_Clock.exit:                                   ; preds = %1, %9
 
 88:                                               ; preds = %.lr.ph, %302
   %89 = phi ptr [ %71, %.lr.ph ], [ %303, %302 ]
-  %.sroa.7.0215 = phi i32 [ 0, %.lr.ph ], [ %.sroa.7.1, %302 ]
-  %.sroa.5.0214 = phi i32 [ 0, %.lr.ph ], [ %.sroa.5.1, %302 ]
-  %.sroa.3.0213 = phi i32 [ 0, %.lr.ph ], [ %.sroa.3.1, %302 ]
-  %.sroa.0.0212 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0.1, %302 ]
-  %.0145211 = phi i32 [ 0, %.lr.ph ], [ %304, %302 ]
-  %.0148210 = phi i32 [ 0, %.lr.ph ], [ %256, %302 ]
-  %.0149209 = phi i32 [ 0, %.lr.ph ], [ %259, %302 ]
-  %.0150208 = phi i32 [ 0, %.lr.ph ], [ %258, %302 ]
-  %.0151207 = phi i32 [ 0, %.lr.ph ], [ %257, %302 ]
+  %.0145215 = phi i32 [ 0, %.lr.ph ], [ %256, %302 ]
+  %.0146214 = phi i32 [ 0, %.lr.ph ], [ %257, %302 ]
+  %.0147213 = phi i32 [ 0, %.lr.ph ], [ %258, %302 ]
+  %.sroa.7.0212 = phi i32 [ 0, %.lr.ph ], [ %.sroa.7.1, %302 ]
+  %.sroa.5.0211 = phi i32 [ 0, %.lr.ph ], [ %.sroa.5.1, %302 ]
+  %.sroa.3.0210 = phi i32 [ 0, %.lr.ph ], [ %.sroa.3.1, %302 ]
+  %.sroa.0.0209 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0.1, %302 ]
+  %.0148208 = phi i32 [ 0, %.lr.ph ], [ %304, %302 ]
+  %.0151207 = phi i32 [ 0, %.lr.ph ], [ %259, %302 ]
   %90 = getelementptr inbounds i8, ptr %89, i64 44
   %91 = load i32, ptr %90, align 4
   %92 = icmp sgt i32 %91, -1
-  %93 = icmp eq i32 %91, %.0145211
+  %93 = icmp eq i32 %91, %.0148208
   %or.cond = and i1 %92, %93
   br i1 %or.cond, label %94, label %96
 
@@ -544,7 +544,7 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   %95 = call ptr @Ssw_SpeculativeReduction(ptr noundef nonnull %0) #13
   call void @Aig_ManDumpBlif(ptr noundef %95, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef null) #13
   call void @Aig_ManStop(ptr noundef %95) #13
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, i32 noundef %.0145211)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, i32 noundef %.0148208)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14)
@@ -589,14 +589,14 @@ Abc_Clock.exit186:                                ; preds = %96, %99
   %117 = load ptr, ptr %13, align 8
   %118 = call i32 @Ssw_ClassesClassNum(ptr noundef %117) #13
   %119 = load i32, ptr %77, align 8
-  %120 = sub nsw i32 %119, %.0148210
+  %120 = sub nsw i32 %119, %.0145215
   %121 = load i32, ptr %78, align 4
-  %122 = sub nsw i32 %121, %.0151207
+  %122 = sub nsw i32 %121, %.0146214
   %123 = load i32, ptr %79, align 4
-  %124 = sub nsw i32 %123, %.0150208
+  %124 = sub nsw i32 %123, %.0147213
   %125 = load i32, ptr %80, align 4
-  %126 = sub nsw i32 %125, %.0149209
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, i32 noundef %.0145211, i32 noundef %116, i32 noundef %118, i32 noundef %120, i32 noundef %122, i32 noundef %124, i32 noundef %126)
+  %126 = sub nsw i32 %125, %.0151207
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, i32 noundef %.0148208, i32 noundef %116, i32 noundef %118, i32 noundef %120, i32 noundef %122, i32 noundef %124, i32 noundef %126)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %127 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #13
@@ -645,7 +645,7 @@ Abc_Clock.exit188:                                ; preds = %114, %129
   br label %150
 
 150:                                              ; preds = %146, %148, %141
-  %.0146 = phi i32 [ %142, %141 ], [ %147, %146 ], [ %149, %148 ]
+  %.0149 = phi i32 [ %142, %141 ], [ %147, %146 ], [ %149, %148 ]
   %151 = load ptr, ptr %76, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 16
   %153 = load ptr, ptr %152, align 8
@@ -675,7 +675,7 @@ Abc_Clock.exit188:                                ; preds = %114, %129
   %172 = getelementptr i8, ptr %170, i64 152
   %.val174 = load i32, ptr %172, align 8
   %173 = add nsw i32 %.val174, %.val173
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, i32 noundef %.0145211, i32 noundef %166, i32 noundef %168, i32 noundef %169, i32 noundef %173)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, i32 noundef %.0148208, i32 noundef %166, i32 noundef %168, i32 noundef %169, i32 noundef %173)
   %174 = load ptr, ptr %0, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 88
   %176 = load i32, ptr %175, align 8
@@ -684,16 +684,16 @@ Abc_Clock.exit188:                                ; preds = %114, %129
 
 177:                                              ; preds = %164
   %178 = load i32, ptr %78, align 4
-  %179 = sub nsw i32 %178, %.0151207
+  %179 = sub nsw i32 %178, %.0146214
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.20, i32 noundef %179)
   %180 = load i32, ptr %79, align 4
-  %181 = sub nsw i32 %180, %.0150208
+  %181 = sub nsw i32 %180, %.0147213
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, i32 noundef %181)
   br label %182
 
 182:                                              ; preds = %177, %164
   %183 = load i32, ptr %80, align 4
-  %184 = sub nsw i32 %183, %.0149209
+  %184 = sub nsw i32 %183, %.0151207
   %185 = load ptr, ptr %17, align 8
   %186 = getelementptr i8, ptr %185, i64 112
   %.val180 = load i32, ptr %186, align 8
@@ -806,7 +806,7 @@ Ssw_ObjIsConst1Cand.exit194:                      ; preds = %226, %228
   br i1 %.not198, label %255, label %242
 
 242:                                              ; preds = %Ssw_ObjIsConst1Cand.exit194
-  %243 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.0145211)
+  %243 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.0148208)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %244 = load i32, ptr %16, align 8
   %245 = getelementptr inbounds i8, ptr %0, i64 292
@@ -830,7 +830,7 @@ Ssw_ObjIsConst1Cand.exit194:                      ; preds = %226, %228
   br label %337
 
 255:                                              ; preds = %218, %222, %Ssw_ObjIsConst1Cand.exit194, %109, %Abc_Clock.exit188
-  %.1147 = phi i32 [ %110, %Abc_Clock.exit188 ], [ %110, %109 ], [ %.0146, %Ssw_ObjIsConst1Cand.exit194 ], [ %.0146, %222 ], [ %.0146, %218 ]
+  %.1150 = phi i32 [ %110, %Abc_Clock.exit188 ], [ %110, %109 ], [ %.0149, %Ssw_ObjIsConst1Cand.exit194 ], [ %.0149, %222 ], [ %.0149, %218 ]
   %256 = load i32, ptr %77, align 8
   %257 = load i32, ptr %78, align 4
   %258 = load i32, ptr %79, align 4
@@ -849,7 +849,7 @@ Ssw_ObjIsConst1Cand.exit194:                      ; preds = %226, %228
   call void @Ssw_SatStop(ptr noundef %261) #13
   store ptr null, ptr %76, align 8
   call void @Ssw_ManCleanup(ptr noundef nonnull %0) #13
-  %.not167 = icmp eq i32 %.1147, 0
+  %.not167 = icmp eq i32 %.1150, 0
   br i1 %.not167, label %.loopexit, label %269
 
 269:                                              ; preds = %255
@@ -876,12 +876,12 @@ Ssw_ObjIsConst1Cand.exit194:                      ; preds = %226, %228
 281:                                              ; preds = %277
   %282 = load ptr, ptr %13, align 8
   %283 = call i32 @Ssw_ClassesCand1Num(ptr noundef %282) #13
-  %284 = icmp ugt i32 %.0145211, 4
+  %284 = icmp ugt i32 %.0148208, 4
   %.pre225 = load ptr, ptr %0, align 8
   br i1 %284, label %285, label %302
 
 285:                                              ; preds = %281
-  %286 = sub nsw i32 %.sroa.0.0212, %283
+  %286 = sub nsw i32 %.sroa.0.0209, %283
   %287 = getelementptr inbounds i8, ptr %.pre225, i64 64
   %288 = load i32, ptr %287, align 8
   %289 = shl nsw i32 %288, 2
@@ -889,7 +889,7 @@ Ssw_ObjIsConst1Cand.exit194:                      ; preds = %226, %228
   br i1 %.not170, label %302, label %290
 
 290:                                              ; preds = %285
-  %291 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.0145211)
+  %291 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.0148208)
   %puts171 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %292 = load i32, ptr %16, align 8
   %293 = getelementptr inbounds i8, ptr %0, i64 292
@@ -910,18 +910,18 @@ Ssw_ObjIsConst1Cand.exit194:                      ; preds = %226, %228
 
 302:                                              ; preds = %281, %285, %277
   %303 = phi ptr [ %278, %277 ], [ %.pre225, %285 ], [ %.pre225, %281 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0212, %277 ], [ %.sroa.3.0213, %285 ], [ %.sroa.3.0213, %281 ]
-  %.sroa.3.1 = phi i32 [ %.sroa.3.0213, %277 ], [ %.sroa.5.0214, %285 ], [ %.sroa.5.0214, %281 ]
-  %.sroa.5.1 = phi i32 [ %.sroa.5.0214, %277 ], [ %.sroa.7.0215, %285 ], [ %.sroa.7.0215, %281 ]
-  %.sroa.7.1 = phi i32 [ %.sroa.7.0215, %277 ], [ %283, %285 ], [ %283, %281 ]
-  %304 = add nuw nsw i32 %.0145211, 1
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0209, %277 ], [ %.sroa.3.0210, %285 ], [ %.sroa.3.0210, %281 ]
+  %.sroa.3.1 = phi i32 [ %.sroa.3.0210, %277 ], [ %.sroa.5.0211, %285 ], [ %.sroa.5.0211, %281 ]
+  %.sroa.5.1 = phi i32 [ %.sroa.5.0211, %277 ], [ %.sroa.7.0212, %285 ], [ %.sroa.7.0212, %281 ]
+  %.sroa.7.1 = phi i32 [ %.sroa.7.0212, %277 ], [ %283, %285 ], [ %283, %281 ]
+  %304 = add nuw nsw i32 %.0148208, 1
   %305 = getelementptr inbounds i8, ptr %303, i64 56
   %306 = load i32, ptr %305, align 8
   %307 = icmp eq i32 %306, %304
   br i1 %307, label %._crit_edge, label %88
 
 .loopexit:                                        ; preds = %255, %94, %._crit_edge, %87
-  %.1 = phi i32 [ -1, %87 ], [ %304, %._crit_edge ], [ %.0145211, %94 ], [ %.0145211, %255 ]
+  %.1 = phi i32 [ -1, %87 ], [ %304, %._crit_edge ], [ %.0148208, %94 ], [ %.0148208, %255 ]
   %308 = add nsw i32 %.1, 1
   %309 = load ptr, ptr %0, align 8
   %310 = getelementptr inbounds i8, ptr %309, i64 152
@@ -1028,55 +1028,55 @@ define ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %5, label %.thread, label %10
 
 .thread:                                          ; preds = %2
-  %.0.sroa.gep191 = getelementptr inbounds i8, ptr %3, i64 132
-  %.0.sroa.gep173 = getelementptr inbounds i8, ptr %3, i64 12
-  %.0.sroa.gep164 = getelementptr inbounds i8, ptr %3, i64 32
-  %.0.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
+  %.072.sroa.gep191 = getelementptr inbounds i8, ptr %3, i64 132
+  %.072.sroa.gep173 = getelementptr inbounds i8, ptr %3, i64 12
+  %.072.sroa.gep164 = getelementptr inbounds i8, ptr %3, i64 32
+  %.072.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 0, i64 176, i1 false)
-  store i32 1, ptr %.0.sroa.gep173, align 4
-  store i32 2, ptr %.0.sroa.gep, align 8
-  store <4 x i32> <i32 1000, i32 5000000, i32 100, i32 -1>, ptr %.0.sroa.gep164, align 8
+  store i32 1, ptr %.072.sroa.gep173, align 4
+  store i32 2, ptr %.072.sroa.gep, align 8
+  store <4 x i32> <i32 1000, i32 5000000, i32 100, i32 -1>, ptr %.072.sroa.gep164, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 52
   store i32 1000, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 -1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, i8 0, i64 28, i1 false)
-  store <4 x i32> <i32 0, i32 1000, i32 50, i32 5000>, ptr %.0.sroa.gep191, align 4
+  store <4 x i32> <i32 0, i32 1000, i32 50, i32 5000>, ptr %.072.sroa.gep191, align 4
   %9 = getelementptr inbounds i8, ptr %3, i64 148
   store i32 250, ptr %9, align 4
-  %.0.sroa.phi220229 = getelementptr inbounds i8, ptr %3, i64 88
-  %.0.sroa.phi217230 = getelementptr inbounds i8, ptr %3, i64 112
-  %.0.sroa.phi214231 = getelementptr inbounds i8, ptr %3, i64 28
-  %.0.sroa.phi211232 = getelementptr inbounds i8, ptr %3, i64 80
-  %.0.sroa.phi208233 = getelementptr inbounds i8, ptr %3, i64 76
-  %.0.sroa.phi205234 = getelementptr inbounds i8, ptr %3, i64 72
-  %.0.sroa.phi202235 = getelementptr inbounds i8, ptr %3, i64 20
-  %.0.sroa.phi199236 = getelementptr inbounds i8, ptr %3, i64 108
-  %.0.sroa.phi196237 = getelementptr inbounds i8, ptr %3, i64 104
+  %.072.sroa.phi220229 = getelementptr inbounds i8, ptr %3, i64 88
+  %.072.sroa.phi217230 = getelementptr inbounds i8, ptr %3, i64 112
+  %.072.sroa.phi214231 = getelementptr inbounds i8, ptr %3, i64 28
+  %.072.sroa.phi211232 = getelementptr inbounds i8, ptr %3, i64 80
+  %.072.sroa.phi208233 = getelementptr inbounds i8, ptr %3, i64 76
+  %.072.sroa.phi205234 = getelementptr inbounds i8, ptr %3, i64 72
+  %.072.sroa.phi202235 = getelementptr inbounds i8, ptr %3, i64 20
+  %.072.sroa.phi199236 = getelementptr inbounds i8, ptr %3, i64 108
+  %.072.sroa.phi196237 = getelementptr inbounds i8, ptr %3, i64 104
   br label %20
 
 10:                                               ; preds = %2
-  %.0.sroa.gep192 = getelementptr inbounds i8, ptr %1, i64 132
-  %.0.sroa.gep174 = getelementptr inbounds i8, ptr %1, i64 12
-  %.0.sroa.gep165 = getelementptr inbounds i8, ptr %1, i64 32
-  %.pre = load i32, ptr %.0.sroa.gep192, align 4
+  %.072.sroa.gep192 = getelementptr inbounds i8, ptr %1, i64 132
+  %.072.sroa.gep174 = getelementptr inbounds i8, ptr %1, i64 12
+  %.072.sroa.gep165 = getelementptr inbounds i8, ptr %1, i64 32
+  %.pre = load i32, ptr %.072.sroa.gep192, align 4
   %11 = icmp eq i32 %.pre, 0
-  %.0.sroa.phi220 = getelementptr inbounds i8, ptr %1, i64 88
-  %.0.sroa.phi217 = getelementptr inbounds i8, ptr %1, i64 112
-  %.0.sroa.phi214 = getelementptr inbounds i8, ptr %1, i64 28
-  %.0.sroa.phi211 = getelementptr inbounds i8, ptr %1, i64 80
-  %.0.sroa.phi208 = getelementptr inbounds i8, ptr %1, i64 76
-  %.0.sroa.phi205 = getelementptr inbounds i8, ptr %1, i64 72
-  %.0.sroa.phi202 = getelementptr inbounds i8, ptr %1, i64 20
-  %.0.sroa.phi199 = getelementptr inbounds i8, ptr %1, i64 108
-  %.0.sroa.phi196 = getelementptr inbounds i8, ptr %1, i64 104
+  %.072.sroa.phi220 = getelementptr inbounds i8, ptr %1, i64 88
+  %.072.sroa.phi217 = getelementptr inbounds i8, ptr %1, i64 112
+  %.072.sroa.phi214 = getelementptr inbounds i8, ptr %1, i64 28
+  %.072.sroa.phi211 = getelementptr inbounds i8, ptr %1, i64 80
+  %.072.sroa.phi208 = getelementptr inbounds i8, ptr %1, i64 76
+  %.072.sroa.phi205 = getelementptr inbounds i8, ptr %1, i64 72
+  %.072.sroa.phi202 = getelementptr inbounds i8, ptr %1, i64 20
+  %.072.sroa.phi199 = getelementptr inbounds i8, ptr %1, i64 108
+  %.072.sroa.phi196 = getelementptr inbounds i8, ptr %1, i64 104
   br i1 %11, label %20, label %12
 
 12:                                               ; preds = %10
-  %.0.sroa.gep159 = getelementptr inbounds i8, ptr %1, i64 16
-  store i32 1, ptr %.0.sroa.phi205, align 8
-  store i32 0, ptr %.0.sroa.gep159, align 8
+  %.072.sroa.gep159 = getelementptr inbounds i8, ptr %1, i64 16
+  store i32 1, ptr %.072.sroa.phi205, align 8
+  store i32 0, ptr %.072.sroa.gep159, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 456
   %14 = load ptr, ptr %13, align 8
   %.not145 = icmp eq ptr %14, null
@@ -1093,20 +1093,20 @@ define ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef %1) local_unnam
   br label %110
 
 20:                                               ; preds = %.thread, %10
-  %.0.sroa.phi196265 = phi ptr [ %.0.sroa.phi196237, %.thread ], [ %.0.sroa.phi196, %10 ]
-  %.0.sroa.phi199263 = phi ptr [ %.0.sroa.phi199236, %.thread ], [ %.0.sroa.phi199, %10 ]
-  %.0.sroa.phi202261 = phi ptr [ %.0.sroa.phi202235, %.thread ], [ %.0.sroa.phi202, %10 ]
-  %.0.sroa.phi205259 = phi ptr [ %.0.sroa.phi205234, %.thread ], [ %.0.sroa.phi205, %10 ]
-  %.0.sroa.phi208257 = phi ptr [ %.0.sroa.phi208233, %.thread ], [ %.0.sroa.phi208, %10 ]
-  %.0.sroa.phi211255 = phi ptr [ %.0.sroa.phi211232, %.thread ], [ %.0.sroa.phi211, %10 ]
-  %.0.sroa.phi214253 = phi ptr [ %.0.sroa.phi214231, %.thread ], [ %.0.sroa.phi214, %10 ]
-  %.0.sroa.phi217251 = phi ptr [ %.0.sroa.phi217230, %.thread ], [ %.0.sroa.phi217, %10 ]
-  %.0.sroa.phi220249 = phi ptr [ %.0.sroa.phi220229, %.thread ], [ %.0.sroa.phi220, %10 ]
-  %.0247 = phi ptr [ %3, %.thread ], [ %1, %10 ]
-  %.0.sroa.phi190245 = phi ptr [ %.0.sroa.gep191, %.thread ], [ %.0.sroa.gep192, %10 ]
-  %.0.sroa.phi172243 = phi ptr [ %.0.sroa.gep173, %.thread ], [ %.0.sroa.gep174, %10 ]
-  %.0.sroa.phi163241 = phi ptr [ %.0.sroa.gep164, %.thread ], [ %.0.sroa.gep165, %10 ]
-  %21 = load i32, ptr %.0247, align 8
+  %.072.sroa.phi196265 = phi ptr [ %.072.sroa.phi196237, %.thread ], [ %.072.sroa.phi196, %10 ]
+  %.072.sroa.phi199263 = phi ptr [ %.072.sroa.phi199236, %.thread ], [ %.072.sroa.phi199, %10 ]
+  %.072.sroa.phi202261 = phi ptr [ %.072.sroa.phi202235, %.thread ], [ %.072.sroa.phi202, %10 ]
+  %.072.sroa.phi205259 = phi ptr [ %.072.sroa.phi205234, %.thread ], [ %.072.sroa.phi205, %10 ]
+  %.072.sroa.phi208257 = phi ptr [ %.072.sroa.phi208233, %.thread ], [ %.072.sroa.phi208, %10 ]
+  %.072.sroa.phi211255 = phi ptr [ %.072.sroa.phi211232, %.thread ], [ %.072.sroa.phi211, %10 ]
+  %.072.sroa.phi214253 = phi ptr [ %.072.sroa.phi214231, %.thread ], [ %.072.sroa.phi214, %10 ]
+  %.072.sroa.phi217251 = phi ptr [ %.072.sroa.phi217230, %.thread ], [ %.072.sroa.phi217, %10 ]
+  %.072.sroa.phi220249 = phi ptr [ %.072.sroa.phi220229, %.thread ], [ %.072.sroa.phi220, %10 ]
+  %.072247 = phi ptr [ %3, %.thread ], [ %1, %10 ]
+  %.072.sroa.phi190245 = phi ptr [ %.072.sroa.gep191, %.thread ], [ %.072.sroa.gep192, %10 ]
+  %.072.sroa.phi172243 = phi ptr [ %.072.sroa.gep173, %.thread ], [ %.072.sroa.gep174, %10 ]
+  %.072.sroa.phi163241 = phi ptr [ %.072.sroa.gep164, %.thread ], [ %.072.sroa.gep165, %10 ]
+  %21 = load i32, ptr %.072247, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %26
 
@@ -1129,31 +1129,31 @@ define ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29, %23
-  %33 = call ptr @Ssw_SignalCorrespondencePart(ptr noundef nonnull %0, ptr noundef nonnull %.0247) #13
+  %33 = call ptr @Ssw_SignalCorrespondencePart(ptr noundef nonnull %0, ptr noundef nonnull %.072247) #13
   br label %110
 
 34:                                               ; preds = %26, %29, %12, %15
-  %.0.sroa.phi196264 = phi ptr [ %.0.sroa.phi196265, %26 ], [ %.0.sroa.phi196265, %29 ], [ %.0.sroa.phi196, %12 ], [ %.0.sroa.phi196, %15 ]
-  %.0.sroa.phi199262 = phi ptr [ %.0.sroa.phi199263, %26 ], [ %.0.sroa.phi199263, %29 ], [ %.0.sroa.phi199, %12 ], [ %.0.sroa.phi199, %15 ]
-  %.0.sroa.phi202260 = phi ptr [ %.0.sroa.phi202261, %26 ], [ %.0.sroa.phi202261, %29 ], [ %.0.sroa.phi202, %12 ], [ %.0.sroa.phi202, %15 ]
-  %.0.sroa.phi205258 = phi ptr [ %.0.sroa.phi205259, %26 ], [ %.0.sroa.phi205259, %29 ], [ %.0.sroa.phi205, %12 ], [ %.0.sroa.phi205, %15 ]
-  %.0.sroa.phi208256 = phi ptr [ %.0.sroa.phi208257, %26 ], [ %.0.sroa.phi208257, %29 ], [ %.0.sroa.phi208, %12 ], [ %.0.sroa.phi208, %15 ]
-  %.0.sroa.phi211254 = phi ptr [ %.0.sroa.phi211255, %26 ], [ %.0.sroa.phi211255, %29 ], [ %.0.sroa.phi211, %12 ], [ %.0.sroa.phi211, %15 ]
-  %.0.sroa.phi214252 = phi ptr [ %.0.sroa.phi214253, %26 ], [ %.0.sroa.phi214253, %29 ], [ %.0.sroa.phi214, %12 ], [ %.0.sroa.phi214, %15 ]
-  %.0.sroa.phi217250 = phi ptr [ %.0.sroa.phi217251, %26 ], [ %.0.sroa.phi217251, %29 ], [ %.0.sroa.phi217, %12 ], [ %.0.sroa.phi217, %15 ]
-  %.0.sroa.phi220248 = phi ptr [ %.0.sroa.phi220249, %26 ], [ %.0.sroa.phi220249, %29 ], [ %.0.sroa.phi220, %12 ], [ %.0.sroa.phi220, %15 ]
-  %.0246 = phi ptr [ %.0247, %26 ], [ %.0247, %29 ], [ %1, %12 ], [ %1, %15 ]
-  %.0.sroa.phi190244 = phi ptr [ %.0.sroa.phi190245, %26 ], [ %.0.sroa.phi190245, %29 ], [ %.0.sroa.gep192, %12 ], [ %.0.sroa.gep192, %15 ]
-  %.0.sroa.phi172242 = phi ptr [ %.0.sroa.phi172243, %26 ], [ %.0.sroa.phi172243, %29 ], [ %.0.sroa.gep174, %12 ], [ %.0.sroa.gep174, %15 ]
-  %.0.sroa.phi163240 = phi ptr [ %.0.sroa.phi163241, %26 ], [ %.0.sroa.phi163241, %29 ], [ %.0.sroa.gep165, %12 ], [ %.0.sroa.gep165, %15 ]
+  %.072.sroa.phi196264 = phi ptr [ %.072.sroa.phi196265, %26 ], [ %.072.sroa.phi196265, %29 ], [ %.072.sroa.phi196, %12 ], [ %.072.sroa.phi196, %15 ]
+  %.072.sroa.phi199262 = phi ptr [ %.072.sroa.phi199263, %26 ], [ %.072.sroa.phi199263, %29 ], [ %.072.sroa.phi199, %12 ], [ %.072.sroa.phi199, %15 ]
+  %.072.sroa.phi202260 = phi ptr [ %.072.sroa.phi202261, %26 ], [ %.072.sroa.phi202261, %29 ], [ %.072.sroa.phi202, %12 ], [ %.072.sroa.phi202, %15 ]
+  %.072.sroa.phi205258 = phi ptr [ %.072.sroa.phi205259, %26 ], [ %.072.sroa.phi205259, %29 ], [ %.072.sroa.phi205, %12 ], [ %.072.sroa.phi205, %15 ]
+  %.072.sroa.phi208256 = phi ptr [ %.072.sroa.phi208257, %26 ], [ %.072.sroa.phi208257, %29 ], [ %.072.sroa.phi208, %12 ], [ %.072.sroa.phi208, %15 ]
+  %.072.sroa.phi211254 = phi ptr [ %.072.sroa.phi211255, %26 ], [ %.072.sroa.phi211255, %29 ], [ %.072.sroa.phi211, %12 ], [ %.072.sroa.phi211, %15 ]
+  %.072.sroa.phi214252 = phi ptr [ %.072.sroa.phi214253, %26 ], [ %.072.sroa.phi214253, %29 ], [ %.072.sroa.phi214, %12 ], [ %.072.sroa.phi214, %15 ]
+  %.072.sroa.phi217250 = phi ptr [ %.072.sroa.phi217251, %26 ], [ %.072.sroa.phi217251, %29 ], [ %.072.sroa.phi217, %12 ], [ %.072.sroa.phi217, %15 ]
+  %.072.sroa.phi220248 = phi ptr [ %.072.sroa.phi220249, %26 ], [ %.072.sroa.phi220249, %29 ], [ %.072.sroa.phi220, %12 ], [ %.072.sroa.phi220, %15 ]
+  %.072246 = phi ptr [ %.072247, %26 ], [ %.072247, %29 ], [ %1, %12 ], [ %1, %15 ]
+  %.072.sroa.phi190244 = phi ptr [ %.072.sroa.phi190245, %26 ], [ %.072.sroa.phi190245, %29 ], [ %.072.sroa.gep192, %12 ], [ %.072.sroa.gep192, %15 ]
+  %.072.sroa.phi172242 = phi ptr [ %.072.sroa.phi172243, %26 ], [ %.072.sroa.phi172243, %29 ], [ %.072.sroa.gep174, %12 ], [ %.072.sroa.gep174, %15 ]
+  %.072.sroa.phi163240 = phi ptr [ %.072.sroa.phi163241, %26 ], [ %.072.sroa.phi163241, %29 ], [ %.072.sroa.gep165, %12 ], [ %.072.sroa.gep165, %15 ]
   %.not238 = phi i1 [ true, %26 ], [ true, %29 ], [ false, %12 ], [ false, %15 ]
-  %35 = load i32, ptr %.0.sroa.phi196264, align 8
+  %35 = load i32, ptr %.072.sroa.phi196264, align 8
   %.not146 = icmp eq i32 %35, 0
   br i1 %.not146, label %43, label %36
 
 36:                                               ; preds = %34
-  %37 = load i32, ptr %.0.sroa.phi163240, align 8
-  %38 = load i32, ptr %.0.sroa.phi199262, align 4
+  %37 = load i32, ptr %.072.sroa.phi163240, align 8
+  %38 = load i32, ptr %.072.sroa.phi199262, align 4
   br i1 %.not238, label %41, label %39
 
 39:                                               ; preds = %36
@@ -1165,7 +1165,7 @@ define ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef %1) local_unnam
   br label %110
 
 43:                                               ; preds = %34
-  %44 = call ptr @Ssw_ManCreate(ptr noundef nonnull %0, ptr noundef nonnull %.0246) #13
+  %44 = call ptr @Ssw_ManCreate(ptr noundef nonnull %0, ptr noundef nonnull %.072246) #13
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 20
   %47 = load i32, ptr %46, align 4
@@ -1173,8 +1173,8 @@ define ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %.not147, label %63, label %48
 
 48:                                               ; preds = %43
-  %49 = load i32, ptr %.0.sroa.phi205258, align 8
-  %50 = load i32, ptr %.0.sroa.phi214252, align 4
+  %49 = load i32, ptr %.072.sroa.phi205258, align 8
+  %50 = load i32, ptr %.072.sroa.phi214252, align 4
   %51 = call ptr @Ssw_ClassesPrepareSimple(ptr noundef nonnull %0, i32 noundef %49, i32 noundef %50) #13
   %52 = getelementptr inbounds i8, ptr %44, i64 40
   store ptr %51, ptr %52, align 8
@@ -1201,21 +1201,21 @@ define ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef %1) local_unnam
   br label %86
 
 63:                                               ; preds = %43
-  %64 = load i32, ptr %.0.sroa.phi172242, align 4
-  %65 = load i32, ptr %.0.sroa.phi205258, align 8
-  %66 = load i32, ptr %.0.sroa.phi208256, align 4
-  %67 = load i32, ptr %.0.sroa.phi211254, align 8
-  %68 = load i32, ptr %.0.sroa.phi214252, align 4
-  %69 = load i32, ptr %.0.sroa.phi217250, align 8
+  %64 = load i32, ptr %.072.sroa.phi172242, align 4
+  %65 = load i32, ptr %.072.sroa.phi205258, align 8
+  %66 = load i32, ptr %.072.sroa.phi208256, align 4
+  %67 = load i32, ptr %.072.sroa.phi211254, align 8
+  %68 = load i32, ptr %.072.sroa.phi214252, align 4
+  %69 = load i32, ptr %.072.sroa.phi217250, align 8
   %70 = call ptr @Ssw_ClassesPrepare(ptr noundef nonnull %0, i32 noundef %64, i32 noundef %65, i32 noundef %66, i32 noundef %67, i32 noundef %68, i32 noundef %69) #13
   %71 = getelementptr inbounds i8, ptr %44, i64 40
   store ptr %70, ptr %71, align 8
-  %72 = load i32, ptr %.0.sroa.phi190244, align 4
+  %72 = load i32, ptr %.072.sroa.phi190244, align 4
   %.not148 = icmp eq i32 %72, 0
   br i1 %.not148, label %73, label %82
 
 73:                                               ; preds = %63
-  %74 = load i32, ptr %.0.sroa.phi220248, align 8
+  %74 = load i32, ptr %.072.sroa.phi220248, align 8
   %.not149 = icmp eq i32 %74, 0
   br i1 %.not149, label %.sink.split, label %75
 
@@ -1271,12 +1271,12 @@ define ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef %1) local_unnam
 
 103:                                              ; preds = %93, %90, %86
   %104 = call ptr @Ssw_SignalCorrespondenceRefine(ptr noundef nonnull %44)
-  %105 = load i32, ptr %.0.sroa.phi202260, align 4
+  %105 = load i32, ptr %.072.sroa.phi202260, align 4
   %.not153 = icmp eq i32 %105, 0
   br i1 %.not153, label %109, label %106
 
 106:                                              ; preds = %103
-  %107 = load i32, ptr %.0.sroa.phi217250, align 8
+  %107 = load i32, ptr %.072.sroa.phi217250, align 8
   %.not154 = icmp eq i32 %107, 0
   br i1 %.not154, label %109, label %108
 
@@ -1289,8 +1289,8 @@ define ptr @Ssw_SignalCorrespondence(ptr noundef %0, ptr noundef %1) local_unnam
   br label %110
 
 110:                                              ; preds = %109, %59, %41, %39, %32, %18
-  %.072 = phi ptr [ %19, %18 ], [ %40, %39 ], [ %42, %41 ], [ null, %59 ], [ %104, %109 ], [ %33, %32 ]
-  ret ptr %.072
+  %.0 = phi ptr [ %19, %18 ], [ %40, %39 ], [ %42, %41 ], [ null, %59 ], [ %104, %109 ], [ %33, %32 ]
+  ret ptr %.0
 }
 
 declare i32 @Aig_ManRandom(i32 noundef) local_unnamed_addr #3

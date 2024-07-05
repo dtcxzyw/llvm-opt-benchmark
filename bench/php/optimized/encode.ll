@@ -882,8 +882,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_ibm866(ptr nocapture nou
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -963,18 +963,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -995,15 +995,15 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr nocaptur
 
 13:                                               ; preds = %.lr.ph, %172
   %14 = phi ptr [ %6, %.lr.ph ], [ %174, %172 ]
-  %.0124169 = phi i8 [ 0, %.lr.ph ], [ %.1125, %172 ]
+  %.0125169 = phi i8 [ 0, %.lr.ph ], [ %.1126, %172 ]
   %15 = load i32, ptr %14, align 4
   %.pr = load i32, ptr %4, align 8
   br label %16
 
 16:                                               ; preds = %131, %13
   %17 = phi i32 [ 2, %131 ], [ %.pr, %13 ]
-  %.1125 = phi i8 [ %136, %131 ], [ %.0124169, %13 ]
-  %.0 = phi i32 [ %.1, %131 ], [ %15, %13 ]
+  %.1126 = phi i8 [ %136, %131 ], [ %.0125169, %13 ]
+  %.0124 = phi i32 [ %.1, %131 ], [ %15, %13 ]
   switch i32 %17, label %105 [
     i32 0, label %18
     i32 1, label %46
@@ -1011,14 +1011,14 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr nocaptur
   ]
 
 18:                                               ; preds = %16
-  switch i32 %.0, label %19 [
+  switch i32 %.0124, label %19 [
     i32 27, label %lexbor_shs_hash_get_static.exit.thread.loopexit177
     i32 15, label %lexbor_shs_hash_get_static.exit.thread.loopexit177
     i32 14, label %lexbor_shs_hash_get_static.exit.thread.loopexit177
   ]
 
 19:                                               ; preds = %18
-  %20 = icmp ult i32 %.0, 128
+  %20 = icmp ult i32 %.0124, 128
   br i1 %20, label %21, label %30
 
 21:                                               ; preds = %19
@@ -1028,7 +1028,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr nocaptur
   br i1 %24, label %.loopexit137, label %25
 
 25:                                               ; preds = %21
-  %26 = trunc nuw nsw i32 %.0 to i8
+  %26 = trunc nuw nsw i32 %.0124 to i8
   %27 = load ptr, ptr %10, align 8
   %28 = add i64 %22, 1
   store i64 %28, ptr %8, align 8
@@ -1037,7 +1037,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr nocaptur
   br label %172
 
 30:                                               ; preds = %19
-  switch i32 %.0, label %105 [
+  switch i32 %.0124, label %105 [
     i32 8254, label %31
     i32 165, label %31
   ]
@@ -1050,7 +1050,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr nocaptur
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %31
-  %37 = icmp eq i32 %.0, 165
+  %37 = icmp eq i32 %.0124, 165
   store i32 1, ptr %4, align 8
   %38 = load ptr, ptr %10, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 %32
@@ -1071,18 +1071,18 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr nocaptur
   br label %172
 
 46:                                               ; preds = %16
-  switch i32 %.0, label %47 [
+  switch i32 %.0124, label %47 [
     i32 27, label %lexbor_shs_hash_get_static.exit.thread.loopexit177
     i32 15, label %lexbor_shs_hash_get_static.exit.thread.loopexit177
     i32 14, label %lexbor_shs_hash_get_static.exit.thread.loopexit177
   ]
 
 47:                                               ; preds = %46
-  %48 = icmp ult i32 %.0, 128
+  %48 = icmp ult i32 %.0124, 128
   br i1 %48, label %49, label %105
 
 49:                                               ; preds = %47
-  switch i32 %.0, label %50 [
+  switch i32 %.0124, label %50 [
     i32 92, label %59
     i32 126, label %59
   ]
@@ -1094,7 +1094,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr nocaptur
   br i1 %53, label %.loopexit137, label %54
 
 54:                                               ; preds = %50
-  %55 = trunc nuw nsw i32 %.0 to i8
+  %55 = trunc nuw nsw i32 %.0124 to i8
   %56 = load ptr, ptr %10, align 8
   %57 = add i64 %51, 1
   store i64 %57, ptr %8, align 8
@@ -1115,7 +1115,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr nocaptur
   %66 = getelementptr inbounds i8, ptr %65, i64 %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %66, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   %67 = load i64, ptr %8, align 8
-  %68 = trunc nuw nsw i32 %.0 to i8
+  %68 = trunc nuw nsw i32 %.0124 to i8
   %69 = load ptr, ptr %10, align 8
   %70 = add i64 %67, 4
   store i64 %70, ptr %8, align 8
@@ -1125,7 +1125,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr nocaptur
   br label %172
 
 73:                                               ; preds = %16
-  %74 = icmp ult i32 %.0, 128
+  %74 = icmp ult i32 %.0124, 128
   br i1 %74, label %75, label %89
 
 75:                                               ; preds = %73
@@ -1141,7 +1141,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr nocaptur
   %82 = getelementptr inbounds i8, ptr %81, i64 %76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %82, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   %83 = load i64, ptr %8, align 8
-  %84 = trunc nuw nsw i32 %.0 to i8
+  %84 = trunc nuw nsw i32 %.0124 to i8
   %85 = load ptr, ptr %10, align 8
   %86 = add i64 %83, 4
   store i64 %86, ptr %8, align 8
@@ -1151,7 +1151,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr nocaptur
   br label %172
 
 89:                                               ; preds = %73
-  switch i32 %.0, label %105 [
+  switch i32 %.0124, label %105 [
     i32 8254, label %90
     i32 165, label %90
   ]
@@ -1164,7 +1164,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr nocaptur
   br i1 %94, label %.loopexit, label %95
 
 95:                                               ; preds = %90
-  %96 = icmp eq i32 %.0, 165
+  %96 = icmp eq i32 %.0124, 165
   store i32 1, ptr %4, align 8
   %97 = load ptr, ptr %10, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 %91
@@ -1192,8 +1192,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_2022_jp(ptr nocaptur
   br i1 %109, label %.loopexit, label %110
 
 110:                                              ; preds = %105
-  %111 = icmp eq i32 %.0, 8722
-  %spec.store.select = select i1 %111, i32 65293, i32 %.0
+  %111 = icmp eq i32 %.0124, 8722
+  %spec.store.select = select i1 %111, i32 65293, i32 %.0124
   %112 = add i32 %spec.store.select, -65377
   %113 = icmp ult i32 %112, 63
   br i1 %113, label %114, label %118
@@ -1242,7 +1242,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %120
   %135 = add i64 %134, 3
   store i64 %135, ptr %8, align 8
   store i32 2, ptr %4, align 8
-  %136 = add i8 %.1125, 3
+  %136 = add i8 %.1126, 3
   br label %16
 
 137:                                              ; preds = %lexbor_shs_hash_get_static.exit
@@ -1270,7 +1270,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %120
 .loopexit:                                        ; preds = %90, %75, %59, %31, %128, %105
   %153 = phi i64 [ %106, %105 ], [ %106, %128 ], [ %91, %90 ], [ %76, %75 ], [ %60, %59 ], [ %32, %31 ]
   store i32 %5, ptr %4, align 8
-  %154 = sext i8 %.1125 to i64
+  %154 = sext i8 %.1126 to i64
   %155 = sub i64 %153, %154
   store i64 %155, ptr %8, align 8
   br label %.loopexit137
@@ -1281,7 +1281,7 @@ lexbor_shs_hash_get_static.exit.thread.loopexit177: ; preds = %18, %18, %18, %46
 
 lexbor_shs_hash_get_static.exit.thread:           ; preds = %123, %lexbor_shs_hash_get_static.exit.thread.loopexit177
   %156 = phi i64 [ %.pre, %lexbor_shs_hash_get_static.exit.thread.loopexit177 ], [ %106, %123 ]
-  %157 = sext i8 %.1125 to i64
+  %157 = sext i8 %.1126 to i64
   %158 = sub i64 %156, %157
   store i64 %158, ptr %8, align 8
   %159 = load ptr, ptr %11, align 8
@@ -1313,8 +1313,8 @@ lexbor_shs_hash_get_static.exit.thread:           ; preds = %123, %lexbor_shs_ha
   br i1 %175, label %13, label %.loopexit137
 
 .loopexit137:                                     ; preds = %21, %50, %lexbor_shs_hash_get_static.exit.thread, %161, %172, %3, %.loopexit
-  %.0126 = phi i32 [ 15, %.loopexit ], [ 0, %3 ], [ 15, %21 ], [ 15, %50 ], [ 1, %lexbor_shs_hash_get_static.exit.thread ], [ 15, %161 ], [ 0, %172 ]
-  ret i32 %.0126
+  %.0 = phi i32 [ 15, %.loopexit ], [ 0, %3 ], [ 15, %21 ], [ 15, %50 ], [ 1, %lexbor_shs_hash_get_static.exit.thread ], [ 15, %161 ], [ 0, %172 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -1363,8 +1363,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_10(ptr nocaptur
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -1444,18 +1444,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1473,8 +1473,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_13(ptr nocaptur
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -1554,18 +1554,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1583,8 +1583,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_14(ptr nocaptur
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -1664,18 +1664,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1693,8 +1693,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_15(ptr nocaptur
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -1774,18 +1774,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1803,8 +1803,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_16(ptr nocaptur
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -1884,18 +1884,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1913,8 +1913,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_2(ptr nocapture
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -1994,18 +1994,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2023,8 +2023,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_3(ptr nocapture
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -2104,18 +2104,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2133,8 +2133,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_4(ptr nocapture
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -2214,18 +2214,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2243,8 +2243,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_5(ptr nocapture
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -2324,18 +2324,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2353,8 +2353,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_6(ptr nocapture
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -2434,18 +2434,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2463,8 +2463,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_7(ptr nocapture
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -2544,18 +2544,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2573,8 +2573,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_8(ptr nocapture
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -2654,18 +2654,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2683,8 +2683,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_iso_8859_8_i(ptr nocaptu
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -2764,18 +2764,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2793,8 +2793,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_koi8_r(ptr nocapture nou
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -2874,18 +2874,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2903,8 +2903,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_koi8_u(ptr nocapture nou
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -2984,18 +2984,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -3093,8 +3093,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_shift_jis(ptr nocapture 
   br label %55
 
 55:                                               ; preds = %54, %37
-  %.0 = phi i32 [ %13, %37 ], [ 65293, %54 ]
-  %56 = urem i32 %.0, 9253
+  %.049 = phi i32 [ %13, %37 ], [ 65293, %54 ]
+  %56 = urem i32 %.049, 9253
   %57 = add nuw nsw i32 %56, 1
   br label %58
 
@@ -3103,7 +3103,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_shift_jis(ptr nocapture 
   %.pn.i = zext i32 %.pn.in.i to i64
   %.0.i = getelementptr inbounds [11349 x %struct.lexbor_shs_hash_t], ptr @lxb_encoding_multi_hash_jis0208, i64 0, i64 %.pn.i
   %59 = load i32, ptr %.0.i, align 4
-  %60 = icmp eq i32 %59, %.0
+  %60 = icmp eq i32 %59, %.049
   br i1 %60, label %61, label %66
 
 61:                                               ; preds = %58
@@ -3181,8 +3181,8 @@ lxb_encoding_encode_shift_jis_index.exit:         ; preds = %61
   br i1 %109, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %27, %38, %46, %69, %72, %lxb_encoding_encode_shift_jis_index.exit, %106, %3
-  %.049 = phi i32 [ 0, %3 ], [ 0, %106 ], [ 15, %lxb_encoding_encode_shift_jis_index.exit ], [ 15, %72 ], [ 1, %69 ], [ 15, %46 ], [ 15, %38 ], [ 15, %27 ], [ 15, %15 ]
-  ret i32 %.049
+  %.0 = phi i32 [ 0, %3 ], [ 0, %106 ], [ 15, %lxb_encoding_encode_shift_jis_index.exit ], [ 15, %72 ], [ 1, %69 ], [ 15, %46 ], [ 15, %38 ], [ 15, %27 ], [ 15, %15 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -3618,8 +3618,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_macintosh(ptr nocapture 
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -3699,18 +3699,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -3734,8 +3734,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1250(ptr nocaptu
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -3815,18 +3815,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -3844,8 +3844,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1251(ptr nocaptu
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -3925,18 +3925,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -3954,8 +3954,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1252(ptr nocaptu
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -4035,18 +4035,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -4064,8 +4064,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1253(ptr nocaptu
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -4145,18 +4145,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -4174,8 +4174,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1254(ptr nocaptu
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -4255,18 +4255,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -4284,8 +4284,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1255(ptr nocaptu
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -4365,18 +4365,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -4394,8 +4394,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1256(ptr nocaptu
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -4475,18 +4475,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -4504,8 +4504,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1257(ptr nocaptu
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -4585,18 +4585,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -4614,8 +4614,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_1258(ptr nocaptu
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -4695,18 +4695,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -4724,8 +4724,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_windows_874(ptr nocaptur
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -4805,18 +4805,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -4834,8 +4834,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_x_mac_cyrillic(ptr nocap
   br label %11
 
 11:                                               ; preds = %.lr.ph, %58
-  %.048 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
-  %12 = load i32, ptr %.048, align 4
+  %.03648 = phi ptr [ %4, %.lr.ph ], [ %59, %58 ]
+  %12 = load i32, ptr %.03648, align 4
   %13 = icmp ult i32 %12, 128
   br i1 %13, label %14, label %23
 
@@ -4915,18 +4915,18 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
   br label %58
 
 58:                                               ; preds = %51, %42, %18
-  %59 = getelementptr inbounds i8, ptr %.048, i64 4
+  %59 = getelementptr inbounds i8, ptr %.03648, i64 4
   %60 = icmp ult ptr %59, %2
   br i1 %60, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %lexbor_shs_hash_get_static.exit, %36, %33, %14
-  %.036.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
-  store ptr %.048, ptr %1, align 8
+  %.0.ph = phi i32 [ 15, %14 ], [ 1, %33 ], [ 15, %36 ], [ 15, %lexbor_shs_hash_get_static.exit ]
+  store ptr %.03648, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %3
-  %.036 = phi i32 [ 0, %3 ], [ %.036.ph, %.loopexit.sink.split ], [ 0, %58 ]
-  ret i32 %.036
+  %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -5633,8 +5633,8 @@ define hidden signext i8 @lxb_encoding_encode_iso_2022_jp_single(ptr nocapture n
 
 7:                                                ; preds = %105, %4
   %8 = phi i32 [ 2, %105 ], [ %6, %4 ]
+  %.0108 = phi i8 [ %108, %105 ], [ 0, %4 ]
   %.0107 = phi i32 [ %.1, %105 ], [ %3, %4 ]
-  %.0 = phi i8 [ %108, %105 ], [ 0, %4 ]
   switch i32 %8, label %80 [
     i32 0, label %9
     i32 1, label %32
@@ -5658,7 +5658,7 @@ define hidden signext i8 @lxb_encoding_encode_iso_2022_jp_single(ptr nocapture n
   %15 = getelementptr inbounds i8, ptr %14, i64 1
   store ptr %15, ptr %1, align 8
   store i8 %13, ptr %14, align 1
-  %16 = add i8 %.0, 1
+  %16 = add i8 %.0108, 1
   br label %130
 
 17:                                               ; preds = %10
@@ -5677,7 +5677,7 @@ define hidden signext i8 @lxb_encoding_encode_iso_2022_jp_single(ptr nocapture n
   %23 = icmp eq i32 %.0107, 165
   store i32 1, ptr %5, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = add i8 %.0, 4
+  %25 = add i8 %.0108, 4
   br i1 %23, label %26, label %29
 
 26:                                               ; preds = %22
@@ -5717,7 +5717,7 @@ define hidden signext i8 @lxb_encoding_encode_iso_2022_jp_single(ptr nocapture n
   %39 = getelementptr inbounds i8, ptr %38, i64 1
   store ptr %39, ptr %1, align 8
   store i8 %37, ptr %38, align 1
-  %40 = add i8 %.0, 1
+  %40 = add i8 %.0108, 1
   br label %130
 
 41:                                               ; preds = %35, %35
@@ -5736,7 +5736,7 @@ define hidden signext i8 @lxb_encoding_encode_iso_2022_jp_single(ptr nocapture n
   %50 = getelementptr inbounds i8, ptr %47, i64 4
   store ptr %50, ptr %1, align 8
   store i8 %49, ptr %48, align 1
-  %51 = add i8 %.0, 4
+  %51 = add i8 %.0108, 4
   br label %130
 
 52:                                               ; preds = %7
@@ -5759,7 +5759,7 @@ define hidden signext i8 @lxb_encoding_encode_iso_2022_jp_single(ptr nocapture n
   %63 = getelementptr inbounds i8, ptr %60, i64 4
   store ptr %63, ptr %1, align 8
   store i8 %62, ptr %61, align 1
-  %64 = add i8 %.0, 4
+  %64 = add i8 %.0108, 4
   br label %130
 
 65:                                               ; preds = %52
@@ -5778,7 +5778,7 @@ define hidden signext i8 @lxb_encoding_encode_iso_2022_jp_single(ptr nocapture n
   %71 = icmp eq i32 %.0107, 165
   store i32 1, ptr %5, align 8
   %72 = load ptr, ptr %1, align 8
-  %73 = add i8 %.0, 4
+  %73 = add i8 %.0108, 4
   br i1 %71, label %74, label %77
 
 74:                                               ; preds = %70
@@ -5850,7 +5850,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %94
   %107 = getelementptr inbounds i8, ptr %106, i64 3
   store ptr %107, ptr %1, align 8
   store i32 2, ptr %5, align 8
-  %108 = add i8 %.0, 3
+  %108 = add i8 %.0108, 3
   br label %7
 
 109:                                              ; preds = %lexbor_shs_hash_get_static.exit
@@ -5869,13 +5869,13 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %94
   %120 = getelementptr inbounds i8, ptr %119, i64 1
   store ptr %120, ptr %1, align 8
   store i8 %118, ptr %119, align 1
-  %121 = add i8 %.0, 2
+  %121 = add i8 %.0108, 2
   br label %130
 
 .loopexit:                                        ; preds = %102, %80, %66, %54, %41, %18
   store i32 %6, ptr %5, align 8
   %122 = load ptr, ptr %1, align 8
-  %123 = sext i8 %.0 to i64
+  %123 = sext i8 %.0108 to i64
   %124 = sub nsw i64 0, %123
   %125 = getelementptr inbounds i8, ptr %122, i64 %124
   store ptr %125, ptr %1, align 8
@@ -5887,15 +5887,15 @@ lexbor_shs_hash_get_static.exit.thread.loopexit139: ; preds = %9, %9, %9, %32, %
 
 lexbor_shs_hash_get_static.exit.thread:           ; preds = %97, %lexbor_shs_hash_get_static.exit.thread.loopexit139
   %126 = phi ptr [ %.pre, %lexbor_shs_hash_get_static.exit.thread.loopexit139 ], [ %81, %97 ]
-  %127 = sext i8 %.0 to i64
+  %127 = sext i8 %.0108 to i64
   %128 = sub nsw i64 0, %127
   %129 = getelementptr inbounds i8, ptr %126, i64 %128
   store ptr %129, ptr %1, align 8
   br label %130
 
 130:                                              ; preds = %lexbor_shs_hash_get_static.exit.thread, %.loopexit, %109, %77, %74, %58, %45, %36, %29, %26, %12
-  %.0108 = phi i8 [ -2, %.loopexit ], [ -1, %lexbor_shs_hash_get_static.exit.thread ], [ %121, %109 ], [ %64, %58 ], [ %73, %74 ], [ %73, %77 ], [ %40, %36 ], [ %51, %45 ], [ %16, %12 ], [ %25, %26 ], [ %25, %29 ]
-  ret i8 %.0108
+  %.0 = phi i8 [ -2, %.loopexit ], [ -1, %lexbor_shs_hash_get_static.exit.thread ], [ %121, %109 ], [ %64, %58 ], [ %73, %74 ], [ %73, %77 ], [ %40, %36 ], [ %51, %45 ], [ %16, %12 ], [ %25, %26 ], [ %25, %29 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable

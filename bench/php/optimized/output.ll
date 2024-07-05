@@ -877,7 +877,7 @@ php_output_context_feed.exit:                     ; preds = %113, %119, %121
   br i1 %.not123, label %.thread141, label %.thread145
 
 137:                                              ; preds = %112, %97, %101, %93
-  %.0 = phi i32 [ 0, %112 ], [ 1, %101 ], [ 2, %97 ], [ 2, %93 ]
+  %.0114 = phi i32 [ 0, %112 ], [ 1, %101 ], [ 2, %97 ], [ 2, %93 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #20
   call void @zval_ptr_dtor(ptr noundef nonnull %78) #20
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #20
@@ -885,7 +885,7 @@ php_output_context_feed.exit:                     ; preds = %113, %119, %121
   %139 = or i32 %138, 4096
   store i32 %139, ptr %55, align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @output_globals, i64 32), align 8
-  switch i32 %.0, label %default.unreachable147 [
+  switch i32 %.0114, label %default.unreachable147 [
     i32 0, label %140
     i32 2, label %.thread141
     i32 1, label %.thread145
@@ -967,7 +967,7 @@ php_output_context_reset.exit:                    ; preds = %166, %170, %173
   br label %.thread145
 
 .thread145:                                       ; preds = %132, %php_output_context_reset.exit, %137
-  %.1143 = phi i32 [ 2, %php_output_context_reset.exit ], [ %.0, %137 ], [ 1, %132 ]
+  %.1143 = phi i32 [ 2, %php_output_context_reset.exit ], [ %.0114, %137 ], [ 1, %132 ]
   %174 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 0, ptr %174, align 8
   %175 = load i32, ptr %55, align 8
@@ -984,8 +984,8 @@ default.unreachable147:                           ; preds = %137
   br label %178
 
 178:                                              ; preds = %php_output_lock_error.exit, %177, %53
-  %.0114 = phi i32 [ %.1139, %177 ], [ 2, %53 ], [ 0, %php_output_lock_error.exit ]
-  ret i32 %.0114
+  %.0 = phi i32 [ %.1139, %177 ], [ 2, %53 ], [ 0, %php_output_lock_error.exit ]
+  ret i32 %.0
 }
 
 declare i32 @zend_stack_push(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1614,14 +1614,14 @@ php_output_lock_error.exit:                       ; preds = %1
   br i1 %.not3848, label %.thread44, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %39
-  %.049 = phi ptr [ %40, %39 ], [ %20, %17 ]
-  %29 = getelementptr inbounds i8, ptr %.049, i64 8
+  %.02749 = phi ptr [ %40, %39 ], [ %20, %17 ]
+  %29 = getelementptr inbounds i8, ptr %.02749, i64 8
   %30 = load i8, ptr %29, align 8
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %39, label %32
 
 32:                                               ; preds = %.lr.ph
-  %33 = load ptr, ptr %.049, align 8
+  %33 = load ptr, ptr %.02749, align 8
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 24
   %36 = getelementptr inbounds i8, ptr %34, i64 16
@@ -1631,7 +1631,7 @@ php_output_lock_error.exit:                       ; preds = %1
   br i1 %.not39, label %39, label %.loopexit
 
 39:                                               ; preds = %32, %.lr.ph
-  %40 = getelementptr inbounds i8, ptr %.049, i64 16
+  %40 = getelementptr inbounds i8, ptr %.02749, i64 16
   %.not38 = icmp eq ptr %40, %24
   br i1 %.not38, label %.thread44, label %.lr.ph
 
@@ -1644,8 +1644,8 @@ php_output_lock_error.exit:                       ; preds = %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %php_output_lock_error.exit.thread, %8, %php_output_lock_error.exit, %.thread44
-  %.029 = phi i32 [ 0, %.thread44 ], [ -1, %php_output_lock_error.exit ], [ -1, %8 ], [ -1, %php_output_lock_error.exit.thread ], [ -1, %32 ]
-  ret i32 %.029
+  %.030 = phi i32 [ 0, %.thread44 ], [ -1, %php_output_lock_error.exit ], [ -1, %8 ], [ -1, %php_output_lock_error.exit.thread ], [ -1, %32 ]
+  ret i32 %.030
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2081,8 +2081,8 @@ php_output_get_level.exit:                        ; preds = %2
   br i1 %exitcond.not, label %php_output_get_level.exit.thread, label %.lr.ph
 
 php_output_get_level.exit.thread:                 ; preds = %14, %.critedge, %5, %2, %php_output_get_level.exit
-  %.013 = phi i32 [ 0, %php_output_get_level.exit ], [ 0, %2 ], [ 0, %5 ], [ 1, %14 ], [ 0, %.critedge ]
-  ret i32 %.013
+  %.0 = phi i32 [ 0, %php_output_get_level.exit ], [ 0, %2 ], [ 0, %5 ], [ 1, %14 ], [ 0, %.critedge ]
+  ret i32 %.0
 }
 
 declare ptr @zend_stack_base(ptr noundef) local_unnamed_addr #1
@@ -2285,8 +2285,8 @@ define range(i32 -1, 1) i32 @php_output_handler_reverse_conflict_register(ptr no
   br label %45
 
 45:                                               ; preds = %30, %44, %39, %20, %12
-  %.084 = phi i32 [ %16, %12 ], [ -1, %20 ], [ 0, %39 ], [ 0, %44 ], [ 0, %30 ]
-  ret i32 %.084
+  %.086 = phi i32 [ %16, %12 ], [ -1, %20 ], [ 0, %39 ], [ 0, %44 ], [ 0, %30 ]
+  ret i32 %.086
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3491,8 +3491,8 @@ php_output_context_swap.exit20:                   ; preds = %53, %58, %60
   br label %74
 
 74:                                               ; preds = %.sink.split, %32, %50, %9, %7
-  %.013 = phi i32 [ 1, %7 ], [ 0, %9 ], [ 0, %50 ], [ 0, %32 ], [ 0, %.sink.split ]
-  ret i32 %.013
+  %.0 = phi i32 [ 1, %7 ], [ 0, %9 ], [ 0, %50 ], [ 0, %32 ], [ 0, %.sink.split ]
+  ret i32 %.0
 }
 
 declare i32 @sapi_flush() local_unnamed_addr #1

@@ -127,7 +127,7 @@ define dso_local void @intset_add_member(ptr nocapture noundef %0, i64 noundef %
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %28
-  %.0.i = phi ptr [ %30, %28 ], [ %26, %22 ]
+  %.039.i = phi ptr [ %30, %28 ], [ %26, %22 ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   %41 = getelementptr inbounds i8, ptr %0, i64 32
   %42 = getelementptr inbounds i8, ptr %0, i64 40
@@ -135,11 +135,11 @@ define dso_local void @intset_add_member(ptr nocapture noundef %0, i64 noundef %
 
 43:                                               ; preds = %154, %.lr.ph.i
   %44 = phi i64 [ 0, %.lr.ph.i ], [ %162, %154 ]
-  %.153.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.2.i, %154 ]
-  %.03952.i = phi i32 [ 0, %.lr.ph.i ], [ %161, %154 ]
+  %.053.i = phi i32 [ 0, %.lr.ph.i ], [ %161, %154 ]
+  %.152.i = phi ptr [ %.039.i, %.lr.ph.i ], [ %.2.i, %154 ]
   %45 = getelementptr i64, ptr %23, i64 %44
   %46 = load i64, ptr %45, align 8
-  %47 = add i32 %.03952.i, 1
+  %47 = add i32 %.053.i, 1
   %48 = sext i32 %47 to i64
   %49 = getelementptr i64, ptr %23, i64 %48
   %50 = load i64, ptr %49, align 8
@@ -245,7 +245,7 @@ define dso_local void @intset_add_member(ptr nocapture noundef %0, i64 noundef %
 
 simple8b_encode.exit.i:                           ; preds = %92, %.loopexit
   %.056.i.i = phi i64 [ %95, %92 ], [ 1152921504606846975, %.loopexit ]
-  %96 = getelementptr inbounds i8, ptr %.153.i, i64 2
+  %96 = getelementptr inbounds i8, ptr %.152.i, i64 2
   %97 = load i16, ptr %96, align 2
   %98 = icmp ugt i16 %97, 63
   br i1 %98, label %99, label %154
@@ -262,7 +262,7 @@ simple8b_encode.exit.i:                           ; preds = %92, %.loopexit
   store i16 0, ptr %105, align 2
   %106 = getelementptr inbounds i8, ptr %101, i64 8
   store ptr null, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %.153.i, i64 8
+  %107 = getelementptr inbounds i8, ptr %.152.i, i64 8
   store ptr %101, ptr %107, align 8
   store ptr %101, ptr %25, align 8
   br label %tailrecurse.i.i
@@ -364,7 +364,7 @@ intset_update_upper.exit.i:                       ; preds = %130
 
 154:                                              ; preds = %intset_update_upper.exit.i, %simple8b_encode.exit.i
   %155 = phi i16 [ %.pre.i, %intset_update_upper.exit.i ], [ %97, %simple8b_encode.exit.i ]
-  %.2.i = phi ptr [ %101, %intset_update_upper.exit.i ], [ %.153.i, %simple8b_encode.exit.i ]
+  %.2.i = phi ptr [ %101, %intset_update_upper.exit.i ], [ %.152.i, %simple8b_encode.exit.i ]
   %156 = getelementptr inbounds i8, ptr %.2.i, i64 16
   %157 = getelementptr inbounds i8, ptr %.2.i, i64 2
   %158 = add i16 %155, 1
@@ -438,27 +438,27 @@ define dso_local zeroext i1 @intset_is_member(ptr nocapture noundef readonly %0,
   br i1 %.not, label %23, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %6, %.lr.ph.split.i
-  %.023.i = phi i32 [ %spec.select21.i, %.lr.ph.split.i ], [ %4, %6 ]
-  %.01722.i = phi i32 [ %spec.select20.i, %.lr.ph.split.i ], [ 0, %6 ]
-  %9 = sub i32 %.023.i, %.01722.i
+  %.023.i = phi i32 [ %spec.select21.i, %.lr.ph.split.i ], [ 0, %6 ]
+  %.01722.i = phi i32 [ %spec.select20.i, %.lr.ph.split.i ], [ %4, %6 ]
+  %9 = sub i32 %.01722.i, %.023.i
   %10 = sdiv i32 %9, 2
-  %11 = add i32 %10, %.01722.i
+  %11 = add i32 %10, %.023.i
   %12 = sext i32 %11 to i64
   %13 = getelementptr i64, ptr %7, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = icmp ult i64 %14, %1
   %16 = add i32 %11, 1
-  %spec.select20.i = select i1 %15, i32 %16, i32 %.01722.i
-  %spec.select21.i = select i1 %15, i32 %.023.i, i32 %11
-  %17 = icmp sgt i32 %spec.select21.i, %spec.select20.i
+  %spec.select20.i = select i1 %15, i32 %.01722.i, i32 %11
+  %spec.select21.i = select i1 %15, i32 %16, i32 %.023.i
+  %17 = icmp sgt i32 %spec.select20.i, %spec.select21.i
   br i1 %17, label %.lr.ph.split.i, label %intset_binsrch_uint64.exit, !llvm.loop !8
 
 intset_binsrch_uint64.exit:                       ; preds = %.lr.ph.split.i
-  %.not45 = icmp slt i32 %spec.select20.i, %4
+  %.not45 = icmp slt i32 %spec.select21.i, %4
   br i1 %.not45, label %18, label %simple8b_contains.exit
 
 18:                                               ; preds = %intset_binsrch_uint64.exit
-  %19 = sext i32 %spec.select20.i to i64
+  %19 = sext i32 %spec.select21.i to i64
   %20 = getelementptr [482 x i64], ptr %7, i64 0, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, %1
@@ -473,12 +473,12 @@ intset_binsrch_uint64.exit:                       ; preds = %.lr.ph.split.i
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %0, i64 32
   %28 = load i32, ptr %27, align 8
-  %.060 = add i32 %28, -1
-  %29 = icmp sgt i32 %.060, 0
+  %.03660 = add i32 %28, -1
+  %29 = icmp sgt i32 %.03660, 0
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %26, %43
-  %.062 = phi i32 [ %.0, %43 ], [ %.060, %26 ]
+  %.03662 = phi i32 [ %.036, %43 ], [ %.03660, %26 ]
   %.03561 = phi ptr [ %48, %43 ], [ %25, %26 ]
   %30 = getelementptr inbounds i8, ptr %.03561, i64 8
   %31 = getelementptr inbounds i8, ptr %.03561, i64 2
@@ -491,33 +491,33 @@ intset_binsrch_uint64.exit:                       ; preds = %.lr.ph.split.i
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %.lr.ph.split.us.i
-  %.023.us.i = phi i32 [ %spec.select19.us.i, %.lr.ph.split.us.i ], [ %33, %.lr.ph.split.us.i.preheader ]
-  %.01722.us.i = phi i32 [ %spec.select.us.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split.us.i.preheader ]
-  %34 = sub i32 %.023.us.i, %.01722.us.i
+  %.023.us.i = phi i32 [ %spec.select19.us.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split.us.i.preheader ]
+  %.01722.us.i = phi i32 [ %spec.select.us.i, %.lr.ph.split.us.i ], [ %33, %.lr.ph.split.us.i.preheader ]
+  %34 = sub i32 %.01722.us.i, %.023.us.i
   %35 = sdiv i32 %34, 2
-  %36 = add i32 %35, %.01722.us.i
+  %36 = add i32 %35, %.023.us.i
   %37 = sext i32 %36 to i64
   %38 = getelementptr i64, ptr %30, i64 %37
   %39 = load i64, ptr %38, align 8
   %.not.us.i = icmp ugt i64 %39, %1
   %40 = add i32 %36, 1
-  %spec.select.us.i = select i1 %.not.us.i, i32 %.01722.us.i, i32 %40
-  %spec.select19.us.i = select i1 %.not.us.i, i32 %36, i32 %.023.us.i
-  %41 = icmp sgt i32 %spec.select19.us.i, %spec.select.us.i
+  %spec.select.us.i = select i1 %.not.us.i, i32 %36, i32 %.01722.us.i
+  %spec.select19.us.i = select i1 %.not.us.i, i32 %.023.us.i, i32 %40
+  %41 = icmp sgt i32 %spec.select.us.i, %spec.select19.us.i
   br i1 %41, label %.lr.ph.split.us.i, label %intset_binsrch_uint64.exit48, !llvm.loop !8
 
 intset_binsrch_uint64.exit48:                     ; preds = %.lr.ph.split.us.i
-  %42 = icmp eq i32 %spec.select.us.i, 0
+  %42 = icmp eq i32 %spec.select19.us.i, 0
   br i1 %42, label %simple8b_contains.exit, label %43
 
 43:                                               ; preds = %intset_binsrch_uint64.exit48
   %44 = getelementptr inbounds i8, ptr %.03561, i64 520
-  %45 = add i32 %spec.select.us.i, -1
+  %45 = add i32 %spec.select19.us.i, -1
   %46 = sext i32 %45 to i64
   %47 = getelementptr [64 x ptr], ptr %44, i64 0, i64 %46
   %48 = load ptr, ptr %47, align 8
-  %.0 = add nsw i32 %.062, -1
-  %49 = icmp sgt i32 %.062, 1
+  %.036 = add nsw i32 %.03662, -1
+  %49 = icmp sgt i32 %.03662, 1
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %43, %26
@@ -533,27 +533,27 @@ intset_binsrch_uint64.exit48:                     ; preds = %.lr.ph.split.us.i
   br label %.lr.ph.i50
 
 .lr.ph.i50:                                       ; preds = %.lr.ph.i50.preheader, %.lr.ph.i50
-  %.020.i = phi i32 [ %.1.i, %.lr.ph.i50 ], [ %53, %.lr.ph.i50.preheader ]
-  %.01719.i = phi i32 [ %.118.i, %.lr.ph.i50 ], [ 0, %.lr.ph.i50.preheader ]
-  %54 = sub i32 %.020.i, %.01719.i
+  %.020.i = phi i32 [ %.1.i, %.lr.ph.i50 ], [ 0, %.lr.ph.i50.preheader ]
+  %.01719.i = phi i32 [ %.118.i, %.lr.ph.i50 ], [ %53, %.lr.ph.i50.preheader ]
+  %54 = sub i32 %.01719.i, %.020.i
   %55 = sdiv i32 %54, 2
-  %56 = add i32 %55, %.01719.i
+  %56 = add i32 %55, %.020.i
   %57 = sext i32 %56 to i64
   %58 = getelementptr %struct.leaf_item, ptr %50, i64 %57
   %59 = load i64, ptr %58, align 8
   %.not.i = icmp ugt i64 %59, %1
   %60 = add i32 %56, 1
-  %.118.i = select i1 %.not.i, i32 %.01719.i, i32 %60
-  %.1.i = select i1 %.not.i, i32 %56, i32 %.020.i
-  %61 = icmp sgt i32 %.1.i, %.118.i
+  %.118.i = select i1 %.not.i, i32 %56, i32 %.01719.i
+  %.1.i = select i1 %.not.i, i32 %.020.i, i32 %60
+  %61 = icmp sgt i32 %.118.i, %.1.i
   br i1 %61, label %.lr.ph.i50, label %intset_binsrch_leaf.exit, !llvm.loop !10
 
 intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i50
-  %62 = icmp eq i32 %.118.i, 0
+  %62 = icmp eq i32 %.1.i, 0
   br i1 %62, label %simple8b_contains.exit, label %63
 
 63:                                               ; preds = %intset_binsrch_leaf.exit
-  %64 = add i32 %.118.i, -1
+  %64 = add i32 %.1.i, -1
   %65 = sext i32 %64 to i64
   %66 = getelementptr [64 x %struct.leaf_item], ptr %50, i64 0, i64 %65
   %67 = load i64, ptr %66, align 8
@@ -610,8 +610,8 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i50
   br i1 %exitcond.not.i, label %simple8b_contains.exit, label %.lr.ph.i51, !llvm.loop !11
 
 simple8b_contains.exit:                           ; preds = %.lr.ph, %intset_binsrch_uint64.exit48, %93, %._crit_edge, %91, %85, %81, %69, %63, %intset_binsrch_leaf.exit, %23, %intset_binsrch_uint64.exit, %18
-  %.036 = phi i1 [ %22, %18 ], [ false, %intset_binsrch_uint64.exit ], [ false, %23 ], [ false, %intset_binsrch_leaf.exit ], [ true, %63 ], [ %84, %81 ], [ false, %69 ], [ %92, %91 ], [ false, %85 ], [ false, %._crit_edge ], [ false, %93 ], [ false, %intset_binsrch_uint64.exit48 ], [ false, %.lr.ph ]
-  ret i1 %.036
+  %.0 = phi i1 [ %22, %18 ], [ false, %intset_binsrch_uint64.exit ], [ false, %23 ], [ false, %intset_binsrch_leaf.exit ], [ true, %63 ], [ %84, %81 ], [ false, %69 ], [ %92, %91 ], [ false, %85 ], [ false, %._crit_edge ], [ false, %93 ], [ false, %intset_binsrch_uint64.exit48 ], [ false, %.lr.ph ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

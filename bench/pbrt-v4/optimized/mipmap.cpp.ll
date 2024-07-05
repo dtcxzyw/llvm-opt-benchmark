@@ -767,20 +767,20 @@ for.body.lr.ph:                                   ; preds = %_ZNK4pbrt6MIPMap15L
   br i1 %cmp99.not181, label %for.end127, label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond98.for.inc125_crit_edge
-  %it.0192 = phi i32 [ %inc126, %for.cond98.for.inc125_crit_edge ], [ %conv87, %for.body.lr.ph ]
-  %sumWts.0191 = phi float [ %sumWts.2, %for.cond98.for.inc125_crit_edge ], [ 0.000000e+00, %for.body.lr.ph ]
-  %sum.0190 = phi float [ %sum.2, %for.cond98.for.inc125_crit_edge ], [ 0.000000e+00, %for.body.lr.ph ]
-  %conv95 = sitofp i32 %it.0192 to float
+  %sum.0192 = phi float [ %sum.2, %for.cond98.for.inc125_crit_edge ], [ 0.000000e+00, %for.body.lr.ph ]
+  %it.0191 = phi i32 [ %inc126, %for.cond98.for.inc125_crit_edge ], [ %conv87, %for.body.lr.ph ]
+  %sumWts.0190 = phi float [ %sumWts.2, %for.cond98.for.inc125_crit_edge ], [ 0.000000e+00, %for.body.lr.ph ]
+  %conv95 = sitofp i32 %it.0191 to float
   %sub97 = fsub float %conv95, %sub17
   %mul.i74 = fmul float %sub97, %sub97
   %mul110 = fmul float %24, %mul.i74
-  %29 = xor i32 %it.0192, -1
+  %29 = xor i32 %it.0191, -1
   br label %for.body100
 
 for.body100:                                      ; preds = %for.body, %for.inc
   %is.0184 = phi i32 [ %conv75, %for.body ], [ %inc, %for.inc ]
-  %sumWts.1183 = phi float [ %sumWts.0191, %for.body ], [ %sumWts.2, %for.inc ]
-  %sum.1182 = phi float [ %sum.0190, %for.body ], [ %sum.2, %for.inc ]
+  %sum.1183 = phi float [ %sum.0192, %for.body ], [ %sum.2, %for.inc ]
+  %sumWts.1182 = phi float [ %sumWts.0190, %for.body ], [ %sumWts.2, %for.inc ]
   %conv101 = sitofp i32 %is.0184 to float
   %sub103 = fsub float %conv101, %sub11
   %mul.i73 = fmul float %sub103, %sub103
@@ -836,7 +836,7 @@ if.then19.i:                                      ; preds = %if.else.i
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.else.i, %if.then19.i, %if.then8.i
-  %p.i.sroa.13.0 = phi i32 [ %sub14.i, %if.then8.i ], [ %sub28.i, %if.then19.i ], [ %it.0192, %if.else.i ]
+  %p.i.sroa.13.0 = phi i32 [ %sub14.i, %if.then8.i ], [ %sub28.i, %if.then19.i ], [ %it.0191, %if.else.i ]
   %p.i.sroa.0.0 = phi i32 [ %sub.i, %if.then8.i ], [ %sub23.i, %if.then19.i ], [ %is.0184, %if.else.i ]
   %cmp32.i = icmp slt i32 %p.i.sroa.13.0, 0
   br i1 %cmp32.i, label %if.then33.i, label %if.else42.i
@@ -872,7 +872,7 @@ for.body.i:                                       ; preds = %if.then113, %for.in
   %p.i.sroa.0.4 = phi i32 [ %p.i.sroa.0.6, %for.inc.i ], [ %is.0184, %if.then113 ]
   %cmp.i.i90 = phi i1 [ false, %for.inc.i ], [ true, %if.then113 ]
   %indvars.iv.i.sroa.phi = phi ptr [ %wrapMode.i88.sroa.4, %for.inc.i ], [ %wrapMode.i88.sroa.0, %if.then113 ]
-  %.sroa.speculated153 = select i1 %cmp.i.i90, i32 %p.i.sroa.0.4, i32 %it.0192
+  %.sroa.speculated153 = select i1 %cmp.i.i90, i32 %p.i.sroa.0.4, i32 %it.0191
   %cmp73.i = icmp sgt i32 %.sroa.speculated153, -1
   %.sroa.speculated113.i = select i1 %cmp.i.i90, i32 %resolution.sroa.0.0.extract.trunc.i, i32 %resolution.sroa.9.0.extract.trunc.i
   %cmp76.i = icmp slt i32 %.sroa.speculated153, %.sroa.speculated113.i
@@ -919,7 +919,7 @@ _ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit: ; preds = %i
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
 
 if.end.i:                                         ; preds = %for.inc.sink.split.i, %for.inc.i, %if.end59.i
-  %p.i.sroa.13.5.ph = phi i32 [ %spec.select172, %if.end59.i ], [ %cond.i.sink.i, %for.inc.sink.split.i ], [ %it.0192, %for.inc.i ]
+  %p.i.sroa.13.5.ph = phi i32 [ %spec.select172, %if.end59.i ], [ %cond.i.sink.i, %for.inc.sink.split.i ], [ %it.0191, %for.inc.i ]
   %p.i.sroa.0.7.ph = phi i32 [ %spec.select, %if.end59.i ], [ %p.i.sroa.0.4, %for.inc.sink.split.i ], [ %p.i.sroa.0.6, %for.inc.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wrapMode.i88.sroa.0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wrapMode.i88.sroa.4)
@@ -1036,25 +1036,25 @@ _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %_ZN
   %retval.0.i = phi float [ %57, %sw.bb22.i ], [ %53, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %46, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i)
   %mul121 = fmul float %30, %retval.0.i
-  %add122 = fadd float %sum.1182, %mul121
-  %add123 = fadd float %sumWts.1183, %30
+  %add122 = fadd float %sum.1183, %mul121
+  %add123 = fadd float %sumWts.1182, %30
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body100, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
-  %sum.2 = phi float [ %add122, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit ], [ %sum.1182, %for.body100 ]
-  %sumWts.2 = phi float [ %add123, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit ], [ %sumWts.1183, %for.body100 ]
+  %sumWts.2 = phi float [ %add123, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit ], [ %sumWts.1182, %for.body100 ]
+  %sum.2 = phi float [ %add122, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit ], [ %sum.1183, %for.body100 ]
   %inc = add i32 %is.0184, 1
   %exitcond.not = icmp eq i32 %is.0184, %conv81
   br i1 %exitcond.not, label %for.cond98.for.inc125_crit_edge, label %for.body100, !llvm.loop !9
 
 for.cond98.for.inc125_crit_edge:                  ; preds = %for.inc
-  %inc126 = add i32 %it.0192, 1
-  %exitcond197.not = icmp eq i32 %it.0192, %conv93
+  %inc126 = add i32 %it.0191, 1
+  %exitcond197.not = icmp eq i32 %it.0191, %conv93
   br i1 %exitcond197.not, label %for.end127, label %for.body, !llvm.loop !10
 
 for.end127:                                       ; preds = %for.cond98.for.inc125_crit_edge, %for.body.lr.ph, %_ZNK4pbrt6MIPMap15LevelResolutionEi.exit
-  %sum.0.lcssa = phi float [ 0.000000e+00, %_ZNK4pbrt6MIPMap15LevelResolutionEi.exit ], [ 0.000000e+00, %for.body.lr.ph ], [ %sum.2, %for.cond98.for.inc125_crit_edge ]
   %sumWts.0.lcssa = phi float [ 0.000000e+00, %_ZNK4pbrt6MIPMap15LevelResolutionEi.exit ], [ 0.000000e+00, %for.body.lr.ph ], [ %sumWts.2, %for.cond98.for.inc125_crit_edge ]
+  %sum.0.lcssa = phi float [ 0.000000e+00, %_ZNK4pbrt6MIPMap15LevelResolutionEi.exit ], [ 0.000000e+00, %for.body.lr.ph ], [ %sum.2, %for.cond98.for.inc125_crit_edge ]
   %div128 = fdiv float %sum.0.lcssa, %sumWts.0.lcssa
   br label %return
 

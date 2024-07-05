@@ -13071,35 +13071,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.021.i, 2
+  %add8.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.021.i, 3
+  %add13.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
+  %0 = udiv i32 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !52
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
@@ -14338,8 +14338,8 @@ for.body76:                                       ; preds = %for.body76.lr.ph, %
   %stop_replay_for_corruption.01268 = phi i8 [ 0, %for.body76.lr.ph ], [ %stop_replay_for_corruption.10, %for.inc406 ]
   %flushed.01267 = phi i8 [ 0, %for.body76.lr.ph ], [ %flushed.9, %for.inc406 ]
   %corrupted_wal_number.01263 = phi i64 [ 72057594037927935, %for.body76.lr.ph ], [ %corrupted_wal_number.5, %for.inc406 ]
-  %__begin168.sroa.0.01214 = phi ptr [ %32, %for.body76.lr.ph ], [ %incdec.ptr.i637, %for.inc406 ]
-  %34 = load i64, ptr %__begin168.sroa.0.01214, align 8
+  %__begin168.sroa.0.01262 = phi ptr [ %32, %for.body76.lr.ph ], [ %incdec.ptr.i637, %for.inc406 ]
+  %34 = load i64, ptr %__begin168.sroa.0.01262, align 8
   %cmp = icmp ult i64 %34, %min_wal_number.0
   br i1 %cmp, label %if.then79, label %if.end83
 
@@ -16069,7 +16069,7 @@ for.inc406:                                       ; preds = %cleanup402.thread, 
   %corrupted_wal_number.5 = phi i64 [ %corrupted_wal_number.01263, %if.then79 ], [ %corrupted_wal_number.3, %cleanup402 ], [ %corrupted_wal_number.3, %cleanup402 ], [ %corrupted_wal_number.01263, %cleanup402.thread ]
   %flushed.9 = phi i8 [ %flushed.01267, %if.then79 ], [ %flushed.7, %cleanup402 ], [ %flushed.7, %cleanup402 ], [ %flushed.01267, %cleanup402.thread ]
   %stop_replay_for_corruption.10 = phi i8 [ %stop_replay_for_corruption.01268, %if.then79 ], [ %stop_replay_for_corruption.8, %cleanup402 ], [ %stop_replay_for_corruption.8, %cleanup402 ], [ %stop_replay_for_corruption.01268, %cleanup402.thread ]
-  %incdec.ptr.i637 = getelementptr inbounds i8, ptr %__begin168.sroa.0.01214, i64 8
+  %incdec.ptr.i637 = getelementptr inbounds i8, ptr %__begin168.sroa.0.01262, i64 8
   %cmp.i141.not = icmp eq ptr %incdec.ptr.i637, %33
   br i1 %cmp.i141.not, label %for.end408, label %for.body76
 
@@ -17596,35 +17596,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.021.i, 2
+  %add11.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.021.i, 3
+  %add15.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
+  %div.i = udiv i64 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !74
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i

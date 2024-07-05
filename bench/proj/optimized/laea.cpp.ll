@@ -403,8 +403,8 @@ define internal { double, double } @_ZL14laea_e_inverse5PJ_XYP8PJconsts(double %
   br label %68
 
 68:                                               ; preds = %60, %66, %34, %47, %3
-  %.sroa.9.1 = phi double [ %1, %3 ], [ %.sroa.9.0, %66 ], [ %.sroa.9.0, %60 ], [ %46, %34 ], [ %50, %47 ]
   %.sroa.0.0 = phi double [ %0, %3 ], [ %0, %66 ], [ %0, %60 ], [ %31, %34 ], [ %31, %47 ]
+  %.sroa.9.1 = phi double [ %1, %3 ], [ %.sroa.9.0, %66 ], [ %.sroa.9.0, %60 ], [ %46, %34 ], [ %50, %47 ]
   %.0 = phi double [ 0.000000e+00, %3 ], [ %67, %66 ], [ %64, %60 ], [ %41, %34 ], [ %49, %47 ]
   %69 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.9.1) #8
   %70 = tail call double @asin(double noundef %.0) #8
@@ -668,9 +668,9 @@ define internal { double, double } @_ZL14laea_s_inverse5PJ_XYP8PJconsts(double %
   br label %64
 
 64:                                               ; preds = %62, %59, %48, %29, %20
-  %.sroa.3.0 = phi double [ %13, %20 ], [ %63, %62 ], [ %61, %59 ], [ %49, %48 ], [ %30, %29 ]
-  %.sroa.7.0 = phi double [ %1, %20 ], [ %1, %62 ], [ %60, %59 ], [ %58, %48 ], [ %32, %29 ]
   %.sroa.0.0 = phi double [ %0, %20 ], [ %0, %62 ], [ %0, %59 ], [ %53, %48 ], [ %31, %29 ]
+  %.sroa.7.0 = phi double [ %1, %20 ], [ %1, %62 ], [ %60, %59 ], [ %58, %48 ], [ %32, %29 ]
+  %.sroa.3.0 = phi double [ %13, %20 ], [ %63, %62 ], [ %61, %59 ], [ %49, %48 ], [ %30, %29 ]
   %65 = fcmp oeq double %.sroa.7.0, 0.000000e+00
   br i1 %65, label %66, label %69
 

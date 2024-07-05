@@ -491,12 +491,12 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %41
   br label %56
 
 56:                                               ; preds = %.lr.ph, %56
-  %.02964 = phi i64 [ 0, %.lr.ph ], [ %60, %56 ]
-  %57 = getelementptr inbounds float, ptr %44, i64 %.02964
+  %.03064 = phi i64 [ 0, %.lr.ph ], [ %60, %56 ]
+  %57 = getelementptr inbounds float, ptr %44, i64 %.03064
   %58 = load float, ptr %57, align 4
   %59 = fdiv float %58, %55
   store float %59, ptr %57, align 4
-  %60 = add nuw i64 %.02964, 1
+  %60 = add nuw i64 %.03064, 1
   %exitcond.not = icmp eq i64 %60, %umax
   br i1 %exitcond.not, label %.loopexit, label %56, !llvm.loop !7
 

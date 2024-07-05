@@ -255,8 +255,8 @@ hwloc_libxml2_init_once.exit:                     ; preds = %6, %19
   br label %27
 
 27:                                               ; preds = %24, %21
-  %.0 = phi ptr [ %22, %21 ], [ %26, %24 ]
-  %.not51 = icmp eq ptr %.0, null
+  %.045 = phi ptr [ %22, %21 ], [ %26, %24 ]
+  %.not51 = icmp eq ptr %.045, null
   br i1 %.not51, label %28, label %31
 
 28:                                               ; preds = %27
@@ -277,7 +277,7 @@ hwloc_libxml2_init_once.exit:                     ; preds = %6, %19
   br label %hwloc_libxml2_cleanup.exit
 
 31:                                               ; preds = %27
-  %32 = tail call ptr @xmlGetIntSubset(ptr noundef nonnull %.0) #10
+  %32 = tail call ptr @xmlGetIntSubset(ptr noundef nonnull %.045) #10
   %.not53 = icmp eq ptr %32, null
   br i1 %.not53, label %33, label %42
 
@@ -318,7 +318,7 @@ hwloc_libxml2_init_once.exit:                     ; preds = %6, %19
   br label %56
 
 56:                                               ; preds = %42, %48, %46, %33, %35
-  %57 = tail call ptr @xmlDocGetRootElement(ptr noundef nonnull %.0) #10
+  %57 = tail call ptr @xmlDocGetRootElement(ptr noundef nonnull %.045) #10
   %58 = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(13) @.str.23) #13
@@ -410,7 +410,7 @@ hwloc_libxml2_init_once.exit:                     ; preds = %6, %19
   br label %109
 
 109:                                              ; preds = %108, %107
-  call void @xmlFreeDoc(ptr noundef nonnull %.0) #10
+  call void @xmlFreeDoc(ptr noundef nonnull %.045) #10
   %.b.i61 = load i1, ptr @hwloc_libxml2_needs_cleanup, align 4
   br i1 %.b.i61, label %110, label %hwloc_libxml2_cleanup.exit
 
@@ -421,7 +421,7 @@ hwloc_libxml2_init_once.exit:                     ; preds = %6, %19
 .loopexit:                                        ; preds = %.lr.ph, %61, %63
   %.1 = phi ptr [ null, %63 ], [ null, %61 ], [ %.04470, %.lr.ph ]
   call void @free(ptr noundef %.1) #10
-  call void @xmlFreeDoc(ptr noundef nonnull %.0) #10
+  call void @xmlFreeDoc(ptr noundef nonnull %.045) #10
   %.b.i63 = load i1, ptr @hwloc_libxml2_needs_cleanup, align 4
   br i1 %.b.i63, label %111, label %hwloc_libxml2_cleanup.exit
 
@@ -430,8 +430,8 @@ hwloc_libxml2_init_once.exit:                     ; preds = %6, %19
   br label %hwloc_libxml2_cleanup.exit
 
 hwloc_libxml2_cleanup.exit:                       ; preds = %111, %.loopexit, %110, %109, %30, %29
-  %.045 = phi i32 [ -1, %29 ], [ -1, %30 ], [ %104, %109 ], [ %104, %110 ], [ -1, %.loopexit ], [ -1, %111 ]
-  ret i32 %.045
+  %.0 = phi i32 [ -1, %29 ], [ -1, %30 ], [ %104, %109 ], [ %104, %110 ], [ -1, %.loopexit ], [ -1, %111 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

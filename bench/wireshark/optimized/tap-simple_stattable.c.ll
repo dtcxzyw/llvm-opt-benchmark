@@ -132,13 +132,13 @@ define internal void @simple_draw(ptr nocapture noundef readonly %0) #0 {
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.045 = phi ptr [ %20, %.lr.ph ], [ %15, %.lr.ph.preheader ]
-  %.03844 = phi i64 [ %19, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %16 = getelementptr inbounds i8, ptr %.045, i64 8
+  %.045 = phi i64 [ %19, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.03644 = phi ptr [ %20, %.lr.ph ], [ %15, %.lr.ph.preheader ]
+  %16 = getelementptr inbounds i8, ptr %.03644, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %17)
-  %19 = add nuw i64 %.03844, 1
-  %20 = getelementptr i8, ptr %.045, i64 24
+  %19 = add nuw i64 %.045, 1
+  %20 = getelementptr i8, ptr %.03644, i64 24
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 72
   %23 = load i64, ptr %22, align 8
@@ -173,7 +173,7 @@ define internal void @simple_draw(ptr nocapture noundef readonly %0) #0 {
   br label %38
 
 38:                                               ; preds = %.lr.ph54, %._crit_edge50
-  %.03652 = phi i32 [ 0, %.lr.ph54 ], [ %76, %._crit_edge50 ]
+  %.03852 = phi i32 [ 0, %.lr.ph54 ], [ %76, %._crit_edge50 ]
   %39 = load i32, ptr %37, align 8
   %.not63 = icmp eq i32 %39, 0
   br i1 %.not63, label %._crit_edge50, label %.lr.ph49.preheader
@@ -186,8 +186,8 @@ define internal void @simple_draw(ptr nocapture noundef readonly %0) #0 {
 
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %71
   %.147 = phi ptr [ %73, %71 ], [ %42, %.lr.ph49.preheader ]
-  %.03546 = phi i32 [ %72, %71 ], [ 0, %.lr.ph49.preheader ]
-  %43 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %33, i32 noundef %.03652, i32 noundef %.03546) #6
+  %.03746 = phi i32 [ %72, %71 ], [ 0, %.lr.ph49.preheader ]
+  %43 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %33, i32 noundef %.03852, i32 noundef %.03746) #6
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %._crit_edge50, label %46
@@ -236,7 +236,7 @@ define internal void @simple_draw(ptr nocapture noundef readonly %0) #0 {
   br label %71
 
 71:                                               ; preds = %46, %51, %55, %59, %63, %67
-  %72 = add nuw i32 %.03546, 1
+  %72 = add nuw i32 %.03746, 1
   %73 = getelementptr i8, ptr %.147, i64 24
   %74 = load i32, ptr %37, align 8
   %75 = icmp ult i32 %72, %74
@@ -244,7 +244,7 @@ define internal void @simple_draw(ptr nocapture noundef readonly %0) #0 {
 
 ._crit_edge50:                                    ; preds = %71, %.lr.ph49, %38
   %putchar43 = tail call i32 @putchar(i32 10)
-  %76 = add nuw i32 %.03652, 1
+  %76 = add nuw i32 %.03852, 1
   %77 = load i32, ptr %35, align 4
   %78 = icmp ult i32 %76, %77
   br i1 %78, label %38, label %._crit_edge55, !llvm.loop !8

@@ -741,7 +741,7 @@ define dso_local noundef i64 @pg_stat_get_progress_info(ptr noundef %0) local_un
   unreachable
 
 33:                                               ; preds = %26, %23, %20, %17, %14, %1
-  %.030 = phi i32 [ 1, %1 ], [ 2, %14 ], [ 3, %17 ], [ 4, %20 ], [ 5, %23 ], [ 6, %26 ]
+  %.031 = phi i32 [ 1, %1 ], [ 2, %14 ], [ 3, %17 ], [ 4, %20 ], [ 5, %23 ], [ 6, %26 ]
   tail call void @InitMaterializedSRF(ptr noundef nonnull %0, i32 noundef 0) #10
   %.not36 = icmp slt i32 %4, 1
   br i1 %.not36, label %._crit_edge, label %.lr.ph
@@ -755,13 +755,13 @@ define dso_local noundef i64 @pg_stat_get_progress_info(ptr noundef %0) local_un
   br label %39
 
 39:                                               ; preds = %.lr.ph, %69
-  %.03137 = phi i32 [ 1, %.lr.ph ], [ %70, %69 ]
+  %.03037 = phi i32 [ 1, %.lr.ph ], [ %70, %69 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(184) %2, i8 0, i64 184, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(23) %3, i8 0, i64 23, i1 false)
-  %40 = call ptr @pgstat_get_local_beentry_by_index(i32 noundef %.03137) #10
+  %40 = call ptr @pgstat_get_local_beentry_by_index(i32 noundef %.03037) #10
   %41 = getelementptr inbounds i8, ptr %40, i64 256
   %42 = load i32, ptr %41, align 8
-  %.not32 = icmp eq i32 %42, %.030
+  %.not32 = icmp eq i32 %42, %.031
   br i1 %.not32, label %43, label %69
 
 43:                                               ; preds = %39
@@ -814,7 +814,7 @@ define dso_local noundef i64 @pg_stat_get_progress_info(ptr noundef %0) local_un
   br label %69
 
 69:                                               ; preds = %39, %.loopexit
-  %70 = add i32 %.03137, 1
+  %70 = add i32 %.03037, 1
   %.not = icmp sgt i32 %70, %4
   br i1 %.not, label %._crit_edge, label %39, !llvm.loop !7
 
@@ -1118,12 +1118,12 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
   br i1 %.not123, label %.thread146, label %.thread142
 
 .thread142:                                       ; preds = %141, %153
-  %.095145 = phi ptr [ %155, %153 ], [ %148, %141 ]
-  %156 = getelementptr inbounds i8, ptr %.095145, i64 712
+  %.093145 = phi ptr [ %155, %153 ], [ %148, %141 ]
+  %156 = getelementptr inbounds i8, ptr %.093145, i64 712
   %157 = load volatile i32, ptr %156, align 8
   %158 = call ptr @pgstat_get_wait_event_type(i32 noundef %157) #10
   %159 = call ptr @pgstat_get_wait_event(i32 noundef %157) #10
-  %160 = getelementptr inbounds i8, ptr %.095145, i64 848
+  %160 = getelementptr inbounds i8, ptr %.093145, i64 848
   %161 = load ptr, ptr %160, align 8
   %.not124 = icmp eq ptr %161, null
   br i1 %.not124, label %166, label %162
@@ -1165,17 +1165,17 @@ define dso_local noundef i64 @pg_stat_get_activity(ptr noundef %0) local_unnamed
   br label %178
 
 .thread146:                                       ; preds = %150, %153, %174
-  %.093151 = phi ptr [ %159, %174 ], [ null, %153 ], [ null, %150 ]
+  %.095151 = phi ptr [ %159, %174 ], [ null, %153 ], [ null, %150 ]
   store i8 1, ptr %30, align 2
   br label %178
 
 178:                                              ; preds = %.thread146, %175
-  %.093150 = phi ptr [ %.093151, %.thread146 ], [ %159, %175 ]
-  %.not128 = icmp eq ptr %.093150, null
+  %.095150 = phi ptr [ %.095151, %.thread146 ], [ %159, %175 ]
+  %.not128 = icmp eq ptr %.095150, null
   br i1 %.not128, label %182, label %179
 
 179:                                              ; preds = %178
-  %180 = call ptr @cstring_to_text(ptr noundef nonnull %.093150) #10
+  %180 = call ptr @cstring_to_text(ptr noundef nonnull %.095150) #10
   %181 = ptrtoint ptr %180 to i64
   store i64 %181, ptr %50, align 8
   br label %183
@@ -2116,15 +2116,15 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_stat_get_db_numbacke
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.011 = phi i32 [ %11, %.lr.ph ], [ 1, %1 ]
-  %.0810 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %1 ]
-  %6 = tail call ptr @pgstat_get_local_beentry_by_index(i32 noundef %.011) #10
+  %.011 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %1 ]
+  %.0810 = phi i32 [ %11, %.lr.ph ], [ 1, %1 ]
+  %6 = tail call ptr @pgstat_get_local_beentry_by_index(i32 noundef %.0810) #10
   %7 = getelementptr inbounds i8, ptr %6, i64 48
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %4
   %10 = zext i1 %9 to i32
-  %spec.select = add i32 %.0810, %10
-  %11 = add i32 %.011, 1
+  %spec.select = add i32 %.011, %10
+  %11 = add i32 %.0810, 1
   %.not = icmp sgt i32 %11, %5
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
@@ -2133,8 +2133,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_stat_get_db_numbacke
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.08.lcssa = phi i64 [ 0, %1 ], [ %12, %._crit_edge.loopexit ]
-  ret i64 %.08.lcssa
+  %.0.lcssa = phi i64 [ 0, %1 ], [ %12, %._crit_edge.loopexit ]
+  ret i64 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

@@ -1760,31 +1760,31 @@ for.body.lr.ph:                                   ; preds = %if.end43
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc81
   %address_family_order.sroa.0.0292 = phi ptr [ null, %for.body.lr.ph ], [ %address_family_order.sroa.0.1.lcssa, %for.inc81 ]
-  %__begin4.sroa.0.0291 = phi ptr [ %18, %for.body.lr.ph ], [ %incdec.ptr.i62, %for.inc81 ]
+  %address_family_order.sroa.7.0291 = phi ptr [ null, %for.body.lr.ph ], [ %address_family_order.sroa.7.1.lcssa, %for.inc81 ]
   %address_family_order.sroa.12.0290 = phi ptr [ null, %for.body.lr.ph ], [ %address_family_order.sroa.12.1.lcssa, %for.inc81 ]
-  %address_family_order.sroa.7.0289 = phi ptr [ null, %for.body.lr.ph ], [ %address_family_order.sroa.7.1.lcssa, %for.inc81 ]
-  %20 = load ptr, ptr %__begin4.sroa.0.0291, align 8
-  %_M_finish.i37 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0291, i64 8
+  %__begin4.sroa.0.0289 = phi ptr [ %18, %for.body.lr.ph ], [ %incdec.ptr.i62, %for.inc81 ]
+  %20 = load ptr, ptr %__begin4.sroa.0.0289, align 8
+  %_M_finish.i37 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0289, i64 8
   %21 = load ptr, ptr %_M_finish.i37, align 8
   %cmp.i38.not281 = icmp eq ptr %20, %21
   br i1 %cmp.i38.not281, label %for.inc81, label %for.body58.lr.ph
 
 for.body58.lr.ph:                                 ; preds = %for.body
-  %args_.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.0291, i64 24
+  %args_.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.0289, i64 24
   br label %for.body58
 
 for.body58:                                       ; preds = %for.body58.lr.ph, %for.inc
   %address_family_order.sroa.0.1285 = phi ptr [ %address_family_order.sroa.0.0292, %for.body58.lr.ph ], [ %address_family_order.sroa.0.4, %for.inc ]
-  %__begin5.sroa.0.0284 = phi ptr [ %20, %for.body58.lr.ph ], [ %incdec.ptr.i61, %for.inc ]
+  %address_family_order.sroa.7.1284 = phi ptr [ %address_family_order.sroa.7.0291, %for.body58.lr.ph ], [ %address_family_order.sroa.7.3, %for.inc ]
   %address_family_order.sroa.12.1283 = phi ptr [ %address_family_order.sroa.12.0290, %for.body58.lr.ph ], [ %address_family_order.sroa.12.3, %for.inc ]
-  %address_family_order.sroa.7.1282 = phi ptr [ %address_family_order.sroa.7.0289, %for.body58.lr.ph ], [ %address_family_order.sroa.7.3, %for.inc ]
+  %__begin5.sroa.0.0282 = phi ptr [ %20, %for.body58.lr.ph ], [ %incdec.ptr.i61, %for.inc ]
   %22 = load ptr, ptr %_M_finish.i39, align 8
   %23 = load ptr, ptr %_M_end_of_storage.i, align 16
   %cmp.not.i40 = icmp eq ptr %22, %23
   br i1 %cmp.not.i40, label %if.else.i, label %if.then.i41
 
 if.then.i41:                                      ; preds = %for.body58
-  invoke void @_ZN9grpc_core17EndpointAddressesC1ERK21grpc_resolved_addressRKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 4 dereferenceable(132) %__begin5.sroa.0.0284, ptr noundef nonnull align 8 dereferenceable(8) %args_.i)
+  invoke void @_ZN9grpc_core17EndpointAddressesC1ERK21grpc_resolved_addressRKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 4 dereferenceable(132) %__begin5.sroa.0.0282, ptr noundef nonnull align 8 dereferenceable(8) %args_.i)
           to label %.noexc43 unwind label %lpad49.loopexit
 
 .noexc43:                                         ; preds = %if.then.i41
@@ -1794,7 +1794,7 @@ if.then.i41:                                      ; preds = %for.body58
   br label %invoke.cont62
 
 if.else.i:                                        ; preds = %for.body58
-  invoke void @_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE17_M_realloc_insertIJRK21grpc_resolved_addressRKNS0_11ChannelArgsEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %flattened_endpoints, ptr %22, ptr noundef nonnull align 4 dereferenceable(132) %__begin5.sroa.0.0284, ptr noundef nonnull align 8 dereferenceable(8) %args_.i)
+  invoke void @_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE17_M_realloc_insertIJRK21grpc_resolved_addressRKNS0_11ChannelArgsEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %flattened_endpoints, ptr %22, ptr noundef nonnull align 4 dereferenceable(132) %__begin5.sroa.0.0282, ptr noundef nonnull align 8 dereferenceable(8) %args_.i)
           to label %invoke.cont62 unwind label %lpad49.loopexit
 
 invoke.cont62:                                    ; preds = %if.else.i, %.noexc43
@@ -1805,7 +1805,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
   br i1 %call.i45, label %if.then66, label %for.inc
 
 if.then66:                                        ; preds = %invoke.cont64
-  %call.i47 = invoke noundef ptr @_Z28grpc_sockaddr_get_uri_schemePK21grpc_resolved_address(ptr noundef nonnull %__begin5.sroa.0.0284)
+  %call.i47 = invoke noundef ptr @_Z28grpc_sockaddr_get_uri_schemePK21grpc_resolved_address(ptr noundef nonnull %__begin5.sroa.0.0282)
           to label %invoke.cont67 unwind label %lpad49.loopexit
 
 invoke.cont67:                                    ; preds = %if.then66
@@ -1942,20 +1942,20 @@ if.then73:                                        ; preds = %_ZNSt8_Rb_treeISt17
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %sub = add nsw i64 %sub.ptr.div.i, -1
-  %cmp.not.i53 = icmp eq ptr %address_family_order.sroa.7.1282, %address_family_order.sroa.12.1283
+  %cmp.not.i53 = icmp eq ptr %address_family_order.sroa.7.1284, %address_family_order.sroa.12.1283
   br i1 %cmp.not.i53, label %if.else.i56, label %if.then.i54
 
 if.then.i54:                                      ; preds = %if.then73
-  store i64 %call.i.i.i, ptr %address_family_order.sroa.7.1282, align 8
-  %scheme.sroa.2.0.scheme_.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %address_family_order.sroa.7.1282, i64 8
+  store i64 %call.i.i.i, ptr %address_family_order.sroa.7.1284, align 8
+  %scheme.sroa.2.0.scheme_.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %address_family_order.sroa.7.1284, i64 8
   store ptr %cond.i, ptr %scheme.sroa.2.0.scheme_.sroa_idx.i.i.i.i, align 8
-  %index_.i.i.i.i = getelementptr inbounds i8, ptr %address_family_order.sroa.7.1282, i64 16
+  %index_.i.i.i.i = getelementptr inbounds i8, ptr %address_family_order.sroa.7.1284, i64 16
   store i64 %sub, ptr %index_.i.i.i.i, align 8
-  %incdec.ptr.i55 = getelementptr inbounds i8, ptr %address_family_order.sroa.7.1282, i64 24
+  %incdec.ptr.i55 = getelementptr inbounds i8, ptr %address_family_order.sroa.7.1284, i64 24
   br label %for.inc
 
 if.else.i56:                                      ; preds = %if.then73
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %address_family_order.sroa.12.1283 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %address_family_order.sroa.7.1284 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %address_family_order.sroa.0.1285 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i57 = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
@@ -1970,7 +1970,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i56
 
 _ZNKSt6vectorIN9grpc_core12_GLOBAL__N_121AddressFamilyIteratorESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i56
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
-  %cmp.i.i.i.i58 = icmp eq ptr %address_family_order.sroa.12.1283, %address_family_order.sroa.0.1285
+  %cmp.i.i.i.i58 = icmp eq ptr %address_family_order.sroa.7.1284, %address_family_order.sroa.0.1285
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i58, i64 1, i64 %sub.ptr.div.i.i.i.i
   %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
@@ -2000,7 +2000,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.03.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__first.addr.02.i.i.i.i.i, i64 24, i1 false), !alias.scope !23
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 24
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %address_family_order.sroa.12.1283
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %address_family_order.sroa.7.1284
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_121AddressFamilyIteratorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit29.i.i, label %for.body.i.i.i.i.i, !llvm.loop !27
 
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_121AddressFamilyIteratorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit29.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
@@ -2029,18 +2029,18 @@ lpad49.loopexit.split-lp:                         ; preds = %if.then.i.i.i, %_ZN
   br label %ehcleanup119
 
 for.inc:                                          ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit22.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_121AddressFamilyIteratorESaIS2_EE17_M_realloc_insertIJRSt17basic_string_viewIcSt11char_traitsIcEEmEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i54, %invoke.cont64
-  %address_family_order.sroa.7.3 = phi ptr [ %address_family_order.sroa.7.1282, %invoke.cont64 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_121AddressFamilyIteratorESaIS2_EE17_M_realloc_insertIJRSt17basic_string_viewIcSt11char_traitsIcEEmEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %incdec.ptr.i55, %if.then.i54 ], [ %address_family_order.sroa.7.1282, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit22.i ]
   %address_family_order.sroa.12.3 = phi ptr [ %address_family_order.sroa.12.1283, %invoke.cont64 ], [ %add.ptr28.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_121AddressFamilyIteratorESaIS2_EE17_M_realloc_insertIJRSt17basic_string_viewIcSt11char_traitsIcEEmEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %address_family_order.sroa.12.1283, %if.then.i54 ], [ %address_family_order.sroa.12.1283, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit22.i ]
+  %address_family_order.sroa.7.3 = phi ptr [ %address_family_order.sroa.7.1284, %invoke.cont64 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_121AddressFamilyIteratorESaIS2_EE17_M_realloc_insertIJRSt17basic_string_viewIcSt11char_traitsIcEEmEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %incdec.ptr.i55, %if.then.i54 ], [ %address_family_order.sroa.7.1284, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit22.i ]
   %address_family_order.sroa.0.4 = phi ptr [ %address_family_order.sroa.0.1285, %invoke.cont64 ], [ %cond.i20.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_121AddressFamilyIteratorESaIS2_EE17_M_realloc_insertIJRSt17basic_string_viewIcSt11char_traitsIcEEmEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %address_family_order.sroa.0.1285, %if.then.i54 ], [ %address_family_order.sroa.0.1285, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit22.i ]
-  %incdec.ptr.i61 = getelementptr inbounds i8, ptr %__begin5.sroa.0.0284, i64 132
+  %incdec.ptr.i61 = getelementptr inbounds i8, ptr %__begin5.sroa.0.0282, i64 132
   %cmp.i38.not = icmp eq ptr %incdec.ptr.i61, %21
   br i1 %cmp.i38.not, label %for.inc81, label %for.body58
 
 for.inc81:                                        ; preds = %for.inc, %for.body
-  %address_family_order.sroa.7.1.lcssa = phi ptr [ %address_family_order.sroa.7.0289, %for.body ], [ %address_family_order.sroa.7.3, %for.inc ]
   %address_family_order.sroa.12.1.lcssa = phi ptr [ %address_family_order.sroa.12.0290, %for.body ], [ %address_family_order.sroa.12.3, %for.inc ]
+  %address_family_order.sroa.7.1.lcssa = phi ptr [ %address_family_order.sroa.7.0291, %for.body ], [ %address_family_order.sroa.7.3, %for.inc ]
   %address_family_order.sroa.0.1.lcssa = phi ptr [ %address_family_order.sroa.0.0292, %for.body ], [ %address_family_order.sroa.0.4, %for.inc ]
-  %incdec.ptr.i62 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0291, i64 32
+  %incdec.ptr.i62 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0289, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i62, %17
   br i1 %cmp.i.not, label %for.end83.loopexit, label %for.body
 

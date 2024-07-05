@@ -1828,16 +1828,16 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %10, %35
   br i1 %40, label %.preheader.us, label %._crit_edge42
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.03441.us = phi i32 [ %51, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %50 = uitofp nneg i32 %.03441.us to float
-  %51 = add nuw nsw i32 %.03441.us, 1
+  %.041.us = phi i32 [ %51, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %50 = uitofp nneg i32 %.041.us to float
+  %51 = add nuw nsw i32 %.041.us, 1
   %52 = uitofp nneg i32 %51 to float
   br label %53
 
 53:                                               ; preds = %.preheader.us, %77
-  %.040.us = phi i32 [ 0, %.preheader.us ], [ %61, %77 ]
+  %.03440.us = phi i32 [ 0, %.preheader.us ], [ %61, %77 ]
   %54 = load float, ptr %14, align 4
-  %55 = uitofp nneg i32 %.040.us to float
+  %55 = uitofp nneg i32 %.03440.us to float
   %56 = call float @llvm.fmuladd.f32(float %55, float %29, float %54)
   store float %56, ptr %41, align 8
   %57 = load float, ptr %42, align 4
@@ -1846,7 +1846,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %10, %35
   %59 = call float @llvm.fmuladd.f32(float %50, float %29, float %58)
   store float %59, ptr %45, align 8
   %60 = load float, ptr %14, align 4
-  %61 = add nuw nsw i32 %.040.us, 1
+  %61 = add nuw nsw i32 %.03440.us, 1
   %62 = uitofp nneg i32 %61 to float
   %63 = call float @llvm.fmuladd.f32(float %62, float %29, float %60)
   store float %63, ptr %46, align 4
@@ -1856,13 +1856,13 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %10, %35
   %66 = call float @llvm.fmuladd.f32(float %52, float %29, float %65)
   store float %66, ptr %49, align 4
   store i32 0, ptr %4, align 4
-  %67 = call noundef ptr @_ZN15Sample_TileMesh13buildTileMeshEiiPKfS1_Ri(ptr noundef nonnull align 8 dereferenceable(404) %0, i32 noundef %.040.us, i32 noundef %.03441.us, ptr noundef nonnull %41, ptr noundef nonnull %46, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %67 = call noundef ptr @_ZN15Sample_TileMesh13buildTileMeshEiiPKfS1_Ri(ptr noundef nonnull align 8 dereferenceable(404) %0, i32 noundef %.03440.us, i32 noundef %.041.us, ptr noundef nonnull %41, ptr noundef nonnull %46, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %.not38.us = icmp eq ptr %67, null
   br i1 %.not38.us, label %77, label %68
 
 68:                                               ; preds = %53
   %69 = load ptr, ptr %8, align 8
-  %70 = call noundef i32 @_ZNK9dtNavMesh12getTileRefAtEiii(ptr noundef nonnull align 8 dereferenceable(100) %69, i32 noundef %.040.us, i32 noundef %.03441.us, i32 noundef 0)
+  %70 = call noundef i32 @_ZNK9dtNavMesh12getTileRefAtEiii(ptr noundef nonnull align 8 dereferenceable(100) %69, i32 noundef %.03440.us, i32 noundef %.041.us, i32 noundef 0)
   %71 = call noundef i32 @_ZN9dtNavMesh10removeTileEjPPhPi(ptr noundef nonnull align 8 dereferenceable(100) %69, i32 noundef %70, ptr noundef null, ptr noundef null)
   %72 = load ptr, ptr %8, align 8
   %73 = load i32, ptr %4, align 4

@@ -258,8 +258,8 @@ define void @_ZN5alloc3str17join_generic_copy17h021ef2e45f90d56cE(ptr nocapture 
   br label %200
 
 123:                                              ; preds = %138, %83
-  %.sroa.25.0 = phi i64 [ %72, %83 ], [ %142, %138 ]
   %.sroa.016.0 = phi ptr [ %71, %83 ], [ %141, %138 ]
+  %.sroa.25.0 = phi i64 [ %72, %83 ], [ %142, %138 ]
   %124 = invoke { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f433ac4239d4da7E"(ptr nonnull align 8 %24)
           to label %125 unwind label %.loopexit.split-lp.loopexit
 
@@ -303,8 +303,8 @@ define void @_ZN5alloc3str17join_generic_copy17h021ef2e45f90d56cE(ptr nocapture 
           to label %123 unwind label %.loopexit.split-lp.loopexit
 
 143:                                              ; preds = %157, %91
-  %.sroa.25.2 = phi i64 [ %72, %91 ], [ %161, %157 ]
   %.sroa.016.1 = phi ptr [ %71, %91 ], [ %160, %157 ]
+  %.sroa.25.2 = phi i64 [ %72, %91 ], [ %161, %157 ]
   %144 = invoke { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f433ac4239d4da7E"(ptr nonnull align 8 %21)
           to label %145 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -341,8 +341,8 @@ define void @_ZN5alloc3str17join_generic_copy17h021ef2e45f90d56cE(ptr nocapture 
           to label %143 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 162:                                              ; preds = %176, %99
-  %.sroa.25.3 = phi i64 [ %72, %99 ], [ %180, %176 ]
   %.sroa.016.2 = phi ptr [ %71, %99 ], [ %179, %176 ]
+  %.sroa.25.3 = phi i64 [ %72, %99 ], [ %180, %176 ]
   %163 = invoke { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f433ac4239d4da7E"(ptr nonnull align 8 %18)
           to label %164 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -379,8 +379,8 @@ define void @_ZN5alloc3str17join_generic_copy17h021ef2e45f90d56cE(ptr nocapture 
           to label %162 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 181:                                              ; preds = %195, %107
-  %.sroa.25.4 = phi i64 [ %72, %107 ], [ %199, %195 ]
   %.sroa.016.3 = phi ptr [ %71, %107 ], [ %198, %195 ]
+  %.sroa.25.4 = phi i64 [ %72, %107 ], [ %199, %195 ]
   %182 = invoke { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f433ac4239d4da7E"(ptr nonnull align 8 %15)
           to label %183 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -417,8 +417,8 @@ define void @_ZN5alloc3str17join_generic_copy17h021ef2e45f90d56cE(ptr nocapture 
           to label %181 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 200:                                              ; preds = %214, %115
-  %.sroa.25.5 = phi i64 [ %72, %115 ], [ %218, %214 ]
   %.sroa.016.4 = phi ptr [ %71, %115 ], [ %217, %214 ]
+  %.sroa.25.5 = phi i64 [ %72, %115 ], [ %218, %214 ]
   %201 = invoke { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f433ac4239d4da7E"(ptr nonnull align 8 %12)
           to label %202 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -455,8 +455,8 @@ define void @_ZN5alloc3str17join_generic_copy17h021ef2e45f90d56cE(ptr nocapture 
           to label %200 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 219:                                              ; preds = %233, %75
-  %.sroa.25.6 = phi i64 [ %72, %75 ], [ %237, %233 ]
   %.sroa.016.5 = phi ptr [ %71, %75 ], [ %236, %233 ]
+  %.sroa.25.6 = phi i64 [ %72, %75 ], [ %237, %233 ]
   %220 = invoke { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f433ac4239d4da7E"(ptr nonnull align 8 %9)
           to label %221 unwind label %.loopexit
 
@@ -730,8 +730,8 @@ define void @_ZN5alloc3str17join_generic_copy17h1b0bae24c69e7cb0E(ptr nocapture 
   br label %200
 
 123:                                              ; preds = %138, %83
-  %.sroa.25.0 = phi i64 [ %72, %83 ], [ %142, %138 ]
   %.sroa.016.0 = phi ptr [ %71, %83 ], [ %141, %138 ]
+  %.sroa.25.0 = phi i64 [ %72, %83 ], [ %142, %138 ]
   %124 = invoke { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5392052ef0201cE"(ptr nonnull align 8 %24)
           to label %125 unwind label %.loopexit.split-lp.loopexit
 
@@ -775,8 +775,8 @@ define void @_ZN5alloc3str17join_generic_copy17h1b0bae24c69e7cb0E(ptr nocapture 
           to label %123 unwind label %.loopexit.split-lp.loopexit
 
 143:                                              ; preds = %157, %91
-  %.sroa.25.2 = phi i64 [ %72, %91 ], [ %161, %157 ]
   %.sroa.016.1 = phi ptr [ %71, %91 ], [ %160, %157 ]
+  %.sroa.25.2 = phi i64 [ %72, %91 ], [ %161, %157 ]
   %144 = invoke { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5392052ef0201cE"(ptr nonnull align 8 %21)
           to label %145 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -813,8 +813,8 @@ define void @_ZN5alloc3str17join_generic_copy17h1b0bae24c69e7cb0E(ptr nocapture 
           to label %143 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 162:                                              ; preds = %176, %99
-  %.sroa.25.3 = phi i64 [ %72, %99 ], [ %180, %176 ]
   %.sroa.016.2 = phi ptr [ %71, %99 ], [ %179, %176 ]
+  %.sroa.25.3 = phi i64 [ %72, %99 ], [ %180, %176 ]
   %163 = invoke { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5392052ef0201cE"(ptr nonnull align 8 %18)
           to label %164 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -851,8 +851,8 @@ define void @_ZN5alloc3str17join_generic_copy17h1b0bae24c69e7cb0E(ptr nocapture 
           to label %162 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 181:                                              ; preds = %195, %107
-  %.sroa.25.4 = phi i64 [ %72, %107 ], [ %199, %195 ]
   %.sroa.016.3 = phi ptr [ %71, %107 ], [ %198, %195 ]
+  %.sroa.25.4 = phi i64 [ %72, %107 ], [ %199, %195 ]
   %182 = invoke { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5392052ef0201cE"(ptr nonnull align 8 %15)
           to label %183 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -889,8 +889,8 @@ define void @_ZN5alloc3str17join_generic_copy17h1b0bae24c69e7cb0E(ptr nocapture 
           to label %181 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 200:                                              ; preds = %214, %115
-  %.sroa.25.5 = phi i64 [ %72, %115 ], [ %218, %214 ]
   %.sroa.016.4 = phi ptr [ %71, %115 ], [ %217, %214 ]
+  %.sroa.25.5 = phi i64 [ %72, %115 ], [ %218, %214 ]
   %201 = invoke { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5392052ef0201cE"(ptr nonnull align 8 %12)
           to label %202 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -927,8 +927,8 @@ define void @_ZN5alloc3str17join_generic_copy17h1b0bae24c69e7cb0E(ptr nocapture 
           to label %200 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 219:                                              ; preds = %233, %75
-  %.sroa.25.6 = phi i64 [ %72, %75 ], [ %237, %233 ]
   %.sroa.016.5 = phi ptr [ %71, %75 ], [ %236, %233 ]
+  %.sroa.25.6 = phi i64 [ %72, %75 ], [ %237, %233 ]
   %220 = invoke { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5392052ef0201cE"(ptr nonnull align 8 %9)
           to label %221 unwind label %.loopexit
 

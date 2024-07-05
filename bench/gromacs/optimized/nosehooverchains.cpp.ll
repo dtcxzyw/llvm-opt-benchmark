@@ -7303,9 +7303,9 @@ _ZNK3gmx17KeyValueTreeValue7asArrayEv.exit47:     ; preds = %111, %_ZNK3gmx3Any6
   br i1 %or.cond56, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZNK3gmx17KeyValueTreeValue7asArrayEv.exit47, %_ZNK3gmx17KeyValueTreeValue4castIfEERKT_v.exit
-  %.sroa.051.058 = phi ptr [ %151, %_ZNK3gmx17KeyValueTreeValue4castIfEERKT_v.exit ], [ %90, %_ZNK3gmx17KeyValueTreeValue7asArrayEv.exit47 ]
-  %.sroa.054.057 = phi ptr [ %150, %_ZNK3gmx17KeyValueTreeValue4castIfEERKT_v.exit ], [ %2, %_ZNK3gmx17KeyValueTreeValue7asArrayEv.exit47 ]
-  %129 = load ptr, ptr %.sroa.051.058, align 8
+  %.sroa.054.058 = phi ptr [ %150, %_ZNK3gmx17KeyValueTreeValue4castIfEERKT_v.exit ], [ %2, %_ZNK3gmx17KeyValueTreeValue7asArrayEv.exit47 ]
+  %.sroa.051.057 = phi ptr [ %151, %_ZNK3gmx17KeyValueTreeValue4castIfEERKT_v.exit ], [ %90, %_ZNK3gmx17KeyValueTreeValue7asArrayEv.exit47 ]
+  %129 = load ptr, ptr %.sroa.051.057, align 8
   %.not.i.i.i.i.i.i48 = icmp eq ptr %129, null
   br i1 %.not.i.i.i.i.i.i48, label %146, label %130
 
@@ -7339,12 +7339,12 @@ _ZNK3gmx3Any6isTypeIfEEbv.exit.i.i.i:             ; preds = %139
   unreachable
 
 _ZNK3gmx17KeyValueTreeValue4castIfEERKT_v.exit:   ; preds = %130, %_ZNK3gmx3Any6isTypeIfEEbv.exit.i.i.i
-  %147 = load ptr, ptr %.sroa.051.058, align 8
+  %147 = load ptr, ptr %.sroa.051.057, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 8
   %149 = load float, ptr %148, align 4
-  store float %149, ptr %.sroa.054.057, align 4
-  %150 = getelementptr inbounds i8, ptr %.sroa.054.057, i64 4
-  %151 = getelementptr inbounds i8, ptr %.sroa.051.058, i64 8
+  store float %149, ptr %.sroa.054.058, align 4
+  %150 = getelementptr inbounds i8, ptr %.sroa.054.058, i64 4
+  %151 = getelementptr inbounds i8, ptr %.sroa.051.057, i64 8
   %152 = icmp ne ptr %150, %3
   %153 = icmp ne ptr %151, %126
   %or.cond = select i1 %152, i1 %153, i1 false
@@ -7551,15 +7551,15 @@ define noundef float @_ZN3gmx15NoseHooverGroup8applyNhcEff(ptr nocapture noundef
 .preheader:                                       ; preds = %58, %201
   %.pre = phi i32 [ %.pre.pre, %58 ], [ %200, %201 ]
   %.05885 = phi float [ %1, %58 ], [ %134, %201 ]
-  %.06084 = phi float [ 1.000000e+00, %58 ], [ %132, %201 ]
-  %.06283 = phi i32 [ 0, %58 ], [ %202, %201 ]
+  %.05984 = phi float [ 1.000000e+00, %58 ], [ %132, %201 ]
+  %.06183 = phi i32 [ 0, %58 ], [ %202, %201 ]
   br label %66
 
 66:                                               ; preds = %.preheader, %._crit_edge79
   %67 = phi i32 [ %.pre, %.preheader ], [ %200, %._crit_edge79 ]
   %indvars.iv91 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next92, %._crit_edge79 ]
   %.182 = phi float [ %.05885, %.preheader ], [ %134, %._crit_edge79 ]
-  %.16181 = phi float [ %.06084, %.preheader ], [ %132, %._crit_edge79 ]
+  %.16081 = phi float [ %.05984, %.preheader ], [ %132, %._crit_edge79 ]
   %68 = getelementptr inbounds [5 x double], ptr %4, i64 0, i64 %indvars.iv91
   %69 = load double, ptr %68, align 8
   %70 = fmul double %69, %60
@@ -7646,7 +7646,7 @@ define noundef float @_ZN3gmx15NoseHooverGroup8applyNhcEff(ptr nocapture noundef
   %129 = load float, ptr %128, align 4
   %130 = fmul float %129, %127
   %131 = tail call noundef float @expf(float noundef %130) #24
-  %132 = fmul float %.16181, %131
+  %132 = fmul float %.16081, %131
   %133 = fmul float %131, %131
   %134 = fmul float %.182, %133
   %135 = load i32, ptr %61, align 4
@@ -7743,7 +7743,7 @@ define noundef float @_ZN3gmx15NoseHooverGroup8applyNhcEff(ptr nocapture noundef
   br i1 %exitcond.not, label %201, label %66, !llvm.loop !137
 
 201:                                              ; preds = %._crit_edge79
-  %202 = add nuw nsw i32 %.06283, 1
+  %202 = add nuw nsw i32 %.06183, 1
   %exitcond94.not = icmp eq i32 %202, 5
   br i1 %exitcond94.not, label %203, label %.preheader, !llvm.loop !138
 

@@ -283,15 +283,15 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr nocapture nound
 
 223:                                              ; preds = %223, %215
   %indvars.iv.i = phi i64 [ 0, %215 ], [ %indvars.iv.next.i, %223 ]
-  %.02225.i = phi i32 [ %222, %215 ], [ %229, %223 ]
-  %.02324.i = phi i8 [ 3, %215 ], [ %225, %223 ]
-  %224 = add nuw nsw i8 %.02324.i, 1
+  %.02225.i = phi i8 [ 3, %215 ], [ %225, %223 ]
+  %.02324.i = phi i32 [ %222, %215 ], [ %229, %223 ]
+  %224 = add nuw nsw i8 %.02225.i, 1
   %225 = and i8 %224, 3
   %226 = zext nneg i8 %225 to i64
   %227 = getelementptr inbounds i32, ptr %217, i64 %226
   %228 = load i32, ptr %227, align 4
   %229 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %228) #11, !srcloc !4
-  %230 = tail call i32 @llvm.fshl.i32(i32 %.02225.i, i32 %229, i32 13)
+  %230 = tail call i32 @llvm.fshl.i32(i32 %.02324.i, i32 %229, i32 13)
   %231 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %230) #11, !srcloc !4
   %232 = getelementptr inbounds i32, ptr %219, i64 %indvars.iv.i
   %233 = load i32, ptr %232, align 4
@@ -309,15 +309,15 @@ aria_rot128.exit:                                 ; preds = %223
 
 238:                                              ; preds = %238, %aria_rot128.exit
   %indvars.iv.i71 = phi i64 [ 0, %aria_rot128.exit ], [ %indvars.iv.next.i74, %238 ]
-  %.02225.i72 = phi i32 [ %222, %aria_rot128.exit ], [ %244, %238 ]
-  %.02324.i73 = phi i8 [ 3, %aria_rot128.exit ], [ %240, %238 ]
-  %239 = add nuw nsw i8 %.02324.i73, 1
+  %.02225.i72 = phi i8 [ 3, %aria_rot128.exit ], [ %240, %238 ]
+  %.02324.i73 = phi i32 [ %222, %aria_rot128.exit ], [ %244, %238 ]
+  %239 = add nuw nsw i8 %.02225.i72, 1
   %240 = and i8 %239, 3
   %241 = zext nneg i8 %240 to i64
   %242 = getelementptr inbounds i32, ptr %217, i64 %241
   %243 = load i32, ptr %242, align 4
   %244 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %243) #11, !srcloc !4
-  %245 = tail call i32 @llvm.fshl.i32(i32 %.02225.i72, i32 %244, i32 1)
+  %245 = tail call i32 @llvm.fshl.i32(i32 %.02324.i73, i32 %244, i32 1)
   %246 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %245) #11, !srcloc !4
   %247 = getelementptr inbounds i32, ptr %219, i64 %indvars.iv.i71
   %248 = load i32, ptr %247, align 4
@@ -338,15 +338,15 @@ aria_rot128.exit76:                               ; preds = %238
 
 256:                                              ; preds = %256, %aria_rot128.exit76
   %indvars.iv.i77 = phi i64 [ 0, %aria_rot128.exit76 ], [ %indvars.iv.next.i80, %256 ]
-  %.02225.i78 = phi i32 [ %255, %aria_rot128.exit76 ], [ %262, %256 ]
-  %.02324.i79 = phi i8 [ 1, %aria_rot128.exit76 ], [ %258, %256 ]
-  %257 = add nuw nsw i8 %.02324.i79, 1
+  %.02225.i78 = phi i8 [ 1, %aria_rot128.exit76 ], [ %258, %256 ]
+  %.02324.i79 = phi i32 [ %255, %aria_rot128.exit76 ], [ %262, %256 ]
+  %257 = add nuw nsw i8 %.02225.i78, 1
   %258 = and i8 %257, 3
   %259 = zext nneg i8 %258 to i64
   %260 = getelementptr inbounds i32, ptr %217, i64 %259
   %261 = load i32, ptr %260, align 4
   %262 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %261) #11, !srcloc !4
-  %263 = tail call i32 @llvm.fshl.i32(i32 %.02225.i78, i32 %262, i32 29)
+  %263 = tail call i32 @llvm.fshl.i32(i32 %.02324.i79, i32 %262, i32 29)
   %264 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %263) #11, !srcloc !4
   %265 = getelementptr inbounds i32, ptr %219, i64 %indvars.iv.i77
   %266 = load i32, ptr %265, align 4
@@ -366,15 +366,15 @@ aria_rot128.exit82:                               ; preds = %256
 
 273:                                              ; preds = %273, %aria_rot128.exit82
   %indvars.iv.i83 = phi i64 [ 0, %aria_rot128.exit82 ], [ %indvars.iv.next.i86, %273 ]
-  %.02225.i84 = phi i32 [ %272, %aria_rot128.exit82 ], [ %279, %273 ]
-  %.02324.i85 = phi i8 [ 0, %aria_rot128.exit82 ], [ %275, %273 ]
-  %274 = add nuw nsw i8 %.02324.i85, 1
+  %.02225.i84 = phi i8 [ 0, %aria_rot128.exit82 ], [ %275, %273 ]
+  %.02324.i85 = phi i32 [ %272, %aria_rot128.exit82 ], [ %279, %273 ]
+  %274 = add nuw nsw i8 %.02225.i84, 1
   %275 = and i8 %274, 3
   %276 = zext nneg i8 %275 to i64
   %277 = getelementptr inbounds i32, ptr %217, i64 %276
   %278 = load i32, ptr %277, align 4
   %279 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %278) #11, !srcloc !4
-  %280 = tail call i32 @llvm.fshl.i32(i32 %.02225.i84, i32 %279, i32 31)
+  %280 = tail call i32 @llvm.fshl.i32(i32 %.02324.i85, i32 %279, i32 31)
   %281 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %280) #11, !srcloc !4
   %282 = getelementptr inbounds i32, ptr %219, i64 %indvars.iv.i83
   %283 = load i32, ptr %282, align 4
@@ -397,15 +397,15 @@ aria_rot128.exit88:                               ; preds = %273
 
 290:                                              ; preds = %290, %286
   %indvars.iv.i89 = phi i64 [ 0, %286 ], [ %indvars.iv.next.i92, %290 ]
-  %.02225.i90 = phi i32 [ %289, %286 ], [ %296, %290 ]
-  %.02324.i91 = phi i8 [ 0, %286 ], [ %292, %290 ]
-  %291 = add nuw nsw i8 %.02324.i91, 1
+  %.02225.i90 = phi i8 [ 0, %286 ], [ %292, %290 ]
+  %.02324.i91 = phi i32 [ %289, %286 ], [ %296, %290 ]
+  %291 = add nuw nsw i8 %.02225.i90, 1
   %292 = and i8 %291, 3
   %293 = zext nneg i8 %292 to i64
   %294 = getelementptr inbounds i32, ptr %10, i64 %293
   %295 = load i32, ptr %294, align 4
   %296 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %295) #11, !srcloc !4
-  %297 = tail call i32 @llvm.fshl.i32(i32 %.02225.i90, i32 %296, i32 19)
+  %297 = tail call i32 @llvm.fshl.i32(i32 %.02324.i91, i32 %296, i32 19)
   %298 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %297) #11, !srcloc !4
   %299 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i89
   %300 = load i32, ptr %299, align 4
@@ -637,8 +637,8 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr nocapture nound
   br label %.preheader40
 
 .preheader40:                                     ; preds = %.preheader40.lr.ph, %16
-  %indvars.iv49 = phi i64 [ 0, %.preheader40.lr.ph ], [ %indvars.iv.next50, %16 ]
-  %indvars.iv47 = phi i64 [ %8, %.preheader40.lr.ph ], [ %indvars.iv.next48, %16 ]
+  %indvars.iv49 = phi i64 [ %8, %.preheader40.lr.ph ], [ %indvars.iv.next50, %16 ]
+  %indvars.iv47 = phi i64 [ 0, %.preheader40.lr.ph ], [ %indvars.iv.next48, %16 ]
   br label %11
 
 .preheader:                                       ; preds = %16
@@ -653,9 +653,9 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr nocapture nound
 
 11:                                               ; preds = %.preheader40, %11
   %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds [17 x [4 x i32]], ptr %7, i64 0, i64 %indvars.iv49, i64 %indvars.iv
+  %12 = getelementptr inbounds [17 x [4 x i32]], ptr %7, i64 0, i64 %indvars.iv47, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds [17 x [4 x i32]], ptr %7, i64 0, i64 %indvars.iv47, i64 %indvars.iv
+  %14 = getelementptr inbounds [17 x [4 x i32]], ptr %7, i64 0, i64 %indvars.iv49, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %12, align 4
   store i32 %13, ptr %14, align 4
@@ -664,9 +664,9 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr nocapture nound
   br i1 %exitcond.not, label %16, label %11, !llvm.loop !8
 
 16:                                               ; preds = %11
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %indvars.iv.next48 = add nsw i64 %indvars.iv47, -1
-  %17 = icmp slt i64 %indvars.iv.next50, %indvars.iv.next48
+  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
+  %indvars.iv.next50 = add nsw i64 %indvars.iv49, -1
+  %17 = icmp slt i64 %indvars.iv.next48, %indvars.iv.next50
   br i1 %17, label %.preheader40, label %.preheader, !llvm.loop !9
 
 18:                                               ; preds = %.lr.ph, %18

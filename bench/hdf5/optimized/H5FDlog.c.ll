@@ -1461,12 +1461,12 @@ define internal range(i32 -1, 1) i32 @H5FD__log_read(ptr noundef %0, i32 noundef
   br label %29
 
 29:                                               ; preds = %.lr.ph, %29
-  %.079125 = phi i64 [ %3, %.lr.ph ], [ %32, %29 ]
-  %.080124 = phi i64 [ %4, %.lr.ph ], [ %30, %29 ]
-  %30 = add i64 %.080124, -1
+  %.080125 = phi i64 [ %3, %.lr.ph ], [ %32, %29 ]
+  %.081124 = phi i64 [ %4, %.lr.ph ], [ %30, %29 ]
+  %30 = add i64 %.081124, -1
   %31 = load ptr, ptr %28, align 8
-  %32 = add i64 %.079125, 1
-  %33 = getelementptr inbounds i8, ptr %31, i64 %.079125
+  %32 = add i64 %.080125, 1
+  %33 = getelementptr inbounds i8, ptr %31, i64 %.080125
   %34 = load i8, ptr %33, align 1
   %35 = add i8 %34, 1
   store i8 %35, ptr %33, align 1
@@ -1495,16 +1495,16 @@ define internal range(i32 -1, 1) i32 @H5FD__log_read(ptr noundef %0, i32 noundef
   br label %42
 
 42:                                               ; preds = %.lr.ph130, %70
-  %.082129 = phi i64 [ %3, %.lr.ph130 ], [ %spec.select, %70 ]
-  %.083128 = phi ptr [ %5, %.lr.ph130 ], [ %72, %70 ]
-  %.084127 = phi i64 [ %4, %.lr.ph130 ], [ %71, %70 ]
-  %..084 = call i64 @llvm.umin.i64(i64 %.084127, i64 9223372036854775807)
+  %.083129 = phi i64 [ %3, %.lr.ph130 ], [ %spec.select, %70 ]
+  %.084128 = phi i64 [ %4, %.lr.ph130 ], [ %71, %70 ]
+  %.085127 = phi ptr [ %5, %.lr.ph130 ], [ %72, %70 ]
+  %..084 = call i64 @llvm.umin.i64(i64 %.084128, i64 9223372036854775807)
   br label %43
 
 43:                                               ; preds = %47, %42
-  %.1 = phi i64 [ %.082129, %42 ], [ %spec.select, %47 ]
+  %.1 = phi i64 [ %.083129, %42 ], [ %spec.select, %47 ]
   %44 = load i32, ptr %41, align 8
-  %45 = call i64 @pread64(i32 noundef %44, ptr noundef %.083128, i64 noundef %..084, i64 noundef %.1) #19
+  %45 = call i64 @pread64(i32 noundef %44, ptr noundef %.085127, i64 noundef %..084, i64 noundef %.1) #19
   %46 = call i64 @llvm.smax.i64(i64 %45, i64 0)
   %spec.select = add nsw i64 %46, %.1
   switch i64 %45, label %70 [
@@ -1542,16 +1542,16 @@ define internal range(i32 -1, 1) i32 @H5FD__log_read(ptr noundef %0, i32 noundef
   %65 = getelementptr inbounds i8, ptr %0, i64 105
   %66 = load i32, ptr %41, align 8
   %67 = call ptr @strerror(i32 noundef %49) #19
-  %68 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5FD__log_read, i32 noundef 1248, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.55, ptr noundef %64, ptr noundef nonnull %65, i32 noundef %66, i32 noundef %49, ptr noundef %67, ptr noundef %.083128, i64 noundef %.084127, i64 noundef %..084, i64 noundef -1, i64 noundef %53) #19
+  %68 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5FD__log_read, i32 noundef 1248, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.55, ptr noundef %64, ptr noundef nonnull %65, i32 noundef %66, i32 noundef %49, ptr noundef %67, ptr noundef %.085127, i64 noundef %.084128, i64 noundef %..084, i64 noundef -1, i64 noundef %53) #19
   br label %114
 
 69:                                               ; preds = %43
-  call void @llvm.memset.p0.i64(ptr align 1 %.083128, i8 0, i64 %.084127, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %.085127, i8 0, i64 %.084128, i1 false)
   br label %.loopexit
 
 70:                                               ; preds = %43
-  %71 = sub i64 %.084127, %45
-  %72 = getelementptr inbounds i8, ptr %.083128, i64 %45
+  %71 = sub i64 %.084128, %45
+  %72 = getelementptr inbounds i8, ptr %.085127, i64 %45
   %.not99 = icmp eq i64 %71, 0
   br i1 %.not99, label %.loopexit, label %42
 
@@ -1628,8 +1628,8 @@ define internal range(i32 -1, 1) i32 @H5FD__log_read(ptr noundef %0, i32 noundef
   br label %114
 
 114:                                              ; preds = %93, %113, %107, %61, %20, %11
-  %.081 = phi i32 [ -1, %20 ], [ -1, %61 ], [ 0, %107 ], [ 0, %113 ], [ 0, %93 ], [ -1, %11 ]
-  ret i32 %.081
+  %.082 = phi i32 [ -1, %20 ], [ -1, %61 ], [ 0, %107 ], [ 0, %113 ], [ 0, %93 ], [ -1, %11 ]
+  ret i32 %.082
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1678,12 +1678,12 @@ define internal range(i32 -1, 1) i32 @H5FD__log_write(ptr noundef %0, i32 nounde
   br label %30
 
 30:                                               ; preds = %.lr.ph, %30
-  %.088126 = phi i64 [ %3, %.lr.ph ], [ %33, %30 ]
-  %.089125 = phi i64 [ %4, %.lr.ph ], [ %31, %30 ]
-  %31 = add i64 %.089125, -1
+  %.089126 = phi i64 [ %3, %.lr.ph ], [ %33, %30 ]
+  %.090125 = phi i64 [ %4, %.lr.ph ], [ %31, %30 ]
+  %31 = add i64 %.090125, -1
   %32 = load ptr, ptr %29, align 8
-  %33 = add i64 %.088126, 1
-  %34 = getelementptr inbounds i8, ptr %32, i64 %.088126
+  %33 = add i64 %.089126, 1
+  %34 = getelementptr inbounds i8, ptr %32, i64 %.089126
   %35 = load i8, ptr %34, align 1
   %36 = add i8 %35, 1
   store i8 %36, ptr %34, align 1
@@ -1712,17 +1712,17 @@ define internal range(i32 -1, 1) i32 @H5FD__log_write(ptr noundef %0, i32 nounde
   br label %43
 
 43:                                               ; preds = %.lr.ph132, %.critedge115
-  %.091131 = phi i64 [ %3, %.lr.ph132 ], [ %spec.select, %.critedge115 ]
-  %.092130 = phi ptr [ %5, %.lr.ph132 ], [ %73, %.critedge115 ]
+  %.0131 = phi i64 [ %3, %.lr.ph132 ], [ %72, %.critedge115 ]
+  %.092130 = phi i64 [ %3, %.lr.ph132 ], [ %spec.select, %.critedge115 ]
   %.093129 = phi i64 [ %4, %.lr.ph132 ], [ %71, %.critedge115 ]
-  %.094128 = phi i64 [ %3, %.lr.ph132 ], [ %72, %.critedge115 ]
+  %.094128 = phi ptr [ %5, %.lr.ph132 ], [ %73, %.critedge115 ]
   %..093 = call i64 @llvm.umin.i64(i64 %.093129, i64 9223372036854775807)
   br label %44
 
 44:                                               ; preds = %49, %43
-  %.1 = phi i64 [ %.091131, %43 ], [ %spec.select, %49 ]
+  %.1 = phi i64 [ %.092130, %43 ], [ %spec.select, %49 ]
   %45 = load i32, ptr %42, align 8
-  %46 = call i64 @pwrite64(i32 noundef %45, ptr noundef %.092130, i64 noundef %..093, i64 noundef %.1) #19
+  %46 = call i64 @pwrite64(i32 noundef %45, ptr noundef %.094128, i64 noundef %..093, i64 noundef %.1) #19
   %47 = call i64 @llvm.smax.i64(i64 %46, i64 0)
   %spec.select = add nsw i64 %47, %.1
   %48 = icmp eq i64 %46, -1
@@ -1758,18 +1758,18 @@ define internal range(i32 -1, 1) i32 @H5FD__log_write(ptr noundef %0, i32 nounde
   %67 = getelementptr inbounds i8, ptr %0, i64 105
   %68 = load i32, ptr %42, align 8
   %69 = call ptr @strerror(i32 noundef %51) #19
-  %70 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5FD__log_write, i32 noundef 1471, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.61, ptr noundef %66, ptr noundef nonnull %67, i32 noundef %68, i32 noundef %51, ptr noundef %69, ptr noundef %.092130, i64 noundef %.093129, i64 noundef %..093, i64 noundef -1, i64 noundef %55) #19
+  %70 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5FD__log_write, i32 noundef 1471, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.61, ptr noundef %66, ptr noundef nonnull %67, i32 noundef %68, i32 noundef %51, ptr noundef %69, ptr noundef %.094128, i64 noundef %.093129, i64 noundef %..093, i64 noundef -1, i64 noundef %55) #19
   br label %132
 
 .critedge115:                                     ; preds = %44
   %71 = sub i64 %.093129, %46
-  %72 = add i64 %46, %.094128
-  %73 = getelementptr inbounds i8, ptr %.092130, i64 %46
+  %72 = add i64 %46, %.0131
+  %73 = getelementptr inbounds i8, ptr %.094128, i64 %46
   %.not106 = icmp eq i64 %71, 0
   br i1 %.not106, label %._crit_edge, label %43
 
 ._crit_edge:                                      ; preds = %.critedge115, %41
-  %.094.lcssa = phi i64 [ %3, %41 ], [ %72, %.critedge115 ]
+  %.0.lcssa = phi i64 [ %3, %41 ], [ %72, %.critedge115 ]
   %74 = load i64, ptr %26, align 8
   %75 = and i64 %74, 16384
   %.not107 = icmp eq i64 %75, 0
@@ -1865,16 +1865,16 @@ define internal range(i32 -1, 1) i32 @H5FD__log_write(ptr noundef %0, i32 nounde
 127:                                              ; preds = %120, %126, %94
   %128 = getelementptr inbounds i8, ptr %0, i64 96
   %129 = load i64, ptr %128, align 8
-  %130 = icmp ugt i64 %.094.lcssa, %129
+  %130 = icmp ugt i64 %.0.lcssa, %129
   br i1 %130, label %131, label %132
 
 131:                                              ; preds = %127
-  store i64 %.094.lcssa, ptr %128, align 8
+  store i64 %.0.lcssa, ptr %128, align 8
   br label %132
 
 132:                                              ; preds = %127, %131, %63, %21, %12
-  %.090 = phi i32 [ -1, %21 ], [ -1, %63 ], [ 0, %131 ], [ 0, %127 ], [ -1, %12 ]
-  ret i32 %.090
+  %.091 = phi i32 [ -1, %21 ], [ -1, %63 ], [ 0, %131 ], [ 0, %127 ], [ -1, %12 ]
+  ret i32 %.091
 }
 
 ; Function Attrs: nounwind uwtable

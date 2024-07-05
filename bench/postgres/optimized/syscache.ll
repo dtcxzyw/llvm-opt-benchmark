@@ -836,11 +836,11 @@ define dso_local noundef zeroext i1 @RelationHasSysCache(i32 noundef %0) local_u
   br i1 %.not16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %11
-  %.018 = phi i32 [ %.1, %11 ], [ %3, %1 ]
-  %.01117 = phi i32 [ %.112, %11 ], [ 0, %1 ]
-  %4 = sub i32 %.018, %.01117
+  %.01118 = phi i32 [ %.1, %11 ], [ %3, %1 ]
+  %.01217 = phi i32 [ %.113, %11 ], [ 0, %1 ]
+  %4 = sub i32 %.01118, %.01217
   %5 = sdiv i32 %4, 2
-  %6 = add i32 %5, %.01117
+  %6 = add i32 %5, %.01217
   %7 = sext i32 %6 to i64
   %8 = getelementptr [83 x i32], ptr @SysCacheRelationOid, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
@@ -851,9 +851,9 @@ define dso_local noundef zeroext i1 @RelationHasSysCache(i32 noundef %0) local_u
   %12 = icmp ult i32 %9, %0
   %13 = add i32 %6, 1
   %14 = add i32 %6, -1
-  %.112 = select i1 %12, i32 %13, i32 %.01117
-  %.1 = select i1 %12, i32 %.018, i32 %14
-  %.not.not = icmp sgt i32 %.112, %.1
+  %.113 = select i1 %12, i32 %13, i32 %.01217
+  %.1 = select i1 %12, i32 %.01118, i32 %14
+  %.not.not = icmp sgt i32 %.113, %.1
   br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %1
@@ -869,11 +869,11 @@ define dso_local noundef zeroext i1 @RelationSupportsSysCache(i32 noundef %0) lo
   br i1 %.not16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %11
-  %.018 = phi i32 [ %.1, %11 ], [ %3, %1 ]
-  %.01117 = phi i32 [ %.112, %11 ], [ 0, %1 ]
-  %4 = sub i32 %.018, %.01117
+  %.01118 = phi i32 [ %.1, %11 ], [ %3, %1 ]
+  %.01217 = phi i32 [ %.113, %11 ], [ 0, %1 ]
+  %4 = sub i32 %.01118, %.01217
   %5 = sdiv i32 %4, 2
-  %6 = add i32 %5, %.01117
+  %6 = add i32 %5, %.01217
   %7 = sext i32 %6 to i64
   %8 = getelementptr [166 x i32], ptr @SysCacheSupportingRelOid, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
@@ -884,9 +884,9 @@ define dso_local noundef zeroext i1 @RelationSupportsSysCache(i32 noundef %0) lo
   %12 = icmp ult i32 %9, %0
   %13 = add i32 %6, 1
   %14 = add i32 %6, -1
-  %.112 = select i1 %12, i32 %13, i32 %.01117
-  %.1 = select i1 %12, i32 %.018, i32 %14
-  %.not.not = icmp sgt i32 %.112, %.1
+  %.113 = select i1 %12, i32 %13, i32 %.01217
+  %.1 = select i1 %12, i32 %.01118, i32 %14
+  %.not.not = icmp sgt i32 %.113, %.1
   br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %1

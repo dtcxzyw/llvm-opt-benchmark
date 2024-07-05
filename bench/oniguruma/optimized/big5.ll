@@ -97,12 +97,12 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
   br i1 %.not24, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3, %9
-  %.0 = phi ptr [ %10, %9 ], [ %1, %3 ]
-  %8 = icmp ugt ptr %.0, %0
+  %.019 = phi ptr [ %10, %9 ], [ %1, %3 ]
+  %8 = icmp ugt ptr %.019, %0
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %.0, i64 -1
+  %10 = getelementptr inbounds i8, ptr %.019, i64 -1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
   %13 = add nsw i64 %12, -161
@@ -110,7 +110,7 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
   br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %9, %.preheader, %3
-  %.1 = phi ptr [ %1, %3 ], [ %.0, %.preheader ], [ %.0, %9 ]
+  %.1 = phi ptr [ %1, %3 ], [ %.019, %.preheader ], [ %.019, %9 ]
   %15 = load ptr, ptr @OnigEncodingBIG5, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %.1) #5
   %17 = sext i32 %16 to i64
@@ -127,8 +127,8 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
   br label %26
 
 26:                                               ; preds = %.loopexit, %2, %20
-  %.019 = phi ptr [ %25, %20 ], [ %1, %2 ], [ %.1, %.loopexit ]
-  ret ptr %.019
+  %.0 = phi ptr [ %25, %20 ], [ %1, %2 ], [ %.1, %.loopexit ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

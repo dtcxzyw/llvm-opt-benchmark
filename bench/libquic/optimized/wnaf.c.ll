@@ -17,8 +17,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %err, label %if.end3
 
 if.end3:                                          ; preds = %if.then, %entry
-  %ctx.addr.0 = phi ptr [ %call, %if.then ], [ %ctx, %entry ]
   %new_ctx.0 = phi ptr [ %call, %if.then ], [ null, %entry ]
+  %ctx.addr.0 = phi ptr [ %call, %if.then ], [ %ctx, %entry ]
   %cmp4.not = icmp ne ptr %p, null
   %conv = zext i1 %cmp4.not to i64
   %cmp14.not = icmp eq ptr %g_scalar, null
@@ -38,8 +38,8 @@ if.end21:                                         ; preds = %if.then16
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end21, %if.end3
-  %generator.0 = phi ptr [ %call17, %if.end21 ], [ null, %if.end3 ]
   %total_num.0 = phi i64 [ %inc, %if.end21 ], [ %conv, %if.end3 ]
+  %generator.0 = phi ptr [ %call17, %if.end21 ], [ null, %if.end3 ]
   %mul = shl nuw nsw i64 %total_num.0, 3
   %call23 = tail call noalias ptr @malloc(i64 noundef %mul) #6
   %call25 = tail call noalias ptr @malloc(i64 noundef %mul) #6
@@ -585,14 +585,14 @@ if.end287:                                        ; preds = %if.else280, %land.l
   br label %err
 
 err:                                              ; preds = %for.body128, %if.then172, %if.else, %if.then154, %for.body185, %land.lhs.true.us, %if.else257.us, %if.then249.us, %land.lhs.true241.us, %compute_wNAF.exit, %land.lhs.true282, %if.then275, %for.end201, %if.end143, %if.then, %if.end287, %if.then142, %if.then114, %if.then38, %if.then20
-  %new_ctx.1 = phi ptr [ null, %if.then ], [ %new_ctx.0, %if.then20 ], [ %new_ctx.0, %compute_wNAF.exit ], [ %new_ctx.0, %if.then114 ], [ %new_ctx.0, %if.end287 ], [ %new_ctx.0, %if.then275 ], [ %new_ctx.0, %land.lhs.true282 ], [ %new_ctx.0, %for.end201 ], [ %new_ctx.0, %if.end143 ], [ %new_ctx.0, %if.then142 ], [ %new_ctx.0, %if.then38 ], [ %new_ctx.0, %land.lhs.true241.us ], [ %new_ctx.0, %if.then249.us ], [ %new_ctx.0, %if.else257.us ], [ %new_ctx.0, %land.lhs.true.us ], [ %new_ctx.0, %for.body185 ], [ %new_ctx.0, %if.then154 ], [ %new_ctx.0, %if.else ], [ %new_ctx.0, %if.then172 ], [ %new_ctx.0, %for.body128 ]
-  %tmp.0 = phi ptr [ null, %if.then ], [ null, %if.then20 ], [ null, %compute_wNAF.exit ], [ null, %if.then114 ], [ %call144, %if.end287 ], [ %call144, %if.then275 ], [ %call144, %land.lhs.true282 ], [ %call144, %for.end201 ], [ null, %if.end143 ], [ null, %if.then142 ], [ null, %if.then38 ], [ %call144, %land.lhs.true241.us ], [ %call144, %if.then249.us ], [ %call144, %if.else257.us ], [ %call144, %land.lhs.true.us ], [ %call144, %for.body185 ], [ %call144, %if.then154 ], [ %call144, %if.else ], [ %call144, %if.then172 ], [ null, %for.body128 ]
   %wsize.0 = phi ptr [ null, %if.then ], [ null, %if.then20 ], [ %call23, %compute_wNAF.exit ], [ %call23, %if.then114 ], [ %call23, %if.end287 ], [ %call23, %if.then275 ], [ %call23, %land.lhs.true282 ], [ %call23, %for.end201 ], [ %call23, %if.end143 ], [ %call23, %if.then142 ], [ %call23, %if.then38 ], [ %call23, %land.lhs.true241.us ], [ %call23, %if.then249.us ], [ %call23, %if.else257.us ], [ %call23, %land.lhs.true.us ], [ %call23, %for.body185 ], [ %call23, %if.then154 ], [ %call23, %if.else ], [ %call23, %if.then172 ], [ %call23, %for.body128 ]
   %wNAF.0 = phi ptr [ null, %if.then ], [ null, %if.then20 ], [ %call27, %compute_wNAF.exit ], [ %call27, %if.then114 ], [ %call27, %if.end287 ], [ %call27, %if.then275 ], [ %call27, %land.lhs.true282 ], [ %call27, %for.end201 ], [ %call27, %if.end143 ], [ %call27, %if.then142 ], [ %call27, %if.then38 ], [ %call27, %land.lhs.true241.us ], [ %call27, %if.then249.us ], [ %call27, %if.else257.us ], [ %call27, %land.lhs.true.us ], [ %call27, %for.body185 ], [ %call27, %if.then154 ], [ %call27, %if.else ], [ %call27, %if.then172 ], [ %call27, %for.body128 ]
   %wNAF_len.0 = phi ptr [ null, %if.then ], [ null, %if.then20 ], [ %call25, %compute_wNAF.exit ], [ %call25, %if.then114 ], [ %call25, %if.end287 ], [ %call25, %if.then275 ], [ %call25, %land.lhs.true282 ], [ %call25, %for.end201 ], [ %call25, %if.end143 ], [ %call25, %if.then142 ], [ %call25, %if.then38 ], [ %call25, %land.lhs.true241.us ], [ %call25, %if.then249.us ], [ %call25, %if.else257.us ], [ %call25, %land.lhs.true.us ], [ %call25, %for.body185 ], [ %call25, %if.then154 ], [ %call25, %if.else ], [ %call25, %if.then172 ], [ %call25, %for.body128 ]
   %val.0 = phi ptr [ null, %if.then ], [ null, %if.then20 ], [ null, %compute_wNAF.exit ], [ null, %if.then114 ], [ %call111, %if.end287 ], [ %call111, %if.then275 ], [ %call111, %land.lhs.true282 ], [ %call111, %for.end201 ], [ %call111, %if.end143 ], [ %call111, %if.then142 ], [ null, %if.then38 ], [ %call111, %land.lhs.true241.us ], [ %call111, %if.then249.us ], [ %call111, %if.else257.us ], [ %call111, %land.lhs.true.us ], [ %call111, %for.body185 ], [ %call111, %if.then154 ], [ %call111, %if.else ], [ %call111, %if.then172 ], [ %call111, %for.body128 ]
   %val_sub.0 = phi ptr [ null, %if.then ], [ null, %if.then20 ], [ %call29, %compute_wNAF.exit ], [ %call29, %if.then114 ], [ %call29, %if.end287 ], [ %call29, %if.then275 ], [ %call29, %land.lhs.true282 ], [ %call29, %for.end201 ], [ %call29, %if.end143 ], [ %call29, %if.then142 ], [ %call29, %if.then38 ], [ %call29, %land.lhs.true241.us ], [ %call29, %if.then249.us ], [ %call29, %if.else257.us ], [ %call29, %land.lhs.true.us ], [ %call29, %for.body185 ], [ %call29, %if.then154 ], [ %call29, %if.else ], [ %call29, %if.then172 ], [ %call29, %for.body128 ]
   %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then20 ], [ 0, %compute_wNAF.exit ], [ 0, %if.then114 ], [ 1, %if.end287 ], [ 0, %if.then275 ], [ 0, %land.lhs.true282 ], [ 0, %for.end201 ], [ 0, %if.end143 ], [ 0, %if.then142 ], [ 0, %if.then38 ], [ 0, %land.lhs.true241.us ], [ 0, %if.then249.us ], [ 0, %if.else257.us ], [ 0, %land.lhs.true.us ], [ 0, %for.body185 ], [ 0, %if.then154 ], [ 0, %if.else ], [ 0, %if.then172 ], [ 0, %for.body128 ]
+  %tmp.0 = phi ptr [ null, %if.then ], [ null, %if.then20 ], [ null, %compute_wNAF.exit ], [ null, %if.then114 ], [ %call144, %if.end287 ], [ %call144, %if.then275 ], [ %call144, %land.lhs.true282 ], [ %call144, %for.end201 ], [ null, %if.end143 ], [ null, %if.then142 ], [ null, %if.then38 ], [ %call144, %land.lhs.true241.us ], [ %call144, %if.then249.us ], [ %call144, %if.else257.us ], [ %call144, %land.lhs.true.us ], [ %call144, %for.body185 ], [ %call144, %if.then154 ], [ %call144, %if.else ], [ %call144, %if.then172 ], [ null, %for.body128 ]
+  %new_ctx.1 = phi ptr [ null, %if.then ], [ %new_ctx.0, %if.then20 ], [ %new_ctx.0, %compute_wNAF.exit ], [ %new_ctx.0, %if.then114 ], [ %new_ctx.0, %if.end287 ], [ %new_ctx.0, %if.then275 ], [ %new_ctx.0, %land.lhs.true282 ], [ %new_ctx.0, %for.end201 ], [ %new_ctx.0, %if.end143 ], [ %new_ctx.0, %if.then142 ], [ %new_ctx.0, %if.then38 ], [ %new_ctx.0, %land.lhs.true241.us ], [ %new_ctx.0, %if.then249.us ], [ %new_ctx.0, %if.else257.us ], [ %new_ctx.0, %land.lhs.true.us ], [ %new_ctx.0, %for.body185 ], [ %new_ctx.0, %if.then154 ], [ %new_ctx.0, %if.else ], [ %new_ctx.0, %if.then172 ], [ %new_ctx.0, %for.body128 ]
   tail call void @BN_CTX_free(ptr noundef %new_ctx.1) #5
   tail call void @EC_POINT_free(ptr noundef %tmp.0) #5
   tail call void @free(ptr noundef %wsize.0) #5

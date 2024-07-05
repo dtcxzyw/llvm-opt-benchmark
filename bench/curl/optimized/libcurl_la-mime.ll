@@ -1852,8 +1852,8 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog56
   %cursize.0124 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %sw.epilog56 ]
-  %bufsize.addr.0122 = phi i64 [ %bufsize, %while.body.lr.ph ], [ %sub, %sw.epilog56 ]
-  %buffer.addr.0120 = phi ptr [ %buffer, %while.body.lr.ph ], [ %add.ptr, %sw.epilog56 ]
+  %buffer.addr.0122 = phi ptr [ %buffer, %while.body.lr.ph ], [ %add.ptr, %sw.epilog56 ]
+  %bufsize.addr.0120 = phi i64 [ %bufsize, %while.body.lr.ph ], [ %sub, %sw.epilog56 ]
   %0 = load ptr, ptr %ptr, align 8
   %1 = load i32, ptr %state, align 8
   switch i32 %1, label %sw.epilog56 [
@@ -1948,8 +1948,8 @@ if.end.i:                                         ; preds = %if.else.i
 readback_bytes.exit:                              ; preds = %if.then.i, %if.end.i
   %bytes.addr.0.i = phi ptr [ %add.ptr.i, %if.then.i ], [ %add.ptr5.i, %if.end.i ]
   %sz.0.i = phi i64 [ %sub.i, %if.then.i ], [ %sub6.i, %if.end.i ]
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sz.0.i, i64 %bufsize.addr.0122)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0120, ptr align 1 %bytes.addr.0.i, i64 %spec.select.i, i1 false)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sz.0.i, i64 %bufsize.addr.0120)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0122, ptr align 1 %bytes.addr.0.i, i64 %spec.select.i, i1 false)
   %10 = load i64, ptr %offset.i83, align 8
   %add.i = add i64 %10, %spec.select.i
   store i64 %add.i, ptr %offset.i83, align 8
@@ -1972,8 +1972,8 @@ sw.bb28:                                          ; preds = %while.body
 readback_bytes.exit79:                            ; preds = %sw.bb28
   %sub.i77 = sub nuw nsw i64 2, %call.i62
   %add.ptr.i78 = getelementptr inbounds i8, ptr @.str.41, i64 %call.i62
-  %spec.select.i74 = tail call i64 @llvm.umin.i64(i64 %sub.i77, i64 %bufsize.addr.0122)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0120, ptr nonnull align 1 %add.ptr.i78, i64 %spec.select.i74, i1 false)
+  %spec.select.i74 = tail call i64 @llvm.umin.i64(i64 %sub.i77, i64 %bufsize.addr.0120)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.addr.0122, ptr nonnull align 1 %add.ptr.i78, i64 %spec.select.i74, i1 false)
   %13 = load i64, ptr %offset.i83, align 8
   %add.i75 = add i64 %13, %spec.select.i74
   store i64 %add.i75, ptr %offset.i83, align 8
@@ -1996,8 +1996,8 @@ sw.bb37:                                          ; preds = %while.body
   br i1 %tobool38.not, label %if.else41, label %for.cond.i84.outer
 
 for.cond.i84.outer:                               ; preds = %sw.bb37, %sw.default.i
-  %buffer.addr.0.i.ph = phi ptr [ %add.ptr.i90, %sw.default.i ], [ %buffer.addr.0120, %sw.bb37 ]
-  %bufsize.addr.0.i.ph = phi i64 [ %sub.i91, %sw.default.i ], [ %bufsize.addr.0122, %sw.bb37 ]
+  %bufsize.addr.0.i.ph = phi i64 [ %sub.i91, %sw.default.i ], [ %bufsize.addr.0120, %sw.bb37 ]
+  %buffer.addr.0.i.ph = phi ptr [ %add.ptr.i90, %sw.default.i ], [ %buffer.addr.0122, %sw.bb37 ]
   %cursize.0.i.ph = phi i64 [ %add.i89, %sw.default.i ], [ 0, %sw.bb37 ]
   %ateof.0.i.ph = phi i8 [ %ateof.0.i.ph168, %sw.default.i ], [ 0, %sw.bb37 ]
   br label %for.cond.i84.outer167
@@ -2099,7 +2099,7 @@ sw.default46.i:                                   ; preds = %if.end31.i
   br label %for.cond.i84
 
 if.else41:                                        ; preds = %sw.bb37
-  %call42 = tail call fastcc i64 @read_part_content(ptr noundef nonnull %part, ptr noundef %buffer.addr.0120, i64 noundef %bufsize.addr.0122, ptr noundef %hasread)
+  %call42 = tail call fastcc i64 @read_part_content(ptr noundef nonnull %part, ptr noundef %buffer.addr.0122, i64 noundef %bufsize.addr.0120, ptr noundef %hasread)
   br label %if.end43
 
 if.end43:                                         ; preds = %sw.bb.i, %sw.bb40.i, %sw.bb4.i, %if.then25.i, %if.else41
@@ -2140,8 +2140,8 @@ sw.bb52:                                          ; preds = %if.then25.i, %if.en
 sw.epilog56:                                      ; preds = %readback_bytes.exit79, %while.body, %if.end43, %if.then32, %if.then14, %if.then21, %readback_bytes.exit, %sw.bb35, %for.cond.i.preheader, %if.then, %sw.bb
   %sz.1 = phi i64 [ 0, %while.body ], [ %sz.0, %if.end43 ], [ 0, %sw.bb35 ], [ %spec.select.i74, %readback_bytes.exit79 ], [ 0, %if.then32 ], [ %spec.select.i, %readback_bytes.exit ], [ 0, %if.then21 ], [ 0, %if.then14 ], [ 0, %for.cond.i.preheader ], [ 0, %if.then ], [ 0, %sw.bb ]
   %add = add i64 %sz.1, %cursize.0124
-  %add.ptr = getelementptr inbounds i8, ptr %buffer.addr.0120, i64 %sz.1
-  %sub = sub i64 %bufsize.addr.0122, %sz.1
+  %add.ptr = getelementptr inbounds i8, ptr %buffer.addr.0122, i64 %sz.1
+  %sub = sub i64 %bufsize.addr.0120, %sz.1
   %tobool.not = icmp eq i64 %sub, 0
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !11
 

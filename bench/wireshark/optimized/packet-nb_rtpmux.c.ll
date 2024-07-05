@@ -81,29 +81,29 @@ define internal i32 @dissect_nb_rtpmux(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not111, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %75
-  %.099110 = phi i32 [ %.1, %75 ], [ 0, %7 ]
-  %.0100108 = phi i32 [ %76, %75 ], [ 0, %7 ]
-  %11 = add i32 %.0100108, 2
+  %.098109 = phi i32 [ %76, %75 ], [ 0, %7 ]
+  %.0100108 = phi i32 [ %.1, %75 ], [ 0, %7 ]
+  %11 = add i32 %.098109, 2
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %11) #3
   %13 = zext i8 %12 to i32
   %14 = load i32, ptr @proto_nb_rtpmux, align 4
   %15 = add nuw nsw i32 %13, 5
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %.0100108, i32 noundef %15, i32 noundef 0) #3
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %.098109, i32 noundef %15, i32 noundef 0) #3
   %17 = load i32, ptr @ett_nb_rtpmux, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #3
   %19 = load i32, ptr @hf_nb_rtpmux_compressed, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef %.0100108, i32 noundef 2, i32 noundef 0) #3
-  %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0100108) #3
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef %.098109, i32 noundef 2, i32 noundef 0) #3
+  %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.098109) #3
   %.not = icmp sgt i8 %21, -1
-  %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0100108) #3
+  %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.098109) #3
   %23 = shl i16 %22, 1
   %24 = load i32, ptr @hf_nb_rtpmux_dstport, align 4
   %25 = zext i16 %23 to i32
-  %26 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %24, ptr noundef %0, i32 noundef %.0100108, i32 noundef 2, i32 noundef %25) #3
+  %26 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %24, ptr noundef %0, i32 noundef %.098109, i32 noundef 2, i32 noundef %25) #3
   %27 = load i32, ptr @hf_nb_rtpmux_length, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %27, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #3
   %29 = load i32, ptr @hf_nb_r_bit, align 4
-  %30 = add i32 %.0100108, 3
+  %30 = add i32 %.098109, 3
   br i1 %.not, label %52, label %31
 
 31:                                               ; preds = %.lr.ph
@@ -113,20 +113,20 @@ define internal i32 @dissect_nb_rtpmux(ptr noundef %0, ptr noundef %1, ptr nound
   %35 = load i32, ptr @hf_nb_rtpmux_srcport, align 4
   %36 = zext i16 %34 to i32
   %37 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %35, ptr noundef %0, i32 noundef %30, i32 noundef 2, i32 noundef %36) #3
-  %38 = add i32 %.0100108, 5
+  %38 = add i32 %.098109, 5
   %39 = load i32, ptr @ett_nb_rtpmux_cmp_rtp_hdr, align 4
   %40 = tail call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %0, i32 noundef %38, i32 noundef 3, i32 noundef %39, ptr noundef null, ptr noundef nonnull @.str.24) #3
   %41 = load i32, ptr @hf_nb_rtpmux_cmp_rtp_sequence_no, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #3
   %43 = load i32, ptr @hf_nb_rtpmux_cmp_rtp_timestamp, align 4
-  %44 = add i32 %.0100108, 6
+  %44 = add i32 %.098109, 6
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %43, ptr noundef %0, i32 noundef %44, i32 noundef 2, i32 noundef 0) #3
   %.not107 = icmp eq i8 %12, 0
   br i1 %.not107, label %51, label %46
 
 46:                                               ; preds = %31
   %47 = load i32, ptr @hf_nb_rtpmux_cmp_rtp_data, align 4
-  %48 = add i32 %.0100108, 8
+  %48 = add i32 %.098109, 8
   %49 = add nsw i32 %13, -3
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %47, ptr noundef %0, i32 noundef %48, i32 noundef %49, i32 noundef 0) #3
   br label %51
@@ -152,11 +152,11 @@ define internal i32 @dissect_nb_rtpmux(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not105, label %71, label %61
 
 61:                                               ; preds = %59
-  %62 = add i32 %.0100108, 5
+  %62 = add i32 %.098109, 5
   %63 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %62) #3
   %spec.select = tail call i32 @llvm.smin.i32(i32 %63, i32 %13)
   %64 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %62, i32 noundef %spec.select, i32 noundef %13) #3
-  %.not106 = icmp eq i32 %.099110, 0
+  %.not106 = icmp eq i32 %.0100108, 0
   br i1 %.not106, label %68, label %65
 
 65:                                               ; preds = %61
@@ -173,13 +173,13 @@ define internal i32 @dissect_nb_rtpmux(ptr noundef %0, ptr noundef %1, ptr nound
 
 71:                                               ; preds = %59
   %72 = load i32, ptr @hf_nb_rtpmux_data, align 4
-  %73 = add i32 %.0100108, 5
+  %73 = add i32 %.098109, 5
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %72, ptr noundef %0, i32 noundef %73, i32 noundef %13, i32 noundef 0) #3
   br label %75
 
 75:                                               ; preds = %52, %71, %68, %51
-  %.1 = phi i32 [ %.099110, %51 ], [ 1, %68 ], [ %.099110, %71 ], [ %.099110, %52 ]
-  %76 = add i32 %15, %.0100108
+  %.1 = phi i32 [ %.0100108, %51 ], [ 1, %68 ], [ %.0100108, %71 ], [ %.0100108, %52 ]
+  %76 = add i32 %15, %.098109
   %77 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %78 = add i32 %77, -5
   %79 = icmp ult i32 %76, %78

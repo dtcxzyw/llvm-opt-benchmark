@@ -506,8 +506,8 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hdb7
   br label %132
 
 .loopexit.i.i:                                    ; preds = %191, %189, %187
-  %.012.i.i.i = phi i64 [ 1, %187 ], [ %..i.i.i, %191 ], [ 2, %189 ]
-  %131 = add i64 %.012.i.i.i, %.sroa.4.1
+  %.013.i.i.i = phi i64 [ 1, %187 ], [ %..i.i.i, %191 ], [ 2, %189 ]
+  %131 = add i64 %.013.i.i.i, %.sroa.4.1
   br label %132
 
 132:                                              ; preds = %.loopexit.i.i, %.lr.ph106.i.i

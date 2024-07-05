@@ -300,9 +300,9 @@ if.then13.i:                                      ; preds = %if.end11.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then13.i, %if.end11.i, %land.lhs.true.i, %while.body
-  %key.0.i = phi ptr [ %implied_key.addr.0, %if.then13.i ], [ %s.0, %if.end11.i ], [ %s.0, %land.lhs.true.i ], [ %s.0, %while.body ]
   %val_end.0.i = phi ptr [ %arrayidx.i, %if.then13.i ], [ null, %if.end11.i ], [ null, %land.lhs.true.i ], [ null, %while.body ]
   %len.0.i = phi i64 [ %call15.i, %if.then13.i ], [ %call.i, %if.end11.i ], [ %call.i, %land.lhs.true.i ], [ 0, %while.body ]
+  %key.0.i = phi ptr [ %implied_key.addr.0, %if.then13.i ], [ %s.0, %if.end11.i ], [ %s.0, %land.lhs.true.i ], [ %s.0, %while.body ]
   %add.ptr18.i = getelementptr i8, ptr %key.0.i, i64 %len.0.i
   br label %for.cond.i
 

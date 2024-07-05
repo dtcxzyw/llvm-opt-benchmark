@@ -524,8 +524,8 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %if.end43, %entry
-  %keys.0 = phi ptr [ %call, %entry ], [ %add.ptr44, %if.end43 ]
   %tail.0 = phi ptr [ %head, %entry ], [ %4, %if.end43 ]
+  %keys.0 = phi ptr [ %call, %entry ], [ %add.ptr44, %if.end43 ]
   %call.i = call ptr @strchrnul(ptr noundef readonly %keys.0, i32 noundef 45) #8
   %sub.ptr.lhs.cast = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %keys.0 to i64
@@ -535,22 +535,22 @@ while.body:                                       ; preds = %if.end43, %entry
   %cmp = icmp eq i8 %0, 60
   %cmp7 = icmp eq i32 %conv4, 1
   %or.cond = select i1 %cmp, i1 %cmp7, i1 false
-  %spec.select = select i1 %or.cond, ptr @.str.24, ptr %keys.0
-  %spec.select27 = select i1 %or.cond, i32 4, i32 %conv4
+  %spec.select = select i1 %or.cond, i32 4, i32 %conv4
+  %spec.select27 = select i1 %or.cond, ptr @.str.24, ptr %keys.0
   %call9 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #9
-  %call10 = call i32 @strstart(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.25, ptr noundef null) #7
+  %call10 = call i32 @strstart(ptr noundef nonnull %spec.select27, ptr noundef nonnull @.str.25, ptr noundef null) #7
   %tobool.not = icmp eq i32 %call10, 0
   br i1 %tobool.not, label %if.else28, label %if.then11
 
 if.then11:                                        ; preds = %while.body
-  %call12 = call i32 @qemu_strtoi(ptr noundef nonnull %spec.select, ptr noundef nonnull %endp, i32 noundef 0, ptr noundef nonnull %value) #7
+  %call12 = call i32 @qemu_strtoi(ptr noundef nonnull %spec.select27, ptr noundef nonnull %endp, i32 noundef 0, ptr noundef nonnull %value) #7
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %err_out, label %if.end16
 
 if.end16:                                         ; preds = %if.then11
   %1 = load ptr, ptr %endp, align 8
-  %idx.ext = sext i32 %spec.select27 to i64
-  %add.ptr = getelementptr i8, ptr %spec.select, i64 %idx.ext
+  %idx.ext = sext i32 %spec.select to i64
+  %add.ptr = getelementptr i8, ptr %spec.select27, i64 %idx.ext
   %cmp17.not = icmp ugt ptr %1, %add.ptr
   br i1 %cmp17.not, label %if.else, label %if.end20
 
@@ -571,8 +571,8 @@ if.end26:                                         ; preds = %if.end20
   br label %do.body
 
 if.else28:                                        ; preds = %while.body
-  %conv29 = sext i32 %spec.select27 to i64
-  %call30 = call i32 @index_from_key(ptr noundef nonnull %spec.select, i64 noundef %conv29) #7
+  %conv29 = sext i32 %spec.select to i64
+  %call30 = call i32 @index_from_key(ptr noundef nonnull %spec.select27, i64 noundef %conv29) #7
   %cmp31 = icmp eq i32 %call30, 162
   br i1 %cmp31, label %err_out, label %if.end34
 
@@ -614,7 +614,7 @@ out:                                              ; preds = %err_out, %while.end
   ret void
 
 err_out:                                          ; preds = %if.else28, %if.end20, %if.then11
-  %call48 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.27, i32 noundef %spec.select27, ptr noundef nonnull %spec.select) #7
+  %call48 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.27, i32 noundef %spec.select, ptr noundef nonnull %spec.select27) #7
   %head.0.head.0.head.0.head.0.26.pre = load ptr, ptr %head, align 8
   br label %out
 }

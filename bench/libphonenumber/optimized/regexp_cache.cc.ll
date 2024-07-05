@@ -379,24 +379,24 @@ _ZN5boost5mutexC2Ev.exit:                         ; preds = %3
   br label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i
 
 _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i:       ; preds = %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i, %12
-  %.017.i.i.i.i.i.i = phi i64 [ 303, %12 ], [ %.1.i.i.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i ]
-  %.01116.i.i.i.i.i.i = phi ptr [ @_ZNSt3tr18__detail12__prime_listE, %12 ], [ %.112.i.i.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i ]
-  %15 = lshr i64 %.017.i.i.i.i.i.i, 1
-  %16 = getelementptr inbounds i64, ptr %.01116.i.i.i.i.i.i, i64 %15
+  %.017.i.i.i.i.i.i = phi ptr [ @_ZNSt3tr18__detail12__prime_listE, %12 ], [ %.1.i.i.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i ]
+  %.01116.i.i.i.i.i.i = phi i64 [ 303, %12 ], [ %.112.i.i.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i ]
+  %15 = lshr i64 %.01116.i.i.i.i.i.i, 1
+  %16 = getelementptr inbounds i64, ptr %.017.i.i.i.i.i.i, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = icmp ult i64 %17, %2
   %19 = getelementptr inbounds i8, ptr %16, i64 8
   %20 = xor i64 %15, -1
-  %21 = add nsw i64 %.017.i.i.i.i.i.i, %20
-  %.112.i.i.i.i.i.i = select i1 %18, ptr %19, ptr %.01116.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = select i1 %18, i64 %21, i64 %15
-  %22 = icmp sgt i64 %.1.i.i.i.i.i.i, 0
+  %21 = add nsw i64 %.01116.i.i.i.i.i.i, %20
+  %.112.i.i.i.i.i.i = select i1 %18, i64 %21, i64 %15
+  %.1.i.i.i.i.i.i = select i1 %18, ptr %19, ptr %.017.i.i.i.i.i.i
+  %22 = icmp sgt i64 %.112.i.i.i.i.i.i, 0
   br i1 %22, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i, label %23, !llvm.loop !5
 
 23:                                               ; preds = %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i.i.i
   %24 = getelementptr inbounds i8, ptr %11, i64 16
   %25 = getelementptr inbounds i8, ptr %11, i64 40
-  %26 = load i64, ptr %.112.i.i.i.i.i.i, align 8
+  %26 = load i64, ptr %.1.i.i.i.i.i.i, align 8
   %27 = uitofp i64 %26 to float
   %28 = fptoui float %27 to i64
   store i64 %28, ptr %25, align 8
@@ -2928,22 +2928,22 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt3tr110_HashtableINSt7__cxx1112b
   br label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i
 
 _ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, %21
-  %.017.i.i.i.i = phi i64 [ 303, %21 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ]
-  %.01116.i.i.i.i = phi ptr [ @_ZNSt3tr18__detail12__prime_listE, %21 ], [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ]
-  %28 = lshr i64 %.017.i.i.i.i, 1
-  %29 = getelementptr inbounds i64, ptr %.01116.i.i.i.i, i64 %28
+  %.017.i.i.i.i = phi ptr [ @_ZNSt3tr18__detail12__prime_listE, %21 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ]
+  %.01116.i.i.i.i = phi i64 [ 303, %21 ], [ %.112.i.i.i.i, %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i ]
+  %28 = lshr i64 %.01116.i.i.i.i, 1
+  %29 = getelementptr inbounds i64, ptr %.017.i.i.i.i, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = icmp ult i64 %30, %27
   %32 = getelementptr inbounds i8, ptr %29, i64 8
   %33 = xor i64 %28, -1
-  %34 = add nsw i64 %.017.i.i.i.i, %33
-  %.112.i.i.i.i = select i1 %31, ptr %32, ptr %.01116.i.i.i.i
-  %.1.i.i.i.i = select i1 %31, i64 %34, i64 %28
-  %35 = icmp sgt i64 %.1.i.i.i.i, 0
+  %34 = add nsw i64 %.01116.i.i.i.i, %33
+  %.112.i.i.i.i = select i1 %31, i64 %34, i64 %28
+  %.1.i.i.i.i = select i1 %31, ptr %32, ptr %.017.i.i.i.i
+  %35 = icmp sgt i64 %.112.i.i.i.i, 0
   br i1 %35, label %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i, label %_ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i, !llvm.loop !5
 
 _ZNKSt3tr18__detail20_Prime_rehash_policy11_M_next_bktEm.exit.i: ; preds = %_ZSt7advanceIPKmlEvRT_T0_.exit.i.i.i.i
-  %36 = load i64, ptr %.112.i.i.i.i, align 8
+  %36 = load i64, ptr %.1.i.i.i.i, align 8
   %37 = uitofp i64 %36 to float
   br label %.sink.split.i
 

@@ -228,7 +228,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %24, %25, %33
 .lr.ph:                                           ; preds = %67, %84
   %76 = phi i64 [ %89, %84 ], [ %71, %67 ]
   %77 = phi i64 [ %85, %84 ], [ %63, %67 ]
-  %.059194 = phi i8 [ %.160, %84 ], [ %62, %67 ]
+  %.060194 = phi i8 [ %.161, %84 ], [ %62, %67 ]
   %78 = getelementptr [292 x i16], ptr @yy_def, i64 0, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = icmp sgt i16 %79, 284
@@ -240,12 +240,12 @@ replication_yyensure_buffer_stack.exit:           ; preds = %24, %25, %33
   br label %84
 
 84:                                               ; preds = %81, %.lr.ph
-  %.160 = phi i8 [ %83, %81 ], [ %.059194, %.lr.ph ]
+  %.161 = phi i8 [ %83, %81 ], [ %.060194, %.lr.ph ]
   %85 = sext i16 %79 to i64
   %86 = getelementptr [292 x i16], ptr @yy_base, i64 0, i64 %85
   %87 = load i16, ptr %86, align 2
   %88 = sext i16 %87 to i64
-  %89 = zext i8 %.160 to i64
+  %89 = zext i8 %.161 to i64
   %90 = add nsw i64 %88, %89
   %91 = getelementptr [628 x i16], ptr @yy_chk, i64 0, i64 %90
   %92 = load i16, ptr %91, align 2
@@ -292,8 +292,8 @@ replication_yyensure_buffer_stack.exit:           ; preds = %24, %25, %33
   br label %109
 
 109:                                              ; preds = %yy_get_next_buffer.exit.thread, %100
-  %.061 = phi i32 [ %104, %100 ], [ %411, %yy_get_next_buffer.exit.thread ]
-  switch i32 %.061, label %425 [
+  %.059 = phi i32 [ %104, %100 ], [ %411, %yy_get_next_buffer.exit.thread ]
+  switch i32 %.059, label %425 [
     i32 0, label %110
     i32 1, label %.loopexit
     i32 2, label %.loopexit206
@@ -612,14 +612,14 @@ replication_yyensure_buffer_stack.exit:           ; preds = %24, %25, %33
   br i1 %235, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %231, %.lr.ph.i
-  %.05385.i = phi i32 [ %239, %.lr.ph.i ], [ 0, %231 ]
-  %.05484.i = phi ptr [ %236, %.lr.ph.i ], [ %216, %231 ]
-  %.05583.i = phi ptr [ %238, %.lr.ph.i ], [ %197, %231 ]
-  %236 = getelementptr i8, ptr %.05484.i, i64 1
-  %237 = load i8, ptr %.05484.i, align 1
-  %238 = getelementptr i8, ptr %.05583.i, i64 1
-  store i8 %237, ptr %.05583.i, align 1
-  %239 = add nuw nsw i32 %.05385.i, 1
+  %.05185.i = phi ptr [ %238, %.lr.ph.i ], [ %197, %231 ]
+  %.05284.i = phi ptr [ %236, %.lr.ph.i ], [ %216, %231 ]
+  %.05383.i = phi i32 [ %239, %.lr.ph.i ], [ 0, %231 ]
+  %236 = getelementptr i8, ptr %.05284.i, i64 1
+  %237 = load i8, ptr %.05284.i, align 1
+  %238 = getelementptr i8, ptr %.05185.i, i64 1
+  store i8 %237, ptr %.05185.i, align 1
+  %239 = add nuw nsw i32 %.05383.i, 1
   %exitcond.not.i = icmp eq i32 %239, %234
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
@@ -642,8 +642,8 @@ replication_yyensure_buffer_stack.exit:           ; preds = %24, %25, %33
   %245 = xor i32 %234, -1
   %.pn.in86.i = getelementptr inbounds i8, ptr %240, i64 24
   %.pn87.i = load i32, ptr %.pn.in86.i, align 8
-  %.05188.i = add i32 %.pn87.i, %245
-  %246 = icmp slt i32 %.05188.i, 1
+  %.05488.i = add i32 %.pn87.i, %245
+  %246 = icmp slt i32 %.05488.i, 1
   br i1 %246, label %.lr.ph90.preheader.i, label %._crit_edge91.i
 
 .lr.ph90.preheader.i:                             ; preds = %244
@@ -701,14 +701,14 @@ replication_yyensure_buffer_stack.exit:           ; preds = %24, %25, %33
   %271 = load ptr, ptr %181, align 8
   %.pn.in.i = getelementptr inbounds i8, ptr %271, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
-  %.051.i = add i32 %.pn.i, %245
-  %272 = icmp slt i32 %.051.i, 1
+  %.054.i = add i32 %.pn.i, %245
+  %272 = icmp slt i32 %.054.i, 1
   br i1 %272, label %.lr.ph90.i, label %._crit_edge91.i, !llvm.loop !9
 
 ._crit_edge91.i:                                  ; preds = %268, %244
   %273 = phi ptr [ %240, %244 ], [ %271, %268 ]
-  %.051.lcssa.i = phi i32 [ %.05188.i, %244 ], [ %.051.i, %268 ]
-  %274 = tail call i32 @llvm.umin.i32(i32 %.051.lcssa.i, i32 8192)
+  %.054.lcssa.i = phi i32 [ %.05488.i, %244 ], [ %.054.i, %268 ]
+  %274 = tail call i32 @llvm.umin.i32(i32 %.054.lcssa.i, i32 8192)
   %275 = getelementptr inbounds i8, ptr %273, i64 36
   %276 = load i32, ptr %275, align 4
   %.not.i77 = icmp eq i32 %276, 0
@@ -749,7 +749,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %24, %25, %33
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %281, %.critedge.split.loop.exit.i
-  %.0.lcssa.i = phi i32 [ %291, %.critedge.split.loop.exit.i ], [ %274, %281 ]
+  %.048.lcssa.i = phi i32 [ %291, %.critedge.split.loop.exit.i ], [ %274, %281 ]
   switch i32 %280, label %.loopexit.i [
     i32 10, label %.loopexit.thread110.i
     i32 -1, label %304
@@ -763,8 +763,8 @@ replication_yyensure_buffer_stack.exit:           ; preds = %24, %25, %33
   %296 = getelementptr inbounds i8, ptr %295, i64 8
   %297 = load ptr, ptr %296, align 8
   %298 = getelementptr i8, ptr %297, i64 %277
-  %299 = add nuw i32 %.0.lcssa.i, 1
-  %300 = zext nneg i32 %.0.lcssa.i to i64
+  %299 = add nuw i32 %.048.lcssa.i, 1
+  %300 = zext nneg i32 %.048.lcssa.i to i64
   %301 = getelementptr i8, ptr %298, i64 %300
   store i8 10, ptr %301, align 1
   store i32 %299, ptr @yy_n_chars, align 4
@@ -854,14 +854,14 @@ replication_yyensure_buffer_stack.exit:           ; preds = %24, %25, %33
   br label %367
 
 .loopexit.i:                                      ; preds = %304, %.critedge.i
-  store i32 %.0.lcssa.i, ptr @yy_n_chars, align 4
+  store i32 %.048.lcssa.i, ptr @yy_n_chars, align 4
   %350 = load ptr, ptr @yy_buffer_stack, align 8
   %351 = load i64, ptr @yy_buffer_stack_top, align 8
   %352 = getelementptr ptr, ptr %350, i64 %351
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds i8, ptr %353, i64 28
-  store i32 %.0.lcssa.i, ptr %354, align 4
-  %355 = icmp eq i32 %.0.lcssa.i, 0
+  store i32 %.048.lcssa.i, ptr %354, align 4
+  %355 = icmp eq i32 %.048.lcssa.i, 0
   br i1 %355, label %357, label %367
 
 .sink.split.i:                                    ; preds = %.loopexit.thread108.i, %.thread77.i
@@ -896,8 +896,8 @@ replication_yyensure_buffer_stack.exit:           ; preds = %24, %25, %33
 367:                                              ; preds = %363, %361, %.loopexit.i, %.loopexit.thread.i, %.loopexit.thread110.i
   %368 = phi i64 [ %.pre105.i, %361 ], [ %358, %363 ], [ %351, %.loopexit.i ], [ %346, %.loopexit.thread.i ], [ %293, %.loopexit.thread110.i ]
   %369 = phi ptr [ %.pre104.i, %361 ], [ %359, %363 ], [ %350, %.loopexit.i ], [ %345, %.loopexit.thread.i ], [ %292, %.loopexit.thread110.i ]
-  %370 = phi i32 [ %.pre103.i, %361 ], [ 0, %363 ], [ %.0.lcssa.i, %.loopexit.i ], [ %.pr.ph.i, %.loopexit.thread.i ], [ %299, %.loopexit.thread110.i ]
-  %.052.i = phi i32 [ 1, %361 ], [ 2, %363 ], [ 0, %.loopexit.i ], [ 0, %.loopexit.thread.i ], [ 0, %.loopexit.thread110.i ]
+  %370 = phi i32 [ %.pre103.i, %361 ], [ 0, %363 ], [ %.048.lcssa.i, %.loopexit.i ], [ %.pr.ph.i, %.loopexit.thread.i ], [ %299, %.loopexit.thread110.i ]
+  %.055.i = phi i32 [ 1, %361 ], [ 2, %363 ], [ 0, %.loopexit.i ], [ 0, %.loopexit.thread.i ], [ 0, %.loopexit.thread110.i ]
   %371 = add i32 %370, %234
   %372 = getelementptr ptr, ptr %369, i64 %368
   %373 = load ptr, ptr %372, align 8
@@ -952,7 +952,7 @@ yy_get_next_buffer.exit:                          ; preds = %367, %390
   %405 = getelementptr inbounds i8, ptr %404, i64 8
   %406 = load ptr, ptr %405, align 8
   store ptr %406, ptr @replication_yytext, align 8
-  switch i32 %.052.i, label %default.unreachable376 [
+  switch i32 %.055.i, label %default.unreachable376 [
     i32 1, label %yy_get_next_buffer.exit.thread
     i32 0, label %412
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread79_crit_edge

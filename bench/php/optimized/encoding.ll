@@ -570,10 +570,10 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr nocapture noundef readon
   br i1 %.not108, label %.loopexit86, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %73
-  %.067106 = phi i32 [ %.2, %73 ], [ 0, %6 ]
-  %.068105 = phi i32 [ %.169, %73 ], [ 0, %6 ]
-  %.073104 = phi i64 [ %74, %73 ], [ 0, %6 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 %.073104
+  %.066106 = phi i64 [ %74, %73 ], [ 0, %6 ]
+  %.068105 = phi i32 [ %.270, %73 ], [ 0, %6 ]
+  %.071104 = phi i32 [ %.172, %73 ], [ 0, %6 ]
+  %7 = getelementptr inbounds i8, ptr %0, i64 %.066106
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = icmp sgt i8 %8, -1
@@ -584,7 +584,7 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr nocapture noundef readon
   %13 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %.not85 = icmp eq i8 %14, 1
-  %spec.select = select i1 %.not85, i32 %.067106, i32 1
+  %spec.select = select i1 %.not85, i32 %.068105, i32 1
   br i1 %.not, label %73, label %.sink.split
 
 15:                                               ; preds = %.lr.ph
@@ -629,26 +629,26 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr nocapture noundef readon
 
 41:                                               ; preds = %38, %35, %32, %29, %26
   %.sink = phi i32 [ 31, %26 ], [ 15, %29 ], [ 7, %32 ], [ 3, %35 ], [ 1, %38 ]
-  %.066 = phi i32 [ 1, %26 ], [ 2, %29 ], [ 3, %32 ], [ 4, %35 ], [ 5, %38 ]
+  %.067 = phi i32 [ 1, %26 ], [ 2, %29 ], [ 3, %32 ], [ 4, %35 ], [ 5, %38 ]
   %42 = and i32 %.sink, %9
-  %.070 = zext nneg i32 %42 to i64
+  %.073 = zext nneg i32 %42 to i64
   %43 = getelementptr inbounds i8, ptr %24, i64 1
-  %44 = add nuw i64 %.073104, 1
-  %45 = add nsw i32 %.066, -1
+  %44 = add nuw i64 %.066106, 1
+  %45 = add nsw i32 %.067, -1
   %46 = zext nneg i32 %45 to i64
   %47 = add i64 %44, %46
   br label %48
 
 48:                                               ; preds = %41, %63
-  %.171103 = phi i64 [ %.070, %41 ], [ %67, %63 ]
-  %.072102 = phi i32 [ 0, %41 ], [ %68, %63 ]
-  %.174101 = phi i64 [ %.073104, %41 ], [ %49, %63 ]
-  %49 = add nuw i64 %.174101, 1
+  %.1103 = phi i64 [ %.066106, %41 ], [ %49, %63 ]
+  %.174102 = phi i64 [ %.073, %41 ], [ %67, %63 ]
+  %.075101 = phi i32 [ 0, %41 ], [ %68, %63 ]
+  %49 = add nuw i64 %.1103, 1
   %.not81 = icmp ult i64 %49, %1
   br i1 %.not81, label %50, label %.loopexit
 
 50:                                               ; preds = %48
-  %51 = icmp eq i32 %.072102, 0
+  %51 = icmp eq i32 %.075101, 0
   %52 = getelementptr inbounds i8, ptr %0, i64 %49
   %53 = load i8, ptr %52, align 1
   br i1 %51, label %54, label %._crit_edge
@@ -672,12 +672,12 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr nocapture noundef readon
   br i1 %or.cond, label %63, label %.loopexit86
 
 63:                                               ; preds = %._crit_edge
-  %64 = shl i64 %.171103, 6
+  %64 = shl i64 %.174102, 6
   %65 = and i32 %60, 63
   %66 = zext nneg i32 %65 to i64
   %67 = or disjoint i64 %64, %66
-  %68 = add nuw nsw i32 %.072102, 1
-  %exitcond.not = icmp eq i32 %68, %.066
+  %68 = add nuw nsw i32 %.075101, 1
+  %exitcond.not = icmp eq i32 %68, %.067
   br i1 %exitcond.not, label %69, label %48
 
 69:                                               ; preds = %63
@@ -685,9 +685,9 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr nocapture noundef readon
 
 .sink.split:                                      ; preds = %69, %11
   %.lcssa.sink = phi i64 [ %12, %11 ], [ %67, %69 ]
-  %.275.ph = phi i64 [ %.073104, %11 ], [ %47, %69 ]
-  %.169.ph = phi i32 [ %.068105, %11 ], [ 1, %69 ]
-  %.2.ph = phi i32 [ %spec.select, %11 ], [ %.067106, %69 ]
+  %.172.ph = phi i32 [ %.071104, %11 ], [ 1, %69 ]
+  %.270.ph = phi i32 [ %spec.select, %11 ], [ %.068105, %69 ]
+  %.2.ph = phi i64 [ %.066106, %11 ], [ %47, %69 ]
   %70 = load i64, ptr %3, align 8
   %71 = add i64 %70, 1
   store i64 %71, ptr %3, align 8
@@ -696,20 +696,20 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr nocapture noundef readon
   br label %73
 
 73:                                               ; preds = %.sink.split, %69, %11
-  %.275 = phi i64 [ %.073104, %11 ], [ %47, %69 ], [ %.275.ph, %.sink.split ]
-  %.169 = phi i32 [ %.068105, %11 ], [ 1, %69 ], [ %.169.ph, %.sink.split ]
-  %.2 = phi i32 [ %spec.select, %11 ], [ %.067106, %69 ], [ %.2.ph, %.sink.split ]
-  %74 = add i64 %.275, 1
+  %.172 = phi i32 [ %.071104, %11 ], [ 1, %69 ], [ %.172.ph, %.sink.split ]
+  %.270 = phi i32 [ %spec.select, %11 ], [ %.068105, %69 ], [ %.270.ph, %.sink.split ]
+  %.2 = phi i64 [ %.066106, %11 ], [ %47, %69 ], [ %.2.ph, %.sink.split ]
+  %74 = add i64 %.2, 1
   %75 = icmp ult i64 %74, %1
   br i1 %75, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %73, %48
-  %.068100 = phi i32 [ %.068105, %48 ], [ %.169, %73 ]
-  %.06796 = phi i32 [ %.067106, %48 ], [ %.2, %73 ]
-  %.06796.fr = freeze i32 %.06796
-  %.not83 = icmp eq i32 %.06796.fr, 0
-  %.068100.fr = freeze i32 %.068100
-  %.not84 = icmp eq i32 %.068100.fr, 0
+  %.071100 = phi i32 [ %.071104, %48 ], [ %.172, %73 ]
+  %.06896 = phi i32 [ %.068105, %48 ], [ %.270, %73 ]
+  %.06896.fr = freeze i32 %.06896
+  %.not83 = icmp eq i32 %.06896.fr, 0
+  %.071100.fr = freeze i32 %.071100
+  %.not84 = icmp eq i32 %.071100.fr, 0
   %. = select i1 %.not84, i32 1, i32 2
   %spec.select143 = select i1 %.not83, i32 %., i32 0
   br label %.loopexit86

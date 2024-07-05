@@ -537,10 +537,10 @@ read_token.exit:                                  ; preds = %skipWhiteSpace.exit
 .lr.ph:                                           ; preds = %read_token.exit, %.lr.ph
   %15 = phi i8 [ %21, %.lr.ph ], [ %14, %read_token.exit ]
   %16 = phi ptr [ %20, %.lr.ph ], [ @read_token.static_buffer, %read_token.exit ]
-  %.025 = phi i32 [ %18, %.lr.ph ], [ 0, %read_token.exit ]
+  %.01625 = phi i32 [ %18, %.lr.ph ], [ 0, %read_token.exit ]
   %17 = tail call signext i8 @g_ascii_tolower(i8 noundef signext %15) #17
   store i8 %17, ptr %16, align 1
-  %18 = add i32 %.025, 1
+  %18 = add i32 %.01625, 1
   %19 = zext i32 %18 to i64
   %20 = getelementptr i8, ptr @read_token.static_buffer, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -561,8 +561,8 @@ read_token.exit:                                  ; preds = %skipWhiteSpace.exit
   br label %29
 
 29:                                               ; preds = %read_token.exit, %._crit_edge, %25
-  %.016 = phi ptr [ @expand_reference.expanded_reference, %25 ], [ %1, %._crit_edge ], [ @.str.1, %read_token.exit ]
-  ret ptr %.016
+  %.0 = phi ptr [ @expand_reference.expanded_reference, %25 ], [ %1, %._crit_edge ], [ @.str.1, %read_token.exit ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -666,11 +666,11 @@ define internal i32 @string_hash(ptr nocapture noundef readonly %0) #8 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.015 = phi i8 [ %.0, %.lr.ph ], [ %.011, %1 ]
-  %.0814 = phi i32 [ %4, %.lr.ph ], [ 0, %1 ]
-  %.0913 = phi i32 [ %3, %.lr.ph ], [ 0, %1 ]
+  %.0814 = phi i32 [ %3, %.lr.ph ], [ 0, %1 ]
+  %.0913 = phi i32 [ %4, %.lr.ph ], [ 0, %1 ]
   %2 = sext i8 %.015 to i32
-  %3 = add i32 %.0913, %2
-  %4 = add i32 %.0814, 1
+  %3 = add i32 %.0814, %2
+  %4 = add i32 %.0913, 1
   %5 = zext i32 %4 to i64
   %6 = getelementptr i8, ptr %0, i64 %5
   %.0 = load i8, ptr %6, align 1
@@ -678,8 +678,8 @@ define internal i32 @string_hash(ptr nocapture noundef readonly %0) #8 {
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.09.lcssa = phi i32 [ 0, %1 ], [ %3, %.lr.ph ]
-  ret i32 %.09.lcssa
+  %.08.lcssa = phi i32 [ 0, %1 ], [ %3, %.lr.ph ]
+  ret i32 %.08.lcssa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
@@ -708,10 +708,10 @@ define internal fastcc void @parse_config_file(ptr nocapture noundef %0, ptr noc
 
 .preheader:                                       ; preds = %5
   %9 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef %1)
-  %.not98 = icmp eq ptr %9, null
-  br i1 %.not98, label %.loopexit, label %.lr.ph100
+  %.not97 = icmp eq ptr %9, null
+  br i1 %.not97, label %.loopexit, label %.lr.ph99
 
-.lr.ph100:                                        ; preds = %.preheader
+.lr.ph99:                                         ; preds = %.preheader
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = getelementptr inbounds i8, ptr %0, i64 24
@@ -726,9 +726,9 @@ define internal fastcc void @parse_config_file(ptr nocapture noundef %0, ptr noc
   %21 = getelementptr inbounds i8, ptr %0, i64 60
   br label %22
 
-22:                                               ; preds = %.lr.ph100, %.backedge
-  %.02399 = phi i32 [ 0, %.lr.ph100 ], [ %23, %.backedge ]
-  %23 = add i32 %.02399, 1
+22:                                               ; preds = %.lr.ph99, %.backedge
+  %.02398 = phi i32 [ 0, %.lr.ph99 ], [ %23, %.backedge ]
+  %23 = add i32 %.02398, 1
   %24 = load i8, ptr %7, align 16
   switch i8 %24, label %25 [
     i8 35, label %.backedge
@@ -738,12 +738,12 @@ define internal fastcc void @parse_config_file(ptr nocapture noundef %0, ptr noc
 25:                                               ; preds = %22
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #15
   %27 = trunc i64 %26 to i32
-  %.not2588 = icmp eq i32 %27, 0
-  br i1 %.not2588, label %.critedge, label %.lr.ph
+  %.not2587 = icmp eq i32 %27, 0
+  br i1 %.not2587, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %.critedge5
-  %.089 = phi i32 [ %28, %.critedge5 ], [ %27, %25 ]
-  %28 = add i32 %.089, -1
+  %.088 = phi i32 [ %28, %.critedge5 ], [ %27, %25 ]
+  %28 = add i32 %.088, -1
   %29 = sext i32 %28 to i64
   %30 = getelementptr [4096 x i8], ptr %7, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
@@ -762,7 +762,7 @@ define internal fastcc void @parse_config_file(ptr nocapture noundef %0, ptr noc
 
 32:                                               ; preds = %.lr.ph
   %33 = getelementptr [4096 x i8], ptr %7, i64 0, i64 %29
-  %34 = sext i32 %.089 to i64
+  %34 = sext i32 %.088 to i64
   %35 = getelementptr [4096 x i8], ptr %7, i64 0, i64 %34
   store i8 0, ptr %35, align 1
   br label %36
@@ -783,8 +783,8 @@ skipWhiteSpace.exit.i.i.preheader:                ; preds = %36
 .critedge.i.i.i:                                  ; preds = %36, %36
   %40 = add i32 %.0.i.i.i, 1
   %.phi.trans.insert = sext i32 %40 to i64
-  %.phi.trans.insert126 = getelementptr i8, ptr %7, i64 %.phi.trans.insert
-  %.pre = load i8, ptr %.phi.trans.insert126, align 1
+  %.phi.trans.insert125 = getelementptr i8, ptr %7, i64 %.phi.trans.insert
+  %.pre = load i8, ptr %.phi.trans.insert125, align 1
   br label %36, !llvm.loop !4
 
 skipWhiteSpace.exit.i.i:                          ; preds = %skipWhiteSpace.exit.i.i.preheader, %skipWhiteSpace.exit.i.i
@@ -808,53 +808,53 @@ skipWhiteSpace.exit.i.i:                          ; preds = %skipWhiteSpace.exit
   br i1 %48, label %53, label %49
 
 49:                                               ; preds = %45
-  %bcmp51.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @read_token.static_buffer, ptr noundef nonnull dereferenceable(5) @.str.5, i64 5)
-  %50 = icmp eq i32 %bcmp51.i, 0
+  %bcmp50.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @read_token.static_buffer, ptr noundef nonnull dereferenceable(5) @.str.5, i64 5)
+  %50 = icmp eq i32 %bcmp50.i, 0
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %49
-  %bcmp52.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @read_token.static_buffer, ptr noundef nonnull dereferenceable(7) @.str.6, i64 7)
-  %52 = icmp eq i32 %bcmp52.i, 0
+  %bcmp51.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @read_token.static_buffer, ptr noundef nonnull dereferenceable(7) @.str.6, i64 7)
+  %52 = icmp eq i32 %bcmp51.i, 0
   br i1 %52, label %53, label %parse_variables_line.exit
 
 53:                                               ; preds = %51, %49, %45
-  %.0.i = phi i32 [ 0, %45 ], [ 1, %49 ], [ 2, %51 ]
+  %.024.i = phi i32 [ 0, %45 ], [ 1, %49 ], [ 2, %51 ]
   %54 = sext i32 %46 to i64
   %55 = getelementptr i8, ptr %7, i64 %54
   br label %56
 
-56:                                               ; preds = %.critedge.i.i29.i, %53
-  %.0.i.i28.i = phi i32 [ 0, %53 ], [ %60, %.critedge.i.i29.i ]
-  %57 = sext i32 %.0.i.i28.i to i64
+56:                                               ; preds = %.critedge.i.i28.i, %53
+  %.0.i.i27.i = phi i32 [ 0, %53 ], [ %60, %.critedge.i.i28.i ]
+  %57 = sext i32 %.0.i.i27.i to i64
   %58 = getelementptr i8, ptr %55, i64 %57
   %59 = load i8, ptr %58, align 1
-  switch i8 %59, label %skipWhiteSpace.exit.i30.i [
-    i8 32, label %.critedge.i.i29.i
-    i8 9, label %.critedge.i.i29.i
+  switch i8 %59, label %skipWhiteSpace.exit.i29.i [
+    i8 32, label %.critedge.i.i28.i
+    i8 9, label %.critedge.i.i28.i
   ]
 
-.critedge.i.i29.i:                                ; preds = %56, %56
-  %60 = add i32 %.0.i.i28.i, 1
+.critedge.i.i28.i:                                ; preds = %56, %56
+  %60 = add i32 %.0.i.i27.i, 1
   br label %56, !llvm.loop !4
 
-skipWhiteSpace.exit.i30.i:                        ; preds = %56
+skipWhiteSpace.exit.i29.i:                        ; preds = %56
   %61 = getelementptr i8, ptr %55, i64 %57
-  %62 = add i32 %.0.i.i28.i, %46
+  %62 = add i32 %.0.i.i27.i, %46
   br label %63
 
-63:                                               ; preds = %63, %skipWhiteSpace.exit.i30.i
-  %.021.i31.i = phi i32 [ 0, %skipWhiteSpace.exit.i30.i ], [ %67, %63 ]
-  %64 = sext i32 %.021.i31.i to i64
+63:                                               ; preds = %63, %skipWhiteSpace.exit.i29.i
+  %.021.i30.i = phi i32 [ 0, %skipWhiteSpace.exit.i29.i ], [ %67, %63 ]
+  %64 = sext i32 %.021.i30.i to i64
   %65 = getelementptr i8, ptr %61, i64 %64
   %66 = load i8, ptr %65, align 1
-  %67 = add i32 %.021.i31.i, 1
+  %67 = add i32 %.021.i30.i, 1
   switch i8 %66, label %63 [
     i8 32, label %68
     i8 0, label %68
   ]
 
 68:                                               ; preds = %63, %63
-  %69 = add i32 %62, %.021.i31.i
+  %69 = add i32 %62, %.021.i30.i
   %70 = sext i32 %67 to i64
   %71 = call noalias ptr @g_strndup(ptr noundef nonnull %61, i64 noundef %70) #16
   %72 = getelementptr i8, ptr %71, i64 %64
@@ -863,41 +863,41 @@ skipWhiteSpace.exit.i30.i:                        ; preds = %56
   %74 = getelementptr i8, ptr %7, i64 %73
   br label %75
 
-75:                                               ; preds = %.critedge.i.i37.i, %68
-  %.0.i.i36.i = phi i32 [ 0, %68 ], [ %80, %.critedge.i.i37.i ]
-  %76 = sext i32 %.0.i.i36.i to i64
+75:                                               ; preds = %.critedge.i.i36.i, %68
+  %.0.i.i35.i = phi i32 [ 0, %68 ], [ %80, %.critedge.i.i36.i ]
+  %76 = sext i32 %.0.i.i35.i to i64
   %77 = getelementptr i8, ptr %74, i64 %76
   %78 = load i8, ptr %77, align 1
-  switch i8 %78, label %skipWhiteSpace.exit.i38.i.preheader [
-    i8 32, label %.critedge.i.i37.i
-    i8 9, label %.critedge.i.i37.i
+  switch i8 %78, label %skipWhiteSpace.exit.i37.i.preheader [
+    i8 32, label %.critedge.i.i36.i
+    i8 9, label %.critedge.i.i36.i
   ]
 
-skipWhiteSpace.exit.i38.i.preheader:              ; preds = %75
+skipWhiteSpace.exit.i37.i.preheader:              ; preds = %75
   %79 = getelementptr i8, ptr %74, i64 %76
-  br label %skipWhiteSpace.exit.i38.i
+  br label %skipWhiteSpace.exit.i37.i
 
-.critedge.i.i37.i:                                ; preds = %75, %75
-  %80 = add i32 %.0.i.i36.i, 1
+.critedge.i.i36.i:                                ; preds = %75, %75
+  %80 = add i32 %.0.i.i35.i, 1
   br label %75, !llvm.loop !4
 
-skipWhiteSpace.exit.i38.i:                        ; preds = %skipWhiteSpace.exit.i38.i.preheader, %skipWhiteSpace.exit.i38.i
-  %.021.i39.i = phi i32 [ %84, %skipWhiteSpace.exit.i38.i ], [ 0, %skipWhiteSpace.exit.i38.i.preheader ]
-  %81 = sext i32 %.021.i39.i to i64
+skipWhiteSpace.exit.i37.i:                        ; preds = %skipWhiteSpace.exit.i37.i.preheader, %skipWhiteSpace.exit.i37.i
+  %.021.i38.i = phi i32 [ %84, %skipWhiteSpace.exit.i37.i ], [ 0, %skipWhiteSpace.exit.i37.i.preheader ]
+  %81 = sext i32 %.021.i38.i to i64
   %82 = getelementptr i8, ptr %79, i64 %81
   %83 = load i8, ptr %82, align 1
-  %84 = add i32 %.021.i39.i, 1
-  switch i8 %83, label %skipWhiteSpace.exit.i38.i [
+  %84 = add i32 %.021.i38.i, 1
+  switch i8 %83, label %skipWhiteSpace.exit.i37.i [
     i8 32, label %85
     i8 0, label %85
   ]
 
-85:                                               ; preds = %skipWhiteSpace.exit.i38.i, %skipWhiteSpace.exit.i38.i
+85:                                               ; preds = %skipWhiteSpace.exit.i37.i, %skipWhiteSpace.exit.i37.i
   %86 = sext i32 %84 to i64
   %87 = call noalias ptr @g_strndup(ptr noundef nonnull %79, i64 noundef %86) #16
   %88 = getelementptr i8, ptr %87, i64 %81
   store i8 0, ptr %88, align 1
-  switch i32 %.0.i, label %default.unreachable [
+  switch i32 %.024.i, label %default.unreachable [
     i32 0, label %89
     i32 1, label %.sink.split.i
     i32 2, label %94
@@ -921,17 +921,17 @@ default.unreachable:                              ; preds = %85
   unreachable
 
 .sink.split.i:                                    ; preds = %85, %94, %92, %89
-  %.sink81.i = phi ptr [ %10, %94 ], [ %0, %92 ], [ %0, %89 ], [ %11, %85 ]
-  %95 = load ptr, ptr %.sink81.i, align 8
+  %.sink80.i = phi ptr [ %10, %94 ], [ %0, %92 ], [ %0, %89 ], [ %11, %85 ]
+  %95 = load ptr, ptr %.sink80.i, align 8
   %96 = call i32 @g_hash_table_insert(ptr noundef %95, ptr noundef nonnull %71, ptr noundef nonnull %87) #16
   br label %parse_variables_line.exit
 
 parse_variables_line.exit:                        ; preds = %51, %.sink.split.i
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %7, ptr noundef nonnull dereferenceable(18) @.str.8, i64 18)
   %.not.i = icmp eq i32 %bcmp, 0
-  br i1 %.not.i, label %.preheader101, label %parse_references_prefix_file_line.exit.preheader
+  br i1 %.not.i, label %.preheader100, label %parse_references_prefix_file_line.exit.preheader
 
-.preheader101:                                    ; preds = %parse_variables_line.exit, %.critedge.i.i.i29
+.preheader100:                                    ; preds = %parse_variables_line.exit, %.critedge.i.i.i29
   %.0.i.i.i28 = phi i32 [ %101, %.critedge.i.i.i29 ], [ 0, %parse_variables_line.exit ]
   %97 = sext i32 %.0.i.i.i28 to i64
   %98 = getelementptr i8, ptr %14, i64 %97
@@ -941,13 +941,13 @@ parse_variables_line.exit:                        ; preds = %51, %.sink.split.i
     i8 9, label %.critedge.i.i.i29
   ]
 
-skipWhiteSpace.exit.i.i31.preheader:              ; preds = %.preheader101
+skipWhiteSpace.exit.i.i31.preheader:              ; preds = %.preheader100
   %100 = getelementptr i8, ptr %14, i64 %97
   br label %skipWhiteSpace.exit.i.i31
 
-.critedge.i.i.i29:                                ; preds = %.preheader101, %.preheader101
+.critedge.i.i.i29:                                ; preds = %.preheader100, %.preheader100
   %101 = add i32 %.0.i.i.i28, 1
-  br label %.preheader101, !llvm.loop !4
+  br label %.preheader100, !llvm.loop !4
 
 skipWhiteSpace.exit.i.i31:                        ; preds = %skipWhiteSpace.exit.i.i31.preheader, %skipWhiteSpace.exit.i.i31
   %.021.i.i32 = phi i32 [ %105, %skipWhiteSpace.exit.i.i31 ], [ 0, %skipWhiteSpace.exit.i.i31.preheader ]
@@ -1029,37 +1029,37 @@ read_token.exit23.i:                              ; preds = %skipWhiteSpace.exit
 parse_references_prefix_file_line.exit.preheader: ; preds = %parse_variables_line.exit, %read_token.exit23.i
   br label %parse_references_prefix_file_line.exit
 
-parse_references_prefix_file_line.exit:           ; preds = %parse_references_prefix_file_line.exit.preheader, %.critedge.i.i46
-  %.0.i.i45 = phi i32 [ %139, %.critedge.i.i46 ], [ 0, %parse_references_prefix_file_line.exit.preheader ]
-  %135 = sext i32 %.0.i.i45 to i64
+parse_references_prefix_file_line.exit:           ; preds = %parse_references_prefix_file_line.exit.preheader, %.critedge.i.i45
+  %.0.i.i44 = phi i32 [ %139, %.critedge.i.i45 ], [ 0, %parse_references_prefix_file_line.exit.preheader ]
+  %135 = sext i32 %.0.i.i44 to i64
   %136 = getelementptr i8, ptr %7, i64 %135
   %137 = load i8, ptr %136, align 1
-  switch i8 %137, label %skipWhiteSpace.exit.i47.preheader [
-    i8 32, label %.critedge.i.i46
-    i8 9, label %.critedge.i.i46
+  switch i8 %137, label %skipWhiteSpace.exit.i46.preheader [
+    i8 32, label %.critedge.i.i45
+    i8 9, label %.critedge.i.i45
   ]
 
-skipWhiteSpace.exit.i47.preheader:                ; preds = %parse_references_prefix_file_line.exit
+skipWhiteSpace.exit.i46.preheader:                ; preds = %parse_references_prefix_file_line.exit
   %138 = getelementptr i8, ptr %7, i64 %135
-  br label %skipWhiteSpace.exit.i47
+  br label %skipWhiteSpace.exit.i46
 
-.critedge.i.i46:                                  ; preds = %parse_references_prefix_file_line.exit, %parse_references_prefix_file_line.exit
-  %139 = add i32 %.0.i.i45, 1
+.critedge.i.i45:                                  ; preds = %parse_references_prefix_file_line.exit, %parse_references_prefix_file_line.exit
+  %139 = add i32 %.0.i.i44, 1
   br label %parse_references_prefix_file_line.exit, !llvm.loop !4
 
-skipWhiteSpace.exit.i47:                          ; preds = %skipWhiteSpace.exit.i47.preheader, %skipWhiteSpace.exit.i47
-  %.021.i48 = phi i32 [ %143, %skipWhiteSpace.exit.i47 ], [ 0, %skipWhiteSpace.exit.i47.preheader ]
-  %140 = sext i32 %.021.i48 to i64
+skipWhiteSpace.exit.i46:                          ; preds = %skipWhiteSpace.exit.i46.preheader, %skipWhiteSpace.exit.i46
+  %.021.i47 = phi i32 [ %143, %skipWhiteSpace.exit.i46 ], [ 0, %skipWhiteSpace.exit.i46.preheader ]
+  %140 = sext i32 %.021.i47 to i64
   %141 = getelementptr i8, ptr %138, i64 %140
   %142 = load i8, ptr %141, align 1
-  %143 = add i32 %.021.i48, 1
-  switch i8 %142, label %skipWhiteSpace.exit.i47 [
-    i8 32, label %read_token.exit53
-    i8 0, label %read_token.exit53
+  %143 = add i32 %.021.i47, 1
+  switch i8 %142, label %skipWhiteSpace.exit.i46 [
+    i8 32, label %read_token.exit52
+    i8 0, label %read_token.exit52
   ]
 
-read_token.exit53:                                ; preds = %skipWhiteSpace.exit.i47, %skipWhiteSpace.exit.i47
-  %144 = add i32 %.021.i48, %.0.i.i45
+read_token.exit52:                                ; preds = %skipWhiteSpace.exit.i46, %skipWhiteSpace.exit.i46
+  %144 = add i32 %.021.i47, %.0.i.i44
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @read_token.static_buffer, ptr nonnull align 1 %138, i64 %140, i1 false)
   %145 = getelementptr [1024 x i8], ptr @read_token.static_buffer, i64 0, i64 %140
   store i8 0, ptr %145, align 1
@@ -1067,9 +1067,9 @@ read_token.exit53:                                ; preds = %skipWhiteSpace.exit
   %146 = icmp eq i8 %char0.i, 0
   br i1 %146, label %186, label %147
 
-147:                                              ; preds = %read_token.exit53
-  %bcmp62 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @read_token.static_buffer, ptr noundef nonnull dereferenceable(7) @.str.9, i64 7)
-  %.not.i33 = icmp eq i32 %bcmp62, 0
+147:                                              ; preds = %read_token.exit52
+  %bcmp61 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @read_token.static_buffer, ptr noundef nonnull dereferenceable(7) @.str.9, i64 7)
+  %.not.i33 = icmp eq i32 %bcmp61, 0
   br i1 %.not.i33, label %148, label %186
 
 148:                                              ; preds = %147
@@ -1078,8 +1078,8 @@ read_token.exit53:                                ; preds = %skipWhiteSpace.exit
   br label %151
 
 151:                                              ; preds = %.critedge.i.i, %148
-  %.0.i.i42 = phi i32 [ 0, %148 ], [ %156, %.critedge.i.i ]
-  %152 = sext i32 %.0.i.i42 to i64
+  %.0.i.i41 = phi i32 [ 0, %148 ], [ %156, %.critedge.i.i ]
+  %152 = sext i32 %.0.i.i41 to i64
   %153 = getelementptr i8, ptr %150, i64 %152
   %154 = load i8, ptr %153, align 1
   switch i8 %154, label %skipWhiteSpace.exit.i.preheader [
@@ -1092,7 +1092,7 @@ skipWhiteSpace.exit.i.preheader:                  ; preds = %151
   br label %skipWhiteSpace.exit.i
 
 .critedge.i.i:                                    ; preds = %151, %151
-  %156 = add i32 %.0.i.i42, 1
+  %156 = add i32 %.0.i.i41, 1
   br label %151, !llvm.loop !4
 
 skipWhiteSpace.exit.i:                            ; preds = %skipWhiteSpace.exit.i.preheader, %skipWhiteSpace.exit.i
@@ -1115,8 +1115,8 @@ read_token.exit:                                  ; preds = %skipWhiteSpace.exit
   br i1 %.not32.i, label %186, label %163
 
 163:                                              ; preds = %read_token.exit
-  %bcmp63 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) @read_token.static_buffer, ptr noundef nonnull dereferenceable(10) @.str.10, i64 10)
-  %.not36.i = icmp eq i32 %bcmp63, 0
+  %bcmp62 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) @read_token.static_buffer, ptr noundef nonnull dereferenceable(10) @.str.10, i64 10)
+  %.not36.i = icmp eq i32 %bcmp62, 0
   br i1 %.not36.i, label %164, label %171
 
 164:                                              ; preds = %163
@@ -1172,9 +1172,9 @@ parse_include_file.exit:                          ; preds = %181, %182
   %185 = call i32 @fclose(ptr noundef nonnull %178)
   br label %.backedge
 
-186:                                              ; preds = %180, %read_token.exit53, %147, %read_token.exit
-  %bcmp64 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %7, ptr noundef nonnull dereferenceable(6) @.str.12, i64 6)
-  %.not.i34 = icmp eq i32 %bcmp64, 0
+186:                                              ; preds = %180, %read_token.exit52, %147, %read_token.exit
+  %bcmp63 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %7, ptr noundef nonnull dereferenceable(6) @.str.12, i64 6)
+  %.not.i34 = icmp eq i32 %bcmp63, 0
   br i1 %.not.i34, label %187, label %.backedge
 
 187:                                              ; preds = %186
@@ -1189,36 +1189,36 @@ parse_include_file.exit:                          ; preds = %181, %182
   store i32 %23, ptr %189, align 8
   br label %193
 
-193:                                              ; preds = %.critedge.i.i.i37, %187
-  %.0.i.i.i36 = phi i32 [ 0, %187 ], [ %198, %.critedge.i.i.i37 ]
-  %194 = sext i32 %.0.i.i.i36 to i64
+193:                                              ; preds = %.critedge.i.i.i36, %187
+  %.0.i.i.i35 = phi i32 [ 0, %187 ], [ %198, %.critedge.i.i.i36 ]
+  %194 = sext i32 %.0.i.i.i35 to i64
   %195 = getelementptr i8, ptr %18, i64 %194
   %196 = load i8, ptr %195, align 1
-  switch i8 %196, label %skipWhiteSpace.exit.i.i39.preheader [
-    i8 32, label %.critedge.i.i.i37
-    i8 9, label %.critedge.i.i.i37
+  switch i8 %196, label %skipWhiteSpace.exit.i.i38.preheader [
+    i8 32, label %.critedge.i.i.i36
+    i8 9, label %.critedge.i.i.i36
   ]
 
-skipWhiteSpace.exit.i.i39.preheader:              ; preds = %193
+skipWhiteSpace.exit.i.i38.preheader:              ; preds = %193
   %197 = getelementptr i8, ptr %18, i64 %194
-  br label %skipWhiteSpace.exit.i.i39
+  br label %skipWhiteSpace.exit.i.i38
 
-.critedge.i.i.i37:                                ; preds = %193, %193
-  %198 = add i32 %.0.i.i.i36, 1
+.critedge.i.i.i36:                                ; preds = %193, %193
+  %198 = add i32 %.0.i.i.i35, 1
   br label %193, !llvm.loop !4
 
-skipWhiteSpace.exit.i.i39:                        ; preds = %skipWhiteSpace.exit.i.i39.preheader, %skipWhiteSpace.exit.i.i39
-  %.021.i.i40 = phi i32 [ %202, %skipWhiteSpace.exit.i.i39 ], [ 0, %skipWhiteSpace.exit.i.i39.preheader ]
-  %199 = sext i32 %.021.i.i40 to i64
+skipWhiteSpace.exit.i.i38:                        ; preds = %skipWhiteSpace.exit.i.i38.preheader, %skipWhiteSpace.exit.i.i38
+  %.021.i.i39 = phi i32 [ %202, %skipWhiteSpace.exit.i.i38 ], [ 0, %skipWhiteSpace.exit.i.i38.preheader ]
+  %199 = sext i32 %.021.i.i39 to i64
   %200 = getelementptr i8, ptr %197, i64 %199
   %201 = load i8, ptr %200, align 1
-  %202 = add i32 %.021.i.i40, 1
-  switch i8 %201, label %skipWhiteSpace.exit.i.i39 [
-    i8 32, label %read_token.exit.i41
-    i8 0, label %read_token.exit.i41
+  %202 = add i32 %.021.i.i39, 1
+  switch i8 %201, label %skipWhiteSpace.exit.i.i38 [
+    i8 32, label %read_token.exit.i40
+    i8 0, label %read_token.exit.i40
   ]
 
-read_token.exit.i41:                              ; preds = %skipWhiteSpace.exit.i.i39, %skipWhiteSpace.exit.i.i39
+read_token.exit.i40:                              ; preds = %skipWhiteSpace.exit.i.i38, %skipWhiteSpace.exit.i.i38
   %203 = sext i32 %202 to i64
   %204 = call noalias ptr @g_strndup(ptr noundef nonnull %197, i64 noundef %203) #16
   %205 = getelementptr i8, ptr %204, i64 %199
@@ -1229,11 +1229,11 @@ read_token.exit.i41:                              ; preds = %skipWhiteSpace.exit
   %207 = icmp eq ptr %strchr.i, null
   br i1 %207, label %208, label %209
 
-208:                                              ; preds = %read_token.exit.i41
+208:                                              ; preds = %read_token.exit.i40
   call void @g_free(ptr noundef nonnull %188) #16
   br label %.backedge
 
-209:                                              ; preds = %read_token.exit.i41
+209:                                              ; preds = %read_token.exit.i40
   %210 = load i8, ptr %33, align 1
   %.not56.i = icmp eq i8 %210, 41
   br i1 %.not56.i, label %212, label %211
@@ -1966,13 +1966,13 @@ define hidden i32 @content_convert_to_binary(ptr nocapture noundef %0) local_unn
 
 9:                                                ; preds = %.preheader, %50
   %10 = phi i1 [ %51, %50 ], [ %content_get_nibble_value.values_set.promoted, %.preheader ]
-  %.038 = phi i32 [ %.139, %50 ], [ 0, %.preheader ]
-  %.036 = phi i32 [ %.137, %50 ], [ 0, %.preheader ]
-  %.034 = phi i32 [ %.135, %50 ], [ 0, %.preheader ]
-  %.032 = phi i8 [ %.133, %50 ], [ 0, %.preheader ]
-  %.031 = phi i32 [ %52, %50 ], [ 0, %.preheader ]
-  %.0 = phi i32 [ %.1, %50 ], [ 0, %.preheader ]
-  %11 = sext i32 %.031 to i64
+  %.039 = phi i32 [ %.140, %50 ], [ 0, %.preheader ]
+  %.037 = phi i32 [ %.138, %50 ], [ 0, %.preheader ]
+  %.035 = phi i8 [ %.136, %50 ], [ 0, %.preheader ]
+  %.033 = phi i32 [ %.134, %50 ], [ 0, %.preheader ]
+  %.032 = phi i32 [ %52, %50 ], [ 0, %.preheader ]
+  %.031 = phi i32 [ %.1, %50 ], [ 0, %.preheader ]
+  %11 = sext i32 %.032 to i64
   %12 = getelementptr i8, ptr %5, i64 %11
   %13 = load i8, ptr %12, align 1
   switch i8 %13, label %16 [
@@ -1981,16 +1981,16 @@ define hidden i32 @content_convert_to_binary(ptr nocapture noundef %0) local_unn
   ]
 
 14:                                               ; preds = %9
-  %.not46 = icmp eq i32 %.036, 0
+  %.not46 = icmp eq i32 %.039, 0
   %15 = zext i1 %.not46 to i32
   br label %50
 
 16:                                               ; preds = %9
-  %.not43 = icmp eq i32 %.036, 0
+  %.not43 = icmp eq i32 %.039, 0
   br i1 %.not43, label %17, label %28
 
 17:                                               ; preds = %16
-  %.not44 = icmp eq i32 %.0, 0
+  %.not44 = icmp eq i32 %.031, 0
   br i1 %.not44, label %18, label %24
 
 18:                                               ; preds = %17
@@ -1998,15 +1998,15 @@ define hidden i32 @content_convert_to_binary(ptr nocapture noundef %0) local_unn
   br i1 %19, label %50, label %20
 
 20:                                               ; preds = %18
-  %21 = add i32 %.038, 1
-  %22 = sext i32 %.038 to i64
+  %21 = add i32 %.033, 1
+  %22 = sext i32 %.033 to i64
   %23 = getelementptr [1024 x i8], ptr @content_convert_to_binary.binary_str, i64 0, i64 %22
   store i8 %13, ptr %23, align 1
   br label %50
 
 24:                                               ; preds = %17
-  %25 = add i32 %.038, 1
-  %26 = sext i32 %.038 to i64
+  %25 = add i32 %.033, 1
+  %26 = sext i32 %.033 to i64
   %27 = getelementptr [1024 x i8], ptr @content_convert_to_binary.binary_str, i64 0, i64 %26
   store i8 %13, ptr %27, align 1
   br label %50
@@ -2056,30 +2056,30 @@ content_get_nibble_value.exit:                    ; preds = %30, %40
   %41 = zext i8 %13 to i64
   %42 = getelementptr [256 x i8], ptr @content_get_nibble_value.values, i64 0, i64 %41
   %43 = load i8, ptr %42, align 1
-  %.not45 = icmp eq i32 %.034, 0
+  %.not45 = icmp eq i32 %.037, 0
   br i1 %.not45, label %50, label %44
 
 44:                                               ; preds = %content_get_nibble_value.exit
-  %45 = shl i8 %.032, 4
+  %45 = shl i8 %.035, 4
   %46 = add i8 %43, %45
-  %47 = add i32 %.038, 1
-  %48 = sext i32 %.038 to i64
+  %47 = add i32 %.033, 1
+  %48 = sext i32 %.033 to i64
   %49 = getelementptr [1024 x i8], ptr @content_convert_to_binary.binary_str, i64 0, i64 %48
   store i8 %46, ptr %49, align 1
   br label %50
 
 50:                                               ; preds = %content_get_nibble_value.exit, %18, %24, %20, %44, %28, %14
   %51 = phi i1 [ %10, %14 ], [ %10, %28 ], [ true, %44 ], [ %10, %24 ], [ %10, %20 ], [ %10, %18 ], [ true, %content_get_nibble_value.exit ]
-  %.139 = phi i32 [ %.038, %14 ], [ %.038, %28 ], [ %47, %44 ], [ %25, %24 ], [ %21, %20 ], [ %.038, %18 ], [ %.038, %content_get_nibble_value.exit ]
-  %.137 = phi i32 [ %15, %14 ], [ 1, %28 ], [ 1, %44 ], [ 0, %24 ], [ 0, %20 ], [ 0, %18 ], [ 1, %content_get_nibble_value.exit ]
-  %.135 = phi i32 [ %.034, %14 ], [ %.034, %28 ], [ 0, %44 ], [ %.034, %24 ], [ %.034, %20 ], [ %.034, %18 ], [ 1, %content_get_nibble_value.exit ]
-  %.133 = phi i8 [ %.032, %14 ], [ %.032, %28 ], [ %.032, %44 ], [ %.032, %24 ], [ %.032, %20 ], [ %.032, %18 ], [ %43, %content_get_nibble_value.exit ]
-  %.1 = phi i32 [ %.0, %14 ], [ %.0, %28 ], [ %.0, %44 ], [ 0, %24 ], [ 0, %20 ], [ 1, %18 ], [ %.0, %content_get_nibble_value.exit ]
-  %52 = add i32 %.031, 1
+  %.140 = phi i32 [ %15, %14 ], [ 1, %28 ], [ 1, %44 ], [ 0, %24 ], [ 0, %20 ], [ 0, %18 ], [ 1, %content_get_nibble_value.exit ]
+  %.138 = phi i32 [ %.037, %14 ], [ %.037, %28 ], [ 0, %44 ], [ %.037, %24 ], [ %.037, %20 ], [ %.037, %18 ], [ 1, %content_get_nibble_value.exit ]
+  %.136 = phi i8 [ %.035, %14 ], [ %.035, %28 ], [ %.035, %44 ], [ %.035, %24 ], [ %.035, %20 ], [ %.035, %18 ], [ %43, %content_get_nibble_value.exit ]
+  %.134 = phi i32 [ %.033, %14 ], [ %.033, %28 ], [ %47, %44 ], [ %25, %24 ], [ %21, %20 ], [ %.033, %18 ], [ %.033, %content_get_nibble_value.exit ]
+  %.1 = phi i32 [ %.031, %14 ], [ %.031, %28 ], [ %.031, %44 ], [ 0, %24 ], [ 0, %20 ], [ 1, %18 ], [ %.031, %content_get_nibble_value.exit ]
+  %52 = add i32 %.032, 1
   br label %9, !llvm.loop !19
 
 53:                                               ; preds = %9
-  %54 = add i32 %.038, 1
+  %54 = add i32 %.033, 1
   %55 = sext i32 %54 to i64
   %56 = tail call noalias ptr @g_malloc(i64 noundef %55) #19
   %57 = getelementptr inbounds i8, ptr %0, i64 72
@@ -2087,12 +2087,12 @@ content_get_nibble_value.exit:                    ; preds = %30, %40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr nonnull align 16 @content_convert_to_binary.binary_str, i64 %55, i1 false)
   store i32 1, ptr %2, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 %.038, ptr %58, align 4
+  store i32 %.033, ptr %58, align 4
   br label %59
 
 59:                                               ; preds = %53, %6
-  %.040 = phi i32 [ %8, %6 ], [ %.038, %53 ]
-  ret i32 %.040
+  %.0 = phi i32 [ %8, %6 ], [ %.033, %53 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: allocsize(0)

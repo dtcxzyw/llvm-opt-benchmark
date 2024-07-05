@@ -18,7 +18,7 @@ define range(i32 -2147483648, 1) i32 @getentropy(ptr noundef %0, i64 noundef %1)
   br label %.loopexit.split
 
 .outer.split:                                     ; preds = %.outer.split.preheader, %9
-  %6 = tail call i64 @getrandom(ptr noundef %.0.ph29, i64 noundef %.011.ph28, i32 noundef 0) #2
+  %6 = tail call i64 @getrandom(ptr noundef %.011.ph29, i64 noundef %.012.ph28, i32 noundef 0) #2
   %7 = trunc i64 %6 to i32
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %.outer
@@ -31,19 +31,19 @@ define range(i32 -2147483648, 1) i32 @getentropy(ptr noundef %0, i64 noundef %1)
 
 .outer:                                           ; preds = %.outer.split
   %13 = and i64 %6, 2147483647
-  %14 = getelementptr inbounds i8, ptr %.0.ph29, i64 %13
-  %15 = sub i64 %.011.ph28, %13
+  %14 = getelementptr inbounds i8, ptr %.011.ph29, i64 %13
+  %15 = sub i64 %.012.ph28, %13
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %.loopexit.split, label %.outer.split.preheader, !llvm.loop !6
 
 .outer.split.preheader:                           ; preds = %.outer.preheader, %.outer
-  %.0.ph29 = phi ptr [ %14, %.outer ], [ %0, %.outer.preheader ]
-  %.011.ph28 = phi i64 [ %15, %.outer ], [ %1, %.outer.preheader ]
+  %.011.ph29 = phi ptr [ %14, %.outer ], [ %0, %.outer.preheader ]
+  %.012.ph28 = phi i64 [ %15, %.outer ], [ %1, %.outer.preheader ]
   br label %.outer.split
 
 .loopexit.split:                                  ; preds = %.outer, %9, %.outer.preheader, %4
-  %.012 = phi i32 [ -1, %4 ], [ 0, %.outer.preheader ], [ %7, %9 ], [ 0, %.outer ]
-  ret i32 %.012
+  %.0 = phi i32 [ -1, %4 ], [ 0, %.outer.preheader ], [ %7, %9 ], [ 0, %.outer ]
+  ret i32 %.0
 }
 
 declare ptr @__errno() local_unnamed_addr #1

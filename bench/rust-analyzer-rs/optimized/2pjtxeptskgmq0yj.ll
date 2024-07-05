@@ -6644,8 +6644,8 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   br label %14
 
 .loopexit:                                        ; preds = %70, %72, %74
-  %.012.i = phi i64 [ 1, %70 ], [ %..i, %74 ], [ 2, %72 ]
-  %13 = add i64 %.012.i, %16
+  %.013.i = phi i64 [ 1, %70 ], [ %..i, %74 ], [ 2, %72 ]
+  %13 = add i64 %.013.i, %16
   store i64 %13, ptr %4, align 8, !alias.scope !1866, !noalias !1869
   br label %14
 
@@ -12302,8 +12302,8 @@ define hidden noundef ptr @_ZN14ide_completion7context8analysis21find_opt_node_i
   br label %21
 
 21:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Name$GT$17h578be65858ff4e30E.exit6", %7
-  %.0 = phi ptr [ null, %7 ], [ %6, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Name$GT$17h578be65858ff4e30E.exit6" ]
-  ret ptr %.0
+  %.05 = phi ptr [ null, %7 ], [ %6, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Name$GT$17h578be65858ff4e30E.exit6" ]
+  ret ptr %.05
 
 22:                                               ; preds = %14
   %23 = landingpad { ptr, i32 }
@@ -12362,8 +12362,8 @@ define hidden noundef ptr @_ZN14ide_completion7context8analysis21find_opt_node_i
   br label %21
 
 21:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ParamList$GT$17hd10063e06d9b1f05E.exit6", %7
-  %.0 = phi ptr [ null, %7 ], [ %6, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ParamList$GT$17hd10063e06d9b1f05E.exit6" ]
-  ret ptr %.0
+  %.05 = phi ptr [ null, %7 ], [ %6, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..ParamList$GT$17hd10063e06d9b1f05E.exit6" ]
+  ret ptr %.05
 
 22:                                               ; preds = %14
   %23 = landingpad { ptr, i32 }
@@ -14760,8 +14760,8 @@ define hidden noundef ptr @_ZN14ide_completion7context8analysis33find_opt_node_i
   br label %22
 
 22:                                               ; preds = %"_ZN4core3ptr66drop_in_place$LT$syntax..ast..generated..nodes..GenericArgList$GT$17hf51686d0554d3527E.exit6", %8
-  %.0 = phi ptr [ null, %8 ], [ %7, %"_ZN4core3ptr66drop_in_place$LT$syntax..ast..generated..nodes..GenericArgList$GT$17hf51686d0554d3527E.exit6" ]
-  ret ptr %.0
+  %.05 = phi ptr [ null, %8 ], [ %7, %"_ZN4core3ptr66drop_in_place$LT$syntax..ast..generated..nodes..GenericArgList$GT$17hf51686d0554d3527E.exit6" ]
+  ret ptr %.05
 
 23:                                               ; preds = %15
   %24 = landingpad { ptr, i32 }
@@ -22306,23 +22306,23 @@ define hidden noundef i32 @"_ZN14ide_completion7context8analysis19pattern_contex
   br i1 %161, label %.lr.ph.i38.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i:                           ; preds = %174, %166
-  %.165138.i.i.i.i.i.i = phi i8 [ %.2.i.i.i.i.i.i, %166 ], [ %.064139.i.i.i.i.i.i, %174 ]
-  %.sroa.025.0137.i.i.i.i.i.i = phi i64 [ %162, %166 ], [ 0, %174 ]
-  %162 = add nuw nsw i64 %.sroa.025.0137.i.i.i.i.i.i, 1
-  %163 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %.sroa.025.0137.i.i.i.i.i.i
+  %.sroa.025.0138.i.i.i.i.i.i = phi i64 [ %162, %166 ], [ 0, %174 ]
+  %.165137.i.i.i.i.i.i = phi i8 [ %.2.i.i.i.i.i.i, %166 ], [ %.064139.i.i.i.i.i.i, %174 ]
+  %162 = add nuw nsw i64 %.sroa.025.0138.i.i.i.i.i.i, 1
+  %163 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %.sroa.025.0138.i.i.i.i.i.i
   %164 = load i16, ptr %163, align 2, !noalias !5401, !noundef !4
   %165 = icmp eq i16 %164, 0
   br i1 %165, label %166, label %167
 
 166:                                              ; preds = %167, %.preheader.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi i8 [ %.165138.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ %173, %167 ]
+  %.2.i.i.i.i.i.i = phi i8 [ %.165137.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ %173, %167 ]
   %exitcond155.not.i.i.i.i.i.i = icmp eq i64 %162, 4
   br i1 %exitcond155.not.i.i.i.i.i.i, label %158, label %.preheader.i.i.i.i.i.i
 
 167:                                              ; preds = %.preheader.i.i.i.i.i.i
-  %168 = shl nuw nsw i64 %.sroa.025.0137.i.i.i.i.i.i, 4
+  %168 = shl nuw nsw i64 %.sroa.025.0138.i.i.i.i.i.i, 4
   %169 = add nuw nsw i64 %168, %.062140.i.i.i.i.i.i
-  %170 = trunc nuw i8 %.165138.i.i.i.i.i.i to i1
+  %170 = trunc nuw i8 %.165137.i.i.i.i.i.i to i1
   %171 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h18882d3479e54100E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %169, i16 noundef %164, i1 noundef zeroext %170), !noalias !5346
   %172 = or i1 %171, %170
   %173 = zext i1 %172 to i8

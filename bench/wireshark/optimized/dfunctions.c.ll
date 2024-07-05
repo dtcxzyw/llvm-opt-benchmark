@@ -781,9 +781,9 @@ define internal noundef zeroext i1 @df_func_max(ptr nocapture noundef readonly %
 
 .lr.ph30.i:                                       ; preds = %3, %.loopexit.i
   %.02029.i = phi i32 [ %20, %.loopexit.i ], [ 0, %3 ]
-  %.02128.i = phi ptr [ %19, %.loopexit.i ], [ %0, %3 ]
-  %.02227.i = phi ptr [ %.3.i, %.loopexit.i ], [ null, %3 ]
-  %4 = load ptr, ptr %.02128.i, align 8
+  %.02228.i = phi ptr [ %.3.i, %.loopexit.i ], [ null, %3 ]
+  %.02327.i = phi ptr [ %19, %.loopexit.i ], [ %0, %3 ]
+  %4 = load ptr, ptr %.02327.i, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -795,7 +795,7 @@ define internal noundef zeroext i1 @df_func_max(ptr nocapture noundef readonly %
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %.preheader.i ]
-  %.125.i = phi ptr [ %.2.i, %14 ], [ %.02227.i, %.preheader.i ]
+  %.125.i = phi ptr [ %.2.i, %14 ], [ %.02228.i, %.preheader.i ]
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr ptr, ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
@@ -818,8 +818,8 @@ define internal noundef zeroext i1 @df_func_max(ptr nocapture noundef readonly %
   br i1 %17, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %14, %.preheader.i, %.lr.ph30.i
-  %.3.i = phi ptr [ %.02227.i, %.lr.ph30.i ], [ %.02227.i, %.preheader.i ], [ %.2.i, %14 ]
-  %18 = getelementptr inbounds i8, ptr %.02128.i, i64 8
+  %.3.i = phi ptr [ %.02228.i, %.lr.ph30.i ], [ %.02228.i, %.preheader.i ], [ %.2.i, %14 ]
+  %18 = getelementptr inbounds i8, ptr %.02327.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = add nuw i32 %.02029.i, 1
   %exitcond.not.i = icmp eq i32 %20, %1
@@ -889,9 +889,9 @@ define internal noundef zeroext i1 @df_func_min(ptr nocapture noundef readonly %
 
 .lr.ph30.i:                                       ; preds = %3, %.loopexit.i
   %.02029.i = phi i32 [ %20, %.loopexit.i ], [ 0, %3 ]
-  %.02128.i = phi ptr [ %19, %.loopexit.i ], [ %0, %3 ]
-  %.02227.i = phi ptr [ %.3.i, %.loopexit.i ], [ null, %3 ]
-  %4 = load ptr, ptr %.02128.i, align 8
+  %.02228.i = phi ptr [ %.3.i, %.loopexit.i ], [ null, %3 ]
+  %.02327.i = phi ptr [ %19, %.loopexit.i ], [ %0, %3 ]
+  %4 = load ptr, ptr %.02327.i, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
@@ -903,7 +903,7 @@ define internal noundef zeroext i1 @df_func_min(ptr nocapture noundef readonly %
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %.preheader.i ]
-  %.125.i = phi ptr [ %.2.i, %14 ], [ %.02227.i, %.preheader.i ]
+  %.125.i = phi ptr [ %.2.i, %14 ], [ %.02228.i, %.preheader.i ]
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr ptr, ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
@@ -926,8 +926,8 @@ define internal noundef zeroext i1 @df_func_min(ptr nocapture noundef readonly %
   br i1 %17, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %14, %.preheader.i, %.lr.ph30.i
-  %.3.i = phi ptr [ %.02227.i, %.lr.ph30.i ], [ %.02227.i, %.preheader.i ], [ %.2.i, %14 ]
-  %18 = getelementptr inbounds i8, ptr %.02128.i, i64 8
+  %.3.i = phi ptr [ %.02228.i, %.lr.ph30.i ], [ %.02228.i, %.preheader.i ], [ %.2.i, %14 ]
+  %18 = getelementptr inbounds i8, ptr %.02327.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = add nuw i32 %.02029.i, 1
   %exitcond.not.i = icmp eq i32 %20, %1

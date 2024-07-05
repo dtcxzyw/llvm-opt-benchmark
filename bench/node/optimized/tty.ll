@@ -115,20 +115,20 @@ skip:                                             ; preds = %if.then11, %land.lh
   br i1 %cmp21.not, label %if.then36, label %if.end38
 
 if.then36:                                        ; preds = %skip.thread, %skip
-  %fd.addr.035 = phi i32 [ %fd.addr.0.ph, %skip.thread ], [ %fd, %skip ]
-  %call37 = call i32 @uv__nonblock_ioctl(i32 noundef %fd.addr.035, i32 noundef 1) #8
+  %fd.addr.037 = phi i32 [ %fd.addr.0.ph, %skip.thread ], [ %fd, %skip ]
+  %call37 = call i32 @uv__nonblock_ioctl(i32 noundef %fd.addr.037, i32 noundef 1) #8
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then36, %skip
-  %flags.036 = phi i32 [ 0, %if.then36 ], [ 1048576, %skip ]
-  %fd.addr.034 = phi i32 [ %fd.addr.035, %if.then36 ], [ %fd, %skip ]
+  %fd.addr.036 = phi i32 [ %fd.addr.037, %if.then36 ], [ %fd, %skip ]
+  %flags.034 = phi i32 [ 0, %if.then36 ], [ 1048576, %skip ]
   %cmp39.not = icmp eq i32 %and, 1
-  %or41 = or disjoint i32 %flags.036, 16384
-  %spec.select28 = select i1 %cmp39.not, i32 %flags.036, i32 %or41
+  %or41 = or disjoint i32 %flags.034, 16384
+  %spec.select28 = select i1 %cmp39.not, i32 %flags.034, i32 %or41
   %cmp43.not = icmp eq i32 %and, 0
   %or45 = or disjoint i32 %spec.select28, 32768
   %flags.2 = select i1 %cmp43.not, i32 %or41, i32 %or45
-  %call47 = call i32 @uv__stream_open(ptr noundef %tty, i32 noundef %fd.addr.034, i32 noundef %flags.2) #8
+  %call47 = call i32 @uv__stream_open(ptr noundef %tty, i32 noundef %fd.addr.036, i32 noundef %flags.2) #8
   %mode48 = getelementptr inbounds i8, ptr %tty, i64 308
   store i32 0, ptr %mode48, align 4
   br label %return

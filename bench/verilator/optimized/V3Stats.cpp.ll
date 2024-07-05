@@ -1063,7 +1063,7 @@ _ZN14VNVisitorConst12iterateConstEP7AstNode.exit.preheader: ; preds = %59
   %76 = phi ptr [ %65, %.lr.ph222 ], [ %132, %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit ]
   %77 = phi ptr [ %64, %.lr.ph222 ], [ %133, %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit ]
   %78 = phi i64 [ 0, %.lr.ph222 ], [ %135, %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit ]
-  %.072221 = phi i32 [ 0, %.lr.ph222 ], [ %134, %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit ]
+  %.068221 = phi i32 [ 0, %.lr.ph222 ], [ %134, %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit ]
   %79 = getelementptr inbounds i64, ptr %76, i64 %78
   %80 = load i64, ptr %79, align 8
   %.not94 = icmp eq i64 %80, 0
@@ -1086,7 +1086,7 @@ _ZN14VNVisitorConst12iterateConstEP7AstNode.exit.preheader: ; preds = %59
           to label %88 unwind label %122
 
 88:                                               ; preds = %86
-  %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %87, i32 noundef %.072221)
+  %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %87, i32 noundef %.068221)
           to label %90 unwind label %122
 
 90:                                               ; preds = %88
@@ -1257,7 +1257,7 @@ _ZZN12StatsVisitorC1EP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 _ZN14VNVisitorConst12iterateConstEP7AstNode.exit: ; preds = %75, %_ZZN12StatsVisitorC1EP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENKUlS9_djE_clES9_dj.exit106
   %132 = phi ptr [ %76, %75 ], [ %.pre264, %_ZZN12StatsVisitorC1EP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENKUlS9_djE_clES9_dj.exit106 ]
   %133 = phi ptr [ %77, %75 ], [ %.pre, %_ZZN12StatsVisitorC1EP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENKUlS9_djE_clES9_dj.exit106 ]
-  %134 = add i32 %.072221, 1
+  %134 = add i32 %.068221, 1
   %135 = zext i32 %134 to i64
   %136 = ptrtoint ptr %133 to i64
   %137 = ptrtoint ptr %132 to i64
@@ -1271,7 +1271,7 @@ _ZN14VNVisitorConst12iterateConstEP7AstNode.exit: ; preds = %75, %_ZZN12StatsVis
 
 .preheader177:                                    ; preds = %.preheader177.preheader, %158
   %indvars.iv = phi i64 [ %indvars.iv.next, %158 ], [ 0, %.preheader177.preheader ]
-  %.057223 = phi i64 [ %.1, %158 ], [ 0, %.preheader177.preheader ]
+  %.069224 = phi i64 [ %.170, %158 ], [ 0, %.preheader177.preheader ]
   %141 = getelementptr inbounds [421 x i64], ptr %38, i64 0, i64 %indvars.iv
   %142 = load i64, ptr %141, align 8
   %.not91 = icmp eq i64 %142, 0
@@ -1281,7 +1281,7 @@ _ZN14VNVisitorConst12iterateConstEP7AstNode.exit: ; preds = %75, %_ZZN12StatsVis
   %144 = getelementptr inbounds [0 x %struct.VNTypeInfo], ptr @_ZN6VNType13typeInfoTableE, i64 0, i64 %indvars.iv, i32 3
   %145 = load i64, ptr %144, align 8
   %146 = mul i64 %145, %142
-  %147 = add i64 %146, %.057223
+  %147 = add i64 %146, %.069224
   %148 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZZN12StatsVisitorC1EP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENKUliE_clB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef nonnull align 1 dereferenceable(1) %19, i32 noundef %148)
           to label %149 unwind label %.loopexit.split-lp.loopexit
@@ -1318,7 +1318,7 @@ _ZZN12StatsVisitorC1EP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %.body120
 
 158:                                              ; preds = %.preheader177, %_ZZN12StatsVisitorC1EP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENKUlS9_djE_clES9_dj.exit109
-  %.1 = phi i64 [ %147, %_ZZN12StatsVisitorC1EP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENKUlS9_djE_clES9_dj.exit109 ], [ %.057223, %.preheader177 ]
+  %.170 = phi i64 [ %147, %_ZZN12StatsVisitorC1EP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENKUlS9_djE_clES9_dj.exit109 ], [ %.069224, %.preheader177 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 421
   br i1 %exitcond.not, label %159, label %.preheader177, !llvm.loop !10
@@ -1343,7 +1343,7 @@ _ZZN12StatsVisitorC1EP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %.body112
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc111
-  %163 = lshr i64 %.1, 20
+  %163 = lshr i64 %.170, 20
   %164 = uitofp nneg i64 %163 to double
   invoke void @_ZN7V3Stats7addStatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_dj(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %22, double noundef %164, i32 noundef 0)
           to label %_ZZN12StatsVisitorC1EP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENKUlS9_djE_clES9_dj.exit115 unwind label %191
@@ -1351,7 +1351,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 _ZZN12StatsVisitorC1EP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENKUlS9_djE_clES9_dj.exit115: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #18
-  %165 = uitofp i64 %.1 to double
+  %165 = uitofp i64 %.170 to double
   br label %174
 
 .preheader176:                                    ; preds = %198

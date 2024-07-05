@@ -297,7 +297,7 @@ define internal fastcc i32 @stanag4607_read_file(ptr nocapture %.96.val, ptr nou
 
 106:                                              ; preds = %82, %87
   %storemerge = phi i32 [ %105, %87 ], [ %84, %82 ]
-  %.0.neg = phi i64 [ -56, %87 ], [ -41, %82 ]
+  %.055.neg = phi i64 [ -56, %87 ], [ -41, %82 ]
   store i32 %storemerge, ptr %6, align 4
   %.not63 = icmp eq i32 %storemerge, 0
   br i1 %.not63, label %.thread, label %107
@@ -315,8 +315,8 @@ define internal fastcc i32 @stanag4607_read_file(ptr nocapture %.96.val, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %.thread4, %48, %107, %106
-  %.0.neg3 = phi i64 [ %.0.neg, %107 ], [ %.0.neg, %106 ], [ -37, %48 ], [ -76, %.thread4 ]
-  %114 = call i64 @file_seek(ptr noundef %0, i64 noundef %.0.neg3, i32 noundef 1, ptr noundef nonnull %3) #5
+  %.055.neg3 = phi i64 [ %.055.neg, %107 ], [ %.055.neg, %106 ], [ -37, %48 ], [ -76, %.thread4 ]
+  %114 = call i64 @file_seek(ptr noundef %0, i64 noundef %.055.neg3, i32 noundef 1, ptr noundef nonnull %3) #5
   %115 = icmp eq i64 %114, -1
   br i1 %115, label %118, label %116
 
@@ -325,8 +325,8 @@ define internal fastcc i32 @stanag4607_read_file(ptr nocapture %.96.val, ptr nou
   br label %118
 
 118:                                              ; preds = %.thread, %85, %80, %57, %5, %116, %46, %42, %18
-  %.055 = phi i32 [ 0, %42 ], [ 0, %46 ], [ %117, %116 ], [ 0, %18 ], [ 0, %5 ], [ 0, %57 ], [ 0, %80 ], [ 0, %85 ], [ 0, %.thread ]
-  ret i32 %.055
+  %.0 = phi i32 [ 0, %42 ], [ 0, %46 ], [ %117, %116 ], [ 0, %18 ], [ 0, %5 ], [ 0, %57 ], [ 0, %80 ], [ 0, %85 ], [ 0, %.thread ]
+  ret i32 %.0
 }
 
 declare i32 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

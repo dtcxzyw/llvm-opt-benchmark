@@ -189,31 +189,31 @@ define hidden i32 @fsrvp_dissect_struct_fssagent_share_mapping_1(ptr noundef %0,
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.056 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_fsrvp_fssagent_share_mapping_1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.055 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.056 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.055 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_fsrvp_fssagent_share_mapping_1_ShadowCopySetId, align 4
-  %33 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef null) #4
+  %33 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef null) #4
   %34 = load i32, ptr @hf_fsrvp_fssagent_share_mapping_1_ShadowCopyId, align 4
-  %35 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef null) #4
+  %35 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef null) #4
   %36 = load i32, ptr @hf_fsrvp_fssagent_share_mapping_1_ShareNameUNC, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @fsrvp_dissect_element_fssagent_share_mapping_1_ShareNameUNC_, i32 noundef 2, ptr noundef nonnull @.str.65, i32 noundef %36) #4
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @fsrvp_dissect_element_fssagent_share_mapping_1_ShareNameUNC_, i32 noundef 2, ptr noundef nonnull @.str.65, i32 noundef %36) #4
   %38 = load i32, ptr @hf_fsrvp_fssagent_share_mapping_1_ShadowCopyShareName, align 4
-  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @fsrvp_dissect_element_fssagent_share_mapping_1_ShadowCopyShareName_, i32 noundef 2, ptr noundef nonnull @.str.67, i32 noundef %38) #4
+  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @fsrvp_dissect_element_fssagent_share_mapping_1_ShadowCopyShareName_, i32 noundef 2, ptr noundef nonnull @.str.67, i32 noundef %38) #4
   %40 = load i32, ptr @hf_fsrvp_fssagent_share_mapping_1_tstamp, align 4
-  %41 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40) #4
-  %42 = sub i32 %41, %.056
-  tail call void @proto_item_set_len(ptr noundef %.055, i32 noundef %42) #4
+  %41 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40) #4
+  %42 = sub i32 %41, %.0
+  tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #4
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -890,8 +890,8 @@ define internal i32 @fsrvp_dissect_element_GetShareMapping_ShareMapping_(ptr nou
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #4
+  %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #4
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -926,18 +926,18 @@ define internal i32 @fsrvp_dissect_element_GetShareMapping_ShareMapping_(ptr nou
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.027.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %33, 1
   br i1 %cond.i, label %34, label %fsrvp_dissect_fssagent_share_mapping.exit
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_fsrvp_fssagent_share_mapping_ShareMapping1, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.027.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @fsrvp_dissect_element_fssagent_share_mapping_ShareMapping1_, i32 noundef 2, ptr noundef nonnull @.str.94, i32 noundef %35) #4
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @fsrvp_dissect_element_fssagent_share_mapping_ShareMapping1_, i32 noundef 2, ptr noundef nonnull @.str.94, i32 noundef %35) #4
   br label %fsrvp_dissect_fssagent_share_mapping.exit
 
 fsrvp_dissect_fssagent_share_mapping.exit:        ; preds = %32, %34
-  %.1.i = phi i32 [ %36, %34 ], [ %.027.i, %32 ]
+  %.1.i = phi i32 [ %36, %34 ], [ %.0.i, %32 ]
   %37 = load ptr, ptr %7, align 8
   %38 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #4

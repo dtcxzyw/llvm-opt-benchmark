@@ -178,15 +178,15 @@ Hsh_VecManStart.exit:                             ; preds = %Abc_PrimeCudd.exit.
 37:                                               ; preds = %Hsh_VecManStart.exit, %178
   %.val65136 = phi ptr [ %.val62.pre, %Hsh_VecManStart.exit ], [ %131, %178 ]
   %.val63133 = phi ptr [ %.val62.pre, %Hsh_VecManStart.exit ], [ %.val63134, %178 ]
-  %.0110 = phi i32 [ %33, %Hsh_VecManStart.exit ], [ %.val62.val, %178 ]
-  %.056109 = phi i32 [ 1, %Hsh_VecManStart.exit ], [ %179, %178 ]
+  %.0110 = phi i32 [ 1, %Hsh_VecManStart.exit ], [ %179, %178 ]
+  %.056109 = phi i32 [ %33, %Hsh_VecManStart.exit ], [ %.val62.val, %178 ]
   %38 = getelementptr i8, ptr %.val63133, i64 4
   %.val62.val = load i32, ptr %38, align 4
-  %39 = icmp slt i32 %.0110, %.val62.val
+  %39 = icmp slt i32 %.056109, %.val62.val
   br i1 %39, label %.lr.ph97.preheader, label %._crit_edge98
 
 .lr.ph97.preheader:                               ; preds = %37
-  %40 = sext i32 %.0110 to i64
+  %40 = sext i32 %.056109 to i64
   br label %.lr.ph97
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %Vec_IntPush.exit
@@ -415,7 +415,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val63 = phi ptr [ %.val63.pre, %._crit_edge98.loopexit ], [ %.val63133, %37 ]
   %132 = getelementptr i8, ptr %.val63, i64 4
   %133 = sub nsw i32 %.val63.val, %.val62.val
-  %134 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.056109, i32 noundef %133, i32 noundef %.val63.val)
+  %134 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.0110, i32 noundef %133, i32 noundef %.val63.val)
   %.val65.val100 = load i32, ptr %132, align 4
   %135 = icmp slt i32 %.val62.val, %.val65.val100
   br i1 %135, label %.lr.ph104.preheader, label %178
@@ -547,7 +547,7 @@ Vec_IntPrint.exit:                                ; preds = %.lr.ph.i78, %168
 178:                                              ; preds = %._crit_edge105, %._crit_edge98
   %.val63134 = phi ptr [ %131, %._crit_edge105 ], [ %.val63, %._crit_edge98 ]
   %putchar = tail call i32 @putchar(i32 10)
-  %179 = add nuw nsw i32 %.056109, 1
+  %179 = add nuw nsw i32 %.0110, 1
   %exitcond129.not = icmp eq i32 %179, 11
   br i1 %exitcond129.not, label %180, label %37, !llvm.loop !15
 

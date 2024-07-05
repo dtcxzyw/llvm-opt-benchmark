@@ -483,8 +483,8 @@ define internal { double, double } @_ZL15stere_e_inverse5PJ_XYP8PJconsts(double 
 
 .sink.split:                                      ; preds = %30, %46
   %.sink62 = phi double [ -5.000000e-01, %46 ], [ 5.000000e-01, %30 ]
-  %.sroa.6.1.ph = phi double [ %.sroa.6.0, %46 ], [ %43, %30 ]
   %.sroa.0.0.ph = phi double [ %0, %46 ], [ %35, %30 ]
+  %.sroa.6.1.ph = phi double [ %.sroa.6.0, %46 ], [ %43, %30 ]
   %.054.ph = phi double [ %50, %46 ], [ %34, %30 ]
   %.1.ph = phi double [ %52, %46 ], [ %31, %30 ]
   %.051.ph = phi double [ 0xBFF921FB54442D18, %46 ], [ 0x3FF921FB54442D18, %30 ]
@@ -494,8 +494,8 @@ define internal { double, double } @_ZL15stere_e_inverse5PJ_XYP8PJconsts(double 
   br label %56
 
 56:                                               ; preds = %.sink.split, %3
-  %.sroa.6.1 = phi double [ %1, %3 ], [ %.sroa.6.1.ph, %.sink.split ]
   %.sroa.0.0 = phi double [ %0, %3 ], [ %.sroa.0.0.ph, %.sink.split ]
+  %.sroa.6.1 = phi double [ %1, %3 ], [ %.sroa.6.1.ph, %.sink.split ]
   %.054 = phi double [ 0.000000e+00, %3 ], [ %.054.ph, %.sink.split ]
   %.1 = phi double [ 0.000000e+00, %3 ], [ %.1.ph, %.sink.split ]
   %.052 = phi double [ 0.000000e+00, %3 ], [ %55, %.sink.split ]
@@ -655,8 +655,8 @@ define internal { double, double } @_ZL15stere_e_forward5PJ_LPP8PJconsts(double 
   br label %68
 
 68:                                               ; preds = %64, %30
-  %.sroa.3.0 = phi double [ %1, %30 ], [ %65, %64 ]
   %.054 = phi double [ %7, %30 ], [ %66, %64 ]
+  %.sroa.3.0 = phi double [ %1, %30 ], [ %65, %64 ]
   %.0 = phi double [ %9, %30 ], [ %67, %64 ]
   %69 = fadd double %.sroa.3.0, 0xBFF921FB54442D18
   %70 = tail call double @llvm.fabs.f64(double %69)
@@ -679,8 +679,8 @@ define internal { double, double } @_ZL15stere_e_forward5PJ_LPP8PJconsts(double 
   br label %82
 
 82:                                               ; preds = %79, %62, %44, %30
-  %.sroa.0.1 = phi double [ 0.000000e+00, %30 ], [ %.sroa.0.0, %79 ], [ %63, %62 ], [ %53, %44 ]
   %.sroa.9.1 = phi double [ 0.000000e+00, %30 ], [ %81, %79 ], [ %.sroa.9.0, %62 ], [ %52, %44 ]
+  %.sroa.0.1 = phi double [ 0.000000e+00, %30 ], [ %.sroa.0.0, %79 ], [ %63, %62 ], [ %53, %44 ]
   %83 = fmul double %8, %.sroa.0.1
   br label %84
 

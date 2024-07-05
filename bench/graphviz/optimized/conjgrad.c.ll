@@ -32,8 +32,8 @@ define range(i32 0, 2) i32 @conjugate_gradient(ptr noundef %0, ptr noundef %1, p
   br label %17
 
 17:                                               ; preds = %.lr.ph, %33
-  %.087 = phi double [ %14, %.lr.ph ], [ %.1, %33 ]
-  %.08286 = phi i32 [ 0, %.lr.ph ], [ %34, %33 ]
+  %.087 = phi i32 [ 0, %.lr.ph ], [ %34, %33 ]
+  %.08386 = phi double [ %14, %.lr.ph ], [ %.1, %33 ]
   %18 = tail call double @max_abs(i32 noundef %3, ptr noundef %8) #9
   %19 = fcmp ogt double %18, %4
   br i1 %19, label %20, label %.critedge
@@ -45,17 +45,17 @@ define range(i32 0, 2) i32 @conjugate_gradient(ptr noundef %0, ptr noundef %1, p
   br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %20
-  %24 = fdiv double %.087, %21
+  %24 = fdiv double %.08386, %21
   tail call void @vectors_scalar_mult(i32 noundef %3, ptr noundef %9, double noundef %24, ptr noundef %12) #9
   tail call void @vectors_addition(i32 noundef %3, ptr noundef %1, ptr noundef %12, ptr noundef %1) #9
-  %25 = icmp slt i32 %.08286, %16
+  %25 = icmp slt i32 %.087, %16
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %23
   tail call void @vectors_scalar_mult(i32 noundef %3, ptr noundef %10, double noundef %24, ptr noundef %10) #9
   tail call void @vectors_subtraction(i32 noundef %3, ptr noundef %8, ptr noundef %10, ptr noundef %8) #9
   %27 = tail call double @vectors_inner_product(i32 noundef %3, ptr noundef %8, ptr noundef %8) #9
-  %28 = fcmp oeq double %.087, 0.000000e+00
+  %28 = fcmp oeq double %.08386, 0.000000e+00
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
@@ -63,26 +63,26 @@ define range(i32 0, 2) i32 @conjugate_gradient(ptr noundef %0, ptr noundef %1, p
   br label %.critedge
 
 31:                                               ; preds = %26
-  %32 = fdiv double %27, %.087
+  %32 = fdiv double %27, %.08386
   tail call void @vectors_scalar_mult(i32 noundef %3, ptr noundef %9, double noundef %32, ptr noundef %9) #9
   tail call void @vectors_addition(i32 noundef %3, ptr noundef %8, ptr noundef %9, ptr noundef %9) #9
   br label %33
 
 33:                                               ; preds = %23, %31
-  %.1 = phi double [ %27, %31 ], [ %.087, %23 ]
-  %34 = add nuw nsw i32 %.08286, 1
+  %.1 = phi double [ %27, %31 ], [ %.08386, %23 ]
+  %34 = add nuw nsw i32 %.087, 1
   %exitcond.not = icmp eq i32 %34, %5
   br i1 %exitcond.not, label %.critedge, label %17
 
 .critedge:                                        ; preds = %33, %20, %17, %6, %29
-  %.083 = phi i32 [ 1, %29 ], [ 0, %6 ], [ 0, %17 ], [ 0, %20 ], [ 0, %33 ]
+  %.082 = phi i32 [ 1, %29 ], [ 0, %6 ], [ 0, %17 ], [ 0, %20 ], [ 0, %33 ]
   tail call void @free(ptr noundef %8) #9
   tail call void @free(ptr noundef %9) #9
   tail call void @free(ptr noundef %10) #9
   tail call void @free(ptr noundef %11) #9
   tail call void @free(ptr noundef %12) #9
   tail call void @free(ptr noundef %13) #9
-  ret i32 %.083
+  ret i32 %.082
 }
 
 ; Function Attrs: nounwind uwtable
@@ -173,8 +173,8 @@ define range(i32 0, 2) i32 @conjugate_gradient_f(ptr noundef %0, ptr noundef %1,
   br label %20
 
 20:                                               ; preds = %.lr.ph, %36
-  %.088 = phi double [ %17, %.lr.ph ], [ %.1, %36 ]
-  %.08387 = phi i32 [ 0, %.lr.ph ], [ %37, %36 ]
+  %.088 = phi i32 [ 0, %.lr.ph ], [ %37, %36 ]
+  %.08487 = phi double [ %17, %.lr.ph ], [ %.1, %36 ]
   %21 = tail call double @max_abs(i32 noundef %3, ptr noundef %9) #9
   %22 = fcmp ogt double %21, %4
   br i1 %22, label %23, label %.critedge
@@ -186,17 +186,17 @@ define range(i32 0, 2) i32 @conjugate_gradient_f(ptr noundef %0, ptr noundef %1,
   br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %23
-  %27 = fdiv double %.088, %24
+  %27 = fdiv double %.08487, %24
   tail call void @vectors_scalar_mult(i32 noundef %3, ptr noundef %10, double noundef %27, ptr noundef %13) #9
   tail call void @vectors_addition(i32 noundef %3, ptr noundef %1, ptr noundef %13, ptr noundef %1) #9
-  %28 = icmp slt i32 %.08387, %19
+  %28 = icmp slt i32 %.088, %19
   br i1 %28, label %29, label %36
 
 29:                                               ; preds = %26
   tail call void @vectors_scalar_mult(i32 noundef %3, ptr noundef %11, double noundef %27, ptr noundef %11) #9
   tail call void @vectors_subtraction(i32 noundef %3, ptr noundef %9, ptr noundef %11, ptr noundef %9) #9
   %30 = tail call double @vectors_inner_product(i32 noundef %3, ptr noundef %9, ptr noundef %9) #9
-  %31 = fcmp oeq double %.088, 0.000000e+00
+  %31 = fcmp oeq double %.08487, 0.000000e+00
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
@@ -204,26 +204,26 @@ define range(i32 0, 2) i32 @conjugate_gradient_f(ptr noundef %0, ptr noundef %1,
   br label %.critedge
 
 34:                                               ; preds = %29
-  %35 = fdiv double %30, %.088
+  %35 = fdiv double %30, %.08487
   tail call void @vectors_scalar_mult(i32 noundef %3, ptr noundef %10, double noundef %35, ptr noundef %10) #9
   tail call void @vectors_addition(i32 noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %10) #9
   br label %36
 
 36:                                               ; preds = %26, %34
-  %.1 = phi double [ %30, %34 ], [ %.088, %26 ]
-  %37 = add nuw nsw i32 %.08387, 1
+  %.1 = phi double [ %30, %34 ], [ %.08487, %26 ]
+  %37 = add nuw nsw i32 %.088, 1
   %exitcond.not = icmp eq i32 %37, %5
   br i1 %exitcond.not, label %.critedge, label %20
 
 .critedge:                                        ; preds = %36, %23, %20, %16, %32
-  %.084 = phi i32 [ 1, %32 ], [ 0, %16 ], [ 0, %20 ], [ 0, %23 ], [ 0, %36 ]
+  %.083 = phi i32 [ 1, %32 ], [ 0, %16 ], [ 0, %20 ], [ 0, %23 ], [ 0, %36 ]
   tail call void @free(ptr noundef %9) #9
   tail call void @free(ptr noundef %10) #9
   tail call void @free(ptr noundef %11) #9
   tail call void @free(ptr noundef %12) #9
   tail call void @free(ptr noundef %13) #9
   tail call void @free(ptr noundef %14) #9
-  ret i32 %.084
+  ret i32 %.083
 }
 
 declare void @right_mult_with_vector_f(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -251,8 +251,8 @@ define range(i32 0, 2) i32 @conjugate_gradient_mkernel(ptr noundef %0, ptr nound
   br label %15
 
 15:                                               ; preds = %.lr.ph87, %.loopexit
-  %.07986 = phi double [ %12, %.lr.ph87 ], [ %.1, %.loopexit ]
-  %.08185 = phi i32 [ 0, %.lr.ph87 ], [ %41, %.loopexit ]
+  %.07986 = phi i32 [ 0, %.lr.ph87 ], [ %41, %.loopexit ]
+  %.08185 = phi double [ %12, %.lr.ph87 ], [ %.1, %.loopexit ]
   %16 = tail call double @max_absf(i32 noundef %3, ptr noundef %8) #9
   %17 = fcmp ogt double %16, %4
   br i1 %17, label %18, label %.critedge
@@ -268,17 +268,17 @@ define range(i32 0, 2) i32 @conjugate_gradient_mkernel(ptr noundef %0, ptr nound
   br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %18
-  %22 = fdiv double %.07986, %19
+  %22 = fdiv double %.08185, %19
   %23 = fptrunc double %22 to float
   tail call void @vectors_mult_additionf(i32 noundef %3, ptr noundef %1, float noundef %23, ptr noundef %9) #9
-  %24 = icmp slt i32 %.08185, %14
+  %24 = icmp slt i32 %.07986, %14
   br i1 %24, label %25, label %.loopexit
 
 25:                                               ; preds = %21
   %26 = fneg float %23
   tail call void @vectors_mult_additionf(i32 noundef %3, ptr noundef %8, float noundef %26, ptr noundef %10) #9
   %27 = tail call double @vectors_inner_productf(i32 noundef %3, ptr noundef %8, ptr noundef %8) #9
-  %28 = fcmp oeq double %.07986, 0.000000e+00
+  %28 = fcmp oeq double %.08185, 0.000000e+00
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %25
@@ -289,7 +289,7 @@ define range(i32 0, 2) i32 @conjugate_gradient_mkernel(ptr noundef %0, ptr nound
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
-  %32 = fdiv double %27, %.07986
+  %32 = fdiv double %27, %.08185
   %33 = fptrunc double %32 to float
   br label %34
 
@@ -306,8 +306,8 @@ define range(i32 0, 2) i32 @conjugate_gradient_mkernel(ptr noundef %0, ptr nound
   br i1 %exitcond.not, label %.loopexit, label %34
 
 .loopexit:                                        ; preds = %34, %31, %21
-  %.1 = phi double [ %.07986, %21 ], [ %27, %31 ], [ %27, %34 ]
-  %41 = add nuw nsw i32 %.08185, 1
+  %.1 = phi double [ %.08185, %21 ], [ %27, %31 ], [ %27, %34 ]
+  %41 = add nuw nsw i32 %.07986, 1
   %exitcond90.not = icmp eq i32 %41, %5
   br i1 %exitcond90.not, label %.critedge, label %15
 

@@ -6744,8 +6744,8 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
 "_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h1930172eb6ca2c5fE.llvm.17769526770162137697.exit": ; preds = %8
   %19 = icmp eq i64 %10, 1
   %20 = icmp eq i64 %11, 1
-  %.014 = and i1 %20, %19
-  br i1 %.014, label %26, label %21
+  %.015 = and i1 %20, %19
+  br i1 %.015, label %26, label %21
 
 21:                                               ; preds = %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h1930172eb6ca2c5fE.llvm.17769526770162137697.exit"
   %22 = and i64 %.0, -2251799813685245
@@ -6760,14 +6760,14 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   br label %29
 
 29:                                               ; preds = %26, %21
-  %.015 = phi i64 [ %28, %26 ], [ %25, %21 ]
-  %30 = cmpxchg ptr %6, i64 %.0, i64 %.015 acq_rel acquire, align 8
+  %.014 = phi i64 [ %28, %26 ], [ %25, %21 ]
+  %30 = cmpxchg ptr %6, i64 %.0, i64 %.014 acq_rel acquire, align 8
   %.sroa.18.0.in.i = extractvalue { i64, i1 } %30, 1
   %.sroa.07.0.i = extractvalue { i64, i1 } %30, 0
   br i1 %.sroa.18.0.in.i, label %31, label %8
 
 31:                                               ; preds = %29
-  ret i1 %.014
+  ret i1 %.015
 }
 
 ; Function Attrs: nonlazybind uwtable

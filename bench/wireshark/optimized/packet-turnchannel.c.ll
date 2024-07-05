@@ -118,8 +118,8 @@ define internal i32 @dissect_turnchannel_message(ptr noundef %0, ptr noundef %1,
   br label %38
 
 38:                                               ; preds = %12, %8, %4, %36
-  %.035 = phi i32 [ %37, %36 ], [ 0, %4 ], [ 0, %8 ], [ 0, %12 ]
-  ret i32 %.035
+  %.0 = phi i32 [ %37, %36 ], [ 0, %4 ], [ 0, %8 ], [ 0, %12 ]
+  ret i32 %.0
 }
 
 declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

@@ -42,13 +42,13 @@ if.end:                                           ; preds = %entry
 while.body:                                       ; preds = %if.end, %if.end18
   %p1.049 = phi ptr [ %p1.0, %if.end18 ], [ %p1.043, %if.end ]
   %p2.048 = phi ptr [ %p2.0, %if.end18 ], [ %p2.042, %if.end ]
-  %state.047 = phi i32 [ %add36, %if.end18 ], [ %add, %if.end ]
-  %c1.046 = phi i8 [ %4, %if.end18 ], [ %0, %if.end ]
-  %cmp15 = icmp eq i8 %c1.046, 0
+  %c1.047 = phi i8 [ %4, %if.end18 ], [ %0, %if.end ]
+  %state.046 = phi i32 [ %add36, %if.end18 ], [ %add, %if.end ]
+  %cmp15 = icmp eq i8 %c1.047, 0
   br i1 %cmp15, label %return, label %if.end18
 
 if.end18:                                         ; preds = %while.body
-  %idxprom19 = zext nneg i32 %state.047 to i64
+  %idxprom19 = zext nneg i32 %state.046 to i64
   %arrayidx20 = getelementptr inbounds [12 x i8], ptr @versioncmp.next_state, i64 0, i64 %idxprom19
   %3 = load i8, ptr %arrayidx20, align 1
   %conv21 = zext i8 %3 to i32

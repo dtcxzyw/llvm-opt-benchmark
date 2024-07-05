@@ -329,9 +329,9 @@ for.body.lr.ph:                                   ; preds = %invoke.cont13
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end67
   %read_flag.sroa.0.0182 = phi i1 [ false, %for.body.lr.ph ], [ %read_flag.sroa.0.1159, %if.end67 ]
-  %read_flag.sroa.7.0181 = phi i1 [ false, %for.body.lr.ph ], [ %read_flag.sroa.7.1158, %if.end67 ]
-  %read_flag.sroa.5.0180 = phi i1 [ false, %for.body.lr.ph ], [ %read_flag.sroa.5.1157, %if.end67 ]
-  %read_flag.sroa.3.0179 = phi i1 [ false, %for.body.lr.ph ], [ %read_flag.sroa.3.1156, %if.end67 ]
+  %read_flag.sroa.3.0181 = phi i1 [ false, %for.body.lr.ph ], [ %read_flag.sroa.3.1158, %if.end67 ]
+  %read_flag.sroa.7.0180 = phi i1 [ false, %for.body.lr.ph ], [ %read_flag.sroa.7.1157, %if.end67 ]
+  %read_flag.sroa.5.0179 = phi i1 [ false, %for.body.lr.ph ], [ %read_flag.sroa.5.1156, %if.end67 ]
   %__begin1.sroa.0.0176 = phi ptr [ %6, %for.body.lr.ph ], [ %51, %if.end67 ]
   %call23 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Profile.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont22 unwind label %lpad6.loopexit
@@ -636,25 +636,25 @@ cond.true.i.i135:                                 ; preds = %if.end.i.i131
   br label %if.end67.sink.split
 
 if.end62:                                         ; preds = %_ZNK4pugi8xml_text8as_floatEf.exit.i97, %_ZNK4pugi8xml_text8as_floatEf.exit.i65, %_ZNK4pugi8xml_text8as_floatEf.exit.i, %if.else51
-  %read_flag.sroa.3.1 = phi i1 [ %read_flag.sroa.3.0179, %if.else51 ], [ %read_flag.sroa.3.0179, %_ZNK4pugi8xml_text8as_floatEf.exit.i ], [ true, %_ZNK4pugi8xml_text8as_floatEf.exit.i65 ], [ %read_flag.sroa.3.0179, %_ZNK4pugi8xml_text8as_floatEf.exit.i97 ]
-  %read_flag.sroa.5.1 = phi i1 [ %read_flag.sroa.5.0180, %if.else51 ], [ %read_flag.sroa.5.0180, %_ZNK4pugi8xml_text8as_floatEf.exit.i ], [ %read_flag.sroa.5.0180, %_ZNK4pugi8xml_text8as_floatEf.exit.i65 ], [ true, %_ZNK4pugi8xml_text8as_floatEf.exit.i97 ]
+  %read_flag.sroa.5.1 = phi i1 [ %read_flag.sroa.5.0179, %if.else51 ], [ %read_flag.sroa.5.0179, %_ZNK4pugi8xml_text8as_floatEf.exit.i ], [ %read_flag.sroa.5.0179, %_ZNK4pugi8xml_text8as_floatEf.exit.i65 ], [ true, %_ZNK4pugi8xml_text8as_floatEf.exit.i97 ]
+  %read_flag.sroa.3.1 = phi i1 [ %read_flag.sroa.3.0181, %if.else51 ], [ %read_flag.sroa.3.0181, %_ZNK4pugi8xml_text8as_floatEf.exit.i ], [ true, %_ZNK4pugi8xml_text8as_floatEf.exit.i65 ], [ %read_flag.sroa.3.0181, %_ZNK4pugi8xml_text8as_floatEf.exit.i97 ]
   %read_flag.sroa.0.1 = phi i1 [ %read_flag.sroa.0.0182, %if.else51 ], [ true, %_ZNK4pugi8xml_text8as_floatEf.exit.i ], [ %read_flag.sroa.0.0182, %_ZNK4pugi8xml_text8as_floatEf.exit.i65 ], [ %read_flag.sroa.0.0182, %_ZNK4pugi8xml_text8as_floatEf.exit.i97 ]
-  br i1 %read_flag.sroa.7.0181, label %if.end67, label %if.end67.sink.split
+  br i1 %read_flag.sroa.7.0180, label %if.end67, label %if.end67.sink.split
 
 if.end67.sink.split:                              ; preds = %for.inc.i.i.i125, %if.end62, %if.end9.i.i.i118, %if.end.i.i131, %cond.true.i.i135
   %retval.0.i.i130.sink = phi float [ %conv.i.i.i137, %cond.true.i.i135 ], [ 0.000000e+00, %if.end.i.i131 ], [ 0.000000e+00, %if.end9.i.i.i118 ], [ 1.000000e+00, %if.end62 ], [ 0.000000e+00, %for.inc.i.i.i125 ]
   %read_flag.sroa.0.1159.ph = phi i1 [ %read_flag.sroa.0.0182, %cond.true.i.i135 ], [ %read_flag.sroa.0.0182, %if.end.i.i131 ], [ %read_flag.sroa.0.0182, %if.end9.i.i.i118 ], [ %read_flag.sroa.0.1, %if.end62 ], [ %read_flag.sroa.0.0182, %for.inc.i.i.i125 ]
-  %read_flag.sroa.7.1158.ph = phi i1 [ true, %cond.true.i.i135 ], [ true, %if.end.i.i131 ], [ true, %if.end9.i.i.i118 ], [ false, %if.end62 ], [ true, %for.inc.i.i.i125 ]
-  %read_flag.sroa.5.1157.ph = phi i1 [ %read_flag.sroa.5.0180, %cond.true.i.i135 ], [ %read_flag.sroa.5.0180, %if.end.i.i131 ], [ %read_flag.sroa.5.0180, %if.end9.i.i.i118 ], [ %read_flag.sroa.5.1, %if.end62 ], [ %read_flag.sroa.5.0180, %for.inc.i.i.i125 ]
-  %read_flag.sroa.3.1156.ph = phi i1 [ %read_flag.sroa.3.0179, %cond.true.i.i135 ], [ %read_flag.sroa.3.0179, %if.end.i.i131 ], [ %read_flag.sroa.3.0179, %if.end9.i.i.i118 ], [ %read_flag.sroa.3.1, %if.end62 ], [ %read_flag.sroa.3.0179, %for.inc.i.i.i125 ]
+  %read_flag.sroa.3.1158.ph = phi i1 [ %read_flag.sroa.3.0181, %cond.true.i.i135 ], [ %read_flag.sroa.3.0181, %if.end.i.i131 ], [ %read_flag.sroa.3.0181, %if.end9.i.i.i118 ], [ %read_flag.sroa.3.1, %if.end62 ], [ %read_flag.sroa.3.0181, %for.inc.i.i.i125 ]
+  %read_flag.sroa.7.1157.ph = phi i1 [ true, %cond.true.i.i135 ], [ true, %if.end.i.i131 ], [ true, %if.end9.i.i.i118 ], [ false, %if.end62 ], [ true, %for.inc.i.i.i125 ]
+  %read_flag.sroa.5.1156.ph = phi i1 [ %read_flag.sroa.5.0179, %cond.true.i.i135 ], [ %read_flag.sroa.5.0179, %if.end.i.i131 ], [ %read_flag.sroa.5.0179, %if.end9.i.i.i118 ], [ %read_flag.sroa.5.1, %if.end62 ], [ %read_flag.sroa.5.0179, %for.inc.i.i.i125 ]
   store float %retval.0.i.i130.sink, ptr %a, align 4
   br label %if.end67
 
 if.end67:                                         ; preds = %if.end67.sink.split, %if.end62
   %read_flag.sroa.0.1159 = phi i1 [ %read_flag.sroa.0.1, %if.end62 ], [ %read_flag.sroa.0.1159.ph, %if.end67.sink.split ]
-  %read_flag.sroa.7.1158 = phi i1 [ true, %if.end62 ], [ %read_flag.sroa.7.1158.ph, %if.end67.sink.split ]
-  %read_flag.sroa.5.1157 = phi i1 [ %read_flag.sroa.5.1, %if.end62 ], [ %read_flag.sroa.5.1157.ph, %if.end67.sink.split ]
-  %read_flag.sroa.3.1156 = phi i1 [ %read_flag.sroa.3.1, %if.end62 ], [ %read_flag.sroa.3.1156.ph, %if.end67.sink.split ]
+  %read_flag.sroa.3.1158 = phi i1 [ %read_flag.sroa.3.1, %if.end62 ], [ %read_flag.sroa.3.1158.ph, %if.end67.sink.split ]
+  %read_flag.sroa.7.1157 = phi i1 [ true, %if.end62 ], [ %read_flag.sroa.7.1157.ph, %if.end67.sink.split ]
+  %read_flag.sroa.5.1156 = phi i1 [ %read_flag.sroa.5.1, %if.end62 ], [ %read_flag.sroa.5.1156.ph, %if.end67.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #17
   %next_sibling.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0176, i64 48
   %51 = load ptr, ptr %next_sibling.i, align 8
@@ -662,8 +662,8 @@ if.end67:                                         ; preds = %if.end67.sink.split
   br i1 %cmp.not.i.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %if.end67
-  %52 = select i1 %read_flag.sroa.0.1159, i1 %read_flag.sroa.3.1156, i1 false
-  %53 = select i1 %52, i1 %read_flag.sroa.5.1157, i1 false
+  %52 = select i1 %read_flag.sroa.0.1159, i1 %read_flag.sroa.3.1158, i1 false
+  %53 = select i1 %52, i1 %read_flag.sroa.5.1156, i1 false
   br label %for.end
 
 for.end:                                          ; preds = %invoke.cont11, %for.end.loopexit, %invoke.cont13
@@ -1942,10 +1942,10 @@ if.end.i139.lr.ph:                                ; preds = %invoke.cont86
 if.end.i139:                                      ; preds = %if.end.i139.lr.ph, %if.end166
   %read_flag.sroa.0.0488 = phi i1 [ false, %if.end.i139.lr.ph ], [ %read_flag.sroa.0.1, %if.end166 ]
   %read_flag.sroa.4.0487 = phi i1 [ false, %if.end.i139.lr.ph ], [ %read_flag.sroa.4.1, %if.end166 ]
-  %read_flag.sroa.16.0486 = phi i1 [ false, %if.end.i139.lr.ph ], [ %read_flag.sroa.16.1, %if.end166 ]
-  %read_flag.sroa.13.0485 = phi i1 [ false, %if.end.i139.lr.ph ], [ %read_flag.sroa.13.1, %if.end166 ]
-  %read_flag.sroa.10.0484 = phi i1 [ false, %if.end.i139.lr.ph ], [ %read_flag.sroa.10.1, %if.end166 ]
-  %read_flag.sroa.7.0483 = phi i1 [ false, %if.end.i139.lr.ph ], [ %read_flag.sroa.7.1, %if.end166 ]
+  %read_flag.sroa.7.0486 = phi i1 [ false, %if.end.i139.lr.ph ], [ %read_flag.sroa.7.1, %if.end166 ]
+  %read_flag.sroa.16.0485 = phi i1 [ false, %if.end.i139.lr.ph ], [ %read_flag.sroa.16.1, %if.end166 ]
+  %read_flag.sroa.13.0484 = phi i1 [ false, %if.end.i139.lr.ph ], [ %read_flag.sroa.13.1, %if.end166 ]
+  %read_flag.sroa.10.0483 = phi i1 [ false, %if.end.i139.lr.ph ], [ %read_flag.sroa.10.1, %if.end166 ]
   %__begin287.sroa.0.0482 = phi ptr [ %15, %if.end.i139.lr.ph ], [ %85, %if.end166 ]
   %name3.i140 = getelementptr inbounds i8, ptr %__begin287.sroa.0.0482, i64 8
   %16 = load ptr, ptr %name3.i140, align 8
@@ -2385,10 +2385,10 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i305:          ; preds = %for.inc.i.i.i301, %
   br label %if.end166
 
 if.end166:                                        ; preds = %_ZNK4pugi8xml_text8as_floatEf.exit.i305, %if.then154, %_ZNK4pugi8xml_text8as_floatEf.exit.i273, %if.then144, %_ZNK4pugi8xml_text8as_floatEf.exit.i241, %if.then135, %_ZNK4pugi8xml_text8as_floatEf.exit.i209, %if.then125, %_ZNK4pugi8xml_text8as_floatEf.exit.i177, %if.then115, %_ZNK4pugi8xml_text8as_floatEf.exit.i, %if.then108, %if.else151
-  %read_flag.sroa.7.1 = phi i1 [ %read_flag.sroa.7.0483, %if.else151 ], [ %read_flag.sroa.7.0483, %if.then108 ], [ %read_flag.sroa.7.0483, %_ZNK4pugi8xml_text8as_floatEf.exit.i ], [ %read_flag.sroa.7.0483, %if.then115 ], [ %read_flag.sroa.7.0483, %_ZNK4pugi8xml_text8as_floatEf.exit.i177 ], [ true, %if.then125 ], [ true, %_ZNK4pugi8xml_text8as_floatEf.exit.i209 ], [ %read_flag.sroa.7.0483, %if.then135 ], [ %read_flag.sroa.7.0483, %_ZNK4pugi8xml_text8as_floatEf.exit.i241 ], [ %read_flag.sroa.7.0483, %if.then144 ], [ %read_flag.sroa.7.0483, %_ZNK4pugi8xml_text8as_floatEf.exit.i273 ], [ %read_flag.sroa.7.0483, %if.then154 ], [ %read_flag.sroa.7.0483, %_ZNK4pugi8xml_text8as_floatEf.exit.i305 ]
-  %read_flag.sroa.10.1 = phi i1 [ %read_flag.sroa.10.0484, %if.else151 ], [ %read_flag.sroa.10.0484, %if.then108 ], [ %read_flag.sroa.10.0484, %_ZNK4pugi8xml_text8as_floatEf.exit.i ], [ %read_flag.sroa.10.0484, %if.then115 ], [ %read_flag.sroa.10.0484, %_ZNK4pugi8xml_text8as_floatEf.exit.i177 ], [ %read_flag.sroa.10.0484, %if.then125 ], [ %read_flag.sroa.10.0484, %_ZNK4pugi8xml_text8as_floatEf.exit.i209 ], [ true, %if.then135 ], [ true, %_ZNK4pugi8xml_text8as_floatEf.exit.i241 ], [ %read_flag.sroa.10.0484, %if.then144 ], [ %read_flag.sroa.10.0484, %_ZNK4pugi8xml_text8as_floatEf.exit.i273 ], [ %read_flag.sroa.10.0484, %if.then154 ], [ %read_flag.sroa.10.0484, %_ZNK4pugi8xml_text8as_floatEf.exit.i305 ]
-  %read_flag.sroa.13.1 = phi i1 [ %read_flag.sroa.13.0485, %if.else151 ], [ %read_flag.sroa.13.0485, %if.then108 ], [ %read_flag.sroa.13.0485, %_ZNK4pugi8xml_text8as_floatEf.exit.i ], [ %read_flag.sroa.13.0485, %if.then115 ], [ %read_flag.sroa.13.0485, %_ZNK4pugi8xml_text8as_floatEf.exit.i177 ], [ %read_flag.sroa.13.0485, %if.then125 ], [ %read_flag.sroa.13.0485, %_ZNK4pugi8xml_text8as_floatEf.exit.i209 ], [ %read_flag.sroa.13.0485, %if.then135 ], [ %read_flag.sroa.13.0485, %_ZNK4pugi8xml_text8as_floatEf.exit.i241 ], [ true, %if.then144 ], [ true, %_ZNK4pugi8xml_text8as_floatEf.exit.i273 ], [ %read_flag.sroa.13.0485, %if.then154 ], [ %read_flag.sroa.13.0485, %_ZNK4pugi8xml_text8as_floatEf.exit.i305 ]
-  %read_flag.sroa.16.1 = phi i1 [ %read_flag.sroa.16.0486, %if.else151 ], [ %read_flag.sroa.16.0486, %if.then108 ], [ %read_flag.sroa.16.0486, %_ZNK4pugi8xml_text8as_floatEf.exit.i ], [ %read_flag.sroa.16.0486, %if.then115 ], [ %read_flag.sroa.16.0486, %_ZNK4pugi8xml_text8as_floatEf.exit.i177 ], [ %read_flag.sroa.16.0486, %if.then125 ], [ %read_flag.sroa.16.0486, %_ZNK4pugi8xml_text8as_floatEf.exit.i209 ], [ %read_flag.sroa.16.0486, %if.then135 ], [ %read_flag.sroa.16.0486, %_ZNK4pugi8xml_text8as_floatEf.exit.i241 ], [ %read_flag.sroa.16.0486, %if.then144 ], [ %read_flag.sroa.16.0486, %_ZNK4pugi8xml_text8as_floatEf.exit.i273 ], [ true, %if.then154 ], [ true, %_ZNK4pugi8xml_text8as_floatEf.exit.i305 ]
+  %read_flag.sroa.10.1 = phi i1 [ %read_flag.sroa.10.0483, %if.else151 ], [ %read_flag.sroa.10.0483, %if.then108 ], [ %read_flag.sroa.10.0483, %_ZNK4pugi8xml_text8as_floatEf.exit.i ], [ %read_flag.sroa.10.0483, %if.then115 ], [ %read_flag.sroa.10.0483, %_ZNK4pugi8xml_text8as_floatEf.exit.i177 ], [ %read_flag.sroa.10.0483, %if.then125 ], [ %read_flag.sroa.10.0483, %_ZNK4pugi8xml_text8as_floatEf.exit.i209 ], [ true, %if.then135 ], [ true, %_ZNK4pugi8xml_text8as_floatEf.exit.i241 ], [ %read_flag.sroa.10.0483, %if.then144 ], [ %read_flag.sroa.10.0483, %_ZNK4pugi8xml_text8as_floatEf.exit.i273 ], [ %read_flag.sroa.10.0483, %if.then154 ], [ %read_flag.sroa.10.0483, %_ZNK4pugi8xml_text8as_floatEf.exit.i305 ]
+  %read_flag.sroa.13.1 = phi i1 [ %read_flag.sroa.13.0484, %if.else151 ], [ %read_flag.sroa.13.0484, %if.then108 ], [ %read_flag.sroa.13.0484, %_ZNK4pugi8xml_text8as_floatEf.exit.i ], [ %read_flag.sroa.13.0484, %if.then115 ], [ %read_flag.sroa.13.0484, %_ZNK4pugi8xml_text8as_floatEf.exit.i177 ], [ %read_flag.sroa.13.0484, %if.then125 ], [ %read_flag.sroa.13.0484, %_ZNK4pugi8xml_text8as_floatEf.exit.i209 ], [ %read_flag.sroa.13.0484, %if.then135 ], [ %read_flag.sroa.13.0484, %_ZNK4pugi8xml_text8as_floatEf.exit.i241 ], [ true, %if.then144 ], [ true, %_ZNK4pugi8xml_text8as_floatEf.exit.i273 ], [ %read_flag.sroa.13.0484, %if.then154 ], [ %read_flag.sroa.13.0484, %_ZNK4pugi8xml_text8as_floatEf.exit.i305 ]
+  %read_flag.sroa.16.1 = phi i1 [ %read_flag.sroa.16.0485, %if.else151 ], [ %read_flag.sroa.16.0485, %if.then108 ], [ %read_flag.sroa.16.0485, %_ZNK4pugi8xml_text8as_floatEf.exit.i ], [ %read_flag.sroa.16.0485, %if.then115 ], [ %read_flag.sroa.16.0485, %_ZNK4pugi8xml_text8as_floatEf.exit.i177 ], [ %read_flag.sroa.16.0485, %if.then125 ], [ %read_flag.sroa.16.0485, %_ZNK4pugi8xml_text8as_floatEf.exit.i209 ], [ %read_flag.sroa.16.0485, %if.then135 ], [ %read_flag.sroa.16.0485, %_ZNK4pugi8xml_text8as_floatEf.exit.i241 ], [ %read_flag.sroa.16.0485, %if.then144 ], [ %read_flag.sroa.16.0485, %_ZNK4pugi8xml_text8as_floatEf.exit.i273 ], [ true, %if.then154 ], [ true, %_ZNK4pugi8xml_text8as_floatEf.exit.i305 ]
+  %read_flag.sroa.7.1 = phi i1 [ %read_flag.sroa.7.0486, %if.else151 ], [ %read_flag.sroa.7.0486, %if.then108 ], [ %read_flag.sroa.7.0486, %_ZNK4pugi8xml_text8as_floatEf.exit.i ], [ %read_flag.sroa.7.0486, %if.then115 ], [ %read_flag.sroa.7.0486, %_ZNK4pugi8xml_text8as_floatEf.exit.i177 ], [ true, %if.then125 ], [ true, %_ZNK4pugi8xml_text8as_floatEf.exit.i209 ], [ %read_flag.sroa.7.0486, %if.then135 ], [ %read_flag.sroa.7.0486, %_ZNK4pugi8xml_text8as_floatEf.exit.i241 ], [ %read_flag.sroa.7.0486, %if.then144 ], [ %read_flag.sroa.7.0486, %_ZNK4pugi8xml_text8as_floatEf.exit.i273 ], [ %read_flag.sroa.7.0486, %if.then154 ], [ %read_flag.sroa.7.0486, %_ZNK4pugi8xml_text8as_floatEf.exit.i305 ]
   %read_flag.sroa.4.1 = phi i1 [ %read_flag.sroa.4.0487, %if.else151 ], [ %read_flag.sroa.4.0487, %if.then108 ], [ %read_flag.sroa.4.0487, %_ZNK4pugi8xml_text8as_floatEf.exit.i ], [ true, %if.then115 ], [ true, %_ZNK4pugi8xml_text8as_floatEf.exit.i177 ], [ %read_flag.sroa.4.0487, %if.then125 ], [ %read_flag.sroa.4.0487, %_ZNK4pugi8xml_text8as_floatEf.exit.i209 ], [ %read_flag.sroa.4.0487, %if.then135 ], [ %read_flag.sroa.4.0487, %_ZNK4pugi8xml_text8as_floatEf.exit.i241 ], [ %read_flag.sroa.4.0487, %if.then144 ], [ %read_flag.sroa.4.0487, %_ZNK4pugi8xml_text8as_floatEf.exit.i273 ], [ %read_flag.sroa.4.0487, %if.then154 ], [ %read_flag.sroa.4.0487, %_ZNK4pugi8xml_text8as_floatEf.exit.i305 ]
   %read_flag.sroa.0.1 = phi i1 [ %read_flag.sroa.0.0488, %if.else151 ], [ true, %if.then108 ], [ true, %_ZNK4pugi8xml_text8as_floatEf.exit.i ], [ %read_flag.sroa.0.0488, %if.then115 ], [ %read_flag.sroa.0.0488, %_ZNK4pugi8xml_text8as_floatEf.exit.i177 ], [ %read_flag.sroa.0.0488, %if.then125 ], [ %read_flag.sroa.0.0488, %_ZNK4pugi8xml_text8as_floatEf.exit.i209 ], [ %read_flag.sroa.0.0488, %if.then135 ], [ %read_flag.sroa.0.0488, %_ZNK4pugi8xml_text8as_floatEf.exit.i241 ], [ %read_flag.sroa.0.0488, %if.then144 ], [ %read_flag.sroa.0.0488, %_ZNK4pugi8xml_text8as_floatEf.exit.i273 ], [ %read_flag.sroa.0.0488, %if.then154 ], [ %read_flag.sroa.0.0488, %_ZNK4pugi8xml_text8as_floatEf.exit.i305 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp99) #17
@@ -2398,10 +2398,10 @@ if.end166:                                        ; preds = %_ZNK4pugi8xml_text8
   br i1 %cmp.not.i134.not, label %for.end170, label %if.end.i139
 
 for.end170:                                       ; preds = %if.end166, %invoke.cont83, %invoke.cont86
-  %read_flag.sroa.7.0.lcssa = phi i1 [ false, %invoke.cont86 ], [ false, %invoke.cont83 ], [ %read_flag.sroa.7.1, %if.end166 ]
   %read_flag.sroa.10.0.lcssa = phi i1 [ false, %invoke.cont86 ], [ false, %invoke.cont83 ], [ %read_flag.sroa.10.1, %if.end166 ]
   %read_flag.sroa.13.0.lcssa = phi i1 [ false, %invoke.cont86 ], [ false, %invoke.cont83 ], [ %read_flag.sroa.13.1, %if.end166 ]
   %read_flag.sroa.16.0.lcssa = phi i1 [ false, %invoke.cont86 ], [ false, %invoke.cont83 ], [ %read_flag.sroa.16.1, %if.end166 ]
+  %read_flag.sroa.7.0.lcssa = phi i1 [ false, %invoke.cont86 ], [ false, %invoke.cont83 ], [ %read_flag.sroa.7.1, %if.end166 ]
   %read_flag.sroa.4.0.lcssa = phi i1 [ false, %invoke.cont86 ], [ false, %invoke.cont83 ], [ %read_flag.sroa.4.1, %if.end166 ]
   %read_flag.sroa.0.0.lcssa = phi i1 [ false, %invoke.cont86 ], [ false, %invoke.cont83 ], [ %read_flag.sroa.0.1, %if.end166 ]
   invoke void @_ZN6Assimp11AMFImporter21ParseHelper_Node_ExitEv(ptr noundef nonnull align 8 dereferenceable(224) %this)
@@ -2423,10 +2423,10 @@ if.end.i342.lr.ph:                                ; preds = %invoke.cont175
 if.end.i342:                                      ; preds = %if.end.i342.lr.ph, %if.end260
   %read_flag.sroa.0.2501 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.0.3, %if.end260 ]
   %read_flag.sroa.4.2500 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.4.3, %if.end260 ]
-  %read_flag.sroa.16.2499 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.16.3, %if.end260 ]
-  %read_flag.sroa.13.2498 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.13.3, %if.end260 ]
-  %read_flag.sroa.10.2497 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.10.3, %if.end260 ]
-  %read_flag.sroa.7.2496 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.7.3, %if.end260 ]
+  %read_flag.sroa.7.2499 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.7.3, %if.end260 ]
+  %read_flag.sroa.16.2498 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.16.3, %if.end260 ]
+  %read_flag.sroa.13.2497 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.13.3, %if.end260 ]
+  %read_flag.sroa.10.2496 = phi i1 [ false, %if.end.i342.lr.ph ], [ %read_flag.sroa.10.3, %if.end260 ]
   %__begin2176.sroa.0.0495 = phi ptr [ %86, %if.end.i342.lr.ph ], [ %96, %if.end260 ]
   %name3.i343 = getelementptr inbounds i8, ptr %__begin2176.sroa.0.0495, i64 8
   %87 = load ptr, ptr %name3.i343, align 8
@@ -2590,10 +2590,10 @@ invoke.cont250:                                   ; preds = %cond.true.i416, %if
   br label %if.end260
 
 if.end260:                                        ; preds = %invoke.cont210, %invoke.cont230, %if.else245, %invoke.cont250, %invoke.cont240, %invoke.cont220, %invoke.cont200
-  %read_flag.sroa.7.3 = phi i1 [ %read_flag.sroa.7.2496, %invoke.cont200 ], [ %read_flag.sroa.7.2496, %invoke.cont210 ], [ true, %invoke.cont220 ], [ %read_flag.sroa.7.2496, %invoke.cont230 ], [ %read_flag.sroa.7.2496, %invoke.cont240 ], [ %read_flag.sroa.7.2496, %invoke.cont250 ], [ %read_flag.sroa.7.2496, %if.else245 ]
-  %read_flag.sroa.10.3 = phi i1 [ %read_flag.sroa.10.2497, %invoke.cont200 ], [ %read_flag.sroa.10.2497, %invoke.cont210 ], [ %read_flag.sroa.10.2497, %invoke.cont220 ], [ true, %invoke.cont230 ], [ %read_flag.sroa.10.2497, %invoke.cont240 ], [ %read_flag.sroa.10.2497, %invoke.cont250 ], [ %read_flag.sroa.10.2497, %if.else245 ]
-  %read_flag.sroa.13.3 = phi i1 [ %read_flag.sroa.13.2498, %invoke.cont200 ], [ %read_flag.sroa.13.2498, %invoke.cont210 ], [ %read_flag.sroa.13.2498, %invoke.cont220 ], [ %read_flag.sroa.13.2498, %invoke.cont230 ], [ true, %invoke.cont240 ], [ %read_flag.sroa.13.2498, %invoke.cont250 ], [ %read_flag.sroa.13.2498, %if.else245 ]
-  %read_flag.sroa.16.3 = phi i1 [ %read_flag.sroa.16.2499, %invoke.cont200 ], [ %read_flag.sroa.16.2499, %invoke.cont210 ], [ %read_flag.sroa.16.2499, %invoke.cont220 ], [ %read_flag.sroa.16.2499, %invoke.cont230 ], [ %read_flag.sroa.16.2499, %invoke.cont240 ], [ true, %invoke.cont250 ], [ %read_flag.sroa.16.2499, %if.else245 ]
+  %read_flag.sroa.10.3 = phi i1 [ %read_flag.sroa.10.2496, %invoke.cont200 ], [ %read_flag.sroa.10.2496, %invoke.cont210 ], [ %read_flag.sroa.10.2496, %invoke.cont220 ], [ true, %invoke.cont230 ], [ %read_flag.sroa.10.2496, %invoke.cont240 ], [ %read_flag.sroa.10.2496, %invoke.cont250 ], [ %read_flag.sroa.10.2496, %if.else245 ]
+  %read_flag.sroa.13.3 = phi i1 [ %read_flag.sroa.13.2497, %invoke.cont200 ], [ %read_flag.sroa.13.2497, %invoke.cont210 ], [ %read_flag.sroa.13.2497, %invoke.cont220 ], [ %read_flag.sroa.13.2497, %invoke.cont230 ], [ true, %invoke.cont240 ], [ %read_flag.sroa.13.2497, %invoke.cont250 ], [ %read_flag.sroa.13.2497, %if.else245 ]
+  %read_flag.sroa.16.3 = phi i1 [ %read_flag.sroa.16.2498, %invoke.cont200 ], [ %read_flag.sroa.16.2498, %invoke.cont210 ], [ %read_flag.sroa.16.2498, %invoke.cont220 ], [ %read_flag.sroa.16.2498, %invoke.cont230 ], [ %read_flag.sroa.16.2498, %invoke.cont240 ], [ true, %invoke.cont250 ], [ %read_flag.sroa.16.2498, %if.else245 ]
+  %read_flag.sroa.7.3 = phi i1 [ %read_flag.sroa.7.2499, %invoke.cont200 ], [ %read_flag.sroa.7.2499, %invoke.cont210 ], [ true, %invoke.cont220 ], [ %read_flag.sroa.7.2499, %invoke.cont230 ], [ %read_flag.sroa.7.2499, %invoke.cont240 ], [ %read_flag.sroa.7.2499, %invoke.cont250 ], [ %read_flag.sroa.7.2499, %if.else245 ]
   %read_flag.sroa.4.3 = phi i1 [ %read_flag.sroa.4.2500, %invoke.cont200 ], [ true, %invoke.cont210 ], [ %read_flag.sroa.4.2500, %invoke.cont220 ], [ %read_flag.sroa.4.2500, %invoke.cont230 ], [ %read_flag.sroa.4.2500, %invoke.cont240 ], [ %read_flag.sroa.4.2500, %invoke.cont250 ], [ %read_flag.sroa.4.2500, %if.else245 ]
   %read_flag.sroa.0.3 = phi i1 [ true, %invoke.cont200 ], [ %read_flag.sroa.0.2501, %invoke.cont210 ], [ %read_flag.sroa.0.2501, %invoke.cont220 ], [ %read_flag.sroa.0.2501, %invoke.cont230 ], [ %read_flag.sroa.0.2501, %invoke.cont240 ], [ %read_flag.sroa.0.2501, %invoke.cont250 ], [ %read_flag.sroa.0.2501, %if.else245 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name189) #17
@@ -2603,10 +2603,10 @@ if.end260:                                        ; preds = %invoke.cont210, %in
   br i1 %cmp.not.i337.not, label %if.end265, label %if.end.i342
 
 if.end265:                                        ; preds = %if.end260, %for.end170
-  %read_flag.sroa.7.4 = phi i1 [ %read_flag.sroa.7.0.lcssa, %for.end170 ], [ %read_flag.sroa.7.3, %if.end260 ]
   %read_flag.sroa.10.4 = phi i1 [ %read_flag.sroa.10.0.lcssa, %for.end170 ], [ %read_flag.sroa.10.3, %if.end260 ]
   %read_flag.sroa.13.4 = phi i1 [ %read_flag.sroa.13.0.lcssa, %for.end170 ], [ %read_flag.sroa.13.3, %if.end260 ]
   %read_flag.sroa.16.4 = phi i1 [ %read_flag.sroa.16.0.lcssa, %for.end170 ], [ %read_flag.sroa.16.3, %if.end260 ]
+  %read_flag.sroa.7.4 = phi i1 [ %read_flag.sroa.7.0.lcssa, %for.end170 ], [ %read_flag.sroa.7.3, %if.end260 ]
   %read_flag.sroa.4.4 = phi i1 [ %read_flag.sroa.4.0.lcssa, %for.end170 ], [ %read_flag.sroa.4.3, %if.end260 ]
   %read_flag.sroa.0.4 = phi i1 [ %read_flag.sroa.0.0.lcssa, %for.end170 ], [ %read_flag.sroa.0.3, %if.end260 ]
   %97 = select i1 %read_flag.sroa.0.4, i1 %read_flag.sroa.4.4, i1 false

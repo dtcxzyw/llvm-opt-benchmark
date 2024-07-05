@@ -2245,7 +2245,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit242: ; preds = %47
   br label %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit242.thread
 
 _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit242.thread: ; preds = %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit242, %47, %132
-  %.0 = phi float [ %137, %132 ], [ 1.000000e+00, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit242 ], [ 1.000000e+00, %47 ]
+  %.0221 = phi float [ %137, %132 ], [ 1.000000e+00, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit242 ], [ 1.000000e+00, %47 ]
   store <4 x float> zeroinitializer, ptr %16, align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   br label %138
@@ -2349,18 +2349,18 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   br label %173
 
 173:                                              ; preds = %.preheader, %173
-  %.0221275 = phi i64 [ 0, %.preheader ], [ %183, %173 ]
-  %174 = getelementptr inbounds [4 x %"struct.drjit::Mask.60"], ptr %170, i64 0, i64 %.0221275
-  %175 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %171, i64 0, i64 %.0221275
-  %176 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %172, i64 0, i64 %.0221275
+  %.0275 = phi i64 [ 0, %.preheader ], [ %183, %173 ]
+  %174 = getelementptr inbounds [4 x %"struct.drjit::Mask.60"], ptr %170, i64 0, i64 %.0275
+  %175 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %171, i64 0, i64 %.0275
+  %176 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %172, i64 0, i64 %.0275
   %177 = load <8 x i1>, ptr %174, align 1
   %178 = load <4 x float>, ptr %176, align 16
   %179 = load <4 x float>, ptr %175, align 16
   %180 = shufflevector <8 x i1> %177, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %181 = select contract <4 x i1> %180, <4 x float> %179, <4 x float> %178
-  %182 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %11, i64 0, i64 %.0221275
+  %182 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %11, i64 0, i64 %.0275
   store <4 x float> %181, ptr %182, align 16
-  %183 = add nuw nsw i64 %.0221275, 1
+  %183 = add nuw nsw i64 %.0275, 1
   %exitcond278.not = icmp eq i64 %183, 4
   br i1 %exitcond278.not, label %184, label %173, !llvm.loop !29
 
@@ -2372,7 +2372,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   br i1 %exitcond279.not, label %187, label %.preheader, !llvm.loop !30
 
 187:                                              ; preds = %184
-  %188 = fmul contract float %118, %.0
+  %188 = fmul contract float %118, %.0221
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %0, ptr noundef nonnull align 16 dereferenceable(256) %12, i64 256, i1 false)
   %189 = getelementptr inbounds i8, ptr %0, i64 256
   store float %188, ptr %189, align 16

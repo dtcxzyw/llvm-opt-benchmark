@@ -73,8 +73,8 @@ define range(i32 0, 2) i32 @cs_gaxpy(ptr noundef readonly %0, ptr noundef readon
   br i1 %39, label %27, label %.loopexit, !llvm.loop !6
 
 .loopexit32:                                      ; preds = %.loopexit, %10, %3, %4
-  %.028 = phi i32 [ 0, %4 ], [ 0, %3 ], [ 1, %10 ], [ 1, %.loopexit ]
-  ret i32 %.028
+  %.0 = phi i32 [ 0, %4 ], [ 0, %3 ], [ 1, %10 ], [ 1, %.loopexit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

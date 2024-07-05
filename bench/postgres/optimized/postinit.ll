@@ -969,14 +969,14 @@ sub_0.i:                                          ; preds = %304
   br label %333
 
 333:                                              ; preds = %330, %323
-  %.0.i96 = phi ptr [ %332, %330 ], [ null, %323 ]
-  call void @make_icu_collator(ptr noundef %326, ptr noundef %.0.i96, ptr noundef nonnull @default_locale) #12
+  %.049.i = phi ptr [ %332, %330 ], [ null, %323 ]
+  call void @make_icu_collator(ptr noundef %326, ptr noundef %.049.i, ptr noundef nonnull @default_locale) #12
   %.pre.i = load i8, ptr %320, align 4
   br label %334
 
 334:                                              ; preds = %333, %319
   %335 = phi i8 [ %.pre.i, %333 ], [ %321, %319 ]
-  %.049.i = phi ptr [ %326, %333 ], [ null, %319 ]
+  %.0.i96 = phi ptr [ %326, %333 ], [ null, %319 ]
   store i8 %335, ptr @default_locale, align 8
   store i8 1, ptr getelementptr inbounds (i8, ptr @default_locale, i64 1), align 1
   %336 = call i64 @SysCacheGetAttr(i32 noundef 21, ptr noundef nonnull %231, i16 noundef signext 17, ptr noundef nonnull %7) #12
@@ -989,7 +989,7 @@ sub_0.i:                                          ; preds = %304
   %341 = call ptr @text_to_cstring(ptr noundef %340) #12
   %342 = load i8, ptr %320, align 4
   %343 = icmp eq i8 %342, 105
-  %344 = select i1 %343, ptr %.049.i, ptr %293
+  %344 = select i1 %343, ptr %.0.i96, ptr %293
   %345 = call ptr @get_collation_actual_version(i8 noundef signext %342, ptr noundef %344) #12
   %.not54.i = icmp eq ptr %345, null
   br i1 %.not54.i, label %346, label %350

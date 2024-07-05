@@ -452,9 +452,9 @@ if.end16:                                         ; preds = %if.end5, %if.else
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %if.end123, %if.end16
-  %total_dl.0.ph = phi i64 [ %total_dl.2, %if.end123 ], [ 0, %if.end16 ]
   %total_ul.0.ph = phi i64 [ %total_ul.1, %if.end123 ], [ 0, %if.end16 ]
   %keepon.0.ph = phi i1 [ %keepon.2, %if.end123 ], [ true, %if.end16 ]
+  %total_dl.0.ph = phi i64 [ %total_dl.2, %if.end123 ], [ 0, %if.end16 ]
   %result.0.ph = phi i32 [ %result.4, %if.end123 ], [ 0, %if.end16 ]
   br i1 %keepon.0.ph, label %do.end, label %while.end
 
@@ -1784,9 +1784,9 @@ sw.epilog.fold.split:                             ; preds = %if.else78
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then5.i, %if.then25.i, %if.then200.i, %if.end47, %if.else105, %if.then99, %if.else78, %sw.epilog.fold.split, %if.else42, %if.then26, %if.end103, %if.then34
-  %total_dl.2 = phi i64 [ %total_dl.0.ph, %if.then26 ], [ %total_dl.0.ph, %if.then34 ], [ %total_dl.1, %if.end103 ], [ %total_dl.0.ph, %if.else42 ], [ %total_dl.1, %if.else78 ], [ %total_dl.1, %sw.epilog.fold.split ], [ %total_dl.1, %if.then99 ], [ %total_dl.1, %if.else105 ], [ %add, %if.end47 ], [ %add, %if.then200.i ], [ %add, %if.then25.i ], [ %add, %if.then5.i ]
   %total_ul.1 = phi i64 [ %total_ul.0.ph, %if.then26 ], [ %total_ul.0.ph, %if.then34 ], [ %add104, %if.end103 ], [ %total_ul.0.ph, %if.else42 ], [ %total_ul.0.ph, %if.else78 ], [ %total_ul.0.ph, %sw.epilog.fold.split ], [ %total_ul.0.ph, %if.then99 ], [ %total_ul.0.ph, %if.else105 ], [ %total_ul.0.ph, %if.end47 ], [ %total_ul.0.ph, %if.then200.i ], [ %total_ul.0.ph, %if.then25.i ], [ %total_ul.0.ph, %if.then5.i ]
   %keepon.1 = phi i1 [ true, %if.then26 ], [ false, %if.then34 ], [ true, %if.end103 ], [ false, %if.else42 ], [ false, %if.else78 ], [ true, %sw.epilog.fold.split ], [ false, %if.then99 ], [ %cmp106.not, %if.else105 ], [ false, %if.end47 ], [ false, %if.then200.i ], [ false, %if.then25.i ], [ false, %if.then5.i ]
+  %total_dl.2 = phi i64 [ %total_dl.0.ph, %if.then26 ], [ %total_dl.0.ph, %if.then34 ], [ %total_dl.1, %if.end103 ], [ %total_dl.0.ph, %if.else42 ], [ %total_dl.1, %if.else78 ], [ %total_dl.1, %sw.epilog.fold.split ], [ %total_dl.1, %if.then99 ], [ %total_dl.1, %if.else105 ], [ %add, %if.end47 ], [ %add, %if.then200.i ], [ %add, %if.then25.i ], [ %add, %if.then5.i ]
   %result.3 = phi i32 [ %call29, %if.then26 ], [ %call29, %if.then34 ], [ 0, %if.end103 ], [ 0, %if.else42 ], [ %result.2, %if.else78 ], [ %result.2, %sw.epilog.fold.split ], [ %call100, %if.then99 ], [ %result.2, %if.else105 ], [ %call48, %if.end47 ], [ %call205.i, %if.then200.i ], [ %call.i67, %if.then5.i ], [ %call30.i61, %if.then25.i ]
   %143 = load i32, ptr %timeout, align 8
   %tobool112.not = icmp eq i32 %143, 0
@@ -2093,9 +2093,9 @@ for.end:                                          ; preds = %for.body, %for.inc,
   br label %if.end16
 
 if.end16:                                         ; preds = %entry, %for.end
-  %outlen.0 = phi i64 [ %call13, %for.end ], [ %nread, %entry ]
   %outbuf.0 = phi ptr [ %call15, %for.end ], [ %buffer, %entry ]
   %result.2 = phi i32 [ %result.0.lcssa, %for.end ], [ 0, %entry ]
+  %outlen.0 = phi i64 [ %call13, %for.end ], [ %nread, %entry ]
   %tobool17.not24 = icmp eq i32 %result.2, 0
   %cmp1925 = icmp sgt i64 %outlen.0, 0
   %4 = select i1 %tobool17.not24, i1 %cmp1925, i1 false

@@ -30,15 +30,15 @@ define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_z(i64 noundef %0, p
   br i1 %.not277, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader230, %.lr.ph
-  %.0178237 = phi i64 [ %19, %.lr.ph ], [ %7, %.preheader230 ]
-  %.0180236 = phi ptr [ %13, %.lr.ph ], [ %1, %.preheader230 ]
-  %.0189235 = phi i64 [ %11, %.lr.ph ], [ %2, %.preheader230 ]
-  %11 = add i64 %.0189235, -1
-  %12 = lshr i64 %.0178237, 8
-  %13 = getelementptr inbounds i8, ptr %.0180236, i64 1
-  %14 = load i8, ptr %.0180236, align 1
-  %.0178.tr = trunc i64 %.0178237 to i8
-  %.narrow213 = xor i8 %14, %.0178.tr
+  %.0158237 = phi i64 [ %19, %.lr.ph ], [ %7, %.preheader230 ]
+  %.0162236 = phi ptr [ %13, %.lr.ph ], [ %1, %.preheader230 ]
+  %.0168235 = phi i64 [ %11, %.lr.ph ], [ %2, %.preheader230 ]
+  %11 = add i64 %.0168235, -1
+  %12 = lshr i64 %.0158237, 8
+  %13 = getelementptr inbounds i8, ptr %.0162236, i64 1
+  %14 = load i8, ptr %.0162236, align 1
+  %.0158.tr = trunc i64 %.0158237 to i8
+  %.narrow213 = xor i8 %14, %.0158.tr
   %15 = zext i8 %.narrow213 to i64
   %16 = getelementptr inbounds [256 x i32], ptr @crc_table, i64 0, i64 %15
   %17 = load i32, ptr %16, align 4
@@ -52,13 +52,13 @@ define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_z(i64 noundef %0, p
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader230
-  %.0189.lcssa = phi i64 [ %2, %.preheader230 ], [ %11, %.lr.ph ]
-  %.0180.lcssa = phi ptr [ %1, %.preheader230 ], [ %13, %.lr.ph ]
-  %.0178.lcssa = phi i64 [ %7, %.preheader230 ], [ %19, %.lr.ph ]
-  %25 = udiv i64 %.0189.lcssa, 40
+  %.0168.lcssa = phi i64 [ %2, %.preheader230 ], [ %11, %.lr.ph ]
+  %.0162.lcssa = phi ptr [ %1, %.preheader230 ], [ %13, %.lr.ph ]
+  %.0158.lcssa = phi i64 [ %7, %.preheader230 ], [ %19, %.lr.ph ]
+  %25 = udiv i64 %.0168.lcssa, 40
   %.neg = mul i64 %25, -40
-  %26 = add i64 %.neg, %.0189.lcssa
-  %27 = trunc nuw i64 %.0178.lcssa to i32
+  %26 = add i64 %.neg, %.0168.lcssa
+  %27 = trunc nuw i64 %.0158.lcssa to i32
   %28 = add nsw i64 %25, -1
   %.not246 = icmp eq i64 %28, 0
   br i1 %.not246, label %._crit_edge255, label %.lr.ph254.preheader
@@ -69,36 +69,36 @@ define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_z(i64 noundef %0, p
   br label %.lr.ph254
 
 .loopexit:                                        ; preds = %68
-  %31 = getelementptr inbounds i8, ptr %.0184247, i64 40
+  %31 = getelementptr inbounds i8, ptr %.0176252, i64 40
   %32 = add i64 %33, -1
   %.not = icmp eq i64 %32, 0
   br i1 %.not, label %._crit_edge255.loopexit, label %.lr.ph254, !llvm.loop !7
 
 .lr.ph254:                                        ; preds = %.lr.ph254.preheader, %.loopexit
   %33 = phi i64 [ %32, %.loopexit ], [ %28, %.lr.ph254.preheader ]
-  %.0166252 = phi i32 [ %94, %.loopexit ], [ 0, %.lr.ph254.preheader ]
-  %.0168251 = phi i32 [ %89, %.loopexit ], [ 0, %.lr.ph254.preheader ]
-  %.0170250 = phi i32 [ %84, %.loopexit ], [ 0, %.lr.ph254.preheader ]
-  %.0172249 = phi i32 [ %79, %.loopexit ], [ 0, %.lr.ph254.preheader ]
-  %.0174248 = phi i32 [ %74, %.loopexit ], [ %27, %.lr.ph254.preheader ]
-  %.0184247 = phi ptr [ %31, %.loopexit ], [ %.0180.lcssa, %.lr.ph254.preheader ]
-  %34 = zext i32 %.0174248 to i64
-  %35 = load i64, ptr %.0184247, align 8
+  %.0176252 = phi ptr [ %31, %.loopexit ], [ %.0162.lcssa, %.lr.ph254.preheader ]
+  %.0183251 = phi i32 [ %94, %.loopexit ], [ 0, %.lr.ph254.preheader ]
+  %.0185250 = phi i32 [ %74, %.loopexit ], [ %27, %.lr.ph254.preheader ]
+  %.0187249 = phi i32 [ %89, %.loopexit ], [ 0, %.lr.ph254.preheader ]
+  %.0189248 = phi i32 [ %79, %.loopexit ], [ 0, %.lr.ph254.preheader ]
+  %.0191247 = phi i32 [ %84, %.loopexit ], [ 0, %.lr.ph254.preheader ]
+  %34 = zext i32 %.0185250 to i64
+  %35 = load i64, ptr %.0176252, align 8
   %36 = xor i64 %35, %34
-  %37 = zext i32 %.0172249 to i64
-  %38 = getelementptr inbounds i8, ptr %.0184247, i64 8
+  %37 = zext i32 %.0189248 to i64
+  %38 = getelementptr inbounds i8, ptr %.0176252, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = xor i64 %39, %37
-  %41 = zext i32 %.0170250 to i64
-  %42 = getelementptr inbounds i8, ptr %.0184247, i64 16
+  %41 = zext i32 %.0191247 to i64
+  %42 = getelementptr inbounds i8, ptr %.0176252, i64 16
   %43 = load i64, ptr %42, align 8
   %44 = xor i64 %43, %41
-  %45 = zext i32 %.0168251 to i64
-  %46 = getelementptr inbounds i8, ptr %.0184247, i64 24
+  %45 = zext i32 %.0187249 to i64
+  %46 = getelementptr inbounds i8, ptr %.0176252, i64 24
   %47 = load i64, ptr %46, align 8
   %48 = xor i64 %47, %45
-  %49 = zext i32 %.0166252 to i64
-  %50 = getelementptr inbounds i8, ptr %.0184247, i64 32
+  %49 = zext i32 %.0183251 to i64
+  %50 = getelementptr inbounds i8, ptr %.0176252, i64 32
   %51 = load i64, ptr %50, align 8
   %52 = xor i64 %51, %49
   %53 = and i64 %36, 255
@@ -120,43 +120,43 @@ define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_z(i64 noundef %0, p
 
 68:                                               ; preds = %.lr.ph254, %68
   %indvars.iv = phi i64 [ 1, %.lr.ph254 ], [ %indvars.iv.next, %68 ]
-  %.1167245 = phi i32 [ %67, %.lr.ph254 ], [ %94, %68 ]
-  %.1169244 = phi i32 [ %64, %.lr.ph254 ], [ %89, %68 ]
-  %.1171243 = phi i32 [ %61, %.lr.ph254 ], [ %84, %68 ]
-  %.1173242 = phi i32 [ %58, %.lr.ph254 ], [ %79, %68 ]
-  %.1175241 = phi i32 [ %55, %.lr.ph254 ], [ %74, %68 ]
+  %.1184244 = phi i32 [ %67, %.lr.ph254 ], [ %94, %68 ]
+  %.1186243 = phi i32 [ %55, %.lr.ph254 ], [ %74, %68 ]
+  %.1188242 = phi i32 [ %64, %.lr.ph254 ], [ %89, %68 ]
+  %.1190241 = phi i32 [ %58, %.lr.ph254 ], [ %79, %68 ]
+  %.1192240 = phi i32 [ %61, %.lr.ph254 ], [ %84, %68 ]
   %69 = shl nuw nsw i64 %indvars.iv, 3
   %70 = lshr i64 %36, %69
   %71 = and i64 %70, 255
   %72 = getelementptr inbounds [8 x [256 x i32]], ptr @crc_braid_table, i64 0, i64 %indvars.iv, i64 %71
   %73 = load i32, ptr %72, align 4
-  %74 = xor i32 %73, %.1175241
+  %74 = xor i32 %73, %.1186243
   %75 = lshr i64 %40, %69
   %76 = and i64 %75, 255
   %77 = getelementptr inbounds [8 x [256 x i32]], ptr @crc_braid_table, i64 0, i64 %indvars.iv, i64 %76
   %78 = load i32, ptr %77, align 4
-  %79 = xor i32 %78, %.1173242
+  %79 = xor i32 %78, %.1190241
   %80 = lshr i64 %44, %69
   %81 = and i64 %80, 255
   %82 = getelementptr inbounds [8 x [256 x i32]], ptr @crc_braid_table, i64 0, i64 %indvars.iv, i64 %81
   %83 = load i32, ptr %82, align 4
-  %84 = xor i32 %83, %.1171243
+  %84 = xor i32 %83, %.1192240
   %85 = lshr i64 %48, %69
   %86 = and i64 %85, 255
   %87 = getelementptr inbounds [8 x [256 x i32]], ptr @crc_braid_table, i64 0, i64 %indvars.iv, i64 %86
   %88 = load i32, ptr %87, align 4
-  %89 = xor i32 %88, %.1169244
+  %89 = xor i32 %88, %.1188242
   %90 = lshr i64 %52, %69
   %91 = and i64 %90, 255
   %92 = getelementptr inbounds [8 x [256 x i32]], ptr @crc_braid_table, i64 0, i64 %indvars.iv, i64 %91
   %93 = load i32, ptr %92, align 4
-  %94 = xor i32 %93, %.1167245
+  %94 = xor i32 %93, %.1184244
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.loopexit, label %68, !llvm.loop !8
 
 ._crit_edge255.loopexit:                          ; preds = %.loopexit
-  %scevgep = getelementptr i8, ptr %.0180.lcssa, i64 %30
+  %scevgep = getelementptr i8, ptr %.0162.lcssa, i64 %30
   %95 = zext i32 %79 to i64
   %96 = zext i32 %84 to i64
   %97 = zext i32 %89 to i64
@@ -164,14 +164,14 @@ define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_z(i64 noundef %0, p
   br label %._crit_edge255
 
 ._crit_edge255:                                   ; preds = %._crit_edge255.loopexit, %._crit_edge
-  %.0184.lcssa = phi ptr [ %.0180.lcssa, %._crit_edge ], [ %scevgep, %._crit_edge255.loopexit ]
-  %.0174.lcssa = phi i32 [ %27, %._crit_edge ], [ %74, %._crit_edge255.loopexit ]
-  %.0172.lcssa = phi i64 [ 0, %._crit_edge ], [ %95, %._crit_edge255.loopexit ]
-  %.0170.lcssa = phi i64 [ 0, %._crit_edge ], [ %96, %._crit_edge255.loopexit ]
-  %.0168.lcssa = phi i64 [ 0, %._crit_edge ], [ %97, %._crit_edge255.loopexit ]
-  %.0166.lcssa = phi i64 [ 0, %._crit_edge ], [ %98, %._crit_edge255.loopexit ]
-  %99 = zext i32 %.0174.lcssa to i64
-  %100 = load i64, ptr %.0184.lcssa, align 8
+  %.0191.lcssa = phi i64 [ 0, %._crit_edge ], [ %96, %._crit_edge255.loopexit ]
+  %.0189.lcssa = phi i64 [ 0, %._crit_edge ], [ %95, %._crit_edge255.loopexit ]
+  %.0187.lcssa = phi i64 [ 0, %._crit_edge ], [ %97, %._crit_edge255.loopexit ]
+  %.0185.lcssa = phi i32 [ %27, %._crit_edge ], [ %74, %._crit_edge255.loopexit ]
+  %.0183.lcssa = phi i64 [ 0, %._crit_edge ], [ %98, %._crit_edge255.loopexit ]
+  %.0176.lcssa = phi ptr [ %.0162.lcssa, %._crit_edge ], [ %scevgep, %._crit_edge255.loopexit ]
+  %99 = zext i32 %.0185.lcssa to i64
+  %100 = load i64, ptr %.0176.lcssa, align 8
   %101 = xor i64 %100, %99
   br label %102
 
@@ -190,9 +190,9 @@ define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_z(i64 noundef %0, p
 
 crc_word.exit:                                    ; preds = %102
   %110 = and i64 %108, 4294967295
-  %111 = getelementptr inbounds i8, ptr %.0184.lcssa, i64 8
+  %111 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 8
   %112 = load i64, ptr %111, align 8
-  %113 = xor i64 %110, %.0172.lcssa
+  %113 = xor i64 %110, %.0189.lcssa
   %114 = xor i64 %113, %112
   br label %115
 
@@ -211,9 +211,9 @@ crc_word.exit:                                    ; preds = %102
 
 crc_word.exit217:                                 ; preds = %115
   %123 = and i64 %121, 4294967295
-  %124 = getelementptr inbounds i8, ptr %.0184.lcssa, i64 16
+  %124 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 16
   %125 = load i64, ptr %124, align 8
-  %126 = xor i64 %123, %.0170.lcssa
+  %126 = xor i64 %123, %.0191.lcssa
   %127 = xor i64 %126, %125
   br label %128
 
@@ -232,9 +232,9 @@ crc_word.exit217:                                 ; preds = %115
 
 crc_word.exit221:                                 ; preds = %128
   %136 = and i64 %134, 4294967295
-  %137 = getelementptr inbounds i8, ptr %.0184.lcssa, i64 24
+  %137 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 24
   %138 = load i64, ptr %137, align 8
-  %139 = xor i64 %136, %.0168.lcssa
+  %139 = xor i64 %136, %.0187.lcssa
   %140 = xor i64 %139, %138
   br label %141
 
@@ -253,9 +253,9 @@ crc_word.exit221:                                 ; preds = %128
 
 crc_word.exit225:                                 ; preds = %141
   %149 = and i64 %147, 4294967295
-  %150 = getelementptr inbounds i8, ptr %.0184.lcssa, i64 32
+  %150 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 32
   %151 = load i64, ptr %150, align 8
-  %152 = xor i64 %149, %.0166.lcssa
+  %152 = xor i64 %149, %.0183.lcssa
   %153 = xor i64 %152, %151
   br label %154
 
@@ -273,32 +273,32 @@ crc_word.exit225:                                 ; preds = %141
   br i1 %exitcond.not.i228, label %crc_word.exit229, label %154, !llvm.loop !9
 
 crc_word.exit229:                                 ; preds = %154
-  %162 = getelementptr inbounds i8, ptr %.0184.lcssa, i64 40
+  %162 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 40
   %163 = and i64 %160, 4294967295
   br label %164
 
 164:                                              ; preds = %crc_word.exit229, %5
-  %.1190 = phi i64 [ %26, %crc_word.exit229 ], [ %2, %5 ]
-  %.1181 = phi ptr [ %162, %crc_word.exit229 ], [ %1, %5 ]
+  %.1169 = phi i64 [ %26, %crc_word.exit229 ], [ %2, %5 ]
+  %.1163 = phi ptr [ %162, %crc_word.exit229 ], [ %1, %5 ]
   %.2 = phi i64 [ %163, %crc_word.exit229 ], [ %7, %5 ]
-  %165 = icmp ugt i64 %.1190, 7
+  %165 = icmp ugt i64 %.1169, 7
   br i1 %165, label %.lr.ph266, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph266, %164
-  %.2191.lcssa = phi i64 [ %.1190, %164 ], [ %166, %.lr.ph266 ]
-  %.2182.lcssa = phi ptr [ %.1181, %164 ], [ %224, %.lr.ph266 ]
+  %.2170.lcssa = phi i64 [ %.1169, %164 ], [ %166, %.lr.ph266 ]
+  %.2164.lcssa = phi ptr [ %.1163, %164 ], [ %224, %.lr.ph266 ]
   %.3.lcssa = phi i64 [ %.2, %164 ], [ %230, %.lr.ph266 ]
-  %.not198270 = icmp eq i64 %.2191.lcssa, 0
+  %.not198270 = icmp eq i64 %.2170.lcssa, 0
   br i1 %.not198270, label %._crit_edge275, label %.lr.ph274
 
 .lr.ph266:                                        ; preds = %164, %.lr.ph266
   %.3264 = phi i64 [ %230, %.lr.ph266 ], [ %.2, %164 ]
-  %.2182263 = phi ptr [ %224, %.lr.ph266 ], [ %.1181, %164 ]
-  %.2191262 = phi i64 [ %166, %.lr.ph266 ], [ %.1190, %164 ]
-  %166 = add i64 %.2191262, -8
+  %.2164263 = phi ptr [ %224, %.lr.ph266 ], [ %.1163, %164 ]
+  %.2170262 = phi i64 [ %166, %.lr.ph266 ], [ %.1169, %164 ]
+  %166 = add i64 %.2170262, -8
   %167 = lshr i64 %.3264, 8
-  %168 = getelementptr inbounds i8, ptr %.2182263, i64 1
-  %169 = load i8, ptr %.2182263, align 1
+  %168 = getelementptr inbounds i8, ptr %.2164263, i64 1
+  %169 = load i8, ptr %.2164263, align 1
   %.3.tr = trunc i64 %.3264 to i8
   %.narrow199 = xor i8 %169, %.3.tr
   %170 = zext i8 %.narrow199 to i64
@@ -307,7 +307,7 @@ crc_word.exit229:                                 ; preds = %154
   %173 = zext i32 %172 to i64
   %174 = xor i64 %167, %173
   %175 = lshr i64 %174, 8
-  %176 = getelementptr inbounds i8, ptr %.2182263, i64 2
+  %176 = getelementptr inbounds i8, ptr %.2164263, i64 2
   %177 = load i8, ptr %168, align 1
   %.tr = trunc i64 %174 to i8
   %.narrow200 = xor i8 %177, %.tr
@@ -317,7 +317,7 @@ crc_word.exit229:                                 ; preds = %154
   %181 = zext i32 %180 to i64
   %182 = xor i64 %175, %181
   %183 = lshr i64 %182, 8
-  %184 = getelementptr inbounds i8, ptr %.2182263, i64 3
+  %184 = getelementptr inbounds i8, ptr %.2164263, i64 3
   %185 = load i8, ptr %176, align 1
   %.tr201 = trunc i64 %182 to i8
   %.narrow202 = xor i8 %185, %.tr201
@@ -327,7 +327,7 @@ crc_word.exit229:                                 ; preds = %154
   %189 = zext i32 %188 to i64
   %190 = xor i64 %183, %189
   %191 = lshr i64 %190, 8
-  %192 = getelementptr inbounds i8, ptr %.2182263, i64 4
+  %192 = getelementptr inbounds i8, ptr %.2164263, i64 4
   %193 = load i8, ptr %184, align 1
   %.tr203 = trunc i64 %190 to i8
   %.narrow204 = xor i8 %193, %.tr203
@@ -337,7 +337,7 @@ crc_word.exit229:                                 ; preds = %154
   %197 = zext i32 %196 to i64
   %198 = xor i64 %191, %197
   %199 = lshr i64 %198, 8
-  %200 = getelementptr inbounds i8, ptr %.2182263, i64 5
+  %200 = getelementptr inbounds i8, ptr %.2164263, i64 5
   %201 = load i8, ptr %192, align 1
   %.tr205 = trunc i64 %198 to i8
   %.narrow206 = xor i8 %201, %.tr205
@@ -347,7 +347,7 @@ crc_word.exit229:                                 ; preds = %154
   %205 = zext i32 %204 to i64
   %206 = xor i64 %199, %205
   %207 = lshr i64 %206, 8
-  %208 = getelementptr inbounds i8, ptr %.2182263, i64 6
+  %208 = getelementptr inbounds i8, ptr %.2164263, i64 6
   %209 = load i8, ptr %200, align 1
   %.tr207 = trunc i64 %206 to i8
   %.narrow208 = xor i8 %209, %.tr207
@@ -357,7 +357,7 @@ crc_word.exit229:                                 ; preds = %154
   %213 = zext i32 %212 to i64
   %214 = xor i64 %207, %213
   %215 = lshr i64 %214, 8
-  %216 = getelementptr inbounds i8, ptr %.2182263, i64 7
+  %216 = getelementptr inbounds i8, ptr %.2164263, i64 7
   %217 = load i8, ptr %208, align 1
   %.tr209 = trunc i64 %214 to i8
   %.narrow210 = xor i8 %217, %.tr209
@@ -367,7 +367,7 @@ crc_word.exit229:                                 ; preds = %154
   %221 = zext i32 %220 to i64
   %222 = xor i64 %215, %221
   %223 = lshr i64 %222, 8
-  %224 = getelementptr inbounds i8, ptr %.2182263, i64 8
+  %224 = getelementptr inbounds i8, ptr %.2164263, i64 8
   %225 = load i8, ptr %216, align 1
   %.tr211 = trunc i64 %222 to i8
   %.narrow212 = xor i8 %225, %.tr211
@@ -381,12 +381,12 @@ crc_word.exit229:                                 ; preds = %154
 
 .lr.ph274:                                        ; preds = %.preheader, %.lr.ph274
   %.4273 = phi i64 [ %240, %.lr.ph274 ], [ %.3.lcssa, %.preheader ]
-  %.3183272 = phi ptr [ %234, %.lr.ph274 ], [ %.2182.lcssa, %.preheader ]
-  %.3192271 = phi i64 [ %232, %.lr.ph274 ], [ %.2191.lcssa, %.preheader ]
-  %232 = add nsw i64 %.3192271, -1
+  %.3165272 = phi ptr [ %234, %.lr.ph274 ], [ %.2164.lcssa, %.preheader ]
+  %.3171271 = phi i64 [ %232, %.lr.ph274 ], [ %.2170.lcssa, %.preheader ]
+  %232 = add nsw i64 %.3171271, -1
   %233 = lshr i64 %.4273, 8
-  %234 = getelementptr inbounds i8, ptr %.3183272, i64 1
-  %235 = load i8, ptr %.3183272, align 1
+  %234 = getelementptr inbounds i8, ptr %.3165272, i64 1
+  %235 = load i8, ptr %.3165272, align 1
   %.4.tr = trunc i64 %.4273 to i8
   %.narrow = xor i8 %235, %.4.tr
   %236 = zext i8 %.narrow to i64
@@ -403,8 +403,8 @@ crc_word.exit229:                                 ; preds = %154
   br label %242
 
 242:                                              ; preds = %3, %._crit_edge275
-  %.0163 = phi i64 [ %241, %._crit_edge275 ], [ 0, %3 ]
-  ret i64 %.0163
+  %.0 = phi i64 [ %241, %._crit_edge275 ], [ 0, %3 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

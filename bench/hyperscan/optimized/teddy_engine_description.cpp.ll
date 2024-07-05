@@ -232,36 +232,36 @@ invoke.cont1:                                     ; preds = %invoke.cont
   br i1 %cmp.i.not14.i, label %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit, label %for.cond6.preheader.i
 
 for.cond6.preheader.i:                            ; preds = %invoke.cont1, %for.end.i
-  %__begin1.sroa.0.016.i = phi ptr [ %incdec.ptr.i.i26, %for.end.i ], [ %vl.val, %invoke.cont1 ]
-  %max_flood_tail.015.i = phi i64 [ %.sroa.speculated.i, %for.end.i ], [ 0, %invoke.cont1 ]
-  %call710.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.016.i) #14
+  %max_flood_tail.016.i = phi i64 [ %.sroa.speculated.i, %for.end.i ], [ 0, %invoke.cont1 ]
+  %__begin1.sroa.0.015.i = phi ptr [ %incdec.ptr.i.i26, %for.end.i ], [ %vl.val, %invoke.cont1 ]
+  %call710.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.015.i) #14
   %cmp11.i = icmp ugt i64 %call710.i, 1
   br i1 %cmp11.i, label %for.body8.i, label %for.end.i
 
 for.body8.i:                                      ; preds = %for.cond6.preheader.i, %for.inc.i
   %storemerge12.i = phi i64 [ %inc.i, %for.inc.i ], [ 1, %for.cond6.preheader.i ]
-  %call9.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.016.i) #14
+  %call9.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.015.i) #14
   %11 = xor i64 %storemerge12.i, -1
   %sub10.i = add i64 %call9.i, %11
-  %call11.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.016.i, i64 noundef %sub10.i) #14
+  %call11.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.015.i, i64 noundef %sub10.i) #14
   %12 = load i8, ptr %call11.i, align 1
-  %call12.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.016.i) #14
+  %call12.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.015.i) #14
   %sub13.i = add i64 %call12.i, -1
-  %call14.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.016.i, i64 noundef %sub13.i) #14
+  %call14.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.015.i, i64 noundef %sub13.i) #14
   %13 = load i8, ptr %call14.i, align 1
   %cmp16.not.i = icmp eq i8 %12, %13
   br i1 %cmp16.not.i, label %for.inc.i, label %for.end.i
 
 for.inc.i:                                        ; preds = %for.body8.i
   %inc.i = add nuw i64 %storemerge12.i, 1
-  %call7.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.016.i) #14
+  %call7.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.015.i) #14
   %cmp.i = icmp ult i64 %inc.i, %call7.i
   br i1 %cmp.i, label %for.body8.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.inc.i, %for.body8.i, %for.cond6.preheader.i
   %storemerge.lcssa.i = phi i64 [ 1, %for.cond6.preheader.i ], [ %inc.i, %for.inc.i ], [ %storemerge12.i, %for.body8.i ]
-  %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %max_flood_tail.015.i, i64 %storemerge.lcssa.i)
-  %incdec.ptr.i.i26 = getelementptr inbounds i8, ptr %__begin1.sroa.0.016.i, i64 104
+  %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %max_flood_tail.016.i, i64 %storemerge.lcssa.i)
+  %incdec.ptr.i.i26 = getelementptr inbounds i8, ptr %__begin1.sroa.0.015.i, i64 104
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i26, %vl.val24
   br i1 %cmp.i.not.i, label %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit, label %for.cond6.preheader.i
 

@@ -11688,11 +11688,11 @@ define void @"_ZN71_$LT$std..process..Command$u20$as$u20$just..command_ext..Comm
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8
-  %.sroa.0.sroa.0.0 = zext i1 %.not to i64
+  %.sroa.0.sroa.6.0 = zext i1 %.not to i64
   %.sroa.0.sroa.5.sroa.6.0 = select i1 %.not, i64 %8, i64 undef
   %.sroa.5.0 = select i1 %.not, i64 %10, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
-  store i64 %.sroa.0.sroa.0.0, ptr %5, align 8
+  store i64 %.sroa.0.sroa.6.0, ptr %5, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store ptr null, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.5.sroa.5.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
@@ -11700,7 +11700,7 @@ define void @"_ZN71_$LT$std..process..Command$u20$as$u20$just..command_ext..Comm
   %.sroa.0.sroa.5.sroa.6.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
   store i64 %.sroa.0.sroa.5.sroa.6.0, ptr %.sroa.0.sroa.5.sroa.6.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
-  store i64 %.sroa.0.sroa.0.0, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  store i64 %.sroa.0.sroa.6.0, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
   %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
   store ptr null, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
   %.sroa.0.sroa.7.sroa.5.0..sroa.0.sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %5, i64 48

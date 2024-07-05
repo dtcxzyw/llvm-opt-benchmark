@@ -511,8 +511,8 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end28, %entry
-  %qual.0 = phi i32 [ 0, %entry ], [ %qual.2, %if.end28 ]
   %idxprom.i34.pn.in = phi i32 [ %id, %entry ], [ %and29, %if.end28 ]
+  %qual.0 = phi i32 [ 0, %entry ], [ %qual.2, %if.end28 ]
   %idxprom.i34.pn = zext i32 %idxprom.i34.pn.in to i64
   %ct.0 = getelementptr inbounds %struct.CType, ptr %0, i64 %idxprom.i34.pn
   %1 = load i32, ptr %ct.0, align 8
@@ -586,8 +586,8 @@ entry:
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end28.i, %entry
-  %qual.0.i = phi i32 [ 0, %entry ], [ %qual.2.i, %if.end28.i ]
   %idxprom.i34.pn.in.i = phi i32 [ %spec.select, %entry ], [ %and29.i, %if.end28.i ]
+  %qual.0.i = phi i32 [ 0, %entry ], [ %qual.2.i, %if.end28.i ]
   %idxprom.i34.pn.i = zext i32 %idxprom.i34.pn.in.i to i64
   %ct.0.i = getelementptr inbounds %struct.CType, ptr %0, i64 %idxprom.i34.pn.i
   %2 = load i32, ptr %ct.0.i, align 8
@@ -808,9 +808,9 @@ if.end:                                           ; preds = %while.end.i, %if.th
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %sw.epilog.i, %if.end
-  %ct.0.i = phi ptr [ %arrayidx.i122.i, %if.end ], [ %arrayidx.i.i, %sw.epilog.i ]
-  %qual.0.i = phi i32 [ 0, %if.end ], [ %qual.1.i, %sw.epilog.i ]
   %ptrto.0.i = phi i32 [ 0, %if.end ], [ %ptrto.3.i, %sw.epilog.i ]
+  %qual.0.i = phi i32 [ 0, %if.end ], [ %qual.1.i, %sw.epilog.i ]
+  %ct.0.i = phi ptr [ %arrayidx.i122.i, %if.end ], [ %arrayidx.i.i, %sw.epilog.i ]
   %7 = load i32, ptr %ct.0.i, align 8
   %size2.i = getelementptr inbounds i8, ptr %ct.0.i, i64 4
   %8 = load i32, ptr %size2.i, align 4
@@ -2186,8 +2186,8 @@ if.end.i656.i:                                    ; preds = %ctype_appc.exit650.
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end.i656.i, %if.then.i654.i, %while.end.i624.i, %if.then.i625.i, %if.end.i526.i, %if.then.i524.i, %if.end74.i, %sw.bb56.i, %for.cond.i
-  %qual.1.i = phi i32 [ %qual.0.i, %for.cond.i ], [ 0, %if.end74.i ], [ %spec.select.i, %sw.bb56.i ], [ %qual.0.i, %if.then.i524.i ], [ %qual.0.i, %if.end.i526.i ], [ %qual.0.i, %if.then.i625.i ], [ %qual.0.i, %while.end.i624.i ], [ %qual.0.i, %if.then.i654.i ], [ %qual.0.i, %if.end.i656.i ]
   %ptrto.3.i = phi i32 [ %ptrto.0.i, %for.cond.i ], [ 1, %if.end74.i ], [ %ptrto.0.i, %sw.bb56.i ], [ 0, %if.then.i524.i ], [ 0, %if.end.i526.i ], [ %ptrto.0.i, %if.then.i625.i ], [ %ptrto.0.i, %while.end.i624.i ], [ 0, %if.then.i654.i ], [ 0, %if.end.i656.i ]
+  %qual.1.i = phi i32 [ %qual.0.i, %for.cond.i ], [ 0, %if.end74.i ], [ %spec.select.i, %sw.bb56.i ], [ %qual.0.i, %if.then.i524.i ], [ %qual.0.i, %if.end.i526.i ], [ %qual.0.i, %if.then.i625.i ], [ %qual.0.i, %while.end.i624.i ], [ %qual.0.i, %if.then.i654.i ], [ %qual.0.i, %if.end.i656.i ]
   %120 = load ptr, ptr %cts, align 8
   %and116.i = and i32 %7, 65535
   %121 = load ptr, ptr %120, align 8
@@ -2368,7 +2368,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %ct.051 = phi ptr [ %call1, %entry ], [ %incdec.ptr, %for.inc ]
-  %name.049 = phi ptr [ @.str.1, %entry ], [ %name.1, %for.inc ]
+  %name.050 = phi ptr [ @.str.1, %entry ], [ %name.1, %for.inc ]
   %arrayidx = getelementptr inbounds [98 x i32], ptr @lj_ctype_typeinfo, i64 0, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx, align 4
   %shl = shl i32 %3, 16
@@ -2386,8 +2386,8 @@ for.body:                                         ; preds = %entry, %for.inc
   ]
 
 if.then:                                          ; preds = %for.body, %for.body
-  %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.049) #15
-  %call12 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef %name.049, i64 noundef %call11) #14
+  %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.050) #15
+  %call12 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef %name.050, i64 noundef %call11) #14
   %marked.i = getelementptr inbounds i8, ptr %call12, i64 8
   %4 = load i8, ptr %marked.i, align 8
   %5 = or i8 %4, 32
@@ -2396,7 +2396,7 @@ if.then:                                          ; preds = %for.body, %for.body
   %name.i = getelementptr inbounds i8, ptr %ct.051, i64 16
   store i64 %6, ptr %name.i, align 8
   %add = add i64 %call11, 1
-  %add.ptr = getelementptr inbounds i8, ptr %name.049, i64 %add
+  %add.ptr = getelementptr inbounds i8, ptr %name.050, i64 %add
   %conv.i = trunc i64 %6 to i32
   %add.i = add i32 %conv.i, -79764919
   %xor.i.i = xor i32 %add.i, %conv.i
@@ -2439,13 +2439,13 @@ if.then17:                                        ; preds = %if.else
 
 for.inc.sink.split:                               ; preds = %if.then17, %if.then
   %arrayidx.i.sink = phi ptr [ %arrayidx.i, %if.then ], [ %arrayidx.i46, %if.then17 ]
-  %name.1.ph = phi ptr [ %add.ptr, %if.then ], [ %name.049, %if.then17 ]
+  %name.1.ph = phi ptr [ %add.ptr, %if.then ], [ %name.050, %if.then17 ]
   %conv4.i = trunc i64 %indvars.iv to i16
   store i16 %conv4.i, ptr %arrayidx.i.sink, align 2
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.else
-  %name.1 = phi ptr [ %name.049, %if.else ], [ %name.1.ph, %for.inc.sink.split ]
+  %name.1 = phi ptr [ %name.050, %if.else ], [ %name.1.ph, %for.inc.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %ct.051, i64 24
   %exitcond.not = icmp eq i64 %indvars.iv.next, 97

@@ -110,12 +110,12 @@ if.end25:                                         ; preds = %_.exit, %land.lhs.t
 
 for.body.us:                                      ; preds = %if.end25, %for.inc.us
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %for.inc.us ], [ 0, %if.end25 ]
-  %offset.040.us = phi i32 [ %add39.us, %for.inc.us ], [ 0, %if.end25 ]
+  %offset.039.us = phi i32 [ %add39.us, %for.inc.us ], [ 0, %if.end25 ]
   %add.ptr.us = getelementptr inbounds %struct.thread_data, ptr %data, i64 %indvars.iv49
   %index28.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 8
   store ptr %index, ptr %index28.us, align 8
   %offset33.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 48
-  store i32 %offset.040.us, ptr %offset33.us, align 16
+  store i32 %offset.039.us, ptr %offset33.us, align 16
   %nr.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 52
   store i32 %div15, ptr %nr.us, align 4
   %6 = load ptr, ptr %progress34, align 8
@@ -133,21 +133,21 @@ if.end38.us:                                      ; preds = %if.then36.us, %for.
   br i1 %tobool41.not.us, label %for.inc.us, label %if.then42
 
 for.inc.us:                                       ; preds = %if.end38.us
-  %add39.us = add nuw nsw i32 %offset.040.us, %div15
+  %add39.us = add nuw nsw i32 %offset.039.us, %div15
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count53
   br i1 %exitcond54.not, label %for.body49.preheader, label %for.body.us, !llvm.loop !5
 
 for.body:                                         ; preds = %if.end25, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end25 ]
-  %offset.040 = phi i32 [ %add39, %for.inc ], [ 0, %if.end25 ]
+  %offset.039 = phi i32 [ %add39, %for.inc ], [ 0, %if.end25 ]
   %add.ptr = getelementptr inbounds %struct.thread_data, ptr %data, i64 %indvars.iv
   %index28 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr %index, ptr %index28, align 8
   %pathspec31 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   call void @copy_pathspec(ptr noundef nonnull %pathspec31, ptr noundef nonnull %pathspec) #8
   %offset33 = getelementptr inbounds i8, ptr %add.ptr, i64 48
-  store i32 %offset.040, ptr %offset33, align 16
+  store i32 %offset.039, ptr %offset33, align 16
   %nr = getelementptr inbounds i8, ptr %add.ptr, i64 52
   store i32 %div15, ptr %nr, align 4
   %7 = load ptr, ptr %progress34, align 8
@@ -172,7 +172,7 @@ if.then42:                                        ; preds = %if.end38, %if.end38
   unreachable
 
 for.inc:                                          ; preds = %if.end38
-  %add39 = add nuw nsw i32 %offset.040, %div15
+  %add39 = add nuw nsw i32 %offset.039, %div15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count53
   br i1 %exitcond.not, label %for.body49.preheader, label %for.body, !llvm.loop !5
@@ -182,7 +182,7 @@ for.body49.preheader:                             ; preds = %for.inc, %for.inc.u
 
 for.body49:                                       ; preds = %for.body49.preheader, %if.end58
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %if.end58 ], [ 0, %for.body49.preheader ]
-  %t2_sum_lstat.042 = phi i32 [ %add59, %if.end58 ], [ 0, %for.body49.preheader ]
+  %t2_sum_lstat.041 = phi i32 [ %add59, %if.end58 ], [ 0, %for.body49.preheader ]
   %add.ptr53 = getelementptr inbounds %struct.thread_data, ptr %data, i64 %indvars.iv55
   %8 = load i64, ptr %add.ptr53, align 16
   %call55 = call i32 @pthread_join(i64 noundef %8, ptr noundef null) #8
@@ -196,7 +196,7 @@ if.then57:                                        ; preds = %for.body49
 if.end58:                                         ; preds = %for.body49
   %t2_nr_lstat = getelementptr inbounds i8, ptr %add.ptr53, i64 56
   %9 = load i32, ptr %t2_nr_lstat, align 8
-  %add59 = add nsw i32 %9, %t2_sum_lstat.042
+  %add59 = add nsw i32 %9, %t2_sum_lstat.041
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count53
   br i1 %exitcond60.not, label %for.end62, label %for.body49, !llvm.loop !7

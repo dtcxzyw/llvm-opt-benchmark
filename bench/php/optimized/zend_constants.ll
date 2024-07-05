@@ -636,15 +636,15 @@ define range(i32 -1, 1) i32 @zend_register_constant(ptr nocapture noundef readon
   br label %35
 
 35:                                               ; preds = %1, %19
-  %.0115 = phi ptr [ %34, %19 ], [ null, %1 ]
-  %.0114 = phi ptr [ %34, %19 ], [ %7, %1 ]
-  %36 = getelementptr inbounds i8, ptr %.0114, i64 16
+  %.0116 = phi ptr [ %34, %19 ], [ %7, %1 ]
+  %.0114 = phi ptr [ %34, %19 ], [ null, %1 ]
+  %36 = getelementptr inbounds i8, ptr %.0116, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, 24
   br i1 %38, label %39, label %.critedge
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %.0114, i64 24
+  %40 = getelementptr inbounds i8, ptr %.0116, i64 24
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(24) %40, ptr noundef nonnull dereferenceable(24) @.str.16, i64 24)
   %.not120 = icmp eq i32 %bcmp, 0
   br i1 %.not120, label %62, label %.critedge130
@@ -656,7 +656,7 @@ define range(i32 -1, 1) i32 @zend_register_constant(ptr nocapture noundef readon
   br i1 %or.cond132, label %42, label %.critedge130
 
 42:                                               ; preds = %.critedge
-  %43 = getelementptr inbounds i8, ptr %.0114, i64 24
+  %43 = getelementptr inbounds i8, ptr %.0116, i64 24
   %44 = tail call ptr @_zend_get_special_const(ptr noundef nonnull %43, i64 noundef %37)
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.critedge130, label %62
@@ -683,7 +683,7 @@ define range(i32 -1, 1) i32 @zend_register_constant(ptr nocapture noundef readon
   store ptr %54, ptr %2, align 8
   %55 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 13, ptr %55, align 8
-  %56 = call ptr @zend_hash_add(ptr noundef %46, ptr noundef nonnull %.0114, ptr noundef nonnull %2) #11
+  %56 = call ptr @zend_hash_add(ptr noundef %46, ptr noundef nonnull %.0116, ptr noundef nonnull %2) #11
   %.not19.i = icmp eq ptr %56, null
   br i1 %.not19.i, label %57, label %zend_hash_add_constant.exit
 
@@ -710,7 +710,7 @@ zend_hash_add_constant.exit:                      ; preds = %53
   br label %88
 
 62:                                               ; preds = %zend_hash_add_constant.exit.thread, %42, %39
-  %63 = getelementptr inbounds i8, ptr %.0114, i64 24
+  %63 = getelementptr inbounds i8, ptr %.0116, i64 24
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.17, ptr noundef nonnull %63) #11
   %64 = load ptr, ptr %6, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 4
@@ -766,23 +766,23 @@ zend_hash_add_constant.exit:                      ; preds = %53
   br label %88
 
 88:                                               ; preds = %zend_hash_add_constant.exit, %77, %86, %81, %78
-  %.0 = phi i32 [ 0, %zend_hash_add_constant.exit ], [ -1, %78 ], [ -1, %81 ], [ -1, %86 ], [ -1, %77 ]
-  %.not126 = icmp eq ptr %.0115, null
+  %.0115 = phi i32 [ 0, %zend_hash_add_constant.exit ], [ -1, %78 ], [ -1, %81 ], [ -1, %86 ], [ -1, %77 ]
+  %.not126 = icmp eq ptr %.0114, null
   br i1 %.not126, label %102, label %89
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %.0115, i64 4
+  %90 = getelementptr inbounds i8, ptr %.0114, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = and i32 %91, 64
   %.not127 = icmp eq i32 %92, 0
   br i1 %.not127, label %93, label %102
 
 93:                                               ; preds = %89
-  %94 = load i32, ptr %.0115, align 4
+  %94 = load i32, ptr %.0114, align 4
   %95 = icmp ne i32 %94, 0
   call void @llvm.assume(i1 %95)
   %96 = add i32 %94, -1
-  store i32 %96, ptr %.0115, align 4
+  store i32 %96, ptr %.0114, align 4
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %98, label %102
 
@@ -792,15 +792,15 @@ zend_hash_add_constant.exit:                      ; preds = %53
   br i1 %.not128, label %101, label %100
 
 100:                                              ; preds = %98
-  call void @free(ptr noundef nonnull %.0115) #11
+  call void @free(ptr noundef nonnull %.0114) #11
   br label %102
 
 101:                                              ; preds = %98
-  call void @_efree(ptr noundef nonnull %.0115) #11
+  call void @_efree(ptr noundef nonnull %.0114) #11
   br label %102
 
 102:                                              ; preds = %89, %100, %101, %93, %88
-  ret i32 %.0
+  ret i32 %.0115
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1451,12 +1451,12 @@ define ptr @zend_get_constant_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %7 = load i8, ptr %4, align 1
   %8 = icmp eq i8 %7, 92
   %9 = getelementptr inbounds i8, ptr %0, i64 25
-  %.0178 = select i1 %8, ptr null, ptr %0
-  %.0175 = select i1 %8, ptr %9, ptr %4
   %10 = sext i1 %8 to i64
-  %.0 = add i64 %6, %10
-  %11 = tail call ptr @memrchr(ptr noundef nonnull %.0175, i32 noundef 58, i64 noundef %.0) #13
-  %12 = icmp ugt ptr %11, %.0175
+  %.0179 = add i64 %6, %10
+  %.0178 = select i1 %8, ptr %9, ptr %4
+  %.0176 = select i1 %8, ptr null, ptr %0
+  %11 = tail call ptr @memrchr(ptr noundef nonnull %.0178, i32 noundef 58, i64 noundef %.0179) #13
+  %12 = icmp ugt ptr %11, %.0178
   br i1 %12, label %13, label %47
 
 13:                                               ; preds = %3
@@ -1467,12 +1467,12 @@ define ptr @zend_get_constant_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 17:                                               ; preds = %13
   %18 = ptrtoint ptr %11 to i64
-  %19 = ptrtoint ptr %.0175 to i64
+  %19 = ptrtoint ptr %.0178 to i64
   %20 = xor i64 %19, -1
   %21 = add i64 %20, %18
   %sext195 = shl i64 %21, 32
   %22 = ashr exact i64 %sext195, 32
-  %23 = sub i64 %.0, %22
+  %23 = sub i64 %.0179, %22
   %24 = add i64 %23, -2
   %25 = getelementptr inbounds i8, ptr %11, i64 1
   %26 = add i64 %23, 30
@@ -1490,7 +1490,7 @@ define ptr @zend_get_constant_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %33 = getelementptr inbounds [1 x i8], ptr %32, i64 0, i64 %24
   store i8 0, ptr %33, align 1
   %34 = load ptr, ptr @zend_string_init_interned, align 8
-  %35 = tail call ptr %34(ptr noundef nonnull %.0175, i64 noundef %22, i1 noundef zeroext false) #11
+  %35 = tail call ptr %34(ptr noundef nonnull %.0178, i64 noundef %22, i1 noundef zeroext false) #11
   %36 = tail call ptr @zend_get_class_constant_ex(ptr noundef %35, ptr noundef nonnull %28, ptr noundef %1, i32 noundef %2)
   %37 = getelementptr inbounds i8, ptr %35, i64 4
   %38 = load i32, ptr %37, align 4
@@ -1516,17 +1516,17 @@ define ptr @zend_get_constant_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %119
 
 47:                                               ; preds = %13, %3
-  %48 = tail call ptr @memrchr(ptr noundef nonnull %.0175, i32 noundef 92, i64 noundef %.0) #13
+  %48 = tail call ptr @memrchr(ptr noundef nonnull %.0178, i32 noundef 92, i64 noundef %.0179) #13
   %.not185 = icmp eq ptr %48, null
   br i1 %.not185, label %88, label %49
 
 49:                                               ; preds = %47
   %50 = ptrtoint ptr %48 to i64
-  %51 = ptrtoint ptr %.0175 to i64
+  %51 = ptrtoint ptr %.0178 to i64
   %52 = sub i64 %50, %51
   %sext = shl i64 %52, 32
   %53 = ashr exact i64 %sext, 32
-  %54 = sub i64 %.0, %53
+  %54 = sub i64 %.0179, %53
   %55 = add i64 %54, -1
   %56 = getelementptr inbounds i8, ptr %48, i64 1
   %sext187 = add i64 %sext, 4294967296
@@ -1546,7 +1546,7 @@ define ptr @zend_get_constant_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 65:                                               ; preds = %61, %63
   %66 = phi ptr [ %64, %63 ], [ %62, %61 ]
-  %67 = call ptr @zend_str_tolower_copy(ptr noundef %66, ptr noundef nonnull %.0175, i64 noundef %53) #11
+  %67 = call ptr @zend_str_tolower_copy(ptr noundef %66, ptr noundef nonnull %.0178, i64 noundef %53) #11
   %68 = getelementptr inbounds i8, ptr %66, i64 %53
   store i8 92, ptr %68, align 1
   %69 = getelementptr inbounds i8, ptr %68, i64 1
@@ -1561,7 +1561,7 @@ define ptr @zend_get_constant_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %74
 
 74:                                               ; preds = %65, %72
-  %.0177 = phi ptr [ %73, %72 ], [ null, %65 ]
+  %.0 = phi ptr [ %73, %72 ], [ null, %65 ]
   br i1 %60, label %75, label %76
 
 75:                                               ; preds = %74
@@ -1569,7 +1569,7 @@ define ptr @zend_get_constant_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %76
 
 76:                                               ; preds = %74, %75
-  %.not189 = icmp eq ptr %.0177, null
+  %.not189 = icmp eq ptr %.0, null
   br i1 %.not189, label %77, label %zend_get_constant_str_impl.exit.thread
 
 77:                                               ; preds = %76
@@ -1598,18 +1598,18 @@ define ptr @zend_get_constant_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %zend_get_constant_str_impl.exit
 
 88:                                               ; preds = %47
-  %.not186 = icmp eq ptr %.0178, null
+  %.not186 = icmp eq ptr %.0176, null
   %89 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 448), align 8
   br i1 %.not186, label %102, label %90
 
 90:                                               ; preds = %88
-  %91 = tail call ptr @zend_hash_find(ptr noundef %89, ptr noundef nonnull %.0178) #11
+  %91 = tail call ptr @zend_hash_find(ptr noundef %89, ptr noundef nonnull %.0176) #11
   %.not.i197 = icmp eq ptr %91, null
   br i1 %.not.i197, label %92, label %zend_get_constant_str_impl.exit.thread.sink.split
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %.0178, i64 24
-  %94 = getelementptr inbounds i8, ptr %.0178, i64 16
+  %93 = getelementptr inbounds i8, ptr %.0176, i64 24
+  %94 = getelementptr inbounds i8, ptr %.0176, i64 16
   %95 = load i64, ptr %94, align 8
   %96 = tail call fastcc ptr @zend_get_halt_offset_constant(ptr noundef nonnull %93, i64 noundef %95)
   %.not26.i = icmp eq ptr %96, null
@@ -1626,27 +1626,27 @@ define ptr @zend_get_constant_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %zend_get_constant_str_impl.exit
 
 102:                                              ; preds = %88
-  %103 = tail call ptr @zend_hash_str_find(ptr noundef %89, ptr noundef nonnull %.0175, i64 noundef %.0) #11
+  %103 = tail call ptr @zend_hash_str_find(ptr noundef %89, ptr noundef nonnull %.0178, i64 noundef %.0179) #11
   %.not.i199 = icmp eq ptr %103, null
   br i1 %.not.i199, label %104, label %zend_get_constant_str_impl.exit.thread.sink.split
 
 104:                                              ; preds = %102
-  %105 = tail call fastcc ptr @zend_get_halt_offset_constant(ptr noundef nonnull %.0175, i64 noundef %.0)
+  %105 = tail call fastcc ptr @zend_get_halt_offset_constant(ptr noundef nonnull %.0178, i64 noundef %.0179)
   %.not28.i201 = icmp eq ptr %105, null
   br i1 %.not28.i201, label %106, label %zend_get_constant_str_impl.exit.thread
 
 106:                                              ; preds = %104
-  %107 = and i64 %.0, -2
+  %107 = and i64 %.0179, -2
   %or.cond.i202 = icmp eq i64 %107, 4
   br i1 %or.cond.i202, label %108, label %zend_get_constant_str_impl.exit.thread208
 
 108:                                              ; preds = %106
-  %109 = tail call ptr @_zend_get_special_const(ptr noundef nonnull %.0175, i64 noundef %.0)
+  %109 = tail call ptr @_zend_get_special_const(ptr noundef nonnull %.0178, i64 noundef %.0179)
   br label %zend_get_constant_str_impl.exit
 
 zend_get_constant_str_impl.exit:                  ; preds = %108, %100, %86
-  %.0176 = phi ptr [ %87, %86 ], [ %101, %100 ], [ %109, %108 ]
-  %.not191 = icmp eq ptr %.0176, null
+  %.0177 = phi ptr [ %87, %86 ], [ %101, %100 ], [ %109, %108 ]
+  %.not191 = icmp eq ptr %.0177, null
   br i1 %.not191, label %zend_get_constant_str_impl.exit.thread208, label %zend_get_constant_str_impl.exit.thread
 
 zend_get_constant_str_impl.exit.thread208:        ; preds = %106, %97, %84, %77, %zend_get_constant_str_impl.exit
@@ -1655,7 +1655,7 @@ zend_get_constant_str_impl.exit.thread208:        ; preds = %106, %97, %84, %77,
   br i1 %.not192, label %111, label %119
 
 111:                                              ; preds = %zend_get_constant_str_impl.exit.thread208
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %.0175) #11
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %.0178) #11
   br label %119
 
 zend_get_constant_str_impl.exit.thread.sink.split: ; preds = %102, %90, %79
@@ -1664,25 +1664,25 @@ zend_get_constant_str_impl.exit.thread.sink.split: ; preds = %102, %90, %79
   br label %zend_get_constant_str_impl.exit.thread
 
 zend_get_constant_str_impl.exit.thread:           ; preds = %zend_get_constant_str_impl.exit.thread.sink.split, %104, %92, %82, %76, %zend_get_constant_str_impl.exit
-  %.0176206 = phi ptr [ %.0176, %zend_get_constant_str_impl.exit ], [ %105, %104 ], [ %96, %92 ], [ %83, %82 ], [ %.0177, %76 ], [ %112, %zend_get_constant_str_impl.exit.thread.sink.split ]
+  %.0177206 = phi ptr [ %.0177, %zend_get_constant_str_impl.exit ], [ %105, %104 ], [ %96, %92 ], [ %83, %82 ], [ %.0, %76 ], [ %112, %zend_get_constant_str_impl.exit.thread.sink.split ]
   %113 = and i32 %2, 256
   %.not193 = icmp eq i32 %113, 0
   br i1 %.not193, label %114, label %119
 
 114:                                              ; preds = %zend_get_constant_str_impl.exit.thread
-  %115 = getelementptr inbounds i8, ptr %.0176206, i64 12
+  %115 = getelementptr inbounds i8, ptr %.0177206, i64 12
   %116 = load i32, ptr %115, align 4
   %117 = and i32 %116, 4
   %.not194 = icmp eq i32 %117, 0
   br i1 %.not194, label %119, label %118
 
 118:                                              ; preds = %114
-  call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.15, ptr noundef nonnull %.0175) #11
+  call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.15, ptr noundef nonnull %.0178) #11
   br label %119
 
 119:                                              ; preds = %zend_get_constant_str_impl.exit.thread, %114, %118, %zend_get_constant_str_impl.exit.thread208, %111, %46
-  %.0179 = phi ptr [ %36, %46 ], [ null, %111 ], [ null, %zend_get_constant_str_impl.exit.thread208 ], [ %.0176206, %118 ], [ %.0176206, %114 ], [ %.0176206, %zend_get_constant_str_impl.exit.thread ]
-  ret ptr %.0179
+  %.0175 = phi ptr [ %36, %46 ], [ null, %111 ], [ null, %zend_get_constant_str_impl.exit.thread208 ], [ %.0177206, %118 ], [ %.0177206, %114 ], [ %.0177206, %zend_get_constant_str_impl.exit.thread ]
+  ret ptr %.0175
 }
 
 declare noalias ptr @_emalloc_24() local_unnamed_addr #1

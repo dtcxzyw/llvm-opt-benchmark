@@ -62,12 +62,12 @@ define void @rb_Digest_SHA256_Transform(ptr nocapture noundef %0, ptr nocapture 
 
 19:                                               ; preds = %19, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %2 ]
-  %.0140 = phi i32 [ %.0128, %19 ], [ %8, %2 ]
-  %.0138 = phi i32 [ %.0140, %19 ], [ %10, %2 ]
-  %.0136 = phi i32 [ %49, %19 ], [ %12, %2 ]
-  %.0134 = phi i32 [ %.0136, %19 ], [ %14, %2 ]
-  %.0132 = phi i32 [ %.0134, %19 ], [ %16, %2 ]
-  %.0130 = phi i32 [ %.0132, %19 ], [ %18, %2 ]
+  %.0140 = phi i32 [ %.0130, %19 ], [ %10, %2 ]
+  %.0138 = phi i32 [ %49, %19 ], [ %12, %2 ]
+  %.0136 = phi i32 [ %.0138, %19 ], [ %14, %2 ]
+  %.0134 = phi i32 [ %.0136, %19 ], [ %16, %2 ]
+  %.0132 = phi i32 [ %.0134, %19 ], [ %18, %2 ]
+  %.0130 = phi i32 [ %.0128, %19 ], [ %8, %2 ]
   %.0128 = phi i32 [ %.0126, %19 ], [ %6, %2 ]
   %.0126 = phi i32 [ %50, %19 ], [ %4, %2 ]
   %.0 = phi ptr [ %20, %19 ], [ %1, %2 ]
@@ -76,15 +76,15 @@ define void @rb_Digest_SHA256_Transform(ptr nocapture noundef %0, ptr nocapture 
   %22 = tail call i32 @llvm.bswap.i32(i32 %21)
   %23 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   store i32 %22, ptr %23, align 4
-  %24 = tail call i32 @llvm.fshl.i32(i32 %.0136, i32 %.0136, i32 26)
-  %25 = tail call i32 @llvm.fshl.i32(i32 %.0136, i32 %.0136, i32 21)
+  %24 = tail call i32 @llvm.fshl.i32(i32 %.0138, i32 %.0138, i32 26)
+  %25 = tail call i32 @llvm.fshl.i32(i32 %.0138, i32 %.0138, i32 21)
   %26 = xor i32 %24, %25
-  %27 = tail call i32 @llvm.fshl.i32(i32 %.0136, i32 %.0136, i32 7)
+  %27 = tail call i32 @llvm.fshl.i32(i32 %.0138, i32 %.0138, i32 7)
   %28 = xor i32 %26, %27
-  %29 = add i32 %.0130, %28
-  %30 = and i32 %.0134, %.0136
-  %31 = xor i32 %.0136, -1
-  %32 = and i32 %.0132, %31
+  %29 = add i32 %.0132, %28
+  %30 = and i32 %.0136, %.0138
+  %31 = xor i32 %.0138, -1
+  %32 = and i32 %.0134, %31
   %33 = or i32 %32, %30
   %34 = add i32 %29, %33
   %35 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %indvars.iv
@@ -96,12 +96,12 @@ define void @rb_Digest_SHA256_Transform(ptr nocapture noundef %0, ptr nocapture 
   %41 = xor i32 %39, %40
   %42 = tail call i32 @llvm.fshl.i32(i32 %.0126, i32 %.0126, i32 10)
   %43 = xor i32 %41, %42
-  %44 = xor i32 %.0128, %.0140
+  %44 = xor i32 %.0128, %.0130
   %45 = and i32 %.0126, %44
-  %46 = and i32 %.0128, %.0140
+  %46 = and i32 %.0128, %.0130
   %47 = xor i32 %45, %46
   %48 = add i32 %43, %47
-  %49 = add i32 %38, %.0138
+  %49 = add i32 %38, %.0140
   %50 = add i32 %48, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -109,12 +109,12 @@ define void @rb_Digest_SHA256_Transform(ptr nocapture noundef %0, ptr nocapture 
 
 .preheader:                                       ; preds = %19, %.preheader
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %.preheader ], [ 16, %19 ]
-  %.1141 = phi i32 [ %.1129, %.preheader ], [ %.0128, %19 ]
-  %.1139 = phi i32 [ %.1141, %.preheader ], [ %.0140, %19 ]
-  %.1137 = phi i32 [ %103, %.preheader ], [ %49, %19 ]
+  %.1141 = phi i32 [ %.1131, %.preheader ], [ %.0130, %19 ]
+  %.1139 = phi i32 [ %103, %.preheader ], [ %49, %19 ]
+  %.1137 = phi i32 [ %.1139, %.preheader ], [ %.0138, %19 ]
   %.1135 = phi i32 [ %.1137, %.preheader ], [ %.0136, %19 ]
   %.1133 = phi i32 [ %.1135, %.preheader ], [ %.0134, %19 ]
-  %.1131 = phi i32 [ %.1133, %.preheader ], [ %.0132, %19 ]
+  %.1131 = phi i32 [ %.1129, %.preheader ], [ %.0128, %19 ]
   %.1129 = phi i32 [ %.1127, %.preheader ], [ %.0126, %19 ]
   %.1127 = phi i32 [ %104, %.preheader ], [ %50, %19 ]
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
@@ -135,15 +135,15 @@ define void @rb_Digest_SHA256_Transform(ptr nocapture noundef %0, ptr nocapture 
   %65 = xor i32 %63, %64
   %66 = lshr i32 %62, 10
   %67 = xor i32 %65, %66
-  %68 = tail call i32 @llvm.fshl.i32(i32 %.1137, i32 %.1137, i32 26)
-  %69 = tail call i32 @llvm.fshl.i32(i32 %.1137, i32 %.1137, i32 21)
+  %68 = tail call i32 @llvm.fshl.i32(i32 %.1139, i32 %.1139, i32 26)
+  %69 = tail call i32 @llvm.fshl.i32(i32 %.1139, i32 %.1139, i32 21)
   %70 = xor i32 %68, %69
-  %71 = tail call i32 @llvm.fshl.i32(i32 %.1137, i32 %.1137, i32 7)
+  %71 = tail call i32 @llvm.fshl.i32(i32 %.1139, i32 %.1139, i32 7)
   %72 = xor i32 %70, %71
-  %73 = add i32 %.1131, %72
-  %74 = and i32 %.1135, %.1137
-  %75 = xor i32 %.1137, -1
-  %76 = and i32 %.1133, %75
+  %73 = add i32 %.1133, %72
+  %74 = and i32 %.1137, %.1139
+  %75 = xor i32 %.1139, -1
+  %76 = and i32 %.1135, %75
   %77 = or i32 %76, %74
   %78 = add i32 %73, %77
   %79 = getelementptr inbounds [64 x i32], ptr @K256, i64 0, i64 %indvars.iv150
@@ -166,12 +166,12 @@ define void @rb_Digest_SHA256_Transform(ptr nocapture noundef %0, ptr nocapture 
   %95 = xor i32 %93, %94
   %96 = tail call i32 @llvm.fshl.i32(i32 %.1127, i32 %.1127, i32 10)
   %97 = xor i32 %95, %96
-  %98 = xor i32 %.1129, %.1141
+  %98 = xor i32 %.1129, %.1131
   %99 = and i32 %.1127, %98
-  %100 = and i32 %.1129, %.1141
+  %100 = and i32 %.1129, %.1131
   %101 = xor i32 %99, %100
   %102 = add i32 %97, %101
-  %103 = add i32 %92, %.1139
+  %103 = add i32 %92, %.1141
   %104 = add i32 %102, %92
   %exitcond153.not = icmp eq i64 %indvars.iv.next151, 64
   br i1 %exitcond153.not, label %105, label %.preheader, !llvm.loop !8
@@ -183,15 +183,15 @@ define void @rb_Digest_SHA256_Transform(ptr nocapture noundef %0, ptr nocapture 
   store i32 %107, ptr %5, align 4
   %108 = add i32 %.1129, %8
   store i32 %108, ptr %7, align 8
-  %109 = add i32 %.1141, %10
+  %109 = add i32 %.1131, %10
   store i32 %109, ptr %9, align 4
   %110 = add i32 %103, %12
   store i32 %110, ptr %11, align 8
-  %111 = add i32 %.1137, %14
+  %111 = add i32 %.1139, %14
   store i32 %111, ptr %13, align 4
-  %112 = add i32 %.1135, %16
+  %112 = add i32 %.1137, %16
   store i32 %112, ptr %15, align 8
-  %113 = add i32 %.1133, %18
+  %113 = add i32 %.1135, %18
   store i32 %113, ptr %17, align 4
   ret void
 }
@@ -564,12 +564,12 @@ define void @rb_Digest_SHA512_Transform(ptr nocapture noundef %0, ptr nocapture 
 
 19:                                               ; preds = %19, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %2 ]
-  %.0142 = phi i64 [ %.0130, %19 ], [ %8, %2 ]
-  %.0140 = phi i64 [ %.0142, %19 ], [ %10, %2 ]
-  %.0138 = phi i64 [ %49, %19 ], [ %12, %2 ]
-  %.0136 = phi i64 [ %.0138, %19 ], [ %14, %2 ]
-  %.0134 = phi i64 [ %.0136, %19 ], [ %16, %2 ]
-  %.0132 = phi i64 [ %.0134, %19 ], [ %18, %2 ]
+  %.0142 = phi i64 [ %.0132, %19 ], [ %10, %2 ]
+  %.0140 = phi i64 [ %49, %19 ], [ %12, %2 ]
+  %.0138 = phi i64 [ %.0140, %19 ], [ %14, %2 ]
+  %.0136 = phi i64 [ %.0138, %19 ], [ %16, %2 ]
+  %.0134 = phi i64 [ %.0136, %19 ], [ %18, %2 ]
+  %.0132 = phi i64 [ %.0130, %19 ], [ %8, %2 ]
   %.0130 = phi i64 [ %.0128, %19 ], [ %6, %2 ]
   %.0128 = phi i64 [ %50, %19 ], [ %4, %2 ]
   %.0 = phi ptr [ %20, %19 ], [ %1, %2 ]
@@ -578,15 +578,15 @@ define void @rb_Digest_SHA512_Transform(ptr nocapture noundef %0, ptr nocapture 
   %22 = tail call i64 @llvm.bswap.i64(i64 %21)
   %23 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
   store i64 %22, ptr %23, align 8
-  %24 = tail call i64 @llvm.fshl.i64(i64 %.0138, i64 %.0138, i64 50)
-  %25 = tail call i64 @llvm.fshl.i64(i64 %.0138, i64 %.0138, i64 46)
+  %24 = tail call i64 @llvm.fshl.i64(i64 %.0140, i64 %.0140, i64 50)
+  %25 = tail call i64 @llvm.fshl.i64(i64 %.0140, i64 %.0140, i64 46)
   %26 = xor i64 %24, %25
-  %27 = tail call i64 @llvm.fshl.i64(i64 %.0138, i64 %.0138, i64 23)
+  %27 = tail call i64 @llvm.fshl.i64(i64 %.0140, i64 %.0140, i64 23)
   %28 = xor i64 %26, %27
-  %29 = add i64 %.0132, %28
-  %30 = and i64 %.0136, %.0138
-  %31 = xor i64 %.0138, -1
-  %32 = and i64 %.0134, %31
+  %29 = add i64 %.0134, %28
+  %30 = and i64 %.0138, %.0140
+  %31 = xor i64 %.0140, -1
+  %32 = and i64 %.0136, %31
   %33 = or i64 %32, %30
   %34 = add i64 %29, %33
   %35 = getelementptr inbounds [80 x i64], ptr @K512, i64 0, i64 %indvars.iv
@@ -598,12 +598,12 @@ define void @rb_Digest_SHA512_Transform(ptr nocapture noundef %0, ptr nocapture 
   %41 = xor i64 %39, %40
   %42 = tail call i64 @llvm.fshl.i64(i64 %.0128, i64 %.0128, i64 25)
   %43 = xor i64 %41, %42
-  %44 = xor i64 %.0130, %.0142
+  %44 = xor i64 %.0130, %.0132
   %45 = and i64 %.0128, %44
-  %46 = and i64 %.0130, %.0142
+  %46 = and i64 %.0130, %.0132
   %47 = xor i64 %45, %46
   %48 = add i64 %43, %47
-  %49 = add i64 %38, %.0140
+  %49 = add i64 %38, %.0142
   %50 = add i64 %48, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -611,12 +611,12 @@ define void @rb_Digest_SHA512_Transform(ptr nocapture noundef %0, ptr nocapture 
 
 .preheader:                                       ; preds = %19, %.preheader
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.preheader ], [ 16, %19 ]
-  %.1143 = phi i64 [ %.1131, %.preheader ], [ %.0130, %19 ]
-  %.1141 = phi i64 [ %.1143, %.preheader ], [ %.0142, %19 ]
-  %.1139 = phi i64 [ %103, %.preheader ], [ %49, %19 ]
+  %.1143 = phi i64 [ %.1133, %.preheader ], [ %.0132, %19 ]
+  %.1141 = phi i64 [ %103, %.preheader ], [ %49, %19 ]
+  %.1139 = phi i64 [ %.1141, %.preheader ], [ %.0140, %19 ]
   %.1137 = phi i64 [ %.1139, %.preheader ], [ %.0138, %19 ]
   %.1135 = phi i64 [ %.1137, %.preheader ], [ %.0136, %19 ]
-  %.1133 = phi i64 [ %.1135, %.preheader ], [ %.0134, %19 ]
+  %.1133 = phi i64 [ %.1131, %.preheader ], [ %.0130, %19 ]
   %.1131 = phi i64 [ %.1129, %.preheader ], [ %.0128, %19 ]
   %.1129 = phi i64 [ %104, %.preheader ], [ %50, %19 ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
@@ -637,15 +637,15 @@ define void @rb_Digest_SHA512_Transform(ptr nocapture noundef %0, ptr nocapture 
   %65 = xor i64 %63, %64
   %66 = lshr i64 %62, 6
   %67 = xor i64 %65, %66
-  %68 = tail call i64 @llvm.fshl.i64(i64 %.1139, i64 %.1139, i64 50)
-  %69 = tail call i64 @llvm.fshl.i64(i64 %.1139, i64 %.1139, i64 46)
+  %68 = tail call i64 @llvm.fshl.i64(i64 %.1141, i64 %.1141, i64 50)
+  %69 = tail call i64 @llvm.fshl.i64(i64 %.1141, i64 %.1141, i64 46)
   %70 = xor i64 %68, %69
-  %71 = tail call i64 @llvm.fshl.i64(i64 %.1139, i64 %.1139, i64 23)
+  %71 = tail call i64 @llvm.fshl.i64(i64 %.1141, i64 %.1141, i64 23)
   %72 = xor i64 %70, %71
-  %73 = add i64 %.1133, %72
-  %74 = and i64 %.1137, %.1139
-  %75 = xor i64 %.1139, -1
-  %76 = and i64 %.1135, %75
+  %73 = add i64 %.1135, %72
+  %74 = and i64 %.1139, %.1141
+  %75 = xor i64 %.1141, -1
+  %76 = and i64 %.1137, %75
   %77 = or i64 %76, %74
   %78 = add i64 %73, %77
   %79 = getelementptr inbounds [80 x i64], ptr @K512, i64 0, i64 %indvars.iv152
@@ -668,12 +668,12 @@ define void @rb_Digest_SHA512_Transform(ptr nocapture noundef %0, ptr nocapture 
   %95 = xor i64 %93, %94
   %96 = tail call i64 @llvm.fshl.i64(i64 %.1129, i64 %.1129, i64 25)
   %97 = xor i64 %95, %96
-  %98 = xor i64 %.1131, %.1143
+  %98 = xor i64 %.1131, %.1133
   %99 = and i64 %.1129, %98
-  %100 = and i64 %.1131, %.1143
+  %100 = and i64 %.1131, %.1133
   %101 = xor i64 %99, %100
   %102 = add i64 %97, %101
-  %103 = add i64 %92, %.1141
+  %103 = add i64 %92, %.1143
   %104 = add i64 %102, %92
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, 80
   br i1 %exitcond155.not, label %105, label %.preheader, !llvm.loop !13
@@ -685,15 +685,15 @@ define void @rb_Digest_SHA512_Transform(ptr nocapture noundef %0, ptr nocapture 
   store i64 %107, ptr %5, align 8
   %108 = add i64 %.1131, %8
   store i64 %108, ptr %7, align 8
-  %109 = add i64 %.1143, %10
+  %109 = add i64 %.1133, %10
   store i64 %109, ptr %9, align 8
   %110 = add i64 %103, %12
   store i64 %110, ptr %11, align 8
-  %111 = add i64 %.1139, %14
+  %111 = add i64 %.1141, %14
   store i64 %111, ptr %13, align 8
-  %112 = add i64 %.1137, %16
+  %112 = add i64 %.1139, %16
   store i64 %112, ptr %15, align 8
-  %113 = add i64 %.1135, %18
+  %113 = add i64 %.1137, %18
   store i64 %113, ptr %17, align 8
   ret void
 }

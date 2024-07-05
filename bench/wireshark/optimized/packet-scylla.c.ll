@@ -308,8 +308,8 @@ define internal i32 @dissect_scylla_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   br label %37
 
 37:                                               ; preds = %34, %31
-  %.050 = phi i64 [ %35, %34 ], [ 44, %31 ]
-  %.049 = phi i32 [ %36, %34 ], [ 0, %31 ]
+  %.050 = phi i32 [ %36, %34 ], [ 0, %31 ]
+  %.049 = phi i64 [ %35, %34 ], [ 44, %31 ]
   %38 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #3
   %39 = load i32, ptr @proto_scylla, align 4
   %40 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %38, i32 noundef %39) #3
@@ -324,16 +324,16 @@ define internal i32 @dissect_scylla_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   br label %46
 
 46:                                               ; preds = %42, %37
-  %.048 = phi ptr [ %44, %42 ], [ %40, %37 ]
-  %47 = icmp ult i64 %.050, 44
-  %48 = icmp ult i32 %.049, 67108865
-  %.not63 = and i1 %47, %48
+  %.047 = phi ptr [ %44, %42 ], [ %40, %37 ]
+  %47 = icmp ult i64 %.049, 44
+  %48 = icmp ult i32 %.050, 67108865
+  %.not63 = and i1 %48, %47
   br i1 %.not63, label %101, label %49
 
 49:                                               ; preds = %46
   %50 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 0) #3
   store i64 %50, ptr %9, align 8
-  %51 = call ptr @wmem_map_lookup(ptr noundef %.048, ptr noundef nonnull %9) #3
+  %51 = call ptr @wmem_map_lookup(ptr noundef %.047, ptr noundef nonnull %9) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %52 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #3
   %53 = add i32 %52, 12
@@ -424,7 +424,7 @@ dissect_scylla_response_pdu.exit:                 ; preds = %proto_item_set_gene
 101:                                              ; preds = %46
   %102 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 16) #3
   store i64 %102, ptr %10, align 8
-  switch i64 %.050, label %response_expected.exit [
+  switch i64 %.049, label %response_expected.exit [
     i64 6, label %response_expected.exit.thread
     i64 7, label %response_expected.exit.thread
     i64 8, label %response_expected.exit.thread
@@ -453,31 +453,31 @@ response_expected.exit:                           ; preds = %101
   %111 = tail call ptr @wmem_file_scope() #3
   %112 = tail call noalias ptr @wmem_alloc(ptr noundef %111, i64 noundef 16) #3
   store i64 %102, ptr %110, align 8
-  store i64 %.050, ptr %112, align 8
+  store i64 %.049, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %1, i64 20
   %114 = load i32, ptr %113, align 4
   %115 = getelementptr inbounds i8, ptr %112, i64 8
   store i32 %114, ptr %115, align 8
-  %116 = tail call ptr @wmem_map_insert(ptr noundef %.048, ptr noundef nonnull %110, ptr noundef nonnull %112) #3
+  %116 = tail call ptr @wmem_map_insert(ptr noundef %.047, ptr noundef nonnull %110, ptr noundef nonnull %112) #3
   br label %response_expected.exit.thread
 
 117:                                              ; preds = %response_expected.exit
-  %118 = call ptr @wmem_map_lookup(ptr noundef %.048, ptr noundef nonnull %10) #3
+  %118 = call ptr @wmem_map_lookup(ptr noundef %.047, ptr noundef nonnull %10) #3
   br label %response_expected.exit.thread
 
 response_expected.exit.thread:                    ; preds = %101, %101, %101, %101, %101, %101, %101, %101, %101, %101, %101, %108, %117
-  %.047 = phi ptr [ %118, %117 ], [ null, %108 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ]
+  %.048 = phi ptr [ %118, %117 ], [ null, %108 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %101 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %119 = load i32, ptr @hf_scylla_request, align 4
-  %120 = call ptr @val64_to_str(i64 noundef %.050, ptr noundef nonnull @packettypenames, ptr noundef nonnull @.str.104) #3
+  %120 = call ptr @val64_to_str(i64 noundef %.049, ptr noundef nonnull @packettypenames, ptr noundef nonnull @.str.104) #3
   %121 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %14, i32 noundef %119, ptr noundef %0, i32 noundef 0, i32 noundef 28, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.107, ptr noundef %120) #3
   %122 = load i32, ptr @ett_scylla_response, align 4
   %123 = call ptr @proto_item_add_subtree(ptr noundef %121, i32 noundef %122) #3
   %124 = load i32, ptr @hf_scylla_timeout, align 4
   %125 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %124, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #3
-  %126 = call ptr @val64_to_str(i64 noundef %.050, ptr noundef nonnull @packettypenames, ptr noundef nonnull @.str.104) #3
+  %126 = call ptr @val64_to_str(i64 noundef %.049, ptr noundef nonnull @packettypenames, ptr noundef nonnull @.str.104) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.108, ptr noundef %126) #3
   %127 = load i32, ptr @hf_scylla_verb, align 4
   %128 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %127, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef -2147483648) #3
@@ -487,14 +487,14 @@ response_expected.exit.thread:                    ; preds = %101, %101, %101, %1
   %132 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %131, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef -2147483648) #3
   %133 = load i64, ptr %5, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %121, ptr noundef nonnull @.str.109, i64 noundef %133) #3
-  switch i64 %.050, label %181 [
+  switch i64 %.049, label %181 [
     i64 1, label %134
     i64 3, label %169
   ]
 
 134:                                              ; preds = %response_expected.exit.thread
   %135 = load i32, ptr @ett_scylla_mut, align 4
-  %136 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %0, i32 noundef 28, i32 noundef %.049, i32 noundef %135, ptr noundef null, ptr noundef nonnull @.str.110) #3
+  %136 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %0, i32 noundef 28, i32 noundef %.050, i32 noundef %135, ptr noundef null, ptr noundef nonnull @.str.110) #3
   %137 = load i32, ptr @hf_scylla_mut_size1, align 4
   %138 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %137, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef -2147483648) #3
   %139 = load i32, ptr @hf_scylla_mut_size2, align 4
@@ -505,7 +505,7 @@ response_expected.exit.thread:                    ; preds = %101, %101, %101, %1
   %144 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %143, ptr noundef %0, i32 noundef 52, i32 noundef 16, i32 noundef 0) #3
   %145 = load i32, ptr @hf_scylla_mut_len_pkeys, align 4
   %146 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %136, i32 noundef %145, ptr noundef %0, i32 noundef 68, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #3
-  %147 = add nsw i32 %.049, -44
+  %147 = add nsw i32 %.050, -44
   %148 = load i32, ptr @ett_scylla_mut_pkey, align 4
   %149 = call ptr @proto_tree_add_subtree(ptr noundef %136, ptr noundef %0, i32 noundef 72, i32 noundef %147, i32 noundef %148, ptr noundef null, ptr noundef nonnull @.str.111) #3
   %150 = load i32, ptr @hf_scylla_mut_num_pkeys, align 4
@@ -535,13 +535,13 @@ response_expected.exit.thread:                    ; preds = %101, %101, %101, %1
   %.0.lcssa.i = phi i32 [ 48, %134 ], [ %161, %.lr.ph.i ]
   %165 = load i32, ptr @hf_scylla_payload, align 4
   %166 = add i32 %.0.lcssa.i, 28
-  %167 = sub i32 %.049, %.0.lcssa.i
+  %167 = sub i32 %.050, %.0.lcssa.i
   %168 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %165, ptr noundef %0, i32 noundef %166, i32 noundef %167, i32 noundef 0) #3
   br label %184
 
 169:                                              ; preds = %response_expected.exit.thread
   %170 = load i32, ptr @ett_scylla_read_data, align 4
-  %171 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %0, i32 noundef 28, i32 noundef %.049, i32 noundef %170, ptr noundef null, ptr noundef nonnull @.str.112) #3
+  %171 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %0, i32 noundef 28, i32 noundef %.050, i32 noundef %170, ptr noundef null, ptr noundef nonnull @.str.112) #3
   %172 = load i32, ptr @hf_scylla_read_data_timeout, align 4
   %173 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %172, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef -2147483648) #3
   %174 = load i32, ptr @hf_scylla_read_data_table_id, align 4
@@ -549,21 +549,21 @@ response_expected.exit.thread:                    ; preds = %101, %101, %101, %1
   %176 = load i32, ptr @hf_scylla_read_data_schema_version, align 4
   %177 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %176, ptr noundef %0, i32 noundef 48, i32 noundef 16, i32 noundef 0) #3
   %178 = load i32, ptr @hf_scylla_payload, align 4
-  %179 = add nsw i32 %.049, -36
+  %179 = add nsw i32 %.050, -36
   %180 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %178, ptr noundef %0, i32 noundef 64, i32 noundef %179, i32 noundef 0) #3
   br label %184
 
 181:                                              ; preds = %response_expected.exit.thread
   %182 = load i32, ptr @hf_scylla_payload, align 4
-  %183 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %182, ptr noundef %0, i32 noundef 28, i32 noundef %.049, i32 noundef 0) #3
+  %183 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %182, ptr noundef %0, i32 noundef 28, i32 noundef %.050, i32 noundef 0) #3
   br label %184
 
 184:                                              ; preds = %181, %169, %._crit_edge.i
-  %.not.i55 = icmp eq ptr %.047, null
+  %.not.i55 = icmp eq ptr %.048, null
   br i1 %.not.i55, label %dissect_scylla_msg_pdu.exit, label %185
 
 185:                                              ; preds = %184
-  %186 = getelementptr inbounds i8, ptr %.047, i64 12
+  %186 = getelementptr inbounds i8, ptr %.048, i64 12
   %187 = load i32, ptr %186, align 4
   %.not132.i = icmp eq i32 %187, 0
   br i1 %.not132.i, label %198, label %188
@@ -598,7 +598,7 @@ dissect_scylla_msg_pdu.exit:                      ; preds = %184, %188, %191, %1
   %202 = load ptr, ptr %200, align 8
   call void @col_clear(ptr noundef %202, i32 noundef 25) #3
   %203 = load ptr, ptr %200, align 8
-  %204 = call ptr @val64_to_str(i64 noundef %.050, ptr noundef nonnull @packettypenames, ptr noundef nonnull @.str.104) #3
+  %204 = call ptr @val64_to_str(i64 noundef %.049, ptr noundef nonnull @packettypenames, ptr noundef nonnull @.str.104) #3
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %203, i32 noundef 25, ptr noundef nonnull @.str.113, ptr noundef %204) #3
   %205 = call i32 @tvb_reported_length(ptr noundef %0) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)

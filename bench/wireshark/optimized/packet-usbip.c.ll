@@ -302,17 +302,17 @@ define internal i32 @get_usbip_message_len(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %25, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %21, %.preheader
-  %.07588 = phi i32 [ %32, %.preheader ], [ %22, %21 ]
-  %.07687 = phi i32 [ %33, %.preheader ], [ 0, %21 ]
-  %.07786 = phi i32 [ %31, %.preheader ], [ 12, %21 ]
-  %26 = add i32 %.07588, 311
+  %.07288 = phi i32 [ %32, %.preheader ], [ %22, %21 ]
+  %.07387 = phi i32 [ %31, %.preheader ], [ 12, %21 ]
+  %.07486 = phi i32 [ %33, %.preheader ], [ 0, %21 ]
+  %26 = add i32 %.07288, 311
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %26) #3
   %28 = zext i8 %27 to i32
   %29 = shl nuw nsw i32 %28, 2
   %30 = add nuw nsw i32 %29, 312
-  %31 = add i32 %30, %.07786
-  %32 = add i32 %30, %.07588
-  %33 = add nuw i32 %.07687, 1
+  %31 = add i32 %30, %.07387
+  %32 = add i32 %30, %.07288
+  %33 = add nuw i32 %.07486, 1
   %exitcond.not = icmp eq i32 %33, %19
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !4
 
@@ -343,7 +343,7 @@ define internal i32 @get_usbip_message_len(ptr noundef %0, ptr noundef %1, i32 n
   %48 = icmp sgt i32 %45, 0
   %49 = shl i32 %45, 4
   %50 = select i1 %48, i32 %49, i32 0
-  %.174 = add i32 %50, %spec.select
+  %.177 = add i32 %50, %spec.select
   br label %.loopexit
 
 51:                                               ; preds = %38
@@ -389,7 +389,7 @@ define internal i32 @get_usbip_message_len(ptr noundef %0, ptr noundef %1, i32 n
   br label %78
 
 78:                                               ; preds = %72, %65
-  %.0 = phi i32 [ 48, %65 ], [ %spec.select85, %72 ]
+  %.075 = phi i32 [ 48, %65 ], [ %spec.select85, %72 ]
   %79 = icmp eq i32 %67, 0
   br i1 %79, label %80, label %85
 
@@ -399,7 +399,7 @@ define internal i32 @get_usbip_message_len(ptr noundef %0, ptr noundef %1, i32 n
 
 82:                                               ; preds = %80
   %83 = shl i32 %55, 4
-  %84 = add i32 %.0, %83
+  %84 = add i32 %.075, %83
   br label %.loopexit
 
 85:                                               ; preds = %78
@@ -411,8 +411,8 @@ define internal i32 @get_usbip_message_len(ptr noundef %0, ptr noundef %1, i32 n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %85, %82, %80, %38, %38, %34, %21, %17, %14, %9, %6, %87, %39, %13
-  %.072 = phi i32 [ %88, %87 ], [ 8, %13 ], [ %.174, %39 ], [ 40, %6 ], [ %., %9 ], [ 0, %14 ], [ 12, %17 ], [ 0, %21 ], [ 0, %34 ], [ 48, %38 ], [ 48, %38 ], [ %84, %82 ], [ %.0, %80 ], [ %86, %85 ], [ %31, %.preheader ]
-  ret i32 %.072
+  %.0 = phi i32 [ %88, %87 ], [ 8, %13 ], [ %.177, %39 ], [ 40, %6 ], [ %., %9 ], [ 0, %14 ], [ 12, %17 ], [ 0, %21 ], [ 0, %34 ], [ 48, %38 ], [ 48, %38 ], [ %84, %82 ], [ %.075, %80 ], [ %86, %85 ], [ %31, %.preheader ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -514,16 +514,16 @@ usbip_get_usbip_conv.exit:                        ; preds = %4, %18
   br i1 %51, label %.lr.ph5.i.i, label %dissect_device_list_response.exit.i, !llvm.loop !6
 
 .lr.ph5.i.i:                                      ; preds = %46, %.loopexit.i.i
-  %.0434.i.i = phi i32 [ %58, %.loopexit.i.i ], [ 0, %46 ]
-  %.0443.i.i = phi i32 [ %.1.lcssa.i.i, %.loopexit.i.i ], [ 12, %46 ]
-  %52 = add i32 %.0443.i.i, 311
+  %.0434.i.i = phi i32 [ %.1.lcssa.i.i, %.loopexit.i.i ], [ 12, %46 ]
+  %.0443.i.i = phi i32 [ %58, %.loopexit.i.i ], [ 0, %46 ]
+  %52 = add i32 %.0434.i.i, 311
   %53 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %52) #3
   %54 = load i32, ptr @hf_usbip_device, align 4
   %55 = zext i8 %53 to i32
   %56 = shl nuw nsw i32 %55, 2
   %57 = add nuw nsw i32 %56, 312
-  %58 = add nuw i32 %.0434.i.i, 1
-  %59 = call ptr @proto_tree_add_uint(ptr noundef %27, i32 noundef %54, ptr noundef %0, i32 noundef %.0443.i.i, i32 noundef %57, i32 noundef %58) #3
+  %58 = add nuw i32 %.0443.i.i, 1
+  %59 = call ptr @proto_tree_add_uint(ptr noundef %27, i32 noundef %54, ptr noundef %0, i32 noundef %.0434.i.i, i32 noundef %57, i32 noundef %58) #3
   %.not.i.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i.i, label %proto_item_set_generated.exit.i.i, label %60
 
@@ -543,7 +543,7 @@ usbip_get_usbip_conv.exit:                        ; preds = %4, %18
 proto_item_set_generated.exit.i.i:                ; preds = %63, %60, %.lr.ph5.i.i
   %67 = load i32, ptr @ett_usbip_dev, align 4
   %68 = call ptr @proto_item_add_subtree(ptr noundef %59, i32 noundef %67) #3
-  %69 = call fastcc i32 @dissect_device(ptr noundef %68, ptr noundef %0, i32 noundef %.0443.i.i)
+  %69 = call fastcc i32 @dissect_device(ptr noundef %68, ptr noundef %0, i32 noundef %.0434.i.i)
   %.not7.i.i = icmp eq i8 %53, 0
   br i1 %.not7.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
 
@@ -571,7 +571,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %63, %60, %.lr.ph5.i
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
 dissect_device_list_response.exit.i:              ; preds = %.loopexit.i.i, %46
-  %.044.lcssa.i.i = phi i32 [ 12, %46 ], [ %.1.lcssa.i.i, %.loopexit.i.i ]
+  %.043.lcssa.i.i = phi i32 [ 12, %46 ], [ %.1.lcssa.i.i, %.loopexit.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %usbip_dissect_op.exit
 
@@ -585,7 +585,7 @@ dissect_device_list_response.exit.i:              ; preds = %.loopexit.i.i, %46
   br label %usbip_dissect_op.exit
 
 usbip_dissect_op.exit:                            ; preds = %37, %40, %43, %45, %dissect_device_list_response.exit.i, %87
-  %.0.i30 = phi i32 [ %90, %87 ], [ %.044.lcssa.i.i, %dissect_device_list_response.exit.i ], [ 0, %45 ], [ 40, %37 ], [ %44, %43 ], [ 8, %40 ]
+  %.0.i30 = phi i32 [ %90, %87 ], [ %.043.lcssa.i.i, %dissect_device_list_response.exit.i ], [ 0, %45 ], [ 40, %37 ], [ %44, %43 ], [ 8, %40 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %299

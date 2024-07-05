@@ -381,10 +381,10 @@ dissect_wsmp_v3.exit:                             ; preds = %110, %.sink.split.i
   br label %.critedge
 
 .lr.ph:                                           ; preds = %116, %135
-  %.0101108 = phi i8 [ %137, %135 ], [ %122, %116 ]
-  %.0103107 = phi i16 [ %.1, %135 ], [ %120, %116 ]
-  %123 = add i16 %.0103107, 1
-  switch i8 %.0101108, label %135 [
+  %.0102108 = phi i8 [ %137, %135 ], [ %122, %116 ]
+  %.0104107 = phi i16 [ %.1, %135 ], [ %120, %116 ]
+  %123 = add i16 %.0104107, 1
+  switch i8 %.0102108, label %135 [
     i8 15, label %.sink.split
     i8 16, label %124
     i8 4, label %125
@@ -400,7 +400,7 @@ dissect_wsmp_v3.exit:                             ; preds = %110, %.sink.split.i
   %hf_wsmp_rate.sink = phi ptr [ @hf_wsmp_rate, %124 ], [ @hf_wsmp_txpower, %125 ], [ @hf_wsmp_channel, %.lr.ph ]
   %126 = zext i16 %123 to i32
   %127 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %126) #3
-  %128 = add i16 %.0103107, 2
+  %128 = add i16 %.0104107, 2
   %129 = load i32, ptr %hf_wsmp_rate.sink, align 4
   %130 = zext i16 %128 to i32
   %131 = zext i8 %127 to i32
@@ -418,17 +418,17 @@ dissect_wsmp_v3.exit:                             ; preds = %110, %.sink.split.i
 
 .critedge:                                        ; preds = %135, %..critedge_crit_edge
   %.pre-phi = phi i32 [ %.pre, %..critedge_crit_edge ], [ %136, %135 ]
-  %.0103.lcssa = phi i16 [ %120, %..critedge_crit_edge ], [ %.1, %135 ]
-  %.0101.lcssa = phi i8 [ %122, %..critedge_crit_edge ], [ %137, %135 ]
+  %.0104.lcssa = phi i16 [ %120, %..critedge_crit_edge ], [ %.1, %135 ]
+  %.0102.lcssa = phi i8 [ %122, %..critedge_crit_edge ], [ %137, %135 ]
   %138 = load i32, ptr @hf_wsmp_WAVEid, align 4
   %139 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %138, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef 1, i32 noundef 0) #3
-  %140 = add i16 %.0103.lcssa, 1
+  %140 = add i16 %.0104.lcssa, 1
   %141 = zext i16 %140 to i32
   %142 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %141) #3
   %143 = load i32, ptr @hf_wsmp_wsmlength, align 4
   %144 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %143, ptr noundef %0, i32 noundef %141, i32 noundef 2, i32 noundef 0) #3
-  %145 = add i16 %.0103.lcssa, 3
-  %146 = icmp eq i8 %.0101.lcssa, -127
+  %145 = add i16 %.0104.lcssa, 3
+  %146 = icmp eq i8 %.0102.lcssa, -127
   br i1 %146, label %.preheader, label %158
 
 .preheader:                                       ; preds = %.critedge
@@ -436,10 +436,10 @@ dissect_wsmp_v3.exit:                             ; preds = %110, %.sink.split.i
   br label %148
 
 148:                                              ; preds = %.preheader, %148
-  %.0102110 = phi i32 [ 0, %.preheader ], [ %151, %148 ]
-  %149 = add i32 %.0102110, %147
+  %.0103110 = phi i32 [ 0, %.preheader ], [ %151, %148 ]
+  %149 = add i32 %.0103110, %147
   %150 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %149) #3
-  %151 = add i32 %.0102110, 1
+  %151 = add i32 %.0103110, 1
   %.not = icmp sgt i8 %150, -1
   br i1 %.not, label %152, label %148, !llvm.loop !7
 
@@ -452,10 +452,10 @@ dissect_wsmp_v3.exit:                             ; preds = %110, %.sink.split.i
   br label %158
 
 158:                                              ; preds = %152, %.critedge
-  %.0104 = phi i16 [ %156, %152 ], [ %142, %.critedge ]
   %.2 = phi i16 [ %157, %152 ], [ %145, %.critedge ]
+  %.0100 = phi i16 [ %156, %152 ], [ %142, %.critedge ]
   %159 = zext i16 %.2 to i32
-  %160 = zext i16 %.0104 to i32
+  %160 = zext i16 %.0100 to i32
   %161 = load i32, ptr @ett_wsmdata, align 4
   %162 = tail call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef %159, i32 noundef %160, i32 noundef %161, ptr noundef null, ptr noundef nonnull @.str.73) #3
   %163 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %159, i32 noundef %160) #3

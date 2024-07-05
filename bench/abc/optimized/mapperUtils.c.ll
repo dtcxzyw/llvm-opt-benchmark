@@ -152,7 +152,7 @@ define range(i32 -1, -2147483648) i32 @Map_MappingCountLevels(ptr nocapture noun
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %.017 = phi i32 [ -1, %.lr.ph ], [ %spec.select, %8 ]
+  %.01316 = phi i32 [ -1, %.lr.ph ], [ %spec.select, %8 ]
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
@@ -160,7 +160,7 @@ define range(i32 -1, -2147483648) i32 @Map_MappingCountLevels(ptr nocapture noun
   %13 = and i64 %12, -2
   %14 = inttoptr i64 %13 to ptr
   %15 = tail call fastcc i32 @Map_MappingCountLevels_rec(ptr noundef %14)
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.017, i32 %15)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.01316, i32 %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %2, align 8
   %17 = sext i32 %16 to i64
@@ -183,8 +183,8 @@ define range(i32 -1, -2147483648) i32 @Map_MappingCountLevels(ptr nocapture noun
   br i1 %28, label %19, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %19, %1, %.preheader
-  %.0.lcssa25 = phi i32 [ %spec.select, %.preheader ], [ -1, %1 ], [ %spec.select, %19 ]
-  ret i32 %.0.lcssa25
+  %.013.lcssa25 = phi i32 [ %spec.select, %.preheader ], [ -1, %1 ], [ %spec.select, %19 ]
+  ret i32 %.013.lcssa25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1513,8 +1513,8 @@ Map_MappingGetMaxLevel.exit38:                    ; preds = %38, %Map_MappingGet
 
 54:                                               ; preds = %.lr.ph49, %.loopexit
   %indvars.iv56 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next57, %.loopexit ]
-  %.02447 = phi i32 [ 0, %.lr.ph49 ], [ %.2, %.loopexit ]
-  %.02646 = phi i32 [ 0, %.lr.ph49 ], [ %.127, %.loopexit ]
+  %.02448 = phi i32 [ 0, %.lr.ph49 ], [ %.1, %.loopexit ]
+  %.02746 = phi i32 [ 0, %.lr.ph49 ], [ %.2, %.loopexit ]
   %55 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv56
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 88
@@ -1529,30 +1529,30 @@ Map_MappingGetMaxLevel.exit38:                    ; preds = %38, %Map_MappingGet
   br i1 %.not, label %.loopexit, label %.lr.ph44.preheader
 
 .lr.ph44.preheader:                               ; preds = %60
-  %63 = add nsw i32 %.02646, 1
+  %63 = add nsw i32 %.02448, 1
   br label %.lr.ph44
 
 .lr.ph44:                                         ; preds = %.lr.ph44.preheader, %.lr.ph44
-  %.12542 = phi i32 [ %64, %.lr.ph44 ], [ %.02447, %.lr.ph44.preheader ]
-  %.02841 = phi ptr [ %66, %.lr.ph44 ], [ %56, %.lr.ph44.preheader ]
-  %64 = add nsw i32 %.12542, 1
-  %65 = getelementptr inbounds i8, ptr %.02841, i64 80
+  %.042 = phi ptr [ %66, %.lr.ph44 ], [ %56, %.lr.ph44.preheader ]
+  %.12841 = phi i32 [ %64, %.lr.ph44 ], [ %.02746, %.lr.ph44.preheader ]
+  %64 = add nsw i32 %.12841, 1
+  %65 = getelementptr inbounds i8, ptr %.042, i64 80
   %66 = load ptr, ptr %65, align 8
   %.not29 = icmp eq ptr %66, null
   br i1 %.not29, label %.loopexit, label %.lr.ph44, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.lr.ph44, %54, %60
-  %.127 = phi i32 [ %.02646, %60 ], [ %.02646, %54 ], [ %63, %.lr.ph44 ]
-  %.2 = phi i32 [ %.02447, %60 ], [ %.02447, %54 ], [ %64, %.lr.ph44 ]
+  %.2 = phi i32 [ %.02746, %60 ], [ %.02746, %54 ], [ %64, %.lr.ph44 ]
+  %.1 = phi i32 [ %.02448, %60 ], [ %.02448, %54 ], [ %63, %.lr.ph44 ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge50, label %54, !llvm.loop !36
 
 ._crit_edge50:                                    ; preds = %.loopexit, %Map_MappingGetMaxLevel.exit38
-  %.026.lcssa = phi i32 [ 0, %Map_MappingGetMaxLevel.exit38 ], [ %.127, %.loopexit ]
-  %.024.lcssa = phi i32 [ 0, %Map_MappingGetMaxLevel.exit38 ], [ %.2, %.loopexit ]
+  %.027.lcssa = phi i32 [ 0, %Map_MappingGetMaxLevel.exit38 ], [ %.2, %.loopexit ]
+  %.024.lcssa = phi i32 [ 0, %Map_MappingGetMaxLevel.exit38 ], [ %.1, %.loopexit ]
   %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.09.lcssa.i6063, i32 noundef %.09.lcssa.i30)
-  %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.026.lcssa, i32 noundef %.024.lcssa)
+  %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.024.lcssa, i32 noundef %.027.lcssa)
   ret void
 }
 

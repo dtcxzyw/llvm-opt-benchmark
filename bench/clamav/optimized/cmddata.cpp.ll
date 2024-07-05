@@ -2237,7 +2237,7 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
 
 219:                                              ; preds = %.lr.ph233, %228
   %220 = phi i32 [ %212, %.lr.ph233 ], [ %232, %228 ]
-  %.0180232 = phi i32 [ 2, %.lr.ph233 ], [ %229, %228 ]
+  %.0170232 = phi i32 [ 2, %.lr.ph233 ], [ %229, %228 ]
   %221 = tail call noundef i32 @_Z8toupperwi(i32 noundef %220)
   switch i32 %221, label %228 [
     i32 81, label %222
@@ -2274,7 +2274,7 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
   br label %228
 
 228:                                              ; preds = %219, %222, %223, %224, %225, %226, %227
-  %229 = add i32 %.0180232, 1
+  %229 = add i32 %.0170232, 1
   %230 = zext i32 %229 to i64
   %231 = getelementptr inbounds i32, ptr %1, i64 %230
   %232 = load i32, ptr %231, align 4
@@ -2383,31 +2383,31 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
   br i1 %exitcond.not, label %.loopexit, label %269, !llvm.loop !13
 
 271:                                              ; preds = %.lr.ph229, %307
-  %.0177228 = phi ptr [ %265, %.lr.ph229 ], [ %.5, %307 ]
+  %.0171228 = phi ptr [ %265, %.lr.ph229 ], [ %.5, %307 ]
   %272 = phi i32 [ %266, %.lr.ph229 ], [ %.pr, %307 ]
   %273 = tail call noundef zeroext i1 @_Z7IsDigiti(i32 noundef %272)
   br i1 %273, label %274, label %.loopexit215
 
 274:                                              ; preds = %271
-  %275 = tail call noundef i32 @_Z5atoiwPKw(ptr noundef nonnull %.0177228)
+  %275 = tail call noundef i32 @_Z5atoiwPKw(ptr noundef nonnull %.0171228)
   br label %276
 
 276:                                              ; preds = %276, %274
-  %.1178 = phi ptr [ %.0177228, %274 ], [ %279, %276 ]
-  %277 = load i32, ptr %.1178, align 4
+  %.1172 = phi ptr [ %.0171228, %274 ], [ %279, %276 ]
+  %277 = load i32, ptr %.1172, align 4
   %278 = tail call noundef zeroext i1 @_Z7IsDigiti(i32 noundef %277)
-  %279 = getelementptr inbounds i8, ptr %.1178, i64 4
+  %279 = getelementptr inbounds i8, ptr %.1172, i64 4
   br i1 %278, label %276, label %.loopexit215, !llvm.loop !14
 
 .loopexit215:                                     ; preds = %276, %271
-  %.2179 = phi ptr [ %.0177228, %271 ], [ %.1178, %276 ]
-  %.0175 = phi i32 [ 0, %271 ], [ %275, %276 ]
-  %280 = load i32, ptr %.2179, align 4
+  %.0180 = phi i32 [ 0, %271 ], [ %275, %276 ]
+  %.2173 = phi ptr [ %.0171228, %271 ], [ %.1172, %276 ]
+  %280 = load i32, ptr %.2173, align 4
   %281 = icmp eq i32 %280, 58
   br i1 %281, label %282, label %.loopexit214
 
 282:                                              ; preds = %.loopexit215
-  %283 = getelementptr inbounds i8, ptr %.2179, i64 4
+  %283 = getelementptr inbounds i8, ptr %.2173, i64 4
   %284 = load i32, ptr %283, align 4
   %285 = tail call noundef zeroext i1 @_Z7IsDigiti(i32 noundef %284)
   br i1 %285, label %286, label %.loopexit214
@@ -2424,8 +2424,8 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
   br i1 %290, label %288, label %.loopexit214, !llvm.loop !15
 
 .loopexit214:                                     ; preds = %288, %282, %.loopexit215
-  %.4 = phi ptr [ %.2179, %282 ], [ %.2179, %.loopexit215 ], [ %.3, %288 ]
-  %.0174 = phi i32 [ 0, %282 ], [ 0, %.loopexit215 ], [ %287, %288 ]
+  %.0179 = phi i32 [ 0, %282 ], [ 0, %.loopexit215 ], [ %287, %288 ]
+  %.4 = phi ptr [ %.2173, %282 ], [ %.2173, %.loopexit215 ], [ %.3, %288 ]
   %292 = getelementptr inbounds i8, ptr %.4, i64 4
   %293 = load i32, ptr %.4, align 4
   %294 = tail call noundef i32 @_Z8toupperwi(i32 noundef %293)
@@ -2457,7 +2457,7 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
   br label %301
 
 301:                                              ; preds = %300, %299, %298, %297, %296, %295, %.loopexit214
-  %.0172 = phi i64 [ 8, %.loopexit214 ], [ 3, %300 ], [ 5, %299 ], [ 4, %298 ], [ 0, %297 ], [ 1, %296 ], [ 7, %295 ]
+  %.0177 = phi i64 [ 8, %.loopexit214 ], [ 3, %300 ], [ 5, %299 ], [ 4, %298 ], [ 0, %297 ], [ 1, %296 ], [ 7, %295 ]
   %302 = load i32, ptr %292, align 4
   switch i32 %302, label %307 [
     i32 43, label %303
@@ -2471,14 +2471,14 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
   br label %307
 
 307:                                              ; preds = %301, %303
+  %.0178 = phi i32 [ %306, %303 ], [ 1, %301 ]
   %.5 = phi ptr [ %304, %303 ], [ %292, %301 ]
-  %.0173 = phi i32 [ %306, %303 ], [ 1, %301 ]
-  %308 = getelementptr inbounds [16 x %struct.FilterMode], ptr %267, i64 0, i64 %.0172
-  store i32 %.0173, ptr %308, align 4
+  %308 = getelementptr inbounds [16 x %struct.FilterMode], ptr %267, i64 0, i64 %.0177
+  store i32 %.0178, ptr %308, align 4
   %309 = getelementptr inbounds i8, ptr %308, i64 4
-  store i32 %.0175, ptr %309, align 4
+  store i32 %.0180, ptr %309, align 4
   %310 = getelementptr inbounds i8, ptr %308, i64 8
-  store i32 %.0174, ptr %310, align 4
+  store i32 %.0179, ptr %310, align 4
   %.pr = load i32, ptr %.5, align 4
   %.not197 = icmp eq i32 %.pr, 0
   br i1 %.not197, label %.loopexit, label %271, !llvm.loop !16
@@ -2523,21 +2523,21 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
 
 332:                                              ; preds = %.lr.ph225, %329
   %333 = phi i32 [ %327, %.lr.ph225 ], [ %331, %329 ]
-  %.0170224 = phi ptr [ %5, %.lr.ph225 ], [ %330, %329 ]
-  %334 = call ptr @wcschr(ptr noundef nonnull %.0170224, i32 noundef signext 59) #16
+  %.0175224 = phi ptr [ %5, %.lr.ph225 ], [ %330, %329 ]
+  %334 = call ptr @wcschr(ptr noundef nonnull %.0175224, i32 noundef signext 59) #16
   %.not196 = icmp eq ptr %334, null
   br i1 %.not196, label %336, label %335
 
 335:                                              ; preds = %332
   store i32 0, ptr %334, align 4
-  %.pre239 = load i32, ptr %.0170224, align 4
+  %.pre239 = load i32, ptr %.0175224, align 4
   br label %336
 
 336:                                              ; preds = %335, %332
   %337 = phi i32 [ %.pre239, %335 ], [ %333, %332 ]
   %338 = icmp eq i32 %337, 46
   %spec.select.idx.sroa.sel.idx.sroa.sel.idx = select i1 %338, i64 4, i64 0
-  %spec.select.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %.0170224, i64 %spec.select.idx.sroa.sel.idx.sroa.sel.idx
+  %spec.select.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %.0175224, i64 %spec.select.idx.sroa.sel.idx.sroa.sel.idx
   %339 = call ptr @wcspbrk(ptr noundef nonnull %spec.select.idx.sroa.sel.idx.sroa.sel, ptr noundef nonnull @.str.23) #16
   %340 = icmp eq ptr %339, null
   br i1 %340, label %341, label %343

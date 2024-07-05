@@ -169,15 +169,15 @@ _resume.preheader.i:                              ; preds = %while.end.i
   br label %_resume.i
 
 _resume.i:                                        ; preds = %if.end62.i, %_resume.preheader.i
-  %frac.0.i = phi double [ %frac.1.i, %if.end62.i ], [ 0.000000e+00, %_resume.preheader.i ]
-  %frac_count.0.i = phi double [ %frac_count.1.i, %if.end62.i ], [ 0.000000e+00, %_resume.preheader.i ]
-  %exp.0.i = phi i32 [ %exp.1.i, %if.end62.i ], [ 0, %_resume.preheader.i ]
-  %neg.0.i = phi i1 [ %neg.1.i, %if.end62.i ], [ false, %_resume.preheader.i ]
   %exp_neg.0.i = phi i8 [ %exp_neg.1.i, %if.end62.i ], [ 0, %_resume.preheader.i ]
   %exp_overflow.0.i = phi i1 [ %exp_overflow.1.i, %if.end62.i ], [ false, %_resume.preheader.i ]
+  %neg.0.i = phi i1 [ %neg.1.i, %if.end62.i ], [ false, %_resume.preheader.i ]
+  %exp.0.i = phi i32 [ %exp.1.i, %if.end62.i ], [ 0, %_resume.preheader.i ]
+  %frac_count.0.i = phi double [ %frac_count.1.i, %if.end62.i ], [ 0.000000e+00, %_resume.preheader.i ]
+  %cs.0.i = phi i32 [ %conv28.i, %if.end62.i ], [ 1, %_resume.preheader.i ]
+  %frac.0.i = phi double [ %frac.1.i, %if.end62.i ], [ 0.000000e+00, %_resume.preheader.i ]
   %value.0.i = phi double [ %value.1.i, %if.end62.i ], [ 0.000000e+00, %_resume.preheader.i ]
   %p.addr.1.i = phi ptr [ %incdec.ptr63.i, %if.end62.i ], [ %p.addr.0.lcssa.i, %_resume.preheader.i ]
-  %cs.0.i = phi i32 [ %conv28.i, %if.end62.i ], [ 1, %_resume.preheader.i ]
   %shl.i = shl nsw i32 %cs.0.i, 1
   %idx.ext.i = sext i32 %shl.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr @_ZL25_double_parser_trans_keys, i64 %idx.ext.i
@@ -258,17 +258,17 @@ sw.bb50.i:                                        ; preds = %if.end34.i
   %sub52.i = add i32 %mul.i, -48
   %add.i = add i32 %sub52.i, %conv13.i
   %cmp53.i = icmp ugt i32 %add.i, 2047
-  %add.exp.0.i = select i1 %cmp53.i, i32 %exp.0.i, i32 %add.i
   %exp_overflow.0..i = select i1 %cmp53.i, i1 true, i1 %exp_overflow.0.i
+  %add.exp.0.i = select i1 %cmp53.i, i32 %exp.0.i, i32 %add.i
   br label %_again.i
 
 _again.i:                                         ; preds = %sw.bb50.i, %if.then45.i, %sw.bb43.i, %sw.bb39.i, %sw.bb38.i, %sw.bb.i, %if.end34.i, %cond.end.i
-  %frac.1.i = phi double [ %frac.0.i, %cond.end.i ], [ %frac.0.i, %if.end34.i ], [ %16, %if.then45.i ], [ %frac.0.i, %sw.bb43.i ], [ %frac.0.i, %sw.bb39.i ], [ %frac.0.i, %sw.bb38.i ], [ %frac.0.i, %sw.bb.i ], [ %frac.0.i, %sw.bb50.i ]
-  %frac_count.1.i = phi double [ %frac_count.0.i, %cond.end.i ], [ %frac_count.0.i, %if.end34.i ], [ %inc.i, %if.then45.i ], [ %frac_count.0.i, %sw.bb43.i ], [ %frac_count.0.i, %sw.bb39.i ], [ %frac_count.0.i, %sw.bb38.i ], [ %frac_count.0.i, %sw.bb.i ], [ %frac_count.0.i, %sw.bb50.i ]
-  %exp.1.i = phi i32 [ %exp.0.i, %cond.end.i ], [ %exp.0.i, %if.end34.i ], [ %exp.0.i, %if.then45.i ], [ %exp.0.i, %sw.bb43.i ], [ %exp.0.i, %sw.bb39.i ], [ %exp.0.i, %sw.bb38.i ], [ %exp.0.i, %sw.bb.i ], [ %add.exp.0.i, %sw.bb50.i ]
-  %neg.1.i = phi i1 [ %neg.0.i, %cond.end.i ], [ %neg.0.i, %if.end34.i ], [ %neg.0.i, %if.then45.i ], [ %neg.0.i, %sw.bb43.i ], [ %neg.0.i, %sw.bb39.i ], [ %neg.0.i, %sw.bb38.i ], [ true, %sw.bb.i ], [ %neg.0.i, %sw.bb50.i ]
   %exp_neg.1.i = phi i8 [ %exp_neg.0.i, %cond.end.i ], [ %exp_neg.0.i, %if.end34.i ], [ %exp_neg.0.i, %if.then45.i ], [ %exp_neg.0.i, %sw.bb43.i ], [ %exp_neg.0.i, %sw.bb39.i ], [ 1, %sw.bb38.i ], [ %exp_neg.0.i, %sw.bb.i ], [ %exp_neg.0.i, %sw.bb50.i ]
   %exp_overflow.1.i = phi i1 [ %exp_overflow.0.i, %cond.end.i ], [ %exp_overflow.0.i, %if.end34.i ], [ %exp_overflow.0.i, %if.then45.i ], [ %exp_overflow.0.i, %sw.bb43.i ], [ %exp_overflow.0.i, %sw.bb39.i ], [ %exp_overflow.0.i, %sw.bb38.i ], [ %exp_overflow.0.i, %sw.bb.i ], [ %exp_overflow.0..i, %sw.bb50.i ]
+  %neg.1.i = phi i1 [ %neg.0.i, %cond.end.i ], [ %neg.0.i, %if.end34.i ], [ %neg.0.i, %if.then45.i ], [ %neg.0.i, %sw.bb43.i ], [ %neg.0.i, %sw.bb39.i ], [ %neg.0.i, %sw.bb38.i ], [ true, %sw.bb.i ], [ %neg.0.i, %sw.bb50.i ]
+  %exp.1.i = phi i32 [ %exp.0.i, %cond.end.i ], [ %exp.0.i, %if.end34.i ], [ %exp.0.i, %if.then45.i ], [ %exp.0.i, %sw.bb43.i ], [ %exp.0.i, %sw.bb39.i ], [ %exp.0.i, %sw.bb38.i ], [ %exp.0.i, %sw.bb.i ], [ %add.exp.0.i, %sw.bb50.i ]
+  %frac_count.1.i = phi double [ %frac_count.0.i, %cond.end.i ], [ %frac_count.0.i, %if.end34.i ], [ %inc.i, %if.then45.i ], [ %frac_count.0.i, %sw.bb43.i ], [ %frac_count.0.i, %sw.bb39.i ], [ %frac_count.0.i, %sw.bb38.i ], [ %frac_count.0.i, %sw.bb.i ], [ %frac_count.0.i, %sw.bb50.i ]
+  %frac.1.i = phi double [ %frac.0.i, %cond.end.i ], [ %frac.0.i, %if.end34.i ], [ %16, %if.then45.i ], [ %frac.0.i, %sw.bb43.i ], [ %frac.0.i, %sw.bb39.i ], [ %frac.0.i, %sw.bb38.i ], [ %frac.0.i, %sw.bb.i ], [ %frac.0.i, %sw.bb50.i ]
   %value.1.i = phi double [ %value.0.i, %cond.end.i ], [ %value.0.i, %if.end34.i ], [ %value.0.i, %if.then45.i ], [ %value.0.i, %sw.bb43.i ], [ %15, %sw.bb39.i ], [ %value.0.i, %sw.bb38.i ], [ %value.0.i, %sw.bb.i ], [ %value.0.i, %sw.bb50.i ]
   %cmp60.i = icmp eq i8 %10, 1
   br i1 %cmp60.i, label %_out.i, label %if.end62.i

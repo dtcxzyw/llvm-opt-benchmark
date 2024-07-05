@@ -2656,7 +2656,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface4rhsFEdP17_gener
   br label %42
 
 40:                                               ; preds = %26, %25
-  %.015 = phi i1 [ false, %26 ], [ true, %25 ]
+  %.024 = phi i1 [ false, %26 ], [ true, %25 ]
   %41 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -2664,43 +2664,43 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface4rhsFEdP17_gener
   br label %42
 
 42:                                               ; preds = %40, %38
+  %.125 = phi i1 [ %.024, %40 ], [ true, %38 ]
   %.pn = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ]
-  %.116 = phi i1 [ %.015, %40 ], [ true, %38 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #20
   br label %43
 
 43:                                               ; preds = %42, %36
+  %.226 = phi i1 [ %.125, %42 ], [ true, %36 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %42 ], [ %37, %36 ]
-  %.217 = phi i1 [ %.116, %42 ], [ true, %36 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   br label %44
 
 44:                                               ; preds = %43, %34
+  %.327 = phi i1 [ %.226, %43 ], [ true, %34 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %43 ], [ %35, %34 ]
-  %.318 = phi i1 [ %.217, %43 ], [ true, %34 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #20
   br label %45
 
 45:                                               ; preds = %44, %32
+  %.428 = phi i1 [ %.327, %44 ], [ true, %32 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %44 ], [ %33, %32 ]
-  %.419 = phi i1 [ %.318, %44 ], [ true, %32 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
   br label %46
 
 46:                                               ; preds = %45, %30
+  %.529 = phi i1 [ %.428, %45 ], [ true, %30 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %45 ], [ %31, %30 ]
-  %.520 = phi i1 [ %.419, %45 ], [ true, %30 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   br label %47
 
 47:                                               ; preds = %28, %46
+  %.630 = phi i1 [ %.529, %46 ], [ true, %28 ]
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %46 ], [ %29, %28 ]
-  %.621 = phi i1 [ %.520, %46 ], [ true, %28 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #20
-  br i1 %.621, label %48, label %61
+  br i1 %.630, label %48, label %61
 
 48:                                               ; preds = %.thread, %47
   %.pn.pn.pn.pn.pn.pn.pn45 = phi { ptr, i32 } [ %27, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %47 ]
@@ -2731,9 +2731,9 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface4rhsFEdP17_gener
 
 61:                                               ; preds = %47, %48, %.body
   %.pn40 = phi { ptr, i32 } [ %60, %.body ], [ %.pn.pn.pn.pn.pn.pn.pn45, %48 ], [ %.pn.pn.pn.pn.pn.pn, %47 ]
-  %.730 = extractvalue { ptr, i32 } %.pn40, 1
+  %.722 = extractvalue { ptr, i32 } %.pn40, 1
   %62 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #20
-  %63 = icmp eq i32 %.730, %62
+  %63 = icmp eq i32 %.722, %62
   br i1 %63, label %64, label %81
 
 64:                                               ; preds = %61
@@ -2859,8 +2859,8 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7lsetupFEP11CVod
           to label %41 unwind label %42
 
 40:                                               ; preds = %12, %37
-  %.016 = phi i32 [ -1, %37 ], [ %17, %12 ]
-  ret i32 %.016
+  %.0 = phi i32 [ -1, %37 ], [ %17, %12 ]
+  ret i32 %.0
 
 41:                                               ; preds = %38, %18
   %.merged = phi { ptr, i32 } [ %39, %38 ], [ %19, %18 ]
@@ -3216,28 +3216,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .lr.ph55.i:                                       ; preds = %.loopexit.i, %.lr.ph55.preheader.i
   %92 = phi i64 [ %91, %.loopexit.i ], [ %.pre.i, %.lr.ph55.preheader.i ]
-  %.04153.i = phi i64 [ %94, %.loopexit.i ], [ 0, %.lr.ph55.preheader.i ]
-  %93 = getelementptr inbounds i64, ptr %87, i64 %.04153.i
-  %94 = add nuw nsw i64 %.04153.i, 1
+  %.053.i = phi i64 [ %94, %.loopexit.i ], [ 0, %.lr.ph55.preheader.i ]
+  %93 = getelementptr inbounds i64, ptr %87, i64 %.053.i
+  %94 = add nuw nsw i64 %.053.i, 1
   %95 = getelementptr inbounds i64, ptr %87, i64 %94
   %96 = load i64, ptr %95, align 8
   %97 = icmp slt i64 %92, %96
   br i1 %97, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph55.i, %.lr.ph.i
-  %.044.i = phi i64 [ %101, %.lr.ph.i ], [ %92, %.lr.ph55.i ]
-  %98 = getelementptr inbounds i64, ptr %89, i64 %.044.i
+  %.04144.i = phi i64 [ %101, %.lr.ph.i ], [ %92, %.lr.ph55.i ]
+  %98 = getelementptr inbounds i64, ptr %89, i64 %.04144.i
   %99 = load i64, ptr %98, align 8
   %100 = getelementptr inbounds double, ptr %79, i64 %99
   store double 0.000000e+00, ptr %100, align 8
-  %101 = add nsw i64 %.044.i, 1
+  %101 = add nsw i64 %.04144.i, 1
   %102 = load i64, ptr %95, align 8
   %103 = icmp slt i64 %101, %102
   br i1 %103, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph55.i
   %104 = phi i64 [ %96, %.lr.ph55.i ], [ %102, %.lr.ph.i ]
-  %105 = getelementptr inbounds i64, ptr %82, i64 %.04153.i
+  %105 = getelementptr inbounds i64, ptr %82, i64 %.053.i
   %106 = load i64, ptr %105, align 8
   %107 = getelementptr inbounds i64, ptr %82, i64 %94
   %108 = load i64, ptr %107, align 8
@@ -3296,45 +3296,45 @@ _ZN6casadi14casadi_projectIdEEvPKT_PKxPS1_S5_S6_.exit: ; preds = %.loopexit.i, %
   br label %133, !llvm.loop !34
 
 133:                                              ; preds = %.preheader, %.loopexit
-  %.051 = phi i64 [ %140, %.loopexit ], [ 0, %.preheader ]
+  %.052 = phi i64 [ %140, %.loopexit ], [ 0, %.preheader ]
   %134 = invoke noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29)
           to label %135 unwind label %.loopexit64
 
 135:                                              ; preds = %133
-  %136 = icmp slt i64 %.051, %134
+  %136 = icmp slt i64 %.052, %134
   br i1 %136, label %137, label %160
 
 137:                                              ; preds = %135
-  %138 = getelementptr inbounds i64, ptr %129, i64 %.051
+  %138 = getelementptr inbounds i64, ptr %129, i64 %.052
   %139 = load i64, ptr %138, align 8
-  %140 = add nuw nsw i64 %.051, 1
+  %140 = add nuw nsw i64 %.052, 1
   %141 = getelementptr inbounds i64, ptr %129, i64 %140
   %142 = load i64, ptr %141, align 8
   %143 = icmp slt i64 %139, %142
   br i1 %143, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %137, %156
-  %.05067 = phi i64 [ %157, %156 ], [ %139, %137 ]
-  %144 = getelementptr inbounds i64, ptr %131, i64 %.05067
+  %.05167 = phi i64 [ %157, %156 ], [ %139, %137 ]
+  %144 = getelementptr inbounds i64, ptr %131, i64 %.05167
   %145 = load i64, ptr %144, align 8
   %146 = load ptr, ptr %74, align 8
-  %147 = getelementptr inbounds double, ptr %146, i64 %.05067
+  %147 = getelementptr inbounds double, ptr %146, i64 %.05167
   %148 = load double, ptr %147, align 8
   %149 = fmul double %148, %132
   store double %149, ptr %147, align 8
-  %150 = icmp eq i64 %145, %.051
+  %150 = icmp eq i64 %145, %.052
   br i1 %150, label %151, label %156
 
 151:                                              ; preds = %.lr.ph
   %152 = load ptr, ptr %74, align 8
-  %153 = getelementptr inbounds double, ptr %152, i64 %.05067
+  %153 = getelementptr inbounds double, ptr %152, i64 %.05167
   %154 = load double, ptr %153, align 8
   %155 = fadd double %154, 1.000000e+00
   store double %155, ptr %153, align 8
   br label %156
 
 156:                                              ; preds = %.lr.ph, %151
-  %157 = add nsw i64 %.05067, 1
+  %157 = add nsw i64 %.05167, 1
   %158 = load i64, ptr %141, align 8
   %159 = icmp slt i64 %157, %158
   br i1 %159, label %.lr.ph, label %.loopexit, !llvm.loop !35
@@ -3641,8 +3641,8 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %_ZN6casadi11casadi_
           to label %134 unwind label %135
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit80:     ; preds = %.lr.ph.i73, %.lr.ph23.preheader.i79, %.preheader.i78, %.preheader16.i72, %118, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit65, %117, %90, %36, %56
-  %.051 = phi i32 [ -1, %56 ], [ 1, %36 ], [ 1, %90 ], [ 1, %117 ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit65 ], [ 0, %118 ], [ 0, %.preheader16.i72 ], [ 0, %.preheader.i78 ], [ 0, %.lr.ph23.preheader.i79 ], [ 0, %.lr.ph.i73 ]
-  ret i32 %.051
+  %.0 = phi i32 [ -1, %56 ], [ 1, %36 ], [ 1, %90 ], [ 1, %117 ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit65 ], [ 0, %118 ], [ 0, %.preheader16.i72 ], [ 0, %.preheader.i78 ], [ 0, %.lr.ph23.preheader.i79 ], [ 0, %.lr.ph.i73 ]
+  ret i32 %.0
 
 134:                                              ; preds = %132, %37
   %.merged = phi { ptr, i32 } [ %133, %132 ], [ %38, %37 ]
@@ -4422,7 +4422,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface4rhsBEdP17_gener
   br label %43
 
 41:                                               ; preds = %27, %26
-  %.018 = phi i1 [ false, %27 ], [ true, %26 ]
+  %.028 = phi i1 [ false, %27 ], [ true, %26 ]
   %42 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -4430,43 +4430,43 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface4rhsBEdP17_gener
   br label %43
 
 43:                                               ; preds = %41, %39
+  %.129 = phi i1 [ %.028, %41 ], [ true, %39 ]
   %.pn = phi { ptr, i32 } [ %42, %41 ], [ %40, %39 ]
-  %.1 = phi i1 [ %.018, %41 ], [ true, %39 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   br label %44
 
 44:                                               ; preds = %43, %37
+  %.230 = phi i1 [ %.129, %43 ], [ true, %37 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %43 ], [ %38, %37 ]
-  %.2 = phi i1 [ %.1, %43 ], [ true, %37 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #20
   br label %45
 
 45:                                               ; preds = %44, %35
+  %.331 = phi i1 [ %.230, %44 ], [ true, %35 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %44 ], [ %36, %35 ]
-  %.3 = phi i1 [ %.2, %44 ], [ true, %35 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
   br label %46
 
 46:                                               ; preds = %45, %33
+  %.432 = phi i1 [ %.331, %45 ], [ true, %33 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %45 ], [ %34, %33 ]
-  %.4 = phi i1 [ %.3, %45 ], [ true, %33 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   br label %47
 
 47:                                               ; preds = %46, %31
+  %.533 = phi i1 [ %.432, %46 ], [ true, %31 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %46 ], [ %32, %31 ]
-  %.5 = phi i1 [ %.4, %46 ], [ true, %31 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   br label %48
 
 48:                                               ; preds = %29, %47
+  %.634 = phi i1 [ %.533, %47 ], [ true, %29 ]
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %47 ], [ %30, %29 ]
-  %.6 = phi i1 [ %.5, %47 ], [ true, %29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #20
-  br i1 %.6, label %49, label %67
+  br i1 %.634, label %49, label %67
 
 49:                                               ; preds = %.thread, %48
   %.pn.pn.pn.pn.pn.pn.pn50 = phi { ptr, i32 } [ %28, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %48 ]
@@ -4507,8 +4507,8 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface4rhsBEdP17_gener
   br i1 %69, label %70, label %97
 
 70:                                               ; preds = %67
-  %.734 = extractvalue { ptr, i32 } %.pn44, 0
-  %71 = call ptr @__cxa_begin_catch(ptr %.734) #20
+  %.7 = extractvalue { ptr, i32 } %.pn44, 0
+  %71 = call ptr @__cxa_begin_catch(ptr %.7) #20
   %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi4uerrEv()
           to label %73 unwind label %95
 
@@ -4699,7 +4699,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7lsetupBEP11CVod
   br label %61
 
 59:                                               ; preds = %45, %44
-  %.0 = phi i1 [ false, %45 ], [ true, %44 ]
+  %.026 = phi i1 [ false, %45 ], [ true, %44 ]
   %60 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -4708,7 +4708,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7lsetupBEP11CVod
 
 61:                                               ; preds = %59, %57
   %.pn = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ]
-  %.1 = phi i1 [ %.0, %59 ], [ true, %57 ]
+  %.1 = phi i1 [ %.026, %59 ], [ true, %57 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #20
   br label %62
 
@@ -4746,14 +4746,14 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7lsetupBEP11CVod
 
 67:                                               ; preds = %65, %66, %46
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn51, %66 ], [ %.pn.pn.pn.pn.pn, %65 ], [ %47, %46 ]
-  %.633 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn, 1
+  %.640 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn, 1
   %68 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #20
-  %69 = icmp eq i32 %.633, %68
+  %69 = icmp eq i32 %.640, %68
   br i1 %69, label %70, label %90
 
 70:                                               ; preds = %67
-  %.640 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn, 0
-  %71 = call ptr @__cxa_begin_catch(ptr %.640) #20
+  %.633 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn, 0
+  %71 = call ptr @__cxa_begin_catch(ptr %.633) #20
   %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi4uerrEv()
           to label %73 unwind label %87
 
@@ -4789,8 +4789,8 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7lsetupBEP11CVod
           to label %90 unwind label %91
 
 89:                                               ; preds = %84, %83
-  %.026 = phi i32 [ -1, %83 ], [ %86, %84 ]
-  ret i32 %.026
+  %.0 = phi i32 [ -1, %83 ], [ %86, %84 ]
+  ret i32 %.0
 
 90:                                               ; preds = %87, %67
   %.merged = phi { ptr, i32 } [ %88, %87 ], [ %.pn.pn.pn.pn.pn.pn.pn, %67 ]
@@ -4921,7 +4921,7 @@ define noundef i32 @_ZN6casadi15CvodesInterface7lsolveBEP11CVodeMemRecP17_generi
   br label %56
 
 54:                                               ; preds = %40, %39
-  %.026 = phi i1 [ false, %40 ], [ true, %39 ]
+  %.027 = phi i1 [ false, %40 ], [ true, %39 ]
   %55 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -4930,36 +4930,36 @@ define noundef i32 @_ZN6casadi15CvodesInterface7lsolveBEP11CVodeMemRecP17_generi
 
 56:                                               ; preds = %54, %52
   %.pn = phi { ptr, i32 } [ %55, %54 ], [ %53, %52 ]
-  %.1 = phi i1 [ %.026, %54 ], [ true, %52 ]
+  %.128 = phi i1 [ %.027, %54 ], [ true, %52 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   br label %57
 
 57:                                               ; preds = %56, %50
   %.pn.pn = phi { ptr, i32 } [ %.pn, %56 ], [ %51, %50 ]
-  %.2 = phi i1 [ %.1, %56 ], [ true, %50 ]
+  %.229 = phi i1 [ %.128, %56 ], [ true, %50 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #20
   br label %58
 
 58:                                               ; preds = %57, %48
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %57 ], [ %49, %48 ]
-  %.3 = phi i1 [ %.2, %57 ], [ true, %48 ]
+  %.330 = phi i1 [ %.229, %57 ], [ true, %48 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   br label %59
 
 59:                                               ; preds = %58, %46
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %58 ], [ %47, %46 ]
-  %.4 = phi i1 [ %.3, %58 ], [ true, %46 ]
+  %.431 = phi i1 [ %.330, %58 ], [ true, %46 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   br label %60
 
 60:                                               ; preds = %44, %59
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %59 ], [ %45, %44 ]
-  %.5 = phi i1 [ %.4, %59 ], [ true, %44 ]
+  %.532 = phi i1 [ %.431, %59 ], [ true, %44 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #20
-  br i1 %.5, label %61, label %62
+  br i1 %.532, label %61, label %62
 
 61:                                               ; preds = %.thread, %60
   %.pn.pn.pn.pn.pn.pn51 = phi { ptr, i32 } [ %43, %.thread ], [ %.pn.pn.pn.pn.pn, %60 ]
@@ -4974,8 +4974,8 @@ define noundef i32 @_ZN6casadi15CvodesInterface7lsolveBEP11CVodeMemRecP17_generi
   br i1 %64, label %65, label %85
 
 65:                                               ; preds = %62
-  %.633 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn, 0
-  %66 = call ptr @__cxa_begin_catch(ptr %.633) #20
+  %.6 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn, 0
+  %66 = call ptr @__cxa_begin_catch(ptr %.6) #20
   %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi4uerrEv()
           to label %68 unwind label %82
 
@@ -5173,8 +5173,8 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface7psetupBEdP17_ge
           to label %40 unwind label %41
 
 39:                                               ; preds = %13, %36
-  %.018 = phi i32 [ -1, %36 ], [ %16, %13 ]
-  ret i32 %.018
+  %.0 = phi i32 [ -1, %36 ], [ %16, %13 ]
+  ret i32 %.0
 
 40:                                               ; preds = %37, %17
   %.merged = phi { ptr, i32 } [ %38, %37 ], [ %18, %17 ]
@@ -5469,8 +5469,8 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %_ZN6casadi11casadi_
           to label %148 unwind label %149
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit88:     ; preds = %.lr.ph.i81, %.lr.ph23.preheader.i87, %.preheader.i86, %.preheader16.i80, %131, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit73, %130, %97, %39, %59
-  %.059 = phi i32 [ -1, %59 ], [ 1, %39 ], [ 1, %97 ], [ 1, %130 ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit73 ], [ 0, %131 ], [ 0, %.preheader16.i80 ], [ 0, %.preheader.i86 ], [ 0, %.lr.ph23.preheader.i87 ], [ 0, %.lr.ph.i81 ]
-  ret i32 %.059
+  %.0 = phi i32 [ -1, %59 ], [ 1, %39 ], [ 1, %97 ], [ 1, %130 ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit73 ], [ 0, %131 ], [ 0, %.preheader16.i80 ], [ 0, %.preheader.i86 ], [ 0, %.lr.ph23.preheader.i87 ], [ 0, %.lr.ph.i81 ]
+  ret i32 %.0
 
 148:                                              ; preds = %146, %40
   %.merged = phi { ptr, i32 } [ %147, %146 ], [ %41, %40 ]
@@ -5587,7 +5587,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface5rhsQBEdP17_gene
   br label %43
 
 41:                                               ; preds = %27, %26
-  %.020 = phi i1 [ false, %27 ], [ true, %26 ]
+  %.030 = phi i1 [ false, %27 ], [ true, %26 ]
   %42 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -5595,43 +5595,43 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface5rhsQBEdP17_gene
   br label %43
 
 43:                                               ; preds = %41, %39
+  %.131 = phi i1 [ %.030, %41 ], [ true, %39 ]
   %.pn = phi { ptr, i32 } [ %42, %41 ], [ %40, %39 ]
-  %.1 = phi i1 [ %.020, %41 ], [ true, %39 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   br label %44
 
 44:                                               ; preds = %43, %37
+  %.232 = phi i1 [ %.131, %43 ], [ true, %37 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %43 ], [ %38, %37 ]
-  %.2 = phi i1 [ %.1, %43 ], [ true, %37 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #20
   br label %45
 
 45:                                               ; preds = %44, %35
+  %.333 = phi i1 [ %.232, %44 ], [ true, %35 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %44 ], [ %36, %35 ]
-  %.3 = phi i1 [ %.2, %44 ], [ true, %35 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
   br label %46
 
 46:                                               ; preds = %45, %33
+  %.434 = phi i1 [ %.333, %45 ], [ true, %33 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %45 ], [ %34, %33 ]
-  %.4 = phi i1 [ %.3, %45 ], [ true, %33 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   br label %47
 
 47:                                               ; preds = %46, %31
+  %.535 = phi i1 [ %.434, %46 ], [ true, %31 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %46 ], [ %32, %31 ]
-  %.5 = phi i1 [ %.4, %46 ], [ true, %31 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   br label %48
 
 48:                                               ; preds = %29, %47
+  %.636 = phi i1 [ %.535, %47 ], [ true, %29 ]
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %47 ], [ %30, %29 ]
-  %.6 = phi i1 [ %.5, %47 ], [ true, %29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #20
-  br i1 %.6, label %49, label %68
+  br i1 %.636, label %49, label %68
 
 49:                                               ; preds = %.thread, %48
   %.pn.pn.pn.pn.pn.pn.pn52 = phi { ptr, i32 } [ %28, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %48 ]
@@ -5673,8 +5673,8 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi15CvodesInterface5rhsQBEdP17_gene
   br i1 %70, label %71, label %100
 
 71:                                               ; preds = %68
-  %.736 = extractvalue { ptr, i32 } %.pn46, 0
-  %72 = call ptr @__cxa_begin_catch(ptr %.736) #20
+  %.7 = extractvalue { ptr, i32 } %.pn46, 0
+  %72 = call ptr @__cxa_begin_catch(ptr %.7) #20
   %73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi4uerrEv()
           to label %74 unwind label %98
 

@@ -11946,10 +11946,10 @@ for.body1268.preheader:                           ; preds = %while.body, %if.end
 
 for.body1268:                                     ; preds = %for.body1268.preheader, %for.body1268
   %indvars.iv865 = phi i64 [ %indvars.iv.next866, %for.body1268 ], [ 0, %for.body1268.preheader ]
-  %average.0787 = phi float [ %add1271, %for.body1268 ], [ 0.000000e+00, %for.body1268.preheader ]
+  %average.0788 = phi float [ %add1271, %for.body1268 ], [ 0.000000e+00, %for.body1268.preheader ]
   %arrayidx1270 = getelementptr inbounds [90 x float], ptr @_ZZL21ShowDemoWindowWidgetsvE6values, i64 0, i64 %indvars.iv865
   %279 = load float, ptr %arrayidx1270, align 4
-  %add1271 = fadd float %average.0787, %279
+  %add1271 = fadd float %average.0788, %279
   %indvars.iv.next866 = add nuw nsw i64 %indvars.iv865, 1
   %exitcond868.not = icmp eq i64 %indvars.iv.next866, 90
   br i1 %exitcond868.not, label %for.end1274, label %for.body1268, !llvm.loop !63

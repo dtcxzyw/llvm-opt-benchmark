@@ -457,25 +457,25 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
   br label %39
 
 39:                                               ; preds = %.lr.ph, %.backedge
-  %.039 = phi ptr [ %36, %.lr.ph ], [ %47, %.backedge ]
-  %40 = load i8, ptr %.039, align 1
+  %.03039 = phi ptr [ %36, %.lr.ph ], [ %47, %.backedge ]
+  %40 = load i8, ptr %.03039, align 1
   %41 = icmp eq i8 %40, -17
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %39
-  %43 = ptrtoint ptr %.039 to i64
+  %43 = ptrtoint ptr %.03039 to i64
   %44 = sub i64 %38, %43
   %45 = icmp slt i64 %44, 3
   br i1 %45, label %.loopexit.sink.split, label %46
 
 46:                                               ; preds = %42
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.039, ptr noundef nonnull dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3)
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.03039, ptr noundef nonnull dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3)
   %.not36 = icmp eq i32 %bcmp, 0
   br i1 %.not36, label %.backedge, label %.loopexit.sink.split
 
 .backedge:                                        ; preds = %46, %48
   %.sink40 = phi i64 [ 1, %48 ], [ 3, %46 ]
-  %47 = getelementptr inbounds i8, ptr %.039, i64 %.sink40
+  %47 = getelementptr inbounds i8, ptr %.03039, i64 %.sink40
   %.not34 = icmp eq ptr %47, %37
   br i1 %.not34, label %.loopexit, label %39
 
@@ -501,8 +501,8 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
   br label %55
 
 55:                                               ; preds = %.loopexit, %53, %26, %20
-  %.030 = phi i1 [ %21, %20 ], [ true, %26 ], [ %54, %53 ], [ true, %.loopexit ]
-  ret i1 %.030
+  %.0 = phi i1 [ %21, %20 ], [ true, %26 ], [ %54, %53 ], [ true, %.loopexit ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable

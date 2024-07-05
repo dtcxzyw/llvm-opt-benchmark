@@ -1137,8 +1137,8 @@ do.body.preheader:                                ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end14
-  %c.0 = phi ptr [ %49, %if.end14 ], [ %add.ptr, %do.body.preheader ]
   %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
+  %c.0 = phi ptr [ %49, %if.end14 ], [ %add.ptr, %do.body.preheader ]
   %m_data = getelementptr inbounds i8, ptr %c.0, i64 8
   %30 = load i32, ptr %m_data, align 4
   %31 = load i32, ptr %d, align 4
@@ -12024,17 +12024,17 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %source_it.028 = phi ptr [ %source, %for.body.lr.ph ], [ %incdec.ptr22, %for.inc ]
-  %target_cellar.027 = phi ptr [ %add.ptr3, %for.body.lr.ph ], [ %target_cellar.3, %for.inc ]
-  %0 = load ptr, ptr %source_it.028, align 8
+  %target_cellar.028 = phi ptr [ %add.ptr3, %for.body.lr.ph ], [ %target_cellar.3, %for.inc ]
+  %source_it.027 = phi ptr [ %source, %for.body.lr.ph ], [ %incdec.ptr22, %for.inc ]
+  %0 = load ptr, ptr %source_it.027, align 8
   %1 = ptrtoint ptr %0 to i64
   %and.i = and i64 %1, 7
   %cmp.i = icmp eq i64 %and.i, 1
   br i1 %cmp.i, label %for.inc, label %do.body
 
 do.body:                                          ; preds = %for.body, %if.end18
-  %target_cellar.1 = phi ptr [ %target_cellar.2, %if.end18 ], [ %target_cellar.027, %for.body ]
-  %list_it.0 = phi ptr [ %33, %if.end18 ], [ %source_it.028, %for.body ]
+  %list_it.0 = phi ptr [ %33, %if.end18 ], [ %source_it.027, %for.body ]
+  %target_cellar.1 = phi ptr [ %target_cellar.2, %if.end18 ], [ %target_cellar.028, %for.body ]
   %m_data = getelementptr inbounds i8, ptr %list_it.0, i64 8
   %2 = load i32, ptr %m_data, align 4
   %3 = load ptr, ptr %this, align 8
@@ -12133,8 +12133,8 @@ if.end18:                                         ; preds = %if.end, %if.then10
   br i1 %cmp20.not, label %for.inc, label %do.body, !llvm.loop !22
 
 for.inc:                                          ; preds = %if.end18, %for.body
-  %target_cellar.3 = phi ptr [ %target_cellar.027, %for.body ], [ %target_cellar.2, %if.end18 ]
-  %incdec.ptr22 = getelementptr inbounds i8, ptr %source_it.028, i64 16
+  %target_cellar.3 = phi ptr [ %target_cellar.028, %for.body ], [ %target_cellar.2, %if.end18 ]
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %source_it.027, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr22, %add.ptr
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !23
 

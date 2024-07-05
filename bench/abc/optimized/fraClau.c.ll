@@ -2250,17 +2250,17 @@ define void @Fra_ClauPrintClause(ptr nocapture noundef readonly %0, ptr nocaptur
   %.025 = phi i32 [ 0, %.lr.ph ], [ %.1, %29 ]
   %.01624 = phi i32 [ 0, %.lr.ph ], [ %.117, %29 ]
   %.val = load i32, ptr %3, align 4
-  %9 = icmp slt i32 %.025, %.val
+  %9 = icmp slt i32 %.01624, %.val
   br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %8
   %.val22 = load ptr, ptr %6, align 8
-  %11 = sext i32 %.01624 to i64
+  %11 = sext i32 %.025 to i64
   %12 = getelementptr inbounds i32, ptr %.val22, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = ashr i32 %13, 1
   %.val21 = load ptr, ptr %7, align 8
-  %15 = sext i32 %.025 to i64
+  %15 = sext i32 %.01624 to i64
   %16 = getelementptr inbounds i32, ptr %.val21, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = icmp slt i32 %14, %17
@@ -2271,23 +2271,23 @@ define void @Fra_ClauPrintClause(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = add nsw i32 %.025, 1
+  %22 = add nsw i32 %.01624, 1
   %putchar = tail call i32 @putchar(i32 45)
   br label %29
 
 23:                                               ; preds = %19
-  %24 = add nsw i32 %.01624, 1
-  %25 = add nsw i32 %.025, 1
+  %24 = add nsw i32 %.025, 1
+  %25 = add nsw i32 %.01624, 1
   %26 = and i32 %13, 1
   %27 = xor i32 %26, 1
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %27)
   br label %29
 
 29:                                               ; preds = %21, %23, %10
-  %.117 = phi i32 [ %.01624, %10 ], [ %.01624, %21 ], [ %24, %23 ]
-  %.1 = phi i32 [ %.025, %10 ], [ %22, %21 ], [ %25, %23 ]
+  %.117 = phi i32 [ %.01624, %10 ], [ %22, %21 ], [ %25, %23 ]
+  %.1 = phi i32 [ %.025, %10 ], [ %.025, %21 ], [ %24, %23 ]
   %.val20 = load i32, ptr %4, align 4
-  %30 = icmp slt i32 %.117, %.val20
+  %30 = icmp slt i32 %.1, %.val20
   br i1 %30, label %8, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %8, %29, %2
@@ -2366,17 +2366,17 @@ define range(i32 0, 2) i32 @Fra_Clau(ptr noundef %0, i32 noundef %1, i32 noundef
   %.025.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %60 ]
   %.01624.i = phi i32 [ 0, %.lr.ph.i ], [ %.117.i, %60 ]
   %.val.i = load i32, ptr %34, align 4
-  %40 = icmp slt i32 %.025.i, %.val.i
+  %40 = icmp slt i32 %.01624.i, %.val.i
   br i1 %40, label %41, label %Fra_ClauPrintClause.exit
 
 41:                                               ; preds = %39
   %.val22.i = load ptr, ptr %37, align 8
-  %42 = sext i32 %.01624.i to i64
+  %42 = sext i32 %.025.i to i64
   %43 = getelementptr inbounds i32, ptr %.val22.i, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = ashr i32 %44, 1
   %.val21.i = load ptr, ptr %38, align 8
-  %46 = sext i32 %.025.i to i64
+  %46 = sext i32 %.01624.i to i64
   %47 = getelementptr inbounds i32, ptr %.val21.i, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = icmp slt i32 %45, %48
@@ -2387,23 +2387,23 @@ define range(i32 0, 2) i32 @Fra_Clau(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %50
-  %53 = add nsw i32 %.025.i, 1
+  %53 = add nsw i32 %.01624.i, 1
   %putchar.i = tail call i32 @putchar(i32 45)
   br label %60
 
 54:                                               ; preds = %50
-  %55 = add nsw i32 %.01624.i, 1
-  %56 = add nsw i32 %.025.i, 1
+  %55 = add nsw i32 %.025.i, 1
+  %56 = add nsw i32 %.01624.i, 1
   %57 = and i32 %44, 1
   %58 = xor i32 %57, 1
   %59 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %58)
   br label %60
 
 60:                                               ; preds = %54, %52, %41
-  %.117.i = phi i32 [ %.01624.i, %41 ], [ %.01624.i, %52 ], [ %55, %54 ]
-  %.1.i = phi i32 [ %.025.i, %41 ], [ %53, %52 ], [ %56, %54 ]
+  %.117.i = phi i32 [ %.01624.i, %41 ], [ %53, %52 ], [ %56, %54 ]
+  %.1.i = phi i32 [ %.025.i, %41 ], [ %.025.i, %52 ], [ %55, %54 ]
   %.val20.i = load i32, ptr %35, align 4
-  %61 = icmp slt i32 %.117.i, %.val20.i
+  %61 = icmp slt i32 %.1.i, %.val20.i
   br i1 %61, label %39, label %Fra_ClauPrintClause.exit, !llvm.loop !23
 
 Fra_ClauPrintClause.exit:                         ; preds = %60, %39, %.thread, %32, %28
@@ -2679,19 +2679,19 @@ Vec_IntComplement.exit:                           ; preds = %148, %.Vec_IntCompl
 
 186:                                              ; preds = %206
   %.val.i113 = load i32, ptr %181, align 4
-  %187 = icmp slt i32 %.1.i117, %.val.i113
+  %187 = icmp slt i32 %.117.i116, %.val.i113
   br i1 %187, label %.lr.ph172, label %Fra_ClauPrintClause.exit120.thread, !llvm.loop !23
 
 .lr.ph172:                                        ; preds = %.lr.ph.i110, %186
   %.01624.i112171 = phi i32 [ %.117.i116, %186 ], [ 0, %.lr.ph.i110 ]
   %.025.i111170 = phi i32 [ %.1.i117, %186 ], [ 0, %.lr.ph.i110 ]
   %.val22.i114 = load ptr, ptr %183, align 8
-  %188 = sext i32 %.01624.i112171 to i64
+  %188 = sext i32 %.025.i111170 to i64
   %189 = getelementptr inbounds i32, ptr %.val22.i114, i64 %188
   %190 = load i32, ptr %189, align 4
   %191 = ashr i32 %190, 1
   %.val21.i115 = load ptr, ptr %184, align 8
-  %192 = sext i32 %.025.i111170 to i64
+  %192 = sext i32 %.01624.i112171 to i64
   %193 = getelementptr inbounds i32, ptr %.val21.i115, i64 %192
   %194 = load i32, ptr %193, align 4
   %195 = icmp slt i32 %191, %194
@@ -2702,23 +2702,23 @@ Vec_IntComplement.exit:                           ; preds = %148, %.Vec_IntCompl
   br i1 %197, label %198, label %200
 
 198:                                              ; preds = %196
-  %199 = add nsw i32 %.025.i111170, 1
+  %199 = add nsw i32 %.01624.i112171, 1
   %putchar.i119 = tail call i32 @putchar(i32 45)
   br label %206
 
 200:                                              ; preds = %196
-  %201 = add nsw i32 %.01624.i112171, 1
-  %202 = add nsw i32 %.025.i111170, 1
+  %201 = add nsw i32 %.025.i111170, 1
+  %202 = add nsw i32 %.01624.i112171, 1
   %203 = and i32 %190, 1
   %204 = xor i32 %203, 1
   %205 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %204)
   br label %206
 
 206:                                              ; preds = %200, %198, %.lr.ph172
-  %.117.i116 = phi i32 [ %.01624.i112171, %.lr.ph172 ], [ %.01624.i112171, %198 ], [ %201, %200 ]
-  %.1.i117 = phi i32 [ %.025.i111170, %.lr.ph172 ], [ %199, %198 ], [ %202, %200 ]
+  %.117.i116 = phi i32 [ %.01624.i112171, %.lr.ph172 ], [ %199, %198 ], [ %202, %200 ]
+  %.1.i117 = phi i32 [ %.025.i111170, %.lr.ph172 ], [ %.025.i111170, %198 ], [ %201, %200 ]
   %.val20.i118 = load i32, ptr %171, align 4
-  %207 = icmp slt i32 %.117.i116, %.val20.i118
+  %207 = icmp slt i32 %.1.i117, %.val20.i118
   br i1 %207, label %186, label %Fra_ClauPrintClause.exit120.thread, !llvm.loop !23
 
 Fra_ClauPrintClause.exit120.thread:               ; preds = %206, %186, %.lr.ph.i110, %177, %179
@@ -2760,17 +2760,17 @@ Fra_ClauPrintClause.exit120.thread133:            ; preds = %176, %Fra_ClauPrint
   %.025.i123 = phi i32 [ 0, %.lr.ph.i122 ], [ %.1.i129, %242 ]
   %.01624.i124 = phi i32 [ 0, %.lr.ph.i122 ], [ %.117.i128, %242 ]
   %.val.i125 = load i32, ptr %216, align 4
-  %222 = icmp slt i32 %.025.i123, %.val.i125
+  %222 = icmp slt i32 %.01624.i124, %.val.i125
   br i1 %222, label %223, label %Fra_ClauPrintClause.exit132
 
 223:                                              ; preds = %221
   %.val22.i126 = load ptr, ptr %219, align 8
-  %224 = sext i32 %.01624.i124 to i64
+  %224 = sext i32 %.025.i123 to i64
   %225 = getelementptr inbounds i32, ptr %.val22.i126, i64 %224
   %226 = load i32, ptr %225, align 4
   %227 = ashr i32 %226, 1
   %.val21.i127 = load ptr, ptr %220, align 8
-  %228 = sext i32 %.025.i123 to i64
+  %228 = sext i32 %.01624.i124 to i64
   %229 = getelementptr inbounds i32, ptr %.val21.i127, i64 %228
   %230 = load i32, ptr %229, align 4
   %231 = icmp slt i32 %227, %230
@@ -2781,23 +2781,23 @@ Fra_ClauPrintClause.exit120.thread133:            ; preds = %176, %Fra_ClauPrint
   br i1 %233, label %234, label %236
 
 234:                                              ; preds = %232
-  %235 = add nsw i32 %.025.i123, 1
+  %235 = add nsw i32 %.01624.i124, 1
   %putchar.i131 = tail call i32 @putchar(i32 45)
   br label %242
 
 236:                                              ; preds = %232
-  %237 = add nsw i32 %.01624.i124, 1
-  %238 = add nsw i32 %.025.i123, 1
+  %237 = add nsw i32 %.025.i123, 1
+  %238 = add nsw i32 %.01624.i124, 1
   %239 = and i32 %226, 1
   %240 = xor i32 %239, 1
   %241 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %240)
   br label %242
 
 242:                                              ; preds = %236, %234, %223
-  %.117.i128 = phi i32 [ %.01624.i124, %223 ], [ %.01624.i124, %234 ], [ %237, %236 ]
-  %.1.i129 = phi i32 [ %.025.i123, %223 ], [ %235, %234 ], [ %238, %236 ]
+  %.117.i128 = phi i32 [ %.01624.i124, %223 ], [ %235, %234 ], [ %238, %236 ]
+  %.1.i129 = phi i32 [ %.025.i123, %223 ], [ %.025.i123, %234 ], [ %237, %236 ]
   %.val20.i130 = load i32, ptr %217, align 4
-  %243 = icmp slt i32 %.117.i128, %.val20.i130
+  %243 = icmp slt i32 %.1.i129, %.val20.i130
   br i1 %243, label %221, label %Fra_ClauPrintClause.exit132, !llvm.loop !23
 
 Fra_ClauPrintClause.exit132:                      ; preds = %242, %221, %213

@@ -5529,7 +5529,7 @@ _ZN6uucore8features6format4spec5Flags5parse17h50c788586d8df07dE.exit: ; preds = 
   %18 = trunc nuw i8 %.sroa.3.0.lcssa.i to i1
   %19 = trunc nuw i8 %.sroa.5.0.lcssa.i to i1
   %. = select i1 %19, i8 2, i8 0
-  %.076 = select i1 %18, i8 1, i8 %.
+  %.070 = select i1 %18, i8 1, i8 %.
   %20 = call fastcc { i64, i64 } @_ZN6uucore8features6format4spec22eat_asterisk_or_number17h9a90975ebd819f2aE(ptr nonnull %4, i64 %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
   %21 = extractvalue { i64, i64 } %20, 0
   %22 = extractvalue { i64, i64 } %20, 1
@@ -5564,7 +5564,7 @@ _ZN6uucore8features6format4spec5Flags5parse17h50c788586d8df07dE.exit: ; preds = 
   %.not84 = icmp eq i64 %.sroa.011.0, 2
   %or.cond = select i1 %36, i1 %.not84, i1 false
   %spec.select = select i1 %or.cond, i8 2, i8 1
-  %.075 = select i1 %35, i8 0, i8 %spec.select
+  %.072 = select i1 %35, i8 0, i8 %spec.select
   %.not7.i = icmp ult i64 %.promoted157, %6
   br i1 %.not7.i, label %.lr.ph.i, label %_ZN6uucore8features6format4spec4Spec12parse_length17h3f6475c6816b9477E.exit
 
@@ -5701,9 +5701,9 @@ _ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119: ; preds =
   %.sroa.27.0 = phi i64 [ %22, %77 ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119 ], [ %22, %66 ], [ %22, %73 ], [ %22, %72 ], [ %.sroa.13.0, %68 ], [ %22, %70 ], [ %22, %59 ], [ %22, %50 ]
   %.sroa.2229.0 = phi i64 [ %21, %77 ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119 ], [ %21, %66 ], [ %21, %73 ], [ %21, %72 ], [ %.sroa.011.0, %68 ], [ %21, %70 ], [ %21, %59 ], [ %21, %50 ]
   %.sroa.20.0 = phi i8 [ %79, %77 ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119 ], [ undef, %66 ], [ undef, %73 ], [ undef, %72 ], [ undef, %68 ], [ undef, %70 ], [ undef, %59 ], [ undef, %50 ]
-  %.sroa.19.0 = phi i8 [ %.075, %77 ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119 ], [ undef, %66 ], [ %.sroa.7.0.lcssa.i, %73 ], [ %.sroa.7.0.lcssa.i, %72 ], [ undef, %68 ], [ 2, %70 ], [ undef, %59 ], [ 3, %50 ]
-  %.sroa.16.0 = phi i8 [ %.076, %77 ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119 ], [ %.075, %66 ], [ 1, %73 ], [ 0, %72 ], [ undef, %68 ], [ undef, %70 ], [ undef, %59 ], [ %.sroa.7.0.lcssa.i, %50 ]
-  %.sroa.1128.0 = phi i8 [ %.072, %77 ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119 ], [ %.076, %66 ], [ %.075, %73 ], [ %.075, %72 ], [ %.sroa.0.0.lcssa.i, %68 ], [ %.075, %70 ], [ %.sroa.0.0.lcssa.i, %59 ], [ %.075, %50 ]
+  %.sroa.19.0 = phi i8 [ %.072, %77 ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119 ], [ undef, %66 ], [ %.sroa.7.0.lcssa.i, %73 ], [ %.sroa.7.0.lcssa.i, %72 ], [ undef, %68 ], [ 2, %70 ], [ undef, %59 ], [ 3, %50 ]
+  %.sroa.16.0 = phi i8 [ %.070, %77 ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119 ], [ %.072, %66 ], [ 1, %73 ], [ 0, %72 ], [ undef, %68 ], [ undef, %70 ], [ undef, %59 ], [ %.sroa.7.0.lcssa.i, %50 ]
+  %.sroa.1128.0 = phi i8 [ %.074, %77 ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit ], [ undef, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119 ], [ %.070, %66 ], [ %.072, %73 ], [ %.072, %72 ], [ %.sroa.0.0.lcssa.i, %68 ], [ %.072, %70 ], [ %.sroa.0.0.lcssa.i, %59 ], [ %.072, %50 ]
   %.sroa.027.0 = phi i8 [ 6, %77 ], [ 2, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit ], [ 3, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119 ], [ 4, %66 ], [ 5, %73 ], [ 5, %72 ], [ 1, %68 ], [ 5, %70 ], [ 0, %59 ], [ 5, %50 ]
   store i8 %.sroa.027.0, ptr %0, align 8
   %.sroa.1128.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
@@ -5751,7 +5751,7 @@ _ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119: ; preds =
   br label %77
 
 77:                                               ; preds = %50, %50, %76, %75, %74
-  %.072 = phi i8 [ 3, %76 ], [ 2, %75 ], [ 1, %74 ], [ 0, %50 ], [ 0, %50 ]
+  %.074 = phi i8 [ 3, %76 ], [ 2, %75 ], [ 1, %74 ], [ 0, %50 ], [ 0, %50 ]
   %78 = icmp ult i8 %55, 91
   %79 = zext i1 %78 to i8
   br label %.thread

@@ -693,19 +693,19 @@ define internal i32 @dissect_acse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %42
 
 42:                                               ; preds = %45, %34
-  %.057 = phi i32 [ 0, %34 ], [ %47, %45 ]
-  %43 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.057) #5
+  %.056 = phi i32 [ 0, %34 ], [ %47, %45 ]
+  %43 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.056) #5
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %42
   %46 = load i32, ptr @ett_acse_ACSE_apdu, align 4
-  %47 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %38, ptr noundef %0, i32 noundef %.057, ptr noundef nonnull @ACSE_apdu_choice, i32 noundef -1, i32 noundef %46, ptr noundef null) #5
-  %48 = icmp eq i32 %47, %.057
+  %47 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %38, ptr noundef %0, i32 noundef %.056, ptr noundef nonnull @ACSE_apdu_choice, i32 noundef -1, i32 noundef %46, ptr noundef null) #5
+  %48 = icmp eq i32 %47, %.056
   br i1 %48, label %49, label %42, !llvm.loop !4
 
 49:                                               ; preds = %45
-  %50 = call ptr @proto_tree_add_expert(ptr noundef %38, ptr noundef %1, ptr noundef nonnull @ei_acse_malformed, ptr noundef %0, i32 noundef %.057, i32 noundef -1) #5
+  %50 = call ptr @proto_tree_add_expert(ptr noundef %38, ptr noundef %1, ptr noundef nonnull @ei_acse_malformed, ptr noundef %0, i32 noundef %.056, i32 noundef -1) #5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %49

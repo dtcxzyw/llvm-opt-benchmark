@@ -3318,12 +3318,12 @@ define range(i32 -41, 1) i32 @mriStep_CheckCoupling(ptr noundef %0) local_unname
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %84 = phi ptr [ %88, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %.0100161 = phi i32 [ %spec.select, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.2112160 = phi i32 [ %87, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %85 = tail call i32 @mriStepCoupling_GetStageType(ptr noundef nonnull %84, i32 noundef %.2112160) #12
+  %.2102161 = phi i32 [ %87, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0104160 = phi i32 [ %spec.select, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %85 = tail call i32 @mriStepCoupling_GetStageType(ptr noundef nonnull %84, i32 noundef %.2102161) #12
   %86 = icmp eq i32 %85, 3
-  %spec.select = select i1 %86, i32 0, i32 %.0100161
-  %87 = add nuw nsw i32 %.2112160, 1
+  %spec.select = select i1 %86, i32 0, i32 %.0104160
+  %87 = add nuw nsw i32 %.2102161, 1
   %88 = load ptr, ptr %7, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4
@@ -3350,20 +3350,20 @@ define range(i32 -41, 1) i32 @mriStep_CheckCoupling(ptr noundef %0) local_unname
 
 96:                                               ; preds = %.lr.ph166, %96
   %indvars.iv243 = phi i64 [ 1, %.lr.ph166 ], [ %indvars.iv.next244, %96 ]
-  %.2102165 = phi i32 [ 1, %.lr.ph166 ], [ %.3103, %96 ]
+  %.2106164 = phi i32 [ 1, %.lr.ph166 ], [ %.3107, %96 ]
   %97 = getelementptr inbounds double, ptr %94, i64 %indvars.iv243
   %98 = load double, ptr %97, align 8
   %99 = getelementptr i8, ptr %97, i64 -8
   %100 = load double, ptr %99, align 8
   %101 = fsub double %98, %100
   %102 = fcmp olt double %101, 0xBD19000000000000
-  %.3103 = select i1 %102, i32 0, i32 %.2102165
+  %.3107 = select i1 %102, i32 0, i32 %.2106164
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %exitcond247.not = icmp eq i64 %indvars.iv.next244, %wide.trip.count246
   br i1 %exitcond247.not, label %._crit_edge167, label %96
 
 ._crit_edge167:                                   ; preds = %96
-  %103 = icmp eq i32 %.3103, 0
+  %103 = icmp eq i32 %.3107, 0
   br i1 %103, label %104, label %._crit_edge167.thread
 
 104:                                              ; preds = %._crit_edge167
@@ -4271,7 +4271,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr nocapture readnone
 
 15:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %.07487 = phi i32 [ 0, %.lr.ph ], [ %.2, %45 ]
+  %.07686 = phi i32 [ 0, %.lr.ph ], [ %.2, %45 ]
   %16 = load i32, ptr %10, align 8
   %.not84 = icmp eq i32 %16, 0
   br i1 %.not84, label %30, label %17
@@ -4288,14 +4288,14 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr nocapture readnone
   %24 = zext nneg i32 %20 to i64
   %25 = getelementptr inbounds ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
-  %27 = sext i32 %.07487 to i64
+  %27 = sext i32 %.07686 to i64
   %28 = getelementptr inbounds ptr, ptr %8, i64 %27
   store ptr %26, ptr %28, align 8
-  %29 = add nsw i32 %.07487, 1
+  %29 = add nsw i32 %.07686, 1
   br label %30
 
 30:                                               ; preds = %22, %17, %15
-  %.1 = phi i32 [ %29, %22 ], [ %.07487, %17 ], [ %.07487, %15 ]
+  %.177 = phi i32 [ %29, %22 ], [ %.07686, %17 ], [ %.07686, %15 ]
   %31 = load i32, ptr %13, align 4
   %.not85 = icmp eq i32 %31, 0
   br i1 %.not85, label %45, label %32
@@ -4312,14 +4312,14 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr nocapture readnone
   %39 = zext nneg i32 %35 to i64
   %40 = getelementptr inbounds ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = sext i32 %.1 to i64
+  %42 = sext i32 %.177 to i64
   %43 = getelementptr inbounds ptr, ptr %8, i64 %42
   store ptr %41, ptr %43, align 8
-  %44 = add nsw i32 %.1, 1
+  %44 = add nsw i32 %.177, 1
   br label %45
 
 45:                                               ; preds = %30, %32, %37
-  %.2 = phi i32 [ %44, %37 ], [ %.1, %32 ], [ %.1, %30 ]
+  %.2 = phi i32 [ %44, %37 ], [ %.177, %32 ], [ %.177, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %15
@@ -4366,7 +4366,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr nocapture readnone
 
 63:                                               ; preds = %.preheader.us, %112
   %indvars.iv106 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next107, %112 ]
-  %.389.us = phi i32 [ 0, %.preheader.us ], [ %.4.us, %112 ]
+  %.388.us = phi i32 [ 0, %.preheader.us ], [ %.4.us, %112 ]
   %64 = load ptr, ptr %57, align 8
   %65 = getelementptr inbounds i32, ptr %64, i64 %indvars.iv106
   %66 = load i32, ptr %65, align 4
@@ -4391,7 +4391,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr nocapture readnone
   %79 = getelementptr inbounds double, ptr %78, i64 %indvars.iv106
   %80 = load double, ptr %79, align 8
   %81 = fmul double %49, %80
-  %82 = sext i32 %.389.us to i64
+  %82 = sext i32 %.388.us to i64
   %83 = getelementptr inbounds double, ptr %6, i64 %82
   store double %81, ptr %83, align 8
   br i1 %.not82.us, label %96, label %84
@@ -4409,11 +4409,11 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr nocapture readnone
   %94 = fmul double %49, %93
   %gep.us = getelementptr double, ptr %invariant.gep, i64 %82
   store double %94, ptr %gep.us, align 8
-  %95 = add nsw i32 %.389.us, 2
+  %95 = add nsw i32 %.388.us, 2
   br label %112
 
 96:                                               ; preds = %70
-  %97 = add nsw i32 %.389.us, 1
+  %97 = add nsw i32 %.388.us, 1
   br label %112
 
 98:                                               ; preds = %68
@@ -4427,14 +4427,14 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr nocapture readnone
   %106 = getelementptr inbounds double, ptr %105, i64 %indvars.iv106
   %107 = load double, ptr %106, align 8
   %108 = fmul double %49, %107
-  %109 = sext i32 %.389.us to i64
+  %109 = sext i32 %.388.us to i64
   %110 = getelementptr inbounds double, ptr %6, i64 %109
   store double %108, ptr %110, align 8
-  %111 = add nsw i32 %.389.us, 1
+  %111 = add nsw i32 %.388.us, 1
   br label %112
 
 112:                                              ; preds = %98, %96, %84, %63
-  %.4.us = phi i32 [ %95, %84 ], [ %97, %96 ], [ %111, %98 ], [ %.389.us, %63 ]
+  %.4.us = phi i32 [ %95, %84 ], [ %97, %96 ], [ %111, %98 ], [ %.388.us, %63 ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
   br i1 %exitcond110.not, label %._crit_edge91.us, label %63
@@ -4622,8 +4622,8 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr nocapture noundef readonly %0
   br i1 %64, label %.lr.ph, label %.preheader62
 
 .loopexit63:                                      ; preds = %..loopexit_crit_edge.us, %.preheader62, %5, %7
-  %.051 = phi i32 [ -41, %7 ], [ -41, %5 ], [ 0, %.preheader62 ], [ 0, %..loopexit_crit_edge.us ]
-  ret i32 %.051
+  %.0 = phi i32 [ -41, %7 ], [ -41, %5 ], [ 0, %.preheader62 ], [ 0, %..loopexit_crit_edge.us ]
+  ret i32 %.0
 }
 
 declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -4719,12 +4719,12 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.085105 = phi i32 [ -1, %.lr.ph.preheader ], [ %54, %.lr.ph ]
+  %.086104 = phi i32 [ -1, %.lr.ph.preheader ], [ %54, %.lr.ph ]
   %50 = getelementptr inbounds double, ptr %31, i64 %indvars.iv
   %51 = load double, ptr %50, align 8
   %52 = fcmp une double %51, 0.000000e+00
   %53 = trunc nuw nsw i64 %indvars.iv to i32
-  %54 = select i1 %52, i32 %53, i32 %.085105
+  %54 = select i1 %52, i32 %53, i32 %.086104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -4743,10 +4743,10 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
 
 57:                                               ; preds = %.lr.ph108, %71
   %indvars.iv112 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next113, %71 ]
-  %.186107 = phi i32 [ %54, %.lr.ph108 ], [ %.2, %71 ]
+  %.187106 = phi i32 [ %54, %.lr.ph108 ], [ %.2, %71 ]
   %58 = getelementptr inbounds double, ptr %31, i64 %indvars.iv112
   %59 = load double, ptr %58, align 8
-  %60 = sext i32 %.186107 to i64
+  %60 = sext i32 %.187106 to i64
   %61 = getelementptr inbounds double, ptr %31, i64 %60
   %62 = load double, ptr %61, align 8
   %63 = fcmp ogt double %59, %62
@@ -4760,18 +4760,18 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
   %68 = load i32, ptr %67, align 4
   %69 = icmp slt i32 %68, 0
   %70 = trunc nuw nsw i64 %indvars.iv112 to i32
-  %spec.select = select i1 %69, i32 %.186107, i32 %70
+  %spec.select = select i1 %69, i32 %.187106, i32 %70
   br label %71
 
 71:                                               ; preds = %65, %57
-  %.2 = phi i32 [ %.186107, %57 ], [ %spec.select, %65 ]
+  %.2 = phi i32 [ %.187106, %57 ], [ %spec.select, %65 ]
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
   br i1 %exitcond116.not, label %._crit_edge109, label %57
 
 ._crit_edge109:                                   ; preds = %71, %.preheader
-  %.186.lcssa = phi i32 [ %54, %.preheader ], [ %.2, %71 ]
-  %72 = sext i32 %.186.lcssa to i64
+  %.187.lcssa = phi i32 [ %54, %.preheader ], [ %.2, %71 ]
+  %72 = sext i32 %.187.lcssa to i64
   %73 = getelementptr inbounds double, ptr %31, i64 %72
   %74 = load double, ptr %73, align 8
   %75 = fmul double %36, %74
@@ -4795,14 +4795,14 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
   br label %88
 
 88:                                               ; preds = %78, %._crit_edge109
-  %.0 = phi i32 [ 1, %78 ], [ 0, %._crit_edge109 ]
+  %.088 = phi i32 [ 1, %78 ], [ 0, %._crit_edge109 ]
   %89 = getelementptr inbounds i8, ptr %5, i64 24
   %90 = load i32, ptr %89, align 8
   %.not98 = icmp eq i32 %90, 0
   br i1 %.not98, label %105, label %91
 
 91:                                               ; preds = %88
-  %92 = zext nneg i32 %.0 to i64
+  %92 = zext nneg i32 %.088 to i64
   %93 = getelementptr inbounds double, ptr %19, i64 %92
   store double 1.000000e+00, ptr %93, align 8
   %94 = getelementptr inbounds i8, ptr %5, i64 40
@@ -4816,12 +4816,12 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds ptr, ptr %21, i64 %92
   store ptr %102, ptr %103, align 8
-  %104 = add nuw nsw i32 %.0, 1
+  %104 = add nuw nsw i32 %.088, 1
   br label %105
 
 105:                                              ; preds = %91, %88
-  %.1 = phi i32 [ %104, %91 ], [ %.0, %88 ]
-  %106 = tail call i32 @arkPredict_Bootstrap(ptr noundef %0, double noundef %75, double noundef %37, i32 noundef %.1, ptr noundef %19, ptr noundef %21, ptr noundef %2) #12
+  %.189 = phi i32 [ %104, %91 ], [ %.088, %88 ]
+  %106 = tail call i32 @arkPredict_Bootstrap(ptr noundef %0, double noundef %75, double noundef %37, i32 noundef %.189, ptr noundef %19, ptr noundef %21, ptr noundef %2) #12
   %.not99 = icmp eq i32 %106, -22
   br i1 %.not99, label %._crit_edge.thread, label %109
 
@@ -4832,8 +4832,8 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
   br label %109
 
 109:                                              ; preds = %105, %48, %46, %44, %._crit_edge.thread, %24, %16, %7
-  %.089 = phi i32 [ -21, %7 ], [ -21, %16 ], [ 0, %24 ], [ 0, %._crit_edge.thread ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %106, %105 ]
-  ret i32 %.089
+  %.0 = phi i32 [ -21, %7 ], [ -21, %16 ], [ 0, %24 ], [ 0, %._crit_edge.thread ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %106, %105 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4918,7 +4918,7 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr nocapture noundef readonly 
 
 47:                                               ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
-  %.072 = phi i32 [ 2, %.lr.ph ], [ %.2, %97 ]
+  %.06271 = phi i32 [ 2, %.lr.ph ], [ %.2, %97 ]
   %48 = load i32, ptr %42, align 8
   %.not68 = icmp eq i32 %48, 0
   br i1 %.not68, label %72, label %49
@@ -4937,7 +4937,7 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr nocapture noundef readonly 
   %58 = getelementptr inbounds double, ptr %56, i64 %57
   %59 = load double, ptr %58, align 8
   %60 = fmul double %55, %59
-  %61 = sext i32 %.072 to i64
+  %61 = sext i32 %.06271 to i64
   %62 = getelementptr inbounds double, ptr %10, i64 %61
   store double %60, ptr %62, align 8
   %63 = load ptr, ptr %44, align 8
@@ -4949,11 +4949,11 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr nocapture noundef readonly 
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds ptr, ptr %12, i64 %61
   store ptr %69, ptr %70, align 8
-  %71 = add nsw i32 %.072, 1
+  %71 = add nsw i32 %.06271, 1
   br label %72
 
 72:                                               ; preds = %54, %49, %47
-  %.1 = phi i32 [ %71, %54 ], [ %.072, %49 ], [ %.072, %47 ]
+  %.1 = phi i32 [ %71, %54 ], [ %.06271, %49 ], [ %.06271, %47 ]
   %73 = load i32, ptr %45, align 4
   %.not69 = icmp eq i32 %73, 0
   br i1 %.not69, label %97, label %74
@@ -4994,17 +4994,17 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr nocapture noundef readonly 
   br i1 %exitcond.not, label %._crit_edge, label %47
 
 ._crit_edge:                                      ; preds = %97, %32
-  %.0.lcssa = phi i32 [ 2, %32 ], [ %.2, %97 ]
+  %.062.lcssa = phi i32 [ 2, %32 ], [ %.2, %97 ]
   %98 = getelementptr inbounds i8, ptr %3, i64 120
   %99 = load ptr, ptr %98, align 8
-  %100 = tail call i32 @N_VLinearCombination(i32 noundef %.0.lcssa, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef %99) #12
+  %100 = tail call i32 @N_VLinearCombination(i32 noundef %.062.lcssa, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef %99) #12
   %.not67 = icmp eq i32 %100, 0
   %. = select i1 %.not67, i32 0, i32 -28
   br label %101
 
 101:                                              ; preds = %._crit_edge, %5
-  %.062 = phi i32 [ -21, %5 ], [ %., %._crit_edge ]
-  ret i32 %.062
+  %.0 = phi i32 [ -21, %5 ], [ %., %._crit_edge ]
+  ret i32 %.0
 }
 
 declare i32 @mriStep_Nls(ptr noundef, i32 noundef) local_unnamed_addr #1

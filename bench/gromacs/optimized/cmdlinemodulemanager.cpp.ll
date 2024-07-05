@@ -1733,12 +1733,12 @@ define noundef ptr @_ZN3gmx24CommandLineModuleManager4Impl20processCommonOptions
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %.critedge.split.loop.exit
-  %.047.lcssa = phi i32 [ %28, %.critedge.split.loop.exit ], [ %19, %27 ]
-  %29 = icmp ugt i32 %.047.lcssa, 1
+  %.048.lcssa = phi i32 [ %28, %.critedge.split.loop.exit ], [ %19, %27 ]
+  %29 = icmp ugt i32 %.048.lcssa, 1
   br i1 %29, label %30, label %.critedge.thread
 
 30:                                               ; preds = %.critedge
-  store i32 %.047.lcssa, ptr %5, align 4
+  store i32 %.048.lcssa, ptr %5, align 4
   call void @_ZN3gmx17CommandLineParserC1EPNS_7OptionsE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %1)
   %31 = load ptr, ptr %3, align 8
   invoke void @_ZN3gmx17CommandLineParser5parseEPiPPc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %5, ptr noundef %31)
@@ -1756,9 +1756,9 @@ define noundef ptr @_ZN3gmx24CommandLineModuleManager4Impl20processCommonOptions
   br label %common.resume
 
 .critedge.thread:                                 ; preds = %.preheader, %32, %.critedge
-  %.047.lcssa99 = phi i32 [ %.047.lcssa, %32 ], [ %.047.lcssa, %.critedge ], [ 1, %.preheader ]
+  %.048.lcssa99 = phi i32 [ %.048.lcssa, %32 ], [ %.048.lcssa, %.critedge ], [ 1, %.preheader ]
   %35 = phi i32 [ %.pre, %32 ], [ %19, %.critedge ], [ %19, %.preheader ]
-  %36 = icmp slt i32 %.047.lcssa99, %35
+  %36 = icmp slt i32 %.048.lcssa99, %35
   br i1 %36, label %37, label %.thread77
 
 37:                                               ; preds = %.critedge.thread
@@ -1773,7 +1773,7 @@ define noundef ptr @_ZN3gmx24CommandLineModuleManager4Impl20processCommonOptions
 
 45:                                               ; preds = %37
   %46 = load ptr, ptr %3, align 8
-  %47 = zext nneg i32 %.047.lcssa99 to i64
+  %47 = zext nneg i32 %.048.lcssa99 to i64
   %48 = getelementptr inbounds ptr, ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #21
@@ -1937,7 +1937,7 @@ _ZNK3gmx24CommandLineModuleManager4Impl16findModuleByNameERKNSt7__cxx1112basic_s
   %93 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 64
   %94 = load ptr, ptr %93, align 8
   %95 = load i32, ptr %2, align 4
-  %96 = sub nsw i32 %95, %.047.lcssa99
+  %96 = sub nsw i32 %95, %.048.lcssa99
   store i32 %96, ptr %2, align 4
   %97 = load ptr, ptr %3, align 8
   %98 = getelementptr inbounds ptr, ptr %97, i64 %47
@@ -2006,7 +2006,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %common.resume
 
 .thread87:                                        ; preds = %4, %115, %99
-  %.0488591 = phi ptr [ %94, %115 ], [ %94, %99 ], [ %17, %4 ]
+  %.0498591 = phi ptr [ %94, %115 ], [ %94, %99 ], [ %17, %4 ]
   call void @_ZN3gmx17CommandLineParserC1EPNS_7OptionsE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %1)
   %121 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx17CommandLineParser24allowPositionalArgumentsEb(ptr noundef nonnull align 8 dereferenceable(8) %15, i1 noundef zeroext true)
           to label %122 unwind label %127
@@ -2032,7 +2032,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 .thread77:                                        ; preds = %.critedge.thread, %37, %126, %92
   %.not81 = phi i1 [ false, %126 ], [ true, %92 ], [ true, %37 ], [ true, %.critedge.thread ]
-  %.04880 = phi ptr [ %.0488591, %126 ], [ null, %92 ], [ null, %37 ], [ null, %.critedge.thread ]
+  %.04980 = phi ptr [ %.0498591, %126 ], [ null, %92 ], [ null, %37 ], [ null, %.critedge.thread ]
   call void @_ZN3gmx7Options6finishEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %129 = getelementptr inbounds i8, ptr %1, i64 16
   %130 = getelementptr inbounds i8, ptr %1, i64 43
@@ -2069,7 +2069,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @_ZN3gmx24CommandLineModuleManager4Impl22ensureHelpModuleExistsEv(ptr noundef nonnull align 8 dereferenceable(129) %0)
   %149 = getelementptr inbounds i8, ptr %0, i64 112
   %150 = load ptr, ptr %149, align 8
-  call void @_ZN3gmx21CommandLineHelpModule17setModuleOverrideERKNS_18ICommandLineModuleE(ptr noundef nonnull align 8 dereferenceable(16) %150, ptr noundef nonnull align 8 dereferenceable(8) %.04880)
+  call void @_ZN3gmx21CommandLineHelpModule17setModuleOverrideERKNS_18ICommandLineModuleE(ptr noundef nonnull align 8 dereferenceable(16) %150, ptr noundef nonnull align 8 dereferenceable(8) %.04980)
   br label %.thread100
 
 .thread100:                                       ; preds = %148, %.thread92
@@ -2081,11 +2081,11 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 153:                                              ; preds = %144
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 112
   %.pre97 = load ptr, ptr %.phi.trans.insert, align 8
-  %154 = icmp eq ptr %.04880, %.pre97
+  %154 = icmp eq ptr %.04980, %.pre97
   br i1 %154, label %155, label %160
 
 155:                                              ; preds = %.thread100, %153
-  %.149102 = phi ptr [ %152, %.thread100 ], [ %.04880, %153 ]
+  %.150102 = phi ptr [ %152, %.thread100 ], [ %.04980, %153 ]
   %156 = phi ptr [ %152, %.thread100 ], [ %.pre97, %153 ]
   %157 = getelementptr inbounds i8, ptr %1, i64 41
   %158 = load i8, ptr %157, align 1
@@ -2094,8 +2094,8 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %160
 
 160:                                              ; preds = %153, %155, %.thread77
-  %.050 = phi ptr [ null, %.thread77 ], [ %.149102, %155 ], [ %.04880, %153 ]
-  ret ptr %.050
+  %.039 = phi ptr [ null, %.thread77 ], [ %.150102, %155 ], [ %.04980, %153 ]
+  ret ptr %.039
 
 161:                                              ; preds = %83
   unreachable
@@ -3420,14 +3420,14 @@ define noundef i32 @_ZN3gmx24CommandLineModuleManager21runAsMainSingleModuleEiPP
 
 20:                                               ; preds = %18, %16
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
-  %.09 = extractvalue { ptr, i32 } %.pn, 1
+  %.010 = extractvalue { ptr, i32 } %.pn, 1
   %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %22 = icmp eq i32 %.09, %21
+  %22 = icmp eq i32 %.010, %21
   br i1 %22, label %23, label %32
 
 23:                                               ; preds = %20
-  %.010 = extractvalue { ptr, i32 } %.pn, 0
-  %24 = call ptr @__cxa_begin_catch(ptr %.010) #21
+  %.09 = extractvalue { ptr, i32 } %.pn, 0
+  %24 = call ptr @__cxa_begin_catch(ptr %.09) #21
   %25 = load ptr, ptr @stderr, align 8
   invoke void @_ZN3gmx22printFatalErrorMessageEP8_IO_FILERKSt9exception(ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(8) %24)
           to label %26 unwind label %29

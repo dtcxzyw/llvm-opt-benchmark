@@ -220,24 +220,24 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
   br label %26
 
 26:                                               ; preds = %.lr.ph, %49
-  %.072 = phi i32 [ 1, %.lr.ph ], [ %56, %49 ]
-  %.06571 = phi i32 [ %20, %.lr.ph ], [ %42, %49 ]
+  %.073 = phi i32 [ %20, %.lr.ph ], [ %42, %49 ]
+  %.06571 = phi i32 [ 1, %.lr.ph ], [ %56, %49 ]
   %27 = load i32, ptr @hf_remunk_qiresult, align 4
-  %28 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %27, ptr noundef %0, i32 noundef %.06571, i32 noundef 0, i32 noundef 0) #4
+  %28 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %27, ptr noundef %0, i32 noundef %.073, i32 noundef 0, i32 noundef 0) #4
   %29 = load i32, ptr @ett_remunk_rqi_result, align 4
   %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
-  %31 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.06571, ptr noundef %2, ptr noundef %30, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %9) #4
+  %31 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.073, ptr noundef %2, ptr noundef %30, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %9) #4
   %32 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %30, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7) #4
   br i1 %.not67, label %40, label %33
 
 33:                                               ; preds = %26
   %34 = load i32, ptr %17, align 8
-  %.not68 = icmp ugt i32 %.072, %34
+  %.not68 = icmp ugt i32 %.06571, %34
   br i1 %.not68, label %40, label %35
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %23, align 8
-  %37 = add i32 %.072, -1
+  %37 = add i32 %.06571, -1
   %38 = zext i32 %37 to i64
   %39 = getelementptr %struct._e_guid_t, ptr %36, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %39, i64 16, i1 false)
@@ -262,15 +262,15 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
 49:                                               ; preds = %45, %41
   %50 = load i32, ptr %9, align 4
   %51 = call ptr @val_to_str(i32 noundef %50, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.28) #4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.27, i32 noundef %.072, ptr noundef %51) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.27, i32 noundef %.06571, ptr noundef %51) #4
   %reass.sub = sub i32 %42, %31
   %52 = add i32 %reass.sub, 4
   call void @proto_item_set_len(ptr noundef %28, i32 noundef %52) #4
   %53 = load ptr, ptr %25, align 8
   %54 = load i32, ptr %9, align 4
   %55 = call ptr @val_to_str(i32 noundef %54, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.28) #4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %53, i32 noundef 25, ptr noundef nonnull @.str.29, ptr noundef %55, i32 noundef %.072) #4
-  %56 = add i32 %.072, 1
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %53, i32 noundef 25, ptr noundef nonnull @.str.29, ptr noundef %55, i32 noundef %.06571) #4
+  %56 = add i32 %.06571, 1
   %57 = load i32, ptr %8, align 4
   %58 = add i32 %57, -1
   store i32 %58, ptr %8, align 4
@@ -278,8 +278,8 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
   br i1 %.not, label %._crit_edge, label %26, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %49, %6
-  %.065.lcssa = phi i32 [ %20, %6 ], [ %42, %49 ]
-  %59 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.065.lcssa, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %9) #4
+  %.0.lcssa = phi i32 [ %20, %6 ], [ %42, %49 ]
+  %59 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0.lcssa, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %9) #4
   %60 = getelementptr inbounds i8, ptr %2, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = load i32, ptr %9, align 4

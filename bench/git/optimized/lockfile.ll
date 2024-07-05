@@ -95,17 +95,17 @@ if.else.lr.ph.i:                                  ; preds = %if.end3.i
 
 if.else.i:                                        ; preds = %if.end19.i, %if.else.lr.ph.i
   %n.019.i = phi i32 [ 1, %if.else.lr.ph.i ], [ %n.1.i, %if.end19.i ]
-  %remaining_ms.118.i = phi i64 [ %spec.select.i, %if.else.lr.ph.i ], [ %sub.i, %if.end19.i ]
-  %multiplier.017.i = phi i32 [ 1, %if.else.lr.ph.i ], [ %multiplier.1.i, %if.end19.i ]
+  %multiplier.018.i = phi i32 [ 1, %if.else.lr.ph.i ], [ %multiplier.1.i, %if.end19.i ]
+  %remaining_ms.117.i = phi i64 [ %spec.select.i, %if.else.lr.ph.i ], [ %sub.i, %if.end19.i ]
   %0 = load i32, ptr %call10.i, align 4
   %cmp11.not.i = icmp ne i32 %0, 17
-  %cmp15.i = icmp slt i64 %remaining_ms.118.i, 1
+  %cmp15.i = icmp slt i64 %remaining_ms.117.i, 1
   %or.cond.i = select i1 %cmp4.i, i1 %cmp15.i, i1 false
   %or.cond14.i = select i1 %cmp11.not.i, i1 true, i1 %or.cond.i
   br i1 %or.cond14.i, label %if.then, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.else.i
-  %conv.i = sext i32 %multiplier.017.i to i64
+  %conv.i = sext i32 %multiplier.018.i to i64
   %call20.i = tail call i32 @rand() #10
   %rem.i = srem i32 %call20.i, 500
   %add.i = add nsw i32 %rem.i, 750
@@ -114,10 +114,10 @@ if.end19.i:                                       ; preds = %if.else.i
   %div.i = sdiv i64 %mul22.i, 1000
   %conv23.i = trunc i64 %div.i to i32
   tail call void @sleep_millisec(i32 noundef %conv23.i) #10
-  %sub.i = sub nsw i64 %remaining_ms.118.i, %div.i
+  %sub.i = sub nsw i64 %remaining_ms.117.i, %div.i
   %mul24.i = shl nuw nsw i32 %n.019.i, 1
-  %add25.i = or disjoint i32 %mul24.i, 1
-  %add26.i = add i32 %add25.i, %multiplier.017.i
+  %add25.i = add nsw i32 %multiplier.018.i, 1
+  %add26.i = add i32 %add25.i, %mul24.i
   %cmp27.i = icmp slt i32 %add26.i, 1001
   %multiplier.1.i = tail call i32 @llvm.smin.i32(i32 %add26.i, i32 1000)
   %inc.i = zext i1 %cmp27.i to i32

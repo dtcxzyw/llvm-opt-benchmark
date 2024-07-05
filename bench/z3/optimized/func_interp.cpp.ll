@@ -3164,9 +3164,9 @@ for.body22.lr.ph:                                 ; preds = %_ZNK6vectorIP10func
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %for.inc45
-  %__begin114.0379 = phi ptr [ %17, %for.body22.lr.ph ], [ %incdec.ptr46, %for.inc45 ]
-  %ground.0.in378 = phi i1 [ %18, %for.body22.lr.ph ], [ %ground.1.in.lcssa, %for.inc45 ]
-  %22 = load ptr, ptr %__begin114.0379, align 8
+  %ground.0.in379 = phi i1 [ %18, %for.body22.lr.ph ], [ %ground.1.in.lcssa, %for.inc45 ]
+  %__begin114.0378 = phi ptr [ %17, %for.body22.lr.ph ], [ %incdec.ptr46, %for.inc45 ]
+  %22 = load ptr, ptr %__begin114.0378, align 8
   %m_result.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %m_result.i, align 8
   %m_kind.i.i.i36 = getelementptr inbounds i8, ptr %23, i64 4
@@ -3190,7 +3190,7 @@ land.rhs.i40:                                     ; preds = %for.body22
 
 invoke.cont25:                                    ; preds = %land.rhs.i40, %for.body22
   %26 = phi i1 [ false, %for.body22 ], [ %tobool.i.i48, %land.rhs.i40 ]
-  %tobool28 = select i1 %26, i1 %ground.0.in378, i1 false
+  %tobool28 = select i1 %26, i1 %ground.0.in379, i1 false
   br i1 %cmp31374.not, label %for.inc45, label %for.body32.lr.ph
 
 for.body32.lr.ph:                                 ; preds = %invoke.cont25
@@ -3230,7 +3230,7 @@ invoke.cont35:                                    ; preds = %land.rhs.i55, %for.
 
 for.inc45:                                        ; preds = %invoke.cont35, %invoke.cont25
   %ground.1.in.lcssa = phi i1 [ %tobool28, %invoke.cont25 ], [ %and4028, %invoke.cont35 ]
-  %incdec.ptr46 = getelementptr inbounds i8, ptr %__begin114.0379, i64 8
+  %incdec.ptr46 = getelementptr inbounds i8, ptr %__begin114.0378, i64 8
   %cmp21.not = icmp eq ptr %incdec.ptr46, %add.ptr.i35
   br i1 %cmp21.not, label %for.end47, label %for.body22
 

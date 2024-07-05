@@ -1148,7 +1148,7 @@ for.body.lr.ph:                                   ; preds = %if.then15
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %ret.144 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.5, %for.inc ]
+  %ret.145 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.5, %for.inc ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %4, label %if.end82 [
@@ -1210,7 +1210,7 @@ if.end24:                                         ; preds = %sw.bb8.i, %sw.bb7.i
   %gep42 = getelementptr inbounds i8, ptr %invariant.gep41, i64 %indvars.iv
   %clientRandom = getelementptr inbounds i8, ptr %5, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %gep42, ptr noundef nonnull align 4 dereferenceable(32) %clientRandom, i64 32, i1 false)
-  %cmp41 = icmp eq i32 %ret.144, 0
+  %cmp41 = icmp eq i32 %ret.145, 0
   br i1 %cmp41, label %if.end48, label %if.end55.thread
 
 if.end48:                                         ; preds = %if.end24
@@ -1221,7 +1221,7 @@ if.end48:                                         ; preds = %if.end24
   br i1 %cmp49, label %if.end55, label %if.end55.thread
 
 if.end55.thread:                                  ; preds = %if.end48, %if.end24
-  %ret.3.ph = phi i32 [ %call47, %if.end48 ], [ %ret.144, %if.end24 ]
+  %ret.3.ph = phi i32 [ %call47, %if.end48 ], [ %ret.145, %if.end24 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %add.ptr5734, ptr noundef nonnull align 16 dereferenceable(20) %shaOutput, i64 20, i1 false)
   br label %for.inc
 

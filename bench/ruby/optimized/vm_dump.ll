@@ -204,7 +204,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_stack_dump_raw(ptr nocapture nounde
   br label %41
 
 41:                                               ; preds = %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %28
-  %.080.i = phi ptr [ @.str.50, %40 ], [ @.str.49, %39 ], [ @.str.48, %38 ], [ @.str.47, %37 ], [ @.str.46, %36 ], [ @.str.45, %35 ], [ @.str.44, %34 ], [ @.str.43, %33 ], [ @.str.42, %32 ], [ @.str.41, %31 ], [ @.str.40, %28 ]
+  %.081.i = phi ptr [ @.str.50, %40 ], [ @.str.49, %39 ], [ @.str.48, %38 ], [ @.str.47, %37 ], [ @.str.46, %36 ], [ @.str.45, %35 ], [ @.str.44, %34 ], [ @.str.43, %33 ], [ @.str.42, %32 ], [ @.str.41, %31 ], [ @.str.40, %28 ]
   %42 = getelementptr inbounds i8, ptr %.01012, i64 16
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %43, null
@@ -301,8 +301,8 @@ RSTRING_PTR.exit110.i:                            ; preds = %76, %70
 
 86:                                               ; preds = %79, %78, %RSTRING_PTR.exit110.i, %RSTRING_PTR.exit106.i, %RB_SYMBOL_P.exit.thread116.i, %RSTRING_PTR.exit.i, %imemo_type_p.exit.i
   %.not94.i = phi i1 [ false, %RSTRING_PTR.exit.i ], [ false, %RSTRING_PTR.exit110.i ], [ true, %RSTRING_PTR.exit106.i ], [ false, %79 ], [ true, %78 ], [ true, %imemo_type_p.exit.i ], [ true, %RB_SYMBOL_P.exit.thread116.i ]
-  %.078.i = phi i64 [ -1, %RSTRING_PTR.exit.i ], [ %68, %RSTRING_PTR.exit110.i ], [ %68, %RSTRING_PTR.exit106.i ], [ -1, %79 ], [ -1, %78 ], [ -1, %imemo_type_p.exit.i ], [ -1, %RB_SYMBOL_P.exit.thread116.i ]
-  %.077.i = phi ptr [ null, %RSTRING_PTR.exit.i ], [ %43, %RSTRING_PTR.exit110.i ], [ %43, %RSTRING_PTR.exit106.i ], [ null, %79 ], [ null, %78 ], [ null, %imemo_type_p.exit.i ], [ null, %RB_SYMBOL_P.exit.thread116.i ]
+  %.078.i = phi ptr [ null, %RSTRING_PTR.exit.i ], [ %43, %RSTRING_PTR.exit110.i ], [ %43, %RSTRING_PTR.exit106.i ], [ null, %79 ], [ null, %78 ], [ null, %imemo_type_p.exit.i ], [ null, %RB_SYMBOL_P.exit.thread116.i ]
+  %.077.i = phi i64 [ -1, %RSTRING_PTR.exit.i ], [ %68, %RSTRING_PTR.exit110.i ], [ %68, %RSTRING_PTR.exit106.i ], [ -1, %79 ], [ -1, %78 ], [ -1, %imemo_type_p.exit.i ], [ -1, %RB_SYMBOL_P.exit.thread116.i ]
   %87 = load ptr, ptr %0, align 8
   %88 = load i64, ptr %8, align 8
   %89 = getelementptr i64, ptr %87, i64 %88
@@ -315,7 +315,7 @@ RSTRING_PTR.exit110.i:                            ; preds = %76, %70
   br i1 %95, label %control_frame_dump.exit, label %96
 
 96:                                               ; preds = %86
-  %97 = icmp eq i64 %.078.i, -1
+  %97 = icmp eq i64 %.077.i, -1
   br i1 %97, label %98, label %101
 
 98:                                               ; preds = %96
@@ -324,7 +324,7 @@ RSTRING_PTR.exit110.i:                            ; preds = %76, %70
   br i1 %100, label %control_frame_dump.exit, label %104
 
 101:                                              ; preds = %96
-  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.58, i64 noundef %.078.i) #13
+  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.58, i64 noundef %.077.i) #13
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %control_frame_dump.exit, label %104
 
@@ -347,7 +347,7 @@ RSTRING_PTR.exit110.i:                            ; preds = %76, %70
   br i1 %117, label %control_frame_dump.exit, label %118
 
 118:                                              ; preds = %114
-  %119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.62, ptr noundef nonnull %.080.i) #13
+  %119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.62, ptr noundef nonnull %.081.i) #13
   %120 = icmp slt i32 %119, 0
   br i1 %120, label %control_frame_dump.exit, label %121
 
@@ -447,12 +447,12 @@ imemo_type_p.exit112.thread.i:                    ; preds = %imemo_type_p.exit11
   %175 = call ptr @rb_raw_obj_info(ptr noundef nonnull %5, i64 noundef 256, i64 noundef %174) #13
   %176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.70, ptr noundef %175) #13
   %177 = icmp slt i32 %176, 0
-  %.not100.i = icmp eq ptr %.077.i, null
+  %.not100.i = icmp eq ptr %.078.i, null
   %or.cond11 = or i1 %.not100.i, %177
   br i1 %or.cond11, label %control_frame_dump.exit, label %178
 
 178:                                              ; preds = %172
-  %179 = getelementptr inbounds i8, ptr %.077.i, i64 16
+  %179 = getelementptr inbounds i8, ptr %.078.i, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds i8, ptr %180, i64 232
   %182 = load i32, ptr %181, align 8
@@ -1598,8 +1598,8 @@ RSTRING_PTR.exit:                                 ; preds = %313, %322
   br i1 %333, label %.loopexit241, label %.preheader240
 
 .preheader240:                                    ; preds = %331, %420
-  %.0190 = phi i32 [ %421, %420 ], [ 0, %331 ]
-  %334 = sext i32 %.0190 to i64
+  %.0193 = phi i32 [ %421, %420 ], [ 0, %331 ]
+  %334 = sext i32 %.0193 to i64
   %335 = load i64, ptr %329, align 8
   %336 = inttoptr i64 %335 to ptr
   %337 = load i64, ptr %336, align 8
@@ -1664,7 +1664,7 @@ RARRAY_AREF.exit:                                 ; preds = %.thread, %346
 
 RSTRING_PTR.exit230:                              ; preds = %359, %366
   %.sroa.2.0.i229 = phi ptr [ %.sroa.2.0.copyload.i228, %366 ], [ %365, %359 ]
-  %367 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.26, i32 noundef %.0190, i32 noundef %363, ptr noundef %.sroa.2.0.i229) #13
+  %367 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.26, i32 noundef %.0193, i32 noundef %363, ptr noundef %.sroa.2.0.i229) #13
   %368 = icmp slt i32 %367, 0
   br i1 %368, label %.loopexit241, label %420
 
@@ -1689,7 +1689,7 @@ RSTRING_PTR.exit230:                              ; preds = %359, %366
   br i1 %380, label %383, label %.critedge217
 
 .critedge217:                                     ; preds = %369, %376
-  %381 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.29, i32 noundef %.0190, ptr noundef nonnull %.str.27..str.28) #13
+  %381 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.29, i32 noundef %.0193, ptr noundef nonnull %.str.27..str.28) #13
   %382 = icmp slt i32 %381, 0
   br i1 %382, label %.loopexit241, label %420
 
@@ -1709,7 +1709,7 @@ RSTRING_PTR.exit230:                              ; preds = %359, %366
 
 RSTRING_PTR.exit234:                              ; preds = %383, %390
   %.sroa.2.0.i233 = phi ptr [ %.sroa.2.0.copyload.i232, %390 ], [ %389, %383 ]
-  %391 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %.0190, ptr noundef nonnull %.str.27..str.28, i32 noundef %387, ptr noundef %.sroa.2.0.i233) #13
+  %391 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %.0193, ptr noundef nonnull %.str.27..str.28, i32 noundef %387, ptr noundef %.sroa.2.0.i233) #13
   %392 = icmp slt i32 %391, 0
   br i1 %392, label %.loopexit241, label %420
 
@@ -1733,7 +1733,7 @@ RSTRING_PTR.exit234:                              ; preds = %383, %390
   %404 = call fastcc i64 @rb_class_of(i64 noundef %350) #14
   %405 = inttoptr i64 %404 to ptr
   %406 = inttoptr i64 %350 to ptr
-  %407 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.31, i32 noundef %.0190, ptr noundef %405, ptr noundef %406) #13
+  %407 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.31, i32 noundef %.0193, ptr noundef %405, ptr noundef %406) #13
   %408 = icmp slt i32 %407, 0
   br i1 %408, label %.loopexit241, label %420
 
@@ -1754,12 +1754,12 @@ RSTRING_PTR.exit234:                              ; preds = %383, %390
 RSTRING_PTR.exit238:                              ; preds = %409, %416
   %.sroa.2.0.i237 = phi ptr [ %.sroa.2.0.copyload.i236, %416 ], [ %415, %409 ]
   %417 = inttoptr i64 %350 to ptr
-  %418 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, i32 noundef %.0190, i32 noundef %413, ptr noundef %.sroa.2.0.i237, ptr noundef %417) #13
+  %418 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, i32 noundef %.0193, i32 noundef %413, ptr noundef %.sroa.2.0.i237, ptr noundef %417) #13
   %419 = icmp slt i32 %418, 0
   br i1 %419, label %.loopexit241, label %420
 
 420:                                              ; preds = %RSTRING_PTR.exit230, %RSTRING_PTR.exit238, %RSTRING_PTR.exit234, %.critedge220, %.critedge217
-  %421 = add i32 %.0190, 1
+  %421 = add i32 %.0193, 1
   br label %.preheader240, !llvm.loop !23
 
 .loopexit:                                        ; preds = %rb_array_len.exit.thread, %rb_array_len.exit, %328
@@ -1798,8 +1798,8 @@ RSTRING_PTR.exit238:                              ; preds = %409, %416
   br label %437
 
 437:                                              ; preds = %424, %433, %32, %.loopexit241
-  %.0193 = phi i1 [ false, %.loopexit241 ], [ true, %32 ], [ true, %433 ], [ true, %424 ]
-  ret i1 %.0193
+  %.0195 = phi i1 [ false, %.loopexit241 ], [ true, %32 ], [ true, %433 ], [ true, %424 ]
+  ret i1 %.0195
 }
 
 ; Function Attrs: nofree nounwind memory(read)
@@ -1908,23 +1908,23 @@ rb_current_ractor.exit:                           ; preds = %0, %2
   br label %10
 
 10:                                               ; preds = %19, %rb_current_ractor.exit
-  %.0.in = phi ptr [ %9, %rb_current_ractor.exit ], [ %.0, %19 ]
-  %.0 = load ptr, ptr %.0.in, align 8
-  %.not = icmp eq ptr %.0, %9
+  %.011.in = phi ptr [ %9, %rb_current_ractor.exit ], [ %.011, %19 ]
+  %.011 = load ptr, ptr %.011.in, align 8
+  %.not = icmp eq ptr %.011, %9
   br i1 %.not, label %25, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %.0, i64 40
+  %12 = getelementptr inbounds i8, ptr %.011, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = inttoptr i64 %15 to ptr
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.38, ptr noundef %.0, ptr noundef %16) #15
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.38, ptr noundef %.011, ptr noundef %16) #15
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %25, label %19
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %.0, i64 48
+  %20 = getelementptr inbounds i8, ptr %.011, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8

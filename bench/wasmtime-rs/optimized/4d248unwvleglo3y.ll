@@ -577,8 +577,8 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
   br label %20
 
 .loopexit.i.i:                                    ; preds = %80, %78, %76
-  %.012.i.i.i = phi i64 [ 1, %76 ], [ %..i.i.i, %80 ], [ 2, %78 ]
-  %19 = add i64 %.012.i.i.i, %22
+  %.013.i.i.i = phi i64 [ 1, %76 ], [ %..i.i.i, %80 ], [ 2, %78 ]
+  %19 = add i64 %.013.i.i.i, %22
   store i64 %19, ptr %14, align 8, !alias.scope !71, !noalias !72
   br label %20
 
@@ -6779,9 +6779,9 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %156
 
 156:                                              ; preds = %153, %155
-  %.sroa.6109.0 = phi i64 [ 0, %155 ], [ %.sroa.613.sroa.4.0.copyload, %153 ]
-  %.sroa.4106.0 = phi ptr [ inttoptr (i64 8 to ptr), %155 ], [ %.sroa.613.sroa.0.0.copyload, %153 ]
   %.sroa.0104.0 = phi i64 [ 0, %155 ], [ %.sroa.011.0.copyload, %153 ]
+  %.sroa.4106.0 = phi ptr [ inttoptr (i64 8 to ptr), %155 ], [ %.sroa.613.sroa.0.0.copyload, %153 ]
+  %.sroa.6109.0 = phi i64 [ 0, %155 ], [ %.sroa.613.sroa.4.0.copyload, %153 ]
   %157 = getelementptr inbounds i8, ptr %0, i64 360
   invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Wasm$GT$$GT$$GT$17h72f5aaaf1fa030f2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %157)
           to label %160 unwind label %158

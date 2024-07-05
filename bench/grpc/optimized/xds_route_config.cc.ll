@@ -8878,8 +8878,8 @@ invoke.cont181.i:                                 ; preds = %_ZN9grpc_core20UpbS
   br label %if.then.i232.i
 
 if.then.i232.i:                                   ; preds = %invoke.cont181.i, %if.else173.i
-  %case_sensitive.0.i58 = phi i1 [ %lnot183.i, %invoke.cont181.i ], [ true, %if.else173.i ]
   %cond.i = phi i1 [ true, %invoke.cont181.i ], [ false, %if.else173.i ]
+  %case_sensitive.0.i58 = phi i1 [ %lnot183.i, %invoke.cont181.i ], [ true, %if.else173.i ]
   %type.2.i = phi i32 [ %type.1.i55, %invoke.cont181.i ], [ %type.08.i, %if.else173.i ]
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit.i unwind label %terminate.lpad.i.i
@@ -10331,11 +10331,11 @@ invoke.cont244.lr.ph.i:                           ; preds = %envoy_config_route_
   br label %invoke.cont244.i
 
 invoke.cont244.i:                                 ; preds = %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit371.i, %invoke.cont244.lr.ph.i
-  %i236.0557.i = phi i64 [ 0, %invoke.cont244.lr.ph.i ], [ %inc310.i, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit371.i ]
-  %total_weight.0556.i = phi i64 [ 0, %invoke.cont244.lr.ph.i ], [ %total_weight.2.i, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit371.i ]
+  %total_weight.0557.i = phi i64 [ 0, %invoke.cont244.lr.ph.i ], [ %total_weight.2.i, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit371.i ]
+  %i236.0556.i = phi i64 [ 0, %invoke.cont244.lr.ph.i ], [ %inc310.i, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit371.i ]
   store i64 10, ptr %ref.tmp243.i, align 8, !noalias !198
   store ptr @.str.111, ptr %256, align 8, !noalias !198
-  %call.i285290.i = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %i236.0557.i, ptr noundef nonnull %digits_.i284.i)
+  %call.i285290.i = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %i236.0556.i, ptr noundef nonnull %digits_.i284.i)
           to label %invoke.cont248.i unwind label %lpad233.loopexit.i, !noalias !198
 
 invoke.cont248.i:                                 ; preds = %invoke.cont244.i
@@ -10358,7 +10358,7 @@ invoke.cont249.i:                                 ; preds = %invoke.cont248.i
 
 invoke.cont252.i:                                 ; preds = %invoke.cont249.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp242.i) #19, !noalias !198
-  %arrayidx254.i = getelementptr inbounds ptr, ptr %255, i64 %i236.0557.i
+  %arrayidx254.i = getelementptr inbounds ptr, ptr %255, i64 %i236.0556.i
   %265 = load ptr, ptr %arrayidx254.i, align 8, !noalias !198
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cluster.i) #19, !noalias !198
   store i32 0, ptr %258, align 8, !noalias !198
@@ -11237,11 +11237,11 @@ invoke.cont293.i:                                 ; preds = %invoke.cont281.i
 
 if.end298.i:                                      ; preds = %invoke.cont293.i
   %conv.i = zext i32 %388 to i64
-  %add.i = add i64 %total_weight.0556.i, %conv.i
+  %add.i = add i64 %total_weight.0557.i, %conv.i
   br label %if.end300.i
 
 if.end300.i:                                      ; preds = %if.end298.i, %if.then.i355.i
-  %total_weight.1.i = phi i64 [ %add.i, %if.end298.i ], [ %total_weight.0556.i, %if.then.i355.i ]
+  %total_weight.1.i = phi i64 [ %add.i, %if.end298.i ], [ %total_weight.0557.i, %if.then.i355.i ]
   %389 = load ptr, ptr %_M_finish.i358.i, align 8, !noalias !198
   %390 = load ptr, ptr %_M_end_of_storage.i359.i, align 8, !noalias !198
   %cmp.not.i360.i = icmp eq ptr %389, %390
@@ -11303,7 +11303,7 @@ if.else.i365.i:                                   ; preds = %if.end300.i
           to label %cleanup303.i unwind label %lpad257.i, !noalias !198
 
 cleanup303.i:                                     ; preds = %if.else.i365.i, %_ZNSt16allocator_traitsISaIN9grpc_core22XdsRouteConfigResource5Route11RouteAction13ClusterWeightEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i, %invoke.cont293.i
-  %total_weight.2.i = phi i64 [ %total_weight.0556.i, %invoke.cont293.i ], [ %total_weight.1.i, %_ZNSt16allocator_traitsISaIN9grpc_core22XdsRouteConfigResource5Route11RouteAction13ClusterWeightEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i ], [ %total_weight.1.i, %if.else.i365.i ]
+  %total_weight.2.i = phi i64 [ %total_weight.0557.i, %invoke.cont293.i ], [ %total_weight.1.i, %_ZNSt16allocator_traitsISaIN9grpc_core22XdsRouteConfigResource5Route11RouteAction13ClusterWeightEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i ], [ %total_weight.1.i, %if.else.i365.i ]
   %400 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !noalias !198
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core17XdsHttpFilterImpl12FilterConfigEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %typed_per_filter_config.i, ptr noundef %400)
           to label %_ZN9grpc_core22XdsRouteConfigResource5Route11RouteAction13ClusterWeightD2Ev.exit.i unwind label %terminate.lpad.i.i.i.i, !noalias !198
@@ -11333,7 +11333,7 @@ terminate.lpad.i370.i:                            ; preds = %if.then.i369.i
   unreachable
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit371.i: ; preds = %if.then.i369.i, %_ZN9grpc_core22XdsRouteConfigResource5Route11RouteAction13ClusterWeightD2Ev.exit.i
-  %inc310.i = add nuw i64 %i236.0557.i, 1
+  %inc310.i = add nuw i64 %i236.0556.i, 1
   %exitcond562.not.i = icmp eq i64 %inc310.i, %253
   br i1 %exitcond562.not.i, label %for.end311.i, label %invoke.cont244.i, !llvm.loop !228
 
@@ -11509,11 +11509,11 @@ _upb_MiniTable_CopyFieldData.exit25.i408.i:       ; preds = %invoke.cont337.i
   br label %invoke.cont340.i
 
 invoke.cont340.i:                                 ; preds = %_upb_MiniTable_CopyFieldData.exit25.i408.i, %invoke.cont337.i
-  %retval.sroa.0.2.i404.i = phi ptr [ %retval.sroa.0.0.copyload32.i410.i, %_upb_MiniTable_CopyFieldData.exit25.i408.i ], [ @.str.12, %invoke.cont337.i ]
-  %retval.sroa.9.2.i405.i = phi i64 [ %retval.sroa.9.0.copyload33.i412.i, %_upb_MiniTable_CopyFieldData.exit25.i408.i ], [ 0, %invoke.cont337.i ]
+  %retval.sroa.9.2.i404.i = phi i64 [ %retval.sroa.9.0.copyload33.i412.i, %_upb_MiniTable_CopyFieldData.exit25.i408.i ], [ 0, %invoke.cont337.i ]
+  %retval.sroa.0.2.i405.i = phi ptr [ %retval.sroa.0.0.copyload32.i410.i, %_upb_MiniTable_CopyFieldData.exit25.i408.i ], [ @.str.12, %invoke.cont337.i ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i413.i), !noalias !198
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i413.i) #19, !noalias !229
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %plugin_name.i, ptr noundef %retval.sroa.0.2.i404.i, i64 noundef %retval.sroa.9.2.i405.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i413.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %plugin_name.i, ptr noundef %retval.sroa.0.2.i405.i, i64 noundef %retval.sroa.9.2.i404.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i413.i)
           to label %invoke.cont342.i unwind label %lpad.i415.i, !noalias !198
 
 lpad.i415.i:                                      ; preds = %invoke.cont340.i
@@ -15717,8 +15717,8 @@ call3.i.i.i.i.noexc:                              ; preds = %if.end.i.i.i.i
   br label %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i.i.i
 
 _ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i.i.i: ; preds = %call3.i.i.i.i.noexc, %if.then.i.i.i.i
-  %retval.sroa.3.0.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %3, %call3.i.i.i.i.noexc ]
   %retval.sroa.0.0.i.i.i.i = phi i64 [ 0, %if.then.i.i.i.i ], [ %2, %call3.i.i.i.i.noexc ]
+  %retval.sroa.3.0.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %3, %call3.i.i.i.i.noexc ]
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i.i, i64 %retval.sroa.0.0.copyload.i.i.i
   %cmp7.i.i.i = icmp eq ptr %retval.sroa.3.0.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.end10.i.i.i
@@ -15809,8 +15809,8 @@ call3.i.i.noexc:                                  ; preds = %if.end.i.i10
   br label %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
 
 _ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i: ; preds = %call3.i.i.noexc, %if.then.i.i12
-  %retval.sroa.3.0.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i12 ], [ %14, %call3.i.i.noexc ]
   %retval.sroa.0.0.i.i = phi i64 [ 0, %if.then.i.i12 ], [ %13, %call3.i.i.noexc ]
+  %retval.sroa.3.0.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i12 ], [ %14, %call3.i.i.noexc ]
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %retval.sroa.0.0.copyload.i.i
   %cmp7.i = icmp eq ptr %retval.sroa.3.0.i.i, %add.ptr.i
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i

@@ -1378,8 +1378,8 @@ while.body.i.preheader.i.i.i.i:                   ; preds = %.noexc.i.i
   br label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.end104.i.i.i.i.i, %while.body.i.preheader.i.i.i.i
-  %cur_offset.0.i.i.i.i = phi i32 [ %cur_offset.4.i.i.i.i, %if.end104.i.i.i.i.i ], [ %7, %while.body.i.preheader.i.i.i.i ]
   %offsets.0.i.i.i.i = phi ptr [ %offsets.5.i.i.i.i, %if.end104.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.preheader.i.i.i.i ]
+  %cur_offset.0.i.i.i.i = phi i32 [ %cur_offset.4.i.i.i.i, %if.end104.i.i.i.i.i ], [ %7, %while.body.i.preheader.i.i.i.i ]
   %position.0329.i.i.i.i.i = phi i64 [ %position.4.i.i.i.i.i, %if.end104.i.i.i.i.i ], [ 0, %while.body.i.preheader.i.i.i.i ]
   %call.i.i.i1.i.i = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i.i)
           to label %call.i.i.i.noexc.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !noalias !53
@@ -1401,8 +1401,8 @@ do.body.preheader.i.i.i.i.i:                      ; preds = %for.cond.preheader.
   br label %do.body.i.i.i.i.i
 
 do.body.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, %do.body.preheader.i.i.i.i.i
-  %cur_offset.1.i.i.i.i = phi i32 [ %cur_offset.0.i.i.i.i, %do.body.preheader.i.i.i.i.i ], [ %10, %for.inc.i.i.i.i.i ]
   %offsets.1.i.i.i.i = phi ptr [ %offsets.0.i.i.i.i, %do.body.preheader.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ]
+  %cur_offset.1.i.i.i.i = phi i32 [ %cur_offset.0.i.i.i.i, %do.body.preheader.i.i.i.i.i ], [ %10, %for.inc.i.i.i.i.i ]
   %i.0326.i.i.i.i.i = phi i64 [ 0, %do.body.preheader.i.i.i.i.i ], [ %inc.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %idx.ext.i.i.i.i.i.i = sext i32 %cur_offset.1.i.i.i.i to i64
   %add.ptr.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i
@@ -1475,8 +1475,8 @@ _ZN5arrow6StatusD2Ev.exit97.i.i.i.i.i:            ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond332.not.i.i.i.i.i, label %for.cond16.if.end104.loopexit312_crit_edge.i.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit97.i.i.i.i.i, !llvm.loop !88
 
 for.body52.i.i.i.i.i:                             ; preds = %for.inc99.i.i.i.i.i, %for.body52.preheader.i.i.i.i.i
-  %cur_offset.2.i.i.i.i = phi i32 [ %cur_offset.0.i.i.i.i, %for.body52.preheader.i.i.i.i.i ], [ %cur_offset.3.i.i.i.i, %for.inc99.i.i.i.i.i ]
   %offsets.3.i.i.i.i = phi ptr [ %offsets.0.i.i.i.i, %for.body52.preheader.i.i.i.i.i ], [ %offsets.4.i.i.i.i, %for.inc99.i.i.i.i.i ]
+  %cur_offset.2.i.i.i.i = phi i32 [ %cur_offset.0.i.i.i.i, %for.body52.preheader.i.i.i.i.i ], [ %cur_offset.3.i.i.i.i, %for.inc99.i.i.i.i.i ]
   %i47.0319.i.i.i.i.i = phi i64 [ 0, %for.body52.preheader.i.i.i.i.i ], [ %inc100.i.i.i.i.i, %for.inc99.i.i.i.i.i ]
   %position.3318.i.i.i.i.i = phi i64 [ %position.0329.i.i.i.i.i, %for.body52.preheader.i.i.i.i.i ], [ %inc101.i.i.i.i.i, %for.inc99.i.i.i.i.i ]
   %add.i.i.i.i.i = add nsw i64 %position.3318.i.i.i.i.i, %4
@@ -1548,8 +1548,8 @@ for.cond16.if.end104.loopexit312_crit_edge.i.i.i.i.i: ; preds = %_ZN5arrow6Statu
   br label %if.end104.i.i.i.i.i
 
 if.end104.i.i.i.i.i:                              ; preds = %for.inc99.i.i.i.i.i, %for.inc.i.i.i.i.i, %for.cond16.if.end104.loopexit312_crit_edge.i.i.i.i.i, %for.cond16.preheader.i.i.i.i.i, %for.cond48.preheader.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i
-  %cur_offset.4.i.i.i.i = phi i32 [ %cur_offset.0.i.i.i.i, %for.cond.preheader.i.i.i.i.i ], [ %13, %for.cond16.if.end104.loopexit312_crit_edge.i.i.i.i.i ], [ %cur_offset.0.i.i.i.i, %for.cond16.preheader.i.i.i.i.i ], [ %cur_offset.0.i.i.i.i, %for.cond48.preheader.i.i.i.i.i ], [ %10, %for.inc.i.i.i.i.i ], [ %cur_offset.3.i.i.i.i, %for.inc99.i.i.i.i.i ]
   %offsets.5.i.i.i.i = phi ptr [ %offsets.0.i.i.i.i, %for.cond.preheader.i.i.i.i.i ], [ %scevgep.i.i.i.i, %for.cond16.if.end104.loopexit312_crit_edge.i.i.i.i.i ], [ %offsets.0.i.i.i.i, %for.cond16.preheader.i.i.i.i.i ], [ %offsets.0.i.i.i.i, %for.cond48.preheader.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %offsets.4.i.i.i.i, %for.inc99.i.i.i.i.i ]
+  %cur_offset.4.i.i.i.i = phi i32 [ %cur_offset.0.i.i.i.i, %for.cond.preheader.i.i.i.i.i ], [ %13, %for.cond16.if.end104.loopexit312_crit_edge.i.i.i.i.i ], [ %cur_offset.0.i.i.i.i, %for.cond16.preheader.i.i.i.i.i ], [ %cur_offset.0.i.i.i.i, %for.cond48.preheader.i.i.i.i.i ], [ %10, %for.inc.i.i.i.i.i ], [ %cur_offset.3.i.i.i.i, %for.inc99.i.i.i.i.i ]
   %position.4.i.i.i.i.i = phi i64 [ %position.0329.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i ], [ %23, %for.cond16.if.end104.loopexit312_crit_edge.i.i.i.i.i ], [ %position.0329.i.i.i.i.i, %for.cond16.preheader.i.i.i.i.i ], [ %position.0329.i.i.i.i.i, %for.cond48.preheader.i.i.i.i.i ], [ %9, %for.inc.i.i.i.i.i ], [ %12, %for.inc99.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp slt i64 %position.4.i.i.i.i.i, %3
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i, !llvm.loop !116
@@ -2017,8 +2017,8 @@ while.body.i.preheader.i.i.i207.i:                ; preds = %.noexc.i192.i
   br label %while.body.i.i.i.i209.i
 
 while.body.i.i.i.i209.i:                          ; preds = %if.end104.i.i.i.i224.i, %while.body.i.preheader.i.i.i207.i
-  %cur_offset.0.i.i.i210.i = phi i64 [ %cur_offset.4.i.i.i225.i, %if.end104.i.i.i.i224.i ], [ %65, %while.body.i.preheader.i.i.i207.i ]
-  %offsets.0.i.i.i211.i = phi ptr [ %offsets.5.i.i.i226.i, %if.end104.i.i.i.i224.i ], [ %incdec.ptr.i.i.i208.i, %while.body.i.preheader.i.i.i207.i ]
+  %offsets.0.i.i.i210.i = phi ptr [ %offsets.5.i.i.i225.i, %if.end104.i.i.i.i224.i ], [ %incdec.ptr.i.i.i208.i, %while.body.i.preheader.i.i.i207.i ]
+  %cur_offset.0.i.i.i211.i = phi i64 [ %cur_offset.4.i.i.i226.i, %if.end104.i.i.i.i224.i ], [ %65, %while.body.i.preheader.i.i.i207.i ]
   %position.0326.i.i.i.i.i = phi i64 [ %position.4.i.i.i.i227.i, %if.end104.i.i.i.i224.i ], [ 0, %while.body.i.preheader.i.i.i207.i ]
   %call.i.i.i1.i212.i = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i166.i)
           to label %call.i.i.i.noexc.i215.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i213.i, !noalias !192
@@ -2040,13 +2040,13 @@ do.body.preheader.i.i.i.i262.i:                   ; preds = %for.cond.preheader.
   br label %do.body.i.i.i.i263.i
 
 do.body.i.i.i.i263.i:                             ; preds = %for.inc.i.i.i.i277.i, %do.body.preheader.i.i.i.i262.i
-  %cur_offset.1.i.i.i264.i = phi i64 [ %cur_offset.0.i.i.i210.i, %do.body.preheader.i.i.i.i262.i ], [ %68, %for.inc.i.i.i.i277.i ]
-  %offsets.1.i.i.i265.i = phi ptr [ %offsets.0.i.i.i211.i, %do.body.preheader.i.i.i.i262.i ], [ %incdec.ptr.i.i.i.i.i268.i, %for.inc.i.i.i.i277.i ]
+  %offsets.1.i.i.i264.i = phi ptr [ %offsets.0.i.i.i210.i, %do.body.preheader.i.i.i.i262.i ], [ %incdec.ptr.i.i.i.i.i268.i, %for.inc.i.i.i.i277.i ]
+  %cur_offset.1.i.i.i265.i = phi i64 [ %cur_offset.0.i.i.i211.i, %do.body.preheader.i.i.i.i262.i ], [ %68, %for.inc.i.i.i.i277.i ]
   %i.0323.i.i.i.i.i = phi i64 [ 0, %do.body.preheader.i.i.i.i262.i ], [ %inc.i.i.i.i278.i, %for.inc.i.i.i.i277.i ]
-  %add.ptr.i.i8.i.i.i266.i = getelementptr inbounds i8, ptr %storemerge.i.i.i187.i, i64 %cur_offset.1.i.i.i264.i
-  %68 = load i64, ptr %offsets.1.i.i.i265.i, align 8, !noalias !207
-  %sub.i.i.i.i.i267.i = sub nsw i64 %68, %cur_offset.1.i.i.i264.i
-  %incdec.ptr.i.i.i.i.i268.i = getelementptr inbounds i8, ptr %offsets.1.i.i.i265.i, i64 8
+  %add.ptr.i.i8.i.i.i266.i = getelementptr inbounds i8, ptr %storemerge.i.i.i187.i, i64 %cur_offset.1.i.i.i265.i
+  %68 = load i64, ptr %offsets.1.i.i.i264.i, align 8, !noalias !207
+  %sub.i.i.i.i.i267.i = sub nsw i64 %68, %cur_offset.1.i.i.i265.i
+  %incdec.ptr.i.i.i.i.i268.i = getelementptr inbounds i8, ptr %offsets.1.i.i.i264.i, i64 8
   %call.i.i.i.i.i2.i269.i = invoke noundef zeroext i1 @_ZN5arrow4util12ValidateUTF8ESt17basic_string_viewIcSt11char_traitsIcEE(i64 %sub.i.i.i.i.i267.i, ptr nonnull %add.ptr.i.i8.i.i.i266.i)
           to label %call.i.i.i.i.i.noexc.i272.i unwind label %lpad.loopexit.i270.i, !noalias !192
 
@@ -2101,7 +2101,7 @@ _ZN5arrow6StatusD2Ev.exit97.i.i.i.preheader.i251.i: ; preds = %for.cond16.prehea
 
 _ZN5arrow6StatusD2Ev.exit97.i.i.i.i253.i:         ; preds = %_ZN5arrow6StatusD2Ev.exit97.i.i.i.i253.i, %_ZN5arrow6StatusD2Ev.exit97.i.i.i.preheader.i251.i
   %inc.i.i61.i.i.i17.i254.i = phi i64 [ %inc.i.i61.i.i.i.i257.i, %_ZN5arrow6StatusD2Ev.exit97.i.i.i.i253.i ], [ %i.promoted.i252.i, %_ZN5arrow6StatusD2Ev.exit97.i.i.i.preheader.i251.i ]
-  %offsets.2.i.i.i255.i = phi ptr [ %incdec.ptr.i60.i.i.i.i256.i, %_ZN5arrow6StatusD2Ev.exit97.i.i.i.i253.i ], [ %offsets.0.i.i.i211.i, %_ZN5arrow6StatusD2Ev.exit97.i.i.i.preheader.i251.i ]
+  %offsets.2.i.i.i255.i = phi ptr [ %incdec.ptr.i60.i.i.i.i256.i, %_ZN5arrow6StatusD2Ev.exit97.i.i.i.i253.i ], [ %offsets.0.i.i.i210.i, %_ZN5arrow6StatusD2Ev.exit97.i.i.i.preheader.i251.i ]
   %i15.0319.i.i.i.i.i = phi i64 [ %inc43.i.i.i.i258.i, %_ZN5arrow6StatusD2Ev.exit97.i.i.i.i253.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit97.i.i.i.preheader.i251.i ]
   %incdec.ptr.i60.i.i.i.i256.i = getelementptr inbounds i8, ptr %offsets.2.i.i.i255.i, i64 8
   %71 = load i64, ptr %offsets.2.i.i.i255.i, align 8, !noalias !226
@@ -2112,8 +2112,8 @@ _ZN5arrow6StatusD2Ev.exit97.i.i.i.i253.i:         ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond329.not.i.i.i.i.i, label %for.cond16.if.end104.loopexit309_crit_edge.i.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit97.i.i.i.i253.i, !llvm.loop !227
 
 for.body52.i.i.i.i230.i:                          ; preds = %for.inc99.i.i.i.i243.i, %for.body52.preheader.i.i.i.i229.i
-  %cur_offset.2.i.i.i231.i = phi i64 [ %cur_offset.0.i.i.i210.i, %for.body52.preheader.i.i.i.i229.i ], [ %cur_offset.3.i.i.i244.i, %for.inc99.i.i.i.i243.i ]
-  %offsets.3.i.i.i232.i = phi ptr [ %offsets.0.i.i.i211.i, %for.body52.preheader.i.i.i.i229.i ], [ %offsets.4.i.i.i245.i, %for.inc99.i.i.i.i243.i ]
+  %offsets.3.i.i.i231.i = phi ptr [ %offsets.0.i.i.i210.i, %for.body52.preheader.i.i.i.i229.i ], [ %offsets.4.i.i.i245.i, %for.inc99.i.i.i.i243.i ]
+  %cur_offset.2.i.i.i232.i = phi i64 [ %cur_offset.0.i.i.i211.i, %for.body52.preheader.i.i.i.i229.i ], [ %cur_offset.3.i.i.i244.i, %for.inc99.i.i.i.i243.i ]
   %i47.0316.i.i.i.i.i = phi i64 [ 0, %for.body52.preheader.i.i.i.i229.i ], [ %inc100.i.i.i.i246.i, %for.inc99.i.i.i.i243.i ]
   %position.3315.i.i.i.i.i = phi i64 [ %position.0326.i.i.i.i.i, %for.body52.preheader.i.i.i.i229.i ], [ %inc101.i.i.i.i247.i, %for.inc99.i.i.i.i243.i ]
   %add.i.i.i.i233.i = add nsw i64 %position.3315.i.i.i.i.i, %62
@@ -2129,9 +2129,9 @@ for.body52.i.i.i.i230.i:                          ; preds = %for.inc99.i.i.i.i24
   br i1 %tobool.i.not.i.i.i.i238.i, label %_ZN5arrow6StatusD2Ev.exit254.i.i.i.i.i, label %do.body55.i.i.i.i239.i
 
 do.body55.i.i.i.i239.i:                           ; preds = %for.body52.i.i.i.i230.i
-  %add.ptr.i135.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i187.i, i64 %cur_offset.2.i.i.i231.i
-  %76 = load i64, ptr %offsets.3.i.i.i232.i, align 8, !noalias !229
-  %sub.i136.i.i.i.i.i = sub nsw i64 %76, %cur_offset.2.i.i.i231.i
+  %add.ptr.i135.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i187.i, i64 %cur_offset.2.i.i.i232.i
+  %76 = load i64, ptr %offsets.3.i.i.i231.i, align 8, !noalias !229
+  %sub.i136.i.i.i.i.i = sub nsw i64 %76, %cur_offset.2.i.i.i232.i
   %call.i.i138.i.i.i4.i.i = invoke noundef zeroext i1 @_ZN5arrow4util12ValidateUTF8ESt17basic_string_viewIcSt11char_traitsIcEE(i64 %sub.i136.i.i.i.i.i, ptr nonnull %add.ptr.i135.i.i.i.i.i)
           to label %call.i.i138.i.i.i.noexc.i.i unwind label %lpad.loopexit.split-lp.loopexit.i240.i, !noalias !192
 
@@ -2160,7 +2160,7 @@ _ZN5arrow6StatusD2Ev.exit178.i.i.i.i.i:           ; preds = %call.i.i138.i.i.i.n
   br i1 %cmp.i179.i.i.i.i.i, label %for.inc99.i.i.i.i243.i, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_22ArraySpanInlineVisitorINS_15LargeStringTypeEvE11VisitStatusIZNS0_12_GLOBAL__N_117UTF8DataValidator5VisitIS3_EENS_6StatusERKT_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNS8_IS3_EES9_SC_EUlvE_EES9_RKNS_9ArraySpanEOSA_OT0_EUllE_ZNS5_ISH_SI_EES9_SL_SM_SO_EUlvE_EES9_PKhllSM_SO_.exit.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit254.i.i.i.i.i:           ; preds = %for.body52.i.i.i.i230.i
-  %78 = load i64, ptr %offsets.3.i.i.i232.i, align 8, !noalias !242
+  %78 = load i64, ptr %offsets.3.i.i.i231.i, align 8, !noalias !242
   %79 = load i64, ptr %i.i170.i, align 8, !noalias !245
   %inc.i.i218.i.i.i.i.i = add nsw i64 %79, 1
   store i64 %inc.i.i218.i.i.i.i.i, ptr %i.i170.i, align 8, !noalias !245
@@ -2169,7 +2169,7 @@ _ZN5arrow6StatusD2Ev.exit254.i.i.i.i.i:           ; preds = %for.body52.i.i.i.i2
 
 for.inc99.i.i.i.i243.i:                           ; preds = %_ZN5arrow6StatusD2Ev.exit254.i.i.i.i.i, %.noexc5.i242.i, %nrvo.skipdtor71.thread.i.i.i.i249.i
   %cur_offset.3.i.i.i244.i = phi i64 [ %78, %_ZN5arrow6StatusD2Ev.exit254.i.i.i.i.i ], [ %76, %nrvo.skipdtor71.thread.i.i.i.i249.i ], [ %76, %.noexc5.i242.i ]
-  %offsets.4.i.i.i245.i = getelementptr inbounds i8, ptr %offsets.3.i.i.i232.i, i64 8
+  %offsets.4.i.i.i245.i = getelementptr inbounds i8, ptr %offsets.3.i.i.i231.i, i64 8
   %inc100.i.i.i.i246.i = add nuw nsw i64 %i47.0316.i.i.i.i.i, 1
   %inc101.i.i.i.i247.i = add nsw i64 %position.3315.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i248.i = icmp eq i64 %inc100.i.i.i.i246.i, %conv18.i.i.i.i222.i
@@ -2177,14 +2177,14 @@ for.inc99.i.i.i.i243.i:                           ; preds = %_ZN5arrow6StatusD2E
 
 for.cond16.if.end104.loopexit309_crit_edge.i.i.i.i.i: ; preds = %_ZN5arrow6StatusD2Ev.exit97.i.i.i.i253.i
   %80 = shl nuw nsw i64 %conv18.i.i.i.i222.i, 3
-  %scevgep.i.i.i259.i = getelementptr i8, ptr %offsets.0.i.i.i211.i, i64 %80
+  %scevgep.i.i.i259.i = getelementptr i8, ptr %offsets.0.i.i.i210.i, i64 %80
   %81 = add i64 %position.0326.i.i.i.i.i, %conv18.i.i.i.i222.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !252
   br label %if.end104.i.i.i.i224.i
 
 if.end104.i.i.i.i224.i:                           ; preds = %for.inc99.i.i.i.i243.i, %for.inc.i.i.i.i277.i, %for.cond16.if.end104.loopexit309_crit_edge.i.i.i.i.i, %for.cond16.preheader.i.i.i.i250.i, %for.cond48.preheader.i.i.i.i223.i, %for.cond.preheader.i.i.i.i260.i
-  %cur_offset.4.i.i.i225.i = phi i64 [ %cur_offset.0.i.i.i210.i, %for.cond.preheader.i.i.i.i260.i ], [ %71, %for.cond16.if.end104.loopexit309_crit_edge.i.i.i.i.i ], [ %cur_offset.0.i.i.i210.i, %for.cond16.preheader.i.i.i.i250.i ], [ %cur_offset.0.i.i.i210.i, %for.cond48.preheader.i.i.i.i223.i ], [ %68, %for.inc.i.i.i.i277.i ], [ %cur_offset.3.i.i.i244.i, %for.inc99.i.i.i.i243.i ]
-  %offsets.5.i.i.i226.i = phi ptr [ %offsets.0.i.i.i211.i, %for.cond.preheader.i.i.i.i260.i ], [ %scevgep.i.i.i259.i, %for.cond16.if.end104.loopexit309_crit_edge.i.i.i.i.i ], [ %offsets.0.i.i.i211.i, %for.cond16.preheader.i.i.i.i250.i ], [ %offsets.0.i.i.i211.i, %for.cond48.preheader.i.i.i.i223.i ], [ %incdec.ptr.i.i.i.i.i268.i, %for.inc.i.i.i.i277.i ], [ %offsets.4.i.i.i245.i, %for.inc99.i.i.i.i243.i ]
+  %offsets.5.i.i.i225.i = phi ptr [ %offsets.0.i.i.i210.i, %for.cond.preheader.i.i.i.i260.i ], [ %scevgep.i.i.i259.i, %for.cond16.if.end104.loopexit309_crit_edge.i.i.i.i.i ], [ %offsets.0.i.i.i210.i, %for.cond16.preheader.i.i.i.i250.i ], [ %offsets.0.i.i.i210.i, %for.cond48.preheader.i.i.i.i223.i ], [ %incdec.ptr.i.i.i.i.i268.i, %for.inc.i.i.i.i277.i ], [ %offsets.4.i.i.i245.i, %for.inc99.i.i.i.i243.i ]
+  %cur_offset.4.i.i.i226.i = phi i64 [ %cur_offset.0.i.i.i211.i, %for.cond.preheader.i.i.i.i260.i ], [ %71, %for.cond16.if.end104.loopexit309_crit_edge.i.i.i.i.i ], [ %cur_offset.0.i.i.i211.i, %for.cond16.preheader.i.i.i.i250.i ], [ %cur_offset.0.i.i.i211.i, %for.cond48.preheader.i.i.i.i223.i ], [ %68, %for.inc.i.i.i.i277.i ], [ %cur_offset.3.i.i.i244.i, %for.inc99.i.i.i.i243.i ]
   %position.4.i.i.i.i227.i = phi i64 [ %position.0326.i.i.i.i.i, %for.cond.preheader.i.i.i.i260.i ], [ %81, %for.cond16.if.end104.loopexit309_crit_edge.i.i.i.i.i ], [ %position.0326.i.i.i.i.i, %for.cond16.preheader.i.i.i.i250.i ], [ %position.0326.i.i.i.i.i, %for.cond48.preheader.i.i.i.i223.i ], [ %67, %for.inc.i.i.i.i277.i ], [ %70, %for.inc99.i.i.i.i243.i ]
   %cmp.i.i.i.i228.i = icmp slt i64 %position.4.i.i.i.i227.i, %61
   br i1 %cmp.i.i.i.i228.i, label %while.body.i.i.i.i209.i, label %while.end.i.i.i.i193.i, !llvm.loop !255

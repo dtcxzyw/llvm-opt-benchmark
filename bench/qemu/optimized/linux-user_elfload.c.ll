@@ -1574,8 +1574,8 @@ for.body.lr.ph:                                   ; preds = %if.end10
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
+  %loaddr.0183 = phi i64 [ -1, %for.body.lr.ph ], [ %loaddr.2, %for.inc ]
   %hiaddr.0182 = phi i64 [ 0, %for.body.lr.ph ], [ %hiaddr.2, %for.inc ]
-  %loaddr.0181 = phi i64 [ -1, %for.body.lr.ph ], [ %loaddr.2, %for.inc ]
   %add.ptr = getelementptr %struct.elf64_phdr, ptr %call7, i64 %indvars.iv
   %15 = load i32, ptr %add.ptr, align 8
   %cmp17 = icmp eq i32 %15, 1
@@ -1585,7 +1585,7 @@ if.then19:                                        ; preds = %for.body
   %p_vaddr = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %16 = load i64, ptr %p_vaddr, align 8
   %and = and i64 %16, -4096
-  %spec.select = call i64 @llvm.umin.i64(i64 %and, i64 %loaddr.0181)
+  %spec.select = call i64 @llvm.umin.i64(i64 %and, i64 %loaddr.0183)
   %p_memsz = getelementptr inbounds i8, ptr %add.ptr, i64 40
   %17 = load i64, ptr %p_memsz, align 8
   %add = add i64 %16, -1
@@ -1658,8 +1658,8 @@ if.then63:                                        ; preds = %if.else51
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else51, %cleanup, %if.then19, %if.then63
-  %loaddr.2 = phi i64 [ %spec.select, %if.then19 ], [ %loaddr.0181, %cleanup ], [ %loaddr.0181, %if.then63 ], [ %loaddr.0181, %if.else51 ]
   %hiaddr.2 = phi i64 [ %hiaddr.1, %if.then19 ], [ %hiaddr.0182, %cleanup ], [ %hiaddr.0182, %if.then63 ], [ %hiaddr.0182, %if.else51 ]
+  %loaddr.2 = phi i64 [ %spec.select, %if.then19 ], [ %loaddr.0183, %cleanup ], [ %loaddr.0183, %if.then63 ], [ %loaddr.0183, %if.else51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i16, ptr %e_phnum, align 8
   %30 = zext i16 %29 to i64
@@ -1667,8 +1667,8 @@ for.inc:                                          ; preds = %if.else51, %cleanup
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %if.end10
-  %loaddr.0.lcssa = phi i64 [ -1, %if.end10 ], [ %loaddr.2, %for.inc ]
   %hiaddr.0.lcssa = phi i64 [ 0, %if.end10 ], [ %hiaddr.2, %for.inc ]
+  %loaddr.0.lcssa = phi i64 [ -1, %if.end10 ], [ %loaddr.2, %for.inc ]
   %cmp72.not = icmp eq ptr %pinterp_name, null
   br i1 %cmp72.not, label %if.end90, label %if.then74
 
@@ -1706,8 +1706,8 @@ if.then85:                                        ; preds = %if.else79
 
 if.end90:                                         ; preds = %if.then78, %if.then85, %if.else79, %for.end
   %load_addr.0 = phi i64 [ %loaddr.0.lcssa, %if.then78 ], [ %and87, %if.then85 ], [ %add81, %if.else79 ], [ %loaddr.0.lcssa, %for.end ]
-  %reass.sub = sub i64 %hiaddr.0.lcssa, %loaddr.0.lcssa
-  %add92 = add i64 %reass.sub, 1
+  %sub91 = add i64 %hiaddr.0.lcssa, 1
+  %add92 = sub i64 %sub91, %loaddr.0.lcssa
   %35 = load i16, ptr %e_type.i, align 8
   %cmp95 = icmp eq i16 %35, 2
   %or97 = select i1 %cmp95, i32 1064994, i32 16418

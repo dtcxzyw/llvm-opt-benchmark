@@ -164,7 +164,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %0 = phi i32 [ 4, %entry ], [ %3, %for.inc ]
   %arrayidx18 = phi ptr [ @virtio_config_status_map, %entry ], [ %arrayidx, %for.inc ]
   %bitmap.addr.017 = phi i8 [ %bitmap, %entry ], [ %bitmap.addr.1, %for.inc ]
-  %list.016 = phi ptr [ null, %entry ], [ %list.1, %for.inc ]
+  %list.015 = phi ptr [ null, %entry ], [ %list.1, %for.inc ]
   %conv4 = zext i8 %bitmap.addr.017 to i32
   %and = and i32 %0, %conv4
   %cmp6 = icmp eq i32 %and, 0
@@ -177,13 +177,13 @@ if.end:                                           ; preds = %for.body
   %call11 = tail call noalias ptr @g_strdup(ptr noundef %1) #6
   %value = getelementptr inbounds i8, ptr %call8, i64 8
   store ptr %call11, ptr %value, align 8
-  store ptr %list.016, ptr %call8, align 8
+  store ptr %list.015, ptr %call8, align 8
   %2 = trunc i32 %0 to i8
   %conv14 = xor i8 %bitmap.addr.017, %2
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end
-  %list.1 = phi ptr [ %list.016, %for.body ], [ %call8, %if.end ]
+  %list.1 = phi ptr [ %list.015, %for.body ], [ %call8, %if.end ]
   %bitmap.addr.1 = phi i8 [ %bitmap.addr.017, %for.body ], [ %conv14, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr [7 x %struct.qmp_virtio_feature_map_t], ptr @virtio_config_status_map, i64 0, i64 %indvars.iv.next
@@ -224,7 +224,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %0 = phi i32 [ 0, %entry ], [ %2, %for.inc ]
   %arrayidx18 = phi ptr [ @vhost_user_protocol_map, %entry ], [ %arrayidx, %for.inc ]
   %bitmap.addr.017 = phi i64 [ %bitmap, %entry ], [ %bitmap.addr.1, %for.inc ]
-  %list.016 = phi ptr [ null, %entry ], [ %list.1, %for.inc ]
+  %list.015 = phi ptr [ null, %entry ], [ %list.1, %for.inc ]
   %sh_prom = zext nneg i32 %0 to i64
   %shl = shl nuw i64 1, %sh_prom
   %and = and i64 %shl, %bitmap.addr.017
@@ -238,12 +238,12 @@ if.end:                                           ; preds = %for.body
   %call8 = tail call noalias ptr @g_strdup(ptr noundef %1) #6
   %value = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr %call8, ptr %value, align 8
-  store ptr %list.016, ptr %call5, align 8
+  store ptr %list.015, ptr %call5, align 8
   %xor = xor i64 %shl, %bitmap.addr.017
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end
-  %list.1 = phi ptr [ %list.016, %for.body ], [ %call5, %if.end ]
+  %list.1 = phi ptr [ %list.015, %for.body ], [ %call5, %if.end ]
   %bitmap.addr.1 = phi i64 [ %bitmap.addr.017, %for.body ], [ %xor, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr [18 x %struct.qmp_virtio_feature_map_t], ptr @vhost_user_protocol_map, i64 0, i64 %indvars.iv.next
@@ -949,7 +949,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end
   %11 = phi i32 [ 4, %if.end ], [ %14, %for.inc.i ]
   %arrayidx18.i = phi ptr [ @virtio_config_status_map, %if.end ], [ %arrayidx.i, %for.inc.i ]
   %bitmap.addr.017.i = phi i8 [ %10, %if.end ], [ %bitmap.addr.1.i, %for.inc.i ]
-  %list.016.i = phi ptr [ null, %if.end ], [ %list.1.i, %for.inc.i ]
+  %list.015.i = phi ptr [ null, %if.end ], [ %list.1.i, %for.inc.i ]
   %conv4.i = zext i8 %bitmap.addr.017.i to i32
   %and.i = and i32 %11, %conv4.i
   %cmp6.i = icmp eq i32 %and.i, 0
@@ -962,13 +962,13 @@ if.end.i78:                                       ; preds = %for.body.i
   %call11.i = tail call noalias ptr @g_strdup(ptr noundef %12) #6
   %value.i = getelementptr inbounds i8, ptr %call8.i, i64 8
   store ptr %call11.i, ptr %value.i, align 8
-  store ptr %list.016.i, ptr %call8.i, align 8
+  store ptr %list.015.i, ptr %call8.i, align 8
   %13 = trunc i32 %11 to i8
   %conv14.i = xor i8 %bitmap.addr.017.i, %13
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i78, %for.body.i
-  %list.1.i = phi ptr [ %list.016.i, %for.body.i ], [ %call8.i, %if.end.i78 ]
+  %list.1.i = phi ptr [ %list.015.i, %for.body.i ], [ %call8.i, %if.end.i78 ]
   %bitmap.addr.1.i = phi i8 [ %bitmap.addr.017.i, %for.body.i ], [ %conv14.i, %if.end.i78 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i = getelementptr [7 x %struct.qmp_virtio_feature_map_t], ptr @virtio_config_status_map, i64 0, i64 %indvars.iv.next.i
@@ -1089,7 +1089,7 @@ for.body.i82:                                     ; preds = %for.inc.i92, %if.th
   %37 = phi i32 [ 0, %if.then57 ], [ %39, %for.inc.i92 ]
   %arrayidx18.i84 = phi ptr [ @vhost_user_protocol_map, %if.then57 ], [ %arrayidx.i96, %for.inc.i92 ]
   %bitmap.addr.017.i85 = phi i64 [ %36, %if.then57 ], [ %bitmap.addr.1.i94, %for.inc.i92 ]
-  %list.016.i86 = phi ptr [ null, %if.then57 ], [ %list.1.i93, %for.inc.i92 ]
+  %list.015.i86 = phi ptr [ null, %if.then57 ], [ %list.1.i93, %for.inc.i92 ]
   %sh_prom.i = zext nneg i32 %37 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %and.i87 = and i64 %shl.i, %bitmap.addr.017.i85
@@ -1103,12 +1103,12 @@ if.end.i88:                                       ; preds = %for.body.i82
   %call8.i90 = tail call noalias ptr @g_strdup(ptr noundef %38) #6
   %value.i91 = getelementptr inbounds i8, ptr %call5.i, i64 8
   store ptr %call8.i90, ptr %value.i91, align 8
-  store ptr %list.016.i86, ptr %call5.i, align 8
+  store ptr %list.015.i86, ptr %call5.i, align 8
   %xor.i = xor i64 %shl.i, %bitmap.addr.017.i85
   br label %for.inc.i92
 
 for.inc.i92:                                      ; preds = %if.end.i88, %for.body.i82
-  %list.1.i93 = phi ptr [ %list.016.i86, %for.body.i82 ], [ %call5.i, %if.end.i88 ]
+  %list.1.i93 = phi ptr [ %list.015.i86, %for.body.i82 ], [ %call5.i, %if.end.i88 ]
   %bitmap.addr.1.i94 = phi i64 [ %bitmap.addr.017.i85, %for.body.i82 ], [ %xor.i, %if.end.i88 ]
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i83, 1
   %arrayidx.i96 = getelementptr [18 x %struct.qmp_virtio_feature_map_t], ptr @vhost_user_protocol_map, i64 0, i64 %indvars.iv.next.i95

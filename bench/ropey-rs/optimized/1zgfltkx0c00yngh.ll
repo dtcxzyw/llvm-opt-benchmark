@@ -3365,8 +3365,8 @@ _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit: ; preds = %.l
   br label %_ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit85
 
 .noexc64:                                         ; preds = %.noexc57, %.noexc64
-  %176 = phi <16 x i8> [ %182, %.noexc64 ], [ zeroinitializer, %.noexc57 ]
   %.sroa.0435.0831 = phi ptr [ %177, %.noexc64 ], [ %159, %.noexc57 ]
+  %176 = phi <16 x i8> [ %182, %.noexc64 ], [ zeroinitializer, %.noexc57 ]
   %177 = getelementptr inbounds i8, ptr %.sroa.0435.0831, i64 16
   %178 = load <16 x i8>, ptr %.sroa.0435.0831, align 16
   %179 = and <16 x i8> %178, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
@@ -3378,25 +3378,25 @@ _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit: ; preds = %.l
 
 .noexc83:                                         ; preds = %.noexc53, %.noexc83
   %.sroa.011.0.i46829 = phi i64 [ %210, %.noexc83 ], [ %.sroa.04.0.i, %.noexc53 ]
-  %.sroa.0413.0828 = phi ptr [ %184, %.noexc83 ], [ %133, %.noexc53 ]
-  %.sroa.5414.0827 = phi i64 [ %185, %.noexc83 ], [ %148, %.noexc53 ]
-  %184 = getelementptr inbounds i8, ptr %.sroa.0413.0828, i64 64
-  %185 = add i64 %.sroa.5414.0827, -4
-  %186 = load <16 x i8>, ptr %.sroa.0413.0828, align 16
+  %.sroa.5414.0828 = phi i64 [ %185, %.noexc83 ], [ %148, %.noexc53 ]
+  %.sroa.0413.0827 = phi ptr [ %184, %.noexc83 ], [ %133, %.noexc53 ]
+  %184 = getelementptr inbounds i8, ptr %.sroa.0413.0827, i64 64
+  %185 = add i64 %.sroa.5414.0828, -4
+  %186 = load <16 x i8>, ptr %.sroa.0413.0827, align 16
   %187 = and <16 x i8> %186, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
   %188 = icmp eq <16 x i8> %187, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
   %189 = zext <16 x i1> %188 to <16 x i8>
-  %190 = getelementptr inbounds i8, ptr %.sroa.0413.0828, i64 16
+  %190 = getelementptr inbounds i8, ptr %.sroa.0413.0827, i64 16
   %191 = load <16 x i8>, ptr %190, align 16
   %192 = and <16 x i8> %191, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
   %193 = icmp eq <16 x i8> %192, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
   %194 = zext <16 x i1> %193 to <16 x i8>
-  %195 = getelementptr inbounds i8, ptr %.sroa.0413.0828, i64 32
+  %195 = getelementptr inbounds i8, ptr %.sroa.0413.0827, i64 32
   %196 = load <16 x i8>, ptr %195, align 16
   %197 = and <16 x i8> %196, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
   %198 = icmp eq <16 x i8> %197, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
   %199 = zext <16 x i1> %198 to <16 x i8>
-  %200 = getelementptr inbounds i8, ptr %.sroa.0413.0828, i64 48
+  %200 = getelementptr inbounds i8, ptr %.sroa.0413.0827, i64 48
   %201 = load <16 x i8>, ptr %200, align 16
   %202 = and <16 x i8> %201, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
   %203 = icmp eq <16 x i8> %202, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
@@ -5969,8 +5969,8 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit273: ; preds = %397
   br label %_ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit166
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit287": ; preds = %._crit_edge1193, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit287"
-  %467 = phi <16 x i8> [ %473, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit287" ], [ zeroinitializer, %._crit_edge1193 ]
   %.sroa.0441.01195 = phi ptr [ %468, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit287" ], [ %450, %._crit_edge1193 ]
+  %467 = phi <16 x i8> [ %473, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit287" ], [ zeroinitializer, %._crit_edge1193 ]
   %468 = getelementptr inbounds i8, ptr %.sroa.0441.01195, i64 16
   %469 = load <16 x i8>, ptr %.sroa.0441.01195, align 16
   %470 = and <16 x i8> %469, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
@@ -5982,25 +5982,25 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit273: ; preds = %397
 
 .lr.ph1192:                                       ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit278", %.lr.ph1192
   %.sroa.011.0.i1611191 = phi i64 [ %501, %.lr.ph1192 ], [ %.sroa.04.0.i277, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit278" ]
-  %.sroa.0419.01190 = phi ptr [ %475, %.lr.ph1192 ], [ %424, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit278" ]
-  %.sroa.5420.01189 = phi i64 [ %476, %.lr.ph1192 ], [ %439, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit278" ]
-  %475 = getelementptr inbounds i8, ptr %.sroa.0419.01190, i64 64
-  %476 = add i64 %.sroa.5420.01189, -4
-  %477 = load <16 x i8>, ptr %.sroa.0419.01190, align 16
+  %.sroa.5420.01190 = phi i64 [ %476, %.lr.ph1192 ], [ %439, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit278" ]
+  %.sroa.0419.01189 = phi ptr [ %475, %.lr.ph1192 ], [ %424, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit278" ]
+  %475 = getelementptr inbounds i8, ptr %.sroa.0419.01189, i64 64
+  %476 = add i64 %.sroa.5420.01190, -4
+  %477 = load <16 x i8>, ptr %.sroa.0419.01189, align 16
   %478 = and <16 x i8> %477, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
   %479 = icmp eq <16 x i8> %478, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
   %480 = zext <16 x i1> %479 to <16 x i8>
-  %481 = getelementptr inbounds i8, ptr %.sroa.0419.01190, i64 16
+  %481 = getelementptr inbounds i8, ptr %.sroa.0419.01189, i64 16
   %482 = load <16 x i8>, ptr %481, align 16
   %483 = and <16 x i8> %482, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
   %484 = icmp eq <16 x i8> %483, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
   %485 = zext <16 x i1> %484 to <16 x i8>
-  %486 = getelementptr inbounds i8, ptr %.sroa.0419.01190, i64 32
+  %486 = getelementptr inbounds i8, ptr %.sroa.0419.01189, i64 32
   %487 = load <16 x i8>, ptr %486, align 16
   %488 = and <16 x i8> %487, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
   %489 = icmp eq <16 x i8> %488, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
   %490 = zext <16 x i1> %489 to <16 x i8>
-  %491 = getelementptr inbounds i8, ptr %.sroa.0419.01190, i64 48
+  %491 = getelementptr inbounds i8, ptr %.sroa.0419.01189, i64 48
   %492 = load <16 x i8>, ptr %491, align 16
   %493 = and <16 x i8> %492, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
   %494 = icmp eq <16 x i8> %493, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
@@ -6865,7 +6865,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit187: ; preds 
   br label %.thread1396
 
 .thread1396:                                      ; preds = %165, %157, %160, %169, %171, %175, %179, %136
-  %181 = phi <16 x i8> [ %137, %136 ], [ %.sroa.01253.15.vec.insert, %179 ], [ %158, %175 ], [ %158, %171 ], [ %.sroa.01250.14.vec.insert, %169 ], [ %158, %160 ], [ %158, %157 ], [ %158, %165 ]
+  %181 = phi <16 x i8> [ %137, %136 ], [ %.sroa.01250.14.vec.insert, %169 ], [ %.sroa.01253.15.vec.insert, %179 ], [ %158, %175 ], [ %158, %171 ], [ %158, %160 ], [ %158, %157 ], [ %158, %165 ]
   %182 = add <16 x i8> %181, %114
   %.sroa.01.0.vec.extract.i262 = extractelement <2 x i64> %118, i64 0
   %183 = icmp eq i64 %.sroa.01.0.vec.extract.i262, 0
@@ -9501,8 +9501,8 @@ _ZN5ropey4tree13node_children12NodeChildren15search_byte_idx17h459c817209a71249E
   br label %_ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit
 
 .noexc63:                                         ; preds = %.noexc56, %.noexc63
-  %179 = phi <16 x i8> [ %185, %.noexc63 ], [ zeroinitializer, %.noexc56 ]
   %.sroa.0187.0353 = phi ptr [ %180, %.noexc63 ], [ %162, %.noexc56 ]
+  %179 = phi <16 x i8> [ %185, %.noexc63 ], [ zeroinitializer, %.noexc56 ]
   %180 = getelementptr inbounds i8, ptr %.sroa.0187.0353, i64 16
   %181 = load <16 x i8>, ptr %.sroa.0187.0353, align 16
   %182 = and <16 x i8> %181, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>

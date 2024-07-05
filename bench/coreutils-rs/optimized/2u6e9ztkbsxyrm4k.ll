@@ -671,8 +671,8 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit.i.i.i: ; preds = %.
   br label %58
 
 .loopexit.i.i.i.i:                                ; preds = %118, %116, %114
-  %.012.i.i.i.i.i = phi i64 [ 1, %114 ], [ %..i.i.i.i.i, %118 ], [ 2, %116 ]
-  %57 = add i64 %.012.i.i.i.i.i, %59
+  %.013.i.i.i.i.i = phi i64 [ 1, %114 ], [ %..i.i.i.i.i, %118 ], [ 2, %116 ]
+  %57 = add i64 %.013.i.i.i.i.i, %59
   br label %58
 
 58:                                               ; preds = %.loopexit.i.i.i.i, %.lr.ph106.i.i.i.i

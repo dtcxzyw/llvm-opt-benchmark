@@ -1974,12 +1974,12 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi10FiniteDiff4evalEPPKdPPdPxS4_Pv(
 
 .lr.ph:                                           ; preds = %6, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit
   %.0113176 = phi ptr [ %17, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ], [ %14, %6 ]
-  %.0123175 = phi ptr [ %26, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ], [ %4, %6 ]
-  %.0125174 = phi i64 [ %27, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ], [ 0, %6 ]
-  %16 = tail call noundef i64 @_ZNK6casadi8Function7nnz_outEx(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %.0125174)
+  %.0121175 = phi ptr [ %26, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ], [ %4, %6 ]
+  %.0124174 = phi i64 [ %27, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ], [ 0, %6 ]
+  %16 = tail call noundef i64 @_ZNK6casadi8Function7nnz_outEx(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %.0124174)
   %17 = getelementptr inbounds i8, ptr %.0113176, i64 8
   %18 = load ptr, ptr %.0113176, align 8
-  %.not.i = icmp eq ptr %.0123175, null
+  %.not.i = icmp eq ptr %.0121175, null
   br i1 %.not.i, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit, label %19
 
 19:                                               ; preds = %.lr.ph
@@ -1995,12 +1995,12 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi10FiniteDiff4evalEPPKdPPdPxS4_Pv(
 
 .lr.ph23.preheader.i:                             ; preds = %.preheader.i
   %21 = shl nuw i64 %16, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0123175, i8 0, i64 %21, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0121175, i8 0, i64 %21, i1 false)
   br label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit
 
 .lr.ph.i:                                         ; preds = %.preheader16.i, %.lr.ph.i
   %.020.i = phi i64 [ %25, %.lr.ph.i ], [ 0, %.preheader16.i ]
-  %.01019.i = phi ptr [ %24, %.lr.ph.i ], [ %.0123175, %.preheader16.i ]
+  %.01019.i = phi ptr [ %24, %.lr.ph.i ], [ %.0121175, %.preheader16.i ]
   %.01218.i = phi ptr [ %22, %.lr.ph.i ], [ %18, %.preheader16.i ]
   %22 = getelementptr inbounds i8, ptr %.01218.i, i64 8
   %23 = load double, ptr %.01218.i, align 8
@@ -2011,52 +2011,52 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi10FiniteDiff4evalEPPKdPPdPxS4_Pv(
   br i1 %exitcond.not.i, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit, label %.lr.ph.i, !llvm.loop !27
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i, %.lr.ph, %.preheader16.i, %.preheader.i, %.lr.ph23.preheader.i
-  %26 = getelementptr double, ptr %.0123175, i64 %16
-  %27 = add nuw nsw i64 %.0125174, 1
+  %26 = getelementptr double, ptr %.0121175, i64 %16
+  %27 = add nuw nsw i64 %.0124174, 1
   %exitcond.not = icmp eq i64 %27, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit, %6
-  %.0123.lcssa = phi ptr [ %4, %6 ], [ %26, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
+  %.0121.lcssa = phi ptr [ %4, %6 ], [ %26, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
   %.0113.lcssa = phi ptr [ %14, %6 ], [ %17, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
   %28 = getelementptr inbounds ptr, ptr %.0113.lcssa, i64 %8
   %29 = getelementptr inbounds ptr, ptr %2, i64 %9
   %30 = getelementptr inbounds i8, ptr %0, i64 1336
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds double, ptr %.0123.lcssa, i64 %31
+  %32 = getelementptr inbounds double, ptr %.0121.lcssa, i64 %31
   %33 = getelementptr inbounds ptr, ptr %29, i64 %13
   %34 = icmp sgt i64 %13, 0
   br i1 %34, label %.lr.ph181, label %.preheader173
 
 .preheader173:                                    ; preds = %.lr.ph181, %._crit_edge
-  %.1124.lcssa = phi ptr [ %32, %._crit_edge ], [ %38, %.lr.ph181 ]
+  %.1122.lcssa = phi ptr [ %32, %._crit_edge ], [ %38, %.lr.ph181 ]
   %35 = icmp sgt i64 %8, 0
   br i1 %35, label %.lr.ph185, label %.preheader172
 
 .lr.ph181:                                        ; preds = %._crit_edge, %.lr.ph181
-  %.0122179 = phi i64 [ %39, %.lr.ph181 ], [ 0, %._crit_edge ]
-  %.1124178 = phi ptr [ %38, %.lr.ph181 ], [ %32, %._crit_edge ]
-  %36 = getelementptr inbounds ptr, ptr %29, i64 %.0122179
-  store ptr %.1124178, ptr %36, align 8
+  %.1122179 = phi ptr [ %38, %.lr.ph181 ], [ %32, %._crit_edge ]
+  %.0125178 = phi i64 [ %39, %.lr.ph181 ], [ 0, %._crit_edge ]
+  %36 = getelementptr inbounds ptr, ptr %29, i64 %.0125178
+  store ptr %.1122179, ptr %36, align 8
   %37 = load i64, ptr %30, align 8
-  %38 = getelementptr inbounds double, ptr %.1124178, i64 %37
-  %39 = add nuw nsw i64 %.0122179, 1
+  %38 = getelementptr inbounds double, ptr %.1122179, i64 %37
+  %39 = add nuw nsw i64 %.0125178, 1
   %exitcond233.not = icmp eq i64 %39, %13
   br i1 %exitcond233.not, label %.preheader173, label %.lr.ph181, !llvm.loop !29
 
 .preheader172:                                    ; preds = %.lr.ph185, %.preheader173
-  %.2.lcssa = phi ptr [ %.1124.lcssa, %.preheader173 ], [ %42, %.lr.ph185 ]
+  %.2.lcssa = phi ptr [ %.1122.lcssa, %.preheader173 ], [ %42, %.lr.ph185 ]
   %.2.lcssa.fr = freeze ptr %.2.lcssa
   br i1 %15, label %.lr.ph189, label %.preheader170
 
 .lr.ph185:                                        ; preds = %.preheader173, %.lr.ph185
-  %.0121184 = phi i64 [ %43, %.lr.ph185 ], [ 0, %.preheader173 ]
-  %.2183 = phi ptr [ %42, %.lr.ph185 ], [ %.1124.lcssa, %.preheader173 ]
-  %40 = getelementptr inbounds ptr, ptr %28, i64 %.0121184
-  store ptr %.2183, ptr %40, align 8
-  %41 = tail call noundef i64 @_ZNK6casadi8Function6nnz_inEx(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %.0121184)
-  %42 = getelementptr inbounds double, ptr %.2183, i64 %41
-  %43 = add nuw nsw i64 %.0121184, 1
+  %.2184 = phi ptr [ %42, %.lr.ph185 ], [ %.1122.lcssa, %.preheader173 ]
+  %.0123183 = phi i64 [ %43, %.lr.ph185 ], [ 0, %.preheader173 ]
+  %40 = getelementptr inbounds ptr, ptr %28, i64 %.0123183
+  store ptr %.2184, ptr %40, align 8
+  %41 = tail call noundef i64 @_ZNK6casadi8Function6nnz_inEx(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %.0123183)
+  %42 = getelementptr inbounds double, ptr %.2184, i64 %41
+  %43 = add nuw nsw i64 %.0123183, 1
   %exitcond234.not = icmp eq i64 %43, %8
   br i1 %exitcond234.not, label %.preheader172, label %.lr.ph185, !llvm.loop !30
 
@@ -2070,13 +2070,13 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i, %.lr.ph, 
 .lr.ph217:                                        ; preds = %.preheader170
   %47 = getelementptr inbounds i8, ptr %0, i64 1320
   %48 = getelementptr inbounds i8, ptr %0, i64 1312
-  %.not.i134 = icmp eq ptr %.1124.lcssa, null
-  %49 = icmp ne ptr %.1124.lcssa, null
+  %.not.i134 = icmp eq ptr %.1122.lcssa, null
+  %49 = icmp ne ptr %.1122.lcssa, null
   %.not15.i148 = icmp eq ptr %.2.lcssa.fr, null
   %50 = getelementptr inbounds i8, ptr %0, i64 1344
   %51 = getelementptr inbounds i8, ptr %0, i64 1352
   %52 = getelementptr inbounds i8, ptr %0, i64 1360
-  %.not15.i159 = icmp eq ptr %.0123.lcssa, null
+  %.not15.i159 = icmp eq ptr %.0121.lcssa, null
   br label %57
 
 .lr.ph189:                                        ; preds = %.preheader172, %.lr.ph189
@@ -2157,7 +2157,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit157.us: ; preds = %.lr.ph.i150.us, %.l
   %73 = tail call noundef i64 @_ZNK6casadi8Function6nnz_inEx(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %.0114192.us)
   %74 = getelementptr inbounds ptr, ptr %1, i64 %.0114192.us
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr double, ptr %.1124.lcssa, i64 %.0115191.us
+  %76 = getelementptr double, ptr %.1122.lcssa, i64 %.0115191.us
   br i1 %.not.i134, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit144.us, label %77
 
 77:                                               ; preds = %72
@@ -2300,7 +2300,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit157:    ; preds = %.lr.ph.i150, %114
   %124 = load ptr, ptr %0, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 904
   %126 = load ptr, ptr %125, align 8
-  %127 = tail call noundef double %126(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %29, ptr noundef %4, ptr noundef %.0123.lcssa, double noundef %.0118205)
+  %127 = tail call noundef double %126(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %29, ptr noundef %4, ptr noundef %.0121.lcssa, double noundef %.0118205)
   %128 = load i64, ptr %48, align 8
   %129 = icmp eq i64 %.0117207, %128
   br i1 %129, label %._crit_edge208, label %130
@@ -2373,7 +2373,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit168.us: ; preds = %.lr.ph23.preheader.
   br i1 %or.cond222, label %.lr.ph.i161.preheader, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit168
 
 .lr.ph.i161.preheader:                            ; preds = %.lr.ph213.split
-  %159 = getelementptr double, ptr %.0123.lcssa, i64 %.0112210
+  %159 = getelementptr double, ptr %.0121.lcssa, i64 %.0112210
   %160 = mul nuw nsw i64 %155, %.0119215
   %161 = getelementptr double, ptr %157, i64 %160
   br label %.lr.ph.i161

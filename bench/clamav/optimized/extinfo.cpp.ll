@@ -557,8 +557,8 @@ define noundef zeroext i1 @_Z21IsRelativeSymlinkSafeP11CommandDataPKwS2_S2_(ptr 
   br i1 %9, label %75, label %.preheader
 
 .preheader:                                       ; preds = %8, %.thread
-  %.033 = phi i32 [ %30, %.thread ], [ 0, %8 ]
-  %.032 = phi i32 [ %32, %.thread ], [ 0, %8 ]
+  %.034 = phi i32 [ %32, %.thread ], [ 0, %8 ]
+  %.032 = phi i32 [ %30, %.thread ], [ 0, %8 ]
   %.031 = phi ptr [ %31, %.thread ], [ %3, %8 ]
   %10 = load i32, ptr %.031, align 4
   switch i32 %10, label %.thread [
@@ -584,11 +584,11 @@ define noundef zeroext i1 @_Z21IsRelativeSymlinkSafeP11CommandDataPKwS2_S2_(ptr 
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %19, %15
-  %23 = icmp eq i32 %.032, 0
+  %23 = icmp eq i32 %.034, 0
   br i1 %23, label %.thread38, label %25
 
 .thread38:                                        ; preds = %22
-  %24 = add nsw i32 %.033, 1
+  %24 = add nsw i32 %.032, 1
   br label %.thread
 
 25:                                               ; preds = %22
@@ -596,17 +596,17 @@ define noundef zeroext i1 @_Z21IsRelativeSymlinkSafeP11CommandDataPKwS2_S2_(ptr 
   %27 = load i32, ptr %26, align 4
   %28 = tail call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %27)
   %29 = zext i1 %28 to i32
-  %spec.select = add nsw i32 %.033, %29
+  %spec.select = add nsw i32 %.032, %29
   br label %.thread
 
 .thread:                                          ; preds = %25, %.preheader, %11, %19, %.thread38
-  %30 = phi i32 [ %24, %.thread38 ], [ %.033, %19 ], [ %.033, %11 ], [ %.033, %.preheader ], [ %spec.select, %25 ]
+  %30 = phi i32 [ %24, %.thread38 ], [ %.032, %19 ], [ %.032, %11 ], [ %.032, %.preheader ], [ %spec.select, %25 ]
   %31 = getelementptr inbounds i8, ptr %.031, i64 4
-  %32 = add nuw nsw i32 %.032, 1
+  %32 = add nuw nsw i32 %.034, 1
   br label %.preheader, !llvm.loop !6
 
 33:                                               ; preds = %.preheader
-  %34 = icmp sgt i32 %.033, 0
+  %34 = icmp sgt i32 %.032, 0
   br i1 %34, label %35, label %58
 
 35:                                               ; preds = %33
@@ -693,8 +693,8 @@ _ZL10LinkInPathPKw.exit:                          ; preds = %56, %38
 .loopexit:                                        ; preds = %67, %62, %58
   %.1 = phi ptr [ %2, %62 ], [ %2, %58 ], [ %.030, %67 ]
   %71 = call fastcc noundef i32 @_ZL16CalcAllowedDepthPKw(ptr noundef %.1)
-  %72 = icmp sge i32 %59, %.033
-  %73 = icmp sge i32 %71, %.033
+  %72 = icmp sge i32 %59, %.032
+  %73 = icmp sge i32 %71, %.032
   %74 = and i1 %72, %73
   br label %75
 
@@ -715,13 +715,13 @@ define internal fastcc noundef i32 @_ZL16CalcAllowedDepthPKw(ptr nocapture nound
 
 .lr.ph:                                           ; preds = %1, %39
   %3 = phi i32 [ %41, %39 ], [ %2, %1 ]
-  %.028 = phi i32 [ %.1, %39 ], [ 0, %1 ]
-  %.01827 = phi ptr [ %40, %39 ], [ %0, %1 ]
+  %.028 = phi ptr [ %40, %39 ], [ %0, %1 ]
+  %.01827 = phi i32 [ %.1, %39 ], [ 0, %1 ]
   %4 = tail call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %3)
   br i1 %4, label %5, label %39
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.01827, i64 4
+  %6 = getelementptr inbounds i8, ptr %.028, i64 4
   %7 = load i32, ptr %6, align 4
   %.not21 = icmp eq i32 %7, 0
   br i1 %.not21, label %39, label %8
@@ -736,7 +736,7 @@ define internal fastcc noundef i32 @_ZL16CalcAllowedDepthPKw(ptr nocapture nound
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %.01827, i64 8
+  %14 = getelementptr inbounds i8, ptr %.028, i64 8
   %15 = load i32, ptr %14, align 4
   %16 = tail call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %15)
   br i1 %16, label %20, label %17
@@ -758,13 +758,13 @@ define internal fastcc noundef i32 @_ZL16CalcAllowedDepthPKw(ptr nocapture nound
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %.01827, i64 12
+  %26 = getelementptr inbounds i8, ptr %.028, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = tail call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %27)
   br i1 %28, label %.thread24, label %30
 
 .thread24:                                        ; preds = %25
-  %29 = add nsw i32 %.028, -1
+  %29 = add nsw i32 %.01827, -1
   br label %39
 
 30:                                               ; preds = %25
@@ -780,24 +780,24 @@ define internal fastcc noundef i32 @_ZL16CalcAllowedDepthPKw(ptr nocapture nound
   br i1 %brmerge, label %37, label %35
 
 35:                                               ; preds = %.thread
-  %36 = add nsw i32 %.028, 1
+  %36 = add nsw i32 %.01827, 1
   br label %39
 
 37:                                               ; preds = %.thread
   %38 = sext i1 %cond.fr to i32
-  %spec.select = add nsw i32 %.028, %38
+  %spec.select = add nsw i32 %.01827, %38
   br label %39
 
 39:                                               ; preds = %37, %.thread24, %35, %8, %5, %.lr.ph
-  %.1 = phi i32 [ %.028, %8 ], [ %36, %35 ], [ %.028, %5 ], [ %.028, %.lr.ph ], [ %29, %.thread24 ], [ %spec.select, %37 ]
-  %40 = getelementptr inbounds i8, ptr %.01827, i64 4
+  %.1 = phi i32 [ %.01827, %8 ], [ %36, %35 ], [ %.01827, %5 ], [ %.01827, %.lr.ph ], [ %29, %.thread24 ], [ %spec.select, %37 ]
+  %40 = getelementptr inbounds i8, ptr %.028, i64 4
   %41 = load i32, ptr %40, align 4
   %.not = icmp eq i32 %41, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %39, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %39 ]
-  %42 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa, i32 0)
+  %.018.lcssa = phi i32 [ 0, %1 ], [ %.1, %39 ]
+  %42 = tail call i32 @llvm.smax.i32(i32 %.018.lcssa, i32 0)
   ret i32 %42
 }
 

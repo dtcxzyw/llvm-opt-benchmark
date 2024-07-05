@@ -1503,7 +1503,7 @@ for.body.lr.ph:                                   ; preds = %if.end27
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %rhs_idx.023 = phi i32 [ 0, %for.body.lr.ph ], [ %inc47, %for.inc ]
+  %idx.023 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %4 = load ptr, ptr %customFormatArgStarts, align 8
   %call32 = call ptr @uhash_nextElement_75(ptr noundef %4, ptr noundef nonnull %pos)
   %5 = load ptr, ptr %customFormatArgStarts11, align 8
@@ -1528,8 +1528,8 @@ if.end38:                                         ; preds = %for.body
   br i1 %call.i17, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.end38
-  %inc47 = add nuw nsw i32 %rhs_idx.023, 1
-  %exitcond.not = icmp eq i32 %inc47, %call22
+  %inc = add nuw nsw i32 %idx.023, 1
+  %exitcond.not = icmp eq i32 %inc, %call22
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
 return:                                           ; preds = %for.body, %if.end38, %for.inc, %if.end27, %if.end9, %if.end20, %if.end3, %lor.lhs.false, %if.end, %entry
@@ -3294,8 +3294,8 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %totalCapacity.0 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
   %partIndex.0 = phi i32 [ 0, %entry ], [ %3, %for.inc ]
+  %totalCapacity.0 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
   %cmp.not.i = icmp eq i32 %partIndex.0, 0
   br i1 %cmp.not.i, label %for.cond.i.preheader, label %if.then.i
 
@@ -5836,8 +5836,8 @@ new.cont:                                         ; preds = %invoke.cont, %if.en
 
 for.cond:                                         ; preds = %for.inc, %new.cont
   %15 = phi ptr [ %11, %new.cont ], [ %.pre, %for.inc ]
-  %sourceOffset.0 = phi i32 [ %14, %new.cont ], [ %sourceOffset.4, %for.inc ]
   %i.0.in = phi i32 [ %msgStart, %new.cont ], [ %i.2, %for.inc ]
+  %sourceOffset.0 = phi i32 [ %14, %new.cont ], [ %sourceOffset.4, %for.inc ]
   %prevIndex.0 = phi i32 [ %add.i, %new.cont ], [ %prevIndex.2, %for.inc ]
   %i.0 = add nsw i32 %i.0.in, 1
   %idxprom.i87 = sext i32 %i.0 to i64
@@ -6294,8 +6294,8 @@ if.else163:                                       ; preds = %if.else156
   br label %cleanup178.thread
 
 if.end166:                                        ; preds = %cleanup.thread, %invoke.cont83, %invoke.cont153
-  %sourceOffset.2 = phi i32 [ %80, %invoke.cont153 ], [ %42, %invoke.cont83 ], [ %next.0, %cleanup.thread ]
   %haveArgResult.2 = phi i8 [ 1, %invoke.cont153 ], [ 1, %invoke.cont83 ], [ %haveArgResult.0, %cleanup.thread ]
+  %sourceOffset.2 = phi i32 [ %80, %invoke.cont153 ], [ %42, %invoke.cont83 ], [ %next.0, %cleanup.thread ]
   %tobool167.not = icmp eq i8 %haveArgResult.2, 0
   %82 = load i32, ptr %count, align 4
   %cmp169.not = icmp sgt i32 %82, %conv.i102
@@ -6325,8 +6325,8 @@ cleanup178:                                       ; preds = %if.end166, %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %cleanup178, %if.then56
-  %sourceOffset.4 = phi i32 [ %add43, %if.then56 ], [ %sourceOffset.2, %cleanup178 ]
   %i.2 = phi i32 [ %i.0, %if.then56 ], [ %start..i, %cleanup178 ]
+  %sourceOffset.4 = phi i32 [ %add43, %if.then56 ], [ %sourceOffset.2, %cleanup178 ]
   %prevIndex.2 = phi i32 [ %add.i96, %if.then56 ], [ %add.i180, %cleanup178 ]
   %.pre = load ptr, ptr %parts.i, align 8
   br label %for.cond, !llvm.loop !49

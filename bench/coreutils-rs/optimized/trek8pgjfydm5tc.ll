@@ -105,7 +105,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h5419496c874c98dcE(ptr n
   br label %.outer
 
 .outer:                                           ; preds = %38, %3
-  %.0.ph = phi i64 [ %39, %38 ], [ 0, %3 ]
+  %.017.ph = phi i64 [ %39, %38 ], [ 0, %3 ]
   %10 = call noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$8read_buf17hb0fbbcb9c10f4ad0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %._crit_edge, label %.lr.ph
@@ -161,7 +161,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 33:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbb9b0977a0efaa53E.exit"
   %34 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.0.ph, ptr %34, align 8
+  store i64 %.017.ph, ptr %34, align 8
   store i64 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6)
@@ -176,7 +176,7 @@ default.unreachable:                              ; preds = %.lr.ph
   ret void
 
 38:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbb9b0977a0efaa53E.exit20"
-  %39 = add i64 %14, %.0.ph
+  %39 = add i64 %14, %.017.ph
   store i64 0, ptr %8, align 8
   br label %.outer
 
@@ -229,7 +229,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h5f96cb79cded4ea0E(ptr n
   br label %.outer
 
 .outer:                                           ; preds = %38, %3
-  %.0.ph = phi i64 [ %39, %38 ], [ 0, %3 ]
+  %.017.ph = phi i64 [ %39, %38 ], [ 0, %3 ]
   %10 = call noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$8read_buf17hb0fbbcb9c10f4ad0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %._crit_edge, label %.lr.ph
@@ -285,7 +285,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 33:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbb9b0977a0efaa53E.exit"
   %34 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.0.ph, ptr %34, align 8
+  store i64 %.017.ph, ptr %34, align 8
   store i64 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6)
@@ -300,7 +300,7 @@ default.unreachable:                              ; preds = %.lr.ph
   ret void
 
 38:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbb9b0977a0efaa53E.exit20"
-  %39 = add i64 %14, %.0.ph
+  %39 = add i64 %14, %.017.ph
   store i64 0, ptr %8, align 8
   br label %.outer
 
@@ -353,7 +353,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h731dd9c91cc74fa0E(ptr n
   br label %.outer
 
 .outer:                                           ; preds = %38, %3
-  %.0.ph = phi i64 [ %39, %38 ], [ 0, %3 ]
+  %.017.ph = phi i64 [ %39, %38 ], [ 0, %3 ]
   %10 = call noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$8read_buf17hb0fbbcb9c10f4ad0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %._crit_edge, label %.lr.ph
@@ -409,7 +409,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 33:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbb9b0977a0efaa53E.exit"
   %34 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.0.ph, ptr %34, align 8
+  store i64 %.017.ph, ptr %34, align 8
   store i64 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6)
@@ -424,7 +424,7 @@ default.unreachable:                              ; preds = %.lr.ph
   ret void
 
 38:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbb9b0977a0efaa53E.exit20"
-  %39 = add i64 %14, %.0.ph
+  %39 = add i64 %14, %.017.ph
   store i64 0, ptr %8, align 8
   br label %.outer
 

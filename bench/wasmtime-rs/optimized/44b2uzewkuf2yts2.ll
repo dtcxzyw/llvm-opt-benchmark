@@ -286,8 +286,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h5490d05ad367c6e1E.exit"
 
 "_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h5490d05ad367c6e1E.exit": ; preds = %3, %5
-  %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
   %.sroa.0.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %3 ]
+  %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
   store i64 1, ptr %0, align 8, !noalias !5
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !5
@@ -327,8 +327,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17had51c4f24d1e6f54E.llvm.3622975676230304285.exit"
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17had51c4f24d1e6f54E.llvm.3622975676230304285.exit": ; preds = %6, %8
-  %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
   %.sroa.0.0.i.i.i = phi i64 [ %10, %8 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
+  %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
   store i64 1, ptr %0, align 8, !noalias !23
   store i64 %.sroa.0.0.i.i.i, ptr %4, align 8, !noalias !23
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -419,9 +419,9 @@ _ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit.i.i: ; preds = %38, %30
   %42 = extractvalue { ptr, i32, i32 } %41, 0
   %.not.i.i.i.i.i = icmp sgt ptr %42, inttoptr (i64 -4096 to ptr)
   %43 = icmp slt ptr %42, null
-  %.0.i.i.i.i.i = and i1 %.not.i.i.i.i.i, %43
+  %.014.i.i.i.i.i = and i1 %.not.i.i.i.i.i, %43
   %44 = ptrtoint ptr %42 to i64
-  br i1 %.0.i.i.i.i.i, label %45, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h771696c4e6f1bf8bE.exit.i.i"
+  br i1 %.014.i.i.i.i.i, label %45, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h771696c4e6f1bf8bE.exit.i.i"
 
 45:                                               ; preds = %_ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit.i.i
   %46 = trunc i64 %44 to i16
@@ -2346,16 +2346,16 @@ _ZN16wasmtime_runtime8instance8Instance15imported_global17h4707f19b158e1afaE.llv
   br label %.noexc64
 
 .noexc64:                                         ; preds = %_ZN16wasmtime_runtime8instance8Instance15imported_global17h4707f19b158e1afaE.llvm.3622975676230304285.exit.i.i, %_ZN16wasmtime_runtime8instance8Instance6global17ha528d38594137c40E.exit.i.i
-  %.019.i.i = phi ptr [ %371, %_ZN16wasmtime_runtime8instance8Instance6global17ha528d38594137c40E.exit.i.i ], [ %396, %_ZN16wasmtime_runtime8instance8Instance15imported_global17h4707f19b158e1afaE.llvm.3622975676230304285.exit.i.i ]
+  %.018.i.i = phi ptr [ %371, %_ZN16wasmtime_runtime8instance8Instance6global17ha528d38594137c40E.exit.i.i ], [ %396, %_ZN16wasmtime_runtime8instance8Instance15imported_global17h4707f19b158e1afaE.llvm.3622975676230304285.exit.i.i ]
   %397 = call noundef zeroext i1 @_ZN14wasmtime_types11WasmValType15is_gc_heap_type17h242cf2c7e6376c07E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %9)
   br i1 %397, label %399, label %398
 
 398:                                              ; preds = %.noexc64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %308, ptr noundef nonnull align 16 dereferenceable(16) %.019.i.i, i64 16, i1 false), !noalias !288
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %308, ptr noundef nonnull align 16 dereferenceable(16) %.018.i.i, i64 16, i1 false), !noalias !288
   br label %.noexc59
 
 399:                                              ; preds = %.noexc64
-  %400 = load i32, ptr %.019.i.i, align 4, !noalias !288, !noundef !4
+  %400 = load i32, ptr %.018.i.i, align 4, !noalias !288, !noundef !4
   %401 = icmp eq i32 %400, 0
   br i1 %401, label %.thread.i.i, label %.noexc65
 

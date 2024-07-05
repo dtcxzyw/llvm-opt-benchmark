@@ -1447,8 +1447,8 @@ _ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread271: ; preds = %.pr
           to label %283 unwind label %281
 
 "_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h8772aaefb738f2feE.exit": ; preds = %.noexc170, %254
-  %.sroa.5191.0 = phi ptr [ %263, %.noexc170 ], [ %.sroa.5205.0.copyload, %254 ]
   %.sroa.0189.0 = phi i64 [ %262, %.noexc170 ], [ %.sroa.0204.0.copyload, %254 ]
+  %.sroa.5191.0 = phi ptr [ %263, %.noexc170 ], [ %.sroa.5205.0.copyload, %254 ]
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   %.sroa.6203.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 32
@@ -2462,8 +2462,8 @@ _ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread282: ; preds = %.pr
           to label %287 unwind label %285
 
 "_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h8772aaefb738f2feE.exit": ; preds = %.noexc175, %258
-  %.sroa.5202.0 = phi ptr [ %267, %.noexc175 ], [ %.sroa.5216.0.copyload, %258 ]
   %.sroa.0200.0 = phi i64 [ %266, %.noexc175 ], [ %.sroa.0215.0.copyload, %258 ]
+  %.sroa.5202.0 = phi ptr [ %267, %.noexc175 ], [ %.sroa.5216.0.copyload, %258 ]
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
   %.sroa.6214.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 32

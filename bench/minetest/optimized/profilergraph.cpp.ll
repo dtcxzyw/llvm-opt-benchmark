@@ -2421,8 +2421,8 @@ for.body.lr.ph.i26:                               ; preds = %if.then.i20
   br label %for.body.i28
 
 for.cond.cleanup.i33:                             ; preds = %for.body.i28, %if.then.i20
-  %agg.tmp2.i.i.i96.sroa.10.0 = phi <2 x ptr> [ %agg.tmp2.i.i.i96.sroa.10.0.copyload, %if.then.i20 ], [ %agg.tmp2.i.i.i96.sroa.10.0.copyload59, %for.body.i28 ]
   %agg.tmp2.i.i.i96.sroa.0.0 = phi <2 x ptr> [ %agg.tmp2.i.i.i96.sroa.0.0.copyload, %if.then.i20 ], [ %agg.tmp2.i.i.i96.sroa.0.0.copyload58, %for.body.i28 ]
+  %agg.tmp2.i.i.i96.sroa.10.0 = phi <2 x ptr> [ %agg.tmp2.i.i.i96.sroa.10.0.copyload, %if.then.i20 ], [ %agg.tmp2.i.i.i96.sroa.10.0.copyload59, %for.body.i28 ]
   store <2 x ptr> %agg.tmp2.i.i.i96.sroa.0.0, ptr %agg.tmp9.i15, align 16, !tbaa !20, !noalias !127
   %_M_last.i18.i35 = getelementptr inbounds i8, ptr %agg.tmp9.i15, i64 16
   store <2 x ptr> %agg.tmp2.i.i.i96.sroa.10.0, ptr %_M_last.i18.i35, align 16, !tbaa !20, !noalias !127
@@ -2430,8 +2430,8 @@ for.cond.cleanup.i33:                             ; preds = %for.body.i28, %if.t
   br label %_ZSt15__copy_move_ditILb1EN13ProfilerGraph5PieceERS1_PS1_St15_Deque_iteratorIS1_S2_S3_EET3_S4_IT0_T1_T2_ESA_S6_.exit
 
 for.body.i28:                                     ; preds = %for.body.i28, %for.body.lr.ph.i26
-  %agg.tmp2.i.i.i96.sroa.10.1 = phi <2 x ptr> [ %agg.tmp2.i.i.i96.sroa.10.0.copyload, %for.body.lr.ph.i26 ], [ %agg.tmp2.i.i.i96.sroa.10.0.copyload59, %for.body.i28 ]
   %agg.tmp2.i.i.i96.sroa.0.1 = phi <2 x ptr> [ %agg.tmp2.i.i.i96.sroa.0.0.copyload, %for.body.lr.ph.i26 ], [ %agg.tmp2.i.i.i96.sroa.0.0.copyload58, %for.body.i28 ]
+  %agg.tmp2.i.i.i96.sroa.10.1 = phi <2 x ptr> [ %agg.tmp2.i.i.i96.sroa.10.0.copyload, %for.body.lr.ph.i26 ], [ %agg.tmp2.i.i.i96.sroa.10.0.copyload59, %for.body.i28 ]
   %__node.036.i29 = phi ptr [ %__node.034.i24, %for.body.lr.ph.i26 ], [ %__node.0.i31, %for.body.i28 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5.i13) #18, !noalias !127
   %23 = load ptr, ptr %__node.036.i29, align 8, !tbaa !20, !noalias !127

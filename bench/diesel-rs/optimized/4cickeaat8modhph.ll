@@ -319,8 +319,8 @@ define hidden noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17hc69
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %4, %6
-  %.0 = select i1 %.not, i1 %7, i1 false
-  ret i1 %.0
+  %.016 = select i1 %.not, i1 %7, i1 false
+  ret i1 %.016
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -939,8 +939,8 @@ define internal fastcc void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromSt
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !139, !noalias !142
   %14 = icmp ult i64 %.fca.1.extract.i.i, %13
-  %.0.i.i.i = select i1 %.not.i.i.i, i1 %14, i1 false
-  br i1 %.0.i.i.i, label %"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17h44c0209c6f290a2cE.exit", label %"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17h44c0209c6f290a2cE.exit.thread"
+  %.016.i.i.i = select i1 %.not.i.i.i, i1 %14, i1 false
+  br i1 %.016.i.i.i, label %"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17h44c0209c6f290a2cE.exit", label %"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17h44c0209c6f290a2cE.exit.thread"
 
 "_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17h44c0209c6f290a2cE.exit": ; preds = %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h60fc63a0183ae0efE.llvm.1773921356706703167.exit.i"
   call void @"_ZN125_$LT$diesel..mysql..connection..stmt..iterator..MysqlRow$u20$as$u20$diesel..row..Row$LT$diesel..mysql..backend..Mysql$GT$$GT$3get17h60fb424acc283ce9E"(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, i64 noundef %.fca.1.extract.i.i), !noalias !129
@@ -1087,8 +1087,8 @@ define hidden void @"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !186, !noalias !189
   %11 = icmp ult i64 %.fca.1.extract.i, %10
-  %.0.i.i = select i1 %.not.i.i, i1 %11, i1 false
-  br i1 %.0.i.i, label %12, label %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h60fc63a0183ae0efE.llvm.1773921356706703167.exit.thread"
+  %.016.i.i = select i1 %.not.i.i, i1 %11, i1 false
+  br i1 %.016.i.i, label %12, label %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h60fc63a0183ae0efE.llvm.1773921356706703167.exit.thread"
 
 12:                                               ; preds = %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h60fc63a0183ae0efE.llvm.1773921356706703167.exit"
   tail call void @"_ZN125_$LT$diesel..mysql..connection..stmt..iterator..MysqlRow$u20$as$u20$diesel..row..Row$LT$diesel..mysql..backend..Mysql$GT$$GT$3get17h60fb424acc283ce9E"(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, i64 noundef %.fca.1.extract.i)
@@ -1119,8 +1119,8 @@ define hidden { i64, i64 } @"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !191, !noalias !194
   %11 = icmp ult i64 %.fca.1.extract, %10
-  %.0.i = select i1 %.not.i, i1 %11, i1 false
-  %.sroa.0.0 = zext i1 %.0.i to i64
+  %.016.i = select i1 %.not.i, i1 %11, i1 false
+  %.sroa.0.0 = zext i1 %.016.i to i64
   br label %12
 
 12:                                               ; preds = %2, %8

@@ -1022,8 +1022,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h46453e71a85ebfadE.exit"
 
 "_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h46453e71a85ebfadE.exit": ; preds = %3, %5
-  %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
   %.sroa.0.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %3 ]
+  %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
   store i64 1, ptr %0, align 8, !noalias !157
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !157
@@ -1195,8 +1195,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hef848dc44a25b3beE.llvm.10367771592465264080.exit"
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hef848dc44a25b3beE.llvm.10367771592465264080.exit": ; preds = %6, %8
-  %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
   %.sroa.0.0.i.i.i = phi i64 [ %10, %8 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
+  %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
   store i64 1, ptr %0, align 8, !noalias !203
   store i64 %.sroa.0.0.i.i.i, ptr %4, align 8, !noalias !203
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -4108,7 +4108,7 @@ common.resume:                                    ; preds = %.body54, %187, %.bo
   %123 = load ptr, ptr %122, align 8, !nonnull !4, !noundef !4
   %124 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %123, i64 0, i64 %117
   %125 = load i64, ptr %124, align 8, !range !122, !noundef !4
-  %.024 = getelementptr inbounds i8, ptr %124, i64 32
+  %.025 = getelementptr inbounds i8, ptr %124, i64 32
   %trunc33 = trunc nuw i64 %125 to i1
   %. = select i1 %trunc33, i64 1, i64 2
   call void @llvm.experimental.noalias.scope.decl(metadata !659)
@@ -4365,7 +4365,7 @@ common.resume:                                    ; preds = %.body54, %187, %.bo
   br label %193
 
 193:                                              ; preds = %44, %4, %"_ZN4core3ptr150drop_in_place$LT$regex_automata..util..pool..PoolGuard$LT$alloc..vec..Vec$LT$usize$GT$$C$fn$LP$$RP$$u20$.$GT$$u20$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17hacaf8e244605dfccE.exit", %"_ZN4core3ptr150drop_in_place$LT$regex_automata..util..pool..PoolGuard$LT$alloc..vec..Vec$LT$usize$GT$$C$fn$LP$$RP$$u20$.$GT$$u20$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17hacaf8e244605dfccE.exit41"
-  %.sroa.8.3 = phi ptr [ %.024, %"_ZN4core3ptr150drop_in_place$LT$regex_automata..util..pool..PoolGuard$LT$alloc..vec..Vec$LT$usize$GT$$C$fn$LP$$RP$$u20$.$GT$$u20$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17hacaf8e244605dfccE.exit" ], [ null, %"_ZN4core3ptr150drop_in_place$LT$regex_automata..util..pool..PoolGuard$LT$alloc..vec..Vec$LT$usize$GT$$C$fn$LP$$RP$$u20$.$GT$$u20$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17hacaf8e244605dfccE.exit41" ], [ undef, %4 ], [ null, %44 ]
+  %.sroa.8.3 = phi ptr [ %.025, %"_ZN4core3ptr150drop_in_place$LT$regex_automata..util..pool..PoolGuard$LT$alloc..vec..Vec$LT$usize$GT$$C$fn$LP$$RP$$u20$.$GT$$u20$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17hacaf8e244605dfccE.exit" ], [ null, %"_ZN4core3ptr150drop_in_place$LT$regex_automata..util..pool..PoolGuard$LT$alloc..vec..Vec$LT$usize$GT$$C$fn$LP$$RP$$u20$.$GT$$u20$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17hacaf8e244605dfccE.exit41" ], [ undef, %4 ], [ null, %44 ]
   %.sroa.0.3 = phi i64 [ %., %"_ZN4core3ptr150drop_in_place$LT$regex_automata..util..pool..PoolGuard$LT$alloc..vec..Vec$LT$usize$GT$$C$fn$LP$$RP$$u20$.$GT$$u20$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17hacaf8e244605dfccE.exit" ], [ %spec.select63, %"_ZN4core3ptr150drop_in_place$LT$regex_automata..util..pool..PoolGuard$LT$alloc..vec..Vec$LT$usize$GT$$C$fn$LP$$RP$$u20$.$GT$$u20$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17hacaf8e244605dfccE.exit41" ], [ 0, %4 ], [ %spec.select62, %44 ]
   %194 = insertvalue { i64, ptr } poison, i64 %.sroa.0.3, 0
   %195 = insertvalue { i64, ptr } %194, ptr %.sroa.8.3, 1

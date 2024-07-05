@@ -1012,9 +1012,9 @@ define internal void @TM4_C(ptr nocapture noundef %0) #4 {
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %1
-  %.01520.us.i = phi i32 [ %21, %._crit_edge.us.i ], [ 0, %1 ]
-  %.01619.us.i = phi ptr [ %20, %._crit_edge.us.i ], [ %0, %1 ]
-  %9 = getelementptr inbounds i8, ptr %.01619.us.i, i64 -1
+  %.01520.us.i = phi ptr [ %20, %._crit_edge.us.i ], [ %0, %1 ]
+  %.01619.us.i = phi i32 [ %21, %._crit_edge.us.i ], [ 0, %1 ]
+  %9 = getelementptr inbounds i8, ptr %.01520.us.i, i64 -1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
@@ -1027,15 +1027,15 @@ define internal void @TM4_C(ptr nocapture noundef %0) #4 {
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds i8, ptr %12, i64 %16
   %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %.01619.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds i8, ptr %.01520.us.i, i64 %indvars.iv.i
   store i8 %18, ptr %19, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !17
 
 ._crit_edge.us.i:                                 ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %.01619.us.i, i64 32
-  %21 = add nuw nsw i32 %.01520.us.i, 1
+  %20 = getelementptr inbounds i8, ptr %.01520.us.i, i64 32
+  %21 = add nuw nsw i32 %.01619.us.i, 1
   %exitcond25.not.i = icmp eq i32 %21, 4
   br i1 %exitcond25.not.i, label %TrueMotion.exit, label %.lr.ph.us.i, !llvm.loop !18
 
@@ -1809,9 +1809,9 @@ define internal void @TM16_C(ptr nocapture noundef %0) #4 {
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %1
-  %.01520.us.i = phi i32 [ %21, %._crit_edge.us.i ], [ 0, %1 ]
-  %.01619.us.i = phi ptr [ %20, %._crit_edge.us.i ], [ %0, %1 ]
-  %9 = getelementptr inbounds i8, ptr %.01619.us.i, i64 -1
+  %.01520.us.i = phi ptr [ %20, %._crit_edge.us.i ], [ %0, %1 ]
+  %.01619.us.i = phi i32 [ %21, %._crit_edge.us.i ], [ 0, %1 ]
+  %9 = getelementptr inbounds i8, ptr %.01520.us.i, i64 -1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
@@ -1824,15 +1824,15 @@ define internal void @TM16_C(ptr nocapture noundef %0) #4 {
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds i8, ptr %12, i64 %16
   %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %.01619.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds i8, ptr %.01520.us.i, i64 %indvars.iv.i
   store i8 %18, ptr %19, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !17
 
 ._crit_edge.us.i:                                 ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %.01619.us.i, i64 32
-  %21 = add nuw nsw i32 %.01520.us.i, 1
+  %20 = getelementptr inbounds i8, ptr %.01520.us.i, i64 32
+  %21 = add nuw nsw i32 %.01619.us.i, 1
   %exitcond25.not.i = icmp eq i32 %21, 16
   br i1 %exitcond25.not.i, label %TrueMotion.exit, label %.lr.ph.us.i, !llvm.loop !18
 
@@ -2015,9 +2015,9 @@ define internal void @TM8uv_C(ptr nocapture noundef %0) #4 {
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %1
-  %.01520.us.i = phi i32 [ %21, %._crit_edge.us.i ], [ 0, %1 ]
-  %.01619.us.i = phi ptr [ %20, %._crit_edge.us.i ], [ %0, %1 ]
-  %9 = getelementptr inbounds i8, ptr %.01619.us.i, i64 -1
+  %.01520.us.i = phi ptr [ %20, %._crit_edge.us.i ], [ %0, %1 ]
+  %.01619.us.i = phi i32 [ %21, %._crit_edge.us.i ], [ 0, %1 ]
+  %9 = getelementptr inbounds i8, ptr %.01520.us.i, i64 -1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
@@ -2030,15 +2030,15 @@ define internal void @TM8uv_C(ptr nocapture noundef %0) #4 {
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds i8, ptr %12, i64 %16
   %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %.01619.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds i8, ptr %.01520.us.i, i64 %indvars.iv.i
   store i8 %18, ptr %19, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !17
 
 ._crit_edge.us.i:                                 ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %.01619.us.i, i64 32
-  %21 = add nuw nsw i32 %.01520.us.i, 1
+  %20 = getelementptr inbounds i8, ptr %.01520.us.i, i64 32
+  %21 = add nuw nsw i32 %.01619.us.i, 1
   %exitcond25.not.i = icmp eq i32 %21, 8
   br i1 %exitcond25.not.i, label %TrueMotion.exit, label %.lr.ph.us.i, !llvm.loop !18
 

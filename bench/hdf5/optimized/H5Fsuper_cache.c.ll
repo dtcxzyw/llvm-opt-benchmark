@@ -1568,7 +1568,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__drvrinfo_prefix_decode(ptr noc
   br label %81
 
 81:                                               ; preds = %77, %47
-  %.060 = phi ptr [ %80, %77 ], [ %66, %47 ]
+  %.0 = phi ptr [ %80, %77 ], [ %66, %47 ]
   br i1 %5, label %82, label %110
 
 82:                                               ; preds = %81
@@ -1613,12 +1613,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__drvrinfo_prefix_decode(ptr noc
   br label %111
 
 110:                                              ; preds = %92, %99, %81
-  store ptr %.060, ptr %2, align 8
+  store ptr %.0, ptr %2, align 8
   br label %111
 
 111:                                              ; preds = %110, %106, %88, %73, %43, %32, %22, %15
-  %.0 = phi i32 [ -1, %15 ], [ -1, %22 ], [ -1, %32 ], [ -1, %43 ], [ -1, %73 ], [ -1, %106 ], [ 0, %110 ], [ -1, %88 ]
-  ret i32 %.0
+  %.060 = phi i32 [ -1, %15 ], [ -1, %22 ], [ -1, %32 ], [ -1, %43 ], [ -1, %73 ], [ -1, %106 ], [ 0, %110 ], [ -1, %88 ]
+  ret i32 %.060
 }
 
 declare i32 @H5FD_set_eoa(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3

@@ -334,10 +334,10 @@ while.body.lr.ph.i.i:                             ; preds = %if.end55.i
 
 while.body.i.i:                                   ; preds = %if.end9.i.i, %while.body.lr.ph.i.i
   %sub6.i.i = phi i64 [ %42, %while.body.lr.ph.i.i ], [ %sub.i.i, %if.end9.i.i ]
-  %j2.05.i.i = phi i64 [ %42, %while.body.lr.ph.i.i ], [ %j2.1.i.i, %if.end9.i.i ]
-  %j1.04.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %j1.1.i.i, %if.end9.i.i ]
+  %j1.05.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %j1.1.i.i, %if.end9.i.i ]
+  %j2.04.i.i = phi i64 [ %42, %while.body.lr.ph.i.i ], [ %j2.1.i.i, %if.end9.i.i ]
   %shr.i.i = lshr i64 %sub6.i.i, 1
-  %add.i.i = add i64 %j1.04.i.i, %shr.i.i
+  %add.i.i = add i64 %shr.i.i, %j1.05.i.i
   %arrayidx.i.i4 = getelementptr inbounds ptr, ptr %43, i64 %add.i.i
   %44 = load ptr, ptr %arrayidx.i.i4, align 8
   %call.i63.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(1) %41) #12
@@ -353,8 +353,8 @@ if.else7.i.i:                                     ; preds = %if.else.i.i
   br label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.else7.i.i, %while.body.i.i
-  %j1.1.i.i = phi i64 [ %add8.i.i, %if.else7.i.i ], [ %j1.04.i.i, %while.body.i.i ]
-  %j2.1.i.i = phi i64 [ %j2.05.i.i, %if.else7.i.i ], [ %add.i.i, %while.body.i.i ]
+  %j2.1.i.i = phi i64 [ %j2.04.i.i, %if.else7.i.i ], [ %add.i.i, %while.body.i.i ]
+  %j1.1.i.i = phi i64 [ %add8.i.i, %if.else7.i.i ], [ %j1.05.i.i, %while.body.i.i ]
   %sub.i.i = sub i64 %j2.1.i.i, %j1.1.i.i
   %cmp1.i.i = icmp ugt i64 %sub.i.i, 1
   br i1 %cmp1.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !9

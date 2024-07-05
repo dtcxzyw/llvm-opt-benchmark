@@ -429,8 +429,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.287 = private unnamed_addr constant [12 x i8] c"INT32      \00", align 1
 @.str.288 = private unnamed_addr constant [12 x i8] c"IEEE FLT   \00", align 1
 @.str.289 = private unnamed_addr constant [12 x i8] c"MODICON FLT\00", align 1
-@switch.table.dissect_mbrtu_pdu_common = private unnamed_addr constant [3 x ptr] [ptr @.str.269, ptr @.str.270, ptr @.str.272], align 8
-@switch.table.dissect_mbrtu_pdu_common.1 = private unnamed_addr constant [3 x ptr] [ptr @.str.268, ptr @.str.268, ptr @.str.271], align 8
+@switch.table.dissect_mbrtu_pdu_common = private unnamed_addr constant [3 x ptr] [ptr @.str.268, ptr @.str.268, ptr @.str.271], align 8
+@switch.table.dissect_mbrtu_pdu_common.1 = private unnamed_addr constant [3 x ptr] [ptr @.str.269, ptr @.str.270, ptr @.str.272], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_modbus() local_unnamed_addr #0 {
@@ -558,8 +558,8 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %47
 
 47:                                               ; preds = %39, %32
-  %.0112 = phi ptr [ %41, %39 ], [ %35, %32 ]
-  %48 = getelementptr inbounds i8, ptr %.0112, i64 8
+  %.0115 = phi ptr [ %41, %39 ], [ %35, %32 ]
+  %48 = getelementptr inbounds i8, ptr %.0115, i64 8
   %49 = load i32, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %37, i64 4
   store i32 %49, ptr %50, align 4
@@ -608,12 +608,12 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   %74 = getelementptr inbounds i8, ptr %54, i64 16
   %75 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false)
-  %76 = load ptr, ptr %.0112, align 8
+  %76 = load ptr, ptr %.0115, align 8
   tail call void @wmem_list_prepend(ptr noundef %76, ptr noundef nonnull %54) #5
   br label %.critedge
 
 77:                                               ; preds = %47
-  %78 = load ptr, ptr %.0112, align 8
+  %78 = load ptr, ptr %.0115, align 8
   %79 = tail call ptr @wmem_list_head(ptr noundef %78) #5
   %80 = getelementptr inbounds i8, ptr %37, i64 32
   %.not124140 = icmp eq ptr %79, null
@@ -691,7 +691,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %121
 
 121:                                              ; preds = %117, %.critedge
-  %.0113 = phi ptr [ %120, %117 ], [ %37, %.critedge ]
+  %.0114 = phi ptr [ %120, %117 ], [ %37, %.critedge ]
   %122 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %.not126 = icmp sgt i8 %122, -1
   br i1 %.not126, label %.thread, label %123
@@ -720,7 +720,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   ]
 
 134:                                              ; preds = %.thread
-  %.not.i = icmp eq ptr %.0113, null
+  %.not.i = icmp eq ptr %.0114, null
   br i1 %.not.i, label %dissect_modbus_request.exit, label %135
 
 135:                                              ; preds = %134
@@ -760,7 +760,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
 146:                                              ; preds = %135
   %147 = load i32, ptr @hf_modbus_reference, align 4
   %148 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %147, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #5
-  %149 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %149 = getelementptr inbounds i8, ptr %.0114, i64 4
   %150 = load i32, ptr %149, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 5, i32 noundef 3, i32 noundef 1, i32 noundef %150, i16 noundef zeroext 0, i16 noundef zeroext 0)
   %151 = load i32, ptr @hf_modbus_padding, align 4
@@ -771,7 +771,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   %154 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 1) #5
   %155 = load i32, ptr @hf_modbus_reference, align 4
   %156 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %155, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #5
-  %157 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %157 = getelementptr inbounds i8, ptr %.0114, i64 4
   %158 = load i32, ptr %157, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 6, i32 noundef 3, i32 noundef 2, i32 noundef %158, i16 noundef zeroext %154, i16 noundef zeroext 0)
   br label %.loopexit.i
@@ -813,7 +813,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 178:                                              ; preds = %176
   %179 = add i32 %8, -3
-  %180 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %180 = getelementptr inbounds i8, ptr %.0114, i64 4
   %181 = load i32, ptr %180, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 8, i32 noundef 3, i32 noundef %179, i32 noundef %181, i16 noundef zeroext 0, i16 noundef zeroext 0)
   br label %.loopexit.i
@@ -829,7 +829,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   %190 = zext i8 %189 to i32
   %191 = load i32, ptr @hf_modbus_bytecnt, align 4
   %192 = tail call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %191, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %190) #5
-  %193 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %193 = getelementptr inbounds i8, ptr %.0114, i64 4
   %194 = load i32, ptr %193, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 15, i32 noundef 6, i32 noundef %190, i32 noundef %194, i16 noundef zeroext %183, i16 noundef zeroext %184)
   br label %.loopexit.i
@@ -844,7 +844,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   %202 = zext i8 %201 to i32
   %203 = load i32, ptr @hf_modbus_bytecnt, align 4
   %204 = tail call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %203, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %202) #5
-  %205 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %205 = getelementptr inbounds i8, ptr %.0114, i64 4
   %206 = load i32, ptr %205, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 16, i32 noundef 6, i32 noundef %202, i32 noundef %206, i16 noundef zeroext %196, i16 noundef zeroext 0)
   br label %.loopexit.i
@@ -886,7 +886,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not259.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %225
-  %230 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %230 = getelementptr inbounds i8, ptr %.0114, i64 4
   br label %231
 
 231:                                              ; preds = %231, %.lr.ph.i
@@ -938,7 +938,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   %269 = zext i8 %268 to i32
   %270 = load i32, ptr @hf_modbus_bytecnt, align 4
   %271 = tail call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %270, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef %269) #5
-  %272 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %272 = getelementptr inbounds i8, ptr %.0114, i64 4
   %273 = load i32, ptr %272, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 23, i32 noundef 10, i32 noundef %269, i32 noundef %273, i16 noundef zeroext 0, i16 noundef zeroext 0)
   br label %.loopexit.i
@@ -968,7 +968,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 288:                                              ; preds = %286
   %289 = add i32 %8, -2
-  %290 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %290 = getelementptr inbounds i8, ptr %.0114, i64 4
   %291 = load i32, ptr %290, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 43, i32 noundef 1, i32 noundef %289, i32 noundef %291, i16 noundef zeroext 0, i16 noundef zeroext 0)
   br label %.loopexit.i
@@ -978,7 +978,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %293, label %294, label %.loopexit.i
 
 294:                                              ; preds = %292
-  %295 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %295 = getelementptr inbounds i8, ptr %.0114, i64 4
   %296 = load i32, ptr %295, align 4
   tail call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext %16, i32 noundef 1, i32 noundef %132, i32 noundef %296, i16 noundef zeroext 0, i16 noundef zeroext 0)
   br label %.loopexit.i
@@ -989,20 +989,20 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 298:                                              ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %.not.i128 = icmp eq ptr %.0113, null
+  %.not.i128 = icmp eq ptr %.0114, null
   br i1 %.not.i128, label %dissect_modbus_response.exit, label %299
 
 299:                                              ; preds = %298
-  %300 = getelementptr inbounds i8, ptr %.0113, i64 10
+  %300 = getelementptr inbounds i8, ptr %.0114, i64 10
   %301 = load i16, ptr %300, align 2
-  %302 = getelementptr inbounds i8, ptr %.0113, i64 32
+  %302 = getelementptr inbounds i8, ptr %.0114, i64 32
   %303 = load i32, ptr %302, align 8
   %304 = icmp eq i32 %303, 1
   br i1 %304, label %305, label %proto_item_set_generated.exit473.i
 
 305:                                              ; preds = %299
   %306 = load i32, ptr @hf_modbus_request_frame, align 4
-  %307 = getelementptr inbounds i8, ptr %.0113, i64 12
+  %307 = getelementptr inbounds i8, ptr %.0114, i64 12
   %308 = load i32, ptr %307, align 4
   %309 = tail call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %306, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %308) #5
   %.not.i.i = icmp eq ptr %309, null
@@ -1023,7 +1023,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 proto_item_set_generated.exit.i:                  ; preds = %313, %310, %305
   %317 = getelementptr inbounds i8, ptr %1, i64 24
-  %318 = getelementptr inbounds i8, ptr %.0113, i64 16
+  %318 = getelementptr inbounds i8, ptr %.0114, i64 16
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %317, ptr noundef nonnull %318) #5
   %319 = load i32, ptr @hf_modbus_response_time, align 4
   %320 = call ptr @proto_tree_add_time(ptr noundef %14, i32 noundef %319, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #5
@@ -1075,9 +1075,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   %.tr.i = zext i8 %329 to i16
   %334 = shl nuw nsw i16 %.tr.i, 3
   %.0450.i = select i1 %.not470.i, i16 %334, i16 %301
-  %335 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %335 = getelementptr inbounds i8, ptr %.0114, i64 4
   %336 = load i32, ptr %335, align 4
-  %337 = getelementptr inbounds i8, ptr %.0113, i64 8
+  %337 = getelementptr inbounds i8, ptr %.0114, i64 8
   %338 = load i16, ptr %337, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext %16, i32 noundef 2, i32 noundef %330, i32 noundef %336, i16 noundef zeroext %338, i16 noundef zeroext %.0450.i)
   br label %.loopexit.i130
@@ -1087,9 +1087,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   %341 = zext i8 %340 to i32
   %342 = load i32, ptr @hf_modbus_bytecnt, align 4
   %343 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %342, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %341) #5
-  %344 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %344 = getelementptr inbounds i8, ptr %.0114, i64 4
   %345 = load i32, ptr %344, align 4
-  %346 = getelementptr inbounds i8, ptr %.0113, i64 8
+  %346 = getelementptr inbounds i8, ptr %.0114, i64 8
   %347 = load i16, ptr %346, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext %16, i32 noundef 2, i32 noundef %341, i32 noundef %345, i16 noundef zeroext %347, i16 noundef zeroext 0)
   br label %.loopexit.i130
@@ -1097,9 +1097,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
 348:                                              ; preds = %proto_item_set_generated.exit473.i
   %349 = load i32, ptr @hf_modbus_reference, align 4
   %350 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %349, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #5
-  %351 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %351 = getelementptr inbounds i8, ptr %.0114, i64 4
   %352 = load i32, ptr %351, align 4
-  %353 = getelementptr inbounds i8, ptr %.0113, i64 8
+  %353 = getelementptr inbounds i8, ptr %.0114, i64 8
   %354 = load i16, ptr %353, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 5, i32 noundef 3, i32 noundef 1, i32 noundef %352, i16 noundef zeroext %354, i16 noundef zeroext 0)
   %355 = load i32, ptr @hf_modbus_padding, align 4
@@ -1109,17 +1109,17 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
 357:                                              ; preds = %proto_item_set_generated.exit473.i
   %358 = load i32, ptr @hf_modbus_reference, align 4
   %359 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %358, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #5
-  %360 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %360 = getelementptr inbounds i8, ptr %.0114, i64 4
   %361 = load i32, ptr %360, align 4
-  %362 = getelementptr inbounds i8, ptr %.0113, i64 8
+  %362 = getelementptr inbounds i8, ptr %.0114, i64 8
   %363 = load i16, ptr %362, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 6, i32 noundef 3, i32 noundef 2, i32 noundef %361, i16 noundef zeroext %363, i16 noundef zeroext 0)
   br label %.loopexit.i130
 
 364:                                              ; preds = %proto_item_set_generated.exit473.i
-  %365 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %365 = getelementptr inbounds i8, ptr %.0114, i64 4
   %366 = load i32, ptr %365, align 4
-  %367 = getelementptr inbounds i8, ptr %.0113, i64 8
+  %367 = getelementptr inbounds i8, ptr %.0114, i64 8
   %368 = load i16, ptr %367, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 7, i32 noundef 1, i32 noundef 1, i32 noundef %366, i16 noundef zeroext %368, i16 noundef zeroext 0)
   br label %.loopexit.i130
@@ -1221,9 +1221,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
 
 418:                                              ; preds = %416
   %419 = add i32 %8, -3
-  %420 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %420 = getelementptr inbounds i8, ptr %.0114, i64 4
   %421 = load i32, ptr %420, align 4
-  %422 = getelementptr inbounds i8, ptr %.0113, i64 8
+  %422 = getelementptr inbounds i8, ptr %.0114, i64 8
   %423 = load i16, ptr %422, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 8, i32 noundef 3, i32 noundef %419, i32 noundef %421, i16 noundef zeroext %423, i16 noundef zeroext 0)
   br label %.loopexit.i130
@@ -1256,8 +1256,8 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   br label %.lr.ph489.i
 
 .lr.ph489.i:                                      ; preds = %487, %.lr.ph489.preheader.i
-  %.0453488.i = phi i32 [ %488, %487 ], [ 0, %.lr.ph489.preheader.i ]
-  %444 = add nuw nsw i32 %.0453488.i, 8
+  %.0454487.i = phi i32 [ %488, %487 ], [ 0, %.lr.ph489.preheader.i ]
+  %444 = add nuw nsw i32 %.0454487.i, 8
   %445 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %444) #5
   %446 = zext i8 %445 to i32
   switch i8 %445, label %453 [
@@ -1322,7 +1322,7 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   br label %487
 
 487:                                              ; preds = %485, %469, %454, %450, %447
-  %488 = add nuw nsw i32 %.0453488.i, 1
+  %488 = add nuw nsw i32 %.0454487.i, 1
   %exitcond496.not.i = icmp eq i32 %488, %441
   br i1 %exitcond496.not.i, label %.loopexit.i130, label %.lr.ph489.i, !llvm.loop !8
 
@@ -1349,32 +1349,32 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   br i1 %.not492.i, label %.loopexit.i130, label %.lr.ph486.i
 
 .lr.ph486.i:                                      ; preds = %499
-  %504 = getelementptr inbounds i8, ptr %.0113, i64 4
-  %505 = getelementptr inbounds i8, ptr %.0113, i64 8
+  %504 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %505 = getelementptr inbounds i8, ptr %.0114, i64 8
   br label %506
 
 506:                                              ; preds = %506, %.lr.ph486.i
-  %.0451485.i = phi i32 [ 0, %.lr.ph486.i ], [ %523, %506 ]
-  %.0454484.i = phi i32 [ 2, %.lr.ph486.i ], [ %521, %506 ]
-  %.1457483.i = phi i32 [ %501, %.lr.ph486.i ], [ %522, %506 ]
-  %507 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0454484.i) #5
+  %.1485.i = phi i32 [ %501, %.lr.ph486.i ], [ %522, %506 ]
+  %.0452484.i = phi i32 [ 2, %.lr.ph486.i ], [ %521, %506 ]
+  %.0455483.i = phi i32 [ 0, %.lr.ph486.i ], [ %523, %506 ]
+  %507 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0452484.i) #5
   %508 = zext i8 %507 to i32
   %509 = add nuw nsw i32 %508, 1
   %510 = load i32, ptr @ett_group_hdr, align 4
-  %511 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %14, ptr noundef %0, i32 noundef %.0454484.i, i32 noundef %509, i32 noundef %510, ptr noundef null, ptr noundef nonnull @.str.250, i32 noundef %.0451485.i) #5
+  %511 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %14, ptr noundef %0, i32 noundef %.0452484.i, i32 noundef %509, i32 noundef %510, ptr noundef null, ptr noundef nonnull @.str.250, i32 noundef %.0455483.i) #5
   %512 = load i32, ptr @hf_modbus_bytecnt, align 4
-  %513 = call ptr @proto_tree_add_uint(ptr noundef %511, i32 noundef %512, ptr noundef %0, i32 noundef %.0454484.i, i32 noundef 1, i32 noundef %508) #5
+  %513 = call ptr @proto_tree_add_uint(ptr noundef %511, i32 noundef %512, ptr noundef %0, i32 noundef %.0452484.i, i32 noundef 1, i32 noundef %508) #5
   %514 = load i32, ptr @hf_modbus_reftype, align 4
-  %515 = add i32 %.0454484.i, 1
+  %515 = add i32 %.0452484.i, 1
   %516 = call ptr @proto_tree_add_item(ptr noundef %511, i32 noundef %514, ptr noundef %0, i32 noundef %515, i32 noundef 1, i32 noundef 0) #5
-  %517 = add i32 %.0454484.i, 2
+  %517 = add i32 %.0452484.i, 2
   %518 = add nsw i32 %508, -1
   %519 = load i32, ptr %504, align 4
   %520 = load i16, ptr %505, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef %1, ptr noundef %511, i8 noundef zeroext 20, i32 noundef %517, i32 noundef %518, i32 noundef %519, i16 noundef zeroext %520, i16 noundef zeroext 0)
-  %521 = add i32 %509, %.0454484.i
-  %522 = sub nsw i32 %.1457483.i, %509
-  %523 = add i32 %.0451485.i, 1
+  %521 = add i32 %509, %.0452484.i
+  %522 = sub nsw i32 %.1485.i, %509
+  %523 = add i32 %.0455483.i, 1
   %524 = icmp sgt i32 %522, 0
   br i1 %524, label %506, label %.loopexit.i130, !llvm.loop !9
 
@@ -1387,35 +1387,35 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   br i1 %.not491.i, label %.loopexit.i130, label %.lr.ph482.i
 
 .lr.ph482.i:                                      ; preds = %525
-  %530 = getelementptr inbounds i8, ptr %.0113, i64 4
-  %531 = getelementptr inbounds i8, ptr %.0113, i64 8
+  %530 = getelementptr inbounds i8, ptr %.0114, i64 4
+  %531 = getelementptr inbounds i8, ptr %.0114, i64 8
   br label %532
 
 532:                                              ; preds = %532, %.lr.ph482.i
-  %.1481.i = phi i32 [ 0, %.lr.ph482.i ], [ %552, %532 ]
-  %.1455480.i = phi i32 [ 2, %.lr.ph482.i ], [ %550, %532 ]
-  %.2458479.i = phi i32 [ %527, %.lr.ph482.i ], [ %551, %532 ]
-  %533 = add i32 %.1455480.i, 5
+  %.2481.i = phi i32 [ %527, %.lr.ph482.i ], [ %551, %532 ]
+  %.1453480.i = phi i32 [ 2, %.lr.ph482.i ], [ %550, %532 ]
+  %.1456479.i = phi i32 [ 0, %.lr.ph482.i ], [ %552, %532 ]
+  %533 = add i32 %.1453480.i, 5
   %534 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %533) #5
   %535 = zext i16 %534 to i32
   %536 = shl nuw nsw i32 %535, 1
   %537 = add nuw nsw i32 %536, 7
   %538 = load i32, ptr @ett_group_hdr, align 4
-  %539 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %14, ptr noundef %0, i32 noundef %.1455480.i, i32 noundef %537, i32 noundef %538, ptr noundef null, ptr noundef nonnull @.str.250, i32 noundef %.1481.i) #5
+  %539 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %14, ptr noundef %0, i32 noundef %.1453480.i, i32 noundef %537, i32 noundef %538, ptr noundef null, ptr noundef nonnull @.str.250, i32 noundef %.1456479.i) #5
   %540 = load i32, ptr @hf_modbus_reftype, align 4
-  %541 = call ptr @proto_tree_add_item(ptr noundef %539, i32 noundef %540, ptr noundef %0, i32 noundef %.1455480.i, i32 noundef 1, i32 noundef 0) #5
+  %541 = call ptr @proto_tree_add_item(ptr noundef %539, i32 noundef %540, ptr noundef %0, i32 noundef %.1453480.i, i32 noundef 1, i32 noundef 0) #5
   %542 = load i32, ptr @hf_modbus_lreference, align 4
-  %543 = add i32 %.1455480.i, 1
+  %543 = add i32 %.1453480.i, 1
   %544 = call ptr @proto_tree_add_item(ptr noundef %539, i32 noundef %542, ptr noundef %0, i32 noundef %543, i32 noundef 4, i32 noundef 0) #5
   %545 = load i32, ptr @hf_modbus_wordcnt, align 4
   %546 = call ptr @proto_tree_add_uint(ptr noundef %539, i32 noundef %545, ptr noundef %0, i32 noundef %533, i32 noundef 2, i32 noundef %535) #5
-  %547 = add i32 %.1455480.i, 7
+  %547 = add i32 %.1453480.i, 7
   %548 = load i32, ptr %530, align 4
   %549 = load i16, ptr %531, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef %1, ptr noundef %539, i8 noundef zeroext 21, i32 noundef %547, i32 noundef %536, i32 noundef %548, i16 noundef zeroext %549, i16 noundef zeroext 0)
-  %550 = add i32 %537, %.1455480.i
-  %551 = sub nsw i32 %.2458479.i, %537
-  %552 = add i32 %.1481.i, 1
+  %550 = add i32 %537, %.1453480.i
+  %551 = sub nsw i32 %.2481.i, %537
+  %552 = add i32 %.1456479.i, 1
   %553 = icmp sgt i32 %551, 0
   br i1 %553, label %532, label %.loopexit.i130, !llvm.loop !10
 
@@ -1433,9 +1433,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   %563 = zext i8 %562 to i32
   %564 = load i32, ptr @hf_modbus_bytecnt, align 4
   %565 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %564, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %563) #5
-  %566 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %566 = getelementptr inbounds i8, ptr %.0114, i64 4
   %567 = load i32, ptr %566, align 4
-  %568 = getelementptr inbounds i8, ptr %.0113, i64 8
+  %568 = getelementptr inbounds i8, ptr %.0114, i64 8
   %569 = load i16, ptr %568, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 23, i32 noundef 2, i32 noundef %563, i32 noundef %567, i16 noundef zeroext %569, i16 noundef zeroext 0)
   br label %.loopexit.i130
@@ -1448,9 +1448,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   %575 = load i32, ptr @hf_modbus_wordcnt, align 4
   %576 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %575, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef 0) #5
   %577 = add nsw i32 %572, -2
-  %578 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %578 = getelementptr inbounds i8, ptr %.0114, i64 4
   %579 = load i32, ptr %578, align 4
-  %580 = getelementptr inbounds i8, ptr %.0113, i64 8
+  %580 = getelementptr inbounds i8, ptr %.0114, i64 8
   %581 = load i16, ptr %580, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 24, i32 noundef 5, i32 noundef %577, i32 noundef %579, i16 noundef zeroext %581, i16 noundef zeroext 0)
   br label %.loopexit.i130
@@ -1482,16 +1482,16 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   br i1 %.not490.i, label %.loopexit.i130, label %.lr.ph.i132
 
 .lr.ph.i132:                                      ; preds = %586, %620
-  %.2478.i = phi i32 [ %609, %620 ], [ 0, %586 ]
-  %.0452477.i = phi i32 [ %621, %620 ], [ 0, %586 ]
-  %602 = add i32 %.0452477.i, 7
+  %.2457478.i = phi i32 [ %609, %620 ], [ 0, %586 ]
+  %.0458477.i = phi i32 [ %621, %620 ], [ 0, %586 ]
+  %602 = add i32 %.0458477.i, 7
   %603 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %602) #5
-  %604 = add i32 %.0452477.i, 8
+  %604 = add i32 %.0458477.i, 8
   %605 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %604) #5
   %606 = zext i8 %605 to i32
   %607 = add nuw nsw i32 %606, 2
   %608 = load i32, ptr @ett_device_id_object_items, align 4
-  %609 = add nuw nsw i32 %.2478.i, 1
+  %609 = add nuw nsw i32 %.2457478.i, 1
   %610 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %601, ptr noundef %0, i32 noundef %602, i32 noundef %607, i32 noundef %608, ptr noundef null, ptr noundef nonnull @.str.267, i32 noundef %609) #5
   %611 = load i32, ptr @hf_modbus_object_id, align 4
   %612 = call ptr @proto_tree_add_item(ptr noundef %610, i32 noundef %611, ptr noundef %0, i32 noundef %602, i32 noundef 1, i32 noundef 0) #5
@@ -1507,12 +1507,12 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
 .sink.split.i:                                    ; preds = %616, %.lr.ph.i132
   %hf_modbus_object_value.sink.i = phi ptr [ @hf_modbus_object_str_value, %.lr.ph.i132 ], [ @hf_modbus_object_value, %616 ]
   %617 = load i32, ptr %hf_modbus_object_value.sink.i, align 4
-  %618 = add i32 %.0452477.i, 9
+  %618 = add i32 %.0458477.i, 9
   %619 = call ptr @proto_tree_add_item(ptr noundef %610, i32 noundef %617, ptr noundef %0, i32 noundef %618, i32 noundef %606, i32 noundef 0) #5
   br label %620
 
 620:                                              ; preds = %.sink.split.i, %616
-  %621 = add i32 %607, %.0452477.i
+  %621 = add i32 %607, %.0458477.i
   %exitcond.not.i133 = icmp eq i32 %609, %596
   br i1 %exitcond.not.i133, label %.loopexit.i130, label %.lr.ph.i132, !llvm.loop !11
 
@@ -1522,9 +1522,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
 
 624:                                              ; preds = %622
   %625 = add i32 %8, -2
-  %626 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %626 = getelementptr inbounds i8, ptr %.0114, i64 4
   %627 = load i32, ptr %626, align 4
-  %628 = getelementptr inbounds i8, ptr %.0113, i64 8
+  %628 = getelementptr inbounds i8, ptr %.0114, i64 8
   %629 = load i16, ptr %628, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext 43, i32 noundef 1, i32 noundef %625, i32 noundef %627, i16 noundef zeroext %629, i16 noundef zeroext 0)
   br label %.loopexit.i130
@@ -1534,9 +1534,9 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   br i1 %631, label %632, label %.loopexit.i130
 
 632:                                              ; preds = %630
-  %633 = getelementptr inbounds i8, ptr %.0113, i64 4
+  %633 = getelementptr inbounds i8, ptr %.0114, i64 4
   %634 = load i32, ptr %633, align 4
-  %635 = getelementptr inbounds i8, ptr %.0113, i64 8
+  %635 = getelementptr inbounds i8, ptr %.0114, i64 8
   %636 = load i16, ptr %635, align 8
   call fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, i8 noundef zeroext %16, i32 noundef 1, i32 noundef %132, i32 noundef %634, i16 noundef zeroext %636, i16 noundef zeroext 0)
   br label %.loopexit.i130
@@ -1554,8 +1554,8 @@ dissect_modbus_request.exit:                      ; preds = %.loopexit.i, %134, 
   br label %639
 
 639:                                              ; preds = %7, %4, %dissect_modbus_request.exit
-  %.0115 = phi i32 [ %638, %dissect_modbus_request.exit ], [ 0, %4 ], [ 0, %7 ]
-  ret i32 %.0115
+  %.0112 = phi i32 [ %638, %dissect_modbus_request.exit ], [ 0, %4 ], [ 0, %7 ]
+  ret i32 %.0112
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2286,8 +2286,8 @@ define internal fastcc i32 @dissect_mbtcp_pdu_common(ptr noundef %0, ptr noundef
 
 30:                                               ; preds = %29, %28, %27
   %31 = phi i1 [ true, %29 ], [ false, %28 ], [ false, %27 ]
+  %.093 = phi ptr [ @.str.271, %29 ], [ @.str.268, %28 ], [ @.str.268, %27 ]
   %.092 = phi ptr [ @.str.272, %29 ], [ @.str.270, %28 ], [ @.str.269, %27 ]
-  %.091 = phi ptr [ @.str.271, %29 ], [ @.str.268, %28 ], [ @.str.268, %27 ]
   %32 = getelementptr inbounds i8, ptr %6, i64 4
   store i16 %7, ptr %32, align 4
   %33 = getelementptr inbounds i8, ptr %6, i64 6
@@ -2327,7 +2327,7 @@ define internal fastcc i32 @dissect_mbtcp_pdu_common(ptr noundef %0, ptr noundef
 
 51:                                               ; preds = %45
   %52 = tail call ptr @val_to_str(i32 noundef %39, ptr noundef nonnull @function_code_vals, ptr noundef nonnull @.str.273) #5
-  %spec.select = select i1 %.090, ptr %.091, ptr @.str.274
+  %spec.select = select i1 %.090, ptr %.093, ptr @.str.274
   %char097 = load i8, ptr %spec.select, align 1
   %.not98 = icmp eq i8 %char097, 0
   %53 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2345,8 +2345,8 @@ define internal fastcc i32 @dissect_mbtcp_pdu_common(ptr noundef %0, ptr noundef
   br label %66
 
 59:                                               ; preds = %41, %47
-  %.093.ph = phi ptr [ %50, %47 ], [ %44, %41 ]
-  %spec.select103 = select i1 %.090, ptr %.091, ptr @.str.274
+  %.091.ph = phi ptr [ %50, %47 ], [ %44, %41 ]
+  %spec.select103 = select i1 %.090, ptr %.093, ptr @.str.274
   %char0 = load i8, ptr %spec.select103, align 1
   %.not96 = icmp eq i8 %char0, 0
   %60 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2356,11 +2356,11 @@ define internal fastcc i32 @dissect_mbtcp_pdu_common(ptr noundef %0, ptr noundef
   br i1 %.not96, label %65, label %64
 
 64:                                               ; preds = %59
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.277, ptr noundef nonnull %.092, i32 noundef %62, i32 noundef %63, i32 noundef %39, i32 noundef 1, ptr noundef %.093.ph, ptr noundef nonnull %spec.select103) #5
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.277, ptr noundef nonnull %.092, i32 noundef %62, i32 noundef %63, i32 noundef %39, i32 noundef 1, ptr noundef %.091.ph, ptr noundef nonnull %spec.select103) #5
   br label %66
 
 65:                                               ; preds = %59
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.278, ptr noundef nonnull %.092, i32 noundef %62, i32 noundef %63, i32 noundef %39, i32 noundef 1, ptr noundef %.093.ph) #5
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.278, ptr noundef nonnull %.092, i32 noundef %62, i32 noundef %63, i32 noundef %39, i32 noundef 1, ptr noundef %.091.ph) #5
   br label %66
 
 66:                                               ; preds = %64, %65, %57, %58
@@ -2632,7 +2632,7 @@ switch.lookup:
 
 34:                                               ; preds = %28
   %35 = tail call ptr @val_to_str(i32 noundef %22, ptr noundef nonnull @function_code_vals, ptr noundef nonnull @.str.273) #5
-  %spec.select = select i1 %.085, ptr %switch.load100, ptr @.str.274
+  %spec.select = select i1 %.085, ptr %switch.load, ptr @.str.274
   %char092 = load i8, ptr %spec.select, align 1
   %.not93 = icmp eq i8 %char092, 0
   %36 = load ptr, ptr %5, align 8
@@ -2640,16 +2640,16 @@ switch.lookup:
   br i1 %.not93, label %39, label %38
 
 38:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.280, ptr noundef nonnull %switch.load, i32 noundef %37, i32 noundef %22, ptr noundef %35, ptr noundef nonnull %spec.select) #5
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.280, ptr noundef nonnull %switch.load100, i32 noundef %37, i32 noundef %22, ptr noundef %35, ptr noundef nonnull %spec.select) #5
   br label %45
 
 39:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.281, ptr noundef nonnull %switch.load, i32 noundef %37, i32 noundef %22, ptr noundef %35) #5
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.281, ptr noundef nonnull %switch.load100, i32 noundef %37, i32 noundef %22, ptr noundef %35) #5
   br label %45
 
 40:                                               ; preds = %24, %30
-  %.088.ph = phi ptr [ %33, %30 ], [ %27, %24 ]
-  %spec.select96 = select i1 %.085, ptr %switch.load100, ptr @.str.274
+  %.086.ph = phi ptr [ %33, %30 ], [ %27, %24 ]
+  %spec.select96 = select i1 %.085, ptr %switch.load, ptr @.str.274
   %char0 = load i8, ptr %spec.select96, align 1
   %.not91 = icmp eq i8 %char0, 0
   %41 = load ptr, ptr %5, align 8
@@ -2657,11 +2657,11 @@ switch.lookup:
   br i1 %.not91, label %44, label %43
 
 43:                                               ; preds = %40
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.282, ptr noundef nonnull %switch.load, i32 noundef %42, i32 noundef %22, i32 noundef 1, ptr noundef %.088.ph, ptr noundef nonnull %spec.select96) #5
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.282, ptr noundef nonnull %switch.load100, i32 noundef %42, i32 noundef %22, i32 noundef 1, ptr noundef %.086.ph, ptr noundef nonnull %spec.select96) #5
   br label %45
 
 44:                                               ; preds = %40
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.283, ptr noundef nonnull %switch.load, i32 noundef %42, i32 noundef %22, i32 noundef 1, ptr noundef %.088.ph) #5
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.283, ptr noundef nonnull %switch.load100, i32 noundef %42, i32 noundef %22, i32 noundef 1, ptr noundef %.086.ph) #5
   br label %45
 
 45:                                               ; preds = %43, %44, %38, %39

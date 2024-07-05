@@ -854,28 +854,28 @@ current_pointed_by_HEAD.exit:                     ; preds = %for.inc.i, %land.lh
   br label %while.body
 
 while.body:                                       ; preds = %current_pointed_by_HEAD.exit, %if.end53
-  %prefix.2100 = phi ptr [ %prefix.1, %current_pointed_by_HEAD.exit ], [ %prefix.3, %if.end53 ]
-  %decoration.099 = phi ptr [ %call.i, %current_pointed_by_HEAD.exit ], [ %18, %if.end53 ]
-  %cmp.not = icmp eq ptr %decoration.099, %retval.0.i60
+  %decoration.0100 = phi ptr [ %call.i, %current_pointed_by_HEAD.exit ], [ %18, %if.end53 ]
+  %prefix.299 = phi ptr [ %prefix.1, %current_pointed_by_HEAD.exit ], [ %prefix.3, %if.end53 ]
+  %cmp.not = icmp eq ptr %decoration.0100, %retval.0.i60
   br i1 %cmp.not, label %if.end53, label %if.then33
 
 if.then33:                                        ; preds = %while.body
-  %type = getelementptr inbounds i8, ptr %decoration.099, i64 8
+  %type = getelementptr inbounds i8, ptr %decoration.0100, i64 8
   %10 = load i32, ptr %type, align 8
   %call.i62 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %use_color) #12
   %tobool.not.i63 = icmp eq i32 %call.i62, 0
   %idxprom.i = zext i32 %10 to i64
   %arrayidx.i = getelementptr inbounds [7 x [75 x i8]], ptr @decoration_colors, i64 0, i64 %idxprom.i
   %retval.0.i64 = select i1 %tobool.not.i63, ptr @.str.12, ptr %arrayidx.i
-  %11 = load i8, ptr %prefix.2100, align 1
+  %11 = load i8, ptr %prefix.299, align 1
   %tobool35.not = icmp eq i8 %11, 0
   br i1 %tobool35.not, label %if.end37, label %if.then36
 
 if.then36:                                        ; preds = %if.then33
   %call.i65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call29) #13
   call void @strbuf_add(ptr noundef %sb, ptr noundef %call29, i64 noundef %call.i65) #12
-  %call.i66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix.2100) #13
-  call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %prefix.2100, i64 noundef %call.i66) #12
+  %call.i66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix.299) #13
+  call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %prefix.299, i64 noundef %call.i66) #12
   %call.i67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #13
   call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %retval.0.i, i64 noundef %call.i67) #12
   br label %if.end37
@@ -904,7 +904,7 @@ if.end43:                                         ; preds = %if.then42, %land.lh
   call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %retval.0.i64, i64 noundef %call.i71) #12
   %14 = load i32, ptr @decoration_flags, align 4
   %cmp.i72 = icmp eq i32 %14, 1
-  %name.i73 = getelementptr inbounds i8, ptr %decoration.099, i64 12
+  %name.i73 = getelementptr inbounds i8, ptr %decoration.0100, i64 12
   br i1 %cmp.i72, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end43
@@ -964,8 +964,8 @@ show_name.exit93:                                 ; preds = %if.then.i90, %if.el
   br label %if.end53
 
 if.end53:                                         ; preds = %show_name.exit, %land.lhs.true45, %show_name.exit93, %while.body
-  %prefix.3 = phi ptr [ %prefix.2100, %while.body ], [ %separator.1, %show_name.exit93 ], [ %separator.1, %land.lhs.true45 ], [ %separator.1, %show_name.exit ]
-  %18 = load ptr, ptr %decoration.099, align 8
+  %prefix.3 = phi ptr [ %prefix.299, %while.body ], [ %separator.1, %show_name.exit93 ], [ %separator.1, %land.lhs.true45 ], [ %separator.1, %show_name.exit ]
+  %18 = load ptr, ptr %decoration.0100, align 8
   %tobool32.not = icmp eq ptr %18, null
   br i1 %tobool32.not, label %while.end, label %while.body, !llvm.loop !12
 
@@ -2608,8 +2608,8 @@ for.cond.i.preheader:                             ; preds = %if.then65.i, %if.th
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %if.end87.i
-  %showed_log.0.i = phi i32 [ %or.i, %if.end87.i ], [ 0, %for.cond.i.preheader ]
   %parents.0.i = phi ptr [ %48, %if.end87.i ], [ %call8.i, %for.cond.i.preheader ]
+  %showed_log.0.i = phi i32 [ %or.i, %if.end87.i ], [ 0, %for.cond.i.preheader ]
   %46 = load ptr, ptr %parents.0.i, align 8
   call void @parse_commit_or_die(ptr noundef %46) #12
   %call71.i = call ptr @get_commit_tree_oid(ptr noundef %46) #12

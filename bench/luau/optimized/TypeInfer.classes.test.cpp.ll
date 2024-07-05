@@ -17054,7 +17054,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit342.i:
   br label %.loopexit382.i
 
 737:                                              ; preds = %432, %431
-  %.088.i = phi ptr [ %433, %432 ], [ %46, %431 ]
+  %.090.i = phi ptr [ %433, %432 ], [ %46, %431 ]
   %738 = landingpad { ptr, i32 }
           cleanup
   br label %753
@@ -17111,16 +17111,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit342.i:
   br label %753
 
 753:                                              ; preds = %.loopexit383.i, %737
-  %.189.i = phi ptr [ %433, %.loopexit383.i ], [ %.088.i, %737 ]
-  %.186.i = phi i1 [ %752, %.loopexit383.i ], [ false, %737 ]
+  %.191.i = phi ptr [ %433, %.loopexit383.i ], [ %.090.i, %737 ]
+  %.188.i = phi i1 [ %752, %.loopexit383.i ], [ false, %737 ]
   %.pn112.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn112.pn.pn.pn.i, %.loopexit383.i ], [ %738, %737 ]
   call void @_ZN4Luau8PropertyD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %47) #21
-  %754 = icmp eq ptr %46, %.189.i
-  %or.cond7.i = select i1 %.186.i, i1 true, i1 %754
+  %754 = icmp eq ptr %46, %.191.i
+  %or.cond7.i = select i1 %.188.i, i1 true, i1 %754
   br i1 %or.cond7.i, label %.loopexit382.i, label %.preheader381.i
 
 .preheader381.i:                                  ; preds = %753, %.preheader381.i
-  %755 = phi ptr [ %756, %.preheader381.i ], [ %.189.i, %753 ]
+  %755 = phi ptr [ %756, %.preheader381.i ], [ %.191.i, %753 ]
   %756 = getelementptr inbounds i8, ptr %755, i64 -208
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %756) #21
   %757 = icmp eq ptr %756, %46
@@ -17142,7 +17142,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit342.i:
   br label %_ZN12ScopedFValueIbED2Ev.exit349.i
 
 759:                                              ; preds = %573, %572
-  %.046.i = phi ptr [ %574, %573 ], [ %54, %572 ]
+  %.049.i = phi ptr [ %574, %573 ], [ %54, %572 ]
   %760 = landingpad { ptr, i32 }
           cleanup
   br label %771
@@ -17173,15 +17173,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit342.i:
 
 771:                                              ; preds = %.loopexit.i, %759
   %.pn120.pn.i = phi { ptr, i32 } [ %.pn120.i, %.loopexit.i ], [ %760, %759 ]
-  %.147.i = phi ptr [ %574, %.loopexit.i ], [ %.046.i, %759 ]
-  %.1.i = phi i1 [ %770, %.loopexit.i ], [ false, %759 ]
+  %.150.i = phi ptr [ %574, %.loopexit.i ], [ %.049.i, %759 ]
+  %.147.i = phi i1 [ %770, %.loopexit.i ], [ false, %759 ]
   call void @_ZN4Luau8PropertyD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %55) #21
-  %772 = icmp eq ptr %54, %.147.i
-  %or.cond10.i = select i1 %.1.i, i1 true, i1 %772
+  %772 = icmp eq ptr %54, %.150.i
+  %or.cond10.i = select i1 %.147.i, i1 true, i1 %772
   br i1 %or.cond10.i, label %_ZN12ScopedFValueIbED2Ev.exit349.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %771, %.preheader.i
-  %773 = phi ptr [ %774, %.preheader.i ], [ %.147.i, %771 ]
+  %773 = phi ptr [ %774, %.preheader.i ], [ %.150.i, %771 ]
   %774 = getelementptr inbounds i8, ptr %773, i64 -208
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %774) #21
   %775 = icmp eq ptr %774, %54

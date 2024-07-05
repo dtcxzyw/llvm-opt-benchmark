@@ -2312,10 +2312,10 @@ define internal fastcc noundef float @_ZL19estimate_reciprocalP14PmeErrorInputsP
   br label %19
 
 19:                                               ; preds = %16, %14
-  %.0329 = phi i32 [ %18, %16 ], [ %5, %14 ]
+  %.0308 = phi i32 [ %18, %16 ], [ %5, %14 ]
   %20 = load ptr, ptr @stderr, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.62, i32 noundef %.0329) #21
-  %22 = sext i32 %.0329 to i64
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.62, i32 noundef %.0308) #21
+  %22 = sext i32 %.0308 to i64
   store i64 %22, ptr %12, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store i64 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
@@ -2394,10 +2394,10 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader: ; preds = %19
 
 _ZN3gmx22UniformIntDistributionIiEC2Eii.exit:     ; preds = %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit
   %indvars.iv = phi i64 [ 0, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader ], [ %indvars.iv.next, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit ]
-  %.0308164 = phi float [ 0.000000e+00, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader ], [ %82, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit ]
+  %.0311164 = phi float [ 0.000000e+00, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader ], [ %82, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit ]
   %80 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
-  %82 = call float @llvm.fmuladd.f32(float %81, float %81, float %.0308164)
+  %82 = call float @llvm.fmuladd.f32(float %81, float %81, float %.0311164)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %83, label %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit, !llvm.loop !10
@@ -2479,8 +2479,8 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit:     ; preds = %_ZN3gmx22UniformInt
 134:                                              ; preds = %.lr.ph175, %1088
   %135 = phi float [ 0.000000e+00, %.lr.ph175 ], [ %1072, %1088 ]
   %136 = phi float [ 0.000000e+00, %.lr.ph175 ], [ %1073, %1088 ]
-  %.0313173 = phi i32 [ %.030772, %.lr.ph175 ], [ %1089, %1088 ]
-  %137 = sitofp i32 %.0313173 to float
+  %.0316173 = phi i32 [ %.030772, %.lr.ph175 ], [ %1089, %1088 ]
+  %137 = sitofp i32 %.0316173 to float
   %138 = load float, ptr %117, align 4
   %139 = fmul float %138, %137
   %140 = load float, ptr %118, align 4
@@ -2495,7 +2495,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit:     ; preds = %_ZN3gmx22UniformInt
   br i1 %.not341167, label %._crit_edge171, label %.lr.ph170
 
 .lr.ph170:                                        ; preds = %134
-  %148 = icmp eq i32 %.0313173, 0
+  %148 = icmp eq i32 %.0316173, 0
   %.pre = load ptr, ptr %124, align 8
   %.pre300 = load i32, ptr %.pre, align 4
   br label %149
@@ -2506,8 +2506,8 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit:     ; preds = %_ZN3gmx22UniformInt
   %152 = phi float [ %135, %.lr.ph170 ], [ %1067, %._crit_edge ]
   %153 = phi float [ %136, %.lr.ph170 ], [ %1068, %._crit_edge ]
   %154 = phi i32 [ %.pre300, %.lr.ph170 ], [ %1069, %._crit_edge ]
-  %.0311168 = phi i32 [ %146, %.lr.ph170 ], [ %1070, %._crit_edge ]
-  %155 = sitofp i32 %.0311168 to float
+  %.0314168 = phi i32 [ %146, %.lr.ph170 ], [ %1070, %._crit_edge ]
+  %155 = sitofp i32 %.0314168 to float
   %156 = load float, ptr %121, align 4
   %157 = fmul float %156, %155
   %158 = load float, ptr %122, align 4
@@ -2523,21 +2523,21 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit:     ; preds = %_ZN3gmx22UniformInt
   br i1 %.not342165, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %149
-  %167 = or i32 %.0311168, %.0313173
-  %168 = icmp eq i32 %.0311168, 0
+  %167 = or i32 %.0314168, %.0316173
+  %168 = icmp eq i32 %.0314168, 0
   br label %169
 
 169:                                              ; preds = %.lr.ph, %1059
   %170 = phi i32 [ %151, %.lr.ph ], [ %1060, %1059 ]
   %171 = phi float [ %152, %.lr.ph ], [ %1061, %1059 ]
   %172 = phi float [ %153, %.lr.ph ], [ %1062, %1059 ]
-  %.0309166 = phi i32 [ %165, %.lr.ph ], [ %1063, %1059 ]
-  %173 = or i32 %167, %.0309166
+  %.0312166 = phi i32 [ %165, %.lr.ph ], [ %1063, %1059 ]
+  %173 = or i32 %167, %.0312166
   %or.cond3 = icmp eq i32 %173, 0
   br i1 %or.cond3, label %1059, label %174
 
 174:                                              ; preds = %169
-  %175 = sitofp i32 %.0309166 to float
+  %175 = sitofp i32 %.0312166 to float
   %176 = load float, ptr %125, align 4
   %177 = fmul float %176, %175
   %178 = load float, ptr %126, align 4
@@ -2778,7 +2778,7 @@ _ZL9eps_poly2fff.exit363:                         ; preds = %_ZL9eps_poly2fff.ex
   %328 = phi ptr [ %267, %_ZL9eps_poly2fff.exit ], [ %.pre303, %_ZL9eps_poly1fff.exit.i361 ]
   %.039.i362 = phi float [ 0.000000e+00, %_ZL9eps_poly2fff.exit ], [ %327, %_ZL9eps_poly1fff.exit.i361 ]
   %329 = fadd float %.039.i, %.039.i362
-  %330 = icmp eq i32 %.0309166, 0
+  %330 = icmp eq i32 %.0312166, 0
   br i1 %330, label %_ZL9eps_poly2fff.exit384, label %.preheader41.i364
 
 .preheader41.i364:                                ; preds = %_ZL9eps_poly2fff.exit363
@@ -3932,9 +3932,9 @@ _ZL9eps_poly4fff.exit515:                         ; preds = %_ZL9eps_poly4fff.ex
   %1060 = phi i32 [ %170, %169 ], [ %1044, %_ZL9eps_poly4fff.exit515 ]
   %1061 = phi float [ %171, %169 ], [ %1058, %_ZL9eps_poly4fff.exit515 ]
   %1062 = phi float [ %172, %169 ], [ %722, %_ZL9eps_poly4fff.exit515 ]
-  %1063 = add nsw i32 %.0309166, 1
+  %1063 = add nsw i32 %.0312166, 1
   %1064 = sdiv i32 %1060, 2
-  %.not342.not = icmp slt i32 %.0309166, %1064
+  %.not342.not = icmp slt i32 %.0312166, %1064
   br i1 %.not342.not, label %169, label %._crit_edge.loopexit, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %1059
@@ -3948,9 +3948,9 @@ _ZL9eps_poly4fff.exit515:                         ; preds = %_ZL9eps_poly4fff.ex
   %1067 = phi float [ %1061, %._crit_edge.loopexit ], [ %152, %149 ]
   %1068 = phi float [ %1062, %._crit_edge.loopexit ], [ %153, %149 ]
   %1069 = phi i32 [ %1060, %._crit_edge.loopexit ], [ %154, %149 ]
-  %1070 = add nsw i32 %.0311168, 1
+  %1070 = add nsw i32 %.0314168, 1
   %1071 = sdiv i32 %1065, 2
-  %.not341.not = icmp slt i32 %.0311168, %1071
+  %.not341.not = icmp slt i32 %.0314168, %1071
   br i1 %.not341.not, label %149, label %._crit_edge171, !llvm.loop !23
 
 ._crit_edge171:                                   ; preds = %._crit_edge, %134
@@ -3967,7 +3967,7 @@ _ZL9eps_poly4fff.exit515:                         ; preds = %_ZL9eps_poly4fff.ex
 
 1079:                                             ; preds = %1076, %._crit_edge171
   %1080 = load ptr, ptr @stderr, align 8
-  %reass.sub = sub i32 %.0313173, %.030772
+  %reass.sub = sub i32 %.0316173, %.030772
   %1081 = add nuw i32 %reass.sub, 1
   %1082 = sitofp i32 %1081 to double
   %1083 = fmul double %1082, 1.000000e+02
@@ -3978,8 +3978,8 @@ _ZL9eps_poly4fff.exit515:                         ; preds = %_ZL9eps_poly4fff.ex
   br label %1088
 
 1088:                                             ; preds = %1076, %1079
-  %1089 = add i32 %.0313173, 1
-  %exitcond287.not = icmp eq i32 %.0313173, %.030675
+  %1089 = add i32 %.0316173, 1
+  %exitcond287.not = icmp eq i32 %.0316173, %.030675
   br i1 %exitcond287.not, label %._crit_edge176, label %134, !llvm.loop !24
 
 ._crit_edge176:                                   ; preds = %1088, %115
@@ -4265,13 +4265,13 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.lo
   br label %1272
 
 1272:                                             ; preds = %1267, %1269
-  %.0315 = phi i32 [ %1271, %1269 ], [ %1268, %1267 ]
+  %.0318 = phi i32 [ %1271, %1269 ], [ %1268, %1267 ]
   %1273 = load ptr, ptr %84, align 8
   %1274 = load i32, ptr %1273, align 4
   %1275 = sdiv i32 %1274, -2
   %1276 = sdiv i32 %1274, 2
   %.not338204 = icmp sgt i32 %1275, %1276
-  %.pre368 = sext i32 %.0315 to i64
+  %.pre368 = sext i32 %.0318 to i64
   br i1 %.not338204, label %._crit_edge211, label %.lr.ph210
 
 .lr.ph210:                                        ; preds = %1272
@@ -4286,11 +4286,11 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.lo
   %1281 = phi i32 [ %1274, %.lr.ph210 ], [ %1544, %._crit_edge200 ]
   %1282 = phi i32 [ %.pre326, %.lr.ph210 ], [ %1545, %._crit_edge200 ]
   %1283 = phi i32 [ %.pre326, %.lr.ph210 ], [ %1546, %._crit_edge200 ]
-  %.1314208 = phi i32 [ %1275, %.lr.ph210 ], [ %1547, %._crit_edge200 ]
-  %.0318207 = phi float [ 0.000000e+00, %.lr.ph210 ], [ %.1319.lcssa, %._crit_edge200 ]
-  %.0321206 = phi float [ 0.000000e+00, %.lr.ph210 ], [ %.1322.lcssa, %._crit_edge200 ]
-  %.0325205 = phi float [ 0.000000e+00, %.lr.ph210 ], [ %.1326.lcssa, %._crit_edge200 ]
-  %1284 = sitofp i32 %.1314208 to float
+  %.0309208 = phi float [ 0.000000e+00, %.lr.ph210 ], [ %.1310.lcssa, %._crit_edge200 ]
+  %.1317207 = phi i32 [ %1275, %.lr.ph210 ], [ %1547, %._crit_edge200 ]
+  %.0322206 = phi float [ 0.000000e+00, %.lr.ph210 ], [ %.1323.lcssa, %._crit_edge200 ]
+  %.0326205 = phi float [ 0.000000e+00, %.lr.ph210 ], [ %.1327.lcssa, %._crit_edge200 ]
+  %1284 = sitofp i32 %.1317207 to float
   %1285 = load float, ptr %1249, align 4
   %1286 = fmul float %1285, %1284
   %1287 = load float, ptr %1250, align 4
@@ -4303,7 +4303,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.lo
   br i1 %.not339193, label %._crit_edge200, label %.lr.ph199
 
 .lr.ph199:                                        ; preds = %1280
-  %1293 = icmp eq i32 %.1314208, 0
+  %1293 = icmp eq i32 %.1317207, 0
   %1294 = fpext float %1284 to double
   %1295 = fmul double %1294, 0x401921FB54442D18
   %.pre327 = load ptr, ptr %1256, align 8
@@ -4314,11 +4314,11 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.lo
   %1297 = phi i32 [ %1282, %.lr.ph199 ], [ %1539, %._crit_edge190 ]
   %1298 = phi i32 [ %.pre328, %.lr.ph199 ], [ %1540, %._crit_edge190 ]
   %1299 = phi i32 [ %.pre328, %.lr.ph199 ], [ %1541, %._crit_edge190 ]
-  %.1312197 = phi i32 [ %1291, %.lr.ph199 ], [ %1542, %._crit_edge190 ]
-  %.1319196 = phi float [ %.0318207, %.lr.ph199 ], [ %.2320.lcssa, %._crit_edge190 ]
-  %.1322195 = phi float [ %.0321206, %.lr.ph199 ], [ %.2323.lcssa, %._crit_edge190 ]
-  %.1326194 = phi float [ %.0325205, %.lr.ph199 ], [ %.2327.lcssa, %._crit_edge190 ]
-  %1300 = sitofp i32 %.1312197 to float
+  %.1310197 = phi float [ %.0309208, %.lr.ph199 ], [ %.2.lcssa, %._crit_edge190 ]
+  %.1315196 = phi i32 [ %1291, %.lr.ph199 ], [ %1542, %._crit_edge190 ]
+  %.1323195 = phi float [ %.0322206, %.lr.ph199 ], [ %.2324.lcssa, %._crit_edge190 ]
+  %.1327194 = phi float [ %.0326205, %.lr.ph199 ], [ %.2328.lcssa, %._crit_edge190 ]
+  %1300 = sitofp i32 %.1315196 to float
   %1301 = load float, ptr %1253, align 4
   %1302 = fmul float %1301, %1300
   %1303 = load float, ptr %1254, align 4
@@ -4334,24 +4334,24 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.lo
   br i1 %.not340183, label %._crit_edge190, label %.lr.ph189
 
 .lr.ph189:                                        ; preds = %1296
-  %1312 = or i32 %.1312197, %.1314208
-  %1313 = icmp eq i32 %.1312197, 0
+  %1312 = or i32 %.1315196, %.1317207
+  %1313 = icmp eq i32 %.1315196, 0
   %1314 = fpext float %1300 to double
   %1315 = fmul double %1314, 0x401921FB54442D18
   br label %1316
 
 1316:                                             ; preds = %.lr.ph189, %1535
   %1317 = phi i32 [ %1298, %.lr.ph189 ], [ %1536, %1535 ]
-  %.1310187 = phi i32 [ %1310, %.lr.ph189 ], [ %1537, %1535 ]
-  %.2320186 = phi float [ %.1319196, %.lr.ph189 ], [ %.3, %1535 ]
-  %.2323185 = phi float [ %.1322195, %.lr.ph189 ], [ %.3324, %1535 ]
-  %.2327184 = phi float [ %.1326194, %.lr.ph189 ], [ %.3328, %1535 ]
-  %1318 = or i32 %1312, %.1310187
+  %.2187 = phi float [ %.1310197, %.lr.ph189 ], [ %.3, %1535 ]
+  %.1313186 = phi i32 [ %1310, %.lr.ph189 ], [ %1537, %1535 ]
+  %.2324185 = phi float [ %.1323195, %.lr.ph189 ], [ %.3325, %1535 ]
+  %.2328184 = phi float [ %.1327194, %.lr.ph189 ], [ %.3329, %1535 ]
+  %1318 = or i32 %1312, %.1313186
   %or.cond7 = icmp eq i32 %1318, 0
   br i1 %or.cond7, label %1535, label %1319
 
 1319:                                             ; preds = %1316
-  %1320 = sitofp i32 %.1310187 to float
+  %1320 = sitofp i32 %.1313186 to float
   %1321 = load float, ptr %1257, align 4
   %1322 = fmul float %1321, %1320
   %1323 = load float, ptr %1258, align 4
@@ -4456,7 +4456,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.lo
 
 _ZL8eps_selfffPffS_.exit:                         ; preds = %1319, %1395
   %.048.i518 = phi float [ %1404, %1395 ], [ 0.000000e+00, %1319 ]
-  %1405 = call float @llvm.fmuladd.f32(float %1342, float %.048.i518, float %.2327184)
+  %1405 = call float @llvm.fmuladd.f32(float %1342, float %.048.i518, float %.2187)
   br i1 %1313, label %_ZL8eps_selfffPffS_.exit528, label %1406
 
 1406:                                             ; preds = %_ZL8eps_selfffPffS_.exit
@@ -4539,8 +4539,8 @@ _ZL8eps_selfffPffS_.exit:                         ; preds = %1319, %1395
 
 _ZL8eps_selfffPffS_.exit528:                      ; preds = %_ZL8eps_selfffPffS_.exit, %1458
   %.048.i527 = phi float [ %1467, %1458 ], [ 0.000000e+00, %_ZL8eps_selfffPffS_.exit ]
-  %1468 = call float @llvm.fmuladd.f32(float %1342, float %.048.i527, float %.2323185)
-  %1469 = icmp eq i32 %.1310187, 0
+  %1468 = call float @llvm.fmuladd.f32(float %1342, float %.048.i527, float %.2328184)
+  %1469 = icmp eq i32 %.1313186, 0
   br i1 %1469, label %_ZL8eps_selfffPffS_.exit538, label %1470
 
 1470:                                             ; preds = %_ZL8eps_selfffPffS_.exit528
@@ -4625,19 +4625,19 @@ _ZL8eps_selfffPffS_.exit528:                      ; preds = %_ZL8eps_selfffPffS_
 
 _ZL8eps_selfffPffS_.exit538:                      ; preds = %_ZL8eps_selfffPffS_.exit528, %1524
   %.048.i537 = phi float [ %1533, %1524 ], [ 0.000000e+00, %_ZL8eps_selfffPffS_.exit528 ]
-  %1534 = call float @llvm.fmuladd.f32(float %1342, float %.048.i537, float %.2320186)
+  %1534 = call float @llvm.fmuladd.f32(float %1342, float %.048.i537, float %.2324185)
   %.pre329 = load ptr, ptr %1256, align 8
   %.pre330 = load i32, ptr %.pre329, align 4
   br label %1535
 
 1535:                                             ; preds = %1316, %_ZL8eps_selfffPffS_.exit538
   %1536 = phi i32 [ %1317, %1316 ], [ %.pre330, %_ZL8eps_selfffPffS_.exit538 ]
-  %.3328 = phi float [ %.2327184, %1316 ], [ %1405, %_ZL8eps_selfffPffS_.exit538 ]
-  %.3324 = phi float [ %.2323185, %1316 ], [ %1468, %_ZL8eps_selfffPffS_.exit538 ]
-  %.3 = phi float [ %.2320186, %1316 ], [ %1534, %_ZL8eps_selfffPffS_.exit538 ]
-  %1537 = add nsw i32 %.1310187, 1
+  %.3329 = phi float [ %.2328184, %1316 ], [ %1468, %_ZL8eps_selfffPffS_.exit538 ]
+  %.3325 = phi float [ %.2324185, %1316 ], [ %1534, %_ZL8eps_selfffPffS_.exit538 ]
+  %.3 = phi float [ %.2187, %1316 ], [ %1405, %_ZL8eps_selfffPffS_.exit538 ]
+  %1537 = add nsw i32 %.1313186, 1
   %1538 = sdiv i32 %1536, 2
-  %.not340.not = icmp slt i32 %.1310187, %1538
+  %.not340.not = icmp slt i32 %.1313186, %1538
   br i1 %.not340.not, label %1316, label %._crit_edge190.loopexit, !llvm.loop !29
 
 ._crit_edge190.loopexit:                          ; preds = %1535
@@ -4649,12 +4649,12 @@ _ZL8eps_selfffPffS_.exit538:                      ; preds = %_ZL8eps_selfffPffS_
   %1539 = phi i32 [ %1297, %1296 ], [ %.pre332, %._crit_edge190.loopexit ]
   %1540 = phi i32 [ %1298, %1296 ], [ %1536, %._crit_edge190.loopexit ]
   %1541 = phi i32 [ %1299, %1296 ], [ %1536, %._crit_edge190.loopexit ]
-  %.2327.lcssa = phi float [ %.1326194, %1296 ], [ %.3328, %._crit_edge190.loopexit ]
-  %.2323.lcssa = phi float [ %.1322195, %1296 ], [ %.3324, %._crit_edge190.loopexit ]
-  %.2320.lcssa = phi float [ %.1319196, %1296 ], [ %.3, %._crit_edge190.loopexit ]
-  %1542 = add nsw i32 %.1312197, 1
+  %.2328.lcssa = phi float [ %.1327194, %1296 ], [ %.3329, %._crit_edge190.loopexit ]
+  %.2324.lcssa = phi float [ %.1323195, %1296 ], [ %.3325, %._crit_edge190.loopexit ]
+  %.2.lcssa = phi float [ %.1310197, %1296 ], [ %.3, %._crit_edge190.loopexit ]
+  %1542 = add nsw i32 %.1315196, 1
   %1543 = sdiv i32 %1539, 2
-  %.not339.not = icmp slt i32 %.1312197, %1543
+  %.not339.not = icmp slt i32 %.1315196, %1543
   br i1 %.not339.not, label %1296, label %._crit_edge200.loopexit, !llvm.loop !30
 
 ._crit_edge200.loopexit:                          ; preds = %._crit_edge190
@@ -4666,42 +4666,42 @@ _ZL8eps_selfffPffS_.exit538:                      ; preds = %_ZL8eps_selfffPffS_
   %1544 = phi i32 [ %1281, %1280 ], [ %.pre334, %._crit_edge200.loopexit ]
   %1545 = phi i32 [ %1282, %1280 ], [ %1539, %._crit_edge200.loopexit ]
   %1546 = phi i32 [ %1283, %1280 ], [ %1539, %._crit_edge200.loopexit ]
-  %.1326.lcssa = phi float [ %.0325205, %1280 ], [ %.2327.lcssa, %._crit_edge200.loopexit ]
-  %.1322.lcssa = phi float [ %.0321206, %1280 ], [ %.2323.lcssa, %._crit_edge200.loopexit ]
-  %.1319.lcssa = phi float [ %.0318207, %1280 ], [ %.2320.lcssa, %._crit_edge200.loopexit ]
-  %1547 = add nsw i32 %.1314208, 1
+  %.1327.lcssa = phi float [ %.0326205, %1280 ], [ %.2328.lcssa, %._crit_edge200.loopexit ]
+  %.1323.lcssa = phi float [ %.0322206, %1280 ], [ %.2324.lcssa, %._crit_edge200.loopexit ]
+  %.1310.lcssa = phi float [ %.0309208, %1280 ], [ %.2.lcssa, %._crit_edge200.loopexit ]
+  %1547 = add nsw i32 %.1317207, 1
   %1548 = sdiv i32 %1544, 2
-  %.not338.not = icmp slt i32 %.1314208, %1548
+  %.not338.not = icmp slt i32 %.1317207, %1548
   br i1 %.not338.not, label %1280, label %._crit_edge211, !llvm.loop !31
 
 ._crit_edge211:                                   ; preds = %._crit_edge200, %1272
-  %.0325.lcssa = phi float [ 0.000000e+00, %1272 ], [ %.1326.lcssa, %._crit_edge200 ]
-  %.0321.lcssa = phi float [ 0.000000e+00, %1272 ], [ %.1322.lcssa, %._crit_edge200 ]
-  %.0318.lcssa = phi float [ 0.000000e+00, %1272 ], [ %.1319.lcssa, %._crit_edge200 ]
+  %.0326.lcssa = phi float [ 0.000000e+00, %1272 ], [ %.1327.lcssa, %._crit_edge200 ]
+  %.0322.lcssa = phi float [ 0.000000e+00, %1272 ], [ %.1323.lcssa, %._crit_edge200 ]
+  %.0309.lcssa = phi float [ 0.000000e+00, %1272 ], [ %.1310.lcssa, %._crit_edge200 ]
   %1549 = load float, ptr %1249, align 4
-  %1550 = fmul float %.0325.lcssa, %1549
+  %1550 = fmul float %.0309.lcssa, %1549
   %1551 = load float, ptr %1250, align 4
-  %1552 = fmul float %.0325.lcssa, %1551
+  %1552 = fmul float %.0309.lcssa, %1551
   %1553 = load float, ptr %1251, align 4
-  %1554 = fmul float %.0325.lcssa, %1553
+  %1554 = fmul float %.0309.lcssa, %1553
   %1555 = fadd float %1550, 0.000000e+00
   %1556 = fadd float %1552, 0.000000e+00
   %1557 = fadd float %1554, 0.000000e+00
   %1558 = load float, ptr %1253, align 4
-  %1559 = fmul float %.0321.lcssa, %1558
+  %1559 = fmul float %.0326.lcssa, %1558
   %1560 = load float, ptr %1254, align 4
-  %1561 = fmul float %.0321.lcssa, %1560
+  %1561 = fmul float %.0326.lcssa, %1560
   %1562 = load float, ptr %1255, align 4
-  %1563 = fmul float %.0321.lcssa, %1562
+  %1563 = fmul float %.0326.lcssa, %1562
   %1564 = fadd float %1555, %1559
   %1565 = fadd float %1556, %1561
   %1566 = fadd float %1557, %1563
   %1567 = load float, ptr %1257, align 4
-  %1568 = fmul float %.0318.lcssa, %1567
+  %1568 = fmul float %.0322.lcssa, %1567
   %1569 = load float, ptr %1258, align 4
-  %1570 = fmul float %.0318.lcssa, %1569
+  %1570 = fmul float %.0322.lcssa, %1569
   %1571 = load float, ptr %1259, align 4
-  %1572 = fmul float %.0318.lcssa, %1571
+  %1572 = fmul float %.0322.lcssa, %1571
   %1573 = fadd float %1564, %1568
   %1574 = fadd float %1565, %1570
   %1575 = fadd float %1566, %1572

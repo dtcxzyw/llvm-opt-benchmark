@@ -1094,12 +1094,12 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   br label %5
 
 5:                                                ; preds = %4, %62
-  %.05968 = phi i32 [ 0, %4 ], [ %.2, %62 ]
-  %.06067 = phi i8 [ %0, %4 ], [ %.3, %62 ]
-  %6 = sext i32 %.05968 to i64
+  %.05968 = phi i8 [ %0, %4 ], [ %.3, %62 ]
+  %.06067 = phi i32 [ 0, %4 ], [ %.262, %62 ]
+  %6 = sext i32 %.06067 to i64
   %7 = getelementptr inbounds i8, ptr %2, i64 %6
   %8 = load i8, ptr %7, align 1
-  %9 = add nsw i32 %.05968, 1
+  %9 = add nsw i32 %.06067, 1
   switch i8 %8, label %60 [
     i8 -21, label %10
     i8 10, label %12
@@ -1117,51 +1117,51 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   ]
 
 10:                                               ; preds = %5
-  %11 = add nsw i32 %.05968, 2
+  %11 = add nsw i32 %.06067, 2
   br label %12
 
 12:                                               ; preds = %10, %5
-  %.1 = phi i32 [ %9, %5 ], [ %11, %10 ]
-  %13 = add nsw i32 %.1, 1
+  %.161 = phi i32 [ %9, %5 ], [ %11, %10 ]
+  %13 = add nsw i32 %.161, 1
   br label %62
 
 14:                                               ; preds = %5
-  %15 = add i8 %.06067, %1
-  %16 = add nsw i32 %.05968, 2
+  %15 = add i8 %.05968, %1
+  %16 = add nsw i32 %.06067, 2
   br label %62
 
 17:                                               ; preds = %5
-  %18 = sub i8 %.06067, %1
-  %19 = add nsw i32 %.05968, 2
+  %18 = sub i8 %.05968, %1
+  %19 = add nsw i32 %.06067, 2
   br label %62
 
 20:                                               ; preds = %5
   %21 = sext i32 %9 to i64
   %22 = getelementptr inbounds i8, ptr %2, i64 %21
   %23 = load i8, ptr %22, align 1
-  %24 = add i8 %23, %.06067
-  %25 = add nsw i32 %.05968, 2
+  %24 = add i8 %23, %.05968
+  %25 = add nsw i32 %.06067, 2
   br label %62
 
 26:                                               ; preds = %5
   %27 = sext i32 %9 to i64
   %28 = getelementptr inbounds i8, ptr %2, i64 %27
   %29 = load i8, ptr %28, align 1
-  %30 = sub i8 %.06067, %29
-  %31 = add nsw i32 %.05968, 2
+  %30 = sub i8 %.05968, %29
+  %31 = add nsw i32 %.06067, 2
   br label %62
 
 32:                                               ; preds = %5
-  %33 = xor i8 %.06067, %1
-  %34 = add nsw i32 %.05968, 2
+  %33 = xor i8 %.05968, %1
+  %34 = add nsw i32 %.06067, 2
   br label %62
 
 35:                                               ; preds = %5
   %36 = sext i32 %9 to i64
   %37 = getelementptr inbounds i8, ptr %2, i64 %36
   %38 = load i8, ptr %37, align 1
-  %39 = xor i8 %38, %.06067
-  %40 = add nsw i32 %.05968, 2
+  %39 = xor i8 %38, %.05968
+  %40 = add nsw i32 %.06067, 2
   br label %62
 
 41:                                               ; preds = %5
@@ -1169,9 +1169,9 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   %43 = getelementptr inbounds i8, ptr %2, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, -64
-  %.161.v = select i1 %45, i8 1, i8 -1
-  %.161 = add i8 %.161.v, %.06067
-  %46 = add nsw i32 %.05968, 2
+  %.1.v = select i1 %45, i8 1, i8 -1
+  %.1 = add i8 %.1.v, %.05968
+  %46 = add nsw i32 %.06067, 2
   br label %62
 
 47:                                               ; preds = %5
@@ -1179,22 +1179,22 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   %49 = getelementptr inbounds i8, ptr %2, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, -64
-  %52 = sext i32 %.05968 to i64
+  %52 = sext i32 %.06067 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %52
   %53 = load i8, ptr %gep, align 1
   br i1 %51, label %54, label %56
 
 54:                                               ; preds = %47
-  %55 = tail call i8 @llvm.fshl.i8(i8 %.06067, i8 %.06067, i8 %53)
+  %55 = tail call i8 @llvm.fshl.i8(i8 %.05968, i8 %.05968, i8 %53)
   br label %58
 
 56:                                               ; preds = %47
-  %57 = tail call i8 @llvm.fshr.i8(i8 %.06067, i8 %.06067, i8 %53)
+  %57 = tail call i8 @llvm.fshr.i8(i8 %.05968, i8 %.05968, i8 %53)
   br label %58
 
 58:                                               ; preds = %56, %54
-  %.262 = phi i8 [ %55, %54 ], [ %57, %56 ]
-  %59 = add nsw i32 %.05968, 3
+  %.2 = phi i8 [ %55, %54 ], [ %57, %56 ]
+  %59 = add nsw i32 %.06067, 3
   br label %62
 
 60:                                               ; preds = %5
@@ -1203,13 +1203,13 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   br label %.sink.split
 
 62:                                               ; preds = %5, %5, %5, %12, %58, %41, %35, %32, %26, %20, %17, %14
-  %.3 = phi i8 [ %.262, %58 ], [ %.161, %41 ], [ %39, %35 ], [ %33, %32 ], [ %30, %26 ], [ %24, %20 ], [ %18, %17 ], [ %15, %14 ], [ %.06067, %5 ], [ %.06067, %5 ], [ %.06067, %5 ], [ %.06067, %12 ]
-  %.2 = phi i32 [ %59, %58 ], [ %46, %41 ], [ %40, %35 ], [ %34, %32 ], [ %31, %26 ], [ %25, %20 ], [ %19, %17 ], [ %16, %14 ], [ %9, %5 ], [ %9, %5 ], [ %9, %5 ], [ %13, %12 ]
-  %63 = icmp slt i32 %.2, 36
+  %.262 = phi i32 [ %59, %58 ], [ %46, %41 ], [ %40, %35 ], [ %34, %32 ], [ %31, %26 ], [ %25, %20 ], [ %19, %17 ], [ %16, %14 ], [ %9, %5 ], [ %9, %5 ], [ %9, %5 ], [ %13, %12 ]
+  %.3 = phi i8 [ %.2, %58 ], [ %.1, %41 ], [ %39, %35 ], [ %33, %32 ], [ %30, %26 ], [ %24, %20 ], [ %18, %17 ], [ %15, %14 ], [ %.05968, %5 ], [ %.05968, %5 ], [ %.05968, %5 ], [ %.05968, %12 ]
+  %63 = icmp slt i32 %.262, 36
   br i1 %63, label %5, label %64
 
 64:                                               ; preds = %62
-  %.not = icmp eq i32 %.2, 36
+  %.not = icmp eq i32 %.262, 36
   br i1 %.not, label %65, label %68
 
 65:                                               ; preds = %64
@@ -1223,13 +1223,13 @@ define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zero
   br label %.sink.split
 
 .sink.split:                                      ; preds = %60, %68
-  %.06066.ph = phi i8 [ %.06067, %60 ], [ %.3, %68 ]
+  %.05965.ph = phi i8 [ %.05968, %60 ], [ %.3, %68 ]
   store i32 1, ptr %3, align 4
   br label %69
 
 69:                                               ; preds = %.sink.split, %65
-  %.06066 = phi i8 [ %.3, %65 ], [ %.06066.ph, %.sink.split ]
-  ret i8 %.06066
+  %.05965 = phi i8 [ %.3, %65 ], [ %.05965.ph, %.sink.split ]
+  ret i8 %.05965
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

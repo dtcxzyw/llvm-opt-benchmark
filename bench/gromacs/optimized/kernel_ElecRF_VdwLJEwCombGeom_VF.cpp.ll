@@ -944,8 +944,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %675 = icmp eq i32 %641, %96
   %676 = select <8 x i1> %671, <8 x i32> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i242627943063, <8 x i32> zeroinitializer
   %677 = select <8 x i1> %673, <8 x i32> %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i242727953064, <8 x i32> zeroinitializer
-  %.sroa.72293.0 = select i1 %675, <8 x i32> %677, <8 x i32> %674
   %.sroa.02288.0 = select i1 %675, <8 x i32> %676, <8 x i32> %672
+  %.sroa.72293.0 = select i1 %675, <8 x i32> %677, <8 x i32> %674
   %678 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %665, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %679 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %670, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %680 = bitcast <8 x float> %678 to <8 x i32>

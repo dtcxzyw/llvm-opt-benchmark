@@ -253,11 +253,11 @@ for.body33.lr.ph:                                 ; preds = %rebin
   br label %for.body33
 
 for.body33:                                       ; preds = %for.body33.lr.ph, %for.inc53
-  %j.078 = phi i64 [ 0, %for.body33.lr.ph ], [ %j.1.lcssa, %for.inc53 ]
-  %i.177 = phi i64 [ 0, %for.body33.lr.ph ], [ %add, %for.inc53 ]
-  %conv35 = uitofp i64 %i.177 to double
+  %i.178 = phi i64 [ 0, %for.body33.lr.ph ], [ %add, %for.inc53 ]
+  %j.077 = phi i64 [ 0, %for.body33.lr.ph ], [ %j.1.lcssa, %for.inc53 ]
+  %conv35 = uitofp i64 %i.178 to double
   %9 = call double @llvm.fmuladd.f64(double %conv35, double %div, double %2)
-  %add = add nuw i64 %i.177, 1
+  %add = add nuw i64 %i.178, 1
   %conv37 = uitofp i64 %add to double
   %10 = call double @llvm.fmuladd.f64(double %conv37, double %div, double %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %e.i)
@@ -309,15 +309,15 @@ if.end17.i:                                       ; preds = %if.then11.i, %if.en
 qdist_add.exit:                                   ; preds = %if.end.i, %if.end17.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %e.i)
   %18 = load i64, ptr %n1, align 8
-  %cmp4073 = icmp ult i64 %j.078, %18
+  %cmp4073 = icmp ult i64 %j.077, %18
   br i1 %cmp4073, label %land.rhs.lr.ph, label %for.inc53
 
 land.rhs.lr.ph:                                   ; preds = %qdist_add.exit
-  %cmp48 = icmp eq i64 %i.177, %sub47
+  %cmp48 = icmp eq i64 %i.178, %sub47
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %qdist_add.exit71
-  %j.174 = phi i64 [ %j.078, %land.rhs.lr.ph ], [ %inc52, %qdist_add.exit71 ]
+  %j.174 = phi i64 [ %j.077, %land.rhs.lr.ph ], [ %inc52, %qdist_add.exit71 ]
   %19 = load ptr, ptr %from, align 8
   %arrayidx43 = getelementptr %struct.qdist_entry, ptr %19, i64 %j.174
   %20 = load double, ptr %arrayidx43, align 8
@@ -388,7 +388,7 @@ qdist_add.exit71:                                 ; preds = %if.then5.i55, %if.e
   br i1 %cmp40, label %land.rhs, label %for.inc53, !llvm.loop !7
 
 for.inc53:                                        ; preds = %qdist_add.exit71, %land.rhs, %qdist_add.exit
-  %j.1.lcssa = phi i64 [ %j.078, %qdist_add.exit ], [ %j.174, %land.rhs ], [ %inc52, %qdist_add.exit71 ]
+  %j.1.lcssa = phi i64 [ %j.077, %qdist_add.exit ], [ %j.174, %land.rhs ], [ %inc52, %qdist_add.exit71 ]
   %exitcond79.not = icmp eq i64 %add, %spec.select
   br i1 %exitcond79.not, label %for.end55, label %for.body33, !llvm.loop !8
 
@@ -512,16 +512,16 @@ for.body33.lr.ph.i:                               ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %min.037.i = phi double [ %min.1.i, %for.body.i ], [ %conv.i, %for.body.i.preheader ]
-  %i.036.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
-  %max.035.i = phi double [ %max.1.i, %for.body.i ], [ %conv.i, %for.body.i.preheader ]
-  %count13.i = getelementptr %struct.qdist_entry, ptr %2, i64 %i.036.i, i32 1
+  %max.036.i = phi double [ %max.1.i, %for.body.i ], [ %conv.i, %for.body.i.preheader ]
+  %i.035.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
+  %count13.i = getelementptr %struct.qdist_entry, ptr %2, i64 %i.035.i, i32 1
   %9 = load i64, ptr %count13.i, align 8
   %conv14.i = uitofp i64 %9 to double
   %cmp15.i = fcmp ogt double %min.037.i, %conv14.i
   %min.1.i = select i1 %cmp15.i, double %conv14.i, double %min.037.i
-  %cmp23.i = fcmp olt double %max.035.i, %conv14.i
-  %max.1.i = select i1 %cmp23.i, double %conv14.i, double %max.035.i
-  %inc.i = add nuw i64 %i.036.i, 1
+  %cmp23.i = fcmp olt double %max.036.i, %conv14.i
+  %max.1.i = select i1 %cmp23.i, double %conv14.i, double %max.036.i
+  %inc.i = add nuw i64 %i.035.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %1
   br i1 %exitcond.not.i, label %for.body33.lr.ph.i, label %for.body.i, !llvm.loop !9
 

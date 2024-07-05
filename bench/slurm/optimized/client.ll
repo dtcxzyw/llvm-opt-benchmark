@@ -357,14 +357,14 @@ define range(i32 -1, 1) i32 @client_req_parse_body(ptr noundef %0) local_unnamed
 
 12:                                               ; preds = %.lr.ph73, %71
   %13 = phi i32 [ %4, %.lr.ph73 ], [ %83, %71 ]
-  %.05272 = phi i32 [ %3, %.lr.ph73 ], [ %56, %71 ]
+  %.072 = phi i32 [ %3, %.lr.ph73 ], [ %56, %71 ]
   %14 = load ptr, ptr %6, align 8
-  %15 = sext i32 %.05272 to i64
+  %15 = sext i32 %.072 to i64
   %16 = sext i32 %13 to i64
   br label %17
 
 17:                                               ; preds = %17, %12
-  %indvars.iv79.in = phi i32 [ %indvars.iv79, %17 ], [ %.05272, %12 ]
+  %indvars.iv79.in = phi i32 [ %indvars.iv79, %17 ], [ %.072, %12 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ %15, %12 ]
   %indvars.iv79 = add i32 %indvars.iv79.in, 1
   %18 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv
@@ -502,7 +502,7 @@ define range(i32 -1, 1) i32 @client_req_parse_body(ptr noundef %0) local_unnamed
   br i1 %84, label %12, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %71, %1, %52, %23
-  %.0 = phi i32 [ -1, %23 ], [ -1, %52 ], [ 0, %1 ], [ 0, %71 ]
+  %.052 = phi i32 [ -1, %23 ], [ -1, %52 ], [ 0, %1 ], [ 0, %71 ]
   %85 = getelementptr inbounds i8, ptr %0, i64 32
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %0, i64 44
@@ -518,7 +518,7 @@ define range(i32 -1, 1) i32 @client_req_parse_body(ptr noundef %0) local_unnamed
   %96 = zext i32 %95 to i64
   %97 = getelementptr inbounds ptr, ptr %92, i64 %96
   store ptr null, ptr %97, align 8
-  ret i32 %.0
+  ret i32 %.052
 }
 
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -1597,10 +1597,10 @@ define range(i32 -1, 1) i32 @client_resp_send(ptr nocapture noundef readonly %0,
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.backedge, %.lr.ph.split.us.preheader
-  %.034.ph70 = phi ptr [ %3, %.lr.ph.split.us.preheader ], [ %34, %.lr.ph.split.us.backedge ]
-  %.035.ph68 = phi i32 [ 6, %.lr.ph.split.us.preheader ], [ %35, %.lr.ph.split.us.backedge ]
-  %19 = zext nneg i32 %.035.ph68 to i64
-  %20 = call i64 @write(i32 noundef %1, ptr noundef %.034.ph70, i64 noundef %19) #11
+  %.034.ph70 = phi i32 [ 6, %.lr.ph.split.us.preheader ], [ %35, %.lr.ph.split.us.backedge ]
+  %.035.ph68 = phi ptr [ %3, %.lr.ph.split.us.preheader ], [ %34, %.lr.ph.split.us.backedge ]
+  %19 = zext nneg i32 %.034.ph70 to i64
+  %20 = call i64 @write(i32 noundef %1, ptr noundef %.035.ph68, i64 noundef %19) #11
   %21 = trunc i64 %20 to i32
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.lr.ph66, label %.split.us
@@ -1617,7 +1617,7 @@ define range(i32 -1, 1) i32 @client_resp_send(ptr nocapture noundef readonly %0,
   ]
 
 26:                                               ; preds = %24, %24
-  %27 = call i64 @write(i32 noundef %1, ptr noundef %.034.ph70, i64 noundef %19) #11
+  %27 = call i64 @write(i32 noundef %1, ptr noundef %.035.ph68, i64 noundef %19) #11
   %28 = trunc i64 %27 to i32
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %24, label %.split.us
@@ -1628,15 +1628,15 @@ define range(i32 -1, 1) i32 @client_resp_send(ptr nocapture noundef readonly %0,
   br i1 %31, label %32, label %.loopexit
 
 32:                                               ; preds = %.split61.us
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.44, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.client_resp_send, ptr noundef nonnull @.str.3, i32 noundef 546, ptr noundef nonnull @__func__.client_resp_send, i32 noundef %.035.ph68, i32 noundef 6) #11
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.44, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.client_resp_send, ptr noundef nonnull @.str.3, i32 noundef 546, ptr noundef nonnull @__func__.client_resp_send, i32 noundef %.034.ph70, i32 noundef 6) #11
   br label %.loopexit
 
 .split.us:                                        ; preds = %26, %.lr.ph.split.us
   %.us-phi = phi i64 [ %20, %.lr.ph.split.us ], [ %27, %26 ]
   %.us-phi59 = phi i32 [ %21, %.lr.ph.split.us ], [ %28, %26 ]
   %33 = and i64 %.us-phi, 2147483647
-  %34 = getelementptr inbounds i8, ptr %.034.ph70, i64 %33
-  %35 = sub nsw i32 %.035.ph68, %.us-phi59
+  %34 = getelementptr inbounds i8, ptr %.035.ph68, i64 %33
+  %35 = sub nsw i32 %.034.ph70, %.us-phi59
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %37, label %.loopexit48
 
@@ -1875,7 +1875,7 @@ _str_replace.exit31:                              ; preds = %35, %29
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %39
-  %.022.lcssa = phi i32 [ %0, %39 ], [ %44, %.lr.ph ]
+  %.0.lcssa = phi i32 [ %0, %39 ], [ %44, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %5, ptr %3, align 8
   %.not.i32 = icmp eq ptr %5, null
@@ -1888,7 +1888,7 @@ _str_replace.exit31:                              ; preds = %35, %29
 
 client_resp_free.exit:                            ; preds = %._crit_edge, %48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  ret i32 %.022.lcssa
+  ret i32 %.0.lcssa
 }
 
 declare void @slurm_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #3

@@ -623,30 +623,30 @@ dissect_q932_facility_ie.exit:                    ; preds = %85, %34
   br i1 %.not42, label %._crit_edge.i, label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %87, %.lr.ph.i40
-  %.024.i = phi i32 [ %95, %.lr.ph.i40 ], [ 0, %87 ]
-  %.02023.i = phi i32 [ %91, %.lr.ph.i40 ], [ %88, %87 ]
-  %.02122.i = phi i32 [ %89, %.lr.ph.i40 ], [ 2, %87 ]
-  %89 = add nuw nsw i32 %.02122.i, 1
-  %90 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02122.i) #3
-  %91 = add nsw i32 %.02023.i, -1
-  %92 = shl i32 %.024.i, 7
+  %.024.i = phi i32 [ %89, %.lr.ph.i40 ], [ 2, %87 ]
+  %.01923.i = phi i32 [ %95, %.lr.ph.i40 ], [ 0, %87 ]
+  %.02122.i = phi i32 [ %91, %.lr.ph.i40 ], [ %88, %87 ]
+  %89 = add nuw nsw i32 %.024.i, 1
+  %90 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.024.i) #3
+  %91 = add nsw i32 %.02122.i, -1
+  %92 = shl i32 %.01923.i, 7
   %93 = and i8 %90, 127
   %94 = zext nneg i8 %93 to i32
   %95 = or disjoint i32 %92, %94
-  %96 = icmp ugt i32 %.02023.i, 1
+  %96 = icmp ugt i32 %.02122.i, 1
   %.not.i41 = icmp sgt i8 %90, -1
   %97 = select i1 %96, i1 %.not.i41, i1 false
   br i1 %97, label %.lr.ph.i40, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i40, %87
-  %.021.lcssa.i = phi i32 [ 2, %87 ], [ %89, %.lr.ph.i40 ]
-  %.020.lcssa.i = phi i32 [ 0, %87 ], [ %91, %.lr.ph.i40 ]
-  %.0.lcssa.i = phi i32 [ 0, %87 ], [ %95, %.lr.ph.i40 ]
+  %.021.lcssa.i = phi i32 [ 0, %87 ], [ %91, %.lr.ph.i40 ]
+  %.019.lcssa.i = phi i32 [ 0, %87 ], [ %95, %.lr.ph.i40 ]
+  %.0.lcssa.i = phi i32 [ 2, %87 ], [ %89, %.lr.ph.i40 ]
   %.lcssa.i = phi i1 [ false, %87 ], [ %96, %.lr.ph.i40 ]
   %98 = load i32, ptr @hf_q932_nd, align 4
-  %99 = sub nsw i32 %88, %.020.lcssa.i
-  %100 = sub i32 %.021.lcssa.i, %99
-  %101 = tail call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %98, ptr noundef %0, i32 noundef %100, i32 noundef %99, i32 noundef %.0.lcssa.i) #3
+  %99 = sub nsw i32 %88, %.021.lcssa.i
+  %100 = sub i32 %.0.lcssa.i, %99
+  %101 = tail call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %98, ptr noundef %0, i32 noundef %100, i32 noundef %99, i32 noundef %.019.lcssa.i) #3
   br i1 %.lcssa.i, label %102, label %dissect_q932_ni_ie.exit
 
 102:                                              ; preds = %._crit_edge.i

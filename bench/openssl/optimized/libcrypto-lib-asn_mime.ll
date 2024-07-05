@@ -413,10 +413,10 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp19.i, label %for.body.i, label %asn1_write_micalg.exit
 
 for.body.i:                                       ; preds = %for.end, %for.inc.i
-  %write_comma.022.i = phi i32 [ %write_comma.1.i, %for.inc.i ], [ 0, %for.end ]
+  %i.022.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.end ]
   %have_unknown.021.i = phi i32 [ %have_unknown.1.i, %for.inc.i ], [ 0, %for.end ]
-  %i.020.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.end ]
-  %tobool.not.i = icmp eq i32 %write_comma.022.i, 0
+  %write_comma.020.i = phi i32 [ %write_comma.1.i, %for.inc.i ], [ 0, %for.end ]
+  %tobool.not.i = icmp eq i32 %write_comma.020.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -424,7 +424,7 @@ if.then.i:                                        ; preds = %for.body.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.body.i
-  %call4.i = call ptr @OPENSSL_sk_value(ptr noundef %mdalgs, i32 noundef %i.020.i) #6
+  %call4.i = call ptr @OPENSSL_sk_value(ptr noundef %mdalgs, i32 noundef %i.022.i) #6
   %3 = load ptr, ptr %call4.i, align 8
   %call5.i = call i32 @OBJ_obj2nid(ptr noundef %3) #6
   %call6.i = call ptr @OBJ_nid2sn(i32 noundef %call5.i) #6
@@ -495,9 +495,9 @@ if.else.i:                                        ; preds = %sw.default.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %sw.default.i, %sw.bb28.i, %sw.bb26.i, %sw.bb24.i, %sw.bb22.i, %sw.bb.i, %if.then14.i
-  %have_unknown.1.i = phi i32 [ %have_unknown.021.i, %if.then14.i ], [ 1, %if.else.i ], [ %have_unknown.021.i, %sw.bb28.i ], [ %have_unknown.021.i, %sw.bb26.i ], [ %have_unknown.021.i, %sw.bb24.i ], [ %have_unknown.021.i, %sw.bb22.i ], [ %have_unknown.021.i, %sw.bb.i ], [ 1, %sw.default.i ]
   %write_comma.1.i = phi i32 [ 1, %if.then14.i ], [ 1, %if.else.i ], [ 1, %sw.bb28.i ], [ 1, %sw.bb26.i ], [ 1, %sw.bb24.i ], [ 1, %sw.bb22.i ], [ 1, %sw.bb.i ], [ 0, %sw.default.i ]
-  %inc.i = add nuw nsw i32 %i.020.i, 1
+  %have_unknown.1.i = phi i32 [ %have_unknown.021.i, %if.then14.i ], [ 1, %if.else.i ], [ %have_unknown.021.i, %sw.bb28.i ], [ %have_unknown.021.i, %sw.bb26.i ], [ %have_unknown.021.i, %sw.bb24.i ], [ %have_unknown.021.i, %sw.bb22.i ], [ %have_unknown.021.i, %sw.bb.i ], [ 1, %sw.default.i ]
+  %inc.i = add nuw nsw i32 %i.022.i, 1
   %call1.i = call i32 @OPENSSL_sk_num(ptr noundef %mdalgs) #6
   %cmp.i = icmp slt i32 %inc.i, %call1.i
   br i1 %cmp.i, label %for.body.i, label %asn1_write_micalg.exit, !llvm.loop !11
@@ -1128,9 +1128,9 @@ for.cond.preheader:                               ; preds = %land.lhs.true, %if.
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
   %q.0 = phi ptr [ %q.1, %for.inc ], [ %linebuf, %for.cond.preheader ]
-  %p.0 = phi ptr [ %incdec.ptr, %for.inc ], [ %linebuf, %for.cond.preheader ]
   %ntmp.0 = phi ptr [ %ntmp.1, %for.inc ], [ null, %for.cond.preheader ]
   %mhdr.1 = phi ptr [ %mhdr.2, %for.inc ], [ %mhdr.0, %for.cond.preheader ]
+  %p.0 = phi ptr [ %incdec.ptr, %for.inc ], [ %linebuf, %for.cond.preheader ]
   %state.1 = phi i32 [ %state.2, %for.inc ], [ %state.1.ph, %for.cond.preheader ]
   %save_state.1 = phi i32 [ %save_state.2, %for.inc ], [ %save_state.0, %for.cond.preheader ]
   %1 = load i8, ptr %p.0, align 1

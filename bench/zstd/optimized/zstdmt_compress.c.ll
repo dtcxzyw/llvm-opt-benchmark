@@ -3517,11 +3517,11 @@ for.body.lr.ph:                                   ; preds = %if.end122
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end145
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %if.end145 ]
-  %op.0182 = phi ptr [ %dstBuff.sroa.0.0, %for.body.lr.ph ], [ %add.ptr147, %if.end145 ]
-  %ip.0181 = phi ptr [ %40, %for.body.lr.ph ], [ %add.ptr146, %if.end145 ]
-  %sub.ptr.rhs.cast = ptrtoint ptr %op.0182 to i64
+  %ip.0183 = phi ptr [ %40, %for.body.lr.ph ], [ %add.ptr146, %if.end145 ]
+  %op.0181 = phi ptr [ %dstBuff.sroa.0.0, %for.body.lr.ph ], [ %add.ptr147, %if.end145 ]
+  %sub.ptr.rhs.cast = ptrtoint ptr %op.0181 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call134 = call i64 @ZSTD_compressContinue_public(ptr noundef nonnull %retval.0.i, ptr noundef %op.0182, i64 noundef %sub.ptr.sub, ptr noundef %ip.0181, i64 noundef 524288) #14
+  %call134 = call i64 @ZSTD_compressContinue_public(ptr noundef nonnull %retval.0.i, ptr noundef %op.0181, i64 noundef %sub.ptr.sub, ptr noundef %ip.0183, i64 noundef 524288) #14
   %cmp.i141 = icmp ult i64 %call134, -119
   br i1 %cmp.i141, label %if.end145, label %do.body138
 
@@ -3532,8 +3532,8 @@ do.body138:                                       ; preds = %for.body
   br label %_endJob
 
 if.end145:                                        ; preds = %for.body
-  %add.ptr146 = getelementptr inbounds i8, ptr %ip.0181, i64 524288
-  %add.ptr147 = getelementptr inbounds i8, ptr %op.0182, i64 %call134
+  %add.ptr146 = getelementptr inbounds i8, ptr %ip.0183, i64 524288
+  %add.ptr147 = getelementptr inbounds i8, ptr %op.0181, i64 %call134
   %call149 = call i32 @pthread_mutex_lock(ptr noundef nonnull %job_mutex148) #14
   %41 = load i64, ptr %cSize150, align 8
   %add151 = add i64 %41, %call134
@@ -3547,8 +3547,8 @@ if.end145:                                        ; preds = %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
 
 for.end:                                          ; preds = %if.end145, %if.end122
-  %ip.0.lcssa = phi ptr [ %40, %if.end122 ], [ %add.ptr146, %if.end145 ]
   %op.0.lcssa = phi ptr [ %dstBuff.sroa.0.0, %if.end122 ], [ %add.ptr147, %if.end145 ]
+  %ip.0.lcssa = phi ptr [ %40, %if.end122 ], [ %add.ptr146, %if.end145 ]
   %cmp158 = icmp sgt i32 %conv, 0
   %conv159 = zext i1 %cmp158 to i32
   %lastJob = getelementptr inbounds i8, ptr %jobDescription, i64 192

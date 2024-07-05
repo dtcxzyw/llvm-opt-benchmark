@@ -239,12 +239,12 @@ define void @sstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br label %120
 
 120:                                              ; preds = %115, %109
-  %.0 = phi float [ %119, %115 ], [ %100, %109 ]
+  %.0252 = phi float [ %119, %115 ], [ %100, %109 ]
   %121 = load i32, ptr %2, align 4
   %122 = shl i32 %121, 1
   %123 = or disjoint i32 %122, 1
   %124 = mul nsw i32 %121, 3
-  %125 = fmul float %.0, 0x3E80000000000000
+  %125 = fmul float %.0252, 0x3E80000000000000
   store float %125, ptr %27, align 4
   %126 = sext i32 %121 to i64
   %127 = getelementptr i32, ptr %36, i64 %126
@@ -380,35 +380,35 @@ define void @sstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph292.us:                                     ; preds = %.lr.ph292.us.preheader, %.lr.ph292.us
   %indvars.iv307 = phi i64 [ %indvars.iv305, %.lr.ph292.us.preheader ], [ %indvars.iv.next308, %.lr.ph292.us ]
-  %.0247290.us = phi float [ %182, %.lr.ph292.us.preheader ], [ %.1.us, %.lr.ph292.us ]
-  %.0251288.us = phi i32 [ 0, %.lr.ph292.us.preheader ], [ %.1252.us, %.lr.ph292.us ]
+  %.0290.us = phi i32 [ 0, %.lr.ph292.us.preheader ], [ %.1.us, %.lr.ph292.us ]
+  %.0250288.us = phi float [ %182, %.lr.ph292.us.preheader ], [ %.1251.us, %.lr.ph292.us ]
   %186 = getelementptr inbounds float, ptr %30, i64 %indvars.iv307
   %187 = load float, ptr %186, align 4
-  %188 = fcmp olt float %187, %.0247290.us
+  %188 = fcmp olt float %187, %.0250288.us
+  %.1251.us = select i1 %188, float %187, float %.0250288.us
   %189 = trunc nuw i64 %indvars.iv307 to i32
-  %.1252.us = select i1 %188, i32 %189, i32 %.0251288.us
-  %.1.us = select i1 %188, float %187, float %.0247290.us
+  %.1.us = select i1 %188, i32 %189, i32 %.0290.us
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next308 to i32
   %exitcond310.not = icmp eq i32 %185, %lftr.wideiv
   br i1 %exitcond310.not, label %._crit_edge293.us, label %.lr.ph292.us, !llvm.loop !6
 
 ._crit_edge293.us:                                ; preds = %.lr.ph292.us
-  %.not276.us = icmp eq i32 %.1252.us, 0
+  %.not276.us = icmp eq i32 %.1.us, 0
   br i1 %.not276.us, label %._crit_edge293.us.thread, label %190
 
 190:                                              ; preds = %._crit_edge293.us
-  %191 = sext i32 %.1252.us to i64
+  %191 = sext i32 %.1.us to i64
   %192 = getelementptr inbounds float, ptr %30, i64 %191
   store float %182, ptr %192, align 4
-  store float %.1.us, ptr %181, align 4
-  %193 = mul nsw i32 %.1252.us, %31
+  store float %.1251.us, ptr %181, align 4
+  %193 = mul nsw i32 %.1.us, %31
   %194 = sext i32 %193 to i64
   %gep.us = getelementptr float, ptr %invariant.gep, i64 %194
   %195 = mul nsw i64 %indvars.iv311, %178
   %gep296.us = getelementptr float, ptr %invariant.gep, i64 %195
   call void @sswap_(ptr noundef nonnull %2, ptr noundef %gep.us, ptr noundef nonnull %23, ptr noundef %gep296.us, ptr noundef nonnull %23)
-  %196 = shl i32 %.1252.us, 1
+  %196 = shl i32 %.1.us, 1
   %197 = sext i32 %196 to i64
   %198 = getelementptr i32, ptr %34, i64 %197
   %199 = getelementptr i8, ptr %198, i64 -4
@@ -452,28 +452,28 @@ define void @sstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph292:                                        ; preds = %.lr.ph292.preheader, %.lr.ph292
   %indvars.iv316 = phi i64 [ %indvars.iv314, %.lr.ph292.preheader ], [ %indvars.iv.next317, %.lr.ph292 ]
-  %.0247290 = phi float [ %209, %.lr.ph292.preheader ], [ %.1, %.lr.ph292 ]
-  %.0251288 = phi i32 [ 0, %.lr.ph292.preheader ], [ %.1252, %.lr.ph292 ]
+  %.0290 = phi i32 [ 0, %.lr.ph292.preheader ], [ %.1, %.lr.ph292 ]
+  %.0250288 = phi float [ %209, %.lr.ph292.preheader ], [ %.1251, %.lr.ph292 ]
   %213 = getelementptr inbounds float, ptr %30, i64 %indvars.iv316
   %214 = load float, ptr %213, align 4
-  %215 = fcmp olt float %214, %.0247290
+  %215 = fcmp olt float %214, %.0250288
+  %.1251 = select i1 %215, float %214, float %.0250288
   %216 = trunc nuw i64 %indvars.iv316 to i32
-  %.1252 = select i1 %215, i32 %216, i32 %.0251288
-  %.1 = select i1 %215, float %214, float %.0247290
+  %.1 = select i1 %215, i32 %216, i32 %.0290
   %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
   %lftr.wideiv319 = trunc i64 %indvars.iv.next317 to i32
   %exitcond320.not = icmp eq i32 %212, %lftr.wideiv319
   br i1 %exitcond320.not, label %._crit_edge293, label %.lr.ph292, !llvm.loop !6
 
 ._crit_edge293:                                   ; preds = %.lr.ph292
-  %.not276 = icmp eq i32 %.1252, 0
+  %.not276 = icmp eq i32 %.1, 0
   br i1 %.not276, label %._crit_edge293.thread, label %217
 
 217:                                              ; preds = %._crit_edge293
-  %218 = sext i32 %.1252 to i64
+  %218 = sext i32 %.1 to i64
   %219 = getelementptr inbounds float, ptr %30, i64 %218
   store float %209, ptr %219, align 4
-  store float %.1, ptr %208, align 4
+  store float %.1251, ptr %208, align 4
   br label %._crit_edge293.thread
 
 ._crit_edge293.thread:                            ; preds = %.lr.ph302.split, %217, %._crit_edge293

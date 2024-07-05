@@ -91,8 +91,8 @@ define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr nocapture nounde
   br label %49
 
 49:                                               ; preds = %15, %6, %1, %.thread32, %13
-  %.025 = phi i32 [ -67, %13 ], [ 0, %.thread32 ], [ -1366, %1 ], [ -29, %6 ], [ -68, %15 ]
-  ret i32 %.025
+  %.0 = phi i32 [ -67, %13 ], [ 0, %.thread32 ], [ -1366, %1 ], [ -29, %6 ], [ -68, %15 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind memory(read)

@@ -14277,10 +14277,10 @@ _ZN7tracing4span4Span8do_enter17hbed5ccb6152a3815E.llvm.1552408990472658918.exit
   br label %.body.i.i
 
 347:                                              ; preds = %339, %329
-  %.sroa.11.0.ph.i.i = phi i64 [ undef, %329 ], [ %.sroa.541.0.copyload43.i.i.i, %339 ]
-  %.sroa.1026.0.ph.i.i = phi ptr [ %.sroa.6.0.copyload.i.i.i, %329 ], [ %.sroa.438.0.copyload40.i.i.i, %339 ]
   %.sroa.925.0.ph.i.i = phi ptr [ %.sroa.5.0.copyload.i.i.i, %329 ], [ %.sroa.335.0.copyload37.i.i.i, %339 ]
   %.sroa.7.0.ph.i.i = phi ptr [ null, %329 ], [ %.sroa.033.0.copyload34.i.i.i, %339 ]
+  %.sroa.1026.0.ph.i.i = phi ptr [ %.sroa.6.0.copyload.i.i.i, %329 ], [ %.sroa.438.0.copyload40.i.i.i, %339 ]
+  %.sroa.11.0.ph.i.i = phi i64 [ undef, %329 ], [ %.sroa.541.0.copyload43.i.i.i, %339 ]
   store i8 1, ptr %267, align 8, !noalias !2003
   invoke void @"_ZN4core3ptr111drop_in_place$LT$aws_smithy_runtime..client..orchestrator..http..body_to_bytes..$u7b$$u7b$closure$u7d$$u7d$$GT$17h623c53fba3acf1e2E.llvm.1552408990472658918"(ptr noundef nonnull align 8 %196)
           to label %351 unwind label %349, !noalias !2017

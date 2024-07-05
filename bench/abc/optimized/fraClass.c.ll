@@ -2652,13 +2652,13 @@ define void @Fra_ClassesSelectRepr(ptr nocapture noundef readonly %0) local_unna
 .lr.ph:                                           ; preds = %.lr.ph62, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.lr.ph62 ]
   %13 = phi ptr [ %38, %36 ], [ %10, %.lr.ph62 ]
-  %.053 = phi i32 [ %.1, %36 ], [ 1000000000, %.lr.ph62 ]
-  %.03452 = phi i32 [ %.135, %36 ], [ -1, %.lr.ph62 ]
-  %.03950 = phi ptr [ %.140, %36 ], [ null, %.lr.ph62 ]
+  %.053 = phi ptr [ %.1, %36 ], [ null, %.lr.ph62 ]
+  %.03452 = phi i32 [ %.135, %36 ], [ 1000000000, %.lr.ph62 ]
+  %.03651 = phi i32 [ %.137, %36 ], [ -1, %.lr.ph62 ]
   %14 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %15 = load ptr, ptr %0, align 8
   %16 = tail call i32 @Aig_SupportSize(ptr noundef %15, ptr noundef nonnull %13) #18
-  %17 = icmp sgt i32 %.053, %16
+  %17 = icmp sgt i32 %.03452, %16
   br i1 %17, label %.lr.ph._crit_edge, label %18
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
@@ -2666,11 +2666,11 @@ define void @Fra_ClassesSelectRepr(ptr nocapture noundef readonly %0) local_unna
   br label %33
 
 18:                                               ; preds = %.lr.ph
-  %19 = icmp eq i32 %.053, %16
+  %19 = icmp eq i32 %.03452, %16
   br i1 %19, label %20, label %36
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %.03950, i64 24
+  %21 = getelementptr inbounds i8, ptr %.053, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = lshr i64 %22, 32
   %24 = trunc nuw i64 %23 to i32
@@ -2690,9 +2690,9 @@ define void @Fra_ClassesSelectRepr(ptr nocapture noundef readonly %0) local_unna
   br label %36
 
 36:                                               ; preds = %18, %20, %33
-  %.140 = phi ptr [ %34, %33 ], [ %.03950, %20 ], [ %.03950, %18 ]
-  %.135 = phi i32 [ %35, %33 ], [ %.03452, %20 ], [ %.03452, %18 ]
-  %.1 = phi i32 [ %16, %33 ], [ %.053, %20 ], [ %.053, %18 ]
+  %.137 = phi i32 [ %35, %33 ], [ %.03651, %20 ], [ %.03651, %18 ]
+  %.135 = phi i32 [ %16, %33 ], [ %.03452, %20 ], [ %.03452, %18 ]
+  %.1 = phi ptr [ %34, %33 ], [ %.053, %20 ], [ %.053, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next
   %38 = load ptr, ptr %37, align 8
@@ -2700,21 +2700,21 @@ define void @Fra_ClassesSelectRepr(ptr nocapture noundef readonly %0) local_unna
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %36
-  %39 = icmp eq i32 %.135, 0
+  %39 = icmp eq i32 %.137, 0
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %._crit_edge
   %41 = load ptr, ptr %9, align 8
-  %42 = sext i32 %.135 to i64
+  %42 = sext i32 %.137 to i64
   %43 = getelementptr inbounds ptr, ptr %9, i64 %42
   store ptr %41, ptr %43, align 8
-  store ptr %.140, ptr %9, align 8
-  %.not4455 = icmp eq ptr %.140, null
+  store ptr %.1, ptr %9, align 8
+  %.not4455 = icmp eq ptr %.1, null
   br i1 %.not4455, label %.loopexit, label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %40, %47
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %47 ], [ 0, %40 ]
-  %44 = phi ptr [ %56, %47 ], [ %.140, %40 ]
+  %44 = phi ptr [ %56, %47 ], [ %.1, %40 ]
   %.not45 = icmp eq i64 %indvars.iv64, 0
   br i1 %.not45, label %47, label %45
 

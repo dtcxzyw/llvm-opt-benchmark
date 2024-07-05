@@ -5236,8 +5236,8 @@ while.end.thread:                                 ; preds = %if.end
 
 while.body:                                       ; preds = %if.end, %if.end9
   %call18 = phi ptr [ %call, %if.end9 ], [ %call14, %if.end ]
-  %last_idx.017 = phi i32 [ %last_idx.1, %if.end9 ], [ 0, %if.end ]
-  %relevant_error.016 = phi i32 [ %relevant_error.1, %if.end9 ], [ 1, %if.end ]
+  %relevant_error.017 = phi i32 [ %relevant_error.1, %if.end9 ], [ 1, %if.end ]
+  %last_idx.016 = phi i32 [ %last_idx.1, %if.end9 ], [ 0, %if.end ]
   %value = getelementptr inbounds i8, ptr %call18, i64 16
   %1 = load ptr, ptr %value, align 8
   %call1 = call fastcc i32 @ACLSelectorCheckCmd(ptr noundef %1, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef nonnull %local_idxptr, ptr noundef nonnull %cache)
@@ -5255,13 +5255,13 @@ if.then.i:                                        ; preds = %if.then3
   br label %return
 
 if.end4:                                          ; preds = %while.body
-  %cmp5 = icmp sgt i32 %call1, %relevant_error.016
+  %cmp5 = icmp sgt i32 %call1, %relevant_error.017
   %.pre = load i32, ptr %local_idxptr, align 4
   br i1 %cmp5, label %if.then8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end4
-  %cmp6 = icmp eq i32 %call1, %relevant_error.016
-  %cmp7 = icmp sgt i32 %.pre, %last_idx.017
+  %cmp6 = icmp eq i32 %call1, %relevant_error.017
+  %cmp7 = icmp sgt i32 %.pre, %last_idx.016
   %or.cond = select i1 %cmp6, i1 %cmp7, i1 false
   br i1 %or.cond, label %if.then8, label %if.end9
 
@@ -5269,8 +5269,8 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then8, %lor.lhs.false
-  %relevant_error.1 = phi i32 [ %call1, %if.then8 ], [ %relevant_error.016, %lor.lhs.false ]
-  %last_idx.1 = phi i32 [ %.pre, %if.then8 ], [ %last_idx.017, %lor.lhs.false ]
+  %last_idx.1 = phi i32 [ %.pre, %if.then8 ], [ %last_idx.016, %lor.lhs.false ]
+  %relevant_error.1 = phi i32 [ %call1, %if.then8 ], [ %relevant_error.017, %lor.lhs.false ]
   %call = call ptr @listNext(ptr noundef nonnull %li) #23
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !47
@@ -6882,7 +6882,7 @@ while.end:                                        ; preds = %while.body, %if.end
 
 for.body:                                         ; preds = %while.end, %for.inc120
   %indvars.iv218 = phi i64 [ %indvars.iv.next219, %for.inc120 ], [ 0, %while.end ]
-  %errors11.0208 = phi ptr [ %errors11.4, %for.inc120 ], [ %call12, %while.end ]
+  %errors11.0209 = phi ptr [ %errors11.4, %for.inc120 ], [ %call12, %while.end ]
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %arrayidx = getelementptr inbounds ptr, ptr %call14, i64 %indvars.iv218
   %3 = load ptr, ptr %arrayidx, align 8
@@ -6942,7 +6942,7 @@ sdslen.exit:                                      ; preds = %if.end26, %sw.bb.i,
 if.then35:                                        ; preds = %sdslen.exit
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5368), align 8
   %11 = trunc nuw nsw i64 %indvars.iv.next219 to i32
-  %call36 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.0208, ptr noundef nonnull @.str.104, ptr noundef %10, i32 noundef %11) #23
+  %call36 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.0209, ptr noundef nonnull @.str.104, ptr noundef %10, i32 noundef %11) #23
   br label %for.inc120
 
 if.end37:                                         ; preds = %sdslen.exit
@@ -6965,7 +6965,7 @@ if.end41:                                         ; preds = %if.end37
 if.then46:                                        ; preds = %if.end41
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5368), align 8
   %15 = trunc nuw nsw i64 %indvars.iv.next219 to i32
-  %call47 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.0208, ptr noundef nonnull @.str.105, ptr noundef %14, i32 noundef %15) #23
+  %call47 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.0209, ptr noundef nonnull @.str.105, ptr noundef %14, i32 noundef %15) #23
   %16 = load i32, ptr %argc, align 4
   call void @sdsfreesplitres(ptr noundef nonnull %call32, i32 noundef %16) #23
   br label %for.inc120
@@ -7044,7 +7044,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
 if.then54:                                        ; preds = %for.body.i
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5368), align 8
   %28 = trunc nuw nsw i64 %indvars.iv.next219 to i32
-  %call56 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.0208, ptr noundef nonnull @.str.106, ptr noundef %27, i32 noundef %28, ptr noundef nonnull %17) #23
+  %call56 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.0209, ptr noundef nonnull @.str.106, ptr noundef %27, i32 noundef %28, ptr noundef nonnull %17) #23
   %29 = load i32, ptr %argc, align 4
   call void @sdsfreesplitres(ptr noundef nonnull %call32, i32 noundef %29) #23
   br label %for.inc120
@@ -7095,7 +7095,7 @@ sdslen.exit110:                                   ; preds = %if.end48, %if.end57
 if.then63:                                        ; preds = %sdslen.exit110
   %34 = load ptr, ptr %arrayidx49, align 8
   %35 = trunc nuw nsw i64 %indvars.iv.next219 to i32
-  %call65 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.0208, ptr noundef nonnull @.str.107, ptr noundef %34, i32 noundef %35) #23
+  %call65 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.0209, ptr noundef nonnull @.str.107, ptr noundef %34, i32 noundef %35) #23
   %36 = load i32, ptr %argc, align 4
   call void @sdsfreesplitres(ptr noundef nonnull %call32, i32 noundef %36) #23
   br label %for.inc120
@@ -7111,11 +7111,11 @@ if.end66:                                         ; preds = %sdslen.exit110
 if.then69:                                        ; preds = %if.end66
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5368), align 8
   %39 = trunc nuw nsw i64 %indvars.iv.next219 to i32
-  %call70 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.0208, ptr noundef nonnull @.str.108, ptr noundef %38, i32 noundef %39) #23
+  %call70 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %errors11.0209, ptr noundef nonnull @.str.108, ptr noundef %38, i32 noundef %39) #23
   br label %if.end71
 
 if.end71:                                         ; preds = %if.then69, %if.end66
-  %errors11.1 = phi ptr [ %errors11.0208, %if.end66 ], [ %call70, %if.then69 ]
+  %errors11.1 = phi ptr [ %errors11.0209, %if.end66 ], [ %call70, %if.then69 ]
   %40 = load i32, ptr %merged_argc, align 4
   %cmp73199 = icmp sgt i32 %40, 0
   br i1 %cmp73199, label %for.body75.preheader, label %for.end114
@@ -7315,7 +7315,7 @@ if.end119:                                        ; preds = %for.end114, %sdslen
   br label %for.inc120
 
 for.inc120:                                       ; preds = %for.body, %if.end119, %if.then118, %if.then63, %if.then54, %if.then46, %if.then40, %if.then35
-  %errors11.4 = phi ptr [ %errors11.0208, %for.body ], [ %call36, %if.then35 ], [ %errors11.0208, %if.then40 ], [ %call47, %if.then46 ], [ %call56, %if.then54 ], [ %errors11.2.lcssa224, %if.then118 ], [ %errors11.2.lcssa224, %if.end119 ], [ %call65, %if.then63 ]
+  %errors11.4 = phi ptr [ %errors11.0209, %for.body ], [ %call36, %if.then35 ], [ %errors11.0209, %if.then40 ], [ %call47, %if.then46 ], [ %call56, %if.then54 ], [ %errors11.2.lcssa224, %if.then118 ], [ %errors11.2.lcssa224, %if.end119 ], [ %call65, %if.then63 ]
   %63 = load i32, ptr %totlines, align 4
   %64 = sext i32 %63 to i64
   %cmp16 = icmp slt i64 %indvars.iv.next219, %64
@@ -8604,7 +8604,7 @@ for.body120:                                      ; preds = %for.body120.lr.ph, 
   %indvars.iv453 = phi i64 [ 0, %for.body120.lr.ph ], [ %indvars.iv.next454, %for.inc131 ]
   %57 = phi i64 [ %56, %for.body120.lr.ph ], [ %60, %for.inc131 ]
   %arrayidx118426 = phi ptr [ @ACLUserFlags, %for.body120.lr.ph ], [ %arrayidx118, %for.inc131 ]
-  %numflags.0424 = phi i32 [ 0, %for.body120.lr.ph ], [ %numflags.1, %for.inc131 ]
+  %numflags.0425 = phi i32 [ 0, %for.body120.lr.ph ], [ %numflags.1, %for.inc131 ]
   %58 = load i32, ptr %flags, align 8
   %conv121 = zext i32 %58 to i64
   %and = and i64 %57, %conv121
@@ -8614,11 +8614,11 @@ for.body120:                                      ; preds = %for.body120.lr.ph, 
 if.then126:                                       ; preds = %for.body120
   %59 = load ptr, ptr %arrayidx118426, align 16
   call void @addReplyBulkCString(ptr noundef %c, ptr noundef %59) #23
-  %inc129 = add nsw i32 %numflags.0424, 1
+  %inc129 = add nsw i32 %numflags.0425, 1
   br label %for.inc131
 
 for.inc131:                                       ; preds = %for.body120, %if.then126
-  %numflags.1 = phi i32 [ %inc129, %if.then126 ], [ %numflags.0424, %for.body120 ]
+  %numflags.1 = phi i32 [ %inc129, %if.then126 ], [ %numflags.0425, %for.body120 ]
   %indvars.iv.next454 = add nuw nsw i64 %indvars.iv453, 1
   %arrayidx118 = getelementptr inbounds [6 x %struct.ACLUserFlag], ptr @ACLUserFlags, i64 0, i64 %indvars.iv.next454
   %flag = getelementptr inbounds i8, ptr %arrayidx118, i64 8
@@ -9672,8 +9672,8 @@ if.else:                                          ; preds = %if.end
   br label %if.end10
 
 if.end10:                                         ; preds = %if.else, %if.end5
-  %username.0 = phi ptr [ %5, %if.end5 ], [ %9, %if.else ]
   %password.0 = phi ptr [ %7, %if.end5 ], [ %10, %if.else ]
+  %username.0 = phi ptr [ %5, %if.end5 ], [ %9, %if.else ]
   store ptr null, ptr %err, align 8
   %call.i = call i32 @checkModuleAuthentication(ptr noundef nonnull %c, ptr noundef %username.0, ptr noundef %password.0, ptr noundef nonnull %err) #23
   %cmp.i = icmp eq i32 %call.i, 2

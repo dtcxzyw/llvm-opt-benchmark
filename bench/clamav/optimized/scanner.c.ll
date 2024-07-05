@@ -1056,9 +1056,9 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
 
 31:                                               ; preds = %6, %45
   %32 = phi i1 [ false, %6 ], [ %47, %45 ]
-  %.0116144 = phi i32 [ 0, %6 ], [ %46, %45 ]
-  %.0117143 = phi i32 [ %25, %6 ], [ %34, %45 ]
-  %33 = add i32 %.0117143, -1
+  %.0116144 = phi i32 [ %25, %6 ], [ %34, %45 ]
+  %.0118143 = phi i32 [ 0, %6 ], [ %46, %45 ]
+  %33 = add i32 %.0116144, -1
   %34 = urem i32 %33, %26
   store i64 0, ptr %30, align 4
   store i16 2, ptr %12, align 4
@@ -1081,8 +1081,8 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   br label %45
 
 45:                                               ; preds = %31, %43
-  %46 = add nuw nsw i32 %.0116144, 1
-  %47 = icmp ugt i32 %.0116144, 998
+  %46 = add nuw nsw i32 %.0118143, 1
+  %47 = icmp ugt i32 %.0118143, 998
   %exitcond = icmp eq i32 %46, 1000
   br i1 %exitcond, label %48, label %31
 

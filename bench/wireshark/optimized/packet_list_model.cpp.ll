@@ -5337,13 +5337,13 @@ define noundef zeroext i1 @_ZN15PacketListModel15isNumericColumnEi(ptr nocapture
   br i1 %.not59, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %41
-  %.048 = phi i32 [ %42, %41 ], [ 0, %12 ]
+  %.03948 = phi i32 [ %42, %41 ], [ 0, %12 ]
   %16 = load ptr, ptr @_ZN15PacketListModel14sort_cap_file_E, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 320
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr %struct.col_item_t, ptr %18, i64 %8, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr @g_slist_nth_data(ptr noundef %20, i32 noundef %.048)
+  %21 = tail call ptr @g_slist_nth_data(ptr noundef %20, i32 noundef %.03948)
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
@@ -5414,13 +5414,13 @@ define noundef zeroext i1 @_ZN15PacketListModel15isNumericColumnEi(ptr nocapture
   ]
 
 41:                                               ; preds = %40, %34, %34, %34, %34, %40, %40, %40, %37, %37, %37
-  %42 = add nuw i32 %.048, 1
+  %42 = add nuw i32 %.03948, 1
   %exitcond.not = icmp eq i32 %42, %15
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !84
 
 .loopexit:                                        ; preds = %.lr.ph, %40, %30, %25, %41, %34, %12, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %2, %11
-  %.039 = phi i1 [ false, %11 ], [ false, %2 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %12 ], [ false, %.lr.ph ], [ false, %40 ], [ false, %30 ], [ false, %25 ], [ true, %41 ], [ false, %34 ]
-  ret i1 %.039
+  %.0 = phi i1 [ false, %11 ], [ false, %2 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %12 ], [ false, %.lr.ph ], [ false, %40 ], [ false, %30 ], [ false, %25 ], [ true, %41 ], [ false, %34 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7089,7 +7089,7 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   %28 = phi i64 [ %16, %.lr.ph52 ], [ %67, %.loopexit ]
   %spec.store.select.i51 = phi i64 [ %spec.store.select.i48, %.lr.ph52 ], [ %spec.store.select.i, %.loopexit ]
   %29 = phi i64 [ %14, %.lr.ph52 ], [ %65, %.loopexit ]
-  %.03650 = phi i64 [ %2, %.lr.ph52 ], [ %.1, %.loopexit ]
+  %.050 = phi i64 [ %2, %.lr.ph52 ], [ %.1, %.loopexit ]
   %30 = getelementptr inbounds i8, ptr %25, i64 128
   %31 = load ptr, ptr %30, align 8
   %32 = zext i8 %24 to i64
@@ -7112,13 +7112,13 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   br i1 %48, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %60
-  %.047 = phi i64 [ %spec.store.select.i41, %60 ], [ %47, %23 ]
-  %49 = icmp eq i64 %.047, %.03650
+  %.03647 = phi i64 [ %spec.store.select.i41, %60 ], [ %47, %23 ]
+  %49 = icmp eq i64 %.03647, %.050
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %.lr.ph
-  %51 = lshr i64 %.03650, 7
-  %52 = and i64 %.03650, 127
+  %51 = lshr i64 %.050, 7
+  %52 = and i64 %.050, 127
   %53 = icmp eq i64 %28, %51
   br i1 %53, label %54, label %58
 
@@ -7136,14 +7136,14 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
           to label %.loopexit unwind label %94
 
 60:                                               ; preds = %.lr.ph
-  %61 = add i64 %.047, 1
+  %61 = add i64 %.03647, 1
   %62 = icmp eq i64 %61, %29
   %spec.store.select.i41 = select i1 %62, i64 0, i64 %61
   %63 = icmp eq i64 %spec.store.select.i41, %spec.store.select.i51
   br i1 %63, label %.loopexit, label %.lr.ph, !llvm.loop !95
 
 .loopexit:                                        ; preds = %60, %23, %54, %58
-  %.1 = phi i64 [ %spec.store.select.i51, %58 ], [ %spec.store.select.i51, %54 ], [ %.03650, %23 ], [ %.03650, %60 ]
+  %.1 = phi i64 [ %spec.store.select.i51, %58 ], [ %spec.store.select.i51, %54 ], [ %.050, %23 ], [ %.050, %60 ]
   %64 = add i64 %spec.store.select.i51, 1
   %65 = load i64, ptr %12, align 8
   %66 = icmp eq i64 %64, %65
@@ -9551,8 +9551,8 @@ _ZSt22__move_median_to_firstIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5_
   br label %_ZSt22__move_median_to_firstIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_SB_T0_.exit
 
 _ZSt22__move_median_to_firstIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_SB_T0_.exit: ; preds = %_ZSt22__move_median_to_firstIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_SB_T0_.exit.preheader, %56
-  %.sroa.012.0.i = phi ptr [ %50, %56 ], [ %10, %_ZSt22__move_median_to_firstIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_SB_T0_.exit.preheader ]
   %.sroa.010.0.i = phi ptr [ %.sroa.010.1.i, %56 ], [ %1, %_ZSt22__move_median_to_firstIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_SB_T0_.exit.preheader ]
+  %.sroa.012.0.i = phi ptr [ %50, %56 ], [ %10, %_ZSt22__move_median_to_firstIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_SB_T0_.exit.preheader ]
   br label %46
 
 46:                                               ; preds = %46, %_ZSt22__move_median_to_firstIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SB_SB_SB_T0_.exit

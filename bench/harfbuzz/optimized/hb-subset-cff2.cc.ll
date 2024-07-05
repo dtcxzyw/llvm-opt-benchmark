@@ -462,9 +462,9 @@ if.end13.i.i:                                     ; preds = %_ZN22hb_serialize_c
   br i1 %cmp.not32.i.i, label %if.end.i.i60, label %for.body.i26.i
 
 for.body.i26.i:                                   ; preds = %if.end13.i.i, %for.inc.i.i
-  %__begin0.034.i.i = phi ptr [ %incdec.ptr27.i.i, %for.inc.i.i ], [ %iterable.val15.i.i, %if.end13.i.i ]
-  %ret.033.i.i = phi ptr [ %ret.1.i.i, %for.inc.i.i ], [ %24, %if.end13.i.i ]
-  %length.i.i = getelementptr inbounds i8, ptr %__begin0.034.i.i, i64 4
+  %ret.034.i.i = phi ptr [ %ret.1.i.i, %for.inc.i.i ], [ %24, %if.end13.i.i ]
+  %__begin0.033.i.i = phi ptr [ %incdec.ptr27.i.i, %for.inc.i.i ], [ %iterable.val15.i.i, %if.end13.i.i ]
+  %length.i.i = getelementptr inbounds i8, ptr %__begin0.033.i.i, i64 4
   %25 = load i32, ptr %length.i.i, align 4
   switch i32 %25, label %if.end23.i.i [
     i32 0, label %for.inc.i.i
@@ -472,24 +472,24 @@ for.body.i26.i:                                   ; preds = %if.end13.i.i, %for.
   ]
 
 if.then22.i.i:                                    ; preds = %for.body.i26.i
-  %arrayZ.i.i = getelementptr inbounds i8, ptr %__begin0.034.i.i, i64 8
+  %arrayZ.i.i = getelementptr inbounds i8, ptr %__begin0.033.i.i, i64 8
   %26 = load ptr, ptr %arrayZ.i.i, align 8
   %27 = load i8, ptr %26, align 1
-  %incdec.ptr.i27.i = getelementptr inbounds i8, ptr %ret.033.i.i, i64 1
-  store i8 %27, ptr %ret.033.i.i, align 1
+  %incdec.ptr.i27.i = getelementptr inbounds i8, ptr %ret.034.i.i, i64 1
+  store i8 %27, ptr %ret.034.i.i, align 1
   br label %for.inc.i.i
 
 if.end23.i.i:                                     ; preds = %for.body.i26.i
-  %arrayZ24.i.i = getelementptr inbounds i8, ptr %__begin0.034.i.i, i64 8
+  %arrayZ24.i.i = getelementptr inbounds i8, ptr %__begin0.033.i.i, i64 8
   %28 = load ptr, ptr %arrayZ24.i.i, align 8
   %conv25.i.i = zext i32 %25 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.033.i.i, ptr readonly align 1 %28, i64 %conv25.i.i, i1 false), !alias.scope !5
-  %add.ptr.i29.i = getelementptr inbounds i8, ptr %ret.033.i.i, i64 %conv25.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.034.i.i, ptr readonly align 1 %28, i64 %conv25.i.i, i1 false), !alias.scope !5
+  %add.ptr.i29.i = getelementptr inbounds i8, ptr %ret.034.i.i, i64 %conv25.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end23.i.i, %if.then22.i.i, %for.body.i26.i
-  %ret.1.i.i = phi ptr [ %incdec.ptr.i27.i, %if.then22.i.i ], [ %add.ptr.i29.i, %if.end23.i.i ], [ %ret.033.i.i, %for.body.i26.i ]
-  %incdec.ptr27.i.i = getelementptr inbounds i8, ptr %__begin0.034.i.i, i64 16
+  %ret.1.i.i = phi ptr [ %incdec.ptr.i27.i, %if.then22.i.i ], [ %add.ptr.i29.i, %if.end23.i.i ], [ %ret.034.i.i, %for.body.i26.i ]
+  %incdec.ptr27.i.i = getelementptr inbounds i8, ptr %__begin0.033.i.i, i64 16
   %cmp.not.i28.i = icmp eq ptr %incdec.ptr27.i.i, %add.ptr.i24.i.i
   br i1 %cmp.not.i28.i, label %if.end.i.i60, label %for.body.i26.i
 
@@ -840,9 +840,9 @@ if.end13.i:                                       ; preds = %_ZN22hb_serialize_c
   br i1 %tobool.i.i.not.i.i91, label %if.then15, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end13.i, %for.inc.i
-  %__begin0.034.i = phi ptr [ %incdec.ptr27.i, %for.inc.i ], [ %iterable.val15.i.pre, %if.end13.i ]
-  %ret.033.i = phi ptr [ %ret.1.i, %for.inc.i ], [ %73, %if.end13.i ]
-  %length.i117 = getelementptr inbounds i8, ptr %__begin0.034.i, i64 4
+  %ret.034.i = phi ptr [ %ret.1.i, %for.inc.i ], [ %73, %if.end13.i ]
+  %__begin0.033.i = phi ptr [ %incdec.ptr27.i, %for.inc.i ], [ %iterable.val15.i.pre, %if.end13.i ]
+  %length.i117 = getelementptr inbounds i8, ptr %__begin0.033.i, i64 4
   %74 = load i32, ptr %length.i117, align 4
   switch i32 %74, label %if.end23.i [
     i32 0, label %for.inc.i
@@ -850,24 +850,24 @@ for.body.i:                                       ; preds = %if.end13.i, %for.in
   ]
 
 if.then22.i:                                      ; preds = %for.body.i
-  %arrayZ.i118 = getelementptr inbounds i8, ptr %__begin0.034.i, i64 8
+  %arrayZ.i118 = getelementptr inbounds i8, ptr %__begin0.033.i, i64 8
   %75 = load ptr, ptr %arrayZ.i118, align 8
   %76 = load i8, ptr %75, align 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ret.033.i, i64 1
-  store i8 %76, ptr %ret.033.i, align 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ret.034.i, i64 1
+  store i8 %76, ptr %ret.034.i, align 1
   br label %for.inc.i
 
 if.end23.i:                                       ; preds = %for.body.i
-  %arrayZ24.i = getelementptr inbounds i8, ptr %__begin0.034.i, i64 8
+  %arrayZ24.i = getelementptr inbounds i8, ptr %__begin0.033.i, i64 8
   %77 = load ptr, ptr %arrayZ24.i, align 8
   %conv25.i = zext i32 %74 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.033.i, ptr readonly align 1 %77, i64 %conv25.i, i1 false), !alias.scope !12
-  %add.ptr.i = getelementptr inbounds i8, ptr %ret.033.i, i64 %conv25.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.034.i, ptr readonly align 1 %77, i64 %conv25.i, i1 false), !alias.scope !12
+  %add.ptr.i = getelementptr inbounds i8, ptr %ret.034.i, i64 %conv25.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end23.i, %if.then22.i, %for.body.i
-  %ret.1.i = phi ptr [ %incdec.ptr.i, %if.then22.i ], [ %add.ptr.i, %if.end23.i ], [ %ret.033.i, %for.body.i ]
-  %incdec.ptr27.i = getelementptr inbounds i8, ptr %__begin0.034.i, i64 16
+  %ret.1.i = phi ptr [ %incdec.ptr.i, %if.then22.i ], [ %add.ptr.i, %if.end23.i ], [ %ret.034.i, %for.body.i ]
+  %incdec.ptr27.i = getelementptr inbounds i8, ptr %__begin0.033.i, i64 16
   %cmp.not.i119 = icmp eq ptr %incdec.ptr27.i, %add.ptr.i24.i
   br i1 %cmp.not.i119, label %if.then15, label %for.body.i
 
@@ -2166,9 +2166,9 @@ if.end13:                                         ; preds = %_ZN22hb_serialize_c
   br i1 %cmp.not32, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end13, %for.inc
-  %__begin0.034 = phi ptr [ %incdec.ptr27, %for.inc ], [ %iterable.val15, %if.end13 ]
-  %ret.033 = phi ptr [ %ret.1, %for.inc ], [ %7, %if.end13 ]
-  %length = getelementptr inbounds i8, ptr %__begin0.034, i64 4
+  %ret.034 = phi ptr [ %ret.1, %for.inc ], [ %7, %if.end13 ]
+  %__begin0.033 = phi ptr [ %incdec.ptr27, %for.inc ], [ %iterable.val15, %if.end13 ]
+  %length = getelementptr inbounds i8, ptr %__begin0.033, i64 4
   %8 = load i32, ptr %length, align 4
   switch i32 %8, label %if.end23 [
     i32 0, label %for.inc
@@ -2176,24 +2176,24 @@ for.body:                                         ; preds = %if.end13, %for.inc
   ]
 
 if.then22:                                        ; preds = %for.body
-  %arrayZ = getelementptr inbounds i8, ptr %__begin0.034, i64 8
+  %arrayZ = getelementptr inbounds i8, ptr %__begin0.033, i64 8
   %9 = load ptr, ptr %arrayZ, align 8
   %10 = load i8, ptr %9, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %ret.033, i64 1
-  store i8 %10, ptr %ret.033, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %ret.034, i64 1
+  store i8 %10, ptr %ret.034, align 1
   br label %for.inc
 
 if.end23:                                         ; preds = %for.body
-  %arrayZ24 = getelementptr inbounds i8, ptr %__begin0.034, i64 8
+  %arrayZ24 = getelementptr inbounds i8, ptr %__begin0.033, i64 8
   %11 = load ptr, ptr %arrayZ24, align 8
   %conv25 = zext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.033, ptr readonly align 1 %11, i64 %conv25, i1 false), !alias.scope !31
-  %add.ptr = getelementptr inbounds i8, ptr %ret.033, i64 %conv25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ret.034, ptr readonly align 1 %11, i64 %conv25, i1 false), !alias.scope !31
+  %add.ptr = getelementptr inbounds i8, ptr %ret.034, i64 %conv25
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end23, %if.then22
-  %ret.1 = phi ptr [ %incdec.ptr, %if.then22 ], [ %add.ptr, %if.end23 ], [ %ret.033, %for.body ]
-  %incdec.ptr27 = getelementptr inbounds i8, ptr %__begin0.034, i64 16
+  %ret.1 = phi ptr [ %incdec.ptr, %if.then22 ], [ %add.ptr, %if.end23 ], [ %ret.034, %for.body ]
+  %incdec.ptr27 = getelementptr inbounds i8, ptr %__begin0.033, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr27, %add.ptr.i24
   br i1 %cmp.not, label %return, label %for.body
 
@@ -13549,7 +13549,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc48
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc48 ]
-  %seen_hint.054 = phi i1 [ false, %for.body.lr.ph ], [ %seen_hint.1, %for.inc48 ]
+  %seen_hint.055 = phi i1 [ false, %for.body.lr.ph ], [ %seen_hint.1, %for.inc48 ]
   %arrayidx = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %1, i64 %indvars.iv
   %op = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i32, ptr %op, align 8
@@ -13656,7 +13656,7 @@ for.inc48.sink.split:                             ; preds = %for.body, %for.body
   br label %for.inc48
 
 for.inc48:                                        ; preds = %for.body31, %for.inc, %for.inc48.sink.split, %if.then28, %sw.bb6, %for.body, %sw.epilog
-  %seen_hint.1 = phi i1 [ %seen_hint.054, %sw.epilog ], [ %seen_hint.054, %for.body ], [ %seen_hint.054, %sw.bb6 ], [ true, %if.then28 ], [ %seen_hint.054, %for.inc48.sink.split ], [ true, %for.inc ], [ true, %for.body31 ]
+  %seen_hint.1 = phi i1 [ %seen_hint.055, %sw.epilog ], [ %seen_hint.055, %for.body ], [ %seen_hint.055, %sw.bb6 ], [ true, %if.then28 ], [ %seen_hint.055, %for.inc48.sink.split ], [ true, %for.inc ], [ true, %for.body31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end49, label %for.body, !llvm.loop !89
@@ -13718,9 +13718,9 @@ for.body.preheader:                               ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %j.039 = phi i32 [ 0, %for.body.preheader ], [ %j.1, %for.inc ]
+  %j.041 = phi i32 [ 0, %for.body.preheader ], [ %j.1, %for.inc ]
   %1 = load ptr, ptr %arrayZ, align 8
-  %idxprom = zext i32 %j.039 to i64
+  %idxprom = zext i32 %j.041 to i64
   %arrayidx = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %1, i64 %idxprom
   %op = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i32, ptr %op, align 8
@@ -13777,14 +13777,14 @@ if.then47:                                        ; preds = %land.rhs
 
 if.else:                                          ; preds = %land.lhs.true26, %land.lhs.true18, %land.lhs.true8, %land.lhs.true8, %for.body, %for.body, %land.rhs
   %arrayidx62 = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %1, i64 %indvars.iv
-  %inc = add i32 %j.039, 1
+  %inc = add i32 %j.041, 1
   %idxprom63 = zext i32 %inc to i64
   %arrayidx64 = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %1, i64 %idxprom63
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx64, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx62, i64 16, i1 false)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then47, %if.else
-  %j.1 = phi i32 [ %j.039, %if.then47 ], [ %inc, %if.else ]
+  %j.1 = phi i32 [ %j.041, %if.then47 ], [ %inc, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !91
@@ -18151,9 +18151,9 @@ for.body.preheader.i:                             ; preds = %if.end.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %j.039.i = phi i32 [ 0, %for.body.preheader.i ], [ %j.1.i, %for.inc.i ]
+  %j.041.i = phi i32 [ 0, %for.body.preheader.i ], [ %j.1.i, %for.inc.i ]
   %7 = load ptr, ptr %arrayZ.i22, align 8
-  %idxprom.i = zext i32 %j.039.i to i64
+  %idxprom.i = zext i32 %j.041.i to i64
   %arrayidx.i = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %7, i64 %idxprom.i
   %op.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %8 = load i32, ptr %op.i, align 8
@@ -18210,14 +18210,14 @@ if.then47.i:                                      ; preds = %land.rhs.i
 
 if.else.i:                                        ; preds = %land.rhs.i, %land.lhs.true26.i, %land.lhs.true18.i, %land.lhs.true8.i, %land.lhs.true8.i, %for.body.i, %for.body.i
   %arrayidx62.i = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %7, i64 %indvars.iv.i
-  %inc.i = add i32 %j.039.i, 1
+  %inc.i = add i32 %j.041.i, 1
   %idxprom63.i = zext i32 %inc.i to i64
   %arrayidx64.i = getelementptr inbounds %"struct.CFF::parsed_cs_op_t", ptr %7, i64 %idxprom63.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx64.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx62.i, i64 16, i1 false)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then47.i
-  %j.1.i = phi i32 [ %j.039.i, %if.then47.i ], [ %inc.i, %if.else.i ]
+  %j.1.i = phi i32 [ %j.041.i, %if.then47.i ], [ %inc.i, %if.else.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !91

@@ -899,10 +899,10 @@ gv_calloc.exit66.preheader:                       ; preds = %gv_calloc.exit
   unreachable
 
 gv_calloc.exit66:                                 ; preds = %gv_calloc.exit66.preheader, %gv_calloc.exit66
-  %.06074 = phi i64 [ %25, %gv_calloc.exit66 ], [ 0, %gv_calloc.exit66.preheader ]
-  %24 = getelementptr inbounds float, ptr %18, i64 %.06074
+  %.074 = phi i64 [ %25, %gv_calloc.exit66 ], [ 0, %gv_calloc.exit66.preheader ]
+  %24 = getelementptr inbounds float, ptr %18, i64 %.074
   store float 0x47EFFFFFE0000000, ptr %24, align 4
-  %25 = add nuw i64 %.06074, 1
+  %25 = add nuw i64 %.074, 1
   %exitcond.not = icmp eq i64 %25, %6
   br i1 %exitcond.not, label %gv_calloc.exit66._crit_edge, label %gv_calloc.exit66
 
@@ -927,14 +927,14 @@ gv_calloc.exit66._crit_edge:                      ; preds = %gv_calloc.exit66, %
   br label %39
 
 39:                                               ; preds = %.lr.ph76, %39
-  %.06175 = phi i64 [ %31, %.lr.ph76 ], [ %45, %39 ]
-  %40 = getelementptr inbounds i64, ptr %36, i64 %.06175
+  %.05975 = phi i64 [ %31, %.lr.ph76 ], [ %45, %39 ]
+  %40 = getelementptr inbounds i64, ptr %36, i64 %.05975
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds float, ptr %38, i64 %.06175
+  %42 = getelementptr inbounds float, ptr %38, i64 %.05975
   %43 = load float, ptr %42, align 4
   %44 = getelementptr inbounds float, ptr %18, i64 %41
   store float %43, ptr %44, align 4
-  %45 = add nuw i64 %.06175, 1
+  %45 = add nuw i64 %.05975, 1
   %exitcond92.not = icmp eq i64 %45, %33
   br i1 %exitcond92.not, label %._crit_edge, label %39
 
@@ -963,7 +963,7 @@ gv_calloc.exit66._crit_edge:                      ; preds = %gv_calloc.exit66, %
 
 54:                                               ; preds = %.lr.ph83, %.loopexit
   %indvars.iv = phi i64 [ %53, %.lr.ph83 ], [ %indvars.iv.next, %.loopexit ]
-  %.05981 = phi i32 [ 0, %.lr.ph83 ], [ %.1, %.loopexit ]
+  %.06181 = phi i32 [ 0, %.lr.ph83 ], [ %.1, %.loopexit ]
   %55 = load i32, ptr %.val.pre, align 4
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %56 = load i32, ptr %gep, align 4
@@ -1073,7 +1073,7 @@ extractMax_f.exit:                                ; preds = %93
   br i1 %or.cond, label %123, label %132
 
 123:                                              ; preds = %110
-  %124 = sext i32 %.05981 to i64
+  %124 = sext i32 %.06181 to i64
   %125 = getelementptr inbounds %struct.term_sgd, ptr %2, i64 %124
   store i32 %1, ptr %125, align 4
   %126 = getelementptr inbounds i8, ptr %125, i64 4
@@ -1084,11 +1084,11 @@ extractMax_f.exit:                                ; preds = %93
   %129 = fdiv float 1.000000e+00, %128
   %130 = getelementptr inbounds i8, ptr %125, i64 12
   store float %129, ptr %130, align 4
-  %131 = add nsw i32 %.05981, 1
+  %131 = add nsw i32 %.06181, 1
   br label %132
 
 132:                                              ; preds = %110, %123
-  %.1 = phi i32 [ %131, %123 ], [ %.05981, %110 ]
+  %.1 = phi i32 [ %131, %123 ], [ %.06181, %110 ]
   %133 = load ptr, ptr %28, align 8
   %134 = getelementptr i64, ptr %133, i64 %106
   %135 = load i64, ptr %134, align 8
@@ -1099,12 +1099,12 @@ extractMax_f.exit:                                ; preds = %93
 
 .lr.ph79:                                         ; preds = %132, %increaseKey_f.exit
   %139 = phi ptr [ %170, %increaseKey_f.exit ], [ %133, %132 ]
-  %.077 = phi i64 [ %171, %increaseKey_f.exit ], [ %135, %132 ]
+  %.06077 = phi i64 [ %171, %increaseKey_f.exit ], [ %135, %132 ]
   %140 = load ptr, ptr %51, align 8
-  %141 = getelementptr inbounds i64, ptr %140, i64 %.077
+  %141 = getelementptr inbounds i64, ptr %140, i64 %.06077
   %142 = load i64, ptr %141, align 8
   %143 = load ptr, ptr %52, align 8
-  %144 = getelementptr inbounds float, ptr %143, i64 %.077
+  %144 = getelementptr inbounds float, ptr %143, i64 %.06077
   %145 = load float, ptr %144, align 4
   %146 = trunc i64 %142 to i32
   %147 = fadd float %108, %145
@@ -1154,7 +1154,7 @@ extractMax_f.exit:                                ; preds = %93
 
 increaseKey_f.exit:                               ; preds = %.lr.ph79, %.critedge.i
   %170 = phi ptr [ %139, %.lr.ph79 ], [ %.pre, %.critedge.i ]
-  %171 = add nuw i64 %.077, 1
+  %171 = add nuw i64 %.06077, 1
   %172 = getelementptr i64, ptr %170, i64 %106
   %173 = getelementptr i8, ptr %172, i64 8
   %174 = load i64, ptr %173, align 8
@@ -1162,11 +1162,11 @@ increaseKey_f.exit:                               ; preds = %.lr.ph79, %.critedg
   br i1 %175, label %.lr.ph79, label %.loopexit
 
 extractMax_f.exit.thread:                         ; preds = %extractMax_f.exit, %.loopexit, %._crit_edge
-  %.059.lcssa = phi i32 [ 0, %._crit_edge ], [ %.05981, %extractMax_f.exit ], [ %.1, %.loopexit ]
+  %.061.lcssa = phi i32 [ 0, %._crit_edge ], [ %.06181, %extractMax_f.exit ], [ %.1, %.loopexit ]
   tail call void @free(ptr noundef %.val.pre) #11
   tail call void @free(ptr noundef %12) #11
   tail call void @free(ptr noundef nonnull %18) #11
-  ret i32 %.059.lcssa
+  ret i32 %.061.lcssa
 }
 
 ; Function Attrs: nofree nounwind

@@ -12179,8 +12179,8 @@ _ZN5alloc11collections5btree4node13move_to_slice17h358436e9e2782277E.exit.i.i.i:
 .loopexit75.i:                                    ; preds = %102, %115
   %.sroa.8.1 = phi i64 [ %118, %115 ], [ %.sroa.8.0, %102 ]
   %.sroa.0.1 = phi ptr [ %109, %115 ], [ %.sroa.0.0, %102 ]
-  %.sroa.655.0.i = phi i64 [ %118, %115 ], [ %103, %102 ]
   %.sroa.054.0.i = phi ptr [ %109, %115 ], [ %100, %102 ]
+  %.sroa.655.0.i = phi i64 [ %118, %115 ], [ %103, %102 ]
   %120 = add i64 %.sroa.655.0.i, -1
   %121 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h7acb5f13ab84ef84E.llvm.4791013001715523264"()
           to label %.noexc35.i unwind label %.loopexit81.i, !noalias !2356

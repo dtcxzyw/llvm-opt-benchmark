@@ -51,14 +51,14 @@ define range(i64 -2147483648, 2147483648) i64 @euc_cn_to_mic(ptr nocapture nound
 
 .lr.ph.i:                                         ; preds = %1, %39
   %.041.i = phi ptr [ %40, %39 ], [ %5, %1 ]
-  %.02640.i = phi i32 [ %41, %39 ], [ %11, %1 ]
-  %.02839.i = phi ptr [ %.129.i, %39 ], [ %8, %1 ]
+  %.02640.i = phi ptr [ %.127.i, %39 ], [ %8, %1 ]
+  %.02839.i = phi i32 [ %41, %39 ], [ %11, %1 ]
   %20 = load i8, ptr %.041.i, align 1
   %.not.i = icmp sgt i8 %20, -1
   br i1 %.not.i, label %33, label %21
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = icmp eq i32 %.02640.i, 1
+  %22 = icmp eq i32 %.02839.i, 1
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %21
@@ -71,16 +71,16 @@ define range(i64 -2147483648, 2147483648) i64 @euc_cn_to_mic(ptr nocapture nound
   br i1 %.not, label %27, label %euc_cn2mic.exit
 
 27:                                               ; preds = %26
-  tail call void @report_invalid_encoding(i32 noundef 2, ptr noundef nonnull %.041.i, i32 noundef %.02640.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 2, ptr noundef nonnull %.041.i, i32 noundef %.02839.i) #5
   unreachable
 
 28:                                               ; preds = %23
-  %29 = getelementptr i8, ptr %.02839.i, i64 1
-  store i8 -111, ptr %.02839.i, align 1
-  %30 = getelementptr i8, ptr %.02839.i, i64 2
+  %29 = getelementptr i8, ptr %.02640.i, i64 1
+  store i8 -111, ptr %.02640.i, align 1
+  %30 = getelementptr i8, ptr %.02640.i, i64 2
   store i8 %20, ptr %29, align 1
   %31 = load i8, ptr %24, align 1
-  %32 = getelementptr i8, ptr %.02839.i, i64 3
+  %32 = getelementptr i8, ptr %.02640.i, i64 3
   store i8 %31, ptr %30, align 1
   br label %39
 
@@ -92,27 +92,27 @@ define range(i64 -2147483648, 2147483648) i64 @euc_cn_to_mic(ptr nocapture nound
   br i1 %.not, label %36, label %euc_cn2mic.exit
 
 36:                                               ; preds = %35
-  tail call void @report_invalid_encoding(i32 noundef 2, ptr noundef nonnull %.041.i, i32 noundef %.02640.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 2, ptr noundef nonnull %.041.i, i32 noundef %.02839.i) #5
   unreachable
 
 37:                                               ; preds = %33
-  %38 = getelementptr i8, ptr %.02839.i, i64 1
-  store i8 %20, ptr %.02839.i, align 1
+  %38 = getelementptr i8, ptr %.02640.i, i64 1
+  store i8 %20, ptr %.02640.i, align 1
   br label %39
 
 39:                                               ; preds = %37, %28
   %.sink55.i = phi i64 [ 1, %37 ], [ 2, %28 ]
   %.sink.i = phi i32 [ -1, %37 ], [ -2, %28 ]
-  %.129.i = phi ptr [ %38, %37 ], [ %32, %28 ]
+  %.127.i = phi ptr [ %38, %37 ], [ %32, %28 ]
   %40 = getelementptr i8, ptr %.041.i, i64 %.sink55.i
-  %41 = add nsw i32 %.sink.i, %.02640.i
+  %41 = add nsw i32 %.sink.i, %.02839.i
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %.lr.ph.i, label %euc_cn2mic.exit, !llvm.loop !4
 
 euc_cn2mic.exit:                                  ; preds = %39, %1, %26, %35
-  %.02838.i = phi ptr [ %.02839.i, %35 ], [ %.02839.i, %26 ], [ %8, %1 ], [ %.129.i, %39 ]
+  %.02636.i = phi ptr [ %.02640.i, %35 ], [ %.02640.i, %26 ], [ %8, %1 ], [ %.127.i, %39 ]
   %.033.i = phi ptr [ %.041.i, %35 ], [ %.041.i, %26 ], [ %5, %1 ], [ %40, %39 ]
-  store i8 0, ptr %.02838.i, align 1
+  store i8 0, ptr %.02636.i, align 1
   %43 = ptrtoint ptr %.033.i to i64
   %44 = sub i64 %43, %4
   %sext = shl i64 %44, 32
@@ -148,8 +148,8 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_cn(ptr nocapture nound
 
 .lr.ph.i:                                         ; preds = %1, %46
   %.050.i = phi ptr [ %.1.i, %46 ], [ %5, %1 ]
-  %.03049.i = phi i32 [ %47, %46 ], [ %11, %1 ]
-  %.03248.i = phi ptr [ %.133.i, %46 ], [ %8, %1 ]
+  %.03049.i = phi ptr [ %.131.i, %46 ], [ %8, %1 ]
+  %.03248.i = phi i32 [ %47, %46 ], [ %11, %1 ]
   %20 = load i8, ptr %.050.i, align 1
   %.not.i = icmp sgt i8 %20, -1
   br i1 %.not.i, label %39, label %21
@@ -162,11 +162,11 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_cn(ptr nocapture nound
   br i1 %.not, label %23, label %mic2euc_cn.exit
 
 23:                                               ; preds = %22
-  tail call void @report_untranslatable_char(i32 noundef 7, i32 noundef 2, ptr noundef nonnull %.050.i, i32 noundef %.03049.i) #5
+  tail call void @report_untranslatable_char(i32 noundef 7, i32 noundef 2, ptr noundef nonnull %.050.i, i32 noundef %.03248.i) #5
   unreachable
 
 24:                                               ; preds = %21
-  %25 = icmp ult i32 %.03049.i, 3
+  %25 = icmp ult i32 %.03248.i, 3
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %24
@@ -185,15 +185,15 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_cn(ptr nocapture nound
   br i1 %.not, label %33, label %mic2euc_cn.exit
 
 33:                                               ; preds = %32
-  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.050.i, i32 noundef %.03049.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.050.i, i32 noundef %.03248.i) #5
   unreachable
 
 34:                                               ; preds = %29
-  %35 = getelementptr i8, ptr %.03248.i, i64 1
-  store i8 %28, ptr %.03248.i, align 1
+  %35 = getelementptr i8, ptr %.03049.i, i64 1
+  store i8 %28, ptr %.03049.i, align 1
   %36 = getelementptr i8, ptr %.050.i, i64 3
   %37 = load i8, ptr %30, align 1
-  %38 = getelementptr i8, ptr %.03248.i, i64 2
+  %38 = getelementptr i8, ptr %.03049.i, i64 2
   store i8 %37, ptr %35, align 1
   br label %46
 
@@ -205,27 +205,27 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_cn(ptr nocapture nound
   br i1 %.not, label %42, label %mic2euc_cn.exit
 
 42:                                               ; preds = %41
-  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.050.i, i32 noundef %.03049.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.050.i, i32 noundef %.03248.i) #5
   unreachable
 
 43:                                               ; preds = %39
-  %44 = getelementptr i8, ptr %.03248.i, i64 1
-  store i8 %20, ptr %.03248.i, align 1
+  %44 = getelementptr i8, ptr %.03049.i, i64 1
+  store i8 %20, ptr %.03049.i, align 1
   %45 = getelementptr i8, ptr %.050.i, i64 1
   br label %46
 
 46:                                               ; preds = %43, %34
   %.sink.i = phi i32 [ -1, %43 ], [ -3, %34 ]
-  %.133.i = phi ptr [ %44, %43 ], [ %38, %34 ]
+  %.131.i = phi ptr [ %44, %43 ], [ %38, %34 ]
   %.1.i = phi ptr [ %45, %43 ], [ %36, %34 ]
-  %47 = add nsw i32 %.sink.i, %.03049.i
+  %47 = add nsw i32 %.sink.i, %.03248.i
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.lr.ph.i, label %mic2euc_cn.exit, !llvm.loop !6
 
 mic2euc_cn.exit:                                  ; preds = %46, %1, %22, %32, %41
-  %.03247.i = phi ptr [ %.03248.i, %41 ], [ %.03248.i, %32 ], [ %.03248.i, %22 ], [ %8, %1 ], [ %.133.i, %46 ]
+  %.03044.i = phi ptr [ %.03049.i, %41 ], [ %.03049.i, %32 ], [ %.03049.i, %22 ], [ %8, %1 ], [ %.131.i, %46 ]
   %.040.i = phi ptr [ %.050.i, %41 ], [ %.050.i, %32 ], [ %.050.i, %22 ], [ %5, %1 ], [ %.1.i, %46 ]
-  store i8 0, ptr %.03247.i, align 1
+  store i8 0, ptr %.03044.i, align 1
   %49 = ptrtoint ptr %.040.i to i64
   %50 = sub i64 %49, %4
   %sext = shl i64 %50, 32

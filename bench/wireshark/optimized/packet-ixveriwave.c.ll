@@ -1172,24 +1172,24 @@ select.unfold:                                    ; preds = %22, %17, %18
   br label %61
 
 61:                                               ; preds = %57, %52
-  %.1739 = phi i32 [ 10, %57 ], [ 6, %52 ]
-  %.1735 = phi i32 [ %60, %57 ], [ %55, %52 ]
-  %62 = icmp ugt i32 %.1735, 1
+  %.1748 = phi i32 [ %60, %57 ], [ %55, %52 ]
+  %.1743 = phi i32 [ 10, %57 ], [ 6, %52 ]
+  %62 = icmp ugt i32 %.1748, 1
   br i1 %62, label %63, label %.thread841.thread
 
 63:                                               ; preds = %61
   %64 = load i32, ptr @hf_ixveriwave_vw_vcid, align 4
-  %65 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %64, ptr noundef %0, i32 noundef %.1739, i32 noundef 2, i32 noundef -2147483648) #5
-  %66 = add nuw nsw i32 %.1739, 2
-  %67 = and i32 %.1735, -2
+  %65 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %64, ptr noundef %0, i32 noundef %.1743, i32 noundef 2, i32 noundef -2147483648) #5
+  %66 = add nuw nsw i32 %.1743, 2
+  %67 = and i32 %.1748, -2
   %.not901 = icmp eq i32 %67, 2
   br i1 %.not901, label %.thread841.thread, label %68
 
 68:                                               ; preds = %63
   %69 = load i32, ptr @hf_ixveriwave_vw_seqnum, align 4
   %70 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %69, ptr noundef %0, i32 noundef %66, i32 noundef 2, i32 noundef -2147483648) #5
-  %71 = add nuw nsw i32 %.1739, 4
-  %72 = and i32 %.1735, -4
+  %71 = add nuw nsw i32 %.1743, 4
+  %72 = and i32 %.1748, -4
   %.not902 = icmp eq i32 %72, 4
   br i1 %.not902, label %.thread841.thread, label %73
 
@@ -1220,43 +1220,43 @@ select.unfold:                                    ; preds = %22, %17, %18
   br label %92
 
 92:                                               ; preds = %76, %86
-  %.0754 = phi ptr [ %81, %76 ], [ %87, %86 ]
-  %.0750 = phi ptr [ %83, %76 ], [ %89, %86 ]
-  %93 = add nuw nsw i32 %.1739, 8
+  %.0738 = phi ptr [ %83, %76 ], [ %89, %86 ]
+  %.0734 = phi ptr [ %81, %76 ], [ %87, %86 ]
+  %93 = add nuw nsw i32 %.1743, 8
   %.not903 = icmp eq i32 %72, 8
   br i1 %.not903, label %.thread841.thread, label %94
 
 94:                                               ; preds = %92
   %95 = load i32, ptr @hf_ixveriwave_vw_sig_ts, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef %.0750, i32 noundef %95, ptr noundef %0, i32 noundef %93, i32 noundef 4, i32 noundef 0) #5
-  %97 = add nuw nsw i32 %.1739, 12
-  %98 = add nsw i32 %.1735, -12
+  %96 = call ptr @proto_tree_add_item(ptr noundef %.0738, i32 noundef %95, ptr noundef %0, i32 noundef %93, i32 noundef 4, i32 noundef 0) #5
+  %97 = add nuw nsw i32 %.1743, 12
+  %98 = add nsw i32 %.1748, -12
   %99 = icmp ugt i32 %98, 7
   br i1 %99, label %100, label %.thread841
 
 100:                                              ; preds = %94
   %101 = load i32, ptr @hf_ixveriwave_vw_startt, align 4
-  %102 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %.0750, i32 noundef %101, ptr noundef %0, i32 noundef %97, i32 noundef 8, i32 noundef -2147483648, ptr noundef nonnull %10) #5
-  %103 = add nuw nsw i32 %.1739, 20
-  %104 = add nsw i32 %.1735, -20
+  %102 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %.0738, i32 noundef %101, ptr noundef %0, i32 noundef %97, i32 noundef 8, i32 noundef -2147483648, ptr noundef nonnull %10) #5
+  %103 = add nuw nsw i32 %.1743, 20
+  %104 = add nsw i32 %.1748, -20
   %105 = icmp ugt i32 %104, 7
   br i1 %105, label %106, label %.thread841
 
 106:                                              ; preds = %100
   %107 = load i32, ptr @hf_ixveriwave_vw_endt, align 4
-  %108 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %.0750, i32 noundef %107, ptr noundef %0, i32 noundef %103, i32 noundef 8, i32 noundef -2147483648, ptr noundef nonnull %11) #5
-  %109 = add nuw nsw i32 %.1739, 28
-  %110 = add nsw i32 %.1735, -28
+  %108 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %.0738, i32 noundef %107, ptr noundef %0, i32 noundef %103, i32 noundef 8, i32 noundef -2147483648, ptr noundef nonnull %11) #5
+  %109 = add nuw nsw i32 %.1743, 28
+  %110 = add nsw i32 %.1748, -28
   br label %.thread841
 
 .thread841:                                       ; preds = %94, %106, %100
-  %.7745 = phi i32 [ %109, %106 ], [ %103, %100 ], [ %97, %94 ]
-  %.7 = phi i32 [ %110, %106 ], [ %104, %100 ], [ %98, %94 ]
-  %111 = icmp ugt i32 %.7, 3
+  %.7754 = phi i32 [ %110, %106 ], [ %104, %100 ], [ %98, %94 ]
+  %.7 = phi i32 [ %109, %106 ], [ %103, %100 ], [ %97, %94 ]
+  %111 = icmp ugt i32 %.7754, 3
   br i1 %111, label %112, label %.thread841.thread
 
 112:                                              ; preds = %.thread841
-  %113 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.7745) #5
+  %113 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.7) #5
   %114 = load i64, ptr %11, align 8
   %115 = load i64, ptr %10, align 8
   %.not777 = icmp ult i64 %114, %115
@@ -1264,29 +1264,29 @@ select.unfold:                                    ; preds = %22, %17, %18
 
 116:                                              ; preds = %112
   %117 = icmp eq i8 %16, 1
-  %118 = add nsw i32 %.7745, -16
+  %118 = add nsw i32 %.7, -16
   br i1 %117, label %119, label %122
 
 119:                                              ; preds = %116
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0754, ptr noundef nonnull @.str.596, i32 noundef %113) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0734, ptr noundef nonnull @.str.596, i32 noundef %113) #5
   %120 = load i32, ptr @hf_ixveriwave_vw_pktdur, align 4
-  %121 = call ptr @proto_tree_add_uint(ptr noundef %.0750, i32 noundef %120, ptr noundef %0, i32 noundef %118, i32 noundef 16, i32 noundef %113) #5
+  %121 = call ptr @proto_tree_add_uint(ptr noundef %.0738, i32 noundef %120, ptr noundef %0, i32 noundef %118, i32 noundef 16, i32 noundef %113) #5
   br label %128
 
 122:                                              ; preds = %116
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0754, ptr noundef nonnull @.str.597, i32 noundef %113) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0734, ptr noundef nonnull @.str.597, i32 noundef %113) #5
   %123 = load i32, ptr @hf_ixveriwave_vw_pktdur, align 4
-  %124 = call ptr @proto_tree_add_uint(ptr noundef %.0750, i32 noundef %123, ptr noundef %0, i32 noundef %118, i32 noundef 16, i32 noundef %113) #5
+  %124 = call ptr @proto_tree_add_uint(ptr noundef %.0738, i32 noundef %123, ptr noundef %0, i32 noundef %118, i32 noundef 16, i32 noundef %113) #5
   br label %128
 
 125:                                              ; preds = %112
   %126 = load i32, ptr @hf_ixveriwave_vw_pktdur, align 4
-  %127 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0750, i32 noundef %126, ptr noundef %0, i32 noundef %.7745, i32 noundef 0, i32 noundef %113, ptr noundef nonnull @.str.595) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0754, ptr noundef nonnull @.str.598) #5
+  %127 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0738, i32 noundef %126, ptr noundef %0, i32 noundef %.7, i32 noundef 0, i32 noundef %113, ptr noundef nonnull @.str.595) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0734, ptr noundef nonnull @.str.598) #5
   br label %128
 
 128:                                              ; preds = %119, %122, %125
-  %129 = add nuw nsw i32 %.7745, 4
+  %129 = add nuw nsw i32 %.7, 4
   br label %.thread841.thread
 
 130:                                              ; preds = %select.unfold
@@ -1325,8 +1325,8 @@ select.unfold:                                    ; preds = %22, %17, %18
   br label %152
 
 152:                                              ; preds = %135, %149
-  %.2756 = phi ptr [ %140, %135 ], [ %146, %149 ]
-  %.2752 = phi ptr [ %142, %135 ], [ %148, %149 ]
+  %.2740 = phi ptr [ %142, %135 ], [ %148, %149 ]
+  %.2736 = phi ptr [ %140, %135 ], [ %146, %149 ]
   %153 = add nsw i32 %36, -8
   %154 = icmp ugt i32 %153, 3
   br i1 %154, label %157, label %.thread841.thread
@@ -1343,36 +1343,36 @@ select.unfold:                                    ; preds = %22, %17, %18
 
 .thread860:                                       ; preds = %157, %.thread855
   %hf_ixveriwave_vw_sig_ts.sink = phi ptr [ @hf_ixveriwave_vw_delay, %.thread855 ], [ %spec.select923, %157 ]
-  %.2752.sink = phi ptr [ %148, %.thread855 ], [ %.2752, %157 ]
-  %.2756858866 = phi ptr [ %146, %.thread855 ], [ %.2756, %157 ]
+  %.2740.sink = phi ptr [ %148, %.thread855 ], [ %.2740, %157 ]
+  %.2736859864 = phi ptr [ %146, %.thread855 ], [ %.2736, %157 ]
   %158 = phi i32 [ %155, %.thread855 ], [ %153, %157 ]
   %159 = load i32, ptr %hf_ixveriwave_vw_sig_ts.sink, align 4
-  %160 = tail call ptr @proto_tree_add_item(ptr noundef %.2752.sink, i32 noundef %159, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #5
+  %160 = tail call ptr @proto_tree_add_item(ptr noundef %.2740.sink, i32 noundef %159, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #5
   %161 = add nsw i32 %158, -4
   %162 = icmp ugt i32 %161, 7
   br i1 %162, label %163, label %.thread877
 
 163:                                              ; preds = %.thread860
   %164 = load i32, ptr @hf_ixveriwave_vw_startt, align 4
-  %165 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %.2752.sink, i32 noundef %164, ptr noundef %0, i32 noundef 12, i32 noundef 8, i32 noundef -2147483648, ptr noundef nonnull %10) #5
+  %165 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %.2740.sink, i32 noundef %164, ptr noundef %0, i32 noundef 12, i32 noundef 8, i32 noundef -2147483648, ptr noundef nonnull %10) #5
   %166 = add nsw i32 %158, -12
   %167 = icmp ugt i32 %166, 7
   br i1 %167, label %168, label %.thread877
 
 168:                                              ; preds = %163
   %169 = load i32, ptr @hf_ixveriwave_vw_endt, align 4
-  %170 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %.2752.sink, i32 noundef %169, ptr noundef %0, i32 noundef 20, i32 noundef 8, i32 noundef -2147483648, ptr noundef nonnull %11) #5
+  %170 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %.2740.sink, i32 noundef %169, ptr noundef %0, i32 noundef 20, i32 noundef 8, i32 noundef -2147483648, ptr noundef nonnull %11) #5
   %171 = add nsw i32 %158, -20
   br label %.thread877
 
 .thread877:                                       ; preds = %.thread860, %168, %163
-  %.11749 = phi i32 [ 28, %168 ], [ 20, %163 ], [ 12, %.thread860 ]
-  %.11 = phi i32 [ %171, %168 ], [ %166, %163 ], [ %161, %.thread860 ]
-  %172 = icmp ugt i32 %.11, 3
+  %.11758 = phi i32 [ %171, %168 ], [ %166, %163 ], [ %161, %.thread860 ]
+  %.11 = phi i32 [ 28, %168 ], [ 20, %163 ], [ 12, %.thread860 ]
+  %172 = icmp ugt i32 %.11758, 3
   br i1 %172, label %173, label %.thread841.thread
 
 173:                                              ; preds = %.thread877
-  %174 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.11749) #5
+  %174 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.11) #5
   %175 = load i64, ptr %11, align 8
   %176 = load i64, ptr %10, align 8
   %.not781 = icmp ult i64 %175, %176
@@ -1383,31 +1383,31 @@ select.unfold:                                    ; preds = %22, %17, %18
   br i1 %178, label %179, label %183
 
 179:                                              ; preds = %177
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.2756858866, ptr noundef nonnull @.str.596, i32 noundef %174) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.2736859864, ptr noundef nonnull @.str.596, i32 noundef %174) #5
   %180 = load i32, ptr @hf_ixveriwave_vw_pktdur, align 4
-  %181 = add nsw i32 %.11749, -16
-  %182 = call ptr @proto_tree_add_uint(ptr noundef %.2752.sink, i32 noundef %180, ptr noundef %0, i32 noundef %181, i32 noundef 16, i32 noundef %174) #5
+  %181 = add nsw i32 %.11, -16
+  %182 = call ptr @proto_tree_add_uint(ptr noundef %.2740.sink, i32 noundef %180, ptr noundef %0, i32 noundef %181, i32 noundef 16, i32 noundef %174) #5
   br label %189
 
 183:                                              ; preds = %177
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.2756858866, ptr noundef nonnull @.str.597, i32 noundef %174) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.2736859864, ptr noundef nonnull @.str.597, i32 noundef %174) #5
   %184 = load i32, ptr @hf_ixveriwave_vw_pktdur, align 4
-  %185 = call ptr @proto_tree_add_uint(ptr noundef %.2752.sink, i32 noundef %184, ptr noundef %0, i32 noundef %.11749, i32 noundef 4, i32 noundef %174) #5
+  %185 = call ptr @proto_tree_add_uint(ptr noundef %.2740.sink, i32 noundef %184, ptr noundef %0, i32 noundef %.11, i32 noundef 4, i32 noundef %174) #5
   br label %189
 
 186:                                              ; preds = %173
   %187 = load i32, ptr @hf_ixveriwave_vw_pktdur, align 4
-  %188 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.2752.sink, i32 noundef %187, ptr noundef %0, i32 noundef %.11749, i32 noundef 0, i32 noundef %174, ptr noundef nonnull @.str.595) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.2756858866, ptr noundef nonnull @.str.598) #5
+  %188 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.2740.sink, i32 noundef %187, ptr noundef %0, i32 noundef %.11, i32 noundef 0, i32 noundef %174, ptr noundef nonnull @.str.595) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.2736859864, ptr noundef nonnull @.str.598) #5
   br label %189
 
 189:                                              ; preds = %179, %183, %186
-  %190 = add nuw nsw i32 %.11749, 4
+  %190 = add nuw nsw i32 %.11, 4
   br label %.thread841.thread
 
 .thread841.thread:                                ; preds = %130, %152, %.thread855, %44, %61, %63, %68, %92, %.thread877, %189, %.thread841, %128
-  %.4758 = phi ptr [ %.2756858866, %189 ], [ %.2756858866, %.thread877 ], [ %.0754, %128 ], [ %.0754, %.thread841 ], [ null, %44 ], [ null, %61 ], [ null, %63 ], [ null, %68 ], [ %.0754, %92 ], [ null, %130 ], [ %.2756, %152 ], [ %146, %.thread855 ]
-  %.12 = phi i32 [ %190, %189 ], [ %.11749, %.thread877 ], [ %129, %128 ], [ %.7745, %.thread841 ], [ 4, %44 ], [ %.1739, %61 ], [ %66, %63 ], [ %71, %68 ], [ %93, %92 ], [ 4, %130 ], [ 8, %152 ], [ 8, %.thread855 ]
+  %.12 = phi i32 [ %190, %189 ], [ %.11, %.thread877 ], [ %129, %128 ], [ %.7, %.thread841 ], [ 4, %44 ], [ %.1743, %61 ], [ %66, %63 ], [ %71, %68 ], [ %93, %92 ], [ 4, %130 ], [ 8, %152 ], [ 8, %.thread855 ]
+  %.4 = phi ptr [ %.2736859864, %189 ], [ %.2736859864, %.thread877 ], [ %.0734, %128 ], [ %.0734, %.thread841 ], [ null, %44 ], [ null, %61 ], [ null, %63 ], [ null, %68 ], [ %.0734, %92 ], [ null, %130 ], [ %.2736, %152 ], [ %146, %.thread855 ]
   %191 = call ptr @wmem_file_scope() #5
   %192 = load i32, ptr @proto_ixveriwave, align 4
   %193 = call ptr @p_get_proto_data(ptr noundef %191, ptr noundef nonnull %1, i32 noundef %192, i32 noundef 0) #5
@@ -1509,12 +1509,12 @@ select.unfold:                                    ; preds = %22, %17, %18
   br label %240
 
 240:                                              ; preds = %236, %238, %230
-  %.0759 = phi ptr [ %232, %230 ], [ %237, %236 ], [ %239, %238 ]
-  %.not.i = icmp eq ptr %.0759, null
+  %.0733 = phi ptr [ %232, %230 ], [ %237, %236 ], [ %239, %238 ]
+  %.not.i = icmp eq ptr %.0733, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %241
 
 241:                                              ; preds = %240
-  %242 = getelementptr inbounds i8, ptr %.0759, i64 32
+  %242 = getelementptr inbounds i8, ptr %.0733, i64 32
   %243 = load ptr, ptr %242, align 8
   %.not5.i = icmp eq ptr %243, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %244
@@ -2015,7 +2015,7 @@ proto_item_set_generated.exit:                    ; preds = %244, %241, %240, %2
   br i1 %.not799, label %1300, label %613
 
 613:                                              ; preds = %612
-  call void @proto_item_set_len(ptr noundef %.4758, i32 noundef 28) #5
+  call void @proto_item_set_len(ptr noundef %.4, i32 noundef 28) #5
   br i1 %.not775, label %.thread884, label %614
 
 614:                                              ; preds = %613
@@ -2030,7 +2030,7 @@ proto_item_set_generated.exit:                    ; preds = %244, %241, %240, %2
   br i1 %618, label %619, label %.thread888
 
 619:                                              ; preds = %.thread884, %614
-  %.0733886 = phi ptr [ %617, %.thread884 ], [ %615, %614 ]
+  %.0759886 = phi ptr [ %617, %.thread884 ], [ %615, %614 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %620 = call ptr @wmem_file_scope() #5
@@ -2038,7 +2038,7 @@ proto_item_set_generated.exit:                    ; preds = %244, %241, %240, %2
   %622 = call ptr @p_get_proto_data(ptr noundef %620, ptr noundef nonnull %1, i32 noundef %621, i32 noundef 0) #5
   %623 = load i32, ptr @hf_ixveriwave_vw_ifg, align 4
   %624 = load i32, ptr %622, align 8
-  %625 = call ptr @proto_tree_add_uint(ptr noundef %43, i32 noundef %623, ptr noundef %.0733886, i32 noundef 0, i32 noundef 0, i32 noundef %624) #5
+  %625 = call ptr @proto_tree_add_uint(ptr noundef %43, i32 noundef %623, ptr noundef %.0759886, i32 noundef 0, i32 noundef 0, i32 noundef %624) #5
   %.not.i.i = icmp eq ptr %625, null
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %626
 
@@ -2056,7 +2056,7 @@ proto_item_set_generated.exit:                    ; preds = %244, %241, %240, %2
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %629, %626, %619
-  %633 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0733886, i32 noundef 0) #5
+  %633 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0759886, i32 noundef 0) #5
   %634 = zext i16 %633 to i32
   %635 = add nsw i32 %634, -2
   %636 = icmp ugt i16 %633, 1
@@ -2064,9 +2064,9 @@ proto_item_set_generated.exit.i:                  ; preds = %629, %626, %619
 
 637:                                              ; preds = %proto_item_set_generated.exit.i
   %638 = load i32, ptr @hf_ixveriwave_vwf_txf, align 4
-  %639 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %43, i32 noundef %638, ptr noundef %.0733886, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %9) #5
+  %639 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %43, i32 noundef %638, ptr noundef %.0759886, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %9) #5
   %640 = load i32, ptr @hf_ixveriwave_vwf_fcserr, align 4
-  %641 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %640, ptr noundef %.0733886, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
+  %641 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %640, ptr noundef %.0759886, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
   %642 = add nsw i32 %634, -4
   br label %643
 
@@ -2078,7 +2078,7 @@ proto_item_set_generated.exit.i:                  ; preds = %629, %626, %619
 
 645:                                              ; preds = %643
   %646 = load i32, ptr @hf_ixveriwave_vw_info, align 4
-  %647 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %646, ptr noundef %.0733886, i32 noundef %.0.i, i32 noundef 2, i32 noundef -2147483648) #5
+  %647 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %646, ptr noundef %.0759886, i32 noundef %.0.i, i32 noundef 2, i32 noundef -2147483648) #5
   %648 = load i32, ptr @ett_ethernettap_info, align 4
   %649 = call ptr @proto_item_add_subtree(ptr noundef %647, i32 noundef %648) #5
   %650 = load i32, ptr %9, align 4
@@ -2087,13 +2087,13 @@ proto_item_set_generated.exit.i:                  ; preds = %629, %626, %619
 
 652:                                              ; preds = %645
   %653 = load i32, ptr @hf_ixveriwave_vw_info_go_no_flow, align 4
-  %654 = call ptr @proto_tree_add_item(ptr noundef %649, i32 noundef %653, ptr noundef %.0733886, i32 noundef %.0.i, i32 noundef 2, i32 noundef -2147483648) #5
+  %654 = call ptr @proto_tree_add_item(ptr noundef %649, i32 noundef %653, ptr noundef %.0759886, i32 noundef %.0.i, i32 noundef 2, i32 noundef -2147483648) #5
   br label %655
 
 655:                                              ; preds = %652, %645
   %hf_ixveriwave_vw_info_go_with_flow.sink.i = phi ptr [ @hf_ixveriwave_vw_info_go_with_flow, %652 ], [ @hf_ixveriwave_vw_info_retry_count, %645 ]
   %656 = load i32, ptr %hf_ixveriwave_vw_info_go_with_flow.sink.i, align 4
-  %657 = call ptr @proto_tree_add_item(ptr noundef %649, i32 noundef %656, ptr noundef %.0733886, i32 noundef %.0.i, i32 noundef 2, i32 noundef -2147483648) #5
+  %657 = call ptr @proto_tree_add_item(ptr noundef %649, i32 noundef %656, ptr noundef %.0759886, i32 noundef %.0.i, i32 noundef 2, i32 noundef -2147483648) #5
   %658 = add nsw i32 %.055.i, -2
   %659 = icmp ugt i32 %658, 3
   br i1 %659, label %660, label %ethernettap_dissect.exit
@@ -2105,7 +2105,7 @@ proto_item_set_generated.exit.i:                  ; preds = %629, %626, %619
   %664 = load i32, ptr @hf_ixveriwave_vw_error, align 4
   %665 = load i32, ptr @ett_ethernettap_error, align 4
   %ethernettap_dissect.vw_error_rx_flags.ethernettap_dissect.vw_error_tx_flags.i = select i1 %663, ptr @ethernettap_dissect.vw_error_rx_flags, ptr @ethernettap_dissect.vw_error_tx_flags
-  %666 = call ptr @proto_tree_add_bitmask(ptr noundef %43, ptr noundef %.0733886, i32 noundef %661, i32 noundef %664, i32 noundef %665, ptr noundef nonnull %ethernettap_dissect.vw_error_rx_flags.ethernettap_dissect.vw_error_tx_flags.i, i32 noundef -2147483648) #5
+  %666 = call ptr @proto_tree_add_bitmask(ptr noundef %43, ptr noundef %.0759886, i32 noundef %661, i32 noundef %664, i32 noundef %665, ptr noundef nonnull %ethernettap_dissect.vw_error_rx_flags.ethernettap_dissect.vw_error_tx_flags.i, i32 noundef -2147483648) #5
   %667 = and i32 %658, -4
   %.not.i804 = icmp eq i32 %667, 4
   br i1 %.not.i804, label %ethernettap_dissect.exit, label %668
@@ -2113,11 +2113,11 @@ proto_item_set_generated.exit.i:                  ; preds = %629, %626, %619
 668:                                              ; preds = %660
   %669 = add nuw nsw i32 %.0.i, 6
   %670 = load i32, ptr @hf_ixveriwave_vw_l4id, align 4
-  %671 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %670, ptr noundef %.0733886, i32 noundef %669, i32 noundef 4, i32 noundef -2147483648) #5
+  %671 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %670, ptr noundef %.0759886, i32 noundef %669, i32 noundef 4, i32 noundef -2147483648) #5
   br label %ethernettap_dissect.exit
 
 ethernettap_dissect.exit:                         ; preds = %643, %655, %660, %668
-  %672 = call ptr @tvb_new_subset_remaining(ptr noundef %.0733886, i32 noundef %634) #5
+  %672 = call ptr @tvb_new_subset_remaining(ptr noundef %.0759886, i32 noundef %634) #5
   %673 = load ptr, ptr @ethernet_handle, align 8
   %674 = call i32 @call_dissector(ptr noundef %673, ptr noundef %672, ptr noundef nonnull %1, ptr noundef %2) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)

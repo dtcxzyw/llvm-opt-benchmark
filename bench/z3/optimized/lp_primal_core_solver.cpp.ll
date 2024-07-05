@@ -5693,8 +5693,8 @@ for.body.lr.ph:                                   ; preds = %_ZNK2lp19lp_core_so
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %non_basis_iter.sroa.0.036 = phi ptr [ %non_basis_iter.sroa.0.030, %for.body.lr.ph ], [ %non_basis_iter.sroa.0.0, %for.inc ]
   %number_of_benefitial_columns_to_go_over.035 = phi i32 [ %retval.0.i29, %for.body.lr.ph ], [ %number_of_benefitial_columns_to_go_over.1, %for.inc ]
-  %n.034 = phi i32 [ 0, %for.body.lr.ph ], [ %n.1, %for.inc ]
-  %j_nz.033 = phi i32 [ %retval.0.i.i.i, %for.body.lr.ph ], [ %j_nz.1, %for.inc ]
+  %j_nz.034 = phi i32 [ %retval.0.i.i.i, %for.body.lr.ph ], [ %j_nz.1, %for.inc ]
+  %n.033 = phi i32 [ 0, %for.body.lr.ph ], [ %n.1, %for.inc ]
   %entering_iter.sroa.0.032 = phi ptr [ %m_non_basis_list, %for.body.lr.ph ], [ %entering_iter.sroa.0.1, %for.inc ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %non_basis_iter.sroa.0.036, i64 16
   %13 = load i32, ptr %_M_storage.i.i, align 4
@@ -5718,7 +5718,7 @@ if.end.i.i:                                       ; preds = %if.end19
 
 _ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit: ; preds = %if.end19, %if.end.i.i
   %retval.0.i.i = phi i32 [ %17, %if.end.i.i ], [ 0, %if.end19 ]
-  %cmp21 = icmp ult i32 %retval.0.i.i, %j_nz.033
+  %cmp21 = icmp ult i32 %retval.0.i.i, %j_nz.034
   br i1 %cmp21, label %if.then22, label %if.else24
 
 if.then22:                                        ; preds = %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit
@@ -5726,12 +5726,12 @@ if.then22:                                        ; preds = %_ZNK2lp13static_mat
   br label %for.inc
 
 if.else24:                                        ; preds = %_ZNK2lp13static_matrixI8rationalS1_E30number_of_non_zeroes_in_columnEj.exit
-  %cmp25 = icmp eq i32 %retval.0.i.i, %j_nz.033
+  %cmp25 = icmp eq i32 %retval.0.i.i, %j_nz.034
   br i1 %cmp25, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %if.else24
   %18 = load ptr, ptr %m_settings, align 8
-  %inc = add i32 %n.034, 1
+  %inc = add i32 %n.033, 1
   %m_rand.i = getelementptr inbounds i8, ptr %18, i64 188
   %19 = load i32, ptr %m_rand.i, align 4
   %mul.i.i.i10 = mul i32 %19, 214013
@@ -5746,8 +5746,8 @@ land.lhs.true:                                    ; preds = %if.else24
 
 for.inc:                                          ; preds = %land.lhs.true, %if.then22, %if.else24, %for.body
   %entering_iter.sroa.0.1 = phi ptr [ %non_basis_iter.sroa.0.036, %if.then22 ], [ %entering_iter.sroa.0.032, %if.else24 ], [ %entering_iter.sroa.0.032, %for.body ], [ %spec.select, %land.lhs.true ]
-  %j_nz.1 = phi i32 [ %retval.0.i.i, %if.then22 ], [ %j_nz.033, %if.else24 ], [ %j_nz.033, %for.body ], [ %j_nz.033, %land.lhs.true ]
-  %n.1 = phi i32 [ 1, %if.then22 ], [ %n.034, %if.else24 ], [ %n.034, %for.body ], [ %inc, %land.lhs.true ]
+  %n.1 = phi i32 [ 1, %if.then22 ], [ %n.033, %if.else24 ], [ %n.033, %for.body ], [ %inc, %land.lhs.true ]
+  %j_nz.1 = phi i32 [ %retval.0.i.i, %if.then22 ], [ %j_nz.034, %if.else24 ], [ %j_nz.034, %for.body ], [ %j_nz.034, %land.lhs.true ]
   %number_of_benefitial_columns_to_go_over.1 = phi i32 [ %dec23, %if.then22 ], [ %number_of_benefitial_columns_to_go_over.035, %if.else24 ], [ %number_of_benefitial_columns_to_go_over.035, %for.body ], [ %number_of_benefitial_columns_to_go_over.035, %land.lhs.true ]
   %non_basis_iter.sroa.0.0 = load ptr, ptr %non_basis_iter.sroa.0.036, align 8
   %tobool.not = icmp ne i32 %number_of_benefitial_columns_to_go_over.1, 0
@@ -14200,8 +14200,8 @@ for.body.lr.ph:                                   ; preds = %_ZNK2lp19lp_core_so
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %non_basis_iter.sroa.0.036 = phi ptr [ %non_basis_iter.sroa.0.030, %for.body.lr.ph ], [ %non_basis_iter.sroa.0.0, %for.inc ]
   %number_of_benefitial_columns_to_go_over.035 = phi i32 [ %retval.0.i29, %for.body.lr.ph ], [ %number_of_benefitial_columns_to_go_over.1, %for.inc ]
-  %n.034 = phi i32 [ 0, %for.body.lr.ph ], [ %n.1, %for.inc ]
-  %j_nz.033 = phi i32 [ %retval.0.i.i.i, %for.body.lr.ph ], [ %j_nz.1, %for.inc ]
+  %j_nz.034 = phi i32 [ %retval.0.i.i.i, %for.body.lr.ph ], [ %j_nz.1, %for.inc ]
+  %n.033 = phi i32 [ 0, %for.body.lr.ph ], [ %n.1, %for.inc ]
   %entering_iter.sroa.0.032 = phi ptr [ %m_non_basis_list, %for.body.lr.ph ], [ %entering_iter.sroa.0.1, %for.inc ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %non_basis_iter.sroa.0.036, i64 16
   %13 = load i32, ptr %_M_storage.i.i, align 4
@@ -14225,7 +14225,7 @@ if.end.i.i:                                       ; preds = %if.end19
 
 _ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit: ; preds = %if.end19, %if.end.i.i
   %retval.0.i.i = phi i32 [ %17, %if.end.i.i ], [ 0, %if.end19 ]
-  %cmp21 = icmp ult i32 %retval.0.i.i, %j_nz.033
+  %cmp21 = icmp ult i32 %retval.0.i.i, %j_nz.034
   br i1 %cmp21, label %if.then22, label %if.else24
 
 if.then22:                                        ; preds = %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit
@@ -14233,12 +14233,12 @@ if.then22:                                        ; preds = %_ZNK2lp13static_mat
   br label %for.inc
 
 if.else24:                                        ; preds = %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE30number_of_non_zeroes_in_columnEj.exit
-  %cmp25 = icmp eq i32 %retval.0.i.i, %j_nz.033
+  %cmp25 = icmp eq i32 %retval.0.i.i, %j_nz.034
   br i1 %cmp25, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %if.else24
   %18 = load ptr, ptr %m_settings, align 8
-  %inc = add i32 %n.034, 1
+  %inc = add i32 %n.033, 1
   %m_rand.i = getelementptr inbounds i8, ptr %18, i64 188
   %19 = load i32, ptr %m_rand.i, align 4
   %mul.i.i.i10 = mul i32 %19, 214013
@@ -14253,8 +14253,8 @@ land.lhs.true:                                    ; preds = %if.else24
 
 for.inc:                                          ; preds = %land.lhs.true, %if.then22, %if.else24, %for.body
   %entering_iter.sroa.0.1 = phi ptr [ %non_basis_iter.sroa.0.036, %if.then22 ], [ %entering_iter.sroa.0.032, %if.else24 ], [ %entering_iter.sroa.0.032, %for.body ], [ %spec.select, %land.lhs.true ]
-  %j_nz.1 = phi i32 [ %retval.0.i.i, %if.then22 ], [ %j_nz.033, %if.else24 ], [ %j_nz.033, %for.body ], [ %j_nz.033, %land.lhs.true ]
-  %n.1 = phi i32 [ 1, %if.then22 ], [ %n.034, %if.else24 ], [ %n.034, %for.body ], [ %inc, %land.lhs.true ]
+  %n.1 = phi i32 [ 1, %if.then22 ], [ %n.033, %if.else24 ], [ %n.033, %for.body ], [ %inc, %land.lhs.true ]
+  %j_nz.1 = phi i32 [ %retval.0.i.i, %if.then22 ], [ %j_nz.034, %if.else24 ], [ %j_nz.034, %for.body ], [ %j_nz.034, %land.lhs.true ]
   %number_of_benefitial_columns_to_go_over.1 = phi i32 [ %dec23, %if.then22 ], [ %number_of_benefitial_columns_to_go_over.035, %if.else24 ], [ %number_of_benefitial_columns_to_go_over.035, %for.body ], [ %number_of_benefitial_columns_to_go_over.035, %land.lhs.true ]
   %non_basis_iter.sroa.0.0 = load ptr, ptr %non_basis_iter.sroa.0.036, align 8
   %tobool.not = icmp ne i32 %number_of_benefitial_columns_to_go_over.1, 0

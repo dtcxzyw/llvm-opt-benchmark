@@ -547,7 +547,7 @@ define internal fastcc void @ts2_standard_dissect(ptr noundef %0, ptr noundef %1
   br label %16
 
 16:                                               ; preds = %13, %4
-  %.0 = phi ptr [ %12, %4 ], [ %15, %13 ]
+  %.092 = phi ptr [ %12, %4 ], [ %15, %13 ]
   %17 = getelementptr inbounds i8, ptr %1, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 50
@@ -569,19 +569,19 @@ define internal fastcc void @ts2_standard_dissect(ptr noundef %0, ptr noundef %1
   %28 = getelementptr inbounds i8, ptr %3, i64 %.sink125
   %29 = getelementptr inbounds i8, ptr %3, i64 %.sink124
   %30 = call fastcc i32 @ts2_standard_find_fragments(ptr noundef %0, ptr noundef nonnull %.sink121, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %6)
-  %31 = getelementptr inbounds i8, ptr %.0, i64 8
+  %31 = getelementptr inbounds i8, ptr %.092, i64 8
   store i32 %30, ptr %31, align 4
   %32 = load i32, ptr %29, align 8
-  store i32 %32, ptr %.0, align 4
+  store i32 %32, ptr %.092, align 4
   %.sink = load i32, ptr %28, align 4
-  %33 = getelementptr inbounds i8, ptr %.0, i64 4
+  %33 = getelementptr inbounds i8, ptr %.092, i64 4
   store i32 %.sink, ptr %33, align 4
   %34 = load i32, ptr %6, align 4
-  %35 = getelementptr inbounds i8, ptr %.0, i64 12
+  %35 = getelementptr inbounds i8, ptr %.092, i64 12
   store i32 %34, ptr %35, align 4
   %36 = tail call ptr @wmem_file_scope() #4
   %37 = load i32, ptr @proto_ts2, align 4
-  tail call void @p_add_proto_data(ptr noundef %36, ptr noundef nonnull %1, i32 noundef %37, i32 noundef 0, ptr noundef nonnull %.0) #4
+  tail call void @p_add_proto_data(ptr noundef %36, ptr noundef nonnull %1, i32 noundef %37, i32 noundef 0, ptr noundef nonnull %.092) #4
   br label %38
 
 38:                                               ; preds = %22, %16

@@ -258,8 +258,8 @@ define internal noundef i32 @msp_seek(ptr noundef readonly %0, i64 noundef %1, i
   br label %7
 
 7:                                                ; preds = %3, %4
-  %.06 = phi i32 [ %6, %4 ], [ -1, %3 ]
-  ret i32 %.06
+  %.0 = phi i32 [ %6, %4 ], [ -1, %3 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind uwtable

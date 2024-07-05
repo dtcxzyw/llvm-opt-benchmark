@@ -62,8 +62,8 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
   %13 = phi float [ %16, %.lr.ph.i ], [ %9, %.lr.ph.preheader.i ]
-  %.04.i31 = phi i64 [ %14, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %14 = add nuw i64 %.04.i31, 1
+  %.0114.i31 = phi i64 [ %14, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %14 = add nuw i64 %.0114.i31, 1
   %exitcond.i = icmp eq i64 %14, %umax.i
   br i1 %exitcond.i, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit, label %.lr.ph.i, !llvm.loop !5
 
@@ -105,8 +105,8 @@ _ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14Trans
 
 .lr.ph36:                                         ; preds = %.lr.ph.preheader.i9, %.lr.ph.i11
   %31 = phi float [ %34, %.lr.ph.i11 ], [ %27, %.lr.ph.preheader.i9 ]
-  %.04.i1235 = phi i64 [ %32, %.lr.ph.i11 ], [ 0, %.lr.ph.preheader.i9 ]
-  %32 = add nuw i64 %.04.i1235, 1
+  %.0114.i1235 = phi i64 [ %32, %.lr.ph.i11 ], [ 0, %.lr.ph.preheader.i9 ]
+  %32 = add nuw i64 %.0114.i1235, 1
   %exitcond.i17 = icmp eq i64 %32, %umax.i10
   br i1 %exitcond.i17, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation11RotationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit, label %.lr.ph.i11, !llvm.loop !7
 
@@ -148,8 +148,8 @@ _ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation11Rotat
 
 .lr.ph42:                                         ; preds = %.lr.ph.preheader.i18, %.lr.ph.i20
   %49 = phi float [ %52, %.lr.ph.i20 ], [ %45, %.lr.ph.preheader.i18 ]
-  %.04.i2141 = phi i64 [ %50, %.lr.ph.i20 ], [ 0, %.lr.ph.preheader.i18 ]
-  %50 = add nuw i64 %.04.i2141, 1
+  %.0114.i2141 = phi i64 [ %50, %.lr.ph.i20 ], [ 0, %.lr.ph.preheader.i18 ]
+  %50 = add nuw i64 %.0114.i2141, 1
   %exitcond.i26 = icmp eq i64 %50, %umax.i19
   br i1 %exitcond.i26, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation8ScaleKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit.loopexit, label %.lr.ph.i20, !llvm.loop !8
 

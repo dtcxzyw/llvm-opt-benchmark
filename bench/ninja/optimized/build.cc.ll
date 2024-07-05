@@ -3198,8 +3198,8 @@ _ZNSt5queueIP4EdgeSt5dequeIS1_SaIS1_EEEC2IS4_vEEv.exit: ; preds = %_ZNSt3setIPK4
 
 260:                                              ; preds = %.lr.ph, %_ZNSt5queueIP4EdgeSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit
   %261 = phi ptr [ %248, %.lr.ph ], [ %311, %_ZNSt5queueIP4EdgeSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit ]
-  %.017131 = phi i64 [ 0, %.lr.ph ], [ %309, %_ZNSt5queueIP4EdgeSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit ]
-  %262 = getelementptr inbounds ptr, ptr %261, i64 %.017131
+  %.020131 = phi i64 [ 0, %.lr.ph ], [ %309, %_ZNSt5queueIP4EdgeSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit ]
+  %262 = getelementptr inbounds ptr, ptr %261, i64 %.020131
   %263 = load ptr, ptr %262, align 8
   %264 = getelementptr inbounds i8, ptr %263, i64 56
   %265 = load ptr, ptr %264, align 8
@@ -3360,7 +3360,7 @@ _ZNSt8_Rb_treeIPK4EdgeS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_
   br label %401
 
 _ZNSt5queueIP4EdgeSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit: ; preds = %280, %297, %301, %260
-  %309 = add nuw i64 %.017131, 1
+  %309 = add nuw i64 %.020131, 1
   %310 = load ptr, ptr %31, align 8
   %311 = load ptr, ptr %29, align 8
   %312 = ptrtoint ptr %310 to i64

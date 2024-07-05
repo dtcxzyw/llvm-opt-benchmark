@@ -352,11 +352,11 @@ dissect_greb_h_gateway_ip_address.exit:           ; preds = %47, %47
   br i1 %84, label %.lr.ph.i, label %dissect_greb_filter_list.exit
 
 .lr.ph.i:                                         ; preds = %65, %95
-  %.07073.i = phi i32 [ %119, %95 ], [ %83, %65 ]
-  %85 = add i32 %.07073.i, 2
+  %.073.i = phi i32 [ %119, %95 ], [ %83, %65 ]
+  %85 = add i32 %.073.i, 2
   %86 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %85, i32 noundef 0) #4
   %87 = zext i16 %86 to i32
-  %88 = add i32 %.07073.i, 6
+  %88 = add i32 %.073.i, 6
   %89 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %88, i32 noundef 0) #4
   %90 = zext i16 %89 to i32
   %91 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %85) #4
@@ -368,22 +368,22 @@ dissect_greb_h_gateway_ip_address.exit:           ; preds = %47, %47
   br label %95
 
 95:                                               ; preds = %93, %.lr.ph.i
-  %.0.i = phi i32 [ %94, %93 ], [ %87, %.lr.ph.i ]
-  %spec.select.i = call i32 @llvm.umax.i32(i32 %.0.i, i32 %90)
+  %.070.i = phi i32 [ %94, %93 ], [ %87, %.lr.ph.i ]
+  %spec.select.i = call i32 @llvm.umax.i32(i32 %.070.i, i32 %90)
   %96 = load i32, ptr @hf_greb_attr_val_none, align 4
   %97 = add i32 %spec.select.i, 4
   %98 = load ptr, ptr %24, align 8
-  %99 = add i32 %.07073.i, 8
+  %99 = add i32 %.073.i, 8
   %100 = call ptr @tvb_get_string_enc(ptr noundef %98, ptr noundef %0, i32 noundef %99, i32 noundef %90, i32 noundef 2) #4
-  %101 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %76, i32 noundef %96, ptr noundef %0, i32 noundef %.07073.i, i32 noundef %97, ptr noundef nonnull @.str.151, ptr noundef %100) #4
+  %101 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %76, i32 noundef %96, ptr noundef %0, i32 noundef %.073.i, i32 noundef %97, ptr noundef nonnull @.str.151, ptr noundef %100) #4
   %102 = load i32, ptr @ett_grebonding_filter_item, align 4
   %103 = call ptr @proto_item_add_subtree(ptr noundef %101, i32 noundef %102) #4
   %104 = load i32, ptr @hf_greb_attr_filter_item_type, align 4
-  %105 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %104, ptr noundef %0, i32 noundef %.07073.i, i32 noundef 2, i32 noundef 0) #4
+  %105 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %104, ptr noundef %0, i32 noundef %.073.i, i32 noundef 2, i32 noundef 0) #4
   %106 = load i32, ptr @hf_greb_attr_filter_item_length, align 4
   %107 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %106, ptr noundef %0, i32 noundef %85, i32 noundef 2, i32 noundef 0) #4
   %108 = load i32, ptr @hf_greb_attr_filter_item_enabled, align 4
-  %109 = add i32 %.07073.i, 4
+  %109 = add i32 %.073.i, 4
   %110 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %108, ptr noundef %0, i32 noundef %109, i32 noundef 2, i32 noundef 0) #4
   %111 = load i32, ptr @hf_greb_attr_filter_item_desc_length, align 4
   %112 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %111, ptr noundef %0, i32 noundef %88, i32 noundef 2, i32 noundef 0) #4
@@ -394,7 +394,7 @@ dissect_greb_h_gateway_ip_address.exit:           ; preds = %47, %47
   %reass.sub = sub i32 %spec.select.i, %90
   %117 = add i32 %reass.sub, -4
   %118 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %115, ptr noundef %0, i32 noundef %116, i32 noundef %117, i32 noundef 2) #4
-  %119 = add i32 %97, %.07073.i
+  %119 = add i32 %97, %.073.i
   %120 = icmp ult i32 %119, %.0
   br i1 %120, label %.lr.ph.i, label %dissect_greb_filter_list.exit, !llvm.loop !4
 

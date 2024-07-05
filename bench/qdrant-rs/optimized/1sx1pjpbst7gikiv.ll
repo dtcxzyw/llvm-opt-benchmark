@@ -559,23 +559,23 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
   br i1 %105, label %.lr.ph.i38.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i:                           ; preds = %118, %110
-  %.165138.i.i.i.i.i.i = phi i8 [ %.2.i.i.i.i.i.i, %110 ], [ %.064139.i.i.i.i.i.i, %118 ]
-  %.sroa.025.0137.i.i.i.i.i.i = phi i64 [ %106, %110 ], [ 0, %118 ]
-  %106 = add nuw nsw i64 %.sroa.025.0137.i.i.i.i.i.i, 1
-  %107 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0137.i.i.i.i.i.i
+  %.sroa.025.0138.i.i.i.i.i.i = phi i64 [ %106, %110 ], [ 0, %118 ]
+  %.165137.i.i.i.i.i.i = phi i8 [ %.2.i.i.i.i.i.i, %110 ], [ %.064139.i.i.i.i.i.i, %118 ]
+  %106 = add nuw nsw i64 %.sroa.025.0138.i.i.i.i.i.i, 1
+  %107 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0138.i.i.i.i.i.i
   %108 = load i16, ptr %107, align 2, !noalias !89, !noundef !5
   %109 = icmp eq i16 %108, 0
   br i1 %109, label %110, label %111
 
 110:                                              ; preds = %111, %.preheader.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi i8 [ %.165138.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ %117, %111 ]
+  %.2.i.i.i.i.i.i = phi i8 [ %.165137.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ %117, %111 ]
   %exitcond155.not.i.i.i.i.i.i = icmp eq i64 %106, 4
   br i1 %exitcond155.not.i.i.i.i.i.i, label %102, label %.preheader.i.i.i.i.i.i
 
 111:                                              ; preds = %.preheader.i.i.i.i.i.i
-  %112 = shl nuw nsw i64 %.sroa.025.0137.i.i.i.i.i.i, 4
+  %112 = shl nuw nsw i64 %.sroa.025.0138.i.i.i.i.i.i, 4
   %113 = add nuw nsw i64 %112, %.062140.i.i.i.i.i.i
-  %114 = trunc nuw i8 %.165138.i.i.i.i.i.i to i1
+  %114 = trunc nuw i8 %.165137.i.i.i.i.i.i to i1
   %115 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hc40a364317ba642fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %113, i16 noundef %108, i1 noundef zeroext %114), !noalias !50
   %116 = or i1 %115, %114
   %117 = zext i1 %116 to i8
@@ -695,8 +695,8 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit.i.i.i.i.i: ; preds 
   br label %168
 
 .loopexit.i.i.i.i.i.i:                            ; preds = %227, %225, %223
-  %.012.i.i.i.i.i.i.i = phi i64 [ 1, %223 ], [ %..i.i.i.i.i.i.i, %227 ], [ 2, %225 ]
-  %167 = add i64 %.012.i.i.i.i.i.i.i, %169
+  %.013.i.i.i.i.i.i.i = phi i64 [ 1, %223 ], [ %..i.i.i.i.i.i.i, %227 ], [ 2, %225 ]
+  %167 = add i64 %.013.i.i.i.i.i.i.i, %169
   br label %168
 
 168:                                              ; preds = %.loopexit.i.i.i.i.i.i, %.lr.ph106.i.i.i.i.i.i

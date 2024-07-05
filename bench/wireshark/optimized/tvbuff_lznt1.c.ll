@@ -114,93 +114,93 @@ define noundef ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %1, i32 nou
   br label %.lr.ph76.i.i
 
 .loopexit56.i.i:                                  ; preds = %51
-  %46 = icmp slt i32 %.250.i.i, %38
+  %46 = icmp slt i32 %.2.i.i, %38
   br i1 %46, label %.lr.ph76.i.i, label %.loopexit.i, !llvm.loop !6
 
 .lr.ph76.i.i:                                     ; preds = %.loopexit56.i.i, %43
-  %.04774.i.i = phi i32 [ %.3.i.i, %.loopexit56.i.i ], [ 0, %43 ]
-  %.04873.i.i = phi i32 [ %.250.i.i, %.loopexit56.i.i ], [ 0, %43 ]
-  %47 = add i32 %.04873.i.i, %44
+  %.04374.i.i = phi i32 [ %.2.i.i, %.loopexit56.i.i ], [ 0, %43 ]
+  %.04673.i.i = phi i32 [ %.3.i.i, %.loopexit56.i.i ], [ 0, %43 ]
+  %47 = add i32 %.04374.i.i, %44
   %48 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %47) #7
-  %49 = add nsw i32 %.04873.i.i, 1
+  %49 = add nsw i32 %.04374.i.i, 1
   %50 = zext i8 %48 to i32
   br label %53
 
 51:                                               ; preds = %.loopexit.i.i
-  %52 = add nuw nsw i32 %.04672.i.i, 1
+  %52 = add nuw nsw i32 %.05170.i.i, 1
   %exitcond83.not.i.i = icmp eq i32 %52, 8
   br i1 %exitcond83.not.i.i, label %.loopexit56.i.i, label %53, !llvm.loop !7
 
 53:                                               ; preds = %51, %.lr.ph76.i.i
-  %.04672.i.i = phi i32 [ 0, %.lr.ph76.i.i ], [ %52, %51 ]
-  %.171.i.i = phi i32 [ %.04774.i.i, %.lr.ph76.i.i ], [ %.3.i.i, %51 ]
-  %.14970.i.i = phi i32 [ %49, %.lr.ph76.i.i ], [ %.250.i.i, %51 ]
-  %54 = shl nuw nsw i32 1, %.04672.i.i
+  %.172.i.i = phi i32 [ %49, %.lr.ph76.i.i ], [ %.2.i.i, %51 ]
+  %.14771.i.i = phi i32 [ %.04673.i.i, %.lr.ph76.i.i ], [ %.3.i.i, %51 ]
+  %.05170.i.i = phi i32 [ 0, %.lr.ph76.i.i ], [ %52, %51 ]
+  %54 = shl nuw nsw i32 1, %.05170.i.i
   %55 = and i32 %54, %50
   %56 = icmp eq i32 %55, 0
-  %57 = add i32 %.14970.i.i, %44
+  %57 = add i32 %.172.i.i, %44
   br i1 %56, label %58, label %63
 
 58:                                               ; preds = %53
   %59 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %57) #7
   %60 = zext i8 %59 to i32
   store i32 %60, ptr %4, align 4
-  %61 = add i32 %.14970.i.i, 1
+  %61 = add i32 %.172.i.i, 1
   call void @wmem_array_append(ptr noundef %14, ptr noundef nonnull %4, i32 noundef 1) #7
-  %62 = add i32 %.171.i.i, 1
+  %62 = add i32 %.14771.i.i, 1
   br label %.loopexit.i.i
 
 63:                                               ; preds = %53
   %64 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %57) #7
   %65 = zext i16 %64 to i32
-  %66 = add i32 %.14970.i.i, 2
-  %67 = add i32 %.171.i.i, -1
+  %66 = add i32 %.172.i.i, 2
+  %67 = add i32 %.14771.i.i, -1
   %68 = icmp ugt i32 %67, 15
   br i1 %68, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %63, %.lr.ph.i.i
-  %.066.i.i = phi i32 [ %70, %.lr.ph.i.i ], [ 12, %63 ]
-  %.04365.i.i = phi i32 [ %69, %.lr.ph.i.i ], [ 4095, %63 ]
-  %.04464.i.i = phi i32 [ %71, %.lr.ph.i.i ], [ %67, %63 ]
-  %69 = lshr i32 %.04365.i.i, 1
-  %70 = add nsw i32 %.066.i.i, -1
-  %71 = lshr i32 %.04464.i.i, 1
-  %72 = icmp ugt i32 %.04464.i.i, 31
+  %.04466.i.i = phi i32 [ %70, %.lr.ph.i.i ], [ 12, %63 ]
+  %.04565.i.i = phi i32 [ %69, %.lr.ph.i.i ], [ 4095, %63 ]
+  %.04964.i.i = phi i32 [ %71, %.lr.ph.i.i ], [ %67, %63 ]
+  %69 = lshr i32 %.04565.i.i, 1
+  %70 = add nsw i32 %.04466.i.i, -1
+  %71 = lshr i32 %.04964.i.i, 1
+  %72 = icmp ugt i32 %.04964.i.i, 31
   br i1 %72, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %63
-  %.043.lcssa.i.i = phi i32 [ 4095, %63 ], [ %69, %.lr.ph.i.i ]
-  %.0.lcssa.i.i = phi i32 [ 12, %63 ], [ %70, %.lr.ph.i.i ]
-  %73 = and i32 %.043.lcssa.i.i, %65
-  %74 = lshr i32 %65, %.0.lcssa.i.i
+  %.045.lcssa.i.i = phi i32 [ 4095, %63 ], [ %69, %.lr.ph.i.i ]
+  %.044.lcssa.i.i = phi i32 [ 12, %63 ], [ %70, %.lr.ph.i.i ]
+  %73 = and i32 %.045.lcssa.i.i, %65
+  %74 = lshr i32 %65, %.044.lcssa.i.i
   %.neg.i.i = xor i32 %74, -1
   %75 = add i32 %45, %.neg.i.i
   %76 = add nuw nsw i32 %73, 2
   br label %77
 
 77:                                               ; preds = %81, %._crit_edge.i.i
-  %.04569.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %83, %81 ]
-  %.268.i.i = phi i32 [ %.171.i.i, %._crit_edge.i.i ], [ %82, %81 ]
-  %.not.i.i = icmp ult i32 %74, %.268.i.i
+  %.24869.i.i = phi i32 [ %.14771.i.i, %._crit_edge.i.i ], [ %82, %81 ]
+  %.05068.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %83, %81 ]
+  %.not.i.i = icmp ult i32 %74, %.24869.i.i
   br i1 %.not.i.i, label %78, label %uncompress_chunk.exit.thread.i
 
 78:                                               ; preds = %77
-  %79 = add i32 %75, %.268.i.i
+  %79 = add i32 %75, %.24869.i.i
   %80 = call i32 @wmem_array_try_index(ptr noundef %14, i32 noundef %79, ptr noundef nonnull %5) #7
   %.not54.i.i = icmp eq i32 %80, 0
   br i1 %.not54.i.i, label %81, label %uncompress_chunk.exit.thread.i
 
 81:                                               ; preds = %78
   call void @wmem_array_append(ptr noundef %14, ptr noundef nonnull %5, i32 noundef 1) #7
-  %82 = add i32 %.268.i.i, 1
-  %83 = add nuw nsw i32 %.04569.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %.04569.i.i, %76
+  %82 = add i32 %.24869.i.i, 1
+  %83 = add nuw nsw i32 %.05068.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %.05068.i.i, %76
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %77, !llvm.loop !9
 
 .loopexit.i.i:                                    ; preds = %81, %58
-  %.250.i.i = phi i32 [ %61, %58 ], [ %66, %81 ]
   %.3.i.i = phi i32 [ %62, %58 ], [ %82, %81 ]
-  %84 = icmp eq i32 %.250.i.i, %38
+  %.2.i.i = phi i32 [ %61, %58 ], [ %66, %81 ]
+  %84 = icmp eq i32 %.2.i.i, %38
   br i1 %84, label %.loopexit.i, label %51
 
 uncompress_chunk.exit.thread.i:                   ; preds = %78, %77

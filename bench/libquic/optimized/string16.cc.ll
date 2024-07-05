@@ -497,11 +497,11 @@ entry:
   br i1 %cmp.not3, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
-  %n.addr.05 = phi i64 [ %dec, %while.body ], [ %n, %entry ]
-  %s.addr.04 = phi ptr [ %incdec.ptr, %while.body ], [ %s, %entry ]
-  %dec = add i64 %n.addr.05, -1
-  store i16 %c, ptr %s.addr.04, align 2
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.04, i64 2
+  %s.addr.05 = phi ptr [ %incdec.ptr, %while.body ], [ %s, %entry ]
+  %n.addr.04 = phi i64 [ %dec, %while.body ], [ %n, %entry ]
+  %dec = add i64 %n.addr.04, -1
+  store i16 %c, ptr %s.addr.05, align 2
+  %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.05, i64 2
   %cmp.not = icmp eq i64 %dec, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !9
 
@@ -916,7 +916,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cond, label %if.then.i2, label %while.body.i.i.i.preheader
 
 while.body.i.i.i.preheader:                       ; preds = %if.then3.thread, %if.then3
-  %s.addr.04.i.i.i.ph = phi ptr [ %.pre, %if.then3 ], [ %call5.i.i.i, %if.then3.thread ]
+  %s.addr.05.i.i.i.ph = phi ptr [ %.pre, %if.then3 ], [ %call5.i.i.i, %if.then3.thread ]
   br label %while.body.i.i.i
 
 if.then.i2:                                       ; preds = %if.then3
@@ -924,11 +924,11 @@ if.then.i2:                                       ; preds = %if.then3
   br label %if.end5
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %while.body.i.i.i
-  %n.addr.05.i.i.i = phi i64 [ %dec.i.i.i, %while.body.i.i.i ], [ %__n, %while.body.i.i.i.preheader ]
-  %s.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %s.addr.04.i.i.i.ph, %while.body.i.i.i.preheader ]
-  %dec.i.i.i = add i64 %n.addr.05.i.i.i, -1
-  store i16 %__c, ptr %s.addr.04.i.i.i, align 2
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %s.addr.04.i.i.i, i64 2
+  %s.addr.05.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %s.addr.05.i.i.i.ph, %while.body.i.i.i.preheader ]
+  %n.addr.04.i.i.i = phi i64 [ %dec.i.i.i, %while.body.i.i.i ], [ %__n, %while.body.i.i.i.preheader ]
+  %dec.i.i.i = add i64 %n.addr.04.i.i.i, -1
+  store i16 %__c, ptr %s.addr.05.i.i.i, align 2
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %s.addr.05.i.i.i, i64 2
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %if.end5, label %while.body.i.i.i, !llvm.loop !9
 
@@ -961,11 +961,11 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 while.body.i.i:                                   ; preds = %entry, %while.body.i.i
-  %n.addr.05.i.i = phi i64 [ %dec.i.i, %while.body.i.i ], [ %__n, %entry ]
-  %s.addr.04.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %__d, %entry ]
-  %dec.i.i = add i64 %n.addr.05.i.i, -1
-  store i16 %__c, ptr %s.addr.04.i.i, align 2
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %s.addr.04.i.i, i64 2
+  %s.addr.05.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %__d, %entry ]
+  %n.addr.04.i.i = phi i64 [ %dec.i.i, %while.body.i.i ], [ %__n, %entry ]
+  %dec.i.i = add i64 %n.addr.04.i.i, -1
+  store i16 %__c, ptr %s.addr.05.i.i, align 2
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %s.addr.05.i.i, i64 2
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.not.i.i, label %if.end, label %while.body.i.i, !llvm.loop !9
 
@@ -2359,11 +2359,11 @@ if.then.i22.i:                                    ; preds = %if.then12.i
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit
 
 while.body.i.i.i.i:                               ; preds = %if.then12.i, %while.body.i.i.i.i
-  %n.addr.05.i.i.i.i = phi i64 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %__n, %if.then12.i ]
-  %s.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %4, %if.then12.i ]
-  %dec.i.i.i.i = add i64 %n.addr.05.i.i.i.i, -1
-  store i16 %__c, ptr %s.addr.04.i.i.i.i, align 2
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.04.i.i.i.i, i64 2
+  %s.addr.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %4, %if.then12.i ]
+  %n.addr.04.i.i.i.i = phi i64 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %__n, %if.then12.i ]
+  %dec.i.i.i.i = add i64 %n.addr.04.i.i.i.i, -1
+  store i16 %__c, ptr %s.addr.05.i.i.i.i, align 2
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.05.i.i.i.i, i64 2
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit, label %while.body.i.i.i.i, !llvm.loop !9
 
@@ -2737,11 +2737,11 @@ if.then.i22.i:                                    ; preds = %if.then12.i
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit
 
 while.body.i.i.i.i:                               ; preds = %if.then12.i, %while.body.i.i.i.i
-  %n.addr.05.i.i.i.i = phi i64 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %__n, %if.then12.i ]
-  %s.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr14.i, %if.then12.i ]
-  %dec.i.i.i.i = add i64 %n.addr.05.i.i.i.i, -1
-  store i16 %__c, ptr %s.addr.04.i.i.i.i, align 2
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.04.i.i.i.i, i64 2
+  %s.addr.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr14.i, %if.then12.i ]
+  %n.addr.04.i.i.i.i = phi i64 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %__n, %if.then12.i ]
+  %dec.i.i.i.i = add i64 %n.addr.04.i.i.i.i, -1
+  store i16 %__c, ptr %s.addr.05.i.i.i.i, align 2
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.05.i.i.i.i, i64 2
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit, label %while.body.i.i.i.i, !llvm.loop !9
 
@@ -3859,11 +3859,11 @@ if.then.i22:                                      ; preds = %if.then12
   br label %if.end15
 
 while.body.i.i.i:                                 ; preds = %if.then12, %while.body.i.i.i
-  %n.addr.05.i.i.i = phi i64 [ %dec.i.i.i, %while.body.i.i.i ], [ %__n2, %if.then12 ]
-  %s.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %add.ptr14, %if.then12 ]
-  %dec.i.i.i = add i64 %n.addr.05.i.i.i, -1
-  store i16 %__c, ptr %s.addr.04.i.i.i, align 2
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %s.addr.04.i.i.i, i64 2
+  %s.addr.05.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %add.ptr14, %if.then12 ]
+  %n.addr.04.i.i.i = phi i64 [ %dec.i.i.i, %while.body.i.i.i ], [ %__n2, %if.then12 ]
+  %dec.i.i.i = add i64 %n.addr.04.i.i.i, -1
+  store i16 %__c, ptr %s.addr.05.i.i.i, align 2
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %s.addr.05.i.i.i, i64 2
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %if.end15, label %while.body.i.i.i, !llvm.loop !9
 
@@ -4428,11 +4428,11 @@ if.then.i22.i.i:                                  ; preds = %if.then12.i.i
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_mt.exit
 
 while.body.i.i.i.i.i:                             ; preds = %if.then12.i.i, %while.body.i.i.i.i.i
-  %n.addr.05.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__n, %if.then12.i.i ]
-  %s.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %add.ptr14.i.i, %if.then12.i.i ]
-  %dec.i.i.i.i.i = add i64 %n.addr.05.i.i.i.i.i, -1
-  store i16 %__c, ptr %s.addr.04.i.i.i.i.i, align 2
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.04.i.i.i.i.i, i64 2
+  %s.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %add.ptr14.i.i, %if.then12.i.i ]
+  %n.addr.04.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__n, %if.then12.i.i ]
+  %dec.i.i.i.i.i = add i64 %n.addr.04.i.i.i.i.i, -1
+  store i16 %__c, ptr %s.addr.05.i.i.i.i.i, align 2
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.05.i.i.i.i.i, i64 2
   %cmp.not.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_mt.exit, label %while.body.i.i.i.i.i, !llvm.loop !9
 
@@ -4530,11 +4530,11 @@ if.then.i22.i:                                    ; preds = %if.then12.i
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit
 
 while.body.i.i.i.i:                               ; preds = %if.then12.i, %while.body.i.i.i.i
-  %n.addr.05.i.i.i.i = phi i64 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %__n, %if.then12.i ]
-  %s.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr14.i, %if.then12.i ]
-  %dec.i.i.i.i = add i64 %n.addr.05.i.i.i.i, -1
-  store i16 %__c, ptr %s.addr.04.i.i.i.i, align 2
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.04.i.i.i.i, i64 2
+  %s.addr.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr14.i, %if.then12.i ]
+  %n.addr.04.i.i.i.i = phi i64 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %__n, %if.then12.i ]
+  %dec.i.i.i.i = add i64 %n.addr.04.i.i.i.i, -1
+  store i16 %__c, ptr %s.addr.05.i.i.i.i, align 2
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.05.i.i.i.i, i64 2
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit, label %while.body.i.i.i.i, !llvm.loop !9
 
@@ -4839,11 +4839,11 @@ if.then.i22.i:                                    ; preds = %if.then12.i
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit
 
 while.body.i.i.i.i:                               ; preds = %if.then12.i, %while.body.i.i.i.i
-  %n.addr.05.i.i.i.i = phi i64 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %__n, %if.then12.i ]
-  %s.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr14.i, %if.then12.i ]
-  %dec.i.i.i.i = add i64 %n.addr.05.i.i.i.i, -1
-  store i16 %__c, ptr %s.addr.04.i.i.i.i, align 2
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.04.i.i.i.i, i64 2
+  %s.addr.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr14.i, %if.then12.i ]
+  %n.addr.04.i.i.i.i = phi i64 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %__n, %if.then12.i ]
+  %dec.i.i.i.i = add i64 %n.addr.04.i.i.i.i, -1
+  store i16 %__c, ptr %s.addr.05.i.i.i.i, align 2
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.05.i.i.i.i, i64 2
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit, label %while.body.i.i.i.i, !llvm.loop !9
 
@@ -5351,11 +5351,11 @@ if.then.i22.i:                                    ; preds = %if.then12.i
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit
 
 while.body.i.i.i.i:                               ; preds = %if.then12.i, %while.body.i.i.i.i
-  %n.addr.05.i.i.i.i = phi i64 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %__n2, %if.then12.i ]
-  %s.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr14.i, %if.then12.i ]
-  %dec.i.i.i.i = add i64 %n.addr.05.i.i.i.i, -1
-  store i16 %__c, ptr %s.addr.04.i.i.i.i, align 2
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.04.i.i.i.i, i64 2
+  %s.addr.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr14.i, %if.then12.i ]
+  %n.addr.04.i.i.i.i = phi i64 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %__n2, %if.then12.i ]
+  %dec.i.i.i.i = add i64 %n.addr.04.i.i.i.i, -1
+  store i16 %__c, ptr %s.addr.05.i.i.i.i, align 2
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.05.i.i.i.i, i64 2
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt.exit, label %while.body.i.i.i.i, !llvm.loop !9
 

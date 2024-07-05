@@ -429,8 +429,8 @@ define internal fastcc i64 @ltsGetBlock(ptr nocapture noundef %0, ptr nocapture 
   br label %49
 
 49:                                               ; preds = %66, %44
-  %.040.i.i = phi i64 [ 0, %44 ], [ %.0.i.i, %66 ]
-  %50 = shl i64 %.040.i.i, 1
+  %.041.i.i = phi i64 [ 0, %44 ], [ %.0.i.i, %66 ]
+  %50 = shl i64 %.041.i.i, 1
   %51 = or disjoint i64 %50, 1
   %52 = add i64 %50, 2
   %53 = icmp ult i64 %51, %46
@@ -460,21 +460,21 @@ define internal fastcc i64 @ltsGetBlock(ptr nocapture noundef %0, ptr nocapture 
   br i1 %.not.i.i, label %66, label %68
 
 66:                                               ; preds = %63
-  %67 = getelementptr i64, ptr %37, i64 %.040.i.i
+  %67 = getelementptr i64, ptr %37, i64 %.041.i.i
   store i64 %65, ptr %67, align 8
   br label %49
 
 68:                                               ; preds = %63, %62
-  %69 = getelementptr i64, ptr %37, i64 %.040.i.i
+  %69 = getelementptr i64, ptr %37, i64 %.041.i.i
   store i64 %48, ptr %69, align 8
   br label %ltsGetFreeBlock.exit.i
 
 ltsGetFreeBlock.exit.i:                           ; preds = %68, %42, %39
-  %.041.i.i = phi i64 [ %40, %39 ], [ %43, %42 ], [ %45, %68 ]
+  %.040.i.i = phi i64 [ %40, %39 ], [ %43, %42 ], [ %45, %68 ]
   %70 = load ptr, ptr %10, align 8
   %71 = getelementptr i64, ptr %70, i64 %indvars.iv.i
   %72 = getelementptr i8, ptr %71, i64 -8
-  store i64 %.041.i.i, ptr %72, align 8
+  store i64 %.040.i.i, ptr %72, align 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %73 = icmp sgt i64 %indvars.iv.i, 1
   br i1 %73, label %36, label %._crit_edge.loopexit.i, !llvm.loop !7
@@ -529,8 +529,8 @@ ltsGetPreallocBlock.exit:                         ; preds = %12, %._crit_edge.i
   br label %95
 
 95:                                               ; preds = %112, %90
-  %.040.i = phi i64 [ 0, %90 ], [ %.0.i, %112 ]
-  %96 = shl i64 %.040.i, 1
+  %.041.i = phi i64 [ 0, %90 ], [ %.0.i, %112 ]
+  %96 = shl i64 %.041.i, 1
   %97 = or disjoint i64 %96, 1
   %98 = add i64 %96, 2
   %99 = icmp ult i64 %97, %92
@@ -560,12 +560,12 @@ ltsGetPreallocBlock.exit:                         ; preds = %12, %._crit_edge.i
   br i1 %.not.i, label %112, label %114
 
 112:                                              ; preds = %109
-  %113 = getelementptr i64, ptr %81, i64 %.040.i
+  %113 = getelementptr i64, ptr %81, i64 %.041.i
   store i64 %111, ptr %113, align 8
   br label %95
 
 114:                                              ; preds = %109, %108
-  %115 = getelementptr i64, ptr %81, i64 %.040.i
+  %115 = getelementptr i64, ptr %81, i64 %.041.i
   store i64 %94, ptr %115, align 8
   br label %ltsGetFreeBlock.exit
 
@@ -1176,7 +1176,7 @@ define dso_local i64 @LogicalTapeBackspace(ptr nocapture noundef %0, i64 noundef
 
 27:                                               ; preds = %.preheader, %59
   %28 = phi ptr [ %.pre, %.preheader ], [ %48, %59 ]
-  %.046 = phi i64 [ %20, %.preheader ], [ %61, %59 ]
+  %.03446 = phi i64 [ %20, %.preheader ], [ %61, %59 ]
   %29 = getelementptr i8, ptr %28, i64 8176
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, -1
@@ -1237,7 +1237,7 @@ ltsReadBlock.exit:                                ; preds = %39
   store i64 %30, ptr %21, align 8
   %60 = load i64, ptr %49, align 8
   store i64 %60, ptr %23, align 8
-  %61 = add i64 %.046, 8176
+  %61 = add i64 %.03446, 8176
   %62 = icmp ult i64 %61, %1
   br i1 %62, label %27, label %63, !llvm.loop !14
 
@@ -1248,9 +1248,9 @@ ltsReadBlock.exit:                                ; preds = %39
 
 66:                                               ; preds = %32, %63, %24
   %.sink = phi i32 [ %65, %63 ], [ %26, %24 ], [ 0, %32 ]
-  %.034 = phi i64 [ %1, %63 ], [ %1, %24 ], [ %.046, %32 ]
+  %.0 = phi i64 [ %1, %63 ], [ %1, %24 ], [ %.03446, %32 ]
   store i32 %.sink, ptr %18, align 8
-  ret i64 %.034
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable

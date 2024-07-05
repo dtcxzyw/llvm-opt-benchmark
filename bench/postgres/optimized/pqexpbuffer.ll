@@ -359,14 +359,14 @@ markPQExpBufferBroken.exit25:                     ; preds = %27, %29
 
 33:                                               ; preds = %30, %3
   %34 = phi i64 [ %.pr, %30 ], [ %5, %3 ]
-  %.0 = phi i64 [ %32, %30 ], [ 32, %3 ]
+  %.020 = phi i64 [ %32, %30 ], [ 32, %3 ]
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %enlargePQExpBuffer.exit, label %36
 
 36:                                               ; preds = %33
   %37 = load i64, ptr %6, align 8
   %38 = sub i64 2147483647, %37
-  %.not.i26 = icmp ugt i64 %38, %.0
+  %.not.i26 = icmp ugt i64 %38, %.020
   br i1 %.not.i26, label %42, label %39
 
 39:                                               ; preds = %36
@@ -384,7 +384,7 @@ markPQExpBufferBroken.exit.i:                     ; preds = %41, %39
   br label %enlargePQExpBuffer.exit
 
 42:                                               ; preds = %36
-  %43 = add nuw nsw i64 %.0, 1
+  %43 = add nuw nsw i64 %.020, 1
   %44 = add i64 %43, %37
   %.not29.i = icmp ugt i64 %44, %34
   br i1 %.not29.i, label %.preheader.i, label %enlargePQExpBuffer.exit
@@ -422,8 +422,8 @@ markPQExpBufferBroken.exit32.i:                   ; preds = %52, %50
   br label %enlargePQExpBuffer.exit
 
 enlargePQExpBuffer.exit:                          ; preds = %markPQExpBufferBroken.exit32.i, %49, %42, %markPQExpBufferBroken.exit.i, %33, %markPQExpBufferBroken.exit25, %22, %markPQExpBufferBroken.exit
-  %.020 = phi i1 [ true, %markPQExpBufferBroken.exit ], [ true, %22 ], [ true, %markPQExpBufferBroken.exit25 ], [ true, %markPQExpBufferBroken.exit.i ], [ false, %49 ], [ true, %markPQExpBufferBroken.exit32.i ], [ true, %33 ], [ false, %42 ]
-  ret i1 %.020
+  %.0 = phi i1 [ true, %markPQExpBufferBroken.exit ], [ true, %22 ], [ true, %markPQExpBufferBroken.exit25 ], [ true, %markPQExpBufferBroken.exit.i ], [ false, %49 ], [ true, %markPQExpBufferBroken.exit32.i ], [ true, %33 ], [ false, %42 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable

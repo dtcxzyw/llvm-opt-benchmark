@@ -7951,8 +7951,8 @@ switch.lookup:                                    ; preds = %90
   br label %111
 
 111:                                              ; preds = %108, %106
-  %.040 = phi ptr [ %110, %108 ], [ %97, %106 ]
-  call void @_ZN29DisplayFilterExpressionDialog17fillEnumIntValuesEPK13_value_stringi(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %.040, i32 noundef %.045)
+  %.044 = phi ptr [ %110, %108 ], [ %97, %106 ]
+  call void @_ZN29DisplayFilterExpressionDialog17fillEnumIntValuesEPK13_value_stringi(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %.044, i32 noundef %.045)
   br label %.critedge
 
 .critedge:                                        ; preds = %62, %_ZN5QListIP15QTreeWidgetItemED2Ev.exit63, %87, %102, %111, %105, %95, %80, %_ZN14VariantPointerI18_header_field_infoE5asPtrE8QVariant.exit, %72
@@ -12478,14 +12478,14 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ; preds = %
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
   %.091 = phi i64 [ %41, %.lr.ph93 ], [ 0, %.lr.ph93.preheader ]
-  %.sroa.038.090 = phi ptr [ %40, %.lr.ph93 ], [ %36, %.lr.ph93.preheader ]
-  %.sroa.041.189 = phi ptr [ %39, %.lr.ph93 ], [ %.sroa.041.0, %.lr.ph93.preheader ]
-  %37 = load ptr, ptr %.sroa.041.189, align 8
-  %38 = load ptr, ptr %.sroa.038.090, align 8
-  store ptr %38, ptr %.sroa.041.189, align 8
-  store ptr %37, ptr %.sroa.038.090, align 8
-  %39 = getelementptr i8, ptr %.sroa.041.189, i64 8
-  %40 = getelementptr i8, ptr %.sroa.038.090, i64 8
+  %.sroa.041.190 = phi ptr [ %39, %.lr.ph93 ], [ %.sroa.041.0, %.lr.ph93.preheader ]
+  %.sroa.038.089 = phi ptr [ %40, %.lr.ph93 ], [ %36, %.lr.ph93.preheader ]
+  %37 = load ptr, ptr %.sroa.041.190, align 8
+  %38 = load ptr, ptr %.sroa.038.089, align 8
+  store ptr %38, ptr %.sroa.041.190, align 8
+  store ptr %37, ptr %.sroa.038.089, align 8
+  %39 = getelementptr i8, ptr %.sroa.041.190, i64 8
+  %40 = getelementptr i8, ptr %.sroa.038.089, i64 8
   %41 = add nuw nsw i64 %.091, 1
   %exitcond102.not = icmp eq i64 %41, %25
   br i1 %exitcond102.not, label %._crit_edge94, label %.lr.ph93, !llvm.loop !89
@@ -12608,23 +12608,23 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit: ; preds = 
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit, %21
   %.028.i = phi ptr [ %.1.i, %21 ], [ %5, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit ]
-  %.sroa.015.027.i = phi ptr [ %25, %21 ], [ %.tr.lcssa, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit ]
-  %.sroa.018.026.i = phi ptr [ %.sroa.018.1.i, %21 ], [ %.tr109.lcssa, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit ]
-  %.not21.i = icmp eq ptr %.sroa.018.026.i, %2
+  %.sroa.018.027.i = phi ptr [ %.sroa.018.1.i, %21 ], [ %.tr109.lcssa, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit ]
+  %.sroa.015.026.i = phi ptr [ %25, %21 ], [ %.tr.lcssa, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit ]
+  %.not21.i = icmp eq ptr %.sroa.018.027.i, %2
   br i1 %.not21.i, label %.critedge.i, label %21
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = load ptr, ptr %.sroa.018.026.i, align 8
+  %22 = load ptr, ptr %.sroa.018.027.i, align 8
   %23 = load ptr, ptr %.028.i, align 8
   %24 = tail call noundef zeroext i1 %9(ptr noundef %22, ptr noundef %23)
-  %.sink.in.i = select i1 %24, ptr %.sroa.018.026.i, ptr %.028.i
+  %.sink.in.i = select i1 %24, ptr %.sroa.018.027.i, ptr %.028.i
   %.sroa.018.1.idx.i = select i1 %24, i64 8, i64 0
-  %.sroa.018.1.i = getelementptr i8, ptr %.sroa.018.026.i, i64 %.sroa.018.1.idx.i
+  %.sroa.018.1.i = getelementptr i8, ptr %.sroa.018.027.i, i64 %.sroa.018.1.idx.i
   %.1.idx.i = select i1 %24, i64 0, i64 8
   %.1.i = getelementptr i8, ptr %.028.i, i64 %.1.idx.i
   %.sink.i = load ptr, ptr %.sink.in.i, align 8
-  store ptr %.sink.i, ptr %.sroa.015.027.i, align 8
-  %25 = getelementptr i8, ptr %.sroa.015.027.i, i64 8
+  store ptr %.sink.i, ptr %.sroa.015.026.i, align 8
+  %25 = getelementptr i8, ptr %.sroa.015.026.i, i64 8
   %.not.i = icmp eq ptr %.1.i, %18
   br i1 %.not.i, label %_ZSt21__move_merge_adaptiveIPP15QTreeWidgetItemN5QListIS1_E8iteratorES5_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEEvT_SE_T0_SF_T1_T2_.exit, label %.lr.ph.i, !llvm.loop !93
 
@@ -12639,7 +12639,7 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit: ; preds = 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.critedge.i, %.lr.ph.i.i.i.i.i.i
   %.09.i.i.i.i.i.i = phi i64 [ %34, %.lr.ph.i.i.i.i.i.i ], [ %29, %.critedge.i ]
   %.058.i.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i.i ], [ %.028.i, %.critedge.i ]
-  %.sroa.0.07.i.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.015.027.i, %.critedge.i ]
+  %.sroa.0.07.i.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.015.026.i, %.critedge.i ]
   %31 = load ptr, ptr %.058.i.i.i.i.i.i, align 8
   store ptr %31, ptr %.sroa.0.07.i.i.i.i.i.i, align 8
   %32 = getelementptr i8, ptr %.058.i.i.i.i.i.i, i64 8
@@ -12710,8 +12710,8 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit84: ; preds 
   br label %.outer
 
 .outer:                                           ; preds = %68, %61
-  %.sroa.030.0.i.ph.pn = phi ptr [ %.tr109134, %61 ], [ %.sroa.030.0.i.ph, %68 ]
   %.sroa.026.0.i.ph = phi ptr [ %2, %61 ], [ %67, %68 ]
+  %.sroa.030.0.i.ph.pn = phi ptr [ %.tr109134, %61 ], [ %.sroa.030.0.i.ph, %68 ]
   %.0.i.ph = phi ptr [ %62, %61 ], [ %.0.i, %68 ]
   %.sroa.030.0.i.ph = getelementptr i8, ptr %.sroa.030.0.i.ph.pn, i64 -8
   br label %63
@@ -13043,16 +13043,16 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIN5QListIP15QTreeWidgetItemE8it
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %.029.i = phi ptr [ %19, %.lr.ph.i ], [ %.068, %13 ]
-  %.sroa.019.028.i = phi ptr [ %.sroa.019.1.i, %.lr.ph.i ], [ %14, %13 ]
-  %.sroa.022.027.i = phi ptr [ %.sroa.022.1.i, %.lr.ph.i ], [ %.sroa.052.067, %13 ]
-  %16 = load ptr, ptr %.sroa.019.028.i, align 8
-  %17 = load ptr, ptr %.sroa.022.027.i, align 8
+  %.sroa.022.028.i = phi ptr [ %.sroa.022.1.i, %.lr.ph.i ], [ %.sroa.052.067, %13 ]
+  %.sroa.019.027.i = phi ptr [ %.sroa.019.1.i, %.lr.ph.i ], [ %14, %13 ]
+  %16 = load ptr, ptr %.sroa.019.027.i, align 8
+  %17 = load ptr, ptr %.sroa.022.028.i, align 8
   %18 = tail call noundef zeroext i1 %4(ptr noundef %16, ptr noundef %17)
-  %.sink.in.i = select i1 %18, ptr %.sroa.019.028.i, ptr %.sroa.022.027.i
-  %.sroa.022.1.idx.i = select i1 %18, i64 0, i64 8
-  %.sroa.022.1.i = getelementptr i8, ptr %.sroa.022.027.i, i64 %.sroa.022.1.idx.i
+  %.sink.in.i = select i1 %18, ptr %.sroa.019.027.i, ptr %.sroa.022.028.i
   %.sroa.019.1.idx.i = select i1 %18, i64 8, i64 0
-  %.sroa.019.1.i = getelementptr i8, ptr %.sroa.019.028.i, i64 %.sroa.019.1.idx.i
+  %.sroa.019.1.i = getelementptr i8, ptr %.sroa.019.027.i, i64 %.sroa.019.1.idx.i
+  %.sroa.022.1.idx.i = select i1 %18, i64 0, i64 8
+  %.sroa.022.1.i = getelementptr i8, ptr %.sroa.022.028.i, i64 %.sroa.022.1.idx.i
   %.sink.i = load ptr, ptr %.sink.in.i, align 8
   store ptr %.sink.i, ptr %.029.i, align 8
   %19 = getelementptr i8, ptr %.029.i, i64 8
@@ -13062,8 +13062,8 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIN5QListIP15QTreeWidgetItemE8it
   br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !98
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %13
-  %.sroa.022.0.lcssa.i = phi ptr [ %.sroa.052.067, %13 ], [ %.sroa.022.1.i, %.lr.ph.i ]
   %.sroa.019.0.lcssa.i = phi ptr [ %14, %13 ], [ %.sroa.019.1.i, %.lr.ph.i ]
+  %.sroa.022.0.lcssa.i = phi ptr [ %.sroa.052.067, %13 ], [ %.sroa.022.1.i, %.lr.ph.i ]
   %.0.lcssa.i = phi ptr [ %.068, %13 ], [ %19, %.lr.ph.i ]
   %22 = ptrtoint ptr %14 to i64
   %23 = ptrtoint ptr %.sroa.022.0.lcssa.i to i64
@@ -13126,30 +13126,30 @@ _ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_
 
 .lr.ph.i33:                                       ; preds = %._crit_edge, %.lr.ph.i33
   %.029.i34 = phi ptr [ %50, %.lr.ph.i33 ], [ %.0.lcssa, %._crit_edge ]
-  %.sroa.019.028.i35 = phi ptr [ %.sroa.019.1.i41, %.lr.ph.i33 ], [ %44, %._crit_edge ]
-  %.sroa.022.027.i36 = phi ptr [ %.sroa.022.1.i39, %.lr.ph.i33 ], [ %.sroa.052.0.lcssa, %._crit_edge ]
-  %47 = load ptr, ptr %.sroa.019.028.i35, align 8
-  %48 = load ptr, ptr %.sroa.022.027.i36, align 8
+  %.sroa.022.028.i35 = phi ptr [ %.sroa.022.1.i41, %.lr.ph.i33 ], [ %.sroa.052.0.lcssa, %._crit_edge ]
+  %.sroa.019.027.i36 = phi ptr [ %.sroa.019.1.i39, %.lr.ph.i33 ], [ %44, %._crit_edge ]
+  %47 = load ptr, ptr %.sroa.019.027.i36, align 8
+  %48 = load ptr, ptr %.sroa.022.028.i35, align 8
   %49 = tail call noundef zeroext i1 %4(ptr noundef %47, ptr noundef %48)
-  %.sink.in.i37 = select i1 %49, ptr %.sroa.019.028.i35, ptr %.sroa.022.027.i36
-  %.sroa.022.1.idx.i38 = select i1 %49, i64 0, i64 8
-  %.sroa.022.1.i39 = getelementptr i8, ptr %.sroa.022.027.i36, i64 %.sroa.022.1.idx.i38
-  %.sroa.019.1.idx.i40 = select i1 %49, i64 8, i64 0
-  %.sroa.019.1.i41 = getelementptr i8, ptr %.sroa.019.028.i35, i64 %.sroa.019.1.idx.i40
+  %.sink.in.i37 = select i1 %49, ptr %.sroa.019.027.i36, ptr %.sroa.022.028.i35
+  %.sroa.019.1.idx.i38 = select i1 %49, i64 8, i64 0
+  %.sroa.019.1.i39 = getelementptr i8, ptr %.sroa.019.027.i36, i64 %.sroa.019.1.idx.i38
+  %.sroa.022.1.idx.i40 = select i1 %49, i64 0, i64 8
+  %.sroa.022.1.i41 = getelementptr i8, ptr %.sroa.022.028.i35, i64 %.sroa.022.1.idx.i40
   %.sink.i42 = load ptr, ptr %.sink.in.i37, align 8
   store ptr %.sink.i42, ptr %.029.i34, align 8
   %50 = getelementptr i8, ptr %.029.i34, i64 8
-  %51 = icmp ne ptr %.sroa.022.1.i39, %44
-  %52 = icmp ne ptr %.sroa.019.1.i41, %1
+  %51 = icmp ne ptr %.sroa.022.1.i41, %44
+  %52 = icmp ne ptr %.sroa.019.1.i39, %1
   %or.cond.i43 = and i1 %51, %52
   br i1 %or.cond.i43, label %.lr.ph.i33, label %.critedge.i18, !llvm.loop !98
 
 .critedge.i18:                                    ; preds = %.lr.ph.i33, %._crit_edge
-  %.sroa.022.0.lcssa.i19 = phi ptr [ %.sroa.052.0.lcssa, %._crit_edge ], [ %.sroa.022.1.i39, %.lr.ph.i33 ]
-  %.sroa.019.0.lcssa.i20 = phi ptr [ %44, %._crit_edge ], [ %.sroa.019.1.i41, %.lr.ph.i33 ]
+  %.sroa.019.0.lcssa.i19 = phi ptr [ %44, %._crit_edge ], [ %.sroa.019.1.i39, %.lr.ph.i33 ]
+  %.sroa.022.0.lcssa.i20 = phi ptr [ %.sroa.052.0.lcssa, %._crit_edge ], [ %.sroa.022.1.i41, %.lr.ph.i33 ]
   %.0.lcssa.i21 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %50, %.lr.ph.i33 ]
   %53 = ptrtoint ptr %44 to i64
-  %54 = ptrtoint ptr %.sroa.022.0.lcssa.i19 to i64
+  %54 = ptrtoint ptr %.sroa.022.0.lcssa.i20 to i64
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 3
   %57 = icmp sgt i64 %56, 0
@@ -13158,7 +13158,7 @@ _ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_
 .lr.ph.i.i.i.i.i.i29:                             ; preds = %.critedge.i18, %.lr.ph.i.i.i.i.i.i29
   %.09.i.i.i.i.i.i30 = phi ptr [ %60, %.lr.ph.i.i.i.i.i.i29 ], [ %.0.lcssa.i21, %.critedge.i18 ]
   %.048.i.i.i.i.i.i31 = phi i64 [ %61, %.lr.ph.i.i.i.i.i.i29 ], [ %56, %.critedge.i18 ]
-  %.sroa.05.07.i.i.i.i.i.i32 = phi ptr [ %59, %.lr.ph.i.i.i.i.i.i29 ], [ %.sroa.022.0.lcssa.i19, %.critedge.i18 ]
+  %.sroa.05.07.i.i.i.i.i.i32 = phi ptr [ %59, %.lr.ph.i.i.i.i.i.i29 ], [ %.sroa.022.0.lcssa.i20, %.critedge.i18 ]
   %58 = load ptr, ptr %.sroa.05.07.i.i.i.i.i.i32, align 8
   store ptr %58, ptr %.09.i.i.i.i.i.i30, align 8
   %59 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i.i32, i64 8
@@ -13169,7 +13169,7 @@ _ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_
 
 _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22: ; preds = %.lr.ph.i.i.i.i.i.i29, %.critedge.i18
   %.0.lcssa.i.i.i.i.i.i23 = phi ptr [ %.0.lcssa.i21, %.critedge.i18 ], [ %60, %.lr.ph.i.i.i.i.i.i29 ]
-  %63 = ptrtoint ptr %.sroa.019.0.lcssa.i20 to i64
+  %63 = ptrtoint ptr %.sroa.019.0.lcssa.i19 to i64
   %64 = sub i64 %7, %63
   %65 = ashr exact i64 %64, 3
   %66 = icmp sgt i64 %65, 0
@@ -13178,7 +13178,7 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22: ; pred
 .lr.ph.i.i.i.i.i14.i25:                           ; preds = %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22, %.lr.ph.i.i.i.i.i14.i25
   %.09.i.i.i.i.i15.i26 = phi ptr [ %69, %.lr.ph.i.i.i.i.i14.i25 ], [ %.0.lcssa.i.i.i.i.i.i23, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22 ]
   %.048.i.i.i.i.i16.i27 = phi i64 [ %70, %.lr.ph.i.i.i.i.i14.i25 ], [ %65, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22 ]
-  %.sroa.05.07.i.i.i.i.i17.i28 = phi ptr [ %68, %.lr.ph.i.i.i.i.i14.i25 ], [ %.sroa.019.0.lcssa.i20, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22 ]
+  %.sroa.05.07.i.i.i.i.i17.i28 = phi ptr [ %68, %.lr.ph.i.i.i.i.i14.i25 ], [ %.sroa.019.0.lcssa.i19, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22 ]
   %67 = load ptr, ptr %.sroa.05.07.i.i.i.i.i17.i28, align 8
   store ptr %67, ptr %.09.i.i.i.i.i15.i26, align 8
   %68 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i17.i28, i64 8

@@ -755,8 +755,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i": ; preds = %49, %44
-  %.0.i.i = phi i16 [ %47, %44 ], [ %53, %49 ]
-  %.not.i.not.i.i.not = icmp ne i16 %.0.i.i, 0
+  %.026.i.i = phi i16 [ %47, %44 ], [ %53, %49 ]
+  %.not.i.not.i.i.not = icmp ne i16 %.026.i.i, 0
   br i1 %.not.i.not.i.i.not, label %49, label %48
 
 48:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i"
@@ -764,10 +764,10 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br i1 %.not.i.i, label %69, label %62
 
 49:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i"
-  %50 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %50 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.026.i.i, i1 true)
   %51 = zext nneg i16 %50 to i64
-  %52 = add i16 %.0.i.i, -1
-  %53 = and i16 %52, %.0.i.i
+  %52 = add i16 %.026.i.i, -1
+  %53 = and i16 %52, %.026.i.i
   %54 = add i64 %.sroa.0.025.i.i, %51
   %55 = and i64 %54, %.val4.i
   %56 = sub nsw i64 0, %55

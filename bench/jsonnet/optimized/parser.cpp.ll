@@ -7424,7 +7424,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %307
 
 173:                                              ; preds = %169, %166, %163
-  %.0219 = phi ptr [ null, %166 ], [ null, %163 ], [ %170, %169 ]
+  %.0214 = phi ptr [ null, %166 ], [ null, %163 ], [ %170, %169 ]
   %.val104 = load ptr, ptr %0, align 8
   %.val104.val = load ptr, ptr %.val104, align 8
   %174 = getelementptr inbounds i8, ptr %.val104.val, i64 16
@@ -7575,7 +7575,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 230:                                              ; preds = %._crit_edge262, %223, %220
   %.val98 = phi ptr [ %.val98.pre263, %223 ], [ %.val98.pre263, %220 ], [ %.val98.pre, %._crit_edge262 ]
-  %.0217 = phi ptr [ null, %223 ], [ null, %220 ], [ %227, %._crit_edge262 ]
+  %.0218 = phi ptr [ null, %223 ], [ null, %220 ], [ %227, %._crit_edge262 ]
   %.val98.val = load ptr, ptr %.val98, align 8
   %231 = getelementptr inbounds i8, ptr %.val98.val, i64 16
   %232 = load i32, ptr %231, align 8
@@ -7656,7 +7656,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %260
 
 259:                                              ; preds = %255, %252
-  %.1215 = phi ptr [ null, %252 ], [ %256, %255 ]
+  %.1216 = phi ptr [ null, %252 ], [ %256, %255 ]
   call void @_ZN7jsonnet8internal5TokenD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %19) #22
   br label %.sink.split
 
@@ -7672,13 +7672,13 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 .sink.split:                                      ; preds = %230, %259, %191, %194
   %.sink = phi ptr [ %15, %194 ], [ %15, %191 ], [ %16, %259 ], [ %16, %230 ]
-  %.1218.ph = phi ptr [ null, %194 ], [ null, %191 ], [ %.0217, %259 ], [ %.0217, %230 ]
-  %.3.ph = phi ptr [ %195, %194 ], [ null, %191 ], [ %.1215, %259 ], [ null, %230 ]
+  %.1219.ph = phi ptr [ null, %194 ], [ null, %191 ], [ %.0218, %259 ], [ %.0218, %230 ]
+  %.3.ph = phi ptr [ %195, %194 ], [ null, %191 ], [ %.1216, %259 ], [ null, %230 ]
   call void @_ZN7jsonnet8internal5TokenD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %.sink) #22
   br label %262
 
 262:                                              ; preds = %.sink.split, %198
-  %.1218 = phi ptr [ null, %198 ], [ %.1218.ph, %.sink.split ]
+  %.1219 = phi ptr [ null, %198 ], [ %.1219.ph, %.sink.split ]
   %.3 = phi ptr [ null, %198 ], [ %.3.ph, %.sink.split ]
   %.0213 = phi i1 [ false, %198 ], [ true, %.sink.split ]
   invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3, ptr noundef null)
@@ -7697,7 +7697,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 .noexc:                                           ; preds = %265
   %267 = load ptr, ptr %5, align 8
-  invoke void @_ZN7jsonnet8internal5IndexC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EEPNS0_3ASTESA_bSC_SA_SC_SA_SC_SA_(ptr noundef nonnull align 8 dereferenceable(272) %266, ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internal12_GLOBAL__N_112EMPTY_FODDERE, ptr noundef %267, ptr noundef nonnull align 8 dereferenceable(24) %51, i1 noundef zeroext %.0213, ptr noundef %.0219, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %.1218, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %.3, ptr noundef nonnull align 8 dereferenceable(24) %82)
+  invoke void @_ZN7jsonnet8internal5IndexC2ERKNS0_13LocationRangeERKSt6vectorINS0_13FodderElementESaIS6_EEPNS0_3ASTESA_bSC_SA_SC_SA_SC_SA_(ptr noundef nonnull align 8 dereferenceable(272) %266, ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internal12_GLOBAL__N_112EMPTY_FODDERE, ptr noundef %267, ptr noundef nonnull align 8 dereferenceable(24) %51, i1 noundef zeroext %.0213, ptr noundef %.0214, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %.1219, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %.3, ptr noundef nonnull align 8 dereferenceable(24) %82)
           to label %268 unwind label %270
 
 268:                                              ; preds = %.noexc

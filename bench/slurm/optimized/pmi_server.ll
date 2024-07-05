@@ -153,7 +153,7 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
   %58 = phi ptr [ %97, %96 ], [ %55, %54 ]
   %59 = phi ptr [ %98, %96 ], [ %.pre58, %54 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %96 ], [ 0, %54 ]
-  %.047 = phi i32 [ %.1, %96 ], [ 0, %54 ]
+  %.04347 = phi i32 [ %.1, %96 ], [ 0, %54 ]
   %60 = getelementptr inbounds ptr, ptr %59, i64 %indvars.iv55
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 32
@@ -172,7 +172,7 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
   %72 = load ptr, ptr %8, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8
-  %75 = sext i32 %.047 to i64
+  %75 = sext i32 %.04347 to i64
   %76 = getelementptr inbounds ptr, ptr %74, i64 %75
   store ptr %71, ptr %76, align 8
   %77 = load ptr, ptr @kvs_comm_ptr, align 8
@@ -188,7 +188,7 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds ptr, ptr %87, i64 %75
   store ptr %84, ptr %88, align 8
-  %89 = add nsw i32 %.047, 1
+  %89 = add nsw i32 %.04347, 1
   %90 = load ptr, ptr @kvs_comm_ptr, align 8
   %91 = getelementptr inbounds ptr, ptr %90, i64 %indvars.iv55
   %92 = load ptr, ptr %91, align 8
@@ -203,7 +203,7 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
 96:                                               ; preds = %.lr.ph, %66
   %97 = phi ptr [ %58, %.lr.ph ], [ %.pre59, %66 ]
   %98 = phi ptr [ %59, %.lr.ph ], [ %.pre, %66 ]
-  %.1 = phi i32 [ %.047, %.lr.ph ], [ %89, %66 ]
+  %.1 = phi i32 [ %.04347, %.lr.ph ], [ %89, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %99 = getelementptr inbounds i8, ptr %97, i64 8
   %100 = load i32, ptr %99, align 8
@@ -213,9 +213,9 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %96, %54
   %.lcssa45 = phi ptr [ %55, %54 ], [ %97, %96 ]
-  %.0.lcssa = phi i32 [ 0, %54 ], [ %.1, %96 ]
+  %.043.lcssa = phi i32 [ 0, %54 ], [ %.1, %96 ]
   %103 = getelementptr inbounds i8, ptr %.lcssa45, i64 8
-  store i32 %.0.lcssa, ptr %103, align 8
+  store i32 %.043.lcssa, ptr %103, align 8
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %104 = load i32, ptr @kvs_comm_cnt, align 4
   %105 = sext i32 %104 to i64
@@ -729,7 +729,7 @@ _kvs_xmit_tasks.exit:                             ; preds = %99, %101
   br label %104
 
 104:                                              ; preds = %22, %27, %_kvs_xmit_tasks.exit, %40
-  %.0 = phi i32 [ -1, %27 ], [ 0, %_kvs_xmit_tasks.exit ], [ 0, %40 ], [ -1, %22 ]
+  %.018 = phi i32 [ -1, %27 ], [ 0, %_kvs_xmit_tasks.exit ], [ 0, %40 ], [ -1, %22 ]
   %105 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @kvs_mutex) #12
   %.not27 = icmp eq i32 %105, 0
   br i1 %.not27, label %108, label %106
@@ -741,8 +741,8 @@ _kvs_xmit_tasks.exit:                             ; preds = %99, %101
   unreachable
 
 108:                                              ; preds = %104, %7
-  %.018 = phi i32 [ -1, %7 ], [ %.0, %104 ]
-  ret i32 %.018
+  %.0 = phi i32 [ -1, %7 ], [ %.018, %104 ]
+  ret i32 %.0
 }
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
@@ -910,7 +910,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   br label %14
 
 14:                                               ; preds = %11, %1
-  %.092 = phi i32 [ %spec.store.select, %11 ], [ 32, %1 ]
+  %.097 = phi i32 [ %spec.store.select, %11 ], [ 32, %1 ]
   %15 = tail call ptr @getenv(ptr noundef nonnull @.str.17) #12
   %16 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
   %17 = getelementptr inbounds i8, ptr %0, i64 8
@@ -924,7 +924,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   br i1 %23, label %.lr.ph184, label %._crit_edge185
 
 .lr.ph184:                                        ; preds = %14
-  %24 = sext i32 %.092 to i64
+  %24 = sext i32 %.097 to i64
   %25 = icmp eq ptr %15, null
   br label %26
 
@@ -933,9 +933,9 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %28 = phi ptr [ %21, %.lr.ph184 ], [ %140, %138 ]
   %indvars.iv230 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next231.pre-phi, %138 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph184 ], [ %indvars.iv.next, %138 ]
-  %.0182 = phi i32 [ 0, %.lr.ph184 ], [ %.1, %138 ]
-  %.090181 = phi i32 [ 0, %.lr.ph184 ], [ %.191, %138 ]
-  %.095180 = phi i32 [ 0, %.lr.ph184 ], [ %.196, %138 ]
+  %.092181 = phi i32 [ 0, %.lr.ph184 ], [ %.193, %138 ]
+  %.098180 = phi i32 [ 0, %.lr.ph184 ], [ %.199, %138 ]
+  %.0100179 = phi i32 [ 0, %.lr.ph184 ], [ %.1101, %138 ]
   %29 = load ptr, ptr %27, align 8
   %30 = getelementptr inbounds %struct.barrier_resp, ptr %29, i64 %indvars.iv230
   %31 = load i16, ptr %30, align 8
@@ -958,7 +958,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %33, %66
   %40 = phi i32 [ %67, %66 ], [ %37, %33 ]
   %indvars.iv227 = phi i64 [ %indvars.iv.next228, %66 ], [ %indvars.iv, %33 ]
-  %.093171 = phi i32 [ %.194, %66 ], [ 0, %33 ]
+  %.094171 = phi i32 [ %.195, %66 ], [ 0, %33 ]
   %41 = load ptr, ptr %27, align 8
   %42 = getelementptr inbounds %struct.barrier_resp, ptr %41, i64 %indvars.iv227
   %43 = load i16, ptr %42, align 8
@@ -978,7 +978,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   br i1 %.not121, label %52, label %66
 
 52:                                               ; preds = %46, %45
-  %53 = sext i32 %.093171 to i64
+  %53 = sext i32 %.094171 to i64
   %54 = getelementptr inbounds %struct.kvs_hosts, ptr %34, i64 %53
   store i32 0, ptr %54, align 8
   %55 = load ptr, ptr %27, align 8
@@ -994,8 +994,8 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %63 = load ptr, ptr %27, align 8
   %64 = getelementptr inbounds %struct.barrier_resp, ptr %63, i64 %indvars.iv227
   store i16 0, ptr %64, align 8
-  %65 = add nsw i32 %.093171, 1
-  %.not122 = icmp slt i32 %65, %.092
+  %65 = add nsw i32 %.094171, 1
+  %.not122 = icmp slt i32 %65, %.097
   br i1 %.not122, label %._crit_edge246, label %._crit_edge
 
 ._crit_edge246:                                   ; preds = %52
@@ -1004,16 +1004,16 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 
 66:                                               ; preds = %._crit_edge246, %46, %.lr.ph
   %67 = phi i32 [ %40, %.lr.ph ], [ %40, %46 ], [ %.pre, %._crit_edge246 ]
-  %.194 = phi i32 [ %.093171, %.lr.ph ], [ %.093171, %46 ], [ %65, %._crit_edge246 ]
+  %.195 = phi i32 [ %.094171, %.lr.ph ], [ %.094171, %46 ], [ %65, %._crit_edge246 ]
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %68 = trunc nuw i64 %indvars.iv.next228 to i32
   %69 = icmp sgt i32 %67, %68
   br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %66, %52, %33
-  %.2 = phi i32 [ 0, %33 ], [ %65, %52 ], [ %.194, %66 ]
-  %70 = add nsw i32 %.090181, 1
-  %71 = call i32 @llvm.smax.i32(i32 %.2, i32 %.0182)
+  %.296 = phi i32 [ 0, %33 ], [ %65, %52 ], [ %.195, %66 ]
+  %70 = add nsw i32 %.098180, 1
+  %71 = call i32 @llvm.smax.i32(i32 %.296, i32 %.0100179)
   %72 = call i32 @pthread_mutex_lock(ptr noundef nonnull @agent_mutex) #12
   %.not123 = icmp eq i32 %72, 0
   br i1 %.not123, label %.preheader135, label %75
@@ -1066,11 +1066,11 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %90 = load ptr, ptr %27, align 8
   %91 = getelementptr inbounds %struct.barrier_resp, ptr %90, i64 %indvars.iv230
   store ptr %91, ptr %89, align 8
-  %92 = sext i32 %.095180 to i64
+  %92 = sext i32 %.092181 to i64
   %93 = getelementptr inbounds %struct.kvs_comm_set, ptr %28, i64 %92
   %94 = getelementptr inbounds i8, ptr %89, i64 8
   store ptr %93, ptr %94, align 8
-  %95 = trunc i32 %.2 to i16
+  %95 = trunc i32 %.296 to i16
   store i16 %95, ptr %93, align 8
   %96 = load ptr, ptr %3, align 8
   %97 = getelementptr inbounds %struct.kvs_comm_set, ptr %96, i64 %92, i32 1
@@ -1085,7 +1085,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds %struct.kvs_comm_set, ptr %96, i64 %92, i32 3
   store ptr %104, ptr %105, align 8
-  %106 = add nsw i32 %.095180, 1
+  %106 = add nsw i32 %.092181, 1
   %107 = load i32, ptr @agent_max_cnt, align 4
   %108 = icmp eq i32 %107, 1
   br i1 %108, label %109, label %111
@@ -1164,9 +1164,9 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %indvars.iv.next231.pre-phi = phi i64 [ %.pre249, %._crit_edge248 ], [ %35, %109 ], [ %35, %135 ], [ %35, %133 ]
   %139 = phi ptr [ %27, %._crit_edge248 ], [ %98, %109 ], [ %98, %135 ], [ %98, %133 ]
   %140 = phi ptr [ %28, %._crit_edge248 ], [ %96, %109 ], [ %96, %135 ], [ %96, %133 ]
-  %.196 = phi i32 [ %.095180, %._crit_edge248 ], [ %106, %109 ], [ %106, %135 ], [ %106, %133 ]
-  %.191 = phi i32 [ %.090181, %._crit_edge248 ], [ %70, %109 ], [ %70, %135 ], [ %70, %133 ]
-  %.1 = phi i32 [ %.0182, %._crit_edge248 ], [ %71, %109 ], [ %71, %135 ], [ %71, %133 ]
+  %.1101 = phi i32 [ %.0100179, %._crit_edge248 ], [ %71, %109 ], [ %71, %135 ], [ %71, %133 ]
+  %.199 = phi i32 [ %.098180, %._crit_edge248 ], [ %70, %109 ], [ %70, %135 ], [ %70, %133 ]
+  %.193 = phi i32 [ %.092181, %._crit_edge248 ], [ %106, %109 ], [ %106, %135 ], [ %106, %133 ]
   %141 = getelementptr inbounds i8, ptr %139, i64 8
   %142 = load i32, ptr %141, align 8
   %143 = sext i32 %142 to i64
@@ -1175,21 +1175,21 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   br i1 %144, label %26, label %._crit_edge185.loopexit, !llvm.loop !18
 
 ._crit_edge185.loopexit:                          ; preds = %138
-  %145 = add nsw i32 %.1, 1
+  %145 = add nsw i32 %.1101, 1
   br label %._crit_edge185
 
 ._crit_edge185:                                   ; preds = %._crit_edge185.loopexit, %14
   %146 = phi ptr [ %0, %14 ], [ %139, %._crit_edge185.loopexit ]
   %147 = phi ptr [ %21, %14 ], [ %140, %._crit_edge185.loopexit ]
-  %.095.lcssa = phi i32 [ 0, %14 ], [ %.196, %._crit_edge185.loopexit ]
-  %.090.lcssa = phi i32 [ 0, %14 ], [ %.191, %._crit_edge185.loopexit ]
-  %.0.lcssa = phi i32 [ 1, %14 ], [ %145, %._crit_edge185.loopexit ]
+  %.0100.lcssa = phi i32 [ 1, %14 ], [ %145, %._crit_edge185.loopexit ]
+  %.098.lcssa = phi i32 [ 0, %14 ], [ %.199, %._crit_edge185.loopexit ]
+  %.092.lcssa = phi i32 [ 0, %14 ], [ %.193, %._crit_edge185.loopexit ]
   %148 = call i32 @get_log_level() #12
   %149 = icmp sgt i32 %148, 3
   br i1 %149, label %150, label %151
 
 150:                                              ; preds = %._crit_edge185
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef %.090.lcssa, i32 noundef %.0.lcssa) #12
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef %.098.lcssa, i32 noundef %.0100.lcssa) #12
   br label %151
 
 151:                                              ; preds = %._crit_edge185, %150
@@ -1230,11 +1230,11 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   br i1 %.not119, label %.preheader133, label %166
 
 .preheader133:                                    ; preds = %._crit_edge190
-  %165 = icmp sgt i32 %.095.lcssa, 0
+  %165 = icmp sgt i32 %.092.lcssa, 0
   br i1 %165, label %.lr.ph192.preheader, label %._crit_edge193
 
 .lr.ph192.preheader:                              ; preds = %.preheader133
-  %wide.trip.count = zext nneg i32 %.095.lcssa to i64
+  %wide.trip.count = zext nneg i32 %.092.lcssa to i64
   br label %.lr.ph192
 
 166:                                              ; preds = %._crit_edge190

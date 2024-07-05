@@ -170,8 +170,8 @@ opal_pointer_array_get_item.exit.i:               ; preds = %56, %50, %.lr.ph.i
   br label %ompi_errcode_get_mpi_code.exit
 
 ompi_errcode_get_mpi_code.exit:                   ; preds = %39, %30, %.preheader.i, %61
-  %.010.i = phi i32 [ %29, %30 ], [ %63, %61 ], [ 14, %.preheader.i ], [ 14, %39 ]
-  %64 = call i32 @ompi_errhandler_invoke(ptr noundef %33, ptr noundef %31, i32 noundef %35, i32 noundef %.010.i, ptr noundef nonnull @.str.4) #6
+  %.0.i = phi i32 [ %29, %30 ], [ %63, %61 ], [ 14, %.preheader.i ], [ 14, %39 ]
+  %64 = call i32 @ompi_errhandler_invoke(ptr noundef %33, ptr noundef %31, i32 noundef %35, i32 noundef %.0.i, ptr noundef nonnull @.str.4) #6
   br label %65
 
 65:                                               ; preds = %ompi_errcode_get_mpi_code.exit, %25
@@ -244,8 +244,8 @@ opal_pointer_array_get_item.exit.i31:             ; preds = %95, %89, %.lr.ph.i2
   br label %ompi_errcode_get_mpi_code.exit35
 
 ompi_errcode_get_mpi_code.exit35:                 ; preds = %78, %69, %.preheader.i26, %100
-  %.010.i27 = phi i32 [ %68, %69 ], [ %102, %100 ], [ 14, %.preheader.i26 ], [ 14, %78 ]
-  %103 = call i32 @ompi_errhandler_invoke(ptr noundef %72, ptr noundef %70, i32 noundef %74, i32 noundef %.010.i27, ptr noundef nonnull @.str.5) #6
+  %.0.i27 = phi i32 [ %68, %69 ], [ %102, %100 ], [ 14, %.preheader.i26 ], [ 14, %78 ]
+  %103 = call i32 @ompi_errhandler_invoke(ptr noundef %72, ptr noundef %70, i32 noundef %74, i32 noundef %.0.i27, ptr noundef nonnull @.str.5) #6
   br label %104
 
 104:                                              ; preds = %65, %ompi_errcode_get_mpi_code.exit35, %19

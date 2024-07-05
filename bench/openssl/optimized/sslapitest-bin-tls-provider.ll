@@ -530,7 +530,7 @@ if.then:                                          ; preds = %entry
 
 for.body:                                         ; preds = %if.then, %if.end17
   %indvars.iv = phi i64 [ 0, %if.then ], [ %indvars.iv.next, %if.end17 ]
-  %ret.027 = phi i32 [ %and, %if.then ], [ %and28, %if.end17 ]
+  %ret.028 = phi i32 [ %and, %if.then ], [ %and28, %if.end17 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(440) %dummygroup, ptr noundef nonnull align 16 dereferenceable(440) @xor_group_params, i64 440, i1 false)
   %arrayidx = getelementptr inbounds [50 x ptr], ptr @dummy_group_names, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
@@ -556,7 +556,7 @@ if.end17:                                         ; preds = %if.end, %for.body
   %add24 = add i64 %call23, 1
   store i64 %add24, ptr %data_size, align 8
   %call27 = call i32 %cb(ptr noundef nonnull %dummygroup, ptr noundef %arg) #14
-  %and28 = and i32 %call27, %ret.027
+  %and28 = and i32 %call27, %ret.028
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 50
   br i1 %exitcond.not, label %if.end29, label %for.body, !llvm.loop !9

@@ -121,7 +121,7 @@ define internal range(i32 -1, 1) i32 @H5S__none_deserialize(ptr nocapture nounde
 
 15:                                               ; preds = %._crit_edge, %4
   %.pre = phi ptr [ %.pre.pre, %._crit_edge ], [ %5, %4 ]
-  %.044 = phi ptr [ %10, %._crit_edge ], [ %8, %4 ]
+  %.0 = phi ptr [ %10, %._crit_edge ], [ %8, %4 ]
   br i1 %3, label %28, label %16
 
 16:                                               ; preds = %15
@@ -198,7 +198,7 @@ define internal range(i32 -1, 1) i32 @H5S__none_deserialize(ptr nocapture nounde
 64:                                               ; preds = %51, %54
   %65 = getelementptr inbounds i8, ptr %.pre, i64 12
   store ptr %65, ptr %1, align 8
-  %66 = tail call i32 @H5S_select_release(ptr noundef nonnull %.044) #6
+  %66 = tail call i32 @H5S_select_release(ptr noundef nonnull %.0) #6
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %68, label %75
 
@@ -212,8 +212,8 @@ define internal range(i32 -1, 1) i32 @H5S__none_deserialize(ptr nocapture nounde
   br label %80
 
 75:                                               ; preds = %64
-  %76 = getelementptr inbounds i8, ptr %.044, i64 80
-  %77 = getelementptr inbounds i8, ptr %.044, i64 352
+  %76 = getelementptr inbounds i8, ptr %.0, i64 80
+  %77 = getelementptr inbounds i8, ptr %.0, i64 352
   store i64 0, ptr %77, align 8
   store ptr @H5S_sel_none, ptr %76, align 8
   %78 = load ptr, ptr %0, align 8
@@ -221,7 +221,7 @@ define internal range(i32 -1, 1) i32 @H5S__none_deserialize(ptr nocapture nounde
   br i1 %.not53, label %79, label %.thread60
 
 79:                                               ; preds = %75
-  store ptr %.044, ptr %0, align 8
+  store ptr %.0, ptr %0, align 8
   br label %.thread60
 
 80:                                               ; preds = %68, %60, %47, %24
@@ -230,7 +230,7 @@ define internal range(i32 -1, 1) i32 @H5S__none_deserialize(ptr nocapture nounde
   br i1 %81, label %82, label %.thread60
 
 82:                                               ; preds = %80
-  %83 = tail call i32 @H5S_close(ptr noundef nonnull %.044) #6
+  %83 = tail call i32 @H5S_close(ptr noundef nonnull %.0) #6
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %85, label %.thread60
 
@@ -241,8 +241,8 @@ define internal range(i32 -1, 1) i32 @H5S__none_deserialize(ptr nocapture nounde
   br label %.thread60
 
 .thread60:                                        ; preds = %79, %75, %.thread, %82, %85, %80
-  %.1 = phi i32 [ -1, %85 ], [ -1, %82 ], [ -1, %80 ], [ -1, %.thread ], [ 0, %75 ], [ 0, %79 ]
-  ret i32 %.1
+  %.145 = phi i32 [ -1, %85 ], [ -1, %82 ], [ -1, %80 ], [ -1, %.thread ], [ 0, %75 ], [ 0, %79 ]
+  ret i32 %.145
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

@@ -128,7 +128,7 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   br label %52
 
 52:                                               ; preds = %.lr.ph, %copy_fh.exit.thread
-  %.094186 = phi i32 [ %25, %.lr.ph ], [ %131, %copy_fh.exit.thread ]
+  %.097186 = phi i32 [ %25, %.lr.ph ], [ %131, %copy_fh.exit.thread ]
   %53 = load ptr, ptr %14, align 8
   %54 = call i32 %53(ptr noundef nonnull %12, ptr noundef nonnull %34, i32 noundef 16) #5
   %.not121 = icmp eq i32 %54, 16
@@ -170,7 +170,7 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   br i1 %87, label %copy_fh.exit.thread145.thread160, label %88
 
 88:                                               ; preds = %55
-  %89 = icmp ugt i32 %85, %.094186
+  %89 = icmp ugt i32 %85, %.097186
   %90 = icmp ugt i32 %65, 1
   %or.cond = select i1 %89, i1 true, i1 %90
   br i1 %or.cond, label %copy_fh.exit.thread145.thread160, label %91
@@ -216,12 +216,12 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   br i1 %.not.i, label %copy_fh.exit.thread, label %.lr.ph.split.i
 
 .preheader:                                       ; preds = %91, %.preheader
-  %.090 = phi i32 [ %111, %.preheader ], [ 17, %91 ]
-  %107 = icmp ult i32 %.090, 25
-  %108 = shl nuw nsw i32 1, %.090
+  %.093 = phi i32 [ %111, %.preheader ], [ 17, %91 ]
+  %107 = icmp ult i32 %.093, 25
+  %108 = shl nuw nsw i32 1, %.093
   %109 = icmp ult i32 %108, %85
   %110 = select i1 %107, i1 %109, i1 false
-  %111 = add nuw nsw i32 %.090, 1
+  %111 = add nuw nsw i32 %.093, 1
   br i1 %110, label %.preheader, label %112
 
 112:                                              ; preds = %.preheader
@@ -230,7 +230,7 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   store i32 -1, ptr %50, align 8
   %114 = load i32, ptr %31, align 8
   %115 = zext i32 %85 to i64
-  %116 = call ptr @lzxd_init(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %.090, i32 noundef 0, i32 noundef %114, i64 noundef %115, i8 noundef signext 1) #5
+  %116 = call ptr @lzxd_init(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %.093, i32 noundef 0, i32 noundef %114, i64 noundef %115, i8 noundef signext 1) #5
   %.not125 = icmp eq ptr %116, null
   br i1 %.not125, label %copy_fh.exit.thread145.thread160, label %117
 
@@ -269,36 +269,36 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   br i1 %.not128, label %copy_fh.exit.thread, label %copy_fh.exit.thread145.thread160
 
 copy_fh.exit.thread:                              ; preds = %104, %93, %.loopexit
-  %131 = sub i32 %.094186, %85
+  %131 = sub i32 %.097186, %85
   %.not120 = icmp eq i32 %131, 0
   br i1 %.not120, label %copy_fh.exit.thread145.thread160, label %52
 
 copy_fh.exit.thread145.thread160:                 ; preds = %.loopexit, %112, %92, %55, %88, %52, %copy_fh.exit.thread, %117, %.lr.ph.split.us.i133, %.lr.ph.split.i, %101, %35, %28
-  %.2153165 = phi i32 [ 6, %28 ], [ 0, %35 ], [ 4, %101 ], [ 3, %.lr.ph.split.i ], [ 3, %.lr.ph.split.us.i133 ], [ 0, %copy_fh.exit.thread ], [ 3, %52 ], [ 8, %88 ], [ 8, %55 ], [ 8, %92 ], [ 6, %112 ], [ 9, %.loopexit ], [ %118, %117 ]
+  %.2151167 = phi i32 [ 6, %28 ], [ 0, %35 ], [ 4, %101 ], [ 3, %.lr.ph.split.i ], [ 3, %.lr.ph.split.us.i133 ], [ 9, %.loopexit ], [ 6, %112 ], [ 8, %92 ], [ 8, %55 ], [ 8, %88 ], [ 3, %52 ], [ 0, %copy_fh.exit.thread ], [ %118, %117 ]
   %132 = getelementptr inbounds i8, ptr %10, i64 8
   %133 = load ptr, ptr %132, align 8
   call void %133(ptr noundef nonnull %27) #5
   br label %copy_fh.exit.thread145.thread.thread
 
 copy_fh.exit.thread145.thread.thread:             ; preds = %copy_fh.exit.thread145.thread160, %21, %17, %13
-  %.2153158172 = phi i32 [ %.2153165, %copy_fh.exit.thread145.thread160 ], [ 2, %21 ], [ 7, %17 ], [ 3, %13 ]
-  %.095152159170 = phi ptr [ %34, %copy_fh.exit.thread145.thread160 ], [ null, %21 ], [ null, %17 ], [ null, %13 ]
+  %.091152158172 = phi ptr [ %34, %copy_fh.exit.thread145.thread160 ], [ null, %13 ], [ null, %17 ], [ null, %21 ]
+  %.2151159170 = phi i32 [ %.2151167, %copy_fh.exit.thread145.thread160 ], [ 3, %13 ], [ 7, %17 ], [ 2, %21 ]
   %134 = getelementptr inbounds i8, ptr %10, i64 8
   %135 = load ptr, ptr %134, align 8
   call void %135(ptr noundef nonnull %12) #5
   br label %copy_fh.exit.thread145.thread.thread174
 
 copy_fh.exit.thread145.thread.thread174:          ; preds = %8, %copy_fh.exit.thread145.thread.thread
-  %.2153158173 = phi i32 [ %.2153158172, %copy_fh.exit.thread145.thread.thread ], [ 2, %8 ]
-  %.095152159171 = phi ptr [ %.095152159170, %copy_fh.exit.thread145.thread.thread ], [ null, %8 ]
+  %.091152158173 = phi ptr [ %.091152158172, %copy_fh.exit.thread145.thread.thread ], [ null, %8 ]
+  %.2151159171 = phi i32 [ %.2151159170, %copy_fh.exit.thread145.thread.thread ], [ 2, %8 ]
   %136 = getelementptr inbounds i8, ptr %10, i64 64
   %137 = load ptr, ptr %136, align 8
-  call void %137(ptr noundef %.095152159171) #5
+  call void %137(ptr noundef %.091152158173) #5
   br label %138
 
 138:                                              ; preds = %3, %copy_fh.exit.thread145.thread.thread174
-  %.097 = phi i32 [ %.2153158173, %copy_fh.exit.thread145.thread.thread174 ], [ 1, %3 ]
-  ret i32 %.097
+  %.0 = phi i32 [ %.2151159171, %copy_fh.exit.thread145.thread.thread174 ], [ 1, %3 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -389,12 +389,12 @@ define internal i32 @oabd_decompress_incremental(ptr noundef readonly %0, ptr no
   br label %55
 
 53:                                               ; preds = %.loopexit
-  %54 = sub i32 %.098198, %70
+  %54 = sub i32 %.0101198, %70
   %.not127 = icmp eq i32 %54, 0
   br i1 %.not127, label %copy_fh.exit.thread141.thread160, label %55
 
 55:                                               ; preds = %.lr.ph, %53
-  %.098198 = phi i32 [ %26, %.lr.ph ], [ %54, %53 ]
+  %.0101198 = phi i32 [ %26, %.lr.ph ], [ %54, %53 ]
   %56 = load ptr, ptr %15, align 8
   %57 = call i32 %56(ptr noundef nonnull %13, ptr noundef nonnull %38, i32 noundef 16) #5
   %.not128 = icmp eq i32 %57, 16
@@ -425,7 +425,7 @@ define internal i32 @oabd_decompress_incremental(ptr noundef readonly %0, ptr no
   %80 = or disjoint i32 %77, %79
   %81 = load i32, ptr %50, align 1
   %82 = icmp ugt i32 %70, %spec.store.select
-  %83 = icmp ugt i32 %70, %.098198
+  %83 = icmp ugt i32 %70, %.0101198
   %or.cond = or i1 %82, %83
   %84 = icmp ugt i32 %80, %spec.store.select
   %or.cond137 = select i1 %or.cond, i1 true, i1 %84
@@ -438,19 +438,19 @@ define internal i32 @oabd_decompress_incremental(ptr noundef readonly %0, ptr no
   br label %89
 
 89:                                               ; preds = %89, %85
-  %.095 = phi i32 [ 17, %85 ], [ %94, %89 ]
-  %90 = icmp ult i32 %.095, 25
-  %91 = shl nuw nsw i32 1, %.095
+  %.098 = phi i32 [ 17, %85 ], [ %94, %89 ]
+  %90 = icmp ult i32 %.098, 25
+  %91 = shl nuw nsw i32 1, %.098
   %92 = icmp ult i32 %91, %88
   %93 = select i1 %90, i1 %92, i1 false
-  %94 = add nuw nsw i32 %.095, 1
+  %94 = add nuw nsw i32 %.098, 1
   br i1 %93, label %89, label %95
 
 95:                                               ; preds = %89
   store i64 %60, ptr %51, align 8
   store i32 -1, ptr %52, align 8
   %96 = zext i32 %70 to i64
-  %97 = call ptr @lzxd_init(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.095, i32 noundef 0, i32 noundef 4096, i64 noundef %96, i8 noundef signext 1) #5
+  %97 = call ptr @lzxd_init(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.098, i32 noundef 0, i32 noundef 4096, i64 noundef %96, i8 noundef signext 1) #5
   %.not129 = icmp eq ptr %97, null
   br i1 %.not129, label %copy_fh.exit.thread141.thread160, label %98
 
@@ -499,39 +499,39 @@ copy_fh.exit:                                     ; preds = %98, %100
   br label %copy_fh.exit.thread141.thread160
 
 copy_fh.exit.thread141.thread160:                 ; preds = %.loopexit, %95, %58, %55, %53, %.lr.ph.split.us.i, %39, %copy_fh.exit, %32
-  %.1151166 = phi i32 [ 6, %32 ], [ %.1, %copy_fh.exit ], [ 0, %39 ], [ 3, %.lr.ph.split.us.i ], [ 0, %53 ], [ 3, %55 ], [ 8, %58 ], [ 6, %95 ], [ 9, %.loopexit ]
+  %.1149168 = phi i32 [ 6, %32 ], [ %.1, %copy_fh.exit ], [ 0, %39 ], [ 3, %.lr.ph.split.us.i ], [ 0, %53 ], [ 3, %55 ], [ 8, %58 ], [ 6, %95 ], [ 9, %.loopexit ]
   %114 = getelementptr inbounds i8, ptr %11, i64 8
   %115 = load ptr, ptr %114, align 8
   call void %115(ptr noundef nonnull %31) #5
   br label %copy_fh.exit.thread141.thread.thread176
 
 copy_fh.exit.thread141.thread.thread176:          ; preds = %copy_fh.exit.thread141.thread160, %29
-  %.1151157183 = phi i32 [ %.1151166, %copy_fh.exit.thread141.thread160 ], [ 2, %29 ]
-  %.099150158182 = phi ptr [ %38, %copy_fh.exit.thread141.thread160 ], [ null, %29 ]
+  %.1149158182 = phi i32 [ %.1149168, %copy_fh.exit.thread141.thread160 ], [ 2, %29 ]
+  %.0102148159181 = phi ptr [ %38, %copy_fh.exit.thread141.thread160 ], [ null, %29 ]
   %116 = getelementptr inbounds i8, ptr %11, i64 8
   %117 = load ptr, ptr %116, align 8
   call void %117(ptr noundef nonnull %28) #5
   br label %copy_fh.exit.thread141.thread.thread.thread
 
 copy_fh.exit.thread141.thread.thread.thread:      ; preds = %copy_fh.exit.thread141.thread.thread176, %14, %18, %22
-  %.099150158174188 = phi ptr [ %.099150158182, %copy_fh.exit.thread141.thread.thread176 ], [ null, %22 ], [ null, %18 ], [ null, %14 ]
-  %.1151157175186 = phi i32 [ %.1151157183, %copy_fh.exit.thread141.thread.thread176 ], [ 2, %22 ], [ 7, %18 ], [ 3, %14 ]
+  %.0102148159174188 = phi ptr [ %.0102148159181, %copy_fh.exit.thread141.thread.thread176 ], [ null, %22 ], [ null, %18 ], [ null, %14 ]
+  %.1149158175186 = phi i32 [ %.1149158182, %copy_fh.exit.thread141.thread.thread176 ], [ 2, %22 ], [ 7, %18 ], [ 3, %14 ]
   %118 = getelementptr inbounds i8, ptr %11, i64 8
   %119 = load ptr, ptr %118, align 8
   call void %119(ptr noundef nonnull %13) #5
   br label %copy_fh.exit.thread141.thread.thread.thread190
 
 copy_fh.exit.thread141.thread.thread.thread190:   ; preds = %9, %copy_fh.exit.thread141.thread.thread.thread
-  %.099150158174189 = phi ptr [ %.099150158174188, %copy_fh.exit.thread141.thread.thread.thread ], [ null, %9 ]
-  %.1151157175187 = phi i32 [ %.1151157175186, %copy_fh.exit.thread141.thread.thread.thread ], [ 2, %9 ]
+  %.0102148159174189 = phi ptr [ %.0102148159174188, %copy_fh.exit.thread141.thread.thread.thread ], [ null, %9 ]
+  %.1149158175187 = phi i32 [ %.1149158175186, %copy_fh.exit.thread141.thread.thread.thread ], [ 2, %9 ]
   %120 = getelementptr inbounds i8, ptr %11, i64 64
   %121 = load ptr, ptr %120, align 8
-  call void %121(ptr noundef %.099150158174189) #5
+  call void %121(ptr noundef %.0102148159174189) #5
   br label %122
 
 122:                                              ; preds = %4, %copy_fh.exit.thread141.thread.thread.thread190
-  %.0102 = phi i32 [ %.1151157175187, %copy_fh.exit.thread141.thread.thread.thread190 ], [ 1, %4 ]
-  ret i32 %.0102
+  %.0 = phi i32 [ %.1149158175187, %copy_fh.exit.thread141.thread.thread.thread190 ], [ 1, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

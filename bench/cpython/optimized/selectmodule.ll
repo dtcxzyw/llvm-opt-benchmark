@@ -2647,8 +2647,8 @@ for.cond3.preheader:                              ; preds = %entry
   br label %for.cond3
 
 for.cond3:                                        ; preds = %for.cond3.preheader, %if.end44
-  %max.0 = phi i32 [ %spec.select, %if.end44 ], [ -1, %for.cond3.preheader ]
   %i.0 = phi i64 [ %inc57, %if.end44 ], [ 0, %for.cond3.preheader ]
+  %max.0 = phi i32 [ %spec.select, %if.end44 ], [ -1, %for.cond3.preheader ]
   %call.val41 = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %call.val41, i64 168
   %call4.val = load i64, ptr %2, align 8
@@ -2801,8 +2801,8 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %arrayidx28 = phi ptr [ %arrayidx, %for.body ], [ %fd2obj, %entry ]
-  %count.027 = phi i32 [ %spec.select, %for.body ], [ 0, %entry ]
-  %j.026 = phi i32 [ %inc10, %for.body ], [ 0, %entry ]
+  %j.027 = phi i32 [ %inc10, %for.body ], [ 0, %entry ]
+  %count.026 = phi i32 [ %spec.select, %for.body ], [ 0, %entry ]
   %fd3 = getelementptr inbounds i8, ptr %arrayidx28, i64 8
   %1 = load i32, ptr %fd3, align 8
   %div = sdiv i32 %1, 64
@@ -2815,8 +2815,8 @@ for.body:                                         ; preds = %entry, %for.body
   %and = and i64 %shl, %2
   %cmp9.not = icmp ne i64 %and, 0
   %inc = zext i1 %cmp9.not to i32
-  %spec.select = add i32 %count.027, %inc
-  %inc10 = add i32 %j.026, 1
+  %spec.select = add i32 %count.026, %inc
+  %inc10 = add i32 %j.027, 1
   %idxprom = sext i32 %inc10 to i64
   %arrayidx = getelementptr %struct.pylist, ptr %fd2obj, i64 %idxprom
   %sentinel = getelementptr inbounds i8, ptr %arrayidx, i64 12
@@ -2841,8 +2841,8 @@ for.cond13.preheader:                             ; preds = %for.end
 
 for.body19:                                       ; preds = %for.cond13.preheader, %for.inc47
   %arrayidx1533 = phi ptr [ %arrayidx15, %for.inc47 ], [ %fd2obj, %for.cond13.preheader ]
-  %j.132 = phi i32 [ %inc48, %for.inc47 ], [ 0, %for.cond13.preheader ]
-  %i.031 = phi i32 [ %i.1, %for.inc47 ], [ 0, %for.cond13.preheader ]
+  %i.032 = phi i32 [ %i.1, %for.inc47 ], [ 0, %for.cond13.preheader ]
+  %j.131 = phi i32 [ %inc48, %for.inc47 ], [ 0, %for.cond13.preheader ]
   %fd22 = getelementptr inbounds i8, ptr %arrayidx1533, i64 8
   %6 = load i32, ptr %fd22, align 8
   %div24 = sdiv i32 %6, 64
@@ -2859,18 +2859,18 @@ for.body19:                                       ; preds = %for.cond13.preheade
 if.then33:                                        ; preds = %for.body19
   %8 = load ptr, ptr %arrayidx1533, align 8
   store ptr null, ptr %arrayidx1533, align 8
-  %conv39 = sext i32 %i.031 to i64
+  %conv39 = sext i32 %i.032 to i64
   %call40 = tail call i32 @PyList_SetItem(ptr noundef nonnull %call, i64 noundef %conv39, ptr noundef %8) #8
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %finally, label %if.end44
 
 if.end44:                                         ; preds = %if.then33
-  %inc45 = add i32 %i.031, 1
+  %inc45 = add i32 %i.032, 1
   br label %for.inc47
 
 for.inc47:                                        ; preds = %for.body19, %if.end44
-  %i.1 = phi i32 [ %inc45, %if.end44 ], [ %i.031, %for.body19 ]
-  %inc48 = add i32 %j.132, 1
+  %i.1 = phi i32 [ %inc45, %if.end44 ], [ %i.032, %for.body19 ]
+  %inc48 = add i32 %j.131, 1
   %idxprom14 = sext i32 %inc48 to i64
   %arrayidx15 = getelementptr %struct.pylist, ptr %fd2obj, i64 %idxprom14
   %sentinel16 = getelementptr inbounds i8, ptr %arrayidx15, i64 12

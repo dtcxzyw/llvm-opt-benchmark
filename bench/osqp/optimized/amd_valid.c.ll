@@ -34,8 +34,8 @@ define range(i64 -2, 2) i64 @amd_l_valid(i64 noundef %0, i64 noundef %1, ptr nou
 .lr.ph59:                                         ; preds = %.preheader51, %.loopexit
   %15 = phi i64 [ %18, %.loopexit ], [ 0, %.preheader51 ]
   %.058 = phi i64 [ %.1.lcssa, %.loopexit ], [ 0, %.preheader51 ]
-  %.03957 = phi i64 [ %16, %.loopexit ], [ 0, %.preheader51 ]
-  %16 = add nuw nsw i64 %.03957, 1
+  %.04057 = phi i64 [ %16, %.loopexit ], [ 0, %.preheader51 ]
+  %16 = add nuw nsw i64 %.04057, 1
   %17 = getelementptr inbounds i64, ptr %2, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = icmp sgt i64 %15, %18
@@ -48,7 +48,7 @@ define range(i64 -2, 2) i64 @amd_l_valid(i64 noundef %0, i64 noundef %1, ptr nou
 .lr.ph:                                           ; preds = %.preheader, %24
   %.156 = phi i64 [ %spec.select, %24 ], [ %.058, %.preheader ]
   %.03755 = phi i64 [ %25, %24 ], [ %15, %.preheader ]
-  %.03854 = phi i64 [ %22, %24 ], [ -1, %.preheader ]
+  %.03954 = phi i64 [ %22, %24 ], [ -1, %.preheader ]
   %21 = getelementptr inbounds i64, ptr %3, i64 %.03755
   %22 = load i64, ptr %21, align 8
   %23 = icmp sgt i64 %22, -1
@@ -57,15 +57,15 @@ define range(i64 -2, 2) i64 @amd_l_valid(i64 noundef %0, i64 noundef %1, ptr nou
   br i1 %or.cond49, label %24, label %.loopexit50
 
 24:                                               ; preds = %.lr.ph
-  %.not48 = icmp sgt i64 %22, %.03854
+  %.not48 = icmp sgt i64 %22, %.03954
   %spec.select = select i1 %.not48, i64 %.156, i64 1
   %25 = add i64 %.03755, 1
   %exitcond.not = icmp eq i64 %25, %18
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit50:                                      ; preds = %.lr.ph59, %.loopexit, %.lr.ph, %.preheader51, %8, %4
-  %.040 = phi i64 [ -2, %4 ], [ -2, %8 ], [ 0, %.preheader51 ], [ -2, %.lr.ph ], [ -2, %.lr.ph59 ], [ %.1.lcssa, %.loopexit ]
-  ret i64 %.040
+  %.038 = phi i64 [ -2, %4 ], [ -2, %8 ], [ 0, %.preheader51 ], [ -2, %.lr.ph ], [ -2, %.lr.ph59 ], [ %.1.lcssa, %.loopexit ]
+  ret i64 %.038
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

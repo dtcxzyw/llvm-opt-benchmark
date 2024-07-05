@@ -58,37 +58,37 @@ define ptr @mca_coll_han_topo_init(ptr nocapture noundef readonly %0, ptr nocapt
   br label %20
 
 20:                                               ; preds = %17, %14
-  %.0111.in = phi ptr [ %13, %14 ], [ %19, %17 ]
-  %.0110.in = phi ptr [ %16, %14 ], [ %18, %17 ]
-  %.0110 = load ptr, ptr %.0110.in, align 8
-  %.0111 = load ptr, ptr %.0111.in, align 8
-  %21 = getelementptr i8, ptr %.0110, i64 220
-  %.0110.val123 = load i32, ptr %21, align 4
-  %22 = getelementptr i8, ptr %.0110, i64 248
-  %.0110.val = load ptr, ptr %22, align 8
-  %23 = getelementptr i8, ptr %.0110.val, i64 16
-  %.0110.val.val = load i32, ptr %23, align 8
+  %.0109.in = phi ptr [ %16, %14 ], [ %18, %17 ]
+  %.0108.in = phi ptr [ %13, %14 ], [ %19, %17 ]
+  %.0108 = load ptr, ptr %.0108.in, align 8
+  %.0109 = load ptr, ptr %.0109.in, align 8
+  %21 = getelementptr i8, ptr %.0109, i64 220
+  %.0109.val123 = load i32, ptr %21, align 4
+  %22 = getelementptr i8, ptr %.0109, i64 248
+  %.0109.val = load ptr, ptr %22, align 8
+  %23 = getelementptr i8, ptr %.0109.val, i64 16
+  %.0109.val.val = load i32, ptr %23, align 8
   %24 = sext i32 %.val.val to i64
   %25 = shl nsw i64 %24, 2
   %26 = sext i32 %2 to i64
   %27 = mul i64 %25, %26
   %28 = tail call noalias ptr @malloc(i64 noundef %27) #4
-  %29 = icmp eq i32 %.0110.val123, 0
+  %29 = icmp eq i32 %.0109.val123, 0
   br i1 %29, label %30, label %68
 
 30:                                               ; preds = %20
-  %31 = sext i32 %.0110.val.val to i64
+  %31 = sext i32 %.0109.val.val to i64
   %32 = shl nsw i64 %31, 2
   %33 = tail call noalias ptr @malloc(i64 noundef %32) #4
-  %34 = icmp sgt i32 %.0110.val.val, 0
+  %34 = icmp sgt i32 %.0109.val.val, 0
   br i1 %34, label %.lr.ph.preheader, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %30
-  %35 = tail call i32 @ompi_group_translate_ranks(ptr noundef nonnull %.0110.val, i32 noundef %.0110.val.val, ptr noundef %28, ptr noundef nonnull %.val, ptr noundef %33) #5
+  %35 = tail call i32 @ompi_group_translate_ranks(ptr noundef nonnull %.0109.val, i32 noundef %.0109.val.val, ptr noundef %28, ptr noundef nonnull %.val, ptr noundef %33) #5
   br label %._crit_edge130
 
 .lr.ph.preheader:                                 ; preds = %30
-  %wide.trip.count = zext nneg i32 %.0110.val.val to i64
+  %wide.trip.count = zext nneg i32 %.0109.val.val to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -101,13 +101,13 @@ define ptr @mca_coll_han_topo_init(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %38 = tail call i32 @ompi_group_translate_ranks(ptr noundef %.0110.val, i32 noundef %.0110.val.val, ptr noundef nonnull %28, ptr noundef %.val, ptr noundef %33) #5
-  %.not156 = icmp eq i32 %.0110.val.val, 1
+  %38 = tail call i32 @ompi_group_translate_ranks(ptr noundef %.0109.val, i32 noundef %.0109.val.val, ptr noundef nonnull %28, ptr noundef %.val, ptr noundef %33) #5
+  %.not156 = icmp eq i32 %.0109.val.val, 1
   br i1 %.not156, label %._crit_edge130, label %.lr.ph129.preheader
 
 .lr.ph129.preheader:                              ; preds = %._crit_edge
   %39 = load i32, ptr %33, align 4
-  %wide.trip.count144 = zext nneg i32 %.0110.val.val to i64
+  %wide.trip.count144 = zext nneg i32 %.0109.val.val to i64
   br label %.lr.ph129
 
 40:                                               ; preds = %.lr.ph129
@@ -128,17 +128,17 @@ define ptr @mca_coll_han_topo_init(ptr nocapture noundef readonly %0, ptr nocapt
   %.0105 = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 1, %.lr.ph129 ], [ 0, %40 ]
   store i32 %.0105, ptr %5, align 4
   %43 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %.0110.val.val, ptr %43, align 4
+  store i32 %.0109.val.val, ptr %43, align 4
   %44 = getelementptr inbounds i8, ptr %5, i64 8
-  %45 = sub nsw i32 0, %.0110.val.val
+  %45 = sub nsw i32 0, %.0109.val.val
   store i32 %45, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %.0111, i64 328
+  %46 = getelementptr inbounds i8, ptr %.0108, i64 328
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %47, i64 40
   %51 = load ptr, ptr %50, align 8
-  %52 = call i32 %49(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull @ompi_mpi_int, ptr noundef nonnull @ompi_mpi_op_max, ptr noundef %.0111, ptr noundef %51) #5
+  %52 = call i32 %49(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull @ompi_mpi_int, ptr noundef nonnull @ompi_mpi_op_max, ptr noundef %.0108, ptr noundef %51) #5
   %53 = load i32, ptr %43, align 4
   %54 = load i32, ptr %44, align 4
   %55 = sub nsw i32 0, %54
@@ -156,24 +156,24 @@ define ptr @mca_coll_han_topo_init(ptr nocapture noundef readonly %0, ptr nocapt
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %62, i64 280
   %66 = load ptr, ptr %65, align 8
-  %67 = call i32 %64(ptr noundef nonnull %33, i32 noundef %.0110.val.val, ptr noundef nonnull @ompi_mpi_int, ptr noundef %61, i32 noundef %.0110.val.val, ptr noundef nonnull @ompi_mpi_int, ptr noundef nonnull %.0111, ptr noundef nonnull %4, ptr noundef %66) #5
+  %67 = call i32 %64(ptr noundef nonnull %33, i32 noundef %.0109.val.val, ptr noundef nonnull @ompi_mpi_int, ptr noundef %61, i32 noundef %.0109.val.val, ptr noundef nonnull @ompi_mpi_int, ptr noundef nonnull %.0108, ptr noundef nonnull %4, ptr noundef %66) #5
   br label %68
 
 68:                                               ; preds = %._crit_edge130, %60, %20
-  %.0109 = phi ptr [ %33, %._crit_edge130 ], [ %33, %60 ], [ null, %20 ]
-  %.0108 = phi ptr [ null, %._crit_edge130 ], [ %61, %60 ], [ null, %20 ]
+  %.0111 = phi ptr [ null, %._crit_edge130 ], [ %61, %60 ], [ null, %20 ]
+  %.0110 = phi ptr [ %33, %._crit_edge130 ], [ %33, %60 ], [ null, %20 ]
   %.0106 = phi i32 [ %57, %._crit_edge130 ], [ 0, %60 ], [ 1, %20 ]
   %.1 = phi i32 [ %58, %._crit_edge130 ], [ %58, %60 ], [ 0, %20 ]
   store i32 %.0106, ptr %6, align 4
   %69 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %.1, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %.0110, i64 328
+  %70 = getelementptr inbounds i8, ptr %.0109, i64 328
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 112
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %71, i64 120
   %75 = load ptr, ptr %74, align 8
-  %76 = call i32 %73(ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, ptr noundef %.0110, ptr noundef %75) #5
+  %76 = call i32 %73(ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, ptr noundef %.0109, ptr noundef %75) #5
   %77 = load i32, ptr %6, align 4
   %.not119 = icmp eq i32 %77, 0
   br i1 %.not119, label %83, label %78
@@ -182,19 +182,19 @@ define ptr @mca_coll_han_topo_init(ptr nocapture noundef readonly %0, ptr nocapt
   %79 = getelementptr inbounds i8, ptr %1, i64 641
   store i8 1, ptr %79, align 1
   call void @free(ptr noundef %28) #5
-  %.not121 = icmp eq ptr %.0109, null
+  %.not121 = icmp eq ptr %.0110, null
   br i1 %.not121, label %81, label %80
 
 80:                                               ; preds = %78
-  call void @free(ptr noundef nonnull %.0109) #5
+  call void @free(ptr noundef nonnull %.0110) #5
   br label %81
 
 81:                                               ; preds = %80, %78
-  %.not122 = icmp eq ptr %.0108, null
+  %.not122 = icmp eq ptr %.0111, null
   br i1 %.not122, label %120, label %82
 
 82:                                               ; preds = %81
-  call void @free(ptr noundef nonnull %.0108) #5
+  call void @free(ptr noundef nonnull %.0111) #5
   br label %120
 
 83:                                               ; preds = %68
@@ -215,7 +215,7 @@ define ptr @mca_coll_han_topo_init(ptr nocapture noundef readonly %0, ptr nocapt
 .lr.ph138:                                        ; preds = %.lr.ph138.preheader, %.lr.ph138
   %indvars.iv151 = phi i64 [ 0, %.lr.ph138.preheader ], [ %indvars.iv.next152, %.lr.ph138 ]
   %87 = trunc nuw nsw i64 %indvars.iv151 to i32
-  %88 = sdiv i32 %87, %.0110.val.val
+  %88 = sdiv i32 %87, %.0109.val.val
   %89 = shl nuw nsw i64 %indvars.iv151, 1
   %90 = getelementptr inbounds i32, ptr %28, i64 %89
   store i32 %88, ptr %90, align 4
@@ -249,15 +249,15 @@ define ptr @mca_coll_han_topo_init(ptr nocapture noundef readonly %0, ptr nocapt
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %.lr.ph135
   %indvars.iv146 = phi i64 [ 0, %.lr.ph135.preheader ], [ %indvars.iv.next147, %.lr.ph135 ]
   %100 = trunc nuw nsw i64 %indvars.iv146 to i32
-  %101 = srem i32 %100, %.0110.val.val
+  %101 = srem i32 %100, %.0109.val.val
   %102 = sub nsw i32 %100, %101
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i32, ptr %.0108, i64 %103
+  %104 = getelementptr inbounds i32, ptr %.0111, i64 %103
   %105 = load i32, ptr %104, align 4
   %106 = shl nuw nsw i64 %indvars.iv146, 1
   %107 = getelementptr inbounds i32, ptr %28, i64 %106
   store i32 %105, ptr %107, align 4
-  %108 = getelementptr inbounds i32, ptr %.0108, i64 %indvars.iv146
+  %108 = getelementptr inbounds i32, ptr %.0111, i64 %indvars.iv146
   %109 = load i32, ptr %108, align 4
   %110 = or disjoint i64 %106, 1
   %111 = getelementptr inbounds i32, ptr %28, i64 %110
@@ -267,7 +267,7 @@ define ptr @mca_coll_han_topo_init(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %exitcond150.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !8
 
 ._crit_edge136:                                   ; preds = %.lr.ph135, %96
-  call void @free(ptr noundef %.0108) #5
+  call void @free(ptr noundef %.0111) #5
   br label %112
 
 112:                                              ; preds = %94, %._crit_edge136, %._crit_edge139
@@ -277,8 +277,8 @@ define ptr @mca_coll_han_topo_init(ptr nocapture noundef readonly %0, ptr nocapt
   %116 = mul nsw i32 %.val.val, %2
   %117 = getelementptr inbounds i8, ptr %113, i64 120
   %118 = load ptr, ptr %117, align 8
-  %119 = call i32 %115(ptr noundef %28, i32 noundef %116, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, ptr noundef %.0110, ptr noundef %118) #5
-  call void @free(ptr noundef %.0109) #5
+  %119 = call i32 %115(ptr noundef %28, i32 noundef %116, ptr noundef nonnull @ompi_mpi_int, i32 noundef 0, ptr noundef %.0109, ptr noundef %118) #5
+  call void @free(ptr noundef %.0110) #5
   store ptr %28, ptr %7, align 8
   br label %120
 

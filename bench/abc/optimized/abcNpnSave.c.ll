@@ -330,16 +330,16 @@ Npn_ManObj.exit:                                  ; preds = %27
   br i1 %37, label %.lr.ph._crit_edge, label %.lr.ph55
 
 .lr.ph._crit_edge:                                ; preds = %Npn_ManObj.exit41, %Npn_ManObj.exit
-  %.03547.lcssa = phi ptr [ %35, %Npn_ManObj.exit ], [ %45, %Npn_ManObj.exit41 ]
-  %38 = getelementptr inbounds i8, ptr %.03547.lcssa, i64 8
+  %.03647.lcssa = phi ptr [ %35, %Npn_ManObj.exit ], [ %45, %Npn_ManObj.exit41 ]
+  %38 = getelementptr inbounds i8, ptr %.03647.lcssa, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 8
   br label %61
 
 .lr.ph55:                                         ; preds = %Npn_ManObj.exit, %Npn_ManObj.exit41
-  %.0354754 = phi ptr [ %45, %Npn_ManObj.exit41 ], [ %35, %Npn_ManObj.exit ]
-  %41 = getelementptr inbounds i8, ptr %.0354754, i64 12
+  %.0364754 = phi ptr [ %45, %Npn_ManObj.exit41 ], [ %35, %Npn_ManObj.exit ]
+  %41 = getelementptr inbounds i8, ptr %.0364754, i64 12
   %42 = load i32, ptr %41, align 4
   %.not.i40 = icmp eq i32 %42, 0
   br i1 %.not.i40, label %Npn_ManObj.exit43.loopexit, label %Npn_ManObj.exit41
@@ -353,13 +353,13 @@ Npn_ManObj.exit41:                                ; preds = %.lr.ph55
   br i1 %47, label %.lr.ph._crit_edge, label %.lr.ph55, !llvm.loop !10
 
 Npn_ManObj.exit43.loopexit:                       ; preds = %.lr.ph55
-  %48 = getelementptr inbounds i8, ptr %.0354754, i64 12
+  %48 = getelementptr inbounds i8, ptr %.0364754, i64 12
   br label %Npn_ManObj.exit43
 
 Npn_ManObj.exit43:                                ; preds = %Npn_ManObj.exit43.loopexit, %27
-  %.0.lcssa = phi ptr [ %31, %27 ], [ %48, %Npn_ManObj.exit43.loopexit ]
+  %.035.lcssa = phi ptr [ %31, %27 ], [ %48, %Npn_ManObj.exit43.loopexit ]
   %49 = load i32, ptr %11, align 8
-  store i32 %49, ptr %.0.lcssa, align 4
+  store i32 %49, ptr %.035.lcssa, align 4
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %11, align 8
   %.not.i42 = icmp ne i32 %49, 0
@@ -383,8 +383,8 @@ Npn_ManObj.exit43:                                ; preds = %Npn_ManObj.exit43.l
   br label %61
 
 61:                                               ; preds = %Npn_ManObj.exit43, %60, %.lr.ph._crit_edge
-  %.036 = phi ptr [ %.03547.lcssa, %.lr.ph._crit_edge ], [ %53, %60 ], [ %53, %Npn_ManObj.exit43 ]
-  ret ptr %.036
+  %.0 = phi ptr [ %.03647.lcssa, %.lr.ph._crit_edge ], [ %53, %60 ], [ %53, %Npn_ManObj.exit43 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)

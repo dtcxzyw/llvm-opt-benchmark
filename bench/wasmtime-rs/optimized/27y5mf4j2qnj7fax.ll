@@ -2997,9 +2997,9 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.e
   br label %298
 
 177:                                              ; preds = %.loopexit.i, %.lr.ph.i61
-  %.sroa.02.0106.i = phi i32 [ 0, %.lr.ph.i61 ], [ %178, %.loopexit.i ]
+  %.sroa.02.0105.i = phi i32 [ 0, %.lr.ph.i61 ], [ %178, %.loopexit.i ]
   %.0101.i = phi i64 [ %.0.lcssa.i, %.lr.ph.i61 ], [ %.2.ph.i, %.loopexit.i ]
-  %178 = add nuw i32 %.sroa.02.0106.i, 1
+  %178 = add nuw i32 %.sroa.02.0105.i, 1
   %179 = invoke noundef i32 @_ZN14cranelift_wasm15func_translator10cur_srcloc17h32a0320a8e879097E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %45)
           to label %.noexc67 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4520,11 +4520,11 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17hd6
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h35ab35ad68cd559dE.exit": ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$4grow17hf4afe58f79da5107E.exit.thread", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h35ab35ad68cd559dE.exit"
   %.sroa.8.052 = phi i64 [ %86, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h35ab35ad68cd559dE.exit" ], [ 0, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$4grow17hf4afe58f79da5107E.exit.thread" ]
-  %83 = getelementptr inbounds i32, ptr %81, i64 %.sroa.8.052
-  %84 = getelementptr inbounds i32, ptr %1, i64 %.sroa.8.052
-  %85 = load i32, ptr %84, align 4, !alias.scope !785, !noalias !788, !noundef !4
+  %83 = getelementptr inbounds i32, ptr %1, i64 %.sroa.8.052
+  %84 = load i32, ptr %83, align 4, !alias.scope !785, !noalias !788, !noundef !4
+  %85 = getelementptr inbounds i32, ptr %81, i64 %.sroa.8.052
   %86 = add nuw nsw i64 %.sroa.8.052, 1
-  store i32 %85, ptr %83, align 4
+  store i32 %84, ptr %85, align 4
   %exitcond.not = icmp eq i64 %86, %.0.sroa.speculated.i.i.i
   br i1 %exitcond.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h35ab35ad68cd559dE.exit.thread", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h35ab35ad68cd559dE.exit"
 }
@@ -5505,8 +5505,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h7befee5166dcaa52E.exit"
 
 "_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h7befee5166dcaa52E.exit": ; preds = %3, %5
-  %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
   %.sroa.0.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %3 ]
+  %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
   store i64 1, ptr %0, align 8, !noalias !1032
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !1032
@@ -5546,8 +5546,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h246e14f50630ef91E.llvm.2069935152532789026.exit"
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h246e14f50630ef91E.llvm.2069935152532789026.exit": ; preds = %6, %8
-  %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
   %.sroa.0.0.i.i.i = phi i64 [ %10, %8 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
+  %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
   store i64 1, ptr %0, align 8, !noalias !1049
   store i64 %.sroa.0.0.i.i.i, ptr %4, align 8, !noalias !1049
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16

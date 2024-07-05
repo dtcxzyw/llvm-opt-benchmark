@@ -43,19 +43,19 @@ define ptr @Bbl_ManToAbc(ptr noundef %0) local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %.lr.ph, %25
-  %.03750 = phi ptr [ %9, %.lr.ph ], [ %27, %25 ]
-  %.03849 = phi ptr [ null, %.lr.ph ], [ %.139, %25 ]
-  %12 = tail call i32 @Bbl_ObjIsInput(ptr noundef nonnull %.03750) #12
+  %.050 = phi ptr [ null, %.lr.ph ], [ %.1, %25 ]
+  %.03849 = phi ptr [ %9, %.lr.ph ], [ %27, %25 ]
+  %12 = tail call i32 @Bbl_ObjIsInput(ptr noundef nonnull %.03849) #12
   %.not43 = icmp eq i32 %12, 0
   br i1 %.not43, label %13, label %.sink.split
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @Bbl_ObjIsOutput(ptr noundef nonnull %.03750) #12
+  %14 = tail call i32 @Bbl_ObjIsOutput(ptr noundef nonnull %.03849) #12
   %.not44 = icmp eq i32 %14, 0
   br i1 %.not44, label %15, label %.sink.split
 
 15:                                               ; preds = %13
-  %16 = tail call i32 @Bbl_ObjIsLut(ptr noundef nonnull %.03750) #12
+  %16 = tail call i32 @Bbl_ObjIsLut(ptr noundef nonnull %.03849) #12
   %.not45 = icmp eq i32 %16, 0
   br i1 %.not45, label %18, label %.sink.split
 
@@ -65,23 +65,23 @@ define ptr @Bbl_ManToAbc(ptr noundef %0) local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %.sink.split, %15
-  %.139 = phi ptr [ %.03849, %15 ], [ %17, %.sink.split ]
-  %19 = tail call i32 @Bbl_ObjIsLut(ptr noundef nonnull %.03750) #12
+  %.1 = phi ptr [ %.050, %15 ], [ %17, %.sink.split ]
+  %19 = tail call i32 @Bbl_ObjIsLut(ptr noundef nonnull %.03849) #12
   %.not46 = icmp eq i32 %19, 0
   br i1 %.not46, label %25, label %20
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %10, align 8
-  %22 = tail call ptr @Bbl_ObjSop(ptr noundef %0, ptr noundef nonnull %.03750) #12
+  %22 = tail call ptr @Bbl_ObjSop(ptr noundef %0, ptr noundef nonnull %.03849) #12
   %23 = tail call ptr @Abc_SopRegister(ptr noundef %21, ptr noundef %22) #12
-  %24 = getelementptr inbounds i8, ptr %.139, i64 56
+  %24 = getelementptr inbounds i8, ptr %.1, i64 56
   store ptr %23, ptr %24, align 8
   br label %25
 
 25:                                               ; preds = %20, %18
-  %26 = tail call i32 @Bbl_ObjId(ptr noundef nonnull %.03750) #12
-  tail call fastcc void @Vec_PtrSetEntry(ptr noundef nonnull %6, i32 noundef %26, ptr noundef %.139)
-  %27 = tail call ptr @Bbl_ManObjNext(ptr noundef %0, ptr noundef nonnull %.03750) #12
+  %26 = tail call i32 @Bbl_ObjId(ptr noundef nonnull %.03849) #12
+  tail call fastcc void @Vec_PtrSetEntry(ptr noundef nonnull %6, i32 noundef %26, ptr noundef %.1)
+  %27 = tail call ptr @Bbl_ManObjNext(ptr noundef %0, ptr noundef nonnull %.03849) #12
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !4
 
@@ -91,29 +91,29 @@ define ptr @Bbl_ManToAbc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4056, label %._crit_edge60, label %.lr.ph59
 
 .lr.ph59:                                         ; preds = %._crit_edge, %._crit_edge55
-  %.157 = phi ptr [ %39, %._crit_edge55 ], [ %28, %._crit_edge ]
-  %29 = tail call ptr @Bbl_ObjFaninFirst(ptr noundef nonnull %.157) #12
+  %.13957 = phi ptr [ %39, %._crit_edge55 ], [ %28, %._crit_edge ]
+  %29 = tail call ptr @Bbl_ObjFaninFirst(ptr noundef nonnull %.13957) #12
   %.not4251 = icmp eq ptr %29, null
   br i1 %.not4251, label %._crit_edge55, label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %.lr.ph59, %.lr.ph54
-  %.052 = phi ptr [ %38, %.lr.ph54 ], [ %29, %.lr.ph59 ]
-  %30 = tail call i32 @Bbl_ObjId(ptr noundef nonnull %.157) #12
+  %.03752 = phi ptr [ %38, %.lr.ph54 ], [ %29, %.lr.ph59 ]
+  %30 = tail call i32 @Bbl_ObjId(ptr noundef nonnull %.13957) #12
   %.val = load ptr, ptr %8, align 8
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds ptr, ptr %.val, i64 %31
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 @Bbl_ObjId(ptr noundef nonnull %.052) #12
+  %34 = tail call i32 @Bbl_ObjId(ptr noundef nonnull %.03752) #12
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds ptr, ptr %.val, i64 %35
   %37 = load ptr, ptr %36, align 8
   tail call void @Abc_ObjAddFanin(ptr noundef %33, ptr noundef %37) #12
-  %38 = tail call ptr @Bbl_ObjFaninNext(ptr noundef nonnull %.157, ptr noundef nonnull %.052) #12
+  %38 = tail call ptr @Bbl_ObjFaninNext(ptr noundef nonnull %.13957, ptr noundef nonnull %.03752) #12
   %.not42 = icmp eq ptr %38, null
   br i1 %.not42, label %._crit_edge55, label %.lr.ph54, !llvm.loop !6
 
 ._crit_edge55:                                    ; preds = %.lr.ph54, %.lr.ph59
-  %39 = tail call ptr @Bbl_ManObjNext(ptr noundef %0, ptr noundef nonnull %.157) #12
+  %39 = tail call ptr @Bbl_ManObjNext(ptr noundef %0, ptr noundef nonnull %.13957) #12
   %.not40 = icmp eq ptr %39, null
   br i1 %.not40, label %._crit_edge60, label %.lr.ph59, !llvm.loop !7
 
@@ -428,8 +428,8 @@ Abc_Clock.exit:
   br i1 %.not97, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit, %20
-  %.07398 = phi ptr [ %21, %20 ], [ %8, %Abc_Clock.exit ]
-  %9 = call i32 @Bbl_ObjFncHandle(ptr noundef nonnull %.07398) #12
+  %.07298 = phi ptr [ %21, %20 ], [ %8, %Abc_Clock.exit ]
+  %9 = call i32 @Bbl_ObjFncHandle(ptr noundef nonnull %.07298) #12
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds ptr, ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8
@@ -437,16 +437,16 @@ Abc_Clock.exit:
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %.lr.ph
-  %15 = call ptr @Bbl_ObjSop(ptr noundef %0, ptr noundef nonnull %.07398) #12
+  %15 = call ptr @Bbl_ObjSop(ptr noundef %0, ptr noundef nonnull %.07298) #12
   %16 = call ptr @Dec_Factor(ptr noundef %15) #12
-  %17 = call i32 @Bbl_ObjFncHandle(ptr noundef nonnull %.07398) #12
+  %17 = call i32 @Bbl_ObjFncHandle(ptr noundef nonnull %.07298) #12
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds ptr, ptr %7, i64 %18
   store ptr %16, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %.lr.ph, %14
-  %21 = call ptr @Bbl_ManObjNext(ptr noundef %0, ptr noundef nonnull %.07398) #12
+  %21 = call ptr @Bbl_ManObjNext(ptr noundef %0, ptr noundef nonnull %.07298) #12
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
@@ -468,19 +468,19 @@ Abc_Clock.exit:
   br i1 %.not7799, label %Abc_Clock.exit88, label %.lr.ph102
 
 .lr.ph102:                                        ; preds = %._crit_edge, %34
-  %.174100 = phi ptr [ %35, %34 ], [ %29, %._crit_edge ]
-  %30 = call i32 @Bbl_ObjIsInput(ptr noundef nonnull %.174100) #12
+  %.173100 = phi ptr [ %35, %34 ], [ %29, %._crit_edge ]
+  %30 = call i32 @Bbl_ObjIsInput(ptr noundef nonnull %.173100) #12
   %.not83 = icmp eq i32 %30, 0
   br i1 %.not83, label %34, label %31
 
 31:                                               ; preds = %.lr.ph102
-  %32 = call i32 @Bbl_ObjId(ptr noundef nonnull %.174100) #12
+  %32 = call i32 @Bbl_ObjId(ptr noundef nonnull %.173100) #12
   %33 = call ptr @Abc_NtkCreateObj(ptr noundef %22, i32 noundef 2) #12
   call fastcc void @Vec_PtrSetEntry(ptr noundef nonnull %26, i32 noundef %32, ptr noundef %33)
   br label %34
 
 34:                                               ; preds = %.lr.ph102, %31
-  %35 = call ptr @Bbl_ManObjNext(ptr noundef %0, ptr noundef nonnull %.174100) #12
+  %35 = call ptr @Bbl_ManObjNext(ptr noundef %0, ptr noundef nonnull %.173100) #12
   %.not77 = icmp eq ptr %35, null
   br i1 %.not77, label %Abc_Clock.exit88, label %.lr.ph102, !llvm.loop !12
 
@@ -541,8 +541,8 @@ Bbl_ManDfs.exit:                                  ; preds = %Bbl_ManDfs.exit.loo
   br i1 %.not82103, label %._crit_edge107, label %.lr.ph106
 
 .lr.ph106:                                        ; preds = %.lr.ph110, %Vec_PtrPush.exit
-  %.072104 = phi ptr [ %86, %Vec_PtrPush.exit ], [ %53, %.lr.ph110 ]
-  %54 = call i32 @Bbl_ObjId(ptr noundef nonnull %.072104) #12
+  %.074104 = phi ptr [ %86, %Vec_PtrPush.exit ], [ %53, %.lr.ph110 ]
+  %54 = call i32 @Bbl_ObjId(ptr noundef nonnull %.074104) #12
   %.val84 = load ptr, ptr %28, align 8
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds ptr, ptr %.val84, i64 %55
@@ -609,7 +609,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %84 = sext i32 %82 to i64
   %85 = getelementptr inbounds ptr, ptr %81, i64 %84
   store ptr %57, ptr %85, align 8
-  %86 = call ptr @Bbl_ObjFaninNext(ptr noundef %52, ptr noundef nonnull %.072104) #12
+  %86 = call ptr @Bbl_ObjFaninNext(ptr noundef %52, ptr noundef nonnull %.074104) #12
   %.not82 = icmp eq ptr %86, null
   br i1 %.not82, label %._crit_edge107, label %.lr.ph106, !llvm.loop !13
 

@@ -455,7 +455,7 @@ thread-pre-split.loopexit:                        ; preds = %71
 
 thread-pre-split:                                 ; preds = %8, %thread-pre-split.loopexit, %5
   %75 = phi ptr [ %.val, %5 ], [ %.pr.pre, %thread-pre-split.loopexit ], [ %.val, %8 ]
-  %.030 = phi ptr [ null, %5 ], [ %11, %thread-pre-split.loopexit ], [ %11, %8 ]
+  %.031 = phi ptr [ null, %5 ], [ %11, %thread-pre-split.loopexit ], [ %11, %8 ]
   %.not.i = icmp eq ptr %75, null
   br i1 %.not.i, label %Vec_StrFree.exit, label %76
 
@@ -468,8 +468,8 @@ Vec_StrFree.exit:                                 ; preds = %thread-pre-split, %
   br label %77
 
 77:                                               ; preds = %2, %Vec_StrFree.exit
-  %.031 = phi ptr [ %.030, %Vec_StrFree.exit ], [ null, %2 ]
-  ret ptr %.031
+  %.0 = phi ptr [ %.031, %Vec_StrFree.exit ], [ null, %2 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -498,7 +498,7 @@ define i32 @Abc_ManReadInteger(ptr noundef %0, ptr nocapture noundef readonly %1
   br label %12
 
 12:                                               ; preds = %8, %5
-  %.0 = phi i32 [ %11, %8 ], [ -1, %5 ]
+  %.010 = phi i32 [ %11, %8 ], [ -1, %5 ]
   %.not.i = icmp eq ptr %.val, null
   br i1 %.not.i, label %Vec_StrFree.exit, label %13
 
@@ -511,8 +511,8 @@ Vec_StrFree.exit:                                 ; preds = %12, %13
   br label %14
 
 14:                                               ; preds = %2, %Vec_StrFree.exit
-  %.010 = phi i32 [ %.0, %Vec_StrFree.exit ], [ -1, %2 ]
-  ret i32 %.010
+  %.0 = phi i32 [ %.010, %Vec_StrFree.exit ], [ -1, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -544,7 +544,7 @@ define range(i32 -1, 2) i32 @Abc_ManReadStatus(ptr noundef %0, ptr nocapture nou
   br label %15
 
 15:                                               ; preds = %12, %8, %5
-  %.0 = phi i32 [ -1, %5 ], [ 1, %8 ], [ %spec.select, %12 ]
+  %.010 = phi i32 [ -1, %5 ], [ 1, %8 ], [ %spec.select, %12 ]
   %.not.i = icmp eq ptr %.val, null
   br i1 %.not.i, label %Vec_StrFree.exit, label %16
 
@@ -557,8 +557,8 @@ Vec_StrFree.exit:                                 ; preds = %15, %16
   br label %17
 
 17:                                               ; preds = %2, %Vec_StrFree.exit
-  %.010 = phi i32 [ %.0, %Vec_StrFree.exit ], [ -1, %2 ]
-  ret i32 %.010
+  %.0 = phi i32 [ %.010, %Vec_StrFree.exit ], [ -1, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -1457,7 +1457,7 @@ Vec_StrFree.exit143:                              ; preds = %Abc_Clock.exit141, 
   br label %202
 
 202:                                              ; preds = %199, %196
-  %.0.i146 = phi i32 [ %201, %199 ], [ -1, %196 ]
+  %.010.i146 = phi i32 [ %201, %199 ], [ -1, %196 ]
   %.not.i.i = icmp eq ptr %.val.i144, null
   br i1 %.not.i.i, label %Vec_StrFree.exit.i, label %203
 
@@ -1470,9 +1470,9 @@ Vec_StrFree.exit.i:                               ; preds = %203, %202
   br label %Abc_ManReadInteger.exit
 
 Abc_ManReadInteger.exit:                          ; preds = %189, %Vec_StrFree.exit.i
-  %.010.i147 = phi i32 [ %.0.i146, %Vec_StrFree.exit.i ], [ -1, %189 ]
+  %.0.i147 = phi i32 [ %.010.i146, %Vec_StrFree.exit.i ], [ -1, %189 ]
   %204 = getelementptr inbounds i8, ptr %0, i64 404
-  store i32 %.010.i147, ptr %204, align 4
+  store i32 %.0.i147, ptr %204, align 4
   %205 = load ptr, ptr %7, align 8
   %206 = call ptr @Abc_ManReadBinary(ptr noundef %205, ptr noundef nonnull @.str.23)
   %207 = load ptr, ptr %8, align 8

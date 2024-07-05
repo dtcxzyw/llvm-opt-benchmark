@@ -2006,66 +2006,66 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5R__open_attr_a
 
 50:                                               ; preds = %43
   %51 = call ptr @H5VL_vol_object(i64 noundef %.046) #4
-  br i1 %.not, label %.cont68, label %.else69
+  br i1 %.not, label %.cont, label %.else
 
-.else69:                                          ; preds = %50
+.else:                                            ; preds = %50
   store ptr %51, ptr %4, align 8
-  br label %.cont68
+  br label %.cont
 
-.cont68:                                          ; preds = %50, %.else69
-  %.074 = phi ptr [ null, %.else69 ], [ %51, %50 ]
+.cont:                                            ; preds = %50, %.else
+  %.074 = phi ptr [ null, %.else ], [ %51, %50 ]
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %57
 
-53:                                               ; preds = %.cont68
+53:                                               ; preds = %.cont
   %54 = load i64, ptr @H5E_ARGS_g, align 8
   %55 = load i64, ptr @H5E_BADTYPE_g, align 8
   %56 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5R__open_attr_api_common, i32 noundef 830, i64 noundef %54, i64 noundef %55, ptr noundef nonnull @.str.7) #4
   br label %.thread95
 
-57:                                               ; preds = %.cont68
+57:                                               ; preds = %.cont
   %58 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 3, ptr %58, align 4
   %59 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %8, ptr %59, align 8
   %60 = call i32 @H5I_get_type(i64 noundef %.046) #4
   store i32 %60, ptr %7, align 8
-  br i1 %.not, label %.cont64, label %.else66
+  br i1 %.not, label %.cont60, label %.else61
 
-.else66:                                          ; preds = %57
-  %.else.val67 = load ptr, ptr %4, align 8
-  br label %.cont64
+.else61:                                          ; preds = %57
+  %.else.val = load ptr, ptr %4, align 8
+  br label %.cont60
 
-.cont64:                                          ; preds = %57, %.else66
-  %61 = phi ptr [ %.074, %57 ], [ %.else.val67, %.else66 ]
+.cont60:                                          ; preds = %57, %.else61
+  %61 = phi ptr [ %.074, %57 ], [ %.else.val, %.else61 ]
   %62 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %63 = call ptr @H5VL_object_open(ptr noundef %61, ptr noundef nonnull %7, ptr noundef nonnull %9, i64 noundef %62, ptr noundef %3) #4
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %69
 
-65:                                               ; preds = %.cont64
+65:                                               ; preds = %.cont60
   %66 = load i64, ptr @H5E_REFERENCE_g, align 8
   %67 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8
   %68 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5R__open_attr_api_common, i32 noundef 840, i64 noundef %66, i64 noundef %67, ptr noundef nonnull @.str.51) #4
   br label %.thread95
 
-69:                                               ; preds = %.cont64
+69:                                               ; preds = %.cont60
   %70 = load i32, ptr %9, align 4
-  br i1 %.not, label %.cont60, label %.else62
+  br i1 %.not, label %.cont62, label %.else64
 
-.else62:                                          ; preds = %69
-  %.else.val63 = load ptr, ptr %4, align 8
-  br label %.cont60
+.else64:                                          ; preds = %69
+  %.else.val65 = load ptr, ptr %4, align 8
+  br label %.cont62
 
-.cont60:                                          ; preds = %69, %.else62
-  %71 = phi ptr [ %.074, %69 ], [ %.else.val63, %.else62 ]
+.cont62:                                          ; preds = %69, %.else64
+  %71 = phi ptr [ %.074, %69 ], [ %.else.val65, %.else64 ]
   %72 = getelementptr inbounds i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = call i64 @H5VL_register(i32 noundef %70, ptr noundef nonnull %63, ptr noundef %73, i1 noundef zeroext false) #4
   %75 = icmp slt i64 %74, 0
   br i1 %75, label %113, label %76
 
-76:                                               ; preds = %.cont60
+76:                                               ; preds = %.cont62
   %77 = call i32 @H5CX_set_apl(ptr noundef nonnull %6, ptr noundef nonnull @H5P_CLS_AACC, i64 noundef %.046, i1 noundef zeroext false) #4
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %79, label %83
@@ -2107,36 +2107,36 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5R__open_attr_a
   br label %.thread84
 
 103:                                              ; preds = %91
-  br i1 %.not, label %.cont, label %.else
+  br i1 %.not, label %.cont66, label %.else68
 
-.else:                                            ; preds = %103
-  %.else.val = load ptr, ptr %4, align 8
-  br label %.cont
+.else68:                                          ; preds = %103
+  %.else.val69 = load ptr, ptr %4, align 8
+  br label %.cont66
 
-.cont:                                            ; preds = %103, %.else
-  %104 = phi ptr [ %.074, %103 ], [ %.else.val, %.else ]
+.cont66:                                          ; preds = %103, %.else68
+  %104 = phi ptr [ %.074, %103 ], [ %.else.val69, %.else68 ]
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = call i64 @H5VL_register(i32 noundef 7, ptr noundef nonnull %96, ptr noundef %106, i1 noundef zeroext true) #4
   %108 = icmp slt i64 %107, 0
   br i1 %108, label %109, label %.thread84
 
-109:                                              ; preds = %.cont
+109:                                              ; preds = %.cont66
   %110 = load i64, ptr @H5E_REFERENCE_g, align 8
   %111 = load i64, ptr @H5E_CANTREGISTER_g, align 8
   %112 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5R__open_attr_api_common, i32 noundef 867, i64 noundef %110, i64 noundef %111, ptr noundef nonnull @.str.58) #4
   br label %.thread84
 
-113:                                              ; preds = %.cont60
+113:                                              ; preds = %.cont62
   %114 = load i64, ptr @H5E_REFERENCE_g, align 8
   %115 = load i64, ptr @H5E_CANTREGISTER_g, align 8
   %116 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5R__open_attr_api_common, i32 noundef 844, i64 noundef %114, i64 noundef %115, ptr noundef nonnull @.str.52) #4
   %.not59 = icmp eq i64 %74, -1
   br i1 %.not59, label %.thread95, label %.thread84
 
-.thread84:                                        ; preds = %.cont, %109, %98, %87, %79, %113
-  %.093 = phi i64 [ -1, %113 ], [ %107, %.cont ], [ -1, %109 ], [ -1, %98 ], [ -1, %87 ], [ -1, %79 ]
-  %.04492 = phi i1 [ false, %113 ], [ true, %.cont ], [ true, %109 ], [ false, %98 ], [ false, %87 ], [ false, %79 ]
+.thread84:                                        ; preds = %.cont66, %109, %98, %87, %79, %113
+  %.093 = phi i64 [ -1, %113 ], [ %107, %.cont66 ], [ -1, %109 ], [ -1, %98 ], [ -1, %87 ], [ -1, %79 ]
+  %.04492 = phi i1 [ false, %113 ], [ true, %.cont66 ], [ true, %109 ], [ false, %98 ], [ false, %87 ], [ false, %79 ]
   %117 = call i32 @H5I_dec_ref(i64 noundef %74) #4
   %118 = icmp slt i32 %117, 0
   br i1 %118, label %119, label %123

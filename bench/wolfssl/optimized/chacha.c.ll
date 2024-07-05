@@ -241,9 +241,9 @@ if.end.i:                                         ; preds = %if.then10.i, %xorbu
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end.i, %land.lhs.true.i
-  %m.addr.0.i = phi ptr [ %add.ptr18.i, %if.end.i ], [ %input, %land.lhs.true.i ]
   %c.addr.0.i = phi ptr [ %add.ptr16.i, %if.end.i ], [ %output, %land.lhs.true.i ]
   %bytes.addr.0.i = phi i32 [ %sub14.i, %if.end.i ], [ %msglen, %land.lhs.true.i ]
+  %m.addr.0.i = phi ptr [ %add.ptr18.i, %if.end.i ], [ %input, %land.lhs.true.i ]
   %cmp20181.i = icmp ugt i32 %bytes.addr.0.i, 63
   br i1 %cmp20181.i, label %while.body.lr.ph.i, label %while.end.i
 
@@ -259,16 +259,16 @@ while.body.lr.ph.i:                               ; preds = %if.end19.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %xorbufout.exit92.i, %while.body.lr.ph.i
-  %bytes.addr.1188.i = phi i32 [ %bytes.addr.0.i, %while.body.lr.ph.i ], [ %sub31.i, %xorbufout.exit92.i ]
-  %c.addr.1185.i = phi ptr [ %c.addr.0.i, %while.body.lr.ph.i ], [ %add.ptr32.i, %xorbufout.exit92.i ]
-  %m.addr.1182.i = phi ptr [ %m.addr.0.i, %while.body.lr.ph.i ], [ %add.ptr33.i, %xorbufout.exit92.i ]
+  %m.addr.1186.i = phi ptr [ %m.addr.0.i, %while.body.lr.ph.i ], [ %add.ptr33.i, %xorbufout.exit92.i ]
+  %bytes.addr.1185.i = phi i32 [ %bytes.addr.0.i, %while.body.lr.ph.i ], [ %sub31.i, %xorbufout.exit92.i ]
+  %c.addr.1182.i = phi ptr [ %c.addr.0.i, %while.body.lr.ph.i ], [ %add.ptr32.i, %xorbufout.exit92.i ]
   call fastcc void @wc_Chacha_wordtobyte(ptr noundef nonnull %tmp.i, ptr noundef %ctx)
   %17 = load i32, ptr %arrayidx25.i, align 4
   %add26.i = add i32 %17, 1
   store i32 %add26.i, ptr %arrayidx25.i, align 4
-  %18 = ptrtoint ptr %c.addr.1185.i to i64
-  %19 = ptrtoint ptr %m.addr.1182.i to i64
-  %20 = or i64 %19, %18
+  %18 = ptrtoint ptr %c.addr.1182.i to i64
+  %19 = ptrtoint ptr %m.addr.1186.i to i64
+  %20 = or i64 %18, %19
   %21 = and i64 %20, 7
   %or.cond.i37.i = icmp eq i64 %21, 0
   br i1 %or.cond.i37.i, label %while.cond.preheader.i54.i, label %for.body.preheader.i44.i
@@ -278,8 +278,8 @@ while.cond.preheader.i54.i:                       ; preds = %while.body.i
 
 while.body.i79.i:                                 ; preds = %while.cond.preheader.i54.i, %while.body.i79.i
   %m.032.i80.i = phi ptr [ %incdec.ptr8.i85.i, %while.body.i79.i ], [ %tmp.i, %while.cond.preheader.i54.i ]
-  %b.031.i81.i = phi ptr [ %incdec.ptr.i84.i, %while.body.i79.i ], [ %m.addr.1182.i, %while.cond.preheader.i54.i ]
-  %o.030.i82.i = phi ptr [ %incdec.ptr11.i87.i, %while.body.i79.i ], [ %c.addr.1185.i, %while.cond.preheader.i54.i ]
+  %b.031.i81.i = phi ptr [ %incdec.ptr.i84.i, %while.body.i79.i ], [ %m.addr.1186.i, %while.cond.preheader.i54.i ]
+  %o.030.i82.i = phi ptr [ %incdec.ptr11.i87.i, %while.body.i79.i ], [ %c.addr.1182.i, %while.cond.preheader.i54.i ]
   %count.addr.029.i83.i = phi i32 [ %dec.i88.i, %while.body.i79.i ], [ 64, %while.cond.preheader.i54.i ]
   %incdec.ptr.i84.i = getelementptr inbounds i8, ptr %b.031.i81.i, i64 1
   %22 = load i8, ptr %b.031.i81.i, align 1
@@ -300,8 +300,8 @@ while.end.i56.i:                                  ; preds = %while.body.i79.i
 for.body.i.i63.preheader.i:                       ; preds = %while.end.i56.i, %while.cond.preheader.i54.i
   %div20.i61207.i = phi i32 [ %div20.i61.i, %while.end.i56.i ], [ 8, %while.cond.preheader.i54.i ]
   %m.0.lcssa.i60206.i = phi ptr [ %incdec.ptr8.i85.i, %while.end.i56.i ], [ %tmp.i, %while.cond.preheader.i54.i ]
-  %b.0.lcssa.i59205.i = phi ptr [ %incdec.ptr.i84.i, %while.end.i56.i ], [ %m.addr.1182.i, %while.cond.preheader.i54.i ]
-  %o.0.lcssa.i58204.i = phi ptr [ %incdec.ptr11.i87.i, %while.end.i56.i ], [ %c.addr.1185.i, %while.cond.preheader.i54.i ]
+  %b.0.lcssa.i59205.i = phi ptr [ %incdec.ptr.i84.i, %while.end.i56.i ], [ %m.addr.1186.i, %while.cond.preheader.i54.i ]
+  %o.0.lcssa.i58204.i = phi ptr [ %incdec.ptr11.i87.i, %while.end.i56.i ], [ %c.addr.1182.i, %while.cond.preheader.i54.i ]
   %count.addr.0.lcssa.i57202.i = phi i32 [ %dec.i88.i, %while.end.i56.i ], [ 64, %while.cond.preheader.i54.i ]
   br label %for.body.i.i63.i
 
@@ -332,8 +332,8 @@ if.end.i38.i:                                     ; preds = %for.body.i.i63.i, %
 
 for.body.preheader.i44.i:                         ; preds = %if.end.i38.i, %while.body.i
   %m.1.i42171.i = phi ptr [ %tpm.sroa.0.1.i77.i, %if.end.i38.i ], [ %tmp.i, %while.body.i ]
-  %b.1.i41170.i = phi ptr [ %tpb.sroa.0.1.i76.i, %if.end.i38.i ], [ %m.addr.1182.i, %while.body.i ]
-  %o.1.i40169.i = phi ptr [ %tpo.sroa.0.1.i75.i, %if.end.i38.i ], [ %c.addr.1185.i, %while.body.i ]
+  %b.1.i41170.i = phi ptr [ %tpb.sroa.0.1.i76.i, %if.end.i38.i ], [ %m.addr.1186.i, %while.body.i ]
+  %o.1.i40169.i = phi ptr [ %tpo.sroa.0.1.i75.i, %if.end.i38.i ], [ %c.addr.1182.i, %while.body.i ]
   %count.addr.1.i39168.i = phi i32 [ %rem12.i78.i, %if.end.i38.i ], [ 64, %while.body.i ]
   %wide.trip.count.i45.i = zext nneg i32 %count.addr.1.i39168.i to i64
   br label %for.body.i46.i
@@ -352,16 +352,16 @@ for.body.i46.i:                                   ; preds = %for.body.i46.i, %fo
   br i1 %exitcond.not.i53.i, label %xorbufout.exit92.i, label %for.body.i46.i, !llvm.loop !7
 
 xorbufout.exit92.i:                               ; preds = %for.body.i46.i, %if.end.i38.i
-  %sub31.i = add i32 %bytes.addr.1188.i, -64
-  %add.ptr32.i = getelementptr inbounds i8, ptr %c.addr.1185.i, i64 64
-  %add.ptr33.i = getelementptr inbounds i8, ptr %m.addr.1182.i, i64 64
+  %sub31.i = add i32 %bytes.addr.1185.i, -64
+  %add.ptr32.i = getelementptr inbounds i8, ptr %c.addr.1182.i, i64 64
+  %add.ptr33.i = getelementptr inbounds i8, ptr %m.addr.1186.i, i64 64
   %cmp20.i = icmp ugt i32 %sub31.i, 63
   br i1 %cmp20.i, label %while.body.i, label %while.end.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %xorbufout.exit92.i, %if.end19.i
-  %m.addr.1.lcssa.i = phi ptr [ %m.addr.0.i, %if.end19.i ], [ %add.ptr33.i, %xorbufout.exit92.i ]
   %c.addr.1.lcssa.i = phi ptr [ %c.addr.0.i, %if.end19.i ], [ %add.ptr32.i, %xorbufout.exit92.i ]
   %bytes.addr.1.lcssa.i = phi i32 [ %bytes.addr.0.i, %if.end19.i ], [ %sub31.i, %xorbufout.exit92.i ]
+  %m.addr.1.lcssa.i = phi ptr [ %m.addr.0.i, %if.end19.i ], [ %add.ptr33.i, %xorbufout.exit92.i ]
   %tobool.not.i = icmp eq i32 %bytes.addr.1.lcssa.i, 0
   br i1 %tobool.not.i, label %wc_Chacha_encrypt_bytes.exit, label %if.then34.i
 
@@ -369,7 +369,7 @@ if.then34.i:                                      ; preds = %while.end.i
   call fastcc void @wc_Chacha_wordtobyte(ptr noundef nonnull %tmp.i, ptr noundef %ctx)
   %28 = ptrtoint ptr %c.addr.1.lcssa.i to i64
   %29 = ptrtoint ptr %m.addr.1.lcssa.i to i64
-  %30 = or i64 %28, %29
+  %30 = or i64 %29, %28
   %31 = and i64 %30, 7
   %or.cond.i98.i = icmp eq i64 %31, 0
   br i1 %or.cond.i98.i, label %while.cond.preheader.i115.i, label %for.body.preheader.i105.i

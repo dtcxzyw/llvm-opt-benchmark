@@ -536,14 +536,14 @@ if.then61:                                        ; preds = %if.else58
   br label %if.end67
 
 if.end67:                                         ; preds = %if.else58, %if.then61, %if.then43, %if.end55
-  %curr.2 = phi ptr [ %add.ptr44, %if.end55 ], [ %add.ptr44, %if.then43 ], [ %curr.1, %if.then61 ], [ %curr.1, %if.else58 ]
   %host.0 = phi ptr [ %add.ptr56, %if.end55 ], [ %cond, %if.then43 ], [ %add.ptr65, %if.then61 ], [ %cond, %if.else58 ]
+  %curr.2 = phi ptr [ %add.ptr44, %if.end55 ], [ %add.ptr44, %if.then43 ], [ %curr.1, %if.then61 ], [ %curr.1, %if.else58 ]
   %5 = load ptr, ptr %connInfo, align 8
   tail call void @hi_sdsfree(ptr noundef %5) #11
   %sub.ptr.lhs.cast68 = ptrtoint ptr %host.0 to i64
   %sub.ptr.rhs.cast69 = ptrtoint ptr %curr.2 to i64
-  %reass.sub = sub i64 %sub.ptr.lhs.cast68, %sub.ptr.rhs.cast69
-  %add = add i64 %reass.sub, 1
+  %sub.ptr.sub70 = add i64 %sub.ptr.lhs.cast68, 1
+  %add = sub i64 %sub.ptr.sub70, %sub.ptr.rhs.cast69
   %call71 = tail call ptr @hi_sdsnewlen(ptr noundef nonnull %curr.2, i64 noundef %add) #11
   store ptr %call71, ptr %connInfo, align 8
   br label %if.end73
@@ -591,14 +591,14 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end74
-  %curr.029 = phi ptr [ %pe, %while.body.lr.ph ], [ %curr.1, %if.end74 ]
-  %ret.028 = phi ptr [ %call, %while.body.lr.ph ], [ %ret.1, %if.end74 ]
-  %0 = load i8, ptr %curr.029, align 1
+  %ret.029 = phi ptr [ %call, %while.body.lr.ph ], [ %ret.1, %if.end74 ]
+  %curr.028 = phi ptr [ %pe, %while.body.lr.ph ], [ %curr.1, %if.end74 ]
+  %0 = load i8, ptr %curr.028, align 1
   %cmp1 = icmp eq i8 %0, 37
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  %sub.ptr.rhs.cast = ptrtoint ptr %curr.029 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %curr.028 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp3 = icmp slt i64 %sub.ptr.sub, 2
   br i1 %cmp3, label %if.then5, label %if.end
@@ -610,7 +610,7 @@ if.then5:                                         ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %incdec.ptr = getelementptr inbounds i8, ptr %curr.029, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %curr.028, i64 1
   %3 = load i8, ptr %incdec.ptr, align 1
   %conv7 = sext i8 %3 to i32
   %call8 = call i32 @tolower(i32 noundef %conv7) #15
@@ -629,7 +629,7 @@ if.end:                                           ; preds = %if.then
   br i1 %or.cond23, label %lor.lhs.false23, label %if.then39
 
 lor.lhs.false23:                                  ; preds = %if.end
-  %incdec.ptr10 = getelementptr inbounds i8, ptr %curr.029, i64 2
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %curr.028, i64 2
   %8 = load i8, ptr %incdec.ptr10, align 1
   %conv11 = sext i8 %8 to i32
   %call12 = call i32 @tolower(i32 noundef %conv11) #15
@@ -662,18 +662,18 @@ if.end41:                                         ; preds = %lor.lhs.false23
   %add68 = add i32 %cond67, %cond67.v
   %conv69 = trunc i32 %add68 to i8
   store i8 %conv69, ptr %c, align 1
-  %call70 = call ptr @hi_sdscatlen(ptr noundef %ret.028, ptr noundef nonnull %c, i64 noundef 1) #11
-  %incdec.ptr71 = getelementptr inbounds i8, ptr %curr.029, i64 3
+  %call70 = call ptr @hi_sdscatlen(ptr noundef %ret.029, ptr noundef nonnull %c, i64 noundef 1) #11
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %curr.028, i64 3
   br label %if.end74
 
 if.else:                                          ; preds = %while.body
-  %incdec.ptr72 = getelementptr inbounds i8, ptr %curr.029, i64 1
-  %call73 = call ptr @hi_sdscatlen(ptr noundef %ret.028, ptr noundef nonnull %curr.029, i64 noundef 1) #11
+  %incdec.ptr72 = getelementptr inbounds i8, ptr %curr.028, i64 1
+  %call73 = call ptr @hi_sdscatlen(ptr noundef %ret.029, ptr noundef nonnull %curr.028, i64 noundef 1) #11
   br label %if.end74
 
 if.end74:                                         ; preds = %if.else, %if.end41
-  %ret.1 = phi ptr [ %call70, %if.end41 ], [ %call73, %if.else ]
   %curr.1 = phi ptr [ %incdec.ptr71, %if.end41 ], [ %incdec.ptr72, %if.else ]
+  %ret.1 = phi ptr [ %call70, %if.end41 ], [ %call73, %if.else ]
   %cmp = icmp ult ptr %curr.1, %add.ptr
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 

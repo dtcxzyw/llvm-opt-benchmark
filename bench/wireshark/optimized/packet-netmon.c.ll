@@ -1134,33 +1134,33 @@ define internal i32 @dissect_netmon_event(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not168170, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %83, %.lr.ph
-  %.0172 = phi i32 [ %124, %.lr.ph ], [ 1, %83 ]
-  %.1171 = phi i32 [ %121, %.lr.ph ], [ 89, %83 ]
+  %.1172 = phi i32 [ %121, %.lr.ph ], [ 89, %83 ]
+  %.0167171 = phi i32 [ %124, %.lr.ph ], [ 1, %83 ]
   %101 = load i32, ptr @ett_netmon_event_extended_data, align 4
-  %102 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %0, i32 noundef %.1171, i32 noundef 4, i32 noundef %101, ptr noundef nonnull %5, ptr noundef nonnull @.str.501, i32 noundef %.0172) #6
+  %102 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %0, i32 noundef %.1172, i32 noundef 4, i32 noundef %101, ptr noundef nonnull %5, ptr noundef nonnull @.str.501, i32 noundef %.0167171) #6
   %103 = load i32, ptr @hf_netmon_event_extended_data_reserved, align 4
-  %104 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %0, i32 noundef %.1171, i32 noundef 2, i32 noundef -2147483648) #6
-  %105 = add i32 %.1171, 2
+  %104 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %0, i32 noundef %.1172, i32 noundef 2, i32 noundef -2147483648) #6
+  %105 = add i32 %.1172, 2
   %106 = load i32, ptr @hf_netmon_event_extended_data_type, align 4
   %107 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %106, ptr noundef %0, i32 noundef %105, i32 noundef 2, i32 noundef -2147483648) #6
-  %108 = add i32 %.1171, 4
+  %108 = add i32 %.1172, 4
   %109 = load i32, ptr @hf_netmon_event_extended_data_linkage, align 4
   %110 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %109, ptr noundef %0, i32 noundef %108, i32 noundef 2, i32 noundef -2147483648) #6
   %111 = load i32, ptr @hf_netmon_event_extended_data_reserved2, align 4
   %112 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %111, ptr noundef %0, i32 noundef %108, i32 noundef 2, i32 noundef -2147483648) #6
-  %113 = add i32 %.1171, 6
+  %113 = add i32 %.1172, 6
   %114 = load i32, ptr @hf_netmon_event_extended_data_size, align 4
   %115 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %102, i32 noundef %114, ptr noundef %0, i32 noundef %113, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %9) #6
-  %116 = add i32 %.1171, 8
+  %116 = add i32 %.1172, 8
   %117 = load i32, ptr @hf_netmon_event_extended_data, align 4
   %118 = load i32, ptr %9, align 4
   %119 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %117, ptr noundef %0, i32 noundef %116, i32 noundef %118, i32 noundef 0) #6
   %120 = load i32, ptr %9, align 4
   %121 = add i32 %120, %116
   %122 = load ptr, ptr %5, align 8
-  %123 = sub i32 %121, %.1171
+  %123 = sub i32 %121, %.1172
   call void @proto_item_set_len(ptr noundef %122, i32 noundef %123) #6
-  %124 = add i32 %.0172, 1
+  %124 = add i32 %.0167171, 1
   %125 = load i32, ptr %8, align 4
   %.not168 = icmp ugt i32 %124, %125
   br i1 %.not168, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -1267,14 +1267,14 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr nocapture n
   br i1 %.not181215, label %._crit_edge220, label %.lr.ph219
 
 .lr.ph219:                                        ; preds = %32, %._crit_edge
-  %.0171217 = phi i32 [ %154, %._crit_edge ], [ 1, %32 ]
-  %.0172216 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %30, %32 ]
+  %.0171217 = phi i32 [ %.7.lcssa, %._crit_edge ], [ %30, %32 ]
+  %.0178216 = phi i32 [ %154, %._crit_edge ], [ 1, %32 ]
   %36 = load i32, ptr @ett_netmon_network_info_adapter, align 4
-  %37 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %34, ptr noundef %0, i32 noundef %.0172216, i32 noundef 1, i32 noundef %36, ptr noundef nonnull %6, ptr noundef nonnull @.str.505, i32 noundef %.0171217) #6
-  %38 = call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef %.0172216) #6
+  %37 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %34, ptr noundef %0, i32 noundef %.0171217, i32 noundef 1, i32 noundef %36, ptr noundef nonnull %6, ptr noundef nonnull @.str.505, i32 noundef %.0178216) #6
+  %38 = call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef %.0171217) #6
   %39 = load i32, ptr @hf_netmon_network_info_friendly_name, align 4
-  %40 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %39, ptr noundef %0, i32 noundef %.0172216, i32 noundef %38, i32 noundef -2147483644) #6
-  %41 = add i32 %38, %.0172216
+  %40 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %39, ptr noundef %0, i32 noundef %.0171217, i32 noundef %38, i32 noundef -2147483644) #6
+  %41 = add i32 %38, %.0171217
   %42 = call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef %41) #6
   %43 = load i32, ptr @hf_netmon_network_info_description, align 4
   %44 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %43, ptr noundef %0, i32 noundef %41, i32 noundef %42, i32 noundef -2147483644) #6
@@ -1369,95 +1369,95 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr nocapture n
 
 .lr.ph:                                           ; preds = %81, %.lr.ph
   %.0190 = phi i32 [ %108, %.lr.ph ], [ 0, %81 ]
-  %.1173189 = phi i32 [ %107, %.lr.ph ], [ %103, %81 ]
+  %.1172189 = phi i32 [ %107, %.lr.ph ], [ %103, %81 ]
   %105 = load i32, ptr @hf_netmon_network_info_ipv4, align 4
-  %106 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %105, ptr noundef %0, i32 noundef %.1173189, i32 noundef 4, i32 noundef 0) #6
-  %107 = add i32 %.1173189, 4
+  %106 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %105, ptr noundef %0, i32 noundef %.1172189, i32 noundef 4, i32 noundef 0) #6
+  %107 = add i32 %.1172189, 4
   %108 = add nuw i32 %.0190, 1
   %109 = load i32, ptr %8, align 4
   %110 = icmp ult i32 %108, %109
   br i1 %110, label %.lr.ph, label %.preheader188, !llvm.loop !7
 
 .preheader187:                                    ; preds = %.lr.ph193, %81, %.preheader188
-  %.2174.lcssa = phi i32 [ %107, %.preheader188 ], [ %103, %81 ], [ %114, %.lr.ph193 ]
+  %.2173.lcssa = phi i32 [ %107, %.preheader188 ], [ %103, %81 ], [ %114, %.lr.ph193 ]
   %111 = load i32, ptr %9, align 4
   %.not224 = icmp eq i32 %111, 0
   br i1 %.not224, label %.preheader186, label %.lr.ph197
 
 .lr.ph193:                                        ; preds = %.preheader188, %.lr.ph193
   %.1192 = phi i32 [ %115, %.lr.ph193 ], [ 0, %.preheader188 ]
-  %.2174191 = phi i32 [ %114, %.lr.ph193 ], [ %107, %.preheader188 ]
+  %.2173191 = phi i32 [ %114, %.lr.ph193 ], [ %107, %.preheader188 ]
   %112 = load i32, ptr @hf_netmon_network_info_subnet, align 4
-  %113 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %112, ptr noundef %0, i32 noundef %.2174191, i32 noundef 4, i32 noundef 0) #6
-  %114 = add i32 %.2174191, 4
+  %113 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %112, ptr noundef %0, i32 noundef %.2173191, i32 noundef 4, i32 noundef 0) #6
+  %114 = add i32 %.2173191, 4
   %115 = add nuw i32 %.1192, 1
   %116 = load i32, ptr %8, align 4
   %117 = icmp ult i32 %115, %116
   br i1 %117, label %.lr.ph193, label %.preheader187, !llvm.loop !8
 
 .preheader186:                                    ; preds = %.lr.ph197, %.preheader187
-  %.3175.lcssa = phi i32 [ %.2174.lcssa, %.preheader187 ], [ %121, %.lr.ph197 ]
+  %.3174.lcssa = phi i32 [ %.2173.lcssa, %.preheader187 ], [ %121, %.lr.ph197 ]
   %118 = load i32, ptr %10, align 4
   %.not225 = icmp eq i32 %118, 0
   br i1 %.not225, label %.preheader185, label %.lr.ph201
 
 .lr.ph197:                                        ; preds = %.preheader187, %.lr.ph197
   %.2196 = phi i32 [ %122, %.lr.ph197 ], [ 0, %.preheader187 ]
-  %.3175195 = phi i32 [ %121, %.lr.ph197 ], [ %.2174.lcssa, %.preheader187 ]
+  %.3174195 = phi i32 [ %121, %.lr.ph197 ], [ %.2173.lcssa, %.preheader187 ]
   %119 = load i32, ptr @hf_netmon_network_info_ipv6, align 4
-  %120 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %119, ptr noundef %0, i32 noundef %.3175195, i32 noundef 16, i32 noundef 0) #6
-  %121 = add i32 %.3175195, 16
+  %120 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %119, ptr noundef %0, i32 noundef %.3174195, i32 noundef 16, i32 noundef 0) #6
+  %121 = add i32 %.3174195, 16
   %122 = add nuw i32 %.2196, 1
   %123 = load i32, ptr %9, align 4
   %124 = icmp ult i32 %122, %123
   br i1 %124, label %.lr.ph197, label %.preheader186, !llvm.loop !9
 
 .preheader185:                                    ; preds = %.lr.ph201, %.preheader186
-  %.4176.lcssa = phi i32 [ %.3175.lcssa, %.preheader186 ], [ %128, %.lr.ph201 ]
+  %.4175.lcssa = phi i32 [ %.3174.lcssa, %.preheader186 ], [ %128, %.lr.ph201 ]
   %125 = load i32, ptr %11, align 4
   %.not226 = icmp eq i32 %125, 0
   br i1 %.not226, label %.preheader184, label %.lr.ph205
 
 .lr.ph201:                                        ; preds = %.preheader186, %.lr.ph201
   %.3200 = phi i32 [ %129, %.lr.ph201 ], [ 0, %.preheader186 ]
-  %.4176199 = phi i32 [ %128, %.lr.ph201 ], [ %.3175.lcssa, %.preheader186 ]
+  %.4175199 = phi i32 [ %128, %.lr.ph201 ], [ %.3174.lcssa, %.preheader186 ]
   %126 = load i32, ptr @hf_netmon_network_info_gateway, align 4
-  %127 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %126, ptr noundef %0, i32 noundef %.4176199, i32 noundef 4, i32 noundef 0) #6
-  %128 = add i32 %.4176199, 4
+  %127 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %126, ptr noundef %0, i32 noundef %.4175199, i32 noundef 4, i32 noundef 0) #6
+  %128 = add i32 %.4175199, 4
   %129 = add nuw i32 %.3200, 1
   %130 = load i32, ptr %10, align 4
   %131 = icmp ult i32 %129, %130
   br i1 %131, label %.lr.ph201, label %.preheader185, !llvm.loop !10
 
 .preheader184:                                    ; preds = %.lr.ph205, %.preheader185
-  %.5177.lcssa = phi i32 [ %.4176.lcssa, %.preheader185 ], [ %135, %.lr.ph205 ]
+  %.5176.lcssa = phi i32 [ %.4175.lcssa, %.preheader185 ], [ %135, %.lr.ph205 ]
   %132 = load i32, ptr %12, align 4
   %.not227 = icmp eq i32 %132, 0
   br i1 %.not227, label %.preheader, label %.lr.ph209
 
 .lr.ph205:                                        ; preds = %.preheader185, %.lr.ph205
   %.4204 = phi i32 [ %136, %.lr.ph205 ], [ 0, %.preheader185 ]
-  %.5177203 = phi i32 [ %135, %.lr.ph205 ], [ %.4176.lcssa, %.preheader185 ]
+  %.5176203 = phi i32 [ %135, %.lr.ph205 ], [ %.4175.lcssa, %.preheader185 ]
   %133 = load i32, ptr @hf_netmon_network_info_dhcp_server, align 4
-  %134 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %133, ptr noundef %0, i32 noundef %.5177203, i32 noundef 4, i32 noundef 0) #6
-  %135 = add i32 %.5177203, 4
+  %134 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %133, ptr noundef %0, i32 noundef %.5176203, i32 noundef 4, i32 noundef 0) #6
+  %135 = add i32 %.5176203, 4
   %136 = add nuw i32 %.4204, 1
   %137 = load i32, ptr %11, align 4
   %138 = icmp ult i32 %136, %137
   br i1 %138, label %.lr.ph205, label %.preheader184, !llvm.loop !11
 
 .preheader:                                       ; preds = %.lr.ph209, %.preheader184
-  %.6178.lcssa = phi i32 [ %.5177.lcssa, %.preheader184 ], [ %142, %.lr.ph209 ]
+  %.6177.lcssa = phi i32 [ %.5176.lcssa, %.preheader184 ], [ %142, %.lr.ph209 ]
   %139 = load i32, ptr %13, align 4
   %.not228 = icmp eq i32 %139, 0
   br i1 %.not228, label %._crit_edge, label %.lr.ph213
 
 .lr.ph209:                                        ; preds = %.preheader184, %.lr.ph209
   %.5208 = phi i32 [ %143, %.lr.ph209 ], [ 0, %.preheader184 ]
-  %.6178207 = phi i32 [ %142, %.lr.ph209 ], [ %.5177.lcssa, %.preheader184 ]
+  %.6177207 = phi i32 [ %142, %.lr.ph209 ], [ %.5176.lcssa, %.preheader184 ]
   %140 = load i32, ptr @hf_netmon_network_info_dns_ipv4, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %140, ptr noundef %0, i32 noundef %.6178207, i32 noundef 4, i32 noundef 0) #6
-  %142 = add i32 %.6178207, 4
+  %141 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %140, ptr noundef %0, i32 noundef %.6177207, i32 noundef 4, i32 noundef 0) #6
+  %142 = add i32 %.6177207, 4
   %143 = add nuw i32 %.5208, 1
   %144 = load i32, ptr %12, align 4
   %145 = icmp ult i32 %143, %144
@@ -1465,7 +1465,7 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr nocapture n
 
 .lr.ph213:                                        ; preds = %.preheader, %.lr.ph213
   %.6212 = phi i32 [ %149, %.lr.ph213 ], [ 0, %.preheader ]
-  %.7211 = phi i32 [ %148, %.lr.ph213 ], [ %.6178.lcssa, %.preheader ]
+  %.7211 = phi i32 [ %148, %.lr.ph213 ], [ %.6177.lcssa, %.preheader ]
   %146 = load i32, ptr @hf_netmon_network_info_dns_ipv6, align 4
   %147 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %146, ptr noundef %0, i32 noundef %.7211, i32 noundef 16, i32 noundef 0) #6
   %148 = add i32 %.7211, 16
@@ -1475,19 +1475,19 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr nocapture n
   br i1 %151, label %.lr.ph213, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph213, %.preheader
-  %.7.lcssa = phi i32 [ %.6178.lcssa, %.preheader ], [ %148, %.lr.ph213 ]
+  %.7.lcssa = phi i32 [ %.6177.lcssa, %.preheader ], [ %148, %.lr.ph213 ]
   %152 = load ptr, ptr %6, align 8
-  %153 = sub i32 %.7.lcssa, %.0172216
+  %153 = sub i32 %.7.lcssa, %.0171217
   call void @proto_item_set_len(ptr noundef %152, i32 noundef %153) #6
-  %154 = add i32 %.0171217, 1
+  %154 = add i32 %.0178216, 1
   %155 = load i32, ptr %7, align 4
   %.not181 = icmp ugt i32 %154, %155
   br i1 %.not181, label %._crit_edge220, label %.lr.ph219, !llvm.loop !14
 
 ._crit_edge220:                                   ; preds = %._crit_edge, %32
-  %.0172.lcssa = phi i32 [ %30, %32 ], [ %.7.lcssa, %._crit_edge ]
+  %.0171.lcssa = phi i32 [ %30, %32 ], [ %.7.lcssa, %._crit_edge ]
   %156 = load ptr, ptr %5, align 8
-  %157 = sub i32 %.0172.lcssa, %30
+  %157 = sub i32 %.0171.lcssa, %30
   call void @proto_item_set_len(ptr noundef %156, i32 noundef %157) #6
   br label %158
 

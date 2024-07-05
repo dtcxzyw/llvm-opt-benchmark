@@ -668,8 +668,8 @@ define internal void @_ZN12_GLOBAL__N_17LtpPass7executeESt6vectorINSt7__cxx1112b
   br i1 %20, label %.lr.ph44, label %._crit_edge, !llvm.loop !6
 
 .lr.ph44:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0173343 = phi i64 [ %21, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %21 = add nuw i64 %.0173343, 1
+  %.0143343 = phi i64 [ %21, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %21 = add nuw i64 %.0143343, 1
   %22 = load ptr, ptr %8, align 8
   %23 = load ptr, ptr %1, align 8
   %24 = ptrtoint ptr %22 to i64
@@ -680,10 +680,10 @@ define internal void @_ZN12_GLOBAL__N_17LtpPass7executeESt6vectorINSt7__cxx1112b
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph44, %.lr.ph.preheader, %3
-  %.017.lcssa = phi i64 [ 1, %3 ], [ 1, %.lr.ph.preheader ], [ %21, %.lr.ph44 ], [ %21, %.lr.ph ]
+  %.014.lcssa = phi i64 [ 1, %3 ], [ 1, %.lr.ph.preheader ], [ %21, %.lr.ph44 ], [ %21, %.lr.ph ]
   %.0.lcssa = phi i1 [ false, %3 ], [ %17, %.lr.ph.preheader ], [ %17, %.lr.ph44 ], [ %17, %.lr.ph ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  invoke void @_ZN5Yosys4Pass10extra_argsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEmPNS_5RTLIL6DesignEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %5, i64 noundef %.017.lcssa, ptr noundef %2, i1 noundef zeroext true)
+  invoke void @_ZN5Yosys4Pass10extra_argsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEmPNS_5RTLIL6DesignEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %5, i64 noundef %.014.lcssa, ptr noundef %2, i1 noundef zeroext true)
           to label %29 unwind label %50
 
 29:                                               ; preds = %._crit_edge
@@ -39387,14 +39387,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.073, i64 1
+  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !195
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -39841,8 +39841,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.016
+  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

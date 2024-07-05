@@ -562,8 +562,8 @@ Tas_ManWatchClause.exit:                          ; preds = %85, %Vec_IntPush.ex
 
 .loopexit.i.i:                                    ; preds = %Tas_ManWatchClause.exit, %70
   %144 = phi i32 [ %.pre.i.i, %Tas_ManWatchClause.exit ], [ %72, %70 ]
-  %.083.i.i = phi i32 [ %87, %Tas_ManWatchClause.exit ], [ 2, %70 ]
-  %145 = icmp slt i32 %.083.i.i, %144
+  %.06183.i.i = phi i32 [ %87, %Tas_ManWatchClause.exit ], [ 2, %70 ]
+  %145 = icmp slt i32 %.06183.i.i, %144
   br i1 %145, label %222, label %.loopexit.i..loopexit.thread.i_crit_edge.i
 
 .loopexit.i..loopexit.thread.i_crit_edge.i:       ; preds = %.loopexit.i.i
@@ -1221,8 +1221,8 @@ Tas_QueStore.exit:                                ; preds = %Tas_QuePush.exit.i,
 
 54:                                               ; preds = %90, %.lr.ph.i79
   %indvars.iv.i80 = phi i64 [ %53, %.lr.ph.i79 ], [ %indvars.iv.next.i81, %90 ]
-  %.03751.i = phi float [ 0.000000e+00, %.lr.ph.i79 ], [ %.2.i, %90 ]
-  %.03850.i = phi ptr [ null, %.lr.ph.i79 ], [ %.240.i, %90 ]
+  %.052.i = phi ptr [ null, %.lr.ph.i79 ], [ %.2.i, %90 ]
+  %.03850.i = phi float [ 0.000000e+00, %.lr.ph.i79 ], [ %.240.i, %90 ]
   %55 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv.i80
   %56 = load ptr, ptr %55, align 8
   %.not.i = icmp eq ptr %56, null
@@ -1236,7 +1236,7 @@ Tas_QueStore.exit:                                ; preds = %Tas_QuePush.exit.i,
   %61 = ptrtoint ptr %.val.i to i64
   %62 = sub i64 %60, %61
   %63 = sdiv exact i64 %62, 12
-  %64 = icmp eq ptr %.03850.i, null
+  %64 = icmp eq ptr %.052.i, null
   %.pre.i = load i64, ptr %56, align 4
   %.pre56.i = load ptr, ptr %52, align 8
   %.pre58.i = and i64 %.pre.i, 536870911
@@ -1245,18 +1245,18 @@ Tas_QueStore.exit:                                ; preds = %Tas_QuePush.exit.i,
   %.pre62.i = ashr exact i64 %.pre61.i, 30
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre56.i, i64 %.pre62.i
   %.pre = load float, ptr %.phi.trans.insert, align 4
-  %65 = fcmp ogt float %.pre, %.03751.i
+  %65 = fcmp ogt float %.pre, %.03850.i
   %or.cond = select i1 %64, i1 true, i1 %65
   br i1 %or.cond, label %._crit_edge57.i, label %66
 
 66:                                               ; preds = %57
-  %67 = fcmp oeq float %.pre, %.03751.i
+  %67 = fcmp oeq float %.pre, %.03850.i
   br i1 %67, label %68, label %74
 
 68:                                               ; preds = %66
   %69 = sub nsw i64 0, %.pre58.i
   %70 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %56, i64 %69
-  %71 = icmp ult ptr %.03850.i, %70
+  %71 = icmp ult ptr %.052.i, %70
   br i1 %71, label %._crit_edge57.i, label %74
 
 ._crit_edge57.i:                                  ; preds = %57, %68
@@ -1265,8 +1265,8 @@ Tas_QueStore.exit:                                ; preds = %Tas_QuePush.exit.i,
   br label %74
 
 74:                                               ; preds = %._crit_edge57.i, %68, %66
-  %.139.i = phi ptr [ %73, %._crit_edge57.i ], [ %.03850.i, %68 ], [ %.03850.i, %66 ]
-  %.1.i = phi float [ %.pre, %._crit_edge57.i ], [ %.03751.i, %68 ], [ %.03751.i, %66 ]
+  %.139.i = phi float [ %.pre, %._crit_edge57.i ], [ %.03850.i, %68 ], [ %.03850.i, %66 ]
+  %.1.i = phi ptr [ %73, %._crit_edge57.i ], [ %.052.i, %68 ], [ %.052.i, %66 ]
   %75 = lshr i64 %.pre.i, 32
   %76 = and i64 %75, 536870911
   %77 = sub nsw i64 %63, %76
@@ -1274,7 +1274,7 @@ Tas_QueStore.exit:                                ; preds = %Tas_QuePush.exit.i,
   %78 = ashr exact i64 %sext49.i, 30
   %79 = getelementptr inbounds i8, ptr %.pre56.i, i64 %78
   %80 = load float, ptr %79, align 4
-  %81 = fcmp ogt float %80, %.1.i
+  %81 = fcmp ogt float %80, %.139.i
   br i1 %81, label %._crit_edge.i, label %82
 
 ._crit_edge.i:                                    ; preds = %74
@@ -1282,13 +1282,13 @@ Tas_QueStore.exit:                                ; preds = %Tas_QuePush.exit.i,
   br label %88
 
 82:                                               ; preds = %74
-  %83 = fcmp oeq float %80, %.1.i
+  %83 = fcmp oeq float %80, %.139.i
   br i1 %83, label %84, label %90
 
 84:                                               ; preds = %82
   %85 = sub nsw i64 0, %76
   %86 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %56, i64 %85
-  %87 = icmp ult ptr %.139.i, %86
+  %87 = icmp ult ptr %.1.i, %86
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %84, %._crit_edge.i
@@ -1297,8 +1297,8 @@ Tas_QueStore.exit:                                ; preds = %Tas_QuePush.exit.i,
   br label %90
 
 90:                                               ; preds = %88, %84, %82
-  %.240.i = phi ptr [ %89, %88 ], [ %.139.i, %84 ], [ %.139.i, %82 ]
-  %.2.i = phi float [ %80, %88 ], [ %.1.i, %84 ], [ %.1.i, %82 ]
+  %.240.i = phi float [ %80, %88 ], [ %.139.i, %84 ], [ %.139.i, %82 ]
+  %.2.i = phi ptr [ %89, %88 ], [ %.1.i, %84 ], [ %.1.i, %82 ]
   %indvars.iv.next.i81 = add nsw i64 %indvars.iv.i80, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i81 to i32
   %exitcond.not.i = icmp eq i32 %47, %lftr.wideiv.i
@@ -1383,17 +1383,17 @@ Tas_QueStore.exit:                                ; preds = %Tas_QuePush.exit.i,
   br label %Tas_ManFindActive.exit
 
 Tas_ManFindActive.exit:                           ; preds = %103, %100, %117, %114, %123
-  %.059 = phi ptr [ %124, %123 ], [ %.01012.i92, %114 ], [ %.1.i94, %117 ], [ %.01012.i, %100 ], [ %.1.i85, %103 ]
-  %.not69 = icmp eq ptr %.059, null
+  %.058 = phi ptr [ %124, %123 ], [ %.01012.i92, %114 ], [ %.1.i94, %117 ], [ %.01012.i, %100 ], [ %.1.i85, %103 ]
+  %.not69 = icmp eq ptr %.058, null
   br i1 %.not69, label %Tas_ManFindActive.exit.thread, label %125
 
 125:                                              ; preds = %Tas_ManFindActive.exit
   %126 = getelementptr inbounds i8, ptr %0, i64 56
   %127 = load ptr, ptr %126, align 8
-  %128 = load i64, ptr %.059, align 4
+  %128 = load i64, ptr %.058, align 4
   %129 = and i64 %128, 536870911
   %130 = sub nsw i64 0, %129
-  %131 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.059, i64 %130
+  %131 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.058, i64 %130
   %132 = getelementptr i8, ptr %127, i64 32
   %.val75 = load ptr, ptr %132, align 8
   %133 = getelementptr i8, ptr %127, i64 144
@@ -1409,7 +1409,7 @@ Tas_ManFindActive.exit:                           ; preds = %103, %100, %117, %1
   %141 = lshr i64 %128, 32
   %142 = and i64 %141, 536870911
   %143 = sub nsw i64 0, %142
-  %144 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.059, i64 %143
+  %144 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.058, i64 %143
   %145 = ptrtoint ptr %144 to i64
   %146 = sub i64 %145, %135
   %147 = sdiv exact i64 %146, 12
@@ -1437,7 +1437,7 @@ Tas_ManFindActive.exit:                           ; preds = %103, %100, %117, %1
   br label %Tas_ManFindActive.exit.thread
 
 Tas_ManFindActive.exit.thread:                    ; preds = %90, %54, %108, %94, %46, %120, %152, %158, %Tas_ManFindActive.exit
-  %.1 = phi ptr [ %157, %152 ], [ %163, %158 ], [ null, %Tas_ManFindActive.exit ], [ null, %108 ], [ null, %94 ], [ null, %46 ], [ null, %120 ], [ %.240.i, %90 ], [ %.03850.i, %54 ]
+  %.1 = phi ptr [ %157, %152 ], [ %163, %158 ], [ null, %Tas_ManFindActive.exit ], [ null, %108 ], [ null, %94 ], [ null, %46 ], [ null, %120 ], [ %.2.i, %90 ], [ %.052.i, %54 ]
   %164 = add nsw i32 %1, 1
   tail call fastcc void @Tas_ManAssign(ptr noundef nonnull %0, ptr noundef %.1, i32 noundef %164, ptr noundef null, ptr noundef null)
   %165 = tail call i32 @Tas_ManSolve_rec(ptr noundef nonnull %0, i32 noundef %164)
@@ -1645,8 +1645,8 @@ define internal fastcc ptr @Tas_ManDecideMaxFF(ptr nocapture noundef readonly %0
 
 11:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %.021 = phi i32 [ 0, %.lr.ph ], [ %spec.select17, %14 ]
-  %.01319 = phi ptr [ null, %.lr.ph ], [ %spec.select, %14 ]
+  %.021 = phi ptr [ null, %.lr.ph ], [ %spec.select17, %14 ]
+  %.01220 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %14 ]
   %12 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
@@ -1682,16 +1682,16 @@ define internal fastcc ptr @Tas_ManDecideMaxFF(ptr nocapture noundef readonly %0
   %36 = getelementptr inbounds i8, ptr %.val.val18, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = tail call noundef i32 @llvm.smax.i32(i32 %27, i32 %37)
-  %39 = icmp slt i32 %.021, %38
-  %spec.select = select i1 %39, ptr %13, ptr %.01319
-  %spec.select17 = tail call i32 @llvm.smax.i32(i32 %.021, i32 %38)
+  %39 = icmp slt i32 %.01220, %38
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.01220, i32 %38)
+  %spec.select17 = select i1 %39, ptr %13, ptr %.021
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !16
 
 .critedge:                                        ; preds = %11, %14, %1
-  %.013.lcssa = phi ptr [ null, %1 ], [ %spec.select, %14 ], [ %.01319, %11 ]
-  ret ptr %.013.lcssa
+  %.0.lcssa = phi ptr [ null, %1 ], [ %spec.select17, %14 ], [ %.021, %11 ]
+  ret ptr %.0.lcssa
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
@@ -4130,18 +4130,18 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %Vec_PtrCleanSimInfo
   %77 = getelementptr i8, ptr %4, i64 8
   %78 = getelementptr inbounds i8, ptr %7, i64 8
   %79 = getelementptr inbounds i8, ptr %21, i64 264
-  %.174 = add nsw i32 %20, 1
+  %.1 = add nsw i32 %20, 1
   br label %80
 
 80:                                               ; preds = %.lr.ph, %238
   %81 = phi ptr [ %54, %.lr.ph ], [ %240, %238 ]
-  %.0117 = phi i32 [ 0, %.lr.ph ], [ %.1, %238 ]
+  %.0117 = phi i32 [ 0, %.lr.ph ], [ %239, %238 ]
   %.071116 = phi i32 [ 0, %.lr.ph ], [ %.172, %238 ]
-  %.073115 = phi i32 [ 0, %.lr.ph ], [ %239, %238 ]
+  %.073115 = phi i32 [ 0, %.lr.ph ], [ %.174, %238 ]
   %.val84 = load ptr, ptr %55, align 8
   %82 = getelementptr i8, ptr %81, i64 8
   %.val85.val = load ptr, ptr %82, align 8
-  %83 = sext i32 %.073115 to i64
+  %83 = sext i32 %.0117 to i64
   %84 = getelementptr inbounds i32, ptr %.val85.val, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
@@ -4328,7 +4328,7 @@ Abc_Clock.exit96:                                 ; preds = %148, %156
   %179 = load i32, ptr %75, align 4
   %180 = add nsw i32 %179, %178
   store i32 %180, ptr %75, align 4
-  %181 = add nsw i32 %.071116, 1
+  %181 = add nsw i32 %.073115, 1
   %.val7.i = load ptr, ptr %76, align 8
   %.val.i97 = load i32, ptr %58, align 4
   %182 = icmp sgt i32 %.val.i97, 0
@@ -4415,7 +4415,7 @@ Tas_StorePatternTry.exit.us.i:                    ; preds = %194
 Tas_StorePattern.exit:                            ; preds = %Tas_StorePatternTry.exit.us.i, %223, %175
   %224 = phi i1 [ true, %175 ], [ %183, %223 ], [ %203, %Tas_StorePatternTry.exit.us.i ]
   %225 = zext i1 %224 to i32
-  %226 = add nsw i32 %.0117, %225
+  %226 = add nsw i32 %.071116, %225
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %227 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #22
   %228 = icmp slt i32 %227, 0
@@ -4439,9 +4439,9 @@ Abc_Clock.exit100:                                ; preds = %Tas_StorePattern.ex
   br label %238
 
 238:                                              ; preds = %Abc_Clock.exit100, %Abc_Clock.exit96, %Abc_Clock.exit94
-  %.172 = phi i32 [ %.071116, %Abc_Clock.exit94 ], [ %.071116, %Abc_Clock.exit96 ], [ %181, %Abc_Clock.exit100 ]
-  %.1 = phi i32 [ %.0117, %Abc_Clock.exit94 ], [ %.0117, %Abc_Clock.exit96 ], [ %226, %Abc_Clock.exit100 ]
-  %239 = add i32 %.174, %.073115
+  %.174 = phi i32 [ %.073115, %Abc_Clock.exit94 ], [ %.073115, %Abc_Clock.exit96 ], [ %181, %Abc_Clock.exit100 ]
+  %.172 = phi i32 [ %.071116, %Abc_Clock.exit94 ], [ %.071116, %Abc_Clock.exit96 ], [ %226, %Abc_Clock.exit100 ]
+  %239 = add i32 %.1, %.0117
   %240 = load ptr, ptr %18, align 8
   %241 = getelementptr i8, ptr %240, i64 4
   %.val78 = load i32, ptr %241, align 4
@@ -4449,9 +4449,9 @@ Abc_Clock.exit100:                                ; preds = %Tas_StorePattern.ex
   br i1 %242, label %80, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %80, %238, %Vec_PtrCleanSimInfo.exit
+  %.073.lcssa = phi i32 [ 0, %Vec_PtrCleanSimInfo.exit ], [ %.174, %238 ], [ %.073115, %80 ]
   %.071.lcssa = phi i32 [ 0, %Vec_PtrCleanSimInfo.exit ], [ %.172, %238 ], [ %.071116, %80 ]
-  %.0.lcssa = phi i32 [ 0, %Vec_PtrCleanSimInfo.exit ], [ %.1, %238 ], [ %.0117, %80 ]
-  %243 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.071.lcssa, i32 noundef %.0.lcssa)
+  %243 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.073.lcssa, i32 noundef %.071.lcssa)
   %244 = load ptr, ptr %37, align 8
   %.not.i101 = icmp eq ptr %244, null
   br i1 %.not.i101, label %Vec_IntFree.exit, label %245
@@ -4884,7 +4884,7 @@ define internal fastcc void @Tas_ManDeriveReason(ptr nocapture noundef %0, i32 n
 
 19:                                               ; preds = %.lr.ph114, %.loopexit
   %indvars.iv120 = phi i64 [ %18, %.lr.ph114 ], [ %indvars.iv.next121, %.loopexit ]
-  %.063113 = phi i32 [ %8, %.lr.ph114 ], [ %.1, %.loopexit ]
+  %.064112 = phi i32 [ %8, %.lr.ph114 ], [ %.165, %.loopexit ]
   %20 = load ptr, ptr %12, align 8
   %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv120
   %22 = load ptr, ptr %21, align 8
@@ -4976,8 +4976,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 65:                                               ; preds = %Vec_PtrPush.exit
   %66 = load ptr, ptr %12, align 8
-  %67 = add nsw i32 %.063113, 1
-  %68 = sext i32 %.063113 to i64
+  %67 = add nsw i32 %.064112, 1
+  %68 = sext i32 %.064112 to i64
   %69 = getelementptr inbounds ptr, ptr %66, i64 %68
   store ptr %22, ptr %69, align 8
   br label %.loopexit
@@ -5207,7 +5207,7 @@ Tas_QuePush.exit108:                              ; preds = %._crit_edge.i102, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Tas_QuePush.exit, %80, %Tas_QuePush.exit108, %Tas_QuePush.exit101, %123, %Tas_QuePush.exit94, %19, %65
-  %.1 = phi i32 [ %.063113, %19 ], [ %67, %65 ], [ %.063113, %123 ], [ %.063113, %Tas_QuePush.exit94 ], [ %.063113, %Tas_QuePush.exit108 ], [ %.063113, %Tas_QuePush.exit101 ], [ %.063113, %80 ], [ %.063113, %Tas_QuePush.exit ]
+  %.165 = phi i32 [ %.064112, %19 ], [ %67, %65 ], [ %.064112, %123 ], [ %.064112, %Tas_QuePush.exit94 ], [ %.064112, %Tas_QuePush.exit108 ], [ %.064112, %Tas_QuePush.exit101 ], [ %.064112, %80 ], [ %.064112, %Tas_QuePush.exit ]
   %indvars.iv.next121 = add nsw i64 %indvars.iv120, 1
   %189 = load i32, ptr %9, align 4
   %190 = sext i32 %189 to i64
@@ -5220,7 +5220,7 @@ Tas_QuePush.exit108:                              ; preds = %._crit_edge.i102, %
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %192 = phi i32 [ %7, %2 ], [ %.pre, %._crit_edge.loopexit ]
-  %.063.lcssa = phi i32 [ %8, %2 ], [ %.1, %._crit_edge.loopexit ]
+  %.064.lcssa = phi i32 [ %8, %2 ], [ %.165, %._crit_edge.loopexit ]
   %193 = getelementptr inbounds i8, ptr %0, i64 128
   %194 = load ptr, ptr %193, align 8
   %195 = sext i32 %192 to i64
@@ -5234,7 +5234,7 @@ Tas_QuePush.exit108:                              ; preds = %._crit_edge.i102, %
   br label %200
 
 200:                                              ; preds = %199, %._crit_edge
-  store i32 %.063.lcssa, ptr %9, align 4
+  store i32 %.064.lcssa, ptr %9, align 4
   %201 = load ptr, ptr %4, align 8
   %202 = getelementptr i8, ptr %201, i64 4
   %.val84115 = load i32, ptr %202, align 4

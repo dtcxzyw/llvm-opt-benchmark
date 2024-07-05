@@ -22,29 +22,29 @@ define float @sdot_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %13 = icmp slt i32 %8, 0
   %14 = sub nsw i32 1, %.fr100
   %15 = mul nsw i32 %8, %14
-  %.061 = select i1 %13, i32 %15, i32 0
+  %.067 = select i1 %13, i32 %15, i32 0
   %16 = icmp slt i32 %7, 0
   %17 = mul nsw i32 %14, %7
-  %.063 = select i1 %16, i32 %17, i32 0
-  %18 = sext i32 %.061 to i64
-  %19 = sext i32 %8 to i64
-  %20 = sext i32 %.063 to i64
-  %21 = sext i32 %7 to i64
+  %.065 = select i1 %16, i32 %17, i32 0
+  %18 = sext i32 %.065 to i64
+  %19 = sext i32 %7 to i64
+  %20 = sext i32 %.067 to i64
+  %21 = sext i32 %8 to i64
   br label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
   %indvars.iv94 = phi i64 [ %20, %.lr.ph84.preheader ], [ %indvars.iv.next95, %.lr.ph84 ]
   %indvars.iv92 = phi i64 [ %18, %.lr.ph84.preheader ], [ %indvars.iv.next93, %.lr.ph84 ]
   %.083 = phi float [ 0.000000e+00, %.lr.ph84.preheader ], [ %26, %.lr.ph84 ]
-  %.06580 = phi i32 [ 0, %.lr.ph84.preheader ], [ %27, %.lr.ph84 ]
-  %22 = getelementptr inbounds float, ptr %1, i64 %indvars.iv94
+  %.06282 = phi i32 [ 0, %.lr.ph84.preheader ], [ %27, %.lr.ph84 ]
+  %22 = getelementptr inbounds float, ptr %1, i64 %indvars.iv92
   %23 = load float, ptr %22, align 4
-  %24 = getelementptr inbounds float, ptr %3, i64 %indvars.iv92
+  %24 = getelementptr inbounds float, ptr %3, i64 %indvars.iv94
   %25 = load float, ptr %24, align 4
   %26 = tail call float @llvm.fmuladd.f32(float %23, float %25, float %.083)
-  %27 = add nuw nsw i32 %.06580, 1
-  %indvars.iv.next95 = add nsw i64 %indvars.iv94, %21
+  %27 = add nuw nsw i32 %.06282, 1
   %indvars.iv.next93 = add nsw i64 %indvars.iv92, %19
+  %indvars.iv.next95 = add nsw i64 %indvars.iv94, %21
   %exitcond99.not = icmp eq i32 %27, %.fr100
   br i1 %exitcond99.not, label %.loopexit, label %.lr.ph84, !llvm.loop !4
 
@@ -117,8 +117,8 @@ define float @sdot_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %68, label %.lr.ph78, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph78, %.lr.ph84, %.preheader, %5
-  %.068 = phi float [ 0.000000e+00, %5 ], [ %.1.lcssa, %.preheader ], [ %26, %.lr.ph84 ], [ %66, %.lr.ph78 ]
-  ret float %.068
+  %.061 = phi float [ 0.000000e+00, %5 ], [ %.1.lcssa, %.preheader ], [ %26, %.lr.ph84 ], [ %66, %.lr.ph78 ]
+  ret float %.061
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

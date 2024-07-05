@@ -1771,9 +1771,9 @@ if.end76:                                         ; preds = %for.end
   br label %for.body116
 
 for.body116:                                      ; preds = %if.end76, %for.body116
-  %i113.0123 = phi i64 [ 0, %if.end76 ], [ %inc135, %for.body116 ]
-  %mindp.0122 = phi float [ 1.000000e+00, %if.end76 ], [ %cond133, %for.body116 ]
-  %arrayidx117 = getelementptr inbounds [512 x [3 x float]], ptr %normals, i64 0, i64 %i113.0123
+  %mindp.0123 = phi float [ 1.000000e+00, %if.end76 ], [ %cond133, %for.body116 ]
+  %i113.0122 = phi i64 [ 0, %if.end76 ], [ %inc135, %for.body116 ]
+  %arrayidx117 = getelementptr inbounds [512 x [3 x float]], ptr %normals, i64 0, i64 %i113.0122
   %48 = load float, ptr %arrayidx117, align 4
   %arrayidx122 = getelementptr inbounds i8, ptr %arrayidx117, i64 4
   %49 = load float, ptr %arrayidx122, align 4
@@ -1782,9 +1782,9 @@ for.body116:                                      ; preds = %if.end76, %for.body
   %arrayidx126 = getelementptr inbounds i8, ptr %arrayidx117, i64 8
   %51 = load float, ptr %arrayidx126, align 4
   %52 = tail call float @llvm.fmuladd.f32(float %51, float %mul112, float %50)
-  %cmp129 = fcmp olt float %52, %mindp.0122
-  %cond133 = select i1 %cmp129, float %52, float %mindp.0122
-  %inc135 = add nuw i64 %i113.0123, 1
+  %cmp129 = fcmp olt float %52, %mindp.0123
+  %cond133 = select i1 %cmp129, float %52, float %mindp.0123
+  %inc135 = add nuw i64 %i113.0122, 1
   %exitcond.not = icmp eq i64 %inc135, %triangles.1
   br i1 %exitcond.not, label %for.end136, label %for.body116, !llvm.loop !29
 
@@ -1813,9 +1813,9 @@ if.then148:                                       ; preds = %for.end136
   br label %return
 
 for.body153:                                      ; preds = %for.body153.preheader, %for.body153
-  %i150.0125 = phi i64 [ %inc197, %for.body153 ], [ 0, %for.body153.preheader ]
-  %maxt.0124 = phi float [ %cond195, %for.body153 ], [ 0.000000e+00, %for.body153.preheader ]
-  %arrayidx155 = getelementptr inbounds [512 x [3 x [3 x float]]], ptr %corners, i64 0, i64 %i150.0125
+  %maxt.0125 = phi float [ %cond195, %for.body153 ], [ 0.000000e+00, %for.body153.preheader ]
+  %i150.0124 = phi i64 [ %inc197, %for.body153 ], [ 0, %for.body153.preheader ]
+  %arrayidx155 = getelementptr inbounds [512 x [3 x [3 x float]]], ptr %corners, i64 0, i64 %i150.0124
   %57 = load float, ptr %arrayidx155, align 4
   %sub158 = fsub float %54, %57
   %arrayidx162 = getelementptr inbounds i8, ptr %arrayidx155, i64 4
@@ -1824,7 +1824,7 @@ for.body153:                                      ; preds = %for.body153.prehead
   %arrayidx167 = getelementptr inbounds i8, ptr %arrayidx155, i64 8
   %59 = load float, ptr %arrayidx167, align 4
   %sub168 = fsub float %36, %59
-  %arrayidx169 = getelementptr inbounds [512 x [3 x float]], ptr %normals, i64 0, i64 %i150.0125
+  %arrayidx169 = getelementptr inbounds [512 x [3 x float]], ptr %normals, i64 0, i64 %i150.0124
   %60 = load float, ptr %arrayidx169, align 4
   %arrayidx173 = getelementptr inbounds i8, ptr %arrayidx169, i64 4
   %61 = load float, ptr %arrayidx173, align 4
@@ -1846,9 +1846,9 @@ for.body153:                                      ; preds = %for.body153.prehead
   %76 = extractelement <2 x float> %75, i64 0
   %77 = extractelement <2 x float> %75, i64 1
   %div190 = fdiv float %76, %77
-  %cmp191 = fcmp ogt float %div190, %maxt.0124
-  %cond195 = select i1 %cmp191, float %div190, float %maxt.0124
-  %inc197 = add nuw i64 %i150.0125, 1
+  %cmp191 = fcmp ogt float %div190, %maxt.0125
+  %cond195 = select i1 %cmp191, float %div190, float %maxt.0125
+  %inc197 = add nuw i64 %i150.0124, 1
   %exitcond126.not = icmp eq i64 %inc197, %triangles.1
   br i1 %exitcond126.not, label %for.end198, label %for.body153, !llvm.loop !30
 

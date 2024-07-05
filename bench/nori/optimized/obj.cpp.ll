@@ -1076,7 +1076,7 @@ _ZNSt6vectorIN4nori7TVectorIfLi3EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_c
   br label %480
 
 346:                                              ; preds = %345, %342
-  %.026 = phi i64 [ 3, %342 ], [ 6, %345 ]
+  %.027 = phi i64 [ 3, %342 ], [ 6, %345 ]
   br label %347
 
 347:                                              ; preds = %346, %_ZNSt6vectorIN4nori12WavefrontOBJ9OBJVertexESaIS2_EE9push_backERKS2_.exit
@@ -1399,7 +1399,7 @@ _ZNSt6vectorIN4nori12WavefrontOBJ9OBJVertexESaIS2_EE9push_backERKS2_.exit: ; pre
   %.sroa.10.4 = phi ptr [ %.sroa.10.2, %_ZNSt6vectorIN4nori12WavefrontOBJ9OBJVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.10.2, %434 ], [ %456, %454 ], [ %476, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
   %.sroa.0260.5 = phi ptr [ %.sroa.0260.3, %_ZNSt6vectorIN4nori12WavefrontOBJ9OBJVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.0260.3, %434 ], [ %.sroa.0260.2499, %454 ], [ %470, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %.026
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %.027
   br i1 %exitcond.not, label %479, label %347, !llvm.loop !35
 
 479:                                              ; preds = %_ZNSt6vectorIN4nori12WavefrontOBJ9OBJVertexESaIS2_EE9push_backERKS2_.exit

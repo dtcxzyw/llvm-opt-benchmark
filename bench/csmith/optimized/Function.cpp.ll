@@ -2574,7 +2574,7 @@ define dso_local noundef ptr @_Z16find_blk_for_varPK8Variable(ptr noundef %0) lo
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 23:                                               ; preds = %.lr.ph
-  %24 = add nuw i64 %.022, 1
+  %24 = add nuw i64 %.01722, 1
   %25 = load ptr, ptr %20, align 8
   %26 = load ptr, ptr %19, align 8
   %27 = ptrtoint ptr %25 to i64
@@ -2586,8 +2586,8 @@ define dso_local noundef ptr @_Z16find_blk_for_varPK8Variable(ptr noundef %0) lo
 
 .lr.ph:                                           ; preds = %18, %23
   %32 = phi ptr [ %26, %23 ], [ %22, %18 ]
-  %.022 = phi i64 [ %24, %23 ], [ 0, %18 ]
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %.022
+  %.01722 = phi i64 [ %24, %23 ], [ 0, %18 ]
+  %33 = getelementptr inbounds ptr, ptr %32, i64 %.01722
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 80
   %36 = tail call noundef i32 @_Z20find_variable_in_setRKSt6vectorIP8VariableSaIS1_EEPKS0_(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull %0)
@@ -2606,8 +2606,8 @@ define dso_local noundef ptr @_Z16find_blk_for_varPK8Variable(ptr noundef %0) lo
   br i1 %44, label %.lr.ph24, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %.preheader, %1, %15
-  %.017 = phi ptr [ %17, %15 ], [ null, %1 ], [ null, %.preheader ], [ %34, %.lr.ph ], [ null, %._crit_edge ]
-  ret ptr %.017
+  %.0 = phi ptr [ %17, %15 ], [ null, %1 ], [ null, %.preheader ], [ %34, %.lr.ph ], [ null, %._crit_edge ]
+  ret ptr %.0
 }
 
 declare noundef zeroext i1 @_ZNK8Variable11is_argumentEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #0

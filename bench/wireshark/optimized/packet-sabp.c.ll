@@ -605,8 +605,8 @@ define internal i32 @dissect_sabp_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %42
 
 42:                                               ; preds = %30, %24, %11
-  %.023 = phi i32 [ %14, %11 ], [ %28, %24 ], [ %41, %30 ]
-  ret i32 %.023
+  %.022 = phi i32 [ %14, %11 ], [ %28, %24 ], [ %41, %30 ]
+  ret i32 %.022
 }
 
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -936,17 +936,17 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Broadcast_Message_
   br label %19
 
 19:                                               ; preds = %39, %.lr.ph.i.i
-  %.041.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %21, %39 ]
-  %.03740.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ %42, %39 ]
+  %.041.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ %42, %39 ]
+  %.03740.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %21, %39 ]
   %20 = load i32, ptr @ett_sabp_cbs_page, align 4
-  %21 = add nuw nsw i32 %.041.i.i, 1
-  %22 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %9, i32 noundef %.03740.i.i, i32 noundef 83, i32 noundef %20, ptr noundef null, ptr noundef nonnull @.str.260, i32 noundef %21) #3
+  %21 = add nuw nsw i32 %.03740.i.i, 1
+  %22 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %9, i32 noundef %.041.i.i, i32 noundef 83, i32 noundef %20, ptr noundef null, ptr noundef nonnull @.str.260, i32 noundef %21) #3
   %23 = load i32, ptr @hf_sabp_cb_msg_inf_page, align 4
-  %24 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef nonnull %9, i32 noundef %.03740.i.i, i32 noundef 82, i32 noundef 0) #3
-  %25 = add nuw nsw i32 %.03740.i.i, 82
+  %24 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef nonnull %9, i32 noundef %.041.i.i, i32 noundef 82, i32 noundef 0) #3
+  %25 = add nuw nsw i32 %.041.i.i, 82
   %26 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %9, i32 noundef %25) #3
   %27 = zext i8 %26 to i32
-  %28 = call ptr @tvb_new_subset_length(ptr noundef nonnull %9, i32 noundef %.03740.i.i, i32 noundef %27) #3
+  %28 = call ptr @tvb_new_subset_length(ptr noundef nonnull %9, i32 noundef %.041.i.i, i32 noundef %27) #3
   %29 = load i8, ptr @sms_encoding, align 1
   %30 = call ptr @dissect_cbs_data(i8 noundef zeroext %29, ptr noundef %28, ptr noundef %22, ptr noundef %12, i32 noundef 0) #3
   %31 = call i32 @tvb_captured_length(ptr noundef %30) #3
@@ -965,7 +965,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Broadcast_Message_
 39:                                               ; preds = %33, %19
   %40 = load i32, ptr @hf_sabp_cb_inf_len, align 4
   %41 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %40, ptr noundef nonnull %9, i32 noundef %25, i32 noundef 1, i32 noundef 0) #3
-  %42 = add nuw nsw i32 %.03740.i.i, 83
+  %42 = add nuw nsw i32 %.041.i.i, 83
   %exitcond.not.i.i = icmp eq i32 %21, %16
   br i1 %exitcond.not.i.i, label %dissect_sabp_Broadcast_Message_Content.exit, label %19, !llvm.loop !6
 

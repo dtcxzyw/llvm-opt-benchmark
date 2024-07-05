@@ -259,7 +259,7 @@ for.body.lr.ph:                                   ; preds = %if.then
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc221
   %3 = phi ptr [ %.pre, %for.body.lr.ph ], [ %138, %for.inc221 ]
   %indvars.iv361 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next362, %for.inc221 ]
-  %numMeshesOut.0321 = phi i32 [ 0, %for.body.lr.ph ], [ %numMeshesOut.1, %for.inc221 ]
+  %numMeshesOut.0322 = phi i32 [ 0, %for.body.lr.ph ], [ %numMeshesOut.1, %for.inc221 ]
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv361
   %4 = load ptr, ptr %arrayidx, align 8
   %call.i115 = invoke noundef i32 @_ZN6Assimp20GetMeshVFormatUniqueEPK6aiMesh(ptr noundef %4)
@@ -926,13 +926,13 @@ for.end210:                                       ; preds = %for.inc209, %invoke
   br i1 %tobool214.not, label %for.inc221, label %if.then215
 
 if.then215:                                       ; preds = %for.end210
-  %inc216 = add i32 %numMeshesOut.0321, 1
+  %inc216 = add i32 %numMeshesOut.0322, 1
   %arrayidx.i249 = getelementptr inbounds i32, ptr %call6, i64 %indvars.iv361
-  store i32 %numMeshesOut.0321, ptr %arrayidx.i249, align 4
+  store i32 %numMeshesOut.0322, ptr %arrayidx.i249, align 4
   br label %for.inc221
 
 for.inc221:                                       ; preds = %for.end210, %if.then215
-  %numMeshesOut.1 = phi i32 [ %inc216, %if.then215 ], [ %numMeshesOut.0321, %for.end210 ]
+  %numMeshesOut.1 = phi i32 [ %inc216, %if.then215 ], [ %numMeshesOut.0322, %for.end210 ]
   %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
   %140 = load i32, ptr %mNumMeshes, align 8
   %141 = zext i32 %140 to i64

@@ -766,8 +766,8 @@ gop_attrs_tree.exit:                              ; preds = %48, %20
   %108 = icmp eq i32 %107, 2
   %109 = select i1 %108, ptr @.str.24, ptr @.str.25
   %110 = getelementptr inbounds i8, ptr %3, i64 96
-  %.07080 = load ptr, ptr %110, align 8
-  %.not7581 = icmp eq ptr %.07080, null
+  %.079 = load ptr, ptr %110, align 8
+  %.not7581 = icmp eq ptr %.079, null
   br i1 %.not7581, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %101
@@ -775,49 +775,49 @@ gop_attrs_tree.exit:                              ; preds = %48, %20
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %125
-  %.07083 = phi ptr [ %.070, %125 ], [ %.07080, %.lr.ph.preheader ]
-  %.06982.in = phi ptr [ %126, %125 ], [ %111, %.lr.ph.preheader ]
-  %.06982 = load float, ptr %.06982.in, align 8
+  %.06983.in = phi ptr [ %126, %125 ], [ %111, %.lr.ph.preheader ]
+  %.082 = phi ptr [ %.0, %125 ], [ %.079, %.lr.ph.preheader ]
+  %.06983 = load float, ptr %.06983.in, align 8
   %112 = load ptr, ptr %5, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 88
   %114 = load i32, ptr %113, align 8
   %115 = icmp eq i32 %114, 2
   %.in.idx = select i1 %115, i64 24, i64 0
-  %.in = getelementptr inbounds i8, ptr %.07083, i64 %.in.idx
+  %.in = getelementptr inbounds i8, ptr %.082, i64 %.in.idx
   %116 = load i32, ptr %.in, align 8
-  %117 = getelementptr inbounds i8, ptr %.07083, i64 72
+  %117 = getelementptr inbounds i8, ptr %.082, i64 72
   %118 = load i32, ptr %117, align 8
   %.not76 = icmp eq i32 %118, 0
   br i1 %.not76, label %119, label %125
 
 119:                                              ; preds = %.lr.ph
-  %120 = getelementptr inbounds i8, ptr %.07083, i64 76
+  %120 = getelementptr inbounds i8, ptr %.082, i64 76
   %121 = load i32, ptr %120, align 4
   %.not77 = icmp eq i32 %121, 0
   br i1 %.not77, label %122, label %125
 
 122:                                              ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %.07083, i64 80
+  %123 = getelementptr inbounds i8, ptr %.082, i64 80
   %124 = load i32, ptr %123, align 8
   %.not78 = icmp eq i32 %124, 0
   %.str.19..str.28 = select i1 %.not78, ptr @.str.19, ptr @.str.28
   br label %125
 
 125:                                              ; preds = %122, %119, %.lr.ph
-  %.0 = phi ptr [ @.str.26, %.lr.ph ], [ @.str.27, %119 ], [ %.str.19..str.28, %122 ]
-  %126 = getelementptr inbounds i8, ptr %.07083, i64 64
+  %.070 = phi ptr [ @.str.26, %.lr.ph ], [ @.str.27, %119 ], [ %.str.19..str.28, %122 ]
+  %126 = getelementptr inbounds i8, ptr %.082, i64 64
   %127 = load float, ptr %126, align 8
   %128 = fcmp une float %127, 0.000000e+00
-  %129 = fsub float %127, %.06982
+  %129 = fsub float %127, %.06983
   %130 = select i1 %128, float %129, float 0.000000e+00
   %131 = getelementptr inbounds i8, ptr %112, i64 120
   %132 = load i32, ptr %131, align 8
   %133 = fpext float %127 to double
   %134 = fpext float %130 to double
-  %135 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %104, i32 noundef %132, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %116, ptr noundef nonnull @.str.29, ptr noundef nonnull %.0, ptr noundef nonnull %109, i32 noundef %116, double noundef %133, double noundef %134) #4
-  %136 = getelementptr inbounds i8, ptr %.07083, i64 56
-  %.070 = load ptr, ptr %136, align 8
-  %.not75 = icmp eq ptr %.070, null
+  %135 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %104, i32 noundef %132, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %116, ptr noundef nonnull @.str.29, ptr noundef nonnull %.070, ptr noundef nonnull %109, i32 noundef %116, double noundef %133, double noundef %134) #4
+  %136 = getelementptr inbounds i8, ptr %.082, i64 56
+  %.0 = load ptr, ptr %136, align 8
+  %.not75 = icmp eq ptr %.0, null
   br i1 %.not75, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %125, %101, %91

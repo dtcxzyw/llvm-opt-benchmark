@@ -177,15 +177,15 @@ define internal range(i32 -1, 1) i32 @mca_part_persist_progress() #0 {
 61:                                               ; preds = %35
   %62 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_part_persist, i64 64), align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 32
-  %.0180261 = load volatile ptr, ptr %63, align 8
+  %.0178261 = load volatile ptr, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %62, i64 16
-  %.not262 = icmp eq ptr %.0180261, %64
+  %.not262 = icmp eq ptr %.0178261, %64
   br i1 %.not262, label %._crit_edge267, label %.lr.ph266
 
 .lr.ph266:                                        ; preds = %61, %295
-  %.0180264 = phi ptr [ %.0180, %295 ], [ %.0180261, %61 ]
-  %.0177263 = phi ptr [ %.1, %295 ], [ null, %61 ]
-  %65 = getelementptr inbounds i8, ptr %.0180264, i64 40
+  %.0178264 = phi ptr [ %.0178, %295 ], [ %.0178261, %61 ]
+  %.0180263 = phi ptr [ %.1181, %295 ], [ null, %61 ]
+  %65 = getelementptr inbounds i8, ptr %.0178264, i64 40
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 588
   %68 = load i32, ptr %67, align 4
@@ -256,22 +256,22 @@ define internal range(i32 -1, 1) i32 @mca_part_persist_progress() #0 {
   br label %111
 
 111:                                              ; preds = %.lr.ph260, %111
-  %.0178258 = phi i64 [ 0, %.lr.ph260 ], [ %126, %111 ]
+  %.0179258 = phi i64 [ 0, %.lr.ph260 ], [ %126, %111 ]
   %112 = load ptr, ptr %108, align 8
-  %113 = mul i64 %.0178258, %109
+  %113 = mul i64 %.0179258, %109
   %114 = getelementptr inbounds i8, ptr %112, i64 %113
   %115 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 80), align 8
   %116 = load i64, ptr %99, align 8
   %117 = load ptr, ptr %96, align 8
   %118 = load i32, ptr %95, align 8
   %119 = load i32, ptr %110, align 8
-  %120 = trunc i64 %.0178258 to i32
+  %120 = trunc i64 %.0179258 to i32
   %121 = add i32 %119, %120
   %122 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_part_persist, i64 80), align 8
   %123 = load ptr, ptr %105, align 8
-  %124 = getelementptr inbounds ptr, ptr %123, i64 %.0178258
+  %124 = getelementptr inbounds ptr, ptr %123, i64 %.0179258
   %125 = call i32 %115(ptr noundef %114, i64 noundef %116, ptr noundef %117, i32 noundef %118, i32 noundef %121, i32 noundef 4, ptr noundef %122, ptr noundef %124) #10
-  %126 = add nuw i64 %.0178258, 1
+  %126 = add nuw i64 %.0179258, 1
   %127 = load i64, ptr %101, align 8
   %128 = icmp ult i64 %126, %127
   br i1 %128, label %111, label %.loopexit, !llvm.loop !4
@@ -319,22 +319,22 @@ define internal range(i32 -1, 1) i32 @mca_part_persist_progress() #0 {
   br label %156
 
 156:                                              ; preds = %.lr.ph253, %156
-  %.1179251 = phi i64 [ 0, %.lr.ph253 ], [ %171, %156 ]
+  %.1251 = phi i64 [ 0, %.lr.ph253 ], [ %171, %156 ]
   %157 = load ptr, ptr %154, align 8
-  %158 = mul i64 %.1179251, %155
+  %158 = mul i64 %.1251, %155
   %159 = getelementptr inbounds i8, ptr %157, i64 %158
   %160 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 56), align 8
   %161 = load i64, ptr %143, align 8
   %162 = load ptr, ptr %144, align 8
   %163 = load i32, ptr %133, align 8
   %164 = load i32, ptr %135, align 8
-  %165 = trunc i64 %.1179251 to i32
+  %165 = trunc i64 %.1251 to i32
   %166 = add i32 %164, %165
   %167 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_part_persist, i64 80), align 8
   %168 = load ptr, ptr %149, align 8
-  %169 = getelementptr inbounds ptr, ptr %168, i64 %.1179251
+  %169 = getelementptr inbounds ptr, ptr %168, i64 %.1251
   %170 = call i32 %160(ptr noundef %159, i64 noundef %161, ptr noundef %162, i32 noundef %163, i32 noundef %166, ptr noundef %167, ptr noundef %169) #10
-  %171 = add nuw i64 %.1179251, 1
+  %171 = add nuw i64 %.1251, 1
   %172 = load i64, ptr %140, align 8
   %173 = icmp ult i64 %171, %172
   br i1 %173, label %156, label %._crit_edge254.loopexit, !llvm.loop !6
@@ -564,20 +564,20 @@ ompi_request_complete.exit:                       ; preds = %opal_thread_swap_pt
   %292 = getelementptr inbounds i8, ptr %66, i64 96
   %293 = load volatile i32, ptr %292, align 8
   %294 = icmp eq i32 %293, 1
-  %spec.select = select i1 %294, ptr %66, ptr %.0177263
+  %spec.select = select i1 %294, ptr %66, ptr %.0180263
   br label %295
 
 295:                                              ; preds = %291, %.loopexit, %82, %287, %284, %ompi_request_complete.exit
-  %.1 = phi ptr [ %.0177263, %.loopexit ], [ %.0177263, %82 ], [ %.0177263, %287 ], [ %.0177263, %284 ], [ %.0177263, %ompi_request_complete.exit ], [ %spec.select, %291 ]
-  %296 = getelementptr inbounds i8, ptr %.0180264, i64 16
-  %.0180 = load volatile ptr, ptr %296, align 8
+  %.1181 = phi ptr [ %.0180263, %.loopexit ], [ %.0180263, %82 ], [ %.0180263, %287 ], [ %.0180263, %284 ], [ %.0180263, %ompi_request_complete.exit ], [ %spec.select, %291 ]
+  %296 = getelementptr inbounds i8, ptr %.0178264, i64 16
+  %.0178 = load volatile ptr, ptr %296, align 8
   %297 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_part_persist, i64 64), align 8
   %298 = getelementptr inbounds i8, ptr %297, i64 16
-  %.not = icmp eq ptr %.0180, %298
+  %.not = icmp eq ptr %.0178, %298
   br i1 %.not, label %._crit_edge267, label %.lr.ph266, !llvm.loop !8
 
 ._crit_edge267:                                   ; preds = %295, %61
-  %.0177.lcssa = phi ptr [ null, %61 ], [ %.1, %295 ]
+  %.0180.lcssa = phi ptr [ null, %61 ], [ %.1181, %295 ]
   %299 = load i8, ptr @opal_uses_threads, align 1
   %300 = trunc i8 %299 to i1
   br i1 %300, label %301, label %303
@@ -588,12 +588,12 @@ ompi_request_complete.exit:                       ; preds = %opal_thread_swap_pt
 
 303:                                              ; preds = %._crit_edge267, %301
   %304 = atomicrmw volatile add ptr getelementptr inbounds (i8, ptr @ompi_part_persist, i64 136), i32 -1 monotonic, align 4
-  %.not187 = icmp eq ptr %.0177.lcssa, null
+  %.not187 = icmp eq ptr %.0180.lcssa, null
   br i1 %.not187, label %opal_free_list_return.exit, label %305
 
 305:                                              ; preds = %303
   %306 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_part_persist, i64 64), align 8
-  %307 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 680
+  %307 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 680
   %308 = load ptr, ptr %307, align 8
   %309 = getelementptr inbounds i8, ptr %308, i64 16
   %310 = load volatile ptr, ptr %309, align 8
@@ -662,13 +662,13 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %343
 
 343:                                              ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit
-  %344 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 520
+  %344 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 520
   %345 = load i64, ptr %344, align 8
   %.not276 = icmp eq i64 %345, 0
   br i1 %.not276, label %._crit_edge272, label %.lr.ph271
 
 .lr.ph271:                                        ; preds = %343
-  %346 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 544
+  %346 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 544
   br label %347
 
 347:                                              ; preds = %.lr.ph271, %347
@@ -685,19 +685,19 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %356, label %347, label %._crit_edge272, !llvm.loop !10
 
 ._crit_edge272:                                   ; preds = %347, %343
-  %357 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 544
+  %357 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 544
   %358 = load ptr, ptr %357, align 8
   call void @free(ptr noundef %358) #10
-  %359 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 608
+  %359 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 608
   %360 = load ptr, ptr %359, align 8
   call void @free(ptr noundef %360) #10
-  %361 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 168
+  %361 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 168
   %362 = load i32, ptr %361, align 8
   %363 = icmp eq i32 %362, 1
   br i1 %363, label %364, label %460
 
 364:                                              ; preds = %._crit_edge272
-  %365 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 176
+  %365 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 176
   %366 = load ptr, ptr %365, align 8
   %367 = getelementptr inbounds i8, ptr %366, i64 8
   %368 = load i8, ptr @opal_uses_threads, align 1
@@ -750,7 +750,7 @@ opal_obj_run_destructors.exit212:                 ; preds = %opal_obj_run_destru
   br label %388
 
 388:                                              ; preds = %opal_obj_run_destructors.exit212, %opal_thread_add_fetch_32.exit207
-  %389 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 184
+  %389 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 184
   %390 = load ptr, ptr %389, align 8
   %391 = getelementptr i8, ptr %390, i64 16
   %.val = load i16, ptr %391, align 8
@@ -810,9 +810,9 @@ opal_obj_run_destructors.exit219:                 ; preds = %opal_obj_run_destru
   br label %415
 
 415:                                              ; preds = %opal_thread_add_fetch_32.exit214, %opal_obj_run_destructors.exit219, %388
-  %416 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 96
+  %416 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 96
   store volatile i32 0, ptr %416, align 8
-  %417 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 104
+  %417 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 104
   %418 = load i32, ptr %417, align 8
   %.not191 = icmp eq i32 %418, -32766
   br i1 %.not191, label %421, label %419
@@ -823,26 +823,26 @@ opal_obj_run_destructors.exit219:                 ; preds = %opal_obj_run_destru
   br label %421
 
 421:                                              ; preds = %419, %415
-  %422 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 256
+  %422 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 256
   %423 = load i32, ptr %422, align 8
   %424 = icmp ugt i32 %423, 5
   br i1 %424, label %425, label %opal_convertor_cleanup.exit
 
 425:                                              ; preds = %421
-  %426 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 272
+  %426 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 272
   %427 = load ptr, ptr %426, align 8
   call void @free(ptr noundef %427) #10
-  %428 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 336
+  %428 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 336
   store ptr %428, ptr %426, align 8
   store i32 5, ptr %422, align 8
   br label %opal_convertor_cleanup.exit
 
 opal_convertor_cleanup.exit:                      ; preds = %421, %425
-  %429 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 232
+  %429 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 232
   store ptr null, ptr %429, align 8
-  %430 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 296
+  %430 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 296
   store i32 0, ptr %430, align 8
-  %431 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 212
+  %431 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 212
   store i32 134217760, ptr %431, align 4
   %432 = load i8, ptr @opal_uses_threads, align 1
   %433 = trunc i8 %432 to i1
@@ -850,11 +850,11 @@ opal_convertor_cleanup.exit:                      ; preds = %421, %425
   br i1 %433, label %435, label %448
 
 435:                                              ; preds = %opal_convertor_cleanup.exit
-  %436 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 16
+  %436 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 16
   %.08.i.i.i = inttoptr i64 %434 to ptr
   store volatile ptr %.08.i.i.i, ptr %436, align 8
   fence release
-  %437 = ptrtoint ptr %.0177.lcssa to i64
+  %437 = ptrtoint ptr %.0180.lcssa to i64
   %438 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_part_base_precv_requests, i64 24), i64 %434, i64 %437 acquire monotonic, align 8
   %439 = extractvalue { i64, i1 } %438, 1
   br i1 %439, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
@@ -884,11 +884,11 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
 
 448:                                              ; preds = %opal_convertor_cleanup.exit
   %449 = inttoptr i64 %434 to ptr
-  %450 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 16
+  %450 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 16
   store volatile ptr %449, ptr %450, align 8
-  %451 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 32
+  %451 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 32
   store i32 0, ptr %451, align 8
-  %452 = ptrtoint ptr %.0177.lcssa to i64
+  %452 = ptrtoint ptr %.0180.lcssa to i64
   store volatile i64 %452, ptr getelementptr inbounds (i8, ptr @mca_part_base_precv_requests, i64 24), align 8
   %453 = load volatile ptr, ptr %450, align 8
   %454 = icmp ne ptr %453, getelementptr inbounds (i8, ptr @mca_part_base_precv_requests, i64 32)
@@ -909,7 +909,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %456, %446
   br label %opal_free_list_return.exit
 
 460:                                              ; preds = %._crit_edge272
-  %461 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 184
+  %461 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 184
   %462 = load ptr, ptr %461, align 8
   %463 = getelementptr i8, ptr %462, i64 16
   %.val202 = load i16, ptr %463, align 8
@@ -925,7 +925,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %456, %446
 
 opal_thread_add_fetch_32.exit223.thread:          ; preds = %465
   %468 = atomicrmw volatile add ptr %466, i32 1 monotonic, align 4
-  %469 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 176
+  %469 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 176
   %470 = load ptr, ptr %469, align 8
   %471 = getelementptr inbounds i8, ptr %470, i64 8
   br label %481
@@ -935,14 +935,14 @@ opal_thread_add_fetch_32.exit223.thread295:       ; preds = %465
   %473 = add nsw i32 %472, 1
   store volatile i32 %473, ptr %466, align 4
   %474 = load volatile i32, ptr %466, align 4
-  %475 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 176
+  %475 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 176
   %476 = load ptr, ptr %475, align 8
   %477 = getelementptr inbounds i8, ptr %476, i64 8
   br label %486
 
 opal_thread_add_fetch_32.exit223:                 ; preds = %460
   %.pre289 = trunc i8 %.pre283 to i1
-  %478 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 176
+  %478 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 176
   %479 = load ptr, ptr %478, align 8
   %480 = getelementptr inbounds i8, ptr %479, i64 8
   br i1 %.pre289, label %481, label %486
@@ -998,9 +998,9 @@ opal_obj_run_destructors.exit230:                 ; preds = %opal_obj_run_destru
   br label %504
 
 504:                                              ; preds = %opal_obj_run_destructors.exit230, %opal_thread_add_fetch_32.exit225
-  %505 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 96
+  %505 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 96
   store volatile i32 0, ptr %505, align 8
-  %506 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 104
+  %506 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 104
   %507 = load i32, ptr %506, align 8
   %.not189 = icmp eq i32 %507, -32766
   br i1 %.not189, label %510, label %508
@@ -1011,26 +1011,26 @@ opal_obj_run_destructors.exit230:                 ; preds = %opal_obj_run_destru
   br label %510
 
 510:                                              ; preds = %508, %504
-  %511 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 256
+  %511 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 256
   %512 = load i32, ptr %511, align 8
   %513 = icmp ugt i32 %512, 5
   br i1 %513, label %514, label %opal_convertor_cleanup.exit231
 
 514:                                              ; preds = %510
-  %515 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 272
+  %515 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 272
   %516 = load ptr, ptr %515, align 8
   call void @free(ptr noundef %516) #10
-  %517 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 336
+  %517 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 336
   store ptr %517, ptr %515, align 8
   store i32 5, ptr %511, align 8
   br label %opal_convertor_cleanup.exit231
 
 opal_convertor_cleanup.exit231:                   ; preds = %510, %514
-  %518 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 232
+  %518 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 232
   store ptr null, ptr %518, align 8
-  %519 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 296
+  %519 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 296
   store i32 0, ptr %519, align 8
-  %520 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 212
+  %520 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 212
   store i32 134217760, ptr %520, align 4
   %521 = load i8, ptr @opal_uses_threads, align 1
   %522 = trunc i8 %521 to i1
@@ -1038,11 +1038,11 @@ opal_convertor_cleanup.exit231:                   ; preds = %510, %514
   br i1 %522, label %524, label %537
 
 524:                                              ; preds = %opal_convertor_cleanup.exit231
-  %525 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 16
+  %525 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 16
   %.08.i.i.i235 = inttoptr i64 %523 to ptr
   store volatile ptr %.08.i.i.i235, ptr %525, align 8
   fence release
-  %526 = ptrtoint ptr %.0177.lcssa to i64
+  %526 = ptrtoint ptr %.0180.lcssa to i64
   %527 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_part_base_psend_requests, i64 24), i64 %523, i64 %526 acquire monotonic, align 8
   %528 = extractvalue { i64, i1 } %527, 1
   br i1 %528, label %opal_lifo_push_atomic.exit.i.i238, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i236
@@ -1072,11 +1072,11 @@ opal_lifo_push_atomic.exit.i.i238:                ; preds = %opal_atomic_compare
 
 537:                                              ; preds = %opal_convertor_cleanup.exit231
   %538 = inttoptr i64 %523 to ptr
-  %539 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 16
+  %539 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 16
   store volatile ptr %538, ptr %539, align 8
-  %540 = getelementptr inbounds i8, ptr %.0177.lcssa, i64 32
+  %540 = getelementptr inbounds i8, ptr %.0180.lcssa, i64 32
   store i32 0, ptr %540, align 8
-  %541 = ptrtoint ptr %.0177.lcssa to i64
+  %541 = ptrtoint ptr %.0180.lcssa to i64
   store volatile i64 %541, ptr getelementptr inbounds (i8, ptr @mca_part_base_psend_requests, i64 24), align 8
   %542 = load volatile ptr, ptr %539, align 8
   %543 = icmp ne ptr %542, getelementptr inbounds (i8, ptr @mca_part_base_psend_requests, i64 32)
@@ -1097,8 +1097,8 @@ opal_free_list_return_mt.exit.sink.split.i234:    ; preds = %545, %535
   br label %opal_free_list_return.exit
 
 opal_free_list_return.exit:                       ; preds = %._crit_edge254, %opal_free_list_return_mt.exit.sink.split.i234, %545, %537, %535, %opal_lifo_push_atomic.exit.i.i238, %opal_free_list_return_mt.exit.sink.split.i, %456, %448, %446, %opal_lifo_push_atomic.exit.i.i, %303, %59, %33, %19, %5
-  %.0181 = phi i32 [ 0, %5 ], [ 0, %19 ], [ 0, %33 ], [ 0, %59 ], [ 0, %303 ], [ 0, %opal_lifo_push_atomic.exit.i.i ], [ 0, %446 ], [ 0, %448 ], [ 0, %456 ], [ 0, %opal_free_list_return_mt.exit.sink.split.i ], [ 0, %opal_lifo_push_atomic.exit.i.i238 ], [ 0, %535 ], [ 0, %537 ], [ 0, %545 ], [ 0, %opal_free_list_return_mt.exit.sink.split.i234 ], [ -1, %._crit_edge254 ]
-  ret i32 %.0181
+  %.0177 = phi i32 [ 0, %5 ], [ 0, %19 ], [ 0, %33 ], [ 0, %59 ], [ 0, %303 ], [ 0, %opal_lifo_push_atomic.exit.i.i ], [ 0, %446 ], [ 0, %448 ], [ 0, %456 ], [ 0, %opal_free_list_return_mt.exit.sink.split.i ], [ 0, %opal_lifo_push_atomic.exit.i.i238 ], [ 0, %535 ], [ 0, %537 ], [ 0, %545 ], [ 0, %opal_free_list_return_mt.exit.sink.split.i234 ], [ -1, %._crit_edge254 ]
+  ret i32 %.0177
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
@@ -2081,8 +2081,8 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br i1 %.not, label %._crit_edge, label %.lr.ph38
 
 .lr.ph38:                                         ; preds = %2, %opal_thread_swap_ptr.exit
-  %.037 = phi i64 [ %48, %opal_thread_swap_ptr.exit ], [ 0, %2 ]
-  %3 = getelementptr inbounds ptr, ptr %1, i64 %.037
+  %.03437 = phi i64 [ %48, %opal_thread_swap_ptr.exit ], [ 0, %2 ]
+  %3 = getelementptr inbounds ptr, ptr %1, i64 %.03437
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 592
   %6 = load i32, ptr %5, align 8
@@ -2126,18 +2126,18 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br label %29
 
 29:                                               ; preds = %.lr.ph, %29
-  %.136 = phi i64 [ 0, %.lr.ph ], [ %32, %29 ]
+  %.13536 = phi i64 [ 0, %.lr.ph ], [ %32, %29 ]
   %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %.136
+  %31 = getelementptr inbounds i32, ptr %30, i64 %.13536
   store i32 -1, ptr %31, align 4
-  %32 = add nuw i64 %.136, 1
+  %32 = add nuw i64 %.13536, 1
   %33 = load i64, ptr %26, align 8
   %34 = icmp ult i64 %32, %33
   br i1 %34, label %29, label %.loopexit, !llvm.loop !16
 
 .loopexit.sink.split:                             ; preds = %15, %13
   %.sink43 = phi ptr [ %14, %13 ], [ %21, %15 ]
-  %.135.ph = phi i32 [ 0, %13 ], [ %23, %15 ]
+  %.1.ph = phi i32 [ 0, %13 ], [ %23, %15 ]
   %.sink.in = getelementptr inbounds i8, ptr %4, i64 608
   %.sink = load ptr, ptr %.sink.in, align 8
   %35 = load i64, ptr %.sink43, align 8
@@ -2146,8 +2146,8 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %.loopexit.sink.split, %24, %25
-  %.135 = phi i32 [ 0, %25 ], [ 0, %24 ], [ %.135.ph, %.loopexit.sink.split ], [ 0, %29 ]
-  %.2 = phi i64 [ 0, %25 ], [ %.037, %24 ], [ %.037, %.loopexit.sink.split ], [ %32, %29 ]
+  %.2 = phi i64 [ 0, %25 ], [ %.03437, %24 ], [ %.03437, %.loopexit.sink.split ], [ %32, %29 ]
+  %.1 = phi i32 [ 0, %25 ], [ 0, %24 ], [ %.1.ph, %.loopexit.sink.split ], [ 0, %29 ]
   %37 = getelementptr inbounds i8, ptr %4, i64 96
   store volatile i32 2, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %4, i64 68
@@ -2175,13 +2175,13 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
 opal_thread_swap_ptr.exit:                        ; preds = %45, %47
   %48 = add i64 %.2, 1
   %49 = icmp ult i64 %48, %0
-  %50 = icmp eq i32 %.135, 0
+  %50 = icmp eq i32 %.1, 0
   %51 = select i1 %49, i1 %50, i1 false
   br i1 %51, label %.lr.ph38, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %opal_thread_swap_ptr.exit, %2
-  %.034.lcssa = phi i32 [ 0, %2 ], [ %.135, %opal_thread_swap_ptr.exit ]
-  ret i32 %.034.lcssa
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %opal_thread_swap_ptr.exit ]
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
@@ -2220,11 +2220,11 @@ define internal noundef i32 @mca_part_persist_pready(i64 noundef %0, i64 noundef
   br label %.lr.ph27.split
 
 .lr.ph27.split:                                   ; preds = %.lr.ph27.split.preheader, %.lr.ph27.split
-  %.026 = phi i64 [ %23, %.lr.ph27.split ], [ %0, %.lr.ph27.split.preheader ]
+  %.02226 = phi i64 [ %23, %.lr.ph27.split ], [ %0, %.lr.ph27.split.preheader ]
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i32, ptr %21, i64 %.026
+  %22 = getelementptr inbounds i32, ptr %21, i64 %.02226
   store i32 0, ptr %22, align 4
-  %23 = add i64 %.026, 1
+  %23 = add i64 %.02226, 1
   %.not29 = icmp ugt i64 %23, %1
   br i1 %.not29, label %.loopexit, label %.lr.ph27.split, !llvm.loop !18
 
@@ -2238,8 +2238,8 @@ define internal noundef i32 @mca_part_persist_pready(i64 noundef %0, i64 noundef
   br i1 %.not, label %.loopexit, label %24, !llvm.loop !19
 
 .loopexit:                                        ; preds = %24, %.lr.ph27.split, %.preheader, %8
-  %.022 = phi i32 [ %.fr28, %8 ], [ 0, %.preheader ], [ 0, %.lr.ph27.split ], [ 0, %24 ]
-  ret i32 %.022
+  %.0 = phi i32 [ %.fr28, %8 ], [ 0, %.preheader ], [ 0, %.lr.ph27.split ], [ 0, %24 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable

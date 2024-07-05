@@ -721,9 +721,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge309
 
 ._crit_edge309:                                   ; preds = %327, %309, %321, %324, %338, %334
-  %.0215 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
+  %.0216 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
   %341 = zext nneg i16 %317 to i128
-  %342 = ashr i128 %.0215, %341
+  %342 = ashr i128 %.0216, %341
   %343 = icmp slt i128 %342, %256
   br i1 %343, label %.sink.split320, label %344
 
@@ -733,15 +733,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %345, label %.sink.split320, label %347
 
 .sink.split320:                                   ; preds = %344, %._crit_edge309
-  %.1216.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
-  %.1216.off0.ph = trunc i64 %.1216.off0.ph.in to i16
+  %.1217.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
+  %.1217.off0.ph = trunc i64 %.1217.off0.ph.in to i16
   %346 = load ptr, ptr %258, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %346, i64 noundef 1) #14
   br label %347
 
 347:                                              ; preds = %.sink.split320, %344
-  %.1216.off0 = phi i16 [ %extract.t249, %344 ], [ %.1216.off0.ph, %.sink.split320 ]
-  store i16 %.1216.off0, ptr %310, align 2
+  %.1217.off0 = phi i16 [ %extract.t249, %344 ], [ %.1217.off0.ph, %.sink.split320 ]
+  store i16 %.1217.off0, ptr %310, align 2
   br label %387
 
 348:                                              ; preds = %269
@@ -799,9 +799,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge308
 
 ._crit_edge308:                                   ; preds = %366, %348, %360, %363, %377, %373
-  %.0 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
+  %.0215 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
   %380 = zext nneg i32 %356 to i128
-  %381 = ashr i128 %.0, %380
+  %381 = ashr i128 %.0215, %380
   %382 = icmp slt i128 %381, %256
   br i1 %382, label %.sink.split323, label %383
 
@@ -1519,9 +1519,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge309
 
 ._crit_edge309:                                   ; preds = %327, %309, %321, %324, %338, %334
-  %.0215 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
+  %.0216 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
   %341 = zext nneg i16 %317 to i128
-  %342 = ashr i128 %.0215, %341
+  %342 = ashr i128 %.0216, %341
   %343 = icmp slt i128 %342, %256
   br i1 %343, label %.sink.split320, label %344
 
@@ -1531,15 +1531,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %345, label %.sink.split320, label %347
 
 .sink.split320:                                   ; preds = %344, %._crit_edge309
-  %.1216.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
-  %.1216.off0.ph = trunc i64 %.1216.off0.ph.in to i16
+  %.1217.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
+  %.1217.off0.ph = trunc i64 %.1217.off0.ph.in to i16
   %346 = load ptr, ptr %258, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %346, i64 noundef 1) #14
   br label %347
 
 347:                                              ; preds = %.sink.split320, %344
-  %.1216.off0 = phi i16 [ %extract.t249, %344 ], [ %.1216.off0.ph, %.sink.split320 ]
-  store i16 %.1216.off0, ptr %310, align 2
+  %.1217.off0 = phi i16 [ %extract.t249, %344 ], [ %.1217.off0.ph, %.sink.split320 ]
+  store i16 %.1217.off0, ptr %310, align 2
   br label %387
 
 348:                                              ; preds = %269
@@ -1597,9 +1597,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge308
 
 ._crit_edge308:                                   ; preds = %366, %348, %360, %363, %377, %373
-  %.0 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
+  %.0215 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
   %380 = zext nneg i32 %356 to i128
-  %381 = ashr i128 %.0, %380
+  %381 = ashr i128 %.0215, %380
   %382 = icmp slt i128 %381, %256
   br i1 %382, label %.sink.split323, label %383
 
@@ -2278,9 +2278,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge309
 
 ._crit_edge309:                                   ; preds = %327, %309, %321, %324, %338, %334
-  %.0215 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
+  %.0216 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
   %341 = zext nneg i16 %317 to i128
-  %342 = ashr i128 %.0215, %341
+  %342 = ashr i128 %.0216, %341
   %343 = icmp slt i128 %342, %256
   br i1 %343, label %.sink.split320, label %344
 
@@ -2290,15 +2290,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %345, label %.sink.split320, label %347
 
 .sink.split320:                                   ; preds = %344, %._crit_edge309
-  %.1216.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
-  %.1216.off0.ph = trunc i64 %.1216.off0.ph.in to i16
+  %.1217.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
+  %.1217.off0.ph = trunc i64 %.1217.off0.ph.in to i16
   %346 = load ptr, ptr %258, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %346, i64 noundef 1) #14
   br label %347
 
 347:                                              ; preds = %.sink.split320, %344
-  %.1216.off0 = phi i16 [ %extract.t249, %344 ], [ %.1216.off0.ph, %.sink.split320 ]
-  store i16 %.1216.off0, ptr %310, align 2
+  %.1217.off0 = phi i16 [ %extract.t249, %344 ], [ %.1217.off0.ph, %.sink.split320 ]
+  store i16 %.1217.off0, ptr %310, align 2
   br label %387
 
 348:                                              ; preds = %269
@@ -2356,9 +2356,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge308
 
 ._crit_edge308:                                   ; preds = %366, %348, %360, %363, %377, %373
-  %.0 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
+  %.0215 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
   %380 = zext nneg i32 %356 to i128
-  %381 = ashr i128 %.0, %380
+  %381 = ashr i128 %.0215, %380
   %382 = icmp slt i128 %381, %256
   br i1 %382, label %.sink.split323, label %383
 
@@ -3039,9 +3039,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge309
 
 ._crit_edge309:                                   ; preds = %327, %309, %321, %324, %338, %334
-  %.0215 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
+  %.0216 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
   %341 = zext nneg i16 %317 to i128
-  %342 = ashr i128 %.0215, %341
+  %342 = ashr i128 %.0216, %341
   %343 = icmp slt i128 %342, %256
   br i1 %343, label %.sink.split320, label %344
 
@@ -3051,15 +3051,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %345, label %.sink.split320, label %347
 
 .sink.split320:                                   ; preds = %344, %._crit_edge309
-  %.1216.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
-  %.1216.off0.ph = trunc i64 %.1216.off0.ph.in to i16
+  %.1217.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
+  %.1217.off0.ph = trunc i64 %.1217.off0.ph.in to i16
   %346 = load ptr, ptr %258, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %346, i64 noundef 1) #14
   br label %347
 
 347:                                              ; preds = %.sink.split320, %344
-  %.1216.off0 = phi i16 [ %extract.t249, %344 ], [ %.1216.off0.ph, %.sink.split320 ]
-  store i16 %.1216.off0, ptr %310, align 2
+  %.1217.off0 = phi i16 [ %extract.t249, %344 ], [ %.1217.off0.ph, %.sink.split320 ]
+  store i16 %.1217.off0, ptr %310, align 2
   br label %387
 
 348:                                              ; preds = %269
@@ -3117,9 +3117,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge308
 
 ._crit_edge308:                                   ; preds = %366, %348, %360, %363, %377, %373
-  %.0 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
+  %.0215 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
   %380 = zext nneg i32 %356 to i128
-  %381 = ashr i128 %.0, %380
+  %381 = ashr i128 %.0215, %380
   %382 = icmp slt i128 %381, %256
   br i1 %382, label %.sink.split323, label %383
 
@@ -3798,9 +3798,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge309
 
 ._crit_edge309:                                   ; preds = %327, %309, %321, %324, %338, %334
-  %.0215 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
+  %.0216 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
   %341 = zext nneg i16 %317 to i128
-  %342 = ashr i128 %.0215, %341
+  %342 = ashr i128 %.0216, %341
   %343 = icmp slt i128 %342, %256
   br i1 %343, label %.sink.split320, label %344
 
@@ -3810,15 +3810,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %345, label %.sink.split320, label %347
 
 .sink.split320:                                   ; preds = %344, %._crit_edge309
-  %.1216.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
-  %.1216.off0.ph = trunc i64 %.1216.off0.ph.in to i16
+  %.1217.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
+  %.1217.off0.ph = trunc i64 %.1217.off0.ph.in to i16
   %346 = load ptr, ptr %258, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %346, i64 noundef 1) #14
   br label %347
 
 347:                                              ; preds = %.sink.split320, %344
-  %.1216.off0 = phi i16 [ %extract.t249, %344 ], [ %.1216.off0.ph, %.sink.split320 ]
-  store i16 %.1216.off0, ptr %310, align 2
+  %.1217.off0 = phi i16 [ %extract.t249, %344 ], [ %.1217.off0.ph, %.sink.split320 ]
+  store i16 %.1217.off0, ptr %310, align 2
   br label %387
 
 348:                                              ; preds = %269
@@ -3876,9 +3876,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge308
 
 ._crit_edge308:                                   ; preds = %366, %348, %360, %363, %377, %373
-  %.0 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
+  %.0215 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
   %380 = zext nneg i32 %356 to i128
-  %381 = ashr i128 %.0, %380
+  %381 = ashr i128 %.0215, %380
   %382 = icmp slt i128 %381, %256
   br i1 %382, label %.sink.split323, label %383
 
@@ -4559,9 +4559,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge309
 
 ._crit_edge309:                                   ; preds = %327, %309, %321, %324, %338, %334
-  %.0215 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
+  %.0216 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
   %341 = zext nneg i16 %317 to i128
-  %342 = ashr i128 %.0215, %341
+  %342 = ashr i128 %.0216, %341
   %343 = icmp slt i128 %342, %256
   br i1 %343, label %.sink.split320, label %344
 
@@ -4571,15 +4571,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %345, label %.sink.split320, label %347
 
 .sink.split320:                                   ; preds = %344, %._crit_edge309
-  %.1216.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
-  %.1216.off0.ph = trunc i64 %.1216.off0.ph.in to i16
+  %.1217.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
+  %.1217.off0.ph = trunc i64 %.1217.off0.ph.in to i16
   %346 = load ptr, ptr %258, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %346, i64 noundef 1) #14
   br label %347
 
 347:                                              ; preds = %.sink.split320, %344
-  %.1216.off0 = phi i16 [ %extract.t249, %344 ], [ %.1216.off0.ph, %.sink.split320 ]
-  store i16 %.1216.off0, ptr %310, align 2
+  %.1217.off0 = phi i16 [ %extract.t249, %344 ], [ %.1217.off0.ph, %.sink.split320 ]
+  store i16 %.1217.off0, ptr %310, align 2
   br label %387
 
 348:                                              ; preds = %269
@@ -4637,9 +4637,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge308
 
 ._crit_edge308:                                   ; preds = %366, %348, %360, %363, %377, %373
-  %.0 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
+  %.0215 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
   %380 = zext nneg i32 %356 to i128
-  %381 = ashr i128 %.0, %380
+  %381 = ashr i128 %.0215, %380
   %382 = icmp slt i128 %381, %256
   br i1 %382, label %.sink.split323, label %383
 
@@ -5318,9 +5318,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge309
 
 ._crit_edge309:                                   ; preds = %327, %309, %321, %324, %338, %334
-  %.0215 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
+  %.0216 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
   %341 = zext nneg i16 %317 to i128
-  %342 = ashr i128 %.0215, %341
+  %342 = ashr i128 %.0216, %341
   %343 = icmp slt i128 %342, %256
   br i1 %343, label %.sink.split320, label %344
 
@@ -5330,15 +5330,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %345, label %.sink.split320, label %347
 
 .sink.split320:                                   ; preds = %344, %._crit_edge309
-  %.1216.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
-  %.1216.off0.ph = trunc i64 %.1216.off0.ph.in to i16
+  %.1217.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
+  %.1217.off0.ph = trunc i64 %.1217.off0.ph.in to i16
   %346 = load ptr, ptr %258, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %346, i64 noundef 1) #14
   br label %347
 
 347:                                              ; preds = %.sink.split320, %344
-  %.1216.off0 = phi i16 [ %extract.t249, %344 ], [ %.1216.off0.ph, %.sink.split320 ]
-  store i16 %.1216.off0, ptr %310, align 2
+  %.1217.off0 = phi i16 [ %extract.t249, %344 ], [ %.1217.off0.ph, %.sink.split320 ]
+  store i16 %.1217.off0, ptr %310, align 2
   br label %387
 
 348:                                              ; preds = %269
@@ -5396,9 +5396,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge308
 
 ._crit_edge308:                                   ; preds = %366, %348, %360, %363, %377, %373
-  %.0 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
+  %.0215 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
   %380 = zext nneg i32 %356 to i128
-  %381 = ashr i128 %.0, %380
+  %381 = ashr i128 %.0215, %380
   %382 = icmp slt i128 %381, %256
   br i1 %382, label %.sink.split323, label %383
 
@@ -6079,9 +6079,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge309
 
 ._crit_edge309:                                   ; preds = %327, %309, %321, %324, %338, %334
-  %.0215 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
+  %.0216 = phi i128 [ %316, %309 ], [ %340, %338 ], [ %316, %334 ], [ %316, %324 ], [ %323, %321 ], [ %spec.select326, %327 ]
   %341 = zext nneg i16 %317 to i128
-  %342 = ashr i128 %.0215, %341
+  %342 = ashr i128 %.0216, %341
   %343 = icmp slt i128 %342, %256
   br i1 %343, label %.sink.split320, label %344
 
@@ -6091,15 +6091,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %345, label %.sink.split320, label %347
 
 .sink.split320:                                   ; preds = %344, %._crit_edge309
-  %.1216.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
-  %.1216.off0.ph = trunc i64 %.1216.off0.ph.in to i16
+  %.1217.off0.ph.in = phi i64 [ %16, %._crit_edge309 ], [ %15, %344 ]
+  %.1217.off0.ph = trunc i64 %.1217.off0.ph.in to i16
   %346 = load ptr, ptr %258, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %346, i64 noundef 1) #14
   br label %347
 
 347:                                              ; preds = %.sink.split320, %344
-  %.1216.off0 = phi i16 [ %extract.t249, %344 ], [ %.1216.off0.ph, %.sink.split320 ]
-  store i16 %.1216.off0, ptr %310, align 2
+  %.1217.off0 = phi i16 [ %extract.t249, %344 ], [ %.1217.off0.ph, %.sink.split320 ]
+  store i16 %.1217.off0, ptr %310, align 2
   br label %387
 
 348:                                              ; preds = %269
@@ -6157,9 +6157,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %._crit_edge308
 
 ._crit_edge308:                                   ; preds = %366, %348, %360, %363, %377, %373
-  %.0 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
+  %.0215 = phi i128 [ %355, %348 ], [ %379, %377 ], [ %355, %373 ], [ %355, %363 ], [ %362, %360 ], [ %spec.select327, %366 ]
   %380 = zext nneg i32 %356 to i128
-  %381 = ashr i128 %.0, %380
+  %381 = ashr i128 %.0215, %380
   %382 = icmp slt i128 %381, %256
   br i1 %382, label %.sink.split323, label %383
 

@@ -363,8 +363,8 @@ runChild2.exit:                                   ; preds = %104
   br label %114
 
 114:                                              ; preds = %.loopexit, %21
-  %.018 = phi i32 [ %.1, %.loopexit ], [ 1, %21 ]
-  ret i32 %.018
+  %.0 = phi i32 [ %.1, %.loopexit ], [ 1, %21 ]
+  ret i32 %.0
 }
 
 declare ptr @cmsysProcess_New() local_unnamed_addr #1

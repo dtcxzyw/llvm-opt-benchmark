@@ -115,11 +115,11 @@ while.body.lr.ph:                                 ; preds = %if.end28
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %strbuf_addch.exit
-  %spanned.0319 = phi i64 [ %add, %while.body.lr.ph ], [ %dec, %strbuf_addch.exit ]
-  %url.addr.0318 = phi ptr [ %url, %while.body.lr.ph ], [ %incdec.ptr, %strbuf_addch.exit ]
-  %dec = add i64 %spanned.0319, -1
-  %incdec.ptr = getelementptr inbounds i8, ptr %url.addr.0318, i64 1
-  %7 = load i8, ptr %url.addr.0318, align 1
+  %url.addr.0319 = phi ptr [ %url, %while.body.lr.ph ], [ %incdec.ptr, %strbuf_addch.exit ]
+  %spanned.0318 = phi i64 [ %add, %while.body.lr.ph ], [ %dec, %strbuf_addch.exit ]
+  %dec = add i64 %spanned.0318, -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %url.addr.0319, i64 1
+  %7 = load i8, ptr %url.addr.0319, align 1
   %idxprom.i = zext i8 %7 to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
   %8 = load i8, ptr %arrayidx.i, align 1
@@ -235,9 +235,9 @@ if.else:                                          ; preds = %if.end51
 
 if.end71:                                         ; preds = %if.then38.if.end71_crit_edge, %if.then56, %if.else
   %sub.ptr.rhs.cast74.pre-phi = phi i64 [ %.pre351, %if.then38.if.end71_crit_edge ], [ %sub.ptr.rhs.cast, %if.then56 ], [ %sub.ptr.rhs.cast, %if.else ]
-  %user_len.0 = phi i64 [ 0, %if.then38.if.end71_crit_edge ], [ %sub66, %if.then56 ], [ %sub69, %if.else ]
-  %passwd_off.0 = phi i64 [ 0, %if.then38.if.end71_crit_edge ], [ %sub.ptr.sub61, %if.then56 ], [ 0, %if.else ]
   %passwd_len.0 = phi i64 [ 0, %if.then38.if.end71_crit_edge ], [ %sub63, %if.then56 ], [ 0, %if.else ]
+  %passwd_off.0 = phi i64 [ 0, %if.then38.if.end71_crit_edge ], [ %sub.ptr.sub61, %if.then56 ], [ 0, %if.else ]
+  %user_len.0 = phi i64 [ 0, %if.then38.if.end71_crit_edge ], [ %sub66, %if.then56 ], [ %sub69, %if.else ]
   call fastcc void @strbuf_addch(ptr noundef nonnull %norm, i32 noundef 64)
   %incdec.ptr72 = getelementptr inbounds i8, ptr %call33, i64 1
   %sub.ptr.lhs.cast73 = ptrtoint ptr %incdec.ptr72 to i64
@@ -246,12 +246,12 @@ if.end71:                                         ; preds = %if.then38.if.end71_
   br label %if.end77
 
 if.end77:                                         ; preds = %if.end71, %while.end
-  %url.addr.1 = phi ptr [ %incdec.ptr72, %if.end71 ], [ %url.addr.0.lcssa, %while.end ]
-  %url_len.0 = phi i64 [ %sub76, %if.end71 ], [ %sub, %while.end ]
-  %user_off.0 = phi i64 [ %17, %if.end71 ], [ 0, %while.end ]
-  %user_len.1 = phi i64 [ %user_len.0, %if.end71 ], [ 0, %while.end ]
-  %passwd_off.1 = phi i64 [ %passwd_off.0, %if.end71 ], [ 0, %while.end ]
   %passwd_len.1 = phi i64 [ %passwd_len.0, %if.end71 ], [ 0, %while.end ]
+  %passwd_off.1 = phi i64 [ %passwd_off.0, %if.end71 ], [ 0, %while.end ]
+  %user_len.1 = phi i64 [ %user_len.0, %if.end71 ], [ 0, %while.end ]
+  %user_off.0 = phi i64 [ %17, %if.end71 ], [ 0, %while.end ]
+  %url_len.0 = phi i64 [ %sub76, %if.end71 ], [ %sub, %while.end ]
+  %url.addr.1 = phi ptr [ %incdec.ptr72, %if.end71 ], [ %url.addr.0.lcssa, %while.end ]
   %tobool78.not = icmp eq i64 %url_len.0, 0
   br i1 %tobool78.not, label %if.then83, label %lor.lhs.false79
 
@@ -401,9 +401,9 @@ if.end151:                                        ; preds = %_.exit194, %if.then
   br label %return
 
 while.body156:                                    ; preds = %while.body156.lr.ph, %strbuf_addch.exit213
-  %url.addr.2321 = phi ptr [ %url.addr.1, %while.body156.lr.ph ], [ %incdec.ptr157, %strbuf_addch.exit213 ]
-  %incdec.ptr157 = getelementptr inbounds i8, ptr %url.addr.2321, i64 1
-  %33 = load i8, ptr %url.addr.2321, align 1
+  %url.addr.2322 = phi ptr [ %url.addr.1, %while.body156.lr.ph ], [ %incdec.ptr157, %strbuf_addch.exit213 ]
+  %incdec.ptr157 = getelementptr inbounds i8, ptr %url.addr.2322, i64 1
+  %33 = load i8, ptr %url.addr.2322, align 1
   %idxprom.i195 = zext i8 %33 to i64
   %arrayidx.i196 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i195
   %34 = load i8, ptr %arrayidx.i196, align 1
@@ -445,8 +445,8 @@ while.end161.loopexit:                            ; preds = %strbuf_addch.exit21
   br label %while.end161
 
 while.end161:                                     ; preds = %while.end161.loopexit, %while.cond153.preheader
-  %url.addr.2.lcssa = phi ptr [ %url.addr.1, %while.cond153.preheader ], [ %incdec.ptr157, %while.end161.loopexit ]
   %url_len.1.lcssa = phi i64 [ %url_len.0, %while.cond153.preheader ], [ %43, %while.end161.loopexit ]
+  %url.addr.2.lcssa = phi ptr [ %url.addr.1, %while.cond153.preheader ], [ %incdec.ptr157, %while.end161.loopexit ]
   %cmp162 = icmp ult ptr %colon_ptr.1, %add.ptr
   br i1 %cmp162, label %if.then164, label %if.end259
 
@@ -616,10 +616,10 @@ if.end254:                                        ; preds = %if.end177, %land.lh
   br label %if.end259
 
 if.end259:                                        ; preds = %if.end254, %while.end161
-  %url.addr.4 = phi ptr [ %add.ptr, %if.end254 ], [ %url.addr.2.lcssa, %while.end161 ]
-  %url_len.2 = phi i64 [ %sub258, %if.end254 ], [ %url_len.1.lcssa, %while.end161 ]
   %port_off.1 = phi i64 [ %port_off.0, %if.end254 ], [ 0, %while.end161 ]
   %port_len.1 = phi i64 [ %port_len.0, %if.end254 ], [ 0, %while.end161 ]
+  %url_len.2 = phi i64 [ %sub258, %if.end254 ], [ %url_len.1.lcssa, %while.end161 ]
+  %url.addr.4 = phi ptr [ %add.ptr, %if.end254 ], [ %url.addr.2.lcssa, %while.end161 ]
   %tobool260.not = icmp eq i64 %host_off.0, 0
   %len268.phi.trans.insert = getelementptr inbounds i8, ptr %norm, i64 8
   %.pre = load i64, ptr %len268.phi.trans.insert, align 8

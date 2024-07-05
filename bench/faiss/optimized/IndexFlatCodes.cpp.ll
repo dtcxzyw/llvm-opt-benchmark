@@ -198,55 +198,55 @@ define noundef i64 @_ZN5faiss14IndexFlatCodes10remove_idsERKNS_10IDSelectorE(ptr
   br label %8
 
 8:                                                ; preds = %.lr.ph, %23
-  %.017 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
-  %.01316 = phi i64 [ 0, %.lr.ph ], [ %.1, %23 ]
+  %.018 = phi i64 [ 0, %.lr.ph ], [ %.1, %23 ]
+  %.01316 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
   %9 = load ptr, ptr %1, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
+  %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.01316)
   br i1 %11, label %23, label %12
 
 12:                                               ; preds = %8
-  %13 = icmp sgt i64 %.017, %.01316
+  %13 = icmp sgt i64 %.01316, %.018
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %12
   %15 = load i64, ptr %7, align 8
-  %16 = mul i64 %15, %.01316
+  %16 = mul i64 %15, %.018
   %17 = load ptr, ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 %16
-  %19 = mul i64 %15, %.017
+  %19 = mul i64 %15, %.01316
   %20 = getelementptr inbounds i8, ptr %17, i64 %19
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %20, i64 %15, i1 false)
   br label %21
 
 21:                                               ; preds = %14, %12
-  %22 = add nsw i64 %.01316, 1
+  %22 = add nsw i64 %.018, 1
   br label %23
 
 23:                                               ; preds = %21, %8
-  %.1 = phi i64 [ %.01316, %8 ], [ %22, %21 ]
-  %24 = add nuw nsw i64 %.017, 1
+  %.1 = phi i64 [ %.018, %8 ], [ %22, %21 ]
+  %24 = add nuw nsw i64 %.01316, 1
   %25 = load i64, ptr %3, align 8
   %26 = icmp slt i64 %24, %25
   br i1 %26, label %8, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %23, %2
-  %.013.lcssa = phi i64 [ 0, %2 ], [ %.1, %23 ]
+  %.0.lcssa = phi i64 [ 0, %2 ], [ %.1, %23 ]
   %.lcssa = phi i64 [ %4, %2 ], [ %25, %23 ]
-  %.not = icmp eq i64 %.lcssa, %.013.lcssa
+  %.not = icmp eq i64 %.lcssa, %.0.lcssa
   br i1 %.not, label %32, label %27
 
 27:                                               ; preds = %._crit_edge
-  store i64 %.013.lcssa, ptr %3, align 8
+  store i64 %.0.lcssa, ptr %3, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 48
   %29 = getelementptr inbounds i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8
-  %31 = mul i64 %30, %.013.lcssa
+  %31 = mul i64 %30, %.0.lcssa
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 noundef %31)
   br label %32
 
 32:                                               ; preds = %27, %._crit_edge
-  %33 = sub nsw i64 %.lcssa, %.013.lcssa
+  %33 = sub nsw i64 %.lcssa, %.0.lcssa
   ret i64 %33
 }
 

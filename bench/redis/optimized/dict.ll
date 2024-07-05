@@ -3078,27 +3078,27 @@ if.end94:                                         ; preds = %cond.end57, %do.bod
   br label %while.body
 
 while.body:                                       ; preds = %if.end94, %dictGetNext.exit
-  %listlen.044 = phi i32 [ 0, %if.end94 ], [ %inc, %dictGetNext.exit ]
-  %he.143 = phi ptr [ %he.0, %if.end94 ], [ %16, %dictGetNext.exit ]
-  %14 = ptrtoint ptr %he.143 to i64
+  %he.144 = phi ptr [ %he.0, %if.end94 ], [ %16, %dictGetNext.exit ]
+  %listlen.043 = phi i32 [ 0, %if.end94 ], [ %inc, %dictGetNext.exit ]
+  %14 = ptrtoint ptr %he.144 to i64
   %conv.i5.i = and i64 %14, 1
   %tobool.not.i = icmp eq i64 %conv.i5.i, 0
   br i1 %tobool.not.i, label %dictGetNext.exit, label %dictGetNext.exit.thread
 
 dictGetNext.exit.thread:                          ; preds = %while.body
-  %inc54 = add nuw nsw i32 %listlen.044, 1
+  %inc54 = add nuw nsw i32 %listlen.043, 1
   br label %while.end
 
 dictGetNext.exit:                                 ; preds = %while.body
   %and.i.i = and i64 %14, 6
   %cmp.i.not.i = icmp eq i64 %and.i.i, 2
-  %next6.i = getelementptr inbounds i8, ptr %he.143, i64 16
+  %next6.i = getelementptr inbounds i8, ptr %he.144, i64 16
   %and.i.i.i = and i64 %14, -8
   %15 = inttoptr i64 %and.i.i.i to ptr
   %next.i = getelementptr inbounds i8, ptr %15, i64 8
   %next6.sink.i = select i1 %cmp.i.not.i, ptr %next.i, ptr %next6.i
   %16 = load ptr, ptr %next6.sink.i, align 8
-  %inc = add nuw nsw i32 %listlen.044, 1
+  %inc = add nuw nsw i32 %listlen.043, 1
   %tobool.not = icmp eq ptr %16, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !23
 
@@ -3115,10 +3115,10 @@ while.body102.preheader:                          ; preds = %while.end
   br label %while.body102
 
 while.body102:                                    ; preds = %while.body102.preheader, %dictGetNext.exit40
-  %listele.047 = phi i32 [ %dec, %dictGetNext.exit40 ], [ %conv99, %while.body102.preheader ]
-  %he.246 = phi ptr [ %retval.0.i32, %dictGetNext.exit40 ], [ %he.0, %while.body102.preheader ]
-  %dec = add nsw i32 %listele.047, -1
-  %17 = ptrtoint ptr %he.246 to i64
+  %he.247 = phi ptr [ %retval.0.i32, %dictGetNext.exit40 ], [ %he.0, %while.body102.preheader ]
+  %listele.046 = phi i32 [ %dec, %dictGetNext.exit40 ], [ %conv99, %while.body102.preheader ]
+  %dec = add nsw i32 %listele.046, -1
+  %17 = ptrtoint ptr %he.247 to i64
   %conv.i5.i30 = and i64 %17, 1
   %tobool.not.i31 = icmp eq i64 %conv.i5.i30, 0
   br i1 %tobool.not.i31, label %if.end.i33, label %dictGetNext.exit40
@@ -3126,7 +3126,7 @@ while.body102:                                    ; preds = %while.body102.prehe
 if.end.i33:                                       ; preds = %while.body102
   %and.i.i34 = and i64 %17, 6
   %cmp.i.not.i35 = icmp eq i64 %and.i.i34, 2
-  %next6.i36 = getelementptr inbounds i8, ptr %he.246, i64 16
+  %next6.i36 = getelementptr inbounds i8, ptr %he.247, i64 16
   %and.i.i.i37 = and i64 %17, -8
   %18 = inttoptr i64 %and.i.i.i37 to ptr
   %next.i38 = getelementptr inbounds i8, ptr %18, i64 8

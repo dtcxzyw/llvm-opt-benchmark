@@ -296,8 +296,8 @@ if.end65.i:                                       ; preds = %if.end60.i
   br label %err.i11
 
 err.i11:                                          ; preds = %if.end65.i, %if.end60.i, %if.end55.i, %if.end49.i, %if.end45.i, %if.then41.i, %if.end35.i, %if.end32.i, %if.end28.i, %if.end24.i, %if.end20.i, %if.end16.i
-  %oaep.0.i = phi ptr [ null, %if.end16.i ], [ null, %if.end20.i ], [ null, %if.end24.i ], [ null, %if.end28.i ], [ %call29.i, %if.then41.i ], [ %call29.i, %if.end49.i ], [ %call29.i, %if.end65.i ], [ %call29.i, %if.end60.i ], [ %call29.i, %if.end55.i ], [ %call29.i, %if.end45.i ], [ %call29.i, %if.end35.i ], [ %call29.i, %if.end32.i ]
   %los.1.i = phi ptr [ null, %if.end16.i ], [ null, %if.end20.i ], [ null, %if.end24.i ], [ null, %if.end28.i ], [ null, %if.then41.i ], [ %call42.i, %if.end49.i ], [ null, %if.end65.i ], [ null, %if.end60.i ], [ null, %if.end55.i ], [ %call42.i, %if.end45.i ], [ null, %if.end35.i ], [ null, %if.end32.i ]
+  %oaep.0.i = phi ptr [ null, %if.end16.i ], [ null, %if.end20.i ], [ null, %if.end24.i ], [ null, %if.end28.i ], [ %call29.i, %if.then41.i ], [ %call29.i, %if.end49.i ], [ %call29.i, %if.end65.i ], [ %call29.i, %if.end60.i ], [ %call29.i, %if.end55.i ], [ %call29.i, %if.end45.i ], [ %call29.i, %if.end35.i ], [ %call29.i, %if.end32.i ]
   %rv.0.i12 = phi i32 [ 0, %if.end16.i ], [ 0, %if.end20.i ], [ 0, %if.end24.i ], [ 0, %if.end28.i ], [ 0, %if.then41.i ], [ 0, %if.end49.i ], [ 1, %if.end65.i ], [ 0, %if.end60.i ], [ 0, %if.end55.i ], [ 0, %if.end45.i ], [ 0, %if.end35.i ], [ 0, %if.end32.i ]
   call void @RSA_OAEP_PARAMS_free(ptr noundef %oaep.0.i) #4
   %22 = load ptr, ptr %os.i, align 8

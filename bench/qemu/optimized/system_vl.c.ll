@@ -3807,31 +3807,31 @@ if.then4.i.i:                                     ; preds = %for.inc.i.i.i, %if.
 if.else.i.i361:                                   ; preds = %parse_memory_options.exit
   br i1 %tobool.not6.i7.i.i, label %if.then7.i.i, label %for.body.i8.i.i
 
-for.body.i8.i.i:                                  ; preds = %if.else.i.i361, %for.inc.i10.i.i
-  %default_machineclass.08.i.i.i = phi ptr [ %default_machineclass.1.i.i.i, %for.inc.i10.i.i ], [ null, %if.else.i.i361 ]
-  %el.07.i9.i.i = phi ptr [ %458, %for.inc.i10.i.i ], [ %call1.i.i337, %if.else.i.i361 ]
-  %456 = load ptr, ptr %el.07.i9.i.i, align 8
+for.body.i8.i.i:                                  ; preds = %if.else.i.i361, %for.inc.i9.i.i
+  %el.08.i.i.i = phi ptr [ %458, %for.inc.i9.i.i ], [ %call1.i.i337, %if.else.i.i361 ]
+  %default_machineclass.07.i.i.i = phi ptr [ %default_machineclass.1.i.i.i, %for.inc.i9.i.i ], [ null, %if.else.i.i361 ]
+  %456 = load ptr, ptr %el.08.i.i.i, align 8
   %is_default.i.i.i = getelementptr inbounds i8, ptr %456, i64 189
   %457 = load i8, ptr %is_default.i.i.i, align 1
   %tobool1.i.i.i = trunc i8 %457 to i1
-  br i1 %tobool1.i.i.i, label %if.then.i.i.i, label %for.inc.i10.i.i
+  br i1 %tobool1.i.i.i, label %if.then.i.i.i, label %for.inc.i9.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i8.i.i
-  %cmp.i.i.i = icmp eq ptr %default_machineclass.08.i.i.i, null
-  br i1 %cmp.i.i.i, label %for.inc.i10.i.i, label %if.else.i.i.i
+  %cmp.i.i.i = icmp eq ptr %default_machineclass.07.i.i.i, null
+  br i1 %cmp.i.i.i, label %for.inc.i9.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.461, ptr noundef nonnull @.str.1, i32 noundef 859, ptr noundef nonnull @__PRETTY_FUNCTION__.find_default_machine) #19
   unreachable
 
-for.inc.i10.i.i:                                  ; preds = %if.then.i.i.i, %for.body.i8.i.i
-  %default_machineclass.1.i.i.i = phi ptr [ %default_machineclass.08.i.i.i, %for.body.i8.i.i ], [ %456, %if.then.i.i.i ]
-  %next.i11.i.i = getelementptr inbounds i8, ptr %el.07.i9.i.i, i64 8
-  %458 = load ptr, ptr %next.i11.i.i, align 8
-  %tobool.not.i12.i.i = icmp eq ptr %458, null
-  br i1 %tobool.not.i12.i.i, label %find_default_machine.exit.i.i, label %for.body.i8.i.i, !llvm.loop !12
+for.inc.i9.i.i:                                   ; preds = %if.then.i.i.i, %for.body.i8.i.i
+  %default_machineclass.1.i.i.i = phi ptr [ %default_machineclass.07.i.i.i, %for.body.i8.i.i ], [ %456, %if.then.i.i.i ]
+  %next.i10.i.i = getelementptr inbounds i8, ptr %el.08.i.i.i, i64 8
+  %458 = load ptr, ptr %next.i10.i.i, align 8
+  %tobool.not.i11.i.i = icmp eq ptr %458, null
+  br i1 %tobool.not.i11.i.i, label %find_default_machine.exit.i.i, label %for.body.i8.i.i, !llvm.loop !12
 
-find_default_machine.exit.i.i:                    ; preds = %for.inc.i10.i.i
+find_default_machine.exit.i.i:                    ; preds = %for.inc.i9.i.i
   %tobool6.not.i.i = icmp eq ptr %default_machineclass.1.i.i.i, null
   br i1 %tobool6.not.i.i, label %if.then7.i.i, label %if.end9.i.i
 

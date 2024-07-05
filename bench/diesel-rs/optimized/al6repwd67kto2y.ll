@@ -504,8 +504,8 @@ define hidden noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17h383
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %4, %6
-  %.0 = select i1 %.not, i1 %7, i1 false
-  ret i1 %.0
+  %.016 = select i1 %.not, i1 %7, i1 false
+  ret i1 %.016
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1192,8 +1192,8 @@ define hidden void @"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !181, !noalias !184
   %11 = icmp ult i64 %.fca.1.extract.i, %10
-  %.0.i.i = select i1 %.not.i.i, i1 %11, i1 false
-  br i1 %.0.i.i, label %12, label %"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$3get17h6ba3b3fff955bd17E.exit"
+  %.016.i.i = select i1 %.not.i.i, i1 %11, i1 false
+  br i1 %.016.i.i, label %12, label %"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$3get17h6ba3b3fff955bd17E.exit"
 
 12:                                               ; preds = %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hafef5af6d1d1d06fE.llvm.2484478404446752246.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !186)
@@ -1277,8 +1277,8 @@ define hidden { i64, i64 } @"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !191, !noalias !194
   %11 = icmp ult i64 %.fca.1.extract, %10
-  %.0.i = select i1 %.not.i, i1 %11, i1 false
-  %.sroa.0.0 = zext i1 %.0.i to i64
+  %.016.i = select i1 %.not.i, i1 %11, i1 false
+  %.sroa.0.0 = zext i1 %.016.i to i64
   br label %12
 
 12:                                               ; preds = %2, %8
@@ -1507,8 +1507,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6f
   br label %48
 
 48:                                               ; preds = %.noexc8, %44
-  %.0.i.i = phi i16 [ %47, %44 ], [ %61, %.noexc8 ]
-  %.not.not.i.i.i = icmp eq i16 %.0.i.i, 0
+  %.026.i.i = phi i16 [ %47, %44 ], [ %61, %.noexc8 ]
+  %.not.not.i.i.i = icmp eq i16 %.026.i.i, 0
   br i1 %.not.not.i.i.i, label %49, label %50
 
 49:                                               ; preds = %48
@@ -1516,7 +1516,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6f
   br i1 %.not.i.i, label %69, label %62
 
 50:                                               ; preds = %48
-  %51 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %51 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.026.i.i, i1 true)
   %52 = zext nneg i16 %51 to i64
   %53 = add i64 %.sroa.0.025.i.i, %52
   %54 = and i64 %53, %.val4.i
@@ -1528,8 +1528,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6f
           to label %.noexc8 unwind label %.loopexit
 
 .noexc8:                                          ; preds = %50
-  %60 = add i16 %.0.i.i, -1
-  %61 = and i16 %60, %.0.i.i
+  %60 = add i16 %.026.i.i, -1
+  %61 = and i16 %60, %.026.i.i
   br i1 %59, label %105, label %48
 
 62:                                               ; preds = %49

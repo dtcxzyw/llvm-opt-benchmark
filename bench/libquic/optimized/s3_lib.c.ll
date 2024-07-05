@@ -709,8 +709,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
-  %prio.0 = phi ptr [ %0, %if.then ], [ %clnt, %entry ]
   %allow.0 = phi ptr [ %clnt, %if.then ], [ %0, %entry ]
+  %prio.0 = phi ptr [ %0, %if.then ], [ %clnt, %entry ]
   %in_group_flags.0 = phi ptr [ %4, %if.then ], [ null, %entry ]
   call void @ssl_get_compatible_server_ciphers(ptr noundef nonnull %ssl, ptr noundef nonnull %mask_k, ptr noundef nonnull %mask_a) #14
   %call32 = call i64 @sk_num(ptr noundef %prio.0) #14

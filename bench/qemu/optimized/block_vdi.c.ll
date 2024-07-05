@@ -612,10 +612,10 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %if.end72
   %offset.addr.095 = phi i64 [ %offset, %while.body.lr.ph ], [ %add76, %if.end72 ]
   %bytes.addr.094 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub74, %if.end72 ]
-  %bytes_done.092 = phi i64 [ 0, %while.body.lr.ph ], [ %add78, %if.end72 ]
-  %block.091 = phi ptr [ null, %while.body.lr.ph ], [ %block.2, %if.end72 ]
-  %bmap_last.090 = phi i32 [ -1, %while.body.lr.ph ], [ %bmap_last.1, %if.end72 ]
-  %bmap_first.089 = phi i32 [ -1, %while.body.lr.ph ], [ %bmap_first.2, %if.end72 ]
+  %bmap_first.093 = phi i32 [ -1, %while.body.lr.ph ], [ %bmap_first.2, %if.end72 ]
+  %bmap_last.092 = phi i32 [ -1, %while.body.lr.ph ], [ %bmap_last.1, %if.end72 ]
+  %bytes_done.090 = phi i64 [ 0, %while.body.lr.ph ], [ %add78, %if.end72 ]
+  %block.089 = phi ptr [ null, %while.body.lr.ph ], [ %block.2, %if.end72 ]
   %3 = load i32, ptr %block_size, align 8
   %conv = zext i32 %3 to i64
   %div = sdiv i64 %offset.addr.095, %conv
@@ -658,7 +658,7 @@ if.end:                                           ; preds = %if.then
   %conv34 = zext i32 %11 to i64
   %mul = mul nuw i64 %conv34, %conv32
   %add = add nuw i64 %mul, %conv31
-  %cmp35 = icmp eq ptr %block.091, null
+  %cmp35 = icmp eq ptr %block.089, null
   br i1 %cmp35, label %if.then37, label %if.end41
 
 if.then37:                                        ; preds = %if.end
@@ -666,12 +666,12 @@ if.then37:                                        ; preds = %if.end
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then37, %if.end
-  %bmap_first.1 = phi i32 [ %conv2, %if.then37 ], [ %bmap_first.089, %if.end ]
-  %block.1 = phi ptr [ %call40, %if.then37 ], [ %block.091, %if.end ]
+  %block.1 = phi ptr [ %call40, %if.then37 ], [ %block.089, %if.end ]
+  %bmap_first.1 = phi i32 [ %conv2, %if.then37 ], [ %bmap_first.093, %if.end ]
   %conv42 = and i64 %rem, 4294967295
   call void @llvm.memset.p0.i64(ptr align 1 %block.1, i8 0, i64 %conv42, i1 false)
   %add.ptr = getelementptr i8, ptr %block.1, i64 %conv42
-  %call44 = call i64 @qemu_iovec_to_buf(ptr noundef %qiov, i64 noundef %bytes_done.092, ptr noundef %add.ptr, i64 noundef %4) #13
+  %call44 = call i64 @qemu_iovec_to_buf(ptr noundef %qiov, i64 noundef %bytes_done.090, ptr noundef %add.ptr, i64 noundef %4) #13
   %add.ptr48 = getelementptr i8, ptr %add.ptr, i64 %4
   %12 = load i32, ptr %block_size, align 8
   %13 = add i32 %conv10, %conv5
@@ -706,19 +706,19 @@ nonallocating_write:                              ; preds = %while.body, %if.the
   %add66 = add nuw i64 %add64, %mul63
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %bmap_lock) #13
   call void @qemu_iovec_reset(ptr noundef nonnull %local_qiov) #13
-  call void @qemu_iovec_concat(ptr noundef nonnull %local_qiov, ptr noundef %qiov, i64 noundef %bytes_done.092, i64 noundef %4) #13
+  call void @qemu_iovec_concat(ptr noundef nonnull %local_qiov, ptr noundef %qiov, i64 noundef %bytes_done.090, i64 noundef %4) #13
   %18 = load ptr, ptr %file, align 8
   %call71 = call i32 @bdrv_co_pwritev(ptr noundef %18, i64 noundef %add66, i64 noundef %4, ptr noundef nonnull %local_qiov, i32 noundef 0) #13
   br label %if.end72
 
 if.end72:                                         ; preds = %nonallocating_write, %if.end41
-  %bmap_first.2 = phi i32 [ %bmap_first.089, %nonallocating_write ], [ %bmap_first.1, %if.end41 ]
-  %bmap_last.1 = phi i32 [ %bmap_last.090, %nonallocating_write ], [ %conv2, %if.end41 ]
-  %block.2 = phi ptr [ %block.091, %nonallocating_write ], [ %block.1, %if.end41 ]
+  %block.2 = phi ptr [ %block.089, %nonallocating_write ], [ %block.1, %if.end41 ]
   %ret.1 = phi i32 [ %call71, %nonallocating_write ], [ %call.i, %if.end41 ]
+  %bmap_last.1 = phi i32 [ %bmap_last.092, %nonallocating_write ], [ %conv2, %if.end41 ]
+  %bmap_first.2 = phi i32 [ %bmap_first.093, %nonallocating_write ], [ %bmap_first.1, %if.end41 ]
   %sub74 = sub nsw i64 %bytes.addr.094, %4
   %add76 = add i64 %4, %offset.addr.095
-  %add78 = add i64 %4, %bytes_done.092
+  %add78 = add i64 %4, %bytes_done.090
   %cmp = icmp sgt i32 %ret.1, -1
   %cmp1 = icmp sgt i64 %sub74, 0
   %19 = select i1 %cmp, i1 %cmp1, i1 false
@@ -936,7 +936,7 @@ if.end6:                                          ; preds = %if.end
 for.body:                                         ; preds = %if.end6, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end6 ]
   %4 = phi i32 [ %13, %for.inc ], [ %2, %if.end6 ]
-  %blocks_allocated.030 = phi i32 [ %blocks_allocated.1, %for.inc ], [ 0, %if.end6 ]
+  %blocks_allocated.031 = phi i32 [ %blocks_allocated.1, %for.inc ], [ 0, %if.end6 ]
   %5 = load ptr, ptr %0, align 8
   %arrayidx = getelementptr i32, ptr %5, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx, align 4
@@ -948,7 +948,7 @@ if.then18:                                        ; preds = %for.body
   br i1 %cmp21, label %if.then23, label %if.else37
 
 if.then23:                                        ; preds = %if.then18
-  %inc24 = add i32 %blocks_allocated.030, 1
+  %inc24 = add i32 %blocks_allocated.031, 1
   %idxprom25 = zext i32 %6 to i64
   %arrayidx26 = getelementptr i32, ptr %call, i64 %idxprom25
   %7 = load i32, ptr %arrayidx26, align 4
@@ -977,7 +977,7 @@ if.else37:                                        ; preds = %if.then18
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then29, %if.else, %if.else37
-  %blocks_allocated.1 = phi i32 [ %inc24, %if.else ], [ %inc24, %if.then29 ], [ %blocks_allocated.030, %if.else37 ], [ %blocks_allocated.030, %for.body ]
+  %blocks_allocated.1 = phi i32 [ %inc24, %if.else ], [ %inc24, %if.then29 ], [ %blocks_allocated.031, %if.else37 ], [ %blocks_allocated.031, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %blocks_in_image, align 8
   %14 = zext i32 %13 to i64

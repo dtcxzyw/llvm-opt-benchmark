@@ -4876,8 +4876,8 @@ lpad.loopexit.split-lp269:                        ; preds = %if.then9, %invoke.c
 
 invoke.cont27:                                    ; preds = %invoke.cont27.preheader, %for.inc
   %indvars.iv303 = phi i64 [ 0, %invoke.cont27.preheader ], [ %indvars.iv.next304, %for.inc ]
-  %forall_children.0291 = phi i8 [ 0, %invoke.cont27.preheader ], [ %forall_children.2, %for.inc ]
-  %found_quantifier.0290 = phi i1 [ false, %invoke.cont27.preheader ], [ %found_quantifier.2, %for.inc ]
+  %found_quantifier.0292 = phi i1 [ false, %invoke.cont27.preheader ], [ %found_quantifier.2, %for.inc ]
+  %forall_children.0290 = phi i8 [ 0, %invoke.cont27.preheader ], [ %forall_children.2, %for.inc ]
   %w.0289 = phi i32 [ 2147483647, %invoke.cont27.preheader ], [ %w.1, %for.inc ]
   %arrayidx26 = getelementptr inbounds ptr, ptr %children, i64 %indvars.iv303
   %11 = load ptr, ptr %arrayidx26, align 8
@@ -4895,7 +4895,7 @@ invoke.cont30:                                    ; preds = %invoke.cont27
 
 if.then32:                                        ; preds = %invoke.cont30
   %switch325 = icmp ugt i32 %12, 1
-  %or.cond.not = or i1 %switch325, %found_quantifier.0290
+  %or.cond.not = or i1 %switch325, %found_quantifier.0292
   br i1 %or.cond.not, label %invoke.cont44, label %invoke.cont40
 
 invoke.cont40:                                    ; preds = %if.then32
@@ -4905,13 +4905,13 @@ invoke.cont40:                                    ; preds = %if.then32
 
 invoke.cont44:                                    ; preds = %if.then32
   %cmp.i87 = icmp eq i32 %12, 0
-  %14 = trunc nuw i8 %forall_children.0291 to i1
+  %14 = trunc nuw i8 %forall_children.0290 to i1
   %15 = xor i1 %cmp.i87, %14
   br i1 %15, label %cleanup, label %if.end50
 
 if.end50:                                         ; preds = %invoke.cont44, %invoke.cont40
-  %found_quantifier.1 = phi i1 [ %found_quantifier.0290, %invoke.cont44 ], [ true, %invoke.cont40 ]
-  %forall_children.1 = phi i8 [ %forall_children.0291, %invoke.cont44 ], [ %frombool, %invoke.cont40 ]
+  %forall_children.1 = phi i8 [ %forall_children.0290, %invoke.cont44 ], [ %frombool, %invoke.cont40 ]
+  %found_quantifier.1 = phi i1 [ %found_quantifier.0292, %invoke.cont44 ], [ true, %invoke.cont40 ]
   %16 = load i32, ptr %m_pos.i.i, align 8
   %cmp.i90 = icmp eq i32 %16, 0
   br i1 %cmp.i90, label %if.then55, label %if.end58
@@ -5256,8 +5256,8 @@ if.end96:                                         ; preds = %_ZN6bufferI6symbolL
 
 for.inc:                                          ; preds = %if.end96, %if.end58, %invoke.cont27, %invoke.cont30
   %w.1 = phi i32 [ %w.0289, %invoke.cont30 ], [ %w.0289, %invoke.cont27 ], [ %.sroa.speculated, %if.end58 ], [ %.sroa.speculated, %if.end96 ]
-  %found_quantifier.2 = phi i1 [ %found_quantifier.0290, %invoke.cont30 ], [ %found_quantifier.0290, %invoke.cont27 ], [ %found_quantifier.1, %if.end58 ], [ %found_quantifier.1, %if.end96 ]
-  %forall_children.2 = phi i8 [ %forall_children.0291, %invoke.cont30 ], [ %forall_children.0291, %invoke.cont27 ], [ %forall_children.1, %if.end58 ], [ %forall_children.1, %if.end96 ]
+  %forall_children.2 = phi i8 [ %forall_children.0290, %invoke.cont30 ], [ %forall_children.0290, %invoke.cont27 ], [ %forall_children.1, %if.end58 ], [ %forall_children.1, %if.end96 ]
+  %found_quantifier.2 = phi i1 [ %found_quantifier.0292, %invoke.cont30 ], [ %found_quantifier.0292, %invoke.cont27 ], [ %found_quantifier.1, %if.end58 ], [ %found_quantifier.1, %if.end96 ]
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next304, %wide.trip.count
   br i1 %exitcond.not, label %for.end98, label %invoke.cont27, !llvm.loop !18

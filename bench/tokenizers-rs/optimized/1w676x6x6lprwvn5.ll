@@ -20904,8 +20904,8 @@ define { i64, i64 } @_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_seque
   %.val9.i = load i64, ptr %32, align 8, !alias.scope !4530, !noalias !4512
   %.not.i.i.i.i = icmp ule i64 %.val8.i, %1
   %33 = icmp ugt i64 %.val9.i, %1
-  %.0.i.i.i10.i = select i1 %.not.i.i.i.i, i1 %33, i1 false
-  br i1 %.0.i.i.i10.i, label %34, label %23
+  %.014.i.i.i.i = select i1 %.not.i.i.i.i, i1 %33, i1 false
+  br i1 %.014.i.i.i.i, label %34, label %23
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %26, i64 -24
@@ -21219,8 +21219,8 @@ define void @_ZN10tokenizers9tokenizer8encoding8Encoding14token_to_chars17hecfa9
   %.val9.i.i = load i64, ptr %33, align 8, !alias.scope !4623, !noalias !4605
   %.not.i.i.i.i.i = icmp ule i64 %.val8.i.i, %2
   %34 = icmp ugt i64 %.val9.i.i, %2
-  %.0.i.i.i10.i.i = select i1 %.not.i.i.i.i.i, i1 %34, i1 false
-  br i1 %.0.i.i.i10.i.i, label %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit, label %24
+  %.014.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %34, i1 false
+  br i1 %.014.i.i.i.i.i, label %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit, label %24
 
 _ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread18: ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h665fc21b89a389a6E.exit.i.i", %24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !4588
@@ -21316,8 +21316,8 @@ define void @_ZN10tokenizers9tokenizer8encoding8Encoding13token_to_word17h150b70
   %.val9.i.i = load i64, ptr %33, align 8, !alias.scope !4662, !noalias !4644
   %.not.i.i.i.i.i = icmp ule i64 %.val8.i.i, %2
   %34 = icmp ugt i64 %.val9.i.i, %2
-  %.0.i.i.i10.i.i = select i1 %.not.i.i.i.i.i, i1 %34, i1 false
-  br i1 %.0.i.i.i10.i.i, label %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit, label %24
+  %.014.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %34, i1 false
+  br i1 %.014.i.i.i.i.i, label %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit, label %24
 
 _ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread19: ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h665fc21b89a389a6E.exit.i.i", %24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !4627
@@ -21525,8 +21525,8 @@ define { i32, i32 } @_ZN10tokenizers9tokenizer8encoding8Encoding12char_to_word17
   %.val9.i.i.i = load i64, ptr %57, align 8, !alias.scope !4725, !noalias !4707
   %.not.i.i.i.i.i.i = icmp ule i64 %.val8.i.i.i, %28
   %58 = icmp ugt i64 %.val9.i.i.i, %28
-  %.0.i.i.i10.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 %58, i1 false
-  br i1 %.0.i.i.i10.i.i.i, label %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.i, label %48
+  %.014.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 %58, i1 false
+  br i1 %.014.i.i.i.i.i.i, label %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.i, label %48
 
 _ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread19.i: ; preds = %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h665fc21b89a389a6E.exit.i.i.i", %48
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !4695
@@ -21556,8 +21556,8 @@ _ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292
   br label %_ZN10tokenizers9tokenizer8encoding8Encoding13token_to_word17h150b709a80de6e66E.exit.thread
 
 _ZN10tokenizers9tokenizer8encoding8Encoding13token_to_word17h150b709a80de6e66E.exit.thread: ; preds = %22, %26, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread19.i, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread14.i, %64, %3, %12, %66
-  %.sroa.3.0 = phi i32 [ %68, %66 ], [ undef, %12 ], [ undef, %3 ], [ undef, %64 ], [ undef, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread14.i ], [ undef, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread19.i ], [ undef, %26 ], [ undef, %22 ]
   %.sroa.0.0 = phi i32 [ 1, %66 ], [ 0, %12 ], [ 0, %3 ], [ 0, %64 ], [ 0, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread14.i ], [ 0, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread19.i ], [ 0, %26 ], [ 0, %22 ]
+  %.sroa.3.0 = phi i32 [ %68, %66 ], [ undef, %12 ], [ undef, %3 ], [ undef, %64 ], [ undef, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread14.i ], [ undef, %_ZN10tokenizers9tokenizer8encoding8Encoding17token_to_sequence17h0cb3b7c611a0292dE.exit.thread19.i ], [ undef, %26 ], [ undef, %22 ]
   %69 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %70 = insertvalue { i32, i32 } %69, i32 %.sroa.3.0, 1
   ret { i32, i32 } %70

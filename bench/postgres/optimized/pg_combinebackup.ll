@@ -462,7 +462,7 @@ read_pg_version_file.exit:                        ; preds = %130, %133
 
 .lr.ph.i78:                                       ; preds = %163, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %141, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %163 ]
-  %.031.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %.1.i80, %163 ]
+  %.02130.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %.1.i80, %163 ]
   %142 = getelementptr ptr, ptr %138, i64 %indvars.iv.i
   %143 = load ptr, ptr %142, align 8
   %144 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.43, ptr noundef %143, ptr noundef nonnull @.str.44) #12
@@ -503,16 +503,16 @@ read_pg_version_file.exit:                        ; preds = %130, %133
   br i1 %159, label %163, label %161
 
 161:                                              ; preds = %158
-  %.not23.i = icmp eq i64 %.031.i, %160
+  %.not23.i = icmp eq i64 %.02130.i, %160
   br i1 %.not23.i, label %163, label %162
 
 162:                                              ; preds = %161
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.47, ptr noundef %144, i64 noundef %.031.i, i64 noundef %160) #12
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.47, ptr noundef %144, i64 noundef %.02130.i, i64 noundef %160) #12
   call void @exit(i32 noundef 1) #13
   unreachable
 
 163:                                              ; preds = %161, %158
-  %.1.i80 = phi i64 [ %.031.i, %161 ], [ %160, %158 ]
+  %.1.i80 = phi i64 [ %.02130.i, %161 ], [ %160, %158 ]
   call void @pfree(ptr noundef nonnull %150) #12
   call void @pfree(ptr noundef %144) #12
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -520,13 +520,13 @@ read_pg_version_file.exit:                        ; preds = %130, %133
   br i1 %164, label %.lr.ph.i78, label %._crit_edge.i77, !llvm.loop !8
 
 ._crit_edge.i77:                                  ; preds = %163, %read_pg_version_file.exit
-  %.0.lcssa.i = phi i64 [ 0, %read_pg_version_file.exit ], [ %.1.i80, %163 ]
+  %.021.lcssa.i = phi i64 [ 0, %read_pg_version_file.exit ], [ %.1.i80, %163 ]
   %165 = load i32, ptr @__pg_log_level, align 4
   %166 = icmp ult i32 %165, 2
   br i1 %166, label %167, label %check_control_files.exit
 
 167:                                              ; preds = %._crit_edge.i77
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.48, i64 noundef %.0.lcssa.i) #12
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.48, i64 noundef %.021.lcssa.i) #12
   br label %check_control_files.exit
 
 check_control_files.exit:                         ; preds = %._crit_edge.i77, %167
@@ -549,8 +549,8 @@ check_control_files.exit:                         ; preds = %._crit_edge.i77, %1
 .lr.ph.i82:                                       ; preds = %221, %.lr.ph.preheader.i81
   %indvars.iv.i83 = phi i64 [ %172, %.lr.ph.preheader.i81 ], [ %indvars.iv.next.i85, %221 ]
   %.080.i = phi ptr [ %171, %.lr.ph.preheader.i81 ], [ %.1.i84, %221 ]
-  %.04078.i = phi i64 [ 0, %.lr.ph.preheader.i81 ], [ %216, %221 ]
-  %.04177.i = phi i32 [ 0, %.lr.ph.preheader.i81 ], [ %188, %221 ]
+  %.04078.i = phi i32 [ 0, %.lr.ph.preheader.i81 ], [ %188, %221 ]
+  %.04177.i = phi i64 [ 0, %.lr.ph.preheader.i81 ], [ %216, %221 ]
   %173 = getelementptr ptr, ptr %170, i64 %indvars.iv.i83
   %174 = load ptr, ptr %173, align 8
   %175 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.31, ptr noundef %174) #12
@@ -616,19 +616,19 @@ check_control_files.exit:                         ; preds = %._crit_edge.i77, %1
 
 200:                                              ; preds = %198
   %201 = load i32, ptr %9, align 4
-  %.not46.i = icmp eq i32 %201, %.04177.i
+  %.not46.i = icmp eq i32 %201, %.04078.i
   br i1 %.not46.i, label %205, label %202
 
 202:                                              ; preds = %200
   %203 = getelementptr ptr, ptr %170, i64 %indvars.iv.i83
   %204 = load ptr, ptr %203, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.37, ptr noundef %204, i32 noundef %201, i32 noundef %.04177.i) #12
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.37, ptr noundef %204, i32 noundef %201, i32 noundef %.04078.i) #12
   call void @exit(i32 noundef 1) #13
   unreachable
 
 205:                                              ; preds = %200
   %206 = load i64, ptr %11, align 8
-  %.not47.i = icmp eq i64 %206, %.04078.i
+  %.not47.i = icmp eq i64 %206, %.04177.i
   br i1 %.not47.i, label %.critedge.i, label %207
 
 207:                                              ; preds = %205
@@ -637,9 +637,9 @@ check_control_files.exit:                         ; preds = %._crit_edge.i77, %1
   %210 = lshr i64 %206, 32
   %211 = trunc nuw i64 %210 to i32
   %212 = trunc i64 %206 to i32
-  %213 = lshr i64 %.04078.i, 32
+  %213 = lshr i64 %.04177.i, 32
   %214 = trunc nuw i64 %213 to i32
-  %215 = trunc i64 %.04078.i to i32
+  %215 = trunc i64 %.04177.i to i32
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.38, ptr noundef %209, i32 noundef %211, i32 noundef %212, i32 noundef %214, i32 noundef %215) #12
   call void @exit(i32 noundef 1) #13
   unreachable
@@ -726,7 +726,7 @@ check_input_dir_permissions.exit:                 ; preds = %check_backup_label_
 
 sub_0.lr.ph.lr.ph.i:                              ; preds = %.preheader.i, %.outer.outer.i
   %244 = phi ptr [ %333, %.outer.outer.i ], [ %243, %.preheader.i ]
-  %.044.ph.ph97.i = phi ptr [ %288, %.outer.outer.i ], [ null, %.preheader.i ]
+  %.043.ph.ph97.i = phi ptr [ %288, %.outer.outer.i ], [ null, %.preheader.i ]
   br label %sub_0.i
 
 245:                                              ; preds = %240
@@ -916,7 +916,7 @@ sub_0.i.backedge:                                 ; preds = %.backedge.i, %.oute
   %.sink.i = phi i8 [ 0, %306 ], [ 1, %314 ]
   %321 = getelementptr inbounds i8, ptr %288, i64 4
   store i8 %.sink.i, ptr %321, align 4
-  %.not5291.i = icmp eq ptr %.044.ph.ph97.i, null
+  %.not5291.i = icmp eq ptr %.043.ph.ph97.i, null
   br i1 %.not5291.i, label %.outer.outer.i, label %.lr.ph94.i
 
 .lr.ph94.i:                                       ; preds = %320
@@ -924,34 +924,34 @@ sub_0.i.backedge:                                 ; preds = %.backedge.i, %.oute
   br label %323
 
 323:                                              ; preds = %329, %.lr.ph94.i
-  %.04392.i = phi ptr [ %.044.ph.ph97.i, %.lr.ph94.i ], [ %331, %329 ]
-  %324 = getelementptr inbounds i8, ptr %.04392.i, i64 1029
+  %.04492.i = phi ptr [ %.043.ph.ph97.i, %.lr.ph94.i ], [ %331, %329 ]
+  %324 = getelementptr inbounds i8, ptr %.04492.i, i64 1029
   %325 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %322, ptr noundef nonnull dereferenceable(1) %324) #15
   %326 = icmp eq i32 %325, 0
   br i1 %326, label %327, label %329
 
 327:                                              ; preds = %323
-  %328 = load i32, ptr %.04392.i, align 8
+  %328 = load i32, ptr %.04492.i, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.104, i32 noundef %328, i32 noundef %267, ptr noundef nonnull %322) #12
   call void @exit(i32 noundef 1) #13
   unreachable
 
 329:                                              ; preds = %323
-  %330 = getelementptr inbounds i8, ptr %.04392.i, i64 2056
+  %330 = getelementptr inbounds i8, ptr %.04492.i, i64 2056
   %331 = load ptr, ptr %330, align 8
   %.not52.i = icmp eq ptr %331, null
   br i1 %.not52.i, label %.outer.outer.i, label %323, !llvm.loop !12
 
 .outer.outer.i:                                   ; preds = %329, %320
   %332 = getelementptr inbounds i8, ptr %288, i64 2056
-  store ptr %.044.ph.ph97.i, ptr %332, align 8
+  store ptr %.043.ph.ph97.i, ptr %332, align 8
   store i32 0, ptr %114, align 4
   %333 = call ptr @readdir(ptr noundef nonnull %241) #12
   %.not8082.i = icmp eq ptr %333, null
   br i1 %.not8082.i, label %.outer._crit_edge.i, label %sub_0.lr.ph.lr.ph.i, !llvm.loop !10
 
 .outer._crit_edge.i:                              ; preds = %.outer.outer.i, %.outer.i, %.backedge.i, %.preheader.i
-  %.044.ph.ph.lcssa79.i = phi ptr [ null, %.preheader.i ], [ %.044.ph.ph97.i, %.backedge.i ], [ %.044.ph.ph97.i, %.outer.i ], [ %288, %.outer.outer.i ]
+  %.043.ph.ph.lcssa79.i = phi ptr [ null, %.preheader.i ], [ %.043.ph.ph97.i, %.backedge.i ], [ %.043.ph.ph97.i, %.outer.i ], [ %288, %.outer.outer.i ]
   %334 = call i32 @closedir(ptr noundef nonnull %241)
   %.not49.i = icmp eq i32 %334, 0
   br i1 %.not49.i, label %scan_for_existing_tablespaces.exit, label %335
@@ -968,11 +968,11 @@ scan_for_existing_tablespaces.exit:               ; preds = %.outer._crit_edge.i
   %336 = call i32 @atexit(ptr noundef nonnull @cleanup_directories_atexit) #12
   %337 = load ptr, ptr %27, align 8
   call fastcc void @create_output_directory(ptr noundef %337, ptr noundef nonnull %18)
-  %.not72178 = icmp eq ptr %.044.ph.ph.lcssa79.i, null
+  %.not72178 = icmp eq ptr %.043.ph.ph.lcssa79.i, null
   br i1 %.not72178, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %scan_for_existing_tablespaces.exit, %343
-  %.068179 = phi ptr [ %345, %343 ], [ %.044.ph.ph.lcssa79.i, %scan_for_existing_tablespaces.exit ]
+  %.068179 = phi ptr [ %345, %343 ], [ %.043.ph.ph.lcssa79.i, %scan_for_existing_tablespaces.exit ]
   %338 = getelementptr inbounds i8, ptr %.068179, i64 4
   %339 = load i8, ptr %338, align 4
   %340 = trunc i8 %339 to i1
@@ -1064,7 +1064,7 @@ scan_for_existing_tablespaces.exit:               ; preds = %.outer._crit_edge.i
   br i1 %.not72178, label %._crit_edge183, label %.lr.ph182
 
 .lr.ph182:                                        ; preds = %.thread, %421
-  %.1181 = phi ptr [ %426, %421 ], [ %.044.ph.ph.lcssa79.i, %.thread ]
+  %.1181 = phi ptr [ %426, %421 ], [ %.043.ph.ph.lcssa79.i, %.thread ]
   %378 = load i32, ptr @__pg_log_level, align 4
   %379 = icmp ult i32 %378, 2
   br i1 %379, label %380, label %382

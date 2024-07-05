@@ -3405,8 +3405,8 @@ cleanup.sink.split:                               ; preds = %invoke.cont40, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont49
-  %ns.0 = phi ptr [ %call.i86, %invoke.cont49 ], [ null, %cleanup.sink.split ]
   %switch = phi i1 [ true, %invoke.cont49 ], [ false, %cleanup.sink.split ]
+  %ns.0 = phi ptr [ %call.i86, %invoke.cont49 ], [ null, %cleanup.sink.split ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #23
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start) #23
   br i1 %switch, label %if.end63, label %return
@@ -4993,8 +4993,8 @@ cleanup.sink.split:                               ; preds = %invoke.cont41, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont50
-  %ns.0 = phi ptr [ %call.i90, %invoke.cont50 ], [ null, %cleanup.sink.split ]
   %switch = phi i1 [ true, %invoke.cont50 ], [ false, %cleanup.sink.split ]
+  %ns.0 = phi ptr [ %call.i90, %invoke.cont50 ], [ null, %cleanup.sink.split ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #23
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start) #23
   br i1 %switch, label %if.end64, label %return
@@ -6529,8 +6529,8 @@ cleanup.sink.split:                               ; preds = %invoke.cont52, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont61
-  %ns.0 = phi ptr [ %call.i90, %invoke.cont61 ], [ null, %cleanup.sink.split ]
   %switch = phi i1 [ true, %invoke.cont61 ], [ false, %cleanup.sink.split ]
+  %ns.0 = phi ptr [ %call.i90, %invoke.cont61 ], [ null, %cleanup.sink.split ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #23
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start) #23
   br i1 %switch, label %if.end75, label %return
@@ -8197,8 +8197,8 @@ cleanup.sink.split:                               ; preds = %invoke.cont53, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont62
-  %ns.0 = phi ptr [ %call.i94, %invoke.cont62 ], [ null, %cleanup.sink.split ]
   %switch = phi i1 [ true, %invoke.cont62 ], [ false, %cleanup.sink.split ]
+  %ns.0 = phi ptr [ %call.i94, %invoke.cont62 ], [ null, %cleanup.sink.split ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #23
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start) #23
   br i1 %switch, label %if.end76, label %return
@@ -10049,8 +10049,8 @@ entry:
   %ref.tmp = alloca %"struct.re2::hooks::DFASearchFailure", align 1
   store i8 0, ptr %failed, align 1
   %cmp = icmp eq ptr %context.coerce0, null
-  %spec.select45 = select i1 %cmp, i64 %text.coerce1, i64 %context.coerce1
-  %spec.select46 = select i1 %cmp, ptr %text.coerce0, ptr %context.coerce0
+  %spec.select45 = select i1 %cmp, ptr %text.coerce0, ptr %context.coerce0
+  %spec.select46 = select i1 %cmp, i64 %text.coerce1, i64 %context.coerce1
   %0 = load i8, ptr %this, align 8
   %tobool.i = trunc i8 %0 to i1
   %anchor_end_.i = getelementptr inbounds i8, ptr %this, i64 1
@@ -10061,14 +10061,14 @@ entry:
   %tobool = trunc i8 %2 to i1
   %caret.0 = select i1 %tobool, i8 %1, i8 %0
   %tobool7 = trunc i8 %caret.0 to i1
-  %cmp11.not = icmp ne ptr %spec.select46, %text.coerce0
+  %cmp11.not = icmp ne ptr %spec.select45, %text.coerce0
   %or.cond.not = select i1 %tobool7, i1 %cmp11.not, i1 false
   br i1 %or.cond.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %entry
   %dollar.0.v = select i1 %tobool, i8 %0, i8 %1
   %tobool14 = trunc i8 %dollar.0.v to i1
-  %add.ptr.i = getelementptr inbounds i8, ptr %spec.select46, i64 %spec.select45
+  %add.ptr.i = getelementptr inbounds i8, ptr %spec.select45, i64 %spec.select46
   %add.ptr.i16 = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
   %cmp20.not = icmp ne ptr %add.ptr.i, %add.ptr.i16
   %or.cond47.not = select i1 %tobool14, i1 %cmp20.not, i1 false
@@ -10119,7 +10119,7 @@ if.end46:                                         ; preds = %land.lhs.true42, %i
   %4 = load i8, ptr %reversed_, align 2
   %tobool53 = trunc i8 %4 to i1
   %lnot = xor i1 %tobool53, true
-  %call54 = call noundef zeroext i1 @_ZN3re23DFA6SearchEN4absl7debian211string_viewES3_bbbPbPPKcPNS_10SparseSetTIvEE(ptr noundef nonnull align 8 dereferenceable(184) %call47, ptr %text.coerce0, i64 %text.coerce1, ptr %spec.select46, i64 %spec.select45, i1 noundef zeroext %3, i1 noundef zeroext %want_earliest_match.0, i1 noundef zeroext %lnot, ptr noundef nonnull %failed, ptr noundef nonnull %ep, ptr noundef %matches)
+  %call54 = call noundef zeroext i1 @_ZN3re23DFA6SearchEN4absl7debian211string_viewES3_bbbPbPPKcPNS_10SparseSetTIvEE(ptr noundef nonnull align 8 dereferenceable(184) %call47, ptr %text.coerce0, i64 %text.coerce1, ptr %spec.select45, i64 %spec.select46, i1 noundef zeroext %3, i1 noundef zeroext %want_earliest_match.0, i1 noundef zeroext %lnot, ptr noundef nonnull %failed, ptr noundef nonnull %ep, ptr noundef %matches)
   %5 = load i8, ptr %failed, align 1
   %tobool56 = trunc i8 %5 to i1
   br i1 %tobool56, label %if.then57, label %if.end59
@@ -11027,12 +11027,12 @@ if.then.i:                                        ; preds = %for.end.i.i
 _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re23DFA5StateEiEENS1_6HashEqIS7_vE4HashENSA_2EqESaISt4pairIKS7_iEEE16try_emplace_implIRSE_JEEESD_INS1_12raw_hash_setIS8_SB_SC_SG_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i, %if.then.i
   %15 = phi ptr [ %.pre20.i, %if.then.i ], [ %6, %for.body.i.i ]
   %16 = phi ptr [ %.pre.i, %if.then.i ], [ %2, %for.body.i.i ]
-  %retval.sroa.0.0.i14.i = phi i64 [ %call33.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
+  %retval.sroa.0.0.i15.i = phi i64 [ %call33.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
   %cmp.not.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re23DFA5StateEiEENS1_6HashEqIS7_vE4HashENSA_2EqESaISt4pairIKS7_iEEE16try_emplace_implIRSE_JEEESD_INS1_12raw_hash_setIS8_SB_SC_SG_E8iteratorEbEOT_DpOT0_.exit
-  %add.ptr.i4.i = getelementptr inbounds i8, ptr %16, i64 %retval.sroa.0.0.i14.i
+  %add.ptr.i4.i = getelementptr inbounds i8, ptr %16, i64 %retval.sroa.0.0.i15.i
   %17 = load i8, ptr %add.ptr.i4.i, align 1
   %cmp.i.i.i = icmp sgt i8 %17, -1
   br i1 %cmp.i.i.i, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re23DFA5StateEiEENS1_6HashEqIS7_vE4HashENSA_2EqESaISt4pairIKS7_iEEE8iteratordeEv.exit, label %cond.false.i.i
@@ -11042,7 +11042,7 @@ cond.false.i.i:                                   ; preds = %land.lhs.true.i.i, 
   unreachable
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re23DFA5StateEiEENS1_6HashEqIS7_vE4HashENSA_2EqESaISt4pairIKS7_iEEE8iteratordeEv.exit: ; preds = %land.lhs.true.i.i
-  %second.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i14.i, i32 1
+  %second.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15.i, i32 1
   ret ptr %second.i
 }
 

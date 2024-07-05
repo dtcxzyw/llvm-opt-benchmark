@@ -1022,7 +1022,7 @@ define internal fastcc i32 @dissect_socketcan_common(ptr noundef %0, ptr noundef
   br label %25
 
 25:                                               ; preds = %22, %19, %11, %5
-  %.0137 = phi i32 [ %4, %5 ], [ 2, %11 ], [ 1, %19 ], [ %., %22 ]
+  %.0 = phi i32 [ %4, %5 ], [ 2, %11 ], [ 1, %19 ], [ %., %22 ]
   %26 = getelementptr inbounds i8, ptr %1, i64 96
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 4
@@ -1114,7 +1114,7 @@ get_bus_id.exit:                                  ; preds = %25, %38, %43, %56, 
   %72 = trunc i32 %.0.i to i16
   %73 = getelementptr inbounds i8, ptr %8, i64 12
   store i16 %72, ptr %73, align 4
-  %74 = icmp eq i32 %.0137, 2
+  %74 = icmp eq i32 %.0, 2
   br i1 %74, label %75, label %138
 
 75:                                               ; preds = %get_bus_id.exit
@@ -1236,7 +1236,7 @@ socketcan_set_source_and_destination_columns.exit: ; preds = %ht_lookup_sender_r
   br i1 %137, label %.sink.split, label %289
 
 138:                                              ; preds = %get_bus_id.exit
-  %139 = icmp eq i32 %.0137, 1
+  %139 = icmp eq i32 %.0, 1
   %140 = getelementptr inbounds i8, ptr %1, i64 8
   %141 = load ptr, ptr %140, align 8
   %.str.97..str.92 = select i1 %139, ptr @.str.97, ptr @.str.92
@@ -1274,14 +1274,14 @@ proto_item_set_hidden.exit164:                    ; preds = %147, %148, %151
   br label %157
 
 157:                                              ; preds = %proto_item_set_hidden.exit164, %138
-  %.0140 = phi ptr [ %156, %proto_item_set_hidden.exit164 ], [ %146, %138 ]
+  %.0138 = phi ptr [ %156, %proto_item_set_hidden.exit164 ], [ %146, %138 ]
   %158 = load i32, ptr @ett_can_fd, align 4
   %159 = load i32, ptr @ett_can, align 4
   %160 = select i1 %139, i32 %158, i32 %159
-  %161 = tail call ptr @proto_item_add_subtree(ptr noundef %.0140, i32 noundef %160) #5
+  %161 = tail call ptr @proto_item_add_subtree(ptr noundef %.0138, i32 noundef %160) #5
   %162 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 0, i32 noundef %3) #5
   store i32 %162, ptr %8, align 4
-  %163 = icmp eq i32 %.0137, 0
+  %163 = icmp eq i32 %.0, 0
   %164 = and i32 %162, 536870912
   %.not145 = icmp ne i32 %164, 0
   %or.cond158.not = select i1 %163, i1 %.not145, i1 false
@@ -1303,7 +1303,7 @@ proto_item_set_hidden.exit164:                    ; preds = %147, %148, %151
 
 171:                                              ; preds = %157, %166, %168
   %172 = phi i32 [ %162, %166 ], [ %169, %168 ], [ %162, %157 ]
-  %.0138 = phi ptr [ %167, %166 ], [ %170, %168 ], [ @dissect_socketcan_common.can_err_flags, %157 ]
+  %.0140 = phi ptr [ %167, %166 ], [ %170, %168 ], [ @dissect_socketcan_common.can_err_flags, %157 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %173 = load ptr, ptr @sender_receiver_configs, align 8
   %174 = icmp eq ptr %173, null
@@ -1352,7 +1352,7 @@ ht_lookup_sender_receiver_config.exit.i168:       ; preds = %175
   br label %socketcan_set_source_and_destination_columns.exit171
 
 socketcan_set_source_and_destination_columns.exit171: ; preds = %ht_lookup_sender_receiver_config.exit.thread.i170, %ht_lookup_sender_receiver_config.exit.i168, %185
-  call void @proto_tree_add_bitmask_list(ptr noundef %161, ptr noundef %0, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %.0138, i32 noundef %3) #5
+  call void @proto_tree_add_bitmask_list(ptr noundef %161, ptr noundef %0, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %.0140, i32 noundef %3) #5
   %193 = load i32, ptr %8, align 4
   %.not147 = icmp sgt i32 %193, -1
   %194 = load ptr, ptr %143, align 8
@@ -1416,8 +1416,8 @@ socketcan_set_source_and_destination_columns.exit171: ; preds = %ht_lookup_sende
 
 223:                                              ; preds = %221, %238
   %224 = phi ptr [ @hf_can_errflag, %221 ], [ %240, %238 ]
-  %.0174 = phi ptr [ @.str.184, %221 ], [ %.1, %238 ]
-  %.0136173 = phi ptr [ @dissect_socketcan_common.can_err_flags, %221 ], [ %239, %238 ]
+  %.0136174 = phi ptr [ @.str.184, %221 ], [ %.1, %238 ]
+  %.0137173 = phi ptr [ @dissect_socketcan_common.can_err_flags, %221 ], [ %239, %238 ]
   %225 = load i32, ptr %224, align 4
   %226 = call ptr @proto_registrar_get_nth(i32 noundef %225) #5
   %.not155 = icmp eq ptr %226, null
@@ -1436,12 +1436,12 @@ socketcan_set_source_and_destination_columns.exit171: ; preds = %ht_lookup_sende
 235:                                              ; preds = %227
   %236 = load ptr, ptr %143, align 8
   %237 = load ptr, ptr %226, align 8
-  call void @col_append_sep_str(ptr noundef %236, i32 noundef 25, ptr noundef %.0174, ptr noundef %237) #5
+  call void @col_append_sep_str(ptr noundef %236, i32 noundef 25, ptr noundef %.0136174, ptr noundef %237) #5
   br label %238
 
 238:                                              ; preds = %227, %223, %235
-  %.1 = phi ptr [ %.0174, %227 ], [ @.str.186, %235 ], [ %.0174, %223 ]
-  %239 = getelementptr i8, ptr %.0136173, i64 8
+  %.1 = phi ptr [ %.0136174, %227 ], [ @.str.186, %235 ], [ %.0136174, %223 ]
+  %239 = getelementptr i8, ptr %.0137173, i64 8
   %240 = load ptr, ptr %239, align 8
   %.not150 = icmp eq ptr %240, null
   br i1 %.not150, label %241, label %223, !llvm.loop !7

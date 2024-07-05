@@ -2977,37 +2977,37 @@ define void @Abc_NtkPrintMiniMapping(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %12, label %.lr.ph50, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge, %1
-  %.038.lcssa = phi i32 [ 4, %1 ], [ %.1.lcssa, %._crit_edge ]
+  %.039.lcssa = phi i32 [ 4, %1 ], [ %.140.lcssa, %._crit_edge ]
   %13 = icmp sgt i32 %4, 0
   br i1 %13, label %.lr.ph54.preheader, label %._crit_edge55
 
 .lr.ph54.preheader:                               ; preds = %.preheader
-  %14 = sext i32 %.038.lcssa to i64
+  %14 = sext i32 %.039.lcssa to i64
   br label %.lr.ph54
 
 .lr.ph50:                                         ; preds = %1, %._crit_edge
-  %.03848 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 4, %1 ]
-  %.04047 = phi i32 [ %27, %._crit_edge ], [ 0, %1 ]
-  %15 = add nsw i32 %.04047, %2
+  %.048 = phi i32 [ %27, %._crit_edge ], [ 0, %1 ]
+  %.03947 = phi i32 [ %.140.lcssa, %._crit_edge ], [ 4, %1 ]
+  %15 = add nsw i32 %.048, %2
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %15)
-  %17 = sext i32 %.03848 to i64
+  %17 = sext i32 %.03947 to i64
   %18 = getelementptr inbounds i32, ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4
-  %.144 = add i32 %.03848, 1
+  %.14044 = add i32 %.03947, 1
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph50
-  %21 = sext i32 %.144 to i64
+  %21 = sext i32 %.14044 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %21, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.03945 = phi i32 [ 0, %.lr.ph.preheader ], [ %25, %.lr.ph ]
+  %.04245 = phi i32 [ 0, %.lr.ph.preheader ], [ %25, %.lr.ph ]
   %22 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %23)
-  %25 = add nuw nsw i32 %.03945, 1
+  %25 = add nuw nsw i32 %.04245, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %25, %19
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !38
@@ -3017,20 +3017,20 @@ define void @Abc_NtkPrintMiniMapping(ptr noundef %0) local_unnamed_addr #5 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph50
-  %.1.lcssa = phi i32 [ %.144, %.lr.ph50 ], [ %26, %._crit_edge.loopexit ]
+  %.140.lcssa = phi i32 [ %.14044, %.lr.ph50 ], [ %26, %._crit_edge.loopexit ]
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  %27 = add nuw nsw i32 %.04047, 1
+  %27 = add nuw nsw i32 %.048, 1
   %exitcond64.not = icmp eq i32 %27, %6
   br i1 %exitcond64.not, label %.preheader, label %.lr.ph50, !llvm.loop !39
 
 .lr.ph54:                                         ; preds = %.lr.ph54.preheader, %.lr.ph54
   %indvars.iv65 = phi i64 [ %14, %.lr.ph54.preheader ], [ %indvars.iv.next66, %.lr.ph54 ]
-  %.14152 = phi i32 [ 0, %.lr.ph54.preheader ], [ %31, %.lr.ph54 ]
+  %.153 = phi i32 [ 0, %.lr.ph54.preheader ], [ %31, %.lr.ph54 ]
   %indvars.iv.next66 = add nsw i64 %indvars.iv65, 1
   %28 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv65
   %29 = load i32, ptr %28, align 4
-  %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %.14152, i32 noundef %29)
-  %31 = add nuw nsw i32 %.14152, 1
+  %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %.153, i32 noundef %29)
+  %31 = add nuw nsw i32 %.153, 1
   %exitcond68.not = icmp eq i32 %31, %4
   br i1 %exitcond68.not, label %._crit_edge55.loopexit, label %.lr.ph54, !llvm.loop !40
 
@@ -3039,23 +3039,23 @@ define void @Abc_NtkPrintMiniMapping(ptr noundef %0) local_unnamed_addr #5 {
   br label %._crit_edge55
 
 ._crit_edge55:                                    ; preds = %._crit_edge55.loopexit, %.preheader
-  %.2.lcssa = phi i32 [ %.038.lcssa, %.preheader ], [ %32, %._crit_edge55.loopexit ]
+  %.241.lcssa = phi i32 [ %.039.lcssa, %.preheader ], [ %32, %._crit_edge55.loopexit ]
   br i1 %12, label %.lr.ph60.preheader, label %._crit_edge61
 
 .lr.ph60.preheader:                               ; preds = %._crit_edge55
-  %33 = sext i32 %.2.lcssa to i64
+  %33 = sext i32 %.241.lcssa to i64
   %34 = getelementptr inbounds i32, ptr %0, i64 %33
   br label %.lr.ph60
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %.lr.ph60
-  %.058 = phi ptr [ %37, %.lr.ph60 ], [ %34, %.lr.ph60.preheader ]
-  %.24257 = phi i32 [ %40, %.lr.ph60 ], [ 0, %.lr.ph60.preheader ]
-  %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.058) #15
+  %.258 = phi i32 [ %40, %.lr.ph60 ], [ 0, %.lr.ph60.preheader ]
+  %.03857 = phi ptr [ %37, %.lr.ph60 ], [ %34, %.lr.ph60.preheader ]
+  %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03857) #15
   %36 = add i64 %35, 1
-  %37 = getelementptr inbounds i8, ptr %.058, i64 %36
-  %38 = add nsw i32 %.24257, %2
-  %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %38, ptr noundef %.058)
-  %40 = add nuw nsw i32 %.24257, 1
+  %37 = getelementptr inbounds i8, ptr %.03857, i64 %36
+  %38 = add nsw i32 %.258, %2
+  %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %38, ptr noundef %.03857)
+  %40 = add nuw nsw i32 %.258, 1
   %exitcond69.not = icmp eq i32 %40, %6
   br i1 %exitcond69.not, label %._crit_edge61, label %.lr.ph60, !llvm.loop !41
 

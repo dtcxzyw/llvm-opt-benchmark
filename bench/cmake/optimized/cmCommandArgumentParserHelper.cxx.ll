@@ -977,42 +977,42 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEl(ptr dead_on_unwind
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.029.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %.02328.i = phi i64 [ %18, %17 ], [ %4, %2 ]
-  %6 = icmp ult i64 %.02328.i, 100
+  %.02229.i = phi i64 [ %18, %17 ], [ %4, %2 ]
+  %.02328.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %6 = icmp ult i64 %.02229.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.029.i, 1
+  %8 = add i32 %.02328.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i64 %.02328.i, 1000
+  %10 = icmp ult i64 %.02229.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.029.i, 2
+  %12 = add i32 %.02328.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i64 %.02328.i, 10000
+  %14 = icmp ult i64 %.02229.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.029.i, 3
+  %16 = add i32 %.02328.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i64 %.02328.i, 10000
-  %19 = add i32 %.029.i, 4
-  %20 = icmp ult i64 %.02328.i, 100000
+  %18 = udiv i64 %.02229.i, 10000
+  %19 = add i32 %.02328.i, 4
+  %20 = icmp ult i64 %.02229.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i, !llvm.loop !25
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i64 %1, 63
   %21 = trunc nuw nsw i64 %.lobit to i32
-  %22 = add i32 %.022.i, %21
+  %22 = add i32 %.0.i, %21
   %23 = zext i32 %22 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   %24 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -1042,7 +1042,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %29, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %28
-  %30 = add i32 %.022.i, -1
+  %30 = add i32 %.0.i, -1
   br label %.lr.ph.i16
 
 .lr.ph.i16:                                       ; preds = %.lr.ph.i16, %.lr.ph.preheader.i

@@ -470,7 +470,7 @@ define void @_Z21write_pdbfile_indexedP8_IO_FILEPKcPK7t_atomsPA3_Kf7PbcTypeS8_ci
   br i1 %81, label %73, label %.loopexit179, !llvm.loop !5
 
 .loopexit179:                                     ; preds = %73, %.preheader178, %65
-  %.1141 = phi i1 [ false, %65 ], [ true, %.preheader178 ], [ %79, %73 ]
+  %.1134 = phi i1 [ false, %65 ], [ true, %.preheader178 ], [ %79, %73 ]
   %82 = call i32 @llvm.smax.i32(i32 %7, i32 1)
   %83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %82) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #24
@@ -491,8 +491,8 @@ define void @_Z21write_pdbfile_indexedP8_IO_FILEPKcPK7t_atomsPA3_Kf7PbcTypeS8_ci
 
 92:                                               ; preds = %.lr.ph204, %229
   %indvars.iv210 = phi i64 [ 0, %.lr.ph204 ], [ %indvars.iv.next211, %229 ]
-  %.0134202 = phi i32 [ 0, %.lr.ph204 ], [ %.1135, %229 ]
-  %.0136201 = phi i32 [ 0, %.lr.ph204 ], [ %.1137, %229 ]
+  %.0137202 = phi i32 [ 0, %.lr.ph204 ], [ %.1138, %229 ]
+  %.0139201 = phi i32 [ 0, %.lr.ph204 ], [ %.1140, %229 ]
   %93 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv210
   %94 = load i32, ptr %93, align 4
   %95 = load ptr, ptr %85, align 8
@@ -663,7 +663,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit163: ;
 146:                                              ; preds = %144, %142
   %147 = load i32, ptr %20, align 4
   %148 = load float, ptr %89, align 4
-  %149 = select i1 %.1141, float 1.000000e+00, float %148
+  %149 = select i1 %.1134, float 1.000000e+00, float %148
   %150 = load float, ptr %90, align 4
   br i1 %11, label %199, label %151
 
@@ -779,8 +779,8 @@ _ZL24gmx_fprintf_pqr_atomlineP8_IO_FILE13PdbRecordTypeiPKcS3_cifffff.exit: ; pre
   br label %229
 
 229:                                              ; preds = %_ZL24gmx_fprintf_pqr_atomlineP8_IO_FILE13PdbRecordTypeiPKcS3_cifffff.exit, %172, %174, %178
-  %.1137 = phi i32 [ %.0136201, %_ZL24gmx_fprintf_pqr_atomlineP8_IO_FILE13PdbRecordTypeiPKcS3_cifffff.exit ], [ %155, %178 ], [ %155, %174 ], [ %155, %172 ]
-  %.1135 = phi i32 [ %.0134202, %_ZL24gmx_fprintf_pqr_atomlineP8_IO_FILE13PdbRecordTypeiPKcS3_cifffff.exit ], [ %.0129, %178 ], [ %.0129, %174 ], [ %.0129, %172 ]
+  %.1140 = phi i32 [ %.0139201, %_ZL24gmx_fprintf_pqr_atomlineP8_IO_FILE13PdbRecordTypeiPKcS3_cifffff.exit ], [ %155, %178 ], [ %155, %174 ], [ %155, %172 ]
+  %.1138 = phi i32 [ %.0137202, %_ZL24gmx_fprintf_pqr_atomlineP8_IO_FILE13PdbRecordTypeiPKcS3_cifffff.exit ], [ %.0129, %178 ], [ %.0129, %174 ], [ %.0129, %172 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #24
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -793,14 +793,14 @@ _ZL24gmx_fprintf_pqr_atomlineP8_IO_FILE13PdbRecordTypeiPKcS3_cifffff.exit: ; pre
   br label %254
 
 ._crit_edge:                                      ; preds = %229, %.loopexit179
-  %.0136.lcssa = phi i32 [ 0, %.loopexit179 ], [ %.1137, %229 ]
-  %.0134.lcssa = phi i32 [ 0, %.loopexit179 ], [ %.1135, %229 ]
+  %.0139.lcssa = phi i32 [ 0, %.loopexit179 ], [ %.1140, %229 ]
+  %.0137.lcssa = phi i32 [ 0, %.loopexit179 ], [ %.1138, %229 ]
   br i1 %12, label %231, label %235
 
 231:                                              ; preds = %._crit_edge
   %232 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #24
   %233 = sext i8 %6 to i32
-  %234 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %.0136.lcssa, ptr noundef %232, i32 noundef %233, i32 noundef %.0134.lcssa) #24
+  %234 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %.0139.lcssa, ptr noundef %232, i32 noundef %233, i32 noundef %.0137.lcssa) #24
   br label %237
 
 235:                                              ; preds = %._crit_edge

@@ -226,7 +226,7 @@ opal_convertor_get_packed_size.exit.i:            ; preds = %90, %opal_obj_run_c
   br label %.thread.i
 
 .thread.i:                                        ; preds = %109, %98
-  %.06192.i = phi ptr [ %106, %109 ], [ null, %98 ]
+  %.06292.i = phi ptr [ %106, %109 ], [ null, %98 ]
   %.not83113.i = icmp slt i32 %104, 0
   br i1 %.not83113.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -238,15 +238,15 @@ opal_convertor_get_packed_size.exit.i:            ; preds = %90, %opal_obj_run_c
   br label %114
 
 114:                                              ; preds = %146, %.lr.ph.i
-  %.1117.i = phi ptr [ %.06192.i, %.lr.ph.i ], [ %spec.select87.i, %146 ]
-  %.062116.i = phi ptr [ %95, %.lr.ph.i ], [ %spec.select.i, %146 ]
-  %.068115.i = phi i64 [ 0, %.lr.ph.i ], [ %.371.i, %146 ]
-  %.073114.i = phi i32 [ 0, %.lr.ph.i ], [ %148, %146 ]
-  %115 = icmp slt i32 %.073114.i, %104
+  %.061117.i = phi i32 [ 0, %.lr.ph.i ], [ %148, %146 ]
+  %.1116.i = phi ptr [ %.06292.i, %.lr.ph.i ], [ %spec.select87.i, %146 ]
+  %.063115.i = phi ptr [ %95, %.lr.ph.i ], [ %spec.select.i, %146 ]
+  %.069114.i = phi i64 [ 0, %.lr.ph.i ], [ %.372.i, %146 ]
+  %115 = icmp slt i32 %.061117.i, %104
   br i1 %115, label %116, label %135
 
 116:                                              ; preds = %114
-  store ptr %.062116.i, ptr %13, align 8
+  store ptr %.063115.i, ptr %13, align 8
   store i64 %54, ptr %99, align 8
   store i32 1, ptr %12, align 4
   %117 = call i32 @opal_convertor_pack(ptr noundef nonnull %20, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %17) #9
@@ -254,7 +254,7 @@ opal_convertor_get_packed_size.exit.i:            ; preds = %90, %opal_obj_run_c
   store i64 0, ptr %14, align 8
   store i32 0, ptr %16, align 4
   %118 = load i64, ptr %17, align 8
-  %119 = call i32 @mca_common_ompio_build_io_array(ptr noundef nonnull %110, i32 noundef %.073114.i, i32 noundef %104, i64 noundef %54, i64 noundef %118, i32 poison, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %111, ptr noundef nonnull %112)
+  %119 = call i32 @mca_common_ompio_build_io_array(ptr noundef nonnull %110, i32 noundef %.061117.i, i32 noundef %104, i64 noundef %54, i64 noundef %118, i32 poison, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %111, ptr noundef nonnull %112)
   %120 = load i32, ptr %112, align 8
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %._crit_edge.i, label %122
@@ -284,14 +284,14 @@ opal_convertor_get_packed_size.exit.i:            ; preds = %90, %opal_obj_run_c
   br label %150
 
 .thread93.i:                                      ; preds = %128
-  %134 = add i64 %132, %.068115.i
+  %134 = add i64 %132, %.069114.i
   br label %146
 
 135:                                              ; preds = %114
   br i1 %.not.i, label %146, label %136
 
 136:                                              ; preds = %135, %.thread95.i
-  %.not84.i = icmp eq i32 %.073114.i, 0
+  %.not84.i = icmp eq i32 %.061117.i, 0
   br i1 %.not84.i, label %144, label %137
 
 137:                                              ; preds = %136
@@ -307,40 +307,40 @@ opal_convertor_get_packed_size.exit.i:            ; preds = %90, %opal_obj_run_c
 
 141:                                              ; preds = %137
   %142 = load i64, ptr %113, align 8
-  %143 = add i64 %142, %.068115.i
+  %143 = add i64 %142, %.069114.i
   br label %144
 
 144:                                              ; preds = %141, %136
-  %.270.i = phi i64 [ %143, %141 ], [ %.068115.i, %136 ]
+  %.271.i = phi i64 [ %143, %141 ], [ %.069114.i, %136 ]
   %145 = load ptr, ptr %18, align 8
   store ptr %145, ptr %19, align 8
   br label %146
 
 146:                                              ; preds = %144, %135, %.thread93.i
-  %.371.i = phi i64 [ %.270.i, %144 ], [ %.068115.i, %135 ], [ %134, %.thread93.i ]
+  %.372.i = phi i64 [ %.271.i, %144 ], [ %.069114.i, %135 ], [ %134, %.thread93.i ]
   store i32 0, ptr %112, align 8
   %147 = load ptr, ptr %111, align 8
   call void @free(ptr noundef %147) #9
   store ptr null, ptr %111, align 8
-  %spec.select.i = select i1 %.not.i, ptr %.062116.i, ptr %.1117.i
-  %spec.select87.i = select i1 %.not.i, ptr %.1117.i, ptr %.062116.i
-  %148 = add nuw i32 %.073114.i, 1
-  %exitcond.not.i = icmp eq i32 %.073114.i, %104
+  %spec.select.i = select i1 %.not.i, ptr %.063115.i, ptr %.1116.i
+  %spec.select87.i = select i1 %.not.i, ptr %.1116.i, ptr %.063115.i
+  %148 = add nuw i32 %.061117.i, 1
+  %exitcond.not.i = icmp eq i32 %.061117.i, %104
   br i1 %exitcond.not.i, label %._crit_edge.i, label %114, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %146, %116, %.thread.i
-  %.068.lcssa.i = phi i64 [ 0, %.thread.i ], [ %.371.i, %146 ], [ %.068115.i, %116 ]
+  %.069.lcssa.i = phi i64 [ 0, %.thread.i ], [ %.372.i, %146 ], [ %.069114.i, %116 ]
   call void @mca_common_ompio_release_buf(ptr noundef nonnull %0, ptr noundef nonnull %95) #9
   br i1 %.not.i, label %150, label %149
 
 149:                                              ; preds = %._crit_edge.i, %.thread103.i
-  %.068111.i = phi i64 [ %.068115.i, %.thread103.i ], [ %.068.lcssa.i, %._crit_edge.i ]
+  %.069111.i = phi i64 [ %.069114.i, %.thread103.i ], [ %.069.lcssa.i, %._crit_edge.i ]
   %.4107.i = phi i64 [ %140, %.thread103.i ], [ 0, %._crit_edge.i ]
-  call void @mca_common_ompio_release_buf(ptr noundef nonnull %0, ptr noundef %.06192.i) #9
+  call void @mca_common_ompio_release_buf(ptr noundef nonnull %0, ptr noundef %.06292.i) #9
   br label %150
 
 150:                                              ; preds = %149, %._crit_edge.i, %.thread98.i
-  %.068110.i = phi i64 [ %.068115.i, %.thread98.i ], [ %.068111.i, %149 ], [ %.068.lcssa.i, %._crit_edge.i ]
+  %.069110.i = phi i64 [ %.069114.i, %.thread98.i ], [ %.069111.i, %149 ], [ %.069.lcssa.i, %._crit_edge.i ]
   %.4102.i = phi i64 [ %132, %.thread98.i ], [ %.4107.i, %149 ], [ 0, %._crit_edge.i ]
   %151 = getelementptr inbounds i8, ptr %20, i64 64
   %152 = load i32, ptr %151, align 8
@@ -359,7 +359,7 @@ opal_convertor_cleanup.exit.i:                    ; preds = %154, %150
 
 157:                                              ; preds = %opal_convertor_cleanup.exit.i
   %158 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 %.068110.i, ptr %158, align 8
+  store i64 %.069110.i, ptr %158, align 8
   br label %159
 
 159:                                              ; preds = %157, %opal_convertor_cleanup.exit.i
@@ -775,7 +775,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constr
   br label %ompi_request_complete.exit68
 
 ompi_request_complete.exit68:                     ; preds = %.critedge.i67, %158, %129, %135
-  %.053 = phi i32 [ 0, %129 ], [ 0, %135 ], [ %150, %158 ], [ %150, %.critedge.i67 ]
+  %.054 = phi i32 [ 0, %129 ], [ 0, %135 ], [ %150, %158 ], [ %150, %.critedge.i67 ]
   %162 = getelementptr inbounds i8, ptr %0, i64 304
   store i32 0, ptr %162, align 8
   %163 = getelementptr inbounds i8, ptr %0, i64 296
@@ -789,8 +789,8 @@ ompi_request_complete.exit68:                     ; preds = %.critedge.i67, %158
   br label %167
 
 167:                                              ; preds = %127, %5, %ompi_request_complete.exit68, %126, %110, %ompi_request_complete.exit
-  %.054 = phi i32 [ 0, %ompi_request_complete.exit ], [ -2, %110 ], [ -2, %126 ], [ %.053, %ompi_request_complete.exit68 ], [ 45, %5 ], [ %128, %127 ]
-  ret i32 %.054
+  %.0 = phi i32 [ 0, %ompi_request_complete.exit ], [ -2, %110 ], [ -2, %126 ], [ %.054, %ompi_request_complete.exit68 ], [ 45, %5 ], [ %128, %127 ]
+  ret i32 %.0
 }
 
 declare void @mca_common_ompio_request_alloc(ptr noundef, i32 noundef) local_unnamed_addr #1

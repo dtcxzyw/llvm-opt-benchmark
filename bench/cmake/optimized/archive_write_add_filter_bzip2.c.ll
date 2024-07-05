@@ -265,10 +265,10 @@ define internal range(i32 -30, 1) i32 @archive_compressor_bzip2_open(ptr nocaptu
   br label %20
 
 20:                                               ; preds = %12, %17, %16, %7
-  %.0 = phi i64 [ %19, %17 ], [ 65536, %16 ], [ 65536, %7 ], [ %14, %12 ]
+  %.033 = phi i64 [ %19, %17 ], [ 65536, %16 ], [ 65536, %7 ], [ %14, %12 ]
   %21 = getelementptr inbounds i8, ptr %3, i64 104
-  store i64 %.0, ptr %21, align 8
-  %22 = tail call noalias ptr @malloc(i64 noundef %.0) #12
+  store i64 %.033, ptr %21, align 8
+  %22 = tail call noalias ptr @malloc(i64 noundef %.033) #12
   store ptr %22, ptr %4, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %26
@@ -279,7 +279,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_bzip2_open(ptr nocaptu
   br label %47
 
 26:                                               ; preds = %._crit_edge, %20
-  %27 = phi i64 [ %.0, %20 ], [ %.pre, %._crit_edge ]
+  %27 = phi i64 [ %.033, %20 ], [ %.pre, %._crit_edge ]
   %28 = phi ptr [ %22, %20 ], [ %5, %._crit_edge ]
   %29 = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %29, i8 0, i64 80, i1 false)
@@ -325,8 +325,8 @@ define internal range(i32 -30, 1) i32 @archive_compressor_bzip2_open(ptr nocaptu
   br label %47
 
 47:                                               ; preds = %38, %41, %43, %45, %37, %24
-  %.033 = phi i32 [ -30, %24 ], [ 0, %37 ], [ -30, %45 ], [ -30, %43 ], [ -30, %41 ], [ -30, %38 ]
-  ret i32 %.033
+  %.0 = phi i32 [ -30, %24 ], [ 0, %37 ], [ -30, %45 ], [ -30, %43 ], [ -30, %41 ], [ -30, %38 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

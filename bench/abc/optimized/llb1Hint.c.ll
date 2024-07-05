@@ -602,16 +602,16 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.critedge
-  %.026.lcssa85 = phi i32 [ %.val, %.critedge ], [ %45, %.preheader.loopexit ]
+  %.0.lcssa85 = phi i32 [ %.val, %.critedge ], [ %45, %.preheader.loopexit ]
   %46 = load i32, ptr %14, align 8
-  %.not69 = icmp slt i32 %.026.lcssa85, %46
+  %.not69 = icmp slt i32 %.0.lcssa85, %46
   br i1 %.not69, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %.preheader
   %47 = getelementptr i8, ptr %17, i64 8
   %.val37 = load ptr, ptr %47, align 8
   %48 = getelementptr i8, ptr %20, i64 8
-  %49 = sext i32 %.026.lcssa85 to i64
+  %49 = sext i32 %.0.lcssa85 to i64
   br label %53
 
 50:                                               ; preds = %53

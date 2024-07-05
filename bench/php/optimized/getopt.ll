@@ -91,8 +91,8 @@ define range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nocapture nounde
   %38 = ptrtoint ptr %27 to i64
   %39 = sub i64 %37, %38
   %40 = add i64 %33, -2
-  %.0146 = select i1 %.not164, i32 2, i32 3
-  %.0 = select i1 %.not164, i64 %40, i64 %39
+  %.0147 = select i1 %.not164, i32 2, i32 3
+  %.0145 = select i1 %.not164, i64 %40, i64 %39
   store i32 0, ptr @php_optidx, align 4
   %41 = load i8, ptr %2, align 8
   %42 = icmp eq i8 %41, 45
@@ -135,13 +135,13 @@ define range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nocapture nounde
   %66 = getelementptr inbounds ptr, ptr %1, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 2
-  %69 = tail call i32 @strncmp(ptr noundef nonnull %68, ptr noundef nonnull %62, i64 noundef %.0) #5
+  %69 = tail call i32 @strncmp(ptr noundef nonnull %68, ptr noundef nonnull %62, i64 noundef %.0145) #5
   %.not166 = icmp eq i32 %69, 0
   br i1 %.not166, label %70, label %73
 
 70:                                               ; preds = %63
   %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #5
-  %72 = icmp eq i64 %.0, %71
+  %72 = icmp eq i64 %.0145, %71
   br i1 %72, label %..loopexit_crit_edge, label %73
 
 73:                                               ; preds = %.lr.ph, %63, %70
@@ -193,8 +193,8 @@ define range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nocapture nounde
 ..loopexit_crit_edge:                             ; preds = %70
   store i32 0, ptr @php_getopt.optchr, align 4
   store i1 false, ptr @php_getopt.dash, align 4
-  %96 = trunc i64 %.0 to i32
-  %97 = add nsw i32 %.0146, %96
+  %96 = trunc i64 %.0145 to i32
+  %97 = add nsw i32 %.0147, %96
   %.pre182 = zext nneg i32 %59 to i64
   br label %.loopexit
 

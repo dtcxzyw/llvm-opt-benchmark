@@ -554,12 +554,12 @@ load_env_data_argv.exit190:                       ; preds = %load_env_data_argv.
   br i1 %222, label %.lr.ph278, label %._crit_edge279.thread
 
 .lr.ph278:                                        ; preds = %218, %482
-  %.0129276 = phi i32 [ %.2, %482 ], [ 60, %218 ]
-  %.0130275 = phi i1 [ %.1131, %482 ], [ false, %218 ]
-  %.0132274 = phi i1 [ %.1133, %482 ], [ true, %218 ]
-  %.1136273 = phi i32 [ %483, %482 ], [ 0, %218 ]
+  %.0128276 = phi i32 [ %.2, %482 ], [ 60, %218 ]
+  %.1130275 = phi i32 [ %483, %482 ], [ 0, %218 ]
+  %.0138274 = phi i1 [ %.1139, %482 ], [ true, %218 ]
+  %.0141273 = phi i1 [ %.1142, %482 ], [ false, %218 ]
   %223 = load ptr, ptr %11, align 8
-  %224 = sext i32 %.1136273 to i64
+  %224 = sext i32 %.1130275 to i64
   %225 = getelementptr inbounds ptr, ptr %223, i64 %224
   %226 = load ptr, ptr %225, align 8
   %227 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(8) @.str.16, i64 noundef 7) #18
@@ -808,13 +808,13 @@ load_env_data_argv.exit190:                       ; preds = %load_env_data_argv.
 
 .thread203:                                       ; preds = %250, %253, %244, %247, %238, %241
   %.1.ph = phi i32 [ 51, %250 ], [ 51, %253 ], [ 27, %244 ], [ 27, %247 ], [ 7, %238 ], [ 7, %241 ]
-  %386 = call i32 @pmix_argv_delete(ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef %.1136273, i32 noundef 1) #16
+  %386 = call i32 @pmix_argv_delete(ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef %.1130275, i32 noundef 1) #16
   br label %488
 
 387:                                              ; preds = %376
-  %388 = or i32 %.0129276, 3
-  %389 = call i32 @pmix_argv_delete(ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef %.1136273, i32 noundef 1) #16
-  %390 = add nsw i32 %.1136273, -1
+  %388 = or i32 %.0128276, 3
+  %389 = call i32 @pmix_argv_delete(ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef %.1130275, i32 noundef 1) #16
+  %390 = add nsw i32 %.1130275, -1
   br label %482
 
 sub_0:                                            ; preds = %235
@@ -844,7 +844,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %402, label %403, label %sub_0212
 
 403:                                              ; preds = %.tail
-  %404 = and i32 %.0129276, -33
+  %404 = and i32 %.0128276, -33
   br label %482
 
 sub_0212:                                         ; preds = %.tail
@@ -892,7 +892,7 @@ sub_2219:                                         ; preds = %sub_1218
   br i1 %422, label %423, label %sub_0222
 
 423:                                              ; preds = %.tail216, %.tail211
-  %424 = and i32 %.0129276, -49
+  %424 = and i32 %.0128276, -49
   br label %482
 
 sub_0222:                                         ; preds = %.tail216
@@ -918,7 +918,7 @@ sub_2224:                                         ; preds = %sub_1223
   br i1 %433, label %434, label %436
 
 434:                                              ; preds = %.tail221
-  %435 = and i32 %.0129276, -33
+  %435 = and i32 %.0128276, -33
   br label %482
 
 436:                                              ; preds = %.tail221
@@ -952,7 +952,7 @@ sub_2224:                                         ; preds = %sub_1223
   br i1 %453, label %454, label %456
 
 454:                                              ; preds = %451, %448, %445, %442, %439, %436
-  %455 = or i32 %.0129276, 128
+  %455 = or i32 %.0128276, 128
   br label %482
 
 456:                                              ; preds = %451
@@ -986,7 +986,7 @@ sub_2224:                                         ; preds = %sub_1223
   br i1 %473, label %474, label %476
 
 474:                                              ; preds = %471, %468, %465, %462, %459, %456
-  %475 = and i32 %.0129276, -129
+  %475 = and i32 %.0128276, -129
   br label %482
 
 476:                                              ; preds = %471
@@ -994,36 +994,36 @@ sub_2224:                                         ; preds = %sub_1223
   br i1 %.not165, label %479, label %477
 
 477:                                              ; preds = %476
-  %478 = or i32 %.0129276, 2
+  %478 = or i32 %.0128276, 2
   br label %482
 
 479:                                              ; preds = %476
   %480 = call fastcc i32 @find_options_index(ptr noundef nonnull %226)
   %481 = icmp slt i32 %480, 0
-  %spec.select = select i1 %481, i1 true, i1 %.0130275
+  %spec.select = select i1 %481, i1 true, i1 %.0141273
   br label %482
 
 482:                                              ; preds = %387, %479, %423, %454, %477, %474, %434, %403
-  %.2137 = phi i32 [ %390, %387 ], [ %.1136273, %403 ], [ %.1136273, %423 ], [ %.1136273, %434 ], [ %.1136273, %454 ], [ %.1136273, %474 ], [ %.1136273, %477 ], [ %.1136273, %479 ]
-  %.1133 = phi i1 [ %.0132274, %387 ], [ %.0132274, %403 ], [ %.0132274, %423 ], [ %.0132274, %434 ], [ %.0132274, %454 ], [ %.0132274, %474 ], [ false, %477 ], [ %.0132274, %479 ]
-  %.1131 = phi i1 [ %.0130275, %387 ], [ true, %403 ], [ true, %423 ], [ true, %434 ], [ %.0130275, %454 ], [ %.0130275, %474 ], [ true, %477 ], [ %spec.select, %479 ]
-  %.2 = phi i32 [ %388, %387 ], [ %404, %403 ], [ %424, %423 ], [ %435, %434 ], [ %455, %454 ], [ %475, %474 ], [ %478, %477 ], [ %.0129276, %479 ]
-  %483 = add nsw i32 %.2137, 1
+  %.1142 = phi i1 [ %.0141273, %387 ], [ true, %403 ], [ true, %423 ], [ true, %434 ], [ %.0141273, %454 ], [ %.0141273, %474 ], [ true, %477 ], [ %spec.select, %479 ]
+  %.1139 = phi i1 [ %.0138274, %387 ], [ %.0138274, %403 ], [ %.0138274, %423 ], [ %.0138274, %434 ], [ %.0138274, %454 ], [ %.0138274, %474 ], [ false, %477 ], [ %.0138274, %479 ]
+  %.2131 = phi i32 [ %390, %387 ], [ %.1130275, %403 ], [ %.1130275, %423 ], [ %.1130275, %434 ], [ %.1130275, %454 ], [ %.1130275, %474 ], [ %.1130275, %477 ], [ %.1130275, %479 ]
+  %.2 = phi i32 [ %388, %387 ], [ %404, %403 ], [ %424, %423 ], [ %435, %434 ], [ %455, %454 ], [ %475, %474 ], [ %478, %477 ], [ %.0128276, %479 ]
+  %483 = add nsw i32 %.2131, 1
   %484 = load i32, ptr %9, align 4
   %485 = icmp slt i32 %483, %484
   br i1 %485, label %.lr.ph278, label %._crit_edge279, !llvm.loop !10
 
 ._crit_edge279:                                   ; preds = %482
-  br i1 %.1133, label %._crit_edge279.thread, label %488
+  br i1 %.1139, label %._crit_edge279.thread, label %488
 
 ._crit_edge279.thread:                            ; preds = %218, %._crit_edge279
-  %.0129.lcssa319 = phi i32 [ %.2, %._crit_edge279 ], [ 60, %218 ]
-  %.0130.lcssa318 = phi i1 [ %.1131, %._crit_edge279 ], [ false, %218 ]
-  %486 = and i32 %.0129.lcssa319, 1
+  %.0128.lcssa319 = phi i32 [ %.2, %._crit_edge279 ], [ 60, %218 ]
+  %.0141.lcssa318 = phi i1 [ %.1142, %._crit_edge279 ], [ false, %218 ]
+  %486 = and i32 %.0128.lcssa319, 1
   %.not168 = icmp eq i32 %486, 0
-  %brmerge = select i1 %.not168, i1 true, i1 %.0130.lcssa318
-  %487 = and i32 %.0129.lcssa319, -57
-  %spec.select226 = select i1 %brmerge, i32 %487, i32 %.0129.lcssa319
+  %brmerge = select i1 %.not168, i1 true, i1 %.0141.lcssa318
+  %487 = and i32 %.0128.lcssa319, -57
+  %spec.select226 = select i1 %brmerge, i32 %487, i32 %.0128.lcssa319
   br label %488
 
 488:                                              ; preds = %._crit_edge279.thread, %.thread203, %._crit_edge279
@@ -1056,7 +1056,7 @@ sub_2224:                                         ; preds = %sub_1223
   br label %706
 
 502:                                              ; preds = %.thread207, %491
-  %.0138209 = phi i32 [ 0, %.thread207 ], [ %498, %491 ]
+  %.0132209 = phi i32 [ 0, %.thread207 ], [ %498, %491 ]
   %503 = and i32 %.4, 16
   %.not170 = icmp eq i32 %503, 0
   br i1 %.not170, label %513, label %504
@@ -1067,15 +1067,15 @@ sub_2224:                                         ; preds = %sub_1223
   %507 = sext i32 %506 to i64
   %508 = getelementptr inbounds %struct.options_data_t, ptr %505, i64 %507, i32 10
   %509 = load ptr, ptr %508, align 8
-  %510 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.0138209, ptr noundef %509) #16
+  %510 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.0132209, ptr noundef %509) #16
   %511 = load ptr, ptr %10, align 8
   %512 = call i32 @PMIx_Argv_count(ptr noundef %511) #16
   br label %513
 
 513:                                              ; preds = %504, %502
-  %.1139 = phi i32 [ %512, %504 ], [ %.0138209, %502 ]
+  %.1133 = phi i32 [ %512, %504 ], [ %.0132209, %502 ]
   %514 = load ptr, ptr %11, align 8
-  %515 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.1139, ptr noundef %514) #16
+  %515 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.1133, ptr noundef %514) #16
   %516 = load ptr, ptr %10, align 8
   %517 = call i32 @PMIx_Argv_count(ptr noundef %516) #16
   %518 = and i32 %.4, 8
@@ -1094,7 +1094,7 @@ sub_2224:                                         ; preds = %sub_1223
   br label %528
 
 528:                                              ; preds = %519, %513
-  %.2140 = phi i32 [ %527, %519 ], [ %517, %513 ]
+  %.2134 = phi i32 [ %527, %519 ], [ %517, %513 ]
   br i1 %.not170, label %538, label %529
 
 529:                                              ; preds = %528
@@ -1103,13 +1103,13 @@ sub_2224:                                         ; preds = %sub_1223
   %532 = sext i32 %531 to i64
   %533 = getelementptr inbounds %struct.options_data_t, ptr %530, i64 %532, i32 9
   %534 = load ptr, ptr %533, align 8
-  %535 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.2140, ptr noundef %534) #16
+  %535 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.2134, ptr noundef %534) #16
   %536 = load ptr, ptr %10, align 8
   %537 = call i32 @PMIx_Argv_count(ptr noundef %536) #16
   br label %538
 
 538:                                              ; preds = %529, %528
-  %.3141 = phi i32 [ %537, %529 ], [ %.2140, %528 ]
+  %.3135 = phi i32 [ %537, %529 ], [ %.2134, %528 ]
   %539 = and i32 %.4, 32
   %.not172 = icmp eq i32 %539, 0
   br i1 %.not172, label %577, label %540
@@ -1120,7 +1120,7 @@ sub_2224:                                         ; preds = %sub_1223
   %543 = sext i32 %542 to i64
   %544 = getelementptr inbounds %struct.options_data_t, ptr %541, i64 %543, i32 11
   %545 = load ptr, ptr %544, align 8
-  %546 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.3141, ptr noundef %545) #16
+  %546 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.3135, ptr noundef %545) #16
   %547 = load ptr, ptr %10, align 8
   %548 = call i32 @PMIx_Argv_count(ptr noundef %547) #16
   %549 = and i32 %.4, 128
@@ -1139,13 +1139,13 @@ sub_2224:                                         ; preds = %sub_1223
   br label %559
 
 559:                                              ; preds = %550, %540
-  %.4142 = phi i32 [ %558, %550 ], [ %548, %540 ]
+  %.4136 = phi i32 [ %558, %550 ], [ %548, %540 ]
   %560 = load ptr, ptr @options_data, align 8
   %561 = load i32, ptr @user_data_idx, align 4
   %562 = sext i32 %561 to i64
   %563 = getelementptr inbounds %struct.options_data_t, ptr %560, i64 %562, i32 13
   %564 = load ptr, ptr %563, align 8
-  %565 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.4142, ptr noundef %564) #16
+  %565 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.4136, ptr noundef %564) #16
   %566 = load ptr, ptr %10, align 8
   %567 = call i32 @PMIx_Argv_count(ptr noundef %566) #16
   br i1 %.not173, label %577, label %568

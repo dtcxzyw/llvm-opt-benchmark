@@ -316,12 +316,12 @@ define internal range(i32 0, 65536) i32 @dissect_ecpri(ptr noundef %0, ptr nound
   br label %29
 
 29:                                               ; preds = %.loopexit, %27
-  %.0376 = phi i32 [ 0, %27 ], [ %.3, %.loopexit ]
-  %30 = srem i32 %.0376, 4
+  %.0377 = phi i32 [ 0, %27 ], [ %.3, %.loopexit ]
+  %30 = srem i32 %.0377, 4
   %.not419 = icmp eq i32 %30, 0
-  %31 = add i32 %.0376, 4
+  %31 = add i32 %.0377, 4
   %32 = sub i32 %31, %30
-  %.1 = select i1 %.not419, i32 %.0376, i32 %32
+  %.1 = select i1 %.not419, i32 %.0377, i32 %32
   %33 = add i32 %.1, 2
   %34 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %33) #2
   %35 = zext i16 %34 to i32

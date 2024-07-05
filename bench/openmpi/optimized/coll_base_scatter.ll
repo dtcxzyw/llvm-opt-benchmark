@@ -215,11 +215,11 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i161, %87
 
 107:                                              ; preds = %opal_obj_run_destructors.exit, %54
   %.0 = phi i64 [ %57, %54 ], [ 1, %opal_obj_run_destructors.exit ]
-  %.0126 = phi ptr [ %2, %54 ], [ @ompi_mpi_packed, %opal_obj_run_destructors.exit ]
-  %.0124 = phi i32 [ %1, %54 ], [ %106, %opal_obj_run_destructors.exit ]
-  %.0119 = phi ptr [ %0, %54 ], [ %85, %opal_obj_run_destructors.exit ]
-  %.0118 = phi ptr [ null, %54 ], [ %85, %opal_obj_run_destructors.exit ]
-  %108 = mul nsw i32 %.0124, %.val.val
+  %.0123 = phi ptr [ %0, %54 ], [ %85, %opal_obj_run_destructors.exit ]
+  %.0121 = phi ptr [ null, %54 ], [ %85, %opal_obj_run_destructors.exit ]
+  %.0119 = phi ptr [ %2, %54 ], [ @ompi_mpi_packed, %opal_obj_run_destructors.exit ]
+  %.0118 = phi i32 [ %1, %54 ], [ %106, %opal_obj_run_destructors.exit ]
+  %108 = mul nsw i32 %.0118, %.val.val
   br label %152
 
 109:                                              ; preds = %opal_obj_run_constructors.exit
@@ -292,16 +292,16 @@ opal_convertor_get_packed_size.exit169:           ; preds = %109, %131
 
 152:                                              ; preds = %148, %107
   %.1174 = phi i64 [ %.0, %107 ], [ 1, %148 ]
-  %.1127 = phi ptr [ %.0126, %107 ], [ @ompi_mpi_packed, %148 ]
-  %.1125 = phi i32 [ %.0124, %107 ], [ %134, %148 ]
-  %.0121 = phi i32 [ %108, %107 ], [ %151, %148 ]
-  %.1120 = phi ptr [ %.0119, %107 ], [ %143, %148 ]
-  %.1 = phi ptr [ %.0118, %107 ], [ %143, %148 ]
+  %.0125 = phi i32 [ %108, %107 ], [ %151, %148 ]
+  %.1124 = phi ptr [ %.0123, %107 ], [ %143, %148 ]
+  %.1122 = phi ptr [ %.0121, %107 ], [ %143, %148 ]
+  %.1120 = phi ptr [ %.0119, %107 ], [ @ompi_mpi_packed, %148 ]
+  %.1 = phi i32 [ %.0118, %107 ], [ %134, %148 ]
   %.not149 = icmp eq ptr %3, inttoptr (i64 1 to ptr)
   br i1 %.not149, label %155, label %153
 
 153:                                              ; preds = %152
-  %154 = call i32 @ompi_datatype_sndrcv(ptr noundef %.1120, i32 noundef %.1125, ptr noundef %.1127, ptr noundef %3, i32 noundef %4, ptr noundef %5) #5
+  %154 = call i32 @ompi_datatype_sndrcv(ptr noundef %.1124, i32 noundef %.1, ptr noundef %.1120, ptr noundef %3, i32 noundef %4, ptr noundef %5) #5
   %.not150 = icmp eq i32 %154, 0
   br i1 %.not150, label %155, label %.loopexit
 
@@ -314,7 +314,7 @@ opal_convertor_get_packed_size.exit169:           ; preds = %109, %131
 
 160:                                              ; preds = %163, %155
   %indvars.iv = phi i64 [ %164, %163 ], [ %159, %155 ]
-  %.1122 = phi i32 [ %173, %163 ], [ %.0121, %155 ]
+  %.1126 = phi i32 [ %173, %163 ], [ %.0125, %155 ]
   %161 = trunc nuw i64 %indvars.iv to i32
   %162 = icmp sgt i32 %161, 0
   br i1 %162, label %163, label %179
@@ -328,39 +328,39 @@ opal_convertor_get_packed_size.exit169:           ; preds = %109, %131
   %169 = sub nsw i32 %168, %34
   %170 = sub nsw i32 %.val.val, %168
   %spec.select155 = call i32 @llvm.smin.i32(i32 %169, i32 %170)
-  %171 = mul nsw i32 %spec.select155, %.1125
+  %171 = mul nsw i32 %spec.select155, %.1
   %172 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
-  %173 = sub nsw i32 %.1122, %171
+  %173 = sub nsw i32 %.1126, %171
   %174 = sext i32 %173 to i64
   %175 = mul nsw i64 %.1174, %174
-  %176 = getelementptr inbounds i8, ptr %.1120, i64 %175
+  %176 = getelementptr inbounds i8, ptr %.1124, i64 %175
   %177 = sext i32 %171 to i64
-  %178 = call i32 %172(ptr noundef %176, i64 noundef %177, ptr noundef %.1127, i32 noundef %166, i32 noundef -25, i32 noundef 4, ptr noundef %7) #5
+  %178 = call i32 %172(ptr noundef %176, i64 noundef %177, ptr noundef %.1120, i32 noundef %166, i32 noundef -25, i32 noundef 4, ptr noundef %7) #5
   %.not152 = icmp eq i32 %178, 0
   br i1 %.not152, label %160, label %.loopexit, !llvm.loop !7
 
 179:                                              ; preds = %160
-  %.not151 = icmp eq ptr %.1, null
+  %.not151 = icmp eq ptr %.1122, null
   br i1 %.not151, label %.thread177, label %180
 
 180:                                              ; preds = %179
-  call void @free(ptr noundef nonnull %.1) #5
+  call void @free(ptr noundef nonnull %.1122) #5
   br label %.thread177
 
 .loopexit:                                        ; preds = %163, %153
-  %.0123 = phi i32 [ %154, %153 ], [ %178, %163 ]
-  %.not154 = icmp eq ptr %.1, null
+  %.0127 = phi i32 [ %154, %153 ], [ %178, %163 ]
+  %.not154 = icmp eq ptr %.1122, null
   br i1 %.not154, label %.thread177, label %.thread181
 
 .thread181:                                       ; preds = %145, %.loopexit
-  %.2186 = phi ptr [ %.1, %.loopexit ], [ %143, %145 ]
-  %.0123185 = phi i32 [ %.0123, %.loopexit ], [ %147, %145 ]
+  %.2186 = phi ptr [ %.1122, %.loopexit ], [ %143, %145 ]
+  %.0127185 = phi i32 [ %.0127, %.loopexit ], [ %147, %145 ]
   call void @free(ptr noundef nonnull %.2186) #5
   br label %.thread177
 
 .thread177:                                       ; preds = %36, %opal_convertor_get_packed_size.exit169, %opal_convertor_get_packed_size.exit, %thread-pre-split, %.loopexit, %.thread181, %179, %180
-  %.0117 = phi i32 [ 0, %180 ], [ 0, %179 ], [ %.0123185, %.thread181 ], [ %.0123, %.loopexit ], [ -2, %opal_convertor_get_packed_size.exit169 ], [ -2, %opal_convertor_get_packed_size.exit ], [ -2, %thread-pre-split ], [ %41, %36 ]
-  ret i32 %.0117
+  %.0115 = phi i32 [ 0, %180 ], [ 0, %179 ], [ %.0127185, %.thread181 ], [ %.0127, %.loopexit ], [ -2, %opal_convertor_get_packed_size.exit169 ], [ -2, %opal_convertor_get_packed_size.exit ], [ -2, %thread-pre-split ], [ %41, %36 ]
+  ret i32 %.0115
 }
 
 declare i32 @ompi_coll_base_topo_destroy_tree(ptr noundef) local_unnamed_addr #1
@@ -413,26 +413,26 @@ define i32 @ompi_coll_base_scatter_intra_basic_linear(ptr noundef %0, i32 nounde
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread.us
   %.051.us = phi ptr [ %29, %.thread.us ], [ %0, %.lr.ph ]
-  %.03549.us = phi i32 [ %28, %.thread.us ], [ 0, %.lr.ph ]
-  %24 = icmp eq i32 %.03549.us, %6
+  %.03649.us = phi i32 [ %28, %.thread.us ], [ 0, %.lr.ph ]
+  %24 = icmp eq i32 %.03649.us, %6
   br i1 %24, label %.thread.us, label %25
 
 25:                                               ; preds = %.lr.ph.split.us
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
-  %27 = tail call i32 %26(ptr noundef %.051.us, i64 noundef %21, ptr noundef %2, i32 noundef %.03549.us, i32 noundef -25, i32 noundef 4, ptr noundef %7) #5
+  %27 = tail call i32 %26(ptr noundef %.051.us, i64 noundef %21, ptr noundef %2, i32 noundef %.03649.us, i32 noundef -25, i32 noundef 4, ptr noundef %7) #5
   %.not42.us = icmp eq i32 %27, 0
   br i1 %.not42.us, label %.thread.us, label %.loopexit
 
 .thread.us:                                       ; preds = %.lr.ph.split.us, %25
-  %28 = add nuw nsw i32 %.03549.us, 1
+  %28 = add nuw nsw i32 %.03649.us, 1
   %29 = getelementptr inbounds i8, ptr %.051.us, i64 %22
   %exitcond58.not = icmp eq i32 %28, %.val.val
   br i1 %exitcond58.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
   %.051 = phi ptr [ %38, %.thread ], [ %0, %.lr.ph ]
-  %.03549 = phi i32 [ %37, %.thread ], [ 0, %.lr.ph ]
-  %30 = icmp eq i32 %.03549, %6
+  %.03649 = phi i32 [ %37, %.thread ], [ 0, %.lr.ph ]
+  %30 = icmp eq i32 %.03649, %6
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph.split
@@ -441,7 +441,7 @@ define i32 @ompi_coll_base_scatter_intra_basic_linear(ptr noundef %0, i32 nounde
 
 33:                                               ; preds = %.lr.ph.split
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
-  %35 = tail call i32 %34(ptr noundef %.051, i64 noundef %21, ptr noundef %2, i32 noundef %.03549, i32 noundef -25, i32 noundef 4, ptr noundef %7) #5
+  %35 = tail call i32 %34(ptr noundef %.051, i64 noundef %21, ptr noundef %2, i32 noundef %.03649, i32 noundef -25, i32 noundef 4, ptr noundef %7) #5
   br label %36
 
 36:                                               ; preds = %31, %33
@@ -450,14 +450,14 @@ define i32 @ompi_coll_base_scatter_intra_basic_linear(ptr noundef %0, i32 nounde
   br i1 %.not42, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %36
-  %37 = add nuw nsw i32 %.03549, 1
+  %37 = add nuw nsw i32 %.03649, 1
   %38 = getelementptr inbounds i8, ptr %.051, i64 %22
   %exitcond.not = icmp eq i32 %37, %.val.val
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !8
 
 .loopexit:                                        ; preds = %36, %.thread, %25, %.thread.us, %17, %13
-  %.036 = phi i32 [ %16, %13 ], [ 0, %17 ], [ %27, %25 ], [ 0, %.thread.us ], [ %.1, %36 ], [ 0, %.thread ]
-  ret i32 %.036
+  %.035 = phi i32 [ %16, %13 ], [ 0, %17 ], [ %27, %25 ], [ 0, %.thread.us ], [ %.1, %36 ], [ 0, %.thread ]
+  ret i32 %.035
 }
 
 ; Function Attrs: nounwind uwtable
@@ -491,7 +491,7 @@ define i32 @ompi_coll_base_scatter_intra_linear_nb(ptr noundef %0, i32 noundef %
   br label %25
 
 25:                                               ; preds = %22, %20
-  %.079 = phi i32 [ 0, %20 ], [ %9, %22 ]
+  %.078 = phi i32 [ 0, %20 ], [ %9, %22 ]
   %.073 = phi i32 [ %21, %20 ], [ %24, %22 ]
   %26 = getelementptr inbounds i8, ptr %8, i64 584
   %27 = load ptr, ptr %26, align 8
@@ -511,7 +511,7 @@ define i32 @ompi_coll_base_scatter_intra_linear_nb(ptr noundef %0, i32 noundef %
   br i1 %36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %30
-  %.not94 = icmp eq i32 %.079, 0
+  %.not94 = icmp eq i32 %.078, 0
   %.not96 = icmp eq ptr %3, inttoptr (i64 1 to ptr)
   br i1 %.not94, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -521,20 +521,20 @@ define i32 @ompi_coll_base_scatter_intra_linear_nb(ptr noundef %0, i32 noundef %
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.thread.us.us
   %.0118.us.us = phi ptr [ %.1108.us.us, %.thread.us.us ], [ %28, %.lr.ph.split.us ]
   %.072117.us.us = phi ptr [ %43, %.thread.us.us ], [ %0, %.lr.ph.split.us ]
-  %.077116.us.us = phi i32 [ %42, %.thread.us.us ], [ 0, %.lr.ph.split.us ]
-  %37 = icmp eq i32 %.077116.us.us, %6
+  %.079116.us.us = phi i32 [ %42, %.thread.us.us ], [ 0, %.lr.ph.split.us ]
+  %37 = icmp eq i32 %.079116.us.us, %6
   br i1 %37, label %.thread.us.us, label %38
 
 38:                                               ; preds = %.lr.ph.split.us.split.us
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %40 = getelementptr inbounds i8, ptr %.0118.us.us, i64 8
-  %41 = tail call i32 %39(ptr noundef %.072117.us.us, i64 noundef %34, ptr noundef %2, i32 noundef %.077116.us.us, i32 noundef -25, i32 noundef 4, ptr noundef %7, ptr noundef %.0118.us.us) #5
+  %41 = tail call i32 %39(ptr noundef %.072117.us.us, i64 noundef %34, ptr noundef %2, i32 noundef %.079116.us.us, i32 noundef -25, i32 noundef 4, ptr noundef %7, ptr noundef %.0118.us.us) #5
   %.not97.us.us = icmp eq i32 %41, 0
   br i1 %.not97.us.us, label %.thread.us.us, label %.loopexit114
 
 .thread.us.us:                                    ; preds = %.lr.ph.split.us.split.us, %38
   %.1108.us.us = phi ptr [ %40, %38 ], [ %.0118.us.us, %.lr.ph.split.us.split.us ]
-  %42 = add nuw nsw i32 %.077116.us.us, 1
+  %42 = add nuw nsw i32 %.079116.us.us, 1
   %43 = getelementptr inbounds i8, ptr %.072117.us.us, i64 %35
   %exitcond134.not = icmp eq i32 %42, %.val.val
   br i1 %exitcond134.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !9
@@ -542,14 +542,14 @@ define i32 @ompi_coll_base_scatter_intra_linear_nb(ptr noundef %0, i32 noundef %
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.thread.us
   %.0118.us = phi ptr [ %.1.us, %.thread.us ], [ %28, %.lr.ph.split.us ]
   %.072117.us = phi ptr [ %53, %.thread.us ], [ %0, %.lr.ph.split.us ]
-  %.077116.us = phi i32 [ %52, %.thread.us ], [ 0, %.lr.ph.split.us ]
-  %44 = icmp eq i32 %.077116.us, %6
+  %.079116.us = phi i32 [ %52, %.thread.us ], [ 0, %.lr.ph.split.us ]
+  %44 = icmp eq i32 %.079116.us, %6
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %.lr.ph.split.us.split
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %47 = getelementptr inbounds i8, ptr %.0118.us, i64 8
-  %48 = tail call i32 %46(ptr noundef %.072117.us, i64 noundef %34, ptr noundef %2, i32 noundef %.077116.us, i32 noundef -25, i32 noundef 4, ptr noundef %7, ptr noundef %.0118.us) #5
+  %48 = tail call i32 %46(ptr noundef %.072117.us, i64 noundef %34, ptr noundef %2, i32 noundef %.079116.us, i32 noundef -25, i32 noundef 4, ptr noundef %7, ptr noundef %.0118.us) #5
   br label %51
 
 49:                                               ; preds = %.lr.ph.split.us.split
@@ -563,7 +563,7 @@ define i32 @ompi_coll_base_scatter_intra_linear_nb(ptr noundef %0, i32 noundef %
   br i1 %.not97.us, label %.thread.us, label %.loopexit114
 
 .thread.us:                                       ; preds = %51
-  %52 = add nuw nsw i32 %.077116.us, 1
+  %52 = add nuw nsw i32 %.079116.us, 1
   %53 = getelementptr inbounds i8, ptr %.072117.us, i64 %35
   %exitcond133.not = icmp eq i32 %52, %.val.val
   br i1 %exitcond133.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !9
@@ -571,8 +571,8 @@ define i32 @ompi_coll_base_scatter_intra_linear_nb(ptr noundef %0, i32 noundef %
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
   %.0118 = phi ptr [ %.1108, %.thread ], [ %28, %.lr.ph ]
   %.072117 = phi ptr [ %69, %.thread ], [ %0, %.lr.ph ]
-  %.077116 = phi i32 [ %68, %.thread ], [ 0, %.lr.ph ]
-  %54 = icmp eq i32 %.077116, %6
+  %.079116 = phi i32 [ %68, %.thread ], [ 0, %.lr.ph ]
+  %54 = icmp eq i32 %.079116, %6
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %.lr.ph.split
@@ -583,19 +583,19 @@ define i32 @ompi_coll_base_scatter_intra_linear_nb(ptr noundef %0, i32 noundef %
   br label %67
 
 58:                                               ; preds = %.lr.ph.split
-  %59 = urem i32 %.077116, %.079
+  %59 = urem i32 %.079116, %.078
   %.not95 = icmp eq i32 %59, 0
   br i1 %.not95, label %64, label %60
 
 60:                                               ; preds = %58
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %62 = getelementptr inbounds i8, ptr %.0118, i64 8
-  %63 = tail call i32 %61(ptr noundef %.072117, i64 noundef %34, ptr noundef %2, i32 noundef %.077116, i32 noundef -25, i32 noundef 4, ptr noundef %7, ptr noundef %.0118) #5
+  %63 = tail call i32 %61(ptr noundef %.072117, i64 noundef %34, ptr noundef %2, i32 noundef %.079116, i32 noundef -25, i32 noundef 4, ptr noundef %7, ptr noundef %.0118) #5
   br label %67
 
 64:                                               ; preds = %58
   %65 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
-  %66 = tail call i32 %65(ptr noundef %.072117, i64 noundef %34, ptr noundef %2, i32 noundef %.077116, i32 noundef -25, i32 noundef 4, ptr noundef %7) #5
+  %66 = tail call i32 %65(ptr noundef %.072117, i64 noundef %34, ptr noundef %2, i32 noundef %.079116, i32 noundef -25, i32 noundef 4, ptr noundef %7) #5
   br label %67
 
 67:                                               ; preds = %60, %64, %56
@@ -606,7 +606,7 @@ define i32 @ompi_coll_base_scatter_intra_linear_nb(ptr noundef %0, i32 noundef %
 
 .thread:                                          ; preds = %55, %67
   %.1108 = phi ptr [ %.1, %67 ], [ %.0118, %55 ]
-  %68 = add nuw nsw i32 %.077116, 1
+  %68 = add nuw nsw i32 %.079116, 1
   %69 = getelementptr inbounds i8, ptr %.072117, i64 %35
   %exitcond.not = icmp eq i32 %68, %.val.val
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
@@ -705,8 +705,8 @@ ompi_request_cancel.exit.i:                       ; preds = %94, %91
   br i1 %exitcond.not.i, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i, !llvm.loop !11
 
 ompi_coll_base_free_reqs.exit:                    ; preds = %102, %.preheader, %14, %25, %.loopexit, %._crit_edge
-  %.080 = phi i32 [ 0, %._crit_edge ], [ %.3, %.loopexit ], [ -2, %25 ], [ %17, %14 ], [ 18, %.preheader ], [ %.3, %102 ]
-  ret i32 %.080
+  %.077 = phi i32 [ 0, %._crit_edge ], [ %.3, %.loopexit ], [ -2, %25 ], [ %17, %14 ], [ 18, %.preheader ], [ %.3, %102 ]
+  ret i32 %.077
 }
 
 declare ptr @ompi_coll_base_comm_get_reqs(ptr noundef, i32 noundef) local_unnamed_addr #1

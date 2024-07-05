@@ -623,7 +623,7 @@ entry:
 
 for.body.us:                                      ; preds = %entry, %for.inc.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.inc.us ], [ 0, %entry ]
-  %ret.015.us = phi i32 [ %ret.1.us, %for.inc.us ], [ 1, %entry ]
+  %ret.016.us = phi i32 [ %ret.1.us, %for.inc.us ], [ 1, %entry ]
   %arrayidx.us = getelementptr inbounds [5 x ptr], ptr @dofptest.fspecs, i64 0, i64 %indvars.iv19
   %0 = load ptr, ptr %arrayidx.us, align 8
   %call.us = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %format, i64 noundef 80, ptr noundef nonnull @.str.46, ptr noundef %width, i32 noundef %prec, ptr noundef %0) #7
@@ -655,14 +655,14 @@ if.then9.us:                                      ; preds = %if.then7.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then9.us, %if.else12.us, %if.then26.us, %if.else16.us
-  %ret.1.us = phi i32 [ %ret.015.us, %if.then9.us ], [ %ret.015.us, %if.else12.us ], [ %ret.015.us, %if.else16.us ], [ 0, %if.then26.us ]
+  %ret.1.us = phi i32 [ %ret.016.us, %if.then9.us ], [ %ret.016.us, %if.else12.us ], [ %ret.016.us, %if.else16.us ], [ 0, %if.then26.us ]
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 5
   br i1 %exitcond22.not, label %for.end, label %for.body.us, !llvm.loop !7
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %ret.015 = phi i32 [ %ret.1, %for.inc ], [ 1, %entry ]
+  %ret.016 = phi i32 [ %ret.1, %for.inc ], [ 1, %entry ]
   %arrayidx = getelementptr inbounds [5 x ptr], ptr @dofptest.fspecs, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %call3 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %format, i64 noundef 80, ptr noundef nonnull @.str.47, ptr noundef %width, ptr noundef %2) #7
@@ -694,7 +694,7 @@ if.then26:                                        ; preds = %if.else16
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else12, %if.then9, %if.then26, %if.else16
-  %ret.1 = phi i32 [ %ret.015, %if.then9 ], [ %ret.015, %if.else12 ], [ %ret.015, %if.else16 ], [ 0, %if.then26 ]
+  %ret.1 = phi i32 [ %ret.016, %if.then9 ], [ %ret.016, %if.else12 ], [ %ret.016, %if.else16 ], [ 0, %if.then26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7

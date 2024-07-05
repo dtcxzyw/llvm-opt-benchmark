@@ -130,20 +130,20 @@ define internal range(i32 -1, 1) i32 @phar_dir_seek(ptr nocapture noundef readon
   br label %12
 
 12:                                               ; preds = %7, %.thread
-  %.01925 = phi i64 [ %11, %.thread ], [ %1, %7 ]
+  %.01825 = phi i64 [ %11, %.thread ], [ %1, %7 ]
   %13 = getelementptr inbounds i8, ptr %6, i64 36
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef nonnull %6, ptr noundef nonnull %13) #10
   br label %14
 
 14:                                               ; preds = %7, %12
-  %.01924 = phi i64 [ %.01925, %12 ], [ %1, %7 ]
-  %15 = icmp slt i64 %.01924, 0
+  %.01824 = phi i64 [ %.01825, %12 ], [ %1, %7 ]
+  %15 = icmp slt i64 %.01824, 0
   br i1 %15, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %14
   %16 = getelementptr inbounds i8, ptr %6, i64 36
   store i64 0, ptr %3, align 8
-  %.not27 = icmp eq i64 %.01924, 0
+  %.not27 = icmp eq i64 %.01824, 0
   br i1 %.not27, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %19
@@ -155,7 +155,7 @@ define internal range(i32 -1, 1) i32 @phar_dir_seek(ptr nocapture noundef readon
   %20 = load i64, ptr %3, align 8
   %21 = add nsw i64 %20, 1
   store i64 %21, ptr %3, align 8
-  %22 = icmp slt i64 %21, %.01924
+  %22 = icmp slt i64 %21, %.01824
   br i1 %22, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %19, %.lr.ph, %.preheader, %14, %4

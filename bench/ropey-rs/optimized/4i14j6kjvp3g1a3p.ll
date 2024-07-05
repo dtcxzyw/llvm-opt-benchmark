@@ -1141,7 +1141,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126: ; preds 
   br label %.thread1447
 
 .thread1447:                                      ; preds = %256, %248, %250, %260, %262, %266, %270, %227
-  %272 = phi <16 x i8> [ %228, %227 ], [ %.sroa.01047.15.vec.insert, %270 ], [ %249, %266 ], [ %249, %262 ], [ %.sroa.01044.14.vec.insert, %260 ], [ %249, %250 ], [ %249, %248 ], [ %249, %256 ]
+  %272 = phi <16 x i8> [ %228, %227 ], [ %.sroa.01044.14.vec.insert, %260 ], [ %.sroa.01047.15.vec.insert, %270 ], [ %249, %266 ], [ %249, %262 ], [ %249, %250 ], [ %249, %248 ], [ %249, %256 ]
   %273 = add <16 x i8> %272, %206
   %.sroa.01.0.vec.extract.i172 = extractelement <2 x i64> %210, i64 0
   %274 = icmp eq i64 %.sroa.01.0.vec.extract.i172, 0
@@ -3208,8 +3208,8 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %74
   br label %_ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit133
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit": ; preds = %._crit_edge1420, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit"
-  %155 = phi <16 x i8> [ %161, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit" ], [ zeroinitializer, %._crit_edge1420 ]
   %.sroa.0497.01422 = phi ptr [ %156, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit" ], [ %138, %._crit_edge1420 ]
+  %155 = phi <16 x i8> [ %161, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit" ], [ zeroinitializer, %._crit_edge1420 ]
   %156 = getelementptr inbounds i8, ptr %.sroa.0497.01422, i64 16
   %157 = load <16 x i8>, ptr %.sroa.0497.01422, align 16
   %158 = and <16 x i8> %157, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>

@@ -1667,8 +1667,8 @@ lpad8:                                            ; preds = %invoke.cont6
   br label %catch.dispatch
 
 catch.dispatch:                                   ; preds = %lpad8, %lpad5
-  %.pn23 = phi { ptr, i32 } [ %5, %lpad5 ], [ %6, %lpad8 ]
   %is.1 = phi ptr [ %is.0, %lpad5 ], [ null, %lpad8 ]
+  %.pn23 = phi { ptr, i32 } [ %5, %lpad5 ], [ %6, %lpad8 ]
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn23, 1
   %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7Iex_3_27BaseExcE) #21
   %matches = icmp eq i32 %ehselector.slot.0, %7
@@ -5137,8 +5137,8 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %decomp.0 = phi ptr [ %call6, %if.then ], [ null, %if.else ]
   %format.0 = phi i32 [ %call12, %if.then ], [ 1, %if.else ]
+  %decomp.0 = phi ptr [ %call6, %if.then ], [ null, %if.else ]
   %_data15 = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %_data15, align 8
   %lineOrder = getelementptr inbounds i8, ptr %9, i64 208
@@ -5146,9 +5146,9 @@ if.end:                                           ; preds = %if.else, %if.then
   %cmp16 = icmp eq i32 %10, 0
   %add = add nsw i32 %scanLine2, 1
   %sub = add nsw i32 %scanLine1, -1
-  %yStart.0 = select i1 %cmp16, i32 %scanLine1, i32 %scanLine2
-  %yStop.0 = select i1 %cmp16, i32 %add, i32 %sub
   %dy.0 = select i1 %cmp16, i64 1, i64 -1
+  %yStop.0 = select i1 %cmp16, i32 %add, i32 %sub
+  %yStart.0 = select i1 %cmp16, i32 %scanLine1, i32 %scanLine2
   %call20 = call noundef nonnull align 8 dereferenceable(50) ptr @_ZNK7Imf_3_215DeepFrameBuffer19getSampleCountSliceEv(ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer)
   %base = getelementptr inbounds i8, ptr %call20, i64 8
   %11 = load ptr, ptr %base, align 8
@@ -6062,14 +6062,14 @@ invoke.cont84:                                    ; preds = %for.end
   ret void
 
 ehcleanup:                                        ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad18
-  %savedFilePos.1 = phi i64 [ %call, %lpad18 ], [ %call, %lpad7.loopexit ], [ %savedFilePos.0.ph, %lpad7.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %16, %lpad18 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
+  %savedFilePos.1 = phi i64 [ %call, %lpad18 ], [ %call, %lpad7.loopexit ], [ %savedFilePos.0.ph, %lpad7.loopexit.split-lp ]
   %call1.i.i.i24 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #21
   br label %catch.dispatch
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad3
-  %savedFilePos.2 = phi i64 [ %savedFilePos.1, %ehcleanup ], [ 0, %lpad3 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %15, %lpad3 ]
+  %savedFilePos.2 = phi i64 [ %savedFilePos.1, %ehcleanup ], [ 0, %lpad3 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
   %56 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7Iex_3_27BaseExcE) #21
   %matches = icmp eq i32 %ehselector.slot.1, %56
@@ -7455,12 +7455,12 @@ for.body.lr.ph:                                   ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %9, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %uncompressedSize.059 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
+  %uncompressedSize.060 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
   %add.ptr.i = getelementptr inbounds i64, ptr %8, i64 %indvars.iv
   %11 = load i64, ptr %add.ptr.i, align 8
   %sext = shl i64 %11, 32
   %conv15 = ashr exact i64 %sext, 32
-  %add = add i64 %conv15, %uncompressedSize.059
+  %add = add i64 %conv15, %uncompressedSize.060
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %cmp11.not.not = icmp slt i64 %indvars.iv, %10
   br i1 %cmp11.not.not, label %for.body, label %for.end, !llvm.loop !42
@@ -7504,10 +7504,10 @@ for.body32.lr.ph:                                 ; preds = %if.end
 
 for.body32:                                       ; preds = %for.body32.lr.ph, %for.body32
   %indvars.iv79 = phi i64 [ %18, %for.body32.lr.ph ], [ %indvars.iv.next80, %for.body32 ]
-  %maxBytesPerLine.062 = phi i64 [ 0, %for.body32.lr.ph ], [ %spec.select, %for.body32 ]
+  %maxBytesPerLine.063 = phi i64 [ 0, %for.body32.lr.ph ], [ %spec.select, %for.body32 ]
   %add.ptr.i43 = getelementptr inbounds i64, ptr %17, i64 %indvars.iv79
   %20 = load i64, ptr %add.ptr.i43, align 8
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %20, i64 %maxBytesPerLine.062)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %20, i64 %maxBytesPerLine.063)
   %indvars.iv.next80 = add nsw i64 %indvars.iv79, 1
   %cmp31.not.not = icmp slt i64 %indvars.iv79, %19
   br i1 %cmp31.not.not, label %for.body32, label %for.end46, !llvm.loop !43

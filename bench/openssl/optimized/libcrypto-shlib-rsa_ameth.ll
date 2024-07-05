@@ -1262,8 +1262,8 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br i1 %cmp22, label %err, label %if.end25
 
 if.end25:                                         ; preds = %if.else, %if.then14
-  %str.0 = phi ptr [ @.str.7, %if.then14 ], [ @.str.10, %if.else ]
   %s.0 = phi ptr [ @.str.8, %if.then14 ], [ @.str.11, %if.else ]
+  %str.0 = phi ptr [ @.str.7, %if.then14 ], [ @.str.10, %if.else ]
   %6 = load ptr, ptr %n, align 8
   %call27 = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull %str.0, ptr noundef %6, ptr noundef null, i32 noundef %off) #6
   %tobool28.not = icmp eq i32 %call27, 0
@@ -1749,8 +1749,8 @@ if.end45:                                         ; preds = %if.end41
   br label %err
 
 err:                                              ; preds = %if.end41, %if.end21, %lor.lhs.false26, %lor.lhs.false29, %lor.lhs.false32, %lor.lhs.false35, %if.then16, %if.end6, %if.end, %lor.lhs.false, %if.end45
-  %params.0 = phi ptr [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %if.end41 ], [ %call42, %if.end45 ], [ null, %lor.lhs.false35 ], [ null, %lor.lhs.false32 ], [ null, %lor.lhs.false29 ], [ null, %lor.lhs.false26 ], [ null, %if.end21 ], [ null, %if.then16 ], [ null, %if.end6 ]
   %rv.0 = phi i32 [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %if.end41 ], [ %call46, %if.end45 ], [ 0, %lor.lhs.false35 ], [ 0, %lor.lhs.false32 ], [ 0, %lor.lhs.false29 ], [ 0, %lor.lhs.false26 ], [ 0, %if.end21 ], [ 0, %if.then16 ], [ 0, %if.end6 ]
+  %params.0 = phi ptr [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %if.end41 ], [ %call42, %if.end45 ], [ null, %lor.lhs.false35 ], [ null, %lor.lhs.false32 ], [ null, %lor.lhs.false29 ], [ null, %lor.lhs.false26 ], [ null, %if.end21 ], [ null, %if.then16 ], [ null, %if.end6 ]
   call void @OSSL_PARAM_free(ptr noundef %params.0) #6
   call void @OSSL_PARAM_BLD_free(ptr noundef nonnull %call) #6
   br label %return

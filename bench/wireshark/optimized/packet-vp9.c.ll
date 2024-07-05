@@ -238,13 +238,13 @@ define internal i32 @dissect_vp9(ptr noundef %0, ptr nocapture noundef readonly 
 
 71:                                               ; preds = %68
   %72 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #2
-  %.0150160 = and i8 %72, 1
-  %.not165 = icmp eq i8 %.0150160, 0
+  %.0149160 = and i8 %72, 1
+  %.not165 = icmp eq i8 %.0149160, 0
   br i1 %.not165, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %71, %.lr.ph
   %.2162 = phi i32 [ %78, %.lr.ph ], [ %.1, %71 ]
-  %.0149161 = phi i32 [ %80, %.lr.ph ], [ 0, %71 ]
+  %.0150161 = phi i32 [ %80, %.lr.ph ], [ 0, %71 ]
   %73 = load i32, ptr @hf_vp9_pld_p_diff_bits, align 4
   %74 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %73, ptr noundef %0, i32 noundef %.2162, i32 noundef 1, i32 noundef 0) #2
   %75 = load i32, ptr @hf_vp9_pld_n_bit, align 4
@@ -253,10 +253,10 @@ define internal i32 @dissect_vp9(ptr noundef %0, ptr nocapture noundef readonly 
   call void @proto_item_set_len(ptr noundef %77, i32 noundef 6) #2
   %78 = add nuw nsw i32 %.2162, 1
   %79 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %78) #2
-  %80 = add nuw nsw i32 %.0149161, 1
-  %.0150 = and i8 %79, 1
-  %81 = icmp ne i8 %.0150, 0
-  %82 = icmp ult i32 %.0149161, 2
+  %80 = add nuw nsw i32 %.0150161, 1
+  %.0149 = and i8 %79, 1
+  %81 = icmp ne i8 %.0149, 0
+  %82 = icmp ult i32 %.0150161, 2
   %83 = select i1 %81, i1 %82, i1 false
   br i1 %83, label %.lr.ph, label %.loopexit, !llvm.loop !4
 

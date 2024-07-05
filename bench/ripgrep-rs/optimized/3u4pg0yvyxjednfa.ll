@@ -439,7 +439,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h147152efaa3dd294E(ptr noal
 
 47:                                               ; preds = %117, %29
   %48 = phi i64 [ %.pre, %29 ], [ %112, %117 ]
-  %.050 = phi i64 [ 0, %29 ], [ %89, %117 ]
+  %.052 = phi i64 [ 0, %29 ], [ %89, %117 ]
   %.1 = phi i64 [ %25, %29 ], [ %.2, %117 ]
   %49 = load i64, ptr %2, align 8, !noundef !4
   %50 = icmp eq i64 %48, %49
@@ -509,7 +509,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h147152efaa3dd294E(ptr noal
   store ptr %75, ptr %7, align 8
   store i64 %.0.sroa.speculated.i, ptr %32, align 8
   store i64 0, ptr %33, align 8
-  store i64 %.050, ptr %34, align 8
+  store i64 %.052, ptr %34, align 8
   %77 = call noundef ptr @"_ZN59_$LT$std..process..ChildStderr$u20$as$u20$std..io..Read$GT$8read_buf17h9b1f09425fe645beE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0)
   %78 = icmp eq ptr %77, null
   br i1 %78, label %._crit_edge, label %.lr.ph

@@ -3069,8 +3069,8 @@ if.else:                                          ; preds = %entry
   unreachable
 
 while.cond:                                       ; preds = %while.cond.preheader26, %if.then2
-  store ptr %buffer.addr.0.ph31, ptr %iov, align 8
-  store i64 %size.addr.0.ph32, ptr %iov_len, align 8
+  store ptr %buffer.addr.0.ph32, ptr %iov, align 8
+  store i64 %size.addr.0.ph31, ptr %iov_len, align 8
   %0 = load ptr, ptr %ioc, align 8
   %call = call i64 @qio_channel_readv(ptr noundef %0, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef %errp) #19
   %cmp1 = icmp eq i64 %call, -2
@@ -3101,15 +3101,15 @@ if.then15:                                        ; preds = %if.then13
   br label %return
 
 if.end19:                                         ; preds = %if.else11
-  %sub = sub i64 %size.addr.0.ph32, %call
-  %add.ptr = getelementptr i8, ptr %buffer.addr.0.ph31, i64 %call
+  %sub = sub i64 %size.addr.0.ph31, %call
+  %add.ptr = getelementptr i8, ptr %buffer.addr.0.ph32, i64 %call
   %cmp.not = icmp eq i64 %sub, 0
   br i1 %cmp.not, label %return, label %while.cond.preheader26, !llvm.loop !19
 
 while.cond.preheader26:                           ; preds = %while.cond.preheader, %if.end19
   %partial.0.ph33 = phi i1 [ false, %while.cond.preheader ], [ true, %if.end19 ]
-  %size.addr.0.ph32 = phi i64 [ %size, %while.cond.preheader ], [ %sub, %if.end19 ]
-  %buffer.addr.0.ph31 = phi ptr [ %buffer, %while.cond.preheader ], [ %add.ptr, %if.end19 ]
+  %buffer.addr.0.ph32 = phi ptr [ %buffer, %while.cond.preheader ], [ %add.ptr, %if.end19 ]
+  %size.addr.0.ph31 = phi i64 [ %size, %while.cond.preheader ], [ %sub, %if.end19 ]
   br label %while.cond
 
 return:                                           ; preds = %if.end19, %if.else8, %if.then2, %if.then13, %if.then15
@@ -3908,32 +3908,32 @@ if.else:                                          ; preds = %nbd_extent_array_ne
   br i1 %tobool.not7.i, label %blockalloc_to_extents.exit, label %while.body.i13
 
 while.body.i13:                                   ; preds = %if.else, %if.end4.i
-  %bytes.addr.08.i14 = phi i64 [ %sub.i19, %if.end4.i ], [ %length, %if.else ]
-  %offset.addr.07.i = phi i64 [ %add.i18, %if.end4.i ], [ %offset, %if.else ]
-  %call.i15 = call i32 @blk_co_is_allocated_above(ptr noundef %blk, ptr noundef null, i1 noundef zeroext false, i64 noundef %offset.addr.07.i, i64 noundef %bytes.addr.08.i14, ptr noundef nonnull %num.i12) #19
-  %cmp.i16 = icmp slt i32 %call.i15, 0
-  br i1 %cmp.i16, label %blockalloc_to_extents.exit, label %if.end.i17
+  %offset.addr.08.i = phi i64 [ %add.i17, %if.end4.i ], [ %offset, %if.else ]
+  %bytes.addr.07.i = phi i64 [ %sub.i18, %if.end4.i ], [ %length, %if.else ]
+  %call.i14 = call i32 @blk_co_is_allocated_above(ptr noundef %blk, ptr noundef null, i1 noundef zeroext false, i64 noundef %offset.addr.08.i, i64 noundef %bytes.addr.07.i, ptr noundef nonnull %num.i12) #19
+  %cmp.i15 = icmp slt i32 %call.i14, 0
+  br i1 %cmp.i15, label %blockalloc_to_extents.exit, label %if.end.i16
 
-if.end.i17:                                       ; preds = %while.body.i13
+if.end.i16:                                       ; preds = %while.body.i13
   %4 = load i64, ptr %num.i12, align 8
-  %call1.i = call fastcc i32 @nbd_extent_array_add(ptr noundef nonnull %call.i, i64 noundef %4, i32 noundef %call.i15)
+  %call1.i = call fastcc i32 @nbd_extent_array_add(ptr noundef nonnull %call.i, i64 noundef %4, i32 noundef %call.i14)
   %cmp2.i = icmp slt i32 %call1.i, 0
   br i1 %cmp2.i, label %blockalloc_to_extents.exit, label %if.end4.i
 
-if.end4.i:                                        ; preds = %if.end.i17
+if.end4.i:                                        ; preds = %if.end.i16
   %5 = load i64, ptr %num.i12, align 8
-  %add.i18 = add i64 %5, %offset.addr.07.i
-  %sub.i19 = sub i64 %bytes.addr.08.i14, %5
-  %tobool.not.i20 = icmp eq i64 %sub.i19, 0
-  br i1 %tobool.not.i20, label %blockalloc_to_extents.exit, label %while.body.i13, !llvm.loop !22
+  %add.i17 = add i64 %5, %offset.addr.08.i
+  %sub.i18 = sub i64 %bytes.addr.07.i, %5
+  %tobool.not.i19 = icmp eq i64 %sub.i18, 0
+  br i1 %tobool.not.i19, label %blockalloc_to_extents.exit, label %while.body.i13, !llvm.loop !22
 
-blockalloc_to_extents.exit:                       ; preds = %while.body.i13, %if.end.i17, %if.end4.i, %if.else
-  %retval.0.i21 = phi i32 [ 0, %if.else ], [ %call.i15, %while.body.i13 ], [ 0, %if.end.i17 ], [ 0, %if.end4.i ]
+blockalloc_to_extents.exit:                       ; preds = %while.body.i13, %if.end.i16, %if.end4.i, %if.else
+  %retval.0.i20 = phi i32 [ 0, %if.else ], [ %call.i14, %while.body.i13 ], [ 0, %if.end.i16 ], [ 0, %if.end4.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num.i12)
   br label %if.end
 
 if.end:                                           ; preds = %blockalloc_to_extents.exit, %blockstatus_to_extents.exit
-  %ret.0 = phi i32 [ %retval.0.i, %blockstatus_to_extents.exit ], [ %retval.0.i21, %blockalloc_to_extents.exit ]
+  %ret.0 = phi i32 [ %retval.0.i, %blockstatus_to_extents.exit ], [ %retval.0.i20, %blockalloc_to_extents.exit ]
   %cmp5 = icmp slt i32 %ret.0, 0
   br i1 %cmp5, label %if.then7, label %if.end9
 
@@ -4440,9 +4440,9 @@ entry:
   br i1 %tobool.not6, label %return, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end4
-  %bytes.addr.08 = phi i64 [ %sub, %if.end4 ], [ %bytes, %entry ]
-  %offset.addr.07 = phi i64 [ %add, %if.end4 ], [ %offset, %entry ]
-  %call = call i32 @blk_co_is_allocated_above(ptr noundef %blk, ptr noundef null, i1 noundef zeroext false, i64 noundef %offset.addr.07, i64 noundef %bytes.addr.08, ptr noundef nonnull %num) #19
+  %offset.addr.08 = phi i64 [ %add, %if.end4 ], [ %offset, %entry ]
+  %bytes.addr.07 = phi i64 [ %sub, %if.end4 ], [ %bytes, %entry ]
+  %call = call i32 @blk_co_is_allocated_above(ptr noundef %blk, ptr noundef null, i1 noundef zeroext false, i64 noundef %offset.addr.08, i64 noundef %bytes.addr.07, ptr noundef nonnull %num) #19
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -4454,8 +4454,8 @@ if.end:                                           ; preds = %while.body
 
 if.end4:                                          ; preds = %if.end
   %1 = load i64, ptr %num, align 8
-  %add = add i64 %1, %offset.addr.07
-  %sub = sub i64 %bytes.addr.08, %1
+  %add = add i64 %1, %offset.addr.08
+  %sub = sub i64 %bytes.addr.07, %1
   %tobool.not = icmp eq i64 %sub, 0
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !22
 

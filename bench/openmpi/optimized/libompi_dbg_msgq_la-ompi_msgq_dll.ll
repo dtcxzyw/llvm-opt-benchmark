@@ -438,7 +438,7 @@ communicators_changed.exit.thread:                ; preds = %1, %communicators_c
 
 91:                                               ; preds = %303, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %303 ]
-  %.0124144.i = phi i32 [ 0, %.lr.ph.i ], [ %.1125.i, %303 ]
+  %.0126143.i = phi i32 [ 0, %.lr.ph.i ], [ %.1127.i, %303 ]
   %92 = load i32, ptr %85, align 8
   %93 = trunc nuw nsw i64 %indvars.iv.i to i32
   %94 = mul nsw i32 %92, %93
@@ -449,7 +449,7 @@ communicators_changed.exit.thread:                ; preds = %1, %communicators_c
   br i1 %98, label %303, label %99
 
 99:                                               ; preds = %91
-  %100 = add nsw i32 %.0124144.i, 1
+  %100 = add nsw i32 %.0126143.i, 1
   %101 = load i32, ptr %87, align 4
   %102 = sext i32 %101 to i64
   %103 = add i64 %97, %102
@@ -761,9 +761,9 @@ communicators_changed.exit.thread:                ; preds = %1, %communicators_c
   br label %find_or_create_group.exit.i
 
 find_or_create_group.exit.i:                      ; preds = %.loopexit99.i.i, %194, %162, %111
-  %.091.i.i = phi ptr [ %158, %162 ], [ null, %194 ], [ %170, %.loopexit99.i.i ], [ null, %111 ]
+  %.089.i.i = phi ptr [ %158, %162 ], [ null, %194 ], [ %170, %.loopexit99.i.i ], [ null, %111 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  store ptr %.091.i.i, ptr %123, align 8
+  store ptr %.089.i.i, ptr %123, align 8
   br label %find_communicator.exit.i
 
 find_communicator.exit.i:                         ; preds = %107, %find_or_create_group.exit.i
@@ -802,9 +802,9 @@ find_communicator.exit.i:                         ; preds = %107, %find_or_creat
   br label %303
 
 303:                                              ; preds = %301, %91
-  %.1125.i = phi i32 [ %.0124144.i, %91 ], [ %100, %301 ]
+  %.1127.i = phi i32 [ %.0126143.i, %91 ], [ %100, %301 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %304 = sext i32 %.1125.i to i64
+  %304 = sext i32 %.1127.i to i64
   %305 = icmp sgt i64 %81, %304
   %306 = icmp sgt i64 %55, %indvars.iv.next.i
   %307 = select i1 %305, i1 %306, i1 false
@@ -813,7 +813,7 @@ find_communicator.exit.i:                         ; preds = %107, %find_or_creat
 .lr.ph148.i:                                      ; preds = %.preheader.i, %334
   %308 = phi ptr [ %335, %334 ], [ %90, %.preheader.i ]
   %.0122147.i = phi ptr [ %.1.i, %334 ], [ %39, %.preheader.i ]
-  %.2146.i = phi i32 [ %.3.i, %334 ], [ 0, %.preheader.i ]
+  %.2128146.i = phi i32 [ %.3.i, %334 ], [ 0, %.preheader.i ]
   %309 = getelementptr inbounds i8, ptr %308, i64 24
   %310 = load i32, ptr %309, align 8
   %.not134.i = icmp eq i32 %310, 0
@@ -821,7 +821,7 @@ find_communicator.exit.i:                         ; preds = %107, %find_or_creat
 
 311:                                              ; preds = %.lr.ph148.i
   store i32 0, ptr %309, align 8
-  %312 = add nsw i32 %.2146.i, 1
+  %312 = add nsw i32 %.2128146.i, 1
   %313 = load ptr, ptr %.0122147.i, align 8
   br label %334
 
@@ -858,7 +858,7 @@ group_decref.exit.i:                              ; preds = %322, %314
   br label %334
 
 334:                                              ; preds = %group_decref.exit.i, %311
-  %.3.i = phi i32 [ %312, %311 ], [ %.2146.i, %group_decref.exit.i ]
+  %.3.i = phi i32 [ %312, %311 ], [ %.2128146.i, %group_decref.exit.i ]
   %.1.i = phi ptr [ %313, %311 ], [ %.0122147.i, %group_decref.exit.i ]
   %335 = load ptr, ptr %.1.i, align 8
   %.not.i2 = icmp eq ptr %335, null

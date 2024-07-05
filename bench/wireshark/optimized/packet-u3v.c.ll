@@ -1013,16 +1013,16 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %88
 
 88:                                               ; preds = %73, %57
-  %.0207 = phi ptr [ %62, %57 ], [ %78, %73 ]
-  %.0206 = phi i1 [ true, %57 ], [ %87, %73 ]
+  %.0208 = phi ptr [ %62, %57 ], [ %78, %73 ]
+  %.0207 = phi i1 [ true, %57 ], [ %87, %73 ]
   %89 = load i32, ptr @hf_u3v_command_id, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %.0207, i32 noundef %89, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #5
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %.0208, i32 noundef %89, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #5
   %91 = load i32, ptr @hf_u3v_length, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %.0207, i32 noundef %91, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648) #5
+  %92 = tail call ptr @proto_tree_add_item(ptr noundef %.0208, i32 noundef %91, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648) #5
   %93 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 8) #5
   %94 = zext i16 %93 to i32
   %95 = load i32, ptr @hf_u3v_request_id, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %.0207, i32 noundef %95, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648) #5
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %.0208, i32 noundef %95, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648) #5
   %97 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 10) #5
   %98 = zext i16 %97 to i32
   %99 = load i32, ptr @ett_u3v, align 4
@@ -1321,7 +1321,7 @@ dissect_u3v_write_mem_cmd.exit:                   ; preds = %228, %231
   br label %dissect_u3v_event_cmd.exit
 
 255:                                              ; preds = %.thread232
-  br i1 %.0206, label %256, label %dissect_u3v_event_cmd.exit
+  br i1 %.0207, label %256, label %dissect_u3v_event_cmd.exit
 
 256:                                              ; preds = %255
   %.1.val = load i32, ptr %.1, align 8
@@ -1560,8 +1560,8 @@ dissect_u3v_stream_leader.exit:                   ; preds = %393, %390, %344, %3
   br label %.thread240
 
 .thread240:                                       ; preds = %.thread239, %299, %72, %43, %14, %dissect_u3v_stream_leader.exit, %dissect_u3v_event_cmd.exit
-  %.0208 = phi i32 [ %298, %dissect_u3v_event_cmd.exit ], [ %404, %dissect_u3v_stream_leader.exit ], [ 0, %14 ], [ 0, %43 ], [ 0, %72 ], [ 0, %299 ], [ 0, %.thread239 ]
-  ret i32 %.0208
+  %.0206 = phi i32 [ %298, %dissect_u3v_event_cmd.exit ], [ %404, %dissect_u3v_stream_leader.exit ], [ 0, %14 ], [ 0, %43 ], [ 0, %72 ], [ 0, %299 ], [ 0, %.thread239 ]
+  ret i32 %.0206
 }
 
 ; Function Attrs: nounwind uwtable

@@ -78,19 +78,19 @@ define internal fastcc zeroext i1 @dfs(ptr noundef %0, ptr noundef %1, i1 nounde
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
-  %.051 = phi ptr [ %14, %55 ], [ %12, %.lr.ph.preheader ]
-  %.04350 = phi i8 [ %.1, %55 ], [ %13, %.lr.ph.preheader ]
-  %14 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.051) #3
-  %15 = load i32, ptr %.051, align 8
+  %.051 = phi i8 [ %.1, %55 ], [ %13, %.lr.ph.preheader ]
+  %.04350 = phi ptr [ %14, %55 ], [ %12, %.lr.ph.preheader ]
+  %14 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.04350) #3
+  %15 = load i32, ptr %.04350, align 8
   %16 = and i32 %15, 3
   %17 = icmp eq i32 %16, 3
   %.idx = select i1 %17, i64 0, i64 64
-  %18 = getelementptr inbounds i8, ptr %.051, i64 %.idx
+  %18 = getelementptr inbounds i8, ptr %.04350, i64 %.idx
   %19 = getelementptr inbounds i8, ptr %18, i64 56
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq i32 %16, 2
   %.idx46 = select i1 %21, i64 0, i64 -64
-  %22 = getelementptr inbounds i8, ptr %.051, i64 %.idx46
+  %22 = getelementptr inbounds i8, ptr %.04350, i64 %.idx46
   %23 = getelementptr inbounds i8, ptr %22, i64 56
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %20, %24
@@ -115,7 +115,7 @@ define internal fastcc zeroext i1 @dfs(ptr noundef %0, ptr noundef %1, i1 nounde
   br i1 %36, label %.sink.split, label %44
 
 37:                                               ; preds = %32
-  %38 = tail call ptr @agnameof(ptr noundef nonnull %.051) #3
+  %38 = tail call ptr @agnameof(ptr noundef nonnull %.04350) #3
   %.not48 = icmp eq ptr %38, null
   br i1 %.not48, label %.sink.split, label %39
 
@@ -125,14 +125,14 @@ define internal fastcc zeroext i1 @dfs(ptr noundef %0, ptr noundef %1, i1 nounde
   br i1 %41, label %.sink.split, label %44
 
 .sink.split:                                      ; preds = %37, %39, %34
-  tail call fastcc void @addRevEdge(ptr noundef %0, ptr noundef nonnull %.051)
+  tail call fastcc void @addRevEdge(ptr noundef %0, ptr noundef nonnull %.04350)
   %42 = load i64, ptr %3, align 8
   %43 = add i64 %42, 1
   store i64 %43, ptr %3, align 8
   br label %44
 
 44:                                               ; preds = %.sink.split, %39, %34
-  %45 = tail call i32 @agdelete(ptr noundef %0, ptr noundef nonnull %.051) #3
+  %45 = tail call i32 @agdelete(ptr noundef %0, ptr noundef nonnull %.04350) #3
   br label %55
 
 46:                                               ; preds = %26
@@ -142,14 +142,14 @@ define internal fastcc zeroext i1 @dfs(ptr noundef %0, ptr noundef %1, i1 nounde
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %46
-  %51 = trunc i8 %.04350 to i1
+  %51 = trunc i8 %.051 to i1
   %52 = tail call fastcc zeroext i1 @dfs(ptr noundef %0, ptr noundef nonnull %24, i1 noundef zeroext %51, ptr noundef %3)
   %53 = zext i1 %52 to i8
-  %54 = or i8 %.04350, %53
+  %54 = or i8 %.051, %53
   br label %55
 
 55:                                               ; preds = %44, %50, %46, %.lr.ph
-  %.1 = phi i8 [ %.04350, %.lr.ph ], [ 1, %44 ], [ %54, %50 ], [ %.04350, %46 ]
+  %.1 = phi i8 [ %.051, %.lr.ph ], [ 1, %44 ], [ %54, %50 ], [ %.051, %46 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -158,13 +158,13 @@ define internal fastcc zeroext i1 @dfs(ptr noundef %0, ptr noundef %1, i1 nounde
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.043.lcssa = phi i1 [ %2, %4 ], [ %56, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i1 [ %2, %4 ], [ %56, %._crit_edge.loopexit ]
   %57 = load ptr, ptr %5, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 20
   %59 = load i8, ptr %58, align 4
   %60 = and i8 %59, -2
   store i8 %60, ptr %58, align 4
-  ret i1 %.043.lcssa
+  ret i1 %.0.lcssa
 }
 
 declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #1

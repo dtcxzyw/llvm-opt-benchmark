@@ -117,8 +117,8 @@ define dso_local range(i32 -1, 2) i32 @bms_compare(ptr noundef readonly %0, ptr 
   br label %21
 
 21:                                               ; preds = %30, %17
-  %.0 = phi i32 [ %18, %17 ], [ %31, %30 ]
-  %22 = sext i32 %.0 to i64
+  %.017 = phi i32 [ %18, %17 ], [ %31, %30 ]
+  %22 = sext i32 %.017 to i64
   %23 = getelementptr [0 x i64], ptr %19, i64 0, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr [0 x i64], ptr %20, i64 0, i64 %22
@@ -132,13 +132,13 @@ define dso_local range(i32 -1, 2) i32 @bms_compare(ptr noundef readonly %0, ptr 
   br label %.loopexit
 
 30:                                               ; preds = %21
-  %31 = add i32 %.0, -1
+  %31 = add i32 %.017, -1
   %32 = icmp sgt i32 %31, -1
   br i1 %32, label %21, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %30, %7, %27, %14, %4
-  %.017 = phi i32 [ %6, %4 ], [ %16, %14 ], [ %29, %27 ], [ 1, %7 ], [ 0, %30 ]
-  ret i32 %.017
+  %.0 = phi i32 [ %6, %4 ], [ %16, %14 ], [ %29, %27 ], [ 1, %7 ], [ 0, %30 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -259,8 +259,8 @@ bms_copy.exit.sink.split:                         ; preds = %9, %6
   br label %bms_copy.exit
 
 bms_copy.exit:                                    ; preds = %23, %bms_copy.exit.sink.split, %5
-  %.020 = phi ptr [ null, %5 ], [ %32, %bms_copy.exit.sink.split ], [ %18, %23 ]
-  ret ptr %.020
+  %.018 = phi ptr [ null, %5 ], [ %32, %bms_copy.exit.sink.split ], [ %18, %23 ]
+  ret ptr %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -294,7 +294,7 @@ define dso_local ptr @bms_intersect(ptr noundef readonly %0, ptr noundef readonl
 
 18:                                               ; preds = %18, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %5 ]
-  %.024 = phi i32 [ %spec.select, %18 ], [ -1, %5 ]
+  %.025 = phi i32 [ %spec.select, %18 ], [ -1, %5 ]
   %19 = getelementptr [0 x i64], ptr %16, i64 0, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr [0 x i64], ptr %17, i64 0, i64 %indvars.iv
@@ -303,7 +303,7 @@ define dso_local ptr @bms_intersect(ptr noundef readonly %0, ptr noundef readonl
   store i64 %23, ptr %21, align 8
   %.not31 = icmp eq i64 %23, 0
   %24 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %.not31, i32 %.024, i32 %24
+  %spec.select = select i1 %.not31, i32 %.025, i32 %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %25, label %18, !llvm.loop !9
@@ -322,8 +322,8 @@ define dso_local ptr @bms_intersect(ptr noundef readonly %0, ptr noundef readonl
   br label %30
 
 30:                                               ; preds = %2, %28, %27
-  %.027 = phi ptr [ null, %27 ], [ %13, %28 ], [ null, %2 ]
-  ret ptr %.027
+  %.024 = phi ptr [ null, %27 ], [ %13, %28 ], [ null, %2 ]
+  ret ptr %.024
 }
 
 ; Function Attrs: nounwind uwtable
@@ -601,8 +601,8 @@ define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly %0
   br label %.thread42
 
 .thread42:                                        ; preds = %.thread, %30, %23, %37, %38, %35, %6, %4
-  %.027 = phi i32 [ %., %4 ], [ 2, %6 ], [ %.37, %35 ], [ %.38, %38 ], [ %.2, %37 ], [ 3, %23 ], [ 3, %30 ], [ 3, %.thread ]
-  ret i32 %.027
+  %.0 = phi i32 [ %., %4 ], [ 2, %6 ], [ %.37, %35 ], [ %.38, %38 ], [ %.2, %37 ], [ 3, %23 ], [ 3, %30 ], [ 3, %.thread ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -686,7 +686,7 @@ bms_is_member.exit:                               ; preds = %9
 
 .lr.ph:                                           ; preds = %21, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %21 ]
-  %.01824 = phi i32 [ %.1, %28 ], [ 0, %21 ]
+  %.01923 = phi i32 [ %.1, %28 ], [ 0, %21 ]
   %22 = getelementptr [0 x i64], ptr %14, i64 0, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
   %.not = icmp eq i64 %23, 0
@@ -695,11 +695,11 @@ bms_is_member.exit:                               ; preds = %9
 24:                                               ; preds = %.lr.ph
   %25 = load ptr, ptr @pg_popcount64, align 8
   %26 = tail call i32 %25(i64 noundef %23) #11
-  %27 = add i32 %26, %.01824
+  %27 = add i32 %26, %.01923
   br label %28
 
 28:                                               ; preds = %.lr.ph, %24
-  %.1 = phi i32 [ %27, %24 ], [ %.01824, %.lr.ph ]
+  %.1 = phi i32 [ %27, %24 ], [ %.01923, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
@@ -710,13 +710,13 @@ bms_is_member.exit:                               ; preds = %9
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %21
   %29 = phi i64 [ %17, %21 ], [ %.pre, %._crit_edge.loopexit ]
-  %.018.lcssa = phi i32 [ 0, %21 ], [ %.1, %._crit_edge.loopexit ]
+  %.019.lcssa = phi i32 [ 0, %21 ], [ %.1, %._crit_edge.loopexit ]
   %notmask = shl nsw i64 -1, %18
   %30 = xor i64 %notmask, -1
   %31 = load ptr, ptr @pg_popcount64, align 8
   %32 = and i64 %29, %30
   %33 = tail call i32 %31(i64 noundef %32) #11
-  %34 = add i32 %33, %.018.lcssa
+  %34 = add i32 %33, %.019.lcssa
   br label %bms_is_member.exit.thread
 
 bms_is_member.exit.thread:                        ; preds = %9, %7, %bms_is_member.exit, %._crit_edge
@@ -819,8 +819,8 @@ define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly %0, p
   br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !17
 
 .loopexit:                                        ; preds = %22, %30, %.preheader, %2
-  %.017 = phi i1 [ false, %2 ], [ false, %.preheader ], [ true, %22 ], [ false, %30 ]
-  ret i1 %.017
+  %.0 = phi i1 [ false, %2 ], [ false, %.preheader ], [ true, %22 ], [ false, %30 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -845,14 +845,14 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly %0) local_unname
 
 10:                                               ; preds = %25, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %6 ]
-  %.014 = phi i32 [ %.1, %25 ], [ -1, %6 ]
+  %.0 = phi i32 [ %.1, %25 ], [ -1, %6 ]
   %11 = getelementptr [0 x i64], ptr %9, i64 0, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %25, label %13
 
 13:                                               ; preds = %10
-  %14 = icmp slt i32 %.014, 0
+  %14 = icmp slt i32 %.0, 0
   %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %12)
   %.not18 = icmp ult i64 %15, 2
   %or.cond = select i1 %14, i1 %.not18, i1 false
@@ -874,7 +874,7 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly %0) local_unname
   br label %25
 
 25:                                               ; preds = %10, %19
-  %.1 = phi i32 [ %24, %19 ], [ %.014, %10 ]
+  %.1 = phi i32 [ %24, %19 ], [ %.0, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %26, label %10, !llvm.loop !18
@@ -898,14 +898,14 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
 
 8:                                                ; preds = %20, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %4 ]
-  %.016 = phi i32 [ %.1, %20 ], [ -1, %4 ]
+  %.017 = phi i32 [ %.1, %20 ], [ -1, %4 ]
   %9 = getelementptr [0 x i64], ptr %7, i64 0, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %20, label %11
 
 11:                                               ; preds = %8
-  %12 = icmp slt i32 %.016, 0
+  %12 = icmp slt i32 %.017, 0
   %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %.not21 = icmp ult i64 %13, 2
   %or.cond = select i1 %12, i1 %.not21, i1 false
@@ -920,7 +920,7 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
   br label %20
 
 20:                                               ; preds = %8, %14
-  %.1 = phi i32 [ %19, %14 ], [ %.016, %8 ]
+  %.1 = phi i32 [ %19, %14 ], [ %.017, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %21, label %8, !llvm.loop !19
@@ -930,8 +930,8 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %2, %21
-  %.017 = phi i1 [ true, %21 ], [ false, %2 ], [ false, %11 ]
-  ret i1 %.017
+  %.0 = phi i1 [ true, %21 ], [ false, %2 ], [ false, %11 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -949,7 +949,7 @@ define dso_local i32 @bms_num_members(ptr noundef readonly %0) local_unnamed_add
 
 7:                                                ; preds = %14, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %3 ]
-  %.010 = phi i32 [ %.1, %14 ], [ 0, %3 ]
+  %.011 = phi i32 [ %.1, %14 ], [ 0, %3 ]
   %8 = getelementptr [0 x i64], ptr %6, i64 0, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
@@ -958,18 +958,18 @@ define dso_local i32 @bms_num_members(ptr noundef readonly %0) local_unnamed_add
 10:                                               ; preds = %7
   %11 = load ptr, ptr @pg_popcount64, align 8
   %12 = tail call i32 %11(i64 noundef %9) #11
-  %13 = add i32 %12, %.010
+  %13 = add i32 %12, %.011
   br label %14
 
 14:                                               ; preds = %7, %10
-  %.1 = phi i32 [ %13, %10 ], [ %.010, %7 ]
+  %.1 = phi i32 [ %13, %10 ], [ %.011, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !20
 
 .loopexit:                                        ; preds = %14, %1
-  %.011 = phi i32 [ 0, %1 ], [ %.1, %14 ]
-  ret i32 %.011
+  %.0 = phi i32 [ 0, %1 ], [ %.1, %14 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -987,28 +987,28 @@ define dso_local range(i32 0, 3) i32 @bms_membership(ptr noundef readonly %0) lo
 
 7:                                                ; preds = %12, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %3 ]
-  %.012 = phi i32 [ %.1, %12 ], [ 0, %3 ]
+  %.013 = phi i32 [ %.1, %12 ], [ 0, %3 ]
   %8 = getelementptr [0 x i64], ptr %6, i64 0, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %7
-  %.not17 = icmp eq i32 %.012, 0
+  %.not17 = icmp eq i32 %.013, 0
   %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
   %.not18 = icmp ult i64 %11, 2
   %or.cond = select i1 %.not17, i1 %.not18, i1 false
   br i1 %or.cond, label %12, label %.loopexit
 
 12:                                               ; preds = %10, %7
-  %.1 = phi i32 [ %.012, %7 ], [ 1, %10 ]
+  %.1 = phi i32 [ %.013, %7 ], [ 1, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !21
 
 .loopexit:                                        ; preds = %12, %10, %1
-  %.013 = phi i32 [ 0, %1 ], [ %.1, %12 ], [ 2, %10 ]
-  ret i32 %.013
+  %.0 = phi i32 [ 0, %1 ], [ %.1, %12 ], [ 2, %10 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1205,10 +1205,10 @@ bms_copy.exit27:                                  ; preds = %14
 
 24:                                               ; preds = %14, %bms_copy.exit27
   %25 = phi i32 [ %.pre, %bms_copy.exit27 ], [ %18, %14 ]
-  %.022 = phi ptr [ %23, %bms_copy.exit27 ], [ %0, %14 ]
-  %.021 = phi ptr [ %0, %bms_copy.exit27 ], [ %1, %14 ]
-  %26 = getelementptr inbounds i8, ptr %.021, i64 8
-  %27 = getelementptr inbounds i8, ptr %.022, i64 8
+  %.023 = phi ptr [ %23, %bms_copy.exit27 ], [ %0, %14 ]
+  %.022 = phi ptr [ %0, %bms_copy.exit27 ], [ %1, %14 ]
+  %26 = getelementptr inbounds i8, ptr %.022, i64 8
+  %27 = getelementptr inbounds i8, ptr %.023, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %25, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %28
@@ -1226,7 +1226,7 @@ bms_copy.exit27:                                  ; preds = %14
   br i1 %exitcond.not, label %34, label %28, !llvm.loop !24
 
 34:                                               ; preds = %28
-  %.not = icmp eq ptr %.022, %0
+  %.not = icmp eq ptr %.023, %0
   br i1 %.not, label %bms_copy.exit, label %35
 
 35:                                               ; preds = %34
@@ -1234,8 +1234,8 @@ bms_copy.exit27:                                  ; preds = %14
   br label %bms_copy.exit
 
 bms_copy.exit:                                    ; preds = %6, %5, %34, %35, %13
-  %.023 = phi ptr [ %0, %13 ], [ %.022, %35 ], [ %.022, %34 ], [ %12, %6 ], [ null, %5 ]
-  ret ptr %.023
+  %.021 = phi ptr [ %0, %13 ], [ %.023, %35 ], [ %.023, %34 ], [ %12, %6 ], [ null, %5 ]
+  ret ptr %.021
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1459,7 +1459,7 @@ define dso_local noundef ptr @bms_int_members(ptr noundef %0, ptr noundef readon
 
 14:                                               ; preds = %14, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %7 ]
-  %.021 = phi i32 [ %spec.select, %14 ], [ -1, %7 ]
+  %.022 = phi i32 [ %spec.select, %14 ], [ -1, %7 ]
   %15 = getelementptr [0 x i64], ptr %12, i64 0, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr [0 x i64], ptr %13, i64 0, i64 %indvars.iv
@@ -1468,7 +1468,7 @@ define dso_local noundef ptr @bms_int_members(ptr noundef %0, ptr noundef readon
   store i64 %19, ptr %17, align 8
   %.not = icmp eq i64 %19, 0
   %20 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %.not, i32 %.021, i32 %20
+  %spec.select = select i1 %.not, i32 %.022, i32 %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %21, label %14, !llvm.loop !27
@@ -1487,8 +1487,8 @@ define dso_local noundef ptr @bms_int_members(ptr noundef %0, ptr noundef readon
   br label %26
 
 26:                                               ; preds = %2, %24, %23, %6
-  %.022 = phi ptr [ null, %6 ], [ null, %23 ], [ %0, %24 ], [ null, %2 ]
-  ret ptr %.022
+  %.021 = phi ptr [ null, %6 ], [ null, %23 ], [ %0, %24 ], [ null, %2 ]
+  ret ptr %.021
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1611,8 +1611,8 @@ define dso_local ptr @bms_join(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %24
 
 24:                                               ; preds = %22, %23, %4, %2
-  %.023 = phi ptr [ %1, %2 ], [ %0, %4 ], [ %., %23 ], [ %., %22 ]
-  ret ptr %.023
+  %.021 = phi ptr [ %1, %2 ], [ %0, %4 ], [ %., %23 ], [ %., %22 ]
+  ret ptr %.021
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

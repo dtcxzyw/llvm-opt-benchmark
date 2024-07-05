@@ -89,8 +89,8 @@ define noundef ptr @RBTreeInsert(ptr nocapture noundef readonly %0, ptr noundef 
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 24
-  %.02526.i = load ptr, ptr %14, align 8
-  %.not27.i = icmp eq ptr %.02526.i, %9
+  %.026.i = load ptr, ptr %14, align 8
+  %.not27.i = icmp eq ptr %.026.i, %9
   br i1 %.not27.i, label %._crit_edge.i.thread, label %.lr.ph.i
 
 ._crit_edge.i.thread:                             ; preds = %6
@@ -99,27 +99,27 @@ define noundef ptr @RBTreeInsert(ptr nocapture noundef readonly %0, ptr noundef 
   br label %TreeInsertHelp.exit
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
-  %.02528.i = phi ptr [ %.025.i, %.lr.ph.i ], [ %.02526.i, %6 ]
+  %.028.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.026.i, %6 ]
   %16 = load ptr, ptr %0, align 8
-  %17 = load ptr, ptr %.02528.i, align 8
+  %17 = load ptr, ptr %.028.i, align 8
   %18 = tail call i32 %16(ptr noundef %17, ptr noundef %1) #7
   %19 = icmp eq i32 %18, 1
   %.1.in.v.i = select i1 %19, i64 24, i64 32
-  %.1.in.i = getelementptr inbounds i8, ptr %.02528.i, i64 %.1.in.v.i
-  %.025.i = load ptr, ptr %.1.in.i, align 8
-  %.not.i = icmp eq ptr %.025.i, %9
+  %.1.in.i = getelementptr inbounds i8, ptr %.028.i, i64 %.1.in.v.i
+  %.0.i = load ptr, ptr %.1.in.i, align 8
+  %.not.i = icmp eq ptr %.0.i, %9
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %12, align 8
   %20 = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr %.02528.i, ptr %20, align 8
-  %21 = icmp eq ptr %.02528.i, %.pre
+  store ptr %.028.i, ptr %20, align 8
+  %21 = icmp eq ptr %.028.i, %.pre
   br i1 %21, label %TreeInsertHelp.exit, label %22
 
 22:                                               ; preds = %._crit_edge.i
   %23 = load ptr, ptr %0, align 8
-  %24 = load ptr, ptr %.02528.i, align 8
+  %24 = load ptr, ptr %.028.i, align 8
   %25 = tail call i32 %23(ptr noundef %24, ptr noundef %1) #7
   %26 = icmp eq i32 %25, 1
   %spec.select.i = select i1 %26, i64 24, i64 32
@@ -127,9 +127,9 @@ define noundef ptr @RBTreeInsert(ptr nocapture noundef readonly %0, ptr noundef 
 
 TreeInsertHelp.exit:                              ; preds = %._crit_edge.i.thread, %._crit_edge.i, %22
   %27 = phi ptr [ %20, %._crit_edge.i ], [ %20, %22 ], [ %15, %._crit_edge.i.thread ]
-  %.0.lcssa.i74 = phi ptr [ %.02528.i, %._crit_edge.i ], [ %.02528.i, %22 ], [ %13, %._crit_edge.i.thread ]
+  %.025.lcssa.i74 = phi ptr [ %.028.i, %._crit_edge.i ], [ %.028.i, %22 ], [ %13, %._crit_edge.i.thread ]
   %.sink29.i = phi i64 [ 24, %._crit_edge.i ], [ %spec.select.i, %22 ], [ 24, %._crit_edge.i.thread ]
-  %28 = getelementptr inbounds i8, ptr %.0.lcssa.i74, i64 %.sink29.i
+  %28 = getelementptr inbounds i8, ptr %.025.lcssa.i74, i64 %.sink29.i
   store ptr %4, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 1, ptr %29, align 8
@@ -143,7 +143,7 @@ TreeInsertHelp.exit:                              ; preds = %._crit_edge.i.threa
   %33 = phi ptr [ %143, %140 ], [ %31, %TreeInsertHelp.exit ]
   %.pre72 = phi ptr [ %142, %140 ], [ %30, %TreeInsertHelp.exit ]
   %34 = phi ptr [ %141, %140 ], [ %27, %TreeInsertHelp.exit ]
-  %.065 = phi ptr [ %.3, %140 ], [ %4, %TreeInsertHelp.exit ]
+  %.04565 = phi ptr [ %.3, %140 ], [ %4, %TreeInsertHelp.exit ]
   %35 = getelementptr inbounds i8, ptr %.pre72, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 24
@@ -175,7 +175,7 @@ TreeInsertHelp.exit:                              ; preds = %._crit_edge.i.threa
 53:                                               ; preds = %40
   %54 = getelementptr inbounds i8, ptr %.pre72, i64 32
   %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %.065, %55
+  %56 = icmp eq ptr %.04565, %55
   br i1 %56, label %57, label %._crit_edge70
 
 57:                                               ; preds = %53
@@ -208,7 +208,7 @@ LeftRotate.exit:                                  ; preds = %57, %60
 
 ._crit_edge70:                                    ; preds = %53, %LeftRotate.exit
   %68 = phi ptr [ %55, %LeftRotate.exit ], [ %.pre72, %53 ]
-  %.1 = phi ptr [ %.pre72, %LeftRotate.exit ], [ %.065, %53 ]
+  %.1 = phi ptr [ %.pre72, %LeftRotate.exit ], [ %.04565, %53 ]
   %69 = getelementptr inbounds i8, ptr %.1, i64 40
   %70 = getelementptr inbounds i8, ptr %68, i64 16
   store i32 0, ptr %70, align 8
@@ -271,7 +271,7 @@ RightRotate.exit:                                 ; preds = %._crit_edge70, %82
 102:                                              ; preds = %91
   %103 = getelementptr inbounds i8, ptr %.pre72, i64 24
   %104 = load ptr, ptr %103, align 8
-  %105 = icmp eq ptr %.065, %104
+  %105 = icmp eq ptr %.04565, %104
   br i1 %105, label %106, label %._crit_edge67
 
 106:                                              ; preds = %102
@@ -304,7 +304,7 @@ RightRotate.exit60:                               ; preds = %106, %109
 
 ._crit_edge67:                                    ; preds = %102, %RightRotate.exit60
   %117 = phi ptr [ %104, %RightRotate.exit60 ], [ %.pre72, %102 ]
-  %.2 = phi ptr [ %.pre72, %RightRotate.exit60 ], [ %.065, %102 ]
+  %.2 = phi ptr [ %.pre72, %RightRotate.exit60 ], [ %.04565, %102 ]
   %118 = getelementptr inbounds i8, ptr %.2, i64 40
   %119 = getelementptr inbounds i8, ptr %117, i64 16
   store i32 0, ptr %119, align 8
@@ -378,8 +378,8 @@ define ptr @TreeSuccessor(ptr nocapture noundef readonly %0, ptr noundef readonl
   br i1 %.not, label %.preheader, label %.preheader24
 
 .preheader24:                                     ; preds = %2, %.preheader24
-  %.0 = phi ptr [ %10, %.preheader24 ], [ %8, %2 ]
-  %9 = getelementptr inbounds i8, ptr %.0, i64 24
+  %.019 = phi ptr [ %10, %.preheader24 ], [ %8, %2 ]
+  %9 = getelementptr inbounds i8, ptr %.019, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not23 = icmp eq ptr %10, %4
   br i1 %.not23, label %.loopexit, label %.preheader24
@@ -399,8 +399,8 @@ define ptr @TreeSuccessor(ptr nocapture noundef readonly %0, ptr noundef readonl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader24, %14
-  %.019 = phi ptr [ %..1, %14 ], [ %.0, %.preheader24 ]
-  ret ptr %.019
+  %.0 = phi ptr [ %..1, %14 ], [ %.019, %.preheader24 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -415,8 +415,8 @@ define ptr @TreePredecessor(ptr nocapture noundef readonly %0, ptr noundef reado
   br i1 %.not, label %.preheader, label %.preheader24
 
 .preheader24:                                     ; preds = %2, %.preheader24
-  %.0 = phi ptr [ %10, %.preheader24 ], [ %8, %2 ]
-  %9 = getelementptr inbounds i8, ptr %.0, i64 32
+  %.019 = phi ptr [ %10, %.preheader24 ], [ %8, %2 ]
+  %9 = getelementptr inbounds i8, ptr %.019, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not23 = icmp eq ptr %10, %4
   br i1 %.not23, label %.loopexit, label %.preheader24
@@ -435,8 +435,8 @@ define ptr @TreePredecessor(ptr nocapture noundef readonly %0, ptr noundef reado
   br i1 %15, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader24, %.preheader, %14
-  %.019 = phi ptr [ %.1, %.preheader ], [ %4, %14 ], [ %.0, %.preheader24 ]
-  ret ptr %.019
+  %.0 = phi ptr [ %.1, %.preheader ], [ %4, %14 ], [ %.019, %.preheader24 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -517,8 +517,8 @@ define noundef ptr @RBExactQuery(ptr nocapture noundef readonly %0, ptr noundef 
   br i1 %16, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %14, %2
-  %.018 = phi ptr [ null, %2 ], [ %.1.sink, %.preheader ], [ null, %14 ]
-  ret ptr %.018
+  %.017 = phi ptr [ null, %2 ], [ %.1.sink, %.preheader ], [ null, %14 ]
+  ret ptr %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -539,15 +539,15 @@ define void @RBDelete(ptr nocapture noundef readonly %0, ptr noundef %1) local_u
   br i1 %13, label %TreeSuccessor.exit, label %.preheader24.i
 
 .preheader24.i:                                   ; preds = %10, %.preheader24.i
-  %.0.i = phi ptr [ %15, %.preheader24.i ], [ %12, %10 ]
-  %14 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %.019.i = phi ptr [ %15, %.preheader24.i ], [ %12, %10 ]
+  %14 = getelementptr inbounds i8, ptr %.019.i, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not23.i = icmp eq ptr %15, %4
   br i1 %.not23.i, label %TreeSuccessor.exit, label %.preheader24.i
 
 TreeSuccessor.exit:                               ; preds = %.preheader24.i, %2, %10
   %16 = phi ptr [ %8, %10 ], [ %8, %2 ], [ %15, %.preheader24.i ]
-  %17 = phi ptr [ %1, %10 ], [ %1, %2 ], [ %.0.i, %.preheader24.i ]
+  %17 = phi ptr [ %1, %10 ], [ %1, %2 ], [ %.019.i, %.preheader24.i ]
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = icmp eq ptr %16, %4
   br i1 %19, label %20, label %23

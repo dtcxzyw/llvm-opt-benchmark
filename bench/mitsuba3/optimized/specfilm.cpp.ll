@@ -1111,16 +1111,16 @@ _ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.ex
   %52 = fadd contract float %51, 1.000000e+00
   %53 = tail call contract noundef float @llvm.ceil.f32(float %52)
   %54 = fptoui float %53 to i64
-  %.sroa.6300.0336.fr = freeze i64 %54
-  %55 = icmp eq i64 %.sroa.6300.0336.fr, 0
+  %.sroa.6300.0333.fr = freeze i64 %54
+  %55 = icmp eq i64 %.sroa.6300.0333.fr, 0
   br i1 %55, label %_ZN5drjit12DynamicArrayIfE5zero_Em.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge
-  %56 = icmp ugt i64 %.sroa.6300.0336.fr, 4611686018427387903
-  %57 = shl nuw i64 %.sroa.6300.0336.fr, 2
+  %56 = icmp ugt i64 %.sroa.6300.0333.fr, 4611686018427387903
+  %57 = shl nuw i64 %.sroa.6300.0333.fr, 2
   %58 = select i1 %56, i64 -1, i64 %57
   %59 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %58) #33, !noalias !9
-  %60 = icmp eq i64 %.sroa.6300.0336.fr, 1
+  %60 = icmp eq i64 %.sroa.6300.0333.fr, 1
   br i1 %60, label %.lr.ph.split.us.i, label %.lr.ph.split.preheader.i
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
@@ -1136,7 +1136,7 @@ _ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.ex
           to label %.noexc unwind label %_ZN5drjit12DynamicArrayIfED2Ev.exit277.thread
 
 .noexc:                                           ; preds = %.lr.ph.i252
-  %62 = add i64 %.sroa.6300.0336.fr, -1
+  %62 = add i64 %.sroa.6300.0333.fr, -1
   %63 = uitofp i64 %62 to float
   %64 = fdiv contract float %50, %63
   br i1 %60, label %.lr.ph.split.us.preheader.i, label %.lr.ph.split.i
@@ -1153,11 +1153,11 @@ _ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.ex
   %68 = getelementptr inbounds float, ptr %61, i64 %.021.i
   store float %67, ptr %68, align 4, !noalias !12
   %69 = add nuw i64 %.021.i, 1
-  %exitcond.not.i = icmp eq i64 %69, %.sroa.6300.0336.fr
+  %exitcond.not.i = icmp eq i64 %69, %.sroa.6300.0333.fr
   br i1 %exitcond.not.i, label %_ZN5drjit12DynamicArrayIfE5zero_Em.exit, label %.lr.ph.split.i, !llvm.loop !15
 
 _ZN5drjit12DynamicArrayIfE5zero_Em.exit:          ; preds = %.lr.ph.split.i, %._crit_edge, %.lr.ph.split.us.preheader.i
-  %.sroa.0296.0333 = phi ptr [ %59, %.lr.ph.split.us.preheader.i ], [ null, %._crit_edge ], [ %59, %.lr.ph.split.i ]
+  %.sroa.0296.0335 = phi ptr [ %59, %.lr.ph.split.us.preheader.i ], [ null, %._crit_edge ], [ %59, %.lr.ph.split.i ]
   %.sroa.0291.0 = phi ptr [ %61, %.lr.ph.split.us.preheader.i ], [ null, %._crit_edge ], [ %61, %.lr.ph.split.i ]
   %70 = getelementptr inbounds i8, ptr %3, i64 232
   %71 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1167,14 +1167,14 @@ _ZN5drjit12DynamicArrayIfE5zero_Em.exit:          ; preds = %.lr.ph.split.i, %._
   br i1 %55, label %._crit_edge356, label %.lr.ph355
 
 .lr.ph355:                                        ; preds = %_ZN5drjit12DynamicArrayIfE5zero_Em.exit
-  %72 = icmp eq i64 %.sroa.6300.0336.fr, 1
+  %72 = icmp eq i64 %.sroa.6300.0333.fr, 1
   %73 = load ptr, ptr %14, align 8
   %74 = load ptr, ptr %16, align 8
   %75 = icmp eq ptr %73, %74
   br i1 %75, label %.lr.ph355.split.us.preheader, label %.lr.ph355.split
 
 .lr.ph355.split.us.preheader:                     ; preds = %.lr.ph355
-  %76 = add i64 %.sroa.6300.0336.fr, -1
+  %76 = add i64 %.sroa.6300.0333.fr, -1
   %77 = getelementptr inbounds float, ptr %.sroa.0291.0, i64 %76
   %78 = load float, ptr %77, align 4
   %79 = insertelement <4 x float> poison, float %78, i64 0
@@ -1183,8 +1183,8 @@ _ZN5drjit12DynamicArrayIfE5zero_Em.exit:          ; preds = %.lr.ph.split.i, %._
   br label %._crit_edge356
 
 .lr.ph355.split:                                  ; preds = %.lr.ph355, %._crit_edge353
-  %.0354 = phi i64 [ %104, %._crit_edge353 ], [ 0, %.lr.ph355 ]
-  %spec.store.select = select i1 %72, i64 0, i64 %.0354
+  %.0212354 = phi i64 [ %104, %._crit_edge353 ], [ 0, %.lr.ph355 ]
+  %spec.store.select = select i1 %72, i64 0, i64 %.0212354
   %81 = getelementptr inbounds float, ptr %.sroa.0291.0, i64 %spec.store.select
   %82 = load float, ptr %81, align 4
   %83 = insertelement <4 x float> poison, float %82, i64 0
@@ -1196,7 +1196,7 @@ _ZN5drjit12DynamicArrayIfE5zero_Em.exit:          ; preds = %.lr.ph.split.i, %._
   br i1 %.not343349, label %._crit_edge353, label %.lr.ph352
 
 .lr.ph352:                                        ; preds = %.lr.ph355.split
-  %87 = getelementptr inbounds float, ptr %.sroa.0296.0333, i64 %spec.store.select
+  %87 = getelementptr inbounds float, ptr %.sroa.0296.0335, i64 %spec.store.select
   br label %88
 
 88:                                               ; preds = %.lr.ph352, %_ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit256
@@ -1244,40 +1244,40 @@ _ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.ex
   br label %_ZN5drjit12DynamicArrayIdED2Ev.exit276
 
 ._crit_edge353:                                   ; preds = %_ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit256, %.lr.ph355.split
-  %104 = add nuw i64 %.0354, 1
-  %exitcond.not = icmp eq i64 %104, %.sroa.6300.0336.fr
+  %104 = add nuw i64 %.0212354, 1
+  %exitcond.not = icmp eq i64 %104, %.sroa.6300.0333.fr
   br i1 %exitcond.not, label %._crit_edge356, label %.lr.ph355.split, !llvm.loop !16
 
 ._crit_edge356:                                   ; preds = %._crit_edge353, %.lr.ph355.split.us.preheader, %_ZN5drjit12DynamicArrayIfE5zero_Em.exit
-  %105 = icmp eq i64 %.sroa.6300.0336.fr, 0
+  %105 = icmp eq i64 %.sroa.6300.0333.fr, 0
   br i1 %105, label %_ZN5drjit12DynamicArrayIdEC2IfLb0ENS0_IfEEEERKNS_9ArrayBaseIT_XT0_ET1_EE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge356
-  %106 = icmp ugt i64 %.sroa.6300.0336.fr, 2305843009213693951
-  %107 = shl nuw i64 %.sroa.6300.0336.fr, 3
+  %106 = icmp ugt i64 %.sroa.6300.0333.fr, 2305843009213693951
+  %107 = shl nuw i64 %.sroa.6300.0333.fr, 3
   %108 = select i1 %106, i64 -1, i64 %107
   %109 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %108) #33
           to label %.lr.ph.i259.preheader unwind label %101
 
 .lr.ph.i259.preheader:                            ; preds = %.lr.ph.preheader.i
-  %110 = icmp eq i64 %.sroa.6300.0336.fr, 1
+  %110 = icmp eq i64 %.sroa.6300.0333.fr, 1
   br i1 %110, label %.lr.ph.i259.preheader.split.us, label %.lr.ph.i259
 
 .lr.ph.i259.preheader.split.us:                   ; preds = %.lr.ph.i259.preheader
-  %111 = load float, ptr %.sroa.0296.0333, align 4
+  %111 = load float, ptr %.sroa.0296.0335, align 4
   %112 = fpext float %111 to double
   store double %112, ptr %109, align 8
   br label %_ZN5drjit12DynamicArrayIdEC2IfLb0ENS0_IfEEEERKNS_9ArrayBaseIT_XT0_ET1_EE.exit
 
 .lr.ph.i259:                                      ; preds = %.lr.ph.i259.preheader, %.lr.ph.i259
   %.013.i = phi i64 [ %117, %.lr.ph.i259 ], [ 0, %.lr.ph.i259.preheader ]
-  %113 = getelementptr inbounds float, ptr %.sroa.0296.0333, i64 %.013.i
+  %113 = getelementptr inbounds float, ptr %.sroa.0296.0335, i64 %.013.i
   %114 = load float, ptr %113, align 4
   %115 = fpext float %114 to double
   %116 = getelementptr inbounds double, ptr %109, i64 %.013.i
   store double %115, ptr %116, align 8
   %117 = add nuw i64 %.013.i, 1
-  %exitcond.not.i260 = icmp eq i64 %117, %.sroa.6300.0336.fr
+  %exitcond.not.i260 = icmp eq i64 %117, %.sroa.6300.0333.fr
   br i1 %exitcond.not.i260, label %_ZN5drjit12DynamicArrayIdEC2IfLb0ENS0_IfEEEERKNS_9ArrayBaseIT_XT0_ET1_EE.exit, label %.lr.ph.i259, !llvm.loop !18
 
 _ZN5drjit12DynamicArrayIdEC2IfLb0ENS0_IfEEEERKNS_9ArrayBaseIT_XT0_ET1_EE.exit: ; preds = %.lr.ph.i259, %.lr.ph.i259.preheader.split.us, %._crit_edge356
@@ -1305,7 +1305,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit266 unwind label %147
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit266: ; preds = %119
-  store i64 %.sroa.6300.0336.fr, ptr %9, align 8
+  store i64 %.sroa.6300.0333.fr, ptr %9, align 8
   invoke void @_ZN7mitsuba10Properties8set_longERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEERKlb(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, i1 noundef zeroext true)
           to label %120 unwind label %151
 
@@ -1387,11 +1387,11 @@ _ZN5drjit12DynamicArrayIdED2Ev.exit:              ; preds = %138, %_ZN7mitsuba3r
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit:              ; preds = %140, %_ZN5drjit12DynamicArrayIdED2Ev.exit
-  %141 = icmp eq ptr %.sroa.0296.0333, null
+  %141 = icmp eq ptr %.sroa.0296.0335, null
   br i1 %141, label %_ZN5drjit12DynamicArrayIfED2Ev.exit275, label %142
 
 142:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0296.0333) #29
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0296.0335) #29
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit275
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit275:           ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit, %142
@@ -1461,13 +1461,13 @@ _ZN5drjit12DynamicArrayIdED2Ev.exit276:           ; preds = %101, %_ZN7mitsuba3r
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit277
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit277:           ; preds = %_ZN5drjit12DynamicArrayIdED2Ev.exit276, %162
-  %163 = icmp eq ptr %.sroa.0296.0333, null
+  %163 = icmp eq ptr %.sroa.0296.0335, null
   br i1 %163, label %_ZN5drjit12DynamicArrayIfED2Ev.exit278, label %164
 
 164:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit277.thread, %_ZN5drjit12DynamicArrayIfED2Ev.exit277
   %.pn242.pn341 = phi { ptr, i32 } [ %100, %_ZN5drjit12DynamicArrayIfED2Ev.exit277.thread ], [ %.pn242, %_ZN5drjit12DynamicArrayIfED2Ev.exit277 ]
-  %.sroa.0296.0334340 = phi ptr [ %59, %_ZN5drjit12DynamicArrayIfED2Ev.exit277.thread ], [ %.sroa.0296.0333, %_ZN5drjit12DynamicArrayIfED2Ev.exit277 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0296.0334340) #29
+  %.sroa.0296.0336340 = phi ptr [ %59, %_ZN5drjit12DynamicArrayIfED2Ev.exit277.thread ], [ %.sroa.0296.0335, %_ZN5drjit12DynamicArrayIfED2Ev.exit277 ]
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0296.0336340) #29
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit278
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit278:           ; preds = %164, %_ZN5drjit12DynamicArrayIfED2Ev.exit277, %_ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit251

@@ -186,7 +186,7 @@ Fraig_FeedBackPrepare.exit:                       ; preds = %Fraig_FeedBackPrepa
 .lr.ph88.i:                                       ; preds = %._crit_edge84.i, %.lr.ph88.preheader.i
   %indvars.iv95.i = phi i64 [ 0, %.lr.ph88.preheader.i ], [ %indvars.iv.next96.i, %._crit_edge84.i ]
   %88 = phi ptr [ %83, %.lr.ph88.preheader.i ], [ %151, %._crit_edge84.i ]
-  %.07485.i = phi i32 [ 1, %.lr.ph88.preheader.i ], [ %.175.i, %._crit_edge84.i ]
+  %.07186.i = phi i32 [ 1, %.lr.ph88.preheader.i ], [ %.172.i, %._crit_edge84.i ]
   %89 = getelementptr inbounds i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds ptr, ptr %90, i64 %indvars.iv95.i
@@ -243,30 +243,30 @@ Fraig_FeedBackPrepare.exit:                       ; preds = %Fraig_FeedBackPrepa
   %116 = load i32, ptr %115, align 8
   %117 = and i32 %116, 128
   %.not.i34 = icmp ne i32 %117, 0
-  %118 = icmp slt i32 %.07485.i, %72
+  %118 = icmp slt i32 %.07186.i, %72
   %or.cond.i = select i1 %.not.i34, i1 %118, i1 false
   br i1 %or.cond.i, label %119, label %132
 
 119:                                              ; preds = %._crit_edge.i33
-  %120 = and i32 %.07485.i, 31
+  %120 = and i32 %.07186.i, 31
   %121 = shl nuw i32 1, %120
   %122 = getelementptr inbounds i8, ptr %92, i64 112
   %123 = load ptr, ptr %122, align 8
   %124 = sext i32 %.lcssa.i to i64
   %125 = getelementptr inbounds i32, ptr %123, i64 %124
-  %126 = ashr i32 %.07485.i, 5
+  %126 = ashr i32 %.07186.i, 5
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds i32, ptr %125, i64 %127
   %129 = load i32, ptr %128, align 4
   %130 = xor i32 %129, %121
   store i32 %130, ptr %128, align 4
-  %131 = add nsw i32 %.07485.i, 1
+  %131 = add nsw i32 %.07186.i, 1
   %.pre.i = load i32, ptr %115, align 8
   br label %132
 
 132:                                              ; preds = %119, %._crit_edge.i33
   %133 = phi i32 [ %.pre.i, %119 ], [ %116, %._crit_edge.i33 ]
-  %.175.i = phi i32 [ %131, %119 ], [ %.07485.i, %._crit_edge.i33 ]
+  %.172.i = phi i32 [ %131, %119 ], [ %.07186.i, %._crit_edge.i33 ]
   %134 = and i32 %133, -129
   store i32 %134, ptr %115, align 8
   br i1 %87, label %.lr.ph83.i, label %._crit_edge84.i
@@ -1122,26 +1122,26 @@ Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge80.i, %2
 
 .lr.ph137:                                        ; preds = %.lr.ph137.preheader, %.lr.ph137
   %indvars.iv172 = phi i64 [ 0, %.lr.ph137.preheader ], [ %indvars.iv.next173, %.lr.ph137 ]
-  %.0102135 = phi i32 [ 0, %.lr.ph137.preheader ], [ %348, %.lr.ph137 ]
+  %.0136 = phi i32 [ 0, %.lr.ph137.preheader ], [ %348, %.lr.ph137 ]
   %343 = getelementptr inbounds i32, ptr %294, i64 %indvars.iv172
   %344 = load i32, ptr %343, align 4
   %345 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv172
   %346 = load i32, ptr %345, align 4
   %347 = mul i32 %346, %344
-  %348 = xor i32 %347, %.0102135
+  %348 = xor i32 %347, %.0136
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
   br i1 %exitcond176.not, label %._crit_edge138, label %.lr.ph137, !llvm.loop !36
 
 ._crit_edge138:                                   ; preds = %.lr.ph137, %.preheader
-  %.0102.lcssa = phi i32 [ 0, %.preheader ], [ %348, %.lr.ph137 ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %348, %.lr.ph137 ]
   %349 = load ptr, ptr %0, align 8
   %350 = getelementptr inbounds i8, ptr %349, i64 8
   %351 = load ptr, ptr %350, align 8
   %352 = getelementptr inbounds ptr, ptr %351, i64 %indvars.iv177
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds i8, ptr %353, i64 100
-  store i32 %.0102.lcssa, ptr %354, align 4
+  store i32 %.0.lcssa, ptr %354, align 4
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %355 = load ptr, ptr %0, align 8
   %356 = getelementptr inbounds i8, ptr %355, i64 4

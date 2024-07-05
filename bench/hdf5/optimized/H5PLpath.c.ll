@@ -510,7 +510,7 @@ H5PL__path_table_iterate_process_path.exit.thread13: ; preds = %14
 
 sub_0.i:                                          ; preds = %.preheader.i, %.backedge.i
   %21 = phi ptr [ %91, %.backedge.i ], [ %20, %.preheader.i ]
-  %.03568.i = phi ptr [ %.035.be.i, %.backedge.i ], [ null, %.preheader.i ]
+  %.068.i = phi ptr [ %.0.be.i, %.backedge.i ], [ null, %.preheader.i ]
   %22 = getelementptr inbounds i8, ptr %21, i64 19
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
@@ -635,7 +635,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %89, %61, %37, %.tail.i
-  %.035.be.i = phi ptr [ %44, %61 ], [ %.03568.i, %.tail.i ], [ %90, %89 ], [ %.03568.i, %37 ]
+  %.0.be.i = phi ptr [ %44, %61 ], [ %.068.i, %.tail.i ], [ %90, %89 ], [ %.068.i, %37 ]
   %91 = call ptr @readdir64(ptr noundef nonnull %18) #13
   %.not46.i = icmp eq ptr %91, null
   br i1 %.not46.i, label %.thread.i, label %sub_0.i
@@ -651,8 +651,8 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.backedge.i, %94, %92, %68, %54, %46, %.preheader.i
-  %.338.i = phi ptr [ null, %46 ], [ %44, %54 ], [ %44, %68 ], [ %44, %94 ], [ %44, %92 ], [ null, %.preheader.i ], [ %.035.be.i, %.backedge.i ]
   %.4.i = phi i32 [ -1, %46 ], [ -1, %54 ], [ -1, %68 ], [ %88, %94 ], [ %88, %92 ], [ 0, %.preheader.i ], [ 0, %.backedge.i ]
+  %.3.i = phi ptr [ null, %46 ], [ %44, %54 ], [ %44, %68 ], [ %44, %94 ], [ %44, %92 ], [ null, %.preheader.i ], [ %.0.be.i, %.backedge.i ]
   %98 = call i32 @closedir(ptr noundef nonnull %18)
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %H5PL__path_table_iterate_process_path.exit.thread, label %H5PL__path_table_iterate_process_path.exit
@@ -664,7 +664,7 @@ H5PL__path_table_iterate_process_path.exit.thread: ; preds = %.thread.i
   %103 = load i32, ptr %102, align 4
   %104 = call ptr @strerror(i32 noundef %103) #13
   %105 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5PL__path_table_iterate_process_path, i32 noundef 685, i64 noundef %100, i64 noundef %101, ptr noundef nonnull @.str.29, ptr noundef %104) #13
-  %106 = call ptr @H5MM_xfree(ptr noundef %.338.i) #13
+  %106 = call ptr @H5MM_xfree(ptr noundef %.3.i) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
@@ -672,7 +672,7 @@ H5PL__path_table_iterate_process_path.exit.thread: ; preds = %.thread.i
   br label %.loopexit17
 
 H5PL__path_table_iterate_process_path.exit:       ; preds = %.thread.i
-  %107 = call ptr @H5MM_xfree(ptr noundef %.338.i) #13
+  %107 = call ptr @H5MM_xfree(ptr noundef %.3.i) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
@@ -749,7 +749,7 @@ define noundef i32 @H5PL__find_plugin_in_path_table(ptr nocapture noundef readon
 
 sub_0.i:                                          ; preds = %.preheader.i, %.backedge.i
   %21 = phi ptr [ %66, %.backedge.i ], [ %17, %.preheader.i ]
-  %.03248.i = phi ptr [ %.032.be.i, %.backedge.i ], [ null, %.preheader.i ]
+  %.048.i = phi ptr [ %.0.be.i, %.backedge.i ], [ null, %.preheader.i ]
   %22 = getelementptr inbounds i8, ptr %21, i64 19
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
@@ -829,7 +829,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.sink.split.i, %37, %.tail.i
-  %.032.be.i = phi ptr [ %.03248.i, %.tail.i ], [ %.03248.i, %37 ], [ %65, %.backedge.sink.split.i ]
+  %.0.be.i = phi ptr [ %.048.i, %.tail.i ], [ %.048.i, %37 ], [ %65, %.backedge.sink.split.i ]
   %66 = tail call ptr @readdir64(ptr noundef nonnull %16) #13
   %.not38.i = icmp eq ptr %66, null
   br i1 %.not38.i, label %.loopexit.i, label %sub_0.i
@@ -853,8 +853,8 @@ sub_2.i:                                          ; preds = %sub_1.i
   br i1 %78, label %.loopexit.i, label %.backedge.sink.split.i
 
 .loopexit.i:                                      ; preds = %76, %.backedge.i, %72, %54, %46, %.preheader.i
-  %.2.i = phi ptr [ null, %46 ], [ %44, %54 ], [ %44, %72 ], [ null, %.preheader.i ], [ %44, %76 ], [ %.032.be.i, %.backedge.i ]
   %79 = phi i1 [ true, %46 ], [ true, %54 ], [ true, %72 ], [ false, %.preheader.i ], [ false, %.backedge.i ], [ false, %76 ]
+  %.2.i = phi ptr [ null, %46 ], [ %44, %54 ], [ %44, %72 ], [ null, %.preheader.i ], [ %44, %76 ], [ %.0.be.i, %.backedge.i ]
   %80 = tail call i32 @closedir(ptr noundef nonnull %16)
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %82, label %H5PL__find_plugin_in_path.exit

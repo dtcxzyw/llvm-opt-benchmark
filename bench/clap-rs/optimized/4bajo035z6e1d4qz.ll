@@ -5655,8 +5655,8 @@ define hidden void @"_ZN12clap_builder7builder12value_parser29RangedI64ValuePars
   %8 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %7, 1
   %9 = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %7, 1
   %.pn = select i1 %switch.not.not, { i64, i64 } %9, { i64, i64 } %8
-  %.sroa.036.0 = extractvalue { i64, i64 } %.pn, 0
   %.sroa.437.0 = extractvalue { i64, i64 } %.pn, 1
+  %.sroa.036.0 = extractvalue { i64, i64 } %.pn, 0
   store i64 0, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %4, ptr %10, align 8
@@ -5716,8 +5716,8 @@ define hidden void @"_ZN12clap_builder7builder12value_parser29RangedI64ValuePars
   %8 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %7, 1
   %9 = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %7, 1
   %.pn = select i1 %switch.not.not, { i64, i64 } %9, { i64, i64 } %8
-  %.sroa.036.0 = extractvalue { i64, i64 } %.pn, 0
   %.sroa.437.0 = extractvalue { i64, i64 } %.pn, 1
+  %.sroa.036.0 = extractvalue { i64, i64 } %.pn, 0
   store i64 0, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %4, ptr %10, align 8
@@ -5792,8 +5792,8 @@ define hidden void @"_ZN12clap_builder7builder12value_parser29RangedI64ValuePars
   %8 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %7, 1
   %9 = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %7, 1
   %.pn = select i1 %switch.not.not, { i64, i64 } %9, { i64, i64 } %8
-  %.sroa.036.0 = extractvalue { i64, i64 } %.pn, 0
   %.sroa.437.0 = extractvalue { i64, i64 } %.pn, 1
+  %.sroa.036.0 = extractvalue { i64, i64 } %.pn, 0
   store i64 0, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %4, ptr %10, align 8
@@ -5816,8 +5816,8 @@ define hidden void @"_ZN12clap_builder7builder12value_parser29RangedI64ValuePars
   %8 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %7, 1
   %9 = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %7, 1
   %.pn = select i1 %switch.not.not, { i64, i64 } %9, { i64, i64 } %8
-  %.sroa.036.0 = extractvalue { i64, i64 } %.pn, 0
   %.sroa.437.0 = extractvalue { i64, i64 } %.pn, 1
+  %.sroa.036.0 = extractvalue { i64, i64 } %.pn, 0
   store i64 0, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %4, ptr %10, align 8
@@ -5840,8 +5840,8 @@ define hidden void @"_ZN12clap_builder7builder12value_parser29RangedI64ValuePars
   %8 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %7, 1
   %9 = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %7, 1
   %.pn = select i1 %switch.not.not, { i64, i64 } %9, { i64, i64 } %8
-  %.sroa.036.0 = extractvalue { i64, i64 } %.pn, 0
   %.sroa.437.0 = extractvalue { i64, i64 } %.pn, 1
+  %.sroa.036.0 = extractvalue { i64, i64 } %.pn, 0
   store i64 0, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %4, ptr %10, align 8
@@ -5864,8 +5864,8 @@ define hidden void @"_ZN12clap_builder7builder12value_parser29RangedI64ValuePars
   %8 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %7, 1
   %9 = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %7, 1
   %.pn = select i1 %switch.not.not, { i64, i64 } %9, { i64, i64 } %8
-  %.sroa.036.0 = extractvalue { i64, i64 } %.pn, 0
   %.sroa.437.0 = extractvalue { i64, i64 } %.pn, 1
+  %.sroa.036.0 = extractvalue { i64, i64 } %.pn, 0
   store i64 0, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %4, ptr %10, align 8

@@ -690,13 +690,13 @@ define internal fastcc void @tuplestore_puttuple_common(ptr noundef %0, ptr noun
   %53 = sitofp i32 %33 to double
   %54 = fmul double %52, %53
   %55 = fcmp olt double %54, 0x41DFFFFFFFC00000
-  %.045.i = select i1 %55, double %54, double 0x41DFFFFFFFC00000
-  %.0.i = fptosi double %.045.i to i32
+  %.03445.i = select i1 %55, double %54, double 0x41DFFFFFFFC00000
+  %.034.i = fptosi double %.03445.i to i32
   store i8 0, ptr %41, align 4
   br label %56
 
 56:                                               ; preds = %49, %47
-  %.1.i = phi i32 [ %48, %47 ], [ %.0.i, %49 ]
+  %.1.i = phi i32 [ %48, %47 ], [ %.034.i, %49 ]
   %.not39.i = icmp sgt i32 %.1.i, %33
   br i1 %.not39.i, label %57, label %81
 

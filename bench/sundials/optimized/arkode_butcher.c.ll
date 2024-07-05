@@ -444,8 +444,8 @@ define noundef ptr @ARKodeButcherTable_Create(i32 noundef %0, i32 noundef %1, i3
   br i1 %exitcond62.not, label %.loopexit, label %35
 
 .loopexit:                                        ; preds = %35, %._crit_edge50, %9, %7
-  %.042 = phi ptr [ null, %7 ], [ null, %9 ], [ %11, %._crit_edge50 ], [ %11, %35 ]
-  ret ptr %.042
+  %.0 = phi ptr [ null, %7 ], [ null, %9 ], [ %11, %._crit_edge50 ], [ %11, %35 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -546,8 +546,8 @@ define noundef ptr @ARKodeButcherTable_Copy(ptr noundef readonly %0) local_unnam
   br i1 %exitcond63.not, label %.loopexit, label %46
 
 .loopexit:                                        ; preds = %46, %11, %._crit_edge51, %3, %1
-  %.042 = phi ptr [ null, %1 ], [ null, %3 ], [ %9, %._crit_edge51 ], [ %9, %11 ], [ %9, %46 ]
-  ret ptr %.042
+  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %9, %._crit_edge51 ], [ %9, %11 ], [ %9, %46 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -2162,8 +2162,8 @@ thread-pre-split1071:                             ; preds = %__rowsum.exit975, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.thread1080, %469, %465, %459, %453, %21, %._crit_edge, %10, %6, %4, %473
-  %.0703 = phi i32 [ 0, %473 ], [ -2, %4 ], [ -2, %6 ], [ -2, %10 ], [ -2, %._crit_edge ], [ -2, %21 ], [ -1, %453 ], [ -1, %459 ], [ 1, %465 ], [ 1, %469 ], [ 1, %.thread1080 ], [ -2, %.lr.ph ]
-  ret i32 %.0703
+  %.0702 = phi i32 [ 0, %473 ], [ -2, %4 ], [ -2, %6 ], [ -2, %10 ], [ -2, %._crit_edge ], [ -2, %21 ], [ -1, %453 ], [ -1, %459 ], [ 1, %465 ], [ 1, %469 ], [ 1, %.thread1080 ], [ -2, %.lr.ph ]
+  ret i32 %.0702
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
@@ -13908,8 +13908,8 @@ thread-pre-split4990:                             ; preds = %1557, %.thread2595
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph2961, %.thread4995, %2351, %2345, %2337, %2333, %2328, %2322, %.thread4993, %42, %._crit_edge2962, %31, %27, %22, %._crit_edge, %11, %7, %5, %.thread4998
-  %.02069 = phi i32 [ 0, %.thread4998 ], [ -1, %5 ], [ -1, %7 ], [ -1, %11 ], [ -1, %._crit_edge ], [ -1, %22 ], [ -1, %27 ], [ -1, %31 ], [ -1, %._crit_edge2962 ], [ -1, %42 ], [ 1, %.thread4993 ], [ 1, %2322 ], [ 1, %2328 ], [ 1, %2333 ], [ 1, %2337 ], [ 1, %2345 ], [ 1, %2351 ], [ 1, %.thread4995 ], [ -1, %.lr.ph2961 ], [ -1, %.lr.ph ]
-  ret i32 %.02069
+  %.01701 = phi i32 [ 0, %.thread4998 ], [ -1, %5 ], [ -1, %7 ], [ -1, %11 ], [ -1, %._crit_edge ], [ -1, %22 ], [ -1, %27 ], [ -1, %31 ], [ -1, %._crit_edge2962 ], [ -1, %42 ], [ 1, %.thread4993 ], [ 1, %2322 ], [ 1, %2328 ], [ 1, %2333 ], [ 1, %2337 ], [ 1, %2345 ], [ 1, %2351 ], [ 1, %.thread4995 ], [ -1, %.lr.ph2961 ], [ -1, %.lr.ph ]
+  ret i32 %.01701
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

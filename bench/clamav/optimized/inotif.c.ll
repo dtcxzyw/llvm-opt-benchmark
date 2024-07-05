@@ -454,7 +454,7 @@ sub_1282:                                         ; preds = %sub_0281
   br label %114
 
 .loopexit293:                                     ; preds = %.outer, %.backedge, %.preheader292, %.loopexit295
-  %.0199 = phi ptr [ null, %.loopexit295 ], [ %107, %.preheader292 ], [ %107, %.backedge ], [ %107, %.outer ]
+  %.0202 = phi ptr [ null, %.loopexit295 ], [ %107, %.preheader292 ], [ %107, %.backedge ], [ %107, %.outer ]
   %151 = load ptr, ptr %49, align 1
   %152 = call ptr @optget(ptr noundef %151, ptr noundef nonnull @.str.20) #16
   %153 = getelementptr inbounds i8, ptr %152, i64 32
@@ -686,11 +686,11 @@ thread-pre-split:                                 ; preds = %257, %262
   br i1 %.old6.not, label %.loopexit287, label %226
 
 .loopexit287:                                     ; preds = %274, %216
-  %.not234 = icmp eq ptr %.0199, null
+  %.not234 = icmp eq ptr %.0202, null
   br i1 %.not234, label %.loopexit285, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit287
-  %277 = load ptr, ptr %.0199, align 8
+  %277 = load ptr, ptr %.0202, align 8
   %.not235315 = icmp eq ptr %277, null
   br i1 %.not235315, label %.loopexit285, label %.lr.ph317
 
@@ -702,7 +702,7 @@ thread-pre-split:                                 ; preds = %257, %262
 
 281:                                              ; preds = %.lr.ph317, %329
   %indvars.iv342 = phi i64 [ 0, %.lr.ph317 ], [ %indvars.iv.next343, %329 ]
-  %282 = getelementptr inbounds ptr, ptr %.0199, i64 %indvars.iv342
+  %282 = getelementptr inbounds ptr, ptr %.0202, i64 %indvars.iv342
   store i32 0, ptr %278, align 4
   %283 = load ptr, ptr %282, align 8
   %284 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %283) #18
@@ -791,7 +791,7 @@ thread-pre-split277:                              ; preds = %312, %317
 
 329:                                              ; preds = %onas_ddd_watch.exit257, %321, %324, %304, %281
   %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
-  %330 = getelementptr inbounds ptr, ptr %.0199, i64 %indvars.iv.next343
+  %330 = getelementptr inbounds ptr, ptr %.0202, i64 %indvars.iv.next343
   %331 = load ptr, ptr %330, align 8
   %.not235 = icmp eq ptr %331, null
   br i1 %.not235, label %.loopexit285, label %281

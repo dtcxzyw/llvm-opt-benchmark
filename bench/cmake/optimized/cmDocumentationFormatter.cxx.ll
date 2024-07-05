@@ -59,7 +59,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %17
 
 17:                                               ; preds = %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
-  %.045 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ], [ %.044, %55 ]
+  %.045 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ], [ %.046, %55 ]
   %18 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #4
   %19 = icmp ult i64 %.045, %18
   br i1 %19, label %20, label %62
@@ -156,7 +156,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %57 = icmp eq i64 %56, -1
   %58 = add nuw i64 %56, 1
   %59 = sub i64 %58, %.045
-  %.044 = select i1 %57, i64 -1, i64 %58
+  %.046 = select i1 %57, i64 -1, i64 %58
   %60 = select i1 %57, i64 -1, i64 %59
   %61 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %.045, i64 noundef %60)
           to label %17 unwind label %.loopexit.split-lp, !llvm.loop !6
@@ -166,15 +166,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %64
 
 64:                                               ; preds = %62, %79
-  %.0.idx61 = phi i64 [ 0, %62 ], [ %.0.add, %79 ]
-  %.0.ptr62 = getelementptr inbounds i8, ptr %4, i64 %.0.idx61
-  %65 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.ptr62) #4
+  %.044.idx61 = phi i64 [ 0, %62 ], [ %.044.add, %79 ]
+  %.044.ptr62 = getelementptr inbounds i8, ptr %4, i64 %.044.idx61
+  %65 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.044.ptr62) #4
   br i1 %65, label %79, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %.0.ptr62, i64 32
+  %67 = getelementptr inbounds i8, ptr %.044.ptr62, i64 32
   %.fca.0.load48 = load i64, ptr %67, align 16
-  %.fca.1.gep50 = getelementptr inbounds i8, ptr %.0.ptr62, i64 40
+  %.fca.1.gep50 = getelementptr inbounds i8, ptr %.044.ptr62, i64 40
   %.fca.1.load51 = load i64, ptr %.fca.1.gep50, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 %.fca.1.load51
   %69 = and i64 %.fca.0.load48, 1
@@ -194,12 +194,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 77:                                               ; preds = %75, %70
   %78 = phi ptr [ %74, %70 ], [ %76, %75 ]
-  invoke void %78(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %.0.ptr62)
+  invoke void %78(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %.044.ptr62)
           to label %79 unwind label %.loopexit60
 
 79:                                               ; preds = %64, %77
-  %.0.add = add nuw nsw i64 %.0.idx61, 48
-  %.not55 = icmp eq i64 %.0.add, 96
+  %.044.add = add nuw nsw i64 %.044.idx61, 48
+  %.not55 = icmp eq i64 %.044.add, 96
   br i1 %.not55, label %80, label %64
 
 80:                                               ; preds = %79
@@ -373,12 +373,12 @@ _ZN12_GLOBAL__N_111skipToSpaceEPKc.exit:          ; preds = %13, %13, %13
   %.04684 = phi ptr [ %.0.i73, %_ZN12_GLOBAL__N_111skipToSpaceEPKc.exit74 ], [ %.0.i, %_ZN12_GLOBAL__N_111skipToSpaceEPKc.exit ]
   %.04883 = phi ptr [ %.0.i72, %_ZN12_GLOBAL__N_111skipToSpaceEPKc.exit74 ], [ %11, %_ZN12_GLOBAL__N_111skipToSpaceEPKc.exit ]
   %.04982 = phi i64 [ %.3, %_ZN12_GLOBAL__N_111skipToSpaceEPKc.exit74 ], [ 0, %_ZN12_GLOBAL__N_111skipToSpaceEPKc.exit ]
-  %.05280 = phi i1 [ %.153, %_ZN12_GLOBAL__N_111skipToSpaceEPKc.exit74 ], [ true, %_ZN12_GLOBAL__N_111skipToSpaceEPKc.exit ]
-  %.05479 = phi i8 [ %.256, %_ZN12_GLOBAL__N_111skipToSpaceEPKc.exit74 ], [ 0, %_ZN12_GLOBAL__N_111skipToSpaceEPKc.exit ]
+  %.05281 = phi i8 [ %.254, %_ZN12_GLOBAL__N_111skipToSpaceEPKc.exit74 ], [ 0, %_ZN12_GLOBAL__N_111skipToSpaceEPKc.exit ]
+  %.05579 = phi i1 [ %.156, %_ZN12_GLOBAL__N_111skipToSpaceEPKc.exit74 ], [ true, %_ZN12_GLOBAL__N_111skipToSpaceEPKc.exit ]
   %19 = ptrtoint ptr %.04684 to i64
   %20 = ptrtoint ptr %.04883 to i64
   %21 = sub i64 %19, %20
-  %.mask = and i8 %.05479, 1
+  %.mask = and i8 %.05281, 1
   %22 = zext nneg i8 %.mask to i64
   %23 = add i64 %10, %.04982
   %24 = add i64 %23, %22
@@ -399,12 +399,12 @@ _ZN12_GLOBAL__N_111skipToSpaceEPKc.exit:          ; preds = %13, %13, %13
   %32 = zext nneg i8 %31 to i64
   %33 = getelementptr inbounds [3 x i8], ptr @.str, i64 0, i64 %32
   %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %33)
-  %35 = add nuw nsw i64 %22, 1
-  %36 = add nsw i64 %35, %.04982
+  %35 = add i64 %.04982, 1
+  %36 = add i64 %35, %22
   br label %50
 
 37:                                               ; preds = %29
-  br i1 %.05280, label %50, label %38
+  br i1 %.05579, label %50, label %38
 
 38:                                               ; preds = %37
   %39 = load i64, ptr %9, align 8
@@ -462,7 +462,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 56:                                               ; preds = %50, %27
   %57 = phi i8 [ %.pre, %50 ], [ %18, %27 ]
-  %.155 = phi i8 [ %55, %50 ], [ %.05479, %27 ]
+  %.153 = phi i8 [ %55, %50 ], [ %.05281, %27 ]
   %.251 = phi i64 [ %.150, %50 ], [ %.04982, %27 ]
   %58 = icmp eq i8 %57, 10
   br i1 %58, label %59, label %62
@@ -527,8 +527,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit71: ; p
   br label %.body
 
 83:                                               ; preds = %64, %62, %59, %73
-  %.256 = phi i8 [ %.155, %59 ], [ %.155, %62 ], [ %78, %73 ], [ %.05479, %64 ]
-  %.153 = phi i1 [ false, %59 ], [ %.05280, %62 ], [ false, %73 ], [ false, %64 ]
+  %.156 = phi i1 [ false, %59 ], [ %.05579, %62 ], [ false, %73 ], [ false, %64 ]
+  %.254 = phi i8 [ %.153, %59 ], [ %.153, %62 ], [ %78, %73 ], [ %.05281, %64 ]
   %.3 = phi i64 [ 0, %59 ], [ %63, %62 ], [ %21, %73 ], [ 0, %64 ]
   %.147 = phi ptr [ %61, %59 ], [ %.04684, %62 ], [ %.04684, %73 ], [ %.04684, %64 ]
   br label %84

@@ -246,8 +246,8 @@ define { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h30788afff94
   br label %8
 
 8:                                                ; preds = %2, %4
-  %.sroa.33.0 = phi i64 [ %7, %4 ], [ undef, %2 ]
   %.sroa.02.0 = phi i64 [ %6, %4 ], [ -9223372036854775807, %2 ]
+  %.sroa.33.0 = phi i64 [ %7, %4 ], [ undef, %2 ]
   %9 = insertvalue { i64, i64 } poison, i64 %.sroa.02.0, 0
   %10 = insertvalue { i64, i64 } %9, i64 %.sroa.33.0, 1
   ret { i64, i64 } %10

@@ -5928,8 +5928,8 @@ default.unreachable1019:                          ; preds = %2554, %2287, %1969,
   %trunc.i.i = trunc nuw i64 %434 to i1
   %435 = getelementptr inbounds i8, ptr %191, i64 24
   %436 = load ptr, ptr %435, align 8, !alias.scope !885, !noalias !890
-  %.021.i.i = select i1 %trunc.i.i, ptr %436, ptr null
-  invoke void @_ZN10aws_config15provider_config14ProviderConfig7with_fs17ha2fe357fdf1100e6E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { { ptr, ptr } }, {}, {} } }, ptr, ptr, ptr, { ptr, [1 x i64] }, { ptr, [1 x i64] }, i8, i8, [6 x i8] }) align 8 dereferenceable(152) %189, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %188, ptr noundef %.021.i.i)
+  %.014.i.i = select i1 %trunc.i.i, ptr %436, ptr null
+  invoke void @_ZN10aws_config15provider_config14ProviderConfig7with_fs17ha2fe357fdf1100e6E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { { ptr, ptr } }, {}, {} } }, ptr, ptr, ptr, { ptr, [1 x i64] }, { ptr, [1 x i64] }, i8, i8, [6 x i8] }) align 8 dereferenceable(152) %189, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %188, ptr noundef %.014.i.i)
           to label %438 unwind label %.thread47.i.i, !noalias !888
 
 .thread47.i.i:                                    ; preds = %432
@@ -5943,8 +5943,8 @@ default.unreachable1019:                          ; preds = %2554, %2287, %1969,
   %trunc22.i.i = trunc nuw i64 %439 to i1
   %440 = getelementptr inbounds i8, ptr %191, i64 8
   %441 = load ptr, ptr %440, align 8, !alias.scope !885, !noalias !890
-  %.020.i.i = select i1 %trunc22.i.i, ptr %441, ptr null
-  invoke void @_ZN10aws_config15provider_config14ProviderConfig8with_env17h0120a73933244803E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { { ptr, ptr } }, {}, {} } }, ptr, ptr, ptr, { ptr, [1 x i64] }, { ptr, [1 x i64] }, i8, i8, [6 x i8] }) align 8 dereferenceable(152) %190, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %189, ptr noundef %.020.i.i)
+  %.0.i.i = select i1 %trunc22.i.i, ptr %441, ptr null
+  invoke void @_ZN10aws_config15provider_config14ProviderConfig8with_env17h0120a73933244803E(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { { ptr, ptr } }, {}, {} } }, ptr, ptr, ptr, { ptr, [1 x i64] }, { ptr, [1 x i64] }, i8, i8, [6 x i8] }) align 8 dereferenceable(152) %190, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %189, ptr noundef %.0.i.i)
           to label %.noexc267 unwind label %510
 
 .noexc267:                                        ; preds = %438
@@ -6063,11 +6063,11 @@ default.unreachable1019:                          ; preds = %2554, %2287, %1969,
   unreachable
 
 483:                                              ; preds = %484
-  br i1 %.01839.i.i, label %485, label %.body
+  br i1 %.02039.i.i, label %485, label %.body
 
 484:                                              ; preds = %.thread47.i.i, %.thread.i.i
   %.pn41.i.i = phi { ptr, i32 } [ %417, %.thread.i.i ], [ %437, %.thread47.i.i ]
-  %.01839.i.i = phi i1 [ true, %.thread.i.i ], [ false, %.thread47.i.i ]
+  %.02039.i.i = phi i1 [ true, %.thread.i.i ], [ false, %.thread47.i.i ]
   invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$aws_types..os_shim_internal..Env$GT$$GT$17hf1f3627114281392E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %191) #31
           to label %483 unwind label %481, !noalias !890
 
@@ -21902,11 +21902,11 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 13:                                               ; preds = %.lr.ph, %"_ZN83_$LT$aws_runtime..env_config..file..EnvConfigFile$u20$as$u20$core..clone..Clone$GT$5clone17h1ac8757ad73979ddE.exit"
   %.sroa.12.036 = phi i64 [ undef, %.lr.ph ], [ %.sroa.12.1, %"_ZN83_$LT$aws_runtime..env_config..file..EnvConfigFile$u20$as$u20$core..clone..Clone$GT$5clone17h1ac8757ad73979ddE.exit" ]
   %.sroa.014.035 = phi ptr [ %1, %.lr.ph ], [ %17, %"_ZN83_$LT$aws_runtime..env_config..file..EnvConfigFile$u20$as$u20$core..clone..Clone$GT$5clone17h1ac8757ad73979ddE.exit" ]
-  %.sroa.7.034 = phi i64 [ 0, %.lr.ph ], [ %18, %"_ZN83_$LT$aws_runtime..env_config..file..EnvConfigFile$u20$as$u20$core..clone..Clone$GT$5clone17h1ac8757ad73979ddE.exit" ]
-  %.sroa.10.033 = phi i64 [ %7, %.lr.ph ], [ %14, %"_ZN83_$LT$aws_runtime..env_config..file..EnvConfigFile$u20$as$u20$core..clone..Clone$GT$5clone17h1ac8757ad73979ddE.exit" ]
-  %.sroa.916.032 = phi i64 [ undef, %.lr.ph ], [ %.sroa.916.1, %"_ZN83_$LT$aws_runtime..env_config..file..EnvConfigFile$u20$as$u20$core..clone..Clone$GT$5clone17h1ac8757ad73979ddE.exit" ]
-  %.sroa.11.031 = phi ptr [ undef, %.lr.ph ], [ %.sroa.11.1, %"_ZN83_$LT$aws_runtime..env_config..file..EnvConfigFile$u20$as$u20$core..clone..Clone$GT$5clone17h1ac8757ad73979ddE.exit" ]
-  %14 = add i64 %.sroa.10.033, -1
+  %.sroa.11.034 = phi ptr [ undef, %.lr.ph ], [ %.sroa.11.1, %"_ZN83_$LT$aws_runtime..env_config..file..EnvConfigFile$u20$as$u20$core..clone..Clone$GT$5clone17h1ac8757ad73979ddE.exit" ]
+  %.sroa.7.033 = phi i64 [ 0, %.lr.ph ], [ %18, %"_ZN83_$LT$aws_runtime..env_config..file..EnvConfigFile$u20$as$u20$core..clone..Clone$GT$5clone17h1ac8757ad73979ddE.exit" ]
+  %.sroa.10.032 = phi i64 [ %7, %.lr.ph ], [ %14, %"_ZN83_$LT$aws_runtime..env_config..file..EnvConfigFile$u20$as$u20$core..clone..Clone$GT$5clone17h1ac8757ad73979ddE.exit" ]
+  %.sroa.916.031 = phi i64 [ undef, %.lr.ph ], [ %.sroa.916.1, %"_ZN83_$LT$aws_runtime..env_config..file..EnvConfigFile$u20$as$u20$core..clone..Clone$GT$5clone17h1ac8757ad73979ddE.exit" ]
+  %14 = add i64 %.sroa.10.032, -1
   %15 = icmp eq ptr %.sroa.014.035, %11
   br i1 %15, label %.thread, label %16
 
@@ -21918,7 +21918,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %.sroa.014.035, i64 32
-  %18 = add nuw nsw i64 %.sroa.7.034, 1
+  %18 = add nuw nsw i64 %.sroa.7.033, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3326)
   %19 = load i8, ptr %.sroa.014.035, align 8, !range !470, !alias.scope !3326, !noalias !3329, !noundef !4
   %20 = getelementptr inbounds i8, ptr %.sroa.014.035, i64 1
@@ -21962,10 +21962,10 @@ default.unreachable:                              ; preds = %16
   br label %"_ZN83_$LT$aws_runtime..env_config..file..EnvConfigFile$u20$as$u20$core..clone..Clone$GT$5clone17h1ac8757ad73979ddE.exit"
 
 "_ZN83_$LT$aws_runtime..env_config..file..EnvConfigFile$u20$as$u20$core..clone..Clone$GT$5clone17h1ac8757ad73979ddE.exit": ; preds = %.noexc13, %.noexc, %16
-  %.sroa.11.1 = phi ptr [ %.sroa.11.8.copyload, %.noexc13 ], [ %29, %.noexc ], [ %.sroa.11.031, %16 ]
-  %.sroa.916.1 = phi i64 [ %.sroa.916.8.copyload, %.noexc13 ], [ %28, %.noexc ], [ %.sroa.916.032, %16 ]
+  %.sroa.916.1 = phi i64 [ %.sroa.916.8.copyload, %.noexc13 ], [ %28, %.noexc ], [ %.sroa.916.031, %16 ]
+  %.sroa.11.1 = phi ptr [ %.sroa.11.8.copyload, %.noexc13 ], [ %29, %.noexc ], [ %.sroa.11.034, %16 ]
   %.sroa.12.1 = phi i64 [ %.sroa.12.8.copyload, %.noexc13 ], [ %26, %.noexc ], [ %.sroa.12.036, %16 ]
-  %33 = getelementptr inbounds [0 x { [4 x i64] }], ptr %8, i64 0, i64 %.sroa.7.034
+  %33 = getelementptr inbounds [0 x { [4 x i64] }], ptr %8, i64 0, i64 %.sroa.7.033
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.06.sroa.5)
   store i8 %19, ptr %33, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 1
@@ -21991,7 +21991,7 @@ default.unreachable:                              ; preds = %16
 37:                                               ; preds = %22, %31
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.7.034, ptr %10, align 8
+  store i64 %.sroa.7.033, ptr %10, align 8
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$aws_runtime..env_config..file..EnvConfigFile$GT$$GT$17hf6c91d2fc2ff1b58E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #31
           to label %38 unwind label %35
 

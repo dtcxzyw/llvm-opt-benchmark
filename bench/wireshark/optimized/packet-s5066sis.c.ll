@@ -948,21 +948,21 @@ define internal i32 @dissect_s5066_common(ptr noundef %0, ptr noundef %1, ptr no
   br label %358
 
 358:                                              ; preds = %351, %306
-  %.085.i = phi i32 [ %357, %351 ], [ %347, %306 ]
+  %.0.i = phi i32 [ %357, %351 ], [ %347, %306 ]
   br i1 %.not.i, label %359, label %dissect_s5066_21.exit
 
 359:                                              ; preds = %358
-  %360 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.085.i) #3
+  %360 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0.i) #3
   %361 = load i32, ptr @hf_s5066_21_err_blocks, align 4
-  %362 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %361, ptr noundef %0, i32 noundef %.085.i, i32 noundef 2, i32 noundef 0) #3
+  %362 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %361, ptr noundef %0, i32 noundef %.0.i, i32 noundef 2, i32 noundef 0) #3
   %363 = zext i16 %360 to i32
-  %.188.i = add nuw nsw i32 %.085.i, 2
+  %.188.i = add nuw nsw i32 %.0.i, 2
   %.not100.i = icmp eq i16 %360, 0
   br i1 %.not100.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %359, %.lr.ph.i
   %.191.i = phi i32 [ %.1.i, %.lr.ph.i ], [ %.188.i, %359 ]
-  %.1.in90.i = phi i32 [ %366, %.lr.ph.i ], [ %.085.i, %359 ]
+  %.1.in90.i = phi i32 [ %366, %.lr.ph.i ], [ %.0.i, %359 ]
   %.08689.i = phi i32 [ %369, %.lr.ph.i ], [ 0, %359 ]
   %364 = load i32, ptr @hf_s5066_21_err_ptr, align 4
   %365 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %364, ptr noundef %0, i32 noundef %.191.i, i32 noundef 2, i32 noundef 0) #3
@@ -975,7 +975,7 @@ define internal i32 @dissect_s5066_common(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %359
-  %.1.in.lcssa.i = phi i32 [ %.085.i, %359 ], [ %366, %.lr.ph.i ]
+  %.1.in.lcssa.i = phi i32 [ %.0.i, %359 ], [ %366, %.lr.ph.i ]
   %.1.lcssa.i = phi i32 [ %.188.i, %359 ], [ %.1.i, %.lr.ph.i ]
   %370 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1.lcssa.i) #3
   %371 = load i32, ptr @hf_s5066_21_nrx_blocks, align 4
@@ -1000,7 +1000,7 @@ define internal i32 @dissect_s5066_common(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %exitcond103.not.i, label %dissect_s5066_21.exit, label %.lr.ph98.i, !llvm.loop !6
 
 dissect_s5066_21.exit:                            ; preds = %.lr.ph98.i, %358, %._crit_edge.i
-  %.3.i = phi i32 [ %.085.i, %358 ], [ %.293.i, %._crit_edge.i ], [ %.2.i, %.lr.ph98.i ]
+  %.3.i = phi i32 [ %.0.i, %358 ], [ %.293.i, %._crit_edge.i ], [ %.2.i, %.lr.ph98.i ]
   %380 = and i8 %309, 15
   %381 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %.3.i, ptr noundef %37, i8 noundef zeroext %380, ptr noundef nonnull %5)
   br label %614
@@ -1170,21 +1170,21 @@ dissect_s5066_21.exit:                            ; preds = %.lr.ph98.i, %358, %
   br label %532
 
 532:                                              ; preds = %525, %480
-  %.085.i124 = phi i32 [ %531, %525 ], [ %521, %480 ]
+  %.0.i124 = phi i32 [ %531, %525 ], [ %521, %480 ]
   br i1 %.not.i123, label %533, label %dissect_s5066_25.exit
 
 533:                                              ; preds = %532
-  %534 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.085.i124) #3
+  %534 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0.i124) #3
   %535 = load i32, ptr @hf_s5066_25_err_blocks, align 4
-  %536 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %535, ptr noundef %0, i32 noundef %.085.i124, i32 noundef 2, i32 noundef 0) #3
+  %536 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %535, ptr noundef %0, i32 noundef %.0.i124, i32 noundef 2, i32 noundef 0) #3
   %537 = zext i16 %534 to i32
-  %.188.i126 = add nuw nsw i32 %.085.i124, 2
+  %.188.i126 = add nuw nsw i32 %.0.i124, 2
   %.not100.i127 = icmp eq i16 %534, 0
   br i1 %.not100.i127, label %._crit_edge.i134, label %.lr.ph.i128
 
 .lr.ph.i128:                                      ; preds = %533, %.lr.ph.i128
   %.191.i129 = phi i32 [ %.1.i132, %.lr.ph.i128 ], [ %.188.i126, %533 ]
-  %.1.in90.i130 = phi i32 [ %540, %.lr.ph.i128 ], [ %.085.i124, %533 ]
+  %.1.in90.i130 = phi i32 [ %540, %.lr.ph.i128 ], [ %.0.i124, %533 ]
   %.08689.i131 = phi i32 [ %543, %.lr.ph.i128 ], [ 0, %533 ]
   %538 = load i32, ptr @hf_s5066_25_err_ptr, align 4
   %539 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %538, ptr noundef %0, i32 noundef %.191.i129, i32 noundef 2, i32 noundef 0) #3
@@ -1197,7 +1197,7 @@ dissect_s5066_21.exit:                            ; preds = %.lr.ph98.i, %358, %
   br i1 %exitcond.not.i133, label %._crit_edge.i134, label %.lr.ph.i128, !llvm.loop !7
 
 ._crit_edge.i134:                                 ; preds = %.lr.ph.i128, %533
-  %.1.in.lcssa.i135 = phi i32 [ %.085.i124, %533 ], [ %540, %.lr.ph.i128 ]
+  %.1.in.lcssa.i135 = phi i32 [ %.0.i124, %533 ], [ %540, %.lr.ph.i128 ]
   %.1.lcssa.i136 = phi i32 [ %.188.i126, %533 ], [ %.1.i132, %.lr.ph.i128 ]
   %544 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1.lcssa.i136) #3
   %545 = load i32, ptr @hf_s5066_25_nrx_blocks, align 4
@@ -1222,7 +1222,7 @@ dissect_s5066_21.exit:                            ; preds = %.lr.ph98.i, %358, %
   br i1 %exitcond103.not.i144, label %dissect_s5066_25.exit, label %.lr.ph98.i139, !llvm.loop !8
 
 dissect_s5066_25.exit:                            ; preds = %.lr.ph98.i139, %532, %._crit_edge.i134
-  %.3.i125 = phi i32 [ %.085.i124, %532 ], [ %.293.i137, %._crit_edge.i134 ], [ %.2.i143, %.lr.ph98.i139 ]
+  %.3.i125 = phi i32 [ %.0.i124, %532 ], [ %.293.i137, %._crit_edge.i134 ], [ %.2.i143, %.lr.ph98.i139 ]
   %554 = and i8 %483, 15
   %555 = call fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %.3.i125, ptr noundef %37, i8 noundef zeroext %554, ptr noundef nonnull %5)
   br label %614

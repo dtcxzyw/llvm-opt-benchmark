@@ -111,27 +111,27 @@ define internal i32 @dissect_gmr1_dtap(ptr noundef %0, ptr noundef %1, ptr nound
   br label %38
 
 38:                                               ; preds = %32, %27
-  %.048 = phi ptr [ %30, %27 ], [ %35, %32 ]
+  %.049 = phi ptr [ %30, %27 ], [ %35, %32 ]
   %39 = load i32, ptr @hf_gmr1_dtap_protocol_discriminator, align 4
-  %40 = call ptr @proto_tree_add_uint(ptr noundef %.048, i32 noundef %39, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 6) #2
+  %40 = call ptr @proto_tree_add_uint(ptr noundef %.049, i32 noundef %39, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 6) #2
   %41 = load i32, ptr %8, align 4
   %42 = load ptr, ptr %6, align 8
   %.not54 = icmp eq ptr %42, null
   %43 = select i1 %.not54, ptr @.str.18, ptr %42
-  %44 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.048, i32 noundef %41, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %23, ptr noundef nonnull @.str.17, ptr noundef nonnull %43) #2
+  %44 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.049, i32 noundef %41, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %23, ptr noundef nonnull @.str.17, ptr noundef nonnull %43) #2
   %45 = load ptr, ptr %5, align 8
   %.not55 = icmp eq ptr %45, null
   br i1 %.not55, label %48, label %46
 
 46:                                               ; preds = %38
   %47 = add i32 %9, -2
-  call void %45(ptr noundef %0, ptr noundef %.048, ptr noundef nonnull %1, i32 noundef 2, i32 noundef %47) #2
+  call void %45(ptr noundef %0, ptr noundef %.049, ptr noundef nonnull %1, i32 noundef 2, i32 noundef %47) #2
   br label %52
 
 48:                                               ; preds = %38
   %49 = load i32, ptr @hf_gmr1_dtap_message_elements, align 4
   %50 = add i32 %9, -2
-  %51 = call ptr @proto_tree_add_item(ptr noundef %.048, i32 noundef %49, ptr noundef %0, i32 noundef 2, i32 noundef %50, i32 noundef 0) #2
+  %51 = call ptr @proto_tree_add_item(ptr noundef %.049, i32 noundef %49, ptr noundef %0, i32 noundef 2, i32 noundef %50, i32 noundef 0) #2
   br label %52
 
 52:                                               ; preds = %48, %46
@@ -139,8 +139,8 @@ define internal i32 @dissect_gmr1_dtap(ptr noundef %0, ptr noundef %1, ptr nound
   br label %54
 
 54:                                               ; preds = %52, %13
-  %.049 = phi i32 [ %16, %13 ], [ %53, %52 ]
-  ret i32 %.049
+  %.048 = phi i32 [ %16, %13 ], [ %53, %52 ]
+  ret i32 %.048
 }
 
 ; Function Attrs: nounwind uwtable

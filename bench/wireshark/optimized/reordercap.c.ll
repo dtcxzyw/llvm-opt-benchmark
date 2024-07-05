@@ -176,12 +176,12 @@ sub_0:                                            ; preds = %43
   br label %72
 
 72:                                               ; preds = %.tail.thread, %67
-  %.056 = phi ptr [ %69, %67 ], [ %71, %.tail.thread ]
+  %.0 = phi ptr [ %69, %67 ], [ %71, %.tail.thread ]
   %73 = getelementptr inbounds i8, ptr %11, i64 32
   %74 = load ptr, ptr %73, align 8
   call void @g_free(ptr noundef %74) #9
   store ptr null, ptr %73, align 8
-  %75 = icmp eq ptr %.056, null
+  %75 = icmp eq ptr %.0, null
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %72
@@ -207,7 +207,7 @@ sub_0:                                            ; preds = %43
   br label %86
 
 86:                                               ; preds = %.lr.ph, %103
-  %.05486 = phi i32 [ 0, %.lr.ph ], [ %.155, %103 ]
+  %.05286 = phi i32 [ 0, %.lr.ph ], [ %.1, %103 ]
   %.07985 = phi ptr [ null, %.lr.ph ], [ %87, %103 ]
   %87 = call noalias dereferenceable_or_null(32) ptr @g_slice_alloc(i64 noundef 32) #12
   %88 = load i32, ptr %83, align 8
@@ -239,11 +239,11 @@ sub_0:                                            ; preds = %43
   %100 = getelementptr inbounds i8, ptr %.07985, i64 16
   %101 = call i32 @nstime_cmp(ptr noundef nonnull %99, ptr noundef nonnull %100) #9
   %102 = lshr i32 %101, 31
-  %spec.select = add i32 %102, %.05486
+  %spec.select = add i32 %102, %.05286
   br label %103
 
 103:                                              ; preds = %98, %97
-  %.155 = phi i32 [ %.05486, %97 ], [ %spec.select, %98 ]
+  %.1 = phi i32 [ %.05286, %97 ], [ %spec.select, %98 ]
   call void @g_ptr_array_add(ptr noundef nonnull %81, ptr noundef nonnull %87) #9
   call void @wtap_rec_reset(ptr noundef nonnull %6) #9
   %104 = call i32 @wtap_read(ptr noundef nonnull %51, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #9
@@ -251,7 +251,7 @@ sub_0:                                            ; preds = %43
   br i1 %.not62, label %._crit_edge, label %86, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %103, %80
-  %.054.lcssa = phi i32 [ 0, %80 ], [ %.155, %103 ]
+  %.052.lcssa = phi i32 [ 0, %80 ], [ %.1, %103 ]
   call void @wtap_rec_cleanup(ptr noundef nonnull %6) #9
   call void @ws_buffer_free(ptr noundef nonnull %7) #9
   %105 = load i32, ptr %8, align 4
@@ -266,8 +266,8 @@ sub_0:                                            ; preds = %43
 108:                                              ; preds = %106, %._crit_edge
   %109 = getelementptr inbounds i8, ptr %81, i64 8
   %110 = load i32, ptr %109, align 8
-  %111 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %110, i32 noundef %.054.lcssa)
-  %.not65 = icmp eq i32 %.054.lcssa, 0
+  %111 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %110, i32 noundef %.052.lcssa)
+  %.not65 = icmp eq i32 %.052.lcssa, 0
   br i1 %.not65, label %113, label %112
 
 112:                                              ; preds = %108
@@ -279,7 +279,7 @@ sub_0:                                            ; preds = %43
   call void @ws_buffer_init(ptr noundef nonnull %7, i64 noundef 1514) #9
   %114 = load i32, ptr %109, align 8
   %.not92 = icmp eq i32 %114, 0
-  %.pre = or i32 %.054.lcssa, %.053.ph
+  %.pre = or i32 %.052.lcssa, %.053.ph
   %115 = icmp eq i32 %.pre, 0
   br i1 %.not92, label %._crit_edge90, label %.lr.ph89
 
@@ -330,7 +330,7 @@ sub_0:                                            ; preds = %43
   %139 = load ptr, ptr %7, align 8
   %140 = load i64, ptr %117, align 8
   %141 = getelementptr i8, ptr %139, i64 %140
-  %142 = call i32 @wtap_dump(ptr noundef nonnull %.056, ptr noundef nonnull %6, ptr noundef %141, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
+  %142 = call i32 @wtap_dump(ptr noundef nonnull %.0, ptr noundef nonnull %6, ptr noundef %141, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %.not.i = icmp eq i32 %142, 0
   br i1 %.not.i, label %143, label %frame_write.exit
 
@@ -376,7 +376,7 @@ frame_write.exit:                                 ; preds = %137
 
 153:                                              ; preds = %.critedge109, %152, %._crit_edge90
   %154 = call ptr @g_ptr_array_free(ptr noundef nonnull %81, i32 noundef 1) #9
-  %155 = call i32 @wtap_dump_close(ptr noundef nonnull %.056, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
+  %155 = call i32 @wtap_dump_close(ptr noundef nonnull %.0, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
   %.not64 = icmp eq i32 %155, 0
   br i1 %.not64, label %156, label %159
 
@@ -393,10 +393,10 @@ frame_write.exit:                                 ; preds = %137
   br label %160
 
 160:                                              ; preds = %159, %156, %76, %60, %53, %31, %30, %23
-  %.0 = phi i32 [ 1, %31 ], [ 0, %30 ], [ 0, %23 ], [ 9, %60 ], [ 1, %76 ], [ 0, %159 ], [ 1, %156 ], [ 1, %53 ]
+  %.056 = phi i32 [ 1, %31 ], [ 0, %30 ], [ 0, %23 ], [ 9, %60 ], [ 1, %76 ], [ 0, %159 ], [ 1, %156 ], [ 1, %53 ]
   call void @wtap_cleanup() #9
   call void @free_progdirs() #9
-  ret i32 %.0
+  ret i32 %.056
 }
 
 declare void @failure_message(ptr noundef, ptr noundef) #1

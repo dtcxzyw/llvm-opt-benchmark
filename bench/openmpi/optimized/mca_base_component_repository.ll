@@ -348,19 +348,19 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   %57 = load ptr, ptr %5, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 32
   %59 = getelementptr inbounds i8, ptr %57, i64 16
-  %.058 = load volatile ptr, ptr %58, align 8
-  %.not4059 = icmp eq ptr %.058, %59
+  %.03358 = load volatile ptr, ptr %58, align 8
+  %.not4059 = icmp eq ptr %.03358, %59
   br i1 %.not4059, label %._crit_edge, label %.lr.ph
 
 60:                                               ; preds = %.lr.ph
-  %61 = getelementptr inbounds i8, ptr %.060, i64 16
-  %.0 = load volatile ptr, ptr %61, align 8
-  %.not40 = icmp eq ptr %.0, %59
+  %61 = getelementptr inbounds i8, ptr %.03360, i64 16
+  %.033 = load volatile ptr, ptr %61, align 8
+  %.not40 = icmp eq ptr %.033, %59
   br i1 %.not40, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %56, %60
-  %.060 = phi ptr [ %.0, %60 ], [ %.058, %56 ]
-  %62 = getelementptr inbounds i8, ptr %.060, i64 72
+  %.03360 = phi ptr [ %.033, %60 ], [ %.03358, %56 ]
+  %62 = getelementptr inbounds i8, ptr %.03360, i64 72
   %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(1) %3) #14
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %60
@@ -483,8 +483,8 @@ opal_obj_run_destructors.exit55:                  ; preds = %.lr.ph.i52, %94
   br label %116
 
 116:                                              ; preds = %opal_obj_run_destructors.exit55, %opal_thread_add_fetch_32.exit50, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %2, %102, %opal_obj_new.exit48.thread, %65, %opal_obj_new.exit.thread, %14, %10
-  %.033 = phi i32 [ 0, %10 ], [ 0, %14 ], [ -2, %opal_obj_new.exit.thread ], [ 0, %65 ], [ -2, %opal_obj_new.exit48.thread ], [ 0, %102 ], [ -1, %2 ], [ %33, %opal_thread_add_fetch_32.exit ], [ %33, %opal_obj_run_destructors.exit ], [ -2, %opal_thread_add_fetch_32.exit50 ], [ -2, %opal_obj_run_destructors.exit55 ]
-  ret i32 %.033
+  %.0 = phi i32 [ 0, %10 ], [ 0, %14 ], [ -2, %opal_obj_new.exit.thread ], [ 0, %65 ], [ -2, %opal_obj_new.exit48.thread ], [ 0, %102 ], [ -1, %2 ], [ %33, %opal_thread_add_fetch_32.exit ], [ %33, %opal_obj_run_destructors.exit ], [ -2, %opal_thread_add_fetch_32.exit50 ], [ -2, %opal_obj_run_destructors.exit55 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

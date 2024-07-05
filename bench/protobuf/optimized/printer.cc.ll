@@ -4342,8 +4342,8 @@ for.inc:                                          ; preds = %lor.rhs.i.i436
   br i1 %cmp.i430.not, label %for.end, label %lor.rhs.i.i436
 
 for.end:                                          ; preds = %for.inc, %if.then434, %lor.rhs.i.i436.lr.ph, %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit444
-  %text435.sroa.4.2 = phi ptr [ %add.ptr.i.i442, %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit444 ], [ %text435.sroa.4.0.copyload, %lor.rhs.i.i436.lr.ph ], [ %text435.sroa.4.0.copyload, %if.then434 ], [ %text435.sroa.4.0.copyload, %for.inc ]
   %text435.sroa.0.2 = phi i64 [ %sub.i.i443, %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit444 ], [ 0, %lor.rhs.i.i436.lr.ph ], [ %text435.sroa.0.0.copyload, %if.then434 ], [ %text435.sroa.0.0.copyload, %for.inc ]
+  %text435.sroa.4.2 = phi ptr [ %add.ptr.i.i442, %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit444 ], [ %text435.sroa.4.0.copyload, %lor.rhs.i.i436.lr.ph ], [ %text435.sroa.4.0.copyload, %if.then434 ], [ %text435.sroa.4.0.copyload, %for.inc ]
   invoke void @_ZN6google8protobuf2io7Printer8WriteRawEPKcm(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %text435.sroa.4.2, i64 noundef %text435.sroa.0.2)
           to label %if.end457 unwind label %lpad258.loopexit.split-lp.loopexit.split-lp.loopexit
 

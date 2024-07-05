@@ -4832,9 +4832,9 @@ invoke.cont68:                                    ; preds = %if.end56, %if.end12
   %src_e.sroa.0.2382 = phi i8 [ %src_e.sroa.0.4, %if.end125 ], [ %src_e.sroa.0.1, %if.end56 ]
   %ei_end.sroa.0.0381 = phi ptr [ %ei_end.sroa.0.1, %if.end125 ], [ %ei_end.sroa.0.0.copyload276, %if.end56 ]
   %ei_end.sroa.10.0380 = phi i64 [ %ei_end.sroa.10.1, %if.end125 ], [ %ei_end.sroa.10.0.copyload281, %if.end56 ]
-  %ei.sroa.0.0379 = phi ptr [ %ei.sroa.0.1, %if.end125 ], [ %ei.sroa.0.0.copyload, %if.end56 ]
-  %ei.sroa.19.0378 = phi i64 [ %ei.sroa.19.1, %if.end125 ], [ %ei.sroa.19.0.copyload, %if.end56 ]
-  %13 = load i64, ptr %ei.sroa.0.0379, align 8, !noalias !19
+  %ei.sroa.19.0379 = phi i64 [ %ei.sroa.19.1, %if.end125 ], [ %ei.sroa.19.0.copyload, %if.end56 ]
+  %ei.sroa.0.0378 = phi ptr [ %ei.sroa.0.1, %if.end125 ], [ %ei.sroa.0.0.copyload, %if.end56 ]
+  %13 = load i64, ptr %ei.sroa.0.0378, align 8, !noalias !19
   %14 = load ptr, ptr %color, align 8
   %arrayidx.i.i.i118 = getelementptr inbounds i32, ptr %14, i64 %13
   %15 = load i32, ptr %arrayidx.i.i.i118, align 4
@@ -4844,12 +4844,12 @@ invoke.cont68:                                    ; preds = %if.end56, %if.end12
   ]
 
 invoke.cont76:                                    ; preds = %invoke.cont68
-  %m_iter.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.0.0379, i64 8
+  %m_iter.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.0.0378, i64 8
   %16 = load ptr, ptr %m_iter.i.i.i.i, align 8, !noalias !19
   %m_property.i.i.i.i.i127 = getelementptr inbounds i8, ptr %16, i64 32
   %tobool.i.i.i130 = trunc nuw i8 %src_e.sroa.0.2382 to i1
   %spec.select418 = select i1 %tobool.i.i.i130, i8 %src_e.sroa.0.2382, i8 1
-  %incdec.ptr.i.i.i.i311320 = getelementptr inbounds i8, ptr %ei.sroa.0.0379, i64 16
+  %incdec.ptr.i.i.i.i311320 = getelementptr inbounds i8, ptr %ei.sroa.0.0378, i64 16
   %17 = load ptr, ptr %_M_finish.i.i66, align 8
   %18 = load ptr, ptr %_M_end_of_storage.i.i67, align 8
   %cmp.not.i.i149 = icmp eq ptr %17, %18
@@ -4859,7 +4859,7 @@ _ZNSt16allocator_traitsISaISt4pairImS0_IN5boost8optionalINS1_6detail14edge_desc_
   store i64 %u.addr.0392, ptr %17, align 8
   %second.i.i.i.i.i151 = getelementptr inbounds i8, ptr %17, i64 8
   %m_storage.i2.i.i.i.i.i.i.i.i160 = getelementptr inbounds i8, ptr %17, i64 16
-  store i64 %ei.sroa.19.0378, ptr %m_storage.i2.i.i.i.i.i.i.i.i160, align 8
+  store i64 %ei.sroa.19.0379, ptr %m_storage.i2.i.i.i.i.i.i.i.i160, align 8
   %ref.tmp79.sroa.11.sroa.3.0.m_storage.i2.i.i.i.i.i.i.i.i160.sroa_idx = getelementptr inbounds i8, ptr %17, i64 24
   store i64 %13, ptr %ref.tmp79.sroa.11.sroa.3.0.m_storage.i2.i.i.i.i.i.i.i.i160.sroa_idx, align 8
   %ref.tmp79.sroa.11.sroa.4.0.m_storage.i2.i.i.i.i.i.i.i.i160.sroa_idx = getelementptr inbounds i8, ptr %17, i64 32
@@ -4868,7 +4868,7 @@ _ZNSt16allocator_traitsISaISt4pairImS0_IN5boost8optionalINS1_6detail14edge_desc_
   %second.i.i.i.i.i.i155 = getelementptr inbounds i8, ptr %17, i64 40
   store ptr %incdec.ptr.i.i.i.i311320, ptr %second.i.i.i.i.i.i155, align 8
   %ref.tmp79.sroa.14.sroa.0.sroa.3.0.second.i.i.i.i.i.i155.sroa_idx = getelementptr inbounds i8, ptr %17, i64 48
-  store i64 %ei.sroa.19.0378, ptr %ref.tmp79.sroa.14.sroa.0.sroa.3.0.second.i.i.i.i.i.i155.sroa_idx, align 8
+  store i64 %ei.sroa.19.0379, ptr %ref.tmp79.sroa.14.sroa.0.sroa.3.0.second.i.i.i.i.i.i155.sroa_idx, align 8
   %ref.tmp79.sroa.14.sroa.3.0.second.i.i.i.i.i.i155.sroa_idx = getelementptr inbounds i8, ptr %17, i64 56
   store ptr %ei_end.sroa.0.0381, ptr %ref.tmp79.sroa.14.sroa.3.0.second.i.i.i.i.i.i155.sroa_idx, align 8
   %ref.tmp79.sroa.14.sroa.4.0.second.i.i.i.i.i.i155.sroa_idx = getelementptr inbounds i8, ptr %17, i64 64
@@ -4914,7 +4914,7 @@ _ZNSt16allocator_traitsISaISt4pairImS0_IN5boost8optionalINS1_6detail14edge_desc_
   store i64 %u.addr.0392, ptr %add.ptr.i, align 8
   %second.i.i.i.i220 = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %m_storage.i2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
-  store i64 %ei.sroa.19.0378, ptr %m_storage.i2.i.i.i.i.i.i.i, align 8
+  store i64 %ei.sroa.19.0379, ptr %m_storage.i2.i.i.i.i.i.i.i, align 8
   %ref.tmp79.sroa.11.sroa.3.0.m_storage.i2.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   store i64 %13, ptr %ref.tmp79.sroa.11.sroa.3.0.m_storage.i2.i.i.i.i.i.i.i.sroa_idx, align 8
   %ref.tmp79.sroa.11.sroa.4.0.m_storage.i2.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
@@ -4923,7 +4923,7 @@ _ZNSt16allocator_traitsISaISt4pairImS0_IN5boost8optionalINS1_6detail14edge_desc_
   %second.i.i.i.i.i222 = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
   store ptr %incdec.ptr.i.i.i.i311320, ptr %second.i.i.i.i.i222, align 8
   %ref.tmp79.sroa.14.sroa.0.sroa.3.0.second.i.i.i.i.i222.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 48
-  store i64 %ei.sroa.19.0378, ptr %ref.tmp79.sroa.14.sroa.0.sroa.3.0.second.i.i.i.i.i222.sroa_idx, align 8
+  store i64 %ei.sroa.19.0379, ptr %ref.tmp79.sroa.14.sroa.0.sroa.3.0.second.i.i.i.i.i222.sroa_idx, align 8
   %ref.tmp79.sroa.14.sroa.3.0.second.i.i.i.i.i222.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 56
   store ptr %ei_end.sroa.0.0381, ptr %ref.tmp79.sroa.14.sroa.3.0.second.i.i.i.i.i222.sroa_idx, align 8
   %ref.tmp79.sroa.14.sroa.4.0.second.i.i.i.i.i222.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 64
@@ -5009,7 +5009,7 @@ lpad88.loopexit.split-lp:                         ; preds = %if.then.i.i228
 invoke.cont113:                                   ; preds = %invoke.cont68
   %28 = load i8, ptr %ignore_self.i, align 1
   %tobool.i = trunc i8 %28 to i1
-  %cmp.i = icmp eq i64 %ei.sroa.19.0378, %13
+  %cmp.i = icmp eq i64 %ei.sroa.19.0379, %13
   %or.cond = select i1 %tobool.i, i1 %cmp.i, i1 false
   br i1 %or.cond, label %invoke.cont122, label %if.end.i
 
@@ -5022,12 +5022,12 @@ if.end.i:                                         ; preds = %invoke.cont113
   unreachable
 
 invoke.cont122:                                   ; preds = %invoke.cont68, %invoke.cont113
-  %incdec.ptr.i.i.i.i206 = getelementptr inbounds i8, ptr %ei.sroa.0.0379, i64 16
+  %incdec.ptr.i.i.i.i206 = getelementptr inbounds i8, ptr %ei.sroa.0.0378, i64 16
   br label %if.end125
 
 if.end125:                                        ; preds = %invoke.cont100, %invoke.cont122
-  %ei.sroa.19.1 = phi i64 [ %13, %invoke.cont100 ], [ %ei.sroa.19.0378, %invoke.cont122 ]
   %ei.sroa.0.1 = phi ptr [ %26, %invoke.cont100 ], [ %incdec.ptr.i.i.i.i206, %invoke.cont122 ]
+  %ei.sroa.19.1 = phi i64 [ %13, %invoke.cont100 ], [ %ei.sroa.19.0379, %invoke.cont122 ]
   %ei_end.sroa.10.1 = phi i64 [ %13, %invoke.cont100 ], [ %ei_end.sroa.10.0380, %invoke.cont122 ]
   %ei_end.sroa.0.1 = phi ptr [ %27, %invoke.cont100 ], [ %ei_end.sroa.0.0381, %invoke.cont122 ]
   %src_e.sroa.0.4 = phi i8 [ %spec.select418, %invoke.cont100 ], [ %src_e.sroa.0.2382, %invoke.cont122 ]

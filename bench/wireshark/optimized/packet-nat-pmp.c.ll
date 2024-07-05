@@ -508,7 +508,7 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
   br label %75
 
 75:                                               ; preds = %72, %70
-  %.0309.i = phi ptr [ %74, %72 ], [ null, %70 ]
+  %.0.i = phi ptr [ %74, %72 ], [ null, %70 ]
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
@@ -528,37 +528,37 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
 
 78:                                               ; preds = %76
   %79 = load i32, ptr @hf_map_nonce, align 4
-  %80 = call ptr @proto_tree_add_item(ptr noundef %.0309.i, i32 noundef %79, ptr noundef %0, i32 noundef 24, i32 noundef 12, i32 noundef 0) #3
+  %80 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %79, ptr noundef %0, i32 noundef 24, i32 noundef 12, i32 noundef 0) #3
   br label %81
 
 81:                                               ; preds = %78, %76
-  %.1308.i = phi i32 [ 36, %78 ], [ 24, %76 ]
+  %.1307.i = phi i32 [ 36, %78 ], [ 24, %76 ]
   %82 = load i32, ptr @hf_map_protocol, align 4
-  %83 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0309.i, i32 noundef %82, ptr noundef %0, i32 noundef %.1308.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #3
-  %84 = or disjoint i32 %.1308.i, 1
+  %83 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0.i, i32 noundef %82, ptr noundef %0, i32 noundef %.1307.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #3
+  %84 = or disjoint i32 %.1307.i, 1
   %85 = load i32, ptr @hf_map_reserved1, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %.0309.i, i32 noundef %85, ptr noundef %0, i32 noundef %84, i32 noundef 3, i32 noundef 0) #3
-  %87 = add nuw nsw i32 %.1308.i, 4
+  %86 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %85, ptr noundef %0, i32 noundef %84, i32 noundef 3, i32 noundef 0) #3
+  %87 = add nuw nsw i32 %.1307.i, 4
   %88 = load i32, ptr @hf_map_internal_port, align 4
-  %89 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0309.i, i32 noundef %88, ptr noundef %0, i32 noundef %87, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #3
-  %90 = add nuw nsw i32 %.1308.i, 6
+  %89 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0.i, i32 noundef %88, ptr noundef %0, i32 noundef %87, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #3
+  %90 = add nuw nsw i32 %.1307.i, 6
   %91 = icmp eq i8 %26, 1
-  %92 = add nuw nsw i32 %.1308.i, 8
-  %93 = add nuw nsw i32 %.1308.i, 24
+  %92 = add nuw nsw i32 %.1307.i, 8
+  %93 = add nuw nsw i32 %.1307.i, 24
   br i1 %91, label %94, label %99
 
 94:                                               ; preds = %81
   %95 = load i32, ptr @hf_map_req_sug_external_port, align 4
-  %96 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0309.i, i32 noundef %95, ptr noundef %0, i32 noundef %90, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #3
+  %96 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0.i, i32 noundef %95, ptr noundef %0, i32 noundef %90, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #3
   %97 = load i32, ptr @hf_map_req_sug_ext_ip, align 4
-  %98 = call ptr @proto_tree_add_item(ptr noundef %.0309.i, i32 noundef %97, ptr noundef %0, i32 noundef %92, i32 noundef 16, i32 noundef 0) #3
+  %98 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %97, ptr noundef %0, i32 noundef %92, i32 noundef 16, i32 noundef 0) #3
   br label %137
 
 99:                                               ; preds = %81
   %100 = load i32, ptr @hf_map_rsp_assigned_external_port, align 4
-  %101 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0309.i, i32 noundef %100, ptr noundef %0, i32 noundef %90, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #3
+  %101 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0.i, i32 noundef %100, ptr noundef %0, i32 noundef %90, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #3
   %102 = load i32, ptr @hf_map_rsp_assigned_ext_ip, align 4
-  %103 = call ptr @proto_tree_add_item(ptr noundef %.0309.i, i32 noundef %102, ptr noundef %0, i32 noundef %92, i32 noundef 16, i32 noundef 0) #3
+  %103 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %102, ptr noundef %0, i32 noundef %92, i32 noundef 16, i32 noundef 0) #3
   br label %137
 
 104:                                              ; preds = %75, %75
@@ -567,39 +567,39 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
 
 106:                                              ; preds = %104
   %107 = load i32, ptr @hf_peer_nonce, align 4
-  %108 = call ptr @proto_tree_add_item(ptr noundef %.0309.i, i32 noundef %107, ptr noundef %0, i32 noundef 24, i32 noundef 12, i32 noundef 0) #3
+  %108 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %107, ptr noundef %0, i32 noundef 24, i32 noundef 12, i32 noundef 0) #3
   br label %109
 
 109:                                              ; preds = %106, %104
   %.2.i = phi i32 [ 36, %106 ], [ 24, %104 ]
   %110 = load i32, ptr @hf_peer_protocol, align 4
-  %111 = call ptr @proto_tree_add_item(ptr noundef %.0309.i, i32 noundef %110, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0) #3
+  %111 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %110, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0) #3
   %112 = or disjoint i32 %.2.i, 1
   %113 = load i32, ptr @hf_peer_reserved, align 4
-  %114 = call ptr @proto_tree_add_item(ptr noundef %.0309.i, i32 noundef %113, ptr noundef %0, i32 noundef %112, i32 noundef 3, i32 noundef 0) #3
+  %114 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %113, ptr noundef %0, i32 noundef %112, i32 noundef 3, i32 noundef 0) #3
   %115 = add nuw nsw i32 %.2.i, 4
   %116 = load i32, ptr @hf_peer_internal_port, align 4
-  %117 = call ptr @proto_tree_add_item(ptr noundef %.0309.i, i32 noundef %116, ptr noundef %0, i32 noundef %115, i32 noundef 2, i32 noundef 0) #3
+  %117 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %116, ptr noundef %0, i32 noundef %115, i32 noundef 2, i32 noundef 0) #3
   %118 = add nuw nsw i32 %.2.i, 6
   %119 = icmp eq i8 %26, 2
   %120 = add nuw nsw i32 %.2.i, 8
   %hf_peer_req_sug_external_port.val.i = load i32, ptr @hf_peer_req_sug_external_port, align 4
   %hf_peer_rsp_assigned_external_port.val.i = load i32, ptr @hf_peer_rsp_assigned_external_port, align 4
   %121 = select i1 %119, i32 %hf_peer_req_sug_external_port.val.i, i32 %hf_peer_rsp_assigned_external_port.val.i
-  %122 = call ptr @proto_tree_add_item(ptr noundef %.0309.i, i32 noundef %121, ptr noundef %0, i32 noundef %118, i32 noundef 2, i32 noundef 0) #3
+  %122 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %121, ptr noundef %0, i32 noundef %118, i32 noundef 2, i32 noundef 0) #3
   %hf_peer_req_sug_ext_ip.val.i = load i32, ptr @hf_peer_req_sug_ext_ip, align 4
   %hf_peer_rsp_assigned_ext_ip.val.i = load i32, ptr @hf_peer_rsp_assigned_ext_ip, align 4
   %123 = select i1 %119, i32 %hf_peer_req_sug_ext_ip.val.i, i32 %hf_peer_rsp_assigned_ext_ip.val.i
-  %124 = call ptr @proto_tree_add_item(ptr noundef %.0309.i, i32 noundef %123, ptr noundef %0, i32 noundef %120, i32 noundef 16, i32 noundef 0) #3
+  %124 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %123, ptr noundef %0, i32 noundef %120, i32 noundef 16, i32 noundef 0) #3
   %.3.i = add nuw nsw i32 %.2.i, 24
   %125 = load i32, ptr @hf_peer_remote_peer_port, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %.0309.i, i32 noundef %125, ptr noundef %0, i32 noundef %.3.i, i32 noundef 2, i32 noundef 0) #3
+  %126 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %125, ptr noundef %0, i32 noundef %.3.i, i32 noundef 2, i32 noundef 0) #3
   %127 = add nuw nsw i32 %.2.i, 26
   %128 = load i32, ptr @hf_peer_reserved, align 4
-  %129 = call ptr @proto_tree_add_item(ptr noundef %.0309.i, i32 noundef %128, ptr noundef %0, i32 noundef %127, i32 noundef 2, i32 noundef 0) #3
+  %129 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %128, ptr noundef %0, i32 noundef %127, i32 noundef 2, i32 noundef 0) #3
   %130 = add nuw nsw i32 %.2.i, 28
   %131 = load i32, ptr @hf_peer_remote_peer_ip, align 4
-  %132 = call ptr @proto_tree_add_item(ptr noundef %.0309.i, i32 noundef %131, ptr noundef %0, i32 noundef %130, i32 noundef 16, i32 noundef 0) #3
+  %132 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %131, ptr noundef %0, i32 noundef %130, i32 noundef 16, i32 noundef 0) #3
   %133 = add nuw nsw i32 %.2.i, 44
   br label %137
 
@@ -621,7 +621,7 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
 
 142:                                              ; preds = %140
   %143 = load i32, ptr @hf_options, align 4
-  %144 = call ptr @proto_tree_add_item(ptr noundef %.0309.i, i32 noundef %143, ptr noundef %0, i32 noundef %.4.i, i32 noundef 0, i32 noundef 0) #3
+  %144 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %143, ptr noundef %0, i32 noundef %.4.i, i32 noundef 0, i32 noundef 0) #3
   %145 = load i32, ptr @ett_option, align 4
   %146 = call ptr @proto_item_add_subtree(ptr noundef %144, i32 noundef %145) #3
   %147 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4.i) #3
@@ -629,31 +629,31 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
   br i1 %148, label %.lr.ph332.i, label %._crit_edge.i
 
 .lr.ph332.i:                                      ; preds = %142, %255
-  %.0305331.i = phi i32 [ %spec.select.i, %255 ], [ 0, %142 ]
-  %.5330.i = phi i32 [ %.6.i, %255 ], [ %.4.i, %142 ]
+  %.5331.i = phi i32 [ %.6.i, %255 ], [ %.4.i, %142 ]
+  %.0308330.i = phi i32 [ %spec.select.i, %255 ], [ 0, %142 ]
   %149 = load i32, ptr @hf_option, align 4
-  %150 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %149, ptr noundef %0, i32 noundef %.5330.i, i32 noundef 1, i32 noundef 0) #3
+  %150 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %149, ptr noundef %0, i32 noundef %.5331.i, i32 noundef 1, i32 noundef 0) #3
   %151 = load i32, ptr @ett_suboption, align 4
   %152 = call ptr @proto_item_add_subtree(ptr noundef %150, i32 noundef %151) #3
   %153 = load i32, ptr @hf_option_code, align 4
-  %154 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %0, i32 noundef %.5330.i, i32 noundef 1, i32 noundef 0) #3
-  %155 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5330.i) #3
+  %154 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %0, i32 noundef %.5331.i, i32 noundef 1, i32 noundef 0) #3
+  %155 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5331.i) #3
   %156 = zext i8 %155 to i32
   %157 = call ptr @val_to_str(i32 noundef %156, ptr noundef nonnull @pcp_option_vals, ptr noundef nonnull @.str.156) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %150, ptr noundef nonnull @.str.155, ptr noundef %157) #3
-  %158 = add i32 %.5330.i, 1
+  %158 = add i32 %.5331.i, 1
   %159 = load i32, ptr @hf_option_reserved, align 4
   %160 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %159, ptr noundef %0, i32 noundef %158, i32 noundef 1, i32 noundef 0) #3
-  %161 = add i32 %.5330.i, 2
+  %161 = add i32 %.5331.i, 2
   %162 = load i32, ptr @hf_option_length, align 4
   %163 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %162, ptr noundef %0, i32 noundef %161, i32 noundef 2, i32 noundef 0) #3
   %164 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %161) #3
-  %165 = add i32 %.5330.i, 4
+  %165 = add i32 %.5331.i, 4
   %166 = zext i16 %164 to i32
   %167 = and i32 %166, 3
   %.not317.i = icmp eq i32 %167, 0
   %168 = sub nuw nsw i32 4, %167
-  %spec.select.i = select i1 %.not317.i, i32 %.0305331.i, i32 %168
+  %spec.select.i = select i1 %.not317.i, i32 %.0308330.i, i32 %168
   %169 = add nuw nsw i32 %166, 4
   %170 = add nuw nsw i32 %169, %spec.select.i
   call void @proto_item_set_len(ptr noundef %150, i32 noundef %170) #3
@@ -679,13 +679,13 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
   %176 = load i32, ptr @hf_option_filter_reserved, align 4
   %177 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %176, ptr noundef %0, i32 noundef %165, i32 noundef 1, i32 noundef 0) #3
   %178 = load i32, ptr @hf_option_filter_prefix_length, align 4
-  %179 = add i32 %.5330.i, 5
+  %179 = add i32 %.5331.i, 5
   %180 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %178, ptr noundef %0, i32 noundef %179, i32 noundef 1, i32 noundef 0) #3
   %181 = load i32, ptr @hf_option_filter_remote_peer_port, align 4
-  %182 = add i32 %.5330.i, 6
+  %182 = add i32 %.5331.i, 6
   %183 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %181, ptr noundef %0, i32 noundef %182, i32 noundef 2, i32 noundef 0) #3
   %184 = load i32, ptr @hf_option_filter_remote_peer_ip, align 4
-  %185 = add i32 %.5330.i, 8
+  %185 = add i32 %.5331.i, 8
   %186 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %184, ptr noundef %0, i32 noundef %185, i32 noundef 16, i32 noundef 0) #3
   br label %.loopexit.i
 
@@ -711,7 +711,7 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
 
 199:                                              ; preds = %196
   %200 = load i32, ptr @hf_option_p64_prefix64, align 4
-  %201 = add i32 %.5330.i, 6
+  %201 = add i32 %.5331.i, 6
   %202 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %200, ptr noundef %0, i32 noundef %201, i32 noundef %197, i32 noundef 0) #3
   %203 = load i32, ptr %10, align 4
   %204 = load i32, ptr @hf_option_p64_suffix, align 4
@@ -724,16 +724,16 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
   br label %211
 
 211:                                              ; preds = %199, %196
-  %.0.i = phi i32 [ %210, %199 ], [ 14, %196 ]
-  %212 = sub i32 %166, %.0.i
+  %.0305.i = phi i32 [ %210, %199 ], [ 14, %196 ]
+  %212 = sub i32 %166, %.0305.i
   %or.cond320.i = icmp slt i32 %212, 2
   br i1 %or.cond320.i, label %.loopexit.i, label %213
 
 213:                                              ; preds = %211
   %214 = load i32, ptr @hf_option_p64_ipv4_prefix_count, align 4
-  %215 = add i32 %.0.i, %165
+  %215 = add i32 %.0305.i, %165
   %216 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %152, i32 noundef %214, ptr noundef %0, i32 noundef %215, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %11) #3
-  %217 = add i32 %.0.i, 2
+  %217 = add i32 %.0305.i, 2
   %218 = load i32, ptr %11, align 4
   %.not319326.i = icmp eq i32 %218, 0
   %219 = sub i32 %166, %217
@@ -768,13 +768,13 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
 236:                                              ; preds = %171
   %237 = load i32, ptr @hf_option_portset_size, align 4
   %238 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %152, i32 noundef %237, ptr noundef %0, i32 noundef %165, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #3
-  %239 = add i32 %.5330.i, 6
+  %239 = add i32 %.5331.i, 6
   %hf_option_portset_first_suggested_port.val.i = load i32, ptr @hf_option_portset_first_suggested_port, align 4
   %hf_option_portset_first_assigned_port.val.i = load i32, ptr @hf_option_portset_first_assigned_port, align 4
   %240 = select i1 %.not.i, i32 %hf_option_portset_first_suggested_port.val.i, i32 %hf_option_portset_first_assigned_port.val.i
   %241 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %152, i32 noundef %240, ptr noundef %0, i32 noundef %239, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #3
   %242 = load i32, ptr @hf_option_portset_reserved, align 4
-  %243 = add i32 %.5330.i, 8
+  %243 = add i32 %.5331.i, 8
   %244 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %242, ptr noundef %0, i32 noundef %243, i32 noundef 1, i32 noundef 0) #3
   %245 = load i32, ptr @hf_option_portset_parity, align 4
   %246 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %245, ptr noundef %0, i32 noundef %243, i32 noundef 1, i32 noundef 0) #3

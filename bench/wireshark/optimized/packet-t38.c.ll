@@ -1321,66 +1321,66 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
   br i1 %brmerge, label %force_reassemble_seq.exit, label %.preheader1.i
 
 .preheader1.i:                                    ; preds = %52
-  %.0902.i = load ptr, ptr %55, align 8
-  %.not993.i = icmp eq ptr %.0902.i, null
+  %.0912.i = load ptr, ptr %55, align 8
+  %.not993.i = icmp eq ptr %.0912.i, null
   br i1 %.not993.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader1.i, %.lr.ph.i
-  %.0907.i = phi ptr [ %.090.i, %.lr.ph.i ], [ %.0902.i, %.preheader1.i ]
-  %.06.i = phi i32 [ %66, %.lr.ph.i ], [ 0, %.preheader1.i ]
-  %.0815.i = phi i32 [ %.1.i, %.lr.ph.i ], [ 0, %.preheader1.i ]
-  %.0824.i = phi i32 [ %65, %.lr.ph.i ], [ 0, %.preheader1.i ]
-  %62 = getelementptr inbounds i8, ptr %.0907.i, i64 12
+  %.0917.i = phi ptr [ %.091.i, %.lr.ph.i ], [ %.0912.i, %.preheader1.i ]
+  %.0816.i = phi i32 [ %66, %.lr.ph.i ], [ 0, %.preheader1.i ]
+  %.0825.i = phi i32 [ %.1.i, %.lr.ph.i ], [ 0, %.preheader1.i ]
+  %.0834.i = phi i32 [ %65, %.lr.ph.i ], [ 0, %.preheader1.i ]
+  %62 = getelementptr inbounds i8, ptr %.0917.i, i64 12
   %63 = load i32, ptr %62, align 4
-  %.not112.i = icmp eq i32 %.06.i, %63
-  %64 = sub i32 %63, %.06.i
-  %65 = add i32 %64, %.0824.i
-  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %64, i32 %.0815.i)
-  %.1.i = select i1 %.not112.i, i32 %.0815.i, i32 %spec.select.i
+  %.not112.i = icmp eq i32 %.0816.i, %63
+  %64 = sub i32 %63, %.0816.i
+  %65 = add i32 %64, %.0834.i
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %64, i32 %.0825.i)
+  %.1.i = select i1 %.not112.i, i32 %.0825.i, i32 %spec.select.i
   %66 = add i32 %63, 1
-  %.090.i = load ptr, ptr %.0907.i, align 8
-  %.not99.i = icmp eq ptr %.090.i, null
+  %.091.i = load ptr, ptr %.0917.i, align 8
+  %.not99.i = icmp eq ptr %.091.i, null
   br i1 %.not99.i, label %.lr.ph14.i, label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph14.i:                                       ; preds = %.lr.ph.i, %76
-  %.19113.i = phi ptr [ %.191.i, %76 ], [ %.0902.i, %.lr.ph.i ]
-  %.08412.i = phi i32 [ %.185.i, %76 ], [ 0, %.lr.ph.i ]
-  %.08811.i = phi ptr [ %.19113.i, %76 ], [ null, %.lr.ph.i ]
-  %.not110.i = icmp eq ptr %.08811.i, null
+  %.19213.i = phi ptr [ %.192.i, %76 ], [ %.0912.i, %.lr.ph.i ]
+  %.08512.i = phi i32 [ %.186.i, %76 ], [ 0, %.lr.ph.i ]
+  %.08911.i = phi ptr [ %.19213.i, %76 ], [ null, %.lr.ph.i ]
+  %.not110.i = icmp eq ptr %.08911.i, null
   br i1 %.not110.i, label %72, label %67
 
 67:                                               ; preds = %.lr.ph14.i
-  %68 = getelementptr inbounds i8, ptr %.08811.i, i64 12
+  %68 = getelementptr inbounds i8, ptr %.08911.i, i64 12
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %.19113.i, i64 12
+  %70 = getelementptr inbounds i8, ptr %.19213.i, i64 12
   %71 = load i32, ptr %70, align 4
   %.not111.i = icmp eq i32 %69, %71
   br i1 %.not111.i, label %76, label %72
 
 72:                                               ; preds = %67, %.lr.ph14.i
-  %73 = getelementptr inbounds i8, ptr %.19113.i, i64 16
+  %73 = getelementptr inbounds i8, ptr %.19213.i, i64 16
   %74 = load i32, ptr %73, align 8
-  %75 = add i32 %74, %.08412.i
+  %75 = add i32 %74, %.08512.i
   br label %76
 
 76:                                               ; preds = %72, %67
-  %.185.i = phi i32 [ %75, %72 ], [ %.08412.i, %67 ]
-  %.191.i = load ptr, ptr %.19113.i, align 8
-  %.not100.i = icmp eq ptr %.191.i, null
+  %.186.i = phi i32 [ %75, %72 ], [ %.08512.i, %67 ]
+  %.192.i = load ptr, ptr %.19213.i, align 8
+  %.not100.i = icmp eq ptr %.192.i, null
   br i1 %.not100.i, label %._crit_edge.i, label %.lr.ph14.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %76, %.preheader1.i
-  %.081.lcssa33.i = phi i32 [ 0, %.preheader1.i ], [ %.1.i, %76 ]
-  %.082.lcssa32.i = phi i32 [ 0, %.preheader1.i ], [ %65, %76 ]
-  %.084.lcssa.i = phi i32 [ 0, %.preheader1.i ], [ %.185.i, %76 ]
-  %77 = zext i32 %.084.lcssa.i to i64
+  %.082.lcssa33.i = phi i32 [ 0, %.preheader1.i ], [ %.1.i, %76 ]
+  %.083.lcssa32.i = phi i32 [ 0, %.preheader1.i ], [ %65, %76 ]
+  %.085.lcssa.i = phi i32 [ 0, %.preheader1.i ], [ %.186.i, %76 ]
+  %77 = zext i32 %.085.lcssa.i to i64
   %78 = tail call noalias ptr @g_malloc(i64 noundef %77) #10
-  %79 = tail call ptr @tvb_new_real_data(ptr noundef %78, i32 noundef %.084.lcssa.i, i32 noundef %.084.lcssa.i) #9
+  %79 = tail call ptr @tvb_new_real_data(ptr noundef %78, i32 noundef %.085.lcssa.i, i32 noundef %.085.lcssa.i) #9
   %80 = getelementptr inbounds i8, ptr %55, i64 56
   store ptr %79, ptr %80, align 8
   tail call void @tvb_set_free_cb(ptr noundef %79, ptr noundef nonnull @g_free) #9
   %81 = getelementptr inbounds i8, ptr %55, i64 28
-  store i32 %.084.lcssa.i, ptr %81, align 4
+  store i32 %.085.lcssa.i, ptr %81, align 4
   %.216.i = load ptr, ptr %55, align 8
   %.not10117.i = icmp eq ptr %.216.i, null
   br i1 %.not10117.i, label %._crit_edge28.i, label %.lr.ph22.i
@@ -1391,12 +1391,12 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
 
 83:                                               ; preds = %126, %.lr.ph22.i
   %.220.i = phi ptr [ %.216.i, %.lr.ph22.i ], [ %.2.i, %126 ]
-  %.08619.i = phi i32 [ 0, %.lr.ph22.i ], [ %.187.i, %126 ]
-  %.18918.i = phi ptr [ null, %.lr.ph22.i ], [ %.220.i, %126 ]
+  %.08719.i = phi i32 [ 0, %.lr.ph22.i ], [ %.188.i, %126 ]
+  %.19018.i = phi ptr [ null, %.lr.ph22.i ], [ %.220.i, %126 ]
   %84 = getelementptr inbounds i8, ptr %.220.i, i64 16
   %85 = load i32, ptr %84, align 8
-  %86 = add i32 %85, %.08619.i
-  %.not102.i = icmp ugt i32 %86, %.084.lcssa.i
+  %86 = add i32 %85, %.08719.i
+  %.not102.i = icmp ugt i32 %86, %.085.lcssa.i
   br i1 %.not102.i, label %.critedge.i, label %87
 
 87:                                               ; preds = %83
@@ -1404,11 +1404,11 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not105.i, label %126, label %88
 
 88:                                               ; preds = %87
-  %.not106.i = icmp eq ptr %.18918.i, null
+  %.not106.i = icmp eq ptr %.19018.i, null
   br i1 %.not106.i, label %94, label %89
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %.18918.i, i64 12
+  %90 = getelementptr inbounds i8, ptr %.19018.i, i64 12
   %91 = load i32, ptr %90, align 4
   %92 = getelementptr inbounds i8, ptr %.220.i, i64 12
   %93 = load i32, ptr %92, align 4
@@ -1418,12 +1418,12 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
 94:                                               ; preds = %89, %88
   %95 = getelementptr inbounds i8, ptr %.220.i, i64 24
   %96 = load ptr, ptr %95, align 8
-  %97 = zext i32 %.08619.i to i64
+  %97 = zext i32 %.08719.i to i64
   %98 = getelementptr i8, ptr %78, i64 %97
   %99 = zext i32 %85 to i64
   %100 = tail call ptr @tvb_memcpy(ptr noundef %96, ptr noundef %98, i32 noundef 0, i64 noundef %99) #9
   %101 = load i32, ptr %84, align 8
-  %102 = add i32 %101, %.08619.i
+  %102 = add i32 %101, %.08719.i
   br label %126
 
 103:                                              ; preds = %89
@@ -1434,14 +1434,14 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
   %107 = load i32, ptr %82, align 8
   %108 = or i32 %107, 2
   store i32 %108, ptr %82, align 8
-  %109 = getelementptr inbounds i8, ptr %.18918.i, i64 16
+  %109 = getelementptr inbounds i8, ptr %.19018.i, i64 16
   %110 = load i32, ptr %109, align 8
   %111 = load i32, ptr %84, align 8
   %.not108.i = icmp eq i32 %110, %111
   br i1 %.not108.i, label %112, label %121
 
 112:                                              ; preds = %103
-  %113 = getelementptr inbounds i8, ptr %.18918.i, i64 24
+  %113 = getelementptr inbounds i8, ptr %.19018.i, i64 24
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds i8, ptr %.220.i, i64 24
   %116 = load ptr, ptr %115, align 8
@@ -1462,7 +1462,7 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
   br label %126
 
 126:                                              ; preds = %121, %112, %94, %87
-  %.187.i = phi i32 [ %102, %94 ], [ %.08619.i, %121 ], [ %.08619.i, %112 ], [ %.08619.i, %87 ]
+  %.188.i = phi i32 [ %102, %94 ], [ %.08719.i, %121 ], [ %.08719.i, %112 ], [ %.08719.i, %87 ]
   %.2.i = load ptr, ptr %.220.i, align 8
   %.not101.i = icmp eq ptr %.2.i, null
   br i1 %.not101.i, label %.critedge.i, label %83, !llvm.loop !8
@@ -1500,12 +1500,12 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
   store i32 %135, ptr %136, align 8
   %137 = getelementptr inbounds i8, ptr %51, i64 8
   %138 = load ptr, ptr %137, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %138, i32 noundef 25, ptr noundef nonnull @.str.166, i32 noundef %.082.lcssa32.i, i32 noundef %.081.lcssa33.i) #9
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %138, i32 noundef 25, ptr noundef nonnull @.str.166, i32 noundef %.083.lcssa32.i, i32 noundef %.082.lcssa33.i) #9
   %139 = load ptr, ptr @p_t38_packet_conv_info, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 20
-  store i32 %.082.lcssa32.i, ptr %140, align 4
+  store i32 %.083.lcssa32.i, ptr %140, align 4
   %141 = getelementptr inbounds i8, ptr %139, i64 24
-  store i32 %.081.lcssa33.i, ptr %141, align 8
+  store i32 %.082.lcssa33.i, ptr %141, align 8
   br label %force_reassemble_seq.exit
 
 142:                                              ; preds = %50

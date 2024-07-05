@@ -453,7 +453,7 @@ for.body.preheader:                               ; preds = %if.end195
 
 for.body:                                         ; preds = %for.body.preheader, %if.end204
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end204 ]
-  %err.032 = phi i32 [ 0, %for.body.preheader ], [ %or, %if.end204 ]
+  %err.031 = phi i32 [ 0, %for.body.preheader ], [ %or, %if.end204 ]
   %arrayidx198 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %29 = load ptr, ptr %arrayidx198, align 8
   %30 = load i32, ptr %all, align 4
@@ -476,7 +476,7 @@ if.then203:                                       ; preds = %if.end201
 if.end204:                                        ; preds = %if.end201
   %call205 = call ptr @prefix_path(ptr noundef %prefix, i32 noundef %conv, ptr noundef %29) #13
   %call206 = call fastcc i32 @checkout_file(ptr noundef %call205, ptr noundef %prefix)
-  %or = or i32 %call206, %err.032
+  %or = or i32 %call206, %err.031
   call void @free(ptr noundef %call205) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

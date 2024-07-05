@@ -108,7 +108,7 @@ define internal fastcc i32 @file_mq_vopen(ptr noundef writeonly %0, ptr noundef 
   br i1 %59, label %up_irq_restore.exit, label %60
 
 60:                                               ; preds = %49, %56, %21
-  %.040 = phi ptr [ %52, %56 ], [ null, %49 ], [ null, %21 ]
+  %.041 = phi ptr [ %52, %56 ], [ null, %49 ], [ null, %21 ]
   %.039 = phi i32 [ %50, %56 ], [ %50, %49 ], [ 0, %21 ]
   %61 = xor i32 %3, -1
   br label %62
@@ -173,7 +173,7 @@ define internal fastcc i32 @file_mq_vopen(ptr noundef writeonly %0, ptr noundef 
   br i1 %91, label %114, label %92
 
 92:                                               ; preds = %89
-  %93 = call i32 @nxmq_alloc_msgq(ptr noundef %.040, ptr noundef nonnull %9) #8
+  %93 = call i32 @nxmq_alloc_msgq(ptr noundef %.041, ptr noundef nonnull %9) #8
   %94 = icmp slt i32 %93, 0
   %.pre = load ptr, ptr %8, align 8
   br i1 %94, label %112, label %95
@@ -251,8 +251,8 @@ define internal fastcc i32 @file_mq_vopen(ptr noundef writeonly %0, ptr noundef 
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %119, %117, %111, %109, %14, %6, %17, %56, %53
-  %.041 = phi i32 [ -22, %14 ], [ -22, %6 ], [ -36, %17 ], [ -22, %56 ], [ -22, %53 ], [ 0, %109 ], [ 0, %111 ], [ %.1, %117 ], [ %.1, %119 ]
-  ret i32 %.041
+  %.040 = phi i32 [ -22, %14 ], [ -22, %6 ], [ -36, %17 ], [ -22, %56 ], [ -22, %53 ], [ 0, %109 ], [ 0, %111 ], [ %.1, %117 ], [ %.1, %119 ]
+  ret i32 %.040
 }
 
 ; Function Attrs: nounwind uwtable

@@ -3154,9 +3154,9 @@ _ZNK3gmx17KeyValueTreeValue7asArrayEv.exit47:     ; preds = %109, %_ZNK3gmx3Any6
   br i1 %or.cond56, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZNK3gmx17KeyValueTreeValue7asArrayEv.exit47, %_ZNK3gmx17KeyValueTreeValue4castIdEERKT_v.exit
-  %.sroa.051.058 = phi ptr [ %149, %_ZNK3gmx17KeyValueTreeValue4castIdEERKT_v.exit ], [ %88, %_ZNK3gmx17KeyValueTreeValue7asArrayEv.exit47 ]
-  %.sroa.054.057 = phi ptr [ %148, %_ZNK3gmx17KeyValueTreeValue4castIdEERKT_v.exit ], [ %2, %_ZNK3gmx17KeyValueTreeValue7asArrayEv.exit47 ]
-  %127 = load ptr, ptr %.sroa.051.058, align 8
+  %.sroa.054.058 = phi ptr [ %148, %_ZNK3gmx17KeyValueTreeValue4castIdEERKT_v.exit ], [ %2, %_ZNK3gmx17KeyValueTreeValue7asArrayEv.exit47 ]
+  %.sroa.051.057 = phi ptr [ %149, %_ZNK3gmx17KeyValueTreeValue4castIdEERKT_v.exit ], [ %88, %_ZNK3gmx17KeyValueTreeValue7asArrayEv.exit47 ]
+  %127 = load ptr, ptr %.sroa.051.057, align 8
   %.not.i.i.i.i.i.i48 = icmp eq ptr %127, null
   br i1 %.not.i.i.i.i.i.i48, label %144, label %128
 
@@ -3190,12 +3190,12 @@ _ZNK3gmx3Any6isTypeIdEEbv.exit.i.i.i:             ; preds = %137
   unreachable
 
 _ZNK3gmx17KeyValueTreeValue4castIdEERKT_v.exit:   ; preds = %128, %_ZNK3gmx3Any6isTypeIdEEbv.exit.i.i.i
-  %145 = load ptr, ptr %.sroa.051.058, align 8
+  %145 = load ptr, ptr %.sroa.051.057, align 8
   %146 = getelementptr inbounds i8, ptr %145, i64 8
   %147 = load double, ptr %146, align 8
-  store double %147, ptr %.sroa.054.057, align 8
-  %148 = getelementptr inbounds i8, ptr %.sroa.054.057, i64 8
-  %149 = getelementptr inbounds i8, ptr %.sroa.051.058, i64 8
+  store double %147, ptr %.sroa.054.058, align 8
+  %148 = getelementptr inbounds i8, ptr %.sroa.054.058, i64 8
+  %149 = getelementptr inbounds i8, ptr %.sroa.051.057, i64 8
   %150 = icmp ne ptr %148, %3
   %151 = icmp ne ptr %149, %124
   %or.cond = select i1 %150, i1 %151, i1 false

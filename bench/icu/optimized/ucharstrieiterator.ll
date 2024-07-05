@@ -584,8 +584,8 @@ if.else58:                                        ; preds = %land.lhs.true, %lor
   br label %return
 
 if.end64:                                         ; preds = %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit, %for.cond
-  %pos.2 = phi ptr [ %pos.addr.0.i, %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit ], [ %incdec.ptr31, %for.cond ]
   %node.0 = phi i32 [ %and37, %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit ], [ %conv, %for.cond ]
+  %pos.2 = phi ptr [ %pos.addr.0.i, %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit ], [ %incdec.ptr31, %for.cond ]
   %31 = load i32, ptr %maxLength_65, align 8
   %cmp66 = icmp sgt i32 %31, 0
   br i1 %cmp66, label %land.lhs.true67, label %if.end74.thread
@@ -629,8 +629,8 @@ if.then78:                                        ; preds = %if.then76
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then78, %if.then76
-  %pos.3 = phi ptr [ %incdec.ptr79, %if.then78 ], [ %pos.2, %if.then76 ]
   %node.1 = phi i32 [ %conv80, %if.then78 ], [ %node.0, %if.then76 ]
+  %pos.3 = phi ptr [ %incdec.ptr79, %if.then78 ], [ %pos.2, %if.then76 ]
   %add = add nuw nsw i32 %node.1, 1
   %call82 = call noundef ptr @_ZN6icu_7510UCharsTrie8Iterator10branchNextEPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull %pos.3, i32 noundef %add, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %cmp83 = icmp eq ptr %call82, null

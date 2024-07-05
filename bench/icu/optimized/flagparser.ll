@@ -34,8 +34,8 @@ do.body.preheader:                                ; preds = %if.end
   br i1 %cmp1864, label %do.body.us, label %parseFlagsFile_cleanup
 
 do.body.us:                                       ; preds = %do.body.preheader, %land.rhs.us
-  %buffer.0.us = phi ptr [ %buffer.1.us, %land.rhs.us ], [ %call1, %do.body.preheader ]
   %tobool.not.us = phi i1 [ false, %land.rhs.us ], [ true, %do.body.preheader ]
+  %buffer.0.us = phi ptr [ %buffer.1.us, %land.rhs.us ], [ %call1, %do.body.preheader ]
   br i1 %tobool.not.us, label %if.end17.us, label %if.then9.us
 
 if.then9.us:                                      ; preds = %do.body.us
@@ -231,15 +231,15 @@ if.then38:                                        ; preds = %_ZL11extractFlagPci
 
 parseFlagsFile_cleanup.sink.split:                ; preds = %if.then9.us, %_ZL13getFlagOffsetPKci.exit.i.us, %if.end9.i.us, %if.end, %entry
   %.sink = phi i32 [ 4, %entry ], [ 7, %if.end ], [ 15, %if.end9.i.us ], [ 15, %_ZL13getFlagOffsetPKci.exit.i.us ], [ 7, %if.then9.us ]
-  %buffer.2.ph = phi ptr [ null, %entry ], [ %call1, %if.end ], [ %buffer.1.us, %if.end9.i.us ], [ %buffer.1.us, %_ZL13getFlagOffsetPKci.exit.i.us ], [ null, %if.then9.us ]
   %tmpFlagBuffer.0.ph = phi ptr [ null, %entry ], [ %call4, %if.end ], [ %call4, %if.end9.i.us ], [ %call4, %_ZL13getFlagOffsetPKci.exit.i.us ], [ %call4, %if.then9.us ]
+  %buffer.2.ph = phi ptr [ null, %entry ], [ %call1, %if.end ], [ %buffer.1.us, %if.end9.i.us ], [ %buffer.1.us, %_ZL13getFlagOffsetPKci.exit.i.us ], [ null, %if.then9.us ]
   %result.2.ph = phi i32 [ 0, %entry ], [ 0, %if.end ], [ %4, %if.end9.i.us ], [ %4, %_ZL13getFlagOffsetPKci.exit.i.us ], [ 0, %if.then9.us ]
   store i32 %.sink, ptr %status, align 4
   br label %parseFlagsFile_cleanup
 
 parseFlagsFile_cleanup:                           ; preds = %land.rhs.us, %if.end59.us, %for.body.lr.ph.us, %for.cond.backedge.us, %if.then38, %parseFlagsFile_cleanup.sink.split, %do.body.preheader
-  %buffer.2 = phi ptr [ %call1, %do.body.preheader ], [ %buffer.1.us, %if.then38 ], [ %buffer.2.ph, %parseFlagsFile_cleanup.sink.split ], [ %buffer.1.us, %for.cond.backedge.us ], [ %buffer.1.us, %for.body.lr.ph.us ], [ %buffer.1.us, %if.end59.us ], [ %buffer.1.us, %land.rhs.us ]
   %tmpFlagBuffer.0 = phi ptr [ %call4, %do.body.preheader ], [ %call4, %if.then38 ], [ %tmpFlagBuffer.0.ph, %parseFlagsFile_cleanup.sink.split ], [ %call4, %for.cond.backedge.us ], [ %call4, %for.body.lr.ph.us ], [ %call4, %if.end59.us ], [ %call4, %land.rhs.us ]
+  %buffer.2 = phi ptr [ %call1, %do.body.preheader ], [ %buffer.1.us, %if.then38 ], [ %buffer.2.ph, %parseFlagsFile_cleanup.sink.split ], [ %buffer.1.us, %for.cond.backedge.us ], [ %buffer.1.us, %for.body.lr.ph.us ], [ %buffer.1.us, %if.end59.us ], [ %buffer.1.us, %land.rhs.us ]
   %result.2 = phi i32 [ 0, %do.body.preheader ], [ %spec.select, %if.then38 ], [ %result.2.ph, %parseFlagsFile_cleanup.sink.split ], [ 0, %for.cond.backedge.us ], [ 0, %for.body.lr.ph.us ], [ 0, %if.end59.us ], [ 0, %land.rhs.us ]
   tail call void @uprv_free_75(ptr noundef %tmpFlagBuffer.0)
   tail call void @uprv_free_75(ptr noundef %buffer.2)

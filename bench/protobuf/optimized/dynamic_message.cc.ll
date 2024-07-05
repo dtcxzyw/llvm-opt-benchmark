@@ -702,8 +702,8 @@ if.then.i118:                                     ; preds = %for.end.i.i
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorEPKNS5_21DynamicMessageFactory8TypeInfoEEENS1_6HashEqIS8_vE4HashENSF_2EqESaISt4pairIKS8_SC_EEE16try_emplace_implIRSJ_JEEESI_INS1_12raw_hash_setISD_SG_SH_SL_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i, %if.then.i118
   %16 = phi ptr [ %.pre20.i, %if.then.i118 ], [ %8, %for.body.i.i ]
-  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i, %if.then.i118 ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %16, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
+  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i118 ], [ %and.i.i.i, %for.body.i.i ]
+  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %16, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
   %17 = load ptr, ptr %second.i.i, align 8
   %cmp9.not = icmp eq ptr %17, null
   br i1 %cmp9.not, label %if.end11, label %if.then10

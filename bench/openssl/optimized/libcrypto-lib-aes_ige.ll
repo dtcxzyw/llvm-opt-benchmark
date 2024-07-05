@@ -64,42 +64,42 @@ for.cond.preheader.preheader:                     ; preds = %if.then18
   br label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %for.cond.preheader.preheader, %for.cond.preheader
-  %iv2p.0124 = phi ptr [ %in.addr.0121, %for.cond.preheader ], [ %add.ptr, %for.cond.preheader.preheader ]
-  %ivp.0123 = phi ptr [ %out.addr.0120, %for.cond.preheader ], [ %ivec, %for.cond.preheader.preheader ]
+  %in.addr.0124 = phi ptr [ %add.ptr41, %for.cond.preheader ], [ %in, %for.cond.preheader.preheader ]
+  %out.addr.0123 = phi ptr [ %add.ptr42, %for.cond.preheader ], [ %out, %for.cond.preheader.preheader ]
   %len.0122 = phi i64 [ %dec, %for.cond.preheader ], [ %div101, %for.cond.preheader.preheader ]
-  %in.addr.0121 = phi ptr [ %add.ptr41, %for.cond.preheader ], [ %in, %for.cond.preheader.preheader ]
-  %out.addr.0120 = phi ptr [ %add.ptr42, %for.cond.preheader ], [ %out, %for.cond.preheader.preheader ]
-  %7 = load i64, ptr %in.addr.0121, align 1
-  %8 = load i64, ptr %ivp.0123, align 1
+  %iv2p.0121 = phi ptr [ %in.addr.0124, %for.cond.preheader ], [ %add.ptr, %for.cond.preheader.preheader ]
+  %ivp.0120 = phi ptr [ %out.addr.0123, %for.cond.preheader ], [ %ivec, %for.cond.preheader.preheader ]
+  %7 = load i64, ptr %in.addr.0124, align 1
+  %8 = load i64, ptr %ivp.0120, align 1
   %xor = xor i64 %8, %7
-  store i64 %xor, ptr %out.addr.0120, align 1
-  %arrayidx.c = getelementptr inbounds i8, ptr %in.addr.0121, i64 8
+  store i64 %xor, ptr %out.addr.0123, align 1
+  %arrayidx.c = getelementptr inbounds i8, ptr %in.addr.0124, i64 8
   %9 = load i64, ptr %arrayidx.c, align 1
-  %arrayidx24.c = getelementptr inbounds i8, ptr %ivp.0123, i64 8
+  %arrayidx24.c = getelementptr inbounds i8, ptr %ivp.0120, i64 8
   %10 = load i64, ptr %arrayidx24.c, align 1
   %xor.c = xor i64 %10, %9
-  %arrayidx26.c = getelementptr inbounds i8, ptr %out.addr.0120, i64 8
+  %arrayidx26.c = getelementptr inbounds i8, ptr %out.addr.0123, i64 8
   store i64 %xor.c, ptr %arrayidx26.c, align 1
-  tail call void @AES_encrypt(ptr noundef nonnull %out.addr.0120, ptr noundef nonnull %out.addr.0120, ptr noundef nonnull %key) #5
-  %11 = load i64, ptr %iv2p.0124, align 1
-  %12 = load i64, ptr %out.addr.0120, align 1
+  tail call void @AES_encrypt(ptr noundef nonnull %out.addr.0123, ptr noundef nonnull %out.addr.0123, ptr noundef nonnull %key) #5
+  %11 = load i64, ptr %iv2p.0121, align 1
+  %12 = load i64, ptr %out.addr.0123, align 1
   %xor37 = xor i64 %12, %11
-  store i64 %xor37, ptr %out.addr.0120, align 1
-  %arrayidx34.c = getelementptr inbounds i8, ptr %iv2p.0124, i64 8
+  store i64 %xor37, ptr %out.addr.0123, align 1
+  %arrayidx34.c = getelementptr inbounds i8, ptr %iv2p.0121, i64 8
   %13 = load i64, ptr %arrayidx34.c, align 1
-  %arrayidx36.c = getelementptr inbounds i8, ptr %out.addr.0120, i64 8
+  %arrayidx36.c = getelementptr inbounds i8, ptr %out.addr.0123, i64 8
   %14 = load i64, ptr %arrayidx36.c, align 1
   %xor37.c = xor i64 %14, %13
   store i64 %xor37.c, ptr %arrayidx36.c, align 1
   %dec = add nsw i64 %len.0122, -1
-  %add.ptr41 = getelementptr inbounds i8, ptr %in.addr.0121, i64 16
-  %add.ptr42 = getelementptr inbounds i8, ptr %out.addr.0120, i64 16
+  %add.ptr41 = getelementptr inbounds i8, ptr %in.addr.0124, i64 16
+  %add.ptr42 = getelementptr inbounds i8, ptr %out.addr.0123, i64 16
   %tobool21.not = icmp eq i64 %dec, 0
   br i1 %tobool21.not, label %while.end, label %for.cond.preheader, !llvm.loop !4
 
 while.end:                                        ; preds = %for.cond.preheader
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ivec, ptr noundef nonnull align 1 dereferenceable(16) %out.addr.0120, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.0121, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ivec, ptr noundef nonnull align 1 dereferenceable(16) %out.addr.0123, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.0124, i64 16, i1 false)
   br label %if.end184
 
 while.body51.preheader:                           ; preds = %if.then18
@@ -108,23 +108,23 @@ while.body51.preheader:                           ; preds = %if.then18
   br label %while.body51
 
 while.body51:                                     ; preds = %while.body51.preheader, %while.body51
-  %iv.sroa.0.0.in = phi ptr [ %ivec, %while.body51.preheader ], [ %tmp2, %while.body51 ]
   %iv2.sroa.0.0 = phi <2 x i64> [ %iv2.sroa.0.0.copyload, %while.body51.preheader ], [ %tmp.sroa.0.0.copyload, %while.body51 ]
-  %len.1132 = phi i64 [ %div101, %while.body51.preheader ], [ %dec80, %while.body51 ]
-  %in.addr.1131 = phi ptr [ %in, %while.body51.preheader ], [ %add.ptr81, %while.body51 ]
-  %out.addr.1130 = phi ptr [ %out, %while.body51.preheader ], [ %add.ptr82, %while.body51 ]
+  %iv.sroa.0.0.in = phi ptr [ %ivec, %while.body51.preheader ], [ %tmp2, %while.body51 ]
+  %in.addr.1132 = phi ptr [ %in, %while.body51.preheader ], [ %add.ptr81, %while.body51 ]
+  %out.addr.1131 = phi ptr [ %out, %while.body51.preheader ], [ %add.ptr82, %while.body51 ]
+  %len.1130 = phi i64 [ %div101, %while.body51.preheader ], [ %dec80, %while.body51 ]
   %iv.sroa.0.0 = load <2 x i64>, ptr %iv.sroa.0.0.in, align 1
-  %tmp.sroa.0.0.copyload = load <2 x i64>, ptr %in.addr.1131, align 1
+  %tmp.sroa.0.0.copyload = load <2 x i64>, ptr %in.addr.1132, align 1
   %15 = xor <2 x i64> %iv.sroa.0.0, %tmp.sroa.0.0.copyload
   store <2 x i64> %15, ptr %tmp2, align 16
   call void @AES_encrypt(ptr noundef nonnull %tmp2, ptr noundef nonnull %tmp2, ptr noundef nonnull %key) #5
   %16 = load <2 x i64>, ptr %tmp2, align 16
   %17 = xor <2 x i64> %16, %iv2.sroa.0.0
   store <2 x i64> %17, ptr %tmp2, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out.addr.1130, ptr noundef nonnull align 16 dereferenceable(16) %tmp2, i64 16, i1 false)
-  %dec80 = add nsw i64 %len.1132, -1
-  %add.ptr81 = getelementptr inbounds i8, ptr %in.addr.1131, i64 16
-  %add.ptr82 = getelementptr inbounds i8, ptr %out.addr.1130, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out.addr.1131, ptr noundef nonnull align 16 dereferenceable(16) %tmp2, i64 16, i1 false)
+  %dec80 = add nsw i64 %len.1130, -1
+  %add.ptr81 = getelementptr inbounds i8, ptr %in.addr.1132, i64 16
+  %add.ptr82 = getelementptr inbounds i8, ptr %out.addr.1131, i64 16
   %tobool50.not = icmp eq i64 %dec80, 0
   br i1 %tobool50.not, label %while.end83, label %while.body51, !llvm.loop !6
 
@@ -141,35 +141,35 @@ for.cond102.preheader.preheader:                  ; preds = %if.else90
   br label %for.cond102.preheader
 
 for.cond102.preheader:                            ; preds = %for.cond102.preheader.preheader, %for.cond102.preheader
-  %iv2p94.0109 = phi ptr [ %out.addr.2105, %for.cond102.preheader ], [ %add.ptr95, %for.cond102.preheader.preheader ]
-  %ivp93.0108 = phi ptr [ %in.addr.2106, %for.cond102.preheader ], [ %ivec, %for.cond102.preheader.preheader ]
-  %len.2107 = phi i64 [ %dec130, %for.cond102.preheader ], [ %div101, %for.cond102.preheader.preheader ]
-  %in.addr.2106 = phi ptr [ %add.ptr131, %for.cond102.preheader ], [ %in, %for.cond102.preheader.preheader ]
-  %out.addr.2105 = phi ptr [ %add.ptr132, %for.cond102.preheader ], [ %out, %for.cond102.preheader.preheader ]
-  %18 = load <2 x i64>, ptr %in.addr.2106, align 1
-  %19 = load <2 x i64>, ptr %iv2p94.0109, align 1
+  %in.addr.2109 = phi ptr [ %add.ptr131, %for.cond102.preheader ], [ %in, %for.cond102.preheader.preheader ]
+  %out.addr.2108 = phi ptr [ %add.ptr132, %for.cond102.preheader ], [ %out, %for.cond102.preheader.preheader ]
+  %iv2p94.0107 = phi ptr [ %out.addr.2108, %for.cond102.preheader ], [ %add.ptr95, %for.cond102.preheader.preheader ]
+  %ivp93.0106 = phi ptr [ %in.addr.2109, %for.cond102.preheader ], [ %ivec, %for.cond102.preheader.preheader ]
+  %len.2105 = phi i64 [ %dec130, %for.cond102.preheader ], [ %div101, %for.cond102.preheader.preheader ]
+  %18 = load <2 x i64>, ptr %in.addr.2109, align 1
+  %19 = load <2 x i64>, ptr %iv2p94.0107, align 1
   %20 = xor <2 x i64> %19, %18
   store <2 x i64> %20, ptr %tmp99, align 16
-  call void @AES_decrypt(ptr noundef nonnull %tmp99, ptr noundef nonnull %out.addr.2105, ptr noundef nonnull %key) #5
-  %21 = load i64, ptr %ivp93.0108, align 1
-  %22 = load i64, ptr %out.addr.2105, align 1
+  call void @AES_decrypt(ptr noundef nonnull %tmp99, ptr noundef nonnull %out.addr.2108, ptr noundef nonnull %key) #5
+  %21 = load i64, ptr %ivp93.0106, align 1
+  %22 = load i64, ptr %out.addr.2108, align 1
   %xor126 = xor i64 %22, %21
-  store i64 %xor126, ptr %out.addr.2105, align 1
-  %arrayidx123.c = getelementptr inbounds i8, ptr %ivp93.0108, i64 8
+  store i64 %xor126, ptr %out.addr.2108, align 1
+  %arrayidx123.c = getelementptr inbounds i8, ptr %ivp93.0106, i64 8
   %23 = load i64, ptr %arrayidx123.c, align 1
-  %arrayidx125.c = getelementptr inbounds i8, ptr %out.addr.2105, i64 8
+  %arrayidx125.c = getelementptr inbounds i8, ptr %out.addr.2108, i64 8
   %24 = load i64, ptr %arrayidx125.c, align 1
   %xor126.c = xor i64 %24, %23
   store i64 %xor126.c, ptr %arrayidx125.c, align 1
-  %dec130 = add nsw i64 %len.2107, -1
-  %add.ptr131 = getelementptr inbounds i8, ptr %in.addr.2106, i64 16
-  %add.ptr132 = getelementptr inbounds i8, ptr %out.addr.2105, i64 16
+  %dec130 = add nsw i64 %len.2105, -1
+  %add.ptr131 = getelementptr inbounds i8, ptr %in.addr.2109, i64 16
+  %add.ptr132 = getelementptr inbounds i8, ptr %out.addr.2108, i64 16
   %tobool97.not = icmp eq i64 %dec130, 0
   br i1 %tobool97.not, label %while.end133, label %for.cond102.preheader, !llvm.loop !7
 
 while.end133:                                     ; preds = %for.cond102.preheader
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ivec, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.2106, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr95, ptr noundef nonnull align 1 dereferenceable(16) %out.addr.2105, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ivec, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.2109, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr95, ptr noundef nonnull align 1 dereferenceable(16) %out.addr.2108, i64 16, i1 false)
   br label %if.end184
 
 while.body147.preheader:                          ; preds = %if.else90
@@ -180,12 +180,12 @@ while.body147.preheader:                          ; preds = %if.else90
 while.body147:                                    ; preds = %while.body147.preheader, %while.body147
   %iv142.sroa.0.0 = phi <2 x i64> [ %iv142.sroa.0.0.copyload, %while.body147.preheader ], [ %tmp2141.sroa.0.sroa.0.0.copyload, %while.body147 ]
   %iv2143.sroa.0.0.in = phi ptr [ %add.ptr144, %while.body147.preheader ], [ %tmp140, %while.body147 ]
-  %len.3116 = phi i64 [ %div101, %while.body147.preheader ], [ %dec174, %while.body147 ]
-  %in.addr.3115 = phi ptr [ %in, %while.body147.preheader ], [ %add.ptr175, %while.body147 ]
-  %out.addr.3114 = phi ptr [ %out, %while.body147.preheader ], [ %add.ptr176, %while.body147 ]
+  %in.addr.3116 = phi ptr [ %in, %while.body147.preheader ], [ %add.ptr175, %while.body147 ]
+  %out.addr.3115 = phi ptr [ %out, %while.body147.preheader ], [ %add.ptr176, %while.body147 ]
+  %len.3114 = phi i64 [ %div101, %while.body147.preheader ], [ %dec174, %while.body147 ]
   %iv2143.sroa.0.0 = load <2 x i64>, ptr %iv2143.sroa.0.0.in, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp140, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.3115, i64 16, i1 false)
-  %tmp2141.sroa.0.sroa.0.0.copyload = load <2 x i64>, ptr %in.addr.3115, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp140, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.3116, i64 16, i1 false)
+  %tmp2141.sroa.0.sroa.0.0.copyload = load <2 x i64>, ptr %in.addr.3116, align 1
   %25 = load <2 x i64>, ptr %tmp140, align 16
   %26 = xor <2 x i64> %25, %iv2143.sroa.0.0
   store <2 x i64> %26, ptr %tmp140, align 16
@@ -193,10 +193,10 @@ while.body147:                                    ; preds = %while.body147.prehe
   %27 = load <2 x i64>, ptr %tmp140, align 16
   %28 = xor <2 x i64> %27, %iv142.sroa.0.0
   store <2 x i64> %28, ptr %tmp140, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out.addr.3114, ptr noundef nonnull align 16 dereferenceable(16) %tmp140, i64 16, i1 false)
-  %dec174 = add nsw i64 %len.3116, -1
-  %add.ptr175 = getelementptr inbounds i8, ptr %in.addr.3115, i64 16
-  %add.ptr176 = getelementptr inbounds i8, ptr %out.addr.3114, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out.addr.3115, ptr noundef nonnull align 16 dereferenceable(16) %tmp140, i64 16, i1 false)
+  %dec174 = add nsw i64 %len.3114, -1
+  %add.ptr175 = getelementptr inbounds i8, ptr %in.addr.3116, i64 16
+  %add.ptr176 = getelementptr inbounds i8, ptr %out.addr.3115, i64 16
   %tobool146.not = icmp eq i64 %dec174, 0
   br i1 %tobool146.not, label %while.end177, label %while.body147, !llvm.loop !8
 

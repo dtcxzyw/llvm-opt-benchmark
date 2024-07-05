@@ -943,8 +943,8 @@ define noundef range(i8 0, 4) i8 @_ZN5uu_nl16SectionDelimiter5parse17hf7dd07c185
   br label %103
 
 .loopexit.i.i.i.i:                                ; preds = %162, %160, %158
-  %.012.i.i.i.i.i = phi i64 [ 1, %158 ], [ %..i.i.i.i.i, %162 ], [ 2, %160 ]
-  %102 = add i64 %.012.i.i.i.i.i, %.sroa.4.1
+  %.013.i.i.i.i.i = phi i64 [ 1, %158 ], [ %..i.i.i.i.i, %162 ], [ 2, %160 ]
+  %102 = add i64 %.013.i.i.i.i.i, %.sroa.4.1
   br label %103
 
 103:                                              ; preds = %.loopexit.i.i.i.i, %.lr.ph106.i.i.i.i

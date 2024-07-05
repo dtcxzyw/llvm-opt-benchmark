@@ -1027,7 +1027,7 @@ lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
   br label %lpad17
 
 lpad17:                                           ; preds = %lpad17.loopexit.split-lp.loopexit, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad17.loopexit
-  %intersections.sroa.0.1 = phi ptr [ %intersections.sroa.0.6, %lpad17.loopexit ], [ %intersections.sroa.0.4205, %lpad17.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.3214, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.0245, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.0245, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.1.ph.ph.ph.ph.ph.ph, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.4205, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %intersections.sroa.0.1 = phi ptr [ %intersections.sroa.0.6, %lpad17.loopexit ], [ %intersections.sroa.0.4205, %lpad17.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.3215, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.0245, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.0245, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.1.ph.ph.ph.ph.ph.ph, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.4205, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad17.loopexit ], [ %lpad.loopexit145, %lpad17.loopexit.split-lp.loopexit ], [ %lpad.loopexit148, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit150, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit153, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit155, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp156, %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i = icmp eq ptr %intersections.sroa.0.1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EED2Ev.exit, label %if.then.i.i.i
@@ -1116,11 +1116,11 @@ for.body108.preheader:                            ; preds = %for.body90
   br label %for.body108
 
 for.body108:                                      ; preds = %for.body108.preheader, %for.inc126
-  %edge91.sroa.0.0215 = phi ptr [ %incdec.ptr.i90, %for.inc126 ], [ %33, %for.body108.preheader ]
-  %intersections.sroa.0.3214 = phi ptr [ %intersections.sroa.0.4.lcssa, %for.inc126 ], [ %intersections.sroa.0.2227, %for.body108.preheader ]
-  %intersections.sroa.18.2213 = phi ptr [ %intersections.sroa.18.3.lcssa, %for.inc126 ], [ %intersections.sroa.18.1226, %for.body108.preheader ]
+  %intersections.sroa.0.3215 = phi ptr [ %intersections.sroa.0.4.lcssa, %for.inc126 ], [ %intersections.sroa.0.2227, %for.body108.preheader ]
+  %intersections.sroa.18.2214 = phi ptr [ %intersections.sroa.18.3.lcssa, %for.inc126 ], [ %intersections.sroa.18.1226, %for.body108.preheader ]
+  %edge91.sroa.0.0213 = phi ptr [ %incdec.ptr.i90, %for.inc126 ], [ %33, %for.body108.preheader ]
   %intersections.sroa.28.2212 = phi ptr [ %intersections.sroa.28.3.lcssa, %for.inc126 ], [ %intersections.sroa.28.1225, %for.body108.preheader ]
-  %call111 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge91.sroa.0.0215)
+  %call111 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge91.sroa.0.0213)
           to label %invoke.cont110 unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont110:                                   ; preds = %for.body108
@@ -1140,8 +1140,8 @@ for.body119.preheader:                            ; preds = %for.cond117.prehead
 
 for.body119:                                      ; preds = %for.body119.preheader, %for.inc124
   %indvars.iv = phi i64 [ 0, %for.body119.preheader ], [ %indvars.iv.next, %for.inc124 ]
-  %intersections.sroa.0.4205 = phi ptr [ %intersections.sroa.0.3214, %for.body119.preheader ], [ %intersections.sroa.0.5, %for.inc124 ]
-  %intersections.sroa.18.3204 = phi ptr [ %intersections.sroa.18.2213, %for.body119.preheader ], [ %intersections.sroa.18.4, %for.inc124 ]
+  %intersections.sroa.0.4205 = phi ptr [ %intersections.sroa.0.3215, %for.body119.preheader ], [ %intersections.sroa.0.5, %for.inc124 ]
+  %intersections.sroa.18.3204 = phi ptr [ %intersections.sroa.18.2214, %for.body119.preheader ], [ %intersections.sroa.18.4, %for.inc124 ]
   %intersections.sroa.28.3203 = phi ptr [ %intersections.sroa.28.2212, %for.body119.preheader ], [ %intersections.sroa.28.4, %for.inc124 ]
   %arrayidx = getelementptr inbounds [3 x double], ptr %x, i64 0, i64 %indvars.iv
   %38 = load double, ptr %arrayidx, align 8
@@ -1227,9 +1227,9 @@ for.inc124:                                       ; preds = %_ZNSt6vectorIZN7msd
 
 for.inc126:                                       ; preds = %for.inc124, %for.cond117.preheader
   %intersections.sroa.28.3.lcssa = phi ptr [ %intersections.sroa.28.2212, %for.cond117.preheader ], [ %intersections.sroa.28.4, %for.inc124 ]
-  %intersections.sroa.18.3.lcssa = phi ptr [ %intersections.sroa.18.2213, %for.cond117.preheader ], [ %intersections.sroa.18.4, %for.inc124 ]
-  %intersections.sroa.0.4.lcssa = phi ptr [ %intersections.sroa.0.3214, %for.cond117.preheader ], [ %intersections.sroa.0.5, %for.inc124 ]
-  %incdec.ptr.i90 = getelementptr inbounds i8, ptr %edge91.sroa.0.0215, i64 8
+  %intersections.sroa.18.3.lcssa = phi ptr [ %intersections.sroa.18.2214, %for.cond117.preheader ], [ %intersections.sroa.18.4, %for.inc124 ]
+  %intersections.sroa.0.4.lcssa = phi ptr [ %intersections.sroa.0.3215, %for.cond117.preheader ], [ %intersections.sroa.0.5, %for.inc124 ]
+  %incdec.ptr.i90 = getelementptr inbounds i8, ptr %edge91.sroa.0.0213, i64 8
   %41 = load ptr, ptr %this, align 8
   %_M_finish.i81 = getelementptr inbounds %"class.msdfgen::Contour", ptr %41, i64 %indvars.iv269, i32 0, i32 0, i32 0, i32 0, i32 1
   %42 = load ptr, ptr %_M_finish.i81, align 8

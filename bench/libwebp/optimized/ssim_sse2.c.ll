@@ -21,8 +21,8 @@ define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr n
   br i1 %4, label %5, label %55
 
 5:                                                ; preds = %3
-  %.05764 = load <2 x i64>, ptr %1, align 1
-  %.05865 = load <2 x i64>, ptr %0, align 1
+  %.05864 = load <2 x i64>, ptr %1, align 1
+  %.05965 = load <2 x i64>, ptr %0, align 1
   %.not66 = icmp ult i32 %2, 48
   br i1 %.not66, label %._crit_edge, label %.lr.ph.preheader
 
@@ -33,16 +33,16 @@ define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 16, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.05869 = phi <2 x i64> [ %.05865, %.lr.ph.preheader ], [ %.058, %.lr.ph ]
-  %.05768 = phi <2 x i64> [ %.05764, %.lr.ph.preheader ], [ %.057, %.lr.ph ]
+  %.05969 = phi <2 x i64> [ %.05965, %.lr.ph.preheader ], [ %.059, %.lr.ph ]
+  %.05868 = phi <2 x i64> [ %.05864, %.lr.ph.preheader ], [ %.058, %.lr.ph ]
   %8 = phi <4 x i32> [ zeroinitializer, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %10 = load <16 x i8>, ptr %9, align 1
   %11 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
   %12 = load <16 x i8>, ptr %11, align 1
   %13 = add nuw nsw i64 %indvars.iv, 16
-  %14 = bitcast <2 x i64> %.05869 to <16 x i8>
-  %15 = bitcast <2 x i64> %.05768 to <16 x i8>
+  %14 = bitcast <2 x i64> %.05969 to <16 x i8>
+  %15 = bitcast <2 x i64> %.05868 to <16 x i8>
   %16 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %14, <16 x i8> %15)
   %17 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %15, <16 x i8> %14)
   %18 = or <16 x i8> %16, %17
@@ -68,8 +68,8 @@ define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr n
   %37 = add <4 x i32> %36, %24
   %38 = add <4 x i32> %37, %33
   %39 = add <4 x i32> %38, %35
-  %.057 = load <2 x i64>, ptr %26, align 1
-  %.058 = load <2 x i64>, ptr %25, align 1
+  %.058 = load <2 x i64>, ptr %26, align 1
+  %.059 = load <2 x i64>, ptr %25, align 1
   %.not = icmp ugt i64 %indvars.iv.next, %7
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
@@ -80,10 +80,10 @@ define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr n
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
   %.lcssa = phi <4 x i32> [ zeroinitializer, %5 ], [ %39, %._crit_edge.loopexit ]
   %.0.lcssa = phi i32 [ 16, %5 ], [ %40, %._crit_edge.loopexit ]
-  %.057.lcssa = phi <2 x i64> [ %.05764, %5 ], [ %.057, %._crit_edge.loopexit ]
-  %.058.lcssa = phi <2 x i64> [ %.05865, %5 ], [ %.058, %._crit_edge.loopexit ]
-  %41 = bitcast <2 x i64> %.058.lcssa to <16 x i8>
-  %42 = bitcast <2 x i64> %.057.lcssa to <16 x i8>
+  %.058.lcssa = phi <2 x i64> [ %.05864, %5 ], [ %.058, %._crit_edge.loopexit ]
+  %.059.lcssa = phi <2 x i64> [ %.05965, %5 ], [ %.059, %._crit_edge.loopexit ]
+  %41 = bitcast <2 x i64> %.059.lcssa to <16 x i8>
+  %42 = bitcast <2 x i64> %.058.lcssa to <16 x i8>
   %43 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %41, <16 x i8> %42)
   %44 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %42, <16 x i8> %41)
   %45 = or <16 x i8> %43, %44

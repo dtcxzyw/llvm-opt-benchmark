@@ -16215,13 +16215,13 @@ for.body.i.i.preheader.i:                         ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i14107
 
 for.body.i.i.i14107:                              ; preds = %for.body.i.i.i14107, %for.body.i.i.preheader.i
-  %first.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i14108, %for.body.i.i.i14107 ], [ %2869, %for.body.i.i.preheader.i ]
-  %retval.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i14109, %for.body.i.i.i14107 ], [ %2878, %for.body.i.i.preheader.i ]
-  %2879 = load i32, ptr %first.sroa.0.07.i.i.i, align 4
-  store i32 %2879, ptr %retval.sroa.0.06.i.i.i, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i14108 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i, i64 4
-  %incdec.ptr.i.i.i.i14109 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i, i64 4
+  %retval.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i14109, %for.body.i.i.i14107 ], [ %2878, %for.body.i.i.preheader.i ]
+  %first.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i14108, %for.body.i.i.i14107 ], [ %2869, %for.body.i.i.preheader.i ]
+  %2879 = load i32, ptr %first.sroa.0.06.i.i.i, align 4
+  store i32 %2879, ptr %retval.sroa.0.07.i.i.i, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i, align 4
+  %incdec.ptr.i.i.i.i.i14108 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i14109 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i, i64 4
   %cmp.i.i.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i14108, %add.ptr25.i14104
   br i1 %cmp.i.i.i.not.i.i.i, label %for.body.i.i10.preheader.i, label %for.body.i.i.i14107, !llvm.loop !497
 
@@ -16231,17 +16231,17 @@ for.body.i.i10.preheader.i:                       ; preds = %for.body.i.i.i14107
   br label %for.body.i.i10.i
 
 for.body.i.i10.i:                                 ; preds = %for.body.i.i10.i, %for.body.i.i10.preheader.i
-  %first.sroa.0.07.i.i11.i = phi ptr [ %incdec.ptr.i.i.i.i13.i, %for.body.i.i10.i ], [ %2870, %for.body.i.i10.preheader.i ]
-  %retval.sroa.0.06.i.i12.i = phi ptr [ %incdec.ptr.i.i.i14.i, %for.body.i.i10.i ], [ %2880, %for.body.i.i10.preheader.i ]
-  %2881 = load i32, ptr %first.sroa.0.07.i.i11.i, align 8
-  store i32 %2881, ptr %retval.sroa.0.06.i.i12.i, align 8
-  %mbThrowOnCopy.i.i.i.i14110 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i14111 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 4
+  %retval.sroa.0.07.i.i11.i = phi ptr [ %incdec.ptr.i.i.i14.i, %for.body.i.i10.i ], [ %2880, %for.body.i.i10.preheader.i ]
+  %first.sroa.0.06.i.i12.i = phi ptr [ %incdec.ptr.i.i.i.i13.i, %for.body.i.i10.i ], [ %2870, %for.body.i.i10.preheader.i ]
+  %2881 = load i32, ptr %first.sroa.0.06.i.i12.i, align 8
+  store i32 %2881, ptr %retval.sroa.0.07.i.i11.i, align 8
+  %mbThrowOnCopy.i.i.i.i14110 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i14111 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 4
   %2882 = load i8, ptr %mbThrowOnCopy3.i.i.i.i14111, align 4
   %frombool.i.i.i.i14112 = and i8 %2882, 1
   store i8 %frombool.i.i.i.i14112, ptr %mbThrowOnCopy.i.i.i.i14110, align 4
-  %mMagicValue.i.i.i.i14113 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 16
-  %mMagicValue4.i.i.i.i14114 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 16
+  %mMagicValue.i.i.i.i14113 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 16
+  %mMagicValue4.i.i.i.i14114 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 16
   %2883 = load i32, ptr %mMagicValue4.i.i.i.i14114, align 8
   store i32 %2883, ptr %mMagicValue.i.i.i.i14113, align 8
   %2884 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -16253,11 +16253,11 @@ for.body.i.i10.i:                                 ; preds = %for.body.i.i10.i, %
   %2886 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i14117 = add nsw i64 %2886, 1
   store i64 %inc6.i.i.i.i14117, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i14118 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 8
+  %mId.i.i.i.i14118 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 8
   store i64 %inc5.i.i.i.i14116, ptr %mId.i.i.i.i14118, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i, align 8
-  %incdec.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 24
-  %incdec.ptr.i.i.i14.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i, align 8
+  %incdec.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 24
+  %incdec.ptr.i.i.i14.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 24
   %cmp.i.i.i.not.i.i15.i = icmp eq ptr %incdec.ptr.i.i.i.i13.i, %add.ptr37.i
   br i1 %cmp.i.i.i.not.i.i15.i, label %invoke.cont12.i, label %for.body.i.i10.i, !llvm.loop !498
 
@@ -16740,13 +16740,13 @@ for.body.i.i.preheader.i14146:                    ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i14153
 
 for.body.i.i.i14153:                              ; preds = %for.body.i.i.i14153, %for.body.i.i.preheader.i14146
-  %first.sroa.0.07.i.i.i14154 = phi ptr [ %incdec.ptr.i.i.i.i.i14156, %for.body.i.i.i14153 ], [ %2962, %for.body.i.i.preheader.i14146 ]
-  %retval.sroa.0.06.i.i.i14155 = phi ptr [ %incdec.ptr.i.i.i.i14157, %for.body.i.i.i14153 ], [ %2971, %for.body.i.i.preheader.i14146 ]
-  %2972 = load i32, ptr %first.sroa.0.07.i.i.i14154, align 4
-  store i32 %2972, ptr %retval.sroa.0.06.i.i.i14155, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i14154, align 4
-  %incdec.ptr.i.i.i.i.i14156 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i14154, i64 4
-  %incdec.ptr.i.i.i.i14157 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i14155, i64 4
+  %retval.sroa.0.07.i.i.i14154 = phi ptr [ %incdec.ptr.i.i.i.i14157, %for.body.i.i.i14153 ], [ %2971, %for.body.i.i.preheader.i14146 ]
+  %first.sroa.0.06.i.i.i14155 = phi ptr [ %incdec.ptr.i.i.i.i.i14156, %for.body.i.i.i14153 ], [ %2962, %for.body.i.i.preheader.i14146 ]
+  %2972 = load i32, ptr %first.sroa.0.06.i.i.i14155, align 4
+  store i32 %2972, ptr %retval.sroa.0.07.i.i.i14154, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i14155, align 4
+  %incdec.ptr.i.i.i.i.i14156 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i14155, i64 4
+  %incdec.ptr.i.i.i.i14157 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i14154, i64 4
   %cmp.i.i.i.not.i.i.i14158 = icmp eq ptr %incdec.ptr.i.i.i.i.i14156, %add.ptr25.i14150
   br i1 %cmp.i.i.i.not.i.i.i14158, label %for.body.i.i10.preheader.i14161, label %for.body.i.i.i14153, !llvm.loop !497
 
@@ -16756,17 +16756,17 @@ for.body.i.i10.preheader.i14161:                  ; preds = %for.body.i.i.i14153
   br label %for.body.i.i10.i14164
 
 for.body.i.i10.i14164:                            ; preds = %for.body.i.i10.i14164, %for.body.i.i10.preheader.i14161
-  %first.sroa.0.07.i.i11.i14165 = phi ptr [ %incdec.ptr.i.i.i.i13.i14176, %for.body.i.i10.i14164 ], [ %2963, %for.body.i.i10.preheader.i14161 ]
-  %retval.sroa.0.06.i.i12.i14166 = phi ptr [ %incdec.ptr.i.i.i14.i14177, %for.body.i.i10.i14164 ], [ %2973, %for.body.i.i10.preheader.i14161 ]
-  %2974 = load i32, ptr %first.sroa.0.07.i.i11.i14165, align 8
-  store i32 %2974, ptr %retval.sroa.0.06.i.i12.i14166, align 8
-  %mbThrowOnCopy.i.i.i.i14167 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14166, i64 4
-  %mbThrowOnCopy3.i.i.i.i14168 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14165, i64 4
+  %retval.sroa.0.07.i.i11.i14165 = phi ptr [ %incdec.ptr.i.i.i14.i14177, %for.body.i.i10.i14164 ], [ %2973, %for.body.i.i10.preheader.i14161 ]
+  %first.sroa.0.06.i.i12.i14166 = phi ptr [ %incdec.ptr.i.i.i.i13.i14176, %for.body.i.i10.i14164 ], [ %2963, %for.body.i.i10.preheader.i14161 ]
+  %2974 = load i32, ptr %first.sroa.0.06.i.i12.i14166, align 8
+  store i32 %2974, ptr %retval.sroa.0.07.i.i11.i14165, align 8
+  %mbThrowOnCopy.i.i.i.i14167 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14165, i64 4
+  %mbThrowOnCopy3.i.i.i.i14168 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14166, i64 4
   %2975 = load i8, ptr %mbThrowOnCopy3.i.i.i.i14168, align 4
   %frombool.i.i.i.i14169 = and i8 %2975, 1
   store i8 %frombool.i.i.i.i14169, ptr %mbThrowOnCopy.i.i.i.i14167, align 4
-  %mMagicValue.i.i.i.i14170 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14166, i64 16
-  %mMagicValue4.i.i.i.i14171 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14165, i64 16
+  %mMagicValue.i.i.i.i14170 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14165, i64 16
+  %mMagicValue4.i.i.i.i14171 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14166, i64 16
   %2976 = load i32, ptr %mMagicValue4.i.i.i.i14171, align 8
   store i32 %2976, ptr %mMagicValue.i.i.i.i14170, align 8
   %2977 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -16778,11 +16778,11 @@ for.body.i.i10.i14164:                            ; preds = %for.body.i.i10.i141
   %2979 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i14174 = add nsw i64 %2979, 1
   store i64 %inc6.i.i.i.i14174, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i14175 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14166, i64 8
+  %mId.i.i.i.i14175 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14165, i64 8
   store i64 %inc5.i.i.i.i14173, ptr %mId.i.i.i.i14175, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i14165, align 8
-  %incdec.ptr.i.i.i.i13.i14176 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14165, i64 24
-  %incdec.ptr.i.i.i14.i14177 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14166, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i14166, align 8
+  %incdec.ptr.i.i.i.i13.i14176 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14166, i64 24
+  %incdec.ptr.i.i.i14.i14177 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14165, i64 24
   %cmp.i.i.i.not.i.i15.i14178 = icmp eq ptr %incdec.ptr.i.i.i.i13.i14176, %add.ptr37.i14160
   br i1 %cmp.i.i.i.not.i.i15.i14178, label %invoke.cont10.i, label %for.body.i.i10.i14164, !llvm.loop !498
 
@@ -17053,13 +17053,13 @@ for.body.i.i.preheader.i14212:                    ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i14219
 
 for.body.i.i.i14219:                              ; preds = %for.body.i.i.i14219, %for.body.i.i.preheader.i14212
-  %first.sroa.0.07.i.i.i14220 = phi ptr [ %incdec.ptr.i.i.i.i.i14222, %for.body.i.i.i14219 ], [ %3024, %for.body.i.i.preheader.i14212 ]
-  %retval.sroa.0.06.i.i.i14221 = phi ptr [ %incdec.ptr.i.i.i.i14223, %for.body.i.i.i14219 ], [ %3033, %for.body.i.i.preheader.i14212 ]
-  %3034 = load i32, ptr %first.sroa.0.07.i.i.i14220, align 4
-  store i32 %3034, ptr %retval.sroa.0.06.i.i.i14221, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i14220, align 4
-  %incdec.ptr.i.i.i.i.i14222 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i14220, i64 4
-  %incdec.ptr.i.i.i.i14223 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i14221, i64 4
+  %retval.sroa.0.07.i.i.i14220 = phi ptr [ %incdec.ptr.i.i.i.i14223, %for.body.i.i.i14219 ], [ %3033, %for.body.i.i.preheader.i14212 ]
+  %first.sroa.0.06.i.i.i14221 = phi ptr [ %incdec.ptr.i.i.i.i.i14222, %for.body.i.i.i14219 ], [ %3024, %for.body.i.i.preheader.i14212 ]
+  %3034 = load i32, ptr %first.sroa.0.06.i.i.i14221, align 4
+  store i32 %3034, ptr %retval.sroa.0.07.i.i.i14220, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i14221, align 4
+  %incdec.ptr.i.i.i.i.i14222 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i14221, i64 4
+  %incdec.ptr.i.i.i.i14223 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i14220, i64 4
   %cmp.i.i.i.not.i.i.i14224 = icmp eq ptr %incdec.ptr.i.i.i.i.i14222, %add.ptr25.i14216
   br i1 %cmp.i.i.i.not.i.i.i14224, label %for.body.i.i10.preheader.i14227, label %for.body.i.i.i14219, !llvm.loop !497
 
@@ -17069,17 +17069,17 @@ for.body.i.i10.preheader.i14227:                  ; preds = %for.body.i.i.i14219
   br label %for.body.i.i10.i14230
 
 for.body.i.i10.i14230:                            ; preds = %for.body.i.i10.i14230, %for.body.i.i10.preheader.i14227
-  %first.sroa.0.07.i.i11.i14231 = phi ptr [ %incdec.ptr.i.i.i.i13.i14242, %for.body.i.i10.i14230 ], [ %3025, %for.body.i.i10.preheader.i14227 ]
-  %retval.sroa.0.06.i.i12.i14232 = phi ptr [ %incdec.ptr.i.i.i14.i14243, %for.body.i.i10.i14230 ], [ %3035, %for.body.i.i10.preheader.i14227 ]
-  %3036 = load i32, ptr %first.sroa.0.07.i.i11.i14231, align 8
-  store i32 %3036, ptr %retval.sroa.0.06.i.i12.i14232, align 8
-  %mbThrowOnCopy.i.i.i.i14233 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14232, i64 4
-  %mbThrowOnCopy3.i.i.i.i14234 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14231, i64 4
+  %retval.sroa.0.07.i.i11.i14231 = phi ptr [ %incdec.ptr.i.i.i14.i14243, %for.body.i.i10.i14230 ], [ %3035, %for.body.i.i10.preheader.i14227 ]
+  %first.sroa.0.06.i.i12.i14232 = phi ptr [ %incdec.ptr.i.i.i.i13.i14242, %for.body.i.i10.i14230 ], [ %3025, %for.body.i.i10.preheader.i14227 ]
+  %3036 = load i32, ptr %first.sroa.0.06.i.i12.i14232, align 8
+  store i32 %3036, ptr %retval.sroa.0.07.i.i11.i14231, align 8
+  %mbThrowOnCopy.i.i.i.i14233 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14231, i64 4
+  %mbThrowOnCopy3.i.i.i.i14234 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14232, i64 4
   %3037 = load i8, ptr %mbThrowOnCopy3.i.i.i.i14234, align 4
   %frombool.i.i.i.i14235 = and i8 %3037, 1
   store i8 %frombool.i.i.i.i14235, ptr %mbThrowOnCopy.i.i.i.i14233, align 4
-  %mMagicValue.i.i.i.i14236 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14232, i64 16
-  %mMagicValue4.i.i.i.i14237 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14231, i64 16
+  %mMagicValue.i.i.i.i14236 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14231, i64 16
+  %mMagicValue4.i.i.i.i14237 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14232, i64 16
   %3038 = load i32, ptr %mMagicValue4.i.i.i.i14237, align 8
   store i32 %3038, ptr %mMagicValue.i.i.i.i14236, align 8
   %3039 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -17091,11 +17091,11 @@ for.body.i.i10.i14230:                            ; preds = %for.body.i.i10.i142
   %3041 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i14240 = add nsw i64 %3041, 1
   store i64 %inc6.i.i.i.i14240, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i14241 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14232, i64 8
+  %mId.i.i.i.i14241 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14231, i64 8
   store i64 %inc5.i.i.i.i14239, ptr %mId.i.i.i.i14241, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i14231, align 8
-  %incdec.ptr.i.i.i.i13.i14242 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14231, i64 24
-  %incdec.ptr.i.i.i14.i14243 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14232, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i14232, align 8
+  %incdec.ptr.i.i.i.i13.i14242 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14232, i64 24
+  %incdec.ptr.i.i.i14.i14243 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14231, i64 24
   %cmp.i.i.i.not.i.i15.i14244 = icmp eq ptr %incdec.ptr.i.i.i.i13.i14242, %add.ptr37.i14226
   br i1 %cmp.i.i.i.not.i.i15.i14244, label %invoke.cont10.i10532, label %for.body.i.i10.i14230, !llvm.loop !498
 
@@ -17623,13 +17623,13 @@ for.body.i.i.preheader.i14278:                    ; preds = %call.i.i.i.i.i.i.i.
   br label %for.body.i.i.i14285
 
 for.body.i.i.i14285:                              ; preds = %for.body.i.i.i14285, %for.body.i.i.preheader.i14278
-  %first.sroa.0.07.i.i.i14286 = phi ptr [ %incdec.ptr.i.i.i.i.i14288, %for.body.i.i.i14285 ], [ %add.ptr22.i14284, %for.body.i.i.preheader.i14278 ]
-  %retval.sroa.0.06.i.i.i14287 = phi ptr [ %incdec.ptr.i.i.i.i14289, %for.body.i.i.i14285 ], [ %3129, %for.body.i.i.preheader.i14278 ]
-  %3130 = load i32, ptr %first.sroa.0.07.i.i.i14286, align 4
-  store i32 %3130, ptr %retval.sroa.0.06.i.i.i14287, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i14286, align 4
-  %incdec.ptr.i.i.i.i.i14288 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i14286, i64 4
-  %incdec.ptr.i.i.i.i14289 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i14287, i64 4
+  %retval.sroa.0.07.i.i.i14286 = phi ptr [ %incdec.ptr.i.i.i.i14289, %for.body.i.i.i14285 ], [ %3129, %for.body.i.i.preheader.i14278 ]
+  %first.sroa.0.06.i.i.i14287 = phi ptr [ %incdec.ptr.i.i.i.i.i14288, %for.body.i.i.i14285 ], [ %add.ptr22.i14284, %for.body.i.i.preheader.i14278 ]
+  %3130 = load i32, ptr %first.sroa.0.06.i.i.i14287, align 4
+  store i32 %3130, ptr %retval.sroa.0.07.i.i.i14286, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i14287, align 4
+  %incdec.ptr.i.i.i.i.i14288 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i14287, i64 4
+  %incdec.ptr.i.i.i.i14289 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i14286, i64 4
   %cmp.i.i.i.not.i.i.i14290 = icmp eq ptr %incdec.ptr.i.i.i.i.i14288, %add.ptr25.i14282
   br i1 %cmp.i.i.i.not.i.i.i14290, label %for.body.i.i10.preheader.i14293, label %for.body.i.i.i14285, !llvm.loop !497
 
@@ -17638,18 +17638,18 @@ for.body.i.i10.preheader.i14293:                  ; preds = %for.body.i.i.i14285
   br label %for.body.i.i10.i14296
 
 for.body.i.i10.i14296:                            ; preds = %for.body.i.i10.i14296, %for.body.i.i10.preheader.i14293
-  %first.sroa.0.07.i.i11.i14297.idx = phi i64 [ %first.sroa.0.07.i.i11.i14297.add, %for.body.i.i10.i14296 ], [ 48, %for.body.i.i10.preheader.i14293 ]
-  %retval.sroa.0.06.i.i12.i14298 = phi ptr [ %incdec.ptr.i.i.i14.i14309, %for.body.i.i10.i14296 ], [ %3131, %for.body.i.i10.preheader.i14293 ]
-  %first.sroa.0.07.i.i11.i14297.ptr = getelementptr inbounds i8, ptr %3118, i64 %first.sroa.0.07.i.i11.i14297.idx
-  %3132 = load i32, ptr %first.sroa.0.07.i.i11.i14297.ptr, align 8
-  store i32 %3132, ptr %retval.sroa.0.06.i.i12.i14298, align 8
-  %mbThrowOnCopy.i.i.i.i14299 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14298, i64 4
-  %mbThrowOnCopy3.i.i.i.i14300 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14297.ptr, i64 4
+  %retval.sroa.0.07.i.i11.i14297 = phi ptr [ %incdec.ptr.i.i.i14.i14309, %for.body.i.i10.i14296 ], [ %3131, %for.body.i.i10.preheader.i14293 ]
+  %first.sroa.0.06.i.i12.i14298.idx = phi i64 [ %first.sroa.0.06.i.i12.i14298.add, %for.body.i.i10.i14296 ], [ 48, %for.body.i.i10.preheader.i14293 ]
+  %first.sroa.0.06.i.i12.i14298.ptr = getelementptr inbounds i8, ptr %3118, i64 %first.sroa.0.06.i.i12.i14298.idx
+  %3132 = load i32, ptr %first.sroa.0.06.i.i12.i14298.ptr, align 8
+  store i32 %3132, ptr %retval.sroa.0.07.i.i11.i14297, align 8
+  %mbThrowOnCopy.i.i.i.i14299 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14297, i64 4
+  %mbThrowOnCopy3.i.i.i.i14300 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14298.ptr, i64 4
   %3133 = load i8, ptr %mbThrowOnCopy3.i.i.i.i14300, align 4
   %frombool.i.i.i.i14301 = and i8 %3133, 1
   store i8 %frombool.i.i.i.i14301, ptr %mbThrowOnCopy.i.i.i.i14299, align 4
-  %mMagicValue.i.i.i.i14302 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14298, i64 16
-  %mMagicValue4.i.i.i.i14303 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14297.ptr, i64 16
+  %mMagicValue.i.i.i.i14302 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14297, i64 16
+  %mMagicValue4.i.i.i.i14303 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14298.ptr, i64 16
   %3134 = load i32, ptr %mMagicValue4.i.i.i.i14303, align 8
   store i32 %3134, ptr %mMagicValue.i.i.i.i14302, align 8
   %3135 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -17661,12 +17661,12 @@ for.body.i.i10.i14296:                            ; preds = %for.body.i.i10.i142
   %3137 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i14306 = add nsw i64 %3137, 1
   store i64 %inc6.i.i.i.i14306, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i14307 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14298, i64 8
+  %mId.i.i.i.i14307 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14297, i64 8
   store i64 %inc5.i.i.i.i14305, ptr %mId.i.i.i.i14307, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i14297.ptr, align 8
-  %first.sroa.0.07.i.i11.i14297.add = add nuw nsw i64 %first.sroa.0.07.i.i11.i14297.idx, 24
-  %incdec.ptr.i.i.i14.i14309 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14298, i64 24
-  %cmp.i.i.i.not.i.i15.i14310 = icmp eq i64 %first.sroa.0.07.i.i11.i14297.add, 168
+  store i32 0, ptr %first.sroa.0.06.i.i12.i14298.ptr, align 8
+  %first.sroa.0.06.i.i12.i14298.add = add nuw nsw i64 %first.sroa.0.06.i.i12.i14298.idx, 24
+  %incdec.ptr.i.i.i14.i14309 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14297, i64 24
+  %cmp.i.i.i.not.i.i15.i14310 = icmp eq i64 %first.sroa.0.06.i.i12.i14298.add, 168
   br i1 %cmp.i.i.i.not.i.i15.i14310, label %invoke.cont4496, label %for.body.i.i10.i14296, !llvm.loop !498
 
 lpad.i10801:                                      ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i.i14311
@@ -38039,13 +38039,13 @@ for.body.i.i.preheader.i:                         ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i14107
 
 for.body.i.i.i14107:                              ; preds = %for.body.i.i.i14107, %for.body.i.i.preheader.i
-  %first.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i14108, %for.body.i.i.i14107 ], [ %2753, %for.body.i.i.preheader.i ]
-  %retval.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i14109, %for.body.i.i.i14107 ], [ %2762, %for.body.i.i.preheader.i ]
-  %2763 = load i32, ptr %first.sroa.0.07.i.i.i, align 4
-  store i32 %2763, ptr %retval.sroa.0.06.i.i.i, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i14108 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i, i64 4
-  %incdec.ptr.i.i.i.i14109 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i, i64 4
+  %retval.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i14109, %for.body.i.i.i14107 ], [ %2762, %for.body.i.i.preheader.i ]
+  %first.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i14108, %for.body.i.i.i14107 ], [ %2753, %for.body.i.i.preheader.i ]
+  %2763 = load i32, ptr %first.sroa.0.06.i.i.i, align 4
+  store i32 %2763, ptr %retval.sroa.0.07.i.i.i, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i, align 4
+  %incdec.ptr.i.i.i.i.i14108 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i14109 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i, i64 4
   %cmp.i.i.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i14108, %add.ptr25.i14104
   br i1 %cmp.i.i.i.not.i.i.i, label %for.body.i.i10.preheader.i, label %for.body.i.i.i14107, !llvm.loop !497
 
@@ -38055,17 +38055,17 @@ for.body.i.i10.preheader.i:                       ; preds = %for.body.i.i.i14107
   br label %for.body.i.i10.i
 
 for.body.i.i10.i:                                 ; preds = %for.body.i.i10.i, %for.body.i.i10.preheader.i
-  %first.sroa.0.07.i.i11.i = phi ptr [ %incdec.ptr.i.i.i.i13.i, %for.body.i.i10.i ], [ %2754, %for.body.i.i10.preheader.i ]
-  %retval.sroa.0.06.i.i12.i = phi ptr [ %incdec.ptr.i.i.i14.i, %for.body.i.i10.i ], [ %2764, %for.body.i.i10.preheader.i ]
-  %2765 = load i32, ptr %first.sroa.0.07.i.i11.i, align 8
-  store i32 %2765, ptr %retval.sroa.0.06.i.i12.i, align 8
-  %mbThrowOnCopy.i.i.i.i14110 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i14111 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 4
+  %retval.sroa.0.07.i.i11.i = phi ptr [ %incdec.ptr.i.i.i14.i, %for.body.i.i10.i ], [ %2764, %for.body.i.i10.preheader.i ]
+  %first.sroa.0.06.i.i12.i = phi ptr [ %incdec.ptr.i.i.i.i13.i, %for.body.i.i10.i ], [ %2754, %for.body.i.i10.preheader.i ]
+  %2765 = load i32, ptr %first.sroa.0.06.i.i12.i, align 8
+  store i32 %2765, ptr %retval.sroa.0.07.i.i11.i, align 8
+  %mbThrowOnCopy.i.i.i.i14110 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i14111 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 4
   %2766 = load i8, ptr %mbThrowOnCopy3.i.i.i.i14111, align 4
   %frombool.i.i.i.i14112 = and i8 %2766, 1
   store i8 %frombool.i.i.i.i14112, ptr %mbThrowOnCopy.i.i.i.i14110, align 4
-  %mMagicValue.i.i.i.i14113 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 16
-  %mMagicValue4.i.i.i.i14114 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 16
+  %mMagicValue.i.i.i.i14113 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 16
+  %mMagicValue4.i.i.i.i14114 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 16
   %2767 = load i32, ptr %mMagicValue4.i.i.i.i14114, align 8
   store i32 %2767, ptr %mMagicValue.i.i.i.i14113, align 8
   %2768 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -38077,11 +38077,11 @@ for.body.i.i10.i:                                 ; preds = %for.body.i.i10.i, %
   %2770 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i14117 = add nsw i64 %2770, 1
   store i64 %inc6.i.i.i.i14117, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i14118 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 8
+  %mId.i.i.i.i14118 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 8
   store i64 %inc5.i.i.i.i14116, ptr %mId.i.i.i.i14118, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i, align 8
-  %incdec.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 24
-  %incdec.ptr.i.i.i14.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i, align 8
+  %incdec.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 24
+  %incdec.ptr.i.i.i14.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 24
   %cmp.i.i.i.not.i.i15.i = icmp eq ptr %incdec.ptr.i.i.i.i13.i, %add.ptr37.i
   br i1 %cmp.i.i.i.not.i.i15.i, label %invoke.cont12.i, label %for.body.i.i10.i, !llvm.loop !498
 
@@ -38564,13 +38564,13 @@ for.body.i.i.preheader.i14146:                    ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i14153
 
 for.body.i.i.i14153:                              ; preds = %for.body.i.i.i14153, %for.body.i.i.preheader.i14146
-  %first.sroa.0.07.i.i.i14154 = phi ptr [ %incdec.ptr.i.i.i.i.i14156, %for.body.i.i.i14153 ], [ %2846, %for.body.i.i.preheader.i14146 ]
-  %retval.sroa.0.06.i.i.i14155 = phi ptr [ %incdec.ptr.i.i.i.i14157, %for.body.i.i.i14153 ], [ %2855, %for.body.i.i.preheader.i14146 ]
-  %2856 = load i32, ptr %first.sroa.0.07.i.i.i14154, align 4
-  store i32 %2856, ptr %retval.sroa.0.06.i.i.i14155, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i14154, align 4
-  %incdec.ptr.i.i.i.i.i14156 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i14154, i64 4
-  %incdec.ptr.i.i.i.i14157 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i14155, i64 4
+  %retval.sroa.0.07.i.i.i14154 = phi ptr [ %incdec.ptr.i.i.i.i14157, %for.body.i.i.i14153 ], [ %2855, %for.body.i.i.preheader.i14146 ]
+  %first.sroa.0.06.i.i.i14155 = phi ptr [ %incdec.ptr.i.i.i.i.i14156, %for.body.i.i.i14153 ], [ %2846, %for.body.i.i.preheader.i14146 ]
+  %2856 = load i32, ptr %first.sroa.0.06.i.i.i14155, align 4
+  store i32 %2856, ptr %retval.sroa.0.07.i.i.i14154, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i14155, align 4
+  %incdec.ptr.i.i.i.i.i14156 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i14155, i64 4
+  %incdec.ptr.i.i.i.i14157 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i14154, i64 4
   %cmp.i.i.i.not.i.i.i14158 = icmp eq ptr %incdec.ptr.i.i.i.i.i14156, %add.ptr25.i14150
   br i1 %cmp.i.i.i.not.i.i.i14158, label %for.body.i.i10.preheader.i14161, label %for.body.i.i.i14153, !llvm.loop !497
 
@@ -38580,17 +38580,17 @@ for.body.i.i10.preheader.i14161:                  ; preds = %for.body.i.i.i14153
   br label %for.body.i.i10.i14164
 
 for.body.i.i10.i14164:                            ; preds = %for.body.i.i10.i14164, %for.body.i.i10.preheader.i14161
-  %first.sroa.0.07.i.i11.i14165 = phi ptr [ %incdec.ptr.i.i.i.i13.i14176, %for.body.i.i10.i14164 ], [ %2847, %for.body.i.i10.preheader.i14161 ]
-  %retval.sroa.0.06.i.i12.i14166 = phi ptr [ %incdec.ptr.i.i.i14.i14177, %for.body.i.i10.i14164 ], [ %2857, %for.body.i.i10.preheader.i14161 ]
-  %2858 = load i32, ptr %first.sroa.0.07.i.i11.i14165, align 8
-  store i32 %2858, ptr %retval.sroa.0.06.i.i12.i14166, align 8
-  %mbThrowOnCopy.i.i.i.i14167 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14166, i64 4
-  %mbThrowOnCopy3.i.i.i.i14168 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14165, i64 4
+  %retval.sroa.0.07.i.i11.i14165 = phi ptr [ %incdec.ptr.i.i.i14.i14177, %for.body.i.i10.i14164 ], [ %2857, %for.body.i.i10.preheader.i14161 ]
+  %first.sroa.0.06.i.i12.i14166 = phi ptr [ %incdec.ptr.i.i.i.i13.i14176, %for.body.i.i10.i14164 ], [ %2847, %for.body.i.i10.preheader.i14161 ]
+  %2858 = load i32, ptr %first.sroa.0.06.i.i12.i14166, align 8
+  store i32 %2858, ptr %retval.sroa.0.07.i.i11.i14165, align 8
+  %mbThrowOnCopy.i.i.i.i14167 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14165, i64 4
+  %mbThrowOnCopy3.i.i.i.i14168 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14166, i64 4
   %2859 = load i8, ptr %mbThrowOnCopy3.i.i.i.i14168, align 4
   %frombool.i.i.i.i14169 = and i8 %2859, 1
   store i8 %frombool.i.i.i.i14169, ptr %mbThrowOnCopy.i.i.i.i14167, align 4
-  %mMagicValue.i.i.i.i14170 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14166, i64 16
-  %mMagicValue4.i.i.i.i14171 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14165, i64 16
+  %mMagicValue.i.i.i.i14170 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14165, i64 16
+  %mMagicValue4.i.i.i.i14171 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14166, i64 16
   %2860 = load i32, ptr %mMagicValue4.i.i.i.i14171, align 8
   store i32 %2860, ptr %mMagicValue.i.i.i.i14170, align 8
   %2861 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -38602,11 +38602,11 @@ for.body.i.i10.i14164:                            ; preds = %for.body.i.i10.i141
   %2863 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i14174 = add nsw i64 %2863, 1
   store i64 %inc6.i.i.i.i14174, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i14175 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14166, i64 8
+  %mId.i.i.i.i14175 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14165, i64 8
   store i64 %inc5.i.i.i.i14173, ptr %mId.i.i.i.i14175, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i14165, align 8
-  %incdec.ptr.i.i.i.i13.i14176 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14165, i64 24
-  %incdec.ptr.i.i.i14.i14177 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14166, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i14166, align 8
+  %incdec.ptr.i.i.i.i13.i14176 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14166, i64 24
+  %incdec.ptr.i.i.i14.i14177 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14165, i64 24
   %cmp.i.i.i.not.i.i15.i14178 = icmp eq ptr %incdec.ptr.i.i.i.i13.i14176, %add.ptr37.i14160
   br i1 %cmp.i.i.i.not.i.i15.i14178, label %invoke.cont10.i, label %for.body.i.i10.i14164, !llvm.loop !498
 
@@ -38877,13 +38877,13 @@ for.body.i.i.preheader.i14212:                    ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i14219
 
 for.body.i.i.i14219:                              ; preds = %for.body.i.i.i14219, %for.body.i.i.preheader.i14212
-  %first.sroa.0.07.i.i.i14220 = phi ptr [ %incdec.ptr.i.i.i.i.i14222, %for.body.i.i.i14219 ], [ %2908, %for.body.i.i.preheader.i14212 ]
-  %retval.sroa.0.06.i.i.i14221 = phi ptr [ %incdec.ptr.i.i.i.i14223, %for.body.i.i.i14219 ], [ %2917, %for.body.i.i.preheader.i14212 ]
-  %2918 = load i32, ptr %first.sroa.0.07.i.i.i14220, align 4
-  store i32 %2918, ptr %retval.sroa.0.06.i.i.i14221, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i14220, align 4
-  %incdec.ptr.i.i.i.i.i14222 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i14220, i64 4
-  %incdec.ptr.i.i.i.i14223 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i14221, i64 4
+  %retval.sroa.0.07.i.i.i14220 = phi ptr [ %incdec.ptr.i.i.i.i14223, %for.body.i.i.i14219 ], [ %2917, %for.body.i.i.preheader.i14212 ]
+  %first.sroa.0.06.i.i.i14221 = phi ptr [ %incdec.ptr.i.i.i.i.i14222, %for.body.i.i.i14219 ], [ %2908, %for.body.i.i.preheader.i14212 ]
+  %2918 = load i32, ptr %first.sroa.0.06.i.i.i14221, align 4
+  store i32 %2918, ptr %retval.sroa.0.07.i.i.i14220, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i14221, align 4
+  %incdec.ptr.i.i.i.i.i14222 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i14221, i64 4
+  %incdec.ptr.i.i.i.i14223 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i14220, i64 4
   %cmp.i.i.i.not.i.i.i14224 = icmp eq ptr %incdec.ptr.i.i.i.i.i14222, %add.ptr25.i14216
   br i1 %cmp.i.i.i.not.i.i.i14224, label %for.body.i.i10.preheader.i14227, label %for.body.i.i.i14219, !llvm.loop !497
 
@@ -38893,17 +38893,17 @@ for.body.i.i10.preheader.i14227:                  ; preds = %for.body.i.i.i14219
   br label %for.body.i.i10.i14230
 
 for.body.i.i10.i14230:                            ; preds = %for.body.i.i10.i14230, %for.body.i.i10.preheader.i14227
-  %first.sroa.0.07.i.i11.i14231 = phi ptr [ %incdec.ptr.i.i.i.i13.i14242, %for.body.i.i10.i14230 ], [ %2909, %for.body.i.i10.preheader.i14227 ]
-  %retval.sroa.0.06.i.i12.i14232 = phi ptr [ %incdec.ptr.i.i.i14.i14243, %for.body.i.i10.i14230 ], [ %2919, %for.body.i.i10.preheader.i14227 ]
-  %2920 = load i32, ptr %first.sroa.0.07.i.i11.i14231, align 8
-  store i32 %2920, ptr %retval.sroa.0.06.i.i12.i14232, align 8
-  %mbThrowOnCopy.i.i.i.i14233 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14232, i64 4
-  %mbThrowOnCopy3.i.i.i.i14234 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14231, i64 4
+  %retval.sroa.0.07.i.i11.i14231 = phi ptr [ %incdec.ptr.i.i.i14.i14243, %for.body.i.i10.i14230 ], [ %2919, %for.body.i.i10.preheader.i14227 ]
+  %first.sroa.0.06.i.i12.i14232 = phi ptr [ %incdec.ptr.i.i.i.i13.i14242, %for.body.i.i10.i14230 ], [ %2909, %for.body.i.i10.preheader.i14227 ]
+  %2920 = load i32, ptr %first.sroa.0.06.i.i12.i14232, align 8
+  store i32 %2920, ptr %retval.sroa.0.07.i.i11.i14231, align 8
+  %mbThrowOnCopy.i.i.i.i14233 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14231, i64 4
+  %mbThrowOnCopy3.i.i.i.i14234 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14232, i64 4
   %2921 = load i8, ptr %mbThrowOnCopy3.i.i.i.i14234, align 4
   %frombool.i.i.i.i14235 = and i8 %2921, 1
   store i8 %frombool.i.i.i.i14235, ptr %mbThrowOnCopy.i.i.i.i14233, align 4
-  %mMagicValue.i.i.i.i14236 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14232, i64 16
-  %mMagicValue4.i.i.i.i14237 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14231, i64 16
+  %mMagicValue.i.i.i.i14236 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14231, i64 16
+  %mMagicValue4.i.i.i.i14237 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14232, i64 16
   %2922 = load i32, ptr %mMagicValue4.i.i.i.i14237, align 8
   store i32 %2922, ptr %mMagicValue.i.i.i.i14236, align 8
   %2923 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -38915,11 +38915,11 @@ for.body.i.i10.i14230:                            ; preds = %for.body.i.i10.i142
   %2925 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i14240 = add nsw i64 %2925, 1
   store i64 %inc6.i.i.i.i14240, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i14241 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14232, i64 8
+  %mId.i.i.i.i14241 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14231, i64 8
   store i64 %inc5.i.i.i.i14239, ptr %mId.i.i.i.i14241, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i14231, align 8
-  %incdec.ptr.i.i.i.i13.i14242 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14231, i64 24
-  %incdec.ptr.i.i.i14.i14243 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14232, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i14232, align 8
+  %incdec.ptr.i.i.i.i13.i14242 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14232, i64 24
+  %incdec.ptr.i.i.i14.i14243 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14231, i64 24
   %cmp.i.i.i.not.i.i15.i14244 = icmp eq ptr %incdec.ptr.i.i.i.i13.i14242, %add.ptr37.i14226
   br i1 %cmp.i.i.i.not.i.i15.i14244, label %invoke.cont10.i10532, label %for.body.i.i10.i14230, !llvm.loop !498
 
@@ -39416,13 +39416,13 @@ for.body.i.i.preheader.i14278:                    ; preds = %_ZN10TestObjectD2Ev
   br label %for.body.i.i.i14285
 
 for.body.i.i.i14285:                              ; preds = %for.body.i.i.i14285, %for.body.i.i.preheader.i14278
-  %first.sroa.0.07.i.i.i14286 = phi ptr [ %incdec.ptr.i.i.i.i.i14288, %for.body.i.i.i14285 ], [ %add.ptr22.i14284, %for.body.i.i.preheader.i14278 ]
-  %retval.sroa.0.06.i.i.i14287 = phi ptr [ %incdec.ptr.i.i.i.i14289, %for.body.i.i.i14285 ], [ %3006, %for.body.i.i.preheader.i14278 ]
-  %3008 = load i32, ptr %first.sroa.0.07.i.i.i14286, align 4
-  store i32 %3008, ptr %retval.sroa.0.06.i.i.i14287, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i14286, align 4
-  %incdec.ptr.i.i.i.i.i14288 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i14286, i64 4
-  %incdec.ptr.i.i.i.i14289 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i14287, i64 4
+  %retval.sroa.0.07.i.i.i14286 = phi ptr [ %incdec.ptr.i.i.i.i14289, %for.body.i.i.i14285 ], [ %3006, %for.body.i.i.preheader.i14278 ]
+  %first.sroa.0.06.i.i.i14287 = phi ptr [ %incdec.ptr.i.i.i.i.i14288, %for.body.i.i.i14285 ], [ %add.ptr22.i14284, %for.body.i.i.preheader.i14278 ]
+  %3008 = load i32, ptr %first.sroa.0.06.i.i.i14287, align 4
+  store i32 %3008, ptr %retval.sroa.0.07.i.i.i14286, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i14287, align 4
+  %incdec.ptr.i.i.i.i.i14288 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i14287, i64 4
+  %incdec.ptr.i.i.i.i14289 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i14286, i64 4
   %cmp.i.i.i.not.i.i.i14290 = icmp eq ptr %incdec.ptr.i.i.i.i.i14288, %add.ptr25.i14282
   br i1 %cmp.i.i.i.not.i.i.i14290, label %for.body.i.i10.preheader.i14293, label %for.body.i.i.i14285, !llvm.loop !497
 
@@ -39431,18 +39431,18 @@ for.body.i.i10.preheader.i14293:                  ; preds = %for.body.i.i.i14285
   br label %for.body.i.i10.i14296
 
 for.body.i.i10.i14296:                            ; preds = %for.body.i.i10.i14296, %for.body.i.i10.preheader.i14293
-  %first.sroa.0.07.i.i11.i14297.idx = phi i64 [ %first.sroa.0.07.i.i11.i14297.add, %for.body.i.i10.i14296 ], [ 48, %for.body.i.i10.preheader.i14293 ]
-  %retval.sroa.0.06.i.i12.i14298 = phi ptr [ %incdec.ptr.i.i.i14.i14309, %for.body.i.i10.i14296 ], [ %3009, %for.body.i.i10.preheader.i14293 ]
-  %first.sroa.0.07.i.i11.i14297.ptr = getelementptr inbounds i8, ptr %3002, i64 %first.sroa.0.07.i.i11.i14297.idx
-  %3010 = load i32, ptr %first.sroa.0.07.i.i11.i14297.ptr, align 8
-  store i32 %3010, ptr %retval.sroa.0.06.i.i12.i14298, align 8
-  %mbThrowOnCopy.i.i.i.i14299 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14298, i64 4
-  %mbThrowOnCopy3.i.i.i.i14300 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14297.ptr, i64 4
+  %retval.sroa.0.07.i.i11.i14297 = phi ptr [ %incdec.ptr.i.i.i14.i14309, %for.body.i.i10.i14296 ], [ %3009, %for.body.i.i10.preheader.i14293 ]
+  %first.sroa.0.06.i.i12.i14298.idx = phi i64 [ %first.sroa.0.06.i.i12.i14298.add, %for.body.i.i10.i14296 ], [ 48, %for.body.i.i10.preheader.i14293 ]
+  %first.sroa.0.06.i.i12.i14298.ptr = getelementptr inbounds i8, ptr %3002, i64 %first.sroa.0.06.i.i12.i14298.idx
+  %3010 = load i32, ptr %first.sroa.0.06.i.i12.i14298.ptr, align 8
+  store i32 %3010, ptr %retval.sroa.0.07.i.i11.i14297, align 8
+  %mbThrowOnCopy.i.i.i.i14299 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14297, i64 4
+  %mbThrowOnCopy3.i.i.i.i14300 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14298.ptr, i64 4
   %3011 = load i8, ptr %mbThrowOnCopy3.i.i.i.i14300, align 4
   %frombool.i.i.i.i14301 = and i8 %3011, 1
   store i8 %frombool.i.i.i.i14301, ptr %mbThrowOnCopy.i.i.i.i14299, align 4
-  %mMagicValue.i.i.i.i14302 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14298, i64 16
-  %mMagicValue4.i.i.i.i14303 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i14297.ptr, i64 16
+  %mMagicValue.i.i.i.i14302 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14297, i64 16
+  %mMagicValue4.i.i.i.i14303 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i14298.ptr, i64 16
   %3012 = load i32, ptr %mMagicValue4.i.i.i.i14303, align 8
   store i32 %3012, ptr %mMagicValue.i.i.i.i14302, align 8
   %3013 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -39454,12 +39454,12 @@ for.body.i.i10.i14296:                            ; preds = %for.body.i.i10.i142
   %3015 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i14306 = add nsw i64 %3015, 1
   store i64 %inc6.i.i.i.i14306, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i14307 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14298, i64 8
+  %mId.i.i.i.i14307 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14297, i64 8
   store i64 %inc5.i.i.i.i14305, ptr %mId.i.i.i.i14307, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i14297.ptr, align 8
-  %first.sroa.0.07.i.i11.i14297.add = add nuw nsw i64 %first.sroa.0.07.i.i11.i14297.idx, 24
-  %incdec.ptr.i.i.i14.i14309 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i14298, i64 24
-  %cmp.i.i.i.not.i.i15.i14310 = icmp eq i64 %first.sroa.0.07.i.i11.i14297.add, 168
+  store i32 0, ptr %first.sroa.0.06.i.i12.i14298.ptr, align 8
+  %first.sroa.0.06.i.i12.i14298.add = add nuw nsw i64 %first.sroa.0.06.i.i12.i14298.idx, 24
+  %incdec.ptr.i.i.i14.i14309 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i14297, i64 24
+  %cmp.i.i.i.not.i.i15.i14310 = icmp eq i64 %first.sroa.0.06.i.i12.i14298.add, 168
   br i1 %cmp.i.i.i.not.i.i15.i14310, label %invoke.cont4425, label %for.body.i.i10.i14296, !llvm.loop !498
 
 invoke.cont4425:                                  ; preds = %for.body.i.i10.i14296
@@ -45502,17 +45502,17 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fi
   br label %for.body.i.i.i.i.i14780
 
 for.body.i.i.i.i.i14780:                          ; preds = %for.body.i.i.i.i.i14780, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i
-  %first.sroa.0.08.i.i.i.i.i14781 = phi ptr [ %incdec.ptr.i.i.i.i.i.i14792, %for.body.i.i.i.i.i14780 ], [ %155, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i ]
-  %retval.sroa.0.07.i.i.i.i.i14782 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i14793, %for.body.i.i.i.i.i14780 ], [ %153, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i ]
-  %156 = load i32, ptr %first.sroa.0.08.i.i.i.i.i14781, align 8
-  store i32 %156, ptr %retval.sroa.0.07.i.i.i.i.i14782, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i14783 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i14782, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i14784 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i14781, i64 4
+  %retval.sroa.0.08.i.i.i.i.i14781 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i14793, %for.body.i.i.i.i.i14780 ], [ %153, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i ]
+  %first.sroa.0.07.i.i.i.i.i14782 = phi ptr [ %incdec.ptr.i.i.i.i.i.i14792, %for.body.i.i.i.i.i14780 ], [ %155, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i ]
+  %156 = load i32, ptr %first.sroa.0.07.i.i.i.i.i14782, align 8
+  store i32 %156, ptr %retval.sroa.0.08.i.i.i.i.i14781, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i14783 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i14781, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i14784 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i14782, i64 4
   %157 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i14784, align 4
   %frombool.i.i.i.i.i.i14785 = and i8 %157, 1
   store i8 %frombool.i.i.i.i.i.i14785, ptr %mbThrowOnCopy.i.i.i.i.i.i14783, align 4
-  %mMagicValue.i.i.i.i.i.i14786 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i14782, i64 16
-  %mMagicValue4.i.i.i.i.i.i14787 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i14781, i64 16
+  %mMagicValue.i.i.i.i.i.i14786 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i14781, i64 16
+  %mMagicValue4.i.i.i.i.i.i14787 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i14782, i64 16
   %158 = load i32, ptr %mMagicValue4.i.i.i.i.i.i14787, align 8
   store i32 %158, ptr %mMagicValue.i.i.i.i.i.i14786, align 8
   %159 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -45524,11 +45524,11 @@ for.body.i.i.i.i.i14780:                          ; preds = %for.body.i.i.i.i.i1
   %161 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i14790 = add nsw i64 %161, 1
   store i64 %inc6.i.i.i.i.i.i14790, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i14791 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i14782, i64 8
+  %mId.i.i.i.i.i.i14791 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i14781, i64 8
   store i64 %inc5.i.i.i.i.i.i14789, ptr %mId.i.i.i.i.i.i14791, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i14781, align 8
-  %incdec.ptr.i.i.i.i.i.i14792 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i14781, i64 24
-  %incdec.ptr.i1.i.i.i.i.i14793 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i14782, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i14782, align 8
+  %incdec.ptr.i.i.i.i.i.i14792 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i14782, i64 24
+  %incdec.ptr.i1.i.i.i.i.i14793 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i14781, i64 24
   %cmp.i.not.i.i.i.i.i14794 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i14792, %add.ptr3.i.i14779
   br i1 %cmp.i.not.i.i.i.i.i14794, label %for.body.preheader.i.i.i.i14795, label %for.body.i.i.i.i.i14780, !llvm.loop !1484
 
@@ -46290,17 +46290,17 @@ for.body.i.i.preheader.i.i.i1103:                 ; preds = %if.then483
   br label %for.body.i.i.i.i.i1110
 
 for.body.i.i.i.i.i1110:                           ; preds = %for.body.i.i.i.i.i1110, %for.body.i.i.preheader.i.i.i1103
-  %first.sroa.0.07.i.i.i.i.i1111 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i1122, %for.body.i.i.i.i.i1110 ], [ %312, %for.body.i.i.preheader.i.i.i1103 ]
-  %retval.sroa.0.06.i.i.i.i.i1112 = phi ptr [ %incdec.ptr.i.i.i.i.i.i1123, %for.body.i.i.i.i.i1110 ], [ %314, %for.body.i.i.preheader.i.i.i1103 ]
-  %315 = load i32, ptr %first.sroa.0.07.i.i.i.i.i1111, align 8
-  store i32 %315, ptr %retval.sroa.0.06.i.i.i.i.i1112, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i1113 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1112, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i1114 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i1111, i64 4
+  %retval.sroa.0.07.i.i.i.i.i1111 = phi ptr [ %incdec.ptr.i.i.i.i.i.i1123, %for.body.i.i.i.i.i1110 ], [ %314, %for.body.i.i.preheader.i.i.i1103 ]
+  %first.sroa.0.06.i.i.i.i.i1112 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i1122, %for.body.i.i.i.i.i1110 ], [ %312, %for.body.i.i.preheader.i.i.i1103 ]
+  %315 = load i32, ptr %first.sroa.0.06.i.i.i.i.i1112, align 8
+  store i32 %315, ptr %retval.sroa.0.07.i.i.i.i.i1111, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i1113 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1111, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i1114 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i1112, i64 4
   %316 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i1114, align 4
   %frombool.i.i.i.i.i.i1115 = and i8 %316, 1
   store i8 %frombool.i.i.i.i.i.i1115, ptr %mbThrowOnCopy.i.i.i.i.i.i1113, align 4
-  %mMagicValue.i.i.i.i.i.i1116 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1112, i64 16
-  %mMagicValue4.i.i.i.i.i.i1117 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i1111, i64 16
+  %mMagicValue.i.i.i.i.i.i1116 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1111, i64 16
+  %mMagicValue4.i.i.i.i.i.i1117 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i1112, i64 16
   %317 = load i32, ptr %mMagicValue4.i.i.i.i.i.i1117, align 8
   store i32 %317, ptr %mMagicValue.i.i.i.i.i.i1116, align 8
   %318 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -46312,11 +46312,11 @@ for.body.i.i.i.i.i1110:                           ; preds = %for.body.i.i.i.i.i1
   %320 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i1120 = add nsw i64 %320, 1
   store i64 %inc6.i.i.i.i.i.i1120, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i1121 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1112, i64 8
+  %mId.i.i.i.i.i.i1121 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1111, i64 8
   store i64 %inc5.i.i.i.i.i.i1119, ptr %mId.i.i.i.i.i.i1121, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i1111, align 8
-  %incdec.ptr.i.i.i.i.i.i.i1122 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i1111, i64 24
-  %incdec.ptr.i.i.i.i.i.i1123 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1112, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i1112, align 8
+  %incdec.ptr.i.i.i.i.i.i.i1122 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i1112, i64 24
+  %incdec.ptr.i.i.i.i.i.i1123 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1111, i64 24
   %cmp.i.i.i.not.i.i.i.i.i1124 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i1122, %add.ptr25.i.i.i1109
   br i1 %cmp.i.i.i.not.i.i.i.i.i1124, label %if.end.i.i.i.i.i.i10.i.i.i1125, label %for.body.i.i.i.i.i1110, !llvm.loop !498
 
@@ -46719,17 +46719,17 @@ for.body.i.i.preheader.i.i.i1382:                 ; preds = %if.then570
   br label %for.body.i.i.i.i.i1389
 
 for.body.i.i.i.i.i1389:                           ; preds = %for.body.i.i.i.i.i1389, %for.body.i.i.preheader.i.i.i1382
-  %first.sroa.0.07.i.i.i.i.i1390 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i1401, %for.body.i.i.i.i.i1389 ], [ %387, %for.body.i.i.preheader.i.i.i1382 ]
-  %retval.sroa.0.06.i.i.i.i.i1391 = phi ptr [ %incdec.ptr.i.i.i.i.i.i1402, %for.body.i.i.i.i.i1389 ], [ %389, %for.body.i.i.preheader.i.i.i1382 ]
-  %390 = load i32, ptr %first.sroa.0.07.i.i.i.i.i1390, align 8
-  store i32 %390, ptr %retval.sroa.0.06.i.i.i.i.i1391, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i1392 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1391, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i1393 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i1390, i64 4
+  %retval.sroa.0.07.i.i.i.i.i1390 = phi ptr [ %incdec.ptr.i.i.i.i.i.i1402, %for.body.i.i.i.i.i1389 ], [ %389, %for.body.i.i.preheader.i.i.i1382 ]
+  %first.sroa.0.06.i.i.i.i.i1391 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i1401, %for.body.i.i.i.i.i1389 ], [ %387, %for.body.i.i.preheader.i.i.i1382 ]
+  %390 = load i32, ptr %first.sroa.0.06.i.i.i.i.i1391, align 8
+  store i32 %390, ptr %retval.sroa.0.07.i.i.i.i.i1390, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i1392 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1390, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i1393 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i1391, i64 4
   %391 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i1393, align 4
   %frombool.i.i.i.i.i.i1394 = and i8 %391, 1
   store i8 %frombool.i.i.i.i.i.i1394, ptr %mbThrowOnCopy.i.i.i.i.i.i1392, align 4
-  %mMagicValue.i.i.i.i.i.i1395 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1391, i64 16
-  %mMagicValue4.i.i.i.i.i.i1396 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i1390, i64 16
+  %mMagicValue.i.i.i.i.i.i1395 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1390, i64 16
+  %mMagicValue4.i.i.i.i.i.i1396 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i1391, i64 16
   %392 = load i32, ptr %mMagicValue4.i.i.i.i.i.i1396, align 8
   store i32 %392, ptr %mMagicValue.i.i.i.i.i.i1395, align 8
   %393 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -46741,11 +46741,11 @@ for.body.i.i.i.i.i1389:                           ; preds = %for.body.i.i.i.i.i1
   %395 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i1399 = add nsw i64 %395, 1
   store i64 %inc6.i.i.i.i.i.i1399, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i1400 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1391, i64 8
+  %mId.i.i.i.i.i.i1400 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1390, i64 8
   store i64 %inc5.i.i.i.i.i.i1398, ptr %mId.i.i.i.i.i.i1400, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i1390, align 8
-  %incdec.ptr.i.i.i.i.i.i.i1401 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i1390, i64 24
-  %incdec.ptr.i.i.i.i.i.i1402 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1391, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i1391, align 8
+  %incdec.ptr.i.i.i.i.i.i.i1401 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i1391, i64 24
+  %incdec.ptr.i.i.i.i.i.i1402 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1390, i64 24
   %cmp.i.i.i.not.i.i.i.i.i1403 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i1401, %add.ptr25.i.i.i1388
   br i1 %cmp.i.i.i.not.i.i.i.i.i1403, label %if.end.i.i.i.i.i.i10.i.i.i1404, label %for.body.i.i.i.i.i1389, !llvm.loop !498
 
@@ -46904,17 +46904,17 @@ for.body.i.i.preheader.i.i.i1481:                 ; preds = %if.then595
   br label %for.body.i.i.i.i.i1488
 
 for.body.i.i.i.i.i1488:                           ; preds = %for.body.i.i.i.i.i1488, %for.body.i.i.preheader.i.i.i1481
-  %first.sroa.0.07.i.i.i.i.i1489 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i1500, %for.body.i.i.i.i.i1488 ], [ %415, %for.body.i.i.preheader.i.i.i1481 ]
-  %retval.sroa.0.06.i.i.i.i.i1490 = phi ptr [ %incdec.ptr.i.i.i.i.i.i1501, %for.body.i.i.i.i.i1488 ], [ %417, %for.body.i.i.preheader.i.i.i1481 ]
-  %418 = load i32, ptr %first.sroa.0.07.i.i.i.i.i1489, align 8
-  store i32 %418, ptr %retval.sroa.0.06.i.i.i.i.i1490, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i1491 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1490, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i1492 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i1489, i64 4
+  %retval.sroa.0.07.i.i.i.i.i1489 = phi ptr [ %incdec.ptr.i.i.i.i.i.i1501, %for.body.i.i.i.i.i1488 ], [ %417, %for.body.i.i.preheader.i.i.i1481 ]
+  %first.sroa.0.06.i.i.i.i.i1490 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i1500, %for.body.i.i.i.i.i1488 ], [ %415, %for.body.i.i.preheader.i.i.i1481 ]
+  %418 = load i32, ptr %first.sroa.0.06.i.i.i.i.i1490, align 8
+  store i32 %418, ptr %retval.sroa.0.07.i.i.i.i.i1489, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i1491 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1489, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i1492 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i1490, i64 4
   %419 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i1492, align 4
   %frombool.i.i.i.i.i.i1493 = and i8 %419, 1
   store i8 %frombool.i.i.i.i.i.i1493, ptr %mbThrowOnCopy.i.i.i.i.i.i1491, align 4
-  %mMagicValue.i.i.i.i.i.i1494 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1490, i64 16
-  %mMagicValue4.i.i.i.i.i.i1495 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i1489, i64 16
+  %mMagicValue.i.i.i.i.i.i1494 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1489, i64 16
+  %mMagicValue4.i.i.i.i.i.i1495 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i1490, i64 16
   %420 = load i32, ptr %mMagicValue4.i.i.i.i.i.i1495, align 8
   store i32 %420, ptr %mMagicValue.i.i.i.i.i.i1494, align 8
   %421 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -46926,11 +46926,11 @@ for.body.i.i.i.i.i1488:                           ; preds = %for.body.i.i.i.i.i1
   %423 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i1498 = add nsw i64 %423, 1
   store i64 %inc6.i.i.i.i.i.i1498, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i1499 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1490, i64 8
+  %mId.i.i.i.i.i.i1499 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1489, i64 8
   store i64 %inc5.i.i.i.i.i.i1497, ptr %mId.i.i.i.i.i.i1499, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i1489, align 8
-  %incdec.ptr.i.i.i.i.i.i.i1500 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i1489, i64 24
-  %incdec.ptr.i.i.i.i.i.i1501 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1490, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i1490, align 8
+  %incdec.ptr.i.i.i.i.i.i.i1500 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i1490, i64 24
+  %incdec.ptr.i.i.i.i.i.i1501 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1489, i64 24
   %cmp.i.i.i.not.i.i.i.i.i1502 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i1500, %add.ptr25.i.i.i1487
   br i1 %cmp.i.i.i.not.i.i.i.i.i1502, label %if.end.i.i.i.i.i.i10.i.i.i1503, label %for.body.i.i.i.i.i1488, !llvm.loop !498
 
@@ -47079,17 +47079,17 @@ for.body.i.i.preheader.i.i.i1584:                 ; preds = %if.then622
   br label %for.body.i.i.i.i.i1591
 
 for.body.i.i.i.i.i1591:                           ; preds = %for.body.i.i.i.i.i1591, %for.body.i.i.preheader.i.i.i1584
-  %first.sroa.0.07.i.i.i.i.i1592 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i1603, %for.body.i.i.i.i.i1591 ], [ %442, %for.body.i.i.preheader.i.i.i1584 ]
-  %retval.sroa.0.06.i.i.i.i.i1593 = phi ptr [ %incdec.ptr.i.i.i.i.i.i1604, %for.body.i.i.i.i.i1591 ], [ %444, %for.body.i.i.preheader.i.i.i1584 ]
-  %445 = load i32, ptr %first.sroa.0.07.i.i.i.i.i1592, align 8
-  store i32 %445, ptr %retval.sroa.0.06.i.i.i.i.i1593, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i1594 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1593, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i1595 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i1592, i64 4
+  %retval.sroa.0.07.i.i.i.i.i1592 = phi ptr [ %incdec.ptr.i.i.i.i.i.i1604, %for.body.i.i.i.i.i1591 ], [ %444, %for.body.i.i.preheader.i.i.i1584 ]
+  %first.sroa.0.06.i.i.i.i.i1593 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i1603, %for.body.i.i.i.i.i1591 ], [ %442, %for.body.i.i.preheader.i.i.i1584 ]
+  %445 = load i32, ptr %first.sroa.0.06.i.i.i.i.i1593, align 8
+  store i32 %445, ptr %retval.sroa.0.07.i.i.i.i.i1592, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i1594 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1592, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i1595 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i1593, i64 4
   %446 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i1595, align 4
   %frombool.i.i.i.i.i.i1596 = and i8 %446, 1
   store i8 %frombool.i.i.i.i.i.i1596, ptr %mbThrowOnCopy.i.i.i.i.i.i1594, align 4
-  %mMagicValue.i.i.i.i.i.i1597 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1593, i64 16
-  %mMagicValue4.i.i.i.i.i.i1598 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i1592, i64 16
+  %mMagicValue.i.i.i.i.i.i1597 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1592, i64 16
+  %mMagicValue4.i.i.i.i.i.i1598 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i1593, i64 16
   %447 = load i32, ptr %mMagicValue4.i.i.i.i.i.i1598, align 8
   store i32 %447, ptr %mMagicValue.i.i.i.i.i.i1597, align 8
   %448 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -47101,11 +47101,11 @@ for.body.i.i.i.i.i1591:                           ; preds = %for.body.i.i.i.i.i1
   %450 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i1601 = add nsw i64 %450, 1
   store i64 %inc6.i.i.i.i.i.i1601, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i1602 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1593, i64 8
+  %mId.i.i.i.i.i.i1602 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1592, i64 8
   store i64 %inc5.i.i.i.i.i.i1600, ptr %mId.i.i.i.i.i.i1602, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i1592, align 8
-  %incdec.ptr.i.i.i.i.i.i.i1603 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i1592, i64 24
-  %incdec.ptr.i.i.i.i.i.i1604 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1593, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i1593, align 8
+  %incdec.ptr.i.i.i.i.i.i.i1603 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i1593, i64 24
+  %incdec.ptr.i.i.i.i.i.i1604 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1592, i64 24
   %cmp.i.i.i.not.i.i.i.i.i1605 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i1603, %add.ptr25.i.i.i1590
   br i1 %cmp.i.i.i.not.i.i.i.i.i1605, label %if.end.i.i.i.i.i.i10.i.i.i1606, label %for.body.i.i.i.i.i1591, !llvm.loop !498
 
@@ -47569,17 +47569,17 @@ for.body.i.i.preheader.i.i.i1901:                 ; preds = %if.then726
   br label %for.body.i.i.i.i.i1908
 
 for.body.i.i.i.i.i1908:                           ; preds = %for.body.i.i.i.i.i1908, %for.body.i.i.preheader.i.i.i1901
-  %first.sroa.0.07.i.i.i.i.i1909 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i1920, %for.body.i.i.i.i.i1908 ], [ %528, %for.body.i.i.preheader.i.i.i1901 ]
-  %retval.sroa.0.06.i.i.i.i.i1910 = phi ptr [ %incdec.ptr.i.i.i.i.i.i1921, %for.body.i.i.i.i.i1908 ], [ %530, %for.body.i.i.preheader.i.i.i1901 ]
-  %531 = load i32, ptr %first.sroa.0.07.i.i.i.i.i1909, align 8
-  store i32 %531, ptr %retval.sroa.0.06.i.i.i.i.i1910, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i1911 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1910, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i1912 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i1909, i64 4
+  %retval.sroa.0.07.i.i.i.i.i1909 = phi ptr [ %incdec.ptr.i.i.i.i.i.i1921, %for.body.i.i.i.i.i1908 ], [ %530, %for.body.i.i.preheader.i.i.i1901 ]
+  %first.sroa.0.06.i.i.i.i.i1910 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i1920, %for.body.i.i.i.i.i1908 ], [ %528, %for.body.i.i.preheader.i.i.i1901 ]
+  %531 = load i32, ptr %first.sroa.0.06.i.i.i.i.i1910, align 8
+  store i32 %531, ptr %retval.sroa.0.07.i.i.i.i.i1909, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i1911 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1909, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i1912 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i1910, i64 4
   %532 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i1912, align 4
   %frombool.i.i.i.i.i.i1913 = and i8 %532, 1
   store i8 %frombool.i.i.i.i.i.i1913, ptr %mbThrowOnCopy.i.i.i.i.i.i1911, align 4
-  %mMagicValue.i.i.i.i.i.i1914 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1910, i64 16
-  %mMagicValue4.i.i.i.i.i.i1915 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i1909, i64 16
+  %mMagicValue.i.i.i.i.i.i1914 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1909, i64 16
+  %mMagicValue4.i.i.i.i.i.i1915 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i1910, i64 16
   %533 = load i32, ptr %mMagicValue4.i.i.i.i.i.i1915, align 8
   store i32 %533, ptr %mMagicValue.i.i.i.i.i.i1914, align 8
   %534 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -47591,11 +47591,11 @@ for.body.i.i.i.i.i1908:                           ; preds = %for.body.i.i.i.i.i1
   %536 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i1918 = add nsw i64 %536, 1
   store i64 %inc6.i.i.i.i.i.i1918, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i1919 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1910, i64 8
+  %mId.i.i.i.i.i.i1919 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1909, i64 8
   store i64 %inc5.i.i.i.i.i.i1917, ptr %mId.i.i.i.i.i.i1919, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i1909, align 8
-  %incdec.ptr.i.i.i.i.i.i.i1920 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i1909, i64 24
-  %incdec.ptr.i.i.i.i.i.i1921 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i1910, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i1910, align 8
+  %incdec.ptr.i.i.i.i.i.i.i1920 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i1910, i64 24
+  %incdec.ptr.i.i.i.i.i.i1921 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i1909, i64 24
   %cmp.i.i.i.not.i.i.i.i.i1922 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i1920, %add.ptr25.i.i.i1907
   br i1 %cmp.i.i.i.not.i.i.i.i.i1922, label %if.end.i.i.i.i.i.i10.i.i.i1923, label %for.body.i.i.i.i.i1908, !llvm.loop !498
 
@@ -47774,17 +47774,17 @@ for.body.i.i.preheader.i.i.i2011:                 ; preds = %if.then751
   br label %for.body.i.i.i.i.i2018
 
 for.body.i.i.i.i.i2018:                           ; preds = %for.body.i.i.i.i.i2018, %for.body.i.i.preheader.i.i.i2011
-  %first.sroa.0.07.i.i.i.i.i2019 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i2030, %for.body.i.i.i.i.i2018 ], [ %560, %for.body.i.i.preheader.i.i.i2011 ]
-  %retval.sroa.0.06.i.i.i.i.i2020 = phi ptr [ %incdec.ptr.i.i.i.i.i.i2031, %for.body.i.i.i.i.i2018 ], [ %562, %for.body.i.i.preheader.i.i.i2011 ]
-  %563 = load i32, ptr %first.sroa.0.07.i.i.i.i.i2019, align 8
-  store i32 %563, ptr %retval.sroa.0.06.i.i.i.i.i2020, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i2021 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2020, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i2022 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i2019, i64 4
+  %retval.sroa.0.07.i.i.i.i.i2019 = phi ptr [ %incdec.ptr.i.i.i.i.i.i2031, %for.body.i.i.i.i.i2018 ], [ %562, %for.body.i.i.preheader.i.i.i2011 ]
+  %first.sroa.0.06.i.i.i.i.i2020 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i2030, %for.body.i.i.i.i.i2018 ], [ %560, %for.body.i.i.preheader.i.i.i2011 ]
+  %563 = load i32, ptr %first.sroa.0.06.i.i.i.i.i2020, align 8
+  store i32 %563, ptr %retval.sroa.0.07.i.i.i.i.i2019, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i2021 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2019, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i2022 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i2020, i64 4
   %564 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i2022, align 4
   %frombool.i.i.i.i.i.i2023 = and i8 %564, 1
   store i8 %frombool.i.i.i.i.i.i2023, ptr %mbThrowOnCopy.i.i.i.i.i.i2021, align 4
-  %mMagicValue.i.i.i.i.i.i2024 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2020, i64 16
-  %mMagicValue4.i.i.i.i.i.i2025 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i2019, i64 16
+  %mMagicValue.i.i.i.i.i.i2024 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2019, i64 16
+  %mMagicValue4.i.i.i.i.i.i2025 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i2020, i64 16
   %565 = load i32, ptr %mMagicValue4.i.i.i.i.i.i2025, align 8
   store i32 %565, ptr %mMagicValue.i.i.i.i.i.i2024, align 8
   %566 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -47796,11 +47796,11 @@ for.body.i.i.i.i.i2018:                           ; preds = %for.body.i.i.i.i.i2
   %568 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i2028 = add nsw i64 %568, 1
   store i64 %inc6.i.i.i.i.i.i2028, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i2029 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2020, i64 8
+  %mId.i.i.i.i.i.i2029 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2019, i64 8
   store i64 %inc5.i.i.i.i.i.i2027, ptr %mId.i.i.i.i.i.i2029, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i2019, align 8
-  %incdec.ptr.i.i.i.i.i.i.i2030 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i2019, i64 24
-  %incdec.ptr.i.i.i.i.i.i2031 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2020, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i2020, align 8
+  %incdec.ptr.i.i.i.i.i.i.i2030 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i2020, i64 24
+  %incdec.ptr.i.i.i.i.i.i2031 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2019, i64 24
   %cmp.i.i.i.not.i.i.i.i.i2032 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i2030, %add.ptr25.i.i.i2017
   br i1 %cmp.i.i.i.not.i.i.i.i.i2032, label %if.end.i.i.i.i.i.i10.i.i.i2033, label %for.body.i.i.i.i.i2018, !llvm.loop !498
 
@@ -47951,17 +47951,17 @@ for.body.i.i.preheader.i.i.i2117:                 ; preds = %if.then778
   br label %for.body.i.i.i.i.i2124
 
 for.body.i.i.i.i.i2124:                           ; preds = %for.body.i.i.i.i.i2124, %for.body.i.i.preheader.i.i.i2117
-  %first.sroa.0.07.i.i.i.i.i2125 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i2136, %for.body.i.i.i.i.i2124 ], [ %587, %for.body.i.i.preheader.i.i.i2117 ]
-  %retval.sroa.0.06.i.i.i.i.i2126 = phi ptr [ %incdec.ptr.i.i.i.i.i.i2137, %for.body.i.i.i.i.i2124 ], [ %589, %for.body.i.i.preheader.i.i.i2117 ]
-  %590 = load i32, ptr %first.sroa.0.07.i.i.i.i.i2125, align 8
-  store i32 %590, ptr %retval.sroa.0.06.i.i.i.i.i2126, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i2127 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2126, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i2128 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i2125, i64 4
+  %retval.sroa.0.07.i.i.i.i.i2125 = phi ptr [ %incdec.ptr.i.i.i.i.i.i2137, %for.body.i.i.i.i.i2124 ], [ %589, %for.body.i.i.preheader.i.i.i2117 ]
+  %first.sroa.0.06.i.i.i.i.i2126 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i2136, %for.body.i.i.i.i.i2124 ], [ %587, %for.body.i.i.preheader.i.i.i2117 ]
+  %590 = load i32, ptr %first.sroa.0.06.i.i.i.i.i2126, align 8
+  store i32 %590, ptr %retval.sroa.0.07.i.i.i.i.i2125, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i2127 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2125, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i2128 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i2126, i64 4
   %591 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i2128, align 4
   %frombool.i.i.i.i.i.i2129 = and i8 %591, 1
   store i8 %frombool.i.i.i.i.i.i2129, ptr %mbThrowOnCopy.i.i.i.i.i.i2127, align 4
-  %mMagicValue.i.i.i.i.i.i2130 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2126, i64 16
-  %mMagicValue4.i.i.i.i.i.i2131 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i2125, i64 16
+  %mMagicValue.i.i.i.i.i.i2130 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2125, i64 16
+  %mMagicValue4.i.i.i.i.i.i2131 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i2126, i64 16
   %592 = load i32, ptr %mMagicValue4.i.i.i.i.i.i2131, align 8
   store i32 %592, ptr %mMagicValue.i.i.i.i.i.i2130, align 8
   %593 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -47973,11 +47973,11 @@ for.body.i.i.i.i.i2124:                           ; preds = %for.body.i.i.i.i.i2
   %595 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i2134 = add nsw i64 %595, 1
   store i64 %inc6.i.i.i.i.i.i2134, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i2135 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2126, i64 8
+  %mId.i.i.i.i.i.i2135 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2125, i64 8
   store i64 %inc5.i.i.i.i.i.i2133, ptr %mId.i.i.i.i.i.i2135, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i2125, align 8
-  %incdec.ptr.i.i.i.i.i.i.i2136 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i2125, i64 24
-  %incdec.ptr.i.i.i.i.i.i2137 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2126, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i2126, align 8
+  %incdec.ptr.i.i.i.i.i.i.i2136 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i2126, i64 24
+  %incdec.ptr.i.i.i.i.i.i2137 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2125, i64 24
   %cmp.i.i.i.not.i.i.i.i.i2138 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i2136, %add.ptr25.i.i.i2123
   br i1 %cmp.i.i.i.not.i.i.i.i.i2138, label %if.end.i.i.i.i.i.i10.i.i.i2139, label %for.body.i.i.i.i.i2124, !llvm.loop !498
 
@@ -48456,17 +48456,17 @@ for.body.i.i.preheader.i.i.i2532:                 ; preds = %if.then924
   br label %for.body.i.i.i.i.i2539
 
 for.body.i.i.i.i.i2539:                           ; preds = %for.body.i.i.i.i.i2539, %for.body.i.i.preheader.i.i.i2532
-  %first.sroa.0.07.i.i.i.i.i2540 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i2551, %for.body.i.i.i.i.i2539 ], [ %679, %for.body.i.i.preheader.i.i.i2532 ]
-  %retval.sroa.0.06.i.i.i.i.i2541 = phi ptr [ %incdec.ptr.i.i.i.i.i.i2552, %for.body.i.i.i.i.i2539 ], [ %681, %for.body.i.i.preheader.i.i.i2532 ]
-  %682 = load i32, ptr %first.sroa.0.07.i.i.i.i.i2540, align 8
-  store i32 %682, ptr %retval.sroa.0.06.i.i.i.i.i2541, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i2542 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2541, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i2543 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i2540, i64 4
+  %retval.sroa.0.07.i.i.i.i.i2540 = phi ptr [ %incdec.ptr.i.i.i.i.i.i2552, %for.body.i.i.i.i.i2539 ], [ %681, %for.body.i.i.preheader.i.i.i2532 ]
+  %first.sroa.0.06.i.i.i.i.i2541 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i2551, %for.body.i.i.i.i.i2539 ], [ %679, %for.body.i.i.preheader.i.i.i2532 ]
+  %682 = load i32, ptr %first.sroa.0.06.i.i.i.i.i2541, align 8
+  store i32 %682, ptr %retval.sroa.0.07.i.i.i.i.i2540, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i2542 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2540, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i2543 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i2541, i64 4
   %683 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i2543, align 4
   %frombool.i.i.i.i.i.i2544 = and i8 %683, 1
   store i8 %frombool.i.i.i.i.i.i2544, ptr %mbThrowOnCopy.i.i.i.i.i.i2542, align 4
-  %mMagicValue.i.i.i.i.i.i2545 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2541, i64 16
-  %mMagicValue4.i.i.i.i.i.i2546 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i2540, i64 16
+  %mMagicValue.i.i.i.i.i.i2545 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2540, i64 16
+  %mMagicValue4.i.i.i.i.i.i2546 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i2541, i64 16
   %684 = load i32, ptr %mMagicValue4.i.i.i.i.i.i2546, align 8
   store i32 %684, ptr %mMagicValue.i.i.i.i.i.i2545, align 8
   %685 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -48478,11 +48478,11 @@ for.body.i.i.i.i.i2539:                           ; preds = %for.body.i.i.i.i.i2
   %687 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i2549 = add nsw i64 %687, 1
   store i64 %inc6.i.i.i.i.i.i2549, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i2550 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2541, i64 8
+  %mId.i.i.i.i.i.i2550 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2540, i64 8
   store i64 %inc5.i.i.i.i.i.i2548, ptr %mId.i.i.i.i.i.i2550, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i2540, align 8
-  %incdec.ptr.i.i.i.i.i.i.i2551 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i2540, i64 24
-  %incdec.ptr.i.i.i.i.i.i2552 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2541, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i2541, align 8
+  %incdec.ptr.i.i.i.i.i.i.i2551 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i2541, i64 24
+  %incdec.ptr.i.i.i.i.i.i2552 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2540, i64 24
   %cmp.i.i.i.not.i.i.i.i.i2553 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i2551, %add.ptr25.i.i.i2538
   br i1 %cmp.i.i.i.not.i.i.i.i.i2553, label %if.end.i.i.i.i.i.i10.i.i.i2554, label %for.body.i.i.i.i.i2539, !llvm.loop !498
 
@@ -48665,17 +48665,17 @@ for.body.i.i.preheader.i.i.i2728:                 ; preds = %if.then960
   br label %for.body.i.i.i.i.i2735
 
 for.body.i.i.i.i.i2735:                           ; preds = %for.body.i.i.i.i.i2735, %for.body.i.i.preheader.i.i.i2728
-  %first.sroa.0.07.i.i.i.i.i2736 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i2747, %for.body.i.i.i.i.i2735 ], [ %712, %for.body.i.i.preheader.i.i.i2728 ]
-  %retval.sroa.0.06.i.i.i.i.i2737 = phi ptr [ %incdec.ptr.i.i.i.i.i.i2748, %for.body.i.i.i.i.i2735 ], [ %714, %for.body.i.i.preheader.i.i.i2728 ]
-  %715 = load i32, ptr %first.sroa.0.07.i.i.i.i.i2736, align 8
-  store i32 %715, ptr %retval.sroa.0.06.i.i.i.i.i2737, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i2738 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2737, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i2739 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i2736, i64 4
+  %retval.sroa.0.07.i.i.i.i.i2736 = phi ptr [ %incdec.ptr.i.i.i.i.i.i2748, %for.body.i.i.i.i.i2735 ], [ %714, %for.body.i.i.preheader.i.i.i2728 ]
+  %first.sroa.0.06.i.i.i.i.i2737 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i2747, %for.body.i.i.i.i.i2735 ], [ %712, %for.body.i.i.preheader.i.i.i2728 ]
+  %715 = load i32, ptr %first.sroa.0.06.i.i.i.i.i2737, align 8
+  store i32 %715, ptr %retval.sroa.0.07.i.i.i.i.i2736, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i2738 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2736, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i2739 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i2737, i64 4
   %716 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i2739, align 4
   %frombool.i.i.i.i.i.i2740 = and i8 %716, 1
   store i8 %frombool.i.i.i.i.i.i2740, ptr %mbThrowOnCopy.i.i.i.i.i.i2738, align 4
-  %mMagicValue.i.i.i.i.i.i2741 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2737, i64 16
-  %mMagicValue4.i.i.i.i.i.i2742 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i2736, i64 16
+  %mMagicValue.i.i.i.i.i.i2741 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2736, i64 16
+  %mMagicValue4.i.i.i.i.i.i2742 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i2737, i64 16
   %717 = load i32, ptr %mMagicValue4.i.i.i.i.i.i2742, align 8
   store i32 %717, ptr %mMagicValue.i.i.i.i.i.i2741, align 8
   %718 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -48687,11 +48687,11 @@ for.body.i.i.i.i.i2735:                           ; preds = %for.body.i.i.i.i.i2
   %720 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i2745 = add nsw i64 %720, 1
   store i64 %inc6.i.i.i.i.i.i2745, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i2746 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2737, i64 8
+  %mId.i.i.i.i.i.i2746 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2736, i64 8
   store i64 %inc5.i.i.i.i.i.i2744, ptr %mId.i.i.i.i.i.i2746, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i2736, align 8
-  %incdec.ptr.i.i.i.i.i.i.i2747 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i2736, i64 24
-  %incdec.ptr.i.i.i.i.i.i2748 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2737, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i2737, align 8
+  %incdec.ptr.i.i.i.i.i.i.i2747 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i2737, i64 24
+  %incdec.ptr.i.i.i.i.i.i2748 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2736, i64 24
   %cmp.i.i.i.not.i.i.i.i.i2749 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i2747, %add.ptr25.i.i.i2734
   br i1 %cmp.i.i.i.not.i.i.i.i.i2749, label %if.end.i.i.i.i.i.i10.i.i.i2750, label %for.body.i.i.i.i.i2735, !llvm.loop !498
 
@@ -48846,17 +48846,17 @@ for.body.i.i.preheader.i.i.i2875:                 ; preds = %if.then998
   br label %for.body.i.i.i.i.i2882
 
 for.body.i.i.i.i.i2882:                           ; preds = %for.body.i.i.i.i.i2882, %for.body.i.i.preheader.i.i.i2875
-  %first.sroa.0.07.i.i.i.i.i2883 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i2894, %for.body.i.i.i.i.i2882 ], [ %740, %for.body.i.i.preheader.i.i.i2875 ]
-  %retval.sroa.0.06.i.i.i.i.i2884 = phi ptr [ %incdec.ptr.i.i.i.i.i.i2895, %for.body.i.i.i.i.i2882 ], [ %742, %for.body.i.i.preheader.i.i.i2875 ]
-  %743 = load i32, ptr %first.sroa.0.07.i.i.i.i.i2883, align 8
-  store i32 %743, ptr %retval.sroa.0.06.i.i.i.i.i2884, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i2885 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2884, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i2886 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i2883, i64 4
+  %retval.sroa.0.07.i.i.i.i.i2883 = phi ptr [ %incdec.ptr.i.i.i.i.i.i2895, %for.body.i.i.i.i.i2882 ], [ %742, %for.body.i.i.preheader.i.i.i2875 ]
+  %first.sroa.0.06.i.i.i.i.i2884 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i2894, %for.body.i.i.i.i.i2882 ], [ %740, %for.body.i.i.preheader.i.i.i2875 ]
+  %743 = load i32, ptr %first.sroa.0.06.i.i.i.i.i2884, align 8
+  store i32 %743, ptr %retval.sroa.0.07.i.i.i.i.i2883, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i2885 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2883, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i2886 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i2884, i64 4
   %744 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i2886, align 4
   %frombool.i.i.i.i.i.i2887 = and i8 %744, 1
   store i8 %frombool.i.i.i.i.i.i2887, ptr %mbThrowOnCopy.i.i.i.i.i.i2885, align 4
-  %mMagicValue.i.i.i.i.i.i2888 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2884, i64 16
-  %mMagicValue4.i.i.i.i.i.i2889 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i2883, i64 16
+  %mMagicValue.i.i.i.i.i.i2888 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2883, i64 16
+  %mMagicValue4.i.i.i.i.i.i2889 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i2884, i64 16
   %745 = load i32, ptr %mMagicValue4.i.i.i.i.i.i2889, align 8
   store i32 %745, ptr %mMagicValue.i.i.i.i.i.i2888, align 8
   %746 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -48868,11 +48868,11 @@ for.body.i.i.i.i.i2882:                           ; preds = %for.body.i.i.i.i.i2
   %748 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i2892 = add nsw i64 %748, 1
   store i64 %inc6.i.i.i.i.i.i2892, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i2893 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2884, i64 8
+  %mId.i.i.i.i.i.i2893 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2883, i64 8
   store i64 %inc5.i.i.i.i.i.i2891, ptr %mId.i.i.i.i.i.i2893, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i2883, align 8
-  %incdec.ptr.i.i.i.i.i.i.i2894 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i2883, i64 24
-  %incdec.ptr.i.i.i.i.i.i2895 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i2884, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i2884, align 8
+  %incdec.ptr.i.i.i.i.i.i.i2894 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i2884, i64 24
+  %incdec.ptr.i.i.i.i.i.i2895 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i2883, i64 24
   %cmp.i.i.i.not.i.i.i.i.i2896 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i2894, %add.ptr25.i.i.i2881
   br i1 %cmp.i.i.i.not.i.i.i.i.i2896, label %if.end.i.i.i.i.i.i10.i.i.i2897, label %for.body.i.i.i.i.i2882, !llvm.loop !498
 
@@ -49353,17 +49353,17 @@ for.body.i.i.preheader.i.i.i3310:                 ; preds = %if.then1146
   br label %for.body.i.i.i.i.i3317
 
 for.body.i.i.i.i.i3317:                           ; preds = %for.body.i.i.i.i.i3317, %for.body.i.i.preheader.i.i.i3310
-  %first.sroa.0.07.i.i.i.i.i3318 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i3329, %for.body.i.i.i.i.i3317 ], [ %832, %for.body.i.i.preheader.i.i.i3310 ]
-  %retval.sroa.0.06.i.i.i.i.i3319 = phi ptr [ %incdec.ptr.i.i.i.i.i.i3330, %for.body.i.i.i.i.i3317 ], [ %834, %for.body.i.i.preheader.i.i.i3310 ]
-  %835 = load i32, ptr %first.sroa.0.07.i.i.i.i.i3318, align 8
-  store i32 %835, ptr %retval.sroa.0.06.i.i.i.i.i3319, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i3320 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i3319, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i3321 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i3318, i64 4
+  %retval.sroa.0.07.i.i.i.i.i3318 = phi ptr [ %incdec.ptr.i.i.i.i.i.i3330, %for.body.i.i.i.i.i3317 ], [ %834, %for.body.i.i.preheader.i.i.i3310 ]
+  %first.sroa.0.06.i.i.i.i.i3319 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i3329, %for.body.i.i.i.i.i3317 ], [ %832, %for.body.i.i.preheader.i.i.i3310 ]
+  %835 = load i32, ptr %first.sroa.0.06.i.i.i.i.i3319, align 8
+  store i32 %835, ptr %retval.sroa.0.07.i.i.i.i.i3318, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i3320 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i3318, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i3321 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i3319, i64 4
   %836 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i3321, align 4
   %frombool.i.i.i.i.i.i3322 = and i8 %836, 1
   store i8 %frombool.i.i.i.i.i.i3322, ptr %mbThrowOnCopy.i.i.i.i.i.i3320, align 4
-  %mMagicValue.i.i.i.i.i.i3323 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i3319, i64 16
-  %mMagicValue4.i.i.i.i.i.i3324 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i3318, i64 16
+  %mMagicValue.i.i.i.i.i.i3323 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i3318, i64 16
+  %mMagicValue4.i.i.i.i.i.i3324 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i3319, i64 16
   %837 = load i32, ptr %mMagicValue4.i.i.i.i.i.i3324, align 8
   store i32 %837, ptr %mMagicValue.i.i.i.i.i.i3323, align 8
   %838 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -49375,11 +49375,11 @@ for.body.i.i.i.i.i3317:                           ; preds = %for.body.i.i.i.i.i3
   %840 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i3327 = add nsw i64 %840, 1
   store i64 %inc6.i.i.i.i.i.i3327, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i3328 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i3319, i64 8
+  %mId.i.i.i.i.i.i3328 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i3318, i64 8
   store i64 %inc5.i.i.i.i.i.i3326, ptr %mId.i.i.i.i.i.i3328, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i3318, align 8
-  %incdec.ptr.i.i.i.i.i.i.i3329 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i3318, i64 24
-  %incdec.ptr.i.i.i.i.i.i3330 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i3319, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i3319, align 8
+  %incdec.ptr.i.i.i.i.i.i.i3329 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i3319, i64 24
+  %incdec.ptr.i.i.i.i.i.i3330 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i3318, i64 24
   %cmp.i.i.i.not.i.i.i.i.i3331 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i3329, %add.ptr25.i.i.i3316
   br i1 %cmp.i.i.i.not.i.i.i.i.i3331, label %if.end.i.i.i.i.i.i10.i.i.i3332, label %for.body.i.i.i.i.i3317, !llvm.loop !498
 
@@ -49562,17 +49562,17 @@ for.body.i.i.preheader.i.i.i3505:                 ; preds = %if.then1182
   br label %for.body.i.i.i.i.i3512
 
 for.body.i.i.i.i.i3512:                           ; preds = %for.body.i.i.i.i.i3512, %for.body.i.i.preheader.i.i.i3505
-  %first.sroa.0.07.i.i.i.i.i3513 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i3524, %for.body.i.i.i.i.i3512 ], [ %865, %for.body.i.i.preheader.i.i.i3505 ]
-  %retval.sroa.0.06.i.i.i.i.i3514 = phi ptr [ %incdec.ptr.i.i.i.i.i.i3525, %for.body.i.i.i.i.i3512 ], [ %867, %for.body.i.i.preheader.i.i.i3505 ]
-  %868 = load i32, ptr %first.sroa.0.07.i.i.i.i.i3513, align 8
-  store i32 %868, ptr %retval.sroa.0.06.i.i.i.i.i3514, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i3515 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i3514, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i3516 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i3513, i64 4
+  %retval.sroa.0.07.i.i.i.i.i3513 = phi ptr [ %incdec.ptr.i.i.i.i.i.i3525, %for.body.i.i.i.i.i3512 ], [ %867, %for.body.i.i.preheader.i.i.i3505 ]
+  %first.sroa.0.06.i.i.i.i.i3514 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i3524, %for.body.i.i.i.i.i3512 ], [ %865, %for.body.i.i.preheader.i.i.i3505 ]
+  %868 = load i32, ptr %first.sroa.0.06.i.i.i.i.i3514, align 8
+  store i32 %868, ptr %retval.sroa.0.07.i.i.i.i.i3513, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i3515 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i3513, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i3516 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i3514, i64 4
   %869 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i3516, align 4
   %frombool.i.i.i.i.i.i3517 = and i8 %869, 1
   store i8 %frombool.i.i.i.i.i.i3517, ptr %mbThrowOnCopy.i.i.i.i.i.i3515, align 4
-  %mMagicValue.i.i.i.i.i.i3518 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i3514, i64 16
-  %mMagicValue4.i.i.i.i.i.i3519 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i3513, i64 16
+  %mMagicValue.i.i.i.i.i.i3518 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i3513, i64 16
+  %mMagicValue4.i.i.i.i.i.i3519 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i3514, i64 16
   %870 = load i32, ptr %mMagicValue4.i.i.i.i.i.i3519, align 8
   store i32 %870, ptr %mMagicValue.i.i.i.i.i.i3518, align 8
   %871 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -49584,11 +49584,11 @@ for.body.i.i.i.i.i3512:                           ; preds = %for.body.i.i.i.i.i3
   %873 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i3522 = add nsw i64 %873, 1
   store i64 %inc6.i.i.i.i.i.i3522, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i3523 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i3514, i64 8
+  %mId.i.i.i.i.i.i3523 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i3513, i64 8
   store i64 %inc5.i.i.i.i.i.i3521, ptr %mId.i.i.i.i.i.i3523, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i3513, align 8
-  %incdec.ptr.i.i.i.i.i.i.i3524 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i3513, i64 24
-  %incdec.ptr.i.i.i.i.i.i3525 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i3514, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i3514, align 8
+  %incdec.ptr.i.i.i.i.i.i.i3524 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i3514, i64 24
+  %incdec.ptr.i.i.i.i.i.i3525 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i3513, i64 24
   %cmp.i.i.i.not.i.i.i.i.i3526 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i3524, %add.ptr25.i.i.i3511
   br i1 %cmp.i.i.i.not.i.i.i.i.i3526, label %if.end.i.i.i.i.i.i10.i.i.i3527, label %for.body.i.i.i.i.i3512, !llvm.loop !498
 
@@ -49743,17 +49743,17 @@ for.body.i.i.preheader.i.i.i3652:                 ; preds = %if.then1220
   br label %for.body.i.i.i.i.i3659
 
 for.body.i.i.i.i.i3659:                           ; preds = %for.body.i.i.i.i.i3659, %for.body.i.i.preheader.i.i.i3652
-  %first.sroa.0.07.i.i.i.i.i3660 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i3671, %for.body.i.i.i.i.i3659 ], [ %893, %for.body.i.i.preheader.i.i.i3652 ]
-  %retval.sroa.0.06.i.i.i.i.i3661 = phi ptr [ %incdec.ptr.i.i.i.i.i.i3672, %for.body.i.i.i.i.i3659 ], [ %895, %for.body.i.i.preheader.i.i.i3652 ]
-  %896 = load i32, ptr %first.sroa.0.07.i.i.i.i.i3660, align 8
-  store i32 %896, ptr %retval.sroa.0.06.i.i.i.i.i3661, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i3662 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i3661, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i3663 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i3660, i64 4
+  %retval.sroa.0.07.i.i.i.i.i3660 = phi ptr [ %incdec.ptr.i.i.i.i.i.i3672, %for.body.i.i.i.i.i3659 ], [ %895, %for.body.i.i.preheader.i.i.i3652 ]
+  %first.sroa.0.06.i.i.i.i.i3661 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i3671, %for.body.i.i.i.i.i3659 ], [ %893, %for.body.i.i.preheader.i.i.i3652 ]
+  %896 = load i32, ptr %first.sroa.0.06.i.i.i.i.i3661, align 8
+  store i32 %896, ptr %retval.sroa.0.07.i.i.i.i.i3660, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i3662 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i3660, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i3663 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i3661, i64 4
   %897 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i3663, align 4
   %frombool.i.i.i.i.i.i3664 = and i8 %897, 1
   store i8 %frombool.i.i.i.i.i.i3664, ptr %mbThrowOnCopy.i.i.i.i.i.i3662, align 4
-  %mMagicValue.i.i.i.i.i.i3665 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i3661, i64 16
-  %mMagicValue4.i.i.i.i.i.i3666 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i3660, i64 16
+  %mMagicValue.i.i.i.i.i.i3665 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i3660, i64 16
+  %mMagicValue4.i.i.i.i.i.i3666 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i3661, i64 16
   %898 = load i32, ptr %mMagicValue4.i.i.i.i.i.i3666, align 8
   store i32 %898, ptr %mMagicValue.i.i.i.i.i.i3665, align 8
   %899 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -49765,11 +49765,11 @@ for.body.i.i.i.i.i3659:                           ; preds = %for.body.i.i.i.i.i3
   %901 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i3669 = add nsw i64 %901, 1
   store i64 %inc6.i.i.i.i.i.i3669, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i3670 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i3661, i64 8
+  %mId.i.i.i.i.i.i3670 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i3660, i64 8
   store i64 %inc5.i.i.i.i.i.i3668, ptr %mId.i.i.i.i.i.i3670, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i3660, align 8
-  %incdec.ptr.i.i.i.i.i.i.i3671 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i3660, i64 24
-  %incdec.ptr.i.i.i.i.i.i3672 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i3661, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i3661, align 8
+  %incdec.ptr.i.i.i.i.i.i.i3671 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i3661, i64 24
+  %incdec.ptr.i.i.i.i.i.i3672 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i3660, i64 24
   %cmp.i.i.i.not.i.i.i.i.i3673 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i3671, %add.ptr25.i.i.i3658
   br i1 %cmp.i.i.i.not.i.i.i.i.i3673, label %if.end.i.i.i.i.i.i10.i.i.i3674, label %for.body.i.i.i.i.i3659, !llvm.loop !498
 
@@ -50470,17 +50470,17 @@ for.body.i.i.preheader.i.i.i4343:                 ; preds = %if.then1543
   br label %for.body.i.i.i.i.i4350
 
 for.body.i.i.i.i.i4350:                           ; preds = %for.body.i.i.i.i.i4350, %for.body.i.i.preheader.i.i.i4343
-  %first.sroa.0.07.i.i.i.i.i4351 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i4362, %for.body.i.i.i.i.i4350 ], [ %1009, %for.body.i.i.preheader.i.i.i4343 ]
-  %retval.sroa.0.06.i.i.i.i.i4352 = phi ptr [ %incdec.ptr.i.i.i.i.i.i4363, %for.body.i.i.i.i.i4350 ], [ %1011, %for.body.i.i.preheader.i.i.i4343 ]
-  %1012 = load i32, ptr %first.sroa.0.07.i.i.i.i.i4351, align 8
-  store i32 %1012, ptr %retval.sroa.0.06.i.i.i.i.i4352, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i4353 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i4352, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i4354 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i4351, i64 4
+  %retval.sroa.0.07.i.i.i.i.i4351 = phi ptr [ %incdec.ptr.i.i.i.i.i.i4363, %for.body.i.i.i.i.i4350 ], [ %1011, %for.body.i.i.preheader.i.i.i4343 ]
+  %first.sroa.0.06.i.i.i.i.i4352 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i4362, %for.body.i.i.i.i.i4350 ], [ %1009, %for.body.i.i.preheader.i.i.i4343 ]
+  %1012 = load i32, ptr %first.sroa.0.06.i.i.i.i.i4352, align 8
+  store i32 %1012, ptr %retval.sroa.0.07.i.i.i.i.i4351, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i4353 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i4351, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i4354 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i4352, i64 4
   %1013 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i4354, align 4
   %frombool.i.i.i.i.i.i4355 = and i8 %1013, 1
   store i8 %frombool.i.i.i.i.i.i4355, ptr %mbThrowOnCopy.i.i.i.i.i.i4353, align 4
-  %mMagicValue.i.i.i.i.i.i4356 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i4352, i64 16
-  %mMagicValue4.i.i.i.i.i.i4357 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i4351, i64 16
+  %mMagicValue.i.i.i.i.i.i4356 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i4351, i64 16
+  %mMagicValue4.i.i.i.i.i.i4357 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i4352, i64 16
   %1014 = load i32, ptr %mMagicValue4.i.i.i.i.i.i4357, align 8
   store i32 %1014, ptr %mMagicValue.i.i.i.i.i.i4356, align 8
   %1015 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -50492,11 +50492,11 @@ for.body.i.i.i.i.i4350:                           ; preds = %for.body.i.i.i.i.i4
   %1017 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i4360 = add nsw i64 %1017, 1
   store i64 %inc6.i.i.i.i.i.i4360, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i4361 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i4352, i64 8
+  %mId.i.i.i.i.i.i4361 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i4351, i64 8
   store i64 %inc5.i.i.i.i.i.i4359, ptr %mId.i.i.i.i.i.i4361, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i4351, align 8
-  %incdec.ptr.i.i.i.i.i.i.i4362 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i4351, i64 24
-  %incdec.ptr.i.i.i.i.i.i4363 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i4352, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i4352, align 8
+  %incdec.ptr.i.i.i.i.i.i.i4362 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i4352, i64 24
+  %incdec.ptr.i.i.i.i.i.i4363 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i4351, i64 24
   %cmp.i.i.i.not.i.i.i.i.i4364 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i4362, %add.ptr25.i.i.i4349
   br i1 %cmp.i.i.i.not.i.i.i.i.i4364, label %if.end.i.i.i.i.i.i10.i.i.i4365, label %for.body.i.i.i.i.i4350, !llvm.loop !498
 
@@ -50875,17 +50875,17 @@ for.body.i.i.preheader.i.i.i4722:                 ; preds = %if.then1627
   br label %for.body.i.i.i.i.i4729
 
 for.body.i.i.i.i.i4729:                           ; preds = %for.body.i.i.i.i.i4729, %for.body.i.i.preheader.i.i.i4722
-  %first.sroa.0.07.i.i.i.i.i4730 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i4741, %for.body.i.i.i.i.i4729 ], [ %1056, %for.body.i.i.preheader.i.i.i4722 ]
-  %retval.sroa.0.06.i.i.i.i.i4731 = phi ptr [ %incdec.ptr.i.i.i.i.i.i4742, %for.body.i.i.i.i.i4729 ], [ %1058, %for.body.i.i.preheader.i.i.i4722 ]
-  %1059 = load i32, ptr %first.sroa.0.07.i.i.i.i.i4730, align 8
-  store i32 %1059, ptr %retval.sroa.0.06.i.i.i.i.i4731, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i4732 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i4731, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i4733 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i4730, i64 4
+  %retval.sroa.0.07.i.i.i.i.i4730 = phi ptr [ %incdec.ptr.i.i.i.i.i.i4742, %for.body.i.i.i.i.i4729 ], [ %1058, %for.body.i.i.preheader.i.i.i4722 ]
+  %first.sroa.0.06.i.i.i.i.i4731 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i4741, %for.body.i.i.i.i.i4729 ], [ %1056, %for.body.i.i.preheader.i.i.i4722 ]
+  %1059 = load i32, ptr %first.sroa.0.06.i.i.i.i.i4731, align 8
+  store i32 %1059, ptr %retval.sroa.0.07.i.i.i.i.i4730, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i4732 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i4730, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i4733 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i4731, i64 4
   %1060 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i4733, align 4
   %frombool.i.i.i.i.i.i4734 = and i8 %1060, 1
   store i8 %frombool.i.i.i.i.i.i4734, ptr %mbThrowOnCopy.i.i.i.i.i.i4732, align 4
-  %mMagicValue.i.i.i.i.i.i4735 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i4731, i64 16
-  %mMagicValue4.i.i.i.i.i.i4736 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i4730, i64 16
+  %mMagicValue.i.i.i.i.i.i4735 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i4730, i64 16
+  %mMagicValue4.i.i.i.i.i.i4736 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i4731, i64 16
   %1061 = load i32, ptr %mMagicValue4.i.i.i.i.i.i4736, align 8
   store i32 %1061, ptr %mMagicValue.i.i.i.i.i.i4735, align 8
   %1062 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -50897,11 +50897,11 @@ for.body.i.i.i.i.i4729:                           ; preds = %for.body.i.i.i.i.i4
   %1064 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i4739 = add nsw i64 %1064, 1
   store i64 %inc6.i.i.i.i.i.i4739, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i4740 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i4731, i64 8
+  %mId.i.i.i.i.i.i4740 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i4730, i64 8
   store i64 %inc5.i.i.i.i.i.i4738, ptr %mId.i.i.i.i.i.i4740, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i4730, align 8
-  %incdec.ptr.i.i.i.i.i.i.i4741 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i4730, i64 24
-  %incdec.ptr.i.i.i.i.i.i4742 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i4731, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i4731, align 8
+  %incdec.ptr.i.i.i.i.i.i.i4741 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i4731, i64 24
+  %incdec.ptr.i.i.i.i.i.i4742 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i4730, i64 24
   %cmp.i.i.i.not.i.i.i.i.i4743 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i4741, %add.ptr25.i.i.i4728
   br i1 %cmp.i.i.i.not.i.i.i.i.i4743, label %if.end.i.i.i.i.i.i10.i.i.i4744, label %for.body.i.i.i.i.i4729, !llvm.loop !498
 
@@ -51145,17 +51145,17 @@ for.body.i.i.preheader.i.i.i4963:                 ; preds = %if.then1713
   br label %for.body.i.i.i.i.i4970
 
 for.body.i.i.i.i.i4970:                           ; preds = %for.body.i.i.i.i.i4970, %for.body.i.i.preheader.i.i.i4963
-  %first.sroa.0.07.i.i.i.i.i4971 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i4982, %for.body.i.i.i.i.i4970 ], [ %1092, %for.body.i.i.preheader.i.i.i4963 ]
-  %retval.sroa.0.06.i.i.i.i.i4972 = phi ptr [ %incdec.ptr.i.i.i.i.i.i4983, %for.body.i.i.i.i.i4970 ], [ %1094, %for.body.i.i.preheader.i.i.i4963 ]
-  %1095 = load i32, ptr %first.sroa.0.07.i.i.i.i.i4971, align 8
-  store i32 %1095, ptr %retval.sroa.0.06.i.i.i.i.i4972, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i4973 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i4972, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i4974 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i4971, i64 4
+  %retval.sroa.0.07.i.i.i.i.i4971 = phi ptr [ %incdec.ptr.i.i.i.i.i.i4983, %for.body.i.i.i.i.i4970 ], [ %1094, %for.body.i.i.preheader.i.i.i4963 ]
+  %first.sroa.0.06.i.i.i.i.i4972 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i4982, %for.body.i.i.i.i.i4970 ], [ %1092, %for.body.i.i.preheader.i.i.i4963 ]
+  %1095 = load i32, ptr %first.sroa.0.06.i.i.i.i.i4972, align 8
+  store i32 %1095, ptr %retval.sroa.0.07.i.i.i.i.i4971, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i4973 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i4971, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i4974 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i4972, i64 4
   %1096 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i4974, align 4
   %frombool.i.i.i.i.i.i4975 = and i8 %1096, 1
   store i8 %frombool.i.i.i.i.i.i4975, ptr %mbThrowOnCopy.i.i.i.i.i.i4973, align 4
-  %mMagicValue.i.i.i.i.i.i4976 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i4972, i64 16
-  %mMagicValue4.i.i.i.i.i.i4977 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i4971, i64 16
+  %mMagicValue.i.i.i.i.i.i4976 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i4971, i64 16
+  %mMagicValue4.i.i.i.i.i.i4977 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i4972, i64 16
   %1097 = load i32, ptr %mMagicValue4.i.i.i.i.i.i4977, align 8
   store i32 %1097, ptr %mMagicValue.i.i.i.i.i.i4976, align 8
   %1098 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -51167,11 +51167,11 @@ for.body.i.i.i.i.i4970:                           ; preds = %for.body.i.i.i.i.i4
   %1100 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i4980 = add nsw i64 %1100, 1
   store i64 %inc6.i.i.i.i.i.i4980, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i4981 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i4972, i64 8
+  %mId.i.i.i.i.i.i4981 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i4971, i64 8
   store i64 %inc5.i.i.i.i.i.i4979, ptr %mId.i.i.i.i.i.i4981, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i4971, align 8
-  %incdec.ptr.i.i.i.i.i.i.i4982 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i4971, i64 24
-  %incdec.ptr.i.i.i.i.i.i4983 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i4972, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i4972, align 8
+  %incdec.ptr.i.i.i.i.i.i.i4982 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i4972, i64 24
+  %incdec.ptr.i.i.i.i.i.i4983 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i4971, i64 24
   %cmp.i.i.i.not.i.i.i.i.i4984 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i4982, %add.ptr25.i.i.i4969
   br i1 %cmp.i.i.i.not.i.i.i.i.i4984, label %if.end.i.i.i.i.i.i10.i.i.i4985, label %for.body.i.i.i.i.i4970, !llvm.loop !498
 
@@ -51682,13 +51682,13 @@ for.body.i.i.preheader.i.i.i5281:                 ; preds = %if.then1830
   br label %for.body.i.i.i.i.i5283
 
 for.body.i.i.i.i.i5283:                           ; preds = %for.body.i.i.i.i.i5283, %for.body.i.i.preheader.i.i.i5281
-  %first.sroa.0.07.i.i.i.i.i5284 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i5286, %for.body.i.i.i.i.i5283 ], [ %1180, %for.body.i.i.preheader.i.i.i5281 ]
-  %retval.sroa.0.06.i.i.i.i.i5285 = phi ptr [ %incdec.ptr.i.i.i.i.i.i5287, %for.body.i.i.i.i.i5283 ], [ %1182, %for.body.i.i.preheader.i.i.i5281 ]
-  %1183 = load i32, ptr %first.sroa.0.07.i.i.i.i.i5284, align 4
-  store i32 %1183, ptr %retval.sroa.0.06.i.i.i.i.i5285, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i5284, align 4
-  %incdec.ptr.i.i.i.i.i.i.i5286 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i5284, i64 4
-  %incdec.ptr.i.i.i.i.i.i5287 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i5285, i64 4
+  %retval.sroa.0.07.i.i.i.i.i5284 = phi ptr [ %incdec.ptr.i.i.i.i.i.i5287, %for.body.i.i.i.i.i5283 ], [ %1182, %for.body.i.i.preheader.i.i.i5281 ]
+  %first.sroa.0.06.i.i.i.i.i5285 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i5286, %for.body.i.i.i.i.i5283 ], [ %1180, %for.body.i.i.preheader.i.i.i5281 ]
+  %1183 = load i32, ptr %first.sroa.0.06.i.i.i.i.i5285, align 4
+  store i32 %1183, ptr %retval.sroa.0.07.i.i.i.i.i5284, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i5285, align 4
+  %incdec.ptr.i.i.i.i.i.i.i5286 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i5285, i64 4
+  %incdec.ptr.i.i.i.i.i.i5287 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i5284, i64 4
   %cmp.i.i.i.not.i.i.i.i.i5288 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i5286, %add.ptr25.i.i.i5282
   br i1 %cmp.i.i.i.not.i.i.i.i.i5288, label %for.body.i.i10.preheader.i.i.i, label %for.body.i.i.i.i.i5283, !llvm.loop !497
 
@@ -51699,17 +51699,17 @@ for.body.i.i10.preheader.i.i.i:                   ; preds = %for.body.i.i.i.i.i5
   br label %for.body.i.i10.i.i.i
 
 for.body.i.i10.i.i.i:                             ; preds = %for.body.i.i10.i.i.i, %for.body.i.i10.preheader.i.i.i
-  %first.sroa.0.07.i.i11.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i, %for.body.i.i10.i.i.i ], [ %1178, %for.body.i.i10.preheader.i.i.i ]
-  %retval.sroa.0.06.i.i12.i.i.i = phi ptr [ %incdec.ptr.i.i.i14.i.i.i, %for.body.i.i10.i.i.i ], [ %1184, %for.body.i.i10.preheader.i.i.i ]
-  %1185 = load i32, ptr %first.sroa.0.07.i.i11.i.i.i, align 8
-  store i32 %1185, ptr %retval.sroa.0.06.i.i12.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i5289 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i5290 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i, i64 4
+  %retval.sroa.0.07.i.i11.i.i.i = phi ptr [ %incdec.ptr.i.i.i14.i.i.i, %for.body.i.i10.i.i.i ], [ %1184, %for.body.i.i10.preheader.i.i.i ]
+  %first.sroa.0.06.i.i12.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i, %for.body.i.i10.i.i.i ], [ %1178, %for.body.i.i10.preheader.i.i.i ]
+  %1185 = load i32, ptr %first.sroa.0.06.i.i12.i.i.i, align 8
+  store i32 %1185, ptr %retval.sroa.0.07.i.i11.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i5289 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i5290 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i, i64 4
   %1186 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i5290, align 4
   %frombool.i.i.i.i.i.i5291 = and i8 %1186, 1
   store i8 %frombool.i.i.i.i.i.i5291, ptr %mbThrowOnCopy.i.i.i.i.i.i5289, align 4
-  %mMagicValue.i.i.i.i.i.i5292 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i.i5293 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i, i64 16
+  %mMagicValue.i.i.i.i.i.i5292 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i.i5293 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i, i64 16
   %1187 = load i32, ptr %mMagicValue4.i.i.i.i.i.i5293, align 8
   store i32 %1187, ptr %mMagicValue.i.i.i.i.i.i5292, align 8
   %1188 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -51721,11 +51721,11 @@ for.body.i.i10.i.i.i:                             ; preds = %for.body.i.i10.i.i.
   %1190 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i5296 = add nsw i64 %1190, 1
   store i64 %inc6.i.i.i.i.i.i5296, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i5297 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i, i64 8
+  %mId.i.i.i.i.i.i5297 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i, i64 8
   store i64 %inc5.i.i.i.i.i.i5295, ptr %mId.i.i.i.i.i.i5297, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i.i.i, align 8
-  %incdec.ptr.i.i.i.i13.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i, i64 24
-  %incdec.ptr.i.i.i14.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i.i.i, align 8
+  %incdec.ptr.i.i.i.i13.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i, i64 24
+  %incdec.ptr.i.i.i14.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i, i64 24
   %cmp.i.i.i.not.i.i15.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i13.i.i.i, %add.ptr37.i.i.i
   br i1 %cmp.i.i.i.not.i.i15.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEEC2INS0_12TupleVecIterIS6_JiS7_S8_EEEEENS_13move_iteratorIT_EESF_RKS4_.exit.loopexit.i, label %for.body.i.i10.i.i.i, !llvm.loop !498
 
@@ -51984,13 +51984,13 @@ for.body.i.i.preheader.i.i.i5403:                 ; preds = %if.then1859
   br label %for.body.i.i.i.i.i5407
 
 for.body.i.i.i.i.i5407:                           ; preds = %for.body.i.i.i.i.i5407, %for.body.i.i.preheader.i.i.i5403
-  %first.sroa.0.07.i.i.i.i.i5408 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i5410, %for.body.i.i.i.i.i5407 ], [ %1231, %for.body.i.i.preheader.i.i.i5403 ]
-  %retval.sroa.0.06.i.i.i.i.i5409 = phi ptr [ %incdec.ptr.i.i.i.i.i.i5411, %for.body.i.i.i.i.i5407 ], [ %1233, %for.body.i.i.preheader.i.i.i5403 ]
-  %1234 = load i32, ptr %first.sroa.0.07.i.i.i.i.i5408, align 4
-  store i32 %1234, ptr %retval.sroa.0.06.i.i.i.i.i5409, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i5408, align 4
-  %incdec.ptr.i.i.i.i.i.i.i5410 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i5408, i64 4
-  %incdec.ptr.i.i.i.i.i.i5411 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i5409, i64 4
+  %retval.sroa.0.07.i.i.i.i.i5408 = phi ptr [ %incdec.ptr.i.i.i.i.i.i5411, %for.body.i.i.i.i.i5407 ], [ %1233, %for.body.i.i.preheader.i.i.i5403 ]
+  %first.sroa.0.06.i.i.i.i.i5409 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i5410, %for.body.i.i.i.i.i5407 ], [ %1231, %for.body.i.i.preheader.i.i.i5403 ]
+  %1234 = load i32, ptr %first.sroa.0.06.i.i.i.i.i5409, align 4
+  store i32 %1234, ptr %retval.sroa.0.07.i.i.i.i.i5408, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i5409, align 4
+  %incdec.ptr.i.i.i.i.i.i.i5410 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i5409, i64 4
+  %incdec.ptr.i.i.i.i.i.i5411 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i5408, i64 4
   %cmp.i.i.i.not.i.i.i.i.i5412 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i5410, %add.ptr25.i.i.i5406
   br i1 %cmp.i.i.i.not.i.i.i.i.i5412, label %for.body.i.i10.preheader.i.i.i5413, label %for.body.i.i.i.i.i5407, !llvm.loop !497
 
@@ -52001,17 +52001,17 @@ for.body.i.i10.preheader.i.i.i5413:               ; preds = %for.body.i.i.i.i.i5
   br label %for.body.i.i10.i.i.i5415
 
 for.body.i.i10.i.i.i5415:                         ; preds = %for.body.i.i10.i.i.i5415, %for.body.i.i10.preheader.i.i.i5413
-  %first.sroa.0.07.i.i11.i.i.i5416 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i5427, %for.body.i.i10.i.i.i5415 ], [ %1229, %for.body.i.i10.preheader.i.i.i5413 ]
-  %retval.sroa.0.06.i.i12.i.i.i5417 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i5428, %for.body.i.i10.i.i.i5415 ], [ %1235, %for.body.i.i10.preheader.i.i.i5413 ]
-  %1236 = load i32, ptr %first.sroa.0.07.i.i11.i.i.i5416, align 8
-  store i32 %1236, ptr %retval.sroa.0.06.i.i12.i.i.i5417, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i5418 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5417, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i5419 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i5416, i64 4
+  %retval.sroa.0.07.i.i11.i.i.i5416 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i5428, %for.body.i.i10.i.i.i5415 ], [ %1235, %for.body.i.i10.preheader.i.i.i5413 ]
+  %first.sroa.0.06.i.i12.i.i.i5417 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i5427, %for.body.i.i10.i.i.i5415 ], [ %1229, %for.body.i.i10.preheader.i.i.i5413 ]
+  %1236 = load i32, ptr %first.sroa.0.06.i.i12.i.i.i5417, align 8
+  store i32 %1236, ptr %retval.sroa.0.07.i.i11.i.i.i5416, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i5418 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5416, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i5419 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i5417, i64 4
   %1237 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i5419, align 4
   %frombool.i.i.i.i.i.i5420 = and i8 %1237, 1
   store i8 %frombool.i.i.i.i.i.i5420, ptr %mbThrowOnCopy.i.i.i.i.i.i5418, align 4
-  %mMagicValue.i.i.i.i.i.i5421 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5417, i64 16
-  %mMagicValue4.i.i.i.i.i.i5422 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i5416, i64 16
+  %mMagicValue.i.i.i.i.i.i5421 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5416, i64 16
+  %mMagicValue4.i.i.i.i.i.i5422 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i5417, i64 16
   %1238 = load i32, ptr %mMagicValue4.i.i.i.i.i.i5422, align 8
   store i32 %1238, ptr %mMagicValue.i.i.i.i.i.i5421, align 8
   %1239 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -52023,11 +52023,11 @@ for.body.i.i10.i.i.i5415:                         ; preds = %for.body.i.i10.i.i.
   %1241 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i5425 = add nsw i64 %1241, 1
   store i64 %inc6.i.i.i.i.i.i5425, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i5426 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5417, i64 8
+  %mId.i.i.i.i.i.i5426 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5416, i64 8
   store i64 %inc5.i.i.i.i.i.i5424, ptr %mId.i.i.i.i.i.i5426, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i.i.i5416, align 8
-  %incdec.ptr.i.i.i.i13.i.i.i5427 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i5416, i64 24
-  %incdec.ptr.i.i.i14.i.i.i5428 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5417, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i.i.i5417, align 8
+  %incdec.ptr.i.i.i.i13.i.i.i5427 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i5417, i64 24
+  %incdec.ptr.i.i.i14.i.i.i5428 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5416, i64 24
   %cmp.i.i.i.not.i.i15.i.i.i5429 = icmp eq ptr %incdec.ptr.i.i.i.i13.i.i.i5427, %add.ptr37.i.i.i5414
   br i1 %cmp.i.i.i.not.i.i15.i.i.i5429, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEEC2INS0_12TupleVecIterIS6_JiS7_S8_EEEEENS_13move_iteratorIT_EESF_RKS4_.exit.loopexit.i5430, label %for.body.i.i10.i.i.i5415, !llvm.loop !498
 
@@ -52201,13 +52201,13 @@ for.body.i.i.preheader.i.i.i5514:                 ; preds = %if.then1890
   br label %for.body.i.i.i.i.i5518
 
 for.body.i.i.i.i.i5518:                           ; preds = %for.body.i.i.i.i.i5518, %for.body.i.i.preheader.i.i.i5514
-  %first.sroa.0.07.i.i.i.i.i5519 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i5521, %for.body.i.i.i.i.i5518 ], [ %1264, %for.body.i.i.preheader.i.i.i5514 ]
-  %retval.sroa.0.06.i.i.i.i.i5520 = phi ptr [ %incdec.ptr.i.i.i.i.i.i5522, %for.body.i.i.i.i.i5518 ], [ %1266, %for.body.i.i.preheader.i.i.i5514 ]
-  %1267 = load i32, ptr %first.sroa.0.07.i.i.i.i.i5519, align 4
-  store i32 %1267, ptr %retval.sroa.0.06.i.i.i.i.i5520, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i5519, align 4
-  %incdec.ptr.i.i.i.i.i.i.i5521 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i5519, i64 4
-  %incdec.ptr.i.i.i.i.i.i5522 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i5520, i64 4
+  %retval.sroa.0.07.i.i.i.i.i5519 = phi ptr [ %incdec.ptr.i.i.i.i.i.i5522, %for.body.i.i.i.i.i5518 ], [ %1266, %for.body.i.i.preheader.i.i.i5514 ]
+  %first.sroa.0.06.i.i.i.i.i5520 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i5521, %for.body.i.i.i.i.i5518 ], [ %1264, %for.body.i.i.preheader.i.i.i5514 ]
+  %1267 = load i32, ptr %first.sroa.0.06.i.i.i.i.i5520, align 4
+  store i32 %1267, ptr %retval.sroa.0.07.i.i.i.i.i5519, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i5520, align 4
+  %incdec.ptr.i.i.i.i.i.i.i5521 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i5520, i64 4
+  %incdec.ptr.i.i.i.i.i.i5522 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i5519, i64 4
   %cmp.i.i.i.not.i.i.i.i.i5523 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i5521, %add.ptr25.i.i.i5517
   br i1 %cmp.i.i.i.not.i.i.i.i.i5523, label %for.body.i.i10.preheader.i.i.i5524, label %for.body.i.i.i.i.i5518, !llvm.loop !497
 
@@ -52218,17 +52218,17 @@ for.body.i.i10.preheader.i.i.i5524:               ; preds = %for.body.i.i.i.i.i5
   br label %for.body.i.i10.i.i.i5526
 
 for.body.i.i10.i.i.i5526:                         ; preds = %for.body.i.i10.i.i.i5526, %for.body.i.i10.preheader.i.i.i5524
-  %first.sroa.0.07.i.i11.i.i.i5527 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i5538, %for.body.i.i10.i.i.i5526 ], [ %1262, %for.body.i.i10.preheader.i.i.i5524 ]
-  %retval.sroa.0.06.i.i12.i.i.i5528 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i5539, %for.body.i.i10.i.i.i5526 ], [ %1268, %for.body.i.i10.preheader.i.i.i5524 ]
-  %1269 = load i32, ptr %first.sroa.0.07.i.i11.i.i.i5527, align 8
-  store i32 %1269, ptr %retval.sroa.0.06.i.i12.i.i.i5528, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i5529 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5528, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i5530 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i5527, i64 4
+  %retval.sroa.0.07.i.i11.i.i.i5527 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i5539, %for.body.i.i10.i.i.i5526 ], [ %1268, %for.body.i.i10.preheader.i.i.i5524 ]
+  %first.sroa.0.06.i.i12.i.i.i5528 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i5538, %for.body.i.i10.i.i.i5526 ], [ %1262, %for.body.i.i10.preheader.i.i.i5524 ]
+  %1269 = load i32, ptr %first.sroa.0.06.i.i12.i.i.i5528, align 8
+  store i32 %1269, ptr %retval.sroa.0.07.i.i11.i.i.i5527, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i5529 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5527, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i5530 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i5528, i64 4
   %1270 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i5530, align 4
   %frombool.i.i.i.i.i.i5531 = and i8 %1270, 1
   store i8 %frombool.i.i.i.i.i.i5531, ptr %mbThrowOnCopy.i.i.i.i.i.i5529, align 4
-  %mMagicValue.i.i.i.i.i.i5532 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5528, i64 16
-  %mMagicValue4.i.i.i.i.i.i5533 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i5527, i64 16
+  %mMagicValue.i.i.i.i.i.i5532 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5527, i64 16
+  %mMagicValue4.i.i.i.i.i.i5533 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i5528, i64 16
   %1271 = load i32, ptr %mMagicValue4.i.i.i.i.i.i5533, align 8
   store i32 %1271, ptr %mMagicValue.i.i.i.i.i.i5532, align 8
   %1272 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -52240,11 +52240,11 @@ for.body.i.i10.i.i.i5526:                         ; preds = %for.body.i.i10.i.i.
   %1274 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i5536 = add nsw i64 %1274, 1
   store i64 %inc6.i.i.i.i.i.i5536, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i5537 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5528, i64 8
+  %mId.i.i.i.i.i.i5537 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5527, i64 8
   store i64 %inc5.i.i.i.i.i.i5535, ptr %mId.i.i.i.i.i.i5537, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i.i.i5527, align 8
-  %incdec.ptr.i.i.i.i13.i.i.i5538 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i5527, i64 24
-  %incdec.ptr.i.i.i14.i.i.i5539 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5528, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i.i.i5528, align 8
+  %incdec.ptr.i.i.i.i13.i.i.i5538 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i5528, i64 24
+  %incdec.ptr.i.i.i14.i.i.i5539 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5527, i64 24
   %cmp.i.i.i.not.i.i15.i.i.i5540 = icmp eq ptr %incdec.ptr.i.i.i.i13.i.i.i5538, %add.ptr37.i.i.i5525
   br i1 %cmp.i.i.i.not.i.i15.i.i.i5540, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEEC2INS0_12TupleVecIterIS6_JiS7_S8_EEEEENS_13move_iteratorIT_EESF_RKS4_.exit.loopexit.i5541, label %for.body.i.i10.i.i.i5526, !llvm.loop !498
 
@@ -52735,13 +52735,13 @@ for.body.i.i.preheader.i.i.i5800:                 ; preds = %if.then2009
   br label %for.body.i.i.i.i.i5804
 
 for.body.i.i.i.i.i5804:                           ; preds = %for.body.i.i.i.i.i5804, %for.body.i.i.preheader.i.i.i5800
-  %first.sroa.0.07.i.i.i.i.i5805 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i5807, %for.body.i.i.i.i.i5804 ], [ %1355, %for.body.i.i.preheader.i.i.i5800 ]
-  %retval.sroa.0.06.i.i.i.i.i5806 = phi ptr [ %incdec.ptr.i.i.i.i.i.i5808, %for.body.i.i.i.i.i5804 ], [ %1357, %for.body.i.i.preheader.i.i.i5800 ]
-  %1358 = load i32, ptr %first.sroa.0.07.i.i.i.i.i5805, align 4
-  store i32 %1358, ptr %retval.sroa.0.06.i.i.i.i.i5806, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i5805, align 4
-  %incdec.ptr.i.i.i.i.i.i.i5807 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i5805, i64 4
-  %incdec.ptr.i.i.i.i.i.i5808 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i5806, i64 4
+  %retval.sroa.0.07.i.i.i.i.i5805 = phi ptr [ %incdec.ptr.i.i.i.i.i.i5808, %for.body.i.i.i.i.i5804 ], [ %1357, %for.body.i.i.preheader.i.i.i5800 ]
+  %first.sroa.0.06.i.i.i.i.i5806 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i5807, %for.body.i.i.i.i.i5804 ], [ %1355, %for.body.i.i.preheader.i.i.i5800 ]
+  %1358 = load i32, ptr %first.sroa.0.06.i.i.i.i.i5806, align 4
+  store i32 %1358, ptr %retval.sroa.0.07.i.i.i.i.i5805, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i5806, align 4
+  %incdec.ptr.i.i.i.i.i.i.i5807 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i5806, i64 4
+  %incdec.ptr.i.i.i.i.i.i5808 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i5805, i64 4
   %cmp.i.i.i.not.i.i.i.i.i5809 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i5807, %add.ptr25.i.i.i5803
   br i1 %cmp.i.i.i.not.i.i.i.i.i5809, label %for.body.i.i10.preheader.i.i.i5810, label %for.body.i.i.i.i.i5804, !llvm.loop !497
 
@@ -52752,17 +52752,17 @@ for.body.i.i10.preheader.i.i.i5810:               ; preds = %for.body.i.i.i.i.i5
   br label %for.body.i.i10.i.i.i5812
 
 for.body.i.i10.i.i.i5812:                         ; preds = %for.body.i.i10.i.i.i5812, %for.body.i.i10.preheader.i.i.i5810
-  %first.sroa.0.07.i.i11.i.i.i5813 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i5824, %for.body.i.i10.i.i.i5812 ], [ %1353, %for.body.i.i10.preheader.i.i.i5810 ]
-  %retval.sroa.0.06.i.i12.i.i.i5814 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i5825, %for.body.i.i10.i.i.i5812 ], [ %1359, %for.body.i.i10.preheader.i.i.i5810 ]
-  %1360 = load i32, ptr %first.sroa.0.07.i.i11.i.i.i5813, align 8
-  store i32 %1360, ptr %retval.sroa.0.06.i.i12.i.i.i5814, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i5815 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5814, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i5816 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i5813, i64 4
+  %retval.sroa.0.07.i.i11.i.i.i5813 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i5825, %for.body.i.i10.i.i.i5812 ], [ %1359, %for.body.i.i10.preheader.i.i.i5810 ]
+  %first.sroa.0.06.i.i12.i.i.i5814 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i5824, %for.body.i.i10.i.i.i5812 ], [ %1353, %for.body.i.i10.preheader.i.i.i5810 ]
+  %1360 = load i32, ptr %first.sroa.0.06.i.i12.i.i.i5814, align 8
+  store i32 %1360, ptr %retval.sroa.0.07.i.i11.i.i.i5813, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i5815 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5813, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i5816 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i5814, i64 4
   %1361 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i5816, align 4
   %frombool.i.i.i.i.i.i5817 = and i8 %1361, 1
   store i8 %frombool.i.i.i.i.i.i5817, ptr %mbThrowOnCopy.i.i.i.i.i.i5815, align 4
-  %mMagicValue.i.i.i.i.i.i5818 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5814, i64 16
-  %mMagicValue4.i.i.i.i.i.i5819 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i5813, i64 16
+  %mMagicValue.i.i.i.i.i.i5818 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5813, i64 16
+  %mMagicValue4.i.i.i.i.i.i5819 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i5814, i64 16
   %1362 = load i32, ptr %mMagicValue4.i.i.i.i.i.i5819, align 8
   store i32 %1362, ptr %mMagicValue.i.i.i.i.i.i5818, align 8
   %1363 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -52774,11 +52774,11 @@ for.body.i.i10.i.i.i5812:                         ; preds = %for.body.i.i10.i.i.
   %1365 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i5822 = add nsw i64 %1365, 1
   store i64 %inc6.i.i.i.i.i.i5822, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i5823 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5814, i64 8
+  %mId.i.i.i.i.i.i5823 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5813, i64 8
   store i64 %inc5.i.i.i.i.i.i5821, ptr %mId.i.i.i.i.i.i5823, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i.i.i5813, align 8
-  %incdec.ptr.i.i.i.i13.i.i.i5824 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i5813, i64 24
-  %incdec.ptr.i.i.i14.i.i.i5825 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5814, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i.i.i5814, align 8
+  %incdec.ptr.i.i.i.i13.i.i.i5824 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i5814, i64 24
+  %incdec.ptr.i.i.i14.i.i.i5825 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5813, i64 24
   %cmp.i.i.i.not.i.i15.i.i.i5826 = icmp eq ptr %incdec.ptr.i.i.i.i13.i.i.i5824, %add.ptr37.i.i.i5811
   br i1 %cmp.i.i.i.not.i.i15.i.i.i5826, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEEC2INS0_12TupleVecIterIS6_JiS7_S8_EEEEENS_13move_iteratorIT_EESF_RKS4_.exit.loopexit.i5827, label %for.body.i.i10.i.i.i5812, !llvm.loop !498
 
@@ -53031,13 +53031,13 @@ for.body.i.i.preheader.i.i.i5933:                 ; preds = %if.then2039
   br label %for.body.i.i.i.i.i5937
 
 for.body.i.i.i.i.i5937:                           ; preds = %for.body.i.i.i.i.i5937, %for.body.i.i.preheader.i.i.i5933
-  %first.sroa.0.07.i.i.i.i.i5938 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i5940, %for.body.i.i.i.i.i5937 ], [ %1404, %for.body.i.i.preheader.i.i.i5933 ]
-  %retval.sroa.0.06.i.i.i.i.i5939 = phi ptr [ %incdec.ptr.i.i.i.i.i.i5941, %for.body.i.i.i.i.i5937 ], [ %1406, %for.body.i.i.preheader.i.i.i5933 ]
-  %1407 = load i32, ptr %first.sroa.0.07.i.i.i.i.i5938, align 4
-  store i32 %1407, ptr %retval.sroa.0.06.i.i.i.i.i5939, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i5938, align 4
-  %incdec.ptr.i.i.i.i.i.i.i5940 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i5938, i64 4
-  %incdec.ptr.i.i.i.i.i.i5941 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i5939, i64 4
+  %retval.sroa.0.07.i.i.i.i.i5938 = phi ptr [ %incdec.ptr.i.i.i.i.i.i5941, %for.body.i.i.i.i.i5937 ], [ %1406, %for.body.i.i.preheader.i.i.i5933 ]
+  %first.sroa.0.06.i.i.i.i.i5939 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i5940, %for.body.i.i.i.i.i5937 ], [ %1404, %for.body.i.i.preheader.i.i.i5933 ]
+  %1407 = load i32, ptr %first.sroa.0.06.i.i.i.i.i5939, align 4
+  store i32 %1407, ptr %retval.sroa.0.07.i.i.i.i.i5938, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i5939, align 4
+  %incdec.ptr.i.i.i.i.i.i.i5940 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i5939, i64 4
+  %incdec.ptr.i.i.i.i.i.i5941 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i5938, i64 4
   %cmp.i.i.i.not.i.i.i.i.i5942 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i5940, %add.ptr25.i.i.i5936
   br i1 %cmp.i.i.i.not.i.i.i.i.i5942, label %for.body.i.i10.preheader.i.i.i5943, label %for.body.i.i.i.i.i5937, !llvm.loop !497
 
@@ -53048,17 +53048,17 @@ for.body.i.i10.preheader.i.i.i5943:               ; preds = %for.body.i.i.i.i.i5
   br label %for.body.i.i10.i.i.i5945
 
 for.body.i.i10.i.i.i5945:                         ; preds = %for.body.i.i10.i.i.i5945, %for.body.i.i10.preheader.i.i.i5943
-  %first.sroa.0.07.i.i11.i.i.i5946 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i5957, %for.body.i.i10.i.i.i5945 ], [ %1402, %for.body.i.i10.preheader.i.i.i5943 ]
-  %retval.sroa.0.06.i.i12.i.i.i5947 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i5958, %for.body.i.i10.i.i.i5945 ], [ %1408, %for.body.i.i10.preheader.i.i.i5943 ]
-  %1409 = load i32, ptr %first.sroa.0.07.i.i11.i.i.i5946, align 8
-  store i32 %1409, ptr %retval.sroa.0.06.i.i12.i.i.i5947, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i5948 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5947, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i5949 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i5946, i64 4
+  %retval.sroa.0.07.i.i11.i.i.i5946 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i5958, %for.body.i.i10.i.i.i5945 ], [ %1408, %for.body.i.i10.preheader.i.i.i5943 ]
+  %first.sroa.0.06.i.i12.i.i.i5947 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i5957, %for.body.i.i10.i.i.i5945 ], [ %1402, %for.body.i.i10.preheader.i.i.i5943 ]
+  %1409 = load i32, ptr %first.sroa.0.06.i.i12.i.i.i5947, align 8
+  store i32 %1409, ptr %retval.sroa.0.07.i.i11.i.i.i5946, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i5948 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5946, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i5949 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i5947, i64 4
   %1410 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i5949, align 4
   %frombool.i.i.i.i.i.i5950 = and i8 %1410, 1
   store i8 %frombool.i.i.i.i.i.i5950, ptr %mbThrowOnCopy.i.i.i.i.i.i5948, align 4
-  %mMagicValue.i.i.i.i.i.i5951 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5947, i64 16
-  %mMagicValue4.i.i.i.i.i.i5952 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i5946, i64 16
+  %mMagicValue.i.i.i.i.i.i5951 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5946, i64 16
+  %mMagicValue4.i.i.i.i.i.i5952 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i5947, i64 16
   %1411 = load i32, ptr %mMagicValue4.i.i.i.i.i.i5952, align 8
   store i32 %1411, ptr %mMagicValue.i.i.i.i.i.i5951, align 8
   %1412 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -53070,11 +53070,11 @@ for.body.i.i10.i.i.i5945:                         ; preds = %for.body.i.i10.i.i.
   %1414 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i5955 = add nsw i64 %1414, 1
   store i64 %inc6.i.i.i.i.i.i5955, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i5956 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5947, i64 8
+  %mId.i.i.i.i.i.i5956 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5946, i64 8
   store i64 %inc5.i.i.i.i.i.i5954, ptr %mId.i.i.i.i.i.i5956, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i.i.i5946, align 8
-  %incdec.ptr.i.i.i.i13.i.i.i5957 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i5946, i64 24
-  %incdec.ptr.i.i.i14.i.i.i5958 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i5947, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i.i.i5947, align 8
+  %incdec.ptr.i.i.i.i13.i.i.i5957 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i5947, i64 24
+  %incdec.ptr.i.i.i14.i.i.i5958 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i5946, i64 24
   %cmp.i.i.i.not.i.i15.i.i.i5959 = icmp eq ptr %incdec.ptr.i.i.i.i13.i.i.i5957, %add.ptr37.i.i.i5944
   br i1 %cmp.i.i.i.not.i.i15.i.i.i5959, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEEC2INS0_12TupleVecIterIS6_JiS7_S8_EEEEENS_13move_iteratorIT_EESF_RKS4_.exit.loopexit.i5960, label %for.body.i.i10.i.i.i5945, !llvm.loop !498
 
@@ -53248,13 +53248,13 @@ for.body.i.i.preheader.i.i.i6046:                 ; preds = %if.then2071
   br label %for.body.i.i.i.i.i6050
 
 for.body.i.i.i.i.i6050:                           ; preds = %for.body.i.i.i.i.i6050, %for.body.i.i.preheader.i.i.i6046
-  %first.sroa.0.07.i.i.i.i.i6051 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i6053, %for.body.i.i.i.i.i6050 ], [ %1437, %for.body.i.i.preheader.i.i.i6046 ]
-  %retval.sroa.0.06.i.i.i.i.i6052 = phi ptr [ %incdec.ptr.i.i.i.i.i.i6054, %for.body.i.i.i.i.i6050 ], [ %1439, %for.body.i.i.preheader.i.i.i6046 ]
-  %1440 = load i32, ptr %first.sroa.0.07.i.i.i.i.i6051, align 4
-  store i32 %1440, ptr %retval.sroa.0.06.i.i.i.i.i6052, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i6051, align 4
-  %incdec.ptr.i.i.i.i.i.i.i6053 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i6051, i64 4
-  %incdec.ptr.i.i.i.i.i.i6054 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i6052, i64 4
+  %retval.sroa.0.07.i.i.i.i.i6051 = phi ptr [ %incdec.ptr.i.i.i.i.i.i6054, %for.body.i.i.i.i.i6050 ], [ %1439, %for.body.i.i.preheader.i.i.i6046 ]
+  %first.sroa.0.06.i.i.i.i.i6052 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i6053, %for.body.i.i.i.i.i6050 ], [ %1437, %for.body.i.i.preheader.i.i.i6046 ]
+  %1440 = load i32, ptr %first.sroa.0.06.i.i.i.i.i6052, align 4
+  store i32 %1440, ptr %retval.sroa.0.07.i.i.i.i.i6051, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i6052, align 4
+  %incdec.ptr.i.i.i.i.i.i.i6053 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i6052, i64 4
+  %incdec.ptr.i.i.i.i.i.i6054 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i6051, i64 4
   %cmp.i.i.i.not.i.i.i.i.i6055 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i6053, %add.ptr25.i.i.i6049
   br i1 %cmp.i.i.i.not.i.i.i.i.i6055, label %for.body.i.i10.preheader.i.i.i6056, label %for.body.i.i.i.i.i6050, !llvm.loop !497
 
@@ -53265,17 +53265,17 @@ for.body.i.i10.preheader.i.i.i6056:               ; preds = %for.body.i.i.i.i.i6
   br label %for.body.i.i10.i.i.i6058
 
 for.body.i.i10.i.i.i6058:                         ; preds = %for.body.i.i10.i.i.i6058, %for.body.i.i10.preheader.i.i.i6056
-  %first.sroa.0.07.i.i11.i.i.i6059 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i6070, %for.body.i.i10.i.i.i6058 ], [ %1435, %for.body.i.i10.preheader.i.i.i6056 ]
-  %retval.sroa.0.06.i.i12.i.i.i6060 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i6071, %for.body.i.i10.i.i.i6058 ], [ %1441, %for.body.i.i10.preheader.i.i.i6056 ]
-  %1442 = load i32, ptr %first.sroa.0.07.i.i11.i.i.i6059, align 8
-  store i32 %1442, ptr %retval.sroa.0.06.i.i12.i.i.i6060, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i6061 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i6060, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i6062 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i6059, i64 4
+  %retval.sroa.0.07.i.i11.i.i.i6059 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i6071, %for.body.i.i10.i.i.i6058 ], [ %1441, %for.body.i.i10.preheader.i.i.i6056 ]
+  %first.sroa.0.06.i.i12.i.i.i6060 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i6070, %for.body.i.i10.i.i.i6058 ], [ %1435, %for.body.i.i10.preheader.i.i.i6056 ]
+  %1442 = load i32, ptr %first.sroa.0.06.i.i12.i.i.i6060, align 8
+  store i32 %1442, ptr %retval.sroa.0.07.i.i11.i.i.i6059, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i6061 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i6059, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i6062 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i6060, i64 4
   %1443 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i6062, align 4
   %frombool.i.i.i.i.i.i6063 = and i8 %1443, 1
   store i8 %frombool.i.i.i.i.i.i6063, ptr %mbThrowOnCopy.i.i.i.i.i.i6061, align 4
-  %mMagicValue.i.i.i.i.i.i6064 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i6060, i64 16
-  %mMagicValue4.i.i.i.i.i.i6065 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i6059, i64 16
+  %mMagicValue.i.i.i.i.i.i6064 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i6059, i64 16
+  %mMagicValue4.i.i.i.i.i.i6065 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i6060, i64 16
   %1444 = load i32, ptr %mMagicValue4.i.i.i.i.i.i6065, align 8
   store i32 %1444, ptr %mMagicValue.i.i.i.i.i.i6064, align 8
   %1445 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -53287,11 +53287,11 @@ for.body.i.i10.i.i.i6058:                         ; preds = %for.body.i.i10.i.i.
   %1447 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i6068 = add nsw i64 %1447, 1
   store i64 %inc6.i.i.i.i.i.i6068, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i6069 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i6060, i64 8
+  %mId.i.i.i.i.i.i6069 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i6059, i64 8
   store i64 %inc5.i.i.i.i.i.i6067, ptr %mId.i.i.i.i.i.i6069, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i.i.i6059, align 8
-  %incdec.ptr.i.i.i.i13.i.i.i6070 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i6059, i64 24
-  %incdec.ptr.i.i.i14.i.i.i6071 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i6060, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i.i.i6060, align 8
+  %incdec.ptr.i.i.i.i13.i.i.i6070 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i6060, i64 24
+  %incdec.ptr.i.i.i14.i.i.i6071 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i6059, i64 24
   %cmp.i.i.i.not.i.i15.i.i.i6072 = icmp eq ptr %incdec.ptr.i.i.i.i13.i.i.i6070, %add.ptr37.i.i.i6057
   br i1 %cmp.i.i.i.not.i.i15.i.i.i6072, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEEC2INS0_12TupleVecIterIS6_JiS7_S8_EEEEENS_13move_iteratorIT_EESF_RKS4_.exit.loopexit.i6073, label %for.body.i.i10.i.i.i6058, !llvm.loop !498
 
@@ -53614,17 +53614,17 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fi
   br label %for.body.i.i.i.i.i15202
 
 for.body.i.i.i.i.i15202:                          ; preds = %for.body.i.i.i.i.i15202, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15193
-  %first.sroa.0.08.i.i.i.i.i15203 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15214, %for.body.i.i.i.i.i15202 ], [ %1498, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15193 ]
-  %retval.sroa.0.07.i.i.i.i.i15204 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15215, %for.body.i.i.i.i.i15202 ], [ %1496, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15193 ]
-  %1499 = load i32, ptr %first.sroa.0.08.i.i.i.i.i15203, align 8
-  store i32 %1499, ptr %retval.sroa.0.07.i.i.i.i.i15204, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i15205 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15204, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i15206 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15203, i64 4
+  %retval.sroa.0.08.i.i.i.i.i15203 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15215, %for.body.i.i.i.i.i15202 ], [ %1496, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15193 ]
+  %first.sroa.0.07.i.i.i.i.i15204 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15214, %for.body.i.i.i.i.i15202 ], [ %1498, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15193 ]
+  %1499 = load i32, ptr %first.sroa.0.07.i.i.i.i.i15204, align 8
+  store i32 %1499, ptr %retval.sroa.0.08.i.i.i.i.i15203, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i15205 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15203, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i15206 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15204, i64 4
   %1500 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i15206, align 4
   %frombool.i.i.i.i.i.i15207 = and i8 %1500, 1
   store i8 %frombool.i.i.i.i.i.i15207, ptr %mbThrowOnCopy.i.i.i.i.i.i15205, align 4
-  %mMagicValue.i.i.i.i.i.i15208 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15204, i64 16
-  %mMagicValue4.i.i.i.i.i.i15209 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15203, i64 16
+  %mMagicValue.i.i.i.i.i.i15208 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15203, i64 16
+  %mMagicValue4.i.i.i.i.i.i15209 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15204, i64 16
   %1501 = load i32, ptr %mMagicValue4.i.i.i.i.i.i15209, align 8
   store i32 %1501, ptr %mMagicValue.i.i.i.i.i.i15208, align 8
   %1502 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -53636,11 +53636,11 @@ for.body.i.i.i.i.i15202:                          ; preds = %for.body.i.i.i.i.i1
   %1504 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i15212 = add nsw i64 %1504, 1
   store i64 %inc6.i.i.i.i.i.i15212, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i15213 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15204, i64 8
+  %mId.i.i.i.i.i.i15213 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15203, i64 8
   store i64 %inc5.i.i.i.i.i.i15211, ptr %mId.i.i.i.i.i.i15213, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i15203, align 8
-  %incdec.ptr.i.i.i.i.i.i15214 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15203, i64 24
-  %incdec.ptr.i1.i.i.i.i.i15215 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15204, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i15204, align 8
+  %incdec.ptr.i.i.i.i.i.i15214 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15204, i64 24
+  %incdec.ptr.i1.i.i.i.i.i15215 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15203, i64 24
   %cmp.i.not.i.i.i.i.i15216 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i15214, %add.ptr3.i.i15201
   br i1 %cmp.i.not.i.i.i.i.i15216, label %for.body.preheader.i.i.i.i15217, label %for.body.i.i.i.i.i15202, !llvm.loop !1484
 
@@ -53856,17 +53856,17 @@ for.body.i.i.preheader.i.i.i6432:                 ; preds = %if.then2215
   br label %for.body.i.i.i.i.i6439
 
 for.body.i.i.i.i.i6439:                           ; preds = %for.body.i.i.i.i.i6439, %for.body.i.i.preheader.i.i.i6432
-  %first.sroa.0.07.i.i.i.i.i6440 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i6451, %for.body.i.i.i.i.i6439 ], [ %1539, %for.body.i.i.preheader.i.i.i6432 ]
-  %retval.sroa.0.06.i.i.i.i.i6441 = phi ptr [ %incdec.ptr.i.i.i.i.i.i6452, %for.body.i.i.i.i.i6439 ], [ %1541, %for.body.i.i.preheader.i.i.i6432 ]
-  %1542 = load i32, ptr %first.sroa.0.07.i.i.i.i.i6440, align 8
-  store i32 %1542, ptr %retval.sroa.0.06.i.i.i.i.i6441, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i6442 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i6441, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i6443 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i6440, i64 4
+  %retval.sroa.0.07.i.i.i.i.i6440 = phi ptr [ %incdec.ptr.i.i.i.i.i.i6452, %for.body.i.i.i.i.i6439 ], [ %1541, %for.body.i.i.preheader.i.i.i6432 ]
+  %first.sroa.0.06.i.i.i.i.i6441 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i6451, %for.body.i.i.i.i.i6439 ], [ %1539, %for.body.i.i.preheader.i.i.i6432 ]
+  %1542 = load i32, ptr %first.sroa.0.06.i.i.i.i.i6441, align 8
+  store i32 %1542, ptr %retval.sroa.0.07.i.i.i.i.i6440, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i6442 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i6440, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i6443 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i6441, i64 4
   %1543 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i6443, align 4
   %frombool.i.i.i.i.i.i6444 = and i8 %1543, 1
   store i8 %frombool.i.i.i.i.i.i6444, ptr %mbThrowOnCopy.i.i.i.i.i.i6442, align 4
-  %mMagicValue.i.i.i.i.i.i6445 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i6441, i64 16
-  %mMagicValue4.i.i.i.i.i.i6446 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i6440, i64 16
+  %mMagicValue.i.i.i.i.i.i6445 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i6440, i64 16
+  %mMagicValue4.i.i.i.i.i.i6446 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i6441, i64 16
   %1544 = load i32, ptr %mMagicValue4.i.i.i.i.i.i6446, align 8
   store i32 %1544, ptr %mMagicValue.i.i.i.i.i.i6445, align 8
   %1545 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -53878,11 +53878,11 @@ for.body.i.i.i.i.i6439:                           ; preds = %for.body.i.i.i.i.i6
   %1547 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i6449 = add nsw i64 %1547, 1
   store i64 %inc6.i.i.i.i.i.i6449, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i6450 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i6441, i64 8
+  %mId.i.i.i.i.i.i6450 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i6440, i64 8
   store i64 %inc5.i.i.i.i.i.i6448, ptr %mId.i.i.i.i.i.i6450, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i6440, align 8
-  %incdec.ptr.i.i.i.i.i.i.i6451 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i6440, i64 24
-  %incdec.ptr.i.i.i.i.i.i6452 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i6441, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i6441, align 8
+  %incdec.ptr.i.i.i.i.i.i.i6451 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i6441, i64 24
+  %incdec.ptr.i.i.i.i.i.i6452 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i6440, i64 24
   %cmp.i.i.i.not.i.i.i.i.i6453 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i6451, %add.ptr25.i.i.i6438
   br i1 %cmp.i.i.i.not.i.i.i.i.i6453, label %if.end.i.i.i.i.i.i10.i.i.i6454, label %for.body.i.i.i.i.i6439, !llvm.loop !498
 
@@ -54022,17 +54022,17 @@ for.body.i.i.preheader.i.i.i6534:                 ; preds = %if.then2245
   br label %for.body.i.i.i.i.i6541
 
 for.body.i.i.i.i.i6541:                           ; preds = %for.body.i.i.i.i.i6541, %for.body.i.i.preheader.i.i.i6534
-  %first.sroa.0.07.i.i.i.i.i6542 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i6553, %for.body.i.i.i.i.i6541 ], [ %1563, %for.body.i.i.preheader.i.i.i6534 ]
-  %retval.sroa.0.06.i.i.i.i.i6543 = phi ptr [ %incdec.ptr.i.i.i.i.i.i6554, %for.body.i.i.i.i.i6541 ], [ %1565, %for.body.i.i.preheader.i.i.i6534 ]
-  %1566 = load i32, ptr %first.sroa.0.07.i.i.i.i.i6542, align 8
-  store i32 %1566, ptr %retval.sroa.0.06.i.i.i.i.i6543, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i6544 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i6543, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i6545 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i6542, i64 4
+  %retval.sroa.0.07.i.i.i.i.i6542 = phi ptr [ %incdec.ptr.i.i.i.i.i.i6554, %for.body.i.i.i.i.i6541 ], [ %1565, %for.body.i.i.preheader.i.i.i6534 ]
+  %first.sroa.0.06.i.i.i.i.i6543 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i6553, %for.body.i.i.i.i.i6541 ], [ %1563, %for.body.i.i.preheader.i.i.i6534 ]
+  %1566 = load i32, ptr %first.sroa.0.06.i.i.i.i.i6543, align 8
+  store i32 %1566, ptr %retval.sroa.0.07.i.i.i.i.i6542, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i6544 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i6542, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i6545 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i6543, i64 4
   %1567 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i6545, align 4
   %frombool.i.i.i.i.i.i6546 = and i8 %1567, 1
   store i8 %frombool.i.i.i.i.i.i6546, ptr %mbThrowOnCopy.i.i.i.i.i.i6544, align 4
-  %mMagicValue.i.i.i.i.i.i6547 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i6543, i64 16
-  %mMagicValue4.i.i.i.i.i.i6548 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i6542, i64 16
+  %mMagicValue.i.i.i.i.i.i6547 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i6542, i64 16
+  %mMagicValue4.i.i.i.i.i.i6548 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i6543, i64 16
   %1568 = load i32, ptr %mMagicValue4.i.i.i.i.i.i6548, align 8
   store i32 %1568, ptr %mMagicValue.i.i.i.i.i.i6547, align 8
   %1569 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -54044,11 +54044,11 @@ for.body.i.i.i.i.i6541:                           ; preds = %for.body.i.i.i.i.i6
   %1571 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i6551 = add nsw i64 %1571, 1
   store i64 %inc6.i.i.i.i.i.i6551, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i6552 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i6543, i64 8
+  %mId.i.i.i.i.i.i6552 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i6542, i64 8
   store i64 %inc5.i.i.i.i.i.i6550, ptr %mId.i.i.i.i.i.i6552, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i6542, align 8
-  %incdec.ptr.i.i.i.i.i.i.i6553 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i6542, i64 24
-  %incdec.ptr.i.i.i.i.i.i6554 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i6543, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i6543, align 8
+  %incdec.ptr.i.i.i.i.i.i.i6553 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i6543, i64 24
+  %incdec.ptr.i.i.i.i.i.i6554 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i6542, i64 24
   %cmp.i.i.i.not.i.i.i.i.i6555 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i6553, %add.ptr25.i.i.i6540
   br i1 %cmp.i.i.i.not.i.i.i.i.i6555, label %if.end.i.i.i.i.i.i10.i.i.i6556, label %for.body.i.i.i.i.i6541, !llvm.loop !498
 
@@ -54183,17 +54183,17 @@ for.body.i.i.preheader.i.i.i6644:                 ; preds = %if.then2279
   br label %for.body.i.i.i.i.i6651
 
 for.body.i.i.i.i.i6651:                           ; preds = %for.body.i.i.i.i.i6651, %for.body.i.i.preheader.i.i.i6644
-  %first.sroa.0.07.i.i.i.i.i6652 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i6663, %for.body.i.i.i.i.i6651 ], [ %1586, %for.body.i.i.preheader.i.i.i6644 ]
-  %retval.sroa.0.06.i.i.i.i.i6653 = phi ptr [ %incdec.ptr.i.i.i.i.i.i6664, %for.body.i.i.i.i.i6651 ], [ %1588, %for.body.i.i.preheader.i.i.i6644 ]
-  %1589 = load i32, ptr %first.sroa.0.07.i.i.i.i.i6652, align 8
-  store i32 %1589, ptr %retval.sroa.0.06.i.i.i.i.i6653, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i6654 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i6653, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i6655 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i6652, i64 4
+  %retval.sroa.0.07.i.i.i.i.i6652 = phi ptr [ %incdec.ptr.i.i.i.i.i.i6664, %for.body.i.i.i.i.i6651 ], [ %1588, %for.body.i.i.preheader.i.i.i6644 ]
+  %first.sroa.0.06.i.i.i.i.i6653 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i6663, %for.body.i.i.i.i.i6651 ], [ %1586, %for.body.i.i.preheader.i.i.i6644 ]
+  %1589 = load i32, ptr %first.sroa.0.06.i.i.i.i.i6653, align 8
+  store i32 %1589, ptr %retval.sroa.0.07.i.i.i.i.i6652, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i6654 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i6652, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i6655 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i6653, i64 4
   %1590 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i6655, align 4
   %frombool.i.i.i.i.i.i6656 = and i8 %1590, 1
   store i8 %frombool.i.i.i.i.i.i6656, ptr %mbThrowOnCopy.i.i.i.i.i.i6654, align 4
-  %mMagicValue.i.i.i.i.i.i6657 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i6653, i64 16
-  %mMagicValue4.i.i.i.i.i.i6658 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i6652, i64 16
+  %mMagicValue.i.i.i.i.i.i6657 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i6652, i64 16
+  %mMagicValue4.i.i.i.i.i.i6658 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i6653, i64 16
   %1591 = load i32, ptr %mMagicValue4.i.i.i.i.i.i6658, align 8
   store i32 %1591, ptr %mMagicValue.i.i.i.i.i.i6657, align 8
   %1592 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -54205,11 +54205,11 @@ for.body.i.i.i.i.i6651:                           ; preds = %for.body.i.i.i.i.i6
   %1594 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i6661 = add nsw i64 %1594, 1
   store i64 %inc6.i.i.i.i.i.i6661, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i6662 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i6653, i64 8
+  %mId.i.i.i.i.i.i6662 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i6652, i64 8
   store i64 %inc5.i.i.i.i.i.i6660, ptr %mId.i.i.i.i.i.i6662, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i6652, align 8
-  %incdec.ptr.i.i.i.i.i.i.i6663 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i6652, i64 24
-  %incdec.ptr.i.i.i.i.i.i6664 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i6653, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i6653, align 8
+  %incdec.ptr.i.i.i.i.i.i.i6663 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i6653, i64 24
+  %incdec.ptr.i.i.i.i.i.i6664 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i6652, i64 24
   %cmp.i.i.i.not.i.i.i.i.i6665 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i6663, %add.ptr25.i.i.i6650
   br i1 %cmp.i.i.i.not.i.i.i.i.i6665, label %if.end.i.i.i.i.i.i10.i.i.i6666, label %for.body.i.i.i.i.i6651, !llvm.loop !498
 
@@ -55502,17 +55502,17 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fi
   br label %for.body.i.i.i.i.i15313
 
 for.body.i.i.i.i.i15313:                          ; preds = %for.body.i.i.i.i.i15313, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15304
-  %first.sroa.0.08.i.i.i.i.i15314 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15325, %for.body.i.i.i.i.i15313 ], [ %1845, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15304 ]
-  %retval.sroa.0.07.i.i.i.i.i15315 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15326, %for.body.i.i.i.i.i15313 ], [ %1843, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15304 ]
-  %1846 = load i32, ptr %first.sroa.0.08.i.i.i.i.i15314, align 8
-  store i32 %1846, ptr %retval.sroa.0.07.i.i.i.i.i15315, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i15316 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15315, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i15317 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15314, i64 4
+  %retval.sroa.0.08.i.i.i.i.i15314 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15326, %for.body.i.i.i.i.i15313 ], [ %1843, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15304 ]
+  %first.sroa.0.07.i.i.i.i.i15315 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15325, %for.body.i.i.i.i.i15313 ], [ %1845, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15304 ]
+  %1846 = load i32, ptr %first.sroa.0.07.i.i.i.i.i15315, align 8
+  store i32 %1846, ptr %retval.sroa.0.08.i.i.i.i.i15314, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i15316 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15314, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i15317 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15315, i64 4
   %1847 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i15317, align 4
   %frombool.i.i.i.i.i.i15318 = and i8 %1847, 1
   store i8 %frombool.i.i.i.i.i.i15318, ptr %mbThrowOnCopy.i.i.i.i.i.i15316, align 4
-  %mMagicValue.i.i.i.i.i.i15319 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15315, i64 16
-  %mMagicValue4.i.i.i.i.i.i15320 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15314, i64 16
+  %mMagicValue.i.i.i.i.i.i15319 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15314, i64 16
+  %mMagicValue4.i.i.i.i.i.i15320 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15315, i64 16
   %1848 = load i32, ptr %mMagicValue4.i.i.i.i.i.i15320, align 8
   store i32 %1848, ptr %mMagicValue.i.i.i.i.i.i15319, align 8
   %1849 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -55524,11 +55524,11 @@ for.body.i.i.i.i.i15313:                          ; preds = %for.body.i.i.i.i.i1
   %1851 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i15323 = add nsw i64 %1851, 1
   store i64 %inc6.i.i.i.i.i.i15323, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i15324 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15315, i64 8
+  %mId.i.i.i.i.i.i15324 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15314, i64 8
   store i64 %inc5.i.i.i.i.i.i15322, ptr %mId.i.i.i.i.i.i15324, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i15314, align 8
-  %incdec.ptr.i.i.i.i.i.i15325 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15314, i64 24
-  %incdec.ptr.i1.i.i.i.i.i15326 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15315, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i15315, align 8
+  %incdec.ptr.i.i.i.i.i.i15325 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15315, i64 24
+  %incdec.ptr.i1.i.i.i.i.i15326 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15314, i64 24
   %cmp.i.not.i.i.i.i.i15327 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i15325, %add.ptr3.i.i15312
   br i1 %cmp.i.not.i.i.i.i.i15327, label %for.body.preheader.i.i.i.i15328, label %for.body.i.i.i.i.i15313, !llvm.loop !1484
 
@@ -56696,17 +56696,17 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fi
   br label %for.body.i.i.i.i.i15372
 
 for.body.i.i.i.i.i15372:                          ; preds = %for.body.i.i.i.i.i15372, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15363
-  %first.sroa.0.08.i.i.i.i.i15373 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15384, %for.body.i.i.i.i.i15372 ], [ %2061, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15363 ]
-  %retval.sroa.0.07.i.i.i.i.i15374 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15385, %for.body.i.i.i.i.i15372 ], [ %2059, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15363 ]
-  %2062 = load i32, ptr %first.sroa.0.08.i.i.i.i.i15373, align 8
-  store i32 %2062, ptr %retval.sroa.0.07.i.i.i.i.i15374, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i15375 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15374, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i15376 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15373, i64 4
+  %retval.sroa.0.08.i.i.i.i.i15373 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15385, %for.body.i.i.i.i.i15372 ], [ %2059, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15363 ]
+  %first.sroa.0.07.i.i.i.i.i15374 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15384, %for.body.i.i.i.i.i15372 ], [ %2061, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15363 ]
+  %2062 = load i32, ptr %first.sroa.0.07.i.i.i.i.i15374, align 8
+  store i32 %2062, ptr %retval.sroa.0.08.i.i.i.i.i15373, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i15375 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15373, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i15376 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15374, i64 4
   %2063 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i15376, align 4
   %frombool.i.i.i.i.i.i15377 = and i8 %2063, 1
   store i8 %frombool.i.i.i.i.i.i15377, ptr %mbThrowOnCopy.i.i.i.i.i.i15375, align 4
-  %mMagicValue.i.i.i.i.i.i15378 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15374, i64 16
-  %mMagicValue4.i.i.i.i.i.i15379 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15373, i64 16
+  %mMagicValue.i.i.i.i.i.i15378 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15373, i64 16
+  %mMagicValue4.i.i.i.i.i.i15379 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15374, i64 16
   %2064 = load i32, ptr %mMagicValue4.i.i.i.i.i.i15379, align 8
   store i32 %2064, ptr %mMagicValue.i.i.i.i.i.i15378, align 8
   %2065 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -56718,11 +56718,11 @@ for.body.i.i.i.i.i15372:                          ; preds = %for.body.i.i.i.i.i1
   %2067 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i15382 = add nsw i64 %2067, 1
   store i64 %inc6.i.i.i.i.i.i15382, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i15383 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15374, i64 8
+  %mId.i.i.i.i.i.i15383 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15373, i64 8
   store i64 %inc5.i.i.i.i.i.i15381, ptr %mId.i.i.i.i.i.i15383, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i15373, align 8
-  %incdec.ptr.i.i.i.i.i.i15384 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15373, i64 24
-  %incdec.ptr.i1.i.i.i.i.i15385 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15374, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i15374, align 8
+  %incdec.ptr.i.i.i.i.i.i15384 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15374, i64 24
+  %incdec.ptr.i1.i.i.i.i.i15385 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15373, i64 24
   %cmp.i.not.i.i.i.i.i15386 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i15384, %add.ptr3.i.i15371
   br i1 %cmp.i.not.i.i.i.i.i15386, label %for.body.preheader.i.i.i.i15387, label %for.body.i.i.i.i.i15372, !llvm.loop !1484
 
@@ -57785,17 +57785,17 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fi
   br label %for.body.i.i.i.i.i15512
 
 for.body.i.i.i.i.i15512:                          ; preds = %for.body.i.i.i.i.i15512, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15503
-  %first.sroa.0.08.i.i.i.i.i15513 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15524, %for.body.i.i.i.i.i15512 ], [ %2272, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15503 ]
-  %retval.sroa.0.07.i.i.i.i.i15514 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15525, %for.body.i.i.i.i.i15512 ], [ %2270, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15503 ]
-  %2273 = load i32, ptr %first.sroa.0.08.i.i.i.i.i15513, align 8
-  store i32 %2273, ptr %retval.sroa.0.07.i.i.i.i.i15514, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i15515 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15514, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i15516 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15513, i64 4
+  %retval.sroa.0.08.i.i.i.i.i15513 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15525, %for.body.i.i.i.i.i15512 ], [ %2270, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15503 ]
+  %first.sroa.0.07.i.i.i.i.i15514 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15524, %for.body.i.i.i.i.i15512 ], [ %2272, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15503 ]
+  %2273 = load i32, ptr %first.sroa.0.07.i.i.i.i.i15514, align 8
+  store i32 %2273, ptr %retval.sroa.0.08.i.i.i.i.i15513, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i15515 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15513, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i15516 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15514, i64 4
   %2274 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i15516, align 4
   %frombool.i.i.i.i.i.i15517 = and i8 %2274, 1
   store i8 %frombool.i.i.i.i.i.i15517, ptr %mbThrowOnCopy.i.i.i.i.i.i15515, align 4
-  %mMagicValue.i.i.i.i.i.i15518 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15514, i64 16
-  %mMagicValue4.i.i.i.i.i.i15519 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15513, i64 16
+  %mMagicValue.i.i.i.i.i.i15518 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15513, i64 16
+  %mMagicValue4.i.i.i.i.i.i15519 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15514, i64 16
   %2275 = load i32, ptr %mMagicValue4.i.i.i.i.i.i15519, align 8
   store i32 %2275, ptr %mMagicValue.i.i.i.i.i.i15518, align 8
   %2276 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -57807,11 +57807,11 @@ for.body.i.i.i.i.i15512:                          ; preds = %for.body.i.i.i.i.i1
   %2278 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i15522 = add nsw i64 %2278, 1
   store i64 %inc6.i.i.i.i.i.i15522, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i15523 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15514, i64 8
+  %mId.i.i.i.i.i.i15523 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15513, i64 8
   store i64 %inc5.i.i.i.i.i.i15521, ptr %mId.i.i.i.i.i.i15523, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i15513, align 8
-  %incdec.ptr.i.i.i.i.i.i15524 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15513, i64 24
-  %incdec.ptr.i1.i.i.i.i.i15525 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15514, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i15514, align 8
+  %incdec.ptr.i.i.i.i.i.i15524 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15514, i64 24
+  %incdec.ptr.i1.i.i.i.i.i15525 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15513, i64 24
   %cmp.i.not.i.i.i.i.i15526 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i15524, %add.ptr3.i.i15511
   br i1 %cmp.i.not.i.i.i.i.i15526, label %for.body.preheader.i.i.i.i15527, label %for.body.i.i.i.i.i15512, !llvm.loop !1484
 
@@ -60801,17 +60801,17 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fi
   br label %for.body.i.i.i.i.i15630
 
 for.body.i.i.i.i.i15630:                          ; preds = %for.body.i.i.i.i.i15630, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15621
-  %first.sroa.0.08.i.i.i.i.i15631 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15642, %for.body.i.i.i.i.i15630 ], [ %2846, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15621 ]
-  %retval.sroa.0.07.i.i.i.i.i15632 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15643, %for.body.i.i.i.i.i15630 ], [ %2844, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15621 ]
-  %2847 = load i32, ptr %first.sroa.0.08.i.i.i.i.i15631, align 8
-  store i32 %2847, ptr %retval.sroa.0.07.i.i.i.i.i15632, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i15633 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15632, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i15634 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15631, i64 4
+  %retval.sroa.0.08.i.i.i.i.i15631 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15643, %for.body.i.i.i.i.i15630 ], [ %2844, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15621 ]
+  %first.sroa.0.07.i.i.i.i.i15632 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15642, %for.body.i.i.i.i.i15630 ], [ %2846, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i15621 ]
+  %2847 = load i32, ptr %first.sroa.0.07.i.i.i.i.i15632, align 8
+  store i32 %2847, ptr %retval.sroa.0.08.i.i.i.i.i15631, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i15633 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15631, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i15634 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15632, i64 4
   %2848 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i15634, align 4
   %frombool.i.i.i.i.i.i15635 = and i8 %2848, 1
   store i8 %frombool.i.i.i.i.i.i15635, ptr %mbThrowOnCopy.i.i.i.i.i.i15633, align 4
-  %mMagicValue.i.i.i.i.i.i15636 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15632, i64 16
-  %mMagicValue4.i.i.i.i.i.i15637 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15631, i64 16
+  %mMagicValue.i.i.i.i.i.i15636 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15631, i64 16
+  %mMagicValue4.i.i.i.i.i.i15637 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15632, i64 16
   %2849 = load i32, ptr %mMagicValue4.i.i.i.i.i.i15637, align 8
   store i32 %2849, ptr %mMagicValue.i.i.i.i.i.i15636, align 8
   %2850 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -60823,11 +60823,11 @@ for.body.i.i.i.i.i15630:                          ; preds = %for.body.i.i.i.i.i1
   %2852 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i15640 = add nsw i64 %2852, 1
   store i64 %inc6.i.i.i.i.i.i15640, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i15641 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15632, i64 8
+  %mId.i.i.i.i.i.i15641 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15631, i64 8
   store i64 %inc5.i.i.i.i.i.i15639, ptr %mId.i.i.i.i.i.i15641, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i15631, align 8
-  %incdec.ptr.i.i.i.i.i.i15642 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15631, i64 24
-  %incdec.ptr.i1.i.i.i.i.i15643 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15632, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i15632, align 8
+  %incdec.ptr.i.i.i.i.i.i15642 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15632, i64 24
+  %incdec.ptr.i1.i.i.i.i.i15643 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15631, i64 24
   %cmp.i.not.i.i.i.i.i15644 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i15642, %add.ptr3.i.i15629
   br i1 %cmp.i.not.i.i.i.i.i15644, label %for.body.preheader.i.i.i.i15645, label %for.body.i.i.i.i.i15630, !llvm.loop !1484
 
@@ -61630,13 +61630,13 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAll
   br label %for.body.i.i.i.i.i15686
 
 for.body.i.i.i.i.i15686:                          ; preds = %for.body.i.i.i.i.i15686, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i
-  %first.sroa.0.08.i.i.i.i.i15687 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15689, %for.body.i.i.i.i.i15686 ], [ %3001, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i ]
-  %retval.sroa.0.07.i.i.i.i.i15688 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15690, %for.body.i.i.i.i.i15686 ], [ %2999, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i ]
-  %3002 = load i32, ptr %first.sroa.0.08.i.i.i.i.i15687, align 4
-  store i32 %3002, ptr %retval.sroa.0.07.i.i.i.i.i15688, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i15687, align 4
-  %incdec.ptr.i.i.i.i.i.i15689 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15687, i64 4
-  %incdec.ptr.i1.i.i.i.i.i15690 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15688, i64 4
+  %retval.sroa.0.08.i.i.i.i.i15687 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15690, %for.body.i.i.i.i.i15686 ], [ %2999, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i ]
+  %first.sroa.0.07.i.i.i.i.i15688 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15689, %for.body.i.i.i.i.i15686 ], [ %3001, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i ]
+  %3002 = load i32, ptr %first.sroa.0.07.i.i.i.i.i15688, align 4
+  store i32 %3002, ptr %retval.sroa.0.08.i.i.i.i.i15687, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i15688, align 4
+  %incdec.ptr.i.i.i.i.i.i15689 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15688, i64 4
+  %incdec.ptr.i1.i.i.i.i.i15690 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15687, i64 4
   %cmp.i.not.i.i.i.i.i15691 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i15689, %add.ptr3.i.i15685
   br i1 %cmp.i.not.i.i.i.i.i15691, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15692, label %for.body.i.i.i.i.i15686, !llvm.loop !1976
 
@@ -61646,17 +61646,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMo
   br label %for.body.i.i.i.i6.i15695
 
 for.body.i.i.i.i6.i15695:                         ; preds = %for.body.i.i.i.i6.i15695, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15692
-  %first.sroa.0.08.i.i.i.i7.i15696 = phi ptr [ %incdec.ptr.i.i.i.i.i9.i15707, %for.body.i.i.i.i6.i15695 ], [ %3003, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15692 ]
-  %retval.sroa.0.07.i.i.i.i8.i15697 = phi ptr [ %incdec.ptr.i1.i.i.i.i10.i15708, %for.body.i.i.i.i6.i15695 ], [ %2998, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15692 ]
-  %3004 = load i32, ptr %first.sroa.0.08.i.i.i.i7.i15696, align 8
-  store i32 %3004, ptr %retval.sroa.0.07.i.i.i.i8.i15697, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i15698 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i15697, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i15699 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i15696, i64 4
+  %retval.sroa.0.08.i.i.i.i7.i15696 = phi ptr [ %incdec.ptr.i1.i.i.i.i10.i15708, %for.body.i.i.i.i6.i15695 ], [ %2998, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15692 ]
+  %first.sroa.0.07.i.i.i.i8.i15697 = phi ptr [ %incdec.ptr.i.i.i.i.i9.i15707, %for.body.i.i.i.i6.i15695 ], [ %3003, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15692 ]
+  %3004 = load i32, ptr %first.sroa.0.07.i.i.i.i8.i15697, align 8
+  store i32 %3004, ptr %retval.sroa.0.08.i.i.i.i7.i15696, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i15698 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i15696, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i15699 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i15697, i64 4
   %3005 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i15699, align 4
   %frombool.i.i.i.i.i.i15700 = and i8 %3005, 1
   store i8 %frombool.i.i.i.i.i.i15700, ptr %mbThrowOnCopy.i.i.i.i.i.i15698, align 4
-  %mMagicValue.i.i.i.i.i.i15701 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i15697, i64 16
-  %mMagicValue4.i.i.i.i.i.i15702 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i15696, i64 16
+  %mMagicValue.i.i.i.i.i.i15701 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i15696, i64 16
+  %mMagicValue4.i.i.i.i.i.i15702 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i15697, i64 16
   %3006 = load i32, ptr %mMagicValue4.i.i.i.i.i.i15702, align 8
   store i32 %3006, ptr %mMagicValue.i.i.i.i.i.i15701, align 8
   %3007 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -61668,11 +61668,11 @@ for.body.i.i.i.i6.i15695:                         ; preds = %for.body.i.i.i.i6.i
   %3009 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i15705 = add nsw i64 %3009, 1
   store i64 %inc6.i.i.i.i.i.i15705, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i15706 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i15697, i64 8
+  %mId.i.i.i.i.i.i15706 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i15696, i64 8
   store i64 %inc5.i.i.i.i.i.i15704, ptr %mId.i.i.i.i.i.i15706, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i7.i15696, align 8
-  %incdec.ptr.i.i.i.i.i9.i15707 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i15696, i64 24
-  %incdec.ptr.i1.i.i.i.i10.i15708 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i15697, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i8.i15697, align 8
+  %incdec.ptr.i.i.i.i.i9.i15707 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i15697, i64 24
+  %incdec.ptr.i1.i.i.i.i10.i15708 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i15696, i64 24
   %cmp.i.not.i.i.i.i11.i15709 = icmp eq ptr %incdec.ptr.i.i.i.i.i9.i15707, %add.ptr3.i4.i15694
   br i1 %cmp.i.not.i.i.i.i11.i15709, label %for.body.preheader.i.i.i.i15710, label %for.body.i.i.i.i6.i15695, !llvm.loop !1484
 
@@ -62047,13 +62047,13 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAll
   br label %for.body.i.i.i.i.i15750
 
 for.body.i.i.i.i.i15750:                          ; preds = %for.body.i.i.i.i.i15750, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i15742
-  %first.sroa.0.08.i.i.i.i.i15751 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15753, %for.body.i.i.i.i.i15750 ], [ %3073, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i15742 ]
-  %retval.sroa.0.07.i.i.i.i.i15752 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15754, %for.body.i.i.i.i.i15750 ], [ %3071, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i15742 ]
-  %3074 = load i32, ptr %first.sroa.0.08.i.i.i.i.i15751, align 4
-  store i32 %3074, ptr %retval.sroa.0.07.i.i.i.i.i15752, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i15751, align 4
-  %incdec.ptr.i.i.i.i.i.i15753 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15751, i64 4
-  %incdec.ptr.i1.i.i.i.i.i15754 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15752, i64 4
+  %retval.sroa.0.08.i.i.i.i.i15751 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15754, %for.body.i.i.i.i.i15750 ], [ %3071, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i15742 ]
+  %first.sroa.0.07.i.i.i.i.i15752 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15753, %for.body.i.i.i.i.i15750 ], [ %3073, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i15742 ]
+  %3074 = load i32, ptr %first.sroa.0.07.i.i.i.i.i15752, align 4
+  store i32 %3074, ptr %retval.sroa.0.08.i.i.i.i.i15751, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i15752, align 4
+  %incdec.ptr.i.i.i.i.i.i15753 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15752, i64 4
+  %incdec.ptr.i1.i.i.i.i.i15754 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15751, i64 4
   %cmp.i.not.i.i.i.i.i15755 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i15753, %add.ptr3.i.i15749
   br i1 %cmp.i.not.i.i.i.i.i15755, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15756, label %for.body.i.i.i.i.i15750, !llvm.loop !1976
 
@@ -62063,17 +62063,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMo
   br label %for.body.i.i.i.i6.i15759
 
 for.body.i.i.i.i6.i15759:                         ; preds = %for.body.i.i.i.i6.i15759, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15756
-  %first.sroa.0.08.i.i.i.i7.i15760 = phi ptr [ %incdec.ptr.i.i.i.i.i9.i15771, %for.body.i.i.i.i6.i15759 ], [ %3075, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15756 ]
-  %retval.sroa.0.07.i.i.i.i8.i15761 = phi ptr [ %incdec.ptr.i1.i.i.i.i10.i15772, %for.body.i.i.i.i6.i15759 ], [ %3070, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15756 ]
-  %3076 = load i32, ptr %first.sroa.0.08.i.i.i.i7.i15760, align 8
-  store i32 %3076, ptr %retval.sroa.0.07.i.i.i.i8.i15761, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i15762 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i15761, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i15763 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i15760, i64 4
+  %retval.sroa.0.08.i.i.i.i7.i15760 = phi ptr [ %incdec.ptr.i1.i.i.i.i10.i15772, %for.body.i.i.i.i6.i15759 ], [ %3070, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15756 ]
+  %first.sroa.0.07.i.i.i.i8.i15761 = phi ptr [ %incdec.ptr.i.i.i.i.i9.i15771, %for.body.i.i.i.i6.i15759 ], [ %3075, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15756 ]
+  %3076 = load i32, ptr %first.sroa.0.07.i.i.i.i8.i15761, align 8
+  store i32 %3076, ptr %retval.sroa.0.08.i.i.i.i7.i15760, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i15762 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i15760, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i15763 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i15761, i64 4
   %3077 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i15763, align 4
   %frombool.i.i.i.i.i.i15764 = and i8 %3077, 1
   store i8 %frombool.i.i.i.i.i.i15764, ptr %mbThrowOnCopy.i.i.i.i.i.i15762, align 4
-  %mMagicValue.i.i.i.i.i.i15765 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i15761, i64 16
-  %mMagicValue4.i.i.i.i.i.i15766 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i15760, i64 16
+  %mMagicValue.i.i.i.i.i.i15765 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i15760, i64 16
+  %mMagicValue4.i.i.i.i.i.i15766 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i15761, i64 16
   %3078 = load i32, ptr %mMagicValue4.i.i.i.i.i.i15766, align 8
   store i32 %3078, ptr %mMagicValue.i.i.i.i.i.i15765, align 8
   %3079 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -62085,11 +62085,11 @@ for.body.i.i.i.i6.i15759:                         ; preds = %for.body.i.i.i.i6.i
   %3081 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i15769 = add nsw i64 %3081, 1
   store i64 %inc6.i.i.i.i.i.i15769, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i15770 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i15761, i64 8
+  %mId.i.i.i.i.i.i15770 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i15760, i64 8
   store i64 %inc5.i.i.i.i.i.i15768, ptr %mId.i.i.i.i.i.i15770, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i7.i15760, align 8
-  %incdec.ptr.i.i.i.i.i9.i15771 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i15760, i64 24
-  %incdec.ptr.i1.i.i.i.i10.i15772 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i15761, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i8.i15761, align 8
+  %incdec.ptr.i.i.i.i.i9.i15771 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i15761, i64 24
+  %incdec.ptr.i1.i.i.i.i10.i15772 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i15760, i64 24
   %cmp.i.not.i.i.i.i11.i15773 = icmp eq ptr %incdec.ptr.i.i.i.i.i9.i15771, %add.ptr3.i4.i15758
   br i1 %cmp.i.not.i.i.i.i11.i15773, label %for.body.preheader.i.i.i.i15774, label %for.body.i.i.i.i6.i15759, !llvm.loop !1484
 
@@ -62668,13 +62668,13 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAll
   br label %for.body.i.i.i.i.i15814
 
 for.body.i.i.i.i.i15814:                          ; preds = %for.body.i.i.i.i.i15814, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i15806
-  %first.sroa.0.08.i.i.i.i.i15815 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15817, %for.body.i.i.i.i.i15814 ], [ %3183, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i15806 ]
-  %retval.sroa.0.07.i.i.i.i.i15816 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15818, %for.body.i.i.i.i.i15814 ], [ %3181, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i15806 ]
-  %3184 = load i32, ptr %first.sroa.0.08.i.i.i.i.i15815, align 4
-  store i32 %3184, ptr %retval.sroa.0.07.i.i.i.i.i15816, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i15815, align 4
-  %incdec.ptr.i.i.i.i.i.i15817 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i15815, i64 4
-  %incdec.ptr.i1.i.i.i.i.i15818 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i15816, i64 4
+  %retval.sroa.0.08.i.i.i.i.i15815 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i15818, %for.body.i.i.i.i.i15814 ], [ %3181, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i15806 ]
+  %first.sroa.0.07.i.i.i.i.i15816 = phi ptr [ %incdec.ptr.i.i.i.i.i.i15817, %for.body.i.i.i.i.i15814 ], [ %3183, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i15806 ]
+  %3184 = load i32, ptr %first.sroa.0.07.i.i.i.i.i15816, align 4
+  store i32 %3184, ptr %retval.sroa.0.08.i.i.i.i.i15815, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i15816, align 4
+  %incdec.ptr.i.i.i.i.i.i15817 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i15816, i64 4
+  %incdec.ptr.i1.i.i.i.i.i15818 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i15815, i64 4
   %cmp.i.not.i.i.i.i.i15819 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i15817, %add.ptr3.i.i15813
   br i1 %cmp.i.not.i.i.i.i.i15819, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15820, label %for.body.i.i.i.i.i15814, !llvm.loop !1976
 
@@ -62684,17 +62684,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMo
   br label %for.body.i.i.i.i6.i15823
 
 for.body.i.i.i.i6.i15823:                         ; preds = %for.body.i.i.i.i6.i15823, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15820
-  %first.sroa.0.08.i.i.i.i7.i15824 = phi ptr [ %incdec.ptr.i.i.i.i.i9.i15835, %for.body.i.i.i.i6.i15823 ], [ %3185, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15820 ]
-  %retval.sroa.0.07.i.i.i.i8.i15825 = phi ptr [ %incdec.ptr.i1.i.i.i.i10.i15836, %for.body.i.i.i.i6.i15823 ], [ %3180, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15820 ]
-  %3186 = load i32, ptr %first.sroa.0.08.i.i.i.i7.i15824, align 8
-  store i32 %3186, ptr %retval.sroa.0.07.i.i.i.i8.i15825, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i15826 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i15825, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i15827 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i15824, i64 4
+  %retval.sroa.0.08.i.i.i.i7.i15824 = phi ptr [ %incdec.ptr.i1.i.i.i.i10.i15836, %for.body.i.i.i.i6.i15823 ], [ %3180, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15820 ]
+  %first.sroa.0.07.i.i.i.i8.i15825 = phi ptr [ %incdec.ptr.i.i.i.i.i9.i15835, %for.body.i.i.i.i6.i15823 ], [ %3185, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i15820 ]
+  %3186 = load i32, ptr %first.sroa.0.07.i.i.i.i8.i15825, align 8
+  store i32 %3186, ptr %retval.sroa.0.08.i.i.i.i7.i15824, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i15826 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i15824, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i15827 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i15825, i64 4
   %3187 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i15827, align 4
   %frombool.i.i.i.i.i.i15828 = and i8 %3187, 1
   store i8 %frombool.i.i.i.i.i.i15828, ptr %mbThrowOnCopy.i.i.i.i.i.i15826, align 4
-  %mMagicValue.i.i.i.i.i.i15829 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i15825, i64 16
-  %mMagicValue4.i.i.i.i.i.i15830 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i15824, i64 16
+  %mMagicValue.i.i.i.i.i.i15829 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i15824, i64 16
+  %mMagicValue4.i.i.i.i.i.i15830 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i15825, i64 16
   %3188 = load i32, ptr %mMagicValue4.i.i.i.i.i.i15830, align 8
   store i32 %3188, ptr %mMagicValue.i.i.i.i.i.i15829, align 8
   %3189 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -62706,11 +62706,11 @@ for.body.i.i.i.i6.i15823:                         ; preds = %for.body.i.i.i.i6.i
   %3191 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i15833 = add nsw i64 %3191, 1
   store i64 %inc6.i.i.i.i.i.i15833, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i15834 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i15825, i64 8
+  %mId.i.i.i.i.i.i15834 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i15824, i64 8
   store i64 %inc5.i.i.i.i.i.i15832, ptr %mId.i.i.i.i.i.i15834, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i7.i15824, align 8
-  %incdec.ptr.i.i.i.i.i9.i15835 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i15824, i64 24
-  %incdec.ptr.i1.i.i.i.i10.i15836 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i15825, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i8.i15825, align 8
+  %incdec.ptr.i.i.i.i.i9.i15835 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i15825, i64 24
+  %incdec.ptr.i1.i.i.i.i10.i15836 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i15824, i64 24
   %cmp.i.not.i.i.i.i11.i15837 = icmp eq ptr %incdec.ptr.i.i.i.i.i9.i15835, %add.ptr3.i4.i15822
   br i1 %cmp.i.not.i.i.i.i11.i15837, label %for.body.preheader.i.i.i.i15838, label %for.body.i.i.i.i6.i15823, !llvm.loop !1484
 
@@ -62777,13 +62777,13 @@ for.body.i.i.preheader.i.i:                       ; preds = %for.body4398._ZN10T
   br label %for.body.i.i.i.i11999
 
 for.body.i.i.i.i11999:                            ; preds = %for.body.i.i.i.i11999, %for.body.i.i.preheader.i.i
-  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i12000, %for.body.i.i.i.i11999 ], [ %add.ptr22.i.i11998, %for.body.i.i.preheader.i.i ]
-  %retval.sroa.0.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i12001, %for.body.i.i.i.i11999 ], [ %3199, %for.body.i.i.preheader.i.i ]
-  %3201 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 4
-  store i32 %3201, ptr %retval.sroa.0.06.i.i.i.i, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i12000 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
-  %incdec.ptr.i.i.i.i.i12001 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i, i64 4
+  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i12001, %for.body.i.i.i.i11999 ], [ %3199, %for.body.i.i.preheader.i.i ]
+  %first.sroa.0.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i12000, %for.body.i.i.i.i11999 ], [ %add.ptr22.i.i11998, %for.body.i.i.preheader.i.i ]
+  %3201 = load i32, ptr %first.sroa.0.06.i.i.i.i, align 4
+  store i32 %3201, ptr %retval.sroa.0.07.i.i.i.i, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i, align 4
+  %incdec.ptr.i.i.i.i.i.i12000 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i12001 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
   %cmp.i.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i12000, %add.ptr25.i.i
   br i1 %cmp.i.i.i.not.i.i.i.i, label %for.body.i.i10.preheader.i.i, label %for.body.i.i.i.i11999, !llvm.loop !497
 
@@ -62792,18 +62792,18 @@ for.body.i.i10.preheader.i.i:                     ; preds = %for.body.i.i.i.i119
   br label %for.body.i.i10.i.i
 
 for.body.i.i10.i.i:                               ; preds = %for.body.i.i10.i.i, %for.body.i.i10.preheader.i.i
-  %first.sroa.0.07.i.i11.i.i.idx = phi i64 [ %first.sroa.0.07.i.i11.i.i.add, %for.body.i.i10.i.i ], [ 48, %for.body.i.i10.preheader.i.i ]
-  %retval.sroa.0.06.i.i12.i.i = phi ptr [ %incdec.ptr.i.i.i14.i.i, %for.body.i.i10.i.i ], [ %3202, %for.body.i.i10.preheader.i.i ]
-  %first.sroa.0.07.i.i11.i.i.ptr = getelementptr inbounds i8, ptr %3195, i64 %first.sroa.0.07.i.i11.i.i.idx
-  %3203 = load i32, ptr %first.sroa.0.07.i.i11.i.i.ptr, align 8
-  store i32 %3203, ptr %retval.sroa.0.06.i.i12.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i12002 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i12003 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.ptr, i64 4
+  %retval.sroa.0.07.i.i11.i.i = phi ptr [ %incdec.ptr.i.i.i14.i.i, %for.body.i.i10.i.i ], [ %3202, %for.body.i.i10.preheader.i.i ]
+  %first.sroa.0.06.i.i12.i.i.idx = phi i64 [ %first.sroa.0.06.i.i12.i.i.add, %for.body.i.i10.i.i ], [ 48, %for.body.i.i10.preheader.i.i ]
+  %first.sroa.0.06.i.i12.i.i.ptr = getelementptr inbounds i8, ptr %3195, i64 %first.sroa.0.06.i.i12.i.i.idx
+  %3203 = load i32, ptr %first.sroa.0.06.i.i12.i.i.ptr, align 8
+  store i32 %3203, ptr %retval.sroa.0.07.i.i11.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i12002 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i12003 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.ptr, i64 4
   %3204 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i12003, align 4
   %frombool.i.i.i.i.i12004 = and i8 %3204, 1
   store i8 %frombool.i.i.i.i.i12004, ptr %mbThrowOnCopy.i.i.i.i.i12002, align 4
-  %mMagicValue.i.i.i.i.i12005 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i12006 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.ptr, i64 16
+  %mMagicValue.i.i.i.i.i12005 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i12006 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.ptr, i64 16
   %3205 = load i32, ptr %mMagicValue4.i.i.i.i.i12006, align 8
   store i32 %3205, ptr %mMagicValue.i.i.i.i.i12005, align 8
   %3206 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -62815,12 +62815,12 @@ for.body.i.i10.i.i:                               ; preds = %for.body.i.i10.i.i,
   %3208 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i12009 = add nsw i64 %3208, 1
   store i64 %inc6.i.i.i.i.i12009, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i12010 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i, i64 8
+  %mId.i.i.i.i.i12010 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i, i64 8
   store i64 %inc5.i.i.i.i.i12008, ptr %mId.i.i.i.i.i12010, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i.i.ptr, align 8
-  %first.sroa.0.07.i.i11.i.i.add = add nuw nsw i64 %first.sroa.0.07.i.i11.i.i.idx, 24
-  %incdec.ptr.i.i.i14.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i, i64 24
-  %cmp.i.i.i.not.i.i15.i.i = icmp eq i64 %first.sroa.0.07.i.i11.i.i.add, 168
+  store i32 0, ptr %first.sroa.0.06.i.i12.i.i.ptr, align 8
+  %first.sroa.0.06.i.i12.i.i.add = add nuw nsw i64 %first.sroa.0.06.i.i12.i.i.idx, 24
+  %incdec.ptr.i.i.i14.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i, i64 24
+  %cmp.i.i.i.not.i.i15.i.i = icmp eq i64 %first.sroa.0.06.i.i12.i.i.add, 168
   br i1 %cmp.i.i.i.not.i.i15.i.i, label %invoke.cont4425, label %for.body.i.i10.i.i, !llvm.loop !498
 
 invoke.cont4425:                                  ; preds = %for.body.i.i10.i.i
@@ -64421,13 +64421,13 @@ for.body.i.i.preheader.i.i.i13195:                ; preds = %if.then5058
   br label %for.body.i.i.i.i.i13199
 
 for.body.i.i.i.i.i13199:                          ; preds = %for.body.i.i.i.i.i13199, %for.body.i.i.preheader.i.i.i13195
-  %first.sroa.0.07.i.i.i.i.i13200 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i13202, %for.body.i.i.i.i.i13199 ], [ %3537, %for.body.i.i.preheader.i.i.i13195 ]
-  %retval.sroa.0.06.i.i.i.i.i13201 = phi ptr [ %incdec.ptr.i.i.i.i.i.i13203, %for.body.i.i.i.i.i13199 ], [ %3539, %for.body.i.i.preheader.i.i.i13195 ]
-  %3540 = load i32, ptr %first.sroa.0.07.i.i.i.i.i13200, align 4
-  store i32 %3540, ptr %retval.sroa.0.06.i.i.i.i.i13201, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i13200, align 4
-  %incdec.ptr.i.i.i.i.i.i.i13202 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i13200, i64 4
-  %incdec.ptr.i.i.i.i.i.i13203 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i13201, i64 4
+  %retval.sroa.0.07.i.i.i.i.i13200 = phi ptr [ %incdec.ptr.i.i.i.i.i.i13203, %for.body.i.i.i.i.i13199 ], [ %3539, %for.body.i.i.preheader.i.i.i13195 ]
+  %first.sroa.0.06.i.i.i.i.i13201 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i13202, %for.body.i.i.i.i.i13199 ], [ %3537, %for.body.i.i.preheader.i.i.i13195 ]
+  %3540 = load i32, ptr %first.sroa.0.06.i.i.i.i.i13201, align 4
+  store i32 %3540, ptr %retval.sroa.0.07.i.i.i.i.i13200, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i13201, align 4
+  %incdec.ptr.i.i.i.i.i.i.i13202 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i13201, i64 4
+  %incdec.ptr.i.i.i.i.i.i13203 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i13200, i64 4
   %cmp.i.i.i.not.i.i.i.i.i13204 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i13202, %add.ptr25.i.i.i13198
   br i1 %cmp.i.i.i.not.i.i.i.i.i13204, label %for.body.i.i10.preheader.i.i.i13205, label %for.body.i.i.i.i.i13199, !llvm.loop !497
 
@@ -64438,17 +64438,17 @@ for.body.i.i10.preheader.i.i.i13205:              ; preds = %for.body.i.i.i.i.i1
   br label %for.body.i.i10.i.i.i13207
 
 for.body.i.i10.i.i.i13207:                        ; preds = %for.body.i.i10.i.i.i13207, %for.body.i.i10.preheader.i.i.i13205
-  %first.sroa.0.07.i.i11.i.i.i13208 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i13219, %for.body.i.i10.i.i.i13207 ], [ %3535, %for.body.i.i10.preheader.i.i.i13205 ]
-  %retval.sroa.0.06.i.i12.i.i.i13209 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i13220, %for.body.i.i10.i.i.i13207 ], [ %3541, %for.body.i.i10.preheader.i.i.i13205 ]
-  %3542 = load i32, ptr %first.sroa.0.07.i.i11.i.i.i13208, align 8
-  store i32 %3542, ptr %retval.sroa.0.06.i.i12.i.i.i13209, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i13210 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i13209, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i13211 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i13208, i64 4
+  %retval.sroa.0.07.i.i11.i.i.i13208 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i13220, %for.body.i.i10.i.i.i13207 ], [ %3541, %for.body.i.i10.preheader.i.i.i13205 ]
+  %first.sroa.0.06.i.i12.i.i.i13209 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i13219, %for.body.i.i10.i.i.i13207 ], [ %3535, %for.body.i.i10.preheader.i.i.i13205 ]
+  %3542 = load i32, ptr %first.sroa.0.06.i.i12.i.i.i13209, align 8
+  store i32 %3542, ptr %retval.sroa.0.07.i.i11.i.i.i13208, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i13210 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i13208, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i13211 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i13209, i64 4
   %3543 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i13211, align 4
   %frombool.i.i.i.i.i.i13212 = and i8 %3543, 1
   store i8 %frombool.i.i.i.i.i.i13212, ptr %mbThrowOnCopy.i.i.i.i.i.i13210, align 4
-  %mMagicValue.i.i.i.i.i.i13213 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i13209, i64 16
-  %mMagicValue4.i.i.i.i.i.i13214 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i13208, i64 16
+  %mMagicValue.i.i.i.i.i.i13213 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i13208, i64 16
+  %mMagicValue4.i.i.i.i.i.i13214 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i13209, i64 16
   %3544 = load i32, ptr %mMagicValue4.i.i.i.i.i.i13214, align 8
   store i32 %3544, ptr %mMagicValue.i.i.i.i.i.i13213, align 8
   %3545 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -64460,11 +64460,11 @@ for.body.i.i10.i.i.i13207:                        ; preds = %for.body.i.i10.i.i.
   %3547 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i13217 = add nsw i64 %3547, 1
   store i64 %inc6.i.i.i.i.i.i13217, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i13218 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i13209, i64 8
+  %mId.i.i.i.i.i.i13218 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i13208, i64 8
   store i64 %inc5.i.i.i.i.i.i13216, ptr %mId.i.i.i.i.i.i13218, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i.i.i13208, align 8
-  %incdec.ptr.i.i.i.i13.i.i.i13219 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i13208, i64 24
-  %incdec.ptr.i.i.i14.i.i.i13220 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i13209, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i.i.i13209, align 8
+  %incdec.ptr.i.i.i.i13.i.i.i13219 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i13209, i64 24
+  %incdec.ptr.i.i.i14.i.i.i13220 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i13208, i64 24
   %cmp.i.i.i.not.i.i15.i.i.i13221 = icmp eq ptr %incdec.ptr.i.i.i.i13.i.i.i13219, %add.ptr37.i.i.i13206
   br i1 %cmp.i.i.i.not.i.i15.i.i.i13221, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEEC2INS0_12TupleVecIterIS6_JiS7_S8_EEEEENS_13move_iteratorIT_EESF_RKS4_.exit.loopexit.i13222, label %for.body.i.i10.i.i.i13207, !llvm.loop !498
 
@@ -64710,13 +64710,13 @@ for.body.i.i.preheader.i.i.i13323:                ; preds = %if.then5087
   br label %for.body.i.i.i.i.i13327
 
 for.body.i.i.i.i.i13327:                          ; preds = %for.body.i.i.i.i.i13327, %for.body.i.i.preheader.i.i.i13323
-  %first.sroa.0.07.i.i.i.i.i13328 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i13330, %for.body.i.i.i.i.i13327 ], [ %3586, %for.body.i.i.preheader.i.i.i13323 ]
-  %retval.sroa.0.06.i.i.i.i.i13329 = phi ptr [ %incdec.ptr.i.i.i.i.i.i13331, %for.body.i.i.i.i.i13327 ], [ %3588, %for.body.i.i.preheader.i.i.i13323 ]
-  %3589 = load i32, ptr %first.sroa.0.07.i.i.i.i.i13328, align 4
-  store i32 %3589, ptr %retval.sroa.0.06.i.i.i.i.i13329, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i13328, align 4
-  %incdec.ptr.i.i.i.i.i.i.i13330 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i13328, i64 4
-  %incdec.ptr.i.i.i.i.i.i13331 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i13329, i64 4
+  %retval.sroa.0.07.i.i.i.i.i13328 = phi ptr [ %incdec.ptr.i.i.i.i.i.i13331, %for.body.i.i.i.i.i13327 ], [ %3588, %for.body.i.i.preheader.i.i.i13323 ]
+  %first.sroa.0.06.i.i.i.i.i13329 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i13330, %for.body.i.i.i.i.i13327 ], [ %3586, %for.body.i.i.preheader.i.i.i13323 ]
+  %3589 = load i32, ptr %first.sroa.0.06.i.i.i.i.i13329, align 4
+  store i32 %3589, ptr %retval.sroa.0.07.i.i.i.i.i13328, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i13329, align 4
+  %incdec.ptr.i.i.i.i.i.i.i13330 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i13329, i64 4
+  %incdec.ptr.i.i.i.i.i.i13331 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i13328, i64 4
   %cmp.i.i.i.not.i.i.i.i.i13332 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i13330, %add.ptr25.i.i.i13326
   br i1 %cmp.i.i.i.not.i.i.i.i.i13332, label %for.body.i.i10.preheader.i.i.i13333, label %for.body.i.i.i.i.i13327, !llvm.loop !497
 
@@ -64727,17 +64727,17 @@ for.body.i.i10.preheader.i.i.i13333:              ; preds = %for.body.i.i.i.i.i1
   br label %for.body.i.i10.i.i.i13335
 
 for.body.i.i10.i.i.i13335:                        ; preds = %for.body.i.i10.i.i.i13335, %for.body.i.i10.preheader.i.i.i13333
-  %first.sroa.0.07.i.i11.i.i.i13336 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i13347, %for.body.i.i10.i.i.i13335 ], [ %3584, %for.body.i.i10.preheader.i.i.i13333 ]
-  %retval.sroa.0.06.i.i12.i.i.i13337 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i13348, %for.body.i.i10.i.i.i13335 ], [ %3590, %for.body.i.i10.preheader.i.i.i13333 ]
-  %3591 = load i32, ptr %first.sroa.0.07.i.i11.i.i.i13336, align 8
-  store i32 %3591, ptr %retval.sroa.0.06.i.i12.i.i.i13337, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i13338 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i13337, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i13339 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i13336, i64 4
+  %retval.sroa.0.07.i.i11.i.i.i13336 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i13348, %for.body.i.i10.i.i.i13335 ], [ %3590, %for.body.i.i10.preheader.i.i.i13333 ]
+  %first.sroa.0.06.i.i12.i.i.i13337 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i13347, %for.body.i.i10.i.i.i13335 ], [ %3584, %for.body.i.i10.preheader.i.i.i13333 ]
+  %3591 = load i32, ptr %first.sroa.0.06.i.i12.i.i.i13337, align 8
+  store i32 %3591, ptr %retval.sroa.0.07.i.i11.i.i.i13336, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i13338 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i13336, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i13339 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i13337, i64 4
   %3592 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i13339, align 4
   %frombool.i.i.i.i.i.i13340 = and i8 %3592, 1
   store i8 %frombool.i.i.i.i.i.i13340, ptr %mbThrowOnCopy.i.i.i.i.i.i13338, align 4
-  %mMagicValue.i.i.i.i.i.i13341 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i13337, i64 16
-  %mMagicValue4.i.i.i.i.i.i13342 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i13336, i64 16
+  %mMagicValue.i.i.i.i.i.i13341 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i13336, i64 16
+  %mMagicValue4.i.i.i.i.i.i13342 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i13337, i64 16
   %3593 = load i32, ptr %mMagicValue4.i.i.i.i.i.i13342, align 8
   store i32 %3593, ptr %mMagicValue.i.i.i.i.i.i13341, align 8
   %3594 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -64749,11 +64749,11 @@ for.body.i.i10.i.i.i13335:                        ; preds = %for.body.i.i10.i.i.
   %3596 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i13345 = add nsw i64 %3596, 1
   store i64 %inc6.i.i.i.i.i.i13345, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i13346 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i13337, i64 8
+  %mId.i.i.i.i.i.i13346 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i13336, i64 8
   store i64 %inc5.i.i.i.i.i.i13344, ptr %mId.i.i.i.i.i.i13346, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i.i.i13336, align 8
-  %incdec.ptr.i.i.i.i13.i.i.i13347 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i13336, i64 24
-  %incdec.ptr.i.i.i14.i.i.i13348 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i13337, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i.i.i13337, align 8
+  %incdec.ptr.i.i.i.i13.i.i.i13347 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i13337, i64 24
+  %incdec.ptr.i.i.i14.i.i.i13348 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i13336, i64 24
   %cmp.i.i.i.not.i.i15.i.i.i13349 = icmp eq ptr %incdec.ptr.i.i.i.i13.i.i.i13347, %add.ptr37.i.i.i13334
   br i1 %cmp.i.i.i.not.i.i15.i.i.i13349, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEEC2INS0_12TupleVecIterIS6_JiS7_S8_EEEEENS_13move_iteratorIT_EESF_RKS4_.exit.loopexit.i13350, label %for.body.i.i10.i.i.i13335, !llvm.loop !498
 
@@ -64925,13 +64925,13 @@ for.body.i.i.preheader.i.i.i13431:                ; preds = %if.then5118
   br label %for.body.i.i.i.i.i13435
 
 for.body.i.i.i.i.i13435:                          ; preds = %for.body.i.i.i.i.i13435, %for.body.i.i.preheader.i.i.i13431
-  %first.sroa.0.07.i.i.i.i.i13436 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i13438, %for.body.i.i.i.i.i13435 ], [ %3619, %for.body.i.i.preheader.i.i.i13431 ]
-  %retval.sroa.0.06.i.i.i.i.i13437 = phi ptr [ %incdec.ptr.i.i.i.i.i.i13439, %for.body.i.i.i.i.i13435 ], [ %3621, %for.body.i.i.preheader.i.i.i13431 ]
-  %3622 = load i32, ptr %first.sroa.0.07.i.i.i.i.i13436, align 4
-  store i32 %3622, ptr %retval.sroa.0.06.i.i.i.i.i13437, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i13436, align 4
-  %incdec.ptr.i.i.i.i.i.i.i13438 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i13436, i64 4
-  %incdec.ptr.i.i.i.i.i.i13439 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i13437, i64 4
+  %retval.sroa.0.07.i.i.i.i.i13436 = phi ptr [ %incdec.ptr.i.i.i.i.i.i13439, %for.body.i.i.i.i.i13435 ], [ %3621, %for.body.i.i.preheader.i.i.i13431 ]
+  %first.sroa.0.06.i.i.i.i.i13437 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i13438, %for.body.i.i.i.i.i13435 ], [ %3619, %for.body.i.i.preheader.i.i.i13431 ]
+  %3622 = load i32, ptr %first.sroa.0.06.i.i.i.i.i13437, align 4
+  store i32 %3622, ptr %retval.sroa.0.07.i.i.i.i.i13436, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.i13437, align 4
+  %incdec.ptr.i.i.i.i.i.i.i13438 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i13437, i64 4
+  %incdec.ptr.i.i.i.i.i.i13439 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i13436, i64 4
   %cmp.i.i.i.not.i.i.i.i.i13440 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i13438, %add.ptr25.i.i.i13434
   br i1 %cmp.i.i.i.not.i.i.i.i.i13440, label %for.body.i.i10.preheader.i.i.i13441, label %for.body.i.i.i.i.i13435, !llvm.loop !497
 
@@ -64942,17 +64942,17 @@ for.body.i.i10.preheader.i.i.i13441:              ; preds = %for.body.i.i.i.i.i1
   br label %for.body.i.i10.i.i.i13443
 
 for.body.i.i10.i.i.i13443:                        ; preds = %for.body.i.i10.i.i.i13443, %for.body.i.i10.preheader.i.i.i13441
-  %first.sroa.0.07.i.i11.i.i.i13444 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i13455, %for.body.i.i10.i.i.i13443 ], [ %3617, %for.body.i.i10.preheader.i.i.i13441 ]
-  %retval.sroa.0.06.i.i12.i.i.i13445 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i13456, %for.body.i.i10.i.i.i13443 ], [ %3623, %for.body.i.i10.preheader.i.i.i13441 ]
-  %3624 = load i32, ptr %first.sroa.0.07.i.i11.i.i.i13444, align 8
-  store i32 %3624, ptr %retval.sroa.0.06.i.i12.i.i.i13445, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i13446 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i13445, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i13447 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i13444, i64 4
+  %retval.sroa.0.07.i.i11.i.i.i13444 = phi ptr [ %incdec.ptr.i.i.i14.i.i.i13456, %for.body.i.i10.i.i.i13443 ], [ %3623, %for.body.i.i10.preheader.i.i.i13441 ]
+  %first.sroa.0.06.i.i12.i.i.i13445 = phi ptr [ %incdec.ptr.i.i.i.i13.i.i.i13455, %for.body.i.i10.i.i.i13443 ], [ %3617, %for.body.i.i10.preheader.i.i.i13441 ]
+  %3624 = load i32, ptr %first.sroa.0.06.i.i12.i.i.i13445, align 8
+  store i32 %3624, ptr %retval.sroa.0.07.i.i11.i.i.i13444, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i13446 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i13444, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i13447 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i13445, i64 4
   %3625 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i13447, align 4
   %frombool.i.i.i.i.i.i13448 = and i8 %3625, 1
   store i8 %frombool.i.i.i.i.i.i13448, ptr %mbThrowOnCopy.i.i.i.i.i.i13446, align 4
-  %mMagicValue.i.i.i.i.i.i13449 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i13445, i64 16
-  %mMagicValue4.i.i.i.i.i.i13450 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i13444, i64 16
+  %mMagicValue.i.i.i.i.i.i13449 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i13444, i64 16
+  %mMagicValue4.i.i.i.i.i.i13450 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i13445, i64 16
   %3626 = load i32, ptr %mMagicValue4.i.i.i.i.i.i13450, align 8
   store i32 %3626, ptr %mMagicValue.i.i.i.i.i.i13449, align 8
   %3627 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -64964,11 +64964,11 @@ for.body.i.i10.i.i.i13443:                        ; preds = %for.body.i.i10.i.i.
   %3629 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i13453 = add nsw i64 %3629, 1
   store i64 %inc6.i.i.i.i.i.i13453, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i13454 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i13445, i64 8
+  %mId.i.i.i.i.i.i13454 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i13444, i64 8
   store i64 %inc5.i.i.i.i.i.i13452, ptr %mId.i.i.i.i.i.i13454, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i.i.i13444, align 8
-  %incdec.ptr.i.i.i.i13.i.i.i13455 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i.i.i13444, i64 24
-  %incdec.ptr.i.i.i14.i.i.i13456 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i.i.i13445, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i.i.i13445, align 8
+  %incdec.ptr.i.i.i.i13.i.i.i13455 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i.i.i13445, i64 24
+  %incdec.ptr.i.i.i14.i.i.i13456 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i.i.i13444, i64 24
   %cmp.i.i.i.not.i.i15.i.i.i13457 = icmp eq ptr %incdec.ptr.i.i.i.i13.i.i.i13455, %add.ptr37.i.i.i13442
   br i1 %cmp.i.i.i.not.i.i15.i.i.i13457, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEEC2INS0_12TupleVecIterIS6_JiS7_S8_EEEEENS_13move_iteratorIT_EESF_RKS4_.exit.loopexit.i13458, label %for.body.i.i10.i.i.i13443, !llvm.loop !498
 
@@ -65342,13 +65342,13 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAll
   br label %for.body.i.i.i.i.i16062
 
 for.body.i.i.i.i.i16062:                          ; preds = %for.body.i.i.i.i.i16062, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i16054
-  %first.sroa.0.08.i.i.i.i.i16063 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16065, %for.body.i.i.i.i.i16062 ], [ %3697, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i16054 ]
-  %retval.sroa.0.07.i.i.i.i.i16064 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16066, %for.body.i.i.i.i.i16062 ], [ %3695, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i16054 ]
-  %3698 = load i32, ptr %first.sroa.0.08.i.i.i.i.i16063, align 4
-  store i32 %3698, ptr %retval.sroa.0.07.i.i.i.i.i16064, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i16063, align 4
-  %incdec.ptr.i.i.i.i.i.i16065 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16063, i64 4
-  %incdec.ptr.i1.i.i.i.i.i16066 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16064, i64 4
+  %retval.sroa.0.08.i.i.i.i.i16063 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16066, %for.body.i.i.i.i.i16062 ], [ %3695, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i16054 ]
+  %first.sroa.0.07.i.i.i.i.i16064 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16065, %for.body.i.i.i.i.i16062 ], [ %3697, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i16054 ]
+  %3698 = load i32, ptr %first.sroa.0.07.i.i.i.i.i16064, align 4
+  store i32 %3698, ptr %retval.sroa.0.08.i.i.i.i.i16063, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i16064, align 4
+  %incdec.ptr.i.i.i.i.i.i16065 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16064, i64 4
+  %incdec.ptr.i1.i.i.i.i.i16066 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16063, i64 4
   %cmp.i.not.i.i.i.i.i16067 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i16065, %add.ptr3.i.i16061
   br i1 %cmp.i.not.i.i.i.i.i16067, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16068, label %for.body.i.i.i.i.i16062, !llvm.loop !1976
 
@@ -65358,17 +65358,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMo
   br label %for.body.i.i.i.i6.i16071
 
 for.body.i.i.i.i6.i16071:                         ; preds = %for.body.i.i.i.i6.i16071, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16068
-  %first.sroa.0.08.i.i.i.i7.i16072 = phi ptr [ %incdec.ptr.i.i.i.i.i9.i16083, %for.body.i.i.i.i6.i16071 ], [ %3699, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16068 ]
-  %retval.sroa.0.07.i.i.i.i8.i16073 = phi ptr [ %incdec.ptr.i1.i.i.i.i10.i16084, %for.body.i.i.i.i6.i16071 ], [ %3694, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16068 ]
-  %3700 = load i32, ptr %first.sroa.0.08.i.i.i.i7.i16072, align 8
-  store i32 %3700, ptr %retval.sroa.0.07.i.i.i.i8.i16073, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i16074 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i16073, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i16075 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i16072, i64 4
+  %retval.sroa.0.08.i.i.i.i7.i16072 = phi ptr [ %incdec.ptr.i1.i.i.i.i10.i16084, %for.body.i.i.i.i6.i16071 ], [ %3694, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16068 ]
+  %first.sroa.0.07.i.i.i.i8.i16073 = phi ptr [ %incdec.ptr.i.i.i.i.i9.i16083, %for.body.i.i.i.i6.i16071 ], [ %3699, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16068 ]
+  %3700 = load i32, ptr %first.sroa.0.07.i.i.i.i8.i16073, align 8
+  store i32 %3700, ptr %retval.sroa.0.08.i.i.i.i7.i16072, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i16074 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i16072, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i16075 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i16073, i64 4
   %3701 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i16075, align 4
   %frombool.i.i.i.i.i.i16076 = and i8 %3701, 1
   store i8 %frombool.i.i.i.i.i.i16076, ptr %mbThrowOnCopy.i.i.i.i.i.i16074, align 4
-  %mMagicValue.i.i.i.i.i.i16077 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i16073, i64 16
-  %mMagicValue4.i.i.i.i.i.i16078 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i16072, i64 16
+  %mMagicValue.i.i.i.i.i.i16077 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i16072, i64 16
+  %mMagicValue4.i.i.i.i.i.i16078 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i16073, i64 16
   %3702 = load i32, ptr %mMagicValue4.i.i.i.i.i.i16078, align 8
   store i32 %3702, ptr %mMagicValue.i.i.i.i.i.i16077, align 8
   %3703 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -65380,11 +65380,11 @@ for.body.i.i.i.i6.i16071:                         ; preds = %for.body.i.i.i.i6.i
   %3705 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i16081 = add nsw i64 %3705, 1
   store i64 %inc6.i.i.i.i.i.i16081, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i16082 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i16073, i64 8
+  %mId.i.i.i.i.i.i16082 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i16072, i64 8
   store i64 %inc5.i.i.i.i.i.i16080, ptr %mId.i.i.i.i.i.i16082, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i7.i16072, align 8
-  %incdec.ptr.i.i.i.i.i9.i16083 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i16072, i64 24
-  %incdec.ptr.i1.i.i.i.i10.i16084 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i16073, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i8.i16073, align 8
+  %incdec.ptr.i.i.i.i.i9.i16083 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i16073, i64 24
+  %incdec.ptr.i1.i.i.i.i10.i16084 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i16072, i64 24
   %cmp.i.not.i.i.i.i11.i16085 = icmp eq ptr %incdec.ptr.i.i.i.i.i9.i16083, %add.ptr3.i4.i16070
   br i1 %cmp.i.not.i.i.i.i11.i16085, label %for.body.preheader.i.i.i.i16086, label %for.body.i.i.i.i6.i16071, !llvm.loop !1484
 
@@ -65471,13 +65471,13 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAll
   br label %for.body.i.i.i.i.i16126
 
 for.body.i.i.i.i.i16126:                          ; preds = %for.body.i.i.i.i.i16126, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i16118
-  %first.sroa.0.08.i.i.i.i.i16127 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16129, %for.body.i.i.i.i.i16126 ], [ %3720, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i16118 ]
-  %retval.sroa.0.07.i.i.i.i.i16128 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16130, %for.body.i.i.i.i.i16126 ], [ %3718, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i16118 ]
-  %3721 = load i32, ptr %first.sroa.0.08.i.i.i.i.i16127, align 4
-  store i32 %3721, ptr %retval.sroa.0.07.i.i.i.i.i16128, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i16127, align 4
-  %incdec.ptr.i.i.i.i.i.i16129 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16127, i64 4
-  %incdec.ptr.i1.i.i.i.i.i16130 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16128, i64 4
+  %retval.sroa.0.08.i.i.i.i.i16127 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16130, %for.body.i.i.i.i.i16126 ], [ %3718, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i16118 ]
+  %first.sroa.0.07.i.i.i.i.i16128 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16129, %for.body.i.i.i.i.i16126 ], [ %3720, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i16118 ]
+  %3721 = load i32, ptr %first.sroa.0.07.i.i.i.i.i16128, align 4
+  store i32 %3721, ptr %retval.sroa.0.08.i.i.i.i.i16127, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i16128, align 4
+  %incdec.ptr.i.i.i.i.i.i16129 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16128, i64 4
+  %incdec.ptr.i1.i.i.i.i.i16130 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16127, i64 4
   %cmp.i.not.i.i.i.i.i16131 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i16129, %add.ptr3.i.i16125
   br i1 %cmp.i.not.i.i.i.i.i16131, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16132, label %for.body.i.i.i.i.i16126, !llvm.loop !1976
 
@@ -65487,17 +65487,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMo
   br label %for.body.i.i.i.i6.i16135
 
 for.body.i.i.i.i6.i16135:                         ; preds = %for.body.i.i.i.i6.i16135, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16132
-  %first.sroa.0.08.i.i.i.i7.i16136 = phi ptr [ %incdec.ptr.i.i.i.i.i9.i16147, %for.body.i.i.i.i6.i16135 ], [ %3722, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16132 ]
-  %retval.sroa.0.07.i.i.i.i8.i16137 = phi ptr [ %incdec.ptr.i1.i.i.i.i10.i16148, %for.body.i.i.i.i6.i16135 ], [ %3717, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16132 ]
-  %3723 = load i32, ptr %first.sroa.0.08.i.i.i.i7.i16136, align 8
-  store i32 %3723, ptr %retval.sroa.0.07.i.i.i.i8.i16137, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i16138 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i16137, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i16139 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i16136, i64 4
+  %retval.sroa.0.08.i.i.i.i7.i16136 = phi ptr [ %incdec.ptr.i1.i.i.i.i10.i16148, %for.body.i.i.i.i6.i16135 ], [ %3717, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16132 ]
+  %first.sroa.0.07.i.i.i.i8.i16137 = phi ptr [ %incdec.ptr.i.i.i.i.i9.i16147, %for.body.i.i.i.i6.i16135 ], [ %3722, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16132 ]
+  %3723 = load i32, ptr %first.sroa.0.07.i.i.i.i8.i16137, align 8
+  store i32 %3723, ptr %retval.sroa.0.08.i.i.i.i7.i16136, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i16138 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i16136, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i16139 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i16137, i64 4
   %3724 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i16139, align 4
   %frombool.i.i.i.i.i.i16140 = and i8 %3724, 1
   store i8 %frombool.i.i.i.i.i.i16140, ptr %mbThrowOnCopy.i.i.i.i.i.i16138, align 4
-  %mMagicValue.i.i.i.i.i.i16141 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i16137, i64 16
-  %mMagicValue4.i.i.i.i.i.i16142 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i16136, i64 16
+  %mMagicValue.i.i.i.i.i.i16141 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i16136, i64 16
+  %mMagicValue4.i.i.i.i.i.i16142 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i16137, i64 16
   %3725 = load i32, ptr %mMagicValue4.i.i.i.i.i.i16142, align 8
   store i32 %3725, ptr %mMagicValue.i.i.i.i.i.i16141, align 8
   %3726 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -65509,11 +65509,11 @@ for.body.i.i.i.i6.i16135:                         ; preds = %for.body.i.i.i.i6.i
   %3728 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i16145 = add nsw i64 %3728, 1
   store i64 %inc6.i.i.i.i.i.i16145, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i16146 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i16137, i64 8
+  %mId.i.i.i.i.i.i16146 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i16136, i64 8
   store i64 %inc5.i.i.i.i.i.i16144, ptr %mId.i.i.i.i.i.i16146, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i7.i16136, align 8
-  %incdec.ptr.i.i.i.i.i9.i16147 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i16136, i64 24
-  %incdec.ptr.i1.i.i.i.i10.i16148 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i16137, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i8.i16137, align 8
+  %incdec.ptr.i.i.i.i.i9.i16147 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i16137, i64 24
+  %incdec.ptr.i1.i.i.i.i10.i16148 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i16136, i64 24
   %cmp.i.not.i.i.i.i11.i16149 = icmp eq ptr %incdec.ptr.i.i.i.i.i9.i16147, %add.ptr3.i4.i16134
   br i1 %cmp.i.not.i.i.i.i11.i16149, label %for.body.preheader.i.i.i.i16150, label %for.body.i.i.i.i6.i16135, !llvm.loop !1484
 
@@ -65612,13 +65612,13 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAll
   br label %for.body.i.i.i.i.i16190
 
 for.body.i.i.i.i.i16190:                          ; preds = %for.body.i.i.i.i.i16190, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i16182
-  %first.sroa.0.08.i.i.i.i.i16191 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16193, %for.body.i.i.i.i.i16190 ], [ %3743, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i16182 ]
-  %retval.sroa.0.07.i.i.i.i.i16192 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16194, %for.body.i.i.i.i.i16190 ], [ %3741, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i16182 ]
-  %3744 = load i32, ptr %first.sroa.0.08.i.i.i.i.i16191, align 4
-  store i32 %3744, ptr %retval.sroa.0.07.i.i.i.i.i16192, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i16191, align 4
-  %incdec.ptr.i.i.i.i.i.i16193 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16191, i64 4
-  %incdec.ptr.i1.i.i.i.i.i16194 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16192, i64 4
+  %retval.sroa.0.08.i.i.i.i.i16191 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16194, %for.body.i.i.i.i.i16190 ], [ %3741, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i16182 ]
+  %first.sroa.0.07.i.i.i.i.i16192 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16193, %for.body.i.i.i.i.i16190 ], [ %3743, %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i16182 ]
+  %3744 = load i32, ptr %first.sroa.0.07.i.i.i.i.i16192, align 4
+  store i32 %3744, ptr %retval.sroa.0.08.i.i.i.i.i16191, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i16192, align 4
+  %incdec.ptr.i.i.i.i.i.i16193 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16192, i64 4
+  %incdec.ptr.i1.i.i.i.i.i16194 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16191, i64 4
   %cmp.i.not.i.i.i.i.i16195 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i16193, %add.ptr3.i.i16189
   br i1 %cmp.i.not.i.i.i.i.i16195, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16196, label %for.body.i.i.i.i.i16190, !llvm.loop !1976
 
@@ -65628,17 +65628,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMo
   br label %for.body.i.i.i.i6.i16199
 
 for.body.i.i.i.i6.i16199:                         ; preds = %for.body.i.i.i.i6.i16199, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16196
-  %first.sroa.0.08.i.i.i.i7.i16200 = phi ptr [ %incdec.ptr.i.i.i.i.i9.i16211, %for.body.i.i.i.i6.i16199 ], [ %3745, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16196 ]
-  %retval.sroa.0.07.i.i.i.i8.i16201 = phi ptr [ %incdec.ptr.i1.i.i.i.i10.i16212, %for.body.i.i.i.i6.i16199 ], [ %3740, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16196 ]
-  %3746 = load i32, ptr %first.sroa.0.08.i.i.i.i7.i16200, align 8
-  store i32 %3746, ptr %retval.sroa.0.07.i.i.i.i8.i16201, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i16202 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i16201, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i16203 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i16200, i64 4
+  %retval.sroa.0.08.i.i.i.i7.i16200 = phi ptr [ %incdec.ptr.i1.i.i.i.i10.i16212, %for.body.i.i.i.i6.i16199 ], [ %3740, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16196 ]
+  %first.sroa.0.07.i.i.i.i8.i16201 = phi ptr [ %incdec.ptr.i.i.i.i.i9.i16211, %for.body.i.i.i.i6.i16199 ], [ %3745, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16196 ]
+  %3746 = load i32, ptr %first.sroa.0.07.i.i.i.i8.i16201, align 8
+  store i32 %3746, ptr %retval.sroa.0.08.i.i.i.i7.i16200, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i16202 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i16200, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i16203 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i16201, i64 4
   %3747 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i16203, align 4
   %frombool.i.i.i.i.i.i16204 = and i8 %3747, 1
   store i8 %frombool.i.i.i.i.i.i16204, ptr %mbThrowOnCopy.i.i.i.i.i.i16202, align 4
-  %mMagicValue.i.i.i.i.i.i16205 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i16201, i64 16
-  %mMagicValue4.i.i.i.i.i.i16206 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i16200, i64 16
+  %mMagicValue.i.i.i.i.i.i16205 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i16200, i64 16
+  %mMagicValue4.i.i.i.i.i.i16206 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i16201, i64 16
   %3748 = load i32, ptr %mMagicValue4.i.i.i.i.i.i16206, align 8
   store i32 %3748, ptr %mMagicValue.i.i.i.i.i.i16205, align 8
   %3749 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -65650,11 +65650,11 @@ for.body.i.i.i.i6.i16199:                         ; preds = %for.body.i.i.i.i6.i
   %3751 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i16209 = add nsw i64 %3751, 1
   store i64 %inc6.i.i.i.i.i.i16209, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i16210 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i16201, i64 8
+  %mId.i.i.i.i.i.i16210 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i16200, i64 8
   store i64 %inc5.i.i.i.i.i.i16208, ptr %mId.i.i.i.i.i.i16210, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i7.i16200, align 8
-  %incdec.ptr.i.i.i.i.i9.i16211 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7.i16200, i64 24
-  %incdec.ptr.i1.i.i.i.i10.i16212 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8.i16201, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i8.i16201, align 8
+  %incdec.ptr.i.i.i.i.i9.i16211 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8.i16201, i64 24
+  %incdec.ptr.i1.i.i.i.i10.i16212 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7.i16200, i64 24
   %cmp.i.not.i.i.i.i11.i16213 = icmp eq ptr %incdec.ptr.i.i.i.i.i9.i16211, %add.ptr3.i4.i16198
   br i1 %cmp.i.not.i.i.i.i11.i16213, label %for.body.preheader.i.i.i.i16214, label %for.body.i.i.i.i6.i16199, !llvm.loop !1484
 
@@ -66236,17 +66236,17 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fi
   br label %for.body.i.i.i.i.i16255
 
 for.body.i.i.i.i.i16255:                          ; preds = %for.body.i.i.i.i.i16255, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16246
-  %first.sroa.0.08.i.i.i.i.i16256 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16267, %for.body.i.i.i.i.i16255 ], [ %3863, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16246 ]
-  %retval.sroa.0.07.i.i.i.i.i16257 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16268, %for.body.i.i.i.i.i16255 ], [ %3861, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16246 ]
-  %3864 = load i32, ptr %first.sroa.0.08.i.i.i.i.i16256, align 8
-  store i32 %3864, ptr %retval.sroa.0.07.i.i.i.i.i16257, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i16258 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16257, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i16259 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16256, i64 4
+  %retval.sroa.0.08.i.i.i.i.i16256 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16268, %for.body.i.i.i.i.i16255 ], [ %3861, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16246 ]
+  %first.sroa.0.07.i.i.i.i.i16257 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16267, %for.body.i.i.i.i.i16255 ], [ %3863, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16246 ]
+  %3864 = load i32, ptr %first.sroa.0.07.i.i.i.i.i16257, align 8
+  store i32 %3864, ptr %retval.sroa.0.08.i.i.i.i.i16256, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i16258 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16256, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i16259 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16257, i64 4
   %3865 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i16259, align 4
   %frombool.i.i.i.i.i.i16260 = and i8 %3865, 1
   store i8 %frombool.i.i.i.i.i.i16260, ptr %mbThrowOnCopy.i.i.i.i.i.i16258, align 4
-  %mMagicValue.i.i.i.i.i.i16261 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16257, i64 16
-  %mMagicValue4.i.i.i.i.i.i16262 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16256, i64 16
+  %mMagicValue.i.i.i.i.i.i16261 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16256, i64 16
+  %mMagicValue4.i.i.i.i.i.i16262 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16257, i64 16
   %3866 = load i32, ptr %mMagicValue4.i.i.i.i.i.i16262, align 8
   store i32 %3866, ptr %mMagicValue.i.i.i.i.i.i16261, align 8
   %3867 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -66258,11 +66258,11 @@ for.body.i.i.i.i.i16255:                          ; preds = %for.body.i.i.i.i.i1
   %3869 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i16265 = add nsw i64 %3869, 1
   store i64 %inc6.i.i.i.i.i.i16265, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i16266 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16257, i64 8
+  %mId.i.i.i.i.i.i16266 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16256, i64 8
   store i64 %inc5.i.i.i.i.i.i16264, ptr %mId.i.i.i.i.i.i16266, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i16256, align 8
-  %incdec.ptr.i.i.i.i.i.i16267 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16256, i64 24
-  %incdec.ptr.i1.i.i.i.i.i16268 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16257, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i16257, align 8
+  %incdec.ptr.i.i.i.i.i.i16267 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16257, i64 24
+  %incdec.ptr.i1.i.i.i.i.i16268 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16256, i64 24
   %cmp.i.not.i.i.i.i.i16269 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i16267, %add.ptr3.i.i16254
   br i1 %cmp.i.not.i.i.i.i.i16269, label %for.body.preheader.i.i.i.i16270, label %for.body.i.i.i.i.i16255, !llvm.loop !1484
 
@@ -66341,17 +66341,17 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fi
   br label %for.body.i.i.i.i.i16314
 
 for.body.i.i.i.i.i16314:                          ; preds = %for.body.i.i.i.i.i16314, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16305
-  %first.sroa.0.08.i.i.i.i.i16315 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16326, %for.body.i.i.i.i.i16314 ], [ %3880, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16305 ]
-  %retval.sroa.0.07.i.i.i.i.i16316 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16327, %for.body.i.i.i.i.i16314 ], [ %3878, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16305 ]
-  %3881 = load i32, ptr %first.sroa.0.08.i.i.i.i.i16315, align 8
-  store i32 %3881, ptr %retval.sroa.0.07.i.i.i.i.i16316, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i16317 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16316, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i16318 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16315, i64 4
+  %retval.sroa.0.08.i.i.i.i.i16315 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16327, %for.body.i.i.i.i.i16314 ], [ %3878, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16305 ]
+  %first.sroa.0.07.i.i.i.i.i16316 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16326, %for.body.i.i.i.i.i16314 ], [ %3880, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16305 ]
+  %3881 = load i32, ptr %first.sroa.0.07.i.i.i.i.i16316, align 8
+  store i32 %3881, ptr %retval.sroa.0.08.i.i.i.i.i16315, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i16317 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16315, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i16318 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16316, i64 4
   %3882 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i16318, align 4
   %frombool.i.i.i.i.i.i16319 = and i8 %3882, 1
   store i8 %frombool.i.i.i.i.i.i16319, ptr %mbThrowOnCopy.i.i.i.i.i.i16317, align 4
-  %mMagicValue.i.i.i.i.i.i16320 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16316, i64 16
-  %mMagicValue4.i.i.i.i.i.i16321 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16315, i64 16
+  %mMagicValue.i.i.i.i.i.i16320 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16315, i64 16
+  %mMagicValue4.i.i.i.i.i.i16321 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16316, i64 16
   %3883 = load i32, ptr %mMagicValue4.i.i.i.i.i.i16321, align 8
   store i32 %3883, ptr %mMagicValue.i.i.i.i.i.i16320, align 8
   %3884 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -66363,11 +66363,11 @@ for.body.i.i.i.i.i16314:                          ; preds = %for.body.i.i.i.i.i1
   %3886 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i16324 = add nsw i64 %3886, 1
   store i64 %inc6.i.i.i.i.i.i16324, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i16325 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16316, i64 8
+  %mId.i.i.i.i.i.i16325 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16315, i64 8
   store i64 %inc5.i.i.i.i.i.i16323, ptr %mId.i.i.i.i.i.i16325, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i16315, align 8
-  %incdec.ptr.i.i.i.i.i.i16326 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16315, i64 24
-  %incdec.ptr.i1.i.i.i.i.i16327 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16316, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i16316, align 8
+  %incdec.ptr.i.i.i.i.i.i16326 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16316, i64 24
+  %incdec.ptr.i1.i.i.i.i.i16327 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16315, i64 24
   %cmp.i.not.i.i.i.i.i16328 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i16326, %add.ptr3.i.i16313
   br i1 %cmp.i.not.i.i.i.i.i16328, label %for.body.preheader.i.i.i.i16329, label %for.body.i.i.i.i.i16314, !llvm.loop !1484
 
@@ -66690,17 +66690,17 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fi
   br label %for.body.i.i.i.i.i16373
 
 for.body.i.i.i.i.i16373:                          ; preds = %for.body.i.i.i.i.i16373, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16364
-  %first.sroa.0.08.i.i.i.i.i16374 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16385, %for.body.i.i.i.i.i16373 ], [ %3950, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16364 ]
-  %retval.sroa.0.07.i.i.i.i.i16375 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16386, %for.body.i.i.i.i.i16373 ], [ %3948, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16364 ]
-  %3951 = load i32, ptr %first.sroa.0.08.i.i.i.i.i16374, align 8
-  store i32 %3951, ptr %retval.sroa.0.07.i.i.i.i.i16375, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i16376 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16375, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i16377 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16374, i64 4
+  %retval.sroa.0.08.i.i.i.i.i16374 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16386, %for.body.i.i.i.i.i16373 ], [ %3948, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16364 ]
+  %first.sroa.0.07.i.i.i.i.i16375 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16385, %for.body.i.i.i.i.i16373 ], [ %3950, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16364 ]
+  %3951 = load i32, ptr %first.sroa.0.07.i.i.i.i.i16375, align 8
+  store i32 %3951, ptr %retval.sroa.0.08.i.i.i.i.i16374, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i16376 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16374, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i16377 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16375, i64 4
   %3952 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i16377, align 4
   %frombool.i.i.i.i.i.i16378 = and i8 %3952, 1
   store i8 %frombool.i.i.i.i.i.i16378, ptr %mbThrowOnCopy.i.i.i.i.i.i16376, align 4
-  %mMagicValue.i.i.i.i.i.i16379 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16375, i64 16
-  %mMagicValue4.i.i.i.i.i.i16380 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16374, i64 16
+  %mMagicValue.i.i.i.i.i.i16379 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16374, i64 16
+  %mMagicValue4.i.i.i.i.i.i16380 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16375, i64 16
   %3953 = load i32, ptr %mMagicValue4.i.i.i.i.i.i16380, align 8
   store i32 %3953, ptr %mMagicValue.i.i.i.i.i.i16379, align 8
   %3954 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -66712,11 +66712,11 @@ for.body.i.i.i.i.i16373:                          ; preds = %for.body.i.i.i.i.i1
   %3956 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i16383 = add nsw i64 %3956, 1
   store i64 %inc6.i.i.i.i.i.i16383, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i16384 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16375, i64 8
+  %mId.i.i.i.i.i.i16384 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16374, i64 8
   store i64 %inc5.i.i.i.i.i.i16382, ptr %mId.i.i.i.i.i.i16384, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i16374, align 8
-  %incdec.ptr.i.i.i.i.i.i16385 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16374, i64 24
-  %incdec.ptr.i1.i.i.i.i.i16386 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16375, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i16375, align 8
+  %incdec.ptr.i.i.i.i.i.i16385 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16375, i64 24
+  %incdec.ptr.i1.i.i.i.i.i16386 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16374, i64 24
   %cmp.i.not.i.i.i.i.i16387 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i16385, %add.ptr3.i.i16372
   br i1 %cmp.i.not.i.i.i.i.i16387, label %for.body.preheader.i.i.i.i16388, label %for.body.i.i.i.i.i16373, !llvm.loop !1484
 
@@ -66797,17 +66797,17 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fi
   br label %for.body.i.i.i.i.i16432
 
 for.body.i.i.i.i.i16432:                          ; preds = %for.body.i.i.i.i.i16432, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16423
-  %first.sroa.0.08.i.i.i.i.i16433 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16444, %for.body.i.i.i.i.i16432 ], [ %3967, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16423 ]
-  %retval.sroa.0.07.i.i.i.i.i16434 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16445, %for.body.i.i.i.i.i16432 ], [ %3965, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16423 ]
-  %3968 = load i32, ptr %first.sroa.0.08.i.i.i.i.i16433, align 8
-  store i32 %3968, ptr %retval.sroa.0.07.i.i.i.i.i16434, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i16435 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16434, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i16436 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16433, i64 4
+  %retval.sroa.0.08.i.i.i.i.i16433 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16445, %for.body.i.i.i.i.i16432 ], [ %3965, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16423 ]
+  %first.sroa.0.07.i.i.i.i.i16434 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16444, %for.body.i.i.i.i.i16432 ], [ %3967, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i16423 ]
+  %3968 = load i32, ptr %first.sroa.0.07.i.i.i.i.i16434, align 8
+  store i32 %3968, ptr %retval.sroa.0.08.i.i.i.i.i16433, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i16435 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16433, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i16436 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16434, i64 4
   %3969 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i16436, align 4
   %frombool.i.i.i.i.i.i16437 = and i8 %3969, 1
   store i8 %frombool.i.i.i.i.i.i16437, ptr %mbThrowOnCopy.i.i.i.i.i.i16435, align 4
-  %mMagicValue.i.i.i.i.i.i16438 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16434, i64 16
-  %mMagicValue4.i.i.i.i.i.i16439 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16433, i64 16
+  %mMagicValue.i.i.i.i.i.i16438 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16433, i64 16
+  %mMagicValue4.i.i.i.i.i.i16439 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16434, i64 16
   %3970 = load i32, ptr %mMagicValue4.i.i.i.i.i.i16439, align 8
   store i32 %3970, ptr %mMagicValue.i.i.i.i.i.i16438, align 8
   %3971 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -66819,11 +66819,11 @@ for.body.i.i.i.i.i16432:                          ; preds = %for.body.i.i.i.i.i1
   %3973 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i16442 = add nsw i64 %3973, 1
   store i64 %inc6.i.i.i.i.i.i16442, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i16443 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16434, i64 8
+  %mId.i.i.i.i.i.i16443 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16433, i64 8
   store i64 %inc5.i.i.i.i.i.i16441, ptr %mId.i.i.i.i.i.i16443, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i16433, align 8
-  %incdec.ptr.i.i.i.i.i.i16444 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16433, i64 24
-  %incdec.ptr.i1.i.i.i.i.i16445 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16434, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i16434, align 8
+  %incdec.ptr.i.i.i.i.i.i16444 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16434, i64 24
+  %incdec.ptr.i1.i.i.i.i.i16445 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16433, i64 24
   %cmp.i.not.i.i.i.i.i16446 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i16444, %add.ptr3.i.i16431
   br i1 %cmp.i.not.i.i.i.i.i16446, label %for.body.preheader.i.i.i.i16447, label %for.body.i.i.i.i.i16432, !llvm.loop !1484
 
@@ -67615,17 +67615,17 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectf12MoveOnlyTypeEE10DoAl
   br label %for.body.i.i.i.i.i16491
 
 for.body.i.i.i.i.i16491:                          ; preds = %for.body.i.i.i.i.i16491, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectf12MoveOnlyTypeEE10DoAllocateINS_22fixed_vector_allocatorILm2112ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbS2_fS3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i
-  %first.sroa.0.08.i.i.i.i.i16492 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16503, %for.body.i.i.i.i.i16491 ], [ %4106, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectf12MoveOnlyTypeEE10DoAllocateINS_22fixed_vector_allocatorILm2112ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbS2_fS3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i ]
-  %retval.sroa.0.07.i.i.i.i.i16493 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16504, %for.body.i.i.i.i.i16491 ], [ %4104, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectf12MoveOnlyTypeEE10DoAllocateINS_22fixed_vector_allocatorILm2112ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbS2_fS3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i ]
-  %4107 = load i32, ptr %first.sroa.0.08.i.i.i.i.i16492, align 8
-  store i32 %4107, ptr %retval.sroa.0.07.i.i.i.i.i16493, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i16494 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16493, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i.i16495 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16492, i64 4
+  %retval.sroa.0.08.i.i.i.i.i16492 = phi ptr [ %incdec.ptr.i1.i.i.i.i.i16504, %for.body.i.i.i.i.i16491 ], [ %4104, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectf12MoveOnlyTypeEE10DoAllocateINS_22fixed_vector_allocatorILm2112ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbS2_fS3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i ]
+  %first.sroa.0.07.i.i.i.i.i16493 = phi ptr [ %incdec.ptr.i.i.i.i.i.i16503, %for.body.i.i.i.i.i16491 ], [ %4106, %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectf12MoveOnlyTypeEE10DoAllocateINS_22fixed_vector_allocatorILm2112ELm1ELm8ELm0ELb0ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbS2_fS3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i ]
+  %4107 = load i32, ptr %first.sroa.0.07.i.i.i.i.i16493, align 8
+  store i32 %4107, ptr %retval.sroa.0.08.i.i.i.i.i16492, align 8
+  %mbThrowOnCopy.i.i.i.i.i.i16494 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16492, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i.i16495 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16493, i64 4
   %4108 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i.i16495, align 4
   %frombool.i.i.i.i.i.i16496 = and i8 %4108, 1
   store i8 %frombool.i.i.i.i.i.i16496, ptr %mbThrowOnCopy.i.i.i.i.i.i16494, align 4
-  %mMagicValue.i.i.i.i.i.i16497 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16493, i64 16
-  %mMagicValue4.i.i.i.i.i.i16498 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16492, i64 16
+  %mMagicValue.i.i.i.i.i.i16497 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16492, i64 16
+  %mMagicValue4.i.i.i.i.i.i16498 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16493, i64 16
   %4109 = load i32, ptr %mMagicValue4.i.i.i.i.i.i16498, align 8
   store i32 %4109, ptr %mMagicValue.i.i.i.i.i.i16497, align 8
   %4110 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -67637,11 +67637,11 @@ for.body.i.i.i.i.i16491:                          ; preds = %for.body.i.i.i.i.i1
   %4112 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i.i16501 = add nsw i64 %4112, 1
   store i64 %inc6.i.i.i.i.i.i16501, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i.i16502 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16493, i64 8
+  %mId.i.i.i.i.i.i16502 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16492, i64 8
   store i64 %inc5.i.i.i.i.i.i16500, ptr %mId.i.i.i.i.i.i16502, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i.i16492, align 8
-  %incdec.ptr.i.i.i.i.i.i16503 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i16492, i64 24
-  %incdec.ptr.i1.i.i.i.i.i16504 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i16493, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i.i16493, align 8
+  %incdec.ptr.i.i.i.i.i.i16503 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i16493, i64 24
+  %incdec.ptr.i1.i.i.i.i.i16504 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i16492, i64 24
   %cmp.i.not.i.i.i.i.i16505 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i16503, %add.ptr3.i.i16490
   br i1 %cmp.i.not.i.i.i.i.i16505, label %for.body.preheader.i.i.i.i16506, label %for.body.i.i.i.i.i16491, !llvm.loop !1484
 
@@ -67686,13 +67686,13 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMove
   br label %for.body.i.i.i.i9.i
 
 for.body.i.i.i.i9.i:                              ; preds = %for.body.i.i.i.i9.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16525
-  %first.sroa.0.08.i.i.i.i10.i = phi ptr [ %incdec.ptr.i.i.i.i.i12.i, %for.body.i.i.i.i9.i ], [ %4115, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16525 ]
-  %retval.sroa.0.07.i.i.i.i11.i = phi ptr [ %incdec.ptr.i1.i.i.i.i13.i, %for.body.i.i.i.i9.i ], [ %4102, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16525 ]
-  %4116 = load i32, ptr %first.sroa.0.08.i.i.i.i10.i, align 4
-  store i32 %4116, ptr %retval.sroa.0.07.i.i.i.i11.i, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i10.i, align 4
-  %incdec.ptr.i.i.i.i.i12.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i10.i, i64 4
-  %incdec.ptr.i1.i.i.i.i13.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i11.i, i64 4
+  %retval.sroa.0.08.i.i.i.i10.i = phi ptr [ %incdec.ptr.i1.i.i.i.i13.i, %for.body.i.i.i.i9.i ], [ %4102, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16525 ]
+  %first.sroa.0.07.i.i.i.i11.i = phi ptr [ %incdec.ptr.i.i.i.i.i12.i, %for.body.i.i.i.i9.i ], [ %4115, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMoveAndDestructEmmPS2_.exit.i16525 ]
+  %4116 = load i32, ptr %first.sroa.0.07.i.i.i.i11.i, align 4
+  store i32 %4116, ptr %retval.sroa.0.08.i.i.i.i10.i, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i11.i, align 4
+  %incdec.ptr.i.i.i.i.i12.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i11.i, i64 4
+  %incdec.ptr.i1.i.i.i.i13.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i10.i, i64 4
   %cmp.i.not.i.i.i.i14.i = icmp ne ptr %incdec.ptr.i.i.i.i.i12.i, %add.ptr3.i7.i
   call void @llvm.assume(i1 %cmp.i.not.i.i.i.i14.i)
   br label %for.body.i.i.i.i9.i
@@ -68222,17 +68222,17 @@ for.body.i.i.preheader.i:                         ; preds = %entry
   br label %for.body.i.i.i16
 
 for.body.i.i.i16:                                 ; preds = %for.body.i.i.i16, %for.body.i.i.preheader.i
-  %first.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i16 ], [ %3, %for.body.i.i.preheader.i ]
-  %retval.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i16 ], [ %6, %for.body.i.i.preheader.i ]
-  %8 = load i32, ptr %first.sroa.0.07.i.i.i, align 8
-  store i32 %8, ptr %retval.sroa.0.06.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i, i64 4
+  %retval.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i16 ], [ %6, %for.body.i.i.preheader.i ]
+  %first.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i16 ], [ %3, %for.body.i.i.preheader.i ]
+  %8 = load i32, ptr %first.sroa.0.06.i.i.i, align 8
+  store i32 %8, ptr %retval.sroa.0.07.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i, i64 4
   %9 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %frombool.i.i.i.i = and i8 %9, 1
   store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i17 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i, i64 16
+  %mMagicValue.i.i.i.i17 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i, i64 16
   %10 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %10, ptr %mMagicValue.i.i.i.i17, align 8
   %11 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -68244,11 +68244,11 @@ for.body.i.i.i16:                                 ; preds = %for.body.i.i.i16, %
   %13 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %13, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i, i64 8
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i, i64 8
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i, i64 24
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i, i64 24
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i, i64 24
   %cmp.i.i.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr25.i
   br i1 %cmp.i.i.i.not.i.i.i, label %if.end.i.i.i.i.i.i10.i, label %for.body.i.i.i16, !llvm.loop !498
 
@@ -68259,16 +68259,16 @@ if.end.i.i.i.i.i.i10.i:                           ; preds = %for.body.i.i.i16
 
 invoke.cont:                                      ; preds = %entry, %if.end.i.i.i.i.i.i10.i
   %temp.sroa.25.038 = phi i64 [ %add.i.i.i.i.i.i, %if.end.i.i.i.i.i.i10.i ], [ 0, %entry ]
-  %temp.sroa.9.036 = phi ptr [ %7, %if.end.i.i.i.i.i.i10.i ], [ null, %entry ]
-  %temp.sroa.5.035 = phi ptr [ %6, %if.end.i.i.i.i.i.i10.i ], [ null, %entry ]
-  %temp.sroa.0.034 = phi ptr [ %call.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i10.i ], [ null, %entry ]
-  store ptr %temp.sroa.0.034, ptr %this, align 8
+  %temp.sroa.13.036 = phi ptr [ %call.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i10.i ], [ null, %entry ]
+  %temp.sroa.9.035 = phi ptr [ %7, %if.end.i.i.i.i.i.i10.i ], [ null, %entry ]
+  %temp.sroa.5.034 = phi ptr [ %6, %if.end.i.i.i.i.i.i10.i ], [ null, %entry ]
+  store ptr %temp.sroa.13.036, ptr %this, align 8
   %14 = load ptr, ptr %add.ptr.i.i, align 8
-  store ptr %temp.sroa.5.035, ptr %add.ptr.i.i, align 8
-  store ptr %temp.sroa.9.036, ptr %add.ptr5.i.i, align 8
+  store ptr %temp.sroa.5.034, ptr %add.ptr.i.i, align 8
+  store ptr %temp.sroa.9.035, ptr %add.ptr5.i.i, align 8
   %mpData12.i = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load ptr, ptr %mpData12.i, align 8
-  store ptr %temp.sroa.0.034, ptr %mpData12.i, align 8
+  store ptr %temp.sroa.13.036, ptr %mpData12.i, align 8
   %16 = load i64, ptr %mNumElements.i.i, align 8
   store i64 %1, ptr %mNumElements.i.i, align 8
   %mNumCapacity.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -68441,17 +68441,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit, %for.body.i.i.i.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %7, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %8 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 8
-  store i32 %8, ptr %retval.sroa.0.07.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %7, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %8 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 8
+  store i32 %8, ptr %retval.sroa.0.08.i.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
   %9 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %9, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 16
   %10 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %10, ptr %mMagicValue.i.i.i.i.i, align 8
   %11 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -68463,11 +68463,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVec
   %13 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %13, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 24
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 24
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1484
 
@@ -68530,17 +68530,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i59
 
 for.body.i.i.i.i59:                               ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit55, %for.body.i.i.i.i59
-  %first.sroa.0.08.i.i.i.i60 = phi ptr [ %incdec.ptr.i.i.i.i.i71, %for.body.i.i.i.i59 ], [ %add.ptr.i56, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit55 ]
-  %retval.sroa.0.07.i.i.i.i61 = phi ptr [ %incdec.ptr.i1.i.i.i.i72, %for.body.i.i.i.i59 ], [ %add.ptr26, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit55 ]
-  %18 = load i32, ptr %first.sroa.0.08.i.i.i.i60, align 8
-  store i32 %18, ptr %retval.sroa.0.07.i.i.i.i61, align 8
-  %mbThrowOnCopy.i.i.i.i.i62 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i61, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i63 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i60, i64 4
+  %retval.sroa.0.08.i.i.i.i60 = phi ptr [ %incdec.ptr.i1.i.i.i.i72, %for.body.i.i.i.i59 ], [ %add.ptr26, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit55 ]
+  %first.sroa.0.07.i.i.i.i61 = phi ptr [ %incdec.ptr.i.i.i.i.i71, %for.body.i.i.i.i59 ], [ %add.ptr.i56, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit55 ]
+  %18 = load i32, ptr %first.sroa.0.07.i.i.i.i61, align 8
+  store i32 %18, ptr %retval.sroa.0.08.i.i.i.i60, align 8
+  %mbThrowOnCopy.i.i.i.i.i62 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i60, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i63 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i61, i64 4
   %19 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i63, align 4
   %frombool.i.i.i.i.i64 = and i8 %19, 1
   store i8 %frombool.i.i.i.i.i64, ptr %mbThrowOnCopy.i.i.i.i.i62, align 4
-  %mMagicValue.i.i.i.i.i65 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i61, i64 16
-  %mMagicValue4.i.i.i.i.i66 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i60, i64 16
+  %mMagicValue.i.i.i.i.i65 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i60, i64 16
+  %mMagicValue4.i.i.i.i.i66 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i61, i64 16
   %20 = load i32, ptr %mMagicValue4.i.i.i.i.i66, align 8
   store i32 %20, ptr %mMagicValue.i.i.i.i.i65, align 8
   %21 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -68552,11 +68552,11 @@ for.body.i.i.i.i59:                               ; preds = %_ZN5eastl16TupleVec
   %23 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i69 = add nsw i64 %23, 1
   store i64 %inc6.i.i.i.i.i69, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i70 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i61, i64 8
+  %mId.i.i.i.i.i70 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i60, i64 8
   store i64 %inc5.i.i.i.i.i68, ptr %mId.i.i.i.i.i70, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i60, align 8
-  %incdec.ptr.i.i.i.i.i71 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i60, i64 24
-  %incdec.ptr.i1.i.i.i.i72 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i61, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i61, align 8
+  %incdec.ptr.i.i.i.i.i71 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i61, i64 24
+  %incdec.ptr.i1.i.i.i.i72 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i60, i64 24
   %cmp.i.not.i.i.i.i73 = icmp eq ptr %incdec.ptr.i.i.i.i.i71, %add.ptr3.i57
   br i1 %cmp.i.not.i.i.i.i73, label %for.body.preheader.i.i.i74, label %for.body.i.i.i.i59, !llvm.loop !1484
 
@@ -68935,13 +68935,13 @@ for.body.i.i.preheader.i:                         ; preds = %entry
   br label %for.body.i.i.i16
 
 for.body.i.i.i16:                                 ; preds = %for.body.i.i.i16, %for.body.i.i.preheader.i
-  %first.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i16 ], [ %3, %for.body.i.i.preheader.i ]
-  %retval.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i16 ], [ %6, %for.body.i.i.preheader.i ]
-  %8 = load i32, ptr %first.sroa.0.07.i.i.i, align 4
-  store i32 %8, ptr %retval.sroa.0.06.i.i.i, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i, i64 4
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i, i64 4
+  %retval.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i16 ], [ %6, %for.body.i.i.preheader.i ]
+  %first.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i16 ], [ %3, %for.body.i.i.preheader.i ]
+  %8 = load i32, ptr %first.sroa.0.06.i.i.i, align 4
+  store i32 %8, ptr %retval.sroa.0.07.i.i.i, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i, align 4
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i, i64 4
   %cmp.i.i.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr25.i
   br i1 %cmp.i.i.i.not.i.i.i, label %for.body.i.i10.preheader.i, label %for.body.i.i.i16, !llvm.loop !497
 
@@ -68950,17 +68950,17 @@ for.body.i.i10.preheader.i:                       ; preds = %for.body.i.i.i16
   br label %for.body.i.i10.i
 
 for.body.i.i10.i:                                 ; preds = %for.body.i.i10.i, %for.body.i.i10.preheader.i
-  %first.sroa.0.07.i.i11.i = phi ptr [ %incdec.ptr.i.i.i.i13.i, %for.body.i.i10.i ], [ %0, %for.body.i.i10.preheader.i ]
-  %retval.sroa.0.06.i.i12.i = phi ptr [ %incdec.ptr.i.i.i14.i, %for.body.i.i10.i ], [ %7, %for.body.i.i10.preheader.i ]
-  %9 = load i32, ptr %first.sroa.0.07.i.i11.i, align 8
-  store i32 %9, ptr %retval.sroa.0.06.i.i12.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 4
+  %retval.sroa.0.07.i.i11.i = phi ptr [ %incdec.ptr.i.i.i14.i, %for.body.i.i10.i ], [ %7, %for.body.i.i10.preheader.i ]
+  %first.sroa.0.06.i.i12.i = phi ptr [ %incdec.ptr.i.i.i.i13.i, %for.body.i.i10.i ], [ %0, %for.body.i.i10.preheader.i ]
+  %9 = load i32, ptr %first.sroa.0.06.i.i12.i, align 8
+  store i32 %9, ptr %retval.sroa.0.07.i.i11.i, align 8
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 4
   %10 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %frombool.i.i.i.i = and i8 %10, 1
   store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i17 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 16
-  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 16
+  %mMagicValue.i.i.i.i17 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 16
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 16
   %11 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %11, ptr %mMagicValue.i.i.i.i17, align 8
   %12 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -68972,26 +68972,26 @@ for.body.i.i10.i:                                 ; preds = %for.body.i.i10.i, %
   %14 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %14, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 8
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 8
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i, align 8
-  %incdec.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 24
-  %incdec.ptr.i.i.i14.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i, align 8
+  %incdec.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 24
+  %incdec.ptr.i.i.i14.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 24
   %cmp.i.i.i.not.i.i15.i = icmp eq ptr %incdec.ptr.i.i.i.i13.i, %add.ptr37.i
   br i1 %cmp.i.i.i.not.i.i15.i, label %invoke.cont, label %for.body.i.i10.i, !llvm.loop !498
 
 invoke.cont:                                      ; preds = %for.body.i.i10.i, %entry
   %temp.sroa.25.038 = phi i64 [ 0, %entry ], [ %add.i.i.i.i.i.i, %for.body.i.i10.i ]
-  %temp.sroa.9.036 = phi ptr [ null, %entry ], [ %7, %for.body.i.i10.i ]
-  %temp.sroa.5.035 = phi ptr [ null, %entry ], [ %6, %for.body.i.i10.i ]
-  %temp.sroa.0.034 = phi ptr [ null, %entry ], [ %call.i.i.i.i.i.i.i.i.i, %for.body.i.i10.i ]
-  store ptr %temp.sroa.0.034, ptr %this, align 8
-  store ptr %temp.sroa.5.035, ptr %add.ptr.i.i, align 8
+  %temp.sroa.13.036 = phi ptr [ null, %entry ], [ %call.i.i.i.i.i.i.i.i.i, %for.body.i.i10.i ]
+  %temp.sroa.9.035 = phi ptr [ null, %entry ], [ %7, %for.body.i.i10.i ]
+  %temp.sroa.5.034 = phi ptr [ null, %entry ], [ %6, %for.body.i.i10.i ]
+  store ptr %temp.sroa.13.036, ptr %this, align 8
+  store ptr %temp.sroa.5.034, ptr %add.ptr.i.i, align 8
   %15 = load ptr, ptr %add.ptr5.i.i, align 8
-  store ptr %temp.sroa.9.036, ptr %add.ptr5.i.i, align 8
+  store ptr %temp.sroa.9.035, ptr %add.ptr5.i.i, align 8
   %mpData12.i = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %mpData12.i, align 8
-  store ptr %temp.sroa.0.034, ptr %mpData12.i, align 8
+  store ptr %temp.sroa.13.036, ptr %mpData12.i, align 8
   %17 = load i64, ptr %mNumElements.i.i, align 8
   store i64 %1, ptr %mNumElements.i.i, align 8
   %mNumCapacity.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -69172,17 +69172,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit, %for.body.i.i.i.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %12, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %10, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %13 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 8
-  store i32 %13, ptr %retval.sroa.0.07.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %10, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %12, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %13 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 8
+  store i32 %13, ptr %retval.sroa.0.08.i.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
   %14 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %14, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 16
   %15 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %15, ptr %mMagicValue.i.i.i.i.i, align 8
   %16 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -69194,11 +69194,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVec
   %18 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %18, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 24
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 24
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1484
 
@@ -69263,17 +69263,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i78
 
 for.body.i.i.i.i78:                               ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit74, %for.body.i.i.i.i78
-  %first.sroa.0.08.i.i.i.i79 = phi ptr [ %incdec.ptr.i.i.i.i.i90, %for.body.i.i.i.i78 ], [ %add.ptr.i75, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit74 ]
-  %retval.sroa.0.07.i.i.i.i80 = phi ptr [ %incdec.ptr.i1.i.i.i.i91, %for.body.i.i.i.i78 ], [ %add.ptr30, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit74 ]
-  %23 = load i32, ptr %first.sroa.0.08.i.i.i.i79, align 8
-  store i32 %23, ptr %retval.sroa.0.07.i.i.i.i80, align 8
-  %mbThrowOnCopy.i.i.i.i.i81 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i80, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i82 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i79, i64 4
+  %retval.sroa.0.08.i.i.i.i79 = phi ptr [ %incdec.ptr.i1.i.i.i.i91, %for.body.i.i.i.i78 ], [ %add.ptr30, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit74 ]
+  %first.sroa.0.07.i.i.i.i80 = phi ptr [ %incdec.ptr.i.i.i.i.i90, %for.body.i.i.i.i78 ], [ %add.ptr.i75, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit74 ]
+  %23 = load i32, ptr %first.sroa.0.07.i.i.i.i80, align 8
+  store i32 %23, ptr %retval.sroa.0.08.i.i.i.i79, align 8
+  %mbThrowOnCopy.i.i.i.i.i81 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i79, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i82 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i80, i64 4
   %24 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i82, align 4
   %frombool.i.i.i.i.i83 = and i8 %24, 1
   store i8 %frombool.i.i.i.i.i83, ptr %mbThrowOnCopy.i.i.i.i.i81, align 4
-  %mMagicValue.i.i.i.i.i84 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i80, i64 16
-  %mMagicValue4.i.i.i.i.i85 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i79, i64 16
+  %mMagicValue.i.i.i.i.i84 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i79, i64 16
+  %mMagicValue4.i.i.i.i.i85 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i80, i64 16
   %25 = load i32, ptr %mMagicValue4.i.i.i.i.i85, align 8
   store i32 %25, ptr %mMagicValue.i.i.i.i.i84, align 8
   %26 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -69285,11 +69285,11 @@ for.body.i.i.i.i78:                               ; preds = %_ZN5eastl16TupleVec
   %28 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i88 = add nsw i64 %28, 1
   store i64 %inc6.i.i.i.i.i88, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i89 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i80, i64 8
+  %mId.i.i.i.i.i89 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i79, i64 8
   store i64 %inc5.i.i.i.i.i87, ptr %mId.i.i.i.i.i89, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i79, align 8
-  %incdec.ptr.i.i.i.i.i90 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i79, i64 24
-  %incdec.ptr.i1.i.i.i.i91 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i80, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i80, align 8
+  %incdec.ptr.i.i.i.i.i90 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i80, i64 24
+  %incdec.ptr.i1.i.i.i.i91 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i79, i64 24
   %cmp.i.not.i.i.i.i92 = icmp eq ptr %incdec.ptr.i.i.i.i.i90, %add.ptr3.i76
   br i1 %cmp.i.not.i.i.i.i92, label %for.body.preheader.i.i.i93, label %for.body.i.i.i.i78, !llvm.loop !1484
 
@@ -70703,13 +70703,13 @@ for.body.i.i.i.preheader.i:                       ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.preheader.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %7, %for.body.i.i.i.preheader.i ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %5, %for.body.i.i.i.preheader.i ]
-  %8 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 4
-  store i32 %8, ptr %retval.sroa.0.07.i.i.i.i, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %5, %for.body.i.i.i.preheader.i ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %7, %for.body.i.i.i.preheader.i ]
+  %8 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 4
+  store i32 %8, ptr %retval.sroa.0.08.i.i.i.i, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 4
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit, label %for.body.i.i.i.i, !llvm.loop !1976
 
@@ -70719,17 +70719,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMo
   br label %for.body.i.i.i.i42
 
 for.body.i.i.i.i42:                               ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit, %for.body.i.i.i.i42
-  %first.sroa.0.08.i.i.i.i43 = phi ptr [ %incdec.ptr.i.i.i.i.i45, %for.body.i.i.i.i42 ], [ %9, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
-  %retval.sroa.0.07.i.i.i.i44 = phi ptr [ %incdec.ptr.i1.i.i.i.i46, %for.body.i.i.i.i42 ], [ %4, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
-  %10 = load i32, ptr %first.sroa.0.08.i.i.i.i43, align 8
-  store i32 %10, ptr %retval.sroa.0.07.i.i.i.i44, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i44, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i43, i64 4
+  %retval.sroa.0.08.i.i.i.i43 = phi ptr [ %incdec.ptr.i1.i.i.i.i46, %for.body.i.i.i.i42 ], [ %4, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
+  %first.sroa.0.07.i.i.i.i44 = phi ptr [ %incdec.ptr.i.i.i.i.i45, %for.body.i.i.i.i42 ], [ %9, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
+  %10 = load i32, ptr %first.sroa.0.07.i.i.i.i44, align 8
+  store i32 %10, ptr %retval.sroa.0.08.i.i.i.i43, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i43, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i44, i64 4
   %11 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %11, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i44, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i43, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i43, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i44, i64 16
   %12 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %12, ptr %mMagicValue.i.i.i.i.i, align 8
   %13 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -70741,11 +70741,11 @@ for.body.i.i.i.i42:                               ; preds = %_ZN5eastl16TupleVec
   %15 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %15, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i44, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i43, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i43, align 8
-  %incdec.ptr.i.i.i.i.i45 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i43, i64 24
-  %incdec.ptr.i1.i.i.i.i46 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i44, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i44, align 8
+  %incdec.ptr.i.i.i.i.i45 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i44, i64 24
+  %incdec.ptr.i1.i.i.i.i46 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i43, i64 24
   %cmp.i.not.i.i.i.i47 = icmp eq ptr %incdec.ptr.i.i.i.i.i45, %add.ptr3.i40
   br i1 %cmp.i.not.i.i.i.i47, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i42, !llvm.loop !1484
 
@@ -70808,13 +70808,13 @@ for.body.i.i.i.preheader.i54:                     ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i.i56
 
 for.body.i.i.i.i56:                               ; preds = %for.body.i.i.i.i56, %for.body.i.i.i.preheader.i54
-  %first.sroa.0.08.i.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i.i.i59, %for.body.i.i.i.i56 ], [ %add.ptr.i55, %for.body.i.i.i.preheader.i54 ]
-  %retval.sroa.0.07.i.i.i.i58.pn = phi ptr [ %retval.sroa.0.07.i.i.i.i58, %for.body.i.i.i.i56 ], [ %add.ptr26, %for.body.i.i.i.preheader.i54 ]
-  %retval.sroa.0.07.i.i.i.i58 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i58.pn, i64 4
-  %20 = load i32, ptr %first.sroa.0.08.i.i.i.i57, align 4
-  store i32 %20, ptr %retval.sroa.0.07.i.i.i.i58, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i57, align 4
-  %incdec.ptr.i.i.i.i.i59 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i57, i64 4
+  %retval.sroa.0.08.i.i.i.i57.pn = phi ptr [ %retval.sroa.0.08.i.i.i.i57, %for.body.i.i.i.i56 ], [ %add.ptr26, %for.body.i.i.i.preheader.i54 ]
+  %first.sroa.0.07.i.i.i.i58 = phi ptr [ %incdec.ptr.i.i.i.i.i59, %for.body.i.i.i.i56 ], [ %add.ptr.i55, %for.body.i.i.i.preheader.i54 ]
+  %retval.sroa.0.08.i.i.i.i57 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i57.pn, i64 4
+  %20 = load i32, ptr %first.sroa.0.07.i.i.i.i58, align 4
+  store i32 %20, ptr %retval.sroa.0.08.i.i.i.i57, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i58, align 4
+  %incdec.ptr.i.i.i.i.i59 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i58, i64 4
   %cmp.i.not.i.i.i.i61 = icmp eq ptr %incdec.ptr.i.i.i.i.i59, %add.ptr3.i52
   br i1 %cmp.i.not.i.i.i.i61, label %for.body.i.i.i.i66.preheader, label %for.body.i.i.i.i56, !llvm.loop !1976
 
@@ -70826,18 +70826,18 @@ for.body.i.i.i.i66.preheader:                     ; preds = %for.body.i.i.i.i56
   br label %for.body.i.i.i.i66
 
 for.body.i.i.i.i66:                               ; preds = %for.body.i.i.i.i66.preheader, %for.body.i.i.i.i66
-  %first.sroa.0.08.i.i.i.i67 = phi ptr [ %incdec.ptr.i.i.i.i.i78, %for.body.i.i.i.i66 ], [ %add.ptr.i63, %for.body.i.i.i.i66.preheader ]
-  %retval.sroa.0.07.i.i.i.i68.pn = phi ptr [ %retval.sroa.0.07.i.i.i.i68, %for.body.i.i.i.i66 ], [ %add.ptr31, %for.body.i.i.i.i66.preheader ]
-  %retval.sroa.0.07.i.i.i.i68 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i68.pn, i64 24
-  %22 = load i32, ptr %first.sroa.0.08.i.i.i.i67, align 8
-  store i32 %22, ptr %retval.sroa.0.07.i.i.i.i68, align 8
-  %mbThrowOnCopy.i.i.i.i.i69 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i68.pn, i64 28
-  %mbThrowOnCopy3.i.i.i.i.i70 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i67, i64 4
+  %retval.sroa.0.08.i.i.i.i67.pn = phi ptr [ %retval.sroa.0.08.i.i.i.i67, %for.body.i.i.i.i66 ], [ %add.ptr31, %for.body.i.i.i.i66.preheader ]
+  %first.sroa.0.07.i.i.i.i68 = phi ptr [ %incdec.ptr.i.i.i.i.i78, %for.body.i.i.i.i66 ], [ %add.ptr.i63, %for.body.i.i.i.i66.preheader ]
+  %retval.sroa.0.08.i.i.i.i67 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i67.pn, i64 24
+  %22 = load i32, ptr %first.sroa.0.07.i.i.i.i68, align 8
+  store i32 %22, ptr %retval.sroa.0.08.i.i.i.i67, align 8
+  %mbThrowOnCopy.i.i.i.i.i69 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i67.pn, i64 28
+  %mbThrowOnCopy3.i.i.i.i.i70 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i68, i64 4
   %23 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i70, align 4
   %frombool.i.i.i.i.i71 = and i8 %23, 1
   store i8 %frombool.i.i.i.i.i71, ptr %mbThrowOnCopy.i.i.i.i.i69, align 4
-  %mMagicValue.i.i.i.i.i72 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i68.pn, i64 40
-  %mMagicValue4.i.i.i.i.i73 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i67, i64 16
+  %mMagicValue.i.i.i.i.i72 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i67.pn, i64 40
+  %mMagicValue4.i.i.i.i.i73 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i68, i64 16
   %24 = load i32, ptr %mMagicValue4.i.i.i.i.i73, align 8
   store i32 %24, ptr %mMagicValue.i.i.i.i.i72, align 8
   %25 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -70849,10 +70849,10 @@ for.body.i.i.i.i66:                               ; preds = %for.body.i.i.i.i66.
   %27 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i76 = add nsw i64 %27, 1
   store i64 %inc6.i.i.i.i.i76, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i77 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i68.pn, i64 32
+  %mId.i.i.i.i.i77 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i67.pn, i64 32
   store i64 %inc5.i.i.i.i.i75, ptr %mId.i.i.i.i.i77, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i67, align 8
-  %incdec.ptr.i.i.i.i.i78 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i67, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i68, align 8
+  %incdec.ptr.i.i.i.i.i78 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i68, i64 24
   %cmp.i.not.i.i.i.i80 = icmp eq ptr %incdec.ptr.i.i.i.i.i78, %add.ptr3.i64
   br i1 %cmp.i.not.i.i.i.i80, label %for.body.preheader.i.i.i81, label %for.body.i.i.i.i66, !llvm.loop !1484
 
@@ -71280,17 +71280,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit, %for.body.i.i.i.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %4, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %2, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %5 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 8
-  store i32 %5, ptr %retval.sroa.0.07.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %2, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %4, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %5 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 8
+  store i32 %5, ptr %retval.sroa.0.08.i.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
   %6 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %6, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 16
   %7 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %7, ptr %mMagicValue.i.i.i.i.i, align 8
   %8 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -71302,11 +71302,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVec
   %10 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %10, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 24
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 24
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1484
 
@@ -71474,17 +71474,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not6.i.i, label %invoke.cont, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then, %for.body.i.i
-  %first.sroa.0.08.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %add.ptr4, %if.then ]
-  %retval.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %add.ptr3, %if.then ]
-  %7 = load i32, ptr %first.sroa.0.08.i.i, align 8
-  store i32 %7, ptr %retval.sroa.0.07.i.i, align 8
-  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i, i64 4
+  %retval.sroa.0.08.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %add.ptr3, %if.then ]
+  %first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %add.ptr4, %if.then ]
+  %7 = load i32, ptr %first.sroa.0.07.i.i, align 8
+  store i32 %7, ptr %retval.sroa.0.08.i.i, align 8
+  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 4
   %8 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
   %frombool.i.i.i = and i8 %8, 1
   store i8 %frombool.i.i.i, ptr %mbThrowOnCopy.i.i.i, align 4
-  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 16
-  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i, i64 16
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 16
+  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 16
   %9 = load i32, ptr %mMagicValue4.i.i.i, align 8
   store i32 %9, ptr %mMagicValue.i.i.i, align 8
   %10 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -71496,11 +71496,11 @@ for.body.i.i:                                     ; preds = %if.then, %for.body.
   %12 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i = add nsw i64 %12, 1
   store i64 %inc6.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 8
+  %mId.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i, i64 24
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i, align 8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 24
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 24
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr3
   br i1 %cmp.i.not.i.i, label %invoke.cont, label %for.body.i.i, !llvm.loop !1484
 
@@ -71615,17 +71615,17 @@ for.body.i.i44.preheader:                         ; preds = %invoke.cont12
   br label %for.body.i.i44
 
 for.body.i.i44:                                   ; preds = %for.body.i.i44.preheader, %for.body.i.i44
-  %first.sroa.0.08.i.i45 = phi ptr [ %incdec.ptr.i.i.i56, %for.body.i.i44 ], [ %add.ptr, %for.body.i.i44.preheader ]
-  %retval.sroa.0.07.i.i46 = phi ptr [ %incdec.ptr.i1.i.i57, %for.body.i.i44 ], [ %add.ptr15, %for.body.i.i44.preheader ]
-  %25 = load i32, ptr %first.sroa.0.08.i.i45, align 8
-  store i32 %25, ptr %retval.sroa.0.07.i.i46, align 8
-  %mbThrowOnCopy.i.i.i47 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i46, i64 4
-  %mbThrowOnCopy3.i.i.i48 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i45, i64 4
+  %retval.sroa.0.08.i.i45 = phi ptr [ %incdec.ptr.i1.i.i57, %for.body.i.i44 ], [ %add.ptr15, %for.body.i.i44.preheader ]
+  %first.sroa.0.07.i.i46 = phi ptr [ %incdec.ptr.i.i.i56, %for.body.i.i44 ], [ %add.ptr, %for.body.i.i44.preheader ]
+  %25 = load i32, ptr %first.sroa.0.07.i.i46, align 8
+  store i32 %25, ptr %retval.sroa.0.08.i.i45, align 8
+  %mbThrowOnCopy.i.i.i47 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i45, i64 4
+  %mbThrowOnCopy3.i.i.i48 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i46, i64 4
   %26 = load i8, ptr %mbThrowOnCopy3.i.i.i48, align 4
   %frombool.i.i.i49 = and i8 %26, 1
   store i8 %frombool.i.i.i49, ptr %mbThrowOnCopy.i.i.i47, align 4
-  %mMagicValue.i.i.i50 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i46, i64 16
-  %mMagicValue4.i.i.i51 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i45, i64 16
+  %mMagicValue.i.i.i50 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i45, i64 16
+  %mMagicValue4.i.i.i51 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i46, i64 16
   %27 = load i32, ptr %mMagicValue4.i.i.i51, align 8
   store i32 %27, ptr %mMagicValue.i.i.i50, align 8
   %28 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -71637,11 +71637,11 @@ for.body.i.i44:                                   ; preds = %for.body.i.i44.preh
   %30 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i54 = add nsw i64 %30, 1
   store i64 %inc6.i.i.i54, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i55 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i46, i64 8
+  %mId.i.i.i55 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i45, i64 8
   store i64 %inc5.i.i.i53, ptr %mId.i.i.i55, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i45, align 8
-  %incdec.ptr.i.i.i56 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i45, i64 24
-  %incdec.ptr.i1.i.i57 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i46, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i46, align 8
+  %incdec.ptr.i.i.i56 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i46, i64 24
+  %incdec.ptr.i1.i.i57 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i45, i64 24
   %cmp.i.not.i.i58 = icmp eq ptr %incdec.ptr.i.i.i56, %add.ptr3
   br i1 %cmp.i.not.i.i58, label %for.body.i.i66, label %for.body.i.i44, !llvm.loop !1484
 
@@ -71731,17 +71731,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit, %for.body.i.i.i.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %7, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %8 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 8
-  store i32 %8, ptr %retval.sroa.0.07.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %7, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %8 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 8
+  store i32 %8, ptr %retval.sroa.0.08.i.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
   %9 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %9, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 16
   %10 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %10, ptr %mMagicValue.i.i.i.i.i, align 8
   %11 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -71753,11 +71753,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVec
   %13 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %13, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 24
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 24
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1484
 
@@ -71817,17 +71817,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i88
 
 for.body.i.i.i.i88:                               ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit84, %for.body.i.i.i.i88
-  %first.sroa.0.08.i.i.i.i89 = phi ptr [ %incdec.ptr.i.i.i.i.i100, %for.body.i.i.i.i88 ], [ %add.ptr.i85, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit84 ]
-  %retval.sroa.0.07.i.i.i.i90 = phi ptr [ %incdec.ptr.i1.i.i.i.i101, %for.body.i.i.i.i88 ], [ %add.ptr22, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit84 ]
-  %18 = load i32, ptr %first.sroa.0.08.i.i.i.i89, align 8
-  store i32 %18, ptr %retval.sroa.0.07.i.i.i.i90, align 8
-  %mbThrowOnCopy.i.i.i.i.i91 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i90, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i92 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i89, i64 4
+  %retval.sroa.0.08.i.i.i.i89 = phi ptr [ %incdec.ptr.i1.i.i.i.i101, %for.body.i.i.i.i88 ], [ %add.ptr22, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit84 ]
+  %first.sroa.0.07.i.i.i.i90 = phi ptr [ %incdec.ptr.i.i.i.i.i100, %for.body.i.i.i.i88 ], [ %add.ptr.i85, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit84 ]
+  %18 = load i32, ptr %first.sroa.0.07.i.i.i.i90, align 8
+  store i32 %18, ptr %retval.sroa.0.08.i.i.i.i89, align 8
+  %mbThrowOnCopy.i.i.i.i.i91 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i89, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i92 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i90, i64 4
   %19 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i92, align 4
   %frombool.i.i.i.i.i93 = and i8 %19, 1
   store i8 %frombool.i.i.i.i.i93, ptr %mbThrowOnCopy.i.i.i.i.i91, align 4
-  %mMagicValue.i.i.i.i.i94 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i90, i64 16
-  %mMagicValue4.i.i.i.i.i95 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i89, i64 16
+  %mMagicValue.i.i.i.i.i94 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i89, i64 16
+  %mMagicValue4.i.i.i.i.i95 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i90, i64 16
   %20 = load i32, ptr %mMagicValue4.i.i.i.i.i95, align 8
   store i32 %20, ptr %mMagicValue.i.i.i.i.i94, align 8
   %21 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -71839,11 +71839,11 @@ for.body.i.i.i.i88:                               ; preds = %_ZN5eastl16TupleVec
   %23 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i98 = add nsw i64 %23, 1
   store i64 %inc6.i.i.i.i.i98, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i99 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i90, i64 8
+  %mId.i.i.i.i.i99 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i89, i64 8
   store i64 %inc5.i.i.i.i.i97, ptr %mId.i.i.i.i.i99, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i89, align 8
-  %incdec.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i89, i64 24
-  %incdec.ptr.i1.i.i.i.i101 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i90, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i90, align 8
+  %incdec.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i90, i64 24
+  %incdec.ptr.i1.i.i.i.i101 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i89, i64 24
   %cmp.i.not.i.i.i.i102 = icmp eq ptr %incdec.ptr.i.i.i.i.i100, %add.ptr3.i86
   br i1 %cmp.i.not.i.i.i.i102, label %for.body.preheader.i.i.i103, label %for.body.i.i.i.i88, !llvm.loop !1484
 
@@ -71993,17 +71993,17 @@ _ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit: ; preds = %if.then
   br i1 %cmp.i.not6.i.i, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit, %for.body.i.i
-  %first.sroa.0.08.i.i = phi ptr [ %incdec.ptr.i.i.i153, %for.body.i.i ], [ %add.ptr77, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit ]
-  %retval.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %add.ptr51, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit ]
-  %41 = load i32, ptr %first.sroa.0.08.i.i, align 8
-  store i32 %41, ptr %retval.sroa.0.07.i.i, align 8
-  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i, i64 4
+  %retval.sroa.0.08.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %add.ptr51, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit ]
+  %first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i153, %for.body.i.i ], [ %add.ptr77, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit ]
+  %41 = load i32, ptr %first.sroa.0.07.i.i, align 8
+  store i32 %41, ptr %retval.sroa.0.08.i.i, align 8
+  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 4
   %42 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
   %frombool.i.i.i = and i8 %42, 1
   store i8 %frombool.i.i.i, ptr %mbThrowOnCopy.i.i.i, align 4
-  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 16
-  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i, i64 16
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 16
+  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 16
   %43 = load i32, ptr %mMagicValue4.i.i.i, align 8
   store i32 %43, ptr %mMagicValue.i.i.i, align 8
   %44 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -72015,11 +72015,11 @@ for.body.i.i:                                     ; preds = %_ZN5eastl22uninitia
   %46 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i = add nsw i64 %46, 1
   store i64 %inc6.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 8
+  %mId.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i, align 8
-  %incdec.ptr.i.i.i153 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i, i64 24
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i, align 8
+  %incdec.ptr.i.i.i153 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 24
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 24
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i153, %add.ptr51
   br i1 %cmp.i.not.i.i, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit, label %for.body.i.i, !llvm.loop !1484
 
@@ -72174,17 +72174,17 @@ for.body.i.i205.preheader:                        ; preds = %if.else113
   br label %for.body.i.i205
 
 for.body.i.i205:                                  ; preds = %for.body.i.i205.preheader, %for.body.i.i205
-  %first.sroa.0.08.i.i206 = phi ptr [ %incdec.ptr.i.i.i217, %for.body.i.i205 ], [ %add.ptr62, %for.body.i.i205.preheader ]
-  %retval.sroa.0.07.i.i207 = phi ptr [ %incdec.ptr.i1.i.i218, %for.body.i.i205 ], [ %add.ptr124, %for.body.i.i205.preheader ]
-  %70 = load i32, ptr %first.sroa.0.08.i.i206, align 8
-  store i32 %70, ptr %retval.sroa.0.07.i.i207, align 8
-  %mbThrowOnCopy.i.i.i208 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i207, i64 4
-  %mbThrowOnCopy3.i.i.i209 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i206, i64 4
+  %retval.sroa.0.08.i.i206 = phi ptr [ %incdec.ptr.i1.i.i218, %for.body.i.i205 ], [ %add.ptr124, %for.body.i.i205.preheader ]
+  %first.sroa.0.07.i.i207 = phi ptr [ %incdec.ptr.i.i.i217, %for.body.i.i205 ], [ %add.ptr62, %for.body.i.i205.preheader ]
+  %70 = load i32, ptr %first.sroa.0.07.i.i207, align 8
+  store i32 %70, ptr %retval.sroa.0.08.i.i206, align 8
+  %mbThrowOnCopy.i.i.i208 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i206, i64 4
+  %mbThrowOnCopy3.i.i.i209 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i207, i64 4
   %71 = load i8, ptr %mbThrowOnCopy3.i.i.i209, align 4
   %frombool.i.i.i210 = and i8 %71, 1
   store i8 %frombool.i.i.i210, ptr %mbThrowOnCopy.i.i.i208, align 4
-  %mMagicValue.i.i.i211 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i207, i64 16
-  %mMagicValue4.i.i.i212 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i206, i64 16
+  %mMagicValue.i.i.i211 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i206, i64 16
+  %mMagicValue4.i.i.i212 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i207, i64 16
   %72 = load i32, ptr %mMagicValue4.i.i.i212, align 8
   store i32 %72, ptr %mMagicValue.i.i.i211, align 8
   %73 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -72196,11 +72196,11 @@ for.body.i.i205:                                  ; preds = %for.body.i.i205.pre
   %75 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i215 = add nsw i64 %75, 1
   store i64 %inc6.i.i.i215, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i216 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i207, i64 8
+  %mId.i.i.i216 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i206, i64 8
   store i64 %inc5.i.i.i214, ptr %mId.i.i.i216, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i206, align 8
-  %incdec.ptr.i.i.i217 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i206, i64 24
-  %incdec.ptr.i1.i.i218 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i207, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i207, align 8
+  %incdec.ptr.i.i.i217 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i207, i64 24
+  %incdec.ptr.i1.i.i218 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i206, i64 24
   %cmp.i.not.i.i219 = icmp eq ptr %incdec.ptr.i.i.i217, %add.ptr51
   br i1 %cmp.i.not.i.i219, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit221, label %for.body.i.i205, !llvm.loop !1484
 
@@ -72414,13 +72414,13 @@ for.body.i.i.i.preheader.i:                       ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.preheader.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %4, %for.body.i.i.i.preheader.i ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %2, %for.body.i.i.i.preheader.i ]
-  %5 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 4
-  store i32 %5, ptr %retval.sroa.0.07.i.i.i.i, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %2, %for.body.i.i.i.preheader.i ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %4, %for.body.i.i.i.preheader.i ]
+  %5 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 4
+  store i32 %5, ptr %retval.sroa.0.08.i.i.i.i, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 4
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit, label %for.body.i.i.i.i, !llvm.loop !1976
 
@@ -72431,17 +72431,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMo
   br label %for.body.i.i.i.i6
 
 for.body.i.i.i.i6:                                ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit, %for.body.i.i.i.i6
-  %first.sroa.0.08.i.i.i.i7 = phi ptr [ %incdec.ptr.i.i.i.i.i9, %for.body.i.i.i.i6 ], [ %6, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
-  %retval.sroa.0.07.i.i.i.i8 = phi ptr [ %incdec.ptr.i1.i.i.i.i10, %for.body.i.i.i.i6 ], [ %1, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
-  %7 = load i32, ptr %first.sroa.0.08.i.i.i.i7, align 8
-  store i32 %7, ptr %retval.sroa.0.07.i.i.i.i8, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7, i64 4
+  %retval.sroa.0.08.i.i.i.i7 = phi ptr [ %incdec.ptr.i1.i.i.i.i10, %for.body.i.i.i.i6 ], [ %1, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
+  %first.sroa.0.07.i.i.i.i8 = phi ptr [ %incdec.ptr.i.i.i.i.i9, %for.body.i.i.i.i6 ], [ %6, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
+  %7 = load i32, ptr %first.sroa.0.07.i.i.i.i8, align 8
+  store i32 %7, ptr %retval.sroa.0.08.i.i.i.i7, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8, i64 4
   %8 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %8, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8, i64 16
   %9 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %9, ptr %mMagicValue.i.i.i.i.i, align 8
   %10 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -72453,11 +72453,11 @@ for.body.i.i.i.i6:                                ; preds = %_ZN5eastl16TupleVec
   %12 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %12, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i7, align 8
-  %incdec.ptr.i.i.i.i.i9 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7, i64 24
-  %incdec.ptr.i1.i.i.i.i10 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i8, align 8
+  %incdec.ptr.i.i.i.i.i9 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8, i64 24
+  %incdec.ptr.i1.i.i.i.i10 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7, i64 24
   %cmp.i.not.i.i.i.i11 = icmp eq ptr %incdec.ptr.i.i.i.i.i9, %add.ptr3.i4
   br i1 %cmp.i.not.i.i.i.i11, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i6, !llvm.loop !1484
 
@@ -72659,13 +72659,13 @@ for.body.i.i.preheader:                           ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
-  %first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i ], [ %add.ptr22, %for.body.i.i.preheader ]
-  %retval.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %9, %for.body.i.i.preheader ]
-  %10 = load i32, ptr %first.sroa.0.07.i.i, align 4
-  store i32 %10, ptr %retval.sroa.0.06.i.i, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i, align 4
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 4
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i, i64 4
+  %retval.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %9, %for.body.i.i.preheader ]
+  %first.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i ], [ %add.ptr22, %for.body.i.i.preheader ]
+  %10 = load i32, ptr %first.sroa.0.06.i.i, align 4
+  store i32 %10, ptr %retval.sroa.0.07.i.i, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i, align 4
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i, i64 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 4
   %cmp.i.i.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr25
   br i1 %cmp.i.i.i.not.i.i, label %_ZN5eastl22uninitialized_move_ptrINS_13move_iteratorIP12MoveOnlyTypeEES4_S3_EET1_T_T0_S5_.exit, label %for.body.i.i, !llvm.loop !497
 
@@ -72680,17 +72680,17 @@ for.body.i.i10.preheader:                         ; preds = %_ZN5eastl22uninitia
   br label %for.body.i.i10
 
 for.body.i.i10:                                   ; preds = %for.body.i.i10.preheader, %for.body.i.i10
-  %first.sroa.0.07.i.i11 = phi ptr [ %incdec.ptr.i.i.i.i13, %for.body.i.i10 ], [ %add.ptr34, %for.body.i.i10.preheader ]
-  %retval.sroa.0.06.i.i12 = phi ptr [ %incdec.ptr.i.i.i14, %for.body.i.i10 ], [ %11, %for.body.i.i10.preheader ]
-  %12 = load i32, ptr %first.sroa.0.07.i.i11, align 8
-  store i32 %12, ptr %retval.sroa.0.06.i.i12, align 8
-  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12, i64 4
-  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11, i64 4
+  %retval.sroa.0.07.i.i11 = phi ptr [ %incdec.ptr.i.i.i14, %for.body.i.i10 ], [ %11, %for.body.i.i10.preheader ]
+  %first.sroa.0.06.i.i12 = phi ptr [ %incdec.ptr.i.i.i.i13, %for.body.i.i10 ], [ %add.ptr34, %for.body.i.i10.preheader ]
+  %12 = load i32, ptr %first.sroa.0.06.i.i12, align 8
+  store i32 %12, ptr %retval.sroa.0.07.i.i11, align 8
+  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11, i64 4
+  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12, i64 4
   %13 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
   %frombool.i.i.i = and i8 %13, 1
   store i8 %frombool.i.i.i, ptr %mbThrowOnCopy.i.i.i, align 4
-  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12, i64 16
-  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11, i64 16
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11, i64 16
+  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12, i64 16
   %14 = load i32, ptr %mMagicValue4.i.i.i, align 8
   store i32 %14, ptr %mMagicValue.i.i.i, align 8
   %15 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -72702,11 +72702,11 @@ for.body.i.i10:                                   ; preds = %for.body.i.i10.preh
   %17 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i = add nsw i64 %17, 1
   store i64 %inc6.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12, i64 8
+  %mId.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11, i64 8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11, align 8
-  %incdec.ptr.i.i.i.i13 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11, i64 24
-  %incdec.ptr.i.i.i14 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12, align 8
+  %incdec.ptr.i.i.i.i13 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12, i64 24
+  %incdec.ptr.i.i.i14 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11, i64 24
   %cmp.i.i.i.not.i.i15 = icmp eq ptr %incdec.ptr.i.i.i.i13, %add.ptr37
   br i1 %cmp.i.i.i.not.i.i15, label %_ZN5eastl22uninitialized_move_ptrINS_13move_iteratorIP10TestObjectEES4_S3_EET1_T_T0_S5_.exit, label %for.body.i.i10, !llvm.loop !498
 
@@ -72738,17 +72738,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not6.i.i, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then, %for.body.i.i
-  %first.sroa.0.08.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %add.ptr7, %if.then ]
-  %retval.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %add.ptr, %if.then ]
-  %1 = load i32, ptr %first.sroa.0.08.i.i, align 8
-  store i32 %1, ptr %retval.sroa.0.07.i.i, align 8
-  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i, i64 4
+  %retval.sroa.0.08.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %add.ptr, %if.then ]
+  %first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %add.ptr7, %if.then ]
+  %1 = load i32, ptr %first.sroa.0.07.i.i, align 8
+  store i32 %1, ptr %retval.sroa.0.08.i.i, align 8
+  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 4
   %2 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
   %frombool.i.i.i = and i8 %2, 1
   store i8 %frombool.i.i.i, ptr %mbThrowOnCopy.i.i.i, align 4
-  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 16
-  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i, i64 16
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 16
+  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 16
   %3 = load i32, ptr %mMagicValue4.i.i.i, align 8
   store i32 %3, ptr %mMagicValue.i.i.i, align 8
   %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -72760,11 +72760,11 @@ for.body.i.i:                                     ; preds = %if.then, %for.body.
   %6 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i = add nsw i64 %6, 1
   store i64 %inc6.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 8
+  %mId.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i, i64 24
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i, align 8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 24
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 24
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr
   br i1 %cmp.i.not.i.i, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit, label %for.body.i.i, !llvm.loop !1484
 
@@ -72908,17 +72908,17 @@ for.body.i.i55.preheader:                         ; preds = %_ZN5eastl18uninitia
   br label %for.body.i.i55
 
 for.body.i.i55:                                   ; preds = %for.body.i.i55.preheader, %for.body.i.i55
-  %first.sroa.0.08.i.i56 = phi ptr [ %incdec.ptr.i.i.i67, %for.body.i.i55 ], [ %pDestBegin, %for.body.i.i55.preheader ]
-  %retval.sroa.0.07.i.i57 = phi ptr [ %incdec.ptr.i1.i.i68, %for.body.i.i55 ], [ %add.ptr18, %for.body.i.i55.preheader ]
-  %26 = load i32, ptr %first.sroa.0.08.i.i56, align 8
-  store i32 %26, ptr %retval.sroa.0.07.i.i57, align 8
-  %mbThrowOnCopy.i.i.i58 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i57, i64 4
-  %mbThrowOnCopy3.i.i.i59 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i56, i64 4
+  %retval.sroa.0.08.i.i56 = phi ptr [ %incdec.ptr.i1.i.i68, %for.body.i.i55 ], [ %add.ptr18, %for.body.i.i55.preheader ]
+  %first.sroa.0.07.i.i57 = phi ptr [ %incdec.ptr.i.i.i67, %for.body.i.i55 ], [ %pDestBegin, %for.body.i.i55.preheader ]
+  %26 = load i32, ptr %first.sroa.0.07.i.i57, align 8
+  store i32 %26, ptr %retval.sroa.0.08.i.i56, align 8
+  %mbThrowOnCopy.i.i.i58 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i56, i64 4
+  %mbThrowOnCopy3.i.i.i59 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i57, i64 4
   %27 = load i8, ptr %mbThrowOnCopy3.i.i.i59, align 4
   %frombool.i.i.i60 = and i8 %27, 1
   store i8 %frombool.i.i.i60, ptr %mbThrowOnCopy.i.i.i58, align 4
-  %mMagicValue.i.i.i61 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i57, i64 16
-  %mMagicValue4.i.i.i62 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i56, i64 16
+  %mMagicValue.i.i.i61 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i56, i64 16
+  %mMagicValue4.i.i.i62 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i57, i64 16
   %28 = load i32, ptr %mMagicValue4.i.i.i62, align 8
   store i32 %28, ptr %mMagicValue.i.i.i61, align 8
   %29 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -72930,11 +72930,11 @@ for.body.i.i55:                                   ; preds = %for.body.i.i55.preh
   %31 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i65 = add nsw i64 %31, 1
   store i64 %inc6.i.i.i65, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i66 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i57, i64 8
+  %mId.i.i.i66 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i56, i64 8
   store i64 %inc5.i.i.i64, ptr %mId.i.i.i66, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i56, align 8
-  %incdec.ptr.i.i.i67 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i56, i64 24
-  %incdec.ptr.i1.i.i68 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i57, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i57, align 8
+  %incdec.ptr.i.i.i67 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i57, i64 24
+  %incdec.ptr.i1.i.i68 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i56, i64 24
   %cmp.i.not.i.i69 = icmp eq ptr %incdec.ptr.i.i.i67, %add.ptr
   br i1 %cmp.i.not.i.i69, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit71, label %for.body.i.i55, !llvm.loop !1484
 
@@ -74371,17 +74371,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit, %for.body.i.i.i.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %3, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %6 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 8
-  store i32 %6, ptr %retval.sroa.0.07.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %3, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %6 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 8
+  store i32 %6, ptr %retval.sroa.0.08.i.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
   %7 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %7, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 16
   %8 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %8, ptr %mMagicValue.i.i.i.i.i, align 8
   %9 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -74393,11 +74393,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVec
   %11 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %11, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 24
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 24
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1484
 
@@ -74444,13 +74444,13 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMove
   br label %for.body.i.i.i.i9
 
 for.body.i.i.i.i9:                                ; preds = %for.body.i.i.i.i9, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMoveAndDestructEmmPS2_.exit
-  %first.sroa.0.08.i.i.i.i10 = phi ptr [ %incdec.ptr.i.i.i.i.i12, %for.body.i.i.i.i9 ], [ %14, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
-  %retval.sroa.0.07.i.i.i.i11 = phi ptr [ %incdec.ptr.i1.i.i.i.i13, %for.body.i.i.i.i9 ], [ %1, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
-  %15 = load i32, ptr %first.sroa.0.08.i.i.i.i10, align 4
-  store i32 %15, ptr %retval.sroa.0.07.i.i.i.i11, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i10, align 4
-  %incdec.ptr.i.i.i.i.i12 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i10, i64 4
-  %incdec.ptr.i1.i.i.i.i13 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i11, i64 4
+  %retval.sroa.0.08.i.i.i.i10 = phi ptr [ %incdec.ptr.i1.i.i.i.i13, %for.body.i.i.i.i9 ], [ %1, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
+  %first.sroa.0.07.i.i.i.i11 = phi ptr [ %incdec.ptr.i.i.i.i.i12, %for.body.i.i.i.i9 ], [ %14, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
+  %15 = load i32, ptr %first.sroa.0.07.i.i.i.i11, align 4
+  store i32 %15, ptr %retval.sroa.0.08.i.i.i.i10, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i11, align 4
+  %incdec.ptr.i.i.i.i.i12 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i11, i64 4
+  %incdec.ptr.i1.i.i.i.i13 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i10, i64 4
   %cmp.i.not.i.i.i.i14 = icmp eq ptr %incdec.ptr.i.i.i.i.i12, %add.ptr3.i7
   br i1 %cmp.i.not.i.i.i.i14, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm3E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit, label %for.body.i.i.i.i9, !llvm.loop !1976
 
@@ -74862,17 +74862,17 @@ for.body.i.i.preheader.i:                         ; preds = %entry
   br label %for.body.i.i.i16
 
 for.body.i.i.i16:                                 ; preds = %for.body.i.i.i16, %for.body.i.i.preheader.i
-  %first.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i16 ], [ %3, %for.body.i.i.preheader.i ]
-  %retval.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i16 ], [ %6, %for.body.i.i.preheader.i ]
-  %8 = load i32, ptr %first.sroa.0.07.i.i.i, align 8
-  store i32 %8, ptr %retval.sroa.0.06.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i, i64 4
+  %retval.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i16 ], [ %6, %for.body.i.i.preheader.i ]
+  %first.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i16 ], [ %3, %for.body.i.i.preheader.i ]
+  %8 = load i32, ptr %first.sroa.0.06.i.i.i, align 8
+  store i32 %8, ptr %retval.sroa.0.07.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i, i64 4
   %9 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %frombool.i.i.i.i = and i8 %9, 1
   store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i17 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i, i64 16
+  %mMagicValue.i.i.i.i17 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i, i64 16
   %10 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %10, ptr %mMagicValue.i.i.i.i17, align 8
   %11 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -74884,11 +74884,11 @@ for.body.i.i.i16:                                 ; preds = %for.body.i.i.i16, %
   %13 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %13, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i, i64 8
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i, i64 8
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i, i64 24
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i, i64 24
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i, i64 24
   %cmp.i.i.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr25.i
   br i1 %cmp.i.i.i.not.i.i.i, label %if.end.i.i.i.i.i.i10.i, label %for.body.i.i.i16, !llvm.loop !498
 
@@ -74899,16 +74899,16 @@ if.end.i.i.i.i.i.i10.i:                           ; preds = %for.body.i.i.i16
 
 invoke.cont:                                      ; preds = %entry, %if.end.i.i.i.i.i.i10.i
   %temp.sroa.25.038 = phi i64 [ %add.i.i.i.i.i.i, %if.end.i.i.i.i.i.i10.i ], [ 0, %entry ]
-  %temp.sroa.9.036 = phi ptr [ %7, %if.end.i.i.i.i.i.i10.i ], [ null, %entry ]
-  %temp.sroa.5.035 = phi ptr [ %6, %if.end.i.i.i.i.i.i10.i ], [ null, %entry ]
-  %temp.sroa.0.034 = phi ptr [ %call.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i10.i ], [ null, %entry ]
-  store ptr %temp.sroa.0.034, ptr %this, align 8
+  %temp.sroa.13.036 = phi ptr [ %call.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i10.i ], [ null, %entry ]
+  %temp.sroa.9.035 = phi ptr [ %7, %if.end.i.i.i.i.i.i10.i ], [ null, %entry ]
+  %temp.sroa.5.034 = phi ptr [ %6, %if.end.i.i.i.i.i.i10.i ], [ null, %entry ]
+  store ptr %temp.sroa.13.036, ptr %this, align 8
   %14 = load ptr, ptr %add.ptr.i.i, align 8
-  store ptr %temp.sroa.5.035, ptr %add.ptr.i.i, align 8
-  store ptr %temp.sroa.9.036, ptr %add.ptr5.i.i, align 8
+  store ptr %temp.sroa.5.034, ptr %add.ptr.i.i, align 8
+  store ptr %temp.sroa.9.035, ptr %add.ptr5.i.i, align 8
   %mpData12.i = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load ptr, ptr %mpData12.i, align 8
-  store ptr %temp.sroa.0.034, ptr %mpData12.i, align 8
+  store ptr %temp.sroa.13.036, ptr %mpData12.i, align 8
   %16 = load i64, ptr %mNumElements.i.i, align 8
   store i64 %1, ptr %mNumElements.i.i, align 8
   %mNumCapacity.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -75081,17 +75081,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit, %for.body.i.i.i.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %7, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %8 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 8
-  store i32 %8, ptr %retval.sroa.0.07.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %7, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %8 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 8
+  store i32 %8, ptr %retval.sroa.0.08.i.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
   %9 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %9, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 16
   %10 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %10, ptr %mMagicValue.i.i.i.i.i, align 8
   %11 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -75103,11 +75103,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVec
   %13 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %13, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 24
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 24
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1484
 
@@ -75170,17 +75170,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i59
 
 for.body.i.i.i.i59:                               ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit55, %for.body.i.i.i.i59
-  %first.sroa.0.08.i.i.i.i60 = phi ptr [ %incdec.ptr.i.i.i.i.i71, %for.body.i.i.i.i59 ], [ %add.ptr.i56, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit55 ]
-  %retval.sroa.0.07.i.i.i.i61 = phi ptr [ %incdec.ptr.i1.i.i.i.i72, %for.body.i.i.i.i59 ], [ %add.ptr26, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit55 ]
-  %18 = load i32, ptr %first.sroa.0.08.i.i.i.i60, align 8
-  store i32 %18, ptr %retval.sroa.0.07.i.i.i.i61, align 8
-  %mbThrowOnCopy.i.i.i.i.i62 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i61, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i63 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i60, i64 4
+  %retval.sroa.0.08.i.i.i.i60 = phi ptr [ %incdec.ptr.i1.i.i.i.i72, %for.body.i.i.i.i59 ], [ %add.ptr26, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit55 ]
+  %first.sroa.0.07.i.i.i.i61 = phi ptr [ %incdec.ptr.i.i.i.i.i71, %for.body.i.i.i.i59 ], [ %add.ptr.i56, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit55 ]
+  %18 = load i32, ptr %first.sroa.0.07.i.i.i.i61, align 8
+  store i32 %18, ptr %retval.sroa.0.08.i.i.i.i60, align 8
+  %mbThrowOnCopy.i.i.i.i.i62 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i60, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i63 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i61, i64 4
   %19 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i63, align 4
   %frombool.i.i.i.i.i64 = and i8 %19, 1
   store i8 %frombool.i.i.i.i.i64, ptr %mbThrowOnCopy.i.i.i.i.i62, align 4
-  %mMagicValue.i.i.i.i.i65 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i61, i64 16
-  %mMagicValue4.i.i.i.i.i66 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i60, i64 16
+  %mMagicValue.i.i.i.i.i65 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i60, i64 16
+  %mMagicValue4.i.i.i.i.i66 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i61, i64 16
   %20 = load i32, ptr %mMagicValue4.i.i.i.i.i66, align 8
   store i32 %20, ptr %mMagicValue.i.i.i.i.i65, align 8
   %21 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -75192,11 +75192,11 @@ for.body.i.i.i.i59:                               ; preds = %_ZN5eastl16TupleVec
   %23 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i69 = add nsw i64 %23, 1
   store i64 %inc6.i.i.i.i.i69, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i70 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i61, i64 8
+  %mId.i.i.i.i.i70 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i60, i64 8
   store i64 %inc5.i.i.i.i.i68, ptr %mId.i.i.i.i.i70, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i60, align 8
-  %incdec.ptr.i.i.i.i.i71 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i60, i64 24
-  %incdec.ptr.i1.i.i.i.i72 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i61, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i61, align 8
+  %incdec.ptr.i.i.i.i.i71 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i61, i64 24
+  %incdec.ptr.i1.i.i.i.i72 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i60, i64 24
   %cmp.i.not.i.i.i.i73 = icmp eq ptr %incdec.ptr.i.i.i.i.i71, %add.ptr3.i57
   br i1 %cmp.i.not.i.i.i.i73, label %for.body.preheader.i.i.i74, label %for.body.i.i.i.i59, !llvm.loop !1484
 
@@ -75572,13 +75572,13 @@ for.body.i.i.preheader.i:                         ; preds = %entry
   br label %for.body.i.i.i16
 
 for.body.i.i.i16:                                 ; preds = %for.body.i.i.i16, %for.body.i.i.preheader.i
-  %first.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i16 ], [ %3, %for.body.i.i.preheader.i ]
-  %retval.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i16 ], [ %6, %for.body.i.i.preheader.i ]
-  %8 = load i32, ptr %first.sroa.0.07.i.i.i, align 4
-  store i32 %8, ptr %retval.sroa.0.06.i.i.i, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i, i64 4
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i, i64 4
+  %retval.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i16 ], [ %6, %for.body.i.i.preheader.i ]
+  %first.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i16 ], [ %3, %for.body.i.i.preheader.i ]
+  %8 = load i32, ptr %first.sroa.0.06.i.i.i, align 4
+  store i32 %8, ptr %retval.sroa.0.07.i.i.i, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i, align 4
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i, i64 4
   %cmp.i.i.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr25.i
   br i1 %cmp.i.i.i.not.i.i.i, label %for.body.i.i10.preheader.i, label %for.body.i.i.i16, !llvm.loop !497
 
@@ -75587,17 +75587,17 @@ for.body.i.i10.preheader.i:                       ; preds = %for.body.i.i.i16
   br label %for.body.i.i10.i
 
 for.body.i.i10.i:                                 ; preds = %for.body.i.i10.i, %for.body.i.i10.preheader.i
-  %first.sroa.0.07.i.i11.i = phi ptr [ %incdec.ptr.i.i.i.i13.i, %for.body.i.i10.i ], [ %0, %for.body.i.i10.preheader.i ]
-  %retval.sroa.0.06.i.i12.i = phi ptr [ %incdec.ptr.i.i.i14.i, %for.body.i.i10.i ], [ %7, %for.body.i.i10.preheader.i ]
-  %9 = load i32, ptr %first.sroa.0.07.i.i11.i, align 8
-  store i32 %9, ptr %retval.sroa.0.06.i.i12.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 4
+  %retval.sroa.0.07.i.i11.i = phi ptr [ %incdec.ptr.i.i.i14.i, %for.body.i.i10.i ], [ %7, %for.body.i.i10.preheader.i ]
+  %first.sroa.0.06.i.i12.i = phi ptr [ %incdec.ptr.i.i.i.i13.i, %for.body.i.i10.i ], [ %0, %for.body.i.i10.preheader.i ]
+  %9 = load i32, ptr %first.sroa.0.06.i.i12.i, align 8
+  store i32 %9, ptr %retval.sroa.0.07.i.i11.i, align 8
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 4
   %10 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %frombool.i.i.i.i = and i8 %10, 1
   store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i17 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 16
-  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 16
+  %mMagicValue.i.i.i.i17 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 16
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 16
   %11 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %11, ptr %mMagicValue.i.i.i.i17, align 8
   %12 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -75609,26 +75609,26 @@ for.body.i.i10.i:                                 ; preds = %for.body.i.i10.i, %
   %14 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %14, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 8
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 8
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i, align 8
-  %incdec.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 24
-  %incdec.ptr.i.i.i14.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i, align 8
+  %incdec.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 24
+  %incdec.ptr.i.i.i14.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 24
   %cmp.i.i.i.not.i.i15.i = icmp eq ptr %incdec.ptr.i.i.i.i13.i, %add.ptr37.i
   br i1 %cmp.i.i.i.not.i.i15.i, label %invoke.cont, label %for.body.i.i10.i, !llvm.loop !498
 
 invoke.cont:                                      ; preds = %for.body.i.i10.i, %entry
   %temp.sroa.25.038 = phi i64 [ 0, %entry ], [ %add.i.i.i.i.i.i, %for.body.i.i10.i ]
-  %temp.sroa.9.036 = phi ptr [ null, %entry ], [ %7, %for.body.i.i10.i ]
-  %temp.sroa.5.035 = phi ptr [ null, %entry ], [ %6, %for.body.i.i10.i ]
-  %temp.sroa.0.034 = phi ptr [ null, %entry ], [ %call.i.i.i.i.i.i.i.i.i, %for.body.i.i10.i ]
-  store ptr %temp.sroa.0.034, ptr %this, align 8
-  store ptr %temp.sroa.5.035, ptr %add.ptr.i.i, align 8
+  %temp.sroa.13.036 = phi ptr [ null, %entry ], [ %call.i.i.i.i.i.i.i.i.i, %for.body.i.i10.i ]
+  %temp.sroa.9.035 = phi ptr [ null, %entry ], [ %7, %for.body.i.i10.i ]
+  %temp.sroa.5.034 = phi ptr [ null, %entry ], [ %6, %for.body.i.i10.i ]
+  store ptr %temp.sroa.13.036, ptr %this, align 8
+  store ptr %temp.sroa.5.034, ptr %add.ptr.i.i, align 8
   %15 = load ptr, ptr %add.ptr5.i.i, align 8
-  store ptr %temp.sroa.9.036, ptr %add.ptr5.i.i, align 8
+  store ptr %temp.sroa.9.035, ptr %add.ptr5.i.i, align 8
   %mpData12.i = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %mpData12.i, align 8
-  store ptr %temp.sroa.0.034, ptr %mpData12.i, align 8
+  store ptr %temp.sroa.13.036, ptr %mpData12.i, align 8
   %17 = load i64, ptr %mNumElements.i.i, align 8
   store i64 %1, ptr %mNumElements.i.i, align 8
   %mNumCapacity.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -75809,17 +75809,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit, %for.body.i.i.i.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %12, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %10, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %13 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 8
-  store i32 %13, ptr %retval.sroa.0.07.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %10, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %12, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %13 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 8
+  store i32 %13, ptr %retval.sroa.0.08.i.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
   %14 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %14, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 16
   %15 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %15, ptr %mMagicValue.i.i.i.i.i, align 8
   %16 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -75831,11 +75831,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVec
   %18 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %18, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 24
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 24
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1484
 
@@ -75900,17 +75900,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i78
 
 for.body.i.i.i.i78:                               ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit74, %for.body.i.i.i.i78
-  %first.sroa.0.08.i.i.i.i79 = phi ptr [ %incdec.ptr.i.i.i.i.i90, %for.body.i.i.i.i78 ], [ %add.ptr.i75, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit74 ]
-  %retval.sroa.0.07.i.i.i.i80 = phi ptr [ %incdec.ptr.i1.i.i.i.i91, %for.body.i.i.i.i78 ], [ %add.ptr30, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit74 ]
-  %23 = load i32, ptr %first.sroa.0.08.i.i.i.i79, align 8
-  store i32 %23, ptr %retval.sroa.0.07.i.i.i.i80, align 8
-  %mbThrowOnCopy.i.i.i.i.i81 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i80, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i82 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i79, i64 4
+  %retval.sroa.0.08.i.i.i.i79 = phi ptr [ %incdec.ptr.i1.i.i.i.i91, %for.body.i.i.i.i78 ], [ %add.ptr30, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit74 ]
+  %first.sroa.0.07.i.i.i.i80 = phi ptr [ %incdec.ptr.i.i.i.i.i90, %for.body.i.i.i.i78 ], [ %add.ptr.i75, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit74 ]
+  %23 = load i32, ptr %first.sroa.0.07.i.i.i.i80, align 8
+  store i32 %23, ptr %retval.sroa.0.08.i.i.i.i79, align 8
+  %mbThrowOnCopy.i.i.i.i.i81 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i79, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i82 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i80, i64 4
   %24 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i82, align 4
   %frombool.i.i.i.i.i83 = and i8 %24, 1
   store i8 %frombool.i.i.i.i.i83, ptr %mbThrowOnCopy.i.i.i.i.i81, align 4
-  %mMagicValue.i.i.i.i.i84 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i80, i64 16
-  %mMagicValue4.i.i.i.i.i85 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i79, i64 16
+  %mMagicValue.i.i.i.i.i84 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i79, i64 16
+  %mMagicValue4.i.i.i.i.i85 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i80, i64 16
   %25 = load i32, ptr %mMagicValue4.i.i.i.i.i85, align 8
   store i32 %25, ptr %mMagicValue.i.i.i.i.i84, align 8
   %26 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -75922,11 +75922,11 @@ for.body.i.i.i.i78:                               ; preds = %_ZN5eastl16TupleVec
   %28 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i88 = add nsw i64 %28, 1
   store i64 %inc6.i.i.i.i.i88, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i89 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i80, i64 8
+  %mId.i.i.i.i.i89 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i79, i64 8
   store i64 %inc5.i.i.i.i.i87, ptr %mId.i.i.i.i.i89, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i79, align 8
-  %incdec.ptr.i.i.i.i.i90 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i79, i64 24
-  %incdec.ptr.i1.i.i.i.i91 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i80, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i80, align 8
+  %incdec.ptr.i.i.i.i.i90 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i80, i64 24
+  %incdec.ptr.i1.i.i.i.i91 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i79, i64 24
   %cmp.i.not.i.i.i.i92 = icmp eq ptr %incdec.ptr.i.i.i.i.i90, %add.ptr3.i76
   br i1 %cmp.i.not.i.i.i.i92, label %for.body.preheader.i.i.i93, label %for.body.i.i.i.i78, !llvm.loop !1484
 
@@ -77340,13 +77340,13 @@ for.body.i.i.i.preheader.i:                       ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.preheader.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %7, %for.body.i.i.i.preheader.i ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %5, %for.body.i.i.i.preheader.i ]
-  %8 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 4
-  store i32 %8, ptr %retval.sroa.0.07.i.i.i.i, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %5, %for.body.i.i.i.preheader.i ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %7, %for.body.i.i.i.preheader.i ]
+  %8 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 4
+  store i32 %8, ptr %retval.sroa.0.08.i.i.i.i, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 4
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit, label %for.body.i.i.i.i, !llvm.loop !1976
 
@@ -77356,17 +77356,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMo
   br label %for.body.i.i.i.i42
 
 for.body.i.i.i.i42:                               ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit, %for.body.i.i.i.i42
-  %first.sroa.0.08.i.i.i.i43 = phi ptr [ %incdec.ptr.i.i.i.i.i45, %for.body.i.i.i.i42 ], [ %9, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
-  %retval.sroa.0.07.i.i.i.i44 = phi ptr [ %incdec.ptr.i1.i.i.i.i46, %for.body.i.i.i.i42 ], [ %4, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
-  %10 = load i32, ptr %first.sroa.0.08.i.i.i.i43, align 8
-  store i32 %10, ptr %retval.sroa.0.07.i.i.i.i44, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i44, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i43, i64 4
+  %retval.sroa.0.08.i.i.i.i43 = phi ptr [ %incdec.ptr.i1.i.i.i.i46, %for.body.i.i.i.i42 ], [ %4, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
+  %first.sroa.0.07.i.i.i.i44 = phi ptr [ %incdec.ptr.i.i.i.i.i45, %for.body.i.i.i.i42 ], [ %9, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
+  %10 = load i32, ptr %first.sroa.0.07.i.i.i.i44, align 8
+  store i32 %10, ptr %retval.sroa.0.08.i.i.i.i43, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i43, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i44, i64 4
   %11 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %11, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i44, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i43, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i43, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i44, i64 16
   %12 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %12, ptr %mMagicValue.i.i.i.i.i, align 8
   %13 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -77378,11 +77378,11 @@ for.body.i.i.i.i42:                               ; preds = %_ZN5eastl16TupleVec
   %15 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %15, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i44, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i43, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i43, align 8
-  %incdec.ptr.i.i.i.i.i45 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i43, i64 24
-  %incdec.ptr.i1.i.i.i.i46 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i44, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i44, align 8
+  %incdec.ptr.i.i.i.i.i45 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i44, i64 24
+  %incdec.ptr.i1.i.i.i.i46 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i43, i64 24
   %cmp.i.not.i.i.i.i47 = icmp eq ptr %incdec.ptr.i.i.i.i.i45, %add.ptr3.i40
   br i1 %cmp.i.not.i.i.i.i47, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i42, !llvm.loop !1484
 
@@ -77445,13 +77445,13 @@ for.body.i.i.i.preheader.i54:                     ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i.i56
 
 for.body.i.i.i.i56:                               ; preds = %for.body.i.i.i.i56, %for.body.i.i.i.preheader.i54
-  %first.sroa.0.08.i.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i.i.i59, %for.body.i.i.i.i56 ], [ %add.ptr.i55, %for.body.i.i.i.preheader.i54 ]
-  %retval.sroa.0.07.i.i.i.i58.pn = phi ptr [ %retval.sroa.0.07.i.i.i.i58, %for.body.i.i.i.i56 ], [ %add.ptr26, %for.body.i.i.i.preheader.i54 ]
-  %retval.sroa.0.07.i.i.i.i58 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i58.pn, i64 4
-  %20 = load i32, ptr %first.sroa.0.08.i.i.i.i57, align 4
-  store i32 %20, ptr %retval.sroa.0.07.i.i.i.i58, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i57, align 4
-  %incdec.ptr.i.i.i.i.i59 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i57, i64 4
+  %retval.sroa.0.08.i.i.i.i57.pn = phi ptr [ %retval.sroa.0.08.i.i.i.i57, %for.body.i.i.i.i56 ], [ %add.ptr26, %for.body.i.i.i.preheader.i54 ]
+  %first.sroa.0.07.i.i.i.i58 = phi ptr [ %incdec.ptr.i.i.i.i.i59, %for.body.i.i.i.i56 ], [ %add.ptr.i55, %for.body.i.i.i.preheader.i54 ]
+  %retval.sroa.0.08.i.i.i.i57 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i57.pn, i64 4
+  %20 = load i32, ptr %first.sroa.0.07.i.i.i.i58, align 4
+  store i32 %20, ptr %retval.sroa.0.08.i.i.i.i57, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i58, align 4
+  %incdec.ptr.i.i.i.i.i59 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i58, i64 4
   %cmp.i.not.i.i.i.i61 = icmp eq ptr %incdec.ptr.i.i.i.i.i59, %add.ptr3.i52
   br i1 %cmp.i.not.i.i.i.i61, label %for.body.i.i.i.i66.preheader, label %for.body.i.i.i.i56, !llvm.loop !1976
 
@@ -77463,18 +77463,18 @@ for.body.i.i.i.i66.preheader:                     ; preds = %for.body.i.i.i.i56
   br label %for.body.i.i.i.i66
 
 for.body.i.i.i.i66:                               ; preds = %for.body.i.i.i.i66.preheader, %for.body.i.i.i.i66
-  %first.sroa.0.08.i.i.i.i67 = phi ptr [ %incdec.ptr.i.i.i.i.i78, %for.body.i.i.i.i66 ], [ %add.ptr.i63, %for.body.i.i.i.i66.preheader ]
-  %retval.sroa.0.07.i.i.i.i68.pn = phi ptr [ %retval.sroa.0.07.i.i.i.i68, %for.body.i.i.i.i66 ], [ %add.ptr31, %for.body.i.i.i.i66.preheader ]
-  %retval.sroa.0.07.i.i.i.i68 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i68.pn, i64 24
-  %22 = load i32, ptr %first.sroa.0.08.i.i.i.i67, align 8
-  store i32 %22, ptr %retval.sroa.0.07.i.i.i.i68, align 8
-  %mbThrowOnCopy.i.i.i.i.i69 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i68.pn, i64 28
-  %mbThrowOnCopy3.i.i.i.i.i70 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i67, i64 4
+  %retval.sroa.0.08.i.i.i.i67.pn = phi ptr [ %retval.sroa.0.08.i.i.i.i67, %for.body.i.i.i.i66 ], [ %add.ptr31, %for.body.i.i.i.i66.preheader ]
+  %first.sroa.0.07.i.i.i.i68 = phi ptr [ %incdec.ptr.i.i.i.i.i78, %for.body.i.i.i.i66 ], [ %add.ptr.i63, %for.body.i.i.i.i66.preheader ]
+  %retval.sroa.0.08.i.i.i.i67 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i67.pn, i64 24
+  %22 = load i32, ptr %first.sroa.0.07.i.i.i.i68, align 8
+  store i32 %22, ptr %retval.sroa.0.08.i.i.i.i67, align 8
+  %mbThrowOnCopy.i.i.i.i.i69 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i67.pn, i64 28
+  %mbThrowOnCopy3.i.i.i.i.i70 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i68, i64 4
   %23 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i70, align 4
   %frombool.i.i.i.i.i71 = and i8 %23, 1
   store i8 %frombool.i.i.i.i.i71, ptr %mbThrowOnCopy.i.i.i.i.i69, align 4
-  %mMagicValue.i.i.i.i.i72 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i68.pn, i64 40
-  %mMagicValue4.i.i.i.i.i73 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i67, i64 16
+  %mMagicValue.i.i.i.i.i72 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i67.pn, i64 40
+  %mMagicValue4.i.i.i.i.i73 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i68, i64 16
   %24 = load i32, ptr %mMagicValue4.i.i.i.i.i73, align 8
   store i32 %24, ptr %mMagicValue.i.i.i.i.i72, align 8
   %25 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -77486,10 +77486,10 @@ for.body.i.i.i.i66:                               ; preds = %for.body.i.i.i.i66.
   %27 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i76 = add nsw i64 %27, 1
   store i64 %inc6.i.i.i.i.i76, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i77 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i68.pn, i64 32
+  %mId.i.i.i.i.i77 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i67.pn, i64 32
   store i64 %inc5.i.i.i.i.i75, ptr %mId.i.i.i.i.i77, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i67, align 8
-  %incdec.ptr.i.i.i.i.i78 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i67, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i68, align 8
+  %incdec.ptr.i.i.i.i.i78 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i68, i64 24
   %cmp.i.not.i.i.i.i80 = icmp eq ptr %incdec.ptr.i.i.i.i.i78, %add.ptr3.i64
   br i1 %cmp.i.not.i.i.i.i80, label %for.body.preheader.i.i.i81, label %for.body.i.i.i.i66, !llvm.loop !1484
 
@@ -77909,17 +77909,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit, %for.body.i.i.i.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %4, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %2, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %5 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 8
-  store i32 %5, ptr %retval.sroa.0.07.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %2, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %4, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %5 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 8
+  store i32 %5, ptr %retval.sroa.0.08.i.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
   %6 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %6, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 16
   %7 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %7, ptr %mMagicValue.i.i.i.i.i, align 8
   %8 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -77931,11 +77931,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVec
   %10 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %10, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 24
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 24
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1484
 
@@ -78122,17 +78122,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit, %for.body.i.i.i.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %7, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %8 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 8
-  store i32 %8, ptr %retval.sroa.0.07.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %7, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %8 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 8
+  store i32 %8, ptr %retval.sroa.0.08.i.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
   %9 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %9, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 16
   %10 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %10, ptr %mMagicValue.i.i.i.i.i, align 8
   %11 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -78144,11 +78144,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVec
   %13 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %13, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 24
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 24
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1484
 
@@ -78208,17 +78208,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i88
 
 for.body.i.i.i.i88:                               ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit84, %for.body.i.i.i.i88
-  %first.sroa.0.08.i.i.i.i89 = phi ptr [ %incdec.ptr.i.i.i.i.i100, %for.body.i.i.i.i88 ], [ %add.ptr.i85, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit84 ]
-  %retval.sroa.0.07.i.i.i.i90 = phi ptr [ %incdec.ptr.i1.i.i.i.i101, %for.body.i.i.i.i88 ], [ %add.ptr22, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit84 ]
-  %18 = load i32, ptr %first.sroa.0.08.i.i.i.i89, align 8
-  store i32 %18, ptr %retval.sroa.0.07.i.i.i.i90, align 8
-  %mbThrowOnCopy.i.i.i.i.i91 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i90, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i92 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i89, i64 4
+  %retval.sroa.0.08.i.i.i.i89 = phi ptr [ %incdec.ptr.i1.i.i.i.i101, %for.body.i.i.i.i88 ], [ %add.ptr22, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit84 ]
+  %first.sroa.0.07.i.i.i.i90 = phi ptr [ %incdec.ptr.i.i.i.i.i100, %for.body.i.i.i.i88 ], [ %add.ptr.i85, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit84 ]
+  %18 = load i32, ptr %first.sroa.0.07.i.i.i.i90, align 8
+  store i32 %18, ptr %retval.sroa.0.08.i.i.i.i89, align 8
+  %mbThrowOnCopy.i.i.i.i.i91 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i89, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i92 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i90, i64 4
   %19 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i92, align 4
   %frombool.i.i.i.i.i93 = and i8 %19, 1
   store i8 %frombool.i.i.i.i.i93, ptr %mbThrowOnCopy.i.i.i.i.i91, align 4
-  %mMagicValue.i.i.i.i.i94 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i90, i64 16
-  %mMagicValue4.i.i.i.i.i95 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i89, i64 16
+  %mMagicValue.i.i.i.i.i94 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i89, i64 16
+  %mMagicValue4.i.i.i.i.i95 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i90, i64 16
   %20 = load i32, ptr %mMagicValue4.i.i.i.i.i95, align 8
   store i32 %20, ptr %mMagicValue.i.i.i.i.i94, align 8
   %21 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -78230,11 +78230,11 @@ for.body.i.i.i.i88:                               ; preds = %_ZN5eastl16TupleVec
   %23 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i98 = add nsw i64 %23, 1
   store i64 %inc6.i.i.i.i.i98, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i99 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i90, i64 8
+  %mId.i.i.i.i.i99 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i89, i64 8
   store i64 %inc5.i.i.i.i.i97, ptr %mId.i.i.i.i.i99, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i89, align 8
-  %incdec.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i89, i64 24
-  %incdec.ptr.i1.i.i.i.i101 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i90, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i90, align 8
+  %incdec.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i90, i64 24
+  %incdec.ptr.i1.i.i.i.i101 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i89, i64 24
   %cmp.i.not.i.i.i.i102 = icmp eq ptr %incdec.ptr.i.i.i.i.i100, %add.ptr3.i86
   br i1 %cmp.i.not.i.i.i.i102, label %for.body.preheader.i.i.i103, label %for.body.i.i.i.i88, !llvm.loop !1484
 
@@ -78384,17 +78384,17 @@ _ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit: ; preds = %if.then
   br i1 %cmp.i.not6.i.i, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit, %for.body.i.i
-  %first.sroa.0.08.i.i = phi ptr [ %incdec.ptr.i.i.i153, %for.body.i.i ], [ %add.ptr77, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit ]
-  %retval.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %add.ptr51, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit ]
-  %41 = load i32, ptr %first.sroa.0.08.i.i, align 8
-  store i32 %41, ptr %retval.sroa.0.07.i.i, align 8
-  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i, i64 4
+  %retval.sroa.0.08.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %add.ptr51, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit ]
+  %first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i153, %for.body.i.i ], [ %add.ptr77, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit ]
+  %41 = load i32, ptr %first.sroa.0.07.i.i, align 8
+  store i32 %41, ptr %retval.sroa.0.08.i.i, align 8
+  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 4
   %42 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
   %frombool.i.i.i = and i8 %42, 1
   store i8 %frombool.i.i.i, ptr %mbThrowOnCopy.i.i.i, align 4
-  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 16
-  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i, i64 16
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 16
+  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 16
   %43 = load i32, ptr %mMagicValue4.i.i.i, align 8
   store i32 %43, ptr %mMagicValue.i.i.i, align 8
   %44 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -78406,11 +78406,11 @@ for.body.i.i:                                     ; preds = %_ZN5eastl22uninitia
   %46 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i = add nsw i64 %46, 1
   store i64 %inc6.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 8
+  %mId.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i, align 8
-  %incdec.ptr.i.i.i153 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i, i64 24
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i, align 8
+  %incdec.ptr.i.i.i153 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 24
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 24
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i153, %add.ptr51
   br i1 %cmp.i.not.i.i, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit, label %for.body.i.i, !llvm.loop !1484
 
@@ -78565,17 +78565,17 @@ for.body.i.i205.preheader:                        ; preds = %if.else113
   br label %for.body.i.i205
 
 for.body.i.i205:                                  ; preds = %for.body.i.i205.preheader, %for.body.i.i205
-  %first.sroa.0.08.i.i206 = phi ptr [ %incdec.ptr.i.i.i217, %for.body.i.i205 ], [ %add.ptr62, %for.body.i.i205.preheader ]
-  %retval.sroa.0.07.i.i207 = phi ptr [ %incdec.ptr.i1.i.i218, %for.body.i.i205 ], [ %add.ptr124, %for.body.i.i205.preheader ]
-  %70 = load i32, ptr %first.sroa.0.08.i.i206, align 8
-  store i32 %70, ptr %retval.sroa.0.07.i.i207, align 8
-  %mbThrowOnCopy.i.i.i208 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i207, i64 4
-  %mbThrowOnCopy3.i.i.i209 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i206, i64 4
+  %retval.sroa.0.08.i.i206 = phi ptr [ %incdec.ptr.i1.i.i218, %for.body.i.i205 ], [ %add.ptr124, %for.body.i.i205.preheader ]
+  %first.sroa.0.07.i.i207 = phi ptr [ %incdec.ptr.i.i.i217, %for.body.i.i205 ], [ %add.ptr62, %for.body.i.i205.preheader ]
+  %70 = load i32, ptr %first.sroa.0.07.i.i207, align 8
+  store i32 %70, ptr %retval.sroa.0.08.i.i206, align 8
+  %mbThrowOnCopy.i.i.i208 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i206, i64 4
+  %mbThrowOnCopy3.i.i.i209 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i207, i64 4
   %71 = load i8, ptr %mbThrowOnCopy3.i.i.i209, align 4
   %frombool.i.i.i210 = and i8 %71, 1
   store i8 %frombool.i.i.i210, ptr %mbThrowOnCopy.i.i.i208, align 4
-  %mMagicValue.i.i.i211 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i207, i64 16
-  %mMagicValue4.i.i.i212 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i206, i64 16
+  %mMagicValue.i.i.i211 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i206, i64 16
+  %mMagicValue4.i.i.i212 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i207, i64 16
   %72 = load i32, ptr %mMagicValue4.i.i.i212, align 8
   store i32 %72, ptr %mMagicValue.i.i.i211, align 8
   %73 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -78587,11 +78587,11 @@ for.body.i.i205:                                  ; preds = %for.body.i.i205.pre
   %75 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i215 = add nsw i64 %75, 1
   store i64 %inc6.i.i.i215, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i216 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i207, i64 8
+  %mId.i.i.i216 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i206, i64 8
   store i64 %inc5.i.i.i214, ptr %mId.i.i.i216, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i206, align 8
-  %incdec.ptr.i.i.i217 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i206, i64 24
-  %incdec.ptr.i1.i.i218 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i207, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i207, align 8
+  %incdec.ptr.i.i.i217 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i207, i64 24
+  %incdec.ptr.i1.i.i218 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i206, i64 24
   %cmp.i.not.i.i219 = icmp eq ptr %incdec.ptr.i.i.i217, %add.ptr51
   br i1 %cmp.i.not.i.i219, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit221, label %for.body.i.i205, !llvm.loop !1484
 
@@ -78805,13 +78805,13 @@ for.body.i.i.i.preheader.i:                       ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.preheader.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %4, %for.body.i.i.i.preheader.i ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %2, %for.body.i.i.i.preheader.i ]
-  %5 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 4
-  store i32 %5, ptr %retval.sroa.0.07.i.i.i.i, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %2, %for.body.i.i.i.preheader.i ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %4, %for.body.i.i.i.preheader.i ]
+  %5 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 4
+  store i32 %5, ptr %retval.sroa.0.08.i.i.i.i, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 4
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit, label %for.body.i.i.i.i, !llvm.loop !1976
 
@@ -78822,17 +78822,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMo
   br label %for.body.i.i.i.i6
 
 for.body.i.i.i.i6:                                ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit, %for.body.i.i.i.i6
-  %first.sroa.0.08.i.i.i.i7 = phi ptr [ %incdec.ptr.i.i.i.i.i9, %for.body.i.i.i.i6 ], [ %6, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
-  %retval.sroa.0.07.i.i.i.i8 = phi ptr [ %incdec.ptr.i1.i.i.i.i10, %for.body.i.i.i.i6 ], [ %1, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
-  %7 = load i32, ptr %first.sroa.0.08.i.i.i.i7, align 8
-  store i32 %7, ptr %retval.sroa.0.07.i.i.i.i8, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7, i64 4
+  %retval.sroa.0.08.i.i.i.i7 = phi ptr [ %incdec.ptr.i1.i.i.i.i10, %for.body.i.i.i.i6 ], [ %1, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
+  %first.sroa.0.07.i.i.i.i8 = phi ptr [ %incdec.ptr.i.i.i.i.i9, %for.body.i.i.i.i6 ], [ %6, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
+  %7 = load i32, ptr %first.sroa.0.07.i.i.i.i8, align 8
+  store i32 %7, ptr %retval.sroa.0.08.i.i.i.i7, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8, i64 4
   %8 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %8, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8, i64 16
   %9 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %9, ptr %mMagicValue.i.i.i.i.i, align 8
   %10 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -78844,11 +78844,11 @@ for.body.i.i.i.i6:                                ; preds = %_ZN5eastl16TupleVec
   %12 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %12, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i7, align 8
-  %incdec.ptr.i.i.i.i.i9 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i7, i64 24
-  %incdec.ptr.i1.i.i.i.i10 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i8, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i8, align 8
+  %incdec.ptr.i.i.i.i.i9 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i8, i64 24
+  %incdec.ptr.i1.i.i.i.i10 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i7, i64 24
   %cmp.i.not.i.i.i.i11 = icmp eq ptr %incdec.ptr.i.i.i.i.i9, %add.ptr3.i4
   br i1 %cmp.i.not.i.i.i.i11, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i6, !llvm.loop !1484
 
@@ -79050,13 +79050,13 @@ for.body.i.i.preheader:                           ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
-  %first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i ], [ %add.ptr22, %for.body.i.i.preheader ]
-  %retval.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %9, %for.body.i.i.preheader ]
-  %10 = load i32, ptr %first.sroa.0.07.i.i, align 4
-  store i32 %10, ptr %retval.sroa.0.06.i.i, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i, align 4
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 4
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i, i64 4
+  %retval.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %9, %for.body.i.i.preheader ]
+  %first.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i ], [ %add.ptr22, %for.body.i.i.preheader ]
+  %10 = load i32, ptr %first.sroa.0.06.i.i, align 4
+  store i32 %10, ptr %retval.sroa.0.07.i.i, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i, align 4
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i, i64 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 4
   %cmp.i.i.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr25
   br i1 %cmp.i.i.i.not.i.i, label %_ZN5eastl22uninitialized_move_ptrINS_13move_iteratorIP12MoveOnlyTypeEES4_S3_EET1_T_T0_S5_.exit, label %for.body.i.i, !llvm.loop !497
 
@@ -79071,17 +79071,17 @@ for.body.i.i10.preheader:                         ; preds = %_ZN5eastl22uninitia
   br label %for.body.i.i10
 
 for.body.i.i10:                                   ; preds = %for.body.i.i10.preheader, %for.body.i.i10
-  %first.sroa.0.07.i.i11 = phi ptr [ %incdec.ptr.i.i.i.i13, %for.body.i.i10 ], [ %add.ptr34, %for.body.i.i10.preheader ]
-  %retval.sroa.0.06.i.i12 = phi ptr [ %incdec.ptr.i.i.i14, %for.body.i.i10 ], [ %11, %for.body.i.i10.preheader ]
-  %12 = load i32, ptr %first.sroa.0.07.i.i11, align 8
-  store i32 %12, ptr %retval.sroa.0.06.i.i12, align 8
-  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12, i64 4
-  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11, i64 4
+  %retval.sroa.0.07.i.i11 = phi ptr [ %incdec.ptr.i.i.i14, %for.body.i.i10 ], [ %11, %for.body.i.i10.preheader ]
+  %first.sroa.0.06.i.i12 = phi ptr [ %incdec.ptr.i.i.i.i13, %for.body.i.i10 ], [ %add.ptr34, %for.body.i.i10.preheader ]
+  %12 = load i32, ptr %first.sroa.0.06.i.i12, align 8
+  store i32 %12, ptr %retval.sroa.0.07.i.i11, align 8
+  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11, i64 4
+  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12, i64 4
   %13 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
   %frombool.i.i.i = and i8 %13, 1
   store i8 %frombool.i.i.i, ptr %mbThrowOnCopy.i.i.i, align 4
-  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12, i64 16
-  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11, i64 16
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11, i64 16
+  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12, i64 16
   %14 = load i32, ptr %mMagicValue4.i.i.i, align 8
   store i32 %14, ptr %mMagicValue.i.i.i, align 8
   %15 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -79093,11 +79093,11 @@ for.body.i.i10:                                   ; preds = %for.body.i.i10.preh
   %17 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i = add nsw i64 %17, 1
   store i64 %inc6.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12, i64 8
+  %mId.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11, i64 8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11, align 8
-  %incdec.ptr.i.i.i.i13 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11, i64 24
-  %incdec.ptr.i.i.i14 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12, align 8
+  %incdec.ptr.i.i.i.i13 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12, i64 24
+  %incdec.ptr.i.i.i14 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11, i64 24
   %cmp.i.i.i.not.i.i15 = icmp eq ptr %incdec.ptr.i.i.i.i13, %add.ptr37
   br i1 %cmp.i.i.i.not.i.i15, label %_ZN5eastl22uninitialized_move_ptrINS_13move_iteratorIP10TestObjectEES4_S3_EET1_T_T0_S5_.exit, label %for.body.i.i10, !llvm.loop !498
 
@@ -80045,17 +80045,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit, %for.body.i.i.i.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %3, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %6 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 8
-  store i32 %6, ptr %retval.sroa.0.07.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %3, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %5, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %6 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 8
+  store i32 %6, ptr %retval.sroa.0.08.i.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
   %7 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %7, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 16
   %8 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %8, ptr %mMagicValue.i.i.i.i.i, align 8
   %9 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -80067,11 +80067,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVec
   %11 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %11, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 24
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 24
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1484
 
@@ -80118,13 +80118,13 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMove
   br label %for.body.i.i.i.i9
 
 for.body.i.i.i.i9:                                ; preds = %for.body.i.i.i.i9, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMoveAndDestructEmmPS2_.exit
-  %first.sroa.0.08.i.i.i.i10 = phi ptr [ %incdec.ptr.i.i.i.i.i12, %for.body.i.i.i.i9 ], [ %14, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
-  %retval.sroa.0.07.i.i.i.i11 = phi ptr [ %incdec.ptr.i1.i.i.i.i13, %for.body.i.i.i.i9 ], [ %1, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
-  %15 = load i32, ptr %first.sroa.0.08.i.i.i.i10, align 4
-  store i32 %15, ptr %retval.sroa.0.07.i.i.i.i11, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i10, align 4
-  %incdec.ptr.i.i.i.i.i12 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i10, i64 4
-  %incdec.ptr.i1.i.i.i.i13 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i11, i64 4
+  %retval.sroa.0.08.i.i.i.i10 = phi ptr [ %incdec.ptr.i1.i.i.i.i13, %for.body.i.i.i.i9 ], [ %1, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
+  %first.sroa.0.07.i.i.i.i11 = phi ptr [ %incdec.ptr.i.i.i.i.i12, %for.body.i.i.i.i9 ], [ %14, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
+  %15 = load i32, ptr %first.sroa.0.07.i.i.i.i11, align 4
+  store i32 %15, ptr %retval.sroa.0.08.i.i.i.i10, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i11, align 4
+  %incdec.ptr.i.i.i.i.i12 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i11, i64 4
+  %incdec.ptr.i1.i.i.i.i13 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i10, i64 4
   %cmp.i.not.i.i.i.i14 = icmp eq ptr %incdec.ptr.i.i.i.i.i12, %add.ptr3.i7
   br i1 %cmp.i.not.i.i.i.i14, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm3E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit, label %for.body.i.i.i.i9, !llvm.loop !1976
 
@@ -80496,17 +80496,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit, %for.body.i.i.i.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %6, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %4, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %7 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 8
-  store i32 %7, ptr %retval.sroa.0.07.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %4, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %6, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %7 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 8
+  store i32 %7, ptr %retval.sroa.0.08.i.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
   %8 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %8, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 16
   %9 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %9, ptr %mMagicValue.i.i.i.i.i, align 8
   %10 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -80518,11 +80518,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVec
   %12 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %12, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 24
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 24
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1484
 
@@ -80585,17 +80585,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i59
 
 for.body.i.i.i.i59:                               ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit55, %for.body.i.i.i.i59
-  %first.sroa.0.08.i.i.i.i60 = phi ptr [ %incdec.ptr.i.i.i.i.i71, %for.body.i.i.i.i59 ], [ %add.ptr.i56, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit55 ]
-  %retval.sroa.0.07.i.i.i.i61 = phi ptr [ %incdec.ptr.i1.i.i.i.i72, %for.body.i.i.i.i59 ], [ %add.ptr26, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit55 ]
-  %17 = load i32, ptr %first.sroa.0.08.i.i.i.i60, align 8
-  store i32 %17, ptr %retval.sroa.0.07.i.i.i.i61, align 8
-  %mbThrowOnCopy.i.i.i.i.i62 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i61, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i63 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i60, i64 4
+  %retval.sroa.0.08.i.i.i.i60 = phi ptr [ %incdec.ptr.i1.i.i.i.i72, %for.body.i.i.i.i59 ], [ %add.ptr26, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit55 ]
+  %first.sroa.0.07.i.i.i.i61 = phi ptr [ %incdec.ptr.i.i.i.i.i71, %for.body.i.i.i.i59 ], [ %add.ptr.i56, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit55 ]
+  %17 = load i32, ptr %first.sroa.0.07.i.i.i.i61, align 8
+  store i32 %17, ptr %retval.sroa.0.08.i.i.i.i60, align 8
+  %mbThrowOnCopy.i.i.i.i.i62 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i60, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i63 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i61, i64 4
   %18 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i63, align 4
   %frombool.i.i.i.i.i64 = and i8 %18, 1
   store i8 %frombool.i.i.i.i.i64, ptr %mbThrowOnCopy.i.i.i.i.i62, align 4
-  %mMagicValue.i.i.i.i.i65 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i61, i64 16
-  %mMagicValue4.i.i.i.i.i66 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i60, i64 16
+  %mMagicValue.i.i.i.i.i65 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i60, i64 16
+  %mMagicValue4.i.i.i.i.i66 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i61, i64 16
   %19 = load i32, ptr %mMagicValue4.i.i.i.i.i66, align 8
   store i32 %19, ptr %mMagicValue.i.i.i.i.i65, align 8
   %20 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -80607,11 +80607,11 @@ for.body.i.i.i.i59:                               ; preds = %_ZN5eastl16TupleVec
   %22 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i69 = add nsw i64 %22, 1
   store i64 %inc6.i.i.i.i.i69, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i70 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i61, i64 8
+  %mId.i.i.i.i.i70 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i60, i64 8
   store i64 %inc5.i.i.i.i.i68, ptr %mId.i.i.i.i.i70, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i60, align 8
-  %incdec.ptr.i.i.i.i.i71 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i60, i64 24
-  %incdec.ptr.i1.i.i.i.i72 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i61, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i61, align 8
+  %incdec.ptr.i.i.i.i.i71 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i61, i64 24
+  %incdec.ptr.i1.i.i.i.i72 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i60, i64 24
   %cmp.i.not.i.i.i.i73 = icmp eq ptr %incdec.ptr.i.i.i.i.i71, %add.ptr3.i57
   br i1 %cmp.i.not.i.i.i.i73, label %for.body.preheader.i.i.i74, label %for.body.i.i.i.i59, !llvm.loop !1484
 
@@ -81047,17 +81047,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit, %for.body.i.i.i.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %11, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %9, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %12 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 8
-  store i32 %12, ptr %retval.sroa.0.07.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %9, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %11, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %12 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 8
+  store i32 %12, ptr %retval.sroa.0.08.i.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
   %13 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %13, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 16
   %14 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %14, ptr %mMagicValue.i.i.i.i.i, align 8
   %15 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -81069,11 +81069,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVec
   %17 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %17, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 24
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 24
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1484
 
@@ -81138,17 +81138,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i78
 
 for.body.i.i.i.i78:                               ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit74, %for.body.i.i.i.i78
-  %first.sroa.0.08.i.i.i.i79 = phi ptr [ %incdec.ptr.i.i.i.i.i90, %for.body.i.i.i.i78 ], [ %add.ptr.i75, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit74 ]
-  %retval.sroa.0.07.i.i.i.i80 = phi ptr [ %incdec.ptr.i1.i.i.i.i91, %for.body.i.i.i.i78 ], [ %add.ptr30, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit74 ]
-  %22 = load i32, ptr %first.sroa.0.08.i.i.i.i79, align 8
-  store i32 %22, ptr %retval.sroa.0.07.i.i.i.i80, align 8
-  %mbThrowOnCopy.i.i.i.i.i81 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i80, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i82 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i79, i64 4
+  %retval.sroa.0.08.i.i.i.i79 = phi ptr [ %incdec.ptr.i1.i.i.i.i91, %for.body.i.i.i.i78 ], [ %add.ptr30, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit74 ]
+  %first.sroa.0.07.i.i.i.i80 = phi ptr [ %incdec.ptr.i.i.i.i.i90, %for.body.i.i.i.i78 ], [ %add.ptr.i75, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit74 ]
+  %22 = load i32, ptr %first.sroa.0.07.i.i.i.i80, align 8
+  store i32 %22, ptr %retval.sroa.0.08.i.i.i.i79, align 8
+  %mbThrowOnCopy.i.i.i.i.i81 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i79, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i82 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i80, i64 4
   %23 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i82, align 4
   %frombool.i.i.i.i.i83 = and i8 %23, 1
   store i8 %frombool.i.i.i.i.i83, ptr %mbThrowOnCopy.i.i.i.i.i81, align 4
-  %mMagicValue.i.i.i.i.i84 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i80, i64 16
-  %mMagicValue4.i.i.i.i.i85 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i79, i64 16
+  %mMagicValue.i.i.i.i.i84 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i79, i64 16
+  %mMagicValue4.i.i.i.i.i85 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i80, i64 16
   %24 = load i32, ptr %mMagicValue4.i.i.i.i.i85, align 8
   store i32 %24, ptr %mMagicValue.i.i.i.i.i84, align 8
   %25 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -81160,11 +81160,11 @@ for.body.i.i.i.i78:                               ; preds = %_ZN5eastl16TupleVec
   %27 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i88 = add nsw i64 %27, 1
   store i64 %inc6.i.i.i.i.i88, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i89 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i80, i64 8
+  %mId.i.i.i.i.i89 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i79, i64 8
   store i64 %inc5.i.i.i.i.i87, ptr %mId.i.i.i.i.i89, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i79, align 8
-  %incdec.ptr.i.i.i.i.i90 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i79, i64 24
-  %incdec.ptr.i1.i.i.i.i91 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i80, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i80, align 8
+  %incdec.ptr.i.i.i.i.i90 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i80, i64 24
+  %incdec.ptr.i1.i.i.i.i91 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i79, i64 24
   %cmp.i.not.i.i.i.i92 = icmp eq ptr %incdec.ptr.i.i.i.i.i90, %add.ptr3.i76
   br i1 %cmp.i.not.i.i.i.i92, label %for.body.preheader.i.i.i93, label %for.body.i.i.i.i78, !llvm.loop !1484
 
@@ -82490,13 +82490,13 @@ for.body.i.i.preheader.i:                         ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
-  %first.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i ], [ %6, %for.body.i.i.preheader.i ]
-  %retval.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %12, %for.body.i.i.preheader.i ]
-  %13 = load i32, ptr %first.sroa.0.07.i.i.i, align 4
-  store i32 %13, ptr %retval.sroa.0.06.i.i.i, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i, i64 4
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i, i64 4
+  %retval.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %12, %for.body.i.i.preheader.i ]
+  %first.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i ], [ %6, %for.body.i.i.preheader.i ]
+  %13 = load i32, ptr %first.sroa.0.06.i.i.i, align 4
+  store i32 %13, ptr %retval.sroa.0.07.i.i.i, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i, align 4
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i, i64 4
   %cmp.i.i.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr25.i
   br i1 %cmp.i.i.i.not.i.i.i, label %for.body.i.i10.preheader.i, label %for.body.i.i.i, !llvm.loop !497
 
@@ -82506,17 +82506,17 @@ for.body.i.i10.preheader.i:                       ; preds = %for.body.i.i.i
   br label %for.body.i.i10.i
 
 for.body.i.i10.i:                                 ; preds = %for.body.i.i10.i, %for.body.i.i10.preheader.i
-  %first.sroa.0.07.i.i11.i = phi ptr [ %incdec.ptr.i.i.i.i13.i, %for.body.i.i10.i ], [ %7, %for.body.i.i10.preheader.i ]
-  %retval.sroa.0.06.i.i12.i = phi ptr [ %incdec.ptr.i.i.i14.i, %for.body.i.i10.i ], [ %14, %for.body.i.i10.preheader.i ]
-  %15 = load i32, ptr %first.sroa.0.07.i.i11.i, align 8
-  store i32 %15, ptr %retval.sroa.0.06.i.i12.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 4
+  %retval.sroa.0.07.i.i11.i = phi ptr [ %incdec.ptr.i.i.i14.i, %for.body.i.i10.i ], [ %14, %for.body.i.i10.preheader.i ]
+  %first.sroa.0.06.i.i12.i = phi ptr [ %incdec.ptr.i.i.i.i13.i, %for.body.i.i10.i ], [ %7, %for.body.i.i10.preheader.i ]
+  %15 = load i32, ptr %first.sroa.0.06.i.i12.i, align 8
+  store i32 %15, ptr %retval.sroa.0.07.i.i11.i, align 8
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 4
   %16 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %frombool.i.i.i.i = and i8 %16, 1
   store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 16
-  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 16
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 16
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 16
   %17 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %17, ptr %mMagicValue.i.i.i.i, align 8
   %18 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -82528,11 +82528,11 @@ for.body.i.i10.i:                                 ; preds = %for.body.i.i10.i, %
   %20 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %20, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 8
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 8
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i, align 8
-  %incdec.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 24
-  %incdec.ptr.i.i.i14.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i, align 8
+  %incdec.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 24
+  %incdec.ptr.i.i.i14.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 24
   %cmp.i.i.i.not.i.i15.i = icmp eq ptr %incdec.ptr.i.i.i.i13.i, %add.ptr37.i
   br i1 %cmp.i.i.i.not.i.i15.i, label %invoke.cont12, label %for.body.i.i10.i, !llvm.loop !498
 
@@ -82645,13 +82645,13 @@ for.body.i.i.preheader.i:                         ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
-  %first.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i ], [ %6, %for.body.i.i.preheader.i ]
-  %retval.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %12, %for.body.i.i.preheader.i ]
-  %13 = load i32, ptr %first.sroa.0.07.i.i.i, align 4
-  store i32 %13, ptr %retval.sroa.0.06.i.i.i, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i, i64 4
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i, i64 4
+  %retval.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %12, %for.body.i.i.preheader.i ]
+  %first.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i ], [ %6, %for.body.i.i.preheader.i ]
+  %13 = load i32, ptr %first.sroa.0.06.i.i.i, align 4
+  store i32 %13, ptr %retval.sroa.0.07.i.i.i, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i, align 4
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i, i64 4
   %cmp.i.i.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr25.i
   br i1 %cmp.i.i.i.not.i.i.i, label %for.body.i.i10.preheader.i, label %for.body.i.i.i, !llvm.loop !497
 
@@ -82661,17 +82661,17 @@ for.body.i.i10.preheader.i:                       ; preds = %for.body.i.i.i
   br label %for.body.i.i10.i
 
 for.body.i.i10.i:                                 ; preds = %for.body.i.i10.i, %for.body.i.i10.preheader.i
-  %first.sroa.0.07.i.i11.i = phi ptr [ %incdec.ptr.i.i.i.i13.i, %for.body.i.i10.i ], [ %7, %for.body.i.i10.preheader.i ]
-  %retval.sroa.0.06.i.i12.i = phi ptr [ %incdec.ptr.i.i.i14.i, %for.body.i.i10.i ], [ %14, %for.body.i.i10.preheader.i ]
-  %15 = load i32, ptr %first.sroa.0.07.i.i11.i, align 8
-  store i32 %15, ptr %retval.sroa.0.06.i.i12.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 4
+  %retval.sroa.0.07.i.i11.i = phi ptr [ %incdec.ptr.i.i.i14.i, %for.body.i.i10.i ], [ %14, %for.body.i.i10.preheader.i ]
+  %first.sroa.0.06.i.i12.i = phi ptr [ %incdec.ptr.i.i.i.i13.i, %for.body.i.i10.i ], [ %7, %for.body.i.i10.preheader.i ]
+  %15 = load i32, ptr %first.sroa.0.06.i.i12.i, align 8
+  store i32 %15, ptr %retval.sroa.0.07.i.i11.i, align 8
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 4
   %16 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %frombool.i.i.i.i = and i8 %16, 1
   store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 16
-  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 16
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 16
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 16
   %17 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %17, ptr %mMagicValue.i.i.i.i, align 8
   %18 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -82683,11 +82683,11 @@ for.body.i.i10.i:                                 ; preds = %for.body.i.i10.i, %
   %20 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %20, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 8
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 8
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i, align 8
-  %incdec.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 24
-  %incdec.ptr.i.i.i14.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i, align 8
+  %incdec.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 24
+  %incdec.ptr.i.i.i14.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 24
   %cmp.i.i.i.not.i.i15.i = icmp eq ptr %incdec.ptr.i.i.i.i13.i, %add.ptr37.i
   br i1 %cmp.i.i.i.not.i.i15.i, label %invoke.cont10, label %for.body.i.i10.i, !llvm.loop !498
 
@@ -82781,13 +82781,13 @@ for.body.i.i.i.preheader.i:                       ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.preheader.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %6, %for.body.i.i.i.preheader.i ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %4, %for.body.i.i.i.preheader.i ]
-  %7 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 4
-  store i32 %7, ptr %retval.sroa.0.07.i.i.i.i, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %4, %for.body.i.i.i.preheader.i ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %6, %for.body.i.i.i.preheader.i ]
+  %7 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 4
+  store i32 %7, ptr %retval.sroa.0.08.i.i.i.i, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 4
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit, label %for.body.i.i.i.i, !llvm.loop !1976
 
@@ -82797,17 +82797,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMo
   br label %for.body.i.i.i.i42
 
 for.body.i.i.i.i42:                               ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit, %for.body.i.i.i.i42
-  %first.sroa.0.08.i.i.i.i43 = phi ptr [ %incdec.ptr.i.i.i.i.i45, %for.body.i.i.i.i42 ], [ %8, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
-  %retval.sroa.0.07.i.i.i.i44 = phi ptr [ %incdec.ptr.i1.i.i.i.i46, %for.body.i.i.i.i42 ], [ %3, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
-  %9 = load i32, ptr %first.sroa.0.08.i.i.i.i43, align 8
-  store i32 %9, ptr %retval.sroa.0.07.i.i.i.i44, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i44, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i43, i64 4
+  %retval.sroa.0.08.i.i.i.i43 = phi ptr [ %incdec.ptr.i1.i.i.i.i46, %for.body.i.i.i.i42 ], [ %3, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
+  %first.sroa.0.07.i.i.i.i44 = phi ptr [ %incdec.ptr.i.i.i.i.i45, %for.body.i.i.i.i42 ], [ %8, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE30DoUninitializedMoveAndDestructEmmPS2_.exit ]
+  %9 = load i32, ptr %first.sroa.0.07.i.i.i.i44, align 8
+  store i32 %9, ptr %retval.sroa.0.08.i.i.i.i43, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i43, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i44, i64 4
   %10 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %10, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i44, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i43, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i43, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i44, i64 16
   %11 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %11, ptr %mMagicValue.i.i.i.i.i, align 8
   %12 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -82819,11 +82819,11 @@ for.body.i.i.i.i42:                               ; preds = %_ZN5eastl16TupleVec
   %14 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %14, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i44, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i43, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i43, align 8
-  %incdec.ptr.i.i.i.i.i45 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i43, i64 24
-  %incdec.ptr.i1.i.i.i.i46 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i44, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i44, align 8
+  %incdec.ptr.i.i.i.i.i45 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i44, i64 24
+  %incdec.ptr.i1.i.i.i.i46 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i43, i64 24
   %cmp.i.not.i.i.i.i47 = icmp eq ptr %incdec.ptr.i.i.i.i.i45, %add.ptr3.i40
   br i1 %cmp.i.not.i.i.i.i47, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i42, !llvm.loop !1484
 
@@ -82886,13 +82886,13 @@ for.body.i.i.i.preheader.i54:                     ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i.i56
 
 for.body.i.i.i.i56:                               ; preds = %for.body.i.i.i.i56, %for.body.i.i.i.preheader.i54
-  %first.sroa.0.08.i.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i.i.i59, %for.body.i.i.i.i56 ], [ %add.ptr.i55, %for.body.i.i.i.preheader.i54 ]
-  %retval.sroa.0.07.i.i.i.i58.pn = phi ptr [ %retval.sroa.0.07.i.i.i.i58, %for.body.i.i.i.i56 ], [ %add.ptr26, %for.body.i.i.i.preheader.i54 ]
-  %retval.sroa.0.07.i.i.i.i58 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i58.pn, i64 4
-  %19 = load i32, ptr %first.sroa.0.08.i.i.i.i57, align 4
-  store i32 %19, ptr %retval.sroa.0.07.i.i.i.i58, align 4
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i57, align 4
-  %incdec.ptr.i.i.i.i.i59 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i57, i64 4
+  %retval.sroa.0.08.i.i.i.i57.pn = phi ptr [ %retval.sroa.0.08.i.i.i.i57, %for.body.i.i.i.i56 ], [ %add.ptr26, %for.body.i.i.i.preheader.i54 ]
+  %first.sroa.0.07.i.i.i.i58 = phi ptr [ %incdec.ptr.i.i.i.i.i59, %for.body.i.i.i.i56 ], [ %add.ptr.i55, %for.body.i.i.i.preheader.i54 ]
+  %retval.sroa.0.08.i.i.i.i57 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i57.pn, i64 4
+  %19 = load i32, ptr %first.sroa.0.07.i.i.i.i58, align 4
+  store i32 %19, ptr %retval.sroa.0.08.i.i.i.i57, align 4
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i58, align 4
+  %incdec.ptr.i.i.i.i.i59 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i58, i64 4
   %cmp.i.not.i.i.i.i61 = icmp eq ptr %incdec.ptr.i.i.i.i.i59, %add.ptr3.i52
   br i1 %cmp.i.not.i.i.i.i61, label %for.body.i.i.i.i66.preheader, label %for.body.i.i.i.i56, !llvm.loop !1976
 
@@ -82904,18 +82904,18 @@ for.body.i.i.i.i66.preheader:                     ; preds = %for.body.i.i.i.i56
   br label %for.body.i.i.i.i66
 
 for.body.i.i.i.i66:                               ; preds = %for.body.i.i.i.i66.preheader, %for.body.i.i.i.i66
-  %first.sroa.0.08.i.i.i.i67 = phi ptr [ %incdec.ptr.i.i.i.i.i78, %for.body.i.i.i.i66 ], [ %add.ptr.i63, %for.body.i.i.i.i66.preheader ]
-  %retval.sroa.0.07.i.i.i.i68.pn = phi ptr [ %retval.sroa.0.07.i.i.i.i68, %for.body.i.i.i.i66 ], [ %add.ptr31, %for.body.i.i.i.i66.preheader ]
-  %retval.sroa.0.07.i.i.i.i68 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i68.pn, i64 24
-  %21 = load i32, ptr %first.sroa.0.08.i.i.i.i67, align 8
-  store i32 %21, ptr %retval.sroa.0.07.i.i.i.i68, align 8
-  %mbThrowOnCopy.i.i.i.i.i69 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i68.pn, i64 28
-  %mbThrowOnCopy3.i.i.i.i.i70 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i67, i64 4
+  %retval.sroa.0.08.i.i.i.i67.pn = phi ptr [ %retval.sroa.0.08.i.i.i.i67, %for.body.i.i.i.i66 ], [ %add.ptr31, %for.body.i.i.i.i66.preheader ]
+  %first.sroa.0.07.i.i.i.i68 = phi ptr [ %incdec.ptr.i.i.i.i.i78, %for.body.i.i.i.i66 ], [ %add.ptr.i63, %for.body.i.i.i.i66.preheader ]
+  %retval.sroa.0.08.i.i.i.i67 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i67.pn, i64 24
+  %21 = load i32, ptr %first.sroa.0.07.i.i.i.i68, align 8
+  store i32 %21, ptr %retval.sroa.0.08.i.i.i.i67, align 8
+  %mbThrowOnCopy.i.i.i.i.i69 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i67.pn, i64 28
+  %mbThrowOnCopy3.i.i.i.i.i70 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i68, i64 4
   %22 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i70, align 4
   %frombool.i.i.i.i.i71 = and i8 %22, 1
   store i8 %frombool.i.i.i.i.i71, ptr %mbThrowOnCopy.i.i.i.i.i69, align 4
-  %mMagicValue.i.i.i.i.i72 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i68.pn, i64 40
-  %mMagicValue4.i.i.i.i.i73 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i67, i64 16
+  %mMagicValue.i.i.i.i.i72 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i67.pn, i64 40
+  %mMagicValue4.i.i.i.i.i73 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i68, i64 16
   %23 = load i32, ptr %mMagicValue4.i.i.i.i.i73, align 8
   store i32 %23, ptr %mMagicValue.i.i.i.i.i72, align 8
   %24 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -82927,10 +82927,10 @@ for.body.i.i.i.i66:                               ; preds = %for.body.i.i.i.i66.
   %26 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i76 = add nsw i64 %26, 1
   store i64 %inc6.i.i.i.i.i76, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i77 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i68.pn, i64 32
+  %mId.i.i.i.i.i77 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i67.pn, i64 32
   store i64 %inc5.i.i.i.i.i75, ptr %mId.i.i.i.i.i77, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i67, align 8
-  %incdec.ptr.i.i.i.i.i78 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i67, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i68, align 8
+  %incdec.ptr.i.i.i.i.i78 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i68, i64 24
   %cmp.i.not.i.i.i.i80 = icmp eq ptr %incdec.ptr.i.i.i.i.i78, %add.ptr3.i64
   br i1 %cmp.i.not.i.i.i.i80, label %for.body.preheader.i.i.i81, label %for.body.i.i.i.i66, !llvm.loop !1484
 
@@ -83208,13 +83208,13 @@ for.body.i.i.preheader.i:                         ; preds = %_ZN5eastl16TupleVec
   br label %for.body.i.i.i13
 
 for.body.i.i.i13:                                 ; preds = %for.body.i.i.i13, %for.body.i.i.preheader.i
-  %first.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i13 ], [ %4, %for.body.i.i.preheader.i ]
-  %retval.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i13 ], [ %11, %for.body.i.i.preheader.i ]
-  %12 = load i32, ptr %first.sroa.0.07.i.i.i, align 4
-  store i32 %12, ptr %retval.sroa.0.06.i.i.i, align 4
-  store i32 0, ptr %first.sroa.0.07.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i, i64 4
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i, i64 4
+  %retval.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i13 ], [ %11, %for.body.i.i.preheader.i ]
+  %first.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i13 ], [ %4, %for.body.i.i.preheader.i ]
+  %12 = load i32, ptr %first.sroa.0.06.i.i.i, align 4
+  store i32 %12, ptr %retval.sroa.0.07.i.i.i, align 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i, align 4
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i, i64 4
   %cmp.i.i.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr25.i
   br i1 %cmp.i.i.i.not.i.i.i, label %for.body.i.i10.preheader.i, label %for.body.i.i.i13, !llvm.loop !497
 
@@ -83224,17 +83224,17 @@ for.body.i.i10.preheader.i:                       ; preds = %for.body.i.i.i13
   br label %for.body.i.i10.i
 
 for.body.i.i10.i:                                 ; preds = %for.body.i.i10.i, %for.body.i.i10.preheader.i
-  %first.sroa.0.07.i.i11.i = phi ptr [ %incdec.ptr.i.i.i.i13.i, %for.body.i.i10.i ], [ %5, %for.body.i.i10.preheader.i ]
-  %retval.sroa.0.06.i.i12.i = phi ptr [ %incdec.ptr.i.i.i14.i, %for.body.i.i10.i ], [ %13, %for.body.i.i10.preheader.i ]
-  %14 = load i32, ptr %first.sroa.0.07.i.i11.i, align 8
-  store i32 %14, ptr %retval.sroa.0.06.i.i12.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 4
+  %retval.sroa.0.07.i.i11.i = phi ptr [ %incdec.ptr.i.i.i14.i, %for.body.i.i10.i ], [ %13, %for.body.i.i10.preheader.i ]
+  %first.sroa.0.06.i.i12.i = phi ptr [ %incdec.ptr.i.i.i.i13.i, %for.body.i.i10.i ], [ %5, %for.body.i.i10.preheader.i ]
+  %14 = load i32, ptr %first.sroa.0.06.i.i12.i, align 8
+  store i32 %14, ptr %retval.sroa.0.07.i.i11.i, align 8
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 4
   %15 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %frombool.i.i.i.i = and i8 %15, 1
   store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i14 = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 16
-  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 16
+  %mMagicValue.i.i.i.i14 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 16
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 16
   %16 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %16, ptr %mMagicValue.i.i.i.i14, align 8
   %17 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -83246,11 +83246,11 @@ for.body.i.i10.i:                                 ; preds = %for.body.i.i10.i, %
   %19 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %19, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 8
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 8
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.07.i.i11.i, align 8
-  %incdec.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i11.i, i64 24
-  %incdec.ptr.i.i.i14.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i12.i, i64 24
+  store i32 0, ptr %first.sroa.0.06.i.i12.i, align 8
+  %incdec.ptr.i.i.i.i13.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i12.i, i64 24
+  %incdec.ptr.i.i.i14.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i11.i, i64 24
   %cmp.i.i.i.not.i.i15.i = icmp eq ptr %incdec.ptr.i.i.i.i13.i, %add.ptr37.i
   br i1 %cmp.i.i.i.not.i.i15.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE18DoInitFromIteratorINS0_12TupleVecIterIS6_JiS7_S8_EEEEEvNS_13move_iteratorIT_EESF_.exit, label %for.body.i.i10.i, !llvm.loop !498
 
@@ -83511,17 +83511,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit, %for.body.i.i.i.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %3, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %4 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 8
-  store i32 %4, ptr %retval.sroa.0.07.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %3, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %4 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 8
+  store i32 %4, ptr %retval.sroa.0.08.i.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
   %5 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %5, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 16
   %6 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %6, ptr %mMagicValue.i.i.i.i.i, align 8
   %7 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -83533,11 +83533,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVec
   %9 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %9, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 24
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 24
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1484
 
@@ -83646,17 +83646,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit, %for.body.i.i.i.i
-  %first.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %6, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %4, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
-  %7 = load i32, ptr %first.sroa.0.08.i.i.i.i, align 8
-  store i32 %7, ptr %retval.sroa.0.07.i.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 4
+  %retval.sroa.0.08.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %for.body.i.i.i.i ], [ %4, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %first.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %6, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit ]
+  %7 = load i32, ptr %first.sroa.0.07.i.i.i.i, align 8
+  store i32 %7, ptr %retval.sroa.0.08.i.i.i.i, align 8
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 4
   %8 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %8, 1
   store i8 %frombool.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 16
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 16
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 16
   %9 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8
   store i32 %9, ptr %mMagicValue.i.i.i.i.i, align 8
   %10 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -83668,11 +83668,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZN5eastl16TupleVec
   %12 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i = add nsw i64 %12, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 8
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 8
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i, i64 24
-  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i, i64 24
+  %incdec.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr3.i
   br i1 %cmp.i.not.i.i.i.i, label %for.body.preheader.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1484
 
@@ -83732,17 +83732,17 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestruct
   br label %for.body.i.i.i.i88
 
 for.body.i.i.i.i88:                               ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit84, %for.body.i.i.i.i88
-  %first.sroa.0.08.i.i.i.i89 = phi ptr [ %incdec.ptr.i.i.i.i.i100, %for.body.i.i.i.i88 ], [ %add.ptr.i85, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit84 ]
-  %retval.sroa.0.07.i.i.i.i90 = phi ptr [ %incdec.ptr.i1.i.i.i.i101, %for.body.i.i.i.i88 ], [ %add.ptr22, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit84 ]
-  %17 = load i32, ptr %first.sroa.0.08.i.i.i.i89, align 8
-  store i32 %17, ptr %retval.sroa.0.07.i.i.i.i90, align 8
-  %mbThrowOnCopy.i.i.i.i.i91 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i90, i64 4
-  %mbThrowOnCopy3.i.i.i.i.i92 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i89, i64 4
+  %retval.sroa.0.08.i.i.i.i89 = phi ptr [ %incdec.ptr.i1.i.i.i.i101, %for.body.i.i.i.i88 ], [ %add.ptr22, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit84 ]
+  %first.sroa.0.07.i.i.i.i90 = phi ptr [ %incdec.ptr.i.i.i.i.i100, %for.body.i.i.i.i88 ], [ %add.ptr.i85, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EbE30DoUninitializedMoveAndDestructEmmPb.exit84 ]
+  %17 = load i32, ptr %first.sroa.0.07.i.i.i.i90, align 8
+  store i32 %17, ptr %retval.sroa.0.08.i.i.i.i89, align 8
+  %mbThrowOnCopy.i.i.i.i.i91 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i89, i64 4
+  %mbThrowOnCopy3.i.i.i.i.i92 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i90, i64 4
   %18 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i92, align 4
   %frombool.i.i.i.i.i93 = and i8 %18, 1
   store i8 %frombool.i.i.i.i.i93, ptr %mbThrowOnCopy.i.i.i.i.i91, align 4
-  %mMagicValue.i.i.i.i.i94 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i90, i64 16
-  %mMagicValue4.i.i.i.i.i95 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i89, i64 16
+  %mMagicValue.i.i.i.i.i94 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i89, i64 16
+  %mMagicValue4.i.i.i.i.i95 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i90, i64 16
   %19 = load i32, ptr %mMagicValue4.i.i.i.i.i95, align 8
   store i32 %19, ptr %mMagicValue.i.i.i.i.i94, align 8
   %20 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -83754,11 +83754,11 @@ for.body.i.i.i.i88:                               ; preds = %_ZN5eastl16TupleVec
   %22 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i.i.i98 = add nsw i64 %22, 1
   store i64 %inc6.i.i.i.i.i98, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i.i.i99 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i90, i64 8
+  %mId.i.i.i.i.i99 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i89, i64 8
   store i64 %inc5.i.i.i.i.i97, ptr %mId.i.i.i.i.i99, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i.i.i89, align 8
-  %incdec.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i89, i64 24
-  %incdec.ptr.i1.i.i.i.i101 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i90, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i.i.i90, align 8
+  %incdec.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i90, i64 24
+  %incdec.ptr.i1.i.i.i.i101 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i89, i64 24
   %cmp.i.not.i.i.i.i102 = icmp eq ptr %incdec.ptr.i.i.i.i.i100, %add.ptr3.i86
   br i1 %cmp.i.not.i.i.i.i102, label %for.body.preheader.i.i.i103, label %for.body.i.i.i.i88, !llvm.loop !1484
 
@@ -83891,17 +83891,17 @@ _ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit: ; preds = %if.then
   br i1 %cmp.i.not6.i.i, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit, %for.body.i.i
-  %first.sroa.0.08.i.i = phi ptr [ %incdec.ptr.i.i.i153, %for.body.i.i ], [ %add.ptr77, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit ]
-  %retval.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %add.ptr51, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit ]
-  %37 = load i32, ptr %first.sroa.0.08.i.i, align 8
-  store i32 %37, ptr %retval.sroa.0.07.i.i, align 8
-  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 4
-  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i, i64 4
+  %retval.sroa.0.08.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %add.ptr51, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit ]
+  %first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i153, %for.body.i.i ], [ %add.ptr77, %_ZN5eastl22uninitialized_move_ptrIPbS1_S1_EET1_T_T0_S2_.exit ]
+  %37 = load i32, ptr %first.sroa.0.07.i.i, align 8
+  store i32 %37, ptr %retval.sroa.0.08.i.i, align 8
+  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 4
+  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 4
   %38 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
   %frombool.i.i.i = and i8 %38, 1
   store i8 %frombool.i.i.i, ptr %mbThrowOnCopy.i.i.i, align 4
-  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 16
-  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i, i64 16
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 16
+  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 16
   %39 = load i32, ptr %mMagicValue4.i.i.i, align 8
   store i32 %39, ptr %mMagicValue.i.i.i, align 8
   %40 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -83913,11 +83913,11 @@ for.body.i.i:                                     ; preds = %_ZN5eastl22uninitia
   %42 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i = add nsw i64 %42, 1
   store i64 %inc6.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 8
+  %mId.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 8
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i, align 8
-  %incdec.ptr.i.i.i153 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i, i64 24
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i, align 8
+  %incdec.ptr.i.i.i153 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 24
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i, i64 24
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i153, %add.ptr51
   br i1 %cmp.i.not.i.i, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit, label %for.body.i.i, !llvm.loop !1484
 
@@ -84072,17 +84072,17 @@ for.body.i.i205.preheader:                        ; preds = %if.else113
   br label %for.body.i.i205
 
 for.body.i.i205:                                  ; preds = %for.body.i.i205.preheader, %for.body.i.i205
-  %first.sroa.0.08.i.i206 = phi ptr [ %incdec.ptr.i.i.i217, %for.body.i.i205 ], [ %add.ptr62, %for.body.i.i205.preheader ]
-  %retval.sroa.0.07.i.i207 = phi ptr [ %incdec.ptr.i1.i.i218, %for.body.i.i205 ], [ %add.ptr124, %for.body.i.i205.preheader ]
-  %66 = load i32, ptr %first.sroa.0.08.i.i206, align 8
-  store i32 %66, ptr %retval.sroa.0.07.i.i207, align 8
-  %mbThrowOnCopy.i.i.i208 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i207, i64 4
-  %mbThrowOnCopy3.i.i.i209 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i206, i64 4
+  %retval.sroa.0.08.i.i206 = phi ptr [ %incdec.ptr.i1.i.i218, %for.body.i.i205 ], [ %add.ptr124, %for.body.i.i205.preheader ]
+  %first.sroa.0.07.i.i207 = phi ptr [ %incdec.ptr.i.i.i217, %for.body.i.i205 ], [ %add.ptr62, %for.body.i.i205.preheader ]
+  %66 = load i32, ptr %first.sroa.0.07.i.i207, align 8
+  store i32 %66, ptr %retval.sroa.0.08.i.i206, align 8
+  %mbThrowOnCopy.i.i.i208 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i206, i64 4
+  %mbThrowOnCopy3.i.i.i209 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i207, i64 4
   %67 = load i8, ptr %mbThrowOnCopy3.i.i.i209, align 4
   %frombool.i.i.i210 = and i8 %67, 1
   store i8 %frombool.i.i.i210, ptr %mbThrowOnCopy.i.i.i208, align 4
-  %mMagicValue.i.i.i211 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i207, i64 16
-  %mMagicValue4.i.i.i212 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i206, i64 16
+  %mMagicValue.i.i.i211 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i206, i64 16
+  %mMagicValue4.i.i.i212 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i207, i64 16
   %68 = load i32, ptr %mMagicValue4.i.i.i212, align 8
   store i32 %68, ptr %mMagicValue.i.i.i211, align 8
   %69 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -84094,11 +84094,11 @@ for.body.i.i205:                                  ; preds = %for.body.i.i205.pre
   %71 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i215 = add nsw i64 %71, 1
   store i64 %inc6.i.i.i215, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i216 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i207, i64 8
+  %mId.i.i.i216 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i206, i64 8
   store i64 %inc5.i.i.i214, ptr %mId.i.i.i216, align 8
-  store i32 0, ptr %first.sroa.0.08.i.i206, align 8
-  %incdec.ptr.i.i.i217 = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i206, i64 24
-  %incdec.ptr.i1.i.i218 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i207, i64 24
+  store i32 0, ptr %first.sroa.0.07.i.i207, align 8
+  %incdec.ptr.i.i.i217 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i207, i64 24
+  %incdec.ptr.i1.i.i218 = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i206, i64 24
   %cmp.i.not.i.i219 = icmp eq ptr %incdec.ptr.i.i.i217, %add.ptr51
   br i1 %cmp.i.not.i.i219, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit221, label %for.body.i.i205, !llvm.loop !1484
 

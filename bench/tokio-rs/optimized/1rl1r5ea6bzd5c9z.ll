@@ -6284,7 +6284,7 @@ define hidden noundef i32 @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Ste
 .lr.ph:                                           ; preds = %3, %36
   %18 = phi i32 [ %39, %36 ], [ %16, %3 ]
   %19 = phi i32 [ %40, %36 ], [ %17, %3 ]
-  %.02347 = phi i64 [ %.sroa.07.0.i, %36 ], [ %12, %3 ]
+  %.02447 = phi i64 [ %.sroa.07.0.i, %36 ], [ %12, %3 ]
   %20 = icmp eq i32 %19, %18
   br i1 %20, label %._crit_edge, label %21
 
@@ -6297,7 +6297,7 @@ define hidden noundef i32 @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Ste
   %27 = zext i32 %18 to i64
   %28 = shl nuw i64 %27, 32
   %29 = or disjoint i64 %28, %26
-  %30 = cmpxchg ptr %11, i64 %.02347, i64 %29 acq_rel acquire, align 8
+  %30 = cmpxchg ptr %11, i64 %.02447, i64 %29 acq_rel acquire, align 8
   %.sroa.18.0.in.i = extractvalue { i64, i1 } %30, 1
   br i1 %.sroa.18.0.in.i, label %31, label %36
 

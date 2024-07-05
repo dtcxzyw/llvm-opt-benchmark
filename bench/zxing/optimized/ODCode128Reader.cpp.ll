@@ -668,13 +668,13 @@ _ZN5ZXing6ResultC2Ev.exit81:                      ; preds = %_ZNK5ZXing11Pattern
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.030165 = phi i32 [ %249, %.lr.ph.preheader ], [ %256, %.lr.ph ]
+  %.034165 = phi i32 [ %249, %.lr.ph.preheader ], [ %256, %.lr.ph ]
   %251 = getelementptr inbounds i8, ptr %.sroa.099.2163, i64 %indvars.iv
   %252 = load i8, ptr %251, align 1
   %253 = zext i8 %252 to i32
   %254 = trunc nuw nsw i64 %indvars.iv to i32
   %255 = mul nuw nsw i32 %254, %253
-  %256 = add nuw nsw i32 %255, %.030165
+  %256 = add nuw nsw i32 %255, %.034165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6

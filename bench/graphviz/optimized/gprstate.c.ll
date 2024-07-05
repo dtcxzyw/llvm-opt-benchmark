@@ -134,35 +134,35 @@ define void @addBindings(ptr nocapture noundef writeonly %0, ptr noundef readonl
   br i1 %.not2438, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0222940 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0203039 = phi ptr [ %7, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %4 = getelementptr inbounds i8, ptr %.0203039, i64 8
+  %.0222940 = phi ptr [ %7, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.0203039 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %4 = getelementptr inbounds i8, ptr %.0222940, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not27 = icmp ne ptr %5, null
   %6 = zext i1 %.not27 to i64
-  %spec.select = add i64 %.0222940, %6
-  %7 = getelementptr inbounds i8, ptr %.0203039, i64 16
+  %spec.select = add i64 %.0203039, %6
+  %7 = getelementptr inbounds i8, ptr %.0222940, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not24 = icmp eq ptr %8, null
   br i1 %.not24, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader
-  %.02229.lcssa = phi i64 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %9 = icmp eq i64 %.02229.lcssa, 0
+  %.02030.lcssa = phi i64 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
+  %9 = icmp eq i64 %.02030.lcssa, 0
   br i1 %9, label %.critedge.thread, label %10
 
 10:                                               ; preds = %.critedge
-  %mul.ov.i = icmp ugt i64 %.02229.lcssa, 1152921504606846975
+  %mul.ov.i = icmp ugt i64 %.02030.lcssa, 1152921504606846975
   br i1 %mul.ov.i, label %11, label %14
 
 11:                                               ; preds = %10
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.5, i64 noundef %.02229.lcssa, i64 noundef 16) #18
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.5, i64 noundef %.02030.lcssa, i64 noundef 16) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
 
 14:                                               ; preds = %10
-  %15 = tail call noalias ptr @calloc(i64 noundef %.02229.lcssa, i64 noundef 16) #16
+  %15 = tail call noalias ptr @calloc(i64 noundef %.02030.lcssa, i64 noundef 16) #16
   %16 = icmp eq ptr %15, null
   br i1 %16, label %18, label %gv_calloc.exit.preheader
 
@@ -173,37 +173,37 @@ gv_calloc.exit.preheader:                         ; preds = %14
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr @stderr, align 8
-  %20 = shl nuw i64 %.02229.lcssa, 4
+  %20 = shl nuw i64 %.02030.lcssa, 4
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.6, i64 noundef %20) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
 
 .lr.ph36:                                         ; preds = %gv_calloc.exit.preheader, %gv_calloc.exit
   %.035 = phi ptr [ %.1, %gv_calloc.exit ], [ %15, %gv_calloc.exit.preheader ]
-  %.12134 = phi ptr [ %26, %gv_calloc.exit ], [ %1, %gv_calloc.exit.preheader ]
-  %22 = getelementptr inbounds i8, ptr %.12134, i64 8
+  %.12334 = phi ptr [ %26, %gv_calloc.exit ], [ %1, %gv_calloc.exit.preheader ]
+  %22 = getelementptr inbounds i8, ptr %.12334, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not26 = icmp eq ptr %23, null
   br i1 %.not26, label %gv_calloc.exit, label %24
 
 24:                                               ; preds = %.lr.ph36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.035, ptr noundef nonnull align 8 dereferenceable(16) %.12134, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.035, ptr noundef nonnull align 8 dereferenceable(16) %.12334, i64 16, i1 false)
   %25 = getelementptr inbounds i8, ptr %.035, i64 16
   br label %gv_calloc.exit
 
 gv_calloc.exit:                                   ; preds = %24, %.lr.ph36
   %.1 = phi ptr [ %25, %24 ], [ %.035, %.lr.ph36 ]
-  %26 = getelementptr inbounds i8, ptr %.12134, i64 16
+  %26 = getelementptr inbounds i8, ptr %.12334, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not25 = icmp eq ptr %27, null
   br i1 %.not25, label %gv_calloc.exit._crit_edge, label %.lr.ph36
 
 gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv_calloc.exit.preheader
-  tail call void @qsort(ptr noundef nonnull %15, i64 noundef %.02229.lcssa, i64 noundef 16, ptr noundef nonnull @bindingcmpf) #15
+  tail call void @qsort(ptr noundef nonnull %15, i64 noundef %.02030.lcssa, i64 noundef 16, ptr noundef nonnull @bindingcmpf) #15
   %28 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %15, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 152
-  store i64 %.02229.lcssa, ptr %29, align 8
+  store i64 %.02030.lcssa, ptr %29, align 8
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %2, %.critedge, %gv_calloc.exit._crit_edge

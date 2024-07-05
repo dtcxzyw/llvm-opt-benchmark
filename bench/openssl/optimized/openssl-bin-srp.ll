@@ -541,9 +541,9 @@ if.end174:                                        ; preds = %if.else163, %if.the
   br label %while.cond175
 
 while.cond175:                                    ; preds = %if.end446, %if.end174
-  %errors.0 = phi i32 [ 0, %if.end174 ], [ %errors.1, %if.end446 ]
   %doupdatedb.0 = phi i32 [ 0, %if.end174 ], [ %doupdatedb.1, %if.end446 ]
   %user.1 = phi ptr [ %user.0, %if.end174 ], [ %113, %if.end446 ]
+  %errors.0 = phi i32 [ 0, %if.end174 ], [ %errors.1, %if.end446 ]
   %argv.addr.1 = phi ptr [ %argv.addr.0, %if.end174 ], [ %incdec.ptr447, %if.end446 ]
   %cmp178 = icmp ne ptr %user.1, null
   %38 = select i1 %cmp176, i1 true, i1 %cmp178
@@ -917,16 +917,16 @@ if.else435:                                       ; preds = %if.then429
   br label %if.end446
 
 if.end446:                                        ; preds = %for.body213, %if.then205, %if.else225, %lor.lhs.false415, %land.lhs.true417, %lor.lhs.false291, %if.then231, %if.else435, %if.then432, %if.then309, %if.then322, %if.then220, %if.else217
-  %errors.1 = phi i32 [ %inc222, %if.then220 ], [ %errors.0, %if.else217 ], [ %errors.0, %if.then231 ], [ %inc311, %if.then309 ], [ %inc324, %if.then322 ], [ %inc434, %if.then432 ], [ %errors.0, %if.else435 ], [ %errors.0, %lor.lhs.false291 ], [ %errors.0, %land.lhs.true417 ], [ %errors.0, %lor.lhs.false415 ], [ %errors.0, %if.else225 ], [ %errors.0, %if.then205 ], [ %errors.0, %for.body213 ]
   %doupdatedb.1 = phi i32 [ %doupdatedb.0, %if.then220 ], [ %doupdatedb.0, %if.else217 ], [ 1, %if.then231 ], [ %doupdatedb.0, %if.then309 ], [ %doupdatedb.0, %if.then322 ], [ %doupdatedb.0, %if.then432 ], [ 1, %if.else435 ], [ 1, %lor.lhs.false291 ], [ 1, %land.lhs.true417 ], [ 1, %lor.lhs.false415 ], [ %doupdatedb.0, %if.else225 ], [ %doupdatedb.0, %if.then205 ], [ %doupdatedb.0, %for.body213 ]
+  %errors.1 = phi i32 [ %inc222, %if.then220 ], [ %errors.0, %if.else217 ], [ %errors.0, %if.then231 ], [ %inc311, %if.then309 ], [ %inc324, %if.then322 ], [ %inc434, %if.then432 ], [ %errors.0, %if.else435 ], [ %errors.0, %lor.lhs.false291 ], [ %errors.0, %land.lhs.true417 ], [ %errors.0, %lor.lhs.false415 ], [ %errors.0, %if.else225 ], [ %errors.0, %if.then205 ], [ %errors.0, %for.body213 ]
   %incdec.ptr447 = getelementptr inbounds i8, ptr %argv.addr.1, i64 8
   %113 = load ptr, ptr %argv.addr.1, align 8
   %cmp448 = icmp eq ptr %113, null
   br i1 %cmp448, label %while.end452, label %while.cond175, !llvm.loop !11
 
 while.end452:                                     ; preds = %if.end446, %while.cond175
-  %errors.2 = phi i32 [ %errors.1, %if.end446 ], [ %errors.0, %while.cond175 ]
   %doupdatedb.2 = phi i32 [ %doupdatedb.1, %if.end446 ], [ %doupdatedb.0, %while.cond175 ]
+  %errors.2 = phi i32 [ %errors.1, %if.end446 ], [ %errors.0, %while.cond175 ]
   br i1 %tobool109.not, label %if.end456, label %if.then454
 
 if.then454:                                       ; preds = %while.end452
@@ -1016,8 +1016,8 @@ end.thread:                                       ; preds = %sw.bb26, %sw.bb31, 
   br i1 %tobool507227.not, label %if.end515, label %if.then513
 
 end:                                              ; preds = %if.end391, %lor.lhs.false403, %lor.lhs.false407, %lor.lhs.false411, %land.lhs.true417, %if.end492.thread, %if.end484.thread, %if.end492, %if.end484, %if.end501, %if.then388, %if.then363, %if.then294, %if.then255
-  %ret.0 = phi i32 [ %conv503, %if.end501 ], [ 1, %if.end492 ], [ 1, %if.end484 ], [ 1, %if.then294 ], [ 1, %if.then255 ], [ 1, %if.then388 ], [ 1, %if.then363 ], [ 1, %if.end484.thread ], [ 1, %if.end492.thread ], [ 1, %land.lhs.true417 ], [ 1, %lor.lhs.false411 ], [ 1, %lor.lhs.false407 ], [ 1, %lor.lhs.false403 ], [ 1, %if.end391 ]
   %errors.3 = phi i32 [ %errors.2, %if.end501 ], [ %errors.2, %if.end492 ], [ %errors.2, %if.end484 ], [ %errors.0, %if.then294 ], [ %inc257, %if.then255 ], [ %inc390, %if.then388 ], [ %inc365, %if.then363 ], [ %errors.2, %if.end484.thread ], [ %errors.2, %if.end492.thread ], [ %errors.0, %land.lhs.true417 ], [ %errors.0, %lor.lhs.false411 ], [ %errors.0, %lor.lhs.false407 ], [ %errors.0, %lor.lhs.false403 ], [ %errors.0, %if.end391 ]
+  %ret.0 = phi i32 [ %conv503, %if.end501 ], [ 1, %if.end492 ], [ 1, %if.end484 ], [ 1, %if.then294 ], [ 1, %if.then255 ], [ 1, %if.then388 ], [ 1, %if.then363 ], [ 1, %if.end484.thread ], [ 1, %if.end492.thread ], [ 1, %land.lhs.true417 ], [ 1, %lor.lhs.false411 ], [ 1, %lor.lhs.false407 ], [ 1, %lor.lhs.false403 ], [ 1, %if.end391 ]
   %cmp504 = icmp ne i32 %errors.3, 0
   %tobool507 = icmp ne i32 %verbose.0, 0
   %or.cond11 = select i1 %cmp504, i1 %tobool507, i1 false

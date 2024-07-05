@@ -2322,29 +2322,29 @@ define void @_Z13write_inpfilePN3gmx16TextOutputStreamERKNSt10filesystem7__cxx11
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
-  %.sroa.017.026.i = phi ptr [ %19, %.lr.ph.i ], [ %15, %6 ]
-  %.025.i = phi i32 [ %.sroa.speculated.i, %.lr.ph.i ], [ -1, %6 ]
-  %18 = load i32, ptr %.sroa.017.026.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %.025.i, i32 %18)
-  %19 = getelementptr inbounds i8, ptr %.sroa.017.026.i, i64 80
+  %.026.i = phi i32 [ %.sroa.speculated.i, %.lr.ph.i ], [ -1, %6 ]
+  %.sroa.017.025.i = phi ptr [ %19, %.lr.ph.i ], [ %15, %6 ]
+  %18 = load i32, ptr %.sroa.017.025.i, align 4
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %.026.i, i32 %18)
+  %19 = getelementptr inbounds i8, ptr %.sroa.017.025.i, i64 80
   %.not.i = icmp eq ptr %19, %17
   br i1 %.not.i, label %.lr.ph30.i, label %.lr.ph.i
 
 .lr.ph30.i:                                       ; preds = %.lr.ph.i, %24
-  %.sroa.013.029.i = phi ptr [ %25, %24 ], [ %15, %.lr.ph.i ]
-  %.128.i = phi i32 [ %.2.i, %24 ], [ %.sroa.speculated.i, %.lr.ph.i ]
-  %20 = load i32, ptr %.sroa.013.029.i, align 8
+  %.129.i = phi i32 [ %.2.i, %24 ], [ %.sroa.speculated.i, %.lr.ph.i ]
+  %.sroa.013.028.i = phi ptr [ %25, %24 ], [ %15, %.lr.ph.i ]
+  %20 = load i32, ptr %.sroa.013.028.i, align 8
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph30.i
-  %23 = add nsw i32 %.128.i, 1
-  store i32 %.128.i, ptr %.sroa.013.029.i, align 8
+  %23 = add nsw i32 %.129.i, 1
+  store i32 %.129.i, ptr %.sroa.013.028.i, align 8
   br label %24
 
 24:                                               ; preds = %22, %.lr.ph30.i
-  %.2.i = phi i32 [ %23, %22 ], [ %.128.i, %.lr.ph30.i ]
-  %25 = getelementptr inbounds i8, ptr %.sroa.013.029.i, i64 80
+  %.2.i = phi i32 [ %23, %22 ], [ %.129.i, %.lr.ph30.i ]
+  %25 = getelementptr inbounds i8, ptr %.sroa.013.028.i, i64 80
   %.not23.i = icmp eq ptr %25, %17
   br i1 %.not23.i, label %._crit_edge.loopexit.i, label %.lr.ph30.i
 

@@ -571,15 +571,15 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   %21 = phi i32 [ %6, %.lr.ph.i ], [ %52, %.critedge.i ]
   %22 = phi i32 [ %11, %.lr.ph.i ], [ %53, %.critedge.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.critedge.i ]
-  %.03144.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.critedge.i ]
-  %.03243.i = phi i32 [ 0, %.lr.ph.i ], [ %.133.i, %.critedge.i ]
-  %.03442.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %.critedge.i ]
+  %.03243.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %.critedge.i ]
+  %.03342.i = phi i32 [ 0, %.lr.ph.i ], [ %.134.i, %.critedge.i ]
+  %.03541.i = phi i32 [ 0, %.lr.ph.i ], [ %.136.i, %.critedge.i ]
   %23 = load ptr, ptr %14, align 8
-  %24 = sext i32 %.03442.i to i64
+  %24 = sext i32 %.03243.i to i64
   %25 = getelementptr inbounds i32, ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = load ptr, ptr %15, align 8
-  %28 = sext i32 %.03243.i to i64
+  %28 = sext i32 %.03541.i to i64
   %29 = getelementptr inbounds i32, ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %16, align 8
@@ -623,26 +623,26 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   %45 = load ptr, ptr %18, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = add nsw i32 %.03144.i, 1
-  %49 = sext i32 %.03144.i to i64
+  %48 = add nsw i32 %.03342.i, 1
+  %49 = sext i32 %.03342.i to i64
   %50 = getelementptr inbounds i32, ptr %47, i64 %49
   store i32 %44, ptr %50, align 4
   %.pre.i = load i32, ptr %1, align 8
   %.pre = load i32, ptr %5, align 8
-  %.pre16 = load i32, ptr %7, align 8
+  %.pre15 = load i32, ptr %7, align 8
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %41, %40, %38, %37, %35, %34, %32, %19
-  %51 = phi i32 [ %.pre16, %41 ], [ %20, %40 ], [ %20, %19 ], [ %20, %38 ], [ %20, %37 ], [ %20, %35 ], [ %20, %34 ], [ %20, %32 ]
+  %51 = phi i32 [ %.pre15, %41 ], [ %20, %40 ], [ %20, %19 ], [ %20, %38 ], [ %20, %37 ], [ %20, %35 ], [ %20, %34 ], [ %20, %32 ]
   %52 = phi i32 [ %.pre, %41 ], [ %21, %40 ], [ %21, %19 ], [ %21, %38 ], [ %21, %37 ], [ %21, %35 ], [ %21, %34 ], [ %21, %32 ]
   %53 = phi i32 [ %.pre.i, %41 ], [ %22, %40 ], [ %22, %19 ], [ %22, %38 ], [ %22, %37 ], [ %22, %35 ], [ %22, %34 ], [ %22, %32 ]
-  %.1.i = phi i32 [ %48, %41 ], [ %.03144.i, %40 ], [ %.03144.i, %19 ], [ %.03144.i, %38 ], [ %.03144.i, %37 ], [ %.03144.i, %35 ], [ %.03144.i, %34 ], [ %.03144.i, %32 ]
+  %.134.i = phi i32 [ %48, %41 ], [ %.03342.i, %40 ], [ %.03342.i, %19 ], [ %.03342.i, %38 ], [ %.03342.i, %37 ], [ %.03342.i, %35 ], [ %.03342.i, %34 ], [ %.03342.i, %32 ]
   %54 = and i32 %52, 1
   %55 = xor i32 %54, 1
-  %spec.select.i = add i32 %55, %.03442.i
+  %spec.select.i = add i32 %55, %.03243.i
   %56 = and i32 %51, 1
   %57 = xor i32 %56, 1
-  %.133.i = add i32 %57, %.03243.i
+  %.136.i = add i32 %57, %.03541.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %58 = sext i32 %53 to i64
   %59 = icmp slt i64 %indvars.iv.next.i, %58
@@ -662,17 +662,17 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
 
 67:                                               ; preds = %.critedge.i12, %.lr.ph.i9
   %68 = phi i32 [ %8, %.lr.ph.i9 ], [ %116, %.critedge.i12 ]
-  %indvars.iv.i11 = phi i64 [ 0, %.lr.ph.i9 ], [ %indvars.iv.next.i15, %.critedge.i12 ]
-  %.03445.i = phi i32 [ 0, %.lr.ph.i9 ], [ %.1.i13, %.critedge.i12 ]
-  %.03544.i = phi i32 [ 0, %.lr.ph.i9 ], [ %.136.i, %.critedge.i12 ]
-  %.03743.i = phi i32 [ 0, %.lr.ph.i9 ], [ %spec.select.i14, %.critedge.i12 ]
+  %indvars.iv.i11 = phi i64 [ 0, %.lr.ph.i9 ], [ %indvars.iv.next.i14, %.critedge.i12 ]
+  %.03544.i = phi i32 [ 0, %.lr.ph.i9 ], [ %spec.select.i13, %.critedge.i12 ]
+  %.03643.i = phi i32 [ 0, %.lr.ph.i9 ], [ %.137.i, %.critedge.i12 ]
+  %.03842.i = phi i32 [ 0, %.lr.ph.i9 ], [ %.139.i, %.critedge.i12 ]
   %69 = load ptr, ptr %61, align 8
-  %70 = sext i32 %.03743.i to i64
+  %70 = sext i32 %.03544.i to i64
   %71 = getelementptr inbounds float, ptr %69, i64 %70
   %72 = load float, ptr %71, align 4
   %73 = and i32 %68, 4
   %.not.i = icmp eq i32 %73, 0
-  %74 = sext i32 %.03544.i to i64
+  %74 = sext i32 %.03842.i to i64
   br i1 %.not.i, label %79, label %75
 
 75:                                               ; preds = %67
@@ -735,33 +735,33 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   %107 = load ptr, ptr %66, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
-  %110 = add nsw i32 %.03445.i, 1
-  %111 = sext i32 %.03445.i to i64
+  %110 = add nsw i32 %.03643.i, 1
+  %111 = sext i32 %.03643.i to i64
   %112 = getelementptr inbounds i32, ptr %109, i64 %111
   store i32 %106, ptr %112, align 4
   br label %.critedge.i12
 
 .critedge.i12:                                    ; preds = %103, %99, %95, %93, %91, %89, %87, %84
-  %.1.i13 = phi i32 [ %110, %103 ], [ %.03445.i, %99 ], [ %.03445.i, %84 ], [ %.03445.i, %95 ], [ %.03445.i, %93 ], [ %.03445.i, %91 ], [ %.03445.i, %89 ], [ %.03445.i, %87 ]
+  %.137.i = phi i32 [ %110, %103 ], [ %.03643.i, %99 ], [ %.03643.i, %84 ], [ %.03643.i, %95 ], [ %.03643.i, %93 ], [ %.03643.i, %91 ], [ %.03643.i, %89 ], [ %.03643.i, %87 ]
   %113 = load i32, ptr %5, align 8
   %114 = and i32 %113, 1
   %115 = xor i32 %114, 1
-  %spec.select.i14 = add i32 %115, %.03743.i
+  %spec.select.i13 = add i32 %115, %.03544.i
   %116 = load i32, ptr %7, align 8
   %117 = and i32 %116, 1
   %118 = xor i32 %117, 1
-  %.136.i = add i32 %118, %.03544.i
-  %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i11, 1
+  %.139.i = add i32 %118, %.03842.i
+  %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i11, 1
   %119 = load i32, ptr %1, align 8
   %120 = sext i32 %119 to i64
-  %121 = icmp slt i64 %indvars.iv.next.i15, %120
+  %121 = icmp slt i64 %indvars.iv.next.i14, %120
   br i1 %121, label %67, label %_ZL20evaluate_compare_intP15gmx_ana_index_tP18gmx_ana_selvalue_tPv.exit, !llvm.loop !8
 
 _ZL20evaluate_compare_intP15gmx_ana_index_tP18gmx_ana_selvalue_tPv.exit: ; preds = %.critedge.i12, %.critedge.i, %60, %13
-  %.034.lcssa.i.sink = phi i32 [ 0, %13 ], [ 0, %60 ], [ %.1.i, %.critedge.i ], [ %.1.i13, %.critedge.i12 ]
+  %.036.lcssa.i.sink = phi i32 [ 0, %13 ], [ 0, %60 ], [ %.134.i, %.critedge.i ], [ %.137.i, %.critedge.i12 ]
   %122 = getelementptr inbounds i8, ptr %2, i64 8
   %123 = load ptr, ptr %122, align 8
-  store i32 %.034.lcssa.i.sink, ptr %123, align 8
+  store i32 %.036.lcssa.i.sink, ptr %123, align 8
   ret void
 }
 

@@ -56,9 +56,9 @@ entry:
   br i1 %cmp.not5.not, label %return, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %entry, %_ZN4absl20StartsWithIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_.exit
-  %haystack.sroa.0.07 = phi i64 [ %sub.i, %_ZN4absl20StartsWithIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ], [ %haystack.coerce0, %entry ]
-  %haystack.sroa.5.06 = phi ptr [ %add.ptr.i, %_ZN4absl20StartsWithIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ], [ %haystack.coerce1, %entry ]
-  %call5.i.i = invoke noundef i32 @_ZN4absl16strings_internal10memcasecmpEPKcS2_m(ptr noundef %haystack.sroa.5.06, ptr noundef %needle.coerce1, i64 noundef %needle.coerce0)
+  %haystack.sroa.5.07 = phi ptr [ %add.ptr.i, %_ZN4absl20StartsWithIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ], [ %haystack.coerce1, %entry ]
+  %haystack.sroa.0.06 = phi i64 [ %sub.i, %_ZN4absl20StartsWithIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ], [ %haystack.coerce0, %entry ]
+  %call5.i.i = invoke noundef i32 @_ZN4absl16strings_internal10memcasecmpEPKcS2_m(ptr noundef %haystack.sroa.5.07, ptr noundef %needle.coerce1, i64 noundef %needle.coerce0)
           to label %_ZN4absl20StartsWithIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %land.rhs.i.i
@@ -70,8 +70,8 @@ terminate.lpad.i.i:                               ; preds = %land.rhs.i.i
 
 _ZN4absl20StartsWithIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds = %land.rhs.i.i
   %cmp6.i.i = icmp eq i32 %call5.i.i, 0
-  %add.ptr.i = getelementptr inbounds i8, ptr %haystack.sroa.5.06, i64 1
-  %sub.i = add i64 %haystack.sroa.0.07, -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %haystack.sroa.5.07, i64 1
+  %sub.i = add i64 %haystack.sroa.0.06, -1
   %cmp.not.not = icmp ult i64 %sub.i, %needle.coerce0
   %or.cond = select i1 %cmp6.i.i, i1 true, i1 %cmp.not.not
   br i1 %or.cond, label %return, label %land.rhs.i.i, !llvm.loop !5

@@ -1251,14 +1251,14 @@ define dso_local noundef range(i32 -3, 1) i32 @_ZN5cmsys31SystemInformationImple
   br i1 %.not30, label %.preheader, label %45
 
 .preheader:                                       ; preds = %10
-  %.02544 = load ptr, ptr %4, align 8
-  %.not3145 = icmp eq ptr %.02544, null
+  %.02644 = load ptr, ptr %4, align 8
+  %.not3145 = icmp eq ptr %.02644, null
   br i1 %.not3145, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.thread
-  %.02547 = phi ptr [ %.025, %.thread ], [ %.02544, %.preheader ]
-  %.02646 = phi i32 [ %.2, %.thread ], [ 0, %.preheader ]
-  %14 = getelementptr inbounds i8, ptr %.02547, i64 24
+  %.02647 = phi ptr [ %.026, %.thread ], [ %.02644, %.preheader ]
+  %.02546 = phi i32 [ %.2, %.thread ], [ 0, %.preheader ]
+  %14 = getelementptr inbounds i8, ptr %.02647, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not32 = icmp eq ptr %15, null
   br i1 %.not32, label %.thread, label %16
@@ -1272,7 +1272,7 @@ define dso_local noundef range(i32 -3, 1) i32 @_ZN5cmsys31SystemInformationImple
   ]
 
 19:                                               ; preds = %16, %16
-  %20 = getelementptr inbounds i8, ptr %.02547, i64 16
+  %20 = getelementptr inbounds i8, ptr %.02647, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 8
   %.not33 = icmp eq i32 %22, 0
@@ -1347,9 +1347,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.loopexit
 
 .thread:                                          ; preds = %.lr.ph, %.thread38, %23, %16, %19
-  %.2 = phi i32 [ %.02646, %19 ], [ %.02646, %16 ], [ -3, %23 ], [ 0, %.thread38 ], [ %.02646, %.lr.ph ]
-  %.025 = load ptr, ptr %.02547, align 8
-  %.not31 = icmp eq ptr %.025, null
+  %.2 = phi i32 [ %.02546, %19 ], [ %.02546, %16 ], [ -3, %23 ], [ 0, %.thread38 ], [ %.02546, %.lr.ph ]
+  %.026 = load ptr, ptr %.02647, align 8
+  %.not31 = icmp eq ptr %.026, null
   br i1 %.not31, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.thread, %.preheader, %43
@@ -6523,10 +6523,10 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit80:   ; preds = %_ZNSt12_Vector_base
 .lr.ph200:                                        ; preds = %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit80, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit91
   %.sroa.0125.3199 = phi ptr [ %.sroa.0125.4, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit91 ], [ %.sroa.0125.2, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit80 ]
   %.sroa.15.3198 = phi ptr [ %.sroa.15.4, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit91 ], [ %.sroa.15.2, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit80 ]
-  %.sroa.0118.0197 = phi ptr [ %160, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit91 ], [ %136, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit80 ]
-  %.sroa.35.3196 = phi ptr [ %.sroa.35.4, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit91 ], [ %.sroa.35.2, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit80 ]
-  %137 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0118.0197) #29
-  %.not.i.i81 = icmp eq ptr %.sroa.15.3198, %.sroa.35.3196
+  %.sroa.35.3197 = phi ptr [ %.sroa.35.4, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit91 ], [ %.sroa.35.2, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit80 ]
+  %.sroa.0118.0196 = phi ptr [ %160, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit91 ], [ %136, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit80 ]
+  %137 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0118.0196) #29
+  %.not.i.i81 = icmp eq ptr %.sroa.15.3198, %.sroa.35.3197
   br i1 %.not.i.i81, label %139, label %138
 
 138:                                              ; preds = %.lr.ph200
@@ -6587,11 +6587,11 @@ _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iterat
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit91
 
 _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit91:   ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i88, %138
-  %.sroa.35.4 = phi ptr [ %159, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i88 ], [ %.sroa.35.3196, %138 ]
+  %.sroa.35.4 = phi ptr [ %159, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i88 ], [ %.sroa.35.3197, %138 ]
   %.pn166 = phi ptr [ %157, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i88 ], [ %.sroa.15.3198, %138 ]
   %.sroa.0125.4 = phi ptr [ %153, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i88 ], [ %.sroa.0125.3199, %138 ]
   %.sroa.15.4 = getelementptr inbounds i8, ptr %.pn166, i64 8
-  %160 = getelementptr inbounds i8, ptr %.sroa.0118.0197, i64 32
+  %160 = getelementptr inbounds i8, ptr %.sroa.0118.0196, i64 32
   %.not165 = icmp eq ptr %160, %135
   br i1 %.not165, label %._crit_edge201, label %.lr.ph200
 

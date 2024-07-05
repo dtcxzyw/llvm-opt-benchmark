@@ -1077,13 +1077,13 @@ for.body19.lr.ph:                                 ; preds = %for.end
   br label %for.body19
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %if.end
-  %lrefIterator.079 = phi ptr [ %add.ptr.i86, %for.body19.lr.ph ], [ %incdec.ptr22, %if.end ]
-  %RHS.078 = phi ptr [ null, %for.body19.lr.ph ], [ %RHS.1, %if.end ]
+  %RHS.079 = phi ptr [ null, %for.body19.lr.ph ], [ %RHS.1, %if.end ]
+  %lrefIterator.078 = phi ptr [ %add.ptr.i86, %for.body19.lr.ph ], [ %incdec.ptr22, %if.end ]
   %__begin315.sroa.0.077 = phi ptr [ %add.ptr.i.i52, %for.body19.lr.ph ], [ %incdec.ptr.i, %if.end ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin315.sroa.0.077, i64 -8
   %27 = load ptr, ptr %incdec.ptr.i, align 8
-  %incdec.ptr22 = getelementptr inbounds i8, ptr %lrefIterator.079, i64 -48
-  %tobool.not = icmp eq ptr %RHS.078, null
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %lrefIterator.078, i64 -48
+  %tobool.not = icmp eq ptr %RHS.079, null
   br i1 %tobool.not, label %if.then23, label %if.end
 
 if.then23:                                        ; preds = %for.body19
@@ -1115,7 +1115,7 @@ _ZN6hermes5irgenL15extractNameHintERKNS0_10LReferenceE.exit: ; preds = %if.else.
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6hermes5irgenL15extractNameHintERKNS0_10LReferenceE.exit, %for.body19
-  %RHS.1 = phi ptr [ %RHS.078, %for.body19 ], [ %call27, %_ZN6hermes5irgenL15extractNameHintERKNS0_10LReferenceE.exit ]
+  %RHS.1 = phi ptr [ %RHS.079, %for.body19 ], [ %call27, %_ZN6hermes5irgenL15extractNameHintERKNS0_10LReferenceE.exit ]
   %debugLoc_.i = getelementptr inbounds i8, ptr %27, i64 40
   %retval.sroa.0.0.copyload.i = load ptr, ptr %debugLoc_.i, align 8
   store ptr %retval.sroa.0.0.copyload.i, ptr %Location.i, align 8
@@ -2009,8 +2009,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %__begin2.sroa.0.0380 = phi ptr [ %__begin2.sroa.0.0376, %for.body.lr.ph ], [ %__begin2.sroa.0.0, %for.inc ]
-  %numComputed.0379 = phi i32 [ 0, %for.body.lr.ph ], [ %numComputed.1, %for.inc ]
-  %protoProperty.0378 = phi ptr [ null, %for.body.lr.ph ], [ %protoProperty.1, %for.inc ]
+  %protoProperty.0379 = phi ptr [ null, %for.body.lr.ph ], [ %protoProperty.1, %for.inc ]
+  %numComputed.0378 = phi i32 [ 0, %for.body.lr.ph ], [ %numComputed.1, %for.inc ]
   %kind_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 16
   %1 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq i32 %1, 42
@@ -2024,7 +2024,7 @@ if.end:                                           ; preds = %for.body
   br i1 %tobool, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end
-  %inc = add i32 %numComputed.0379, 1
+  %inc = add i32 %numComputed.0378, 1
   br label %for.inc
 
 if.end9:                                          ; preds = %if.end
@@ -2127,7 +2127,7 @@ land.lhs.true19:                                  ; preds = %land.lhs.true17
   br i1 %tobool20, label %if.end38, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true19
-  %tobool22.not = icmp eq ptr %protoProperty.0378, null
+  %tobool22.not = icmp eq ptr %protoProperty.0379, null
   br i1 %tobool22.not, label %for.inc, label %if.else
 
 if.else:                                          ; preds = %if.then21
@@ -2149,9 +2149,9 @@ if.else:                                          ; preds = %if.then21
   %19 = load ptr, ptr %Ctx.i101, align 8
   %sm_.i102 = getelementptr inbounds i8, ptr %19, i64 160
   %20 = load ptr, ptr %sm_.i102, align 8
-  %sourceRange_.i103 = getelementptr inbounds i8, ptr %protoProperty.0378, i64 24
+  %sourceRange_.i103 = getelementptr inbounds i8, ptr %protoProperty.0379, i64 24
   %retval.sroa.0.0.copyload.i104 = load ptr, ptr %sourceRange_.i103, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i105 = getelementptr inbounds i8, ptr %protoProperty.0378, i64 32
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i105 = getelementptr inbounds i8, ptr %protoProperty.0379, i64 32
   %retval.sroa.2.0.copyload.i106 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i105, align 8
   store i8 1, ptr %RHSKind.i110, align 1
   store ptr @.str.9, ptr %ref.tmp36, align 8
@@ -2283,8 +2283,8 @@ if.end91:                                         ; preds = %_ZN4llvhplERKNS_5Tw
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then21, %if.else, %for.body, %if.end91, %if.then8
-  %protoProperty.1 = phi ptr [ %protoProperty.0378, %for.body ], [ %protoProperty.0378, %if.then8 ], [ %protoProperty.0378, %if.end91 ], [ %protoProperty.0378, %if.else ], [ %__begin2.sroa.0.0380, %if.then21 ]
-  %numComputed.1 = phi i32 [ %numComputed.0379, %for.body ], [ %inc, %if.then8 ], [ %numComputed.0379, %if.end91 ], [ %numComputed.0379, %if.else ], [ %numComputed.0379, %if.then21 ]
+  %numComputed.1 = phi i32 [ %numComputed.0378, %for.body ], [ %inc, %if.then8 ], [ %numComputed.0378, %if.end91 ], [ %numComputed.0378, %if.else ], [ %numComputed.0378, %if.then21 ]
+  %protoProperty.1 = phi ptr [ %protoProperty.0379, %for.body ], [ %protoProperty.0379, %if.then8 ], [ %protoProperty.0379, %if.end91 ], [ %protoProperty.0379, %if.else ], [ %__begin2.sroa.0.0380, %if.then21 ]
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0380, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i95.not = icmp eq ptr %__begin2.sroa.0.0, %_properties
@@ -2312,13 +2312,13 @@ if.then99:                                        ; preds = %lor.lhs.false, %lan
   br label %if.end104
 
 if.end104:                                        ; preds = %entry, %if.then99, %lor.lhs.false, %for.end
-  %numComputed.0.lcssa392 = phi i32 [ %numComputed.1, %if.then99 ], [ %numComputed.1, %lor.lhs.false ], [ %numComputed.1, %for.end ], [ 0, %entry ]
-  %protoProperty.0.lcssa391 = phi ptr [ %protoProperty.1, %if.then99 ], [ %protoProperty.1, %lor.lhs.false ], [ null, %for.end ], [ null, %entry ]
+  %protoProperty.0.lcssa392 = phi ptr [ %protoProperty.1, %if.then99 ], [ %protoProperty.1, %lor.lhs.false ], [ null, %for.end ], [ null, %entry ]
+  %numComputed.0.lcssa391 = phi i32 [ %numComputed.1, %if.then99 ], [ %numComputed.1, %lor.lhs.false ], [ %numComputed.1, %for.end ], [ 0, %entry ]
   %objectParent.0 = phi ptr [ %call103, %if.then99 ], [ null, %lor.lhs.false ], [ null, %for.end ], [ null, %entry ]
   %Builder105 = getelementptr inbounds i8, ptr %this, i64 8
   %NumItems.i = getelementptr inbounds i8, ptr %propMap, i64 12
   %41 = load i32, ptr %NumItems.i, align 4
-  %add = add i32 %41, %numComputed.0.lcssa392
+  %add = add i32 %41, %numComputed.0.lcssa391
   %call107 = call noundef ptr @_ZN6hermes9IRBuilder21createAllocObjectInstEjPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %Builder105, i32 noundef %add, ptr noundef %objectParent.0) #16
   %__begin2110.sroa.0.0382 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i214.not383 = icmp eq ptr %__begin2110.sroa.0.0382, %_properties
@@ -2462,7 +2462,7 @@ _ZN6hermes5irgenL19propertyKeyAsStringERN4llvh15SmallVectorImplIcEEPNS_6ESTree4N
   %retval.sroa.4.0.i226 = phi i64 [ %retval.sroa.4.0.copyload.i225, %do.end.i222 ], [ %retval.sroa.4.0.copyload10.i237, %do.end6.i234 ], [ %call18.i256, %_ZN4llvh15SmallVectorImplIcE6resizeEm.exit.i254 ]
   %retval.sroa.0.0.in.i227 = phi ptr [ %50, %do.end.i222 ], [ %51, %do.end6.i234 ], [ %stringStorage, %_ZN4llvh15SmallVectorImplIcE6resizeEm.exit.i254 ]
   %retval.sroa.0.0.i228 = load ptr, ptr %retval.sroa.0.0.in.i227, align 8
-  %cmp187 = icmp eq ptr %__begin2110.sroa.0.0385, %protoProperty.0.lcssa391
+  %cmp187 = icmp eq ptr %__begin2110.sroa.0.0385, %protoProperty.0.lcssa392
   br i1 %cmp187, label %if.then188, label %if.end216
 
 if.then188:                                       ; preds = %_ZN6hermes5irgenL19propertyKeyAsStringERN4llvh15SmallVectorImplIcEEPNS_6ESTree4NodeE.exit261
@@ -2988,9 +2988,9 @@ for.body.lr.ph:                                   ; preds = %_ZN6hermes6ESTreeL1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %__begin3.043 = phi ptr [ %20, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
-  %LHS.042 = phi ptr [ %call13, %for.body.lr.ph ], [ %spec.select, %for.body ]
-  %22 = load ptr, ptr %__begin3.043, align 8
+  %LHS.043 = phi ptr [ %call13, %for.body.lr.ph ], [ %spec.select, %for.body ]
+  %__begin3.042 = phi ptr [ %20, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
+  %22 = load ptr, ptr %__begin3.042, align 8
   %_right = getelementptr inbounds i8, ptr %22, i64 56
   %23 = load ptr, ptr %_right, align 8
   %call18 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen13genExpressionEPNS_6ESTree4NodeENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %23, ptr null)
@@ -3003,11 +3003,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %agg.tmp24.sroa.2.0.call26.sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   %agg.tmp24.sroa.2.0.copyload = load i64, ptr %agg.tmp24.sroa.2.0.call26.sroa_idx, align 8
   %call27 = call noundef i32 @_ZN6hermes18BinaryOperatorInst13parseOperatorEN4llvh9StringRefE(ptr %agg.tmp24.sroa.0.0.copyload, i64 %agg.tmp24.sroa.2.0.copyload) #16
-  %call29 = call noundef ptr @_ZN6hermes9IRBuilder24createBinaryOperatorInstEPNS_5ValueES2_NS_18BinaryOperatorInst6OpKindE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %LHS.042, ptr noundef %call18, i32 noundef %call27) #16
+  %call29 = call noundef ptr @_ZN6hermes9IRBuilder24createBinaryOperatorInstEPNS_5ValueES2_NS_18BinaryOperatorInst6OpKindE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %LHS.043, ptr noundef %call18, i32 noundef %call27) #16
   %25 = icmp eq ptr %call29, null
   %add.ptr = getelementptr inbounds i8, ptr %call29, i64 16
   %spec.select = select i1 %25, ptr null, ptr %add.ptr
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.043, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.042, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end.loopexit, label %for.body
 

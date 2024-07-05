@@ -122,20 +122,20 @@ while.body12.preheader:                           ; preds = %while.cond10.prehea
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %in.addr.067 = phi ptr [ %add.ptr, %while.body ], [ %in, %while.cond.preheader ]
   %out.addr.066 = phi ptr [ %add.ptr6, %while.body ], [ %out, %while.cond.preheader ]
-  %iv.065 = phi ptr [ %in.addr.067, %while.body ], [ %ivec, %while.cond.preheader ]
-  %len.addr.064 = phi i64 [ %sub, %while.body ], [ %len, %while.cond.preheader ]
+  %len.addr.065 = phi i64 [ %sub, %while.body ], [ %len, %while.cond.preheader ]
+  %iv.064 = phi ptr [ %in.addr.067, %while.body ], [ %ivec, %while.cond.preheader ]
   tail call void %block(ptr noundef %in.addr.067, ptr noundef %out.addr.066, ptr noundef %key) #2
-  %0 = load i64, ptr %iv.065, align 1
+  %0 = load i64, ptr %iv.064, align 1
   %1 = load i64, ptr %out.addr.066, align 1
   %xor = xor i64 %1, %0
   store i64 %xor, ptr %out.addr.066, align 1
-  %arrayidx.c = getelementptr inbounds i8, ptr %iv.065, i64 8
+  %arrayidx.c = getelementptr inbounds i8, ptr %iv.064, i64 8
   %2 = load i64, ptr %arrayidx.c, align 1
   %arrayidx5.c = getelementptr inbounds i8, ptr %out.addr.066, i64 8
   %3 = load i64, ptr %arrayidx5.c, align 1
   %xor.c = xor i64 %3, %2
   store i64 %xor.c, ptr %arrayidx5.c, align 1
-  %sub = add i64 %len.addr.064, -16
+  %sub = add i64 %len.addr.065, -16
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.067, i64 16
   %add.ptr6 = getelementptr inbounds i8, ptr %out.addr.066, i64 16
   %cmp3 = icmp ugt i64 %sub, 15

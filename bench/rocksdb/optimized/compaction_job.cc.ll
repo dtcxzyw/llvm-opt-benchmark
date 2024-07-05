@@ -5906,8 +5906,8 @@ invoke.cont180:                                   ; preds = %for.body175
   br label %for.cond183.outer
 
 for.cond183.outer:                                ; preds = %land.lhs.true.i, %invoke.cont180
-  %__begin3.sroa.9506.0.ph = phi i64 [ %spec.select529, %land.lhs.true.i ], [ %__begin3.sroa.9506.0.copyload, %invoke.cont180 ]
-  %__begin3.sroa.5.0.ph = phi i8 [ %spec.select530, %land.lhs.true.i ], [ %__begin3.sroa.5.0.copyload, %invoke.cont180 ]
+  %__begin3.sroa.5.0.ph = phi i8 [ %spec.select529, %land.lhs.true.i ], [ %__begin3.sroa.5.0.copyload, %invoke.cont180 ]
+  %__begin3.sroa.9506.0.ph = phi i64 [ %spec.select530, %land.lhs.true.i ], [ %__begin3.sroa.9506.0.copyload, %invoke.cont180 ]
   %tobool.i = trunc i8 %__begin3.sroa.5.0.ph to i1
   br label %for.cond183
 
@@ -6007,8 +6007,8 @@ land.lhs.true.i:                                  ; preds = %for.inc192
   %sub.ptr.sub.i.i278 = sub i64 %sub.ptr.lhs.cast.i.i276, %sub.ptr.rhs.cast.i.i277
   %sub.ptr.div.i.i279 = sdiv exact i64 %sub.ptr.sub.i.i278, 392
   %cmp.not.i280 = icmp ult i64 %inc.i, %sub.ptr.div.i.i279
-  %spec.select529 = select i1 %cmp.not.i280, i64 %inc.i, i64 0
-  %spec.select530 = select i1 %cmp.not.i280, i8 %__begin3.sroa.5.0.ph, i8 0
+  %spec.select529 = select i1 %cmp.not.i280, i8 %__begin3.sroa.5.0.ph, i8 0
+  %spec.select530 = select i1 %cmp.not.i280, i64 %inc.i, i64 0
   br label %for.cond183.outer
 
 lpad179.loopexit:                                 ; preds = %for.body240
@@ -8278,8 +8278,8 @@ lpad103.body:                                     ; preds = %lpad.i143, %lpad103
   br label %ehcleanup567
 
 if.end109:                                        ; preds = %if.then95, %invoke.cont104, %invoke.cont81
-  %ts_slice.sroa.5.0 = phi i64 [ 0, %invoke.cont81 ], [ %call2.i, %invoke.cont104 ], [ %27, %if.then95 ]
   %ts_slice.sroa.0.0 = phi ptr [ @.str, %invoke.cont81 ], [ %call.i146, %invoke.cont104 ], [ @_ZZN7rocksdb13CompactionJob25ProcessKeyValueCompactionEPNS_18SubcompactionStateEE6kMaxTs, %if.then95 ]
+  %ts_slice.sroa.5.0 = phi i64 [ 0, %invoke.cont81 ], [ %call2.i, %invoke.cont104 ], [ %27, %if.then95 ]
   %52 = load i8, ptr %_M_engaged.i.i, align 8
   %tobool.i.i149 = trunc i8 %52 to i1
   br i1 %tobool.i.i149, label %if.then111, label %if.end124
@@ -8338,8 +8338,8 @@ invoke.cont122:                                   ; preds = %if.then115, %invoke
   br label %if.end124
 
 if.end124:                                        ; preds = %invoke.cont122, %if.end109
-  %start_user_key.sroa.3.0 = phi i64 [ %retval.sroa.3.0.i, %invoke.cont122 ], [ 0, %if.end109 ]
   %start_user_key.sroa.0.0 = phi ptr [ %65, %invoke.cont122 ], [ @.str, %if.end109 ]
+  %start_user_key.sroa.3.0 = phi i64 [ %retval.sroa.3.0.i, %invoke.cont122 ], [ 0, %if.end109 ]
   %66 = load i8, ptr %_M_engaged.i.i113751765773, align 8
   %tobool.i.i165 = trunc i8 %66 to i1
   br i1 %tobool.i.i165, label %if.then126, label %if.end139
@@ -8400,8 +8400,8 @@ invoke.cont137:                                   ; preds = %if.then130, %invoke
 
 if.end139:                                        ; preds = %invoke.cont137, %if.end124
   %.pre862 = phi i8 [ %.pre862.pre, %invoke.cont137 ], [ %66, %if.end124 ]
-  %end_user_key.sroa.3.0 = phi i64 [ %retval.sroa.3.0.i198, %invoke.cont137 ], [ 0, %if.end124 ]
   %end_user_key.sroa.0.0 = phi ptr [ %79, %invoke.cont137 ], [ @.str, %if.end124 ]
+  %end_user_key.sroa.3.0 = phi i64 [ %retval.sroa.3.0.i198, %invoke.cont137 ], [ 0, %if.end124 ]
   %80 = load i8, ptr %_M_engaged.i.i, align 8
   %tobool.i.i204 = trunc i8 %80 to i1
   %.pre870 = trunc i8 %.pre862 to i1
@@ -9106,17 +9106,17 @@ lpad338.loopexit:                                 ; preds = %if.then348, %invoke
   br label %lpad338
 
 lpad338.loopexit.split-lp:                        ; preds = %if.end420, %invoke.cont422, %if.then472, %if.end487, %if.then495, %if.else500, %if.end507, %if.then548, %invoke.cont553, %if.then.i325, %if.then.i331, %if.then.i337, %if.then431, %if.then448, %cond.false.i, %if.then.i523, %cond.false.i568
-  %raw_input.sroa.0.0.ph = phi ptr [ %call82, %if.then.i325 ], [ %call82, %if.then.i331 ], [ %call82, %if.then.i337 ], [ %call82, %if.end420 ], [ %call82, %invoke.cont422 ], [ %call82, %if.then431 ], [ %call82, %if.then448 ], [ %call82, %if.then472 ], [ %call82, %cond.false.i ], [ %call82, %if.end487 ], [ %call82, %if.else500 ], [ %call82, %if.then495 ], [ %call82, %if.end507 ], [ %call82, %if.then.i523 ], [ %call82, %if.then548 ], [ null, %cond.false.i568 ], [ null, %invoke.cont553 ]
   %clip.sroa.0.1.ph = phi ptr [ %clip.sroa.0.0, %if.then.i325 ], [ %clip.sroa.0.0, %if.then.i331 ], [ %clip.sroa.0.0, %if.then.i337 ], [ %clip.sroa.0.0, %if.end420 ], [ %clip.sroa.0.0, %invoke.cont422 ], [ %clip.sroa.0.0, %if.then431 ], [ %clip.sroa.0.0, %if.then448 ], [ %clip.sroa.0.0, %if.then472 ], [ %clip.sroa.0.0, %cond.false.i ], [ %clip.sroa.0.0, %if.end487 ], [ %clip.sroa.0.0, %if.else500 ], [ %clip.sroa.0.0, %if.then495 ], [ %clip.sroa.0.0, %if.end507 ], [ %clip.sroa.0.0, %if.then.i523 ], [ %clip.sroa.0.0, %if.then548 ], [ null, %cond.false.i568 ], [ null, %invoke.cont553 ]
   %blob_counter.sroa.0.1.ph = phi ptr [ %blob_counter.sroa.0.0, %if.then.i325 ], [ %blob_counter.sroa.0.0, %if.then.i331 ], [ %blob_counter.sroa.0.0, %if.then.i337 ], [ %blob_counter.sroa.0.0, %if.end420 ], [ %blob_counter.sroa.0.0, %invoke.cont422 ], [ %blob_counter.sroa.0.0, %if.then431 ], [ %blob_counter.sroa.0.0, %if.then448 ], [ %blob_counter.sroa.0.0, %if.then472 ], [ %blob_counter.sroa.0.0, %cond.false.i ], [ %blob_counter.sroa.0.0, %if.end487 ], [ %blob_counter.sroa.0.0, %if.else500 ], [ %blob_counter.sroa.0.0, %if.then495 ], [ %blob_counter.sroa.0.0, %if.end507 ], [ %blob_counter.sroa.0.0, %if.then.i523 ], [ %blob_counter.sroa.0.0, %if.then548 ], [ null, %cond.false.i568 ], [ null, %invoke.cont553 ]
+  %raw_input.sroa.0.0.ph = phi ptr [ %call82, %if.then.i325 ], [ %call82, %if.then.i331 ], [ %call82, %if.then.i337 ], [ %call82, %if.end420 ], [ %call82, %invoke.cont422 ], [ %call82, %if.then431 ], [ %call82, %if.then448 ], [ %call82, %if.then472 ], [ %call82, %cond.false.i ], [ %call82, %if.end487 ], [ %call82, %if.else500 ], [ %call82, %if.then495 ], [ %call82, %if.end507 ], [ %call82, %if.then.i523 ], [ %call82, %if.then548 ], [ null, %cond.false.i568 ], [ null, %invoke.cont553 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %lpad338
 
 lpad338:                                          ; preds = %lpad338.loopexit.split-lp, %lpad338.loopexit
-  %raw_input.sroa.0.0 = phi ptr [ %call82, %lpad338.loopexit ], [ %raw_input.sroa.0.0.ph, %lpad338.loopexit.split-lp ]
   %clip.sroa.0.1 = phi ptr [ %clip.sroa.0.0, %lpad338.loopexit ], [ %clip.sroa.0.1.ph, %lpad338.loopexit.split-lp ]
   %blob_counter.sroa.0.1 = phi ptr [ %blob_counter.sroa.0.0, %lpad338.loopexit ], [ %blob_counter.sroa.0.1.ph, %lpad338.loopexit.split-lp ]
+  %raw_input.sroa.0.0 = phi ptr [ %call82, %lpad338.loopexit ], [ %raw_input.sroa.0.0.ph, %lpad338.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad338.loopexit ], [ %lpad.loopexit.split-lp, %lpad338.loopexit.split-lp ]
   %196 = load ptr, ptr %state_.i285, align 8
   %cmp.not.i.i294 = icmp eq ptr %196, null
@@ -10142,9 +10142,9 @@ ehcleanup558:                                     ; preds = %if.then.i.i, %_ZN7r
 
 if.then.i.i642:                                   ; preds = %ehcleanup558.thread, %ehcleanup558
   %.pn91892 = phi { ptr, i32 } [ %195, %ehcleanup558.thread ], [ %lpad.phi, %ehcleanup558 ]
-  %blob_counter.sroa.0.2891 = phi ptr [ %blob_counter.sroa.0.0, %ehcleanup558.thread ], [ %blob_counter.sroa.0.1, %ehcleanup558 ]
-  %clip.sroa.0.2890 = phi ptr [ %clip.sroa.0.0, %ehcleanup558.thread ], [ %clip.sroa.0.1, %ehcleanup558 ]
-  %raw_input.sroa.0.1889 = phi ptr [ %call82, %ehcleanup558.thread ], [ %raw_input.sroa.0.0, %ehcleanup558 ]
+  %raw_input.sroa.0.1891 = phi ptr [ %call82, %ehcleanup558.thread ], [ %raw_input.sroa.0.0, %ehcleanup558 ]
+  %blob_counter.sroa.0.2890 = phi ptr [ %blob_counter.sroa.0.0, %ehcleanup558.thread ], [ %blob_counter.sroa.0.1, %ehcleanup558 ]
+  %clip.sroa.0.2889 = phi ptr [ %clip.sroa.0.0, %ehcleanup558.thread ], [ %clip.sroa.0.1, %ehcleanup558 ]
   %366 = phi ptr [ @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERNS0_17CompactionOutputsEEZNS0_13CompactionJob25ProcessKeyValueCompactionEPNS0_18SubcompactionStateEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", %ehcleanup558.thread ], [ %.pr883, %ehcleanup558 ]
   %call.i.i643 = invoke noundef zeroext i1 %366(ptr noundef nonnull align 8 dereferenceable(16) %open_file_func, ptr noundef nonnull align 8 dereferenceable(16) %open_file_func, i32 noundef 3)
           to label %ehcleanup559 unwind label %terminate.lpad.i.i644
@@ -10157,27 +10157,27 @@ terminate.lpad.i.i644:                            ; preds = %if.then.i.i642
   unreachable
 
 ehcleanup559:                                     ; preds = %if.then.i.i642, %ehcleanup558, %lpad325
-  %raw_input.sroa.0.2 = phi ptr [ %call82, %lpad325 ], [ %raw_input.sroa.0.0, %ehcleanup558 ], [ %raw_input.sroa.0.1889, %if.then.i.i642 ]
-  %clip.sroa.0.3 = phi ptr [ %clip.sroa.0.0, %lpad325 ], [ %clip.sroa.0.1, %ehcleanup558 ], [ %clip.sroa.0.2890, %if.then.i.i642 ]
-  %blob_counter.sroa.0.3 = phi ptr [ %blob_counter.sroa.0.0, %lpad325 ], [ %blob_counter.sroa.0.1, %ehcleanup558 ], [ %blob_counter.sroa.0.2891, %if.then.i.i642 ]
+  %clip.sroa.0.3 = phi ptr [ %clip.sroa.0.0, %lpad325 ], [ %clip.sroa.0.1, %ehcleanup558 ], [ %clip.sroa.0.2889, %if.then.i.i642 ]
+  %blob_counter.sroa.0.3 = phi ptr [ %blob_counter.sroa.0.0, %lpad325 ], [ %blob_counter.sroa.0.1, %ehcleanup558 ], [ %blob_counter.sroa.0.2890, %if.then.i.i642 ]
+  %raw_input.sroa.0.2 = phi ptr [ %call82, %lpad325 ], [ %raw_input.sroa.0.0, %ehcleanup558 ], [ %raw_input.sroa.0.1891, %if.then.i.i642 ]
   %range_del_agg.sroa.0.0 = phi ptr [ %call.i106107, %lpad325 ], [ null, %ehcleanup558 ], [ null, %if.then.i.i642 ]
   %.pn91.pn = phi { ptr, i32 } [ %194, %lpad325 ], [ %lpad.phi, %ehcleanup558 ], [ %.pn91892, %if.then.i.i642 ]
   call void @_ZNSt10unique_ptrIN7rocksdb18CompactionIteratorESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %c_iter) #27
   br label %ehcleanup560
 
 ehcleanup560:                                     ; preds = %ehcleanup559, %lpad286
-  %raw_input.sroa.0.3 = phi ptr [ %raw_input.sroa.0.2, %ehcleanup559 ], [ %call82, %lpad286 ]
   %clip.sroa.0.4 = phi ptr [ %clip.sroa.0.3, %ehcleanup559 ], [ %clip.sroa.0.0, %lpad286 ]
   %blob_counter.sroa.0.4 = phi ptr [ %blob_counter.sroa.0.3, %ehcleanup559 ], [ %blob_counter.sroa.0.0, %lpad286 ]
+  %raw_input.sroa.0.3 = phi ptr [ %raw_input.sroa.0.2, %ehcleanup559 ], [ %call82, %lpad286 ]
   %range_del_agg.sroa.0.1 = phi ptr [ %range_del_agg.sroa.0.0, %ehcleanup559 ], [ %call.i106107, %lpad286 ]
   %.pn91.pn.pn = phi { ptr, i32 } [ %.pn91.pn, %ehcleanup559 ], [ %193, %lpad286 ]
   call void @_ZNSt10unique_ptrIN7rocksdb15BlobFileBuilderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %blob_file_builder) #27
   br label %ehcleanup561
 
 ehcleanup561:                                     ; preds = %cleanup.action274, %ehcleanup560, %lpad230
-  %raw_input.sroa.0.4 = phi ptr [ %raw_input.sroa.0.3, %ehcleanup560 ], [ %call82, %cleanup.action274 ], [ %call82, %lpad230 ]
   %clip.sroa.0.5 = phi ptr [ %clip.sroa.0.4, %ehcleanup560 ], [ %clip.sroa.0.0, %cleanup.action274 ], [ %clip.sroa.0.0, %lpad230 ]
   %blob_counter.sroa.0.5 = phi ptr [ %blob_counter.sroa.0.4, %ehcleanup560 ], [ %blob_counter.sroa.0.0, %cleanup.action274 ], [ %blob_counter.sroa.0.0, %lpad230 ]
+  %raw_input.sroa.0.4 = phi ptr [ %raw_input.sroa.0.3, %ehcleanup560 ], [ %call82, %cleanup.action274 ], [ %call82, %lpad230 ]
   %range_del_agg.sroa.0.2 = phi ptr [ %range_del_agg.sroa.0.1, %ehcleanup560 ], [ %call.i106107, %cleanup.action274 ], [ %call.i106107, %lpad230 ]
   %.pn91.pn.pn.pn = phi { ptr, i32 } [ %.pn91.pn.pn, %ehcleanup560 ], [ %.pn.pn, %cleanup.action274 ], [ %189, %lpad230 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %blob_file_paths) #27
@@ -10185,19 +10185,19 @@ ehcleanup561:                                     ; preds = %cleanup.action274, 
   br label %ehcleanup563
 
 ehcleanup563:                                     ; preds = %ehcleanup561, %lpad197
-  %raw_input.sroa.0.5 = phi ptr [ %raw_input.sroa.0.4, %ehcleanup561 ], [ %call82, %lpad197 ]
   %clip.sroa.0.6 = phi ptr [ %clip.sroa.0.5, %ehcleanup561 ], [ %clip.sroa.0.0, %lpad197 ]
   %blob_counter.sroa.0.6 = phi ptr [ %blob_counter.sroa.0.5, %ehcleanup561 ], [ %blob_counter.sroa.0.0, %lpad197 ]
+  %raw_input.sroa.0.5 = phi ptr [ %raw_input.sroa.0.4, %ehcleanup561 ], [ %call82, %lpad197 ]
   %range_del_agg.sroa.0.3 = phi ptr [ %range_del_agg.sroa.0.2, %ehcleanup561 ], [ %call.i106107, %lpad197 ]
   %.pn91.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn91.pn.pn.pn, %ehcleanup561 ], [ %129, %lpad197 ]
   call void @_ZN7rocksdb31AutoThreadOperationStageUpdaterD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %stage_updater) #27
   br label %ehcleanup564
 
 ehcleanup564:                                     ; preds = %lpad184, %ehcleanup563
-  %raw_input.sroa.0.6 = phi ptr [ %raw_input.sroa.0.5, %ehcleanup563 ], [ %call82, %lpad184 ]
   %clip.sroa.0.7 = phi ptr [ %clip.sroa.0.6, %ehcleanup563 ], [ %clip.sroa.0.0, %lpad184 ]
   %blob_counter.sroa.0.7 = phi ptr [ %blob_counter.sroa.0.6, %ehcleanup563 ], [ %blob_counter.sroa.0.0, %lpad184 ]
   %trim_history_iter.sroa.0.3 = phi ptr [ %trim_history_iter.sroa.0.2, %ehcleanup563 ], [ %trim_history_iter.sroa.0.0, %lpad184 ]
+  %raw_input.sroa.0.6 = phi ptr [ %raw_input.sroa.0.5, %ehcleanup563 ], [ %call82, %lpad184 ]
   %range_del_agg.sroa.0.4 = phi ptr [ %range_del_agg.sroa.0.3, %ehcleanup563 ], [ %call.i106107, %lpad184 ]
   %.pn91.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn91.pn.pn.pn.pn, %ehcleanup563 ], [ %106, %lpad184 ]
   %cmp.not.i646 = icmp eq ptr %trim_history_iter.sroa.0.3, null
@@ -10211,9 +10211,9 @@ _ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exi
   br label %ehcleanup565
 
 ehcleanup565:                                     ; preds = %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i647, %ehcleanup564, %ehcleanup564.thread
-  %raw_input.sroa.0.7 = phi ptr [ %call82, %ehcleanup564.thread ], [ %raw_input.sroa.0.6, %ehcleanup564 ], [ %raw_input.sroa.0.6, %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i647 ]
   %clip.sroa.0.8 = phi ptr [ %clip.sroa.0.0, %ehcleanup564.thread ], [ %clip.sroa.0.7, %ehcleanup564 ], [ %clip.sroa.0.7, %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i647 ]
   %blob_counter.sroa.0.8 = phi ptr [ %blob_counter.sroa.0.0, %ehcleanup564.thread ], [ %blob_counter.sroa.0.7, %ehcleanup564 ], [ %blob_counter.sroa.0.7, %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i647 ]
+  %raw_input.sroa.0.7 = phi ptr [ %call82, %ehcleanup564.thread ], [ %raw_input.sroa.0.6, %ehcleanup564 ], [ %raw_input.sroa.0.6, %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i647 ]
   %range_del_agg.sroa.0.5 = phi ptr [ %call.i106107, %ehcleanup564.thread ], [ %range_del_agg.sroa.0.4, %ehcleanup564 ], [ %range_del_agg.sroa.0.4, %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i647 ]
   %.pn91.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body.i240, %ehcleanup564.thread ], [ %.pn91.pn.pn.pn.pn.pn, %ehcleanup564 ], [ %.pn91.pn.pn.pn.pn.pn, %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i647 ]
   %cmp.not.i651 = icmp eq ptr %blob_counter.sroa.0.8, null
@@ -10227,8 +10227,8 @@ _ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exi
   br label %ehcleanup566
 
 ehcleanup566:                                     ; preds = %lpad164, %lpad.body.i223, %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i652, %ehcleanup565
-  %raw_input.sroa.0.8 = phi ptr [ %raw_input.sroa.0.7, %ehcleanup565 ], [ %raw_input.sroa.0.7, %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i652 ], [ %call82, %lpad.body.i223 ], [ %call82, %lpad164 ]
   %clip.sroa.0.9 = phi ptr [ %clip.sroa.0.8, %ehcleanup565 ], [ %clip.sroa.0.8, %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i652 ], [ %clip.sroa.0.0, %lpad.body.i223 ], [ %clip.sroa.0.0, %lpad164 ]
+  %raw_input.sroa.0.8 = phi ptr [ %raw_input.sroa.0.7, %ehcleanup565 ], [ %raw_input.sroa.0.7, %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i652 ], [ %call82, %lpad.body.i223 ], [ %call82, %lpad164 ]
   %range_del_agg.sroa.0.6 = phi ptr [ %range_del_agg.sroa.0.5, %ehcleanup565 ], [ %range_del_agg.sroa.0.5, %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i652 ], [ %call.i106107, %lpad.body.i223 ], [ %call.i106107, %lpad164 ]
   %.pn91.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn91.pn.pn.pn.pn.pn.pn, %ehcleanup565 ], [ %.pn91.pn.pn.pn.pn.pn.pn, %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i652 ], [ %eh.lpad-body.i224, %lpad.body.i223 ], [ %100, %lpad164 ]
   %cmp.not.i656 = icmp eq ptr %clip.sroa.0.9, null
@@ -11244,35 +11244,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.021.i, 2
+  %add11.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.021.i, 3
+  %add15.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
+  %div.i = udiv i64 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !59
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
@@ -11663,8 +11663,8 @@ if.end27:                                         ; preds = %_ZN7rocksdb8IOStatu
 if.then36:                                        ; preds = %if.end27
   %add37 = add i64 %add35, %add34
   %conv38 = uitofp i64 %add to double
-  %38 = insertelement <2 x i64> poison, i64 %add37, i64 0
-  %39 = insertelement <2 x i64> %38, i64 %add35, i64 1
+  %38 = insertelement <2 x i64> poison, i64 %add35, i64 0
+  %39 = insertelement <2 x i64> %38, i64 %add37, i64 1
   %40 = uitofp <2 x i64> %39 to <2 x double>
   %41 = insertelement <2 x double> poison, double %conv38, i64 0
   %42 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> zeroinitializer
@@ -11686,8 +11686,8 @@ if.then44:                                        ; preds = %if.end42
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then44, %if.end42
-  %bytes_read_per_sec.0 = phi double [ %div48, %if.then44 ], [ 0.000000e+00, %if.end42 ]
   %bytes_written_per_sec.0 = phi double [ %div52, %if.then44 ], [ 0.000000e+00, %if.end42 ]
+  %bytes_read_per_sec.0 = phi double [ %div48, %if.then44 ], [ 0.000000e+00, %if.end42 ]
   %name_.i = getelementptr inbounds i8, ptr %4, i64 8
   %log_buffer_ = getelementptr inbounds i8, ptr %this, i64 560
   %46 = load ptr, ptr %log_buffer_, align 8
@@ -11743,7 +11743,7 @@ invoke.cont89:                                    ; preds = %invoke.cont81
   %call90 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp83) #27
   %64 = extractelement <2 x double> %44, i64 0
   %65 = extractelement <2 x double> %44, i64 1
-  invoke void (ptr, ptr, ...) @_ZN7rocksdb11LogToBufferEPNS_9LogBufferEPKcz(ptr noundef %46, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.63, i64 93), ptr noundef %call58, ptr noundef %call60, double noundef %bytes_read_per_sec.0, double noundef %bytes_written_per_sec.0, i32 noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef %52, i32 noundef %53, double noundef %div67, double noundef %div70, double noundef %div73, double noundef %div76, double noundef %div79, double noundef %64, double noundef %65, ptr noundef %call82, i64 noundef %59, i64 noundef %60, ptr noundef %call90)
+  invoke void (ptr, ptr, ...) @_ZN7rocksdb11LogToBufferEPNS_9LogBufferEPKcz(ptr noundef %46, ptr noundef nonnull @.str.70, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.63, i64 93), ptr noundef %call58, ptr noundef %call60, double noundef %bytes_read_per_sec.0, double noundef %bytes_written_per_sec.0, i32 noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef %52, i32 noundef %53, double noundef %div67, double noundef %div70, double noundef %div73, double noundef %div76, double noundef %div79, double noundef %65, double noundef %64, ptr noundef %call82, i64 noundef %59, i64 noundef %60, ptr noundef %call90)
           to label %invoke.cont92 unwind label %lpad91
 
 invoke.cont92:                                    ; preds = %invoke.cont89
@@ -19429,35 +19429,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.021.i, 2
+  %add8.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.021.i, 3
+  %add13.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
+  %0 = udiv i32 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !84
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
@@ -27029,8 +27029,8 @@ while.body.i.i3.preheader:                        ; preds = %if.else57.i.i, %if.
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %while.body.i.i3.preheader, %if.end.i.i
-  %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i ], [ %add.ptr.i1.i, %while.body.i.i3.preheader ]
   %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge15, %while.body.i.i3.preheader ]
+  %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i ], [ %add.ptr.i1.i, %while.body.i.i3.preheader ]
   br label %while.cond5.i.i
 
 while.cond5.i.i:                                  ; preds = %while.cond5.i.i, %while.body.i.i3

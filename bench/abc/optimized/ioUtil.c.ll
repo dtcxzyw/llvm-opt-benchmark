@@ -652,16 +652,16 @@ define ptr @Io_Read(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 
   br label %48
 
 21:                                               ; preds = %15, %12
-  %.0 = phi ptr [ %16, %15 ], [ %5, %12 ]
-  %22 = getelementptr i8, ptr %.0, i64 136
-  %.0.val41 = load i32, ptr %22, align 8
-  %23 = icmp sgt i32 %.0.val41, 0
+  %.032 = phi ptr [ %16, %15 ], [ %5, %12 ]
+  %22 = getelementptr i8, ptr %.032, i64 136
+  %.032.val41 = load i32, ptr %22, align 8
+  %23 = icmp sgt i32 %.032.val41, 0
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %21
-  %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %.0.val41)
-  %26 = tail call ptr @Abc_NtkConvertBlackboxes(ptr noundef nonnull %.0) #14
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %.0) #14
+  %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %.032.val41)
+  %26 = tail call ptr @Abc_NtkConvertBlackboxes(ptr noundef nonnull %.032) #14
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %.032) #14
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %31
 
@@ -671,7 +671,7 @@ define ptr @Io_Read(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 
   br label %48
 
 31:                                               ; preds = %24, %21
-  %.1 = phi ptr [ %26, %24 ], [ %.0, %21 ]
+  %.1 = phi ptr [ %26, %24 ], [ %.032, %21 ]
   %32 = tail call i32 @Io_ReadFileType(ptr noundef %0)
   %33 = icmp eq i32 %32, 5
   br i1 %33, label %34, label %40
@@ -707,8 +707,8 @@ define ptr @Io_Read(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 
   br label %48
 
 48:                                               ; preds = %43, %34, %7, %4, %45, %37, %28, %18, %10
-  %.032 = phi ptr [ %11, %10 ], [ null, %18 ], [ null, %28 ], [ null, %37 ], [ null, %45 ], [ null, %4 ], [ %5, %7 ], [ %35, %34 ], [ %41, %43 ]
-  ret ptr %.032
+  %.0 = phi ptr [ %11, %10 ], [ null, %18 ], [ null, %28 ], [ null, %37 ], [ null, %45 ], [ null, %4 ], [ %5, %7 ], [ %35, %34 ], [ %41, %43 ]
+  ret ptr %.0
 }
 
 declare ptr @Abc_NtkToBarBufs(ptr noundef) local_unnamed_addr #1

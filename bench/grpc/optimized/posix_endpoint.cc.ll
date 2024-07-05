@@ -3207,8 +3207,8 @@ if.then4.if.end9_crit_edge:                       ; preds = %if.then4
 
 if.end9:                                          ; preds = %if.then4.if.end9_crit_edge, %if.end
   %2 = phi i32 [ %.pre, %if.then4.if.end9_crit_edge ], [ %0, %if.end ]
-  %next_cmsg.0 = phi ptr [ %call5, %if.then4.if.end9_crit_edge ], [ %call, %if.end ]
   %opt_stats.0 = phi ptr [ %call, %if.then4.if.end9_crit_edge ], [ null, %if.end ]
+  %next_cmsg.0 = phi ptr [ %call5, %if.then4.if.end9_crit_edge ], [ %call, %if.end ]
   switch i32 %2, label %return [
     i32 0, label %lor.lhs.false14
     i32 41, label %lor.lhs.false14

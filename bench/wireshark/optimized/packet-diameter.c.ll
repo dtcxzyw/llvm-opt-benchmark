@@ -717,10 +717,10 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
 
 33:                                               ; preds = %33, %1
   %34 = phi ptr [ @.str.96, %1 ], [ %38, %33 ]
-  %.0135205.i = phi ptr [ @basic_types, %1 ], [ %37, %33 ]
+  %.0140205.i = phi ptr [ @basic_types, %1 ], [ %37, %33 ]
   %35 = load ptr, ptr @build_dict.2, align 8
-  %36 = tail call i32 @g_hash_table_insert(ptr noundef %35, ptr noundef nonnull %34, ptr noundef nonnull %.0135205.i) #13
-  %37 = getelementptr i8, ptr %.0135205.i, i64 32
+  %36 = tail call i32 @g_hash_table_insert(ptr noundef %35, ptr noundef nonnull %34, ptr noundef nonnull %.0140205.i) #13
+  %37 = getelementptr i8, ptr %.0140205.i, i64 32
   %38 = load ptr, ptr %37, align 8
   %.not161.i = icmp eq ptr %38, null
   br i1 %.not161.i, label %39, label %33, !llvm.loop !6
@@ -753,18 +753,18 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
 
 52:                                               ; preds = %50, %47
   %53 = getelementptr inbounds i8, ptr %43, i64 24
-  %.0140206.i = load ptr, ptr %53, align 8
-  %.not162207.i = icmp eq ptr %.0140206.i, null
+  %.0137206.i = load ptr, ptr %53, align 8
+  %.not162207.i = icmp eq ptr %.0137206.i, null
   br i1 %.not162207.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %52, %72
-  %.0140208.i = phi ptr [ %.0140.i, %72 ], [ %.0140206.i, %52 ]
-  %54 = load ptr, ptr %.0140208.i, align 8
+  %.0137208.i = phi ptr [ %.0137.i, %72 ], [ %.0137206.i, %52 ]
+  %54 = load ptr, ptr %.0137208.i, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %.lr.ph.i
-  %57 = getelementptr inbounds i8, ptr %.0140208.i, i64 8
+  %57 = getelementptr inbounds i8, ptr %.0137208.i, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not189.i = icmp eq ptr %58, null
   %spec.select.i = select i1 %.not189.i, ptr @.str.86, ptr %58
@@ -778,7 +778,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br i1 %.not186.i, label %62, label %72
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %.0140208.i, i64 8
+  %63 = getelementptr inbounds i8, ptr %.0137208.i, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not187.i = icmp eq ptr %64, null
   br i1 %.not187.i, label %68, label %65
@@ -789,18 +789,18 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br label %68
 
 68:                                               ; preds = %65, %62
-  %.0132.i = phi ptr [ %67, %65 ], [ null, %62 ]
-  %.not188.i = icmp eq ptr %.0132.i, null
-  %spec.select190.i = select i1 %.not188.i, ptr @basic_types, ptr %.0132.i
+  %.0135.i = phi ptr [ %67, %65 ], [ null, %62 ]
+  %.not188.i = icmp eq ptr %.0135.i, null
+  %spec.select190.i = select i1 %.not188.i, ptr @basic_types, ptr %.0135.i
   %69 = load ptr, ptr @build_dict.2, align 8
-  %70 = load ptr, ptr %.0140208.i, align 8
+  %70 = load ptr, ptr %.0137208.i, align 8
   %71 = tail call i32 @g_hash_table_insert(ptr noundef %69, ptr noundef %70, ptr noundef nonnull %spec.select190.i) #13
   br label %72
 
 72:                                               ; preds = %68, %59, %56
-  %73 = getelementptr inbounds i8, ptr %.0140208.i, i64 16
-  %.0140.i = load ptr, ptr %73, align 8
-  %.not162.i = icmp eq ptr %.0140.i, null
+  %73 = getelementptr inbounds i8, ptr %.0137208.i, i64 16
+  %.0137.i = load ptr, ptr %73, align 8
+  %.not162.i = icmp eq ptr %.0137.i, null
   br i1 %.not162.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %72, %52
@@ -818,11 +818,11 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br label %80
 
 80:                                               ; preds = %87, %75
-  %.0137209.i = phi ptr [ %74, %75 ], [ %89, %87 ]
-  %81 = getelementptr inbounds i8, ptr %.0137209.i, i64 8
+  %.0131209.i = phi ptr [ %74, %75 ], [ %89, %87 ]
+  %81 = getelementptr inbounds i8, ptr %.0131209.i, i64 8
   %82 = load i32, ptr %81, align 8
   store i32 %82, ptr %4, align 16
-  %83 = load ptr, ptr %.0137209.i, align 8
+  %83 = load ptr, ptr %.0131209.i, align 8
   store ptr %83, ptr %79, align 8
   %.not185.i = icmp eq ptr %83, null
   br i1 %.not185.i, label %84, label %86
@@ -837,7 +837,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br label %87
 
 87:                                               ; preds = %86, %84
-  %88 = getelementptr inbounds i8, ptr %.0137209.i, i64 16
+  %88 = getelementptr inbounds i8, ptr %.0131209.i, i64 16
   %89 = load ptr, ptr %88, align 8
   %.not164.i = icmp eq ptr %89, null
   br i1 %.not164.i, label %90, label %80, !llvm.loop !8
@@ -864,11 +864,11 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br label %100
 
 100:                                              ; preds = %122, %.preheader202.i
-  %.0138.i = phi ptr [ %124, %122 ], [ %98, %.preheader202.i ]
-  %101 = getelementptr inbounds i8, ptr %.0138.i, i64 16
+  %.0134.i = phi ptr [ %124, %122 ], [ %98, %.preheader202.i ]
+  %101 = getelementptr inbounds i8, ptr %.0134.i, i64 16
   %102 = load i32, ptr %101, align 8
   store i32 %102, ptr %5, align 16
-  %103 = load ptr, ptr %.0138.i, align 8
+  %103 = load ptr, ptr %.0134.i, align 8
   store ptr %103, ptr %99, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %105, label %106
@@ -900,12 +900,12 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   %118 = load ptr, ptr @dictionary.1, align 8
   %119 = load i32, ptr %111, align 8
   call void @wmem_tree_insert32(ptr noundef %118, i32 noundef %119, ptr noundef nonnull %111) #13
-  %120 = load ptr, ptr %.0138.i, align 8
+  %120 = load ptr, ptr %.0134.i, align 8
   %121 = call i32 @g_hash_table_insert(ptr noundef %13, ptr noundef %120, ptr noundef nonnull %111) #13
   br label %122
 
 122:                                              ; preds = %108, %106, %105
-  %123 = getelementptr inbounds i8, ptr %.0138.i, i64 24
+  %123 = getelementptr inbounds i8, ptr %.0134.i, i64 24
   %124 = load ptr, ptr %123, align 8
   %.old1.not.i = icmp eq ptr %124, null
   br i1 %.old1.not.i, label %.loopexit203.i, label %100
@@ -923,14 +923,14 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br label %129
 
 129:                                              ; preds = %144, %.preheader.i
-  %.0141.i = phi ptr [ %146, %144 ], [ %127, %.preheader.i ]
-  %130 = getelementptr inbounds i8, ptr %.0141.i, i64 8
+  %.0136.i = phi ptr [ %146, %144 ], [ %127, %.preheader.i ]
+  %130 = getelementptr inbounds i8, ptr %.0136.i, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %129
-  %134 = load ptr, ptr %.0141.i, align 8
+  %134 = load ptr, ptr %.0136.i, align 8
   %.not169.i = icmp eq ptr %134, null
   %spec.select191.i = select i1 %.not169.i, ptr @.str.86, ptr %134
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.90, ptr noundef nonnull %spec.select191.i) #13
@@ -942,10 +942,10 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br i1 %.not168.i, label %142, label %137
 
 137:                                              ; preds = %135
-  %138 = getelementptr inbounds i8, ptr %.0141.i, i64 16
+  %138 = getelementptr inbounds i8, ptr %.0136.i, i64 16
   %139 = load i32, ptr %138, align 8
   store i32 %139, ptr %6, align 16
-  %140 = load ptr, ptr %.0141.i, align 8
+  %140 = load ptr, ptr %.0136.i, align 8
   store ptr %140, ptr %128, align 8
   %141 = call ptr @g_array_append_vals(ptr noundef %15, ptr noundef nonnull %6, i32 noundef 1) #13
   br label %144
@@ -956,7 +956,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br label %144
 
 144:                                              ; preds = %142, %137, %133
-  %145 = getelementptr inbounds i8, ptr %.0141.i, i64 24
+  %145 = getelementptr inbounds i8, ptr %.0136.i, i64 24
   %146 = load ptr, ptr %145, align 8
   %.old3.not.i = icmp eq ptr %146, null
   br i1 %.old3.not.i, label %.loopexit.i, label %129
@@ -1014,7 +1014,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br label %172
 
 172:                                              ; preds = %171, %165
-  %.0133.i = phi ptr [ %164, %165 ], [ @unknown_vendor, %171 ]
+  %.0138.i = phi ptr [ %164, %165 ], [ @unknown_vendor, %171 ]
   %173 = getelementptr inbounds i8, ptr %.0139219.i, i64 48
   %174 = load ptr, ptr %173, align 8
   %.not173.i = icmp eq ptr %174, null
@@ -1028,14 +1028,14 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br label %178
 
 178:                                              ; preds = %178, %175
-  %.0131210.i = phi ptr [ %174, %175 ], [ %183, %178 ]
-  %179 = getelementptr inbounds i8, ptr %.0131210.i, i64 8
+  %.0133210.i = phi ptr [ %174, %175 ], [ %183, %178 ]
+  %179 = getelementptr inbounds i8, ptr %.0133210.i, i64 8
   %180 = load i32, ptr %179, align 8
   store i32 %180, ptr %9, align 16
-  %181 = load ptr, ptr %.0131210.i, align 8
+  %181 = load ptr, ptr %.0133210.i, align 8
   store ptr %181, ptr %150, align 8
   call void @wmem_array_append(ptr noundef %177, ptr noundef nonnull %9, i32 noundef 1) #13
-  %182 = getelementptr inbounds i8, ptr %.0131210.i, i64 16
+  %182 = getelementptr inbounds i8, ptr %.0133210.i, i64 16
   %183 = load ptr, ptr %182, align 8
   %.not174.i = icmp eq ptr %183, null
   br i1 %.not174.i, label %184, label %178, !llvm.loop !9
@@ -1047,9 +1047,9 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br label %186
 
 186:                                              ; preds = %184, %172
-  %.0130.i = phi ptr [ %185, %184 ], [ null, %172 ]
-  %.0129211.i = load ptr, ptr %151, align 8
-  %.not175212.i = icmp eq ptr %.0129211.i, null
+  %.0132.i = phi ptr [ %185, %184 ], [ null, %172 ]
+  %.0130211.i = load ptr, ptr %151, align 8
+  %.not175212.i = icmp eq ptr %.0130211.i, null
   br i1 %.not175212.i, label %._crit_edge216.i, label %.lr.ph215.i
 
 .lr.ph215.i:                                      ; preds = %186
@@ -1057,14 +1057,14 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br label %188
 
 188:                                              ; preds = %206, %.lr.ph215.i
-  %.0129213.i = phi ptr [ %.0129211.i, %.lr.ph215.i ], [ %.0129.i, %206 ]
-  %189 = load ptr, ptr %.0129213.i, align 8
+  %.0130213.i = phi ptr [ %.0130211.i, %.lr.ph215.i ], [ %.0130.i, %206 ]
+  %189 = load ptr, ptr %.0130213.i, align 8
   %190 = call i32 @g_ascii_strcasecmp(ptr noundef %189, ptr noundef nonnull @.str.93) #13
   %.not198.i = icmp eq i32 %190, 0
   br i1 %.not198.i, label %191, label %196
 
 191:                                              ; preds = %188
-  %192 = getelementptr inbounds i8, ptr %.0129213.i, i64 8
+  %192 = getelementptr inbounds i8, ptr %.0130213.i, i64 8
   %193 = load ptr, ptr %192, align 8
   %194 = load ptr, ptr %.0139219.i, align 8
   %195 = call i32 @g_ascii_strcasecmp(ptr noundef %193, ptr noundef %194) #13
@@ -1077,13 +1077,13 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br i1 %.not178.i, label %206, label %198
 
 198:                                              ; preds = %196
-  %199 = load ptr, ptr %.0129213.i, align 8
+  %199 = load ptr, ptr %.0130213.i, align 8
   %200 = call i32 @g_ascii_strcasecmp(ptr noundef %199, ptr noundef nonnull @.str.94) #13
   %.not200.i = icmp eq i32 %200, 0
   br i1 %.not200.i, label %201, label %206
 
 201:                                              ; preds = %198
-  %202 = getelementptr inbounds i8, ptr %.0129213.i, i64 8
+  %202 = getelementptr inbounds i8, ptr %.0130213.i, i64 8
   %203 = load ptr, ptr %202, align 8
   %204 = load ptr, ptr %187, align 8
   %205 = call i32 @g_ascii_strcasecmp(ptr noundef %203, ptr noundef %204) #13
@@ -1091,13 +1091,13 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br i1 %.not201.i, label %208, label %206
 
 206:                                              ; preds = %201, %198, %196
-  %207 = getelementptr inbounds i8, ptr %.0129213.i, i64 24
-  %.0129.i = load ptr, ptr %207, align 8
-  %.not175.i = icmp eq ptr %.0129.i, null
+  %207 = getelementptr inbounds i8, ptr %.0130213.i, i64 24
+  %.0130.i = load ptr, ptr %207, align 8
+  %.not175.i = icmp eq ptr %.0130.i, null
   br i1 %.not175.i, label %._crit_edge216.i, label %188, !llvm.loop !10
 
 208:                                              ; preds = %201, %191
-  %209 = getelementptr inbounds i8, ptr %.0129213.i, i64 16
+  %209 = getelementptr inbounds i8, ptr %.0130213.i, i64 16
   %210 = load ptr, ptr %209, align 8
   br label %216
 
@@ -1113,7 +1113,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br label %216
 
 216:                                              ; preds = %213, %._crit_edge216.i, %208
-  %.0196.i = phi ptr [ %210, %208 ], [ null, %213 ], [ null, %._crit_edge216.i ]
+  %.0129196.i = phi ptr [ %210, %208 ], [ null, %213 ], [ null, %._crit_edge216.i ]
   %.2.i = phi ptr [ @dictionary_load.proto_type, %208 ], [ %215, %213 ], [ null, %._crit_edge216.i ]
   %.not183.i = icmp eq ptr %.2.i, null
   %spec.select193.i = select i1 %.not183.i, ptr @basic_types, ptr %.2.i
@@ -1122,7 +1122,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   %219 = getelementptr inbounds i8, ptr %.0139219.i, i64 32
   %220 = load i32, ptr %219, align 8
   %221 = load ptr, ptr %.0139219.i, align 8
-  %222 = call ptr %218(ptr noundef nonnull %spec.select193.i, i32 noundef %220, ptr noundef nonnull %.0133.i, ptr noundef %221, ptr noundef %.0130.i, ptr noundef %.0196.i) #13
+  %222 = call ptr %218(ptr noundef nonnull %spec.select193.i, i32 noundef %220, ptr noundef nonnull %.0138.i, ptr noundef %221, ptr noundef %.0132.i, ptr noundef %.0129196.i) #13
   %.not184.i = icmp eq ptr %222, null
   br i1 %.not184.i, label %228, label %223
 
@@ -1133,7 +1133,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   store i32 1, ptr %10, align 16
   store ptr %219, ptr %152, align 8
   store i32 1, ptr %153, align 16
-  store ptr %.0133.i, ptr %154, align 8
+  store ptr %.0138.i, ptr %154, align 8
   store i32 0, ptr %155, align 16
   store ptr null, ptr %156, align 8
   %227 = load ptr, ptr @dictionary.0, align 8
@@ -2926,8 +2926,8 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
   br label %117
 
 117:                                              ; preds = %111, %86
-  %.0123 = phi ptr [ %110, %86 ], [ %113, %111 ]
-  %118 = load ptr, ptr %.0123, align 8
+  %.0124 = phi ptr [ %110, %86 ], [ %113, %111 ]
+  %118 = load ptr, ptr %.0124, align 8
   %119 = load i32, ptr %9, align 4
   %120 = zext i32 %119 to i64
   %121 = inttoptr i64 %120 to ptr
@@ -2944,7 +2944,7 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
 127:                                              ; preds = %124
   %128 = call ptr @wmem_file_scope() #13
   %129 = call noalias ptr @wmem_tree_new(ptr noundef %128) #13
-  %130 = load ptr, ptr %.0123, align 8
+  %130 = load ptr, ptr %.0124, align 8
   %131 = load i32, ptr %9, align 4
   %132 = zext i32 %131 to i64
   %133 = inttoptr i64 %132 to ptr
@@ -2953,7 +2953,7 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not140, label %.thread, label %.thread158
 
 .thread158:                                       ; preds = %117, %127
-  %.0161 = phi ptr [ %129, %127 ], [ %122, %117 ]
+  %.0122161 = phi ptr [ %129, %127 ], [ %122, %117 ]
   %135 = getelementptr inbounds i8, ptr %1, i64 80
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 50
@@ -2992,13 +2992,13 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
   %157 = getelementptr inbounds i8, ptr %145, i64 32
   %158 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, ptr noundef nonnull align 8 dereferenceable(16) %158, i64 16, i1 false)
-  call void @wmem_tree_insert32(ptr noundef nonnull %.0161, i32 noundef %154, ptr noundef nonnull %145) #13
+  call void @wmem_tree_insert32(ptr noundef nonnull %.0122161, i32 noundef %154, ptr noundef nonnull %145) #13
   br label %select.unfold
 
 159:                                              ; preds = %140
   %160 = getelementptr inbounds i8, ptr %1, i64 20
   %161 = load i32, ptr %160, align 4
-  %162 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %.0161, i32 noundef %161) #13
+  %162 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %.0122161, i32 noundef %161) #13
   %.not143 = icmp eq ptr %162, null
   br i1 %.not143, label %.thread, label %163
 
@@ -3018,7 +3018,7 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
 171:                                              ; preds = %.thread158
   %172 = getelementptr inbounds i8, ptr %1, i64 20
   %173 = load i32, ptr %172, align 4
-  %174 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %.0161, i32 noundef %173) #13
+  %174 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %.0122161, i32 noundef %173) #13
   %.not144 = icmp eq ptr %174, null
   br i1 %.not144, label %.thread, label %175
 
@@ -3136,9 +3136,9 @@ proto_item_set_generated.exit:                    ; preds = %proto_item_set_gene
   br i1 %230, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %proto_item_set_generated.exit, %.lr.ph
-  %.0124165 = phi i32 [ %232, %.lr.ph ], [ 20, %proto_item_set_generated.exit ]
-  %231 = call fastcc i32 @dissect_diameter_avp(ptr noundef nonnull %14, ptr noundef %0, i32 noundef %.0124165, ptr noundef nonnull %16, i32 noundef 0)
-  %232 = add i32 %231, %.0124165
+  %.0165 = phi i32 [ %232, %.lr.ph ], [ 20, %proto_item_set_generated.exit ]
+  %231 = call fastcc i32 @dissect_diameter_avp(ptr noundef nonnull %14, ptr noundef %0, i32 noundef %.0165, ptr noundef nonnull %16, i32 noundef 0)
+  %232 = add i32 %231, %.0165
   %233 = load i32, ptr %7, align 4
   %234 = icmp slt i32 %232, %233
   br i1 %234, label %.lr.ph, label %._crit_edge, !llvm.loop !13
@@ -5192,7 +5192,7 @@ define internal ptr @address_radius_avp(ptr nocapture noundef readonly %0, ptr n
   br label %30
 
 30:                                               ; preds = %23, %19, %15
-  %.0 = phi ptr [ %26, %23 ], [ %22, %19 ], [ %18, %15 ]
+  %.027 = phi ptr [ %26, %23 ], [ %22, %19 ], [ %18, %15 ]
   %31 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %42, label %32
@@ -5203,7 +5203,7 @@ define internal ptr @address_radius_avp(ptr nocapture noundef readonly %0, ptr n
   %35 = getelementptr inbounds i8, ptr %34, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noalias ptr @wmem_alloc(ptr noundef %36, i64 noundef 241) #13
-  %38 = getelementptr inbounds i8, ptr %.0, i64 32
+  %38 = getelementptr inbounds i8, ptr %.027, i64 32
   %39 = load ptr, ptr %38, align 8
   tail call void @proto_item_fill_label(ptr noundef %39, ptr noundef %37) #13
   %40 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) @.str.69) #15
@@ -5211,8 +5211,8 @@ define internal ptr @address_radius_avp(ptr nocapture noundef readonly %0, ptr n
   br label %42
 
 42:                                               ; preds = %32, %30
-  %.027 = phi ptr [ %41, %32 ], [ null, %30 ]
-  ret ptr %.027
+  %.0 = phi ptr [ %41, %32 ], [ null, %30 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5289,8 +5289,8 @@ define internal ptr @address_rfc_avp(ptr nocapture noundef readonly %0, ptr noca
   br label %47
 
 47:                                               ; preds = %32, %37, %26, %21
-  %.049 = phi ptr [ @.str.139, %26 ], [ @.str.139, %21 ], [ %46, %37 ], [ null, %32 ]
-  ret ptr %.049
+  %.0 = phi ptr [ @.str.139, %26 ], [ @.str.139, %21 ], [ %46, %37 ], [ null, %32 ]
+  ret ptr %.0
 }
 
 declare i32 @tvb_ascii_isprint(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

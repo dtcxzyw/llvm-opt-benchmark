@@ -391,19 +391,19 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %71
   %88 = load ptr, ptr %4, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 240
   %90 = getelementptr inbounds i8, ptr %88, i64 120
-  %.0105 = load ptr, ptr %89, align 8
-  %.not77106 = icmp eq ptr %.0105, %90
+  %.066105 = load ptr, ptr %89, align 8
+  %.not77106 = icmp eq ptr %.066105, %90
   br i1 %.not77106, label %._crit_edge, label %.lr.ph
 
 91:                                               ; preds = %.lr.ph
-  %92 = getelementptr inbounds i8, ptr %.0107, i64 120
-  %.0 = load ptr, ptr %92, align 8
-  %.not77 = icmp eq ptr %.0, %90
+  %92 = getelementptr inbounds i8, ptr %.066107, i64 120
+  %.066 = load ptr, ptr %92, align 8
+  %.not77 = icmp eq ptr %.066, %90
   br i1 %.not77, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %87, %91
-  %.0107 = phi ptr [ %.0, %91 ], [ %.0105, %87 ]
-  %93 = getelementptr inbounds i8, ptr %.0107, i64 184
+  %.066107 = phi ptr [ %.066, %91 ], [ %.066105, %87 ]
+  %93 = getelementptr inbounds i8, ptr %.066107, i64 184
   %94 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) %33) #16
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %91
@@ -587,8 +587,8 @@ pmix_strncpy.exit102:                             ; preds = %.lr.ph.i96, %155
   br label %169
 
 169:                                              ; preds = %82, %85, %125, %140, %139, %65, %2, %pmix_strncpy.exit102, %pmix_obj_new_tma.exit88.thread, %96, %pmix_obj_new_tma.exit.thread, %31, %22
-  %.066 = phi i32 [ 0, %22 ], [ -27, %31 ], [ -29, %pmix_obj_new_tma.exit.thread ], [ 0, %96 ], [ -29, %pmix_obj_new_tma.exit88.thread ], [ 0, %pmix_strncpy.exit102 ], [ -1, %2 ], [ %58, %65 ], [ -29, %139 ], [ -29, %140 ], [ -29, %125 ], [ %58, %85 ], [ %58, %82 ]
-  ret i32 %.066
+  %.0 = phi i32 [ 0, %22 ], [ -27, %31 ], [ -29, %pmix_obj_new_tma.exit.thread ], [ 0, %96 ], [ -29, %pmix_obj_new_tma.exit88.thread ], [ 0, %pmix_strncpy.exit102 ], [ -1, %2 ], [ %58, %65 ], [ -29, %139 ], [ -29, %140 ], [ -29, %125 ], [ %58, %85 ], [ %58, %82 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -886,19 +886,19 @@ define range(i32 -47, 1) i32 @pmix_mca_base_component_repository_open(ptr nounde
   %19 = select i1 %18, i32 0, i32 40
   %20 = getelementptr inbounds i8, ptr %0, i64 200
   %21 = getelementptr inbounds i8, ptr %0, i64 320
-  %.092147 = load ptr, ptr %21, align 8
-  %.not148 = icmp eq ptr %.092147, %20
+  %.093147 = load ptr, ptr %21, align 8
+  %.not148 = icmp eq ptr %.093147, %20
   br i1 %.not148, label %._crit_edge, label %.lr.ph
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.092149, i64 120
-  %.092 = load ptr, ptr %23, align 8
-  %.not = icmp eq ptr %.092, %20
+  %23 = getelementptr inbounds i8, ptr %.093149, i64 120
+  %.093 = load ptr, ptr %23, align 8
+  %.not = icmp eq ptr %.093, %20
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %15, %22
-  %.092149 = phi ptr [ %.092, %22 ], [ %.092147, %15 ]
-  %24 = getelementptr inbounds i8, ptr %.092149, i64 144
+  %.093149 = phi ptr [ %.093, %22 ], [ %.093147, %15 ]
+  %24 = getelementptr inbounds i8, ptr %.093149, i64 144
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 84
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %17) #16
@@ -1430,8 +1430,8 @@ pmix_obj_new_tma.exit131.thread:                  ; preds = %182, %272, %273, %2
   br label %pmix_obj_new_tma.exit.thread
 
 pmix_obj_new_tma.exit.thread:                     ; preds = %45, %238, %252, %68, %29, %32, %276, %171, %159, %pmix_obj_new_tma.exit.thread138
-  %.093 = phi i32 [ 0, %pmix_obj_new_tma.exit.thread138 ], [ -27, %159 ], [ -27, %171 ], [ %.0145, %276 ], [ -27, %32 ], [ -27, %29 ], [ -47, %68 ], [ 0, %252 ], [ 0, %238 ], [ -29, %45 ]
-  ret i32 %.093
+  %.092 = phi i32 [ 0, %pmix_obj_new_tma.exit.thread138 ], [ -27, %159 ], [ -27, %171 ], [ %.0145, %276 ], [ -27, %32 ], [ -27, %29 ], [ -47, %68 ], [ 0, %252 ], [ 0, %238 ], [ -29, %45 ]
+  ret i32 %.092
 }
 
 declare zeroext i1 @pmix_mca_base_show_load_errors(ptr noundef, ptr noundef) local_unnamed_addr #5

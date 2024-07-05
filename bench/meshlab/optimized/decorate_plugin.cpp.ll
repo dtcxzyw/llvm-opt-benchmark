@@ -1088,8 +1088,8 @@ _ZN7QStringD2Ev.exit43.us:                        ; preds = %_ZN9QtPrivate8RefCo
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph111, %_ZN5QListIiED2Ev.exit
-  %.021 = phi i32 [ undef, %_ZN5QListIiED2Ev.exit ], [ undef, %.lr.ph111 ], [ %43, %.critedge.loopexit ]
   %cond = phi i1 [ true, %_ZN5QListIiED2Ev.exit ], [ true, %.lr.ph111 ], [ %cond.ph, %.critedge.loopexit ]
+  %.0 = phi i32 [ undef, %_ZN5QListIiED2Ev.exit ], [ undef, %.lr.ph111 ], [ %43, %.critedge.loopexit ]
   %63 = load ptr, ptr %4, align 8
   %64 = load atomic i32, ptr %63 monotonic, align 4
   switch i32 %64, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i [
@@ -1318,13 +1318,13 @@ _ZN7QStringD2Ev.exit68.us:                        ; preds = %_ZN9QtPrivate8RefCo
   br i1 %.not96, label %.critedge3.loopexit, label %.lr.ph114
 
 .critedge3.loopexit:                              ; preds = %_ZN7QStringD2Ev.exit68.us, %128
-  %.122.ph = phi i32 [ %.021, %128 ], [ %117, %_ZN7QStringD2Ev.exit68.us ]
+  %.1.ph = phi i32 [ %.0, %128 ], [ %117, %_ZN7QStringD2Ev.exit68.us ]
   %cond1.ph = xor i1 %122, true
   br label %.critedge3
 
 .critedge3:                                       ; preds = %.critedge3.loopexit, %_ZN5QListIiED2Ev.exit62, %.lr.ph123.split
-  %.122 = phi i32 [ %.021, %.lr.ph123.split ], [ %.021, %_ZN5QListIiED2Ev.exit62 ], [ %.122.ph, %.critedge3.loopexit ]
   %cond1 = phi i1 [ true, %.lr.ph123.split ], [ true, %_ZN5QListIiED2Ev.exit62 ], [ %cond1.ph, %.critedge3.loopexit ]
+  %.1 = phi i32 [ %.0, %.lr.ph123.split ], [ %.0, %_ZN5QListIiED2Ev.exit62 ], [ %.1.ph, %.critedge3.loopexit ]
   %130 = load ptr, ptr %10, align 8
   %131 = load atomic i32, ptr %130 monotonic, align 4
   switch i32 %131, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i70 [
@@ -1438,7 +1438,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i80:  ; preds = %_ZN9QtPrivate8RefCo
   br label %164
 
 _ZN7QStringD2Ev.exit85:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i80, %_ZN9QtPrivate8RefCount5derefEv.exit.i81, %_ZN10QByteArrayD2Ev.exit, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit74, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit
-  %.223 = phi i32 [ %.122, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit74 ], [ %.021, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit ], [ %152, %_ZN10QByteArrayD2Ev.exit ], [ -1, %_ZN9QtPrivate8RefCount5derefEv.exit.i81 ], [ -1, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i80 ]
+  %.2 = phi i32 [ %.1, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit74 ], [ %.0, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit ], [ %152, %_ZN10QByteArrayD2Ev.exit ], [ -1, %_ZN9QtPrivate8RefCount5derefEv.exit.i81 ], [ -1, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i80 ]
   %160 = load ptr, ptr %3, align 8
   %161 = load atomic i32, ptr %160 monotonic, align 4
   switch i32 %161, label %_ZN9QtPrivate8RefCount5derefEv.exit.i87 [
@@ -1461,7 +1461,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i86:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit91
 
 _ZN7QStringD2Ev.exit91:                           ; preds = %_ZN7QStringD2Ev.exit85, %_ZN9QtPrivate8RefCount5derefEv.exit.i87, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i86
-  ret i32 %.223
+  ret i32 %.2
 
 164:                                              ; preds = %159, %.split116.us, %115, %70, %40
   %.pn30.pn = phi { ptr, i32 } [ %.pn30, %159 ], [ %41, %40 ], [ %127, %.split116.us ], [ %.pn26, %115 ], [ %.pn, %70 ]
@@ -1620,8 +1620,8 @@ _ZN7QStringD2Ev.exit.us:                          ; preds = %_ZN9QtPrivate8RefCo
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %_ZN5QListIiED2Ev.exit, %.lr.ph85.split
-  %.016 = phi i32 [ undef, %.lr.ph85.split ], [ undef, %_ZN5QListIiED2Ev.exit ], [ %47, %.critedge.loopexit ]
   %cond = phi i1 [ true, %.lr.ph85.split ], [ true, %_ZN5QListIiED2Ev.exit ], [ %cond.ph, %.critedge.loopexit ]
+  %.0 = phi i32 [ undef, %.lr.ph85.split ], [ undef, %_ZN5QListIiED2Ev.exit ], [ %47, %.critedge.loopexit ]
   %60 = load ptr, ptr %4, align 8
   %61 = load atomic i32, ptr %60 monotonic, align 4
   switch i32 %61, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i [
@@ -1845,13 +1845,13 @@ _ZN7QStringD2Ev.exit53.us:                        ; preds = %_ZN9QtPrivate8RefCo
   br i1 %.not75, label %.critedge3.loopexit, label %.lr.ph92
 
 .critedge3.loopexit:                              ; preds = %_ZN7QStringD2Ev.exit53.us, %124
-  %.117.ph = phi i32 [ %.016, %124 ], [ %113, %_ZN7QStringD2Ev.exit53.us ]
+  %.1.ph = phi i32 [ %.0, %124 ], [ %113, %_ZN7QStringD2Ev.exit53.us ]
   %cond1.ph = xor i1 %118, true
   br label %.critedge3
 
 .critedge3:                                       ; preds = %.critedge3.loopexit, %_ZN5QListIiED2Ev.exit47, %.lr.ph101.split
-  %.117 = phi i32 [ %.016, %.lr.ph101.split ], [ %.016, %_ZN5QListIiED2Ev.exit47 ], [ %.117.ph, %.critedge3.loopexit ]
   %cond1 = phi i1 [ true, %.lr.ph101.split ], [ true, %_ZN5QListIiED2Ev.exit47 ], [ %cond1.ph, %.critedge3.loopexit ]
+  %.1 = phi i32 [ %.0, %.lr.ph101.split ], [ %.0, %_ZN5QListIiED2Ev.exit47 ], [ %.1.ph, %.critedge3.loopexit ]
   %126 = load ptr, ptr %9, align 8
   %127 = load atomic i32, ptr %126 monotonic, align 4
   switch i32 %127, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i55 [
@@ -1929,7 +1929,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i60:  ; preds = %_ZN9QtPrivate8RefCo
   br label %152
 
 _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i60, %_ZN9QtPrivate8RefCount5derefEv.exit.i61, %141, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit59, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit
-  %.2 = phi i32 [ %.117, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit59 ], [ %.016, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit ], [ %143, %141 ], [ -1, %_ZN9QtPrivate8RefCount5derefEv.exit.i61 ], [ -1, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i60 ]
+  %.2 = phi i32 [ %.1, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit59 ], [ %.0, %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit ], [ %143, %141 ], [ -1, %_ZN9QtPrivate8RefCount5derefEv.exit.i61 ], [ -1, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i60 ]
   %148 = load ptr, ptr %3, align 8
   %149 = load atomic i32, ptr %148 monotonic, align 4
   switch i32 %149, label %_ZN9QtPrivate8RefCount5derefEv.exit.i66 [

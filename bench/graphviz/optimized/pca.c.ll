@@ -177,14 +177,14 @@ gv_calloc.exit95.preheader135:                    ; preds = %gv_calloc.exit95.pr
 
 65:                                               ; preds = %65, %.preheader98.us.us
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %65 ], [ 0, %.preheader98.us.us ]
-  %.080106.us.us = phi double [ %72, %65 ], [ 0.000000e+00, %.preheader98.us.us ]
+  %.075107.us.us = phi double [ %72, %65 ], [ 0.000000e+00, %.preheader98.us.us ]
   %66 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv165
   %67 = load i32, ptr %66, align 4
   %68 = getelementptr inbounds i32, ptr %64, i64 %indvars.iv165
   %69 = load i32, ptr %68, align 4
   %70 = mul nsw i32 %69, %67
   %71 = sitofp i32 %70 to double
-  %72 = fadd double %.080106.us.us, %71
+  %72 = fadd double %.075107.us.us, %71
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count168
   br i1 %exitcond169.not, label %._crit_edge.us.us, label %65
@@ -280,7 +280,7 @@ gv_calloc.exit95:                                 ; preds = %gv_calloc.exit95.pr
 
 90:                                               ; preds = %90, %.preheader96.us.us.us
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %90 ], [ 0, %.preheader96.us.us.us ]
-  %.181111.us.us.us = phi double [ %98, %90 ], [ 0.000000e+00, %.preheader96.us.us.us ]
+  %.1112.us.us.us = phi double [ %98, %90 ], [ 0.000000e+00, %.preheader96.us.us.us ]
   %91 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv187
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv193
@@ -288,7 +288,7 @@ gv_calloc.exit95:                                 ; preds = %gv_calloc.exit95.pr
   %95 = sitofp i32 %94 to double
   %96 = getelementptr inbounds double, ptr %89, i64 %indvars.iv187
   %97 = load double, ptr %96, align 8
-  %98 = tail call double @llvm.fmuladd.f64(double %95, double %97, double %.181111.us.us.us)
+  %98 = tail call double @llvm.fmuladd.f64(double %95, double %97, double %.1112.us.us.us)
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count191
   br i1 %exitcond192.not, label %._crit_edge114.us.us.us, label %90

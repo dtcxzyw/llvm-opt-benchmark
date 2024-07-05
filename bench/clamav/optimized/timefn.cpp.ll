@@ -272,14 +272,14 @@ define void @_ZN7RarTime10SetIsoTextEPKw(ptr nocapture noundef nonnull writeonly
 
 .lr.ph:                                           ; preds = %2, %25
   %6 = phi i32 [ %27, %25 ], [ %5, %2 ]
-  %.015 = phi i32 [ %.1, %25 ], [ 0, %2 ]
-  %.01014 = phi ptr [ %26, %25 ], [ %1, %2 ]
+  %.015 = phi ptr [ %26, %25 ], [ %1, %2 ]
+  %.01014 = phi i32 [ %.1, %25 ], [ 0, %2 ]
   %7 = tail call noundef zeroext i1 @_Z7IsDigiti(i32 noundef %6)
   br i1 %7, label %8, label %25
 
 8:                                                ; preds = %.lr.ph
-  %9 = icmp ult i32 %.015, 4
-  %10 = add i32 %.015, -4
+  %9 = icmp ult i32 %.01014, 4
+  %10 = add i32 %.01014, -4
   %11 = lshr i32 %10, 1
   %12 = add nuw i32 %11, 1
   %13 = select i1 %9, i32 0, i32 %12
@@ -291,19 +291,19 @@ define void @_ZN7RarTime10SetIsoTextEPKw(ptr nocapture noundef nonnull writeonly
   %17 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = mul nsw i32 %18, 10
-  %20 = load i32, ptr %.01014, align 4
+  %20 = load i32, ptr %.015, align 4
   %21 = add i32 %20, -48
   %22 = add i32 %21, %19
   store i32 %22, ptr %17, align 4
   br label %23
 
 23:                                               ; preds = %15, %8
-  %24 = add i32 %.015, 1
+  %24 = add i32 %.01014, 1
   br label %25
 
 25:                                               ; preds = %.lr.ph, %23
-  %.1 = phi i32 [ %24, %23 ], [ %.015, %.lr.ph ]
-  %26 = getelementptr inbounds i8, ptr %.01014, i64 4
+  %.1 = phi i32 [ %24, %23 ], [ %.01014, %.lr.ph ]
+  %26 = getelementptr inbounds i8, ptr %.015, i64 4
   %27 = load i32, ptr %26, align 4
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
@@ -365,14 +365,14 @@ define void @_ZN7RarTime10SetAgeTextEPKw(ptr nocapture noundef nonnull writeonly
 
 .lr.ph:                                           ; preds = %2, %24
   %5 = phi i32 [ %28, %24 ], [ %4, %2 ]
-  %.025 = phi i32 [ %25, %24 ], [ 0, %2 ]
-  %.01824 = phi i32 [ %.1, %24 ], [ 0, %2 ]
-  %.01923 = phi i32 [ %.2, %24 ], [ 0, %2 ]
+  %.025 = phi i32 [ %.2, %24 ], [ 0, %2 ]
+  %.01824 = phi i32 [ %25, %24 ], [ 0, %2 ]
+  %.01923 = phi i32 [ %.120, %24 ], [ 0, %2 ]
   %6 = tail call noundef zeroext i1 @_Z7IsDigiti(i32 noundef %5)
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %.lr.ph
-  %8 = mul i32 %.01824, 10
+  %8 = mul i32 %.01923, 10
   %9 = add i32 %8, -48
   %10 = add i32 %9, %5
   br label %24
@@ -387,28 +387,28 @@ define void @_ZN7RarTime10SetAgeTextEPKw(ptr nocapture noundef nonnull writeonly
   ]
 
 13:                                               ; preds = %11
-  %14 = mul i32 %.01824, 86400
-  %15 = add i32 %14, %.01923
+  %14 = mul i32 %.01923, 86400
+  %15 = add i32 %.025, %14
   br label %24
 
 16:                                               ; preds = %11
-  %17 = mul i32 %.01824, 3600
-  %18 = add i32 %17, %.01923
+  %17 = mul i32 %.01923, 3600
+  %18 = add i32 %.025, %17
   br label %24
 
 19:                                               ; preds = %11
-  %20 = mul i32 %.01824, 60
-  %21 = add i32 %20, %.01923
+  %20 = mul i32 %.01923, 60
+  %21 = add i32 %.025, %20
   br label %24
 
 22:                                               ; preds = %11
-  %23 = add i32 %.01824, %.01923
+  %23 = add i32 %.025, %.01923
   br label %24
 
 24:                                               ; preds = %11, %13, %16, %19, %22, %7
-  %.2 = phi i32 [ %.01923, %7 ], [ %.01923, %11 ], [ %23, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ]
-  %.1 = phi i32 [ %10, %7 ], [ 0, %11 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ 0, %13 ]
-  %25 = add i32 %.025, 1
+  %.120 = phi i32 [ %10, %7 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %11 ]
+  %.2 = phi i32 [ %.025, %7 ], [ %23, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %.025, %11 ]
+  %25 = add i32 %.01824, 1
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds i32, ptr %1, i64 %26
   %28 = load i32, ptr %27, align 4
@@ -421,14 +421,14 @@ define void @_ZN7RarTime10SetAgeTextEPKw(ptr nocapture noundef nonnull writeonly
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.019.lcssa = phi i64 [ 0, %2 ], [ %30, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %2 ], [ %30, %._crit_edge.loopexit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %31 = call i64 @time(ptr noundef nonnull %3) #13
   %32 = load i64, ptr %3, align 8
   %33 = mul i64 %32, 1000000000
   %34 = add i64 %33, -6802270473709551616
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %35 = add i64 %34, %.019.lcssa
+  %35 = add i64 %34, %.0.lcssa
   store i64 %35, ptr %0, align 8
   ret void
 }

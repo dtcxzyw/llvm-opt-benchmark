@@ -3600,9 +3600,9 @@ define hidden i32 @dissect_usb_hid_get_report_descriptor(ptr noundef %0, ptr nou
 48:                                               ; preds = %281, %.lr.ph.i
   %.0115263.i = phi i32 [ 0, %.lr.ph.i ], [ %283, %281 ]
   %.0116262.i = phi i32 [ 1, %.lr.ph.i ], [ %.1.i, %281 ]
-  %.0118261.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %281 ]
-  %.0120260.i = phi i32 [ 0, %.lr.ph.i ], [ %.1121.i, %281 ]
-  %.0122259.i = phi i32 [ 0, %.lr.ph.i ], [ %.2124.i, %281 ]
+  %.0119261.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %281 ]
+  %.0121260.i = phi i32 [ 0, %.lr.ph.i ], [ %.1122.i, %281 ]
+  %.0123259.i = phi i32 [ 0, %.lr.ph.i ], [ %.2125.i, %281 ]
   %49 = sext i32 %.0115263.i to i64
   %50 = getelementptr i8, ptr %31, i64 %49
   %51 = load i8, ptr %50, align 1
@@ -3656,7 +3656,7 @@ define hidden i32 @dissect_usb_hid_get_report_descriptor(ptr noundef %0, ptr nou
 hid_unpack_value.exit.i:                          ; preds = %.lr.ph.i.i, %59
   %.08.lcssa.i.i = phi i32 [ 0, %59 ], [ %70, %.lr.ph.i.i ]
   store i32 %.08.lcssa.i.i, ptr %47, align 4
-  %71 = and i32 %.0122259.i, 120
+  %71 = and i32 %.0123259.i, 120
   %.not140.i = icmp eq i32 %71, 120
   br i1 %.not140.i, label %72, label %hid_unpack_signed.exit.i
 
@@ -3665,7 +3665,7 @@ hid_unpack_value.exit.i:                          ; preds = %.lr.ph.i.i, %59
   call void @wmem_array_append(ptr noundef %73, ptr noundef nonnull %10, i32 noundef 1) #7
   %74 = call noalias ptr @wmem_array_new(ptr noundef %33, i64 noundef 4) #7
   store ptr %74, ptr %10, align 8
-  %75 = and i32 %.0122259.i, 252
+  %75 = and i32 %.0123259.i, 252
   br label %281
 
 76:                                               ; preds = %58
@@ -3697,7 +3697,7 @@ hid_unpack_value.exit.i:                          ; preds = %.lr.ph.i.i, %59
 hid_unpack_value.exit151.i:                       ; preds = %.lr.ph.i145.i, %76
   %.08.lcssa.i150.i = phi i32 [ 0, %76 ], [ %87, %.lr.ph.i145.i ]
   store i32 %.08.lcssa.i150.i, ptr %47, align 4
-  %88 = and i32 %.0122259.i, 120
+  %88 = and i32 %.0123259.i, 120
   %.not139.i = icmp eq i32 %88, 120
   br i1 %.not139.i, label %89, label %hid_unpack_signed.exit.i
 
@@ -3706,7 +3706,7 @@ hid_unpack_value.exit151.i:                       ; preds = %.lr.ph.i145.i, %76
   call void @wmem_array_append(ptr noundef %90, ptr noundef nonnull %10, i32 noundef 1) #7
   %91 = call noalias ptr @wmem_array_new(ptr noundef %33, i64 noundef 4) #7
   store ptr %91, ptr %10, align 8
-  %92 = and i32 %.0122259.i, 252
+  %92 = and i32 %.0123259.i, 252
   br label %281
 
 93:                                               ; preds = %58
@@ -3760,7 +3760,7 @@ hid_unpack_value.exit161.i:                       ; preds = %.lr.ph.i155.i
 
 hid_unpack_value.exit161.thread.i:                ; preds = %hid_unpack_value.exit161.i, %97
   %.08.lcssa.i160240.i = phi i32 [ %108, %hid_unpack_value.exit161.i ], [ 0, %97 ]
-  %110 = or i32 %.0122259.i, 128
+  %110 = or i32 %.0123259.i, 128
   br label %281
 
 111:                                              ; preds = %96
@@ -3820,7 +3820,7 @@ hid_unpack_value.exit22.i.i:                      ; preds = %.lr.ph.i17.i.i
 .loopexit.i:                                      ; preds = %.lr.ph.i23.i.i, %hid_unpack_value.exit22.i.i, %.lr.ph.i.preheader.i.i
   %.sink.i.i = phi i32 [ %116, %.lr.ph.i.preheader.i.i ], [ %127, %hid_unpack_value.exit22.i.i ], [ %137, %.lr.ph.i23.i.i ]
   store i32 %.sink.i.i, ptr %46, align 4
-  %138 = or i32 %.0122259.i, 32
+  %138 = or i32 %.0123259.i, 32
   br label %281
 
 139:                                              ; preds = %96
@@ -3880,7 +3880,7 @@ hid_unpack_value.exit22.i175.i:                   ; preds = %.lr.ph.i17.i170.i
 .loopexit245.i:                                   ; preds = %.lr.ph.i23.i162.i, %hid_unpack_value.exit22.i175.i, %.lr.ph.i.preheader.i177.i
   %.sink.i168.i = phi i32 [ %144, %.lr.ph.i.preheader.i177.i ], [ %155, %hid_unpack_value.exit22.i175.i ], [ %165, %.lr.ph.i23.i162.i ]
   store i32 %.sink.i168.i, ptr %45, align 8
-  %166 = or i32 %.0122259.i, 64
+  %166 = or i32 %.0123259.i, 64
   br label %281
 
 167:                                              ; preds = %96
@@ -3912,7 +3912,7 @@ hid_unpack_value.exit22.i175.i:                   ; preds = %.lr.ph.i17.i170.i
 hid_unpack_value.exit188.i:                       ; preds = %.lr.ph.i182.i, %167
   %.08.lcssa.i187.i = phi i32 [ 0, %167 ], [ %178, %.lr.ph.i182.i ]
   store i32 %.08.lcssa.i187.i, ptr %44, align 8
-  %179 = or i32 %.0122259.i, 16
+  %179 = or i32 %.0123259.i, 16
   br label %281
 
 180:                                              ; preds = %96
@@ -3985,7 +3985,7 @@ hid_unpack_value.exit198.i:                       ; preds = %.lr.ph.i192.i, %183
 hid_unpack_value.exit208.i:                       ; preds = %.lr.ph.i202.i, %195
   %.08.lcssa.i207.i = phi i32 [ 0, %195 ], [ %206, %.lr.ph.i202.i ]
   store i32 %.08.lcssa.i207.i, ptr %42, align 4
-  %207 = or i32 %.0122259.i, 8
+  %207 = or i32 %.0123259.i, 8
   br label %281
 
 208:                                              ; preds = %48
@@ -4027,12 +4027,12 @@ hid_unpack_value.exit218.i:                       ; preds = %.lr.ph.i212.i, %209
   br i1 %57, label %226, label %221
 
 221:                                              ; preds = %hid_unpack_value.exit218.i
-  %222 = and i32 %.0122259.i, 128
+  %222 = and i32 %.0123259.i, 128
   %.not134.i = icmp eq i32 %222, 0
   br i1 %.not134.i, label %hid_unpack_signed.exit.i, label %223
 
 223:                                              ; preds = %221
-  %224 = shl nuw i32 %.0120260.i, 16
+  %224 = shl nuw i32 %.0121260.i, 16
   %225 = or i32 %.08.lcssa.i217.i, %224
   store i32 %225, ptr %11, align 4
   br label %226
@@ -4073,27 +4073,27 @@ hid_unpack_value.exit228.i:                       ; preds = %.lr.ph.i222.i, %228
   br i1 %57, label %240, label %242
 
 240:                                              ; preds = %hid_unpack_value.exit228.i
-  %241 = or i32 %.0122259.i, 2048
+  %241 = or i32 %.0123259.i, 2048
   br label %247
 
 242:                                              ; preds = %hid_unpack_value.exit228.i
-  %243 = and i32 %.0122259.i, 128
+  %243 = and i32 %.0123259.i, 128
   %.not132.i = icmp eq i32 %243, 0
   br i1 %.not132.i, label %hid_unpack_signed.exit.i, label %244
 
 244:                                              ; preds = %242
-  %245 = shl nuw i32 %.0120260.i, 16
+  %245 = shl nuw i32 %.0121260.i, 16
   %246 = or i32 %.08.lcssa.i227.i, %245
   br label %247
 
 247:                                              ; preds = %244, %240
-  %.1123.i = phi i32 [ %241, %240 ], [ %.0122259.i, %244 ]
-  %.1119.i = phi i32 [ %.08.lcssa.i227.i, %240 ], [ %246, %244 ]
-  %248 = or i32 %.1123.i, 1
+  %.1124.i = phi i32 [ %241, %240 ], [ %.0123259.i, %244 ]
+  %.1120.i = phi i32 [ %.08.lcssa.i227.i, %240 ], [ %246, %244 ]
+  %248 = or i32 %.1124.i, 1
   br label %281
 
 249:                                              ; preds = %208
-  %250 = and i32 %.0122259.i, 1
+  %250 = and i32 %.0123259.i, 1
   %.not.i = icmp eq i32 %250, 0
   br i1 %.not.i, label %hid_unpack_signed.exit.i, label %251
 
@@ -4125,7 +4125,7 @@ hid_unpack_value.exit228.i:                       ; preds = %.lr.ph.i222.i, %228
 
 hid_unpack_value.exit238.i:                       ; preds = %.lr.ph.i232.i, %251
   %.08.lcssa.i237.i = phi i32 [ 0, %251 ], [ %262, %.lr.ph.i232.i ]
-  %263 = and i32 %.0122259.i, 2048
+  %263 = and i32 %.0123259.i, 2048
   %.not127.i = icmp eq i32 %263, 0
   br i1 %.not127.i, label %265, label %264
 
@@ -4133,30 +4133,30 @@ hid_unpack_value.exit238.i:                       ; preds = %.lr.ph.i232.i, %251
   br i1 %57, label %270, label %hid_unpack_signed.exit.i
 
 265:                                              ; preds = %hid_unpack_value.exit238.i
-  %266 = and i32 %.0122259.i, 128
+  %266 = and i32 %.0123259.i, 128
   %.not128.i = icmp eq i32 %266, 0
   %or.cond.i = select i1 %57, i1 true, i1 %.not128.i
   br i1 %or.cond.i, label %hid_unpack_signed.exit.i, label %267
 
 267:                                              ; preds = %265
-  %268 = shl nuw i32 %.0120260.i, 16
+  %268 = shl nuw i32 %.0121260.i, 16
   %269 = or i32 %.08.lcssa.i237.i, %268
   br label %270
 
 270:                                              ; preds = %267, %264
-  %.0117.i = phi i32 [ %.08.lcssa.i237.i, %264 ], [ %269, %267 ]
-  %.not130.unshifted.i = xor i32 %.0117.i, %.0118261.i
+  %.0118.i = phi i32 [ %.08.lcssa.i237.i, %264 ], [ %269, %267 ]
+  %.not130.unshifted.i = xor i32 %.0118.i, %.0119261.i
   %.not130.i = icmp ugt i32 %.not130.unshifted.i, 65535
-  %271 = icmp ugt i32 %.0118261.i, %.0117.i
+  %271 = icmp ugt i32 %.0119261.i, %.0118.i
   %or.cond141.i = or i1 %271, %.not130.i
   br i1 %or.cond141.i, label %hid_unpack_signed.exit.i, label %272
 
 272:                                              ; preds = %270
   %273 = load ptr, ptr %10, align 8
-  %reass.sub = sub i32 %.0117.i, %.0118261.i
+  %reass.sub = sub i32 %.0118.i, %.0119261.i
   %274 = add i32 %reass.sub, 1
   call void @wmem_array_grow(ptr noundef %273, i32 noundef %274) #7
-  store i32 %.0118261.i, ptr %12, align 4
+  store i32 %.0119261.i, ptr %12, align 4
   br label %275
 
 275:                                              ; preds = %275, %272
@@ -4165,17 +4165,17 @@ hid_unpack_value.exit238.i:                       ; preds = %.lr.ph.i232.i, %251
   %277 = load i32, ptr %12, align 4
   %278 = add i32 %277, 1
   store i32 %278, ptr %12, align 4
-  %.not131.i = icmp ugt i32 %278, %.0117.i
+  %.not131.i = icmp ugt i32 %278, %.0118.i
   br i1 %.not131.i, label %279, label %275, !llvm.loop !6
 
 279:                                              ; preds = %275
-  %280 = and i32 %.0122259.i, -2050
+  %280 = and i32 %.0123259.i, -2050
   br label %281
 
 281:                                              ; preds = %279, %247, %226, %hid_unpack_value.exit208.i, %hid_unpack_value.exit198.i, %hid_unpack_value.exit188.i, %.loopexit245.i, %.loopexit.i, %hid_unpack_value.exit161.thread.i, %96, %93, %89, %72, %58
-  %.2124.i = phi i32 [ %280, %279 ], [ %248, %247 ], [ %.0122259.i, %226 ], [ %.0122259.i, %96 ], [ %207, %hid_unpack_value.exit208.i ], [ %.0122259.i, %hid_unpack_value.exit198.i ], [ %179, %hid_unpack_value.exit188.i ], [ %166, %.loopexit245.i ], [ %138, %.loopexit.i ], [ %110, %hid_unpack_value.exit161.thread.i ], [ %.0122259.i, %58 ], [ %.0122259.i, %93 ], [ %92, %89 ], [ %75, %72 ]
-  %.1121.i = phi i32 [ %.0120260.i, %279 ], [ %.0120260.i, %247 ], [ %.0120260.i, %226 ], [ %.0120260.i, %96 ], [ %.0120260.i, %hid_unpack_value.exit208.i ], [ %.0120260.i, %hid_unpack_value.exit198.i ], [ %.0120260.i, %hid_unpack_value.exit188.i ], [ %.0120260.i, %.loopexit245.i ], [ %.0120260.i, %.loopexit.i ], [ %.08.lcssa.i160240.i, %hid_unpack_value.exit161.thread.i ], [ %.0120260.i, %58 ], [ %.0120260.i, %93 ], [ %.0120260.i, %89 ], [ %.0120260.i, %72 ]
-  %.2.i = phi i32 [ %.0118261.i, %279 ], [ %.1119.i, %247 ], [ %.0118261.i, %226 ], [ %.0118261.i, %96 ], [ %.0118261.i, %hid_unpack_value.exit208.i ], [ %.0118261.i, %hid_unpack_value.exit198.i ], [ %.0118261.i, %hid_unpack_value.exit188.i ], [ %.0118261.i, %.loopexit245.i ], [ %.0118261.i, %.loopexit.i ], [ %.0118261.i, %hid_unpack_value.exit161.thread.i ], [ %.0118261.i, %58 ], [ %.0118261.i, %93 ], [ %.0118261.i, %89 ], [ %.0118261.i, %72 ]
+  %.2125.i = phi i32 [ %280, %279 ], [ %248, %247 ], [ %.0123259.i, %226 ], [ %.0123259.i, %96 ], [ %207, %hid_unpack_value.exit208.i ], [ %.0123259.i, %hid_unpack_value.exit198.i ], [ %179, %hid_unpack_value.exit188.i ], [ %166, %.loopexit245.i ], [ %138, %.loopexit.i ], [ %110, %hid_unpack_value.exit161.thread.i ], [ %.0123259.i, %58 ], [ %.0123259.i, %93 ], [ %92, %89 ], [ %75, %72 ]
+  %.1122.i = phi i32 [ %.0121260.i, %279 ], [ %.0121260.i, %247 ], [ %.0121260.i, %226 ], [ %.0121260.i, %96 ], [ %.0121260.i, %hid_unpack_value.exit208.i ], [ %.0121260.i, %hid_unpack_value.exit198.i ], [ %.0121260.i, %hid_unpack_value.exit188.i ], [ %.0121260.i, %.loopexit245.i ], [ %.0121260.i, %.loopexit.i ], [ %.08.lcssa.i160240.i, %hid_unpack_value.exit161.thread.i ], [ %.0121260.i, %58 ], [ %.0121260.i, %93 ], [ %.0121260.i, %89 ], [ %.0121260.i, %72 ]
+  %.2.i = phi i32 [ %.0119261.i, %279 ], [ %.1120.i, %247 ], [ %.0119261.i, %226 ], [ %.0119261.i, %96 ], [ %.0119261.i, %hid_unpack_value.exit208.i ], [ %.0119261.i, %hid_unpack_value.exit198.i ], [ %.0119261.i, %hid_unpack_value.exit188.i ], [ %.0119261.i, %.loopexit245.i ], [ %.0119261.i, %.loopexit.i ], [ %.0119261.i, %hid_unpack_value.exit161.thread.i ], [ %.0119261.i, %58 ], [ %.0119261.i, %93 ], [ %.0119261.i, %89 ], [ %.0119261.i, %72 ]
   %.1.i = phi i32 [ %.0116262.i, %279 ], [ %.0116262.i, %247 ], [ %.0116262.i, %226 ], [ %.0116262.i, %96 ], [ %.0116262.i, %hid_unpack_value.exit208.i ], [ %.0116262.i, %hid_unpack_value.exit198.i ], [ %.0116262.i, %hid_unpack_value.exit188.i ], [ %.0116262.i, %.loopexit245.i ], [ %.0116262.i, %.loopexit.i ], [ %.0116262.i, %hid_unpack_value.exit161.thread.i ], [ %.0116262.i, %58 ], [ %.0116262.i, %93 ], [ 0, %89 ], [ 0, %72 ]
   %282 = add nuw nsw i32 %spec.store.select.i, 1
   %283 = add i32 %282, %.0115263.i
@@ -4311,9 +4311,9 @@ define internal fastcc i32 @dissect_usb_hid_report_item(ptr noundef %0, ptr noun
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %.lr.ph, %.thread
-  %.09012 = phi i32 [ %3, %.lr.ph ], [ %.2, %.thread ]
+  %.08912 = phi i32 [ %3, %.lr.ph ], [ %.2, %.thread ]
   %.sroa.0.011 = phi i32 [ %.0.val, %.lr.ph ], [ %.sroa.0.25, %.thread ]
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.09012) #7
+  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.08912) #7
   %14 = zext i8 %13 to i32
   %15 = and i32 %14, 3
   %16 = icmp eq i32 %15, 3
@@ -4331,15 +4331,15 @@ switch.lookup:                                    ; preds = %.lr.ph, %.thread
   %22 = add nuw nsw i32 %spec.select, 1
   %23 = load i32, ptr @ett_usb_hid_item_header, align 4
   %24 = call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.243) #7
-  %25 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %2, i32 noundef %.09012, i32 noundef %22, i32 noundef %23, ptr noundef nonnull %9, ptr noundef nonnull @.str.242, ptr noundef %24) #7
+  %25 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %2, i32 noundef %.08912, i32 noundef %22, i32 noundef %23, ptr noundef nonnull %9, ptr noundef nonnull @.str.242, ptr noundef %24) #7
   %26 = load i32, ptr @ett_usb_hid_item_header, align 4
-  %27 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %2, i32 noundef %.09012, i32 noundef 1, i32 noundef %26, ptr noundef null, ptr noundef nonnull @.str.244) #7
+  %27 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %2, i32 noundef %.08912, i32 noundef 1, i32 noundef %26, ptr noundef null, ptr noundef nonnull @.str.244) #7
   %28 = load i32, ptr @hf_usb_hid_item_bSize, align 4
-  %29 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %2, i32 noundef %.09012, i32 noundef 1, i32 noundef -2147483648) #7
+  %29 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %2, i32 noundef %.08912, i32 noundef 1, i32 noundef -2147483648) #7
   %30 = load i32, ptr @hf_usb_hid_item_bType, align 4
-  %31 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %30, ptr noundef %2, i32 noundef %.09012, i32 noundef 1, i32 noundef -2147483648) #7
-  %32 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %.0, ptr noundef %2, i32 noundef %.09012, i32 noundef 1, i32 noundef -2147483648) #7
-  %33 = add i32 %.09012, 1
+  %31 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %30, ptr noundef %2, i32 noundef %.08912, i32 noundef 1, i32 noundef -2147483648) #7
+  %32 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %.0, ptr noundef %2, i32 noundef %.08912, i32 noundef 1, i32 noundef -2147483648) #7
+  %33 = add i32 %.08912, 1
   switch i32 %18, label %default.unreachable [
     i32 0, label %34
     i32 1, label %89
@@ -4802,7 +4802,7 @@ dissect_usb_hid_report_localitem_data.exit:       ; preds = %178, %188, %193, %1
   %241 = call fastcc i32 @dissect_usb_hid_report_item(ptr noundef %0, ptr noundef %25, ptr noundef %2, i32 noundef %240, i32 %.sroa.0.011)
   call void @decrement_dissection_depth(ptr noundef %0) #7
   %242 = load ptr, ptr %9, align 8
-  %243 = sub i32 %241, %.09012
+  %243 = sub i32 %241, %.08912
   call void @proto_item_set_len(ptr noundef %242, i32 noundef %243) #7
   br label %.thread
 
@@ -5433,13 +5433,13 @@ define internal i32 @dissect_usb_hid_boot_mouse_input_report(ptr noundef %0, ptr
   br label %39
 
 39:                                               ; preds = %33, %.thread122
-  %.1121126 = phi i32 [ 1, %.thread122 ], [ 0, %33 ]
+  %.188121126 = phi i32 [ 1, %.thread122 ], [ 0, %33 ]
   %40 = load ptr, ptr %24, align 8
   tail call void @col_append_str(ptr noundef %40, i32 noundef 25, ptr noundef nonnull @.str.3295) #7
   br label %41
 
 41:                                               ; preds = %39, %33
-  %.1117 = phi i32 [ %.1121126, %39 ], [ 0, %33 ]
+  %.188117 = phi i32 [ %.188121126, %39 ], [ 0, %33 ]
   %42 = and i32 %22, 8
   %.not95 = icmp eq i32 %42, 0
   br i1 %.not95, label %49, label %45
@@ -5455,7 +5455,7 @@ define internal i32 @dissect_usb_hid_boot_mouse_input_report(ptr noundef %0, ptr
   br i1 %.not95132, label %49, label %.thread134
 
 45:                                               ; preds = %41
-  %.not96 = icmp eq i32 %.1117, 0
+  %.not96 = icmp eq i32 %.188117, 0
   br i1 %.not96, label %47, label %.thread134
 
 .thread134:                                       ; preds = %.thread171, %.thread130, %45
@@ -5469,13 +5469,13 @@ define internal i32 @dissect_usb_hid_boot_mouse_input_report(ptr noundef %0, ptr
   br label %49
 
 49:                                               ; preds = %.thread171, %.thread130, %47, %41
-  %.2 = phi i32 [ 1, %47 ], [ %.1117, %41 ], [ 1, %.thread130 ], [ 1, %.thread171 ]
+  %.289 = phi i32 [ 1, %47 ], [ %.188117, %41 ], [ 1, %.thread130 ], [ 1, %.thread171 ]
   %50 = and i32 %22, 16
   %.not97 = icmp eq i32 %50, 0
   br i1 %.not97, label %54, label %51
 
 51:                                               ; preds = %49
-  %.not98 = icmp eq i32 %.2, 0
+  %.not98 = icmp eq i32 %.289, 0
   br i1 %.not98, label %.thread143, label %52
 
 52:                                               ; preds = %51
@@ -5496,7 +5496,7 @@ define internal i32 @dissect_usb_hid_boot_mouse_input_report(ptr noundef %0, ptr
   br i1 %.not99145, label %62, label %.thread147
 
 58:                                               ; preds = %54
-  %.not100 = icmp eq i32 %.2, 0
+  %.not100 = icmp eq i32 %.289, 0
   br i1 %.not100, label %60, label %.thread147
 
 .thread147:                                       ; preds = %.thread143, %58
@@ -5510,7 +5510,7 @@ define internal i32 @dissect_usb_hid_boot_mouse_input_report(ptr noundef %0, ptr
   br label %62
 
 62:                                               ; preds = %.thread143, %60, %54
-  %.4 = phi i32 [ 1, %60 ], [ %.2, %54 ], [ 1, %.thread143 ]
+  %.4 = phi i32 [ 1, %60 ], [ %.289, %54 ], [ 1, %.thread143 ]
   %63 = and i32 %22, 64
   %.not101 = icmp eq i32 %63, 0
   br i1 %.not101, label %67, label %64
@@ -5563,33 +5563,33 @@ define internal i32 @dissect_usb_hid_boot_mouse_input_report(ptr noundef %0, ptr
   br label %81
 
 81:                                               ; preds = %78, %.thread153
-  %.087 = phi i32 [ 4, %78 ], [ 3, %.thread153 ]
-  %82 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.087) #7
+  %.0 = phi i32 [ 4, %78 ], [ 3, %.thread153 ]
+  %82 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0) #7
   %.not106 = icmp eq i32 %82, 0
   br i1 %.not106, label %87, label %83
 
 83:                                               ; preds = %81
   %84 = load i32, ptr @hf_usbhid_boot_report_mouse_vertical_scroll_wheel, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef %.087, i32 noundef 1, i32 noundef 0) #7
-  %86 = add nuw nsw i32 %.087, 1
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #7
+  %86 = add nuw nsw i32 %.0, 1
   br label %87
 
 87:                                               ; preds = %83, %81
-  %.188 = phi i32 [ %86, %83 ], [ %.087, %81 ]
-  %88 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.188) #7
+  %.1 = phi i32 [ %86, %83 ], [ %.0, %81 ]
+  %88 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #7
   %.not107 = icmp eq i32 %88, 0
   br i1 %.not107, label %94, label %89
 
 89:                                               ; preds = %87
   %90 = load i32, ptr @hf_usbhid_data, align 4
-  %91 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %90, ptr noundef %0, i32 noundef %.188, i32 noundef -1, i32 noundef 0) #7
-  %92 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.188) #7
-  %93 = add i32 %92, %.188
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %90, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef 0) #7
+  %92 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #7
+  %93 = add i32 %92, %.1
   br label %94
 
 94:                                               ; preds = %89, %87
-  %.289 = phi i32 [ %93, %89 ], [ %.188, %87 ]
-  ret i32 %.289
+  %.2 = phi i32 [ %93, %89 ], [ %.1, %87 ]
+  ret i32 %.2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5833,14 +5833,14 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %54
 
 54:                                               ; preds = %51, %48
-  %.049 = phi i32 [ 8, %51 ], [ 0, %48 ]
+  %.047 = phi i32 [ 8, %51 ], [ 0, %48 ]
   %55 = getelementptr inbounds i8, ptr %3, i64 8
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i32 %56, 1
-  %.047.in.v = select i1 %57, i64 120, i64 128
-  %.047.in = getelementptr inbounds i8, ptr %.0.i, i64 %.047.in.v
-  %.047 = load ptr, ptr %.047.in, align 8
-  %58 = call i32 @wmem_array_get_count(ptr noundef %.047) #7
+  %.049.in.v = select i1 %57, i64 120, i64 128
+  %.049.in = getelementptr inbounds i8, ptr %.0.i, i64 %.049.in.v
+  %.049 = load ptr, ptr %.049.in, align 8
+  %58 = call i32 @wmem_array_get_count(ptr noundef %.049) #7
   %.not60 = icmp eq i32 %58, 0
   br i1 %.not60, label %.loopexit, label %.lr.ph
 
@@ -5850,9 +5850,9 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %61
 
 61:                                               ; preds = %.lr.ph, %dissect_hid_field.exit
-  %.059 = phi i32 [ 0, %.lr.ph ], [ %500, %dissect_hid_field.exit ]
-  %.158 = phi i32 [ %.049, %.lr.ph ], [ %.2, %dissect_hid_field.exit ]
-  %62 = call ptr @wmem_array_index(ptr noundef %.047, i32 noundef %.059) #7
+  %.159 = phi i32 [ %.047, %.lr.ph ], [ %.2, %dissect_hid_field.exit ]
+  %.04858 = phi i32 [ 0, %.lr.ph ], [ %500, %dissect_hid_field.exit ]
+  %62 = call ptr @wmem_array_index(ptr noundef %.049, i32 noundef %.04858) #7
   %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %62, i64 12
@@ -5876,8 +5876,8 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
 
 76:                                               ; preds = %72
   %77 = load i32, ptr @hf_usbhid_padding, align 4
-  %78 = call ptr @proto_tree_add_bits_item(ptr noundef %46, i32 noundef %77, ptr noundef %0, i32 noundef %.158, i32 noundef %67, i32 noundef -2147483648) #7
-  %79 = add i32 %67, %.158
+  %78 = call ptr @proto_tree_add_bits_item(ptr noundef %46, i32 noundef %77, ptr noundef %0, i32 noundef %.159, i32 noundef %67, i32 noundef -2147483648) #7
+  %79 = add i32 %67, %.159
   br label %dissect_hid_field.exit
 
 80:                                               ; preds = %72
@@ -5892,7 +5892,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   %87 = load i32, ptr %63, align 8
   %88 = load i32, ptr %65, align 4
   %89 = mul i32 %88, %87
-  %90 = call ptr @proto_tree_add_bits_item(ptr noundef %46, i32 noundef %86, ptr noundef %0, i32 noundef %.158, i32 noundef %89, i32 noundef -2147483648) #7
+  %90 = call ptr @proto_tree_add_bits_item(ptr noundef %46, i32 noundef %86, ptr noundef %0, i32 noundef %.159, i32 noundef %89, i32 noundef -2147483648) #7
   %91 = load i32, ptr @ett_usb_hid_array, align 4
   %92 = call ptr @proto_item_add_subtree(ptr noundef %90, i32 noundef %91) #7
   %93 = load i32, ptr %65, align 4
@@ -5907,8 +5907,8 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
 
 96:                                               ; preds = %136, %.lr.ph91.i
   %97 = phi i32 [ %.pre95.i, %.lr.ph91.i ], [ %137, %136 ]
-  %.089.i = phi i32 [ %.158, %.lr.ph91.i ], [ %138, %136 ]
-  %.06088.i = phi i32 [ 0, %.lr.ph91.i ], [ %139, %136 ]
+  %.089.i = phi i32 [ %.159, %.lr.ph91.i ], [ %138, %136 ]
+  %.05788.i = phi i32 [ 0, %.lr.ph91.i ], [ %139, %136 ]
   %98 = icmp ugt i32 %97, 32
   br i1 %98, label %131, label %99
 
@@ -5974,7 +5974,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
 136:                                              ; preds = %131, %119
   %137 = load i32, ptr %63, align 8
   %138 = add i32 %137, %.089.i
-  %139 = add nuw i32 %.06088.i, 1
+  %139 = add nuw i32 %.05788.i, 1
   %140 = load i32, ptr %65, align 4
   %141 = icmp ult i32 %139, %140
   br i1 %141, label %96, label %dissect_hid_field.exit, !llvm.loop !12
@@ -5992,10 +5992,10 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %147
 
 147:                                              ; preds = %dissect_hid_variable.exit.i, %.lr.ph.i
-  %.187.i = phi i32 [ %.158, %.lr.ph.i ], [ %489, %dissect_hid_variable.exit.i ]
-  %.05886.i = phi i32 [ 0, %.lr.ph.i ], [ %490, %dissect_hid_variable.exit.i ]
+  %.187.i = phi i32 [ %.159, %.lr.ph.i ], [ %489, %dissect_hid_variable.exit.i ]
+  %.05986.i = phi i32 [ 0, %.lr.ph.i ], [ %490, %dissect_hid_variable.exit.i ]
   %148 = load ptr, ptr %62, align 8
-  %149 = call ptr @wmem_array_index(ptr noundef %148, i32 noundef %.05886.i) #7
+  %149 = call ptr @wmem_array_index(ptr noundef %148, i32 noundef %.05986.i) #7
   %150 = load i32, ptr %149, align 4
   %151 = lshr i32 %150, 16
   %152 = icmp ugt i32 %150, -16777217
@@ -6618,7 +6618,7 @@ switch.lookup:                                    ; preds = %457
 dissect_hid_variable.exit.i:                      ; preds = %487, %467, %465, %431, %411, %393, %375, %357, %339, %321, %303, %285, %267, %249, %231, %213, %195, %177, %153
   %488 = load i32, ptr %63, align 8
   %489 = add i32 %488, %.187.i
-  %490 = add nuw i32 %.05886.i, 1
+  %490 = add nuw i32 %.05986.i, 1
   %exitcond.not.i = icmp eq i32 %490, %spec.select.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %147, !llvm.loop !13
 
@@ -6628,7 +6628,7 @@ dissect_hid_variable.exit.i:                      ; preds = %487, %467, %465, %4
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %142
   %491 = phi i32 [ %145, %142 ], [ %.pre.i, %._crit_edge.loopexit.i ]
-  %.1.lcssa.i = phi i32 [ %.158, %142 ], [ %489, %._crit_edge.loopexit.i ]
+  %.1.lcssa.i = phi i32 [ %.159, %142 ], [ %489, %._crit_edge.loopexit.i ]
   %492 = icmp ugt i32 %491, %spec.select.i
   br i1 %492, label %493, label %dissect_hid_field.exit
 
@@ -6642,9 +6642,9 @@ dissect_hid_variable.exit.i:                      ; preds = %487, %467, %465, %4
   br label %dissect_hid_field.exit
 
 dissect_hid_field.exit:                           ; preds = %136, %493, %._crit_edge.i, %85, %69, %76
-  %.2 = phi i32 [ %.158, %69 ], [ %79, %76 ], [ %499, %493 ], [ %.1.lcssa.i, %._crit_edge.i ], [ %.158, %85 ], [ %138, %136 ]
-  %500 = add nuw i32 %.059, 1
-  %501 = call i32 @wmem_array_get_count(ptr noundef %.047) #7
+  %.2 = phi i32 [ %.159, %69 ], [ %79, %76 ], [ %499, %493 ], [ %.1.lcssa.i, %._crit_edge.i ], [ %.159, %85 ], [ %138, %136 ]
+  %500 = add nuw i32 %.04858, 1
+  %501 = call i32 @wmem_array_get_count(ptr noundef %.049) #7
   %502 = icmp ult i32 %500, %501
   br i1 %502, label %61, label %.loopexit, !llvm.loop !14
 
@@ -6676,26 +6676,26 @@ define internal noundef i32 @dissect_usb_hid_class_descriptors(ptr noundef %0, p
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.039 = phi i32 [ %25, %.lr.ph ], [ 0, %7 ]
-  %.03638 = phi i32 [ %24, %.lr.ph ], [ 6, %7 ]
+  %.03738 = phi i32 [ %24, %.lr.ph ], [ 6, %7 ]
   %19 = load i32, ptr @hf_usb_hid_bDescriptorType, align 4
-  %20 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %19, ptr noundef %0, i32 noundef %.03638, i32 noundef 1, i32 noundef -2147483648) #7
-  %21 = add nuw nsw i32 %.03638, 1
+  %20 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %19, ptr noundef %0, i32 noundef %.03738, i32 noundef 1, i32 noundef -2147483648) #7
+  %21 = add nuw nsw i32 %.03738, 1
   %22 = load i32, ptr @hf_usb_hid_wDescriptorLength, align 4
   %23 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648) #7
-  %24 = add nuw nsw i32 %.03638, 3
+  %24 = add nuw nsw i32 %.03738, 3
   %25 = add nuw nsw i32 %.039, 1
   %exitcond.not = icmp eq i32 %25, %18
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
-  %.036.lcssa = phi i32 [ 6, %7 ], [ %24, %.lr.ph ]
+  %.037.lcssa = phi i32 [ 6, %7 ], [ %24, %.lr.ph ]
   %26 = load ptr, ptr %5, align 8
-  call void @proto_item_set_len(ptr noundef %26, i32 noundef %.036.lcssa) #7
+  call void @proto_item_set_len(ptr noundef %26, i32 noundef %.037.lcssa) #7
   br label %27
 
 27:                                               ; preds = %4, %._crit_edge
-  %.037 = phi i32 [ %.036.lcssa, %._crit_edge ], [ 0, %4 ]
-  ret i32 %.037
+  %.036 = phi i32 [ %.037.lcssa, %._crit_edge ], [ 0, %4 ]
+  ret i32 %.036
 }
 
 ; Function Attrs: nounwind uwtable

@@ -179,10 +179,10 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp64, label %for.body, label %end, !llvm.loop !8
 
 end:                                              ; preds = %sw.bb10, %while.body38, %for.body, %for.cond.preheader, %if.end29, %if.then25, %if.end19, %if.end15, %if.then58, %if.end53, %if.then51, %sw.bb3, %opthelp
-  %out.0 = phi ptr [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %if.end15 ], [ null, %if.end19 ], [ %call20, %if.then25 ], [ %call20, %if.end29 ], [ %call20, %if.end53 ], [ %call20, %if.then51 ], [ %call20, %if.then58 ], [ %call20, %for.cond.preheader ], [ %call20, %for.body ], [ %call20, %while.body38 ], [ null, %sw.bb10 ]
   %seq.0 = phi ptr [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %if.end15 ], [ null, %if.end19 ], [ null, %if.then25 ], [ %call26, %if.end29 ], [ %call26, %if.end53 ], [ %call26, %if.then51 ], [ null, %if.then58 ], [ %call56, %for.cond.preheader ], [ %call56, %for.body ], [ %call26, %while.body38 ], [ null, %sw.bb10 ]
-  %in.0 = phi ptr [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %if.end15 ], [ %call16, %if.end19 ], [ %call16, %if.then25 ], [ %call16, %if.end29 ], [ %call16, %if.end53 ], [ %call16, %if.then51 ], [ %call16, %if.then58 ], [ %call16, %for.cond.preheader ], [ %call16, %for.body ], [ %call16, %while.body38 ], [ null, %sw.bb10 ]
+  %out.0 = phi ptr [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %if.end15 ], [ null, %if.end19 ], [ %call20, %if.then25 ], [ %call20, %if.end29 ], [ %call20, %if.end53 ], [ %call20, %if.then51 ], [ %call20, %if.then58 ], [ %call20, %for.cond.preheader ], [ %call20, %for.body ], [ %call20, %while.body38 ], [ null, %sw.bb10 ]
   %ret.0 = phi i32 [ 0, %sw.bb3 ], [ 1, %opthelp ], [ 1, %if.end15 ], [ 1, %if.end19 ], [ 1, %if.then25 ], [ 1, %if.end29 ], [ 0, %if.end53 ], [ 1, %if.then51 ], [ 1, %if.then58 ], [ 0, %for.cond.preheader ], [ 0, %for.body ], [ 1, %while.body38 ], [ 1, %sw.bb10 ]
+  %in.0 = phi ptr [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %if.end15 ], [ %call16, %if.end19 ], [ %call16, %if.then25 ], [ %call16, %if.end29 ], [ %call16, %if.end53 ], [ %call16, %if.then51 ], [ %call16, %if.then58 ], [ %call16, %for.cond.preheader ], [ %call16, %for.body ], [ %call16, %while.body38 ], [ null, %sw.bb10 ]
   %call69 = tail call i32 @BIO_free(ptr noundef %in.0) #2
   tail call void @BIO_free_all(ptr noundef %out.0) #2
   tail call void @NETSCAPE_CERT_SEQUENCE_free(ptr noundef %seq.0) #2

@@ -171,10 +171,10 @@ define internal i32 @dissect_ssyncp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %36
 
 36:                                               ; preds = %28, %24
-  %.0139 = phi ptr [ %27, %24 ], [ %30, %28 ]
+  %.0137 = phi ptr [ %27, %24 ], [ %30, %28 ]
   %37 = tail call ptr @wmem_file_scope() #4
   %38 = tail call noalias ptr @wmem_alloc(ptr noundef %37, i64 noundef 24) #4
-  %39 = getelementptr inbounds i8, ptr %.0139, i64 16
+  %39 = getelementptr inbounds i8, ptr %.0137, i64 16
   %40 = getelementptr [2 x i32], ptr %39, i64 0, i64 %11
   %41 = load i32, ptr %40, align 4
   %.not147 = icmp eq i32 %41, 0
@@ -187,7 +187,7 @@ define internal i32 @dissect_ssyncp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %49
 
 44:                                               ; preds = %36
-  %45 = getelementptr [2 x i64], ptr %.0139, i64 0, i64 %11
+  %45 = getelementptr [2 x i64], ptr %.0137, i64 0, i64 %11
   %46 = load i64, ptr %45, align 8
   %47 = sub i64 %12, %46
   %48 = getelementptr inbounds i8, ptr %38, i64 8
@@ -200,12 +200,12 @@ define internal i32 @dissect_ssyncp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %51 = tail call ptr @wmem_file_scope() #4
   %52 = load i32, ptr @proto_ssyncp, align 4
   tail call void @p_add_proto_data(ptr noundef %51, ptr noundef nonnull %1, i32 noundef %52, i32 noundef 0, ptr noundef nonnull %38) #4
-  %53 = getelementptr [2 x i64], ptr %.0139, i64 0, i64 %11
+  %53 = getelementptr [2 x i64], ptr %.0137, i64 0, i64 %11
   store i64 %12, ptr %53, align 8
   br label %54
 
 54:                                               ; preds = %49, %20
-  %.1140 = phi ptr [ null, %20 ], [ %.0139, %49 ]
+  %.1 = phi ptr [ null, %20 ], [ %.0137, %49 ]
   %.0136 = phi ptr [ %23, %20 ], [ %38, %49 ]
   %55 = getelementptr inbounds i8, ptr %1, i64 8
   %56 = load ptr, ptr %55, align 8
@@ -367,10 +367,10 @@ proto_item_set_generated.exit:                    ; preds = %79, %76, %71, %54
   %142 = call zeroext i16 @tvb_get_guint16(ptr noundef %127, i32 noundef 2, i32 noundef 0) #4
   %143 = trunc i32 %140 to i16
   %144 = sub i16 %141, %143
-  %145 = getelementptr inbounds i8, ptr %.1140, i64 24
+  %145 = getelementptr inbounds i8, ptr %.1, i64 24
   %146 = getelementptr [2 x i16], ptr %145, i64 0, i64 %11
   store i16 %144, ptr %146, align 2
-  %147 = getelementptr inbounds i8, ptr %.1140, i64 28
+  %147 = getelementptr inbounds i8, ptr %.1, i64 28
   %148 = getelementptr [2 x i32], ptr %147, i64 0, i64 %11
   store i32 1, ptr %148, align 4
   %.not159 = icmp eq i16 %142, -1

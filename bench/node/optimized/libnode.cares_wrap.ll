@@ -4634,7 +4634,7 @@ for.inc294:                                       ; preds = %_ZNK2v85MaybeIbE5Ch
 if.end297:                                        ; preds = %for.inc294, %for.inc, %for.cond185.preheader, %for.cond.preheader
   store i32 256, ptr %naddr6ttls, align 4
   store i32 28, ptr %type, align 4
-  %call305 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef nonnull %type, ptr %call15, ptr noundef nonnull %addr6ttls, ptr noundef nonnull %naddr6ttls)
+  %call305 = call fastcc noundef i32 @_ZN4node10cares_wrap12_GLOBAL__N_117ParseGeneralReplyEPNS_11EnvironmentEPKhiPiN2v85LocalINS7_5ArrayEEEPvS6_(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %conv, ptr noundef nonnull %type, ptr nonnull %call15, ptr noundef nonnull %addr6ttls, ptr noundef nonnull %naddr6ttls)
   %call307 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %call15) #20
   %or.cond1 = icmp ugt i32 %call305, 1
   br i1 %or.cond1, label %cleanup, label %do.body313

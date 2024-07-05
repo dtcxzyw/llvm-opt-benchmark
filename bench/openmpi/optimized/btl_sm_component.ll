@@ -636,8 +636,8 @@ mca_smsc_base_registration_data_size.exit:        ; preds = %mca_smsc_base_has_f
   br label %89
 
 89:                                               ; preds = %9, %3, %87, %86, %67, %59
-  %.030 = phi ptr [ null, %59 ], [ null, %67 ], [ null, %87 ], [ %10, %86 ], [ null, %3 ], [ null, %9 ]
-  ret ptr %.030
+  %.0 = phi ptr [ null, %59 ], [ null, %67 ], [ null, %87 ], [ %10, %86 ], [ null, %3 ], [ null, %9 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -691,11 +691,11 @@ define internal i32 @mca_btl_sm_component_progress() #0 {
   br label %29
 
 29:                                               ; preds = %67, %19
-  %.03653.i = phi i32 [ 0, %19 ], [ %73, %67 ]
-  %.03752.i = phi i8 [ %27, %19 ], [ %.138.i, %67 ]
-  %.03951.i = phi i32 [ %26, %19 ], [ %.140.i, %67 ]
+  %.03653.i = phi i32 [ %26, %19 ], [ %.137.i, %67 ]
+  %.03852.i = phi i8 [ %27, %19 ], [ %.139.i, %67 ]
+  %.04051.i = phi i32 [ 0, %19 ], [ %73, %67 ]
   %30 = load ptr, ptr %23, align 8
-  %31 = zext i32 %.03951.i to i64
+  %31 = zext i32 %.03653.i to i64
   %32 = getelementptr inbounds i8, ptr %30, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
@@ -761,29 +761,29 @@ define internal i32 @mca_btl_sm_component_progress() #0 {
   br label %67
 
 67:                                               ; preds = %56, %54, %44
-  %68 = add i32 %.03951.i, 39
+  %68 = add i32 %.03653.i, 39
   %69 = add i32 %68, %35
   %70 = and i32 %69, -32
   %71 = icmp eq i32 %13, %70
-  %.140.i = select i1 %71, i32 32, i32 %70
   %72 = zext i1 %71 to i8
-  %.138.i = xor i8 %.03752.i, %72
-  %73 = add nuw nsw i32 %.03653.i, 1
+  %.139.i = xor i8 %.03852.i, %72
+  %.137.i = select i1 %71, i32 32, i32 %70
+  %73 = add nuw nsw i32 %.04051.i, 1
   %exitcond.not.i = icmp eq i32 %73, 32
   br i1 %exitcond.not.i, label %.thread.i, label %29, !llvm.loop !7
 
 74:                                               ; preds = %38, %29
-  %.not44.i = icmp eq i32 %.03653.i, 0
+  %.not44.i = icmp eq i32 %.04051.i, 0
   br i1 %.not44.i, label %81, label %.thread.i
 
 .thread.i:                                        ; preds = %67, %74
-  %.03950.i = phi i32 [ %.03951.i, %74 ], [ %.140.i, %67 ]
-  %.03748.i = phi i8 [ %.03752.i, %74 ], [ %.138.i, %67 ]
+  %.03849.i = phi i8 [ %.03852.i, %74 ], [ %.139.i, %67 ]
+  %.03647.i = phi i32 [ %.03653.i, %74 ], [ %.137.i, %67 ]
   fence seq_cst
-  %75 = and i8 %.03748.i, 1
+  %75 = and i8 %.03849.i, 1
   %76 = zext nneg i8 %75 to i32
   %77 = shl nuw i32 %76, 31
-  %78 = or i32 %77, %.03950.i
+  %78 = or i32 %77, %.03647.i
   %79 = getelementptr inbounds i8, ptr %22, i64 48
   %80 = load ptr, ptr %79, align 8
   store i32 %78, ptr %80, align 4
@@ -965,17 +965,17 @@ mca_btl_sm_check_fboxes.exit:                     ; preds = %81
   br label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %166, %154
-  %.090.i.i.i.i = phi i32 [ 32, %166 ], [ %146, %154 ]
-  %.088.i.i.i.i = phi i32 [ %175, %166 ], [ %163, %154 ]
-  %.086.i.i.i.i = phi ptr [ %177, %166 ], [ %152, %154 ]
+  %.091.i.i.i.i = phi i32 [ 32, %166 ], [ %146, %154 ]
+  %.089.i.i.i.i = phi i32 [ %175, %166 ], [ %163, %154 ]
+  %.087.i.i.i.i = phi ptr [ %177, %166 ], [ %152, %154 ]
   %.0.i.i.i.i = phi i8 [ %171, %166 ], [ %142, %154 ]
-  %178 = icmp ult i32 %.088.i.i.i.i, 32
+  %178 = icmp ult i32 %.089.i.i.i.i, 32
   br i1 %178, label %179, label %185
 
 179:                                              ; preds = %.critedge.i.i.i.i
   %180 = zext nneg i8 %.0.i.i.i.i to i32
   %181 = shl nuw i32 %180, 31
-  %182 = or disjoint i32 %181, %.090.i.i.i.i
+  %182 = or disjoint i32 %181, %.091.i.i.i.i
   store i32 %182, ptr %110, align 4
   fence release
   %183 = load i8, ptr @opal_uses_threads, align 1
@@ -983,13 +983,13 @@ mca_btl_sm_check_fboxes.exit:                     ; preds = %81
   br i1 %184, label %sm_fifo_write_ep.exit.i.i, label %sm_fifo_write_ep.exit.thread20.i.i
 
 185:                                              ; preds = %.critedge.i.i.i.i, %138
-  %.191.i.i.i.i = phi i32 [ %.090.i.i.i.i, %.critedge.i.i.i.i ], [ %146, %138 ]
-  %.189.i.i.i.i = phi i32 [ %.088.i.i.i.i, %.critedge.i.i.i.i ], [ %150, %138 ]
-  %.187.i.i.i.i = phi ptr [ %.086.i.i.i.i, %.critedge.i.i.i.i ], [ %152, %138 ]
+  %.192.i.i.i.i = phi i32 [ %.091.i.i.i.i, %.critedge.i.i.i.i ], [ %146, %138 ]
+  %.190.i.i.i.i = phi i32 [ %.089.i.i.i.i, %.critedge.i.i.i.i ], [ %150, %138 ]
+  %.188.i.i.i.i = phi ptr [ %.087.i.i.i.i, %.critedge.i.i.i.i ], [ %152, %138 ]
   %.1.i.i.i.i = phi i8 [ %.0.i.i.i.i, %.critedge.i.i.i.i ], [ %142, %138 ]
-  %186 = getelementptr inbounds i8, ptr %.187.i.i.i.i, i64 8
+  %186 = getelementptr inbounds i8, ptr %.188.i.i.i.i, i64 8
   store i64 %128, ptr %186, align 1
-  %187 = add nuw i32 %.191.i.i.i.i, 32
+  %187 = add nuw i32 %.192.i.i.i.i, 32
   %188 = icmp eq i32 %131, %187
   br i1 %188, label %189, label %191
 
@@ -998,7 +998,7 @@ mca_btl_sm_check_fboxes.exit:                     ; preds = %81
   br label %197
 
 191:                                              ; preds = %185
-  %192 = icmp ugt i32 %.189.i.i.i.i, 32
+  %192 = icmp ugt i32 %.190.i.i.i.i, 32
   br i1 %192, label %193, label %197
 
 193:                                              ; preds = %191
@@ -1009,15 +1009,15 @@ mca_btl_sm_check_fboxes.exit:                     ; preds = %81
   br label %197
 
 197:                                              ; preds = %193, %191, %189
-  %.292.i.i.i.i = phi i32 [ 32, %189 ], [ %187, %193 ], [ %187, %191 ]
+  %.293.i.i.i.i = phi i32 [ 32, %189 ], [ %187, %193 ], [ %187, %191 ]
   %.2.i.i.i.i = phi i8 [ %190, %189 ], [ %.1.i.i.i.i, %193 ], [ %.1.i.i.i.i, %191 ]
   %198 = load i16, ptr %113, align 8
   %199 = add i16 %198, 1
   store i16 %199, ptr %113, align 8
-  %200 = getelementptr inbounds i8, ptr %.187.i.i.i.i, i64 4
+  %200 = getelementptr inbounds i8, ptr %.188.i.i.i.i, i64 4
   store i32 0, ptr %200, align 4
   fence release
-  store i32 8, ptr %.187.i.i.i.i, align 8
+  store i32 8, ptr %.188.i.i.i.i, align 8
   fence release
   %.sroa.3.4.insert.ext.i109.i.i.i.i = zext i16 %198 to i32
   %.sroa.3.4.insert.shift.i110.i.i.i.i = shl nuw i32 %.sroa.3.4.insert.ext.i109.i.i.i.i, 16
@@ -1025,7 +1025,7 @@ mca_btl_sm_check_fboxes.exit:                     ; preds = %81
   store i32 %.sroa.1.4.insert.insert.i111.i.i.i.i, ptr %200, align 4
   %201 = zext nneg i8 %.2.i.i.i.i to i32
   %202 = shl nuw i32 %201, 31
-  %203 = or i32 %202, %.292.i.i.i.i
+  %203 = or i32 %202, %.293.i.i.i.i
   store i32 %203, ptr %110, align 4
   fence release
   %204 = load i8, ptr @opal_uses_threads, align 1

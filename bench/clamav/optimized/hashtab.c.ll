@@ -283,8 +283,8 @@ define noundef ptr @cli_htu32_next(ptr noundef readonly %0, ptr noundef %1) loca
   br label %15
 
 15:                                               ; preds = %6, %13
-  %.0 = phi i64 [ %14, %13 ], [ 0, %6 ]
-  %16 = icmp ult i64 %.0, %5
+  %.017 = phi i64 [ %14, %13 ], [ 0, %6 ]
+  %16 = icmp ult i64 %.017, %5
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %15
@@ -293,7 +293,7 @@ define noundef ptr @cli_htu32_next(ptr noundef readonly %0, ptr noundef %1) loca
   br label %19
 
 19:                                               ; preds = %.lr.ph, %23
-  %.129 = phi i64 [ %.0, %.lr.ph ], [ %24, %23 ]
+  %.129 = phi i64 [ %.017, %.lr.ph ], [ %24, %23 ]
   %20 = and i64 %.129, %18
   %21 = getelementptr inbounds %struct.cli_htu32_element, ptr %17, i64 %20
   %22 = load i32, ptr %21, align 8
@@ -308,8 +308,8 @@ define noundef ptr @cli_htu32_next(ptr noundef readonly %0, ptr noundef %1) loca
   br i1 %exitcond.not, label %.loopexit, label %19
 
 .loopexit:                                        ; preds = %19, %23, %15, %7, %2, %3
-  %.017 = phi ptr [ null, %3 ], [ null, %2 ], [ null, %7 ], [ null, %15 ], [ %21, %19 ], [ null, %23 ]
-  ret ptr %.017
+  %.0 = phi ptr [ null, %3 ], [ null, %2 ], [ null, %7 ], [ null, %15 ], [ %21, %19 ], [ null, %23 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -338,8 +338,8 @@ define noundef ptr @cli_hashtab_insert(ptr noundef %0, ptr nocapture noundef rea
   br i1 %.not.i, label %hash.exit.us, label %.lr.ph.i.preheader
 
 hash.exit.us:                                     ; preds = %14, %39
-  %.052.us = phi ptr [ %.254.us, %39 ], [ null, %14 ]
-  %.050.us = phi i64 [ %.2.us, %39 ], [ 1, %14 ]
+  %.053.us = phi ptr [ %.255.us, %39 ], [ null, %14 ]
+  %.051.us = phi i64 [ %.2.us, %39 ], [ 1, %14 ]
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 1
   %18 = xor i64 %17, 1
@@ -349,11 +349,11 @@ hash.exit.us:                                     ; preds = %14, %39
 
 21:                                               ; preds = %37, %hash.exit.us
   %22 = phi i64 [ %16, %hash.exit.us ], [ %38, %37 ]
-  %.055.us = phi ptr [ %20, %hash.exit.us ], [ %.257.us, %37 ]
-  %.153.us = phi ptr [ %.052.us, %hash.exit.us ], [ %.254.us, %37 ]
-  %.151.us = phi i64 [ %.050.us, %hash.exit.us ], [ %.2.us, %37 ]
-  %.0.us = phi i64 [ %18, %hash.exit.us ], [ %.1.us, %37 ]
-  %23 = load ptr, ptr %.055.us, align 8
+  %.056.us = phi ptr [ %20, %hash.exit.us ], [ %.258.us, %37 ]
+  %.154.us = phi ptr [ %.053.us, %hash.exit.us ], [ %.255.us, %37 ]
+  %.152.us = phi i64 [ %.051.us, %hash.exit.us ], [ %.2.us, %37 ]
+  %.050.us = phi i64 [ %18, %hash.exit.us ], [ %.1.us, %37 ]
+  %23 = load ptr, ptr %.056.us, align 8
   %.not64.us = icmp eq ptr %23, null
   br i1 %.not64.us, label %.split74.us, label %24
 
@@ -362,30 +362,30 @@ hash.exit.us:                                     ; preds = %14, %39
   br i1 %25, label %36, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %.055.us, i64 16
+  %27 = getelementptr inbounds i8, ptr %.056.us, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %.split77.us, label %30
 
 30:                                               ; preds = %26
-  %31 = add i64 %.151.us, 1
-  %32 = add i64 %.0.us, %.151.us
+  %31 = add i64 %.152.us, 1
+  %32 = add i64 %.050.us, %.152.us
   %33 = urem i64 %32, %22
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds %struct.cli_element, ptr %34, i64 %33
   br label %37
 
 36:                                               ; preds = %24
-  store ptr null, ptr %.055.us, align 8
+  store ptr null, ptr %.056.us, align 8
   %.pre91 = load i64, ptr %15, align 8
   br label %37
 
 37:                                               ; preds = %36, %30
   %38 = phi i64 [ %.pre91, %36 ], [ %22, %30 ]
-  %.257.us = phi ptr [ %.055.us, %36 ], [ %35, %30 ]
-  %.254.us = phi ptr [ %.055.us, %36 ], [ %.153.us, %30 ]
-  %.2.us = phi i64 [ %.151.us, %36 ], [ %31, %30 ]
-  %.1.us = phi i64 [ %.0.us, %36 ], [ %33, %30 ]
+  %.258.us = phi ptr [ %.056.us, %36 ], [ %35, %30 ]
+  %.255.us = phi ptr [ %.056.us, %36 ], [ %.154.us, %30 ]
+  %.2.us = phi i64 [ %.152.us, %36 ], [ %31, %30 ]
+  %.1.us = phi i64 [ %.050.us, %36 ], [ %33, %30 ]
   %.not67.us = icmp ugt i64 %.2.us, %38
   br i1 %.not67.us, label %39, label %21
 
@@ -395,8 +395,8 @@ hash.exit.us:                                     ; preds = %14, %39
   br label %hash.exit.us
 
 .lr.ph.i.preheader:                               ; preds = %14, %94
-  %.052 = phi ptr [ %.254, %94 ], [ null, %14 ]
-  %.050 = phi i64 [ %.2, %94 ], [ 1, %14 ]
+  %.053 = phi ptr [ %.255, %94 ], [ null, %14 ]
+  %.051 = phi i64 [ %.2, %94 ], [ 1, %14 ]
   %40 = load i64, ptr %15, align 8
   br label %.lr.ph.i
 
@@ -432,17 +432,17 @@ hash.exit.us:                                     ; preds = %14, %39
 
 62:                                               ; preds = %92, %._crit_edge.loopexit.i
   %63 = phi i64 [ %40, %._crit_edge.loopexit.i ], [ %93, %92 ]
-  %.055 = phi ptr [ %61, %._crit_edge.loopexit.i ], [ %.257, %92 ]
-  %.153 = phi ptr [ %.052, %._crit_edge.loopexit.i ], [ %.254, %92 ]
-  %.151 = phi i64 [ %.050, %._crit_edge.loopexit.i ], [ %.2, %92 ]
-  %.0 = phi i64 [ %59, %._crit_edge.loopexit.i ], [ %.1, %92 ]
-  %64 = load ptr, ptr %.055, align 8
+  %.056 = phi ptr [ %61, %._crit_edge.loopexit.i ], [ %.258, %92 ]
+  %.154 = phi ptr [ %.053, %._crit_edge.loopexit.i ], [ %.255, %92 ]
+  %.152 = phi i64 [ %.051, %._crit_edge.loopexit.i ], [ %.2, %92 ]
+  %.050 = phi i64 [ %59, %._crit_edge.loopexit.i ], [ %.1, %92 ]
+  %64 = load ptr, ptr %.056, align 8
   %.not64 = icmp eq ptr %64, null
   br i1 %.not64, label %.split74.us, label %75
 
 .split74.us:                                      ; preds = %62, %21
-  %.us-phi = phi ptr [ %.055.us, %21 ], [ %.055, %62 ]
-  %.us-phi75 = phi ptr [ %.153.us, %21 ], [ %.153, %62 ]
+  %.us-phi = phi ptr [ %.056.us, %21 ], [ %.056, %62 ]
+  %.us-phi75 = phi ptr [ %.154.us, %21 ], [ %.154, %62 ]
   %65 = add i64 %2, 1
   %66 = tail call ptr @cli_max_malloc(i64 noundef %65) #18
   %.not66 = icmp eq ptr %66, null
@@ -473,12 +473,12 @@ hash.exit.us:                                     ; preds = %14, %39
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %75
-  store ptr null, ptr %.055, align 8
+  store ptr null, ptr %.056, align 8
   %.pre = load i64, ptr %15, align 8
   br label %92
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %.055, i64 16
+  %79 = getelementptr inbounds i8, ptr %.056, i64 16
   %80 = load i64, ptr %79, align 8
   %81 = icmp eq i64 %80, %2
   br i1 %81, label %82, label %86
@@ -489,14 +489,14 @@ hash.exit.us:                                     ; preds = %14, %39
   br i1 %84, label %.split77.us, label %86
 
 .split77.us:                                      ; preds = %82, %26
-  %.us-phi78 = phi ptr [ %.055.us, %26 ], [ %.055, %82 ]
+  %.us-phi78 = phi ptr [ %.056.us, %26 ], [ %.056, %82 ]
   %85 = getelementptr inbounds i8, ptr %.us-phi78, i64 8
   store i64 %3, ptr %85, align 8
   br label %95
 
 86:                                               ; preds = %82, %78
-  %87 = add i64 %.151, 1
-  %88 = add i64 %.0, %.151
+  %87 = add i64 %.152, 1
+  %88 = add i64 %.050, %.152
   %89 = urem i64 %88, %63
   %90 = load ptr, ptr %0, align 8
   %91 = getelementptr inbounds %struct.cli_element, ptr %90, i64 %89
@@ -504,10 +504,10 @@ hash.exit.us:                                     ; preds = %14, %39
 
 92:                                               ; preds = %86, %77
   %93 = phi i64 [ %.pre, %77 ], [ %63, %86 ]
-  %.257 = phi ptr [ %.055, %77 ], [ %91, %86 ]
-  %.254 = phi ptr [ %.055, %77 ], [ %.153, %86 ]
-  %.2 = phi i64 [ %.151, %77 ], [ %87, %86 ]
-  %.1 = phi i64 [ %.0, %77 ], [ %89, %86 ]
+  %.258 = phi ptr [ %.056, %77 ], [ %91, %86 ]
+  %.255 = phi ptr [ %.056, %77 ], [ %.154, %86 ]
+  %.2 = phi i64 [ %.152, %77 ], [ %87, %86 ]
+  %.1 = phi i64 [ %.050, %77 ], [ %89, %86 ]
   %.not67 = icmp ugt i64 %.2, %93
   br i1 %.not67, label %94, label %62
 
@@ -517,8 +517,8 @@ hash.exit.us:                                     ; preds = %14, %39
   br label %.lr.ph.i.preheader
 
 95:                                               ; preds = %4, %.split77.us, %68, %67
-  %.058 = phi ptr [ %.us-phi78, %.split77.us ], [ %spec.select, %68 ], [ null, %67 ], [ null, %4 ]
-  ret ptr %.058
+  %.0 = phi ptr [ %.us-phi78, %.split77.us ], [ %spec.select, %68 ], [ null, %67 ], [ null, %4 ]
+  ret ptr %.0
 }
 
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
@@ -2090,20 +2090,20 @@ define i64 @cli_hashset_toarray(ptr nocapture noundef readonly %0, ptr noundef w
 
 13:                                               ; preds = %.lr.ph, %33
   %14 = phi i32 [ %10, %.lr.ph ], [ %34, %33 ]
-  %.024 = phi i64 [ 0, %.lr.ph ], [ %.1, %33 ]
-  %.01723 = phi i64 [ 0, %.lr.ph ], [ %35, %33 ]
+  %.01724 = phi i64 [ 0, %.lr.ph ], [ %.1, %33 ]
+  %.01823 = phi i64 [ 0, %.lr.ph ], [ %35, %33 ]
   %15 = load i32, ptr %4, align 8
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %.024, %16
+  %17 = icmp ult i64 %.01724, %16
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %11, align 8
-  %20 = lshr i64 %.01723, 5
+  %20 = lshr i64 %.01823, 5
   %21 = getelementptr inbounds i32, ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
-  %24 = and i64 %.01723, 31
+  %24 = and i64 %.01823, 31
   %25 = shl nuw nsw i64 1, %24
   %26 = and i64 %25, %23
   %.not22 = icmp eq i64 %26, 0
@@ -2111,25 +2111,25 @@ define i64 @cli_hashset_toarray(ptr nocapture noundef readonly %0, ptr noundef w
 
 27:                                               ; preds = %18
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %.01723
+  %29 = getelementptr inbounds i32, ptr %28, i64 %.01823
   %30 = load i32, ptr %29, align 4
-  %31 = add nuw nsw i64 %.024, 1
-  %32 = getelementptr inbounds i32, ptr %8, i64 %.024
+  %31 = add nuw nsw i64 %.01724, 1
+  %32 = getelementptr inbounds i32, ptr %8, i64 %.01724
   store i32 %30, ptr %32, align 4
   %.pre = load i32, ptr %9, align 8
   br label %33
 
 33:                                               ; preds = %18, %27
   %34 = phi i32 [ %.pre, %27 ], [ %14, %18 ]
-  %.1 = phi i64 [ %31, %27 ], [ %.024, %18 ]
-  %35 = add nuw nsw i64 %.01723, 1
+  %.1 = phi i64 [ %31, %27 ], [ %.01724, %18 ]
+  %35 = add nuw nsw i64 %.01823, 1
   %36 = zext i32 %34 to i64
   %37 = icmp ult i64 %35, %36
   br i1 %37, label %13, label %.critedge
 
 .critedge:                                        ; preds = %33, %13, %.preheader, %2, %12
-  %.018 = phi i64 [ -1, %12 ], [ -1, %2 ], [ 0, %.preheader ], [ %.1, %33 ], [ %.024, %13 ]
-  ret i64 %.018
+  %.0 = phi i64 [ -1, %12 ], [ -1, %2 ], [ 0, %.preheader ], [ %.1, %33 ], [ %.01724, %13 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

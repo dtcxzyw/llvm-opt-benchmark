@@ -2249,8 +2249,8 @@ define internal fastcc i32 @process(ptr noundef %0, i64 %1, ptr %2, i32 noundef 
   br label %213
 
 213:                                              ; preds = %205, %200
-  %.sroa.7.0 = phi ptr [ %194, %200 ], [ %208, %205 ]
   %.sroa.08.0 = phi i64 [ %193, %200 ], [ %207, %205 ]
+  %.sroa.7.0 = phi ptr [ %194, %200 ], [ %208, %205 ]
   tail call void @jv_free(i64 %196, ptr %197) #16
   tail call void @jv_free(i64 %.sroa.08.0, ptr %.sroa.7.0) #16
   br label %214

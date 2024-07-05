@@ -629,15 +629,15 @@ define internal fastcc void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopegu
   br i1 %exitcond.not.i.i, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hba3a04ad1e5992ccE.exit", label %9
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hba3a04ad1e5992ccE.exit": ; preds = %26, %1, %4
-  %27 = icmp ne ptr %.val2.i, null
-  tail call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds i8, ptr %.val2.i, i64 8
-  %29 = load i64, ptr %28, align 8, !noalias !169, !noundef !4
-  %30 = icmp ult i64 %29, 8
-  %31 = add i64 %29, 1
-  %32 = lshr i64 %31, 3
-  %33 = mul nuw i64 %32, 7
-  %.0.i.i = select i1 %30, i64 %29, i64 %33
+  %27 = getelementptr inbounds i8, ptr %.val2.i, i64 8
+  %28 = load i64, ptr %27, align 8, !noalias !169, !noundef !4
+  %29 = icmp ult i64 %28, 8
+  %30 = add i64 %28, 1
+  %31 = lshr i64 %30, 3
+  %32 = mul nuw i64 %31, 7
+  %.0.i.i = select i1 %29, i64 %28, i64 %32
+  %33 = icmp ne ptr %.val2.i, null
+  tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds i8, ptr %.val2.i, i64 24
   %35 = load i64, ptr %34, align 8, !noalias !169, !noundef !4
   %36 = getelementptr inbounds i8, ptr %.val2.i, i64 16
@@ -28114,8 +28114,8 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %.sroa.0.035 = phi i64 [ 0, %.lr.ph ], [ %51, %45 ]
   %.sroa.14.034 = phi i64 [ %10, %.lr.ph ], [ %46, %45 ]
   %.sroa.10.033 = phi i16 [ %16, %.lr.ph ], [ %48, %45 ]
-  %.sroa.015.032 = phi ptr [ %4, %.lr.ph ], [ %.sroa.015.1, %45 ]
-  %.sroa.6.031 = phi ptr [ %12, %.lr.ph ], [ %.sroa.6.1, %45 ]
+  %.sroa.6.032 = phi ptr [ %12, %.lr.ph ], [ %.sroa.6.1, %45 ]
+  %.sroa.015.031 = phi ptr [ %4, %.lr.ph ], [ %.sroa.015.1, %45 ]
   %21 = icmp eq i16 %.sroa.10.033, 0
   br i1 %21, label %.lr.ph.i.i, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h063d8fd8d9d5c267E.llvm.11083375685992158394.exit"
 
@@ -28124,8 +28124,8 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   br label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h063d8fd8d9d5c267E.llvm.11083375685992158394.exit"
 
 .lr.ph.i.i:                                       ; preds = %20, %.lr.ph.i.i
-  %23 = phi ptr [ %28, %.lr.ph.i.i ], [ %.sroa.6.031, %20 ]
-  %.val1213.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %.sroa.015.032, %20 ]
+  %23 = phi ptr [ %28, %.lr.ph.i.i ], [ %.sroa.6.032, %20 ]
+  %.val1213.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %.sroa.015.031, %20 ]
   %24 = load <16 x i8>, ptr %23, align 16, !noalias !7732
   %25 = icmp slt <16 x i8> %24, zeroinitializer
   %26 = bitcast <16 x i1> %25 to i16
@@ -28135,8 +28135,8 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   br i1 %29, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 "_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h063d8fd8d9d5c267E.llvm.11083375685992158394.exit": ; preds = %._crit_edge.i.i, %20
-  %.sroa.6.1 = phi ptr [ %28, %._crit_edge.i.i ], [ %.sroa.6.031, %20 ]
-  %.sroa.015.1 = phi ptr [ %27, %._crit_edge.i.i ], [ %.sroa.015.032, %20 ]
+  %.sroa.015.1 = phi ptr [ %27, %._crit_edge.i.i ], [ %.sroa.015.031, %20 ]
+  %.sroa.6.1 = phi ptr [ %28, %._crit_edge.i.i ], [ %.sroa.6.032, %20 ]
   %.lcssa.i.i = phi i16 [ %22, %._crit_edge.i.i ], [ %.sroa.10.033, %20 ]
   %30 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %31 = zext nneg i16 %30 to i64

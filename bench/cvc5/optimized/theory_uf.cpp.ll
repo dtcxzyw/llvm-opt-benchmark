@@ -5464,8 +5464,8 @@ if.else400:                                       ; preds = %if.else396
   br i1 %cmp.i910, label %cond.true429, label %while.cond.outer.backedge
 
 cond.true429:                                     ; preds = %if.else400, %if.else388, %cond.true371, %if.else396
-  %e.sroa.0.2 = phi ptr [ %77, %if.else396 ], [ %81, %cond.true371 ], [ %81, %if.else388 ], [ %77, %if.else400 ]
   %h.sroa.0.2 = phi ptr [ %89, %if.else396 ], [ %89, %cond.true371 ], [ %85, %if.else388 ], [ %85, %if.else400 ]
+  %e.sroa.0.2 = phi ptr [ %77, %if.else396 ], [ %81, %cond.true371 ], [ %81, %if.else388 ], [ %77, %if.else400 ]
   %cmp.i1009 = icmp eq ptr %127, %e.sroa.0.2
   %128 = load ptr, ptr %d, align 8
   %cmp.i1010 = icmp eq ptr %128, %h.sroa.0.2

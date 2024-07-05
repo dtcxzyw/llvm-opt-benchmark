@@ -1072,8 +1072,8 @@ select.unfold:                                    ; preds = %69
   unreachable
 
 119:                                              ; preds = %81, %116, %112, %111, %110
-  %.057 = phi double [ 0x7FF8000000000000, %112 ], [ -0.000000e+00, %111 ], [ 0xFFF0000000000000, %110 ], [ %117, %116 ], [ 0x7FF0000000000000, %81 ]
-  %120 = invoke noundef ptr @"_ZN6uucore8features6format15Format$LT$F$GT$3fmt17hfcdd5a7c0af14eaaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %25, double noundef %.057)
+  %.058 = phi double [ 0x7FF8000000000000, %112 ], [ -0.000000e+00, %111 ], [ 0xFFF0000000000000, %110 ], [ %117, %116 ], [ 0x7FF0000000000000, %81 ]
+  %120 = invoke noundef ptr @"_ZN6uucore8features6format15Format$LT$F$GT$3fmt17hfcdd5a7c0af14eaaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %25, double noundef %.058)
           to label %121 unwind label %.loopexit
 
 121:                                              ; preds = %119

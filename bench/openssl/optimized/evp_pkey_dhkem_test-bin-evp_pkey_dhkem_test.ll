@@ -457,8 +457,8 @@ do_encap.exit:                                    ; preds = %if.end15, %if.then6
   br label %err
 
 err:                                              ; preds = %if.then7, %entry, %do_encap.exit
-  %ret.0 = phi i32 [ %ret.0.i, %do_encap.exit ], [ 0, %if.then7 ], [ 0, %entry ]
   %spriv.1 = phi ptr [ %spriv.0, %do_encap.exit ], [ %call10, %if.then7 ], [ null, %entry ]
+  %ret.0 = phi i32 [ %ret.0.i, %do_encap.exit ], [ 0, %if.then7 ], [ 0, %entry ]
   call void @EVP_PKEY_free(ptr noundef %spriv.1) #5
   call void @EVP_PKEY_free(ptr noundef %call) #5
   ret i32 %ret.0
@@ -563,8 +563,8 @@ do_decap.exit:                                    ; preds = %if.end15, %if.then3
   br label %err
 
 err:                                              ; preds = %if.then7, %entry, %do_decap.exit
-  %ret.0 = phi i32 [ %ret.0.i, %do_decap.exit ], [ 0, %if.then7 ], [ 0, %entry ]
   %spub.1 = phi ptr [ %spub.0, %do_decap.exit ], [ %call10, %if.then7 ], [ null, %entry ]
+  %ret.0 = phi i32 [ %ret.0.i, %do_decap.exit ], [ 0, %if.then7 ], [ 0, %entry ]
   call void @EVP_PKEY_free(ptr noundef %spub.1) #5
   call void @EVP_PKEY_free(ptr noundef %call) #5
   ret i32 %ret.0

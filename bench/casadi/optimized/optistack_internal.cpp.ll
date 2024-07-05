@@ -34425,49 +34425,49 @@ _ZNK6casadi13GenericMatrixINS_6MatrixIdEEE3nnzEv.exit389: ; preds = %.noexc387
   br label %521
 
 519:                                              ; preds = %458, %457
-  %.0176 = phi i1 [ false, %458 ], [ true, %457 ]
+  %.0159 = phi i1 [ false, %458 ], [ true, %457 ]
   %520 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #21
   br label %521
 
 521:                                              ; preds = %519, %517
-  %.1177 = phi i1 [ %.0176, %519 ], [ true, %517 ]
+  %.1160 = phi i1 [ %.0159, %519 ], [ true, %517 ]
   %.pn214 = phi { ptr, i32 } [ %520, %519 ], [ %518, %517 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #21
   br label %522
 
 522:                                              ; preds = %521, %515
-  %.2178 = phi i1 [ %.1177, %521 ], [ true, %515 ]
+  %.2161 = phi i1 [ %.1160, %521 ], [ true, %515 ]
   %.pn214.pn = phi { ptr, i32 } [ %.pn214, %521 ], [ %516, %515 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %77) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #21
   br label %523
 
 523:                                              ; preds = %522, %513
-  %.3179 = phi i1 [ %.2178, %522 ], [ true, %513 ]
+  %.3162 = phi i1 [ %.2161, %522 ], [ true, %513 ]
   %.pn214.pn.pn = phi { ptr, i32 } [ %.pn214.pn, %522 ], [ %514, %513 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #21
   br label %524
 
 524:                                              ; preds = %523, %511
-  %.4180 = phi i1 [ %.3179, %523 ], [ true, %511 ]
+  %.4163 = phi i1 [ %.3162, %523 ], [ true, %511 ]
   %.pn214.pn.pn.pn = phi { ptr, i32 } [ %.pn214.pn.pn, %523 ], [ %512, %511 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #21
   br label %525
 
 525:                                              ; preds = %524, %509
-  %.5181 = phi i1 [ %.4180, %524 ], [ true, %509 ]
+  %.5164 = phi i1 [ %.4163, %524 ], [ true, %509 ]
   %.pn214.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn214.pn.pn.pn, %524 ], [ %510, %509 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #21
   br label %526
 
 526:                                              ; preds = %507, %525
-  %.6182 = phi i1 [ %.5181, %525 ], [ true, %507 ]
+  %.6165 = phi i1 [ %.5164, %525 ], [ true, %507 ]
   %.pn214.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn214.pn.pn.pn.pn, %525 ], [ %508, %507 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #21
-  br i1 %.6182, label %527, label %_ZNSt6vectorIdSaIdEED2Ev.exit496
+  br i1 %.6165, label %527, label %_ZNSt6vectorIdSaIdEED2Ev.exit496
 
 527:                                              ; preds = %.thread545, %526
   %.pn214.pn.pn.pn.pn.pn.pn548 = phi { ptr, i32 } [ %506, %.thread545 ], [ %.pn214.pn.pn.pn.pn.pn, %526 ]
@@ -34708,97 +34708,97 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %620
 
 618:                                              ; preds = %588, %587
-  %.0160 = phi i1 [ false, %588 ], [ true, %587 ]
+  %.0167 = phi i1 [ false, %588 ], [ true, %587 ]
   %619 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #21
   br label %620
 
 620:                                              ; preds = %618, %616
-  %.1161 = phi i1 [ %.0160, %618 ], [ true, %616 ]
+  %.1168 = phi i1 [ %.0167, %618 ], [ true, %616 ]
   %.pn222 = phi { ptr, i32 } [ %619, %618 ], [ %617, %616 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #21
   br label %621
 
 621:                                              ; preds = %620, %614
-  %.2162 = phi i1 [ %.1161, %620 ], [ true, %614 ]
+  %.2169 = phi i1 [ %.1168, %620 ], [ true, %614 ]
   %.pn222.pn = phi { ptr, i32 } [ %.pn222, %620 ], [ %615, %614 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %94) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #21
   br label %622
 
 622:                                              ; preds = %621, %612
-  %.3163 = phi i1 [ %.2162, %621 ], [ true, %612 ]
+  %.3170 = phi i1 [ %.2169, %621 ], [ true, %612 ]
   %.pn222.pn.pn = phi { ptr, i32 } [ %.pn222.pn, %621 ], [ %613, %612 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %85) #21
   br label %623
 
 623:                                              ; preds = %622, %610
-  %.4164 = phi i1 [ %.3163, %622 ], [ true, %610 ]
+  %.4171 = phi i1 [ %.3170, %622 ], [ true, %610 ]
   %.pn222.pn.pn.pn = phi { ptr, i32 } [ %.pn222.pn.pn, %622 ], [ %611, %610 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #21
   br label %624
 
 624:                                              ; preds = %623, %608
-  %.5165 = phi i1 [ %.4164, %623 ], [ true, %608 ]
+  %.5172 = phi i1 [ %.4171, %623 ], [ true, %608 ]
   %.pn222.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn222.pn.pn.pn, %623 ], [ %609, %608 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %93) #21
   br label %625
 
 625:                                              ; preds = %624, %606
-  %.6166 = phi i1 [ %.5165, %624 ], [ true, %606 ]
+  %.6173 = phi i1 [ %.5172, %624 ], [ true, %606 ]
   %.pn222.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn222.pn.pn.pn.pn, %624 ], [ %607, %606 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %87) #21
   br label %626
 
 626:                                              ; preds = %625, %604
-  %.7167 = phi i1 [ %.6166, %625 ], [ true, %604 ]
+  %.7174 = phi i1 [ %.6173, %625 ], [ true, %604 ]
   %.pn222.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn222.pn.pn.pn.pn.pn, %625 ], [ %605, %604 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #21
   br label %627
 
 627:                                              ; preds = %626, %602
-  %.8168 = phi i1 [ %.7167, %626 ], [ true, %602 ]
+  %.8175 = phi i1 [ %.7174, %626 ], [ true, %602 ]
   %.pn222.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn222.pn.pn.pn.pn.pn.pn, %626 ], [ %603, %602 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %92) #21
   br label %628
 
 628:                                              ; preds = %627, %600
-  %.9169 = phi i1 [ %.8168, %627 ], [ true, %600 ]
+  %.9176 = phi i1 [ %.8175, %627 ], [ true, %600 ]
   %.pn222.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn222.pn.pn.pn.pn.pn.pn.pn, %627 ], [ %601, %600 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %89) #21
   br label %629
 
 629:                                              ; preds = %628, %598
-  %.10170 = phi i1 [ %.9169, %628 ], [ true, %598 ]
+  %.10177 = phi i1 [ %.9176, %628 ], [ true, %598 ]
   %.pn222.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn222.pn.pn.pn.pn.pn.pn.pn.pn, %628 ], [ %599, %598 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #21
   br label %630
 
 630:                                              ; preds = %629, %596
-  %.11171 = phi i1 [ %.10170, %629 ], [ true, %596 ]
+  %.11178 = phi i1 [ %.10177, %629 ], [ true, %596 ]
   %.pn222.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn222.pn.pn.pn.pn.pn.pn.pn.pn.pn, %629 ], [ %597, %596 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %91) #21
   br label %631
 
 631:                                              ; preds = %630, %594
-  %.12172 = phi i1 [ %.11171, %630 ], [ true, %594 ]
+  %.12179 = phi i1 [ %.11178, %630 ], [ true, %594 ]
   %.pn222.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn222.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %630 ], [ %595, %594 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %79) #21
   br label %632
 
 632:                                              ; preds = %631, %592
-  %.13173 = phi i1 [ %.12172, %631 ], [ true, %592 ]
+  %.13180 = phi i1 [ %.12179, %631 ], [ true, %592 ]
   %.pn222.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn222.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %631 ], [ %593, %592 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #21
   br label %633
 
 633:                                              ; preds = %590, %632
-  %.14174 = phi i1 [ %.13173, %632 ], [ true, %590 ]
+  %.14181 = phi i1 [ %.13180, %632 ], [ true, %590 ]
   %.pn222.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn222.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %632 ], [ %591, %590 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #21
-  br i1 %.14174, label %634, label %_ZNSt6vectorIdSaIdEED2Ev.exit496
+  br i1 %.14181, label %634, label %_ZNSt6vectorIdSaIdEED2Ev.exit496
 
 634:                                              ; preds = %.thread549, %633
   %.pn222.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn552 = phi { ptr, i32 } [ %589, %.thread549 ], [ %.pn222.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %633 ]
@@ -34868,11 +34868,11 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %653
 
 653:                                              ; preds = %.lr.ph586, %706
-  %.0159585 = phi i64 [ 0, %.lr.ph586 ], [ %707, %706 ]
-  %654 = getelementptr inbounds i64, ptr %651, i64 %.0159585
+  %.0183585 = phi i64 [ 0, %.lr.ph586 ], [ %707, %706 ]
+  %654 = getelementptr inbounds i64, ptr %651, i64 %.0183585
   %655 = load i64, ptr %654, align 8
   %656 = getelementptr inbounds double, ptr %.sroa.0513.0, i64 %655
-  %657 = getelementptr inbounds i64, ptr %652, i64 %.0159585
+  %657 = getelementptr inbounds i64, ptr %652, i64 %.0183585
   %658 = load i64, ptr %657, align 8
   %659 = getelementptr inbounds double, ptr %.sroa.0520.1, i64 %658
   %660 = load double, ptr %659, align 8
@@ -34976,50 +34976,50 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %699
 
 697:                                              ; preds = %683, %682
-  %.0149 = phi i1 [ false, %683 ], [ true, %682 ]
+  %.0151 = phi i1 [ false, %683 ], [ true, %682 ]
   %698 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %95) #21
   br label %699
 
 699:                                              ; preds = %697, %695
-  %.1150 = phi i1 [ %.0149, %697 ], [ true, %695 ]
+  %.1152 = phi i1 [ %.0151, %697 ], [ true, %695 ]
   %.pn205 = phi { ptr, i32 } [ %698, %697 ], [ %696, %695 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #21
   br label %700
 
 700:                                              ; preds = %699, %693
-  %.2151 = phi i1 [ %.1150, %699 ], [ true, %693 ]
+  %.2153 = phi i1 [ %.1152, %699 ], [ true, %693 ]
   %.pn205.pn = phi { ptr, i32 } [ %.pn205, %699 ], [ %694, %693 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %104) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %101) #21
   br label %701
 
 701:                                              ; preds = %700, %691
-  %.3152 = phi i1 [ %.2151, %700 ], [ true, %691 ]
+  %.3154 = phi i1 [ %.2153, %700 ], [ true, %691 ]
   %.pn205.pn.pn = phi { ptr, i32 } [ %.pn205.pn, %700 ], [ %692, %691 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #21
   br label %702
 
 702:                                              ; preds = %701, %689
-  %.4153 = phi i1 [ %.3152, %701 ], [ true, %689 ]
+  %.4155 = phi i1 [ %.3154, %701 ], [ true, %689 ]
   %.pn205.pn.pn.pn = phi { ptr, i32 } [ %.pn205.pn.pn, %701 ], [ %690, %689 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %103) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %96) #21
   br label %703
 
 703:                                              ; preds = %702, %687
-  %.5154 = phi i1 [ %.4153, %702 ], [ true, %687 ]
+  %.5156 = phi i1 [ %.4155, %702 ], [ true, %687 ]
   %.pn205.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn205.pn.pn.pn, %702 ], [ %688, %687 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %97) #21
   br label %704
 
 704:                                              ; preds = %685, %703
-  %.6155 = phi i1 [ %.5154, %703 ], [ true, %685 ]
+  %.6157 = phi i1 [ %.5156, %703 ], [ true, %685 ]
   %.pn205.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn205.pn.pn.pn.pn, %703 ], [ %686, %685 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %99) #21
-  br i1 %.6155, label %705, label %.thread557
+  br i1 %.6157, label %705, label %.thread557
 
 705:                                              ; preds = %.thread553, %704
   %.pn205.pn.pn.pn.pn.pn.pn556 = phi { ptr, i32 } [ %684, %.thread553 ], [ %.pn205.pn.pn.pn.pn.pn, %704 ]
@@ -35027,7 +35027,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %.thread557
 
 706:                                              ; preds = %667, %670
-  %707 = add nuw i64 %.0159585, 1
+  %707 = add nuw i64 %.0183585, 1
   %exitcond.not = icmp eq i64 %707, %umax
   br i1 %exitcond.not, label %._crit_edge587, label %653, !llvm.loop !447
 
@@ -35046,7 +35046,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %715
 
 715:                                              ; preds = %.lr.ph592, %_ZNK6casadi13GenericMatrixINS_2MXEE3nnzEv.exit469
-  %.0148590 = phi i64 [ 0, %.lr.ph592 ], [ %774, %_ZNK6casadi13GenericMatrixINS_2MXEE3nnzEv.exit469 ]
+  %.0150590 = phi i64 [ 0, %.lr.ph592 ], [ %774, %_ZNK6casadi13GenericMatrixINS_2MXEE3nnzEv.exit469 ]
   %.sroa.0510.0589 = phi ptr [ %708, %.lr.ph592 ], [ %775, %_ZNK6casadi13GenericMatrixINS_2MXEE3nnzEv.exit469 ]
   invoke void @_ZNK6casadi8OptiNode10assert_hasERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0510.0589)
           to label %.noexc431 unwind label %.loopexit.split-lp
@@ -35177,7 +35177,7 @@ _ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaVarEESt10_Select1stIS6_ESt4
           to label %.preheader unwind label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %752, %769
-  %.0 = phi i64 [ %770, %769 ], [ 0, %752 ]
+  %.063 = phi i64 [ %770, %769 ], [ 0, %752 ]
   %758 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0510.0589)
           to label %.noexc464 unwind label %.loopexit
 
@@ -35186,11 +35186,11 @@ _ZNSt8_Rb_treeIPN6casadi6MXNodeESt4pairIKS2_NS0_7MetaVarEESt10_Select1stIS6_ESt4
           to label %_ZNK6casadi13GenericMatrixINS_2MXEE3nnzEv.exit466 unwind label %.loopexit
 
 _ZNK6casadi13GenericMatrixINS_2MXEE3nnzEv.exit466: ; preds = %.noexc464
-  %760 = icmp slt i64 %.0, %759
+  %760 = icmp slt i64 %.063, %759
   br i1 %760, label %761, label %771
 
 761:                                              ; preds = %_ZNK6casadi13GenericMatrixINS_2MXEE3nnzEv.exit466
-  %762 = add nsw i64 %.0, %.0148590
+  %762 = add nsw i64 %.063, %.0150590
   %763 = getelementptr inbounds double, ptr %.sroa.0513.0, i64 %762
   %764 = load double, ptr %763, align 8
   %765 = fcmp uno double %764, 0.000000e+00
@@ -35198,12 +35198,12 @@ _ZNK6casadi13GenericMatrixINS_2MXEE3nnzEv.exit466: ; preds = %.noexc464
 
 766:                                              ; preds = %761
   %767 = load ptr, ptr %757, align 8
-  %768 = getelementptr inbounds double, ptr %767, i64 %.0
+  %768 = getelementptr inbounds double, ptr %767, i64 %.063
   store double %764, ptr %768, align 8
   br label %769
 
 769:                                              ; preds = %761, %766
-  %770 = add nuw nsw i64 %.0, 1
+  %770 = add nuw nsw i64 %.063, 1
   br label %.preheader, !llvm.loop !448
 
 771:                                              ; preds = %_ZNK6casadi13GenericMatrixINS_2MXEE3nnzEv.exit466
@@ -35215,7 +35215,7 @@ _ZNK6casadi13GenericMatrixINS_2MXEE3nnzEv.exit466: ; preds = %.noexc464
           to label %_ZNK6casadi13GenericMatrixINS_2MXEE3nnzEv.exit469 unwind label %.loopexit.split-lp
 
 _ZNK6casadi13GenericMatrixINS_2MXEE3nnzEv.exit469: ; preds = %.noexc467
-  %774 = add nsw i64 %773, %.0148590
+  %774 = add nsw i64 %773, %.0150590
   %775 = getelementptr inbounds i8, ptr %.sroa.0510.0589, i64 8
   %.not564 = icmp eq ptr %775, %709
   br i1 %.not564, label %._crit_edge593, label %715
@@ -38663,42 +38663,42 @@ _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %35, %_ZNSt6vectorIb
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i
   %.019.i.i.i.i.i.i = phi i64 [ %55, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %37, %.lr.ph.i.i.i.i.i.preheader.i ]
   %.sroa.511.018.i.i.i.i.i.i = phi i32 [ %spec.select14.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.03.017.i.i.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %36, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.5.016.i.i.i.i.i.i = phi i32 [ %.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.08.015.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %33, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.08.017.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %33, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.03.016.i.i.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %36, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.5.015.i.i.i.i.i.i = phi i32 [ %.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
   %38 = zext nneg i32 %.sroa.511.018.i.i.i.i.i.i to i64
   %39 = shl nuw i64 1, %38
-  %40 = load i64, ptr %.sroa.08.015.i.i.i.i.i.i, align 8
+  %40 = load i64, ptr %.sroa.08.017.i.i.i.i.i.i, align 8
   %41 = and i64 %40, %39
   %.not.i.i.i.i.i7.i = icmp eq i64 %41, 0
-  %42 = zext nneg i32 %.sroa.5.016.i.i.i.i.i.i to i64
+  %42 = zext nneg i32 %.sroa.5.015.i.i.i.i.i.i to i64
   %43 = shl nuw i64 1, %42
   br i1 %.not.i.i.i.i.i7.i, label %47, label %44
 
 44:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %45 = load i64, ptr %.sroa.03.017.i.i.i.i.i.i, align 8
+  %45 = load i64, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
   %46 = or i64 %45, %43
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 47:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %48 = xor i64 %43, -1
-  %49 = load i64, ptr %.sroa.03.017.i.i.i.i.i.i, align 8
+  %49 = load i64, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
   %50 = and i64 %49, %48
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %47, %44
   %storemerge.i.i.i.i.i.i = phi i64 [ %50, %47 ], [ %46, %44 ]
-  store i64 %storemerge.i.i.i.i.i.i, ptr %.sroa.03.017.i.i.i.i.i.i, align 8
+  store i64 %storemerge.i.i.i.i.i.i, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
   %51 = add i32 %.sroa.511.018.i.i.i.i.i.i, 1
   %52 = icmp eq i32 %.sroa.511.018.i.i.i.i.i.i, 63
   %spec.select.idx.i.i.i.i.i.i = select i1 %52, i64 8, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.015.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.017.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
   %spec.select14.i.i.i.i.i.i = select i1 %52, i32 0, i32 %51
-  %53 = add i32 %.sroa.5.016.i.i.i.i.i.i, 1
-  %54 = icmp eq i32 %.sroa.5.016.i.i.i.i.i.i, 63
+  %53 = add i32 %.sroa.5.015.i.i.i.i.i.i, 1
+  %54 = icmp eq i32 %.sroa.5.015.i.i.i.i.i.i, 63
   %.sroa.5.1.i.i.i.i.i.i = select i1 %54, i32 0, i32 %53
   %.sroa.03.1.idx.i.i.i.i.i.i = select i1 %54, i64 8, i64 0
-  %.sroa.03.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.03.017.i.i.i.i.i.i, i64 %.sroa.03.1.idx.i.i.i.i.i.i
+  %.sroa.03.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.03.016.i.i.i.i.i.i, i64 %.sroa.03.1.idx.i.i.i.i.i.i
   %55 = add nsw i64 %.019.i.i.i.i.i.i, -1
   %56 = icmp sgt i64 %.019.i.i.i.i.i.i, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i.i, label %.loopexit, !llvm.loop !466
@@ -46580,21 +46580,21 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %25
 _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i:          ; preds = %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
   %.024.i.i.i.i.i = phi i64 [ %57, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %31, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
   %.sroa.514.023.i.i.i.i.i = phi i32 [ %spec.select19.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %18, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
-  %.sroa.07.022.i.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %storemerge.i.i.i, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
+  %.sroa.011.022.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %16, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
   %.sroa.5.021.i.i.i.i.i = phi i32 [ %.sroa.5.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %35, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
-  %.sroa.011.020.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %16, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
+  %.sroa.07.020.i.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %storemerge.i.i.i, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
   %40 = add i32 %.sroa.514.023.i.i.i.i.i, -1
   %41 = icmp eq i32 %.sroa.514.023.i.i.i.i.i, 0
   %spec.select.idx.i.i.i.i.i = select i1 %41, i64 -8, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
+  %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.011.022.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
   %spec.select19.i.i.i.i.i = select i1 %41, i32 63, i32 %40
   %42 = zext nneg i32 %spec.select19.i.i.i.i.i to i64
   %43 = shl nuw i64 1, %42
   %44 = add i32 %.sroa.5.021.i.i.i.i.i, -1
   %45 = icmp eq i32 %.sroa.5.021.i.i.i.i.i, 0
-  %.sroa.5.1.i.i.i.i.i = select i1 %45, i32 63, i32 %44
   %.sroa.07.1.idx.i.i.i.i.i = select i1 %45, i64 -8, i64 0
-  %.sroa.07.1.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.07.022.i.i.i.i.i, i64 %.sroa.07.1.idx.i.i.i.i.i
+  %.sroa.07.1.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.07.020.i.i.i.i.i, i64 %.sroa.07.1.idx.i.i.i.i.i
+  %.sroa.5.1.i.i.i.i.i = select i1 %45, i32 63, i32 %44
   %46 = zext nneg i32 %.sroa.5.1.i.i.i.i.i to i64
   %47 = shl nuw i64 1, %46
   %48 = load i64, ptr %spec.select.i.i.i.i.i, align 8
@@ -46774,42 +46774,42 @@ _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %129, %_ZNKSt6vector
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i
   %.019.i.i.i.i.i.i = phi i64 [ %149, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %131, %.lr.ph.i.i.i.i.i.preheader.i ]
   %.sroa.511.018.i.i.i.i.i.i = phi i32 [ %spec.select14.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.03.017.i.i.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %130, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.5.016.i.i.i.i.i.i = phi i32 [ %.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.08.015.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.08.017.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.03.016.i.i.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %130, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.5.015.i.i.i.i.i.i = phi i32 [ %.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
   %132 = zext nneg i32 %.sroa.511.018.i.i.i.i.i.i to i64
   %133 = shl nuw i64 1, %132
-  %134 = load i64, ptr %.sroa.08.015.i.i.i.i.i.i, align 8
+  %134 = load i64, ptr %.sroa.08.017.i.i.i.i.i.i, align 8
   %135 = and i64 %134, %133
   %.not.i.i.i.i.i7.i = icmp eq i64 %135, 0
-  %136 = zext nneg i32 %.sroa.5.016.i.i.i.i.i.i to i64
+  %136 = zext nneg i32 %.sroa.5.015.i.i.i.i.i.i to i64
   %137 = shl nuw i64 1, %136
   br i1 %.not.i.i.i.i.i7.i, label %141, label %138
 
 138:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %139 = load i64, ptr %.sroa.03.017.i.i.i.i.i.i, align 8
+  %139 = load i64, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
   %140 = or i64 %139, %137
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 141:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %142 = xor i64 %137, -1
-  %143 = load i64, ptr %.sroa.03.017.i.i.i.i.i.i, align 8
+  %143 = load i64, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
   %144 = and i64 %143, %142
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %141, %138
   %storemerge.i.i.i.i.i.i = phi i64 [ %144, %141 ], [ %140, %138 ]
-  store i64 %storemerge.i.i.i.i.i.i, ptr %.sroa.03.017.i.i.i.i.i.i, align 8
+  store i64 %storemerge.i.i.i.i.i.i, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
   %145 = add i32 %.sroa.511.018.i.i.i.i.i.i, 1
   %146 = icmp eq i32 %.sroa.511.018.i.i.i.i.i.i, 63
   %spec.select.idx.i.i.i.i.i.i = select i1 %146, i64 8, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.015.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.017.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
   %spec.select14.i.i.i.i.i.i = select i1 %146, i32 0, i32 %145
-  %147 = add i32 %.sroa.5.016.i.i.i.i.i.i, 1
-  %148 = icmp eq i32 %.sroa.5.016.i.i.i.i.i.i, 63
+  %147 = add i32 %.sroa.5.015.i.i.i.i.i.i, 1
+  %148 = icmp eq i32 %.sroa.5.015.i.i.i.i.i.i, 63
   %.sroa.5.1.i.i.i.i.i.i = select i1 %148, i32 0, i32 %147
   %.sroa.03.1.idx.i.i.i.i.i.i = select i1 %148, i64 8, i64 0
-  %.sroa.03.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.03.017.i.i.i.i.i.i, i64 %.sroa.03.1.idx.i.i.i.i.i.i
+  %.sroa.03.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.03.016.i.i.i.i.i.i, i64 %.sroa.03.1.idx.i.i.i.i.i.i
   %149 = add nsw i64 %.019.i.i.i.i.i.i, -1
   %150 = icmp sgt i64 %.019.i.i.i.i.i.i, 1
   br i1 %150, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, !llvm.loop !466
@@ -46927,55 +46927,55 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67:  ; preds = %170, %_ZSt14__fill_
   %206 = icmp sgt i64 %205, 0
   br i1 %206, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87
-  %.024.i.i.i.i.i84 = phi i64 [ %224, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87 ], [ %205, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
-  %.sroa.516.023.i.i.i.i.i = phi i32 [ %spec.select19.i.i.i.i.i91, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87 ], [ %2, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
-  %.sroa.013.022.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i90, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87 ], [ %1, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
-  %.sroa.5.021.i.i.i.i.i85 = phi i32 [ %.sroa.5.1.i.i.i.i.i94, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87 ], [ %158, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
-  %.sroa.07.020.i.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i93, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87 ], [ %storemerge.i.i.i53, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88
+  %.024.i.i.i.i.i84 = phi i64 [ %224, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88 ], [ %205, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
+  %.sroa.516.023.i.i.i.i.i = phi i32 [ %spec.select19.i.i.i.i.i92, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88 ], [ %2, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
+  %.sroa.013.022.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i91, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88 ], [ %1, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
+  %.sroa.5.021.i.i.i.i.i85 = phi i32 [ %.sroa.5.1.i.i.i.i.i95, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88 ], [ %158, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
+  %.sroa.07.020.i.i.i.i.i86 = phi ptr [ %.sroa.07.1.i.i.i.i.i94, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88 ], [ %storemerge.i.i.i53, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
   %207 = zext nneg i32 %.sroa.516.023.i.i.i.i.i to i64
   %208 = shl nuw i64 1, %207
   %209 = zext nneg i32 %.sroa.5.021.i.i.i.i.i85 to i64
   %210 = shl nuw i64 1, %209
   %211 = load i64, ptr %.sroa.013.022.i.i.i.i.i, align 8
   %212 = and i64 %211, %208
-  %.not.i.i.i.i.i.i86 = icmp eq i64 %212, 0
-  br i1 %.not.i.i.i.i.i.i86, label %216, label %213
+  %.not.i.i.i.i.i.i87 = icmp eq i64 %212, 0
+  br i1 %.not.i.i.i.i.i.i87, label %216, label %213
 
 213:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %214 = load i64, ptr %.sroa.07.020.i.i.i.i.i, align 8
+  %214 = load i64, ptr %.sroa.07.020.i.i.i.i.i86, align 8
   %215 = or i64 %214, %210
-  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87
+  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88
 
 216:                                              ; preds = %.lr.ph.i.i.i.i.i
   %217 = xor i64 %210, -1
-  %218 = load i64, ptr %.sroa.07.020.i.i.i.i.i, align 8
+  %218 = load i64, ptr %.sroa.07.020.i.i.i.i.i86, align 8
   %219 = and i64 %218, %217
-  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87
+  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88
 
-_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87:    ; preds = %216, %213
-  %storemerge.i.i.i.i.i88 = phi i64 [ %215, %213 ], [ %219, %216 ]
-  store i64 %storemerge.i.i.i.i.i88, ptr %.sroa.07.020.i.i.i.i.i, align 8
+_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88:    ; preds = %216, %213
+  %storemerge.i.i.i.i.i89 = phi i64 [ %215, %213 ], [ %219, %216 ]
+  store i64 %storemerge.i.i.i.i.i89, ptr %.sroa.07.020.i.i.i.i.i86, align 8
   %220 = add i32 %.sroa.516.023.i.i.i.i.i, 1
   %221 = icmp eq i32 %.sroa.516.023.i.i.i.i.i, 63
-  %spec.select.idx.i.i.i.i.i89 = select i1 %221, i64 8, i64 0
-  %spec.select.i.i.i.i.i90 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i89
-  %spec.select19.i.i.i.i.i91 = select i1 %221, i32 0, i32 %220
+  %spec.select.idx.i.i.i.i.i90 = select i1 %221, i64 8, i64 0
+  %spec.select.i.i.i.i.i91 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i90
+  %spec.select19.i.i.i.i.i92 = select i1 %221, i32 0, i32 %220
   %222 = add i32 %.sroa.5.021.i.i.i.i.i85, 1
   %223 = icmp eq i32 %.sroa.5.021.i.i.i.i.i85, 63
-  %.sroa.07.1.idx.i.i.i.i.i92 = select i1 %223, i64 8, i64 0
-  %.sroa.07.1.i.i.i.i.i93 = getelementptr inbounds i8, ptr %.sroa.07.020.i.i.i.i.i, i64 %.sroa.07.1.idx.i.i.i.i.i92
-  %.sroa.5.1.i.i.i.i.i94 = select i1 %223, i32 0, i32 %222
+  %.sroa.07.1.idx.i.i.i.i.i93 = select i1 %223, i64 8, i64 0
+  %.sroa.07.1.i.i.i.i.i94 = getelementptr inbounds i8, ptr %.sroa.07.020.i.i.i.i.i86, i64 %.sroa.07.1.idx.i.i.i.i.i93
+  %.sroa.5.1.i.i.i.i.i95 = select i1 %223, i32 0, i32 %222
   %224 = add nsw i64 %.024.i.i.i.i.i84, -1
   %225 = icmp sgt i64 %.024.i.i.i.i.i84, 1
   br i1 %225, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, !llvm.loop !503
 
-_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67
-  %.sroa.07.0.lcssa.i.i.i.i.i80 = phi ptr [ %storemerge.i.i.i53, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ], [ %.sroa.07.1.i.i.i.i.i93, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87 ]
-  %.sroa.5.0.lcssa.i.i.i.i.i81 = phi i32 [ %158, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ], [ %.sroa.5.1.i.i.i.i.i94, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87 ]
+_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67
+  %.sroa.07.0.lcssa.i.i.i.i.i80 = phi ptr [ %storemerge.i.i.i53, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ], [ %.sroa.07.1.i.i.i.i.i94, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88 ]
+  %.sroa.5.0.lcssa.i.i.i.i.i81 = phi i32 [ %158, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ], [ %.sroa.5.1.i.i.i.i.i95, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88 ]
   %226 = load ptr, ptr %0, align 8
-  %.not.i95 = icmp eq ptr %226, null
-  br i1 %.not.i95, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, label %227
+  %.not.i96 = icmp eq ptr %226, null
+  br i1 %.not.i96, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, label %227
 
 227:                                              ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
   %228 = load ptr, ptr %8, align 8
@@ -46993,8 +46993,8 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit
   %236 = getelementptr inbounds i64, ptr %126, i64 %235
   store ptr %236, ptr %8, align 8
   store ptr %126, ptr %0, align 8
-  %.sroa.3104.0..sroa_idx105 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %.sroa.3104.0..sroa_idx105, align 8
+  %.sroa.3105.0..sroa_idx106 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %.sroa.3105.0..sroa_idx106, align 8
   store ptr %.sroa.07.0.lcssa.i.i.i.i.i80, ptr %15, align 8
   br label %.sink.split
 
@@ -47934,21 +47934,21 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %12
 _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i:          ; preds = %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
   %.024.i.i.i.i.i = phi i64 [ %43, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %19, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
   %.sroa.514.023.i.i.i.i.i = phi i32 [ %spec.select19.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %10, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
-  %.sroa.07.022.i.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %25, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
+  %.sroa.011.022.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %6, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
   %.sroa.5.021.i.i.i.i.i = phi i32 [ %.sroa.5.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %23, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
-  %.sroa.011.020.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %6, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
+  %.sroa.07.020.i.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %25, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
   %26 = add i32 %.sroa.514.023.i.i.i.i.i, -1
   %27 = icmp eq i32 %.sroa.514.023.i.i.i.i.i, 0
   %spec.select.idx.i.i.i.i.i = select i1 %27, i64 -8, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
+  %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.011.022.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
   %spec.select19.i.i.i.i.i = select i1 %27, i32 63, i32 %26
   %28 = zext nneg i32 %spec.select19.i.i.i.i.i to i64
   %29 = shl nuw i64 1, %28
   %30 = add i32 %.sroa.5.021.i.i.i.i.i, -1
   %31 = icmp eq i32 %.sroa.5.021.i.i.i.i.i, 0
-  %.sroa.5.1.i.i.i.i.i = select i1 %31, i32 63, i32 %30
   %.sroa.07.1.idx.i.i.i.i.i = select i1 %31, i64 -8, i64 0
-  %.sroa.07.1.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.07.022.i.i.i.i.i, i64 %.sroa.07.1.idx.i.i.i.i.i
+  %.sroa.07.1.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.07.020.i.i.i.i.i, i64 %.sroa.07.1.idx.i.i.i.i.i
+  %.sroa.5.1.i.i.i.i.i = select i1 %31, i32 63, i32 %30
   %32 = zext nneg i32 %.sroa.5.1.i.i.i.i.i to i64
   %33 = shl nuw i64 1, %32
   %34 = load i64, ptr %spec.select.i.i.i.i.i, align 8
@@ -48050,42 +48050,42 @@ _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %78, %_ZNKSt6vectorI
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i
   %.019.i.i.i.i.i.i = phi i64 [ %98, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %80, %.lr.ph.i.i.i.i.i.preheader.i ]
   %.sroa.511.018.i.i.i.i.i.i = phi i32 [ %spec.select14.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.03.017.i.i.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %79, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.5.016.i.i.i.i.i.i = phi i32 [ %.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.08.015.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.08.017.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.03.016.i.i.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %79, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.5.015.i.i.i.i.i.i = phi i32 [ %.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
   %81 = zext nneg i32 %.sroa.511.018.i.i.i.i.i.i to i64
   %82 = shl nuw i64 1, %81
-  %83 = load i64, ptr %.sroa.08.015.i.i.i.i.i.i, align 8
+  %83 = load i64, ptr %.sroa.08.017.i.i.i.i.i.i, align 8
   %84 = and i64 %83, %82
   %.not.i.i.i.i.i7.i = icmp eq i64 %84, 0
-  %85 = zext nneg i32 %.sroa.5.016.i.i.i.i.i.i to i64
+  %85 = zext nneg i32 %.sroa.5.015.i.i.i.i.i.i to i64
   %86 = shl nuw i64 1, %85
   br i1 %.not.i.i.i.i.i7.i, label %90, label %87
 
 87:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %88 = load i64, ptr %.sroa.03.017.i.i.i.i.i.i, align 8
+  %88 = load i64, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
   %89 = or i64 %88, %86
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 90:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %91 = xor i64 %86, -1
-  %92 = load i64, ptr %.sroa.03.017.i.i.i.i.i.i, align 8
+  %92 = load i64, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
   %93 = and i64 %92, %91
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %90, %87
   %storemerge.i.i.i.i.i.i = phi i64 [ %93, %90 ], [ %89, %87 ]
-  store i64 %storemerge.i.i.i.i.i.i, ptr %.sroa.03.017.i.i.i.i.i.i, align 8
+  store i64 %storemerge.i.i.i.i.i.i, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
   %94 = add i32 %.sroa.511.018.i.i.i.i.i.i, 1
   %95 = icmp eq i32 %.sroa.511.018.i.i.i.i.i.i, 63
   %spec.select.idx.i.i.i.i.i.i = select i1 %95, i64 8, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.015.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.017.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
   %spec.select14.i.i.i.i.i.i = select i1 %95, i32 0, i32 %94
-  %96 = add i32 %.sroa.5.016.i.i.i.i.i.i, 1
-  %97 = icmp eq i32 %.sroa.5.016.i.i.i.i.i.i, 63
+  %96 = add i32 %.sroa.5.015.i.i.i.i.i.i, 1
+  %97 = icmp eq i32 %.sroa.5.015.i.i.i.i.i.i, 63
   %.sroa.5.1.i.i.i.i.i.i = select i1 %97, i32 0, i32 %96
   %.sroa.03.1.idx.i.i.i.i.i.i = select i1 %97, i64 8, i64 0
-  %.sroa.03.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.03.017.i.i.i.i.i.i, i64 %.sroa.03.1.idx.i.i.i.i.i.i
+  %.sroa.03.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.03.016.i.i.i.i.i.i, i64 %.sroa.03.1.idx.i.i.i.i.i.i
   %98 = add nsw i64 %.019.i.i.i.i.i.i, -1
   %99 = icmp sgt i64 %.019.i.i.i.i.i.i, 1
   br i1 %99, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, !llvm.loop !466
@@ -48100,28 +48100,28 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   br label %_ZNSt13_Bit_iteratorppEi.exit
 
 _ZNSt13_Bit_iteratorppEi.exit:                    ; preds = %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, %102
-  %.sroa.03.0.lcssa.i.i.i.i.i.i88 = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %102 ], [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ %79, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
-  %.sroa.5.0.lcssa.i.i.i.i.i.i87 = phi i32 [ 63, %102 ], [ %.sroa.5.1.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ 0, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
-  %.sroa.061.0 = phi ptr [ %103, %102 ], [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ %79, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
+  %.sroa.03.0.lcssa.i.i.i.i.i.i89 = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %102 ], [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ %79, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
+  %.sroa.5.0.lcssa.i.i.i.i.i.i88 = phi i32 [ 63, %102 ], [ %.sroa.5.1.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ 0, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
+  %.sroa.062.0 = phi ptr [ %103, %102 ], [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ %79, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
   %.sroa.4.0 = phi i32 [ 0, %102 ], [ %100, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ 1, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
-  %104 = zext nneg i32 %.sroa.5.0.lcssa.i.i.i.i.i.i87 to i64
+  %104 = zext nneg i32 %.sroa.5.0.lcssa.i.i.i.i.i.i88 to i64
   %105 = shl nuw i64 1, %104
   br i1 %3, label %106, label %109
 
 106:                                              ; preds = %_ZNSt13_Bit_iteratorppEi.exit
-  %107 = load i64, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i88, align 8
+  %107 = load i64, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i89, align 8
   %108 = or i64 %107, %105
   br label %_ZNSt14_Bit_referenceaSEb.exit32
 
 109:                                              ; preds = %_ZNSt13_Bit_iteratorppEi.exit
   %110 = xor i64 %105, -1
-  %111 = load i64, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i88, align 8
+  %111 = load i64, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i89, align 8
   %112 = and i64 %111, %110
   br label %_ZNSt14_Bit_referenceaSEb.exit32
 
 _ZNSt14_Bit_referenceaSEb.exit32:                 ; preds = %106, %109
-  %storemerge89 = phi i64 [ %112, %109 ], [ %108, %106 ]
-  store i64 %storemerge89, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i88, align 8
+  %storemerge90 = phi i64 [ %112, %109 ], [ %108, %106 ]
+  store i64 %storemerge90, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i89, align 8
   %113 = sub i64 %11, %76
   %114 = shl nsw i64 %113, 3
   %115 = zext i32 %2 to i64
@@ -48130,59 +48130,59 @@ _ZNSt14_Bit_referenceaSEb.exit32:                 ; preds = %106, %109
   %118 = icmp sgt i64 %117, 0
   br i1 %118, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt14_Bit_referenceaSEb.exit32, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i44
-  %.024.i.i.i.i.i41 = phi i64 [ %136, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i44 ], [ %117, %_ZNSt14_Bit_referenceaSEb.exit32 ]
-  %.sroa.516.023.i.i.i.i.i = phi i32 [ %spec.select19.i.i.i.i.i48, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i44 ], [ %2, %_ZNSt14_Bit_referenceaSEb.exit32 ]
-  %.sroa.013.022.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i47, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i44 ], [ %1, %_ZNSt14_Bit_referenceaSEb.exit32 ]
-  %.sroa.5.021.i.i.i.i.i42 = phi i32 [ %.sroa.5.1.i.i.i.i.i51, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i44 ], [ %.sroa.4.0, %_ZNSt14_Bit_referenceaSEb.exit32 ]
-  %.sroa.07.020.i.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i50, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i44 ], [ %.sroa.061.0, %_ZNSt14_Bit_referenceaSEb.exit32 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt14_Bit_referenceaSEb.exit32, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i45
+  %.024.i.i.i.i.i41 = phi i64 [ %136, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i45 ], [ %117, %_ZNSt14_Bit_referenceaSEb.exit32 ]
+  %.sroa.516.023.i.i.i.i.i = phi i32 [ %spec.select19.i.i.i.i.i49, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i45 ], [ %2, %_ZNSt14_Bit_referenceaSEb.exit32 ]
+  %.sroa.013.022.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i48, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i45 ], [ %1, %_ZNSt14_Bit_referenceaSEb.exit32 ]
+  %.sroa.5.021.i.i.i.i.i42 = phi i32 [ %.sroa.5.1.i.i.i.i.i52, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i45 ], [ %.sroa.4.0, %_ZNSt14_Bit_referenceaSEb.exit32 ]
+  %.sroa.07.020.i.i.i.i.i43 = phi ptr [ %.sroa.07.1.i.i.i.i.i51, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i45 ], [ %.sroa.062.0, %_ZNSt14_Bit_referenceaSEb.exit32 ]
   %119 = zext nneg i32 %.sroa.516.023.i.i.i.i.i to i64
   %120 = shl nuw i64 1, %119
   %121 = zext nneg i32 %.sroa.5.021.i.i.i.i.i42 to i64
   %122 = shl nuw i64 1, %121
   %123 = load i64, ptr %.sroa.013.022.i.i.i.i.i, align 8
   %124 = and i64 %123, %120
-  %.not.i.i.i.i.i.i43 = icmp eq i64 %124, 0
-  br i1 %.not.i.i.i.i.i.i43, label %128, label %125
+  %.not.i.i.i.i.i.i44 = icmp eq i64 %124, 0
+  br i1 %.not.i.i.i.i.i.i44, label %128, label %125
 
 125:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %126 = load i64, ptr %.sroa.07.020.i.i.i.i.i, align 8
+  %126 = load i64, ptr %.sroa.07.020.i.i.i.i.i43, align 8
   %127 = or i64 %126, %122
-  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i44
+  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i45
 
 128:                                              ; preds = %.lr.ph.i.i.i.i.i
   %129 = xor i64 %122, -1
-  %130 = load i64, ptr %.sroa.07.020.i.i.i.i.i, align 8
+  %130 = load i64, ptr %.sroa.07.020.i.i.i.i.i43, align 8
   %131 = and i64 %130, %129
-  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i44
+  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i45
 
-_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i44:    ; preds = %128, %125
-  %storemerge.i.i.i.i.i45 = phi i64 [ %127, %125 ], [ %131, %128 ]
-  store i64 %storemerge.i.i.i.i.i45, ptr %.sroa.07.020.i.i.i.i.i, align 8
+_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i45:    ; preds = %128, %125
+  %storemerge.i.i.i.i.i46 = phi i64 [ %127, %125 ], [ %131, %128 ]
+  store i64 %storemerge.i.i.i.i.i46, ptr %.sroa.07.020.i.i.i.i.i43, align 8
   %132 = add i32 %.sroa.516.023.i.i.i.i.i, 1
   %133 = icmp eq i32 %.sroa.516.023.i.i.i.i.i, 63
-  %spec.select.idx.i.i.i.i.i46 = select i1 %133, i64 8, i64 0
-  %spec.select.i.i.i.i.i47 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i46
-  %spec.select19.i.i.i.i.i48 = select i1 %133, i32 0, i32 %132
+  %spec.select.idx.i.i.i.i.i47 = select i1 %133, i64 8, i64 0
+  %spec.select.i.i.i.i.i48 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i47
+  %spec.select19.i.i.i.i.i49 = select i1 %133, i32 0, i32 %132
   %134 = add i32 %.sroa.5.021.i.i.i.i.i42, 1
   %135 = icmp eq i32 %.sroa.5.021.i.i.i.i.i42, 63
-  %.sroa.07.1.idx.i.i.i.i.i49 = select i1 %135, i64 8, i64 0
-  %.sroa.07.1.i.i.i.i.i50 = getelementptr inbounds i8, ptr %.sroa.07.020.i.i.i.i.i, i64 %.sroa.07.1.idx.i.i.i.i.i49
-  %.sroa.5.1.i.i.i.i.i51 = select i1 %135, i32 0, i32 %134
+  %.sroa.07.1.idx.i.i.i.i.i50 = select i1 %135, i64 8, i64 0
+  %.sroa.07.1.i.i.i.i.i51 = getelementptr inbounds i8, ptr %.sroa.07.020.i.i.i.i.i43, i64 %.sroa.07.1.idx.i.i.i.i.i50
+  %.sroa.5.1.i.i.i.i.i52 = select i1 %135, i32 0, i32 %134
   %136 = add nsw i64 %.024.i.i.i.i.i41, -1
   %137 = icmp sgt i64 %.024.i.i.i.i.i41, 1
   br i1 %137, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit, !llvm.loop !503
 
-_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit: ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i44
+_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit: ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i45
   %.pre = load ptr, ptr %0, align 8
   br label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit, %_ZNSt14_Bit_referenceaSEb.exit32
   %138 = phi ptr [ %60, %_ZNSt14_Bit_referenceaSEb.exit32 ], [ %.pre, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
-  %.sroa.07.0.lcssa.i.i.i.i.i37 = phi ptr [ %.sroa.061.0, %_ZNSt14_Bit_referenceaSEb.exit32 ], [ %.sroa.07.1.i.i.i.i.i50, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
-  %.sroa.5.0.lcssa.i.i.i.i.i38 = phi i32 [ %.sroa.4.0, %_ZNSt14_Bit_referenceaSEb.exit32 ], [ %.sroa.5.1.i.i.i.i.i51, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
-  %.not.i52 = icmp eq ptr %138, null
-  br i1 %.not.i52, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, label %139
+  %.sroa.07.0.lcssa.i.i.i.i.i37 = phi ptr [ %.sroa.062.0, %_ZNSt14_Bit_referenceaSEb.exit32 ], [ %.sroa.07.1.i.i.i.i.i51, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
+  %.sroa.5.0.lcssa.i.i.i.i.i38 = phi i32 [ %.sroa.4.0, %_ZNSt14_Bit_referenceaSEb.exit32 ], [ %.sroa.5.1.i.i.i.i.i52, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
+  %.not.i53 = icmp eq ptr %138, null
+  br i1 %.not.i53, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, label %139
 
 139:                                              ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
   %140 = ptrtoint ptr %138 to i64
@@ -48198,8 +48198,8 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit
   %146 = getelementptr inbounds i64, ptr %75, i64 %145
   store ptr %146, ptr %7, align 8
   store ptr %75, ptr %0, align 8
-  %.sroa.365.0..sroa_idx66 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %.sroa.365.0..sroa_idx66, align 8
+  %.sroa.366.0..sroa_idx67 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %.sroa.366.0..sroa_idx67, align 8
   store ptr %.sroa.07.0.lcssa.i.i.i.i.i37, ptr %5, align 8
   store i32 %.sroa.5.0.lcssa.i.i.i.i.i38, ptr %9, align 8
   br label %_ZNSt13_Bit_iteratorppEv.exit

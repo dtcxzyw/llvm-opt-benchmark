@@ -721,8 +721,8 @@ _ZN15actix_multipart4form8tempfile14TempFileConfig15create_tempfile17h36d768ed61
   br label %113
 
 113:                                              ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit89", %112
-  %.sroa.14.0 = phi i32 [ %.sroa.14.3, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit89" ], [ %.sroa.7126.0.copyload, %112 ]
   %.sroa.8178.0 = phi i64 [ %.sroa.8178.3, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit89" ], [ %.sroa.0125.0.copyload, %112 ]
+  %.sroa.14.0 = phi i32 [ %.sroa.14.3, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit89" ], [ %.sroa.7126.0.copyload, %112 ]
   %114 = getelementptr inbounds i8, ptr %1, i64 304
   invoke void @"_ZN66_$LT$tempfile..file..TempPath$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2036e247ad1d8ceeE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %114)
           to label %117 unwind label %115
@@ -791,8 +791,8 @@ _ZN15actix_multipart4form8tempfile14TempFileConfig15create_tempfile17h36d768ed61
   br label %"_ZN4core3ptr50drop_in_place$LT$tempfile..file..NamedTempFile$GT$17h0b67ebeee0a94c42E.exit"
 
 "_ZN4core3ptr50drop_in_place$LT$tempfile..file..NamedTempFile$GT$17h0b67ebeee0a94c42E.exit": ; preds = %"_ZN4core3ptr45drop_in_place$LT$tempfile..file..TempPath$GT$17h6112442e14a931b4E.llvm.1711877461099840233.exit.i", %135
-  %.sroa.14.1 = phi i32 [ %.sroa.7.sroa.0.0.copyload, %135 ], [ %.sroa.14.0, %"_ZN4core3ptr45drop_in_place$LT$tempfile..file..TempPath$GT$17h6112442e14a931b4E.llvm.1711877461099840233.exit.i" ]
   %.sroa.8178.1 = phi i64 [ %.sroa.0113.0.copyload, %135 ], [ %.sroa.8178.0, %"_ZN4core3ptr45drop_in_place$LT$tempfile..file..TempPath$GT$17h6112442e14a931b4E.llvm.1711877461099840233.exit.i" ]
+  %.sroa.14.1 = phi i32 [ %.sroa.7.sroa.0.0.copyload, %135 ], [ %.sroa.14.0, %"_ZN4core3ptr45drop_in_place$LT$tempfile..file..TempPath$GT$17h6112442e14a931b4E.llvm.1711877461099840233.exit.i" ]
   %136 = getelementptr inbounds i8, ptr %1, i64 433
   store i8 0, ptr %136, align 1
   %137 = getelementptr inbounds i8, ptr %1, i64 272
@@ -1072,8 +1072,8 @@ common.ret:                                       ; preds = %324, %277, %199, %1
   br label %239
 
 239:                                              ; preds = %252, %238
-  %.sroa.14.2 = phi i32 [ %.sroa.8141.sroa.0.0.copyload, %238 ], [ %.sroa.9150.sroa.0.0.copyload, %252 ]
   %.sroa.8178.2 = phi i64 [ %220, %238 ], [ %.sroa.0149.0.copyload, %252 ]
+  %.sroa.14.2 = phi i32 [ %.sroa.8141.sroa.0.0.copyload, %238 ], [ %.sroa.9150.sroa.0.0.copyload, %252 ]
   %240 = getelementptr inbounds i8, ptr %1, i64 544
   call void @llvm.experimental.noalias.scope.decl(metadata !224)
   call void @llvm.experimental.noalias.scope.decl(metadata !227)
@@ -1105,8 +1105,8 @@ common.ret:                                       ; preds = %324, %277, %199, %1
   br label %239
 
 "_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit89": ; preds = %239, %207, %328
-  %.sroa.14.3 = phi i32 [ %.sroa.9167.sroa.0.0.copyload, %328 ], [ %.sroa.0138.sroa.2.0.copyload, %207 ], [ %.sroa.14.2, %239 ]
   %.sroa.8178.3 = phi i64 [ %.sroa.0166.0.copyload, %328 ], [ %193, %207 ], [ %.sroa.8178.2, %239 ]
+  %.sroa.14.3 = phi i32 [ %.sroa.9167.sroa.0.0.copyload, %328 ], [ %.sroa.0138.sroa.2.0.copyload, %207 ], [ %.sroa.14.2, %239 ]
   %253 = getelementptr inbounds i8, ptr %1, i64 328
   invoke void @"_ZN4core3ptr42drop_in_place$LT$tokio..fs..file..File$GT$17h4905fa0dff73876fE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %253)
           to label %113 unwind label %329
@@ -1317,12 +1317,12 @@ common.ret:                                       ; preds = %324, %277, %199, %1
   br label %321
 
 324:                                              ; preds = %333, %320
-  %.sroa.23.0 = phi i64 [ %299, %320 ], [ undef, %333 ]
-  %.sroa.22.0 = phi ptr [ %.sroa.5174.0, %320 ], [ undef, %333 ]
-  %.sroa.21184.0 = phi i64 [ %.sink.i, %320 ], [ undef, %333 ]
-  %.sroa.14.4 = phi i32 [ %.sroa.03.sroa.0.sroa.7.0.copyload, %320 ], [ %.sroa.14.1, %333 ]
-  %.sroa.8178.4 = phi i64 [ %.sroa.03.sroa.0.sroa.6.0.copyload, %320 ], [ %.sroa.8178.1, %333 ]
   %.sroa.0176.4 = phi i64 [ %.sroa.03.sroa.0.sroa.0.0.copyload, %320 ], [ 3, %333 ]
+  %.sroa.8178.4 = phi i64 [ %.sroa.03.sroa.0.sroa.6.0.copyload, %320 ], [ %.sroa.8178.1, %333 ]
+  %.sroa.14.4 = phi i32 [ %.sroa.03.sroa.0.sroa.7.0.copyload, %320 ], [ %.sroa.14.1, %333 ]
+  %.sroa.21184.0 = phi i64 [ %.sink.i, %320 ], [ undef, %333 ]
+  %.sroa.22.0 = phi ptr [ %.sroa.5174.0, %320 ], [ undef, %333 ]
+  %.sroa.23.0 = phi i64 [ %299, %320 ], [ undef, %333 ]
   %.sroa.25.0 = phi i64 [ %307, %320 ], [ undef, %333 ]
   store i64 %.sroa.0176.4, ptr %0, align 8
   %.sroa.8178.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

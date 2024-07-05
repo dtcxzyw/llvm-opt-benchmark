@@ -2592,7 +2592,7 @@ gv_recalloc.exit:                                 ; preds = %7, %14, %16
 .lr.ph:                                           ; preds = %19, %30
   %22 = phi i8 [ %32, %30 ], [ %21, %19 ]
   %.pn = phi ptr [ %23, %30 ], [ %0, %19 ]
-  %.01118 = phi ptr [ %31, %30 ], [ %20, %19 ]
+  %.01218 = phi ptr [ %31, %30 ], [ %20, %19 ]
   %23 = getelementptr inbounds i8, ptr %.pn, i64 1
   %24 = sext i8 %22 to i32
   %25 = add nsw i32 %24, -65
@@ -2606,15 +2606,15 @@ gv_recalloc.exit:                                 ; preds = %7, %14, %16
 
 30:                                               ; preds = %27, %.lr.ph
   %.0 = phi i8 [ %29, %27 ], [ %22, %.lr.ph ]
-  %31 = getelementptr inbounds i8, ptr %.01118, i64 1
-  store i8 %.0, ptr %.01118, align 1
+  %31 = getelementptr inbounds i8, ptr %.01218, i64 1
+  store i8 %.0, ptr %.01218, align 1
   %32 = load i8, ptr %23, align 1
   %.not16 = icmp eq i8 %32, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %30, %19
-  %.011.lcssa = phi ptr [ %20, %19 ], [ %31, %30 ]
-  store i8 0, ptr %.011.lcssa, align 1
+  %.012.lcssa = phi ptr [ %20, %19 ], [ %31, %30 ]
+  store i8 0, ptr %.012.lcssa, align 1
   ret ptr %20
 }
 
@@ -2901,8 +2901,8 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.l
   %.val.i.i.i207 = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph ], [ %.val.i.i.i205, %agxbputc.exit ]
   %.val.i.i = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph ], [ %.val.i.i204, %agxbputc.exit ]
   %173 = phi i8 [ %164, %agxbsizeof.exit.i.lr.ph ], [ %191, %agxbputc.exit ]
-  %.0110201 = phi ptr [ %.0112, %agxbsizeof.exit.i.lr.ph ], [ %174, %agxbputc.exit ]
-  %174 = getelementptr inbounds i8, ptr %.0110201, i64 1
+  %.0111201 = phi ptr [ %.0112, %agxbsizeof.exit.i.lr.ph ], [ %174, %agxbputc.exit ]
+  %174 = getelementptr inbounds i8, ptr %.0111201, i64 1
   %175 = icmp eq i8 %173, 44
   %narrow = select i1 %175, i8 32, i8 %173
   %.not.i.i = icmp eq i8 %.val.i.i, -1
@@ -3682,8 +3682,8 @@ thread-pre-split.thread:                          ; preds = %426, %thread-pre-sp
   unreachable
 
 agxbfree.exit:                                    ; preds = %365, %364, %532, %534, %535, %536, %537, %531, %531, %431, %451, %463, %488, %508, %thread-pre-split.thread, %thread-pre-split.thread, %resolveColor.exit, %rgb2hsv.exit, %93, %105, %131, %147, %42, %42
-  %.0111 = phi i32 [ 0, %42 ], [ 0, %42 ], [ 0, %147 ], [ 0, %131 ], [ 0, %105 ], [ 0, %93 ], [ 0, %rgb2hsv.exit ], [ -1, %resolveColor.exit ], [ 0, %thread-pre-split.thread ], [ 0, %thread-pre-split.thread ], [ 0, %508 ], [ 0, %488 ], [ 0, %463 ], [ 0, %451 ], [ 0, %431 ], [ 1, %531 ], [ 1, %531 ], [ 1, %537 ], [ 1, %536 ], [ 1, %535 ], [ 1, %534 ], [ 1, %532 ], [ 0, %364 ], [ 0, %365 ]
-  ret i32 %.0111
+  %.0 = phi i32 [ 0, %42 ], [ 0, %42 ], [ 0, %147 ], [ 0, %131 ], [ 0, %105 ], [ 0, %93 ], [ 0, %rgb2hsv.exit ], [ -1, %resolveColor.exit ], [ 0, %thread-pre-split.thread ], [ 0, %thread-pre-split.thread ], [ 0, %508 ], [ 0, %488 ], [ 0, %463 ], [ 0, %451 ], [ 0, %431 ], [ 1, %531 ], [ 1, %531 ], [ 1, %537 ], [ 1, %536 ], [ 1, %535 ], [ 1, %534 ], [ 1, %532 ], [ 0, %364 ], [ 0, %365 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind

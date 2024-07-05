@@ -335,7 +335,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %138, %135
   br label %Map_LibraryReadFile.exit
 
 Map_LibraryReadFile.exit:                         ; preds = %19, %25, %32, %39, %45, %.outer._crit_edge.i, %142
-  %.057.i = phi i32 [ 0, %19 ], [ 0, %25 ], [ 0, %32 ], [ 0, %39 ], [ 0, %45 ], [ 1, %142 ], [ 1, %.outer._crit_edge.i ]
+  %.056.i = phi i32 [ 0, %19 ], [ 0, %25 ], [ 0, %32 ], [ 0, %39 ], [ 0, %45 ], [ 1, %142 ], [ 1, %.outer._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -343,7 +343,7 @@ Map_LibraryReadFile.exit:                         ; preds = %19, %25, %32, %39, 
   br label %145
 
 145:                                              ; preds = %Map_LibraryReadFile.exit, %8
-  %.0 = phi i32 [ 0, %8 ], [ %.057.i, %Map_LibraryReadFile.exit ]
+  %.0 = phi i32 [ 0, %8 ], [ %.056.i, %Map_LibraryReadFile.exit ]
   ret i32 %.0
 }
 

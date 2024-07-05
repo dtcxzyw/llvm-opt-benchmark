@@ -9896,10 +9896,10 @@ define hidden void @"_ZN67_$LT$openssl..ssl..SslStream$LT$S$GT$$u20$as$u20$std..
   br label %43
 
 43:                                               ; preds = %41, %38
-  %.04 = phi ptr [ %40, %38 ], [ %42, %41 ]
+  %.0 = phi ptr [ %40, %38 ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   %44 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.04, ptr %44, align 8
+  store ptr %.0, ptr %44, align 8
   br label %22
 
 45:                                               ; preds = %23, %46
@@ -10730,9 +10730,9 @@ define hidden void @"_ZN7openssl3ssl18SslStream$LT$S$GT$3new17hacf797a9156fbd6aE
   unreachable
 
 104:                                              ; preds = %.noexc52.i, %.noexc51.i
-  %.sroa.12.1.ph.i = phi ptr [ %.sroa.6.0.copyload.i.i, %.noexc51.i ], [ %.sroa.12.0.i, %.noexc52.i ]
   %.sroa.28.1.ph.i = phi i64 [ %.sroa.8.0.copyload.i.i, %.noexc51.i ], [ %72, %.noexc52.i ]
   %.sroa.061.1.ph.i = phi ptr [ %.sroa.06.0.copyload.i.i, %.noexc51.i ], [ %.sroa.061.0.i, %.noexc52.i ]
+  %.sroa.12.1.ph.i = phi ptr [ %.sroa.6.0.copyload.i.i, %.noexc51.i ], [ %.sroa.12.0.i, %.noexc52.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !2329
   invoke void @"_ZN87_$LT$tokio..io..poll_evented..PollEvented$LT$E$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f8973dbfa5fa31eE.llvm.12836552674783018658"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %108 unwind label %105, !noalias !2334

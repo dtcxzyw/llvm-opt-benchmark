@@ -123,8 +123,8 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %if.end69, %for.cond.preheader
-  %in.addr.0.ph = phi ptr [ %add.ptr62, %if.end69 ], [ %in, %for.cond.preheader ]
   %inl.addr.0.ph = phi i32 [ %sub63, %if.end69 ], [ %inl, %for.cond.preheader ]
+  %in.addr.0.ph = phi ptr [ %add.ptr62, %if.end69 ], [ %in, %for.cond.preheader ]
   %wrlen.0.ph = phi i32 [ %add58, %if.end69 ], [ 0, %for.cond.preheader ]
   br label %for.cond
 

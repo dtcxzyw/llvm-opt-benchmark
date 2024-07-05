@@ -373,8 +373,8 @@ define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, p
   br label %23
 
 23:                                               ; preds = %25, %20
-  %.184 = phi ptr [ %22, %20 ], [ %26, %25 ]
-  %24 = load i8, ptr %.184, align 1
+  %.183 = phi ptr [ %22, %20 ], [ %26, %25 ]
+  %24 = load i8, ptr %.183, align 1
   switch i8 %24, label %25 [
     i8 47, label %.critedge
     i8 0, label %.critedge
@@ -384,7 +384,7 @@ define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, p
   ]
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.184, i64 1
+  %26 = getelementptr inbounds i8, ptr %.183, i64 1
   br label %23, !llvm.loop !11
 
 .critedge:                                        ; preds = %23, %23
@@ -645,8 +645,8 @@ define internal i32 @procfs_stat(ptr nocapture readnone %0, ptr noundef %1, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %7, %27, %18
-  %.018 = phi i32 [ %23, %18 ], [ 0, %7 ], [ 0, %27 ], [ -2, %12 ]
-  ret i32 %.018
+  %.0 = phi i32 [ %23, %18 ], [ 0, %7 ], [ 0, %27 ], [ -2, %12 ]
+  ret i32 %.0
 }
 
 declare i32 @fnmatch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6

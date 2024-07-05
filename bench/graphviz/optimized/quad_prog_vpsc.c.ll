@@ -110,7 +110,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   br label %.preheader170
 
 .preheader170:                                    ; preds = %.preheader170.lr.ph, %._crit_edge226
-  %.0156228 = phi i32 [ 0, %.preheader170.lr.ph ], [ %156, %._crit_edge226 ]
+  %.0162228 = phi i32 [ 0, %.preheader170.lr.ph ], [ %156, %._crit_edge226 ]
   br i1 %43, label %.lr.ph183, label %._crit_edge199
 
 .preheader169:                                    ; preds = %._crit_edge181
@@ -361,14 +361,14 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %.0153.lcssa = phi float [ 0.000000e+00, %._crit_edge219 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.loopexit ], [ 0.000000e+00, %._crit_edge202.thread ], [ 0.000000e+00, %._crit_edge202 ], [ %153, %147 ]
   %154 = fpext float %.0153.lcssa to double
   %155 = fcmp ule double %154, 1.000000e-04
-  %156 = add nuw nsw i32 %.0156228, 1
+  %156 = add nuw nsw i32 %.0162228, 1
   %157 = icmp sge i32 %156, %3
   %.not167 = or i1 %157, %155
   br i1 %.not167, label %.loopexit171, label %.preheader170
 
 .loopexit171:                                     ; preds = %._crit_edge226, %.loopexit172, %4
-  %.0162 = phi i32 [ 0, %4 ], [ 0, %.loopexit172 ], [ %156, %._crit_edge226 ]
-  ret i32 %.0162
+  %.0156 = phi i32 [ 0, %4 ], [ 0, %.loopexit172 ], [ %156, %._crit_edge226 ]
+  ret i32 %.0156
 }
 
 declare void @setVariableDesiredPos(ptr noundef, double noundef) local_unnamed_addr #1
@@ -472,8 +472,8 @@ gv_alloc.exit:                                    ; preds = %5
   br label %46
 
 46:                                               ; preds = %.lr.ph238, %54
-  %.0200237 = phi i64 [ 1, %.lr.ph238 ], [ %55, %54 ]
-  %47 = getelementptr inbounds float, ptr %45, i64 %.0200237
+  %.0196237 = phi i64 [ 1, %.lr.ph238 ], [ %55, %54 ]
+  %47 = getelementptr inbounds float, ptr %45, i64 %.0196237
   %48 = load float, ptr %47, align 4
   %49 = fpext float %48 to double
   %50 = fcmp ogt double %49, 1.000000e-02
@@ -486,7 +486,7 @@ gv_alloc.exit:                                    ; preds = %5
   br label %54
 
 54:                                               ; preds = %46, %51
-  %55 = add nuw i64 %.0200237, 1
+  %55 = add nuw i64 %.0196237, 1
   %exitcond280.not = icmp eq i64 %55, %42
   br i1 %exitcond280.not, label %._crit_edge239, label %46
 
@@ -523,16 +523,16 @@ gv_alloc.exit:                                    ; preds = %5
 
 68:                                               ; preds = %.lr.ph243, %91
   %69 = phi i64 [ %64, %.lr.ph243 ], [ %92, %91 ]
-  %.0199242 = phi i64 [ 1, %.lr.ph243 ], [ %93, %91 ]
+  %.0198242 = phi i64 [ 1, %.lr.ph243 ], [ %93, %91 ]
   %70 = load ptr, ptr %66, align 8
-  %71 = getelementptr inbounds float, ptr %70, i64 %.0199242
+  %71 = getelementptr inbounds float, ptr %70, i64 %.0198242
   %72 = load float, ptr %71, align 4
   %73 = fcmp ogt float %72, 0.000000e+00
   br i1 %73, label %74, label %91
 
 74:                                               ; preds = %68
   %75 = load ptr, ptr %67, align 8
-  %76 = getelementptr inbounds i32, ptr %75, i64 %.0199242
+  %76 = getelementptr inbounds i32, ptr %75, i64 %.0198242
   %77 = load i32, ptr %76, align 4
   %78 = load ptr, ptr %25, align 8
   %79 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv284
@@ -554,7 +554,7 @@ gv_alloc.exit:                                    ; preds = %5
 
 91:                                               ; preds = %68, %74
   %92 = phi i64 [ %69, %68 ], [ %.pre, %74 ]
-  %93 = add nuw i64 %.0199242, 1
+  %93 = add nuw i64 %.0198242, 1
   %94 = icmp ult i64 %93, %92
   br i1 %94, label %68, label %._crit_edge244.loopexit
 
@@ -1263,9 +1263,9 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %19 = icmp sgt i32 %18, 0
   %20 = shl nuw nsw i32 %18, 1
   %21 = select i1 %19, i32 %20, i32 0
-  %.0350 = sub nsw i32 %12, %21
+  %.0357 = sub nsw i32 %12, %21
   %22 = icmp eq i32 %3, 0
-  %23 = icmp sgt i32 %.0350, 0
+  %23 = icmp sgt i32 %.0357, 0
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
@@ -1283,7 +1283,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %34 = getelementptr inbounds i8, ptr %5, i64 32
   %35 = load double, ptr %34, align 8
   %36 = fmul double %35, 5.000000e-01
-  %wide.trip.count = zext nneg i32 %.0350 to i64
+  %wide.trip.count = zext nneg i32 %.0357 to i64
   br label %37
 
 37:                                               ; preds = %.lr.ph, %37
@@ -1343,13 +1343,13 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 
 .lr.ph391:                                        ; preds = %64
   %78 = getelementptr inbounds i8, ptr %0, i64 24
-  %79 = sext i32 %.0350 to i64
+  %79 = sext i32 %.0357 to i64
   br label %80
 
 80:                                               ; preds = %.lr.ph391, %162
   %indvars.iv438 = phi i64 [ 0, %.lr.ph391 ], [ %indvars.iv.next439, %162 ]
   %81 = phi ptr [ %74, %.lr.ph391 ], [ %165, %162 ]
-  %.0351389 = phi i32 [ 0, %.lr.ph391 ], [ %164, %162 ]
+  %.0355388 = phi i32 [ 0, %.lr.ph391 ], [ %164, %162 ]
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv438
@@ -1471,7 +1471,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %.sink = phi i32 [ %155, %152 ], [ %161, %156 ]
   %163 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv438
   store i32 %.sink, ptr %163, align 4
-  %164 = add nsw i32 %.sink, %.0351389
+  %164 = add nsw i32 %.sink, %.0355388
   tail call void @free(ptr noundef nonnull %88) #12
   tail call void @free(ptr noundef nonnull %89) #12
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
@@ -1483,7 +1483,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   br i1 %169, label %80, label %._crit_edge392
 
 ._crit_edge392:                                   ; preds = %162, %64
-  %.0351.lcssa = phi i32 [ 0, %64 ], [ %164, %162 ]
+  %.0355.lcssa = phi i32 [ 0, %64 ], [ %164, %162 ]
   %.lcssa375 = phi ptr [ %74, %64 ], [ %165, %162 ]
   %.lcssa374 = phi i32 [ %76, %64 ], [ %167, %162 ]
   %170 = getelementptr inbounds i8, ptr %.lcssa375, i64 24
@@ -1626,7 +1626,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %255 = load ptr, ptr %254, align 8
   %256 = load ptr, ptr %243, align 8
   %257 = shl nsw i32 %250, 1
-  %258 = add nsw i32 %257, %.0350
+  %258 = add nsw i32 %257, %.0357
   %259 = sext i32 %258 to i64
   %260 = getelementptr inbounds ptr, ptr %256, i64 %259
   %261 = load ptr, ptr %260, align 8
@@ -1655,7 +1655,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %271 = sext i32 %270 to i64
   %272 = getelementptr inbounds i32, ptr %73, i64 %271
   %273 = load i32, ptr %272, align 4
-  %274 = add nsw i32 %273, %.0351.lcssa
+  %274 = add nsw i32 %273, %.0355.lcssa
   tail call void @free(ptr noundef %174) #12
   tail call void @free(ptr noundef %175) #12
   %275 = tail call ptr @newConstraints(i32 noundef %274) #12
@@ -1668,7 +1668,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 
 .preheader:                                       ; preds = %._crit_edge406, %._crit_edge410
   %indvars.iv456 = phi i64 [ %indvars.iv.next457, %._crit_edge410 ], [ 0, %._crit_edge406 ]
-  %.0356414 = phi ptr [ %.1357.lcssa, %._crit_edge410 ], [ %275, %._crit_edge406 ]
+  %.0350415 = phi ptr [ %.1.lcssa, %._crit_edge410 ], [ %275, %._crit_edge406 ]
   %279 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv456
   %280 = load i32, ptr %279, align 4
   %281 = icmp sgt i32 %280, 0
@@ -1680,12 +1680,12 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 
 283:                                              ; preds = %.lr.ph409, %283
   %indvars.iv453 = phi i64 [ 0, %.lr.ph409 ], [ %indvars.iv.next454, %283 ]
-  %.1357407 = phi ptr [ %.0356414, %.lr.ph409 ], [ %287, %283 ]
+  %.1408 = phi ptr [ %.0350415, %.lr.ph409 ], [ %287, %283 ]
   %284 = load ptr, ptr %282, align 8
   %285 = getelementptr inbounds ptr, ptr %284, i64 %indvars.iv453
   %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds i8, ptr %.1357407, i64 8
-  store ptr %286, ptr %.1357407, align 8
+  %287 = getelementptr inbounds i8, ptr %.1408, i64 8
+  store ptr %286, ptr %.1408, align 8
   %indvars.iv.next454 = add nuw nsw i64 %indvars.iv453, 1
   %288 = load i32, ptr %279, align 4
   %289 = sext i32 %288 to i64
@@ -1693,7 +1693,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   br i1 %290, label %283, label %._crit_edge410
 
 ._crit_edge410:                                   ; preds = %283, %.preheader
-  %.1357.lcssa = phi ptr [ %.0356414, %.preheader ], [ %287, %283 ]
+  %.1.lcssa = phi ptr [ %.0350415, %.preheader ], [ %287, %283 ]
   %291 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv456
   %292 = load ptr, ptr %291, align 8
   tail call void @deleteConstraints(i32 noundef 0, ptr noundef %292) #12
@@ -1724,7 +1724,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   br label %304
 
 304:                                              ; preds = %300, %302, %._crit_edge416
-  %.1 = phi i32 [ %274, %._crit_edge416 ], [ %301, %300 ], [ %303, %302 ]
+  %.1356 = phi i32 [ %274, %._crit_edge416 ], [ %301, %300 ], [ %303, %302 ]
   %305 = getelementptr inbounds i8, ptr %0, i64 32
   %306 = load i32, ptr %305, align 8
   %307 = icmp sgt i32 %306, 0
@@ -1776,14 +1776,14 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   br i1 %332, label %333, label %336
 
 333:                                              ; preds = %329
-  store i32 %.1, ptr %305, align 8
+  store i32 %.1356, ptr %305, align 8
   %334 = load ptr, ptr %7, align 8
   %335 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %334, ptr %335, align 8
   br label %364
 
 336:                                              ; preds = %329
-  %337 = add nsw i32 %331, %.1
+  %337 = add nsw i32 %331, %.1356
   store i32 %337, ptr %305, align 8
   %338 = call ptr @newConstraints(i32 noundef %337) #12
   %339 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1835,7 +1835,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   br label %364
 
 364:                                              ; preds = %._crit_edge424, %333
-  %.pre467 = phi i32 [ %.pre467.pre, %._crit_edge424 ], [ %.1, %333 ]
+  %.pre467 = phi i32 [ %.pre467.pre, %._crit_edge424 ], [ %.1356, %333 ]
   %365 = load i8, ptr @Verbose, align 1
   %.not371 = icmp eq i8 %365, 0
   br i1 %.not371, label %369, label %366

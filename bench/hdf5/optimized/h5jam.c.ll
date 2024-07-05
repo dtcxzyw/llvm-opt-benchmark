@@ -372,7 +372,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %109
 
 86:                                               ; preds = %81, %75
-  %.047 = phi i32 [ %77, %75 ], [ %82, %81 ]
+  %.046 = phi i32 [ %77, %75 ], [ %82, %81 ]
   %87 = icmp eq i64 %59, 0
   br i1 %87, label %compute_user_block_size.exit, label %.preheader.i
 
@@ -408,22 +408,22 @@ compute_user_block_size.exit:                     ; preds = %.preheader.i, %86
   br i1 %96, label %.preheader.i75, label %compute_user_block_size.exit78
 
 compute_user_block_size.exit78:                   ; preds = %.preheader.i75, %93, %92, %compute_user_block_size.exit
-  %.043 = phi i64 [ 0, %92 ], [ 0, %compute_user_block_size.exit ], [ %90, %93 ], [ %90, %.preheader.i75 ]
+  %.044 = phi i64 [ 0, %92 ], [ 0, %compute_user_block_size.exit ], [ %90, %93 ], [ %90, %.preheader.i75 ]
   %.1 = phi i64 [ %spec.select, %92 ], [ %.06.i, %compute_user_block_size.exit ], [ 0, %93 ], [ %.0.i76, %.preheader.i75 ]
   %98 = sub i64 %72, %90
-  %99 = call i64 @copy_some_to_file(i32 noundef %61, i32 noundef %.047, i64 noundef %90, i64 noundef %.1, i64 noundef %98)
+  %99 = call i64 @copy_some_to_file(i32 noundef %61, i32 noundef %.046, i64 noundef %90, i64 noundef %.1, i64 noundef %98)
   %.b = load i1, ptr @do_clobber, align 4
   br i1 %.b, label %103, label %100
 
 100:                                              ; preds = %compute_user_block_size.exit78
   %101 = load i64, ptr %3, align 8
-  %102 = call i64 @copy_some_to_file(i32 noundef %61, i32 noundef %.047, i64 noundef 0, i64 noundef 0, i64 noundef %101)
+  %102 = call i64 @copy_some_to_file(i32 noundef %61, i32 noundef %.046, i64 noundef 0, i64 noundef 0, i64 noundef %101)
   br label %103
 
 103:                                              ; preds = %100, %compute_user_block_size.exit78
-  %104 = call i64 @copy_some_to_file(i32 noundef %48, i32 noundef %.047, i64 noundef 0, i64 noundef %.043, i64 noundef -1)
+  %104 = call i64 @copy_some_to_file(i32 noundef %48, i32 noundef %.046, i64 noundef 0, i64 noundef %.044, i64 noundef -1)
   store i64 %104, ptr %4, align 8
-  %105 = call i32 @write_pad(i32 noundef %.047, i64 noundef %104, ptr noundef nonnull %4)
+  %105 = call i32 @write_pad(i32 noundef %.046, i64 noundef %104, ptr noundef nonnull %4)
   %106 = icmp slt i32 %105, 0
   br i1 %106, label %107, label %109
 
@@ -434,11 +434,11 @@ compute_user_block_size.exit78:                   ; preds = %.preheader.i75, %93
   br label %109
 
 109:                                              ; preds = %103, %107, %84, %79, %68, %63, %55, %50, %42, %37, %32, %25, %19, %14, %9
-  %.049 = phi i32 [ -1, %9 ], [ -1, %14 ], [ -1, %19 ], [ -1, %25 ], [ -1, %32 ], [ -1, %37 ], [ -1, %42 ], [ -1, %50 ], [ -1, %55 ], [ %61, %63 ], [ %61, %68 ], [ %61, %79 ], [ %61, %107 ], [ %61, %103 ], [ %61, %84 ]
-  %.148 = phi i32 [ -1, %9 ], [ -1, %14 ], [ -1, %19 ], [ -1, %25 ], [ -1, %32 ], [ -1, %37 ], [ -1, %42 ], [ -1, %50 ], [ -1, %55 ], [ -1, %63 ], [ -1, %68 ], [ %77, %79 ], [ %.047, %107 ], [ %.047, %103 ], [ %82, %84 ]
-  %.046 = phi i64 [ -1, %9 ], [ -1, %14 ], [ -1, %19 ], [ -1, %25 ], [ %30, %32 ], [ %30, %37 ], [ %30, %42 ], [ -1, %50 ], [ -1, %55 ], [ -1, %63 ], [ -1, %68 ], [ -1, %79 ], [ -1, %107 ], [ -1, %103 ], [ -1, %84 ]
-  %.045 = phi i64 [ -1, %9 ], [ -1, %14 ], [ -1, %19 ], [ -1, %25 ], [ -1, %32 ], [ %35, %37 ], [ %35, %42 ], [ -1, %50 ], [ -1, %55 ], [ -1, %63 ], [ -1, %68 ], [ -1, %79 ], [ -1, %107 ], [ -1, %103 ], [ -1, %84 ]
-  %.044 = phi i32 [ -1, %9 ], [ -1, %14 ], [ -1, %19 ], [ -1, %25 ], [ -1, %32 ], [ -1, %37 ], [ -1, %42 ], [ %48, %50 ], [ %48, %55 ], [ %48, %63 ], [ %48, %68 ], [ %48, %79 ], [ %48, %107 ], [ %48, %103 ], [ %48, %84 ]
+  %.049 = phi i64 [ -1, %9 ], [ -1, %14 ], [ -1, %19 ], [ -1, %25 ], [ %30, %32 ], [ %30, %37 ], [ %30, %42 ], [ -1, %50 ], [ -1, %55 ], [ -1, %63 ], [ -1, %68 ], [ -1, %79 ], [ -1, %107 ], [ -1, %103 ], [ -1, %84 ]
+  %.048 = phi i64 [ -1, %9 ], [ -1, %14 ], [ -1, %19 ], [ -1, %25 ], [ -1, %32 ], [ %35, %37 ], [ %35, %42 ], [ -1, %50 ], [ -1, %55 ], [ -1, %63 ], [ -1, %68 ], [ -1, %79 ], [ -1, %107 ], [ -1, %103 ], [ -1, %84 ]
+  %.147 = phi i32 [ -1, %9 ], [ -1, %14 ], [ -1, %19 ], [ -1, %25 ], [ -1, %32 ], [ -1, %37 ], [ -1, %42 ], [ -1, %50 ], [ -1, %55 ], [ -1, %63 ], [ -1, %68 ], [ %77, %79 ], [ %.046, %107 ], [ %.046, %103 ], [ %82, %84 ]
+  %.045 = phi i32 [ -1, %9 ], [ -1, %14 ], [ -1, %19 ], [ -1, %25 ], [ -1, %32 ], [ -1, %37 ], [ -1, %42 ], [ -1, %50 ], [ -1, %55 ], [ %61, %63 ], [ %61, %68 ], [ %61, %79 ], [ %61, %107 ], [ %61, %103 ], [ %61, %84 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %14 ], [ -1, %19 ], [ -1, %25 ], [ -1, %32 ], [ -1, %37 ], [ -1, %42 ], [ %48, %50 ], [ %48, %55 ], [ %48, %63 ], [ %48, %68 ], [ %48, %79 ], [ %48, %107 ], [ %48, %103 ], [ %48, %84 ]
   %110 = load ptr, ptr @ub_file, align 8
   %.not72 = icmp eq ptr %110, null
   br i1 %.not72, label %112, label %111
@@ -466,43 +466,43 @@ compute_user_block_size.exit78:                   ; preds = %.preheader.i75, %93
   br label %118
 
 118:                                              ; preds = %117, %115
-  %119 = icmp sgt i64 %.045, -1
+  %119 = icmp sgt i64 %.048, -1
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %118
-  %121 = call i32 @H5Pclose(i64 noundef %.045) #14
+  %121 = call i32 @H5Pclose(i64 noundef %.048) #14
   br label %122
 
 122:                                              ; preds = %120, %118
-  %123 = icmp sgt i64 %.046, -1
+  %123 = icmp sgt i64 %.049, -1
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %122
-  %125 = call i32 @H5Fclose(i64 noundef %.046) #14
+  %125 = call i32 @H5Fclose(i64 noundef %.049) #14
   br label %126
 
 126:                                              ; preds = %124, %122
-  %127 = icmp sgt i32 %.044, -1
+  %127 = icmp sgt i32 %.0, -1
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %126
-  %129 = call i32 @close(i32 noundef %.044) #14
+  %129 = call i32 @close(i32 noundef %.0) #14
   br label %130
 
 130:                                              ; preds = %128, %126
-  %131 = icmp sgt i32 %.049, -1
+  %131 = icmp sgt i32 %.045, -1
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %130
-  %133 = call i32 @close(i32 noundef %.049) #14
+  %133 = call i32 @close(i32 noundef %.045) #14
   br label %134
 
 134:                                              ; preds = %132, %130
-  %135 = icmp sgt i32 %.148, -1
+  %135 = icmp sgt i32 %.147, -1
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %134
-  %137 = call i32 @close(i32 noundef %.148) #14
+  %137 = call i32 @close(i32 noundef %.147) #14
   br label %138
 
 138:                                              ; preds = %136, %134
@@ -598,33 +598,33 @@ define dso_local i64 @copy_some_to_file(i32 noundef %0, i32 noundef %1, i64 noun
   br label %19
 
 19:                                               ; preds = %10, %16
-  %.050 = phi i64 [ %18, %16 ], [ %4, %10 ]
-  %20 = icmp eq i64 %.050, 0
+  %.052 = phi i64 [ %18, %16 ], [ %4, %10 ]
+  %20 = icmp eq i64 %.052, 0
   br i1 %20, label %44, label %21
 
 21:                                               ; preds = %19
-  %22 = icmp sgt i64 %.050, 0
+  %22 = icmp sgt i64 %.052, 0
   br i1 %22, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %21
-  %23 = icmp ugt i64 %.050, 512
+  %23 = icmp ugt i64 %.052, 512
   %24 = add i64 %2, -512
-  %25 = add i64 %24, %.050
-  %.0 = select i1 %23, i64 %25, i64 %2
+  %25 = add i64 %24, %.052
+  %.047 = select i1 %23, i64 %25, i64 %2
   %26 = add i64 %3, -512
-  %27 = add i64 %26, %.050
-  %.046 = select i1 %23, i64 %27, i64 %3
+  %27 = add i64 %26, %.052
+  %.048 = select i1 %23, i64 %27, i64 %3
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %38
-  %.164 = phi i64 [ %.2, %38 ], [ %.0, %.lr.ph.preheader ]
-  %.14763 = phi i64 [ %.248, %38 ], [ %.046, %.lr.ph.preheader ]
-  %.15162 = phi i64 [ %40, %38 ], [ %.050, %.lr.ph.preheader ]
-  %.05261 = phi i64 [ %39, %38 ], [ 0, %.lr.ph.preheader ]
-  %28 = tail call i64 @lseek64(i32 noundef %1, i64 noundef %.14763, i32 noundef 0) #14
-  %29 = tail call i64 @lseek64(i32 noundef %0, i64 noundef %.164, i32 noundef 0) #14
-  %..15162 = tail call i64 @llvm.umin.i64(i64 %.15162, i64 512)
-  %30 = call i64 @read(i32 noundef %0, ptr noundef nonnull %6, i64 noundef %..15162) #14
+  %.04664 = phi i64 [ %39, %38 ], [ 0, %.lr.ph.preheader ]
+  %.163 = phi i64 [ %.2, %38 ], [ %.047, %.lr.ph.preheader ]
+  %.14962 = phi i64 [ %.250, %38 ], [ %.048, %.lr.ph.preheader ]
+  %.15361 = phi i64 [ %40, %38 ], [ %.052, %.lr.ph.preheader ]
+  %28 = tail call i64 @lseek64(i32 noundef %1, i64 noundef %.14962, i32 noundef 0) #14
+  %29 = tail call i64 @lseek64(i32 noundef %0, i64 noundef %.163, i32 noundef 0) #14
+  %..15361 = tail call i64 @llvm.umin.i64(i64 %.15361, i64 512)
+  %30 = call i64 @read(i32 noundef %0, ptr noundef nonnull %6, i64 noundef %..15361) #14
   %31 = icmp slt i64 %30, 1
   br i1 %31, label %32, label %33
 
@@ -645,23 +645,23 @@ define dso_local i64 @copy_some_to_file(i32 noundef %0, i32 noundef %1, i64 noun
   unreachable
 
 38:                                               ; preds = %33
-  %39 = add nuw nsw i64 %30, %.05261
-  %40 = sub nsw i64 %.15162, %30
+  %39 = add nuw nsw i64 %30, %.04664
+  %40 = sub nsw i64 %.15361, %30
   %41 = icmp sgt i64 %40, 512
-  %.049. = select i1 %41, i64 %30, i64 %40
-  %.2 = sub nsw i64 %.164, %.049.
-  %.248 = sub nsw i64 %.14763, %.049.
+  %.051. = select i1 %41, i64 %30, i64 %40
+  %.2 = sub nsw i64 %.163, %.051.
+  %.250 = sub nsw i64 %.14962, %.051.
   %42 = icmp sgt i64 %40, 0
   br i1 %42, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %38, %21
-  %.052.lcssa = phi i64 [ 0, %21 ], [ %39, %38 ]
-  %43 = add i64 %.052.lcssa, %3
+  %.046.lcssa = phi i64 [ 0, %21 ], [ %39, %38 ]
+  %43 = add i64 %.046.lcssa, %3
   br label %44
 
 44:                                               ; preds = %19, %._crit_edge
-  %.053 = phi i64 [ %43, %._crit_edge ], [ 0, %19 ]
-  ret i64 %.053
+  %.0 = phi i64 [ %43, %._crit_edge ], [ 0, %19 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable

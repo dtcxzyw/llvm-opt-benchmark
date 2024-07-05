@@ -232,8 +232,8 @@ entry:
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %entry
-  %s1.addr.0.i = phi ptr [ %one, %entry ], [ %incdec.ptr.i, %do.body.i ]
   %s2.addr.0.i = phi ptr [ %second, %entry ], [ %incdec.ptr2.i, %do.body.i ]
+  %s1.addr.0.i = phi ptr [ %one, %entry ], [ %incdec.ptr.i, %do.body.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
   %0 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %0 to i32
@@ -262,8 +262,8 @@ entry:
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %entry
-  %s1.addr.0.i = phi ptr [ %one, %entry ], [ %incdec.ptr.i, %do.body.i ]
   %s2.addr.0.i = phi ptr [ %second, %entry ], [ %incdec.ptr2.i, %do.body.i ]
+  %s1.addr.0.i = phi ptr [ %one, %entry ], [ %incdec.ptr.i, %do.body.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
   %0 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %0 to i32
@@ -302,8 +302,8 @@ cond.false.i:                                     ; preds = %invoke.cont
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %cond.false.i
-  %s1.addr.0.i.i = phi ptr [ %call3.i, %cond.false.i ], [ %incdec.ptr.i.i, %do.body.i.i ]
   %s2.addr.0.i.i = phi ptr [ %call4.i6, %cond.false.i ], [ %incdec.ptr2.i.i, %do.body.i.i ]
+  %s1.addr.0.i.i = phi ptr [ %call3.i, %cond.false.i ], [ %incdec.ptr.i.i, %do.body.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %s1.addr.0.i.i, i64 1
   %4 = load i8, ptr %s1.addr.0.i.i, align 1
   %conv.i.i = zext i8 %4 to i32

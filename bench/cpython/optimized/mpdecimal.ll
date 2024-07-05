@@ -10929,12 +10929,12 @@ if.then51:                                        ; preds = %if.then47
   br label %finish
 
 if.end54:                                         ; preds = %if.then47, %if.then39, %if.else44
-  %a.addr.0.sroa.phi153 = phi ptr [ %a.addr.0.sroa.gep147, %if.else44 ], [ %data, %if.then39 ], [ %a.addr.0.sroa.gep147, %if.then47 ]
-  %a.addr.0.sroa.phi157 = phi ptr [ %a.addr.0.sroa.gep143, %if.else44 ], [ %len, %if.then39 ], [ %a.addr.0.sroa.gep143, %if.then47 ]
-  %a.addr.0 = phi ptr [ %a, %if.else44 ], [ %aligned, %if.then39 ], [ %a, %if.then47 ]
   %b.addr.0.sroa.phi175 = phi ptr [ %b.addr.0.sroa.gep168, %if.else44 ], [ %b.addr.0.sroa.gep168, %if.then39 ], [ %data, %if.then47 ]
   %b.addr.0.sroa.phi183 = phi ptr [ %b.addr.0.sroa.gep, %if.else44 ], [ %b.addr.0.sroa.gep, %if.then39 ], [ %len, %if.then47 ]
   %b.addr.0 = phi ptr [ %b, %if.else44 ], [ %b, %if.then39 ], [ %aligned, %if.then47 ]
+  %a.addr.0.sroa.phi153 = phi ptr [ %a.addr.0.sroa.gep147, %if.else44 ], [ %data, %if.then39 ], [ %a.addr.0.sroa.gep147, %if.then47 ]
+  %a.addr.0.sroa.phi157 = phi ptr [ %a.addr.0.sroa.gep143, %if.else44 ], [ %len, %if.then39 ], [ %a.addr.0.sroa.gep143, %if.then47 ]
+  %a.addr.0 = phi ptr [ %a, %if.else44 ], [ %aligned, %if.then39 ], [ %a, %if.then47 ]
   %101 = load i64, ptr %a.addr.0.sroa.phi157, align 8
   %102 = load i64, ptr %b.addr.0.sroa.phi183, align 8
   %sub57 = sub i64 %101, %102
@@ -25663,14 +25663,14 @@ if.end84.i:                                       ; preds = %if.end84.sink.split
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i114.i)
   br label %for.cond.i.i.outer
 
-for.cond.i.i.outer:                               ; preds = %if.end.i118.i, %if.end84.i
-  %lo.0.i.i.ph = phi i64 [ %add6.i.i, %if.end.i118.i ], [ 1000, %if.end84.i ]
-  %hi.0.i.i.ph = phi i64 [ %hi.0.i.i, %if.end.i118.i ], [ 10000, %if.end84.i ]
+for.cond.i.i.outer:                               ; preds = %if.else.i131.i, %if.end84.i
+  %hi.0.i.i.ph = phi i64 [ %sub.i.i, %if.else.i131.i ], [ 10000, %if.end84.i ]
+  %lo.0.i.i.ph = phi i64 [ %lo.0.i.i, %if.else.i131.i ], [ 1000, %if.end84.i ]
   br label %for.cond.i.i
 
-for.cond.i.i:                                     ; preds = %for.cond.i.i.outer, %if.else.i131.i
-  %hi.0.i.i = phi i64 [ %sub.i.i, %if.else.i131.i ], [ %hi.0.i.i.ph, %for.cond.i.i.outer ]
-  %add.i115.i = add i64 %hi.0.i.i, %lo.0.i.i.ph
+for.cond.i.i:                                     ; preds = %for.cond.i.i.outer, %if.end.i118.i
+  %lo.0.i.i = phi i64 [ %add6.i.i, %if.end.i118.i ], [ %lo.0.i.i.ph, %for.cond.i.i.outer ]
+  %add.i115.i = add i64 %lo.0.i.i, %hi.0.i.i.ph
   %div17.i.i = lshr i64 %add.i115.i, 1
   %mul.i116.i = mul i64 %div17.i.i, %div17.i.i
   %cmp.not.i.i = icmp ugt i64 %mul.i116.i, %vhat.2.i
@@ -25684,11 +25684,11 @@ if.then.i117.i:                                   ; preds = %for.cond.i.i
 
 if.end.i118.i:                                    ; preds = %if.then.i117.i
   %add6.i.i = add nuw i64 %div17.i.i, 1
-  br label %for.cond.i.i.outer
+  br label %for.cond.i.i
 
 if.else.i131.i:                                   ; preds = %for.cond.i.i
   %sub.i.i = add nsw i64 %div17.i.i, -1
-  br label %for.cond.i.i
+  br label %for.cond.i.i.outer
 
 for.end.i.i:                                      ; preds = %if.then.i117.i
   %sub87.i = sub i64 %101, %100
@@ -28720,16 +28720,16 @@ if.end14:                                         ; preds = %if.end12, %if.then
   br i1 %cmp15.not47, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end14, %if.end25
-  %m.addr.049 = phi i64 [ %dec26, %if.end25 ], [ %dec2, %if.end14 ]
-  %n.addr.148 = phi i64 [ %dec27, %if.end25 ], [ %n.addr.0, %if.end14 ]
+  %n.addr.149 = phi i64 [ %dec27, %if.end25 ], [ %n.addr.0, %if.end14 ]
+  %m.addr.048 = phi i64 [ %dec26, %if.end25 ], [ %dec2, %if.end14 ]
   %5 = phi i64 [ %9, %if.end25 ], [ %lprev.promoted, %if.end14 ]
-  %arrayidx16 = getelementptr i64, ptr %small, i64 %m.addr.049
+  %arrayidx16 = getelementptr i64, ptr %small, i64 %m.addr.048
   %6 = load i64, ptr %arrayidx16, align 8
   call fastcc void @_mpd_divmod_pow10(ptr noundef nonnull %h, ptr noundef nonnull %l, i64 noundef %6, i64 noundef %sub)
   %mul = mul i64 %5, %0
   %7 = load i64, ptr %h, align 8
   %add = add i64 %mul, %7
-  %arrayidx18 = getelementptr i64, ptr %big, i64 %n.addr.148
+  %arrayidx18 = getelementptr i64, ptr %big, i64 %n.addr.149
   %8 = load i64, ptr %arrayidx18, align 8
   %cmp19.not = icmp eq i64 %8, %add
   br i1 %cmp19.not, label %if.end25, label %if.then20
@@ -28741,9 +28741,9 @@ if.then20:                                        ; preds = %for.body
 
 if.end25:                                         ; preds = %for.body
   %9 = load i64, ptr %l, align 8
-  %dec26 = add i64 %m.addr.049, -1
-  %dec27 = add i64 %n.addr.148, -1
-  %cmp15.not = icmp eq i64 %m.addr.049, 0
+  %dec26 = add i64 %m.addr.048, -1
+  %dec27 = add i64 %n.addr.149, -1
+  %cmp15.not = icmp eq i64 %m.addr.048, 0
   br i1 %cmp15.not, label %for.end, label %for.body, !llvm.loop !50
 
 for.end:                                          ; preds = %if.end25, %if.end14

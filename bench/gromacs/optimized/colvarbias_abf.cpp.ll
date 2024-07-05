@@ -2334,7 +2334,7 @@ _ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit: ; preds = %.lr.ph173, %7
   br label %.noexc
 
 .noexc:                                           ; preds = %.noexc.lr.ph, %_ZNSt6vectorIiSaIiEED2Ev.exit78
-  %.030144 = phi double [ 0.000000e+00, %.noexc.lr.ph ], [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit78 ]
+  %.032144 = phi double [ 0.000000e+00, %.noexc.lr.ph ], [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit78 ]
   %storemerge143 = phi i32 [ 0, %.noexc.lr.ph ], [ %201, %_ZNSt6vectorIiSaIiEED2Ev.exit78 ]
   %140 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #24
   store i32 %storemerge143, ptr %140, align 4
@@ -2390,7 +2390,7 @@ _ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit: ; preds = %.lr.ph173, %7
   br label %173
 
 173:                                              ; preds = %167, %164, %.loopexit138
-  %.029 = phi double [ 1.000000e+00, %.loopexit138 ], [ %172, %167 ], [ 0.000000e+00, %164 ]
+  %.030 = phi double [ 1.000000e+00, %.loopexit138 ], [ %172, %167 ], [ 0.000000e+00, %164 ]
   %.not44 = icmp eq i32 %160, 0
   br i1 %.not44, label %_ZNSt6vectorIiSaIiEED2Ev.exit78, label %174
 
@@ -2427,17 +2427,17 @@ _ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit: ; preds = %.lr.ph173, %7
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr double, ptr %191, i64 %.015.lcssa.i.i75
   %193 = load double, ptr %192, align 8
-  %194 = fmul double %.029, %193
+  %194 = fmul double %.030, %193
   %195 = uitofp i32 %160 to double
   %196 = fdiv double %194, %195
   %197 = getelementptr inbounds i8, ptr %175, i64 672
   %198 = load ptr, ptr %197, align 8
   %199 = load double, ptr %198, align 8
-  %200 = tail call double @llvm.fmuladd.f64(double %196, double %199, double %.030144)
+  %200 = tail call double @llvm.fmuladd.f64(double %196, double %199, double %.032144)
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit78
 
 _ZNSt6vectorIiSaIiEED2Ev.exit78:                  ; preds = %.loopexit137, %173
-  %.1 = phi double [ %200, %.loopexit137 ], [ %.030144, %173 ]
+  %.1 = phi double [ %200, %.loopexit137 ], [ %.032144, %173 ]
   tail call void @_ZdlPv(ptr noundef nonnull %140) #25
   %201 = add nuw nsw i32 %storemerge143, 1
   %exitcond.not = icmp eq i32 %201, %135
@@ -2449,7 +2449,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit78:                  ; preds = %.loopexit137, %173
 
 .noexc82:                                         ; preds = %.noexc82.loopexit, %129
   %202 = phi ptr [ %106, %129 ], [ %.pre, %.noexc82.loopexit ]
-  %.030.lcssa = phi double [ 0.000000e+00, %129 ], [ %.1, %.noexc82.loopexit ]
+  %.032.lcssa = phi double [ 0.000000e+00, %129 ], [ %.1, %.noexc82.loopexit ]
   %203 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #24
   store i32 %135, ptr %203, align 4
   %204 = getelementptr inbounds i8, ptr %202, i64 464
@@ -2570,11 +2570,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit78:                  ; preds = %.loopexit137, %173
   %281 = uitofp i32 %245 to double
   %282 = fdiv double %280, %281
   %283 = fmul double %221, %282
-  %284 = tail call double @llvm.fmuladd.f64(double %283, double %224, double %.030.lcssa)
+  %284 = tail call double @llvm.fmuladd.f64(double %283, double %224, double %.032.lcssa)
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit103
 
 _ZNSt6vectorIiSaIiEED2Ev.exit103:                 ; preds = %.loopexit, %260
-  %.2 = phi double [ %284, %.loopexit ], [ %.030.lcssa, %260 ]
+  %.2 = phi double [ %284, %.loopexit ], [ %.032.lcssa, %260 ]
   %285 = fneg double %.2
   store double %285, ptr %3, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %203) #25
@@ -26504,8 +26504,8 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit313: ; preds = %_
   br label %652
 
 652:                                              ; preds = %_ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit313, %_ZN11UIestimator8n_vectorISt6vectorIdSaIdEEE9get_valueERKS3_.exit229
-  %.0 = phi double [ %479, %_ZN11UIestimator8n_vectorISt6vectorIdSaIdEEE9get_valueERKS3_.exit229 ], [ %651, %_ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit313 ]
-  %653 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %52, double noundef %.0)
+  %.055 = phi double [ %479, %_ZN11UIestimator8n_vectorISt6vectorIdSaIdEEE9get_valueERKS3_.exit229 ], [ %651, %_ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit313 ]
+  %653 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %52, double noundef %.055)
           to label %654 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 654:                                              ; preds = %652
@@ -26513,7 +26513,7 @@ _ZN11UIestimator8n_vectorIiE9get_valueERKSt6vectorIdSaIdEE.exit313: ; preds = %_
           to label %656 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 656:                                              ; preds = %654
-  %657 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %62, double noundef %.0)
+  %657 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %62, double noundef %.055)
           to label %658 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 658:                                              ; preds = %656

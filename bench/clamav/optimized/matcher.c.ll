@@ -216,8 +216,8 @@ define i32 @cli_scan_buff(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr no
   br label %65
 
 65:                                               ; preds = %55, %61, %47, %44, %44, %27, %11
-  %.055 = phi i32 [ 2, %11 ], [ %34, %27 ], [ %45, %44 ], [ %45, %44 ], [ %54, %47 ], [ %64, %61 ], [ %60, %55 ]
-  ret i32 %.055
+  %.0 = phi i32 [ 2, %11 ], [ %34, %27 ], [ %45, %44 ], [ %45, %44 ], [ %54, %47 ], [ %64, %61 ], [ %60, %55 ]
+  ret i32 %.0
 }
 
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
@@ -260,11 +260,11 @@ define internal fastcc i32 @matcher_run(ptr noundef %0, ptr noundef %1, i32 noun
   br label %39
 
 39:                                               ; preds = %16, %25, %31
-  %.0 = phi i32 [ %spec.store.select, %25 ], [ %spec.store.select1, %31 ], [ 0, %16 ]
-  %40 = sub i32 %2, %.0
-  %41 = zext nneg i32 %.0 to i64
+  %.0157 = phi i32 [ %spec.store.select, %25 ], [ %spec.store.select1, %31 ], [ 0, %16 ]
+  %40 = sub i32 %2, %.0157
+  %41 = zext nneg i32 %.0157 to i64
   %42 = getelementptr inbounds i8, ptr %1, i64 %41
-  %43 = add i32 %.0, %5
+  %43 = add i32 %.0157, %5
   %44 = getelementptr inbounds i8, ptr %0, i64 330
   %45 = load i8, ptr %44, align 2
   %.not179 = icmp eq i8 %45, 0
@@ -285,8 +285,8 @@ define internal fastcc i32 @matcher_run(ptr noundef %0, ptr noundef %1, i32 noun
   br label %53
 
 53:                                               ; preds = %51, %49
-  %.0158 = phi i32 [ %50, %49 ], [ %52, %51 ]
-  switch i32 %.0158, label %141 [
+  %.0159 = phi i32 [ %50, %49 ], [ %52, %51 ]
+  switch i32 %.0159, label %141 [
     i32 0, label %57
     i32 1, label %54
   ]
@@ -318,7 +318,7 @@ define internal fastcc i32 @matcher_run(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %or.cond198, label %141, label %65
 
 65:                                               ; preds = %62, %57, %59
-  %.0157 = phi i32 [ 0, %59 ], [ %58, %57 ], [ %58, %62 ]
+  %.0158 = phi i32 [ 0, %59 ], [ %58, %57 ], [ %58, %62 ]
   %66 = getelementptr inbounds i8, ptr %0, i64 352
   %67 = load i32, ptr %66, align 8
   %.not187 = icmp eq i32 %67, 0
@@ -338,8 +338,8 @@ define internal fastcc i32 @matcher_run(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %or.cond199, label %141, label %74
 
 74:                                               ; preds = %71, %68, %65
-  %.2 = phi i32 [ 0, %68 ], [ %.0157, %65 ], [ %70, %71 ]
-  %.1 = phi i32 [ %.0157, %68 ], [ %.0157, %65 ], [ %70, %71 ]
+  %.2 = phi i32 [ 0, %68 ], [ %.0158, %65 ], [ %70, %71 ]
+  %.1 = phi i32 [ %.0158, %68 ], [ %.0158, %65 ], [ %70, %71 ]
   %.off = add i32 %7, -527
   %switch = icmp ult i32 %.off, 5
   br i1 %switch, label %75, label %92
@@ -471,8 +471,8 @@ define internal fastcc i32 @matcher_run(ptr noundef %0, ptr noundef %1, i32 noun
   br label %141
 
 141:                                              ; preds = %.thread, %136, %122, %111, %103, %71, %62, %59, %54, %53, %130, %110, %91
-  %.0160 = phi i32 [ 24, %110 ], [ 24, %130 ], [ 34, %91 ], [ %.0158, %53 ], [ %56, %54 ], [ %61, %59 ], [ %58, %62 ], [ %70, %71 ], [ %107, %103 ], [ 20, %111 ], [ %126, %122 ], [ %138, %136 ], [ %.1..4, %.thread ]
-  ret i32 %.0160
+  %.0 = phi i32 [ 24, %110 ], [ 24, %130 ], [ 34, %91 ], [ %.0159, %53 ], [ %56, %54 ], [ %61, %59 ], [ %58, %62 ], [ %70, %71 ], [ %107, %103 ], [ 20, %111 ], [ %126, %122 ], [ %138, %136 ], [ %.1..4, %.thread ]
+  ret i32 %.0
 }
 
 declare void @cli_ac_freedata(ptr noundef) local_unnamed_addr #1
@@ -1685,7 +1685,7 @@ define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2,
   br label %35
 
 35:                                               ; preds = %30, %29
-  %.0230 = phi ptr [ null, %29 ], [ %34, %30 ]
+  %.0241 = phi ptr [ null, %29 ], [ %34, %30 ]
   %.not294 = icmp eq i32 %1, 0
   br i1 %.not294, label %.loopexit502, label %.preheader
 
@@ -1732,17 +1732,17 @@ define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2,
   br label %.loopexit502
 
 .loopexit502:                                     ; preds = %.thread, %.loopexit502.loopexit.split.loop.exit, %35
-  %.1246 = phi i32 [ 0, %35 ], [ %49, %.loopexit502.loopexit.split.loop.exit ], [ 15, %.thread ]
-  %.2229 = phi ptr [ null, %35 ], [ %48, %.loopexit502.loopexit.split.loop.exit ], [ null, %.thread ]
-  %50 = icmp ne ptr %.0230, null
-  %.not297 = icmp eq ptr %.2229, null
+  %.2240 = phi ptr [ null, %35 ], [ %48, %.loopexit502.loopexit.split.loop.exit ], [ null, %.thread ]
+  %.1236 = phi i32 [ 0, %35 ], [ %49, %.loopexit502.loopexit.split.loop.exit ], [ 15, %.thread ]
+  %50 = icmp ne ptr %.0241, null
+  %.not297 = icmp eq ptr %.2240, null
   br i1 %50, label %55, label %51
 
 51:                                               ; preds = %.loopexit502
   br i1 %.not297, label %.loopexit498, label %52
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %.2229, i64 328
+  %53 = getelementptr inbounds i8, ptr %.2240, i64 328
   %54 = load i16, ptr %53, align 8
   br label %64
 
@@ -1750,21 +1750,21 @@ define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2,
   br i1 %.not297, label %61, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %.2229, i64 328
+  %57 = getelementptr inbounds i8, ptr %.2240, i64 328
   %58 = load i16, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %.0230, i64 328
+  %59 = getelementptr inbounds i8, ptr %.0241, i64 328
   %60 = load i16, ptr %59, align 8
   %.331 = tail call i16 @llvm.umax.i16(i16 %58, i16 %60)
   br label %64
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %.0230, i64 328
+  %62 = getelementptr inbounds i8, ptr %.0241, i64 328
   %63 = load i16, ptr %62, align 8
   br label %64
 
 64:                                               ; preds = %56, %61, %52
-  %.0243.in = phi i16 [ %.331, %56 ], [ %63, %61 ], [ %54, %52 ]
-  %.0243 = zext i16 %.0243.in to i32
+  %.0255.in = phi i16 [ %.331, %56 ], [ %63, %61 ], [ %54, %52 ]
+  %.0255 = zext i16 %.0255.in to i32
   %65 = getelementptr inbounds i8, ptr %15, i64 384
   store i32 0, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %15, i64 8
@@ -1774,7 +1774,7 @@ define i32 @cli_scan_fmap(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2,
   %69 = getelementptr inbounds i8, ptr %68, i64 88
   %70 = load i64, ptr %69, align 8
   store i64 %70, ptr %15, align 8
-  switch i32 %.1246, label %cli_targetinfo.exitthread-pre-split [
+  switch i32 %.1236, label %cli_targetinfo.exitthread-pre-split [
     i32 1, label %.sink.split.i
     i32 6, label %71
     i32 9, label %72
@@ -1811,7 +1811,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
 77:                                               ; preds = %76, %cli_targetinfo.exit
   %78 = phi i32 [ %.pre, %76 ], [ %74, %cli_targetinfo.exit ]
   %79 = icmp eq i32 %78, 1
-  %80 = icmp eq i32 %.1246, 1
+  %80 = icmp eq i32 %.1236, 1
   %or.cond = and i1 %80, %79
   br i1 %or.cond, label %81, label %84
 
@@ -1825,49 +1825,49 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br i1 %2, label %97, label %85
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %.0230, i64 232
+  %86 = getelementptr inbounds i8, ptr %.0241, i64 232
   %87 = load i32, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %.0230, i64 248
+  %88 = getelementptr inbounds i8, ptr %.0241, i64 248
   %89 = load i32, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %.0230, i64 304
+  %90 = getelementptr inbounds i8, ptr %.0241, i64 304
   %91 = load i32, ptr %90, align 8
   %92 = call i32 @cli_ac_initdata(ptr noundef nonnull %9, i32 noundef %87, i32 noundef %89, i32 noundef %91, i8 noundef zeroext 8) #12
   %.not298 = icmp eq i32 %92, 0
   br i1 %.not298, label %93, label %.loopexit498
 
 93:                                               ; preds = %85
-  %94 = call i32 @cli_ac_caloff(ptr noundef nonnull %.0230, ptr noundef nonnull %9, ptr noundef nonnull %15) #12
+  %94 = call i32 @cli_ac_caloff(ptr noundef nonnull %.0241, ptr noundef nonnull %9, ptr noundef nonnull %15) #12
   %.not299 = icmp eq i32 %94, 0
   br i1 %.not299, label %95, label %.loopexit498
 
 95:                                               ; preds = %93
-  %96 = call i32 @cli_pcre_recaloff(ptr noundef nonnull %.0230, ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %0) #12
+  %96 = call i32 @cli_pcre_recaloff(ptr noundef nonnull %.0241, ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %0) #12
   %.not300 = icmp eq i32 %96, 0
   br i1 %.not300, label %97, label %.loopexit498
 
 97:                                               ; preds = %95, %84
-  %.0233 = phi i8 [ 0, %84 ], [ 1, %95 ]
-  %98 = icmp ne ptr %.2229, null
+  %.0244 = phi i8 [ 0, %84 ], [ 1, %95 ]
+  %98 = icmp ne ptr %.2240, null
   br i1 %98, label %99, label %121
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %.2229, i64 232
+  %100 = getelementptr inbounds i8, ptr %.2240, i64 232
   %101 = load i32, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %.2229, i64 248
+  %102 = getelementptr inbounds i8, ptr %.2240, i64 248
   %103 = load i32, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %.2229, i64 304
+  %104 = getelementptr inbounds i8, ptr %.2240, i64 304
   %105 = load i32, ptr %104, align 8
   %106 = call i32 @cli_ac_initdata(ptr noundef nonnull %10, i32 noundef %101, i32 noundef %103, i32 noundef %105, i8 noundef zeroext 8) #12
   %.not301 = icmp eq i32 %106, 0
   br i1 %.not301, label %107, label %.loopexit498
 
 107:                                              ; preds = %99
-  %108 = call i32 @cli_ac_caloff(ptr noundef nonnull %.2229, ptr noundef nonnull %10, ptr noundef nonnull %15) #12
+  %108 = call i32 @cli_ac_caloff(ptr noundef nonnull %.2240, ptr noundef nonnull %10, ptr noundef nonnull %15) #12
   %.not302 = icmp eq i32 %108, 0
   br i1 %.not302, label %109, label %.loopexit498
 
 109:                                              ; preds = %107
-  %110 = getelementptr inbounds i8, ptr %.2229, i64 44
+  %110 = getelementptr inbounds i8, ptr %.2240, i64 44
   %111 = load i32, ptr %110, align 4
   %.not303 = icmp eq i32 %111, 0
   br i1 %.not303, label %119, label %112
@@ -1880,19 +1880,19 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %112
-  %118 = call i32 @cli_bm_initoff(ptr noundef nonnull %.2229, ptr noundef nonnull %11, ptr noundef nonnull %15) #12
+  %118 = call i32 @cli_bm_initoff(ptr noundef nonnull %.2240, ptr noundef nonnull %11, ptr noundef nonnull %15) #12
   %.not304 = icmp eq i32 %118, 0
   br i1 %.not304, label %119, label %.loopexit498
 
 119:                                              ; preds = %117, %112, %109
-  %.0235 = phi i8 [ 0, %112 ], [ 0, %109 ], [ 1, %117 ]
-  %120 = call i32 @cli_pcre_recaloff(ptr noundef nonnull %.2229, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %0) #12
+  %.0246 = phi i8 [ 0, %112 ], [ 0, %109 ], [ 1, %117 ]
+  %120 = call i32 @cli_pcre_recaloff(ptr noundef nonnull %.2240, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %0) #12
   %.not305 = icmp eq i32 %120, 0
   br i1 %.not305, label %121, label %.loopexit498
 
 121:                                              ; preds = %119, %97
-  %.1236 = phi i8 [ 0, %97 ], [ %.0235, %119 ]
-  %.0231 = phi i8 [ 0, %97 ], [ 1, %119 ]
+  %.1247 = phi i8 [ 0, %97 ], [ %.0246, %119 ]
+  %.0242 = phi i8 [ 0, %97 ], [ 1, %119 ]
   %122 = load ptr, ptr %20, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 104
   %124 = load ptr, ptr %123, align 8
@@ -2023,7 +2023,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
 
 .lr.ph513:                                        ; preds = %182
   %186 = getelementptr inbounds i8, ptr %0, i64 32
-  %187 = trunc nuw i8 %.1236 to i1
+  %187 = trunc nuw i8 %.1247 to i1
   %. = select i1 %187, ptr %11, ptr null
   %188 = and i32 %4, 2
   %189 = icmp ne i32 %188, 0
@@ -2033,9 +2033,9 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
 
 192:                                              ; preds = %.lr.ph513, %251
   %193 = phi i64 [ 0, %.lr.ph513 ], [ %253, %251 ]
-  %.0242512 = phi i32 [ 0, %.lr.ph513 ], [ %252, %251 ]
-  %.0247511 = phi i32 [ 0, %.lr.ph513 ], [ %.2249, %251 ]
-  %.3253510 = phi i32 [ 0, %.lr.ph513 ], [ %.5, %251 ]
+  %.3512 = phi i32 [ 0, %.lr.ph513 ], [ %.5, %251 ]
+  %.0230511 = phi i32 [ 0, %.lr.ph513 ], [ %.2232, %251 ]
+  %.0253510 = phi i32 [ 0, %.lr.ph513 ], [ %252, %251 ]
   %194 = call i32 @cli_checktimelimit(ptr noundef nonnull %0) #12
   %.not319 = icmp eq i32 %194, 0
   br i1 %.not319, label %199, label %195
@@ -2079,20 +2079,20 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
 216:                                              ; preds = %215
   store ptr null, ptr %16, align 8
   %217 = load ptr, ptr %67, align 8
-  %218 = call fastcc i32 @matcher_run(ptr noundef nonnull %.2229, ptr noundef nonnull %208, i32 noundef %205, ptr noundef nonnull %16, ptr noundef nonnull %10, i32 noundef %.0242512, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %217, ptr noundef %., ptr noundef nonnull %13, ptr noundef nonnull %0)
+  %218 = call fastcc i32 @matcher_run(ptr noundef nonnull %.2240, ptr noundef nonnull %208, i32 noundef %205, ptr noundef nonnull %16, ptr noundef nonnull %10, i32 noundef %.0253510, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %217, ptr noundef %., ptr noundef nonnull %13, ptr noundef nonnull %0)
   switch i32 %218, label %219 [
     i32 20, label %.loopexit498
     i32 1, label %.loopexit498
   ]
 
 219:                                              ; preds = %216, %215
-  %.4254 = phi i32 [ %218, %216 ], [ %.3253510, %215 ]
+  %.4 = phi i32 [ %218, %216 ], [ %.3512, %215 ]
   br i1 %2, label %250, label %220
 
 220:                                              ; preds = %219
   store ptr null, ptr %17, align 8
   %221 = load ptr, ptr %67, align 8
-  %222 = call fastcc i32 @matcher_run(ptr noundef %.0230, ptr noundef nonnull %208, i32 noundef %205, ptr noundef nonnull %17, ptr noundef nonnull %9, i32 noundef %.0242512, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %221, ptr noundef null, ptr noundef nonnull %12, ptr noundef nonnull %0)
+  %222 = call fastcc i32 @matcher_run(ptr noundef %.0241, ptr noundef nonnull %208, i32 noundef %205, ptr noundef nonnull %17, ptr noundef nonnull %9, i32 noundef %.0253510, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %221, ptr noundef null, ptr noundef nonnull %12, ptr noundef nonnull %0)
   switch i32 %222, label %223 [
     i32 20, label %.loopexit498
     i32 1, label %.loopexit498
@@ -2101,13 +2101,13 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
 223:                                              ; preds = %220
   %224 = icmp ugt i32 %222, 499
   %or.cond11 = and i1 %189, %224
-  %225 = call i32 @llvm.umax.i32(i32 %222, i32 %.0247511)
-  %.1248 = select i1 %or.cond11, i32 %225, i32 %.0247511
+  %225 = call i32 @llvm.umax.i32(i32 %222, i32 %.0230511)
+  %.1231 = select i1 %or.cond11, i32 %225, i32 %.0230511
   br i1 %127, label %250, label %226
 
 226:                                              ; preds = %223
-  %.not322 = icmp eq i32 %.0242512, 0
-  %227 = select i1 %.not322, i32 0, i32 %.0243
+  %.not322 = icmp eq i32 %.0253510, 0
+  %227 = select i1 %.not322, i32 0, i32 %.0255
   %228 = icmp ult i32 %227, %205
   br i1 %228, label %229, label %250
 
@@ -2145,12 +2145,12 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br label %250
 
 250:                                              ; preds = %223, %226, %247, %244, %219
-  %.5 = phi i32 [ %.4254, %219 ], [ %222, %247 ], [ %222, %244 ], [ %222, %226 ], [ %222, %223 ]
-  %.2249 = phi i32 [ %.0247511, %219 ], [ %.1248, %247 ], [ %.1248, %244 ], [ %.1248, %226 ], [ %.1248, %223 ]
+  %.2232 = phi i32 [ %.0230511, %219 ], [ %.1231, %247 ], [ %.1231, %244 ], [ %.1231, %226 ], [ %.1231, %223 ]
+  %.5 = phi i32 [ %.4, %219 ], [ %222, %247 ], [ %222, %244 ], [ %222, %226 ], [ %222, %223 ]
   br i1 %204, label %._crit_edge, label %251
 
 251:                                              ; preds = %250
-  %reass.sub525 = sub i32 %.0242512, %.0243
+  %reass.sub525 = sub i32 %.0253510, %.0255
   %252 = add i32 %reass.sub525, 131072
   %253 = zext i32 %252 to i64
   %254 = load ptr, ptr %67, align 8
@@ -2160,8 +2160,8 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br i1 %257, label %192, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %251, %199, %250, %182
-  %.6 = phi i32 [ 0, %182 ], [ %.5, %250 ], [ %.3253510, %199 ], [ %.5, %251 ]
-  %.3 = phi i32 [ 0, %182 ], [ %.2249, %250 ], [ %.0247511, %199 ], [ %.2249, %251 ]
+  %.3233 = phi i32 [ 0, %182 ], [ %.2232, %250 ], [ %.0230511, %199 ], [ %.2232, %251 ]
+  %.6 = phi i32 [ 0, %182 ], [ %.5, %250 ], [ %.3512, %199 ], [ %.5, %251 ]
   br i1 %or.cond5.not, label %.loopexit, label %258
 
 258:                                              ; preds = %._crit_edge
@@ -2176,7 +2176,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br label %265
 
 265:                                              ; preds = %261, %258
-  %.0223 = phi ptr [ null, %261 ], [ %24, %258 ]
+  %.0227 = phi ptr [ null, %261 ], [ %24, %258 ]
   %.not323 = icmp eq ptr %6, null
   br i1 %.not323, label %267, label %266
 
@@ -2198,7 +2198,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br label %276
 
 276:                                              ; preds = %271, %267
-  %.0220 = phi ptr [ null, %271 ], [ %26, %267 ]
+  %.0224 = phi ptr [ null, %271 ], [ %26, %267 ]
   %277 = getelementptr inbounds i8, ptr %8, i64 2
   %278 = load i8, ptr %277, align 1
   %279 = trunc i8 %278 to i1
@@ -2212,7 +2212,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br label %285
 
 285:                                              ; preds = %280, %276
-  %.0219 = phi ptr [ null, %280 ], [ %28, %276 ]
+  %.0221 = phi ptr [ null, %280 ], [ %28, %276 ]
   br label %286
 
 286:                                              ; preds = %285, %308
@@ -2260,16 +2260,16 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br i1 %exitcond538.not, label %.loopexit, label %286
 
 .loopexit:                                        ; preds = %308, %._crit_edge
+  %.1228 = phi ptr [ %24, %._crit_edge ], [ %.0227, %308 ]
+  %.1225 = phi ptr [ %26, %._crit_edge ], [ %.0224, %308 ]
+  %.1222 = phi ptr [ %28, %._crit_edge ], [ %.0221, %308 ]
   %.9 = phi i32 [ %.6, %._crit_edge ], [ %.8, %308 ]
-  %.1224 = phi ptr [ %24, %._crit_edge ], [ %.0223, %308 ]
-  %.1221 = phi ptr [ %26, %._crit_edge ], [ %.0220, %308 ]
-  %.1 = phi ptr [ %28, %._crit_edge ], [ %.0219, %308 ]
   %309 = icmp ne i32 %.9, 1
   %or.cond16 = select i1 %98, i1 %309, i1 false
   br i1 %or.cond16, label %310, label %312
 
 310:                                              ; preds = %.loopexit
-  %311 = call i32 @cli_exp_eval(ptr noundef %0, ptr noundef nonnull %.2229, ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef %6)
+  %311 = call i32 @cli_exp_eval(ptr noundef %0, ptr noundef nonnull %.2240, ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef %6)
   br label %312
 
 312:                                              ; preds = %310, %.loopexit
@@ -2279,68 +2279,68 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br i1 %or.cond18, label %314, label %.loopexit498
 
 314:                                              ; preds = %312
-  %315 = call i32 @cli_exp_eval(ptr noundef %0, ptr noundef nonnull %.0230, ptr noundef nonnull %9, ptr noundef nonnull %15, ptr noundef %6)
+  %315 = call i32 @cli_exp_eval(ptr noundef %0, ptr noundef nonnull %.0241, ptr noundef nonnull %9, ptr noundef nonnull %15, ptr noundef %6)
   br label %.loopexit498
 
 .loopexit498:                                     ; preds = %220, %220, %216, %216, %305, %299, %51, %312, %314, %119, %117, %107, %99, %95, %93, %85, %81, %195
-  %.11 = phi i32 [ %82, %81 ], [ %106, %99 ], [ %108, %107 ], [ %118, %117 ], [ %120, %119 ], [ 21, %195 ], [ %315, %314 ], [ %.10, %312 ], [ %92, %85 ], [ %94, %93 ], [ %96, %95 ], [ 0, %51 ], [ %307, %305 ], [ %301, %299 ], [ %222, %220 ], [ %218, %216 ], [ %222, %220 ], [ %218, %216 ]
-  %.4 = phi i32 [ 0, %81 ], [ 0, %99 ], [ 0, %107 ], [ 0, %117 ], [ 0, %119 ], [ %.0247511, %195 ], [ %.3, %314 ], [ %.3, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.3, %299 ], [ %.3, %305 ], [ %.0247511, %216 ], [ %.0247511, %216 ], [ %.0247511, %220 ], [ %.0247511, %220 ]
-  %.1241 = phi i8 [ 0, %81 ], [ %.0233, %99 ], [ %.0233, %107 ], [ %.0233, %117 ], [ %.0233, %119 ], [ %.0233, %195 ], [ %.0233, %314 ], [ %.0233, %312 ], [ 0, %85 ], [ 1, %93 ], [ 1, %95 ], [ 0, %51 ], [ %.0233, %299 ], [ %.0233, %305 ], [ %.0233, %216 ], [ %.0233, %216 ], [ %.0233, %220 ], [ %.0233, %220 ]
-  %.1239 = phi i8 [ 0, %81 ], [ 0, %99 ], [ 1, %107 ], [ 1, %117 ], [ 1, %119 ], [ %.0231, %195 ], [ %.0231, %314 ], [ %.0231, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.0231, %299 ], [ %.0231, %305 ], [ %.0231, %216 ], [ %.0231, %216 ], [ %.0231, %220 ], [ %.0231, %220 ]
-  %.2237 = phi i8 [ 0, %81 ], [ 0, %99 ], [ 0, %107 ], [ 0, %117 ], [ %.0235, %119 ], [ %.1236, %195 ], [ %.1236, %314 ], [ %.1236, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.1236, %299 ], [ %.1236, %305 ], [ %.1236, %216 ], [ %.1236, %216 ], [ %.1236, %220 ], [ %.1236, %220 ]
-  %.1234 = phi i8 [ 0, %81 ], [ %.0233, %99 ], [ %.0233, %107 ], [ %.0233, %117 ], [ %.0233, %119 ], [ %.0233, %195 ], [ %.0233, %314 ], [ %.0233, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.0233, %299 ], [ %.0233, %305 ], [ %.0233, %216 ], [ %.0233, %216 ], [ %.0233, %220 ], [ %.0233, %220 ]
-  %.1232 = phi i8 [ 0, %81 ], [ 0, %99 ], [ 0, %107 ], [ 0, %117 ], [ 0, %119 ], [ %.0231, %195 ], [ %.0231, %314 ], [ %.0231, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.0231, %299 ], [ %.0231, %305 ], [ %.0231, %216 ], [ %.0231, %216 ], [ %.0231, %220 ], [ %.0231, %220 ]
-  %.0226 = phi i1 [ true, %81 ], [ true, %99 ], [ true, %107 ], [ true, %117 ], [ true, %119 ], [ true, %195 ], [ true, %314 ], [ true, %312 ], [ true, %85 ], [ true, %93 ], [ true, %95 ], [ false, %51 ], [ true, %299 ], [ true, %305 ], [ true, %216 ], [ true, %216 ], [ true, %220 ], [ true, %220 ]
-  %.2225 = phi ptr [ %24, %81 ], [ %24, %99 ], [ %24, %107 ], [ %24, %117 ], [ %24, %119 ], [ %24, %195 ], [ %.1224, %314 ], [ %.1224, %312 ], [ %24, %85 ], [ %24, %93 ], [ %24, %95 ], [ %24, %51 ], [ %.0223, %299 ], [ %.0223, %305 ], [ %24, %216 ], [ %24, %216 ], [ %24, %220 ], [ %24, %220 ]
-  %.2222 = phi ptr [ %26, %81 ], [ %26, %99 ], [ %26, %107 ], [ %26, %117 ], [ %26, %119 ], [ %26, %195 ], [ %.1221, %314 ], [ %.1221, %312 ], [ %26, %85 ], [ %26, %93 ], [ %26, %95 ], [ %26, %51 ], [ %.0220, %299 ], [ %.0220, %305 ], [ %26, %216 ], [ %26, %216 ], [ %26, %220 ], [ %26, %220 ]
-  %.2 = phi ptr [ %28, %81 ], [ %28, %99 ], [ %28, %107 ], [ %28, %117 ], [ %28, %119 ], [ %28, %195 ], [ %.1, %314 ], [ %.1, %312 ], [ %28, %85 ], [ %28, %93 ], [ %28, %95 ], [ %28, %51 ], [ %.0219, %299 ], [ %.0219, %305 ], [ %28, %216 ], [ %28, %216 ], [ %28, %220 ], [ %28, %220 ]
-  %.not326 = icmp eq ptr %.2225, null
+  %.1252 = phi i8 [ 0, %81 ], [ %.0244, %99 ], [ %.0244, %107 ], [ %.0244, %117 ], [ %.0244, %119 ], [ %.0244, %195 ], [ %.0244, %314 ], [ %.0244, %312 ], [ 0, %85 ], [ 1, %93 ], [ 1, %95 ], [ 0, %51 ], [ %.0244, %299 ], [ %.0244, %305 ], [ %.0244, %216 ], [ %.0244, %216 ], [ %.0244, %220 ], [ %.0244, %220 ]
+  %.1250 = phi i8 [ 0, %81 ], [ 0, %99 ], [ 1, %107 ], [ 1, %117 ], [ 1, %119 ], [ %.0242, %195 ], [ %.0242, %314 ], [ %.0242, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.0242, %299 ], [ %.0242, %305 ], [ %.0242, %216 ], [ %.0242, %216 ], [ %.0242, %220 ], [ %.0242, %220 ]
+  %.2248 = phi i8 [ 0, %81 ], [ 0, %99 ], [ 0, %107 ], [ 0, %117 ], [ %.0246, %119 ], [ %.1247, %195 ], [ %.1247, %314 ], [ %.1247, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.1247, %299 ], [ %.1247, %305 ], [ %.1247, %216 ], [ %.1247, %216 ], [ %.1247, %220 ], [ %.1247, %220 ]
+  %.1245 = phi i8 [ 0, %81 ], [ %.0244, %99 ], [ %.0244, %107 ], [ %.0244, %117 ], [ %.0244, %119 ], [ %.0244, %195 ], [ %.0244, %314 ], [ %.0244, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.0244, %299 ], [ %.0244, %305 ], [ %.0244, %216 ], [ %.0244, %216 ], [ %.0244, %220 ], [ %.0244, %220 ]
+  %.1243 = phi i8 [ 0, %81 ], [ 0, %99 ], [ 0, %107 ], [ 0, %117 ], [ 0, %119 ], [ %.0242, %195 ], [ %.0242, %314 ], [ %.0242, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.0242, %299 ], [ %.0242, %305 ], [ %.0242, %216 ], [ %.0242, %216 ], [ %.0242, %220 ], [ %.0242, %220 ]
+  %.0237 = phi i1 [ true, %81 ], [ true, %99 ], [ true, %107 ], [ true, %117 ], [ true, %119 ], [ true, %195 ], [ true, %314 ], [ true, %312 ], [ true, %85 ], [ true, %93 ], [ true, %95 ], [ false, %51 ], [ true, %299 ], [ true, %305 ], [ true, %216 ], [ true, %216 ], [ true, %220 ], [ true, %220 ]
+  %.4234 = phi i32 [ 0, %81 ], [ 0, %99 ], [ 0, %107 ], [ 0, %117 ], [ 0, %119 ], [ %.0230511, %195 ], [ %.3233, %314 ], [ %.3233, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.3233, %299 ], [ %.3233, %305 ], [ %.0230511, %216 ], [ %.0230511, %216 ], [ %.0230511, %220 ], [ %.0230511, %220 ]
+  %.2229 = phi ptr [ %24, %81 ], [ %24, %99 ], [ %24, %107 ], [ %24, %117 ], [ %24, %119 ], [ %24, %195 ], [ %.1228, %314 ], [ %.1228, %312 ], [ %24, %85 ], [ %24, %93 ], [ %24, %95 ], [ %24, %51 ], [ %.0227, %299 ], [ %.0227, %305 ], [ %24, %216 ], [ %24, %216 ], [ %24, %220 ], [ %24, %220 ]
+  %.2226 = phi ptr [ %26, %81 ], [ %26, %99 ], [ %26, %107 ], [ %26, %117 ], [ %26, %119 ], [ %26, %195 ], [ %.1225, %314 ], [ %.1225, %312 ], [ %26, %85 ], [ %26, %93 ], [ %26, %95 ], [ %26, %51 ], [ %.0224, %299 ], [ %.0224, %305 ], [ %26, %216 ], [ %26, %216 ], [ %26, %220 ], [ %26, %220 ]
+  %.2223 = phi ptr [ %28, %81 ], [ %28, %99 ], [ %28, %107 ], [ %28, %117 ], [ %28, %119 ], [ %28, %195 ], [ %.1222, %314 ], [ %.1222, %312 ], [ %28, %85 ], [ %28, %93 ], [ %28, %95 ], [ %28, %51 ], [ %.0221, %299 ], [ %.0221, %305 ], [ %28, %216 ], [ %28, %216 ], [ %28, %220 ], [ %28, %220 ]
+  %.11 = phi i32 [ %82, %81 ], [ %106, %99 ], [ %108, %107 ], [ %118, %117 ], [ %120, %119 ], [ 21, %195 ], [ %315, %314 ], [ %.10, %312 ], [ %92, %85 ], [ %94, %93 ], [ %96, %95 ], [ 0, %51 ], [ %307, %305 ], [ %301, %299 ], [ %222, %220 ], [ %222, %220 ], [ %218, %216 ], [ %218, %216 ]
+  %.not326 = icmp eq ptr %.2229, null
   br i1 %.not326, label %316, label %.thread359
 
 .thread359:                                       ; preds = %27, %25, %.loopexit498
-  %.2382 = phi ptr [ %.2, %.loopexit498 ], [ null, %25 ], [ null, %27 ]
-  %.2222381 = phi ptr [ %.2222, %.loopexit498 ], [ null, %25 ], [ %26, %27 ]
-  %.2225380 = phi ptr [ %.2225, %.loopexit498 ], [ %24, %25 ], [ %24, %27 ]
-  %.0226379 = phi i1 [ %.0226, %.loopexit498 ], [ false, %25 ], [ false, %27 ]
-  %.1232378 = phi i8 [ %.1232, %.loopexit498 ], [ 0, %25 ], [ 0, %27 ]
-  %.1234377 = phi i8 [ %.1234, %.loopexit498 ], [ 0, %25 ], [ 0, %27 ]
-  %.2237376 = phi i8 [ %.2237, %.loopexit498 ], [ 0, %25 ], [ 0, %27 ]
-  %.1239375 = phi i8 [ %.1239, %.loopexit498 ], [ 0, %25 ], [ 0, %27 ]
-  %.1241374 = phi i8 [ %.1241, %.loopexit498 ], [ 0, %25 ], [ 0, %27 ]
-  %.4373 = phi i32 [ %.4, %.loopexit498 ], [ 0, %25 ], [ 0, %27 ]
-  %.11372 = phi i32 [ %.11, %.loopexit498 ], [ 20, %25 ], [ 20, %27 ]
-  call void @cl_hash_destroy(ptr noundef nonnull %.2225380) #12
+  %.11382 = phi i32 [ %.11, %.loopexit498 ], [ 20, %25 ], [ 20, %27 ]
+  %.2223381 = phi ptr [ %.2223, %.loopexit498 ], [ null, %25 ], [ null, %27 ]
+  %.2226380 = phi ptr [ %.2226, %.loopexit498 ], [ null, %25 ], [ %26, %27 ]
+  %.2229379 = phi ptr [ %.2229, %.loopexit498 ], [ %24, %25 ], [ %24, %27 ]
+  %.4234378 = phi i32 [ %.4234, %.loopexit498 ], [ 0, %25 ], [ 0, %27 ]
+  %.0237377 = phi i1 [ %.0237, %.loopexit498 ], [ false, %25 ], [ false, %27 ]
+  %.1243376 = phi i8 [ %.1243, %.loopexit498 ], [ 0, %25 ], [ 0, %27 ]
+  %.1245375 = phi i8 [ %.1245, %.loopexit498 ], [ 0, %25 ], [ 0, %27 ]
+  %.2248374 = phi i8 [ %.2248, %.loopexit498 ], [ 0, %25 ], [ 0, %27 ]
+  %.1250373 = phi i8 [ %.1250, %.loopexit498 ], [ 0, %25 ], [ 0, %27 ]
+  %.1252372 = phi i8 [ %.1252, %.loopexit498 ], [ 0, %25 ], [ 0, %27 ]
+  call void @cl_hash_destroy(ptr noundef nonnull %.2229379) #12
   br label %316
 
 316:                                              ; preds = %.thread359, %.loopexit498
-  %.2357 = phi ptr [ %.2382, %.thread359 ], [ %.2, %.loopexit498 ]
-  %.2222356 = phi ptr [ %.2222381, %.thread359 ], [ %.2222, %.loopexit498 ]
-  %.0226355 = phi i1 [ %.0226379, %.thread359 ], [ %.0226, %.loopexit498 ]
-  %.1232354 = phi i8 [ %.1232378, %.thread359 ], [ %.1232, %.loopexit498 ]
-  %.1234353 = phi i8 [ %.1234377, %.thread359 ], [ %.1234, %.loopexit498 ]
-  %.2237352 = phi i8 [ %.2237376, %.thread359 ], [ %.2237, %.loopexit498 ]
-  %.1239351 = phi i8 [ %.1239375, %.thread359 ], [ %.1239, %.loopexit498 ]
-  %.1241350 = phi i8 [ %.1241374, %.thread359 ], [ %.1241, %.loopexit498 ]
-  %.4349 = phi i32 [ %.4373, %.thread359 ], [ %.4, %.loopexit498 ]
-  %.11348 = phi i32 [ %.11372, %.thread359 ], [ %.11, %.loopexit498 ]
-  %.11348.fr = freeze i32 %.11348
-  %.not327 = icmp eq ptr %.2222356, null
+  %.11357 = phi i32 [ %.11382, %.thread359 ], [ %.11, %.loopexit498 ]
+  %.2223356 = phi ptr [ %.2223381, %.thread359 ], [ %.2223, %.loopexit498 ]
+  %.2226355 = phi ptr [ %.2226380, %.thread359 ], [ %.2226, %.loopexit498 ]
+  %.4234354 = phi i32 [ %.4234378, %.thread359 ], [ %.4234, %.loopexit498 ]
+  %.0237353 = phi i1 [ %.0237377, %.thread359 ], [ %.0237, %.loopexit498 ]
+  %.1243352 = phi i8 [ %.1243376, %.thread359 ], [ %.1243, %.loopexit498 ]
+  %.1245351 = phi i8 [ %.1245375, %.thread359 ], [ %.1245, %.loopexit498 ]
+  %.2248350 = phi i8 [ %.2248374, %.thread359 ], [ %.2248, %.loopexit498 ]
+  %.1250349 = phi i8 [ %.1250373, %.thread359 ], [ %.1250, %.loopexit498 ]
+  %.1252348 = phi i8 [ %.1252372, %.thread359 ], [ %.1252, %.loopexit498 ]
+  %.11357.fr = freeze i32 %.11357
+  %.not327 = icmp eq ptr %.2226355, null
   br i1 %.not327, label %318, label %317
 
 317:                                              ; preds = %316
-  call void @cl_hash_destroy(ptr noundef nonnull %.2222356) #12
+  call void @cl_hash_destroy(ptr noundef nonnull %.2226355) #12
   br label %318
 
 318:                                              ; preds = %317, %316
-  %.not328 = icmp eq ptr %.2357, null
+  %.not328 = icmp eq ptr %.2223356, null
   br i1 %.not328, label %320, label %319
 
 319:                                              ; preds = %318
-  call void @cl_hash_destroy(ptr noundef nonnull %.2357) #12
+  call void @cl_hash_destroy(ptr noundef nonnull %.2223356) #12
   br label %320
 
 320:                                              ; preds = %319, %318
-  %321 = trunc nuw i8 %.1241350 to i1
+  %321 = trunc nuw i8 %.1252348 to i1
   br i1 %321, label %322, label %323
 
 322:                                              ; preds = %320
@@ -2348,7 +2348,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br label %323
 
 323:                                              ; preds = %322, %320
-  %324 = trunc nuw i8 %.1239351 to i1
+  %324 = trunc nuw i8 %.1250349 to i1
   br i1 %324, label %325, label %326
 
 325:                                              ; preds = %323
@@ -2356,7 +2356,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br label %326
 
 326:                                              ; preds = %325, %323
-  %327 = trunc nuw i8 %.1234353 to i1
+  %327 = trunc nuw i8 %.1245351 to i1
   br i1 %327, label %328, label %329
 
 328:                                              ; preds = %326
@@ -2364,15 +2364,15 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br label %329
 
 329:                                              ; preds = %328, %326
-  %330 = trunc nuw i8 %.1232354 to i1
+  %330 = trunc nuw i8 %.1243352 to i1
   br i1 %330, label %331, label %332
 
 331:                                              ; preds = %329
   call void @cli_pcre_freeoff(ptr noundef nonnull %13) #12
-  br i1 %.0226355, label %333, label %336
+  br i1 %.0237353, label %333, label %336
 
 332:                                              ; preds = %329
-  br i1 %.0226355, label %333, label %336
+  br i1 %.0237353, label %333, label %336
 
 333:                                              ; preds = %331, %332
   %334 = getelementptr inbounds i8, ptr %15, i64 8
@@ -2382,7 +2382,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br label %336
 
 336:                                              ; preds = %331, %333, %332
-  %337 = trunc nuw i8 %.2237352 to i1
+  %337 = trunc nuw i8 %.2248350 to i1
   br i1 %337, label %338, label %.thread486
 
 338:                                              ; preds = %336
@@ -2390,11 +2390,11 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   br label %.thread486
 
 .thread486:                                       ; preds = %338, %336
-  %.not329 = icmp eq i32 %.11348.fr, 0
+  %.not329 = icmp eq i32 %.11357.fr, 0
   %339 = and i32 %4, 2
   %.not330 = icmp eq i32 %339, 0
-  %340 = select i1 %.not330, i32 0, i32 %.4349
-  %spec.select497 = select i1 %.not329, i32 %340, i32 %.11348.fr
+  %340 = select i1 %.not330, i32 0, i32 %.4234354
+  %spec.select497 = select i1 %.not329, i32 %340, i32 %.11357.fr
   br label %.thread486.thread
 
 .thread486.thread:                                ; preds = %.thread486, %22, %23
@@ -2411,8 +2411,8 @@ define i32 @cli_exp_eval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %8 = alloca i64, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 248
   %10 = load i32, ptr %9, align 8
-  %.not37 = icmp eq i32 %10, 0
-  br i1 %.not37, label %.loopexit, label %.lr.ph
+  %.not38 = icmp eq i32 %10, 0
+  br i1 %.not38, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %11 = getelementptr inbounds i8, ptr %1, i64 256
@@ -2718,7 +2718,7 @@ intermediates_eval.exit.i:                        ; preds = %68, %.preheader.i.i
   br label %lsig_eval.exit
 
 lsig_eval.exit:                                   ; preds = %31, %38, %50, %.loopexit.i, %74, %81, %92, %93, %96, %100, %107, %112, %129, %146, %147, %149, %156, %160, %171, %173
-  %.085.i = phi i32 [ %37, %31 ], [ %.084.i, %173 ], [ 0, %.loopexit.i ], [ 0, %92 ], [ 0, %146 ], [ %159, %156 ], [ %172, %171 ], [ %170, %160 ], [ 0, %149 ], [ 0, %147 ], [ 20, %129 ], [ 0, %112 ], [ 0, %107 ], [ 0, %100 ], [ 0, %96 ], [ 0, %93 ], [ 0, %81 ], [ 0, %74 ], [ 0, %50 ], [ 0, %38 ]
+  %.0.i = phi i32 [ %37, %31 ], [ %.084.i, %173 ], [ 0, %.loopexit.i ], [ 0, %92 ], [ 0, %146 ], [ %159, %156 ], [ %172, %171 ], [ %170, %160 ], [ 0, %149 ], [ 0, %147 ], [ 20, %129 ], [ 0, %112 ], [ 0, %107 ], [ 0, %100 ], [ 0, %96 ], [ 0, %93 ], [ 0, %81 ], [ 0, %74 ], [ 0, %50 ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %195
@@ -2763,12 +2763,12 @@ lsig_eval.exit:                                   ; preds = %31, %38, %50, %.loo
   br label %yara_eval.exit
 
 yara_eval.exit:                                   ; preds = %184, %187, %191
-  %.0.i = phi i32 [ %194, %191 ], [ %185, %184 ], [ 0, %187 ]
+  %.0.i32 = phi i32 [ %194, %191 ], [ %185, %184 ], [ 0, %187 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br label %195
 
 195:                                              ; preds = %yara_eval.exit, %lsig_eval.exit
-  %.1 = phi i32 [ %.085.i, %lsig_eval.exit ], [ %.0.i, %yara_eval.exit ]
+  %.1 = phi i32 [ %.0.i, %lsig_eval.exit ], [ %.0.i32, %yara_eval.exit ]
   %.not = icmp eq i32 %.1, 0
   br i1 %.not, label %.thread, label %.loopexit
 

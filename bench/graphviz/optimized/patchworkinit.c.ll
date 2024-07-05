@@ -92,10 +92,10 @@ gv_calloc.exit25.i.i:                             ; preds = %25
 
 .lr.ph31.i.i:                                     ; preds = %gv_calloc.exit25.i.i, %._crit_edge.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 0, %gv_calloc.exit25.i.i ]
-  %.02129.i.i = phi ptr [ %49, %._crit_edge.i.i ], [ %35, %gv_calloc.exit25.i.i ]
-  %36 = tail call ptr @agbindrec(ptr noundef nonnull %.02129.i.i, ptr noundef nonnull @.str.7, i32 noundef 472, i32 noundef 1) #12
+  %.030.i.i = phi ptr [ %49, %._crit_edge.i.i ], [ %35, %gv_calloc.exit25.i.i ]
+  %36 = tail call ptr @agbindrec(ptr noundef nonnull %.030.i.i, ptr noundef nonnull @.str.7, i32 noundef 472, i32 noundef 1) #12
   %37 = getelementptr inbounds %struct.rdata, ptr %13, i64 %indvars.iv.i.i
-  %38 = getelementptr inbounds i8, ptr %.02129.i.i, i64 16
+  %38 = getelementptr inbounds i8, ptr %.030.i.i, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 152
   store ptr %37, ptr %40, align 8
@@ -104,21 +104,21 @@ gv_calloc.exit25.i.i:                             ; preds = %25
   %43 = load ptr, ptr %42, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %44 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv.i.i
-  store ptr %.02129.i.i, ptr %44, align 8
-  %45 = tail call i32 @agset(ptr noundef nonnull %.02129.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #12
-  %46 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.02129.i.i) #12
+  store ptr %.030.i.i, ptr %44, align 8
+  %45 = tail call i32 @agset(ptr noundef nonnull %.030.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #12
+  %46 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.030.i.i) #12
   %.not2226.i.i = icmp eq ptr %46, null
   br i1 %.not2226.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph31.i.i, %.lr.ph.i.i
-  %.02027.i.i = phi ptr [ %48, %.lr.ph.i.i ], [ %46, %.lr.ph31.i.i ]
-  %47 = tail call ptr @agbindrec(ptr noundef nonnull %.02027.i.i, ptr noundef nonnull @.str.8, i32 noundef 472, i32 noundef 1) #12
-  %48 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02027.i.i) #12
+  %.02127.i.i = phi ptr [ %48, %.lr.ph.i.i ], [ %46, %.lr.ph31.i.i ]
+  %47 = tail call ptr @agbindrec(ptr noundef nonnull %.02127.i.i, ptr noundef nonnull @.str.8, i32 noundef 472, i32 noundef 1) #12
+  %48 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02127.i.i) #12
   %.not22.i.i = icmp eq ptr %48, null
   br i1 %.not22.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph31.i.i
-  %49 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.02129.i.i) #12
+  %49 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.030.i.i) #12
   %.not.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i, label %patchwork_init_graph.exit, label %.lr.ph31.i.i
 

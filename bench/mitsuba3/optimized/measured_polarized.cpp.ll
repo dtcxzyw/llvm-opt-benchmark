@@ -1621,7 +1621,7 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
   %38 = phi i32 [ %39, %._crit_edge.us256.us ], [ %30, %.preheader234.us.us.preheader ]
   %.0126250.us.us = phi i32 [ %40, %._crit_edge.us256.us ], [ 0, %.preheader234.us.us.preheader ]
   %.0127249.us.us = phi ptr [ %.1128.lcssa.us.us, %._crit_edge.us256.us ], [ %34, %.preheader234.us.us.preheader ]
-  %.2155248.us.us = phi ptr [ %.3156.lcssa.us.us, %._crit_edge.us256.us ], [ %1, %.preheader234.us.us.preheader ]
+  %.2248.us.us = phi ptr [ %.3.lcssa.us.us, %._crit_edge.us256.us ], [ %1, %.preheader234.us.us.preheader ]
   br i1 %.not315, label %._crit_edge242.us.us, label %.lr.ph.us.us.us
 
 ._crit_edge.us256.us.loopexit:                    ; preds = %.lr.ph.us255.us
@@ -1630,7 +1630,7 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
 
 ._crit_edge.us256.us:                             ; preds = %._crit_edge.us256.us.loopexit, %._crit_edge242.us.us
   %39 = phi i32 [ %38, %._crit_edge242.us.us ], [ %.pre366, %._crit_edge.us256.us.loopexit ]
-  %.3156.lcssa.us.us = phi ptr [ %.2155248.us.us, %._crit_edge242.us.us ], [ %42, %._crit_edge.us256.us.loopexit ]
+  %.3.lcssa.us.us = phi ptr [ %.2248.us.us, %._crit_edge242.us.us ], [ %42, %._crit_edge.us256.us.loopexit ]
   %.1128.lcssa.us.us = phi ptr [ %.0127249.us.us, %._crit_edge242.us.us ], [ %45, %._crit_edge.us256.us.loopexit ]
   %40 = add nuw i32 %.0126250.us.us, 1
   %41 = icmp ult i32 %40, %39
@@ -1639,9 +1639,9 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
 .lr.ph.us255.us:                                  ; preds = %._crit_edge242.us.us, %.lr.ph.us255.us
   %.0246.us.us = phi i32 [ %46, %.lr.ph.us255.us ], [ 0, %._crit_edge242.us.us ]
   %.1128245.us.us = phi ptr [ %45, %.lr.ph.us255.us ], [ %.0127249.us.us, %._crit_edge242.us.us ]
-  %.3156244.us.us = phi ptr [ %42, %.lr.ph.us255.us ], [ %.2155248.us.us, %._crit_edge242.us.us ]
-  %42 = getelementptr inbounds i8, ptr %.3156244.us.us, i64 4
-  %43 = load float, ptr %.3156244.us.us, align 4
+  %.3244.us.us = phi ptr [ %42, %.lr.ph.us255.us ], [ %.2248.us.us, %._crit_edge242.us.us ]
+  %42 = getelementptr inbounds i8, ptr %.3244.us.us, i64 4
+  %43 = load float, ptr %.3244.us.us, align 4
   %44 = fmul contract float %43, %49
   %45 = getelementptr inbounds i8, ptr %.1128245.us.us, i64 4
   store float %44, ptr %.1128245.us.us, align 4
@@ -1661,7 +1661,7 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
   %.0124239.us.us.us = phi double [ %70, %._crit_edge.us.us.us ], [ 0.000000e+00, %.preheader234.us.us ]
   %50 = mul i64 %indvars.iv, %10
   %51 = and i64 %50, 4294967295
-  %.phi.trans.insert = getelementptr inbounds float, ptr %.2155248.us.us, i64 %51
+  %.phi.trans.insert = getelementptr inbounds float, ptr %.2248.us.us, i64 %51
   %.pre = load float, ptr %.phi.trans.insert, align 4
   br label %52
 
@@ -1672,17 +1672,17 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
   %.1236.us.us.us = phi double [ %.0124239.us.us.us, %.lr.ph.us.us.us ], [ %70, %52 ]
   %54 = fpext float %53 to double
   %55 = add nuw nsw i64 %.0122237.us.us.us, 1
-  %56 = getelementptr inbounds float, ptr %.2155248.us.us, i64 %55
+  %56 = getelementptr inbounds float, ptr %.2248.us.us, i64 %55
   %57 = load float, ptr %56, align 4
   %58 = fpext float %57 to double
   %59 = fadd contract double %54, %58
   %60 = add nuw i64 %.0122237.us.us.us, %36
-  %61 = getelementptr inbounds float, ptr %.2155248.us.us, i64 %60
+  %61 = getelementptr inbounds float, ptr %.2248.us.us, i64 %60
   %62 = load float, ptr %61, align 4
   %63 = fpext float %62 to double
   %64 = fadd contract double %59, %63
   %65 = add nuw nsw i64 %60, 1
-  %66 = getelementptr inbounds float, ptr %.2155248.us.us, i64 %65
+  %66 = getelementptr inbounds float, ptr %.2248.us.us, i64 %65
   %67 = load float, ptr %66, align 4
   %68 = fpext float %67 to double
   %69 = fadd contract double %64, %68
@@ -1705,15 +1705,15 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
 .preheader234.us.us267:                           ; preds = %.lr.ph251.split.us.split, %._crit_edge.us256.us277
   %.0126250.us.us268 = phi i32 [ %81, %._crit_edge.us256.us277 ], [ 0, %.lr.ph251.split.us.split ]
   %.0127249.us.us269 = phi ptr [ %79, %._crit_edge.us256.us277 ], [ %34, %.lr.ph251.split.us.split ]
-  %.2155248.us.us270 = phi ptr [ %76, %._crit_edge.us256.us277 ], [ %1, %.lr.ph251.split.us.split ]
+  %.2248.us.us270 = phi ptr [ %76, %._crit_edge.us256.us277 ], [ %1, %.lr.ph251.split.us.split ]
   br label %75
 
 75:                                               ; preds = %.preheader234.us.us267, %75
   %.0246.us.us273 = phi i32 [ 0, %.preheader234.us.us267 ], [ %80, %75 ]
   %.1128245.us.us274 = phi ptr [ %.0127249.us.us269, %.preheader234.us.us267 ], [ %79, %75 ]
-  %.3156244.us.us275 = phi ptr [ %.2155248.us.us270, %.preheader234.us.us267 ], [ %76, %75 ]
-  %76 = getelementptr inbounds i8, ptr %.3156244.us.us275, i64 4
-  %77 = load float, ptr %.3156244.us.us275, align 4
+  %.3244.us.us275 = phi ptr [ %.2248.us.us270, %.preheader234.us.us267 ], [ %76, %75 ]
+  %76 = getelementptr inbounds i8, ptr %.3244.us.us275, i64 4
+  %77 = load float, ptr %.3244.us.us275, align 4
   %78 = fmul contract float %77, %74
   %79 = getelementptr inbounds i8, ptr %.1128245.us.us274, i64 4
   store float %78, ptr %.1128245.us.us274, align 4
@@ -1742,9 +1742,9 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %.0126250.us258 = phi i32 [ %90, %.lr.ph.us ], [ 0, %.lr.ph.us.preheader ]
   %.0127249.us259 = phi ptr [ %scevgep344, %.lr.ph.us ], [ %34, %.lr.ph.us.preheader ]
-  %.2155248.us260 = phi ptr [ %scevgep, %.lr.ph.us ], [ %1, %.lr.ph.us.preheader ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.0127249.us259, ptr align 4 %.2155248.us260, i64 %85, i1 false)
-  %scevgep = getelementptr i8, ptr %.2155248.us260, i64 %89
+  %.2248.us260 = phi ptr [ %scevgep, %.lr.ph.us ], [ %1, %.lr.ph.us.preheader ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.0127249.us259, ptr align 4 %.2248.us260, i64 %85, i1 false)
+  %scevgep = getelementptr i8, ptr %.2248.us260, i64 %89
   %scevgep344 = getelementptr i8, ptr %.0127249.us259, i64 %89
   %90 = add nuw i32 %.0126250.us258, 1
   %91 = icmp ult i32 %90, %30
@@ -1789,7 +1789,7 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
   %.0141310 = phi ptr [ %34, %.preheader232.lr.ph ], [ %.1142.lcssa, %._crit_edge304 ]
   %.0143309 = phi ptr [ %101, %.preheader232.lr.ph ], [ %.1144.lcssa, %._crit_edge304 ]
   %.0145308 = phi ptr [ %96, %.preheader232.lr.ph ], [ %.1146.lcssa, %._crit_edge304 ]
-  %.0153307 = phi ptr [ %1, %.preheader232.lr.ph ], [ %.1154.lcssa, %._crit_edge304 ]
+  %.0147307 = phi ptr [ %1, %.preheader232.lr.ph ], [ %.1148.lcssa, %._crit_edge304 ]
   br i1 %.not318, label %.preheader231, label %.lr.ph285
 
 .lr.ph285:                                        ; preds = %.preheader232
@@ -1812,12 +1812,12 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
   %.0136281.us = phi i32 [ %109, %.lr.ph.us286 ], [ %116, %111 ]
   %.0137280.us = phi double [ 0.000000e+00, %.lr.ph.us286 ], [ %123, %111 ]
   %112 = zext i32 %.0136281.us to i64
-  %113 = getelementptr inbounds float, ptr %.0153307, i64 %112
+  %113 = getelementptr inbounds float, ptr %.0147307, i64 %112
   %114 = load float, ptr %113, align 4
   %115 = fpext float %114 to double
   %116 = add i32 %.0136281.us, 1
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds float, ptr %.0153307, i64 %117
+  %118 = getelementptr inbounds float, ptr %.0147307, i64 %117
   %119 = load float, ptr %118, align 4
   %120 = fpext float %119 to double
   %121 = fadd contract double %115, %120
@@ -1925,9 +1925,9 @@ _ZNSt3__110unique_ptrIA_dNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
 .lr.ph303:                                        ; preds = %.preheader, %.lr.ph303
   %.0129302 = phi i64 [ %161, %.lr.ph303 ], [ 0, %.preheader ]
   %.1142301 = phi ptr [ %160, %.lr.ph303 ], [ %.0141310, %.preheader ]
-  %.1154300 = phi ptr [ %157, %.lr.ph303 ], [ %.0153307, %.preheader ]
-  %157 = getelementptr inbounds i8, ptr %.1154300, i64 4
-  %158 = load float, ptr %.1154300, align 4
+  %.1148300 = phi ptr [ %157, %.lr.ph303 ], [ %.0147307, %.preheader ]
+  %157 = getelementptr inbounds i8, ptr %.1148300, i64 4
+  %158 = load float, ptr %.1148300, align 4
   %159 = fmul contract float %.0139, %158
   %160 = getelementptr inbounds i8, ptr %.1142301, i64 4
   store float %159, ptr %.1142301, align 4
@@ -1936,7 +1936,7 @@ _ZNSt3__110unique_ptrIA_dNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
   br i1 %exitcond365.not, label %._crit_edge304, label %.lr.ph303, !llvm.loop !18
 
 ._crit_edge304:                                   ; preds = %.lr.ph303, %.preheader
-  %.1154.lcssa = phi ptr [ %.0153307, %.preheader ], [ %157, %.lr.ph303 ]
+  %.1148.lcssa = phi ptr [ %.0147307, %.preheader ], [ %157, %.lr.ph303 ]
   %.1142.lcssa = phi ptr [ %.0141310, %.preheader ], [ %160, %.lr.ph303 ]
   %162 = add nuw i32 %.0140311, 1
   %163 = load i32, ptr %29, align 8
@@ -3723,16 +3723,16 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   br label %389
 
 389:                                              ; preds = %385, %389
-  %.018632412 = phi i64 [ 0, %385 ], [ %394, %389 ]
+  %.018642412 = phi i64 [ 0, %385 ], [ %394, %389 ]
   store float %298, ptr %25, align 16
   store <2 x float> %246, ptr %378, align 4
-  %390 = getelementptr inbounds float, ptr %380, i64 %.018632412
+  %390 = getelementptr inbounds float, ptr %380, i64 %.018642412
   %391 = load float, ptr %390, align 4
   store float %391, ptr %379, align 4
   %392 = call noundef float @_ZNK7mitsuba10Marginal2DIfLm4ELb1EE4evalENS_5PointIfLm2EEEPKfb(ptr noundef nonnull align 8 dereferenceable(217) %381, <2 x float> %.sroa.02171.4.vec.insert, ptr noundef nonnull %25, i1 noundef zeroext true)
-  %393 = getelementptr inbounds float, ptr %24, i64 %.018632412
+  %393 = getelementptr inbounds float, ptr %24, i64 %.018642412
   store float %392, ptr %393, align 4
-  %394 = add nuw nsw i64 %.018632412, 1
+  %394 = add nuw nsw i64 %.018642412, 1
   %exitcond2427.not = icmp eq i64 %394, 4
   br i1 %exitcond2427.not, label %395, label %389, !llvm.loop !57
 
@@ -3852,18 +3852,18 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   br label %437
 
 437:                                              ; preds = %.preheader, %437
-  %.018662418 = phi i64 [ 0, %.preheader ], [ %447, %437 ]
-  %438 = getelementptr inbounds [4 x %"struct.drjit::Mask.117"], ptr %434, i64 0, i64 %.018662418
-  %439 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %435, i64 0, i64 %.018662418
-  %440 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %436, i64 0, i64 %.018662418
+  %.02418 = phi i64 [ 0, %.preheader ], [ %447, %437 ]
+  %438 = getelementptr inbounds [4 x %"struct.drjit::Mask.117"], ptr %434, i64 0, i64 %.02418
+  %439 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %435, i64 0, i64 %.02418
+  %440 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %436, i64 0, i64 %.02418
   %441 = load <8 x i1>, ptr %438, align 1, !noalias !65
   %442 = load <4 x float>, ptr %440, align 16, !noalias !65
   %443 = load <4 x float>, ptr %439, align 16, !noalias !65
   %444 = shufflevector <8 x i1> %441, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %445 = select contract <4 x i1> %444, <4 x float> %443, <4 x float> %442
-  %446 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %15, i64 0, i64 %.018662418
+  %446 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %15, i64 0, i64 %.02418
   store <4 x float> %445, ptr %446, align 16
-  %447 = add nuw nsw i64 %.018662418, 1
+  %447 = add nuw nsw i64 %.02418, 1
   %exitcond2437.not = icmp eq i64 %447, 4
   br i1 %exitcond2437.not, label %448, label %437, !llvm.loop !55
 

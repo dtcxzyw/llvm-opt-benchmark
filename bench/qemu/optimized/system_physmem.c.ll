@@ -285,15 +285,15 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
-  %valid.021 = phi i32 [ 0, %if.end ], [ %valid.1, %for.inc ]
-  %valid_ptr.020 = phi i32 [ 512, %if.end ], [ %valid_ptr.1, %for.inc ]
+  %valid_ptr.021 = phi i32 [ 512, %if.end ], [ %valid_ptr.1, %for.inc ]
+  %valid.020 = phi i32 [ 0, %if.end ], [ %valid.1, %for.inc ]
   %arrayidx5 = getelementptr %struct.PhysPageEntry, ptr %arrayidx, i64 %indvars.iv
   %bf.load6 = load i32, ptr %arrayidx5, align 4
   %cmp8 = icmp ugt i32 %bf.load6, -65
   br i1 %cmp8, label %for.inc, label %if.end10
 
 if.end10:                                         ; preds = %for.body
-  %inc = add i32 %valid.021, 1
+  %inc = add i32 %valid.020, 1
   %bf.clear = and i32 %bf.load6, 63
   %tobool.not = icmp eq i32 %bf.clear, 0
   %0 = trunc nuw nsw i64 %indvars.iv to i32
@@ -304,8 +304,8 @@ if.then14:                                        ; preds = %if.end10
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end10, %if.then14, %for.body
-  %valid_ptr.1 = phi i32 [ %valid_ptr.020, %for.body ], [ %0, %if.then14 ], [ %0, %if.end10 ]
-  %valid.1 = phi i32 [ %valid.021, %for.body ], [ %inc, %if.then14 ], [ %inc, %if.end10 ]
+  %valid.1 = phi i32 [ %valid.020, %for.body ], [ %inc, %if.then14 ], [ %inc, %if.end10 ]
+  %valid_ptr.1 = phi i32 [ %valid_ptr.021, %for.body ], [ %0, %if.then14 ], [ %0, %if.end10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
@@ -3726,7 +3726,7 @@ for.cond.preheader.i:                             ; preds = %if.then23
   %mul.i = shl nuw nsw i64 %div316.i, 3
   %add5.i = add nuw nsw i64 %mul.i, 16
   %mul9.i = shl nuw nsw i64 %div15.i, 3
-  %conv.i = trunc nuw i64 %div15.i to i32
+  %conv.i = trunc nuw nsw i64 %div15.i to i32
   %tobool.not.i75 = icmp eq i64 %last.0.lcssa.i, 0
   br i1 %tobool.not.i75, label %while.end.us.us.i, label %while.end.us.i
 
@@ -5179,9 +5179,9 @@ entry:
 for.cond:                                         ; preds = %if.end25, %entry
   %2 = phi i64 [ %l, %entry ], [ %.pre28, %if.end25 ]
   %3 = phi i64 [ %addr1, %entry ], [ %.pre, %if.end25 ]
-  %addr.addr.0 = phi i64 [ %addr, %entry ], [ %add, %if.end25 ]
   %len.addr.0 = phi i64 [ %len, %entry ], [ %sub, %if.end25 ]
   %mr.addr.0 = phi ptr [ %mr, %entry ], [ %section.sroa.1.0.copyload.i, %if.end25 ]
+  %addr.addr.0 = phi i64 [ %addr, %entry ], [ %add, %if.end25 ]
   %result.0 = phi i32 [ 0, %entry ], [ %result.132, %if.end25 ]
   %buf.0 = phi ptr [ %ptr, %entry ], [ %add.ptr, %if.end25 ]
   %.phi.trans.insert = getelementptr i8, ptr %mr.addr.0, i64 41
@@ -5704,13 +5704,13 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %error.011 = phi i32 [ %or, %while.body ], [ 0, %entry ]
-  %len.addr.010 = phi i64 [ %sub, %while.body ], [ %len, %entry ]
-  %addr.addr.09 = phi i64 [ %add, %while.body ], [ %addr, %entry ]
-  %cond = tail call i64 @llvm.umin.i64(i64 %len.addr.010, i64 512)
-  %call = call i32 @address_space_write(ptr noundef %as, i64 noundef %addr.addr.09, i32 %attrs.coerce, ptr noundef nonnull %fillbuf, i64 noundef %cond)
+  %addr.addr.010 = phi i64 [ %add, %while.body ], [ %addr, %entry ]
+  %len.addr.09 = phi i64 [ %sub, %while.body ], [ %len, %entry ]
+  %cond = tail call i64 @llvm.umin.i64(i64 %len.addr.09, i64 512)
+  %call = call i32 @address_space_write(ptr noundef %as, i64 noundef %addr.addr.010, i32 %attrs.coerce, ptr noundef nonnull %fillbuf, i64 noundef %cond)
   %or = or i32 %call, %error.011
-  %sub = sub i64 %len.addr.010, %cond
-  %add = add i64 %cond, %addr.addr.09
+  %sub = sub i64 %len.addr.09, %cond
+  %add = add i64 %addr.addr.010, %cond
   %cmp.not = icmp eq i64 %sub, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !71
 
@@ -5778,9 +5778,9 @@ while.body.lr.ph:                                 ; preds = %rcu_read_auto_lock.
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %buf.017 = phi ptr [ %ptr, %while.body.lr.ph ], [ %add.ptr, %if.end ]
-  %len.addr.016 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %if.end ]
-  %addr.addr.015 = phi i64 [ %addr, %while.body.lr.ph ], [ %add, %if.end ]
-  store i64 %len.addr.016, ptr %l, align 8
+  %addr.addr.016 = phi i64 [ %addr, %while.body.lr.ph ], [ %add, %if.end ]
+  %len.addr.015 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %if.end ]
+  store i64 %len.addr.015, ptr %l, align 8
   %2 = load atomic i64, ptr %current_map.i.i monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !7
@@ -5788,7 +5788,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr.addr.015, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr.addr.016, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i.i)
@@ -5863,9 +5863,9 @@ sw.bb:                                            ; preds = %if.else
 
 if.end:                                           ; preds = %if.else, %sw.bb, %memory_access_size.exit
   %20 = phi i64 [ %.pre19, %if.else ], [ %.pre, %sw.bb ], [ %conv6, %memory_access_size.exit ]
-  %sub = sub i64 %len.addr.016, %20
+  %sub = sub i64 %len.addr.015, %20
   %add.ptr = getelementptr i8, ptr %buf.017, i64 %20
-  %add = add i64 %20, %addr.addr.015
+  %add = add i64 %20, %addr.addr.016
   %cmp.not = icmp eq i64 %sub, 0
   br i1 %cmp.not, label %if.then.i.i, label %while.body, !llvm.loop !72
 
@@ -6130,13 +6130,13 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end11
-  %len.addr.016 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %if.end11 ]
-  %addr.addr.014 = phi i64 [ %addr, %while.body.lr.ph ], [ %add, %if.end11 ]
-  store i64 %len.addr.016, ptr %l, align 8
+  %addr.addr.015 = phi i64 [ %addr, %while.body.lr.ph ], [ %add, %if.end11 ]
+  %len.addr.014 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %if.end11 ]
+  store i64 %len.addr.014, ptr %l, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
   %fv.val.i = load ptr, ptr %0, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr.addr.014, ptr noundef nonnull %xlat, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef nonnull %as.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr.addr.015, ptr noundef nonnull %xlat, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef nonnull %as.i, i32 %attrs.coerce)
   %section.sroa.1.0.copyload.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i)
@@ -6198,8 +6198,8 @@ if.then:                                          ; preds = %lor.rhs.i, %if.then
   br i1 %tobool.i, label %memory_access_size.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then
-  %sub.i = sub i64 0, %addr.addr.014
-  %and.i = and i64 %addr.addr.014, %sub.i
+  %sub.i = sub i64 0, %addr.addr.015
+  %and.i = and i64 %addr.addr.015, %sub.i
   %conv.i = trunc i64 %and.i to i32
   %cmp3.not.not.i = icmp eq i32 %conv.i, 0
   %10 = call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 %conv.i)
@@ -6223,8 +6223,8 @@ memory_access_size.exit:                          ; preds = %if.then, %if.then2.
 
 if.end11:                                         ; preds = %land.lhs.true6.i, %land.rhs.i, %memory_access_size.exit, %memory_access_is_direct.exit
   %14 = load i64, ptr %l, align 8
-  %sub = sub i64 %len.addr.016, %14
-  %add = add i64 %14, %addr.addr.014
+  %sub = sub i64 %len.addr.014, %14
+  %add = add i64 %14, %addr.addr.015
   %cmp.not = icmp eq i64 %sub, 0
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !76
 
@@ -8406,8 +8406,8 @@ entry:
 for.cond:                                         ; preds = %if.end26, %entry
   %2 = phi i64 [ %l, %entry ], [ %.pre25, %if.end26 ]
   %3 = phi i64 [ %addr1, %entry ], [ %.pre, %if.end26 ]
-  %len.addr.0 = phi i64 [ %len, %entry ], [ %sub, %if.end26 ]
   %mr.addr.0 = phi ptr [ %mr, %entry ], [ %section.sroa.1.0.copyload.i, %if.end26 ]
+  %len.addr.0 = phi i64 [ %len, %entry ], [ %sub, %if.end26 ]
   %addr.addr.0 = phi i64 [ %addr, %entry ], [ %add, %if.end26 ]
   %result.0 = phi i32 [ 0, %entry ], [ %result.129, %if.end26 ]
   %buf.0 = phi ptr [ %ptr, %entry ], [ %add.ptr, %if.end26 ]
@@ -9488,9 +9488,9 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end20
   %buf.050 = phi ptr [ %ptr, %while.body.lr.ph ], [ %add.ptr, %if.end20 ]
-  %len.addr.049 = phi i64 [ %len, %while.body.lr.ph ], [ %sub21, %if.end20 ]
-  %addr.addr.048 = phi i64 [ %addr, %while.body.lr.ph ], [ %add22, %if.end20 ]
-  %and = and i64 %addr.addr.048, -4096
+  %addr.addr.049 = phi i64 [ %addr, %while.body.lr.ph ], [ %add22, %if.end20 ]
+  %len.addr.048 = phi i64 [ %len, %while.body.lr.ph ], [ %sub21, %if.end20 ]
+  %and = and i64 %addr.addr.049, -4096
   %call = call i64 @cpu_get_phys_page_attrs_debug(ptr noundef %cpu, i64 noundef %and, ptr noundef nonnull %attrs) #26
   %0 = load i32, ptr %attrs, align 4
   %call1 = call i32 @cpu_asidx_from_attrs(ptr noundef %cpu, i32 %0) #26
@@ -9499,9 +9499,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.end:                                           ; preds = %while.body
   %add = add i64 %and, 4096
-  %sub = sub i64 %add, %addr.addr.048
-  %spec.select = call i64 @llvm.umin.i64(i64 %sub, i64 %len.addr.049)
-  %and6 = and i64 %addr.addr.048, 4095
+  %sub = sub i64 %add, %addr.addr.049
+  %spec.select = call i64 @llvm.umin.i64(i64 %sub, i64 %len.addr.048)
+  %and6 = and i64 %addr.addr.049, 4095
   %add7 = add i64 %call, %and6
   %1 = load ptr, ptr %cpu_ases11, align 16
   %idxprom = sext i32 %call1 to i64
@@ -9520,9 +9520,9 @@ if.else11.i:                                      ; preds = %if.end
   br i1 %cmp18.not, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then8, %if.else11.i
-  %sub21 = sub i64 %len.addr.049, %spec.select
+  %sub21 = sub i64 %len.addr.048, %spec.select
   %add.ptr = getelementptr i8, ptr %buf.050, i64 %spec.select
-  %add22 = add i64 %spec.select, %addr.addr.048
+  %add22 = add i64 %spec.select, %addr.addr.049
   %cmp.not = icmp eq i64 %sub21, 0
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !80
 
@@ -10030,34 +10030,34 @@ for.body60:                                       ; preds = %for.body60.lr.ph, %
 
 for.body70:                                       ; preds = %for.body60, %for.inc92
   %indvars.iv = phi i64 [ 0, %for.body60 ], [ %indvars.iv.next, %for.inc92 ]
-  %prev.sroa.0.076 = phi i32 [ %prev.sroa.0.0.copyload, %for.body60 ], [ %prev.sroa.0.1, %for.inc92 ]
-  %jprev.075 = phi i32 [ 0, %for.body60 ], [ %jprev.1, %for.inc92 ]
+  %prev.sroa.0.075 = phi i32 [ %prev.sroa.0.0.copyload, %for.body60 ], [ %prev.sroa.0.1, %for.inc92 ]
+  %jprev.074 = phi i32 [ 0, %for.body60 ], [ %jprev.1, %for.inc92 ]
   %add.ptr73 = getelementptr %struct.PhysPageEntry, ptr %add.ptr63, i64 %indvars.iv
   %bf.load74 = load i32, ptr %add.ptr73, align 4
   %bf.lshr75 = lshr i32 %bf.load74, 6
-  %bf.lshr77 = lshr i32 %prev.sroa.0.076, 6
+  %bf.lshr77 = lshr i32 %prev.sroa.0.075, 6
   %cmp78 = icmp eq i32 %bf.lshr75, %bf.lshr77
   br i1 %cmp78, label %land.lhs.true, label %if.end87
 
 land.lhs.true:                                    ; preds = %for.body70
-  %16 = xor i32 %bf.load74, %prev.sroa.0.076
+  %16 = xor i32 %bf.load74, %prev.sroa.0.075
   %17 = and i32 %16, 63
   %cmp84 = icmp eq i32 %17, 0
   br i1 %cmp84, label %for.inc92, label %if.end87
 
 if.end87:                                         ; preds = %land.lhs.true, %for.body70
-  %bf.clear89 = and i32 %prev.sroa.0.076, 63
+  %bf.clear89 = and i32 %prev.sroa.0.075, 63
   %18 = trunc i64 %indvars.iv to i32
   %19 = add i32 %18, -1
-  %cmp.i51 = icmp eq i32 %19, %jprev.075
+  %cmp.i51 = icmp eq i32 %19, %jprev.074
   br i1 %cmp.i51, label %if.then.i, label %if.else.i52
 
 if.then.i:                                        ; preds = %if.end87
-  %call.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.130, i32 noundef %jprev.075) #26
+  %call.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.130, i32 noundef %jprev.074) #26
   br label %if.end.i
 
 if.else.i52:                                      ; preds = %if.end87
-  %call2.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.131, i32 noundef %jprev.075, i32 noundef %19) #26
+  %call2.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.131, i32 noundef %jprev.074, i32 noundef %19) #26
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i52, %if.then.i
@@ -10088,8 +10088,8 @@ mtree_print_phys_entries.exit:                    ; preds = %if.then5.i, %if.the
   br label %for.inc92
 
 for.inc92:                                        ; preds = %land.lhs.true, %mtree_print_phys_entries.exit
-  %jprev.1 = phi i32 [ %jprev.075, %land.lhs.true ], [ %20, %mtree_print_phys_entries.exit ]
-  %prev.sroa.0.1 = phi i32 [ %prev.sroa.0.076, %land.lhs.true ], [ %prev.sroa.0.0.copyload7, %mtree_print_phys_entries.exit ]
+  %jprev.1 = phi i32 [ %jprev.074, %land.lhs.true ], [ %20, %mtree_print_phys_entries.exit ]
+  %prev.sroa.0.1 = phi i32 [ %prev.sroa.0.075, %land.lhs.true ], [ %prev.sroa.0.0.copyload7, %mtree_print_phys_entries.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
   br i1 %exitcond.not, label %for.end94, label %for.body70, !llvm.loop !85

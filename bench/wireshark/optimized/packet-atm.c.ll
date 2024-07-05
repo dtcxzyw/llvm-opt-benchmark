@@ -1326,7 +1326,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   br label %183
 
 183:                                              ; preds = %181, %156, %154, %150, %149, %147, %114, %109
-  %.0172.i = phi ptr [ %0, %114 ], [ %0, %109 ], [ %182, %181 ], [ %0, %156 ], [ %0, %154 ], [ %0, %150 ], [ %0, %149 ], [ %0, %147 ]
+  %.0.i = phi ptr [ %0, %114 ], [ %0, %109 ], [ %182, %181 ], [ %0, %156 ], [ %0, %154 ], [ %0, %150 ], [ %0, %149 ], [ %0, %147 ]
   %184 = load ptr, ptr @atm_reassembled_vpi_vci_table, align 8
   %185 = getelementptr inbounds i8, ptr %4, i64 8
   %186 = load i16, ptr %185, align 4
@@ -1336,7 +1336,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   %190 = load i16, ptr %189, align 2
   %191 = zext i16 %190 to i32
   %192 = or disjoint i32 %188, %191
-  %193 = tail call i32 @dissector_try_uint_new(ptr noundef %184, i32 noundef %192, ptr noundef %.0172.i, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %4) #10
+  %193 = tail call i32 @dissector_try_uint_new(ptr noundef %184, i32 noundef %192, ptr noundef %.0.i, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %4) #10
   %.not188.i = icmp eq i32 %193, 0
   br i1 %.not188.i, label %194, label %dissect_reassembled_pdu.exit
 
@@ -1356,7 +1356,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 
 199:                                              ; preds = %196
   %200 = load ptr, ptr @sscop_handle, align 8
-  %201 = tail call i32 @call_dissector(ptr noundef %200, ptr noundef %.0172.i, ptr noundef nonnull %1, ptr noundef %2) #10
+  %201 = tail call i32 @call_dissector(ptr noundef %200, ptr noundef %.0.i, ptr noundef nonnull %1, ptr noundef %2) #10
   br label %dissect_reassembled_pdu.exit
 
 202:                                              ; preds = %194
@@ -1370,17 +1370,17 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   %207 = getelementptr inbounds i8, ptr %4, i64 5
   %208 = load i8, ptr %207, align 1
   %209 = zext i8 %208 to i32
-  %210 = tail call i32 @dissector_try_uint_new(ptr noundef %206, i32 noundef %209, ptr noundef %.0172.i, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %4) #10
+  %210 = tail call i32 @dissector_try_uint_new(ptr noundef %206, i32 noundef %209, ptr noundef %.0.i, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %4) #10
   %.not193.i = icmp eq i32 %210, 0
   br i1 %.not193.i, label %211, label %dissect_reassembled_pdu.exit
 
 211:                                              ; preds = %205
-  %212 = tail call i32 @tvb_reported_length(ptr noundef %.0172.i) #10
+  %212 = tail call i32 @tvb_reported_length(ptr noundef %.0.i) #10
   %213 = icmp ugt i32 %212, 7
   br i1 %213, label %214, label %.thread202.i
 
 214:                                              ; preds = %211
-  %215 = call ptr @tvb_memcpy(ptr noundef %.0172.i, ptr noundef nonnull %7, i32 noundef 0, i64 noundef 8) #10
+  %215 = call ptr @tvb_memcpy(ptr noundef %.0.i, ptr noundef nonnull %7, i32 noundef 0, i64 noundef 8) #10
   %216 = load i8, ptr %7, align 1
   %217 = icmp eq i8 %216, -86
   %218 = getelementptr inbounds i8, ptr %7, i64 1
@@ -1395,7 +1395,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 
 224:                                              ; preds = %214
   %225 = load ptr, ptr @llc_handle, align 8
-  %226 = call i32 @call_dissector(ptr noundef %225, ptr noundef %.0172.i, ptr noundef nonnull %1, ptr noundef %2) #10
+  %226 = call i32 @call_dissector(ptr noundef %225, ptr noundef %.0.i, ptr noundef nonnull %1, ptr noundef %2) #10
   br label %dissect_reassembled_pdu.exit
 
 227:                                              ; preds = %214
@@ -1404,7 +1404,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 
 229:                                              ; preds = %227
   %230 = load ptr, ptr @ppp_handle, align 8
-  %231 = call i32 @call_dissector(ptr noundef %230, ptr noundef %.0172.i, ptr noundef nonnull %1, ptr noundef %2) #10
+  %231 = call i32 @call_dissector(ptr noundef %230, ptr noundef %.0.i, ptr noundef nonnull %1, ptr noundef %2) #10
   br label %dissect_reassembled_pdu.exit
 
 232:                                              ; preds = %227
@@ -1449,7 +1449,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 
 253:                                              ; preds = %248, %245, %245
   %254 = load ptr, ptr @fr_handle, align 8
-  %255 = call i32 @call_dissector(ptr noundef %254, ptr noundef %.0172.i, ptr noundef nonnull %1, ptr noundef %2) #10
+  %255 = call i32 @call_dissector(ptr noundef %254, ptr noundef %.0.i, ptr noundef nonnull %1, ptr noundef %2) #10
   br label %dissect_reassembled_pdu.exit
 
 256:                                              ; preds = %248, %._crit_edge.i
@@ -1475,7 +1475,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 
 267:                                              ; preds = %262, %259, %259
   %268 = load ptr, ptr @fr_handle, align 8
-  %269 = call i32 @call_dissector(ptr noundef %268, ptr noundef %.0172.i, ptr noundef nonnull %1, ptr noundef %2) #10
+  %269 = call i32 @call_dissector(ptr noundef %268, ptr noundef %.0.i, ptr noundef nonnull %1, ptr noundef %2) #10
   br label %dissect_reassembled_pdu.exit
 
 270:                                              ; preds = %262, %256
@@ -1487,7 +1487,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
 
 272:                                              ; preds = %270, %270
   %273 = load ptr, ptr @ip_handle, align 8
-  %274 = call i32 @call_dissector(ptr noundef %273, ptr noundef %.0172.i, ptr noundef nonnull %1, ptr noundef %2) #10
+  %274 = call i32 @call_dissector(ptr noundef %273, ptr noundef %.0.i, ptr noundef nonnull %1, ptr noundef %2) #10
   br label %dissect_reassembled_pdu.exit
 
 275:                                              ; preds = %194
@@ -1528,7 +1528,7 @@ define internal fastcc i32 @dissect_atm_common(ptr noundef %0, ptr noundef %1, p
   br i1 %.not191.i, label %.thread202.i, label %dissect_reassembled_pdu.exit
 
 .thread202.i:                                     ; preds = %293, %275, %270, %211, %202, %196, %194
-  %.2205.i = phi ptr [ %.1.i, %293 ], [ %.0172.i, %194 ], [ %.0172.i, %275 ], [ %.0172.i, %202 ], [ %.0172.i, %211 ], [ %.0172.i, %196 ], [ %.0172.i, %270 ]
+  %.2205.i = phi ptr [ %.1.i, %293 ], [ %.0.i, %194 ], [ %.0.i, %275 ], [ %.0.i, %202 ], [ %.0.i, %211 ], [ %.0.i, %196 ], [ %.0.i, %270 ]
   %299 = call i32 @call_data_dissector(ptr noundef %.2205.i, ptr noundef nonnull %1, ptr noundef %2) #10
   br label %dissect_reassembled_pdu.exit
 
@@ -1606,10 +1606,10 @@ define internal fastcc void @dissect_atm_cell(ptr noundef %0, ptr noundef %1, pt
 
 44:                                               ; preds = %44, %38
   %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %44 ]
-  %.01114.i = phi i8 [ 0, %38 ], [ %50, %44 ]
+  %.01214.i = phi i8 [ 0, %38 ], [ %50, %44 ]
   %45 = getelementptr i8, ptr %43, i64 %indvars.iv.i
   %46 = load i8, ptr %45, align 1
-  %47 = xor i8 %46, %.01114.i
+  %47 = xor i8 %46, %.01214.i
   %48 = zext i8 %47 to i64
   %49 = getelementptr [256 x i8], ptr @syndrome_table, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
@@ -1628,8 +1628,8 @@ get_header_err.exit:                              ; preds = %44
   %58 = icmp eq i8 %53, 85
   %59 = icmp slt i32 %57, 40
   %..i = select i1 %59, i32 %57, i32 128
-  %.012.i = select i1 %58, i32 -128, i32 %..i
-  switch i32 %.012.i, label %62 [
+  %.0.i = select i1 %58, i32 -128, i32 %..i
+  switch i32 %.0.i, label %62 [
     i32 -128, label %60
     i32 128, label %61
   ]
@@ -1643,7 +1643,7 @@ get_header_err.exit:                              ; preds = %44
   br label %63
 
 62:                                               ; preds = %get_header_err.exit
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef nonnull @.str.320, i32 noundef %.012.i) #10
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef nonnull @.str.320, i32 noundef %.0.i) #10
   br label %63
 
 63:                                               ; preds = %7, %60, %62, %61
@@ -1666,7 +1666,7 @@ get_header_err.exit:                              ; preds = %44
   br label %70
 
 70:                                               ; preds = %64, %63
-  %.073 = phi i32 [ %4, %63 ], [ %spec.select, %64 ]
+  %.071 = phi i32 [ %4, %63 ], [ %spec.select, %64 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, i8 0, i64 28, i1 false)
   %.not78 = icmp eq ptr %6, null
   br i1 %.not78, label %93, label %71
@@ -1701,7 +1701,7 @@ get_header_err.exit:                              ; preds = %44
   br label %95
 
 93:                                               ; preds = %70
-  %94 = trunc nuw i32 %.073 to i8
+  %94 = trunc nuw i32 %.071 to i8
   br label %95
 
 95:                                               ; preds = %93, %71
@@ -1717,7 +1717,7 @@ get_header_err.exit:                              ; preds = %44
   store i16 %.sink82, ptr %98, align 4
   %99 = getelementptr inbounds i8, ptr %8, i64 10
   store i16 %.sink, ptr %99, align 2
-  call fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 noundef %.072, ptr noundef %1, ptr noundef %2, i32 noundef %.073, i32 noundef 1, ptr noundef nonnull %8)
+  call fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 noundef %.072, ptr noundef %1, ptr noundef %2, i32 noundef %.071, i32 noundef 1, ptr noundef nonnull %8)
   ret void
 }
 

@@ -461,8 +461,8 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv40 = phi i64 [ %5, %for.body.lr.ph ], [ %indvars.iv.next41, %for.inc ]
   %indvars.iv = phi i64 [ %4, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
+  %needed.037 = phi i32 [ %conv, %for.body.lr.ph ], [ %needed.2, %for.inc ]
   %pagesToAlloc.036 = phi i32 [ 0, %for.body.lr.ph ], [ %pagesToAlloc.1, %for.inc ]
-  %needed.035 = phi i32 [ %conv, %for.body.lr.ph ], [ %needed.2, %for.inc ]
   %add.ptr.i = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
   %6 = load i64, ptr %add.ptr.i, align 8
   %conv9 = trunc i64 %6 to i32
@@ -475,18 +475,18 @@ lor.end:                                          ; preds = %for.body
   %add.ptr.i24 = getelementptr inbounds i64, ptr %2, i64 %conv13
   %7 = load i64, ptr %add.ptr.i24, align 8
   %cmp15 = icmp ult i64 %7, %minSizeClass
-  %div = sdiv i32 %needed.035, 8
-  %add = add nsw i32 %div, %needed.035
+  %div = sdiv i32 %needed.037, 8
+  %add = add nsw i32 %div, %needed.037
   %cmp16 = icmp sge i32 %add, %conv9
   %brmerge = select i1 %cmp16, i1 true, i1 %cmp15
   br i1 %brmerge, label %if.end18, label %for.inc
 
 if.end18:                                         ; preds = %for.body, %lor.end
   %8 = phi i1 [ %cmp15, %lor.end ], [ true, %for.body ]
-  %div20 = sdiv i32 %needed.035, %conv9
+  %div20 = sdiv i32 %needed.037, %conv9
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %div20, i32 1)
   %mul = mul nsw i32 %.sroa.speculated, %conv9
-  %sub22 = sub nsw i32 %needed.035, %mul
+  %sub22 = sub nsw i32 %needed.037, %mul
   %cmp25 = icmp sgt i32 %sub22, 0
   %or.cond = select i1 %8, i1 %cmp25, i1 false
   %inc = zext i1 %or.cond to i32
@@ -518,8 +518,8 @@ if.end33:                                         ; preds = %if.end18
   br i1 %cmp42, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %lor.end, %if.end33
-  %needed.2 = phi i32 [ %needed.1, %if.end33 ], [ %needed.035, %lor.end ]
   %pagesToAlloc.1 = phi i32 [ %add37, %if.end33 ], [ %pagesToAlloc.036, %lor.end ]
+  %needed.2 = phi i32 [ %needed.1, %if.end33 ], [ %needed.037, %lor.end ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp5 = icmp sgt i64 %indvars.iv, 0
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, -1
@@ -3790,8 +3790,8 @@ while.body.i.i4.preheader:                        ; preds = %if.else57.i.i, %if.
   br label %while.body.i.i4
 
 while.body.i.i4:                                  ; preds = %while.body.i.i4.preheader, %if.end.i.i
-  %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i ], [ %add.ptr.i1.i, %while.body.i.i4.preheader ]
   %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge1736, %while.body.i.i4.preheader ]
+  %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i ], [ %add.ptr.i1.i, %while.body.i.i4.preheader ]
   br label %while.cond5.i.i
 
 while.cond5.i.i:                                  ; preds = %while.cond5.i.i, %while.body.i.i4

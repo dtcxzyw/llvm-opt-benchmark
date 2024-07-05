@@ -121,11 +121,11 @@ for.cond:                                         ; preds = %if.end16
   br i1 %exitcond.not, label %err, label %for.body, !llvm.loop !4
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
-  %p1.018.in = phi ptr [ %pp, %for.cond ], [ %p, %for.body.preheader ]
-  %p2.017.in = phi ptr [ %call.i12, %for.cond ], [ %q, %for.body.preheader ]
+  %p2.018.in = phi ptr [ %call.i12, %for.cond ], [ %q, %for.body.preheader ]
+  %p1.017.in = phi ptr [ %pp, %for.cond ], [ %p, %for.body.preheader ]
   %i.016 = phi i32 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
-  %p2.017 = load ptr, ptr %p2.017.in, align 8
-  %p1.018 = load ptr, ptr %p1.018.in, align 8
+  %p1.017 = load ptr, ptr %p1.017.in, align 8
+  %p2.018 = load ptr, ptr %p2.018.in, align 8
   %1 = load ptr, ptr %prime_infos, align 8
   %call.i12 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %i.016) #3
   %pp = getelementptr inbounds i8, ptr %call.i12, i64 24
@@ -141,7 +141,7 @@ if.then9:                                         ; preds = %for.body
 
 if.end16:                                         ; preds = %if.then9, %for.body
   %3 = phi ptr [ %call10, %if.then9 ], [ %2, %for.body ]
-  %call18 = tail call i32 @BN_mul(ptr noundef nonnull %3, ptr noundef %p1.018, ptr noundef %p2.017, ptr noundef nonnull %call1) #3
+  %call18 = tail call i32 @BN_mul(ptr noundef nonnull %3, ptr noundef %p1.017, ptr noundef %p2.018, ptr noundef nonnull %call1) #3
   %tobool.not = icmp eq i32 %call18, 0
   br i1 %tobool.not, label %err, label %for.cond
 

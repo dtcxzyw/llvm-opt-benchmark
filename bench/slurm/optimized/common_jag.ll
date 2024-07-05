@@ -349,11 +349,11 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %71 = phi ptr [ %54, %.lr.ph.lr.ph ], [ %570, %.outer ]
+  %.0.ph215 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %312, %.outer ]
+  %.0154.ph214 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %315, %.outer ]
   %72 = phi i1 [ true, %.lr.ph.lr.ph ], [ false, %.outer ]
-  %.0153.ph215 = phi i32 [ 0, %.lr.ph.lr.ph ], [ 1, %.outer ]
-  %.0154.ph214 = phi i32 [ -2, %.lr.ph.lr.ph ], [ %.1155, %.outer ]
-  %.0156.ph213 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %315, %.outer ]
-  %.0157.ph212 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %312, %.outer ]
+  %.0155.ph213 = phi i32 [ 0, %.lr.ph.lr.ph ], [ 1, %.outer ]
+  %.0156.ph212 = phi i32 [ -2, %.lr.ph.lr.ph ], [ %.1157, %.outer ]
   br label %73
 
 73:                                               ; preds = %.lr.ph, %.backedge
@@ -425,7 +425,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
 106:                                              ; preds = %104
   %107 = getelementptr inbounds i8, ptr %74, i64 248
   %108 = load i32, ptr %107, align 8
-  %109 = icmp eq i32 %.0154.ph214, %108
+  %109 = icmp eq i32 %.0156.ph212, %108
   %110 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %111 = and i64 %110, 18014398509481984
   %.not183 = icmp eq i64 %111, 0
@@ -474,7 +474,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %104, %128
-  %.1155 = phi i32 [ %129, %128 ], [ %.0154.ph214, %104 ]
+  %.1157 = phi i32 [ %129, %128 ], [ %.0156.ph212, %104 ]
   %131 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %132 = and i64 %131, 18014398509481984
   %.not178 = icmp eq i64 %132, 0
@@ -525,7 +525,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br i1 %164, label %165, label %166
 
 165:                                              ; preds = %162
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.14, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.jag_common_poll_data, i32 noundef %.0153.ph215) #17
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.14, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.jag_common_poll_data, i32 noundef %.0155.ph213) #17
   br label %166
 
 166:                                              ; preds = %145, %162, %165
@@ -777,10 +777,10 @@ _print_jag_prec.exit:                             ; preds = %191, %._crit_edge.i
   %309 = load ptr, ptr %146, align 8
   %310 = getelementptr inbounds i8, ptr %309, i64 8
   %311 = load i64, ptr %310, align 8
-  %312 = add i64 %311, %.0157.ph212
+  %312 = add i64 %311, %.0.ph215
   %313 = getelementptr inbounds i8, ptr %309, i64 48
   %314 = load i64, ptr %313, align 8
-  %315 = add i64 %314, %.0156.ph213
+  %315 = add i64 %314, %.0154.ph214
   %316 = load double, ptr %59, align 8
   %317 = load i64, ptr @conv_units, align 8
   %318 = uitofp nneg i64 %317 to double
@@ -1242,15 +1242,15 @@ _record_profile.exit:                             ; preds = %479, %482, %550
   br i1 %.not170204, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %52
-  %.0157.ph.lcssa = phi i64 [ 0, %52 ], [ %.0157.ph212, %.backedge ], [ %312, %.outer ]
-  %.0156.ph.lcssa = phi i64 [ 0, %52 ], [ %.0156.ph213, %.backedge ], [ %315, %.outer ]
+  %.0154.ph.lcssa = phi i64 [ 0, %52 ], [ %.0154.ph214, %.backedge ], [ %315, %.outer ]
+  %.0.ph.lcssa = phi i64 [ 0, %52 ], [ %.0.ph215, %.backedge ], [ %312, %.outer ]
   call void @slurm_list_iterator_destroy(ptr noundef %53) #17
   %571 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 472), align 8
   %.not171 = icmp eq i16 %571, 0
   br i1 %.not171, label %573, label %572
 
 572:                                              ; preds = %.outer._crit_edge
-  call void @jobacct_gather_handle_mem_limit(i64 noundef %.0157.ph.lcssa, i64 noundef %.0156.ph.lcssa) #17
+  call void @jobacct_gather_handle_mem_limit(i64 noundef %.0.ph.lcssa, i64 noundef %.0154.ph.lcssa) #17
   br label %573
 
 573:                                              ; preds = %.outer._crit_edge, %572, %40, %50

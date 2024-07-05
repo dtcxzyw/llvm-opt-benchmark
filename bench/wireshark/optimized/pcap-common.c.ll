@@ -1341,8 +1341,8 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
 
 .lr.ph.i.i:                                       ; preds = %135, %147
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %147 ], [ 0, %135 ]
-  %.03445.i.i = phi i32 [ %.1.i.i, %147 ], [ 0, %135 ]
-  %.03544.i.i = phi i32 [ %148, %147 ], [ %124, %135 ]
+  %.046.i.i = phi i32 [ %148, %147 ], [ %124, %135 ]
+  %.03544.i.i = phi i32 [ %.1.i.i, %147 ], [ 0, %135 ]
   %140 = getelementptr %struct.linux_usb_isodesc, ptr %136, i64 %indvars.iv.i.i
   %141 = getelementptr inbounds i8, ptr %140, i64 8
   %142 = load i32, ptr %141, align 4
@@ -1353,23 +1353,23 @@ define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr n
   %144 = getelementptr inbounds i8, ptr %140, i64 4
   %145 = load i32, ptr %144, align 4
   %146 = add i32 %145, %142
-  %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %146, i32 %.03445.i.i)
+  %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %146, i32 %.03544.i.i)
   br label %147
 
 147:                                              ; preds = %143, %.lr.ph.i.i
-  %.1.i.i = phi i32 [ %.03445.i.i, %.lr.ph.i.i ], [ %spec.select.i.i, %143 ]
+  %.1.i.i = phi i32 [ %.03544.i.i, %.lr.ph.i.i ], [ %spec.select.i.i, %143 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %148 = add i32 %.03544.i.i, -16
+  %148 = add i32 %.046.i.i, -16
   %149 = icmp ult i64 %indvars.iv.next.i.i, %115
   %150 = icmp ugt i32 %148, 15
   %151 = select i1 %149, i1 %150, i1 false
   br i1 %151, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %147, %135
-  %.034.lcssa.i.i = phi i32 [ 0, %135 ], [ %.1.i.i, %147 ]
+  %.035.lcssa.i.i = phi i32 [ 0, %135 ], [ %.1.i.i, %147 ]
   %152 = shl i32 %114, 4
   %153 = add i32 %152, 64
-  %154 = add i32 %153, %.034.lcssa.i.i
+  %154 = add i32 %153, %.035.lcssa.i.i
   %.not42.i.i = icmp uge i32 %154, %104
   %155 = select i1 %.not42.i.i, i32 %154, i32 %111
   %.not48.i.i = icmp ugt i32 %104, %155

@@ -59999,7 +59999,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit105: ; preds = %_ZNK5Ipopt14It
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 280:                                              ; preds = %269, %250
-  %.012 = phi double [ %271, %269 ], [ 0.000000e+00, %250 ]
+  %.013 = phi double [ %271, %269 ], [ 0.000000e+00, %250 ]
   %281 = getelementptr inbounds i8, ptr %storemerge.i.i71, i64 56
   %282 = load ptr, ptr %281, align 8
   %283 = getelementptr inbounds i8, ptr %282, i64 12
@@ -60036,7 +60036,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit105: ; preds = %_ZNK5Ipopt14It
 
 309:                                              ; preds = %306, %280
   %.0 = phi double [ %308, %306 ], [ 0.000000e+00, %280 ]
-  %310 = fadd double %253, %.012
+  %310 = fadd double %253, %.013
   %311 = fadd double %310, %.0
   store double %311, ptr %3, align 8
   br label %312
@@ -60940,7 +60940,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit105: ; preds = %_ZNK5Ipopt14It
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 280:                                              ; preds = %269, %250
-  %.012 = phi double [ %271, %269 ], [ 0.000000e+00, %250 ]
+  %.013 = phi double [ %271, %269 ], [ 0.000000e+00, %250 ]
   %281 = getelementptr inbounds i8, ptr %storemerge.i.i71, i64 56
   %282 = load ptr, ptr %281, align 8
   %283 = getelementptr inbounds i8, ptr %282, i64 12
@@ -60977,7 +60977,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit105: ; preds = %_ZNK5Ipopt14It
 
 309:                                              ; preds = %306, %280
   %.0 = phi double [ %308, %306 ], [ 0.000000e+00, %280 ]
-  %310 = fadd double %253, %.012
+  %310 = fadd double %253, %.013
   %311 = fadd double %310, %.0
   store double %311, ptr %3, align 8
   br label %312

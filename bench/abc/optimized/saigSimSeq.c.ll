@@ -1046,8 +1046,8 @@ Raig_ManSimDeref.exit188:                         ; preds = %105, %94, %85, %.lo
 
 116:                                              ; preds = %.lr.ph249, %.critedge
   %indvars.iv286 = phi i64 [ 2, %.lr.ph249 ], [ %indvars.iv.next287, %.critedge ]
-  %.0248 = phi i32 [ 0, %.lr.ph249 ], [ %.1, %.critedge ]
-  %.0150247 = phi i32 [ 0, %.lr.ph249 ], [ %.1151, %.critedge ]
+  %.0150248 = phi i32 [ 0, %.lr.ph249 ], [ %.1, %.critedge ]
+  %.0151247 = phi i32 [ 0, %.lr.ph249 ], [ %.1152, %.critedge ]
   %117 = load ptr, ptr %20, align 8
   %118 = getelementptr inbounds i32, ptr %117, i64 %indvars.iv286
   %119 = load i32, ptr %118, align 4
@@ -1058,7 +1058,7 @@ Raig_ManSimDeref.exit188:                         ; preds = %105, %94, %85, %.lo
   %122 = load ptr, ptr %5, align 8
   %123 = getelementptr i8, ptr %122, i64 8
   %.val186 = load ptr, ptr %123, align 8
-  %124 = sext i32 %.0150247 to i64
+  %124 = sext i32 %.0151247 to i64
   %125 = getelementptr inbounds i32, ptr %.val186, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = load i32, ptr %29, align 4
@@ -1116,7 +1116,7 @@ Raig_ManSimDeref.exit188:                         ; preds = %105, %94, %85, %.lo
   br label %Raig_ManSimDeref.exit190
 
 Raig_ManSimDeref.exit190:                         ; preds = %149, %139, %121, %._crit_edge
-  %156 = add nsw i32 %.0150247, 1
+  %156 = add nsw i32 %.0151247, 1
   br label %.critedge
 
 157:                                              ; preds = %116
@@ -1161,7 +1161,7 @@ Raig_ManSimDeref.exit190:                         ; preds = %149, %139, %121, %.
 Raig_ManSimDeref.exit192:                         ; preds = %162, %166, %176
   %.0.i191 = phi ptr [ %172, %176 ], [ %172, %166 ], [ %165, %162 ]
   %183 = load i32, ptr %27, align 8
-  %184 = icmp slt i32 %.0248, %183
+  %184 = icmp slt i32 %.0150248, %183
   %or.cond = and i1 %28, %184
   br i1 %or.cond, label %185, label %207
 
@@ -1262,7 +1262,7 @@ Aig_WordFindFirstBit.exit:                        ; preds = %200, %203
   br i1 %.not174.not, label %.lr.ph237, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph234, %.lr.ph237, %206, %.preheader200, %.preheader, %185
-  %226 = add nsw i32 %.0248, 1
+  %226 = add nsw i32 %.0150248, 1
   br label %.critedge
 
 227:                                              ; preds = %157
@@ -1433,8 +1433,8 @@ Raig_ManSimDeref.exit196:                         ; preds = %Raig_ManSimDeref.ex
   br i1 %.not171.not, label %.lr.ph231, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %.lr.ph222, %.lr.ph225, %.lr.ph228, %.lr.ph231, %.preheader208, %.preheader206, %.preheader204, %.preheader202, %.loopexit, %Raig_ManSimDeref.exit190
-  %.1151 = phi i32 [ %156, %Raig_ManSimDeref.exit190 ], [ %.0150247, %.loopexit ], [ %.0150247, %.preheader202 ], [ %.0150247, %.preheader204 ], [ %.0150247, %.preheader206 ], [ %.0150247, %.preheader208 ], [ %.0150247, %.lr.ph231 ], [ %.0150247, %.lr.ph228 ], [ %.0150247, %.lr.ph225 ], [ %.0150247, %.lr.ph222 ]
-  %.1 = phi i32 [ %.0248, %Raig_ManSimDeref.exit190 ], [ %226, %.loopexit ], [ %.0248, %.preheader202 ], [ %.0248, %.preheader204 ], [ %.0248, %.preheader206 ], [ %.0248, %.preheader208 ], [ %.0248, %.lr.ph231 ], [ %.0248, %.lr.ph228 ], [ %.0248, %.lr.ph225 ], [ %.0248, %.lr.ph222 ]
+  %.1152 = phi i32 [ %156, %Raig_ManSimDeref.exit190 ], [ %.0151247, %.loopexit ], [ %.0151247, %.preheader202 ], [ %.0151247, %.preheader204 ], [ %.0151247, %.preheader206 ], [ %.0151247, %.preheader208 ], [ %.0151247, %.lr.ph231 ], [ %.0151247, %.lr.ph228 ], [ %.0151247, %.lr.ph225 ], [ %.0151247, %.lr.ph222 ]
+  %.1 = phi i32 [ %.0150248, %Raig_ManSimDeref.exit190 ], [ %226, %.loopexit ], [ %.0150248, %.preheader202 ], [ %.0150248, %.preheader204 ], [ %.0150248, %.preheader206 ], [ %.0150248, %.preheader208 ], [ %.0150248, %.lr.ph231 ], [ %.0150248, %.lr.ph228 ], [ %.0150248, %.lr.ph225 ], [ %.0150248, %.lr.ph222 ]
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %319 = load i32, ptr %17, align 8
   %320 = sext i32 %319 to i64
@@ -1442,8 +1442,8 @@ Raig_ManSimDeref.exit196:                         ; preds = %Raig_ManSimDeref.ex
   br i1 %321, label %116, label %.loopexit210, !llvm.loop !22
 
 .loopexit210:                                     ; preds = %.critedge, %.critedge.preheader, %Aig_WordFindFirstBit.exit
-  %.0156 = phi i32 [ %195, %Aig_WordFindFirstBit.exit ], [ 0, %.critedge.preheader ], [ 0, %.critedge ]
-  ret i32 %.0156
+  %.0 = phi i32 [ %195, %Aig_WordFindFirstBit.exit ], [ 0, %.critedge.preheader ], [ 0, %.critedge ]
+  ret i32 %.0
 }
 
 declare i32 @Aig_ManRandom(i32 noundef) local_unnamed_addr #2
@@ -1847,8 +1847,8 @@ Abc_Clock.exit52:                                 ; preds = %101, %117
   br label %129
 
 129:                                              ; preds = %.thread, %28, %24
-  %.039 = phi i32 [ 1, %24 ], [ 0, %28 ], [ %128, %.thread ]
-  ret i32 %.039
+  %.0 = phi i32 [ 1, %24 ], [ 0, %28 ], [ %128, %.thread ]
+  ret i32 %.0
 }
 
 declare void @Sec_MiterStatus(ptr dead_on_unwind writable sret(%struct.Sec_MtrStatus_t_) align 4, ptr noundef) local_unnamed_addr #2

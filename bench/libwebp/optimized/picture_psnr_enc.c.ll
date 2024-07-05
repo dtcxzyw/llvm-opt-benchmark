@@ -91,13 +91,13 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
   br i1 %exitcond93.not, label %.loopexit, label %.preheader.us, !llvm.loop !6
 
 .loopexit:                                        ; preds = %._crit_edge.us, %32, %25
-  %.072 = phi ptr [ %2, %25 ], [ %34, %32 ], [ %34, %._crit_edge.us ]
-  %.071 = phi ptr [ %0, %25 ], [ %30, %32 ], [ %30, %._crit_edge.us ]
-  %.069 = phi ptr [ null, %25 ], [ %30, %32 ], [ %30, %._crit_edge.us ]
-  %48 = tail call double %14(ptr noundef nonnull %.071, i32 noundef %4, ptr noundef %.072, i32 noundef %4, i32 noundef %4, i32 noundef %5) #5, !callees !7
+  %.072 = phi ptr [ null, %25 ], [ %30, %32 ], [ %30, %._crit_edge.us ]
+  %.071 = phi ptr [ %2, %25 ], [ %34, %32 ], [ %34, %._crit_edge.us ]
+  %.068 = phi ptr [ %0, %25 ], [ %30, %32 ], [ %30, %._crit_edge.us ]
+  %48 = tail call double %14(ptr noundef nonnull %.068, i32 noundef %4, ptr noundef %.071, i32 noundef %4, i32 noundef %4, i32 noundef %5) #5, !callees !7
   %49 = fptrunc double %48 to float
   store float %49, ptr %8, align 4
-  tail call void @WebPSafeFree(ptr noundef %.069) #5
+  tail call void @WebPSafeFree(ptr noundef %.072) #5
   %50 = load float, ptr %8, align 4
   br i1 %12, label %51, label %64
 
@@ -143,8 +143,8 @@ GetLogSSIM.exit:                                  ; preds = %70, %64, %60, %51
   br label %78
 
 78:                                               ; preds = %26, %10, %17, %21, %GetLogSSIM.exit
-  %.070 = phi i32 [ 1, %GetLogSSIM.exit ], [ 0, %21 ], [ 0, %17 ], [ 0, %10 ], [ 0, %26 ]
-  ret i32 %.070
+  %.0 = phi i32 [ 1, %GetLogSSIM.exit ], [ 0, %21 ], [ 0, %17 ], [ 0, %10 ], [ 0, %26 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -191,28 +191,28 @@ define internal double @AccumulateSSIM(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %12, label %.preheader96.us, label %.preheader95
 
 .preheader96.us:                                  ; preds = %.preheader96.lr.ph, %._crit_edge.us
-  %.0100.us = phi double [ %16, %._crit_edge.us ], [ 0.000000e+00, %.preheader96.lr.ph ]
-  %.07999.us = phi i32 [ %18, %._crit_edge.us ], [ 0, %.preheader96.lr.ph ]
+  %.079100.us = phi i32 [ %18, %._crit_edge.us ], [ 0, %.preheader96.lr.ph ]
+  %.08299.us = phi double [ %16, %._crit_edge.us ], [ 0.000000e+00, %.preheader96.lr.ph ]
   br label %13
 
 13:                                               ; preds = %.preheader96.us, %13
-  %.198.us = phi double [ %.0100.us, %.preheader96.us ], [ %16, %13 ]
-  %.08297.us = phi i32 [ 0, %.preheader96.us ], [ %17, %13 ]
+  %.098.us = phi i32 [ 0, %.preheader96.us ], [ %17, %13 ]
+  %.18397.us = phi double [ %.08299.us, %.preheader96.us ], [ %16, %13 ]
   %14 = load ptr, ptr @VP8SSIMGetClipped, align 8
-  %15 = tail call double %14(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.08297.us, i32 noundef %.07999.us, i32 noundef %4, i32 noundef %5) #5
-  %16 = fadd double %.198.us, %15
-  %17 = add nuw nsw i32 %.08297.us, 1
+  %15 = tail call double %14(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.098.us, i32 noundef %.079100.us, i32 noundef %4, i32 noundef %5) #5
+  %16 = fadd double %.18397.us, %15
+  %17 = add nuw nsw i32 %.098.us, 1
   %exitcond.not = icmp eq i32 %17, %4
   br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !9
 
 ._crit_edge.us:                                   ; preds = %13
-  %18 = add nuw nsw i32 %.07999.us, 1
+  %18 = add nuw nsw i32 %.079100.us, 1
   %exitcond141.not = icmp eq i32 %18, %9
   br i1 %exitcond141.not, label %.preheader95, label %.preheader96.us, !llvm.loop !10
 
 .preheader95:                                     ; preds = %._crit_edge.us, %.preheader96.lr.ph, %6
+  %.082.lcssa = phi double [ 0.000000e+00, %6 ], [ 0.000000e+00, %.preheader96.lr.ph ], [ %16, %._crit_edge.us ]
   %.079.lcssa = phi i32 [ 0, %6 ], [ %9, %.preheader96.lr.ph ], [ %9, %._crit_edge.us ]
-  %.0.lcssa = phi double [ 0.000000e+00, %6 ], [ 0.000000e+00, %.preheader96.lr.ph ], [ %16, %._crit_edge.us ]
   %19 = icmp slt i32 %.079.lcssa, %10
   br i1 %19, label %.preheader94.lr.ph, label %.preheader91
 
@@ -226,7 +226,7 @@ define internal double @AccumulateSSIM(ptr noundef %0, i32 noundef %1, ptr nound
 
 .preheader94:                                     ; preds = %.preheader94.lr.ph, %._crit_edge
   %indvars.iv146 = phi i64 [ %21, %.preheader94.lr.ph ], [ %indvars.iv.next147, %._crit_edge ]
-  %.2117 = phi double [ %.0.lcssa, %.preheader94.lr.ph ], [ %.5.lcssa, %._crit_edge ]
+  %.284116 = phi double [ %.082.lcssa, %.preheader94.lr.ph ], [ %.5.lcssa, %._crit_edge ]
   br i1 %20, label %.lr.ph.preheader, label %.preheader93
 
 .lr.ph.preheader:                                 ; preds = %.preheader94
@@ -234,62 +234,62 @@ define internal double @AccumulateSSIM(ptr noundef %0, i32 noundef %1, ptr nound
   br label %.lr.ph
 
 .preheader91:                                     ; preds = %._crit_edge, %.preheader95
+  %.284.lcssa = phi double [ %.082.lcssa, %.preheader95 ], [ %.5.lcssa, %._crit_edge ]
   %.180.lcssa = phi i32 [ %.079.lcssa, %.preheader95 ], [ %10, %._crit_edge ]
-  %.2.lcssa = phi double [ %.0.lcssa, %.preheader95 ], [ %.5.lcssa, %._crit_edge ]
   %25 = icmp slt i32 %.180.lcssa, %5
   %26 = icmp sgt i32 %4, 0
   %or.cond = and i1 %25, %26
   br i1 %or.cond, label %.preheader.us, label %._crit_edge127
 
 .preheader.us:                                    ; preds = %.preheader91, %._crit_edge123.us
-  %.6126.us = phi double [ %30, %._crit_edge123.us ], [ %.2.lcssa, %.preheader91 ]
-  %.281125.us = phi i32 [ %32, %._crit_edge123.us ], [ %.180.lcssa, %.preheader91 ]
+  %.281126.us = phi i32 [ %32, %._crit_edge123.us ], [ %.180.lcssa, %.preheader91 ]
+  %.6125.us = phi double [ %30, %._crit_edge123.us ], [ %.284.lcssa, %.preheader91 ]
   br label %27
 
 27:                                               ; preds = %.preheader.us, %27
-  %.7121.us = phi double [ %.6126.us, %.preheader.us ], [ %30, %27 ]
-  %.486120.us = phi i32 [ 0, %.preheader.us ], [ %31, %27 ]
+  %.4121.us = phi i32 [ 0, %.preheader.us ], [ %31, %27 ]
+  %.7120.us = phi double [ %.6125.us, %.preheader.us ], [ %30, %27 ]
   %28 = load ptr, ptr @VP8SSIMGetClipped, align 8
-  %29 = tail call double %28(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.486120.us, i32 noundef %.281125.us, i32 noundef %4, i32 noundef %5) #5
-  %30 = fadd double %.7121.us, %29
-  %31 = add nuw nsw i32 %.486120.us, 1
+  %29 = tail call double %28(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.4121.us, i32 noundef %.281126.us, i32 noundef %4, i32 noundef %5) #5
+  %30 = fadd double %.7120.us, %29
+  %31 = add nuw nsw i32 %.4121.us, 1
   %exitcond150.not = icmp eq i32 %31, %4
   br i1 %exitcond150.not, label %._crit_edge123.us, label %27, !llvm.loop !11
 
 ._crit_edge123.us:                                ; preds = %27
-  %32 = add i32 %.281125.us, 1
+  %32 = add i32 %.281126.us, 1
   %exitcond151.not = icmp eq i32 %32, %5
   br i1 %exitcond151.not, label %._crit_edge127, label %.preheader.us, !llvm.loop !12
 
 .preheader93:                                     ; preds = %.lr.ph, %.preheader94
-  %.183.lcssa = phi i32 [ 0, %.preheader94 ], [ %7, %.lr.ph ]
-  %.3.lcssa = phi double [ %.2117, %.preheader94 ], [ %40, %.lr.ph ]
-  %33 = icmp slt i32 %.183.lcssa, %8
+  %.385.lcssa = phi double [ %.284116, %.preheader94 ], [ %40, %.lr.ph ]
+  %.1.lcssa = phi i32 [ 0, %.preheader94 ], [ %7, %.lr.ph ]
+  %33 = icmp slt i32 %.1.lcssa, %8
   br i1 %33, label %.lr.ph109, label %.preheader92
 
 .lr.ph109:                                        ; preds = %.preheader93
   %34 = add nsw i64 %indvars.iv146, -3
   %35 = mul nsw i64 %34, %23
   %36 = mul nsw i64 %34, %22
-  %37 = zext nneg i32 %.183.lcssa to i64
+  %37 = zext nneg i32 %.1.lcssa to i64
   %invariant.gep = getelementptr i8, ptr %0, i64 %35
   %invariant.gep156 = getelementptr i8, ptr %2, i64 %36
   br label %44
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.3105 = phi double [ %40, %.lr.ph ], [ %.2117, %.lr.ph.preheader ]
-  %.183104 = phi i32 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.1105 = phi i32 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.385104 = phi double [ %40, %.lr.ph ], [ %.284116, %.lr.ph.preheader ]
   %38 = load ptr, ptr @VP8SSIMGetClipped, align 8
-  %39 = tail call double %38(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.183104, i32 noundef %24, i32 noundef %4, i32 noundef %5) #5
-  %40 = fadd double %.3105, %39
-  %41 = add nuw nsw i32 %.183104, 1
+  %39 = tail call double %38(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.1105, i32 noundef %24, i32 noundef %4, i32 noundef %5) #5
+  %40 = fadd double %.385104, %39
+  %41 = add nuw nsw i32 %.1105, 1
   %exitcond142.not = icmp eq i32 %41, %7
   br i1 %exitcond142.not, label %.preheader93, label %.lr.ph, !llvm.loop !13
 
 .preheader92:                                     ; preds = %44, %.preheader93
-  %.284.lcssa = phi i32 [ %.183.lcssa, %.preheader93 ], [ %8, %44 ]
-  %.4.lcssa = phi double [ %.3.lcssa, %.preheader93 ], [ %48, %44 ]
-  %42 = icmp slt i32 %.284.lcssa, %4
+  %.486.lcssa = phi double [ %.385.lcssa, %.preheader93 ], [ %48, %44 ]
+  %.2.lcssa = phi i32 [ %.1.lcssa, %.preheader93 ], [ %8, %44 ]
+  %42 = icmp slt i32 %.2.lcssa, %4
   br i1 %42, label %.lr.ph114.preheader, label %._crit_edge
 
 .lr.ph114.preheader:                              ; preds = %.preheader92
@@ -298,36 +298,36 @@ define internal double @AccumulateSSIM(ptr noundef %0, i32 noundef %1, ptr nound
 
 44:                                               ; preds = %.lr.ph109, %44
   %indvars.iv = phi i64 [ %37, %.lr.ph109 ], [ %indvars.iv.next, %44 ]
-  %.4108 = phi double [ %.3.lcssa, %.lr.ph109 ], [ %48, %44 ]
+  %.486107 = phi double [ %.385.lcssa, %.lr.ph109 ], [ %48, %44 ]
   %45 = add nsw i64 %indvars.iv, -3
   %46 = load ptr, ptr @VP8SSIMGet, align 8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %45
   %gep157 = getelementptr i8, ptr %invariant.gep156, i64 %45
   %47 = tail call double %46(ptr noundef %gep, i32 noundef %1, ptr noundef %gep157, i32 noundef %3) #5
-  %48 = fadd double %.4108, %47
+  %48 = fadd double %.486107, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond144.not, label %.preheader92, label %44, !llvm.loop !14
 
 .lr.ph114:                                        ; preds = %.lr.ph114.preheader, %.lr.ph114
-  %.5113 = phi double [ %51, %.lr.ph114 ], [ %.4.lcssa, %.lr.ph114.preheader ]
-  %.385112 = phi i32 [ %52, %.lr.ph114 ], [ %.284.lcssa, %.lr.ph114.preheader ]
+  %.3113 = phi i32 [ %52, %.lr.ph114 ], [ %.2.lcssa, %.lr.ph114.preheader ]
+  %.5112 = phi double [ %51, %.lr.ph114 ], [ %.486.lcssa, %.lr.ph114.preheader ]
   %49 = load ptr, ptr @VP8SSIMGetClipped, align 8
-  %50 = tail call double %49(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.385112, i32 noundef %43, i32 noundef %4, i32 noundef %5) #5
-  %51 = fadd double %.5113, %50
-  %52 = add i32 %.385112, 1
+  %50 = tail call double %49(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.3113, i32 noundef %43, i32 noundef %4, i32 noundef %5) #5
+  %51 = fadd double %.5112, %50
+  %52 = add i32 %.3113, 1
   %exitcond145.not = icmp eq i32 %52, %4
   br i1 %exitcond145.not, label %._crit_edge, label %.lr.ph114, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph114, %.preheader92
-  %.5.lcssa = phi double [ %.4.lcssa, %.preheader92 ], [ %51, %.lr.ph114 ]
+  %.5.lcssa = phi double [ %.486.lcssa, %.preheader92 ], [ %51, %.lr.ph114 ]
   %indvars.iv.next147 = add nsw i64 %indvars.iv146, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next147 to i32
   %exitcond149.not = icmp eq i32 %10, %lftr.wideiv
   br i1 %exitcond149.not, label %.preheader91, label %.preheader94, !llvm.loop !16
 
 ._crit_edge127:                                   ; preds = %._crit_edge123.us, %.preheader91
-  %.6.lcssa = phi double [ %.2.lcssa, %.preheader91 ], [ %30, %._crit_edge123.us ]
+  %.6.lcssa = phi double [ %.284.lcssa, %.preheader91 ], [ %30, %._crit_edge123.us ]
   ret double %.6.lcssa
 }
 
@@ -347,7 +347,7 @@ define internal double @AccumulateLSIM(ptr nocapture noundef readonly %0, i32 no
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv90 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next91, %._crit_edge.us ]
-  %.04668.us = phi double [ 0.000000e+00, %.lr.ph.us.preheader ], [ %.us-phi66.us, %._crit_edge.us ]
+  %.04467.us = phi double [ 0.000000e+00, %.lr.ph.us.preheader ], [ %.us-phi66.us, %._crit_edge.us ]
   %11 = trunc nuw nsw i64 %indvars.iv90 to i32
   %smax82 = tail call i32 @llvm.smax.i32(i32 %11, i32 2)
   %12 = zext nneg i32 %smax82 to i64
@@ -367,8 +367,8 @@ define internal double @AccumulateLSIM(ptr nocapture noundef readonly %0, i32 no
 
 .lr.ph.split.us76:                                ; preds = %.lr.ph.us, %.lr.ph.split.us76
   %.061.us73 = phi i32 [ %22, %.lr.ph.split.us76 ], [ 0, %.lr.ph.us ]
-  %.14760.us74 = phi double [ %21, %.lr.ph.split.us76 ], [ %.04668.us, %.lr.ph.us ]
-  %21 = fadd double %.14760.us74, 6.502500e+04
+  %.160.us74 = phi double [ %21, %.lr.ph.split.us76 ], [ %.04467.us, %.lr.ph.us ]
+  %21 = fadd double %.160.us74, 6.502500e+04
   %22 = add nuw nsw i32 %.061.us73, 1
   %exitcond.not = icmp eq i32 %22, %4
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us76, !llvm.loop !17
@@ -381,7 +381,7 @@ define internal double @AccumulateLSIM(ptr nocapture noundef readonly %0, i32 no
 
 .lr.ph57.us.us:                                   ; preds = %.lr.ph57.us.us.preheader, %._crit_edge58.us.us
   %indvars.iv86 = phi i64 [ 0, %.lr.ph57.us.us.preheader ], [ %indvars.iv.next87, %._crit_edge58.us.us ]
-  %.14760.us.us = phi double [ %.04668.us, %.lr.ph57.us.us.preheader ], [ %34, %._crit_edge58.us.us ]
+  %.160.us.us = phi double [ %.04467.us, %.lr.ph57.us.us.preheader ], [ %34, %._crit_edge58.us.us ]
   %23 = trunc nuw nsw i64 %indvars.iv86 to i32
   %smax = tail call i32 @llvm.smax.i32(i32 %23, i32 2)
   %24 = zext nneg i32 %smax to i64
@@ -402,28 +402,28 @@ define internal double @AccumulateLSIM(ptr nocapture noundef readonly %0, i32 no
 
 ._crit_edge58.us.us:                              ; preds = %._crit_edge.us.us.us, %.lr.ph57.us.us
   %.us-phi.us.us = phi double [ 6.502500e+04, %.lr.ph57.us.us ], [ %.2.us.us.us, %._crit_edge.us.us.us ]
-  %34 = fadd double %.14760.us.us, %.us-phi.us.us
+  %34 = fadd double %.160.us.us, %.us-phi.us.us
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
   br i1 %exitcond89.not, label %._crit_edge.us, label %.lr.ph57.us.us, !llvm.loop !17
 
 .lr.ph.us.us.us:                                  ; preds = %.lr.ph.us.us.us.preheader, %._crit_edge.us.us.us
   %indvars.iv83 = phi i64 [ %13, %.lr.ph.us.us.us.preheader ], [ %indvars.iv.next84, %._crit_edge.us.us.us ]
-  %.04554.us.us.us = phi double [ 6.502500e+04, %.lr.ph.us.us.us.preheader ], [ %.2.us.us.us, %._crit_edge.us.us.us ]
+  %.04754.us.us.us = phi double [ 6.502500e+04, %.lr.ph.us.us.us.preheader ], [ %.2.us.us.us, %._crit_edge.us.us.us ]
   %35 = mul nsw i64 %indvars.iv83, %9
   %36 = getelementptr inbounds i8, ptr %0, i64 %35
   br label %37
 
 37:                                               ; preds = %37, %.lr.ph.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ %25, %.lr.ph.us.us.us ]
-  %.152.us.us.us = phi double [ %.2.us.us.us, %37 ], [ %.04554.us.us.us, %.lr.ph.us.us.us ]
+  %.14852.us.us.us = phi double [ %.2.us.us.us, %37 ], [ %.04754.us.us.us, %.lr.ph.us.us.us ]
   %38 = getelementptr inbounds i8, ptr %36, i64 %indvars.iv
   %39 = load i8, ptr %38, align 1
   %40 = uitofp i8 %39 to double
   %41 = fsub double %40, %31
   %42 = fmul double %41, %41
-  %43 = fcmp olt double %42, %.152.us.us.us
-  %.2.us.us.us = select i1 %43, double %42, double %.152.us.us.us
+  %43 = fcmp olt double %42, %.14852.us.us.us
+  %.2.us.us.us = select i1 %43, double %42, double %.14852.us.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = icmp slt i64 %indvars.iv.next, %33
   br i1 %44, label %37, label %._crit_edge.us.us.us, !llvm.loop !19
@@ -434,8 +434,8 @@ define internal double @AccumulateLSIM(ptr nocapture noundef readonly %0, i32 no
   br i1 %45, label %.lr.ph.us.us.us, label %._crit_edge58.us.us, !llvm.loop !20
 
 ._crit_edge71:                                    ; preds = %._crit_edge.us, %6
-  %.046.lcssa = phi double [ 0.000000e+00, %6 ], [ %.us-phi66.us, %._crit_edge.us ]
-  ret double %.046.lcssa
+  %.044.lcssa = phi double [ 0.000000e+00, %6 ], [ %.us-phi66.us, %._crit_edge.us ]
+  ret double %.044.lcssa
 }
 
 declare void @VP8SSIMDspInit() local_unnamed_addr #2
@@ -526,8 +526,8 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
 
 49:                                               ; preds = %42, %62
   %indvars.iv = phi i64 [ 0, %42 ], [ %indvars.iv.next, %62 ]
-  %.04159 = phi double [ 0.000000e+00, %42 ], [ %65, %62 ]
-  %.04258 = phi double [ 0.000000e+00, %42 ], [ %66, %62 ]
+  %.04358 = phi double [ 0.000000e+00, %42 ], [ %65, %62 ]
+  %.04457 = phi double [ 0.000000e+00, %42 ], [ %66, %62 ]
   %50 = load i32, ptr %43, align 8
   %51 = sext i32 %50 to i64
   %52 = shl nsw i64 %51, 2
@@ -546,8 +546,8 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
 62:                                               ; preds = %49
   %63 = load float, ptr %7, align 4
   %64 = fpext float %63 to double
-  %65 = fadd double %.04159, %64
-  %66 = fadd double %.04258, %48
+  %65 = fadd double %.04358, %64
+  %66 = fadd double %.04457, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %67, label %49, !llvm.loop !21
@@ -591,13 +591,13 @@ GetLogSSIM.exit:                                  ; preds = %81, %78, %74, %69
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %40, %35, %30, %26, %GetLogSSIM.exit
-  %.043 = phi i32 [ 1, %GetLogSSIM.exit ], [ 0, %40 ], [ 0, %35 ], [ 0, %30 ], [ 0, %26 ], [ 0, %49 ]
+  %.042 = phi i32 [ 1, %GetLogSSIM.exit ], [ 0, %40 ], [ 0, %35 ], [ 0, %30 ], [ 0, %26 ], [ 0, %49 ]
   call void @WebPPictureFree(ptr noundef nonnull %5) #5
   call void @WebPPictureFree(ptr noundef nonnull %6) #5
   br label %89
 
 89:                                               ; preds = %22, %24, %4, %10, %15, %.loopexit
-  %.0 = phi i32 [ %.043, %.loopexit ], [ 0, %15 ], [ 0, %10 ], [ 0, %4 ], [ 0, %24 ], [ 0, %22 ]
+  %.0 = phi i32 [ %.042, %.loopexit ], [ 0, %15 ], [ 0, %10 ], [ 0, %4 ], [ 0, %24 ], [ 0, %22 ]
   ret i32 %.0
 }
 

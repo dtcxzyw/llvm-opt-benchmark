@@ -422,8 +422,8 @@ if.then23.i.i:                                    ; preds = %land.lhs.true.i.i
   br label %if.end26.i.i
 
 if.end26.i.i:                                     ; preds = %if.then23.i.i, %land.lhs.true.i.i, %if.end16.i.i, %locale_is_ascii.exit66.i.i
-  %oldloc.0.i.i = phi ptr [ %call12.i.i, %if.then23.i.i ], [ null, %locale_is_ascii.exit66.i.i ], [ %call12.i.i, %if.end16.i.i ], [ %call12.i.i, %land.lhs.true.i.i ]
   %loc.1.i.i = phi i1 [ false, %if.then23.i.i ], [ true, %locale_is_ascii.exit66.i.i ], [ true, %if.end16.i.i ], [ true, %land.lhs.true.i.i ]
+  %oldloc.0.i.i = phi ptr [ %call12.i.i, %if.then23.i.i ], [ null, %locale_is_ascii.exit66.i.i ], [ %call12.i.i, %if.end16.i.i ], [ %call12.i.i, %land.lhs.true.i.i ]
   %9 = load ptr, ptr %int_curr_symbol.i.i, align 8
   %call28.i.i = tail call ptr @PyUnicode_DecodeLocale(ptr noundef %9, ptr noundef null) #6
   %cmp29.i.i = icmp eq ptr %call28.i.i, null

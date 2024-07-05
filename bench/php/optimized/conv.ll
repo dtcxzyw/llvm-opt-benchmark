@@ -187,45 +187,45 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
   br label %8
 
 8:                                                ; preds = %7, %2
-  %.066 = phi i1 [ false, %2 ], [ true, %7 ]
+  %.071 = phi i1 [ false, %2 ], [ true, %7 ]
   %9 = getelementptr inbounds i8, ptr %4, i64 1
   store ptr %9, ptr %0, align 8
   br label %10
 
 10:                                               ; preds = %2, %8
   %11 = phi ptr [ %4, %2 ], [ %9, %8 ]
-  %.167 = phi i1 [ false, %2 ], [ %.066, %8 ]
+  %.172 = phi i1 [ false, %2 ], [ %.071, %8 ]
   %12 = icmp ult ptr %11, %5
   br i1 %12, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %10, %21
-  %.068.ptr.ptr97 = phi ptr [ %.068.ptr.ptr, %21 ], [ %3, %10 ]
-  %.096 = phi ptr [ %22, %21 ], [ %11, %10 ]
-  %.068.idx95 = phi i64 [ %.169.idx, %21 ], [ 0, %10 ]
-  %.07394 = phi i32 [ %.174, %21 ], [ 0, %10 ]
-  %13 = load i8, ptr %.096, align 1
+  %.073.ptr.ptr97 = phi ptr [ %.073.ptr.ptr, %21 ], [ %3, %10 ]
+  %.06496 = phi ptr [ %22, %21 ], [ %11, %10 ]
+  %.073.idx95 = phi i64 [ %.174.idx, %21 ], [ 0, %10 ]
+  %.07894 = phi i32 [ %.179, %21 ], [ 0, %10 ]
+  %13 = load i8, ptr %.06496, align 1
   %14 = add i8 %13, -58
   %15 = icmp ult i8 %14, -10
   br i1 %15, label %24, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = icmp slt i64 %.068.idx95, 128
+  %17 = icmp slt i64 %.073.idx95, 128
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %16
-  %.068.add = add nsw i64 %.068.idx95, 1
-  store i8 %13, ptr %.068.ptr.ptr97, align 1
+  %.073.add = add nsw i64 %.073.idx95, 1
+  store i8 %13, ptr %.073.ptr.ptr97, align 1
   br label %21
 
 19:                                               ; preds = %16
-  %20 = add nsw i32 %.07394, 1
+  %20 = add nsw i32 %.07894, 1
   br label %21
 
 21:                                               ; preds = %18, %19
-  %.174 = phi i32 [ %.07394, %18 ], [ %20, %19 ]
-  %.169.idx = phi i64 [ %.068.add, %18 ], [ %.068.idx95, %19 ]
-  %22 = getelementptr inbounds i8, ptr %.096, i64 1
-  %.068.ptr.ptr = getelementptr inbounds i8, ptr %3, i64 %.169.idx
+  %.179 = phi i32 [ %.07894, %18 ], [ %20, %19 ]
+  %.174.idx = phi i64 [ %.073.add, %18 ], [ %.073.idx95, %19 ]
+  %22 = getelementptr inbounds i8, ptr %.06496, i64 1
+  %.073.ptr.ptr = getelementptr inbounds i8, ptr %3, i64 %.174.idx
   %23 = icmp ult ptr %22, %5
   br i1 %23, label %.lr.ph, label %.critedge
 
@@ -234,57 +234,57 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
   br i1 %25, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %24
-  %.1100 = getelementptr inbounds i8, ptr %.096, i64 1
-  %.270.ptr101 = getelementptr inbounds i8, ptr %3, i64 %.068.idx95
-  %26 = icmp ult ptr %.1100, %5
+  %.165100 = getelementptr inbounds i8, ptr %.06496, i64 1
+  %.275.ptr101 = getelementptr inbounds i8, ptr %3, i64 %.073.idx95
+  %26 = icmp ult ptr %.165100, %5
   br i1 %26, label %.lr.ph106, label %.critedge
 
 .lr.ph106:                                        ; preds = %.preheader, %34
-  %.270.ptr105 = phi ptr [ %.270.ptr, %34 ], [ %.270.ptr101, %.preheader ]
-  %.1104 = phi ptr [ %.1, %34 ], [ %.1100, %.preheader ]
-  %.270.idx103 = phi i64 [ %.371.idx, %34 ], [ %.068.idx95, %.preheader ]
-  %.076102 = phi i32 [ %.177, %34 ], [ 0, %.preheader ]
-  %27 = load i8, ptr %.1104, align 1
+  %.275.ptr105 = phi ptr [ %.275.ptr, %34 ], [ %.275.ptr101, %.preheader ]
+  %.165104 = phi ptr [ %.165, %34 ], [ %.165100, %.preheader ]
+  %.0103 = phi i32 [ %.1, %34 ], [ 0, %.preheader ]
+  %.275.idx102 = phi i64 [ %.376.idx, %34 ], [ %.073.idx95, %.preheader ]
+  %27 = load i8, ptr %.165104, align 1
   %28 = add i8 %27, -58
   %29 = icmp ult i8 %28, -10
   br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %.lr.ph106
-  %31 = icmp slt i64 %.270.idx103, 128
+  %31 = icmp slt i64 %.275.idx102, 128
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %30
-  %.270.add = add nsw i64 %.270.idx103, 1
-  store i8 %27, ptr %.270.ptr105, align 1
-  %33 = add nsw i32 %.076102, -1
+  %.275.add = add nsw i64 %.275.idx102, 1
+  store i8 %27, ptr %.275.ptr105, align 1
+  %33 = add nsw i32 %.0103, -1
   br label %34
 
 34:                                               ; preds = %32, %30
-  %.177 = phi i32 [ %33, %32 ], [ %.076102, %30 ]
-  %.371.idx = phi i64 [ %.270.add, %32 ], [ %.270.idx103, %30 ]
-  %.1 = getelementptr inbounds i8, ptr %.1104, i64 1
-  %.270.ptr = getelementptr inbounds i8, ptr %3, i64 %.371.idx
-  %35 = icmp ult ptr %.1, %5
+  %.376.idx = phi i64 [ %.275.add, %32 ], [ %.275.idx102, %30 ]
+  %.1 = phi i32 [ %33, %32 ], [ %.0103, %30 ]
+  %.165 = getelementptr inbounds i8, ptr %.165104, i64 1
+  %.275.ptr = getelementptr inbounds i8, ptr %3, i64 %.376.idx
+  %35 = icmp ult ptr %.165, %5
   br i1 %35, label %.lr.ph106, label %.critedge
 
 .critedge:                                        ; preds = %21, %.lr.ph106, %34, %10, %.preheader, %24
-  %.07393 = phi i32 [ %.07394, %24 ], [ %.07394, %.preheader ], [ 0, %10 ], [ %.07394, %34 ], [ %.07394, %.lr.ph106 ], [ %.174, %21 ]
-  %.278 = phi i32 [ 0, %24 ], [ 0, %.preheader ], [ 0, %10 ], [ %.076102, %.lr.ph106 ], [ %.177, %34 ], [ 0, %21 ]
-  %.472 = phi ptr [ %.068.ptr.ptr97, %24 ], [ %.270.ptr101, %.preheader ], [ %3, %10 ], [ %.270.ptr105, %.lr.ph106 ], [ %.270.ptr, %34 ], [ %.068.ptr.ptr, %21 ]
-  %.2 = phi ptr [ %.096, %24 ], [ %.1100, %.preheader ], [ %11, %10 ], [ %.1104, %.lr.ph106 ], [ %.1, %34 ], [ %22, %21 ]
-  %36 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.07893 = phi i32 [ %.07894, %24 ], [ %.07894, %.preheader ], [ 0, %10 ], [ %.07894, %34 ], [ %.07894, %.lr.ph106 ], [ %.179, %21 ]
+  %.477 = phi ptr [ %.073.ptr.ptr97, %24 ], [ %.275.ptr101, %.preheader ], [ %3, %10 ], [ %.275.ptr105, %.lr.ph106 ], [ %.275.ptr, %34 ], [ %.073.ptr.ptr, %21 ]
+  %.266 = phi ptr [ %.06496, %24 ], [ %.165100, %.preheader ], [ %11, %10 ], [ %.165104, %.lr.ph106 ], [ %.165, %34 ], [ %22, %21 ]
+  %.2 = phi i32 [ 0, %24 ], [ 0, %.preheader ], [ 0, %10 ], [ %.0103, %.lr.ph106 ], [ %.1, %34 ], [ 0, %21 ]
+  %36 = getelementptr inbounds i8, ptr %.266, i64 1
   %37 = icmp ult ptr %36, %5
   br i1 %37, label %38, label %64
 
 38:                                               ; preds = %.critedge
-  %39 = load i8, ptr %.2, align 1
+  %39 = load i8, ptr %.266, align 1
   switch i8 %39, label %64 [
     i8 101, label %40
     i8 69, label %40
   ]
 
 40:                                               ; preds = %38, %38
-  %41 = getelementptr inbounds i8, ptr %.2, i64 2
+  %41 = getelementptr inbounds i8, ptr %.266, i64 2
   %42 = icmp ult ptr %41, %5
   br i1 %42, label %43, label %46
 
@@ -302,55 +302,55 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
   br label %46
 
 46:                                               ; preds = %43, %.fold.split, %45, %40
-  %.065 = phi i1 [ false, %45 ], [ false, %40 ], [ true, %43 ], [ false, %.fold.split ]
-  %.063 = phi ptr [ %41, %45 ], [ %36, %40 ], [ %41, %43 ], [ %36, %.fold.split ]
-  %47 = load i8, ptr %.063, align 1
+  %.070 = phi i1 [ false, %45 ], [ false, %40 ], [ true, %43 ], [ false, %.fold.split ]
+  %.068 = phi ptr [ %41, %45 ], [ %36, %40 ], [ %41, %43 ], [ %36, %.fold.split ]
+  %47 = load i8, ptr %.068, align 1
   %48 = add i8 %47, -48
   %49 = icmp ult i8 %48, 10
   br i1 %49, label %50, label %64
 
 50:                                               ; preds = %46
   %51 = zext nneg i8 %48 to i32
-  %.3114 = getelementptr inbounds i8, ptr %.063, i64 1
-  %52 = icmp ult ptr %.3114, %5
+  %.367114 = getelementptr inbounds i8, ptr %.068, i64 1
+  %52 = icmp ult ptr %.367114, %5
   br i1 %52, label %.lr.ph117, label %._crit_edge
 
 .lr.ph117:                                        ; preds = %50, %56
-  %.3116 = phi ptr [ %.3, %56 ], [ %.3114, %50 ]
-  %.075115 = phi i32 [ %59, %56 ], [ %51, %50 ]
-  %53 = load i8, ptr %.3116, align 1
+  %.367116 = phi ptr [ %.367, %56 ], [ %.367114, %50 ]
+  %.063115 = phi i32 [ %59, %56 ], [ %51, %50 ]
+  %53 = load i8, ptr %.367116, align 1
   %54 = add i8 %53, -48
   %55 = icmp ugt i8 %54, 9
   br i1 %55, label %._crit_edge, label %56
 
 56:                                               ; preds = %.lr.ph117
   %57 = zext nneg i8 %54 to i32
-  %58 = mul nsw i32 %.075115, 10
+  %58 = mul nsw i32 %.063115, 10
   %59 = add nsw i32 %58, %57
-  %.3 = getelementptr inbounds i8, ptr %.3116, i64 1
-  %60 = icmp ult ptr %.3, %5
+  %.367 = getelementptr inbounds i8, ptr %.367116, i64 1
+  %60 = icmp ult ptr %.367, %5
   br i1 %60, label %.lr.ph117, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %56, %.lr.ph117, %50
-  %.075.lcssa = phi i32 [ %51, %50 ], [ %.075115, %.lr.ph117 ], [ %59, %56 ]
-  %.3.lcssa = phi ptr [ %.3114, %50 ], [ %.3116, %.lr.ph117 ], [ %.3, %56 ]
-  %61 = sub nsw i32 0, %.075.lcssa
-  %62 = select i1 %.065, i32 %61, i32 %.075.lcssa
-  %63 = add nsw i32 %62, %.278
+  %.063.lcssa = phi i32 [ %51, %50 ], [ %.063115, %.lr.ph117 ], [ %59, %56 ]
+  %.367.lcssa = phi ptr [ %.367114, %50 ], [ %.367116, %.lr.ph117 ], [ %.367, %56 ]
+  %61 = sub nsw i32 0, %.063.lcssa
+  %62 = select i1 %.070, i32 %61, i32 %.063.lcssa
+  %63 = add nsw i32 %62, %.2
   br label %64
 
 64:                                               ; preds = %38, %46, %._crit_edge, %.critedge
-  %.379 = phi i32 [ %63, %._crit_edge ], [ %.278, %46 ], [ %.278, %.critedge ], [ %.278, %38 ]
-  %.4 = phi ptr [ %.3.lcssa, %._crit_edge ], [ %.2, %46 ], [ %.2, %.critedge ], [ %.2, %38 ]
+  %.4 = phi ptr [ %.367.lcssa, %._crit_edge ], [ %.266, %46 ], [ %.266, %.critedge ], [ %.266, %38 ]
+  %.3 = phi i32 [ %63, %._crit_edge ], [ %.2, %46 ], [ %.2, %.critedge ], [ %.2, %38 ]
   store ptr %.4, ptr %0, align 8
-  %65 = add nsw i32 %.379, %.07393
-  %66 = ptrtoint ptr %.472 to i64
+  %65 = add nsw i32 %.3, %.07893
+  %66 = ptrtoint ptr %.477 to i64
   %67 = ptrtoint ptr %3 to i64
   %68 = sub i64 %66, %67
   %69 = call double @lexbor_strtod_internal(ptr noundef nonnull %3, i64 noundef %68, i32 noundef %65) #5
   %70 = fneg double %69
-  %.064 = select i1 %.167, double %70, double %69
-  ret double %.064
+  %.069 = select i1 %.172, double %70, double %69
+  ret double %.069
 }
 
 declare double @lexbor_strtod_internal(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
@@ -364,8 +364,8 @@ define hidden i64 @lexbor_conv_data_to_ulong(ptr nocapture noundef %0, i64 nound
 
 .lr.ph:                                           ; preds = %2, %16
   %.028 = phi i64 [ %12, %16 ], [ 0, %2 ]
-  %.02027 = phi ptr [ %17, %16 ], [ %3, %2 ]
-  %6 = load i8, ptr %.02027, align 1
+  %.02127 = phi ptr [ %17, %16 ], [ %3, %2 ]
+  %6 = load i8, ptr %.02127, align 1
   %7 = add i8 %6, -58
   %or.cond = icmp ult i8 %7, -10
   br i1 %or.cond, label %.loopexit, label %8
@@ -379,17 +379,17 @@ define hidden i64 @lexbor_conv_data_to_ulong(ptr nocapture noundef %0, i64 nound
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %.02027, i64 -1
+  %15 = getelementptr inbounds i8, ptr %.02127, i64 -1
   br label %.loopexit
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %.02027, i64 1
+  %17 = getelementptr inbounds i8, ptr %.02127, i64 1
   %18 = icmp ult ptr %17, %4
   br i1 %18, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %16, %.lr.ph, %2, %14
   %.025 = phi i64 [ %.028, %14 ], [ 0, %2 ], [ %12, %16 ], [ %.028, %.lr.ph ]
-  %storemerge = phi ptr [ %15, %14 ], [ %3, %2 ], [ %17, %16 ], [ %.02027, %.lr.ph ]
+  %storemerge = phi ptr [ %15, %14 ], [ %3, %2 ], [ %17, %16 ], [ %.02127, %.lr.ph ]
   store ptr %storemerge, ptr %0, align 8
   ret i64 %.025
 }
@@ -408,20 +408,20 @@ define hidden i64 @lexbor_conv_data_to_long(ptr nocapture noundef %0, i64 nounde
   br label %7
 
 7:                                                ; preds = %6, %2
-  %.020 = phi i1 [ false, %2 ], [ true, %6 ]
+  %.019 = phi i1 [ false, %2 ], [ true, %6 ]
   %8 = getelementptr inbounds i8, ptr %3, i64 1
   br label %9
 
 9:                                                ; preds = %2, %7
-  %.121 = phi i1 [ false, %2 ], [ %.020, %7 ]
-  %.019 = phi ptr [ %3, %2 ], [ %8, %7 ]
-  %10 = icmp ult ptr %.019, %4
+  %.020 = phi ptr [ %3, %2 ], [ %8, %7 ]
+  %.1 = phi i1 [ false, %2 ], [ %.019, %7 ]
+  %10 = icmp ult ptr %.020, %4
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %9, %21
   %.028 = phi i64 [ %17, %21 ], [ 0, %9 ]
-  %.127 = phi ptr [ %22, %21 ], [ %.019, %9 ]
-  %11 = load i8, ptr %.127, align 1
+  %.12127 = phi ptr [ %22, %21 ], [ %.020, %9 ]
+  %11 = load i8, ptr %.12127, align 1
   %12 = add i8 %11, -58
   %or.cond = icmp ult i8 %12, -10
   br i1 %or.cond, label %.loopexit, label %13
@@ -435,20 +435,20 @@ define hidden i64 @lexbor_conv_data_to_long(ptr nocapture noundef %0, i64 nounde
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %.127, i64 -1
+  %20 = getelementptr inbounds i8, ptr %.12127, i64 -1
   br label %.loopexit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %.127, i64 1
+  %22 = getelementptr inbounds i8, ptr %.12127, i64 1
   %23 = icmp ult ptr %22, %4
   br i1 %23, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %21, %.lr.ph, %9, %19
   %.025 = phi i64 [ %.028, %19 ], [ 0, %9 ], [ %17, %21 ], [ %.028, %.lr.ph ]
-  %.2 = phi ptr [ %20, %19 ], [ %.019, %9 ], [ %22, %21 ], [ %.127, %.lr.ph ]
+  %.2 = phi ptr [ %20, %19 ], [ %.020, %9 ], [ %22, %21 ], [ %.12127, %.lr.ph ]
   store ptr %.2, ptr %0, align 8
   %24 = sub nsw i64 0, %.025
-  %25 = select i1 %.121, i64 %24, i64 %.025
+  %25 = select i1 %.1, i64 %24, i64 %.025
   ret i64 %25
 }
 
@@ -461,8 +461,8 @@ define hidden i32 @lexbor_conv_data_to_uint(ptr nocapture noundef %0, i64 nounde
 
 .lr.ph:                                           ; preds = %2, %16
   %.028 = phi i32 [ %12, %16 ], [ 0, %2 ]
-  %.02027 = phi ptr [ %17, %16 ], [ %3, %2 ]
-  %6 = load i8, ptr %.02027, align 1
+  %.02127 = phi ptr [ %17, %16 ], [ %3, %2 ]
+  %6 = load i8, ptr %.02127, align 1
   %7 = add i8 %6, -58
   %or.cond = icmp ult i8 %7, -10
   br i1 %or.cond, label %.loopexit, label %8
@@ -476,17 +476,17 @@ define hidden i32 @lexbor_conv_data_to_uint(ptr nocapture noundef %0, i64 nounde
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %.02027, i64 -1
+  %15 = getelementptr inbounds i8, ptr %.02127, i64 -1
   br label %.loopexit
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %.02027, i64 1
+  %17 = getelementptr inbounds i8, ptr %.02127, i64 1
   %18 = icmp ult ptr %17, %4
   br i1 %18, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %16, %.lr.ph, %2, %14
   %.025 = phi i32 [ %.028, %14 ], [ 0, %2 ], [ %12, %16 ], [ %.028, %.lr.ph ]
-  %storemerge = phi ptr [ %15, %14 ], [ %3, %2 ], [ %17, %16 ], [ %.02027, %.lr.ph ]
+  %storemerge = phi ptr [ %15, %14 ], [ %3, %2 ], [ %17, %16 ], [ %.02127, %.lr.ph ]
   store ptr %storemerge, ptr %0, align 8
   ret i32 %.025
 }

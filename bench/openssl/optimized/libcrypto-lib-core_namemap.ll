@@ -654,21 +654,21 @@ for.cond40.preheader:                             ; preds = %for.inc
   br i1 %cmp4144, label %for.body43, label %end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %p.042 = phi ptr [ %call, %for.body.lr.ph ], [ %q.060, %for.inc ]
-  %number.addr.041 = phi i32 [ %number, %for.body.lr.ph ], [ %number.addr.1, %for.inc ]
-  %call17 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.042, i32 noundef %conv16) #8
+  %number.addr.042 = phi i32 [ %number, %for.body.lr.ph ], [ %number.addr.1, %for.inc ]
+  %p.041 = phi ptr [ %call, %for.body.lr.ph ], [ %q.060, %for.inc ]
+  %call17 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.041, i32 noundef %conv16) #8
   %cmp18 = icmp eq ptr %call17, null
   br i1 %cmp18, label %if.end22.thread, label %if.end22
 
 if.end22.thread:                                  ; preds = %for.body
-  %call21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p.042) #8
-  %add.ptr = getelementptr inbounds i8, ptr %p.042, i64 %call21
+  %call21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p.041) #8
+  %add.ptr = getelementptr inbounds i8, ptr %p.041, i64 %call21
   br label %if.end27
 
 if.end22:                                         ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %call17, i64 1
   store i8 0, ptr %call17, align 1
-  %.pre = load i8, ptr %p.042, align 1
+  %.pre = load i8, ptr %p.041, align 1
   %cmp24 = icmp eq i8 %.pre, 0
   br i1 %cmp24, label %if.then26, label %if.end27
 
@@ -682,7 +682,7 @@ if.end27:                                         ; preds = %if.end22.thread, %i
   %q.060 = phi ptr [ %add.ptr, %if.end22.thread ], [ %incdec.ptr, %if.end22 ]
   %namemap.val = load ptr, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %namenum_tmpl.i)
-  store ptr %p.042, ptr %namenum_tmpl.i, align 8
+  store ptr %p.041, ptr %namenum_tmpl.i, align 8
   store i32 0, ptr %number.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %namemap.val, ptr noundef nonnull %namenum_tmpl.i) #7
   %cmp.not.i = icmp eq ptr %call.i.i, null
@@ -696,49 +696,49 @@ cond.true.i:                                      ; preds = %if.end27
 namemap_name2num.exit:                            ; preds = %if.end27, %cond.true.i
   %cond.i = phi i32 [ %3, %cond.true.i ], [ 0, %if.end27 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %namenum_tmpl.i)
-  %cmp29 = icmp eq i32 %number.addr.041, 0
+  %cmp29 = icmp eq i32 %number.addr.042, 0
   br i1 %cmp29, label %for.inc, label %if.else32
 
 if.else32:                                        ; preds = %namemap_name2num.exit
   %cmp33.not = icmp eq i32 %cond.i, 0
-  %cmp35.not = icmp eq i32 %cond.i, %number.addr.041
+  %cmp35.not = icmp eq i32 %cond.i, %number.addr.042
   %or.cond = select i1 %cmp33.not, i1 true, i1 %cmp35.not
   br i1 %or.cond, label %for.inc, label %if.then37
 
 if.then37:                                        ; preds = %if.else32
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @__func__.ossl_namemap_add_names) #7
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 118, ptr noundef nonnull @.str.1, ptr noundef nonnull %p.042, i32 noundef %cond.i, ptr noundef %names) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 118, ptr noundef nonnull @.str.1, ptr noundef nonnull %p.041, i32 noundef %cond.i, ptr noundef %names) #7
   br label %end
 
 for.inc:                                          ; preds = %namemap_name2num.exit, %if.else32
-  %number.addr.1 = phi i32 [ %number.addr.041, %if.else32 ], [ %cond.i, %namemap_name2num.exit ]
+  %number.addr.1 = phi i32 [ %number.addr.042, %if.else32 ], [ %cond.i, %namemap_name2num.exit ]
   %4 = load i8, ptr %q.060, align 1
   %cmp14.not = icmp eq i8 %4, 0
   br i1 %cmp14.not, label %for.cond40.preheader, label %for.body, !llvm.loop !7
 
 for.body43:                                       ; preds = %for.cond40.preheader, %for.inc58
-  %p.146 = phi ptr [ %add.ptr47, %for.inc58 ], [ %call, %for.cond40.preheader ]
-  %number.addr.245 = phi i32 [ %number.addr.3, %for.inc58 ], [ %number.addr.1, %for.cond40.preheader ]
-  %call45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p.146) #8
-  %add.ptr46 = getelementptr inbounds i8, ptr %p.146, i64 %call45
+  %number.addr.246 = phi i32 [ %number.addr.3, %for.inc58 ], [ %number.addr.1, %for.cond40.preheader ]
+  %p.145 = phi ptr [ %add.ptr47, %for.inc58 ], [ %call, %for.cond40.preheader ]
+  %call45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p.145) #8
+  %add.ptr46 = getelementptr inbounds i8, ptr %p.145, i64 %call45
   %add.ptr47 = getelementptr inbounds i8, ptr %add.ptr46, i64 1
-  %call48 = call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap, i32 noundef %number.addr.245, ptr noundef nonnull %p.146)
-  %cmp49 = icmp eq i32 %number.addr.245, 0
+  %call48 = call fastcc i32 @namemap_add_name(ptr noundef nonnull %namemap, i32 noundef %number.addr.246, ptr noundef nonnull %p.145)
+  %cmp49 = icmp eq i32 %number.addr.246, 0
   br i1 %cmp49, label %for.inc58, label %if.else52
 
 if.else52:                                        ; preds = %for.body43
-  %cmp53.not = icmp eq i32 %call48, %number.addr.245
+  %cmp53.not = icmp eq i32 %call48, %number.addr.246
   br i1 %cmp53.not, label %for.inc58, label %if.then55
 
 if.then55:                                        ; preds = %if.else52
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 361, ptr noundef nonnull @__func__.ossl_namemap_add_names) #7
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786691, ptr noundef nonnull @.str.2, i32 noundef %call48, i32 noundef %number.addr.245) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786691, ptr noundef nonnull @.str.2, i32 noundef %call48, i32 noundef %number.addr.246) #7
   br label %end
 
 for.inc58:                                        ; preds = %for.body43, %if.else52
-  %number.addr.3 = phi i32 [ %number.addr.245, %if.else52 ], [ %call48, %for.body43 ]
+  %number.addr.3 = phi i32 [ %number.addr.246, %if.else52 ], [ %call48, %for.body43 ]
   %cmp41 = icmp ult ptr %add.ptr47, %q.060
   br i1 %cmp41, label %for.body43, label %end, !llvm.loop !8
 

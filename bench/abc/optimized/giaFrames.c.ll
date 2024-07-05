@@ -2303,7 +2303,7 @@ define ptr @Gia_ManUnrollAdd(ptr nocapture noundef %0, i32 noundef %1) local_unn
 
 35:                                               ; preds = %.lr.ph108, %.loopexit
   %indvars.iv112 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next113, %.loopexit ]
-  %.0107 = phi i32 [ 0, %.lr.ph108 ], [ %.3, %.loopexit ]
+  %.052105 = phi i32 [ 0, %.lr.ph108 ], [ %.3, %.loopexit ]
   %36 = load ptr, ptr %24, align 8
   %37 = getelementptr i8, ptr %36, i64 4
   %.val61 = load i32, ptr %37, align 4
@@ -2331,7 +2331,7 @@ define ptr @Gia_ManUnrollAdd(ptr nocapture noundef %0, i32 noundef %1) local_unn
 
 51:                                               ; preds = %.lr.ph104, %Gia_ObjUnrWrite.exit
   %indvars.iv = phi i64 [ %49, %.lr.ph104 ], [ %indvars.iv.next, %Gia_ObjUnrWrite.exit ]
-  %.1103 = phi i32 [ %.0107, %.lr.ph104 ], [ %.2, %Gia_ObjUnrWrite.exit ]
+  %.153101 = phi i32 [ %.052105, %.lr.ph104 ], [ %.2, %Gia_ObjUnrWrite.exit ]
   %52 = load ptr, ptr %25, align 8
   %53 = getelementptr i8, ptr %52, i64 32
   %.val62 = load ptr, ptr %53, align 8
@@ -2378,10 +2378,10 @@ define ptr @Gia_ManUnrollAdd(ptr nocapture noundef %0, i32 noundef %1) local_unn
   br label %Gia_ObjUnrReadCopy0.exit
 
 Gia_ObjUnrReadCopy0.exit:                         ; preds = %58, %64
-  %.08.i.i = phi i32 [ %78, %64 ], [ 0, %58 ]
+  %.0.i.i = phi i32 [ %78, %64 ], [ 0, %58 ]
   %79 = lshr i32 %60, 29
   %.lobit.i = and i32 %79, 1
-  %80 = xor i32 %.08.i.i, %.lobit.i
+  %80 = xor i32 %.0.i.i, %.lobit.i
   %81 = lshr i64 %.val64, 32
   %82 = trunc nuw i64 %81 to i32
   %83 = and i32 %82, 536870911
@@ -2415,11 +2415,11 @@ Gia_ObjUnrReadCopy0.exit:                         ; preds = %58, %64
   br label %Gia_ObjUnrReadCopy1.exit
 
 Gia_ObjUnrReadCopy1.exit:                         ; preds = %Gia_ObjUnrReadCopy0.exit, %85
-  %.08.i.i81 = phi i32 [ %101, %85 ], [ 0, %Gia_ObjUnrReadCopy0.exit ]
+  %.0.i.i81 = phi i32 [ %101, %85 ], [ 0, %Gia_ObjUnrReadCopy0.exit ]
   %102 = lshr i64 %.val64, 61
   %103 = trunc nuw nsw i64 %102 to i32
   %104 = and i32 %103, 1
-  %105 = xor i32 %.08.i.i81, %104
+  %105 = xor i32 %.0.i.i81, %104
   %106 = tail call i32 @Gia_ManHashAnd(ptr noundef %59, i32 noundef %80, i32 noundef %105) #22
   br label %Gia_ObjUnrReadCi.exit
 
@@ -2461,10 +2461,10 @@ Gia_ObjUnrReadCopy1.exit:                         ; preds = %Gia_ObjUnrReadCopy0
   br label %Gia_ObjUnrReadCopy0.exit93
 
 Gia_ObjUnrReadCopy0.exit93:                       ; preds = %108, %113
-  %.08.i.i91 = phi i32 [ %127, %113 ], [ 0, %108 ]
+  %.0.i.i91 = phi i32 [ %127, %113 ], [ 0, %108 ]
   %128 = lshr i32 %109, 29
   %.lobit.i92 = and i32 %128, 1
-  %129 = xor i32 %.08.i.i91, %.lobit.i92
+  %129 = xor i32 %.0.i.i91, %.lobit.i92
   br i1 %48, label %130, label %Gia_ObjUnrReadCi.exit
 
 130:                                              ; preds = %Gia_ObjUnrReadCopy0.exit93
@@ -2637,7 +2637,7 @@ Gia_ObjIsPi.exit.thread.i:                        ; preds = %Gia_ObjIsPi.exit.i,
   br label %Gia_ObjUnrReadCi.exit
 
 Gia_ObjUnrReadCi.exit:                            ; preds = %220, %202, %195, %168, %156, %134, %135, %Gia_ObjUnrReadCopy0.exit93, %138, %Gia_ObjUnrReadCopy1.exit
-  %.2 = phi i32 [ %106, %Gia_ObjUnrReadCopy1.exit ], [ %129, %134 ], [ %129, %135 ], [ %129, %Gia_ObjUnrReadCopy0.exit93 ], [ %.1103, %138 ], [ %167, %156 ], [ %201, %195 ], [ 0, %168 ], [ %230, %220 ], [ 0, %202 ]
+  %.2 = phi i32 [ %106, %Gia_ObjUnrReadCopy1.exit ], [ %129, %134 ], [ %129, %135 ], [ %129, %Gia_ObjUnrReadCopy0.exit93 ], [ %.153101, %138 ], [ %167, %156 ], [ %201, %195 ], [ 0, %168 ], [ %230, %220 ], [ 0, %202 ]
   %.val72 = load ptr, ptr %29, align 8
   %.val73 = load ptr, ptr %28, align 8
   %231 = getelementptr i8, ptr %.val72, i64 8
@@ -2675,7 +2675,7 @@ Gia_ObjUnrWrite.exit:                             ; preds = %.lr.ph.i, %Gia_ObjU
   br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !22
 
 .loopexit:                                        ; preds = %Gia_ObjUnrWrite.exit, %40, %35
-  %.3 = phi i32 [ %.0107, %35 ], [ %.0107, %40 ], [ %.2, %Gia_ObjUnrWrite.exit ]
+  %.3 = phi i32 [ %.052105, %35 ], [ %.052105, %40 ], [ %.2, %Gia_ObjUnrWrite.exit ]
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count
   br i1 %exitcond115.not, label %._crit_edge, label %35, !llvm.loop !23

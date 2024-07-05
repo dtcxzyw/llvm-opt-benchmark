@@ -3180,8 +3180,8 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   br label %dfsfast_r_retreat.exit
 
 dfsfast_r_retreat.exit:                           ; preds = %249, %.critedge2.i, %6, %12, %13, %2, %.loopexit
-  %.048 = phi i32 [ 1, %.loopexit ], [ 0, %2 ], [ 1, %13 ], [ 1, %12 ], [ 1, %6 ], [ 0, %.critedge2.i ], [ 0, %249 ]
-  ret i32 %.048
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %2 ], [ 1, %13 ], [ 1, %12 ], [ 1, %6 ], [ 0, %.critedge2.i ], [ 0, %249 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -3762,8 +3762,8 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   br label %.critedge2
 
 .critedge2:                                       ; preds = %82, %110, %108, %.critedge2.sink.split, %.preheader, %57, %.critedge, %2, %9, %10
-  %.037 = phi i32 [ 1, %10 ], [ 1, %9 ], [ 1, %2 ], [ 0, %.critedge ], [ 0, %57 ], [ 0, %.preheader ], [ 1, %.critedge2.sink.split ], [ 0, %110 ], [ 1, %108 ], [ 1, %82 ]
-  ret i32 %.037
+  %.0 = phi i32 [ 1, %10 ], [ 1, %9 ], [ 1, %2 ], [ 0, %.critedge ], [ 0, %57 ], [ 0, %.preheader ], [ 1, %.critedge2.sink.split ], [ 0, %110 ], [ 1, %108 ], [ 1, %82 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

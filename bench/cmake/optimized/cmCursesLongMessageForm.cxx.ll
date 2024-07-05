@@ -359,14 +359,14 @@ define dso_local void @_ZN23cmCursesLongMessageForm15UpdateStatusBarEv(ptr nound
   %22 = sub nuw nsw i64 512, %spec.store.select
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 32, i64 %22, i1 false)
   %narrow = call i32 @llvm.umin.i32(i32 %17, i32 511)
-  %.021 = zext nneg i32 %narrow to i64
-  %23 = getelementptr inbounds [512 x i8], ptr %2, i64 0, i64 %.021
+  %.022 = zext nneg i32 %narrow to i64
+  %23 = getelementptr inbounds [512 x i8], ptr %2, i64 0, i64 %.022
   store i8 0, ptr %23, align 1
   %24 = call noundef ptr @_ZN9cmVersion15GetCMakeVersionEv()
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef %24) #13
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
-  %27 = sub i64 %.021, %26
-  %.not30 = icmp eq i64 %26, %.021
+  %27 = sub i64 %.022, %26
+  %.not30 = icmp eq i64 %26, %.022
   br i1 %.not30, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread
@@ -377,7 +377,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm15UpdateStatusBarEv(ptr nound
   %28 = getelementptr inbounds i8, ptr %3, i64 %27
   %29 = sub i64 512, %27
   %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %28, i64 noundef %29, ptr noundef nonnull @__const._ZN23cmCursesLongMessageForm9PrintKeysEv.fmt_s, ptr noundef nonnull %4) #13
-  %31 = getelementptr inbounds [512 x i8], ptr %3, i64 0, i64 %.021
+  %31 = getelementptr inbounds [512 x i8], ptr %3, i64 0, i64 %.022
   store i8 0, ptr %31, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) @__const._ZN23cmCursesLongMessageForm9PrintKeysEv.fmt_s, i64 3, i1 false)
   %32 = add nsw i32 %16, -4

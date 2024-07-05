@@ -35466,7 +35466,7 @@ define hidden ptr @pci_id_str(i16 noundef zeroext %0, i16 noundef zeroext %1, i1
 
 15:                                               ; preds = %.lr.ph, %33
   %.019 = phi ptr [ %13, %.lr.ph ], [ %34, %33 ]
-  %.01418 = phi i32 [ 0, %.lr.ph ], [ %35, %33 ]
+  %.01518 = phi i32 [ 0, %.lr.ph ], [ %35, %33 ]
   %16 = load i16, ptr %.019, align 8
   %17 = icmp eq i16 %14, %16
   br i1 %17, label %18, label %33
@@ -35496,13 +35496,13 @@ define hidden ptr @pci_id_str(i16 noundef zeroext %0, i16 noundef zeroext %1, i1
 
 33:                                               ; preds = %15, %18, %22, %26
   %34 = getelementptr i8, ptr %.019, i64 16
-  %35 = add nuw nsw i32 %.01418, 1
+  %35 = add nuw nsw i32 %.01518, 1
   %exitcond.not = icmp eq i32 %35, %11
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !4
 
 .loopexit:                                        ; preds = %33, %8, %4, %30
-  %.015 = phi ptr [ %32, %30 ], [ @.str, %4 ], [ @.str, %8 ], [ @.str, %33 ]
-  ret ptr %.015
+  %.014 = phi ptr [ %32, %30 ], [ @.str, %4 ], [ @.str, %8 ], [ @.str, %33 ]
+  ret ptr %.014
 }
 
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1

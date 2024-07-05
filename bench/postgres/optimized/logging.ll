@@ -82,15 +82,15 @@ define dso_local void @pg_logging_init(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not3235, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %42
-  %.036 = phi ptr [ %43, %42 ], [ %19, %18 ]
-  %20 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.036, i32 noundef 61) #14
+  %.02436 = phi ptr [ %43, %42 ], [ %19, %18 ]
+  %20 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02436, i32 noundef 61) #14
   %.not33 = icmp eq ptr %20, null
   br i1 %.not33, label %42, label %21
 
 21:                                               ; preds = %.lr.ph
   store i8 0, ptr %20, align 1
   %22 = getelementptr i8, ptr %20, i64 1
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.036, ptr noundef nonnull dereferenceable(6) @.str.5) #14
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02436, ptr noundef nonnull dereferenceable(6) @.str.5) #14
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %27
 
@@ -100,7 +100,7 @@ define dso_local void @pg_logging_init(ptr noundef %0) local_unnamed_addr #0 {
   br label %27
 
 27:                                               ; preds = %25, %21
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.036, ptr noundef nonnull dereferenceable(8) @.str.6) #14
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02436, ptr noundef nonnull dereferenceable(8) @.str.6) #14
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %32
 
@@ -110,7 +110,7 @@ define dso_local void @pg_logging_init(ptr noundef %0) local_unnamed_addr #0 {
   br label %32
 
 32:                                               ; preds = %30, %27
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.036, ptr noundef nonnull dereferenceable(5) @.str.7) #14
+  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02436, ptr noundef nonnull dereferenceable(5) @.str.7) #14
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %37
 
@@ -120,7 +120,7 @@ define dso_local void @pg_logging_init(ptr noundef %0) local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %35, %32
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.036, ptr noundef nonnull dereferenceable(6) @.str.8) #14
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02436, ptr noundef nonnull dereferenceable(6) @.str.8) #14
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %42
 

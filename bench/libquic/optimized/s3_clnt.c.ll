@@ -1381,8 +1381,8 @@ if.end45:                                         ; preds = %while.end
   br label %err
 
 f_err:                                            ; preds = %while.end, %if.then35, %if.then29, %if.then22, %if.then15
-  %al.0 = phi i32 [ 50, %if.then15 ], [ 42, %if.then29 ], [ 50, %if.then35 ], [ 50, %if.then22 ], [ 47, %while.end ]
   %x.1 = phi ptr [ null, %if.then15 ], [ null, %if.then29 ], [ %call26, %if.then35 ], [ null, %if.then22 ], [ null, %while.end ]
+  %al.0 = phi i32 [ 50, %if.then15 ], [ 42, %if.then29 ], [ 50, %if.then35 ], [ 50, %if.then22 ], [ 47, %while.end ]
   %call55 = call i32 @ssl3_send_alert(ptr noundef %ssl, i32 noundef 2, i32 noundef %al.0) #11
   br label %err
 

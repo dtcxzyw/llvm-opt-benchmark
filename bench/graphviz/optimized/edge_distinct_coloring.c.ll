@@ -108,14 +108,14 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
 .lr.ph210.split.us:                               ; preds = %.lr.ph210, %.loopexit.us
   %indvars.iv286 = phi i64 [ %indvars.iv.next287, %.loopexit.us ], [ 0, %.lr.ph210 ]
   %indvars.iv279 = phi i64 [ %indvars.iv.next280, %.loopexit.us ], [ 1, %.lr.ph210 ]
-  %.395208.us = phi ptr [ %.4.lcssa.us, %.loopexit.us ], [ %46, %.lr.ph210 ]
+  %.3209.us = phi ptr [ %.4.lcssa.us, %.loopexit.us ], [ %46, %.lr.ph210 ]
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %51 = icmp ult i64 %indvars.iv.next287, %50
   br i1 %51, label %.lr.ph206.us, label %.loopexit.us
 
 52:                                               ; preds = %.lr.ph206.us, %73
   %indvars.iv281 = phi i64 [ %indvars.iv279, %.lr.ph206.us ], [ %indvars.iv.next282, %73 ]
-  %.4203.us213 = phi ptr [ %.395208.us, %.lr.ph206.us ], [ %.5.us214, %73 ]
+  %.4204.us212 = phi ptr [ %.3209.us, %.lr.ph206.us ], [ %.5.us214, %73 ]
   %53 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv281
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv281
@@ -139,17 +139,17 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
 
 70:                                               ; preds = %52
   %71 = trunc nuw nsw i64 %indvars.iv281 to i32
-  %72 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.4203.us213, i32 noundef %82, i32 noundef %71, ptr noundef nonnull %9) #13
+  %72 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.4204.us212, i32 noundef %82, i32 noundef %71, ptr noundef nonnull %9) #13
   br label %73
 
 73:                                               ; preds = %52, %70
-  %.5.us214 = phi ptr [ %72, %70 ], [ %.4203.us213, %52 ]
+  %.5.us214 = phi ptr [ %72, %70 ], [ %.4204.us212, %52 ]
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count289
   br i1 %exitcond285.not, label %.loopexit.us, label %52
 
 .loopexit.us:                                     ; preds = %73, %.lr.ph210.split.us
-  %.4.lcssa.us = phi ptr [ %.395208.us, %.lr.ph210.split.us ], [ %.5.us214, %73 ]
+  %.4.lcssa.us = phi ptr [ %.3209.us, %.lr.ph210.split.us ], [ %.5.us214, %73 ]
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count289
   br i1 %exitcond290.not, label %.loopexit117, label %.lr.ph210.split.us
@@ -178,7 +178,7 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
   br label %87
 
 .loopexit120:                                     ; preds = %341, %87
-  %.193.lcssa = phi ptr [ %.092198, %87 ], [ %.294, %341 ]
+  %.1.lcssa = phi ptr [ %.089199, %87 ], [ %.2, %341 ]
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %exitcond266.not = icmp eq i64 %indvars.iv.next263, %wide.trip.count265
   br i1 %exitcond266.not, label %.loopexit117, label %87
@@ -186,7 +186,7 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
 87:                                               ; preds = %.lr.ph201, %.loopexit120
   %indvars.iv262 = phi i64 [ 0, %.lr.ph201 ], [ %indvars.iv.next263, %.loopexit120 ]
   %indvars.iv255 = phi i64 [ 1, %.lr.ph201 ], [ %indvars.iv.next256, %.loopexit120 ]
-  %.092198 = phi ptr [ %46, %.lr.ph201 ], [ %.193.lcssa, %.loopexit120 ]
+  %.089199 = phi ptr [ %46, %.lr.ph201 ], [ %.1.lcssa, %.loopexit120 ]
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
   %88 = icmp ult i64 %indvars.iv.next263, %86
   br i1 %88, label %.lr.ph196, label %.loopexit120
@@ -197,7 +197,7 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
 
 90:                                               ; preds = %.lr.ph196, %341
   %indvars.iv257 = phi i64 [ %indvars.iv255, %.lr.ph196 ], [ %indvars.iv.next258, %341 ]
-  %.193192 = phi ptr [ %.092198, %.lr.ph196 ], [ %.294, %341 ]
+  %.1194 = phi ptr [ %.089199, %.lr.ph196 ], [ %.2, %341 ]
   %91 = load ptr, ptr %12, align 8
   %92 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv262
   %93 = load ptr, ptr %92, align 8
@@ -751,17 +751,17 @@ splines_intersect.exit:                           ; preds = %.split.us.i, %.spli
   call void @free(ptr noundef %.3170.i) #13
   call void @free(ptr noundef %.3.i) #13
   %339 = trunc nuw nsw i64 %indvars.iv257 to i32
-  %340 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.193192, i32 noundef %89, i32 noundef %339, ptr noundef nonnull %9) #13
+  %340 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.1194, i32 noundef %89, i32 noundef %339, ptr noundef nonnull %9) #13
   br label %341
 
 341:                                              ; preds = %splines_intersect.exit, %.critedge
-  %.294 = phi ptr [ %340, %.critedge ], [ %.193192, %splines_intersect.exit ]
+  %.2 = phi ptr [ %340, %.critedge ], [ %.1194, %splines_intersect.exit ]
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
   %exitcond261.not = icmp eq i64 %indvars.iv.next258, %wide.trip.count265
   br i1 %exitcond261.not, label %.loopexit120, label %90
 
 .loopexit:                                        ; preds = %371, %.lr.ph210.split
-  %.4.lcssa = phi ptr [ %.395208, %.lr.ph210.split ], [ %.5.us, %371 ]
+  %.4.lcssa = phi ptr [ %.3209, %.lr.ph210.split ], [ %.5.us, %371 ]
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %exitcond278.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count289
   br i1 %exitcond278.not, label %.loopexit117, label %.lr.ph210.split
@@ -769,7 +769,7 @@ splines_intersect.exit:                           ; preds = %.split.us.i, %.spli
 .lr.ph210.split:                                  ; preds = %.lr.ph210, %.loopexit
   %indvars.iv274 = phi i64 [ %indvars.iv.next275, %.loopexit ], [ 0, %.lr.ph210 ]
   %indvars.iv267 = phi i64 [ %indvars.iv.next268, %.loopexit ], [ 1, %.lr.ph210 ]
-  %.395208 = phi ptr [ %.4.lcssa, %.loopexit ], [ %46, %.lr.ph210 ]
+  %.3209 = phi ptr [ %.4.lcssa, %.loopexit ], [ %46, %.lr.ph210 ]
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %342 = icmp ult i64 %indvars.iv.next275, %50
   br i1 %342, label %.lr.ph206, label %.loopexit
@@ -788,7 +788,7 @@ splines_intersect.exit:                           ; preds = %.split.us.i, %.spli
 
 352:                                              ; preds = %371, %.lr.ph206
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %371 ], [ %indvars.iv267, %.lr.ph206 ]
-  %.4203.us = phi ptr [ %.5.us, %371 ], [ %.395208, %.lr.ph206 ]
+  %.4204.us = phi ptr [ %.5.us, %371 ], [ %.3209, %.lr.ph206 ]
   %353 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv269
   %354 = load i32, ptr %353, align 4
   %355 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv269
@@ -809,17 +809,17 @@ splines_intersect.exit:                           ; preds = %.split.us.i, %.spli
 
 368:                                              ; preds = %352
   %369 = trunc nuw nsw i64 %indvars.iv269 to i32
-  %370 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.4203.us, i32 noundef %351, i32 noundef %369, ptr noundef nonnull %9) #13
+  %370 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.4204.us, i32 noundef %351, i32 noundef %369, ptr noundef nonnull %9) #13
   br label %371
 
 371:                                              ; preds = %352, %368
-  %.5.us = phi ptr [ %370, %368 ], [ %.4203.us, %352 ]
+  %.5.us = phi ptr [ %370, %368 ], [ %.4204.us, %352 ]
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count289
   br i1 %exitcond273.not, label %.loopexit, label %352
 
 .loopexit117:                                     ; preds = %.loopexit120, %.loopexit, %.loopexit.us, %83, %.preheader116
-  %.6 = phi ptr [ %46, %.preheader116 ], [ %46, %83 ], [ %.4.lcssa.us, %.loopexit.us ], [ %.4.lcssa, %.loopexit ], [ %.193.lcssa, %.loopexit120 ]
+  %.6 = phi ptr [ %46, %.preheader116 ], [ %46, %83 ], [ %.4.lcssa.us, %.loopexit.us ], [ %.4.lcssa, %.loopexit ], [ %.1.lcssa, %.loopexit120 ]
   %372 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %.6) #13
   %.not102 = icmp eq ptr %.6, %372
   br i1 %.not102, label %374, label %373

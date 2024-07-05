@@ -315,27 +315,27 @@ define void @yr_arena_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %.not16, label %._crit_edge20, label %.lr.ph19
 
 .lr.ph19:                                         ; preds = %1, %._crit_edge
-  %.017 = phi ptr [ %5, %._crit_edge ], [ %3, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.017, i64 48
+  %.01217 = phi ptr [ %5, %._crit_edge ], [ %3, %1 ]
+  %4 = getelementptr inbounds i8, ptr %.01217, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %.017, i64 32
+  %6 = getelementptr inbounds i8, ptr %.01217, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not1314 = icmp eq ptr %7, null
   br i1 %.not1314, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph19, %.lr.ph
-  %.01215 = phi ptr [ %9, %.lr.ph ], [ %7, %.lr.ph19 ]
-  %8 = getelementptr inbounds i8, ptr %.01215, i64 8
+  %.015 = phi ptr [ %9, %.lr.ph ], [ %7, %.lr.ph19 ]
+  %8 = getelementptr inbounds i8, ptr %.015, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void @free(ptr noundef nonnull %.01215) #11
+  tail call void @free(ptr noundef nonnull %.015) #11
   %.not13 = icmp eq ptr %9, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph19
-  %10 = getelementptr inbounds i8, ptr %.017, i64 8
+  %10 = getelementptr inbounds i8, ptr %.01217, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @free(ptr noundef %11) #11
-  tail call void @free(ptr noundef %.017) #11
+  tail call void @free(ptr noundef %.01217) #11
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge20, label %.lr.ph19
 
@@ -489,20 +489,20 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @yr_arena_coalesce(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %.05980 = load ptr, ptr %2, align 8
-  %.not81 = icmp eq ptr %.05980, null
+  %.05880 = load ptr, ptr %2, align 8
+  %.not81 = icmp eq ptr %.05880, null
   br i1 %.not81, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.05983 = phi ptr [ %.059, %.lr.ph ], [ %.05980, %1 ]
+  %.05883 = phi ptr [ %.058, %.lr.ph ], [ %.05880, %1 ]
   %.082 = phi i32 [ %6, %.lr.ph ], [ 0, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.05983, i64 24
+  %3 = getelementptr inbounds i8, ptr %.05883, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   %6 = add i32 %.082, %5
-  %7 = getelementptr inbounds i8, ptr %.05983, i64 48
-  %.059 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %.059, null
+  %7 = getelementptr inbounds i8, ptr %.05883, i64 48
+  %.058 = load ptr, ptr %7, align 8
+  %.not = icmp eq ptr %.058, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -531,8 +531,8 @@ _yr_arena_new_page.exit:                          ; preds = %11
   store i64 %.0.lcssa, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %9, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false)
-  %.16090 = load ptr, ptr %2, align 8
-  %.not6691 = icmp eq ptr %.16090, null
+  %.190 = load ptr, ptr %2, align 8
+  %.not6691 = icmp eq ptr %.190, null
   br i1 %.not6691, label %._crit_edge105, label %.lr.ph93
 
 .lr.ph93:                                         ; preds = %_yr_arena_new_page.exit
@@ -542,30 +542,30 @@ _yr_arena_new_page.exit:                          ; preds = %11
 
 20:                                               ; preds = %.lr.ph93, %47
   %21 = phi i64 [ 0, %.lr.ph93 ], [ %50, %47 ]
-  %.16092 = phi ptr [ %.16090, %.lr.ph93 ], [ %.160, %47 ]
+  %.192 = phi ptr [ %.190, %.lr.ph93 ], [ %.1, %47 ]
   %22 = load ptr, ptr %13, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %21
-  store ptr %23, ptr %.16092, align 8
-  %24 = getelementptr inbounds i8, ptr %.16092, i64 8
+  store ptr %23, ptr %.192, align 8
+  %24 = getelementptr inbounds i8, ptr %.192, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %.16092, i64 24
+  %26 = getelementptr inbounds i8, ptr %.192, i64 24
   %27 = load i64, ptr %26, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %25, i64 %27, i1 false)
-  %28 = getelementptr inbounds i8, ptr %.16092, i64 32
-  %.05784 = load ptr, ptr %28, align 8
-  %.not7185 = icmp eq ptr %.05784, null
+  %28 = getelementptr inbounds i8, ptr %.192, i64 32
+  %.05984 = load ptr, ptr %28, align 8
+  %.not7185 = icmp eq ptr %.05984, null
   br i1 %.not7185, label %._crit_edge89, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %20, %.lr.ph88
-  %.05786 = phi ptr [ %.057, %.lr.ph88 ], [ %.05784, %20 ]
+  %.05986 = phi ptr [ %.059, %.lr.ph88 ], [ %.05984, %20 ]
   %29 = load i64, ptr %17, align 8
-  %30 = load i32, ptr %.05786, align 8
+  %30 = load i32, ptr %.05986, align 8
   %31 = trunc i64 %29 to i32
   %32 = add i32 %30, %31
-  store i32 %32, ptr %.05786, align 8
-  %33 = getelementptr inbounds i8, ptr %.05786, i64 8
-  %.057 = load ptr, ptr %33, align 8
-  %.not71 = icmp eq ptr %.057, null
+  store i32 %32, ptr %.05986, align 8
+  %33 = getelementptr inbounds i8, ptr %.05986, i64 8
+  %.059 = load ptr, ptr %33, align 8
+  %.not71 = icmp eq ptr %.059, null
   br i1 %.not71, label %._crit_edge89, label %.lr.ph88
 
 ._crit_edge89:                                    ; preds = %.lr.ph88, %20
@@ -590,7 +590,7 @@ _yr_arena_new_page.exit:                          ; preds = %11
   br label %43
 
 43:                                               ; preds = %40, %38
-  %44 = getelementptr inbounds i8, ptr %.16092, i64 40
+  %44 = getelementptr inbounds i8, ptr %.192, i64 40
   %45 = load ptr, ptr %44, align 8
   %.not73 = icmp eq ptr %45, null
   br i1 %.not73, label %47, label %46
@@ -604,14 +604,14 @@ _yr_arena_new_page.exit:                          ; preds = %11
   %49 = load i64, ptr %17, align 8
   %50 = add i64 %49, %48
   store i64 %50, ptr %17, align 8
-  %51 = getelementptr inbounds i8, ptr %.16092, i64 48
-  %.160 = load ptr, ptr %51, align 8
-  %.not66 = icmp eq ptr %.160, null
+  %51 = getelementptr inbounds i8, ptr %.192, i64 48
+  %.1 = load ptr, ptr %51, align 8
+  %.not66 = icmp eq ptr %.1, null
   br i1 %.not66, label %._crit_edge94, label %20
 
 ._crit_edge94:                                    ; preds = %47
-  %.195.pre = load ptr, ptr %18, align 8
-  %.not6796 = icmp eq ptr %.195.pre, null
+  %.16095.pre = load ptr, ptr %18, align 8
+  %.not6796 = icmp eq ptr %.16095.pre, null
   br i1 %.not6796, label %._crit_edge100, label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %._crit_edge94
@@ -619,9 +619,9 @@ _yr_arena_new_page.exit:                          ; preds = %11
   br label %53
 
 53:                                               ; preds = %.lr.ph99, %85
-  %.197 = phi ptr [ %.195.pre, %.lr.ph99 ], [ %.1, %85 ]
+  %.16097 = phi ptr [ %.16095.pre, %.lr.ph99 ], [ %.160, %85 ]
   %54 = load ptr, ptr %13, align 8
-  %55 = load i32, ptr %.197, align 8
+  %55 = load i32, ptr %.16097, align 8
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %54, i64 %56
   %58 = load ptr, ptr %57, align 8
@@ -687,9 +687,9 @@ _yr_arena_page_for_address.exit:                  ; preds = %72, %64
   br label %85
 
 85:                                               ; preds = %_yr_arena_page_for_address.exit, %53
-  %86 = getelementptr inbounds i8, ptr %.197, i64 8
-  %.1 = load ptr, ptr %86, align 8
-  %.not67 = icmp eq ptr %.1, null
+  %86 = getelementptr inbounds i8, ptr %.16097, i64 8
+  %.160 = load ptr, ptr %86, align 8
+  %.not67 = icmp eq ptr %.160, null
   br i1 %.not67, label %._crit_edge100, label %53
 
 ._crit_edge100:                                   ; preds = %85, %._crit_edge94
@@ -718,8 +718,8 @@ _yr_arena_page_for_address.exit:                  ; preds = %72, %64
   br label %_yr_arena_new_page.exit.thread
 
 _yr_arena_new_page.exit.thread:                   ; preds = %._crit_edge, %15, %._crit_edge105
-  %.058 = phi i32 [ 0, %._crit_edge105 ], [ 1, %15 ], [ 1, %._crit_edge ]
-  ret i32 %.058
+  %.057 = phi i32 [ 0, %._crit_edge105 ], [ 1, %15 ], [ 1, %._crit_edge ]
+  ret i32 %.057
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -744,9 +744,9 @@ define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr nocapture noundef %0, i6
   br i1 %.not, label %.preheader, label %_yr_arena_new_page.exit.thread
 
 .preheader:                                       ; preds = %11, %.preheader
-  %.0.in = phi i64 [ %.0, %.preheader ], [ %6, %11 ]
-  %.0 = shl i64 %.0.in, 1
-  %14 = icmp ult i64 %.0, %1
+  %.025.in = phi i64 [ %.025, %.preheader ], [ %6, %11 ]
+  %.025 = shl i64 %.025.in, 1
+  %14 = icmp ult i64 %.025, %1
   br i1 %14, label %.preheader, label %15
 
 15:                                               ; preds = %.preheader
@@ -756,7 +756,7 @@ define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr nocapture noundef %0, i6
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr @cli_max_realloc(ptr noundef %19, i64 noundef %.0) #11
+  %20 = tail call ptr @cli_max_realloc(ptr noundef %19, i64 noundef %.025) #11
   %21 = icmp eq ptr %20, null
   br i1 %21, label %_yr_arena_new_page.exit.thread, label %22
 
@@ -766,7 +766,7 @@ define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr nocapture noundef %0, i6
   store ptr %20, ptr %24, align 8
   %25 = load ptr, ptr %3, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 16
-  store i64 %.0, ptr %26, align 8
+  store i64 %.025, ptr %26, align 8
   br label %_yr_arena_new_page.exit.thread
 
 27:                                               ; preds = %15
@@ -775,7 +775,7 @@ define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr nocapture noundef %0, i6
   br i1 %29, label %_yr_arena_new_page.exit.thread, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call ptr @cli_max_malloc(i64 noundef %.0) #11
+  %31 = tail call ptr @cli_max_malloc(i64 noundef %.025) #11
   %32 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %31, ptr %32, align 8
   %33 = icmp eq ptr %31, null
@@ -787,7 +787,7 @@ define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr nocapture noundef %0, i6
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds i8, ptr %28, i64 16
-  store i64 %.0, ptr %36, align 8
+  store i64 %.025, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %28, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, i8 0, i64 40, i1 false)
   %38 = load ptr, ptr %3, align 8
@@ -802,8 +802,8 @@ define range(i32 0, 2) i32 @yr_arena_reserve_memory(ptr nocapture noundef %0, i6
   br label %_yr_arena_new_page.exit.thread
 
 _yr_arena_new_page.exit.thread:                   ; preds = %27, %34, %2, %35, %22, %17, %11
-  %.025 = phi i32 [ 1, %11 ], [ 1, %17 ], [ 0, %22 ], [ 0, %35 ], [ 0, %2 ], [ 1, %34 ], [ 1, %27 ]
-  ret i32 %.025
+  %.0 = phi i32 [ 1, %11 ], [ 1, %17 ], [ 0, %22 ], [ 0, %35 ], [ 0, %2 ], [ 1, %34 ], [ 1, %27 ]
+  ret i32 %.0
 }
 
 declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1

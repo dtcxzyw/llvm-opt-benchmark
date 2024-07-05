@@ -511,9 +511,9 @@ RB_SYMBOL_P.exit.thread94:                        ; preds = %RB_SYMBOL_P.exit
   br label %27
 
 27:                                               ; preds = %.sink.split, %RB_SYMBOL_P.exit.thread94
-  %.077 = phi i64 [ %5, %RB_SYMBOL_P.exit.thread94 ], [ %.sink, %.sink.split ]
-  tail call void @rb_must_asciicompat(i64 noundef %.077) #16
-  %28 = inttoptr i64 %.077 to ptr
+  %.079 = phi i64 [ %5, %RB_SYMBOL_P.exit.thread94 ], [ %.sink, %.sink.split ]
+  tail call void @rb_must_asciicompat(i64 noundef %.079) #16
+  %28 = inttoptr i64 %.079 to ptr
   %29 = load i64, ptr %28, align 8, !noalias !12
   %30 = and i64 %29, 8192
   %.not.i = icmp eq i64 %30, 0
@@ -552,7 +552,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
 
 42:                                               ; preds = %41
   %43 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %43, ptr noundef nonnull @.str.22, i64 noundef %.077) #17
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %43, ptr noundef nonnull @.str.22, i64 noundef %.079) #17
   unreachable
 
 44:                                               ; preds = %36, %38, %41
@@ -599,26 +599,26 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
   br i1 %62, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %59, %73
-  %.07996 = phi ptr [ %74, %73 ], [ %61, %59 ]
-  %bcmp92 = tail call i32 @bcmp(ptr %.07996, ptr %57, i64 %56)
+  %.07896 = phi ptr [ %74, %73 ], [ %61, %59 ]
+  %bcmp92 = tail call i32 @bcmp(ptr %.07896, ptr %57, i64 %56)
   %63 = icmp eq i32 %bcmp92, 0
   br i1 %63, label %64, label %73
 
 64:                                               ; preds = %.lr.ph
-  %65 = getelementptr [8 x i8], ptr %.07996, i64 0, i64 %56
+  %65 = getelementptr [8 x i8], ptr %.07896, i64 0, i64 %56
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %68, label %73
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %.07996, i64 8
+  %69 = getelementptr inbounds i8, ptr %.07896, i64 8
   %70 = load i32, ptr %69, align 4
   %71 = sub i32 0, %70
   %72 = select i1 %.not93, i32 %70, i32 %71
   ret i32 %72
 
 73:                                               ; preds = %.lr.ph, %64
-  %74 = getelementptr i8, ptr %.07996, i64 12
+  %74 = getelementptr i8, ptr %.07896, i64 12
   %75 = icmp ult ptr %74, getelementptr inbounds (i8, ptr @siglist, i64 408)
   br i1 %75, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
@@ -633,14 +633,14 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
   %.sink101 = add i64 %.sroa.1.0, %.sink101.p
   %.sink100 = select i1 %77, i64 1, i64 %52
   %.2.ph = select i1 %77, i32 0, i32 3
-  %79 = tail call i64 @rb_str_subseq(i64 noundef %.077, i64 noundef %.sink100, i64 noundef %.sink101) #16
+  %79 = tail call i64 @rb_str_subseq(i64 noundef %.079, i64 noundef %.sink100, i64 noundef %.sink101) #16
   br label %80
 
 80:                                               ; preds = %.sink.split99, %.loopexit
-  %.178 = phi i64 [ %.077, %.loopexit ], [ %79, %.sink.split99 ]
+  %.180 = phi i64 [ %.079, %.loopexit ], [ %79, %.sink.split99 ]
   %.2 = phi i32 [ 0, %.loopexit ], [ %.2.ph, %.sink.split99 ]
   %81 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %81, ptr noundef nonnull @.str.23, i32 noundef %.2, ptr noundef nonnull @.str.38, i64 noundef %.178) #17
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %81, ptr noundef nonnull @.str.23, i32 noundef %.2, ptr noundef nonnull @.str.38, i64 noundef %.180) #17
   unreachable
 }
 

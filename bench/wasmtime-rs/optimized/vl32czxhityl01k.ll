@@ -4028,11 +4028,11 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   br label %836
 
 .thread611:                                       ; preds = %598, %595, %592, %664
-  %.sroa.15.sroa.0.sroa.0.0.ph = phi i8 [ %.sroa.15.sroa.0.sroa.0.0.extract.trunc281, %664 ], [ %.sroa.15.sroa.0.sroa.0.0.extract.trunc283, %592 ], [ %.sroa.15.sroa.0.sroa.0.0.extract.trunc, %595 ], [ %.sroa.15.sroa.0.sroa.0.0.extract.trunc282, %598 ]
-  %.sroa.15.sroa.10.0.ph = phi i64 [ %.sroa.15.sroa.10.0.extract.trunc, %664 ], [ %.sroa.15.sroa.10.0.extract.trunc278, %592 ], [ %.sroa.15.sroa.10.8.copyload, %595 ], [ %.sroa.15.sroa.10.0.extract.trunc276, %598 ]
-  %.sroa.27267.0.ph = phi i64 [ %.sroa.27267.8.copyload268, %664 ], [ %.sroa.357.i.sroa.7.0.copyload, %592 ], [ %.sroa.27267.24.copyload, %595 ], [ %.sroa.27267.8.copyload270, %598 ]
-  %.sroa.22.0.ph = phi i64 [ %.sroa.22.8.copyload256, %664 ], [ %.sroa.357.i.sroa.0.0.copyload, %592 ], [ %.sroa.22.24.copyload, %595 ], [ %.sroa.22.8.copyload258, %598 ]
   %.sroa.8249.0.ph = phi i64 [ %.sroa.8249.8.copyload250, %664 ], [ %.sroa.3.8.copyload.i, %592 ], [ %589, %595 ], [ %.sroa.8249.8.copyload251, %598 ]
+  %.sroa.22.0.ph = phi i64 [ %.sroa.22.8.copyload256, %664 ], [ %.sroa.357.i.sroa.0.0.copyload, %592 ], [ %.sroa.22.24.copyload, %595 ], [ %.sroa.22.8.copyload258, %598 ]
+  %.sroa.27267.0.ph = phi i64 [ %.sroa.27267.8.copyload268, %664 ], [ %.sroa.357.i.sroa.7.0.copyload, %592 ], [ %.sroa.27267.24.copyload, %595 ], [ %.sroa.27267.8.copyload270, %598 ]
+  %.sroa.15.sroa.10.0.ph = phi i64 [ %.sroa.15.sroa.10.0.extract.trunc, %664 ], [ %.sroa.15.sroa.10.0.extract.trunc278, %592 ], [ %.sroa.15.sroa.10.8.copyload, %595 ], [ %.sroa.15.sroa.10.0.extract.trunc276, %598 ]
+  %.sroa.15.sroa.0.sroa.0.0.ph = phi i8 [ %.sroa.15.sroa.0.sroa.0.0.extract.trunc281, %664 ], [ %.sroa.15.sroa.0.sroa.0.0.extract.trunc283, %592 ], [ %.sroa.15.sroa.0.sroa.0.0.extract.trunc, %595 ], [ %.sroa.15.sroa.0.sroa.0.0.extract.trunc282, %598 ]
   %.sroa.15.sroa.0.sroa.9.0.ph.in.in = phi i64 [ %.sroa.15.sroa.0.0.extract.trunc, %664 ], [ %.sroa.15.sroa.0.0.extract.trunc273, %592 ], [ %591, %595 ], [ %.sroa.15.sroa.0.0.extract.trunc272, %598 ]
   %853 = phi <2 x i64> [ %661, %664 ], [ %594, %592 ], [ %596, %595 ], [ %599, %598 ]
   %.sroa.15.sroa.0.sroa.9.0.ph.in = lshr i64 %.sroa.15.sroa.0.sroa.9.0.ph.in.in, 8

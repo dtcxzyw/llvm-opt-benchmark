@@ -3568,7 +3568,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit380:                 ; preds = %733, %730, %728
 739:                                              ; preds = %738, %_ZNSt6vectorIiSaIiEED2Ev.exit380
   %.pn262.pn = phi { ptr, i32 } [ %.pn262, %738 ], [ %.pn260, %_ZNSt6vectorIiSaIiEED2Ev.exit380 ]
   %.2 = extractvalue { ptr, i32 } %.pn262.pn, 0
-  %.2174 = extractvalue { ptr, i32 } %.pn262.pn, 1
+  %.2172 = extractvalue { ptr, i32 } %.pn262.pn, 1
   call void @_ZNSt6vectorISt10shared_ptrIN3gmx19IRestraintPotentialEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #28
   br label %3114
 
@@ -3867,7 +3867,7 @@ _ZNK3gmx17MDModulesNotifierIRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifier
 832:                                              ; preds = %.loopexit1103, %.loopexit.split-lp1104, %831, %.body407
   %.pn = phi { ptr, i32 } [ %lpad.phi1102, %831 ], [ %eh.lpad-body408, %.body407 ], [ %lpad.loopexit1105, %.loopexit1103 ], [ %lpad.loopexit.split-lp1106, %.loopexit.split-lp1104 ]
   %.3 = extractvalue { ptr, i32 } %.pn, 0
-  %.3175 = extractvalue { ptr, i32 } %.pn, 1
+  %.3173 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #28
   br label %3114
 
@@ -7093,9 +7093,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 2269:                                             ; preds = %2267, %2265
   %.pn242 = phi { ptr, i32 } [ %2268, %2267 ], [ %2266, %2265 ]
   %.4 = extractvalue { ptr, i32 } %.pn242, 0
-  %.4176 = extractvalue { ptr, i32 } %.pn242, 1
+  %.4174 = extractvalue { ptr, i32 } %.pn242, 1
   %2270 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
-  %2271 = icmp eq i32 %.4176, %2270
+  %2271 = icmp eq i32 %.4174, %2270
   br i1 %2271, label %2272, label %3105
 
 2272:                                             ; preds = %2269
@@ -7297,7 +7297,7 @@ _ZNSt10unique_ptrI16gmxNvshmemHandleSt14default_deleteIS0_EED2Ev.exit: ; preds =
           to label %2372 unwind label %2349
 
 2372:                                             ; preds = %2351, %2358, %2362, %2324
-  %.0171 = phi ptr [ %2338, %2362 ], [ %2338, %2358 ], [ null, %2324 ], [ %2338, %2351 ]
+  %.0207 = phi ptr [ %2338, %2362 ], [ %2338, %2358 ], [ null, %2324 ], [ %2338, %2351 ]
   store ptr null, ptr %108, align 8
   %2373 = getelementptr inbounds i8, ptr %2311, i64 600
   %2374 = load i8, ptr %2373, align 8
@@ -7380,12 +7380,12 @@ _ZNSt10unique_ptrIN3gmx16EnforcedRotationESt14default_deleteIS1_EED2Ev.exit: ; p
           to label %2414 unwind label %2392
 
 2414:                                             ; preds = %2407, %2394
-  %.0170 = phi ptr [ null, %2394 ], [ %2413, %2407 ]
-  %.not247 = icmp eq ptr %.0171, null
+  %.0206 = phi ptr [ null, %2394 ], [ %2413, %2407 ]
+  %.not247 = icmp eq ptr %.0207, null
   br i1 %.not247, label %2417, label %2415
 
 2415:                                             ; preds = %2414
-  %2416 = invoke noundef zeroext i1 @_Z20pull_have_constraintRK6pull_t(ptr noundef nonnull align 1 %.0171)
+  %2416 = invoke noundef zeroext i1 @_Z20pull_have_constraintRK6pull_t(ptr noundef nonnull align 1 %.0207)
           to label %2417 unwind label %2392
 
 2417:                                             ; preds = %2414, %2415
@@ -7404,7 +7404,7 @@ _ZNSt10unique_ptrIN3gmx16EnforcedRotationESt14default_deleteIS1_EED2Ev.exit: ; p
   %2427 = icmp sgt i32 %2426, 1
   %2428 = select i1 %2427, ptr %44, ptr null
   store ptr %2428, ptr %114, align 8
-  invoke void @_ZN3gmx15makeConstraintsIJRP8_IO_FILERP9t_commrecbRP14gmx_multisim_tP6t_nrnbP13gmx_wallcycleRbPNS_25ObservablesReducerBuilderEEEESt10unique_ptrINS_11ConstraintsESt14default_deleteISI_EERK10gmx_mtop_tRK10t_inputrecP6pull_tbbDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.992") align 8 %110, ptr noundef nonnull align 8 dereferenceable(768) %27, ptr noundef nonnull align 8 dereferenceable(856) %2311, ptr noundef %.0171, i1 noundef zeroext %2418, i1 noundef zeroext %141, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 1 dereferenceable(1) %111, ptr noundef nonnull align 8 dereferenceable(8) %243, ptr noundef nonnull align 8 dereferenceable(8) %112, ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef nonnull align 1 dereferenceable(1) %2423, ptr noundef nonnull align 8 dereferenceable(8) %114)
+  invoke void @_ZN3gmx15makeConstraintsIJRP8_IO_FILERP9t_commrecbRP14gmx_multisim_tP6t_nrnbP13gmx_wallcycleRbPNS_25ObservablesReducerBuilderEEEESt10unique_ptrINS_11ConstraintsESt14default_deleteISI_EERK10gmx_mtop_tRK10t_inputrecP6pull_tbbDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.992") align 8 %110, ptr noundef nonnull align 8 dereferenceable(768) %27, ptr noundef nonnull align 8 dereferenceable(856) %2311, ptr noundef %.0207, i1 noundef zeroext %2418, i1 noundef zeroext %141, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 1 dereferenceable(1) %111, ptr noundef nonnull align 8 dereferenceable(8) %243, ptr noundef nonnull align 8 dereferenceable(8) %112, ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef nonnull align 1 dereferenceable(1) %2423, ptr noundef nonnull align 8 dereferenceable(8) %114)
           to label %2429 unwind label %2392
 
 2429:                                             ; preds = %2417
@@ -7492,8 +7492,8 @@ _ZNSt10unique_ptrIN3gmx16EnforcedRotationESt14default_deleteIS1_EED2Ev.exit: ; p
   br label %._crit_edge1156
 
 ._crit_edge1156:                                  ; preds = %2473, %2477
-  %.sroa.0882.0 = phi ptr [ %2480, %2477 ], [ null, %2473 ]
   %.sroa.3883.0 = phi ptr [ %2486, %2477 ], [ null, %2473 ]
+  %.sroa.0882.0 = phi ptr [ %2480, %2477 ], [ null, %2473 ]
   store ptr %.sroa.0882.0, ptr %118, align 8
   %2487 = getelementptr inbounds i8, ptr %118, i64 8
   %2488 = ptrtoint ptr %.sroa.3883.0 to i64
@@ -8108,7 +8108,7 @@ _ZN3gmx16SimulatorBuilder3addEONS_16SimulatorModulesE.exit: ; preds = %_ZNKSt14d
           to label %.noexc703 unwind label %2720
 
 .noexc703:                                        ; preds = %_ZN3gmx16SimulatorBuilder3addEONS_16SimulatorModulesE.exit
-  %2686 = ptrtoint ptr %.0171 to i64
+  %2686 = ptrtoint ptr %.0207 to i64
   store i64 %2686, ptr %2685, align 8, !noalias !115
   %2687 = getelementptr inbounds i8, ptr %120, i64 88
   %2688 = load ptr, ptr %2687, align 8
@@ -8125,7 +8125,7 @@ _ZN3gmx16SimulatorBuilder3addEONS_19CenterOfMassPullingE.exit: ; preds = %_ZNKSt
           to label %.noexc705 unwind label %2720
 
 .noexc705:                                        ; preds = %_ZN3gmx16SimulatorBuilder3addEONS_19CenterOfMassPullingE.exit
-  %2690 = ptrtoint ptr %.0170 to i64
+  %2690 = ptrtoint ptr %.0206 to i64
   store i64 %2690, ptr %2689, align 8, !noalias !118
   %2691 = getelementptr inbounds i8, ptr %120, i64 96
   %2692 = load ptr, ptr %2691, align 8
@@ -8283,11 +8283,11 @@ _ZNSt10unique_ptrIN3gmx10ISimulatorESt14default_deleteIS1_EED2Ev.exit: ; preds =
   br i1 %2734, label %2735, label %2736
 
 2735:                                             ; preds = %2732
-  invoke void @_Z11finish_pullP6pull_t(ptr noundef %.0171)
+  invoke void @_Z11finish_pullP6pull_t(ptr noundef %.0207)
           to label %2736 unwind label %2726
 
 2736:                                             ; preds = %2735, %2732
-  invoke void @_Z17finish_swapcoordsP6t_swap(ptr noundef %.0170)
+  invoke void @_Z17finish_swapcoordsP6t_swap(ptr noundef %.0206)
           to label %2737 unwind label %2726
 
 2737:                                             ; preds = %2736
@@ -8430,9 +8430,9 @@ _ZNSt10unique_ptrIN3gmx16EnforcedRotationESt14default_deleteIS1_EED2Ev.exit726: 
 .body740:                                         ; preds = %2874, %2885, %_ZNKSt14default_deleteI6t_nrnbEclEPS0_.exit.i79.i, %2349, %2761
   %.pn256 = phi { ptr, i32 } [ %.pn248.pn.pn.pn.pn.pn.pn, %2761 ], [ %2350, %2349 ], [ %2875, %2874 ], [ %2886, %2885 ], [ %2887, %_ZNKSt14default_deleteI6t_nrnbEclEPS0_.exit.i79.i ]
   %.12 = extractvalue { ptr, i32 } %.pn256, 0
-  %.12184 = extractvalue { ptr, i32 } %.pn256, 1
+  %.12182 = extractvalue { ptr, i32 } %.pn256, 1
   %2762 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
-  %2763 = icmp eq i32 %.12184, %2762
+  %2763 = icmp eq i32 %.12182, %2762
   br i1 %2763, label %2764, label %3104
 
 2764:                                             ; preds = %.body740
@@ -9444,20 +9444,20 @@ _ZNSt10unique_ptrI10t_forcerecSt14default_deleteIS0_EED2Ev.exit826: ; preds = %3
   ret i32 %3021
 
 3104:                                             ; preds = %3002, %2957, %2965, %.body740, %.body626
-  %.13185 = phi i32 [ %2292, %.body626 ], [ %3005, %3002 ], [ %2968, %2965 ], [ %2960, %2957 ], [ %.12184, %.body740 ]
+  %.13183 = phi i32 [ %2292, %.body626 ], [ %3005, %3002 ], [ %2968, %2965 ], [ %2960, %2957 ], [ %.12182, %.body740 ]
   %.13 = phi ptr [ %2291, %.body626 ], [ %3004, %3002 ], [ %2967, %2965 ], [ %2959, %2957 ], [ %.12, %.body740 ]
   call void @_ZNSt10unique_ptrI16gmxNvshmemHandleSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %105) #28
   br label %3105
 
 3105:                                             ; preds = %2275, %3104, %2269, %2140
-  %.14186 = phi i32 [ %.13185, %3104 ], [ %2278, %2275 ], [ %.4176, %2269 ], [ %2143, %2140 ]
+  %.14184 = phi i32 [ %.13183, %3104 ], [ %2278, %2275 ], [ %.4174, %2269 ], [ %2143, %2140 ]
   %.14 = phi ptr [ %.13, %3104 ], [ %2277, %2275 ], [ %.4, %2269 ], [ %2142, %2140 ]
   call void @_ZNSt10unique_ptrI13PmeGpuProgramSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %101) #28
   br label %3106
 
 3106:                                             ; preds = %3105, %.body565
   %.sroa.0908.7 = phi ptr [ %.sroa.0908.6, %3105 ], [ %.sroa.0908.5, %.body565 ]
-  %.15187 = phi i32 [ %.14186, %3105 ], [ %1881, %.body565 ]
+  %.15185 = phi i32 [ %.14184, %3105 ], [ %1881, %.body565 ]
   %.15 = phi ptr [ %.14, %3105 ], [ %1880, %.body565 ]
   call void @_ZNSt10unique_ptrIN3gmx19VirtualSitesHandlerESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %88) #28
   call void @_ZNSt10unique_ptrIN3gmx7MDAtomsESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %87) #28
@@ -9469,94 +9469,94 @@ _ZNKSt14default_deleteIN3gmx14BoxDeformationEEclEPS1_.exit.i828: ; preds = %3106
   br label %_ZNSt10unique_ptrIN3gmx14BoxDeformationESt14default_deleteIS1_EED2Ev.exit829
 
 _ZNSt10unique_ptrIN3gmx14BoxDeformationESt14default_deleteIS1_EED2Ev.exit829: ; preds = %_ZNKSt14default_deleteIN3gmx14BoxDeformationEEclEPS1_.exit.i828, %3106, %1753
-  %.16188 = phi i32 [ %1756, %1753 ], [ %.15187, %3106 ], [ %.15187, %_ZNKSt14default_deleteIN3gmx14BoxDeformationEEclEPS1_.exit.i828 ]
+  %.16186 = phi i32 [ %1756, %1753 ], [ %.15185, %3106 ], [ %.15185, %_ZNKSt14default_deleteIN3gmx14BoxDeformationEEclEPS1_.exit.i828 ]
   %.16 = phi ptr [ %1755, %1753 ], [ %.15, %3106 ], [ %.15, %_ZNKSt14default_deleteIN3gmx14BoxDeformationEEclEPS1_.exit.i828 ]
   call void @_ZNSt10unique_ptrI13gmx_wallcycleSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #28
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit523
 
 _ZNSt6vectorIiSaIiEED2Ev.exit523:                 ; preds = %1716, %1712, %_ZNSt10unique_ptrIN3gmx14BoxDeformationESt14default_deleteIS1_EED2Ev.exit829, %1730, %1618, %1600, %.body508
-  %.17189 = phi i32 [ %.16188, %_ZNSt10unique_ptrIN3gmx14BoxDeformationESt14default_deleteIS1_EED2Ev.exit829 ], [ %1565, %.body508 ], [ %1733, %1730 ], [ %1621, %1618 ], [ %1603, %1600 ], [ %1715, %1712 ], [ %1715, %1716 ]
+  %.17187 = phi i32 [ %.16186, %_ZNSt10unique_ptrIN3gmx14BoxDeformationESt14default_deleteIS1_EED2Ev.exit829 ], [ %1565, %.body508 ], [ %1733, %1730 ], [ %1621, %1618 ], [ %1603, %1600 ], [ %1715, %1712 ], [ %1715, %1716 ]
   %.17 = phi ptr [ %.16, %_ZNSt10unique_ptrIN3gmx14BoxDeformationESt14default_deleteIS1_EED2Ev.exit829 ], [ %1564, %.body508 ], [ %1732, %1730 ], [ %1620, %1618 ], [ %1602, %1600 ], [ %1714, %1712 ], [ %1714, %1716 ]
   call void @_ZNSt10unique_ptrIN3gmx19DeviceStreamManagerESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %81) #28
   br label %3107
 
 3107:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit523, %1511, %1473, %.body490
-  %.18190 = phi i32 [ %.17189, %_ZNSt6vectorIiSaIiEED2Ev.exit523 ], [ %1472, %.body490 ], [ %1514, %1511 ], [ %1476, %1473 ]
+  %.18188 = phi i32 [ %.17187, %_ZNSt6vectorIiSaIiEED2Ev.exit523 ], [ %1472, %.body490 ], [ %1514, %1511 ], [ %1476, %1473 ]
   %.18 = phi ptr [ %.17, %_ZNSt6vectorIiSaIiEED2Ev.exit523 ], [ %1471, %.body490 ], [ %1513, %1511 ], [ %1475, %1473 ]
   call void @_ZN14gmx_localtop_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2784) %76) #28
   br label %3108
 
 3108:                                             ; preds = %3107, %1465
-  %.19191 = phi i32 [ %.18190, %3107 ], [ %1468, %1465 ]
+  %.19189 = phi i32 [ %.18188, %3107 ], [ %1468, %1465 ]
   %.19 = phi ptr [ %.18, %3107 ], [ %1467, %1465 ]
   call void @_ZNSt10unique_ptrI7t_stateSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %75) #28
   call void @_ZN3gmx19LocalAtomSetManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %74) #28
   br label %3109
 
 3109:                                             ; preds = %3108, %1461
-  %.20192 = phi i32 [ %.19191, %3108 ], [ %1464, %1461 ]
+  %.20190 = phi i32 [ %.19189, %3108 ], [ %1464, %1461 ]
   %.20 = phi ptr [ %.19, %3108 ], [ %1463, %1461 ]
   call void @_ZN3gmx18GpuTaskAssignmentsD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %72) #28
   br label %3110
 
 3110:                                             ; preds = %3109, %1420, %.body485
-  %.21193 = phi i32 [ %.20192, %3109 ], [ %1395, %.body485 ], [ %1423, %1420 ]
+  %.21191 = phi i32 [ %.20190, %3109 ], [ %1395, %.body485 ], [ %1423, %1420 ]
   %.21 = phi ptr [ %.20, %3109 ], [ %1394, %.body485 ], [ %1422, %1420 ]
   call void @_ZNSt10unique_ptrIN3gmx26DomainDecompositionBuilderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #28
   br label %3111
 
 3111:                                             ; preds = %1346, %3110, %1337, %1314, %1233, %.body468
-  %.22194 = phi i32 [ %.21193, %3110 ], [ %1220, %.body468 ], [ %1349, %1346 ], [ %1340, %1337 ], [ %1236, %1233 ], [ %1317, %1314 ]
+  %.22192 = phi i32 [ %.21191, %3110 ], [ %1220, %.body468 ], [ %1349, %1346 ], [ %1340, %1337 ], [ %1236, %1233 ], [ %1317, %1314 ]
   %.22 = phi ptr [ %.21, %3110 ], [ %1219, %.body468 ], [ %1348, %1346 ], [ %1339, %1337 ], [ %1235, %1233 ], [ %1316, %1314 ]
   call void @_ZN3gmx12UpdateGroupsD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %64) #28
   call void @_ZNSt7variantIJSt6vectorIN3gmx17RangePartitioningESaIS2_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %63) #28
   br label %3112
 
 3112:                                             ; preds = %3111, %1087, %1025, %.body443
-  %.23195 = phi i32 [ %1090, %1087 ], [ %1010, %.body443 ], [ %.22194, %3111 ], [ %1028, %1025 ]
+  %.23193 = phi i32 [ %1090, %1087 ], [ %1010, %.body443 ], [ %.22192, %3111 ], [ %1028, %1025 ]
   %.23 = phi ptr [ %1089, %1087 ], [ %1009, %.body443 ], [ %.22, %3111 ], [ %1027, %1025 ]
   call void @_ZNSt10unique_ptrIN3gmx24ReadCheckpointDataHolderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %58) #28
   br label %3113
 
 3113:                                             ; preds = %3112, %969
-  %.24196 = phi i32 [ %.23195, %3112 ], [ %972, %969 ]
+  %.24194 = phi i32 [ %.23193, %3112 ], [ %972, %969 ]
   %.24 = phi ptr [ %.23, %3112 ], [ %971, %969 ]
   call void @_ZN18ObservablesHistoryD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #28
   br label %3114
 
 3114:                                             ; preds = %3113, %928, %918, %863, %832, %.body395, %739, %.body420
-  %.25197 = phi i32 [ %.2174, %739 ], [ %634, %.body420 ], [ %931, %928 ], [ %.24196, %3113 ], [ %921, %918 ], [ %866, %863 ], [ %.3175, %832 ], [ %828, %.body395 ]
+  %.25195 = phi i32 [ %.2172, %739 ], [ %634, %.body420 ], [ %931, %928 ], [ %.24194, %3113 ], [ %921, %918 ], [ %866, %863 ], [ %.3173, %832 ], [ %828, %.body395 ]
   %.25 = phi ptr [ %.2, %739 ], [ %633, %.body420 ], [ %930, %928 ], [ %.24, %3113 ], [ %920, %918 ], [ %865, %863 ], [ %.3, %832 ], [ %827, %.body395 ]
   call void @_ZN3gmx25ObservablesReducerBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #28
   br label %3115
 
 3115:                                             ; preds = %457, %3114, %448, %.body346
-  %.26198 = phi i32 [ %.25197, %3114 ], [ %400, %.body346 ], [ %460, %457 ], [ %451, %448 ]
+  %.26196 = phi i32 [ %.25195, %3114 ], [ %400, %.body346 ], [ %460, %457 ], [ %451, %448 ]
   %.26 = phi ptr [ %.25, %3114 ], [ %399, %.body346 ], [ %459, %457 ], [ %450, %448 ]
   call void @_ZN3gmx24PhysicalNodeCommunicatorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #28
   br label %3116
 
 3116:                                             ; preds = %3115, %393
-  %.27199 = phi i32 [ %.26198, %3115 ], [ %396, %393 ]
+  %.27197 = phi i32 [ %.26196, %3115 ], [ %396, %393 ]
   %.27 = phi ptr [ %.26, %3115 ], [ %395, %393 ]
   call void @_ZNSt10unique_ptrI9t_commrecSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #28
   br label %3117
 
 3117:                                             ; preds = %365, %3116, %356, %320, %.body
-  %.28200 = phi i32 [ %323, %320 ], [ %319, %.body ], [ %.27199, %3116 ], [ %368, %365 ], [ %359, %356 ]
+  %.28198 = phi i32 [ %323, %320 ], [ %319, %.body ], [ %.27197, %3116 ], [ %368, %365 ], [ %359, %356 ]
   %.28 = phi ptr [ %322, %320 ], [ %318, %.body ], [ %.27, %3116 ], [ %367, %365 ], [ %358, %356 ]
   call void @_ZNSt10unique_ptrI26PartialDeserializedTprFileSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #28
   br label %3118
 
 3118:                                             ; preds = %3117, %312
-  %.29201 = phi i32 [ %.28200, %3117 ], [ %315, %312 ]
+  %.29199 = phi i32 [ %.28198, %3117 ], [ %315, %312 ]
   %.29 = phi ptr [ %.28, %3117 ], [ %314, %312 ]
   call void @_ZNSt10unique_ptrI7t_stateSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #28
   call void @_ZNSt10unique_ptrI10t_inputrecSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #28
   br label %3119
 
 3119:                                             ; preds = %3118, %308
-  %.30202 = phi i32 [ %.29201, %3118 ], [ %311, %308 ]
+  %.30200 = phi i32 [ %.29199, %3118 ], [ %311, %308 ]
   %.30 = phi ptr [ %.29, %3118 ], [ %310, %308 ]
   %3120 = load ptr, ptr %34, align 8
   %.not.i.i.i830 = icmp eq ptr %3120, null
@@ -9567,13 +9567,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit523:                 ; preds = %1716, %1712, %_ZNSt
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit831
 
 _ZNSt6vectorIiSaIiEED2Ev.exit831:                 ; preds = %3121, %3119, %304
-  %.31203 = phi i32 [ %307, %304 ], [ %.30202, %3119 ], [ %.30202, %3121 ]
+  %.31201 = phi i32 [ %307, %304 ], [ %.30200, %3119 ], [ %.30200, %3121 ]
   %.31 = phi ptr [ %306, %304 ], [ %.30, %3119 ], [ %.30, %3121 ]
   call void @_ZN3gmx11LoggerOwnerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #28
   br label %3122
 
 3122:                                             ; preds = %231, %_ZNSt6vectorIiSaIiEED2Ev.exit831, %238, %222
-  %.32204 = phi i32 [ %.31203, %_ZNSt6vectorIiSaIiEED2Ev.exit831 ], [ %241, %238 ], [ %234, %231 ], [ %225, %222 ]
+  %.32202 = phi i32 [ %.31201, %_ZNSt6vectorIiSaIiEED2Ev.exit831 ], [ %241, %238 ], [ %234, %231 ], [ %225, %222 ]
   %.32 = phi ptr [ %.31, %_ZNSt6vectorIiSaIiEED2Ev.exit831 ], [ %240, %238 ], [ %233, %231 ], [ %224, %222 ]
   %3123 = load ptr, ptr %28, align 16
   %.not.i.i.i832 = icmp eq ptr %3123, null
@@ -9584,23 +9584,23 @@ _ZNSt6vectorIiSaIiEED2Ev.exit831:                 ; preds = %3121, %3119, %304
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit833
 
 _ZNSt6vectorIiSaIiEED2Ev.exit833:                 ; preds = %3124, %3122, %218
-  %.33205 = phi i32 [ %221, %218 ], [ %.32204, %3122 ], [ %.32204, %3124 ]
+  %.33203 = phi i32 [ %221, %218 ], [ %.32202, %3122 ], [ %.32202, %3124 ]
   %.33 = phi ptr [ %220, %218 ], [ %.32, %3122 ], [ %.32, %3124 ]
   call void @_ZN10gmx_mtop_tD1Ev(ptr noundef nonnull align 8 dereferenceable(768) %27) #28
   br label %3125
 
 3125:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit833, %214
-  %.34206 = phi i32 [ %.33205, %_ZNSt6vectorIiSaIiEED2Ev.exit833 ], [ %217, %214 ]
+  %.34204 = phi i32 [ %.33203, %_ZNSt6vectorIiSaIiEED2Ev.exit833 ], [ %217, %214 ]
   %.34 = phi ptr [ %.33, %_ZNSt6vectorIiSaIiEED2Ev.exit833 ], [ %216, %214 ]
   call void @_ZN3gmx12MembedHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %26) #28
   br label %3126
 
 3126:                                             ; preds = %3125, %210
-  %.35207 = phi i32 [ %.34206, %3125 ], [ %213, %210 ]
+  %.35205 = phi i32 [ %.34204, %3125 ], [ %213, %210 ]
   %.35 = phi ptr [ %.34, %3125 ], [ %212, %210 ]
   call void @_ZNSt10unique_ptrI10t_forcerecSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #28
   %3127 = insertvalue { ptr, i32 } poison, ptr %.35, 0
-  %3128 = insertvalue { ptr, i32 } %3127, i32 %.35207, 1
+  %3128 = insertvalue { ptr, i32 } %3127, i32 %.35205, 1
   resume { ptr, i32 } %3128
 
 3129:                                             ; preds = %3002, %2957, %2275, %1346, %457, %365, %231

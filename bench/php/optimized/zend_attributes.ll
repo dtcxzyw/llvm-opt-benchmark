@@ -274,9 +274,9 @@ define hidden void @zim_Attribute___construct(ptr noundef %0, ptr nocapture read
 
 18:                                               ; preds = %16, %.thread78
   %.05785 = phi i32 [ 1, %.thread78 ], [ 9, %16 ]
-  %.05984 = phi ptr [ null, %.thread78 ], [ %11, %16 ]
-  %.06083 = phi i32 [ 0, %.thread78 ], [ 1, %16 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05785, i32 noundef %.06083, ptr noundef null, i32 noundef 0, ptr noundef %.05984) #16
+  %.05884 = phi i32 [ 0, %.thread78 ], [ 1, %16 ]
+  %.06083 = phi ptr [ null, %.thread78 ], [ %11, %16 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05785, i32 noundef %.05884, ptr noundef null, i32 noundef 0, ptr noundef %.06083) #16
   br label %23
 
 .thread86:                                        ; preds = %..thread86_crit_edge, %.thread68, %8
@@ -471,14 +471,14 @@ define ptr @zend_get_attribute(ptr noundef readonly %0, ptr noundef %1) local_un
   br label %15
 
 15:                                               ; preds = %.critedge2.i, %.lr.ph.i
-  %.035.i = phi ptr [ %5, %.lr.ph.i ], [ %35, %.critedge2.i ]
-  %16 = getelementptr inbounds i8, ptr %.035.i, i64 8
+  %.02835.i = phi ptr [ %5, %.lr.ph.i ], [ %35, %.critedge2.i ]
+  %16 = getelementptr inbounds i8, ptr %.02835.i, i64 8
   %17 = load i8, ptr %16, align 8
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %.critedge2.i, label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %.035.i, align 8
+  %20 = load ptr, ptr %.02835.i, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
@@ -502,13 +502,13 @@ define ptr @zend_get_attribute(ptr noundef readonly %0, ptr noundef %1) local_un
   br i1 %34, label %get_attribute.exit, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %33, %28, %19, %15
-  %35 = getelementptr inbounds i8, ptr %.035.i, i64 16
+  %35 = getelementptr inbounds i8, ptr %.02835.i, i64 16
   %.not33.i = icmp eq ptr %35, %9
   br i1 %.not33.i, label %get_attribute.exit, label %15
 
 get_attribute.exit:                               ; preds = %24, %33, %.critedge2.i, %2, %3
-  %.029.i = phi ptr [ null, %2 ], [ null, %3 ], [ null, %.critedge2.i ], [ %20, %33 ], [ %20, %24 ]
-  ret ptr %.029.i
+  %.0.i = phi ptr [ null, %2 ], [ null, %3 ], [ null, %.critedge2.i ], [ %20, %33 ], [ %20, %24 ]
+  ret ptr %.0.i
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: write) uwtable
@@ -532,14 +532,14 @@ define ptr @zend_get_attribute_str(ptr noundef readonly %0, ptr nocapture nounde
   br i1 %.not2830.i, label %get_attribute_str.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.critedge.i
-  %.031.i = phi ptr [ %31, %.critedge.i ], [ %6, %4 ]
-  %15 = getelementptr inbounds i8, ptr %.031.i, i64 8
+  %.02431.i = phi ptr [ %31, %.critedge.i ], [ %6, %4 ]
+  %15 = getelementptr inbounds i8, ptr %.02431.i, i64 8
   %16 = load i8, ptr %15, align 8
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %.critedge.i, label %18
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = load ptr, ptr %.031.i, align 8
+  %19 = load ptr, ptr %.02431.i, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
@@ -560,13 +560,13 @@ define ptr @zend_get_attribute_str(ptr noundef readonly %0, ptr nocapture nounde
   br i1 %.not29.i, label %get_attribute_str.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %29, %23, %18, %.lr.ph.i
-  %31 = getelementptr inbounds i8, ptr %.031.i, i64 16
+  %31 = getelementptr inbounds i8, ptr %.02431.i, i64 16
   %.not28.i = icmp eq ptr %31, %10
   br i1 %.not28.i, label %get_attribute_str.exit, label %.lr.ph.i
 
 get_attribute_str.exit:                           ; preds = %29, %.critedge.i, %3, %4
-  %.025.i = phi ptr [ null, %3 ], [ null, %4 ], [ null, %.critedge.i ], [ %19, %29 ]
-  ret ptr %.025.i
+  %.0.i = phi ptr [ null, %3 ], [ null, %4 ], [ null, %.critedge.i ], [ %19, %29 ]
+  ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -595,14 +595,14 @@ define ptr @zend_get_parameter_attribute(ptr noundef readonly %0, ptr noundef %1
   br label %17
 
 17:                                               ; preds = %.critedge2.i, %.lr.ph.i
-  %.035.i = phi ptr [ %7, %.lr.ph.i ], [ %37, %.critedge2.i ]
-  %18 = getelementptr inbounds i8, ptr %.035.i, i64 8
+  %.02835.i = phi ptr [ %7, %.lr.ph.i ], [ %37, %.critedge2.i ]
+  %18 = getelementptr inbounds i8, ptr %.02835.i, i64 8
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.critedge2.i, label %21
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr %.035.i, align 8
+  %22 = load ptr, ptr %.02835.i, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, %4
@@ -626,13 +626,13 @@ define ptr @zend_get_parameter_attribute(ptr noundef readonly %0, ptr noundef %1
   br i1 %36, label %get_attribute.exit, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %35, %30, %21, %17
-  %37 = getelementptr inbounds i8, ptr %.035.i, i64 16
+  %37 = getelementptr inbounds i8, ptr %.02835.i, i64 16
   %.not33.i = icmp eq ptr %37, %11
   br i1 %.not33.i, label %get_attribute.exit, label %17
 
 get_attribute.exit:                               ; preds = %26, %35, %.critedge2.i, %3, %5
-  %.029.i = phi ptr [ null, %3 ], [ null, %5 ], [ null, %.critedge2.i ], [ %22, %35 ], [ %22, %26 ]
-  ret ptr %.029.i
+  %.0.i = phi ptr [ null, %3 ], [ null, %5 ], [ null, %.critedge2.i ], [ %22, %35 ], [ %22, %26 ]
+  ret ptr %.0.i
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: write) uwtable
@@ -657,14 +657,14 @@ define ptr @zend_get_parameter_attribute_str(ptr noundef readonly %0, ptr nocapt
   br i1 %.not2830.i, label %get_attribute_str.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %.critedge.i
-  %.031.i = phi ptr [ %33, %.critedge.i ], [ %8, %6 ]
-  %17 = getelementptr inbounds i8, ptr %.031.i, i64 8
+  %.02431.i = phi ptr [ %33, %.critedge.i ], [ %8, %6 ]
+  %17 = getelementptr inbounds i8, ptr %.02431.i, i64 8
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %.critedge.i, label %20
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = load ptr, ptr %.031.i, align 8
+  %21 = load ptr, ptr %.02431.i, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, %5
@@ -685,13 +685,13 @@ define ptr @zend_get_parameter_attribute_str(ptr noundef readonly %0, ptr nocapt
   br i1 %.not29.i, label %get_attribute_str.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %31, %25, %20, %.lr.ph.i
-  %33 = getelementptr inbounds i8, ptr %.031.i, i64 16
+  %33 = getelementptr inbounds i8, ptr %.02431.i, i64 16
   %.not28.i = icmp eq ptr %33, %12
   br i1 %.not28.i, label %get_attribute_str.exit, label %.lr.ph.i
 
 get_attribute_str.exit:                           ; preds = %31, %.critedge.i, %4, %6
-  %.025.i = phi ptr [ null, %4 ], [ null, %6 ], [ null, %.critedge.i ], [ %21, %31 ]
-  ret ptr %.025.i
+  %.0.i = phi ptr [ null, %4 ], [ null, %6 ], [ null, %.critedge.i ], [ %21, %31 ]
+  ret ptr %.0.i
 }
 
 declare void @zval_copy_ctor_func(ptr noundef) local_unnamed_addr #2
@@ -906,14 +906,14 @@ define noundef zeroext i1 @zend_is_attribute_repeated(ptr nocapture noundef read
   br label %15
 
 15:                                               ; preds = %.lr.ph, %.critedge2
-  %.036 = phi ptr [ %4, %.lr.ph ], [ %39, %.critedge2 ]
-  %16 = getelementptr inbounds i8, ptr %.036, i64 8
+  %.02836 = phi ptr [ %4, %.lr.ph ], [ %39, %.critedge2 ]
+  %16 = getelementptr inbounds i8, ptr %.02836, i64 8
   %17 = load i8, ptr %16, align 8
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %.critedge2, label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %.036, align 8
+  %20 = load ptr, ptr %.02836, align 8
   %.not34 = icmp eq ptr %20, %1
   br i1 %.not34, label %.critedge2, label %21
 
@@ -944,7 +944,7 @@ define noundef zeroext i1 @zend_is_attribute_repeated(ptr nocapture noundef read
   br i1 %38, label %.critedge, label %.critedge2
 
 .critedge2:                                       ; preds = %19, %21, %31, %37, %15
-  %39 = getelementptr inbounds i8, ptr %.036, i64 16
+  %39 = getelementptr inbounds i8, ptr %.02836, i64 16
   %.not.not = icmp eq ptr %39, %8
   br i1 %.not.not, label %.critedge, label %15
 
@@ -1327,15 +1327,15 @@ define noundef ptr @zend_mark_internal_attribute(ptr noundef %0) local_unnamed_a
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
-  %.053 = phi ptr [ %62, %.critedge2 ], [ %17, %.lr.ph.preheader ]
-  %.04552 = phi i32 [ %63, %.critedge2 ], [ %9, %.lr.ph.preheader ]
-  %18 = getelementptr inbounds i8, ptr %.053, i64 8
+  %.053 = phi i32 [ %63, %.critedge2 ], [ %9, %.lr.ph.preheader ]
+  %.04552 = phi ptr [ %62, %.critedge2 ], [ %17, %.lr.ph.preheader ]
+  %18 = getelementptr inbounds i8, ptr %.04552, i64 8
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.critedge2, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = load ptr, ptr %.053, align 8
+  %22 = load ptr, ptr %.04552, align 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr @zend_ce_attribute, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
@@ -1407,8 +1407,8 @@ define noundef ptr @zend_mark_internal_attribute(ptr noundef %0) local_unnamed_a
   ret ptr %36
 
 .critedge2:                                       ; preds = %34, %28, %.lr.ph
-  %62 = getelementptr inbounds i8, ptr %.053, i64 %15
-  %63 = add i32 %.04552, -1
+  %62 = getelementptr inbounds i8, ptr %.04552, i64 %15
+  %63 = add i32 %.053, -1
   %.not48 = icmp eq i32 %63, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 

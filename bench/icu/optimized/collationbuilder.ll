@@ -1072,14 +1072,14 @@ cond.end:                                         ; preds = %cond.true.i, %cond.
 
 while.body:                                       ; preds = %cond.end, %if.end133
   %p.0165 = phi i32 [ %p.3, %if.end133 ], [ %conv.i57, %cond.end ]
-  %nextIndex.0164 = phi i32 [ %and.i62, %if.end133 ], [ %and.i, %cond.end ]
-  %s.0163 = phi i32 [ %s.5, %if.end133 ], [ %cond, %cond.end ]
-  %tIsTailored.0162 = phi i8 [ %tIsTailored.3, %if.end133 ], [ 0, %cond.end ]
-  %sIsTailored.0161 = phi i8 [ %sIsTailored.4, %if.end133 ], [ 0, %cond.end ]
-  %pIsTailored.0160 = phi i8 [ %pIsTailored.4, %if.end133 ], [ 0, %cond.end ]
-  %q.0159 = phi i32 [ %q.1, %if.end133 ], [ 0, %cond.end ]
-  %t.0158 = phi i32 [ %t.3, %if.end133 ], [ %cond, %cond.end ]
-  %idxprom13 = zext nneg i32 %nextIndex.0164 to i64
+  %s.0164 = phi i32 [ %s.5, %if.end133 ], [ %cond, %cond.end ]
+  %t.0163 = phi i32 [ %t.3, %if.end133 ], [ %cond, %cond.end ]
+  %nextIndex.0162 = phi i32 [ %and.i62, %if.end133 ], [ %and.i, %cond.end ]
+  %q.0161 = phi i32 [ %q.1, %if.end133 ], [ 0, %cond.end ]
+  %tIsTailored.0160 = phi i8 [ %tIsTailored.3, %if.end133 ], [ 0, %cond.end ]
+  %sIsTailored.0159 = phi i8 [ %sIsTailored.4, %if.end133 ], [ 0, %cond.end ]
+  %pIsTailored.0158 = phi i8 [ %pIsTailored.4, %if.end133 ], [ 0, %cond.end ]
+  %idxprom13 = zext nneg i32 %nextIndex.0162 to i64
   %arrayidx14 = getelementptr inbounds i64, ptr %1, i64 %idxprom13
   %6 = load i64, ptr %arrayidx14, align 8
   %conv.i60 = trunc i64 %6 to i32
@@ -1094,11 +1094,11 @@ while.body:                                       ; preds = %cond.end, %if.end13
   ]
 
 if.then18:                                        ; preds = %while.body
-  %cmp19 = icmp eq i32 %q.0159, 3
+  %cmp19 = icmp eq i32 %q.0161, 3
   br i1 %cmp19, label %for.end.sink.split, label %if.end21
 
 if.end21:                                         ; preds = %if.then18
-  %inc = add i32 %q.0159, 1
+  %inc = add i32 %q.0161, 1
   br label %if.end126
 
 if.then23:                                        ; preds = %while.body
@@ -1107,7 +1107,7 @@ if.then23:                                        ; preds = %while.body
   br i1 %tobool25.not, label %if.else58, label %if.then26
 
 if.then26:                                        ; preds = %if.then23
-  %tobool27.not = icmp eq i8 %tIsTailored.0162, 0
+  %tobool27.not = icmp eq i8 %tIsTailored.0160, 0
   br i1 %tobool27.not, label %if.then28, label %if.end56
 
 if.then28:                                        ; preds = %if.then26
@@ -1115,9 +1115,9 @@ if.then28:                                        ; preds = %if.then26
   br i1 %cmp12.i, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then28, %if.end10.i
-  %count.014.i = phi i32 [ %count.1.i, %if.end10.i ], [ 0, %if.then28 ]
-  %i.addr.013.i = phi i32 [ %and.i11.i, %if.end10.i ], [ %and.i62, %if.then28 ]
-  %idxprom.i66 = zext nneg i32 %i.addr.013.i to i64
+  %i.addr.014.i = phi i32 [ %and.i11.i, %if.end10.i ], [ %and.i62, %if.then28 ]
+  %count.013.i = phi i32 [ %count.1.i, %if.end10.i ], [ 0, %if.then28 ]
+  %idxprom.i66 = zext nneg i32 %i.addr.014.i to i64
   %arrayidx.i67 = getelementptr inbounds i64, ptr %1, i64 %idxprom.i66
   %8 = load i64, ptr %arrayidx.i67, align 8
   %conv.i.i = trunc i64 %8 to i32
@@ -1135,20 +1135,20 @@ if.then6.i:                                       ; preds = %if.end3.i
   br i1 %tobool.not.i, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then6.i
-  %inc.i = add nsw i32 %count.014.i, 1
+  %inc.i = add nsw i32 %count.013.i, 1
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then8.i, %if.end3.i
-  %count.1.i = phi i32 [ %inc.i, %if.then8.i ], [ %count.014.i, %if.end3.i ]
+  %count.1.i = phi i32 [ %inc.i, %if.then8.i ], [ %count.013.i, %if.end3.i ]
   %shr.i.i = lshr i32 %conv.i.i, 8
   %and.i11.i = and i32 %shr.i.i, 1048575
   %cmp.i69 = icmp eq i32 %and.i11.i, 0
   br i1 %cmp.i69, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit, label %if.end.i, !llvm.loop !4
 
 _ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit: ; preds = %if.end.i, %if.then6.i, %if.end10.i, %if.then28
-  %count.0.lcssa.i = phi i32 [ 0, %if.then28 ], [ %count.1.i, %if.end10.i ], [ %count.014.i, %if.end.i ], [ %count.014.i, %if.then6.i ]
+  %count.0.lcssa.i = phi i32 [ 0, %if.then28 ], [ %count.1.i, %if.end10.i ], [ %count.013.i, %if.end.i ], [ %count.013.i, %if.then6.i ]
   %add = add nsw i32 %count.0.lcssa.i, 1
-  %cmp30 = icmp eq i32 %t.0158, 0
+  %cmp30 = icmp eq i32 %t.0163, 0
   br i1 %cmp30, label %if.then31, label %if.else36
 
 if.then31:                                        ; preds = %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit
@@ -1166,17 +1166,17 @@ if.then31:                                        ; preds = %_ZN6icu_7516Collati
   br label %if.end50
 
 if.else36:                                        ; preds = %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit
-  %tobool37 = icmp ne i8 %pIsTailored.0160, 0
-  %tobool38 = icmp ne i8 %sIsTailored.0161, 0
+  %tobool37 = icmp ne i8 %pIsTailored.0158, 0
+  %tobool38 = icmp ne i8 %sIsTailored.0159, 0
   %or.cond = select i1 %tobool37, i1 true, i1 %tobool38
   br i1 %or.cond, label %if.else42, label %if.then39
 
 if.then39:                                        ; preds = %if.else36
-  %call41 = call noundef i32 @_ZNK6icu_7521CollationRootElements16getTertiaryAfterEijj(ptr noundef nonnull align 8 dereferenceable(12) %rootElements, i32 noundef %cond10, i32 noundef %s.0163, i32 noundef %t.0158)
+  %call41 = call noundef i32 @_ZNK6icu_7521CollationRootElements16getTertiaryAfterEijj(ptr noundef nonnull align 8 dereferenceable(12) %rootElements, i32 noundef %cond10, i32 noundef %s.0164, i32 noundef %t.0163)
   br label %if.end50
 
 if.else42:                                        ; preds = %if.else36
-  %cmp43 = icmp eq i32 %t.0158, 256
+  %cmp43 = icmp eq i32 %t.0163, 256
   br i1 %cmp43, label %if.end50, label %if.else45
 
 if.else45:                                        ; preds = %if.else42
@@ -1188,7 +1188,7 @@ if.else45:                                        ; preds = %if.else42
   br label %if.end50
 
 if.end50:                                         ; preds = %if.else42, %if.then39, %if.else45, %if.then31
-  %t.1 = phi i32 [ %sub, %if.then31 ], [ %t.0158, %if.else45 ], [ %t.0158, %if.then39 ], [ 256, %if.else42 ]
+  %t.1 = phi i32 [ %sub, %if.then31 ], [ %t.0163, %if.else45 ], [ %t.0163, %if.then39 ], [ 256, %if.else42 ]
   %tLimit.0 = phi i32 [ %and, %if.then31 ], [ %and.i76, %if.else45 ], [ %call41, %if.then39 ], [ 1280, %if.else42 ]
   call void @_ZN6icu_7516CollationWeights15initForTertiaryEv(ptr noundef nonnull align 4 dereferenceable(164) %tertiaries)
   %call51 = call noundef signext i8 @_ZN6icu_7516CollationWeights12allocWeightsEjji(ptr noundef nonnull align 4 dereferenceable(164) %tertiaries, i32 noundef %t.1, i32 noundef %tLimit.0, i32 noundef %add)
@@ -1210,7 +1210,7 @@ if.then63:                                        ; preds = %while.body
   br i1 %tobool65.not, label %if.else104, label %if.then66
 
 if.then66:                                        ; preds = %if.then63
-  %tobool67.not = icmp eq i8 %sIsTailored.0161, 0
+  %tobool67.not = icmp eq i8 %sIsTailored.0159, 0
   br i1 %tobool67.not, label %if.then68, label %if.end102
 
 if.then68:                                        ; preds = %if.then66
@@ -1218,9 +1218,9 @@ if.then68:                                        ; preds = %if.then66
   br i1 %cmp12.i80, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101, label %if.end.i81
 
 if.end.i81:                                       ; preds = %if.then68, %if.end10.i91
-  %count.014.i82 = phi i32 [ %count.1.i92, %if.end10.i91 ], [ 0, %if.then68 ]
-  %i.addr.013.i83 = phi i32 [ %and.i11.i94, %if.end10.i91 ], [ %and.i62, %if.then68 ]
-  %idxprom.i84 = zext nneg i32 %i.addr.013.i83 to i64
+  %i.addr.014.i82 = phi i32 [ %and.i11.i94, %if.end10.i91 ], [ %and.i62, %if.then68 ]
+  %count.013.i83 = phi i32 [ %count.1.i92, %if.end10.i91 ], [ 0, %if.then68 ]
+  %idxprom.i84 = zext nneg i32 %i.addr.014.i82 to i64
   %arrayidx.i85 = getelementptr inbounds i64, ptr %1, i64 %idxprom.i84
   %17 = load i64, ptr %arrayidx.i85, align 8
   %conv.i.i86 = trunc i64 %17 to i32
@@ -1236,20 +1236,20 @@ if.then6.i97:                                     ; preds = %if.end.i81
   br i1 %tobool.not.i98, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101, label %if.then8.i99
 
 if.then8.i99:                                     ; preds = %if.then6.i97
-  %inc.i100 = add nsw i32 %count.014.i82, 1
+  %inc.i100 = add nsw i32 %count.013.i83, 1
   br label %if.end10.i91
 
 if.end10.i91:                                     ; preds = %if.end.i81, %if.then8.i99
-  %count.1.i92 = phi i32 [ %inc.i100, %if.then8.i99 ], [ %count.014.i82, %if.end.i81 ]
+  %count.1.i92 = phi i32 [ %inc.i100, %if.then8.i99 ], [ %count.013.i83, %if.end.i81 ]
   %shr.i.i93 = lshr i32 %conv.i.i86, 8
   %and.i11.i94 = and i32 %shr.i.i93, 1048575
   %cmp.i95 = icmp eq i32 %and.i11.i94, 0
   br i1 %cmp.i95, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101, label %if.end.i81, !llvm.loop !4
 
 _ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101: ; preds = %if.end.i81, %if.then6.i97, %if.end10.i91, %if.then68
-  %count.0.lcssa.i96 = phi i32 [ 0, %if.then68 ], [ %count.1.i92, %if.end10.i91 ], [ %count.014.i82, %if.end.i81 ], [ %count.014.i82, %if.then6.i97 ]
+  %count.0.lcssa.i96 = phi i32 [ 0, %if.then68 ], [ %count.1.i92, %if.end10.i91 ], [ %count.013.i83, %if.end.i81 ], [ %count.013.i83, %if.then6.i97 ]
   %add70 = add nsw i32 %count.0.lcssa.i96, 1
-  %cmp71 = icmp eq i32 %s.0163, 0
+  %cmp71 = icmp eq i32 %s.0164, 0
   br i1 %cmp71, label %if.then72, label %if.else78
 
 if.then72:                                        ; preds = %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101
@@ -1268,15 +1268,15 @@ if.then72:                                        ; preds = %_ZN6icu_7516Collati
   br label %if.end91
 
 if.else78:                                        ; preds = %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101
-  %tobool79.not = icmp eq i8 %pIsTailored.0160, 0
+  %tobool79.not = icmp eq i8 %pIsTailored.0158, 0
   br i1 %tobool79.not, label %if.then80, label %if.else83
 
 if.then80:                                        ; preds = %if.else78
-  %call82 = call noundef i32 @_ZNK6icu_7521CollationRootElements17getSecondaryAfterEij(ptr noundef nonnull align 8 dereferenceable(12) %rootElements, i32 noundef %cond10, i32 noundef %s.0163)
+  %call82 = call noundef i32 @_ZNK6icu_7521CollationRootElements17getSecondaryAfterEij(ptr noundef nonnull align 8 dereferenceable(12) %rootElements, i32 noundef %cond10, i32 noundef %s.0164)
   br label %if.end91
 
 if.else83:                                        ; preds = %if.else78
-  %cmp84 = icmp eq i32 %s.0163, 256
+  %cmp84 = icmp eq i32 %s.0164, 256
   br i1 %cmp84, label %if.end96, label %if.else86
 
 if.else86:                                        ; preds = %if.else83
@@ -1288,7 +1288,7 @@ if.else86:                                        ; preds = %if.else83
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then80, %if.else86, %if.then72
-  %s.1 = phi i32 [ %sub75, %if.then72 ], [ %s.0163, %if.else86 ], [ %s.0163, %if.then80 ]
+  %s.1 = phi i32 [ %sub75, %if.then72 ], [ %s.0164, %if.else86 ], [ %s.0164, %if.then80 ]
   %sLimit.0 = phi i32 [ %shr, %if.then72 ], [ %and.i111, %if.else86 ], [ %call82, %if.then80 ]
   %cmp92 = icmp eq i32 %s.1, 1280
   br i1 %cmp92, label %if.then93, label %if.end96
@@ -1322,7 +1322,7 @@ default.unreachable:                              ; preds = %while.body
   unreachable
 
 if.else107:                                       ; preds = %while.body
-  %tobool108.not = icmp eq i8 %pIsTailored.0160, 0
+  %tobool108.not = icmp eq i8 %pIsTailored.0158, 0
   br i1 %tobool108.not, label %if.then109, label %if.end122.thread
 
 if.then109:                                       ; preds = %if.else107
@@ -1330,9 +1330,9 @@ if.then109:                                       ; preds = %if.else107
   br i1 %cmp12.i117, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit138, label %if.end.i118
 
 if.end.i118:                                      ; preds = %if.then109, %if.end10.i128
-  %count.014.i119 = phi i32 [ %count.1.i129, %if.end10.i128 ], [ 0, %if.then109 ]
-  %i.addr.013.i120 = phi i32 [ %and.i11.i131, %if.end10.i128 ], [ %and.i62, %if.then109 ]
-  %idxprom.i121 = zext nneg i32 %i.addr.013.i120 to i64
+  %i.addr.014.i119 = phi i32 [ %and.i11.i131, %if.end10.i128 ], [ %and.i62, %if.then109 ]
+  %count.013.i120 = phi i32 [ %count.1.i129, %if.end10.i128 ], [ 0, %if.then109 ]
+  %idxprom.i121 = zext nneg i32 %i.addr.014.i119 to i64
   %arrayidx.i122 = getelementptr inbounds i64, ptr %1, i64 %idxprom.i121
   %27 = load i64, ptr %arrayidx.i122, align 8
   %conv.i.i123 = trunc i64 %27 to i32
@@ -1346,18 +1346,18 @@ if.then6.i134:                                    ; preds = %if.end.i118
   br i1 %tobool.not.i135, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit138, label %if.then8.i136
 
 if.then8.i136:                                    ; preds = %if.then6.i134
-  %inc.i137 = add nsw i32 %count.014.i119, 1
+  %inc.i137 = add nsw i32 %count.013.i120, 1
   br label %if.end10.i128
 
 if.end10.i128:                                    ; preds = %if.then8.i136, %if.end.i118
-  %count.1.i129 = phi i32 [ %inc.i137, %if.then8.i136 ], [ %count.014.i119, %if.end.i118 ]
+  %count.1.i129 = phi i32 [ %inc.i137, %if.then8.i136 ], [ %count.013.i120, %if.end.i118 ]
   %shr.i.i130 = lshr i32 %conv.i.i123, 8
   %and.i11.i131 = and i32 %shr.i.i130, 1048575
   %cmp.i132 = icmp eq i32 %and.i11.i131, 0
   br i1 %cmp.i132, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit138, label %if.end.i118, !llvm.loop !4
 
 _ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit138: ; preds = %if.then6.i134, %if.end10.i128, %if.then109
-  %count.0.lcssa.i133 = phi i32 [ 0, %if.then109 ], [ %count.1.i129, %if.end10.i128 ], [ %count.014.i119, %if.then6.i134 ]
+  %count.0.lcssa.i133 = phi i32 [ 0, %if.then109 ], [ %count.1.i129, %if.end10.i128 ], [ %count.013.i120, %if.then6.i134 ]
   %add111 = add nsw i32 %count.0.lcssa.i133, 1
   %29 = load ptr, ptr %baseData, align 8
   %shr.i139 = lshr i32 %p.0165, 24
@@ -1385,12 +1385,12 @@ if.end122:                                        ; preds = %if.end102, %if.else
   br label %if.end126
 
 if.end126:                                        ; preds = %if.end122, %if.end122.thread, %if.else58, %if.end56, %if.end21
-  %t.3 = phi i32 [ %t.0158, %if.end21 ], [ %call57, %if.end56 ], [ %conv.i78, %if.else58 ], [ 1280, %if.end122.thread ], [ %spec.select, %if.end122 ]
+  %pIsTailored.4 = phi i8 [ %pIsTailored.0158, %if.end21 ], [ %pIsTailored.0158, %if.end56 ], [ %pIsTailored.0158, %if.else58 ], [ 1, %if.end122.thread ], [ %pIsTailored.0158, %if.end122 ]
+  %sIsTailored.4 = phi i8 [ %sIsTailored.0159, %if.end21 ], [ %sIsTailored.0159, %if.end56 ], [ %sIsTailored.0159, %if.else58 ], [ 0, %if.end122.thread ], [ %sIsTailored.2, %if.end122 ]
+  %tIsTailored.3 = phi i8 [ %tIsTailored.0160, %if.end21 ], [ 1, %if.end56 ], [ 0, %if.else58 ], [ 0, %if.end122.thread ], [ 0, %if.end122 ]
   %q.1 = phi i32 [ %inc, %if.end21 ], [ 0, %if.end56 ], [ 0, %if.else58 ], [ 0, %if.end122.thread ], [ 0, %if.end122 ]
-  %pIsTailored.4 = phi i8 [ %pIsTailored.0160, %if.end21 ], [ %pIsTailored.0160, %if.end56 ], [ %pIsTailored.0160, %if.else58 ], [ 1, %if.end122.thread ], [ %pIsTailored.0160, %if.end122 ]
-  %sIsTailored.4 = phi i8 [ %sIsTailored.0161, %if.end21 ], [ %sIsTailored.0161, %if.end56 ], [ %sIsTailored.0161, %if.else58 ], [ 0, %if.end122.thread ], [ %sIsTailored.2, %if.end122 ]
-  %tIsTailored.3 = phi i8 [ %tIsTailored.0162, %if.end21 ], [ 1, %if.end56 ], [ 0, %if.else58 ], [ 0, %if.end122.thread ], [ 0, %if.end122 ]
-  %s.5 = phi i32 [ %s.0163, %if.end21 ], [ %s.0163, %if.end56 ], [ %s.0163, %if.else58 ], [ 1280, %if.end122.thread ], [ %s.3.fr, %if.end122 ]
+  %t.3 = phi i32 [ %t.0163, %if.end21 ], [ %call57, %if.end56 ], [ %conv.i78, %if.else58 ], [ 1280, %if.end122.thread ], [ %spec.select, %if.end122 ]
+  %s.5 = phi i32 [ %s.0164, %if.end21 ], [ %s.0164, %if.end56 ], [ %s.0164, %if.else58 ], [ 1280, %if.end122.thread ], [ %s.3.fr, %if.end122 ]
   %p.3 = phi i32 [ %p.0165, %if.end21 ], [ %p.0165, %if.end56 ], [ %p.0165, %if.else58 ], [ %call121, %if.end122.thread ], [ %p.0165, %if.end122 ]
   %32 = and i64 %6, 8
   %tobool128.not = icmp eq i64 %32, 0
@@ -3210,10 +3210,10 @@ for.cond.preheader.i:                             ; preds = %if.end
 if.else.i:                                        ; preds = %for.cond.preheader.i, %if.end17.i
   %conv28.i = phi i32 [ %conv.i9, %if.end17.i ], [ %conv23.i, %for.cond.preheader.i ]
   %div27.i = phi i32 [ %div.i, %if.end17.i ], [ %div17.i, %for.cond.preheader.i ]
-  %limit.026.i = phi i32 [ %limit.1.i, %if.end17.i ], [ %2, %for.cond.preheader.i ]
-  %start.025.i = phi i32 [ %start.1.i, %if.end17.i ], [ 0, %for.cond.preheader.i ]
+  %start.026.i = phi i32 [ %start.1.i, %if.end17.i ], [ 0, %for.cond.preheader.i ]
+  %limit.025.i = phi i32 [ %limit.1.i, %if.end17.i ], [ %2, %for.cond.preheader.i ]
   %cmp5.i = icmp ugt i32 %conv28.i, %p
-  %cmp7.i = icmp eq i32 %div27.i, %start.025.i
+  %cmp7.i = icmp eq i32 %div27.i, %start.026.i
   br i1 %cmp5.i, label %if.then6.i, label %if.else10.i
 
 if.then6.i:                                       ; preds = %if.else.i
@@ -3231,9 +3231,9 @@ if.then12.i:                                      ; preds = %if.else10.i
   br label %_ZN6icu_7512_GLOBAL__N_130binarySearchForRootPrimaryNodeEPKiiPKlj.exit
 
 if.end17.i:                                       ; preds = %if.else10.i, %if.then6.i
-  %start.1.i = phi i32 [ %start.025.i, %if.then6.i ], [ %div27.i, %if.else10.i ]
-  %limit.1.i = phi i32 [ %div27.i, %if.then6.i ], [ %limit.026.i, %if.else10.i ]
-  %add.i = add nsw i32 %limit.1.i, %start.1.i
+  %limit.1.i = phi i32 [ %div27.i, %if.then6.i ], [ %limit.025.i, %if.else10.i ]
+  %start.1.i = phi i32 [ %start.026.i, %if.then6.i ], [ %div27.i, %if.else10.i ]
+  %add.i = add nsw i32 %start.1.i, %limit.1.i
   %div.i = sdiv i32 %add.i, 2
   %idxprom.i = sext i32 %div.i to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %1, i64 %idxprom.i
@@ -4738,16 +4738,16 @@ lpad:                                             ; preds = %_ZNK6icu_7513Unicod
 
 invoke.cont21:                                    ; preds = %invoke.cont21.lr.ph, %for.inc40
   %indvars.iv85 = phi i64 [ 0, %invoke.cont21.lr.ph ], [ %indvars.iv.next86, %for.inc40 ]
-  %numBasePrimaries.073 = phi i32 [ 0, %invoke.cont21.lr.ph ], [ %numBasePrimaries.1, %for.inc40 ]
-  %lastCase.072 = phi i32 [ 0, %invoke.cont21.lr.ph ], [ %lastCase.1, %for.inc40 ]
-  %cases.071 = phi i64 [ 0, %invoke.cont21.lr.ph ], [ %cases.1, %for.inc40 ]
+  %cases.074 = phi i64 [ 0, %invoke.cont21.lr.ph ], [ %cases.1, %for.inc40 ]
+  %numBasePrimaries.072 = phi i32 [ 0, %invoke.cont21.lr.ph ], [ %numBasePrimaries.1, %for.inc40 ]
+  %lastCase.071 = phi i32 [ 0, %invoke.cont21.lr.ph ], [ %lastCase.1, %for.inc40 ]
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %14, i64 %indvars.iv85
   %16 = load i64, ptr %arrayidx.i.i.i, align 8
   %cmp23.not = icmp ult i64 %16, 4294967296
   br i1 %cmp23.not, label %for.inc40, label %if.then24
 
 if.then24:                                        ; preds = %invoke.cont21
-  %inc25 = add nsw i32 %numBasePrimaries.073, 1
+  %inc25 = add nsw i32 %numBasePrimaries.072, 1
   %conv = trunc i64 %16 to i32
   %shr26 = lshr i32 %conv, 14
   %and = and i32 %shr26, 3
@@ -4756,10 +4756,10 @@ if.then24:                                        ; preds = %invoke.cont21
 
 if.then28:                                        ; preds = %if.then24
   %conv29 = zext nneg i32 %and to i64
-  %mul = shl nsw i32 %numBasePrimaries.073, 1
+  %mul = shl nsw i32 %numBasePrimaries.072, 1
   %sh_prom = zext nneg i32 %mul to i64
   %shl = shl i64 %conv29, %sh_prom
-  %or = or i64 %shl, %cases.071
+  %or = or i64 %shl, %cases.074
   br label %for.inc40
 
 if.else:                                          ; preds = %if.then24
@@ -4767,19 +4767,19 @@ if.else:                                          ; preds = %if.then24
   br i1 %cmp31, label %for.inc40, label %if.else33
 
 if.else33:                                        ; preds = %if.else
-  %cmp34.not = icmp eq i32 %and, %lastCase.072
+  %cmp34.not = icmp eq i32 %and, %lastCase.071
   br i1 %cmp34.not, label %for.inc40, label %cleanup.loopexit
 
 for.inc40:                                        ; preds = %if.else, %invoke.cont21, %if.else33, %if.then28
-  %cases.1 = phi i64 [ %or, %if.then28 ], [ %cases.071, %if.else33 ], [ %cases.071, %invoke.cont21 ], [ %cases.071, %if.else ]
-  %lastCase.1 = phi i32 [ %lastCase.072, %if.then28 ], [ %lastCase.072, %if.else33 ], [ %lastCase.072, %invoke.cont21 ], [ %and, %if.else ]
-  %numBasePrimaries.1 = phi i32 [ %inc25, %if.then28 ], [ %inc25, %if.else33 ], [ %numBasePrimaries.073, %invoke.cont21 ], [ %6, %if.else ]
+  %lastCase.1 = phi i32 [ %lastCase.071, %if.then28 ], [ %lastCase.071, %if.else33 ], [ %lastCase.071, %invoke.cont21 ], [ %and, %if.else ]
+  %numBasePrimaries.1 = phi i32 [ %inc25, %if.then28 ], [ %inc25, %if.else33 ], [ %numBasePrimaries.072, %invoke.cont21 ], [ %6, %if.else ]
+  %cases.1 = phi i64 [ %or, %if.then28 ], [ %cases.074, %if.else33 ], [ %cases.074, %invoke.cont21 ], [ %cases.074, %if.else ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
   br i1 %exitcond89.not, label %cleanup.loopexit, label %invoke.cont21, !llvm.loop !32
 
 cleanup.loopexit:                                 ; preds = %for.inc40, %if.else33
-  %cases.0.lcssa.ph = phi i64 [ %cases.071, %if.else33 ], [ %cases.1, %for.inc40 ]
+  %cases.0.lcssa.ph = phi i64 [ %cases.074, %if.else33 ], [ %cases.1, %for.inc40 ]
   %lastCase.2.ph = phi i32 [ 1, %if.else33 ], [ %lastCase.1, %for.inc40 ]
   %numBasePrimaries.2.ph = phi i32 [ %inc25, %if.else33 ], [ %numBasePrimaries.1, %for.inc40 ]
   %17 = zext nneg i32 %lastCase.2.ph to i64
@@ -6253,9 +6253,9 @@ entry:
   br i1 %cmp12, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry, %if.end10
-  %count.014 = phi i32 [ %count.1, %if.end10 ], [ 0, %entry ]
-  %i.addr.013 = phi i32 [ %and.i11, %if.end10 ], [ %i, %entry ]
-  %idxprom = sext i32 %i.addr.013 to i64
+  %i.addr.014 = phi i32 [ %and.i11, %if.end10 ], [ %i, %entry ]
+  %count.013 = phi i32 [ %count.1, %if.end10 ], [ 0, %entry ]
+  %idxprom = sext i32 %i.addr.014 to i64
   %arrayidx = getelementptr inbounds i64, ptr %nodesArray, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 8
   %conv.i = trunc i64 %0 to i32
@@ -6273,18 +6273,18 @@ if.then6:                                         ; preds = %if.end3
   br i1 %tobool.not, label %for.end, label %if.then8
 
 if.then8:                                         ; preds = %if.then6
-  %inc = add nsw i32 %count.014, 1
+  %inc = add nsw i32 %count.013, 1
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then8, %if.end3
-  %count.1 = phi i32 [ %inc, %if.then8 ], [ %count.014, %if.end3 ]
+  %count.1 = phi i32 [ %inc, %if.then8 ], [ %count.013, %if.end3 ]
   %shr.i = lshr i32 %conv.i, 8
   %and.i11 = and i32 %shr.i, 1048575
   %cmp = icmp eq i32 %and.i11, 0
   br i1 %cmp, label %for.end, label %if.end, !llvm.loop !4
 
 for.end:                                          ; preds = %if.end10, %if.end, %if.then6, %entry
-  %count.0.lcssa = phi i32 [ 0, %entry ], [ %count.014, %if.then6 ], [ %count.014, %if.end ], [ %count.1, %if.end10 ]
+  %count.0.lcssa = phi i32 [ 0, %entry ], [ %count.013, %if.then6 ], [ %count.013, %if.end ], [ %count.1, %if.end10 ]
   ret i32 %count.0.lcssa
 }
 

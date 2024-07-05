@@ -1132,8 +1132,8 @@ define hidden void @zif_opcache_get_status(ptr nocapture noundef readonly %0, pt
   br i1 %.not237251, label %._crit_edge255, label %.lr.ph254
 
 .lr.ph254:                                        ; preds = %227, %251
-  %.0221252 = phi ptr [ %252, %251 ], [ %234, %227 ]
-  %242 = getelementptr inbounds i8, ptr %.0221252, i64 8
+  %.0220252 = phi ptr [ %252, %251 ], [ %234, %227 ]
+  %242 = getelementptr inbounds i8, ptr %.0220252, i64 8
   %243 = load i8, ptr %242, align 8
   switch i8 %243, label %246 [
     i8 0, label %251
@@ -1141,11 +1141,11 @@ define hidden void @zif_opcache_get_status(ptr nocapture noundef readonly %0, pt
   ]
 
 244:                                              ; preds = %.lr.ph254
-  %245 = getelementptr inbounds i8, ptr %.0221252, i64 24
+  %245 = getelementptr inbounds i8, ptr %.0220252, i64 24
   br label %.sink.split
 
 246:                                              ; preds = %.lr.ph254
-  %247 = load ptr, ptr %.0221252, align 8
+  %247 = load ptr, ptr %.0220252, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 8
   br label %.sink.split
 
@@ -1156,7 +1156,7 @@ define hidden void @zif_opcache_get_status(ptr nocapture noundef readonly %0, pt
   br label %251
 
 251:                                              ; preds = %.sink.split, %.lr.ph254
-  %252 = getelementptr inbounds i8, ptr %.0221252, i64 32
+  %252 = getelementptr inbounds i8, ptr %.0220252, i64 32
   %.not237 = icmp eq ptr %252, %238
   br i1 %.not237, label %._crit_edge255, label %.lr.ph254
 
@@ -1183,10 +1183,10 @@ define hidden void @zif_opcache_get_status(ptr nocapture noundef readonly %0, pt
 
 .lr.ph259:                                        ; preds = %257, %.lr.ph259
   %261 = phi ptr [ %265, %.lr.ph259 ], [ %260, %257 ]
-  %.0220257 = phi ptr [ %264, %.lr.ph259 ], [ %256, %257 ]
+  %.0221257 = phi ptr [ %264, %.lr.ph259 ], [ %256, %257 ]
   %262 = load ptr, ptr %261, align 8
   %263 = call i32 @add_next_index_str(ptr noundef nonnull %6, ptr noundef %262) #14
-  %264 = getelementptr inbounds i8, ptr %.0220257, i64 8
+  %264 = getelementptr inbounds i8, ptr %.0221257, i64 8
   %265 = load ptr, ptr %264, align 8
   %.not239 = icmp eq ptr %265, null
   br i1 %.not239, label %._crit_edge260, label %.lr.ph259
@@ -1281,8 +1281,8 @@ define hidden void @zif_opcache_get_status(ptr nocapture noundef readonly %0, pt
   br label %310
 
 310:                                              ; preds = %298, %290
-  %.0123.i = phi ptr [ %304, %298 ], [ %294, %290 ]
-  call void @add_assoc_str_ex(ptr noundef nonnull %3, ptr noundef nonnull @.str.181, i64 noundef 9, ptr noundef nonnull %.0123.i) #14
+  %.0.i242 = phi ptr [ %304, %298 ], [ %294, %290 ]
+  call void @add_assoc_str_ex(ptr noundef nonnull %3, ptr noundef nonnull @.str.181, i64 noundef 9, ptr noundef nonnull %.0.i242) #14
   %311 = getelementptr inbounds i8, ptr %292, i64 432
   %312 = getelementptr inbounds i8, ptr %292, i64 440
   %313 = load i64, ptr %312, align 8
@@ -1307,8 +1307,8 @@ define hidden void @zif_opcache_get_status(ptr nocapture noundef readonly %0, pt
   br label %326
 
 326:                                              ; preds = %320, %310
-  %.0.i242 = phi i64 [ 0, %310 ], [ %spec.select.i, %320 ]
-  call void @add_assoc_stringl_ex(ptr noundef nonnull %3, ptr noundef nonnull @.str.182, i64 noundef 9, ptr noundef %318, i64 noundef %.0.i242) #14
+  %.0124.i = phi i64 [ 0, %310 ], [ %spec.select.i, %320 ]
+  call void @add_assoc_stringl_ex(ptr noundef nonnull %3, ptr noundef nonnull @.str.182, i64 noundef 9, ptr noundef %318, i64 noundef %.0124.i) #14
   %327 = load i64, ptr %311, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %3, ptr noundef nonnull @.str.183, i64 noundef 19, i64 noundef %327) #14
   %328 = load i8, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 50), align 2
@@ -1904,10 +1904,10 @@ define hidden void @zif_opcache_is_script_cached(ptr noundef %0, ptr nocapture n
 
 .thread88:                                        ; preds = %14, %7
   %.097 = phi i32 [ 1, %7 ], [ 9, %14 ]
-  %.05496 = phi i32 [ 0, %7 ], [ 4, %14 ]
-  %.05595 = phi ptr [ null, %7 ], [ %9, %14 ]
-  %.05694 = phi i32 [ 0, %7 ], [ 1, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.097, i32 noundef %.05694, ptr noundef null, i32 noundef %.05496, ptr noundef %.05595) #14
+  %.05496 = phi i32 [ 0, %7 ], [ 1, %14 ]
+  %.05595 = phi i32 [ 0, %7 ], [ 4, %14 ]
+  %.05694 = phi ptr [ null, %7 ], [ %9, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.097, i32 noundef %.05496, ptr noundef null, i32 noundef %.05595, ptr noundef %.05694) #14
   br label %52
 
 .thread81:                                        ; preds = %14, %.thread77

@@ -260,8 +260,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i79, %78
   br label %100
 
 100:                                              ; preds = %pmix_obj_run_destructors.exit, %59, %57, %40, %37, %35, %33, %25, %23, %pmix_obj_run_constructors.exit, %98, %91, %54
-  %.049 = phi i32 [ 1, %54 ], [ %77, %91 ], [ %99, %98 ], [ %22, %pmix_obj_run_constructors.exit ], [ %24, %23 ], [ %26, %25 ], [ %34, %33 ], [ %34, %35 ], [ %38, %37 ], [ %38, %40 ], [ 1, %57 ], [ 1, %59 ], [ 0, %pmix_obj_run_destructors.exit ]
-  ret i32 %.049
+  %.048 = phi i32 [ 1, %54 ], [ %77, %91 ], [ %99, %98 ], [ %22, %pmix_obj_run_constructors.exit ], [ %24, %23 ], [ %26, %25 ], [ %34, %33 ], [ %34, %35 ], [ %38, %37 ], [ %38, %40 ], [ 1, %57 ], [ 1, %59 ], [ 0, %pmix_obj_run_destructors.exit ]
+  ret i32 %.048
 }
 
 declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #1

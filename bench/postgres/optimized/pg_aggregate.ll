@@ -186,10 +186,10 @@ switch.early.test:                                ; preds = %77
 101:                                              ; preds = %89, %83
   %102 = add nsw i32 %4, 1
   %103 = sub i32 %102, %5
-  %.0295 = select i1 %85, i32 %103, i32 2
+  %.0302 = select i1 %85, i32 %103, i32 2
   store i32 %25, ptr %39, align 16
   %104 = getelementptr inbounds i8, ptr %39, i64 4
-  %105 = add nsw i32 %.0295, -1
+  %105 = add nsw i32 %.0302, -1
   %106 = sub nsw i32 %4, %105
   %107 = sext i32 %106 to i64
   %108 = getelementptr i32, ptr %42, i64 %107
@@ -210,8 +210,8 @@ switch.early.test:                                ; preds = %77
 
 117:                                              ; preds = %111, %101
   %118 = phi i1 [ %85, %101 ], [ %112, %111 ]
-  %.1296 = phi i32 [ %.0295, %101 ], [ %113, %111 ]
-  %119 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %12, i32 noundef %.1296, ptr noundef nonnull %39, i32 noundef %11, ptr noundef nonnull %37)
+  %.1303 = phi i32 [ %.0302, %101 ], [ %113, %111 ]
+  %119 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %12, i32 noundef %.1303, ptr noundef nonnull %39, i32 noundef %11, ptr noundef nonnull %37)
   %120 = load i32, ptr %37, align 4
   %.not341 = icmp eq i32 %120, %25
   br i1 %.not341, label %127, label %121
@@ -277,7 +277,7 @@ switch.early.test:                                ; preds = %77
 
 154:                                              ; preds = %153
   store i32 %27, ptr %39, align 16
-  %155 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %17, i32 noundef %.1296, ptr noundef nonnull %39, i32 noundef %11, ptr noundef nonnull %37)
+  %155 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %17, i32 noundef %.1303, ptr noundef nonnull %39, i32 noundef %11, ptr noundef nonnull %37)
   %156 = load i32, ptr %37, align 4
   %.not344 = icmp eq i32 %156, %27
   br i1 %.not344, label %163, label %157
@@ -347,13 +347,13 @@ switch.early.test:                                ; preds = %77
   br label %192
 
 192:                                              ; preds = %189, %153
-  %.0302 = phi i32 [ %155, %189 ], [ 0, %153 ]
-  %.0297 = phi i8 [ %191, %189 ], [ 0, %153 ]
+  %.0304 = phi i8 [ %191, %189 ], [ 0, %153 ]
+  %.0294 = phi i32 [ %155, %189 ], [ 0, %153 ]
   %.not346 = icmp eq ptr %18, null
   br i1 %.not346, label %223, label %193
 
 193:                                              ; preds = %192
-  %194 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %18, i32 noundef %.1296, ptr noundef nonnull %39, i32 noundef %11, ptr noundef nonnull %37)
+  %194 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %18, i32 noundef %.1303, ptr noundef nonnull %39, i32 noundef %11, ptr noundef nonnull %37)
   %195 = load i32, ptr %37, align 4
   %.not347 = icmp eq i32 %195, %27
   br i1 %.not347, label %202, label %196
@@ -391,7 +391,7 @@ switch.early.test:                                ; preds = %77
   %215 = getelementptr inbounds i8, ptr %214, i64 99
   %216 = load i8, ptr %215, align 1
   %217 = and i8 %216, 1
-  %.not349 = icmp eq i8 %217, %.0297
+  %.not349 = icmp eq i8 %217, %.0304
   br i1 %.not349, label %222, label %218
 
 218:                                              ; preds = %208
@@ -407,7 +407,7 @@ switch.early.test:                                ; preds = %77
   br label %223
 
 223:                                              ; preds = %222, %192
-  %.0301 = phi i32 [ %194, %222 ], [ 0, %192 ]
+  %.0295 = phi i32 [ %194, %222 ], [ 0, %192 ]
   %.not350 = icmp eq ptr %13, null
   br i1 %.not350, label %235, label %224
 
@@ -418,10 +418,10 @@ switch.early.test:                                ; preds = %77
   %227 = shl nuw nsw i64 %226, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %225, ptr nonnull align 4 %42, i64 %227, i1 false)
   %spec.select = select i1 %118, i32 0, i32 %11
-  %.0293.in = select i1 %20, i32 %4, i32 %5
-  %.0290 = select i1 %20, i32 %11, i32 %spec.select
-  %.0293 = add nuw i32 %.0293.in, 1
-  %228 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %13, i32 noundef %.0293, ptr noundef nonnull %39, i32 noundef %.0290, ptr noundef nonnull %38)
+  %.0300.in = select i1 %20, i32 %4, i32 %5
+  %.0293 = select i1 %20, i32 %11, i32 %spec.select
+  %.0300 = add nuw i32 %.0300.in, 1
+  %228 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %13, i32 noundef %.0300, ptr noundef nonnull %39, i32 noundef %.0293, ptr noundef nonnull %38)
   br i1 %20, label %229, label %236
 
 229:                                              ; preds = %224
@@ -482,7 +482,7 @@ switch.early.test:                                ; preds = %77
   unreachable
 
 256:                                              ; preds = %247, %249, %236
-  %.0291 = phi i32 [ %239, %249 ], [ %239, %247 ], [ 0, %236 ]
+  %.0289 = phi i32 [ %239, %249 ], [ %239, %247 ], [ 0, %236 ]
   %.not353 = icmp eq ptr %15, null
   br i1 %.not353, label %266, label %257
 
@@ -504,7 +504,7 @@ switch.early.test:                                ; preds = %77
   unreachable
 
 266:                                              ; preds = %257, %256
-  %.0304 = phi i32 [ %258, %257 ], [ 0, %256 ]
+  %.0290 = phi i32 [ %258, %257 ], [ 0, %256 ]
   %.not355 = icmp eq ptr %16, null
   br i1 %.not355, label %277, label %267
 
@@ -528,7 +528,7 @@ switch.early.test:                                ; preds = %77
   unreachable
 
 277:                                              ; preds = %267, %266
-  %.0303 = phi i32 [ %269, %267 ], [ 0, %266 ]
+  %.0291 = phi i32 [ %269, %267 ], [ 0, %266 ]
   %278 = load i32, ptr %38, align 4
   %279 = call ptr @check_valid_polymorphic_signature(i32 noundef %278, ptr noundef nonnull %42, i32 noundef %4) #8
   %.not357 = icmp eq ptr %279, null
@@ -572,10 +572,10 @@ switch.early.test:                                ; preds = %77
   %298 = shl nuw nsw i64 %297, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %296, ptr nonnull align 4 %42, i64 %298, i1 false)
   %spec.select382 = select i1 %118, i32 0, i32 %11
-  %.1294.in = select i1 %21, i32 %4, i32 %5
-  %.0289 = select i1 %21, i32 %11, i32 %spec.select382
-  %.1294 = add nuw i32 %.1294.in, 1
-  %299 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %19, i32 noundef %.1294, ptr noundef nonnull %39, i32 noundef %.0289, ptr noundef nonnull %37)
+  %.1301.in = select i1 %21, i32 %4, i32 %5
+  %.0292 = select i1 %21, i32 %11, i32 %spec.select382
+  %.1301 = add nuw i32 %.1301.in, 1
+  %299 = call fastcc i32 @lookup_agg_function(ptr noundef nonnull %19, i32 noundef %.1301, ptr noundef nonnull %39, i32 noundef %.0292, ptr noundef nonnull %37)
   br i1 %21, label %300, label %307
 
 300:                                              ; preds = %295
@@ -595,7 +595,7 @@ switch.early.test:                                ; preds = %77
   br label %307
 
 307:                                              ; preds = %295, %300, %306
-  %.0299 = phi i32 [ %299, %300 ], [ %299, %295 ], [ 0, %306 ]
+  %.0297 = phi i32 [ %299, %300 ], [ %299, %295 ], [ 0, %306 ]
   %308 = load i32, ptr %37, align 4
   %309 = load i32, ptr %38, align 4
   %.not360 = icmp eq i32 %308, %309
@@ -614,7 +614,7 @@ switch.early.test:                                ; preds = %77
   unreachable
 
 318:                                              ; preds = %307, %293
-  %.1300 = phi i32 [ %.0299, %307 ], [ 0, %293 ]
+  %.1298 = phi i32 [ %.0297, %307 ], [ 0, %293 ]
   %.not361 = icmp eq ptr %24, null
   br i1 %.not361, label %326, label %319
 
@@ -640,7 +640,7 @@ switch.early.test:                                ; preds = %77
   br i1 %327, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.thread, %326
-  %.0298398 = phi i32 [ %325, %.thread ], [ 0, %326 ]
+  %.0299398 = phi i32 [ %325, %.thread ], [ 0, %326 ]
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
@@ -664,7 +664,7 @@ switch.early.test:                                ; preds = %77
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %334, %326
-  %.0298397 = phi i32 [ 0, %326 ], [ %.0298398, %334 ]
+  %.0299397 = phi i32 [ 0, %326 ], [ %.0299398, %334 ]
   %335 = call i32 @GetUserId() #8
   %336 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %25, i32 noundef %335, i64 noundef 256) #8
   %.not363 = icmp eq i32 %336, 0
@@ -730,22 +730,22 @@ switch.early.test:                                ; preds = %77
   %364 = zext i32 %.0288 to i64
   %365 = getelementptr inbounds i8, ptr %35, i64 32
   store i64 %364, ptr %365, align 16
-  %366 = zext i32 %.0291 to i64
+  %366 = zext i32 %.0289 to i64
   %367 = getelementptr inbounds i8, ptr %35, i64 40
   store i64 %366, ptr %367, align 8
-  %368 = zext i32 %.0304 to i64
+  %368 = zext i32 %.0290 to i64
   %369 = getelementptr inbounds i8, ptr %35, i64 48
   store i64 %368, ptr %369, align 16
-  %370 = zext i32 %.0303 to i64
+  %370 = zext i32 %.0291 to i64
   %371 = getelementptr inbounds i8, ptr %35, i64 56
   store i64 %370, ptr %371, align 8
-  %372 = zext i32 %.0302 to i64
+  %372 = zext i32 %.0294 to i64
   %373 = getelementptr inbounds i8, ptr %35, i64 64
   store i64 %372, ptr %373, align 16
-  %374 = zext i32 %.0301 to i64
+  %374 = zext i32 %.0295 to i64
   %375 = getelementptr inbounds i8, ptr %35, i64 72
   store i64 %374, ptr %375, align 8
-  %376 = zext i32 %.1300 to i64
+  %376 = zext i32 %.1298 to i64
   %377 = getelementptr inbounds i8, ptr %35, i64 80
   store i64 %376, ptr %377, align 16
   %378 = zext i1 %20 to i64
@@ -760,7 +760,7 @@ switch.early.test:                                ; preds = %77
   %384 = sext i8 %23 to i64
   %385 = getelementptr inbounds i8, ptr %35, i64 112
   store i64 %384, ptr %385, align 16
-  %386 = zext i32 %.0298397 to i64
+  %386 = zext i32 %.0299397 to i64
   %387 = getelementptr inbounds i8, ptr %35, i64 120
   store i64 %386, ptr %387, align 8
   %388 = zext i32 %25 to i64
@@ -904,78 +904,78 @@ switch.early.test:                                ; preds = %77
   br label %449
 
 449:                                              ; preds = %448, %444
-  %.not372 = icmp eq i32 %.0291, 0
+  %.not372 = icmp eq i32 %.0289, 0
   br i1 %.not372, label %451, label %450
 
 450:                                              ; preds = %449
   store i32 1255, ptr %40, align 4
-  store i32 %.0291, ptr %446, align 4
+  store i32 %.0289, ptr %446, align 4
   store i32 0, ptr %447, align 4
   call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %445) #8
   br label %451
 
 451:                                              ; preds = %450, %449
-  %.not373 = icmp eq i32 %.0304, 0
+  %.not373 = icmp eq i32 %.0290, 0
   br i1 %.not373, label %453, label %452
 
 452:                                              ; preds = %451
   store i32 1255, ptr %40, align 4
-  store i32 %.0304, ptr %446, align 4
+  store i32 %.0290, ptr %446, align 4
   store i32 0, ptr %447, align 4
   call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %445) #8
   br label %453
 
 453:                                              ; preds = %452, %451
-  %.not374 = icmp eq i32 %.0303, 0
+  %.not374 = icmp eq i32 %.0291, 0
   br i1 %.not374, label %455, label %454
 
 454:                                              ; preds = %453
   store i32 1255, ptr %40, align 4
-  store i32 %.0303, ptr %446, align 4
+  store i32 %.0291, ptr %446, align 4
   store i32 0, ptr %447, align 4
   call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %445) #8
   br label %455
 
 455:                                              ; preds = %454, %453
-  %.not375 = icmp eq i32 %.0302, 0
+  %.not375 = icmp eq i32 %.0294, 0
   br i1 %.not375, label %457, label %456
 
 456:                                              ; preds = %455
   store i32 1255, ptr %40, align 4
-  store i32 %.0302, ptr %446, align 4
+  store i32 %.0294, ptr %446, align 4
   store i32 0, ptr %447, align 4
   call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %445) #8
   br label %457
 
 457:                                              ; preds = %456, %455
-  %.not376 = icmp eq i32 %.0301, 0
+  %.not376 = icmp eq i32 %.0295, 0
   br i1 %.not376, label %459, label %458
 
 458:                                              ; preds = %457
   store i32 1255, ptr %40, align 4
-  store i32 %.0301, ptr %446, align 4
+  store i32 %.0295, ptr %446, align 4
   store i32 0, ptr %447, align 4
   call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %445) #8
   br label %459
 
 459:                                              ; preds = %458, %457
-  %.not377 = icmp eq i32 %.1300, 0
+  %.not377 = icmp eq i32 %.1298, 0
   br i1 %.not377, label %461, label %460
 
 460:                                              ; preds = %459
   store i32 1255, ptr %40, align 4
-  store i32 %.1300, ptr %446, align 4
+  store i32 %.1298, ptr %446, align 4
   store i32 0, ptr %447, align 4
   call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %445) #8
   br label %461
 
 461:                                              ; preds = %460, %459
-  %.not378 = icmp eq i32 %.0298397, 0
+  %.not378 = icmp eq i32 %.0299397, 0
   br i1 %.not378, label %463, label %462
 
 462:                                              ; preds = %461
   store i32 2617, ptr %40, align 4
-  store i32 %.0298397, ptr %446, align 4
+  store i32 %.0299397, ptr %446, align 4
   store i32 0, ptr %447, align 4
   call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %445) #8
   br label %463

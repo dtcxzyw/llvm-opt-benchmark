@@ -8918,7 +8918,7 @@ define linkonce_odr void @_ZZN7mitsuba18SamplingIntegratorIfN5drjit6MatrixINS_8S
   br label %57
 
 57:                                               ; preds = %.lr.ph, %143
-  %.02060 = phi i32 [ %40, %.lr.ph ], [ %144, %143 ]
+  %.02460 = phi i32 [ %40, %.lr.ph ], [ %144, %143 ]
   %58 = load i8, ptr %43, align 4
   %59 = trunc i8 %58 to i1
   br i1 %59, label %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit, label %60
@@ -9076,7 +9076,7 @@ _ZNSt3__110lock_guardINS_5mutexEEC2B8ne190000ERS1_.exit: ; preds = %126
   br label %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit33
 
 143:                                              ; preds = %123, %140
-  %144 = add i32 %.02060, 1
+  %144 = add i32 %.02460, 1
   %145 = load i32, ptr %41, align 4
   %.not = icmp eq i32 %144, %145
   br i1 %.not, label %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit, label %57, !llvm.loop !105

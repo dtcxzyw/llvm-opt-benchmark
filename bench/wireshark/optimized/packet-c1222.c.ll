@@ -2029,14 +2029,14 @@ define internal fastcc range(i32 0, 2) i32 @decrypt_packet(ptr noundef %0, i32 n
 13:                                               ; preds = %79, %12
   %.0 = phi i32 [ 0, %12 ], [ %.2, %79 ]
   %14 = phi ptr [ @aSO_context, %12 ], [ %82, %79 ]
-  %.03039.i = phi ptr [ @canonifyTable, %12 ], [ %80, %79 ]
-  %15 = getelementptr inbounds i8, ptr %.03039.i, i64 24
+  %.03139.i = phi ptr [ @canonifyTable, %12 ], [ %80, %79 ]
+  %15 = getelementptr inbounds i8, ptr %.03139.i, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %.03039.i, i64 32
+  %18 = getelementptr inbounds i8, ptr %.03139.i, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 4
-  %21 = load i32, ptr %.03039.i, align 8
+  %21 = load i32, ptr %.03139.i, align 8
   %.not33.i = icmp eq i32 %21, 0
   %.pr.i = load ptr, ptr %14, align 8
   %.not34.i = icmp eq ptr %.pr.i, null
@@ -2049,13 +2049,13 @@ define internal fastcc range(i32 0, 2) i32 @decrypt_packet(ptr noundef %0, i32 n
   br i1 %.not34.i, label %79, label %.thread.i
 
 .thread.i:                                        ; preds = %23, %22
-  %24 = getelementptr inbounds i8, ptr %.03039.i, i64 12
+  %24 = getelementptr inbounds i8, ptr %.03139.i, i64 12
   %25 = load i32, ptr %24, align 4
   %.not35.i = icmp eq i32 %25, 0
   br i1 %.not35.i, label %57, label %26
 
 26:                                               ; preds = %.thread.i
-  %27 = getelementptr inbounds i8, ptr %.03039.i, i64 8
+  %27 = getelementptr inbounds i8, ptr %.03139.i, i64 8
   %28 = load i8, ptr %27, align 8
   %29 = add i32 %.0, 1
   %30 = zext i32 %.0 to i64
@@ -2101,13 +2101,13 @@ define internal fastcc range(i32 0, 2) i32 @decrypt_packet(ptr noundef %0, i32 n
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.01520.i.i = phi i32 [ %55, %.lr.ph.i.i ], [ %17, %.lr.ph.preheader.i.i ]
-  %.01619.i.i = phi ptr [ %54, %.lr.ph.i.i ], [ %52, %.lr.ph.preheader.i.i ]
-  %53 = trunc i32 %.01520.i.i to i8
-  %54 = getelementptr i8, ptr %.01619.i.i, i64 -1
-  store i8 %53, ptr %.01619.i.i, align 1
-  %55 = lshr i32 %.01520.i.i, 8
-  %.not.i.i = icmp ult i32 %.01520.i.i, 256
+  %.01520.i.i = phi ptr [ %54, %.lr.ph.i.i ], [ %52, %.lr.ph.preheader.i.i ]
+  %.01619.i.i = phi i32 [ %55, %.lr.ph.i.i ], [ %17, %.lr.ph.preheader.i.i ]
+  %53 = trunc i32 %.01619.i.i to i8
+  %54 = getelementptr i8, ptr %.01520.i.i, i64 -1
+  store i8 %53, ptr %.01520.i.i, align 1
+  %55 = lshr i32 %.01619.i.i, 8
+  %.not.i.i = icmp ult i32 %.01619.i.i, 256
   br i1 %.not.i.i, label %encode_ber_len.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
 encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %47, %44, %26
@@ -2117,7 +2117,7 @@ encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %47, %4
 
 57:                                               ; preds = %encode_ber_len.exit.i, %.thread.i
   %.1 = phi i32 [ %.0, %.thread.i ], [ %56, %encode_ber_len.exit.i ]
-  %58 = getelementptr inbounds i8, ptr %.03039.i, i64 4
+  %58 = getelementptr inbounds i8, ptr %.03139.i, i64 4
   %59 = load i32, ptr %58, align 4
   %.not36.i = icmp eq i32 %59, 0
   br i1 %.not36.i, label %70, label %60
@@ -2139,17 +2139,17 @@ encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %47, %4
   br label %70
 
 70:                                               ; preds = %60, %57
-  %.0.i = phi i32 [ %69, %60 ], [ %17, %57 ]
-  %71 = add i32 %.0.i, %.1
+  %.030.i = phi i32 [ %69, %60 ], [ %17, %57 ]
+  %71 = add i32 %.030.i, %.1
   %72 = icmp ugt i32 %71, 300
-  %73 = icmp ult i32 %20, %.0.i
+  %73 = icmp ult i32 %20, %.030.i
   %or.cond.i = select i1 %72, i1 true, i1 %73
   br i1 %or.cond.i, label %canonify_unencrypted_header.exit.thread, label %74
 
 74:                                               ; preds = %70
   %75 = zext i32 %.1 to i64
   %76 = getelementptr i8, ptr %4, i64 %75
-  %77 = zext i32 %.0.i to i64
+  %77 = zext i32 %.030.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %.pr.i, i64 %77, i1 false)
   br i1 %.not35.i, label %79, label %78
 
@@ -2159,8 +2159,8 @@ encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %47, %4
 
 79:                                               ; preds = %78, %74, %23
   %.2 = phi i32 [ %.0, %23 ], [ %71, %74 ], [ %71, %78 ]
-  %80 = getelementptr i8, ptr %.03039.i, i64 40
-  %81 = getelementptr i8, ptr %.03039.i, i64 56
+  %80 = getelementptr i8, ptr %.03139.i, i64 40
+  %81 = getelementptr i8, ptr %.03139.i, i64 56
   %82 = load ptr, ptr %81, align 8
   %.not.i = icmp eq ptr %82, null
   br i1 %.not.i, label %canonify_unencrypted_header.exit, label %13, !llvm.loop !9

@@ -4833,10 +4833,10 @@ if.else408:                                       ; preds = %if.end392
   br label %if.end410
 
 if.end410:                                        ; preds = %if.else408, %if.then401
+  %ts.sroa.0.0 = phi <2 x float> [ %217, %if.then401 ], [ %ts.sroa.0.4.vec.insert, %if.else408 ]
+  %ts.sroa.5.0 = phi float [ %233, %if.then401 ], [ %237, %if.else408 ]
   %ss.sroa.0.1 = phi <2 x float> [ %227, %if.then401 ], [ %ss.sroa.0.4.vec.insert982, %if.else408 ]
   %ss.sroa.10.1 = phi float [ %add.i18.i689, %if.then401 ], [ %mul10.i706, %if.else408 ]
-  %ts.sroa.5.0 = phi float [ %233, %if.then401 ], [ %237, %if.else408 ]
-  %ts.sroa.0.0 = phi <2 x float> [ %217, %if.then401 ], [ %ts.sroa.0.4.vec.insert, %if.else408 ]
   br i1 %tobool284.not, label %if.end537, label %if.then413
 
 if.then413:                                       ; preds = %if.end410
@@ -4971,10 +4971,10 @@ if.else508:                                       ; preds = %if.then413
   br label %if.end537
 
 if.end537:                                        ; preds = %if.end410, %if.then464, %if.else508, %if.else501
-  %dndu.sroa.8.0 = phi float [ %mul10.i842, %if.else501 ], [ %mul3.i883, %if.else508 ], [ 0.000000e+00, %if.then464 ], [ 0.000000e+00, %if.end410 ]
-  %dndu.sroa.0.0 = phi <2 x float> [ %dnu.sroa.0.4.vec.insert941, %if.else501 ], [ %295, %if.else508 ], [ zeroinitializer, %if.then464 ], [ zeroinitializer, %if.end410 ]
-  %dndv.sroa.12.0 = phi float [ %fneg17.i848, %if.else501 ], [ %mul3.i912, %if.else508 ], [ 0.000000e+00, %if.then464 ], [ 0.000000e+00, %if.end410 ]
   %dndv.sroa.0.0 = phi <2 x float> [ %dnv.sroa.0.4.vec.insert936, %if.else501 ], [ %305, %if.else508 ], [ zeroinitializer, %if.then464 ], [ zeroinitializer, %if.end410 ]
+  %dndv.sroa.12.0 = phi float [ %fneg17.i848, %if.else501 ], [ %mul3.i912, %if.else508 ], [ 0.000000e+00, %if.then464 ], [ 0.000000e+00, %if.end410 ]
+  %dndu.sroa.0.0 = phi <2 x float> [ %dnu.sroa.0.4.vec.insert941, %if.else501 ], [ %295, %if.else508 ], [ zeroinitializer, %if.then464 ], [ zeroinitializer, %if.end410 ]
+  %dndu.sroa.8.0 = phi float [ %mul10.i842, %if.else501 ], [ %mul3.i883, %if.else508 ], [ 0.000000e+00, %if.then464 ], [ 0.000000e+00, %if.end410 ]
   store <2 x float> %ns.sroa.0.0, ptr %shading.i, align 8
   store float %ns.sroa.10.0, ptr %ref.tmp253.sroa.3.0.shading.sroa_idx, align 8
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %n7.i.i, align 8
@@ -7665,8 +7665,8 @@ if.end178:                                        ; preds = %if.else144, %if.the
   %v.sroa.0.4.vec.extract.i.i210.pre-phi = phi float [ %.pre383, %if.else144 ], [ %v.sroa.0.4.vec.extract.i.i, %if.then141 ]
   %v.sroa.0.0.vec.extract.i.i209.pre-phi = phi float [ %.pre, %if.else144 ], [ %v.sroa.0.0.vec.extract.i.i, %if.then141 ]
   %agg.tmp180.sroa.2.0.copyload = phi float [ %agg.tmp180.sroa.2.0.copyload.pre, %if.else144 ], [ %agg.tmp.sroa.2.0.copyload, %if.then141 ]
-  %nHit.sroa.6.0 = phi float [ %add6.i, %if.else144 ], [ %nHit.sroa.6.0.copyload, %if.then141 ]
   %nHit.sroa.0.0 = phi <2 x float> [ %77, %if.else144 ], [ %nHit.sroa.0.0.copyload, %if.then141 ]
+  %nHit.sroa.6.0 = phi float [ %add6.i, %if.else144 ], [ %nHit.sroa.6.0.copyload, %if.then141 ]
   %n.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %nHit.sroa.0.0, i64 0
   %n.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %nHit.sroa.0.0, i64 1
   %mul.i.i.i211 = fmul float %nHit.sroa.6.0, %agg.tmp180.sroa.2.0.copyload
@@ -7681,8 +7681,8 @@ if.end178:                                        ; preds = %if.else144, %if.the
   br label %if.end185
 
 if.end185:                                        ; preds = %if.end178, %if.end112
-  %nHit.sroa.6.1 = phi float [ %nHit.sroa.6.0, %if.end178 ], [ 0.000000e+00, %if.end112 ]
   %nHit.sroa.0.1 = phi <2 x float> [ %nHit.sroa.0.0, %if.end178 ], [ zeroinitializer, %if.end112 ]
+  %nHit.sroa.6.1 = phi float [ %nHit.sroa.6.0, %if.end178 ], [ 0.000000e+00, %if.end112 ]
   %hitWidth.0 = phi float [ %mul184, %if.end178 ], [ %add.i187, %if.end112 ]
   %cmp.i214 = fcmp olt float %div125, 0.000000e+00
   %cmp3.i = fcmp ogt float %div125, 1.000000e+00
@@ -9473,8 +9473,8 @@ if.end258:                                        ; preds = %for.cond222.prehead
   %105 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i386 = icmp eq ptr %104, %105
   %add.ptr.i387 = getelementptr inbounds %"class.pbrt::Normal3", ptr %104, i64 %indvars.iv
-  %nspan.sroa.0.1 = select i1 %cmp.i.i386, ptr null, ptr %add.ptr.i387
   %nspan.sroa.3.1 = select i1 %cmp.i.i386, i64 0, i64 2
+  %nspan.sroa.0.1 = select i1 %cmp.i.i386, ptr null, ptr %add.ptr.i387
   %106 = trunc nuw nsw i64 %indvars.iv to i32
   %conv270 = uitofp nneg i32 %106 to float
   %div272 = fdiv float %conv270, %conv271
@@ -11690,8 +11690,8 @@ if.then108:                                       ; preds = %if.else
   br label %if.end113
 
 if.end113:                                        ; preds = %if.else, %if.then108, %if.then63
-  %n.sroa.7.0 = phi float [ %div3.i.i, %if.else ], [ %fneg3.i, %if.then108 ], [ %retval.sroa.3.0.i, %if.then63 ]
   %n.sroa.0.0 = phi <2 x float> [ %70, %if.else ], [ %84, %if.then108 ], [ %retval.sroa.0.0.i, %if.then63 ]
+  %n.sroa.7.0 = phi float [ %div3.i.i, %if.else ], [ %fneg3.i, %if.then108 ], [ %retval.sroa.3.0.i, %if.then63 ]
   %85 = fmul <2 x float> %n.sroa.0.0, %n.sroa.0.0
   %shift695 = shufflevector <2 x float> %85, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %86 = fadd <2 x float> %85, %shift695

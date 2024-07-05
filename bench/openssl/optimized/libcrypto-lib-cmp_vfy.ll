@@ -570,8 +570,8 @@ if.then52:                                        ; preds = %if.end50
 
 end:                                              ; preds = %if.end50, %if.then52, %if.then25
   %lor.ext61 = phi i32 [ 1, %if.then25 ], [ 0, %if.then52 ], [ 0, %if.end50 ]
-  %sname.0 = phi ptr [ null, %if.then25 ], [ %call29, %if.then52 ], [ %call29, %if.end50 ]
   %skid_str.0 = phi ptr [ null, %if.then25 ], [ %cond, %if.then52 ], [ null, %if.end50 ]
+  %sname.0 = phi ptr [ null, %if.then25 ], [ %call29, %if.then52 ], [ %call29, %if.end50 ]
   tail call void @CRYPTO_free(ptr noundef %sname.0, ptr noundef nonnull @.str, i32 noundef 542) #2
   tail call void @CRYPTO_free(ptr noundef %skid_str.0, ptr noundef nonnull @.str, i32 noundef 543) #2
   br label %return

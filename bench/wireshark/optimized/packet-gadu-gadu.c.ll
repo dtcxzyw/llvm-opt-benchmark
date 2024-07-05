@@ -1480,13 +1480,13 @@ proto_item_set_generated.exit.preheader:          ; preds = %gadu_gadu_create_co
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %proto_item_set_generated.exit.preheader, %proto_item_set_generated.exit
-  %.010.i = phi i64 [ %26, %proto_item_set_generated.exit ], [ 4, %proto_item_set_generated.exit.preheader ]
-  %.089.i = phi i32 [ %29, %proto_item_set_generated.exit ], [ 12, %proto_item_set_generated.exit.preheader ]
-  %26 = add nsw i64 %.010.i, -1
-  %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.089.i) #2
+  %.010.i = phi i32 [ %29, %proto_item_set_generated.exit ], [ 12, %proto_item_set_generated.exit.preheader ]
+  %.089.i = phi i64 [ %26, %proto_item_set_generated.exit ], [ 4, %proto_item_set_generated.exit.preheader ]
+  %26 = add nsw i64 %.089.i, -1
+  %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.010.i) #2
   %28 = getelementptr i8, ptr %4, i64 %26
   store i8 %27, ptr %28, align 1
-  %29 = add nuw nsw i32 %.089.i, 1
+  %29 = add nuw nsw i32 %.010.i, 1
   %.not.i37 = icmp eq i64 %26, 0
   br i1 %.not.i37, label %_tvb_memcpy_reverse.exit, label %proto_item_set_generated.exit, !llvm.loop !9
 
@@ -2051,13 +2051,13 @@ define internal fastcc range(i32 77, 80) i32 @dissect_gadu_gadu_login_hash(ptr n
   ]
 
 .preheader:                                       ; preds = %3, %.preheader
-  %.010.i = phi i64 [ %9, %.preheader ], [ 4, %3 ]
-  %.089.i = phi i32 [ %12, %.preheader ], [ %8, %3 ]
-  %9 = add nsw i64 %.010.i, -1
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.089.i) #2
+  %.010.i = phi i32 [ %12, %.preheader ], [ %8, %3 ]
+  %.089.i = phi i64 [ %9, %.preheader ], [ 4, %3 ]
+  %9 = add nsw i64 %.089.i, -1
+  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.010.i) #2
   %11 = getelementptr i8, ptr %4, i64 %9
   store i8 %10, ptr %11, align 1
-  %12 = add i32 %.089.i, 1
+  %12 = add i32 %.010.i, 1
   %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %_tvb_memcpy_reverse.exit, label %.preheader, !llvm.loop !9
 

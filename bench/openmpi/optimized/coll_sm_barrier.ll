@@ -62,16 +62,16 @@ define i32 @mca_coll_sm_barrier_intra(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %38, label %.loopexit53, label %.preheader52
 
 39:                                               ; preds = %.preheader52
-  %40 = add nuw nsw i32 %.04155, 1
+  %40 = add nuw nsw i32 %.04255, 1
   %exitcond.not = icmp eq i32 %40, 100000
   br i1 %exitcond.not, label %43, label %.preheader52.backedge
 
 .preheader52.backedge:                            ; preds = %39, %43
-  %.04155.be = phi i32 [ %40, %39 ], [ 0, %43 ]
+  %.04255.be = phi i32 [ %40, %39 ], [ 0, %43 ]
   br label %.preheader52, !llvm.loop !4
 
 .preheader52:                                     ; preds = %30, %.preheader52.backedge
-  %.04155 = phi i32 [ %.04155.be, %.preheader52.backedge ], [ 0, %30 ]
+  %.04255 = phi i32 [ %.04255.be, %.preheader52.backedge ], [ 0, %30 ]
   %41 = load volatile i32, ptr %26, align 4
   %42 = icmp eq i32 %41, %17
   br i1 %42, label %.loopexit53, label %39

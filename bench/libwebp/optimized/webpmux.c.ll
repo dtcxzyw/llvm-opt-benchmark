@@ -530,9 +530,9 @@ ValidateCommandLine.exit.i:                       ; preds = %141
 
 166:                                              ; preds = %444, %.lr.ph.i.i
   %.086.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %444 ]
-  %.020985.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1210.i.i, %444 ]
+  %.020885.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1209.i.i, %444 ]
   %167 = load ptr, ptr %151, align 8
-  %168 = sext i32 %.020985.i.i to i64
+  %168 = sext i32 %.020885.i.i to i64
   %169 = getelementptr inbounds %struct.FeatureArg, ptr %167, i64 %168
   %170 = sext i32 %.086.i.i to i64
   %171 = getelementptr inbounds ptr, ptr %161, i64 %170
@@ -602,7 +602,7 @@ ValidateCommandLine.exit.i:                       ; preds = %141
   %202 = load ptr, ptr %201, align 8
   %203 = getelementptr inbounds i8, ptr %169, i64 16
   store ptr %202, ptr %203, align 8
-  %204 = add nsw i32 %.020985.i.i, 1
+  %204 = add nsw i32 %.020885.i.i, 1
   br label %444
 
 205:                                              ; preds = %195
@@ -697,7 +697,7 @@ ValidateCommandLine.exit.i:                       ; preds = %141
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr inbounds i8, ptr %169, i64 16
   store ptr %248, ptr %249, align 8
-  %250 = add nsw i32 %.020985.i.i, 1
+  %250 = add nsw i32 %.020885.i.i, 1
   br label %444
 
 251:                                              ; preds = %238
@@ -756,7 +756,7 @@ ValidateCommandLine.exit.i:                       ; preds = %141
   %276 = load ptr, ptr %275, align 8
   %277 = getelementptr inbounds i8, ptr %169, i64 16
   store ptr %276, ptr %277, align 8
-  %278 = add nsw i32 %.020985.i.i, 1
+  %278 = add nsw i32 %.020885.i.i, 1
   br label %444
 
 279:                                              ; preds = %266
@@ -986,7 +986,7 @@ sub_111.i.i:                                      ; preds = %325
   %390 = load ptr, ptr %389, align 8
   %391 = getelementptr inbounds i8, ptr %169, i64 8
   store ptr %390, ptr %391, align 8
-  %392 = add nsw i32 %.020985.i.i, 1
+  %392 = add nsw i32 %.020885.i.i, 1
   br label %444
 
 393:                                              ; preds = %.thread1.i.i
@@ -1016,7 +1016,7 @@ sub_111.i.i:                                      ; preds = %325
   %406 = load ptr, ptr %405, align 8
   %407 = getelementptr inbounds i8, ptr %169, i64 16
   store ptr %406, ptr %407, align 8
-  %408 = add nsw i32 %.020985.i.i, 1
+  %408 = add nsw i32 %.020885.i.i, 1
   br label %444
 
 409:                                              ; preds = %395
@@ -1042,7 +1042,7 @@ sub_111.i.i:                                      ; preds = %325
   %420 = load ptr, ptr %419, align 8
   %421 = getelementptr inbounds i8, ptr %169, i64 16
   store ptr %420, ptr %421, align 8
-  %422 = add nsw i32 %.020985.i.i, 1
+  %422 = add nsw i32 %.020885.i.i, 1
   br label %444
 
 423:                                              ; preds = %409
@@ -1067,7 +1067,7 @@ sub_111.i.i:                                      ; preds = %325
   %433 = load ptr, ptr %432, align 8
   %434 = getelementptr inbounds i8, ptr %169, i64 16
   store ptr %433, ptr %434, align 8
-  %435 = add nsw i32 %.020985.i.i, 1
+  %435 = add nsw i32 %.020885.i.i, 1
   br label %444
 
 436:                                              ; preds = %423
@@ -1086,7 +1086,7 @@ sub_111.i.i:                                      ; preds = %325
   br label %ParseCommandLine.exit.thread.i
 
 444:                                              ; preds = %439, %431, %418, %404, %393, %388, %317, %296, %271, %243, %223, %213, %200, %180
-  %.1210.i.i = phi i32 [ %.020985.i.i, %317 ], [ %.020985.i.i, %296 ], [ %278, %271 ], [ %250, %243 ], [ %.020985.i.i, %223 ], [ %.020985.i.i, %213 ], [ %204, %200 ], [ %.020985.i.i, %180 ], [ %.020985.i.i, %439 ], [ %435, %431 ], [ %422, %418 ], [ %408, %404 ], [ %392, %388 ], [ %.020985.i.i, %393 ]
+  %.1209.i.i = phi i32 [ %.020885.i.i, %317 ], [ %.020885.i.i, %296 ], [ %278, %271 ], [ %250, %243 ], [ %.020885.i.i, %223 ], [ %.020885.i.i, %213 ], [ %204, %200 ], [ %.020885.i.i, %180 ], [ %.020885.i.i, %439 ], [ %435, %431 ], [ %422, %418 ], [ %408, %404 ], [ %392, %388 ], [ %.020885.i.i, %393 ]
   %.1.i.i = phi i32 [ %302, %317 ], [ %291, %296 ], [ %259, %271 ], [ %231, %243 ], [ %224, %223 ], [ %214, %213 ], [ %188, %200 ], [ %181, %180 ], [ %440, %439 ], [ %426, %431 ], [ %413, %418 ], [ %399, %404 ], [ %382, %388 ], [ %394, %393 ]
   %445 = icmp slt i32 %.1.i.i, %55
   br i1 %445, label %166, label %ParseCommandLine.exit.i, !llvm.loop !7
@@ -2135,10 +2135,10 @@ DuplicateMuxHeader.exit.i:                        ; preds = %861
 
 .loopexit312.i:                                   ; preds = %881, %._crit_edge334.i, %927, %918, %890
   %.6.i = phi ptr [ %812, %890 ], [ %833, %._crit_edge334.i ], [ %812, %918 ], [ %812, %927 ], [ %812, %881 ]
-  %.0139.i = phi i32 [ 0, %890 ], [ %935, %._crit_edge334.i ], [ 0, %918 ], [ 0, %927 ], [ 0, %881 ]
-  %.0135.i = phi ptr [ %833, %890 ], [ null, %._crit_edge334.i ], [ %833, %918 ], [ %833, %927 ], [ %833, %881 ]
+  %.0137.i = phi ptr [ %833, %890 ], [ null, %._crit_edge334.i ], [ %833, %918 ], [ %833, %927 ], [ %833, %881 ]
+  %.0134.i = phi i32 [ 0, %890 ], [ %935, %._crit_edge334.i ], [ 0, %918 ], [ 0, %927 ], [ 0, %881 ]
   call void @WebPFree(ptr noundef nonnull %865) #12
-  call void @WebPMuxDelete(ptr noundef %.0135.i) #12
+  call void @WebPMuxDelete(ptr noundef %.0137.i) #12
   br label %Process.exit
 
 936:                                              ; preds = %InitializeConfig.exit
@@ -2516,7 +2516,7 @@ DisplayInfo.exit.i:                               ; preds = %.critedge46.i.i, %1
 
 Process.exit:                                     ; preds = %619, %622, %InitializeConfig.exit, %CreateMux.exit.thread.i, %GetFrame.exit.i, %552, %563, %566, %582, %602, %616, %646, %655, %663, %671, %CreateMux.exit204.thread.i, %686, %698, %716, %CreateMux.exit209.thread.i, %731, %738, %759, %CreateMux.exit219.thread.i, %780, %786, %793, %WriteWebP.exit.i, %CreateMux.exit225.thread.i, %821, %827, %DuplicateMuxHeader.exit.thread.i, %DuplicateMuxHeader.exit.i, %.loopexit312.i, %CreateMux.exit233.thread.i, %951, %962, %WriteWebP.exit236.i, %CreateMux.exit240.thread.i, %DisplayInfo.exit.i
   %.9.i = phi ptr [ null, %InitializeConfig.exit ], [ %981, %DisplayInfo.exit.i ], [ %939, %WriteWebP.exit236.i ], [ %939, %951 ], [ %939, %962 ], [ %812, %827 ], [ %812, %DuplicateMuxHeader.exit.i ], [ %.6.i, %.loopexit312.i ], [ %812, %821 ], [ null, %793 ], [ null, %759 ], [ %.4.i, %WriteWebP.exit.i ], [ %772, %786 ], [ %772, %780 ], [ null, %716 ], [ %723, %738 ], [ %723, %731 ], [ %681, %686 ], [ %681, %698 ], [ null, %582 ], [ %571, %663 ], [ %571, %646 ], [ %571, %655 ], [ %571, %616 ], [ %571, %602 ], [ %571, %671 ], [ %483, %566 ], [ %483, %563 ], [ %483, %552 ], [ %483, %GetFrame.exit.i ], [ null, %CreateMux.exit.thread.i ], [ null, %CreateMux.exit204.thread.i ], [ null, %CreateMux.exit209.thread.i ], [ null, %CreateMux.exit219.thread.i ], [ null, %CreateMux.exit225.thread.i ], [ %812, %DuplicateMuxHeader.exit.thread.i ], [ null, %CreateMux.exit233.thread.i ], [ null, %CreateMux.exit240.thread.i ], [ %571, %622 ], [ %571, %619 ]
-  %.1140.i = phi i32 [ 1, %InitializeConfig.exit ], [ %.0.i242.i, %DisplayInfo.exit.i ], [ %.0.i235.i, %WriteWebP.exit236.i ], [ 0, %951 ], [ 0, %962 ], [ %831, %827 ], [ %820, %DuplicateMuxHeader.exit.i ], [ %.0139.i, %.loopexit312.i ], [ 0, %821 ], [ 0, %793 ], [ 0, %759 ], [ %.0.i221.i, %WriteWebP.exit.i ], [ 0, %786 ], [ 0, %780 ], [ 0, %716 ], [ 0, %738 ], [ 0, %731 ], [ 0, %686 ], [ 0, %698 ], [ 0, %582 ], [ 0, %663 ], [ 0, %646 ], [ 0, %655 ], [ 0, %616 ], [ 0, %602 ], [ 0, %671 ], [ 0, %566 ], [ %565, %563 ], [ 0, %552 ], [ %546, %GetFrame.exit.i ], [ 0, %CreateMux.exit.thread.i ], [ 0, %CreateMux.exit204.thread.i ], [ 0, %CreateMux.exit209.thread.i ], [ 0, %CreateMux.exit219.thread.i ], [ 0, %CreateMux.exit225.thread.i ], [ %820, %DuplicateMuxHeader.exit.thread.i ], [ 0, %CreateMux.exit233.thread.i ], [ 0, %CreateMux.exit240.thread.i ], [ 0, %622 ], [ 0, %619 ]
+  %.1135.i = phi i32 [ 1, %InitializeConfig.exit ], [ %.0.i242.i, %DisplayInfo.exit.i ], [ %.0.i235.i, %WriteWebP.exit236.i ], [ 0, %951 ], [ 0, %962 ], [ %831, %827 ], [ %820, %DuplicateMuxHeader.exit.i ], [ %.0134.i, %.loopexit312.i ], [ 0, %821 ], [ 0, %793 ], [ 0, %759 ], [ %.0.i221.i, %WriteWebP.exit.i ], [ 0, %786 ], [ 0, %780 ], [ 0, %716 ], [ 0, %738 ], [ 0, %731 ], [ 0, %686 ], [ 0, %698 ], [ 0, %582 ], [ 0, %663 ], [ 0, %646 ], [ 0, %655 ], [ 0, %616 ], [ 0, %602 ], [ 0, %671 ], [ 0, %566 ], [ %565, %563 ], [ 0, %552 ], [ %546, %GetFrame.exit.i ], [ 0, %CreateMux.exit.thread.i ], [ 0, %CreateMux.exit204.thread.i ], [ 0, %CreateMux.exit209.thread.i ], [ 0, %CreateMux.exit219.thread.i ], [ 0, %CreateMux.exit225.thread.i ], [ %820, %DuplicateMuxHeader.exit.thread.i ], [ 0, %CreateMux.exit233.thread.i ], [ 0, %CreateMux.exit240.thread.i ], [ 0, %622 ], [ 0, %619 ]
   call void @WebPMuxDelete(ptr noundef %.9.i) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
@@ -2528,7 +2528,7 @@ Process.exit:                                     ; preds = %619, %622, %Initial
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %49)
-  %1128 = xor i32 %.1140.i, 1
+  %1128 = xor i32 %.1135.i, 1
   br label %1129
 
 InitializeConfig.exit.thread:                     ; preds = %153, %ParseCommandLine.exit.thread.i, %156, %2
@@ -2713,7 +2713,7 @@ sub_0:
   br label %28
 
 28:                                               ; preds = %24, %22
-  %.0 = phi i32 [ 0, %22 ], [ 1, %24 ]
+  %.013 = phi i32 [ 0, %22 ], [ 1, %24 ]
   %29 = load ptr, ptr @stdout, align 8
   %.not16 = icmp eq ptr %11, %29
   br i1 %.not16, label %32, label %30
@@ -2723,8 +2723,8 @@ sub_0:
   br label %32
 
 32:                                               ; preds = %28, %30, %13
-  %.013 = phi i32 [ 0, %13 ], [ %.0, %30 ], [ %.0, %28 ]
-  ret i32 %.013
+  %.0 = phi i32 [ 0, %13 ], [ %.013, %30 ], [ %.013, %28 ]
+  ret i32 %.0
 }
 
 declare i32 @ExUtilGetInt(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3

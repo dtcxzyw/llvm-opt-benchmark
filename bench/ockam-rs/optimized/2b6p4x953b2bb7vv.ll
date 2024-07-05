@@ -7246,9 +7246,9 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4send17h95fde854af79dbcdE"(ptr no
   unreachable
 
 .body68:                                          ; preds = %41, %.thread156, %172, %158
-  %.049 = phi i8 [ %.352.lpad-body.ph, %158 ], [ %.453160, %.thread156 ], [ %.453, %172 ], [ %.8, %41 ]
+  %.050 = phi i8 [ %.353.lpad-body.ph, %158 ], [ %.454160, %.thread156 ], [ %.454, %172 ], [ %.8, %41 ]
   %.pn60 = phi { ptr, i32 } [ %eh.lpad-body79.ph, %158 ], [ %.pn58161, %.thread156 ], [ %.pn58, %172 ], [ %42, %41 ]
-  %40 = trunc nuw i8 %.049 to i1
+  %40 = trunc nuw i8 %.050 to i1
   br i1 %40, label %.body68.thread, label %.body.thread
 
 41:                                               ; preds = %354
@@ -7444,7 +7444,7 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4send17h95fde854af79dbcdE"(ptr no
   unreachable
 
 107:                                              ; preds = %145, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.4873177213157824197.exit.i.i, %102
-  %.352 = phi i8 [ 1, %102 ], [ 0, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.4873177213157824197.exit.i.i ], [ 0, %145 ]
+  %.353 = phi i8 [ 1, %102 ], [ 0, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.4873177213157824197.exit.i.i ], [ 0, %145 ]
   %108 = landingpad { ptr, i32 }
           cleanup
   br label %158
@@ -7596,7 +7596,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.4873177213157824197.exit.th
   br label %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h1b86e87e0d18aca0E.llvm.4873177213157824197.exit128"
 
 158:                                              ; preds = %107, %118
-  %.352.lpad-body.ph = phi i8 [ %.352, %107 ], [ 1, %118 ]
+  %.353.lpad-body.ph = phi i8 [ %.353, %107 ], [ 1, %118 ]
   %eh.lpad-body79.ph = phi { ptr, i32 } [ %108, %107 ], [ %119, %118 ]
   invoke fastcc void @"_ZN4core3ptr162drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$flume..async..AsyncSignal$GT$$GT$$GT$17hb6e56e24658007d3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18) #41
           to label %.body68 unwind label %159
@@ -7627,10 +7627,10 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.4873177213157824197.exit.th
   br label %.critedge
 
 172:                                              ; preds = %.loopexit.split-lp, %.body97
-  %.453 = phi i8 [ %.6, %.body97 ], [ %.8, %.loopexit.split-lp ]
-  %.044 = phi i8 [ %.246, %.body97 ], [ %.448, %.loopexit.split-lp ]
+  %.454 = phi i8 [ %.6, %.body97 ], [ %.8, %.loopexit.split-lp ]
+  %.045 = phi i8 [ %.247, %.body97 ], [ %.449, %.loopexit.split-lp ]
   %.pn58 = phi { ptr, i32 } [ %.pn, %.body97 ], [ %lpad.loopexit.split-lp205, %.loopexit.split-lp ]
-  %173 = trunc nuw i8 %.044 to i1
+  %173 = trunc nuw i8 %.045 to i1
   br i1 %173, label %.thread156, label %.body68
 
 174:                                              ; preds = %.lr.ph, %"_ZN4core3ptr194drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h275cc70dad6ef2dfE.exit123"
@@ -7879,7 +7879,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.4873177213157824197.exit.th
 
 .body97:                                          ; preds = %.body111.thread176.loopexit, %.body111.thread176.loopexit.split-lp, %317, %267, %263, %365
   %.6 = phi i8 [ 1, %365 ], [ 0, %267 ], [ 1, %263 ], [ 1, %317 ], [ 1, %.body111.thread176.loopexit ], [ 0, %.body111.thread176.loopexit.split-lp ]
-  %.246 = phi i8 [ 1, %365 ], [ 1, %267 ], [ 0, %263 ], [ 1, %317 ], [ 1, %.body111.thread176.loopexit ], [ 1, %.body111.thread176.loopexit.split-lp ]
+  %.247 = phi i8 [ 1, %365 ], [ 1, %267 ], [ 0, %263 ], [ 1, %317 ], [ 1, %.body111.thread176.loopexit ], [ 1, %.body111.thread176.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %365 ], [ %268, %267 ], [ %264, %263 ], [ %318, %317 ], [ %lpad.loopexit, %.body111.thread176.loopexit ], [ %lpad.loopexit.split-lp, %.body111.thread176.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr194drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h275cc70dad6ef2dfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #41
           to label %172 unwind label %159
@@ -7909,7 +7909,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.4873177213157824197.exit.th
 
 .loopexit.thread:                                 ; preds = %251, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h1b86e87e0d18aca0E.llvm.4873177213157824197.exit105", %.loopexit, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h1b86e87e0d18aca0E.llvm.4873177213157824197.exit119", %269
   %.8 = phi i8 [ 1, %.loopexit ], [ 1, %269 ], [ 0, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h1b86e87e0d18aca0E.llvm.4873177213157824197.exit105" ], [ 0, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h1b86e87e0d18aca0E.llvm.4873177213157824197.exit119" ], [ 1, %251 ]
-  %.448 = phi i8 [ 1, %.loopexit ], [ 0, %269 ], [ 1, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h1b86e87e0d18aca0E.llvm.4873177213157824197.exit105" ], [ 1, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h1b86e87e0d18aca0E.llvm.4873177213157824197.exit119" ], [ 1, %251 ]
+  %.449 = phi i8 [ 1, %.loopexit ], [ 0, %269 ], [ 1, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h1b86e87e0d18aca0E.llvm.4873177213157824197.exit105" ], [ 1, %"_ZN4core3ptr146drop_in_place$LT$std..sync..mutex..MutexGuard$LT$flume..Chan$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$$GT$17h1b86e87e0d18aca0E.llvm.4873177213157824197.exit119" ], [ 1, %251 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1056)
   %280 = load ptr, ptr %24, align 8, !alias.scope !1056, !noundef !10
   %281 = icmp eq ptr %280, null
@@ -8095,7 +8095,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.4873177213157824197.exit.th
 348:                                              ; preds = %285, %.loopexit.thread, %282
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   store i64 3, ptr %0, align 8, !alias.scope !1082
-  %349 = trunc nuw i8 %.448 to i1
+  %349 = trunc nuw i8 %.449 to i1
   %350 = getelementptr inbounds i8, ptr %25, i64 56
   %351 = load i64, ptr %350, align 8, !range !162
   %352 = icmp ne i64 %351, 3
@@ -8146,7 +8146,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.4873177213157824197.exit.th
 
 .thread156:                                       ; preds = %.thread, %.body90, %172
   %.pn58161 = phi { ptr, i32 } [ %.pn58, %172 ], [ %eh.lpad-body91, %.body90 ], [ %lpad.loopexit204, %.thread ]
-  %.453160 = phi i8 [ %.453, %172 ], [ 1, %.body90 ], [ 1, %.thread ]
+  %.454160 = phi i8 [ %.454, %172 ], [ 1, %.body90 ], [ 1, %.thread ]
   invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h6ab03f5f7874cadeE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %25) #41
           to label %.body68 unwind label %159
 

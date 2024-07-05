@@ -308,8 +308,8 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %21
 
 21:                                               ; preds = %18, %15, %17, %4
-  %22 = phi i1 [ false, %4 ], [ true, %17 ], [ %.not168, %15 ], [ false, %18 ]
-  %23 = phi i1 [ false, %4 ], [ false, %17 ], [ false, %15 ], [ %.not, %18 ]
+  %22 = phi i1 [ false, %4 ], [ false, %17 ], [ false, %15 ], [ %.not, %18 ]
+  %23 = phi i1 [ false, %4 ], [ true, %17 ], [ %.not168, %15 ], [ false, %18 ]
   %24 = load i32, ptr @proto_gre, align 4
   %25 = tail call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @gre_typevals, ptr noundef nonnull @.str.153) #5
   %26 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.152, ptr noundef %25) #5
@@ -331,7 +331,7 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #5
   %43 = load i32, ptr @hf_gre_flags_recursion_control, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #5
-  br i1 %22, label %45, label %48
+  br i1 %23, label %45, label %48
 
 45:                                               ; preds = %21
   %46 = load i32, ptr @hf_gre_flags_ack, align 4
@@ -395,7 +395,7 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 78:                                               ; preds = %75
   %79 = icmp ne i16 %9, -30591
-  %or.cond = select i1 %22, i1 %79, i1 false
+  %or.cond = select i1 %23, i1 %79, i1 false
   br i1 %or.cond, label %80, label %87
 
 80:                                               ; preds = %78
@@ -433,7 +433,7 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.2 = phi i32 [ %98, %95 ], [ %.1, %92 ]
   %100 = and i16 %.pre188, 128
   %.not176 = icmp ne i16 %100, 0
-  %or.cond192.not = select i1 %22, i1 %.not176, i1 false
+  %or.cond192.not = select i1 %23, i1 %.not176, i1 false
   br i1 %or.cond192.not, label %101, label %105
 
 101:                                              ; preds = %99
@@ -484,7 +484,7 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 .loopexit:                                        ; preds = %.preheader, %105
   %.5 = phi i32 [ %.3, %105 ], [ %122, %.preheader ]
   %131 = icmp eq i16 %9, -30658
-  %or.cond7 = and i1 %131, %23
+  %or.cond7 = and i1 %131, %22
   br i1 %or.cond7, label %.thread, label %152
 
 .thread:                                          ; preds = %.loopexit

@@ -857,7 +857,7 @@ packet_times_insert.exit.i53.i.i:                 ; preds = %344, %340
   br label %356
 
 356:                                              ; preds = %packet_times_insert.exit.i53.i.i, %packet_times_get.exit.i47.i.i
-  %.046.i.i.i = phi ptr [ %339, %packet_times_get.exit.i47.i.i ], [ %354, %packet_times_insert.exit.i53.i.i ]
+  %.047.i.i.i = phi ptr [ %339, %packet_times_get.exit.i47.i.i ], [ %354, %packet_times_insert.exit.i53.i.i ]
   %357 = load i32, ptr @hf_nordic_ble_time, align 4
   %358 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %29, i32 noundef %357, ptr noundef %0, i32 noundef %228, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #3
   %359 = getelementptr inbounds i8, ptr %1, i64 80
@@ -871,11 +871,11 @@ packet_times_insert.exit.i53.i.i:                 ; preds = %344, %340
 
 365:                                              ; preds = %356
   %366 = call noalias ptr @wmem_alloc0(ptr noundef %364, i64 noundef 8) #3
-  %367 = getelementptr inbounds i8, ptr %.046.i.i.i, i64 12
+  %367 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 12
   %368 = load i32, ptr %367, align 4
   %369 = getelementptr inbounds i8, ptr %366, i64 4
   store i32 %368, ptr %369, align 4
-  %370 = getelementptr inbounds i8, ptr %.046.i.i.i, i64 8
+  %370 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 8
   %371 = load i32, ptr %370, align 4
   store i32 %371, ptr %366, align 4
   %372 = call ptr @wmem_file_scope() #3
@@ -890,10 +890,10 @@ packet_times_insert.exit.i53.i.i:                 ; preds = %344, %340
   br label %378
 
 378:                                              ; preds = %374, %365
-  %.047.in.i.i.i = phi ptr [ %376, %374 ], [ %370, %365 ]
+  %.046.in.i.i.i = phi ptr [ %376, %374 ], [ %370, %365 ]
   %.0.in.i.i.i = phi ptr [ %377, %374 ], [ %367, %365 ]
   %.0.i49.i.i = load i32, ptr %.0.in.i.i.i, align 4
-  %.047.i.i.i = load i32, ptr %.047.in.i.i.i, align 4
+  %.046.i.i.i = load i32, ptr %.046.in.i.i.i, align 4
   %379 = add nuw nsw i32 %.0.i.i, 13
   %380 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %379) #3
   %381 = sub i16 %87, %121
@@ -980,7 +980,7 @@ proto_item_set_generated.exit.i52.i.i:            ; preds = %402, %399, %packet_
 
 proto_item_set_generated.exit57.i.i.i:            ; preds = %417, %414, %409
   %421 = load i32, ptr %12, align 4
-  %422 = sub i32 %421, %.047.i.i.i
+  %422 = sub i32 %421, %.046.i.i.i
   %423 = load i32, ptr @hf_nordic_ble_delta_time_ss, align 4
   %424 = call ptr @proto_tree_add_uint(ptr noundef %29, i32 noundef %423, ptr noundef %0, i32 noundef %228, i32 noundef 4, i32 noundef %422) #3
   %.not.i58.i.i.i = icmp eq ptr %424, null
@@ -1009,12 +1009,12 @@ proto_item_set_generated.exit60.i.i.i:            ; preds = %428, %425, %proto_i
 
 436:                                              ; preds = %proto_item_set_generated.exit60.i.i.i
   %437 = load i32, ptr %12, align 4
-  %438 = getelementptr inbounds i8, ptr %.046.i.i.i, i64 8
+  %438 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 8
   store i32 %437, ptr %438, align 4
   %439 = add i32 %437, %396
-  %440 = getelementptr inbounds i8, ptr %.046.i.i.i, i64 12
+  %440 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 12
   store i32 %439, ptr %440, align 4
-  store i32 1, ptr %.046.i.i.i, align 4
+  store i32 1, ptr %.047.i.i.i, align 4
   br label %dissect_ble_timestamp.exit.i.i
 
 dissect_ble_timestamp.exit.i.i:                   ; preds = %436, %proto_item_set_generated.exit60.i.i.i

@@ -1124,7 +1124,7 @@ rsa_check_context.exit:                           ; preds = %18
   br i1 %.not16, label %31, label %.thread
 
 .thread:                                          ; preds = %rsa_check_context.exit, %27, %24
-  %.0.ph = phi i32 [ -4, %24 ], [ %30, %27 ], [ %23, %rsa_check_context.exit ]
+  %.012.ph = phi i32 [ -4, %24 ], [ %30, %27 ], [ %23, %rsa_check_context.exit ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %4) #14
   br label %33
 
@@ -1135,13 +1135,13 @@ rsa_check_context.exit:                           ; preds = %18
   br i1 %.not17, label %rsa_check_context.exit.thread, label %33
 
 33:                                               ; preds = %.thread, %31
-  %.022 = phi i32 [ %.0.ph, %.thread ], [ %32, %31 ]
-  %34 = add nsw i32 %.022, -17024
+  %.01222 = phi i32 [ %.012.ph, %.thread ], [ %32, %31 ]
+  %34 = add nsw i32 %.01222, -17024
   br label %rsa_check_context.exit.thread
 
 rsa_check_context.exit.thread:                    ; preds = %18, %12, %15, %3, %9, %31, %33
-  %.012 = phi i32 [ %34, %33 ], [ 0, %31 ], [ -16512, %9 ], [ -16512, %3 ], [ -16512, %15 ], [ -16512, %12 ], [ -16512, %18 ]
-  ret i32 %.012
+  %.0 = phi i32 [ %34, %33 ], [ 0, %31 ], [ -16512, %9 ], [ -16512, %3 ], [ -16512, %15 ], [ -16512, %12 ], [ -16512, %18 ]
+  ret i32 %.0
 }
 
 declare i32 @mbedtls_mpi_exp_mod(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1520,7 +1520,7 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_encrypt(ptr noundef %0, ptr noundef re
   br i1 %.not69, label %49, label %.thread
 
 .thread:                                          ; preds = %41, %43
-  %.0.ph = phi i32 [ %48, %43 ], [ %42, %41 ]
+  %.056.ph = phi i32 [ %48, %43 ], [ %42, %41 ]
   call void @mbedtls_md_free(ptr noundef nonnull %9) #14
   br label %53
 
@@ -1535,8 +1535,8 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_encrypt(ptr noundef %0, ptr noundef re
   br label %53
 
 53:                                               ; preds = %.thread, %49, %31, %16, %11, %8, %51, %29
-  %.056 = phi i32 [ %30, %29 ], [ %52, %51 ], [ -16512, %8 ], [ -16512, %11 ], [ -16512, %16 ], [ %33, %31 ], [ %50, %49 ], [ %.0.ph, %.thread ]
-  ret i32 %.056
+  %.0 = phi i32 [ %30, %29 ], [ %52, %51 ], [ -16512, %8 ], [ -16512, %11 ], [ -16512, %16 ], [ %33, %31 ], [ %50, %49 ], [ %.056.ph, %.thread ]
+  ret i32 %.0
 }
 
 declare zeroext i8 @mbedtls_md_get_size(ptr noundef) local_unnamed_addr #1
@@ -1568,9 +1568,9 @@ define internal fastcc i32 @mgf_mask(ptr nocapture noundef %0, i64 noundef %1, p
   br label %12
 
 12:                                               ; preds = %.lr.ph41, %._crit_edge
-  %.02239 = phi ptr [ %0, %.lr.ph41 ], [ %.123.lcssa, %._crit_edge ]
-  %.02438 = phi i64 [ %1, %.lr.ph41 ], [ %28, %._crit_edge ]
-  %spec.select = call i64 @llvm.umin.i64(i64 %.02438, i64 %10)
+  %.02239 = phi i64 [ %1, %.lr.ph41 ], [ %28, %._crit_edge ]
+  %.02338 = phi ptr [ %0, %.lr.ph41 ], [ %.124.lcssa, %._crit_edge ]
+  %spec.select = call i64 @llvm.umin.i64(i64 %.02239, i64 %10)
   %13 = call i32 @mbedtls_md_starts(ptr noundef nonnull %4) #14
   %.not31 = icmp eq i32 %13, 0
   br i1 %.not31, label %14, label %._crit_edge42
@@ -1599,23 +1599,23 @@ define internal fastcc i32 @mgf_mask(ptr nocapture noundef %0, i64 noundef %1, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.02136 = phi i64 [ %25, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.12335 = phi ptr [ %22, %.lr.ph ], [ %.02239, %.lr.ph.preheader ]
+  %.12435 = phi ptr [ %22, %.lr.ph ], [ %.02338, %.lr.ph.preheader ]
   %20 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 %.02136
   %21 = load i8, ptr %20, align 1
-  %22 = getelementptr inbounds i8, ptr %.12335, i64 1
-  %23 = load i8, ptr %.12335, align 1
+  %22 = getelementptr inbounds i8, ptr %.12435, i64 1
+  %23 = load i8, ptr %.12435, align 1
   %24 = xor i8 %23, %21
-  store i8 %24, ptr %.12335, align 1
+  store i8 %24, ptr %.12435, align 1
   %25 = add nuw nsw i64 %.02136, 1
   %exitcond.not = icmp eq i64 %25, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.123.lcssa = phi ptr [ %.02239, %.preheader ], [ %22, %.lr.ph ]
+  %.124.lcssa = phi ptr [ %.02338, %.preheader ], [ %22, %.lr.ph ]
   %26 = load i8, ptr %11, align 1
   %27 = add i8 %26, 1
   store i8 %27, ptr %11, align 1
-  %28 = sub i64 %.02438, %spec.select
+  %28 = sub i64 %.02239, %spec.select
   %.not = icmp eq i64 %28, 0
   br i1 %.not, label %._crit_edge42, label %12, !llvm.loop !6
 
@@ -1706,8 +1706,8 @@ define hidden range(i32 -2147483648, 2147467136) i32 @mbedtls_rsa_rsaes_pkcs1_v1
   br label %38
 
 38:                                               ; preds = %12, %6, %36, %29
-  %.035 = phi i32 [ %30, %29 ], [ %37, %36 ], [ -16512, %6 ], [ -16512, %12 ]
-  ret i32 %.035
+  %.034 = phi i32 [ %30, %29 ], [ %37, %36 ], [ -16512, %6 ], [ -16512, %12 ]
+  ret i32 %.034
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1870,7 +1870,7 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
   br i1 %.not81, label %47, label %46
 
 46:                                               ; preds = %44, %36
-  %.067 = phi i32 [ %43, %36 ], [ %45, %44 ]
+  %.063 = phi i32 [ %43, %36 ], [ %45, %44 ]
   call void @mbedtls_md_free(ptr noundef nonnull %12) #14
   br label %88
 
@@ -1896,8 +1896,8 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %49
-  %.064.lcssa = phi ptr [ %51, %49 ], [ %scevgep, %.preheader.loopexit ]
-  %.063.lcssa = phi i8 [ %50, %49 ], [ %62, %.preheader.loopexit ]
+  %.066.lcssa = phi ptr [ %51, %49 ], [ %scevgep, %.preheader.loopexit ]
+  %.065.lcssa = phi i8 [ %50, %49 ], [ %62, %.preheader.loopexit ]
   %54 = zext nneg i32 %27 to i64
   %55 = add nsw i64 %17, -2
   %.not96 = icmp eq i64 %55, %54
@@ -1909,45 +1909,45 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
   br label %.lr.ph93
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.06388 = phi i8 [ %62, %.lr.ph ], [ %50, %.lr.ph.preheader ]
-  %.06487 = phi ptr [ %59, %.lr.ph ], [ %51, %.lr.ph.preheader ]
-  %.06686 = phi i64 [ %63, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %57 = getelementptr inbounds [64 x i8], ptr %11, i64 0, i64 %.06686
+  %.06588 = phi i8 [ %62, %.lr.ph ], [ %50, %.lr.ph.preheader ]
+  %.06687 = phi ptr [ %59, %.lr.ph ], [ %51, %.lr.ph.preheader ]
+  %.06886 = phi i64 [ %63, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %57 = getelementptr inbounds [64 x i8], ptr %11, i64 0, i64 %.06886
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.06487, i64 1
-  %60 = load i8, ptr %.06487, align 1
+  %59 = getelementptr inbounds i8, ptr %.06687, i64 1
+  %60 = load i8, ptr %.06687, align 1
   %61 = xor i8 %60, %58
-  %62 = or i8 %61, %.06388
-  %63 = add nuw nsw i64 %.06686, 1
+  %62 = or i8 %61, %.06588
+  %63 = add nuw nsw i64 %.06886, 1
   %exitcond.not = icmp eq i64 %63, %38
   br i1 %exitcond.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !9
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
-  %.092 = phi i32 [ %67, %.lr.ph93 ], [ 0, %.lr.ph93.preheader ]
-  %.06591 = phi i64 [ %74, %.lr.ph93 ], [ 0, %.lr.ph93.preheader ]
-  %.190 = phi i64 [ %75, %.lr.ph93 ], [ 0, %.lr.ph93.preheader ]
-  %64 = getelementptr inbounds i8, ptr %.064.lcssa, i64 %.190
+  %.06492 = phi i32 [ %67, %.lr.ph93 ], [ 0, %.lr.ph93.preheader ]
+  %.06791 = phi i64 [ %74, %.lr.ph93 ], [ 0, %.lr.ph93.preheader ]
+  %.16990 = phi i64 [ %75, %.lr.ph93 ], [ 0, %.lr.ph93.preheader ]
+  %64 = getelementptr inbounds i8, ptr %.066.lcssa, i64 %.16990
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
-  %67 = or i32 %.092, %66
+  %67 = or i32 %.06492, %66
   %68 = sub nsw i32 0, %67
   %69 = and i32 %68, 128
   %70 = or i32 %69, %67
   %71 = lshr i32 %70, 7
   %72 = xor i32 %71, 1
   %73 = zext nneg i32 %72 to i64
-  %74 = add i64 %.06591, %73
-  %75 = add nuw i64 %.190, 1
+  %74 = add i64 %.06791, %73
+  %75 = add nuw i64 %.16990, 1
   %exitcond99.not = icmp eq i64 %75, %umax
   br i1 %exitcond99.not, label %._crit_edge, label %.lr.ph93, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph93, %.preheader
-  %.065.lcssa = phi i64 [ 0, %.preheader ], [ %74, %.lr.ph93 ]
-  %76 = getelementptr inbounds i8, ptr %.064.lcssa, i64 %.065.lcssa
+  %.067.lcssa = phi i64 [ 0, %.preheader ], [ %74, %.lr.ph93 ]
+  %76 = getelementptr inbounds i8, ptr %.066.lcssa, i64 %.067.lcssa
   %77 = getelementptr inbounds i8, ptr %76, i64 1
   %78 = load i8, ptr %76, align 1
   %79 = xor i8 %78, 1
-  %80 = or i8 %79, %.063.lcssa
+  %80 = or i8 %79, %.065.lcssa
   %.not83 = icmp eq i8 %80, 0
   br i1 %.not83, label %81, label %88
 
@@ -1969,14 +1969,14 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
   br label %88
 
 88:                                               ; preds = %86, %87, %81, %._crit_edge, %47, %31, %46, %35
-  %.168 = phi i32 [ %32, %31 ], [ %34, %35 ], [ %.067, %46 ], [ %48, %47 ], [ -16640, %._crit_edge ], [ -17408, %81 ], [ 0, %87 ], [ 0, %86 ]
+  %.1 = phi i32 [ %32, %31 ], [ %34, %35 ], [ %.063, %46 ], [ %48, %47 ], [ -16640, %._crit_edge ], [ -17408, %81 ], [ 0, %87 ], [ 0, %86 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 1024) #14
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %11, i64 noundef 64) #14
   br label %89
 
 89:                                               ; preds = %24, %19, %15, %9, %88
-  %.069 = phi i32 [ %.168, %88 ], [ -16512, %9 ], [ -16512, %15 ], [ -16512, %19 ], [ -16512, %24 ]
-  ret i32 %.069
+  %.0 = phi i32 [ %.1, %88 ], [ -16512, %9 ], [ -16512, %15 ], [ -16512, %19 ], [ -16512, %24 ]
+  ret i32 %.0
 }
 
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -2004,13 +2004,13 @@ define hidden i32 @mbedtls_rsa_rsaes_pkcs1_v15_decrypt(ptr noundef %0, ptr nound
   br label %18
 
 18:                                               ; preds = %14, %16
-  %.0 = phi i32 [ %15, %14 ], [ %17, %16 ]
+  %.015 = phi i32 [ %15, %14 ], [ %17, %16 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef 1024) #14
   br label %19
 
 19:                                               ; preds = %7, %18
-  %.015 = phi i32 [ %.0, %18 ], [ -16512, %7 ]
-  ret i32 %.015
+  %.0 = phi i32 [ %.015, %18 ], [ -16512, %7 ]
+  ret i32 %.0
 }
 
 declare i32 @mbedtls_ct_rsaes_pkcs1_v15_unpadding(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
@@ -2043,12 +2043,12 @@ define hidden i32 @mbedtls_rsa_pkcs1_decrypt(ptr noundef %0, ptr noundef %1, ptr
   br label %19
 
 19:                                               ; preds = %17, %15
-  %.0.i = phi i32 [ %16, %15 ], [ %18, %17 ]
+  %.015.i = phi i32 [ %16, %15 ], [ %18, %17 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef 1024) #14
   br label %mbedtls_rsa_rsaes_pkcs1_v15_decrypt.exit
 
 mbedtls_rsa_rsaes_pkcs1_v15_decrypt.exit:         ; preds = %11, %19
-  %.015.i = phi i32 [ %.0.i, %19 ], [ -16512, %11 ]
+  %.0.i = phi i32 [ %.015.i, %19 ], [ -16512, %11 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8)
   br label %22
 
@@ -2057,7 +2057,7 @@ mbedtls_rsa_rsaes_pkcs1_v15_decrypt.exit:         ; preds = %11, %19
   br label %22
 
 22:                                               ; preds = %7, %20, %mbedtls_rsa_rsaes_pkcs1_v15_decrypt.exit
-  %.0 = phi i32 [ %21, %20 ], [ %.015.i, %mbedtls_rsa_rsaes_pkcs1_v15_decrypt.exit ], [ -16640, %7 ]
+  %.0 = phi i32 [ %21, %20 ], [ %.0.i, %mbedtls_rsa_rsaes_pkcs1_v15_decrypt.exit ], [ -16640, %7 ]
   ret i32 %.0
 }
 
@@ -2351,12 +2351,12 @@ define internal fastcc range(i32 -16512, 1) i32 @rsa_rsassa_pkcs1_v15_encode(i32
 31:                                               ; preds = %22, %28
   %32 = phi i64 [ 0, %28 ], [ %19, %22 ]
   %.pn = phi i64 [ %29, %28 ], [ %25, %22 ]
-  %.0 = sub i64 %3, %.pn
-  %33 = icmp ult i64 %.0, 11
+  %.058 = sub i64 %3, %.pn
+  %33 = icmp ult i64 %.058, 11
   br i1 %33, label %65, label %34
 
 34:                                               ; preds = %31
-  %35 = add i64 %.0, -3
+  %35 = add i64 %.058, -3
   %36 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 0, ptr %4, align 1
   %37 = getelementptr inbounds i8, ptr %4, i64 2
@@ -2379,7 +2379,7 @@ define internal fastcc range(i32 -16512, 1) i32 @rsa_rsassa_pkcs1_v15_encode(i32
   %45 = add nuw nsw i64 %44, 8
   %46 = add i64 %45, %32
   %47 = trunc i64 %46 to i8
-  %48 = getelementptr inbounds i8, ptr %37, i64 %.0
+  %48 = getelementptr inbounds i8, ptr %37, i64 %.058
   store i8 %47, ptr %43, align 1
   %49 = getelementptr inbounds i8, ptr %48, i64 1
   store i8 48, ptr %48, align 1
@@ -2414,8 +2414,8 @@ define internal fastcc range(i32 -16512, 1) i32 @rsa_rsassa_pkcs1_v15_encode(i32
   br label %65
 
 65:                                               ; preds = %42, %31, %28, %16, %22, %13, %11, %8, %64, %40
-  %.058 = phi i32 [ 0, %40 ], [ -16512, %64 ], [ -16512, %8 ], [ -16512, %11 ], [ -16512, %13 ], [ -16512, %22 ], [ -16512, %16 ], [ -16512, %28 ], [ -16512, %31 ], [ 0, %42 ]
-  ret i32 %.058
+  %.0 = phi i32 [ 0, %40 ], [ -16512, %64 ], [ -16512, %8 ], [ -16512, %11 ], [ -16512, %13 ], [ -16512, %22 ], [ -16512, %16 ], [ -16512, %28 ], [ -16512, %31 ], [ 0, %42 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
@@ -2513,15 +2513,15 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
   %44 = zext i8 %32 to i64
   %45 = and i64 %35, 7
   %46 = icmp eq i64 %45, 0
-  %spec.select = select i1 %46, i64 %18, i64 %13
-  %spec.select91.idx = zext i1 %46 to i64
-  %spec.select91 = getelementptr inbounds i8, ptr %11, i64 %spec.select91.idx
+  %spec.select.idx = zext i1 %46 to i64
+  %spec.select = getelementptr inbounds i8, ptr %11, i64 %spec.select.idx
+  %spec.select91 = select i1 %46, i64 %18, i64 %13
   %47 = add nuw nsw i64 %44, 2
-  %48 = icmp ult i64 %spec.select, %47
+  %48 = icmp ult i64 %spec.select91, %47
   br i1 %48, label %93, label %49
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %spec.select91, i64 %spec.select
+  %50 = getelementptr inbounds i8, ptr %spec.select, i64 %spec.select91
   %51 = sub nsw i64 0, %44
   %52 = getelementptr inbounds i8, ptr %50, i64 %51
   %53 = getelementptr inbounds i8, ptr %52, i64 -1
@@ -2532,13 +2532,13 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
 
 55:                                               ; preds = %49
   %56 = xor i64 %44, -1
-  %57 = add nsw i64 %spec.select, %56
-  %58 = call fastcc i32 @mgf_mask(ptr noundef nonnull %spec.select91, i64 noundef %57, ptr noundef nonnull %53, i64 noundef %44, ptr noundef nonnull %10)
+  %57 = add nsw i64 %spec.select91, %56
+  %58 = call fastcc i32 @mgf_mask(ptr noundef nonnull %spec.select, i64 noundef %57, ptr noundef nonnull %53, i64 noundef %44, ptr noundef nonnull %10)
   %.not81 = icmp eq i32 %58, 0
   br i1 %.not81, label %59, label %92
 
 59:                                               ; preds = %55
-  %60 = shl nuw nsw i64 %spec.select, 3
+  %60 = shl nuw nsw i64 %spec.select91, 3
   %61 = sub i64 %60, %35
   %62 = trunc i64 %61 to i32
   %63 = lshr i32 255, %62
@@ -2547,11 +2547,11 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
   %66 = and i8 %64, %65
   store i8 %66, ptr %11, align 16
   %67 = getelementptr inbounds i8, ptr %52, i64 -2
-  %68 = icmp ult ptr %spec.select91, %67
+  %68 = icmp ult ptr %spec.select, %67
   br i1 %68, label %.lr.ph, label %.critedgethread-pre-split
 
 .lr.ph:                                           ; preds = %59, %71
-  %.196 = phi ptr [ %72, %71 ], [ %spec.select91, %59 ]
+  %.196 = phi ptr [ %72, %71 ], [ %spec.select, %59 ]
   %69 = load i8, ptr %.196, align 1
   %70 = icmp eq i8 %69, 0
   br i1 %70, label %71, label %.critedge
@@ -2562,7 +2562,7 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
   br i1 %exitcond.not, label %.critedgethread-pre-split, label %.lr.ph, !llvm.loop !11
 
 .critedgethread-pre-split:                        ; preds = %71, %59
-  %.1.lcssa = phi ptr [ %spec.select91, %59 ], [ %67, %71 ]
+  %.1.lcssa = phi ptr [ %spec.select, %59 ], [ %67, %71 ]
   %.pr = load i8, ptr %.1.lcssa, align 1
   br label %.critedge
 
@@ -2616,13 +2616,13 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
   br label %92
 
 92:                                               ; preds = %91, %75, %.critedge, %89, %87, %84, %82, %80, %55, %49
-  %.060 = phi i32 [ %54, %49 ], [ %58, %55 ], [ %81, %80 ], [ %83, %82 ], [ %86, %84 ], [ %88, %87 ], [ %90, %89 ], [ -16640, %.critedge ], [ -16640, %75 ], [ %spec.select93, %91 ]
+  %.059 = phi i32 [ %54, %49 ], [ %58, %55 ], [ %81, %80 ], [ %83, %82 ], [ %86, %84 ], [ %88, %87 ], [ %90, %89 ], [ -16640, %.critedge ], [ -16640, %75 ], [ %spec.select93, %91 ]
   call void @mbedtls_md_free(ptr noundef nonnull %10) #14
   br label %93
 
 93:                                               ; preds = %43, %31, %28, %25, %22, %17, %15, %7, %92
-  %.061 = phi i32 [ %.060, %92 ], [ -16512, %7 ], [ %16, %15 ], [ -16640, %17 ], [ -16512, %22 ], [ -16512, %25 ], [ -16512, %28 ], [ -16512, %31 ], [ -16512, %43 ]
-  ret i32 %.061
+  %.0 = phi i32 [ %.059, %92 ], [ -16512, %7 ], [ %16, %15 ], [ -16640, %17 ], [ -16512, %22 ], [ -16512, %25 ], [ -16512, %28 ], [ -16512, %31 ], [ -16512, %43 ]
+  ret i32 %.0
 }
 
 declare i32 @mbedtls_md_starts(ptr noundef) local_unnamed_addr #1

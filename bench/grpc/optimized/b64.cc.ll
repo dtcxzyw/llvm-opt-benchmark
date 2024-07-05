@@ -337,8 +337,8 @@ while.cond.outer.outer:                           ; preds = %while.cond.outer.ou
 
 while.cond.outer.outer156:                        ; preds = %while.cond.outer.outer, %if.else32
   %b64_len.addr.0.ph.ph157 = phi i64 [ %b64_len.addr.0.ph.ph, %while.cond.outer.outer ], [ %dec, %if.else32 ]
-  %b64.addr.0.ph.ph158 = phi ptr [ %b64.addr.0.ph.ph, %while.cond.outer.outer ], [ %incdec.ptr, %if.else32 ]
   %num_codes.0.ph.ph = phi i64 [ 0, %while.cond.outer.outer ], [ %inc, %if.else32 ]
+  %b64.addr.0.ph.ph158 = phi ptr [ %b64.addr.0.ph.ph, %while.cond.outer.outer ], [ %incdec.ptr, %if.else32 ]
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %while.cond.outer.outer156

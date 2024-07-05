@@ -201,7 +201,7 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.05157 = phi i1 [ true, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
+  %.058 = phi i1 [ true, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %18 = getelementptr %struct.PendingWrite, ptr %7, i64 %indvars.iv
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
@@ -213,17 +213,17 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
   %24 = getelementptr inbounds i8, ptr %18, i64 12
   %25 = load i8, ptr %24, align 4
   %26 = trunc i8 %25 to i1
-  %spec.select = select i1 %26, i1 %.05157, i1 false
+  %spec.select = select i1 %26, i1 %.058, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader56
-  %.051.lcssa = phi i1 [ true, %.preheader56 ], [ %spec.select, %.lr.ph ]
+  %.0.lcssa = phi i1 [ true, %.preheader56 ], [ %spec.select, %.lr.ph ]
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
-  call void @log_newpages(ptr noundef %27, i32 noundef %29, i32 noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext %.051.lcssa) #4
+  call void @log_newpages(ptr noundef %27, i32 noundef %29, i32 noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext %.0.lcssa) #4
   br label %30
 
 30:                                               ; preds = %._crit_edge, %13

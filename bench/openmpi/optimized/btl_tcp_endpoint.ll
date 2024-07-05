@@ -721,7 +721,7 @@ mca_btl_tcp_endpoint_start_connect.exit:          ; preds = %35, %56, %70, %92, 
   br label %278
 
 278:                                              ; preds = %12, %218, %mca_btl_tcp_endpoint_start_connect.exit, %15, %261, %264, %266
-  %.0 = phi i32 [ 0, %12 ], [ 0, %261 ], [ 0, %264 ], [ 0, %266 ], [ -12, %218 ], [ %.0.i, %mca_btl_tcp_endpoint_start_connect.exit ], [ 0, %15 ]
+  %.032 = phi i32 [ 0, %12 ], [ 0, %261 ], [ 0, %264 ], [ 0, %266 ], [ -12, %218 ], [ %.0.i, %mca_btl_tcp_endpoint_start_connect.exit ], [ 0, %15 ]
   %279 = load i8, ptr @opal_uses_threads, align 1
   %280 = trunc i8 %279 to i1
   br i1 %280, label %281, label %284
@@ -732,8 +732,8 @@ mca_btl_tcp_endpoint_start_connect.exit:          ; preds = %35, %56, %70, %92, 
   br label %284
 
 284:                                              ; preds = %281, %278, %251, %252
-  %.032 = phi i32 [ 1, %252 ], [ 1, %251 ], [ %.0, %278 ], [ %.0, %281 ]
-  ret i32 %.032
+  %.0 = phi i32 [ 1, %252 ], [ 1, %251 ], [ %.032, %278 ], [ %.032, %281 ]
+  ret i32 %.0
 }
 
 declare zeroext i1 @mca_btl_tcp_frag_send(ptr noundef, i32 noundef) local_unnamed_addr #1

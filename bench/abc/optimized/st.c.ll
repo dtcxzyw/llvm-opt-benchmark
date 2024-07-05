@@ -604,15 +604,15 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr nocapture noundef %0
   br i1 %.not5356, label %._crit_edge, label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %26, %53
-  %.05057 = phi ptr [ %30, %53 ], [ %28, %26 ]
-  %29 = getelementptr inbounds i8, ptr %.05057, i64 16
+  %.04957 = phi ptr [ %30, %53 ], [ %28, %26 ]
+  %29 = getelementptr inbounds i8, ptr %.04957, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %20, align 8
   %32 = icmp eq ptr %31, @st__ptrhash
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %.lr.ph58
-  %34 = load ptr, ptr %.05057, align 8
+  %34 = load ptr, ptr %.04957, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = lshr i64 %35, 2
   %37 = load i32, ptr %4, align 8
@@ -623,7 +623,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr nocapture noundef %0
 
 41:                                               ; preds = %.lr.ph58
   %42 = icmp eq ptr %31, @st__numhash
-  %43 = load ptr, ptr %.05057, align 8
+  %43 = load ptr, ptr %.04957, align 8
   br i1 %42, label %44, label %50
 
 44:                                               ; preds = %41
@@ -648,7 +648,7 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr nocapture noundef %0
   store ptr %58, ptr %29, align 8
   %59 = load ptr, ptr %2, align 8
   %60 = getelementptr inbounds ptr, ptr %59, i64 %56
-  store ptr %.05057, ptr %60, align 8
+  store ptr %.04957, ptr %60, align 8
   %61 = load i32, ptr %5, align 4
   %62 = add nsw i32 %61, 1
   store i32 %62, ptr %5, align 4
@@ -1084,13 +1084,13 @@ define noalias noundef ptr @st__copy(ptr nocapture noundef readonly %0) local_un
   %17 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
-  %.04655 = load ptr, ptr %18, align 8
-  %.not56 = icmp eq ptr %.04655, null
+  %.04555 = load ptr, ptr %18, align 8
+  %.not56 = icmp eq ptr %.04555, null
   br i1 %.not56, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %28
   %19 = phi ptr [ %20, %28 ], [ null, %16 ]
-  %.04657 = phi ptr [ %.046, %28 ], [ %.04655, %16 ]
+  %.04557 = phi ptr [ %.045, %28 ], [ %.04555, %16 ]
   %20 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.preheader, label %28
@@ -1107,10 +1107,10 @@ define noalias noundef ptr @st__copy(ptr nocapture noundef readonly %0) local_un
   br i1 %.not5260, label %._crit_edge64, label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %22, %.lr.ph63
-  %.04561 = phi ptr [ %26, %.lr.ph63 ], [ %24, %22 ]
-  %25 = getelementptr inbounds i8, ptr %.04561, i64 16
+  %.04661 = phi ptr [ %26, %.lr.ph63 ], [ %24, %22 ]
+  %25 = getelementptr inbounds i8, ptr %.04661, i64 16
   %26 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef nonnull %.04561) #13
+  tail call void @free(ptr noundef nonnull %.04661) #13
   %.not52 = icmp eq ptr %26, null
   br i1 %.not52, label %._crit_edge64, label %.lr.ph63, !llvm.loop !15
 
@@ -1125,13 +1125,13 @@ define noalias noundef ptr @st__copy(ptr nocapture noundef readonly %0) local_un
   br label %.loopexit
 
 28:                                               ; preds = %.lr.ph
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %.04657, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %.04557, i64 16, i1 false)
   %29 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %19, ptr %29, align 8
   store ptr %20, ptr %17, align 8
-  %30 = getelementptr inbounds i8, ptr %.04657, i64 16
-  %.046 = load ptr, ptr %30, align 8
-  %.not = icmp eq ptr %.046, null
+  %30 = getelementptr inbounds i8, ptr %.04557, i64 16
+  %.045 = load ptr, ptr %30, align 8
+  %.not = icmp eq ptr %.045, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %28, %16
@@ -1141,8 +1141,8 @@ define noalias noundef ptr @st__copy(ptr nocapture noundef readonly %0) local_un
   br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !18
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader53, %1, %27, %15
-  %.044 = phi ptr [ null, %15 ], [ null, %27 ], [ null, %1 ], [ %4, %.preheader53 ], [ %4, %._crit_edge ]
-  ret ptr %.044
+  %.0 = phi ptr [ null, %15 ], [ null, %27 ], [ null, %1 ], [ %4, %.preheader53 ], [ %4, %._crit_edge ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

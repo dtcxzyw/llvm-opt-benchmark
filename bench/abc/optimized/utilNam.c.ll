@@ -772,8 +772,8 @@ Vec_IntPush.exit58:                               ; preds = %.Vec_IntGrow.exit10
   br label %150
 
 150:                                              ; preds = %Abc_NamStrHashFind.exit, %48, %148
-  %.040 = phi i32 [ %149, %148 ], [ %.pre, %48 ], [ %.pr, %Abc_NamStrHashFind.exit ]
-  ret i32 %.040
+  %.0 = phi i32 [ %149, %148 ], [ %.pre, %48 ], [ %.pr, %Abc_NamStrHashFind.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -2586,8 +2586,8 @@ Abc_NamStrFind.exit.thread15:                     ; preds = %Abc_NamStrcmp.exit.
   br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !22
 
 .critedge:                                        ; preds = %Abc_NamStrFind.exit.thread15, %3, %64, %Abc_NamStrFind.exit.thread
-  %.010 = phi ptr [ %69, %64 ], [ null, %Abc_NamStrFind.exit.thread ], [ null, %3 ], [ null, %Abc_NamStrFind.exit.thread15 ]
-  ret ptr %.010
+  %.0 = phi ptr [ %69, %64 ], [ null, %Abc_NamStrFind.exit.thread ], [ null, %3 ], [ null, %Abc_NamStrFind.exit.thread15 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn

@@ -143,8 +143,8 @@ define dso_local ptr @aarch64_classify_argument_type(ptr nocapture noundef reado
   br label %30
 
 30:                                               ; preds = %27, %24
-  %.038 = phi i32 [ %29, %27 ], [ %25, %24 ]
-  %31 = add i32 %.038, -2
+  %.0 = phi i32 [ %29, %27 ], [ %25, %24 ]
+  %31 = add i32 %.0, -2
   %32 = icmp ult i32 %31, 11
   br i1 %32, label %33, label %.critedge
 
@@ -230,12 +230,12 @@ define dso_local ptr @aarch64_classify_argument_type(ptr nocapture noundef reado
   br label %84
 
 76:                                               ; preds = %67, %71
-  %.0 = phi i32 [ %73, %71 ], [ %62, %67 ]
+  %.036 = phi i32 [ %73, %71 ], [ %62, %67 ]
   %77 = add nsw i32 %22, -1
-  %78 = add i32 %77, %.0
-  %79 = urem i32 %78, %.0
+  %78 = add i32 %77, %.036
+  %79 = urem i32 %78, %.036
   %80 = sub nuw i32 %78, %79
-  %81 = icmp eq i32 %.0, 16
+  %81 = icmp eq i32 %.036, 16
   br i1 %81, label %.thread, label %84
 
 .thread:                                          ; preds = %65, %76
@@ -245,8 +245,8 @@ define dso_local ptr @aarch64_classify_argument_type(ptr nocapture noundef reado
 
 84:                                               ; preds = %.thread51, %76
   %85 = phi i32 [ %75, %.thread51 ], [ %80, %76 ]
-  %.053 = phi i32 [ 8, %.thread51 ], [ %.0, %76 ]
-  %86 = udiv i32 %85, %.053
+  %.03653 = phi i32 [ 8, %.thread51 ], [ %.036, %76 ]
+  %86 = udiv i32 %85, %.03653
   %87 = icmp ugt i32 %86, 1
   %88 = load ptr, ptr @type_ulong, align 8
   br i1 %87, label %89, label %92
@@ -265,8 +265,8 @@ define dso_local ptr @aarch64_classify_argument_type(ptr nocapture noundef reado
   br label %96
 
 96:                                               ; preds = %94, %92, %89, %.thread, %57, %54, %46, %.critedge, %42, %.critedge47, %9
-  %.036 = phi ptr [ %10, %9 ], [ %21, %.critedge47 ], [ %56, %54 ], [ %58, %57 ], [ %83, %.thread ], [ %91, %89 ], [ %93, %92 ], [ %95, %94 ], [ %47, %46 ], [ %43, %42 ], [ %44, %.critedge ]
-  ret ptr %.036
+  %.037 = phi ptr [ %10, %9 ], [ %21, %.critedge47 ], [ %56, %54 ], [ %58, %57 ], [ %83, %.thread ], [ %91, %89 ], [ %93, %92 ], [ %95, %94 ], [ %47, %46 ], [ %43, %42 ], [ %44, %.critedge ]
+  ret ptr %.037
 }
 
 ; Function Attrs: nounwind uwtable
@@ -585,8 +585,8 @@ define dso_local ptr @aarch64_classify_return_type(ptr nocapture noundef readonl
   br label %91
 
 91:                                               ; preds = %89, %84, %80, %69, %60, %53, %.critedge, %49, %27, %.critedge49, %10
-  %.041 = phi ptr [ %11, %10 ], [ %22, %.critedge49 ], [ %28, %27 ], [ %83, %80 ], [ %88, %84 ], [ %73, %69 ], [ %90, %89 ], [ %61, %60 ], [ %54, %53 ], [ %50, %49 ], [ %51, %.critedge ]
-  ret ptr %.041
+  %.042 = phi ptr [ %11, %10 ], [ %22, %.critedge49 ], [ %28, %27 ], [ %83, %80 ], [ %88, %84 ], [ %73, %69 ], [ %90, %89 ], [ %61, %60 ], [ %54, %53 ], [ %50, %49 ], [ %51, %.critedge ]
+  ret ptr %.042
 }
 
 declare ptr @type_int_unsigned_by_bitsize(i64 noundef) local_unnamed_addr #1

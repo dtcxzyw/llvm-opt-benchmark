@@ -1382,9 +1382,9 @@ if.then.i56:                                      ; preds = %if.then279
 
 for.body.i46:                                     ; preds = %for.cond.preheader.i, %if.end12.i48
   %105 = phi i32 [ %110, %if.end12.i48 ], [ %104, %for.cond.preheader.i ]
-  %deco.015.i = phi ptr [ %incdec.ptr.i49, %if.end12.i48 ], [ %103, %for.cond.preheader.i ]
-  %i.014.i = phi i32 [ %inc.i, %if.end12.i48 ], [ 0, %for.cond.preheader.i ]
-  %106 = load ptr, ptr %deco.015.i, align 8
+  %i.015.i = phi i32 [ %inc.i, %if.end12.i48 ], [ 0, %for.cond.preheader.i ]
+  %deco.014.i = phi ptr [ %incdec.ptr.i49, %if.end12.i48 ], [ %103, %for.cond.preheader.i ]
+  %106 = load ptr, ptr %deco.014.i, align 8
   %tobool1.not.i = icmp eq ptr %106, null
   br i1 %tobool1.not.i, label %if.end12.i48, label %land.lhs.true.i47
 
@@ -1395,7 +1395,7 @@ land.lhs.true.i47:                                ; preds = %for.body.i46
   br i1 %cmp3.i, label %if.then4.i, label %if.end12.i48
 
 if.then4.i:                                       ; preds = %land.lhs.true.i47
-  %decoration.i = getelementptr inbounds i8, ptr %deco.015.i, i64 8
+  %decoration.i = getelementptr inbounds i8, ptr %deco.014.i, i64 8
   %108 = load ptr, ptr %decoration.i, align 8
   %109 = ptrtoint ptr %108 to i64
   %conv.i.i = trunc i64 %109 to i32
@@ -1411,8 +1411,8 @@ if.then4.if.end12_crit_edge.i:                    ; preds = %if.then4.i
 
 if.end12.i48:                                     ; preds = %if.then4.if.end12_crit_edge.i, %land.lhs.true.i47, %for.body.i46
   %110 = phi i32 [ %.pre.i55, %if.then4.if.end12_crit_edge.i ], [ %105, %land.lhs.true.i47 ], [ %105, %for.body.i46 ]
-  %incdec.ptr.i49 = getelementptr inbounds i8, ptr %deco.015.i, i64 16
-  %inc.i = add nuw i32 %i.014.i, 1
+  %incdec.ptr.i49 = getelementptr inbounds i8, ptr %deco.014.i, i64 16
+  %inc.i = add nuw i32 %i.015.i, 1
   %cmp.i50 = icmp ult i32 %inc.i, %110
   br i1 %cmp.i50, label %for.body.i46, label %for.end.i51, !llvm.loop !15
 
@@ -2121,8 +2121,8 @@ if.then17.i:                                      ; preds = %if.end14.i
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then17.i, %if.end14.i
-  %message.0.i = phi ptr [ %add.ptr.i, %if.then17.i ], [ null, %if.end14.i ]
   %message_size.0.i = phi i64 [ %call18.i, %if.then17.i ], [ 0, %if.end14.i ]
+  %message.0.i = phi ptr [ %add.ptr.i, %if.then17.i ], [ null, %if.end14.i ]
   %tobool20.not.i = icmp eq ptr %message.0.i, null
   %sub.ptr.lhs.cast.i = ptrtoint ptr %message.0.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call9.i to i64
@@ -2248,8 +2248,8 @@ anonymize_str.exit.i:                             ; preds = %if.then9.i.i, %if.e
 
 if.end43.i:                                       ; preds = %anonymize_str.exit.i, %if.end34.i, %if.else29.i
   %name.addr.0.i = phi ptr [ %4, %if.end34.i ], [ %14, %anonymize_str.exit.i ], [ %4, %if.else29.i ]
-  %message.1.i = phi ptr [ %message.0.i, %if.end34.i ], [ %17, %anonymize_str.exit.i ], [ %message.0.i, %if.else29.i ]
   %message_size.1.i = phi i64 [ %message_size.0.i, %if.end34.i ], [ %call41.i, %anonymize_str.exit.i ], [ %message_size.0.i, %if.else29.i ]
+  %message.1.i = phi ptr [ %message.0.i, %if.end34.i ], [ %17, %anonymize_str.exit.i ], [ %message.0.i, %if.else29.i ]
   %tobool44.not.i = icmp eq ptr %message.1.i, null
   br i1 %tobool44.not.i, label %if.end67.i, label %if.then45.i
 

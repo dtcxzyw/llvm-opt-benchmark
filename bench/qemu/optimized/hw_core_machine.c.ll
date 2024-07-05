@@ -601,7 +601,7 @@ for.body.lr.ph:                                   ; preds = %if.end3
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %5 = phi ptr [ %3, %for.body.lr.ph ], [ %34, %for.inc ]
-  %match.073 = phi i1 [ false, %for.body.lr.ph ], [ %match.1, %for.inc ]
+  %match.074 = phi i1 [ false, %for.body.lr.ph ], [ %match.1, %for.inc ]
   %cpus = getelementptr inbounds i8, ptr %5, i64 8
   %arrayidx = getelementptr [0 x %struct.CPUArchId], ptr %cpus, i64 0, i64 %indvars.iv
   %6 = load i8, ptr %has_thread_id, align 8
@@ -782,7 +782,7 @@ if.end120:                                        ; preds = %if.then101
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end91, %if.end120, %land.lhs.true75, %land.lhs.true67, %land.lhs.true59, %land.lhs.true51, %land.lhs.true43
-  %match.1 = phi i1 [ %match.073, %land.lhs.true43 ], [ %match.073, %land.lhs.true51 ], [ %match.073, %land.lhs.true59 ], [ %match.073, %land.lhs.true67 ], [ %match.073, %land.lhs.true75 ], [ true, %if.end120 ], [ true, %if.end91 ]
+  %match.1 = phi i1 [ %match.074, %land.lhs.true43 ], [ %match.074, %land.lhs.true51 ], [ %match.074, %land.lhs.true59 ], [ %match.074, %land.lhs.true67 ], [ %match.074, %land.lhs.true75 ], [ true, %if.end120 ], [ true, %if.end91 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load ptr, ptr %possible_cpus, align 8
   %35 = load i32, ptr %34, align 8

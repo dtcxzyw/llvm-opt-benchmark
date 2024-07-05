@@ -4003,9 +4003,9 @@ for.cond.preheader:                               ; preds = %if.end85
   br i1 %cmp96101, label %for.body, label %cleanup
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end106
-  %i.0103 = phi i32 [ %inc, %if.end106 ], [ 0, %for.cond.preheader ]
-  %cert_store.0102 = phi ptr [ %cert_store.1, %if.end106 ], [ %call60, %for.cond.preheader ]
-  %call99 = call ptr @OPENSSL_sk_value(ptr noundef %49, i32 noundef %i.0103) #20
+  %cert_store.0103 = phi ptr [ %cert_store.1, %if.end106 ], [ %call60, %for.cond.preheader ]
+  %i.0102 = phi i32 [ %inc, %if.end106 ], [ 0, %for.cond.preheader ]
+  %call99 = call ptr @OPENSSL_sk_value(ptr noundef %49, i32 noundef %i.0102) #20
   %53 = load atomic i8, ptr @_ZGVZN4node6crypto24GetOrCreateRootCertStoreEvE5store acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %53, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit, !prof !5
@@ -4023,7 +4023,7 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN4node6crypto24GetOrCreateRootCertStoreEv.exit: ; preds = %for.body, %init.check.i, %init.i
   %55 = load ptr, ptr @_ZZN4node6crypto24GetOrCreateRootCertStoreEvE5store, align 8
-  %cmp101 = icmp eq ptr %cert_store.0102, %55
+  %cmp101 = icmp eq ptr %cert_store.0103, %55
   br i1 %cmp101, label %if.then102, label %if.end106
 
 if.then102:                                       ; preds = %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit
@@ -4033,11 +4033,11 @@ if.then102:                                       ; preds = %_ZN4node6crypto24Ge
   br label %if.end106
 
 if.end106:                                        ; preds = %if.then102, %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit
-  %cert_store.1 = phi ptr [ %call103, %if.then102 ], [ %cert_store.0102, %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit ]
+  %cert_store.1 = phi ptr [ %call103, %if.then102 ], [ %cert_store.0103, %_ZN4node6crypto24GetOrCreateRootCertStoreEv.exit ]
   %call107 = call i32 @X509_STORE_add_cert(ptr noundef %cert_store.1, ptr noundef %call99) #20
   %57 = load ptr, ptr %ctx_, align 8
   %call110 = call i32 @SSL_CTX_add_client_CA(ptr noundef %57, ptr noundef %call99) #20
-  %inc = add nuw nsw i32 %i.0103, 1
+  %inc = add nuw nsw i32 %i.0102, 1
   %call95 = call i32 @OPENSSL_sk_num(ptr noundef %49) #20
   %cmp96 = icmp slt i32 %inc, %call95
   br i1 %cmp96, label %for.body, label %cleanup, !llvm.loop !9
@@ -8334,15 +8334,15 @@ if.then19:                                        ; preds = %do.end16
   br i1 %cmp40, label %for.body, label %if.then39
 
 for.body:                                         ; preds = %if.then19, %for.inc
-  %i.042 = phi i32 [ %inc, %for.inc ], [ 0, %if.then19 ]
-  %issuer.041 = phi ptr [ %issuer.1, %for.inc ], [ null, %if.then19 ]
-  %call24 = tail call ptr @OPENSSL_sk_value(ptr noundef %extra_certs, i32 noundef %i.042) #20
+  %issuer.042 = phi ptr [ %issuer.1, %for.inc ], [ null, %if.then19 ]
+  %i.041 = phi i32 [ %inc, %for.inc ], [ 0, %if.then19 ]
+  %call24 = tail call ptr @OPENSSL_sk_value(ptr noundef %extra_certs, i32 noundef %i.041) #20
   %call25 = tail call i64 @SSL_CTX_ctrl(ptr noundef %ctx, i32 noundef 89, i64 noundef 1, ptr noundef %call24) #20
   %tobool26.not = icmp eq i64 %call25, 0
   br i1 %tobool26.not, label %if.end56, label %if.end28
 
 if.end28:                                         ; preds = %for.body
-  %cmp29.not = icmp eq ptr %issuer.041, null
+  %cmp29.not = icmp eq ptr %issuer.042, null
   br i1 %cmp29.not, label %lor.lhs.false, label %for.inc
 
 lor.lhs.false:                                    ; preds = %if.end28
@@ -8353,8 +8353,8 @@ lor.lhs.false:                                    ; preds = %if.end28
   br label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false, %if.end28
-  %issuer.1 = phi ptr [ %issuer.041, %if.end28 ], [ %spec.select, %lor.lhs.false ]
-  %inc = add nuw nsw i32 %i.042, 1
+  %issuer.1 = phi ptr [ %issuer.042, %if.end28 ], [ %spec.select, %lor.lhs.false ]
+  %inc = add nuw nsw i32 %i.041, 1
   %call22 = tail call i32 @OPENSSL_sk_num(ptr noundef %extra_certs) #20
   %cmp = icmp slt i32 %inc, %call22
   br i1 %cmp, label %for.body, label %if.then37, !llvm.loop !11

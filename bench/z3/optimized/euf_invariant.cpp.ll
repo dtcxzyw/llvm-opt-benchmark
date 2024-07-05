@@ -157,9 +157,9 @@ if.then21:                                        ; preds = %if.then12
   unreachable
 
 for.body26:                                       ; preds = %if.then, %for.inc
-  %__begin4.sroa.0.030 = phi ptr [ %15, %for.inc ], [ %3, %if.then ]
-  %__begin4.sroa.5.029 = phi ptr [ %spec.select, %for.inc ], [ null, %if.then ]
-  %m_bool_var.i.i21 = getelementptr inbounds i8, ptr %__begin4.sroa.0.030, i64 28
+  %__begin4.sroa.5.030 = phi ptr [ %spec.select, %for.inc ], [ null, %if.then ]
+  %__begin4.sroa.0.029 = phi ptr [ %15, %for.inc ], [ %3, %if.then ]
+  %m_bool_var.i.i21 = getelementptr inbounds i8, ptr %__begin4.sroa.0.029, i64 28
   %13 = load i32, ptr %m_bool_var.i.i21, align 4
   %shl.i.i22 = shl i32 %13, 1
   %idxprom.i.i24 = zext i32 %shl.i.i22 to i64
@@ -174,9 +174,9 @@ if.then35:                                        ; preds = %for.body26
   unreachable
 
 for.inc:                                          ; preds = %for.body26
-  %tobool.not.i = icmp eq ptr %__begin4.sroa.5.029, null
-  %spec.select = select i1 %tobool.not.i, ptr %__begin4.sroa.0.030, ptr %__begin4.sroa.5.029
-  %m_next.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.030, i64 56
+  %tobool.not.i = icmp eq ptr %__begin4.sroa.5.030, null
+  %spec.select = select i1 %tobool.not.i, ptr %__begin4.sroa.0.029, ptr %__begin4.sroa.5.030
+  %m_next.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.029, i64 56
   %15 = load ptr, ptr %m_next.i, align 8
   %cmp.i.i19 = icmp ne ptr %spec.select, %3
   %cmp4.i.i = icmp ne ptr %15, %3

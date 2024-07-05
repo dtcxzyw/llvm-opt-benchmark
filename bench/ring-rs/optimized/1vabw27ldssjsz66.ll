@@ -2200,13 +2200,13 @@ define noundef zeroext i1 @_ZN4ring6pbkdf26verify17h3b62a3be952bcf4dE(ptr noalia
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h71542add2c84d48fE.exit.preheader": ; preds = %13, %.lr.ph.preheader.i
   %.029 = phi i32 [ %35, %.lr.ph.preheader.i ], [ 1, %13 ]
-  %.01328 = phi i32 [ %29, %.lr.ph.preheader.i ], [ 0, %13 ]
+  %.01428 = phi i32 [ %29, %.lr.ph.preheader.i ], [ 0, %13 ]
   %.sroa.5.01727 = phi i64 [ %26, %.lr.ph.preheader.i ], [ %7, %13 ]
   %.sroa.016.026 = phi ptr [ %25, %.lr.ph.preheader.i ], [ %6, %13 ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.01727, i64 %15)
   %25 = getelementptr inbounds i8, ptr %.sroa.016.026, i64 %.0.sroa.speculated.i.i
   %26 = sub i64 %.sroa.5.01727, %.0.sroa.speculated.i.i
-  %27 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %.01328, i32 1)
+  %27 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %.01428, i32 1)
   %28 = extractvalue { i32, i1 } %27, 1
   %29 = extractvalue { i32, i1 } %27, 0
   br i1 %28, label %30, label %31

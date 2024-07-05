@@ -21,7 +21,7 @@ define noundef i64 @_ZN5draco17FingerprintStringEPKcm(ptr nocapture noundef read
 8:                                                ; preds = %.lr.ph49, %.loopexit
   %indvars.iv56 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next57, %.loopexit ]
   %indvars.iv54 = phi i32 [ %5, %.lr.ph49 ], [ %indvars.iv.next55, %.loopexit ]
-  %.04047 = phi i64 [ 2271560481, %.lr.ph49 ], [ %69, %.loopexit ]
+  %.03848 = phi i64 [ 2271560481, %.lr.ph49 ], [ %69, %.loopexit ]
   %9 = shl nsw i64 %indvars.iv56, 3
   %10 = sub nsw i64 %6, %9
   %11 = icmp sgt i64 %10, 7
@@ -86,7 +86,7 @@ define noundef i64 @_ZN5draco17FingerprintStringEPKcm(ptr nocapture noundef read
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.03844 = phi i64 [ 2271560481, %.lr.ph.preheader ], [ %65, %.lr.ph ]
+  %.03944 = phi i64 [ 2271560481, %.lr.ph.preheader ], [ %65, %.lr.ph ]
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
   %59 = load i8, ptr %gep, align 1
   %60 = sext i8 %59 to i64
@@ -95,16 +95,16 @@ define noundef i64 @_ZN5draco17FingerprintStringEPKcm(ptr nocapture noundef read
   %62 = add i64 %.neg43, 64
   %63 = and i64 %62, 4294967288
   %64 = shl i64 %60, %63
-  %65 = or i64 %64, %.03844
+  %65 = or i64 %64, %.03944
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %13
-  %.1 = phi i64 [ %58, %13 ], [ 2271560481, %.preheader ], [ %65, %.lr.ph ]
-  %.1.fr = freeze i64 %.1
-  %66 = add i64 %.1.fr, 1013
-  %67 = shl i64 %.04047, 1
+  %.140 = phi i64 [ %58, %13 ], [ 2271560481, %.preheader ], [ %65, %.lr.ph ]
+  %.140.fr = freeze i64 %.140
+  %66 = add i64 %.140.fr, 1013
+  %67 = shl i64 %.03848, 1
   %68 = add i64 %67, 214
   %69 = xor i64 %66, %68
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1

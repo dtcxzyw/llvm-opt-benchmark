@@ -76,11 +76,11 @@ define range(i32 -75, 1) i32 @nxsem_post(ptr noundef %0) local_unnamed_addr #0 {
   br label %33
 
 33:                                               ; preds = %19, %32, %29, %17
-  %.0 = phi ptr [ %21, %32 ], [ %21, %29 ], [ null, %19 ], [ null, %17 ]
+  %.024 = phi ptr [ %21, %32 ], [ %21, %29 ], [ null, %19 ], [ null, %17 ]
   br i1 %14, label %34, label %36
 
 34:                                               ; preds = %33
-  call void @nxsem_restore_baseprio(ptr noundef %.0, ptr noundef nonnull %0) #3
+  call void @nxsem_restore_baseprio(ptr noundef %.024, ptr noundef nonnull %0) #3
   %35 = call i32 @sched_unlock() #3
   br label %36
 
@@ -94,8 +94,8 @@ define range(i32 -75, 1) i32 @nxsem_post(ptr noundef %0) local_unnamed_addr #0 {
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %38, %36, %8, %6
-  %.024 = phi i32 [ -75, %6 ], [ -75, %8 ], [ 0, %36 ], [ 0, %38 ]
-  ret i32 %.024
+  %.0 = phi i32 [ -75, %6 ], [ -75, %8 ], [ 0, %36 ], [ 0, %38 ]
+  ret i32 %.0
 }
 
 declare void @nxsem_release_holder(ptr noundef) local_unnamed_addr #1

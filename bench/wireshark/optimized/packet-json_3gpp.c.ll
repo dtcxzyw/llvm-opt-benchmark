@@ -532,26 +532,26 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   br i1 %.not318, label %304, label %.thread
 
 .thread:                                          ; preds = %7, %9
-  %.0283323 = phi ptr [ %10, %9 ], [ %8, %7 ]
+  %.0285323 = phi ptr [ %10, %9 ], [ %8, %7 ]
   %.not319 = icmp eq i32 %6, 0
   %11 = add i32 %4, -2
-  %.0285 = select i1 %.not319, i32 %11, i32 %4
+  %.0284 = select i1 %.not319, i32 %11, i32 %4
   %12 = zext i1 %.not319 to i32
-  %.0284 = add i32 %12, %3
+  %.0 = add i32 %12, %3
   %13 = load i32, ptr @hf_json_3gpp_suppfeat, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef %.0284, i32 noundef %.0285, i32 noundef 0) #5
-  %15 = icmp slt i32 %.0285, 1
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef %.0, i32 noundef %.0284, i32 noundef 0) #5
+  %15 = icmp slt i32 %.0284, 1
   br i1 %15, label %304, label %16
 
 16:                                               ; preds = %.thread
   %17 = load i32, ptr @ett_json_3gpp_data, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %17) #5
-  %19 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0284, i32 noundef %.0285) #5
-  %20 = add nsw i32 %.0285, -1
+  %19 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0, i32 noundef %.0284) #5
+  %20 = add nsw i32 %.0284, -1
   %21 = getelementptr inbounds i8, ptr %2, i64 408
   %22 = load ptr, ptr %21, align 8
-  %23 = zext nneg i32 %.0285 to i64
-  %24 = tail call ptr @tvb_memdup(ptr noundef %22, ptr noundef %0, i32 noundef %.0284, i64 noundef %23) #5
+  %23 = zext nneg i32 %.0284 to i64
+  %24 = tail call ptr @tvb_memdup(ptr noundef %22, ptr noundef %0, i32 noundef %.0, i64 noundef %23) #5
   %25 = load ptr, ptr @g_ascii_table, align 8
   br label %26
 
@@ -578,7 +578,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   br i1 %exitcond.not, label %38, label %26, !llvm.loop !6
 
 38:                                               ; preds = %37
-  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0283323, ptr noundef nonnull dereferenceable(36) @.str.248) #7
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0285323, ptr noundef nonnull dereferenceable(36) @.str.248) #7
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %74
 
@@ -589,7 +589,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %45 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %44) #8
   %46 = sext i32 %45 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_am_list_1, i64 noundef %46) #5
-  %47 = add nsw i32 %.0285, -2
+  %47 = add nsw i32 %.0284, -2
   %48 = icmp eq i32 %47, -1
   br i1 %48, label %304, label %49
 
@@ -600,7 +600,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %53 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %52) #8
   %54 = sext i32 %53 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %47, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_am_list_2, i64 noundef %54) #5
-  %55 = add nsw i32 %.0285, -3
+  %55 = add nsw i32 %.0284, -3
   %56 = icmp eq i32 %55, -1
   br i1 %56, label %304, label %57
 
@@ -611,7 +611,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %61 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %60) #8
   %62 = sext i32 %61 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %55, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_am_list_3, i64 noundef %62) #5
-  %63 = add nsw i32 %.0285, -4
+  %63 = add nsw i32 %.0284, -4
   %64 = icmp eq i32 %63, -1
   br i1 %64, label %304, label %65
 
@@ -622,7 +622,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %69 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %68) #8
   %70 = sext i32 %69 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %63, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_am_list_4, i64 noundef %70) #5
-  %71 = icmp sgt i32 %.0285, 4
+  %71 = icmp sgt i32 %.0284, 4
   br i1 %71, label %72, label %304
 
 72:                                               ; preds = %65
@@ -630,7 +630,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   br label %304
 
 74:                                               ; preds = %38
-  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0283323, ptr noundef nonnull dereferenceable(37) @.str.249) #7
+  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0285323, ptr noundef nonnull dereferenceable(37) @.str.249) #7
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %222
 
@@ -641,7 +641,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %81 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %80) #8
   %82 = sext i32 %81 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_1, i64 noundef %82) #5
-  %83 = add nsw i32 %.0285, -2
+  %83 = add nsw i32 %.0284, -2
   %84 = icmp eq i32 %83, -1
   br i1 %84, label %304, label %85
 
@@ -652,7 +652,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %89 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %88) #8
   %90 = sext i32 %89 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %83, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_2, i64 noundef %90) #5
-  %91 = add nsw i32 %.0285, -3
+  %91 = add nsw i32 %.0284, -3
   %92 = icmp eq i32 %91, -1
   br i1 %92, label %304, label %93
 
@@ -663,7 +663,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %97 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %96) #8
   %98 = sext i32 %97 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %91, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_3, i64 noundef %98) #5
-  %99 = add nsw i32 %.0285, -4
+  %99 = add nsw i32 %.0284, -4
   %100 = icmp eq i32 %99, -1
   br i1 %100, label %304, label %101
 
@@ -674,7 +674,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %105 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %104) #8
   %106 = sext i32 %105 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %99, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_4, i64 noundef %106) #5
-  %107 = add nsw i32 %.0285, -5
+  %107 = add nsw i32 %.0284, -5
   %108 = icmp eq i32 %107, -1
   br i1 %108, label %304, label %109
 
@@ -685,7 +685,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %113 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %112) #8
   %114 = sext i32 %113 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %107, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_5, i64 noundef %114) #5
-  %115 = add nsw i32 %.0285, -6
+  %115 = add nsw i32 %.0284, -6
   %116 = icmp eq i32 %115, -1
   br i1 %116, label %304, label %117
 
@@ -696,7 +696,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %121 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %120) #8
   %122 = sext i32 %121 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %115, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_6, i64 noundef %122) #5
-  %123 = add nsw i32 %.0285, -7
+  %123 = add nsw i32 %.0284, -7
   %124 = icmp eq i32 %123, -1
   br i1 %124, label %304, label %125
 
@@ -707,7 +707,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %129 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %128) #8
   %130 = sext i32 %129 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %123, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_7, i64 noundef %130) #5
-  %131 = add nsw i32 %.0285, -8
+  %131 = add nsw i32 %.0284, -8
   %132 = icmp eq i32 %131, -1
   br i1 %132, label %304, label %133
 
@@ -718,7 +718,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %137 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %136) #8
   %138 = sext i32 %137 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %131, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_8, i64 noundef %138) #5
-  %139 = add nsw i32 %.0285, -9
+  %139 = add nsw i32 %.0284, -9
   %140 = icmp eq i32 %139, -1
   br i1 %140, label %304, label %141
 
@@ -729,7 +729,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %145 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %144) #8
   %146 = sext i32 %145 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %139, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_9, i64 noundef %146) #5
-  %147 = add nsw i32 %.0285, -10
+  %147 = add nsw i32 %.0284, -10
   %148 = icmp eq i32 %147, -1
   br i1 %148, label %304, label %149
 
@@ -740,7 +740,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %153 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %152) #8
   %154 = sext i32 %153 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %147, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_10, i64 noundef %154) #5
-  %155 = add nsw i32 %.0285, -11
+  %155 = add nsw i32 %.0284, -11
   %156 = icmp eq i32 %155, -1
   br i1 %156, label %304, label %157
 
@@ -751,7 +751,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %161 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %160) #8
   %162 = sext i32 %161 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %155, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_11, i64 noundef %162) #5
-  %163 = add nsw i32 %.0285, -12
+  %163 = add nsw i32 %.0284, -12
   %164 = icmp eq i32 %163, -1
   br i1 %164, label %304, label %165
 
@@ -762,7 +762,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %169 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %168) #8
   %170 = sext i32 %169 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %163, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_12, i64 noundef %170) #5
-  %171 = add nsw i32 %.0285, -13
+  %171 = add nsw i32 %.0284, -13
   %172 = icmp eq i32 %171, -1
   br i1 %172, label %304, label %173
 
@@ -773,7 +773,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %177 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %176) #8
   %178 = sext i32 %177 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %171, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_13, i64 noundef %178) #5
-  %179 = add nsw i32 %.0285, -14
+  %179 = add nsw i32 %.0284, -14
   %180 = icmp eq i32 %179, -1
   br i1 %180, label %304, label %181
 
@@ -784,7 +784,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %185 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %184) #8
   %186 = sext i32 %185 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %179, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_14, i64 noundef %186) #5
-  %187 = add nsw i32 %.0285, -15
+  %187 = add nsw i32 %.0284, -15
   %188 = icmp eq i32 %187, -1
   br i1 %188, label %304, label %189
 
@@ -795,7 +795,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %193 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %192) #8
   %194 = sext i32 %193 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %187, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_15, i64 noundef %194) #5
-  %195 = add nsw i32 %.0285, -16
+  %195 = add nsw i32 %.0284, -16
   %196 = icmp eq i32 %195, -1
   br i1 %196, label %304, label %197
 
@@ -806,7 +806,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %201 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %200) #8
   %202 = sext i32 %201 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %195, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_16, i64 noundef %202) #5
-  %203 = add nsw i32 %.0285, -17
+  %203 = add nsw i32 %.0284, -17
   %204 = icmp eq i32 %203, -1
   br i1 %204, label %304, label %205
 
@@ -817,7 +817,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %209 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %208) #8
   %210 = sext i32 %209 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %203, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_17, i64 noundef %210) #5
-  %211 = add nsw i32 %.0285, -18
+  %211 = add nsw i32 %.0284, -18
   %212 = icmp eq i32 %211, -1
   br i1 %212, label %304, label %213
 
@@ -828,7 +828,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %217 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %216) #8
   %218 = sext i32 %217 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %211, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_sm_list_18, i64 noundef %218) #5
-  %219 = icmp sgt i32 %.0285, 18
+  %219 = icmp sgt i32 %.0284, 18
   br i1 %219, label %220, label %304
 
 220:                                              ; preds = %213
@@ -836,7 +836,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   br label %304
 
 222:                                              ; preds = %74
-  %223 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0283323, ptr noundef nonnull dereferenceable(36) @.str.250) #7
+  %223 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0285323, ptr noundef nonnull dereferenceable(36) @.str.250) #7
   %224 = icmp eq i32 %223, 0
   br i1 %224, label %225, label %250
 
@@ -847,7 +847,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %229 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %228) #8
   %230 = sext i32 %229 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_ue_list_1, i64 noundef %230) #5
-  %231 = add nsw i32 %.0285, -2
+  %231 = add nsw i32 %.0284, -2
   %232 = icmp eq i32 %231, -1
   br i1 %232, label %304, label %233
 
@@ -858,7 +858,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %237 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %236) #8
   %238 = sext i32 %237 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %231, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_ue_list_2, i64 noundef %238) #5
-  %239 = add nsw i32 %.0285, -3
+  %239 = add nsw i32 %.0284, -3
   %240 = icmp eq i32 %239, -1
   br i1 %240, label %304, label %241
 
@@ -869,7 +869,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %245 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %244) #8
   %246 = sext i32 %245 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %239, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_npcf_ue_list_3, i64 noundef %246) #5
-  %247 = icmp sgt i32 %.0285, 3
+  %247 = icmp sgt i32 %.0284, 3
   br i1 %247, label %248, label %304
 
 248:                                              ; preds = %241
@@ -877,7 +877,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   br label %304
 
 250:                                              ; preds = %222
-  %251 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0283323, ptr noundef nonnull dereferenceable(21) @.str.251, i64 noundef 20) #7
+  %251 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0285323, ptr noundef nonnull dereferenceable(21) @.str.251, i64 noundef 20) #7
   %252 = icmp eq i32 %251, 0
   br i1 %252, label %253, label %302
 
@@ -888,7 +888,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %257 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %256) #8
   %258 = sext i32 %257 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_nsmf_pdusession_list_1, i64 noundef %258) #5
-  %259 = add nsw i32 %.0285, -2
+  %259 = add nsw i32 %.0284, -2
   %260 = icmp eq i32 %259, -1
   br i1 %260, label %304, label %261
 
@@ -899,7 +899,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %265 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %264) #8
   %266 = sext i32 %265 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %259, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_nsmf_pdusession_list_2, i64 noundef %266) #5
-  %267 = add nsw i32 %.0285, -3
+  %267 = add nsw i32 %.0284, -3
   %268 = icmp eq i32 %267, -1
   br i1 %268, label %304, label %269
 
@@ -910,7 +910,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %273 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %272) #8
   %274 = sext i32 %273 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %267, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_nsmf_pdusession_list_3, i64 noundef %274) #5
-  %275 = add nsw i32 %.0285, -4
+  %275 = add nsw i32 %.0284, -4
   %276 = icmp eq i32 %275, -1
   br i1 %276, label %304, label %277
 
@@ -921,7 +921,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %281 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %280) #8
   %282 = sext i32 %281 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %275, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_nsmf_pdusession_list_4, i64 noundef %282) #5
-  %283 = add nsw i32 %.0285, -5
+  %283 = add nsw i32 %.0284, -5
   %284 = icmp eq i32 %283, -1
   br i1 %284, label %304, label %285
 
@@ -932,7 +932,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %289 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %288) #8
   %290 = sext i32 %289 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %283, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_nsmf_pdusession_list_5, i64 noundef %290) #5
-  %291 = add nsw i32 %.0285, -6
+  %291 = add nsw i32 %.0284, -6
   %292 = icmp eq i32 %291, -1
   br i1 %292, label %304, label %293
 
@@ -943,7 +943,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %297 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %296) #8
   %298 = sext i32 %297 to i64
   tail call void @proto_tree_add_bitmask_list_value(ptr noundef %18, ptr noundef %19, i32 noundef %291, i32 noundef 1, ptr noundef nonnull @dissect_3gpp_supportfeatures.json_3gpp_suppfeat_nsmf_pdusession_list_6, i64 noundef %298) #5
-  %299 = icmp sgt i32 %.0285, 6
+  %299 = icmp sgt i32 %.0284, 6
   br i1 %299, label %300, label %304
 
 300:                                              ; preds = %293
@@ -951,7 +951,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   br label %304
 
 302:                                              ; preds = %250
-  %303 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_json_3gpp_data_not_decoded, ptr noundef %0, i32 noundef %.0284, i32 noundef -1) #5
+  %303 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_json_3gpp_data_not_decoded, ptr noundef %0, i32 noundef %.0, i32 noundef -1) #5
   br label %304
 
 304:                                              ; preds = %72, %248, %300, %302, %220, %293, %285, %277, %269, %261, %253, %241, %233, %225, %213, %205, %197, %189, %181, %173, %165, %157, %149, %141, %133, %125, %117, %109, %101, %93, %85, %77, %65, %57, %49, %41, %.thread, %9, %33

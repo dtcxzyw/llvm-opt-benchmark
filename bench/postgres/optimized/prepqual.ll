@@ -155,12 +155,12 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph131:                                        ; preds = %.lr.ph122, %.lr.ph131
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %.lr.ph131 ], [ 0, %.lr.ph122 ]
-  %.092119130 = phi ptr [ %83, %.lr.ph131 ], [ null, %.lr.ph122 ]
+  %.089120129 = phi ptr [ %83, %.lr.ph131 ], [ null, %.lr.ph122 ]
   %79 = load ptr, ptr %76, align 8
   %80 = getelementptr %union.ListCell, ptr %79, i64 %indvars.iv135
   %81 = load ptr, ptr %80, align 8
   %82 = tail call ptr @negate_clause(ptr noundef %81)
-  %83 = tail call ptr @lappend(ptr noundef %.092119130, ptr noundef %82) #5
+  %83 = tail call ptr @lappend(ptr noundef %.089120129, ptr noundef %82) #5
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %84 = load i32, ptr %75, align 4
   %85 = sext i32 %84 to i64
@@ -168,8 +168,8 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %86, label %.lr.ph131, label %._crit_edge123
 
 ._crit_edge123:                                   ; preds = %.lr.ph131, %.lr.ph122, %72
-  %.092.lcssa = phi ptr [ null, %72 ], [ null, %.lr.ph122 ], [ %83, %.lr.ph131 ]
-  %87 = tail call ptr @make_orclause(ptr noundef %.092.lcssa) #5
+  %.089.lcssa = phi ptr [ null, %72 ], [ null, %.lr.ph122 ], [ %83, %.lr.ph131 ]
+  %87 = tail call ptr @make_orclause(ptr noundef %.089.lcssa) #5
   br label %152
 
 88:                                               ; preds = %69
@@ -187,12 +187,12 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph117:                                        ; preds = %.lr.ph, %.lr.ph117
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph117 ], [ 0, %.lr.ph ]
-  %.090110116 = phi ptr [ %99, %.lr.ph117 ], [ null, %.lr.ph ]
+  %.091111115 = phi ptr [ %99, %.lr.ph117 ], [ null, %.lr.ph ]
   %95 = load ptr, ptr %92, align 8
   %96 = getelementptr %union.ListCell, ptr %95, i64 %indvars.iv
   %97 = load ptr, ptr %96, align 8
   %98 = tail call ptr @negate_clause(ptr noundef %97)
-  %99 = tail call ptr @lappend(ptr noundef %.090110116, ptr noundef %98) #5
+  %99 = tail call ptr @lappend(ptr noundef %.091111115, ptr noundef %98) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %100 = load i32, ptr %91, align 4
   %101 = sext i32 %100 to i64
@@ -200,8 +200,8 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %102, label %.lr.ph117, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph117, %.lr.ph, %88
-  %.090.lcssa = phi ptr [ null, %88 ], [ null, %.lr.ph ], [ %99, %.lr.ph117 ]
-  %103 = tail call ptr @make_andclause(ptr noundef %.090.lcssa) #5
+  %.091.lcssa = phi ptr [ null, %88 ], [ null, %.lr.ph ], [ %99, %.lr.ph117 ]
+  %103 = tail call ptr @make_andclause(ptr noundef %.091.lcssa) #5
   br label %152
 
 104:                                              ; preds = %69
@@ -356,7 +356,7 @@ is_orclause.exit:                                 ; preds = %3
 
 .lr.ph122:                                        ; preds = %.lr.ph110, %37
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %37 ], [ 0, %.lr.ph110 ]
-  %.052107121 = phi ptr [ %.153, %37 ], [ null, %.lr.ph110 ]
+  %.050108120 = phi ptr [ %.1, %37 ], [ null, %.lr.ph110 ]
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr %union.ListCell, ptr %15, i64 %indvars.iv137
   %17 = load ptr, ptr %16, align 8
@@ -398,11 +398,11 @@ is_orclause.exit:                                 ; preds = %3
   br i1 %.not78, label %37, label %process_duplicate_ors.exit
 
 35:                                               ; preds = %19, %.lr.ph122
-  %36 = tail call ptr @lappend(ptr noundef %.052107121, ptr noundef %18) #5
+  %36 = tail call ptr @lappend(ptr noundef %.050108120, ptr noundef %18) #5
   br label %37
 
 37:                                               ; preds = %31, %32, %27, %35
-  %.153 = phi ptr [ %.052107121, %27 ], [ %.052107121, %31 ], [ %.052107121, %32 ], [ %36, %35 ]
+  %.1 = phi ptr [ %.050108120, %27 ], [ %.050108120, %31 ], [ %.050108120, %32 ], [ %36, %35 ]
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %38 = load i32, ptr %11, align 4
   %39 = sext i32 %38 to i64
@@ -410,8 +410,8 @@ is_orclause.exit:                                 ; preds = %3
   br i1 %40, label %.lr.ph122, label %._crit_edge111
 
 ._crit_edge111:                                   ; preds = %37, %.lr.ph110, %8
-  %.052.lcssa = phi ptr [ null, %8 ], [ null, %.lr.ph110 ], [ %.153, %37 ]
-  %41 = tail call fastcc ptr @pull_ors(ptr noundef %.052.lcssa)
+  %.050.lcssa = phi ptr [ null, %8 ], [ null, %.lr.ph110 ], [ %.1, %37 ]
+  %41 = tail call fastcc ptr @pull_ors(ptr noundef %.050.lcssa)
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %list_length.exit.i
 
@@ -443,8 +443,8 @@ list_length.exit.i:                               ; preds = %._crit_edge111
 
 53:                                               ; preds = %list_length.exit105.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %list_length.exit105.i ]
-  %.086139.i = phi i32 [ 0, %.lr.ph.i ], [ %.187.i, %list_length.exit105.i ]
-  %.088138.i = phi ptr [ null, %.lr.ph.i ], [ %.189.i, %list_length.exit105.i ]
+  %.077140.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %list_length.exit105.i ]
+  %.078139.i = phi i32 [ 0, %.lr.ph.i ], [ %.179.i, %list_length.exit105.i ]
   %54 = getelementptr %union.ListCell, ptr %49, i64 %indvars.iv.i
   %55 = load ptr, ptr %54, align 8
   %.not.i103.i = icmp eq ptr %55, null
@@ -474,11 +474,11 @@ is_andclause.exit.i:                              ; preds = %56
 
 list_length.exit105.i:                            ; preds = %65, %62
   %68 = phi i32 [ %67, %65 ], [ 0, %62 ]
-  %69 = icmp eq ptr %.088138.i, null
-  %70 = icmp slt i32 %68, %.086139.i
+  %69 = icmp eq ptr %.077140.i, null
+  %70 = icmp slt i32 %68, %.078139.i
   %or.cond.i = select i1 %69, i1 true, i1 %70
-  %.189.i = select i1 %or.cond.i, ptr %64, ptr %.088138.i
-  %.187.i = select i1 %or.cond.i, i32 %68, i32 %.086139.i
+  %.179.i = select i1 %or.cond.i, i32 %68, i32 %.078139.i
+  %.1.i = select i1 %or.cond.i, ptr %64, ptr %.077140.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit132.i, label %53, !llvm.loop !5
@@ -488,8 +488,8 @@ is_andclause.exit.thread.i:                       ; preds = %is_andclause.exit.i
   br label %.loopexit132.i
 
 .loopexit132.i:                                   ; preds = %list_length.exit105.i, %is_andclause.exit.thread.i, %.preheader131.i
-  %.290.i = phi ptr [ %71, %is_andclause.exit.thread.i ], [ null, %.preheader131.i ], [ %.189.i, %list_length.exit105.i ]
-  %72 = tail call ptr @list_union(ptr noundef null, ptr noundef %.290.i) #5
+  %.2.i = phi ptr [ %71, %is_andclause.exit.thread.i ], [ null, %.preheader131.i ], [ %.1.i, %list_length.exit105.i ]
+  %72 = tail call ptr @list_union(ptr noundef null, ptr noundef %.2.i) #5
   %73 = getelementptr inbounds i8, ptr %72, i64 4
   %.not94.i = icmp eq ptr %72, null
   br i1 %.not94.i, label %._crit_edge.thread.i, label %.lr.ph146.i
@@ -503,7 +503,7 @@ is_andclause.exit.thread.i:                       ; preds = %is_andclause.exit.i
 
 .lr.ph153.i:                                      ; preds = %.lr.ph146.i, %.loopexit.i
   %indvars.iv166.i = phi i64 [ %indvars.iv.next167.i, %.loopexit.i ], [ 0, %.lr.ph146.i ]
-  %.083144152.i = phi ptr [ %.184.i, %.loopexit.i ], [ null, %.lr.ph146.i ]
+  %.080145151.i = phi ptr [ %.181.i, %.loopexit.i ], [ null, %.lr.ph146.i ]
   %78 = load ptr, ptr %74, align 8
   %79 = getelementptr %union.ListCell, ptr %78, i64 %indvars.iv166.i
   %80 = load ptr, ptr %79, align 8
@@ -548,11 +548,11 @@ is_andclause.exit107.thread.i:                    ; preds = %is_andclause.exit10
   br i1 %.not101.not.i, label %.lr.ph143.i, label %.critedge.i, !llvm.loop !7
 
 .critedge.i:                                      ; preds = %96, %.lr.ph153.i
-  %99 = tail call ptr @lappend(ptr noundef %.083144152.i, ptr noundef %80) #5
+  %99 = tail call ptr @lappend(ptr noundef %.080145151.i, ptr noundef %80) #5
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %is_andclause.exit107.thread.i, %91, %.critedge.i
-  %.184.i = phi ptr [ %99, %.critedge.i ], [ %.083144152.i, %91 ], [ %.083144152.i, %is_andclause.exit107.thread.i ]
+  %.181.i = phi ptr [ %99, %.critedge.i ], [ %.080145151.i, %91 ], [ %.080145151.i, %is_andclause.exit107.thread.i ]
   %indvars.iv.next167.i = add nuw nsw i64 %indvars.iv166.i, 1
   %100 = load i32, ptr %73, align 4
   %101 = sext i32 %100 to i64
@@ -560,7 +560,7 @@ is_andclause.exit107.thread.i:                    ; preds = %is_andclause.exit10
   br i1 %102, label %.lr.ph153.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
-  %103 = icmp eq ptr %.184.i, null
+  %103 = icmp eq ptr %.181.i, null
   br i1 %103, label %._crit_edge.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i
@@ -574,7 +574,7 @@ is_andclause.exit107.thread.i:                    ; preds = %is_andclause.exit10
 
 .lr.ph158.i:                                      ; preds = %.preheader.i, %128
   %indvars.iv169.i = phi i64 [ %indvars.iv.next170.i, %128 ], [ 0, %.preheader.i ]
-  %.080156.i = phi ptr [ %129, %128 ], [ null, %.preheader.i ]
+  %.085156.i = phi ptr [ %129, %128 ], [ null, %.preheader.i ]
   %106 = load ptr, ptr %75, align 8
   %107 = getelementptr %union.ListCell, ptr %106, i64 %indvars.iv169.i
   %108 = load ptr, ptr %107, align 8
@@ -595,7 +595,7 @@ is_andclause.exit109.i:                           ; preds = %109
 115:                                              ; preds = %is_andclause.exit109.i
   %116 = getelementptr inbounds i8, ptr %108, i64 8
   %117 = load ptr, ptr %116, align 8
-  %118 = tail call ptr @list_difference(ptr noundef %117, ptr noundef nonnull %.184.i) #5
+  %118 = tail call ptr @list_difference(ptr noundef %117, ptr noundef nonnull %.181.i) #5
   %.not98.i = icmp eq ptr %118, null
   br i1 %.not98.i, label %.thread128.i, label %list_length.exit111.i
 
@@ -616,12 +616,12 @@ list_length.exit111.i:                            ; preds = %115
   br label %128
 
 is_andclause.exit109.thread.i:                    ; preds = %is_andclause.exit109.i, %109, %.lr.ph158.i
-  %127 = tail call zeroext i1 @list_member(ptr noundef nonnull %.184.i, ptr noundef %108) #5
+  %127 = tail call zeroext i1 @list_member(ptr noundef nonnull %.181.i, ptr noundef %108) #5
   br i1 %127, label %.thread128.i, label %128
 
 128:                                              ; preds = %is_andclause.exit109.thread.i, %125, %122
   %.sink.i = phi ptr [ %124, %122 ], [ %126, %125 ], [ %108, %is_andclause.exit109.thread.i ]
-  %129 = tail call ptr @lappend(ptr noundef %.080156.i, ptr noundef %.sink.i) #5
+  %129 = tail call ptr @lappend(ptr noundef %.085156.i, ptr noundef %.sink.i) #5
   %indvars.iv.next170.i = add nuw nsw i64 %indvars.iv169.i, 1
   %130 = load i32, ptr %45, align 4
   %131 = sext i32 %130 to i64
@@ -640,8 +640,8 @@ list_length.exit113.i:                            ; preds = %._crit_edge159.i
 
 135:                                              ; preds = %list_length.exit113.i
   %136 = getelementptr i8, ptr %129, i64 16
-  %.282.val.i = load ptr, ptr %136, align 8
-  %137 = load ptr, ptr %.282.val.i, align 8
+  %.287.val.i = load ptr, ptr %136, align 8
+  %137 = load ptr, ptr %.287.val.i, align 8
   br label %.thread128.sink.split.i
 
 138:                                              ; preds = %list_length.exit113.i
@@ -651,30 +651,30 @@ list_length.exit113.i:                            ; preds = %._crit_edge159.i
 
 .thread128.sink.split.i:                          ; preds = %138, %135
   %.sink180.i = phi ptr [ %137, %135 ], [ %140, %138 ]
-  %141 = tail call ptr @lappend(ptr noundef nonnull %.184.i, ptr noundef %.sink180.i) #5
+  %141 = tail call ptr @lappend(ptr noundef nonnull %.181.i, ptr noundef %.sink180.i) #5
   br label %.thread128.i
 
 .thread128.i:                                     ; preds = %is_andclause.exit109.thread.i, %115, %.thread128.sink.split.i, %._crit_edge159.i
-  %.285.i = phi ptr [ %.184.i, %._crit_edge159.i ], [ %141, %.thread128.sink.split.i ], [ %.184.i, %115 ], [ %.184.i, %is_andclause.exit109.thread.i ]
-  %.not.i114.i = icmp eq ptr %.285.i, null
+  %.282.i = phi ptr [ %.181.i, %._crit_edge159.i ], [ %141, %.thread128.sink.split.i ], [ %.181.i, %115 ], [ %.181.i, %is_andclause.exit109.thread.i ]
+  %.not.i114.i = icmp eq ptr %.282.i, null
   br i1 %.not.i114.i, label %list_length.exit115.thread.i, label %list_length.exit115.i
 
 list_length.exit115.i:                            ; preds = %.thread128.i, %.preheader.i
-  %.285177.i = phi ptr [ %.285.i, %.thread128.i ], [ %.184.i, %.preheader.i ]
-  %142 = getelementptr inbounds i8, ptr %.285177.i, i64 4
+  %.282177.i = phi ptr [ %.282.i, %.thread128.i ], [ %.181.i, %.preheader.i ]
+  %142 = getelementptr inbounds i8, ptr %.282177.i, i64 4
   %143 = load i32, ptr %142, align 4
   %144 = icmp eq i32 %143, 1
   br i1 %144, label %145, label %list_length.exit115.thread.i
 
 145:                                              ; preds = %list_length.exit115.i
-  %146 = getelementptr i8, ptr %.285177.i, i64 16
-  %.285.val.i = load ptr, ptr %146, align 8
-  %147 = load ptr, ptr %.285.val.i, align 8
+  %146 = getelementptr i8, ptr %.282177.i, i64 16
+  %.282.val.i = load ptr, ptr %146, align 8
+  %147 = load ptr, ptr %.282.val.i, align 8
   br label %process_duplicate_ors.exit
 
 list_length.exit115.thread.i:                     ; preds = %list_length.exit115.i, %.thread128.i
-  %.285178.i = phi ptr [ null, %.thread128.i ], [ %.285177.i, %list_length.exit115.i ]
-  %148 = tail call fastcc ptr @pull_ands(ptr noundef %.285178.i)
+  %.282178.i = phi ptr [ null, %.thread128.i ], [ %.282177.i, %list_length.exit115.i ]
+  %148 = tail call fastcc ptr @pull_ands(ptr noundef %.282178.i)
   %149 = tail call ptr @make_andclause(ptr noundef %148) #5
   br label %process_duplicate_ors.exit
 
@@ -696,7 +696,7 @@ list_length.exit115.thread.i:                     ; preds = %list_length.exit115
 
 .lr.ph99.split.us:                                ; preds = %.lr.ph99, %173
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %173 ], [ 0, %.lr.ph99 ]
-  %.0509198.us = phi ptr [ %.1.us103, %173 ], [ null, %.lr.ph99 ]
+  %.0529198.us = phi ptr [ %.153.us103, %173 ], [ null, %.lr.ph99 ]
   %157 = load ptr, ptr %154, align 8
   %158 = getelementptr %union.ListCell, ptr %157, i64 %indvars.iv134
   %159 = load ptr, ptr %158, align 8
@@ -722,11 +722,11 @@ list_length.exit115.thread.i:                     ; preds = %list_length.exit115
   br i1 %.not77.us102, label %process_duplicate_ors.exit, label %173
 
 171:                                              ; preds = %161, %.lr.ph99.split.us
-  %172 = tail call ptr @lappend(ptr noundef %.0509198.us, ptr noundef %160) #5
+  %172 = tail call ptr @lappend(ptr noundef %.0529198.us, ptr noundef %160) #5
   br label %173
 
 173:                                              ; preds = %171, %168, %164
-  %.1.us103 = phi ptr [ %.0509198.us, %164 ], [ %.0509198.us, %168 ], [ %172, %171 ]
+  %.153.us103 = phi ptr [ %.0529198.us, %164 ], [ %.0529198.us, %168 ], [ %172, %171 ]
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %174 = load i32, ptr %153, align 4
   %175 = sext i32 %174 to i64
@@ -735,7 +735,7 @@ list_length.exit115.thread.i:                     ; preds = %list_length.exit115
 
 .lr.ph99.split:                                   ; preds = %.lr.ph99, %194
   %indvars.iv = phi i64 [ %indvars.iv.next, %194 ], [ 0, %.lr.ph99 ]
-  %.0509198 = phi ptr [ %.1, %194 ], [ null, %.lr.ph99 ]
+  %.0529198 = phi ptr [ %.153, %194 ], [ null, %.lr.ph99 ]
   %177 = load ptr, ptr %154, align 8
   %178 = getelementptr %union.ListCell, ptr %177, i64 %indvars.iv
   %179 = load ptr, ptr %178, align 8
@@ -765,11 +765,11 @@ list_length.exit115.thread.i:                     ; preds = %list_length.exit115
   br label %process_duplicate_ors.exit
 
 192:                                              ; preds = %181, %.lr.ph99.split
-  %193 = tail call ptr @lappend(ptr noundef %.0509198, ptr noundef %180) #5
+  %193 = tail call ptr @lappend(ptr noundef %.0529198, ptr noundef %180) #5
   br label %194
 
 194:                                              ; preds = %188, %192
-  %.1 = phi ptr [ %.0509198, %188 ], [ %193, %192 ]
+  %.153 = phi ptr [ %.0529198, %188 ], [ %193, %192 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %195 = load i32, ptr %153, align 4
   %196 = sext i32 %195 to i64
@@ -777,8 +777,8 @@ list_length.exit115.thread.i:                     ; preds = %list_length.exit115
   br i1 %197, label %.lr.ph99.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %194, %173, %.lr.ph, %150
-  %.050.lcssa = phi ptr [ null, %150 ], [ null, %.lr.ph ], [ %.1.us103, %173 ], [ %.1, %194 ]
-  %198 = tail call fastcc ptr @pull_ands(ptr noundef %.050.lcssa)
+  %.052.lcssa = phi ptr [ null, %150 ], [ null, %.lr.ph ], [ %.153.us103, %173 ], [ %.153, %194 ]
+  %198 = tail call fastcc ptr @pull_ands(ptr noundef %.052.lcssa)
   %199 = icmp eq ptr %198, null
   br i1 %199, label %200, label %list_length.exit
 
@@ -803,8 +803,8 @@ list_length.exit:                                 ; preds = %._crit_edge
   br label %process_duplicate_ors.exit
 
 process_duplicate_ors.exit:                       ; preds = %168, %32, %is_orclause.exit, %3, %2, %list_length.exit115.thread.i, %145, %._crit_edge.thread.i, %50, %43, %208, %205, %200, %.split, %.split118
-  %.054 = phi ptr [ %30, %.split118 ], [ %191, %.split ], [ %201, %200 ], [ %207, %205 ], [ %209, %208 ], [ %44, %43 ], [ %52, %50 ], [ %105, %._crit_edge.thread.i ], [ %147, %145 ], [ %149, %list_length.exit115.thread.i ], [ null, %2 ], [ %0, %3 ], [ %0, %is_orclause.exit ], [ %18, %32 ], [ %160, %168 ]
-  ret ptr %.054
+  %.0 = phi ptr [ %30, %.split118 ], [ %191, %.split ], [ %201, %200 ], [ %207, %205 ], [ %209, %208 ], [ %44, %43 ], [ %52, %50 ], [ %105, %._crit_edge.thread.i ], [ %147, %145 ], [ %149, %list_length.exit115.thread.i ], [ null, %2 ], [ %0, %3 ], [ %0, %is_orclause.exit ], [ %18, %32 ], [ %160, %168 ]
+  ret ptr %.0
 }
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
@@ -823,7 +823,7 @@ define internal fastcc ptr @pull_ors(ptr noundef readonly %0) unnamed_addr #0 {
 
 .lr.ph24:                                         ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.lr.ph ]
-  %.0121723 = phi ptr [ %.1, %21 ], [ null, %.lr.ph ]
+  %.01822 = phi ptr [ %.1, %21 ], [ null, %.lr.ph ]
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr %union.ListCell, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
@@ -845,11 +845,11 @@ is_orclause.exit:                                 ; preds = %9
   %16 = getelementptr inbounds i8, ptr %8, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call fastcc ptr @pull_ors(ptr noundef %17)
-  %19 = tail call ptr @list_concat(ptr noundef %.0121723, ptr noundef %18) #5
+  %19 = tail call ptr @list_concat(ptr noundef %.01822, ptr noundef %18) #5
   br label %21
 
 is_orclause.exit.thread:                          ; preds = %.lr.ph24, %9, %is_orclause.exit
-  %20 = tail call ptr @lappend(ptr noundef %.0121723, ptr noundef %8) #5
+  %20 = tail call ptr @lappend(ptr noundef %.01822, ptr noundef %8) #5
   br label %21
 
 21:                                               ; preds = %15, %is_orclause.exit.thread
@@ -861,8 +861,8 @@ is_orclause.exit.thread:                          ; preds = %.lr.ph24, %9, %is_o
   br i1 %24, label %.lr.ph24, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %21, %.lr.ph, %1
-  %.012.lcssa = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ %.1, %21 ]
-  ret ptr %.012.lcssa
+  %.0.lcssa = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ %.1, %21 ]
+  ret ptr %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -879,7 +879,7 @@ define internal fastcc ptr @pull_ands(ptr noundef readonly %0) unnamed_addr #0 {
 
 .lr.ph24:                                         ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.lr.ph ]
-  %.0121723 = phi ptr [ %.1, %21 ], [ null, %.lr.ph ]
+  %.01822 = phi ptr [ %.1, %21 ], [ null, %.lr.ph ]
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr %union.ListCell, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
@@ -901,11 +901,11 @@ is_andclause.exit:                                ; preds = %9
   %16 = getelementptr inbounds i8, ptr %8, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call fastcc ptr @pull_ands(ptr noundef %17)
-  %19 = tail call ptr @list_concat(ptr noundef %.0121723, ptr noundef %18) #5
+  %19 = tail call ptr @list_concat(ptr noundef %.01822, ptr noundef %18) #5
   br label %21
 
 is_andclause.exit.thread:                         ; preds = %.lr.ph24, %9, %is_andclause.exit
-  %20 = tail call ptr @lappend(ptr noundef %.0121723, ptr noundef %8) #5
+  %20 = tail call ptr @lappend(ptr noundef %.01822, ptr noundef %8) #5
   br label %21
 
 21:                                               ; preds = %15, %is_andclause.exit.thread
@@ -917,8 +917,8 @@ is_andclause.exit.thread:                         ; preds = %.lr.ph24, %9, %is_a
   br i1 %24, label %.lr.ph24, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %21, %.lr.ph, %1
-  %.012.lcssa = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ %.1, %21 ]
-  ret ptr %.012.lcssa
+  %.0.lcssa = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ %.1, %21 ]
+  ret ptr %.0.lcssa
 }
 
 declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #2

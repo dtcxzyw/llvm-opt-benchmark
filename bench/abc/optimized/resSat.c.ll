@@ -883,8 +883,8 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %.102 = select i1 %.not, i64 80, i64 84
   %13 = getelementptr inbounds i8, ptr %0, i64 %.101
   %14 = getelementptr inbounds i8, ptr %0, i64 %.102
-  %.0 = load i32, ptr %14, align 4
-  %.060 = load ptr, ptr %13, align 8
+  %.0 = load ptr, ptr %13, align 8
+  %.056 = load i32, ptr %14, align 4
   %15 = call ptr @Res_SatSimulateConstr(ptr noundef nonnull %12, i32 noundef %2)
   %16 = getelementptr inbounds i8, ptr %15, i64 592
   store i32 1, ptr %16, align 8
@@ -893,7 +893,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %Abc_Clock.exit
-  %20 = icmp ne i32 %.0, 0
+  %20 = icmp ne i32 %.056, 0
   %spec.select = sext i1 %20 to i32
   br label %113
 
@@ -904,18 +904,18 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %24 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #8
   %25 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %24, ptr %25, align 8
-  %26 = icmp slt i32 %.0, %1
+  %26 = icmp slt i32 %.056, %1
   br i1 %26, label %.lr.ph85, label %.loopexit
 
 .lr.ph85:                                         ; preds = %21
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   %28 = getelementptr i8, ptr %15, i64 328
-  %29 = getelementptr i8, ptr %.060, i64 8
+  %29 = getelementptr i8, ptr %.0, i64 8
   br label %30
 
 30:                                               ; preds = %.lr.ph85, %106
   %.val7290 = phi ptr [ %24, %.lr.ph85 ], [ %.val72, %106 ]
-  %.05683 = phi i32 [ %.0, %.lr.ph85 ], [ %103, %106 ]
+  %.05983 = phi i32 [ %.056, %.lr.ph85 ], [ %103, %106 ]
   %31 = call i32 @sat_solver_solve(ptr noundef %15, ptr noundef null, ptr noundef null, i64 noundef 10000, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
   switch i32 %31, label %104 [
     i32 -1, label %32
@@ -923,7 +923,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   ]
 
 32:                                               ; preds = %30
-  %33 = icmp eq i32 %.05683, 0
+  %33 = icmp eq i32 %.05983, 0
   br i1 %33, label %34, label %.loopexitthread-pre-split
 
 34:                                               ; preds = %32
@@ -946,9 +946,9 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br i1 %41, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %39
-  %42 = and i32 %.05683, 31
+  %42 = and i32 %.05983, 31
   %43 = shl nuw i32 1, %42
-  %44 = ashr i32 %.05683, 5
+  %44 = ashr i32 %.05983, 5
   %45 = sext i32 %44 to i64
   br label %46
 
@@ -978,8 +978,8 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br label %68
 
 .split65:                                         ; preds = %46
-  %.060.val = load ptr, ptr %29, align 8
-  %61 = getelementptr inbounds ptr, ptr %.060.val, i64 %indvars.iv
+  %.0.val = load ptr, ptr %29, align 8
+  %61 = getelementptr inbounds ptr, ptr %.0.val, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i32, ptr %62, i64 %45
   %64 = load i32, ptr %63, align 4
@@ -1070,11 +1070,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %100 = getelementptr inbounds i32, ptr %.val72, i64 %99
   %101 = call i32 @sat_solver_addclause(ptr noundef %15, ptr noundef %.val72, ptr noundef %100) #7
   %102 = icmp eq i32 %101, 0
-  %103 = add i32 %.05683, 1
+  %103 = add i32 %.05983, 1
   br i1 %102, label %.loopexitthread-pre-split, label %106
 
 104:                                              ; preds = %30
-  %105 = icmp ne i32 %.05683, 0
+  %105 = icmp ne i32 %.05983, 0
   %. = zext i1 %105 to i32
   br label %.loopexitthread-pre-split
 
@@ -1083,15 +1083,15 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not, label %.loopexitthread-pre-split, label %30, !llvm.loop !16
 
 .loopexitthread-pre-split:                        ; preds = %106, %._crit_edge, %32, %37, %35, %104
-  %.058.ph = phi i32 [ %., %104 ], [ 0, %35 ], [ 0, %37 ], [ 1, %32 ], [ 1, %._crit_edge ], [ 1, %106 ]
-  %.1.ph = phi i32 [ %.05683, %104 ], [ 0, %35 ], [ 0, %37 ], [ %.05683, %32 ], [ %1, %106 ], [ %103, %._crit_edge ]
+  %.160.ph = phi i32 [ %.05983, %104 ], [ 0, %35 ], [ 0, %37 ], [ %.05983, %32 ], [ %1, %106 ], [ %103, %._crit_edge ]
+  %.057.ph = phi i32 [ %., %104 ], [ 0, %35 ], [ 0, %37 ], [ 1, %32 ], [ 1, %._crit_edge ], [ 1, %106 ]
   %.pr = load ptr, ptr %25, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexitthread-pre-split, %21
   %107 = phi ptr [ %.pr, %.loopexitthread-pre-split ], [ %24, %21 ]
-  %.058 = phi i32 [ %.058.ph, %.loopexitthread-pre-split ], [ 1, %21 ]
-  %.1 = phi i32 [ %.1.ph, %.loopexitthread-pre-split ], [ %.0, %21 ]
+  %.160 = phi i32 [ %.160.ph, %.loopexitthread-pre-split ], [ %.056, %21 ]
+  %.057 = phi i32 [ %.057.ph, %.loopexitthread-pre-split ], [ 1, %21 ]
   %.not.i = icmp eq ptr %107, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %108
 
@@ -1105,16 +1105,16 @@ Vec_IntFree.exit:                                 ; preds = %.loopexit, %108
 
 109:                                              ; preds = %Vec_IntFree.exit
   %110 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 %.1, ptr %110, align 4
+  store i32 %.160, ptr %110, align 4
   br label %113
 
 111:                                              ; preds = %Vec_IntFree.exit
   %112 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %.1, ptr %112, align 8
+  store i32 %.160, ptr %112, align 8
   br label %113
 
 113:                                              ; preds = %19, %109, %111
-  %.159 = phi i32 [ %.058, %109 ], [ %.058, %111 ], [ %spec.select, %19 ]
+  %.1 = phi i32 [ %.057, %109 ], [ %.057, %111 ], [ %spec.select, %19 ]
   call void @sat_solver_delete(ptr noundef %15) #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %114 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #7
@@ -1138,7 +1138,7 @@ Abc_Clock.exit76:                                 ; preds = %113, %116
   %125 = load i64, ptr %124, align 8
   %126 = add nsw i64 %123, %125
   store i64 %126, ptr %124, align 8
-  ret i32 %.159
+  ret i32 %.1
 }
 
 declare i32 @sat_solver_simplify(ptr noundef) local_unnamed_addr #1

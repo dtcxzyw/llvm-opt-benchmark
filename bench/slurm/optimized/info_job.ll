@@ -404,7 +404,7 @@ define dso_local void @scontrol_print_completing_job(ptr noundef %0, ptr noundef
   br label %17
 
 17:                                               ; preds = %14, %2
-  %.036 = phi i64 [ 0, %2 ], [ %16, %14 ]
+  %.037 = phi i64 [ 0, %2 ], [ %16, %14 ]
   %18 = getelementptr inbounds i8, ptr %0, i64 528
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 4
@@ -428,7 +428,7 @@ define dso_local void @scontrol_print_completing_job(ptr noundef %0, ptr noundef
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %28 = sext i32 %24 to i64
-  %29 = add nsw i64 %.036, %28
+  %29 = add nsw i64 %.037, %28
   %30 = load i32, ptr %21, align 8
   %31 = trunc nsw i64 %29 to i32
   %.not4963 = icmp ugt i32 %30, %31
@@ -436,7 +436,7 @@ define dso_local void @scontrol_print_completing_job(ptr noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %47
   %indvars.iv.next = add nsw i64 %indvars.iv64, 1
-  %32 = add nsw i64 %indvars.iv.next, %.036
+  %32 = add nsw i64 %indvars.iv.next, %.037
   %33 = load i32, ptr %21, align 8
   %34 = trunc nsw i64 %32 to i32
   %.not49 = icmp ugt i32 %33, %34
@@ -1086,7 +1086,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
 
 32:                                               ; preds = %25, %26, %29, %27, %3
   %.181 = phi i32 [ -2, %27 ], [ %30, %29 ], [ -2, %3 ], [ -2, %26 ], [ -2, %25 ]
-  %.077 = phi i32 [ %28, %27 ], [ 0, %29 ], [ 0, %3 ], [ %19, %26 ], [ %19, %25 ]
+  %.074 = phi i32 [ %28, %27 ], [ 0, %29 ], [ 0, %3 ], [ %19, %26 ], [ %19, %25 ]
   %.1 = phi ptr [ %0, %27 ], [ %0, %29 ], [ null, %3 ], [ %.073, %26 ], [ %.073, %25 ]
   %33 = load i32, ptr @all_flag, align 4
   %.not116 = icmp ne i32 %33, 0
@@ -1097,7 +1097,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
   %.183 = select i1 %.not117, i16 %spec.select149, i16 %35
   %36 = load i32, ptr %4, align 4
   %37 = icmp eq i32 %36, 0
-  %38 = icmp ne i32 %.077, 0
+  %38 = icmp ne i32 %.074, 0
   %or.cond = or i1 %38, %37
   br i1 %or.cond, label %78, label %39
 
@@ -1188,8 +1188,8 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
   br label %82
 
 78:                                               ; preds = %66, %65, %61, %56, %70, %32
-  %.178 = phi i32 [ %.077, %32 ], [ 0, %56 ], [ 0, %65 ], [ 0, %61 ], [ %68, %66 ], [ %73, %70 ]
-  %79 = icmp eq i32 %.178, 0
+  %.175 = phi i32 [ %.074, %32 ], [ 0, %56 ], [ 0, %65 ], [ 0, %61 ], [ %68, %66 ], [ %73, %70 ]
+  %79 = icmp eq i32 %.175, 0
   %80 = load ptr, ptr %5, align 8
   %81 = icmp ne ptr %80, null
   %or.cond3 = select i1 %79, i1 %81, i1 false
@@ -1197,7 +1197,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
 
 82:                                               ; preds = %.thread155, %78
   %83 = phi ptr [ %77, %.thread155 ], [ %80, %78 ]
-  %.178158 = phi i32 [ %spec.select153, %.thread155 ], [ %.178, %78 ]
+  %.175158 = phi i32 [ %spec.select153, %.thread155 ], [ %.175, %78 ]
   %84 = load ptr, ptr @mime_type, align 8
   %.not122 = icmp eq ptr %84, null
   br i1 %.not122, label %113, label %85
@@ -1281,7 +1281,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
   br label %222
 
 117:                                              ; preds = %115
-  %118 = call ptr @slurm_strerror(i32 noundef %.178158) #13
+  %118 = call ptr @slurm_strerror(i32 noundef %.175158) #13
   %119 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.scontrol_print_step, ptr noundef %.1, ptr noundef %118) #13
   br label %222
 
@@ -1349,7 +1349,7 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
 .lr.ph.split:                                     ; preds = %.lr.ph, %163
   %153 = phi ptr [ %164, %163 ], [ %140, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %163 ], [ 0, %.lr.ph ]
-  %.075159 = phi i32 [ %.176, %163 ], [ 0, %.lr.ph ]
+  %.077159 = phi i32 [ %.178, %163 ], [ 0, %.lr.ph ]
   %154 = getelementptr inbounds i8, ptr %153, i64 16
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds %struct.job_step_info_t, ptr %155, i64 %indvars.iv
@@ -1359,16 +1359,16 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not148, label %159, label %163
 
 159:                                              ; preds = %.lr.ph.split
-  %160 = sext i32 %.075159 to i64
+  %160 = sext i32 %.077159 to i64
   %161 = getelementptr inbounds ptr, ptr %139, i64 %160
   store ptr %156, ptr %161, align 8
-  %162 = add nsw i32 %.075159, 1
+  %162 = add nsw i32 %.077159, 1
   %.pre181 = load ptr, ptr %5, align 8
   br label %163
 
 163:                                              ; preds = %.lr.ph.split, %159
   %164 = phi ptr [ %153, %.lr.ph.split ], [ %.pre181, %159 ]
-  %.176 = phi i32 [ %.075159, %.lr.ph.split ], [ %162, %159 ]
+  %.178 = phi i32 [ %.077159, %.lr.ph.split ], [ %162, %159 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %165 = getelementptr inbounds i8, ptr %164, i64 8
   %166 = load i32, ptr %165, align 8
@@ -2161,15 +2161,15 @@ define dso_local range(i32 -1, 1) i32 @scontrol_encode_hostlist(ptr noundef %0, 
   br label %20
 
 20:                                               ; preds = %20, %18
-  %.030 = phi i32 [ 0, %18 ], [ %28, %20 ]
-  %21 = sext i32 %.030 to i64
+  %.031 = phi i32 [ 0, %18 ], [ %28, %20 ]
+  %21 = sext i32 %.031 to i64
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
-  %23 = sub nsw i32 1048576, %.030
+  %23 = sub nsw i32 1048576, %.031
   %24 = sext i32 %23 to i64
   %25 = tail call i64 @read(i32 noundef %13, ptr noundef %22, i64 noundef %24) #13
   %26 = icmp sgt i64 %25, 0
   %27 = trunc i64 %25 to i32
-  %28 = add i32 %.030, %27
+  %28 = add i32 %.031, %27
   br i1 %26, label %20, label %29, !llvm.loop !22
 
 29:                                               ; preds = %20
@@ -2184,7 +2184,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_encode_hostlist(ptr noundef %0, 
   br label %75
 
 35:                                               ; preds = %29
-  %36 = icmp sgt i32 %.030, 1048575
+  %36 = icmp sgt i32 %.031, 1048575
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %35
@@ -2553,8 +2553,8 @@ define dso_local range(i32 -1, 1) i32 @scontrol_callerid(i32 noundef %0, ptr noc
   br label %77
 
 77:                                               ; preds = %75, %72, %66, %58, %47, %41, %30, %22, %18
-  %.018 = phi i32 [ -1, %18 ], [ -1, %22 ], [ -1, %41 ], [ -1, %58 ], [ -1, %66 ], [ -1, %72 ], [ 0, %75 ], [ -1, %47 ], [ -1, %30 ]
-  ret i32 %.018
+  %.0 = phi i32 [ -1, %18 ], [ -1, %22 ], [ -1, %41 ], [ -1, %58 ], [ -1, %66 ], [ -1, %72 ], [ 0, %75 ], [ -1, %47 ], [ -1, %30 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
@@ -2613,14 +2613,14 @@ define dso_local i32 @scontrol_batch_script(i32 noundef %0, ptr nocapture nounde
   br label %45
 
 27:                                               ; preds = %20, %18
-  %.0 = phi ptr [ %21, %20 ], [ %19, %18 ]
-  %28 = tail call i32 @slurm_job_batch_script(ptr noundef %.0, i32 noundef %8) #13
+  %.015 = phi ptr [ %21, %20 ], [ %19, %18 ]
+  %28 = tail call i32 @slurm_job_batch_script(ptr noundef %.015, i32 noundef %8) #13
   %29 = load ptr, ptr @stdout, align 8
-  %.not20 = icmp eq ptr %.0, %29
+  %.not20 = icmp eq ptr %.015, %29
   br i1 %.not20, label %32, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call i32 @fclose(ptr noundef %.0)
+  %31 = tail call i32 @fclose(ptr noundef %.015)
   br label %32
 
 32:                                               ; preds = %30, %27
@@ -2629,7 +2629,7 @@ define dso_local i32 @scontrol_batch_script(i32 noundef %0, ptr nocapture nounde
   br i1 %.not21, label %38, label %34
 
 34:                                               ; preds = %32
-  %.not22 = icmp eq ptr %.0, %33
+  %.not22 = icmp eq ptr %.015, %33
   br i1 %.not22, label %37, label %35
 
 35:                                               ; preds = %34
@@ -2641,7 +2641,7 @@ define dso_local i32 @scontrol_batch_script(i32 noundef %0, ptr nocapture nounde
   br label %44
 
 38:                                               ; preds = %32
-  %39 = icmp ne ptr %.0, %33
+  %39 = icmp ne ptr %.015, %33
   %40 = load i32, ptr @quiet_flag, align 4
   %41 = icmp ne i32 %40, 1
   %or.cond = select i1 %39, i1 %41, i1 false
@@ -2656,8 +2656,8 @@ define dso_local i32 @scontrol_batch_script(i32 noundef %0, ptr nocapture nounde
   br label %45
 
 45:                                               ; preds = %2, %44, %22
-  %.015 = phi i32 [ %28, %44 ], [ %26, %22 ], [ -1, %2 ]
-  ret i32 %.015
+  %.0 = phi i32 [ %28, %44 ], [ %26, %22 ], [ -1, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

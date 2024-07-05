@@ -8448,7 +8448,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc12
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %11, %for.inc12 ]
   %indvars.iv24 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next25, %for.inc12 ]
-  %counter.017 = phi i32 [ 0, %for.body.lr.ph ], [ %counter.1.lcssa, %for.inc12 ]
+  %counter.018 = phi i32 [ 0, %for.body.lr.ph ], [ %counter.1.lcssa, %for.inc12 ]
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv24
   %3 = load ptr, ptr %arrayidx.i, align 8
@@ -8459,7 +8459,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body7.lr.ph:                                  ; preds = %for.body
   %m_data.i7 = getelementptr inbounds i8, ptr %3, i64 944
-  %5 = sext i32 %counter.017 to i64
+  %5 = sext i32 %counter.018 to i64
   br label %for.body7
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.body7
@@ -8484,7 +8484,7 @@ for.inc12.loopexit:                               ; preds = %for.body7
 
 for.inc12:                                        ; preds = %for.inc12.loopexit, %for.body
   %11 = phi i32 [ %1, %for.body ], [ %.pre, %for.inc12.loopexit ]
-  %counter.1.lcssa = phi i32 [ %counter.017, %for.body ], [ %10, %for.inc12.loopexit ]
+  %counter.1.lcssa = phi i32 [ %counter.018, %for.body ], [ %10, %for.inc12.loopexit ]
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %12 = sext i32 %11 to i64
   %cmp = icmp slt i64 %indvars.iv.next25, %12
@@ -8735,7 +8735,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc12
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %11, %for.inc12 ]
   %indvars.iv24 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next25, %for.inc12 ]
-  %counter.017 = phi i32 [ 0, %for.body.lr.ph ], [ %counter.1.lcssa, %for.inc12 ]
+  %counter.018 = phi i32 [ 0, %for.body.lr.ph ], [ %counter.1.lcssa, %for.inc12 ]
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv24
   %3 = load ptr, ptr %arrayidx.i, align 8
@@ -8746,7 +8746,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body7.lr.ph:                                  ; preds = %for.body
   %m_data.i10 = getelementptr inbounds i8, ptr %3, i64 944
-  %5 = sext i32 %counter.017 to i64
+  %5 = sext i32 %counter.018 to i64
   br label %for.body7
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.body7
@@ -8771,7 +8771,7 @@ for.inc12.loopexit:                               ; preds = %for.body7
 
 for.inc12:                                        ; preds = %for.inc12.loopexit, %for.body
   %11 = phi i32 [ %1, %for.body ], [ %.pre, %for.inc12.loopexit ]
-  %counter.1.lcssa = phi i32 [ %counter.017, %for.body ], [ %10, %for.inc12.loopexit ]
+  %counter.1.lcssa = phi i32 [ %counter.018, %for.body ], [ %10, %for.inc12.loopexit ]
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %12 = sext i32 %11 to i64
   %cmp = icmp slt i64 %indvars.iv.next25, %12

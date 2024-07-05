@@ -2822,21 +2822,21 @@ define range(i32 -1, 1) i32 @data_list_split_str(ptr noundef %0, ptr noundef %1,
   br label %21
 
 21:                                               ; preds = %.lr.ph, %31
-  %.028 = phi ptr [ %19, %.lr.ph ], [ %32, %31 ]
+  %.01528 = phi ptr [ %19, %.lr.ph ], [ %32, %31 ]
   %22 = call ptr @data_list_append(ptr noundef %0)
-  call void @xstrtrim(ptr noundef nonnull %.028) #16
-  %23 = call ptr @data_set_string(ptr noundef %22, ptr noundef nonnull %.028)
+  call void @xstrtrim(ptr noundef nonnull %.01528) #16
+  %23 = call ptr @data_set_string(ptr noundef %22, ptr noundef nonnull %.01528)
   %24 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %25 = and i64 %24, 256
   %.not22 = icmp eq i64 %25, 0
   br i1 %.not22, label %31, label %26
 
 26:                                               ; preds = %21
-  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.028) #17
+  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01528) #17
   %28 = load ptr, ptr %20, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.028, i64 noundef %27, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__.data_list_split_str, ptr noundef %1, ptr noundef %0, i64 noundef %30, ptr noundef %22) #16
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.01528, i64 noundef %27, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__.data_list_split_str, ptr noundef %1, ptr noundef %0, i64 noundef %30, ptr noundef %22) #16
   br label %31
 
 31:                                               ; preds = %21, %26
@@ -2849,8 +2849,8 @@ define range(i32 -1, 1) i32 @data_list_split_str(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %14, %17, %12, %._crit_edge
-  %.015 = phi i32 [ 0, %._crit_edge ], [ -1, %12 ], [ 0, %17 ], [ 0, %14 ]
-  ret i32 %.015
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -1, %12 ], [ 0, %17 ], [ 0, %14 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
@@ -4753,9 +4753,9 @@ define ptr @data_resolve_dict_path(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not4264, label %data_key_get.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %13, %58
-  %.03366 = phi ptr [ %59, %58 ], [ %14, %13 ]
-  %.03465 = phi ptr [ %57, %58 ], [ %0, %13 ]
-  %15 = load i8, ptr %.03366, align 1
+  %.03466 = phi ptr [ %59, %58 ], [ %14, %13 ]
+  %.03565 = phi ptr [ %57, %58 ], [ %0, %13 ]
+  %15 = load i8, ptr %.03466, align 1
   %.not4356 = icmp eq i8 %15, 0
   br i1 %.not4356, label %.critedge, label %.lr.ph
 
@@ -4766,7 +4766,7 @@ define ptr @data_resolve_dict_path(ptr noundef %0, ptr noundef %1) local_unnamed
 
 18:                                               ; preds = %.lr.ph, %24
   %19 = phi i8 [ %15, %.lr.ph ], [ %26, %24 ]
-  %.157 = phi ptr [ %.03366, %.lr.ph ], [ %25, %24 ]
+  %.157 = phi ptr [ %.03466, %.lr.ph ], [ %25, %24 ]
   %20 = sext i8 %19 to i64
   %21 = getelementptr inbounds i16, ptr %17, i64 %20
   %22 = load i16, ptr %21, align 2
@@ -4781,7 +4781,7 @@ define ptr @data_resolve_dict_path(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not43, label %.critedge, label %18, !llvm.loop !26
 
 .critedge:                                        ; preds = %18, %24, %.preheader
-  %.1.lcssa = phi ptr [ %.03366, %.preheader ], [ %25, %24 ], [ %.157, %18 ]
+  %.1.lcssa = phi ptr [ %.03466, %.preheader ], [ %25, %24 ], [ %.157, %18 ]
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1.lcssa) #17
   %28 = trunc i64 %27 to i32
   %.060 = add i32 %28, -1
@@ -4812,13 +4812,13 @@ define ptr @data_resolve_dict_path(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %41, label %31, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %31, %40, %.critedge
-  %42 = getelementptr inbounds i8, ptr %.03465, i64 4
+  %42 = getelementptr inbounds i8, ptr %.03565, i64 4
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp eq i32 %43, 65283
   br i1 %.not46, label %44, label %data_key_get.exit.thread
 
 44:                                               ; preds = %._crit_edge
-  %45 = getelementptr inbounds i8, ptr %.03465, i64 8
+  %45 = getelementptr inbounds i8, ptr %.03565, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load i64, ptr %47, align 8
@@ -4857,7 +4857,7 @@ data_key_get.exit:                                ; preds = %.lr.ph.i.i
   br i1 %.not42, label %data_key_get.exit.thread, label %.preheader, !llvm.loop !28
 
 data_key_get.exit.thread:                         ; preds = %58, %data_key_get.exit, %._crit_edge, %44, %49, %54, %13
-  %.135 = phi ptr [ %0, %13 ], [ null, %54 ], [ %57, %58 ], [ null, %data_key_get.exit ], [ null, %._crit_edge ], [ null, %44 ], [ null, %49 ]
+  %.136 = phi ptr [ %0, %13 ], [ null, %54 ], [ %57, %58 ], [ null, %data_key_get.exit ], [ null, %._crit_edge ], [ null, %44 ], [ null, %49 ]
   %60 = load ptr, ptr %4, align 8
   %.not48 = icmp eq ptr %60, %5
   br i1 %.not48, label %62, label %61
@@ -4867,7 +4867,7 @@ data_key_get.exit.thread:                         ; preds = %58, %data_key_get.e
   br label %62
 
 62:                                               ; preds = %61, %data_key_get.exit.thread
-  %.not49 = icmp eq ptr %.135, null
+  %.not49 = icmp eq ptr %.136, null
   %63 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %64 = and i64 %63, 256
   %.not50 = icmp eq i64 %64, 0
@@ -4878,7 +4878,7 @@ data_key_get.exit.thread:                         ; preds = %58, %data_key_get.e
 
 66:                                               ; preds = %65
   %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %1, i64 noundef %67, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.50, ptr noundef nonnull @__func__.data_resolve_dict_path, ptr noundef nonnull %0, ptr noundef nonnull %.135) #16
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %1, i64 noundef %67, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.50, ptr noundef nonnull @__func__.data_resolve_dict_path, ptr noundef nonnull %0, ptr noundef nonnull %.136) #16
   br label %71
 
 68:                                               ; preds = %62
@@ -4890,8 +4890,8 @@ data_key_get.exit.thread:                         ; preds = %58, %data_key_get.e
   br label %71
 
 71:                                               ; preds = %65, %66, %68, %69, %2
-  %.036 = phi ptr [ null, %2 ], [ null, %69 ], [ null, %68 ], [ %.135, %66 ], [ %.135, %65 ]
-  ret ptr %.036
+  %.033 = phi ptr [ null, %2 ], [ null, %69 ], [ null, %68 ], [ %.136, %66 ], [ %.136, %65 ]
+  ret ptr %.033
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

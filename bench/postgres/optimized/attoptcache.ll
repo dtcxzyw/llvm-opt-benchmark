@@ -88,12 +88,12 @@ InitializeAttoptCache.exit:                       ; preds = %7, %12
   br label %36
 
 36:                                               ; preds = %22, %26
-  %.021 = phi ptr [ %32, %26 ], [ null, %22 ]
+  %.022 = phi ptr [ %32, %26 ], [ null, %22 ]
   call void @ReleaseSysCache(ptr noundef nonnull %21) #6
   br label %37
 
 37:                                               ; preds = %17, %36
-  %.1 = phi ptr [ %.021, %36 ], [ null, %17 ]
+  %.1 = phi ptr [ %.022, %36 ], [ null, %17 ]
   %38 = load ptr, ptr @AttoptCacheHash, align 8
   %39 = call ptr @hash_search(ptr noundef %38, ptr noundef nonnull %4, i32 noundef 1, ptr noundef null) #6
   %40 = getelementptr inbounds i8, ptr %39, i64 8
@@ -102,12 +102,12 @@ InitializeAttoptCache.exit:                       ; preds = %7, %12
 
 41:                                               ; preds = %._crit_edge, %37
   %42 = phi ptr [ %.pre28, %._crit_edge ], [ %.1, %37 ]
-  %.022 = phi ptr [ %16, %._crit_edge ], [ %39, %37 ]
+  %.021 = phi ptr [ %16, %._crit_edge ], [ %39, %37 ]
   %43 = icmp eq ptr %42, null
   br i1 %43, label %54, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %.022, i64 8
+  %45 = getelementptr inbounds i8, ptr %.021, i64 8
   %46 = load i32, ptr %42, align 4
   %47 = lshr i32 %46, 2
   %48 = zext nneg i32 %47 to i64

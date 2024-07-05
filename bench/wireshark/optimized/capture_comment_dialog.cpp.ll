@@ -1192,11 +1192,11 @@ define void @_ZN20CaptureCommentDialog13updateWidgetsEv(ptr noundef nonnull alig
   br i1 %28, label %.lr.ph108, label %._crit_edge109
 
 .lr.ph108:                                        ; preds = %23, %_ZN23CaptureCommentTabWidget11setReadOnlyEb.exit
-  %.046106 = phi i32 [ %43, %_ZN23CaptureCommentTabWidget11setReadOnlyEb.exit ], [ 0, %23 ]
+  %.048106 = phi i32 [ %43, %_ZN23CaptureCommentTabWidget11setReadOnlyEb.exit ], [ 0, %23 ]
   %29 = load ptr, ptr %11, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(40) %31, i32 noundef %.046106)
+  %32 = tail call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(40) %31, i32 noundef %.048106)
   %33 = tail call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN23CaptureCommentTabWidget16staticMetaObjectE, ptr noundef %32)
   %34 = tail call noundef i32 @_ZNK10QTabWidget5countEv(ptr noundef nonnull align 8 dereferenceable(40) %33)
   %35 = icmp sgt i32 %34, 0
@@ -1220,7 +1220,7 @@ define void @_ZN20CaptureCommentDialog13updateWidgetsEv(ptr noundef nonnull alig
   br i1 %42, label %.lr.ph.i, label %_ZN23CaptureCommentTabWidget11setReadOnlyEb.exit, !llvm.loop !4
 
 _ZN23CaptureCommentTabWidget11setReadOnlyEb.exit: ; preds = %39, %.lr.ph108
-  %43 = add nuw nsw i32 %.046106, 1
+  %43 = add nuw nsw i32 %.048106, 1
   %44 = load ptr, ptr %11, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
@@ -1384,7 +1384,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i65:    ; preds = %_ZN7QStringD2Ev.exi
   br label %common.resume
 
 _ZN7QStringD2Ev.exit59:                           ; preds = %104, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57, %_ZN7QStringD2Ev.exit, %78
-  %.048 = phi ptr [ %84, %78 ], [ %87, %_ZN7QStringD2Ev.exit ], [ %87, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57 ], [ %87, %104 ]
+  %.043 = phi ptr [ %84, %78 ], [ %87, %_ZN7QStringD2Ev.exit ], [ %87, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57 ], [ %87, %104 ]
   %120 = load ptr, ptr %20, align 8
   %121 = call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %120)
   %122 = getelementptr inbounds i8, ptr %120, i64 16
@@ -1399,21 +1399,21 @@ _ZN7QStringD2Ev.exit59:                           ; preds = %104, %_ZN17QArrayDa
 
 .lr.ph:                                           ; preds = %_ZN7QStringD2Ev.exit59, %_ZN7QStringD2Ev.exit74
   %.04197 = phi i32 [ %192, %_ZN7QStringD2Ev.exit74 ], [ 0, %_ZN7QStringD2Ev.exit59 ]
-  %129 = call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(40) %.048, i32 noundef %.04197)
+  %129 = call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(40) %.043, i32 noundef %.04197)
   %130 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN14QPlainTextEdit16staticMetaObjectE, ptr noundef %129)
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %163
 
 132:                                              ; preds = %.lr.ph
   %133 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13
-  invoke void @_ZN14QPlainTextEditC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %133, ptr noundef nonnull %.048)
+  invoke void @_ZN14QPlainTextEditC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %133, ptr noundef nonnull %.043)
           to label %134 unwind label %161
 
 134:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) @_ZN23CaptureCommentTabWidget16staticMetaObjectE, ptr noundef nonnull @.str, ptr noundef null, i32 noundef -1)
-  %135 = invoke noundef i32 @_ZNK10QTabWidget5countEv(ptr noundef nonnull align 8 dereferenceable(40) %.048)
+  %135 = invoke noundef i32 @_ZNK10QTabWidget5countEv(ptr noundef nonnull align 8 dereferenceable(40) %.043)
           to label %136 unwind label %149
 
 136:                                              ; preds = %134
@@ -1423,7 +1423,7 @@ _ZN7QStringD2Ev.exit59:                           ; preds = %104, %_ZN17QArrayDa
           to label %_ZNK7QString3argEiii5QChar.exit.i unwind label %149
 
 _ZNK7QString3argEiii5QChar.exit.i:                ; preds = %136
-  %139 = invoke noundef i32 @_ZN10QTabWidget6addTabEP7QWidgetRK7QString(ptr noundef nonnull align 8 dereferenceable(40) %.048, ptr noundef nonnull %133, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %139 = invoke noundef i32 @_ZN10QTabWidget6addTabEP7QWidgetRK7QString(ptr noundef nonnull align 8 dereferenceable(40) %.043, ptr noundef nonnull %133, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %140 unwind label %151
 
 140:                                              ; preds = %_ZNK7QString3argEiii5QChar.exit.i
@@ -1510,7 +1510,7 @@ _ZN23CaptureCommentTabWidget6addTabEP7QWidget.exit: ; preds = %_ZN7QStringD2Ev.e
   br label %common.resume
 
 163:                                              ; preds = %_ZN23CaptureCommentTabWidget6addTabEP7QWidget.exit, %.lr.ph
-  %.047 = phi ptr [ %133, %_ZN23CaptureCommentTabWidget6addTabEP7QWidget.exit ], [ %130, %.lr.ph ]
+  %.042 = phi ptr [ %133, %_ZN23CaptureCommentTabWidget6addTabEP7QWidget.exit ], [ %130, %.lr.ph ]
   %164 = call i32 @wtap_block_get_nth_string_option_value(ptr noundef %127, i32 noundef 1, i32 noundef %.04197, ptr noundef nonnull %8)
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %180
@@ -1533,7 +1533,7 @@ _ZN7QStringC2EPKc.exit:                           ; preds = %166, %.split.i.i
   %170 = load i64, ptr %76, align 16
   store i64 %170, ptr %75, align 16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  invoke void @_ZN14QPlainTextEdit12setPlainTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %.047, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke void @_ZN14QPlainTextEdit12setPlainTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %.042, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %171 unwind label %174
 
 171:                                              ; preds = %_ZN7QStringC2EPKc.exit
@@ -1571,7 +1571,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i76:    ; preds = %174
   %182 = load i64, ptr %74, align 16
   store i64 %182, ptr %73, align 16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  invoke void @_ZN14QPlainTextEdit12setPlainTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %.047, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  invoke void @_ZN14QPlainTextEdit12setPlainTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %.042, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %183 unwind label %186
 
 183:                                              ; preds = %180
@@ -1608,26 +1608,26 @@ _ZN7QStringD2Ev.exit74.sink.split:                ; preds = %_ZN17QArrayDataPoin
   br label %_ZN7QStringD2Ev.exit74
 
 _ZN7QStringD2Ev.exit74:                           ; preds = %_ZN7QStringD2Ev.exit74.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i83, %183, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i72, %171
-  call void @_ZN14QPlainTextEdit11setReadOnlyEb(ptr noundef nonnull align 8 dereferenceable(40) %.047, i1 noundef zeroext %77)
+  call void @_ZN14QPlainTextEdit11setReadOnlyEb(ptr noundef nonnull align 8 dereferenceable(40) %.042, i1 noundef zeroext %77)
   %192 = add nuw i32 %.04197, 1
   %exitcond.not = icmp eq i32 %192, %128
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN7QStringD2Ev.exit74, %_ZN7QStringD2Ev.exit59
-  %193 = call noundef i32 @_ZNK10QTabWidget5countEv(ptr noundef nonnull align 8 dereferenceable(40) %.048)
+  %193 = call noundef i32 @_ZNK10QTabWidget5countEv(ptr noundef nonnull align 8 dereferenceable(40) %.043)
   %194 = icmp ugt i32 %193, %128
   br i1 %194, label %.lr.ph100, label %._crit_edge101
 
 .lr.ph100:                                        ; preds = %._crit_edge, %_ZN23CaptureCommentTabWidget8closeTabEi.exit
   %.098 = phi i32 [ %195, %_ZN23CaptureCommentTabWidget8closeTabEi.exit ], [ %193, %._crit_edge ]
   %195 = add i32 %.098, -1
-  %196 = call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(40) %.048, i32 noundef %195)
+  %196 = call noundef ptr @_ZNK10QTabWidget6widgetEi(ptr noundef nonnull align 8 dereferenceable(40) %.043, i32 noundef %195)
   %197 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN14QPlainTextEdit16staticMetaObjectE, ptr noundef %196)
   %.not.i90 = icmp eq ptr %197, null
   br i1 %.not.i90, label %_ZN23CaptureCommentTabWidget8closeTabEi.exit, label %198
 
 198:                                              ; preds = %.lr.ph100
-  call void @_ZN10QTabWidget9removeTabEi(ptr noundef nonnull align 8 dereferenceable(40) %.048, i32 noundef %195)
+  call void @_ZN10QTabWidget9removeTabEi(ptr noundef nonnull align 8 dereferenceable(40) %.043, i32 noundef %195)
   %199 = load ptr, ptr %197, align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 32
   %201 = load ptr, ptr %200, align 8

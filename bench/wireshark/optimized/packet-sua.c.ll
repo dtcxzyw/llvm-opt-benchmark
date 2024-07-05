@@ -2636,11 +2636,11 @@ define internal fastcc void @dissect_affected_destinations_parameter(ptr noundef
 
 .lr.ph:                                           ; preds = %3, %18
   %indvars.iv = phi i32 [ %indvars.iv.next, %18 ], [ 0, %3 ]
-  %.019 = phi i32 [ %19, %18 ], [ 4, %3 ]
+  %.01618 = phi i32 [ %19, %18 ], [ 4, %3 ]
   %9 = load i32, ptr @hf_sua_mask, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %.019, i32 noundef 1, i32 noundef 0) #6
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %.01618, i32 noundef 1, i32 noundef 0) #6
   %11 = load i32, ptr @hf_sua_dpc, align 4
-  %12 = or disjoint i32 %.019, 1
+  %12 = or disjoint i32 %.01618, 1
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 3, i32 noundef 0) #6
   %14 = tail call i32 @mtp3_pc_structured() #6
   %.not = icmp eq i32 %14, 0
@@ -2653,7 +2653,7 @@ define internal fastcc void @dissect_affected_destinations_parameter(ptr noundef
   br label %18
 
 18:                                               ; preds = %15, %.lr.ph
-  %19 = add nuw nsw i32 %.019, 4
+  %19 = add nuw nsw i32 %.01618, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7

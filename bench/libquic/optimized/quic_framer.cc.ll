@@ -764,19 +764,19 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
-  %i.06.i = phi i32 [ 1, %entry ], [ %inc.i, %for.inc.i ]
-  %stream_id.addr.05.i = phi i32 [ %stream_id, %entry ], [ %shr.i, %for.inc.i ]
-  %cmp1.i = icmp ult i32 %stream_id.addr.05.i, 256
+  %stream_id.addr.06.i = phi i32 [ %stream_id, %entry ], [ %shr.i, %for.inc.i ]
+  %i.05.i = phi i32 [ 1, %entry ], [ %inc.i, %for.inc.i ]
+  %cmp1.i = icmp ult i32 %stream_id.addr.06.i, 256
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %narrow = add nuw i32 %i.06.i, 1
+  %narrow = add nuw i32 %i.05.i, 1
   %0 = zext i32 %narrow to i64
   br label %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %shr.i = lshr i32 %stream_id.addr.05.i, 8
-  %inc.i = add nuw nsw i32 %i.06.i, 1
+  %shr.i = lshr i32 %stream_id.addr.06.i, 8
+  %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 5
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
@@ -813,18 +813,18 @@ _ZN3net10QuicFramer15GetStreamIdSizeEj.exit:      ; preds = %if.then.i, %for.end
   br i1 %cmp.i, label %_ZN3net10QuicFramer19GetStreamOffsetSizeEm.exit, label %for.body.i1
 
 for.body.i1:                                      ; preds = %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit, %for.inc.i2
-  %i.09.i = phi i32 [ %inc.i3, %for.inc.i2 ], [ 2, %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit ]
-  %offset.addr.0.in8.i = phi i64 [ %offset.addr.010.i, %for.inc.i2 ], [ %offset, %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit ]
-  %cmp3.i = icmp ult i64 %offset.addr.0.in8.i, 65536
+  %offset.addr.0.in9.i = phi i64 [ %offset.addr.010.i, %for.inc.i2 ], [ %offset, %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit ]
+  %i.08.i = phi i32 [ %inc.i3, %for.inc.i2 ], [ 2, %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit ]
+  %cmp3.i = icmp ult i64 %offset.addr.0.in9.i, 65536
   br i1 %cmp3.i, label %if.then4.i, label %for.inc.i2
 
 if.then4.i:                                       ; preds = %for.body.i1
-  %conv.i12 = zext nneg i32 %i.09.i to i64
+  %conv.i12 = zext nneg i32 %i.08.i to i64
   br label %_ZN3net10QuicFramer19GetStreamOffsetSizeEm.exit
 
 for.inc.i2:                                       ; preds = %for.body.i1
-  %offset.addr.010.i = lshr i64 %offset.addr.0.in8.i, 8
-  %inc.i3 = add nuw nsw i32 %i.09.i, 1
+  %offset.addr.010.i = lshr i64 %offset.addr.0.in9.i, 8
+  %inc.i3 = add nuw nsw i32 %i.08.i, 1
   %exitcond.not.i4 = icmp eq i32 %inc.i3, 9
   br i1 %exitcond.not.i4, label %for.end.i5, label %for.body.i1, !llvm.loop !9
 
@@ -863,18 +863,18 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %i.06 = phi i32 [ 1, %entry ], [ %inc, %for.inc ]
-  %stream_id.addr.05 = phi i32 [ %stream_id, %entry ], [ %shr, %for.inc ]
-  %cmp1 = icmp ult i32 %stream_id.addr.05, 256
+  %stream_id.addr.06 = phi i32 [ %stream_id, %entry ], [ %shr, %for.inc ]
+  %i.05 = phi i32 [ 1, %entry ], [ %inc, %for.inc ]
+  %cmp1 = icmp ult i32 %stream_id.addr.06, 256
   br i1 %cmp1, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %conv = zext nneg i32 %i.06 to i64
+  %conv = zext nneg i32 %i.05 to i64
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %shr = lshr i32 %stream_id.addr.05, 8
-  %inc = add nuw nsw i32 %i.06, 1
+  %shr = lshr i32 %stream_id.addr.06, 8
+  %inc = add nuw nsw i32 %i.05, 1
   %exitcond.not = icmp eq i32 %inc, 5
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
@@ -911,18 +911,18 @@ entry:
   br i1 %cmp, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %i.09 = phi i32 [ %inc, %for.inc ], [ 2, %entry ]
-  %offset.addr.0.in8 = phi i64 [ %offset.addr.010, %for.inc ], [ %offset, %entry ]
-  %cmp3 = icmp ult i64 %offset.addr.0.in8, 65536
+  %offset.addr.0.in9 = phi i64 [ %offset.addr.010, %for.inc ], [ %offset, %entry ]
+  %i.08 = phi i32 [ %inc, %for.inc ], [ 2, %entry ]
+  %cmp3 = icmp ult i64 %offset.addr.0.in9, 65536
   br i1 %cmp3, label %if.then4, label %for.inc
 
 if.then4:                                         ; preds = %for.body
-  %conv = zext nneg i32 %i.09 to i64
+  %conv = zext nneg i32 %i.08 to i64
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %offset.addr.010 = lshr i64 %offset.addr.0.in8, 8
-  %inc = add nuw nsw i32 %i.09, 1
+  %offset.addr.010 = lshr i64 %offset.addr.0.in9, 8
+  %inc = add nuw nsw i32 %i.08, 1
   %exitcond.not = icmp eq i32 %inc, 9
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
@@ -2350,19 +2350,19 @@ if.end:                                           ; preds = %if.then, %cleanup.a
   br i1 %cmp.i, label %14, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end, %for.inc.i
-  %i.09.i = phi i32 [ %inc.i, %for.inc.i ], [ 2, %if.end ]
-  %offset.addr.0.in8.i = phi i64 [ %offset.addr.010.i, %for.inc.i ], [ %10, %if.end ]
-  %cmp3.i = icmp ult i64 %offset.addr.0.in8.i, 65536
+  %offset.addr.0.in9.i = phi i64 [ %offset.addr.010.i, %for.inc.i ], [ %10, %if.end ]
+  %i.08.i = phi i32 [ %inc.i, %for.inc.i ], [ 2, %if.end ]
+  %cmp3.i = icmp ult i64 %offset.addr.0.in9.i, 65536
   br i1 %cmp3.i, label %if.then4.i, label %for.inc.i
 
 if.then4.i:                                       ; preds = %for.body.i
-  %11 = trunc i32 %i.09.i to i8
+  %11 = trunc i32 %i.08.i to i8
   %12 = add i8 %11, -1
   br label %_ZN3net10QuicFramer19GetStreamOffsetSizeEm.exit.thread
 
 for.inc.i:                                        ; preds = %for.body.i
-  %offset.addr.010.i = lshr i64 %offset.addr.0.in8.i, 8
-  %inc.i = add nuw nsw i32 %i.09.i, 1
+  %offset.addr.010.i = lshr i64 %offset.addr.0.in9.i, 8
+  %inc.i = add nuw nsw i32 %i.08.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 9
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
@@ -2405,19 +2405,19 @@ _ZN3net10QuicFramer19GetStreamOffsetSizeEm.exit.thread: ; preds = %if.then4.i, %
   br label %for.body.i15
 
 for.body.i15:                                     ; preds = %for.inc.i16, %15
-  %i.06.i = phi i32 [ 1, %15 ], [ %inc.i17, %for.inc.i16 ]
-  %stream_id.addr.05.i = phi i32 [ %18, %15 ], [ %shr.i, %for.inc.i16 ]
-  %cmp1.i = icmp ult i32 %stream_id.addr.05.i, 256
+  %stream_id.addr.06.i = phi i32 [ %18, %15 ], [ %shr.i, %for.inc.i16 ]
+  %i.05.i = phi i32 [ 1, %15 ], [ %inc.i17, %for.inc.i16 ]
+  %cmp1.i = icmp ult i32 %stream_id.addr.06.i, 256
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i16
 
 if.then.i:                                        ; preds = %for.body.i15
-  %19 = trunc i32 %i.06.i to i8
+  %19 = trunc i32 %i.05.i to i8
   %20 = add i8 %19, 127
   br label %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit
 
 for.inc.i16:                                      ; preds = %for.body.i15
-  %shr.i = lshr i32 %stream_id.addr.05.i, 8
-  %inc.i17 = add nuw nsw i32 %i.06.i, 1
+  %shr.i = lshr i32 %stream_id.addr.06.i, 8
+  %inc.i17 = add nuw nsw i32 %i.05.i, 1
   %exitcond.not.i18 = icmp eq i32 %inc.i17, 5
   br i1 %exitcond.not.i18, label %for.end.i19, label %for.body.i15, !llvm.loop !8
 
@@ -2477,18 +2477,18 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
-  %i.06.i = phi i32 [ 1, %entry ], [ %inc.i, %for.inc.i ]
-  %stream_id.addr.05.i = phi i32 [ %0, %entry ], [ %shr.i, %for.inc.i ]
-  %cmp1.i = icmp ult i32 %stream_id.addr.05.i, 256
+  %stream_id.addr.06.i = phi i32 [ %0, %entry ], [ %shr.i, %for.inc.i ]
+  %i.05.i = phi i32 [ 1, %entry ], [ %inc.i, %for.inc.i ]
+  %cmp1.i = icmp ult i32 %stream_id.addr.06.i, 256
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %conv.i = zext nneg i32 %i.06.i to i64
+  %conv.i = zext nneg i32 %i.05.i to i64
   br label %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %shr.i = lshr i32 %stream_id.addr.05.i, 8
-  %inc.i = add nuw nsw i32 %i.06.i, 1
+  %shr.i = lshr i32 %stream_id.addr.06.i, 8
+  %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 5
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
@@ -2546,18 +2546,18 @@ if.end:                                           ; preds = %_ZN3net10QuicFramer
   br i1 %cmp.i, label %_ZN3net10QuicFramer19GetStreamOffsetSizeEm.exit, label %for.body.i12
 
 for.body.i12:                                     ; preds = %if.end, %for.inc.i13
-  %i.09.i = phi i32 [ %inc.i14, %for.inc.i13 ], [ 2, %if.end ]
-  %offset.addr.0.in8.i = phi i64 [ %offset.addr.010.i, %for.inc.i13 ], [ %3, %if.end ]
-  %cmp3.i = icmp ult i64 %offset.addr.0.in8.i, 65536
+  %offset.addr.0.in9.i = phi i64 [ %offset.addr.010.i, %for.inc.i13 ], [ %3, %if.end ]
+  %i.08.i = phi i32 [ %inc.i14, %for.inc.i13 ], [ 2, %if.end ]
+  %cmp3.i = icmp ult i64 %offset.addr.0.in9.i, 65536
   br i1 %cmp3.i, label %if.then4.i, label %for.inc.i13
 
 if.then4.i:                                       ; preds = %for.body.i12
-  %conv.i23 = zext nneg i32 %i.09.i to i64
+  %conv.i23 = zext nneg i32 %i.08.i to i64
   br label %_ZN3net10QuicFramer19GetStreamOffsetSizeEm.exit
 
 for.inc.i13:                                      ; preds = %for.body.i12
-  %offset.addr.010.i = lshr i64 %offset.addr.0.in8.i, 8
-  %inc.i14 = add nuw nsw i32 %i.09.i, 1
+  %offset.addr.010.i = lshr i64 %offset.addr.0.in9.i, 8
+  %inc.i14 = add nuw nsw i32 %i.08.i, 1
   %exitcond.not.i15 = icmp eq i32 %inc.i14, 9
   br i1 %exitcond.not.i15, label %for.end.i16, label %for.body.i12, !llvm.loop !9
 

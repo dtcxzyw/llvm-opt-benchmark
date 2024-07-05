@@ -641,14 +641,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_ksubhP11pr
   br i1 %49, label %.sink.split, label %52
 
 .sink.split:                                      ; preds = %48, %39
-  %.027.ph = phi i64 [ 32767, %39 ], [ -32768, %48 ]
+  %.028.ph = phi i64 [ 32767, %39 ], [ -32768, %48 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 659712
   %51 = load ptr, ptr %50, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %51, i64 noundef 1) #13
   br label %52
 
 52:                                               ; preds = %.sink.split, %48
-  %.027 = phi i64 [ %46, %48 ], [ %.027.ph, %.sink.split ]
+  %.028 = phi i64 [ %46, %48 ], [ %.028.ph, %.sink.split ]
   %53 = lshr i64 %1, 7
   %54 = and i64 %53, 31
   %55 = icmp ugt i64 %54, 15
@@ -672,7 +672,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_ksubhP11pr
 
 62:                                               ; preds = %61
   %63 = getelementptr inbounds [32 x i64], ptr %30, i64 0, i64 %54
-  store i64 %.027, ptr %63, align 8
+  store i64 %.028, ptr %63, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %61, %62
@@ -775,14 +775,14 @@ define noundef i64 @_Z16fast_rv64e_ksubhP11processor_t6insn_tm(ptr nocapture nou
   br i1 %49, label %.sink.split, label %52
 
 .sink.split:                                      ; preds = %48, %39
-  %.027.ph = phi i64 [ 32767, %39 ], [ -32768, %48 ]
+  %.028.ph = phi i64 [ 32767, %39 ], [ -32768, %48 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 659712
   %51 = load ptr, ptr %50, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %51, i64 noundef 1) #13
   br label %52
 
 52:                                               ; preds = %.sink.split, %48
-  %.027 = phi i64 [ %46, %48 ], [ %.027.ph, %.sink.split ]
+  %.028 = phi i64 [ %46, %48 ], [ %.028.ph, %.sink.split ]
   %53 = lshr i64 %1, 7
   %54 = and i64 %53, 31
   %55 = icmp ugt i64 %54, 15
@@ -806,7 +806,7 @@ define noundef i64 @_Z16fast_rv64e_ksubhP11processor_t6insn_tm(ptr nocapture nou
 
 62:                                               ; preds = %61
   %63 = getelementptr inbounds [32 x i64], ptr %30, i64 0, i64 %54
-  store i64 %.027, ptr %63, align 8
+  store i64 %.028, ptr %63, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %61, %62

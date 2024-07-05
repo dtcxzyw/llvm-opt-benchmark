@@ -602,7 +602,7 @@ define ptr @Gia_ManReduceEquiv(ptr noundef %0, i32 %1) local_unnamed_addr #1 {
 
 7:                                                ; preds = %.lr.ph, %8
   %.val98112 = phi i32 [ %.val98110, %.lr.ph ], [ %.val98, %8 ]
-  %.067111 = phi i32 [ 0, %.lr.ph ], [ %22, %8 ]
+  %.068111 = phi i32 [ 0, %.lr.ph ], [ %22, %8 ]
   %.val86 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %.val86, null
   br i1 %.not, label %.critedge, label %8
@@ -613,7 +613,7 @@ define ptr @Gia_ManReduceEquiv(ptr noundef %0, i32 %1) local_unnamed_addr #1 {
   %.val87.val = load ptr, ptr %9, align 8
   %10 = getelementptr i8, ptr %.val102, i64 4
   %.val102.val = load i32, ptr %10, align 4
-  %11 = sub i32 %.067111, %.val98112
+  %11 = sub i32 %.068111, %.val98112
   %12 = add i32 %11, %.val102.val
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i32, ptr %.val87.val, i64 %13
@@ -625,7 +625,7 @@ define ptr @Gia_ManReduceEquiv(ptr noundef %0, i32 %1) local_unnamed_addr #1 {
   %20 = sub nsw i64 0, %19
   %21 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %17, i64 %20, i32 1
   store i32 0, ptr %21, align 4
-  %22 = add nuw nsw i32 %.067111, 1
+  %22 = add nuw nsw i32 %.068111, 1
   %.val98 = load i32, ptr %4, align 8
   %23 = icmp slt i32 %22, %.val98
   br i1 %23, label %7, label %.critedge, !llvm.loop !11
@@ -644,7 +644,7 @@ define ptr @Gia_ManReduceEquiv(ptr noundef %0, i32 %1) local_unnamed_addr #1 {
   %.val99139 = phi i32 [ %.val99114, %.lr.ph120 ], [ %.val99, %46 ]
   %.val99.neg119 = phi i32 [ %.val99.neg115, %.lr.ph120 ], [ %.val99.neg, %46 ]
   %.065117 = phi i32 [ 1, %.lr.ph120 ], [ %.166, %46 ]
-  %.168116 = phi i32 [ 0, %.lr.ph120 ], [ %47, %46 ]
+  %.169116 = phi i32 [ 0, %.lr.ph120 ], [ %47, %46 ]
   %.val84 = load ptr, ptr %3, align 8
   %.not76 = icmp eq ptr %.val84, null
   br i1 %.not76, label %.critedge2.loopexit, label %27
@@ -655,7 +655,7 @@ define ptr @Gia_ManReduceEquiv(ptr noundef %0, i32 %1) local_unnamed_addr #1 {
   %.val85.val = load ptr, ptr %28, align 8
   %29 = getelementptr i8, ptr %.val104, i64 4
   %.val104.val = load i32, ptr %29, align 4
-  %30 = add i32 %.val99.neg119, %.168116
+  %30 = add i32 %.val99.neg119, %.169116
   %31 = add i32 %30, %.val104.val
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i32, ptr %.val85.val, i64 %32
@@ -680,7 +680,7 @@ define ptr @Gia_ManReduceEquiv(ptr noundef %0, i32 %1) local_unnamed_addr #1 {
 46:                                               ; preds = %27, %43
   %.val99 = phi i32 [ %.val99.pre, %43 ], [ %.val99139, %27 ]
   %.166 = phi i32 [ %44, %43 ], [ %.065117, %27 ]
-  %47 = add nuw nsw i32 %.168116, 1
+  %47 = add nuw nsw i32 %.169116, 1
   %.val99.neg = sub i32 0, %.val99
   %48 = icmp slt i32 %47, %.val99
   br i1 %48, label %26, label %.critedge2.loopexit, !llvm.loop !12
@@ -811,7 +811,7 @@ define ptr @Gia_ManReduceEquiv(ptr noundef %0, i32 %1) local_unnamed_addr #1 {
   br label %107
 
 107:                                              ; preds = %104, %105
-  %.069 = phi ptr [ %106, %105 ], [ %0, %104 ]
+  %.067 = phi ptr [ %106, %105 ], [ %0, %104 ]
   %.not80 = icmp eq ptr %56, null
   br i1 %.not80, label %109, label %108
 
@@ -820,7 +820,7 @@ define ptr @Gia_ManReduceEquiv(ptr noundef %0, i32 %1) local_unnamed_addr #1 {
   br label %109
 
 109:                                              ; preds = %107, %108
-  ret ptr %.069
+  ret ptr %.067
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

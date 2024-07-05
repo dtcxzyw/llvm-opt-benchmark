@@ -252,24 +252,24 @@ define void @_ZNK5faiss20IndexBinaryFromFloat6searchElPKhlPiPlPKNS_16SearchParam
 
 59:                                               ; preds = %.lr.ph67, %._crit_edge
   %indvars.iv69 = phi i64 [ %1, %.lr.ph67 ], [ %indvars.iv.next70, %._crit_edge ]
-  %.02966 = phi i64 [ 0, %.lr.ph67 ], [ %90, %._crit_edge ]
+  %.03066 = phi i64 [ 0, %.lr.ph67 ], [ %90, %._crit_edge ]
   %smin = tail call i64 @llvm.smin.i64(i64 %indvars.iv69, i64 32768)
   %60 = mul i64 %smin, %3
-  %61 = sub nsw i64 %1, %.02966
+  %61 = sub nsw i64 %1, %.03066
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %61, i64 32768)
   %62 = load i32, ptr %45, align 8
   %63 = sext i32 %62 to i64
   %64 = mul nsw i64 %.sroa.speculated, %63
   %65 = load i32, ptr %57, align 4
   %66 = sext i32 %65 to i64
-  %67 = mul nsw i64 %.02966, %66
+  %67 = mul nsw i64 %.03066, %66
   %68 = getelementptr inbounds i8, ptr %2, i64 %67
   invoke void @_ZN5faiss14binary_to_realEmPKhPf(i64 noundef %64, ptr noundef %68, ptr noundef nonnull %51)
           to label %69 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 
 69:                                               ; preds = %59
   %70 = load ptr, ptr %58, align 8
-  %71 = mul nuw nsw i64 %.02966, %3
+  %71 = mul nuw nsw i64 %.03066, %3
   %72 = getelementptr inbounds i64, ptr %5, i64 %71
   %73 = load ptr, ptr %70, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 40
@@ -312,7 +312,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %69, %59
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit53
 
 ._crit_edge:                                      ; preds = %79, %.preheader
-  %90 = add nuw nsw i64 %.02966, 32768
+  %90 = add nuw nsw i64 %.03066, 32768
   %91 = icmp slt i64 %90, %1
   %indvars.iv.next70 = add i64 %indvars.iv69, -32768
   br i1 %91, label %59, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit50, !llvm.loop !8

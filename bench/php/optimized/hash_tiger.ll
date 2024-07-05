@@ -1120,7 +1120,7 @@ define void @PHP_TIGERUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %1037 = getelementptr inbounds i8, ptr %0, i64 100
   %1038 = load i8, ptr %1037, align 4
   %1039 = and i8 %1038, 1
-  %.011701238 = mul i64 %1036, 9
+  %.011481238 = mul i64 %1036, 9
   %.not1276 = icmp eq i8 %1039, 0
   br i1 %.not1276, label %._crit_edge, label %.lr.ph
 
@@ -1174,7 +1174,7 @@ define void @PHP_TIGERUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %1086 = getelementptr inbounds i64, ptr getelementptr inbounds (i8, ptr @table, i64 6144), i64 %1085
   %1087 = load i64, ptr %1086, align 8
   %1088 = xor i64 %1083, %1087
-  %1089 = sub i64 %.011701238, %1088
+  %1089 = sub i64 %.011481238, %1088
   %1090 = lshr i64 %1070, 8
   %1091 = and i64 %1090, 255
   %1092 = getelementptr inbounds i64, ptr getelementptr inbounds (i8, ptr @table, i64 6144), i64 %1091
@@ -1474,16 +1474,16 @@ define void @PHP_TIGERUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %1378 = load i64, ptr %1377, align 8
   %1379 = xor i64 %1376, %1378
   %1380 = add i64 %1379, %1304
-  %.01170 = mul i64 %1380, 9
+  %.01148 = mul i64 %1380, 9
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
-  %.01169.lcssa = phi i64 [ %999, %17 ], [ %1343, %.lr.ph ]
-  %.01168.lcssa = phi i64 [ %1018, %17 ], [ %1362, %.lr.ph ]
-  %.01170.lcssa = phi i64 [ %.011701238, %17 ], [ %.01170, %.lr.ph ]
-  %1381 = xor i64 %.01170.lcssa, %22
-  %1382 = sub i64 %.01169.lcssa, %24
-  %1383 = add i64 %.01168.lcssa, %26
+  %.01158.lcssa = phi i64 [ %1018, %17 ], [ %1362, %.lr.ph ]
+  %.01149.lcssa = phi i64 [ %999, %17 ], [ %1343, %.lr.ph ]
+  %.01148.lcssa = phi i64 [ %.011481238, %17 ], [ %.01148, %.lr.ph ]
+  %1381 = xor i64 %.01148.lcssa, %22
+  %1382 = sub i64 %.01149.lcssa, %24
+  %1383 = add i64 %.01158.lcssa, %26
   store i64 %1381, ptr %0, align 8
   store i64 %1382, ptr %23, align 8
   store i64 %1383, ptr %25, align 8
@@ -1495,8 +1495,8 @@ define void @PHP_TIGERUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br label %1387
 
 1387:                                             ; preds = %._crit_edge, %15
-  %.01155 = phi i64 [ %19, %._crit_edge ], [ 0, %15 ]
-  %1388 = add nuw nsw i64 %.01155, 64
+  %.01147 = phi i64 [ %19, %._crit_edge ], [ 0, %15 ]
+  %1388 = add nuw nsw i64 %.01147, 64
   %.not11971270 = icmp ugt i64 %1388, %2
   br i1 %.not11971270, label %._crit_edge1274, label %.lr.ph1273
 
@@ -1526,7 +1526,7 @@ define void @PHP_TIGERUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %1405 = phi i64 [ %.pre1281, %.lr.ph1273 ], [ %2755, %2753 ]
   %1406 = phi i64 [ %.pre, %.lr.ph1273 ], [ %2754, %2753 ]
   %1407 = phi i64 [ %1388, %.lr.ph1273 ], [ %2759, %2753 ]
-  %.11271 = phi i64 [ %.01155, %.lr.ph1273 ], [ %1407, %2753 ]
+  %.11271 = phi i64 [ %.01147, %.lr.ph1273 ], [ %1407, %2753 ]
   %1408 = getelementptr inbounds i8, ptr %1, i64 %.11271
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1389, ptr noundef nonnull align 1 dereferenceable(64) %1408, i64 64, i1 false)
   %1409 = load i64, ptr %1389, align 8
@@ -2556,7 +2556,7 @@ define void @PHP_TIGERUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %2409 = load i64, ptr %2408, align 8
   %2410 = xor i64 %2407, %2409
   %2411 = add i64 %2410, %2335
-  %.011581252 = mul i64 %2411, 9
+  %.011611252 = mul i64 %2411, 9
   br i1 %.not1277, label %2753, label %.lr.ph1265
 
 .lr.ph1265:                                       ; preds = %1403
@@ -2609,7 +2609,7 @@ define void @PHP_TIGERUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %2458 = getelementptr inbounds i64, ptr getelementptr inbounds (i8, ptr @table, i64 6144), i64 %2457
   %2459 = load i64, ptr %2458, align 8
   %2460 = xor i64 %2455, %2459
-  %2461 = sub i64 %.011581252, %2460
+  %2461 = sub i64 %.011611252, %2460
   %2462 = lshr i64 %2442, 8
   %2463 = and i64 %2462, 255
   %2464 = getelementptr inbounds i64, ptr getelementptr inbounds (i8, ptr @table, i64 6144), i64 %2463
@@ -2909,16 +2909,16 @@ define void @PHP_TIGERUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %2750 = load i64, ptr %2749, align 8
   %2751 = xor i64 %2748, %2750
   %2752 = add i64 %2751, %2676
-  %.01158 = mul i64 %2752, 9
+  %.01161 = mul i64 %2752, 9
   br label %2753
 
 2753:                                             ; preds = %.lr.ph1265, %1403
-  %.01157.lcssa = phi i64 [ %2715, %.lr.ph1265 ], [ %2374, %1403 ]
-  %.01156.lcssa = phi i64 [ %2734, %.lr.ph1265 ], [ %2393, %1403 ]
-  %.01158.lcssa = phi i64 [ %.01158, %.lr.ph1265 ], [ %.011581252, %1403 ]
-  %2754 = xor i64 %.01158.lcssa, %1406
-  %2755 = sub i64 %.01157.lcssa, %1405
-  %2756 = add i64 %.01156.lcssa, %1404
+  %.01160.lcssa = phi i64 [ %2715, %.lr.ph1265 ], [ %2374, %1403 ]
+  %.01159.lcssa = phi i64 [ %2734, %.lr.ph1265 ], [ %2393, %1403 ]
+  %.01161.lcssa = phi i64 [ %.01161, %.lr.ph1265 ], [ %.011611252, %1403 ]
+  %2754 = xor i64 %.01161.lcssa, %1406
+  %2755 = sub i64 %.01160.lcssa, %1405
+  %2756 = add i64 %.01159.lcssa, %1404
   store i64 %2754, ptr %0, align 8
   store i64 %2755, ptr %1390, align 8
   store i64 %2756, ptr %1391, align 8
@@ -2930,7 +2930,7 @@ define void @PHP_TIGERUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %.not1197, label %._crit_edge1274, label %1403
 
 ._crit_edge1274:                                  ; preds = %2753, %1387
-  %.1.lcssa = phi i64 [ %.01155, %1387 ], [ %1407, %2753 ]
+  %.1.lcssa = phi i64 [ %.01147, %1387 ], [ %1407, %2753 ]
   %2760 = getelementptr inbounds i8, ptr %0, i64 32
   %2761 = getelementptr inbounds [64 x i8], ptr %2760, i64 0, i64 %16
   %2762 = sub nuw nsw i64 64, %16
@@ -4063,7 +4063,7 @@ define internal fastcc void @TigerFinalize(ptr nocapture noundef %0) unnamed_add
   %1044 = getelementptr inbounds i8, ptr %0, i64 100
   %1045 = load i8, ptr %1044, align 4
   %1046 = and i8 %1045, 1
-  %.011411221 = mul i64 %1043, 9
+  %.011331221 = mul i64 %1043, 9
   %.not1253 = icmp eq i8 %1046, 0
   br i1 %.not1253, label %._crit_edge, label %.lr.ph
 
@@ -4117,7 +4117,7 @@ define internal fastcc void @TigerFinalize(ptr nocapture noundef %0) unnamed_add
   %1093 = getelementptr inbounds i64, ptr getelementptr inbounds (i8, ptr @table, i64 6144), i64 %1092
   %1094 = load i64, ptr %1093, align 8
   %1095 = xor i64 %1090, %1094
-  %1096 = sub i64 %.011411221, %1095
+  %1096 = sub i64 %.011331221, %1095
   %1097 = lshr i64 %1077, 8
   %1098 = and i64 %1097, 255
   %1099 = getelementptr inbounds i64, ptr getelementptr inbounds (i8, ptr @table, i64 6144), i64 %1098
@@ -4417,16 +4417,16 @@ define internal fastcc void @TigerFinalize(ptr nocapture noundef %0) unnamed_add
   %1385 = load i64, ptr %1384, align 8
   %1386 = xor i64 %1383, %1385
   %1387 = add i64 %1386, %1311
-  %.01141 = mul i64 %1387, 9
+  %.01133 = mul i64 %1387, 9
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %34
-  %.01155.lcssa = phi i64 [ %1025, %34 ], [ %1369, %.lr.ph ]
-  %.01154.lcssa = phi i64 [ %1006, %34 ], [ %1350, %.lr.ph ]
-  %.01141.lcssa = phi i64 [ %.011411221, %34 ], [ %.01141, %.lr.ph ]
-  %1388 = xor i64 %.01141.lcssa, %37
-  %1389 = sub i64 %.01154.lcssa, %38
-  %1390 = add i64 %.01155.lcssa, %39
+  %.01135.lcssa = phi i64 [ %1025, %34 ], [ %1369, %.lr.ph ]
+  %.01134.lcssa = phi i64 [ %1006, %34 ], [ %1350, %.lr.ph ]
+  %.01133.lcssa = phi i64 [ %.011331221, %34 ], [ %.01133, %.lr.ph ]
+  %1388 = xor i64 %.01133.lcssa, %37
+  %1389 = sub i64 %.01134.lcssa, %38
+  %1390 = add i64 %.01135.lcssa, %39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   br label %1394
 
@@ -5482,7 +5482,7 @@ define internal fastcc void @TigerFinalize(ptr nocapture noundef %0) unnamed_add
   %2402 = getelementptr inbounds i8, ptr %0, i64 100
   %2403 = load i8, ptr %2402, align 4
   %2404 = and i8 %2403, 1
-  %.011441235 = mul i64 %2401, 9
+  %.011471235 = mul i64 %2401, 9
   %.not1254 = icmp eq i8 %2404, 0
   br i1 %.not1254, label %._crit_edge1249, label %.lr.ph1248
 
@@ -5536,7 +5536,7 @@ define internal fastcc void @TigerFinalize(ptr nocapture noundef %0) unnamed_add
   %2451 = getelementptr inbounds i64, ptr getelementptr inbounds (i8, ptr @table, i64 6144), i64 %2450
   %2452 = load i64, ptr %2451, align 8
   %2453 = xor i64 %2448, %2452
-  %2454 = sub i64 %.011441235, %2453
+  %2454 = sub i64 %.011471235, %2453
   %2455 = lshr i64 %2435, 8
   %2456 = and i64 %2455, 255
   %2457 = getelementptr inbounds i64, ptr getelementptr inbounds (i8, ptr @table, i64 6144), i64 %2456
@@ -5836,18 +5836,18 @@ define internal fastcc void @TigerFinalize(ptr nocapture noundef %0) unnamed_add
   %2743 = load i64, ptr %2742, align 8
   %2744 = xor i64 %2741, %2743
   %2745 = add i64 %2744, %2669
-  %.01144 = mul i64 %2745, 9
+  %.01147 = mul i64 %2745, 9
   br label %._crit_edge1249
 
 ._crit_edge1249:                                  ; preds = %.lr.ph1248, %1394
-  %.01143.lcssa = phi i64 [ %2364, %1394 ], [ %2708, %.lr.ph1248 ]
-  %.01142.lcssa = phi i64 [ %2383, %1394 ], [ %2727, %.lr.ph1248 ]
-  %.01144.lcssa = phi i64 [ %.011441235, %1394 ], [ %.01144, %.lr.ph1248 ]
+  %.01146.lcssa = phi i64 [ %2364, %1394 ], [ %2708, %.lr.ph1248 ]
+  %.01145.lcssa = phi i64 [ %2383, %1394 ], [ %2727, %.lr.ph1248 ]
+  %.01147.lcssa = phi i64 [ %.011471235, %1394 ], [ %.01147, %.lr.ph1248 ]
   %2746 = getelementptr inbounds i8, ptr %0, i64 16
   %2747 = getelementptr inbounds i8, ptr %0, i64 8
-  %2748 = xor i64 %.01144.lcssa, %1404
-  %2749 = sub i64 %.01143.lcssa, %1403
-  %2750 = add i64 %.01142.lcssa, %1402
+  %2748 = xor i64 %.01147.lcssa, %1404
+  %2749 = sub i64 %.01146.lcssa, %1403
+  %2750 = add i64 %.01145.lcssa, %1402
   store i64 %2748, ptr %0, align 8
   store i64 %2749, ptr %2747, align 8
   store i64 %2750, ptr %2746, align 8

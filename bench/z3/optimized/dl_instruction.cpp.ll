@@ -14466,9 +14466,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not13, label %if.end18, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %curr.015 = phi ptr [ %incdec.ptr, %for.inc ], [ %2, %if.end ]
-  %overhead.014 = phi i32 [ %overhead.1, %for.inc ], [ 0, %if.end ]
-  %m_state.i = getelementptr inbounds i8, ptr %curr.015, i64 4
+  %overhead.015 = phi i32 [ %overhead.1, %for.inc ], [ 0, %if.end ]
+  %curr.014 = phi ptr [ %incdec.ptr, %for.inc ], [ %2, %if.end ]
+  %m_state.i = getelementptr inbounds i8, ptr %curr.014, i64 4
   %4 = load i32, ptr %m_state.i, align 4
   %cmp.i = icmp eq i32 %4, 0
   br i1 %cmp.i, label %if.else, label %if.then5
@@ -14478,12 +14478,12 @@ if.then5:                                         ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %inc = add i32 %overhead.014, 1
+  %inc = add i32 %overhead.015, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then5, %if.else
-  %overhead.1 = phi i32 [ %inc, %if.else ], [ %overhead.014, %if.then5 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %curr.015, i64 48
+  %overhead.1 = phi i32 [ %inc, %if.else ], [ %overhead.015, %if.then5 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %curr.014, i64 48
   %cmp4.not = icmp eq ptr %incdec.ptr, %add.ptr
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !40
 
@@ -14958,8 +14958,8 @@ while.body.i:                                     ; preds = %_ZSt10__pop_heapIPS
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i, %while.body.i.i.i
-  %__secondChild.026.i.i.i = phi i64 [ %spec.select.i.i.i, %while.body.i.i.i ], [ 0, %while.body.i ]
-  %add.i.i.i = shl i64 %__secondChild.026.i.i.i, 1
+  %__holeIndex.addr.026.i.i.i = phi i64 [ %spec.select.i.i.i, %while.body.i.i.i ], [ 0, %while.body.i ]
+  %add.i.i.i = shl i64 %__holeIndex.addr.026.i.i.i, 1
   %mul.i.i.i = add i64 %add.i.i.i, 2
   %sub1.i.i.i = or disjoint i64 %add.i.i.i, 1
   %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %mul.i.i.i, i32 1
@@ -14969,14 +14969,14 @@ while.body.i.i.i:                                 ; preds = %while.body.i, %whil
   %cmp.i.i.i.i.i = icmp ugt i32 %2, %3
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub1.i.i.i, i64 %mul.i.i.i
   %add.ptr3.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %spec.select.i.i.i
-  %add.ptr4.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__secondChild.026.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.026.i.i.i
   %4 = load <2 x i32>, ptr %add.ptr3.i.i.i, align 4
   store <2 x i32> %4, ptr %add.ptr4.i.i.i, align 4
   %cmp.i.i.i = icmp slt i64 %spec.select.i.i.i, %div.i.i.i
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !49
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %while.body.i
-  %__secondChild.0.lcssa.i.i.i = phi i64 [ 0, %while.body.i ], [ %spec.select.i.i.i, %while.body.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ 0, %while.body.i ], [ %spec.select.i.i.i, %while.body.i.i.i ]
   %5 = and i64 %sub.ptr.sub.i.i, 8
   %cmp6.i.i.i = icmp eq i64 %5, 0
   br i1 %cmp6.i.i.i, label %land.lhs.true.i.i.i, label %if.end18.i.i.i
@@ -14984,20 +14984,20 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
 land.lhs.true.i.i.i:                              ; preds = %while.end.i.i.i
   %sub7.i.i.i = add nsw i64 %sub.ptr.div.i.i, -2
   %div8.i.i.i = ashr exact i64 %sub7.i.i.i, 1
-  %cmp9.i.i.i = icmp eq i64 %__secondChild.0.lcssa.i.i.i, %div8.i.i.i
+  %cmp9.i.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i, %div8.i.i.i
   br i1 %cmp9.i.i.i, label %if.then10.i.i.i, label %if.end18.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %add11.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i, 1
+  %add11.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i, 1
   %sub13.i.i.i = or disjoint i64 %add11.i.i.i, 1
   %add.ptr14.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %sub13.i.i.i
-  %add.ptr15.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__secondChild.0.lcssa.i.i.i
+  %add.ptr15.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i
   %6 = load <2 x i32>, ptr %add.ptr14.i.i.i, align 4
   store <2 x i32> %6, ptr %add.ptr15.i.i.i, align 4
   br label %if.end18.i.i.i
 
 if.end18.i.i.i:                                   ; preds = %if.then10.i.i.i, %land.lhs.true.i.i.i, %while.end.i.i.i
-  %__holeIndex.addr.1.i.i.i = phi i64 [ %sub13.i.i.i, %if.then10.i.i.i ], [ %__secondChild.0.lcssa.i.i.i, %land.lhs.true.i.i.i ], [ %__secondChild.0.lcssa.i.i.i, %while.end.i.i.i ]
+  %__holeIndex.addr.1.i.i.i = phi i64 [ %sub13.i.i.i, %if.then10.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i, %land.lhs.true.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i, %while.end.i.i.i ]
   %__value.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %__value.sroa.0.0.copyload.i.i, 32
   %__value.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i.i.i to i32
   %cmp15.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i, 0
@@ -15082,8 +15082,8 @@ if.then.us:                                       ; preds = %for.body.us
   br label %while.body.i.i.us
 
 while.body.i.i.us:                                ; preds = %if.then.us, %while.body.i.i.us
-  %__secondChild.026.i.i.us = phi i64 [ %spec.select.i.i.us, %while.body.i.i.us ], [ 0, %if.then.us ]
-  %add.i.i.us = shl i64 %__secondChild.026.i.i.us, 1
+  %__holeIndex.addr.026.i.i.us = phi i64 [ %spec.select.i.i.us, %while.body.i.i.us ], [ 0, %if.then.us ]
+  %add.i.i.us = shl i64 %__holeIndex.addr.026.i.i.us, 1
   %mul.i.i.us = add i64 %add.i.i.us, 2
   %sub1.i.i.us = or disjoint i64 %add.i.i.us, 1
   %second.i.i.i.i.us = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %mul.i.i.us, i32 1
@@ -15093,7 +15093,7 @@ while.body.i.i.us:                                ; preds = %if.then.us, %while.
   %cmp.i.i.i.i.us = icmp ugt i32 %5, %6
   %spec.select.i.i.us = select i1 %cmp.i.i.i.i.us, i64 %sub1.i.i.us, i64 %mul.i.i.us
   %add.ptr3.i.i.us = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %spec.select.i.i.us
-  %add.ptr4.i.i.us = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__secondChild.026.i.i.us
+  %add.ptr4.i.i.us = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.026.i.i.us
   %7 = load <2 x i32>, ptr %add.ptr3.i.i.us, align 4
   store <2 x i32> %7, ptr %add.ptr4.i.i.us, align 4
   %cmp.i.i9.us = icmp slt i64 %spec.select.i.i.us, %div.i.i
@@ -15290,8 +15290,8 @@ if.end.split:                                     ; preds = %entry
   br i1 %cmp25.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
-  %__secondChild.026.i = phi i64 [ %spec.select.i, %while.body.i ], [ %div13, %if.end.split ]
-  %add.i = shl i64 %__secondChild.026.i, 1
+  %__holeIndex.addr.026.i = phi i64 [ %spec.select.i, %while.body.i ], [ %div13, %if.end.split ]
+  %add.i = shl i64 %__holeIndex.addr.026.i, 1
   %mul.i = add i64 %add.i, 2
   %sub1.i = or disjoint i64 %add.i, 1
   %second.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %mul.i, i32 1
@@ -15301,32 +15301,32 @@ while.body.i:                                     ; preds = %if.end.split, %whil
   %cmp.i.i.i = icmp ugt i32 %0, %1
   %spec.select.i = select i1 %cmp.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__secondChild.026.i
+  %add.ptr4.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.026.i
   %2 = load <2 x i32>, ptr %add.ptr3.i, align 4
   store <2 x i32> %2, ptr %add.ptr4.i, align 4
   %cmp.i = icmp slt i64 %spec.select.i, %div.i6769
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !49
 
 while.end.i:                                      ; preds = %while.body.i, %if.end.split
-  %__secondChild.0.lcssa.i = phi i64 [ %div13, %if.end.split ], [ %spec.select.i, %while.body.i ]
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %div13, %if.end.split ], [ %spec.select.i, %while.body.i ]
   %3 = and i64 %sub.ptr.sub, 8
   %cmp6.i = icmp eq i64 %3, 0
   %div8.i = ashr exact i64 %sub, 1
-  %cmp9.i = icmp eq i64 %__secondChild.0.lcssa.i, %div8.i
+  %cmp9.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div8.i
   %or.cond = select i1 %cmp6.i, i1 %cmp9.i, i1 false
   br i1 %or.cond, label %if.then10.i, label %if.end18.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %add11.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
+  %add11.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
   %sub13.i = or disjoint i64 %add11.i, 1
   %add.ptr14.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %sub13.i
-  %add.ptr15.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__secondChild.0.lcssa.i
+  %add.ptr15.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   %4 = load <2 x i32>, ptr %add.ptr14.i, align 4
   store <2 x i32> %4, ptr %add.ptr15.i, align 4
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then10.i, %while.end.i
-  %__holeIndex.addr.1.i = phi i64 [ %sub13.i, %if.then10.i ], [ %__secondChild.0.lcssa.i, %while.end.i ]
+  %__holeIndex.addr.1.i = phi i64 [ %sub13.i, %if.then10.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
   %__value.sroa.2.0.extract.shift.i.i = lshr i64 %__value.sroa.0.0.copyload10, 32
   %__value.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i to i32
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div13
@@ -15384,8 +15384,8 @@ while.end.i17.us.thread:                          ; preds = %if.end8.split.us
   br label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit66.us
 
 while.body.i52.us:                                ; preds = %if.end8.split.us, %while.body.i52.us
-  %__secondChild.026.i53.us = phi i64 [ %spec.select.i60.us, %while.body.i52.us ], [ %dec.us, %if.end8.split.us ]
-  %add.i54.us = shl i64 %__secondChild.026.i53.us, 1
+  %__holeIndex.addr.026.i53.us = phi i64 [ %spec.select.i60.us, %while.body.i52.us ], [ %dec.us, %if.end8.split.us ]
+  %add.i54.us = shl i64 %__holeIndex.addr.026.i53.us, 1
   %mul.i55.us = add i64 %add.i54.us, 2
   %sub1.i56.us = or disjoint i64 %add.i54.us, 1
   %second.i.i.i57.us = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %mul.i55.us, i32 1
@@ -15395,7 +15395,7 @@ while.body.i52.us:                                ; preds = %if.end8.split.us, %
   %cmp.i.i.i59.us = icmp ugt i32 %7, %8
   %spec.select.i60.us = select i1 %cmp.i.i.i59.us, i64 %sub1.i56.us, i64 %mul.i55.us
   %add.ptr3.i61.us = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %spec.select.i60.us
-  %add.ptr4.i62.us = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__secondChild.026.i53.us
+  %add.ptr4.i62.us = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.026.i53.us
   %9 = load <2 x i32>, ptr %add.ptr3.i61.us, align 4
   store <2 x i32> %9, ptr %add.ptr4.i62.us, align 4
   %cmp.i65.us = icmp slt i64 %spec.select.i60.us, %div.i6769
@@ -15446,8 +15446,8 @@ if.end8.split:                                    ; preds = %if.end8.split.prehe
   br i1 %cmp25.i16.not, label %while.end.i17, label %while.body.i52
 
 while.body.i52:                                   ; preds = %if.end8.split, %while.body.i52
-  %__secondChild.026.i53 = phi i64 [ %spec.select.i60, %while.body.i52 ], [ %dec, %if.end8.split ]
-  %add.i54 = shl i64 %__secondChild.026.i53, 1
+  %__holeIndex.addr.026.i53 = phi i64 [ %spec.select.i60, %while.body.i52 ], [ %dec, %if.end8.split ]
+  %add.i54 = shl i64 %__holeIndex.addr.026.i53, 1
   %mul.i55 = add i64 %add.i54, 2
   %sub1.i56 = or disjoint i64 %add.i54, 1
   %second.i.i.i57 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %mul.i55, i32 1
@@ -15457,15 +15457,15 @@ while.body.i52:                                   ; preds = %if.end8.split, %whi
   %cmp.i.i.i59 = icmp ugt i32 %12, %13
   %spec.select.i60 = select i1 %cmp.i.i.i59, i64 %sub1.i56, i64 %mul.i55
   %add.ptr3.i61 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %spec.select.i60
-  %add.ptr4.i62 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__secondChild.026.i53
+  %add.ptr4.i62 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.026.i53
   %14 = load <2 x i32>, ptr %add.ptr3.i61, align 4
   store <2 x i32> %14, ptr %add.ptr4.i62, align 4
   %cmp.i65 = icmp slt i64 %spec.select.i60, %div.i6769
   br i1 %cmp.i65, label %while.body.i52, label %while.end.i17, !llvm.loop !49
 
 while.end.i17:                                    ; preds = %while.body.i52, %if.end8.split
-  %__secondChild.0.lcssa.i18 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i60, %while.body.i52 ]
-  %cmp9.i44 = icmp eq i64 %__secondChild.0.lcssa.i18, %div8.i
+  %__holeIndex.addr.0.lcssa.i18 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i60, %while.body.i52 ]
+  %cmp9.i44 = icmp eq i64 %__holeIndex.addr.0.lcssa.i18, %div8.i
   br i1 %cmp9.i44, label %if.then10.i45, label %if.end18.i21
 
 if.then10.i45:                                    ; preds = %while.end.i17
@@ -15474,7 +15474,7 @@ if.then10.i45:                                    ; preds = %while.end.i17
   br label %if.end18.i21
 
 if.end18.i21:                                     ; preds = %if.then10.i45, %while.end.i17
-  %__holeIndex.addr.1.i22 = phi i64 [ %sub13.i47, %if.then10.i45 ], [ %__secondChild.0.lcssa.i18, %while.end.i17 ]
+  %__holeIndex.addr.1.i22 = phi i64 [ %sub13.i47, %if.then10.i45 ], [ %__holeIndex.addr.0.lcssa.i18, %while.end.i17 ]
   %__value.sroa.2.0.extract.shift.i.i23 = lshr i64 %__value.sroa.0.0.copyload12, 32
   %__value.sroa.2.0.extract.trunc.i.i24 = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i23 to i32
   %cmp15.i.i25.not = icmp slt i64 %__holeIndex.addr.1.i22, %__parent.071

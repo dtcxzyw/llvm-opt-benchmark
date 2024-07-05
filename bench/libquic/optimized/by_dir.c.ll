@@ -426,12 +426,12 @@ for.inc152:                                       ; preds = %for.cond23, %for.bo
   br i1 %cmp21, label %for.body, label %if.then157, !llvm.loop !9
 
 if.then157:                                       ; preds = %for.inc152, %if.then36, %if.then131, %if.then124, %if.then144
-  %ok.073 = phi i32 [ 0, %if.then131 ], [ 0, %if.then124 ], [ 1, %if.then144 ], [ 0, %if.then36 ], [ 0, %for.inc152 ]
+  %ok.074 = phi i32 [ 0, %if.then131 ], [ 0, %if.then124 ], [ 1, %if.then144 ], [ 0, %if.then36 ], [ 0, %for.inc152 ]
   call void @BUF_MEM_free(ptr noundef nonnull %call) #12
   br label %return
 
 return:                                           ; preds = %if.else12, %if.then16, %if.then157, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %ok.073, %if.then157 ], [ 0, %if.then16 ], [ 0, %if.else12 ]
+  %retval.0 = phi i32 [ 0, %entry ], [ %ok.074, %if.then157 ], [ 0, %if.then16 ], [ 0, %if.else12 ]
   ret i32 %retval.0
 }
 

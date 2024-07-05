@@ -2287,9 +2287,9 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp1, label %for.body, label %for.cond44.preheader.loopexit, !llvm.loop !5
 
 for.body47:                                       ; preds = %for.cond44.preheader, %for.body47
-  %i.169 = phi i32 [ %inc, %for.body47 ], [ 1, %for.cond44.preheader ]
-  %rk.068 = phi ptr [ %add.ptr, %for.body47 ], [ %key, %for.cond44.preheader ]
-  %add.ptr = getelementptr i8, ptr %rk.068, i64 16
+  %rk.069 = phi ptr [ %add.ptr, %for.body47 ], [ %key, %for.cond44.preheader ]
+  %i.168 = phi i32 [ %inc, %for.body47 ], [ 1, %for.cond44.preheader ]
+  %add.ptr = getelementptr i8, ptr %rk.069, i64 16
   %17 = load i32, ptr %add.ptr, align 4
   %shr = lshr i32 %17, 24
   %idxprom49 = zext nneg i32 %shr to i64
@@ -2329,7 +2329,7 @@ for.body47:                                       ; preds = %for.cond44.preheade
   %25 = load i32, ptr %arrayidx76, align 4
   %xor77 = xor i32 %xor69, %25
   store i32 %xor77, ptr %add.ptr, align 4
-  %arrayidx79 = getelementptr i8, ptr %rk.068, i64 20
+  %arrayidx79 = getelementptr i8, ptr %rk.069, i64 20
   %26 = load i32, ptr %arrayidx79, align 4
   %shr80 = lshr i32 %26, 24
   %idxprom81 = zext nneg i32 %shr80 to i64
@@ -2369,7 +2369,7 @@ for.body47:                                       ; preds = %for.cond44.preheade
   %34 = load i32, ptr %arrayidx110, align 4
   %xor111 = xor i32 %xor103, %34
   store i32 %xor111, ptr %arrayidx79, align 4
-  %arrayidx113 = getelementptr i8, ptr %rk.068, i64 24
+  %arrayidx113 = getelementptr i8, ptr %rk.069, i64 24
   %35 = load i32, ptr %arrayidx113, align 4
   %shr114 = lshr i32 %35, 24
   %idxprom115 = zext nneg i32 %shr114 to i64
@@ -2409,7 +2409,7 @@ for.body47:                                       ; preds = %for.cond44.preheade
   %43 = load i32, ptr %arrayidx144, align 4
   %xor145 = xor i32 %xor137, %43
   store i32 %xor145, ptr %arrayidx113, align 4
-  %arrayidx147 = getelementptr i8, ptr %rk.068, i64 28
+  %arrayidx147 = getelementptr i8, ptr %rk.069, i64 28
   %44 = load i32, ptr %arrayidx147, align 4
   %shr148 = lshr i32 %44, 24
   %idxprom149 = zext nneg i32 %shr148 to i64
@@ -2449,7 +2449,7 @@ for.body47:                                       ; preds = %for.cond44.preheade
   %52 = load i32, ptr %arrayidx178, align 4
   %xor179 = xor i32 %xor171, %52
   store i32 %xor179, ptr %arrayidx147, align 4
-  %inc = add nuw nsw i32 %i.169, 1
+  %inc = add nuw nsw i32 %i.168, 1
   %53 = load i32, ptr %rounds, align 4
   %cmp46 = icmp slt i32 %inc, %53
   br i1 %cmp46, label %for.body47, label %return, !llvm.loop !7
@@ -2562,11 +2562,11 @@ if.end:                                           ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end152, %if.end
-  %rk.0 = phi ptr [ %key, %if.end ], [ %add.ptr149, %if.end152 ]
-  %s0.0 = phi i32 [ %xor15, %if.end ], [ %xor171, %if.end152 ]
-  %s1.0 = phi i32 [ %xor34, %if.end ], [ %xor190, %if.end152 ]
-  %s2.0 = phi i32 [ %xor54, %if.end ], [ %xor209, %if.end152 ]
   %s3.0 = phi i32 [ %xor74, %if.end ], [ %xor228, %if.end152 ]
+  %s2.0 = phi i32 [ %xor54, %if.end ], [ %xor209, %if.end152 ]
+  %s1.0 = phi i32 [ %xor34, %if.end ], [ %xor190, %if.end152 ]
+  %s0.0 = phi i32 [ %xor15, %if.end ], [ %xor171, %if.end152 ]
+  %rk.0 = phi ptr [ %key, %if.end ], [ %add.ptr149, %if.end152 ]
   %r.0 = phi i32 [ %shr, %if.end ], [ %dec, %if.end152 ]
   %shr75 = lshr i32 %s0.0, 24
   %idxprom = zext nneg i32 %shr75 to i64
@@ -3051,11 +3051,11 @@ if.end:                                           ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end152, %if.end
-  %rk.0 = phi ptr [ %key, %if.end ], [ %add.ptr149, %if.end152 ]
-  %s0.0 = phi i32 [ %xor15, %if.end ], [ %xor171, %if.end152 ]
-  %s1.0 = phi i32 [ %xor34, %if.end ], [ %xor190, %if.end152 ]
-  %s2.0 = phi i32 [ %xor54, %if.end ], [ %xor209, %if.end152 ]
   %s3.0 = phi i32 [ %xor74, %if.end ], [ %xor228, %if.end152 ]
+  %s2.0 = phi i32 [ %xor54, %if.end ], [ %xor209, %if.end152 ]
+  %s1.0 = phi i32 [ %xor34, %if.end ], [ %xor190, %if.end152 ]
+  %s0.0 = phi i32 [ %xor15, %if.end ], [ %xor171, %if.end152 ]
+  %rk.0 = phi ptr [ %key, %if.end ], [ %add.ptr149, %if.end152 ]
   %r.0 = phi i32 [ %shr, %if.end ], [ %dec, %if.end152 ]
   %shr75 = lshr i32 %s0.0, 24
   %idxprom = zext nneg i32 %shr75 to i64

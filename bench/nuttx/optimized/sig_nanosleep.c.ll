@@ -142,13 +142,13 @@ up_irq_restore.exit:                              ; preds = %14, %16
   br label %up_irq_restore.exit20
 
 up_irq_restore.exit20:                            ; preds = %21, %18, %22
-  %.0 = phi i32 [ %23, %22 ], [ %19, %18 ], [ %19, %21 ]
-  %spec.select = call i32 @llvm.abs.i32(i32 %.0, i1 true)
+  %.016 = phi i32 [ %23, %22 ], [ %19, %18 ], [ %19, %21 ]
+  %spec.select = call i32 @llvm.abs.i32(i32 %.016, i1 true)
   br label %24
 
 24:                                               ; preds = %4, %up_irq_restore.exit20, %up_irq_restore.exit
-  %.016 = phi i32 [ %17, %up_irq_restore.exit ], [ %spec.select, %up_irq_restore.exit20 ], [ 22, %4 ]
-  ret i32 %.016
+  %.0 = phi i32 [ %17, %up_irq_restore.exit ], [ %spec.select, %up_irq_restore.exit20 ], [ 22, %4 ]
+  ret i32 %.0
 }
 
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #1

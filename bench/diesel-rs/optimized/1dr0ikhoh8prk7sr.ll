@@ -3446,11 +3446,11 @@ default.unreachable151:                           ; preds = %3
           to label %94 unwind label %92
 
 20:                                               ; preds = %3, %8, %14
-  %.050135 = phi i16 [ %17, %14 ], [ %11, %8 ], [ 0, %3 ]
-  %.054110118133 = phi i16 [ 64, %14 ], [ 0, %8 ], [ 192, %3 ]
-  %.051120131 = phi ptr [ %15, %14 ], [ %9, %8 ], [ %4, %3 ]
-  %.053 = phi i16 [ %19, %14 ], [ %13, %8 ], [ 0, %3 ]
-  %21 = getelementptr inbounds i8, ptr %.051120131, i64 16
+  %.052135 = phi i16 [ %17, %14 ], [ %11, %8 ], [ 0, %3 ]
+  %.055110118133 = phi i16 [ 64, %14 ], [ 0, %8 ], [ 192, %3 ]
+  %.049120131 = phi ptr [ %15, %14 ], [ %9, %8 ], [ %4, %3 ]
+  %.051 = phi i16 [ %19, %14 ], [ %13, %8 ], [ 0, %3 ]
+  %21 = getelementptr inbounds i8, ptr %.049120131, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !7
   %23 = trunc i64 %22 to i16
   %24 = tail call i16 @llvm.bswap.i16(i16 %23)
@@ -3479,7 +3479,7 @@ default.unreachable151:                           ; preds = %3
   %37 = load i64, ptr %26, align 8, !alias.scope !513, !noalias !518, !noundef !7
   %38 = add i64 %37, 2
   store i64 %38, ptr %26, align 8, !alias.scope !513, !noalias !518
-  %39 = tail call i16 @llvm.bswap.i16(i16 %.050135)
+  %39 = tail call i16 @llvm.bswap.i16(i16 %.052135)
   %40 = load i64, ptr %25, align 8, !alias.scope !527, !noalias !534, !noundef !7
   %41 = sub i64 %40, %38
   %42 = icmp ult i64 %41, 2
@@ -3518,11 +3518,11 @@ default.unreachable151:                           ; preds = %3
   %55 = phi i64 [ %49, %44 ], [ %.pre.i.i.i85, %.noexc86 ]
   %56 = load ptr, ptr %34, align 8, !alias.scope !553, !noalias !548, !nonnull !7, !noundef !7
   %57 = getelementptr inbounds i8, ptr %56, i64 %55
-  store i16 %.054110118133, ptr %57, align 1, !noalias !554
+  store i16 %.055110118133, ptr %57, align 1, !noalias !554
   %58 = load i64, ptr %26, align 8, !alias.scope !553, !noalias !548, !noundef !7
   %59 = add i64 %58, 2
   store i64 %59, ptr %26, align 8, !alias.scope !553, !noalias !548
-  %60 = tail call i16 @llvm.bswap.i16(i16 %.053)
+  %60 = tail call i16 @llvm.bswap.i16(i16 %.051)
   %61 = load i64, ptr %25, align 8, !alias.scope !555, !noalias !562, !noundef !7
   %62 = sub i64 %61, %59
   %63 = icmp ult i64 %62, 2
@@ -3544,7 +3544,7 @@ default.unreachable151:                           ; preds = %3
   %69 = load i64, ptr %26, align 8, !alias.scope !567, !noalias !562, !noundef !7
   %70 = add i64 %69, 2
   store i64 %70, ptr %26, align 8, !alias.scope !567, !noalias !562
-  %71 = getelementptr inbounds i8, ptr %.051120131, i64 8
+  %71 = getelementptr inbounds i8, ptr %.049120131, i64 8
   %72 = load ptr, ptr %71, align 8, !nonnull !7, !noundef !7
   %73 = load i64, ptr %21, align 8, !noundef !7
   %74 = getelementptr inbounds i16, ptr %72, i64 %73

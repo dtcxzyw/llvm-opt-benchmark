@@ -59,12 +59,12 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %buf.addr.0 = phi ptr [ %incdec.ptr19, %if.then ], [ %buf, %entry ]
-  %l1.0 = phi i64 [ %div, %if.then ], [ 0, %entry ]
-  %l2.0 = phi i64 [ %div10, %if.then ], [ 0, %entry ]
-  %l3.0 = phi i32 [ %3, %if.then ], [ 0, %entry ]
   %s1.0 = phi i32 [ %and, %if.then ], [ 0, %entry ]
   %s3.0 = phi i32 [ %and18, %if.then ], [ 0, %entry ]
+  %l3.0 = phi i32 [ %3, %if.then ], [ 0, %entry ]
+  %l2.0 = phi i64 [ %div10, %if.then ], [ 0, %entry ]
+  %l1.0 = phi i64 [ %div, %if.then ], [ 0, %entry ]
+  %buf.addr.0 = phi ptr [ %incdec.ptr19, %if.then ], [ %buf, %entry ]
   %conv20 = trunc i64 %l1.0 to i32
   %call21 = tail call ptr @BN_bin2bn(ptr noundef %buf.addr.0, i32 noundef %conv20, ptr noundef %call) #5
   %cmp22 = icmp eq ptr %call21, %call

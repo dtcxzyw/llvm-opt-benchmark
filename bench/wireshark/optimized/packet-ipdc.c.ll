@@ -696,19 +696,19 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   br label %91
 
 91:                                               ; preds = %91, %.lr.ph13.i
-  %.021312.i = phi i32 [ 0, %.lr.ph13.i ], [ %100, %91 ]
-  %.111.i = phi i32 [ 0, %.lr.ph13.i ], [ %95, %91 ]
-  %92 = add nuw nsw i32 %90, %.111.i
+  %.121512.i = phi i32 [ 0, %.lr.ph13.i ], [ %95, %91 ]
+  %.021711.i = phi i32 [ 0, %.lr.ph13.i ], [ %100, %91 ]
+  %92 = add nuw nsw i32 %90, %.121512.i
   %93 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %92) #3
   %94 = zext i8 %93 to i32
-  %95 = add nuw nsw i32 %.111.i, 1
+  %95 = add nuw nsw i32 %.121512.i, 1
   %96 = sub nsw i32 %69, %95
   %97 = uitofp i32 %96 to double
   %mul.i = fmul double %97, 8.000000e+00
   %exp2.i = tail call double @exp2(double %mul.i) #3
   %98 = fptoui double %exp2.i to i32
   %99 = mul i32 %98, %94
-  %100 = add i32 %99, %.021312.i
+  %100 = add i32 %99, %.021711.i
   %exitcond24.not.i = icmp eq i32 %95, %69
   br i1 %exitcond24.not.i, label %._crit_edge.i, label %91, !llvm.loop !6
 
@@ -730,10 +730,10 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit.i
 
 ._crit_edge.thread.i:                             ; preds = %102, %._crit_edge.i, %.preheader.i
-  %.0213.lcssa26.i = phi i32 [ %100, %._crit_edge.i ], [ %100, %102 ], [ 0, %.preheader.i ]
+  %.0217.lcssa26.i = phi i32 [ %100, %._crit_edge.i ], [ %100, %102 ], [ 0, %.preheader.i ]
   %110 = load i32, ptr @hf_ipdc_uint, align 4
   %111 = add nuw nsw i32 %69, 2
-  %112 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %54, i32 noundef %110, ptr noundef %0, i32 noundef %65, i32 noundef %111, i32 noundef %.0213.lcssa26.i, ptr noundef nonnull @.str.118, ptr noundef %70, i32 noundef %66, i32 noundef %.0213.lcssa26.i) #3
+  %112 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %54, i32 noundef %110, ptr noundef %0, i32 noundef %65, i32 noundef %111, i32 noundef %.0217.lcssa26.i, ptr noundef nonnull @.str.118, ptr noundef %70, i32 noundef %66, i32 noundef %.0217.lcssa26.i) #3
   br label %.loopexit.i
 
 113:                                              ; preds = %.critedge.i
@@ -785,11 +785,11 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   br label %144
 
 144:                                              ; preds = %144, %.lr.ph10.i
-  %.29.i = phi i32 [ 0, %.lr.ph10.i ], [ %148, %144 ]
-  %145 = add nuw nsw i32 %143, %.29.i
+  %.22169.i = phi i32 [ 0, %.lr.ph10.i ], [ %148, %144 ]
+  %145 = add nuw nsw i32 %143, %.22169.i
   %146 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %145) #3
   %147 = zext i8 %146 to i32
-  %148 = add nuw nsw i32 %.29.i, 1
+  %148 = add nuw nsw i32 %.22169.i, 1
   %149 = tail call ptr @val_to_str_const(i32 noundef %147, ptr noundef nonnull %139, ptr noundef nonnull @.str.115) #3
   %150 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %137, i32 noundef %142, ptr noundef %0, i32 noundef %145, i32 noundef 1, i32 noundef %147, ptr noundef nonnull @.str.122, ptr noundef %70, i32 noundef %66, i32 noundef %148, i32 noundef %147, ptr noundef %149) #3
   %exitcond.not.i = icmp eq i32 %148, %69

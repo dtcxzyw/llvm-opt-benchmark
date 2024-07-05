@@ -4999,8 +4999,8 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$
   br label %34
 
 34:                                               ; preds = %36, %30
-  %.0.i.i = phi i16 [ %33, %30 ], [ %38, %36 ]
-  %.not.not.i.i.i.not = icmp ne i16 %.0.i.i, 0
+  %.022.i.i = phi i16 [ %33, %30 ], [ %38, %36 ]
+  %.not.not.i.i.i.not = icmp ne i16 %.022.i.i, 0
   br i1 %.not.not.i.i.i.not, label %36, label %35
 
 35:                                               ; preds = %34
@@ -5008,9 +5008,9 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$
   br i1 %.not.i.i, label %45, label %49
 
 36:                                               ; preds = %34
-  %37 = add i16 %.0.i.i, -1
-  %38 = and i16 %37, %.0.i.i
-  %39 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %37 = add i16 %.022.i.i, -1
+  %38 = and i16 %37, %.022.i.i
+  %39 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
   %40 = zext nneg i16 %39 to i64
   %41 = add i64 %.sroa.0.021.i.i, %40
   %42 = and i64 %41, %.val4.i
@@ -6897,8 +6897,8 @@ define void @"_ZN10ockam_node7context10transports55_$LT$impl$u20$ockam_node..con
   br label %84
 
 84:                                               ; preds = %86, %80
-  %.0.i.i.i = phi i16 [ %83, %80 ], [ %88, %86 ]
-  %.not.not.i.i.i.i = icmp eq i16 %.0.i.i.i, 0
+  %.022.i.i.i = phi i16 [ %83, %80 ], [ %88, %86 ]
+  %.not.not.i.i.i.i = icmp eq i16 %.022.i.i.i, 0
   br i1 %.not.not.i.i.i.i, label %85, label %86
 
 85:                                               ; preds = %84
@@ -6906,9 +6906,9 @@ define void @"_ZN10ockam_node7context10transports55_$LT$impl$u20$ockam_node..con
   br i1 %.not.i.i.i, label %97, label %101
 
 86:                                               ; preds = %84
-  %87 = add i16 %.0.i.i.i, -1
-  %88 = and i16 %87, %.0.i.i.i
-  %89 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i.i, i1 true)
+  %87 = add i16 %.022.i.i.i, -1
+  %88 = and i16 %87, %.022.i.i.i
+  %89 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i.i, i1 true)
   %90 = zext nneg i16 %89 to i64
   %91 = add i64 %.sroa.0.021.i.i.i, %90
   %92 = and i64 %91, %.val4.i.i

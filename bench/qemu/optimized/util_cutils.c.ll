@@ -353,9 +353,9 @@ entry:
   %2 = load i32, ptr %tm_mday, align 4
   %cmp = icmp slt i32 %add1, 3
   %add2 = add i32 %1, 13
+  %m.0 = select i1 %cmp, i32 %add2, i32 %add1
   %y.0.v = select i1 %cmp, i32 1899, i32 1900
   %y.0 = add i32 %y.0.v, %0
-  %m.0 = select i1 %cmp, i32 %add2, i32 %add1
   %mul = mul i32 %m.0, 153
   %sub = add i32 %mul, -457
   %div = sdiv i32 %sub, 5
@@ -1956,8 +1956,8 @@ if.then8:                                         ; preds = %starts_with_prefix.
 
 do.body:                                          ; preds = %land.rhs, %if.then8
   %len_dir.0 = phi i32 [ 10, %if.then8 ], [ %len.0.i, %land.rhs ]
-  %dir.addr.0 = phi ptr [ %dir, %if.then8 ], [ %dir.addr.0.i, %land.rhs ]
   %bindir.0 = phi ptr [ @.str.28, %if.then8 ], [ %dir.addr.0.i29, %land.rhs ]
+  %dir.addr.0 = phi ptr [ %dir, %if.then8 ], [ %dir.addr.0.i, %land.rhs ]
   %idx.ext = sext i32 %len_dir.0 to i64
   %add.ptr = getelementptr i8, ptr %dir.addr.0, i64 %idx.ext
   %add.ptr11 = getelementptr i8, ptr %bindir.0, i64 %idx.ext

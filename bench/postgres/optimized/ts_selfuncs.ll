@@ -177,12 +177,12 @@ mcelem_tsquery_selec.exit.i:                      ; preds = %._crit_edge.i.i, %6
   br label %103
 
 103:                                              ; preds = %96, %mcelem_tsquery_selec.exit.i
-  %.0.i = phi double [ %.027.i.i, %mcelem_tsquery_selec.exit.i ], [ %102, %96 ]
+  %.016.i = phi double [ %.027.i.i, %mcelem_tsquery_selec.exit.i ], [ %102, %96 ]
   %104 = getelementptr inbounds i8, ptr %55, i64 8
   %105 = load float, ptr %104, align 4
   %106 = fpext float %105 to double
   %107 = fsub double 1.000000e+00, %106
-  %108 = fmul double %.0.i, %107
+  %108 = fmul double %.016.i, %107
   br label %tsquerysel.exit
 
 109:                                              ; preds = %48
@@ -194,12 +194,12 @@ mcelem_tsquery_selec.exit.i:                      ; preds = %._crit_edge.i.i, %6
   br label %tsquerysel.exit
 
 tsquerysel.exit:                                  ; preds = %40, %103, %109
-  %.016.i = phi double [ 0.000000e+00, %40 ], [ %108, %103 ], [ %114, %109 ]
+  %.0.i = phi double [ 0.000000e+00, %40 ], [ %108, %103 ], [ %114, %109 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   br label %115
 
 115:                                              ; preds = %36, %tsquerysel.exit
-  %.0 = phi double [ %.016.i, %tsquerysel.exit ], [ 5.000000e-03, %36 ]
+  %.0 = phi double [ %.0.i, %tsquerysel.exit ], [ 5.000000e-03, %36 ]
   %116 = getelementptr inbounds i8, ptr %3, i64 16
   %117 = load ptr, ptr %116, align 8
   %.not13 = icmp eq ptr %117, null
@@ -279,9 +279,9 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
 
 24:                                               ; preds = %.preheader, %63
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %63 ]
-  %.093121 = phi i32 [ 0, %.preheader ], [ %.1, %63 ]
-  %.095119 = phi double [ 0.000000e+00, %.preheader ], [ %69, %63 ]
-  %.097118 = phi double [ 0.000000e+00, %.preheader ], [ %.198, %63 ]
+  %.094121 = phi double [ 0.000000e+00, %.preheader ], [ %.195, %63 ]
+  %.096120 = phi i32 [ 0, %.preheader ], [ %.197, %63 ]
+  %.099118 = phi double [ 0.000000e+00, %.preheader ], [ %69, %63 ]
   %25 = getelementptr %struct.TextFreq, ptr %2, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = load i8, ptr %26, align 1
@@ -335,38 +335,38 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   %56 = getelementptr inbounds i8, ptr %25, i64 8
   %57 = load float, ptr %56, align 8
   %58 = fpext float %57 to double
-  %59 = fneg double %.097118
+  %59 = fneg double %.094121
   %60 = tail call double @llvm.fmuladd.f64(double %59, double %58, double %58)
-  %61 = fadd double %.097118, %60
-  %62 = add i32 %.093121, 1
+  %61 = fadd double %.094121, %60
+  %62 = add i32 %.096120, 1
   br label %63
 
 63:                                               ; preds = %55, %50, %48
-  %.198 = phi double [ %61, %55 ], [ %.097118, %50 ], [ %.097118, %48 ]
-  %.1 = phi i32 [ %62, %55 ], [ %.093121, %50 ], [ %.093121, %48 ]
+  %.197 = phi i32 [ %62, %55 ], [ %.096120, %50 ], [ %.096120, %48 ]
+  %.195 = phi double [ %61, %55 ], [ %.094121, %50 ], [ %.094121, %48 ]
   %64 = getelementptr inbounds i8, ptr %25, i64 8
   %65 = load float, ptr %64, align 8
   %66 = fpext float %65 to double
-  %67 = fneg double %.095119
+  %67 = fneg double %.099118
   %68 = tail call double @llvm.fmuladd.f64(double %67, double %66, double %66)
-  %69 = fadd double %.095119, %68
+  %69 = fadd double %.099118, %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %70, label %24, !llvm.loop !7
 
 70:                                               ; preds = %63
-  %71 = fcmp olt double %.198, 0.000000e+00
+  %71 = fcmp olt double %.195, 0.000000e+00
   br i1 %71, label %75, label %72
 
 72:                                               ; preds = %70
-  %73 = fcmp ogt double %.198, 1.000000e+00
+  %73 = fcmp ogt double %.195, 1.000000e+00
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %72
   br label %75
 
 75:                                               ; preds = %70, %72, %74
-  %.2 = phi double [ 1.000000e+00, %74 ], [ %.198, %72 ], [ 0.000000e+00, %70 ]
+  %.2 = phi double [ 1.000000e+00, %74 ], [ %.195, %72 ], [ 0.000000e+00, %70 ]
   %76 = fcmp olt double %69, 0.000000e+00
   br i1 %76, label %80, label %77
 
@@ -378,9 +378,9 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   br label %80
 
 80:                                               ; preds = %75, %79, %77
-  %.196 = phi double [ 1.000000e+00, %79 ], [ %69, %77 ], [ 0.000000e+00, %75 ]
-  %81 = fsub double 1.000000e+00, %.196
-  %82 = sitofp i32 %.1 to double
+  %.1100 = phi double [ 1.000000e+00, %79 ], [ %69, %77 ], [ 0.000000e+00, %75 ]
+  %81 = fsub double 1.000000e+00, %.1100
+  %82 = sitofp i32 %.197 to double
   %83 = uitofp nneg i32 %3 to double
   %84 = fdiv double %82, %83
   %85 = tail call double @llvm.fmuladd.f64(double %81, double %84, double %.2)
@@ -463,19 +463,19 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   unreachable
 
 135:                                              ; preds = %99, %95, %80, %119, %110, %106
-  %.099 = phi double [ %., %80 ], [ %98, %95 ], [ %101, %99 ], [ %129, %119 ], [ %118, %110 ], [ %109, %106 ]
-  %136 = fcmp olt double %.099, 0.000000e+00
+  %.093 = phi double [ %., %80 ], [ %98, %95 ], [ %101, %99 ], [ %129, %119 ], [ %118, %110 ], [ %109, %106 ]
+  %136 = fcmp olt double %.093, 0.000000e+00
   br i1 %136, label %.thread116, label %137
 
 137:                                              ; preds = %135
-  %138 = fcmp ogt double %.099, 1.000000e+00
+  %138 = fcmp ogt double %.093, 1.000000e+00
   br i1 %138, label %139, label %.thread116
 
 139:                                              ; preds = %137
   br label %.thread116
 
 .thread116:                                       ; preds = %99, %137, %139, %135, %91, %21
-  %.0 = phi double [ 2.000000e-02, %21 ], [ 5.000000e-03, %91 ], [ 1.000000e+00, %139 ], [ %.099, %137 ], [ 0.000000e+00, %135 ], [ 5.000000e-03, %99 ]
+  %.0 = phi double [ 2.000000e-02, %21 ], [ 5.000000e-03, %91 ], [ 1.000000e+00, %139 ], [ %.093, %137 ], [ 0.000000e+00, %135 ], [ 5.000000e-03, %99 ]
   ret double %.0
 }
 

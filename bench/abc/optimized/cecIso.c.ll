@@ -335,9 +335,9 @@ Gia_ManIsoHashKey.exit.i:                         ; preds = %114
   br i1 %.not.i117, label %._crit_edge.i, label %.preheader194
 
 .preheader194:                                    ; preds = %Gia_ManIsoHashKey.exit.i, %Gia_ManIsoEqual.exit.thread.i
-  %.048.i = phi i32 [ %142, %Gia_ManIsoEqual.exit.thread.i ], [ %125, %Gia_ManIsoHashKey.exit.i ]
-  %.pn = sext i32 %.048.i to i64
-  %.03147.i = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val.i.pre, i64 %.pn
+  %.03147.i = phi i32 [ %142, %Gia_ManIsoEqual.exit.thread.i ], [ %125, %Gia_ManIsoHashKey.exit.i ]
+  %.pn = sext i32 %.03147.i to i64
+  %.048.i = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val.i.pre, i64 %.pn
   %126 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val41.i, i64 %.pn
   %127 = load i32, ptr %126, align 4
   %.not35.unshifted.i = xor i32 %127, %112
@@ -345,7 +345,7 @@ Gia_ManIsoHashKey.exit.i:                         ; preds = %114
   br i1 %.not35.i, label %128, label %Gia_ManIsoEqual.exit.thread.i
 
 128:                                              ; preds = %.preheader194
-  %129 = shl nsw i32 %.048.i, 1
+  %129 = shl nsw i32 %.03147.i, 1
   %130 = sext i32 %129 to i64
   %131 = getelementptr inbounds i32, ptr %23, i64 %130
   br label %133
@@ -364,13 +364,13 @@ Gia_ManIsoHashKey.exit.i:                         ; preds = %114
   br i1 %.not.i.i, label %132, label %Gia_ManIsoEqual.exit.thread.i
 
 Gia_ManIsoEqual.exit.i:                           ; preds = %132
-  %139 = load i64, ptr %.03147.i, align 4
+  %139 = load i64, ptr %.048.i, align 4
   %140 = or i64 %139, 1073741824
-  store i64 %140, ptr %.03147.i, align 4
+  store i64 %140, ptr %.048.i, align 4
   br label %Gia_ManIsoTableAdd.exit
 
 Gia_ManIsoEqual.exit.thread.i:                    ; preds = %133, %.preheader194
-  %141 = getelementptr inbounds i8, ptr %.03147.i, i64 8
+  %141 = getelementptr inbounds i8, ptr %.048.i, i64 8
   %142 = load i32, ptr %141, align 4
   %.not37.i = icmp eq i32 %142, 0
   br i1 %.not37.i, label %._crit_edge.i, label %.preheader194

@@ -20,7 +20,7 @@ define range(i32 0, 2) i32 @compute_hierarchy(ptr noundef %0, i32 noundef %1, do
   br i1 %.not76, label %._crit_edge103, label %.thread
 
 ._crit_edge103:                                   ; preds = %8, %10
-  %.070 = phi ptr [ %11, %10 ], [ %4, %8 ]
+  %.067 = phi ptr [ %11, %10 ], [ %4, %8 ]
   %13 = tail call fastcc ptr @gv_calloc(i64 noundef %9, i64 noundef 4)
   store ptr %13, ptr %5, align 8
   %14 = icmp sgt i32 %1, 0
@@ -40,17 +40,17 @@ define range(i32 0, 2) i32 @compute_hierarchy(ptr noundef %0, i32 noundef %1, do
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge103
-  tail call void @quicksort_place(ptr noundef %.070, ptr noundef %13, i32 noundef %1) #8
+  tail call void @quicksort_place(ptr noundef %.067, ptr noundef %13, i32 noundef %1) #8
   %17 = add nsw i32 %1, -1
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i32, ptr %13, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds double, ptr %.070, i64 %21
+  %22 = getelementptr inbounds double, ptr %.067, i64 %21
   %23 = load double, ptr %22, align 8
   %24 = load i32, ptr %13, align 4
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds double, ptr %.070, i64 %25
+  %26 = getelementptr inbounds double, ptr %.067, i64 %25
   %27 = load double, ptr %26, align 8
   %28 = fsub double %23, %27
   %29 = fmul double %28, %3
@@ -75,12 +75,12 @@ define range(i32 0, 2) i32 @compute_hierarchy(ptr noundef %0, i32 noundef %1, do
   %34 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv93
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds double, ptr %.070, i64 %36
+  %37 = getelementptr inbounds double, ptr %.067, i64 %36
   %38 = load double, ptr %37, align 8
   %39 = getelementptr i8, ptr %34, i64 -4
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds double, ptr %.070, i64 %41
+  %42 = getelementptr inbounds double, ptr %.067, i64 %41
   %43 = load double, ptr %42, align 8
   %44 = fsub double %38, %43
   %45 = fcmp ogt double %44, %.
@@ -127,12 +127,12 @@ gv_calloc.exit:                                   ; preds = %48
   %57 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv98
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds double, ptr %.070, i64 %59
+  %60 = getelementptr inbounds double, ptr %.067, i64 %59
   %61 = load double, ptr %60, align 8
   %62 = getelementptr i8, ptr %57, i64 -4
   %63 = load i32, ptr %62, align 4
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds double, ptr %.070, i64 %64
+  %65 = getelementptr inbounds double, ptr %.067, i64 %64
   %66 = load double, ptr %65, align 8
   %67 = fsub double %61, %66
   %68 = fcmp ogt double %67, %.
@@ -156,14 +156,14 @@ gv_calloc.exit:                                   ; preds = %48
   br i1 %.not, label %.thread, label %75
 
 .thread:                                          ; preds = %10, %.loopexit
-  %.06781 = phi i32 [ 0, %.loopexit ], [ 1, %10 ]
-  %.17179 = phi ptr [ %.070, %.loopexit ], [ %11, %10 ]
-  tail call void @free(ptr noundef %.17179) #8
+  %.16881 = phi ptr [ %.067, %.loopexit ], [ %11, %10 ]
+  %.07180 = phi i32 [ 0, %.loopexit ], [ 1, %10 ]
+  tail call void @free(ptr noundef %.16881) #8
   br label %75
 
 75:                                               ; preds = %.thread, %.loopexit
-  %.06780 = phi i32 [ %.06781, %.thread ], [ 0, %.loopexit ]
-  ret i32 %.06780
+  %.07179 = phi i32 [ %.07180, %.thread ], [ 0, %.loopexit ]
+  ret i32 %.07179
 }
 
 ; Function Attrs: nounwind uwtable

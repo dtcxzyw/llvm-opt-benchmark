@@ -549,10 +549,10 @@ do.body:                                          ; preds = %do.body.preheader, 
   br label %for.body
 
 for.body:                                         ; preds = %do.body, %for.inc
-  %i.031 = phi i32 [ 0, %do.body ], [ %inc, %for.inc ]
-  %buff2tx_idx.030 = phi i32 [ -1, %do.body ], [ %buff2tx_idx.1, %for.inc ]
+  %buff2tx_idx.031 = phi i32 [ -1, %do.body ], [ %buff2tx_idx.1, %for.inc ]
+  %i.030 = phi i32 [ 0, %do.body ], [ %inc, %for.inc ]
   %tx_prio_max.029 = phi i32 [ 0, %do.body ], [ %tx_prio_max.1, %for.inc ]
-  %mul = shl nuw nsw i32 %i.031, 2
+  %mul = shl nuw nsw i32 %i.030, 2
   %shr.i = lshr i32 %1, %mul
   %and.i = and i32 %shr.i, 15
   %cmp1.not = icmp eq i32 %and.i, 1
@@ -564,13 +564,13 @@ if.end3:                                          ; preds = %for.body
   %and = and i32 %shr, 7
   %cmp5 = icmp ult i32 %tx_prio_max.029, %and
   %spec.select = call i32 @llvm.umax.i32(i32 %tx_prio_max.029, i32 %and)
-  %spec.select23 = select i1 %cmp5, i32 %i.031, i32 %buff2tx_idx.030
+  %spec.select23 = select i1 %cmp5, i32 %i.030, i32 %buff2tx_idx.031
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end3, %for.body
   %tx_prio_max.1 = phi i32 [ %tx_prio_max.029, %for.body ], [ %spec.select, %if.end3 ]
-  %buff2tx_idx.1 = phi i32 [ %buff2tx_idx.030, %for.body ], [ %spec.select23, %if.end3 ]
-  %inc = add nuw nsw i32 %i.031, 1
+  %buff2tx_idx.1 = phi i32 [ %buff2tx_idx.031, %for.body ], [ %spec.select23, %if.end3 ]
+  %inc = add nuw nsw i32 %i.030, 1
   %exitcond.not = icmp eq i32 %inc, 4
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 

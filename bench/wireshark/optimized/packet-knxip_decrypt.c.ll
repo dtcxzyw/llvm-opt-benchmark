@@ -257,10 +257,10 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly %0, ptr noundef %1, ptr
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %25
-  %.043.lcssa = phi i32 [ %3, %25 ], [ %44, %.lr.ph ]
+  %.041.lcssa = phi i32 [ %3, %25 ], [ %44, %.lr.ph ]
   %.038.lcssa = phi ptr [ %2, %25 ], [ %40, %.lr.ph ]
   %.034.lcssa = phi ptr [ %26, %25 ], [ %43, %.lr.ph ]
-  %.not4963 = icmp eq i32 %.043.lcssa, 0
+  %.not4963 = icmp eq i32 %.041.lcssa, 0
   br i1 %.not4963, label %._crit_edge, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %.preheader
@@ -271,7 +271,7 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly %0, ptr noundef %1, ptr
   %indvars.iv = phi i64 [ %36, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03455 = phi ptr [ %26, %.lr.ph.preheader ], [ %43, %.lr.ph ]
   %.03854 = phi ptr [ %2, %.lr.ph.preheader ], [ %40, %.lr.ph ]
-  %.04353 = phi i32 [ %3, %.lr.ph.preheader ], [ %44, %.lr.ph ]
+  %.04153 = phi i32 [ %3, %.lr.ph.preheader ], [ %44, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = getelementptr [16 x i8], ptr %13, i64 0, i64 %indvars.iv
   %39 = load i8, ptr %38, align 1
@@ -280,7 +280,7 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly %0, ptr noundef %1, ptr
   %42 = xor i8 %41, %39
   %43 = getelementptr i8, ptr %.03455, i64 1
   store i8 %42, ptr %.03455, align 1
-  %44 = add nsw i32 %.04353, -1
+  %44 = add nsw i32 %.04153, -1
   %45 = icmp ne i32 %44, 0
   %46 = icmp ult i64 %indvars.iv, 15
   %47 = and i1 %45, %46
@@ -293,7 +293,7 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly %0, ptr noundef %1, ptr
 48:                                               ; preds = %.lr.ph67, %.loopexit52
   %.13566 = phi ptr [ %.034.lcssa, %.lr.ph67 ], [ %65, %.loopexit52 ]
   %.13965 = phi ptr [ %.038.lcssa, %.lr.ph67 ], [ %62, %.loopexit52 ]
-  %.14464 = phi i32 [ %.043.lcssa, %.lr.ph67 ], [ %66, %.loopexit52 ]
+  %.14264 = phi i32 [ %.041.lcssa, %.lr.ph67 ], [ %66, %.loopexit52 ]
   %49 = load i8, ptr %37, align 1
   %50 = add i8 %49, 1
   store i8 %50, ptr %37, align 1
@@ -307,7 +307,7 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly %0, ptr noundef %1, ptr
   %56 = load ptr, ptr %9, align 8
   call void @gcry_cipher_close(ptr noundef %56) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %57 = add i32 %.14464, -1
+  %57 = add i32 %.14264, -1
   %umin = call i32 @llvm.umin.i32(i32 %57, i32 15)
   %58 = add nuw nsw i32 %umin, 1
   %wide.trip.count = zext nneg i32 %58 to i64
@@ -317,7 +317,7 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly %0, ptr noundef %1, ptr
   %indvars.iv83 = phi i64 [ 0, %48 ], [ %indvars.iv.next84, %59 ]
   %.23661 = phi ptr [ %.13566, %48 ], [ %65, %59 ]
   %.24060 = phi ptr [ %.13965, %48 ], [ %62, %59 ]
-  %.24559 = phi i32 [ %.14464, %48 ], [ %66, %59 ]
+  %.24359 = phi i32 [ %.14264, %48 ], [ %66, %59 ]
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %60 = getelementptr [16 x i8], ptr %12, i64 0, i64 %indvars.iv83
   %61 = load i8, ptr %60, align 1
@@ -326,7 +326,7 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly %0, ptr noundef %1, ptr
   %64 = xor i8 %63, %61
   %65 = getelementptr i8, ptr %.23661, i64 1
   store i8 %64, ptr %.23661, align 1
-  %66 = add nsw i32 %.24559, -1
+  %66 = add nsw i32 %.24359, -1
   %exitcond.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit52, label %59, !llvm.loop !10
 
@@ -344,17 +344,17 @@ define hidden ptr @knx_ccm_encrypt(ptr noundef writeonly %0, ptr noundef %1, ptr
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %.lr.ph75
   %indvars.iv86 = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next87, %.lr.ph75 ]
   %.372 = phi ptr [ %.135.lcssa, %.lr.ph75.preheader ], [ %72, %.lr.ph75 ]
-  %.04171 = phi i8 [ %spec.store.select, %.lr.ph75.preheader ], [ %73, %.lr.ph75 ]
-  %.04270 = phi ptr [ %4, %.lr.ph75.preheader ], [ %69, %.lr.ph75 ]
+  %.04471 = phi i8 [ %spec.store.select, %.lr.ph75.preheader ], [ %73, %.lr.ph75 ]
+  %.04570 = phi ptr [ %4, %.lr.ph75.preheader ], [ %69, %.lr.ph75 ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %67 = getelementptr [16 x i8], ptr %13, i64 0, i64 %indvars.iv86
   %68 = load i8, ptr %67, align 1
-  %69 = getelementptr i8, ptr %.04270, i64 1
-  %70 = load i8, ptr %.04270, align 1
+  %69 = getelementptr i8, ptr %.04570, i64 1
+  %70 = load i8, ptr %.04570, align 1
   %71 = xor i8 %70, %68
   %72 = getelementptr i8, ptr %.372, i64 1
   store i8 %71, ptr %.372, align 1
-  %73 = add nsw i8 %.04171, -1
+  %73 = add nsw i8 %.04471, -1
   %.not51 = icmp eq i8 %73, 0
   br i1 %.not51, label %.loopexit, label %.lr.ph75, !llvm.loop !11
 

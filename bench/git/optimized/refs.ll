@@ -320,8 +320,8 @@ if.end.i:                                         ; preds = %land.lhs.true, %lan
 
 for.cond.i:                                       ; preds = %sw.epilog.i, %if.end.i
   %flags.addr.1 = phi i32 [ %flags.addr.0, %if.end.i ], [ %flags.addr.2, %sw.epilog.i ]
-  %cp.0.i = phi ptr [ %refname.addr.0, %if.end.i ], [ %incdec.ptr.i, %sw.epilog.i ]
   %last.0.i = phi i8 [ 0, %if.end.i ], [ %19, %sw.epilog.i ]
+  %cp.0.i = phi ptr [ %refname.addr.0, %if.end.i ], [ %incdec.ptr.i, %sw.epilog.i ]
   %19 = load i8, ptr %cp.0.i, align 1
   %idxprom.i = zext i8 %19 to i64
   %arrayidx.i27 = getelementptr inbounds [256 x i8], ptr @refname_disposition, i64 0, i64 %idxprom.i
@@ -2800,8 +2800,8 @@ for.body.lr.ph:                                   ; preds = %substitute_branch_n
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %7 = phi ptr [ %6, %for.body.lr.ph ], [ %19, %for.inc ]
-  %logs_found.027 = phi i32 [ 0, %for.body.lr.ph ], [ %logs_found.1, %for.inc ]
-  %p.026 = phi ptr [ @ref_rev_parse_rules, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %p.027 = phi ptr [ @ref_rev_parse_rules, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %logs_found.026 = phi i32 [ 0, %for.body.lr.ph ], [ %logs_found.1, %for.inc ]
   store i64 0, ptr %len2.i, align 8
   %8 = load ptr, ptr %buf.i16, align 8
   %cmp3.not.i = icmp eq ptr %8, @strbuf_slopbuf
@@ -2809,7 +2809,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then4.i:                                       ; preds = %for.body
   store i8 0, ptr %8, align 1
-  %.pre = load ptr, ptr %p.026, align 8
+  %.pre = load ptr, ptr %p.027, align 8
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %for.body, %if.then4.i
@@ -2845,8 +2845,8 @@ land.lhs.true:                                    ; preds = %if.else
 
 if.end18:                                         ; preds = %if.end, %land.lhs.true
   %it.0 = phi ptr [ %call3, %land.lhs.true ], [ %14, %if.end ]
-  %inc = add nsw i32 %logs_found.027, 1
-  %tobool19.not = icmp eq i32 %logs_found.027, 0
+  %inc = add nsw i32 %logs_found.026, 1
+  %tobool19.not = icmp eq i32 %logs_found.026, 0
   br i1 %tobool19.not, label %if.then20, label %if.end25
 
 if.then20:                                        ; preds = %if.end18
@@ -2866,8 +2866,8 @@ if.end25:                                         ; preds = %if.then20, %if.then
   br i1 %tobool26.not, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %if.end25, %if.else, %land.lhs.true, %strbuf_setlen.exit
-  %logs_found.1 = phi i32 [ %inc, %if.end25 ], [ %logs_found.027, %land.lhs.true ], [ %logs_found.027, %if.else ], [ %logs_found.027, %strbuf_setlen.exit ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.026, i64 8
+  %logs_found.1 = phi i32 [ %inc, %if.end25 ], [ %logs_found.026, %land.lhs.true ], [ %logs_found.026, %if.else ], [ %logs_found.026, %strbuf_setlen.exit ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.027, i64 8
   %19 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %19, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !13
@@ -4921,9 +4921,9 @@ while.body.i33:                                   ; preds = %while.body.i33.preh
   br label %for.cond.i.i38
 
 for.cond.i.i38:                                   ; preds = %sw.epilog.i.i50, %while.body.i33
-  %cp.0.i.i40 = phi ptr [ %refname.addr.0.i35, %while.body.i33 ], [ %incdec.ptr.i.i52, %sw.epilog.i.i50 ]
-  %last.0.i.i41 = phi i8 [ 0, %while.body.i33 ], [ %14, %sw.epilog.i.i50 ]
-  %14 = load i8, ptr %cp.0.i.i40, align 1
+  %last.0.i.i40 = phi i8 [ 0, %while.body.i33 ], [ %14, %sw.epilog.i.i50 ]
+  %cp.0.i.i41 = phi ptr [ %refname.addr.0.i35, %while.body.i33 ], [ %incdec.ptr.i.i52, %sw.epilog.i.i50 ]
+  %14 = load i8, ptr %cp.0.i.i41, align 1
   %idxprom.i.i42 = zext i8 %14 to i64
   %arrayidx.i27.i43 = getelementptr inbounds [256 x i8], ptr @refname_disposition, i64 0, i64 %idxprom.i.i42
   %15 = load i8, ptr %arrayidx.i27.i43, align 1
@@ -4936,19 +4936,19 @@ for.cond.i.i38:                                   ; preds = %sw.epilog.i.i50, %w
   ]
 
 sw.bb7.i.i83:                                     ; preds = %for.cond.i.i38
-  %cmp9.i.i84 = icmp eq i8 %last.0.i.i41, 46
+  %cmp9.i.i84 = icmp eq i8 %last.0.i.i40, 46
   br i1 %cmp9.i.i84, label %refs_ref_exists.exit.thread, label %sw.epilog.i.i50
 
 sw.bb17.i.i80:                                    ; preds = %for.cond.i.i38
-  %cmp19.i.i81 = icmp eq i8 %last.0.i.i41, 64
+  %cmp19.i.i81 = icmp eq i8 %last.0.i.i40, 64
   br i1 %cmp19.i.i81, label %refs_ref_exists.exit.thread, label %sw.epilog.i.i50
 
 sw.epilog.i.i50:                                  ; preds = %sw.bb17.i.i80, %sw.bb7.i.i83, %for.cond.i.i38
-  %incdec.ptr.i.i52 = getelementptr inbounds i8, ptr %cp.0.i.i40, i64 1
+  %incdec.ptr.i.i52 = getelementptr inbounds i8, ptr %cp.0.i.i41, i64 1
   br label %for.cond.i.i38
 
 out.i.i86:                                        ; preds = %for.cond.i.i38
-  %cmp54.i.i87 = icmp eq ptr %cp.0.i.i40, %refname.addr.0.i35
+  %cmp54.i.i87 = icmp eq ptr %cp.0.i.i41, %refname.addr.0.i35
   br i1 %cmp54.i.i87, label %refs_ref_exists.exit.thread, label %if.end57.i.i88
 
 if.end57.i.i88:                                   ; preds = %out.i.i86
@@ -4957,14 +4957,14 @@ if.end57.i.i88:                                   ; preds = %out.i.i86
   br i1 %cmp60.i.i89, label %refs_ref_exists.exit.thread, label %if.end69.i.i90
 
 if.end69.i.i90:                                   ; preds = %if.end57.i.i88
-  %sub.ptr.lhs.cast.i.i91 = ptrtoint ptr %cp.0.i.i40 to i64
+  %sub.ptr.lhs.cast.i.i91 = ptrtoint ptr %cp.0.i.i41 to i64
   %sub.ptr.rhs.cast.i.i92 = ptrtoint ptr %refname.addr.0.i35 to i64
   %sub.ptr.sub.i.i93 = sub i64 %sub.ptr.lhs.cast.i.i91, %sub.ptr.rhs.cast.i.i92
   %cmp70.i.i94 = icmp sgt i64 %sub.ptr.sub.i.i93, 4
   br i1 %cmp70.i.i94, label %land.lhs.true72.i.i97, label %check_refname_component.exit.i54
 
 land.lhs.true72.i.i97:                            ; preds = %if.end69.i.i90
-  %add.ptr.i.i98 = getelementptr inbounds i8, ptr %cp.0.i.i40, i64 -5
+  %add.ptr.i.i98 = getelementptr inbounds i8, ptr %cp.0.i.i41, i64 -5
   %bcmp.i.i99 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i98, ptr noundef nonnull dereferenceable(5) @.str.70, i64 5)
   %tobool73.not.i.i100 = icmp eq i32 %bcmp.i.i99, 0
   %conv84.i.i96 = trunc i64 %sub.ptr.sub.i.i93 to i32
@@ -5086,8 +5086,8 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %sw.epilog.i.i, %while.body.i
-  %cp.0.i.i = phi ptr [ %refname.addr.0.i18, %while.body.i ], [ %incdec.ptr.i.i20, %sw.epilog.i.i ]
   %last.0.i.i = phi i8 [ 0, %while.body.i ], [ %31, %sw.epilog.i.i ]
+  %cp.0.i.i = phi ptr [ %refname.addr.0.i18, %while.body.i ], [ %incdec.ptr.i.i20, %sw.epilog.i.i ]
   %31 = load i8, ptr %cp.0.i.i, align 1
   %idxprom.i.i = zext i8 %31 to i64
   %arrayidx.i27.i = getelementptr inbounds [256 x i8], ptr @refname_disposition, i64 0, i64 %idxprom.i.i

@@ -250,7 +250,7 @@ parse_option.exit.thread:                         ; preds = %20, %34, %parse_opt
   ]
 
 46:                                               ; preds = %45
-  %.not = icmp eq i32 %.030, 0
+  %.not = icmp eq i32 %.032, 0
   br i1 %.not, label %47, label %52
 
 47:                                               ; preds = %46
@@ -269,8 +269,8 @@ parse_option.exit.thread:                         ; preds = %20, %34, %parse_opt
   br label %52
 
 52:                                               ; preds = %37, %45, %51, %46
-  %.133 = phi i32 [ %.032, %46 ], [ %.032, %51 ], [ %spec.select, %37 ], [ 1, %45 ]
-  %.131 = phi i32 [ 1, %46 ], [ %.030, %51 ], [ %spec.select42, %37 ], [ %.030, %45 ]
+  %.133 = phi i32 [ 1, %46 ], [ %.032, %51 ], [ %spec.select, %37 ], [ %.032, %45 ]
+  %.131 = phi i32 [ %.030, %46 ], [ %.030, %51 ], [ %spec.select42, %37 ], [ 1, %45 ]
   %.1 = phi i32 [ %.029, %46 ], [ 0, %51 ], [ %.029, %37 ], [ %.029, %45 ]
   %.not39 = icmp eq ptr %.035.i, null
   br i1 %.not39, label %53, label %.preheader, !llvm.loop !5
@@ -278,7 +278,7 @@ parse_option.exit.thread:                         ; preds = %20, %34, %parse_opt
 53:                                               ; preds = %52
   tail call void @free(ptr noundef %14) #6
   %.not40 = icmp eq i32 %.1, 0
-  %.not41 = icmp eq i32 %.133, 0
+  %.not41 = icmp eq i32 %.131, 0
   %54 = select i1 %.not41, i32 -25, i32 -20
   %55 = select i1 %.not40, i32 %54, i32 0
   br label %56

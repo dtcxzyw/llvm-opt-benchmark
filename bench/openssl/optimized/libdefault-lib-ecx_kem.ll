@@ -880,7 +880,7 @@ if.then27:                                        ; preds = %if.end17.thread
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end22, %if.then27
-  %dhkmlen.04352 = phi i64 [ %add, %if.then27 ], [ %2, %if.end22 ]
+  %dhkmlen.04253 = phi i64 [ %add, %if.then27 ], [ %2, %if.end22 ]
   %add184450 = phi i64 [ %add1840, %if.then27 ], [ %add18, %if.end22 ]
   %kdfname = getelementptr inbounds i8, ptr %ctx, i64 56
   %6 = load ptr, ptr %kdfname, align 8
@@ -915,7 +915,7 @@ if.end.i32:                                       ; preds = %if.end35
   %conv4.i = trunc i16 %11 to i8
   %arrayidx5.i = getelementptr inbounds i8, ptr %suiteid.i, i64 1
   store i8 %conv4.i, ptr %arrayidx5.i, align 1
-  %call.i33 = call i32 @ossl_hpke_labeled_extract(ptr noundef nonnull %call31, ptr noundef nonnull %prk.i, i64 noundef %10, ptr noundef null, i64 noundef 0, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %suiteid.i, i64 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %dhkm, i64 noundef %dhkmlen.04352) #5
+  %call.i33 = call i32 @ossl_hpke_labeled_extract(ptr noundef nonnull %call31, ptr noundef nonnull %prk.i, i64 noundef %10, ptr noundef null, i64 noundef 0, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %suiteid.i, i64 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %dhkm, i64 noundef %dhkmlen.04253) #5
   %tobool.not.i34 = icmp eq i32 %call.i33, 0
   br i1 %tobool.not.i34, label %dhkem_extract_and_expand.exit.thread57, label %dhkem_extract_and_expand.exit
 
@@ -938,9 +938,9 @@ dhkem_extract_and_expand.exit:                    ; preds = %if.end.i32
   br label %err
 
 err:                                              ; preds = %12, %dhkem_extract_and_expand.exit, %if.end17.thread, %ecx_pubkey.exit.thread, %if.end30, %if.end17, %if.then4, %entry
-  %ret.0 = phi i32 [ 0, %if.end17 ], [ 0, %if.end30 ], [ 0, %if.then4 ], [ 0, %entry ], [ 0, %ecx_pubkey.exit.thread ], [ 0, %if.end17.thread ], [ 0, %12 ], [ 1, %dhkem_extract_and_expand.exit ]
-  %kdfctx.0 = phi ptr [ null, %if.end17 ], [ null, %if.end30 ], [ null, %if.then4 ], [ null, %entry ], [ null, %ecx_pubkey.exit.thread ], [ null, %if.end17.thread ], [ %call31, %12 ], [ %call31, %dhkem_extract_and_expand.exit ]
-  %dhkmlen.1 = phi i64 [ %2, %if.end17 ], [ %dhkmlen.04352, %if.end30 ], [ %2, %if.then4 ], [ 0, %entry ], [ %2, %ecx_pubkey.exit.thread ], [ %add, %if.end17.thread ], [ %dhkmlen.04352, %12 ], [ %dhkmlen.04352, %dhkem_extract_and_expand.exit ]
+  %dhkmlen.1 = phi i64 [ %2, %if.end17 ], [ %dhkmlen.04253, %if.end30 ], [ %2, %if.then4 ], [ 0, %entry ], [ %2, %ecx_pubkey.exit.thread ], [ %add, %if.end17.thread ], [ %dhkmlen.04253, %dhkem_extract_and_expand.exit ], [ %dhkmlen.04253, %12 ]
+  %kdfctx.0 = phi ptr [ null, %if.end17 ], [ null, %if.end30 ], [ null, %if.then4 ], [ null, %entry ], [ null, %ecx_pubkey.exit.thread ], [ null, %if.end17.thread ], [ %call31, %dhkem_extract_and_expand.exit ], [ %call31, %12 ]
+  %ret.0 = phi i32 [ 0, %if.end17 ], [ 0, %if.end30 ], [ 0, %if.then4 ], [ 0, %entry ], [ 0, %ecx_pubkey.exit.thread ], [ 0, %if.end17.thread ], [ 1, %dhkem_extract_and_expand.exit ], [ 0, %12 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %dhkm, i64 noundef %dhkmlen.1) #5
   call void @EVP_KDF_CTX_free(ptr noundef %kdfctx.0) #5
   ret i32 %ret.0

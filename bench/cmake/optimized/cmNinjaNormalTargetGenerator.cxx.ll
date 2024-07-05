@@ -7566,7 +7566,7 @@ _ZNK28cmNinjaNormalTargetGenerator18TargetLinkLanguageERKNSt7__cxx1112basic_stri
   br label %.loopexit.split-lp
 
 1764:                                             ; preds = %1754, %1748
-  %.0470 = phi i32 [ -1, %1748 ], [ %1757, %1754 ]
+  %.0468 = phi i32 [ -1, %1748 ], [ %1757, %1754 ]
   %1765 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK17cmGeneratorTarget7GetNameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(2728) %283)
           to label %1766 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -8125,7 +8125,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_
           to label %1964 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1964:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_.exit1138
-  invoke void @_ZN22cmGlobalNinjaGenerator10WriteBuildERSoRK12cmNinjaBuildiPb(ptr noundef nonnull align 8 dereferenceable(2808) %281, ptr noundef nonnull align 8 dereferenceable(8) %1963, ptr noundef nonnull align 8 dereferenceable(288) %54, i32 noundef %.0470, ptr noundef nonnull %242)
+  invoke void @_ZN22cmGlobalNinjaGenerator10WriteBuildERSoRK12cmNinjaBuildiPb(ptr noundef nonnull align 8 dereferenceable(2808) %281, ptr noundef nonnull align 8 dereferenceable(8) %1963, ptr noundef nonnull align 8 dereferenceable(288) %54, i32 noundef %.0468, ptr noundef nonnull %242)
           to label %1965 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1965:                                             ; preds = %1964

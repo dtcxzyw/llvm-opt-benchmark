@@ -31,11 +31,11 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %30 = icmp eq i8 %29, 78
   %31 = load i32, ptr %11, align 4
   %32 = icmp eq i32 %31, -1
-  %.0118.in = select i1 %spec.select, ptr %2, ptr %3
-  %.0117.in = select i1 %spec.select, ptr %3, ptr %2
-  %.0117 = load i32, ptr %.0117.in, align 4
+  %.0119.in = select i1 %spec.select, ptr %2, ptr %3
+  %.0118.in = select i1 %spec.select, ptr %3, ptr %2
   %.0118 = load i32, ptr %.0118.in, align 4
-  %33 = shl nsw i32 %.0117, 5
+  %.0119 = load i32, ptr %.0119.in, align 4
+  %33 = shl nsw i32 %.0118, 5
   %34 = sitofp i32 %33 to double
   store double %34, ptr %10, align 8
   %35 = load i32, ptr %12, align 4
@@ -60,7 +60,7 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %45, label %.sink.split, label %46
 
 46:                                               ; preds = %43
-  store i32 %.0117, ptr %21, align 4
+  store i32 %.0118, ptr %21, align 4
   %47 = icmp sgt i32 %.fr127, 32
   br i1 %47, label %48, label %.thread
 
@@ -70,13 +70,13 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %50, label %51, label %.thread
 
 51:                                               ; preds = %48
-  %52 = sdiv i32 %49, %.0117
+  %52 = sdiv i32 %49, %.0118
   %53 = icmp slt i32 %52, 2
   br i1 %53, label %54, label %.thread
 
 .thread:                                          ; preds = %46, %48, %51
-  %.0119130 = phi i32 [ %52, %51 ], [ 32, %48 ], [ 32, %46 ]
-  %.not = icmp slt i32 %.0119130, %.fr127
+  %.0120130 = phi i32 [ %52, %51 ], [ 32, %48 ], [ 32, %46 ]
+  %.not = icmp slt i32 %.0120130, %.fr127
   br i1 %.not, label %55, label %54
 
 54:                                               ; preds = %.thread, %51
@@ -89,15 +89,15 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 56:                                               ; preds = %55
   %57 = add nsw i32 %.fr127, -1
-  %58 = urem i32 %57, %.0119130
+  %58 = urem i32 %57, %.0120130
   %59 = sub nsw i32 %.fr127, %58
-  %60 = sub nsw i32 0, %.0119130
+  %60 = sub nsw i32 0, %.0120130
   br label %61
 
 61:                                               ; preds = %55, %56
-  %.0122 = phi i32 [ %59, %56 ], [ 1, %55 ]
-  %.0121 = phi i32 [ 1, %56 ], [ %.fr127, %55 ]
-  %.0120 = phi i32 [ %60, %56 ], [ %.0119130, %55 ]
+  %.0123 = phi i32 [ %59, %56 ], [ 1, %55 ]
+  %.0122 = phi i32 [ 1, %56 ], [ %.fr127, %55 ]
+  %.0121 = phi i32 [ %60, %56 ], [ %.0120130, %55 ]
   switch i8 %26, label %63 [
     i8 108, label %62
     i8 76, label %62
@@ -112,32 +112,32 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %64
 
 64:                                               ; preds = %63, %62
-  %65 = icmp slt i32 %.0120, 0
+  %65 = icmp slt i32 %.0121, 0
   %invariant.gep = getelementptr i8, ptr %24, i64 8
-  %66 = icmp sge i32 %.0122, %.0121
-  %67 = icmp sle i32 %.0122, %.0121
+  %66 = icmp sge i32 %.0123, %.0122
+  %67 = icmp sle i32 %.0123, %.0122
   %68 = select i1 %65, i1 %66, i1 %67
   br i1 %68, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %64
-  %69 = add i32 %.0118, -1
+  %69 = add i32 %.0119, -1
   switch i8 %26, label %.lr.ph.split.preheader [
     i8 108, label %.lr.ph.split.us
     i8 76, label %.lr.ph.split.us
   ]
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %70 = sext i32 %.0122 to i64
-  %71 = sext i32 %.0120 to i64
-  %72 = zext nneg i32 %.0121 to i64
+  %70 = sext i32 %.0123 to i64
+  %71 = sext i32 %.0121 to i64
+  %72 = zext nneg i32 %.0122 to i64
   %73 = sext i32 %22 to i64
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph
-  %74 = sext i32 %.0122 to i64
-  %75 = sext i32 %.0120 to i64
+  %74 = sext i32 %.0123 to i64
+  %75 = sext i32 %.0121 to i64
   %76 = sext i32 %22 to i64
-  %77 = zext nneg i32 %.0121 to i64
+  %77 = zext nneg i32 %.0122 to i64
   br label %78
 
 78:                                               ; preds = %78, %.lr.ph.split.us
@@ -146,7 +146,7 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %80 = trunc nsw i64 %indvars.iv to i32
   %reass.sub = sub i32 %79, %80
   %81 = add i32 %reass.sub, 1
-  %82 = call i32 @llvm.smin.i32(i32 %.0119130, i32 %81)
+  %82 = call i32 @llvm.smin.i32(i32 %.0120130, i32 %81)
   store i32 %82, ptr %17, align 4
   %83 = add i32 %69, %80
   %84 = sub i32 %83, %79
@@ -177,7 +177,7 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %99 = trunc nsw i64 %indvars.iv138 to i32
   %reass.sub135 = sub i32 %98, %99
   %100 = add i32 %reass.sub135, 1
-  %101 = call i32 @llvm.smin.i32(i32 %.0119130, i32 %100)
+  %101 = call i32 @llvm.smin.i32(i32 %.0120130, i32 %100)
   store i32 %101, ptr %17, align 4
   %102 = add i32 %69, %99
   %103 = sub i32 %102, %98

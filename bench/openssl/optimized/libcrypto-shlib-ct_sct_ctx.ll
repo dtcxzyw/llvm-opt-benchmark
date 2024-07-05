@@ -346,8 +346,8 @@ if.then18:                                        ; preds = %if.end15
   br label %err
 
 err:                                              ; preds = %if.end15, %if.then18, %if.end12, %if.end8, %if.else, %entry
-  %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.end8 ], [ 0, %if.end12 ], [ 0, %if.else ], [ 1, %if.then18 ], [ 1, %if.end15 ]
   %md.1 = phi ptr [ null, %entry ], [ %md.0, %if.end8 ], [ %md.0, %if.end12 ], [ null, %if.else ], [ null, %if.then18 ], [ null, %if.end15 ]
+  %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.end8 ], [ 0, %if.end12 ], [ 0, %if.else ], [ 1, %if.then18 ], [ 1, %if.end15 ]
   call void @EVP_MD_free(ptr noundef %call) #3
   call void @CRYPTO_free(ptr noundef %md.1, ptr noundef nonnull @.str, i32 noundef 240) #3
   %4 = load ptr, ptr %der, align 8

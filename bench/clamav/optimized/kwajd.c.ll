@@ -623,8 +623,8 @@ lzh_free.exit:                                    ; preds = %63, %58, %.split66,
   br label %76
 
 76:                                               ; preds = %3, %lzh_free.exit, %23, %17, %5
-  %.065 = phi i32 [ 5, %17 ], [ %75, %lzh_free.exit ], [ 2, %23 ], [ 1, %5 ], [ 1, %3 ]
-  ret i32 %.065
+  %.0 = phi i32 [ 5, %17 ], [ %75, %lzh_free.exit ], [ 2, %23 ], [ 1, %5 ], [ 1, %3 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

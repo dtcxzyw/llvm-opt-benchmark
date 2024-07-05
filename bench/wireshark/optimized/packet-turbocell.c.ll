@@ -206,17 +206,17 @@ define internal i32 @dissect_turbocell(ptr noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph:                                           ; preds = %48, %69
   %65 = phi i32 [ %74, %69 ], [ 52, %48 ]
-  %.0121129 = phi i32 [ %72, %69 ], [ 0, %48 ]
+  %.0117129 = phi i32 [ %72, %69 ], [ 0, %48 ]
   %66 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %65) #3
   %67 = icmp sgt i32 %66, 6
-  %68 = icmp ult i32 %.0121129, 32
+  %68 = icmp ult i32 %.0117129, 32
   %or.cond = and i1 %68, %67
   br i1 %or.cond, label %69, label %.critedge
 
 69:                                               ; preds = %.lr.ph
   %70 = load i32, ptr @hf_turbocell_station, align 4
   %71 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %70, ptr noundef %0, i32 noundef %65, i32 noundef 6, i32 noundef 0) #3
-  %72 = add nuw nsw i32 %.0121129, 1
+  %72 = add nuw nsw i32 %.0117129, 1
   %73 = shl nuw nsw i32 %72, 3
   %74 = add nuw nsw i32 %73, 52
   %75 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %74) #3
@@ -246,10 +246,10 @@ define internal i32 @dissect_turbocell(ptr noundef %0, ptr noundef %1, ptr nound
   br label %93
 
 93:                                               ; preds = %97, %79
-  %.0119 = phi i32 [ %92, %79 ], [ %118, %97 ]
-  %.0118 = phi i32 [ 4, %79 ], [ %117, %97 ]
-  %.0117 = phi i16 [ 1, %79 ], [ %105, %97 ]
-  %94 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %82, i32 noundef %.0118) #3
+  %.0120 = phi i32 [ %92, %79 ], [ %118, %97 ]
+  %.0119 = phi i32 [ 4, %79 ], [ %117, %97 ]
+  %.0118 = phi i16 [ 1, %79 ], [ %105, %97 ]
+  %94 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %82, i32 noundef %.0119) #3
   %95 = and i16 %94, 4095
   %96 = icmp eq i16 %95, 0
   br i1 %96, label %120, label %97
@@ -258,18 +258,18 @@ define internal i32 @dissect_turbocell(ptr noundef %0, ptr noundef %1, ptr nound
   %98 = zext nneg i16 %95 to i32
   %99 = load i32, ptr @hf_turbocell_aggregate_msdu_header_text, align 4
   %100 = add nuw nsw i32 %98, 2
-  %101 = zext i16 %.0117 to i32
-  %102 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %87, i32 noundef %99, ptr noundef %82, i32 noundef %.0118, i32 noundef %100, i32 noundef %101, ptr noundef nonnull @.str.57, i32 noundef %101) #3
+  %101 = zext i16 %.0118 to i32
+  %102 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %87, i32 noundef %99, ptr noundef %82, i32 noundef %.0119, i32 noundef %100, i32 noundef %101, ptr noundef nonnull @.str.57, i32 noundef %101) #3
   %103 = load i32, ptr @ett_msdu_aggregation_subframe_tree, align 4
   %104 = tail call ptr @proto_item_add_subtree(ptr noundef %102, i32 noundef %103) #3
-  %105 = add i16 %.0117, 1
+  %105 = add i16 %.0118, 1
   %106 = load i32, ptr @hf_turbocell_aggregate_msdu_len, align 4
-  %107 = tail call ptr @proto_tree_add_item(ptr noundef %104, i32 noundef %106, ptr noundef %82, i32 noundef %.0118, i32 noundef 2, i32 noundef -2147483648) #3
+  %107 = tail call ptr @proto_tree_add_item(ptr noundef %104, i32 noundef %106, ptr noundef %82, i32 noundef %.0119, i32 noundef 2, i32 noundef -2147483648) #3
   %108 = load i32, ptr @hf_turbocell_aggregate_unknown2, align 4
-  %109 = add i32 %.0118, 1
+  %109 = add i32 %.0119, 1
   %110 = tail call ptr @proto_tree_add_item(ptr noundef %104, i32 noundef %108, ptr noundef %82, i32 noundef %109, i32 noundef 1, i32 noundef 0) #3
-  %111 = add i32 %.0118, 2
-  %112 = add i32 %.0119, -2
+  %111 = add i32 %.0119, 2
+  %112 = add i32 %.0120, -2
   %113 = tail call i32 @llvm.smin.i32(i32 %112, i32 %98)
   %114 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %82, i32 noundef %111, i32 noundef %113, i32 noundef %98) #3
   %115 = load ptr, ptr @eth_handle, align 8
@@ -280,9 +280,9 @@ define internal i32 @dissect_turbocell(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %119, label %93, label %120, !llvm.loop !6
 
 120:                                              ; preds = %93, %97
-  %.1120 = phi i32 [ %.0119, %93 ], [ %118, %97 ]
-  %.1 = phi i32 [ %.0118, %93 ], [ %117, %97 ]
-  %121 = icmp sgt i32 %.1120, 2
+  %.1121 = phi i32 [ %.0120, %93 ], [ %118, %97 ]
+  %.1 = phi i32 [ %.0119, %93 ], [ %117, %97 ]
+  %121 = icmp sgt i32 %.1121, 2
   br i1 %121, label %122, label %125
 
 122:                                              ; preds = %120

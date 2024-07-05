@@ -670,7 +670,7 @@ define i32 @kinLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 32:                                               ; preds = %30, %18
   %33 = phi ptr [ %.pre80, %30 ], [ %27, %18 ]
   %34 = phi ptr [ %.pre, %30 ], [ %25, %18 ]
-  %.0 = phi double [ %31, %30 ], [ 0.000000e+00, %18 ]
+  %.065 = phi double [ %31, %30 ], [ 0.000000e+00, %18 ]
   %35 = getelementptr inbounds i8, ptr %33, i64 72
   %36 = load ptr, ptr %35, align 8
   %.not71 = icmp eq ptr %36, null
@@ -681,17 +681,17 @@ define i32 @kinLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   br label %39
 
 39:                                               ; preds = %37, %32
-  %.065 = phi i32 [ %38, %37 ], [ 0, %32 ]
+  %.066 = phi i32 [ %38, %37 ], [ 0, %32 ]
   %40 = load i32, ptr %7, align 8
   %.not72 = icmp eq i32 %40, 0
   br i1 %.not72, label %42, label %41
 
 41:                                               ; preds = %39
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 101, ptr noundef nonnull @.str.33, ptr noundef nonnull @__func__.kinLsSolve, ptr noundef nonnull @.str.34, i32 noundef %.065) #12
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 101, ptr noundef nonnull @.str.33, ptr noundef nonnull @__func__.kinLsSolve, ptr noundef nonnull @.str.34, i32 noundef %.066) #12
   br label %42
 
 42:                                               ; preds = %41, %39
-  %43 = sext i32 %.065 to i64
+  %43 = sext i32 %.066 to i64
   %44 = getelementptr inbounds i8, ptr %7, i64 80
   %45 = load i64, ptr %44, align 8
   %46 = add nsw i64 %45, %43
@@ -815,12 +815,12 @@ define i32 @kinLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 
 95:                                               ; preds = %92
   %96 = load double, ptr %11, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 102, ptr noundef nonnull @.str.33, ptr noundef nonnull @__func__.kinLsSolve, ptr noundef nonnull @.str.38, double noundef %.0, double noundef %96) #12
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr noundef nonnull %0, i32 noundef 102, ptr noundef nonnull @.str.33, ptr noundef nonnull @__func__.kinLsSolve, ptr noundef nonnull @.str.38, double noundef %.065, double noundef %96) #12
   br label %97
 
 97:                                               ; preds = %92, %95, %48, %48, %10, %75, %72, %57, %9
-  %.066 = phi i32 [ -2, %9 ], [ %24, %57 ], [ 1, %72 ], [ -1, %75 ], [ -1, %10 ], [ 1, %48 ], [ 1, %48 ], [ 0, %95 ], [ 0, %92 ]
-  ret i32 %.066
+  %.0 = phi i32 [ -2, %9 ], [ %24, %57 ], [ 1, %72 ], [ -1, %75 ], [ -1, %10 ], [ 1, %48 ], [ 1, %48 ], [ 0, %95 ], [ 0, %92 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1945,28 +1945,28 @@ define i32 @kinLsBandDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge113, %.lr.ph117
-  %.091115 = phi i64 [ 1, %.lr.ph117 ], [ %74, %._crit_edge113 ]
-  %26 = add nsw i64 %.091115, -1
+  %.090115 = phi i64 [ 1, %.lr.ph117 ], [ %74, %._crit_edge113 ]
+  %26 = add nsw i64 %.090115, -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0105 = phi i64 [ %40, %.lr.ph ], [ %26, %.lr.ph.preheader ]
+  %.092105 = phi i64 [ %40, %.lr.ph ], [ %26, %.lr.ph.preheader ]
   %27 = load double, ptr %22, align 8
-  %28 = getelementptr inbounds double, ptr %14, i64 %.0105
+  %28 = getelementptr inbounds double, ptr %14, i64 %.092105
   %29 = load double, ptr %28, align 8
   %30 = tail call double @llvm.fabs.f64(double %29)
-  %31 = getelementptr inbounds double, ptr %17, i64 %.0105
+  %31 = getelementptr inbounds double, ptr %17, i64 %.092105
   %32 = load double, ptr %31, align 8
   %33 = tail call double @llvm.fabs.f64(double %32)
   %34 = fdiv double 1.000000e+00, %33
   %35 = fcmp ogt double %30, %34
   %. = select i1 %35, double %30, double %34
   %36 = fmul double %27, %.
-  %37 = getelementptr inbounds double, ptr %18, i64 %.0105
+  %37 = getelementptr inbounds double, ptr %18, i64 %.092105
   %38 = load double, ptr %37, align 8
   %39 = fadd double %38, %36
   store double %39, ptr %37, align 8
-  %40 = add nsw i64 %.0105, %20
+  %40 = add nsw i64 %.092105, %20
   %41 = icmp slt i64 %40, %9
   br i1 %41, label %.lr.ph, label %._crit_edge
 
@@ -2003,18 +2003,18 @@ define i32 @kinLsBandDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br i1 %.not103106, label %._crit_edge110, label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %.lr.ph112, %.lr.ph109
-  %.090107 = phi i64 [ %71, %.lr.ph109 ], [ %60, %.lr.ph112 ]
-  %63 = getelementptr inbounds double, ptr %13, i64 %.090107
+  %.091107 = phi i64 [ %71, %.lr.ph109 ], [ %60, %.lr.ph112 ]
+  %63 = getelementptr inbounds double, ptr %13, i64 %.091107
   %64 = load double, ptr %63, align 8
-  %65 = getelementptr inbounds double, ptr %12, i64 %.090107
+  %65 = getelementptr inbounds double, ptr %12, i64 %.091107
   %66 = load double, ptr %65, align 8
   %67 = fsub double %64, %66
   %68 = fmul double %58, %67
-  %69 = sub nsw i64 %.090107, %.1111
+  %69 = sub nsw i64 %.091107, %.1111
   %70 = getelementptr inbounds double, ptr %48, i64 %69
   store double %68, ptr %70, align 8
-  %71 = add nuw nsw i64 %.090107, 1
-  %.not103.not = icmp slt i64 %.090107, %62
+  %71 = add nuw nsw i64 %.091107, 1
+  %.not103.not = icmp slt i64 %.091107, %62
   br i1 %.not103.not, label %.lr.ph109, label %._crit_edge110
 
 ._crit_edge110:                                   ; preds = %.lr.ph109, %.lr.ph112
@@ -2023,8 +2023,8 @@ define i32 @kinLsBandDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br i1 %73, label %.lr.ph112, label %._crit_edge113
 
 ._crit_edge113:                                   ; preds = %._crit_edge110
-  %74 = add nuw i64 %.091115, 1
-  %exitcond.not = icmp eq i64 %.091115, %21
+  %74 = add nuw i64 %.090115, 1
+  %exitcond.not = icmp eq i64 %.090115, %21
   br i1 %exitcond.not, label %._crit_edge118, label %.lr.ph.preheader
 
 ._crit_edge118:                                   ; preds = %._crit_edge113, %6
@@ -2035,8 +2035,8 @@ define i32 @kinLsBandDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge118
-  %.092 = phi i32 [ 0, %._crit_edge118 ], [ %44, %._crit_edge ]
-  ret i32 %.092
+  %.0 = phi i32 [ 0, %._crit_edge118 ], [ %44, %._crit_edge ]
+  ret i32 %.0
 }
 
 declare i64 @SUNDenseMatrix_Columns(ptr noundef) local_unnamed_addr #1

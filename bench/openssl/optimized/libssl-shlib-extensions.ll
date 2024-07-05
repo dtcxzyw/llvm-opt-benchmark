@@ -987,9 +987,9 @@ for.cond.preheader:                               ; preds = %if.end26
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %thisexd.036 = phi ptr [ @ext_defs, %for.cond.preheader ], [ %incdec.ptr, %for.inc ]
-  %i.035 = phi i64 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
-  %context33 = getelementptr inbounds i8, ptr %thisexd.036, i64 4
+  %i.036 = phi i64 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
+  %thisexd.035 = phi ptr [ @ext_defs, %for.cond.preheader ], [ %incdec.ptr, %for.inc ]
+  %context33 = getelementptr inbounds i8, ptr %thisexd.035, i64 4
   %2 = load i32, ptr %context33, align 4
   %3 = load i32, ptr %max_version, align 4
   %and.i = and i32 %2, %context
@@ -1071,7 +1071,7 @@ land.lhs.true5.i:                                 ; preds = %lor.lhs.false.i
 
 if.end37:                                         ; preds = %land.lhs.true5.i, %lor.lhs.false.i
   %cond.in.v = select i1 %tobool37.i.i, i64 40, i64 32
-  %cond.in = getelementptr inbounds i8, ptr %thisexd.036, i64 %cond.in.v
+  %cond.in = getelementptr inbounds i8, ptr %thisexd.035, i64 %cond.in.v
   %cond = load ptr, ptr %cond.in, align 8
   %cmp39 = icmp eq ptr %cond, null
   br i1 %cmp39, label %for.inc, label %if.end42
@@ -1087,15 +1087,15 @@ land.lhs.true50:                                  ; preds = %if.end42
   br i1 %cmp52.not, label %for.inc, label %if.then54
 
 if.then54:                                        ; preds = %land.lhs.true50
-  %arrayidx = getelementptr inbounds [29 x i8], ptr %ext, i64 0, i64 %i.035
+  %arrayidx = getelementptr inbounds [29 x i8], ptr %ext, i64 0, i64 %i.036
   %12 = load i8, ptr %arrayidx, align 1
   %13 = or i8 %12, 2
   store i8 %13, ptr %arrayidx, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i.i, %lor.lhs.false.i.i, %lor.lhs.false23.i.i, %lor.lhs.false28.i.i, %lor.lhs.false36.i.i, %extension_is_relevant.exit.i, %land.lhs.true5.i, %for.body, %if.end42, %land.lhs.true50, %if.then54, %if.end37
-  %inc = add nuw nsw i64 %i.035, 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %thisexd.036, i64 56
+  %inc = add nuw nsw i64 %i.036, 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %thisexd.035, i64 56
   %exitcond.not = icmp eq i64 %inc, 29
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
@@ -1406,9 +1406,9 @@ if.then150:                                       ; preds = %if.else145
   br label %err
 
 err:                                              ; preds = %if.end142, %if.then150, %if.else145, %if.end56, %if.end50, %if.end18, %if.then141, %if.then117, %if.then111, %if.then100, %if.then93, %if.then74, %if.then66, %if.then49, %if.then
-  %mackey.0 = phi ptr [ null, %if.then49 ], [ null, %if.then66 ], [ null, %if.then74 ], [ null, %if.then100 ], [ null, %if.then111 ], [ null, %if.then117 ], [ %call114, %if.then141 ], [ %call114, %if.else145 ], [ %call114, %if.then150 ], [ null, %if.then93 ], [ null, %if.end56 ], [ null, %if.end50 ], [ null, %if.end18 ], [ null, %if.then ], [ %call114, %if.end142 ]
   %mctx.0 = phi ptr [ %call37, %if.then49 ], [ %call37, %if.then66 ], [ %call37, %if.then74 ], [ %call37, %if.then100 ], [ %call37, %if.then111 ], [ %call37, %if.then117 ], [ %call37, %if.then141 ], [ %call37, %if.else145 ], [ %call37, %if.then150 ], [ %call37, %if.then93 ], [ %call37, %if.end56 ], [ %call37, %if.end50 ], [ null, %if.end18 ], [ null, %if.then ], [ %call37, %if.end142 ]
   %ret.0 = phi i32 [ -1, %if.then49 ], [ -1, %if.then66 ], [ -1, %if.then74 ], [ -1, %if.then100 ], [ -1, %if.then111 ], [ -1, %if.then117 ], [ -1, %if.then141 ], [ 1, %if.else145 ], [ 0, %if.then150 ], [ -1, %if.then93 ], [ -1, %if.end56 ], [ -1, %if.end50 ], [ -1, %if.end18 ], [ -1, %if.then ], [ 1, %if.end142 ]
+  %mackey.0 = phi ptr [ null, %if.then49 ], [ null, %if.then66 ], [ null, %if.then74 ], [ null, %if.then100 ], [ null, %if.then111 ], [ null, %if.then117 ], [ %call114, %if.then141 ], [ %call114, %if.else145 ], [ %call114, %if.then150 ], [ null, %if.then93 ], [ null, %if.end56 ], [ null, %if.end50 ], [ null, %if.end18 ], [ null, %if.then ], [ %call114, %if.end142 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %binderkey, i64 noundef 64) #8
   call void @OPENSSL_cleanse(ptr noundef nonnull %finishedkey, i64 noundef 64) #8
   call void @EVP_PKEY_free(ptr noundef %mackey.0) #8

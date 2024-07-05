@@ -50,9 +50,9 @@ if.then9:                                         ; preds = %if.then
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then, %if.then9, %entry
-  %sizedbg.0 = phi i32 [ 0, %entry ], [ %call.i96, %if.then9 ], [ 0, %if.then ]
   %firstline.0 = phi i32 [ 0, %entry ], [ %call.i92, %if.then9 ], [ 0, %if.then ]
   %numline.0 = phi i32 [ 0, %entry ], [ %call.i, %if.then9 ], [ 0, %if.then ]
+  %sizedbg.0 = phi i32 [ 0, %entry ], [ %call.i96, %if.then9 ], [ 0, %if.then ]
   %mul = shl i32 %add, 2
   %mul14 = shl i32 %call.i108, 3
   %add15 = add i32 %mul14, 111

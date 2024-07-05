@@ -45,8 +45,8 @@ for.body14.preheader:                             ; preds = %for.cond11.preheade
 
 for.body14:                                       ; preds = %for.body14.preheader, %for.body14
   %indvars.iv = phi i64 [ 1, %for.body14.preheader ], [ %indvars.iv.next, %for.body14 ]
-  %i1.0303 = phi i32 [ 0, %for.body14.preheader ], [ %spec.select, %for.body14 ]
-  %mul15 = mul nsw i32 %i1.0303, %column_count
+  %i1.0302 = phi i32 [ 0, %for.body14.preheader ], [ %spec.select, %for.body14 ]
+  %mul15 = mul nsw i32 %i1.0302, %column_count
   %2 = sext i32 %mul15 to i64
   %arrayidx = getelementptr i32, ptr %1, i64 %2
   %3 = load i32, ptr %arrayidx, align 4
@@ -55,7 +55,7 @@ for.body14:                                       ; preds = %for.body14.preheade
   %5 = load i32, ptr %gep, align 4
   %cmp20 = icmp sgt i32 %3, %5
   %6 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %cmp20, i32 %6, i32 %i1.0303
+  %spec.select = select i1 %cmp20, i32 %6, i32 %i1.0302
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body14, !llvm.loop !5
@@ -235,7 +235,7 @@ if.else183.us.us:                                 ; preds = %for.cond147.for.end
   br i1 %cmp184.us.us, label %if.end190.thread281.us.us, label %if.end205.us.us
 
 if.end190.thread281.us.us:                        ; preds = %if.else183.us.us
-  %idxprom187.us.us = sext i32 %spec.select264.us.us to i64
+  %idxprom187.us.us = sext i32 %spec.select263.us.us to i64
   %arrayidx188.us.us = getelementptr inbounds i32, ptr %column2row, i64 %idxprom187.us.us
   %25 = load i32, ptr %arrayidx188.us.us, align 4
   %cmp191284.us.us = icmp sgt i32 %25, -1
@@ -249,7 +249,7 @@ if.else200.us.us:                                 ; preds = %if.end190.thread281
   br label %if.end205.us.us
 
 if.end190.us.us:                                  ; preds = %for.cond147.for.end169_crit_edge.us.us
-  %sub179.neg.us.us = sub i32 %u1.1.us.us, %spec.select263.us.us
+  %sub179.neg.us.us = sub i32 %u1.1.us.us, %spec.select264.us.us
   %arrayidx181.us.us = getelementptr inbounds i32, ptr %call8, i64 %idxprom174.us.us
   %26 = load i32, ptr %arrayidx181.us.us, align 4
   %sub182.us.us = add i32 %sub179.neg.us.us, %26
@@ -263,7 +263,7 @@ if.then196.us.us:                                 ; preds = %if.end190.us.us
 
 if.end205.us.us:                                  ; preds = %if.then196.us.us, %if.end190.us.us, %if.else200.us.us, %if.end190.thread281.us.us, %if.else183.us.us
   %idxprom208.us.us.pre-phi = phi i64 [ %idxprom174.us.us, %if.then196.us.us ], [ %idxprom174.us.us, %if.end190.us.us ], [ %idxprom187.us.us, %if.else200.us.us ], [ %idxprom187.us.us, %if.end190.thread281.us.us ], [ %idxprom174.us.us, %if.else183.us.us ]
-  %j1136.2280.us.us = phi i32 [ %j1136.1.us.us, %if.then196.us.us ], [ %j1136.1.us.us, %if.end190.us.us ], [ %spec.select264.us.us, %if.else200.us.us ], [ %spec.select264.us.us, %if.end190.thread281.us.us ], [ %j1136.1.us.us, %if.else183.us.us ]
+  %j1136.2280.us.us = phi i32 [ %j1136.1.us.us, %if.then196.us.us ], [ %j1136.1.us.us, %if.end190.us.us ], [ %spec.select263.us.us, %if.else200.us.us ], [ %spec.select263.us.us, %if.end190.thread281.us.us ], [ %j1136.1.us.us, %if.else183.us.us ]
   %k.1.us.us = phi i32 [ %k.0325.us.us, %if.then196.us.us ], [ %inc137.us.us, %if.end190.us.us ], [ %inc137.us.us, %if.else200.us.us ], [ %inc137.us.us, %if.end190.thread281.us.us ], [ %inc137.us.us, %if.else183.us.us ]
   %free_count.4.us.us = phi i32 [ %free_count.3326.us.us, %if.then196.us.us ], [ %free_count.3326.us.us, %if.end190.us.us ], [ %inc201.us.us, %if.else200.us.us ], [ %free_count.3326.us.us, %if.end190.thread281.us.us ], [ %free_count.3326.us.us, %if.else183.us.us ]
   %idxprom206.us.us = sext i32 %22 to i64
@@ -276,32 +276,32 @@ if.end205.us.us:                                  ; preds = %if.then196.us.us, %
 
 for.body150.us.us:                                ; preds = %for.inc167.us.us, %while.body.us.us
   %indvars.iv383 = phi i64 [ %indvars.iv.next384, %for.inc167.us.us ], [ 1, %while.body.us.us ]
-  %j2.0319.us.us = phi i32 [ %j2.1.us.us, %for.inc167.us.us ], [ -1, %while.body.us.us ]
-  %j1136.0318.us.us = phi i32 [ %j1136.1.us.us, %for.inc167.us.us ], [ 0, %while.body.us.us ]
-  %u2.0317.us.us = phi i32 [ %u2.1.us.us, %for.inc167.us.us ], [ 2147483647, %while.body.us.us ]
-  %u1.0316.us.us = phi i32 [ %u1.1.us.us, %for.inc167.us.us ], [ %sub146.us.us, %while.body.us.us ]
+  %u1.0319.us.us = phi i32 [ %u1.1.us.us, %for.inc167.us.us ], [ %sub146.us.us, %while.body.us.us ]
+  %u2.0318.us.us = phi i32 [ %u2.1.us.us, %for.inc167.us.us ], [ 2147483647, %while.body.us.us ]
+  %j2.0317.us.us = phi i32 [ %j2.1.us.us, %for.inc167.us.us ], [ -1, %while.body.us.us ]
+  %j1136.0316.us.us = phi i32 [ %j1136.1.us.us, %for.inc167.us.us ], [ 0, %while.body.us.us ]
   %gep436 = getelementptr i32, ptr %invariant.gep435, i64 %indvars.iv383
   %27 = load i32, ptr %gep436, align 4
   %arrayidx156.us.us = getelementptr inbounds i32, ptr %call8, i64 %indvars.iv383
   %28 = load i32, ptr %arrayidx156.us.us, align 4
   %sub157.us.us = sub nsw i32 %27, %28
-  %cmp158.us.us = icmp sgt i32 %u2.0317.us.us, %sub157.us.us
+  %cmp158.us.us = icmp sgt i32 %u2.0318.us.us, %sub157.us.us
   br i1 %cmp158.us.us, label %if.then160.us.us, label %for.inc167.us.us
 
 if.then160.us.us:                                 ; preds = %for.body150.us.us
-  %cmp161.us.us = icmp slt i32 %u1.0316.us.us, %sub157.us.us
-  %u1.0.sub157.us.us = tail call i32 @llvm.smin.i32(i32 %u1.0316.us.us, i32 %sub157.us.us)
-  %sub157.u1.0.us.us = tail call i32 @llvm.smax.i32(i32 %u1.0316.us.us, i32 %sub157.us.us)
+  %cmp161.us.us = icmp slt i32 %u1.0319.us.us, %sub157.us.us
   %29 = trunc nuw nsw i64 %indvars.iv383 to i32
-  %j1136.0.j.2.us.us = select i1 %cmp161.us.us, i32 %j1136.0318.us.us, i32 %29
-  %j.2.j1136.0.us.us = select i1 %cmp161.us.us, i32 %29, i32 %j1136.0318.us.us
+  %j1136.0.j.2.us.us = select i1 %cmp161.us.us, i32 %j1136.0316.us.us, i32 %29
+  %j.2.j1136.0.us.us = select i1 %cmp161.us.us, i32 %29, i32 %j1136.0316.us.us
+  %sub157.u1.0.us.us = tail call i32 @llvm.smax.i32(i32 %u1.0319.us.us, i32 %sub157.us.us)
+  %u1.0.sub157.us.us = tail call i32 @llvm.smin.i32(i32 %u1.0319.us.us, i32 %sub157.us.us)
   br label %for.inc167.us.us
 
 for.inc167.us.us:                                 ; preds = %if.then160.us.us, %for.body150.us.us
-  %u1.1.us.us = phi i32 [ %u1.0316.us.us, %for.body150.us.us ], [ %u1.0.sub157.us.us, %if.then160.us.us ]
-  %u2.1.us.us = phi i32 [ %u2.0317.us.us, %for.body150.us.us ], [ %sub157.u1.0.us.us, %if.then160.us.us ]
-  %j1136.1.us.us = phi i32 [ %j1136.0318.us.us, %for.body150.us.us ], [ %j1136.0.j.2.us.us, %if.then160.us.us ]
-  %j2.1.us.us = phi i32 [ %j2.0319.us.us, %for.body150.us.us ], [ %j.2.j1136.0.us.us, %if.then160.us.us ]
+  %j1136.1.us.us = phi i32 [ %j1136.0316.us.us, %for.body150.us.us ], [ %j1136.0.j.2.us.us, %if.then160.us.us ]
+  %j2.1.us.us = phi i32 [ %j2.0317.us.us, %for.body150.us.us ], [ %j.2.j1136.0.us.us, %if.then160.us.us ]
+  %u2.1.us.us = phi i32 [ %u2.0318.us.us, %for.body150.us.us ], [ %sub157.u1.0.us.us, %if.then160.us.us ]
+  %u1.1.us.us = phi i32 [ %u1.0319.us.us, %for.body150.us.us ], [ %u1.0.sub157.us.us, %if.then160.us.us ]
   %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
   %exitcond388.not = icmp eq i64 %indvars.iv.next384, %wide.trip.count387
   br i1 %exitcond388.not, label %for.cond147.for.end169_crit_edge.us.us, label %for.body150.us.us, !llvm.loop !12
@@ -309,12 +309,12 @@ for.inc167.us.us:                                 ; preds = %if.then160.us.us, %
 for.cond147.for.end169_crit_edge.us.us:           ; preds = %for.inc167.us.us
   %inc137.us.us = add nsw i32 %k.0325.us.us, 1
   %cmp170.us.us = icmp slt i32 %j2.1.us.us, 0
-  %spec.select263.us.us = select i1 %cmp170.us.us, i32 %u1.1.us.us, i32 %u2.1.us.us
-  %spec.select264.us.us = select i1 %cmp170.us.us, i32 %j1136.1.us.us, i32 %j2.1.us.us
+  %spec.select263.us.us = select i1 %cmp170.us.us, i32 %j1136.1.us.us, i32 %j2.1.us.us
+  %spec.select264.us.us = select i1 %cmp170.us.us, i32 %u1.1.us.us, i32 %u2.1.us.us
   %idxprom174.us.us = sext i32 %j1136.1.us.us to i64
   %arrayidx175.us.us = getelementptr inbounds i32, ptr %column2row, i64 %idxprom174.us.us
   %30 = load i32, ptr %arrayidx175.us.us, align 4
-  %cmp176.us.us = icmp slt i32 %u1.1.us.us, %spec.select263.us.us
+  %cmp176.us.us = icmp slt i32 %u1.1.us.us, %spec.select264.us.us
   br i1 %cmp176.us.us, label %if.end190.us.us, label %if.else183.us.us
 
 if.then128:                                       ; preds = %for.end122

@@ -1371,19 +1371,19 @@ define internal fastcc void @dissect_t30_partial_page_request(ptr noundef %0, pt
   br label %49
 
 14:                                               ; preds = %.preheader, %33
-  %.04366 = phi ptr [ %7, %.preheader ], [ %.2, %33 ]
-  %.04465 = phi i32 [ 0, %.preheader ], [ %16, %33 ]
-  %.04664 = phi i32 [ 0, %.preheader ], [ %.248, %33 ]
-  %.04963 = phi i32 [ 3, %.preheader ], [ %34, %33 ]
-  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.04963) #7
-  %16 = add nuw nsw i32 %.04465, 8
+  %.04366 = phi i32 [ 3, %.preheader ], [ %34, %33 ]
+  %.04465 = phi ptr [ %7, %.preheader ], [ %.2, %33 ]
+  %.04564 = phi i32 [ 0, %.preheader ], [ %.247, %33 ]
+  %.04863 = phi i32 [ 0, %.preheader ], [ %16, %33 ]
+  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.04366) #7
+  %16 = add nuw nsw i32 %.04863, 8
   br label %17
 
 17:                                               ; preds = %14, %30
   %.062 = phi i8 [ -128, %14 ], [ %31, %30 ]
-  %.161 = phi ptr [ %.04366, %14 ], [ %.2, %30 ]
-  %.14560 = phi i32 [ %.04465, %14 ], [ %32, %30 ]
-  %.14759 = phi i32 [ %.04664, %14 ], [ %.248, %30 ]
+  %.161 = phi ptr [ %.04465, %14 ], [ %.2, %30 ]
+  %.14660 = phi i32 [ %.04564, %14 ], [ %.247, %30 ]
+  %.14959 = phi i32 [ %.04863, %14 ], [ %32, %30 ]
   %18 = and i8 %.062, %15
   %.not52 = icmp eq i8 %18, 0
   br i1 %.not52, label %30, label %19
@@ -1399,29 +1399,29 @@ define internal fastcc void @dissect_t30_partial_page_request(ptr noundef %0, pt
   unreachable
 
 24:                                               ; preds = %19
-  %25 = add i32 %.14759, 1
+  %25 = add i32 %.14660, 1
   %26 = sub i64 1171, %21
-  %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.161, i64 noundef %26, ptr noundef nonnull @.str.410, i32 noundef %.14560) #7
+  %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.161, i64 noundef %26, ptr noundef nonnull @.str.410, i32 noundef %.14959) #7
   %28 = sext i32 %27 to i64
   %29 = getelementptr i8, ptr %.161, i64 %28
   br label %30
 
 30:                                               ; preds = %24, %17
-  %.248 = phi i32 [ %25, %24 ], [ %.14759, %17 ]
+  %.247 = phi i32 [ %25, %24 ], [ %.14660, %17 ]
   %.2 = phi ptr [ %29, %24 ], [ %.161, %17 ]
   %31 = lshr i8 %.062, 1
-  %32 = add i32 %.14560, 1
+  %32 = add i32 %.14959, 1
   %exitcond = icmp eq i32 %32, %16
   br i1 %exitcond, label %33, label %17, !llvm.loop !6
 
 33:                                               ; preds = %30
-  %34 = add i32 %.04963, 1
-  %35 = icmp ult i32 %.04465, 247
+  %34 = add i32 %.04366, 1
+  %35 = icmp ult i32 %.04863, 247
   br i1 %35, label %14, label %36, !llvm.loop !7
 
 36:                                               ; preds = %33
   %37 = load i32, ptr @hf_t30_partial_page_request_frame_count, align 4
-  %38 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %37, ptr noundef %0, i32 noundef %34, i32 noundef 1, i32 noundef %.248) #7
+  %38 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %37, ptr noundef %0, i32 noundef %34, i32 noundef 1, i32 noundef %.247) #7
   %39 = getelementptr i8, ptr %7, i64 1
   %40 = icmp ugt ptr %.2, %39
   br i1 %40, label %41, label %46
@@ -1430,14 +1430,14 @@ define internal fastcc void @dissect_t30_partial_page_request(ptr noundef %0, pt
   %42 = getelementptr i8, ptr %.2, i64 -2
   store i8 0, ptr %42, align 1
   %43 = load i32, ptr @hf_t30_partial_page_request_frames, align 4
-  %44 = add i32 %.04963, -2
+  %44 = add i32 %.04366, -2
   %45 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %3, i32 noundef %43, ptr noundef %0, i32 noundef 3, i32 noundef %44, ptr noundef %7, ptr noundef nonnull @.str.411, ptr noundef %7) #7
   br label %46
 
 46:                                               ; preds = %41, %36
   %47 = getelementptr inbounds i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef nonnull @.str.412, i32 noundef %.248) #7
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef nonnull @.str.412, i32 noundef %.247) #7
   br label %49
 
 49:                                               ; preds = %46, %9

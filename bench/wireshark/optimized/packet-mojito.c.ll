@@ -542,19 +542,19 @@ dissect_mojito_store_response.exit:               ; preds = %162, %144
   br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i59
 
 .lr.ph.i59:                                       ; preds = %197, %.lr.ph.i59
-  %.02.i60 = phi i8 [ %213, %.lr.ph.i59 ], [ 0, %197 ]
-  %.0241.i = phi i32 [ %212, %.lr.ph.i59 ], [ %209, %197 ]
+  %.02.i60 = phi i32 [ %212, %.lr.ph.i59 ], [ %209, %197 ]
+  %.0241.i = phi i8 [ %213, %.lr.ph.i59 ], [ 0, %197 ]
   %210 = load i32, ptr @hf_mojito_kuid, align 4
-  %211 = call ptr @proto_tree_add_item(ptr noundef %206, i32 noundef %210, ptr noundef %0, i32 noundef %.0241.i, i32 noundef 20, i32 noundef 0) #3
-  %212 = add i32 %.0241.i, 20
-  %213 = add nuw i8 %.02.i60, 1
+  %211 = call ptr @proto_tree_add_item(ptr noundef %206, i32 noundef %210, ptr noundef %0, i32 noundef %.02.i60, i32 noundef 20, i32 noundef 0) #3
+  %212 = add i32 %.02.i60, 20
+  %213 = add nuw i8 %.0241.i, 1
   %exitcond.not.i61 = icmp eq i8 %213, %201
   br i1 %exitcond.not.i61, label %._crit_edge.i, label %.lr.ph.i59, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i59, %197
-  %.024.lcssa.i = phi i32 [ %209, %197 ], [ %212, %.lr.ph.i59 ]
+  %.0.lcssa.i = phi i32 [ %209, %197 ], [ %212, %.lr.ph.i59 ]
   %214 = load i32, ptr @hf_mojito_dhtvaluetype, align 4
-  %215 = call ptr @proto_tree_add_item(ptr noundef nonnull %76, i32 noundef %214, ptr noundef %0, i32 noundef %.024.lcssa.i, i32 noundef 4, i32 noundef 0) #3
+  %215 = call ptr @proto_tree_add_item(ptr noundef nonnull %76, i32 noundef %214, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef 4, i32 noundef 0) #3
   br label %dissect_mojito_find_node_response.exit
 
 216:                                              ; preds = %72
@@ -575,16 +575,16 @@ dissect_mojito_store_response.exit:               ; preds = %162, %144
 
 .lr.ph.i65:                                       ; preds = %229, %.lr.ph.preheader.i63
   %indvars.iv.i66 = phi i32 [ 0, %.lr.ph.preheader.i63 ], [ %225, %229 ]
-  %.07581.i = phi i32 [ %223, %.lr.ph.preheader.i63 ], [ %254, %229 ]
+  %.082.i = phi i32 [ %223, %.lr.ph.preheader.i63 ], [ %254, %229 ]
   %224 = load i32, ptr @ett_mojito_dht, align 4
   %225 = add nuw nsw i32 %indvars.iv.i66, 1
-  %226 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %76, ptr noundef %0, i32 noundef %.07581.i, i32 noundef 1, i32 noundef %224, ptr noundef nonnull %5, ptr noundef nonnull @.str.108, i32 noundef %225) #3
-  %227 = call fastcc i32 @dissect_mojito_contact(ptr noundef %0, ptr noundef %1, ptr noundef %226, i32 noundef %.07581.i, i32 noundef -1)
+  %226 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %76, ptr noundef %0, i32 noundef %.082.i, i32 noundef 1, i32 noundef %224, ptr noundef nonnull %5, ptr noundef nonnull @.str.108, i32 noundef %225) #3
+  %227 = call fastcc i32 @dissect_mojito_contact(ptr noundef %0, ptr noundef %1, ptr noundef %226, i32 noundef %.082.i, i32 noundef -1)
   %228 = icmp eq i32 %227, 0
   br i1 %228, label %dissect_mojito_find_value_response.exit, label %229
 
 229:                                              ; preds = %.lr.ph.i65
-  %230 = add i32 %227, %.07581.i
+  %230 = add i32 %227, %.082.i
   %231 = load i32, ptr @hf_mojito_dhtvalue_kuid, align 4
   %232 = call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %231, ptr noundef %0, i32 noundef %230, i32 noundef 20, i32 noundef 0) #3
   %233 = add i32 %230, 20
@@ -610,35 +610,35 @@ dissect_mojito_store_response.exit:               ; preds = %162, %144
   %253 = call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %251, ptr noundef %0, i32 noundef %250, i32 noundef %252, i32 noundef 0) #3
   %254 = add i32 %250, %252
   %255 = load ptr, ptr %5, align 8
-  %256 = sub i32 %254, %.07581.i
+  %256 = sub i32 %254, %.082.i
   call void @proto_item_set_len(ptr noundef %255, i32 noundef %256) #3
   %exitcond.not.i67 = icmp eq i32 %225, %wide.trip.count.i64
   br i1 %exitcond.not.i67, label %._crit_edge.i68, label %.lr.ph.i65, !llvm.loop !9
 
 ._crit_edge.i68:                                  ; preds = %229, %216
-  %.075.lcssa.i = phi i32 [ %223, %216 ], [ %254, %229 ]
-  %257 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.075.lcssa.i) #3
+  %.0.lcssa.i69 = phi i32 [ %223, %216 ], [ %254, %229 ]
+  %257 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.lcssa.i69) #3
   %258 = zext i8 %257 to i32
   %259 = mul nuw nsw i32 %258, 20
   %260 = or disjoint i32 %259, 1
   %261 = load i32, ptr @ett_mojito_kuids, align 4
-  %262 = call ptr @proto_tree_add_subtree(ptr noundef %76, ptr noundef %0, i32 noundef %.075.lcssa.i, i32 noundef %260, i32 noundef %261, ptr noundef null, ptr noundef nonnull @.str.112) #3
+  %262 = call ptr @proto_tree_add_subtree(ptr noundef %76, ptr noundef %0, i32 noundef %.0.lcssa.i69, i32 noundef %260, i32 noundef %261, ptr noundef null, ptr noundef nonnull @.str.112) #3
   %263 = load i32, ptr @hf_mojito_kuidcount, align 4
-  %264 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %263, ptr noundef %0, i32 noundef %.075.lcssa.i, i32 noundef 1, i32 noundef 0) #3
+  %264 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %263, ptr noundef %0, i32 noundef %.0.lcssa.i69, i32 noundef 1, i32 noundef 0) #3
   %.not87.i = icmp eq i8 %257, 0
   br i1 %.not87.i, label %dissect_mojito_find_value_response.exit, label %.lr.ph86.preheader.i
 
 .lr.ph86.preheader.i:                             ; preds = %._crit_edge.i68
-  %265 = add i32 %.075.lcssa.i, 1
+  %265 = add i32 %.0.lcssa.i69, 1
   br label %.lr.ph86.i
 
 .lr.ph86.i:                                       ; preds = %.lr.ph86.i, %.lr.ph86.preheader.i
-  %.184.i = phi i8 [ %269, %.lr.ph86.i ], [ 0, %.lr.ph86.preheader.i ]
-  %.17683.i = phi i32 [ %268, %.lr.ph86.i ], [ %265, %.lr.ph86.preheader.i ]
+  %.184.i = phi i32 [ %268, %.lr.ph86.i ], [ %265, %.lr.ph86.preheader.i ]
+  %.17683.i = phi i8 [ %269, %.lr.ph86.i ], [ 0, %.lr.ph86.preheader.i ]
   %266 = load i32, ptr @hf_mojito_kuid, align 4
-  %267 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %266, ptr noundef %0, i32 noundef %.17683.i, i32 noundef 20, i32 noundef 0) #3
-  %268 = add i32 %.17683.i, 20
-  %269 = add nuw i8 %.184.i, 1
+  %267 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %266, ptr noundef %0, i32 noundef %.184.i, i32 noundef 20, i32 noundef 0) #3
+  %268 = add i32 %.184.i, 20
+  %269 = add nuw i8 %.17683.i, 1
   %exitcond90.not.i = icmp eq i8 %269, %257
   br i1 %exitcond90.not.i, label %dissect_mojito_find_value_response.exit, label %.lr.ph86.i, !llvm.loop !10
 

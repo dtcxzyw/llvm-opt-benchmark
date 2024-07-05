@@ -33,9 +33,9 @@ define internal i32 @lzma2_decoder_init(ptr nocapture noundef %0, ptr noundef %1
   br label %14
 
 14:                                               ; preds = %10, %4
-  %.0 = phi ptr [ %8, %10 ], [ %5, %4 ]
-  store i32 0, ptr %.0, align 8
-  %15 = getelementptr inbounds i8, ptr %.0, i64 64
+  %.019 = phi ptr [ %8, %10 ], [ %5, %4 ]
+  store i32 0, ptr %.019, align 8
+  %15 = getelementptr inbounds i8, ptr %.019, i64 64
   store i8 1, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -51,15 +51,15 @@ define internal i32 @lzma2_decoder_init(ptr nocapture noundef %0, ptr noundef %1
 
 24:                                               ; preds = %19, %14
   %25 = phi i8 [ 1, %14 ], [ %23, %19 ]
-  %26 = getelementptr inbounds i8, ptr %.0, i64 65
+  %26 = getelementptr inbounds i8, ptr %.019, i64 65
   store i8 %25, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %.0, i64 8
+  %27 = getelementptr inbounds i8, ptr %.019, i64 8
   %28 = tail call i32 @lzma_lzma_decoder_create(ptr noundef nonnull %27, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) #4
   br label %29
 
 29:                                               ; preds = %7, %24
-  %.019 = phi i32 [ %28, %24 ], [ 5, %7 ]
-  ret i32 %.019
+  %.0 = phi i32 [ %28, %24 ], [ 5, %7 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

@@ -1798,9 +1798,9 @@ land.rhs.lr.ph:                                   ; preds = %trace_vmstate_subse
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end21
-  %vmdesc_has_subsections.045 = phi i8 [ 0, %land.rhs.lr.ph ], [ %vmdesc_has_subsections.3, %if.end21 ]
-  %sub.044 = phi ptr [ %0, %land.rhs.lr.ph ], [ %incdec.ptr, %if.end21 ]
-  %8 = load ptr, ptr %sub.044, align 8
+  %sub.045 = phi ptr [ %0, %land.rhs.lr.ph ], [ %incdec.ptr, %if.end21 ]
+  %vmdesc_has_subsections.044 = phi i8 [ 0, %land.rhs.lr.ph ], [ %vmdesc_has_subsections.3, %if.end21 ]
+  %8 = load ptr, ptr %sub.045, align 8
   %tobool1.not = icmp eq ptr %8, null
   br i1 %tobool1.not, label %while.end, label %while.body
 
@@ -1815,7 +1815,7 @@ land.lhs.true.i:                                  ; preds = %while.body
   br i1 %call.i, label %land.lhs.true.i.if.then_crit_edge, label %if.end21
 
 land.lhs.true.i.if.then_crit_edge:                ; preds = %land.lhs.true.i
-  %.pre = load ptr, ptr %sub.044, align 8
+  %.pre = load ptr, ptr %sub.045, align 8
   br label %if.then
 
 if.then:                                          ; preds = %land.lhs.true.i.if.then_crit_edge, %while.body
@@ -1858,7 +1858,7 @@ trace_vmstate_subsection_save_loop.exit:          ; preds = %if.then, %land.lhs.
   br i1 %tobool4.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %trace_vmstate_subsection_save_loop.exit
-  %tobool6 = trunc nuw i8 %vmdesc_has_subsections.045 to i1
+  %tobool6 = trunc nuw i8 %vmdesc_has_subsections.044 to i1
   br i1 %tobool6, label %if.end, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
@@ -1866,12 +1866,12 @@ if.then7:                                         ; preds = %if.then5
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %if.then5
-  %vmdesc_has_subsections.1 = phi i8 [ %vmdesc_has_subsections.045, %if.then5 ], [ 1, %if.then7 ]
+  %vmdesc_has_subsections.1 = phi i8 [ %vmdesc_has_subsections.044, %if.then5 ], [ 1, %if.then7 ]
   tail call void @json_writer_start_object(ptr noundef nonnull %vmdesc, ptr noundef null) #10
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end, %trace_vmstate_subsection_save_loop.exit
-  %vmdesc_has_subsections.2 = phi i8 [ %vmdesc_has_subsections.1, %if.end ], [ %vmdesc_has_subsections.045, %trace_vmstate_subsection_save_loop.exit ]
+  %vmdesc_has_subsections.2 = phi i8 [ %vmdesc_has_subsections.1, %if.end ], [ %vmdesc_has_subsections.044, %trace_vmstate_subsection_save_loop.exit ]
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef 5) #10
   %19 = load ptr, ptr %10, align 8
   %call10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #13
@@ -1897,13 +1897,13 @@ if.then19:                                        ; preds = %if.end17
   br label %if.end21
 
 if.end21:                                         ; preds = %land.lhs.true.i, %if.end17, %if.then19
-  %vmdesc_has_subsections.3 = phi i8 [ %vmdesc_has_subsections.2, %if.then19 ], [ %vmdesc_has_subsections.2, %if.end17 ], [ %vmdesc_has_subsections.045, %land.lhs.true.i ]
-  %incdec.ptr = getelementptr i8, ptr %sub.044, i64 8
+  %vmdesc_has_subsections.3 = phi i8 [ %vmdesc_has_subsections.2, %if.then19 ], [ %vmdesc_has_subsections.2, %if.end17 ], [ %vmdesc_has_subsections.044, %land.lhs.true.i ]
+  %incdec.ptr = getelementptr i8, ptr %sub.045, i64 8
   %tobool.not = icmp eq ptr %incdec.ptr, null
   br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !15
 
 while.end:                                        ; preds = %land.rhs, %if.end21
-  %vmdesc_has_subsections.0.lcssa.ph = phi i8 [ %vmdesc_has_subsections.045, %land.rhs ], [ %vmdesc_has_subsections.3, %if.end21 ]
+  %vmdesc_has_subsections.0.lcssa.ph = phi i8 [ %vmdesc_has_subsections.044, %land.rhs ], [ %vmdesc_has_subsections.3, %if.end21 ]
   %24 = trunc nuw i8 %vmdesc_has_subsections.0.lcssa.ph to i1
   br i1 %24, label %if.then23, label %return
 

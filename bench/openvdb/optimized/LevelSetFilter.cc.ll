@@ -2702,8 +2702,8 @@ _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %123 = load i8, ptr %mInvert.i, align 8
   %tobool.i12 = trunc i8 %123 to i1
-  %a.0 = select i1 %tobool.i12, float %sub3.i, float %cond6.i.i
   %b.0 = select i1 %tobool.i12, float %cond6.i.i, float %sub3.i
+  %a.0 = select i1 %tobool.i12, float %sub3.i, float %cond6.i.i
   %cmp.i13 = fcmp ogt float %a.0, 0.000000e+00
   br i1 %cmp.i13, label %if.then35, label %for.inc
 
@@ -4320,8 +4320,8 @@ _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %124 = load i8, ptr %mInvert.i, align 8
   %tobool.i15 = trunc i8 %124 to i1
-  %a.0 = select i1 %tobool.i15, float %sub3.i, float %cond6.i.i
   %b.0 = select i1 %tobool.i15, float %cond6.i.i, float %sub3.i
+  %a.0 = select i1 %tobool.i15, float %sub3.i, float %cond6.i.i
   %cmp.i16 = fcmp ogt float %a.0, 0.000000e+00
   br i1 %cmp.i16, label %if.then38, label %for.inc
 
@@ -17061,8 +17061,8 @@ _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %123 = load i8, ptr %mInvert.i, align 8
   %tobool.i12 = trunc i8 %123 to i1
-  %a.0 = select i1 %tobool.i12, float %sub3.i, float %cond6.i.i
   %b.0 = select i1 %tobool.i12, float %cond6.i.i, float %sub3.i
+  %a.0 = select i1 %tobool.i12, float %sub3.i, float %cond6.i.i
   %cmp.i13 = fcmp ogt float %a.0, 0.000000e+00
   br i1 %cmp.i13, label %if.then35, label %for.inc
 
@@ -18679,8 +18679,8 @@ _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %124 = load i8, ptr %mInvert.i, align 8
   %tobool.i15 = trunc i8 %124 to i1
-  %a.0 = select i1 %tobool.i15, float %sub3.i, float %cond6.i.i
   %b.0 = select i1 %tobool.i15, float %cond6.i.i, float %sub3.i
+  %a.0 = select i1 %tobool.i15, float %sub3.i, float %cond6.i.i
   %cmp.i16 = fcmp ogt float %a.0, 0.000000e+00
   br i1 %cmp.i16, label %if.then38, label %for.inc
 

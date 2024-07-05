@@ -1701,8 +1701,8 @@ define void @_ZN6colvar3cvc15debug_gradientsEv(ptr noundef nonnull align 8 deref
 87:                                               ; preds = %.lr.ph299, %692
   %88 = phi ptr [ %73, %.lr.ph299 ], [ %693, %692 ]
   %89 = phi ptr [ %72, %.lr.ph299 ], [ %694, %692 ]
-  %.056297 = phi i64 [ 0, %.lr.ph299 ], [ %695, %692 ]
-  %90 = getelementptr inbounds ptr, ptr %88, i64 %.056297
+  %.096297 = phi i64 [ 0, %.lr.ph299 ], [ %695, %692 ]
+  %90 = getelementptr inbounds ptr, ptr %88, i64 %.096297
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 628
   %93 = load i8, ptr %92, align 4
@@ -1827,7 +1827,7 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %97
   br label %194
 
 194:                                              ; preds = %191, %_ZNK11colvarvalue4sizeEv.exit, %97
-  %.055 = phi double [ %193, %191 ], [ %182, %_ZNK11colvarvalue4sizeEv.exit ], [ %182, %97 ]
+  %.097 = phi double [ %193, %191 ], [ %182, %_ZNK11colvarvalue4sizeEv.exit ], [ %182, %97 ]
   %195 = getelementptr inbounds i8, ptr %91, i64 1264
   %196 = load ptr, ptr %195, align 8
   %.not = icmp eq ptr %196, null
@@ -2265,7 +2265,7 @@ _ZN11colvarvalueixEi.exit:                        ; preds = %_ZNK11colvarvalue4s
   br label %396
 
 396:                                              ; preds = %_ZN11colvarvalueixEi.exit, %_ZNK11colvarvalue4sizeEv.exit172, %_ZN12colvarmodule7rvectorixEi.exit
-  %.0 = phi double [ %395, %_ZN11colvarvalueixEi.exit ], [ %386, %_ZNK11colvarvalue4sizeEv.exit172 ], [ %386, %_ZN12colvarmodule7rvectorixEi.exit ]
+  %.092 = phi double [ %395, %_ZN11colvarvalueixEi.exit ], [ %386, %_ZNK11colvarvalue4sizeEv.exit172 ], [ %386, %_ZN12colvarmodule7rvectorixEi.exit ]
   call void @_ZN12colvarmodule6to_strB5cxx11ERKmmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %25, ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef 0, i64 noundef 0)
   %397 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef 0, ptr noundef nonnull @.str.65)
           to label %398 unwind label %459
@@ -2319,7 +2319,7 @@ _ZN11colvarvalueixEi.exit:                        ; preds = %_ZNK11colvarvalue4s
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #27
-  %417 = fsub double %.0, %.055
+  %417 = fsub double %.092, %.097
   store double %417, ptr %30, align 8
   call void @_ZN12colvarmodule6to_strB5cxx11ERKdmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %29, ptr noundef nonnull align 8 dereferenceable(8) %30, i64 noundef 21, i64 noundef 14)
   %418 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef 0, ptr noundef nonnull @.str.68)
@@ -2721,7 +2721,7 @@ _ZN12colvarmodule7rvectorixEi.exit200:            ; preds = %533, %540, %542
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #27
-  %573 = fsub double %552, %.055
+  %573 = fsub double %552, %.097
   store double %573, ptr %50, align 8
   call void @_ZN12colvarmodule6to_strB5cxx11ERKdmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %49, ptr noundef nonnull align 8 dereferenceable(8) %50, i64 noundef 21, i64 noundef 14)
   %574 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %49, i64 noundef 0, ptr noundef nonnull @.str.68)
@@ -3052,7 +3052,7 @@ _ZNK12colvarmodule7rvectorixEi.exit217:           ; preds = %578, %582, %583
 692:                                              ; preds = %87, %691
   %693 = phi ptr [ %88, %87 ], [ %.pre321, %691 ]
   %694 = phi ptr [ %89, %87 ], [ %.pre, %691 ]
-  %695 = add nuw i64 %.056297, 1
+  %695 = add nuw i64 %.096297, 1
   %696 = ptrtoint ptr %694 to i64
   %697 = ptrtoint ptr %693 to i64
   %698 = sub i64 %696, %697
@@ -3306,10 +3306,10 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %3, %._crit_edge.i
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
   %112 = phi ptr [ %162, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit ], [ %107, %.lr.ph99.preheader ]
-  %.05598 = phi i64 [ %160, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit ], [ 0, %.lr.ph99.preheader ]
+  %.05498 = phi i64 [ %160, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit ], [ 0, %.lr.ph99.preheader ]
   %113 = load ptr, ptr %1, align 8
   %114 = load ptr, ptr %30, align 8
-  %115 = getelementptr inbounds %"class.colvarmodule::atom", ptr %112, i64 %.05598
+  %115 = getelementptr inbounds %"class.colvarmodule::atom", ptr %112, i64 %.05498
   %116 = ptrtoint ptr %114 to i64
   %117 = ptrtoint ptr %113 to i64
   %118 = sub i64 %116, %117
@@ -3374,7 +3374,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %158 = load double, ptr %157, align 8
   %159 = fadd double %142, %158
   store double %159, ptr %157, align 8
-  %160 = add nuw i64 %.05598, 1
+  %160 = add nuw i64 %.05498, 1
   %161 = load ptr, ptr %105, align 8
   %162 = load ptr, ptr %104, align 8
   %163 = ptrtoint ptr %161 to i64
@@ -3386,10 +3386,10 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
 
 .lr.ph:                                           ; preds = %.preheader, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit66
   %168 = phi ptr [ %204, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit66 ], [ %54, %.preheader ]
-  %.05697 = phi i64 [ %202, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit66 ], [ 0, %.preheader ]
+  %.05597 = phi i64 [ %202, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit66 ], [ 0, %.preheader ]
   %169 = load ptr, ptr %1, align 8
   %170 = load ptr, ptr %30, align 8
-  %171 = getelementptr inbounds %"class.colvarmodule::atom", ptr %168, i64 %.05697
+  %171 = getelementptr inbounds %"class.colvarmodule::atom", ptr %168, i64 %.05597
   %172 = ptrtoint ptr %170 to i64
   %173 = ptrtoint ptr %169 to i64
   %174 = sub i64 %172, %173
@@ -3440,7 +3440,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %200 = load double, ptr %199, align 8
   %201 = fadd double %192, %200
   store double %201, ptr %199, align 8
-  %202 = add nuw i64 %.05697, 1
+  %202 = add nuw i64 %.05597, 1
   %203 = load ptr, ptr %52, align 8
   %204 = load ptr, ptr %51, align 8
   %205 = ptrtoint ptr %203 to i64
@@ -3479,7 +3479,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
 
 226:                                              ; preds = %.lr.ph101, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit76
   %227 = phi ptr [ %224, %.lr.ph101 ], [ %263, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit76 ]
-  %.054100 = phi i64 [ 0, %.lr.ph101 ], [ %261, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit76 ]
+  %.056100 = phi i64 [ 0, %.lr.ph101 ], [ %261, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit76 ]
   %228 = load ptr, ptr %1, align 8
   %229 = load ptr, ptr %30, align 8
   %230 = ptrtoint ptr %229 to i64
@@ -3490,7 +3490,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   br i1 %234, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i.i68, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit76
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEElEvRT_T0_.exit.lr.ph.i.i68: ; preds = %226
-  %235 = getelementptr inbounds %"class.colvarmodule::atom", ptr %227, i64 %.054100, i32 1
+  %235 = getelementptr inbounds %"class.colvarmodule::atom", ptr %227, i64 %.056100, i32 1
   %236 = load i32, ptr %235, align 4
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i.i69
 
@@ -3518,7 +3518,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %245 = sub i64 %.pre-phi, %231
   %246 = ashr exact i64 %245, 2
   %247 = load ptr, ptr %225, align 8
-  %248 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %247, i64 %.054100
+  %248 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %247, i64 %.056100
   %249 = getelementptr inbounds i8, ptr %248, i64 16
   %250 = load double, ptr %249, align 8, !noalias !87
   %251 = fmul double %25, %250
@@ -3533,7 +3533,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %259 = load double, ptr %258, align 8
   %260 = fadd double %251, %259
   store double %260, ptr %258, align 8
-  %261 = add nuw i64 %.054100, 1
+  %261 = add nuw i64 %.056100, 1
   %262 = load ptr, ptr %222, align 8
   %263 = load ptr, ptr %221, align 8
   %264 = ptrtoint ptr %262 to i64

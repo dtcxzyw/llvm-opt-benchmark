@@ -756,9 +756,9 @@ err.i:                                            ; preds = %if.end46.i
   br label %ec_generate_key.exit
 
 if.then62.i:                                      ; preds = %do.body.i, %if.end46.i, %if.then39.i, %if.else25.i, %lor.lhs.false.i, %if.then17.i, %if.end11.i, %if.then5.i, %entry
-  %priv_key.1.ph.i = phi ptr [ %priv_key.0.i, %if.else25.i ], [ %priv_key.0.i, %lor.lhs.false.i ], [ %priv_key.0.i, %if.end46.i ], [ %priv_key.0.i, %if.then39.i ], [ %priv_key.0.i, %if.then17.i ], [ %priv_key.0.i, %if.end11.i ], [ null, %if.then5.i ], [ null, %entry ], [ %priv_key.0.i, %do.body.i ]
   %order.1.ph.i = phi ptr [ null, %if.else25.i ], [ %call18.i, %lor.lhs.false.i ], [ %order.0.i, %if.end46.i ], [ %order.0.i, %if.then39.i ], [ null, %if.then17.i ], [ null, %if.end11.i ], [ null, %if.then5.i ], [ null, %entry ], [ %order.0.i, %do.body.i ]
   %pub_key.1.ph.i = phi ptr [ null, %if.else25.i ], [ null, %lor.lhs.false.i ], [ %pub_key.0.i, %if.end46.i ], [ null, %if.then39.i ], [ null, %if.then17.i ], [ null, %if.end11.i ], [ null, %if.then5.i ], [ null, %entry ], [ null, %do.body.i ]
+  %priv_key.1.ph.i = phi ptr [ %priv_key.0.i, %if.else25.i ], [ %priv_key.0.i, %lor.lhs.false.i ], [ %priv_key.0.i, %if.end46.i ], [ %priv_key.0.i, %if.then39.i ], [ %priv_key.0.i, %if.then17.i ], [ %priv_key.0.i, %if.end11.i ], [ null, %if.then5.i ], [ null, %entry ], [ %priv_key.0.i, %do.body.i ]
   tail call void @ossl_set_error_state(ptr noundef nonnull @.str.1) #7
   %priv_key63.i = getelementptr inbounds i8, ptr %eckey, i64 40
   %6 = load ptr, ptr %priv_key63.i, align 8
@@ -773,15 +773,15 @@ if.then66.i:                                      ; preds = %if.then62.i
   br label %ec_generate_key.exit
 
 ec_generate_key.exit:                             ; preds = %err.i, %if.then62.i, %if.then66.i
-  %pub_key.151.i = phi ptr [ %pub_key.1.ph.i, %if.then62.i ], [ %pub_key.1.ph.i, %if.then66.i ], [ null, %err.i ]
-  %order.149.i = phi ptr [ %order.1.ph.i, %if.then62.i ], [ %order.1.ph.i, %if.then66.i ], [ %order.0.i, %err.i ]
-  %priv_key.147.i = phi ptr [ %priv_key.1.ph.i, %if.then62.i ], [ %priv_key.1.ph.i, %if.then66.i ], [ null, %err.i ]
-  %ok.045.i = phi i32 [ 0, %if.then62.i ], [ 0, %if.then66.i ], [ 1, %err.i ]
-  tail call void @EC_POINT_free(ptr noundef %pub_key.151.i) #7
-  tail call void @BN_clear_free(ptr noundef %priv_key.147.i) #7
+  %ok.051.i = phi i32 [ 0, %if.then62.i ], [ 0, %if.then66.i ], [ 1, %err.i ]
+  %priv_key.149.i = phi ptr [ %priv_key.1.ph.i, %if.then62.i ], [ %priv_key.1.ph.i, %if.then66.i ], [ null, %err.i ]
+  %pub_key.147.i = phi ptr [ %pub_key.1.ph.i, %if.then62.i ], [ %pub_key.1.ph.i, %if.then66.i ], [ null, %err.i ]
+  %order.145.i = phi ptr [ %order.1.ph.i, %if.then62.i ], [ %order.1.ph.i, %if.then66.i ], [ %order.0.i, %err.i ]
+  tail call void @EC_POINT_free(ptr noundef %pub_key.147.i) #7
+  tail call void @BN_clear_free(ptr noundef %priv_key.149.i) #7
   tail call void @BN_CTX_free(ptr noundef %call.i) #7
-  tail call void @BN_free(ptr noundef %order.149.i) #7
-  ret i32 %ok.045.i
+  tail call void @BN_free(ptr noundef %order.145.i) #7
+  ret i32 %ok.051.i
 }
 
 declare ptr @BN_CTX_new_ex(ptr noundef) local_unnamed_addr #1

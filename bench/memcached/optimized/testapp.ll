@@ -3674,7 +3674,7 @@ for.end:                                          ; preds = %for.cond
 for.body5:                                        ; preds = %for.end, %if.end29
   %indvars.iv17 = phi i64 [ %6, %if.end29 ], [ 0, %for.end ]
   %arrayidx315 = phi ptr [ %arrayidx3, %if.end29 ], [ @testcases, %for.end ]
-  %exitcode.013 = phi i32 [ %exitcode.1, %if.end29 ], [ 0, %for.end ]
+  %exitcode.014 = phi i32 [ %exitcode.1, %if.end29 ], [ 0, %for.end ]
   %3 = load ptr, ptr @stdout, align 8
   %call6 = tail call i32 @fflush(ptr noundef %3)
   %call7 = tail call i32 @alarm(i32 noundef 600) #18
@@ -3698,7 +3698,7 @@ if.else23:                                        ; preds = %for.body5
 
 if.end29:                                         ; preds = %for.body5, %if.then17, %if.else23
   %.str.58.sink = phi ptr [ @.str.58, %if.then17 ], [ @.str.59, %if.else23 ], [ @.str.57, %for.body5 ]
-  %exitcode.1 = phi i32 [ %exitcode.013, %if.then17 ], [ 1, %if.else23 ], [ %exitcode.013, %for.body5 ]
+  %exitcode.1 = phi i32 [ %exitcode.014, %if.then17 ], [ 1, %if.else23 ], [ %exitcode.014, %for.body5 ]
   %call22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull %.str.58.sink, i32 noundef %8, ptr noundef %7)
   %9 = load ptr, ptr @stdout, align 8
   %call30 = tail call i32 @fflush(ptr noundef %9)
@@ -4387,8 +4387,8 @@ if.else21:                                        ; preds = %if.end15
   unreachable
 
 do.cond:                                          ; preds = %if.then, %if.end15
-  %offset.1 = phi i64 [ %offset.0, %if.then ], [ %add16, %if.end15 ]
   %need_more.2 = phi i1 [ true, %if.then ], [ %cmp11, %if.end15 ]
+  %offset.1 = phi i64 [ %offset.0, %if.then ], [ %add16, %if.end15 ]
   br i1 %need_more.2, label %do.body, label %do.end, !llvm.loop !30
 
 do.end:                                           ; preds = %do.cond

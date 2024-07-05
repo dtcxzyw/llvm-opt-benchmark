@@ -10990,8 +10990,8 @@ define hidden void @_ZN16wasmtime_environ9component3dfg12LinearizeDfg6export17h9
           to label %.noexc unwind label %53
 
 .noexc:                                           ; preds = %16, %12
-  %.sroa.3.0.i = phi i32 [ undef, %12 ], [ %19, %16 ]
   %.sroa.05.0.i = phi i32 [ 0, %12 ], [ 1, %16 ]
+  %.sroa.3.0.i = phi i32 [ undef, %12 ], [ %19, %16 ]
   %20 = getelementptr inbounds i8, ptr %2, i64 48
   %21 = load i32, ptr %20, align 8, !range !794, !alias.scope !1268, !noalias !1271, !noundef !9
   %trunc10.i = trunc nuw i32 %21 to i1
@@ -11422,8 +11422,8 @@ select.unfold:                                    ; preds = %41, %2
   br label %106
 
 106:                                              ; preds = %102, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E.exit"
-  %.sroa.3.0.i = phi i32 [ %105, %102 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E.exit" ]
   %.sroa.05.0.i = phi i32 [ 1, %102 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E.exit" ]
+  %.sroa.3.0.i = phi i32 [ %105, %102 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4a8a44125cc13167E.exit" ]
   %107 = getelementptr inbounds i8, ptr %67, i64 12
   %108 = load i32, ptr %107, align 4, !range !794, !alias.scope !1356, !noalias !1359, !noundef !9
   %trunc10.i = trunc nuw i32 %108 to i1

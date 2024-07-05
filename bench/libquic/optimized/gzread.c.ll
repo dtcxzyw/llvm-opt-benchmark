@@ -119,9 +119,9 @@ if.end19:                                         ; preds = %land.lhs.true.i, %i
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end19
-  %buf.addr.0 = phi ptr [ %buf, %if.end19 ], [ %buf.addr.1, %do.cond ]
   %len.addr.0 = phi i32 [ %len, %if.end19 ], [ %len.addr.1, %do.cond ]
   %got.0 = phi i32 [ 0, %if.end19 ], [ %got.1, %do.cond ]
+  %buf.addr.0 = phi ptr [ %buf, %if.end19 ], [ %buf.addr.1, %do.cond ]
   %9 = load i32, ptr %file, align 8
   %tobool20.not = icmp eq i32 %9, 0
   br i1 %tobool20.not, label %if.else, label %if.then21
@@ -230,9 +230,9 @@ if.end72:                                         ; preds = %if.end.i, %if.then1
   br label %do.cond
 
 do.cond:                                          ; preds = %if.then43, %if.end72
-  %buf.addr.1 = phi ptr [ %add.ptr75, %if.end72 ], [ %buf.addr.0, %if.then43 ]
   %len.addr.1 = phi i32 [ %sub73, %if.end72 ], [ %len.addr.0, %if.then43 ]
   %got.1 = phi i32 [ %add, %if.end72 ], [ %got.0, %if.then43 ]
+  %buf.addr.1 = phi ptr [ %add.ptr75, %if.end72 ], [ %buf.addr.0, %if.then43 ]
   %tobool79.not = icmp eq i32 %len.addr.1, 0
   br i1 %tobool79.not, label %return, label %do.body, !llvm.loop !8
 
@@ -836,8 +836,8 @@ do.body.preheader:                                ; preds = %if.end16
 
 do.body:                                          ; preds = %do.body.preheader, %if.end29
   %9 = phi i32 [ %sub49, %if.end29 ], [ %.pre, %do.body.preheader ]
-  %buf.addr.0 = phi ptr [ %add.ptr57, %if.end29 ], [ %buf, %do.body.preheader ]
   %left.0 = phi i32 [ %sub55, %if.end29 ], [ %sub, %do.body.preheader ]
+  %buf.addr.0 = phi ptr [ %add.ptr57, %if.end29 ], [ %buf, %do.body.preheader ]
   %cmp19 = icmp eq i32 %9, 0
   br i1 %cmp19, label %land.lhs.true20, label %if.end29
 

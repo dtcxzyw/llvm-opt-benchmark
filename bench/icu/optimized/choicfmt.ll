@@ -1235,8 +1235,8 @@ entry:
 for.cond.outer:                                   ; preds = %if.end13, %entry
   %.pre23.ph = phi ptr [ %.pre.pre, %if.end13 ], [ %0, %entry ]
   %indvars.iv.ph = phi i64 [ %indvars.iv.next, %if.end13 ], [ %idxprom.i, %entry ]
-  %matchingSourceLength.0.ph = phi i32 [ %add, %if.end13 ], [ 0, %entry ]
   %prevIndex.0.ph = phi i32 [ %add.i21, %if.end13 ], [ %add.i, %entry ]
+  %matchingSourceLength.0.ph = phi i32 [ %add, %if.end13 ], [ 0, %entry ]
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.outer, %lor.lhs.false

@@ -446,8 +446,8 @@ if.end108.thread:                                 ; preds = %if.else96, %if.then
 
 if.end108:                                        ; preds = %common.thread, %common
   %pmeth.0144 = phi ptr [ %pmeth.0, %common ], [ %call50, %common.thread ]
-  %keytype.addr.4143 = phi ptr [ %keytype.addr.4, %common ], [ %keytype.addr.3107115129, %common.thread ]
-  %e.addr.2142 = phi ptr [ null, %common ], [ %e.addr.1130, %common.thread ]
+  %e.addr.2143 = phi ptr [ null, %common ], [ %e.addr.1130, %common.thread ]
+  %keytype.addr.4142 = phi ptr [ %keytype.addr.4, %common ], [ %keytype.addr.3107115129, %common.thread ]
   %id.addr.1 = phi i32 [ %id.addr.093, %common ], [ %id.addr.0102, %common.thread ]
   %cmp109 = icmp eq ptr %pmeth.0144, null
   br i1 %cmp109, label %if.then114, label %if.else115
@@ -462,8 +462,8 @@ if.else115:                                       ; preds = %if.end108.thread, %
   %cmp109166 = phi i1 [ %cmp109152, %if.end108.thread ], [ false, %if.end108 ]
   %keymgmt.1164 = phi ptr [ %keymgmt.0, %if.end108.thread ], [ null, %if.end108 ]
   %id.addr.1162 = phi i32 [ %id.addr.1.ph, %if.end108.thread ], [ %id.addr.1, %if.end108 ]
-  %e.addr.2142160 = phi ptr [ null, %if.end108.thread ], [ %e.addr.2142, %if.end108 ]
-  %keytype.addr.4143158 = phi ptr [ %keytype.addr.4, %if.end108.thread ], [ %keytype.addr.4143, %if.end108 ]
+  %keytype.addr.4142160 = phi ptr [ %keytype.addr.4, %if.end108.thread ], [ %keytype.addr.4142, %if.end108 ]
+  %e.addr.2143158 = phi ptr [ null, %if.end108.thread ], [ %e.addr.2143, %if.end108 ]
   %pmeth.0144156 = phi ptr [ %pmeth.0, %if.end108.thread ], [ %pmeth.0144, %if.end108 ]
   %call116 = call noalias ptr @CRYPTO_zalloc(i64 noundef 176, ptr noundef nonnull @.str, i32 noundef 315) #10
   br label %if.end117
@@ -472,18 +472,18 @@ if.end117:                                        ; preds = %if.else115, %if.the
   %cmp109165 = phi i1 [ true, %if.then114 ], [ %cmp109166, %if.else115 ]
   %keymgmt.1163 = phi ptr [ null, %if.then114 ], [ %keymgmt.1164, %if.else115 ]
   %id.addr.1161 = phi i32 [ %id.addr.1, %if.then114 ], [ %id.addr.1162, %if.else115 ]
-  %e.addr.2142159 = phi ptr [ %e.addr.2142, %if.then114 ], [ %e.addr.2142160, %if.else115 ]
-  %keytype.addr.4143157 = phi ptr [ %keytype.addr.4143, %if.then114 ], [ %keytype.addr.4143158, %if.else115 ]
+  %keytype.addr.4142159 = phi ptr [ %keytype.addr.4142, %if.then114 ], [ %keytype.addr.4142160, %if.else115 ]
+  %e.addr.2143157 = phi ptr [ %e.addr.2143, %if.then114 ], [ %e.addr.2143158, %if.else115 ]
   %pmeth.0144155 = phi ptr [ null, %if.then114 ], [ %pmeth.0144156, %if.else115 ]
   %ret.0 = phi ptr [ null, %if.then114 ], [ %call116, %if.else115 ]
   %cmp118 = icmp eq ptr %ret.0, null
   %or.cond4 = or i1 %cmp109165, %cmp118
-  %cmp124 = icmp ne ptr %e.addr.2142159, null
+  %cmp124 = icmp ne ptr %e.addr.2143157, null
   %or.cond5 = and i1 %cmp124, %or.cond4
   br i1 %or.cond5, label %if.then126, label %if.end128
 
 if.then126:                                       ; preds = %if.end117
-  %call127 = call i32 @ENGINE_finish(ptr noundef nonnull %e.addr.2142159) #10
+  %call127 = call i32 @ENGINE_finish(ptr noundef nonnull %e.addr.2143157) #10
   br label %if.end128
 
 if.end128:                                        ; preds = %if.end117, %if.then126
@@ -513,13 +513,13 @@ if.end143:                                        ; preds = %if.then135, %if.end
   %libctx144 = getelementptr inbounds i8, ptr %ret.0, i64 8
   store ptr %libctx, ptr %libctx144, align 8
   %keytype145 = getelementptr inbounds i8, ptr %ret.0, i64 24
-  store ptr %keytype.addr.4143157, ptr %keytype145, align 8
+  store ptr %keytype.addr.4142159, ptr %keytype145, align 8
   %keymgmt146 = getelementptr inbounds i8, ptr %ret.0, i64 32
   store ptr %keymgmt.1163, ptr %keymgmt146, align 8
   %legacy_keytype = getelementptr inbounds i8, ptr %ret.0, i64 116
   store i32 %id.addr.1161, ptr %legacy_keytype, align 4
   %engine147 = getelementptr inbounds i8, ptr %ret.0, i64 128
-  store ptr %e.addr.2142159, ptr %engine147, align 8
+  store ptr %e.addr.2143157, ptr %engine147, align 8
   %pmeth148 = getelementptr inbounds i8, ptr %ret.0, i64 120
   store ptr %pmeth.0144155, ptr %pmeth148, align 8
   store i32 0, ptr %ret.0, align 8

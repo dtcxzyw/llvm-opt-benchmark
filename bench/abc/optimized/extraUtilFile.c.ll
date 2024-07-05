@@ -812,11 +812,11 @@ define range(i32 0, 2) i32 @Extra_ReadHex(ptr nocapture noundef %0, ptr nocaptur
   br label %21
 
 21:                                               ; preds = %13, %18, %9
-  %.027 = phi i32 [ %10, %9 ], [ %15, %13 ], [ %20, %18 ]
+  %.028 = phi i32 [ %10, %9 ], [ %15, %13 ], [ %20, %18 ]
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = shl i32 %22, 2
   %24 = and i32 %23, 28
-  %25 = shl nuw i32 %.027, %24
+  %25 = shl nuw i32 %.028, %24
   %26 = lshr i64 %indvars.iv, 3
   %27 = and i64 %26, 536870911
   %28 = getelementptr inbounds i32, ptr %0, i64 %27
@@ -828,8 +828,8 @@ define range(i32 0, 2) i32 @Extra_ReadHex(ptr nocapture noundef %0, ptr nocaptur
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %16, %21, %3
-  %.028 = phi i32 [ 1, %3 ], [ 1, %21 ], [ 0, %16 ]
-  ret i32 %.028
+  %.0 = phi i32 [ 1, %3 ], [ 1, %21 ], [ 0, %16 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -894,11 +894,11 @@ define noundef i32 @Extra_ReadHexadecimal(ptr nocapture noundef %0, ptr nocaptur
   br label %30
 
 30:                                               ; preds = %27, %22, %18
-  %.027.i = phi i32 [ %19, %18 ], [ %24, %22 ], [ %29, %27 ]
+  %.028.i = phi i32 [ %19, %18 ], [ %24, %22 ], [ %29, %27 ]
   %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   %32 = shl i32 %31, 2
   %33 = and i32 %32, 28
-  %34 = shl nuw i32 %.027.i, %33
+  %34 = shl nuw i32 %.028.i, %33
   %35 = lshr i64 %indvars.iv.i, 3
   %36 = and i64 %35, 536870911
   %37 = getelementptr inbounds i32, ptr %0, i64 %36

@@ -120,23 +120,23 @@ define void @_ZN16Blake2ThreadData6UpdateEv(ptr nocapture noundef nonnull readon
 
 11:                                               ; preds = %19, %.lr.ph
   %12 = phi i64 [ %.pre.i, %.lr.ph ], [ %36, %19 ]
-  %.033.i = phi i64 [ 64, %.lr.ph ], [ %37, %19 ]
-  %.02832.i = phi ptr [ %.09, %.lr.ph ], [ %.129.i, %19 ]
+  %.033.i = phi ptr [ %.09, %.lr.ph ], [ %.1.i, %19 ]
+  %.02832.i = phi i64 [ 64, %.lr.ph ], [ %37, %19 ]
   %13 = sub i64 128, %12
-  %14 = icmp ugt i64 %.033.i, %13
+  %14 = icmp ugt i64 %.02832.i, %13
   %15 = load ptr, ptr %9, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %12
   br i1 %14, label %19, label %.thread.i
 
 .thread.i:                                        ; preds = %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 1 dereferenceable(1) %.02832.i, i64 %.033.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 1 dereferenceable(1) %.033.i, i64 %.02832.i, i1 false)
   %17 = load i64, ptr %8, align 8
-  %18 = add i64 %17, %.033.i
+  %18 = add i64 %17, %.02832.i
   store i64 %18, ptr %8, align 8
   br label %_ZL14blake2s_updateP13blake2s_statePKhm.exit
 
 19:                                               ; preds = %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %.02832.i, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %.033.i, i64 %13, i1 false)
   %20 = load i64, ptr %8, align 8
   %21 = add i64 %20, %13
   store i64 %21, ptr %8, align 8
@@ -159,9 +159,9 @@ define void @_ZN16Blake2ThreadData6UpdateEv(ptr nocapture noundef nonnull readon
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %33, ptr noundef nonnull align 1 dereferenceable(64) %34, i64 64, i1 false)
   %35 = load i64, ptr %8, align 8
   %36 = add i64 %35, -64
-  %37 = sub i64 %.033.i, %13
+  %37 = sub i64 %.02832.i, %13
   store i64 %36, ptr %8, align 8
-  %.129.i = getelementptr inbounds i8, ptr %.02832.i, i64 %13
+  %.1.i = getelementptr inbounds i8, ptr %.033.i, i64 %13
   %.not.i = icmp eq i64 %37, 0
   br i1 %.not.i, label %_ZL14blake2s_updateP13blake2s_statePKhm.exit, label %11, !llvm.loop !7
 
@@ -206,23 +206,23 @@ define void @_Z15blake2sp_updateP14blake2sp_statePKhm(ptr nocapture noundef %0, 
 
 18:                                               ; preds = %26, %11
   %19 = phi i64 [ %.pre.i, %11 ], [ %43, %26 ]
-  %.033.i = phi i64 [ 64, %11 ], [ %44, %26 ]
-  %.02832.i = phi ptr [ %14, %11 ], [ %.129.i, %26 ]
+  %.033.i = phi ptr [ %14, %11 ], [ %.1.i, %26 ]
+  %.02832.i = phi i64 [ 64, %11 ], [ %44, %26 ]
   %20 = sub i64 128, %19
-  %21 = icmp ugt i64 %.033.i, %20
+  %21 = icmp ugt i64 %.02832.i, %20
   %22 = load ptr, ptr %16, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %19
   br i1 %21, label %26, label %.thread.i
 
 .thread.i:                                        ; preds = %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 1 dereferenceable(1) %.02832.i, i64 %.033.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 1 dereferenceable(1) %.033.i, i64 %.02832.i, i1 false)
   %24 = load i64, ptr %15, align 8
-  %25 = add i64 %24, %.033.i
+  %25 = add i64 %24, %.02832.i
   store i64 %25, ptr %15, align 8
   br label %_ZL14blake2s_updateP13blake2s_statePKhm.exit
 
 26:                                               ; preds = %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %.02832.i, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %.033.i, i64 %20, i1 false)
   %27 = load i64, ptr %15, align 8
   %28 = add i64 %27, %20
   store i64 %28, ptr %15, align 8
@@ -245,9 +245,9 @@ define void @_Z15blake2sp_updateP14blake2sp_statePKhm(ptr nocapture noundef %0, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %40, ptr noundef nonnull align 1 dereferenceable(64) %41, i64 64, i1 false)
   %42 = load i64, ptr %15, align 8
   %43 = add i64 %42, -64
-  %44 = sub i64 %.033.i, %20
+  %44 = sub i64 %.02832.i, %20
   store i64 %43, ptr %15, align 8
-  %.129.i = getelementptr inbounds i8, ptr %.02832.i, i64 %20
+  %.1.i = getelementptr inbounds i8, ptr %.033.i, i64 %20
   %.not.i = icmp eq i64 %44, 0
   br i1 %.not.i, label %_ZL14blake2s_updateP13blake2s_statePKhm.exit, label %18, !llvm.loop !7
 
@@ -287,23 +287,23 @@ _ZL14blake2s_updateP13blake2s_statePKhm.exit:     ; preds = %26, %.thread.i
 
 57:                                               ; preds = %65, %.lr.ph.i.us.us
   %58 = phi i64 [ %.pre.i.i.us.us, %.lr.ph.i.us.us ], [ %82, %65 ]
-  %.033.i.i.us.us = phi i64 [ 64, %.lr.ph.i.us.us ], [ %83, %65 ]
-  %.02832.i.i.us.us = phi ptr [ %.09.i.us.us, %.lr.ph.i.us.us ], [ %.129.i.i.us.us, %65 ]
+  %.033.i.i.us.us = phi ptr [ %.09.i.us.us, %.lr.ph.i.us.us ], [ %.1.i.i.us.us, %65 ]
+  %.02832.i.i.us.us = phi i64 [ 64, %.lr.ph.i.us.us ], [ %83, %65 ]
   %59 = sub i64 128, %58
-  %60 = icmp ugt i64 %.033.i.i.us.us, %59
+  %60 = icmp ugt i64 %.02832.i.i.us.us, %59
   %61 = load ptr, ptr %55, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 %58
   br i1 %60, label %65, label %.thread.i.i.us.us
 
 .thread.i.i.us.us:                                ; preds = %57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %.02832.i.i.us.us, i64 %.033.i.i.us.us, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %.033.i.i.us.us, i64 %.02832.i.i.us.us, i1 false)
   %63 = load i64, ptr %54, align 8
-  %64 = add i64 %63, %.033.i.i.us.us
+  %64 = add i64 %63, %.02832.i.i.us.us
   store i64 %64, ptr %54, align 8
   br label %_ZL14blake2s_updateP13blake2s_statePKhm.exit.i.us.us
 
 65:                                               ; preds = %57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %.02832.i.i.us.us, i64 %59, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %.033.i.i.us.us, i64 %59, i1 false)
   %66 = load i64, ptr %54, align 8
   %67 = add i64 %66, %59
   store i64 %67, ptr %54, align 8
@@ -326,9 +326,9 @@ _ZL14blake2s_updateP13blake2s_statePKhm.exit:     ; preds = %26, %.thread.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %79, ptr noundef nonnull align 1 dereferenceable(64) %80, i64 64, i1 false)
   %81 = load i64, ptr %54, align 8
   %82 = add i64 %81, -64
-  %83 = sub i64 %.033.i.i.us.us, %59
+  %83 = sub i64 %.02832.i.i.us.us, %59
   store i64 %82, ptr %54, align 8
-  %.129.i.i.us.us = getelementptr inbounds i8, ptr %.02832.i.i.us.us, i64 %59
+  %.1.i.i.us.us = getelementptr inbounds i8, ptr %.033.i.i.us.us, i64 %59
   %.not.i.i.us.us = icmp eq i64 %83, 0
   br i1 %.not.i.i.us.us, label %_ZL14blake2s_updateP13blake2s_statePKhm.exit.i.us.us, label %57, !llvm.loop !7
 
@@ -401,23 +401,23 @@ define void @_Z14blake2sp_finalP14blake2sp_statePh(ptr nocapture noundef %0, ptr
 
 20:                                               ; preds = %28, %.lr.ph.i
   %21 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %45, %28 ]
-  %.033.i = phi i64 [ %spec.store.select, %.lr.ph.i ], [ %46, %28 ]
-  %.02832.i = phi ptr [ %16, %.lr.ph.i ], [ %.129.i, %28 ]
+  %.033.i = phi ptr [ %16, %.lr.ph.i ], [ %.1.i, %28 ]
+  %.02832.i = phi i64 [ %spec.store.select, %.lr.ph.i ], [ %46, %28 ]
   %22 = sub i64 128, %21
-  %23 = icmp ugt i64 %.033.i, %22
+  %23 = icmp ugt i64 %.02832.i, %22
   %24 = load ptr, ptr %18, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 %21
   br i1 %23, label %28, label %.thread.i
 
 .thread.i:                                        ; preds = %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %.02832.i, i64 %.033.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %.033.i, i64 %.02832.i, i1 false)
   %26 = load i64, ptr %17, align 8
-  %27 = add i64 %26, %.033.i
+  %27 = add i64 %26, %.02832.i
   store i64 %27, ptr %17, align 8
   br label %_ZL14blake2s_updateP13blake2s_statePKhm.exit
 
 28:                                               ; preds = %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %.02832.i, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %.033.i, i64 %22, i1 false)
   %29 = load i64, ptr %17, align 8
   %30 = add i64 %29, %22
   store i64 %30, ptr %17, align 8
@@ -440,9 +440,9 @@ define void @_Z14blake2sp_finalP14blake2sp_statePh(ptr nocapture noundef %0, ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %42, ptr noundef nonnull align 1 dereferenceable(64) %43, i64 64, i1 false)
   %44 = load i64, ptr %17, align 8
   %45 = add i64 %44, -64
-  %46 = sub i64 %.033.i, %22
+  %46 = sub i64 %.02832.i, %22
   store i64 %45, ptr %17, align 8
-  %.129.i = getelementptr inbounds i8, ptr %.02832.i, i64 %22
+  %.1.i = getelementptr inbounds i8, ptr %.033.i, i64 %22
   %.not.i = icmp eq i64 %46, 0
   br i1 %.not.i, label %_ZL14blake2s_updateP13blake2s_statePKhm.exit, label %20, !llvm.loop !7
 
@@ -462,23 +462,23 @@ _ZL14blake2s_updateP13blake2s_statePKhm.exit:     ; preds = %28, %.thread.i, %10
 
 52:                                               ; preds = %60, %50
   %53 = phi i64 [ %.pre.i24, %50 ], [ %77, %60 ]
-  %.033.i25 = phi i64 [ 32, %50 ], [ %78, %60 ]
-  %.02832.i26 = phi ptr [ %51, %50 ], [ %.129.i28, %60 ]
+  %.033.i25 = phi ptr [ %51, %50 ], [ %.1.i28, %60 ]
+  %.02832.i26 = phi i64 [ 32, %50 ], [ %78, %60 ]
   %54 = sub i64 128, %53
-  %55 = icmp ugt i64 %.033.i25, %54
+  %55 = icmp ugt i64 %.02832.i26, %54
   %56 = load ptr, ptr %8, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 %53
   br i1 %55, label %60, label %.thread.i27
 
 .thread.i27:                                      ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull align 1 dereferenceable(1) %.02832.i26, i64 %.033.i25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull align 1 dereferenceable(1) %.033.i25, i64 %.02832.i26, i1 false)
   %58 = load i64, ptr %7, align 8
-  %59 = add i64 %58, %.033.i25
+  %59 = add i64 %58, %.02832.i26
   store i64 %59, ptr %7, align 8
   br label %_ZL14blake2s_updateP13blake2s_statePKhm.exit30
 
 60:                                               ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 1 %.02832.i26, i64 %54, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 1 %.033.i25, i64 %54, i1 false)
   %61 = load i64, ptr %7, align 8
   %62 = add i64 %61, %54
   store i64 %62, ptr %7, align 8
@@ -501,9 +501,9 @@ _ZL14blake2s_updateP13blake2s_statePKhm.exit:     ; preds = %28, %.thread.i, %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %74, ptr noundef nonnull align 1 dereferenceable(64) %75, i64 64, i1 false)
   %76 = load i64, ptr %7, align 8
   %77 = add i64 %76, -64
-  %78 = sub i64 %.033.i25, %54
+  %78 = sub i64 %.02832.i26, %54
   store i64 %77, ptr %7, align 8
-  %.129.i28 = getelementptr inbounds i8, ptr %.02832.i26, i64 %54
+  %.1.i28 = getelementptr inbounds i8, ptr %.033.i25, i64 %54
   %.not.i29 = icmp eq i64 %78, 0
   br i1 %.not.i29, label %_ZL14blake2s_updateP13blake2s_statePKhm.exit30, label %52, !llvm.loop !7
 

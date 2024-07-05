@@ -179,10 +179,10 @@ define dso_local void @CreateSharedBackendStatus() local_unnamed_addr #0 {
 
 56:                                               ; preds = %.lr.ph109, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next, %56 ]
-  %.090107 = phi ptr [ %31, %.lr.ph109 ], [ %58, %56 ]
+  %.088107 = phi ptr [ %31, %.lr.ph109 ], [ %58, %56 ]
   %57 = getelementptr %struct.PgBackendStatus, ptr %55, i64 %indvars.iv, i32 16
-  store ptr %.090107, ptr %57, align 8
-  %58 = getelementptr i8, ptr %.090107, i64 64
+  store ptr %.088107, ptr %57, align 8
+  %58 = getelementptr i8, ptr %.088107, i64 64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load i32, ptr @MaxBackends, align 4
   %60 = add i32 %59, 6
@@ -250,10 +250,10 @@ define dso_local void @CreateSharedBackendStatus() local_unnamed_addr #0 {
 
 90:                                               ; preds = %.lr.ph114, %90
   %indvars.iv123 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next124, %90 ]
-  %.191112 = phi ptr [ %65, %.lr.ph114 ], [ %92, %90 ]
+  %.189112 = phi ptr [ %65, %.lr.ph114 ], [ %92, %90 ]
   %91 = getelementptr %struct.PgBackendStatus, ptr %89, i64 %indvars.iv123, i32 10
-  store ptr %.191112, ptr %91, align 8
-  %92 = getelementptr i8, ptr %.191112, i64 64
+  store ptr %.189112, ptr %91, align 8
+  %92 = getelementptr i8, ptr %.189112, i64 64
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %93 = load i32, ptr @MaxBackends, align 4
   %94 = add i32 %93, 6
@@ -322,10 +322,10 @@ define dso_local void @CreateSharedBackendStatus() local_unnamed_addr #0 {
 
 129:                                              ; preds = %.lr.ph119, %129
   %indvars.iv127 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next128, %129 ]
-  %.292117 = phi ptr [ %101, %.lr.ph119 ], [ %131, %129 ]
+  %.290117 = phi ptr [ %101, %.lr.ph119 ], [ %131, %129 ]
   %130 = getelementptr %struct.PgBackendStatus, ptr %126, i64 %indvars.iv127, i32 17
-  store ptr %.292117, ptr %130, align 8
-  %131 = getelementptr i8, ptr %.292117, i64 %128
+  store ptr %.290117, ptr %130, align 8
+  %131 = getelementptr i8, ptr %.290117, i64 %128
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %132 = load i32, ptr @MaxBackends, align 4
   %133 = add i32 %132, 6
@@ -873,14 +873,14 @@ define dso_local noundef ptr @pgstat_get_backend_current_activity(i32 noundef %0
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %46
-  %.01626 = phi i32 [ %48, %46 ], [ 1, %.preheader.preheader ]
-  %.01725 = phi ptr [ %47, %46 ], [ %4, %.preheader.preheader ]
-  %5 = load volatile i32, ptr %.01725, align 8
+  %.01626 = phi ptr [ %47, %46 ], [ %4, %.preheader.preheader ]
+  %.01725 = phi i32 [ %48, %46 ], [ 1, %.preheader.preheader ]
+  %5 = load volatile i32, ptr %.01626, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
-  %6 = getelementptr inbounds i8, ptr %.01725, i64 4
+  %6 = getelementptr inbounds i8, ptr %.01626, i64 4
   %7 = load volatile i32, ptr %6, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !24
-  %8 = load volatile i32, ptr %.01725, align 8
+  %8 = load volatile i32, ptr %.01626, align 8
   %9 = icmp eq i32 %5, %8
   %10 = and i32 %5, 1
   %11 = icmp eq i32 %10, 0
@@ -897,11 +897,11 @@ define dso_local noundef ptr @pgstat_get_backend_current_activity(i32 noundef %0
   br label %14
 
 14:                                               ; preds = %.lr.ph, %13
-  %15 = load volatile i32, ptr %.01725, align 8
+  %15 = load volatile i32, ptr %.01626, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
   %16 = load volatile i32, ptr %6, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !24
-  %17 = load volatile i32, ptr %.01725, align 8
+  %17 = load volatile i32, ptr %.01626, align 8
   %18 = icmp eq i32 %15, %17
   %19 = and i32 %15, 1
   %20 = icmp eq i32 %19, 0
@@ -921,14 +921,14 @@ define dso_local noundef ptr @pgstat_get_backend_current_activity(i32 noundef %0
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.01725, i64 52
+  %26 = getelementptr inbounds i8, ptr %.01626, i64 52
   %27 = load i32, ptr %26, align 4
   %28 = tail call i32 @GetUserId() #11
   %.not20 = icmp eq i32 %27, %28
   br i1 %.not20, label %29, label %.loopexit
 
 29:                                               ; preds = %25, %23, %22
-  %30 = getelementptr inbounds i8, ptr %.01725, i64 248
+  %30 = getelementptr inbounds i8, ptr %.01626, i64 248
   %31 = load ptr, ptr %30, align 8
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 0
@@ -950,8 +950,8 @@ define dso_local noundef ptr @pgstat_get_backend_current_activity(i32 noundef %0
   br label %.loopexit
 
 46:                                               ; preds = %._crit_edge
-  %47 = getelementptr i8, ptr %.01725, i64 432
-  %48 = add i32 %.01626, 1
+  %47 = getelementptr i8, ptr %.01626, i64 432
+  %48 = add i32 %.01725, 1
   %49 = load i32, ptr @MaxBackends, align 4
   %.not = icmp sgt i32 %48, %49
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !25
@@ -999,15 +999,15 @@ define dso_local noundef ptr @pgstat_get_crashed_backend_activity(i32 noundef %0
   br i1 %.not22, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %30
-  %.024 = phi i32 [ %32, %30 ], [ 1, %.preheader ]
-  %.01723 = phi ptr [ %31, %30 ], [ %4, %.preheader ]
-  %9 = getelementptr inbounds i8, ptr %.01723, i64 4
+  %.01724 = phi ptr [ %31, %30 ], [ %4, %.preheader ]
+  %.01823 = phi i32 [ %32, %30 ], [ 1, %.preheader ]
+  %9 = getelementptr inbounds i8, ptr %.01724, i64 4
   %10 = load volatile i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %0
   br i1 %11, label %12, label %30
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.01723, i64 248
+  %13 = getelementptr inbounds i8, ptr %.01724, i64 248
   %14 = load volatile ptr, ptr %13, align 8
   %15 = load i32, ptr @pgstat_track_activity_query_size, align 4
   %16 = icmp ult ptr %14, %6
@@ -1034,14 +1034,14 @@ define dso_local noundef ptr @pgstat_get_crashed_backend_activity(i32 noundef %0
   br label %.loopexit
 
 30:                                               ; preds = %.lr.ph
-  %31 = getelementptr i8, ptr %.01723, i64 432
-  %32 = add i32 %.024, 1
+  %31 = getelementptr i8, ptr %.01724, i64 432
+  %32 = add i32 %.01823, 1
   %.not = icmp sgt i32 %32, %8
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %30, %.preheader, %24, %12, %17, %3, %27
-  %.018 = phi ptr [ %1, %27 ], [ null, %3 ], [ null, %17 ], [ null, %12 ], [ null, %24 ], [ null, %.preheader ], [ null, %30 ]
-  ret ptr %.018
+  %.0 = phi ptr [ %1, %27 ], [ null, %3 ], [ null, %17 ], [ null, %12 ], [ null, %24 ], [ null, %.preheader ], [ null, %30 ]
+  ret ptr %.0
 }
 
 declare void @ascii_safe_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -1146,19 +1146,19 @@ pgstat_setup_backend_status_context.exit:         ; preds = %2, %4
 
 .preheader:                                       ; preds = %.preheader.preheader, %81
   %.054 = phi ptr [ %82, %81 ], [ %36, %.preheader.preheader ]
-  %.03853 = phi i32 [ %83, %81 ], [ 0, %.preheader.preheader ]
-  %.03952 = phi ptr [ %.1, %81 ], [ %32, %.preheader.preheader ]
-  %.04051 = phi ptr [ %.141, %81 ], [ %24, %.preheader.preheader ]
-  %.04250 = phi ptr [ %.143, %81 ], [ %18, %.preheader.preheader ]
-  %.04449 = phi ptr [ %.145, %81 ], [ %12, %.preheader.preheader ]
+  %.03853 = phi ptr [ %.1, %81 ], [ %12, %.preheader.preheader ]
+  %.03952 = phi ptr [ %.140, %81 ], [ %18, %.preheader.preheader ]
+  %.04151 = phi i32 [ %83, %81 ], [ 0, %.preheader.preheader ]
+  %.04250 = phi ptr [ %.143, %81 ], [ %32, %.preheader.preheader ]
+  %.04449 = phi ptr [ %.145, %81 ], [ %24, %.preheader.preheader ]
   %37 = getelementptr inbounds i8, ptr %.054, i64 4
-  %38 = getelementptr inbounds i8, ptr %.04449, i64 4
+  %38 = getelementptr inbounds i8, ptr %.03853, i64 4
   %39 = getelementptr inbounds i8, ptr %.054, i64 240
-  %40 = getelementptr inbounds i8, ptr %.04449, i64 240
+  %40 = getelementptr inbounds i8, ptr %.03853, i64 240
   %41 = getelementptr inbounds i8, ptr %.054, i64 192
-  %42 = getelementptr inbounds i8, ptr %.04449, i64 192
+  %42 = getelementptr inbounds i8, ptr %.03853, i64 192
   %43 = getelementptr inbounds i8, ptr %.054, i64 248
-  %44 = getelementptr inbounds i8, ptr %.04449, i64 248
+  %44 = getelementptr inbounds i8, ptr %.03853, i64 248
   br label %45
 
 45:                                               ; preds = %.backedge, %.preheader
@@ -1170,16 +1170,16 @@ pgstat_setup_backend_status_context.exit:         ; preds = %2, %4
   br i1 %48, label %49, label %56
 
 49:                                               ; preds = %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %.04449, ptr noundef nonnull align 8 dereferenceable(432) %.054, i64 432, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %.03853, ptr noundef nonnull align 8 dereferenceable(432) %.054, i64 432, i1 false)
   %50 = load volatile ptr, ptr %39, align 8
-  %51 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.04250, ptr noundef nonnull dereferenceable(1) %50) #11
-  store ptr %.04250, ptr %40, align 8
+  %51 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.03952, ptr noundef nonnull dereferenceable(1) %50) #11
+  store ptr %.03952, ptr %40, align 8
   %52 = load volatile ptr, ptr %41, align 8
-  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.04051, ptr noundef nonnull dereferenceable(1) %52) #11
-  store ptr %.04051, ptr %42, align 8
+  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.04449, ptr noundef nonnull dereferenceable(1) %52) #11
+  store ptr %.04449, ptr %42, align 8
   %54 = load volatile ptr, ptr %43, align 8
-  %55 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.03952, ptr noundef nonnull dereferenceable(1) %54) #11
-  store ptr %.03952, ptr %44, align 8
+  %55 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.04250, ptr noundef nonnull dereferenceable(1) %54) #11
+  store ptr %.04250, ptr %44, align 8
   br label %56
 
 56:                                               ; preds = %45, %49
@@ -1209,31 +1209,31 @@ pgstat_setup_backend_status_context.exit:         ; preds = %2, %4
   br i1 %66, label %67, label %81
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %.04449, i64 432
-  store i32 %.03853, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %.04449, i64 436
-  %70 = getelementptr inbounds i8, ptr %.04449, i64 440
-  %71 = getelementptr inbounds i8, ptr %.04449, i64 444
-  %72 = getelementptr inbounds i8, ptr %.04449, i64 448
-  tail call void @ProcNumberGetTransactionIds(i32 noundef %.03853, ptr noundef nonnull %69, ptr noundef nonnull %70, ptr noundef nonnull %71, ptr noundef nonnull %72) #11
-  %73 = getelementptr i8, ptr %.04449, i64 456
-  %74 = getelementptr i8, ptr %.04250, i64 64
-  %75 = getelementptr i8, ptr %.04051, i64 64
+  %68 = getelementptr inbounds i8, ptr %.03853, i64 432
+  store i32 %.04151, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %.03853, i64 436
+  %70 = getelementptr inbounds i8, ptr %.03853, i64 440
+  %71 = getelementptr inbounds i8, ptr %.03853, i64 444
+  %72 = getelementptr inbounds i8, ptr %.03853, i64 448
+  tail call void @ProcNumberGetTransactionIds(i32 noundef %.04151, ptr noundef nonnull %69, ptr noundef nonnull %70, ptr noundef nonnull %71, ptr noundef nonnull %72) #11
+  %73 = getelementptr i8, ptr %.03853, i64 456
+  %74 = getelementptr i8, ptr %.03952, i64 64
+  %75 = getelementptr i8, ptr %.04449, i64 64
   %76 = load i32, ptr @pgstat_track_activity_query_size, align 4
   %77 = sext i32 %76 to i64
-  %78 = getelementptr i8, ptr %.03952, i64 %77
+  %78 = getelementptr i8, ptr %.04250, i64 %77
   %79 = load i32, ptr @localNumBackends, align 4
   %80 = add i32 %79, 1
   store i32 %80, ptr @localNumBackends, align 4
   br label %81
 
 81:                                               ; preds = %67, %64
-  %.145 = phi ptr [ %73, %67 ], [ %.04449, %64 ]
-  %.143 = phi ptr [ %74, %67 ], [ %.04250, %64 ]
-  %.141 = phi ptr [ %75, %67 ], [ %.04051, %64 ]
-  %.1 = phi ptr [ %78, %67 ], [ %.03952, %64 ]
+  %.145 = phi ptr [ %75, %67 ], [ %.04449, %64 ]
+  %.143 = phi ptr [ %78, %67 ], [ %.04250, %64 ]
+  %.140 = phi ptr [ %74, %67 ], [ %.03952, %64 ]
+  %.1 = phi ptr [ %73, %67 ], [ %.03853, %64 ]
   %82 = getelementptr i8, ptr %.054, i64 432
-  %83 = add nuw nsw i32 %.03853, 1
+  %83 = add nuw nsw i32 %.04151, 1
   %84 = load i32, ptr @MaxBackends, align 4
   %85 = add i32 %84, 6
   %86 = icmp slt i32 %83, %85

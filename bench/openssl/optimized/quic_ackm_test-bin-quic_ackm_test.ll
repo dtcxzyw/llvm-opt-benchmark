@@ -1062,9 +1062,9 @@ for.inc231.i:                                     ; preds = %for.cond155.i, %for
   br i1 %cmp26.not.i, label %test_rx_ack_actual.exit, label %for.body27.i, !llvm.loop !19
 
 if.then236.i:                                     ; preds = %sw.bb209.i, %sw.bb180.i, %if.end149.i, %sw.bb143.i, %land.end.i, %sw.bb80.i, %for.body27.i, %if.end167.i, %for.body159.i, %if.end126.i, %land.lhs.true.i, %for.body66.i, %if.end52.i, %for.body38.i, %if.end17.i, %for.end12.i, %entry
+  %opn.1.ph.i = phi i64 [ 0, %entry ], [ 0, %for.end12.i ], [ 0, %if.end17.i ], [ %opn.0118.i, %for.body38.i ], [ %opn.0118.i, %if.end52.i ], [ %opn.0118.i, %for.body66.i ], [ %opn.0118.i, %land.lhs.true.i ], [ %opn.0118.i, %if.end126.i ], [ %opn.0118.i, %for.body159.i ], [ %opn.0118.i, %if.end167.i ], [ %opn.0118.i, %for.body27.i ], [ %opn.0118.i, %sw.bb80.i ], [ %opn.0118.i, %land.end.i ], [ %opn.0118.i, %sw.bb143.i ], [ %opn.0118.i, %if.end149.i ], [ %opn.0118.i, %sw.bb180.i ], [ %opn.0118.i, %sw.bb209.i ]
   %txs.0.ph.i = phi ptr [ null, %entry ], [ %call13.i, %for.end12.i ], [ %call13.i, %if.end17.i ], [ %call13.i, %for.body38.i ], [ %call13.i, %if.end52.i ], [ %call13.i, %for.body66.i ], [ %call13.i, %land.lhs.true.i ], [ %call13.i, %if.end126.i ], [ %call13.i, %for.body159.i ], [ %call13.i, %if.end167.i ], [ %call13.i, %for.body27.i ], [ %call13.i, %sw.bb80.i ], [ %call13.i, %land.end.i ], [ %call13.i, %sw.bb143.i ], [ %call13.i, %if.end149.i ], [ %call13.i, %sw.bb180.i ], [ %call13.i, %sw.bb209.i ]
   %pkts.0.ph.i = phi ptr [ null, %entry ], [ null, %for.end12.i ], [ %call19.i, %if.end17.i ], [ %call19.i, %for.body38.i ], [ %call19.i, %if.end52.i ], [ %call19.i, %for.body66.i ], [ %call19.i, %land.lhs.true.i ], [ %call19.i, %if.end126.i ], [ %call19.i, %for.body159.i ], [ %call19.i, %if.end167.i ], [ %call19.i, %for.body27.i ], [ %call19.i, %sw.bb80.i ], [ %call19.i, %land.end.i ], [ %call19.i, %sw.bb143.i ], [ %call19.i, %if.end149.i ], [ %call19.i, %sw.bb180.i ], [ %call19.i, %sw.bb209.i ]
-  %opn.1.ph.i = phi i64 [ 0, %entry ], [ 0, %for.end12.i ], [ 0, %if.end17.i ], [ %opn.0118.i, %for.body38.i ], [ %opn.0118.i, %if.end52.i ], [ %opn.0118.i, %for.body66.i ], [ %opn.0118.i, %land.lhs.true.i ], [ %opn.0118.i, %if.end126.i ], [ %opn.0118.i, %for.body159.i ], [ %opn.0118.i, %if.end167.i ], [ %opn.0118.i, %for.body27.i ], [ %opn.0118.i, %sw.bb80.i ], [ %opn.0118.i, %land.end.i ], [ %opn.0118.i, %sw.bb143.i ], [ %opn.0118.i, %if.end149.i ], [ %opn.0118.i, %sw.bb180.i ], [ %opn.0118.i, %sw.bb209.i ]
   %add237.i = add nuw nsw i32 %rem, 1
   %add238.i = add i64 %opn.1.ph.i, 1
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.3, i32 noundef 1074, ptr noundef nonnull @.str.72, i32 noundef %add237.i, i64 noundef %add238.i) #9
@@ -1072,11 +1072,11 @@ if.then236.i:                                     ; preds = %sw.bb209.i, %sw.bb1
 
 test_rx_ack_actual.exit:                          ; preds = %sw.bb224.i, %for.inc231.i, %for.cond24.preheader.i, %if.then236.i
   %testresult.095.i = phi i32 [ 0, %if.then236.i ], [ 1, %for.cond24.preheader.i ], [ 1, %for.inc231.i ], [ 1, %sw.bb224.i ]
-  %pkts.092.i = phi ptr [ %pkts.0.ph.i, %if.then236.i ], [ %call19.i, %for.cond24.preheader.i ], [ %call19.i, %for.inc231.i ], [ %call19.i, %sw.bb224.i ]
-  %txs.090.i = phi ptr [ %txs.0.ph.i, %if.then236.i ], [ %call13.i, %for.cond24.preheader.i ], [ %call13.i, %for.inc231.i ], [ %call13.i, %sw.bb224.i ]
+  %pkts.093.i = phi ptr [ %pkts.0.ph.i, %if.then236.i ], [ %call19.i, %for.cond24.preheader.i ], [ %call19.i, %for.inc231.i ], [ %call19.i, %sw.bb224.i ]
+  %txs.091.i = phi ptr [ %txs.0.ph.i, %if.then236.i ], [ %call13.i, %for.cond24.preheader.i ], [ %call13.i, %for.inc231.i ], [ %call13.i, %sw.bb224.i ]
   call fastcc void @helper_destroy(ptr noundef nonnull %h.i)
-  call void @CRYPTO_free(ptr noundef %pkts.092.i, ptr noundef nonnull @.str.3, i32 noundef 1077) #9
-  call void @CRYPTO_free(ptr noundef %txs.090.i, ptr noundef nonnull @.str.3, i32 noundef 1078) #9
+  call void @CRYPTO_free(ptr noundef %pkts.093.i, ptr noundef nonnull @.str.3, i32 noundef 1077) #9
+  call void @CRYPTO_free(ptr noundef %txs.091.i, ptr noundef nonnull @.str.3, i32 noundef 1078) #9
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %h.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %rx_ack.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rx_ack_range.i)

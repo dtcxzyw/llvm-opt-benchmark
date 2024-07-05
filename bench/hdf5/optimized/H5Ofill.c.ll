@@ -377,8 +377,8 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br label %.thread.thread
 
 10:                                               ; preds = %3, %2
-  %.060 = phi ptr [ %1, %2 ], [ %4, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.060, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false)
+  %.0 = phi ptr [ %1, %2 ], [ %4, %3 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %.not78 = icmp eq ptr %12, null
@@ -386,7 +386,7 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
 
 13:                                               ; preds = %10
   %14 = tail call ptr @H5T_copy(ptr noundef nonnull %12, i32 noundef 0) #8
-  %15 = getelementptr inbounds i8, ptr %.060, i64 48
+  %15 = getelementptr inbounds i8, ptr %.0, i64 48
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
   br i1 %16, label %17, label %23
@@ -398,7 +398,7 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br label %.thread.thread96
 
 21:                                               ; preds = %10
-  %22 = getelementptr inbounds i8, ptr %.060, i64 48
+  %22 = getelementptr inbounds i8, ptr %.0, i64 48
   store ptr null, ptr %22, align 8
   br label %23
 
@@ -413,7 +413,7 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   %28 = getelementptr inbounds i8, ptr %0, i64 56
   %29 = load i64, ptr %28, align 8
   %30 = tail call noalias ptr @malloc(i64 noundef %29) #9
-  %31 = getelementptr inbounds i8, ptr %.060, i64 64
+  %31 = getelementptr inbounds i8, ptr %.0, i64 64
   store ptr %30, ptr %31, align 8
   %32 = icmp eq ptr %30, null
   br i1 %32, label %33, label %37
@@ -433,7 +433,7 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br i1 %.not80, label %.thread.thread, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %.060, i64 48
+  %42 = getelementptr inbounds i8, ptr %.0, i64 48
   %43 = tail call ptr @H5T_path_find(ptr noundef nonnull %40, ptr noundef %24) #8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %49
@@ -471,8 +471,8 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br label %.thread.thread96
 
 65:                                               ; preds = %58, %55
-  %.065 = phi ptr [ %52, %55 ], [ %59, %58 ]
-  %.063 = phi ptr [ null, %55 ], [ %59, %58 ]
+  %.064 = phi ptr [ null, %55 ], [ %59, %58 ]
+  %.061 = phi ptr [ %52, %55 ], [ %59, %58 ]
   %66 = load ptr, ptr %42, align 8
   %67 = tail call i64 @H5T_get_size(ptr noundef %66) #8
   %68 = load ptr, ptr %11, align 8
@@ -497,19 +497,19 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br label %98
 
 81:                                               ; preds = %74, %65
-  %.0 = phi ptr [ %75, %74 ], [ null, %65 ]
+  %.060 = phi ptr [ %75, %74 ], [ null, %65 ]
   %82 = load ptr, ptr %11, align 8
   %83 = load ptr, ptr %31, align 8
-  %84 = tail call i32 @H5T_convert(ptr noundef nonnull %43, ptr noundef %82, ptr noundef %.065, i64 noundef 1, i64 noundef 0, i64 noundef 0, ptr noundef %83, ptr noundef %.0) #8
+  %84 = tail call i32 @H5T_convert(ptr noundef nonnull %43, ptr noundef %82, ptr noundef %.061, i64 noundef 1, i64 noundef 0, i64 noundef 0, ptr noundef %83, ptr noundef %.060) #8
   %85 = icmp slt i32 %84, 0
-  %.not83 = icmp eq ptr %.0, null
+  %.not83 = icmp eq ptr %.060, null
   br i1 %85, label %86, label %93
 
 86:                                               ; preds = %81
   br i1 %.not83, label %89, label %87
 
 87:                                               ; preds = %86
-  %88 = tail call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.0) #8
+  %88 = tail call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.060) #8
   br label %89
 
 89:                                               ; preds = %86, %87
@@ -522,21 +522,21 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br i1 %.not83, label %98, label %94
 
 94:                                               ; preds = %93
-  %95 = tail call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.0) #8
+  %95 = tail call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.060) #8
   br label %98
 
 96:                                               ; preds = %23
-  %97 = getelementptr inbounds i8, ptr %.060, i64 64
+  %97 = getelementptr inbounds i8, ptr %.0, i64 64
   store ptr null, ptr %97, align 8
   br label %.thread.thread
 
 98:                                               ; preds = %94, %93, %89, %77
-  %.061 = phi ptr [ null, %77 ], [ null, %89 ], [ %.060, %93 ], [ %.060, %94 ]
-  %.not84 = icmp eq ptr %.063, null
+  %.062 = phi ptr [ null, %77 ], [ null, %89 ], [ %.0, %93 ], [ %.0, %94 ]
+  %.not84 = icmp eq ptr %.064, null
   br i1 %.not84, label %.thread, label %99
 
 99:                                               ; preds = %98
-  %100 = tail call i32 @H5T_close(ptr noundef nonnull %.063) #8
+  %100 = tail call i32 @H5T_close(ptr noundef nonnull %.064) #8
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %102, label %.thread
 
@@ -547,11 +547,11 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br label %.thread.thread96
 
 .thread:                                          ; preds = %99, %98
-  %106 = icmp eq ptr %.061, null
+  %106 = icmp eq ptr %.062, null
   br i1 %106, label %.thread.thread96, label %.thread.thread
 
 .thread.thread96:                                 ; preds = %17, %33, %45, %61, %102, %.thread
-  %107 = getelementptr inbounds i8, ptr %.060, i64 64
+  %107 = getelementptr inbounds i8, ptr %.0, i64 64
   %108 = load ptr, ptr %107, align 8
   %.not85 = icmp eq ptr %108, null
   br i1 %.not85, label %111, label %109
@@ -561,7 +561,7 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br label %111
 
 111:                                              ; preds = %109, %.thread.thread96
-  %112 = getelementptr inbounds i8, ptr %.060, i64 48
+  %112 = getelementptr inbounds i8, ptr %.0, i64 48
   %113 = load ptr, ptr %112, align 8
   %.not86 = icmp eq ptr %113, null
   br i1 %.not86, label %116, label %114
@@ -574,12 +574,12 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br i1 %.not, label %117, label %.thread.thread
 
 117:                                              ; preds = %116
-  %118 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list, ptr noundef nonnull %.060) #8
+  %118 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list, ptr noundef nonnull %.0) #8
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %6, %37, %49, %96, %116, %117, %.thread
-  %.16295 = phi ptr [ null, %116 ], [ null, %117 ], [ %.061, %.thread ], [ null, %6 ], [ %.060, %37 ], [ %.060, %49 ], [ %.060, %96 ]
-  ret ptr %.16295
+  %.16395 = phi ptr [ null, %116 ], [ null, %117 ], [ %.062, %.thread ], [ null, %6 ], [ %.0, %37 ], [ %.0, %49 ], [ %.0, %96 ]
+  ret ptr %.16395
 }
 
 ; Function Attrs: nounwind uwtable

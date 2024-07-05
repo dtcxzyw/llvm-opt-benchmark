@@ -436,10 +436,10 @@ define hidden void @zim_WeakReference_create(ptr noundef %0, ptr noundef %1) #0 
 
 9:                                                ; preds = %5, %.thread
   %.0123 = phi i32 [ 1, %.thread ], [ 9, %5 ]
-  %.091122 = phi i32 [ 0, %.thread ], [ 18, %5 ]
-  %.092121 = phi ptr [ null, %.thread ], [ %6, %5 ]
-  %.093120 = phi i32 [ 0, %.thread ], [ 1, %5 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0123, i32 noundef %.093120, ptr noundef null, i32 noundef %.091122, ptr noundef %.092121) #8
+  %.092122 = phi i32 [ 0, %.thread ], [ 18, %5 ]
+  %.093121 = phi ptr [ null, %.thread ], [ %6, %5 ]
+  %.094120 = phi i32 [ 0, %.thread ], [ 1, %5 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0123, i32 noundef %.094120, ptr noundef null, i32 noundef %.092122, ptr noundef %.093121) #8
   br label %51
 
 10:                                               ; preds = %5
@@ -843,14 +843,14 @@ define hidden noalias noundef ptr @zend_weakmap_get_object_key_entry_gc(ptr noun
   br label %27
 
 27:                                               ; preds = %.lr.ph, %60
-  %.088 = phi ptr [ %18, %.lr.ph ], [ %61, %60 ]
-  %28 = getelementptr inbounds i8, ptr %.088, i64 8
+  %.08188 = phi ptr [ %18, %.lr.ph ], [ %61, %60 ]
+  %28 = getelementptr inbounds i8, ptr %.08188, i64 8
   %29 = load i8, ptr %28, align 8
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %60, label %31
 
 31:                                               ; preds = %27
-  %32 = load ptr, ptr %.088, align 8
+  %32 = load ptr, ptr %.08188, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = and i64 %33, 3
   %35 = icmp eq i64 %34, 1
@@ -902,7 +902,7 @@ define hidden noalias noundef ptr @zend_weakmap_get_object_key_entry_gc(ptr noun
   br label %60
 
 60:                                               ; preds = %31, %55, %27
-  %61 = getelementptr inbounds i8, ptr %.088, i64 32
+  %61 = getelementptr inbounds i8, ptr %.08188, i64 32
   %.not85 = icmp eq ptr %61, %22
   br i1 %.not85, label %.thread, label %27
 
@@ -1407,7 +1407,7 @@ define hidden void @zim_WeakMap_offsetExists(ptr nocapture noundef readonly %0, 
 
 18:                                               ; preds = %15, %8
   %19 = phi i8 [ %.pre.i, %15 ], [ %13, %8 ]
-  %.030.i = phi ptr [ %17, %15 ], [ %11, %8 ]
+  %.031.i = phi ptr [ %17, %15 ], [ %11, %8 ]
   %.not.i = icmp eq i8 %19, 8
   br i1 %.not.i, label %21, label %20
 
@@ -1417,7 +1417,7 @@ define hidden void @zim_WeakMap_offsetExists(ptr nocapture noundef readonly %0, 
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %10, i64 -56
-  %23 = load ptr, ptr %.030.i, align 8
+  %23 = load ptr, ptr %.031.i, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 7
   %26 = icmp eq i64 %25, 0
@@ -1435,9 +1435,9 @@ define hidden void @zim_WeakMap_offsetExists(ptr nocapture noundef readonly %0, 
   br label %zend_weakmap_has_dimension.exit
 
 zend_weakmap_has_dimension.exit:                  ; preds = %20, %21, %29
-  %.031.shrunk.i = phi i32 [ 2, %20 ], [ %32, %29 ], [ 2, %21 ]
+  %.030.shrunk.i = phi i32 [ 2, %20 ], [ %32, %29 ], [ 2, %21 ]
   %33 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %.031.shrunk.i, ptr %33, align 8
+  store i32 %.030.shrunk.i, ptr %33, align 8
   br label %34
 
 34:                                               ; preds = %2, %zend_weakmap_has_dimension.exit
@@ -1460,7 +1460,7 @@ define internal range(i32 0, 2) i32 @zend_weakmap_has_dimension(ptr noundef %0, 
 
 10:                                               ; preds = %3, %7
   %11 = phi i8 [ %.pre, %7 ], [ %5, %3 ]
-  %.030 = phi ptr [ %9, %7 ], [ %1, %3 ]
+  %.031 = phi ptr [ %9, %7 ], [ %1, %3 ]
   %.not = icmp eq i8 %11, 8
   br i1 %.not, label %13, label %12
 
@@ -1470,7 +1470,7 @@ define internal range(i32 0, 2) i32 @zend_weakmap_has_dimension(ptr noundef %0, 
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 -56
-  %15 = load ptr, ptr %.030, align 8
+  %15 = load ptr, ptr %.031, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, 7
   %18 = icmp eq i64 %17, 0
@@ -1574,9 +1574,9 @@ define internal range(i32 0, 2) i32 @zend_weakmap_has_dimension(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.loopexit, %53, %40, %24, %29, %26, %39, %36, %35, %51, %44, %13, %60, %12
-  %.031.shrunk = phi i1 [ false, %12 ], [ %63, %60 ], [ false, %13 ], [ %52, %51 ], [ true, %39 ], [ false, %36 ], [ false, %35 ], [ true, %29 ], [ false, %26 ], [ %.not40, %24 ], [ %.not37, %40 ], [ true, %44 ], [ %.not36, %53 ], [ false, %.loopexit.loopexit ], [ true, %.preheader ]
-  %.031 = zext i1 %.031.shrunk to i32
-  ret i32 %.031
+  %.030.shrunk = phi i1 [ false, %12 ], [ %63, %60 ], [ false, %13 ], [ %52, %51 ], [ true, %39 ], [ false, %36 ], [ false, %35 ], [ true, %29 ], [ false, %26 ], [ %.not40, %24 ], [ %.not37, %40 ], [ true, %44 ], [ %.not36, %53 ], [ false, %.loopexit.loopexit ], [ true, %.preheader ]
+  %.030 = zext i1 %.030.shrunk to i32
+  ret i32 %.030
 }
 
 ; Function Attrs: nounwind uwtable

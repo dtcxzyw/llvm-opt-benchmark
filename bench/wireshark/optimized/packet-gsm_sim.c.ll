@@ -1309,16 +1309,16 @@ define internal i32 @dissect_bertlv(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %7
 
 7:                                                ; preds = %.lr.ph, %36
-  %.03031 = phi i32 [ 0, %.lr.ph ], [ %37, %36 ]
+  %.031 = phi i32 [ 0, %.lr.ph ], [ %37, %36 ]
   %8 = load i32, ptr @hf_cat_ber_tag, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %.03031, i32 noundef 1, i32 noundef 0) #2
-  %10 = add nuw i32 %.03031, 1
-  %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.03031) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %.031, i32 noundef 1, i32 noundef 0) #2
+  %10 = add nuw i32 %.031, 1
+  %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.031) #2
   %12 = load ptr, ptr %6, align 8
   %13 = zext i8 %11 to i32
   %14 = tail call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @ber_tlv_cat_tag_vals, ptr noundef nonnull @.str.884) #2
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.854, ptr noundef %14) #2
-  %15 = add i32 %.03031, 2
+  %15 = add i32 %.031, 2
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %10) #2
   %17 = zext i8 %16 to i32
   switch i8 %16, label %29 [
@@ -1328,7 +1328,7 @@ define internal i32 @dissect_bertlv(ptr noundef %0, ptr noundef %1, ptr noundef 
   ]
 
 18:                                               ; preds = %7
-  %19 = add i32 %.03031, 3
+  %19 = add i32 %.031, 3
   %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %15) #2
   %21 = zext i8 %20 to i32
   br label %29
@@ -1336,18 +1336,18 @@ define internal i32 @dissect_bertlv(ptr noundef %0, ptr noundef %1, ptr noundef 
 22:                                               ; preds = %7
   %23 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %15) #2
   %24 = zext i16 %23 to i32
-  %25 = add i32 %.03031, 4
+  %25 = add i32 %.031, 4
   br label %29
 
 26:                                               ; preds = %7
   %27 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %15) #2
-  %28 = add i32 %.03031, 5
+  %28 = add i32 %.031, 5
   br label %29
 
 29:                                               ; preds = %7, %26, %22, %18
+  %.030 = phi i32 [ %17, %7 ], [ %27, %26 ], [ %24, %22 ], [ %21, %18 ]
   %.1 = phi i32 [ %15, %7 ], [ %28, %26 ], [ %25, %22 ], [ %19, %18 ]
-  %.0 = phi i32 [ %17, %7 ], [ %27, %26 ], [ %24, %22 ], [ %21, %18 ]
-  %30 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1, i32 noundef %.0) #2
+  %30 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1, i32 noundef %.030) #2
   switch i8 %11, label %36 [
     i8 -48, label %31
     i8 -47, label %31
@@ -1363,7 +1363,7 @@ define internal i32 @dissect_bertlv(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %36
 
 36:                                               ; preds = %31, %29
-  %37 = add i32 %.0, %.1
+  %37 = add i32 %.1, %.030
   %38 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %39 = icmp ult i32 %37, %38
   br i1 %39, label %7, label %._crit_edge, !llvm.loop !4
@@ -1469,7 +1469,7 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
   br label %30
 
 30:                                               ; preds = %15, %14
-  %.0 = phi ptr [ %19, %15 ], [ null, %14 ]
+  %.083 = phi ptr [ %19, %15 ], [ null, %14 ]
   %31 = zext i8 %6 to i32
   %32 = and i32 %31, 80
   %33 = icmp eq i32 %32, 64
@@ -1535,7 +1535,7 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
   %52 = tail call ptr @tvb_bytes_to_str(ptr noundef %51, ptr noundef %0, i32 noundef 5, i32 noundef %43) #2
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %49, i32 noundef 25, ptr noundef nonnull @.str.858, ptr noundef %52) #2
   %53 = load i32, ptr @hf_aid, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %53, ptr noundef %0, i32 noundef 5, i32 noundef %43, i32 noundef 0) #2
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %53, ptr noundef %0, i32 noundef 5, i32 noundef %43, i32 noundef 0) #2
   br label %dissect_gsm_apdu.exit.thread
 
 55:                                               ; preds = %45
@@ -1547,16 +1547,16 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
   br label %57
 
 57:                                               ; preds = %.preheader, %57
-  %.0407.i = phi i32 [ %65, %57 ], [ 0, %.preheader ]
-  %58 = add nuw nsw i32 %.0407.i, 5
+  %.0396407.i = phi i32 [ %65, %57 ], [ 0, %.preheader ]
+  %58 = add nuw nsw i32 %.0396407.i, 5
   %59 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %58) #2
   %60 = load ptr, ptr %38, align 8
   %61 = zext i16 %59 to i32
   %62 = tail call ptr @val_to_str(i32 noundef %61, ptr noundef nonnull @mf_dfs, ptr noundef nonnull @.str.861) #2
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %60, i32 noundef 25, ptr noundef nonnull @.str.860, ptr noundef %62) #2
   %63 = load i32, ptr @hf_file_id, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %63, ptr noundef %0, i32 noundef %58, i32 noundef 2, i32 noundef 0) #2
-  %65 = add nuw nsw i32 %.0407.i, 2
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %63, ptr noundef %0, i32 noundef %58, i32 noundef 2, i32 noundef 0) #2
+  %65 = add nuw nsw i32 %.0396407.i, 2
   %66 = icmp ult i32 %65, %43
   br i1 %66, label %57, label %67, !llvm.loop !6
 
@@ -1572,7 +1572,7 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
   %73 = tail call ptr @val_to_str(i32 noundef %72, ptr noundef nonnull @mf_dfs, ptr noundef nonnull @.str.861) #2
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %71, i32 noundef 25, ptr noundef nonnull @.str.863, ptr noundef %73) #2
   %74 = load i32, ptr @hf_file_id, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %74, ptr noundef %0, i32 noundef 5, i32 noundef %43, i32 noundef 0) #2
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %74, ptr noundef %0, i32 noundef 5, i32 noundef %43, i32 noundef 0) #2
   br label %dissect_gsm_apdu.exit.thread
 
 76:                                               ; preds = %30
@@ -1582,11 +1582,11 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
 
 78:                                               ; preds = %76
   %79 = load i32, ptr @hf_sfi, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %79, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %79, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %81 = load ptr, ptr %38, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %81, i32 noundef 25, ptr noundef nonnull @.str.864, i32 noundef %77) #2
   %82 = load i32, ptr @hf_bin_offset, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %82, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %82, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
   br label %91
 
 84:                                               ; preds = %76
@@ -1596,19 +1596,19 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
   %88 = or disjoint i32 %87, %77
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.864, i32 noundef %88) #2
   %89 = load i32, ptr @hf_bin_offset, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %89, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %89, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
   br label %91
 
 91:                                               ; preds = %84, %78
   %92 = load i32, ptr @hf_le, align 4
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %92, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %92, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
   %.not405.i = icmp eq i32 %3, 0
   br i1 %.not405.i, label %dissect_gsm_apdu.exit.thread.thread, label %94
 
 94:                                               ; preds = %91
   %95 = load i32, ptr @hf_apdu_data, align 4
   %96 = zext i8 %.084 to i32
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %95, ptr noundef %0, i32 noundef 5, i32 noundef %96, i32 noundef 0) #2
+  %97 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %95, ptr noundef %0, i32 noundef 5, i32 noundef %96, i32 noundef 0) #2
   br label %dissect_gsm_apdu.exit.thread.thread94
 
 98:                                               ; preds = %30
@@ -1618,11 +1618,11 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
 
 100:                                              ; preds = %98
   %101 = load i32, ptr @hf_sfi, align 4
-  %102 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %101, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %101, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %103 = load ptr, ptr %38, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %103, i32 noundef 25, ptr noundef nonnull @.str.864, i32 noundef %99) #2
   %104 = load i32, ptr @hf_bin_offset, align 4
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %104, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %104, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
   br label %113
 
 106:                                              ; preds = %98
@@ -1632,13 +1632,13 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
   %110 = or disjoint i32 %109, %99
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %108, i32 noundef 25, ptr noundef nonnull @.str.864, i32 noundef %110) #2
   %111 = load i32, ptr @hf_bin_offset, align 4
-  %112 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %111, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
+  %112 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %111, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
   br label %113
 
 113:                                              ; preds = %106, %100
   %114 = load i32, ptr @hf_apdu_data, align 4
   %115 = zext i8 %.084 to i32
-  %116 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %114, ptr noundef %0, i32 noundef 5, i32 noundef %115, i32 noundef 0) #2
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %114, ptr noundef %0, i32 noundef 5, i32 noundef %115, i32 noundef 0) #2
   br label %dissect_gsm_apdu.exit.thread
 
 117:                                              ; preds = %30
@@ -1646,16 +1646,16 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
   %119 = zext i8 %8 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %118, i32 noundef 25, ptr noundef nonnull @.str.865, i32 noundef %119) #2
   %120 = load i32, ptr @hf_record_nr, align 4
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %120, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
+  %121 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %120, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %122 = load i32, ptr @hf_le, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %122, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
+  %123 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %122, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
   %.not402.i = icmp eq i32 %3, 0
   br i1 %.not402.i, label %dissect_gsm_apdu.exit.thread.thread, label %124
 
 124:                                              ; preds = %117
   %125 = load i32, ptr @hf_apdu_data, align 4
   %126 = zext i8 %.084 to i32
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %125, ptr noundef %0, i32 noundef 5, i32 noundef %126, i32 noundef 0) #2
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %125, ptr noundef %0, i32 noundef 5, i32 noundef %126, i32 noundef 0) #2
   br label %dissect_gsm_apdu.exit.thread.thread94
 
 128:                                              ; preds = %30
@@ -1663,20 +1663,20 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
   %130 = zext i8 %8 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %129, i32 noundef 25, ptr noundef nonnull @.str.865, i32 noundef %130) #2
   %131 = load i32, ptr @hf_record_nr, align 4
-  %132 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %131, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
+  %132 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %131, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %133 = load i32, ptr @hf_apdu_data, align 4
   %134 = zext i8 %.084 to i32
-  %135 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %133, ptr noundef %0, i32 noundef 5, i32 noundef %134, i32 noundef 0) #2
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %133, ptr noundef %0, i32 noundef 5, i32 noundef %134, i32 noundef 0) #2
   br label %dissect_gsm_apdu.exit.thread
 
 136:                                              ; preds = %30
   %137 = load i32, ptr @hf_seek_mode, align 4
-  %138 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %137, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
+  %138 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %137, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
   %139 = load i32, ptr @hf_seek_type, align 4
-  %140 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %139, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
+  %140 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %139, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
   %141 = load i32, ptr @hf_apdu_data, align 4
   %142 = zext i8 %.084 to i32
-  %143 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %141, ptr noundef %0, i32 noundef 5, i32 noundef %142, i32 noundef 0) #2
+  %143 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %141, ptr noundef %0, i32 noundef 5, i32 noundef %142, i32 noundef 0) #2
   %144 = and i8 %9, -16
   %145 = icmp eq i8 %144, 32
   br i1 %145, label %146, label %dissect_gsm_apdu.exit.thread
@@ -1684,7 +1684,7 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
 146:                                              ; preds = %136
   %147 = add nuw nsw i32 %142, 5
   %148 = load i32, ptr @hf_seek_rec_nr, align 4
-  %149 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %148, ptr noundef %0, i32 noundef %147, i32 noundef 1, i32 noundef 0) #2
+  %149 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %148, ptr noundef %0, i32 noundef %147, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_gsm_apdu.exit.thread
 
 150:                                              ; preds = %30, %30, %30, %30, %30
@@ -1695,15 +1695,15 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
 
 153:                                              ; preds = %30
   %154 = load i32, ptr @hf_auth_rand, align 4
-  %155 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %154, ptr noundef %0, i32 noundef 5, i32 noundef 16, i32 noundef 0) #2
+  %155 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %154, ptr noundef %0, i32 noundef 5, i32 noundef 16, i32 noundef 0) #2
   %.not401.i = icmp eq i32 %3, 0
   br i1 %.not401.i, label %dissect_gsm_apdu.exit.thread.thread, label %156
 
 156:                                              ; preds = %153
   %157 = load i32, ptr @hf_auth_sres, align 4
-  %158 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %157, ptr noundef %0, i32 noundef 21, i32 noundef 4, i32 noundef 0) #2
+  %158 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %157, ptr noundef %0, i32 noundef 21, i32 noundef 4, i32 noundef 0) #2
   %159 = load i32, ptr @hf_auth_kc, align 4
-  %160 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %159, ptr noundef %0, i32 noundef 25, i32 noundef 8, i32 noundef 0) #2
+  %160 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %159, ptr noundef %0, i32 noundef 25, i32 noundef 8, i32 noundef 0) #2
   br label %dissect_gsm_apdu.exit.thread.thread94
 
 161:                                              ; preds = %30
@@ -1714,231 +1714,231 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
 164:                                              ; preds = %161
   %165 = load i32, ptr @hf_tprof_b1, align 4
   %166 = load i32, ptr @ett_tprof_b1, align 4
-  %167 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 5, i32 noundef %165, i32 noundef %166, ptr noundef nonnull @tprof_b1_fields, i32 noundef 0) #2
+  %167 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 5, i32 noundef %165, i32 noundef %166, ptr noundef nonnull @tprof_b1_fields, i32 noundef 0) #2
   %168 = icmp eq i8 %.084, 1
   br i1 %168, label %dissect_gsm_apdu.exit.thread, label %169
 
 169:                                              ; preds = %164
   %170 = load i32, ptr @hf_tprof_b2, align 4
   %171 = load i32, ptr @ett_tprof_b2, align 4
-  %172 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 6, i32 noundef %170, i32 noundef %171, ptr noundef nonnull @tprof_b2_fields, i32 noundef 0) #2
+  %172 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 6, i32 noundef %170, i32 noundef %171, ptr noundef nonnull @tprof_b2_fields, i32 noundef 0) #2
   %173 = icmp ult i8 %.084, 3
   br i1 %173, label %dissect_gsm_apdu.exit.thread, label %174
 
 174:                                              ; preds = %169
   %175 = load i32, ptr @hf_tprof_b3, align 4
   %176 = load i32, ptr @ett_tprof_b3, align 4
-  %177 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 7, i32 noundef %175, i32 noundef %176, ptr noundef nonnull @tprof_b3_fields, i32 noundef 0) #2
+  %177 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 7, i32 noundef %175, i32 noundef %176, ptr noundef nonnull @tprof_b3_fields, i32 noundef 0) #2
   %178 = icmp eq i8 %.084, 3
   br i1 %178, label %dissect_gsm_apdu.exit.thread, label %179
 
 179:                                              ; preds = %174
   %180 = load i32, ptr @hf_tprof_b4, align 4
   %181 = load i32, ptr @ett_tprof_b4, align 4
-  %182 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 8, i32 noundef %180, i32 noundef %181, ptr noundef nonnull @tprof_b4_fields, i32 noundef 0) #2
+  %182 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 8, i32 noundef %180, i32 noundef %181, ptr noundef nonnull @tprof_b4_fields, i32 noundef 0) #2
   %183 = icmp ult i8 %.084, 5
   br i1 %183, label %dissect_gsm_apdu.exit.thread, label %184
 
 184:                                              ; preds = %179
   %185 = load i32, ptr @hf_tprof_b5, align 4
   %186 = load i32, ptr @ett_tprof_b5, align 4
-  %187 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 9, i32 noundef %185, i32 noundef %186, ptr noundef nonnull @tprof_b5_fields, i32 noundef 0) #2
+  %187 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 9, i32 noundef %185, i32 noundef %186, ptr noundef nonnull @tprof_b5_fields, i32 noundef 0) #2
   %188 = icmp eq i8 %.084, 5
   br i1 %188, label %dissect_gsm_apdu.exit.thread, label %189
 
 189:                                              ; preds = %184
   %190 = load i32, ptr @hf_tprof_b6, align 4
   %191 = load i32, ptr @ett_tprof_b6, align 4
-  %192 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 10, i32 noundef %190, i32 noundef %191, ptr noundef nonnull @tprof_b6_fields, i32 noundef 0) #2
+  %192 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 10, i32 noundef %190, i32 noundef %191, ptr noundef nonnull @tprof_b6_fields, i32 noundef 0) #2
   %193 = icmp ult i8 %.084, 7
   br i1 %193, label %dissect_gsm_apdu.exit.thread, label %194
 
 194:                                              ; preds = %189
   %195 = load i32, ptr @hf_tprof_b7, align 4
   %196 = load i32, ptr @ett_tprof_b7, align 4
-  %197 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 11, i32 noundef %195, i32 noundef %196, ptr noundef nonnull @tprof_b7_fields, i32 noundef 0) #2
+  %197 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 11, i32 noundef %195, i32 noundef %196, ptr noundef nonnull @tprof_b7_fields, i32 noundef 0) #2
   %198 = icmp eq i8 %.084, 7
   br i1 %198, label %dissect_gsm_apdu.exit.thread, label %199
 
 199:                                              ; preds = %194
   %200 = load i32, ptr @hf_tprof_b8, align 4
   %201 = load i32, ptr @ett_tprof_b8, align 4
-  %202 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 12, i32 noundef %200, i32 noundef %201, ptr noundef nonnull @tprof_b8_fields, i32 noundef 0) #2
+  %202 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 12, i32 noundef %200, i32 noundef %201, ptr noundef nonnull @tprof_b8_fields, i32 noundef 0) #2
   %203 = icmp ult i8 %.084, 9
   br i1 %203, label %dissect_gsm_apdu.exit.thread, label %204
 
 204:                                              ; preds = %199
   %205 = load i32, ptr @hf_tprof_b9, align 4
   %206 = load i32, ptr @ett_tprof_b9, align 4
-  %207 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 13, i32 noundef %205, i32 noundef %206, ptr noundef nonnull @tprof_b9_fields, i32 noundef 0) #2
+  %207 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 13, i32 noundef %205, i32 noundef %206, ptr noundef nonnull @tprof_b9_fields, i32 noundef 0) #2
   %208 = icmp eq i8 %.084, 9
   br i1 %208, label %dissect_gsm_apdu.exit.thread, label %209
 
 209:                                              ; preds = %204
   %210 = load i32, ptr @hf_tprof_b10, align 4
   %211 = load i32, ptr @ett_tprof_b10, align 4
-  %212 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 14, i32 noundef %210, i32 noundef %211, ptr noundef nonnull @tprof_b10_fields, i32 noundef 0) #2
+  %212 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 14, i32 noundef %210, i32 noundef %211, ptr noundef nonnull @tprof_b10_fields, i32 noundef 0) #2
   %213 = icmp ult i8 %.084, 11
   br i1 %213, label %dissect_gsm_apdu.exit.thread, label %214
 
 214:                                              ; preds = %209
   %215 = load i32, ptr @hf_tprof_b11, align 4
   %216 = load i32, ptr @ett_tprof_b11, align 4
-  %217 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 15, i32 noundef %215, i32 noundef %216, ptr noundef nonnull @tprof_b11_fields, i32 noundef 0) #2
+  %217 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 15, i32 noundef %215, i32 noundef %216, ptr noundef nonnull @tprof_b11_fields, i32 noundef 0) #2
   %218 = icmp eq i8 %.084, 11
   br i1 %218, label %dissect_gsm_apdu.exit.thread, label %219
 
 219:                                              ; preds = %214
   %220 = load i32, ptr @hf_tprof_b12, align 4
   %221 = load i32, ptr @ett_tprof_b12, align 4
-  %222 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 16, i32 noundef %220, i32 noundef %221, ptr noundef nonnull @tprof_b12_fields, i32 noundef 0) #2
+  %222 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 16, i32 noundef %220, i32 noundef %221, ptr noundef nonnull @tprof_b12_fields, i32 noundef 0) #2
   %223 = icmp ult i8 %.084, 13
   br i1 %223, label %dissect_gsm_apdu.exit.thread, label %224
 
 224:                                              ; preds = %219
   %225 = load i32, ptr @hf_tprof_b13, align 4
   %226 = load i32, ptr @ett_tprof_b13, align 4
-  %227 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 17, i32 noundef %225, i32 noundef %226, ptr noundef nonnull @tprof_b13_fields, i32 noundef 0) #2
+  %227 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 17, i32 noundef %225, i32 noundef %226, ptr noundef nonnull @tprof_b13_fields, i32 noundef 0) #2
   %228 = icmp eq i8 %.084, 13
   br i1 %228, label %dissect_gsm_apdu.exit.thread, label %229
 
 229:                                              ; preds = %224
   %230 = load i32, ptr @hf_tprof_b14, align 4
   %231 = load i32, ptr @ett_tprof_b14, align 4
-  %232 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 18, i32 noundef %230, i32 noundef %231, ptr noundef nonnull @tprof_b14_fields, i32 noundef 0) #2
+  %232 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 18, i32 noundef %230, i32 noundef %231, ptr noundef nonnull @tprof_b14_fields, i32 noundef 0) #2
   %233 = icmp ult i8 %.084, 15
   br i1 %233, label %dissect_gsm_apdu.exit.thread, label %234
 
 234:                                              ; preds = %229
   %235 = load i32, ptr @hf_tprof_b15, align 4
   %236 = load i32, ptr @ett_tprof_b15, align 4
-  %237 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 19, i32 noundef %235, i32 noundef %236, ptr noundef nonnull @tprof_b15_fields, i32 noundef 0) #2
+  %237 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 19, i32 noundef %235, i32 noundef %236, ptr noundef nonnull @tprof_b15_fields, i32 noundef 0) #2
   %238 = icmp eq i8 %.084, 15
   br i1 %238, label %dissect_gsm_apdu.exit.thread, label %239
 
 239:                                              ; preds = %234
   %240 = load i32, ptr @hf_tprof_b16, align 4
   %241 = load i32, ptr @ett_tprof_b16, align 4
-  %242 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 20, i32 noundef %240, i32 noundef %241, ptr noundef nonnull @tprof_b16_fields, i32 noundef 0) #2
+  %242 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 20, i32 noundef %240, i32 noundef %241, ptr noundef nonnull @tprof_b16_fields, i32 noundef 0) #2
   %243 = icmp ult i8 %.084, 17
   br i1 %243, label %dissect_gsm_apdu.exit.thread, label %244
 
 244:                                              ; preds = %239
   %245 = load i32, ptr @hf_tprof_b17, align 4
   %246 = load i32, ptr @ett_tprof_b17, align 4
-  %247 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 21, i32 noundef %245, i32 noundef %246, ptr noundef nonnull @tprof_b17_fields, i32 noundef 0) #2
+  %247 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 21, i32 noundef %245, i32 noundef %246, ptr noundef nonnull @tprof_b17_fields, i32 noundef 0) #2
   %248 = icmp eq i8 %.084, 17
   br i1 %248, label %dissect_gsm_apdu.exit.thread, label %249
 
 249:                                              ; preds = %244
   %250 = load i32, ptr @hf_tprof_b18, align 4
   %251 = load i32, ptr @ett_tprof_b18, align 4
-  %252 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 22, i32 noundef %250, i32 noundef %251, ptr noundef nonnull @tprof_b18_fields, i32 noundef 0) #2
+  %252 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 22, i32 noundef %250, i32 noundef %251, ptr noundef nonnull @tprof_b18_fields, i32 noundef 0) #2
   %253 = icmp ult i8 %.084, 19
   br i1 %253, label %dissect_gsm_apdu.exit.thread, label %254
 
 254:                                              ; preds = %249
   %255 = load i32, ptr @hf_tprof_b19, align 4
   %256 = load i32, ptr @ett_tprof_b19, align 4
-  %257 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 23, i32 noundef %255, i32 noundef %256, ptr noundef nonnull @tprof_b19_fields, i32 noundef 0) #2
+  %257 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 23, i32 noundef %255, i32 noundef %256, ptr noundef nonnull @tprof_b19_fields, i32 noundef 0) #2
   %258 = icmp eq i8 %.084, 19
   br i1 %258, label %dissect_gsm_apdu.exit.thread, label %259
 
 259:                                              ; preds = %254
   %260 = load i32, ptr @hf_tprof_b20, align 4
   %261 = load i32, ptr @ett_tprof_b20, align 4
-  %262 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 24, i32 noundef %260, i32 noundef %261, ptr noundef nonnull @tprof_b20_fields, i32 noundef 0) #2
+  %262 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 24, i32 noundef %260, i32 noundef %261, ptr noundef nonnull @tprof_b20_fields, i32 noundef 0) #2
   %263 = icmp ult i8 %.084, 21
   br i1 %263, label %dissect_gsm_apdu.exit.thread, label %264
 
 264:                                              ; preds = %259
   %265 = load i32, ptr @hf_tprof_b21, align 4
   %266 = load i32, ptr @ett_tprof_b21, align 4
-  %267 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 25, i32 noundef %265, i32 noundef %266, ptr noundef nonnull @tprof_b21_fields, i32 noundef 0) #2
+  %267 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 25, i32 noundef %265, i32 noundef %266, ptr noundef nonnull @tprof_b21_fields, i32 noundef 0) #2
   %268 = icmp eq i8 %.084, 21
   br i1 %268, label %dissect_gsm_apdu.exit.thread, label %269
 
 269:                                              ; preds = %264
   %270 = load i32, ptr @hf_tprof_b22, align 4
   %271 = load i32, ptr @ett_tprof_b22, align 4
-  %272 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 26, i32 noundef %270, i32 noundef %271, ptr noundef nonnull @tprof_b22_fields, i32 noundef 0) #2
+  %272 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 26, i32 noundef %270, i32 noundef %271, ptr noundef nonnull @tprof_b22_fields, i32 noundef 0) #2
   %273 = icmp ult i8 %.084, 23
   br i1 %273, label %dissect_gsm_apdu.exit.thread, label %274
 
 274:                                              ; preds = %269
   %275 = load i32, ptr @hf_tprof_b23, align 4
   %276 = load i32, ptr @ett_tprof_b23, align 4
-  %277 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 27, i32 noundef %275, i32 noundef %276, ptr noundef nonnull @tprof_b23_fields, i32 noundef 0) #2
+  %277 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 27, i32 noundef %275, i32 noundef %276, ptr noundef nonnull @tprof_b23_fields, i32 noundef 0) #2
   %278 = icmp eq i8 %.084, 23
   br i1 %278, label %dissect_gsm_apdu.exit.thread, label %279
 
 279:                                              ; preds = %274
   %280 = load i32, ptr @hf_tprof_b24, align 4
   %281 = load i32, ptr @ett_tprof_b24, align 4
-  %282 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 28, i32 noundef %280, i32 noundef %281, ptr noundef nonnull @tprof_b24_fields, i32 noundef 0) #2
+  %282 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 28, i32 noundef %280, i32 noundef %281, ptr noundef nonnull @tprof_b24_fields, i32 noundef 0) #2
   %283 = icmp ult i8 %.084, 25
   br i1 %283, label %dissect_gsm_apdu.exit.thread, label %284
 
 284:                                              ; preds = %279
   %285 = load i32, ptr @hf_tprof_b25, align 4
   %286 = load i32, ptr @ett_tprof_b25, align 4
-  %287 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 29, i32 noundef %285, i32 noundef %286, ptr noundef nonnull @tprof_b25_fields, i32 noundef 0) #2
+  %287 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 29, i32 noundef %285, i32 noundef %286, ptr noundef nonnull @tprof_b25_fields, i32 noundef 0) #2
   %288 = icmp eq i8 %.084, 25
   br i1 %288, label %dissect_gsm_apdu.exit.thread, label %289
 
 289:                                              ; preds = %284
   %290 = load i32, ptr @hf_tprof_b26, align 4
   %291 = load i32, ptr @ett_tprof_b26, align 4
-  %292 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 30, i32 noundef %290, i32 noundef %291, ptr noundef nonnull @tprof_b26_fields, i32 noundef 0) #2
+  %292 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 30, i32 noundef %290, i32 noundef %291, ptr noundef nonnull @tprof_b26_fields, i32 noundef 0) #2
   %293 = icmp ult i8 %.084, 27
   br i1 %293, label %dissect_gsm_apdu.exit.thread, label %294
 
 294:                                              ; preds = %289
   %295 = load i32, ptr @hf_tprof_b27, align 4
   %296 = load i32, ptr @ett_tprof_b27, align 4
-  %297 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 31, i32 noundef %295, i32 noundef %296, ptr noundef nonnull @tprof_b27_fields, i32 noundef 0) #2
+  %297 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 31, i32 noundef %295, i32 noundef %296, ptr noundef nonnull @tprof_b27_fields, i32 noundef 0) #2
   %298 = icmp eq i8 %.084, 27
   br i1 %298, label %dissect_gsm_apdu.exit.thread, label %299
 
 299:                                              ; preds = %294
   %300 = load i32, ptr @hf_tprof_b28, align 4
   %301 = load i32, ptr @ett_tprof_b28, align 4
-  %302 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 32, i32 noundef %300, i32 noundef %301, ptr noundef nonnull @tprof_b28_fields, i32 noundef 0) #2
+  %302 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 32, i32 noundef %300, i32 noundef %301, ptr noundef nonnull @tprof_b28_fields, i32 noundef 0) #2
   %303 = icmp ult i8 %.084, 29
   br i1 %303, label %dissect_gsm_apdu.exit.thread, label %304
 
 304:                                              ; preds = %299
   %305 = load i32, ptr @hf_tprof_b29, align 4
   %306 = load i32, ptr @ett_tprof_b29, align 4
-  %307 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 33, i32 noundef %305, i32 noundef %306, ptr noundef nonnull @tprof_b29_fields, i32 noundef 0) #2
+  %307 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 33, i32 noundef %305, i32 noundef %306, ptr noundef nonnull @tprof_b29_fields, i32 noundef 0) #2
   %308 = icmp eq i8 %.084, 29
   br i1 %308, label %dissect_gsm_apdu.exit.thread, label %309
 
 309:                                              ; preds = %304
   %310 = load i32, ptr @hf_tprof_b30, align 4
   %311 = load i32, ptr @ett_tprof_b30, align 4
-  %312 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 34, i32 noundef %310, i32 noundef %311, ptr noundef nonnull @tprof_b30_fields, i32 noundef 0) #2
+  %312 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 34, i32 noundef %310, i32 noundef %311, ptr noundef nonnull @tprof_b30_fields, i32 noundef 0) #2
   %313 = icmp ult i8 %.084, 31
   br i1 %313, label %dissect_gsm_apdu.exit.thread, label %314
 
 314:                                              ; preds = %309
   %315 = load i32, ptr @hf_tprof_b31, align 4
   %316 = load i32, ptr @ett_tprof_b31, align 4
-  %317 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 35, i32 noundef %315, i32 noundef %316, ptr noundef nonnull @tprof_b31_fields, i32 noundef 0) #2
+  %317 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 35, i32 noundef %315, i32 noundef %316, ptr noundef nonnull @tprof_b31_fields, i32 noundef 0) #2
   %318 = icmp eq i8 %.084, 31
   br i1 %318, label %dissect_gsm_apdu.exit.thread, label %319
 
 319:                                              ; preds = %314
   %320 = load i32, ptr @hf_tprof_b32, align 4
   %321 = load i32, ptr @ett_tprof_b32, align 4
-  %322 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 36, i32 noundef %320, i32 noundef %321, ptr noundef nonnull @tprof_b32_fields, i32 noundef 0) #2
+  %322 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 36, i32 noundef %320, i32 noundef %321, ptr noundef nonnull @tprof_b32_fields, i32 noundef 0) #2
   %323 = icmp ult i8 %.084, 33
   br i1 %323, label %dissect_gsm_apdu.exit.thread, label %324
 
 324:                                              ; preds = %319
   %325 = load i32, ptr @hf_tprof_b33, align 4
   %326 = load i32, ptr @ett_tprof_b33, align 4
-  %327 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0, ptr noundef %0, i32 noundef 37, i32 noundef %325, i32 noundef %326, ptr noundef nonnull @tprof_b33_fields, i32 noundef 0) #2
+  %327 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.083, ptr noundef %0, i32 noundef 37, i32 noundef %325, i32 noundef %326, ptr noundef nonnull @tprof_b33_fields, i32 noundef 0) #2
   %.not408.i = icmp eq i8 %.084, 33
   br i1 %.not408.i, label %dissect_gsm_apdu.exit.thread, label %.lr.ph.i.preheader
 
@@ -1950,13 +1950,13 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
   %.0397406.i = phi i32 [ %330, %.lr.ph.i ], [ 38, %.lr.ph.i.preheader ]
   %329 = load i32, ptr @hf_tprof_unknown_byte, align 4
   %330 = add nuw nsw i32 %.0397406.i, 1
-  %331 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %329, ptr noundef %0, i32 noundef %.0397406.i, i32 noundef 1, i32 noundef 0) #2
+  %331 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %329, ptr noundef %0, i32 noundef %.0397406.i, i32 noundef 1, i32 noundef 0) #2
   %exitcond.not.i = icmp eq i32 %.0397406.i, %328
   br i1 %exitcond.not.i, label %dissect_gsm_apdu.exit.thread, label %.lr.ph.i, !llvm.loop !7
 
 332:                                              ; preds = %30
   %333 = load i32, ptr @hf_le, align 4
-  %334 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %333, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
+  %334 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %333, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
   %.not400.i = icmp eq i32 %3, 0
   br i1 %.not400.i, label %dissect_gsm_apdu.exit.thread.thread, label %335
 
@@ -1965,31 +1965,31 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
   %337 = icmp eq i8 %.084, 0
   %338 = select i1 %337, i32 256, i32 %336
   %339 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 5, i32 noundef %338) #2
-  %340 = tail call i32 @dissect_bertlv(ptr noundef %339, ptr noundef nonnull %1, ptr noundef %.0, ptr poison)
+  %340 = tail call i32 @dissect_bertlv(ptr noundef %339, ptr noundef nonnull %1, ptr noundef %.083, ptr poison)
   br label %dissect_gsm_apdu.exit.thread.thread94
 
 341:                                              ; preds = %30
   %342 = zext i8 %.084 to i32
   %343 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 5, i32 noundef %342) #2
   %344 = load ptr, ptr @sub_handle_cap, align 8
-  %345 = tail call i32 @call_dissector_with_data(ptr noundef %344, ptr noundef %343, ptr noundef nonnull %1, ptr noundef %.0, ptr noundef nonnull inttoptr (i64 20 to ptr)) #2
+  %345 = tail call i32 @call_dissector_with_data(ptr noundef %344, ptr noundef %343, ptr noundef nonnull %1, ptr noundef %.083, ptr noundef nonnull inttoptr (i64 20 to ptr)) #2
   br label %dissect_gsm_apdu.exit.thread
 
 346:                                              ; preds = %30
   %347 = load i32, ptr @hf_chan_op, align 4
-  %348 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %347, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
+  %348 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %347, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %349 = load ptr, ptr %38, align 8
   %350 = zext i8 %8 to i32
   %351 = tail call ptr @val_to_str(i32 noundef %350, ptr noundef nonnull @chan_op_vals, ptr noundef nonnull @.str.856) #2
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %349, i32 noundef 25, ptr noundef nonnull @.str.867, ptr noundef %351) #2
   %352 = load i32, ptr @hf_chan_nr, align 4
-  %353 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %352, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
+  %353 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %352, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
   %354 = icmp eq i8 %8, 0
   br i1 %354, label %355, label %358
 
 355:                                              ; preds = %346
   %356 = load i32, ptr @hf_le, align 4
-  %357 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %356, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
+  %357 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %356, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
   br label %358
 
 358:                                              ; preds = %355, %346
@@ -2010,35 +2010,35 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
 
 365:                                              ; preds = %30, %30, %30
   %366 = load i32, ptr @hf_le, align 4
-  %367 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %366, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
+  %367 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %366, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %dissect_gsm_apdu.exit.thread.thread, label %368
 
 368:                                              ; preds = %365
   %369 = load i32, ptr @hf_apdu_data, align 4
   %370 = zext i8 %.084 to i32
-  %371 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %369, ptr noundef %0, i32 noundef 5, i32 noundef %370, i32 noundef 0) #2
+  %371 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %369, ptr noundef %0, i32 noundef 5, i32 noundef %370, i32 noundef 0) #2
   br label %dissect_gsm_apdu.exit.thread.thread94
 
 372:                                              ; preds = %30
   %373 = load i32, ptr @hf_le, align 4
-  %374 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %373, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
+  %374 = tail call ptr @proto_tree_add_item(ptr noundef %.083, i32 noundef %373, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
   %375 = zext i8 %.084 to i32
   %376 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 5, i32 noundef %375) #2
-  %377 = tail call i32 @dissect_bertlv(ptr noundef %376, ptr noundef nonnull %1, ptr noundef %.0, ptr poison)
+  %377 = tail call i32 @dissect_bertlv(ptr noundef %376, ptr noundef nonnull %1, ptr noundef %.083, ptr poison)
   br label %dissect_gsm_apdu.exit.thread
 
 dissect_gsm_apdu.exit:                            ; preds = %30
-  %.not96 = icmp eq ptr %.0, null
+  %.not96 = icmp eq ptr %.083, null
   br i1 %.not96, label %dissect_gsm_apdu.exit.thread, label %378
 
 378:                                              ; preds = %dissect_gsm_apdu.exit
   %379 = load i32, ptr @hf_apdu_p1, align 4
-  %380 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %379, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
+  %380 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.083, i32 noundef %379, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %381 = load i32, ptr @hf_apdu_p2, align 4
-  %382 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %381, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
+  %382 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.083, i32 noundef %381, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
   %383 = load i32, ptr @hf_apdu_p3, align 4
-  %384 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %383, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
+  %384 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.083, i32 noundef %383, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
   %385 = zext i8 %.084 to i32
   %.not87 = icmp eq i8 %.084, 0
   br i1 %.not87, label %dissect_gsm_apdu.exit.thread, label %386
@@ -2050,7 +2050,7 @@ dissect_gsm_apdu.exit:                            ; preds = %30
 
 388:                                              ; preds = %386
   %389 = load i32, ptr @hf_apdu_data, align 4
-  %390 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %389, ptr noundef %0, i32 noundef 5, i32 noundef %385, i32 noundef 0) #2
+  %390 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.083, i32 noundef %389, ptr noundef %0, i32 noundef 5, i32 noundef %385, i32 noundef 0) #2
   br label %dissect_gsm_apdu.exit.thread
 
 dissect_gsm_apdu.exit.thread:                     ; preds = %.lr.ph.i, %30, %30, %324, %46, %48, %67, %69, %42, %113, %128, %136, %146, %150, %319, %314, %309, %304, %299, %294, %289, %284, %279, %274, %269, %264, %259, %254, %249, %244, %239, %234, %229, %224, %219, %214, %209, %204, %199, %194, %189, %184, %179, %174, %169, %164, %161, %341, %362, %360, %372, %378, %386, %388, %dissect_gsm_apdu.exit
@@ -2059,7 +2059,7 @@ dissect_gsm_apdu.exit.thread:                     ; preds = %.lr.ph.i, %30, %30,
 
 dissect_gsm_apdu.exit.thread.thread94:            ; preds = %368, %335, %156, %124, %94, %dissect_gsm_apdu.exit.thread
   %391 = add i32 %5, -2
-  %392 = tail call fastcc i32 @dissect_rsp_apdu_tvb(ptr noundef %0, i32 noundef %391, ptr noundef %1, ptr noundef %2, ptr noundef %.0)
+  %392 = tail call fastcc i32 @dissect_rsp_apdu_tvb(ptr noundef %0, i32 noundef %391, ptr noundef %1, ptr noundef %2, ptr noundef %.083)
   br label %dissect_gsm_apdu.exit.thread.thread
 
 dissect_gsm_apdu.exit.thread.thread:              ; preds = %dissect_gsm_apdu.exit.thread, %91, %117, %153, %332, %365, %dissect_gsm_apdu.exit.thread.thread94

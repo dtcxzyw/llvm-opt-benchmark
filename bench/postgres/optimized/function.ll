@@ -43,7 +43,7 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
-  %.04347 = phi i32 [ %14, %.lr.ph ], [ 0, %0 ]
+  %.04247 = phi i32 [ %14, %.lr.ph ], [ 0, %0 ]
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
   %8 = getelementptr %struct.DbInfo, ptr %7, i64 %indvars.iv, i32 1
   %9 = load ptr, ptr %8, align 8
@@ -52,7 +52,7 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %12 = getelementptr ptr, ptr %4, i64 %indvars.iv
   store ptr %11, ptr %12, align 8
   %13 = tail call i32 @PQntuples(ptr noundef %11) #8
-  %14 = add i32 %13, %.04347
+  %14 = add i32 %13, %.04247
   tail call void @PQfinish(ptr noundef %10) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
@@ -61,9 +61,9 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
-  %.043.lcssa = phi i32 [ 0, %0 ], [ %14, %.lr.ph ]
+  %.042.lcssa = phi i32 [ 0, %0 ], [ %14, %.lr.ph ]
   %18 = tail call i32 @count_old_cluster_logical_slots() #8
-  %19 = add i32 %18, %.043.lcssa
+  %19 = add i32 %18, %.042.lcssa
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 4
   %22 = tail call ptr @pg_malloc(i64 noundef %21) #8
@@ -88,19 +88,19 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   br label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
-  %.04249 = phi i32 [ %40, %.lr.ph51 ], [ 0, %.lr.ph51.preheader ]
-  %.248 = phi i32 [ %39, %.lr.ph51 ], [ %.161, %.lr.ph51.preheader ]
-  %32 = tail call ptr @PQgetvalue(ptr noundef %26, i32 noundef %.04249, i32 noundef 0) #8
+  %.249 = phi i32 [ %39, %.lr.ph51 ], [ %.161, %.lr.ph51.preheader ]
+  %.04548 = phi i32 [ %40, %.lr.ph51 ], [ 0, %.lr.ph51.preheader ]
+  %32 = tail call ptr @PQgetvalue(ptr noundef %26, i32 noundef %.04548, i32 noundef 0) #8
   %33 = tail call ptr @pg_strdup(ptr noundef %32) #8
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 40), align 8
-  %35 = sext i32 %.248 to i64
+  %35 = sext i32 %.249 to i64
   %36 = getelementptr %struct.LibraryInfo, ptr %34, i64 %35
   store ptr %33, ptr %36, align 8
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 40), align 8
   %38 = getelementptr %struct.LibraryInfo, ptr %37, i64 %35, i32 1
   store i32 %31, ptr %38, align 8
-  %39 = add i32 %.248, 1
-  %40 = add nuw nsw i32 %.04249, 1
+  %39 = add i32 %.249, 1
+  %40 = add nuw nsw i32 %.04548, 1
   %exitcond.not = icmp eq i32 %40, %29
   br i1 %exitcond.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !7
 
@@ -207,8 +207,8 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %0, %50
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %0 ]
-  %.033 = phi ptr [ %.3, %50 ], [ null, %0 ]
-  %.02232 = phi i32 [ %.224, %50 ], [ 0, %0 ]
+  %.02232 = phi i32 [ %.2, %50 ], [ 0, %0 ]
+  %.02331 = phi ptr [ %.3, %50 ], [ null, %0 ]
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 40), align 8
   %12 = getelementptr %struct.LibraryInfo, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
@@ -239,7 +239,7 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
   br i1 %.not28, label %39, label %27
 
 27:                                               ; preds = %20
-  %28 = icmp eq ptr %.033, null
+  %28 = icmp eq ptr %.02331, null
   br i1 %28, label %29, label %36
 
 29:                                               ; preds = %27
@@ -255,21 +255,21 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
   unreachable
 
 36:                                               ; preds = %29, %27
-  %.1 = phi ptr [ %30, %29 ], [ %.033, %27 ]
+  %.124 = phi ptr [ %30, %29 ], [ %.02331, %27 ]
   %37 = call ptr @PQerrorMessage(ptr noundef %3) #8
-  %38 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.1, ptr noundef nonnull @.str.9, ptr noundef %13, ptr noundef %37) #8
+  %38 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.124, ptr noundef nonnull @.str.9, ptr noundef %13, ptr noundef %37) #8
   br label %39
 
 39:                                               ; preds = %20, %36
-  %.123 = phi i32 [ 1, %36 ], [ 0, %20 ]
-  %.2 = phi ptr [ %.1, %36 ], [ %.033, %20 ]
+  %.225 = phi ptr [ %.124, %36 ], [ %.02331, %20 ]
+  %.1 = phi i32 [ 1, %36 ], [ 0, %20 ]
   call void @PQclear(ptr noundef %25) #8
   br label %40
 
 40:                                               ; preds = %39, %16
-  %.224 = phi i32 [ %.123, %39 ], [ %.02232, %16 ]
-  %.3 = phi ptr [ %.2, %39 ], [ %.033, %16 ]
-  %.not29 = icmp eq i32 %.224, 0
+  %.3 = phi ptr [ %.225, %39 ], [ %.02331, %16 ]
+  %.2 = phi i32 [ %.1, %39 ], [ %.02232, %16 ]
+  %.not29 = icmp eq i32 %.2, 0
   br i1 %.not29, label %50, label %41
 
 41:                                               ; preds = %40

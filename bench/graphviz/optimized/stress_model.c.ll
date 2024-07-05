@@ -30,8 +30,8 @@ define void @stress_model(i32 noundef %0, ptr noundef %1, ptr noundef readonly %
   br label %15
 
 15:                                               ; preds = %11, %.thread, %9
-  %.0 = phi ptr [ %13, %11 ], [ %14, %.thread ], [ %1, %9 ]
-  %16 = tail call ptr @SparseMatrix_remove_diagonal(ptr noundef %.0) #5
+  %.041 = phi ptr [ %13, %11 ], [ %14, %.thread ], [ %1, %9 ]
+  %16 = tail call ptr @SparseMatrix_remove_diagonal(ptr noundef %.041) #5
   store i32 0, ptr %4, align 4
   %17 = load i32, ptr %16, align 8
   %.not45 = icmp eq ptr %2, null

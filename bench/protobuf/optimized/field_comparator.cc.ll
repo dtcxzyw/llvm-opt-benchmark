@@ -901,8 +901,8 @@ if.then.i:                                        ; preds = %for.end.i.i
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util21SimpleFieldComparator9ToleranceEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE16try_emplace_implIRSI_JEEESH_INS1_12raw_hash_setISC_SF_SG_SK_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i, %if.then.i
   %29 = phi ptr [ %.pre20.i, %if.then.i ], [ %21, %for.body.i.i ]
-  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %29, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
+  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
+  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %29, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
   store double %fraction, ptr %second.i.i, align 8
   %ref.tmp16.sroa.2.0.second.i.i.sroa_idx = getelementptr inbounds i8, ptr %second.i.i, i64 8
   store double %margin, ptr %ref.tmp16.sroa.2.0.second.i.i.sroa_idx, align 8

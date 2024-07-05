@@ -16898,22 +16898,22 @@ define internal fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr n
   br i1 %268, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %290
-  %.0106146.us = phi i32 [ %291, %290 ], [ 0, %.preheader.lr.ph ]
+  %.0105146.us = phi i32 [ %291, %290 ], [ 0, %.preheader.lr.ph ]
   br label %271
 
 269:                                              ; preds = %281
-  %270 = add nuw nsw i32 %.0105144.us, 1
+  %270 = add nuw nsw i32 %.0106144.us, 1
   %exitcond156.not = icmp eq i32 %270, %225
   br i1 %exitcond156.not, label %._crit_edge.us, label %271, !llvm.loop !12
 
 271:                                              ; preds = %.preheader.us, %269
-  %.0105144.us = phi i32 [ 0, %.preheader.us ], [ %270, %269 ]
+  %.0106144.us = phi i32 [ 0, %.preheader.us ], [ %270, %269 ]
   %272 = load ptr, ptr %222, align 8
   %273 = load ptr, ptr %272, align 8
   %274 = getelementptr inbounds i8, ptr %272, i64 8
   %275 = load i32, ptr %274, align 8
-  %276 = mul nsw i32 %275, %.0106146.us
-  %277 = add nsw i32 %276, %.0105144.us
+  %276 = mul nsw i32 %275, %.0105146.us
+  %277 = add nsw i32 %276, %.0106144.us
   %278 = sext i32 %277 to i64
   %279 = getelementptr inbounds i32, ptr %273, i64 %278
   %280 = load i32, ptr %279, align 4
@@ -16936,7 +16936,7 @@ define internal fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr n
   br i1 %289, label %290, label %.split148.us
 
 290:                                              ; preds = %._crit_edge.us
-  %291 = add nuw nsw i32 %.0106146.us, 1
+  %291 = add nuw nsw i32 %.0105146.us, 1
   %exitcond157.not = icmp eq i32 %291, %227
   br i1 %exitcond157.not, label %.loopexit, label %.preheader.us, !llvm.loop !13
 
@@ -16975,12 +16975,12 @@ define internal fastcc void @_ZN5faissL9write_NSGEPKNS_3NSGEPNS_8IOWriterE(ptr n
   br label %357
 
 307:                                              ; preds = %.preheader
-  %308 = add nuw nsw i32 %.0106146, 1
+  %308 = add nuw nsw i32 %.0105146, 1
   %exitcond.not = icmp eq i32 %308, %227
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %307
-  %.0106146 = phi i32 [ %308, %307 ], [ 0, %.preheader.lr.ph ]
+  %.0105146 = phi i32 [ %308, %307 ], [ 0, %.preheader.lr.ph ]
   %309 = load ptr, ptr %1, align 8
   %310 = load ptr, ptr %309, align 8
   %311 = call noundef i64 %310(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %10, i64 noundef 4, i64 noundef 1)

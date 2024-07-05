@@ -303,23 +303,23 @@ hwloc_pci_get_names.exit:                         ; preds = %72, %hwloc_get_next
   br label %126
 
 126:                                              ; preds = %.lr.ph, %289
-  %.0126164 = phi ptr [ %122, %.lr.ph ], [ %290, %289 ]
-  %.0127163 = phi i32 [ 0, %.lr.ph ], [ %.1, %289 ]
-  %127 = getelementptr inbounds i8, ptr %.0126164, i64 292
+  %.0126164 = phi i32 [ 0, %.lr.ph ], [ %.1, %289 ]
+  %.0127163 = phi ptr [ %122, %.lr.ph ], [ %290, %289 ]
+  %127 = getelementptr inbounds i8, ptr %.0127163, i64 292
   %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds i8, ptr %.0126164, i64 2
+  %129 = getelementptr inbounds i8, ptr %.0127163, i64 2
   %130 = load i8, ptr %129, align 2
   %131 = zext i8 %130 to i32
-  %132 = getelementptr inbounds i8, ptr %.0126164, i64 3
+  %132 = getelementptr inbounds i8, ptr %.0127163, i64 3
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
-  %135 = getelementptr inbounds i8, ptr %.0126164, i64 4
+  %135 = getelementptr inbounds i8, ptr %.0127163, i64 4
   %136 = load i8, ptr %135, align 4
   %137 = zext i8 %136 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %14, i8 -1, i64 256, i1 false)
-  %138 = call i32 @pci_device_probe(ptr noundef nonnull %.0126164) #10
-  %139 = call i32 @pci_device_cfg_read(ptr noundef nonnull %.0126164, ptr noundef nonnull %14, i64 noundef 0, i64 noundef 256, ptr noundef null) #10
-  %140 = getelementptr inbounds i8, ptr %.0126164, i64 16
+  %138 = call i32 @pci_device_probe(ptr noundef nonnull %.0127163) #10
+  %139 = call i32 @pci_device_cfg_read(ptr noundef nonnull %.0127163, ptr noundef nonnull %14, i64 noundef 0, i64 noundef 256, ptr noundef null) #10
+  %140 = getelementptr inbounds i8, ptr %.0127163, i64 16
   %141 = load i32, ptr %140, align 8
   %142 = lshr i32 %141, 8
   %143 = call i32 @hwloc_pcidisc_check_bridge_type(i32 noundef %142, ptr noundef nonnull %14) #10
@@ -367,13 +367,13 @@ hwloc_pci_get_names.exit:                         ; preds = %72, %hwloc_get_next
   br i1 %narrow.i, label %.thread153, label %289
 
 .thread153:                                       ; preds = %145, %150, %152, %154
-  %165 = getelementptr inbounds i8, ptr %.0126164, i64 6
+  %165 = getelementptr inbounds i8, ptr %.0127163, i64 6
   %166 = load i16, ptr %165, align 2
   %167 = icmp eq i16 %166, -1
   br i1 %167, label %168, label %190
 
 168:                                              ; preds = %.thread153
-  %169 = getelementptr inbounds i8, ptr %.0126164, i64 8
+  %169 = getelementptr inbounds i8, ptr %.0127163, i64 8
   %170 = load i16, ptr %169, align 8
   %171 = icmp eq i16 %170, -1
   br i1 %171, label %172, label %190
@@ -432,7 +432,7 @@ hwloc_pci_get_names.exit:                         ; preds = %72, %hwloc_get_next
   %201 = load ptr, ptr %192, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 10
   store i16 %200, ptr %202, align 2
-  %203 = getelementptr inbounds i8, ptr %.0126164, i64 8
+  %203 = getelementptr inbounds i8, ptr %.0127163, i64 8
   %204 = load i16, ptr %203, align 8
   %205 = load ptr, ptr %192, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 12
@@ -600,11 +600,11 @@ hwloc_pci_get_obj_names.exit:                     ; preds = %281, %283, %285
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @hwloc_pcidisc_tree_insert_by_busid(ptr noundef nonnull %12, ptr noundef nonnull %191) #10
-  %288 = add i32 %.0127163, 1
+  %288 = add i32 %.0126164, 1
   br label %289
 
 289:                                              ; preds = %152, %154, %145, %hwloc_pci_get_obj_names.exit
-  %.1 = phi i32 [ %.0127163, %145 ], [ %.0127163, %152 ], [ %288, %hwloc_pci_get_obj_names.exit ], [ %.0127163, %154 ]
+  %.1 = phi i32 [ %.0126164, %145 ], [ %.0126164, %152 ], [ %288, %hwloc_pci_get_obj_names.exit ], [ %.0126164, %154 ]
   %290 = call ptr @pci_device_next(ptr noundef %121) #10
   %.not135 = icmp eq ptr %290, null
   br i1 %.not135, label %._crit_edge.loopexit, label %126, !llvm.loop !7
@@ -614,7 +614,7 @@ hwloc_pci_get_obj_names.exit:                     ; preds = %281, %283, %285
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %120
-  %.0127.lcssa = phi i1 [ true, %120 ], [ %291, %._crit_edge.loopexit ]
+  %.0126.lcssa = phi i1 [ true, %120 ], [ %291, %._crit_edge.loopexit ]
   call void @pci_iterator_destroy(ptr noundef %121) #10
   call void @pci_system_cleanup() #10
   %292 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @hwloc_pciaccess_mutex) #10
@@ -628,7 +628,7 @@ hwloc_pci_get_obj_names.exit:                     ; preds = %281, %283, %285
   %299 = load i32, ptr %298, align 8
   %300 = and i32 %299, 64
   store i32 %300, ptr %298, align 8
-  br i1 %.0127.lcssa, label %304, label %301
+  br i1 %.0126.lcssa, label %304, label %301
 
 301:                                              ; preds = %._crit_edge
   %302 = call ptr @hwloc_topology_get_infos(ptr noundef %22) #10

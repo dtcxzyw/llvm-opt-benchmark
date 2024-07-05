@@ -7707,9 +7707,9 @@ call.i.i2.i.i.noexc:                              ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i2.i.i1698, label %invoke.cont1604, label %while.body.i.i1694
 
 while.body.i.i1694:                               ; preds = %call.i.i2.i.i.noexc, %call.i.i.i.i.noexc
-  %agg.tmp.sroa.10.0.i = phi i64 [ %agg.tmp.sroa.10.1.i, %call.i.i.i.i.noexc ], [ %ref.tmp.sroa.6.0.i6397, %call.i.i2.i.i.noexc ]
-  %agg.tmp.sroa.8.0.i = phi ptr [ %agg.tmp.sroa.8.1.i, %call.i.i.i.i.noexc ], [ %ref.tmp.sroa.5.0.i6395, %call.i.i2.i.i.noexc ]
   %agg.tmp.sroa.3.0.i = phi ptr [ %agg.tmp.sroa.3.1.i, %call.i.i.i.i.noexc ], [ %ref.tmp.sroa.2.0.i6399, %call.i.i2.i.i.noexc ]
+  %agg.tmp.sroa.8.0.i = phi ptr [ %agg.tmp.sroa.8.1.i, %call.i.i.i.i.noexc ], [ %ref.tmp.sroa.5.0.i6395, %call.i.i2.i.i.noexc ]
+  %agg.tmp.sroa.10.0.i = phi i64 [ %agg.tmp.sroa.10.1.i, %call.i.i.i.i.noexc ], [ %ref.tmp.sroa.6.0.i6397, %call.i.i2.i.i.noexc ]
   %__n.03.i.i1695 = phi i64 [ %inc.i.i1696, %call.i.i.i.i.noexc ], [ 0, %call.i.i2.i.i.noexc ]
   %756 = load i8, ptr %j1504, align 8
   switch i8 %756, label %sw.default.i.i.i.i.i [
@@ -7730,9 +7730,9 @@ sw.default.i.i.i.i.i:                             ; preds = %while.body.i.i1694
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i: ; preds = %sw.default.i.i.i.i.i, %sw.bb2.i.i.i.i.i, %sw.bb.i.i.i.i.i
-  %agg.tmp.sroa.10.1.i = phi i64 [ %dec.i.i.i.i.i.i, %sw.default.i.i.i.i.i ], [ %agg.tmp.sroa.10.0.i, %sw.bb2.i.i.i.i.i ], [ %agg.tmp.sroa.10.0.i, %sw.bb.i.i.i.i.i ]
-  %agg.tmp.sroa.8.1.i = phi ptr [ %agg.tmp.sroa.8.0.i, %sw.default.i.i.i.i.i ], [ %incdec.ptr.i8.i.i.i.i.i.i.i, %sw.bb2.i.i.i.i.i ], [ %agg.tmp.sroa.8.0.i, %sw.bb.i.i.i.i.i ]
   %agg.tmp.sroa.3.1.i = phi ptr [ %agg.tmp.sroa.3.0.i, %sw.default.i.i.i.i.i ], [ %agg.tmp.sroa.3.0.i, %sw.bb2.i.i.i.i.i ], [ %call.i4.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i ]
+  %agg.tmp.sroa.8.1.i = phi ptr [ %agg.tmp.sroa.8.0.i, %sw.default.i.i.i.i.i ], [ %incdec.ptr.i8.i.i.i.i.i.i.i, %sw.bb2.i.i.i.i.i ], [ %agg.tmp.sroa.8.0.i, %sw.bb.i.i.i.i.i ]
+  %agg.tmp.sroa.10.1.i = phi i64 [ %dec.i.i.i.i.i.i, %sw.default.i.i.i.i.i ], [ %agg.tmp.sroa.10.0.i, %sw.bb2.i.i.i.i.i ], [ %agg.tmp.sroa.10.0.i, %sw.bb.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i)
   store ptr %j1504, ptr %ref.tmp.i.i.i.i, align 8, !alias.scope !547
@@ -7859,9 +7859,9 @@ call.i.i2.i.i.noexc1770:                          ; preds = %_ZNK8nlohmann16json
   br i1 %call.i.i2.i.i1771, label %invoke.cont1622, label %while.body.i.i1754
 
 while.body.i.i1754:                               ; preds = %call.i.i2.i.i.noexc1770, %call.i.i.i.i.noexc1772
-  %agg.tmp.sroa.10.0.i1755 = phi i64 [ %agg.tmp.sroa.10.1.i1761, %call.i.i.i.i.noexc1772 ], [ %ref.tmp.sroa.6.0.i17206413, %call.i.i2.i.i.noexc1770 ]
+  %agg.tmp.sroa.3.0.i1755 = phi ptr [ %agg.tmp.sroa.3.1.i1761, %call.i.i.i.i.noexc1772 ], [ %ref.tmp.sroa.2.0.i17216415, %call.i.i2.i.i.noexc1770 ]
   %agg.tmp.sroa.8.0.i1756 = phi ptr [ %agg.tmp.sroa.8.1.i1762, %call.i.i.i.i.noexc1772 ], [ %ref.tmp.sroa.5.0.i17196411, %call.i.i2.i.i.noexc1770 ]
-  %agg.tmp.sroa.3.0.i1757 = phi ptr [ %agg.tmp.sroa.3.1.i1763, %call.i.i.i.i.noexc1772 ], [ %ref.tmp.sroa.2.0.i17216415, %call.i.i2.i.i.noexc1770 ]
+  %agg.tmp.sroa.10.0.i1757 = phi i64 [ %agg.tmp.sroa.10.1.i1763, %call.i.i.i.i.noexc1772 ], [ %ref.tmp.sroa.6.0.i17206413, %call.i.i2.i.i.noexc1770 ]
   %__n.03.i.i1758 = phi i64 [ %inc.i.i1764, %call.i.i.i.i.noexc1772 ], [ 0, %call.i.i2.i.i.noexc1770 ]
   %771 = load i8, ptr %j_const1506, align 8
   switch i8 %771, label %sw.default.i.i.i.i.i1768 [
@@ -7870,7 +7870,7 @@ while.body.i.i1754:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i1766:                              ; preds = %while.body.i.i1754
-  %call.i4.i.i.i.i.i.i.i1767 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i1757) #20
+  %call.i4.i.i.i.i.i.i.i1767 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i1755) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i
 
 sw.bb2.i.i.i.i.i1759:                             ; preds = %while.body.i.i1754
@@ -7878,19 +7878,19 @@ sw.bb2.i.i.i.i.i1759:                             ; preds = %while.body.i.i1754
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i
 
 sw.default.i.i.i.i.i1768:                         ; preds = %while.body.i.i1754
-  %dec.i.i.i.i.i.i1769 = add nsw i64 %agg.tmp.sroa.10.0.i1755, -1
+  %dec.i.i.i.i.i.i1769 = add nsw i64 %agg.tmp.sroa.10.0.i1757, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i: ; preds = %sw.default.i.i.i.i.i1768, %sw.bb2.i.i.i.i.i1759, %sw.bb.i.i.i.i.i1766
-  %agg.tmp.sroa.10.1.i1761 = phi i64 [ %dec.i.i.i.i.i.i1769, %sw.default.i.i.i.i.i1768 ], [ %agg.tmp.sroa.10.0.i1755, %sw.bb2.i.i.i.i.i1759 ], [ %agg.tmp.sroa.10.0.i1755, %sw.bb.i.i.i.i.i1766 ]
+  %agg.tmp.sroa.3.1.i1761 = phi ptr [ %agg.tmp.sroa.3.0.i1755, %sw.default.i.i.i.i.i1768 ], [ %agg.tmp.sroa.3.0.i1755, %sw.bb2.i.i.i.i.i1759 ], [ %call.i4.i.i.i.i.i.i.i1767, %sw.bb.i.i.i.i.i1766 ]
   %agg.tmp.sroa.8.1.i1762 = phi ptr [ %agg.tmp.sroa.8.0.i1756, %sw.default.i.i.i.i.i1768 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i1760, %sw.bb2.i.i.i.i.i1759 ], [ %agg.tmp.sroa.8.0.i1756, %sw.bb.i.i.i.i.i1766 ]
-  %agg.tmp.sroa.3.1.i1763 = phi ptr [ %agg.tmp.sroa.3.0.i1757, %sw.default.i.i.i.i.i1768 ], [ %agg.tmp.sroa.3.0.i1757, %sw.bb2.i.i.i.i.i1759 ], [ %call.i4.i.i.i.i.i.i.i1767, %sw.bb.i.i.i.i.i1766 ]
+  %agg.tmp.sroa.10.1.i1763 = phi i64 [ %dec.i.i.i.i.i.i1769, %sw.default.i.i.i.i.i1768 ], [ %agg.tmp.sroa.10.0.i1757, %sw.bb2.i.i.i.i.i1759 ], [ %agg.tmp.sroa.10.0.i1757, %sw.bb.i.i.i.i.i1766 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i1740)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i1741)
   store ptr %j_const1506, ptr %ref.tmp.i.i.i.i1740, align 8, !alias.scope !568
-  store ptr %agg.tmp.sroa.3.1.i1763, ptr %m_it.i.i.i.i.i.i1750, align 8
+  store ptr %agg.tmp.sroa.3.1.i1761, ptr %m_it.i.i.i.i.i.i1750, align 8
   store ptr %agg.tmp.sroa.8.1.i1762, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i1752, align 8
-  store i64 %agg.tmp.sroa.10.1.i1761, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i1753, align 8
+  store i64 %agg.tmp.sroa.10.1.i1763, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i1753, align 8
   store ptr %j_const1506, ptr %ref.tmp1.i.i.i.i1741, align 8, !alias.scope !570
   store ptr %ref.tmp.sroa.2.0.i1730, ptr %m_it.i.i1.i.i.i.i1751, align 8
   store ptr %ref.tmp.sroa.5.0.i1728, ptr %agg.tmp1619.sroa.5.8.m_it.i.i1.i.i.i.i1751.sroa_idx, align 8
@@ -8625,9 +8625,9 @@ call.i.i2.i.i.noexc2025:                          ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i2.i.i2026, label %invoke.cont1748, label %while.body.i.i2008
 
 while.body.i.i2008:                               ; preds = %call.i.i2.i.i.noexc2025, %call.i.i.i.i.noexc2027
-  %agg.tmp.sroa.10.0.i2009 = phi i64 [ %agg.tmp.sroa.10.1.i2016, %call.i.i.i.i.noexc2027 ], [ %ref.tmp.sroa.6.0.i19726475, %call.i.i2.i.i.noexc2025 ]
+  %agg.tmp.sroa.3.0.i2009 = phi ptr [ %agg.tmp.sroa.3.1.i2016, %call.i.i.i.i.noexc2027 ], [ %ref.tmp.sroa.2.0.i19736477, %call.i.i2.i.i.noexc2025 ]
   %agg.tmp.sroa.8.0.i2010 = phi ptr [ %agg.tmp.sroa.8.1.i2017, %call.i.i.i.i.noexc2027 ], [ %ref.tmp.sroa.5.0.i19716473, %call.i.i2.i.i.noexc2025 ]
-  %agg.tmp.sroa.3.0.i2011 = phi ptr [ %agg.tmp.sroa.3.1.i2018, %call.i.i.i.i.noexc2027 ], [ %ref.tmp.sroa.2.0.i19736477, %call.i.i2.i.i.noexc2025 ]
+  %agg.tmp.sroa.10.0.i2011 = phi i64 [ %agg.tmp.sroa.10.1.i2018, %call.i.i.i.i.noexc2027 ], [ %ref.tmp.sroa.6.0.i19726475, %call.i.i2.i.i.noexc2025 ]
   %__n.03.i.i2012 = phi i64 [ %inc.i.i2019, %call.i.i.i.i.noexc2027 ], [ 0, %call.i.i2.i.i.noexc2025 ]
   %858 = load i8, ptr %j1647, align 8
   switch i8 %858, label %sw.default.i.i.i.i.i2023 [
@@ -8636,7 +8636,7 @@ while.body.i.i2008:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i2021:                              ; preds = %while.body.i.i2008
-  %call.i4.i.i.i.i.i.i.i2022 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i2011) #20
+  %call.i4.i.i.i.i.i.i.i2022 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i2009) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2015
 
 sw.bb2.i.i.i.i.i2013:                             ; preds = %while.body.i.i2008
@@ -8644,19 +8644,19 @@ sw.bb2.i.i.i.i.i2013:                             ; preds = %while.body.i.i2008
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2015
 
 sw.default.i.i.i.i.i2023:                         ; preds = %while.body.i.i2008
-  %dec.i.i.i.i.i.i2024 = add nsw i64 %agg.tmp.sroa.10.0.i2009, -1
+  %dec.i.i.i.i.i.i2024 = add nsw i64 %agg.tmp.sroa.10.0.i2011, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2015
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2015: ; preds = %sw.default.i.i.i.i.i2023, %sw.bb2.i.i.i.i.i2013, %sw.bb.i.i.i.i.i2021
-  %agg.tmp.sroa.10.1.i2016 = phi i64 [ %dec.i.i.i.i.i.i2024, %sw.default.i.i.i.i.i2023 ], [ %agg.tmp.sroa.10.0.i2009, %sw.bb2.i.i.i.i.i2013 ], [ %agg.tmp.sroa.10.0.i2009, %sw.bb.i.i.i.i.i2021 ]
+  %agg.tmp.sroa.3.1.i2016 = phi ptr [ %agg.tmp.sroa.3.0.i2009, %sw.default.i.i.i.i.i2023 ], [ %agg.tmp.sroa.3.0.i2009, %sw.bb2.i.i.i.i.i2013 ], [ %call.i4.i.i.i.i.i.i.i2022, %sw.bb.i.i.i.i.i2021 ]
   %agg.tmp.sroa.8.1.i2017 = phi ptr [ %agg.tmp.sroa.8.0.i2010, %sw.default.i.i.i.i.i2023 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i2014, %sw.bb2.i.i.i.i.i2013 ], [ %agg.tmp.sroa.8.0.i2010, %sw.bb.i.i.i.i.i2021 ]
-  %agg.tmp.sroa.3.1.i2018 = phi ptr [ %agg.tmp.sroa.3.0.i2011, %sw.default.i.i.i.i.i2023 ], [ %agg.tmp.sroa.3.0.i2011, %sw.bb2.i.i.i.i.i2013 ], [ %call.i4.i.i.i.i.i.i.i2022, %sw.bb.i.i.i.i.i2021 ]
+  %agg.tmp.sroa.10.1.i2018 = phi i64 [ %dec.i.i.i.i.i.i2024, %sw.default.i.i.i.i.i2023 ], [ %agg.tmp.sroa.10.0.i2011, %sw.bb2.i.i.i.i.i2013 ], [ %agg.tmp.sroa.10.0.i2011, %sw.bb.i.i.i.i.i2021 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i1994)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i1995)
   store ptr %j1647, ptr %ref.tmp.i.i.i.i1994, align 8, !alias.scope !605
-  store ptr %agg.tmp.sroa.3.1.i2018, ptr %m_it.i.i.i.i.i.i2004, align 8
+  store ptr %agg.tmp.sroa.3.1.i2016, ptr %m_it.i.i.i.i.i.i2004, align 8
   store ptr %agg.tmp.sroa.8.1.i2017, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i2006, align 8
-  store i64 %agg.tmp.sroa.10.1.i2016, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i2007, align 8
+  store i64 %agg.tmp.sroa.10.1.i2018, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i2007, align 8
   store ptr %j1647, ptr %ref.tmp1.i.i.i.i1995, align 8, !alias.scope !607
   store ptr %ref.tmp.sroa.2.0.i1983, ptr %m_it.i.i1.i.i.i.i2005, align 8
   store ptr %ref.tmp.sroa.5.0.i1981, ptr %agg.tmp1745.sroa.5.8.m_it.i.i1.i.i.i.i2005.sroa_idx, align 8
@@ -8781,9 +8781,9 @@ call.i.i2.i.i.noexc2103:                          ; preds = %_ZNK8nlohmann16json
   br i1 %call.i.i2.i.i2104, label %invoke.cont1766, label %while.body.i.i2086
 
 while.body.i.i2086:                               ; preds = %call.i.i2.i.i.noexc2103, %call.i.i.i.i.noexc2105
-  %agg.tmp.sroa.10.0.i2087 = phi i64 [ %agg.tmp.sroa.10.1.i2094, %call.i.i.i.i.noexc2105 ], [ %ref.tmp.sroa.6.0.i20506491, %call.i.i2.i.i.noexc2103 ]
+  %agg.tmp.sroa.3.0.i2087 = phi ptr [ %agg.tmp.sroa.3.1.i2094, %call.i.i.i.i.noexc2105 ], [ %ref.tmp.sroa.2.0.i20516493, %call.i.i2.i.i.noexc2103 ]
   %agg.tmp.sroa.8.0.i2088 = phi ptr [ %agg.tmp.sroa.8.1.i2095, %call.i.i.i.i.noexc2105 ], [ %ref.tmp.sroa.5.0.i20496489, %call.i.i2.i.i.noexc2103 ]
-  %agg.tmp.sroa.3.0.i2089 = phi ptr [ %agg.tmp.sroa.3.1.i2096, %call.i.i.i.i.noexc2105 ], [ %ref.tmp.sroa.2.0.i20516493, %call.i.i2.i.i.noexc2103 ]
+  %agg.tmp.sroa.10.0.i2089 = phi i64 [ %agg.tmp.sroa.10.1.i2096, %call.i.i.i.i.noexc2105 ], [ %ref.tmp.sroa.6.0.i20506491, %call.i.i2.i.i.noexc2103 ]
   %__n.03.i.i2090 = phi i64 [ %inc.i.i2097, %call.i.i.i.i.noexc2105 ], [ 0, %call.i.i2.i.i.noexc2103 ]
   %873 = load i8, ptr %j_const1649, align 8
   switch i8 %873, label %sw.default.i.i.i.i.i2101 [
@@ -8792,7 +8792,7 @@ while.body.i.i2086:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i2099:                              ; preds = %while.body.i.i2086
-  %call.i4.i.i.i.i.i.i.i2100 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i2089) #20
+  %call.i4.i.i.i.i.i.i.i2100 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i2087) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2093
 
 sw.bb2.i.i.i.i.i2091:                             ; preds = %while.body.i.i2086
@@ -8800,19 +8800,19 @@ sw.bb2.i.i.i.i.i2091:                             ; preds = %while.body.i.i2086
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2093
 
 sw.default.i.i.i.i.i2101:                         ; preds = %while.body.i.i2086
-  %dec.i.i.i.i.i.i2102 = add nsw i64 %agg.tmp.sroa.10.0.i2087, -1
+  %dec.i.i.i.i.i.i2102 = add nsw i64 %agg.tmp.sroa.10.0.i2089, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2093
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2093: ; preds = %sw.default.i.i.i.i.i2101, %sw.bb2.i.i.i.i.i2091, %sw.bb.i.i.i.i.i2099
-  %agg.tmp.sroa.10.1.i2094 = phi i64 [ %dec.i.i.i.i.i.i2102, %sw.default.i.i.i.i.i2101 ], [ %agg.tmp.sroa.10.0.i2087, %sw.bb2.i.i.i.i.i2091 ], [ %agg.tmp.sroa.10.0.i2087, %sw.bb.i.i.i.i.i2099 ]
+  %agg.tmp.sroa.3.1.i2094 = phi ptr [ %agg.tmp.sroa.3.0.i2087, %sw.default.i.i.i.i.i2101 ], [ %agg.tmp.sroa.3.0.i2087, %sw.bb2.i.i.i.i.i2091 ], [ %call.i4.i.i.i.i.i.i.i2100, %sw.bb.i.i.i.i.i2099 ]
   %agg.tmp.sroa.8.1.i2095 = phi ptr [ %agg.tmp.sroa.8.0.i2088, %sw.default.i.i.i.i.i2101 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i2092, %sw.bb2.i.i.i.i.i2091 ], [ %agg.tmp.sroa.8.0.i2088, %sw.bb.i.i.i.i.i2099 ]
-  %agg.tmp.sroa.3.1.i2096 = phi ptr [ %agg.tmp.sroa.3.0.i2089, %sw.default.i.i.i.i.i2101 ], [ %agg.tmp.sroa.3.0.i2089, %sw.bb2.i.i.i.i.i2091 ], [ %call.i4.i.i.i.i.i.i.i2100, %sw.bb.i.i.i.i.i2099 ]
+  %agg.tmp.sroa.10.1.i2096 = phi i64 [ %dec.i.i.i.i.i.i2102, %sw.default.i.i.i.i.i2101 ], [ %agg.tmp.sroa.10.0.i2089, %sw.bb2.i.i.i.i.i2091 ], [ %agg.tmp.sroa.10.0.i2089, %sw.bb.i.i.i.i.i2099 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i2072)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i2073)
   store ptr %j_const1649, ptr %ref.tmp.i.i.i.i2072, align 8, !alias.scope !625
-  store ptr %agg.tmp.sroa.3.1.i2096, ptr %m_it.i.i.i.i.i.i2082, align 8
+  store ptr %agg.tmp.sroa.3.1.i2094, ptr %m_it.i.i.i.i.i.i2082, align 8
   store ptr %agg.tmp.sroa.8.1.i2095, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i2084, align 8
-  store i64 %agg.tmp.sroa.10.1.i2094, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i2085, align 8
+  store i64 %agg.tmp.sroa.10.1.i2096, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i2085, align 8
   store ptr %j_const1649, ptr %ref.tmp1.i.i.i.i2073, align 8, !alias.scope !627
   store ptr %ref.tmp.sroa.2.0.i2061, ptr %m_it.i.i1.i.i.i.i2083, align 8
   store ptr %ref.tmp.sroa.5.0.i2059, ptr %agg.tmp1763.sroa.5.8.m_it.i.i1.i.i.i.i2083.sroa_idx, align 8
@@ -9632,9 +9632,9 @@ call.i.i2.i.i.noexc2385:                          ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i2.i.i2386, label %invoke.cont1904, label %while.body.i.i2368
 
 while.body.i.i2368:                               ; preds = %call.i.i2.i.i.noexc2385, %call.i.i.i.i.noexc2387
-  %agg.tmp.sroa.10.0.i2369 = phi i64 [ %agg.tmp.sroa.10.1.i2376, %call.i.i.i.i.noexc2387 ], [ %ref.tmp.sroa.6.0.i23326553, %call.i.i2.i.i.noexc2385 ]
+  %agg.tmp.sroa.3.0.i2369 = phi ptr [ %agg.tmp.sroa.3.1.i2376, %call.i.i.i.i.noexc2387 ], [ %ref.tmp.sroa.2.0.i23336555, %call.i.i2.i.i.noexc2385 ]
   %agg.tmp.sroa.8.0.i2370 = phi ptr [ %agg.tmp.sroa.8.1.i2377, %call.i.i.i.i.noexc2387 ], [ %ref.tmp.sroa.5.0.i23316551, %call.i.i2.i.i.noexc2385 ]
-  %agg.tmp.sroa.3.0.i2371 = phi ptr [ %agg.tmp.sroa.3.1.i2378, %call.i.i.i.i.noexc2387 ], [ %ref.tmp.sroa.2.0.i23336555, %call.i.i2.i.i.noexc2385 ]
+  %agg.tmp.sroa.10.0.i2371 = phi i64 [ %agg.tmp.sroa.10.1.i2378, %call.i.i.i.i.noexc2387 ], [ %ref.tmp.sroa.6.0.i23326553, %call.i.i2.i.i.noexc2385 ]
   %__n.03.i.i2372 = phi i64 [ %inc.i.i2379, %call.i.i.i.i.noexc2387 ], [ 0, %call.i.i2.i.i.noexc2385 ]
   %964 = load i8, ptr %j1801, align 8
   switch i8 %964, label %sw.default.i.i.i.i.i2383 [
@@ -9643,7 +9643,7 @@ while.body.i.i2368:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i2381:                              ; preds = %while.body.i.i2368
-  %call.i4.i.i.i.i.i.i.i2382 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i2371) #20
+  %call.i4.i.i.i.i.i.i.i2382 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i2369) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2375
 
 sw.bb2.i.i.i.i.i2373:                             ; preds = %while.body.i.i2368
@@ -9651,19 +9651,19 @@ sw.bb2.i.i.i.i.i2373:                             ; preds = %while.body.i.i2368
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2375
 
 sw.default.i.i.i.i.i2383:                         ; preds = %while.body.i.i2368
-  %dec.i.i.i.i.i.i2384 = add nsw i64 %agg.tmp.sroa.10.0.i2369, -1
+  %dec.i.i.i.i.i.i2384 = add nsw i64 %agg.tmp.sroa.10.0.i2371, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2375
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2375: ; preds = %sw.default.i.i.i.i.i2383, %sw.bb2.i.i.i.i.i2373, %sw.bb.i.i.i.i.i2381
-  %agg.tmp.sroa.10.1.i2376 = phi i64 [ %dec.i.i.i.i.i.i2384, %sw.default.i.i.i.i.i2383 ], [ %agg.tmp.sroa.10.0.i2369, %sw.bb2.i.i.i.i.i2373 ], [ %agg.tmp.sroa.10.0.i2369, %sw.bb.i.i.i.i.i2381 ]
+  %agg.tmp.sroa.3.1.i2376 = phi ptr [ %agg.tmp.sroa.3.0.i2369, %sw.default.i.i.i.i.i2383 ], [ %agg.tmp.sroa.3.0.i2369, %sw.bb2.i.i.i.i.i2373 ], [ %call.i4.i.i.i.i.i.i.i2382, %sw.bb.i.i.i.i.i2381 ]
   %agg.tmp.sroa.8.1.i2377 = phi ptr [ %agg.tmp.sroa.8.0.i2370, %sw.default.i.i.i.i.i2383 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i2374, %sw.bb2.i.i.i.i.i2373 ], [ %agg.tmp.sroa.8.0.i2370, %sw.bb.i.i.i.i.i2381 ]
-  %agg.tmp.sroa.3.1.i2378 = phi ptr [ %agg.tmp.sroa.3.0.i2371, %sw.default.i.i.i.i.i2383 ], [ %agg.tmp.sroa.3.0.i2371, %sw.bb2.i.i.i.i.i2373 ], [ %call.i4.i.i.i.i.i.i.i2382, %sw.bb.i.i.i.i.i2381 ]
+  %agg.tmp.sroa.10.1.i2378 = phi i64 [ %dec.i.i.i.i.i.i2384, %sw.default.i.i.i.i.i2383 ], [ %agg.tmp.sroa.10.0.i2371, %sw.bb2.i.i.i.i.i2373 ], [ %agg.tmp.sroa.10.0.i2371, %sw.bb.i.i.i.i.i2381 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i2354)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i2355)
   store ptr %j1801, ptr %ref.tmp.i.i.i.i2354, align 8, !alias.scope !667
-  store ptr %agg.tmp.sroa.3.1.i2378, ptr %m_it.i.i.i.i.i.i2364, align 8
+  store ptr %agg.tmp.sroa.3.1.i2376, ptr %m_it.i.i.i.i.i.i2364, align 8
   store ptr %agg.tmp.sroa.8.1.i2377, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i2366, align 8
-  store i64 %agg.tmp.sroa.10.1.i2376, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i2367, align 8
+  store i64 %agg.tmp.sroa.10.1.i2378, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i2367, align 8
   store ptr %j1801, ptr %ref.tmp1.i.i.i.i2355, align 8, !alias.scope !669
   store ptr %ref.tmp.sroa.2.0.i2343, ptr %m_it.i.i1.i.i.i.i2365, align 8
   store ptr %ref.tmp.sroa.5.0.i2341, ptr %agg.tmp1901.sroa.5.8.m_it.i.i1.i.i.i.i2365.sroa_idx, align 8
@@ -9784,9 +9784,9 @@ call.i.i2.i.i.noexc2463:                          ; preds = %_ZNK8nlohmann16json
   br i1 %call.i.i2.i.i2464, label %invoke.cont1922, label %while.body.i.i2446
 
 while.body.i.i2446:                               ; preds = %call.i.i2.i.i.noexc2463, %call.i.i.i.i.noexc2465
-  %agg.tmp.sroa.10.0.i2447 = phi i64 [ %agg.tmp.sroa.10.1.i2454, %call.i.i.i.i.noexc2465 ], [ %ref.tmp.sroa.6.0.i24106569, %call.i.i2.i.i.noexc2463 ]
+  %agg.tmp.sroa.3.0.i2447 = phi ptr [ %agg.tmp.sroa.3.1.i2454, %call.i.i.i.i.noexc2465 ], [ %ref.tmp.sroa.2.0.i24116571, %call.i.i2.i.i.noexc2463 ]
   %agg.tmp.sroa.8.0.i2448 = phi ptr [ %agg.tmp.sroa.8.1.i2455, %call.i.i.i.i.noexc2465 ], [ %ref.tmp.sroa.5.0.i24096567, %call.i.i2.i.i.noexc2463 ]
-  %agg.tmp.sroa.3.0.i2449 = phi ptr [ %agg.tmp.sroa.3.1.i2456, %call.i.i.i.i.noexc2465 ], [ %ref.tmp.sroa.2.0.i24116571, %call.i.i2.i.i.noexc2463 ]
+  %agg.tmp.sroa.10.0.i2449 = phi i64 [ %agg.tmp.sroa.10.1.i2456, %call.i.i.i.i.noexc2465 ], [ %ref.tmp.sroa.6.0.i24106569, %call.i.i2.i.i.noexc2463 ]
   %__n.03.i.i2450 = phi i64 [ %inc.i.i2457, %call.i.i.i.i.noexc2465 ], [ 0, %call.i.i2.i.i.noexc2463 ]
   %979 = load i8, ptr %j_const1804, align 8
   switch i8 %979, label %sw.default.i.i.i.i.i2461 [
@@ -9795,7 +9795,7 @@ while.body.i.i2446:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i2459:                              ; preds = %while.body.i.i2446
-  %call.i4.i.i.i.i.i.i.i2460 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i2449) #20
+  %call.i4.i.i.i.i.i.i.i2460 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i2447) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2453
 
 sw.bb2.i.i.i.i.i2451:                             ; preds = %while.body.i.i2446
@@ -9803,19 +9803,19 @@ sw.bb2.i.i.i.i.i2451:                             ; preds = %while.body.i.i2446
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2453
 
 sw.default.i.i.i.i.i2461:                         ; preds = %while.body.i.i2446
-  %dec.i.i.i.i.i.i2462 = add nsw i64 %agg.tmp.sroa.10.0.i2447, -1
+  %dec.i.i.i.i.i.i2462 = add nsw i64 %agg.tmp.sroa.10.0.i2449, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2453
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2453: ; preds = %sw.default.i.i.i.i.i2461, %sw.bb2.i.i.i.i.i2451, %sw.bb.i.i.i.i.i2459
-  %agg.tmp.sroa.10.1.i2454 = phi i64 [ %dec.i.i.i.i.i.i2462, %sw.default.i.i.i.i.i2461 ], [ %agg.tmp.sroa.10.0.i2447, %sw.bb2.i.i.i.i.i2451 ], [ %agg.tmp.sroa.10.0.i2447, %sw.bb.i.i.i.i.i2459 ]
+  %agg.tmp.sroa.3.1.i2454 = phi ptr [ %agg.tmp.sroa.3.0.i2447, %sw.default.i.i.i.i.i2461 ], [ %agg.tmp.sroa.3.0.i2447, %sw.bb2.i.i.i.i.i2451 ], [ %call.i4.i.i.i.i.i.i.i2460, %sw.bb.i.i.i.i.i2459 ]
   %agg.tmp.sroa.8.1.i2455 = phi ptr [ %agg.tmp.sroa.8.0.i2448, %sw.default.i.i.i.i.i2461 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i2452, %sw.bb2.i.i.i.i.i2451 ], [ %agg.tmp.sroa.8.0.i2448, %sw.bb.i.i.i.i.i2459 ]
-  %agg.tmp.sroa.3.1.i2456 = phi ptr [ %agg.tmp.sroa.3.0.i2449, %sw.default.i.i.i.i.i2461 ], [ %agg.tmp.sroa.3.0.i2449, %sw.bb2.i.i.i.i.i2451 ], [ %call.i4.i.i.i.i.i.i.i2460, %sw.bb.i.i.i.i.i2459 ]
+  %agg.tmp.sroa.10.1.i2456 = phi i64 [ %dec.i.i.i.i.i.i2462, %sw.default.i.i.i.i.i2461 ], [ %agg.tmp.sroa.10.0.i2449, %sw.bb2.i.i.i.i.i2451 ], [ %agg.tmp.sroa.10.0.i2449, %sw.bb.i.i.i.i.i2459 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i2432)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i2433)
   store ptr %j_const1804, ptr %ref.tmp.i.i.i.i2432, align 8, !alias.scope !687
-  store ptr %agg.tmp.sroa.3.1.i2456, ptr %m_it.i.i.i.i.i.i2442, align 8
+  store ptr %agg.tmp.sroa.3.1.i2454, ptr %m_it.i.i.i.i.i.i2442, align 8
   store ptr %agg.tmp.sroa.8.1.i2455, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i2444, align 8
-  store i64 %agg.tmp.sroa.10.1.i2454, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i2445, align 8
+  store i64 %agg.tmp.sroa.10.1.i2456, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i2445, align 8
   store ptr %j_const1804, ptr %ref.tmp1.i.i.i.i2433, align 8, !alias.scope !689
   store ptr %ref.tmp.sroa.2.0.i2421, ptr %m_it.i.i1.i.i.i.i2443, align 8
   store ptr %ref.tmp.sroa.5.0.i2419, ptr %agg.tmp1919.sroa.5.8.m_it.i.i1.i.i.i.i2443.sroa_idx, align 8
@@ -10648,9 +10648,9 @@ call.i.i2.i.i.noexc2737:                          ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i2.i.i2738, label %invoke.cont2121, label %while.body.i.i2720
 
 while.body.i.i2720:                               ; preds = %call.i.i2.i.i.noexc2737, %call.i.i.i.i.noexc2739
-  %agg.tmp.sroa.10.0.i2721 = phi i64 [ %agg.tmp.sroa.10.1.i2728, %call.i.i.i.i.noexc2739 ], [ %ref.tmp.sroa.6.0.i26846631, %call.i.i2.i.i.noexc2737 ]
+  %agg.tmp.sroa.3.0.i2721 = phi ptr [ %agg.tmp.sroa.3.1.i2728, %call.i.i.i.i.noexc2739 ], [ %ref.tmp.sroa.2.0.i26856633, %call.i.i2.i.i.noexc2737 ]
   %agg.tmp.sroa.8.0.i2722 = phi ptr [ %agg.tmp.sroa.8.1.i2729, %call.i.i.i.i.noexc2739 ], [ %ref.tmp.sroa.5.0.i26836629, %call.i.i2.i.i.noexc2737 ]
-  %agg.tmp.sroa.3.0.i2723 = phi ptr [ %agg.tmp.sroa.3.1.i2730, %call.i.i.i.i.noexc2739 ], [ %ref.tmp.sroa.2.0.i26856633, %call.i.i2.i.i.noexc2737 ]
+  %agg.tmp.sroa.10.0.i2723 = phi i64 [ %agg.tmp.sroa.10.1.i2730, %call.i.i.i.i.noexc2739 ], [ %ref.tmp.sroa.6.0.i26846631, %call.i.i2.i.i.noexc2737 ]
   %__n.03.i.i2724 = phi i64 [ %inc.i.i2731, %call.i.i.i.i.noexc2739 ], [ 0, %call.i.i2.i.i.noexc2737 ]
   %1076 = load i8, ptr %j1947, align 8
   switch i8 %1076, label %sw.default.i.i.i.i.i2735 [
@@ -10659,7 +10659,7 @@ while.body.i.i2720:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i2733:                              ; preds = %while.body.i.i2720
-  %call.i4.i.i.i.i.i.i.i2734 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i2723) #20
+  %call.i4.i.i.i.i.i.i.i2734 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i2721) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2727
 
 sw.bb2.i.i.i.i.i2725:                             ; preds = %while.body.i.i2720
@@ -10667,19 +10667,19 @@ sw.bb2.i.i.i.i.i2725:                             ; preds = %while.body.i.i2720
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2727
 
 sw.default.i.i.i.i.i2735:                         ; preds = %while.body.i.i2720
-  %dec.i.i.i.i.i.i2736 = add nsw i64 %agg.tmp.sroa.10.0.i2721, -1
+  %dec.i.i.i.i.i.i2736 = add nsw i64 %agg.tmp.sroa.10.0.i2723, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2727
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2727: ; preds = %sw.default.i.i.i.i.i2735, %sw.bb2.i.i.i.i.i2725, %sw.bb.i.i.i.i.i2733
-  %agg.tmp.sroa.10.1.i2728 = phi i64 [ %dec.i.i.i.i.i.i2736, %sw.default.i.i.i.i.i2735 ], [ %agg.tmp.sroa.10.0.i2721, %sw.bb2.i.i.i.i.i2725 ], [ %agg.tmp.sroa.10.0.i2721, %sw.bb.i.i.i.i.i2733 ]
+  %agg.tmp.sroa.3.1.i2728 = phi ptr [ %agg.tmp.sroa.3.0.i2721, %sw.default.i.i.i.i.i2735 ], [ %agg.tmp.sroa.3.0.i2721, %sw.bb2.i.i.i.i.i2725 ], [ %call.i4.i.i.i.i.i.i.i2734, %sw.bb.i.i.i.i.i2733 ]
   %agg.tmp.sroa.8.1.i2729 = phi ptr [ %agg.tmp.sroa.8.0.i2722, %sw.default.i.i.i.i.i2735 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i2726, %sw.bb2.i.i.i.i.i2725 ], [ %agg.tmp.sroa.8.0.i2722, %sw.bb.i.i.i.i.i2733 ]
-  %agg.tmp.sroa.3.1.i2730 = phi ptr [ %agg.tmp.sroa.3.0.i2723, %sw.default.i.i.i.i.i2735 ], [ %agg.tmp.sroa.3.0.i2723, %sw.bb2.i.i.i.i.i2725 ], [ %call.i4.i.i.i.i.i.i.i2734, %sw.bb.i.i.i.i.i2733 ]
+  %agg.tmp.sroa.10.1.i2730 = phi i64 [ %dec.i.i.i.i.i.i2736, %sw.default.i.i.i.i.i2735 ], [ %agg.tmp.sroa.10.0.i2723, %sw.bb2.i.i.i.i.i2725 ], [ %agg.tmp.sroa.10.0.i2723, %sw.bb.i.i.i.i.i2733 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i2706)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i2707)
   store ptr %j1947, ptr %ref.tmp.i.i.i.i2706, align 8, !alias.scope !723
-  store ptr %agg.tmp.sroa.3.1.i2730, ptr %m_it.i.i.i.i.i.i2716, align 8
+  store ptr %agg.tmp.sroa.3.1.i2728, ptr %m_it.i.i.i.i.i.i2716, align 8
   store ptr %agg.tmp.sroa.8.1.i2729, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i2718, align 8
-  store i64 %agg.tmp.sroa.10.1.i2728, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i2719, align 8
+  store i64 %agg.tmp.sroa.10.1.i2730, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i2719, align 8
   store ptr %j1947, ptr %ref.tmp1.i.i.i.i2707, align 8, !alias.scope !725
   store ptr %ref.tmp.sroa.2.0.i2695, ptr %m_it.i.i1.i.i.i.i2717, align 8
   store ptr %ref.tmp.sroa.5.0.i2693, ptr %agg.tmp2118.sroa.5.8.m_it.i.i1.i.i.i.i2717.sroa_idx, align 8
@@ -10804,9 +10804,9 @@ call.i.i2.i.i.noexc2815:                          ; preds = %_ZNK8nlohmann16json
   br i1 %call.i.i2.i.i2816, label %invoke.cont2139, label %while.body.i.i2798
 
 while.body.i.i2798:                               ; preds = %call.i.i2.i.i.noexc2815, %call.i.i.i.i.noexc2817
-  %agg.tmp.sroa.10.0.i2799 = phi i64 [ %agg.tmp.sroa.10.1.i2806, %call.i.i.i.i.noexc2817 ], [ %ref.tmp.sroa.6.0.i27626647, %call.i.i2.i.i.noexc2815 ]
+  %agg.tmp.sroa.3.0.i2799 = phi ptr [ %agg.tmp.sroa.3.1.i2806, %call.i.i.i.i.noexc2817 ], [ %ref.tmp.sroa.2.0.i27636649, %call.i.i2.i.i.noexc2815 ]
   %agg.tmp.sroa.8.0.i2800 = phi ptr [ %agg.tmp.sroa.8.1.i2807, %call.i.i.i.i.noexc2817 ], [ %ref.tmp.sroa.5.0.i27616645, %call.i.i2.i.i.noexc2815 ]
-  %agg.tmp.sroa.3.0.i2801 = phi ptr [ %agg.tmp.sroa.3.1.i2808, %call.i.i.i.i.noexc2817 ], [ %ref.tmp.sroa.2.0.i27636649, %call.i.i2.i.i.noexc2815 ]
+  %agg.tmp.sroa.10.0.i2801 = phi i64 [ %agg.tmp.sroa.10.1.i2808, %call.i.i.i.i.noexc2817 ], [ %ref.tmp.sroa.6.0.i27626647, %call.i.i2.i.i.noexc2815 ]
   %__n.03.i.i2802 = phi i64 [ %inc.i.i2809, %call.i.i.i.i.noexc2817 ], [ 0, %call.i.i2.i.i.noexc2815 ]
   %1091 = load i8, ptr %j_const1986, align 8
   switch i8 %1091, label %sw.default.i.i.i.i.i2813 [
@@ -10815,7 +10815,7 @@ while.body.i.i2798:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i2811:                              ; preds = %while.body.i.i2798
-  %call.i4.i.i.i.i.i.i.i2812 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i2801) #20
+  %call.i4.i.i.i.i.i.i.i2812 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i2799) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2805
 
 sw.bb2.i.i.i.i.i2803:                             ; preds = %while.body.i.i2798
@@ -10823,19 +10823,19 @@ sw.bb2.i.i.i.i.i2803:                             ; preds = %while.body.i.i2798
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2805
 
 sw.default.i.i.i.i.i2813:                         ; preds = %while.body.i.i2798
-  %dec.i.i.i.i.i.i2814 = add nsw i64 %agg.tmp.sroa.10.0.i2799, -1
+  %dec.i.i.i.i.i.i2814 = add nsw i64 %agg.tmp.sroa.10.0.i2801, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2805
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i2805: ; preds = %sw.default.i.i.i.i.i2813, %sw.bb2.i.i.i.i.i2803, %sw.bb.i.i.i.i.i2811
-  %agg.tmp.sroa.10.1.i2806 = phi i64 [ %dec.i.i.i.i.i.i2814, %sw.default.i.i.i.i.i2813 ], [ %agg.tmp.sroa.10.0.i2799, %sw.bb2.i.i.i.i.i2803 ], [ %agg.tmp.sroa.10.0.i2799, %sw.bb.i.i.i.i.i2811 ]
+  %agg.tmp.sroa.3.1.i2806 = phi ptr [ %agg.tmp.sroa.3.0.i2799, %sw.default.i.i.i.i.i2813 ], [ %agg.tmp.sroa.3.0.i2799, %sw.bb2.i.i.i.i.i2803 ], [ %call.i4.i.i.i.i.i.i.i2812, %sw.bb.i.i.i.i.i2811 ]
   %agg.tmp.sroa.8.1.i2807 = phi ptr [ %agg.tmp.sroa.8.0.i2800, %sw.default.i.i.i.i.i2813 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i2804, %sw.bb2.i.i.i.i.i2803 ], [ %agg.tmp.sroa.8.0.i2800, %sw.bb.i.i.i.i.i2811 ]
-  %agg.tmp.sroa.3.1.i2808 = phi ptr [ %agg.tmp.sroa.3.0.i2801, %sw.default.i.i.i.i.i2813 ], [ %agg.tmp.sroa.3.0.i2801, %sw.bb2.i.i.i.i.i2803 ], [ %call.i4.i.i.i.i.i.i.i2812, %sw.bb.i.i.i.i.i2811 ]
+  %agg.tmp.sroa.10.1.i2808 = phi i64 [ %dec.i.i.i.i.i.i2814, %sw.default.i.i.i.i.i2813 ], [ %agg.tmp.sroa.10.0.i2801, %sw.bb2.i.i.i.i.i2803 ], [ %agg.tmp.sroa.10.0.i2801, %sw.bb.i.i.i.i.i2811 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i2784)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i2785)
   store ptr %j_const1986, ptr %ref.tmp.i.i.i.i2784, align 8, !alias.scope !743
-  store ptr %agg.tmp.sroa.3.1.i2808, ptr %m_it.i.i.i.i.i.i2794, align 8
+  store ptr %agg.tmp.sroa.3.1.i2806, ptr %m_it.i.i.i.i.i.i2794, align 8
   store ptr %agg.tmp.sroa.8.1.i2807, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i2796, align 8
-  store i64 %agg.tmp.sroa.10.1.i2806, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i2797, align 8
+  store i64 %agg.tmp.sroa.10.1.i2808, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i2797, align 8
   store ptr %j_const1986, ptr %ref.tmp1.i.i.i.i2785, align 8, !alias.scope !745
   store ptr %ref.tmp.sroa.2.0.i2773, ptr %m_it.i.i1.i.i.i.i2795, align 8
   store ptr %ref.tmp.sroa.5.0.i2771, ptr %agg.tmp2136.sroa.5.8.m_it.i.i1.i.i.i.i2795.sroa_idx, align 8
@@ -11605,9 +11605,9 @@ call.i.i2.i.i.noexc3067:                          ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i2.i.i3068, label %invoke.cont2279, label %while.body.i.i3050
 
 while.body.i.i3050:                               ; preds = %call.i.i2.i.i.noexc3067, %call.i.i.i.i.noexc3069
-  %agg.tmp.sroa.10.0.i3051 = phi i64 [ %agg.tmp.sroa.10.1.i3058, %call.i.i.i.i.noexc3069 ], [ %ref.tmp.sroa.6.0.i30146709, %call.i.i2.i.i.noexc3067 ]
+  %agg.tmp.sroa.3.0.i3051 = phi ptr [ %agg.tmp.sroa.3.1.i3058, %call.i.i.i.i.noexc3069 ], [ %ref.tmp.sroa.2.0.i30156711, %call.i.i2.i.i.noexc3067 ]
   %agg.tmp.sroa.8.0.i3052 = phi ptr [ %agg.tmp.sroa.8.1.i3059, %call.i.i.i.i.noexc3069 ], [ %ref.tmp.sroa.5.0.i30136707, %call.i.i2.i.i.noexc3067 ]
-  %agg.tmp.sroa.3.0.i3053 = phi ptr [ %agg.tmp.sroa.3.1.i3060, %call.i.i.i.i.noexc3069 ], [ %ref.tmp.sroa.2.0.i30156711, %call.i.i2.i.i.noexc3067 ]
+  %agg.tmp.sroa.10.0.i3053 = phi i64 [ %agg.tmp.sroa.10.1.i3060, %call.i.i.i.i.noexc3069 ], [ %ref.tmp.sroa.6.0.i30146709, %call.i.i2.i.i.noexc3067 ]
   %__n.03.i.i3054 = phi i64 [ %inc.i.i3061, %call.i.i.i.i.noexc3069 ], [ 0, %call.i.i2.i.i.noexc3067 ]
   %1179 = load i8, ptr %j2176, align 8
   switch i8 %1179, label %sw.default.i.i.i.i.i3065 [
@@ -11616,7 +11616,7 @@ while.body.i.i3050:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i3063:                              ; preds = %while.body.i.i3050
-  %call.i4.i.i.i.i.i.i.i3064 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i3053) #20
+  %call.i4.i.i.i.i.i.i.i3064 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i3051) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3057
 
 sw.bb2.i.i.i.i.i3055:                             ; preds = %while.body.i.i3050
@@ -11624,19 +11624,19 @@ sw.bb2.i.i.i.i.i3055:                             ; preds = %while.body.i.i3050
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3057
 
 sw.default.i.i.i.i.i3065:                         ; preds = %while.body.i.i3050
-  %dec.i.i.i.i.i.i3066 = add nsw i64 %agg.tmp.sroa.10.0.i3051, -1
+  %dec.i.i.i.i.i.i3066 = add nsw i64 %agg.tmp.sroa.10.0.i3053, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3057
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3057: ; preds = %sw.default.i.i.i.i.i3065, %sw.bb2.i.i.i.i.i3055, %sw.bb.i.i.i.i.i3063
-  %agg.tmp.sroa.10.1.i3058 = phi i64 [ %dec.i.i.i.i.i.i3066, %sw.default.i.i.i.i.i3065 ], [ %agg.tmp.sroa.10.0.i3051, %sw.bb2.i.i.i.i.i3055 ], [ %agg.tmp.sroa.10.0.i3051, %sw.bb.i.i.i.i.i3063 ]
+  %agg.tmp.sroa.3.1.i3058 = phi ptr [ %agg.tmp.sroa.3.0.i3051, %sw.default.i.i.i.i.i3065 ], [ %agg.tmp.sroa.3.0.i3051, %sw.bb2.i.i.i.i.i3055 ], [ %call.i4.i.i.i.i.i.i.i3064, %sw.bb.i.i.i.i.i3063 ]
   %agg.tmp.sroa.8.1.i3059 = phi ptr [ %agg.tmp.sroa.8.0.i3052, %sw.default.i.i.i.i.i3065 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i3056, %sw.bb2.i.i.i.i.i3055 ], [ %agg.tmp.sroa.8.0.i3052, %sw.bb.i.i.i.i.i3063 ]
-  %agg.tmp.sroa.3.1.i3060 = phi ptr [ %agg.tmp.sroa.3.0.i3053, %sw.default.i.i.i.i.i3065 ], [ %agg.tmp.sroa.3.0.i3053, %sw.bb2.i.i.i.i.i3055 ], [ %call.i4.i.i.i.i.i.i.i3064, %sw.bb.i.i.i.i.i3063 ]
+  %agg.tmp.sroa.10.1.i3060 = phi i64 [ %dec.i.i.i.i.i.i3066, %sw.default.i.i.i.i.i3065 ], [ %agg.tmp.sroa.10.0.i3053, %sw.bb2.i.i.i.i.i3055 ], [ %agg.tmp.sroa.10.0.i3053, %sw.bb.i.i.i.i.i3063 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i3036)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i3037)
   store ptr %j2176, ptr %ref.tmp.i.i.i.i3036, align 8, !alias.scope !779
-  store ptr %agg.tmp.sroa.3.1.i3060, ptr %m_it.i.i.i.i.i.i3046, align 8
+  store ptr %agg.tmp.sroa.3.1.i3058, ptr %m_it.i.i.i.i.i.i3046, align 8
   store ptr %agg.tmp.sroa.8.1.i3059, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i3048, align 8
-  store i64 %agg.tmp.sroa.10.1.i3058, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i3049, align 8
+  store i64 %agg.tmp.sroa.10.1.i3060, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i3049, align 8
   store ptr %j2176, ptr %ref.tmp1.i.i.i.i3037, align 8, !alias.scope !781
   store ptr %ref.tmp.sroa.2.0.i3025, ptr %m_it.i.i1.i.i.i.i3047, align 8
   store ptr %ref.tmp.sroa.5.0.i3023, ptr %agg.tmp2276.sroa.5.8.m_it.i.i1.i.i.i.i3047.sroa_idx, align 8
@@ -11761,9 +11761,9 @@ call.i.i2.i.i.noexc3145:                          ; preds = %_ZNK8nlohmann16json
   br i1 %call.i.i2.i.i3146, label %invoke.cont2297, label %while.body.i.i3128
 
 while.body.i.i3128:                               ; preds = %call.i.i2.i.i.noexc3145, %call.i.i.i.i.noexc3147
-  %agg.tmp.sroa.10.0.i3129 = phi i64 [ %agg.tmp.sroa.10.1.i3136, %call.i.i.i.i.noexc3147 ], [ %ref.tmp.sroa.6.0.i30926725, %call.i.i2.i.i.noexc3145 ]
+  %agg.tmp.sroa.3.0.i3129 = phi ptr [ %agg.tmp.sroa.3.1.i3136, %call.i.i.i.i.noexc3147 ], [ %ref.tmp.sroa.2.0.i30936727, %call.i.i2.i.i.noexc3145 ]
   %agg.tmp.sroa.8.0.i3130 = phi ptr [ %agg.tmp.sroa.8.1.i3137, %call.i.i.i.i.noexc3147 ], [ %ref.tmp.sroa.5.0.i30916723, %call.i.i2.i.i.noexc3145 ]
-  %agg.tmp.sroa.3.0.i3131 = phi ptr [ %agg.tmp.sroa.3.1.i3138, %call.i.i.i.i.noexc3147 ], [ %ref.tmp.sroa.2.0.i30936727, %call.i.i2.i.i.noexc3145 ]
+  %agg.tmp.sroa.10.0.i3131 = phi i64 [ %agg.tmp.sroa.10.1.i3138, %call.i.i.i.i.noexc3147 ], [ %ref.tmp.sroa.6.0.i30926725, %call.i.i2.i.i.noexc3145 ]
   %__n.03.i.i3132 = phi i64 [ %inc.i.i3139, %call.i.i.i.i.noexc3147 ], [ 0, %call.i.i2.i.i.noexc3145 ]
   %1194 = load i8, ptr %j_const2179, align 8
   switch i8 %1194, label %sw.default.i.i.i.i.i3143 [
@@ -11772,7 +11772,7 @@ while.body.i.i3128:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i3141:                              ; preds = %while.body.i.i3128
-  %call.i4.i.i.i.i.i.i.i3142 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i3131) #20
+  %call.i4.i.i.i.i.i.i.i3142 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i3129) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3135
 
 sw.bb2.i.i.i.i.i3133:                             ; preds = %while.body.i.i3128
@@ -11780,19 +11780,19 @@ sw.bb2.i.i.i.i.i3133:                             ; preds = %while.body.i.i3128
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3135
 
 sw.default.i.i.i.i.i3143:                         ; preds = %while.body.i.i3128
-  %dec.i.i.i.i.i.i3144 = add nsw i64 %agg.tmp.sroa.10.0.i3129, -1
+  %dec.i.i.i.i.i.i3144 = add nsw i64 %agg.tmp.sroa.10.0.i3131, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3135
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3135: ; preds = %sw.default.i.i.i.i.i3143, %sw.bb2.i.i.i.i.i3133, %sw.bb.i.i.i.i.i3141
-  %agg.tmp.sroa.10.1.i3136 = phi i64 [ %dec.i.i.i.i.i.i3144, %sw.default.i.i.i.i.i3143 ], [ %agg.tmp.sroa.10.0.i3129, %sw.bb2.i.i.i.i.i3133 ], [ %agg.tmp.sroa.10.0.i3129, %sw.bb.i.i.i.i.i3141 ]
+  %agg.tmp.sroa.3.1.i3136 = phi ptr [ %agg.tmp.sroa.3.0.i3129, %sw.default.i.i.i.i.i3143 ], [ %agg.tmp.sroa.3.0.i3129, %sw.bb2.i.i.i.i.i3133 ], [ %call.i4.i.i.i.i.i.i.i3142, %sw.bb.i.i.i.i.i3141 ]
   %agg.tmp.sroa.8.1.i3137 = phi ptr [ %agg.tmp.sroa.8.0.i3130, %sw.default.i.i.i.i.i3143 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i3134, %sw.bb2.i.i.i.i.i3133 ], [ %agg.tmp.sroa.8.0.i3130, %sw.bb.i.i.i.i.i3141 ]
-  %agg.tmp.sroa.3.1.i3138 = phi ptr [ %agg.tmp.sroa.3.0.i3131, %sw.default.i.i.i.i.i3143 ], [ %agg.tmp.sroa.3.0.i3131, %sw.bb2.i.i.i.i.i3133 ], [ %call.i4.i.i.i.i.i.i.i3142, %sw.bb.i.i.i.i.i3141 ]
+  %agg.tmp.sroa.10.1.i3138 = phi i64 [ %dec.i.i.i.i.i.i3144, %sw.default.i.i.i.i.i3143 ], [ %agg.tmp.sroa.10.0.i3131, %sw.bb2.i.i.i.i.i3133 ], [ %agg.tmp.sroa.10.0.i3131, %sw.bb.i.i.i.i.i3141 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i3114)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i3115)
   store ptr %j_const2179, ptr %ref.tmp.i.i.i.i3114, align 8, !alias.scope !799
-  store ptr %agg.tmp.sroa.3.1.i3138, ptr %m_it.i.i.i.i.i.i3124, align 8
+  store ptr %agg.tmp.sroa.3.1.i3136, ptr %m_it.i.i.i.i.i.i3124, align 8
   store ptr %agg.tmp.sroa.8.1.i3137, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i3126, align 8
-  store i64 %agg.tmp.sroa.10.1.i3136, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i3127, align 8
+  store i64 %agg.tmp.sroa.10.1.i3138, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i3127, align 8
   store ptr %j_const2179, ptr %ref.tmp1.i.i.i.i3115, align 8, !alias.scope !801
   store ptr %ref.tmp.sroa.2.0.i3103, ptr %m_it.i.i1.i.i.i.i3125, align 8
   store ptr %ref.tmp.sroa.5.0.i3101, ptr %agg.tmp2294.sroa.5.8.m_it.i.i1.i.i.i.i3125.sroa_idx, align 8
@@ -13021,9 +13021,9 @@ call.i.i2.i.i.noexc3473:                          ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i2.i.i3474, label %invoke.cont2694, label %while.body.i.i3456
 
 while.body.i.i3456:                               ; preds = %call.i.i2.i.i.noexc3473, %call.i.i.i.i.noexc3475
-  %agg.tmp.sroa.10.0.i3457 = phi i64 [ %agg.tmp.sroa.10.1.i3464, %call.i.i.i.i.noexc3475 ], [ %ref.tmp.sroa.6.0.i34206797, %call.i.i2.i.i.noexc3473 ]
+  %agg.tmp.sroa.3.0.i3457 = phi ptr [ %agg.tmp.sroa.3.1.i3464, %call.i.i.i.i.noexc3475 ], [ %ref.tmp.sroa.2.0.i34216799, %call.i.i2.i.i.noexc3473 ]
   %agg.tmp.sroa.8.0.i3458 = phi ptr [ %agg.tmp.sroa.8.1.i3465, %call.i.i.i.i.noexc3475 ], [ %ref.tmp.sroa.5.0.i34196795, %call.i.i2.i.i.noexc3473 ]
-  %agg.tmp.sroa.3.0.i3459 = phi ptr [ %agg.tmp.sroa.3.1.i3466, %call.i.i.i.i.noexc3475 ], [ %ref.tmp.sroa.2.0.i34216799, %call.i.i2.i.i.noexc3473 ]
+  %agg.tmp.sroa.10.0.i3459 = phi i64 [ %agg.tmp.sroa.10.1.i3466, %call.i.i.i.i.noexc3475 ], [ %ref.tmp.sroa.6.0.i34206797, %call.i.i2.i.i.noexc3473 ]
   %__n.03.i.i3460 = phi i64 [ %inc.i.i3467, %call.i.i.i.i.noexc3475 ], [ 0, %call.i.i2.i.i.noexc3473 ]
   %1333 = load i8, ptr %j2322, align 8
   switch i8 %1333, label %sw.default.i.i.i.i.i3471 [
@@ -13032,7 +13032,7 @@ while.body.i.i3456:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i3469:                              ; preds = %while.body.i.i3456
-  %call.i4.i.i.i.i.i.i.i3470 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i3459) #20
+  %call.i4.i.i.i.i.i.i.i3470 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i3457) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3463
 
 sw.bb2.i.i.i.i.i3461:                             ; preds = %while.body.i.i3456
@@ -13040,19 +13040,19 @@ sw.bb2.i.i.i.i.i3461:                             ; preds = %while.body.i.i3456
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3463
 
 sw.default.i.i.i.i.i3471:                         ; preds = %while.body.i.i3456
-  %dec.i.i.i.i.i.i3472 = add nsw i64 %agg.tmp.sroa.10.0.i3457, -1
+  %dec.i.i.i.i.i.i3472 = add nsw i64 %agg.tmp.sroa.10.0.i3459, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3463
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3463: ; preds = %sw.default.i.i.i.i.i3471, %sw.bb2.i.i.i.i.i3461, %sw.bb.i.i.i.i.i3469
-  %agg.tmp.sroa.10.1.i3464 = phi i64 [ %dec.i.i.i.i.i.i3472, %sw.default.i.i.i.i.i3471 ], [ %agg.tmp.sroa.10.0.i3457, %sw.bb2.i.i.i.i.i3461 ], [ %agg.tmp.sroa.10.0.i3457, %sw.bb.i.i.i.i.i3469 ]
+  %agg.tmp.sroa.3.1.i3464 = phi ptr [ %agg.tmp.sroa.3.0.i3457, %sw.default.i.i.i.i.i3471 ], [ %agg.tmp.sroa.3.0.i3457, %sw.bb2.i.i.i.i.i3461 ], [ %call.i4.i.i.i.i.i.i.i3470, %sw.bb.i.i.i.i.i3469 ]
   %agg.tmp.sroa.8.1.i3465 = phi ptr [ %agg.tmp.sroa.8.0.i3458, %sw.default.i.i.i.i.i3471 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i3462, %sw.bb2.i.i.i.i.i3461 ], [ %agg.tmp.sroa.8.0.i3458, %sw.bb.i.i.i.i.i3469 ]
-  %agg.tmp.sroa.3.1.i3466 = phi ptr [ %agg.tmp.sroa.3.0.i3459, %sw.default.i.i.i.i.i3471 ], [ %agg.tmp.sroa.3.0.i3459, %sw.bb2.i.i.i.i.i3461 ], [ %call.i4.i.i.i.i.i.i.i3470, %sw.bb.i.i.i.i.i3469 ]
+  %agg.tmp.sroa.10.1.i3466 = phi i64 [ %dec.i.i.i.i.i.i3472, %sw.default.i.i.i.i.i3471 ], [ %agg.tmp.sroa.10.0.i3459, %sw.bb2.i.i.i.i.i3461 ], [ %agg.tmp.sroa.10.0.i3459, %sw.bb.i.i.i.i.i3469 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i3442)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i3443)
   store ptr %j2322, ptr %ref.tmp.i.i.i.i3442, align 8, !alias.scope !835
-  store ptr %agg.tmp.sroa.3.1.i3466, ptr %m_it.i.i.i.i.i.i3452, align 8
+  store ptr %agg.tmp.sroa.3.1.i3464, ptr %m_it.i.i.i.i.i.i3452, align 8
   store ptr %agg.tmp.sroa.8.1.i3465, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i3454, align 8
-  store i64 %agg.tmp.sroa.10.1.i3464, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i3455, align 8
+  store i64 %agg.tmp.sroa.10.1.i3466, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i3455, align 8
   store ptr %j2322, ptr %ref.tmp1.i.i.i.i3443, align 8, !alias.scope !837
   store ptr %ref.tmp.sroa.2.0.i3431, ptr %m_it.i.i1.i.i.i.i3453, align 8
   store ptr %ref.tmp.sroa.5.0.i3429, ptr %agg.tmp2691.sroa.5.8.m_it.i.i1.i.i.i.i3453.sroa_idx, align 8
@@ -13177,9 +13177,9 @@ call.i.i2.i.i.noexc3551:                          ; preds = %_ZNK8nlohmann16json
   br i1 %call.i.i2.i.i3552, label %invoke.cont2712, label %while.body.i.i3534
 
 while.body.i.i3534:                               ; preds = %call.i.i2.i.i.noexc3551, %call.i.i.i.i.noexc3553
-  %agg.tmp.sroa.10.0.i3535 = phi i64 [ %agg.tmp.sroa.10.1.i3542, %call.i.i.i.i.noexc3553 ], [ %ref.tmp.sroa.6.0.i34986813, %call.i.i2.i.i.noexc3551 ]
+  %agg.tmp.sroa.3.0.i3535 = phi ptr [ %agg.tmp.sroa.3.1.i3542, %call.i.i.i.i.noexc3553 ], [ %ref.tmp.sroa.2.0.i34996815, %call.i.i2.i.i.noexc3551 ]
   %agg.tmp.sroa.8.0.i3536 = phi ptr [ %agg.tmp.sroa.8.1.i3543, %call.i.i.i.i.noexc3553 ], [ %ref.tmp.sroa.5.0.i34976811, %call.i.i2.i.i.noexc3551 ]
-  %agg.tmp.sroa.3.0.i3537 = phi ptr [ %agg.tmp.sroa.3.1.i3544, %call.i.i.i.i.noexc3553 ], [ %ref.tmp.sroa.2.0.i34996815, %call.i.i2.i.i.noexc3551 ]
+  %agg.tmp.sroa.10.0.i3537 = phi i64 [ %agg.tmp.sroa.10.1.i3544, %call.i.i.i.i.noexc3553 ], [ %ref.tmp.sroa.6.0.i34986813, %call.i.i2.i.i.noexc3551 ]
   %__n.03.i.i3538 = phi i64 [ %inc.i.i3545, %call.i.i.i.i.noexc3553 ], [ 0, %call.i.i2.i.i.noexc3551 ]
   %1348 = load i8, ptr %j_const2460, align 8
   switch i8 %1348, label %sw.default.i.i.i.i.i3549 [
@@ -13188,7 +13188,7 @@ while.body.i.i3534:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i3547:                              ; preds = %while.body.i.i3534
-  %call.i4.i.i.i.i.i.i.i3548 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i3537) #20
+  %call.i4.i.i.i.i.i.i.i3548 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i3535) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3541
 
 sw.bb2.i.i.i.i.i3539:                             ; preds = %while.body.i.i3534
@@ -13196,19 +13196,19 @@ sw.bb2.i.i.i.i.i3539:                             ; preds = %while.body.i.i3534
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3541
 
 sw.default.i.i.i.i.i3549:                         ; preds = %while.body.i.i3534
-  %dec.i.i.i.i.i.i3550 = add nsw i64 %agg.tmp.sroa.10.0.i3535, -1
+  %dec.i.i.i.i.i.i3550 = add nsw i64 %agg.tmp.sroa.10.0.i3537, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3541
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3541: ; preds = %sw.default.i.i.i.i.i3549, %sw.bb2.i.i.i.i.i3539, %sw.bb.i.i.i.i.i3547
-  %agg.tmp.sroa.10.1.i3542 = phi i64 [ %dec.i.i.i.i.i.i3550, %sw.default.i.i.i.i.i3549 ], [ %agg.tmp.sroa.10.0.i3535, %sw.bb2.i.i.i.i.i3539 ], [ %agg.tmp.sroa.10.0.i3535, %sw.bb.i.i.i.i.i3547 ]
+  %agg.tmp.sroa.3.1.i3542 = phi ptr [ %agg.tmp.sroa.3.0.i3535, %sw.default.i.i.i.i.i3549 ], [ %agg.tmp.sroa.3.0.i3535, %sw.bb2.i.i.i.i.i3539 ], [ %call.i4.i.i.i.i.i.i.i3548, %sw.bb.i.i.i.i.i3547 ]
   %agg.tmp.sroa.8.1.i3543 = phi ptr [ %agg.tmp.sroa.8.0.i3536, %sw.default.i.i.i.i.i3549 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i3540, %sw.bb2.i.i.i.i.i3539 ], [ %agg.tmp.sroa.8.0.i3536, %sw.bb.i.i.i.i.i3547 ]
-  %agg.tmp.sroa.3.1.i3544 = phi ptr [ %agg.tmp.sroa.3.0.i3537, %sw.default.i.i.i.i.i3549 ], [ %agg.tmp.sroa.3.0.i3537, %sw.bb2.i.i.i.i.i3539 ], [ %call.i4.i.i.i.i.i.i.i3548, %sw.bb.i.i.i.i.i3547 ]
+  %agg.tmp.sroa.10.1.i3544 = phi i64 [ %dec.i.i.i.i.i.i3550, %sw.default.i.i.i.i.i3549 ], [ %agg.tmp.sroa.10.0.i3537, %sw.bb2.i.i.i.i.i3539 ], [ %agg.tmp.sroa.10.0.i3537, %sw.bb.i.i.i.i.i3547 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i3520)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i3521)
   store ptr %j_const2460, ptr %ref.tmp.i.i.i.i3520, align 8, !alias.scope !855
-  store ptr %agg.tmp.sroa.3.1.i3544, ptr %m_it.i.i.i.i.i.i3530, align 8
+  store ptr %agg.tmp.sroa.3.1.i3542, ptr %m_it.i.i.i.i.i.i3530, align 8
   store ptr %agg.tmp.sroa.8.1.i3543, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i3532, align 8
-  store i64 %agg.tmp.sroa.10.1.i3542, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i3533, align 8
+  store i64 %agg.tmp.sroa.10.1.i3544, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i3533, align 8
   store ptr %j_const2460, ptr %ref.tmp1.i.i.i.i3521, align 8, !alias.scope !857
   store ptr %ref.tmp.sroa.2.0.i3509, ptr %m_it.i.i1.i.i.i.i3531, align 8
   store ptr %ref.tmp.sroa.5.0.i3507, ptr %agg.tmp2709.sroa.5.8.m_it.i.i1.i.i.i.i3531.sroa_idx, align 8
@@ -13620,21 +13620,21 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit3645
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit3645: ; preds = %invoke.cont2797, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6833, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6840
-  %agg.tmp2799.sroa.6.06831 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6840 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6833 ], [ 0, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634 ], [ 1, %invoke.cont2797 ]
+  %agg.tmp2799.sroa.2.06831 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6840 ], [ %1393, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6833 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634 ], [ null, %invoke.cont2797 ]
   %agg.tmp2799.sroa.5.06829 = phi ptr [ %1395, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6840 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6833 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634 ], [ null, %invoke.cont2797 ]
-  %agg.tmp2799.sroa.2.06827 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6840 ], [ %1393, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6833 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634 ], [ null, %invoke.cont2797 ]
-  %agg.tmp2800.sroa.2.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6840 ], [ %add.ptr.i.i.i.i3643, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6833 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634 ], [ null, %invoke.cont2797 ]
-  %agg.tmp2800.sroa.5.0 = phi ptr [ %1396, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6840 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6833 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634 ], [ null, %invoke.cont2797 ]
+  %agg.tmp2799.sroa.6.06827 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6840 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6833 ], [ 0, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634 ], [ 1, %invoke.cont2797 ]
   %agg.tmp2800.sroa.6.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6840 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6833 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634 ], [ 1, %invoke.cont2797 ]
+  %agg.tmp2800.sroa.5.0 = phi ptr [ %1396, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6840 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6833 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634 ], [ null, %invoke.cont2797 ]
+  %agg.tmp2800.sroa.2.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6840 ], [ %add.ptr.i.i.i.i3643, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634.thread6833 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3634 ], [ null, %invoke.cont2797 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i3646)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i3647)
   store ptr %j2739, ptr %agg.tmp.i3646, align 8
   %m_it.i.i3648 = getelementptr inbounds i8, ptr %agg.tmp.i3646, i64 8
-  store ptr %agg.tmp2799.sroa.2.06827, ptr %m_it.i.i3648, align 8
+  store ptr %agg.tmp2799.sroa.2.06831, ptr %m_it.i.i3648, align 8
   %agg.tmp2799.sroa.5.8.m_it.i.i3648.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i3646, i64 16
   store ptr %agg.tmp2799.sroa.5.06829, ptr %agg.tmp2799.sroa.5.8.m_it.i.i3648.sroa_idx, align 8
   %agg.tmp2799.sroa.6.8.m_it.i.i3648.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i3646, i64 24
-  store i64 %agg.tmp2799.sroa.6.06831, ptr %agg.tmp2799.sroa.6.8.m_it.i.i3648.sroa_idx, align 8
+  store i64 %agg.tmp2799.sroa.6.06827, ptr %agg.tmp2799.sroa.6.8.m_it.i.i3648.sroa_idx, align 8
   store ptr %j2739, ptr %agg.tmp1.i3647, align 8
   %m_it.i1.i3650 = getelementptr inbounds i8, ptr %agg.tmp1.i3647, i64 8
   store ptr %agg.tmp2800.sroa.2.0, ptr %m_it.i1.i3650, align 8
@@ -13760,21 +13760,21 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   br label %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit3709
 
 _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit3709: ; preds = %invoke.cont2815, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6856, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6863
-  %agg.tmp2817.sroa.6.06854 = phi i64 [ -9223372036854775808, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6863 ], [ -9223372036854775808, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6856 ], [ 0, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698 ], [ 1, %invoke.cont2815 ]
+  %agg.tmp2817.sroa.2.06854 = phi ptr [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6863 ], [ %1411, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6856 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698 ], [ null, %invoke.cont2815 ]
   %agg.tmp2817.sroa.5.06852 = phi ptr [ %1413, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6863 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6856 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698 ], [ null, %invoke.cont2815 ]
-  %agg.tmp2817.sroa.2.06850 = phi ptr [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6863 ], [ %1411, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6856 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698 ], [ null, %invoke.cont2815 ]
-  %agg.tmp2818.sroa.2.0 = phi ptr [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6863 ], [ %add.ptr.i.i.i.i.i3707, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6856 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698 ], [ null, %invoke.cont2815 ]
-  %agg.tmp2818.sroa.5.0 = phi ptr [ %1414, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6863 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6856 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698 ], [ null, %invoke.cont2815 ]
+  %agg.tmp2817.sroa.6.06850 = phi i64 [ -9223372036854775808, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6863 ], [ -9223372036854775808, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6856 ], [ 0, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698 ], [ 1, %invoke.cont2815 ]
   %agg.tmp2818.sroa.6.0 = phi i64 [ -9223372036854775808, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6863 ], [ -9223372036854775808, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6856 ], [ 1, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698 ], [ 1, %invoke.cont2815 ]
+  %agg.tmp2818.sroa.5.0 = phi ptr [ %1414, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6863 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6856 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698 ], [ null, %invoke.cont2815 ]
+  %agg.tmp2818.sroa.2.0 = phi ptr [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6863 ], [ %add.ptr.i.i.i.i.i3707, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698.thread6856 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3698 ], [ null, %invoke.cont2815 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i3710)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i3711)
   store ptr %j_const2741, ptr %agg.tmp.i3710, align 8
   %m_it.i.i3712 = getelementptr inbounds i8, ptr %agg.tmp.i3710, i64 8
-  store ptr %agg.tmp2817.sroa.2.06850, ptr %m_it.i.i3712, align 8
+  store ptr %agg.tmp2817.sroa.2.06854, ptr %m_it.i.i3712, align 8
   %agg.tmp2817.sroa.5.8.m_it.i.i3712.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i3710, i64 16
   store ptr %agg.tmp2817.sroa.5.06852, ptr %agg.tmp2817.sroa.5.8.m_it.i.i3712.sroa_idx, align 8
   %agg.tmp2817.sroa.6.8.m_it.i.i3712.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i3710, i64 24
-  store i64 %agg.tmp2817.sroa.6.06854, ptr %agg.tmp2817.sroa.6.8.m_it.i.i3712.sroa_idx, align 8
+  store i64 %agg.tmp2817.sroa.6.06850, ptr %agg.tmp2817.sroa.6.8.m_it.i.i3712.sroa_idx, align 8
   store ptr %j_const2741, ptr %agg.tmp1.i3711, align 8
   %m_it.i1.i3714 = getelementptr inbounds i8, ptr %agg.tmp1.i3711, i64 8
   store ptr %agg.tmp2818.sroa.2.0, ptr %m_it.i1.i3714, align 8
@@ -13932,9 +13932,9 @@ call.i.i2.i.i.noexc3809:                          ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i2.i.i3810, label %invoke.cont2839, label %while.body.i.i3792
 
 while.body.i.i3792:                               ; preds = %call.i.i2.i.i.noexc3809, %call.i.i.i.i.noexc3811
-  %agg.tmp.sroa.10.0.i3793 = phi i64 [ %agg.tmp.sroa.10.1.i3800, %call.i.i.i.i.noexc3811 ], [ %ref.tmp.sroa.6.0.i37566875, %call.i.i2.i.i.noexc3809 ]
+  %agg.tmp.sroa.3.0.i3793 = phi ptr [ %agg.tmp.sroa.3.1.i3800, %call.i.i.i.i.noexc3811 ], [ %ref.tmp.sroa.2.0.i37576877, %call.i.i2.i.i.noexc3809 ]
   %agg.tmp.sroa.8.0.i3794 = phi ptr [ %agg.tmp.sroa.8.1.i3801, %call.i.i.i.i.noexc3811 ], [ %ref.tmp.sroa.5.0.i37556873, %call.i.i2.i.i.noexc3809 ]
-  %agg.tmp.sroa.3.0.i3795 = phi ptr [ %agg.tmp.sroa.3.1.i3802, %call.i.i.i.i.noexc3811 ], [ %ref.tmp.sroa.2.0.i37576877, %call.i.i2.i.i.noexc3809 ]
+  %agg.tmp.sroa.10.0.i3795 = phi i64 [ %agg.tmp.sroa.10.1.i3802, %call.i.i.i.i.noexc3811 ], [ %ref.tmp.sroa.6.0.i37566875, %call.i.i2.i.i.noexc3809 ]
   %__n.03.i.i3796 = phi i64 [ %inc.i.i3803, %call.i.i.i.i.noexc3811 ], [ 0, %call.i.i2.i.i.noexc3809 ]
   %1433 = load i8, ptr %j2739, align 8
   switch i8 %1433, label %sw.default.i.i.i.i.i3807 [
@@ -13943,7 +13943,7 @@ while.body.i.i3792:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i3805:                              ; preds = %while.body.i.i3792
-  %call.i4.i.i.i.i.i.i.i3806 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i3795) #20
+  %call.i4.i.i.i.i.i.i.i3806 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i3793) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3799
 
 sw.bb2.i.i.i.i.i3797:                             ; preds = %while.body.i.i3792
@@ -13951,19 +13951,19 @@ sw.bb2.i.i.i.i.i3797:                             ; preds = %while.body.i.i3792
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3799
 
 sw.default.i.i.i.i.i3807:                         ; preds = %while.body.i.i3792
-  %dec.i.i.i.i.i.i3808 = add nsw i64 %agg.tmp.sroa.10.0.i3793, -1
+  %dec.i.i.i.i.i.i3808 = add nsw i64 %agg.tmp.sroa.10.0.i3795, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3799
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3799: ; preds = %sw.default.i.i.i.i.i3807, %sw.bb2.i.i.i.i.i3797, %sw.bb.i.i.i.i.i3805
-  %agg.tmp.sroa.10.1.i3800 = phi i64 [ %dec.i.i.i.i.i.i3808, %sw.default.i.i.i.i.i3807 ], [ %agg.tmp.sroa.10.0.i3793, %sw.bb2.i.i.i.i.i3797 ], [ %agg.tmp.sroa.10.0.i3793, %sw.bb.i.i.i.i.i3805 ]
+  %agg.tmp.sroa.3.1.i3800 = phi ptr [ %agg.tmp.sroa.3.0.i3793, %sw.default.i.i.i.i.i3807 ], [ %agg.tmp.sroa.3.0.i3793, %sw.bb2.i.i.i.i.i3797 ], [ %call.i4.i.i.i.i.i.i.i3806, %sw.bb.i.i.i.i.i3805 ]
   %agg.tmp.sroa.8.1.i3801 = phi ptr [ %agg.tmp.sroa.8.0.i3794, %sw.default.i.i.i.i.i3807 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i3798, %sw.bb2.i.i.i.i.i3797 ], [ %agg.tmp.sroa.8.0.i3794, %sw.bb.i.i.i.i.i3805 ]
-  %agg.tmp.sroa.3.1.i3802 = phi ptr [ %agg.tmp.sroa.3.0.i3795, %sw.default.i.i.i.i.i3807 ], [ %agg.tmp.sroa.3.0.i3795, %sw.bb2.i.i.i.i.i3797 ], [ %call.i4.i.i.i.i.i.i.i3806, %sw.bb.i.i.i.i.i3805 ]
+  %agg.tmp.sroa.10.1.i3802 = phi i64 [ %dec.i.i.i.i.i.i3808, %sw.default.i.i.i.i.i3807 ], [ %agg.tmp.sroa.10.0.i3795, %sw.bb2.i.i.i.i.i3797 ], [ %agg.tmp.sroa.10.0.i3795, %sw.bb.i.i.i.i.i3805 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i3778)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i3779)
   store ptr %j2739, ptr %ref.tmp.i.i.i.i3778, align 8, !alias.scope !891
-  store ptr %agg.tmp.sroa.3.1.i3802, ptr %m_it.i.i.i.i.i.i3788, align 8
+  store ptr %agg.tmp.sroa.3.1.i3800, ptr %m_it.i.i.i.i.i.i3788, align 8
   store ptr %agg.tmp.sroa.8.1.i3801, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i3790, align 8
-  store i64 %agg.tmp.sroa.10.1.i3800, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i3791, align 8
+  store i64 %agg.tmp.sroa.10.1.i3802, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i3791, align 8
   store ptr %j2739, ptr %ref.tmp1.i.i.i.i3779, align 8, !alias.scope !893
   store ptr %ref.tmp.sroa.2.0.i3767, ptr %m_it.i.i1.i.i.i.i3789, align 8
   store ptr %ref.tmp.sroa.5.0.i3765, ptr %agg.tmp2836.sroa.5.8.m_it.i.i1.i.i.i.i3789.sroa_idx, align 8
@@ -14084,9 +14084,9 @@ call.i.i2.i.i.noexc3887:                          ; preds = %_ZNK8nlohmann16json
   br i1 %call.i.i2.i.i3888, label %invoke.cont2857, label %while.body.i.i3870
 
 while.body.i.i3870:                               ; preds = %call.i.i2.i.i.noexc3887, %call.i.i.i.i.noexc3889
-  %agg.tmp.sroa.10.0.i3871 = phi i64 [ %agg.tmp.sroa.10.1.i3878, %call.i.i.i.i.noexc3889 ], [ %ref.tmp.sroa.6.0.i38346891, %call.i.i2.i.i.noexc3887 ]
+  %agg.tmp.sroa.3.0.i3871 = phi ptr [ %agg.tmp.sroa.3.1.i3878, %call.i.i.i.i.noexc3889 ], [ %ref.tmp.sroa.2.0.i38356893, %call.i.i2.i.i.noexc3887 ]
   %agg.tmp.sroa.8.0.i3872 = phi ptr [ %agg.tmp.sroa.8.1.i3879, %call.i.i.i.i.noexc3889 ], [ %ref.tmp.sroa.5.0.i38336889, %call.i.i2.i.i.noexc3887 ]
-  %agg.tmp.sroa.3.0.i3873 = phi ptr [ %agg.tmp.sroa.3.1.i3880, %call.i.i.i.i.noexc3889 ], [ %ref.tmp.sroa.2.0.i38356893, %call.i.i2.i.i.noexc3887 ]
+  %agg.tmp.sroa.10.0.i3873 = phi i64 [ %agg.tmp.sroa.10.1.i3880, %call.i.i.i.i.noexc3889 ], [ %ref.tmp.sroa.6.0.i38346891, %call.i.i2.i.i.noexc3887 ]
   %__n.03.i.i3874 = phi i64 [ %inc.i.i3881, %call.i.i.i.i.noexc3889 ], [ 0, %call.i.i2.i.i.noexc3887 ]
   %1448 = load i8, ptr %j_const2741, align 8
   switch i8 %1448, label %sw.default.i.i.i.i.i3885 [
@@ -14095,7 +14095,7 @@ while.body.i.i3870:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i3883:                              ; preds = %while.body.i.i3870
-  %call.i4.i.i.i.i.i.i.i3884 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i3873) #20
+  %call.i4.i.i.i.i.i.i.i3884 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i3871) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3877
 
 sw.bb2.i.i.i.i.i3875:                             ; preds = %while.body.i.i3870
@@ -14103,19 +14103,19 @@ sw.bb2.i.i.i.i.i3875:                             ; preds = %while.body.i.i3870
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3877
 
 sw.default.i.i.i.i.i3885:                         ; preds = %while.body.i.i3870
-  %dec.i.i.i.i.i.i3886 = add nsw i64 %agg.tmp.sroa.10.0.i3871, -1
+  %dec.i.i.i.i.i.i3886 = add nsw i64 %agg.tmp.sroa.10.0.i3873, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3877
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i3877: ; preds = %sw.default.i.i.i.i.i3885, %sw.bb2.i.i.i.i.i3875, %sw.bb.i.i.i.i.i3883
-  %agg.tmp.sroa.10.1.i3878 = phi i64 [ %dec.i.i.i.i.i.i3886, %sw.default.i.i.i.i.i3885 ], [ %agg.tmp.sroa.10.0.i3871, %sw.bb2.i.i.i.i.i3875 ], [ %agg.tmp.sroa.10.0.i3871, %sw.bb.i.i.i.i.i3883 ]
+  %agg.tmp.sroa.3.1.i3878 = phi ptr [ %agg.tmp.sroa.3.0.i3871, %sw.default.i.i.i.i.i3885 ], [ %agg.tmp.sroa.3.0.i3871, %sw.bb2.i.i.i.i.i3875 ], [ %call.i4.i.i.i.i.i.i.i3884, %sw.bb.i.i.i.i.i3883 ]
   %agg.tmp.sroa.8.1.i3879 = phi ptr [ %agg.tmp.sroa.8.0.i3872, %sw.default.i.i.i.i.i3885 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i3876, %sw.bb2.i.i.i.i.i3875 ], [ %agg.tmp.sroa.8.0.i3872, %sw.bb.i.i.i.i.i3883 ]
-  %agg.tmp.sroa.3.1.i3880 = phi ptr [ %agg.tmp.sroa.3.0.i3873, %sw.default.i.i.i.i.i3885 ], [ %agg.tmp.sroa.3.0.i3873, %sw.bb2.i.i.i.i.i3875 ], [ %call.i4.i.i.i.i.i.i.i3884, %sw.bb.i.i.i.i.i3883 ]
+  %agg.tmp.sroa.10.1.i3880 = phi i64 [ %dec.i.i.i.i.i.i3886, %sw.default.i.i.i.i.i3885 ], [ %agg.tmp.sroa.10.0.i3873, %sw.bb2.i.i.i.i.i3875 ], [ %agg.tmp.sroa.10.0.i3873, %sw.bb.i.i.i.i.i3883 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i3856)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i3857)
   store ptr %j_const2741, ptr %ref.tmp.i.i.i.i3856, align 8, !alias.scope !911
-  store ptr %agg.tmp.sroa.3.1.i3880, ptr %m_it.i.i.i.i.i.i3866, align 8
+  store ptr %agg.tmp.sroa.3.1.i3878, ptr %m_it.i.i.i.i.i.i3866, align 8
   store ptr %agg.tmp.sroa.8.1.i3879, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i3868, align 8
-  store i64 %agg.tmp.sroa.10.1.i3878, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i3869, align 8
+  store i64 %agg.tmp.sroa.10.1.i3880, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i3869, align 8
   store ptr %j_const2741, ptr %ref.tmp1.i.i.i.i3857, align 8, !alias.scope !913
   store ptr %ref.tmp.sroa.2.0.i3845, ptr %m_it.i.i1.i.i.i.i3867, align 8
   store ptr %ref.tmp.sroa.5.0.i3843, ptr %agg.tmp2854.sroa.5.8.m_it.i.i1.i.i.i.i3867.sroa_idx, align 8
@@ -14510,21 +14510,21 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit3981
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit3981: ; preds = %invoke.cont2940, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6911, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6918
-  %agg.tmp2942.sroa.6.06909 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6918 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6911 ], [ 0, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970 ], [ 1, %invoke.cont2940 ]
+  %agg.tmp2942.sroa.2.06909 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6918 ], [ %1493, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6911 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970 ], [ null, %invoke.cont2940 ]
   %agg.tmp2942.sroa.5.06907 = phi ptr [ %1495, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6918 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6911 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970 ], [ null, %invoke.cont2940 ]
-  %agg.tmp2942.sroa.2.06905 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6918 ], [ %1493, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6911 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970 ], [ null, %invoke.cont2940 ]
-  %agg.tmp2943.sroa.2.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6918 ], [ %add.ptr.i.i.i.i3979, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6911 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970 ], [ null, %invoke.cont2940 ]
-  %agg.tmp2943.sroa.5.0 = phi ptr [ %1496, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6918 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6911 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970 ], [ null, %invoke.cont2940 ]
+  %agg.tmp2942.sroa.6.06905 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6918 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6911 ], [ 0, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970 ], [ 1, %invoke.cont2940 ]
   %agg.tmp2943.sroa.6.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6918 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6911 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970 ], [ 1, %invoke.cont2940 ]
+  %agg.tmp2943.sroa.5.0 = phi ptr [ %1496, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6918 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6911 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970 ], [ null, %invoke.cont2940 ]
+  %agg.tmp2943.sroa.2.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6918 ], [ %add.ptr.i.i.i.i3979, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970.thread6911 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit3970 ], [ null, %invoke.cont2940 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i3982)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i3983)
   store ptr %j2882, ptr %agg.tmp.i3982, align 8
   %m_it.i.i3984 = getelementptr inbounds i8, ptr %agg.tmp.i3982, i64 8
-  store ptr %agg.tmp2942.sroa.2.06905, ptr %m_it.i.i3984, align 8
+  store ptr %agg.tmp2942.sroa.2.06909, ptr %m_it.i.i3984, align 8
   %agg.tmp2942.sroa.5.8.m_it.i.i3984.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i3982, i64 16
   store ptr %agg.tmp2942.sroa.5.06907, ptr %agg.tmp2942.sroa.5.8.m_it.i.i3984.sroa_idx, align 8
   %agg.tmp2942.sroa.6.8.m_it.i.i3984.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i3982, i64 24
-  store i64 %agg.tmp2942.sroa.6.06909, ptr %agg.tmp2942.sroa.6.8.m_it.i.i3984.sroa_idx, align 8
+  store i64 %agg.tmp2942.sroa.6.06905, ptr %agg.tmp2942.sroa.6.8.m_it.i.i3984.sroa_idx, align 8
   store ptr %j2882, ptr %agg.tmp1.i3983, align 8
   %m_it.i1.i3986 = getelementptr inbounds i8, ptr %agg.tmp1.i3983, i64 8
   store ptr %agg.tmp2943.sroa.2.0, ptr %m_it.i1.i3986, align 8
@@ -14650,21 +14650,21 @@ _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_st
   br label %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit4045
 
 _ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit4045: ; preds = %invoke.cont2958, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6934, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6941
-  %agg.tmp2960.sroa.6.06932 = phi i64 [ -9223372036854775808, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6941 ], [ -9223372036854775808, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6934 ], [ 0, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034 ], [ 1, %invoke.cont2958 ]
+  %agg.tmp2960.sroa.2.06932 = phi ptr [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6941 ], [ %1511, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6934 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034 ], [ null, %invoke.cont2958 ]
   %agg.tmp2960.sroa.5.06930 = phi ptr [ %1513, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6941 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6934 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034 ], [ null, %invoke.cont2958 ]
-  %agg.tmp2960.sroa.2.06928 = phi ptr [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6941 ], [ %1511, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6934 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034 ], [ null, %invoke.cont2958 ]
-  %agg.tmp2961.sroa.2.0 = phi ptr [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6941 ], [ %add.ptr.i.i.i.i.i4043, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6934 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034 ], [ null, %invoke.cont2958 ]
-  %agg.tmp2961.sroa.5.0 = phi ptr [ %1514, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6941 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6934 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034 ], [ null, %invoke.cont2958 ]
+  %agg.tmp2960.sroa.6.06928 = phi i64 [ -9223372036854775808, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6941 ], [ -9223372036854775808, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6934 ], [ 0, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034 ], [ 1, %invoke.cont2958 ]
   %agg.tmp2961.sroa.6.0 = phi i64 [ -9223372036854775808, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6941 ], [ -9223372036854775808, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6934 ], [ 1, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034 ], [ 1, %invoke.cont2958 ]
+  %agg.tmp2961.sroa.5.0 = phi ptr [ %1514, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6941 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6934 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034 ], [ null, %invoke.cont2958 ]
+  %agg.tmp2961.sroa.2.0 = phi ptr [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6941 ], [ %add.ptr.i.i.i.i.i4043, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034.thread6934 ], [ null, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4034 ], [ null, %invoke.cont2958 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i4046)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i4047)
   store ptr %j_const2884, ptr %agg.tmp.i4046, align 8
   %m_it.i.i4048 = getelementptr inbounds i8, ptr %agg.tmp.i4046, i64 8
-  store ptr %agg.tmp2960.sroa.2.06928, ptr %m_it.i.i4048, align 8
+  store ptr %agg.tmp2960.sroa.2.06932, ptr %m_it.i.i4048, align 8
   %agg.tmp2960.sroa.5.8.m_it.i.i4048.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i4046, i64 16
   store ptr %agg.tmp2960.sroa.5.06930, ptr %agg.tmp2960.sroa.5.8.m_it.i.i4048.sroa_idx, align 8
   %agg.tmp2960.sroa.6.8.m_it.i.i4048.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i4046, i64 24
-  store i64 %agg.tmp2960.sroa.6.06932, ptr %agg.tmp2960.sroa.6.8.m_it.i.i4048.sroa_idx, align 8
+  store i64 %agg.tmp2960.sroa.6.06928, ptr %agg.tmp2960.sroa.6.8.m_it.i.i4048.sroa_idx, align 8
   store ptr %j_const2884, ptr %agg.tmp1.i4047, align 8
   %m_it.i1.i4050 = getelementptr inbounds i8, ptr %agg.tmp1.i4047, i64 8
   store ptr %agg.tmp2961.sroa.2.0, ptr %m_it.i1.i4050, align 8
@@ -14822,9 +14822,9 @@ call.i.i2.i.i.noexc4145:                          ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i2.i.i4146, label %invoke.cont2982, label %while.body.i.i4128
 
 while.body.i.i4128:                               ; preds = %call.i.i2.i.i.noexc4145, %call.i.i.i.i.noexc4147
-  %agg.tmp.sroa.10.0.i4129 = phi i64 [ %agg.tmp.sroa.10.1.i4136, %call.i.i.i.i.noexc4147 ], [ %ref.tmp.sroa.6.0.i40926953, %call.i.i2.i.i.noexc4145 ]
+  %agg.tmp.sroa.3.0.i4129 = phi ptr [ %agg.tmp.sroa.3.1.i4136, %call.i.i.i.i.noexc4147 ], [ %ref.tmp.sroa.2.0.i40936955, %call.i.i2.i.i.noexc4145 ]
   %agg.tmp.sroa.8.0.i4130 = phi ptr [ %agg.tmp.sroa.8.1.i4137, %call.i.i.i.i.noexc4147 ], [ %ref.tmp.sroa.5.0.i40916951, %call.i.i2.i.i.noexc4145 ]
-  %agg.tmp.sroa.3.0.i4131 = phi ptr [ %agg.tmp.sroa.3.1.i4138, %call.i.i.i.i.noexc4147 ], [ %ref.tmp.sroa.2.0.i40936955, %call.i.i2.i.i.noexc4145 ]
+  %agg.tmp.sroa.10.0.i4131 = phi i64 [ %agg.tmp.sroa.10.1.i4138, %call.i.i.i.i.noexc4147 ], [ %ref.tmp.sroa.6.0.i40926953, %call.i.i2.i.i.noexc4145 ]
   %__n.03.i.i4132 = phi i64 [ %inc.i.i4139, %call.i.i.i.i.noexc4147 ], [ 0, %call.i.i2.i.i.noexc4145 ]
   %1533 = load i8, ptr %j2882, align 8
   switch i8 %1533, label %sw.default.i.i.i.i.i4143 [
@@ -14833,7 +14833,7 @@ while.body.i.i4128:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i4141:                              ; preds = %while.body.i.i4128
-  %call.i4.i.i.i.i.i.i.i4142 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i4131) #20
+  %call.i4.i.i.i.i.i.i.i4142 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i4129) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4135
 
 sw.bb2.i.i.i.i.i4133:                             ; preds = %while.body.i.i4128
@@ -14841,19 +14841,19 @@ sw.bb2.i.i.i.i.i4133:                             ; preds = %while.body.i.i4128
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4135
 
 sw.default.i.i.i.i.i4143:                         ; preds = %while.body.i.i4128
-  %dec.i.i.i.i.i.i4144 = add nsw i64 %agg.tmp.sroa.10.0.i4129, -1
+  %dec.i.i.i.i.i.i4144 = add nsw i64 %agg.tmp.sroa.10.0.i4131, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4135
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4135: ; preds = %sw.default.i.i.i.i.i4143, %sw.bb2.i.i.i.i.i4133, %sw.bb.i.i.i.i.i4141
-  %agg.tmp.sroa.10.1.i4136 = phi i64 [ %dec.i.i.i.i.i.i4144, %sw.default.i.i.i.i.i4143 ], [ %agg.tmp.sroa.10.0.i4129, %sw.bb2.i.i.i.i.i4133 ], [ %agg.tmp.sroa.10.0.i4129, %sw.bb.i.i.i.i.i4141 ]
+  %agg.tmp.sroa.3.1.i4136 = phi ptr [ %agg.tmp.sroa.3.0.i4129, %sw.default.i.i.i.i.i4143 ], [ %agg.tmp.sroa.3.0.i4129, %sw.bb2.i.i.i.i.i4133 ], [ %call.i4.i.i.i.i.i.i.i4142, %sw.bb.i.i.i.i.i4141 ]
   %agg.tmp.sroa.8.1.i4137 = phi ptr [ %agg.tmp.sroa.8.0.i4130, %sw.default.i.i.i.i.i4143 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i4134, %sw.bb2.i.i.i.i.i4133 ], [ %agg.tmp.sroa.8.0.i4130, %sw.bb.i.i.i.i.i4141 ]
-  %agg.tmp.sroa.3.1.i4138 = phi ptr [ %agg.tmp.sroa.3.0.i4131, %sw.default.i.i.i.i.i4143 ], [ %agg.tmp.sroa.3.0.i4131, %sw.bb2.i.i.i.i.i4133 ], [ %call.i4.i.i.i.i.i.i.i4142, %sw.bb.i.i.i.i.i4141 ]
+  %agg.tmp.sroa.10.1.i4138 = phi i64 [ %dec.i.i.i.i.i.i4144, %sw.default.i.i.i.i.i4143 ], [ %agg.tmp.sroa.10.0.i4131, %sw.bb2.i.i.i.i.i4133 ], [ %agg.tmp.sroa.10.0.i4131, %sw.bb.i.i.i.i.i4141 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i4114)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i4115)
   store ptr %j2882, ptr %ref.tmp.i.i.i.i4114, align 8, !alias.scope !947
-  store ptr %agg.tmp.sroa.3.1.i4138, ptr %m_it.i.i.i.i.i.i4124, align 8
+  store ptr %agg.tmp.sroa.3.1.i4136, ptr %m_it.i.i.i.i.i.i4124, align 8
   store ptr %agg.tmp.sroa.8.1.i4137, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i4126, align 8
-  store i64 %agg.tmp.sroa.10.1.i4136, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i4127, align 8
+  store i64 %agg.tmp.sroa.10.1.i4138, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i4127, align 8
   store ptr %j2882, ptr %ref.tmp1.i.i.i.i4115, align 8, !alias.scope !949
   store ptr %ref.tmp.sroa.2.0.i4103, ptr %m_it.i.i1.i.i.i.i4125, align 8
   store ptr %ref.tmp.sroa.5.0.i4101, ptr %agg.tmp2979.sroa.5.8.m_it.i.i1.i.i.i.i4125.sroa_idx, align 8
@@ -14974,9 +14974,9 @@ call.i.i2.i.i.noexc4223:                          ; preds = %_ZNK8nlohmann16json
   br i1 %call.i.i2.i.i4224, label %invoke.cont3000, label %while.body.i.i4206
 
 while.body.i.i4206:                               ; preds = %call.i.i2.i.i.noexc4223, %call.i.i.i.i.noexc4225
-  %agg.tmp.sroa.10.0.i4207 = phi i64 [ %agg.tmp.sroa.10.1.i4214, %call.i.i.i.i.noexc4225 ], [ %ref.tmp.sroa.6.0.i41706969, %call.i.i2.i.i.noexc4223 ]
+  %agg.tmp.sroa.3.0.i4207 = phi ptr [ %agg.tmp.sroa.3.1.i4214, %call.i.i.i.i.noexc4225 ], [ %ref.tmp.sroa.2.0.i41716971, %call.i.i2.i.i.noexc4223 ]
   %agg.tmp.sroa.8.0.i4208 = phi ptr [ %agg.tmp.sroa.8.1.i4215, %call.i.i.i.i.noexc4225 ], [ %ref.tmp.sroa.5.0.i41696967, %call.i.i2.i.i.noexc4223 ]
-  %agg.tmp.sroa.3.0.i4209 = phi ptr [ %agg.tmp.sroa.3.1.i4216, %call.i.i.i.i.noexc4225 ], [ %ref.tmp.sroa.2.0.i41716971, %call.i.i2.i.i.noexc4223 ]
+  %agg.tmp.sroa.10.0.i4209 = phi i64 [ %agg.tmp.sroa.10.1.i4216, %call.i.i.i.i.noexc4225 ], [ %ref.tmp.sroa.6.0.i41706969, %call.i.i2.i.i.noexc4223 ]
   %__n.03.i.i4210 = phi i64 [ %inc.i.i4217, %call.i.i.i.i.noexc4225 ], [ 0, %call.i.i2.i.i.noexc4223 ]
   %1548 = load i8, ptr %j_const2884, align 8
   switch i8 %1548, label %sw.default.i.i.i.i.i4221 [
@@ -14985,7 +14985,7 @@ while.body.i.i4206:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i4219:                              ; preds = %while.body.i.i4206
-  %call.i4.i.i.i.i.i.i.i4220 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i4209) #20
+  %call.i4.i.i.i.i.i.i.i4220 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i4207) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4213
 
 sw.bb2.i.i.i.i.i4211:                             ; preds = %while.body.i.i4206
@@ -14993,19 +14993,19 @@ sw.bb2.i.i.i.i.i4211:                             ; preds = %while.body.i.i4206
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4213
 
 sw.default.i.i.i.i.i4221:                         ; preds = %while.body.i.i4206
-  %dec.i.i.i.i.i.i4222 = add nsw i64 %agg.tmp.sroa.10.0.i4207, -1
+  %dec.i.i.i.i.i.i4222 = add nsw i64 %agg.tmp.sroa.10.0.i4209, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4213
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4213: ; preds = %sw.default.i.i.i.i.i4221, %sw.bb2.i.i.i.i.i4211, %sw.bb.i.i.i.i.i4219
-  %agg.tmp.sroa.10.1.i4214 = phi i64 [ %dec.i.i.i.i.i.i4222, %sw.default.i.i.i.i.i4221 ], [ %agg.tmp.sroa.10.0.i4207, %sw.bb2.i.i.i.i.i4211 ], [ %agg.tmp.sroa.10.0.i4207, %sw.bb.i.i.i.i.i4219 ]
+  %agg.tmp.sroa.3.1.i4214 = phi ptr [ %agg.tmp.sroa.3.0.i4207, %sw.default.i.i.i.i.i4221 ], [ %agg.tmp.sroa.3.0.i4207, %sw.bb2.i.i.i.i.i4211 ], [ %call.i4.i.i.i.i.i.i.i4220, %sw.bb.i.i.i.i.i4219 ]
   %agg.tmp.sroa.8.1.i4215 = phi ptr [ %agg.tmp.sroa.8.0.i4208, %sw.default.i.i.i.i.i4221 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i4212, %sw.bb2.i.i.i.i.i4211 ], [ %agg.tmp.sroa.8.0.i4208, %sw.bb.i.i.i.i.i4219 ]
-  %agg.tmp.sroa.3.1.i4216 = phi ptr [ %agg.tmp.sroa.3.0.i4209, %sw.default.i.i.i.i.i4221 ], [ %agg.tmp.sroa.3.0.i4209, %sw.bb2.i.i.i.i.i4211 ], [ %call.i4.i.i.i.i.i.i.i4220, %sw.bb.i.i.i.i.i4219 ]
+  %agg.tmp.sroa.10.1.i4216 = phi i64 [ %dec.i.i.i.i.i.i4222, %sw.default.i.i.i.i.i4221 ], [ %agg.tmp.sroa.10.0.i4209, %sw.bb2.i.i.i.i.i4211 ], [ %agg.tmp.sroa.10.0.i4209, %sw.bb.i.i.i.i.i4219 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i4192)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i4193)
   store ptr %j_const2884, ptr %ref.tmp.i.i.i.i4192, align 8, !alias.scope !967
-  store ptr %agg.tmp.sroa.3.1.i4216, ptr %m_it.i.i.i.i.i.i4202, align 8
+  store ptr %agg.tmp.sroa.3.1.i4214, ptr %m_it.i.i.i.i.i.i4202, align 8
   store ptr %agg.tmp.sroa.8.1.i4215, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i4204, align 8
-  store i64 %agg.tmp.sroa.10.1.i4214, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i4205, align 8
+  store i64 %agg.tmp.sroa.10.1.i4216, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i4205, align 8
   store ptr %j_const2884, ptr %ref.tmp1.i.i.i.i4193, align 8, !alias.scope !969
   store ptr %ref.tmp.sroa.2.0.i4181, ptr %m_it.i.i1.i.i.i.i4203, align 8
   store ptr %ref.tmp.sroa.5.0.i4179, ptr %agg.tmp2997.sroa.5.8.m_it.i.i1.i.i.i.i4203.sroa_idx, align 8
@@ -15400,9 +15400,9 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit4315
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE3endEv.exit4315: ; preds = %invoke.cont3083, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6989, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6996
-  %agg.tmp3085.sroa.6.06987 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6996 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6989 ], [ 0, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304 ], [ 1, %invoke.cont3083 ]
-  %agg.tmp3085.sroa.5.06985 = phi ptr [ %1595, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6996 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6989 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304 ], [ null, %invoke.cont3083 ]
-  %agg.tmp3085.sroa.2.06983 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6996 ], [ %1593, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6989 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304 ], [ null, %invoke.cont3083 ]
+  %agg.tmp3085.sroa.2.06987 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6996 ], [ %1593, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6989 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304 ], [ null, %invoke.cont3083 ]
+  %agg.tmp3085.sroa.6.06985 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6996 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6989 ], [ 0, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304 ], [ 1, %invoke.cont3083 ]
+  %agg.tmp3085.sroa.5.06983 = phi ptr [ %1595, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6996 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6989 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304 ], [ null, %invoke.cont3083 ]
   %agg.tmp3086.sroa.2.0 = phi ptr [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6996 ], [ %add.ptr.i.i.i.i4313, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6989 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304 ], [ null, %invoke.cont3083 ]
   %agg.tmp3086.sroa.5.0 = phi ptr [ %1596, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6996 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6989 ], [ null, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304 ], [ null, %invoke.cont3083 ]
   %agg.tmp3086.sroa.6.0 = phi i64 [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6996 ], [ -9223372036854775808, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304.thread6989 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE5beginEv.exit4304 ], [ 1, %invoke.cont3083 ]
@@ -15410,11 +15410,11 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i4317)
   store ptr %j3025, ptr %agg.tmp.i4316, align 8
   %m_it.i.i4318 = getelementptr inbounds i8, ptr %agg.tmp.i4316, i64 8
-  store ptr %agg.tmp3085.sroa.2.06983, ptr %m_it.i.i4318, align 8
+  store ptr %agg.tmp3085.sroa.2.06987, ptr %m_it.i.i4318, align 8
   %agg.tmp3085.sroa.5.8.m_it.i.i4318.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i4316, i64 16
-  store ptr %agg.tmp3085.sroa.5.06985, ptr %agg.tmp3085.sroa.5.8.m_it.i.i4318.sroa_idx, align 8
+  store ptr %agg.tmp3085.sroa.5.06983, ptr %agg.tmp3085.sroa.5.8.m_it.i.i4318.sroa_idx, align 8
   %agg.tmp3085.sroa.6.8.m_it.i.i4318.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i4316, i64 24
-  store i64 %agg.tmp3085.sroa.6.06987, ptr %agg.tmp3085.sroa.6.8.m_it.i.i4318.sroa_idx, align 8
+  store i64 %agg.tmp3085.sroa.6.06985, ptr %agg.tmp3085.sroa.6.8.m_it.i.i4318.sroa_idx, align 8
   store ptr %j3025, ptr %agg.tmp1.i4317, align 8
   %m_it.i1.i4320 = getelementptr inbounds i8, ptr %agg.tmp1.i4317, i64 8
   store ptr %agg.tmp3086.sroa.2.0, ptr %m_it.i1.i4320, align 8
@@ -15712,9 +15712,9 @@ call.i.i2.i.i.noexc4479:                          ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i2.i.i4480, label %invoke.cont3125, label %while.body.i.i4462
 
 while.body.i.i4462:                               ; preds = %call.i.i2.i.i.noexc4479, %call.i.i.i.i.noexc4481
-  %agg.tmp.sroa.10.0.i4463 = phi i64 [ %agg.tmp.sroa.10.1.i4470, %call.i.i.i.i.noexc4481 ], [ %ref.tmp.sroa.6.0.i44267031, %call.i.i2.i.i.noexc4479 ]
+  %agg.tmp.sroa.3.0.i4463 = phi ptr [ %agg.tmp.sroa.3.1.i4470, %call.i.i.i.i.noexc4481 ], [ %ref.tmp.sroa.2.0.i44277033, %call.i.i2.i.i.noexc4479 ]
   %agg.tmp.sroa.8.0.i4464 = phi ptr [ %agg.tmp.sroa.8.1.i4471, %call.i.i.i.i.noexc4481 ], [ %ref.tmp.sroa.5.0.i44257029, %call.i.i2.i.i.noexc4479 ]
-  %agg.tmp.sroa.3.0.i4465 = phi ptr [ %agg.tmp.sroa.3.1.i4472, %call.i.i.i.i.noexc4481 ], [ %ref.tmp.sroa.2.0.i44277033, %call.i.i2.i.i.noexc4479 ]
+  %agg.tmp.sroa.10.0.i4465 = phi i64 [ %agg.tmp.sroa.10.1.i4472, %call.i.i.i.i.noexc4481 ], [ %ref.tmp.sroa.6.0.i44267031, %call.i.i2.i.i.noexc4479 ]
   %__n.03.i.i4466 = phi i64 [ %inc.i.i4473, %call.i.i.i.i.noexc4481 ], [ 0, %call.i.i2.i.i.noexc4479 ]
   %1633 = load i8, ptr %j3025, align 8
   switch i8 %1633, label %sw.default.i.i.i.i.i4477 [
@@ -15723,7 +15723,7 @@ while.body.i.i4462:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i4475:                              ; preds = %while.body.i.i4462
-  %call.i4.i.i.i.i.i.i.i4476 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i4465) #20
+  %call.i4.i.i.i.i.i.i.i4476 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i4463) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4469
 
 sw.bb2.i.i.i.i.i4467:                             ; preds = %while.body.i.i4462
@@ -15731,19 +15731,19 @@ sw.bb2.i.i.i.i.i4467:                             ; preds = %while.body.i.i4462
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4469
 
 sw.default.i.i.i.i.i4477:                         ; preds = %while.body.i.i4462
-  %dec.i.i.i.i.i.i4478 = add nsw i64 %agg.tmp.sroa.10.0.i4463, -1
+  %dec.i.i.i.i.i.i4478 = add nsw i64 %agg.tmp.sroa.10.0.i4465, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4469
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4469: ; preds = %sw.default.i.i.i.i.i4477, %sw.bb2.i.i.i.i.i4467, %sw.bb.i.i.i.i.i4475
-  %agg.tmp.sroa.10.1.i4470 = phi i64 [ %dec.i.i.i.i.i.i4478, %sw.default.i.i.i.i.i4477 ], [ %agg.tmp.sroa.10.0.i4463, %sw.bb2.i.i.i.i.i4467 ], [ %agg.tmp.sroa.10.0.i4463, %sw.bb.i.i.i.i.i4475 ]
+  %agg.tmp.sroa.3.1.i4470 = phi ptr [ %agg.tmp.sroa.3.0.i4463, %sw.default.i.i.i.i.i4477 ], [ %agg.tmp.sroa.3.0.i4463, %sw.bb2.i.i.i.i.i4467 ], [ %call.i4.i.i.i.i.i.i.i4476, %sw.bb.i.i.i.i.i4475 ]
   %agg.tmp.sroa.8.1.i4471 = phi ptr [ %agg.tmp.sroa.8.0.i4464, %sw.default.i.i.i.i.i4477 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i4468, %sw.bb2.i.i.i.i.i4467 ], [ %agg.tmp.sroa.8.0.i4464, %sw.bb.i.i.i.i.i4475 ]
-  %agg.tmp.sroa.3.1.i4472 = phi ptr [ %agg.tmp.sroa.3.0.i4465, %sw.default.i.i.i.i.i4477 ], [ %agg.tmp.sroa.3.0.i4465, %sw.bb2.i.i.i.i.i4467 ], [ %call.i4.i.i.i.i.i.i.i4476, %sw.bb.i.i.i.i.i4475 ]
+  %agg.tmp.sroa.10.1.i4472 = phi i64 [ %dec.i.i.i.i.i.i4478, %sw.default.i.i.i.i.i4477 ], [ %agg.tmp.sroa.10.0.i4465, %sw.bb2.i.i.i.i.i4467 ], [ %agg.tmp.sroa.10.0.i4465, %sw.bb.i.i.i.i.i4475 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i4448)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i4449)
   store ptr %j3025, ptr %ref.tmp.i.i.i.i4448, align 8, !alias.scope !1003
-  store ptr %agg.tmp.sroa.3.1.i4472, ptr %m_it.i.i.i.i.i.i4458, align 8
+  store ptr %agg.tmp.sroa.3.1.i4470, ptr %m_it.i.i.i.i.i.i4458, align 8
   store ptr %agg.tmp.sroa.8.1.i4471, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i4460, align 8
-  store i64 %agg.tmp.sroa.10.1.i4470, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i4461, align 8
+  store i64 %agg.tmp.sroa.10.1.i4472, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i4461, align 8
   store ptr %j3025, ptr %ref.tmp1.i.i.i.i4449, align 8, !alias.scope !1005
   store ptr %ref.tmp.sroa.2.0.i4437, ptr %m_it.i.i1.i.i.i.i4459, align 8
   store ptr %ref.tmp.sroa.5.0.i4435, ptr %agg.tmp3122.sroa.5.8.m_it.i.i1.i.i.i.i4459.sroa_idx, align 8
@@ -15864,9 +15864,9 @@ call.i.i2.i.i.noexc4557:                          ; preds = %_ZNK8nlohmann16json
   br i1 %call.i.i2.i.i4558, label %invoke.cont3143, label %while.body.i.i4540
 
 while.body.i.i4540:                               ; preds = %call.i.i2.i.i.noexc4557, %call.i.i.i.i.noexc4559
-  %agg.tmp.sroa.10.0.i4541 = phi i64 [ %agg.tmp.sroa.10.1.i4548, %call.i.i.i.i.noexc4559 ], [ %ref.tmp.sroa.6.0.i45047047, %call.i.i2.i.i.noexc4557 ]
+  %agg.tmp.sroa.3.0.i4541 = phi ptr [ %agg.tmp.sroa.3.1.i4548, %call.i.i.i.i.noexc4559 ], [ %ref.tmp.sroa.2.0.i45057049, %call.i.i2.i.i.noexc4557 ]
   %agg.tmp.sroa.8.0.i4542 = phi ptr [ %agg.tmp.sroa.8.1.i4549, %call.i.i.i.i.noexc4559 ], [ %ref.tmp.sroa.5.0.i45037045, %call.i.i2.i.i.noexc4557 ]
-  %agg.tmp.sroa.3.0.i4543 = phi ptr [ %agg.tmp.sroa.3.1.i4550, %call.i.i.i.i.noexc4559 ], [ %ref.tmp.sroa.2.0.i45057049, %call.i.i2.i.i.noexc4557 ]
+  %agg.tmp.sroa.10.0.i4543 = phi i64 [ %agg.tmp.sroa.10.1.i4550, %call.i.i.i.i.noexc4559 ], [ %ref.tmp.sroa.6.0.i45047047, %call.i.i2.i.i.noexc4557 ]
   %__n.03.i.i4544 = phi i64 [ %inc.i.i4551, %call.i.i.i.i.noexc4559 ], [ 0, %call.i.i2.i.i.noexc4557 ]
   %1648 = load i8, ptr %j_const3027, align 8
   switch i8 %1648, label %sw.default.i.i.i.i.i4555 [
@@ -15875,7 +15875,7 @@ while.body.i.i4540:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i4553:                              ; preds = %while.body.i.i4540
-  %call.i4.i.i.i.i.i.i.i4554 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i4543) #20
+  %call.i4.i.i.i.i.i.i.i4554 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i4541) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4547
 
 sw.bb2.i.i.i.i.i4545:                             ; preds = %while.body.i.i4540
@@ -15883,19 +15883,19 @@ sw.bb2.i.i.i.i.i4545:                             ; preds = %while.body.i.i4540
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4547
 
 sw.default.i.i.i.i.i4555:                         ; preds = %while.body.i.i4540
-  %dec.i.i.i.i.i.i4556 = add nsw i64 %agg.tmp.sroa.10.0.i4541, -1
+  %dec.i.i.i.i.i.i4556 = add nsw i64 %agg.tmp.sroa.10.0.i4543, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4547
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4547: ; preds = %sw.default.i.i.i.i.i4555, %sw.bb2.i.i.i.i.i4545, %sw.bb.i.i.i.i.i4553
-  %agg.tmp.sroa.10.1.i4548 = phi i64 [ %dec.i.i.i.i.i.i4556, %sw.default.i.i.i.i.i4555 ], [ %agg.tmp.sroa.10.0.i4541, %sw.bb2.i.i.i.i.i4545 ], [ %agg.tmp.sroa.10.0.i4541, %sw.bb.i.i.i.i.i4553 ]
+  %agg.tmp.sroa.3.1.i4548 = phi ptr [ %agg.tmp.sroa.3.0.i4541, %sw.default.i.i.i.i.i4555 ], [ %agg.tmp.sroa.3.0.i4541, %sw.bb2.i.i.i.i.i4545 ], [ %call.i4.i.i.i.i.i.i.i4554, %sw.bb.i.i.i.i.i4553 ]
   %agg.tmp.sroa.8.1.i4549 = phi ptr [ %agg.tmp.sroa.8.0.i4542, %sw.default.i.i.i.i.i4555 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i4546, %sw.bb2.i.i.i.i.i4545 ], [ %agg.tmp.sroa.8.0.i4542, %sw.bb.i.i.i.i.i4553 ]
-  %agg.tmp.sroa.3.1.i4550 = phi ptr [ %agg.tmp.sroa.3.0.i4543, %sw.default.i.i.i.i.i4555 ], [ %agg.tmp.sroa.3.0.i4543, %sw.bb2.i.i.i.i.i4545 ], [ %call.i4.i.i.i.i.i.i.i4554, %sw.bb.i.i.i.i.i4553 ]
+  %agg.tmp.sroa.10.1.i4550 = phi i64 [ %dec.i.i.i.i.i.i4556, %sw.default.i.i.i.i.i4555 ], [ %agg.tmp.sroa.10.0.i4543, %sw.bb2.i.i.i.i.i4545 ], [ %agg.tmp.sroa.10.0.i4543, %sw.bb.i.i.i.i.i4553 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i4526)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i4527)
   store ptr %j_const3027, ptr %ref.tmp.i.i.i.i4526, align 8, !alias.scope !1023
-  store ptr %agg.tmp.sroa.3.1.i4550, ptr %m_it.i.i.i.i.i.i4536, align 8
+  store ptr %agg.tmp.sroa.3.1.i4548, ptr %m_it.i.i.i.i.i.i4536, align 8
   store ptr %agg.tmp.sroa.8.1.i4549, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i4538, align 8
-  store i64 %agg.tmp.sroa.10.1.i4548, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i4539, align 8
+  store i64 %agg.tmp.sroa.10.1.i4550, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i4539, align 8
   store ptr %j_const3027, ptr %ref.tmp1.i.i.i.i4527, align 8, !alias.scope !1025
   store ptr %ref.tmp.sroa.2.0.i4515, ptr %m_it.i.i1.i.i.i.i4537, align 8
   store ptr %ref.tmp.sroa.5.0.i4513, ptr %agg.tmp3140.sroa.5.8.m_it.i.i1.i.i.i.i4537.sroa_idx, align 8
@@ -16600,9 +16600,9 @@ call.i.i2.i.i.noexc4809:                          ; preds = %_ZN8nlohmann16json_
   br i1 %call.i.i2.i.i4810, label %invoke.cont3266, label %while.body.i.i4792
 
 while.body.i.i4792:                               ; preds = %call.i.i2.i.i.noexc4809, %call.i.i.i.i.noexc4811
-  %agg.tmp.sroa.10.0.i4793 = phi i64 [ %agg.tmp.sroa.10.1.i4800, %call.i.i.i.i.noexc4811 ], [ %ref.tmp.sroa.6.0.i47567109, %call.i.i2.i.i.noexc4809 ]
+  %agg.tmp.sroa.3.0.i4793 = phi ptr [ %agg.tmp.sroa.3.1.i4800, %call.i.i.i.i.noexc4811 ], [ %ref.tmp.sroa.2.0.i47577111, %call.i.i2.i.i.noexc4809 ]
   %agg.tmp.sroa.8.0.i4794 = phi ptr [ %agg.tmp.sroa.8.1.i4801, %call.i.i.i.i.noexc4811 ], [ %ref.tmp.sroa.5.0.i47557107, %call.i.i2.i.i.noexc4809 ]
-  %agg.tmp.sroa.3.0.i4795 = phi ptr [ %agg.tmp.sroa.3.1.i4802, %call.i.i.i.i.noexc4811 ], [ %ref.tmp.sroa.2.0.i47577111, %call.i.i2.i.i.noexc4809 ]
+  %agg.tmp.sroa.10.0.i4795 = phi i64 [ %agg.tmp.sroa.10.1.i4802, %call.i.i.i.i.noexc4811 ], [ %ref.tmp.sroa.6.0.i47567109, %call.i.i2.i.i.noexc4809 ]
   %__n.03.i.i4796 = phi i64 [ %inc.i.i4803, %call.i.i.i.i.noexc4811 ], [ 0, %call.i.i2.i.i.noexc4809 ]
   %1733 = load i8, ptr %j3168, align 8
   switch i8 %1733, label %sw.default.i.i.i.i.i4807 [
@@ -16611,7 +16611,7 @@ while.body.i.i4792:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i4805:                              ; preds = %while.body.i.i4792
-  %call.i4.i.i.i.i.i.i.i4806 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i4795) #20
+  %call.i4.i.i.i.i.i.i.i4806 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i4793) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4799
 
 sw.bb2.i.i.i.i.i4797:                             ; preds = %while.body.i.i4792
@@ -16619,19 +16619,19 @@ sw.bb2.i.i.i.i.i4797:                             ; preds = %while.body.i.i4792
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4799
 
 sw.default.i.i.i.i.i4807:                         ; preds = %while.body.i.i4792
-  %dec.i.i.i.i.i.i4808 = add nsw i64 %agg.tmp.sroa.10.0.i4793, -1
+  %dec.i.i.i.i.i.i4808 = add nsw i64 %agg.tmp.sroa.10.0.i4795, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4799
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4799: ; preds = %sw.default.i.i.i.i.i4807, %sw.bb2.i.i.i.i.i4797, %sw.bb.i.i.i.i.i4805
-  %agg.tmp.sroa.10.1.i4800 = phi i64 [ %dec.i.i.i.i.i.i4808, %sw.default.i.i.i.i.i4807 ], [ %agg.tmp.sroa.10.0.i4793, %sw.bb2.i.i.i.i.i4797 ], [ %agg.tmp.sroa.10.0.i4793, %sw.bb.i.i.i.i.i4805 ]
+  %agg.tmp.sroa.3.1.i4800 = phi ptr [ %agg.tmp.sroa.3.0.i4793, %sw.default.i.i.i.i.i4807 ], [ %agg.tmp.sroa.3.0.i4793, %sw.bb2.i.i.i.i.i4797 ], [ %call.i4.i.i.i.i.i.i.i4806, %sw.bb.i.i.i.i.i4805 ]
   %agg.tmp.sroa.8.1.i4801 = phi ptr [ %agg.tmp.sroa.8.0.i4794, %sw.default.i.i.i.i.i4807 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i4798, %sw.bb2.i.i.i.i.i4797 ], [ %agg.tmp.sroa.8.0.i4794, %sw.bb.i.i.i.i.i4805 ]
-  %agg.tmp.sroa.3.1.i4802 = phi ptr [ %agg.tmp.sroa.3.0.i4795, %sw.default.i.i.i.i.i4807 ], [ %agg.tmp.sroa.3.0.i4795, %sw.bb2.i.i.i.i.i4797 ], [ %call.i4.i.i.i.i.i.i.i4806, %sw.bb.i.i.i.i.i4805 ]
+  %agg.tmp.sroa.10.1.i4802 = phi i64 [ %dec.i.i.i.i.i.i4808, %sw.default.i.i.i.i.i4807 ], [ %agg.tmp.sroa.10.0.i4795, %sw.bb2.i.i.i.i.i4797 ], [ %agg.tmp.sroa.10.0.i4795, %sw.bb.i.i.i.i.i4805 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i4778)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i4779)
   store ptr %j3168, ptr %ref.tmp.i.i.i.i4778, align 8, !alias.scope !1059
-  store ptr %agg.tmp.sroa.3.1.i4802, ptr %m_it.i.i.i.i.i.i4788, align 8
+  store ptr %agg.tmp.sroa.3.1.i4800, ptr %m_it.i.i.i.i.i.i4788, align 8
   store ptr %agg.tmp.sroa.8.1.i4801, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i4790, align 8
-  store i64 %agg.tmp.sroa.10.1.i4800, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i4791, align 8
+  store i64 %agg.tmp.sroa.10.1.i4802, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i4791, align 8
   store ptr %j3168, ptr %ref.tmp1.i.i.i.i4779, align 8, !alias.scope !1061
   store ptr %ref.tmp.sroa.2.0.i4767, ptr %m_it.i.i1.i.i.i.i4789, align 8
   store ptr %ref.tmp.sroa.5.0.i4765, ptr %agg.tmp3263.sroa.5.8.m_it.i.i1.i.i.i.i4789.sroa_idx, align 8
@@ -16752,9 +16752,9 @@ call.i.i2.i.i.noexc4887:                          ; preds = %_ZNK8nlohmann16json
   br i1 %call.i.i2.i.i4888, label %invoke.cont3284, label %while.body.i.i4870
 
 while.body.i.i4870:                               ; preds = %call.i.i2.i.i.noexc4887, %call.i.i.i.i.noexc4889
-  %agg.tmp.sroa.10.0.i4871 = phi i64 [ %agg.tmp.sroa.10.1.i4878, %call.i.i.i.i.noexc4889 ], [ %ref.tmp.sroa.6.0.i48347125, %call.i.i2.i.i.noexc4887 ]
+  %agg.tmp.sroa.3.0.i4871 = phi ptr [ %agg.tmp.sroa.3.1.i4878, %call.i.i.i.i.noexc4889 ], [ %ref.tmp.sroa.2.0.i48357127, %call.i.i2.i.i.noexc4887 ]
   %agg.tmp.sroa.8.0.i4872 = phi ptr [ %agg.tmp.sroa.8.1.i4879, %call.i.i.i.i.noexc4889 ], [ %ref.tmp.sroa.5.0.i48337123, %call.i.i2.i.i.noexc4887 ]
-  %agg.tmp.sroa.3.0.i4873 = phi ptr [ %agg.tmp.sroa.3.1.i4880, %call.i.i.i.i.noexc4889 ], [ %ref.tmp.sroa.2.0.i48357127, %call.i.i2.i.i.noexc4887 ]
+  %agg.tmp.sroa.10.0.i4873 = phi i64 [ %agg.tmp.sroa.10.1.i4880, %call.i.i.i.i.noexc4889 ], [ %ref.tmp.sroa.6.0.i48347125, %call.i.i2.i.i.noexc4887 ]
   %__n.03.i.i4874 = phi i64 [ %inc.i.i4881, %call.i.i.i.i.noexc4889 ], [ 0, %call.i.i2.i.i.noexc4887 ]
   %1748 = load i8, ptr %j_const3169, align 8
   switch i8 %1748, label %sw.default.i.i.i.i.i4885 [
@@ -16763,7 +16763,7 @@ while.body.i.i4870:                               ; preds = %call.i.i2.i.i.noexc
   ]
 
 sw.bb.i.i.i.i.i4883:                              ; preds = %while.body.i.i4870
-  %call.i4.i.i.i.i.i.i.i4884 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i4873) #20
+  %call.i4.i.i.i.i.i.i.i4884 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %agg.tmp.sroa.3.0.i4871) #20
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4877
 
 sw.bb2.i.i.i.i.i4875:                             ; preds = %while.body.i.i4870
@@ -16771,19 +16771,19 @@ sw.bb2.i.i.i.i.i4875:                             ; preds = %while.body.i.i4870
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4877
 
 sw.default.i.i.i.i.i4885:                         ; preds = %while.body.i.i4870
-  %dec.i.i.i.i.i.i4886 = add nsw i64 %agg.tmp.sroa.10.0.i4871, -1
+  %dec.i.i.i.i.i.i4886 = add nsw i64 %agg.tmp.sroa.10.0.i4873, -1
   br label %_ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4877
 
 _ZN8nlohmann16json_abi_v3_11_36detail21json_reverse_iteratorINS1_9iter_implIKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES6_IhSaIhEEvEEEEEppEv.exit.i.i4877: ; preds = %sw.default.i.i.i.i.i4885, %sw.bb2.i.i.i.i.i4875, %sw.bb.i.i.i.i.i4883
-  %agg.tmp.sroa.10.1.i4878 = phi i64 [ %dec.i.i.i.i.i.i4886, %sw.default.i.i.i.i.i4885 ], [ %agg.tmp.sroa.10.0.i4871, %sw.bb2.i.i.i.i.i4875 ], [ %agg.tmp.sroa.10.0.i4871, %sw.bb.i.i.i.i.i4883 ]
+  %agg.tmp.sroa.3.1.i4878 = phi ptr [ %agg.tmp.sroa.3.0.i4871, %sw.default.i.i.i.i.i4885 ], [ %agg.tmp.sroa.3.0.i4871, %sw.bb2.i.i.i.i.i4875 ], [ %call.i4.i.i.i.i.i.i.i4884, %sw.bb.i.i.i.i.i4883 ]
   %agg.tmp.sroa.8.1.i4879 = phi ptr [ %agg.tmp.sroa.8.0.i4872, %sw.default.i.i.i.i.i4885 ], [ %incdec.ptr.i8.i.i.i.i.i.i.i4876, %sw.bb2.i.i.i.i.i4875 ], [ %agg.tmp.sroa.8.0.i4872, %sw.bb.i.i.i.i.i4883 ]
-  %agg.tmp.sroa.3.1.i4880 = phi ptr [ %agg.tmp.sroa.3.0.i4873, %sw.default.i.i.i.i.i4885 ], [ %agg.tmp.sroa.3.0.i4873, %sw.bb2.i.i.i.i.i4875 ], [ %call.i4.i.i.i.i.i.i.i4884, %sw.bb.i.i.i.i.i4883 ]
+  %agg.tmp.sroa.10.1.i4880 = phi i64 [ %dec.i.i.i.i.i.i4886, %sw.default.i.i.i.i.i4885 ], [ %agg.tmp.sroa.10.0.i4873, %sw.bb2.i.i.i.i.i4875 ], [ %agg.tmp.sroa.10.0.i4873, %sw.bb.i.i.i.i.i4883 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i4856)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i4857)
   store ptr %j_const3169, ptr %ref.tmp.i.i.i.i4856, align 8, !alias.scope !1079
-  store ptr %agg.tmp.sroa.3.1.i4880, ptr %m_it.i.i.i.i.i.i4866, align 8
+  store ptr %agg.tmp.sroa.3.1.i4878, ptr %m_it.i.i.i.i.i.i4866, align 8
   store ptr %agg.tmp.sroa.8.1.i4879, ptr %agg.tmp.sroa.8.8.m_it.i.i.i.i.i.sroa_idx.i4868, align 8
-  store i64 %agg.tmp.sroa.10.1.i4878, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i4869, align 8
+  store i64 %agg.tmp.sroa.10.1.i4880, ptr %agg.tmp.sroa.10.8.m_it.i.i.i.i.i.sroa_idx.i4869, align 8
   store ptr %j_const3169, ptr %ref.tmp1.i.i.i.i4857, align 8, !alias.scope !1081
   store ptr %ref.tmp.sroa.2.0.i4845, ptr %m_it.i.i1.i.i.i.i4867, align 8
   store ptr %ref.tmp.sroa.5.0.i4843, ptr %agg.tmp3281.sroa.5.8.m_it.i.i1.i.i.i.i4867.sroa_idx, align 8
@@ -21787,35 +21787,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.021.i, 2
+  %add8.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.021.i, 3
+  %add13.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
+  %0 = udiv i32 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !1103
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i

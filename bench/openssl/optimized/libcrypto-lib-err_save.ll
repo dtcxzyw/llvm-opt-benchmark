@@ -212,15 +212,15 @@ for.body19.lr.ph:                                 ; preds = %for.end15
   br label %for.body19
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %err_clear.exit105
-  %j.0140 = phi i64 [ %conv147, %for.body19.lr.ph ], [ %rem, %err_clear.exit105 ]
-  %i.1139 = phi i64 [ 0, %for.body19.lr.ph ], [ %inc63, %err_clear.exit105 ]
-  %add = add nuw nsw i64 %j.0140, 1
+  %i.1140 = phi i64 [ 0, %for.body19.lr.ph ], [ %inc63, %err_clear.exit105 ]
+  %j.0139 = phi i64 [ %conv147, %for.body19.lr.ph ], [ %rem, %err_clear.exit105 ]
+  %add = add nuw nsw i64 %j.0139, 1
   %rem = and i64 %add, 15
-  %arrayidx.i.i81 = getelementptr inbounds [16 x i32], ptr %err_data_flags.i.i80, i64 0, i64 %i.1139
+  %arrayidx.i.i81 = getelementptr inbounds [16 x i32], ptr %err_data_flags.i.i80, i64 0, i64 %i.1140
   %7 = load i32, ptr %arrayidx.i.i81, align 4
   %and.i.i82 = and i32 %7, 1
   %tobool.not.i.i83 = icmp eq i32 %and.i.i82, 0
-  %arrayidx20.i.i102 = getelementptr inbounds [16 x ptr], ptr %err_data9.i.i85, i64 0, i64 %i.1139
+  %arrayidx20.i.i102 = getelementptr inbounds [16 x ptr], ptr %err_data9.i.i85, i64 0, i64 %i.1140
   br i1 %tobool.not.i.i83, label %err_clear.exit105, label %if.then.i.i84
 
 if.then.i.i84:                                    ; preds = %for.body19
@@ -230,22 +230,22 @@ if.then.i.i84:                                    ; preds = %for.body19
 
 err_clear.exit105:                                ; preds = %for.body19, %if.then.i.i84
   store ptr null, ptr %arrayidx20.i.i102, align 8
-  %arrayidx6.i.i88 = getelementptr inbounds [16 x i64], ptr %err_data_size.i.i87, i64 0, i64 %i.1139
+  %arrayidx6.i.i88 = getelementptr inbounds [16 x i64], ptr %err_data_size.i.i87, i64 0, i64 %i.1140
   store i64 0, ptr %arrayidx6.i.i88, align 8
   store i32 0, ptr %arrayidx.i.i81, align 4
-  %arrayidx.i90 = getelementptr inbounds [16 x i32], ptr %err_marks.i89, i64 0, i64 %i.1139
+  %arrayidx.i90 = getelementptr inbounds [16 x i32], ptr %err_marks.i89, i64 0, i64 %i.1140
   store i32 0, ptr %arrayidx.i90, align 4
-  %arrayidx1.i91 = getelementptr inbounds [16 x i32], ptr %es, i64 0, i64 %i.1139
+  %arrayidx1.i91 = getelementptr inbounds [16 x i32], ptr %es, i64 0, i64 %i.1140
   store i32 0, ptr %arrayidx1.i91, align 4
-  %arrayidx2.i93 = getelementptr inbounds [16 x i64], ptr %err_buffer.i92, i64 0, i64 %i.1139
+  %arrayidx2.i93 = getelementptr inbounds [16 x i64], ptr %err_buffer.i92, i64 0, i64 %i.1140
   store i64 0, ptr %arrayidx2.i93, align 8
-  %arrayidx3.i95 = getelementptr inbounds [16 x i32], ptr %err_line.i94, i64 0, i64 %i.1139
+  %arrayidx3.i95 = getelementptr inbounds [16 x i32], ptr %err_line.i94, i64 0, i64 %i.1140
   store i32 -1, ptr %arrayidx3.i95, align 4
-  %arrayidx4.i97 = getelementptr inbounds [16 x ptr], ptr %err_file.i96, i64 0, i64 %i.1139
+  %arrayidx4.i97 = getelementptr inbounds [16 x ptr], ptr %err_file.i96, i64 0, i64 %i.1140
   %9 = load ptr, ptr %arrayidx4.i97, align 8
   tail call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 91) #6
   store ptr null, ptr %arrayidx4.i97, align 8
-  %arrayidx7.i99 = getelementptr inbounds [16 x ptr], ptr %err_func.i98, i64 0, i64 %i.1139
+  %arrayidx7.i99 = getelementptr inbounds [16 x ptr], ptr %err_func.i98, i64 0, i64 %i.1140
   %10 = load ptr, ptr %arrayidx7.i99, align 8
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 93) #6
   store ptr null, ptr %arrayidx7.i99, align 8
@@ -258,11 +258,11 @@ err_clear.exit105:                                ; preds = %for.body19, %if.the
   store i64 %12, ptr %arrayidx2.i93, align 8
   %arrayidx28 = getelementptr inbounds [16 x ptr], ptr %err_data, i64 0, i64 %rem
   %13 = load ptr, ptr %arrayidx28, align 8
-  %arrayidx30 = getelementptr inbounds [16 x ptr], ptr %err_data9.i.i85, i64 0, i64 %i.1139
+  %arrayidx30 = getelementptr inbounds [16 x ptr], ptr %err_data9.i.i85, i64 0, i64 %i.1140
   store ptr %13, ptr %arrayidx30, align 8
   %arrayidx31 = getelementptr inbounds [16 x i64], ptr %err_data_size, i64 0, i64 %rem
   %14 = load i64, ptr %arrayidx31, align 8
-  %arrayidx33 = getelementptr inbounds [16 x i64], ptr %err_data_size.i.i87, i64 0, i64 %i.1139
+  %arrayidx33 = getelementptr inbounds [16 x i64], ptr %err_data_size.i.i87, i64 0, i64 %i.1140
   store i64 %14, ptr %arrayidx33, align 8
   %arrayidx34 = getelementptr inbounds [16 x i32], ptr %err_data_flags, i64 0, i64 %rem
   %15 = load i32, ptr %arrayidx34, align 4
@@ -284,7 +284,7 @@ err_clear.exit105:                                ; preds = %for.body19, %if.the
   store ptr null, ptr %arrayidx37, align 8
   store i32 0, ptr %arrayidx40, align 4
   store ptr null, ptr %arrayidx43, align 8
-  %inc63 = add nuw i64 %i.1139, 1
+  %inc63 = add nuw i64 %i.1140, 1
   %exitcond.not = icmp eq i64 %inc63, %count.0.lcssa
   br i1 %exitcond.not, label %if.end75, label %for.body19, !llvm.loop !8
 

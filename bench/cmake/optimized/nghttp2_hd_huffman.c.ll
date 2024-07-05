@@ -259,8 +259,8 @@ define dso_local i64 @nghttp2_hd_huff_decode(ptr nocapture noundef %0, ptr nocap
   %39 = and i16 %38, 16384
   %.not24 = icmp eq i16 %39, 0
   %or.cond = select i1 %.not23, i1 %.not24, i1 false
-  %.021 = select i1 %or.cond, i64 -523, i64 %3
-  ret i64 %.021
+  %.0 = select i1 %or.cond, i64 -523, i64 %3
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

@@ -2652,7 +2652,7 @@ for.inc.us99:                                     ; preds = %if.then12.us93, %if
   br i1 %exitcond162.not, label %for.cond54.preheader, label %for.body.us83, !llvm.loop !8
 
 for.cond54.preheader:                             ; preds = %for.inc.us, %for.inc, %for.inc.us.us, %for.inc.us99
-  %locked_shared_perm.0173 = phi i64 [ 15, %for.inc.us99 ], [ 0, %for.inc.us.us ], [ %1, %for.inc ], [ %1, %for.inc.us ]
+  %locked_shared_perm.0171 = phi i64 [ 15, %for.inc.us99 ], [ 0, %for.inc.us.us ], [ %1, %for.inc ], [ %1, %for.inc.us ]
   %unlock.not68 = xor i1 %unlock, true
   %locked_shared_perm114 = getelementptr inbounds i8, ptr %s, i64 48
   br label %for.body59
@@ -2736,7 +2736,7 @@ for.body59:                                       ; preds = %for.cond54.preheade
   %11 = or disjoint i64 %indvars.iv163, 200
   %and65 = and i64 %shl56119, %shared_perm_lock_bits
   %tobool66.not = icmp ne i64 %and65, 0
-  %and68 = and i64 %shl56119, %locked_shared_perm.0173
+  %and68 = and i64 %shl56119, %locked_shared_perm.0171
   %tobool69.not = icmp eq i64 %and68, 0
   %or.cond67 = select i1 %tobool66.not, i1 %tobool69.not, i1 false
   br i1 %or.cond67, label %if.then70, label %if.else95
@@ -3106,8 +3106,8 @@ sw.default:                                       ; preds = %if.end8
   br label %return
 
 out:                                              ; preds = %if.then15, %if.then64, %if.end51, %if.then36, %if.then28
-  %.pn = phi i32 [ %7, %if.then28 ], [ %8, %if.then36 ], [ %12, %if.end51 ], [ %13, %if.then64 ], [ %call12, %if.then15 ]
   %buf.0 = phi ptr [ null, %if.then28 ], [ %call33, %if.then36 ], [ %call33, %if.end51 ], [ %call33, %if.then64 ], [ null, %if.then15 ]
+  %.pn = phi i32 [ %7, %if.then28 ], [ %8, %if.then36 ], [ %12, %if.end51 ], [ %13, %if.then64 ], [ %call12, %if.then15 ]
   %result.2 = sub i32 0, %.pn
   %cmp89 = icmp slt i32 %result.2, 0
   br i1 %cmp89, label %if.then91, label %if.end99
@@ -3125,13 +3125,13 @@ if.then95:                                        ; preds = %if.then91
   br label %if.end99
 
 if.end99:                                         ; preds = %sw.bb, %if.else, %if.then18, %if.then60, %if.then91, %if.then95, %out
-  %buf.068 = phi ptr [ %buf.0, %if.then91 ], [ %buf.0, %if.then95 ], [ %buf.0, %out ], [ null, %sw.bb ], [ null, %if.else ], [ null, %if.then18 ], [ %call33, %if.then60 ]
-  %result.267 = phi i32 [ %result.2, %if.then91 ], [ %result.2, %if.then95 ], [ %result.2, %out ], [ 0, %sw.bb ], [ 0, %if.else ], [ 0, %if.then18 ], [ %call61, %if.then60 ]
-  tail call void @g_free(ptr noundef %buf.068) #17
+  %result.268 = phi i32 [ %result.2, %if.then91 ], [ %result.2, %if.then95 ], [ %result.2, %out ], [ 0, %sw.bb ], [ 0, %if.else ], [ 0, %if.then18 ], [ %call61, %if.then60 ]
+  %buf.067 = phi ptr [ %buf.0, %if.then91 ], [ %buf.0, %if.then95 ], [ %buf.0, %out ], [ null, %sw.bb ], [ null, %if.else ], [ null, %if.then18 ], [ %call33, %if.then60 ]
+  tail call void @g_free(ptr noundef %buf.067) #17
   br label %return
 
 return:                                           ; preds = %if.then74, %if.then84, %if.else78, %if.end99, %sw.default, %if.then7, %if.then
-  %retval.0 = phi i32 [ %sub, %if.then ], [ -95, %if.then7 ], [ -95, %sw.default ], [ %result.267, %if.end99 ], [ %sub76, %if.then74 ], [ 0, %if.then84 ], [ 0, %if.else78 ]
+  %retval.0 = phi i32 [ %sub, %if.then ], [ -95, %if.then7 ], [ -95, %sw.default ], [ %result.268, %if.end99 ], [ %sub76, %if.then74 ], [ 0, %if.then84 ], [ 0, %if.else78 ]
   ret i32 %retval.0
 }
 
@@ -5027,23 +5027,23 @@ for.body.lr.ph:                                   ; preds = %raw_getlength.exit
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc30
-  %offset.049 = phi i64 [ 0, %for.body.lr.ph ], [ %add31, %for.inc30 ]
+  %window.049 = phi ptr [ null, %for.body.lr.ph ], [ %call8, %for.inc30 ]
   %length.048 = phi i64 [ 0, %for.body.lr.ph ], [ %cond, %for.inc30 ]
-  %window.047 = phi ptr [ null, %for.body.lr.ph ], [ %call8, %for.inc30 ]
-  %sub3 = sub i64 %retval.0.i, %offset.049
+  %offset.047 = phi i64 [ 0, %for.body.lr.ph ], [ %add31, %for.inc30 ]
+  %sub3 = sub i64 %retval.0.i, %offset.047
   %cond = tail call i64 @llvm.umin.i64(i64 %sub3, i64 134217728)
   %cmp6.not = icmp eq i64 %cond, %length.048
   br i1 %cmp6.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %call7 = tail call i32 @munmap(ptr noundef %window.047, i64 noundef %length.048) #17
+  %call7 = tail call i32 @munmap(ptr noundef %window.049, i64 noundef %length.048) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %window.1 = phi ptr [ null, %if.then ], [ %window.047, %for.body ]
   %length.1 = phi i64 [ 0, %if.then ], [ %length.048, %for.body ]
+  %window.1 = phi ptr [ null, %if.then ], [ %window.049, %for.body ]
   %2 = load i32, ptr %0, align 8
-  %call8 = tail call ptr @mmap64(ptr noundef %window.1, i64 noundef %cond, i32 noundef 0, i32 noundef 2, i32 noundef %2, i64 noundef %offset.049) #17
+  %call8 = tail call ptr @mmap64(ptr noundef %window.1, i64 noundef %cond, i32 noundef 0, i32 noundef 2, i32 noundef %2, i64 noundef %offset.047) #17
   %cmp9 = icmp eq ptr %call8, inttoptr (i64 -1 to ptr)
   br i1 %cmp9, label %if.then10, label %if.end12
 
@@ -5088,13 +5088,13 @@ if.then28:                                        ; preds = %for.body23
   br label %for.end32
 
 for.inc30:                                        ; preds = %for.cond21, %if.end17
-  %add31 = add i64 %offset.049, 134217728
+  %add31 = add i64 %offset.047, 134217728
   %cmp = icmp slt i64 %add31, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end32, !llvm.loop !28
 
 for.end32:                                        ; preds = %for.inc30, %if.then28, %if.then15, %if.then10
-  %window.2 = phi ptr [ %window.1, %if.then10 ], [ %call8, %if.then15 ], [ %call8, %if.then28 ], [ %call8, %for.inc30 ]
   %length.2 = phi i64 [ %length.1, %if.then10 ], [ %cond, %if.then15 ], [ %cond, %if.then28 ], [ %cond, %for.inc30 ]
+  %window.2 = phi ptr [ %window.1, %if.then10 ], [ %call8, %if.then15 ], [ %call8, %if.then28 ], [ %call8, %for.inc30 ]
   %tobool33.not = icmp eq ptr %window.2, null
   br i1 %tobool33.not, label %if.end36, label %if.then34
 

@@ -303,8 +303,8 @@ entry:
 
 while.body:                                       ; preds = %entry, %chunk_append.exit
   %nwritten.026 = phi i64 [ %add, %chunk_append.exit ], [ 0, %entry ]
-  %len.addr.025 = phi i64 [ %sub, %chunk_append.exit ], [ %len, %entry ]
-  %buf.addr.024 = phi ptr [ %add.ptr, %chunk_append.exit ], [ %buf, %entry ]
+  %buf.addr.025 = phi ptr [ %add.ptr, %chunk_append.exit ], [ %buf, %entry ]
+  %len.addr.024 = phi i64 [ %sub, %chunk_append.exit ], [ %len, %entry ]
   %call = tail call fastcc ptr @get_non_full_tail(ptr noundef %q)
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %if.then, label %if.end3
@@ -329,14 +329,14 @@ chunk_append.exit:                                ; preds = %if.end3
   %sub.i = sub i64 %3, %2
   %x.i = getelementptr inbounds i8, ptr %call, i64 32
   %arrayidx.i = getelementptr inbounds [1 x i8], ptr %x.i, i64 0, i64 %2
-  %cond.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %len.addr.025)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr readonly align 1 %buf.addr.024, i64 %cond.i, i1 false)
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %len.addr.024)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr readonly align 1 %buf.addr.025, i64 %cond.i, i1 false)
   %4 = load i64, ptr %w_offset.i, align 8
   %add.i = add i64 %4, %cond.i
   store i64 %add.i, ptr %w_offset.i, align 8
   %add = add i64 %cond.i, %nwritten.026
-  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.024, i64 %cond.i
-  %sub = sub i64 %len.addr.025, %cond.i
+  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.025, i64 %cond.i
+  %sub = sub i64 %len.addr.024, %cond.i
   %tobool.not = icmp eq i64 %sub, 0
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !9
 
@@ -496,8 +496,8 @@ land.rhs.lr.ph:                                   ; preds = %entry
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %prune_head.exit
   %0 = phi ptr [ %.pre, %land.rhs.lr.ph ], [ %24, %prune_head.exit ]
   %nread.017 = phi i64 [ 0, %land.rhs.lr.ph ], [ %add, %prune_head.exit ]
-  %len.addr.016 = phi i64 [ %len, %land.rhs.lr.ph ], [ %sub, %prune_head.exit ]
-  %buf.addr.015 = phi ptr [ %buf, %land.rhs.lr.ph ], [ %add.ptr, %prune_head.exit ]
+  %buf.addr.016 = phi ptr [ %buf, %land.rhs.lr.ph ], [ %add.ptr, %prune_head.exit ]
+  %len.addr.015 = phi i64 [ %len, %land.rhs.lr.ph ], [ %sub, %prune_head.exit ]
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %while.end, label %while.body
 
@@ -513,26 +513,26 @@ while.body:                                       ; preds = %land.rhs
   br i1 %tobool.not.i, label %chunk_read.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %while.body
-  %cmp.not.i = icmp ugt i64 %sub.i, %len.addr.016
+  %cmp.not.i = icmp ugt i64 %sub.i, %len.addr.015
   br i1 %cmp.not.i, label %if.else5.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.015, ptr nonnull align 1 %arrayidx.i, i64 %sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.016, ptr nonnull align 1 %arrayidx.i, i64 %sub.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %r_offset.i, i8 0, i64 16, i1 false)
   br label %chunk_read.exit
 
 if.else5.i:                                       ; preds = %if.else.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.015, ptr nonnull align 1 %arrayidx.i, i64 %len.addr.016, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.016, ptr nonnull align 1 %arrayidx.i, i64 %len.addr.015, i1 false)
   %3 = load i64, ptr %r_offset.i, align 8
-  %add.i = add i64 %3, %len.addr.016
+  %add.i = add i64 %3, %len.addr.015
   store i64 %add.i, ptr %r_offset.i, align 8
   br label %chunk_read.exit
 
 chunk_read.exit:                                  ; preds = %while.body, %if.then2.i, %if.else5.i
-  %retval.0.i = phi i64 [ %sub.i, %if.then2.i ], [ %len.addr.016, %if.else5.i ], [ 0, %while.body ]
+  %retval.0.i = phi i64 [ %sub.i, %if.then2.i ], [ %len.addr.015, %if.else5.i ], [ 0, %while.body ]
   %add = add i64 %retval.0.i, %nread.017
-  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.015, i64 %retval.0.i
-  %sub = sub i64 %len.addr.016, %retval.0.i
+  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.016, i64 %retval.0.i
+  %sub = sub i64 %len.addr.015, %retval.0.i
   %4 = load ptr, ptr %q, align 8
   %tobool.not23.i = icmp eq ptr %4, null
   br i1 %tobool.not23.i, label %prune_head.exit, label %land.rhs.i
@@ -1142,8 +1142,8 @@ while.body.i23.preheader:                         ; preds = %Curl_bufq_pass.exit
 
 while.body.i23:                                   ; preds = %while.body.i23.preheader, %chunk_append.exit.i
   %nwritten.026.i = phi i64 [ %add.i27, %chunk_append.exit.i ], [ 0, %while.body.i23.preheader ]
-  %len.addr.025.i = phi i64 [ %sub.i, %chunk_append.exit.i ], [ %len.addr.074, %while.body.i23.preheader ]
-  %buf.addr.024.i = phi ptr [ %add.ptr.i, %chunk_append.exit.i ], [ %buf.addr.075, %while.body.i23.preheader ]
+  %buf.addr.025.i = phi ptr [ %add.ptr.i, %chunk_append.exit.i ], [ %buf.addr.075, %while.body.i23.preheader ]
+  %len.addr.024.i = phi i64 [ %sub.i, %chunk_append.exit.i ], [ %len.addr.074, %while.body.i23.preheader ]
   %9 = load ptr, ptr %tail.i, align 8
   %tobool.not.i35 = icmp eq ptr %9, null
   br i1 %tobool.not.i35, label %if.end.i37, label %land.lhs.true.i
@@ -1274,14 +1274,14 @@ chunk_append.exit.i:                              ; preds = %if.end3.i26
   %sub.i.i = sub i64 %32, %33
   %x.i.i = getelementptr inbounds i8, ptr %retval.0.i40, i64 32
   %arrayidx.i.i = getelementptr inbounds [1 x i8], ptr %x.i.i, i64 0, i64 %33
-  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %len.addr.025.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i, ptr readonly align 1 %buf.addr.024.i, i64 %cond.i.i, i1 false)
+  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %len.addr.024.i)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i, ptr readonly align 1 %buf.addr.025.i, i64 %cond.i.i, i1 false)
   %34 = load i64, ptr %w_offset.i.i, align 8
   %add.i.i = add i64 %34, %cond.i.i
   store i64 %add.i.i, ptr %w_offset.i.i, align 8
   %add.i27 = add i64 %cond.i.i, %nwritten.026.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf.addr.024.i, i64 %cond.i.i
-  %sub.i = sub i64 %len.addr.025.i, %cond.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.addr.025.i, i64 %cond.i.i
+  %sub.i = sub i64 %len.addr.024.i, %cond.i.i
   %tobool.not.i28 = icmp eq i64 %sub.i, 0
   br i1 %tobool.not.i28, label %Curl_bufq_write.exit, label %while.body.i23, !llvm.loop !9
 

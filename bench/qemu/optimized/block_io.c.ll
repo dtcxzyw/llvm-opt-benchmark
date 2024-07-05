@@ -3900,15 +3900,15 @@ if.end4:                                          ; preds = %do.end
   br i1 %tobool.not7, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body
 
 for.body:                                         ; preds = %if.end4, %for.body
-  %result.09 = phi i32 [ %spec.select, %for.body ], [ 0, %if.end4 ]
-  %bs.08 = phi ptr [ %call11, %for.body ], [ %call5, %if.end4 ]
-  %call6 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs.08) #14
+  %bs.09 = phi ptr [ %call11, %for.body ], [ %call5, %if.end4 ]
+  %result.08 = phi i32 [ %spec.select, %for.body ], [ 0, %if.end4 ]
+  %call6 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs.09) #14
   call void @aio_context_acquire(ptr noundef %call6) #14
-  %call7 = call i32 @bdrv_flush(ptr noundef nonnull %bs.08) #14
+  %call7 = call i32 @bdrv_flush(ptr noundef nonnull %bs.09) #14
   %cmp = icmp sgt i32 %call7, -1
-  %tobool8 = icmp ne i32 %result.09, 0
+  %tobool8 = icmp ne i32 %result.08, 0
   %or.cond = select i1 %cmp, i1 true, i1 %tobool8
-  %spec.select = select i1 %or.cond, i32 %result.09, i32 %call7
+  %spec.select = select i1 %or.cond, i32 %result.08, i32 %call7
   call void @aio_context_release(ptr noundef %call6) #14
   %call11 = call ptr @bdrv_next(ptr noundef nonnull %it) #14
   %tobool.not = icmp eq ptr %call11, null

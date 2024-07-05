@@ -72,9 +72,9 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
   br label %23
 
 23:                                               ; preds = %20, %10
-  %.045 = phi ptr [ %21, %20 ], [ %1, %10 ]
-  %.044 = phi i64 [ %22, %20 ], [ %2, %10 ]
-  %.not5254 = icmp ult i64 %.044, %9
+  %.045 = phi i64 [ %22, %20 ], [ %2, %10 ]
+  %.044 = phi ptr [ %21, %20 ], [ %1, %10 ]
+  %.not5254 = icmp ult i64 %.045, %9
   br i1 %.not5254, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
@@ -82,34 +82,34 @@ define dso_local void @rhash_sha3_update(ptr noundef %0, ptr noundef %1, i64 nou
   br label %25
 
 25:                                               ; preds = %.lr.ph, %30
-  %.156 = phi i64 [ %.044, %.lr.ph ], [ %32, %30 ]
-  %.14655 = phi ptr [ %.045, %.lr.ph ], [ %31, %30 ]
-  %26 = ptrtoint ptr %.14655 to i64
+  %.156 = phi ptr [ %.044, %.lr.ph ], [ %31, %30 ]
+  %.14655 = phi i64 [ %.045, %.lr.ph ], [ %32, %30 ]
+  %26 = ptrtoint ptr %.156 to i64
   %27 = and i64 %26, 7
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 1 %.14655, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 1 %.156, i64 %9, i1 false)
   br label %30
 
 30:                                               ; preds = %25, %29
-  %.0 = phi ptr [ %24, %29 ], [ %.14655, %25 ]
+  %.0 = phi ptr [ %24, %29 ], [ %.156, %25 ]
   tail call fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr noundef %.0, i64 noundef %9)
-  %31 = getelementptr inbounds i8, ptr %.14655, i64 %9
-  %32 = sub i64 %.156, %9
+  %31 = getelementptr inbounds i8, ptr %.156, i64 %9
+  %32 = sub i64 %.14655, %9
   %.not52 = icmp ult i64 %32, %9
   br i1 %.not52, label %._crit_edge, label %25, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %30, %23
-  %.146.lcssa = phi ptr [ %.045, %23 ], [ %31, %30 ]
-  %.1.lcssa = phi i64 [ %.044, %23 ], [ %32, %30 ]
-  %.not53 = icmp eq i64 %.1.lcssa, 0
+  %.146.lcssa = phi i64 [ %.045, %23 ], [ %32, %30 ]
+  %.1.lcssa = phi ptr [ %.044, %23 ], [ %31, %30 ]
+  %.not53 = icmp eq i64 %.146.lcssa, 0
   br i1 %.not53, label %35, label %33
 
 33:                                               ; preds = %._crit_edge
   %34 = getelementptr inbounds i8, ptr %0, i64 200
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr align 1 %.146.lcssa, i64 %.1.lcssa, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr align 1 %.1.lcssa, i64 %.146.lcssa, i1 false)
   br label %35
 
 35:                                               ; preds = %14, %3, %33, %._crit_edge

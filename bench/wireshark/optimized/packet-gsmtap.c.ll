@@ -491,7 +491,7 @@ define internal i32 @dissect_gsmtap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 30:                                               ; preds = %27, %14
   %.sink16.i = phi i32 [ %29, %27 ], [ %26, %14 ]
-  %.0229.i = phi ptr [ %28, %27 ], [ null, %14 ]
+  %.0233.i = phi ptr [ %28, %27 ], [ null, %14 ]
   %31 = sub i32 %15, %.sink16.i
   %32 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.sink16.i, i32 noundef %31) #6
   %33 = getelementptr inbounds i8, ptr %1, i64 8
@@ -673,11 +673,11 @@ switch.early.test.i:                              ; preds = %69
   br i1 %117, label %select.unfold.i, label %229
 
 118:                                              ; preds = %110
-  %.not249.i = icmp eq ptr %.0229.i, null
+  %.not249.i = icmp eq ptr %.0233.i, null
   br i1 %.not249.i, label %120, label %119
 
 119:                                              ; preds = %118
-  tail call fastcc void @dissect_sacch_l1h(ptr noundef nonnull %.0229.i, ptr noundef %2)
+  tail call fastcc void @dissect_sacch_l1h(ptr noundef nonnull %.0233.i, ptr noundef %2)
   br label %120
 
 120:                                              ; preds = %119, %118
@@ -969,7 +969,7 @@ select.unfold.i:                                  ; preds = %158, %switch.lookup
   br label %dissect_gsmtap_v2.exit
 
 dissect_gsmtap_v2.exit:                           ; preds = %38, %122, %130, %135, %138, %140, %handle_tetra.exit.i, %174, %184, %194, %204, %214, %239
-  %.0231.i = phi i32 [ %39, %38 ], [ %240, %239 ], [ %215, %214 ], [ %205, %204 ], [ %195, %194 ], [ %185, %184 ], [ %175, %174 ], [ %157, %handle_tetra.exit.i ], [ %143, %140 ], [ %139, %138 ], [ %136, %135 ], [ %131, %130 ], [ %126, %122 ]
+  %.0229.i = phi i32 [ %39, %38 ], [ %240, %239 ], [ %215, %214 ], [ %205, %204 ], [ %195, %194 ], [ %185, %184 ], [ %175, %174 ], [ %157, %handle_tetra.exit.i ], [ %143, %140 ], [ %139, %138 ], [ %136, %135 ], [ %131, %130 ], [ %126, %122 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -996,7 +996,7 @@ dissect_gsmtap_v2.exit:                           ; preds = %38, %122, %130, %13
   br label %254
 
 254:                                              ; preds = %241, %dissect_gsmtap_v2.exit
-  %.0 = phi i32 [ %.0231.i, %dissect_gsmtap_v2.exit ], [ 1, %241 ]
+  %.0 = phi i32 [ %.0229.i, %dissect_gsmtap_v2.exit ], [ 1, %241 ]
   ret i32 %.0
 }
 

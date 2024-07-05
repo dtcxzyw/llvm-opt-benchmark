@@ -51431,8 +51431,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %74
 
 74:                                               ; preds = %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit", %58
-  %.sroa.736.0 = phi i64 [ 0, %58 ], [ %78, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
   %.sroa.034.0 = phi ptr [ %.sink5.i, %58 ], [ %77, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
+  %.sroa.736.0 = phi i64 [ 0, %58 ], [ %78, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
   %.sroa.0.0 = phi ptr [ %3, %58 ], [ %.sroa.0.1104, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
   %75 = icmp eq ptr %.sroa.034.0, %65
   br i1 %75, label %.thread, label %76
@@ -51728,8 +51728,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %71
 
 71:                                               ; preds = %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit", %56
-  %.sroa.731.0 = phi i64 [ 0, %56 ], [ %75, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
   %.sroa.029.0 = phi ptr [ %.sink5.i, %56 ], [ %74, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
+  %.sroa.731.0 = phi i64 [ 0, %56 ], [ %75, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
   %72 = icmp eq ptr %.sroa.029.0, %63
   br i1 %72, label %.thread, label %73
 
@@ -51973,8 +51973,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %74
 
 74:                                               ; preds = %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit", %58
-  %.sroa.736.0 = phi i64 [ 0, %58 ], [ %78, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
   %.sroa.034.0 = phi ptr [ %.sink5.i, %58 ], [ %77, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
+  %.sroa.736.0 = phi i64 [ 0, %58 ], [ %78, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
   %.sroa.0.0 = phi ptr [ %3, %58 ], [ %.sroa.0.1104, %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h22f2b8ce9ca27d1eE.exit" ]
   %75 = icmp eq ptr %.sroa.034.0, %65
   br i1 %75, label %.thread, label %76
@@ -53014,13 +53014,13 @@ _ZN17cranelift_codegen8machinst3abi6SigSet26have_abi_sig_for_signature17heefaa92
   %.sroa.687.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %181 = icmp ugt i64 %.sroa.687.0.copyload, 4
   %.sink4.i.i = select i1 %181, i64 %.sroa.484.0.copyload, i64 %.sroa.687.0.copyload
-  %spec.select = select i1 %181, i64 0, i64 %.sroa.484.0.copyload
-  %spec.select115 = select i1 %181, i64 %.sroa.687.0.copyload, i64 0
+  %spec.select = select i1 %181, i64 %.sroa.687.0.copyload, i64 0
+  %spec.select115 = select i1 %181, i64 0, i64 %.sroa.484.0.copyload
   store i64 %.sroa.082.0.copyload, ptr %16, align 8
   %.sroa.079.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
-  store i64 %spec.select, ptr %.sroa.079.sroa.4.0..sroa_idx, align 8
+  store i64 %spec.select115, ptr %.sroa.079.sroa.4.0..sroa_idx, align 8
   %.sroa.079.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 160
-  store i64 %spec.select115, ptr %.sroa.079.sroa.6.0..sroa_idx, align 8
+  store i64 %spec.select, ptr %.sroa.079.sroa.6.0..sroa_idx, align 8
   %.sroa.480.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 168
   store i64 0, ptr %.sroa.480.0..sroa_idx, align 8
   %.sroa.581.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 176

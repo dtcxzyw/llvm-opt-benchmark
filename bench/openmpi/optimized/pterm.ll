@@ -246,14 +246,14 @@ pmix_obj_run_constructors.exit142:                ; preds = %.lr.ph.i139, %31
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %.preheader, %61
-  %.080 = phi ptr [ %64, %61 ], [ null, %.preheader ], [ null, %55 ]
-  %65 = call ptr @prte_schizo_base_detect_proxy(ptr noundef %.080) #14
+  %.081 = phi ptr [ %64, %61 ], [ null, %.preheader ], [ null, %55 ]
+  %65 = call ptr @prte_schizo_base_detect_proxy(ptr noundef %.081) #14
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %.loopexit
   %68 = load ptr, ptr @prte_tool_basename, align 8
-  %69 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef %68, ptr noundef %.080) #14
+  %69 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef %68, ptr noundef %.081) #14
   br label %360
 
 70:                                               ; preds = %.loopexit

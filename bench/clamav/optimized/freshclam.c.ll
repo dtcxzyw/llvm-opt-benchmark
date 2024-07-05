@@ -2361,7 +2361,7 @@ string_list_add.exit50.i:                         ; preds = %124
   br label %475
 
 202:                                              ; preds = %198, %154, %160
-  %.0125 = phi i32 [ 0, %160 ], [ 0, %154 ], [ 1, %198 ]
+  %.0127 = phi i32 [ 0, %160 ], [ 0, %154 ], [ 1, %198 ]
   %203 = call ptr @optget(ptr noundef %52, ptr noundef nonnull @.str.77) #17
   %204 = getelementptr inbounds i8, ptr %203, i64 32
   %205 = load i32, ptr %204, align 8
@@ -2400,7 +2400,7 @@ string_list_add.exit50.i:                         ; preds = %124
   br label %224
 
 224:                                              ; preds = %220, %216, %212
-  %.0126 = phi ptr [ null, %212 ], [ %223, %220 ], [ null, %216 ]
+  %.0128 = phi ptr [ null, %212 ], [ %223, %220 ], [ null, %216 ]
   %225 = getelementptr inbounds i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %225, i8 0, i64 144, i1 false)
   store ptr @sighandler, ptr %10, align 8
@@ -2417,7 +2417,7 @@ string_list_add.exit50.i:                         ; preds = %124
   %233 = load i32, ptr %6, align 4
   %234 = load ptr, ptr %7, align 8
   %235 = load i32, ptr %8, align 4
-  %236 = select i1 %.not.i, ptr %.0126, ptr null
+  %236 = select i1 %.not.i, ptr %.0128, ptr null
   br i1 %.not.i, label %237, label %241
 
 237:                                              ; preds = %231
@@ -2473,7 +2473,7 @@ string_list_add.exit50.i:                         ; preds = %124
 
 271:                                              ; preds = %259, %267
   %272 = phi ptr [ %270, %267 ], [ null, %259 ]
-  %273 = call i32 @perform_database_update(ptr noundef %232, i32 noundef %233, ptr noundef %234, i32 noundef %235, ptr noundef nonnull %.0240, i32 noundef %.0238, i32 noundef %.2, ptr noundef %236, i32 noundef %242, i32 noundef %.0125, ptr noundef %251, ptr noundef %260, i32 noundef %263, ptr noundef %272, ptr noundef nonnull %9)
+  %273 = call i32 @perform_database_update(ptr noundef %232, i32 noundef %233, ptr noundef %234, i32 noundef %235, ptr noundef nonnull %.0240, i32 noundef %.0238, i32 noundef %.2, ptr noundef %236, i32 noundef %242, i32 noundef %.0127, ptr noundef %251, ptr noundef %260, i32 noundef %263, ptr noundef %272, ptr noundef nonnull %9)
   %.not179 = icmp eq i32 %273, 0
   br i1 %.not179, label %.thread253, label %274
 
@@ -2576,7 +2576,7 @@ string_list_add.exit50.i:                         ; preds = %124
   br label %328
 
 328:                                              ; preds = %325, %321
-  %.0124 = phi ptr [ %327, %325 ], [ null, %321 ]
+  %.0126 = phi ptr [ %327, %325 ], [ null, %321 ]
   %329 = call i32 @geteuid() #17
   %330 = icmp eq i32 %329, 0
   br i1 %330, label %331, label %372
@@ -2641,7 +2641,7 @@ string_list_add.exit50.i:                         ; preds = %124
   %373 = call ptr @optget(ptr noundef %52, ptr noundef nonnull @.str.92) #17
   %374 = getelementptr inbounds i8, ptr %373, i64 16
   %375 = load ptr, ptr %374, align 8
-  %376 = call i32 @drop_privileges(ptr noundef %375, ptr noundef %.0124) #17
+  %376 = call i32 @drop_privileges(ptr noundef %375, ptr noundef %.0126) #17
   %.not188 = icmp eq i32 %376, 0
   br i1 %.not188, label %382, label %377
 
@@ -2661,7 +2661,7 @@ string_list_add.exit50.i:                         ; preds = %124
   br i1 %.not189296, label %.lr.ph297, label %.thread253
 
 .lr.ph297:                                        ; preds = %382
-  %386 = select i1 %.not.i, ptr %.0126, ptr null
+  %386 = select i1 %.not.i, ptr %.0128, ptr null
   %387 = zext nneg i32 %301 to i64
   br label %388
 
@@ -2725,7 +2725,7 @@ string_list_add.exit50.i:                         ; preds = %124
 
 427:                                              ; preds = %415, %423
   %428 = phi ptr [ %426, %423 ], [ null, %415 ]
-  %429 = call i32 @perform_database_update(ptr noundef %389, i32 noundef %390, ptr noundef %391, i32 noundef %392, ptr noundef nonnull %.0240, i32 noundef %.0238, i32 noundef %.2, ptr noundef %386, i32 noundef %398, i32 noundef %.0125, ptr noundef %407, ptr noundef %416, i32 noundef %419, ptr noundef %428, ptr noundef nonnull %9)
+  %429 = call i32 @perform_database_update(ptr noundef %389, i32 noundef %390, ptr noundef %391, i32 noundef %392, ptr noundef nonnull %.0240, i32 noundef %.0238, i32 noundef %.2, ptr noundef %386, i32 noundef %398, i32 noundef %.0127, ptr noundef %407, ptr noundef %416, i32 noundef %419, ptr noundef %428, ptr noundef nonnull %9)
   %.not194 = icmp eq i32 %429, 0
   br i1 %.not194, label %.thread, label %431
 
@@ -2817,21 +2817,21 @@ string_list_add.exit50.i:                         ; preds = %124
 .thread253:                                       ; preds = %470, %382, %34, %61, %69, %271, %28, %54
   %.1241.ph = phi ptr [ null, %34 ], [ null, %61 ], [ null, %69 ], [ %.0240, %271 ], [ null, %54 ], [ null, %28 ], [ %.0240, %382 ], [ %.0240, %470 ]
   %.1239.ph = phi i32 [ 0, %34 ], [ 0, %61 ], [ 0, %69 ], [ %.0238, %271 ], [ 0, %54 ], [ 0, %28 ], [ %.0238, %382 ], [ %.0238, %470 ]
-  %.0130.ph = phi i32 [ 0, %34 ], [ 0, %61 ], [ 0, %69 ], [ 0, %271 ], [ 2, %54 ], [ 2, %28 ], [ 0, %382 ], [ 0, %470 ]
-  %.0129.ph = phi ptr [ null, %34 ], [ %51, %61 ], [ %51, %69 ], [ %51, %271 ], [ %51, %54 ], [ null, %28 ], [ %51, %382 ], [ %51, %470 ]
-  %.0127.ph = phi ptr [ %26, %34 ], [ %52, %61 ], [ %52, %69 ], [ %52, %271 ], [ null, %54 ], [ null, %28 ], [ %52, %382 ], [ %52, %470 ]
-  %474 = icmp ne ptr %.0127.ph, null
+  %.0129.ph = phi ptr [ %26, %34 ], [ %52, %61 ], [ %52, %69 ], [ %52, %271 ], [ null, %54 ], [ null, %28 ], [ %52, %382 ], [ %52, %470 ]
+  %.0124.ph = phi ptr [ null, %34 ], [ %51, %61 ], [ %51, %69 ], [ %51, %271 ], [ %51, %54 ], [ null, %28 ], [ %51, %382 ], [ %51, %470 ]
+  %.0123.ph = phi i32 [ 0, %34 ], [ 0, %61 ], [ 0, %69 ], [ 0, %271 ], [ 2, %54 ], [ 2, %28 ], [ 0, %382 ], [ 0, %470 ]
+  %474 = icmp ne ptr %.0129.ph, null
   br label %486
 
 475:                                              ; preds = %274, %201, %197, %182, %173, %169, %159, %153, %146, %139
   %.1241 = phi ptr [ %.0240, %274 ], [ %.0240, %201 ], [ %.0240, %197 ], [ %.0240, %182 ], [ %.0240, %173 ], [ %.0240, %169 ], [ %.0240, %159 ], [ %.0240, %153 ], [ %.0240, %146 ], [ null, %139 ]
   %.1239 = phi i32 [ %.0238, %274 ], [ %.0238, %201 ], [ %.0238, %197 ], [ %.0238, %182 ], [ %.0238, %173 ], [ %.0238, %169 ], [ %.0238, %159 ], [ %.0238, %153 ], [ %.0238, %146 ], [ 0, %139 ]
-  %.0130 = phi i32 [ %273, %274 ], [ %200, %201 ], [ %192, %197 ], [ %181, %182 ], [ %172, %173 ], [ %168, %169 ], [ %158, %159 ], [ %150, %153 ], [ %145, %146 ], [ %.02986.i.ph, %139 ]
-  %476 = icmp ugt i32 %.0130, 1
+  %.0123 = phi i32 [ %273, %274 ], [ %200, %201 ], [ %192, %197 ], [ %181, %182 ], [ %172, %173 ], [ %168, %169 ], [ %158, %159 ], [ %150, %153 ], [ %145, %146 ], [ %.02986.i.ph, %139 ]
+  %476 = icmp ugt i32 %.0123, 1
   br i1 %476, label %.thread327, label %486
 
 .thread327:                                       ; preds = %165, %211, %314, %359, %341, %377, %446, %307, %298, %285, %475
-  %.0130333 = phi i32 [ %.0130, %475 ], [ 9, %165 ], [ 2, %211 ], [ 2, %314 ], [ 9, %359 ], [ 9, %341 ], [ 9, %377 ], [ 17, %446 ], [ 14, %307 ], [ 9, %298 ], [ 9, %285 ]
+  %.0123333 = phi i32 [ %.0123, %475 ], [ 9, %165 ], [ 2, %211 ], [ 2, %314 ], [ 9, %359 ], [ 9, %341 ], [ 9, %377 ], [ 17, %446 ], [ 14, %307 ], [ 9, %298 ], [ 9, %285 ]
   %.1239332 = phi i32 [ %.1239, %475 ], [ %.0238, %165 ], [ %.0238, %211 ], [ %.0238, %314 ], [ %.0238, %359 ], [ %.0238, %341 ], [ %.0238, %377 ], [ %.0238, %446 ], [ %.0238, %307 ], [ %.0238, %298 ], [ %.0238, %285 ]
   %.1241331 = phi ptr [ %.1241, %475 ], [ %.0240, %165 ], [ %.0240, %211 ], [ %.0240, %314 ], [ %.0240, %359 ], [ %.0240, %341 ], [ %.0240, %377 ], [ %.0240, %446 ], [ %.0240, %307 ], [ %.0240, %298 ], [ %.0240, %285 ]
   %477 = call ptr @optget(ptr noundef nonnull %52, ptr noundef nonnull @.str.101) #17
@@ -2851,9 +2851,9 @@ string_list_add.exit50.i:                         ; preds = %124
 
 486:                                              ; preds = %.thread253, %.thread327, %480, %475
   %487 = phi i1 [ %474, %.thread253 ], [ true, %.thread327 ], [ true, %480 ], [ true, %475 ]
-  %.0127264 = phi ptr [ %.0127.ph, %.thread253 ], [ %52, %.thread327 ], [ %52, %480 ], [ %52, %475 ]
-  %.0129263 = phi ptr [ %.0129.ph, %.thread253 ], [ %51, %.thread327 ], [ %51, %480 ], [ %51, %475 ]
-  %.0130262 = phi i32 [ %.0130.ph, %.thread253 ], [ %.0130333, %.thread327 ], [ %.0130333, %480 ], [ %.0130, %475 ]
+  %.0123264 = phi i32 [ %.0123.ph, %.thread253 ], [ %.0123333, %.thread327 ], [ %.0123333, %480 ], [ %.0123, %475 ]
+  %.0124263 = phi ptr [ %.0124.ph, %.thread253 ], [ %51, %.thread327 ], [ %51, %480 ], [ %51, %475 ]
+  %.0129262 = phi ptr [ %.0129.ph, %.thread253 ], [ %52, %.thread327 ], [ %52, %480 ], [ %52, %475 ]
   %.1239261 = phi i32 [ %.1239.ph, %.thread253 ], [ %.1239332, %.thread327 ], [ %.1239332, %480 ], [ %.1239, %475 ]
   %.1241260 = phi ptr [ %.1241.ph, %.thread253 ], [ %.1241331, %.thread327 ], [ %.1241331, %480 ], [ %.1241, %475 ]
   call void @logg_close() #17
@@ -2972,15 +2972,15 @@ free_string_list.exit230:                         ; preds = %509, %.preheader.i2
   br i1 %487, label %511, label %512
 
 511:                                              ; preds = %510
-  call void @optfree(ptr noundef nonnull %.0127264) #17
+  call void @optfree(ptr noundef nonnull %.0129262) #17
   br label %512
 
 512:                                              ; preds = %511, %510
-  %.not203 = icmp eq ptr %.0129263, null
+  %.not203 = icmp eq ptr %.0124263, null
   br i1 %.not203, label %514, label %513
 
 513:                                              ; preds = %512
-  call void @free(ptr noundef nonnull %.0129263) #17
+  call void @free(ptr noundef nonnull %.0124263) #17
   br label %514
 
 514:                                              ; preds = %513, %512
@@ -2994,9 +2994,9 @@ free_string_list.exit230:                         ; preds = %509, %.preheader.i2
   br label %518
 
 518:                                              ; preds = %516, %514
-  %or.cond5 = icmp ult i32 %.0130262, 2
-  %..0130 = select i1 %or.cond5, i32 0, i32 %.0130262
-  ret i32 %..0130
+  %or.cond5 = icmp ult i32 %.0123264, 2
+  %..0123 = select i1 %or.cond5, i32 0, i32 %.0123264
+  ret i32 %..0123
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

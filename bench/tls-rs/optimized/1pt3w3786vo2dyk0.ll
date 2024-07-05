@@ -10191,8 +10191,8 @@ define void @"_ZN90_$LT$rustls..msgs..handshake..ServerHelloPayload$u20$as$u20$r
 55:                                               ; preds = %.thread146, %48
   %56 = phi i64 [ %11, %48 ], [ %.pre173, %.thread146 ]
   %57 = phi i64 [ %35, %48 ], [ %.pre, %.thread146 ]
-  %.sroa.333.0 = phi ptr [ inttoptr (i64 8 to ptr), %48 ], [ %.sroa.480.0.copyload, %.thread146 ]
   %.sroa.031.0 = phi i64 [ 0, %48 ], [ %.sroa.079.0.copyload, %.thread146 ]
+  %.sroa.333.0 = phi ptr [ inttoptr (i64 8 to ptr), %48 ], [ %.sroa.480.0.copyload, %.thread146 ]
   %.sroa.435.0 = phi i64 [ 0, %48 ], [ %.sroa.581.0.copyload, %.thread146 ]
   %58 = icmp ult i64 %57, %56
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)

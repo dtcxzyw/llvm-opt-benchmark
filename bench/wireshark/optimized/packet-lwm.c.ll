@@ -280,8 +280,8 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %17
 
 17:                                               ; preds = %12, %4
-  %.0234 = phi ptr [ %16, %12 ], [ null, %4 ]
-  %.0233 = phi ptr [ %14, %12 ], [ null, %4 ]
+  %.0232 = phi ptr [ %14, %12 ], [ null, %4 ]
+  %.0230 = phi ptr [ %16, %12 ], [ null, %4 ]
   %18 = load ptr, ptr %9, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.102) #4
   %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
@@ -292,7 +292,7 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 23:                                               ; preds = %17
   %24 = load i32, ptr @hf_lwm_fcf, align 4
-  %25 = tail call ptr @proto_tree_add_uint(ptr noundef %.0234, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %20) #4
+  %25 = tail call ptr @proto_tree_add_uint(ptr noundef %.0230, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %20) #4
   %26 = load i32, ptr @ett_lwm_fcf, align 4
   %27 = tail call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26) #4
   %28 = load i32, ptr @hf_lwm_fcf_ack_req, align 4
@@ -310,13 +310,13 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 38:                                               ; preds = %23, %17
   %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
   %40 = zext i8 %39 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0233, ptr noundef nonnull @.str.103, i32 noundef %40) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0232, ptr noundef nonnull @.str.103, i32 noundef %40) #4
   %41 = load i32, ptr @hf_lwm_seq, align 4
-  %42 = tail call ptr @proto_tree_add_uint(ptr noundef %.0234, i32 noundef %41, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %40) #4
+  %42 = tail call ptr @proto_tree_add_uint(ptr noundef %.0230, i32 noundef %41, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %40) #4
   %43 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #4
   %44 = load i32, ptr @hf_lwm_src_addr, align 4
   %45 = zext i16 %43 to i32
-  %46 = tail call ptr @proto_tree_add_uint(ptr noundef %.0234, i32 noundef %44, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %45) #4
+  %46 = tail call ptr @proto_tree_add_uint(ptr noundef %.0230, i32 noundef %44, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %45) #4
   store ptr %46, ptr %5, align 8
   %47 = icmp sgt i16 %43, -1
   br i1 %47, label %.thread, label %48
@@ -331,7 +331,7 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %48
-  %51 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0234, ptr noundef nonnull @ei_lwm_n_src_broad) #4
+  %51 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0230, ptr noundef nonnull @ei_lwm_n_src_broad) #4
   br label %52
 
 52:                                               ; preds = %.thread, %50, %48
@@ -342,11 +342,11 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %55, label %57, label %59
 
 57:                                               ; preds = %52
-  %58 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0234, i32 noundef %56, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 65535, ptr noundef nonnull @.str.106, i32 noundef 65535) #4
+  %58 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0230, i32 noundef %56, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 65535, ptr noundef nonnull @.str.106, i32 noundef 65535) #4
   br label %66
 
 59:                                               ; preds = %52
-  %60 = tail call ptr @proto_tree_add_uint(ptr noundef %.0234, i32 noundef %56, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef %54) #4
+  %60 = tail call ptr @proto_tree_add_uint(ptr noundef %.0230, i32 noundef %56, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef %54) #4
   %.not239 = icmp eq i32 %22, 0
   br i1 %.not239, label %62, label %61
 
@@ -375,7 +375,7 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %70 = and i8 %68, 15
   %71 = load i32, ptr @hf_lwm_src_endp, align 4
   %72 = zext nneg i8 %69 to i32
-  %73 = tail call ptr @proto_tree_add_uint(ptr noundef %.0234, i32 noundef %71, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %72) #4
+  %73 = tail call ptr @proto_tree_add_uint(ptr noundef %.0230, i32 noundef %71, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %72) #4
   %74 = icmp ult i8 %68, 16
   br i1 %74, label %75, label %76
 
@@ -386,7 +386,7 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 76:                                               ; preds = %75, %66
   %77 = load i32, ptr @hf_lwm_dst_endp, align 4
   %78 = zext nneg i8 %70 to i32
-  %79 = tail call ptr @proto_tree_add_uint(ptr noundef %.0234, i32 noundef %77, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %78) #4
+  %79 = tail call ptr @proto_tree_add_uint(ptr noundef %.0230, i32 noundef %77, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %78) #4
   store ptr %79, ptr %5, align 8
   %80 = icmp eq i8 %70, 0
   br i1 %80, label %81, label %82
@@ -404,7 +404,7 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 83:                                               ; preds = %82
   %84 = load ptr, ptr %9, align 8
   tail call void @col_append_str(ptr noundef %84, i32 noundef 25, ptr noundef nonnull @.str.112) #4
-  %85 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0234, ptr noundef nonnull @ei_lwm_mismatch_endp) #4
+  %85 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0230, ptr noundef nonnull @ei_lwm_mismatch_endp) #4
   br label %86
 
 86:                                               ; preds = %83, %82
@@ -416,7 +416,7 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 87:                                               ; preds = %86
   %88 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 7) #4
   %89 = load i32, ptr @ett_lwm_multi_tree, align 4
-  %90 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0234, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef %89, ptr noundef null, ptr noundef nonnull @.str.113) #4
+  %90 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0230, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef %89, ptr noundef null, ptr noundef nonnull @.str.113) #4
   %91 = load i32, ptr @hf_lwm_multi_nmrad, align 4
   %92 = zext i16 %88 to i32
   %93 = and i32 %92, 15
@@ -435,20 +435,20 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %106
 
 106:                                              ; preds = %86, %87
-  %.0229 = phi i32 [ 9, %87 ], [ %.mux, %86 ]
+  %.0228 = phi i32 [ 9, %87 ], [ %.mux, %86 ]
   %107 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %.not241 = icmp ugt i32 %107, %.0229
+  %.not241 = icmp ugt i32 %107, %.0228
   br i1 %.not241, label %112, label %108
 
 108:                                              ; preds = %106
-  %109 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0234, ptr noundef nonnull @ei_lwm_empty_payload) #4
+  %109 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0230, ptr noundef nonnull @ei_lwm_empty_payload) #4
   %110 = load ptr, ptr %9, align 8
   tail call void @col_append_str(ptr noundef %110, i32 noundef 25, ptr noundef nonnull @.str.114) #4
   %111 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   br label %233
 
 112:                                              ; preds = %106
-  %113 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0229) #4
+  %113 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0228) #4
   %.not242 = icmp eq i32 %21, 0
   br i1 %.not242, label %200, label %114
 
@@ -458,7 +458,7 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %117 = add i32 %115, -4
   %118 = select i1 %116, i32 %117, i32 0
   %119 = load i32, ptr @hf_lwm_mic, align 4
-  %120 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0234, i32 noundef %119, ptr noundef %113, i32 noundef %118, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #4
+  %120 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0230, i32 noundef %119, ptr noundef %113, i32 noundef %118, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #4
   %121 = load i32, ptr @lwmes_key_valid, align 4
   %.not243 = icmp eq i32 %121, 0
   br i1 %.not243, label %192, label %122
@@ -491,10 +491,10 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %142, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %122, %168
-  %.0228256 = phi i32 [ %.2252, %168 ], [ %141, %122 ]
-  %.0231255 = phi i32 [ %169, %168 ], [ 0, %122 ]
-  %.0232254 = phi i32 [ %170, %168 ], [ %136, %122 ]
-  %143 = icmp eq i32 %.0228256, 0
+  %.0229256 = phi i32 [ %.2252, %168 ], [ %141, %122 ]
+  %.0233255 = phi i32 [ %169, %168 ], [ 0, %122 ]
+  %.0234254 = phi i32 [ %170, %168 ], [ %136, %122 ]
+  %143 = icmp eq i32 %.0229256, 0
   br i1 %143, label %144, label %.thread248
 
 144:                                              ; preds = %.lr.ph
@@ -510,23 +510,23 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not244, label %158, label %.thread248
 
 .thread248:                                       ; preds = %.lr.ph, %144, %148
-  %.2251 = phi i32 [ %150, %148 ], [ %146, %144 ], [ %.0228256, %.lr.ph ]
+  %.2251 = phi i32 [ %150, %148 ], [ %146, %144 ], [ %.0229256, %.lr.ph ]
   %151 = load ptr, ptr %9, align 8
   %152 = call i32 @tvb_reported_length(ptr noundef %113) #4
   %153 = add i32 %152, -4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %151, i32 noundef 25, ptr noundef nonnull @.str.115, i32 noundef %153) #4
-  %154 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0234, ptr noundef nonnull @ei_lwm_decryption_failed) #4
+  %154 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0230, ptr noundef nonnull @ei_lwm_decryption_failed) #4
   %155 = call i32 @tvb_reported_length(ptr noundef %113) #4
   %156 = add i32 %155, -4
   call void @tvb_set_reported_length(ptr noundef %113, i32 noundef %156) #4
-  %157 = call i32 @call_data_dissector(ptr noundef %113, ptr noundef %1, ptr noundef %.0234) #4
+  %157 = call i32 @call_data_dissector(ptr noundef %113, ptr noundef %1, ptr noundef %.0230) #4
   br label %158
 
 158:                                              ; preds = %.thread248, %148
   %.2252 = phi i32 [ %.2251, %.thread248 ], [ 0, %148 ]
-  %159 = sext i32 %.0231255 to i64
+  %159 = sext i32 %.0233255 to i64
   %160 = getelementptr i8, ptr %140, i64 %159
-  %161 = call i32 @llvm.umin.i32(i32 %.0232254, i32 16)
+  %161 = call i32 @llvm.umin.i32(i32 %.0234254, i32 16)
   %wide.trip.count = zext nneg i32 %161 to i64
   br label %162
 
@@ -544,8 +544,8 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %exitcond.not, label %168, label %162, !llvm.loop !4
 
 168:                                              ; preds = %162
-  %169 = add i32 %.0231255, %161
-  %170 = sub nsw i32 %.0232254, %161
+  %169 = add i32 %.0233255, %161
+  %170 = sub nsw i32 %.0234254, %161
   %171 = load ptr, ptr %7, align 8
   %172 = call i32 @gcry_cipher_ctl(ptr noundef %171, i32 noundef 4, ptr noundef null, i64 noundef 0) #4
   %173 = icmp sgt i32 %170, 0
@@ -564,7 +564,7 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 180:                                              ; preds = %._crit_edge
   %181 = add i32 %177, -4
   %182 = call ptr @tvb_new_real_data(ptr noundef %140, i32 noundef %181, i32 noundef %181) #4
-  %183 = call i32 @call_data_dissector(ptr noundef %182, ptr noundef %1, ptr noundef %.0234) #4
+  %183 = call i32 @call_data_dissector(ptr noundef %182, ptr noundef %1, ptr noundef %.0230) #4
   %184 = load ptr, ptr %9, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %184, i32 noundef 25, ptr noundef nonnull @.str.116) #4
   br label %231
@@ -577,7 +577,7 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %189 = call i32 @tvb_reported_length(ptr noundef %113) #4
   %190 = add i32 %189, -4
   call void @tvb_set_reported_length(ptr noundef %113, i32 noundef %190) #4
-  %191 = call i32 @call_data_dissector(ptr noundef %113, ptr noundef %1, ptr noundef %.0234) #4
+  %191 = call i32 @call_data_dissector(ptr noundef %113, ptr noundef %1, ptr noundef %.0230) #4
   br label %231
 
 192:                                              ; preds = %114
@@ -585,11 +585,11 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %194 = call i32 @tvb_reported_length(ptr noundef %113) #4
   %195 = add i32 %194, -4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %193, i32 noundef 25, ptr noundef nonnull @.str.118, i32 noundef %195) #4
-  %196 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0234, ptr noundef nonnull @ei_lwm_no_decryption_key) #4
+  %196 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0230, ptr noundef nonnull @ei_lwm_no_decryption_key) #4
   %197 = call i32 @tvb_reported_length(ptr noundef %113) #4
   %198 = add i32 %197, -4
   call void @tvb_set_reported_length(ptr noundef %113, i32 noundef %198) #4
-  %199 = call i32 @call_data_dissector(ptr noundef %113, ptr noundef nonnull %1, ptr noundef %.0234) #4
+  %199 = call i32 @call_data_dissector(ptr noundef %113, ptr noundef nonnull %1, ptr noundef %.0230) #4
   br label %231
 
 200:                                              ; preds = %112
@@ -605,7 +605,7 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %204, i32 noundef 25, ptr noundef nonnull @.str.119, ptr noundef %206) #4
   %207 = load i32, ptr @ett_lwm_cmd_tree, align 4
   %208 = tail call ptr @val_to_str(i32 noundef %205, ptr noundef nonnull @lwm_cmd_names, ptr noundef nonnull @.str.120) #4
-  %209 = call ptr @proto_tree_add_subtree(ptr noundef %.0234, ptr noundef %113, i32 noundef 0, i32 noundef -1, i32 noundef %207, ptr noundef nonnull %5, ptr noundef %208) #4
+  %209 = call ptr @proto_tree_add_subtree(ptr noundef %.0230, ptr noundef %113, i32 noundef 0, i32 noundef -1, i32 noundef %207, ptr noundef nonnull %5, ptr noundef %208) #4
   %210 = load i32, ptr @hf_lwm_cmd, align 4
   %211 = call ptr @proto_tree_add_uint(ptr noundef %209, i32 noundef %210, ptr noundef %113, i32 noundef 0, i32 noundef 1, i32 noundef %205) #4
   switch i8 %202, label %216 [
@@ -649,11 +649,11 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %225 = call i32 @tvb_reported_length(ptr noundef %113) #4
   %226 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %209, ptr noundef nonnull @ei_lwm_mal_error, ptr noundef nonnull @.str.122, i32 noundef %225, i32 noundef %.0) #4
   %227 = call ptr @tvb_new_subset_remaining(ptr noundef %113, i32 noundef %.0) #4
-  %228 = call i32 @call_data_dissector(ptr noundef %227, ptr noundef nonnull %1, ptr noundef %.0234) #4
+  %228 = call i32 @call_data_dissector(ptr noundef %227, ptr noundef nonnull %1, ptr noundef %.0230) #4
   br label %231
 
 229:                                              ; preds = %200
-  %230 = tail call i32 @call_data_dissector(ptr noundef %113, ptr noundef nonnull %1, ptr noundef %.0234) #4
+  %230 = tail call i32 @call_data_dissector(ptr noundef %113, ptr noundef nonnull %1, ptr noundef %.0230) #4
   br label %231
 
 231:                                              ; preds = %229, %224, %220, %192, %185, %180

@@ -1475,7 +1475,7 @@ _Z12qobject_castIP7QActionET_P7QObject.exit:      ; preds = %13
   br label %_ZN5QListI11QModelIndexED2Ev.exit22
 
 .thread35:                                        ; preds = %_Z12qobject_castIP7QActionET_P7QObject.exit, %26, %22
-  %.014 = phi i32 [ %25, %26 ], [ -1, %22 ], [ -1, %_Z12qobject_castIP7QActionET_P7QObject.exit ]
+  %.0 = phi i32 [ %25, %26 ], [ -1, %22 ], [ -1, %_Z12qobject_castIP7QActionET_P7QObject.exit ]
   %33 = invoke noundef ptr @_ZNK17QAbstractItemView14selectionModelEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %34 unwind label %27
 
@@ -1562,7 +1562,7 @@ _ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i20: ; preds = %55
   br label %131
 
 63:                                               ; preds = %54
-  switch i32 %.014, label %_ZN16FieldInformation10HeaderInfoD2Ev.exit [
+  switch i32 %.0, label %_ZN16FieldInformation10HeaderInfoD2Ev.exit [
     i32 0, label %64
     i32 1, label %84
     i32 2, label %108

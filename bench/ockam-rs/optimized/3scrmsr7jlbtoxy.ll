@@ -3085,7 +3085,7 @@ common.ret:                                       ; preds = %"_ZN95_$LT$futures_
   br i1 %86, label %.invoke, label %102
 
 87:                                               ; preds = %73, %"_ZN103_$LT$futures_util..future..maybe_done..MaybeDone$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h72251fc66cefa851E.exit.i.i"
-  %.045.i.i = phi i1 [ false, %"_ZN103_$LT$futures_util..future..maybe_done..MaybeDone$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h72251fc66cefa851E.exit.i.i" ], [ true, %73 ]
+  %.044.i.i = phi i1 [ false, %"_ZN103_$LT$futures_util..future..maybe_done..MaybeDone$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h72251fc66cefa851E.exit.i.i" ], [ true, %73 ]
   %88 = icmp ne ptr %.val46, null
   tail call void @llvm.assume(i1 %88)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !413)
@@ -3200,7 +3200,7 @@ common.ret:                                       ; preds = %"_ZN95_$LT$futures_
   unreachable
 
 116:                                              ; preds = %105
-  br i1 %.045.i.i, label %129, label %"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h604040e88602a098E.exit.thread"
+  br i1 %.044.i.i, label %129, label %"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h604040e88602a098E.exit.thread"
 
 117:                                              ; preds = %107
   %118 = getelementptr inbounds i8, ptr %6, i64 16

@@ -863,8 +863,8 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   br label %.thread
 
 317:                                              ; preds = %307, %305, %303, %300, %297, %294, %286, %283, %280, %277, %274, %271, %268, %265, %262, %259, %256, %249, %247, %242, %239, %236, %233, %230, %227, %224, %221, %218, %215, %202, %199, %190, %_get_usage.exit, %96, %93, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %47
-  %.0259 = phi i32 [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %300 ], [ %299, %297 ], [ %296, %294 ], [ %288, %286 ], [ %285, %283 ], [ %282, %280 ], [ %279, %277 ], [ %276, %274 ], [ %273, %271 ], [ %270, %268 ], [ %267, %265 ], [ %264, %262 ], [ %261, %259 ], [ %258, %256 ], [ %251, %249 ], [ %248, %247 ], [ %244, %242 ], [ %241, %239 ], [ %238, %236 ], [ %235, %233 ], [ %232, %230 ], [ %229, %227 ], [ %226, %224 ], [ %223, %221 ], [ %220, %218 ], [ %217, %215 ], [ %204, %202 ], [ %201, %199 ], [ %192, %190 ], [ %.033.i, %_get_usage.exit ], [ %98, %96 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %47 ]
-  %318 = icmp eq i32 %.0259, 2002
+  %.0 = phi i32 [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %300 ], [ %299, %297 ], [ %296, %294 ], [ %288, %286 ], [ %285, %283 ], [ %282, %280 ], [ %279, %277 ], [ %276, %274 ], [ %273, %271 ], [ %270, %268 ], [ %267, %265 ], [ %264, %262 ], [ %261, %259 ], [ %258, %256 ], [ %251, %249 ], [ %248, %247 ], [ %244, %242 ], [ %241, %239 ], [ %238, %236 ], [ %235, %233 ], [ %232, %230 ], [ %229, %227 ], [ %226, %224 ], [ %223, %221 ], [ %220, %218 ], [ %217, %215 ], [ %204, %202 ], [ %201, %199 ], [ %192, %190 ], [ %.033.i, %_get_usage.exit ], [ %98, %96 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %47 ]
+  %318 = icmp eq i32 %.0, 2002
   br i1 %318, label %319, label %.thread
 
 319:                                              ; preds = %317
@@ -878,7 +878,7 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   br label %341
 
 .thread:                                          ; preds = %99, %102, %105, %160, %163, %166, %169, %172, %175, %178, %181, %184, %187, %193, %196, %205, %207, %210, %213, %245, %289, %292, %309, %317
-  %.0259338 = phi i32 [ %.0259, %317 ], [ %101, %99 ], [ %104, %102 ], [ %107, %105 ], [ %162, %160 ], [ %165, %163 ], [ %168, %166 ], [ %171, %169 ], [ %174, %172 ], [ %177, %175 ], [ %180, %178 ], [ %183, %181 ], [ %186, %184 ], [ %189, %187 ], [ %195, %193 ], [ %198, %196 ], [ 0, %205 ], [ %209, %207 ], [ %212, %210 ], [ 0, %213 ], [ 0, %245 ], [ %291, %289 ], [ %293, %292 ], [ 22, %309 ]
+  %.0338 = phi i32 [ %.0, %317 ], [ %101, %99 ], [ %104, %102 ], [ %107, %105 ], [ %162, %160 ], [ %165, %163 ], [ %168, %166 ], [ %171, %169 ], [ %174, %172 ], [ %177, %175 ], [ %180, %178 ], [ %183, %181 ], [ %186, %184 ], [ %189, %187 ], [ %195, %193 ], [ %198, %196 ], [ 0, %205 ], [ %209, %207 ], [ %212, %210 ], [ 0, %213 ], [ 0, %245 ], [ %291, %289 ], [ %293, %292 ], [ 22, %309 ]
   %327 = load ptr, ptr %0, align 8
   %328 = getelementptr inbounds i8, ptr %327, i64 88
   %329 = load i16, ptr %328, align 8
@@ -904,7 +904,7 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   br label %341
 
 341:                                              ; preds = %.thread, %334, %337, %319
-  %.0259337 = phi i32 [ %.0259338, %.thread ], [ %.0259338, %334 ], [ %.0259338, %337 ], [ 2002, %319 ]
+  %.0337 = phi i32 [ %.0338, %.thread ], [ %.0338, %334 ], [ %.0338, %337 ], [ 2002, %319 ]
   %342 = load ptr, ptr %0, align 8
   %343 = getelementptr inbounds i8, ptr %342, i64 64
   %344 = load i16, ptr %343, align 8
@@ -939,12 +939,12 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   br label %359
 
 359:                                              ; preds = %353, %350
-  %.0 = phi ptr [ %352, %350 ], [ %354, %353 ]
-  %360 = load i32, ptr %.0, align 8
+  %.0259 = phi ptr [ %352, %350 ], [ %354, %353 ]
+  %360 = load i32, ptr %.0259, align 8
   %361 = add i32 %360, 1
-  store i32 %361, ptr %.0, align 8
+  store i32 %361, ptr %.0259, align 8
   %362 = load i64, ptr %8, align 8
-  %363 = getelementptr inbounds i8, ptr %.0, i64 8
+  %363 = getelementptr inbounds i8, ptr %.0259, i64 8
   %364 = load i64, ptr %363, align 8
   %365 = add i64 %364, %362
   store i64 %365, ptr %363, align 8
@@ -987,7 +987,7 @@ _get_usage.exit:                                  ; preds = %124, %143, %151
   unreachable
 
 387:                                              ; preds = %377
-  ret i32 %.0259337
+  ret i32 %.0337
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2798,7 +2798,7 @@ _validate_operator.exit41.thread:                 ; preds = %36, %56, %45, %_val
 
 93:                                               ; preds = %83, %89
   %94 = phi ptr [ %77, %89 ], [ %.pre4, %83 ]
-  %.028 = phi i32 [ -1, %89 ], [ 0, %83 ]
+  %.029 = phi i32 [ -1, %89 ], [ 0, %83 ]
   %.not38 = icmp eq ptr %94, null
   br i1 %.not38, label %96, label %95
 
@@ -2807,8 +2807,8 @@ _validate_operator.exit41.thread:                 ; preds = %36, %56, %45, %_val
   br label %96
 
 96:                                               ; preds = %93, %95, %68, %31
-  %.029 = phi i32 [ -1, %68 ], [ -1, %31 ], [ %.028, %95 ], [ %.028, %93 ]
-  ret i32 %.029
+  %.028 = phi i32 [ -1, %68 ], [ -1, %31 ], [ %.029, %95 ], [ %.029, %93 ]
+  ret i32 %.028
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3490,7 +3490,7 @@ define internal fastcc i32 @_fini_conn(ptr noundef %0, ptr nocapture readonly %.
   unreachable
 
 23:                                               ; preds = %19, %15, %11
-  %.0 = phi i1 [ false, %15 ], [ false, %11 ], [ true, %19 ]
+  %.017 = phi i1 [ false, %15 ], [ false, %11 ], [ true, %19 ]
   %24 = load i16, ptr %.8.val, align 2
   %25 = icmp eq i16 %24, 1
   %26 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3509,8 +3509,8 @@ define internal fastcc i32 @_fini_conn(ptr noundef %0, ptr nocapture readonly %.
   br label %35
 
 35:                                               ; preds = %29, %27
-  %.017 = phi i32 [ %28, %27 ], [ %34, %29 ]
-  br i1 %.0, label %36, label %40
+  %.0 = phi i32 [ %28, %27 ], [ %34, %29 ]
+  br i1 %.017, label %36, label %40
 
 36:                                               ; preds = %35
   %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @registered_lock) #10
@@ -3525,9 +3525,9 @@ define internal fastcc i32 @_fini_conn(ptr noundef %0, ptr nocapture readonly %.
 
 40:                                               ; preds = %36, %35
   %41 = load ptr, ptr %0, align 8
-  %42 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %41, i32 noundef %.017, ptr noundef null, i16 noundef zeroext 1401) #10
+  %42 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %41, i32 noundef %.0, ptr noundef null, i16 noundef zeroext 1401) #10
   store ptr %42, ptr %1, align 8
-  ret i32 %.017
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3985,14 +3985,14 @@ define internal fastcc i32 @_modify_accounts(ptr nocapture noundef readonly %0, 
   br label %31
 
 31:                                               ; preds = %21, %24, %26, %29, %25
-  %.018 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
+  %.019 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
   %.0 = phi ptr [ @.str.96, %24 ], [ @.str.97, %25 ], [ %27, %26 ], [ %spec.store.select, %29 ], [ @.str.13, %21 ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 60
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %34, ptr noundef %.0) #10
   %36 = load ptr, ptr %0, align 8
-  %37 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %36, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1428) #10
+  %37 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %36, i32 noundef %.019, ptr noundef %.0, i16 noundef zeroext 1428) #10
   store ptr %37, ptr %1, align 8
   br label %46
 
@@ -4014,8 +4014,8 @@ define internal fastcc i32 @_modify_accounts(ptr nocapture noundef readonly %0, 
   br label %46
 
 46:                                               ; preds = %38, %45, %31
-  %.019 = phi i32 [ %.018, %31 ], [ 0, %45 ], [ 0, %38 ]
-  ret i32 %.019
+  %.018 = phi i32 [ %.019, %31 ], [ 0, %45 ], [ 0, %38 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4106,15 +4106,15 @@ define internal fastcc noundef i32 @_modify_assocs(ptr nocapture noundef readonl
   br label %45
 
 45:                                               ; preds = %._crit_edge, %30, %32, %42, %31
-  %.017 = phi i32 [ %29, %30 ], [ 0, %31 ], [ %34, %32 ], [ %43, %42 ], [ %29, %._crit_edge ]
+  %.018 = phi i32 [ %29, %30 ], [ 0, %31 ], [ %34, %32 ], [ %43, %42 ], [ %29, %._crit_edge ]
   %.0 = phi ptr [ @.str.96, %30 ], [ @.str.97, %31 ], [ %33, %32 ], [ %spec.store.select, %42 ], [ @.str.13, %._crit_edge ]
   %46 = load ptr, ptr %0, align 8
-  %47 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %46, i32 noundef %.017, ptr noundef %.0, i16 noundef zeroext 1429) #10
+  %47 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %46, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1429) #10
   store ptr %47, ptr %1, align 8
   br i1 %.not, label %57, label %48
 
 48:                                               ; preds = %.thread, %45
-  %.0174 = phi i32 [ 7011, %.thread ], [ %.017, %45 ]
+  %.0184 = phi i32 [ 7011, %.thread ], [ %.018, %45 ]
   tail call void @list_destroy(ptr noundef nonnull %20) #10
   br label %57
 
@@ -4136,8 +4136,8 @@ define internal fastcc noundef i32 @_modify_assocs(ptr nocapture noundef readonl
   br label %57
 
 57:                                               ; preds = %49, %56, %45, %48
-  %.018 = phi i32 [ %.0174, %48 ], [ %.017, %45 ], [ 0, %56 ], [ 0, %49 ]
-  ret i32 %.018
+  %.017 = phi i32 [ %.0184, %48 ], [ %.018, %45 ], [ 0, %56 ], [ 0, %49 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4198,14 +4198,14 @@ define internal fastcc i32 @_modify_clusters(ptr nocapture noundef readonly %0, 
   br label %31
 
 31:                                               ; preds = %21, %24, %26, %29, %25
-  %.018 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
+  %.019 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
   %.0 = phi ptr [ @.str.96, %24 ], [ @.str.97, %25 ], [ %27, %26 ], [ %spec.store.select, %29 ], [ @.str.13, %21 ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 60
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %34, ptr noundef %.0) #10
   %36 = load ptr, ptr %0, align 8
-  %37 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %36, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1430) #10
+  %37 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %36, i32 noundef %.019, ptr noundef %.0, i16 noundef zeroext 1430) #10
   store ptr %37, ptr %1, align 8
   br label %46
 
@@ -4227,8 +4227,8 @@ define internal fastcc i32 @_modify_clusters(ptr nocapture noundef readonly %0, 
   br label %46
 
 46:                                               ; preds = %38, %45, %31
-  %.019 = phi i32 [ %.018, %31 ], [ 0, %45 ], [ 0, %38 ]
-  ret i32 %.019
+  %.018 = phi i32 [ %.019, %31 ], [ 0, %45 ], [ 0, %38 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4289,14 +4289,14 @@ define internal fastcc i32 @_modify_federations(ptr nocapture noundef readonly %
   br label %31
 
 31:                                               ; preds = %21, %24, %26, %29, %25
-  %.018 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
+  %.019 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
   %.0 = phi ptr [ @.str.96, %24 ], [ @.str.97, %25 ], [ %27, %26 ], [ %spec.store.select, %29 ], [ @.str.13, %21 ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 60
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %34, ptr noundef %.0) #10
   %36 = load ptr, ptr %0, align 8
-  %37 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %36, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1496) #10
+  %37 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %36, i32 noundef %.019, ptr noundef %.0, i16 noundef zeroext 1496) #10
   store ptr %37, ptr %1, align 8
   br label %46
 
@@ -4318,8 +4318,8 @@ define internal fastcc i32 @_modify_federations(ptr nocapture noundef readonly %
   br label %46
 
 46:                                               ; preds = %38, %45, %31
-  %.019 = phi i32 [ %.018, %31 ], [ 0, %45 ], [ 0, %38 ]
-  ret i32 %.019
+  %.018 = phi i32 [ %.019, %31 ], [ 0, %45 ], [ 0, %38 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4380,14 +4380,14 @@ define internal fastcc i32 @_modify_job(ptr nocapture noundef readonly %0, ptr n
   br label %31
 
 31:                                               ; preds = %21, %24, %26, %29, %25
-  %.024 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
+  %.025 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
   %.0 = phi ptr [ @.str.96, %24 ], [ @.str.97, %25 ], [ %27, %26 ], [ %spec.store.select, %29 ], [ @.str.13, %21 ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 60
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %34, ptr noundef %.0) #10
   %36 = load ptr, ptr %0, align 8
-  %37 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %36, i32 noundef %.024, ptr noundef %.0, i16 noundef zeroext 1476) #10
+  %37 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %36, i32 noundef %.025, ptr noundef %.0, i16 noundef zeroext 1476) #10
   store ptr %37, ptr %1, align 8
   br label %54
 
@@ -4428,8 +4428,8 @@ define internal fastcc i32 @_modify_job(ptr nocapture noundef readonly %0, ptr n
   br label %54
 
 54:                                               ; preds = %46, %52, %31
-  %.025 = phi i32 [ %.024, %31 ], [ 0, %52 ], [ 0, %46 ]
-  ret i32 %.025
+  %.024 = phi i32 [ %.025, %31 ], [ 0, %52 ], [ 0, %46 ]
+  ret i32 %.024
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4494,14 +4494,14 @@ define internal fastcc i32 @_modify_qos(ptr nocapture noundef readonly %0, ptr n
   br label %32
 
 32:                                               ; preds = %21, %24, %26, %30, %27, %25
-  %.018 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %23, %26 ], [ %29, %27 ], [ %23, %30 ], [ %23, %21 ]
+  %.019 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %23, %26 ], [ %29, %27 ], [ %23, %30 ], [ %23, %21 ]
   %.0 = phi ptr [ @.str.96, %24 ], [ @.str.97, %25 ], [ @.str.104, %26 ], [ %28, %27 ], [ %spec.store.select, %30 ], [ @.str.13, %21 ]
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 60
   %35 = load i32, ptr %34, align 4
   %36 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %35, ptr noundef %.0) #10
   %37 = load ptr, ptr %0, align 8
-  %38 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %37, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1451) #10
+  %38 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %37, i32 noundef %.019, ptr noundef %.0, i16 noundef zeroext 1451) #10
   store ptr %38, ptr %1, align 8
   br label %47
 
@@ -4523,8 +4523,8 @@ define internal fastcc i32 @_modify_qos(ptr nocapture noundef readonly %0, ptr n
   br label %47
 
 47:                                               ; preds = %39, %46, %32
-  %.019 = phi i32 [ %.018, %32 ], [ 0, %46 ], [ 0, %39 ]
-  ret i32 %.019
+  %.018 = phi i32 [ %.019, %32 ], [ 0, %46 ], [ 0, %39 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4585,14 +4585,14 @@ define internal fastcc i32 @_modify_res(ptr nocapture noundef readonly %0, ptr n
   br label %31
 
 31:                                               ; preds = %21, %24, %26, %29, %25
-  %.018 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
+  %.019 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
   %.0 = phi ptr [ @.str.96, %24 ], [ @.str.97, %25 ], [ %27, %26 ], [ %spec.store.select, %29 ], [ @.str.13, %21 ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 60
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %34, ptr noundef %.0) #10
   %36 = load ptr, ptr %0, align 8
-  %37 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %36, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1481) #10
+  %37 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %36, i32 noundef %.019, ptr noundef %.0, i16 noundef zeroext 1481) #10
   store ptr %37, ptr %1, align 8
   br label %46
 
@@ -4614,8 +4614,8 @@ define internal fastcc i32 @_modify_res(ptr nocapture noundef readonly %0, ptr n
   br label %46
 
 46:                                               ; preds = %38, %45, %31
-  %.019 = phi i32 [ %.018, %31 ], [ 0, %45 ], [ 0, %38 ]
-  ret i32 %.019
+  %.018 = phi i32 [ %.019, %31 ], [ 0, %45 ], [ 0, %38 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4878,14 +4878,14 @@ define internal fastcc i32 @_modify_wckeys(ptr nocapture noundef readonly %0, pt
   br label %31
 
 31:                                               ; preds = %21, %24, %26, %29, %25
-  %.018 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
+  %.019 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
   %.0 = phi ptr [ @.str.96, %24 ], [ @.str.97, %25 ], [ %27, %26 ], [ %spec.store.select, %29 ], [ @.str.13, %21 ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 60
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %34, ptr noundef %.0) #10
   %36 = load ptr, ptr %0, align 8
-  %37 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %36, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1456) #10
+  %37 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %36, i32 noundef %.019, ptr noundef %.0, i16 noundef zeroext 1456) #10
   store ptr %37, ptr %1, align 8
   br label %46
 
@@ -4907,8 +4907,8 @@ define internal fastcc i32 @_modify_wckeys(ptr nocapture noundef readonly %0, pt
   br label %46
 
 46:                                               ; preds = %38, %45, %31
-  %.019 = phi i32 [ %.018, %31 ], [ 0, %45 ], [ 0, %38 ]
-  ret i32 %.019
+  %.018 = phi i32 [ %.019, %31 ], [ 0, %45 ], [ 0, %38 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5331,8 +5331,8 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
   %106 = load i32, ptr %105, align 8
   %107 = and i32 %106, 4096
   %.not71 = icmp eq i32 %107, 0
-  %spec.select = select i1 %.not71, i32 2002, i32 0
-  %spec.select77 = select i1 %.not71, ptr @.str.123, ptr null
+  %spec.select = select i1 %.not71, ptr @.str.123, ptr null
+  %spec.select77 = select i1 %.not71, i32 2002, i32 0
   br label %.thread
 
 108:                                              ; preds = %80
@@ -5342,15 +5342,15 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
   br label %.thread
 
 .thread:                                          ; preds = %108, %98, %97, %83, %103
-  %.15 = phi ptr [ %110, %108 ], [ %spec.select77, %103 ], [ %switch.select79, %83 ], [ %switch.select79, %97 ], [ null, %98 ]
-  %.0513 = phi i32 [ %111, %108 ], [ %spec.select, %103 ], [ %94, %83 ], [ %94, %97 ], [ 0, %98 ]
+  %.05 = phi i32 [ %111, %108 ], [ %spec.select77, %103 ], [ %94, %83 ], [ %94, %97 ], [ 0, %98 ]
+  %.1523 = phi ptr [ %110, %108 ], [ %spec.select, %103 ], [ %switch.select79, %83 ], [ %switch.select79, %97 ], [ null, %98 ]
   call void @list_destroy(ptr noundef nonnull %76) #10
   br label %112
 
 112:                                              ; preds = %.thread32, %.thread
-  %.16 = phi ptr [ %.15, %.thread ], [ %78, %.thread32 ]
-  %.0514 = phi i32 [ %.0513, %.thread ], [ %79, %.thread32 ]
-  %.not72 = icmp eq i32 %.0514, 0
+  %.06 = phi i32 [ %.05, %.thread ], [ %79, %.thread32 ]
+  %.1524 = phi ptr [ %.1523, %.thread ], [ %78, %.thread32 ]
+  %.not72 = icmp eq i32 %.06, 0
   br i1 %.not72, label %113, label %.thread16
 
 113:                                              ; preds = %112
@@ -5382,25 +5382,25 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
 126:                                              ; preds = %125
   %127 = call i32 @list_count(ptr noundef nonnull %118) #10
   %.not74 = icmp eq i32 %127, 0
-  %spec.select29 = select i1 %.not74, ptr @.str.47, ptr %.16
-  %spec.select30 = sext i1 %.not74 to i32
+  %spec.select29 = sext i1 %.not74 to i32
+  %spec.select30 = select i1 %.not74, ptr @.str.47, ptr %.1524
   br label %.thread7
 
 128:                                              ; preds = %113, %122, %121
-  %.152 = phi i32 [ 2002, %121 ], [ %124, %122 ], [ -1, %113 ]
-  %.2 = phi ptr [ @.str.13, %121 ], [ %123, %122 ], [ @.str.124, %113 ]
+  %.253 = phi ptr [ @.str.13, %121 ], [ %123, %122 ], [ @.str.124, %113 ]
+  %.1 = phi i32 [ 2002, %121 ], [ %124, %122 ], [ -1, %113 ]
   %.not75 = icmp eq ptr %118, null
   br i1 %.not75, label %.thread21, label %.thread7
 
 .thread7:                                         ; preds = %126, %128
-  %.213 = phi ptr [ %.2, %128 ], [ %spec.select29, %126 ]
-  %.15211 = phi i32 [ %.152, %128 ], [ %spec.select30, %126 ]
+  %.113 = phi i32 [ %.1, %128 ], [ %spec.select29, %126 ]
+  %.25311 = phi ptr [ %.253, %128 ], [ %spec.select30, %126 ]
   call void @list_destroy(ptr noundef nonnull %118) #10
   br label %.thread21
 
 .thread21:                                        ; preds = %125, %.thread7, %128
-  %.214 = phi ptr [ %.213, %.thread7 ], [ %.2, %128 ], [ @.str.47, %125 ]
-  %.15212 = phi i32 [ %.15211, %.thread7 ], [ %.152, %128 ], [ -1, %125 ]
+  %.114 = phi i32 [ %.113, %.thread7 ], [ %.1, %128 ], [ -1, %125 ]
+  %.25312 = phi ptr [ %.25311, %.thread7 ], [ %.253, %128 ], [ @.str.47, %125 ]
   %129 = load ptr, ptr %45, align 8
   %.not76 = icmp eq ptr %129, null
   br i1 %.not76, label %131, label %130
@@ -5411,7 +5411,7 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
 
 131:                                              ; preds = %.thread21, %130
   store ptr null, ptr %45, align 8
-  %132 = icmp eq i32 %.15212, 0
+  %132 = icmp eq i32 %.114, 0
   br i1 %132, label %133, label %.thread16
 
 133:                                              ; preds = %131
@@ -5423,12 +5423,12 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
   br label %.thread16
 
 .thread16:                                        ; preds = %9, %29, %112, %133, %131
-  %.320 = phi ptr [ %.214, %133 ], [ %.214, %131 ], [ @.str.118, %9 ], [ @.str.120, %29 ], [ %.16, %112 ]
-  %.25319 = phi i32 [ 0, %133 ], [ %.15212, %131 ], [ 2002, %9 ], [ 7004, %29 ], [ %.0514, %112 ]
+  %.220 = phi i32 [ 0, %133 ], [ %.114, %131 ], [ 2002, %9 ], [ 7004, %29 ], [ %.06, %112 ]
+  %.319 = phi ptr [ %.25312, %133 ], [ %.25312, %131 ], [ @.str.118, %9 ], [ @.str.120, %29 ], [ %.1524, %112 ]
   %137 = load ptr, ptr %0, align 8
-  %138 = call ptr @slurm_persist_make_rc_msg(ptr noundef %137, i32 noundef %.25319, ptr noundef %.320, i16 noundef zeroext 1434) #10
+  %138 = call ptr @slurm_persist_make_rc_msg(ptr noundef %137, i32 noundef %.220, ptr noundef %.319, i16 noundef zeroext 1434) #10
   store ptr %138, ptr %1, align 8
-  ret i32 %.25319
+  ret i32 %.220
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5487,14 +5487,14 @@ define internal fastcc i32 @_remove_accounts(ptr nocapture noundef readonly %0, 
   br label %29
 
 29:                                               ; preds = %21, %22, %24, %27, %23
-  %.017 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
+  %.018 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %21 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %32, ptr noundef %.0) #10
   %34 = load ptr, ptr %0, align 8
-  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.017, ptr noundef %.0, i16 noundef zeroext 1435) #10
+  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1435) #10
   store ptr %35, ptr %1, align 8
   br label %45
 
@@ -5518,8 +5518,8 @@ define internal fastcc i32 @_remove_accounts(ptr nocapture noundef readonly %0, 
   br label %45
 
 45:                                               ; preds = %36, %44, %29
-  %.018 = phi i32 [ %.017, %29 ], [ 0, %44 ], [ 0, %36 ]
-  ret i32 %.018
+  %.017 = phi i32 [ %.018, %29 ], [ 0, %44 ], [ 0, %36 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5580,14 +5580,14 @@ define internal fastcc i32 @_remove_account_coords(ptr nocapture noundef readonl
   br label %31
 
 31:                                               ; preds = %21, %24, %26, %29, %25
-  %.018 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
+  %.019 = phi i32 [ %23, %24 ], [ 0, %25 ], [ %28, %26 ], [ %23, %29 ], [ %23, %21 ]
   %.0 = phi ptr [ @.str.96, %24 ], [ @.str.97, %25 ], [ %27, %26 ], [ %spec.store.select, %29 ], [ @.str.13, %21 ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 60
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %34, ptr noundef %.0) #10
   %36 = load ptr, ptr %0, align 8
-  %37 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %36, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1436) #10
+  %37 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %36, i32 noundef %.019, ptr noundef %.0, i16 noundef zeroext 1436) #10
   store ptr %37, ptr %1, align 8
   br label %47
 
@@ -5611,8 +5611,8 @@ define internal fastcc i32 @_remove_account_coords(ptr nocapture noundef readonl
   br label %47
 
 47:                                               ; preds = %38, %46, %31
-  %.019 = phi i32 [ %.018, %31 ], [ 0, %46 ], [ 0, %38 ]
-  ret i32 %.019
+  %.018 = phi i32 [ %.019, %31 ], [ 0, %46 ], [ 0, %38 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5671,14 +5671,14 @@ define internal fastcc i32 @_remove_assocs(ptr nocapture noundef readonly %0, pt
   br label %29
 
 29:                                               ; preds = %21, %22, %24, %27, %23
-  %.017 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
+  %.018 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %21 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %32, ptr noundef %.0) #10
   %34 = load ptr, ptr %0, align 8
-  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.017, ptr noundef %.0, i16 noundef zeroext 1437) #10
+  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1437) #10
   store ptr %35, ptr %1, align 8
   br label %45
 
@@ -5702,8 +5702,8 @@ define internal fastcc i32 @_remove_assocs(ptr nocapture noundef readonly %0, pt
   br label %45
 
 45:                                               ; preds = %36, %44, %29
-  %.018 = phi i32 [ %.017, %29 ], [ 0, %44 ], [ 0, %36 ]
-  ret i32 %.018
+  %.017 = phi i32 [ %.018, %29 ], [ 0, %44 ], [ 0, %36 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5762,14 +5762,14 @@ define internal fastcc i32 @_remove_clusters(ptr nocapture noundef readonly %0, 
   br label %29
 
 29:                                               ; preds = %21, %22, %24, %27, %23
-  %.017 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
+  %.018 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %21 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %32, ptr noundef %.0) #10
   %34 = load ptr, ptr %0, align 8
-  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.017, ptr noundef %.0, i16 noundef zeroext 1438) #10
+  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1438) #10
   store ptr %35, ptr %1, align 8
   br label %45
 
@@ -5793,8 +5793,8 @@ define internal fastcc i32 @_remove_clusters(ptr nocapture noundef readonly %0, 
   br label %45
 
 45:                                               ; preds = %36, %44, %29
-  %.018 = phi i32 [ %.017, %29 ], [ 0, %44 ], [ 0, %36 ]
-  ret i32 %.018
+  %.017 = phi i32 [ %.018, %29 ], [ 0, %44 ], [ 0, %36 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5853,14 +5853,14 @@ define internal fastcc i32 @_remove_federations(ptr nocapture noundef readonly %
   br label %29
 
 29:                                               ; preds = %21, %22, %24, %27, %23
-  %.017 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
+  %.018 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %21 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %32, ptr noundef %.0) #10
   %34 = load ptr, ptr %0, align 8
-  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.017, ptr noundef %.0, i16 noundef zeroext 1497) #10
+  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1497) #10
   store ptr %35, ptr %1, align 8
   br label %45
 
@@ -5884,8 +5884,8 @@ define internal fastcc i32 @_remove_federations(ptr nocapture noundef readonly %
   br label %45
 
 45:                                               ; preds = %36, %44, %29
-  %.018 = phi i32 [ %.017, %29 ], [ 0, %44 ], [ 0, %36 ]
-  ret i32 %.018
+  %.017 = phi i32 [ %.018, %29 ], [ 0, %44 ], [ 0, %36 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5944,14 +5944,14 @@ define internal fastcc i32 @_remove_qos(ptr nocapture noundef readonly %0, ptr n
   br label %29
 
 29:                                               ; preds = %19, %22, %24, %27, %23
-  %.017 = phi i32 [ %21, %22 ], [ 0, %23 ], [ %26, %24 ], [ %21, %27 ], [ %21, %19 ]
+  %.018 = phi i32 [ %21, %22 ], [ 0, %23 ], [ %26, %24 ], [ %21, %27 ], [ %21, %19 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %19 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %32, ptr noundef %.0) #10
   %34 = load ptr, ptr %0, align 8
-  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.017, ptr noundef %.0, i16 noundef zeroext 1450) #10
+  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1450) #10
   store ptr %35, ptr %1, align 8
   br label %45
 
@@ -5975,8 +5975,8 @@ define internal fastcc i32 @_remove_qos(ptr nocapture noundef readonly %0, ptr n
   br label %45
 
 45:                                               ; preds = %36, %44, %29
-  %.018 = phi i32 [ %.017, %29 ], [ 0, %44 ], [ 0, %36 ]
-  ret i32 %.018
+  %.017 = phi i32 [ %.018, %29 ], [ 0, %44 ], [ 0, %36 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6035,14 +6035,14 @@ define internal fastcc i32 @_remove_res(ptr nocapture noundef readonly %0, ptr n
   br label %29
 
 29:                                               ; preds = %21, %22, %24, %27, %23
-  %.017 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
+  %.018 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %21 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %32, ptr noundef %.0) #10
   %34 = load ptr, ptr %0, align 8
-  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.017, ptr noundef %.0, i16 noundef zeroext 1480) #10
+  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1480) #10
   store ptr %35, ptr %1, align 8
   br label %45
 
@@ -6066,8 +6066,8 @@ define internal fastcc i32 @_remove_res(ptr nocapture noundef readonly %0, ptr n
   br label %45
 
 45:                                               ; preds = %36, %44, %29
-  %.018 = phi i32 [ %.017, %29 ], [ 0, %44 ], [ 0, %36 ]
-  ret i32 %.018
+  %.017 = phi i32 [ %.018, %29 ], [ 0, %44 ], [ 0, %36 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6126,14 +6126,14 @@ define internal fastcc i32 @_remove_users(ptr nocapture noundef readonly %0, ptr
   br label %29
 
 29:                                               ; preds = %21, %22, %24, %27, %23
-  %.017 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
+  %.018 = phi i32 [ %20, %22 ], [ 0, %23 ], [ %26, %24 ], [ %20, %27 ], [ %20, %21 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %21 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %32, ptr noundef %.0) #10
   %34 = load ptr, ptr %0, align 8
-  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.017, ptr noundef %.0, i16 noundef zeroext 1439) #10
+  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1439) #10
   store ptr %35, ptr %1, align 8
   br label %45
 
@@ -6157,8 +6157,8 @@ define internal fastcc i32 @_remove_users(ptr nocapture noundef readonly %0, ptr
   br label %45
 
 45:                                               ; preds = %36, %44, %29
-  %.018 = phi i32 [ %.017, %29 ], [ 0, %44 ], [ 0, %36 ]
-  ret i32 %.018
+  %.017 = phi i32 [ %.018, %29 ], [ 0, %44 ], [ 0, %36 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6217,14 +6217,14 @@ define internal fastcc i32 @_remove_wckeys(ptr nocapture noundef readonly %0, pt
   br label %29
 
 29:                                               ; preds = %19, %22, %24, %27, %23
-  %.017 = phi i32 [ %21, %22 ], [ 0, %23 ], [ %26, %24 ], [ %21, %27 ], [ %21, %19 ]
+  %.018 = phi i32 [ %21, %22 ], [ 0, %23 ], [ %26, %24 ], [ %21, %27 ], [ %21, %19 ]
   %.0 = phi ptr [ @.str.96, %22 ], [ @.str.97, %23 ], [ %25, %24 ], [ %spec.store.select, %27 ], [ @.str.13, %19 ]
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 60
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, i32 noundef %32, ptr noundef %.0) #10
   %34 = load ptr, ptr %0, align 8
-  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.017, ptr noundef %.0, i16 noundef zeroext 1455) #10
+  %35 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %34, i32 noundef %.018, ptr noundef %.0, i16 noundef zeroext 1455) #10
   store ptr %35, ptr %1, align 8
   br label %45
 
@@ -6248,8 +6248,8 @@ define internal fastcc i32 @_remove_wckeys(ptr nocapture noundef readonly %0, pt
   br label %45
 
 45:                                               ; preds = %36, %44, %29
-  %.018 = phi i32 [ %.017, %29 ], [ 0, %44 ], [ 0, %36 ]
-  ret i32 %.018
+  %.017 = phi i32 [ %.018, %29 ], [ 0, %44 ], [ 0, %36 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable

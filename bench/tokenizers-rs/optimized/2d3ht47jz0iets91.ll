@@ -13665,7 +13665,7 @@ _ZN5alloc7raw_vec14handle_reserve17h2d131f4fccf45d0bE.llvm.14140520316429159617.
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.lr.ph.i.i": ; preds = %.outer.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.lr.ph.preheader.i.i"
   %.0141.ph1452.i.i = phi i8 [ %689, %.outer.i.i ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.lr.ph.preheader.i.i" ]
   %.0142.ph1451.i.i = phi i64 [ %727, %.outer.i.i ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.lr.ph.preheader.i.i" ]
-  %.0145.ph1450.i.i = phi i64 [ %.01451439.i.i, %.outer.i.i ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.lr.ph.preheader.i.i" ]
+  %.0144.ph1450.i.i = phi i64 [ %.01441439.i.i, %.outer.i.i ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.lr.ph.preheader.i.i" ]
   %.0148.ph1449.i.i = phi i32 [ %.01481438.i.i, %.outer.i.i ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.lr.ph.preheader.i.i" ]
   %.0154.ph1448.i.i = phi i64 [ %731, %.outer.i.i ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.lr.ph.preheader.i.i" ]
   %.sroa.0361.0.ph1447.i.i = phi ptr [ %687, %.outer.i.i ], [ %575, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.lr.ph.preheader.i.i" ]
@@ -13859,7 +13859,7 @@ _ZN5alloc7raw_vec14handle_reserve17h2d131f4fccf45d0bE.llvm.14140520316429159617.
   br label %.noexc31
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.i.i": ; preds = %735, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.lr.ph.i.i"
-  %.01451439.i.i = phi i64 [ %.0145.ph1450.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.lr.ph.i.i" ], [ %spec.select.i.i, %735 ]
+  %.01441439.i.i = phi i64 [ %.0144.ph1450.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.lr.ph.i.i" ], [ %spec.select.i.i, %735 ]
   %.01481438.i.i = phi i32 [ %.0148.ph1449.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.lr.ph.i.i" ], [ %737, %735 ]
   %.sroa.0361.01437.i.i = phi ptr [ %.sroa.0361.0.ph1447.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.lr.ph.i.i" ], [ %687, %735 ]
   %.sroa.8362.01436.i.i = phi i64 [ %.sroa.8362.0.ph1446.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.lr.ph.i.i" ], [ %688, %735 ]
@@ -13966,7 +13966,7 @@ _ZN5alloc7raw_vec14handle_reserve17h2d131f4fccf45d0bE.llvm.14140520316429159617.
   br i1 %724, label %733, label %.outer.i.i
 
 725:                                              ; preds = %716
-  %726 = add i64 %.01451439.i.i, %.4153.lcssa.i.i
+  %726 = add i64 %.01441439.i.i, %.4153.lcssa.i.i
   br label %.noexc31
 
 .outer.i.i:                                       ; preds = %720
@@ -13985,14 +13985,14 @@ _ZN5alloc7raw_vec14handle_reserve17h2d131f4fccf45d0bE.llvm.14140520316429159617.
 
 735:                                              ; preds = %718
   %736 = icmp eq i32 %.01481438.i.i, 0
-  %spec.select.i.i = select i1 %736, i64 %.sroa.8362.01436.i.i, i64 %.01451439.i.i
+  %spec.select.i.i = select i1 %736, i64 %.sroa.8362.01436.i.i, i64 %.01441439.i.i
   %737 = add i32 %.01481438.i.i, 1
   %738 = icmp eq ptr %687, %573
   br i1 %738, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.thread.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h552214a91185cc0aE.exit.i.i"
 
 739:                                              ; preds = %718
   %740 = icmp sgt i32 %.01481438.i.i, 0
-  %spec.select166.i.i = select i1 %740, i64 %.01451439.i.i, i64 %.sroa.8362.01436.i.i
+  %spec.select166.i.i = select i1 %740, i64 %.01441439.i.i, i64 %.sroa.8362.01436.i.i
   %741 = add i64 %spec.select166.i.i, %.4153.lcssa.i.i
   br label %.noexc31
 
@@ -19391,8 +19391,8 @@ define hidden void @"_ZN100_$LT$tokenizers..pre_tokenizers..byte_level..ByteLeve
   br label %29
 
 29:                                               ; preds = %150, %.lr.ph.i
-  %.sroa.715.i.sroa.6.0 = phi i64 [ 0, %.lr.ph.i ], [ %151, %150 ]
   %.sroa.715.i.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %.lr.ph.i ], [ %.sroa.6.i.sroa.0.0.copyload, %150 ]
+  %.sroa.715.i.sroa.6.0 = phi i64 [ 0, %.lr.ph.i ], [ %151, %150 ]
   %.sroa.0.0.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.07.0.copyload.i, %150 ]
   %30 = phi ptr [ %17, %.lr.ph.i ], [ %67, %150 ]
   %31 = getelementptr inbounds i8, ptr %30, i64 1

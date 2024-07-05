@@ -5203,10 +5203,10 @@ _ZN17PreprocessResidueC2EOS_.exit.i:              ; preds = %143
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %220, %.lr.ph.preheader.i.i.i.i.i
-  %.sroa.013.023.i.i.i.i.i = phi ptr [ %222, %220 ], [ %202, %.lr.ph.preheader.i.i.i.i.i ]
-  %.sroa.017.022.i.i.i.i.i = phi ptr [ %221, %220 ], [ %200, %.lr.ph.preheader.i.i.i.i.i ]
-  %.val.i.i.i.i.i.i = load i8, ptr %.sroa.017.022.i.i.i.i.i, align 1
-  %.val1.i.i.i.i.i.i = load i8, ptr %.sroa.013.023.i.i.i.i.i, align 1
+  %.sroa.017.023.i.i.i.i.i = phi ptr [ %221, %220 ], [ %200, %.lr.ph.preheader.i.i.i.i.i ]
+  %.sroa.013.022.i.i.i.i.i = phi ptr [ %222, %220 ], [ %202, %.lr.ph.preheader.i.i.i.i.i ]
+  %.val.i.i.i.i.i.i = load i8, ptr %.sroa.017.023.i.i.i.i.i, align 1
+  %.val1.i.i.i.i.i.i = load i8, ptr %.sroa.013.022.i.i.i.i.i, align 1
   %213 = sext i8 %.val.i.i.i.i.i.i to i32
   %214 = call i32 @toupper(i32 noundef %213) #23
   %215 = sext i8 %.val1.i.i.i.i.i.i to i32
@@ -5219,8 +5219,8 @@ _ZN17PreprocessResidueC2EOS_.exit.i:              ; preds = %143
   br i1 %219, label %"_ZZ19readResidueDatabaseRKNSt10filesystem7__cxx114pathEPSt6vectorI17PreprocessResidueSaIS5_EEP22PreprocessingAtomTypesP8t_symtabRKN3gmx8MDLoggerEbENK3$_1clERKS5_SJ_.exit.thread29.i.i.preheader", label %220
 
 220:                                              ; preds = %218
-  %221 = getelementptr inbounds i8, ptr %.sroa.017.022.i.i.i.i.i, i64 1
-  %222 = getelementptr inbounds i8, ptr %.sroa.013.023.i.i.i.i.i, i64 1
+  %221 = getelementptr inbounds i8, ptr %.sroa.017.023.i.i.i.i.i, i64 1
+  %222 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i.i.i, i64 1
   %.not.i.i.i.i.i = icmp eq ptr %221, %spec.select.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %"_ZZ19readResidueDatabaseRKNSt10filesystem7__cxx114pathEPSt6vectorI17PreprocessResidueSaIS5_EEP22PreprocessingAtomTypesP8t_symtabRKN3gmx8MDLoggerEbENK3$_1clERKS5_SJ_.exit.i.i", label %.lr.ph.i.i.i.i.i, !llvm.loop !63
 
@@ -5262,10 +5262,10 @@ _ZN17PreprocessResidueC2EOS_.exit.i:              ; preds = %143
   br label %.lr.ph.i.i.i13.i.i
 
 .lr.ph.i.i.i13.i.i:                               ; preds = %244, %.lr.ph.preheader.i.i.i10.i.i
-  %.sroa.013.023.i.i.i14.i.i = phi ptr [ %246, %244 ], [ %226, %.lr.ph.preheader.i.i.i10.i.i ]
-  %.sroa.017.022.i.i.i15.i.i = phi ptr [ %245, %244 ], [ %224, %.lr.ph.preheader.i.i.i10.i.i ]
-  %.val.i.i.i.i16.i.i = load i8, ptr %.sroa.017.022.i.i.i15.i.i, align 1
-  %.val1.i.i.i.i17.i.i = load i8, ptr %.sroa.013.023.i.i.i14.i.i, align 1
+  %.sroa.017.023.i.i.i14.i.i = phi ptr [ %245, %244 ], [ %224, %.lr.ph.preheader.i.i.i10.i.i ]
+  %.sroa.013.022.i.i.i15.i.i = phi ptr [ %246, %244 ], [ %226, %.lr.ph.preheader.i.i.i10.i.i ]
+  %.val.i.i.i.i16.i.i = load i8, ptr %.sroa.017.023.i.i.i14.i.i, align 1
+  %.val1.i.i.i.i17.i.i = load i8, ptr %.sroa.013.022.i.i.i15.i.i, align 1
   %237 = sext i8 %.val.i.i.i.i16.i.i to i32
   %238 = call i32 @toupper(i32 noundef %237) #23
   %239 = sext i8 %.val1.i.i.i.i17.i.i to i32
@@ -5278,8 +5278,8 @@ _ZN17PreprocessResidueC2EOS_.exit.i:              ; preds = %143
   br i1 %243, label %"_ZZ19readResidueDatabaseRKNSt10filesystem7__cxx114pathEPSt6vectorI17PreprocessResidueSaIS5_EEP22PreprocessingAtomTypesP8t_symtabRKN3gmx8MDLoggerEbENK3$_1clERKS5_SJ_.exit22.thread32.i.i", label %244
 
 244:                                              ; preds = %242
-  %245 = getelementptr inbounds i8, ptr %.sroa.017.022.i.i.i15.i.i, i64 1
-  %246 = getelementptr inbounds i8, ptr %.sroa.013.023.i.i.i14.i.i, i64 1
+  %245 = getelementptr inbounds i8, ptr %.sroa.017.023.i.i.i14.i.i, i64 1
+  %246 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i15.i.i, i64 1
   %.not.i.i.i18.i.i = icmp eq ptr %245, %spec.select.i.i.i.i8.i.i
   br i1 %.not.i.i.i18.i.i, label %"_ZZ19readResidueDatabaseRKNSt10filesystem7__cxx114pathEPSt6vectorI17PreprocessResidueSaIS5_EEP22PreprocessingAtomTypesP8t_symtabRKN3gmx8MDLoggerEbENK3$_1clERKS5_SJ_.exit22.i.i", label %.lr.ph.i.i.i13.i.i, !llvm.loop !63
 
@@ -5592,10 +5592,10 @@ define internal fastcc noundef zeroext i1 @"_ZZ19readResidueDatabaseRKNSt10files
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %20, %.lr.ph.preheader.i.i
-  %.sroa.013.023.i.i = phi ptr [ %22, %20 ], [ %5, %.lr.ph.preheader.i.i ]
-  %.sroa.017.022.i.i = phi ptr [ %21, %20 ], [ %3, %.lr.ph.preheader.i.i ]
-  %.val.i.i.i = load i8, ptr %.sroa.017.022.i.i, align 1
-  %.val1.i.i.i = load i8, ptr %.sroa.013.023.i.i, align 1
+  %.sroa.017.023.i.i = phi ptr [ %21, %20 ], [ %3, %.lr.ph.preheader.i.i ]
+  %.sroa.013.022.i.i = phi ptr [ %22, %20 ], [ %5, %.lr.ph.preheader.i.i ]
+  %.val.i.i.i = load i8, ptr %.sroa.017.023.i.i, align 1
+  %.val1.i.i.i = load i8, ptr %.sroa.013.022.i.i, align 1
   %16 = sext i8 %.val.i.i.i to i32
   %17 = tail call i32 @toupper(i32 noundef %16) #23
   %18 = sext i8 %.val1.i.i.i to i32
@@ -5604,8 +5604,8 @@ define internal fastcc noundef zeroext i1 @"_ZZ19readResidueDatabaseRKNSt10files
   br i1 %or.cond.not, label %20, label %"_ZSt23lexicographical_compareIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_ZZ19readResidueDatabaseRKNSt10filesystem7__cxx114pathEPSt6vectorI17PreprocessResidueSaISH_EEP22PreprocessingAtomTypesP8t_symtabRKN3gmx8MDLoggerEbENK3$_1clERKSH_SV_EUlRS2_SW_E_EbT_SY_T0_SZ_T1_.exit.loopexit"
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.017.022.i.i, i64 1
-  %22 = getelementptr inbounds i8, ptr %.sroa.013.023.i.i, i64 1
+  %21 = getelementptr inbounds i8, ptr %.sroa.017.023.i.i, i64 1
+  %22 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i, i64 1
   %.not.i.i = icmp eq ptr %21, %spec.select.i.i.i
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !63
 

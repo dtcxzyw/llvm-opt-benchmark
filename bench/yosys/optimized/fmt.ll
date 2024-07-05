@@ -2562,41 +2562,41 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.030.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %.02329.i = phi i32 [ %18, %17 ], [ %4, %2 ]
-  %6 = icmp ult i32 %.02329.i, 100
+  %.02230.i = phi i32 [ %18, %17 ], [ %4, %2 ]
+  %.02329.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %6 = icmp ult i32 %.02230.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.030.i, 1
+  %8 = add i32 %.02329.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i32 %.02329.i, 1000
+  %10 = icmp ult i32 %.02230.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.030.i, 2
+  %12 = add i32 %.02329.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %.02329.i, 10000
+  %14 = icmp ult i32 %.02230.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.030.i, 3
+  %16 = add i32 %.02329.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i32 %.02329.i, 10000
-  %19 = add i32 %.030.i, 4
-  %20 = icmp ult i32 %.02329.i, 100000
+  %18 = udiv i32 %.02230.i, 10000
+  %19 = add i32 %.02329.i, 4
+  %20 = icmp ult i32 %.02230.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !29
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
-  %21 = add i32 %.022.i, %.lobit
+  %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %22, i8 noundef signext 45, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -2613,7 +2613,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br i1 %27, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %26
-  %28 = add i32 %.022.i, -1
+  %28 = add i32 %.0.i, -1
   br label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11, %.lr.ph.preheader.i
@@ -2688,40 +2688,40 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind noalias w
   br i1 %4, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %16
-  %.029.i = phi i32 [ %18, %16 ], [ 1, %2 ]
-  %.02328.i = phi i64 [ %17, %16 ], [ %1, %2 ]
-  %5 = icmp ult i64 %.02328.i, 100
+  %.02229.i = phi i64 [ %17, %16 ], [ %1, %2 ]
+  %.02328.i = phi i32 [ %18, %16 ], [ 1, %2 ]
+  %5 = icmp ult i64 %.02229.i, 100
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = add i32 %.029.i, 1
+  %7 = add i32 %.02328.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = icmp ult i64 %.02328.i, 1000
+  %9 = icmp ult i64 %.02229.i, 1000
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = add i32 %.029.i, 2
+  %11 = add i32 %.02328.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 12:                                               ; preds = %8
-  %13 = icmp ult i64 %.02328.i, 10000
+  %13 = icmp ult i64 %.02229.i, 10000
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = add i32 %.029.i, 3
+  %15 = add i32 %.02328.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 16:                                               ; preds = %12
-  %17 = udiv i64 %.02328.i, 10000
-  %18 = add i32 %.029.i, 4
-  %19 = icmp ult i64 %.02328.i, 100000
+  %17 = udiv i64 %.02229.i, 10000
+  %18 = add i32 %.02328.i, 4
+  %19 = icmp ult i64 %.02229.i, 100000
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i, !llvm.loop !31
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.022.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
-  %20 = zext i32 %.022.i to i64
+  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %20 = zext i32 %.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %20, i8 noundef signext 0, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %21 unwind label %55
@@ -6131,9 +6131,9 @@ define void @_ZNK5Yosys3Fmt6renderB5cxx11Ev(ptr dead_on_unwind noalias nonnull w
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %69
-  %.079335 = phi i64 [ %spec.select, %69 ], [ 0, %.lr.ph.preheader ]
-  %.081334 = phi i64 [ %72, %69 ], [ 0, %.lr.ph.preheader ]
-  %sext253 = shl i64 %.081334, 32
+  %.071335 = phi i64 [ %spec.select, %69 ], [ 0, %.lr.ph.preheader ]
+  %.073334 = phi i64 [ %72, %69 ], [ 0, %.lr.ph.preheader ]
+  %sext253 = shl i64 %.073334, 32
   %66 = ashr exact i64 %sext253, 32
   %.not.i.i.i = icmp ugt i64 %64, %66
   br i1 %.not.i.i.i, label %69, label %.invoke
@@ -6151,8 +6151,8 @@ define void @_ZNK5Yosys3Fmt6renderB5cxx11Ev(ptr dead_on_unwind noalias nonnull w
   %70 = getelementptr inbounds i8, ptr %61, i64 %66
   %71 = load i8, ptr %70, align 1
   %.not108 = icmp eq i8 %71, 0
-  %72 = add nuw i64 %.081334, 1
-  %spec.select = select i1 %.not108, i64 %.079335, i64 %72
+  %72 = add nuw i64 %.073334, 1
+  %spec.select = select i1 %.not108, i64 %.071335, i64 %72
   %exitcond.not = icmp eq i64 %72, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
@@ -6172,8 +6172,8 @@ define void @_ZNK5Yosys3Fmt6renderB5cxx11Ev(ptr dead_on_unwind noalias nonnull w
   br label %.body
 
 ._crit_edge:                                      ; preds = %69, %.preheader
-  %.079.lcssa = phi i64 [ 0, %.preheader ], [ %spec.select, %69 ]
-  %75 = trunc i64 %.079.lcssa to i32
+  %.071.lcssa = phi i64 [ 0, %.preheader ], [ %spec.select, %69 ]
+  %75 = trunc i64 %.071.lcssa to i32
   invoke void @_ZNK5Yosys5RTLIL5Const7extractEiiNS0_5StateE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::Const") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 0, i32 noundef %75, i8 noundef zeroext 0)
           to label %76 unwind label %.loopexit269
 
@@ -6347,8 +6347,8 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.prehead
 
 _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.preheader, %_ZN5Yosys5RTLIL5ConstD2Ev.exit117
   %135 = phi i64 [ %208, %_ZN5Yosys5RTLIL5ConstD2Ev.exit117 ], [ %134, %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.preheader ]
-  %.082363 = phi i64 [ %202, %_ZN5Yosys5RTLIL5ConstD2Ev.exit117 ], [ 0, %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.preheader ]
-  %136 = sub i64 %135, %.082363
+  %.074363 = phi i64 [ %202, %_ZN5Yosys5RTLIL5ConstD2Ev.exit117 ], [ 0, %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.preheader ]
+  %136 = sub i64 %135, %.074363
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %136, i64 %128)
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   store i32 0, ptr %7, align 8, !alias.scope !47
@@ -6359,8 +6359,8 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i: ; pred
 .lr.ph.i:                                         ; preds = %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i
   store ptr %137, ptr %43, align 8, !alias.scope !47
   %138 = getelementptr inbounds i8, ptr %137, i64 %.sroa.speculated
-  %139 = add i64 %.sroa.speculated, %.082363
-  %sext258 = shl i64 %.082363, 32
+  %139 = add i64 %.sroa.speculated, %.074363
+  %sext258 = shl i64 %.074363, 32
   %140 = ashr exact i64 %sext258, 32
   %sext259 = shl i64 %139, 32
   %141 = ashr exact i64 %sext259, 32
@@ -6500,18 +6500,18 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZN
   br i1 %.not260349, label %.invoke449, label %.lr.ph356
 
 .lr.ph356:                                        ; preds = %182, %.lr.ph356
-  %.083354 = phi i1 [ %.184, %.lr.ph356 ], [ true, %182 ]
-  %.085353 = phi i1 [ %.186, %.lr.ph356 ], [ false, %182 ]
-  %.087352 = phi i1 [ %.087., %.lr.ph356 ], [ true, %182 ]
-  %.089351 = phi i1 [ %..089, %.lr.ph356 ], [ false, %182 ]
+  %.083354 = phi i1 [ %..083, %.lr.ph356 ], [ false, %182 ]
+  %.085353 = phi i1 [ %.085., %.lr.ph356 ], [ true, %182 ]
+  %.087352 = phi i1 [ %.188, %.lr.ph356 ], [ false, %182 ]
+  %.089351 = phi i1 [ %.190, %.lr.ph356 ], [ true, %182 ]
   %.sroa.0241.0350 = phi ptr [ %186, %.lr.ph356 ], [ %178, %182 ]
   %183 = load i8, ptr %.sroa.0241.0350, align 1
   %184 = icmp eq i8 %183, 2
-  %..089 = select i1 %184, i1 true, i1 %.089351
-  %.087. = select i1 %184, i1 %.087352, i1 false
+  %.085. = select i1 %184, i1 %.085353, i1 false
+  %..083 = select i1 %184, i1 true, i1 %.083354
   %185 = icmp eq i8 %183, 3
-  %.186 = select i1 %185, i1 true, i1 %.085353
-  %.184 = select i1 %185, i1 %.083354, i1 false
+  %.190 = select i1 %185, i1 %.089351, i1 false
+  %.188 = select i1 %185, i1 true, i1 %.087352
   %186 = getelementptr inbounds i8, ptr %.sroa.0241.0350, i64 1
   %.not260 = icmp eq ptr %186, %177
   br i1 %.not260, label %._crit_edge357, label %.lr.ph356
@@ -6528,11 +6528,11 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZN
   br label %.body
 
 ._crit_edge357:                                   ; preds = %.lr.ph356
-  %brmerge = select i1 %.087., i1 true, i1 %.184
-  %brmerge450 = select i1 %brmerge, i1 true, i1 %..089
-  %.mux = select i1 %.184, i8 122, i8 88
-  %.mux.mux = select i1 %.087., i8 120, i8 %.mux
-  %brmerge451 = select i1 %brmerge450, i1 true, i1 %.186
+  %brmerge = select i1 %.085., i1 true, i1 %.190
+  %brmerge450 = select i1 %brmerge, i1 true, i1 %..083
+  %.mux = select i1 %.190, i8 122, i8 88
+  %.mux.mux = select i1 %.085., i8 120, i8 %.mux
+  %brmerge451 = select i1 %brmerge450, i1 true, i1 %.188
   %.mux.mux.mux = select i1 %brmerge450, i8 %.mux.mux, i8 90
   br i1 %brmerge451, label %.invoke449, label %191
 
@@ -6561,7 +6561,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZN
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit117
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit117:                ; preds = %199, %201
-  %202 = add i64 %.082363, %128
+  %202 = add i64 %.074363, %128
   %203 = load ptr, ptr %26, align 8
   %204 = load ptr, ptr %25, align 8
   %205 = ptrtoint ptr %203 to i64
@@ -6600,28 +6600,28 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit117:                ; preds = %199, %201
   br i1 %.not254336, label %._crit_edge344.thread.invoke, label %.lr.ph343
 
 .lr.ph343:                                        ; preds = %218, %.lr.ph343
-  %.071341 = phi i1 [ %.172, %.lr.ph343 ], [ true, %218 ]
-  %.073340 = phi i1 [ %.174, %.lr.ph343 ], [ false, %218 ]
-  %.075339 = phi i1 [ %.075., %.lr.ph343 ], [ true, %218 ]
-  %.077338 = phi i1 [ %..077, %.lr.ph343 ], [ false, %218 ]
+  %.075341 = phi i1 [ %.176, %.lr.ph343 ], [ true, %218 ]
+  %.077340 = phi i1 [ %.178, %.lr.ph343 ], [ false, %218 ]
+  %.079339 = phi i1 [ %.079., %.lr.ph343 ], [ true, %218 ]
+  %.081338 = phi i1 [ %..081, %.lr.ph343 ], [ false, %218 ]
   %.sroa.0237.0337 = phi ptr [ %224, %.lr.ph343 ], [ %219, %218 ]
   %221 = load i8, ptr %.sroa.0237.0337, align 1
   %222 = icmp eq i8 %221, 2
-  %..077 = select i1 %222, i1 true, i1 %.077338
-  %.075. = select i1 %222, i1 %.075339, i1 false
+  %..081 = select i1 %222, i1 true, i1 %.081338
+  %.079. = select i1 %222, i1 %.079339, i1 false
   %223 = icmp eq i8 %221, 3
-  %.174 = select i1 %223, i1 true, i1 %.073340
-  %.172 = select i1 %223, i1 %.071341, i1 false
+  %.178 = select i1 %223, i1 true, i1 %.077340
+  %.176 = select i1 %223, i1 %.075341, i1 false
   %224 = getelementptr inbounds i8, ptr %.sroa.0237.0337, i64 1
   %.not254 = icmp eq ptr %224, %220
   br i1 %.not254, label %._crit_edge344, label %.lr.ph343
 
 ._crit_edge344:                                   ; preds = %.lr.ph343
-  %brmerge452 = select i1 %.075., i1 true, i1 %.172
-  %brmerge454 = select i1 %brmerge452, i1 true, i1 %..077
-  %.mux453 = select i1 %.172, i8 122, i8 88
-  %.mux453.mux = select i1 %.075., i8 120, i8 %.mux453
-  %brmerge455 = select i1 %brmerge454, i1 true, i1 %.174
+  %brmerge452 = select i1 %.079., i1 true, i1 %.176
+  %brmerge454 = select i1 %brmerge452, i1 true, i1 %..081
+  %.mux453 = select i1 %.176, i8 122, i8 88
+  %.mux453.mux = select i1 %.079., i8 120, i8 %.mux453
+  %brmerge455 = select i1 %brmerge454, i1 true, i1 %.178
   %.mux453.mux.mux = select i1 %brmerge454, i8 %.mux453.mux, i8 90
   br i1 %brmerge455, label %._crit_edge344.thread.invoke, label %227
 
@@ -7675,14 +7675,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.073, i64 1
+  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -8129,8 +8129,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.016
+  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

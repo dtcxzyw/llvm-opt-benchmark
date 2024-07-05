@@ -88,7 +88,7 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %19
 
 19:                                               ; preds = %15, %4
-  %.073 = phi ptr [ %17, %15 ], [ %13, %4 ]
+  %.074 = phi ptr [ %17, %15 ], [ %13, %4 ]
   %20 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %21 = getelementptr inbounds i8, ptr %1, i64 80
   %22 = load ptr, ptr %21, align 8
@@ -127,8 +127,8 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds i8, ptr %1, i64 20
   %40 = load i32, ptr %39, align 4
-  store i32 %40, ptr %.073, align 8
-  %41 = getelementptr inbounds i8, ptr %.073, i64 8
+  store i32 %40, ptr %.074, align 8
+  %41 = getelementptr inbounds i8, ptr %.074, i64 8
   %42 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
   br label %.thread
@@ -161,15 +161,15 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not82.not.not, label %55, label %.critedge
 
 55:                                               ; preds = %54
-  %56 = load i32, ptr %.073, align 8
+  %56 = load i32, ptr %.074, align 8
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %.thread
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %1, i64 20
   %60 = load i32, ptr %59, align 4
-  store i32 %60, ptr %.073, align 8
-  %61 = getelementptr inbounds i8, ptr %.073, i64 8
+  store i32 %60, ptr %.074, align 8
+  %61 = getelementptr inbounds i8, ptr %.074, i64 8
   %62 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   br label %.thread
@@ -178,7 +178,7 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not82.not.not, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %48, %44, %54, %63
-  %64 = getelementptr inbounds i8, ptr %.073, i64 4
+  %64 = getelementptr inbounds i8, ptr %.074, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %.thread
@@ -218,7 +218,7 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not93, label %proto_item_set_generated.exit, label %85
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %.073, i64 4
+  %86 = getelementptr inbounds i8, ptr %.074, i64 4
   %87 = load i32, ptr %86, align 4
   %.not94 = icmp eq i32 %87, 0
   br i1 %.not94, label %proto_item_set_generated.exit, label %88
@@ -240,7 +240,7 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not89, label %proto_item_set_generated.exit, label %95
 
 95:                                               ; preds = %94
-  %96 = getelementptr inbounds i8, ptr %.073, i64 4
+  %96 = getelementptr inbounds i8, ptr %.074, i64 4
   %97 = load i32, ptr %96, align 4
   %.not90 = icmp eq i32 %97, 0
   br i1 %.not90, label %proto_item_set_generated.exit, label %98
@@ -248,7 +248,7 @@ define internal i32 @dissect_finger(ptr noundef %0, ptr noundef %1, ptr noundef 
 98:                                               ; preds = %95
   %99 = load i32, ptr @hf_finger_response, align 4
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %99, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
-  %101 = load i32, ptr %.073, align 8
+  %101 = load i32, ptr %.074, align 8
   %.not91 = icmp eq i32 %101, 0
   br i1 %.not91, label %proto_item_set_generated.exit, label %102
 
@@ -280,7 +280,7 @@ proto_item_set_generated.exit97:                  ; preds = %102, %105, %108
 
 116:                                              ; preds = %proto_item_set_generated.exit97
   %117 = getelementptr inbounds i8, ptr %1, i64 24
-  %118 = getelementptr inbounds i8, ptr %.073, i64 8
+  %118 = getelementptr inbounds i8, ptr %.074, i64 8
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %117, ptr noundef nonnull %118) #3
   %119 = load i32, ptr @hf_finger_response_time, align 4
   %120 = call ptr @proto_tree_add_time(ptr noundef %74, i32 noundef %119, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #3
@@ -306,8 +306,8 @@ proto_item_set_generated.exit:                    ; preds = %proto_item_set_gene
   br label %128
 
 128:                                              ; preds = %proto_item_set_generated.exit, %51, %35
-  %.074 = phi i32 [ %127, %proto_item_set_generated.exit ], [ -1, %35 ], [ -1, %51 ]
-  ret i32 %.074
+  %.0 = phi i32 [ %127, %proto_item_set_generated.exit ], [ -1, %35 ], [ -1, %51 ]
+  ret i32 %.0
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

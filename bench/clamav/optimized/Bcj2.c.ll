@@ -25,15 +25,15 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
   br i1 %17, label %.loopexit, label %.split
 
 .split:                                           ; preds = %14, %.split
-  %.0105171 = phi i32 [ %23, %.split ], [ 0, %14 ]
-  %.0109170 = phi i32 [ %22, %.split ], [ 0, %14 ]
-  %.0116169 = phi ptr [ %19, %.split ], [ %6, %14 ]
-  %18 = shl i32 %.0109170, 8
-  %19 = getelementptr inbounds i8, ptr %.0116169, i64 1
-  %20 = load i8, ptr %.0116169, align 1
+  %.0117171 = phi i32 [ %23, %.split ], [ 0, %14 ]
+  %.0122170 = phi i32 [ %22, %.split ], [ 0, %14 ]
+  %.0131169 = phi ptr [ %19, %.split ], [ %6, %14 ]
+  %18 = shl i32 %.0122170, 8
+  %19 = getelementptr inbounds i8, ptr %.0131169, i64 1
+  %20 = load i8, ptr %.0131169, align 1
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %18, %21
-  %23 = add nuw nsw i32 %.0105171, 1
+  %23 = add nuw nsw i32 %.0117171, 1
   %exitcond204.not = icmp eq i32 %23, 5
   br i1 %exitcond204.not, label %24, label %.split
 
@@ -51,27 +51,27 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %136
   %spec.select191 = phi i64 [ %spec.select179, %.lr.ph.lr.ph ], [ %spec.select, %136 ]
-  %.0107190 = phi i8 [ 0, %.lr.ph.lr.ph ], [ %.2, %136 ]
-  %.1110189 = phi i32 [ %22, %.lr.ph.lr.ph ], [ %.4, %136 ]
-  %.0112188 = phi i32 [ -1, %.lr.ph.lr.ph ], [ %.3115, %136 ]
-  %.1117187 = phi ptr [ %scevgep, %.lr.ph.lr.ph ], [ %.4120, %136 ]
-  %.0121186 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.3124, %136 ]
-  %.0126185 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %44, %136 ]
-  %.0129184 = phi ptr [ %2, %.lr.ph.lr.ph ], [ %.2131, %136 ]
-  %.0132183 = phi i64 [ %3, %.lr.ph.lr.ph ], [ %.2134, %136 ]
-  %.0135182 = phi ptr [ %4, %.lr.ph.lr.ph ], [ %.2137, %136 ]
-  %.0138181 = phi i64 [ %5, %.lr.ph.lr.ph ], [ %.2140, %136 ]
+  %.0104190 = phi ptr [ %2, %.lr.ph.lr.ph ], [ %.2, %136 ]
+  %.0107189 = phi i64 [ %3, %.lr.ph.lr.ph ], [ %.2109, %136 ]
+  %.0110188 = phi ptr [ %4, %.lr.ph.lr.ph ], [ %.2112, %136 ]
+  %.0114187 = phi i64 [ %5, %.lr.ph.lr.ph ], [ %.2116, %136 ]
+  %.0119186 = phi i8 [ 0, %.lr.ph.lr.ph ], [ %.2121, %136 ]
+  %.1123185 = phi i32 [ %22, %.lr.ph.lr.ph ], [ %.4, %136 ]
+  %.0125184 = phi i32 [ -1, %.lr.ph.lr.ph ], [ %.3128, %136 ]
+  %.0129183 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %44, %136 ]
+  %.1132182 = phi ptr [ %scevgep, %.lr.ph.lr.ph ], [ %.4135, %136 ]
+  %.0136181 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.3139, %136 ]
   br label %26
 
 26:                                               ; preds = %.lr.ph, %38
-  %.1176 = phi i64 [ %spec.select191, %.lr.ph ], [ %40, %38 ]
-  %.1108175 = phi i8 [ %.0107190, %.lr.ph ], [ %28, %38 ]
-  %.1122174 = phi i64 [ %.0121186, %.lr.ph ], [ %29, %38 ]
-  %.1127173 = phi i64 [ %.0126185, %.lr.ph ], [ %39, %38 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 %.1127173
+  %.1106176 = phi i64 [ %spec.select191, %.lr.ph ], [ %40, %38 ]
+  %.1120175 = phi i8 [ %.0119186, %.lr.ph ], [ %28, %38 ]
+  %.1130174 = phi i64 [ %.0129183, %.lr.ph ], [ %39, %38 ]
+  %.1137173 = phi i64 [ %.0136181, %.lr.ph ], [ %29, %38 ]
+  %27 = getelementptr inbounds i8, ptr %0, i64 %.1130174
   %28 = load i8, ptr %27, align 1
-  %29 = add i64 %.1122174, 1
-  %30 = getelementptr inbounds i8, ptr %8, i64 %.1122174
+  %29 = add i64 %.1137173, 1
+  %30 = getelementptr inbounds i8, ptr %8, i64 %.1137173
   store i8 %28, ptr %30, align 1
   %31 = zext i8 %28 to i32
   %32 = and i32 %31, 254
@@ -79,37 +79,37 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
   br i1 %33, label %41, label %34
 
 34:                                               ; preds = %26
-  %35 = icmp eq i8 %.1108175, 15
+  %35 = icmp eq i8 %.1120175, 15
   %36 = and i32 %31, 240
   %37 = icmp eq i32 %36, 128
   %or.cond = and i1 %35, %37
   br i1 %or.cond, label %41, label %38
 
 38:                                               ; preds = %34
-  %39 = add i64 %.1127173, 1
-  %40 = add i64 %.1176, -1
+  %39 = add i64 %.1130174, 1
+  %40 = add i64 %.1106176, -1
   %.not = icmp eq i64 %40, 0
   br i1 %.not, label %.thread, label %26
 
 41:                                               ; preds = %34, %26
-  %.1108175.lcssa = phi i8 [ 15, %34 ], [ %.1108175, %26 ]
+  %.1120175.lcssa = phi i8 [ 15, %34 ], [ %.1120175, %26 ]
   %42 = icmp eq i64 %29, %9
   br i1 %42, label %.thread, label %43
 
 43:                                               ; preds = %41
-  %44 = add i64 %.1127173, 1
+  %44 = add i64 %.1130174, 1
   %45 = icmp eq i8 %28, -24
-  %46 = zext i8 %.1108175.lcssa to i64
+  %46 = zext i8 %.1120175.lcssa to i64
   %47 = getelementptr inbounds i16, ptr %11, i64 %46
   %48 = icmp eq i8 %28, -23
   %..v.sroa.sel.v.sroa.sel.v = select i1 %48, i64 512, i64 514
   %..v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %11, i64 %..v.sroa.sel.v.sroa.sel.v
-  %.0104 = select i1 %45, ptr %47, ptr %..v.sroa.sel.v.sroa.sel
-  %49 = load i16, ptr %.0104, align 2
+  %.0113 = select i1 %45, ptr %47, ptr %..v.sroa.sel.v.sroa.sel
+  %49 = load i16, ptr %.0113, align 2
   %50 = zext i16 %49 to i32
-  %51 = lshr i32 %.0112188, 11
+  %51 = lshr i32 %.0125184, 11
   %52 = mul i32 %51, %50
-  %53 = icmp ult i32 %.1110189, %52
+  %53 = icmp ult i32 %.1123185, %52
   br i1 %53, label %54, label %69
 
 54:                                               ; preds = %43
@@ -117,75 +117,75 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
   %56 = lshr i32 %55, 5
   %57 = trunc i32 %56 to i16
   %58 = add i16 %49, %57
-  store i16 %58, ptr %.0104, align 2
+  store i16 %58, ptr %.0113, align 2
   %59 = icmp ult i32 %52, 16777216
   br i1 %59, label %60, label %136
 
 60:                                               ; preds = %54
-  %61 = icmp eq ptr %.1117187, %15
+  %61 = icmp eq ptr %.1132182, %15
   br i1 %61, label %.loopexit, label %62
 
 62:                                               ; preds = %60
   %63 = shl nuw i32 %52, 8
-  %64 = shl i32 %.1110189, 8
-  %65 = getelementptr inbounds i8, ptr %.1117187, i64 1
-  %66 = load i8, ptr %.1117187, align 1
+  %64 = shl i32 %.1123185, 8
+  %65 = getelementptr inbounds i8, ptr %.1132182, i64 1
+  %66 = load i8, ptr %.1132182, align 1
   %67 = zext i8 %66 to i32
   %68 = or disjoint i32 %64, %67
   br label %136
 
 69:                                               ; preds = %43
-  %70 = sub i32 %.0112188, %52
-  %71 = sub i32 %.1110189, %52
+  %70 = sub i32 %.0125184, %52
+  %71 = sub i32 %.1123185, %52
   %72 = lshr i16 %49, 5
   %73 = sub i16 %49, %72
-  store i16 %73, ptr %.0104, align 2
+  store i16 %73, ptr %.0113, align 2
   %74 = icmp ult i32 %70, 16777216
   br i1 %74, label %75, label %84
 
 75:                                               ; preds = %69
-  %76 = icmp eq ptr %.1117187, %15
+  %76 = icmp eq ptr %.1132182, %15
   br i1 %76, label %.loopexit, label %77
 
 77:                                               ; preds = %75
   %78 = shl nuw i32 %70, 8
   %79 = shl i32 %71, 8
-  %80 = getelementptr inbounds i8, ptr %.1117187, i64 1
-  %81 = load i8, ptr %.1117187, align 1
+  %80 = getelementptr inbounds i8, ptr %.1132182, i64 1
+  %81 = load i8, ptr %.1132182, align 1
   %82 = zext i8 %81 to i32
   %83 = or disjoint i32 %79, %82
   br label %84
 
 84:                                               ; preds = %77, %69
-  %.3119 = phi ptr [ %80, %77 ], [ %.1117187, %69 ]
-  %.2114 = phi i32 [ %78, %77 ], [ %70, %69 ]
+  %.3134 = phi ptr [ %80, %77 ], [ %.1132182, %69 ]
+  %.2127 = phi i32 [ %78, %77 ], [ %70, %69 ]
   %.3 = phi i32 [ %83, %77 ], [ %71, %69 ]
   br i1 %45, label %85, label %90
 
 85:                                               ; preds = %84
-  %86 = icmp ult i64 %.0132183, 4
+  %86 = icmp ult i64 %.0107189, 4
   br i1 %86, label %.loopexit, label %87
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %.0129184, i64 4
-  %89 = add i64 %.0132183, -4
+  %88 = getelementptr inbounds i8, ptr %.0104190, i64 4
+  %89 = add i64 %.0107189, -4
   br label %95
 
 90:                                               ; preds = %84
-  %91 = icmp ult i64 %.0138181, 4
+  %91 = icmp ult i64 %.0114187, 4
   br i1 %91, label %.loopexit, label %92
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %.0135182, i64 4
-  %94 = add i64 %.0138181, -4
+  %93 = getelementptr inbounds i8, ptr %.0110188, i64 4
+  %94 = add i64 %.0114187, -4
   br label %95
 
 95:                                               ; preds = %92, %87
-  %.1139 = phi i64 [ %.0138181, %87 ], [ %94, %92 ]
-  %.1136 = phi ptr [ %.0135182, %87 ], [ %93, %92 ]
-  %.1133 = phi i64 [ %89, %87 ], [ %.0132183, %92 ]
-  %.1130 = phi ptr [ %88, %87 ], [ %.0129184, %92 ]
-  %.0 = phi ptr [ %.0129184, %87 ], [ %.0135182, %92 ]
+  %.1115 = phi i64 [ %.0114187, %87 ], [ %94, %92 ]
+  %.1111 = phi ptr [ %.0110188, %87 ], [ %93, %92 ]
+  %.1108 = phi i64 [ %89, %87 ], [ %.0107189, %92 ]
+  %.1 = phi ptr [ %88, %87 ], [ %.0104190, %92 ]
+  %.0 = phi ptr [ %.0104190, %87 ], [ %.0110188, %92 ]
   %96 = load i8, ptr %.0, align 1
   %97 = zext i8 %96 to i32
   %98 = shl nuw i32 %97, 24
@@ -203,11 +203,11 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i32
   %112 = or disjoint i32 %108, %111
-  %113 = trunc i64 %.1122174 to i32
+  %113 = trunc i64 %.1137173 to i32
   %reass.sub = sub i32 %112, %113
   %114 = add i32 %reass.sub, -5
   %115 = trunc i32 %114 to i8
-  %116 = add i64 %.1122174, 2
+  %116 = add i64 %.1137173, 2
   %117 = getelementptr inbounds i8, ptr %8, i64 %29
   store i8 %115, ptr %117, align 1
   %118 = icmp eq i64 %116, %9
@@ -216,7 +216,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
 119:                                              ; preds = %95
   %120 = lshr i32 %114, 8
   %121 = trunc i32 %120 to i8
-  %122 = add i64 %.1122174, 3
+  %122 = add i64 %.1137173, 3
   %123 = getelementptr inbounds i8, ptr %8, i64 %116
   store i8 %121, ptr %123, align 1
   %124 = icmp eq i64 %122, %9
@@ -225,7 +225,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
 125:                                              ; preds = %119
   %126 = lshr i32 %114, 16
   %127 = trunc i32 %126 to i8
-  %128 = add i64 %.1122174, 4
+  %128 = add i64 %.1137173, 4
   %129 = getelementptr inbounds i8, ptr %8, i64 %122
   store i8 %127, ptr %129, align 1
   %130 = icmp eq i64 %128, %9
@@ -234,36 +234,36 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
 131:                                              ; preds = %125
   %132 = lshr i32 %114, 24
   %133 = trunc nuw i32 %132 to i8
-  %134 = add i64 %.1122174, 5
+  %134 = add i64 %.1137173, 5
   %135 = getelementptr inbounds i8, ptr %8, i64 %128
   store i8 %133, ptr %135, align 1
   br label %136
 
 136:                                              ; preds = %54, %62, %131
-  %.2140 = phi i64 [ %.1139, %131 ], [ %.0138181, %62 ], [ %.0138181, %54 ]
-  %.2137 = phi ptr [ %.1136, %131 ], [ %.0135182, %62 ], [ %.0135182, %54 ]
-  %.2134 = phi i64 [ %.1133, %131 ], [ %.0132183, %62 ], [ %.0132183, %54 ]
-  %.2131 = phi ptr [ %.1130, %131 ], [ %.0129184, %62 ], [ %.0129184, %54 ]
-  %.3124 = phi i64 [ %134, %131 ], [ %29, %62 ], [ %29, %54 ]
-  %.4120 = phi ptr [ %.3119, %131 ], [ %65, %62 ], [ %.1117187, %54 ]
-  %.3115 = phi i32 [ %.2114, %131 ], [ %63, %62 ], [ %52, %54 ]
-  %.4 = phi i32 [ %.3, %131 ], [ %68, %62 ], [ %.1110189, %54 ]
-  %.2 = phi i8 [ %133, %131 ], [ %28, %62 ], [ %28, %54 ]
+  %.3139 = phi i64 [ %134, %131 ], [ %29, %62 ], [ %29, %54 ]
+  %.4135 = phi ptr [ %.3134, %131 ], [ %65, %62 ], [ %.1132182, %54 ]
+  %.3128 = phi i32 [ %.2127, %131 ], [ %63, %62 ], [ %52, %54 ]
+  %.4 = phi i32 [ %.3, %131 ], [ %68, %62 ], [ %.1123185, %54 ]
+  %.2121 = phi i8 [ %133, %131 ], [ %28, %62 ], [ %28, %54 ]
+  %.2116 = phi i64 [ %.1115, %131 ], [ %.0114187, %62 ], [ %.0114187, %54 ]
+  %.2112 = phi ptr [ %.1111, %131 ], [ %.0110188, %62 ], [ %.0110188, %54 ]
+  %.2109 = phi i64 [ %.1108, %131 ], [ %.0107189, %62 ], [ %.0107189, %54 ]
+  %.2 = phi ptr [ %.1, %131 ], [ %.0104190, %62 ], [ %.0104190, %54 ]
   %137 = sub i64 %1, %44
-  %138 = sub i64 %9, %.3124
+  %138 = sub i64 %9, %.3139
   %spec.select = tail call i64 @llvm.umin.i64(i64 %138, i64 %137)
   %.not172 = icmp eq i64 %spec.select, 0
   br i1 %.not172, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %125, %119, %95, %41, %136, %38, %.preheader
-  %.4125 = phi i64 [ 0, %.preheader ], [ %29, %38 ], [ %.3124, %136 ], [ %9, %125 ], [ %9, %119 ], [ %9, %95 ], [ %9, %41 ]
-  %139 = icmp ne i64 %.4125, %9
+  %.4140 = phi i64 [ 0, %.preheader ], [ %29, %38 ], [ %.3139, %136 ], [ %9, %125 ], [ %9, %119 ], [ %9, %95 ], [ %9, %41 ]
+  %139 = icmp ne i64 %.4140, %9
   %140 = zext i1 %139 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %90, %85, %75, %60, %14, %24, %.thread
-  %.0128 = phi i32 [ %140, %.thread ], [ 0, %24 ], [ 1, %14 ], [ 1, %60 ], [ 1, %75 ], [ 1, %85 ], [ 1, %90 ]
-  ret i32 %.0128
+  %.0103 = phi i32 [ %140, %.thread ], [ 0, %24 ], [ 1, %14 ], [ 1, %60 ], [ 1, %75 ], [ 1, %85 ], [ 1, %90 ]
+  ret i32 %.0103
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

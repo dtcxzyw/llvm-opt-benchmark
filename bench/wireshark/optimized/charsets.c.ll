@@ -197,9 +197,9 @@ define ptr @get_8859_1_string(ptr noundef %0, ptr nocapture noundef readonly %1,
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %13
-  %.014 = phi i32 [ %15, %13 ], [ %2, %3 ]
-  %.01113 = phi ptr [ %14, %13 ], [ %1, %3 ]
-  %8 = load i8, ptr %.01113, align 1
+  %.014 = phi ptr [ %14, %13 ], [ %1, %3 ]
+  %.01113 = phi i32 [ %15, %13 ], [ %2, %3 ]
+  %8 = load i8, ptr %.014, align 1
   %9 = icmp sgt i8 %8, -1
   br i1 %9, label %10, label %11
 
@@ -213,9 +213,9 @@ define ptr @get_8859_1_string(ptr noundef %0, ptr nocapture noundef readonly %1,
   br label %13
 
 13:                                               ; preds = %11, %10
-  %14 = getelementptr i8, ptr %.01113, i64 1
-  %15 = add nsw i32 %.014, -1
-  %16 = icmp sgt i32 %.014, 1
+  %14 = getelementptr i8, ptr %.014, i64 1
+  %15 = add nsw i32 %.01113, -1
+  %16 = icmp sgt i32 %.01113, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %13, %3
@@ -288,14 +288,14 @@ define ptr @get_ucs_2_string(ptr noundef %0, ptr nocapture noundef readonly %1, 
 
 18:                                               ; preds = %11
   %19 = icmp eq i16 %16, -2
-  %spec.select = select i1 %19, i32 0, i32 %3
-  %spec.select26 = select i1 %19, i32 2, i32 0
+  %spec.select = select i1 %19, i32 2, i32 0
+  %spec.select26 = select i1 %19, i32 0, i32 %3
   br label %20
 
 20:                                               ; preds = %18, %4
-  %.024 = phi i32 [ %3, %4 ], [ %spec.select, %18 ]
-  %.0 = phi i32 [ 0, %4 ], [ %spec.select26, %18 ]
-  %21 = or disjoint i32 %.0, 1
+  %.023 = phi i32 [ 0, %4 ], [ %spec.select, %18 ]
+  %.0 = phi i32 [ %3, %4 ], [ %spec.select26, %18 ]
+  %21 = or disjoint i32 %.023, 1
   %22 = icmp slt i32 %21, %2
   br i1 %22, label %.lr.ph, label %._crit_edge
 
@@ -304,15 +304,15 @@ define ptr @get_ucs_2_string(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %23, label %.lr.ph.split.preheader, label %._crit_edge
 
 .lr.ph:                                           ; preds = %20
-  %24 = icmp sgt i32 %.024, -1
+  %24 = icmp sgt i32 %.0, -1
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.thread, %.lr.ph
-  %.134.ph = phi i32 [ 2, %.thread ], [ %.0, %.lr.ph ]
+  %.134.ph = phi i32 [ 2, %.thread ], [ %.023, %.lr.ph ]
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.134.us = phi i32 [ %32, %.lr.ph.split.us ], [ %.0, %.lr.ph ]
+  %.134.us = phi i32 [ %32, %.lr.ph.split.us ], [ %.023, %.lr.ph ]
   %25 = sext i32 %.134.us to i64
   %26 = getelementptr i8, ptr %1, i64 %25
   %.val32.us = load i8, ptr %26, align 1
@@ -341,7 +341,7 @@ define ptr @get_ucs_2_string(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %40, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %.thread, %20
-  %.1.lcssa = phi i32 [ %.0, %20 ], [ 2, %.thread ], [ %38, %.lr.ph.split ], [ %32, %.lr.ph.split.us ]
+  %.1.lcssa = phi i32 [ %.023, %20 ], [ 2, %.thread ], [ %38, %.lr.ph.split ], [ %32, %.lr.ph.split.us ]
   %41 = icmp slt i32 %.1.lcssa, %2
   br i1 %41, label %42, label %43
 
@@ -542,14 +542,14 @@ define ptr @get_ucs_4_string(ptr noundef %0, ptr nocapture noundef readonly %1, 
 
 14:                                               ; preds = %11
   %15 = icmp eq i32 %12, -131072
-  %spec.select = select i1 %15, i32 0, i32 %3
-  %spec.select26 = select i1 %15, i32 4, i32 0
+  %spec.select = select i1 %15, i32 4, i32 0
+  %spec.select26 = select i1 %15, i32 0, i32 %3
   br label %16
 
 16:                                               ; preds = %14, %4
-  %.024 = phi i32 [ %3, %4 ], [ %spec.select, %14 ]
-  %.0 = phi i32 [ 0, %4 ], [ %spec.select26, %14 ]
-  %17 = or disjoint i32 %.0, 3
+  %.023 = phi i32 [ 0, %4 ], [ %spec.select, %14 ]
+  %.0 = phi i32 [ %3, %4 ], [ %spec.select26, %14 ]
+  %17 = or disjoint i32 %.023, 3
   %18 = icmp slt i32 %17, %2
   br i1 %18, label %.lr.ph, label %._crit_edge
 
@@ -558,15 +558,15 @@ define ptr @get_ucs_4_string(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %19, label %.lr.ph.split.preheader, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
-  %20 = icmp sgt i32 %.024, -1
+  %20 = icmp sgt i32 %.0, -1
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.thread, %.lr.ph
-  %.127.ph = phi i32 [ 4, %.thread ], [ %.0, %.lr.ph ]
+  %.127.ph = phi i32 [ 4, %.thread ], [ %.023, %.lr.ph ]
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.127.us = phi i32 [ %40, %.lr.ph.split.us ], [ %.0, %.lr.ph ]
+  %.127.us = phi i32 [ %40, %.lr.ph.split.us ], [ %.023, %.lr.ph ]
   %21 = sext i32 %.127.us to i64
   %22 = getelementptr i8, ptr %1, i64 %21
   %23 = load i8, ptr %22, align 1
@@ -604,7 +604,7 @@ define ptr @get_ucs_4_string(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %48, label %.lr.ph.split, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %.thread, %16
-  %.1.lcssa = phi i32 [ %.0, %16 ], [ 4, %.thread ], [ %46, %.lr.ph.split ], [ %40, %.lr.ph.split.us ]
+  %.1.lcssa = phi i32 [ %.023, %16 ], [ 4, %.thread ], [ %46, %.lr.ph.split ], [ %40, %.lr.ph.split.us ]
   %49 = icmp slt i32 %.1.lcssa, %2
   br i1 %49, label %50, label %51
 
@@ -634,14 +634,14 @@ define ptr @get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef readon
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %.048 = phi i32 [ %.1, %32 ], [ %spec.store.select, %.lr.ph.preheader ]
   %.03347 = phi i32 [ %.2, %32 ], [ 0, %.lr.ph.preheader ]
-  %.03546 = phi i32 [ %.136, %32 ], [ 0, %.lr.ph.preheader ]
-  %.03745 = phi ptr [ %33, %32 ], [ %1, %.lr.ph.preheader ]
+  %.03546 = phi ptr [ %33, %32 ], [ %1, %.lr.ph.preheader ]
+  %.03645 = phi i32 [ %.137, %32 ], [ 0, %.lr.ph.preheader ]
   %.03844 = phi i32 [ %.240, %32 ], [ 0, %.lr.ph.preheader ]
-  %10 = load i8, ptr %.03745, align 1
+  %10 = load i8, ptr %.03546, align 1
   %11 = zext i8 %10 to i32
   %12 = lshr i32 %11, %.048
   %13 = trunc nuw i32 %12 to i8
-  %14 = icmp ne ptr %.03745, %1
+  %14 = icmp ne ptr %.03546, %1
   %15 = icmp eq i32 %.048, 7
   %or.cond = select i1 %14, i1 true, i1 %15
   br i1 %or.cond, label %16, label %24
@@ -650,7 +650,7 @@ define ptr @get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef readon
   %17 = sub i32 7, %.048
   %18 = shl i32 %11, %17
   %19 = and i32 %18, 127
-  %20 = or i32 %19, %.03546
+  %20 = or i32 %19, %.03645
   %21 = trunc nuw i32 %20 to i8
   %22 = tail call fastcc i32 @handle_ts_23_038_char(ptr noundef %7, i8 noundef zeroext %21, i32 noundef %.03347)
   %23 = add nsw i32 %.03844, 1
@@ -675,10 +675,10 @@ define ptr @get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef readon
 
 32:                                               ; preds = %27, %30
   %.240 = phi i32 [ %29, %27 ], [ %.139, %30 ]
-  %.136 = phi i32 [ 0, %27 ], [ %12, %30 ]
+  %.137 = phi i32 [ 0, %27 ], [ %12, %30 ]
   %.2 = phi i32 [ %28, %27 ], [ %.134, %30 ]
   %.1 = phi i32 [ 7, %27 ], [ %31, %30 ]
-  %33 = getelementptr i8, ptr %.03745, i64 1
+  %33 = getelementptr i8, ptr %.03546, i64 1
   %34 = icmp slt i32 %.240, %3
   br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
@@ -891,7 +891,7 @@ define ptr @get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr nocapture nou
 56:                                               ; preds = %48, %42
   %.sink65 = phi i64 [ 4, %48 ], [ 3, %42 ]
   %.sink = phi i32 [ -4, %48 ], [ -3, %42 ]
-  %.054 = phi i32 [ %55, %48 ], [ %45, %42 ]
+  %.055 = phi i32 [ %55, %48 ], [ %45, %42 ]
   %57 = getelementptr i8, ptr %1, i64 %.sink65
   %.not = icmp eq i8 %33, 0
   %58 = sub i32 0, %2
@@ -900,27 +900,27 @@ define ptr @get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr nocapture nou
   br i1 %or.cond67, label %get_ucs_2_string.exit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %56, %69
-  %.05264 = phi i32 [ %.1, %69 ], [ 0, %56 ]
-  %.05363 = phi i32 [ %70, %69 ], [ 0, %56 ]
+  %.05364 = phi i32 [ %.1, %69 ], [ 0, %56 ]
+  %.05463 = phi i32 [ %70, %69 ], [ 0, %56 ]
   %60 = load i8, ptr %57, align 1
   %61 = icmp sgt i8 %60, -1
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %.lr.ph.split
-  %63 = tail call fastcc i32 @handle_ts_23_038_char(ptr noundef %39, i8 noundef zeroext %60, i32 noundef %.05264)
+  %63 = tail call fastcc i32 @handle_ts_23_038_char(ptr noundef %39, i8 noundef zeroext %60, i32 noundef %.05364)
   br label %69
 
 64:                                               ; preds = %.lr.ph.split
   %65 = and i8 %60, 127
   %66 = zext nneg i8 %65 to i32
-  %67 = add nuw nsw i32 %.054, %66
+  %67 = add nuw nsw i32 %.055, %66
   %68 = and i32 %67, 65535
   tail call void @wmem_strbuf_append_unichar_validated(ptr noundef %39, i32 noundef %68) #6
   br label %69
 
 69:                                               ; preds = %62, %64
-  %.1 = phi i32 [ %63, %62 ], [ %.05264, %64 ]
-  %70 = add nuw nsw i32 %.05363, 1
+  %.1 = phi i32 [ %63, %62 ], [ %.05364, %64 ]
+  %70 = add nuw nsw i32 %.05463, 1
   %exitcond.not = icmp eq i32 %70, %35
   br i1 %exitcond.not, label %get_ucs_2_string.exit, label %.lr.ph.split, !llvm.loop !14
 
@@ -948,16 +948,16 @@ define ptr @get_ascii_7bits_string(ptr noundef %0, ptr noundef readonly %1, i32 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %.038 = phi i32 [ %.1, %29 ], [ %spec.store.select, %.lr.ph.preheader ]
-  %.02837 = phi i32 [ %.129, %29 ], [ 0, %.lr.ph.preheader ]
-  %.03036 = phi ptr [ %30, %29 ], [ %1, %.lr.ph.preheader ]
+  %.02837 = phi ptr [ %30, %29 ], [ %1, %.lr.ph.preheader ]
+  %.02936 = phi i32 [ %.130, %29 ], [ 0, %.lr.ph.preheader ]
   %.03135 = phi i32 [ %.2, %29 ], [ 0, %.lr.ph.preheader ]
-  %10 = load i8, ptr %.03036, align 1
+  %10 = load i8, ptr %.02837, align 1
   %11 = zext i8 %10 to i32
   %12 = add i32 %.038, -1
   %13 = shl i32 %11, %12
   %14 = and i32 %13, 127
   %15 = trunc nuw nsw i32 %14 to i8
-  %16 = icmp ne ptr %.03036, %1
+  %16 = icmp ne ptr %.02837, %1
   %17 = icmp eq i32 %.038, 7
   %or.cond = select i1 %16, i1 true, i1 %17
   br i1 %or.cond, label %18, label %24
@@ -965,7 +965,7 @@ define ptr @get_ascii_7bits_string(ptr noundef %0, ptr noundef readonly %1, i32 
 18:                                               ; preds = %.lr.ph
   %19 = sub i32 8, %.038
   %20 = lshr i32 %11, %19
-  %21 = or i32 %20, %.02837
+  %21 = or i32 %20, %.02936
   %22 = trunc nuw i32 %21 to i8
   tail call void @wmem_strbuf_append_c(ptr noundef %7, i8 noundef signext %22) #6
   %23 = add nsw i32 %.03135, 1
@@ -985,9 +985,9 @@ define ptr @get_ascii_7bits_string(ptr noundef %0, ptr noundef readonly %1, i32 
 
 29:                                               ; preds = %24, %27
   %.2 = phi i32 [ %28, %27 ], [ %.132, %24 ]
-  %.129 = phi i32 [ 0, %27 ], [ %14, %24 ]
+  %.130 = phi i32 [ 0, %27 ], [ %14, %24 ]
   %.1 = phi i32 [ 7, %27 ], [ %12, %24 ]
-  %30 = getelementptr i8, ptr %.03036, i64 1
+  %30 = getelementptr i8, ptr %.02837, i64 1
   %31 = icmp slt i32 %.2, %3
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
@@ -1107,20 +1107,20 @@ define internal fastcc ptr @get_string_enc_iconv(ptr noundef %0, ptr noundef %1,
   br label %34
 
 thread-pre-split:                                 ; preds = %34
-  %32 = add i64 %.03540, 1
+  %32 = add i64 %.0323540, 1
   %.pr = load i32, ptr %29, align 4
   %33 = icmp eq i32 %.pr, 22
   br i1 %33, label %34, label %.critedge
 
 34:                                               ; preds = %31, %thread-pre-split
-  %.03540 = phi i64 [ 1, %31 ], [ %32, %thread-pre-split ]
-  store i64 %.03540, ptr %8, align 8
+  %.0323540 = phi i64 [ 1, %31 ], [ %32, %thread-pre-split ]
+  store i64 %.0323540, ptr %8, align 8
   %35 = call i64 @g_iconv(ptr noundef %10, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7) #6
   %36 = icmp eq i64 %35, -1
   br i1 %36, label %thread-pre-split, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %34, %thread-pre-split
-  %37 = call i64 @llvm.umax.i64(i64 %.03540, i64 1)
+  %37 = call i64 @llvm.umax.i64(i64 %.0323540, i64 1)
   %38 = load ptr, ptr %5, align 8
   %39 = getelementptr i8, ptr %38, i64 %37
   store ptr %39, ptr %5, align 8
@@ -1169,9 +1169,9 @@ define ptr @get_t61_string(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   br label %9
 
 9:                                                ; preds = %.lr.ph, %55
-  %.050 = phi ptr [ %1, %.lr.ph ], [ %56, %55 ]
-  %.03649 = phi i32 [ 0, %.lr.ph ], [ %57, %55 ]
-  %10 = load i8, ptr %.050, align 1
+  %.050 = phi i32 [ 0, %.lr.ph ], [ %57, %55 ]
+  %.03649 = phi ptr [ %1, %.lr.ph ], [ %56, %55 ]
+  %10 = load i8, ptr %.03649, align 1
   %11 = zext i8 %10 to i64
   %12 = getelementptr [256 x i16], ptr @t61_tab, i64 0, i64 %11
   %13 = load i16, ptr %12, align 2
@@ -1183,7 +1183,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   br label %55
 
 15:                                               ; preds = %9
-  %16 = icmp slt i32 %.03649, %8
+  %16 = icmp slt i32 %.050, %8
   br i1 %16, label %17, label %53
 
 17:                                               ; preds = %15
@@ -1194,7 +1194,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr nocapture noundef readonly %1, i3
 
 21:                                               ; preds = %17
   %22 = and i32 %18, 15
-  %23 = getelementptr i8, ptr %.050, i64 1
+  %23 = getelementptr i8, ptr %.03649, i64 1
   %24 = load i8, ptr %23, align 1
   switch i8 %24, label %31 [
     i8 0, label %25
@@ -1245,7 +1245,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr nocapture noundef readonly %1, i3
 45:                                               ; preds = %._crit_edge51, %40, %32
   %.pre-phi58 = phi i32 [ %.pre57, %._crit_edge51 ], [ %35, %40 ], [ %35, %32 ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %.pre-phi58) #6
-  %46 = load i8, ptr %.050, align 1
+  %46 = load i8, ptr %.03649, align 1
   %47 = zext i8 %46 to i64
   %48 = getelementptr [256 x i16], ptr @t61_tab, i64 0, i64 %47
   br label %.sink.split
@@ -1259,7 +1259,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   %.sink62 = phi i16 [ %44, %40 ], [ %49, %.sink.split ]
   %51 = zext i16 %.sink62 to i32
   tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %51) #6
-  %52 = add nsw i32 %.03649, 1
+  %52 = add nsw i32 %.050, 1
   br label %55
 
 53:                                               ; preds = %17, %15
@@ -1268,10 +1268,10 @@ define ptr @get_t61_string(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   br label %55
 
 55:                                               ; preds = %14, %53, %50
-  %.137 = phi i32 [ %52, %50 ], [ %.03649, %53 ], [ %.03649, %14 ]
-  %.1 = phi ptr [ %23, %50 ], [ %.050, %53 ], [ %.050, %14 ]
-  %56 = getelementptr i8, ptr %.1, i64 1
-  %57 = add nsw i32 %.137, 1
+  %.137 = phi ptr [ %23, %50 ], [ %.03649, %53 ], [ %.03649, %14 ]
+  %.1 = phi i32 [ %52, %50 ], [ %.050, %53 ], [ %.050, %14 ]
+  %56 = getelementptr i8, ptr %.137, i64 1
+  %57 = add nsw i32 %.1, 1
   %58 = icmp slt i32 %57, %2
   br i1 %58, label %9, label %._crit_edge, !llvm.loop !19
 
@@ -1289,9 +1289,9 @@ define ptr @get_dect_standard_8bits_string(ptr noundef %0, ptr nocapture noundef
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %14
-  %.017 = phi ptr [ %15, %14 ], [ %1, %3 ]
-  %.01316 = phi i32 [ %16, %14 ], [ 0, %3 ]
-  %8 = load i8, ptr %.017, align 1
+  %.017 = phi i32 [ %16, %14 ], [ 0, %3 ]
+  %.01316 = phi ptr [ %15, %14 ], [ %1, %3 ]
+  %8 = load i8, ptr %.01316, align 1
   %or.cond = icmp slt i8 %8, 1
   br i1 %or.cond, label %14, label %9
 
@@ -1305,8 +1305,8 @@ define ptr @get_dect_standard_8bits_string(ptr noundef %0, ptr nocapture noundef
 14:                                               ; preds = %.lr.ph, %9
   %.sink = phi i32 [ %13, %9 ], [ 65533, %.lr.ph ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %.sink) #6
-  %15 = getelementptr i8, ptr %.017, i64 1
-  %16 = add nuw nsw i32 %.01316, 1
+  %15 = getelementptr i8, ptr %.01316, i64 1
+  %16 = add nuw nsw i32 %.017, 1
   %exitcond.not = icmp eq i32 %16, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 

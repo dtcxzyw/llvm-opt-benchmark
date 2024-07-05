@@ -3136,14 +3136,14 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br label %36
 
 36:                                               ; preds = %.lr.ph60, %_ZN5faiss15maxheap_reorderIfEEmmPT_Pl.exit
-  %.03858 = phi i64 [ %31, %.lr.ph60 ], [ %135, %_ZN5faiss15maxheap_reorderIfEEmmPT_Pl.exit ]
+  %.058 = phi i64 [ %31, %.lr.ph60 ], [ %135, %_ZN5faiss15maxheap_reorderIfEEmmPT_Pl.exit ]
   %37 = load ptr, ptr %4, align 8
   %38 = load i64, ptr %32, align 8
-  %39 = mul i64 %38, %.03858
+  %39 = mul i64 %38, %.058
   %40 = getelementptr inbounds float, ptr %37, i64 %39
   %41 = load ptr, ptr %6, align 8
   %42 = load i64, ptr %7, align 8
-  %43 = mul nsw i64 %42, %.03858
+  %43 = mul nsw i64 %42, %.058
   %44 = getelementptr inbounds float, ptr %41, i64 %43
   %45 = load ptr, ptr %8, align 8
   %46 = getelementptr i64, ptr %45, i64 %43
@@ -3232,15 +3232,15 @@ _ZN5faiss15maxheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit: ; preds = %.lr.ph46.i.i, %_
 
 75:                                               ; preds = %.lr.ph, %129
   %76 = phi i64 [ %72, %.lr.ph ], [ %130, %129 ]
-  %.054 = phi i64 [ 0, %.lr.ph ], [ %131, %129 ]
+  %.03854 = phi i64 [ 0, %.lr.ph ], [ %131, %129 ]
   %77 = load ptr, ptr %9, align 8
-  %78 = getelementptr inbounds float, ptr %77, i64 %.03858
+  %78 = getelementptr inbounds float, ptr %77, i64 %.058
   %79 = load float, ptr %78, align 4
   %80 = load ptr, ptr %10, align 8
-  %81 = getelementptr inbounds float, ptr %80, i64 %.054
+  %81 = getelementptr inbounds float, ptr %80, i64 %.03854
   %82 = load float, ptr %81, align 4
   %83 = fadd float %79, %82
-  %84 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %.054
+  %84 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %.03854
   %85 = load float, ptr %84, align 4
   %86 = call float @llvm.fmuladd.f32(float %85, float -2.000000e+00, float %83)
   %87 = load float, ptr %44, align 4
@@ -3294,7 +3294,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i:            ; preds = %_ZN5faiss4CMaxIflE4
   %110 = getelementptr inbounds i64, ptr %74, i64 %93
   %111 = load i64, ptr %110, align 8
   %112 = fcmp oeq float %108, %86
-  %113 = icmp slt i64 %111, %.054
+  %113 = icmp slt i64 %111, %.03854
   %114 = and i1 %112, %113
   br i1 %114, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %120
 
@@ -3304,7 +3304,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i:            ; preds = %_ZN5faiss4CMaxIflE4
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i:            ; preds = %115
   %117 = fcmp oeq float %99, %86
-  %118 = icmp slt i64 %101, %.054
+  %118 = icmp slt i64 %101, %.03854
   %119 = and i1 %117, %118
   br i1 %119, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %120
 
@@ -3327,13 +3327,13 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %127 = getelementptr inbounds float, ptr %73, i64 %.0.lcssa.i
   store float %86, ptr %127, align 4
   %128 = getelementptr inbounds i64, ptr %74, i64 %.0.lcssa.i
-  store i64 %.054, ptr %128, align 8
+  store i64 %.03854, ptr %128, align 8
   %.pre64 = load i64, ptr %2, align 8
   br label %129
 
 129:                                              ; preds = %75, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %130 = phi i64 [ %76, %75 ], [ %.pre64, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %131 = add nuw nsw i64 %.054, 1
+  %131 = add nuw nsw i64 %.03854, 1
   %132 = icmp ult i64 %131, %130
   br i1 %132, label %75, label %._crit_edge, !llvm.loop !32
 
@@ -3343,9 +3343,9 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
           to label %_ZN5faiss15maxheap_reorderIfEEmmPT_Pl.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN5faiss15maxheap_reorderIfEEmmPT_Pl.exit:       ; preds = %._crit_edge
-  %135 = add nsw i64 %.03858, 1
+  %135 = add nsw i64 %.058, 1
   %136 = load i64, ptr %13, align 8
-  %.not.not = icmp slt i64 %.03858, %136
+  %.not.not = icmp slt i64 %.058, %136
   br i1 %.not.not, label %36, label %._crit_edge61
 
 ._crit_edge61:                                    ; preds = %_ZN5faiss15maxheap_reorderIfEEmmPT_Pl.exit, %27

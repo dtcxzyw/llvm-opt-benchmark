@@ -519,7 +519,7 @@ proxy_v1_get_token_length.exit146.thread211.i:    ; preds = %141, %proxy_v1_get_
 
 166:                                              ; preds = %156, %105
   %.sink.i = phi ptr [ %12, %156 ], [ %10, %105 ]
-  %.0126.in.i = phi i32 [ %138, %156 ], [ %87, %105 ]
+  %.0127.in.i = phi i32 [ %138, %156 ], [ %87, %105 ]
   %167 = phi <2 x i32> [ <i32 3, i32 16>, %156 ], [ <i32 2, i32 4>, %105 ]
   %168 = getelementptr inbounds i8, ptr %14, i64 4
   store <2 x i32> %167, ptr %14, align 8
@@ -527,19 +527,19 @@ proxy_v1_get_token_length.exit146.thread211.i:    ; preds = %141, %proxy_v1_get_
   store ptr %.sink.i, ptr %169, align 8
   %170 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr null, ptr %170, align 8
-  %.0126.i = add nuw i32 %.0126.in.i, 1
-  %171 = sub i32 %29, %.0126.i
-  %172 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0126.i, i32 noundef %171, i8 noundef zeroext 32) #7
+  %.0127.i = add nuw i32 %.0127.in.i, 1
+  %171 = sub i32 %29, %.0127.i
+  %172 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0127.i, i32 noundef %171, i8 noundef zeroext 32) #7
   %173 = icmp eq i32 %172, -1
   br i1 %173, label %proxy_v1_get_token_length.exit148.thread.i, label %175
 
 proxy_v1_get_token_length.exit148.thread.i:       ; preds = %166
-  %174 = call ptr @proto_tree_add_expert(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull @ei_proxy_bad_format, ptr noundef %0, i32 noundef %.0126.i, i32 noundef %171) #7
+  %174 = call ptr @proto_tree_add_expert(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull @ei_proxy_bad_format, ptr noundef %0, i32 noundef %.0127.i, i32 noundef %171) #7
   br label %proxy_v1_get_token_length.exit148.thread216.i
 
 175:                                              ; preds = %166
-  %176 = sub i32 %172, %.0126.i
-  %.not222.i = icmp eq i32 %172, %.0126.i
+  %176 = sub i32 %172, %.0127.i
+  %.not222.i = icmp eq i32 %172, %.0127.i
   br i1 %.not222.i, label %proxy_v1_get_token_length.exit148.thread216.i, label %177
 
 177:                                              ; preds = %175
@@ -557,14 +557,14 @@ proxy_v1_get_token_length.exit148.thread216.i:    ; preds = %175, %proxy_v1_get_
 
 182:                                              ; preds = %177
   %183 = sext i32 %176 to i64
-  %184 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.0126.i, i64 noundef %183) #7
+  %184 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.0127.i, i64 noundef %183) #7
   %185 = getelementptr i8, ptr %8, i64 %183
   store i8 0, ptr %185, align 1
   %186 = call zeroext i1 @ws_strtou16(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %6) #7
   br i1 %186, label %190, label %187
 
 187:                                              ; preds = %182
-  %188 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull @ei_proxy_bad_format, ptr noundef %0, i32 noundef %.0126.i, i32 noundef %176, ptr noundef nonnull @.str.102) #7
+  %188 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull @ei_proxy_bad_format, ptr noundef %0, i32 noundef %.0127.i, i32 noundef %176, ptr noundef nonnull @.str.102) #7
   %189 = call i32 @tvb_captured_length(ptr noundef %0) #7
   br label %dissect_proxy_v1_header.exit
 
@@ -572,7 +572,7 @@ proxy_v1_get_token_length.exit148.thread216.i:    ; preds = %175, %proxy_v1_get_
   %191 = load i32, ptr @hf_proxy_srcport, align 4
   %192 = load i16, ptr %6, align 2
   %193 = zext i16 %192 to i32
-  %194 = call ptr @proto_tree_add_uint(ptr noundef %35, i32 noundef %191, ptr noundef %0, i32 noundef %.0126.i, i32 noundef %176, i32 noundef %193) #7
+  %194 = call ptr @proto_tree_add_uint(ptr noundef %35, i32 noundef %191, ptr noundef %0, i32 noundef %.0127.i, i32 noundef %176, i32 noundef %193) #7
   %195 = add nuw i32 %172, 1
   %196 = add i32 %29, -2
   %.neg.i = xor i32 %172, -1
@@ -685,7 +685,7 @@ copy_address_wmem.exit149.i:                      ; preds = %250, %copy_address_
   br label %dissect_proxy_v1_header.exit
 
 dissect_proxy_v1_header.exit:                     ; preds = %is_proxy_v1.exit.thread.i, %proxy_v1_get_token_length.exit.thread188.i, %proxy_v1_get_token_length.exit140.thread196.i, %75, %proxy_v1_get_token_length.exit142.thread201.i, %102, %proxy_v1_get_token_length.exit144.thread206.i, %127, %proxy_v1_get_token_length.exit146.thread211.i, %153, %159, %proxy_v1_get_token_length.exit148.thread216.i, %187, %199, %207, %210, %copy_address_wmem.exit149.i
-  %.0127.i = phi i32 [ %165, %159 ], [ %201, %199 ], [ %209, %207 ], [ %189, %187 ], [ %181, %proxy_v1_get_token_length.exit148.thread216.i ], [ %155, %153 ], [ %147, %proxy_v1_get_token_length.exit146.thread211.i ], [ %129, %127 ], [ %121, %proxy_v1_get_token_length.exit144.thread206.i ], [ %104, %102 ], [ %96, %proxy_v1_get_token_length.exit142.thread201.i ], [ %77, %75 ], [ %69, %proxy_v1_get_token_length.exit140.thread196.i ], [ %48, %proxy_v1_get_token_length.exit.thread188.i ], [ 0, %is_proxy_v1.exit.thread.i ], [ %29, %copy_address_wmem.exit149.i ], [ %29, %210 ]
+  %.0.i = phi i32 [ %165, %159 ], [ %201, %199 ], [ %209, %207 ], [ %189, %187 ], [ %181, %proxy_v1_get_token_length.exit148.thread216.i ], [ %155, %153 ], [ %147, %proxy_v1_get_token_length.exit146.thread211.i ], [ %129, %127 ], [ %121, %proxy_v1_get_token_length.exit144.thread206.i ], [ %104, %102 ], [ %96, %proxy_v1_get_token_length.exit142.thread201.i ], [ %77, %75 ], [ %69, %proxy_v1_get_token_length.exit140.thread196.i ], [ %48, %proxy_v1_get_token_length.exit.thread188.i ], [ 0, %is_proxy_v1.exit.thread.i ], [ %29, %copy_address_wmem.exit149.i ], [ %29, %210 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 107, ptr nonnull %8)
@@ -709,17 +709,17 @@ dissect_proxy_v1_header.exit:                     ; preds = %is_proxy_v1.exit.th
   br i1 %.not18, label %277, label %272
 
 272:                                              ; preds = %267
-  %273 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0127.i) #7
+  %273 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i) #7
   %.not19 = icmp eq i32 %273, 0
   br i1 %.not19, label %277, label %274
 
 274:                                              ; preds = %272
-  %275 = call fastcc i32 @dissect_proxy_proxied(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.0127.i, ptr noundef %3, ptr noundef nonnull %266)
-  %276 = add i32 %275, %.0127.i
+  %275 = call fastcc i32 @dissect_proxy_proxied(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.0.i, ptr noundef %3, ptr noundef nonnull %266)
+  %276 = add i32 %275, %.0.i
   br label %277
 
 277:                                              ; preds = %274, %272, %267, %dissect_proxy_v1_header.exit
-  %.0 = phi i32 [ %276, %274 ], [ %.0127.i, %272 ], [ %.0127.i, %267 ], [ %.0127.i, %dissect_proxy_v1_header.exit ]
+  %.0 = phi i32 [ %276, %274 ], [ %.0.i, %272 ], [ %.0.i, %267 ], [ %.0.i, %dissect_proxy_v1_header.exit ]
   ret i32 %.0
 }
 
@@ -886,25 +886,25 @@ proto_item_set_generated.exit.i:                  ; preds = %34, %31, %16
 
 102:                                              ; preds = %97, %91, %71, %51
   %.not129.i = phi i1 [ true, %97 ], [ true, %91 ], [ false, %71 ], [ false, %51 ]
-  %.0122.i = phi i32 [ %101, %97 ], [ 232, %91 ], [ 52, %71 ], [ 28, %51 ]
-  %.0.i = phi i32 [ 0, %97 ], [ 0, %91 ], [ %90, %71 ], [ %70, %51 ]
-  %103 = icmp ugt i32 %.0122.i, %49
+  %.0123.i = phi i32 [ %101, %97 ], [ 232, %91 ], [ 52, %71 ], [ 28, %51 ]
+  %.0122.i = phi i32 [ 0, %97 ], [ 0, %91 ], [ %90, %71 ], [ %70, %51 ]
+  %103 = icmp ugt i32 %.0123.i, %49
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %102
-  %105 = call ptr @proto_tree_add_expert(ptr noundef %22, ptr noundef nonnull %1, ptr noundef nonnull @ei_proxy_header_length_too_small, ptr noundef %0, i32 noundef %.0122.i, i32 noundef -1) #7
+  %105 = call ptr @proto_tree_add_expert(ptr noundef %22, ptr noundef nonnull %1, ptr noundef nonnull @ei_proxy_header_length_too_small, ptr noundef %0, i32 noundef %.0123.i, i32 noundef -1) #7
   br label %dissect_proxy_v2_header.exit
 
 106:                                              ; preds = %102
-  %107 = icmp ult i32 %.0122.i, %49
+  %107 = icmp ult i32 %.0123.i, %49
   br i1 %107, label %108, label %.thread139.i
 
 108:                                              ; preds = %106
-  %109 = call fastcc i32 @dissect_proxy_v2_tlv(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %22, i32 noundef %.0122.i, i32 noundef %49)
+  %109 = call fastcc i32 @dissect_proxy_v2_tlv(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %22, i32 noundef %.0123.i, i32 noundef %49)
   br label %.thread139.i
 
 .thread139.i:                                     ; preds = %108, %106
-  %.1.i = phi i32 [ %109, %108 ], [ %.0122.i, %106 ]
+  %.1.i = phi i32 [ %109, %108 ], [ %.0123.i, %106 ]
   br i1 %.not129.i, label %dissect_proxy_v2_header.exit, label %110
 
 110:                                              ; preds = %.thread139.i
@@ -920,7 +920,7 @@ proto_item_set_generated.exit.i:                  ; preds = %34, %31, %16
   %119 = trunc i32 %118 to i16
   %120 = load i32, ptr %11, align 4
   %121 = trunc i32 %120 to i16
-  call void @col_append_ports(ptr noundef %117, i32 noundef 25, i32 noundef %.0.i, i16 noundef zeroext %119, i16 noundef zeroext %121) #7
+  call void @col_append_ports(ptr noundef %117, i32 noundef 25, i32 noundef %.0122.i, i16 noundef zeroext %119, i16 noundef zeroext %121) #7
   %122 = call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #7
   %123 = load i32, ptr @proto_proxy, align 4
   %124 = call ptr @conversation_get_proto_data(ptr noundef nonnull %122, i32 noundef %123) #7
@@ -1005,7 +1005,7 @@ copy_address_wmem.exit131.i:                      ; preds = %156, %copy_address_
   br label %dissect_proxy_v2_header.exit
 
 dissect_proxy_v2_header.exit:                     ; preds = %4, %is_proxy_v2.exit.i, %96, %104, %.thread139.i, %110, %126, %copy_address_wmem.exit131.i
-  %.0123.i = phi i32 [ %.0122.i, %104 ], [ 0, %is_proxy_v2.exit.i ], [ %.1.i, %110 ], [ %.1.i, %126 ], [ %.1.i, %copy_address_wmem.exit131.i ], [ %.1.i, %.thread139.i ], [ 0, %4 ], [ 16, %96 ]
+  %.0.i = phi i32 [ %.0123.i, %104 ], [ 0, %is_proxy_v2.exit.i ], [ %.1.i, %110 ], [ %.1.i, %126 ], [ %.1.i, %copy_address_wmem.exit131.i ], [ %.1.i, %.thread139.i ], [ 0, %4 ], [ 16, %96 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -1027,17 +1027,17 @@ dissect_proxy_v2_header.exit:                     ; preds = %4, %is_proxy_v2.exi
   br i1 %.not18, label %185, label %180
 
 180:                                              ; preds = %175
-  %181 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0123.i) #7
+  %181 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i) #7
   %.not19 = icmp eq i32 %181, 0
   br i1 %.not19, label %185, label %182
 
 182:                                              ; preds = %180
-  %183 = call fastcc i32 @dissect_proxy_proxied(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.0123.i, ptr noundef %3, ptr noundef nonnull %174)
-  %184 = add i32 %183, %.0123.i
+  %183 = call fastcc i32 @dissect_proxy_proxied(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.0.i, ptr noundef %3, ptr noundef nonnull %174)
+  %184 = add i32 %183, %.0.i
   br label %185
 
 185:                                              ; preds = %182, %180, %175, %dissect_proxy_v2_header.exit
-  %.0 = phi i32 [ %184, %182 ], [ %.0123.i, %180 ], [ %.0123.i, %175 ], [ %.0123.i, %dissect_proxy_v2_header.exit ]
+  %.0 = phi i32 [ %184, %182 ], [ %.0.i, %180 ], [ %.0.i, %175 ], [ %.0.i, %dissect_proxy_v2_header.exit ]
   ret i32 %.0
 }
 
@@ -1250,10 +1250,10 @@ addresses_equal.exit:                             ; preds = %37, %29, %21, %44
   br label %79
 
 79:                                               ; preds = %50, %addresses_equal.exit, %15
-  %.056 = phi i32 [ %17, %15 ], [ %62, %50 ], [ %76, %addresses_equal.exit ]
-  %.055 = phi i32 [ %19, %15 ], [ %64, %50 ], [ %78, %addresses_equal.exit ]
-  %.0.in = phi ptr [ %20, %15 ], [ %52, %50 ], [ %66, %addresses_equal.exit ]
-  %.0 = load i32, ptr %.0.in, align 8
+  %.056 = phi i32 [ %19, %15 ], [ %64, %50 ], [ %78, %addresses_equal.exit ]
+  %.055.in = phi ptr [ %20, %15 ], [ %52, %50 ], [ %66, %addresses_equal.exit ]
+  %.0 = phi i32 [ %17, %15 ], [ %62, %50 ], [ %76, %addresses_equal.exit ]
+  %.055 = load i32, ptr %.055.in, align 8
   %80 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %3) #7
   %81 = getelementptr inbounds i8, ptr %1, i64 328
   %82 = load i16, ptr %81, align 8
@@ -1266,18 +1266,18 @@ addresses_equal.exit:                             ; preds = %37, %29, %21, %44
   br label %85
 
 85:                                               ; preds = %83, %79
-  switch i32 %.0, label %90 [
+  switch i32 %.055, label %90 [
     i32 2, label %86
     i32 3, label %89
   ]
 
 86:                                               ; preds = %85
   %87 = tail call ptr @get_tcp_conversation_data(ptr noundef nonnull %7, ptr noundef nonnull %1) #7
-  %88 = tail call i32 @decode_tcp_ports(ptr noundef %80, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.056, i32 noundef %.055, ptr noundef %87, ptr noundef %4) #7
+  %88 = tail call i32 @decode_tcp_ports(ptr noundef %80, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.0, i32 noundef %.056, ptr noundef %87, ptr noundef %4) #7
   br label %92
 
 89:                                               ; preds = %85
-  tail call void @decode_udp_ports(ptr noundef %80, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.056, i32 noundef %.055, i32 noundef -1) #7
+  tail call void @decode_udp_ports(ptr noundef %80, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.0, i32 noundef %.056, i32 noundef -1) #7
   br label %92
 
 90:                                               ; preds = %85

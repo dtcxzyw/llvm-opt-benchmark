@@ -121,23 +121,23 @@ gz_skip.exit.thread:                              ; preds = %42, %48, %18, %15
   br label %59
 
 59:                                               ; preds = %113, %gz_skip.exit.thread
-  %.046 = phi ptr [ %1, %gz_skip.exit.thread ], [ %.147, %113 ]
-  %.044 = phi i32 [ %2, %gz_skip.exit.thread ], [ %.145, %113 ]
-  %.0 = phi i32 [ 0, %gz_skip.exit.thread ], [ %.1, %113 ]
+  %.047 = phi i32 [ %2, %gz_skip.exit.thread ], [ %.148, %113 ]
+  %.045 = phi i32 [ 0, %gz_skip.exit.thread ], [ %.146, %113 ]
+  %.044 = phi ptr [ %1, %gz_skip.exit.thread ], [ %.1, %113 ]
   %60 = load i32, ptr %49, align 8
   %.not55 = icmp eq i32 %60, 0
   br i1 %.not55, label %68, label %61
 
 61:                                               ; preds = %59
-  %.044. = tail call i32 @llvm.umin.i32(i32 %60, i32 %.044)
+  %.047. = tail call i32 @llvm.umin.i32(i32 %60, i32 %.047)
   %62 = load ptr, ptr %50, align 8
-  %63 = zext i32 %.044. to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.046, ptr align 1 %62, i64 %63, i1 false)
+  %63 = zext i32 %.047. to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.044, ptr align 1 %62, i64 %63, i1 false)
   %64 = load ptr, ptr %50, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 %63
   store ptr %65, ptr %50, align 8
   %66 = load i32, ptr %49, align 8
-  %67 = sub i32 %66, %.044.
+  %67 = sub i32 %66, %.047.
   store i32 %67, ptr %49, align 8
   br label %gz_load.exit.thread
 
@@ -159,7 +159,7 @@ gz_skip.exit.thread:                              ; preds = %42, %48, %18, %15
 76:                                               ; preds = %73
   %77 = load i32, ptr %54, align 8
   %78 = shl i32 %77, 1
-  %79 = icmp ult i32 %.044, %78
+  %79 = icmp ult i32 %.047, %78
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %76, %73
@@ -175,8 +175,8 @@ gz_skip.exit.thread:                              ; preds = %42, %48, %18, %15
   %.061 = phi i32 [ %94, %93 ], [ 0, %83 ]
   %85 = load i32, ptr %57, align 4
   %86 = zext i32 %.061 to i64
-  %87 = getelementptr inbounds i8, ptr %.046, i64 %86
-  %88 = sub i32 %.044, %.061
+  %87 = getelementptr inbounds i8, ptr %.044, i64 %86
+  %88 = sub i32 %.047, %.061
   %89 = zext i32 %88 to i64
   %90 = tail call i64 @read(i32 noundef %85, ptr noundef %87, i64 noundef %89) #11
   %91 = trunc i64 %90 to i32
@@ -185,7 +185,7 @@ gz_skip.exit.thread:                              ; preds = %42, %48, %18, %15
 
 93:                                               ; preds = %.preheader
   %94 = add i32 %.061, %91
-  %95 = icmp ult i32 %94, %.044
+  %95 = icmp ult i32 %94, %.047
   br i1 %95, label %.preheader, label %gz_load.exit.thread, !llvm.loop !6
 
 96:                                               ; preds = %.preheader
@@ -204,8 +204,8 @@ gz_load.exit:                                     ; preds = %96
   br label %gz_skip.exit
 
 102:                                              ; preds = %83
-  store i32 %.044, ptr %55, align 8
-  store ptr %.046, ptr %56, align 8
+  store i32 %.047, ptr %55, align 8
+  store ptr %.044, ptr %56, align 8
   %103 = tail call fastcc i32 @gz_decomp(ptr noundef nonnull %0)
   %104 = icmp eq i32 %103, -1
   br i1 %104, label %gz_skip.exit, label %105
@@ -216,26 +216,26 @@ gz_load.exit:                                     ; preds = %96
   br label %gz_load.exit.thread
 
 gz_load.exit.thread:                              ; preds = %93, %98, %105, %61
-  %.2 = phi i32 [ %106, %105 ], [ %.044., %61 ], [ %.061, %98 ], [ %94, %93 ]
-  %107 = sub i32 %.044, %.2
+  %.2 = phi i32 [ %106, %105 ], [ %.047., %61 ], [ %.061, %98 ], [ %94, %93 ]
+  %107 = sub i32 %.047, %.2
   %108 = zext i32 %.2 to i64
-  %109 = getelementptr inbounds i8, ptr %.046, i64 %108
-  %110 = add i32 %.2, %.0
+  %109 = getelementptr inbounds i8, ptr %.044, i64 %108
+  %110 = add i32 %.2, %.045
   %111 = load i64, ptr %58, align 8
   %112 = add nsw i64 %111, %108
   store i64 %112, ptr %58, align 8
   br label %113
 
 113:                                              ; preds = %80, %gz_load.exit.thread
-  %.147 = phi ptr [ %109, %gz_load.exit.thread ], [ %.046, %80 ]
-  %.145 = phi i32 [ %107, %gz_load.exit.thread ], [ %.044, %80 ]
-  %.1 = phi i32 [ %110, %gz_load.exit.thread ], [ %.0, %80 ]
-  %.not57 = icmp eq i32 %.145, 0
+  %.148 = phi i32 [ %107, %gz_load.exit.thread ], [ %.047, %80 ]
+  %.146 = phi i32 [ %110, %gz_load.exit.thread ], [ %.045, %80 ]
+  %.1 = phi ptr [ %109, %gz_load.exit.thread ], [ %.044, %80 ]
+  %.not57 = icmp eq i32 %.148, 0
   br i1 %.not57, label %gz_skip.exit, label %59, !llvm.loop !7
 
 gz_skip.exit:                                     ; preds = %45, %113, %70, %102, %80, %gz_load.exit, %13, %5, %7, %3, %12
-  %.048 = phi i32 [ -1, %12 ], [ -1, %3 ], [ -1, %7 ], [ -1, %5 ], [ 0, %13 ], [ -1, %gz_load.exit ], [ %.0, %70 ], [ %.1, %113 ], [ -1, %102 ], [ -1, %80 ], [ -1, %45 ]
-  ret i32 %.048
+  %.0 = phi i32 [ -1, %12 ], [ -1, %3 ], [ -1, %7 ], [ -1, %5 ], [ 0, %13 ], [ -1, %gz_load.exit ], [ %.045, %70 ], [ %.146, %113 ], [ -1, %102 ], [ -1, %80 ], [ -1, %45 ]
+  ret i32 %.0
 }
 
 declare hidden void @gz_error(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -849,8 +849,8 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %15, %12
 
 50:                                               ; preds = %.preheader, %61
   %51 = phi i32 [ %73, %61 ], [ %.pre, %.preheader ]
-  %.049 = phi ptr [ %79, %61 ], [ %1, %.preheader ]
-  %.047 = phi i32 [ %78, %61 ], [ %46, %.preheader ]
+  %.048 = phi i32 [ %78, %61 ], [ %46, %.preheader ]
+  %.047 = phi ptr [ %79, %61 ], [ %1, %.preheader ]
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %61
 
@@ -865,14 +865,14 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %15, %12
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56
-  %60 = icmp eq ptr %.049, %1
+  %60 = icmp eq ptr %.047, %1
   br i1 %60, label %gz_skip.exit, label %.loopexit
 
 61:                                               ; preds = %56, %50
   %62 = phi i32 [ %57, %56 ], [ %51, %50 ]
-  %.047. = tail call i32 @llvm.umin.i32(i32 %62, i32 %.047)
+  %.048. = tail call i32 @llvm.umin.i32(i32 %62, i32 %.048)
   %63 = load ptr, ptr %48, align 8
-  %64 = zext i32 %.047. to i64
+  %64 = zext i32 %.048. to i64
   %65 = tail call ptr @memchr(ptr noundef %63, i32 noundef 10, i64 noundef %64) #13
   %.not60 = icmp eq ptr %65, null
   %66 = ptrtoint ptr %65 to i64
@@ -880,11 +880,11 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %15, %12
   %68 = sub i64 %66, %67
   %69 = trunc i64 %68 to i32
   %70 = add i32 %69, 1
-  %.0 = select i1 %.not60, i32 %.047., i32 %70
-  %71 = zext i32 %.0 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.049, ptr align 1 %63, i64 %71, i1 false)
+  %.049 = select i1 %.not60, i32 %.048., i32 %70
+  %71 = zext i32 %.049 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.047, ptr align 1 %63, i64 %71, i1 false)
   %72 = load i32, ptr %47, align 8
-  %73 = sub i32 %72, %.0
+  %73 = sub i32 %72, %.049
   store i32 %73, ptr %47, align 8
   %74 = load ptr, ptr %48, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 %71
@@ -892,20 +892,20 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %15, %12
   %76 = load i64, ptr %49, align 8
   %77 = add nsw i64 %76, %71
   store i64 %77, ptr %49, align 8
-  %78 = sub i32 %.047, %.0
-  %79 = getelementptr inbounds i8, ptr %.049, i64 %71
+  %78 = sub i32 %.048, %.049
+  %79 = getelementptr inbounds i8, ptr %.047, i64 %71
   %80 = icmp ne i32 %78, 0
   %81 = and i1 %.not60, %80
   br i1 %81, label %50, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %61, %59, %gz_skip.exit.thread
-  %.1 = phi ptr [ %.049, %59 ], [ %1, %gz_skip.exit.thread ], [ %79, %61 ]
+  %.1 = phi ptr [ %.047, %59 ], [ %1, %gz_skip.exit.thread ], [ %79, %61 ]
   store i8 0, ptr %.1, align 1
   br label %gz_skip.exit
 
 gz_skip.exit:                                     ; preds = %42, %53, %59, %7, %9, %3, %.loopexit
-  %.048 = phi ptr [ %1, %.loopexit ], [ null, %3 ], [ null, %9 ], [ null, %7 ], [ null, %59 ], [ null, %53 ], [ null, %42 ]
-  ret ptr %.048
+  %.0 = phi ptr [ %1, %.loopexit ], [ null, %3 ], [ null, %9 ], [ null, %7 ], [ null, %59 ], [ null, %53 ], [ null, %42 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

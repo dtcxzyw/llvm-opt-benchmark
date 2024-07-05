@@ -671,7 +671,7 @@ for.body:                                         ; preds = %for.end65
 if.then31:                                        ; preds = %for.body.preheader, %for.body
   %11 = phi ptr [ %10, %for.body ], [ %7, %for.body.preheader ]
   %arrayidx28140 = phi ptr [ %arrayidx28, %for.body ], [ %arrayidx28135, %for.body.preheader ]
-  %script_flags.077139 = phi i64 [ %script_flags.1.lcssa, %for.body ], [ 0, %for.body.preheader ]
+  %script_flags.078139 = phi i64 [ %script_flags.1.lcssa, %for.body ], [ 0, %for.body.preheader ]
   %indvars.iv91138 = phi i64 [ %indvars.iv.next92, %for.body ], [ 1, %for.body.preheader ]
   call void @sdsrange(ptr noundef %11, i64 noundef 6, i64 noundef -1) #17
   %12 = load ptr, ptr %arrayidx28140, align 8
@@ -734,7 +734,7 @@ for.cond43.preheader.preheader:                   ; preds = %for.cond43.preheade
 
 for.cond43.preheader:                             ; preds = %for.cond43.preheader.preheader, %if.end62
   %indvars.iv = phi i64 [ 0, %for.cond43.preheader.preheader ], [ %indvars.iv.next, %if.end62 ]
-  %script_flags.165 = phi i64 [ %script_flags.077139, %for.cond43.preheader.preheader ], [ %or, %if.end62 ]
+  %script_flags.165 = phi i64 [ %script_flags.078139, %for.cond43.preheader.preheader ], [ %or, %if.end62 ]
   %arrayidx47 = getelementptr inbounds ptr, ptr %call39, i64 %indvars.iv
   %21 = load ptr, ptr %arrayidx47, align 8
   %call48132 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %20) #16
@@ -788,7 +788,7 @@ if.end62:                                         ; preds = %for.body45, %for.co
   br i1 %exitcond.not, label %for.end65, label %for.cond43.preheader, !llvm.loop !10
 
 for.end65:                                        ; preds = %if.end62, %sdslen.exit
-  %script_flags.1.lcssa = phi i64 [ %script_flags.077139, %sdslen.exit ], [ %or, %if.end62 ]
+  %script_flags.1.lcssa = phi i64 [ %script_flags.078139, %sdslen.exit ], [ %or, %if.end62 ]
   call void @sdsfreesplitres(ptr noundef %call39, i32 noundef %18) #17
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91138, 1
   %28 = load i32, ptr %numparts, align 4
@@ -822,8 +822,8 @@ for.end76:                                        ; preds = %for.end65, %for.con
   br label %if.end77
 
 if.end77:                                         ; preds = %entry, %for.end76, %entry.tail
-  %shebang_len.0 = phi i64 [ 0, %entry.tail ], [ %sub.ptr.sub, %for.end76 ], [ 0, %entry ]
   %script_flags.2 = phi i64 [ 16, %entry.tail ], [ %script_flags.0.lcssa, %for.end76 ], [ 16, %entry ]
+  %shebang_len.0 = phi i64 [ 0, %entry.tail ], [ %sub.ptr.sub, %for.end76 ], [ 0, %entry ]
   %tobool78.not = icmp eq ptr %out_shebang_len, null
   br i1 %tobool78.not, label %if.end80, label %if.then79
 
@@ -3013,8 +3013,8 @@ protoerr.loopexit:                                ; preds = %while.body, %if.end
   br label %protoerr
 
 protoerr:                                         ; preds = %protoerr.loopexit, %if.end8, %if.end
-  %argv.0 = phi ptr [ null, %if.end8 ], [ null, %if.end ], [ %call15, %protoerr.loopexit ]
   %argc.1 = phi i32 [ 0, %if.end8 ], [ 0, %if.end ], [ %19, %protoerr.loopexit ]
+  %argv.0 = phi ptr [ null, %if.end8 ], [ null, %if.end ], [ %call15, %protoerr.loopexit ]
   store ptr @.str.69, ptr %err, align 8
   br label %keep_reading
 
@@ -3023,8 +3023,8 @@ keep_reading.loopexit:                            ; preds = %if.end27, %sdslen.e
   br label %keep_reading
 
 keep_reading:                                     ; preds = %keep_reading.loopexit, %if.end4, %protoerr
-  %argv.1 = phi ptr [ %argv.0, %protoerr ], [ null, %if.end4 ], [ %call15, %keep_reading.loopexit ]
   %argc.2 = phi i32 [ %argc.1, %protoerr ], [ 0, %if.end4 ], [ %20, %keep_reading.loopexit ]
+  %argv.1 = phi ptr [ %argv.0, %protoerr ], [ null, %if.end4 ], [ %call15, %keep_reading.loopexit ]
   tail call void @sdsfreesplitres(ptr noundef %argv.1, i32 noundef %argc.2) #17
   br label %return.sink.split
 

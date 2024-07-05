@@ -23,14 +23,14 @@ define range(i32 -1, 1) i32 @mca_sharedfp_base_find_available(i1 noundef zeroext
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %31
-  %.020 = phi ptr [ %7, %31 ], [ %3, %2 ]
-  %.not17 = icmp eq ptr %.020, null
+  %.01520 = phi ptr [ %7, %31 ], [ %3, %2 ]
+  %.not17 = icmp eq ptr %.01520, null
   br i1 %.not17, label %.split16, label %.split
 
 .split:                                           ; preds = %.lr.ph
-  %4 = getelementptr inbounds i8, ptr %.020, i64 16
+  %4 = getelementptr inbounds i8, ptr %.01520, i64 16
   %5 = load volatile ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %.020, i64 40
+  %6 = getelementptr inbounds i8, ptr %.01520, i64 40
   br label %.split16
 
 .split16:                                         ; preds = %.lr.ph, %.split
@@ -44,7 +44,7 @@ define range(i32 -1, 1) i32 @mca_sharedfp_base_find_available(i1 noundef zeroext
 10:                                               ; preds = %.split16
   %11 = load ptr, ptr %.sink21, align 8
   tail call void @mca_base_component_repository_release(ptr noundef %11) #3
-  %12 = getelementptr inbounds i8, ptr %.020, i64 8
+  %12 = getelementptr inbounds i8, ptr %.01520, i64 8
   %13 = load i8, ptr @opal_uses_threads, align 1
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %18
@@ -67,7 +67,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %15, %18
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %opal_thread_add_fetch_32.exit
-  %24 = load ptr, ptr %.020, align 8
+  %24 = load ptr, ptr %.01520, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
@@ -77,14 +77,14 @@ opal_thread_add_fetch_32.exit:                    ; preds = %15, %18
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i
   %28 = phi ptr [ %30, %.lr.ph.i ], [ %27, %23 ]
   %.07.i = phi ptr [ %29, %.lr.ph.i ], [ %26, %23 ]
-  tail call void %28(ptr noundef nonnull %.020) #3
+  tail call void %28(ptr noundef nonnull %.01520) #3
   %29 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %23
-  tail call void @free(ptr noundef %.020) #3
+  tail call void @free(ptr noundef %.01520) #3
   br label %31
 
 31:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %.split16
@@ -107,8 +107,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %23
   br label %39
 
 39:                                               ; preds = %._crit_edge, %37, %34
-  %.015 = phi i32 [ -1, %34 ], [ -1, %37 ], [ 0, %._crit_edge ]
-  ret i32 %.015
+  %.0 = phi i32 [ -1, %34 ], [ -1, %37 ], [ 0, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

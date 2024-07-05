@@ -650,14 +650,14 @@ define internal fastcc void @dissect_icep_request_common(ptr noundef %0, i32 nou
   %19 = getelementptr inbounds i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_append_str(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.137) #3
-  br label %dissect_ice_params.exit.thread77
+  br label %dissect_ice_params.exit.thread78
 
 21:                                               ; preds = %6
   %22 = load i32, ptr @hf_icep_id_name, align 4
   call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %22, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %23 = load i32, ptr %13, align 4
   %24 = icmp eq i32 %23, -1
-  br i1 %24, label %dissect_ice_params.exit.thread77, label %25
+  br i1 %24, label %dissect_ice_params.exit.thread78, label %25
 
 25:                                               ; preds = %21
   %26 = add i32 %23, %1
@@ -668,7 +668,7 @@ define internal fastcc void @dissect_icep_request_common(ptr noundef %0, i32 nou
   call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %29, ptr noundef %0, i32 noundef %26, ptr noundef nonnull %13, ptr noundef null)
   %30 = load i32, ptr %13, align 4
   %31 = icmp eq i32 %30, -1
-  br i1 %31, label %dissect_ice_params.exit.thread77, label %32
+  br i1 %31, label %dissect_ice_params.exit.thread78, label %32
 
 32:                                               ; preds = %25
   %33 = add i32 %30, %26
@@ -685,11 +685,11 @@ define internal fastcc void @dissect_icep_request_common(ptr noundef %0, i32 nou
   %39 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %33) #3
   store i32 1, ptr %13, align 4
   switch i8 %39, label %dissect_ice_facet.exit.thread.sink.split [
-    i8 0, label %dissect_ice_facet.exit.thread69
+    i8 0, label %dissect_ice_facet.exit.thread70
     i8 1, label %41
   ]
 
-dissect_ice_facet.exit.thread69:                  ; preds = %38
+dissect_ice_facet.exit.thread70:                  ; preds = %38
   %40 = call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %36, ptr noundef %0, i32 noundef %33, i32 noundef 1, ptr noundef nonnull @.str.150) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   br label %50
@@ -713,17 +713,17 @@ dissect_ice_facet.exit.thread.sink.split:         ; preds = %38, %32
 
 dissect_ice_facet.exit.thread:                    ; preds = %dissect_ice_facet.exit.thread.sink.split, %41
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  br label %dissect_ice_params.exit.thread77
+  br label %dissect_ice_params.exit.thread78
 
 dissect_ice_facet.exit:                           ; preds = %41
   %48 = add nuw i32 %43, 1
   store i32 %48, ptr %13, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %49 = icmp eq i32 %48, -1
-  br i1 %49, label %dissect_ice_params.exit.thread77, label %50
+  br i1 %49, label %dissect_ice_params.exit.thread78, label %50
 
-50:                                               ; preds = %dissect_ice_facet.exit.thread69, %dissect_ice_facet.exit
-  %51 = phi i32 [ 1, %dissect_ice_facet.exit.thread69 ], [ %48, %dissect_ice_facet.exit ]
+50:                                               ; preds = %dissect_ice_facet.exit.thread70, %dissect_ice_facet.exit
+  %51 = phi i32 [ 1, %dissect_ice_facet.exit.thread70 ], [ %48, %dissect_ice_facet.exit ]
   %52 = add i32 %51, %33
   %53 = load i32, ptr %5, align 4
   %54 = add i32 %53, %51
@@ -732,7 +732,7 @@ dissect_ice_facet.exit:                           ; preds = %41
   call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %55, ptr noundef %0, i32 noundef %52, ptr noundef nonnull %13, ptr noundef nonnull %15)
   %56 = load i32, ptr %13, align 4
   %57 = icmp eq i32 %56, -1
-  br i1 %57, label %dissect_ice_params.exit.thread77, label %58
+  br i1 %57, label %dissect_ice_params.exit.thread78, label %58
 
 58:                                               ; preds = %50
   %59 = add i32 %56, %52
@@ -764,7 +764,7 @@ dissect_ice_facet.exit:                           ; preds = %41
   %73 = getelementptr inbounds i8, ptr %2, i64 8
   %74 = load ptr, ptr %73, align 8
   call void @col_append_str(ptr noundef %74, i32 noundef 25, ptr noundef nonnull @.str.142) #3
-  br label %dissect_ice_params.exit.thread77
+  br label %dissect_ice_params.exit.thread78
 
 75:                                               ; preds = %69
   %76 = load i32, ptr @hf_icep_mode, align 4
@@ -809,10 +809,10 @@ dissect_ice_facet.exit:                           ; preds = %41
 
 96:                                               ; preds = %93, %84
   %.promoted = phi i32 [ 5, %93 ], [ 1, %84 ]
-  %.052.i = phi i32 [ %95, %93 ], [ %87, %84 ]
-  %.051.i = phi i32 [ %94, %93 ], [ %86, %84 ]
+  %.052.i = phi i32 [ %94, %93 ], [ %86, %84 ]
+  %.0.i = phi i32 [ %95, %93 ], [ %87, %84 ]
   %97 = load i32, ptr @icep_max_ice_context_pairs, align 4
-  %98 = icmp ugt i32 %.051.i, %97
+  %98 = icmp ugt i32 %.052.i, %97
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %96
@@ -820,12 +820,12 @@ dissect_ice_facet.exit:                           ; preds = %41
   br label %dissect_ice_context.exit.thread.sink.split
 
 101:                                              ; preds = %96
-  %102 = icmp eq i32 %.051.i, 0
-  br i1 %102, label %dissect_ice_context.exit.thread74, label %.preheader.i
+  %102 = icmp eq i32 %.052.i, 0
+  br i1 %102, label %dissect_ice_context.exit.thread75, label %.preheader.i
 
-dissect_ice_context.exit.thread74:                ; preds = %101
+dissect_ice_context.exit.thread75:                ; preds = %101
   %103 = load i32, ptr @hf_icep_context, align 4
-  %104 = add i32 %.052.i, -1
+  %104 = add i32 %.0.i, -1
   %105 = call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %103, ptr noundef %0, i32 noundef %104, i32 noundef 1, ptr noundef nonnull @.str.150) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -836,23 +836,23 @@ dissect_ice_context.exit.thread74:                ; preds = %101
 
 .preheader.i:                                     ; preds = %101, %127
   %106 = phi i32 [ %122, %127 ], [ %.promoted, %101 ]
-  %.060.i = phi i32 [ %128, %127 ], [ 0, %101 ]
-  %.159.i = phi i32 [ %121, %127 ], [ %.052.i, %101 ]
+  %.160.i = phi i32 [ %121, %127 ], [ %.0.i, %101 ]
+  %.05159.i = phi i32 [ %128, %127 ], [ 0, %101 ]
   store i32 0, ptr %7, align 4
   store ptr null, ptr %8, align 8
   store i32 0, ptr %9, align 4
   store ptr null, ptr %10, align 8
   %107 = load i32, ptr @ett_icep_invocation_context, align 4
-  %108 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %.159.i, i32 noundef -1, i32 noundef %107, ptr noundef nonnull %11, ptr noundef nonnull @.str.43) #3
+  %108 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %.160.i, i32 noundef -1, i32 noundef %107, ptr noundef nonnull %11, ptr noundef nonnull @.str.43) #3
   %109 = load ptr, ptr %11, align 8
   %110 = load i32, ptr @hf_icep_invocation_key, align 4
-  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %108, ptr noundef %109, i32 noundef %110, ptr noundef %0, i32 noundef %.159.i, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %108, ptr noundef %109, i32 noundef %110, ptr noundef %0, i32 noundef %.160.i, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %111 = load i32, ptr %7, align 4
   %112 = icmp eq i32 %111, -1
   br i1 %112, label %dissect_ice_context.exit.thread, label %113
 
 113:                                              ; preds = %.preheader.i
-  %114 = add i32 %111, %.159.i
+  %114 = add i32 %111, %.160.i
   %115 = load ptr, ptr %11, align 8
   %116 = load i32, ptr @hf_icep_invocation_value, align 4
   call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %108, ptr noundef %115, i32 noundef %116, ptr noundef %0, i32 noundef %114, ptr noundef nonnull %9, ptr noundef nonnull %10)
@@ -875,8 +875,8 @@ dissect_ice_context.exit.thread74:                ; preds = %101
   br label %127
 
 127:                                              ; preds = %124, %119
-  %128 = add nuw i32 %.060.i, 1
-  %exitcond.not.i = icmp eq i32 %128, %.051.i
+  %128 = add nuw i32 %.05159.i, 1
+  %exitcond.not.i = icmp eq i32 %128, %.052.i
   br i1 %exitcond.not.i, label %dissect_ice_context.exit, label %.preheader.i, !llvm.loop !6
 
 dissect_ice_context.exit.thread.sink.split:       ; preds = %99, %91, %82
@@ -892,7 +892,7 @@ dissect_ice_context.exit.thread:                  ; preds = %113, %.preheader.i,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br label %dissect_ice_params.exit.thread77
+  br label %dissect_ice_params.exit.thread78
 
 dissect_ice_context.exit:                         ; preds = %127
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -901,13 +901,13 @@ dissect_ice_context.exit:                         ; preds = %127
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %131 = icmp eq i32 %122, -1
-  br i1 %131, label %dissect_ice_params.exit.thread77, label %132
+  br i1 %131, label %dissect_ice_params.exit.thread78, label %132
 
-132:                                              ; preds = %dissect_ice_context.exit.thread74, %dissect_ice_context.exit
-  %.pr76 = phi i32 [ %.promoted, %dissect_ice_context.exit.thread74 ], [ %122, %dissect_ice_context.exit ]
-  %133 = add i32 %.pr76, %78
+132:                                              ; preds = %dissect_ice_context.exit.thread75, %dissect_ice_context.exit
+  %.pr77 = phi i32 [ %.promoted, %dissect_ice_context.exit.thread75 ], [ %122, %dissect_ice_context.exit ]
+  %133 = add i32 %.pr77, %78
   %134 = load i32, ptr %5, align 4
-  %135 = add i32 %134, %.pr76
+  %135 = add i32 %134, %.pr77
   store i32 %135, ptr %5, align 4
   %136 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %133, i32 noundef 6) #3
   %.not.i68 = icmp eq i32 %136, 0
@@ -918,7 +918,7 @@ dissect_ice_context.exit:                         ; preds = %127
   %139 = getelementptr inbounds i8, ptr %2, i64 8
   %140 = load ptr, ptr %139, align 8
   call void @col_append_str(ptr noundef %140, i32 noundef 25, ptr noundef nonnull @.str.155) #3
-  br label %dissect_ice_params.exit.thread77
+  br label %dissect_ice_params.exit.thread78
 
 141:                                              ; preds = %132
   %142 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %133) #3
@@ -930,7 +930,7 @@ dissect_ice_context.exit:                         ; preds = %127
   %146 = getelementptr inbounds i8, ptr %2, i64 8
   %147 = load ptr, ptr %146, align 8
   call void @col_append_str(ptr noundef %147, i32 noundef 25, ptr noundef nonnull @.str.156) #3
-  br label %dissect_ice_params.exit.thread77
+  br label %dissect_ice_params.exit.thread78
 
 148:                                              ; preds = %141
   %.not54.i = icmp eq ptr %3, null
@@ -951,12 +951,12 @@ dissect_ice_context.exit:                         ; preds = %127
   %159 = phi i32 [ 5, %149 ], [ 0, %148 ]
   %.sink55.i = phi i32 [ 1, %149 ], [ 6, %148 ]
   %160 = add nuw nsw i32 %159, %.sink55.i
-  %.0.i = add i32 %133, 6
+  %.0.i69 = add i32 %133, 6
   %161 = icmp eq i32 %142, 6
   br i1 %161, label %dissect_ice_params.exit.thread, label %162
 
 162:                                              ; preds = %158
-  %163 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i) #3
+  %163 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i69) #3
   %164 = add nsw i32 %142, -6
   %165 = icmp slt i32 %163, %164
   br i1 %165, label %166, label %dissect_ice_params.exit
@@ -967,11 +967,11 @@ dissect_ice_context.exit:                         ; preds = %127
   %169 = getelementptr inbounds i8, ptr %2, i64 8
   %170 = load ptr, ptr %169, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %170, i32 noundef 25, ptr noundef nonnull @.str.157, i32 noundef %167) #3
-  br label %dissect_ice_params.exit.thread77
+  br label %dissect_ice_params.exit.thread78
 
 dissect_ice_params.exit:                          ; preds = %162
   %171 = load i32, ptr @hf_icep_params_encapsulated, align 4
-  %172 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %171, ptr noundef %0, i32 noundef %.0.i, i32 noundef %164, i32 noundef 0) #3
+  %172 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %171, ptr noundef %0, i32 noundef %.0.i69, i32 noundef %164, i32 noundef 0) #3
   %173 = add nuw i32 %160, %164
   br label %dissect_ice_params.exit.thread
 
@@ -979,9 +979,9 @@ dissect_ice_params.exit.thread:                   ; preds = %dissect_ice_params.
   %174 = phi i32 [ %173, %dissect_ice_params.exit ], [ %160, %158 ]
   %175 = load i32, ptr %5, align 4
   %176 = add i32 %175, %174
-  br label %dissect_ice_params.exit.thread77
+  br label %dissect_ice_params.exit.thread78
 
-dissect_ice_params.exit.thread77:                 ; preds = %137, %144, %166, %dissect_ice_context.exit.thread, %dissect_ice_facet.exit.thread, %17, %71, %21, %25, %dissect_ice_facet.exit, %50, %dissect_ice_context.exit, %dissect_ice_params.exit.thread
+dissect_ice_params.exit.thread78:                 ; preds = %137, %144, %166, %dissect_ice_context.exit.thread, %dissect_ice_facet.exit.thread, %17, %71, %21, %25, %dissect_ice_facet.exit, %50, %dissect_ice_context.exit, %dissect_ice_params.exit.thread
   %storemerge = phi i32 [ %176, %dissect_ice_params.exit.thread ], [ -1, %dissect_ice_context.exit ], [ -1, %50 ], [ -1, %dissect_ice_facet.exit ], [ -1, %25 ], [ -1, %21 ], [ -1, %71 ], [ -1, %17 ], [ -1, %dissect_ice_facet.exit.thread ], [ -1, %dissect_ice_context.exit.thread ], [ -1, %166 ], [ -1, %144 ], [ -1, %137 ]
   store i32 %storemerge, ptr %5, align 4
   ret void

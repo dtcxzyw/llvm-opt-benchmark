@@ -1496,9 +1496,9 @@ define hidden void @zim_SplFileInfo_getExtension(ptr nocapture noundef readonly 
   %58 = getelementptr inbounds i8, ptr %57, i64 1
   %.neg = xor i64 %54, -1
   %59 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %.0141 = select i1 %or.cond, ptr %58, ptr %59
   %60 = select i1 %or.cond, i64 %.neg, i64 0
-  %.0141 = add i64 %.pre145, %60
-  %.0117139 = select i1 %or.cond, ptr %58, ptr %59
+  %.0117139 = add i64 %.pre145, %60
   %61 = getelementptr inbounds i8, ptr %.0.i.ph, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, 64
@@ -1519,9 +1519,9 @@ define hidden void @zim_SplFileInfo_getExtension(ptr nocapture noundef readonly 
   br label %70
 
 70:                                               ; preds = %.thread, %52, %69, %64
-  %.0142 = phi i64 [ %.0141, %52 ], [ %.0141, %69 ], [ %.0141, %64 ], [ %51, %.thread ]
-  %.0117140 = phi ptr [ %.0117139, %52 ], [ %.0117139, %69 ], [ %.0117139, %64 ], [ %49, %.thread ]
-  %71 = call ptr @php_basename(ptr noundef nonnull %.0117140, i64 noundef %.0142, ptr noundef null, i64 noundef 0) #18
+  %.0142 = phi ptr [ %.0141, %52 ], [ %.0141, %69 ], [ %.0141, %64 ], [ %49, %.thread ]
+  %.0117140 = phi i64 [ %.0117139, %52 ], [ %.0117139, %69 ], [ %.0117139, %64 ], [ %51, %.thread ]
+  %71 = call ptr @php_basename(ptr noundef nonnull %.0142, i64 noundef %.0117140, ptr noundef null, i64 noundef 0) #18
   %72 = getelementptr inbounds i8, ptr %71, i64 24
   %73 = getelementptr inbounds i8, ptr %71, i64 16
   %74 = load i64, ptr %73, align 8
@@ -1840,9 +1840,9 @@ define hidden void @zim_SplFileInfo_getBasename(ptr nocapture noundef readonly %
   %63 = getelementptr inbounds i8, ptr %62, i64 1
   %.neg = xor i64 %59, -1
   %64 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %.050 = select i1 %or.cond, ptr %63, ptr %64
   %65 = select i1 %or.cond, i64 %.neg, i64 0
-  %.050 = add i64 %.pre54, %65
-  %.03148 = select i1 %or.cond, ptr %63, ptr %64
+  %.03148 = add i64 %.pre54, %65
   %66 = getelementptr inbounds i8, ptr %.0.i.ph, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %67, 64
@@ -1863,11 +1863,11 @@ define hidden void @zim_SplFileInfo_getBasename(ptr nocapture noundef readonly %
   br label %75
 
 75:                                               ; preds = %.thread, %57, %74, %69
-  %.051 = phi i64 [ %.050, %57 ], [ %.050, %74 ], [ %.050, %69 ], [ %56, %.thread ]
-  %.03149 = phi ptr [ %.03148, %57 ], [ %.03148, %74 ], [ %.03148, %69 ], [ %54, %.thread ]
+  %.051 = phi ptr [ %.050, %57 ], [ %.050, %74 ], [ %.050, %69 ], [ %54, %.thread ]
+  %.03149 = phi i64 [ %.03148, %57 ], [ %.03148, %74 ], [ %.03148, %69 ], [ %56, %.thread ]
   %76 = load ptr, ptr %4, align 8
   %77 = load i64, ptr %5, align 8
-  %78 = call ptr @php_basename(ptr noundef nonnull %.03149, i64 noundef %.051, ptr noundef %76, i64 noundef %77) #18
+  %78 = call ptr @php_basename(ptr noundef nonnull %.051, i64 noundef %.03149, ptr noundef %76, i64 noundef %77) #18
   store ptr %78, ptr %1, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4
@@ -7271,7 +7271,7 @@ define hidden void @zim_SplFileObject_fputcsv(ptr nocapture noundef readonly %0,
   br label %36
 
 36:                                               ; preds = %34, %27
-  %.015 = phi i8 [ %35, %34 ], [ %15, %27 ]
+  %.0 = phi i8 [ %35, %34 ], [ %15, %27 ]
   %37 = load ptr, ptr %4, align 8
   %.not22 = icmp eq ptr %37, null
   br i1 %.not22, label %45, label %38
@@ -7320,11 +7320,11 @@ define hidden void @zim_SplFileObject_fputcsv(ptr nocapture noundef readonly %0,
   br label %58
 
 58:                                               ; preds = %53, %55, %45
-  %.0 = phi i32 [ %57, %55 ], [ %19, %45 ], [ -1, %53 ]
+  %.015 = phi i32 [ %57, %55 ], [ %19, %45 ], [ -1, %53 ]
   %59 = load ptr, ptr %13, align 8
   %60 = load ptr, ptr %9, align 8
   %61 = load ptr, ptr %10, align 8
-  %62 = call i64 @php_fputcsv(ptr noundef %59, ptr noundef %60, i8 noundef signext %.015, i8 noundef signext %.014, i32 noundef %.0, ptr noundef %61) #18
+  %62 = call i64 @php_fputcsv(ptr noundef %59, ptr noundef %60, i8 noundef signext %.0, i8 noundef signext %.014, i32 noundef %.015, ptr noundef %61) #18
   %63 = icmp slt i64 %62, 0
   br i1 %63, label %64, label %66
 

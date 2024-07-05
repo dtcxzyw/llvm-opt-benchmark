@@ -218,8 +218,8 @@ if.else37.i:                                      ; preds = %if.end.i
   br label %cmath_acos_impl.exit.thread
 
 cmath_acos_impl.exit.thread:                      ; preds = %if.then11.i, %if.else37.i
-  %r.sroa.3.0.i = phi double [ %call61.i, %if.else37.i ], [ %fneg.i, %if.then11.i ]
   %r.sroa.0.0.i = phi double [ %mul.i, %if.else37.i ], [ %call14.i, %if.then11.i ]
+  %r.sroa.3.0.i = phi double [ %call61.i, %if.else37.i ], [ %fneg.i, %if.then11.i ]
   store i32 0, ptr %call2, align 4
   br label %if.else10
 
@@ -349,8 +349,8 @@ if.else.i:                                        ; preds = %if.end.i
   br label %cmath_acosh_impl.exit.thread
 
 cmath_acosh_impl.exit.thread:                     ; preds = %if.then11.i, %if.else.i
-  %r.sroa.3.0.i = phi double [ %call20.i, %if.then11.i ], [ %mul.i, %if.else.i ]
   %r.sroa.0.0.i = phi double [ %add.i, %if.then11.i ], [ %call39.i, %if.else.i ]
+  %r.sroa.3.0.i = phi double [ %call20.i, %if.then11.i ], [ %mul.i, %if.else.i ]
   store i32 0, ptr %call2, align 4
   br label %if.else10
 
@@ -911,11 +911,11 @@ land.lhs.true59:                                  ; preds = %if.else55
   br i1 %tobool61.not, label %land.lhs.true67, label %exit
 
 skip_optional_kwonly:                             ; preds = %if.then52, %if.else55, %if.end44, %if.end23
-  %rel_tol.2 = phi double [ %rel_tol.1, %if.then52 ], [ %rel_tol.1, %if.else55 ], [ %rel_tol.0, %if.end44 ], [ 1.000000e-09, %if.end23 ]
   %abs_tol.0 = phi double [ %.val27, %if.then52 ], [ %call57, %if.else55 ], [ 0.000000e+00, %if.end44 ], [ 0.000000e+00, %if.end23 ]
+  %rel_tol.2 = phi double [ %rel_tol.1, %if.then52 ], [ %rel_tol.1, %if.else55 ], [ %rel_tol.0, %if.end44 ], [ 1.000000e-09, %if.end23 ]
   %cmp.i30 = fcmp olt double %rel_tol.2, 0.000000e+00
   %cmp1.i = fcmp olt double %abs_tol.0, 0.000000e+00
-  %or.cond.i = or i1 %cmp.i30, %cmp1.i
+  %or.cond.i = or i1 %cmp1.i, %cmp.i30
   br i1 %or.cond.i, label %land.lhs.true67, label %if.end.i
 
 if.end.i:                                         ; preds = %skip_optional_kwonly

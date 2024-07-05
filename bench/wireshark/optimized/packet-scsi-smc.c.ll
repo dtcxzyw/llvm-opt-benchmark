@@ -333,41 +333,41 @@ define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr nocapture 
   br label %48
 
 48:                                               ; preds = %.lr.ph, %dissect_scsi_smc_elements.exit
-  %.096110 = phi i32 [ %43, %.lr.ph ], [ %223, %dissect_scsi_smc_elements.exit ]
-  %.097109 = phi i32 [ %46, %.lr.ph ], [ %222, %dissect_scsi_smc_elements.exit ]
-  %49 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.097109) #3
+  %.0110 = phi i32 [ %46, %.lr.ph ], [ %222, %dissect_scsi_smc_elements.exit ]
+  %.096109 = phi i32 [ %43, %.lr.ph ], [ %223, %dissect_scsi_smc_elements.exit ]
+  %49 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0110) #3
   %50 = load i32, ptr @hf_scsi_smc_element_type_code, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %50, ptr noundef %0, i32 noundef %.097109, i32 noundef 1, i32 noundef 0) #3
-  %52 = icmp eq i32 %.096110, 1
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %50, ptr noundef %0, i32 noundef %.0110, i32 noundef 1, i32 noundef 0) #3
+  %52 = icmp eq i32 %.096109, 1
   br i1 %52, label %.loopexit, label %53
 
 53:                                               ; preds = %48
-  %54 = add i32 %.097109, 1
+  %54 = add i32 %.0110, 1
   %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %54) #3
   %56 = load i32, ptr @hf_scsi_smc_pvoltag, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %56, ptr noundef %0, i32 noundef %54, i32 noundef 1, i32 noundef 0) #3
   %58 = load i32, ptr @hf_scsi_smc_avoltag, align 4
   %59 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %58, ptr noundef %0, i32 noundef %54, i32 noundef 1, i32 noundef 0) #3
-  %60 = and i32 %.096110, -2
+  %60 = and i32 %.096109, -2
   %61 = icmp eq i32 %60, 2
   br i1 %61, label %.loopexit, label %62
 
 62:                                               ; preds = %53
-  %63 = add i32 %.097109, 2
+  %63 = add i32 %.0110, 2
   %64 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %63) #3
   %65 = load i32, ptr @hf_scsi_smc_element_descriptor_length, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %65, ptr noundef %0, i32 noundef %63, i32 noundef 2, i32 noundef 0) #3
-  %67 = and i32 %.096110, -4
+  %67 = and i32 %.096109, -4
   %switch = icmp eq i32 %67, 4
   br i1 %switch, label %.loopexit, label %68
 
 68:                                               ; preds = %62
-  %69 = add i32 %.097109, 5
+  %69 = add i32 %.0110, 5
   %70 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %69) #3
   %71 = load i32, ptr @hf_scsi_smc_byte_count_of_descriptor_data_available, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %71, ptr noundef %0, i32 noundef %69, i32 noundef 3, i32 noundef 0) #3
-  %73 = add i32 %.097109, 8
-  %74 = add i32 %.096110, -8
+  %73 = add i32 %.0110, 8
+  %74 = add i32 %.096109, -8
   %spec.select = tail call i32 @llvm.umin.i32(i32 %70, i32 %74)
   %75 = zext i16 %64 to i32
   %.not24.i = icmp eq i32 %spec.select, 0

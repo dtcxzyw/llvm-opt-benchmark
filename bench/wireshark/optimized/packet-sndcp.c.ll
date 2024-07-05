@@ -247,10 +247,10 @@ define internal i32 @dissect_sndcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not160, label %.thread, label %.thread171
 
 .thread171:                                       ; preds = %32, %43
-  %.0149179 = phi i16 [ 1, %43 ], [ 2, %32 ]
-  %.0151178 = phi i8 [ 0, %43 ], [ %23, %32 ]
-  %.0152177 = phi i8 [ 0, %43 ], [ %22, %32 ]
-  %44 = zext nneg i16 %.0149179 to i32
+  %.0147179 = phi i8 [ 0, %43 ], [ %22, %32 ]
+  %.0148178 = phi i8 [ 0, %43 ], [ %23, %32 ]
+  %.0149177 = phi i16 [ 1, %43 ], [ 2, %32 ]
+  %44 = zext nneg i16 %.0149177 to i32
   %45 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %44) #2
   %46 = lshr i16 %45, 12
   %47 = and i16 %45, 4095
@@ -272,25 +272,25 @@ define internal i32 @dissect_sndcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %59
 
 59:                                               ; preds = %51, %.thread171
-  %60 = add nuw nsw i16 %.0149179, 2
+  %60 = add nuw nsw i16 %.0149177, 2
   %61 = zext nneg i16 %60 to i32
   br label %.thread
 
 .thread:                                          ; preds = %38, %33, %59, %43
   %.not160170 = phi i1 [ false, %59 ], [ true, %43 ], [ true, %33 ], [ true, %38 ]
-  %.0151169 = phi i8 [ %.0151178, %59 ], [ 0, %43 ], [ %23, %33 ], [ %23, %38 ]
-  %.0152168 = phi i8 [ %.0152177, %59 ], [ 0, %43 ], [ %22, %33 ], [ %22, %38 ]
-  %.1150 = phi i32 [ %61, %59 ], [ 1, %43 ], [ 3, %33 ], [ 3, %38 ]
-  %.1 = phi i16 [ %47, %59 ], [ 0, %43 ], [ %35, %33 ], [ %35, %38 ]
-  %.0147 = phi i32 [ %50, %59 ], [ 0, %43 ], [ 0, %33 ], [ 0, %38 ]
+  %.0147169 = phi i8 [ %.0147179, %59 ], [ 0, %43 ], [ %22, %33 ], [ %22, %38 ]
+  %.0148168 = phi i8 [ %.0148178, %59 ], [ 0, %43 ], [ %23, %33 ], [ %23, %38 ]
+  %.0152 = phi i32 [ %50, %59 ], [ 0, %43 ], [ 0, %33 ], [ 0, %38 ]
+  %.1151 = phi i16 [ %47, %59 ], [ 0, %43 ], [ %35, %33 ], [ %35, %38 ]
+  %.1 = phi i32 [ %61, %59 ], [ 1, %43 ], [ 3, %33 ], [ 3, %38 ]
   %62 = and i32 %13, 80
   %or.cond.not = icmp eq i32 %62, 64
   br i1 %or.cond.not, label %63, label %72
 
 63:                                               ; preds = %.thread
-  %64 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1150) #2
-  %65 = icmp ne i8 %.0152168, 0
-  %66 = icmp ne i8 %.0151169, 0
+  %64 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1) #2
+  %65 = icmp ne i8 %.0147169, 0
+  %66 = icmp ne i8 %.0148168, 0
   %or.cond3 = select i1 %65, i1 true, i1 %66
   br i1 %or.cond3, label %70, label %67
 
@@ -306,31 +306,31 @@ define internal i32 @dissect_sndcp(ptr noundef %0, ptr noundef %1, ptr noundef %
 72:                                               ; preds = %.thread
   %73 = getelementptr inbounds i8, ptr %1, i64 272
   %74 = load i32, ptr %73, align 8
-  %75 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1150) #2
+  %75 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #2
   %76 = icmp slt i32 %75, 1
   br i1 %76, label %107, label %77
 
 77:                                               ; preds = %72
   store i32 1, ptr %73, align 8
-  %78 = zext nneg i16 %.1 to i32
+  %78 = zext nneg i16 %.1151 to i32
   br i1 %.not160170, label %79, label %.thread181
 
 79:                                               ; preds = %77
-  %80 = tail call ptr @fragment_add(ptr noundef nonnull @npdu_reassembly_table, ptr noundef %0, i32 noundef %.1150, ptr noundef nonnull %1, i32 noundef %78, ptr noundef null, i32 noundef %.1150, i32 noundef %75, i32 noundef %15) #2
-  %81 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.1150, ptr noundef nonnull %1, ptr noundef nonnull @.str.97, ptr noundef %80, ptr noundef nonnull @npdu_frag_items, ptr noundef null, ptr noundef %11) #2
+  %80 = tail call ptr @fragment_add(ptr noundef nonnull @npdu_reassembly_table, ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %1, i32 noundef %78, ptr noundef null, i32 noundef %.1, i32 noundef %75, i32 noundef %15) #2
+  %81 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %1, ptr noundef nonnull @.str.97, ptr noundef %80, ptr noundef nonnull @npdu_frag_items, ptr noundef null, ptr noundef %11) #2
   %.not162 = icmp eq ptr %80, null
   br i1 %.not162, label %99, label %84
 
 .thread181:                                       ; preds = %77
-  %82 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @npdu_reassembly_table, ptr noundef %0, i32 noundef %.1150, ptr noundef nonnull %1, i32 noundef %78, ptr noundef null, i32 noundef %.0147, i32 noundef %75, i32 noundef %15) #2
-  %83 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.1150, ptr noundef nonnull %1, ptr noundef nonnull @.str.97, ptr noundef %82, ptr noundef nonnull @npdu_frag_items, ptr noundef null, ptr noundef %11) #2
+  %82 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @npdu_reassembly_table, ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %1, i32 noundef %78, ptr noundef null, i32 noundef %.0152, i32 noundef %75, i32 noundef %15) #2
+  %83 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %1, ptr noundef nonnull @.str.97, ptr noundef %82, ptr noundef nonnull @npdu_frag_items, ptr noundef null, ptr noundef %11) #2
   %.not162183 = icmp eq ptr %82, null
   br i1 %.not162183, label %.thread185, label %84
 
 84:                                               ; preds = %.thread181, %79
   %85 = phi ptr [ %83, %.thread181 ], [ %81, %79 ]
-  %.0184 = phi ptr [ %82, %.thread181 ], [ %80, %79 ]
-  %86 = getelementptr inbounds i8, ptr %.0184, i64 40
+  %.0145184 = phi ptr [ %82, %.thread181 ], [ %80, %79 ]
+  %86 = getelementptr inbounds i8, ptr %.0145184, i64 40
   %87 = load i32, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %1, i64 20
   %89 = load i32, ptr %88, align 4
@@ -346,12 +346,12 @@ define internal i32 @dissect_sndcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %95 = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %95, i32 noundef 25, ptr noundef nonnull @.str.98, i32 noundef %87) #2
   %96 = load i32, ptr @hf_sndcp_payload, align 4
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %96, ptr noundef %0, i32 noundef %.1150, i32 noundef -1, i32 noundef 0) #2
+  %97 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %96, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef 0) #2
   br label %104
 
 .thread185:                                       ; preds = %.thread181
   %98 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %98, i32 noundef 25, ptr noundef nonnull @.str.99, i32 noundef %.0147) #2
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %98, i32 noundef 25, ptr noundef nonnull @.str.99, i32 noundef %.0152) #2
   br label %101
 
 99:                                               ; preds = %79
@@ -361,7 +361,7 @@ define internal i32 @dissect_sndcp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 101:                                              ; preds = %99, %.thread185
   %102 = load i32, ptr @hf_sndcp_payload, align 4
-  %103 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %102, ptr noundef %0, i32 noundef %.1150, i32 noundef -1, i32 noundef 0) #2
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %102, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef 0) #2
   br label %104
 
 104:                                              ; preds = %91, %94, %101
@@ -373,8 +373,8 @@ define internal i32 @dissect_sndcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %107
 
 107:                                              ; preds = %72, %105
-  %.0146 = phi i32 [ %106, %105 ], [ %.1150, %72 ]
-  ret i32 %.0146
+  %.0 = phi i32 [ %106, %105 ], [ %.1, %72 ]
+  ret i32 %.0
 }
 
 declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #1

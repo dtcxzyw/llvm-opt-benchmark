@@ -27022,7 +27022,7 @@ _ZZN7AstNode13predicateImplIKS_Lb1EZN14SenExprBuilder12isSimpleExprEPS1_EUlS3_E_
   br i1 %84, label %.lr.ph, label %_ZZN7AstNode13predicateImplIKS_Lb1EZN14SenExprBuilder12isSimpleExprEPS1_EUlS3_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread, !llvm.loop !146
 
 _ZZN7AstNode13predicateImplIKS_Lb1EZN14SenExprBuilder12isSimpleExprEPS1_EUlS3_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread: ; preds = %_ZZN7AstNode13predicateImplIKS_Lb1EZN14SenExprBuilder12isSimpleExprEPS1_EUlS3_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT1_ENKUlS3_E_clES3_.exit29, %_ZN7AstNode9privateIsI8AstConstKPKS_EEbS3_.exit.i.i21, %_ZZN7AstNode13predicateImplIKS_Lb1EZN14SenExprBuilder12isSimpleExprEPS1_EUlS3_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT1_ENKUlS3_E_clES3_.exit, %_ZN7AstNode9privateIsI8AstConstKPKS_EEbS3_.exit.i.i, %11
-  %.011 = phi i1 [ false, %11 ], [ false, %_ZN7AstNode9privateIsI8AstConstKPKS_EEbS3_.exit.i.i ], [ true, %_ZZN7AstNode13predicateImplIKS_Lb1EZN14SenExprBuilder12isSimpleExprEPS1_EUlS3_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT1_ENKUlS3_E_clES3_.exit ], [ true, %_ZZN7AstNode13predicateImplIKS_Lb1EZN14SenExprBuilder12isSimpleExprEPS1_EUlS3_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT1_ENKUlS3_E_clES3_.exit29 ], [ false, %_ZN7AstNode9privateIsI8AstConstKPKS_EEbS3_.exit.i.i21 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %_ZN7AstNode9privateIsI8AstConstKPKS_EEbS3_.exit.i.i ], [ true, %_ZZN7AstNode13predicateImplIKS_Lb1EZN14SenExprBuilder12isSimpleExprEPS1_EUlS3_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT1_ENKUlS3_E_clES3_.exit ], [ true, %_ZZN7AstNode13predicateImplIKS_Lb1EZN14SenExprBuilder12isSimpleExprEPS1_EUlS3_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT1_ENKUlS3_E_clES3_.exit29 ], [ false, %_ZN7AstNode9privateIsI8AstConstKPKS_EEbS3_.exit.i.i21 ]
   %85 = load ptr, ptr %3, align 8
   %.not.i.i.i30 = icmp eq ptr %85, null
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIPK7AstNodeSaIS2_EED2Ev.exit31, label %86
@@ -27032,7 +27032,7 @@ _ZZN7AstNode13predicateImplIKS_Lb1EZN14SenExprBuilder12isSimpleExprEPS1_EUlS3_E_
   br label %_ZNSt6vectorIPK7AstNodeSaIS2_EED2Ev.exit31
 
 _ZNSt6vectorIPK7AstNodeSaIS2_EED2Ev.exit31:       ; preds = %_ZZN7AstNode13predicateImplIKS_Lb1EZN14SenExprBuilder12isSimpleExprEPS1_EUlS3_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread, %86
-  ret i1 %.011
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

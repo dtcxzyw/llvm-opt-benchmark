@@ -946,7 +946,7 @@ _ZNSt6vectorISt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS2_EESaIS5_
 
 .lr.ph146.split.us:                               ; preds = %.lr.ph146, %..loopexit_crit_edge.us
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %..loopexit_crit_edge.us ], [ 0, %.lr.ph146 ]
-  %.063144.us = phi i64 [ %303, %..loopexit_crit_edge.us ], [ 1, %.lr.ph146 ]
+  %.072144.us = phi i64 [ %303, %..loopexit_crit_edge.us ], [ 1, %.lr.ph146 ]
   %.not82.us = icmp eq i64 %indvars.iv164, 0
   br i1 %.not82.us, label %..loopexit_crit_edge.us, label %.lr.ph143.us
 
@@ -976,7 +976,7 @@ _ZNSt6vectorISt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS2_EESaIS5_
   br label %296
 
 288:                                              ; preds = %282
-  %289 = mul nsw i64 %284, %.063144.us
+  %289 = mul nsw i64 %284, %.072144.us
   %290 = add nsw i64 %289, %280
   store i64 %290, ptr %279, align 8
   %291 = getelementptr inbounds float, ptr %276, i64 %.0140.us
@@ -998,7 +998,7 @@ _ZNSt6vectorISt10unique_ptrIN5faiss12WorkerThreadESt14default_deleteIS2_EESaIS5_
   %300 = load ptr, ptr %299, align 8
   %301 = getelementptr inbounds i8, ptr %300, i64 16
   %302 = load i64, ptr %301, align 8
-  %303 = mul nsw i64 %302, %.063144.us
+  %303 = mul nsw i64 %302, %.072144.us
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, %83
   br i1 %exitcond167.not, label %._crit_edge147, label %.lr.ph146.split.us, !llvm.loop !17
@@ -1812,19 +1812,19 @@ define internal fastcc void @"_ZZNK5faiss17IndexSplitVectors6searchElPKflPfPlPKN
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.03342 = phi i64 [ 0, %.lr.ph.preheader ], [ %53, %.lr.ph ]
+  %.043 = phi i64 [ 0, %.lr.ph.preheader ], [ %53, %.lr.ph ]
   %48 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = sext i32 %51 to i64
-  %53 = add nsw i64 %.03342, %52
+  %53 = add nsw i64 %.043, %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %35
-  %.033.lcssa = phi i64 [ 0, %35 ], [ %53, %.lr.ph ]
+  %.0.lcssa = phi i64 [ 0, %35 ], [ %53, %.lr.ph ]
   %54 = load i64, ptr %0, align 8
   %55 = mul nsw i64 %54, %43
   %56 = icmp ugt i64 %55, 4611686018427387903
@@ -1837,18 +1837,18 @@ define internal fastcc void @"_ZZNK5faiss17IndexSplitVectors6searchElPKflPfPlPKN
 .lr.ph46:                                         ; preds = %._crit_edge
   %61 = getelementptr inbounds i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds float, ptr %62, i64 %.033.lcssa
+  %63 = getelementptr inbounds float, ptr %62, i64 %.0.lcssa
   %64 = shl nsw i64 %43, 2
   br label %65
 
 65:                                               ; preds = %.lr.ph46, %65
-  %.044 = phi i64 [ 0, %.lr.ph46 ], [ %70, %65 ]
-  %66 = mul nsw i64 %.044, %43
+  %.03344 = phi i64 [ 0, %.lr.ph46 ], [ %70, %65 ]
+  %66 = mul nsw i64 %.03344, %43
   %67 = getelementptr inbounds float, ptr %59, i64 %66
-  %68 = mul nsw i64 %.044, %46
+  %68 = mul nsw i64 %.03344, %46
   %69 = getelementptr inbounds float, ptr %63, i64 %68
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %67, ptr align 4 %69, i64 %64, i1 false)
-  %70 = add nuw nsw i64 %.044, 1
+  %70 = add nuw nsw i64 %.03344, 1
   %exitcond49.not = icmp eq i64 %70, %54
   br i1 %exitcond49.not, label %._crit_edge47, label %65, !llvm.loop !21
 

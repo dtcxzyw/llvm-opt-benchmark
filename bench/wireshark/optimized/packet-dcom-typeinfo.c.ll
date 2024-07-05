@@ -423,21 +423,21 @@ define internal i32 @dissect_ITypeInfo_GetNames_resp(ptr noundef %0, i32 noundef
 
 .lr.ph:                                           ; preds = %6, %27
   %.in = phi i32 [ %21, %27 ], [ %18, %6 ]
-  %.06065 = phi i32 [ %.1, %27 ], [ %20, %6 ]
-  %.06164 = phi i32 [ %22, %27 ], [ %17, %6 ]
+  %.065 = phi i32 [ %22, %27 ], [ %17, %6 ]
+  %.06064 = phi i32 [ %.1, %27 ], [ %20, %6 ]
   %21 = add i32 %.in, -1
-  %22 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.06164, ptr noundef %2, ptr noundef %14, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %8) #4
+  %22 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.065, ptr noundef %2, ptr noundef %14, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %8) #4
   %23 = load i32, ptr %8, align 4
   %.not62 = icmp eq i32 %23, 0
   br i1 %.not62, label %27, label %24
 
 24:                                               ; preds = %.lr.ph
   %25 = load i32, ptr @hf_typeinfo_names_value, align 4
-  %26 = call i32 @dissect_dcom_BSTR(ptr noundef %0, i32 noundef %.06065, ptr noundef %2, ptr noundef %14, ptr noundef %4, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %9, i32 noundef 1000) #4
+  %26 = call i32 @dissect_dcom_BSTR(ptr noundef %0, i32 noundef %.06064, ptr noundef %2, ptr noundef %14, ptr noundef %4, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %9, i32 noundef 1000) #4
   br label %27
 
 27:                                               ; preds = %24, %.lr.ph
-  %.1 = phi i32 [ %26, %24 ], [ %.06065, %.lr.ph ]
+  %.1 = phi i32 [ %26, %24 ], [ %.06064, %.lr.ph ]
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 

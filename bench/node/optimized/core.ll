@@ -1454,8 +1454,8 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then4.i, %if.end.i
-  %fake_watcher_list.0.i = phi ptr [ %4, %if.then4.i ], [ null, %if.end.i ]
   %fake_watcher_count.0.i = phi ptr [ %5, %if.then4.i ], [ null, %if.end.i ]
+  %fake_watcher_list.0.i = phi ptr [ %4, %if.then4.i ], [ null, %if.end.i ]
   %sub.i.i = add i32 %1, 2
   %shr.i.i = lshr i32 %sub.i.i, 1
   %or.i.i = or i32 %shr.i.i, %sub.i.i

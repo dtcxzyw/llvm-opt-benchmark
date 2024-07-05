@@ -307,30 +307,30 @@ define noundef range(i32 0, 2) i32 @_Z7usage_cv() local_unnamed_addr #0 {
   br i1 %62, label %.lr.ph94, label %._crit_edge95
 
 .lr.ph94:                                         ; preds = %.preheader, %._crit_edge
-  %.06893 = phi i64 [ %99, %._crit_edge ], [ 0, %.preheader ]
-  %63 = icmp slt i64 %.06893, %38
+  %.06593 = phi i64 [ %99, %._crit_edge ], [ 0, %.preheader ]
+  %63 = icmp slt i64 %.06593, %38
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %.lr.ph94
-  %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i64 noundef %.06893)
-  %66 = call noundef ptr %56(i64 noundef %.06893)
+  %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i64 noundef %.06593)
+  %66 = call noundef ptr %56(i64 noundef %.06593)
   br label %71
 
 67:                                               ; preds = %.lr.ph94
-  %68 = sub nsw i64 %.06893, %38
+  %68 = sub nsw i64 %.06593, %38
   %69 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i64 noundef %68)
   %70 = call noundef ptr %59(i64 noundef %68)
   br label %71
 
 71:                                               ; preds = %67, %64
-  %.067 = phi ptr [ %66, %64 ], [ %70, %67 ]
-  %72 = icmp eq ptr %.067, null
+  %.066 = phi ptr [ %66, %64 ], [ %70, %67 ]
+  %72 = icmp eq ptr %.066, null
   br i1 %72, label %.loopexit89, label %73
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %.067, i64 8
-  %75 = load i64, ptr %.067, align 8
-  %76 = getelementptr inbounds i8, ptr %.067, i64 16
+  %74 = getelementptr inbounds i8, ptr %.066, i64 8
+  %75 = load i64, ptr %.066, align 8
+  %76 = getelementptr inbounds i8, ptr %.066, i64 16
   %77 = load i64, ptr %74, align 8
   %78 = getelementptr inbounds i64, ptr %76, i64 %77
   %79 = getelementptr inbounds i8, ptr %78, i64 8
@@ -351,16 +351,16 @@ define noundef range(i32 0, 2) i32 @_Z7usage_cv() local_unnamed_addr #0 {
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.loopexit
   %85 = phi i64 [ %84, %.loopexit ], [ %.pre, %.lr.ph92.preheader ]
-  %.06691 = phi i64 [ %86, %.loopexit ], [ 0, %.lr.ph92.preheader ]
-  %86 = add nuw nsw i64 %.06691, 1
+  %.06791 = phi i64 [ %86, %.loopexit ], [ 0, %.lr.ph92.preheader ]
+  %86 = add nuw nsw i64 %.06791, 1
   %87 = getelementptr inbounds i64, ptr %76, i64 %86
   %88 = load i64, ptr %87, align 8
   %89 = icmp slt i64 %85, %88
   br i1 %89, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph92, %92
-  %.06590 = phi i64 [ %96, %92 ], [ %85, %.lr.ph92 ]
-  %.not88 = icmp eq i64 %.06590, 0
+  %.06890 = phi i64 [ %96, %92 ], [ %85, %.lr.ph92 ]
+  %.not88 = icmp eq i64 %.06890, 0
   br i1 %.not88, label %92, label %90
 
 90:                                               ; preds = %.lr.ph
@@ -368,17 +368,17 @@ define noundef range(i32 0, 2) i32 @_Z7usage_cv() local_unnamed_addr #0 {
   br label %92
 
 92:                                               ; preds = %90, %.lr.ph
-  %93 = getelementptr inbounds i64, ptr %79, i64 %.06590
+  %93 = getelementptr inbounds i64, ptr %79, i64 %.06890
   %94 = load i64, ptr %93, align 8
-  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i64 noundef %94, i64 noundef %.06691)
-  %96 = add nsw i64 %.06590, 1
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i64 noundef %94, i64 noundef %.06791)
+  %96 = add nsw i64 %.06890, 1
   %97 = load i64, ptr %87, align 8
   %98 = icmp slt i64 %96, %97
   br i1 %98, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.loopexit, %73
   %puts87 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %99 = add nuw nsw i64 %.06893, 1
+  %99 = add nuw nsw i64 %.06593, 1
   %exitcond96.not = icmp eq i64 %99, %61
   br i1 %exitcond96.not, label %._crit_edge95, label %.lr.ph94, !llvm.loop !7
 

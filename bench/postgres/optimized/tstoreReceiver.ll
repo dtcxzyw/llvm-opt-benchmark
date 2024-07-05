@@ -250,7 +250,7 @@ slot_getallattrs.exit:                            ; preds = %2, %10
 
 17:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %.03436 = phi i32 [ 0, %.lr.ph ], [ %.135, %45 ]
+  %.037 = phi i32 [ 0, %.lr.ph ], [ %.1, %45 ]
   %18 = load ptr, ptr %12, align 8
   %19 = getelementptr i64, ptr %18, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
@@ -283,24 +283,24 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   %39 = tail call ptr @detoast_external_attr(ptr noundef nonnull %35) #4
   %40 = ptrtoint ptr %39 to i64
   %41 = load ptr, ptr %15, align 8
-  %42 = add i32 %.03436, 1
-  %43 = sext i32 %.03436 to i64
+  %42 = add i32 %.037, 1
+  %43 = sext i32 %.037 to i64
   %44 = getelementptr i64, ptr %41, i64 %43
   store i64 %40, ptr %44, align 8
   br label %45
 
 45:                                               ; preds = %34, %38, %29, %25, %17
-  %.135 = phi i32 [ %.03436, %17 ], [ %.03436, %29 ], [ %42, %38 ], [ %.03436, %34 ], [ %.03436, %25 ]
-  %.0 = phi i64 [ %20, %17 ], [ %20, %29 ], [ %40, %38 ], [ %20, %34 ], [ %20, %25 ]
+  %.033 = phi i64 [ %20, %17 ], [ %20, %29 ], [ %40, %38 ], [ %20, %34 ], [ %20, %25 ]
+  %.1 = phi i32 [ %.037, %17 ], [ %.037, %29 ], [ %42, %38 ], [ %.037, %34 ], [ %.037, %25 ]
   %46 = load ptr, ptr %16, align 8
   %47 = getelementptr i64, ptr %46, i64 %indvars.iv
-  store i64 %.0, ptr %47, align 8
+  store i64 %.033, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %45, %slot_getallattrs.exit
-  %.034.lcssa = phi i32 [ 0, %slot_getallattrs.exit ], [ %.135, %45 ]
+  %.0.lcssa = phi i32 [ 0, %slot_getallattrs.exit ], [ %.1, %45 ]
   %48 = getelementptr inbounds i8, ptr %1, i64 48
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -313,12 +313,12 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   %56 = load ptr, ptr %55, align 8
   tail call void @tuplestore_putvalues(ptr noundef %52, ptr noundef nonnull %4, ptr noundef %54, ptr noundef %56) #4
   store ptr %50, ptr @CurrentMemoryContext, align 8
-  %57 = icmp sgt i32 %.034.lcssa, 0
+  %57 = icmp sgt i32 %.0.lcssa, 0
   br i1 %57, label %.lr.ph40, label %._crit_edge41
 
 .lr.ph40:                                         ; preds = %._crit_edge
   %58 = getelementptr inbounds i8, ptr %1, i64 88
-  %wide.trip.count46 = zext nneg i32 %.034.lcssa to i64
+  %wide.trip.count46 = zext nneg i32 %.0.lcssa to i64
   br label %59
 
 59:                                               ; preds = %.lr.ph40, %59

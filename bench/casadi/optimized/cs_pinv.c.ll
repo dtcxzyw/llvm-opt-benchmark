@@ -34,8 +34,8 @@ define ptr @cs_pinv(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3, %2
-  %.011 = phi ptr [ null, %2 ], [ null, %3 ], [ %4, %.preheader ], [ %4, %.lr.ph ]
-  ret ptr %.011
+  %.0 = phi ptr [ null, %2 ], [ null, %3 ], [ %4, %.preheader ], [ %4, %.lr.ph ]
+  ret ptr %.0
 }
 
 declare ptr @cs_malloc(i32 noundef, i64 noundef) local_unnamed_addr #1

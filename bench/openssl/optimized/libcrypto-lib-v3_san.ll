@@ -66,16 +66,16 @@ entry:
   br i1 %cmp12, label %for.body, label %for.end
 
 for.cond:                                         ; preds = %for.body
-  %inc = add nuw nsw i32 %i.014, 1
+  %inc = add nuw nsw i32 %i.013, 1
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %gens) #3
   %cmp = icmp slt i32 %inc, %call1
   br i1 %cmp, label %for.body, label %return, !llvm.loop !4
 
 for.body:                                         ; preds = %entry, %for.cond
-  %i.014 = phi i32 [ %inc, %for.cond ], [ 0, %entry ]
-  %ret.addr.013 = phi ptr [ %call4, %for.cond ], [ %ret, %entry ]
-  %call3 = tail call ptr @OPENSSL_sk_value(ptr noundef %gens, i32 noundef %i.014) #3
-  %call4 = tail call ptr @i2v_GENERAL_NAME(ptr poison, ptr noundef %call3, ptr noundef %ret.addr.013)
+  %ret.addr.014 = phi ptr [ %call4, %for.cond ], [ %ret, %entry ]
+  %i.013 = phi i32 [ %inc, %for.cond ], [ 0, %entry ]
+  %call3 = tail call ptr @OPENSSL_sk_value(ptr noundef %gens, i32 noundef %i.013) #3
+  %call4 = tail call ptr @i2v_GENERAL_NAME(ptr poison, ptr noundef %call3, ptr noundef %ret.addr.014)
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %if.then, label %for.cond
 
@@ -84,7 +84,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp6, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.then
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %ret.addr.013, ptr noundef nonnull @X509V3_conf_free) #3
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %ret.addr.014, ptr noundef nonnull @X509V3_conf_free) #3
   br label %return
 
 for.end:                                          ; preds = %entry

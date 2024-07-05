@@ -314,11 +314,11 @@ thread-pre-split:                                 ; preds = %15
   ]
 
 32:                                               ; preds = %8, %19, %15, %28
-  %.0169.ph = phi i32 [ 2, %28 ], [ 1, %15 ], [ 1, %19 ], [ 0, %8 ]
-  %.0168.ph = phi ptr [ %29, %28 ], [ %10, %15 ], [ %10, %19 ], [ null, %8 ]
-  %.0167.ph = phi i32 [ 15, %28 ], [ 16, %15 ], [ 16, %19 ], [ 0, %8 ]
-  %.0166.ph = phi i32 [ 9, %28 ], [ 9, %15 ], [ 9, %19 ], [ 1, %8 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0166.ph, i32 noundef %.0169.ph, ptr noundef null, i32 noundef %.0167.ph, ptr noundef %.0168.ph) #13
+  %.0172.ph = phi ptr [ %29, %28 ], [ %10, %15 ], [ %10, %19 ], [ null, %8 ]
+  %.0171.ph = phi i32 [ 15, %28 ], [ 16, %15 ], [ 16, %19 ], [ 0, %8 ]
+  %.0170.ph = phi i32 [ 2, %28 ], [ 1, %15 ], [ 1, %19 ], [ 0, %8 ]
+  %.0169.ph = phi i32 [ 9, %28 ], [ 9, %15 ], [ 9, %19 ], [ 1, %8 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0169.ph, i32 noundef %.0170.ph, ptr noundef null, i32 noundef %.0171.ph, ptr noundef %.0172.ph) #13
   br label %85
 
 33:                                               ; preds = %28
@@ -464,11 +464,11 @@ define hidden void @zif_closedir(ptr noundef %0, ptr nocapture readnone %1) #1 {
   ]
 
 18:                                               ; preds = %11, %14
-  %.054 = phi i32 [ 0, %11 ], [ 1, %14 ]
-  %.053 = phi ptr [ null, %11 ], [ %15, %14 ]
-  %.052 = phi i32 [ 0, %11 ], [ 15, %14 ]
-  %.0 = phi i32 [ 1, %11 ], [ 9, %14 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.054, ptr noundef null, i32 noundef %.052, ptr noundef %.053) #13
+  %.055 = phi ptr [ null, %11 ], [ %15, %14 ]
+  %.054 = phi i32 [ 0, %11 ], [ 15, %14 ]
+  %.053 = phi i32 [ 0, %11 ], [ 1, %14 ]
+  %.051 = phi i32 [ 1, %11 ], [ 9, %14 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.051, i32 noundef %.053, ptr noundef null, i32 noundef %.054, ptr noundef %.055) #13
   br label %70
 
 19:                                               ; preds = %14
@@ -544,8 +544,8 @@ define hidden void @zif_closedir(ptr noundef %0, ptr nocapture readnone %1) #1 {
   br label %70
 
 55:                                               ; preds = %47, %19, %31
-  %.055 = phi ptr [ %50, %47 ], [ %22, %19 ], [ %33, %31 ]
-  %56 = getelementptr inbounds i8, ptr %.055, i64 116
+  %.052 = phi ptr [ %50, %47 ], [ %22, %19 ], [ %33, %31 ]
+  %56 = getelementptr inbounds i8, ptr %.052, i64 116
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, 64
   %.not68 = icmp eq i32 %58, 0
@@ -559,7 +559,7 @@ define hidden void @zif_closedir(ptr noundef %0, ptr nocapture readnone %1) #1 {
   br label %70
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds i8, ptr %.055, i64 120
+  %63 = getelementptr inbounds i8, ptr %.052, i64 120
   %64 = load ptr, ptr %63, align 8
   tail call void @zend_list_close(ptr noundef %64) #13
   %65 = load ptr, ptr @dir_globals, align 8
@@ -651,11 +651,11 @@ thread-pre-split:                                 ; preds = %13
   br i1 %.not85, label %23, label %22
 
 22:                                               ; preds = %6, %17, %13
-  %.077.ph = phi i32 [ 1, %13 ], [ 1, %17 ], [ 0, %6 ]
-  %.076.ph = phi ptr [ %8, %13 ], [ %8, %17 ], [ null, %6 ]
-  %.075.ph = phi i32 [ 16, %13 ], [ 16, %17 ], [ 0, %6 ]
+  %.079.ph = phi i32 [ 1, %13 ], [ 1, %17 ], [ 0, %6 ]
+  %.078.ph = phi ptr [ %8, %13 ], [ %8, %17 ], [ null, %6 ]
+  %.077.ph = phi i32 [ 16, %13 ], [ 16, %17 ], [ 0, %6 ]
   %.0.ph = phi i32 [ 9, %13 ], [ 9, %17 ], [ 1, %6 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.077.ph, ptr noundef null, i32 noundef %.075.ph, ptr noundef %.076.ph) #13
+  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.079.ph, ptr noundef null, i32 noundef %.077.ph, ptr noundef %.078.ph) #13
   br label %42
 
 23:                                               ; preds = %15, %17
@@ -761,11 +761,11 @@ thread-pre-split:                                 ; preds = %13
   br i1 %.not105, label %23, label %22
 
 22:                                               ; preds = %6, %17, %13
-  %.094.ph = phi i32 [ 1, %13 ], [ 1, %17 ], [ 0, %6 ]
-  %.093.ph = phi ptr [ %8, %13 ], [ %8, %17 ], [ null, %6 ]
-  %.092.ph = phi i32 [ 16, %13 ], [ 16, %17 ], [ 0, %6 ]
+  %.096.ph = phi i32 [ 1, %13 ], [ 1, %17 ], [ 0, %6 ]
+  %.095.ph = phi ptr [ %8, %13 ], [ %8, %17 ], [ null, %6 ]
+  %.094.ph = phi i32 [ 16, %13 ], [ 16, %17 ], [ 0, %6 ]
   %.0.ph = phi i32 [ 9, %13 ], [ 9, %17 ], [ 1, %6 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.094.ph, ptr noundef null, i32 noundef %.092.ph, ptr noundef %.093.ph) #13
+  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.096.ph, ptr noundef null, i32 noundef %.094.ph, ptr noundef %.095.ph) #13
   br label %78
 
 23:                                               ; preds = %15, %17
@@ -978,11 +978,11 @@ define hidden void @zif_rewinddir(ptr noundef %0, ptr nocapture readnone %1) #1 
   ]
 
 18:                                               ; preds = %11, %14
-  %.052 = phi i32 [ 0, %11 ], [ 1, %14 ]
-  %.051 = phi ptr [ null, %11 ], [ %15, %14 ]
-  %.050 = phi i32 [ 0, %11 ], [ 15, %14 ]
-  %.0 = phi i32 [ 1, %11 ], [ 9, %14 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.052, ptr noundef null, i32 noundef %.050, ptr noundef %.051) #13
+  %.053 = phi ptr [ null, %11 ], [ %15, %14 ]
+  %.052 = phi i32 [ 0, %11 ], [ 15, %14 ]
+  %.051 = phi i32 [ 0, %11 ], [ 1, %14 ]
+  %.049 = phi i32 [ 1, %11 ], [ 9, %14 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.049, i32 noundef %.051, ptr noundef null, i32 noundef %.052, ptr noundef %.053) #13
   br label %64
 
 19:                                               ; preds = %14
@@ -1058,8 +1058,8 @@ define hidden void @zif_rewinddir(ptr noundef %0, ptr nocapture readnone %1) #1 
   br label %64
 
 55:                                               ; preds = %47, %19, %31
-  %.053 = phi ptr [ %50, %47 ], [ %22, %19 ], [ %33, %31 ]
-  %56 = getelementptr inbounds i8, ptr %.053, i64 116
+  %.050 = phi ptr [ %50, %47 ], [ %22, %19 ], [ %33, %31 ]
+  %56 = getelementptr inbounds i8, ptr %.050, i64 116
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, 64
   %.not66 = icmp eq i32 %58, 0
@@ -1073,7 +1073,7 @@ define hidden void @zif_rewinddir(ptr noundef %0, ptr nocapture readnone %1) #1 
   br label %64
 
 62:                                               ; preds = %55
-  %63 = tail call i32 @_php_stream_seek(ptr noundef nonnull %.053, i64 noundef 0, i32 noundef 0) #13
+  %63 = tail call i32 @_php_stream_seek(ptr noundef nonnull %.050, i64 noundef 0, i32 noundef 0) #13
   br label %64
 
 64:                                               ; preds = %62, %59, %52, %44, %39, %35, %28, %24, %18
@@ -1115,11 +1115,11 @@ define hidden void @zif_readdir(ptr noundef %0, ptr nocapture noundef writeonly 
   ]
 
 19:                                               ; preds = %12, %15
-  %.0110 = phi i32 [ 0, %12 ], [ 1, %15 ]
-  %.0109 = phi ptr [ null, %12 ], [ %16, %15 ]
-  %.0108 = phi i32 [ 0, %12 ], [ 15, %15 ]
-  %.0 = phi i32 [ 1, %12 ], [ 9, %15 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.0110, ptr noundef null, i32 noundef %.0108, ptr noundef %.0109) #13
+  %.0112 = phi i32 [ 0, %12 ], [ 15, %15 ]
+  %.0111 = phi ptr [ null, %12 ], [ %16, %15 ]
+  %.0110 = phi i32 [ 1, %12 ], [ 9, %15 ]
+  %.0109 = phi i32 [ 0, %12 ], [ 1, %15 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0110, i32 noundef %.0109, ptr noundef null, i32 noundef %.0112, ptr noundef %.0111) #13
   br label %78
 
 20:                                               ; preds = %15
@@ -1195,8 +1195,8 @@ define hidden void @zif_readdir(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %78
 
 56:                                               ; preds = %48, %20, %32
-  %.0112 = phi ptr [ %51, %48 ], [ %23, %20 ], [ %34, %32 ]
-  %57 = getelementptr inbounds i8, ptr %.0112, i64 116
+  %.0108 = phi ptr [ %51, %48 ], [ %23, %20 ], [ %34, %32 ]
+  %57 = getelementptr inbounds i8, ptr %.0108, i64 116
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 64
   %.not126 = icmp eq i32 %59, 0
@@ -1210,7 +1210,7 @@ define hidden void @zif_readdir(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %78
 
 63:                                               ; preds = %56
-  %64 = call ptr @_php_stream_readdir(ptr noundef nonnull %.0112, ptr noundef nonnull %3) #13
+  %64 = call ptr @_php_stream_readdir(ptr noundef nonnull %.0108, ptr noundef nonnull %3) #13
   %.not127 = icmp eq ptr %64, null
   br i1 %.not127, label %76, label %65
 
@@ -1324,11 +1324,11 @@ thread-pre-split:                                 ; preds = %18
   br i1 %38, label %.thread254, label %.thread240
 
 .thread240:                                       ; preds = %37, %18, %22, %11
-  %.0192251 = phi i32 [ 9, %18 ], [ 9, %22 ], [ 1, %11 ], [ 9, %37 ]
-  %.0193250 = phi i32 [ 16, %18 ], [ 16, %22 ], [ 0, %11 ], [ 0, %37 ]
-  %.0194249 = phi ptr [ %13, %18 ], [ %13, %22 ], [ null, %11 ], [ %32, %37 ]
-  %.0195248 = phi i32 [ 1, %18 ], [ 1, %22 ], [ 0, %11 ], [ 2, %37 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0192251, i32 noundef %.0195248, ptr noundef null, i32 noundef %.0193250, ptr noundef %.0194249) #13
+  %.0197251 = phi i32 [ 1, %18 ], [ 1, %22 ], [ 0, %11 ], [ 2, %37 ]
+  %.0198250 = phi i32 [ 9, %18 ], [ 9, %22 ], [ 1, %11 ], [ 9, %37 ]
+  %.0199249 = phi i32 [ 16, %18 ], [ 16, %22 ], [ 0, %11 ], [ 0, %37 ]
+  %.0200248 = phi ptr [ %13, %18 ], [ %13, %22 ], [ null, %11 ], [ %32, %37 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0198250, i32 noundef %.0197251, ptr noundef null, i32 noundef %.0199249, ptr noundef %.0200248) #13
   br label %111
 
 .thread254:                                       ; preds = %37, %.thread234, %27
@@ -1398,8 +1398,8 @@ thread-pre-split:                                 ; preds = %18
   br label %67
 
 67:                                               ; preds = %.lr.ph, %102
-  %.0197266 = phi i1 [ false, %.lr.ph ], [ %.1, %102 ]
-  %.0198264 = phi i64 [ 0, %.lr.ph ], [ %103, %102 ]
+  %.0195265 = phi i64 [ 0, %.lr.ph ], [ %103, %102 ]
+  %.0196264 = phi i1 [ false, %.lr.ph ], [ %.1, %102 ]
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
   %.not218 = icmp eq ptr %68, null
   br i1 %.not218, label %76, label %69
@@ -1411,7 +1411,7 @@ thread-pre-split:                                 ; preds = %18
 
 71:                                               ; preds = %69
   %72 = load ptr, ptr %55, align 8
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %.0198264
+  %73 = getelementptr inbounds ptr, ptr %72, i64 %.0195265
   %74 = load ptr, ptr %73, align 8
   %75 = call i32 @php_check_open_basedir_ex(ptr noundef %74, i32 noundef 0) #13
   %.not220 = icmp eq i32 %75, 0
@@ -1426,7 +1426,7 @@ thread-pre-split:                                 ; preds = %18
 79:                                               ; preds = %76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 0, i64 144, i1 false)
   %80 = load ptr, ptr %55, align 8
-  %81 = getelementptr inbounds ptr, ptr %80, i64 %.0198264
+  %81 = getelementptr inbounds ptr, ptr %80, i64 %.0195265
   %82 = load ptr, ptr %81, align 8
   %83 = call i32 @stat(ptr noundef %82, ptr noundef nonnull %7) #13
   %.not222 = icmp eq i32 %83, 0
@@ -1440,7 +1440,7 @@ thread-pre-split:                                 ; preds = %18
 
 87:                                               ; preds = %76, %84
   %88 = load ptr, ptr %55, align 8
-  %89 = getelementptr inbounds ptr, ptr %88, i64 %.0198264
+  %89 = getelementptr inbounds ptr, ptr %88, i64 %.0195265
   %90 = load ptr, ptr %89, align 8
   %91 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #15
   %92 = and i64 %91, -8
@@ -1464,8 +1464,8 @@ thread-pre-split:                                 ; preds = %18
   br label %102
 
 102:                                              ; preds = %71, %84, %79, %87
-  %.1 = phi i1 [ %.0197266, %79 ], [ %.0197266, %84 ], [ %.0197266, %87 ], [ true, %71 ]
-  %103 = add nuw i64 %.0198264, 1
+  %.1 = phi i1 [ %.0196264, %79 ], [ %.0196264, %84 ], [ %.0196264, %87 ], [ true, %71 ]
+  %103 = add nuw i64 %.0195265, 1
   %104 = load i64, ptr %5, align 8
   %105 = icmp ult i64 %103, %104
   br i1 %105, label %67, label %._crit_edge
@@ -1606,11 +1606,11 @@ thread-pre-split:                                 ; preds = %16
   br label %.thread200
 
 43:                                               ; preds = %9, %35, %20, %16, %38
-  %.0147.ph = phi i32 [ 3, %38 ], [ 1, %16 ], [ 1, %20 ], [ 2, %35 ], [ 0, %9 ]
-  %.0146.ph = phi ptr [ %39, %38 ], [ %11, %16 ], [ %11, %20 ], [ %30, %35 ], [ null, %9 ]
-  %.0145.ph = phi i32 [ 15, %38 ], [ 16, %16 ], [ 16, %20 ], [ 0, %35 ], [ 0, %9 ]
-  %.0144.ph = phi i32 [ 9, %38 ], [ 9, %16 ], [ 9, %20 ], [ 9, %35 ], [ 1, %9 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0144.ph, i32 noundef %.0147.ph, ptr noundef null, i32 noundef %.0145.ph, ptr noundef %.0146.ph) #13
+  %.0149.ph = phi i32 [ 3, %38 ], [ 1, %16 ], [ 1, %20 ], [ 2, %35 ], [ 0, %9 ]
+  %.0148.ph = phi ptr [ %39, %38 ], [ %11, %16 ], [ %11, %20 ], [ %30, %35 ], [ null, %9 ]
+  %.0147.ph = phi i32 [ 15, %38 ], [ 16, %16 ], [ 16, %20 ], [ 0, %35 ], [ 0, %9 ]
+  %.0145.ph = phi i32 [ 9, %38 ], [ 9, %16 ], [ 9, %20 ], [ 9, %35 ], [ 1, %9 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0145.ph, i32 noundef %.0149.ph, ptr noundef null, i32 noundef %.0147.ph, ptr noundef %.0148.ph) #13
   br label %._crit_edge.thread
 
 .thread200:                                       ; preds = %38, %42, %25, %37
@@ -1635,7 +1635,7 @@ thread-pre-split:                                 ; preds = %16
   br label %52
 
 52:                                               ; preds = %49, %48
-  %.0148 = phi ptr [ %51, %49 ], [ null, %48 ]
+  %.0154 = phi ptr [ %51, %49 ], [ null, %48 ]
   %53 = load i64, ptr %4, align 8
   switch i64 %53, label %58 [
     i64 0, label %54
@@ -1643,20 +1643,20 @@ thread-pre-split:                                 ; preds = %16
   ]
 
 54:                                               ; preds = %52
-  %55 = call i32 @_php_stream_scandir(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %.0148, ptr noundef nonnull @php_stream_dirent_alphasort) #13
+  %55 = call i32 @_php_stream_scandir(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %.0154, ptr noundef nonnull @php_stream_dirent_alphasort) #13
   br label %60
 
 56:                                               ; preds = %52
-  %57 = call i32 @_php_stream_scandir(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %.0148, ptr noundef null) #13
+  %57 = call i32 @_php_stream_scandir(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %.0154, ptr noundef null) #13
   br label %60
 
 58:                                               ; preds = %52
-  %59 = call i32 @_php_stream_scandir(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %.0148, ptr noundef nonnull @php_stream_dirent_alphasortr) #13
+  %59 = call i32 @_php_stream_scandir(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %.0154, ptr noundef nonnull @php_stream_dirent_alphasortr) #13
   br label %60
 
 60:                                               ; preds = %56, %58, %54
-  %.0150 = phi i32 [ %55, %54 ], [ %57, %56 ], [ %59, %58 ]
-  %61 = icmp slt i32 %.0150, 0
+  %.0152 = phi i32 [ %55, %54 ], [ %57, %56 ], [ %59, %58 ]
+  %61 = icmp slt i32 %.0152, 0
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %60
@@ -1673,11 +1673,11 @@ thread-pre-split:                                 ; preds = %16
   store ptr %68, ptr %1, align 8
   %69 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 775, ptr %69, align 8
-  %.not218 = icmp eq i32 %.0150, 0
+  %.not218 = icmp eq i32 %.0152, 0
   br i1 %.not218, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %67
-  %wide.trip.count = zext nneg i32 %.0150 to i64
+  %wide.trip.count = zext nneg i32 %.0152 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

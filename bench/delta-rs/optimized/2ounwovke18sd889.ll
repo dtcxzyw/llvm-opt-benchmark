@@ -8610,8 +8610,8 @@ common.ret:                                       ; preds = %57, %14
   ret void
 
 14:                                               ; preds = %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17h218d2bdec44a695fE.exit16", %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17h218d2bdec44a695fE.exit"
-  %.sroa.4.0 = phi i64 [ undef, %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17h218d2bdec44a695fE.exit16" ], [ %.sroa.4.0.copyload28, %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17h218d2bdec44a695fE.exit" ]
   %.sroa.023.0 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17h218d2bdec44a695fE.exit16" ], [ %.sroa.023.0.copyload24, %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17h218d2bdec44a695fE.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17h218d2bdec44a695fE.exit16" ], [ %.sroa.4.0.copyload28, %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17h218d2bdec44a695fE.exit" ]
   store i64 %.sroa.023.0, ptr %0, align 8
   %.sroa.325.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.325, i64 80, i1 false)

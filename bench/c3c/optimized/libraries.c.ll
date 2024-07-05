@@ -108,9 +108,9 @@ define dso_local void @resolve_libraries() local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %.lr.ph359, %add_library.exit
-  %.0105357 = phi i64 [ 0, %.lr.ph359 ], [ %396, %add_library.exit ]
+  %.0111358 = phi i64 [ 0, %.lr.ph359 ], [ %396, %add_library.exit ]
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %.0105357
+  %28 = getelementptr inbounds ptr, ptr %27, i64 %.0111358
   %29 = load ptr, ptr %28, align 8
   %30 = call zeroext i1 @file_is_dir(ptr noundef %29) #8
   br i1 %30, label %81, label %31
@@ -262,8 +262,8 @@ resolve_zip_library.exit:                         ; preds = %.backedge.i, %.preh
 
 88:                                               ; preds = %81, %resolve_zip_library.exit
   %.0217 = phi ptr [ %29, %81 ], [ %59, %resolve_zip_library.exit ]
-  %.0103 = phi ptr [ %84, %81 ], [ %50, %resolve_zip_library.exit ]
-  %89 = icmp eq i64 %.0105357, 2048
+  %.0114 = phi ptr [ %84, %81 ], [ %50, %resolve_zip_library.exit ]
+  %89 = icmp eq i64 %.0111358, 2048
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %88
@@ -273,7 +273,7 @@ resolve_zip_library.exit:                         ; preds = %.backedge.i, %.preh
 91:                                               ; preds = %88
   %92 = call ptr @calloc_arena(i64 noundef 48) #8
   store ptr %.0217, ptr %92, align 8
-  %93 = call ptr @json_obj_get(ptr noundef %.0103, ptr noundef nonnull @.str.13) #8
+  %93 = call ptr @json_obj_get(ptr noundef %.0114, ptr noundef nonnull @.str.13) #8
   %.not.i.i.i = icmp eq ptr %93, null
   br i1 %.not.i.i.i, label %94, label %get_mandatory.exit.i.i
 
@@ -302,7 +302,7 @@ get_mandatory_string.exit.i:                      ; preds = %get_mandatory.exit.
   %103 = call noalias ptr @strdup(ptr noundef %100) #8
   call void @str_ellide_in_place(ptr noundef %103, i64 noundef 32) #8
   %104 = load ptr, ptr %92, align 8
-  %105 = call ptr @json_obj_get(ptr noundef %.0103, ptr noundef nonnull @.str.13) #8
+  %105 = call ptr @json_obj_get(ptr noundef %.0114, ptr noundef nonnull @.str.13) #8
   %106 = getelementptr inbounds i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.14, ptr noundef %104, ptr noundef %107) #9
@@ -311,14 +311,14 @@ get_mandatory_string.exit.i:                      ; preds = %get_mandatory.exit.
 108:                                              ; preds = %get_mandatory_string.exit.i
   %109 = getelementptr inbounds i8, ptr %92, i64 8
   store ptr %100, ptr %109, align 8
-  %110 = call fastcc ptr @get_optional_string_array_as_array(ptr noundef nonnull %92, ptr noundef %.0103, ptr noundef nonnull @.str.15)
+  %110 = call fastcc ptr @get_optional_string_array_as_array(ptr noundef nonnull %92, ptr noundef %.0114, ptr noundef nonnull @.str.15)
   %111 = getelementptr inbounds i8, ptr %92, i64 24
   store ptr %110, ptr %111, align 8
-  %112 = call fastcc ptr @get_optional_string_array_as_array(ptr noundef nonnull %92, ptr noundef %.0103, ptr noundef nonnull @.str.16)
+  %112 = call fastcc ptr @get_optional_string_array_as_array(ptr noundef nonnull %92, ptr noundef %.0114, ptr noundef nonnull @.str.16)
   %113 = getelementptr inbounds i8, ptr %92, i64 16
   store ptr %112, ptr %113, align 8
   %114 = getelementptr inbounds i8, ptr %92, i64 40
-  %115 = call ptr @json_obj_get(ptr noundef %.0103, ptr noundef nonnull @.str.17) #8
+  %115 = call ptr @json_obj_get(ptr noundef %.0114, ptr noundef nonnull @.str.17) #8
   %.not.i21.i = icmp eq ptr %115, null
   br i1 %.not.i21.i, label %add_library.exit, label %116
 
@@ -862,14 +862,14 @@ get_optional_string_array_as_array.exit:          ; preds = %378, %get_optional_
   br i1 %395, label %124, label %add_library.exit, !llvm.loop !12
 
 add_library.exit:                                 ; preds = %get_optional_string_array_as_array.exit, %108, %.preheader.i.i
-  %396 = add nuw nsw i64 %.0105357, 1
-  %397 = getelementptr inbounds [2048 x ptr], ptr %7, i64 0, i64 %.0105357
+  %396 = add nuw nsw i64 %.0111358, 1
+  %397 = getelementptr inbounds [2048 x ptr], ptr %7, i64 0, i64 %.0111358
   store ptr %92, ptr %397, align 8
   %exitcond491.not = icmp eq i64 %396, %wide.trip.count490
   br i1 %exitcond491.not, label %._crit_edge, label %26, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %add_library.exit, %.loopexit227, %17
-  %.0105.lcssa = phi i64 [ 0, %17 ], [ 0, %.loopexit227 ], [ %wide.trip.count490, %add_library.exit ]
+  %.0111.lcssa = phi i64 [ 0, %17 ], [ 0, %.loopexit227 ], [ %wide.trip.count490, %add_library.exit ]
   %398 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 64), align 8
   %.not131 = icmp eq ptr %398, null
   br i1 %.not131, label %.preheader, label %399
@@ -881,7 +881,7 @@ add_library.exit:                                 ; preds = %get_optional_string
   br i1 %.not376, label %.preheader, label %.lr.ph362
 
 .lr.ph362:                                        ; preds = %399
-  %.not.i142 = icmp eq i64 %.0105.lcssa, 0
+  %.not.i142 = icmp eq i64 %.0111.lcssa, 0
   br i1 %.not.i142, label %.lr.ph362.split.us, label %.lr.ph.i143.preheader.preheader
 
 .lr.ph.i143.preheader.preheader:                  ; preds = %.lr.ph362
@@ -893,7 +893,7 @@ add_library.exit:                                 ; preds = %get_optional_string
   br label %._crit_edge.i
 
 .preheader:                                       ; preds = %find_library.exit, %._crit_edge, %399
-  %.not377 = icmp eq i64 %.0105.lcssa, 0
+  %.not377 = icmp eq i64 %.0111.lcssa, 0
   br i1 %.not377, label %._crit_edge372, label %.lr.ph371
 
 .lr.ph.i143.preheader:                            ; preds = %.lr.ph.i143.preheader.preheader, %find_library.exit
@@ -914,7 +914,7 @@ add_library.exit:                                 ; preds = %get_optional_string
 
 411:                                              ; preds = %.lr.ph.i143
   %412 = add nuw nsw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %412, %.0105.lcssa
+  %exitcond.not.i = icmp eq i64 %412, %.0111.lcssa
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i143, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %411, %.lr.ph362.split.us
@@ -925,14 +925,14 @@ add_library.exit:                                 ; preds = %get_optional_string
 find_library.exit:                                ; preds = %.lr.ph.i143
   %414 = getelementptr inbounds ptr, ptr %7, i64 %.08.i
   %415 = load ptr, ptr %414, align 8
-  call fastcc void @add_library_dependency(ptr noundef %415, ptr noundef nonnull %7, i64 noundef %.0105.lcssa)
+  call fastcc void @add_library_dependency(ptr noundef %415, ptr noundef nonnull %7, i64 noundef %.0111.lcssa)
   %indvars.iv.next493 = add nuw nsw i64 %indvars.iv492, 1
   %exitcond496.not = icmp eq i64 %indvars.iv.next493, %wide.trip.count495
   br i1 %exitcond496.not, label %.preheader, label %.lr.ph.i143.preheader, !llvm.loop !15
 
 .lr.ph371:                                        ; preds = %.preheader, %.loopexit
-  %.0100370 = phi i64 [ %537, %.loopexit ], [ 0, %.preheader ]
-  %416 = getelementptr inbounds [2048 x ptr], ptr %7, i64 0, i64 %.0100370
+  %.0110370 = phi i64 [ %537, %.loopexit ], [ 0, %.preheader ]
+  %416 = getelementptr inbounds [2048 x ptr], ptr %7, i64 0, i64 %.0110370
   %417 = load ptr, ptr %416, align 8
   %418 = getelementptr inbounds i8, ptr %417, i64 32
   %419 = load ptr, ptr %418, align 8
@@ -1162,8 +1162,8 @@ find_library.exit:                                ; preds = %.lr.ph.i143
   br i1 %exitcond506.not, label %.loopexit, label %530, !llvm.loop !17
 
 .loopexit:                                        ; preds = %530, %._crit_edge366, %526, %.lr.ph371
-  %537 = add nuw nsw i64 %.0100370, 1
-  %exitcond507.not = icmp eq i64 %537, %.0105.lcssa
+  %537 = add nuw nsw i64 %.0110370, 1
+  %exitcond507.not = icmp eq i64 %537, %.0111.lcssa
   br i1 %exitcond507.not, label %._crit_edge372, label %.lr.ph371, !llvm.loop !18
 
 ._crit_edge372:                                   ; preds = %.loopexit, %.preheader

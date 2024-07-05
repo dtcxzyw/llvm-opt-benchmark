@@ -618,7 +618,7 @@ for.body.preheader.i.i:                           ; preds = %if.end48.i
 
 for.body.i.outer.i:                               ; preds = %for.inc.i.thread.i, %for.body.preheader.i.i
   %indvars.iv.i.ph.i = phi i64 [ %indvars.iv.next.i260.i, %for.inc.i.thread.i ], [ 0, %for.body.preheader.i.i ]
-  %result.05.i.ph.i = phi i1 [ false, %for.inc.i.thread.i ], [ true, %for.body.preheader.i.i ]
+  %result.06.i.ph.i = phi i1 [ false, %for.inc.i.thread.i ], [ true, %for.body.preheader.i.i ]
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.i.outer.i
@@ -675,7 +675,7 @@ for.inc.i.thread.i:                               ; preds = %.noexc61.i, %lor.lh
   br i1 %exitcond.not.i261.i, label %while.cond.backedge.i, label %for.body.i.outer.i, !llvm.loop !7
 
 invoke.cont57.i:                                  ; preds = %for.inc.i.i
-  br i1 %result.05.i.ph.i, label %if.end60.i, label %while.cond.backedge.i
+  br i1 %result.06.i.ph.i, label %if.end60.i, label %while.cond.backedge.i
 
 if.end60.i:                                       ; preds = %invoke.cont57.i, %if.end48.i
   %m_range.i.i = getelementptr inbounds i8, ptr %8, i64 40
@@ -905,7 +905,7 @@ for.body.preheader.i106.i:                        ; preds = %if.end93.i
 
 for.body.i108.outer.i:                            ; preds = %for.inc.i123.thread.i, %for.body.preheader.i106.i
   %indvars.iv.i109.ph.i = phi i64 [ %indvars.iv.next.i125265.i, %for.inc.i123.thread.i ], [ 0, %for.body.preheader.i106.i ]
-  %result.05.i110.ph.i = phi i1 [ false, %for.inc.i123.thread.i ], [ true, %for.body.preheader.i106.i ]
+  %result.06.i110.ph.i = phi i1 [ false, %for.inc.i123.thread.i ], [ true, %for.body.preheader.i106.i ]
   br label %for.body.i108.i
 
 for.body.i108.i:                                  ; preds = %for.inc.i123.i, %for.body.i108.outer.i
@@ -962,7 +962,7 @@ for.inc.i123.thread.i:                            ; preds = %.noexc134.i, %lor.l
   br i1 %exitcond.not.i126266.i, label %while.cond.backedge.i, label %for.body.i108.outer.i, !llvm.loop !8
 
 invoke.cont99.i:                                  ; preds = %for.inc.i123.i
-  br i1 %result.05.i110.ph.i, label %if.end148.i.invoke, label %while.cond.backedge.i
+  br i1 %result.06.i110.ph.i, label %if.end148.i.invoke, label %while.cond.backedge.i
 
 invoke.cont116.i:                                 ; preds = %if.end.i
   %m_num_patterns.i.i = getelementptr inbounds i8, ptr %8, i64 72
@@ -982,7 +982,7 @@ for.body.preheader.i141.i:                        ; preds = %invoke.cont116.i
 
 for.body.i143.outer.i:                            ; preds = %for.inc.i158.thread.i, %for.body.preheader.i141.i
   %indvars.iv.i144.ph.i = phi i64 [ %indvars.iv.next.i160270.i, %for.inc.i158.thread.i ], [ 0, %for.body.preheader.i141.i ]
-  %result.05.i145.ph.i = phi i1 [ false, %for.inc.i158.thread.i ], [ true, %for.body.preheader.i141.i ]
+  %result.06.i145.ph.i = phi i1 [ false, %for.inc.i158.thread.i ], [ true, %for.body.preheader.i141.i ]
   br label %for.body.i143.i
 
 for.body.i143.i:                                  ; preds = %for.inc.i158.i, %for.body.i143.outer.i
@@ -1039,7 +1039,7 @@ for.inc.i158.thread.i:                            ; preds = %.noexc169.i, %lor.l
   br i1 %exitcond.not.i161271.i, label %while.cond.backedge.i, label %for.body.i143.outer.i, !llvm.loop !8
 
 invoke.cont118.i:                                 ; preds = %for.inc.i158.i
-  br i1 %result.05.i145.ph.i, label %invoke.cont118.invoke.cont128_crit_edge.i, label %while.cond.backedge.i
+  br i1 %result.06.i145.ph.i, label %invoke.cont118.invoke.cont128_crit_edge.i, label %while.cond.backedge.i
 
 invoke.cont118.invoke.cont128_crit_edge.i:        ; preds = %invoke.cont118.i
   %.pre.i = load i32, ptr %m_num_decls.i.i.i, align 4
@@ -1061,7 +1061,7 @@ for.body.preheader.i177.i:                        ; preds = %invoke.cont128.i
 
 for.body.i179.outer.i:                            ; preds = %for.inc.i194.thread.i, %for.body.preheader.i177.i
   %indvars.iv.i180.ph.i = phi i64 [ %indvars.iv.next.i196275.i, %for.inc.i194.thread.i ], [ 0, %for.body.preheader.i177.i ]
-  %result.05.i181.ph.i = phi i1 [ false, %for.inc.i194.thread.i ], [ true, %for.body.preheader.i177.i ]
+  %result.06.i181.ph.i = phi i1 [ false, %for.inc.i194.thread.i ], [ true, %for.body.preheader.i177.i ]
   br label %for.body.i179.i
 
 for.body.i179.i:                                  ; preds = %for.inc.i194.i, %for.body.i179.outer.i
@@ -1118,7 +1118,7 @@ for.inc.i194.thread.i:                            ; preds = %.noexc205.i, %lor.l
   br i1 %exitcond.not.i197276.i, label %while.cond.backedge.i, label %for.body.i179.outer.i, !llvm.loop !8
 
 invoke.cont130.i:                                 ; preds = %for.inc.i194.i
-  br i1 %result.05.i181.ph.i, label %if.end133.i, label %while.cond.backedge.i
+  br i1 %result.06.i181.ph.i, label %if.end133.i, label %while.cond.backedge.i
 
 if.end133.i:                                      ; preds = %invoke.cont130.i, %invoke.cont128.i
   %m_expr.i.i = getelementptr inbounds i8, ptr %8, i64 24

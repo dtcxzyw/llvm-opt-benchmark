@@ -473,9 +473,9 @@ cond.end:                                         ; preds = %entry, %cond.true
   br i1 %cmp74, label %for.body, label %for.end
 
 for.body:                                         ; preds = %cond.end, %if.end30
-  %i.076 = phi i64 [ %inc, %if.end30 ], [ 0, %cond.end ]
-  %pArgs.addr.075 = phi ptr [ %incdec.ptr, %if.end30 ], [ %pArgs, %cond.end ]
-  %arrayidx = getelementptr ptr, ptr %cond, i64 %i.076
+  %pArgs.addr.076 = phi ptr [ %incdec.ptr, %if.end30 ], [ %pArgs, %cond.end ]
+  %i.075 = phi i64 [ %inc, %if.end30 ], [ 0, %cond.end ]
+  %arrayidx = getelementptr ptr, ptr %cond, i64 %i.075
   %6 = load ptr, ptr %arrayidx, align 8
   %call5 = tail call ptr @PyType_stgdict(ptr noundef %6) #6
   %tobool6.not = icmp eq ptr %call5, null
@@ -494,7 +494,7 @@ land.lhs.true8:                                   ; preds = %land.lhs.true
 
 if.then:                                          ; preds = %land.lhs.true8
   %8 = load ptr, ptr %getfunc, align 8
-  %9 = load ptr, ptr %pArgs.addr.075, align 8
+  %9 = load ptr, ptr %pArgs.addr.076, align 8
   %size = getelementptr inbounds i8, ptr %call5, i64 48
   %10 = load i64, ptr %size, align 8
   %call12 = tail call ptr %8(ptr noundef %9, i64 noundef %10) #6
@@ -502,7 +502,7 @@ if.then:                                          ; preds = %land.lhs.true8
   br i1 %tobool13.not, label %if.then14, label %if.end30
 
 if.then14:                                        ; preds = %if.then
-  tail call void (ptr, ...) @PrintError(ptr noundef nonnull @.str.5, i64 noundef %i.076)
+  tail call void (ptr, ...) @PrintError(ptr noundef nonnull @.str.5, i64 noundef %i.075)
   br label %Done
 
 if.then17:                                        ; preds = %land.lhs.true, %land.lhs.true8
@@ -538,7 +538,7 @@ _PyObject_CallNoArgs.exit:                        ; preds = %if.then.i.i, %if.en
   br i1 %tobool19.not, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %_PyObject_CallNoArgs.exit
-  tail call void (ptr, ...) @PrintError(ptr noundef nonnull @.str.5, i64 noundef %i.076)
+  tail call void (ptr, ...) @PrintError(ptr noundef nonnull @.str.5, i64 noundef %i.075)
   br label %Done
 
 if.end21:                                         ; preds = %_PyObject_CallNoArgs.exit
@@ -569,13 +569,13 @@ if.then1.i104:                                    ; preds = %if.end.i101
   br label %Py_DECREF.exit106
 
 Py_DECREF.exit106:                                ; preds = %if.then24, %if.then1.i104, %if.end.i101
-  tail call void (ptr, ...) @PrintError(ptr noundef nonnull @.str.6, i64 noundef %i.076)
+  tail call void (ptr, ...) @PrintError(ptr noundef nonnull @.str.6, i64 noundef %i.075)
   br label %Done
 
 if.end25:                                         ; preds = %if.end21, %PyObject_TypeCheck.exit
   %b_ptr = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
   %18 = load ptr, ptr %b_ptr, align 16
-  %19 = load ptr, ptr %pArgs.addr.075, align 8
+  %19 = load ptr, ptr %pArgs.addr.076, align 8
   %size26 = getelementptr inbounds i8, ptr %call5, i64 48
   %20 = load i64, ptr %size26, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %19, i64 %20, i1 false)
@@ -584,15 +584,15 @@ if.end25:                                         ; preds = %if.end21, %PyObject
 if.else28:                                        ; preds = %for.body
   %21 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull @.str.7) #6
-  tail call void (ptr, ...) @PrintError(ptr noundef nonnull @.str.8, i64 noundef %i.076)
+  tail call void (ptr, ...) @PrintError(ptr noundef nonnull @.str.8, i64 noundef %i.075)
   br label %Done
 
 if.end30:                                         ; preds = %if.then, %if.end25
   %retval.0.i.i.sink = phi ptr [ %retval.0.i.i, %if.end25 ], [ %call12, %if.then ]
-  %arrayidx27 = getelementptr ptr, ptr %1, i64 %i.076
+  %arrayidx27 = getelementptr ptr, ptr %1, i64 %i.075
   store ptr %retval.0.i.i.sink, ptr %arrayidx27, align 8
-  %incdec.ptr = getelementptr i8, ptr %pArgs.addr.075, i64 8
-  %inc = add nuw nsw i64 %i.076, 1
+  %incdec.ptr = getelementptr i8, ptr %pArgs.addr.076, i64 8
+  %inc = add nuw nsw i64 %i.075, 1
   %exitcond.not = icmp eq i64 %inc, %converters.val
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
@@ -737,7 +737,7 @@ if.then1.i.i64:                                   ; preds = %if.end.i.i61
   br label %Done
 
 Done:                                             ; preds = %if.then1.i.i64, %if.end.i.i61, %if.then.i58, %if.end81, %if.then32, %if.else28, %Py_DECREF.exit106, %if.then20, %if.then14
-  %i.072 = phi i64 [ %i.0.lcssa, %if.then1.i.i64 ], [ %i.0.lcssa, %if.end.i.i61 ], [ %i.0.lcssa, %if.then.i58 ], [ %i.0.lcssa, %if.end81 ], [ %i.0.lcssa, %if.then32 ], [ %i.076, %if.else28 ], [ %i.076, %Py_DECREF.exit106 ], [ %i.076, %if.then20 ], [ %i.076, %if.then14 ]
+  %i.072 = phi i64 [ %i.0.lcssa, %if.then1.i.i64 ], [ %i.0.lcssa, %if.end.i.i61 ], [ %i.0.lcssa, %if.then.i58 ], [ %i.0.lcssa, %if.end81 ], [ %i.0.lcssa, %if.then32 ], [ %i.075, %if.else28 ], [ %i.075, %Py_DECREF.exit106 ], [ %i.075, %if.then20 ], [ %i.075, %if.then14 ]
   %cmp8377.not = icmp eq i64 %i.072, 0
   br i1 %cmp8377.not, label %for.end88, label %for.body84
 

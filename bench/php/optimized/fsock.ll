@@ -122,11 +122,11 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
   br label %58
 
 .thread329:                                       ; preds = %49, %22, %36, %15
-  %.0229343 = phi i32 [ 9, %22 ], [ 9, %36 ], [ 1, %15 ], [ 9, %49 ]
-  %.0230342 = phi i32 [ 4, %22 ], [ 0, %36 ], [ 0, %15 ], [ 21, %49 ]
-  %.0231341 = phi ptr [ %17, %22 ], [ %31, %36 ], [ null, %15 ], [ %46, %49 ]
-  %.0232340 = phi i32 [ 1, %22 ], [ 2, %36 ], [ 0, %15 ], [ 5, %49 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0229343, i32 noundef %.0232340, ptr noundef null, i32 noundef %.0230342, ptr noundef %.0231341) #4
+  %.0232343 = phi i32 [ 1, %22 ], [ 2, %36 ], [ 0, %15 ], [ 5, %49 ]
+  %.0233342 = phi ptr [ %17, %22 ], [ %31, %36 ], [ null, %15 ], [ %46, %49 ]
+  %.0234341 = phi i32 [ 4, %22 ], [ 0, %36 ], [ 0, %15 ], [ 21, %49 ]
+  %.0235340 = phi i32 [ 9, %22 ], [ 9, %36 ], [ 1, %15 ], [ 9, %49 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0235340, i32 noundef %.0232343, ptr noundef null, i32 noundef %.0234341, ptr noundef %.0233342) #4
   br label %178
 
 52:                                               ; preds = %45
@@ -175,7 +175,7 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
 
 68:                                               ; preds = %67, %65
   %69 = phi ptr [ %.pre369, %65 ], [ %28, %67 ]
-  %.0233 = phi i64 [ %66, %65 ], [ %27, %67 ]
+  %.0231 = phi i64 [ %66, %65 ], [ %27, %67 ]
   %70 = load double, ptr %6, align 8
   %71 = fmul double %70, 1.000000e+06
   %72 = fptosi double %71 to i64
@@ -185,7 +185,7 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
   %75 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %74, ptr %75, align 8
   %76 = load ptr, ptr %8, align 8
-  %77 = call ptr @_php_stream_xport_create(ptr noundef %69, i64 noundef %.0233, i32 noundef 8, i32 noundef 2, ptr noundef %76, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %9) #4
+  %77 = call ptr @_php_stream_xport_create(ptr noundef %69, i64 noundef %.0231, i32 noundef 8, i32 noundef 2, ptr noundef %76, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %9) #4
   %78 = load i64, ptr %5, align 8
   %79 = icmp sgt i64 %78, 0
   br i1 %79, label %80, label %82

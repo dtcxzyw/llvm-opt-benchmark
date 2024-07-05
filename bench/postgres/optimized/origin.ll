@@ -1035,11 +1035,11 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
 
 16:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %.055 = phi ptr [ null, %.lr.ph ], [ %.1, %34 ]
+  %.04054 = phi ptr [ null, %.lr.ph ], [ %.1, %34 ]
   %17 = getelementptr %struct.ReplicationState, ptr %15, i64 %indvars.iv
   %18 = load i16, ptr %17, align 8
   %19 = icmp eq i16 %18, 0
-  %20 = icmp eq ptr %.055, null
+  %20 = icmp eq ptr %.04054, null
   %or.cond = select i1 %19, i1 %20, i1 false
   br i1 %or.cond, label %34, label %21
 
@@ -1067,16 +1067,16 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
   unreachable
 
 34:                                               ; preds = %16, %21
-  %.1 = phi ptr [ %.055, %21 ], [ %17, %16 ]
+  %.1 = phi ptr [ %.04054, %21 ], [ %17, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !11
 
 .loopexit:                                        ; preds = %34, %9, %22
-  %.053 = phi ptr [ %.055, %22 ], [ null, %9 ], [ %.1, %34 ]
-  %.040 = phi ptr [ %17, %22 ], [ null, %9 ], [ null, %34 ]
-  %35 = icmp eq ptr %.040, null
-  %36 = icmp eq ptr %.053, null
+  %.04053 = phi ptr [ %.04054, %22 ], [ null, %9 ], [ %.1, %34 ]
+  %.041 = phi ptr [ %17, %22 ], [ null, %9 ], [ null, %34 ]
+  %35 = icmp eq ptr %.041, null
+  %36 = icmp eq ptr %.04053, null
   %or.cond3 = select i1 %35, i1 %36, i1 false
   br i1 %or.cond3, label %37, label %43
 
@@ -1094,13 +1094,13 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
   br i1 %35, label %44, label %47
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %.053, i64 40
+  %45 = getelementptr inbounds i8, ptr %.04053, i64 40
   %46 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %45, i32 noundef 0) #10
-  store i16 %0, ptr %.053, align 8
+  store i16 %0, ptr %.04053, align 8
   br label %47
 
 47:                                               ; preds = %44, %43
-  %.141 = phi ptr [ %.053, %44 ], [ %.040, %43 ]
+  %.142 = phi ptr [ %.04053, %44 ], [ %.041, %43 ]
   br i1 %4, label %48, label %52
 
 48:                                               ; preds = %47
@@ -1115,7 +1115,7 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
   br label %52
 
 52:                                               ; preds = %48, %47
-  %53 = getelementptr inbounds i8, ptr %.141, i64 8
+  %53 = getelementptr inbounds i8, ptr %.142, i64 8
   br i1 %3, label %57, label %54
 
 54:                                               ; preds = %52
@@ -1138,18 +1138,18 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
   br i1 %.not4647, label %63, label %.thread48
 
 .thread48:                                        ; preds = %.thread49, %.thread
-  %58 = getelementptr inbounds i8, ptr %.141, i64 16
+  %58 = getelementptr inbounds i8, ptr %.142, i64 16
   %59 = load i64, ptr %58, align 8
   %60 = icmp ult i64 %59, %2
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %57, %.thread48
-  %62 = getelementptr inbounds i8, ptr %.141, i64 16
+  %62 = getelementptr inbounds i8, ptr %.142, i64 16
   store i64 %2, ptr %62, align 8
   br label %63
 
 63:                                               ; preds = %.thread49, %.thread, %61, %.thread48, %57
-  %64 = getelementptr inbounds i8, ptr %.141, i64 40
+  %64 = getelementptr inbounds i8, ptr %.142, i64 40
   call void @LWLockRelease(ptr noundef nonnull %64) #10
   %65 = load ptr, ptr @MainLWLockArray, align 8
   %66 = getelementptr i8, ptr %65, i64 5120
@@ -1205,21 +1205,21 @@ define dso_local i64 @replorigin_get_progress(i16 noundef zeroext %0, i1 noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %2, %14
-  %.013 = phi i64 [ %20, %14 ], [ 0, %2 ], [ 0, %9 ]
-  %.0 = phi i64 [ %18, %14 ], [ 0, %2 ], [ 0, %9 ]
+  %.014 = phi i64 [ %20, %14 ], [ 0, %2 ], [ 0, %9 ]
+  %.013 = phi i64 [ %18, %14 ], [ 0, %2 ], [ 0, %9 ]
   %21 = load ptr, ptr @MainLWLockArray, align 8
   %22 = getelementptr i8, ptr %21, i64 5120
   tail call void @LWLockRelease(ptr noundef %22) #10
-  %23 = icmp ne i64 %.013, 0
+  %23 = icmp ne i64 %.014, 0
   %or.cond = select i1 %1, i1 %23, i1 false
   br i1 %or.cond, label %24, label %25
 
 24:                                               ; preds = %.loopexit
-  tail call void @XLogFlush(i64 noundef %.013) #10
+  tail call void @XLogFlush(i64 noundef %.014) #10
   br label %25
 
 25:                                               ; preds = %24, %.loopexit
-  ret i64 %.0
+  ret i64 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1260,11 +1260,11 @@ define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noun
 
 17:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %.033 = phi i32 [ -1, %.lr.ph ], [ %.1, %36 ]
+  %.02532 = phi i32 [ -1, %.lr.ph ], [ %.1, %36 ]
   %18 = getelementptr %struct.ReplicationState, ptr %16, i64 %indvars.iv
   %19 = load i16, ptr %18, align 8
   %20 = icmp eq i16 %19, 0
-  %21 = icmp eq i32 %.033, -1
+  %21 = icmp eq i32 %.02532, -1
   %or.cond = select i1 %20, i1 %21, i1 false
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %or.cond, label %36, label %23
@@ -1297,16 +1297,16 @@ define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noun
   br label %50
 
 36:                                               ; preds = %17, %23
-  %.1 = phi i32 [ %.033, %23 ], [ %22, %17 ]
+  %.1 = phi i32 [ %.02532, %23 ], [ %22, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !13
 
 .loopexit:                                        ; preds = %36, %10
-  %.0.lcssa = phi i32 [ -1, %10 ], [ %.1, %36 ]
+  %.025.lcssa = phi i32 [ -1, %10 ], [ %.1, %36 ]
   %.pr = load ptr, ptr @session_replication_state, align 8
   %37 = icmp eq ptr %.pr, null
-  %38 = icmp eq i32 %.0.lcssa, -1
+  %38 = icmp eq i32 %.025.lcssa, -1
   %or.cond5 = select i1 %37, i1 %38, i1 false
   br i1 %or.cond5, label %39, label %45
 
@@ -1325,7 +1325,7 @@ define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noun
 
 46:                                               ; preds = %45
   %47 = load ptr, ptr @replication_states, align 8
-  %48 = sext i32 %.0.lcssa to i64
+  %48 = sext i32 %.025.lcssa to i64
   %49 = getelementptr %struct.ReplicationState, ptr %47, i64 %48
   store ptr %49, ptr @session_replication_state, align 8
   store i16 %0, ptr %49, align 8
@@ -1865,21 +1865,21 @@ replorigin_check_prerequisites.exit:              ; preds = %1
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %22, %27, %replorigin_check_prerequisites.exit
-  %.013.i = phi i64 [ %33, %27 ], [ 0, %replorigin_check_prerequisites.exit ], [ 0, %22 ]
-  %.0.i = phi i64 [ %31, %27 ], [ 0, %replorigin_check_prerequisites.exit ], [ 0, %22 ]
+  %.014.i = phi i64 [ %33, %27 ], [ 0, %replorigin_check_prerequisites.exit ], [ 0, %22 ]
+  %.013.i = phi i64 [ %31, %27 ], [ 0, %replorigin_check_prerequisites.exit ], [ 0, %22 ]
   %34 = load ptr, ptr @MainLWLockArray, align 8
   %35 = getelementptr i8, ptr %34, i64 5120
   tail call void @LWLockRelease(ptr noundef %35) #10
-  %36 = icmp ne i64 %.013.i, 0
+  %36 = icmp ne i64 %.014.i, 0
   %or.cond.i = select i1 %14, i1 %36, i1 false
   br i1 %or.cond.i, label %37, label %replorigin_get_progress.exit
 
 37:                                               ; preds = %.loopexit.i
-  tail call void @XLogFlush(i64 noundef %.013.i) #10
+  tail call void @XLogFlush(i64 noundef %.014.i) #10
   br label %replorigin_get_progress.exit
 
 replorigin_get_progress.exit:                     ; preds = %.loopexit.i, %37
-  %38 = icmp eq i64 %.0.i, 0
+  %38 = icmp eq i64 %.013.i, 0
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %replorigin_get_progress.exit
@@ -1888,7 +1888,7 @@ replorigin_get_progress.exit:                     ; preds = %.loopexit.i, %37
   br label %41
 
 41:                                               ; preds = %replorigin_get_progress.exit, %39
-  ret i64 %.0.i
+  ret i64 %.013.i
 }
 
 ; Function Attrs: nounwind uwtable

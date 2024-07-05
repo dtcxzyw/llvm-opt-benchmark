@@ -63,13 +63,13 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 
 22:                                               ; preds = %.lr.ph154, %._crit_edge148
   %indvars.iv180 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next181, %._crit_edge148 ]
-  %.0109152 = phi i32 [ 0, %.lr.ph154 ], [ %spec.select, %._crit_edge148 ]
-  %.0116150 = phi i32 [ 0, %.lr.ph154 ], [ %24, %._crit_edge148 ]
+  %.0110152 = phi i32 [ 0, %.lr.ph154 ], [ %spec.select, %._crit_edge148 ]
+  %.0117150 = phi i32 [ 0, %.lr.ph154 ], [ %24, %._crit_edge148 ]
   %.val137 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i32, ptr %.val137, i64 %indvars.iv180
   %24 = load i32, ptr %23, align 4
-  %25 = icmp slt i32 %.0116150, %24
-  %26 = sext i32 %.0116150 to i64
+  %25 = icmp slt i32 %.0117150, %24
+  %26 = sext i32 %.0117150 to i64
   %wide.trip.count = sext i32 %24 to i64
   br i1 %25, label %.lr.ph, label %._crit_edge.thread
 
@@ -109,7 +109,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %39 = phi i32 [ %29, %._crit_edge.thread ], [ %35, %._crit_edge ], [ %35, %.lr.ph147 ]
   %40 = icmp ne i32 %39, -1
   %41 = zext i1 %40 to i32
-  %spec.select = add nuw nsw i32 %.0109152, %41
+  %spec.select = add nuw nsw i32 %.0110152, %41
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %.val131 = load i32, ptr %19, align 4
   %42 = sext i32 %.val131 to i64
@@ -117,7 +117,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   br i1 %43, label %22, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %._crit_edge148, %14
-  %.0109.lcssa = phi i32 [ 0, %14 ], [ %spec.select, %._crit_edge148 ]
+  %.0110.lcssa = phi i32 [ 0, %14 ], [ %spec.select, %._crit_edge148 ]
   call void @sat_solver_delete(ptr noundef %17) #9
   %44 = call ptr @Cnf_DataWriteIntoSolver(ptr noundef %16, i32 noundef 2, i32 noundef 0) #9
   %.val129 = load ptr, ptr %18, align 8
@@ -138,11 +138,11 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 
 50:                                               ; preds = %.lr.ph158, %47
   %indvars.iv183 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next184, %47 ]
-  %.1117156 = phi i32 [ 0, %.lr.ph158 ], [ %52, %47 ]
+  %.1118156 = phi i32 [ 0, %.lr.ph158 ], [ %52, %47 ]
   %.val138 = load ptr, ptr %46, align 8
   %51 = getelementptr inbounds i32, ptr %.val138, i64 %indvars.iv183
   %52 = load i32, ptr %51, align 4
-  %53 = sext i32 %.1117156 to i64
+  %53 = sext i32 %.1118156 to i64
   %54 = getelementptr inbounds i32, ptr %.val129, i64 %53
   %55 = sext i32 %52 to i64
   %56 = getelementptr inbounds i32, ptr %.val129, i64 %55
@@ -183,13 +183,13 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 
 70:                                               ; preds = %.lr.ph172, %._crit_edge166
   %indvars.iv196 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next197, %._crit_edge166 ]
-  %.0170 = phi i32 [ 0, %.lr.ph172 ], [ %spec.select127, %._crit_edge166 ]
-  %.2118168 = phi i32 [ 0, %.lr.ph172 ], [ %72, %._crit_edge166 ]
+  %.0109170 = phi i32 [ 0, %.lr.ph172 ], [ %spec.select127, %._crit_edge166 ]
+  %.2119168 = phi i32 [ 0, %.lr.ph172 ], [ %72, %._crit_edge166 ]
   %.val139 = load ptr, ptr %68, align 8
   %71 = getelementptr inbounds i32, ptr %.val139, i64 %indvars.iv196
   %72 = load i32, ptr %71, align 4
-  %73 = icmp slt i32 %.2118168, %72
-  %74 = sext i32 %.2118168 to i64
+  %73 = icmp slt i32 %.2119168, %72
+  %74 = sext i32 %.2119168 to i64
   %wide.trip.count189 = sext i32 %72 to i64
   br i1 %73, label %.lr.ph161, label %._crit_edge162.thread
 
@@ -236,7 +236,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %93 = phi i32 [ %77, %._crit_edge162.thread ], [ %86, %._crit_edge162 ], [ %86, %.lr.ph165 ]
   %94 = icmp ne i32 %93, -1
   %95 = zext i1 %94 to i32
-  %spec.select127 = add nuw nsw i32 %.0170, %95
+  %spec.select127 = add nuw nsw i32 %.0109170, %95
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %.val133 = load i32, ptr %19, align 4
   %96 = sext i32 %.val133 to i64
@@ -244,28 +244,28 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   br i1 %97, label %70, label %.critedge4, !llvm.loop !11
 
 .critedge4:                                       ; preds = %._crit_edge166, %66
-  %.0.lcssa = phi i32 [ 0, %66 ], [ %spec.select127, %._crit_edge166 ]
+  %.0109.lcssa = phi i32 [ 0, %66 ], [ %spec.select127, %._crit_edge166 ]
   call void @sat_solver_delete(ptr noundef %44) #9
   call void @Cnf_DataFree(ptr noundef %16) #9
-  %.not124 = icmp eq i32 %.0109.lcssa, 0
+  %.not124 = icmp eq i32 %.0110.lcssa, 0
   br i1 %.not124, label %100, label %98
 
 98:                                               ; preds = %.critedge4
   %.val134 = load i32, ptr %19, align 4
-  %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0109.lcssa, i32 noundef %.val134)
+  %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0110.lcssa, i32 noundef %.val134)
   br label %100
 
 100:                                              ; preds = %98, %.critedge4
-  %.not125 = icmp eq i32 %.0.lcssa, 0
+  %.not125 = icmp eq i32 %.0109.lcssa, 0
   br i1 %.not125, label %103, label %101
 
 101:                                              ; preds = %100
   %.val135 = load i32, ptr %19, align 4
-  %102 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.0.lcssa, i32 noundef %.val135)
+  %102 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.0109.lcssa, i32 noundef %.val135)
   br label %103
 
 103:                                              ; preds = %101, %100
-  %104 = or i32 %.0.lcssa, %.0109.lcssa
+  %104 = or i32 %.0109.lcssa, %.0110.lcssa
   %or.cond.not = icmp eq i32 %104, 0
   br i1 %or.cond.not, label %105, label %119
 
@@ -297,8 +297,8 @@ Abc_Clock.exit141:                                ; preds = %105, %109
   br label %119
 
 119:                                              ; preds = %103, %Abc_Clock.exit141, %59, %13
-  %.0119 = phi i32 [ 1, %13 ], [ 0, %59 ], [ 1, %Abc_Clock.exit141 ], [ 0, %103 ]
-  ret i32 %.0119
+  %.0 = phi i32 [ 1, %13 ], [ 0, %59 ], [ 1, %Abc_Clock.exit141 ], [ 0, %103 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind

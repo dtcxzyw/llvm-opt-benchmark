@@ -642,7 +642,7 @@ dissect_mpeg_pes_pack_header.exit:                ; preds = %65, %104
   br label %155
 
 155:                                              ; preds = %152, %146
-  %.0159 = phi i32 [ %154, %152 ], [ %142, %146 ]
+  %.0158 = phi i32 [ %154, %152 ], [ %142, %146 ]
   %156 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
   %.not166 = icmp eq i8 %156, 0
   br i1 %.not166, label %167, label %157
@@ -656,14 +656,14 @@ dissect_mpeg_pes_pack_header.exit:                ; preds = %65, %104
   call fastcc void @dissect_mpeg_pes_header_data(ptr noundef %162, ptr noundef %2, i32 noundef %160)
   %163 = shl nuw nsw i32 %158, 3
   %164 = add i32 %163, %149
-  %165 = icmp ne i32 %.0159, 0
+  %165 = icmp ne i32 %.0158, 0
   %or.cond7 = and i1 %151, %165
   %166 = select i1 %or.cond7, i32 %158, i32 0
-  %spec.select = sub nsw i32 %.0159, %166
+  %spec.select = sub nsw i32 %.0158, %166
   br label %167
 
 167:                                              ; preds = %157, %155
-  %.1 = phi i32 [ %.0159, %155 ], [ %spec.select, %157 ]
+  %.1 = phi i32 [ %.0158, %155 ], [ %spec.select, %157 ]
   %.0157 = phi i32 [ %149, %155 ], [ %164, %157 ]
   %168 = icmp eq i32 %.1, 0
   %169 = sdiv i32 %.0157, 8
@@ -678,34 +678,34 @@ dissect_mpeg_pes_pack_header.exit:                ; preds = %65, %104
   br label %174
 
 174:                                              ; preds = %172, %170
-  %.0158 = phi ptr [ %171, %170 ], [ %173, %172 ]
+  %.0159 = phi ptr [ %171, %170 ], [ %173, %172 ]
   %175 = load ptr, ptr @stream_type_table, align 8
   %176 = and i32 %19, 255
-  %177 = call i32 @dissector_try_uint_new(ptr noundef %175, i32 noundef %176, ptr noundef %.0158, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef null) #3
+  %177 = call i32 @dissector_try_uint_new(ptr noundef %175, i32 noundef %176, ptr noundef %.0159, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef null) #3
   %.not167 = icmp eq i32 %177, 0
   br i1 %.not167, label %178, label %206
 
 178:                                              ; preds = %174
-  %179 = call i32 @tvb_get_ntoh24(ptr noundef %.0158, i32 noundef 0) #3
+  %179 = call i32 @tvb_get_ntoh24(ptr noundef %.0159, i32 noundef 0) #3
   %180 = icmp eq i32 %179, 1
   br i1 %180, label %181, label %183
 
 181:                                              ; preds = %178
-  %182 = call i32 @dissect_mpeg_pes(ptr noundef %.0158, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
+  %182 = call i32 @dissect_mpeg_pes(ptr noundef %.0159, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
   br label %206
 
 183:                                              ; preds = %178
-  %184 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0158, i32 noundef 0) #3
+  %184 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0159, i32 noundef 0) #3
   %185 = icmp eq i8 %184, -1
   br i1 %185, label %186, label %188
 
 186:                                              ; preds = %183
-  %187 = call i32 @dissect_mpeg(ptr noundef %.0158, ptr noundef nonnull %1, ptr noundef %2, ptr poison)
+  %187 = call i32 @dissect_mpeg(ptr noundef %.0159, ptr noundef nonnull %1, ptr noundef %2, ptr poison)
   br label %206
 
 188:                                              ; preds = %183
   %189 = load i32, ptr @hf_mpeg_pes_data, align 4
-  %190 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %189, ptr noundef %.0158, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %190 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %189, ptr noundef %.0159, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   br label %206
 
 191:                                              ; preds = %140

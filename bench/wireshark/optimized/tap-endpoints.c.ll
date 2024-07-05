@@ -135,13 +135,13 @@ sub_176:                                          ; preds = %sub_0
 .split.us:                                        ; preds = %.split.us.preheader, %.critedge2.us
   %25 = phi ptr [ %36, %.critedge2.us ], [ %.pre116, %.split.us.preheader ]
   %26 = phi ptr [ %37, %.critedge2.us ], [ %.pre116, %.split.us.preheader ]
-  %.059.us = phi i64 [ %.060.lcssa.us129, %.critedge2.us ], [ 4294967295, %.split.us.preheader ]
+  %.059.us = phi i64 [ %.0.lcssa.us129, %.critedge2.us ], [ 4294967295, %.split.us.preheader ]
   %.not69.us = icmp eq ptr %26, null
   br i1 %.not69.us, label %.split95.us, label %.lr.ph.us
 
 27:                                               ; preds = %.lr.ph86.us, %27
   %indvars.iv107 = phi i64 [ 0, %.lr.ph86.us ], [ %indvars.iv.next108, %27 ]
-  %.0607985.us = phi i64 [ 0, %.lr.ph86.us ], [ %.161.us91, %27 ]
+  %.08084.us = phi i64 [ 0, %.lr.ph86.us ], [ %.1.us91, %27 ]
   %28 = getelementptr %struct._endpoint_item_t, ptr %40, i64 %indvars.iv107
   %29 = getelementptr inbounds i8, ptr %28, i64 40
   %30 = load i64, ptr %29, align 8
@@ -149,20 +149,20 @@ sub_176:                                          ; preds = %sub_0
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %30
   %34 = icmp ult i64 %33, %.059.us
-  %35 = tail call i64 @llvm.umax.i64(i64 %33, i64 %.0607985.us)
-  %.161.us91 = select i1 %34, i64 %35, i64 %.0607985.us
+  %35 = tail call i64 @llvm.umax.i64(i64 %33, i64 %.08084.us)
+  %.1.us91 = select i1 %34, i64 %35, i64 %.08084.us
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
   br i1 %exitcond111.not, label %.lr.ph89.us.preheader, label %27
 
 .lr.ph89.us.preheader:                            ; preds = %27, %.lr.ph.us
-  %.060.lcssa.us129 = phi i64 [ 0, %.lr.ph.us ], [ %.161.us91, %27 ]
+  %.0.lcssa.us129 = phi i64 [ 0, %.lr.ph.us ], [ %.1.us91, %27 ]
   br label %.lr.ph89.us
 
 .critedge2.us:                                    ; preds = %69, %.lr.ph89.us
   %36 = phi ptr [ %41, %.lr.ph89.us ], [ null, %69 ]
   %37 = phi ptr [ %42, %.lr.ph89.us ], [ null, %69 ]
-  %.not71.us = icmp eq i64 %.060.lcssa.us129, 0
+  %.not71.us = icmp eq i64 %.0.lcssa.us129, 0
   br i1 %.not71.us, label %.split95.us, label %.split.us, !llvm.loop !5
 
 .lr.ph.us:                                        ; preds = %.split.us
@@ -194,7 +194,7 @@ sub_176:                                          ; preds = %sub_0
   %52 = getelementptr inbounds i8, ptr %49, i64 48
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %53, %51
-  %55 = icmp eq i64 %54, %.060.lcssa.us129
+  %55 = icmp eq i64 %54, %.0.lcssa.us129
   br i1 %55, label %56, label %69
 
 56:                                               ; preds = %47
@@ -224,7 +224,7 @@ sub_176:                                          ; preds = %sub_0
 .split:                                           ; preds = %.split.preheader, %.critedge2
   %71 = phi ptr [ %114, %.critedge2 ], [ %.pre, %.split.preheader ]
   %72 = phi ptr [ %115, %.critedge2 ], [ %.pre, %.split.preheader ]
-  %.059 = phi i64 [ %.060.lcssa138, %.critedge2 ], [ 4294967295, %.split.preheader ]
+  %.059 = phi i64 [ %.0.lcssa138, %.critedge2 ], [ 4294967295, %.split.preheader ]
   %.not69 = icmp eq ptr %72, null
   br i1 %.not69, label %.split95.us, label %.lr.ph
 
@@ -241,7 +241,7 @@ sub_176:                                          ; preds = %sub_0
 
 76:                                               ; preds = %.lr.ph86, %76
   %indvars.iv = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next, %76 ]
-  %.0607985 = phi i64 [ 0, %.lr.ph86 ], [ %.161, %76 ]
+  %.08084 = phi i64 [ 0, %.lr.ph86 ], [ %.1, %76 ]
   %77 = getelementptr %struct._endpoint_item_t, ptr %75, i64 %indvars.iv
   %78 = getelementptr inbounds i8, ptr %77, i64 40
   %79 = load i64, ptr %78, align 8
@@ -249,14 +249,14 @@ sub_176:                                          ; preds = %sub_0
   %81 = load i64, ptr %80, align 8
   %82 = add i64 %81, %79
   %83 = icmp ult i64 %82, %.059
-  %84 = tail call i64 @llvm.umax.i64(i64 %82, i64 %.0607985)
-  %.161 = select i1 %83, i64 %84, i64 %.0607985
+  %84 = tail call i64 @llvm.umax.i64(i64 %82, i64 %.08084)
+  %.1 = select i1 %83, i64 %84, i64 %.08084
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph89.preheader, label %76
 
 .lr.ph89.preheader:                               ; preds = %76, %.lr.ph
-  %.060.lcssa138 = phi i64 [ 0, %.lr.ph ], [ %.161, %76 ]
+  %.0.lcssa138 = phi i64 [ 0, %.lr.ph ], [ %.1, %76 ]
   br label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %112
@@ -277,7 +277,7 @@ sub_176:                                          ; preds = %sub_0
   %96 = getelementptr inbounds i8, ptr %93, i64 48
   %97 = load i64, ptr %96, align 8
   %98 = add i64 %97, %95
-  %99 = icmp eq i64 %98, %.060.lcssa138
+  %99 = icmp eq i64 %98, %.0.lcssa138
   br i1 %99, label %100, label %112
 
 100:                                              ; preds = %91
@@ -305,7 +305,7 @@ sub_176:                                          ; preds = %sub_0
 .critedge2:                                       ; preds = %.lr.ph89, %112
   %114 = phi ptr [ null, %112 ], [ %85, %.lr.ph89 ]
   %115 = phi ptr [ null, %112 ], [ %86, %.lr.ph89 ]
-  %.not71 = icmp eq i64 %.060.lcssa138, 0
+  %.not71 = icmp eq i64 %.0.lcssa138, 0
   br i1 %.not71, label %.split95.us, label %.split, !llvm.loop !5
 
 .split95.us:                                      ; preds = %.split, %.critedge2, %.split.us, %.critedge2.us

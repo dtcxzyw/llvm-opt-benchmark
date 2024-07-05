@@ -441,11 +441,11 @@ define void @_ZN3gmx12AtomsBuilder10mergeAtomsERK7t_atoms(ptr nocapture noundef 
 
 23:                                               ; preds = %.lr.ph, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit ]
-  %.01620 = phi i32 [ -1, %.lr.ph ], [ %.1, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit ]
+  %.021 = phi i32 [ -1, %.lr.ph ], [ %.1, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit ]
   %24 = load ptr, ptr %16, align 8
   %25 = getelementptr inbounds %struct.t_atom, ptr %24, i64 %indvars.iv, i32 7
   %26 = load i32, ptr %25, align 4
-  %.not = icmp eq i32 %26, %.01620
+  %.not = icmp eq i32 %26, %.021
   br i1 %.not, label %64, label %27
 
 27:                                               ; preds = %23
@@ -508,7 +508,7 @@ _ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit: ; preds = %36, %51
 
 64:                                               ; preds = %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit, %23
   %65 = phi ptr [ %.pre27, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ], [ %24, %23 ]
-  %.1 = phi i32 [ %26, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ], [ %.01620, %23 ]
+  %.1 = phi i32 [ %26, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ], [ %.021, %23 ]
   %66 = load ptr, ptr %0, align 8
   %67 = load i32, ptr %66, align 8
   %68 = getelementptr inbounds %struct.t_atom, ptr %65, i64 %indvars.iv

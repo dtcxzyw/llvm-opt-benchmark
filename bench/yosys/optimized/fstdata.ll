@@ -622,51 +622,51 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
 
 170:                                              ; preds = %.loopexit76, %161
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit76 ], [ %162, %161 ]
-  %.020 = phi ptr [ %117, %.loopexit76 ], [ %115, %161 ]
-  %.1 = phi i1 [ %169, %.loopexit76 ], [ false, %161 ]
+  %.028 = phi ptr [ %117, %.loopexit76 ], [ %115, %161 ]
+  %.121 = phi i1 [ %169, %.loopexit76 ], [ false, %161 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #22
   br label %171
 
 171:                                              ; preds = %170, %159
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %170 ], [ %160, %159 ]
-  %.121 = phi ptr [ %.020, %170 ], [ %113, %159 ]
-  %.2 = phi i1 [ %.1, %170 ], [ false, %159 ]
+  %.129 = phi ptr [ %.028, %170 ], [ %113, %159 ]
+  %.222 = phi i1 [ %.121, %170 ], [ false, %159 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #22
   br label %172
 
 172:                                              ; preds = %171, %157
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %171 ], [ %158, %157 ]
-  %.222 = phi ptr [ %.121, %171 ], [ %111, %157 ]
-  %.3 = phi i1 [ %.2, %171 ], [ false, %157 ]
+  %.230 = phi ptr [ %.129, %171 ], [ %111, %157 ]
+  %.323 = phi i1 [ %.222, %171 ], [ false, %157 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #22
   br label %173
 
 173:                                              ; preds = %172, %155
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %172 ], [ %156, %155 ]
-  %.323 = phi ptr [ %.222, %172 ], [ %109, %155 ]
-  %.4 = phi i1 [ %.3, %172 ], [ false, %155 ]
+  %.331 = phi ptr [ %.230, %172 ], [ %109, %155 ]
+  %.424 = phi i1 [ %.323, %172 ], [ false, %155 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #22
   br label %174
 
 174:                                              ; preds = %173, %153
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %173 ], [ %154, %153 ]
-  %.424 = phi ptr [ %.323, %173 ], [ %107, %153 ]
-  %.5 = phi i1 [ %.4, %173 ], [ false, %153 ]
+  %.432 = phi ptr [ %.331, %173 ], [ %107, %153 ]
+  %.525 = phi i1 [ %.424, %173 ], [ false, %153 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #22
   br label %175
 
 175:                                              ; preds = %151, %174
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %174 ], [ %152, %151 ]
-  %.525 = phi ptr [ %.424, %174 ], [ %105, %151 ]
-  %.6 = phi i1 [ %.5, %174 ], [ false, %151 ]
+  %.533 = phi ptr [ %.432, %174 ], [ %105, %151 ]
+  %.626 = phi i1 [ %.525, %174 ], [ false, %151 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #22
-  %176 = icmp eq ptr %9, %.525
-  %or.cond = select i1 %.6, i1 true, i1 %176
+  %176 = icmp eq ptr %9, %.533
+  %or.cond = select i1 %.626, i1 true, i1 %176
   br i1 %or.cond, label %.loopexit75, label %.preheader
 
 .preheader:                                       ; preds = %175, %.preheader
-  %177 = phi ptr [ %178, %.preheader ], [ %.525, %175 ]
+  %177 = phi ptr [ %178, %.preheader ], [ %.533, %175 ]
   %178 = getelementptr inbounds i8, ptr %177, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %178) #22
   %179 = icmp eq ptr %178, %9
@@ -1320,8 +1320,8 @@ _ZN5Yosys6FstVaraSERKS0_.exit:                    ; preds = %.noexc62
 
 .lr.ph:                                           ; preds = %179, %187
   %181 = phi ptr [ %189, %187 ], [ %180, %179 ]
-  %.0147 = phi i64 [ %188, %187 ], [ 0, %179 ]
-  %182 = getelementptr inbounds i8, ptr %181, i64 %.0147
+  %.024147 = phi i64 [ %188, %187 ], [ 0, %179 ]
+  %182 = getelementptr inbounds i8, ptr %181, i64 %.024147
   %183 = load i8, ptr %182, align 1
   %184 = icmp eq i8 %183, 32
   br i1 %184, label %._crit_edge, label %185
@@ -1331,7 +1331,7 @@ _ZN5Yosys6FstVaraSERKS0_.exit:                    ; preds = %.noexc62
           to label %187 unwind label %.loopexit
 
 187:                                              ; preds = %185
-  %188 = add nuw i64 %.0147, 1
+  %188 = add nuw i64 %.024147, 1
   %189 = load ptr, ptr %66, align 8
   %190 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %189) #27
   %191 = icmp ult i64 %188, %190

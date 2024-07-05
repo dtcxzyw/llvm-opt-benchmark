@@ -621,17 +621,17 @@ _Z14tMPI_Is_masterv.exit:                         ; preds = %8
   br label %40
 
 40:                                               ; preds = %45, %37
-  %.0 = phi ptr [ %39, %37 ], [ %47, %45 ]
-  %41 = icmp ne ptr %.0, null
+  %.016 = phi ptr [ %39, %37 ], [ %47, %45 ]
+  %41 = icmp ne ptr %.016, null
   %42 = load ptr, ptr @TMPI_COMM_WORLD, align 8
-  %43 = icmp ne ptr %.0, %42
+  %43 = icmp ne ptr %.016, %42
   %44 = select i1 %41, i1 %43, i1 false
   br i1 %44, label %45, label %53
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %.0, i64 456
+  %46 = getelementptr inbounds i8, ptr %.016, i64 456
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef i32 @_Z17tMPI_Comm_destroyP10tmpi_comm_i(ptr noundef nonnull %.0, i32 noundef 0)
+  %48 = tail call noundef i32 @_Z17tMPI_Comm_destroyP10tmpi_comm_i(ptr noundef nonnull %.016, i32 noundef 0)
   %.not24 = icmp eq i32 %48, 0
   br i1 %.not24, label %40, label %49, !llvm.loop !10
 
@@ -676,8 +676,8 @@ _Z14tMPI_Is_masterv.exit:                         ; preds = %8
   br label %67
 
 67:                                               ; preds = %53, %62, %66, %59, %49, %35, %19, %5
-  %.017 = phi i32 [ %6, %5 ], [ %21, %19 ], [ %36, %35 ], [ %48, %49 ], [ %61, %59 ], [ 0, %66 ], [ 0, %62 ], [ %54, %53 ]
-  ret i32 %.017
+  %.0 = phi i32 [ %6, %5 ], [ %21, %19 ], [ %36, %35 ], [ %48, %49 ], [ %61, %59 ], [ 0, %66 ], [ 0, %62 ], [ %54, %53 ]
+  ret i32 %.0
 }
 
 declare noundef i32 @_Z24tMPI_Thread_barrier_waitP21tMPI_Thread_barrier_t(ptr noundef) local_unnamed_addr #1
@@ -878,16 +878,16 @@ define noundef i32 @_Z23tMPI_Get_processor_namePcPi(ptr nocapture noundef %0, pt
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.02834 = phi i32 [ %11, %.lr.ph ], [ %9, %2 ]
-  %.02933 = phi i32 [ %12, %.lr.ph ], [ 0, %2 ]
-  %11 = udiv i32 %.02834, 10
-  %12 = add i32 %.02933, 1
-  %.not37 = icmp ult i32 %.02834, 10
+  %.034 = phi i32 [ %12, %.lr.ph ], [ 0, %2 ]
+  %.02933 = phi i32 [ %11, %.lr.ph ], [ %9, %2 ]
+  %11 = udiv i32 %.02933, 10
+  %12 = add i32 %.034, 1
+  %.not37 = icmp ult i32 %.02933, 10
   br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.029.lcssa = phi i32 [ 0, %2 ], [ %12, %.lr.ph ]
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.029.lcssa, i32 1)
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %12, %.lr.ph ]
+  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.0.lcssa, i32 1)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %0, ptr noundef nonnull align 1 dereferenceable(9) @.str.4, i64 9, i1 false) #18
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %wide.trip.count = zext i32 %spec.store.select to i64
@@ -895,15 +895,15 @@ define noundef i32 @_Z23tMPI_Get_processor_namePcPi(ptr nocapture noundef %0, pt
 
 14:                                               ; preds = %._crit_edge, %27
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %27 ]
-  %.036 = phi i32 [ %9, %._crit_edge ], [ %21, %27 ]
+  %.02736 = phi i32 [ %9, %._crit_edge ], [ %21, %27 ]
   %15 = trunc nuw i64 %indvars.iv to i32
   %16 = xor i32 %15, -1
   %17 = add i32 %spec.store.select, %16
   %18 = zext i32 %17 to i64
   %19 = add i64 %13, %18
   %20 = icmp ult i64 %19, 127
-  %21 = udiv i32 %.036, 10
-  %22 = urem i32 %.036, 10
+  %21 = udiv i32 %.02736, 10
+  %22 = urem i32 %.02736, 10
   br i1 %20, label %23, label %27
 
 23:                                               ; preds = %14

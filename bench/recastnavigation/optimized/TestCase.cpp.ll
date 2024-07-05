@@ -150,11 +150,11 @@ define dso_local noundef zeroext i1 @_ZN8TestCase4loadERKNSt7__cxx1112basic_stri
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %42
-  %.027.i = phi i32 [ %.1.i, %42 ], [ 0, %30 ]
-  %.01725.i = phi i8 [ %.118.i, %42 ], [ 1, %30 ]
-  %.01924.i = phi ptr [ %32, %42 ], [ %.05876, %30 ]
-  %31 = load i8, ptr %.01924.i, align 1
-  %32 = getelementptr inbounds i8, ptr %.01924.i, i64 1
+  %.027.i = phi ptr [ %32, %42 ], [ %.05876, %30 ]
+  %.01526.i = phi i32 [ %.1.i, %42 ], [ 0, %30 ]
+  %.01824.i = phi i8 [ %.119.i, %42 ], [ 1, %30 ]
+  %31 = load i8, ptr %.027.i, align 1
+  %32 = getelementptr inbounds i8, ptr %.027.i, i64 1
   switch i8 %31, label %37 [
     i8 10, label %33
     i8 13, label %42
@@ -163,28 +163,28 @@ define dso_local noundef zeroext i1 @_ZN8TestCase4loadERKNSt7__cxx1112basic_stri
   ]
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = trunc nuw i8 %.01725.i to i1
+  %34 = trunc nuw i8 %.01824.i to i1
   %not..i = xor i1 %34, true
   br label %42
 
 35:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %36 = trunc nuw i8 %.01725.i to i1
+  %36 = trunc nuw i8 %.01824.i to i1
   br i1 %36, label %42, label %37
 
 37:                                               ; preds = %35, %.lr.ph.i
-  %38 = add nsw i32 %.027.i, 1
-  %39 = sext i32 %.027.i to i64
+  %38 = add nsw i32 %.01526.i, 1
+  %39 = sext i32 %.01526.i to i64
   %40 = getelementptr inbounds i8, ptr %3, i64 %39
   store i8 %31, ptr %40, align 1
-  %41 = icmp sgt i32 %.027.i, 509
+  %41 = icmp sgt i32 %.01526.i, 509
   br label %42
 
 42:                                               ; preds = %37, %35, %33, %.lr.ph.i
-  %.118.i = phi i8 [ %.01725.i, %35 ], [ %.01725.i, %.lr.ph.i ], [ %.01725.i, %33 ], [ 0, %37 ]
-  %.116.i = phi i1 [ false, %35 ], [ false, %.lr.ph.i ], [ %not..i, %33 ], [ %41, %37 ]
-  %.1.i = phi i32 [ %.027.i, %35 ], [ %.027.i, %.lr.ph.i ], [ %.027.i, %33 ], [ %38, %37 ]
+  %.119.i = phi i8 [ %.01824.i, %35 ], [ %.01824.i, %.lr.ph.i ], [ %.01824.i, %33 ], [ 0, %37 ]
+  %.117.i = phi i1 [ false, %35 ], [ false, %.lr.ph.i ], [ %not..i, %33 ], [ %41, %37 ]
+  %.1.i = phi i32 [ %.01526.i, %35 ], [ %.01526.i, %.lr.ph.i ], [ %.01526.i, %33 ], [ %38, %37 ]
   %43 = icmp uge ptr %32, %25
-  %.not22.i = select i1 %.116.i, i1 true, i1 %43
+  %.not22.i = select i1 %.117.i, i1 true, i1 %43
   br i1 %.not22.i, label %_ZL8parseRowPcS_S_i.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZL8parseRowPcS_S_i.exit:                         ; preds = %42

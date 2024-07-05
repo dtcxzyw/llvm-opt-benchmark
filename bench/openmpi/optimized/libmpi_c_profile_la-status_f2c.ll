@@ -54,8 +54,8 @@ define i32 @PMPI_Status_f2c(ptr noundef readonly %0, ptr noundef writeonly %1) #
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !4
 
 .loopexit:                                        ; preds = %17, %15
-  %.016 = phi i32 [ %16, %15 ], [ 0, %17 ]
-  ret i32 %.016
+  %.0 = phi i32 [ %16, %15 ], [ 0, %17 ]
+  ret i32 %.0
 }
 
 declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

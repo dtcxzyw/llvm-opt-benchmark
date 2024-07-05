@@ -4265,10 +4265,10 @@ define void @_ZN14regex_automata4meta5regex7Builder5build17h95d9f52de86b9271E(pt
   br label %52
 
 52:                                               ; preds = %272, %43
-  %.sroa.0134.0.i = phi i32 [ undef, %43 ], [ %.sroa.0134.1.i, %272 ]
-  %.sroa.13131.0.i = phi ptr [ %46, %43 ], [ %.sroa.13131.1.i, %272 ]
-  %.sroa.8129.0.i = phi i64 [ %44, %43 ], [ %.sroa.8129.1.i, %272 ]
   %.sroa.0127.0.idx.i = phi i64 [ 0, %43 ], [ %.sroa.0127.1.idx.i, %272 ]
+  %.sroa.8129.0.i = phi i64 [ %44, %43 ], [ %.sroa.8129.1.i, %272 ]
+  %.sroa.13131.0.i = phi ptr [ %46, %43 ], [ %.sroa.13131.1.i, %272 ]
+  %.sroa.0134.0.i = phi i32 [ undef, %43 ], [ %.sroa.0134.1.i, %272 ]
   %.sroa.0127.0.ptr.i = getelementptr inbounds i8, ptr %31, i64 %.sroa.0127.0.idx.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.6136.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.11138.i)
@@ -4301,10 +4301,10 @@ define void @_ZN14regex_automata4meta5regex7Builder5build17h95d9f52de86b9271E(pt
   br label %62
 
 62:                                               ; preds = %59, %55, %52
-  %.sroa.0134.1.i = phi i32 [ %.sroa.0134.0.i, %52 ], [ %.sroa.0134.0.i, %55 ], [ %60, %59 ]
-  %.sroa.13131.1.i = phi ptr [ %.sroa.13131.0.i, %52 ], [ %.sroa.13131.0.i, %55 ], [ %61, %59 ]
-  %.sroa.8129.1.i = phi i64 [ %.sroa.8129.0.i, %52 ], [ %56, %55 ], [ %56, %59 ]
   %.sroa.0127.1.idx.i = phi i64 [ 16, %52 ], [ %.sroa.0127.0.add.i, %55 ], [ %.sroa.0127.0.add.i, %59 ]
+  %.sroa.8129.1.i = phi i64 [ %.sroa.8129.0.i, %52 ], [ %56, %55 ], [ %56, %59 ]
+  %.sroa.13131.1.i = phi ptr [ %.sroa.13131.0.i, %52 ], [ %.sroa.13131.0.i, %55 ], [ %61, %59 ]
+  %.sroa.0134.1.i = phi i32 [ %.sroa.0134.0.i, %52 ], [ %.sroa.0134.0.i, %55 ], [ %60, %59 ]
   %.sink19.i.sroa.phi.i = phi ptr [ %.sroa.6136.i, %52 ], [ %.sroa.6136.i, %55 ], [ %.sroa.11138.i, %59 ]
   %.sink.i.i = phi ptr [ null, %52 ], [ null, %55 ], [ %.sroa.13131.0.i, %59 ]
   store ptr %.sink.i.i, ptr %.sink19.i.sroa.phi.i, align 8, !alias.scope !825, !noalias !828
@@ -9832,7 +9832,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i82: ; preds = %49
   unreachable
 
 _ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit: ; preds = %79, %86, %select.unfold9, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread96, %._crit_edge.thread, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit", %3
-  %.028 = phi i8 [ 0, %3 ], [ %106, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit" ], [ 0, %._crit_edge.thread ], [ 0, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread96 ], [ 0, %select.unfold9 ], [ 0, %86 ], [ 0, %79 ]
+  %.027 = phi i8 [ 0, %3 ], [ %106, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit" ], [ 0, %._crit_edge.thread ], [ 0, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread96 ], [ 0, %select.unfold9 ], [ 0, %86 ], [ 0, %79 ]
   %61 = icmp ult i64 %2, %1
   br i1 %61, label %109, label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit
 
@@ -10029,8 +10029,8 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit67.thread70: ; pred
   unreachable
 
 _ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit: ; preds = %select.unfold29, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread80, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit123", %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit
-  %.026 = phi i8 [ 0, %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit ], [ %159, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit123" ], [ 0, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread80 ], [ 0, %select.unfold29 ]
-  %136 = xor i8 %.028, %.026
+  %.025 = phi i8 [ 0, %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit ], [ %159, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit123" ], [ 0, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread80 ], [ 0, %select.unfold29 ]
+  %136 = xor i8 %.027, %.025
   %137 = xor i8 %136, 1
   br label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread
 

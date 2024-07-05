@@ -1372,17 +1372,17 @@ entry:
   br i1 %tobool.not19, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end12
-  %p.021 = phi ptr [ %p.1, %if.end12 ], [ %retval1, %entry ]
-  %ref_map.addr.020 = phi ptr [ %0, %if.end12 ], [ %ref_map, %entry ]
-  %0 = load ptr, ptr %ref_map.addr.020, align 8
-  store ptr null, ptr %ref_map.addr.020, align 8
-  %peer_ref = getelementptr inbounds i8, ptr %ref_map.addr.020, i64 168
+  %ref_map.addr.021 = phi ptr [ %0, %if.end12 ], [ %ref_map, %entry ]
+  %p.020 = phi ptr [ %p.1, %if.end12 ], [ %retval1, %entry ]
+  %0 = load ptr, ptr %ref_map.addr.021, align 8
+  store ptr null, ptr %ref_map.addr.021, align 8
+  %peer_ref = getelementptr inbounds i8, ptr %ref_map.addr.021, i64 168
   %1 = load ptr, ptr %peer_ref, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  store ptr %ref_map.addr.020, ptr %p.021, align 8
+  store ptr %ref_map.addr.021, ptr %p.020, align 8
   br label %if.end12
 
 if.else:                                          ; preds = %while.body
@@ -1395,7 +1395,7 @@ if.else:                                          ; preds = %while.body
 
 if.then7:                                         ; preds = %if.else
   %name.i = getelementptr inbounds i8, ptr %2, i64 176
-  %name1.i = getelementptr inbounds i8, ptr %ref_map.addr.020, i64 176
+  %name1.i = getelementptr inbounds i8, ptr %ref_map.addr.021, i64 176
   %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %name1.i) #20
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %handle_duplicate.exit, label %if.then.i
@@ -1404,7 +1404,7 @@ if.then.i:                                        ; preds = %if.then7
   %fetch_head_status.i = getelementptr inbounds i8, ptr %2, i64 144
   %3 = load i32, ptr %fetch_head_status.i, align 8
   %cmp.not.i = icmp eq i32 %3, 1
-  %fetch_head_status31.i = getelementptr inbounds i8, ptr %ref_map.addr.020, i64 144
+  %fetch_head_status31.i = getelementptr inbounds i8, ptr %ref_map.addr.021, i64 144
   %4 = load i32, ptr %fetch_head_status31.i, align 8
   %cmp32.i = icmp eq i32 %4, 1
   br i1 %cmp.not.i, label %land.lhs.true30.i, label %land.lhs.true.i
@@ -1452,16 +1452,16 @@ if.else42.i:                                      ; preds = %land.lhs.true30.i
 handle_duplicate.exit:                            ; preds = %if.then7, %_.exit.i
   %9 = load ptr, ptr %peer_ref, align 8
   call void @free(ptr noundef %9) #21
-  call void @free(ptr noundef nonnull %ref_map.addr.020) #21
+  call void @free(ptr noundef nonnull %ref_map.addr.021) #21
   br label %if.end12
 
 if.else9:                                         ; preds = %if.else
-  store ptr %ref_map.addr.020, ptr %p.021, align 8
-  store ptr %ref_map.addr.020, ptr %util, align 8
+  store ptr %ref_map.addr.021, ptr %p.020, align 8
+  store ptr %ref_map.addr.021, ptr %util, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %handle_duplicate.exit, %if.else9, %if.then
-  %p.1 = phi ptr [ %p.021, %handle_duplicate.exit ], [ %ref_map.addr.020, %if.else9 ], [ %ref_map.addr.020, %if.then ]
+  %p.1 = phi ptr [ %p.020, %handle_duplicate.exit ], [ %ref_map.addr.021, %if.else9 ], [ %ref_map.addr.021, %if.then ]
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %while.end.loopexit, label %while.body, !llvm.loop !13
 
@@ -2311,12 +2311,12 @@ entry:
   br i1 %tobool.not17, label %if.then19, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %match.022 = phi i32 [ %match.1, %for.inc ], [ 0, %entry ]
-  %weak_match.021 = phi i32 [ %weak_match.1, %for.inc ], [ 0, %entry ]
-  %matched.020 = phi ptr [ %matched.1, %for.inc ], [ null, %entry ]
-  %matched_weak.019 = phi ptr [ %matched_weak.1, %for.inc ], [ null, %entry ]
-  %refs.addr.018 = phi ptr [ %0, %for.inc ], [ %refs, %entry ]
-  %name1 = getelementptr inbounds i8, ptr %refs.addr.018, i64 176
+  %refs.addr.022 = phi ptr [ %0, %for.inc ], [ %refs, %entry ]
+  %match.021 = phi i32 [ %match.1, %for.inc ], [ 0, %entry ]
+  %weak_match.020 = phi i32 [ %weak_match.1, %for.inc ], [ 0, %entry ]
+  %matched.019 = phi ptr [ %matched.1, %for.inc ], [ null, %entry ]
+  %matched_weak.018 = phi ptr [ %matched_weak.1, %for.inc ], [ null, %entry ]
+  %name1 = getelementptr inbounds i8, ptr %refs.addr.022, i64 176
   %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name1) #20
   %call4 = tail call i32 @refname_match(ptr noundef %pattern, ptr noundef nonnull %name1) #21
   %tobool5.not = icmp eq i32 %call4, 0
@@ -2341,19 +2341,19 @@ land.lhs.true12:                                  ; preds = %land.lhs.true9
   br i1 %tobool14.not, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %land.lhs.true12
-  %inc = add nsw i32 %weak_match.021, 1
+  %inc = add nsw i32 %weak_match.020, 1
   br label %for.inc
 
 if.else:                                          ; preds = %land.lhs.true12, %land.lhs.true9, %if.end
-  %inc16 = add nsw i32 %match.022, 1
+  %inc16 = add nsw i32 %match.021, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then15, %if.else, %for.body
-  %matched_weak.1 = phi ptr [ %matched_weak.019, %if.else ], [ %refs.addr.018, %if.then15 ], [ %matched_weak.019, %for.body ]
-  %matched.1 = phi ptr [ %refs.addr.018, %if.else ], [ %matched.020, %if.then15 ], [ %matched.020, %for.body ]
-  %weak_match.1 = phi i32 [ %weak_match.021, %if.else ], [ %inc, %if.then15 ], [ %weak_match.021, %for.body ]
-  %match.1 = phi i32 [ %inc16, %if.else ], [ %match.022, %if.then15 ], [ %match.022, %for.body ]
-  %0 = load ptr, ptr %refs.addr.018, align 8
+  %matched_weak.1 = phi ptr [ %matched_weak.018, %if.else ], [ %refs.addr.022, %if.then15 ], [ %matched_weak.018, %for.body ]
+  %matched.1 = phi ptr [ %refs.addr.022, %if.else ], [ %matched.019, %if.then15 ], [ %matched.019, %for.body ]
+  %weak_match.1 = phi i32 [ %weak_match.020, %if.else ], [ %inc, %if.then15 ], [ %weak_match.020, %for.body ]
+  %match.1 = phi i32 [ %inc16, %if.else ], [ %match.021, %if.then15 ], [ %match.021, %for.body ]
+  %0 = load ptr, ptr %refs.addr.022, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !23
 
@@ -2420,7 +2420,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %1 = phi i32 [ %4, %for.inc ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %ret.010 = phi i32 [ %ret.1, %for.inc ], [ 0, %entry ]
+  %ret.011 = phi i32 [ %ret.1, %for.inc ], [ 0, %entry ]
   %2 = load ptr, ptr %rs, align 8
   %arrayidx = getelementptr inbounds %struct.refspec_item, ptr %2, i64 %indvars.iv
   %bf.load = load i8, ptr %arrayidx, align 8
@@ -2430,13 +2430,13 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %call = tail call fastcc i32 @match_explicit_lhs(ptr noundef %src, ptr noundef nonnull %arrayidx, ptr noundef null, ptr noundef null)
-  %or = or i32 %call, %ret.010
+  %or = or i32 %call, %ret.011
   %.pre = load i32, ptr %nr, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end
   %4 = phi i32 [ %1, %for.body ], [ %.pre, %if.end ]
-  %ret.1 = phi i32 [ %ret.010, %for.body ], [ %or, %if.end ]
+  %ret.1 = phi i32 [ %ret.011, %for.body ], [ %or, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = sext i32 %4 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %5
@@ -2685,12 +2685,12 @@ if.end28.i.i:                                     ; preds = %land.lhs.true.i.i, 
   br i1 %tobool.not17.i.i.i, label %sw.bb30.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.end28.i.i, %for.inc.i.i.i
-  %match.022.i.i.i = phi i32 [ %match.1.i.i.i, %for.inc.i.i.i ], [ 0, %if.end28.i.i ]
-  %weak_match.021.i.i.i = phi i32 [ %weak_match.1.i.i.i, %for.inc.i.i.i ], [ 0, %if.end28.i.i ]
-  %matched.020.i.i.i = phi ptr [ %matched.1.i.i.i, %for.inc.i.i.i ], [ null, %if.end28.i.i ]
-  %matched_weak.019.i.i.i = phi ptr [ %matched_weak.1.i.i.i, %for.inc.i.i.i ], [ null, %if.end28.i.i ]
-  %refs.addr.018.i.i.i = phi ptr [ %10, %for.inc.i.i.i ], [ %3, %if.end28.i.i ]
-  %name1.i.i.i = getelementptr inbounds i8, ptr %refs.addr.018.i.i.i, i64 176
+  %refs.addr.022.i.i.i = phi ptr [ %10, %for.inc.i.i.i ], [ %3, %if.end28.i.i ]
+  %match.021.i.i.i = phi i32 [ %match.1.i.i.i, %for.inc.i.i.i ], [ 0, %if.end28.i.i ]
+  %weak_match.020.i.i.i = phi i32 [ %weak_match.1.i.i.i, %for.inc.i.i.i ], [ 0, %if.end28.i.i ]
+  %matched.019.i.i.i = phi ptr [ %matched.1.i.i.i, %for.inc.i.i.i ], [ null, %if.end28.i.i ]
+  %matched_weak.018.i.i.i = phi ptr [ %matched_weak.1.i.i.i, %for.inc.i.i.i ], [ null, %if.end28.i.i ]
+  %name1.i.i.i = getelementptr inbounds i8, ptr %refs.addr.022.i.i.i, i64 176
   %call2.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name1.i.i.i) #20
   %call4.i.i.i = call i32 @refname_match(ptr noundef nonnull %dst_value.0.i.i, ptr noundef nonnull %name1.i.i.i) #21
   %tobool5.not.i.i.i = icmp eq i32 %call4.i.i.i, 0
@@ -2715,19 +2715,19 @@ land.lhs.true12.i.i.i:                            ; preds = %land.lhs.true9.i.i.
   br i1 %tobool14.not.i.i.i, label %if.then15.i.i.i, label %if.else.i.i.i
 
 if.then15.i.i.i:                                  ; preds = %land.lhs.true12.i.i.i
-  %inc.i.i.i = add nsw i32 %weak_match.021.i.i.i, 1
+  %inc.i.i.i = add nsw i32 %weak_match.020.i.i.i, 1
   br label %for.inc.i.i.i
 
 if.else.i.i.i:                                    ; preds = %land.lhs.true12.i.i.i, %land.lhs.true9.i.i.i, %if.end.i.i.i
-  %inc16.i.i.i = add nsw i32 %match.022.i.i.i, 1
+  %inc16.i.i.i = add nsw i32 %match.021.i.i.i, 1
   br label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then15.i.i.i, %for.body.i.i.i
-  %matched_weak.1.i.i.i = phi ptr [ %matched_weak.019.i.i.i, %if.else.i.i.i ], [ %refs.addr.018.i.i.i, %if.then15.i.i.i ], [ %matched_weak.019.i.i.i, %for.body.i.i.i ]
-  %matched.1.i.i.i = phi ptr [ %refs.addr.018.i.i.i, %if.else.i.i.i ], [ %matched.020.i.i.i, %if.then15.i.i.i ], [ %matched.020.i.i.i, %for.body.i.i.i ]
-  %weak_match.1.i.i.i = phi i32 [ %weak_match.021.i.i.i, %if.else.i.i.i ], [ %inc.i.i.i, %if.then15.i.i.i ], [ %weak_match.021.i.i.i, %for.body.i.i.i ]
-  %match.1.i.i.i = phi i32 [ %inc16.i.i.i, %if.else.i.i.i ], [ %match.022.i.i.i, %if.then15.i.i.i ], [ %match.022.i.i.i, %for.body.i.i.i ]
-  %10 = load ptr, ptr %refs.addr.018.i.i.i, align 8
+  %matched_weak.1.i.i.i = phi ptr [ %matched_weak.018.i.i.i, %if.else.i.i.i ], [ %refs.addr.022.i.i.i, %if.then15.i.i.i ], [ %matched_weak.018.i.i.i, %for.body.i.i.i ]
+  %matched.1.i.i.i = phi ptr [ %refs.addr.022.i.i.i, %if.else.i.i.i ], [ %matched.019.i.i.i, %if.then15.i.i.i ], [ %matched.019.i.i.i, %for.body.i.i.i ]
+  %weak_match.1.i.i.i = phi i32 [ %weak_match.020.i.i.i, %if.else.i.i.i ], [ %inc.i.i.i, %if.then15.i.i.i ], [ %weak_match.020.i.i.i, %for.body.i.i.i ]
+  %match.1.i.i.i = phi i32 [ %inc16.i.i.i, %if.else.i.i.i ], [ %match.021.i.i.i, %if.then15.i.i.i ], [ %match.021.i.i.i, %for.body.i.i.i ]
+  %10 = load ptr, ptr %refs.addr.022.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !23
 
@@ -3430,9 +3430,9 @@ land.rhs.lr.ph.i:                                 ; preds = %if.then40.i
   br i1 %cmp47.i140, label %for.body49.i, label %for.end81.i
 
 for.body49.i:                                     ; preds = %land.rhs.lr.ph.i, %for.inc80.i
-  %src_commits.094.i144 = phi ptr [ %src_commits.2.i, %for.inc80.i ], [ %call42.i, %land.rhs.lr.ph.i ]
+  %alloc_src_commits.094.i144 = phi i32 [ %alloc_src_commits.3.i, %for.inc80.i ], [ 16, %land.rhs.lr.ph.i ]
   %nr_src_commits.095.i143 = phi i32 [ %nr_src_commits.1.i, %for.inc80.i ], [ 0, %land.rhs.lr.ph.i ]
-  %alloc_src_commits.096.i142 = phi i32 [ %alloc_src_commits.3.i, %for.inc80.i ], [ 16, %land.rhs.lr.ph.i ]
+  %src_commits.096.i142 = phi ptr [ %src_commits.2.i, %for.inc80.i ], [ %call42.i, %land.rhs.lr.ph.i ]
   %item.097.i141 = phi ptr [ %incdec.ptr.i, %for.inc80.i ], [ %63, %land.rhs.lr.ph.i ]
   %util51.i = getelementptr inbounds i8, ptr %item.097.i141, i64 8
   %65 = load ptr, ptr %util51.i, align 8
@@ -3482,32 +3482,32 @@ if.end56.i:                                       ; preds = %is_null_oid.exit64.
 
 do.body.i:                                        ; preds = %if.end56.i
   %add.i69 = add nsw i32 %nr_src_commits.095.i143, 1
-  %cmp62.not.i = icmp slt i32 %nr_src_commits.095.i143, %alloc_src_commits.096.i142
+  %cmp62.not.i = icmp slt i32 %nr_src_commits.095.i143, %alloc_src_commits.094.i144
   br i1 %cmp62.not.i, label %do.end.i, label %st_mult.exit.i
 
 st_mult.exit.i:                                   ; preds = %do.body.i
-  %71 = mul i32 %alloc_src_commits.096.i142, 3
+  %71 = mul i32 %alloc_src_commits.094.i144, 3
   %mul.i = add i32 %71, 48
   %div44.i = lshr i32 %mul.i, 1
   %cmp67.not.i = icmp sgt i32 %div44.i, %nr_src_commits.095.i143
   %div44.add.i = select i1 %cmp67.not.i, i32 %div44.i, i32 %add.i69
   %conv76.i = zext nneg i32 %div44.add.i to i64
   %mul.i.i = shl nuw nsw i64 %conv76.i, 3
-  %call78.i = call ptr @xrealloc(ptr noundef %src_commits.094.i144, i64 noundef %mul.i.i) #21
+  %call78.i = call ptr @xrealloc(ptr noundef %src_commits.096.i142, i64 noundef %mul.i.i) #21
   br label %do.end.i
 
 do.end.i:                                         ; preds = %st_mult.exit.i, %do.body.i
-  %src_commits.1.i = phi ptr [ %call78.i, %st_mult.exit.i ], [ %src_commits.094.i144, %do.body.i ]
-  %alloc_src_commits.2.i = phi i32 [ %div44.add.i, %st_mult.exit.i ], [ %alloc_src_commits.096.i142, %do.body.i ]
+  %alloc_src_commits.2.i = phi i32 [ %div44.add.i, %st_mult.exit.i ], [ %alloc_src_commits.094.i144, %do.body.i ]
+  %src_commits.1.i = phi ptr [ %call78.i, %st_mult.exit.i ], [ %src_commits.096.i142, %do.body.i ]
   %idxprom.i = sext i32 %nr_src_commits.095.i143 to i64
   %arrayidx.i70 = getelementptr inbounds ptr, ptr %src_commits.1.i, i64 %idxprom.i
   store ptr %call58.i, ptr %arrayidx.i70, align 8
   br label %for.inc80.i
 
 for.inc80.i:                                      ; preds = %do.end.i, %if.end56.i, %is_null_oid.exit64.i
-  %src_commits.2.i = phi ptr [ %src_commits.094.i144, %is_null_oid.exit64.i ], [ %src_commits.1.i, %do.end.i ], [ %src_commits.094.i144, %if.end56.i ]
+  %alloc_src_commits.3.i = phi i32 [ %alloc_src_commits.094.i144, %is_null_oid.exit64.i ], [ %alloc_src_commits.2.i, %do.end.i ], [ %alloc_src_commits.094.i144, %if.end56.i ]
   %nr_src_commits.1.i = phi i32 [ %nr_src_commits.095.i143, %is_null_oid.exit64.i ], [ %add.i69, %do.end.i ], [ %nr_src_commits.095.i143, %if.end56.i ]
-  %alloc_src_commits.3.i = phi i32 [ %alloc_src_commits.096.i142, %is_null_oid.exit64.i ], [ %alloc_src_commits.2.i, %do.end.i ], [ %alloc_src_commits.096.i142, %if.end56.i ]
+  %src_commits.2.i = phi ptr [ %src_commits.096.i142, %is_null_oid.exit64.i ], [ %src_commits.1.i, %do.end.i ], [ %src_commits.096.i142, %if.end56.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %item.097.i141, i64 16
   %72 = load ptr, ptr %src_tag.i, align 8
   %73 = load i64, ptr %nr46.i, align 8
@@ -3516,8 +3516,8 @@ for.inc80.i:                                      ; preds = %do.end.i, %if.end56
   br i1 %cmp47.i, label %for.body49.i, label %for.end81.i
 
 for.end81.i:                                      ; preds = %for.inc80.i, %land.rhs.lr.ph.i, %if.then40.i
-  %src_commits.0.lcssa.i = phi ptr [ %call42.i, %if.then40.i ], [ %call42.i, %land.rhs.lr.ph.i ], [ %src_commits.2.i, %for.inc80.i ]
   %nr_src_commits.0.lcssa.i = phi i32 [ 0, %if.then40.i ], [ 0, %land.rhs.lr.ph.i ], [ %nr_src_commits.1.i, %for.inc80.i ]
+  %src_commits.0.lcssa.i = phi ptr [ %call42.i, %if.then40.i ], [ %call42.i, %land.rhs.lr.ph.i ], [ %src_commits.2.i, %for.inc80.i ]
   %call84.i = call ptr @get_reachable_subset(ptr noundef %sent_tips.i.sroa.0.3, i32 noundef %sent_tips.i.sroa.9.2, ptr noundef %src_commits.0.lcssa.i, i32 noundef %nr_src_commits.0.lcssa.i, i32 noundef 1) #21
   %74 = load ptr, ptr %src_tag.i, align 8
   %tobool87.not101.i = icmp eq ptr %74, null
@@ -3761,7 +3761,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %1 = phi i32 [ %9, %for.inc.us ], [ %0, %for.body.lr.ph ]
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %matching_refs.030.us = phi i32 [ %matching_refs.1.us, %for.inc.us ], [ -1, %for.body.lr.ph ]
+  %matching_refs.029.us = phi i32 [ %matching_refs.1.us, %for.inc.us ], [ -1, %for.body.lr.ph ]
   %2 = load ptr, ptr %rs, align 8
   %arrayidx.us = getelementptr inbounds %struct.refspec_item, ptr %2, i64 %indvars.iv37
   %bf.load.us = load i8, ptr %arrayidx.us, align 8
@@ -3775,7 +3775,7 @@ if.end.us:                                        ; preds = %for.body.us
   br i1 %tobool5.not.us, label %if.end12.us, label %land.lhs.true.us
 
 land.lhs.true.us:                                 ; preds = %if.end.us
-  %cmp6.us = icmp ne i32 %matching_refs.030.us, -1
+  %cmp6.us = icmp ne i32 %matching_refs.029.us, -1
   %bf.clear8.us = and i8 %bf.load.us, 1
   %tobool10.not.us = icmp eq i8 %bf.clear8.us, 0
   %or.cond.us = and i1 %cmp6.us, %tobool10.not.us
@@ -3804,7 +3804,7 @@ cond.end.us.for.inc.us_crit_edge:                 ; preds = %if.then18.us
 
 for.inc.us:                                       ; preds = %cond.end.us.for.inc.us_crit_edge, %if.end12.us, %land.lhs.true.us, %for.body.us
   %9 = phi i32 [ %1, %for.body.us ], [ %.pre42, %cond.end.us.for.inc.us_crit_edge ], [ %1, %if.end12.us ], [ %1, %land.lhs.true.us ]
-  %matching_refs.1.us = phi i32 [ %matching_refs.030.us, %for.body.us ], [ %matching_refs.030.us, %cond.end.us.for.inc.us_crit_edge ], [ %matching_refs.030.us, %if.end12.us ], [ %5, %land.lhs.true.us ]
+  %matching_refs.1.us = phi i32 [ %matching_refs.029.us, %for.body.us ], [ %matching_refs.029.us, %cond.end.us.for.inc.us_crit_edge ], [ %matching_refs.029.us, %if.end12.us ], [ %5, %land.lhs.true.us ]
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %10 = sext i32 %9 to i64
   %cmp.us = icmp slt i64 %indvars.iv.next38, %10
@@ -3813,7 +3813,7 @@ for.inc.us:                                       ; preds = %cond.end.us.for.inc
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %11 = phi i32 [ %19, %for.inc ], [ %0, %for.body.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.lr.ph ]
-  %matching_refs.030 = phi i32 [ %matching_refs.1, %for.inc ], [ -1, %for.body.lr.ph ]
+  %matching_refs.029 = phi i32 [ %matching_refs.1, %for.inc ], [ -1, %for.body.lr.ph ]
   %12 = load ptr, ptr %rs, align 8
   %arrayidx = getelementptr inbounds %struct.refspec_item, ptr %12, i64 %indvars.iv
   %bf.load = load i8, ptr %arrayidx, align 8
@@ -3827,7 +3827,7 @@ if.end:                                           ; preds = %for.body
   br i1 %tobool5.not, label %if.end12, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %cmp6 = icmp ne i32 %matching_refs.030, -1
+  %cmp6 = icmp ne i32 %matching_refs.029, -1
   %bf.clear8 = and i8 %bf.load, 1
   %tobool10.not = icmp eq i8 %bf.clear8, 0
   %or.cond = and i1 %cmp6, %tobool10.not
@@ -3856,7 +3856,7 @@ cond.end.for.inc_crit_edge:                       ; preds = %if.then18
 
 for.inc:                                          ; preds = %cond.end.for.inc_crit_edge, %land.lhs.true, %if.end12, %for.body
   %19 = phi i32 [ %11, %for.body ], [ %.pre40, %cond.end.for.inc_crit_edge ], [ %11, %if.end12 ], [ %11, %land.lhs.true ]
-  %matching_refs.1 = phi i32 [ %matching_refs.030, %for.body ], [ %matching_refs.030, %cond.end.for.inc_crit_edge ], [ %matching_refs.030, %if.end12 ], [ %15, %land.lhs.true ]
+  %matching_refs.1 = phi i32 [ %matching_refs.029, %for.body ], [ %matching_refs.029, %cond.end.for.inc_crit_edge ], [ %matching_refs.029, %if.end12 ], [ %15, %land.lhs.true ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = sext i32 %19 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %20
@@ -4954,15 +4954,15 @@ entry:
   br i1 %tobool.not6.i, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.body.i
-  %best_score.09.i = phi i32 [ %spec.select5.i, %for.body.i ], [ 0, %entry ]
-  %best_match.08.i = phi ptr [ %spec.select.i, %for.body.i ], [ null, %entry ]
-  %ref.07.i = phi ptr [ %0, %for.body.i ], [ %remote_refs, %entry ]
-  %name1.i = getelementptr inbounds i8, ptr %ref.07.i, i64 176
+  %ref.09.i = phi ptr [ %0, %for.body.i ], [ %remote_refs, %entry ]
+  %best_score.08.i = phi i32 [ %spec.select5.i, %for.body.i ], [ 0, %entry ]
+  %best_match.07.i = phi ptr [ %spec.select.i, %for.body.i ], [ null, %entry ]
+  %name1.i = getelementptr inbounds i8, ptr %ref.09.i, i64 176
   %call.i = tail call i32 @refname_match(ptr noundef %name, ptr noundef nonnull %name1.i) #21
-  %cmp.i = icmp slt i32 %best_score.09.i, %call.i
-  %spec.select.i = select i1 %cmp.i, ptr %ref.07.i, ptr %best_match.08.i
-  %spec.select5.i = tail call i32 @llvm.smax.i32(i32 %best_score.09.i, i32 %call.i)
-  %0 = load ptr, ptr %ref.07.i, align 8
+  %cmp.i = icmp slt i32 %best_score.08.i, %call.i
+  %spec.select.i = select i1 %cmp.i, ptr %ref.09.i, ptr %best_match.07.i
+  %spec.select5.i = tail call i32 @llvm.smax.i32(i32 %best_score.08.i, i32 %call.i)
+  %0 = load ptr, ptr %ref.09.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %find_ref_by_name_abbrev.exit, label %for.body.i, !llvm.loop !37
 
@@ -5020,8 +5020,8 @@ for.body.lr.ph.i:                                 ; preds = %if.then6
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %tail.013.i = phi ptr [ %ret.i, %for.body.lr.ph.i ], [ %tail.2.i, %for.inc.i ]
-  %ref.012.i = phi ptr [ %remote_refs, %for.body.lr.ph.i ], [ %7, %for.inc.i ]
+  %ref.013.i = phi ptr [ %remote_refs, %for.body.lr.ph.i ], [ %7, %for.inc.i ]
+  %tail.012.i = phi ptr [ %ret.i, %for.body.lr.ph.i ], [ %tail.2.i, %for.inc.i ]
   store ptr null, ptr %expn_name.i, align 8
   store i64 0, ptr %len2.i.i, align 8
   %2 = load ptr, ptr %buf.i.i, align 8
@@ -5033,7 +5033,7 @@ if.then4.i.i:                                     ; preds = %for.body.i
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %for.body.i
-  %name.i = getelementptr inbounds i8, ptr %ref.012.i, i64 176
+  %name.i = getelementptr inbounds i8, ptr %ref.013.i, i64 176
   %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name.i, i32 noundef 94) #20
   %tobool1.not.i = icmp eq ptr %call.i, null
   br i1 %tobool1.not.i, label %if.end.i, label %for.inc.i
@@ -5054,7 +5054,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %tobool.not.i.not.i, label %if.end17.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %land.lhs.true.i
-  %call9.i = call ptr @copy_ref(ptr noundef nonnull %ref.012.i)
+  %call9.i = call ptr @copy_ref(ptr noundef nonnull %ref.013.i)
   %call.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre15.i) #20
   %cmp.i7.i.i.i = icmp ugt i64 %call.i.i.i, -177
   br i1 %cmp.i7.i.i.i, label %if.then.i9.i.i.i, label %st_add.exit10.i.i.i
@@ -5091,19 +5091,19 @@ if.then12.i:                                      ; preds = %alloc_ref.exit.i
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then12.i, %alloc_ref.exit.i
-  store ptr %call9.i, ptr %tail.013.i, align 8
+  store ptr %call9.i, ptr %tail.012.i, align 8
   %.pre.i = load ptr, ptr %expn_name.i, align 8
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.end16.i, %land.lhs.true.i, %if.end.i
   %6 = phi ptr [ %.pre15.i, %land.lhs.true.i ], [ %.pre.i, %if.end16.i ], [ %.pre15.i, %if.end.i ]
-  %tail.1.i = phi ptr [ %tail.013.i, %land.lhs.true.i ], [ %call9.i, %if.end16.i ], [ %tail.013.i, %if.end.i ]
+  %tail.1.i = phi ptr [ %tail.012.i, %land.lhs.true.i ], [ %call9.i, %if.end16.i ], [ %tail.012.i, %if.end.i ]
   call void @free(ptr noundef %6) #21
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end17.i, %strbuf_setlen.exit.i
-  %tail.2.i = phi ptr [ %tail.013.i, %strbuf_setlen.exit.i ], [ %tail.1.i, %if.end17.i ]
-  %7 = load ptr, ptr %ref.012.i, align 8
+  %tail.2.i = phi ptr [ %tail.012.i, %strbuf_setlen.exit.i ], [ %tail.1.i, %if.end17.i ]
+  %7 = load ptr, ptr %ref.013.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %if.end44, label %for.body.i, !llvm.loop !38
 
@@ -5153,15 +5153,15 @@ if.else19:                                        ; preds = %if.else
   br i1 %tobool.not6.i.i, label %if.end21, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.else19, %for.body.i.i
-  %best_score.09.i.i = phi i32 [ %spec.select5.i.i, %for.body.i.i ], [ 0, %if.else19 ]
-  %best_match.08.i.i = phi ptr [ %spec.select.i.i, %for.body.i.i ], [ null, %if.else19 ]
-  %ref.07.i.i = phi ptr [ %11, %for.body.i.i ], [ %remote_refs, %if.else19 ]
-  %name1.i.i = getelementptr inbounds i8, ptr %ref.07.i.i, i64 176
+  %ref.09.i.i = phi ptr [ %11, %for.body.i.i ], [ %remote_refs, %if.else19 ]
+  %best_score.08.i.i = phi i32 [ %spec.select5.i.i, %for.body.i.i ], [ 0, %if.else19 ]
+  %best_match.07.i.i = phi ptr [ %spec.select.i.i, %for.body.i.i ], [ null, %if.else19 ]
+  %name1.i.i = getelementptr inbounds i8, ptr %ref.09.i.i, i64 176
   %call.i.i32 = tail call i32 @refname_match(ptr noundef nonnull %spec.select, ptr noundef nonnull %name1.i.i) #21
-  %cmp.i.i = icmp slt i32 %best_score.09.i.i, %call.i.i32
-  %spec.select.i.i = select i1 %cmp.i.i, ptr %ref.07.i.i, ptr %best_match.08.i.i
-  %spec.select5.i.i = tail call i32 @llvm.smax.i32(i32 %best_score.09.i.i, i32 %call.i.i32)
-  %11 = load ptr, ptr %ref.07.i.i, align 8
+  %cmp.i.i = icmp slt i32 %best_score.08.i.i, %call.i.i32
+  %spec.select.i.i = select i1 %cmp.i.i, ptr %ref.09.i.i, ptr %best_match.07.i.i
+  %spec.select5.i.i = tail call i32 @llvm.smax.i32(i32 %best_score.08.i.i, i32 %call.i.i32)
+  %11 = load ptr, ptr %ref.09.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %find_ref_by_name_abbrev.exit.i, label %for.body.i.i, !llvm.loop !37
 

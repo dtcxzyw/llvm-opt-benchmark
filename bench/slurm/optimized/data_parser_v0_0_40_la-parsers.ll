@@ -4495,7 +4495,7 @@ define internal i32 @_v40_parse_QOS_NAME(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not27, label %32, label %22
 
 22:                                               ; preds = %20, %18, %16
-  %.0 = phi i32 [ %7, %20 ], [ 2066, %18 ], [ 2066, %16 ]
+  %.024 = phi i32 [ %7, %20 ], [ 2066, %18 ], [ 2066, %16 ]
   %23 = call i32 @data_convert_type(ptr noundef %2, i32 noundef 5) #18
   %24 = call i32 @data_get_type(ptr noundef %2) #18
   %25 = icmp eq i32 %24, 5
@@ -4508,12 +4508,12 @@ define internal i32 @_v40_parse_QOS_NAME(ptr noundef %0, ptr noundef %1, ptr nou
 28:                                               ; preds = %22, %26
   %29 = phi ptr [ %27, %26 ], [ @.str.695, %22 ]
   %30 = call ptr @data_get_type_string(ptr noundef %2) #18
-  %31 = call i32 (ptr, ptr, ptr, ptr, ptr, i32, ptr, ...) @_parse_error_funcname(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @__func__._v40_parse_QOS_NAME, ptr noundef nonnull @.str.736, i32 noundef %.0, ptr noundef nonnull @.str.737, ptr noundef %29, ptr noundef %30)
+  %31 = call i32 (ptr, ptr, ptr, ptr, ptr, i32, ptr, ...) @_parse_error_funcname(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @__func__._v40_parse_QOS_NAME, ptr noundef nonnull @.str.736, i32 noundef %.024, ptr noundef nonnull @.str.737, ptr noundef %29, ptr noundef %30)
   br label %32
 
 32:                                               ; preds = %20, %18, %28, %8
-  %.024 = phi i32 [ %.0, %28 ], [ 0, %8 ], [ 0, %18 ], [ 0, %20 ]
-  ret i32 %.024
+  %.0 = phi i32 [ %.024, %28 ], [ 0, %8 ], [ 0, %18 ], [ 0, %20 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5660,8 +5660,8 @@ find_parser_by_type.exit:                         ; preds = %19, %20
   br i1 %.not16, label %12, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %12, %find_parser_by_type.exit, %9
-  %.015 = phi i32 [ 0, %9 ], [ 0, %12 ], [ %26, %find_parser_by_type.exit ]
-  ret i32 %.015
+  %.014 = phi i32 [ 0, %9 ], [ 0, %12 ], [ %26, %find_parser_by_type.exit ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6307,8 +6307,8 @@ define internal noundef i32 @_v40_parse_HOSTLIST(ptr noundef %0, ptr nocapture n
   br i1 %33, label %.thread, label %34
 
 .thread:                                          ; preds = %16, %26
-  %.038 = phi ptr [ %31, %26 ], [ %17, %16 ]
-  store ptr %.038, ptr %1, align 8
+  %.02638 = phi ptr [ %31, %26 ], [ %17, %16 ]
+  store ptr %.02638, ptr %1, align 8
   br label %36
 
 34:                                               ; preds = %26
@@ -6320,8 +6320,8 @@ define internal noundef i32 @_v40_parse_HOSTLIST(ptr noundef %0, ptr nocapture n
   br label %36
 
 36:                                               ; preds = %18, %23, %34, %35, %.thread, %12, %14, %5
-  %.027 = phi i32 [ 0, %5 ], [ 0, %14 ], [ 0, %12 ], [ 9202, %35 ], [ 9202, %34 ], [ 0, %.thread ], [ 9202, %18 ], [ 9202, %23 ]
-  ret i32 %.027
+  %.0 = phi i32 [ 0, %5 ], [ 0, %14 ], [ 0, %12 ], [ 9202, %35 ], [ 9202, %34 ], [ 0, %.thread ], [ 9202, %18 ], [ 9202, %23 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6515,8 +6515,8 @@ find_parser_by_type.exit:                         ; preds = %20, %21
   br i1 %.not19, label %13, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %13, %find_parser_by_type.exit, %10
-  %.016 = phi i32 [ 0, %10 ], [ 0, %13 ], [ %27, %find_parser_by_type.exit ]
-  ret i32 %.016
+  %.015 = phi i32 [ 0, %10 ], [ 0, %13 ], [ %27, %find_parser_by_type.exit ]
+  ret i32 %.015
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6994,8 +6994,8 @@ define internal i32 @_v40_dump_ROLLUP_STATS(ptr nocapture noundef readonly %0, p
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !16
 
 .loopexit:                                        ; preds = %53, %11
-  %.040 = phi i32 [ %14, %11 ], [ 0, %53 ]
-  ret i32 %.040
+  %.039 = phi i32 [ %14, %11 ], [ 0, %53 ]
+  ret i32 %.039
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7514,8 +7514,8 @@ find_parser_by_type.exit:                         ; preds = %12, %.preheader
   br label %21
 
 21:                                               ; preds = %find_parser_by_type.exit, %18
-  %.010 = phi i32 [ 0, %18 ], [ %17, %find_parser_by_type.exit ]
-  ret i32 %.010
+  %.0 = phi i32 [ 0, %18 ], [ %17, %find_parser_by_type.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8112,8 +8112,8 @@ find_parser_by_type.exit37:                       ; preds = %43, %.preheader
   br i1 %.not, label %13, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %.critedge2, %13, %find_parser_by_type.exit
-  %.028.lcssa = phi i32 [ %41, %find_parser_by_type.exit ], [ 0, %13 ], [ %.2, %.critedge2 ]
-  ret i32 %.028.lcssa
+  %.027.lcssa = phi i32 [ %41, %find_parser_by_type.exit ], [ 0, %13 ], [ %.2, %.critedge2 ]
+  ret i32 %.027.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10100,8 +10100,8 @@ define internal noundef i32 @_v40_dump_JOB_RES_NODES(ptr nocapture readnone %0, 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %1, i64 88
   %11 = load i32, ptr %10, align 8
-  %.not30 = icmp eq i32 %11, 0
-  br i1 %.not30, label %110, label %12
+  %.not29 = icmp eq i32 %11, 0
+  br i1 %.not29, label %110, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %1, i64 112
@@ -10110,8 +10110,8 @@ define internal noundef i32 @_v40_dump_JOB_RES_NODES(ptr nocapture readnone %0, 
   %16 = load ptr, ptr %1, align 8
   %17 = tail call i64 @bit_size(ptr noundef %16) #18
   %18 = load i32, ptr %10, align 8
-  %.not42 = icmp eq i32 %18, 0
-  br i1 %.not42, label %._crit_edge, label %.lr.ph
+  %.not40 = icmp eq i32 %18, 0
+  br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
   %19 = getelementptr inbounds i8, ptr %1, i64 128
@@ -10123,21 +10123,21 @@ define internal noundef i32 @_v40_dump_JOB_RES_NODES(ptr nocapture readnone %0, 
   br label %25
 
 25:                                               ; preds = %.lr.ph, %_dump_node_res.exit
-  %.041 = phi i64 [ 0, %.lr.ph ], [ %105, %_dump_node_res.exit ]
-  %.02540 = phi i64 [ 0, %.lr.ph ], [ %34, %_dump_node_res.exit ]
-  %.02639 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_dump_node_res.exit ]
-  %.03638 = phi i64 [ 0, %.lr.ph ], [ %.2, %_dump_node_res.exit ]
-  %26 = trunc nuw i64 %.041 to i32
+  %.02539 = phi i64 [ 0, %.lr.ph ], [ %105, %_dump_node_res.exit ]
+  %.02638 = phi i64 [ 0, %.lr.ph ], [ %34, %_dump_node_res.exit ]
+  %.02737 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_dump_node_res.exit ]
+  %.036 = phi i64 [ 0, %.lr.ph ], [ %.2, %_dump_node_res.exit ]
+  %26 = trunc nuw i64 %.02539 to i32
   %27 = call ptr @hostlist_nth(ptr noundef %15, i32 noundef %26) #18
   %28 = load ptr, ptr %19, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %.02639
+  %29 = getelementptr inbounds i32, ptr %28, i64 %.02737
   %30 = load i32, ptr %29, align 4
   %31 = zext i32 %30 to i64
-  %.not32 = icmp uge i64 %.02540, %31
-  %32 = zext i1 %.not32 to i64
-  %spec.select = add i64 %.02639, %32
-  %33 = add i64 %.02540, 1
-  %34 = select i1 %.not32, i64 1, i64 %33
+  %.not31 = icmp uge i64 %.02638, %31
+  %32 = zext i1 %.not31 to i64
+  %spec.select = add i64 %.02737, %32
+  %33 = add i64 %.02638, 1
+  %34 = select i1 %.not31, i64 1, i64 %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %35 = call ptr @data_list_append(ptr noundef %2) #18
   %36 = call ptr @data_set_dict(ptr noundef %35) #18
@@ -10153,18 +10153,18 @@ define internal noundef i32 @_v40_dump_JOB_RES_NODES(ptr nocapture readnone %0, 
   %45 = call ptr @data_set_string(ptr noundef %44, ptr noundef %27) #18
   %46 = call ptr @data_key_set(ptr noundef %36, ptr noundef nonnull @.str.881) #18
   %47 = load ptr, ptr %21, align 8
-  %48 = getelementptr inbounds i16, ptr %47, i64 %.041
+  %48 = getelementptr inbounds i16, ptr %47, i64 %.02539
   %49 = load i16, ptr %48, align 2
   %50 = zext i16 %49 to i64
   %51 = call ptr @data_set_int(ptr noundef %46, i64 noundef %50) #18
   %52 = call ptr @data_key_set(ptr noundef %36, ptr noundef nonnull @.str.882) #18
   %53 = load ptr, ptr %22, align 8
-  %54 = getelementptr inbounds i64, ptr %53, i64 %.041
+  %54 = getelementptr inbounds i64, ptr %53, i64 %.02539
   %55 = load i64, ptr %54, align 8
   %56 = call ptr @data_set_int(ptr noundef %52, i64 noundef %55) #18
   %57 = call ptr @data_key_set(ptr noundef %36, ptr noundef nonnull @.str.883) #18
   %58 = load ptr, ptr %23, align 8
-  %59 = getelementptr inbounds i64, ptr %58, i64 %.041
+  %59 = getelementptr inbounds i64, ptr %58, i64 %.02539
   %60 = load i64, ptr %59, align 8
   %61 = call ptr @data_set_int(ptr noundef %57, i64 noundef %60) #18
   %62 = load ptr, ptr %20, align 8
@@ -10180,7 +10180,7 @@ define internal noundef i32 @_v40_dump_JOB_RES_NODES(ptr nocapture readnone %0, 
   br i1 %.not56.i, label %_dump_node_res.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25, %101
-  %.1 = phi i64 [ %103, %101 ], [ %.03638, %25 ]
+  %.1 = phi i64 [ %103, %101 ], [ %.036, %25 ]
   %71 = phi ptr [ %102, %101 ], [ %43, %25 ]
   %.04855.i = phi i64 [ %104, %101 ], [ 0, %25 ]
   %72 = load ptr, ptr %7, align 8
@@ -10242,19 +10242,19 @@ define internal noundef i32 @_v40_dump_JOB_RES_NODES(ptr nocapture readnone %0, 
   br i1 %exitcond.not.i, label %_dump_node_res.exit, label %.lr.ph.i, !llvm.loop !33
 
 _dump_node_res.exit:                              ; preds = %101, %25, %78
-  %.2 = phi i64 [ %.03638, %25 ], [ %.1, %78 ], [ %103, %101 ]
+  %.2 = phi i64 [ %.036, %25 ], [ %.1, %78 ], [ %103, %101 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @free(ptr noundef %27) #18
-  %105 = add nuw nsw i64 %.041, 1
+  %105 = add nuw nsw i64 %.02539, 1
   %106 = load i32, ptr %10, align 8
   %107 = zext i32 %106 to i64
   %108 = icmp ult i64 %105, %107
   br i1 %108, label %25, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %_dump_node_res.exit, %12
-  %.not31 = icmp eq ptr %15, null
-  br i1 %.not31, label %110, label %109
+  %.not30 = icmp eq ptr %15, null
+  br i1 %.not30, label %110, label %109
 
 109:                                              ; preds = %._crit_edge
   call void @hostlist_destroy(ptr noundef nonnull %15) #18
@@ -10353,8 +10353,8 @@ find_parser_by_type.exit:                         ; preds = %20, %21
   br i1 %.not19, label %13, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %13, %find_parser_by_type.exit, %10
-  %.016 = phi i32 [ 0, %10 ], [ 0, %13 ], [ %27, %find_parser_by_type.exit ]
-  ret i32 %.016
+  %.015 = phi i32 [ 0, %10 ], [ 0, %13 ], [ %27, %find_parser_by_type.exit ]
+  ret i32 %.015
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10440,8 +10440,8 @@ find_parser_by_type.exit:                         ; preds = %20, %21
   br i1 %.not19, label %13, label %.critedge, !llvm.loop !36
 
 .critedge:                                        ; preds = %13, %find_parser_by_type.exit, %10
-  %.016 = phi i32 [ 0, %10 ], [ 0, %13 ], [ %27, %find_parser_by_type.exit ]
-  ret i32 %.016
+  %.015 = phi i32 [ 0, %10 ], [ 0, %13 ], [ %27, %find_parser_by_type.exit ]
+  ret i32 %.015
 }
 
 ; Function Attrs: nounwind uwtable

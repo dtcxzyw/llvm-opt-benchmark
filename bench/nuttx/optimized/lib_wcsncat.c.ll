@@ -12,23 +12,23 @@ define noundef ptr @wcsncat(ptr noundef returned %0, ptr nocapture noundef reado
 
 .lr.ph:                                           ; preds = %3, %7
   %.in = phi i64 [ %8, %7 ], [ %2, %3 ]
-  %.0814 = phi ptr [ %9, %7 ], [ %1, %3 ]
-  %.0913 = phi ptr [ %10, %7 ], [ %5, %3 ]
-  %6 = load i32, ptr %.0814, align 4
+  %.014 = phi ptr [ %10, %7 ], [ %5, %3 ]
+  %.0913 = phi ptr [ %9, %7 ], [ %1, %3 ]
+  %6 = load i32, ptr %.0913, align 4
   %.not11 = icmp eq i32 %6, 0
   br i1 %.not11, label %.critedge, label %7
 
 7:                                                ; preds = %.lr.ph
   %8 = add i64 %.in, -1
-  %9 = getelementptr inbounds i8, ptr %.0814, i64 4
-  %10 = getelementptr inbounds i8, ptr %.0913, i64 4
-  store i32 %6, ptr %.0913, align 4
+  %9 = getelementptr inbounds i8, ptr %.0913, i64 4
+  %10 = getelementptr inbounds i8, ptr %.014, i64 4
+  store i32 %6, ptr %.014, align 4
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph, %7, %3
-  %.09.lcssa = phi ptr [ %5, %3 ], [ %10, %7 ], [ %.0913, %.lr.ph ]
-  store i32 0, ptr %.09.lcssa, align 4
+  %.0.lcssa = phi ptr [ %5, %3 ], [ %10, %7 ], [ %.014, %.lr.ph ]
+  store i32 0, ptr %.0.lcssa, align 4
   ret ptr %0
 }
 

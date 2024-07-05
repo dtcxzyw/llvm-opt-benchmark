@@ -418,10 +418,10 @@ define void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections.
   ret void
 
 38:                                               ; preds = %39
-  br i1 %.010.ph, label %43, label %42
+  br i1 %.0.ph, label %43, label %42
 
 39:                                               ; preds = %.invoke, %19, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h43a15a0d41cab5d7E.exit"
-  %.010.ph = phi i1 [ false, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h43a15a0d41cab5d7E.exit" ], [ true, %19 ], [ true, %.invoke ]
+  %.0.ph = phi i1 [ false, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h43a15a0d41cab5d7E.exit" ], [ true, %19 ], [ true, %.invoke ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$wasmtime_wit_bindgen..Wasmtime..emit_modules..Module$GT$17hbf5125058a0d13feE"(ptr align 8 %2) #17
@@ -502,10 +502,10 @@ define void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections.
   ret void
 
 38:                                               ; preds = %39
-  br i1 %.010.ph, label %43, label %42
+  br i1 %.0.ph, label %43, label %42
 
 39:                                               ; preds = %.invoke, %19, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h08ac588141ca2e8dE.exit"
-  %.010.ph = phi i1 [ false, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h08ac588141ca2e8dE.exit" ], [ true, %19 ], [ true, %.invoke ]
+  %.0.ph = phi i1 [ false, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h08ac588141ca2e8dE.exit" ], [ true, %19 ], [ true, %.invoke ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h512309f136a5650bE"(ptr align 8 %2) #17
@@ -1866,10 +1866,10 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   ret void
 
 41:                                               ; preds = %42
-  br i1 %.04, label %47, label %46
+  br i1 %.0, label %47, label %46
 
 42:                                               ; preds = %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h15db8161f064bdeeE.exit", %4, %18
-  %.04 = phi i1 [ false, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h15db8161f064bdeeE.exit" ], [ true, %4 ], [ false, %18 ]
+  %.0 = phi i1 [ false, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h15db8161f064bdeeE.exit" ], [ true, %4 ], [ false, %18 ]
   %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h512309f136a5650bE"(ptr align 8 %3) #17
@@ -1950,10 +1950,10 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   ret void
 
 41:                                               ; preds = %42
-  br i1 %.04, label %47, label %46
+  br i1 %.0, label %47, label %46
 
 42:                                               ; preds = %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h540564a2b88d6a43E.exit", %4, %18
-  %.04 = phi i1 [ false, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h540564a2b88d6a43E.exit" ], [ true, %4 ], [ false, %18 ]
+  %.0 = phi i1 [ false, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h540564a2b88d6a43E.exit" ], [ true, %4 ], [ false, %18 ]
   %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$wasmtime_wit_bindgen..Wasmtime..emit_modules..Module$GT$17hbf5125058a0d13feE"(ptr align 8 %3) #17
@@ -3241,14 +3241,14 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br label %34
 
 34:                                               ; preds = %30, %25, %33, %31
-  %.018 = phi i64 [ 6, %31 ], [ 5, %33 ], [ 4, %25 ], [ %27, %30 ]
+  %.0 = phi i64 [ 6, %31 ], [ 5, %33 ], [ 4, %25 ], [ %27, %30 ]
   %35 = phi i1 [ false, %31 ], [ false, %33 ], [ true, %25 ], [ true, %30 ]
   %.sroa.5.0 = phi i64 [ %32, %31 ], [ 0, %33 ], [ %27, %25 ], [ %27, %30 ]
   store ptr %20, ptr %11, align 8
   %36 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %15, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %11, i64 16
-  store i64 %.018, ptr %37, align 8
+  store i64 %.0, ptr %37, align 8
   invoke void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h88616dbfac17de46E"(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }, { ptr, i64, {} }, { ptr, i64, {} } }) align 8 %10, ptr nonnull align 8 %11)
           to label %38 unwind label %49
 
@@ -3359,14 +3359,14 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br label %34
 
 34:                                               ; preds = %30, %25, %33, %31
-  %.018 = phi i64 [ 6, %31 ], [ 5, %33 ], [ 4, %25 ], [ %27, %30 ]
+  %.0 = phi i64 [ 6, %31 ], [ 5, %33 ], [ 4, %25 ], [ %27, %30 ]
   %35 = phi i1 [ false, %31 ], [ false, %33 ], [ true, %25 ], [ true, %30 ]
   %.sroa.5.0 = phi i64 [ %32, %31 ], [ 0, %33 ], [ %27, %25 ], [ %27, %30 ]
   store ptr %20, ptr %11, align 8
   %36 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %15, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %11, i64 16
-  store i64 %.018, ptr %37, align 8
+  store i64 %.0, ptr %37, align 8
   invoke void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h45783016a5c72625E"(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } } }, { ptr, i64, {} }, { ptr, i64, {} } }) align 8 %10, ptr nonnull align 8 %11)
           to label %38 unwind label %49
 

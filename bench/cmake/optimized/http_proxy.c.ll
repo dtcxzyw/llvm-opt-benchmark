@@ -537,12 +537,12 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
   br label %.thread84
 
 73:                                               ; preds = %.critedge82, %.critedge
-  %.0 = load ptr, ptr %23, align 8
-  store ptr %.0, ptr %6, align 8
-  %74 = load ptr, ptr %.0, align 8
+  %.064 = load ptr, ptr %23, align 8
+  store ptr %.064, ptr %6, align 8
+  %74 = load ptr, ptr %.064, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call i32 %76(ptr noundef nonnull %.0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull %3) #5
+  %77 = tail call i32 %76(ptr noundef nonnull %.064, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull %3) #5
   %.not73 = icmp eq i32 %77, 0
   br i1 %.not73, label %31, label %.thread84
 
@@ -554,8 +554,8 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
   br label %.thread84
 
 .thread84:                                        ; preds = %31, %73, %.critedge82, %.critedge, %22, %72, %69, %68, %78, %10
-  %.065 = phi i32 [ 0, %10 ], [ 0, %78 ], [ 7, %72 ], [ 7, %69 ], [ 7, %68 ], [ %28, %22 ], [ 0, %31 ], [ %77, %73 ], [ %67, %.critedge82 ], [ %56, %.critedge ]
-  ret i32 %.065
+  %.0 = phi i32 [ 0, %10 ], [ 0, %78 ], [ 7, %72 ], [ 7, %69 ], [ 7, %68 ], [ %28, %22 ], [ 0, %31 ], [ %77, %73 ], [ %67, %.critedge82 ], [ %56, %.critedge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

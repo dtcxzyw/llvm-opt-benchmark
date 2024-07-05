@@ -6409,13 +6409,13 @@ define internal fastcc void @"_ZZN3sat11npn3_finder15process_clausesER10ptr_vect
 entry:
   %temp.i.i = alloca %"struct.sat::npn3_finder::binary", align 8
   %et.i = alloca ptr, align 8
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %x.coerce, i32 %y.coerce)
-  %spec.select2 = tail call i32 @llvm.umin.i32(i32 %x.coerce, i32 %y.coerce)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %x.coerce, i32 %y.coerce)
+  %spec.select2 = tail call i32 @llvm.umax.i32(i32 %x.coerce, i32 %y.coerce)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %et.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i)
-  store i32 %spec.select2, ptr %temp.i.i, align 8
+  store i32 %spec.select, ptr %temp.i.i, align 8
   %b.sroa.3.0.temp.i.i.sroa_idx = getelementptr inbounds i8, ptr %temp.i.i, i64 4
-  store i32 %spec.select, ptr %b.sroa.3.0.temp.i.i.sroa_idx, align 4
+  store i32 %spec.select2, ptr %b.sroa.3.0.temp.i.i.sroa_idx, align 4
   %b.sroa.5.0.temp.i.i.sroa_idx = getelementptr inbounds i8, ptr %temp.i.i, i64 8
   store ptr null, ptr %b.sroa.5.0.temp.i.i.sroa_idx, align 8
   %call.i.i = call noundef zeroext i1 @_ZN14core_hashtableI18default_hash_entryIN3sat11npn3_finder6binaryEENS3_4hashENS3_2eqEE24insert_if_not_there_coreEOS3_RPS4_(ptr noundef nonnull align 8 dereferenceable(20) %this.0.val, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i)
@@ -7292,13 +7292,13 @@ define internal fastcc void @"_ZZN3sat11npn3_finder20process_more_clausesER10ptr
 entry:
   %temp.i.i = alloca %"struct.sat::npn3_finder::binary", align 8
   %et.i = alloca ptr, align 8
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %x.coerce, i32 %y.coerce)
-  %spec.select2 = tail call i32 @llvm.umin.i32(i32 %x.coerce, i32 %y.coerce)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %x.coerce, i32 %y.coerce)
+  %spec.select2 = tail call i32 @llvm.umax.i32(i32 %x.coerce, i32 %y.coerce)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %et.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i)
-  store i32 %spec.select2, ptr %temp.i.i, align 8
+  store i32 %spec.select, ptr %temp.i.i, align 8
   %b.sroa.3.0.temp.i.i.sroa_idx = getelementptr inbounds i8, ptr %temp.i.i, i64 4
-  store i32 %spec.select, ptr %b.sroa.3.0.temp.i.i.sroa_idx, align 4
+  store i32 %spec.select2, ptr %b.sroa.3.0.temp.i.i.sroa_idx, align 4
   %b.sroa.5.0.temp.i.i.sroa_idx = getelementptr inbounds i8, ptr %temp.i.i, i64 8
   store ptr null, ptr %b.sroa.5.0.temp.i.i.sroa_idx, align 8
   %call.i.i = call noundef zeroext i1 @_ZN14core_hashtableI18default_hash_entryIN3sat11npn3_finder6binaryEENS3_4hashENS3_2eqEE24insert_if_not_there_coreEOS3_RPS4_(ptr noundef nonnull align 8 dereferenceable(20) %this.0.val, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i)
@@ -8892,10 +8892,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
+declare i32 @llvm.umin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #19
+declare i32 @llvm.umax.i32(i32, i32) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

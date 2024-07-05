@@ -155,16 +155,16 @@ define internal i32 @dissect_banana(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 12:                                               ; preds = %.lr.ph
-  %13 = add nuw nsw i32 %.02730, 1
+  %13 = add nuw nsw i32 %.02830, 1
   %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %13) #2
   %15 = icmp sgt i32 %14, 0
-  %16 = icmp ult i32 %.02730, 7
+  %16 = icmp ult i32 %.02830, 7
   %17 = and i1 %16, %15
   br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %7, %12
-  %.02730 = phi i32 [ %13, %12 ], [ 0, %7 ]
-  %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02730) #2
+  %.02830 = phi i32 [ %13, %12 ], [ 0, %7 ]
+  %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02830) #2
   %or.cond = icmp slt i8 %18, -120
   br i1 %or.cond, label %._crit_edge.loopexit, label %12
 
@@ -173,9 +173,9 @@ define internal i32 @dissect_banana(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
-  %.129 = phi i32 [ 0, %7 ], [ %19, %._crit_edge.loopexit ]
+  %.1 = phi i32 [ 0, %7 ], [ %19, %._crit_edge.loopexit ]
   %20 = load ptr, ptr %8, align 8
-  %21 = tail call ptr @val_to_str(i32 noundef %.129, ptr noundef nonnull @type_vals, ptr noundef nonnull @.str.69) #2
+  %21 = tail call ptr @val_to_str(i32 noundef %.1, ptr noundef nonnull @type_vals, ptr noundef nonnull @.str.69) #2
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.68, ptr noundef %21) #2
   %22 = load i32, ptr @proto_banana, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
@@ -184,10 +184,10 @@ define internal i32 @dissect_banana(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %26
 
 26:                                               ; preds = %._crit_edge, %26
-  %.133 = phi i32 [ 0, %._crit_edge ], [ %28, %26 ]
-  %27 = tail call fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %1, ptr noundef %25, i32 noundef %.133)
-  %28 = add i32 %27, %.133
-  %29 = icmp sgt i32 %28, %.133
+  %.12933 = phi i32 [ 0, %._crit_edge ], [ %28, %26 ]
+  %27 = tail call fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %1, ptr noundef %25, i32 noundef %.12933)
+  %28 = add i32 %27, %.12933
+  %29 = icmp sgt i32 %28, %.12933
   br i1 %29, label %26, label %30, !llvm.loop !6
 
 30:                                               ; preds = %26
@@ -231,11 +231,11 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   br i1 %6, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %4, %23
-  %.095108 = phi i32 [ %.1, %23 ], [ 0, %4 ]
-  %.096107 = phi i64 [ %.197, %23 ], [ 0, %4 ]
-  %.0100106 = phi i32 [ %8, %23 ], [ %3, %4 ]
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0100106) #2
-  %8 = add i32 %.0100106, 1
+  %.095108 = phi i32 [ %8, %23 ], [ %3, %4 ]
+  %.096107 = phi i32 [ %.197, %23 ], [ 0, %4 ]
+  %.098106 = phi i64 [ %.199, %23 ], [ 0, %4 ]
+  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.095108) #2
+  %8 = add i32 %.095108, 1
   %9 = zext i8 %7 to i32
   %.not = icmp sgt i8 %7, -1
   br i1 %.not, label %14, label %10
@@ -249,7 +249,7 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   br label %23
 
 14:                                               ; preds = %.lr.ph
-  %15 = add i32 %.095108, 1
+  %15 = add i32 %.096107, 1
   %16 = icmp sgt i32 %15, 8
   br i1 %16, label %17, label %19
 
@@ -259,20 +259,20 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
 
 19:                                               ; preds = %17, %14
   %20 = zext nneg i8 %7 to i64
-  %21 = mul i64 %.096107, 129
+  %21 = mul i64 %.098106, 129
   %22 = add i64 %21, %20
   br label %23
 
 23:                                               ; preds = %19, %12
-  %.197 = phi i64 [ %.096107, %12 ], [ %22, %19 ]
-  %.1 = phi i32 [ %.095108, %12 ], [ %15, %19 ]
+  %.199 = phi i64 [ %.098106, %12 ], [ %22, %19 ]
+  %.197 = phi i32 [ %.096107, %12 ], [ %15, %19 ]
   %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %8) #2
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %23, %10
-  %.096.lcssa.ph = phi i64 [ %.197, %23 ], [ %.096107, %10 ]
-  %.095.lcssa.ph = phi i32 [ %.1, %23 ], [ %.095108, %10 ]
+  %.098.lcssa.ph = phi i64 [ %.199, %23 ], [ %.098106, %10 ]
+  %.096.lcssa.ph = phi i32 [ %.197, %23 ], [ %.096107, %10 ]
   switch i8 %7, label %._crit_edge.thread [
     i8 -128, label %26
     i8 -127, label %46
@@ -285,27 +285,27 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   ]
 
 26:                                               ; preds = %._crit_edge
-  %27 = icmp sgt i64 %.096.lcssa.ph, 2147483647
+  %27 = icmp sgt i64 %.098.lcssa.ph, 2147483647
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
-  %29 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_length_too_long, ptr noundef nonnull @.str.75, i64 noundef %.096.lcssa.ph) #2
+  %29 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_length_too_long, ptr noundef nonnull @.str.75, i64 noundef %.098.lcssa.ph) #2
   br label %30
 
 30:                                               ; preds = %28, %26
   %31 = load i32, ptr @hf_banana_list, align 4
-  %32 = sub i32 %.0100106, %3
-  %33 = trunc i64 %.096.lcssa.ph to i32
+  %32 = sub i32 %.095108, %3
+  %33 = trunc i64 %.098.lcssa.ph to i32
   %34 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %3, i32 noundef %32, i32 noundef %33, ptr noundef nonnull @.str.76, i32 noundef %33) #2
   %35 = load i32, ptr @ett_list, align 4
   %36 = tail call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35) #2
-  %37 = icmp sgt i64 %.096.lcssa.ph, 0
+  %37 = icmp sgt i64 %.098.lcssa.ph, 0
   br i1 %37, label %.lr.ph120, label %.loopexit
 
 38:                                               ; preds = %.lr.ph120
   %39 = add i32 %.0118, 1
   %40 = sext i32 %39 to i64
-  %41 = icmp sgt i64 %.096.lcssa.ph, %40
+  %41 = icmp sgt i64 %.098.lcssa.ph, %40
   br i1 %41, label %.lr.ph120, label %.loopexit, !llvm.loop !8
 
 .lr.ph120:                                        ; preds = %30, %38
@@ -323,47 +323,47 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   br label %._crit_edge.thread
 
 46:                                               ; preds = %._crit_edge
-  %47 = icmp sgt i64 %.096.lcssa.ph, 2147483647
+  %47 = icmp sgt i64 %.098.lcssa.ph, 2147483647
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %46
-  %49 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_value_too_large, ptr noundef nonnull @.str.77, i64 noundef %.096.lcssa.ph) #2
+  %49 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_value_too_large, ptr noundef nonnull @.str.77, i64 noundef %.098.lcssa.ph) #2
   br label %50
 
 50:                                               ; preds = %48, %46
   %51 = load i32, ptr @hf_banana_int, align 4
   %52 = sub i32 %8, %3
-  %53 = trunc i64 %.096.lcssa.ph to i32
+  %53 = trunc i64 %.098.lcssa.ph to i32
   %54 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef %3, i32 noundef %52, i32 noundef %53) #2
   br label %.loopexit
 
 55:                                               ; preds = %._crit_edge
-  %56 = icmp sgt i64 %.096.lcssa.ph, 2147483647
+  %56 = icmp sgt i64 %.098.lcssa.ph, 2147483647
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %55
-  %58 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_length_too_long, ptr noundef nonnull @.str.78, i64 noundef %.096.lcssa.ph) #2
+  %58 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_length_too_long, ptr noundef nonnull @.str.78, i64 noundef %.098.lcssa.ph) #2
   br label %59
 
 59:                                               ; preds = %57, %55
   %60 = load i32, ptr @hf_banana_string, align 4
-  %61 = trunc i64 %.096.lcssa.ph to i32
+  %61 = trunc i64 %.098.lcssa.ph to i32
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef %8, i32 noundef %61, i32 noundef 0) #2
   %63 = add i32 %8, %61
   br label %.loopexit
 
 64:                                               ; preds = %._crit_edge
-  %65 = icmp sgt i64 %.096.lcssa.ph, 2147483647
+  %65 = icmp sgt i64 %.098.lcssa.ph, 2147483647
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %64
-  %67 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_value_too_large, ptr noundef nonnull @.str.79, i64 noundef %.096.lcssa.ph) #2
+  %67 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_value_too_large, ptr noundef nonnull @.str.79, i64 noundef %.098.lcssa.ph) #2
   br label %68
 
 68:                                               ; preds = %66, %64
   %69 = load i32, ptr @hf_banana_neg_int, align 4
   %70 = sub i32 %8, %3
-  %71 = trunc i64 %.096.lcssa.ph to i32
+  %71 = trunc i64 %.098.lcssa.ph to i32
   %72 = sub i32 0, %71
   %73 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %69, ptr noundef %0, i32 noundef %3, i32 noundef %70, i32 noundef %72) #2
   br label %.loopexit
@@ -371,7 +371,7 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
 74:                                               ; preds = %._crit_edge
   %75 = load i32, ptr @hf_banana_float, align 4
   %76 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef %8, i32 noundef 8, i32 noundef 0) #2
-  %77 = add i32 %.0100106, 9
+  %77 = add i32 %.095108, 9
   br label %.loopexit
 
 78:                                               ; preds = %._crit_edge
@@ -387,7 +387,7 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   br label %.loopexit
 
 86:                                               ; preds = %._crit_edge
-  %87 = icmp sgt i32 %.095.lcssa.ph, 1
+  %87 = icmp sgt i32 %.096.lcssa.ph, 1
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %86
@@ -396,7 +396,7 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
 
 90:                                               ; preds = %88, %86
   %91 = load i32, ptr @hf_banana_pb, align 4
-  %92 = add i32 %.0100106, -1
+  %92 = add i32 %.095108, -1
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %91, ptr noundef %0, i32 noundef %92, i32 noundef 1, i32 noundef 0) #2
   br label %.loopexit
 

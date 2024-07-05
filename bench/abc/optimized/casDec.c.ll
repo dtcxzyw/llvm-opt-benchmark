@@ -71,26 +71,26 @@ Abc_Clock.exit:                                   ; preds = %8, %20
 26:                                               ; preds = %47, %Abc_Clock.exit
   %indvars.iv386 = phi i32 [ %indvars.iv.next387, %47 ], [ 1, %Abc_Clock.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %Abc_Clock.exit ]
-  %.0259 = phi i32 [ %.1260, %47 ], [ %3, %Abc_Clock.exit ]
-  %.0257 = phi i32 [ %.09.i.sink, %47 ], [ 0, %Abc_Clock.exit ]
+  %.0253 = phi i32 [ %.09.i.sink, %47 ], [ 0, %Abc_Clock.exit ]
+  %.0251 = phi i32 [ %.1252, %47 ], [ %3, %Abc_Clock.exit ]
   %calloc = call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
-  %27 = add nsw i32 %.0257, %.0259
+  %27 = add nsw i32 %.0251, %.0253
   %.not = icmp sgt i32 %27, %25
   %28 = getelementptr inbounds i8, ptr %calloc, i64 4
   br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %26
   store i32 %27, ptr %calloc, align 8
-  store i32 %.0257, ptr %28, align 4
+  store i32 %.0253, ptr %28, align 4
   %30 = getelementptr inbounds i8, ptr %calloc, i64 8
   store i32 2, ptr %30, align 8
   br label %Abc_Base2Log.exit
 
 31:                                               ; preds = %26
   store i32 %25, ptr %calloc, align 8
-  store i32 %.0257, ptr %28, align 4
-  %.neg = sub i32 %.0257, %25
-  %32 = add i32 %.neg, %.0259
+  store i32 %.0253, ptr %28, align 4
+  %.neg = sub i32 %.0253, %25
+  %32 = add i32 %.neg, %.0251
   %33 = sub nsw i32 %3, %32
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds [1024 x i32], ptr @CreateDecomposedNetwork.Profile, i64 0, i64 %34
@@ -115,10 +115,10 @@ Abc_Clock.exit:                                   ; preds = %8, %20
 Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %31, %29
   %.09.i.sink = phi i32 [ 1, %29 ], [ %36, %31 ], [ %41, %.lr.ph.i ]
   %42 = phi i32 [ 2, %29 ], [ %36, %31 ], [ %36, %.lr.ph.i ]
-  %.1260 = phi i32 [ 0, %29 ], [ %32, %31 ], [ %32, %.lr.ph.i ]
+  %.1252 = phi i32 [ 0, %29 ], [ %32, %31 ], [ %32, %.lr.ph.i ]
   %43 = getelementptr inbounds i8, ptr %calloc, i64 12
   store i32 %.09.i.sink, ptr %43, align 4
-  %44 = sub nsw i32 %3, %.0259
+  %44 = sub nsw i32 %3, %.0251
   %45 = getelementptr inbounds i8, ptr %calloc, i64 20
   store i32 %44, ptr %45, align 4
   %.not274 = icmp slt i32 %.09.i.sink, %25
@@ -177,8 +177,8 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %31, %29
 
 71:                                               ; preds = %._crit_edge, %259
   %indvars.iv383 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next384, %259 ]
-  %.0252340 = phi i32 [ 0, %._crit_edge ], [ %188, %259 ]
-  %.0253339 = phi i32 [ 0, %._crit_edge ], [ %189, %259 ]
+  %.0258340 = phi i32 [ 0, %._crit_edge ], [ %188, %259 ]
+  %.0259339 = phi i32 [ 0, %._crit_edge ], [ %189, %259 ]
   %72 = getelementptr inbounds [1024 x ptr], ptr @CreateDecomposedNetwork.pLuts, i64 0, i64 %indvars.iv383
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 20
@@ -363,9 +363,9 @@ Abc_Clock.exit292:                                ; preds = %Abc_Clock.exit290, 
   %184 = load i32, ptr %183, align 4
   %185 = getelementptr inbounds i8, ptr %73, i64 16
   %186 = load i32, ptr %185, align 8
-  %187 = add i32 %184, %.0252340
+  %187 = add i32 %184, %.0258340
   %188 = sub i32 %187, %186
-  %189 = add nsw i32 %184, %.0253339
+  %189 = add nsw i32 %184, %.0259339
   br i1 %.not286, label %199, label %190
 
 190:                                              ; preds = %182

@@ -206,15 +206,15 @@ define internal i32 @dissect_li5g(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not121, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %53
-  %.0122 = phi i32 [ %54, %53 ], [ 40, %4 ]
-  %30 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0122) #2
-  %31 = add i32 %.0122, 2
+  %.0106122 = phi i32 [ %54, %53 ], [ 40, %4 ]
+  %30 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0106122) #2
+  %31 = add i32 %.0106122, 2
   %32 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %31) #2
   %33 = icmp ult i16 %30, 23
   br i1 %33, label %34, label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %.pre = add i32 %.0122, 4
+  %.pre = add i32 %.0106122, 4
   %.pre123 = zext i16 %32 to i32
   br label %53
 
@@ -222,14 +222,14 @@ define internal i32 @dissect_li5g(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %35 = zext nneg i16 %30 to i64
   %36 = getelementptr [23 x i32], ptr @hf_li5g_attrContents, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
-  %38 = add i32 %.0122, 4
+  %38 = add i32 %.0106122, 4
   %39 = zext i16 %32 to i32
   %40 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef %39, i32 noundef 0) #2
   %41 = getelementptr [23 x i32], ptr @ett_attrContents, i64 0, i64 %35
   %42 = load i32, ptr %41, align 4
   %43 = call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %42) #2
   %44 = load i32, ptr @hf_li5g_attrType, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %44, ptr noundef %0, i32 noundef %.0122, i32 noundef 2, i32 noundef 0) #2
+  %45 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %44, ptr noundef %0, i32 noundef %.0106122, i32 noundef 2, i32 noundef 0) #2
   %46 = load i32, ptr @hf_li5g_attrLen, align 4
   %47 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %46, ptr noundef %0, i32 noundef %31, i32 noundef 2, i32 noundef 0) #2
   %48 = add nsw i16 %30, -17
@@ -278,7 +278,7 @@ define internal i32 @dissect_li5g(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %71
 
 71:                                               ; preds = %70, %67, %._crit_edge
-  %.0106 = phi ptr [ %69, %70 ], [ null, %67 ], [ null, %._crit_edge ]
+  %.0 = phi ptr [ %69, %70 ], [ null, %67 ], [ null, %._crit_edge ]
   %72 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %6, i32 noundef %7) #2
   %73 = load ptr, ptr @li5g_subdissector_table, align 8
   %74 = zext i16 %8 to i32
@@ -291,12 +291,12 @@ define internal i32 @dissect_li5g(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %78
 
 78:                                               ; preds = %76, %71
-  %.not115 = icmp eq ptr %.0106, null
+  %.not115 = icmp eq ptr %.0, null
   br i1 %.not115, label %81, label %79
 
 79:                                               ; preds = %78
   %80 = getelementptr inbounds i8, ptr %13, i64 24
-  store ptr %.0106, ptr %80, align 8
+  store ptr %.0, ptr %80, align 8
   br label %81
 
 81:                                               ; preds = %79, %78

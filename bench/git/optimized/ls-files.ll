@@ -1037,11 +1037,11 @@ while.body.lr.ph.i:                               ; preds = %if.end.i41
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %last.026.i = phi i32 [ %52, %while.body.lr.ph.i ], [ %spec.select23.i, %while.body.i ]
-  %first.025.i = phi i32 [ %spec.select.i44, %while.body.lr.ph.i ], [ %spec.select22.i, %while.body.i ]
-  %sub9.i = sub i32 %last.026.i, %first.025.i
+  %first.026.i = phi i32 [ %spec.select.i44, %while.body.lr.ph.i ], [ %spec.select23.i, %while.body.i ]
+  %last.025.i = phi i32 [ %52, %while.body.lr.ph.i ], [ %spec.select22.i, %while.body.i ]
+  %sub9.i = sub i32 %last.025.i, %first.026.i
   %shr.i = lshr i32 %sub9.i, 1
-  %add.i = add i32 %shr.i, %first.025.i
+  %add.i = add i32 %shr.i, %first.026.i
   %idxprom.i45 = sext i32 %add.i to i64
   %arrayidx.i46 = getelementptr inbounds ptr, ptr %53, i64 %idxprom.i45
   %54 = load ptr, ptr %arrayidx.i46, align 8
@@ -1049,13 +1049,13 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %call10.i = call i32 @strncmp(ptr noundef nonnull %name.i, ptr noundef nonnull %call475, i64 noundef %conv478) #15
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   %add13.i = add nsw i32 %add.i, 1
-  %spec.select22.i = select i1 %tobool11.not.i, i32 %add13.i, i32 %first.025.i
-  %spec.select23.i = select i1 %tobool11.not.i, i32 %last.026.i, i32 %add.i
-  %cmp7.i = icmp ugt i32 %spec.select23.i, %spec.select22.i
+  %spec.select22.i = select i1 %tobool11.not.i, i32 %last.025.i, i32 %add.i
+  %spec.select23.i = select i1 %tobool11.not.i, i32 %add13.i, i32 %first.026.i
+  %cmp7.i = icmp ugt i32 %spec.select22.i, %spec.select23.i
   br i1 %cmp7.i, label %while.body.i, label %while.end.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.body.i, %if.end.i41
-  %last.0.lcssa.i = phi i32 [ %52, %if.end.i41 ], [ %spec.select23.i, %while.body.i ]
+  %last.0.lcssa.i = phi i32 [ %52, %if.end.i41 ], [ %spec.select22.i, %while.body.i ]
   %sub17.i = sub i32 %last.0.lcssa.i, %spec.select.i44
   %tobool.not.i.i = icmp eq i32 %last.0.lcssa.i, %spec.select.i44
   br i1 %tobool.not.i.i, label %move_array.exit.i, label %if.then.i.i

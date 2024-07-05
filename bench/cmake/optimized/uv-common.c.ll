@@ -2565,10 +2565,10 @@ define internal fastcc void @uv__print_handles(ptr noundef readonly %0, i32 noun
   br label %uv_default_loop.exit
 
 uv_default_loop.exit:                             ; preds = %9, %7, %5, %3
-  %.015 = phi ptr [ %0, %3 ], [ @default_loop_struct, %9 ], [ %6, %5 ], [ null, %7 ]
-  %10 = getelementptr inbounds i8, ptr %.015, i64 16
-  %.024 = load ptr, ptr %10, align 8
-  %.not25 = icmp eq ptr %.024, %10
+  %.0 = phi ptr [ %0, %3 ], [ @default_loop_struct, %9 ], [ %6, %5 ], [ null, %7 ]
+  %10 = getelementptr inbounds i8, ptr %.0, i64 16
+  %.01424 = load ptr, ptr %10, align 8
+  %.not25 = icmp eq ptr %.01424, %10
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %uv_default_loop.exit
@@ -2576,9 +2576,9 @@ uv_default_loop.exit:                             ; preds = %9, %7, %5, %3
   br i1 %.not17, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %16
-  %.026.us = phi ptr [ %.0.us, %16 ], [ %.024, %.lr.ph ]
-  %11 = getelementptr inbounds i8, ptr %.026.us, i64 -32
-  %12 = getelementptr inbounds i8, ptr %.026.us, i64 -16
+  %.01426.us = phi ptr [ %.014.us, %16 ], [ %.01424, %.lr.ph ]
+  %11 = getelementptr inbounds i8, ptr %.01426.us, i64 -32
+  %12 = getelementptr inbounds i8, ptr %.01426.us, i64 -16
   %13 = load i32, ptr %12, align 8
   %switch.tableidx = add i32 %13, -1
   %14 = icmp ult i32 %switch.tableidx, 16
@@ -2591,8 +2591,8 @@ switch.lookup:                                    ; preds = %.lr.ph.split.us
   br label %16
 
 16:                                               ; preds = %.lr.ph.split.us, %switch.lookup
-  %.014.us = phi ptr [ %switch.load, %switch.lookup ], [ @.str.181, %.lr.ph.split.us ]
-  %17 = getelementptr inbounds i8, ptr %.026.us, i64 56
+  %.015.us = phi ptr [ %switch.load, %switch.lookup ], [ @.str.181, %.lr.ph.split.us ]
+  %17 = getelementptr inbounds i8, ptr %.01426.us, i64 56
   %18 = load i32, ptr %17, align 8
   %19 = lshr i32 %18, 3
   %.lobit.us = and i32 %19, 1
@@ -2615,22 +2615,22 @@ switch.lookup:                                    ; preds = %.lr.ph.split.us
   %34 = getelementptr inbounds [3 x i8], ptr @.str.185, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = sext i8 %35 to i32
-  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.182, i32 noundef %24, i32 noundef %30, i32 noundef %36, ptr noundef nonnull %.014.us, ptr noundef nonnull %11) #24
-  %.0.us = load ptr, ptr %.026.us, align 8
-  %.not.us = icmp eq ptr %.0.us, %10
+  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.182, i32 noundef %24, i32 noundef %30, i32 noundef %36, ptr noundef nonnull %.015.us, ptr noundef nonnull %11) #24
+  %.014.us = load ptr, ptr %.01426.us, align 8
+  %.not.us = icmp eq ptr %.014.us, %10
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %61
-  %.026 = phi ptr [ %.0, %61 ], [ %.024, %.lr.ph ]
-  %38 = getelementptr inbounds i8, ptr %.026, i64 -32
-  %39 = getelementptr inbounds i8, ptr %.026, i64 56
+  %.01426 = phi ptr [ %.014, %61 ], [ %.01424, %.lr.ph ]
+  %38 = getelementptr inbounds i8, ptr %.01426, i64 -32
+  %39 = getelementptr inbounds i8, ptr %.01426, i64 56
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 4
   %.not18 = icmp eq i32 %41, 0
   br i1 %.not18, label %61, label %42
 
 42:                                               ; preds = %.lr.ph.split
-  %43 = getelementptr inbounds i8, ptr %.026, i64 -16
+  %43 = getelementptr inbounds i8, ptr %.01426, i64 -16
   %44 = load i32, ptr %43, align 8
   %switch.tableidx31 = add i32 %44, -1
   %45 = icmp ult i32 %switch.tableidx31, 16
@@ -2643,7 +2643,7 @@ switch.lookup30:                                  ; preds = %42
   br label %47
 
 47:                                               ; preds = %42, %switch.lookup30
-  %.014 = phi ptr [ %switch.load33, %switch.lookup30 ], [ @.str.181, %42 ]
+  %.015 = phi ptr [ %switch.load33, %switch.lookup30 ], [ @.str.181, %42 ]
   %48 = lshr i32 %40, 3
   %.lobit = and i32 %48, 1
   %49 = xor i32 %.lobit, 1
@@ -2658,12 +2658,12 @@ switch.lookup30:                                  ; preds = %42
   %57 = getelementptr inbounds [3 x i8], ptr @.str.185, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = sext i8 %58 to i32
-  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.182, i32 noundef %53, i32 noundef 65, i32 noundef %59, ptr noundef nonnull %.014, ptr noundef nonnull %38) #24
+  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.182, i32 noundef %53, i32 noundef 65, i32 noundef %59, ptr noundef nonnull %.015, ptr noundef nonnull %38) #24
   br label %61
 
 61:                                               ; preds = %.lr.ph.split, %47
-  %.0 = load ptr, ptr %.026, align 8
-  %.not = icmp eq ptr %.0, %10
+  %.014 = load ptr, ptr %.01426, align 8
+  %.not = icmp eq ptr %.014, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %61, %16, %uv_default_loop.exit

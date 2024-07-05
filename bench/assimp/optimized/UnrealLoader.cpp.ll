@@ -1976,40 +1976,40 @@ for.body485.lr.ph:                                ; preds = %invoke.cont475
   br label %for.body485
 
 for.body485:                                      ; preds = %for.body485.lr.ph, %for.inc519
-  %__begin1477.sroa.0.0891 = phi ptr [ %call5.i.i.i.i2.i.i204, %for.body485.lr.ph ], [ %incdec.ptr.i537, %for.inc519 ]
-  %materials.sroa.28.1890 = phi ptr [ %add.ptr21.i, %for.body485.lr.ph ], [ %materials.sroa.28.3, %for.inc519 ]
-  %materials.sroa.18.1889 = phi ptr [ %call5.i.i.i.i503, %for.body485.lr.ph ], [ %materials.sroa.18.3, %for.inc519 ]
-  %materials.sroa.0.1888 = phi ptr [ %call5.i.i.i.i503, %for.body485.lr.ph ], [ %materials.sroa.0.4, %for.inc519 ]
-  %mType.i = getelementptr inbounds i8, ptr %__begin1477.sroa.0.0891, i64 6
+  %materials.sroa.0.1891 = phi ptr [ %call5.i.i.i.i503, %for.body485.lr.ph ], [ %materials.sroa.0.4, %for.inc519 ]
+  %materials.sroa.18.1890 = phi ptr [ %call5.i.i.i.i503, %for.body485.lr.ph ], [ %materials.sroa.18.3, %for.inc519 ]
+  %__begin1477.sroa.0.0889 = phi ptr [ %call5.i.i.i.i2.i.i204, %for.body485.lr.ph ], [ %incdec.ptr.i537, %for.inc519 ]
+  %materials.sroa.28.1888 = phi ptr [ %add.ptr21.i, %for.body485.lr.ph ], [ %materials.sroa.28.3, %for.inc519 ]
+  %mType.i = getelementptr inbounds i8, ptr %__begin1477.sroa.0.0889, i64 6
   %127 = load i8, ptr %mType.i, align 2
   %conv.i506 = sext i8 %127 to i32
   store i32 %conv.i506, ptr %mat, align 4
-  %mTextureNum.i = getelementptr inbounds i8, ptr %__begin1477.sroa.0.0891, i64 14
+  %mTextureNum.i = getelementptr inbounds i8, ptr %__begin1477.sroa.0.0889, i64 14
   %128 = load i8, ptr %mTextureNum.i, align 2
   %conv2.i507 = zext i8 %128 to i32
   store i32 %conv2.i507, ptr %tex.i, align 4
   store i32 0, ptr %numFaces.i, align 4
-  %call.i.i509510 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN6Assimp6Unreal7TempMatESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKS4_EEET_SE_SE_T0_St26random_access_iterator_tag(ptr %materials.sroa.0.1888, ptr %materials.sroa.18.1889, ptr nonnull %mat)
+  %call.i.i509510 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN6Assimp6Unreal7TempMatESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIKS4_EEET_SE_SE_T0_St26random_access_iterator_tag(ptr %materials.sroa.0.1891, ptr %materials.sroa.18.1890, ptr nonnull %mat)
           to label %invoke.cont496 unwind label %lpad474.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont496:                                   ; preds = %for.body485
-  %cmp.i512 = icmp eq ptr %call.i.i509510, %materials.sroa.18.1889
-  %sub.ptr.rhs.cast.i515 = ptrtoint ptr %materials.sroa.0.1888 to i64
-  %matIndex = getelementptr inbounds i8, ptr %__begin1477.sroa.0.0891, i64 16
+  %cmp.i512 = icmp eq ptr %call.i.i509510, %materials.sroa.18.1890
+  %sub.ptr.rhs.cast.i515 = ptrtoint ptr %materials.sroa.0.1891 to i64
+  %matIndex = getelementptr inbounds i8, ptr %__begin1477.sroa.0.0889, i64 16
   br i1 %cmp.i512, label %if.then503, label %if.else508
 
 if.then503:                                       ; preds = %invoke.cont496
-  %sub.ptr.lhs.cast.i514 = ptrtoint ptr %materials.sroa.18.1889 to i64
+  %sub.ptr.lhs.cast.i514 = ptrtoint ptr %materials.sroa.18.1890 to i64
   %sub.ptr.sub.i516 = sub i64 %sub.ptr.lhs.cast.i514, %sub.ptr.rhs.cast.i515
   %sub.ptr.div.i517 = sdiv exact i64 %sub.ptr.sub.i516, 12
   %conv505 = trunc i64 %sub.ptr.div.i517 to i32
   store i32 %conv505, ptr %matIndex, align 4
   store i32 1, ptr %numFaces.i, align 4
-  %cmp.not.i520 = icmp eq ptr %materials.sroa.18.1889, %materials.sroa.28.1890
+  %cmp.not.i520 = icmp eq ptr %materials.sroa.18.1890, %materials.sroa.28.1888
   br i1 %cmp.not.i520, label %if.else.i524, label %if.then.i521
 
 if.then.i521:                                     ; preds = %if.then503
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %materials.sroa.18.1889, ptr noundef nonnull align 4 dereferenceable(12) %mat, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %materials.sroa.18.1890, ptr noundef nonnull align 4 dereferenceable(12) %mat, i64 12, i1 false)
   br label %invoke.cont506
 
 if.else.i524:                                     ; preds = %if.then503
@@ -2041,25 +2041,25 @@ _ZNSt12_Vector_baseIN6Assimp6Unreal7TempMatESaIS2_EE11_M_allocateEm.exit.i.i: ; 
   %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i532, %cond.true.i.i.i ]
   %add.ptr.i.i525 = getelementptr inbounds %"struct.Assimp::Unreal::TempMat", ptr %cond.i10.i.i, i64 %sub.ptr.div.i517
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i525, ptr noundef nonnull align 4 dereferenceable(12) %mat, i64 12, i1 false)
-  %cmp.not5.i.i.i.i.i = icmp eq ptr %materials.sroa.0.1888, %materials.sroa.28.1890
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %materials.sroa.0.1891, %materials.sroa.18.1890
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN6Assimp6Unreal7TempMatESaIS2_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6Assimp6Unreal7TempMatESaIS2_EE11_M_allocateEm.exit.i.i ]
-  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i526, %for.body.i.i.i.i.i ], [ %materials.sroa.0.1888, %_ZNSt12_Vector_baseIN6Assimp6Unreal7TempMatESaIS2_EE11_M_allocateEm.exit.i.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i526, %for.body.i.i.i.i.i ], [ %materials.sroa.0.1891, %_ZNSt12_Vector_baseIN6Assimp6Unreal7TempMatESaIS2_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.06.i.i.i.i.i, i64 12, i1 false), !alias.scope !20
   %incdec.ptr.i.i.i.i.i526 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 12
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 12
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i526, %materials.sroa.28.1890
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i526, %materials.sroa.18.1890
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !24
 
 _ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN6Assimp6Unreal7TempMatESaIS2_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i527 = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6Assimp6Unreal7TempMatESaIS2_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %tobool.not.i.i.i529 = icmp eq ptr %materials.sroa.0.1888, null
+  %tobool.not.i.i.i529 = icmp eq ptr %materials.sroa.0.1891, null
   br i1 %tobool.not.i.i.i529, label %_ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
 
 if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
-  call void @_ZdlPv(ptr noundef nonnull %materials.sroa.0.1888) #20
+  call void @_ZdlPv(ptr noundef nonnull %materials.sroa.0.1891) #20
   br label %_ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
@@ -2067,9 +2067,9 @@ _ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__g
   br label %invoke.cont506
 
 invoke.cont506:                                   ; preds = %_ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i521
-  %materials.sroa.0.2 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %materials.sroa.0.1888, %if.then.i521 ]
-  %__cur.0.lcssa.i.i.i.i.i527.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i527, %_ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %materials.sroa.18.1889, %if.then.i521 ]
-  %materials.sroa.28.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %materials.sroa.28.1890, %if.then.i521 ]
+  %materials.sroa.28.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %materials.sroa.28.1888, %if.then.i521 ]
+  %__cur.0.lcssa.i.i.i.i.i527.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i527, %_ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %materials.sroa.18.1890, %if.then.i521 ]
+  %materials.sroa.0.2 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIN6Assimp6Unreal7TempMatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %materials.sroa.0.1891, %if.then.i521 ]
   %materials.sroa.18.2 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i527.pn, i64 12
   %130 = load i32, ptr %mNumMeshes, align 8
   %inc507 = add i32 %130, 1
@@ -2092,7 +2092,7 @@ lpad474.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body485, %c
   br label %ehcleanup772
 
 lpad474.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.cont527, %if.end529, %invoke.cont532, %invoke.cont536, %if.then.i501, %_ZNSt12_Vector_baseIN6Assimp6Unreal7TempMatESaIS2_EE11_M_allocateEm.exit.i, %if.then.i.i.i530
-  %materials.sroa.0.3.ph.ph.ph = phi ptr [ null, %_ZNSt12_Vector_baseIN6Assimp6Unreal7TempMatESaIS2_EE11_M_allocateEm.exit.i ], [ %materials.sroa.0.1.lcssa, %if.end529 ], [ %materials.sroa.0.1.lcssa, %invoke.cont532 ], [ %materials.sroa.0.1.lcssa, %invoke.cont536 ], [ %materials.sroa.0.1.lcssa, %invoke.cont527 ], [ %materials.sroa.0.1888, %if.then.i.i.i530 ], [ null, %if.then.i501 ]
+  %materials.sroa.0.3.ph.ph.ph = phi ptr [ null, %_ZNSt12_Vector_baseIN6Assimp6Unreal7TempMatESaIS2_EE11_M_allocateEm.exit.i ], [ %materials.sroa.0.1.lcssa, %if.end529 ], [ %materials.sroa.0.1.lcssa, %invoke.cont532 ], [ %materials.sroa.0.1.lcssa, %invoke.cont536 ], [ %materials.sroa.0.1.lcssa, %invoke.cont527 ], [ %materials.sroa.0.1891, %if.then.i.i.i530 ], [ null, %if.then.i501 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup772
@@ -2110,16 +2110,16 @@ if.else508:                                       ; preds = %invoke.cont496
   br label %for.inc519
 
 for.inc519:                                       ; preds = %invoke.cont506, %if.else508
-  %materials.sroa.0.4 = phi ptr [ %materials.sroa.0.2, %invoke.cont506 ], [ %materials.sroa.0.1888, %if.else508 ]
-  %materials.sroa.18.3 = phi ptr [ %materials.sroa.18.2, %invoke.cont506 ], [ %materials.sroa.18.1889, %if.else508 ]
-  %materials.sroa.28.3 = phi ptr [ %materials.sroa.28.2, %invoke.cont506 ], [ %materials.sroa.28.1890, %if.else508 ]
-  %incdec.ptr.i537 = getelementptr inbounds i8, ptr %__begin1477.sroa.0.0891, i64 20
+  %materials.sroa.28.3 = phi ptr [ %materials.sroa.28.2, %invoke.cont506 ], [ %materials.sroa.28.1888, %if.else508 ]
+  %materials.sroa.18.3 = phi ptr [ %materials.sroa.18.2, %invoke.cont506 ], [ %materials.sroa.18.1890, %if.else508 ]
+  %materials.sroa.0.4 = phi ptr [ %materials.sroa.0.2, %invoke.cont506 ], [ %materials.sroa.0.1891, %if.else508 ]
+  %incdec.ptr.i537 = getelementptr inbounds i8, ptr %__begin1477.sroa.0.0889, i64 20
   %cmp.i505.not = icmp eq ptr %incdec.ptr.i537, %__first.addr.0.i.i.i.i.i934
   br i1 %cmp.i505.not, label %for.end521, label %for.body485
 
 for.end521:                                       ; preds = %for.inc519, %invoke.cont475
-  %materials.sroa.0.1.lcssa = phi ptr [ %call5.i.i.i.i503, %invoke.cont475 ], [ %materials.sroa.0.4, %for.inc519 ]
   %materials.sroa.18.1.lcssa = phi ptr [ %call5.i.i.i.i503, %invoke.cont475 ], [ %materials.sroa.18.3, %for.inc519 ]
+  %materials.sroa.0.1.lcssa = phi ptr [ %call5.i.i.i.i503, %invoke.cont475 ], [ %materials.sroa.0.4, %for.inc519 ]
   %mNumMeshes522 = getelementptr inbounds i8, ptr %pScene, i64 16
   %132 = load i32, ptr %mNumMeshes522, align 8
   %tobool523.not = icmp eq i32 %132, 0
@@ -2748,7 +2748,7 @@ ehcleanup771:                                     ; preds = %lpad768, %lpad766
   br label %ehcleanup772
 
 ehcleanup772:                                     ; preds = %lpad474.loopexit, %lpad474.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad474.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad474.loopexit.split-lp.loopexit, %ehcleanup771, %lpad592, %lpad526
-  %materials.sroa.0.5 = phi ptr [ %materials.sroa.0.1.lcssa, %lpad526 ], [ %materials.sroa.0.1.lcssa, %lpad592 ], [ %materials.sroa.0.1.lcssa, %ehcleanup771 ], [ %materials.sroa.0.1.lcssa, %lpad474.loopexit ], [ %materials.sroa.0.1.lcssa, %lpad474.loopexit.split-lp.loopexit ], [ %materials.sroa.0.1888, %lpad474.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %materials.sroa.0.3.ph.ph.ph, %lpad474.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %materials.sroa.0.5 = phi ptr [ %materials.sroa.0.1.lcssa, %lpad526 ], [ %materials.sroa.0.1.lcssa, %lpad592 ], [ %materials.sroa.0.1.lcssa, %ehcleanup771 ], [ %materials.sroa.0.1.lcssa, %lpad474.loopexit ], [ %materials.sroa.0.1.lcssa, %lpad474.loopexit.split-lp.loopexit ], [ %materials.sroa.0.1891, %lpad474.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %materials.sroa.0.3.ph.ph.ph, %lpad474.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn126 = phi { ptr, i32 } [ %133, %lpad526 ], [ %155, %lpad592 ], [ %.pn118, %ehcleanup771 ], [ %lpad.loopexit, %lpad474.loopexit ], [ %lpad.loopexit845, %lpad474.loopexit.split-lp.loopexit ], [ %lpad.loopexit848, %lpad474.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad474.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i659 = icmp eq ptr %materials.sroa.0.5, null
   br i1 %tobool.not.i.i.i659, label %ehcleanup773, label %if.then.i.i.i660
@@ -4268,16 +4268,16 @@ invoke.cont:                                      ; preds = %cond.true
   br i1 %cmp.i.not5.i.i, label %cleanup.action, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %.noexc, %for.body.i.i
-  %__result.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
-  %__first.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
-  %0 = load i8, ptr %__first.sroa.0.06.i.i, align 1
+  %__first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
+  %__result.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
+  %0 = load i8, ptr %__first.sroa.0.07.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %call.i.i.i = call i32 @isprint(i32 noundef %conv.i.i.i) #23
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i8 %placeholder, i8 %0
-  store i8 %cond.i.i.i, ptr %__result.sroa.0.07.i.i, align 1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i, i64 1
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.07.i.i, i64 1
+  store i8 %cond.i.i.i, ptr %__result.sroa.0.06.i.i, align 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 1
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call2.i
   br i1 %cmp.i.not.i.i, label %cleanup.action, label %for.body.i.i, !llvm.loop !41
 

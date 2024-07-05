@@ -800,14 +800,14 @@ Vec_PtrPush.exit.i28:                             ; preds = %138, %Vec_PtrGrow.e
   br i1 %.not87.i, label %148, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %144, %.lr.ph116.split.us.i, %._crit_edge.i
-  %.083.lcssa131.i = phi ptr [ null, %._crit_edge.i ], [ %106, %.lr.ph116.split.us.i ], [ %113, %144 ]
+  %.0.lcssa131.i = phi ptr [ null, %._crit_edge.i ], [ %106, %.lr.ph116.split.us.i ], [ %113, %144 ]
   call void @free(ptr noundef nonnull %100) #10
   br label %148
 
 148:                                              ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  %.083.lcssa132.i = phi ptr [ null, %._crit_edge.i ], [ %.083.lcssa131.i, %._crit_edge.thread.i ]
+  %.0.lcssa132.i = phi ptr [ null, %._crit_edge.i ], [ %.0.lcssa131.i, %._crit_edge.thread.i ]
   call void @Abc_ObjRemoveFanins(ptr noundef nonnull %69) #10
-  call void @Abc_ObjAddFanin(ptr noundef nonnull %69, ptr noundef %.083.lcssa132.i) #10
+  call void @Abc_ObjAddFanin(ptr noundef nonnull %69, ptr noundef %.0.lcssa132.i) #10
   %149 = load ptr, ptr %73, align 8
   call void @Cudd_RecursiveDeref(ptr noundef %72, ptr noundef %149) #10
   %150 = getelementptr inbounds i8, ptr %72, i64 344
@@ -831,7 +831,7 @@ Vec_PtrPush.exit.i28:                             ; preds = %138, %Vec_PtrGrow.e
 160:                                              ; preds = %160, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %160 ]
   %.034.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %spec.select31.i.i, %160 ]
-  %.02832.i.i = phi i32 [ 1000000, %.lr.ph.i.i ], [ %spec.select.i.i, %160 ]
+  %.02733.i.i = phi i32 [ 1000000, %.lr.ph.i.i ], [ %spec.select.i.i, %160 ]
   %161 = load ptr, ptr %159, align 8
   %162 = getelementptr inbounds ptr, ptr %161, i64 %indvars.iv.i.i
   %163 = load ptr, ptr %162, align 8
@@ -847,8 +847,8 @@ Vec_PtrPush.exit.i28:                             ; preds = %138, %Vec_PtrGrow.e
   call void @Cudd_RecursiveDeref(ptr noundef %72, ptr noundef %167) #10
   call void @Cudd_RecursiveDeref(ptr noundef %72, ptr noundef %168) #10
   %171 = add nsw i32 %170, %169
-  %172 = icmp sgt i32 %.02832.i.i, %171
-  %spec.select.i.i = call i32 @llvm.smin.i32(i32 %.02832.i.i, i32 %171)
+  %172 = icmp sgt i32 %.02733.i.i, %171
+  %spec.select.i.i = call i32 @llvm.smin.i32(i32 %.02733.i.i, i32 %171)
   %173 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %spec.select31.i.i = select i1 %172, i32 %173, i32 %.034.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

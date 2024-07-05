@@ -83,7 +83,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   br label %44
 
 .preheader:                                       ; preds = %121, %26
-  %.0125.lcssa = phi i1 [ true, %26 ], [ %.2, %121 ]
+  %.0.lcssa = phi i1 [ true, %26 ], [ %.2, %121 ]
   %40 = getelementptr inbounds i8, ptr %34, i64 64
   %41 = load i32, ptr %40, align 8
   %42 = icmp sgt i32 %41, 0
@@ -95,7 +95,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 44:                                               ; preds = %.lr.ph, %121
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %121 ]
-  %.0125155 = phi i1 [ true, %.lr.ph ], [ %.2, %121 ]
+  %.0155 = phi i1 [ true, %.lr.ph ], [ %.2, %121 ]
   %45 = getelementptr [0 x ptr], ptr %39, i64 0, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 80
@@ -125,7 +125,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   br label %65
 
 65:                                               ; preds = %59, %57, %44
-  %.1 = phi i1 [ %.0125155, %44 ], [ false, %57 ], [ false, %59 ]
+  %.1 = phi i1 [ %.0155, %44 ], [ false, %57 ], [ false, %59 ]
   %66 = load i32, ptr %53, align 4
   %.not149 = icmp eq i32 %66, %17
   br i1 %.not149, label %67, label %121
@@ -239,7 +239,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 125:                                              ; preds = %.lr.ph158, %191
   %indvars.iv175 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next176, %191 ]
-  %.3157 = phi i1 [ %.0125.lcssa, %.lr.ph158 ], [ %.7, %191 ]
+  %.3157 = phi i1 [ %.0.lcssa, %.lr.ph158 ], [ %.7, %191 ]
   %126 = getelementptr [0 x ptr], ptr %43, i64 0, i64 %indvars.iv175
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 80
@@ -318,15 +318,15 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   br label %176
 
 176:                                              ; preds = %147, %171, %169, %162
+  %.0126 = phi i32 [ %165, %162 ], [ %165, %169 ], [ %165, %171 ], [ 16, %147 ]
   %.6 = phi i1 [ %.5, %162 ], [ false, %169 ], [ false, %171 ], [ %.4, %147 ]
-  %.0 = phi i32 [ %165, %162 ], [ %165, %169 ], [ %165, %171 ], [ 16, %147 ]
   %177 = getelementptr inbounds i8, ptr %133, i64 20
   %178 = load i32, ptr %177, align 4
   %179 = getelementptr inbounds i8, ptr %133, i64 8
   %180 = load i32, ptr %179, align 4
   %181 = getelementptr inbounds i8, ptr %133, i64 12
   %182 = load i32, ptr %181, align 4
-  %183 = tail call zeroext i1 @check_amop_signature(i32 noundef %178, i32 noundef %.0, i32 noundef %180, i32 noundef %182) #4
+  %183 = tail call zeroext i1 @check_amop_signature(i32 noundef %178, i32 noundef %.0126, i32 noundef %180, i32 noundef %182) #4
   br i1 %183, label %191, label %184
 
 184:                                              ; preds = %176
@@ -350,7 +350,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   br i1 %194, label %125, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %191, %.preheader
-  %.3.lcssa = phi i1 [ %.0125.lcssa, %.preheader ], [ %.7, %191 ]
+  %.3.lcssa = phi i1 [ %.0.lcssa, %.preheader ], [ %.7, %191 ]
   %195 = tail call ptr @identify_opfamily_groups(ptr noundef nonnull %34, ptr noundef %35) #4
   %.not142 = icmp eq ptr %195, null
   br i1 %.not142, label %._crit_edge166, label %.lr.ph163
@@ -368,14 +368,14 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   br label %202
 
 ._crit_edge166:                                   ; preds = %211, %.lr.ph163, %._crit_edge
-  %.0131.lcssa = phi ptr [ null, %._crit_edge ], [ null, %.lr.ph163 ], [ %.1132, %211 ]
-  %.not144 = icmp eq ptr %.0131.lcssa, null
-  %201 = getelementptr inbounds i8, ptr %.0131.lcssa, i64 16
+  %.0127.lcssa = phi ptr [ null, %._crit_edge ], [ null, %.lr.ph163 ], [ %.1128, %211 ]
+  %.not144 = icmp eq ptr %.0127.lcssa, null
+  %201 = getelementptr inbounds i8, ptr %.0127.lcssa, i64 16
   br label %212
 
 202:                                              ; preds = %.lr.ph171, %211
   %indvars.iv177 = phi i64 [ 0, %.lr.ph171 ], [ %indvars.iv.next178, %211 ]
-  %.0131160170 = phi ptr [ null, %.lr.ph171 ], [ %.1132, %211 ]
+  %.0127160170 = phi ptr [ null, %.lr.ph171 ], [ %.1128, %211 ]
   %203 = getelementptr %union.ListCell, ptr %200, i64 %indvars.iv177
   %204 = load ptr, ptr %203, align 8
   %205 = load i32, ptr %204, align 8
@@ -386,11 +386,11 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
   %208 = getelementptr inbounds i8, ptr %204, i64 4
   %209 = load i32, ptr %208, align 4
   %210 = icmp eq i32 %209, %17
-  %spec.select150 = select i1 %210, ptr %204, ptr %.0131160170
+  %spec.select150 = select i1 %210, ptr %204, ptr %.0127160170
   br label %211
 
 211:                                              ; preds = %207, %202
-  %.1132 = phi ptr [ %.0131160170, %202 ], [ %spec.select150, %207 ]
+  %.1128 = phi ptr [ %.0127160170, %202 ], [ %spec.select150, %207 ]
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge166, label %202

@@ -4002,8 +4002,8 @@ if.then20:                                        ; preds = %if.end18
   br label %if.end22
 
 if.end22:                                         ; preds = %lor.lhs.false, %if.then20, %if.end18
-  %format_spec.addr.0 = phi ptr [ %call21, %if.then20 ], [ %format_spec, %if.end18 ], [ %format_spec, %lor.lhs.false ]
   %empty.0 = phi ptr [ %call21, %if.then20 ], [ null, %if.end18 ], [ null, %lor.lhs.false ]
+  %format_spec.addr.0 = phi ptr [ %call21, %if.then20 ], [ %format_spec, %if.end18 ], [ %format_spec, %lor.lhs.false ]
   %call23 = tail call ptr @_PyObject_LookupSpecial(ptr noundef %obj, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28952)) #11
   %cmp24 = icmp eq ptr %call23, null
   br i1 %cmp24, label %if.then25, label %if.end34
@@ -8334,7 +8334,7 @@ if.end18.lr.ph:                                   ; preds = %for.cond.preheader
 
 if.end18.us:                                      ; preds = %if.end18.lr.ph, %if.end33.us
   %call1.i2041.us = phi ptr [ %call1.i20.us, %if.end33.us ], [ %call1.i2037, %if.end18.lr.ph ]
-  %n.039.us = phi i64 [ %n.2.us, %if.end33.us ], [ 0, %if.end18.lr.ph ]
+  %n.040.us = phi i64 [ %n.2.us, %if.end33.us ], [ 0, %if.end18.lr.ph ]
   %call19.us = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %call1.i2041.us, ptr noundef %obj, i32 noundef 2) #11
   %7 = load i64, ptr %call1.i2041.us, align 8
   %8 = and i64 %7, 2147483648
@@ -8367,15 +8367,15 @@ if.then24.us:                                     ; preds = %if.end22.us
   ]
 
 sw.bb.us:                                         ; preds = %if.then24.us
-  %cmp25.us = icmp eq i64 %n.039.us, 9223372036854775807
+  %cmp25.us = icmp eq i64 %n.040.us, 9223372036854775807
   br i1 %cmp25.us, label %if.then26, label %if.end27.us
 
 if.end27.us:                                      ; preds = %sw.bb.us
-  %inc.us = add nsw i64 %n.039.us, 1
+  %inc.us = add nsw i64 %n.040.us, 1
   br label %if.end33.us
 
 if.end33.us:                                      ; preds = %if.end27.us, %if.end22.us
-  %n.1.us = phi i64 [ %inc.us, %if.end27.us ], [ %n.039.us, %if.end22.us ]
+  %n.1.us = phi i64 [ %inc.us, %if.end27.us ], [ %n.040.us, %if.end22.us ]
   %n.2.us = add i64 %n.1.us, %inc39
   %iter.val.i.us = load ptr, ptr %5, align 8
   %tp_iternext.i.us = getelementptr inbounds i8, ptr %iter.val.i.us, i64 224
@@ -8431,8 +8431,8 @@ if.then13:                                        ; preds = %if.then.i22, %_PyEr
 
 if.end18:                                         ; preds = %if.end18.lr.ph, %if.end33
   %call1.i2041 = phi ptr [ %call1.i20, %if.end33 ], [ %call1.i2037, %if.end18.lr.ph ]
-  %wrapped.040 = phi i32 [ %spec.select, %if.end33 ], [ 0, %if.end18.lr.ph ]
-  %n.039 = phi i64 [ %n.2, %if.end33 ], [ 0, %if.end18.lr.ph ]
+  %n.040 = phi i64 [ %n.2, %if.end33 ], [ 0, %if.end18.lr.ph ]
+  %wrapped.039 = phi i32 [ %spec.select, %if.end33 ], [ 0, %if.end18.lr.ph ]
   %call19 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %call1.i2041, ptr noundef %obj, i32 noundef 2) #11
   %19 = load i64, ptr %call1.i2041, align 8
   %20 = and i64 %19, 2147483648
@@ -8463,7 +8463,7 @@ if.then26:                                        ; preds = %sw.bb.us
   br label %Done
 
 sw.bb28:                                          ; preds = %if.end22
-  %22 = icmp eq i32 %wrapped.040, 0
+  %22 = icmp eq i32 %wrapped.039, 0
   br i1 %22, label %Done, label %if.then30
 
 if.then30:                                        ; preds = %sw.bb28
@@ -8475,9 +8475,9 @@ sw.default:                                       ; preds = %if.then24.us
   unreachable
 
 if.end33:                                         ; preds = %if.end22
-  %cmp36 = icmp eq i64 %n.039, 9223372036854775807
-  %n.2 = add i64 %n.039, %inc39
-  %spec.select = select i1 %cmp36, i32 1, i32 %wrapped.040
+  %cmp36 = icmp eq i64 %n.040, 9223372036854775807
+  %spec.select = select i1 %cmp36, i32 1, i32 %wrapped.039
+  %n.2 = add i64 %n.040, %inc39
   %iter.val.i = load ptr, ptr %5, align 8
   %tp_iternext.i = getelementptr inbounds i8, ptr %iter.val.i, i64 224
   %24 = load ptr, ptr %tp_iternext.i, align 8
@@ -8498,7 +8498,7 @@ Done.loopexit85:                                  ; preds = %if.then24.us
   br label %Done
 
 Done:                                             ; preds = %Py_DECREF.exit52.us, %Py_DECREF.exit52, %if.then24.us, %Done.loopexit85, %if.then26, %if.then30, %if.end43, %if.then13, %for.end, %sw.bb28
-  %n.3 = phi i64 [ %n.0.lcssa, %for.end ], [ %n.039, %sw.bb28 ], [ -1, %if.then13 ], [ -1, %if.end43 ], [ -1, %if.then30 ], [ -1, %if.then26 ], [ %n.039.us, %if.then24.us ], [ -1, %Py_DECREF.exit52 ], [ -1, %Py_DECREF.exit52.us ], [ 1, %Done.loopexit85 ]
+  %n.3 = phi i64 [ %n.0.lcssa, %for.end ], [ %n.040, %sw.bb28 ], [ -1, %if.then13 ], [ -1, %if.end43 ], [ -1, %if.then30 ], [ -1, %if.then26 ], [ %n.040.us, %if.then24.us ], [ -1, %Py_DECREF.exit52 ], [ -1, %Py_DECREF.exit52.us ], [ 1, %Done.loopexit85 ]
   %26 = load i64, ptr %call2, align 8
   %27 = and i64 %26, 2147483648
   %cmp.i57.not = icmp eq i64 %27, 0

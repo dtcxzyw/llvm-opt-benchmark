@@ -2391,20 +2391,20 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %tobool10.not, label %return, label %if.else12
 
 if.else12:                                        ; preds = %if.end.thread, %land.lhs.true, %if.else
-  %buf.addr.0104110 = phi ptr [ %buf, %land.lhs.true ], [ %buf, %if.else ], [ %min_buf, %if.end.thread ]
-  %size.addr.0105109 = phi i64 [ %size, %land.lhs.true ], [ %size, %if.else ], [ 60, %if.end.thread ]
+  %size.addr.0104110 = phi i64 [ %size, %land.lhs.true ], [ %size, %if.else ], [ 60, %if.end.thread ]
+  %buf.addr.0105109 = phi ptr [ %buf, %land.lhs.true ], [ %buf, %if.else ], [ %min_buf, %if.end.thread ]
   %conf = getelementptr inbounds i8, ptr %call, i64 3448
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf.addr.0104110, ptr noundef nonnull dereferenceable(6) %conf, i64 6)
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf.addr.0105109, ptr noundef nonnull dereferenceable(6) %conf, i64 6)
   %cmp15 = icmp eq i32 %bcmp, 0
   br i1 %cmp15, label %if.end113, label %if.else18
 
 if.else18:                                        ; preds = %if.else12
-  %bcmp57 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf.addr.0104110, ptr noundef nonnull dereferenceable(6) @nic_receive.broadcast_macaddr, i64 6)
+  %bcmp57 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf.addr.0105109, ptr noundef nonnull dereferenceable(6) @nic_receive.broadcast_macaddr, i64 6)
   %cmp20 = icmp eq i32 %bcmp57, 0
   br i1 %cmp20, label %if.end113, label %if.else25
 
 if.else25:                                        ; preds = %if.else18
-  %4 = load i8, ptr %buf.addr.0104110, align 1
+  %4 = load i8, ptr %buf.addr.0105109, align 1
   %5 = and i8 %4, 1
   %tobool29.not = icmp eq i8 %5, 0
   br i1 %tobool29.not, label %if.else69, label %if.then30
@@ -2417,7 +2417,7 @@ if.then30:                                        ; preds = %if.else25
   br i1 %tobool35.not, label %if.else37, label %if.end113
 
 if.else37:                                        ; preds = %if.then30
-  %call38 = call i32 @net_crc32(ptr noundef nonnull %buf.addr.0104110, i32 noundef 6) #11
+  %call38 = call i32 @net_crc32(ptr noundef nonnull %buf.addr.0105109, i32 noundef 6) #11
   %and39 = lshr i32 %call38, 2
   %mult = getelementptr inbounds i8, ptr %call, i64 2608
   %shr = lshr i32 %call38, 5
@@ -2454,7 +2454,7 @@ if.else79:                                        ; preds = %if.else69
   br i1 %tobool84.not, label %return, label %if.then85
 
 if.then85:                                        ; preds = %if.else79
-  %call87 = call i32 @net_crc32(ptr noundef nonnull %buf.addr.0104110, i32 noundef 6) #11
+  %call87 = call i32 @net_crc32(ptr noundef nonnull %buf.addr.0105109, i32 noundef 6) #11
   %shr88 = lshr i32 %call87, 26
   %mult94 = getelementptr inbounds i8, ptr %call, i64 2608
   %shr95 = lshr i32 %call87, 29
@@ -2533,7 +2533,7 @@ if.end118:                                        ; preds = %if.end113
   %size122 = getelementptr inbounds i8, ptr %rx, i64 14
   %26 = load i16, ptr %size122, align 2
   %conv124 = zext i16 %26 to i64
-  %spec.select = call i64 @llvm.umin.i64(i64 %size.addr.0105109, i64 %conv124)
+  %spec.select = call i64 @llvm.umin.i64(i64 %size.addr.0104110, i64 %conv124)
   %27 = load i32, ptr %ru_base, align 4
   %28 = load i32, ptr %ru_offset, align 16
   %add133 = add i32 %28, %27
@@ -2575,7 +2575,7 @@ if.end153:                                        ; preds = %if.end118
   %add159 = add nuw nsw i64 %conv158, 16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i62 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %add159, i32 1, ptr noundef %buf.addr.0104110, i64 noundef %spec.select, i1 noundef zeroext true) #11
+  %call.i.i.i.i62 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %add159, i32 1, ptr noundef %buf.addr.0105109, i64 noundef %spec.select, i1 noundef zeroext true) #11
   %rx_good_frames = getelementptr inbounds i8, ptr %call, i64 11824
   %37 = load i32, ptr %rx_good_frames, align 4
   %inc162 = add i32 %37, 1
@@ -2665,7 +2665,7 @@ if.then173:                                       ; preds = %if.end169
   br label %return
 
 return:                                           ; preds = %if.end.thread, %if.end169, %if.then173, %if.else79, %if.then85, %if.else52, %land.lhs.true, %if.end, %if.then151, %eepro100_rnr_interrupt.exit
-  %retval.0 = phi i64 [ -1, %eepro100_rnr_interrupt.exit ], [ -1, %if.then151 ], [ -1, %if.end ], [ -1, %land.lhs.true ], [ -1, %if.else52 ], [ -1, %if.then85 ], [ %size.addr.0105109, %if.else79 ], [ %spec.select, %if.then173 ], [ %spec.select, %if.end169 ], [ -1, %if.end.thread ]
+  %retval.0 = phi i64 [ -1, %eepro100_rnr_interrupt.exit ], [ -1, %if.then151 ], [ -1, %if.end ], [ -1, %land.lhs.true ], [ -1, %if.else52 ], [ -1, %if.then85 ], [ %size.addr.0104110, %if.else79 ], [ %spec.select, %if.then173 ], [ %spec.select, %if.end169 ], [ -1, %if.end.thread ]
   ret i64 %retval.0
 }
 

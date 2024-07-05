@@ -182,19 +182,19 @@ define internal fastcc void @uv__signal_stop(ptr noundef %0) unnamed_addr #0 {
   br label %61
 
 .preheader6.i:                                    ; preds = %16, %.preheader6.i
-  %.067.i = phi ptr [ %23, %.preheader6.i ], [ %15, %16 ]
-  %22 = getelementptr inbounds i8, ptr %.067.i, i64 112
+  %.064.i = phi ptr [ %23, %.preheader6.i ], [ %15, %16 ]
+  %22 = getelementptr inbounds i8, ptr %.064.i, i64 112
   %23 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %24, label %.preheader6.i, !llvm.loop !7
 
 24:                                               ; preds = %.preheader6.i
-  %25 = getelementptr inbounds i8, ptr %.067.i, i64 112
-  %26 = getelementptr inbounds i8, ptr %.067.i, i64 120
+  %25 = getelementptr inbounds i8, ptr %.064.i, i64 112
+  %26 = getelementptr inbounds i8, ptr %.064.i, i64 120
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %.067.i, i64 128
+  %28 = getelementptr inbounds i8, ptr %.064.i, i64 128
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %.067.i, i64 136
+  %30 = getelementptr inbounds i8, ptr %.064.i, i64 136
   %31 = load i32, ptr %30, align 8
   %.not77.i = icmp eq ptr %27, null
   br i1 %.not77.i, label %34, label %32
@@ -211,7 +211,7 @@ define internal fastcc void @uv__signal_stop(ptr noundef %0) unnamed_addr #0 {
 35:                                               ; preds = %34
   %36 = getelementptr inbounds i8, ptr %29, i64 112
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, %.067.i
+  %38 = icmp eq ptr %37, %.064.i
   %39 = getelementptr inbounds i8, ptr %29, i64 120
   %spec.select126.i = select i1 %38, ptr %36, ptr %39
   br label %40
@@ -221,7 +221,7 @@ define internal fastcc void @uv__signal_stop(ptr noundef %0) unnamed_addr #0 {
   store ptr %27, ptr %.sink.i, align 8
   %41 = load ptr, ptr %28, align 8
   %42 = icmp eq ptr %41, %0
-  %spec.select.i = select i1 %42, ptr %.067.i, ptr %29
+  %spec.select.i = select i1 %42, ptr %.064.i, ptr %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull readonly align 8 dereferenceable(32) %11, i64 32, i1 false)
   %43 = getelementptr inbounds i8, ptr %0, i64 128
   %44 = load ptr, ptr %43, align 8
@@ -238,17 +238,17 @@ define internal fastcc void @uv__signal_stop(ptr noundef %0) unnamed_addr #0 {
 
 50:                                               ; preds = %45, %40
   %.sink124.i = phi ptr [ @uv__signal_tree, %40 ], [ %spec.select127.i, %45 ]
-  store ptr %.067.i, ptr %.sink124.i, align 8
+  store ptr %.064.i, ptr %.sink124.i, align 8
   %51 = load ptr, ptr %11, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 128
-  store ptr %.067.i, ptr %52, align 8
+  store ptr %.064.i, ptr %52, align 8
   %53 = load ptr, ptr %14, align 8
   %.not80.i = icmp eq ptr %53, null
   br i1 %.not80.i, label %.loopexit.i, label %54
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds i8, ptr %53, i64 128
-  store ptr %.067.i, ptr %55, align 8
+  store ptr %.064.i, ptr %55, align 8
   br label %.loopexit.i
 
 56:                                               ; preds = %10
@@ -262,15 +262,15 @@ define internal fastcc void @uv__signal_stop(ptr noundef %0) unnamed_addr #0 {
 61:                                               ; preds = %56, %.thread.i
   %62 = phi i32 [ %21, %.thread.i ], [ %60, %56 ]
   %63 = phi ptr [ %19, %.thread.i ], [ %58, %56 ]
-  %.0653.i = phi ptr [ %12, %.thread.i ], [ %15, %56 ]
-  %64 = getelementptr inbounds i8, ptr %.0653.i, i64 128
+  %.0663.i = phi ptr [ %12, %.thread.i ], [ %15, %56 ]
+  %64 = getelementptr inbounds i8, ptr %.0663.i, i64 128
   store ptr %63, ptr %64, align 8
   br label %65
 
 65:                                               ; preds = %61, %56
   %66 = phi i32 [ %62, %61 ], [ %60, %56 ]
   %67 = phi ptr [ %63, %61 ], [ %58, %56 ]
-  %.0654.i = phi ptr [ %.0653.i, %61 ], [ null, %56 ]
+  %.0664.i = phi ptr [ %.0663.i, %61 ], [ null, %56 ]
   %.not84.i = icmp eq ptr %67, null
   br i1 %.not84.i, label %.loopexit.sink.split.i, label %68
 
@@ -284,11 +284,11 @@ define internal fastcc void @uv__signal_stop(ptr noundef %0) unnamed_addr #0 {
 
 .loopexit.sink.split.i:                           ; preds = %68, %65
   %uv__signal_tree.sink.i = phi ptr [ @uv__signal_tree, %65 ], [ %spec.select128.i, %68 ]
-  store ptr %.0654.i, ptr %uv__signal_tree.sink.i, align 8
+  store ptr %.0664.i, ptr %uv__signal_tree.sink.i, align 8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %50, %54, %.loopexit.sink.split.i
-  %.166.i = phi ptr [ %.0654.i, %.loopexit.sink.split.i ], [ %27, %54 ], [ %27, %50 ]
+  %.167.i = phi ptr [ %.0664.i, %.loopexit.sink.split.i ], [ %27, %54 ], [ %27, %50 ]
   %.1.i = phi ptr [ %67, %.loopexit.sink.split.i ], [ %spec.select.i, %54 ], [ %spec.select.i, %50 ]
   %.063.i = phi i32 [ %66, %.loopexit.sink.split.i ], [ %31, %54 ], [ %31, %50 ]
   %73 = icmp eq i32 %.063.i, 0
@@ -301,7 +301,7 @@ define internal fastcc void @uv__signal_stop(ptr noundef %0) unnamed_addr #0 {
 75:                                               ; preds = %259, %74
   %76 = phi ptr [ %uv__signal_tree.promoted.i.i, %74 ], [ %260, %259 ]
   %.0179.i.i = phi ptr [ %.1.i, %74 ], [ %.1180.i.i, %259 ]
-  %.0176.i.i = phi ptr [ %.166.i, %74 ], [ %.0179.i.i, %259 ]
+  %.0176.i.i = phi ptr [ %.167.i, %74 ], [ %.0179.i.i, %259 ]
   %77 = icmp eq ptr %.0176.i.i, null
   br i1 %77, label %82, label %78
 
@@ -717,14 +717,14 @@ uv__signal_tree_s_RB_REMOVE.exit:                 ; preds = %82, %.loopexit.i, %
   store i32 0, ptr %265, align 8
   %266 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr null, ptr %266, align 8
-  %.0117.i.i = load ptr, ptr @uv__signal_tree, align 8
-  %.not8.i.i = icmp eq ptr %.0117.i.i, null
+  %.0127.i.i = load ptr, ptr @uv__signal_tree, align 8
+  %.not8.i.i = icmp eq ptr %.0127.i.i, null
   br i1 %.not8.i.i, label %284, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %uv__signal_tree_s_RB_REMOVE.exit, %uv__signal_compare.exit.thread3.i.i
-  %.01110.i.i = phi ptr [ %.011.i.i, %uv__signal_compare.exit.thread3.i.i ], [ %.0117.i.i, %uv__signal_tree_s_RB_REMOVE.exit ]
-  %.09.i.i = phi ptr [ %.1.i.i16, %uv__signal_compare.exit.thread3.i.i ], [ null, %uv__signal_tree_s_RB_REMOVE.exit ]
-  %267 = getelementptr inbounds i8, ptr %.01110.i.i, i64 104
+  %.01210.i.i = phi ptr [ %.012.i.i, %uv__signal_compare.exit.thread3.i.i ], [ %.0127.i.i, %uv__signal_tree_s_RB_REMOVE.exit ]
+  %.0119.i.i = phi ptr [ %.1.i.i16, %uv__signal_compare.exit.thread3.i.i ], [ null, %uv__signal_tree_s_RB_REMOVE.exit ]
+  %267 = getelementptr inbounds i8, ptr %.01210.i.i, i64 104
   %268 = load i32, ptr %267, align 8
   %269 = icmp sgt i32 %268, %263
   br i1 %269, label %uv__signal_compare.exit.thread3.i.i, label %270
@@ -734,30 +734,30 @@ uv__signal_tree_s_RB_REMOVE.exit:                 ; preds = %82, %.loopexit.i, %
   br i1 %271, label %uv__signal_compare.exit.thread3.i.i, label %272
 
 272:                                              ; preds = %270
-  %273 = getelementptr inbounds i8, ptr %.01110.i.i, i64 88
+  %273 = getelementptr inbounds i8, ptr %.01210.i.i, i64 88
   %274 = load i32, ptr %273, align 8
   %275 = and i32 %274, 33554432
   %.not12.i = icmp eq i32 %275, 0
   br i1 %.not12.i, label %276, label %uv__signal_compare.exit.thread3.i.i
 
 276:                                              ; preds = %272
-  %277 = getelementptr inbounds i8, ptr %.01110.i.i, i64 8
+  %277 = getelementptr inbounds i8, ptr %.01210.i.i, i64 8
   %278 = load ptr, ptr %277, align 8
   %279 = icmp ne ptr %278, null
-  %280 = icmp ugt ptr %.01110.i.i, %5
+  %280 = icmp ugt ptr %.01210.i.i, %5
   %or.cond.i = or i1 %280, %279
   br i1 %or.cond.i, label %uv__signal_compare.exit.thread3.i.i, label %uv__signal_compare.exit.i.i
 
 uv__signal_compare.exit.i.i:                      ; preds = %276
-  %.not6.i.i = icmp ult ptr %.01110.i.i, %5
+  %.not6.i.i = icmp ult ptr %.01210.i.i, %5
   br i1 %.not6.i.i, label %uv__signal_compare.exit.thread3.i.i, label %uv__signal_tree_s_RB_NFIND.exit.thread8.i
 
 uv__signal_compare.exit.thread3.i.i:              ; preds = %uv__signal_compare.exit.i.i, %276, %272, %270, %.lr.ph.i.i
   %.sink.i.i15 = phi i64 [ 112, %.lr.ph.i.i ], [ 112, %272 ], [ 112, %276 ], [ 120, %270 ], [ 120, %uv__signal_compare.exit.i.i ]
-  %.1.i.i16 = phi ptr [ %.01110.i.i, %.lr.ph.i.i ], [ %.01110.i.i, %272 ], [ %.01110.i.i, %276 ], [ %.09.i.i, %270 ], [ %.09.i.i, %uv__signal_compare.exit.i.i ]
-  %281 = getelementptr inbounds i8, ptr %.01110.i.i, i64 %.sink.i.i15
-  %.011.i.i = load ptr, ptr %281, align 8
-  %.not.i.i17 = icmp eq ptr %.011.i.i, null
+  %.1.i.i16 = phi ptr [ %.01210.i.i, %.lr.ph.i.i ], [ %.01210.i.i, %272 ], [ %.01210.i.i, %276 ], [ %.0119.i.i, %270 ], [ %.0119.i.i, %uv__signal_compare.exit.i.i ]
+  %281 = getelementptr inbounds i8, ptr %.01210.i.i, i64 %.sink.i.i15
+  %.012.i.i = load ptr, ptr %281, align 8
+  %.not.i.i17 = icmp eq ptr %.012.i.i, null
   br i1 %.not.i.i17, label %uv__signal_tree_s_RB_NFIND.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 uv__signal_tree_s_RB_NFIND.exit.i:                ; preds = %uv__signal_compare.exit.thread3.i.i
@@ -771,7 +771,7 @@ uv__signal_tree_s_RB_NFIND.exit.uv__signal_tree_s_RB_NFIND.exit.thread8_crit_edg
 
 uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.exit.i.i, %uv__signal_tree_s_RB_NFIND.exit.uv__signal_tree_s_RB_NFIND.exit.thread8_crit_edge.i
   %282 = phi i32 [ %.pre.i, %uv__signal_tree_s_RB_NFIND.exit.uv__signal_tree_s_RB_NFIND.exit.thread8_crit_edge.i ], [ %268, %uv__signal_compare.exit.i.i ]
-  %.013.i11.i = phi ptr [ %.1.i.i16, %uv__signal_tree_s_RB_NFIND.exit.uv__signal_tree_s_RB_NFIND.exit.thread8_crit_edge.i ], [ %.01110.i.i, %uv__signal_compare.exit.i.i ]
+  %.0.i11.i = phi ptr [ %.1.i.i16, %uv__signal_tree_s_RB_NFIND.exit.uv__signal_tree_s_RB_NFIND.exit.thread8_crit_edge.i ], [ %.01210.i.i, %uv__signal_compare.exit.i.i ]
   %283 = icmp eq i32 %282, %263
   br i1 %283, label %287, label %284
 
@@ -796,7 +796,7 @@ uv__signal_unregister_handler.exit:               ; preds = %284
   %288 = getelementptr inbounds i8, ptr %0, i64 88
   %289 = load i32, ptr %288, align 8
   %290 = and i32 %289, 33554432
-  %291 = getelementptr inbounds i8, ptr %.013.i11.i, i64 88
+  %291 = getelementptr inbounds i8, ptr %.0.i11.i, i64 88
   %292 = load i32, ptr %291, align 8
   %293 = and i32 %292, 33554432
   %294 = icmp eq i32 %293, 0
@@ -986,14 +986,14 @@ define internal fastcc i32 @uv__signal_start(ptr noundef %0, ptr noundef %1, i32
   store i32 0, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr null, ptr %23, align 8
-  %.0117.i.i = load ptr, ptr @uv__signal_tree, align 8
-  %.not8.i.i = icmp eq ptr %.0117.i.i, null
+  %.0127.i.i = load ptr, ptr @uv__signal_tree, align 8
+  %.not8.i.i = icmp eq ptr %.0127.i.i, null
   br i1 %.not8.i.i, label %.split, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %20, %uv__signal_compare.exit.thread3.i.i
-  %.01110.i.i = phi ptr [ %.011.i.i, %uv__signal_compare.exit.thread3.i.i ], [ %.0117.i.i, %20 ]
-  %.09.i.i = phi ptr [ %.1.i.i, %uv__signal_compare.exit.thread3.i.i ], [ null, %20 ]
-  %24 = getelementptr inbounds i8, ptr %.01110.i.i, i64 104
+  %.01210.i.i = phi ptr [ %.012.i.i, %uv__signal_compare.exit.thread3.i.i ], [ %.0127.i.i, %20 ]
+  %.0119.i.i = phi ptr [ %.1.i.i, %uv__signal_compare.exit.thread3.i.i ], [ null, %20 ]
+  %24 = getelementptr inbounds i8, ptr %.01210.i.i, i64 104
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, %2
   br i1 %26, label %uv__signal_compare.exit.thread3.i.i, label %27
@@ -1003,30 +1003,30 @@ define internal fastcc i32 @uv__signal_start(ptr noundef %0, ptr noundef %1, i32
   br i1 %28, label %uv__signal_compare.exit.thread3.i.i, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %.01110.i.i, i64 88
+  %30 = getelementptr inbounds i8, ptr %.01210.i.i, i64 88
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 33554432
   %.not12.i = icmp eq i32 %32, 0
   br i1 %.not12.i, label %33, label %uv__signal_compare.exit.thread3.i.i
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %.01110.i.i, i64 8
+  %34 = getelementptr inbounds i8, ptr %.01210.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp ne ptr %35, null
-  %37 = icmp ugt ptr %.01110.i.i, %9
+  %37 = icmp ugt ptr %.01210.i.i, %9
   %or.cond.i = or i1 %37, %36
   br i1 %or.cond.i, label %uv__signal_compare.exit.thread3.i.i, label %uv__signal_compare.exit.i.i
 
 uv__signal_compare.exit.i.i:                      ; preds = %33
-  %.not6.i.i = icmp ult ptr %.01110.i.i, %9
+  %.not6.i.i = icmp ult ptr %.01210.i.i, %9
   br i1 %.not6.i.i, label %uv__signal_compare.exit.thread3.i.i, label %uv__signal_tree_s_RB_NFIND.exit.thread8.i
 
 uv__signal_compare.exit.thread3.i.i:              ; preds = %uv__signal_compare.exit.i.i, %33, %29, %27, %.lr.ph.i.i
   %.sink.i.i = phi i64 [ 112, %.lr.ph.i.i ], [ 112, %29 ], [ 112, %33 ], [ 120, %27 ], [ 120, %uv__signal_compare.exit.i.i ]
-  %.1.i.i = phi ptr [ %.01110.i.i, %.lr.ph.i.i ], [ %.01110.i.i, %29 ], [ %.01110.i.i, %33 ], [ %.09.i.i, %27 ], [ %.09.i.i, %uv__signal_compare.exit.i.i ]
-  %38 = getelementptr inbounds i8, ptr %.01110.i.i, i64 %.sink.i.i
-  %.011.i.i = load ptr, ptr %38, align 8
-  %.not.i.i = icmp eq ptr %.011.i.i, null
+  %.1.i.i = phi ptr [ %.01210.i.i, %.lr.ph.i.i ], [ %.01210.i.i, %29 ], [ %.01210.i.i, %33 ], [ %.0119.i.i, %27 ], [ %.0119.i.i, %uv__signal_compare.exit.i.i ]
+  %38 = getelementptr inbounds i8, ptr %.01210.i.i, i64 %.sink.i.i
+  %.012.i.i = load ptr, ptr %38, align 8
+  %.not.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not.i.i, label %uv__signal_tree_s_RB_NFIND.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 uv__signal_tree_s_RB_NFIND.exit.i:                ; preds = %uv__signal_compare.exit.thread3.i.i
@@ -1040,7 +1040,7 @@ uv__signal_tree_s_RB_NFIND.exit.uv__signal_tree_s_RB_NFIND.exit.thread8_crit_edg
 
 uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.exit.i.i, %uv__signal_tree_s_RB_NFIND.exit.uv__signal_tree_s_RB_NFIND.exit.thread8_crit_edge.i
   %39 = phi i32 [ %.pre.i, %uv__signal_tree_s_RB_NFIND.exit.uv__signal_tree_s_RB_NFIND.exit.thread8_crit_edge.i ], [ %25, %uv__signal_compare.exit.i.i ]
-  %.013.i11.i = phi ptr [ %.1.i.i, %uv__signal_tree_s_RB_NFIND.exit.uv__signal_tree_s_RB_NFIND.exit.thread8_crit_edge.i ], [ %.01110.i.i, %uv__signal_compare.exit.i.i ]
+  %.0.i11.i = phi ptr [ %.1.i.i, %uv__signal_tree_s_RB_NFIND.exit.uv__signal_tree_s_RB_NFIND.exit.thread8_crit_edge.i ], [ %.01210.i.i, %uv__signal_compare.exit.i.i ]
   %40 = icmp eq i32 %39, %2
   br i1 %40, label %47, label %.split
 
@@ -1081,7 +1081,7 @@ uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.
   br label %77
 
 48:                                               ; preds = %47
-  %49 = getelementptr inbounds i8, ptr %.013.i11.i, i64 88
+  %49 = getelementptr inbounds i8, ptr %.0.i11.i, i64 88
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 33554432
   %.not31 = icmp eq i32 %51, 0
@@ -1276,7 +1276,7 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
 
 .lr.ph.i.i43:                                     ; preds = %122, %.backedge.i.i
   %126 = phi ptr [ %147, %.backedge.i.i ], [ %125, %122 ]
-  %.01142.i.i = phi ptr [ %.0114.be.i.i, %.backedge.i.i ], [ %0, %122 ]
+  %.02.i.i = phi ptr [ %.0.be.i.i, %.backedge.i.i ], [ %0, %122 ]
   %127 = getelementptr inbounds i8, ptr %126, i64 112
   %128 = getelementptr inbounds i8, ptr %126, i64 136
   %129 = load i32, ptr %128, align 8
@@ -1311,16 +1311,16 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %226, %189, %183, %144
-  %.0114.be.i.i = phi ptr [ %133, %144 ], [ %133, %189 ], [ %.1115.i.i, %183 ], [ %.2.i.i, %226 ]
-  %146 = getelementptr inbounds i8, ptr %.0114.be.i.i, i64 128
+  %.0.be.i.i = phi ptr [ %133, %144 ], [ %133, %189 ], [ %.1.i.i46, %183 ], [ %.2.i.i, %226 ]
+  %146 = getelementptr inbounds i8, ptr %.0.be.i.i, i64 128
   %147 = load ptr, ptr %146, align 8
-  %.not.i.i45 = icmp eq ptr %147, null
-  br i1 %.not.i.i45, label %uv__signal_tree_s_RB_INSERT_COLOR.exit.loopexit.i, label %.lr.ph.i.i43, !llvm.loop !12
+  %.not.i.i44 = icmp eq ptr %147, null
+  br i1 %.not.i.i44, label %uv__signal_tree_s_RB_INSERT_COLOR.exit.loopexit.i, label %.lr.ph.i.i43, !llvm.loop !12
 
 148:                                              ; preds = %140, %137
   %149 = getelementptr inbounds i8, ptr %126, i64 120
   %150 = load ptr, ptr %149, align 8
-  %151 = icmp eq ptr %150, %.01142.i.i
+  %151 = icmp eq ptr %150, %.02.i.i
   br i1 %151, label %152, label %166
 
 152:                                              ; preds = %148
@@ -1362,9 +1362,9 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
   br label %166
 
 166:                                              ; preds = %165, %148
-  %.1115.i.i = phi ptr [ %126, %165 ], [ %.01142.i.i, %148 ]
-  %.0.i31.i = phi ptr [ %.01142.i.i, %165 ], [ %126, %148 ]
-  %167 = getelementptr inbounds i8, ptr %.0.i31.i, i64 136
+  %.0114.i.i = phi ptr [ %.02.i.i, %165 ], [ %126, %148 ]
+  %.1.i.i46 = phi ptr [ %126, %165 ], [ %.02.i.i, %148 ]
+  %167 = getelementptr inbounds i8, ptr %.0114.i.i, i64 136
   store i32 0, ptr %167, align 8
   %168 = getelementptr inbounds i8, ptr %133, i64 136
   store i32 1, ptr %168, align 8
@@ -1422,7 +1422,7 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
 
 191:                                              ; preds = %185, %184
   %192 = load ptr, ptr %127, align 8
-  %193 = icmp eq ptr %192, %.01142.i.i
+  %193 = icmp eq ptr %192, %.02.i.i
   br i1 %193, label %194, label %208
 
 194:                                              ; preds = %191
@@ -1435,7 +1435,7 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
 .thread6.i.i:                                     ; preds = %194
   %197 = getelementptr inbounds i8, ptr %192, i64 128
   store ptr %133, ptr %197, align 8
-  %.pre.i46 = load ptr, ptr %132, align 8
+  %.pre.i45 = load ptr, ptr %132, align 8
   br label %201
 
 198:                                              ; preds = %194
@@ -1448,7 +1448,7 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
   br i1 %.not123.i.i, label %207, label %201
 
 201:                                              ; preds = %198, %.thread6.i.i
-  %202 = phi ptr [ %.pre.i.i, %198 ], [ %.pre.i46, %.thread6.i.i ]
+  %202 = phi ptr [ %.pre.i.i, %198 ], [ %.pre.i45, %.thread6.i.i ]
   %203 = getelementptr inbounds i8, ptr %202, i64 112
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %126, %204
@@ -1464,9 +1464,9 @@ uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.
   br label %208
 
 208:                                              ; preds = %207, %191
-  %.2.i.i = phi ptr [ %126, %207 ], [ %.01142.i.i, %191 ]
-  %.1.i.i44 = phi ptr [ %.01142.i.i, %207 ], [ %126, %191 ]
-  %209 = getelementptr inbounds i8, ptr %.1.i.i44, i64 136
+  %.1115.i.i = phi ptr [ %.02.i.i, %207 ], [ %126, %191 ]
+  %.2.i.i = phi ptr [ %126, %207 ], [ %.02.i.i, %191 ]
+  %209 = getelementptr inbounds i8, ptr %.1115.i.i, i64 136
   store i32 0, ptr %209, align 8
   %210 = getelementptr inbounds i8, ptr %133, i64 136
   store i32 1, ptr %210, align 8
@@ -1673,12 +1673,12 @@ define internal void @uv__signal_event(ptr nocapture noundef readonly %0, ptr no
   br label %.outer
 
 .outer:                                           ; preds = %.loopexit, %3
-  %.031.ph = phi i64 [ %.132, %.loopexit ], [ 0, %3 ]
   %.ph = phi i1 [ true, %.loopexit ], [ false, %3 ]
-  %.030.ph = phi i64 [ 512, %.loopexit ], [ 0, %3 ]
-  %6 = getelementptr inbounds i8, ptr %4, i64 %.031.ph
-  %7 = sub nuw nsw i64 512, %.031.ph
-  %.not50 = icmp eq i64 %.031.ph, 0
+  %.031.ph = phi i64 [ 512, %.loopexit ], [ 0, %3 ]
+  %.0.ph = phi i64 [ %.1, %.loopexit ], [ 0, %3 ]
+  %6 = getelementptr inbounds i8, ptr %4, i64 %.0.ph
+  %7 = sub nuw nsw i64 512, %.0.ph
+  %.not50 = icmp eq i64 %.0.ph, 0
   br i1 %.not50, label %.outer.split.us, label %.outer.split
 
 .outer.split.us:                                  ; preds = %.outer
@@ -1698,7 +1698,7 @@ define internal void @uv__signal_event(ptr nocapture noundef readonly %0, ptr no
 
 .outer.split:                                     ; preds = %.outer, %23
   %15 = phi i1 [ true, %23 ], [ %.ph, %.outer ]
-  %.030 = phi i64 [ 512, %23 ], [ %.030.ph, %.outer ]
+  %.031 = phi i64 [ 512, %23 ], [ %.031.ph, %.outer ]
   %16 = load i32, ptr %5, align 8
   %17 = call i64 @read(i32 noundef %16, ptr noundef nonnull %6, i64 noundef %7) #10
   %18 = and i64 %17, 4294967295
@@ -1724,14 +1724,14 @@ define internal void @uv__signal_event(ptr nocapture noundef readonly %0, ptr no
   %.us-phi = phi i64 [ %9, %.outer.split.us ], [ %17, %.outer.split ]
   %sext = shl i64 %.us-phi, 32
   %24 = ashr exact i64 %sext, 32
-  %25 = add nsw i64 %24, %.031.ph
+  %25 = add nsw i64 %24, %.0.ph
   %26 = and i64 %25, -16
   %.not51 = icmp eq i64 %26, 0
   br i1 %.not51, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge39, %45
-  %.049 = phi i64 [ %46, %45 ], [ 0, %.critedge39 ]
-  %27 = getelementptr inbounds i8, ptr %4, i64 %.049
+  %.03049 = phi i64 [ %46, %45 ], [ 0, %.critedge39 ]
+  %27 = getelementptr inbounds i8, ptr %4, i64 %.03049
   %28 = load ptr, ptr %27, align 16
   %29 = getelementptr inbounds i8, ptr %27, i64 8
   %30 = load i32, ptr %29, align 8
@@ -1762,7 +1762,7 @@ define internal void @uv__signal_event(ptr nocapture noundef readonly %0, ptr no
   br label %45
 
 45:                                               ; preds = %37, %44
-  %46 = add nuw i64 %.049, 16
+  %46 = add nuw i64 %.03049, 16
   %47 = icmp ult i64 %46, %26
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
@@ -1777,9 +1777,9 @@ define internal void @uv__signal_event(ptr nocapture noundef readonly %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %12, %._crit_edge, %49
-  %.132 = phi i64 [ %48, %49 ], [ 0, %._crit_edge ], [ 0, %12 ], [ %.031.ph, %20 ]
-  %.1 = phi i64 [ %26, %49 ], [ %26, %._crit_edge ], [ %.030.ph, %12 ], [ %.030, %20 ]
-  %.old1 = icmp eq i64 %.1, 512
+  %.132 = phi i64 [ %26, %49 ], [ %26, %._crit_edge ], [ %.031.ph, %12 ], [ %.031, %20 ]
+  %.1 = phi i64 [ %48, %49 ], [ 0, %._crit_edge ], [ 0, %12 ], [ %.0.ph, %20 ]
+  %.old1 = icmp eq i64 %.132, 512
   br i1 %.old1, label %.outer, label %.loopexit40, !llvm.loop !13
 
 .loopexit40:                                      ; preds = %.loopexit, %12, %23
@@ -1893,14 +1893,14 @@ uv__signal_lock.exit:                             ; preds = %13
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %19, align 8
-  %.0117.i.i = load ptr, ptr @uv__signal_tree, align 8
-  %.not8.i.i = icmp eq ptr %.0117.i.i, null
+  %.0127.i.i = load ptr, ptr @uv__signal_tree, align 8
+  %.not8.i.i = icmp eq ptr %.0127.i.i, null
   br i1 %.not8.i.i, label %uv__signal_first_handle.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16, %uv__signal_compare.exit.thread3.i.i
-  %.01110.i.i = phi ptr [ %.011.i.i, %uv__signal_compare.exit.thread3.i.i ], [ %.0117.i.i, %16 ]
-  %.09.i.i = phi ptr [ %.1.i.i, %uv__signal_compare.exit.thread3.i.i ], [ null, %16 ]
-  %20 = getelementptr inbounds i8, ptr %.01110.i.i, i64 104
+  %.01210.i.i = phi ptr [ %.012.i.i, %uv__signal_compare.exit.thread3.i.i ], [ %.0127.i.i, %16 ]
+  %.0119.i.i = phi ptr [ %.1.i.i, %uv__signal_compare.exit.thread3.i.i ], [ null, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.01210.i.i, i64 104
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, %0
   br i1 %22, label %uv__signal_compare.exit.thread3.i.i, label %23
@@ -1910,30 +1910,30 @@ uv__signal_lock.exit:                             ; preds = %13
   br i1 %24, label %uv__signal_compare.exit.thread3.i.i, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.01110.i.i, i64 88
+  %26 = getelementptr inbounds i8, ptr %.01210.i.i, i64 88
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 33554432
   %.not12.i = icmp eq i32 %28, 0
   br i1 %.not12.i, label %29, label %uv__signal_compare.exit.thread3.i.i
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.01110.i.i, i64 8
+  %30 = getelementptr inbounds i8, ptr %.01210.i.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = icmp ne ptr %31, null
-  %33 = icmp ugt ptr %.01110.i.i, %3
+  %33 = icmp ugt ptr %.01210.i.i, %3
   %or.cond.i = or i1 %33, %32
   br i1 %or.cond.i, label %uv__signal_compare.exit.thread3.i.i, label %uv__signal_compare.exit.i.i
 
 uv__signal_compare.exit.i.i:                      ; preds = %29
-  %.not6.i.i = icmp ult ptr %.01110.i.i, %3
+  %.not6.i.i = icmp ult ptr %.01210.i.i, %3
   br i1 %.not6.i.i, label %uv__signal_compare.exit.thread3.i.i, label %uv__signal_tree_s_RB_NFIND.exit.thread8.i
 
 uv__signal_compare.exit.thread3.i.i:              ; preds = %uv__signal_compare.exit.i.i, %29, %25, %23, %.lr.ph.i.i
   %.sink.i.i = phi i64 [ 112, %.lr.ph.i.i ], [ 112, %25 ], [ 112, %29 ], [ 120, %23 ], [ 120, %uv__signal_compare.exit.i.i ]
-  %.1.i.i = phi ptr [ %.01110.i.i, %.lr.ph.i.i ], [ %.01110.i.i, %25 ], [ %.01110.i.i, %29 ], [ %.09.i.i, %23 ], [ %.09.i.i, %uv__signal_compare.exit.i.i ]
-  %34 = getelementptr inbounds i8, ptr %.01110.i.i, i64 %.sink.i.i
-  %.011.i.i = load ptr, ptr %34, align 8
-  %.not.i.i = icmp eq ptr %.011.i.i, null
+  %.1.i.i = phi ptr [ %.01210.i.i, %.lr.ph.i.i ], [ %.01210.i.i, %25 ], [ %.01210.i.i, %29 ], [ %.0119.i.i, %23 ], [ %.0119.i.i, %uv__signal_compare.exit.i.i ]
+  %34 = getelementptr inbounds i8, ptr %.01210.i.i, i64 %.sink.i.i
+  %.012.i.i = load ptr, ptr %34, align 8
+  %.not.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not.i.i, label %uv__signal_tree_s_RB_NFIND.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 uv__signal_tree_s_RB_NFIND.exit.i:                ; preds = %uv__signal_compare.exit.thread3.i.i
@@ -1947,7 +1947,7 @@ uv__signal_tree_s_RB_NFIND.exit.uv__signal_tree_s_RB_NFIND.exit.thread8_crit_edg
 
 uv__signal_tree_s_RB_NFIND.exit.thread8.i:        ; preds = %uv__signal_compare.exit.i.i, %uv__signal_tree_s_RB_NFIND.exit.uv__signal_tree_s_RB_NFIND.exit.thread8_crit_edge.i
   %35 = phi i32 [ %.pre.i, %uv__signal_tree_s_RB_NFIND.exit.uv__signal_tree_s_RB_NFIND.exit.thread8_crit_edge.i ], [ %21, %uv__signal_compare.exit.i.i ]
-  %.013.i11.i = phi ptr [ %.1.i.i, %uv__signal_tree_s_RB_NFIND.exit.uv__signal_tree_s_RB_NFIND.exit.thread8_crit_edge.i ], [ %.01110.i.i, %uv__signal_compare.exit.i.i ]
+  %.0.i11.i = phi ptr [ %.1.i.i, %uv__signal_tree_s_RB_NFIND.exit.uv__signal_tree_s_RB_NFIND.exit.thread8_crit_edge.i ], [ %.01210.i.i, %uv__signal_compare.exit.i.i ]
   %36 = icmp eq i32 %35, %0
   br i1 %36, label %.lr.ph, label %uv__signal_first_handle.exit.thread
 
@@ -1958,13 +1958,13 @@ uv__signal_first_handle.exit.thread:              ; preds = %16, %uv__signal_tre
 .lr.ph:                                           ; preds = %uv__signal_tree_s_RB_NFIND.exit.thread8.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3)
   %37 = getelementptr inbounds i8, ptr %5, i64 8
-  %38 = getelementptr inbounds i8, ptr %.013.i11.i, i64 104
+  %38 = getelementptr inbounds i8, ptr %.0.i11.i, i64 104
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, %0
   br i1 %40, label %.lr.ph45, label %.critedge
 
 .lr.ph45:                                         ; preds = %.lr.ph, %uv__signal_tree_s_RB_NEXT.exit
-  %.02544 = phi ptr [ %.2.i, %uv__signal_tree_s_RB_NEXT.exit ], [ %.013.i11.i, %.lr.ph ]
+  %.02544 = phi ptr [ %.2.i, %uv__signal_tree_s_RB_NEXT.exit ], [ %.0.i11.i, %.lr.ph ]
   store i32 %0, ptr %37, align 8
   store ptr %.02544, ptr %5, align 8
   %41 = getelementptr inbounds i8, ptr %.02544, i64 8

@@ -1059,9 +1059,9 @@ write_linsys.exit.thread.i.i:                     ; preds = %445, %436
   br label %457
 
 write_linsys.exit.i.i:                            ; preds = %296, %237, %225
-  %.0155.i.i.i = phi i64 [ %239, %237 ], [ %298, %296 ], [ %226, %225 ]
+  %.0.i277.i.i = phi i64 [ %239, %237 ], [ %298, %296 ], [ %226, %225 ]
   call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %5)
-  %.not263.i.i = icmp eq i64 %.0155.i.i.i, 0
+  %.not263.i.i = icmp eq i64 %.0.i277.i.i, 0
   br i1 %.not263.i.i, label %457, label %write_workspace.exit.thread.i
 
 457:                                              ; preds = %write_linsys.exit.i.i, %write_linsys.exit.thread.i.i
@@ -1319,13 +1319,13 @@ write_linsys.exit.i.i:                            ; preds = %296, %237, %225
 
 620:                                              ; preds = %616
   %621 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.154, ptr noundef %1) #8
-  br label %write_workspace.exit.thread57.i
+  br label %write_workspace.exit.thread58.i
 
 622:                                              ; preds = %616
   %623 = call i64 @fwrite(ptr nonnull @.str.134, i64 13, i64 1, ptr %13)
-  br label %write_workspace.exit.thread57.i
+  br label %write_workspace.exit.thread58.i
 
-write_workspace.exit.thread57.i:                  ; preds = %622, %620
+write_workspace.exit.thread58.i:                  ; preds = %622, %620
   %624 = call i64 @fwrite(ptr nonnull @.str.84, i64 18, i64 1, ptr %13)
   %625 = call i64 @fwrite(ptr nonnull @.str.84, i64 18, i64 1, ptr %13)
   %626 = getelementptr inbounds i8, ptr %161, i64 224
@@ -1336,17 +1336,17 @@ write_workspace.exit.thread57.i:                  ; preds = %622, %620
   br label %630
 
 write_workspace.exit.thread.i:                    ; preds = %565, %write_linsys.exit.i.i, %write_data.exit.i.i
-  %.0248.i.ph.i = phi i64 [ %568, %565 ], [ %.0155.i.i.i, %write_linsys.exit.i.i ], [ %.0.i.i.i, %write_data.exit.i.i ]
+  %.0.i51.ph.i = phi i64 [ %568, %565 ], [ %.0.i277.i.i, %write_linsys.exit.i.i ], [ %.0.i.i.i, %write_data.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %7)
   br label %write_solver.exit
 
 write_workspace.exit.i:                           ; preds = %508, %500, %492, %484, %474, %466, %162
-  %.0248.i.i = phi i64 [ %468, %466 ], [ %476, %474 ], [ %486, %484 ], [ %494, %492 ], [ %502, %500 ], [ %510, %508 ], [ %163, %162 ]
+  %.0.i51.i = phi i64 [ %468, %466 ], [ %476, %474 ], [ %486, %484 ], [ %494, %492 ], [ %502, %500 ], [ %510, %508 ], [ %163, %162 ]
   call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %7)
-  %.not47.i = icmp eq i64 %.0248.i.i, 0
+  %.not47.i = icmp eq i64 %.0.i51.i, 0
   br i1 %.not47.i, label %630, label %write_solver.exit
 
-630:                                              ; preds = %write_workspace.exit.i, %write_workspace.exit.thread57.i
+630:                                              ; preds = %write_workspace.exit.i, %write_workspace.exit.thread58.i
   %631 = call i64 @fwrite(ptr nonnull @.str.52, i64 34, i64 1, ptr %13)
   %632 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.53, ptr noundef %1) #8
   %633 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.54, ptr noundef %1) #8
@@ -1357,7 +1357,7 @@ write_workspace.exit.i:                           ; preds = %508, %500, %492, %4
   br label %write_solver.exit
 
 write_solver.exit:                                ; preds = %28, %write_settings.exit.i, %write_info.exit.i, %write_workspace.exit.thread.i, %write_workspace.exit.i, %630
-  %.0.i = phi i64 [ 0, %630 ], [ %29, %28 ], [ %119, %write_settings.exit.i ], [ %159, %write_info.exit.i ], [ %.0248.i.i, %write_workspace.exit.i ], [ %.0248.i.ph.i, %write_workspace.exit.thread.i ]
+  %.0.i = phi i64 [ 0, %630 ], [ %29, %28 ], [ %119, %write_settings.exit.i ], [ %159, %write_info.exit.i ], [ %.0.i51.i, %write_workspace.exit.i ], [ %.0.i51.ph.i, %write_workspace.exit.thread.i ]
   %638 = call i32 @fclose(ptr noundef nonnull %13)
   br label %639
 

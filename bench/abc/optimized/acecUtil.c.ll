@@ -293,7 +293,7 @@ define void @Gia_PolynAnalyzeXors(ptr noundef %0, i32 noundef %1) local_unnamed_
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %17 = phi ptr [ %11, %.lr.ph ], [ %29, %16 ]
-  %.025 = phi i32 [ 0, %.lr.ph ], [ %28, %16 ]
+  %.01724 = phi i32 [ 0, %.lr.ph ], [ %28, %16 ]
   %.val20 = load ptr, ptr %14, align 8
   %18 = getelementptr i8, ptr %17, i64 8
   %.val21.val = load ptr, ptr %18, align 8
@@ -312,7 +312,7 @@ define void @Gia_PolynAnalyzeXors(ptr noundef %0, i32 noundef %1) local_unnamed_
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %26, i32 noundef %.val18)
   %.val19 = load i32, ptr %4, align 4
-  %28 = add nsw i32 %.val19, %.025
+  %28 = add nsw i32 %.val19, %.01724
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load ptr, ptr %10, align 8
   %30 = getelementptr i8, ptr %29, i64 4
@@ -322,8 +322,8 @@ define void @Gia_PolynAnalyzeXors(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %32, label %16, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %16, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %28, %16 ]
-  %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0.lcssa)
+  %.017.lcssa = phi i32 [ 0, %.preheader ], [ %28, %16 ]
+  %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.017.lcssa)
   %34 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %35

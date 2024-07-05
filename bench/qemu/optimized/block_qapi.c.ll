@@ -494,7 +494,7 @@ sw.default:                                       ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %tail.033 = phi ptr [ %head, %for.body.preheader ], [ %9, %for.body ]
+  %tail.032 = phi ptr [ %head, %for.body.preheader ], [ %9, %for.body ]
   %call4 = call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #11
   %0 = load ptr, ptr %sn_tab, align 8
   %arrayidx = getelementptr %struct.QEMUSnapshotInfo, ptr %0, i64 %indvars.iv
@@ -538,10 +538,10 @@ for.body:                                         ; preds = %for.body.preheader,
   %frombool = zext i1 %cmp33 to i8
   store i8 %frombool, ptr %has_icount, align 8
   %call35 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #10
-  store ptr %call35, ptr %tail.033, align 8
+  store ptr %call35, ptr %tail.032, align 8
   %value = getelementptr inbounds i8, ptr %call35, i64 8
   store ptr %call4, ptr %value, align 8
-  %9 = load ptr, ptr %tail.033, align 8
+  %9 = load ptr, ptr %tail.032, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !7

@@ -1590,8 +1590,8 @@ define range(i32 -1, 1) i32 @H5G__node_copy(ptr noundef %0, ptr nocapture nounde
   br label %79
 
 79:                                               ; preds = %76, %78, %47, %42
-  %.0 = phi ptr [ %7, %78 ], [ %44, %76 ], [ %44, %47 ], [ %44, %42 ]
-  %80 = getelementptr inbounds i8, ptr %.0, i64 32
+  %.058 = phi ptr [ %7, %78 ], [ %44, %76 ], [ %44, %47 ], [ %44, %42 ]
+  %80 = getelementptr inbounds i8, ptr %.058, i64 32
   %81 = load i64, ptr %80, align 8
   %.not66 = icmp eq i64 %81, -1
   br i1 %.not66, label %103, label %82
@@ -1636,7 +1636,7 @@ define range(i32 -1, 1) i32 @H5G__node_copy(ptr noundef %0, ptr nocapture nounde
   br label %126
 
 103:                                              ; preds = %79
-  %104 = load i32, ptr %.0, align 8
+  %104 = load i32, ptr %.058, align 8
   %105 = icmp eq i32 %104, 2
   br i1 %105, label %106, label %126
 
@@ -1644,7 +1644,7 @@ define range(i32 -1, 1) i32 @H5G__node_copy(ptr noundef %0, ptr nocapture nounde
   store i32 -1, ptr %8, align 4
   store i32 1, ptr %6, align 8
   %107 = load ptr, ptr %27, align 8
-  %108 = getelementptr inbounds i8, ptr %.0, i64 8
+  %108 = getelementptr inbounds i8, ptr %.058, i64 8
   %109 = load i64, ptr %108, align 8
   %110 = call ptr @H5HL_offset_into(ptr noundef %107, i64 noundef %109) #9
   store ptr %110, ptr %36, align 8
@@ -1673,7 +1673,7 @@ define range(i32 -1, 1) i32 @H5G__node_copy(ptr noundef %0, ptr nocapture nounde
 
 126:                                              ; preds = %116, %103, %101
   %127 = load ptr, ptr %27, align 8
-  %128 = getelementptr inbounds i8, ptr %.0, i64 24
+  %128 = getelementptr inbounds i8, ptr %.058, i64 24
   %129 = load i64, ptr %128, align 8
   %130 = call ptr @H5HL_offset_into(ptr noundef %127, i64 noundef %129) #9
   %131 = icmp eq ptr %130, null
@@ -1737,7 +1737,7 @@ define range(i32 -1, 1) i32 @H5G__node_copy(ptr noundef %0, ptr nocapture nounde
   br label %172
 
 .loopexit:                                        ; preds = %158, %.preheader, %154, %142, %132, %122, %112, %89, %72, %65, %56
-  %.058.ph = phi i32 [ -1, %122 ], [ -1, %112 ], [ -1, %154 ], [ -1, %142 ], [ -1, %132 ], [ -1, %89 ], [ -1, %72 ], [ -1, %65 ], [ -1, %56 ], [ 0, %.preheader ], [ 0, %158 ]
+  %.059.ph = phi i32 [ -1, %122 ], [ -1, %112 ], [ -1, %154 ], [ -1, %142 ], [ -1, %132 ], [ -1, %89 ], [ -1, %72 ], [ -1, %65 ], [ -1, %56 ], [ 0, %.preheader ], [ 0, %158 ]
   %166 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SNODE, i64 noundef %2, ptr noundef nonnull %20, i32 noundef 0) #9
   %167 = icmp slt i32 %166, 0
   br i1 %167, label %168, label %172
@@ -1749,7 +1749,7 @@ define range(i32 -1, 1) i32 @H5G__node_copy(ptr noundef %0, ptr nocapture nounde
   br label %172
 
 172:                                              ; preds = %162, %168, %.loopexit
-  %.1 = phi i32 [ -1, %168 ], [ %.058.ph, %.loopexit ], [ -1, %162 ]
+  %.1 = phi i32 [ -1, %168 ], [ %.059.ph, %.loopexit ], [ -1, %162 ]
   ret i32 %.1
 }
 

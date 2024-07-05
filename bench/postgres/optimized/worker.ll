@@ -973,7 +973,7 @@ begin_replication_step.exit.i:                    ; preds = %77, %75
 
 137:                                              ; preds = %163, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %163 ]
-  %.048.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %163 ]
+  %.04147.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %163 ]
   %138 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %132, i64 0, i64 %indvars.iv.i.i
   %139 = getelementptr inbounds i8, ptr %138, i64 95
   %140 = load i8, ptr %139, align 1
@@ -1005,16 +1005,16 @@ begin_replication_step.exit.i:                    ; preds = %77, %75
 156:                                              ; preds = %151
   %157 = call ptr @expression_planner(ptr noundef nonnull %155) #17
   %158 = call ptr @ExecInitExpr(ptr noundef %157, ptr noundef null) #17
-  %159 = sext i32 %.048.i.i to i64
+  %159 = sext i32 %.04147.i.i to i64
   %160 = getelementptr ptr, ptr %130, i64 %159
   store ptr %158, ptr %160, align 8
   %161 = getelementptr i32, ptr %128, i64 %159
   store i32 %153, ptr %161, align 4
-  %162 = add i32 %.048.i.i, 1
+  %162 = add i32 %.04147.i.i, 1
   br label %163
 
 163:                                              ; preds = %156, %151, %145, %142, %137
-  %.1.i.i = phi i32 [ %.048.i.i, %137 ], [ %.048.i.i, %142 ], [ %.048.i.i, %145 ], [ %162, %156 ], [ %.048.i.i, %151 ]
+  %.1.i.i = phi i32 [ %.04147.i.i, %137 ], [ %.04147.i.i, %142 ], [ %.04147.i.i, %145 ], [ %162, %156 ], [ %.04147.i.i, %151 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.preheader.i.i, label %137, !llvm.loop !5
@@ -1566,9 +1566,9 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
   br i1 %420, label %.lr.ph144, label %._crit_edge.i36
 
 .lr.ph144:                                        ; preds = %.lr.ph144.i, %.thread114.i
-  %.093138.i143 = phi ptr [ %.4.i, %.thread114.i ], [ null, %.lr.ph144.i ]
-  %.086139.i142 = phi ptr [ %.389.i, %.thread114.i ], [ null, %.lr.ph144.i ]
-  %.082141.i141 = phi ptr [ %.385.i, %.thread114.i ], [ null, %.lr.ph144.i ]
+  %.089139.i143 = phi ptr [ %.4.i, %.thread114.i ], [ null, %.lr.ph144.i ]
+  %.085140.i142 = phi ptr [ %.388.i, %.thread114.i ], [ null, %.lr.ph144.i ]
+  %.081141.i141 = phi ptr [ %.384.i, %.thread114.i ], [ null, %.lr.ph144.i ]
   %.079142.i140 = phi ptr [ %.3.i, %.thread114.i ], [ null, %.lr.ph144.i ]
   %.0143.i139 = phi ptr [ %.1.i, %.thread114.i ], [ null, %.lr.ph144.i ]
   %indvars.iv171.i138 = phi i64 [ %indvars.iv.next172.i, %.thread114.i ], [ 0, %.lr.ph144.i ]
@@ -1592,7 +1592,7 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
   %432 = call ptr @lappend(ptr noundef %.079142.i140, ptr noundef %431) #17
   %433 = getelementptr inbounds i8, ptr %424, i64 68
   %434 = load i32, ptr %433, align 4
-  %435 = call ptr @lappend_oid(ptr noundef %.086139.i142, i32 noundef %434) #17
+  %435 = call ptr @lappend_oid(ptr noundef %.085140.i142, i32 noundef %434) #17
   %436 = load i32, ptr @wal_level, align 4
   %437 = icmp sgt i32 %436, 1
   br i1 %437, label %438, label %453
@@ -1618,11 +1618,11 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
 
 450:                                              ; preds = %448
   %451 = load i32, ptr %433, align 4
-  %452 = call ptr @lappend_oid(ptr noundef %.093138.i143, i32 noundef %451) #17
+  %452 = call ptr @lappend_oid(ptr noundef %.089139.i143, i32 noundef %451) #17
   br label %453
 
 453:                                              ; preds = %450, %448, %445, %438, %427
-  %.194.i = phi ptr [ %.093138.i143, %448 ], [ %452, %450 ], [ %.093138.i143, %445 ], [ %.093138.i143, %438 ], [ %.093138.i143, %427 ]
+  %.190.i = phi ptr [ %.089139.i143, %448 ], [ %452, %450 ], [ %.089139.i143, %445 ], [ %.089139.i143, %438 ], [ %.089139.i143, %427 ]
   %454 = load ptr, ptr %429, align 8
   %455 = getelementptr inbounds i8, ptr %454, i64 56
   %456 = load ptr, ptr %455, align 8
@@ -1645,15 +1645,15 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
   br i1 %466, label %.lr.ph, label %.thread114.i
 
 .lr.ph:                                           ; preds = %.lr.ph.i37, %501
-  %.295125.i134 = phi ptr [ %.396.i, %501 ], [ %.194.i, %.lr.ph.i37 ]
-  %.187126.i133 = phi ptr [ %.288.i, %501 ], [ %435, %.lr.ph.i37 ]
-  %.183127.i132 = phi ptr [ %.284.i, %501 ], [ %.082141.i141, %.lr.ph.i37 ]
-  %.180128.i131 = phi ptr [ %.2.i, %501 ], [ %432, %.lr.ph.i37 ]
+  %.291126.i134 = phi ptr [ %.392.i, %501 ], [ %.190.i, %.lr.ph.i37 ]
+  %.186127.i133 = phi ptr [ %.287.i, %501 ], [ %435, %.lr.ph.i37 ]
+  %.182128.i132 = phi ptr [ %.283.i, %501 ], [ %.081141.i141, %.lr.ph.i37 ]
+  %.180129.i131 = phi ptr [ %.2.i, %501 ], [ %432, %.lr.ph.i37 ]
   %indvars.iv.i38130 = phi i64 [ %indvars.iv.next.i39, %501 ], [ 0, %.lr.ph.i37 ]
   %467 = load ptr, ptr %464, align 8
   %468 = getelementptr %union.ListCell, ptr %467, i64 %indvars.iv.i38130
   %469 = load i32, ptr %468, align 8
-  %470 = call zeroext i1 @list_member_oid(ptr noundef %.187126.i133, i32 noundef %469) #17
+  %470 = call zeroext i1 @list_member_oid(ptr noundef %.186127.i133, i32 noundef %469) #17
   br i1 %470, label %501, label %471
 
 471:                                              ; preds = %.lr.ph
@@ -1677,9 +1677,9 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
 
 483:                                              ; preds = %478, %471
   call fastcc void @TargetPrivilegesCheck(ptr noundef nonnull %472, i64 noundef 16)
-  %484 = call ptr @lappend(ptr noundef %.180128.i131, ptr noundef nonnull %472) #17
-  %485 = call ptr @lappend(ptr noundef %.183127.i132, ptr noundef nonnull %472) #17
-  %486 = call ptr @lappend_oid(ptr noundef %.187126.i133, i32 noundef %469) #17
+  %484 = call ptr @lappend(ptr noundef %.180129.i131, ptr noundef nonnull %472) #17
+  %485 = call ptr @lappend(ptr noundef %.182128.i132, ptr noundef nonnull %472) #17
+  %486 = call ptr @lappend_oid(ptr noundef %.186127.i133, i32 noundef %469) #17
   %487 = load i32, ptr @wal_level, align 4
   %488 = icmp sgt i32 %487, 1
   br i1 %488, label %489, label %501
@@ -1702,14 +1702,14 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
   br i1 %498, label %501, label %499
 
 499:                                              ; preds = %497
-  %500 = call ptr @lappend_oid(ptr noundef %.295125.i134, i32 noundef %469) #17
+  %500 = call ptr @lappend_oid(ptr noundef %.291126.i134, i32 noundef %469) #17
   br label %501
 
 501:                                              ; preds = %499, %497, %494, %489, %483, %482, %.lr.ph
-  %.396.i = phi ptr [ %.295125.i134, %.lr.ph ], [ %.295125.i134, %497 ], [ %500, %499 ], [ %.295125.i134, %494 ], [ %.295125.i134, %489 ], [ %.295125.i134, %483 ], [ %.295125.i134, %482 ]
-  %.288.i = phi ptr [ %.187126.i133, %.lr.ph ], [ %486, %497 ], [ %486, %499 ], [ %486, %494 ], [ %486, %489 ], [ %486, %483 ], [ %.187126.i133, %482 ]
-  %.284.i = phi ptr [ %.183127.i132, %.lr.ph ], [ %485, %497 ], [ %485, %499 ], [ %485, %494 ], [ %485, %489 ], [ %485, %483 ], [ %.183127.i132, %482 ]
-  %.2.i = phi ptr [ %.180128.i131, %.lr.ph ], [ %484, %497 ], [ %484, %499 ], [ %484, %494 ], [ %484, %489 ], [ %484, %483 ], [ %.180128.i131, %482 ]
+  %.392.i = phi ptr [ %.291126.i134, %.lr.ph ], [ %.291126.i134, %497 ], [ %500, %499 ], [ %.291126.i134, %494 ], [ %.291126.i134, %489 ], [ %.291126.i134, %483 ], [ %.291126.i134, %482 ]
+  %.287.i = phi ptr [ %.186127.i133, %.lr.ph ], [ %486, %497 ], [ %486, %499 ], [ %486, %494 ], [ %486, %489 ], [ %486, %483 ], [ %.186127.i133, %482 ]
+  %.283.i = phi ptr [ %.182128.i132, %.lr.ph ], [ %485, %497 ], [ %485, %499 ], [ %485, %494 ], [ %485, %489 ], [ %485, %483 ], [ %.182128.i132, %482 ]
+  %.2.i = phi ptr [ %.180129.i131, %.lr.ph ], [ %484, %497 ], [ %484, %499 ], [ %484, %494 ], [ %484, %489 ], [ %484, %483 ], [ %.180129.i131, %482 ]
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38130, 1
   %502 = load i32, ptr %463, align 4
   %503 = sext i32 %502 to i64
@@ -1717,9 +1717,9 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
   br i1 %504, label %.lr.ph, label %.thread114.i
 
 .thread114.i:                                     ; preds = %501, %.lr.ph.i37, %460, %453, %426
-  %.4.i = phi ptr [ %.194.i, %453 ], [ %.093138.i143, %426 ], [ %.194.i, %460 ], [ %.194.i, %.lr.ph.i37 ], [ %.396.i, %501 ]
-  %.389.i = phi ptr [ %435, %453 ], [ %.086139.i142, %426 ], [ %435, %460 ], [ %435, %.lr.ph.i37 ], [ %.288.i, %501 ]
-  %.385.i = phi ptr [ %.082141.i141, %453 ], [ %.082141.i141, %426 ], [ %.082141.i141, %460 ], [ %.082141.i141, %.lr.ph.i37 ], [ %.284.i, %501 ]
+  %.4.i = phi ptr [ %.190.i, %453 ], [ %.089139.i143, %426 ], [ %.190.i, %460 ], [ %.190.i, %.lr.ph.i37 ], [ %.392.i, %501 ]
+  %.388.i = phi ptr [ %435, %453 ], [ %.085140.i142, %426 ], [ %435, %460 ], [ %435, %.lr.ph.i37 ], [ %.287.i, %501 ]
+  %.384.i = phi ptr [ %.081141.i141, %453 ], [ %.081141.i141, %426 ], [ %.081141.i141, %460 ], [ %.081141.i141, %.lr.ph.i37 ], [ %.283.i, %501 ]
   %.3.i = phi ptr [ %432, %453 ], [ %.079142.i140, %426 ], [ %432, %460 ], [ %432, %.lr.ph.i37 ], [ %.2.i, %501 ]
   %.1.i = phi ptr [ %428, %453 ], [ %.0143.i139, %426 ], [ %428, %460 ], [ %428, %.lr.ph.i37 ], [ %428, %501 ]
   %indvars.iv.next172.i = add nuw nsw i64 %indvars.iv171.i138, 1
@@ -1729,9 +1729,9 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
   br i1 %507, label %.lr.ph144, label %._crit_edge.i36
 
 ._crit_edge.i36:                                  ; preds = %.thread114.i, %.lr.ph144.i, %begin_replication_step.exit.i35
-  %.093.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.4.i, %.thread114.i ]
-  %.086.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.389.i, %.thread114.i ]
-  %.082.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.385.i, %.thread114.i ]
+  %.089.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.4.i, %.thread114.i ]
+  %.085.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.388.i, %.thread114.i ]
+  %.081.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.384.i, %.thread114.i ]
   %.079.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.3.i, %.thread114.i ]
   %.0.lcssa.i = phi ptr [ null, %begin_replication_step.exit.i35 ], [ null, %.lr.ph144.i ], [ %.1.i, %.thread114.i ]
   %508 = load i8, ptr %23, align 1
@@ -1741,7 +1741,7 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
   %512 = load i8, ptr %511, align 1
   %513 = trunc i8 %512 to i1
   %514 = xor i1 %513, true
-  call void @ExecuteTruncateGuts(ptr noundef %.079.lcssa.i, ptr noundef %.086.lcssa.i, ptr noundef %.093.lcssa.i, i32 noundef 0, i1 noundef zeroext %509, i1 noundef zeroext %514) #17
+  call void @ExecuteTruncateGuts(ptr noundef %.079.lcssa.i, ptr noundef %.085.lcssa.i, ptr noundef %.089.lcssa.i, i32 noundef 0, i1 noundef zeroext %509, i1 noundef zeroext %514) #17
   %515 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 4
   %.not103.i = icmp eq ptr %.0.lcssa.i, null
   br i1 %.not103.i, label %._crit_edge160.i, label %.lr.ph158.i
@@ -1753,12 +1753,12 @@ begin_replication_step.exit.i35:                  ; preds = %413, %411
   br i1 %518, label %.lr.ph162.i, label %._crit_edge160.i
 
 ._crit_edge160.i:                                 ; preds = %.lr.ph162.i, %.lr.ph158.i, %._crit_edge.i36
-  %519 = getelementptr inbounds i8, ptr %.082.lcssa.i, i64 4
-  %.not105.i = icmp eq ptr %.082.lcssa.i, null
+  %519 = getelementptr inbounds i8, ptr %.081.lcssa.i, i64 4
+  %.not105.i = icmp eq ptr %.081.lcssa.i, null
   br i1 %.not105.i, label %._crit_edge166.i, label %.lr.ph165.i
 
 .lr.ph165.i:                                      ; preds = %._crit_edge160.i
-  %520 = getelementptr inbounds i8, ptr %.082.lcssa.i, i64 16
+  %520 = getelementptr inbounds i8, ptr %.081.lcssa.i, i64 16
   %521 = load i32, ptr %519, align 4
   %522 = icmp sgt i32 %521, 0
   br i1 %522, label %.lr.ph169.i, label %._crit_edge166.i
@@ -3762,9 +3762,9 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %.backedge, %12
-  %.044.i = phi i1 [ false, %12 ], [ %.044.i.be, %.backedge ]
-  %.041.i = phi i64 [ %13, %12 ], [ %.243.i, %.backedge ]
-  %.040.i = phi i64 [ %0, %12 ], [ %.6.i, %.backedge ]
+  %.041.i = phi i1 [ false, %12 ], [ %.041.i.be, %.backedge ]
+  %.038.i = phi i64 [ %13, %12 ], [ %.240.i, %.backedge ]
+  %.0.i = phi i64 [ %0, %12 ], [ %.6.i, %.backedge ]
   store i32 -1, ptr %4, align 4
   store ptr null, ptr %5, align 8
   %24 = load volatile i32, ptr @InterruptPending, align 4
@@ -3787,10 +3787,10 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %.not55.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %26, %74
-  %.145.i = phi i1 [ false, %74 ], [ %.044.i, %26 ]
-  %.142.i = phi i64 [ %47, %74 ], [ %.041.i, %26 ]
-  %.1.i = phi i64 [ %.5.i, %74 ], [ %.040.i, %26 ]
-  %.039.i = phi i32 [ %80, %74 ], [ %32, %26 ]
+  %.046.i = phi i32 [ %80, %74 ], [ %32, %26 ]
+  %.142.i = phi i1 [ false, %74 ], [ %.041.i, %26 ]
+  %.139.i = phi i64 [ %47, %74 ], [ %.038.i, %26 ]
+  %.1.i = phi i64 [ %.5.i, %74 ], [ %.0.i, %26 ]
   %33 = load volatile i32, ptr @InterruptPending, align 4
   %.not56.i = icmp eq i32 %33, 0
   br i1 %.not56.i, label %35, label %34
@@ -3800,11 +3800,11 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br label %35
 
 35:                                               ; preds = %34, %.preheader.i
-  %36 = icmp eq i32 %.039.i, 0
+  %36 = icmp eq i32 %.046.i, 0
   br i1 %36, label %.loopexit.i, label %37
 
 37:                                               ; preds = %35
-  %38 = icmp slt i32 %.039.i, 0
+  %38 = icmp slt i32 %.046.i, 0
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %37
@@ -3832,7 +3832,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   store ptr %48, ptr @CurrentMemoryContext, align 8
   %49 = load ptr, ptr %5, align 8
   store ptr %49, ptr %6, align 8
-  store i32 %.039.i, ptr %20, align 8
+  store i32 %.046.i, ptr %20, align 8
   store i32 0, ptr %21, align 4
   store i32 0, ptr %22, align 8
   %50 = call i32 @pq_getmsgbyte(ptr noundef nonnull %6) #17
@@ -3893,10 +3893,10 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br label %.preheader.i
 
 .loopexit.i:                                      ; preds = %35, %41, %39, %26
-  %.246.i = phi i1 [ %.044.i, %26 ], [ %.145.i, %39 ], [ %.145.i, %41 ], [ %.145.i, %35 ]
-  %.243.i = phi i64 [ %.041.i, %26 ], [ %.142.i, %39 ], [ %.142.i, %41 ], [ %.142.i, %35 ]
-  %.6.i = phi i64 [ %.040.i, %26 ], [ %.1.i, %39 ], [ %.1.i, %41 ], [ %.1.i, %35 ]
-  %.038.i = phi i1 [ false, %26 ], [ true, %39 ], [ true, %41 ], [ false, %35 ]
+  %.047.i = phi i1 [ false, %26 ], [ true, %39 ], [ true, %41 ], [ false, %35 ]
+  %.243.i = phi i1 [ %.041.i, %26 ], [ %.142.i, %39 ], [ %.142.i, %41 ], [ %.142.i, %35 ]
+  %.240.i = phi i64 [ %.038.i, %26 ], [ %.139.i, %39 ], [ %.139.i, %41 ], [ %.139.i, %35 ]
+  %.6.i = phi i64 [ %.0.i, %26 ], [ %.1.i, %39 ], [ %.1.i, %41 ], [ %.1.i, %35 ]
   call fastcc void @send_feedback(i64 noundef %.6.i, i1 noundef zeroext false, i1 noundef zeroext false)
   %81 = load i8, ptr @in_remote_transaction, align 1
   %82 = trunc i8 %81 to i1
@@ -3917,7 +3917,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   call void @MemoryContextReset(ptr noundef %86) #17
   %87 = load ptr, ptr @TopMemoryContext, align 8
   store ptr %87, ptr @CurrentMemoryContext, align 8
-  br i1 %.038.i, label %LogicalRepApplyLoop.exit, label %88
+  br i1 %.047.i, label %LogicalRepApplyLoop.exit, label %88
 
 88:                                               ; preds = %85
   %89 = load ptr, ptr getelementptr inbounds (i8, ptr @lsn_mapping, i64 8), align 8
@@ -3926,10 +3926,10 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   %spec.select.i.i = or i1 %90, %91
   %92 = load i32, ptr @WalWriterDelay, align 4
   %93 = sext i32 %92 to i64
-  %.037.i = select i1 %spec.select.i.i, i64 1000, i64 %93
+  %.048.i = select i1 %spec.select.i.i, i64 1000, i64 %93
   %94 = load ptr, ptr @MyLatch, align 8
   %95 = load i32, ptr %4, align 4
-  %96 = call i32 @WaitLatchOrSocket(ptr noundef %94, i32 noundef 43, i32 noundef %95, i64 noundef %.037.i, i32 noundef 83886085) #17
+  %96 = call i32 @WaitLatchOrSocket(ptr noundef %94, i32 noundef 43, i32 noundef %95, i64 noundef %.048.i, i32 noundef 83886085) #17
   %97 = and i32 %96, 1
   %.not59.i = icmp eq i32 %97, 0
   br i1 %.not59.i, label %102, label %98
@@ -3970,7 +3970,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   %112 = load i32, ptr @wal_receiver_timeout, align 4
   %113 = sext i32 %112 to i64
   %114 = mul nsw i64 %113, 1000
-  %115 = add i64 %114, %.243.i
+  %115 = add i64 %114, %.240.i
   %.not63.i = icmp slt i64 %111, %115
   br i1 %.not63.i, label %120, label %116
 
@@ -3983,20 +3983,20 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   unreachable
 
 120:                                              ; preds = %110
-  br i1 %.246.i, label %126, label %121
+  br i1 %.243.i, label %126, label %121
 
 121:                                              ; preds = %120
   %122 = sdiv i32 %112, 2
   %123 = sext i32 %122 to i64
   %124 = mul nsw i64 %123, 1000
-  %125 = add i64 %124, %.243.i
+  %125 = add i64 %124, %.240.i
   %.not64.i = icmp sge i64 %111, %125
   br label %126
 
 126:                                              ; preds = %121, %120, %107
-  %.347.i = phi i1 [ true, %120 ], [ %.246.i, %107 ], [ %.not64.i, %121 ]
-  %.0.i = phi i1 [ false, %120 ], [ false, %107 ], [ %.not64.i, %121 ]
-  call fastcc void @send_feedback(i64 noundef %.6.i, i1 noundef zeroext %.0.i, i1 noundef zeroext %.0.i)
+  %.344.i = phi i1 [ true, %120 ], [ %.243.i, %107 ], [ %.not64.i, %121 ]
+  %.037.i = phi i1 [ false, %120 ], [ false, %107 ], [ %.not64.i, %121 ]
+  call fastcc void @send_feedback(i64 noundef %.6.i, i1 noundef zeroext %.037.i, i1 noundef zeroext %.037.i)
   %127 = call zeroext i1 @IsTransactionState() #17
   br i1 %127, label %.backedge, label %128
 
@@ -4005,7 +4005,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br label %.backedge
 
 .backedge:                                        ; preds = %128, %126, %105
-  %.044.i.be = phi i1 [ %.347.i, %126 ], [ %.347.i, %128 ], [ %.246.i, %105 ]
+  %.041.i.be = phi i1 [ %.344.i, %126 ], [ %.344.i, %128 ], [ %.243.i, %105 ]
   br label %23
 
 LogicalRepApplyLoop.exit:                         ; preds = %85
@@ -5421,7 +5421,7 @@ define internal fastcc void @apply_handle_tuple_routing(ptr nocapture noundef %0
   br label %48
 
 48:                                               ; preds = %45, %25
-  %.0130 = phi ptr [ %47, %45 ], [ %43, %25 ]
+  %.0128 = phi ptr [ %47, %45 ], [ %43, %25 ]
   %49 = tail call ptr @ExecGetRootToChildMap(ptr noundef nonnull %30, ptr noundef nonnull %6) #17
   %.not139 = icmp eq ptr %49, null
   br i1 %.not139, label %54, label %50
@@ -5429,31 +5429,31 @@ define internal fastcc void @apply_handle_tuple_routing(ptr nocapture noundef %0
 50:                                               ; preds = %48
   %51 = getelementptr inbounds i8, ptr %49, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call ptr @execute_attr_map_slot(ptr noundef %52, ptr noundef %1, ptr noundef %.0130) #17
+  %53 = tail call ptr @execute_attr_map_slot(ptr noundef %52, ptr noundef %1, ptr noundef %.0128) #17
   br label %slot_getallattrs.exit
 
 54:                                               ; preds = %48
-  %55 = getelementptr inbounds i8, ptr %.0130, i64 8
+  %55 = getelementptr inbounds i8, ptr %.0128, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 56
   %58 = load ptr, ptr %57, align 8
-  tail call void %58(ptr noundef %.0130, ptr noundef %1) #17
-  %59 = getelementptr inbounds i8, ptr %.0130, i64 16
+  tail call void %58(ptr noundef %.0128, ptr noundef %1) #17
+  %59 = getelementptr inbounds i8, ptr %.0128, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.0130, i64 6
+  %62 = getelementptr inbounds i8, ptr %.0128, i64 6
   %63 = load i16, ptr %62, align 2
   %64 = sext i16 %63 to i32
   %65 = icmp sgt i32 %61, %64
   br i1 %65, label %66, label %slot_getallattrs.exit
 
 66:                                               ; preds = %54
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %.0130, i32 noundef %61) #17
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %.0128, i32 noundef %61) #17
   br label %slot_getallattrs.exit
 
 slot_getallattrs.exit:                            ; preds = %66, %54, %50
-  %.1 = phi ptr [ %53, %50 ], [ %.0130, %54 ], [ %.0130, %66 ]
-  %.0128 = phi ptr [ %52, %50 ], [ null, %54 ], [ null, %66 ]
+  %.0129 = phi ptr [ %52, %50 ], [ null, %54 ], [ null, %66 ]
+  %.1 = phi ptr [ %53, %50 ], [ %.0128, %54 ], [ %.0128, %66 ]
   store ptr %29, ptr @CurrentMemoryContext, align 8
   switch i32 %3, label %69 [
     i32 4, label %67
@@ -5461,12 +5461,12 @@ slot_getallattrs.exit:                            ; preds = %66, %54, %50
   ]
 
 67:                                               ; preds = %slot_getallattrs.exit, %slot_getallattrs.exit
-  %68 = tail call ptr @logicalrep_partition_open(ptr noundef %8, ptr noundef nonnull %32, ptr noundef %.0128) #17
+  %68 = tail call ptr @logicalrep_partition_open(ptr noundef %8, ptr noundef nonnull %32, ptr noundef %.0129) #17
   tail call fastcc void @check_relation_updatable(ptr noundef %68)
   br label %69
 
 69:                                               ; preds = %slot_getallattrs.exit, %67
-  %.0129 = phi ptr [ %68, %67 ], [ null, %slot_getallattrs.exit ]
+  %.0130 = phi ptr [ %68, %67 ], [ null, %slot_getallattrs.exit ]
   switch i32 %3, label %default.unreachable [
     i32 3, label %70
     i32 4, label %72
@@ -5483,13 +5483,13 @@ slot_getallattrs.exit:                            ; preds = %66, %54, %50
   br label %185
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %.0129, i64 92
+  %73 = getelementptr inbounds i8, ptr %.0130, i64 92
   %74 = load i32, ptr %73, align 4
   tail call fastcc void @apply_handle_delete_internal(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %.1, i32 noundef %74)
   br label %185
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %.0129, i64 92
+  %76 = getelementptr inbounds i8, ptr %.0130, i64 92
   %77 = load i32, ptr %76, align 4
   %.val145 = load ptr, ptr %0, align 8
   tail call fastcc void @TargetPrivilegesCheck(ptr noundef nonnull %32, i64 noundef 2)
@@ -5532,7 +5532,7 @@ FindReplTupleInLocalRel.exit:                     ; preds = %75
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %96, ptr @CurrentMemoryContext, align 8
-  tail call fastcc void @slot_modify_data(ptr noundef %.1, ptr noundef %79, ptr noundef nonnull %.0129, ptr noundef %2)
+  tail call fastcc void @slot_modify_data(ptr noundef %.1, ptr noundef %79, ptr noundef nonnull %.0130, ptr noundef %2)
   store ptr %97, ptr @CurrentMemoryContext, align 8
   %98 = load ptr, ptr %33, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 127

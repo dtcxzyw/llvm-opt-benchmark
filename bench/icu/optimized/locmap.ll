@@ -1216,9 +1216,9 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false2
 
 while.body:                                       ; preds = %lor.lhs.false3, %if.end21
   %oldmid.031 = phi i32 [ %shr, %if.end21 ], [ 0, %lor.lhs.false3 ]
-  %high.030 = phi i32 [ %high.1, %if.end21 ], [ 141, %lor.lhs.false3 ]
-  %low.029 = phi i32 [ %low.1, %if.end21 ], [ 0, %lor.lhs.false3 ]
-  %add = add i32 %high.030, %low.029
+  %low.030 = phi i32 [ %low.1, %if.end21 ], [ 0, %lor.lhs.false3 ]
+  %high.029 = phi i32 [ %high.1, %if.end21 ], [ 141, %lor.lhs.false3 ]
+  %add = add i32 %low.030, %high.029
   %shr = lshr i32 %add, 1
   %cmp7 = icmp eq i32 %shr, %oldmid.031
   br i1 %cmp7, label %while.end, label %if.end9
@@ -1243,8 +1243,8 @@ if.else16:                                        ; preds = %if.else
   br label %return
 
 if.end21:                                         ; preds = %if.else, %if.end9
-  %low.1 = phi i32 [ %low.029, %if.end9 ], [ %shr, %if.else ]
-  %high.1 = phi i32 [ %shr, %if.end9 ], [ %high.030, %if.else ]
+  %high.1 = phi i32 [ %shr, %if.end9 ], [ %high.029, %if.else ]
+  %low.1 = phi i32 [ %low.030, %if.end9 ], [ %shr, %if.else ]
   %cmp6 = icmp ugt i32 %high.1, %low.1
   br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !7
 
@@ -1276,8 +1276,8 @@ for.body.preheader.i:                             ; preds = %for.body.lr.ph.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %bestIdxDiff.027.i = phi i32 [ 0, %for.body.preheader.i ], [ %bestIdxDiff.1.i, %for.inc.i ]
-  %bestIdx.026.i = phi i32 [ 0, %for.body.preheader.i ], [ %bestIdx.1.i, %for.inc.i ]
+  %bestIdx.027.i = phi i32 [ 0, %for.body.preheader.i ], [ %bestIdx.1.i, %for.inc.i ]
+  %bestIdxDiff.026.i = phi i32 [ 0, %for.body.preheader.i ], [ %bestIdxDiff.1.i, %for.inc.i ]
   %posixID1.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %3, i64 %indvars.iv.i, i32 1
   %5 = load ptr, ptr %posixID1.i, align 8
   %6 = load i8, ptr %5, align 1
@@ -1300,7 +1300,7 @@ while.body.i.i:                                   ; preds = %for.body.i, %while.
 
 _ZL5idCmpPKcS0_.exit.i:                           ; preds = %while.body.i.i, %for.body.i
   %diffIdx.0.lcssa.i.i = phi i32 [ 0, %for.body.i ], [ %inc.i.i, %while.body.i.i ]
-  %cmp3.i = icmp sgt i32 %diffIdx.0.lcssa.i.i, %bestIdxDiff.027.i
+  %cmp3.i = icmp sgt i32 %diffIdx.0.lcssa.i.i, %bestIdxDiff.026.i
   br i1 %cmp3.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %_ZL5idCmpPKcS0_.exit.i
@@ -1316,8 +1316,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br i1 %cmp12.i, label %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit.thread23, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %land.lhs.true.i, %_ZL5idCmpPKcS0_.exit.i
-  %bestIdx.1.i = phi i32 [ %bestIdx.026.i, %land.lhs.true.i ], [ %bestIdx.026.i, %_ZL5idCmpPKcS0_.exit.i ], [ %10, %if.then.i ]
-  %bestIdxDiff.1.i = phi i32 [ %bestIdxDiff.027.i, %land.lhs.true.i ], [ %bestIdxDiff.027.i, %_ZL5idCmpPKcS0_.exit.i ], [ %diffIdx.0.lcssa.i.i, %if.then.i ]
+  %bestIdxDiff.1.i = phi i32 [ %bestIdxDiff.026.i, %land.lhs.true.i ], [ %bestIdxDiff.026.i, %_ZL5idCmpPKcS0_.exit.i ], [ %diffIdx.0.lcssa.i.i, %if.then.i ]
+  %bestIdx.1.i = phi i32 [ %bestIdx.027.i, %land.lhs.true.i ], [ %bestIdx.027.i, %_ZL5idCmpPKcS0_.exit.i ], [ %10, %if.then.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.loopexit37.i, label %for.body.i, !llvm.loop !9
@@ -1328,8 +1328,8 @@ for.end.loopexit37.i:                             ; preds = %for.inc.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.body.lr.ph.i, %for.end.loopexit37.i, %for.body
-  %bestIdx.0.lcssa.i = phi i64 [ 0, %for.body ], [ %12, %for.end.loopexit37.i ], [ 0, %for.body.lr.ph.i ]
   %bestIdxDiff.0.lcssa.i = phi i64 [ 0, %for.body ], [ %11, %for.end.loopexit37.i ], [ 0, %for.body.lr.ph.i ]
+  %bestIdx.0.lcssa.i = phi i64 [ 0, %for.body ], [ %12, %for.end.loopexit37.i ], [ 0, %for.body.lr.ph.i ]
   %arrayidx19.i = getelementptr inbounds i8, ptr %posixID, i64 %bestIdxDiff.0.lcssa.i
   %13 = load i8, ptr %arrayidx19.i, align 1
   switch i8 %13, label %for.inc [
@@ -1407,8 +1407,8 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %bestIdxDiff.027 = phi i32 [ 0, %for.body.preheader ], [ %bestIdxDiff.1, %for.inc ]
-  %bestIdx.026 = phi i32 [ 0, %for.body.preheader ], [ %bestIdx.1, %for.inc ]
+  %bestIdx.027 = phi i32 [ 0, %for.body.preheader ], [ %bestIdx.1, %for.inc ]
+  %bestIdxDiff.026 = phi i32 [ 0, %for.body.preheader ], [ %bestIdxDiff.1, %for.inc ]
   %posixID1 = getelementptr inbounds %struct.ILcidPosixElement, ptr %1, i64 %indvars.iv, i32 1
   %3 = load ptr, ptr %posixID1, align 8
   %4 = load i8, ptr %3, align 1
@@ -1431,7 +1431,7 @@ while.body.i:                                     ; preds = %for.body, %while.bo
 
 _ZL5idCmpPKcS0_.exit:                             ; preds = %while.body.i, %for.body
   %diffIdx.0.lcssa.i = phi i32 [ 0, %for.body ], [ %inc.i, %while.body.i ]
-  %cmp3 = icmp sgt i32 %diffIdx.0.lcssa.i, %bestIdxDiff.027
+  %cmp3 = icmp sgt i32 %diffIdx.0.lcssa.i, %bestIdxDiff.026
   br i1 %cmp3, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %_ZL5idCmpPKcS0_.exit
@@ -1447,8 +1447,8 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp12, label %return.loopexit, label %for.inc
 
 for.inc:                                          ; preds = %if.then, %_ZL5idCmpPKcS0_.exit, %land.lhs.true
-  %bestIdx.1 = phi i32 [ %bestIdx.026, %land.lhs.true ], [ %bestIdx.026, %_ZL5idCmpPKcS0_.exit ], [ %8, %if.then ]
-  %bestIdxDiff.1 = phi i32 [ %bestIdxDiff.027, %land.lhs.true ], [ %bestIdxDiff.027, %_ZL5idCmpPKcS0_.exit ], [ %diffIdx.0.lcssa.i, %if.then ]
+  %bestIdxDiff.1 = phi i32 [ %bestIdxDiff.026, %land.lhs.true ], [ %bestIdxDiff.026, %_ZL5idCmpPKcS0_.exit ], [ %diffIdx.0.lcssa.i, %if.then ]
+  %bestIdx.1 = phi i32 [ %bestIdx.027, %land.lhs.true ], [ %bestIdx.027, %_ZL5idCmpPKcS0_.exit ], [ %8, %if.then ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end.loopexit37, label %for.body, !llvm.loop !9
@@ -1459,8 +1459,8 @@ for.end.loopexit37:                               ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.body.lr.ph, %for.end.loopexit37, %entry
-  %bestIdx.0.lcssa = phi i64 [ 0, %entry ], [ %10, %for.end.loopexit37 ], [ 0, %for.body.lr.ph ]
   %bestIdxDiff.0.lcssa = phi i64 [ 0, %entry ], [ %9, %for.end.loopexit37 ], [ 0, %for.body.lr.ph ]
+  %bestIdx.0.lcssa = phi i64 [ 0, %entry ], [ %10, %for.end.loopexit37 ], [ 0, %for.body.lr.ph ]
   %arrayidx19 = getelementptr inbounds i8, ptr %posixID, i64 %bestIdxDiff.0.lcssa
   %11 = load i8, ptr %arrayidx19, align 1
   switch i8 %11, label %if.end40 [

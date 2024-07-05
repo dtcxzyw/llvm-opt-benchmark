@@ -397,16 +397,16 @@ cond.false13.i.i:                                 ; preds = %cond.end.i.i, %cond
   %sub547.i.i = phi i32 [ -1075, %cond.end.thread.i.i ], [ %sub5.i.i, %cond.end.i.i ]
   %add445.i.i = phi i64 [ %add437.i.i, %cond.end.thread.i.i ], [ %add4.i.i, %cond.end.i.i ]
   %mul43.i.i = phi i64 [ %mul36.i.i, %cond.end.thread.i.i ], [ %mul.i.i, %cond.end.i.i ]
-  %v.sroa.0.042.i.i = phi i64 [ %and.i.i, %cond.end.thread.i.i ], [ %add.i.i, %cond.end.i.i ]
-  %v.sroa.6.040.i.i = phi i32 [ -1074, %cond.end.thread.i.i ], [ %sub.i.i, %cond.end.i.i ]
+  %v.sroa.6.042.i.i = phi i32 [ -1074, %cond.end.thread.i.i ], [ %sub.i.i, %cond.end.i.i ]
+  %v.sroa.0.040.i.i = phi i64 [ %and.i.i, %cond.end.thread.i.i ], [ %add.i.i, %cond.end.i.i ]
   %sub16.i.i = add nsw i64 %mul43.i.i, -1
   br label %cond.end19.i.i
 
 cond.end19.i.i:                                   ; preds = %cond.false13.i.i, %cond.true7.i.i
   %sub546.i.i = phi i32 [ %sub5.i.i, %cond.true7.i.i ], [ %sub547.i.i, %cond.false13.i.i ]
   %add444.i.i = phi i64 [ %add4.i.i, %cond.true7.i.i ], [ %add445.i.i, %cond.false13.i.i ]
-  %v.sroa.0.041.i.i = phi i64 [ 4503599627370496, %cond.true7.i.i ], [ %v.sroa.0.042.i.i, %cond.false13.i.i ]
-  %v.sroa.6.039.i.i = phi i32 [ %sub.i.i, %cond.true7.i.i ], [ %v.sroa.6.040.i.i, %cond.false13.i.i ]
+  %v.sroa.6.041.i.i = phi i32 [ %sub.i.i, %cond.true7.i.i ], [ %v.sroa.6.042.i.i, %cond.false13.i.i ]
+  %v.sroa.0.039.i.i = phi i64 [ 4503599627370496, %cond.true7.i.i ], [ %v.sroa.0.040.i.i, %cond.false13.i.i ]
   %m_minus.sroa.3.0.i.i = phi i32 [ %sub12.i.i, %cond.true7.i.i ], [ %sub547.i.i, %cond.false13.i.i ]
   %m_minus.sroa.0.0.i.i = phi i64 [ 18014398509481983, %cond.true7.i.i ], [ %sub16.i.i, %cond.false13.i.i ]
   br label %while.body.i.i.i
@@ -420,8 +420,8 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.body.i19.i.i, !llvm.loop !5
 
 while.body.i19.i.i:                               ; preds = %while.body.i.i.i, %while.body.i19.i.i
-  %x.sroa.0.04.i20.i.i = phi i64 [ %shl.i22.i.i, %while.body.i19.i.i ], [ %v.sroa.0.041.i.i, %while.body.i.i.i ]
-  %x.sroa.5.03.i21.i.i = phi i32 [ %dec.i23.i.i, %while.body.i19.i.i ], [ %v.sroa.6.039.i.i, %while.body.i.i.i ]
+  %x.sroa.0.04.i20.i.i = phi i64 [ %shl.i22.i.i, %while.body.i19.i.i ], [ %v.sroa.0.039.i.i, %while.body.i.i.i ]
+  %x.sroa.5.03.i21.i.i = phi i32 [ %dec.i23.i.i, %while.body.i19.i.i ], [ %v.sroa.6.041.i.i, %while.body.i.i.i ]
   %shl.i22.i.i = shl nuw i64 %x.sroa.0.04.i20.i.i, 1
   %dec.i23.i.i = add nsw i32 %x.sroa.5.03.i21.i.i, -1
   %cmp.i24.i.i = icmp sgt i64 %shl.i22.i.i, -1
@@ -748,8 +748,8 @@ if.end54:                                         ; preds = %while.end51, %while
   br i1 %cmp56.not, label %if.end81, label %while.cond58
 
 while.cond58:                                     ; preds = %if.end54, %while.body63
-  %.pn = phi ptr [ %preverse.0, %while.body63 ], [ %26, %if.end54 ]
   %trailing_zeros.0 = phi i32 [ %spec.select, %while.body63 ], [ 0, %if.end54 ]
+  %.pn = phi ptr [ %preverse.0, %while.body63 ], [ %26, %if.end54 ]
   %preverse.0 = getelementptr inbounds i8, ptr %.pn, i64 -1
   %28 = load i8, ptr %preverse.0, align 1
   switch i8 %28, label %if.end75 [
@@ -992,8 +992,8 @@ if.end68:                                         ; preds = %if.end23, %while.en
   br i1 %cmp70.not, label %if.end95, label %while.cond72
 
 while.cond72:                                     ; preds = %if.end68, %while.body77
-  %.pn = phi ptr [ %preverse.0, %while.body77 ], [ %18, %if.end68 ]
   %trailing_zeros.0 = phi i32 [ %spec.select, %while.body77 ], [ 0, %if.end68 ]
+  %.pn = phi ptr [ %preverse.0, %while.body77 ], [ %18, %if.end68 ]
   %preverse.0 = getelementptr inbounds i8, ptr %.pn, i64 -1
   %20 = load i8, ptr %preverse.0, align 1
   switch i8 %20, label %if.end89 [
@@ -1269,13 +1269,13 @@ while.body20.lr.ph:                               ; preds = %while.cond18.prehea
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
   %indvars.iv = phi i64 [ %6, %while.body.lr.ph ], [ %indvars.iv.next, %if.end16 ]
-  %n.044 = phi i64 [ 0, %while.body.lr.ph ], [ %div, %if.end16 ]
   %write_index.043 = phi i32 [ %add, %while.body.lr.ph ], [ %dec, %if.end16 ]
+  %n.042 = phi i64 [ 0, %while.body.lr.ph ], [ %div, %if.end16 ]
   %arrayidx = getelementptr inbounds [768 x i8], ptr %digits, i64 0, i64 %indvars.iv
   %7 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %7 to i64
   %shl = shl i64 %conv, %sh_prom
-  %add5 = add i64 %shl, %n.044
+  %add5 = add i64 %shl, %n.042
   %div = udiv i64 %add5, 10
   %mul.neg = mul i64 %div, -10
   %sub6 = add i64 %mul.neg, %add5
@@ -1304,17 +1304,17 @@ if.end16:                                         ; preds = %if.else, %if.then14
   br i1 %cmp4, label %while.body, label %while.cond18.preheader, !llvm.loop !21
 
 while.body20:                                     ; preds = %while.body20.lr.ph, %if.end37
-  %n.148 = phi i64 [ %div, %while.body20.lr.ph ], [ %div22, %if.end37 ]
-  %write_index.147 = phi i32 [ %dec, %while.body20.lr.ph ], [ %dec38, %if.end37 ]
-  %div22 = udiv i64 %n.148, 10
+  %write_index.148 = phi i32 [ %dec, %while.body20.lr.ph ], [ %dec38, %if.end37 ]
+  %n.147 = phi i64 [ %div, %while.body20.lr.ph ], [ %div22, %if.end37 ]
+  %div22 = udiv i64 %n.147, 10
   %mul24.neg = mul nsw i64 %div22, -10
-  %sub25 = add nsw i64 %mul24.neg, %n.148
-  %cmp26 = icmp ult i32 %write_index.147, 768
+  %sub25 = add nsw i64 %mul24.neg, %n.147
+  %cmp26 = icmp ult i32 %write_index.148, 768
   br i1 %cmp26, label %if.then27, label %if.else32
 
 if.then27:                                        ; preds = %while.body20
   %conv28 = trunc i64 %sub25 to i8
-  %idxprom30 = zext nneg i32 %write_index.147 to i64
+  %idxprom30 = zext nneg i32 %write_index.148 to i64
   %arrayidx31 = getelementptr inbounds [768 x i8], ptr %digits29, i64 0, i64 %idxprom30
   store i8 %conv28, ptr %arrayidx31, align 1
   br label %if.end37
@@ -1328,8 +1328,8 @@ if.then34:                                        ; preds = %if.else32
   br label %if.end37
 
 if.end37:                                         ; preds = %if.else32, %if.then34, %if.then27
-  %dec38 = add i32 %write_index.147, -1
-  %cmp19.not = icmp ult i64 %n.148, 10
+  %dec38 = add i32 %write_index.148, -1
+  %cmp19.not = icmp ult i64 %n.147, 10
   br i1 %cmp19.not, label %while.end39, label %while.body20, !llvm.loop !22
 
 while.end39:                                      ; preds = %if.end37, %_ZN8simdjson8internal12_GLOBAL__N_135number_of_digits_decimal_left_shiftERNS0_7decimalEj.exit, %while.cond18.preheader
@@ -1442,8 +1442,8 @@ while.body25.lr.ph:                               ; preds = %if.end19
   br label %while.body25
 
 while.cond41.preheader:                           ; preds = %while.body25, %if.end19
-  %write_index.0.lcssa = phi i32 [ 0, %if.end19 ], [ %6, %while.body25 ]
   %n.3.lcssa = phi i64 [ %n.2, %if.end19 ], [ %add35, %while.body25 ]
+  %write_index.0.lcssa = phi i32 [ 0, %if.end19 ], [ %6, %while.body25 ]
   %cmp42.not57 = icmp eq i64 %n.3.lcssa, 0
   br i1 %cmp42.not57, label %while.end63, label %while.body43.lr.ph
 
@@ -1454,10 +1454,10 @@ while.body43.lr.ph:                               ; preds = %while.cond41.prehea
 while.body25:                                     ; preds = %while.body25.lr.ph, %while.body25
   %indvars.iv67 = phi i64 [ 0, %while.body25.lr.ph ], [ %indvars.iv.next68, %while.body25 ]
   %indvars.iv65 = phi i64 [ %5, %while.body25.lr.ph ], [ %indvars.iv.next66, %while.body25 ]
-  %n.353 = phi i64 [ %n.2, %while.body25.lr.ph ], [ %add35, %while.body25 ]
-  %shr27 = lshr i64 %n.353, %sh_prom
+  %n.352 = phi i64 [ %n.2, %while.body25.lr.ph ], [ %add35, %while.body25 ]
+  %shr27 = lshr i64 %n.352, %sh_prom
   %conv28 = trunc i64 %shr27 to i8
-  %and = and i64 %n.353, %sub21
+  %and = and i64 %n.352, %sub21
   %mul29 = mul i64 %and, 10
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %arrayidx33 = getelementptr inbounds [768 x i8], ptr %digits, i64 0, i64 %indvars.iv65
@@ -1472,18 +1472,18 @@ while.body25:                                     ; preds = %while.body25.lr.ph,
   br i1 %exitcond72.not, label %while.cond41.preheader, label %while.body25, !llvm.loop !26
 
 while.body43:                                     ; preds = %while.body43.lr.ph, %if.end62
-  %n.459 = phi i64 [ %n.3.lcssa, %while.body43.lr.ph ], [ %mul49, %if.end62 ]
-  %write_index.158 = phi i32 [ %write_index.0.lcssa, %while.body43.lr.ph ], [ %write_index.2, %if.end62 ]
-  %shr46 = lshr i64 %n.459, %sh_prom
-  %and48 = and i64 %n.459, %sub21
+  %write_index.159 = phi i32 [ %write_index.0.lcssa, %while.body43.lr.ph ], [ %write_index.2, %if.end62 ]
+  %n.458 = phi i64 [ %n.3.lcssa, %while.body43.lr.ph ], [ %mul49, %if.end62 ]
+  %shr46 = lshr i64 %n.458, %sh_prom
+  %and48 = and i64 %n.458, %sub21
   %mul49 = mul i64 %and48, 10
-  %cmp50 = icmp ult i32 %write_index.158, 768
+  %cmp50 = icmp ult i32 %write_index.159, 768
   br i1 %cmp50, label %if.then51, label %if.else56
 
 if.then51:                                        ; preds = %while.body43
   %conv47 = trunc i64 %shr46 to i8
-  %inc53 = add nuw nsw i32 %write_index.158, 1
-  %idxprom54 = zext nneg i32 %write_index.158 to i64
+  %inc53 = add nuw nsw i32 %write_index.159, 1
+  %idxprom54 = zext nneg i32 %write_index.159 to i64
   %arrayidx55 = getelementptr inbounds [768 x i8], ptr %digits, i64 0, i64 %idxprom54
   store i8 %conv47, ptr %arrayidx55, align 1
   br label %if.end62
@@ -1498,7 +1498,7 @@ if.then59:                                        ; preds = %if.else56
   br label %if.end62
 
 if.end62:                                         ; preds = %if.else56, %if.then59, %if.then51
-  %write_index.2 = phi i32 [ %inc53, %if.then51 ], [ %write_index.158, %if.then59 ], [ %write_index.158, %if.else56 ]
+  %write_index.2 = phi i32 [ %inc53, %if.then51 ], [ %write_index.159, %if.then59 ], [ %write_index.159, %if.else56 ]
   %cmp42.not = icmp eq i64 %mul49, 0
   br i1 %cmp42.not, label %while.end63.thread, label %while.body43, !llvm.loop !27
 
@@ -2549,8 +2549,8 @@ for.body.i.preheader:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
   %scanner.sroa.35.0 = phi i32 [ %inc19.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %scanner.sroa.44.0 = phi i32 [ %scanner.sroa.44.11, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %scanner.sroa.4.0 = phi ptr [ %scanner.sroa.4.1, %for.inc.i ], [ %0, %for.body.i.preheader ]
+  %scanner.sroa.44.0 = phi i32 [ %scanner.sroa.44.11, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %unclosed_string.034.i = phi i1 [ %unclosed_string.1.i, %for.inc.i ], [ false, %for.body.i.preheader ]
   %idxprom.i = zext i32 %scanner.sroa.35.0 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %_buf, i64 %idxprom.i
@@ -2800,8 +2800,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %exitcond.not.i, label %for.inc.i, label %land.rhs.i, !llvm.loop !32
 
 for.inc.i:                                        ; preds = %while.body.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %sw.default.i, %sw.bb6.i, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner15validate_stringEv.exit.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i
-  %scanner.sroa.44.11 = phi i32 [ %scanner.sroa.44.0, %sw.default.i ], [ %scanner.sroa.44.0, %for.body.i ], [ %scanner.sroa.44.0, %for.body.i ], [ %scanner.sroa.44.0, %for.body.i ], [ %scanner.sroa.44.0, %for.body.i ], [ %scanner.sroa.44.0, %sw.bb6.i ], [ %scanner.sroa.44.10, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner15validate_stringEv.exit.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %while.body.i ]
   %scanner.sroa.4.1 = phi ptr [ %incdec.ptr.i13.i, %sw.default.i ], [ %scanner.sroa.4.0, %for.body.i ], [ %scanner.sroa.4.0, %for.body.i ], [ %scanner.sroa.4.0, %for.body.i ], [ %scanner.sroa.4.0, %for.body.i ], [ %incdec.ptr.i10.i, %sw.bb6.i ], [ %incdec.ptr.i.i, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner15validate_stringEv.exit.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %while.body.i ]
+  %scanner.sroa.44.11 = phi i32 [ %scanner.sroa.44.0, %sw.default.i ], [ %scanner.sroa.44.0, %for.body.i ], [ %scanner.sroa.44.0, %for.body.i ], [ %scanner.sroa.44.0, %for.body.i ], [ %scanner.sroa.44.0, %for.body.i ], [ %scanner.sroa.44.0, %sw.bb6.i ], [ %scanner.sroa.44.10, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner15validate_stringEv.exit.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %while.body.i ]
   %22 = phi i32 [ %scanner.sroa.35.0, %sw.default.i ], [ %scanner.sroa.35.0, %for.body.i ], [ %scanner.sroa.35.0, %for.body.i ], [ %scanner.sroa.35.0, %for.body.i ], [ %scanner.sroa.35.0, %for.body.i ], [ %scanner.sroa.35.0, %sw.bb6.i ], [ %.lcssa1.i.i, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner15validate_stringEv.exit.i ], [ %1, %while.body.i ], [ %19, %land.rhs.i ], [ %19, %land.rhs.i ], [ %19, %land.rhs.i ], [ %19, %land.rhs.i ], [ %19, %land.rhs.i ], [ %19, %land.rhs.i ], [ %19, %land.rhs.i ], [ %19, %land.rhs.i ], [ %19, %land.rhs.i ], [ %19, %land.rhs.i ]
   %unclosed_string.1.i = phi i1 [ %unclosed_string.034.i, %sw.default.i ], [ %unclosed_string.034.i, %for.body.i ], [ %unclosed_string.034.i, %for.body.i ], [ %unclosed_string.034.i, %for.body.i ], [ %unclosed_string.034.i, %for.body.i ], [ %unclosed_string.034.i, %sw.bb6.i ], [ %17, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner15validate_stringEv.exit.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %while.body.i ]
   %inc19.i = add i32 %22, 1
@@ -2809,8 +2809,8 @@ for.inc.i:                                        ; preds = %while.body.i, %land
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !33
 
 for.end.i:                                        ; preds = %for.inc.i, %entry
-  %scanner.sroa.44.12 = phi i32 [ 0, %entry ], [ %scanner.sroa.44.11, %for.inc.i ]
   %scanner.sroa.4.2 = phi ptr [ %0, %entry ], [ %scanner.sroa.4.1, %for.inc.i ]
+  %scanner.sroa.44.12 = phi i32 [ 0, %entry ], [ %scanner.sroa.44.11, %for.inc.i ]
   %unclosed_string.0.lcssa.i = phi i1 [ false, %entry ], [ %unclosed_string.1.i, %for.inc.i ]
   store i32 %conv.i, ptr %scanner.sroa.4.2, align 4
   %arrayidx23.i = getelementptr inbounds i8, ptr %scanner.sroa.4.2, i64 4
@@ -3188,8 +3188,8 @@ sw.default.i.document_end.i_crit_edge.i:          ; preds = %sw.default.i.i
   br label %document_end.i.i
 
 object_begin.i.i:                                 ; preds = %sw.bb190.i.i, %sw.bb88.i.i, %sw.bb17.i.i
-  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb88.i.i ], [ %iter.sroa.54.5.i, %sw.bb190.i.i ], [ 0, %sw.bb17.i.i ]
   %iter.sroa.8.0.i = phi ptr [ %incdec.ptr.i160.i.i, %sw.bb88.i.i ], [ %incdec.ptr.i265.i.i, %sw.bb190.i.i ], [ %incdec.ptr.i.i.i, %sw.bb17.i.i ]
+  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb88.i.i ], [ %iter.sroa.54.5.i, %sw.bb190.i.i ], [ 0, %sw.bb17.i.i ]
   %inc.i.i = add i32 %iter.sroa.54.0.i, 1
   %conv48.i.i = zext i32 %inc.i.i to i64
   %_max_depth.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -3251,8 +3251,8 @@ if.end67.i.i:                                     ; preds = %if.end52.i.i
 object_field.i.i:                                 ; preds = %if.end135.i.i, %if.end67.i.i
   %this.val.i.i187.i.i = phi ptr [ %incdec.ptr.i.i.i.i215.i.i, %if.end135.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end67.i.i ]
   %24 = phi ptr [ %37, %if.end135.i.i ], [ %23, %if.end67.i.i ]
-  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end135.i.i ], [ %inc.i.i, %if.end67.i.i ]
   %incdec.ptr.i200.i.pn.i = phi ptr [ %incdec.ptr.i200.i.i, %if.end135.i.i ], [ %iter.sroa.8.0.i, %if.end67.i.i ]
+  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end135.i.i ], [ %inc.i.i, %if.end67.i.i ]
   %call2.i.i218.sink346.i.i = phi ptr [ %call2.i.i218.i.i, %if.end135.i.i ], [ %call2.i.i.i.i, %if.end67.i.i ]
   %iter.sroa.8.1.i = getelementptr inbounds i8, ptr %incdec.ptr.i200.i.pn.i, i64 4
   %add.ptr.i6.i.i221.i.i = getelementptr inbounds i8, ptr %24, i64 4
@@ -3327,8 +3327,8 @@ sw.epilog118.sink.split.i.i:                      ; preds = %sw.bb100.i.i, %sw.b
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default112.i.i, %sw.epilog118.sink.split.i.i, %if.end152.i.i
-  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end152.i.i ], [ %iter.sroa.54.1.i, %sw.epilog118.sink.split.i.i ], [ %iter.sroa.54.1.i, %sw.default112.i.i ]
-  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end152.i.i ], [ %incdec.ptr.i184.i.i, %sw.epilog118.sink.split.i.i ], [ %incdec.ptr.i160.i.i, %sw.default112.i.i ]
+  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end152.i.i ], [ %incdec.ptr.i160.i.i, %sw.default112.i.i ], [ %incdec.ptr.i184.i.i, %sw.epilog118.sink.split.i.i ]
+  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end152.i.i ], [ %iter.sroa.54.1.i, %sw.default112.i.i ], [ %iter.sroa.54.1.i, %sw.epilog118.sink.split.i.i ]
   %incdec.ptr.i200.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.3.i, i64 4
   %31 = load i32, ptr %iter.sroa.8.3.i, align 4
   %idxprom.i201.i.i = zext i32 %31 to i64
@@ -3373,8 +3373,8 @@ if.end135.i.i:                                    ; preds = %sw.bb121.i.i
   br i1 %cmp.i.i219.i.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 scope_end.i.i:                                    ; preds = %array_continue.i.i, %object_continue.i.i
-  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %iter.sroa.8.4.i = phi ptr [ %incdec.ptr.i305.i.i, %array_continue.i.i ], [ %incdec.ptr.i200.i.i, %object_continue.i.i ]
+  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %.sink368.i.i = phi i64 [ 6701356245527298048, %array_continue.i.i ], [ 9007199254740992000, %object_continue.i.i ]
   %.sink355.i.i = phi i64 [ 6557241057451442176, %array_continue.i.i ], [ 8863084066665136128, %object_continue.i.i ]
   %conv.i.i314.i.i = zext i32 %iter.sroa.54.3.i to i64
@@ -3418,8 +3418,8 @@ if.end152.i.i:                                    ; preds = %scope_end.i.i
   br i1 %tobool159.i.i, label %array_continue.i.i, label %object_continue.i.i
 
 array_begin.i.i:                                  ; preds = %sw.bb202.i.i, %sw.bb100.i.i, %sw.bb29.i.i
-  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb29.i.i ], [ %iter.sroa.54.1.i, %sw.bb100.i.i ], [ %iter.sroa.54.5.i, %sw.bb202.i.i ]
   %iter.sroa.8.5.i = phi ptr [ %incdec.ptr.i.i.i, %sw.bb29.i.i ], [ %incdec.ptr.i160.i.i, %sw.bb100.i.i ], [ %incdec.ptr.i265.i.i, %sw.bb202.i.i ]
+  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb29.i.i ], [ %iter.sroa.54.1.i, %sw.bb100.i.i ], [ %iter.sroa.54.5.i, %sw.bb202.i.i ]
   %inc163.i.i = add i32 %iter.sroa.54.4.i, 1
   %conv165.i.i = zext i32 %inc163.i.i to i64
   %_max_depth.i242.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -3451,8 +3451,8 @@ if.end170.i.i:                                    ; preds = %array_begin.i.i
   br label %array_value.i.i
 
 array_value.i.i:                                  ; preds = %array_continue.i.i, %if.end170.i.i
-  %iter.sroa.54.5.i = phi i32 [ %inc163.i.i, %if.end170.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %iter.sroa.8.6.i = phi ptr [ %iter.sroa.8.5.i, %if.end170.i.i ], [ %incdec.ptr.i305.i.i, %array_continue.i.i ]
+  %iter.sroa.54.5.i = phi i32 [ %inc163.i.i, %if.end170.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %this.val76.val.i.i = load ptr, ptr %open_containers.i.i.i.i, align 8
   %conv.i308.i.i = zext i32 %iter.sroa.54.5.i to i64
   %count.i309.i.i = getelementptr inbounds %"struct.simdjson::fallback::open_container", ptr %this.val76.val.i.i, i64 %conv.i308.i.i, i32 1
@@ -3514,8 +3514,8 @@ sw.epilog220.sink.split.i.i:                      ; preds = %sw.bb202.i.i, %sw.b
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default214.i.i, %sw.epilog220.sink.split.i.i, %if.end152.i.i
-  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end152.i.i ], [ %iter.sroa.54.5.i, %sw.epilog220.sink.split.i.i ], [ %iter.sroa.54.5.i, %sw.default214.i.i ]
-  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end152.i.i ], [ %incdec.ptr.i289.i.i, %sw.epilog220.sink.split.i.i ], [ %incdec.ptr.i265.i.i, %sw.default214.i.i ]
+  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end152.i.i ], [ %incdec.ptr.i265.i.i, %sw.default214.i.i ], [ %incdec.ptr.i289.i.i, %sw.epilog220.sink.split.i.i ]
+  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end152.i.i ], [ %iter.sroa.54.5.i, %sw.default214.i.i ], [ %iter.sroa.54.5.i, %sw.epilog220.sink.split.i.i ]
   %incdec.ptr.i305.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.8.i, i64 4
   %57 = load i32, ptr %iter.sroa.8.8.i, align 4
   %idxprom.i306.i.i = zext i32 %57 to i64
@@ -3650,8 +3650,8 @@ sw.default.i.document_end.i_crit_edge.i:          ; preds = %sw.default.i.i
   br label %document_end.i.i
 
 object_begin.i.i:                                 ; preds = %sw.bb173.i.i, %sw.bb73.i.i, %sw.bb.i.i
-  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb73.i.i ], [ %iter.sroa.54.5.i, %sw.bb173.i.i ], [ 0, %sw.bb.i.i ]
   %iter.sroa.8.0.i = phi ptr [ %incdec.ptr.i144.i.i, %sw.bb73.i.i ], [ %incdec.ptr.i249.i.i, %sw.bb173.i.i ], [ %incdec.ptr.i.i.i, %sw.bb.i.i ]
+  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb73.i.i ], [ %iter.sroa.54.5.i, %sw.bb173.i.i ], [ 0, %sw.bb.i.i ]
   %inc.i.i = add i32 %iter.sroa.54.0.i, 1
   %conv34.i.i = zext i32 %inc.i.i to i64
   %_max_depth.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -3713,8 +3713,8 @@ if.end52.i.i:                                     ; preds = %if.end38.i.i
 object_field.i.i:                                 ; preds = %if.end120.i.i, %if.end52.i.i
   %this.val.i.i171.i.i = phi ptr [ %incdec.ptr.i.i.i.i199.i.i, %if.end120.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end52.i.i ]
   %21 = phi ptr [ %34, %if.end120.i.i ], [ %20, %if.end52.i.i ]
-  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end120.i.i ], [ %inc.i.i, %if.end52.i.i ]
   %incdec.ptr.i184.i.pn.i = phi ptr [ %incdec.ptr.i184.i.i, %if.end120.i.i ], [ %iter.sroa.8.0.i, %if.end52.i.i ]
+  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end120.i.i ], [ %inc.i.i, %if.end52.i.i ]
   %call2.i.i202.sink326.i.i = phi ptr [ %call2.i.i202.i.i, %if.end120.i.i ], [ %call2.i.i.i.i, %if.end52.i.i ]
   %iter.sroa.8.1.i = getelementptr inbounds i8, ptr %incdec.ptr.i184.i.pn.i, i64 4
   %add.ptr.i6.i.i205.i.i = getelementptr inbounds i8, ptr %21, i64 4
@@ -3789,8 +3789,8 @@ sw.epilog103.sink.split.i.i:                      ; preds = %sw.bb85.i.i, %sw.bb
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default97.i.i, %sw.epilog103.sink.split.i.i, %if.end137.i.i
-  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.1.i, %sw.epilog103.sink.split.i.i ], [ %iter.sroa.54.1.i, %sw.default97.i.i ]
-  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i168.i.i, %sw.epilog103.sink.split.i.i ], [ %incdec.ptr.i144.i.i, %sw.default97.i.i ]
+  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i144.i.i, %sw.default97.i.i ], [ %incdec.ptr.i168.i.i, %sw.epilog103.sink.split.i.i ]
+  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.1.i, %sw.default97.i.i ], [ %iter.sroa.54.1.i, %sw.epilog103.sink.split.i.i ]
   %incdec.ptr.i184.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.3.i, i64 4
   %28 = load i32, ptr %iter.sroa.8.3.i, align 4
   %idxprom.i185.i.i = zext i32 %28 to i64
@@ -3835,8 +3835,8 @@ if.end120.i.i:                                    ; preds = %sw.bb106.i.i
   br i1 %cmp.i.i203.i.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 scope_end.i.i:                                    ; preds = %array_continue.i.i, %object_continue.i.i
-  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %iter.sroa.8.4.i = phi ptr [ %incdec.ptr.i289.i.i, %array_continue.i.i ], [ %incdec.ptr.i184.i.i, %object_continue.i.i ]
+  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %.sink348.i.i = phi i64 [ 6701356245527298048, %array_continue.i.i ], [ 9007199254740992000, %object_continue.i.i ]
   %.sink335.i.i = phi i64 [ 6557241057451442176, %array_continue.i.i ], [ 8863084066665136128, %object_continue.i.i ]
   %conv.i.i298.i.i = zext i32 %iter.sroa.54.3.i to i64
@@ -3880,8 +3880,8 @@ if.end137.i.i:                                    ; preds = %scope_end.i.i
   br i1 %tobool143.i.i, label %array_continue.i.i, label %object_continue.i.i
 
 array_begin.i.i:                                  ; preds = %sw.bb185.i.i, %sw.bb85.i.i, %sw.bb16.i.i
-  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb16.i.i ], [ %iter.sroa.54.1.i, %sw.bb85.i.i ], [ %iter.sroa.54.5.i, %sw.bb185.i.i ]
   %iter.sroa.8.5.i = phi ptr [ %incdec.ptr.i.i.i, %sw.bb16.i.i ], [ %incdec.ptr.i144.i.i, %sw.bb85.i.i ], [ %incdec.ptr.i249.i.i, %sw.bb185.i.i ]
+  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb16.i.i ], [ %iter.sroa.54.1.i, %sw.bb85.i.i ], [ %iter.sroa.54.5.i, %sw.bb185.i.i ]
   %inc147.i.i = add i32 %iter.sroa.54.4.i, 1
   %conv149.i.i = zext i32 %inc147.i.i to i64
   %_max_depth.i226.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -3913,8 +3913,8 @@ if.end154.i.i:                                    ; preds = %array_begin.i.i
   br label %array_value.i.i
 
 array_value.i.i:                                  ; preds = %array_continue.i.i, %if.end154.i.i
-  %iter.sroa.54.5.i = phi i32 [ %inc147.i.i, %if.end154.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %iter.sroa.8.6.i = phi ptr [ %iter.sroa.8.5.i, %if.end154.i.i ], [ %incdec.ptr.i289.i.i, %array_continue.i.i ]
+  %iter.sroa.54.5.i = phi i32 [ %inc147.i.i, %if.end154.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %this.val69.val.i.i = load ptr, ptr %open_containers.i.i.i.i, align 8
   %conv.i292.i.i = zext i32 %iter.sroa.54.5.i to i64
   %count.i293.i.i = getelementptr inbounds %"struct.simdjson::fallback::open_container", ptr %this.val69.val.i.i, i64 %conv.i292.i.i, i32 1
@@ -3976,8 +3976,8 @@ sw.epilog203.sink.split.i.i:                      ; preds = %sw.bb185.i.i, %sw.b
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default197.i.i, %sw.epilog203.sink.split.i.i, %if.end137.i.i
-  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.5.i, %sw.epilog203.sink.split.i.i ], [ %iter.sroa.54.5.i, %sw.default197.i.i ]
-  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i273.i.i, %sw.epilog203.sink.split.i.i ], [ %incdec.ptr.i249.i.i, %sw.default197.i.i ]
+  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i249.i.i, %sw.default197.i.i ], [ %incdec.ptr.i273.i.i, %sw.epilog203.sink.split.i.i ]
+  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.5.i, %sw.default197.i.i ], [ %iter.sroa.54.5.i, %sw.epilog203.sink.split.i.i ]
   %incdec.ptr.i289.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.8.i, i64 4
   %54 = load i32, ptr %iter.sroa.8.8.i, align 4
   %idxprom.i290.i.i = zext i32 %54 to i64
@@ -4051,8 +4051,8 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %if.end32, %entry
-  %src.addr.0 = phi ptr [ %src, %entry ], [ %src.addr.5, %if.end32 ]
   %dst.addr.0 = phi ptr [ %dst, %entry ], [ %add.ptr33.i49, %if.end32 ]
+  %src.addr.0 = phi ptr [ %src, %entry ], [ %src.addr.5, %if.end32 ]
   %0 = load i8, ptr %src.addr.0, align 1
   store i8 %0, ptr %dst.addr.0, align 1
   switch i8 %0, label %if.else29 [
@@ -4270,8 +4270,8 @@ entry:
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end32.i, %entry
-  %src.addr.0.i = phi ptr [ %src, %entry ], [ %src.addr.4.i, %if.end32.i ]
   %dst.addr.0.i = phi ptr [ %dst, %entry ], [ %add.ptr18.i44.i, %if.end32.i ]
+  %src.addr.0.i = phi ptr [ %src, %entry ], [ %src.addr.4.i, %if.end32.i ]
   %0 = load i8, ptr %src.addr.0.i, align 1
   store i8 %0, ptr %dst.addr.0.i, align 1
   switch i8 %0, label %if.else29.i [
@@ -5197,8 +5197,8 @@ sw.default.i.document_end.i_crit_edge.i:          ; preds = %sw.default.i.i
   br label %document_end.i.i
 
 object_begin.i.i:                                 ; preds = %sw.bb187.i.i, %sw.bb87.i.i, %sw.bb17.i.i
-  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb87.i.i ], [ %iter.sroa.54.5.i, %sw.bb187.i.i ], [ 0, %sw.bb17.i.i ]
   %iter.sroa.8.0.i = phi ptr [ %incdec.ptr.i160.i.i, %sw.bb87.i.i ], [ %incdec.ptr.i265.i.i, %sw.bb187.i.i ], [ %incdec.ptr.i.i.i, %sw.bb17.i.i ]
+  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb87.i.i ], [ %iter.sroa.54.5.i, %sw.bb187.i.i ], [ 0, %sw.bb17.i.i ]
   %inc.i.i = add i32 %iter.sroa.54.0.i, 1
   %conv48.i.i = zext i32 %inc.i.i to i64
   %_max_depth.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -5260,8 +5260,8 @@ if.end66.i.i:                                     ; preds = %if.end52.i.i
 object_field.i.i:                                 ; preds = %if.end134.i.i, %if.end66.i.i
   %this.val.i.i187.i.i = phi ptr [ %incdec.ptr.i.i.i.i215.i.i, %if.end134.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end66.i.i ]
   %24 = phi ptr [ %42, %if.end134.i.i ], [ %23, %if.end66.i.i ]
-  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end134.i.i ], [ %inc.i.i, %if.end66.i.i ]
   %incdec.ptr.i200.i.pn.i = phi ptr [ %incdec.ptr.i200.i.i, %if.end134.i.i ], [ %iter.sroa.8.0.i, %if.end66.i.i ]
+  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end134.i.i ], [ %inc.i.i, %if.end66.i.i ]
   %call2.i.i218.sink346.i.i = phi ptr [ %call2.i.i218.i.i, %if.end134.i.i ], [ %call2.i.i.i.i, %if.end66.i.i ]
   %iter.sroa.8.1.i = getelementptr inbounds i8, ptr %incdec.ptr.i200.i.pn.i, i64 4
   %add.ptr.i6.i.i221.i.i = getelementptr inbounds i8, ptr %24, i64 4
@@ -5333,8 +5333,8 @@ sw.epilog117.sink.split.i.i:                      ; preds = %sw.bb99.i.i, %sw.bb
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default111.i.i, %sw.epilog117.sink.split.i.i, %if.end151.i.i
-  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end151.i.i ], [ %iter.sroa.54.1.i, %sw.epilog117.sink.split.i.i ], [ %iter.sroa.54.1.i, %sw.default111.i.i ]
-  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end151.i.i ], [ %incdec.ptr.i184.i.i, %sw.epilog117.sink.split.i.i ], [ %incdec.ptr.i160.i.i, %sw.default111.i.i ]
+  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end151.i.i ], [ %incdec.ptr.i160.i.i, %sw.default111.i.i ], [ %incdec.ptr.i184.i.i, %sw.epilog117.sink.split.i.i ]
+  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end151.i.i ], [ %iter.sroa.54.1.i, %sw.default111.i.i ], [ %iter.sroa.54.1.i, %sw.epilog117.sink.split.i.i ]
   %incdec.ptr.i200.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.3.i, i64 4
   %36 = load i32, ptr %iter.sroa.8.3.i, align 4
   %idxprom.i201.i.i = zext i32 %36 to i64
@@ -5379,8 +5379,8 @@ if.end134.i.i:                                    ; preds = %sw.bb120.i.i
   br i1 %cmp.i.i219.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 scope_end.i.i:                                    ; preds = %array_continue.i.i, %object_continue.i.i
-  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %iter.sroa.8.4.i = phi ptr [ %incdec.ptr.i305.i.i, %array_continue.i.i ], [ %incdec.ptr.i200.i.i, %object_continue.i.i ]
+  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %.sink368.i.i = phi i64 [ 6701356245527298048, %array_continue.i.i ], [ 9007199254740992000, %object_continue.i.i ]
   %.sink355.i.i = phi i64 [ 6557241057451442176, %array_continue.i.i ], [ 8863084066665136128, %object_continue.i.i ]
   %conv.i.i314.i.i = zext i32 %iter.sroa.54.3.i to i64
@@ -5424,8 +5424,8 @@ if.end151.i.i:                                    ; preds = %scope_end.i.i
   br i1 %tobool157.i.i, label %array_continue.i.i, label %object_continue.i.i
 
 array_begin.i.i:                                  ; preds = %sw.bb199.i.i, %sw.bb99.i.i, %sw.bb29.i.i
-  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb29.i.i ], [ %iter.sroa.54.1.i, %sw.bb99.i.i ], [ %iter.sroa.54.5.i, %sw.bb199.i.i ]
   %iter.sroa.8.5.i = phi ptr [ %incdec.ptr.i.i.i, %sw.bb29.i.i ], [ %incdec.ptr.i160.i.i, %sw.bb99.i.i ], [ %incdec.ptr.i265.i.i, %sw.bb199.i.i ]
+  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb29.i.i ], [ %iter.sroa.54.1.i, %sw.bb99.i.i ], [ %iter.sroa.54.5.i, %sw.bb199.i.i ]
   %inc161.i.i = add i32 %iter.sroa.54.4.i, 1
   %conv163.i.i = zext i32 %inc161.i.i to i64
   %_max_depth.i242.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -5457,8 +5457,8 @@ if.end168.i.i:                                    ; preds = %array_begin.i.i
   br label %array_value.i.i
 
 array_value.i.i:                                  ; preds = %array_continue.i.i, %if.end168.i.i
-  %iter.sroa.54.5.i = phi i32 [ %inc161.i.i, %if.end168.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %iter.sroa.8.6.i = phi ptr [ %iter.sroa.8.5.i, %if.end168.i.i ], [ %incdec.ptr.i305.i.i, %array_continue.i.i ]
+  %iter.sroa.54.5.i = phi i32 [ %inc161.i.i, %if.end168.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %this.val76.val.i.i = load ptr, ptr %open_containers.i.i.i.i, align 8
   %conv.i308.i.i = zext i32 %iter.sroa.54.5.i to i64
   %count.i309.i.i = getelementptr inbounds %"struct.simdjson::haswell::open_container", ptr %this.val76.val.i.i, i64 %conv.i308.i.i, i32 1
@@ -5517,8 +5517,8 @@ sw.epilog217.sink.split.i.i:                      ; preds = %sw.bb199.i.i, %sw.b
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default211.i.i, %sw.epilog217.sink.split.i.i, %if.end151.i.i
-  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end151.i.i ], [ %iter.sroa.54.5.i, %sw.epilog217.sink.split.i.i ], [ %iter.sroa.54.5.i, %sw.default211.i.i ]
-  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end151.i.i ], [ %incdec.ptr.i289.i.i, %sw.epilog217.sink.split.i.i ], [ %incdec.ptr.i265.i.i, %sw.default211.i.i ]
+  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end151.i.i ], [ %incdec.ptr.i265.i.i, %sw.default211.i.i ], [ %incdec.ptr.i289.i.i, %sw.epilog217.sink.split.i.i ]
+  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end151.i.i ], [ %iter.sroa.54.5.i, %sw.default211.i.i ], [ %iter.sroa.54.5.i, %sw.epilog217.sink.split.i.i ]
   %incdec.ptr.i305.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.8.i, i64 4
   %67 = load i32, ptr %iter.sroa.8.8.i, align 4
   %idxprom.i306.i.i = zext i32 %67 to i64
@@ -5650,8 +5650,8 @@ sw.default.i.document_end.i_crit_edge.i:          ; preds = %sw.default.i.i
   br label %document_end.i.i
 
 object_begin.i.i:                                 ; preds = %sw.bb173.i.i, %sw.bb73.i.i, %sw.bb.i.i
-  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb73.i.i ], [ %iter.sroa.54.5.i, %sw.bb173.i.i ], [ 0, %sw.bb.i.i ]
   %iter.sroa.8.0.i = phi ptr [ %incdec.ptr.i144.i.i, %sw.bb73.i.i ], [ %incdec.ptr.i249.i.i, %sw.bb173.i.i ], [ %incdec.ptr.i.i.i, %sw.bb.i.i ]
+  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb73.i.i ], [ %iter.sroa.54.5.i, %sw.bb173.i.i ], [ 0, %sw.bb.i.i ]
   %inc.i.i = add i32 %iter.sroa.54.0.i, 1
   %conv34.i.i = zext i32 %inc.i.i to i64
   %_max_depth.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -5713,8 +5713,8 @@ if.end52.i.i:                                     ; preds = %if.end38.i.i
 object_field.i.i:                                 ; preds = %if.end120.i.i, %if.end52.i.i
   %this.val.i.i171.i.i = phi ptr [ %incdec.ptr.i.i.i.i199.i.i, %if.end120.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end52.i.i ]
   %21 = phi ptr [ %39, %if.end120.i.i ], [ %20, %if.end52.i.i ]
-  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end120.i.i ], [ %inc.i.i, %if.end52.i.i ]
   %incdec.ptr.i184.i.pn.i = phi ptr [ %incdec.ptr.i184.i.i, %if.end120.i.i ], [ %iter.sroa.8.0.i, %if.end52.i.i ]
+  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end120.i.i ], [ %inc.i.i, %if.end52.i.i ]
   %call2.i.i202.sink326.i.i = phi ptr [ %call2.i.i202.i.i, %if.end120.i.i ], [ %call2.i.i.i.i, %if.end52.i.i ]
   %iter.sroa.8.1.i = getelementptr inbounds i8, ptr %incdec.ptr.i184.i.pn.i, i64 4
   %add.ptr.i6.i.i205.i.i = getelementptr inbounds i8, ptr %21, i64 4
@@ -5786,8 +5786,8 @@ sw.epilog103.sink.split.i.i:                      ; preds = %sw.bb85.i.i, %sw.bb
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default97.i.i, %sw.epilog103.sink.split.i.i, %if.end137.i.i
-  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.1.i, %sw.epilog103.sink.split.i.i ], [ %iter.sroa.54.1.i, %sw.default97.i.i ]
-  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i168.i.i, %sw.epilog103.sink.split.i.i ], [ %incdec.ptr.i144.i.i, %sw.default97.i.i ]
+  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i144.i.i, %sw.default97.i.i ], [ %incdec.ptr.i168.i.i, %sw.epilog103.sink.split.i.i ]
+  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.1.i, %sw.default97.i.i ], [ %iter.sroa.54.1.i, %sw.epilog103.sink.split.i.i ]
   %incdec.ptr.i184.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.3.i, i64 4
   %33 = load i32, ptr %iter.sroa.8.3.i, align 4
   %idxprom.i185.i.i = zext i32 %33 to i64
@@ -5832,8 +5832,8 @@ if.end120.i.i:                                    ; preds = %sw.bb106.i.i
   br i1 %cmp.i.i203.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 scope_end.i.i:                                    ; preds = %array_continue.i.i, %object_continue.i.i
-  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %iter.sroa.8.4.i = phi ptr [ %incdec.ptr.i289.i.i, %array_continue.i.i ], [ %incdec.ptr.i184.i.i, %object_continue.i.i ]
+  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %.sink348.i.i = phi i64 [ 6701356245527298048, %array_continue.i.i ], [ 9007199254740992000, %object_continue.i.i ]
   %.sink335.i.i = phi i64 [ 6557241057451442176, %array_continue.i.i ], [ 8863084066665136128, %object_continue.i.i ]
   %conv.i.i298.i.i = zext i32 %iter.sroa.54.3.i to i64
@@ -5877,8 +5877,8 @@ if.end137.i.i:                                    ; preds = %scope_end.i.i
   br i1 %tobool143.i.i, label %array_continue.i.i, label %object_continue.i.i
 
 array_begin.i.i:                                  ; preds = %sw.bb185.i.i, %sw.bb85.i.i, %sw.bb16.i.i
-  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb16.i.i ], [ %iter.sroa.54.1.i, %sw.bb85.i.i ], [ %iter.sroa.54.5.i, %sw.bb185.i.i ]
   %iter.sroa.8.5.i = phi ptr [ %incdec.ptr.i.i.i, %sw.bb16.i.i ], [ %incdec.ptr.i144.i.i, %sw.bb85.i.i ], [ %incdec.ptr.i249.i.i, %sw.bb185.i.i ]
+  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb16.i.i ], [ %iter.sroa.54.1.i, %sw.bb85.i.i ], [ %iter.sroa.54.5.i, %sw.bb185.i.i ]
   %inc147.i.i = add i32 %iter.sroa.54.4.i, 1
   %conv149.i.i = zext i32 %inc147.i.i to i64
   %_max_depth.i226.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -5910,8 +5910,8 @@ if.end154.i.i:                                    ; preds = %array_begin.i.i
   br label %array_value.i.i
 
 array_value.i.i:                                  ; preds = %array_continue.i.i, %if.end154.i.i
-  %iter.sroa.54.5.i = phi i32 [ %inc147.i.i, %if.end154.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %iter.sroa.8.6.i = phi ptr [ %iter.sroa.8.5.i, %if.end154.i.i ], [ %incdec.ptr.i289.i.i, %array_continue.i.i ]
+  %iter.sroa.54.5.i = phi i32 [ %inc147.i.i, %if.end154.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %this.val69.val.i.i = load ptr, ptr %open_containers.i.i.i.i, align 8
   %conv.i292.i.i = zext i32 %iter.sroa.54.5.i to i64
   %count.i293.i.i = getelementptr inbounds %"struct.simdjson::haswell::open_container", ptr %this.val69.val.i.i, i64 %conv.i292.i.i, i32 1
@@ -5970,8 +5970,8 @@ sw.epilog203.sink.split.i.i:                      ; preds = %sw.bb185.i.i, %sw.b
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default197.i.i, %sw.epilog203.sink.split.i.i, %if.end137.i.i
-  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.5.i, %sw.epilog203.sink.split.i.i ], [ %iter.sroa.54.5.i, %sw.default197.i.i ]
-  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i273.i.i, %sw.epilog203.sink.split.i.i ], [ %incdec.ptr.i249.i.i, %sw.default197.i.i ]
+  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i249.i.i, %sw.default197.i.i ], [ %incdec.ptr.i273.i.i, %sw.epilog203.sink.split.i.i ]
+  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.5.i, %sw.default197.i.i ], [ %iter.sroa.54.5.i, %sw.epilog203.sink.split.i.i ]
   %incdec.ptr.i289.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.8.i, i64 4
   %64 = load i32, ptr %iter.sroa.8.8.i, align 4
   %idxprom.i290.i.i = zext i32 %64 to i64
@@ -6062,8 +6062,8 @@ if.then:                                          ; preds = %if.end32, %entry
 if.end:                                           ; preds = %entry, %if.end32
   %4 = phi i32 [ %51, %if.end32 ], [ %2, %entry ]
   %5 = phi i32 [ %50, %if.end32 ], [ %1, %entry ]
-  %dst.addr.059 = phi ptr [ %dst.addr.2, %if.end32 ], [ %dst, %entry ]
-  %src.addr.058 = phi ptr [ %src.addr.5, %if.end32 ], [ %src, %entry ]
+  %src.addr.059 = phi ptr [ %src.addr.5, %if.end32 ], [ %src, %entry ]
+  %dst.addr.058 = phi ptr [ %dst.addr.2, %if.end32 ], [ %dst, %entry ]
   %sub.i13 = add i32 %4, -1
   %and.i14 = and i32 %sub.i13, %5
   %cmp.i15.not = icmp eq i32 %and.i14, 0
@@ -6073,15 +6073,15 @@ if.then4:                                         ; preds = %if.end
   %6 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %5, i1 true)
   %add = add nuw nsw i32 %6, 1
   %idxprom = zext nneg i32 %add to i64
-  %arrayidx = getelementptr inbounds i8, ptr %src.addr.058, i64 %idxprom
+  %arrayidx = getelementptr inbounds i8, ptr %src.addr.059, i64 %idxprom
   %7 = load i8, ptr %arrayidx, align 1
   %cmp = icmp eq i8 %7, 117
   br i1 %cmp, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then4
   %idx.ext7 = zext nneg i32 %6 to i64
-  %add.ptr8 = getelementptr inbounds i8, ptr %src.addr.058, i64 %idx.ext7
-  %add.ptr10 = getelementptr inbounds i8, ptr %dst.addr.059, i64 %idx.ext7
+  %add.ptr8 = getelementptr inbounds i8, ptr %src.addr.059, i64 %idx.ext7
+  %add.ptr10 = getelementptr inbounds i8, ptr %dst.addr.058, i64 %idx.ext7
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr8, i64 2
   %8 = load i8, ptr %add.ptr.i, align 1
   %conv.i.i = zext i8 %8 to i64
@@ -6262,21 +6262,21 @@ if.else:                                          ; preds = %if.then4
 
 if.end19:                                         ; preds = %if.else
   %idxprom20 = zext nneg i32 %6 to i64
-  %arrayidx21 = getelementptr inbounds i8, ptr %dst.addr.059, i64 %idxprom20
+  %arrayidx21 = getelementptr inbounds i8, ptr %dst.addr.058, i64 %idxprom20
   store i8 %47, ptr %arrayidx21, align 1
-  %48 = getelementptr inbounds i8, ptr %src.addr.058, i64 %idxprom20
+  %48 = getelementptr inbounds i8, ptr %src.addr.059, i64 %idxprom20
   %add.ptr24 = getelementptr inbounds i8, ptr %48, i64 2
-  %add.ptr27 = getelementptr inbounds i8, ptr %dst.addr.059, i64 %idxprom
+  %add.ptr27 = getelementptr inbounds i8, ptr %dst.addr.058, i64 %idxprom
   br label %if.end32
 
 if.else29:                                        ; preds = %if.end
-  %add.ptr30 = getelementptr inbounds i8, ptr %src.addr.058, i64 32
-  %add.ptr31 = getelementptr inbounds i8, ptr %dst.addr.059, i64 32
+  %add.ptr30 = getelementptr inbounds i8, ptr %src.addr.059, i64 32
+  %add.ptr31 = getelementptr inbounds i8, ptr %dst.addr.058, i64 32
   br label %if.end32
 
 if.end32:                                         ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread45, %if.end19, %if.else29
-  %src.addr.5 = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %src.addr.3.ph, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread45 ]
   %dst.addr.2 = phi ptr [ %add.ptr27, %if.end19 ], [ %add.ptr31, %if.else29 ], [ %add.ptr33.i49, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread45 ]
+  %src.addr.5 = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %src.addr.3.ph, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread45 ]
   %.val = load <4 x i64>, ptr %src.addr.5, align 1
   store <4 x i64> %.val, ptr %dst.addr.2, align 1
   %49 = bitcast <4 x i64> %.val to <32 x i8>
@@ -6320,8 +6320,8 @@ if.then.i:                                        ; preds = %if.end32.i, %entry
 if.end.i:                                         ; preds = %entry, %if.end32.i
   %4 = phi i32 [ %51, %if.end32.i ], [ %2, %entry ]
   %5 = phi i32 [ %50, %if.end32.i ], [ %1, %entry ]
-  %dst.addr.054.i = phi ptr [ %dst.addr.1.i, %if.end32.i ], [ %dst, %entry ]
-  %src.addr.053.i = phi ptr [ %src.addr.4.i, %if.end32.i ], [ %src, %entry ]
+  %src.addr.054.i = phi ptr [ %src.addr.4.i, %if.end32.i ], [ %src, %entry ]
+  %dst.addr.053.i = phi ptr [ %dst.addr.1.i, %if.end32.i ], [ %dst, %entry ]
   %sub.i13.i = add i32 %4, -1
   %and.i14.i = and i32 %sub.i13.i, %5
   %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
@@ -6331,15 +6331,15 @@ if.then4.i:                                       ; preds = %if.end.i
   %6 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %5, i1 true)
   %add.i = add nuw nsw i32 %6, 1
   %idxprom.i = zext nneg i32 %add.i to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %src.addr.053.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds i8, ptr %src.addr.054.i, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %7, 117
   br i1 %cmp.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %if.then4.i
   %idx.ext7.i = zext nneg i32 %6 to i64
-  %add.ptr8.i = getelementptr inbounds i8, ptr %src.addr.053.i, i64 %idx.ext7.i
-  %add.ptr10.i = getelementptr inbounds i8, ptr %dst.addr.054.i, i64 %idx.ext7.i
+  %add.ptr8.i = getelementptr inbounds i8, ptr %src.addr.054.i, i64 %idx.ext7.i
+  %add.ptr10.i = getelementptr inbounds i8, ptr %dst.addr.053.i, i64 %idx.ext7.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr8.i, i64 2
   %8 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i = zext i8 %8 to i64
@@ -6507,21 +6507,21 @@ if.else.i:                                        ; preds = %if.then4.i
 
 if.end19.i:                                       ; preds = %if.else.i
   %idxprom20.i = zext nneg i32 %6 to i64
-  %arrayidx21.i = getelementptr inbounds i8, ptr %dst.addr.054.i, i64 %idxprom20.i
+  %arrayidx21.i = getelementptr inbounds i8, ptr %dst.addr.053.i, i64 %idxprom20.i
   store i8 %47, ptr %arrayidx21.i, align 1
-  %48 = getelementptr inbounds i8, ptr %src.addr.053.i, i64 %idxprom20.i
+  %48 = getelementptr inbounds i8, ptr %src.addr.054.i, i64 %idxprom20.i
   %add.ptr24.i = getelementptr inbounds i8, ptr %48, i64 2
-  %add.ptr27.i = getelementptr inbounds i8, ptr %dst.addr.054.i, i64 %idxprom.i
+  %add.ptr27.i = getelementptr inbounds i8, ptr %dst.addr.053.i, i64 %idxprom.i
   br label %if.end32.i
 
 if.else29.i:                                      ; preds = %if.end.i
-  %add.ptr30.i = getelementptr inbounds i8, ptr %src.addr.053.i, i64 32
-  %add.ptr31.i = getelementptr inbounds i8, ptr %dst.addr.054.i, i64 32
+  %add.ptr30.i = getelementptr inbounds i8, ptr %src.addr.054.i, i64 32
+  %add.ptr31.i = getelementptr inbounds i8, ptr %dst.addr.053.i, i64 32
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.else29.i, %if.end19.i, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i
-  %src.addr.4.i = phi ptr [ %add.ptr24.i, %if.end19.i ], [ %add.ptr30.i, %if.else29.i ], [ %src.addr.3.ph.i, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
   %dst.addr.1.i = phi ptr [ %add.ptr27.i, %if.end19.i ], [ %add.ptr31.i, %if.else29.i ], [ %add.ptr18.i44.i, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
+  %src.addr.4.i = phi ptr [ %add.ptr24.i, %if.end19.i ], [ %add.ptr30.i, %if.else29.i ], [ %src.addr.3.ph.i, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
   %.val.i = load <4 x i64>, ptr %src.addr.4.i, align 1
   store <4 x i64> %.val.i, ptr %dst.addr.1.i, align 1
   %49 = bitcast <4 x i64> %.val.i to <32 x i8>
@@ -7379,8 +7379,8 @@ sw.default.i.document_end.i_crit_edge.i:          ; preds = %sw.default.i.i
   br label %document_end.i.i
 
 object_begin.i.i:                                 ; preds = %sw.bb187.i.i, %sw.bb87.i.i, %sw.bb17.i.i
-  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb87.i.i ], [ %iter.sroa.54.5.i, %sw.bb187.i.i ], [ 0, %sw.bb17.i.i ]
   %iter.sroa.8.0.i = phi ptr [ %incdec.ptr.i160.i.i, %sw.bb87.i.i ], [ %incdec.ptr.i265.i.i, %sw.bb187.i.i ], [ %incdec.ptr.i.i.i, %sw.bb17.i.i ]
+  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb87.i.i ], [ %iter.sroa.54.5.i, %sw.bb187.i.i ], [ 0, %sw.bb17.i.i ]
   %inc.i.i = add i32 %iter.sroa.54.0.i, 1
   %conv48.i.i = zext i32 %inc.i.i to i64
   %_max_depth.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -7442,8 +7442,8 @@ if.end66.i.i:                                     ; preds = %if.end52.i.i
 object_field.i.i:                                 ; preds = %if.end134.i.i, %if.end66.i.i
   %this.val.i.i187.i.i = phi ptr [ %incdec.ptr.i.i.i.i215.i.i, %if.end134.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end66.i.i ]
   %24 = phi ptr [ %42, %if.end134.i.i ], [ %23, %if.end66.i.i ]
-  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end134.i.i ], [ %inc.i.i, %if.end66.i.i ]
   %incdec.ptr.i200.i.pn.i = phi ptr [ %incdec.ptr.i200.i.i, %if.end134.i.i ], [ %iter.sroa.8.0.i, %if.end66.i.i ]
+  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end134.i.i ], [ %inc.i.i, %if.end66.i.i ]
   %call2.i.i218.sink346.i.i = phi ptr [ %call2.i.i218.i.i, %if.end134.i.i ], [ %call2.i.i.i.i, %if.end66.i.i ]
   %iter.sroa.8.1.i = getelementptr inbounds i8, ptr %incdec.ptr.i200.i.pn.i, i64 4
   %add.ptr.i6.i.i221.i.i = getelementptr inbounds i8, ptr %24, i64 4
@@ -7515,8 +7515,8 @@ sw.epilog117.sink.split.i.i:                      ; preds = %sw.bb99.i.i, %sw.bb
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default111.i.i, %sw.epilog117.sink.split.i.i, %if.end151.i.i
-  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end151.i.i ], [ %iter.sroa.54.1.i, %sw.epilog117.sink.split.i.i ], [ %iter.sroa.54.1.i, %sw.default111.i.i ]
-  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end151.i.i ], [ %incdec.ptr.i184.i.i, %sw.epilog117.sink.split.i.i ], [ %incdec.ptr.i160.i.i, %sw.default111.i.i ]
+  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end151.i.i ], [ %incdec.ptr.i160.i.i, %sw.default111.i.i ], [ %incdec.ptr.i184.i.i, %sw.epilog117.sink.split.i.i ]
+  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end151.i.i ], [ %iter.sroa.54.1.i, %sw.default111.i.i ], [ %iter.sroa.54.1.i, %sw.epilog117.sink.split.i.i ]
   %incdec.ptr.i200.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.3.i, i64 4
   %36 = load i32, ptr %iter.sroa.8.3.i, align 4
   %idxprom.i201.i.i = zext i32 %36 to i64
@@ -7561,8 +7561,8 @@ if.end134.i.i:                                    ; preds = %sw.bb120.i.i
   br i1 %cmp.i.i219.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 scope_end.i.i:                                    ; preds = %array_continue.i.i, %object_continue.i.i
-  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %iter.sroa.8.4.i = phi ptr [ %incdec.ptr.i305.i.i, %array_continue.i.i ], [ %incdec.ptr.i200.i.i, %object_continue.i.i ]
+  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %.sink368.i.i = phi i64 [ 6701356245527298048, %array_continue.i.i ], [ 9007199254740992000, %object_continue.i.i ]
   %.sink355.i.i = phi i64 [ 6557241057451442176, %array_continue.i.i ], [ 8863084066665136128, %object_continue.i.i ]
   %conv.i.i314.i.i = zext i32 %iter.sroa.54.3.i to i64
@@ -7606,8 +7606,8 @@ if.end151.i.i:                                    ; preds = %scope_end.i.i
   br i1 %tobool157.i.i, label %array_continue.i.i, label %object_continue.i.i
 
 array_begin.i.i:                                  ; preds = %sw.bb199.i.i, %sw.bb99.i.i, %sw.bb29.i.i
-  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb29.i.i ], [ %iter.sroa.54.1.i, %sw.bb99.i.i ], [ %iter.sroa.54.5.i, %sw.bb199.i.i ]
   %iter.sroa.8.5.i = phi ptr [ %incdec.ptr.i.i.i, %sw.bb29.i.i ], [ %incdec.ptr.i160.i.i, %sw.bb99.i.i ], [ %incdec.ptr.i265.i.i, %sw.bb199.i.i ]
+  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb29.i.i ], [ %iter.sroa.54.1.i, %sw.bb99.i.i ], [ %iter.sroa.54.5.i, %sw.bb199.i.i ]
   %inc161.i.i = add i32 %iter.sroa.54.4.i, 1
   %conv163.i.i = zext i32 %inc161.i.i to i64
   %_max_depth.i242.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -7639,8 +7639,8 @@ if.end168.i.i:                                    ; preds = %array_begin.i.i
   br label %array_value.i.i
 
 array_value.i.i:                                  ; preds = %array_continue.i.i, %if.end168.i.i
-  %iter.sroa.54.5.i = phi i32 [ %inc161.i.i, %if.end168.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %iter.sroa.8.6.i = phi ptr [ %iter.sroa.8.5.i, %if.end168.i.i ], [ %incdec.ptr.i305.i.i, %array_continue.i.i ]
+  %iter.sroa.54.5.i = phi i32 [ %inc161.i.i, %if.end168.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %this.val76.val.i.i = load ptr, ptr %open_containers.i.i.i.i, align 8
   %conv.i308.i.i = zext i32 %iter.sroa.54.5.i to i64
   %count.i309.i.i = getelementptr inbounds %"struct.simdjson::icelake::open_container", ptr %this.val76.val.i.i, i64 %conv.i308.i.i, i32 1
@@ -7699,8 +7699,8 @@ sw.epilog217.sink.split.i.i:                      ; preds = %sw.bb199.i.i, %sw.b
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default211.i.i, %sw.epilog217.sink.split.i.i, %if.end151.i.i
-  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end151.i.i ], [ %iter.sroa.54.5.i, %sw.epilog217.sink.split.i.i ], [ %iter.sroa.54.5.i, %sw.default211.i.i ]
-  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end151.i.i ], [ %incdec.ptr.i289.i.i, %sw.epilog217.sink.split.i.i ], [ %incdec.ptr.i265.i.i, %sw.default211.i.i ]
+  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end151.i.i ], [ %incdec.ptr.i265.i.i, %sw.default211.i.i ], [ %incdec.ptr.i289.i.i, %sw.epilog217.sink.split.i.i ]
+  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end151.i.i ], [ %iter.sroa.54.5.i, %sw.default211.i.i ], [ %iter.sroa.54.5.i, %sw.epilog217.sink.split.i.i ]
   %incdec.ptr.i305.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.8.i, i64 4
   %67 = load i32, ptr %iter.sroa.8.8.i, align 4
   %idxprom.i306.i.i = zext i32 %67 to i64
@@ -7832,8 +7832,8 @@ sw.default.i.document_end.i_crit_edge.i:          ; preds = %sw.default.i.i
   br label %document_end.i.i
 
 object_begin.i.i:                                 ; preds = %sw.bb173.i.i, %sw.bb73.i.i, %sw.bb.i.i
-  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb73.i.i ], [ %iter.sroa.54.5.i, %sw.bb173.i.i ], [ 0, %sw.bb.i.i ]
   %iter.sroa.8.0.i = phi ptr [ %incdec.ptr.i144.i.i, %sw.bb73.i.i ], [ %incdec.ptr.i249.i.i, %sw.bb173.i.i ], [ %incdec.ptr.i.i.i, %sw.bb.i.i ]
+  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb73.i.i ], [ %iter.sroa.54.5.i, %sw.bb173.i.i ], [ 0, %sw.bb.i.i ]
   %inc.i.i = add i32 %iter.sroa.54.0.i, 1
   %conv34.i.i = zext i32 %inc.i.i to i64
   %_max_depth.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -7895,8 +7895,8 @@ if.end52.i.i:                                     ; preds = %if.end38.i.i
 object_field.i.i:                                 ; preds = %if.end120.i.i, %if.end52.i.i
   %this.val.i.i171.i.i = phi ptr [ %incdec.ptr.i.i.i.i199.i.i, %if.end120.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end52.i.i ]
   %21 = phi ptr [ %39, %if.end120.i.i ], [ %20, %if.end52.i.i ]
-  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end120.i.i ], [ %inc.i.i, %if.end52.i.i ]
   %incdec.ptr.i184.i.pn.i = phi ptr [ %incdec.ptr.i184.i.i, %if.end120.i.i ], [ %iter.sroa.8.0.i, %if.end52.i.i ]
+  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end120.i.i ], [ %inc.i.i, %if.end52.i.i ]
   %call2.i.i202.sink326.i.i = phi ptr [ %call2.i.i202.i.i, %if.end120.i.i ], [ %call2.i.i.i.i, %if.end52.i.i ]
   %iter.sroa.8.1.i = getelementptr inbounds i8, ptr %incdec.ptr.i184.i.pn.i, i64 4
   %add.ptr.i6.i.i205.i.i = getelementptr inbounds i8, ptr %21, i64 4
@@ -7968,8 +7968,8 @@ sw.epilog103.sink.split.i.i:                      ; preds = %sw.bb85.i.i, %sw.bb
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default97.i.i, %sw.epilog103.sink.split.i.i, %if.end137.i.i
-  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.1.i, %sw.epilog103.sink.split.i.i ], [ %iter.sroa.54.1.i, %sw.default97.i.i ]
-  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i168.i.i, %sw.epilog103.sink.split.i.i ], [ %incdec.ptr.i144.i.i, %sw.default97.i.i ]
+  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i144.i.i, %sw.default97.i.i ], [ %incdec.ptr.i168.i.i, %sw.epilog103.sink.split.i.i ]
+  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.1.i, %sw.default97.i.i ], [ %iter.sroa.54.1.i, %sw.epilog103.sink.split.i.i ]
   %incdec.ptr.i184.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.3.i, i64 4
   %33 = load i32, ptr %iter.sroa.8.3.i, align 4
   %idxprom.i185.i.i = zext i32 %33 to i64
@@ -8014,8 +8014,8 @@ if.end120.i.i:                                    ; preds = %sw.bb106.i.i
   br i1 %cmp.i.i203.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 scope_end.i.i:                                    ; preds = %array_continue.i.i, %object_continue.i.i
-  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %iter.sroa.8.4.i = phi ptr [ %incdec.ptr.i289.i.i, %array_continue.i.i ], [ %incdec.ptr.i184.i.i, %object_continue.i.i ]
+  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %.sink348.i.i = phi i64 [ 6701356245527298048, %array_continue.i.i ], [ 9007199254740992000, %object_continue.i.i ]
   %.sink335.i.i = phi i64 [ 6557241057451442176, %array_continue.i.i ], [ 8863084066665136128, %object_continue.i.i ]
   %conv.i.i298.i.i = zext i32 %iter.sroa.54.3.i to i64
@@ -8059,8 +8059,8 @@ if.end137.i.i:                                    ; preds = %scope_end.i.i
   br i1 %tobool143.i.i, label %array_continue.i.i, label %object_continue.i.i
 
 array_begin.i.i:                                  ; preds = %sw.bb185.i.i, %sw.bb85.i.i, %sw.bb16.i.i
-  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb16.i.i ], [ %iter.sroa.54.1.i, %sw.bb85.i.i ], [ %iter.sroa.54.5.i, %sw.bb185.i.i ]
   %iter.sroa.8.5.i = phi ptr [ %incdec.ptr.i.i.i, %sw.bb16.i.i ], [ %incdec.ptr.i144.i.i, %sw.bb85.i.i ], [ %incdec.ptr.i249.i.i, %sw.bb185.i.i ]
+  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb16.i.i ], [ %iter.sroa.54.1.i, %sw.bb85.i.i ], [ %iter.sroa.54.5.i, %sw.bb185.i.i ]
   %inc147.i.i = add i32 %iter.sroa.54.4.i, 1
   %conv149.i.i = zext i32 %inc147.i.i to i64
   %_max_depth.i226.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -8092,8 +8092,8 @@ if.end154.i.i:                                    ; preds = %array_begin.i.i
   br label %array_value.i.i
 
 array_value.i.i:                                  ; preds = %array_continue.i.i, %if.end154.i.i
-  %iter.sroa.54.5.i = phi i32 [ %inc147.i.i, %if.end154.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %iter.sroa.8.6.i = phi ptr [ %iter.sroa.8.5.i, %if.end154.i.i ], [ %incdec.ptr.i289.i.i, %array_continue.i.i ]
+  %iter.sroa.54.5.i = phi i32 [ %inc147.i.i, %if.end154.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %this.val69.val.i.i = load ptr, ptr %open_containers.i.i.i.i, align 8
   %conv.i292.i.i = zext i32 %iter.sroa.54.5.i to i64
   %count.i293.i.i = getelementptr inbounds %"struct.simdjson::icelake::open_container", ptr %this.val69.val.i.i, i64 %conv.i292.i.i, i32 1
@@ -8152,8 +8152,8 @@ sw.epilog203.sink.split.i.i:                      ; preds = %sw.bb185.i.i, %sw.b
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default197.i.i, %sw.epilog203.sink.split.i.i, %if.end137.i.i
-  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.5.i, %sw.epilog203.sink.split.i.i ], [ %iter.sroa.54.5.i, %sw.default197.i.i ]
-  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i273.i.i, %sw.epilog203.sink.split.i.i ], [ %incdec.ptr.i249.i.i, %sw.default197.i.i ]
+  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i249.i.i, %sw.default197.i.i ], [ %incdec.ptr.i273.i.i, %sw.epilog203.sink.split.i.i ]
+  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.5.i, %sw.default197.i.i ], [ %iter.sroa.54.5.i, %sw.epilog203.sink.split.i.i ]
   %incdec.ptr.i289.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.8.i, i64 4
   %64 = load i32, ptr %iter.sroa.8.8.i, align 4
   %idxprom.i290.i.i = zext i32 %64 to i64
@@ -8243,8 +8243,8 @@ if.then:                                          ; preds = %if.end32, %entry
 if.end:                                           ; preds = %entry, %if.end32
   %6 = phi i64 [ %55, %if.end32 ], [ %4, %entry ]
   %7 = phi i64 [ %53, %if.end32 ], [ %2, %entry ]
-  %dst.addr.061 = phi ptr [ %dst.addr.2, %if.end32 ], [ %dst, %entry ]
-  %src.addr.060 = phi ptr [ %src.addr.5, %if.end32 ], [ %src, %entry ]
+  %src.addr.061 = phi ptr [ %src.addr.5, %if.end32 ], [ %src, %entry ]
+  %dst.addr.060 = phi ptr [ %dst.addr.2, %if.end32 ], [ %dst, %entry ]
   %sub.i13 = add i64 %6, -1
   %and.i14 = and i64 %sub.i13, %7
   %cmp.i15.not = icmp eq i64 %and.i14, 0
@@ -8253,14 +8253,14 @@ if.end:                                           ; preds = %entry, %if.end32
 if.then4:                                         ; preds = %if.end
   %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %7, i1 true)
   %add = add nuw nsw i64 %8, 1
-  %arrayidx = getelementptr inbounds i8, ptr %src.addr.060, i64 %add
+  %arrayidx = getelementptr inbounds i8, ptr %src.addr.061, i64 %add
   %9 = load i8, ptr %arrayidx, align 1
   %cmp = icmp eq i8 %9, 117
   br i1 %cmp, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then4
-  %add.ptr8 = getelementptr inbounds i8, ptr %src.addr.060, i64 %8
-  %add.ptr10 = getelementptr inbounds i8, ptr %dst.addr.061, i64 %8
+  %add.ptr8 = getelementptr inbounds i8, ptr %src.addr.061, i64 %8
+  %add.ptr10 = getelementptr inbounds i8, ptr %dst.addr.060, i64 %8
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr8, i64 2
   %10 = load i8, ptr %add.ptr.i, align 1
   %conv.i.i = zext i8 %10 to i64
@@ -8440,21 +8440,21 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp17, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.else
-  %arrayidx21 = getelementptr inbounds i8, ptr %dst.addr.061, i64 %8
+  %arrayidx21 = getelementptr inbounds i8, ptr %dst.addr.060, i64 %8
   store i8 %49, ptr %arrayidx21, align 1
-  %50 = getelementptr inbounds i8, ptr %src.addr.060, i64 %8
+  %50 = getelementptr inbounds i8, ptr %src.addr.061, i64 %8
   %add.ptr24 = getelementptr inbounds i8, ptr %50, i64 2
-  %add.ptr27 = getelementptr inbounds i8, ptr %dst.addr.061, i64 %add
+  %add.ptr27 = getelementptr inbounds i8, ptr %dst.addr.060, i64 %add
   br label %if.end32
 
 if.else29:                                        ; preds = %if.end
-  %add.ptr30 = getelementptr inbounds i8, ptr %src.addr.060, i64 64
-  %add.ptr31 = getelementptr inbounds i8, ptr %dst.addr.061, i64 64
+  %add.ptr30 = getelementptr inbounds i8, ptr %src.addr.061, i64 64
+  %add.ptr31 = getelementptr inbounds i8, ptr %dst.addr.060, i64 64
   br label %if.end32
 
 if.end32:                                         ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread49, %if.end19, %if.else29
-  %src.addr.5 = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %src.addr.3.ph, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread49 ]
   %dst.addr.2 = phi ptr [ %add.ptr27, %if.end19 ], [ %add.ptr31, %if.else29 ], [ %add.ptr33.i53, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread49 ]
+  %src.addr.5 = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %src.addr.3.ph, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread49 ]
   %.val = load <8 x i64>, ptr %src.addr.5, align 1
   store <8 x i64> %.val, ptr %dst.addr.2, align 1
   %51 = bitcast <8 x i64> %.val to <64 x i8>
@@ -8497,8 +8497,8 @@ if.then.i:                                        ; preds = %if.end32.i, %entry
 if.end.i:                                         ; preds = %entry, %if.end32.i
   %6 = phi i64 [ %55, %if.end32.i ], [ %4, %entry ]
   %7 = phi i64 [ %53, %if.end32.i ], [ %2, %entry ]
-  %dst.addr.056.i = phi ptr [ %dst.addr.1.i, %if.end32.i ], [ %dst, %entry ]
-  %src.addr.055.i = phi ptr [ %src.addr.4.i, %if.end32.i ], [ %src, %entry ]
+  %src.addr.056.i = phi ptr [ %src.addr.4.i, %if.end32.i ], [ %src, %entry ]
+  %dst.addr.055.i = phi ptr [ %dst.addr.1.i, %if.end32.i ], [ %dst, %entry ]
   %sub.i13.i = add i64 %6, -1
   %and.i14.i = and i64 %sub.i13.i, %7
   %cmp.i15.not.i = icmp eq i64 %and.i14.i, 0
@@ -8507,14 +8507,14 @@ if.end.i:                                         ; preds = %entry, %if.end32.i
 if.then4.i:                                       ; preds = %if.end.i
   %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %7, i1 true)
   %add.i = add nuw nsw i64 %8, 1
-  %arrayidx.i = getelementptr inbounds i8, ptr %src.addr.055.i, i64 %add.i
+  %arrayidx.i = getelementptr inbounds i8, ptr %src.addr.056.i, i64 %add.i
   %9 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %9, 117
   br i1 %cmp.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %if.then4.i
-  %add.ptr8.i = getelementptr inbounds i8, ptr %src.addr.055.i, i64 %8
-  %add.ptr10.i = getelementptr inbounds i8, ptr %dst.addr.056.i, i64 %8
+  %add.ptr8.i = getelementptr inbounds i8, ptr %src.addr.056.i, i64 %8
+  %add.ptr10.i = getelementptr inbounds i8, ptr %dst.addr.055.i, i64 %8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr8.i, i64 2
   %10 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i = zext i8 %10 to i64
@@ -8681,21 +8681,21 @@ if.else.i:                                        ; preds = %if.then4.i
   br i1 %cmp17.i, label %invoke.cont, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.else.i
-  %arrayidx21.i = getelementptr inbounds i8, ptr %dst.addr.056.i, i64 %8
+  %arrayidx21.i = getelementptr inbounds i8, ptr %dst.addr.055.i, i64 %8
   store i8 %49, ptr %arrayidx21.i, align 1
-  %50 = getelementptr inbounds i8, ptr %src.addr.055.i, i64 %8
+  %50 = getelementptr inbounds i8, ptr %src.addr.056.i, i64 %8
   %add.ptr24.i = getelementptr inbounds i8, ptr %50, i64 2
-  %add.ptr27.i = getelementptr inbounds i8, ptr %dst.addr.056.i, i64 %add.i
+  %add.ptr27.i = getelementptr inbounds i8, ptr %dst.addr.055.i, i64 %add.i
   br label %if.end32.i
 
 if.else29.i:                                      ; preds = %if.end.i
-  %add.ptr30.i = getelementptr inbounds i8, ptr %src.addr.055.i, i64 64
-  %add.ptr31.i = getelementptr inbounds i8, ptr %dst.addr.056.i, i64 64
+  %add.ptr30.i = getelementptr inbounds i8, ptr %src.addr.056.i, i64 64
+  %add.ptr31.i = getelementptr inbounds i8, ptr %dst.addr.055.i, i64 64
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.else29.i, %if.end19.i, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i
-  %src.addr.4.i = phi ptr [ %add.ptr24.i, %if.end19.i ], [ %add.ptr30.i, %if.else29.i ], [ %src.addr.3.ph.i, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
   %dst.addr.1.i = phi ptr [ %add.ptr27.i, %if.end19.i ], [ %add.ptr31.i, %if.else29.i ], [ %add.ptr18.i48.i, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
+  %src.addr.4.i = phi ptr [ %add.ptr24.i, %if.end19.i ], [ %add.ptr30.i, %if.else29.i ], [ %src.addr.3.ph.i, %_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
   %.val.i = load <8 x i64>, ptr %src.addr.4.i, align 1
   store <8 x i64> %.val.i, ptr %dst.addr.1.i, align 1
   %51 = bitcast <8 x i64> %.val.i to <64 x i8>
@@ -9917,8 +9917,8 @@ sw.default.i.document_end.i_crit_edge.i:          ; preds = %sw.default.i.i
   br label %document_end.i.i
 
 object_begin.i.i:                                 ; preds = %sw.bb187.i.i, %sw.bb87.i.i, %sw.bb17.i.i
-  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb87.i.i ], [ %iter.sroa.54.5.i, %sw.bb187.i.i ], [ 0, %sw.bb17.i.i ]
   %iter.sroa.8.0.i = phi ptr [ %incdec.ptr.i160.i.i, %sw.bb87.i.i ], [ %incdec.ptr.i265.i.i, %sw.bb187.i.i ], [ %incdec.ptr.i.i.i, %sw.bb17.i.i ]
+  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb87.i.i ], [ %iter.sroa.54.5.i, %sw.bb187.i.i ], [ 0, %sw.bb17.i.i ]
   %inc.i.i = add i32 %iter.sroa.54.0.i, 1
   %conv48.i.i = zext i32 %inc.i.i to i64
   %_max_depth.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -9980,8 +9980,8 @@ if.end66.i.i:                                     ; preds = %if.end52.i.i
 object_field.i.i:                                 ; preds = %if.end134.i.i, %if.end66.i.i
   %this.val.i.i187.i.i = phi ptr [ %incdec.ptr.i.i.i.i215.i.i, %if.end134.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end66.i.i ]
   %24 = phi ptr [ %42, %if.end134.i.i ], [ %23, %if.end66.i.i ]
-  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end134.i.i ], [ %inc.i.i, %if.end66.i.i ]
   %incdec.ptr.i200.i.pn.i = phi ptr [ %incdec.ptr.i200.i.i, %if.end134.i.i ], [ %iter.sroa.8.0.i, %if.end66.i.i ]
+  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end134.i.i ], [ %inc.i.i, %if.end66.i.i ]
   %call2.i.i218.sink346.i.i = phi ptr [ %call2.i.i218.i.i, %if.end134.i.i ], [ %call2.i.i.i.i, %if.end66.i.i ]
   %iter.sroa.8.1.i = getelementptr inbounds i8, ptr %incdec.ptr.i200.i.pn.i, i64 4
   %add.ptr.i6.i.i221.i.i = getelementptr inbounds i8, ptr %24, i64 4
@@ -10053,8 +10053,8 @@ sw.epilog117.sink.split.i.i:                      ; preds = %sw.bb99.i.i, %sw.bb
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default111.i.i, %sw.epilog117.sink.split.i.i, %if.end151.i.i
-  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end151.i.i ], [ %iter.sroa.54.1.i, %sw.epilog117.sink.split.i.i ], [ %iter.sroa.54.1.i, %sw.default111.i.i ]
-  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end151.i.i ], [ %incdec.ptr.i184.i.i, %sw.epilog117.sink.split.i.i ], [ %incdec.ptr.i160.i.i, %sw.default111.i.i ]
+  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end151.i.i ], [ %incdec.ptr.i160.i.i, %sw.default111.i.i ], [ %incdec.ptr.i184.i.i, %sw.epilog117.sink.split.i.i ]
+  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end151.i.i ], [ %iter.sroa.54.1.i, %sw.default111.i.i ], [ %iter.sroa.54.1.i, %sw.epilog117.sink.split.i.i ]
   %incdec.ptr.i200.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.3.i, i64 4
   %36 = load i32, ptr %iter.sroa.8.3.i, align 4
   %idxprom.i201.i.i = zext i32 %36 to i64
@@ -10099,8 +10099,8 @@ if.end134.i.i:                                    ; preds = %sw.bb120.i.i
   br i1 %cmp.i.i219.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 scope_end.i.i:                                    ; preds = %array_continue.i.i, %object_continue.i.i
-  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %iter.sroa.8.4.i = phi ptr [ %incdec.ptr.i305.i.i, %array_continue.i.i ], [ %incdec.ptr.i200.i.i, %object_continue.i.i ]
+  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %.sink368.i.i = phi i64 [ 6701356245527298048, %array_continue.i.i ], [ 9007199254740992000, %object_continue.i.i ]
   %.sink355.i.i = phi i64 [ 6557241057451442176, %array_continue.i.i ], [ 8863084066665136128, %object_continue.i.i ]
   %conv.i.i314.i.i = zext i32 %iter.sroa.54.3.i to i64
@@ -10144,8 +10144,8 @@ if.end151.i.i:                                    ; preds = %scope_end.i.i
   br i1 %tobool157.i.i, label %array_continue.i.i, label %object_continue.i.i
 
 array_begin.i.i:                                  ; preds = %sw.bb199.i.i, %sw.bb99.i.i, %sw.bb29.i.i
-  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb29.i.i ], [ %iter.sroa.54.1.i, %sw.bb99.i.i ], [ %iter.sroa.54.5.i, %sw.bb199.i.i ]
   %iter.sroa.8.5.i = phi ptr [ %incdec.ptr.i.i.i, %sw.bb29.i.i ], [ %incdec.ptr.i160.i.i, %sw.bb99.i.i ], [ %incdec.ptr.i265.i.i, %sw.bb199.i.i ]
+  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb29.i.i ], [ %iter.sroa.54.1.i, %sw.bb99.i.i ], [ %iter.sroa.54.5.i, %sw.bb199.i.i ]
   %inc161.i.i = add i32 %iter.sroa.54.4.i, 1
   %conv163.i.i = zext i32 %inc161.i.i to i64
   %_max_depth.i242.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -10177,8 +10177,8 @@ if.end168.i.i:                                    ; preds = %array_begin.i.i
   br label %array_value.i.i
 
 array_value.i.i:                                  ; preds = %array_continue.i.i, %if.end168.i.i
-  %iter.sroa.54.5.i = phi i32 [ %inc161.i.i, %if.end168.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %iter.sroa.8.6.i = phi ptr [ %iter.sroa.8.5.i, %if.end168.i.i ], [ %incdec.ptr.i305.i.i, %array_continue.i.i ]
+  %iter.sroa.54.5.i = phi i32 [ %inc161.i.i, %if.end168.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %this.val76.val.i.i = load ptr, ptr %open_containers.i.i.i.i, align 8
   %conv.i308.i.i = zext i32 %iter.sroa.54.5.i to i64
   %count.i309.i.i = getelementptr inbounds %"struct.simdjson::westmere::open_container", ptr %this.val76.val.i.i, i64 %conv.i308.i.i, i32 1
@@ -10237,8 +10237,8 @@ sw.epilog217.sink.split.i.i:                      ; preds = %sw.bb199.i.i, %sw.b
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default211.i.i, %sw.epilog217.sink.split.i.i, %if.end151.i.i
-  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end151.i.i ], [ %iter.sroa.54.5.i, %sw.epilog217.sink.split.i.i ], [ %iter.sroa.54.5.i, %sw.default211.i.i ]
-  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end151.i.i ], [ %incdec.ptr.i289.i.i, %sw.epilog217.sink.split.i.i ], [ %incdec.ptr.i265.i.i, %sw.default211.i.i ]
+  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end151.i.i ], [ %incdec.ptr.i265.i.i, %sw.default211.i.i ], [ %incdec.ptr.i289.i.i, %sw.epilog217.sink.split.i.i ]
+  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end151.i.i ], [ %iter.sroa.54.5.i, %sw.default211.i.i ], [ %iter.sroa.54.5.i, %sw.epilog217.sink.split.i.i ]
   %incdec.ptr.i305.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.8.i, i64 4
   %67 = load i32, ptr %iter.sroa.8.8.i, align 4
   %idxprom.i306.i.i = zext i32 %67 to i64
@@ -10370,8 +10370,8 @@ sw.default.i.document_end.i_crit_edge.i:          ; preds = %sw.default.i.i
   br label %document_end.i.i
 
 object_begin.i.i:                                 ; preds = %sw.bb173.i.i, %sw.bb73.i.i, %sw.bb.i.i
-  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb73.i.i ], [ %iter.sroa.54.5.i, %sw.bb173.i.i ], [ 0, %sw.bb.i.i ]
   %iter.sroa.8.0.i = phi ptr [ %incdec.ptr.i144.i.i, %sw.bb73.i.i ], [ %incdec.ptr.i249.i.i, %sw.bb173.i.i ], [ %incdec.ptr.i.i.i, %sw.bb.i.i ]
+  %iter.sroa.54.0.i = phi i32 [ %iter.sroa.54.1.i, %sw.bb73.i.i ], [ %iter.sroa.54.5.i, %sw.bb173.i.i ], [ 0, %sw.bb.i.i ]
   %inc.i.i = add i32 %iter.sroa.54.0.i, 1
   %conv34.i.i = zext i32 %inc.i.i to i64
   %_max_depth.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -10433,8 +10433,8 @@ if.end52.i.i:                                     ; preds = %if.end38.i.i
 object_field.i.i:                                 ; preds = %if.end120.i.i, %if.end52.i.i
   %this.val.i.i171.i.i = phi ptr [ %incdec.ptr.i.i.i.i199.i.i, %if.end120.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end52.i.i ]
   %21 = phi ptr [ %39, %if.end120.i.i ], [ %20, %if.end52.i.i ]
-  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end120.i.i ], [ %inc.i.i, %if.end52.i.i ]
   %incdec.ptr.i184.i.pn.i = phi ptr [ %incdec.ptr.i184.i.i, %if.end120.i.i ], [ %iter.sroa.8.0.i, %if.end52.i.i ]
+  %iter.sroa.54.1.i = phi i32 [ %iter.sroa.54.2.i, %if.end120.i.i ], [ %inc.i.i, %if.end52.i.i ]
   %call2.i.i202.sink326.i.i = phi ptr [ %call2.i.i202.i.i, %if.end120.i.i ], [ %call2.i.i.i.i, %if.end52.i.i ]
   %iter.sroa.8.1.i = getelementptr inbounds i8, ptr %incdec.ptr.i184.i.pn.i, i64 4
   %add.ptr.i6.i.i205.i.i = getelementptr inbounds i8, ptr %21, i64 4
@@ -10506,8 +10506,8 @@ sw.epilog103.sink.split.i.i:                      ; preds = %sw.bb85.i.i, %sw.bb
   br label %object_continue.i.i
 
 object_continue.i.i:                              ; preds = %sw.default97.i.i, %sw.epilog103.sink.split.i.i, %if.end137.i.i
-  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.1.i, %sw.epilog103.sink.split.i.i ], [ %iter.sroa.54.1.i, %sw.default97.i.i ]
-  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i168.i.i, %sw.epilog103.sink.split.i.i ], [ %incdec.ptr.i144.i.i, %sw.default97.i.i ]
+  %iter.sroa.8.3.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i144.i.i, %sw.default97.i.i ], [ %incdec.ptr.i168.i.i, %sw.epilog103.sink.split.i.i ]
+  %iter.sroa.54.2.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.1.i, %sw.default97.i.i ], [ %iter.sroa.54.1.i, %sw.epilog103.sink.split.i.i ]
   %incdec.ptr.i184.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.3.i, i64 4
   %33 = load i32, ptr %iter.sroa.8.3.i, align 4
   %idxprom.i185.i.i = zext i32 %33 to i64
@@ -10552,8 +10552,8 @@ if.end120.i.i:                                    ; preds = %sw.bb106.i.i
   br i1 %cmp.i.i203.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 scope_end.i.i:                                    ; preds = %array_continue.i.i, %object_continue.i.i
-  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %iter.sroa.8.4.i = phi ptr [ %incdec.ptr.i289.i.i, %array_continue.i.i ], [ %incdec.ptr.i184.i.i, %object_continue.i.i ]
+  %iter.sroa.54.3.i = phi i32 [ %iter.sroa.54.6.i, %array_continue.i.i ], [ %iter.sroa.54.2.i, %object_continue.i.i ]
   %.sink348.i.i = phi i64 [ 6701356245527298048, %array_continue.i.i ], [ 9007199254740992000, %object_continue.i.i ]
   %.sink335.i.i = phi i64 [ 6557241057451442176, %array_continue.i.i ], [ 8863084066665136128, %object_continue.i.i ]
   %conv.i.i298.i.i = zext i32 %iter.sroa.54.3.i to i64
@@ -10597,8 +10597,8 @@ if.end137.i.i:                                    ; preds = %scope_end.i.i
   br i1 %tobool143.i.i, label %array_continue.i.i, label %object_continue.i.i
 
 array_begin.i.i:                                  ; preds = %sw.bb185.i.i, %sw.bb85.i.i, %sw.bb16.i.i
-  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb16.i.i ], [ %iter.sroa.54.1.i, %sw.bb85.i.i ], [ %iter.sroa.54.5.i, %sw.bb185.i.i ]
   %iter.sroa.8.5.i = phi ptr [ %incdec.ptr.i.i.i, %sw.bb16.i.i ], [ %incdec.ptr.i144.i.i, %sw.bb85.i.i ], [ %incdec.ptr.i249.i.i, %sw.bb185.i.i ]
+  %iter.sroa.54.4.i = phi i32 [ 0, %sw.bb16.i.i ], [ %iter.sroa.54.1.i, %sw.bb85.i.i ], [ %iter.sroa.54.5.i, %sw.bb185.i.i ]
   %inc147.i.i = add i32 %iter.sroa.54.4.i, 1
   %conv149.i.i = zext i32 %inc147.i.i to i64
   %_max_depth.i226.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -10630,8 +10630,8 @@ if.end154.i.i:                                    ; preds = %array_begin.i.i
   br label %array_value.i.i
 
 array_value.i.i:                                  ; preds = %array_continue.i.i, %if.end154.i.i
-  %iter.sroa.54.5.i = phi i32 [ %inc147.i.i, %if.end154.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %iter.sroa.8.6.i = phi ptr [ %iter.sroa.8.5.i, %if.end154.i.i ], [ %incdec.ptr.i289.i.i, %array_continue.i.i ]
+  %iter.sroa.54.5.i = phi i32 [ %inc147.i.i, %if.end154.i.i ], [ %iter.sroa.54.6.i, %array_continue.i.i ]
   %this.val69.val.i.i = load ptr, ptr %open_containers.i.i.i.i, align 8
   %conv.i292.i.i = zext i32 %iter.sroa.54.5.i to i64
   %count.i293.i.i = getelementptr inbounds %"struct.simdjson::westmere::open_container", ptr %this.val69.val.i.i, i64 %conv.i292.i.i, i32 1
@@ -10690,8 +10690,8 @@ sw.epilog203.sink.split.i.i:                      ; preds = %sw.bb185.i.i, %sw.b
   br label %array_continue.i.i
 
 array_continue.i.i:                               ; preds = %sw.default197.i.i, %sw.epilog203.sink.split.i.i, %if.end137.i.i
-  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.5.i, %sw.epilog203.sink.split.i.i ], [ %iter.sroa.54.5.i, %sw.default197.i.i ]
-  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i273.i.i, %sw.epilog203.sink.split.i.i ], [ %incdec.ptr.i249.i.i, %sw.default197.i.i ]
+  %iter.sroa.8.8.i = phi ptr [ %iter.sroa.8.4.i, %if.end137.i.i ], [ %incdec.ptr.i249.i.i, %sw.default197.i.i ], [ %incdec.ptr.i273.i.i, %sw.epilog203.sink.split.i.i ]
+  %iter.sroa.54.6.i = phi i32 [ %dec.i.i, %if.end137.i.i ], [ %iter.sroa.54.5.i, %sw.default197.i.i ], [ %iter.sroa.54.5.i, %sw.epilog203.sink.split.i.i ]
   %incdec.ptr.i289.i.i = getelementptr inbounds i8, ptr %iter.sroa.8.8.i, i64 4
   %64 = load i32, ptr %iter.sroa.8.8.i, align 4
   %idxprom.i290.i.i = zext i32 %64 to i64
@@ -10762,8 +10762,8 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %entry
-  %src.addr.0 = phi ptr [ %src, %entry ], [ %src.addr.0.be, %while.body.backedge ]
   %dst.addr.0 = phi ptr [ %dst, %entry ], [ %dst.addr.0.be, %while.body.backedge ]
+  %src.addr.0 = phi ptr [ %src, %entry ], [ %src.addr.0.be, %while.body.backedge ]
   %.val = load <2 x i64>, ptr %src.addr.0, align 1
   %0 = getelementptr i8, ptr %src.addr.0, i64 16
   %.val8 = load <2 x i64>, ptr %0, align 1
@@ -10988,8 +10988,8 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   br label %while.body.backedge
 
 while.body.backedge:                              ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread46, %if.end19, %if.else29
-  %src.addr.0.be = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %src.addr.3.ph, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread46 ]
   %dst.addr.0.be = phi ptr [ %add.ptr27, %if.end19 ], [ %add.ptr31, %if.else29 ], [ %add.ptr33.i50, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread46 ]
+  %src.addr.0.be = phi ptr [ %add.ptr24, %if.end19 ], [ %add.ptr30, %if.else29 ], [ %src.addr.3.ph, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.thread46 ]
   br label %while.body, !llvm.loop !54
 
 if.else:                                          ; preds = %if.then4
@@ -11024,8 +11024,8 @@ entry:
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %entry
-  %src.addr.0.i = phi ptr [ %src, %entry ], [ %src.addr.0.i.be, %while.body.i.backedge ]
   %dst.addr.0.i = phi ptr [ %dst, %entry ], [ %dst.addr.0.i.be, %while.body.i.backedge ]
+  %src.addr.0.i = phi ptr [ %src, %entry ], [ %src.addr.0.i.be, %while.body.i.backedge ]
   %.val.i = load <2 x i64>, ptr %src.addr.0.i, align 1
   %0 = getelementptr i8, ptr %src.addr.0.i, i64 16
   %.val8.i = load <2 x i64>, ptr %0, align 1
@@ -11258,8 +11258,8 @@ if.else29.i:                                      ; preds = %if.end.i
   br label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %if.else29.i, %if.end19.i, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i
-  %src.addr.0.i.be = phi ptr [ %add.ptr24.i, %if.end19.i ], [ %add.ptr30.i, %if.else29.i ], [ %src.addr.3.ph.i, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
   %dst.addr.0.i.be = phi ptr [ %add.ptr27.i, %if.end19.i ], [ %add.ptr31.i, %if.else29.i ], [ %add.ptr18.i45.i, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
+  %src.addr.0.i.be = phi ptr [ %add.ptr24.i, %if.end19.i ], [ %add.ptr30.i, %if.else29.i ], [ %src.addr.3.ph.i, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing31handle_unicode_codepoint_wobblyEPPKhPPh.exit.thread.i ]
   br label %while.body.i, !llvm.loop !55
 
 invoke.cont:                                      ; preds = %if.else.i, %if.else23.i.i.i, %if.then.i
@@ -13887,8 +13887,8 @@ if.then22.i.i.i:                                  ; preds = %if.end13.i.i.i
   br label %if.end35.i.i.i
 
 if.end35.i.i.i:                                   ; preds = %if.then22.i.i.i, %if.end13.i.i.i
-  %firstproduct.sroa.5.0.i.i.i = phi i64 [ %conv3.i.i.i.i, %if.end13.i.i.i ], [ %spec.select.i.i.i, %if.then22.i.i.i ]
   %firstproduct.sroa.0.0.i.i.i = phi i64 [ %conv2.i.i.i.i, %if.end13.i.i.i ], [ %add28.i.i.i, %if.then22.i.i.i ]
+  %firstproduct.sroa.5.0.i.i.i = phi i64 [ %conv3.i.i.i.i, %if.end13.i.i.i ], [ %spec.select.i.i.i, %if.then22.i.i.i ]
   %shr38.i.i.i = lshr i64 %firstproduct.sroa.5.0.i.i.i, 63
   %add39.i.i.i = add nuw nsw i64 %shr38.i.i.i, 9
   %shr40.i.i.i = lshr i64 %firstproduct.sroa.5.0.i.i.i, %add39.i.i.i
@@ -15904,8 +15904,8 @@ if.then22.i.i.i:                                  ; preds = %if.end13.i.i.i
   br label %if.end35.i.i.i
 
 if.end35.i.i.i:                                   ; preds = %if.then22.i.i.i, %if.end13.i.i.i
-  %firstproduct.sroa.5.0.i.i.i = phi i64 [ %conv3.i.i.i.i, %if.end13.i.i.i ], [ %spec.select.i.i.i, %if.then22.i.i.i ]
   %firstproduct.sroa.0.0.i.i.i = phi i64 [ %conv2.i.i.i.i, %if.end13.i.i.i ], [ %add28.i.i.i, %if.then22.i.i.i ]
+  %firstproduct.sroa.5.0.i.i.i = phi i64 [ %conv3.i.i.i.i, %if.end13.i.i.i ], [ %spec.select.i.i.i, %if.then22.i.i.i ]
   %shr38.i.i.i = lshr i64 %firstproduct.sroa.5.0.i.i.i, 63
   %add39.i.i.i = add nuw nsw i64 %shr38.i.i.i, 9
   %shr40.i.i.i = lshr i64 %firstproduct.sroa.5.0.i.i.i, %add39.i.i.i
@@ -17265,8 +17265,8 @@ if.then22.i.i.i:                                  ; preds = %if.end13.i.i.i
   br label %if.end35.i.i.i
 
 if.end35.i.i.i:                                   ; preds = %if.then22.i.i.i, %if.end13.i.i.i
-  %firstproduct.sroa.5.0.i.i.i = phi i64 [ %conv3.i.i.i.i, %if.end13.i.i.i ], [ %spec.select.i.i.i, %if.then22.i.i.i ]
   %firstproduct.sroa.0.0.i.i.i = phi i64 [ %conv2.i.i.i.i, %if.end13.i.i.i ], [ %add28.i.i.i, %if.then22.i.i.i ]
+  %firstproduct.sroa.5.0.i.i.i = phi i64 [ %conv3.i.i.i.i, %if.end13.i.i.i ], [ %spec.select.i.i.i, %if.then22.i.i.i ]
   %shr38.i.i.i = lshr i64 %firstproduct.sroa.5.0.i.i.i, 63
   %add39.i.i.i = add nuw nsw i64 %shr38.i.i.i, 9
   %shr40.i.i.i = lshr i64 %firstproduct.sroa.5.0.i.i.i, %add39.i.i.i
@@ -18819,8 +18819,8 @@ if.then22.i.i.i:                                  ; preds = %if.end13.i.i.i
   br label %if.end35.i.i.i
 
 if.end35.i.i.i:                                   ; preds = %if.then22.i.i.i, %if.end13.i.i.i
-  %firstproduct.sroa.5.0.i.i.i = phi i64 [ %conv3.i.i.i.i, %if.end13.i.i.i ], [ %spec.select.i.i.i, %if.then22.i.i.i ]
   %firstproduct.sroa.0.0.i.i.i = phi i64 [ %conv2.i.i.i.i, %if.end13.i.i.i ], [ %add28.i.i.i, %if.then22.i.i.i ]
+  %firstproduct.sroa.5.0.i.i.i = phi i64 [ %conv3.i.i.i.i, %if.end13.i.i.i ], [ %spec.select.i.i.i, %if.then22.i.i.i ]
   %shr38.i.i.i = lshr i64 %firstproduct.sroa.5.0.i.i.i, 63
   %add39.i.i.i = add nuw nsw i64 %shr38.i.i.i, 9
   %shr40.i.i.i = lshr i64 %firstproduct.sroa.5.0.i.i.i, %add39.i.i.i

@@ -1617,15 +1617,15 @@ for.cond:                                         ; preds = %for.cond, %if.else2
   br i1 %cmp211.not, label %do.body214, label %for.cond, !llvm.loop !14
 
 do.body214:                                       ; preds = %for.cond, %land.lhs.true200
-  %dsg.1 = phi ptr [ %dsgcache.0.ph141, %land.lhs.true200 ], [ %dsg.0, %for.cond ]
-  %width = getelementptr inbounds i8, ptr %dsg.1, i64 2
+  %dsgcache.1 = phi ptr [ %dsgcache.0.ph141, %land.lhs.true200 ], [ %dsg.0, %for.cond ]
+  %width = getelementptr inbounds i8, ptr %dsgcache.1, i64 2
   %54 = load i8, ptr %width, align 2
   %conv215 = zext i8 %54 to i64
   %cmp216 = icmp slt i64 %inleft.addr.0136, %conv215
   br i1 %cmp216, label %return, label %do.end220
 
 do.end220:                                        ; preds = %do.body214
-  %decoder = getelementptr inbounds i8, ptr %dsg.1, i64 16
+  %decoder = getelementptr inbounds i8, ptr %dsgcache.1, i64 16
   %55 = load ptr, ptr %decoder, align 8
   %call221 = tail call i32 %55(ptr noundef %codec, ptr noundef nonnull %1) #15
   %cmp222 = icmp eq i32 %call221, 65535
@@ -1750,7 +1750,7 @@ do.body288:                                       ; preds = %do.body231, %do.bod
 
 sw.epilog:                                        ; preds = %iso2022processg2.exit, %iso2022processesc.exit.thread118, %iso2022processesc.exit, %do.body92, %do.body288, %do.body193, %do.body155, %do.body129, %do.body111
   %inleft.addr.3 = phi i64 [ %sub195, %do.body193 ], [ %sub294, %do.body288 ], [ %sub157, %do.body155 ], [ %sub138, %do.body129 ], [ %sub120, %do.body111 ], [ %sub169.i, %iso2022processg2.exit ], [ %sub100, %do.body92 ], [ %inleft.addr.0136, %iso2022processesc.exit ], [ %sub.i, %iso2022processesc.exit.thread118 ]
-  %dsgcache.2 = phi ptr [ %dsgcache.0.ph141, %do.body193 ], [ %dsg.1, %do.body288 ], [ %dsgcache.0.ph141, %do.body155 ], [ %dsgcache.0.ph141, %do.body129 ], [ %dsgcache.0.ph141, %do.body111 ], [ %dsgcache.0.ph141, %iso2022processg2.exit ], [ %dsgcache.0.ph141, %do.body92 ], [ %dsgcache.0.ph141, %iso2022processesc.exit ], [ %dsgcache.0.ph141, %iso2022processesc.exit.thread118 ]
+  %dsgcache.2 = phi ptr [ %dsgcache.0.ph141, %do.body193 ], [ %dsgcache.1, %do.body288 ], [ %dsgcache.0.ph141, %do.body155 ], [ %dsgcache.0.ph141, %do.body129 ], [ %dsgcache.0.ph141, %do.body111 ], [ %dsgcache.0.ph141, %iso2022processg2.exit ], [ %dsgcache.0.ph141, %do.body92 ], [ %dsgcache.0.ph141, %iso2022processesc.exit ], [ %dsgcache.0.ph141, %iso2022processesc.exit.thread118 ]
   %cmp135 = icmp sgt i64 %inleft.addr.3, 0
   br i1 %cmp135, label %while.body.lr.ph, label %return, !llvm.loop !11
 

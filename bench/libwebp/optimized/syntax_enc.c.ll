@@ -302,24 +302,24 @@ GeneratePartition0.exit.thread:                   ; preds = %147, %GenerateParti
 
 160:                                              ; preds = %.lr.ph, %160
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %160 ]
-  %.077106 = phi i64 [ %157, %.lr.ph ], [ %162, %160 ]
+  %.075108 = phi i64 [ %157, %.lr.ph ], [ %162, %160 ]
   %161 = getelementptr %struct.VP8BitWriter, ptr %159, i64 %indvars.iv, i32 5
   %.val89 = load i64, ptr %161, align 8
-  %162 = add i64 %.val89, %.077106
+  %162 = add i64 %.val89, %.075108
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %160, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %160, %GeneratePartition0.exit.thread
-  %.077.lcssa = phi i64 [ %157, %GeneratePartition0.exit.thread ], [ %162, %160 ]
-  %163 = and i64 %.077.lcssa, 1
-  %164 = add i64 %163, %.077.lcssa
+  %.075.lcssa = phi i64 [ %157, %GeneratePartition0.exit.thread ], [ %162, %160 ]
+  %163 = and i64 %.075.lcssa, 1
+  %164 = add i64 %163, %.075.lcssa
   %165 = getelementptr i8, ptr %0, i64 540
   %.val92 = load i32, ptr %165, align 4
-  %.not103 = icmp eq i32 %.val92, 0
-  %spec.select.v = select i1 %.not103, i64 12, i64 30
+  %.not104 = icmp eq i32 %.val92, 0
+  %spec.select.v = select i1 %.not104, i64 12, i64 30
   %spec.select = add i64 %spec.select.v, %164
-  br i1 %.not103, label %174, label %166
+  br i1 %.not104, label %174, label %166
 
 166:                                              ; preds = %._crit_edge
   %167 = getelementptr inbounds i8, ptr %0, i64 552
@@ -332,8 +332,8 @@ GeneratePartition0.exit.thread:                   ; preds = %147, %GenerateParti
   br label %174
 
 174:                                              ; preds = %166, %._crit_edge
-  %.176 = phi i64 [ %173, %166 ], [ %spec.select, %._crit_edge ]
-  %175 = icmp ugt i64 %.176, 4294967294
+  %.177 = phi i64 [ %173, %166 ], [ %spec.select, %._crit_edge ]
+  %175 = icmp ugt i64 %.177, 4294967294
   br i1 %175, label %176, label %178
 
 176:                                              ; preds = %174
@@ -347,17 +347,17 @@ GeneratePartition0.exit.thread:                   ; preds = %147, %GenerateParti
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %9, ptr noundef nonnull align 1 dereferenceable(12) @__const.PutRIFFHeader.riff, i64 12, i1 false)
   %181 = getelementptr inbounds i8, ptr %9, i64 4
-  %182 = trunc i64 %.176 to i8
+  %182 = trunc i64 %.177 to i8
   store i8 %182, ptr %181, align 1
-  %183 = lshr i64 %.176, 8
+  %183 = lshr i64 %.177, 8
   %184 = trunc i64 %183 to i8
   %185 = getelementptr inbounds i8, ptr %9, i64 5
   store i8 %184, ptr %185, align 1
   %186 = getelementptr inbounds i8, ptr %9, i64 6
-  %187 = lshr i64 %.176, 16
+  %187 = lshr i64 %.177, 16
   %188 = trunc i64 %187 to i8
   store i8 %188, ptr %186, align 1
-  %189 = lshr i64 %.176, 24
+  %189 = lshr i64 %.177, 24
   %190 = trunc nuw i64 %189 to i8
   %191 = getelementptr inbounds i8, ptr %9, i64 7
   store i8 %190, ptr %191, align 1
@@ -592,8 +592,8 @@ PutWebPHeaders.exit:                              ; preds = %178, %196, %PutAlph
 314:                                              ; preds = %319, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %319 ]
   %315 = getelementptr %struct.VP8BitWriter, ptr %313, i64 %indvars.iv.i, i32 5
-  %.val.i97 = load i64, ptr %315, align 8
-  %316 = icmp ugt i64 %.val.i97, 16777215
+  %.val.i98 = load i64, ptr %315, align 8
+  %316 = icmp ugt i64 %.val.i98, 16777215
   br i1 %316, label %317, label %319
 
 317:                                              ; preds = %314
@@ -601,16 +601,16 @@ PutWebPHeaders.exit:                              ; preds = %178, %196, %PutAlph
   br label %EmitPartitionsSize.exit
 
 319:                                              ; preds = %314
-  %320 = trunc i64 %.val.i97 to i8
+  %320 = trunc i64 %.val.i98 to i8
   %321 = mul nuw nsw i64 %indvars.iv.i, 3
   %322 = getelementptr inbounds [21 x i8], ptr %3, i64 0, i64 %321
   store i8 %320, ptr %322, align 1
-  %323 = lshr i64 %.val.i97, 8
+  %323 = lshr i64 %.val.i98, 8
   %324 = trunc i64 %323 to i8
   %325 = add nuw nsw i64 %321, 1
   %326 = getelementptr inbounds [21 x i8], ptr %3, i64 0, i64 %325
   store i8 %324, ptr %326, align 1
-  %327 = lshr i64 %.val.i97, 16
+  %327 = lshr i64 %.val.i98, 16
   %328 = trunc nuw i64 %327 to i8
   %329 = add nuw nsw i64 %321, 2
   %330 = getelementptr inbounds [21 x i8], ptr %3, i64 0, i64 %329
@@ -632,9 +632,9 @@ PutWebPHeaders.exit:                              ; preds = %178, %196, %PutAlph
   br label %EmitPartitionsSize.exit
 
 EmitPartitionsSize.exit:                          ; preds = %309, %317, %._crit_edge.i, %335
-  %.018.i = phi i32 [ %318, %317 ], [ %336, %335 ], [ 1, %._crit_edge.i ], [ 1, %309 ]
+  %.0.i97 = phi i32 [ %318, %317 ], [ %336, %335 ], [ 1, %._crit_edge.i ], [ 1, %309 ]
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %3)
-  %337 = icmp ne i32 %.018.i, 0
+  %337 = icmp ne i32 %.0.i97, 0
   %338 = zext i1 %337 to i32
   br label %339
 
@@ -643,17 +643,17 @@ EmitPartitionsSize.exit:                          ; preds = %309, %317, %._crit_
   call void @VP8BitWriterWipeOut(ptr noundef nonnull %12) #4
   %341 = load i32, ptr %13, align 4
   %342 = icmp sgt i32 %341, 0
-  br i1 %342, label %.lr.ph111, label %._crit_edge112
+  br i1 %342, label %.lr.ph112, label %._crit_edge113
 
-.lr.ph111:                                        ; preds = %339
+.lr.ph112:                                        ; preds = %339
   %343 = getelementptr inbounds i8, ptr %0, i64 112
   %344 = getelementptr inbounds i8, ptr %11, i64 96
   br label %345
 
-345:                                              ; preds = %.lr.ph111, %363
-  %indvars.iv117 = phi i64 [ 0, %.lr.ph111 ], [ %indvars.iv.next118, %363 ]
-  %.078108 = phi i32 [ %340, %.lr.ph111 ], [ %365, %363 ]
-  %346 = getelementptr inbounds %struct.VP8BitWriter, ptr %343, i64 %indvars.iv117
+345:                                              ; preds = %.lr.ph112, %363
+  %indvars.iv118 = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next119, %363 ]
+  %.074110 = phi i32 [ %340, %.lr.ph112 ], [ %365, %363 ]
+  %346 = getelementptr inbounds %struct.VP8BitWriter, ptr %343, i64 %indvars.iv118
   %347 = getelementptr i8, ptr %346, i64 16
   %.val94 = load ptr, ptr %347, align 8
   %348 = getelementptr i8, ptr %346, i64 24
@@ -662,7 +662,7 @@ EmitPartitionsSize.exit:                          ; preds = %309, %317, %._crit_
   br i1 %.not86, label %357, label %349
 
 349:                                              ; preds = %345
-  %.not87 = icmp eq i32 %.078108, 0
+  %.not87 = icmp eq i32 %.074110, 0
   br i1 %.not87, label %354, label %350
 
 350:                                              ; preds = %349
@@ -677,9 +677,9 @@ EmitPartitionsSize.exit:                          ; preds = %309, %317, %._crit_
   br label %357
 
 357:                                              ; preds = %354, %345
-  %.179 = phi i32 [ %356, %354 ], [ %.078108, %345 ]
+  %.1 = phi i32 [ %356, %354 ], [ %.074110, %345 ]
   call void @VP8BitWriterWipeOut(ptr noundef nonnull %346) #4
-  %.not88 = icmp eq i32 %.179, 0
+  %.not88 = icmp eq i32 %.1, 0
   br i1 %.not88, label %363, label %358
 
 358:                                              ; preds = %357
@@ -692,20 +692,20 @@ EmitPartitionsSize.exit:                          ; preds = %309, %317, %._crit_
 363:                                              ; preds = %358, %357
   %364 = phi i1 [ false, %357 ], [ %362, %358 ]
   %365 = zext i1 %364 to i32
-  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
+  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %366 = load i32, ptr %13, align 4
   %367 = sext i32 %366 to i64
-  %368 = icmp slt i64 %indvars.iv.next118, %367
-  br i1 %368, label %345, label %._crit_edge112, !llvm.loop !11
+  %368 = icmp slt i64 %indvars.iv.next119, %367
+  br i1 %368, label %345, label %._crit_edge113, !llvm.loop !11
 
-._crit_edge112:                                   ; preds = %363, %339
-  %.078.lcssa = phi i32 [ %340, %339 ], [ %365, %363 ]
-  %369 = icmp ne i32 %.078.lcssa, 0
+._crit_edge113:                                   ; preds = %363, %339
+  %.074.lcssa = phi i32 [ %340, %339 ], [ %365, %363 ]
+  %369 = icmp ne i32 %.074.lcssa, 0
   %370 = icmp ne i64 %163, 0
   %or.cond = select i1 %369, i1 %370, i1 false
   br i1 %or.cond, label %371, label %377
 
-371:                                              ; preds = %._crit_edge112
+371:                                              ; preds = %._crit_edge113
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %372 = getelementptr inbounds i8, ptr %11, i64 96
@@ -716,9 +716,9 @@ EmitPartitionsSize.exit:                          ; preds = %309, %317, %._crit_
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   br label %377
 
-377:                                              ; preds = %371, %._crit_edge112
-  %.2 = phi i32 [ %376, %371 ], [ %.078.lcssa, %._crit_edge112 ]
-  %378 = trunc nuw i64 %.176 to i32
+377:                                              ; preds = %371, %._crit_edge113
+  %.2 = phi i32 [ %376, %371 ], [ %.074.lcssa, %._crit_edge113 ]
+  %378 = trunc nuw i64 %.177 to i32
   %379 = add i32 %378, 8
   %380 = getelementptr inbounds i8, ptr %0, i64 23552
   store i32 %379, ptr %380, align 8
@@ -727,8 +727,8 @@ EmitPartitionsSize.exit:                          ; preds = %309, %317, %._crit_
 
 381:                                              ; preds = %377
   %382 = call i32 @WebPReportProgress(ptr noundef %11, i32 noundef %18, ptr noundef nonnull %16) #4
-  %.not104 = icmp eq i32 %382, 0
-  br i1 %.not104, label %.thread, label %384
+  %.not105 = icmp eq i32 %382, 0
+  br i1 %.not105, label %.thread, label %384
 
 .thread:                                          ; preds = %377, %381
   %383 = call i32 @WebPEncodingSetError(ptr noundef %11, i32 noundef 8) #4

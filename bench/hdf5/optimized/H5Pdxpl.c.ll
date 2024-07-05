@@ -3204,17 +3204,17 @@ define internal range(i32 -1, 1) i32 @H5P__dxfr_xform_enc(ptr nocapture noundef 
   br label %H5VM_limit_enc_size.exit
 
 .thread74:                                        ; preds = %.thread, %59
-  %.03856677279 = phi i64 [ %14, %59 ], [ 0, %.thread ]
-  %.03758657378 = phi ptr [ %6, %59 ], [ null, %.thread ]
+  %.03756677279 = phi i64 [ %14, %59 ], [ 0, %.thread ]
+  %.03658657378 = phi ptr [ %6, %59 ], [ null, %.thread ]
   %66 = phi ptr [ %15, %59 ], [ %16, %.thread ]
-  %67 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %.03856677279
+  %67 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %.03756677279
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
   br label %H5VM_limit_enc_size.exit
 
 H5VM_limit_enc_size.exit:                         ; preds = %22, %28, %34, %40, %48, %54, %60, %.thread74
-  %.0385666 = phi i64 [ %14, %22 ], [ %14, %28 ], [ %14, %34 ], [ %14, %40 ], [ %14, %48 ], [ %14, %54 ], [ %14, %60 ], [ %.03856677279, %.thread74 ]
-  %.0375864 = phi ptr [ %6, %22 ], [ %6, %28 ], [ %6, %34 ], [ %6, %40 ], [ %6, %48 ], [ %6, %54 ], [ %6, %60 ], [ %.03758657378, %.thread74 ]
+  %.0375666 = phi i64 [ %14, %22 ], [ %14, %28 ], [ %14, %34 ], [ %14, %40 ], [ %14, %48 ], [ %14, %54 ], [ %14, %60 ], [ %.03756677279, %.thread74 ]
+  %.0365864 = phi ptr [ %6, %22 ], [ %6, %28 ], [ %6, %34 ], [ %6, %40 ], [ %6, %48 ], [ %6, %54 ], [ %6, %60 ], [ %.03658657378, %.thread74 ]
   %70 = phi ptr [ %15, %22 ], [ %15, %28 ], [ %15, %34 ], [ %15, %40 ], [ %15, %48 ], [ %15, %54 ], [ %15, %60 ], [ %66, %.thread74 ]
   %.0.i.i = phi i32 [ %27, %22 ], [ %32, %28 ], [ %39, %34 ], [ %44, %40 ], [ %53, %48 ], [ %58, %54 ], [ %65, %60 ], [ %69, %.thread74 ]
   %71 = lshr i32 %.0.i.i, 3
@@ -3230,7 +3230,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %22, %28, %34, %40, 
 77:                                               ; preds = %H5VM_limit_enc_size.exit, %77
   %.0102 = phi ptr [ %75, %H5VM_limit_enc_size.exit ], [ %79, %77 ]
   %.034101 = phi i64 [ 0, %H5VM_limit_enc_size.exit ], [ %80, %77 ]
-  %.035100 = phi i64 [ %.0385666, %H5VM_limit_enc_size.exit ], [ %81, %77 ]
+  %.035100 = phi i64 [ %.0375666, %H5VM_limit_enc_size.exit ], [ %81, %77 ]
   %78 = trunc i64 %.035100 to i8
   %79 = getelementptr inbounds i8, ptr %.0102, i64 1
   store i8 %78, ptr %.0102, align 1
@@ -3246,31 +3246,31 @@ H5VM_limit_enc_size.exit:                         ; preds = %22, %28, %34, %40, 
   br i1 %.not, label %88, label %85
 
 85:                                               ; preds = %82
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr align 1 %.0375864, i64 %.0385666, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr align 1 %.0365864, i64 %.0375666, i1 false)
   %86 = load ptr, ptr %1, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 %.0385666
+  %87 = getelementptr inbounds i8, ptr %86, i64 %.0375666
   store ptr %87, ptr %1, align 8
   store i8 0, ptr %87, align 1
   br label %88
 
 88:                                               ; preds = %82, %85, %12
-  %.03759 = phi ptr [ %.0375864, %82 ], [ %.0375864, %85 ], [ %6, %12 ]
-  %.03857 = phi i64 [ %.0385666, %82 ], [ %.0385666, %85 ], [ %14, %12 ]
-  %89 = lshr i64 %.03857, 32
-  %.not.i.i44 = icmp ult i64 %.03857, 4294967296
+  %.03659 = phi ptr [ %.0365864, %82 ], [ %.0365864, %85 ], [ %6, %12 ]
+  %.03757 = phi i64 [ %.0375666, %82 ], [ %.0375666, %85 ], [ %14, %12 ]
+  %89 = lshr i64 %.03757, 32
+  %.not.i.i44 = icmp ult i64 %.03757, 4294967296
   br i1 %.not.i.i44, label %116, label %90
 
 90:                                               ; preds = %88
-  %91 = lshr i64 %.03857, 48
-  %.not26.i.i45 = icmp ult i64 %.03857, 281474976710656
+  %91 = lshr i64 %.03757, 48
+  %.not26.i.i45 = icmp ult i64 %.03757, 281474976710656
   br i1 %.not26.i.i45, label %104, label %92
 
 92:                                               ; preds = %90
-  %.not28.i.i46 = icmp ult i64 %.03857, 72057594037927936
+  %.not28.i.i46 = icmp ult i64 %.03757, 72057594037927936
   br i1 %.not28.i.i46, label %99, label %93
 
 93:                                               ; preds = %92
-  %94 = lshr i64 %.03857, 56
+  %94 = lshr i64 %.03757, 56
   %95 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %94
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i32
@@ -3285,11 +3285,11 @@ H5VM_limit_enc_size.exit:                         ; preds = %22, %28, %34, %40, 
   br label %H5VM_limit_enc_size.exit52
 
 104:                                              ; preds = %90
-  %.not27.i.i48 = icmp ult i64 %.03857, 1099511627776
+  %.not27.i.i48 = icmp ult i64 %.03757, 1099511627776
   br i1 %.not27.i.i48, label %111, label %105
 
 105:                                              ; preds = %104
-  %106 = lshr i64 %.03857, 40
+  %106 = lshr i64 %.03757, 40
   %107 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %106
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
@@ -3304,16 +3304,16 @@ H5VM_limit_enc_size.exit:                         ; preds = %22, %28, %34, %40, 
   br label %H5VM_limit_enc_size.exit52
 
 116:                                              ; preds = %88
-  %117 = lshr i64 %.03857, 16
-  %.not23.i.i49 = icmp ult i64 %.03857, 65536
+  %117 = lshr i64 %.03757, 16
+  %.not23.i.i49 = icmp ult i64 %.03757, 65536
   br i1 %.not23.i.i49, label %130, label %118
 
 118:                                              ; preds = %116
-  %.not25.i.i50 = icmp ult i64 %.03857, 16777216
+  %.not25.i.i50 = icmp ult i64 %.03757, 16777216
   br i1 %.not25.i.i50, label %125, label %119
 
 119:                                              ; preds = %118
-  %120 = lshr i64 %.03857, 24
+  %120 = lshr i64 %.03757, 24
   %121 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %120
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
@@ -3328,11 +3328,11 @@ H5VM_limit_enc_size.exit:                         ; preds = %22, %28, %34, %40, 
   br label %H5VM_limit_enc_size.exit52
 
 130:                                              ; preds = %116
-  %.not24.i.i51 = icmp ult i64 %.03857, 256
+  %.not24.i.i51 = icmp ult i64 %.03757, 256
   br i1 %.not24.i.i51, label %.thread94, label %131
 
 131:                                              ; preds = %130
-  %132 = lshr i64 %.03857, 8
+  %132 = lshr i64 %.03757, 8
   %133 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %132
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i32
@@ -3340,16 +3340,16 @@ H5VM_limit_enc_size.exit:                         ; preds = %22, %28, %34, %40, 
   br label %H5VM_limit_enc_size.exit52
 
 .thread94:                                        ; preds = %.thread, %130
-  %.03857879299 = phi i64 [ %.03857, %130 ], [ 0, %.thread ]
-  %.03759859398 = phi ptr [ %.03759, %130 ], [ null, %.thread ]
-  %137 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %.03857879299
+  %.03757879299 = phi i64 [ %.03757, %130 ], [ 0, %.thread ]
+  %.03659859398 = phi ptr [ %.03659, %130 ], [ null, %.thread ]
+  %137 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %.03757879299
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i32
   br label %H5VM_limit_enc_size.exit52
 
 H5VM_limit_enc_size.exit52:                       ; preds = %93, %99, %105, %111, %119, %125, %131, %.thread94
-  %.0385786 = phi i64 [ %.03857, %93 ], [ %.03857, %99 ], [ %.03857, %105 ], [ %.03857, %111 ], [ %.03857, %119 ], [ %.03857, %125 ], [ %.03857, %131 ], [ %.03857879299, %.thread94 ]
-  %.0375984 = phi ptr [ %.03759, %93 ], [ %.03759, %99 ], [ %.03759, %105 ], [ %.03759, %111 ], [ %.03759, %119 ], [ %.03759, %125 ], [ %.03759, %131 ], [ %.03759859398, %.thread94 ]
+  %.0375786 = phi i64 [ %.03757, %93 ], [ %.03757, %99 ], [ %.03757, %105 ], [ %.03757, %111 ], [ %.03757, %119 ], [ %.03757, %125 ], [ %.03757, %131 ], [ %.03757879299, %.thread94 ]
+  %.0365984 = phi ptr [ %.03659, %93 ], [ %.03659, %99 ], [ %.03659, %105 ], [ %.03659, %111 ], [ %.03659, %119 ], [ %.03659, %125 ], [ %.03659, %131 ], [ %.03659859398, %.thread94 ]
   %.0.i.i47 = phi i32 [ %98, %93 ], [ %103, %99 ], [ %110, %105 ], [ %115, %111 ], [ %124, %119 ], [ %129, %125 ], [ %136, %131 ], [ %139, %.thread94 ]
   %140 = lshr i32 %.0.i.i47, 3
   %141 = add nuw nsw i32 %140, 2
@@ -3357,17 +3357,17 @@ H5VM_limit_enc_size.exit52:                       ; preds = %93, %99, %105, %111
   %143 = load i64, ptr %2, align 8
   %144 = add i64 %143, %142
   store i64 %144, ptr %2, align 8
-  %.not43 = icmp eq ptr %.0375984, null
+  %.not43 = icmp eq ptr %.0365984, null
   br i1 %.not43, label %147, label %145
 
 145:                                              ; preds = %H5VM_limit_enc_size.exit52
-  %146 = add i64 %144, %.0385786
+  %146 = add i64 %144, %.0375786
   store i64 %146, ptr %2, align 8
   br label %147
 
 147:                                              ; preds = %H5VM_limit_enc_size.exit52, %145, %8
-  %.036 = phi i32 [ -1, %8 ], [ 0, %145 ], [ 0, %H5VM_limit_enc_size.exit52 ]
-  ret i32 %.036
+  %.038 = phi i32 [ -1, %8 ], [ 0, %145 ], [ 0, %H5VM_limit_enc_size.exit52 ]
+  ret i32 %.038
 }
 
 ; Function Attrs: nounwind uwtable

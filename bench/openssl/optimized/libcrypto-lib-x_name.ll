@@ -171,8 +171,8 @@ if.end4:                                          ; preds = %if.end
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end46, %if.end4
-  %s.0 = phi ptr [ %add.ptr, %if.end4 ], [ %incdec.ptr, %if.end46 ]
   %c.0 = phi ptr [ %add.ptr, %if.end4 ], [ %c.1.ph, %if.end46 ]
+  %s.0 = phi ptr [ %add.ptr, %if.end4 ], [ %incdec.ptr, %if.end46 ]
   %1 = load i8, ptr %s.0, align 1
   %cmp6 = icmp eq i8 %1, 47
   br i1 %cmp6, label %land.lhs.true, label %lor.lhs.false24
@@ -961,9 +961,9 @@ i2d_name_canon.exit.thread57:                     ; preds = %for.end
   br label %if.end53
 
 for.body.i:                                       ; preds = %for.end, %if.end.i
-  %len.010.i = phi i32 [ %add.i, %if.end.i ], [ 0, %for.end ]
-  %i.09.i = phi i32 [ %inc.i31, %if.end.i ], [ 0, %for.end ]
-  %call3.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i, i32 noundef %i.09.i) #6
+  %i.010.i = phi i32 [ %inc.i31, %if.end.i ], [ 0, %for.end ]
+  %len.09.i = phi i32 [ %add.i, %if.end.i ], [ 0, %for.end ]
+  %call3.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i, i32 noundef %i.010.i) #6
   store ptr %call3.i, ptr %v.i, align 8
   %call5.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %v.i, ptr noundef null, ptr noundef nonnull @X509_NAME_ENTRIES_it.local_it, i32 noundef -1, i32 noundef -1) #6
   %cmp6.i = icmp slt i32 %call5.i, 0
@@ -974,8 +974,8 @@ i2d_name_canon.exit.thread:                       ; preds = %for.body.i
   br label %err
 
 if.end.i:                                         ; preds = %for.body.i
-  %add.i = add nuw nsw i32 %call5.i, %len.010.i
-  %inc.i31 = add nuw nsw i32 %i.09.i, 1
+  %add.i = add nuw nsw i32 %call5.i, %len.09.i
+  %inc.i31 = add nuw nsw i32 %i.010.i, 1
   %call1.i32 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call.i) #6
   %cmp.i33 = icmp slt i32 %inc.i31, %call1.i32
   br i1 %cmp.i33, label %for.body.i, label %i2d_name_canon.exit, !llvm.loop !13
@@ -1002,15 +1002,15 @@ if.end60:                                         ; preds = %if.end53
   br i1 %cmp8.i36, label %for.body.i38, label %i2d_name_canon.exit49
 
 for.body.i38:                                     ; preds = %if.end60, %if.end.i44
-  %i.09.i40 = phi i32 [ %inc.i46, %if.end.i44 ], [ 0, %if.end60 ]
-  %call3.i41 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i, i32 noundef %i.09.i40) #6
+  %i.010.i39 = phi i32 [ %inc.i46, %if.end.i44 ], [ 0, %if.end60 ]
+  %call3.i41 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i, i32 noundef %i.010.i39) #6
   store ptr %call3.i41, ptr %v.i34, align 8
   %call5.i42 = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %v.i34, ptr noundef nonnull %p, ptr noundef nonnull @X509_NAME_ENTRIES_it.local_it, i32 noundef -1, i32 noundef -1) #6
   %cmp6.i43 = icmp slt i32 %call5.i42, 0
   br i1 %cmp6.i43, label %i2d_name_canon.exit49, label %if.end.i44
 
 if.end.i44:                                       ; preds = %for.body.i38
-  %inc.i46 = add nuw nsw i32 %i.09.i40, 1
+  %inc.i46 = add nuw nsw i32 %i.010.i39, 1
   %call1.i47 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call.i) #6
   %cmp.i48 = icmp slt i32 %inc.i46, %call1.i47
   br i1 %cmp.i48, label %for.body.i38, label %i2d_name_canon.exit49, !llvm.loop !13

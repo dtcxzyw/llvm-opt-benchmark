@@ -148,7 +148,7 @@ define range(i32 -1, 1) i32 @hash_g_fini() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.preheader ]
-  %.01221 = phi i32 [ %.1, %23 ], [ 0, %.preheader ]
+  %.022 = phi i32 [ %.1, %23 ], [ 0, %.preheader ]
   %8 = load ptr, ptr @g_context, align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
@@ -176,7 +176,7 @@ define range(i32 -1, 1) i32 @hash_g_fini() local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %13, %16, %11, %.lr.ph
-  %.1 = phi i32 [ %.01221, %11 ], [ %.01221, %.lr.ph ], [ -1, %16 ], [ -1, %13 ]
+  %.1 = phi i32 [ %.022, %11 ], [ %.022, %.lr.ph ], [ -1, %16 ], [ -1, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr @g_context_num, align 4
   %25 = sext i32 %24 to i64
@@ -184,14 +184,14 @@ define range(i32 -1, 1) i32 @hash_g_fini() local_unnamed_addr #0 {
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %23, %.preheader
-  %.012.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %23 ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %23 ]
   tail call void @slurm_xfree(ptr noundef nonnull @ops) #5
   tail call void @slurm_xfree(ptr noundef nonnull @g_context) #5
   store i32 -1, ptr @g_context_num, align 4
   br label %27
 
 27:                                               ; preds = %._crit_edge, %4
-  %.2 = phi i32 [ %.012.lcssa, %._crit_edge ], [ 0, %4 ]
+  %.2 = phi i32 [ %.0.lcssa, %._crit_edge ], [ 0, %4 ]
   %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #5
   %.not18 = icmp eq i32 %28, 0
   br i1 %.not18, label %31, label %29

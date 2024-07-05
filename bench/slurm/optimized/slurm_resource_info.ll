@@ -482,7 +482,7 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   br label %32
 
 32:                                               ; preds = %.lr.ph, %233
-  %.073 = phi i1 [ true, %.lr.ph ], [ %.1, %233 ]
+  %.05173 = phi i1 [ true, %.lr.ph ], [ %.1, %233 ]
   %33 = call ptr @strsep(ptr noundef nonnull %5, ptr noundef nonnull @.str.25) #14
   store ptr %33, ptr %6, align 8
   %.not59 = icmp eq ptr %33, null
@@ -502,7 +502,7 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   br label %.critedge.thread
 
 40:                                               ; preds = %34
-  %brmerge.not = select i1 %.not.i.not, i1 %.073, i1 false
+  %brmerge.not = select i1 %.not.i.not, i1 %.05173, i1 false
   br i1 %brmerge.not, label %41, label %45
 
 41:                                               ; preds = %40
@@ -515,7 +515,7 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   br label %45
 
 45:                                               ; preds = %40, %41, %44
-  %.1 = phi i1 [ %.073, %40 ], [ false, %44 ], [ false, %41 ]
+  %.1 = phi i1 [ %.05173, %40 ], [ false, %44 ], [ false, %41 ]
   %46 = load ptr, ptr %6, align 8
   %47 = call i32 @xstrcasecmp(ptr noundef %46, ptr noundef nonnull @.str.28) #14
   %48 = icmp eq i32 %47, 0
@@ -851,9 +851,9 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   unreachable
 
 .critedge.thread:                                 ; preds = %32, %37
-  %.051 = phi i32 [ 1, %37 ], [ 0, %32 ]
+  %.0 = phi i32 [ 1, %37 ], [ 0, %32 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #14
-  ret i32 %.051
+  ret i32 %.0
 }
 
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #3

@@ -225,8 +225,8 @@ define internal i32 @dissect_btsmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %18
 
 18:                                               ; preds = %14, %4
-  %.0125 = phi i32 [ %15, %14 ], [ 0, %4 ]
-  %.0 = phi i32 [ %17, %14 ], [ 0, %4 ]
+  %.0127 = phi i32 [ %15, %14 ], [ 0, %4 ]
+  %.0126 = phi i32 [ %17, %14 ], [ 0, %4 ]
   %19 = load i32, ptr @proto_btsmp, align 4
   %20 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef %20, i32 noundef 0) #2
@@ -328,7 +328,7 @@ define internal i32 @dissect_btsmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %75 = load i32, ptr @hf_address_type, align 4
   %76 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %75, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %77 = load i32, ptr @hf_bd_addr, align 4
-  %78 = tail call i32 @dissect_bd_addr(i32 noundef %77, ptr noundef nonnull %1, ptr noundef %23, ptr noundef %0, i32 noundef 2, i32 noundef 0, i32 noundef %.0125, i32 noundef %.0, ptr noundef null) #2
+  %78 = tail call i32 @dissect_bd_addr(i32 noundef %77, ptr noundef nonnull %1, ptr noundef %23, ptr noundef %0, i32 noundef 2, i32 noundef 0, i32 noundef %.0127, i32 noundef %.0126, ptr noundef null) #2
   br label %107
 
 79:                                               ; preds = %31
@@ -380,8 +380,8 @@ define internal i32 @dissect_btsmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %107
 
 107:                                              ; preds = %38, %50, %53, %56, %63, %66, %71, %74, %79, %82, %97, %100, %31, %96, %91, %18
-  %.0126 = phi i32 [ 0, %18 ], [ 1, %31 ], [ 2, %100 ], [ 17, %97 ], [ %84, %82 ], [ 17, %79 ], [ %78, %74 ], [ 17, %71 ], [ 11, %66 ], [ 17, %63 ], [ 2, %56 ], [ 17, %53 ], [ 17, %50 ], [ %49, %38 ], [ 65, %96 ], [ 65, %91 ]
-  ret i32 %.0126
+  %.0 = phi i32 [ 0, %18 ], [ 1, %31 ], [ 2, %100 ], [ 17, %97 ], [ %84, %82 ], [ 17, %79 ], [ %78, %74 ], [ 17, %71 ], [ 11, %66 ], [ 17, %63 ], [ 2, %56 ], [ 17, %53 ], [ 17, %50 ], [ %49, %38 ], [ 65, %96 ], [ 65, %91 ]
+  ret i32 %.0
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

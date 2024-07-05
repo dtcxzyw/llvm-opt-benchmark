@@ -1160,19 +1160,19 @@ define noundef i64 @_Z17fast_rv64e_kmsr64P11processor_t6insn_tm(ptr nocapture no
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %80, %67, %102
-  %.075 = phi i64 [ %71, %67 ], [ %105, %102 ], [ %84, %80 ]
+  %.04774 = phi i64 [ %71, %67 ], [ %105, %102 ], [ %84, %80 ]
   %112 = getelementptr inbounds i8, ptr %0, i64 659712
   %113 = load ptr, ptr %112, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %113, i64 noundef 1) #13
   br label %114
 
 114:                                              ; preds = %80, %67, %102, %111
-  %.074 = phi i64 [ %69, %67 ], [ %103, %102 ], [ %.075, %111 ], [ %82, %80 ]
+  %.04773 = phi i64 [ %69, %67 ], [ %103, %102 ], [ %.04774, %111 ], [ %82, %80 ]
   %.not.i = icmp eq i64 %43, 0
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %115
 
 115:                                              ; preds = %114
-  store i64 %.074, ptr %53, align 8
+  store i64 %.04773, ptr %53, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %114, %115
@@ -1685,14 +1685,14 @@ define noundef i64 @_Z19logged_rv64e_kmsr64P11processor_t6insn_tm(ptr noundef %0
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %80, %67, %102
-  %.04981 = phi i64 [ %71, %67 ], [ %105, %102 ], [ %84, %80 ]
+  %.05081 = phi i64 [ %71, %67 ], [ %105, %102 ], [ %84, %80 ]
   %112 = getelementptr inbounds i8, ptr %0, i64 659712
   %113 = load ptr, ptr %112, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %113, i64 noundef 1) #13
   br label %114
 
 114:                                              ; preds = %80, %67, %111, %102
-  %.04980 = phi i64 [ %69, %67 ], [ %.04981, %111 ], [ %103, %102 ], [ %82, %80 ]
+  %.05080 = phi i64 [ %69, %67 ], [ %.05081, %111 ], [ %103, %102 ], [ %82, %80 ]
   %115 = getelementptr inbounds i8, ptr %0, i64 3672
   %116 = shl nuw nsw i64 %43, 4
   %117 = getelementptr inbounds i8, ptr %0, i64 3680
@@ -1747,14 +1747,14 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 .loopexit:                                        ; preds = %128, %.loopexit.i.i, %123
   %.0.i.pn.i.i = phi ptr [ %124, %123 ], [ %138, %.loopexit.i.i ], [ %130, %128 ]
   %.0.i.i = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  store i64 %.04980, ptr %.0.i.i, align 8
+  store i64 %.05080, ptr %.0.i.i, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %.not.i = icmp eq i64 %43, 0
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %140
 
 140:                                              ; preds = %.loopexit
-  store i64 %.04980, ptr %53, align 8
+  store i64 %.05080, ptr %53, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %.loopexit, %140

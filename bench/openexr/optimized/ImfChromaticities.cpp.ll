@@ -668,17 +668,17 @@ for.body7.preheader:                              ; preds = %for.cond.loopexit, 
 
 for.body7:                                        ; preds = %for.body7.preheader, %for.body7
   %indvars.iv146 = phi i64 [ %indvars.iv, %for.body7.preheader ], [ %indvars.iv.next147, %for.body7 ]
-  %pivotsize.1134 = phi float [ %pivotsize.0, %for.body7.preheader ], [ %pivotsize.2, %for.body7 ]
-  %pivot.0133 = phi i32 [ %5, %for.body7.preheader ], [ %pivot.1, %for.body7 ]
+  %pivotsize.1133 = phi float [ %pivotsize.0, %for.body7.preheader ], [ %pivotsize.2, %for.body7 ]
+  %pivot.0132 = phi i32 [ %5, %for.body7.preheader ], [ %pivot.1, %for.body7 ]
   %arrayidx12 = getelementptr inbounds [4 x [4 x float]], ptr %t, i64 0, i64 %indvars.iv146, i64 %indvars.iv161
   %7 = load float, ptr %arrayidx12, align 4
   %cmp13 = fcmp olt float %7, 0.000000e+00
   %fneg15 = fneg float %7
   %tmp.0 = select i1 %cmp13, float %fneg15, float %7
-  %cmp17 = fcmp ogt float %tmp.0, %pivotsize.1134
+  %cmp17 = fcmp ogt float %tmp.0, %pivotsize.1133
   %8 = trunc nuw nsw i64 %indvars.iv146 to i32
-  %pivot.1 = select i1 %cmp17, i32 %8, i32 %pivot.0133
-  %pivotsize.2 = select i1 %cmp17, float %tmp.0, float %pivotsize.1134
+  %pivot.1 = select i1 %cmp17, i32 %8, i32 %pivot.0132
+  %pivotsize.2 = select i1 %cmp17, float %tmp.0, float %pivotsize.1133
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next147, 4
   br i1 %exitcond.not, label %for.end, label %for.body7, !llvm.loop !10

@@ -2039,13 +2039,13 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   br label %15
 
 15:                                               ; preds = %13, %11
-  %.083 = phi i64 [ %12, %11 ], [ %14, %13 ]
-  %16 = tail call i32 @H5Tget_class(i64 noundef %.083) #13
+  %.084 = phi i64 [ %12, %11 ], [ %14, %13 ]
+  %16 = tail call i32 @H5Tget_class(i64 noundef %.084) #13
   %.not = icmp eq i32 %16, 3
   br i1 %.not, label %17, label %.thread123
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @H5Tis_variable_str(i64 noundef %.083) #13
+  %18 = tail call i32 @H5Tis_variable_str(i64 noundef %.084) #13
   br i1 %10, label %19, label %33
 
 19:                                               ; preds = %17
@@ -2055,7 +2055,7 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   br i1 %22, label %.thread123, label %23
 
 23:                                               ; preds = %19
-  %24 = tail call i64 @H5Tget_size(i64 noundef %.083) #13
+  %24 = tail call i64 @H5Tget_size(i64 noundef %.084) #13
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %.thread123, label %26
 
@@ -2066,7 +2066,7 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   br i1 %29, label %.thread123, label %30
 
 30:                                               ; preds = %26
-  %31 = tail call i32 @H5Dread(i64 noundef %0, i64 noundef %.083, i64 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %28) #13
+  %31 = tail call i32 @H5Dread(i64 noundef %0, i64 noundef %.084, i64 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %28) #13
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %104, label %47
 
@@ -2077,7 +2077,7 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   br i1 %36, label %.thread123, label %37
 
 37:                                               ; preds = %33
-  %38 = tail call i64 @H5Tget_size(i64 noundef %.083) #13
+  %38 = tail call i64 @H5Tget_size(i64 noundef %.084) #13
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %.thread123, label %40
 
@@ -2088,25 +2088,25 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   br i1 %43, label %.thread123, label %44
 
 44:                                               ; preds = %40
-  %45 = tail call i32 @H5Aread(i64 noundef %0, i64 noundef %.083, ptr noundef nonnull %42) #13
+  %45 = tail call i32 @H5Aread(i64 noundef %0, i64 noundef %.084, ptr noundef nonnull %42) #13
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %104, label %47
 
 47:                                               ; preds = %44, %30
-  %.081 = phi i64 [ %20, %30 ], [ %34, %44 ]
-  %.080 = phi i64 [ %21, %30 ], [ %35, %44 ]
-  %.079 = phi i64 [ %24, %30 ], [ %38, %44 ]
-  %.0 = phi ptr [ %28, %30 ], [ %42, %44 ]
+  %.082 = phi i64 [ %20, %30 ], [ %34, %44 ]
+  %.081 = phi i64 [ %21, %30 ], [ %35, %44 ]
+  %.080 = phi i64 [ %24, %30 ], [ %38, %44 ]
+  %.073 = phi ptr [ %28, %30 ], [ %42, %44 ]
   %.not101 = icmp eq i32 %18, 0
   br i1 %.not101, label %48, label %51
 
 48:                                               ; preds = %47
-  %49 = tail call noalias ptr @calloc(i64 noundef %.079, i64 noundef 1) #16
+  %49 = tail call noalias ptr @calloc(i64 noundef %.080, i64 noundef 1) #16
   %50 = icmp eq ptr %49, null
   br i1 %50, label %104, label %51
 
 51:                                               ; preds = %48, %47
-  %.073 = phi ptr [ null, %47 ], [ %49, %48 ]
+  %.074 = phi ptr [ null, %47 ], [ %49, %48 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %52 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %52, i8 0, i64 1112, i1 false)
@@ -2145,7 +2145,7 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   %68 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
   %69 = getelementptr inbounds i8, ptr %5, i64 420
   store i32 %68, ptr %69, align 4
-  %.not132 = icmp eq i64 %.080, 0
+  %.not132 = icmp eq i64 %.081, 0
   br i1 %.not132, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %66
@@ -2153,13 +2153,13 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   br label %71
 
 71:                                               ; preds = %.lr.ph, %94
-  %.174131 = phi ptr [ %.073, %.lr.ph ], [ %.2114, %94 ]
-  %.075129 = phi ptr [ %.0, %.lr.ph ], [ %95, %94 ]
-  %.078128 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
+  %.175131 = phi ptr [ %.074, %.lr.ph ], [ %.2114, %94 ]
+  %.076129 = phi ptr [ %.073, %.lr.ph ], [ %95, %94 ]
+  %.079128 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
   br i1 %.not101, label %75, label %72
 
 72:                                               ; preds = %71
-  %73 = load ptr, ptr %.075129, align 8
+  %73 = load ptr, ptr %.076129, align 8
   %.not103 = icmp eq ptr %73, null
   br i1 %.not103, label %.thread, label %.thread116
 
@@ -2168,8 +2168,8 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   br label %83
 
 75:                                               ; preds = %71
-  %76 = call ptr @strncpy(ptr noundef %.174131, ptr noundef %.075129, i64 noundef %.079) #13
-  %.not104 = icmp eq ptr %.174131, null
+  %76 = call ptr @strncpy(ptr noundef %.175131, ptr noundef %.076129, i64 noundef %.080) #13
+  %.not104 = icmp eq ptr %.175131, null
   br i1 %.not104, label %.thread, label %83
 
 .thread:                                          ; preds = %72, %75
@@ -2183,9 +2183,9 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   br label %94
 
 83:                                               ; preds = %.thread116, %75
-  %.2121 = phi ptr [ %73, %.thread116 ], [ %.174131, %75 ]
-  %.177120 = phi i64 [ %74, %.thread116 ], [ %.079, %75 ]
-  %84 = trunc i64 %.177120 to i32
+  %.2121 = phi ptr [ %73, %.thread116 ], [ %.175131, %75 ]
+  %.178120 = phi i64 [ %74, %.thread116 ], [ %.080, %75 ]
+  %84 = trunc i64 %.178120 to i32
   %85 = call fastcc ptr @xml_escape_the_string(ptr noundef nonnull %.2121, i32 noundef %84)
   %.not105 = icmp eq ptr %85, null
   br i1 %.not105, label %94, label %86
@@ -2205,43 +2205,43 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
 
 94:                                               ; preds = %83, %86, %.thread
   %.2114 = phi ptr [ %.2121, %83 ], [ %.2121, %86 ], [ null, %.thread ]
-  %95 = getelementptr inbounds i8, ptr %.075129, i64 %.079
-  %96 = add nuw i64 %.078128, 1
-  %exitcond.not = icmp eq i64 %96, %.080
+  %95 = getelementptr inbounds i8, ptr %.076129, i64 %.080
+  %96 = add nuw i64 %.079128, 1
+  %exitcond.not = icmp eq i64 %96, %.081
   br i1 %exitcond.not, label %._crit_edge, label %71
 
 ._crit_edge:                                      ; preds = %94, %66
-  %.174.lcssa = phi ptr [ %.073, %66 ], [ %.2114, %94 ]
+  %.175.lcssa = phi ptr [ %.074, %66 ], [ %.2114, %94 ]
   call void @h5tools_str_close(ptr noundef nonnull %3) #13
-  %97 = icmp ne ptr %.174.lcssa, null
+  %97 = icmp ne ptr %.175.lcssa, null
   %or.cond = and i1 %.not101, %97
   br i1 %or.cond, label %.thread122, label %98
 
 .thread122:                                       ; preds = %._crit_edge
-  call void @free(ptr noundef nonnull %.174.lcssa) #13
+  call void @free(ptr noundef nonnull %.175.lcssa) #13
   br label %101
 
 98:                                               ; preds = %._crit_edge
   br i1 %.not101, label %101, label %99
 
 99:                                               ; preds = %98
-  %100 = call i32 @H5Treclaim(i64 noundef %.083, i64 noundef %.081, i64 noundef 0, ptr noundef nonnull %.0) #13
+  %100 = call i32 @H5Treclaim(i64 noundef %.084, i64 noundef %.082, i64 noundef 0, ptr noundef nonnull %.073) #13
   br label %101
 
 101:                                              ; preds = %.thread122, %99, %98
-  call void @free(ptr noundef %.0) #13
-  %102 = call i32 @H5Tclose(i64 noundef %.083) #13
-  %103 = call i32 @H5Sclose(i64 noundef %.081) #13
+  call void @free(ptr noundef %.073) #13
+  %102 = call i32 @H5Tclose(i64 noundef %.084) #13
+  %103 = call i32 @H5Sclose(i64 noundef %.082) #13
   br label %123
 
 104:                                              ; preds = %30, %44, %48
-  %.182 = phi i64 [ %20, %30 ], [ %.081, %48 ], [ %34, %44 ]
-  %.1 = phi ptr [ %28, %30 ], [ %.0, %48 ], [ %42, %44 ]
+  %.183 = phi i64 [ %20, %30 ], [ %.082, %48 ], [ %34, %44 ]
+  %.1 = phi ptr [ %28, %30 ], [ %.073, %48 ], [ %42, %44 ]
   tail call void @free(ptr noundef nonnull %.1) #13
   br label %.thread123
 
 .thread123:                                       ; preds = %40, %37, %33, %26, %23, %19, %15, %104
-  %.182127 = phi i64 [ %.182, %104 ], [ %34, %40 ], [ %34, %37 ], [ %34, %33 ], [ %20, %26 ], [ %20, %23 ], [ %20, %19 ], [ -1, %15 ]
+  %.183127 = phi i64 [ %.183, %104 ], [ %34, %40 ], [ %34, %37 ], [ %34, %33 ], [ %20, %26 ], [ %20, %23 ], [ %20, %19 ], [ -1, %15 ]
   %105 = call i32 @H5Eauto_is_v2(i64 noundef 0, ptr noundef nonnull %7) #13
   %106 = load i32, ptr %7, align 4
   %.not107 = icmp eq i32 %106, 0
@@ -2258,8 +2258,8 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   br label %113
 
 113:                                              ; preds = %110, %107
-  %114 = call i32 @H5Tclose(i64 noundef %.083) #13
-  %115 = call i32 @H5Sclose(i64 noundef %.182127) #13
+  %114 = call i32 @H5Tclose(i64 noundef %.084) #13
+  %115 = call i32 @H5Sclose(i64 noundef %.183127) #13
   %116 = load i32, ptr %7, align 4
   %.not108 = icmp eq i32 %116, 0
   %117 = load ptr, ptr %8, align 8
@@ -2275,8 +2275,8 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   br label %123
 
 123:                                              ; preds = %119, %121, %101
-  %.084 = phi i32 [ 0, %101 ], [ -1, %121 ], [ -1, %119 ]
-  ret i32 %.084
+  %.0 = phi i32 [ 0, %101 ], [ -1, %121 ], [ -1, %119 ]
+  ret i32 %.0
 }
 
 declare i32 @h5tools_dump_dset(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -5671,12 +5671,12 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   br label %51
 
 51:                                               ; preds = %45, %47, %49
-  %.082 = phi i64 [ %46, %45 ], [ %48, %47 ], [ -1, %49 ]
-  %.081 = phi i64 [ 8, %45 ], [ 8, %47 ], [ %50, %49 ]
+  %.082 = phi i64 [ 8, %45 ], [ 8, %47 ], [ %50, %49 ]
+  %.0 = phi i64 [ %46, %45 ], [ %48, %47 ], [ -1, %49 ]
   %52 = zext i32 %24 to i64
   %53 = call noalias ptr @calloc(i64 noundef %52, i64 noundef 8) #16
   %54 = call i64 @H5Tget_size(i64 noundef %0) #13
-  %55 = icmp ugt i64 %54, %.081
+  %55 = icmp ugt i64 %54, %.082
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %51
@@ -5684,7 +5684,7 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   br label %58
 
 58:                                               ; preds = %51, %56
-  %59 = phi i64 [ %57, %56 ], [ %.081, %51 ]
+  %59 = phi i64 [ %57, %56 ], [ %.082, %51 ]
   %60 = call noalias ptr @calloc(i64 noundef %52, i64 noundef %59) #16
   %.not98 = icmp eq i32 %24, 0
   br i1 %.not98, label %._crit_edge, label %.lr.ph
@@ -5704,11 +5704,11 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %58
-  %68 = icmp sgt i64 %.082, 0
+  %68 = icmp sgt i64 %.0, 0
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %._crit_edge
-  %70 = call i32 @H5Tconvert(i64 noundef %25, i64 noundef %.082, i64 noundef %52, ptr noundef %60, ptr noundef null, i64 noundef 0) #13
+  %70 = call i32 @H5Tconvert(i64 noundef %25, i64 noundef %.0, i64 noundef %52, ptr noundef %60, ptr noundef null, i64 noundef 0) #13
   br label %71
 
 71:                                               ; preds = %69, %._crit_edge
@@ -5727,8 +5727,8 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   br label %._crit_edge97
 
 .lr.ph92:                                         ; preds = %71
-  %76 = icmp slt i64 %.082, 0
-  %.not100 = icmp eq i64 %.081, 0
+  %76 = icmp slt i64 %.0, 0
+  %.not100 = icmp eq i64 %.082, 0
   br label %77
 
 77:                                               ; preds = %.lr.ph92, %.loopexit
@@ -5790,24 +5790,24 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   br i1 %.not100, label %.loopexit, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %117
-  %119 = mul i64 %.081, %indvars.iv104
+  %119 = mul i64 %.082, %indvars.iv104
   %120 = getelementptr i8, ptr %60, i64 %119
   br label %121
 
 121:                                              ; preds = %.lr.ph89, %121
-  %.087 = phi i64 [ 0, %.lr.ph89 ], [ %126, %121 ]
-  %122 = getelementptr i8, ptr %120, i64 %.087
+  %.08087 = phi i64 [ 0, %.lr.ph89 ], [ %126, %121 ]
+  %122 = getelementptr i8, ptr %120, i64 %.08087
   %123 = load i8, ptr %122, align 1
   %124 = zext i8 %123 to i32
   %125 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %2, ptr noundef nonnull @.str.151, i32 noundef %124) #13
-  %126 = add nuw i64 %.087, 1
-  %exitcond103.not = icmp eq i64 %126, %.081
+  %126 = add nuw i64 %.08087, 1
+  %exitcond103.not = icmp eq i64 %126, %.082
   br i1 %exitcond103.not, label %.loopexit, label %121
 
 .loopexit.sink.split:                             ; preds = %77
-  %127 = call i32 @H5Tget_sign(i64 noundef %.082) #13
+  %127 = call i32 @H5Tget_sign(i64 noundef %.0) #13
   %128 = icmp eq i32 %127, 0
-  %129 = mul i64 %.081, %indvars.iv104
+  %129 = mul i64 %.082, %indvars.iv104
   %130 = getelementptr inbounds i8, ptr %60, i64 %129
   %.0.copyload1 = load i64, ptr %130, align 1
   %.str.152..str.153 = select i1 %128, ptr @.str.152, ptr @.str.153

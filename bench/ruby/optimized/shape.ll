@@ -854,8 +854,8 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
 71:                                               ; preds = %.preheader125, %105
   %.181 = phi i32 [ %110, %105 ], [ %.181.ph, %.preheader125 ]
   %.04080 = phi ptr [ %.141.lcssa, %105 ], [ %64, %.preheader125 ]
-  %.04279 = phi ptr [ %109, %105 ], [ %9, %.preheader125 ]
-  %72 = getelementptr inbounds i8, ptr %.04279, i64 16
+  %.04379 = phi ptr [ %109, %105 ], [ %9, %.preheader125 ]
+  %72 = getelementptr inbounds i8, ptr %.04379, i64 16
   %73 = load i32, ptr %72, align 8
   %74 = icmp ugt i32 %73, %5
   br i1 %74, label %.preheader, label %.critedge
@@ -879,11 +879,11 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.141.lcssa = phi ptr [ %.04080, %.preheader ], [ %81, %.lr.ph ]
-  %85 = icmp eq ptr %.141.lcssa, %.04279
+  %85 = icmp eq ptr %.141.lcssa, %.04379
   br i1 %85, label %86, label %92
 
 86:                                               ; preds = %._crit_edge
-  %87 = ptrtoint ptr %.04279 to i64
+  %87 = ptrtoint ptr %.04379 to i64
   %88 = ptrtoint ptr %7 to i64
   %89 = sub i64 %87, %88
   %90 = sdiv exact i64 %89, 40
@@ -892,7 +892,7 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
   br label %rb_shape_get_iv_index.exit
 
 92:                                               ; preds = %._crit_edge
-  %93 = getelementptr inbounds i8, ptr %.04279, i64 8
+  %93 = getelementptr inbounds i8, ptr %.04379, i64 8
   %94 = load i64, ptr %93, align 8
   %95 = icmp eq i64 %94, %1
   br i1 %95, label %96, label %105
@@ -902,7 +902,7 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
   store i32 %97, ptr %2, align 4
   %98 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %99 = load ptr, ptr %98, align 8
-  %100 = ptrtoint ptr %.04279 to i64
+  %100 = ptrtoint ptr %.04379 to i64
   %101 = ptrtoint ptr %99 to i64
   %102 = sub i64 %100, %101
   %103 = sdiv exact i64 %102, 40
@@ -911,7 +911,7 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
   br label %rb_shape_get_iv_index.exit
 
 105:                                              ; preds = %92
-  %106 = getelementptr inbounds i8, ptr %.04279, i64 28
+  %106 = getelementptr inbounds i8, ptr %.04379, i64 28
   %107 = load i32, ptr %106, align 4
   %108 = zext i32 %107 to i64
   %109 = getelementptr %struct.rb_shape, ptr %7, i64 %108
@@ -920,12 +920,12 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
   br i1 %111, label %71, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %105, %71
-  %.042.lcssa = phi ptr [ %109, %105 ], [ %.04279, %71 ]
-  %112 = getelementptr inbounds i8, ptr %.042.lcssa, i64 32
+  %.043.lcssa = phi ptr [ %109, %105 ], [ %.04379, %71 ]
+  %112 = getelementptr inbounds i8, ptr %.043.lcssa, i64 32
   %113 = load ptr, ptr %112, align 8
   %.not46 = icmp eq ptr %113, null
-  %spec.select48 = select i1 %.not, ptr %.042.lcssa, ptr %9
-  %spec.select67 = select i1 %.not46, ptr %spec.select48, ptr %.042.lcssa
+  %spec.select48 = select i1 %.not, ptr %.043.lcssa, ptr %9
+  %spec.select67 = select i1 %.not46, ptr %spec.select48, ptr %.043.lcssa
   store i32 %0, ptr %3, align 4
   %114 = getelementptr inbounds i8, ptr %spec.select67, i64 32
   %115 = load ptr, ptr %114, align 8
@@ -1033,8 +1033,8 @@ shape_get_iv_index.exit.sink.split.i56:           ; preds = %150, %shape_cache_g
   br label %rb_shape_get_iv_index.exit
 
 rb_shape_get_iv_index.exit:                       ; preds = %154, %150, %150, %53, %49, %49, %shape_get_iv_index.exit.sink.split.i56, %.loopexit.i50, %shape_get_iv_index.exit.sink.split.i, %.loopexit.i, %96, %86
-  %.044 = phi i1 [ true, %86 ], [ true, %96 ], [ false, %.loopexit.i ], [ true, %shape_get_iv_index.exit.sink.split.i ], [ false, %.loopexit.i50 ], [ true, %shape_get_iv_index.exit.sink.split.i56 ], [ false, %49 ], [ false, %49 ], [ false, %53 ], [ false, %150 ], [ false, %150 ], [ false, %154 ]
-  ret i1 %.044
+  %.042 = phi i1 [ true, %86 ], [ true, %96 ], [ false, %.loopexit.i ], [ true, %shape_get_iv_index.exit.sink.split.i ], [ false, %.loopexit.i50 ], [ true, %shape_get_iv_index.exit.sink.split.i56 ], [ false, %49 ], [ false, %49 ], [ false, %53 ], [ false, %150 ], [ false, %150 ], [ false, %154 ]
+  ret i1 %.042
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1183,7 +1183,7 @@ thread-pre-split:                                 ; preds = %8
 
 16:                                               ; preds = %thread-pre-split, %2
   %17 = phi i8 [ %.pr, %thread-pre-split ], [ %5, %2 ]
-  %.0 = phi ptr [ %15, %thread-pre-split ], [ %0, %2 ]
+  %.017 = phi ptr [ %15, %thread-pre-split ], [ %0, %2 ]
   switch i8 %17, label %39 [
     i8 1, label %18
     i8 2, label %18
@@ -1191,7 +1191,7 @@ thread-pre-split:                                 ; preds = %8
   ]
 
 18:                                               ; preds = %16, %16
-  %19 = load ptr, ptr %.0, align 8
+  %19 = load ptr, ptr %.017, align 8
   %.not21 = icmp eq ptr %19, null
   br i1 %.not21, label %39, label %20
 
@@ -1229,8 +1229,8 @@ thread-pre-split:                                 ; preds = %8
   unreachable
 
 39:                                               ; preds = %16, %35, %31, %23, %18, %8
-  %.017 = phi ptr [ null, %8 ], [ null, %18 ], [ %., %23 ], [ null, %31 ], [ %.0, %16 ], [ %37, %35 ]
-  ret ptr %.017
+  %.0 = phi ptr [ null, %8 ], [ null, %18 ], [ %., %23 ], [ null, %31 ], [ %.017, %16 ], [ %37, %35 ]
+  ret ptr %.0
 }
 
 declare i32 @rb_id_table_lookup(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4

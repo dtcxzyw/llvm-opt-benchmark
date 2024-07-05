@@ -136,101 +136,101 @@ define internal fastcc i32 @dissect_tivoconnect(ptr noundef %0, ptr nocapture no
   br i1 %.not97103, label %.thread113, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %53
-  %.0107 = phi ptr [ %56, %53 ], [ %19, %6 ]
-  %.090106 = phi i32 [ %55, %53 ], [ 0, %6 ]
-  %.091105 = phi ptr [ %.1, %53 ], [ null, %6 ]
-  %.092104 = phi ptr [ %.193, %53 ], [ null, %6 ]
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0107) #5
+  %.090107 = phi ptr [ %56, %53 ], [ %19, %6 ]
+  %.091106 = phi i32 [ %55, %53 ], [ 0, %6 ]
+  %.092105 = phi ptr [ %.1, %53 ], [ null, %6 ]
+  %.093104 = phi ptr [ %.194, %53 ], [ null, %6 ]
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.090107) #5
   %21 = trunc i64 %20 to i32
-  %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0107, i32 noundef 61) #5
+  %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.090107, i32 noundef 61) #5
   %.not100 = icmp eq ptr %22, null
   br i1 %.not100, label %53, label %23
 
 23:                                               ; preds = %.lr.ph
   %24 = getelementptr i8, ptr %22, i64 1
   store i8 0, ptr %22, align 1
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0107) #5
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.090107) #5
   %26 = trunc i64 %25 to i32
   %27 = add i32 %26, 1
-  %28 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %.0107, ptr noundef nonnull @.str.23) #4
+  %28 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %.090107, ptr noundef nonnull @.str.23) #4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.sink.split, label %30
 
 30:                                               ; preds = %23
-  %31 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %.0107, ptr noundef nonnull @.str.31) #4
+  %31 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %.090107, ptr noundef nonnull @.str.31) #4
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %.sink.split, label %33
 
 33:                                               ; preds = %30
-  %34 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %.0107, ptr noundef nonnull @.str.32) #4
+  %34 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %.090107, ptr noundef nonnull @.str.32) #4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.sink.split, label %36
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %.0107, ptr noundef nonnull @.str.33) #4
+  %37 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %.090107, ptr noundef nonnull @.str.33) #4
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.sink.split, label %39
 
 39:                                               ; preds = %36
-  %40 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %.0107, ptr noundef nonnull @.str.34) #4
+  %40 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %.090107, ptr noundef nonnull @.str.34) #4
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.sink.split, label %42
 
 42:                                               ; preds = %39
-  %43 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %.0107, ptr noundef nonnull @.str.35) #4
+  %43 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %.090107, ptr noundef nonnull @.str.35) #4
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.sink.split, label %45
 
 45:                                               ; preds = %42
-  %46 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %.0107, ptr noundef nonnull @.str.36) #4
+  %46 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %.090107, ptr noundef nonnull @.str.36) #4
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %.sink.split, label %53
 
 .sink.split:                                      ; preds = %45, %42, %39, %36, %33, %30, %23
   %hf_tivoconnect_flavor.sink = phi ptr [ @hf_tivoconnect_flavor, %23 ], [ @hf_tivoconnect_method, %30 ], [ @hf_tivoconnect_platform, %33 ], [ @hf_tivoconnect_machine, %36 ], [ @hf_tivoconnect_identity, %39 ], [ @hf_tivoconnect_services, %42 ], [ @hf_tivoconnect_version, %45 ]
-  %.193.ph = phi ptr [ %.092104, %23 ], [ %.092104, %30 ], [ %.092104, %33 ], [ %.092104, %36 ], [ %24, %39 ], [ %.092104, %42 ], [ %.092104, %45 ]
-  %.1.ph = phi ptr [ %.091105, %23 ], [ %.091105, %30 ], [ %.091105, %33 ], [ %24, %36 ], [ %.091105, %39 ], [ %.091105, %42 ], [ %.091105, %45 ]
+  %.194.ph = phi ptr [ %.093104, %23 ], [ %.093104, %30 ], [ %.093104, %33 ], [ %24, %36 ], [ %.093104, %39 ], [ %.093104, %42 ], [ %.093104, %45 ]
+  %.1.ph = phi ptr [ %.092105, %23 ], [ %.092105, %30 ], [ %.092105, %33 ], [ %.092105, %36 ], [ %24, %39 ], [ %.092105, %42 ], [ %.092105, %45 ]
   %48 = load i32, ptr %hf_tivoconnect_flavor.sink, align 4
-  %49 = add i32 %27, %.090106
+  %49 = add i32 %27, %.091106
   %50 = xor i32 %26, -1
   %51 = add i32 %50, %21
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %48, ptr noundef %0, i32 noundef %49, i32 noundef %51, i32 noundef 0) #4
   br label %53
 
 53:                                               ; preds = %.sink.split, %45, %.lr.ph
-  %.193 = phi ptr [ %.092104, %45 ], [ %.092104, %.lr.ph ], [ %.193.ph, %.sink.split ]
-  %.1 = phi ptr [ %.091105, %45 ], [ %.091105, %.lr.ph ], [ %.1.ph, %.sink.split ]
-  %54 = add i32 %.090106, 1
+  %.194 = phi ptr [ %.093104, %45 ], [ %.093104, %.lr.ph ], [ %.194.ph, %.sink.split ]
+  %.1 = phi ptr [ %.092105, %45 ], [ %.092105, %.lr.ph ], [ %.1.ph, %.sink.split ]
+  %54 = add i32 %.091106, 1
   %55 = add i32 %54, %21
   %56 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.30) #4
   %.not97 = icmp eq ptr %56, null
   br i1 %.not97, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %53
-  %.not98 = icmp eq ptr %.1, null
+  %.not98 = icmp eq ptr %.194, null
   br i1 %.not98, label %57, label %.thread
 
 57:                                               ; preds = %._crit_edge
-  %.not99 = icmp eq ptr %.193, null
+  %.not99 = icmp eq ptr %.1, null
   br i1 %.not99, label %.thread113, label %61
 
 .thread:                                          ; preds = %._crit_edge
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.37, ptr noundef nonnull %.1) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.37, ptr noundef nonnull %.194) #4
   %58 = load ptr, ptr %11, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.38, ptr noundef nonnull %13, ptr noundef nonnull %.1) #4
-  %.not99101 = icmp eq ptr %.193, null
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.38, ptr noundef nonnull %13, ptr noundef nonnull %.194) #4
+  %.not99101 = icmp eq ptr %.1, null
   br i1 %.not99101, label %.thread113, label %59
 
 59:                                               ; preds = %.thread
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.39, ptr noundef nonnull %.193) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.39, ptr noundef nonnull %.1) #4
   %60 = load ptr, ptr %11, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %60, i32 noundef 25, ptr noundef nonnull @.str.41, ptr noundef nonnull %13, ptr noundef nonnull %.1, ptr noundef nonnull %.193) #4
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %60, i32 noundef 25, ptr noundef nonnull @.str.41, ptr noundef nonnull %13, ptr noundef nonnull %.194, ptr noundef nonnull %.1) #4
   br label %.thread113
 
 61:                                               ; preds = %57
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.40, ptr noundef nonnull %.193) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.40, ptr noundef nonnull %.1) #4
   %62 = load ptr, ptr %11, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.42, ptr noundef nonnull %13, ptr noundef nonnull %.193) #4
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.42, ptr noundef nonnull %13, ptr noundef nonnull %.1) #4
   br label %.thread113
 
 .thread113:                                       ; preds = %6, %.thread, %59, %61, %57
@@ -238,8 +238,8 @@ define internal fastcc i32 @dissect_tivoconnect(ptr noundef %0, ptr nocapture no
   br label %64
 
 64:                                               ; preds = %4, %.thread113
-  %.094 = phi i32 [ %63, %.thread113 ], [ 0, %4 ]
-  ret i32 %.094
+  %.0 = phi i32 [ %63, %.thread113 ], [ 0, %4 ]
+  ret i32 %.0
 }
 
 declare i32 @tvb_strncaseeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

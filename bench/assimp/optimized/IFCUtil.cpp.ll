@@ -2662,15 +2662,15 @@ invoke.cont69:                                    ; preds = %call12.i.noexc265, 
 
 while.body.i.i:                                   ; preds = %invoke.cont69, %if.end24.i.i
   %__result.sroa.0.019.i.i = phi ptr [ %__result.sroa.0.1.i.i, %if.end24.i.i ], [ %call5.i.i.i.i2.i.i127, %invoke.cont69 ]
-  %__first2.sroa.0.018.i.i = phi ptr [ %__first2.sroa.0.1.i.i, %if.end24.i.i ], [ %129, %invoke.cont69 ]
-  %__first1.sroa.0.017.i.i = phi ptr [ %__first1.sroa.0.1.i.i, %if.end24.i.i ], [ %127, %invoke.cont69 ]
-  %131 = load i64, ptr %__first1.sroa.0.017.i.i, align 8
-  %132 = load i64, ptr %__first2.sroa.0.018.i.i, align 8
+  %__first1.sroa.0.018.i.i = phi ptr [ %__first1.sroa.0.1.i.i, %if.end24.i.i ], [ %127, %invoke.cont69 ]
+  %__first2.sroa.0.017.i.i = phi ptr [ %__first2.sroa.0.1.i.i, %if.end24.i.i ], [ %129, %invoke.cont69 ]
+  %131 = load i64, ptr %__first1.sroa.0.018.i.i, align 8
+  %132 = load i64, ptr %__first2.sroa.0.017.i.i, align 8
   %cmp.i2.i.i = icmp ult i64 %131, %132
   br i1 %cmp.i2.i.i, label %if.then.i.i272, label %if.else.i.i
 
 if.then.i.i272:                                   ; preds = %while.body.i.i
-  %incdec.ptr.i.i.i273 = getelementptr inbounds i8, ptr %__first1.sroa.0.017.i.i, i64 8
+  %incdec.ptr.i.i.i273 = getelementptr inbounds i8, ptr %__first1.sroa.0.018.i.i, i64 8
   br label %if.end24.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
@@ -2678,19 +2678,19 @@ if.else.i.i:                                      ; preds = %while.body.i.i
   br i1 %cmp.i3.i.i, label %if.then16.i.i, label %if.else18.i.i
 
 if.then16.i.i:                                    ; preds = %if.else.i.i
-  %incdec.ptr.i4.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.018.i.i, i64 8
+  %incdec.ptr.i4.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.017.i.i, i64 8
   br label %if.end24.i.i
 
 if.else18.i.i:                                    ; preds = %if.else.i.i
   store i64 %131, ptr %__result.sroa.0.019.i.i, align 8
-  %incdec.ptr.i5.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.017.i.i, i64 8
-  %incdec.ptr.i6.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.018.i.i, i64 8
+  %incdec.ptr.i5.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.018.i.i, i64 8
+  %incdec.ptr.i6.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.017.i.i, i64 8
   %incdec.ptr.i7.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.019.i.i, i64 8
   br label %if.end24.i.i
 
 if.end24.i.i:                                     ; preds = %if.else18.i.i, %if.then16.i.i, %if.then.i.i272
-  %__first1.sroa.0.1.i.i = phi ptr [ %incdec.ptr.i.i.i273, %if.then.i.i272 ], [ %__first1.sroa.0.017.i.i, %if.then16.i.i ], [ %incdec.ptr.i5.i.i, %if.else18.i.i ]
-  %__first2.sroa.0.1.i.i = phi ptr [ %__first2.sroa.0.018.i.i, %if.then.i.i272 ], [ %incdec.ptr.i4.i.i, %if.then16.i.i ], [ %incdec.ptr.i6.i.i, %if.else18.i.i ]
+  %__first2.sroa.0.1.i.i = phi ptr [ %__first2.sroa.0.017.i.i, %if.then.i.i272 ], [ %incdec.ptr.i4.i.i, %if.then16.i.i ], [ %incdec.ptr.i6.i.i, %if.else18.i.i ]
+  %__first1.sroa.0.1.i.i = phi ptr [ %incdec.ptr.i.i.i273, %if.then.i.i272 ], [ %__first1.sroa.0.018.i.i, %if.then16.i.i ], [ %incdec.ptr.i5.i.i, %if.else18.i.i ]
   %__result.sroa.0.1.i.i = phi ptr [ %__result.sroa.0.019.i.i, %if.then.i.i272 ], [ %__result.sroa.0.019.i.i, %if.then16.i.i ], [ %incdec.ptr.i7.i.i, %if.else18.i.i ]
   %cmp.i.i.i270 = icmp ne ptr %__first1.sroa.0.1.i.i, %128
   %cmp.i1.i.i = icmp ne ptr %__first2.sroa.0.1.i.i, %130
@@ -2805,28 +2805,28 @@ for.body.i.i289.preheader.lr.ph:                  ; preds = %invoke.cont117
 
 for.body.i.i289:                                  ; preds = %for.body.i.i289.backedge, %for.body.i.i289.preheader.lr.ph
   %__n.014.i.i = phi i64 [ 0, %for.body.i.i289.preheader.lr.ph ], [ %__n.014.i.i.be, %for.body.i.i289.backedge ]
-  %__first.sroa.0.013.i.i = phi ptr [ %faceDone.sroa.0.0, %for.body.i.i289.preheader.lr.ph ], [ %__first.sroa.0.013.i.i.be, %for.body.i.i289.backedge ]
-  %__first.sroa.5.012.i.i = phi i32 [ 0, %for.body.i.i289.preheader.lr.ph ], [ %__first.sroa.5.012.i.i.be, %for.body.i.i289.backedge ]
-  %sh_prom.i.i.i.i = zext nneg i32 %__first.sroa.5.012.i.i to i64
-  %148 = load i64, ptr %__first.sroa.0.013.i.i, align 8
+  %__first.sroa.5.013.i.i = phi i32 [ 0, %for.body.i.i289.preheader.lr.ph ], [ %__first.sroa.5.013.i.i.be, %for.body.i.i289.backedge ]
+  %__first.sroa.0.012.i.i = phi ptr [ %faceDone.sroa.0.0, %for.body.i.i289.preheader.lr.ph ], [ %__first.sroa.0.012.i.i.be, %for.body.i.i289.backedge ]
+  %sh_prom.i.i.i.i = zext nneg i32 %__first.sroa.5.013.i.i to i64
+  %148 = load i64, ptr %__first.sroa.0.012.i.i, align 8
   %149 = xor i64 %148, -1
   %150 = lshr i64 %149, %sh_prom.i.i.i.i
   %inc.i.i = and i64 %150, 1
   %spec.select.i.i = add nuw nsw i64 %inc.i.i, %__n.014.i.i
-  %inc.i.i.i.i = add i32 %__first.sroa.5.012.i.i, 1
-  %cmp.i.i3.i.i = icmp eq i32 %__first.sroa.5.012.i.i, 63
-  %spec.select7.i.i = select i1 %cmp.i.i3.i.i, i32 0, i32 %inc.i.i.i.i
-  %spec.select8.idx.i.i = select i1 %cmp.i.i3.i.i, i64 8, i64 0
-  %spec.select8.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.013.i.i, i64 %spec.select8.idx.i.i
-  %cmp.i.i.i.i = icmp ne ptr %spec.select8.i.i, %faceDone.sroa.18.0
-  %cmp3.i.i.i.i = icmp ne i32 %spec.select7.i.i, %faceDone.sroa.24.0
+  %inc.i.i.i.i = add i32 %__first.sroa.5.013.i.i, 1
+  %cmp.i.i3.i.i = icmp eq i32 %__first.sroa.5.013.i.i, 63
+  %spec.select7.idx.i.i = select i1 %cmp.i.i3.i.i, i64 8, i64 0
+  %spec.select7.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.012.i.i, i64 %spec.select7.idx.i.i
+  %spec.select8.i.i = select i1 %cmp.i.i3.i.i, i32 0, i32 %inc.i.i.i.i
+  %cmp.i.i.i.i = icmp ne ptr %spec.select7.i.i, %faceDone.sroa.18.0
+  %cmp3.i.i.i.i = icmp ne i32 %spec.select8.i.i, %faceDone.sroa.24.0
   %.not.i.i.i = or i1 %cmp3.i.i.i.i, %cmp.i.i.i.i
   br i1 %.not.i.i.i, label %for.body.i.i289.backedge, label %invoke.cont124
 
 for.body.i.i289.backedge:                         ; preds = %for.body.i.i289, %while.end, %if.then.i.i.i572
   %__n.014.i.i.be = phi i64 [ %spec.select.i.i, %for.body.i.i289 ], [ 0, %while.end ], [ 0, %if.then.i.i.i572 ]
-  %__first.sroa.0.013.i.i.be = phi ptr [ %spec.select8.i.i, %for.body.i.i289 ], [ %faceDone.sroa.0.0, %while.end ], [ %faceDone.sroa.0.0, %if.then.i.i.i572 ]
-  %__first.sroa.5.012.i.i.be = phi i32 [ %spec.select7.i.i, %for.body.i.i289 ], [ 0, %while.end ], [ 0, %if.then.i.i.i572 ]
+  %__first.sroa.5.013.i.i.be = phi i32 [ %spec.select8.i.i, %for.body.i.i289 ], [ 0, %while.end ], [ 0, %if.then.i.i.i572 ]
+  %__first.sroa.0.012.i.i.be = phi ptr [ %spec.select7.i.i, %for.body.i.i289 ], [ %faceDone.sroa.0.0, %while.end ], [ %faceDone.sroa.0.0, %if.then.i.i.i572 ]
   br label %for.body.i.i289, !llvm.loop !94
 
 invoke.cont124:                                   ; preds = %for.body.i.i289

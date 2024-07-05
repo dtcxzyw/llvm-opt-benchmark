@@ -503,7 +503,7 @@ Tru_ManReadOne.exit29.us.i:                       ; preds = %Tru_ManEqual.exit.u
   br i1 %exitcond.not.i25.us.i, label %Tru_ManLookup.exit, label %.lr.ph.i21.us.i, !llvm.loop !7
 
 Tru_ManLookup.exit.thread:                        ; preds = %Tru_ManEqual.exit.us.i, %Tru_ManHash.exit.i
-  %.034.i72 = phi ptr [ %53, %Tru_ManHash.exit.i ], [ %68, %Tru_ManEqual.exit.us.i ]
+  %.034.i71 = phi ptr [ %53, %Tru_ManHash.exit.i ], [ %68, %Tru_ManEqual.exit.us.i ]
   %78 = getelementptr inbounds i8, ptr %0, i64 8
   %79 = load i32, ptr %78, align 8
   %80 = add nsw i32 %79, 1
@@ -607,7 +607,7 @@ Vec_SetAppend.exit:                               ; preds = %Tru_ManLookup.exit.
   %140 = trunc i64 %.val.i.i to i32
   %141 = sub i32 %135, %81
   %142 = add i32 %141, %140
-  store i32 %142, ptr %.034.i72, align 4
+  store i32 %142, ptr %.034.i71, align 4
   %.not.i49 = icmp eq i32 %142, 0
   br i1 %.not.i49, label %Tru_ManReadOne.exit, label %143
 
@@ -649,7 +649,7 @@ Tru_ManReadOne.exit:                              ; preds = %Vec_SetAppend.exit,
   br i1 %exitcond.not.i56, label %Tru_ManCopy.exit.loopexit, label %.lr.ph.i53, !llvm.loop !13
 
 Tru_ManCopy.exit.loopexit:                        ; preds = %.lr.ph.i53
-  %.pre91 = load i32, ptr %.034.i72, align 4
+  %.pre91 = load i32, ptr %.034.i71, align 4
   br label %Tru_ManCopy.exit
 
 Tru_ManCopy.exit:                                 ; preds = %Tru_ManCopy.exit.loopexit, %Tru_ManReadOne.exit
@@ -660,7 +660,7 @@ Tru_ManCopy.exit:                                 ; preds = %Tru_ManCopy.exit.lo
   br label %Tru_ManLookup.exit
 
 Tru_ManLookup.exit:                               ; preds = %Tru_ManReadOne.exit29.us.i, %77, %.lr.ph.i47, %Tru_ManReadOne.exit.i, %Tru_ManCopy.exit
-  %.034.i71 = phi ptr [ %.034.i72, %Tru_ManCopy.exit ], [ %53, %.lr.ph.i47 ], [ %53, %Tru_ManReadOne.exit.i ], [ %.037.us.i, %77 ], [ %68, %Tru_ManReadOne.exit29.us.i ]
+  %.034.i72 = phi ptr [ %.034.i71, %Tru_ManCopy.exit ], [ %53, %.lr.ph.i47 ], [ %53, %Tru_ManReadOne.exit.i ], [ %.037.us.i, %77 ], [ %68, %Tru_ManReadOne.exit29.us.i ]
   br i1 %.not32, label %Tru_ManNot.exit63, label %164
 
 164:                                              ; preds = %Tru_ManLookup.exit
@@ -683,7 +683,7 @@ Tru_ManLookup.exit:                               ; preds = %Tru_ManReadOne.exit
   br i1 %exitcond.not.i62, label %Tru_ManNot.exit63, label %.lr.ph.i59, !llvm.loop !12
 
 Tru_ManNot.exit63:                                ; preds = %.lr.ph.i59, %164, %Tru_ManLookup.exit
-  %170 = load i32, ptr %.034.i71, align 4
+  %170 = load i32, ptr %.034.i72, align 4
   %171 = xor i32 %170, %26
   br label %Tru_ManEqual0.exit.thread
 

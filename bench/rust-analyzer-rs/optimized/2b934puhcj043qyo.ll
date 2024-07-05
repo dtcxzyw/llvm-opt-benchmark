@@ -550,8 +550,8 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
 
 25:                                               ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.llvm.9817217397473310483.exit.backedge.i.i.i", %.lr.ph.i.i.i
   %26 = phi i16 [ %24, %.lr.ph.i.i.i ], [ %46, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.llvm.9817217397473310483.exit.backedge.i.i.i" ]
-  %.035.i.i.i = phi i16 [ %22, %.lr.ph.i.i.i ], [ %26, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.llvm.9817217397473310483.exit.backedge.i.i.i" ]
-  %27 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.035.i.i.i, i1 true)
+  %.02635.i.i.i = phi i16 [ %22, %.lr.ph.i.i.i ], [ %26, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.llvm.9817217397473310483.exit.backedge.i.i.i" ]
+  %27 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02635.i.i.i, i1 true)
   %28 = zext nneg i16 %27 to i64
   %29 = add i64 %.sroa.0.025.i.i.i, %28
   %30 = and i64 %29, %.val4.i.i

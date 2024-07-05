@@ -658,38 +658,38 @@ define internal i32 @dissect_sysex_digitech_command(ptr noundef %0, ptr noundef 
 
 .loopexit.i.i:                                    ; preds = %50
   %43 = sub i32 %49, %umin.i.i
-  %44 = sub i32 %umin.i.i, %.03346.i.i
+  %44 = sub i32 %umin.i.i, %.03545.i.i
   %45 = icmp slt i32 %44, -2
   br i1 %45, label %.lr.ph48.i.i, label %unpack_digitech_message.exit.i, !llvm.loop !4
 
 .lr.ph48.i.i:                                     ; preds = %31, %.loopexit.i.i
-  %.03247.i.i = phi ptr [ %57, %.loopexit.i.i ], [ %41, %31 ]
-  %.03346.i.i = phi i32 [ %43, %.loopexit.i.i ], [ %33, %31 ]
-  %.03545.i.i = phi ptr [ %.136.i.i, %.loopexit.i.i ], [ %37, %31 ]
-  %46 = icmp ugt i32 %.03346.i.i, 1
+  %.03147.i.i = phi ptr [ %.1.i.i, %.loopexit.i.i ], [ %37, %31 ]
+  %.03346.i.i = phi ptr [ %57, %.loopexit.i.i ], [ %41, %31 ]
+  %.03545.i.i = phi i32 [ %43, %.loopexit.i.i ], [ %33, %31 ]
+  %46 = icmp ugt i32 %.03545.i.i, 1
   br i1 %46, label %.lr.ph.i.i, label %unpack_digitech_message.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph48.i.i
-  %.13637.i.i = getelementptr i8, ptr %.03545.i.i, i64 1
-  %47 = load i8, ptr %.03545.i.i, align 1
+  %.137.i.i = getelementptr i8, ptr %.03147.i.i, i64 1
+  %47 = load i8, ptr %.03147.i.i, align 1
   %48 = zext i8 %47 to i32
-  %49 = add i32 %.03346.i.i, -2
+  %49 = add i32 %.03545.i.i, -2
   %umin.i.i = tail call i32 @llvm.umin.i32(i32 %49, i32 6)
   br label %50
 
 50:                                               ; preds = %50, %.lr.ph.i.i
-  %.13641.i.i = phi ptr [ %.13637.i.i, %.lr.ph.i.i ], [ %.136.i.i, %50 ]
+  %.141.i.i = phi ptr [ %.137.i.i, %.lr.ph.i.i ], [ %.1.i.i, %50 ]
   %.040.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %52, %50 ]
-  %.139.i.i = phi ptr [ %.03247.i.i, %.lr.ph.i.i ], [ %57, %50 ]
-  %51 = load i8, ptr %.13641.i.i, align 1
+  %.13439.i.i = phi ptr [ %.03346.i.i, %.lr.ph.i.i ], [ %57, %50 ]
+  %51 = load i8, ptr %.141.i.i, align 1
   %52 = add nuw nsw i32 %.040.i.i, 1
   %53 = shl nuw nsw i32 %48, %52
   %54 = trunc i32 %53 to i8
   %55 = and i8 %54, -128
   %56 = or i8 %55, %51
-  store i8 %56, ptr %.139.i.i, align 1
-  %57 = getelementptr i8, ptr %.139.i.i, i64 1
-  %.136.i.i = getelementptr i8, ptr %.13641.i.i, i64 1
+  store i8 %56, ptr %.13439.i.i, align 1
+  %57 = getelementptr i8, ptr %.13439.i.i, i64 1
+  %.1.i.i = getelementptr i8, ptr %.141.i.i, i64 1
   %exitcond.not.i.i = icmp eq i32 %.040.i.i, %umin.i.i
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %50, !llvm.loop !6
 

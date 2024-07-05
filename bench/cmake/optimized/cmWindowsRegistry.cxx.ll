@@ -647,14 +647,14 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %35
 
 85:                                               ; preds = %91, %.lr.ph.i.i.i
   %.033.i.i.i = phi i64 [ %78, %.lr.ph.i.i.i ], [ %94, %91 ]
-  %.02032.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i ], [ %92, %91 ]
+  %.02132.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i ], [ %92, %91 ]
   %86 = sub i64 %.033.i.i.i, %.sroa.028.0.i
   %87 = add i64 %86, 1
   %88 = icmp eq i64 %87, 0
   br i1 %88, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %85
-  %89 = call ptr @memchr(ptr noundef %.02032.i.i.i, i32 noundef %83, i64 noundef %87) #18
+  %89 = call ptr @memchr(ptr noundef %.02132.i.i.i, i32 noundef %83, i64 noundef %87) #18
   %.not26.i.i.i = icmp eq ptr %89, null
   br i1 %.not26.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
@@ -678,8 +678,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i: ; preds = %_ZNS
   br i1 %.not.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread34.i
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread34.i: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i, %54
-  %.021.i.i37.i = phi i64 [ %97, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ 0, %54 ]
-  %98 = add i64 %.021.i.i37.i, %.sroa.028.0.i
+  %.020.i.i37.i = phi i64 [ %97, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i ], [ 0, %54 ]
+  %98 = add i64 %.020.i.i37.i, %.sroa.028.0.i
   %99 = icmp ult i64 %78, %98
   br i1 %99, label %100, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit20.i
 
@@ -747,7 +747,7 @@ _ZN12_GLOBAL__N_17StrucmpESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thr
   br label %121
 
 121:                                              ; preds = %_ZN12_GLOBAL__N_17StrucmpESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.thread.i, %_ZN12_GLOBAL__N_17StrucmpESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i
-  %.sroa.speculated.i21.i = call i64 @llvm.umin.i64(i64 %78, i64 %.021.i.i37.i)
+  %.sroa.speculated.i21.i = call i64 @llvm.umin.i64(i64 %78, i64 %.020.i.i37.i)
   store i64 %.sroa.speculated.i21.i, ptr %31, align 8
   store ptr %74, ptr %.sroa.225.0..sroa_idx.i, align 8
   br label %_ZN12_GLOBAL__N_116ExpressionParser4FindEv.exit

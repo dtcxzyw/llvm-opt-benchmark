@@ -143,13 +143,13 @@ define internal ptr @euctw_left_adjust_char_head(ptr noundef readnone %0, ptr no
   br i1 %.not, label %.preheader, label %32
 
 .preheader:                                       ; preds = %4, %.preheader
-  %.0 = phi ptr [ %10, %.preheader ], [ %1, %4 ]
-  %5 = load i8, ptr %.0, align 1
+  %.025 = phi ptr [ %10, %.preheader ], [ %1, %4 ]
+  %5 = load i8, ptr %.025, align 1
   %6 = add i8 %5, 95
   %7 = icmp ult i8 %6, 94
-  %8 = icmp ugt ptr %.0, %0
+  %8 = icmp ugt ptr %.025, %0
   %9 = and i1 %8, %7
-  %10 = getelementptr inbounds i8, ptr %.0, i64 -1
+  %10 = getelementptr inbounds i8, ptr %.025, i64 -1
   br i1 %9, label %.preheader, label %11, !llvm.loop !6
 
 11:                                               ; preds = %.preheader
@@ -161,18 +161,18 @@ define internal ptr @euctw_left_adjust_char_head(ptr noundef readnone %0, ptr no
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %11
-  %18 = icmp ult ptr %.0, %2
+  %18 = icmp ult ptr %.025, %2
   %spec.select = select i1 %18, i32 %13, i32 0
   br label %21
 
 19:                                               ; preds = %11
-  %20 = tail call i32 @onigenc_mbclen(ptr noundef nonnull %.0, ptr noundef %2, ptr noundef nonnull %3) #3
+  %20 = tail call i32 @onigenc_mbclen(ptr noundef nonnull %.025, ptr noundef %2, ptr noundef nonnull %3) #3
   br label %21
 
 21:                                               ; preds = %17, %19
   %22 = phi i32 [ %20, %19 ], [ %spec.select, %17 ]
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %.0, i64 %23
+  %24 = getelementptr inbounds i8, ptr %.025, i64 %23
   %25 = icmp ugt ptr %24, %1
   br i1 %25, label %32, label %26
 
@@ -185,8 +185,8 @@ define internal ptr @euctw_left_adjust_char_head(ptr noundef readnone %0, ptr no
   br label %32
 
 32:                                               ; preds = %21, %4, %26
-  %.025 = phi ptr [ %31, %26 ], [ %1, %4 ], [ %.0, %21 ]
-  ret ptr %.025
+  %.0 = phi ptr [ %31, %26 ], [ %1, %4 ], [ %.025, %21 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

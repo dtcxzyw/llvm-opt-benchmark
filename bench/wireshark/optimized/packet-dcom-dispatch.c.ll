@@ -416,20 +416,20 @@ define i32 @dissect_IDispatch_Invoke_rqst(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not149158, label %.loopexit157, label %.lr.ph
 
 .lr.ph:                                           ; preds = %65, %76
-  %.0160 = phi i32 [ %.1, %76 ], [ %69, %65 ]
-  %.0141159 = phi i32 [ %71, %76 ], [ %66, %65 ]
-  %71 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.0141159, ptr noundef %2, ptr noundef %57, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %13) #3
+  %.0160 = phi i32 [ %71, %76 ], [ %66, %65 ]
+  %.0141159 = phi i32 [ %.1142, %76 ], [ %69, %65 ]
+  %71 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.0160, ptr noundef %2, ptr noundef %57, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %13) #3
   %72 = load i32, ptr %13, align 4
   %.not155 = icmp eq i32 %72, 0
   br i1 %.not155, label %76, label %73
 
 73:                                               ; preds = %.lr.ph
   %74 = load i32, ptr @hf_dispatch_arg, align 4
-  %75 = call i32 @dissect_dcom_VARIANT(ptr noundef %0, i32 noundef %.0160, ptr noundef %2, ptr noundef %57, ptr noundef %4, ptr noundef %5, i32 noundef %74) #3
+  %75 = call i32 @dissect_dcom_VARIANT(ptr noundef %0, i32 noundef %.0141159, ptr noundef %2, ptr noundef %57, ptr noundef %4, ptr noundef %5, i32 noundef %74) #3
   br label %76
 
 76:                                               ; preds = %73, %.lr.ph
-  %.1 = phi i32 [ %75, %73 ], [ %.0160, %.lr.ph ]
+  %.1142 = phi i32 [ %75, %73 ], [ %.0141159, %.lr.ph ]
   %.pr = load i32, ptr %15, align 4
   %77 = add i32 %.pr, -1
   store i32 %77, ptr %15, align 4
@@ -437,13 +437,13 @@ define i32 @dissect_IDispatch_Invoke_rqst(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not149, label %.loopexit157, label %.lr.ph, !llvm.loop !7
 
 .loopexit157:                                     ; preds = %76, %65, %53
-  %.1142 = phi i32 [ %63, %53 ], [ %69, %65 ], [ %.1, %76 ]
+  %.1 = phi i32 [ %63, %53 ], [ %69, %65 ], [ %.1142, %76 ]
   %78 = load i32, ptr %14, align 4
   %.not150 = icmp eq i32 %78, 0
   br i1 %.not150, label %.loopexit, label %79
 
 79:                                               ; preds = %.loopexit157
-  %80 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %.1142, ptr noundef %2, ptr noundef %57, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %15) #3
+  %80 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef %57, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %15) #3
   %81 = load i32, ptr %15, align 4
   %82 = add i32 %81, -1
   store i32 %82, ptr %15, align 4
@@ -451,9 +451,9 @@ define i32 @dissect_IDispatch_Invoke_rqst(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not151161, label %.loopexit, label %.lr.ph163
 
 .lr.ph163:                                        ; preds = %79, %.lr.ph163
-  %.2143162 = phi i32 [ %84, %.lr.ph163 ], [ %80, %79 ]
+  %.2162 = phi i32 [ %84, %.lr.ph163 ], [ %80, %79 ]
   %83 = load i32, ptr @hf_dispatch_id, align 4
-  %84 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.2143162, ptr noundef %2, ptr noundef %57, ptr noundef %4, ptr noundef %5, i32 noundef %83, ptr noundef nonnull %7) #3
+  %84 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.2162, ptr noundef %2, ptr noundef %57, ptr noundef %4, ptr noundef %5, i32 noundef %83, ptr noundef nonnull %7) #3
   %85 = load i32, ptr %15, align 4
   %86 = add i32 %85, -1
   store i32 %86, ptr %15, align 4
@@ -461,14 +461,14 @@ define i32 @dissect_IDispatch_Invoke_rqst(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not151, label %.loopexit, label %.lr.ph163, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph163, %79, %.loopexit157
-  %.3144 = phi i32 [ %.1142, %.loopexit157 ], [ %80, %79 ], [ %84, %.lr.ph163 ]
+  %.3 = phi i32 [ %.1, %.loopexit157 ], [ %80, %79 ], [ %84, %.lr.ph163 ]
   %87 = load i32, ptr %11, align 4
   %88 = load i32, ptr %12, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %55, ptr noundef nonnull @.str.8, i32 noundef %87, i32 noundef %88) #3
-  %89 = sub i32 %.3144, %28
+  %89 = sub i32 %.3, %28
   call void @proto_item_set_len(ptr noundef %55, i32 noundef %89) #3
   %90 = load i32, ptr @hf_dispatch_varref, align 4
-  %91 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.3144, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %90, ptr noundef nonnull %16) #3
+  %91 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.3, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %90, ptr noundef nonnull %16) #3
   %92 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %15) #3
   %93 = load i32, ptr %15, align 4
   %94 = add i32 %93, -1
@@ -498,20 +498,20 @@ define i32 @dissect_IDispatch_Invoke_rqst(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not153169, label %._crit_edge174, label %.lr.ph173
 
 .lr.ph173:                                        ; preds = %._crit_edge, %109
-  %.2171 = phi i32 [ %.3, %109 ], [ %102, %._crit_edge ]
-  %.5170 = phi i32 [ %104, %109 ], [ %99, %._crit_edge ]
-  %104 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.5170, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %13) #3
+  %.5171 = phi i32 [ %104, %109 ], [ %99, %._crit_edge ]
+  %.2143170 = phi i32 [ %.3144, %109 ], [ %102, %._crit_edge ]
+  %104 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.5171, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %13) #3
   %105 = load i32, ptr %13, align 4
   %.not154 = icmp eq i32 %105, 0
   br i1 %.not154, label %109, label %106
 
 106:                                              ; preds = %.lr.ph173
   %107 = load i32, ptr @hf_dispatch_varrefarg, align 4
-  %108 = call i32 @dissect_dcom_VARIANT(ptr noundef %0, i32 noundef %.2171, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %107) #3
+  %108 = call i32 @dissect_dcom_VARIANT(ptr noundef %0, i32 noundef %.2143170, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %107) #3
   br label %109
 
 109:                                              ; preds = %106, %.lr.ph173
-  %.3 = phi i32 [ %108, %106 ], [ %.2171, %.lr.ph173 ]
+  %.3144 = phi i32 [ %108, %106 ], [ %.2143170, %.lr.ph173 ]
   %.pr156 = load i32, ptr %15, align 4
   %110 = add i32 %.pr156, -1
   store i32 %110, ptr %15, align 4
@@ -519,13 +519,13 @@ define i32 @dissect_IDispatch_Invoke_rqst(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not153, label %._crit_edge174, label %.lr.ph173, !llvm.loop !10
 
 ._crit_edge174:                                   ; preds = %109, %._crit_edge
-  %.2.lcssa = phi i32 [ %102, %._crit_edge ], [ %.3, %109 ]
+  %.2143.lcssa = phi i32 [ %102, %._crit_edge ], [ %.3144, %109 ]
   %111 = load ptr, ptr %21, align 8
   %112 = load i32, ptr %11, align 4
   %113 = load i32, ptr %12, align 4
   %114 = load i32, ptr %16, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %111, i32 noundef 25, ptr noundef nonnull @.str.9, i32 noundef %112, i32 noundef %113, i32 noundef %114) #3
-  ret i32 %.2.lcssa
+  ret i32 %.2143.lcssa
 }
 
 declare ptr @proto_tree_add_bitmask_value(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -570,13 +570,13 @@ define i32 @dissect_IDispatch_Invoke_resp(ptr noundef %0, i32 noundef %1, ptr no
   br label %26
 
 26:                                               ; preds = %23, %6
-  %.0133 = phi i32 [ %25, %23 ], [ %21, %6 ]
+  %.0 = phi i32 [ %25, %23 ], [ %21, %6 ]
   %27 = load i32, ptr @hf_dispatch_excepinfo, align 4
-  %28 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %27, ptr noundef %0, i32 noundef %.0133, i32 noundef 0, i32 noundef 0) #3
+  %28 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %27, ptr noundef %0, i32 noundef %.0, i32 noundef 0, i32 noundef 0) #3
   %29 = load i32, ptr @ett_dispatch_excepinfo, align 4
   %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #3
   %31 = load i32, ptr @hf_dispatch_code, align 4
-  %32 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.0133, ptr noundef %2, ptr noundef %30, ptr noundef %4, ptr noundef %5, i32 noundef %31, ptr noundef nonnull %11) #3
+  %32 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %30, ptr noundef %4, ptr noundef %5, i32 noundef %31, ptr noundef nonnull %11) #3
   %33 = load i32, ptr @hf_dispatch_reserved16, align 4
   %34 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %30, ptr noundef %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %12) #3
   %35 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %30, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7) #3
@@ -600,18 +600,18 @@ define i32 @dissect_IDispatch_Invoke_resp(ptr noundef %0, i32 noundef %1, ptr no
   br label %50
 
 50:                                               ; preds = %47, %26
-  %.1134 = phi i32 [ %49, %47 ], [ %45, %26 ]
+  %.1 = phi i32 [ %49, %47 ], [ %45, %26 ]
   %51 = load i32, ptr %8, align 4
   %.not136 = icmp eq i32 %51, 0
   br i1 %.not136, label %55, label %52
 
 52:                                               ; preds = %50
   %53 = load i32, ptr @hf_dispatch_description, align 4
-  %54 = call i32 @dissect_dcom_BSTR(ptr noundef %0, i32 noundef %.1134, ptr noundef %2, ptr noundef %30, ptr noundef %4, ptr noundef %5, i32 noundef %53, ptr noundef nonnull %19, i32 noundef 1000) #3
+  %54 = call i32 @dissect_dcom_BSTR(ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef %30, ptr noundef %4, ptr noundef %5, i32 noundef %53, ptr noundef nonnull %19, i32 noundef 1000) #3
   br label %55
 
 55:                                               ; preds = %52, %50
-  %.2 = phi i32 [ %54, %52 ], [ %.1134, %50 ]
+  %.2 = phi i32 [ %54, %52 ], [ %.1, %50 ]
   %56 = load i32, ptr %9, align 4
   %.not137 = icmp eq i32 %56, 0
   br i1 %.not137, label %60, label %57
@@ -626,7 +626,7 @@ define i32 @dissect_IDispatch_Invoke_resp(ptr noundef %0, i32 noundef %1, ptr no
   %61 = load i32, ptr %18, align 4
   %62 = call ptr @val_to_str(i32 noundef %61, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.1) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.10, ptr noundef %62) #3
-  %63 = sub i32 %.3, %.0133
+  %63 = sub i32 %.3, %.0
   call void @proto_item_set_len(ptr noundef %28, i32 noundef %63) #3
   %64 = load i32, ptr @hf_dispatch_arg_err, align 4
   %65 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.3, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %64, ptr noundef nonnull %16) #3
@@ -640,20 +640,20 @@ define i32 @dissect_IDispatch_Invoke_resp(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not138140, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %60, %76
-  %.0142 = phi i32 [ %.1, %76 ], [ %69, %60 ]
-  %.4141 = phi i32 [ %71, %76 ], [ %66, %60 ]
-  %71 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.4141, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7) #3
+  %.4142 = phi i32 [ %71, %76 ], [ %66, %60 ]
+  %.0133141 = phi i32 [ %.1134, %76 ], [ %69, %60 ]
+  %71 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.4142, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7) #3
   %72 = load i32, ptr %7, align 4
   %.not139 = icmp eq i32 %72, 0
   br i1 %.not139, label %76, label %73
 
 73:                                               ; preds = %.lr.ph
   %74 = load i32, ptr @hf_dispatch_varrefarg, align 4
-  %75 = call i32 @dissect_dcom_VARIANT(ptr noundef %0, i32 noundef %.0142, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %74) #3
+  %75 = call i32 @dissect_dcom_VARIANT(ptr noundef %0, i32 noundef %.0133141, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %74) #3
   br label %76
 
 76:                                               ; preds = %73, %.lr.ph
-  %.1 = phi i32 [ %75, %73 ], [ %.0142, %.lr.ph ]
+  %.1134 = phi i32 [ %75, %73 ], [ %.0133141, %.lr.ph ]
   %.pr = load i32, ptr %10, align 4
   %77 = add i32 %.pr, -1
   store i32 %77, ptr %10, align 4
@@ -661,8 +661,8 @@ define i32 @dissect_IDispatch_Invoke_resp(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not138, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %76, %60
-  %.0.lcssa = phi i32 [ %69, %60 ], [ %.1, %76 ]
-  %78 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0.lcssa, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %17) #3
+  %.0133.lcssa = phi i32 [ %69, %60 ], [ %.1134, %76 ]
+  %78 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0133.lcssa, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %17) #3
   %79 = getelementptr inbounds i8, ptr %2, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = load i32, ptr %18, align 4

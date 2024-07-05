@@ -331,7 +331,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %47
 
 53:                                               ; preds = %.lr.ph49, %53
   %indvars.iv54 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next55, %53 ]
-  %.048 = phi i32 [ 0, %.lr.ph49 ], [ %63, %53 ]
+  %.03147 = phi i32 [ 0, %.lr.ph49 ], [ %63, %53 ]
   %54 = getelementptr inbounds ptr, ptr %.val37, i64 %indvars.iv54
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr i8, ptr %55, i64 16
@@ -342,14 +342,14 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %47
   %60 = load ptr, ptr %59, align 8
   %61 = ptrtoint ptr %60 to i64
   %62 = trunc i64 %61 to i32
-  %63 = tail call noundef i32 @llvm.smax.i32(i32 %.048, i32 %62)
+  %63 = tail call noundef i32 @llvm.smax.i32(i32 %.03147, i32 %62)
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
   br i1 %exitcond.not, label %.critedge4, label %53, !llvm.loop !10
 
 .critedge4:                                       ; preds = %53, %Vec_PtrFree.exit
-  %.0.lcssa = phi i32 [ 0, %Vec_PtrFree.exit ], [ %63, %53 ]
-  ret i32 %.0.lcssa
+  %.031.lcssa = phi i32 [ 0, %Vec_PtrFree.exit ], [ %63, %53 ]
+  ret i32 %.031.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

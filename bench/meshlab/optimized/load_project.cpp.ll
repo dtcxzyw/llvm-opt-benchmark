@@ -10624,7 +10624,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %233, %236
 
 244:                                              ; preds = %.lr.ph150, %._crit_edge147
   %indvars.iv156 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next157, %._crit_edge147 ]
-  %.sroa.0113.0148 = phi ptr [ %232, %.lr.ph150 ], [ %337, %._crit_edge147 ]
+  %.sroa.0113.0149 = phi ptr [ %232, %.lr.ph150 ], [ %337, %._crit_edge147 ]
   %245 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %34, ptr noundef nonnull @.str.33, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27)
   %246 = icmp ult i32 %245, 3
   br i1 %246, label %247, label %259
@@ -10658,11 +10658,11 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %233, %236
   %260 = load float, ptr %25, align 4
   %261 = load float, ptr %26, align 4
   %262 = load float, ptr %27, align 4
-  %263 = getelementptr inbounds i8, ptr %.sroa.0113.0148, i64 8
+  %263 = getelementptr inbounds i8, ptr %.sroa.0113.0149, i64 8
   store float %260, ptr %263, align 4
-  %.sroa.2105.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0113.0148, i64 12
+  %.sroa.2105.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0113.0149, i64 12
   store float %261, ptr %.sroa.2105.0..sroa_idx, align 4
-  %.sroa.3106.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0113.0148, i64 16
+  %.sroa.3106.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0113.0149, i64 16
   store float %262, ptr %.sroa.3106.0..sroa_idx, align 4
   %264 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %34, ptr noundef nonnull @.str.21, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30)
   %265 = icmp ult i32 %264, 3
@@ -10681,7 +10681,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %233, %236
   %274 = load i32, ptr %28, align 4
   %275 = load i32, ptr %29, align 4
   %276 = load i32, ptr %30, align 4
-  %277 = getelementptr inbounds i8, ptr %.sroa.0113.0148, i64 40
+  %277 = getelementptr inbounds i8, ptr %.sroa.0113.0149, i64 40
   %.sroa.3102.0.insert.ext = shl i32 %276, 16
   %.sroa.2.0.insert.ext = shl i32 %275, 8
   %.sroa.2.0.insert.shift = and i32 %.sroa.2.0.insert.ext, 65280
@@ -10827,7 +10827,7 @@ _ZNSt6vectorIN3vcg3tri2io14CorrespondenceESaIS3_EE9push_backERKS3_.exit: ; preds
 
 ._crit_edge147:                                   ; preds = %_ZNSt6vectorIN3vcg3tri2io14CorrespondenceESaIS3_EE9push_backERKS3_.exit, %285
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %337 = getelementptr inbounds i8, ptr %.sroa.0113.0148, i64 48
+  %337 = getelementptr inbounds i8, ptr %.sroa.0113.0149, i64 48
   %338 = load i32, ptr %11, align 4
   %339 = zext i32 %338 to i64
   %340 = icmp ult i64 %indvars.iv.next157, %339

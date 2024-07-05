@@ -278,9 +278,9 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
   br label %42
 
 42:                                               ; preds = %51, %.lr.ph.i
-  %.010.i = phi i64 [ %40, %.lr.ph.i ], [ %52, %51 ]
+  %.0810.i = phi i64 [ %40, %.lr.ph.i ], [ %52, %51 ]
   %43 = load ptr, ptr %0, align 8
-  %44 = tail call ptr @dsa_get_address(ptr noundef %43, i64 noundef %.010.i) #13
+  %44 = tail call ptr @dsa_get_address(ptr noundef %43, i64 noundef %.0810.i) #13
   %45 = getelementptr i8, ptr %44, i64 16
   %46 = load ptr, ptr %41, align 8
   %47 = load i64, ptr %4, align 8
@@ -375,9 +375,9 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
   br i1 %.not9.i, label %find_in_bucket.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %ensure_valid_bucket_pointers.exit, %53
-  %.010.i = phi i64 [ %54, %53 ], [ %44, %ensure_valid_bucket_pointers.exit ]
+  %.0810.i = phi i64 [ %54, %53 ], [ %44, %ensure_valid_bucket_pointers.exit ]
   %45 = load ptr, ptr %0, align 8
-  %46 = tail call ptr @dsa_get_address(ptr noundef %45, i64 noundef %.010.i) #13
+  %46 = tail call ptr @dsa_get_address(ptr noundef %45, i64 noundef %.0810.i) #13
   %47 = getelementptr i8, ptr %46, i64 16
   %48 = load ptr, ptr %18, align 8
   %49 = load i64, ptr %4, align 8
@@ -421,12 +421,12 @@ find_in_bucket.exit.thread:                       ; preds = %53, %ensure_valid_b
   br label %70
 
 70:                                               ; preds = %82, %64
-  %.04244.i = phi i64 [ 0, %64 ], [ %83, %82 ]
+  %.044.i = phi i64 [ 0, %64 ], [ %83, %82 ]
   %71 = load ptr, ptr %13, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 16
-  %73 = getelementptr [128 x %struct.dshash_partition], ptr %72, i64 0, i64 %.04244.i
+  %73 = getelementptr [128 x %struct.dshash_partition], ptr %72, i64 0, i64 %.044.i
   %74 = tail call zeroext i1 @LWLockAcquire(ptr noundef %73, i32 noundef 0) #13
-  %75 = icmp eq i64 %.04244.i, 0
+  %75 = icmp eq i64 %.044.i, 0
   br i1 %75, label %76, label %82
 
 76:                                               ; preds = %70
@@ -442,7 +442,7 @@ find_in_bucket.exit.thread:                       ; preds = %53, %ensure_valid_b
   br label %resize.exit
 
 82:                                               ; preds = %76, %70
-  %83 = add nuw nsw i64 %.04244.i, 1
+  %83 = add nuw nsw i64 %.044.i, 1
   %exitcond.not.i = icmp eq i64 %83, 128
   br i1 %exitcond.not.i, label %84, label %70, !llvm.loop !10
 
@@ -468,9 +468,9 @@ find_in_bucket.exit.thread:                       ; preds = %53, %ensure_valid_b
   br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph.i33
 
 .lr.ph.i33:                                       ; preds = %95, %.lr.ph.i33
-  %.046.i = phi i64 [ %101, %.lr.ph.i33 ], [ %98, %95 ]
+  %.04246.i = phi i64 [ %101, %.lr.ph.i33 ], [ %98, %95 ]
   %99 = load ptr, ptr %0, align 8
-  %100 = tail call ptr @dsa_get_address(ptr noundef %99, i64 noundef %.046.i) #13
+  %100 = tail call ptr @dsa_get_address(ptr noundef %99, i64 noundef %.04246.i) #13
   %101 = load i64, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %100, i64 8
   %103 = load i32, ptr %102, align 8
@@ -479,7 +479,7 @@ find_in_bucket.exit.thread:                       ; preds = %53, %ensure_valid_b
   %106 = getelementptr i64, ptr %89, i64 %105
   %107 = load i64, ptr %106, align 8
   store i64 %107, ptr %100, align 8
-  store i64 %.046.i, ptr %106, align 8
+  store i64 %.04246.i, ptr %106, align 8
   %.not.i34 = icmp eq i64 %101, 0
   br i1 %.not.i34, label %._crit_edge.i, label %.lr.ph.i33, !llvm.loop !11
 
@@ -841,8 +841,8 @@ ensure_valid_bucket_pointers.exit:                ; preds = %5, %23
   br label %45
 
 45:                                               ; preds = %43, %ensure_valid_bucket_pointers.exit
-  %.0.in = phi ptr [ %42, %ensure_valid_bucket_pointers.exit ], [ %44, %43 ]
-  %.139 = load i64, ptr %.0.in, align 8
+  %.033.in = phi ptr [ %42, %ensure_valid_bucket_pointers.exit ], [ %44, %43 ]
+  %.139 = load i64, ptr %.033.in, align 8
   %.not40 = icmp eq i64 %.139, 0
   br i1 %.not40, label %.lr.ph, label %.._crit_edge_crit_edge
 
@@ -925,8 +925,8 @@ ensure_valid_bucket_pointers.exit:                ; preds = %5, %23
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %._crit_edge
-  %.033 = phi ptr [ %92, %._crit_edge ], [ null, %49 ]
-  ret ptr %.033
+  %.0 = phi ptr [ %92, %._crit_edge ], [ null, %49 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

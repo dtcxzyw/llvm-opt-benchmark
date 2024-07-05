@@ -2857,15 +2857,15 @@ if.end:                                           ; preds = %_ZNK10union_findIN3
   %arrayidx.i9 = getelementptr inbounds i32, ptr %3, i64 %idxprom.i.i4
   %5 = load i32, ptr %arrayidx.i9, align 4
   %cmp6 = icmp ugt i32 %4, %5
-  %spec.select = select i1 %cmp6, i32 %v.addr.0.i3, i32 %v.addr.0.i
-  %spec.select40 = select i1 %cmp6, i32 %v.addr.0.i, i32 %v.addr.0.i3
-  %idxprom.i10 = zext i32 %spec.select to i64
+  %spec.select = select i1 %cmp6, i32 %v.addr.0.i, i32 %v.addr.0.i3
+  %spec.select40 = select i1 %cmp6, i32 %v.addr.0.i3, i32 %v.addr.0.i
+  %idxprom.i10 = zext i32 %spec.select40 to i64
   %arrayidx.i11 = getelementptr inbounds i32, ptr %0, i64 %idxprom.i10
-  store i32 %spec.select40, ptr %arrayidx.i11, align 4
+  store i32 %spec.select, ptr %arrayidx.i11, align 4
   %6 = load ptr, ptr %m_size, align 8
   %arrayidx.i13 = getelementptr inbounds i32, ptr %6, i64 %idxprom.i10
   %7 = load i32, ptr %arrayidx.i13, align 4
-  %idxprom.i14 = zext i32 %spec.select40 to i64
+  %idxprom.i14 = zext i32 %spec.select to i64
   %arrayidx.i15 = getelementptr inbounds i32, ptr %6, i64 %idxprom.i14
   %8 = load i32, ptr %arrayidx.i15, align 4
   %add = add i32 %8, %7
@@ -2886,7 +2886,7 @@ if.end:                                           ; preds = %_ZNK10union_findIN3
   %m_owner.i.i = getelementptr inbounds i8, ptr %call.i.i21, i64 8
   store ptr %this, ptr %m_owner.i.i, align 8
   %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i21, i64 16
-  store i32 %spec.select, ptr %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx, align 8
+  store i32 %spec.select40, ptr %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx, align 8
   %13 = load ptr, ptr %12, align 8
   %cmp.i.i = icmp eq ptr %13, null
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
@@ -5397,9 +5397,9 @@ _ZN6vectorIN3nla5monicELb1EjE3endEv.exit:         ; preds = %if.end7
   br i1 %cmp50.not117, label %for.end73, label %for.body51
 
 for.body51:                                       ; preds = %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit, %for.end69
-  %__begin144.0119 = phi ptr [ %incdec.ptr72, %for.end69 ], [ %4, %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit ]
-  %idx.0118 = phi i32 [ %inc70, %for.end69 ], [ 0, %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit ]
-  %m_rvars.i60 = getelementptr inbounds i8, ptr %__begin144.0119, i64 16
+  %idx.0119 = phi i32 [ %inc70, %for.end69 ], [ 0, %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit ]
+  %__begin144.0118 = phi ptr [ %incdec.ptr72, %for.end69 ], [ %4, %_ZN6vectorIN3nla5monicELb1EjE3endEv.exit ]
+  %m_rvars.i60 = getelementptr inbounds i8, ptr %__begin144.0118, i64 16
   %10 = load ptr, ptr %m_rvars.i60, align 8
   %cmp.i.i61 = icmp eq ptr %10, null
   br i1 %cmp.i.i61, label %for.end69, label %_ZNK6vectorIjLb0EjE3endEv.exit66
@@ -5423,7 +5423,7 @@ for.body61:                                       ; preds = %_ZNK6vectorIjLb0EjE
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr2.i)
   store i32 %13, ptr %__args.addr.i, align 4
-  store i32 %idx.0118, ptr %__args.addr2.i, align 4
+  store i32 %idx.0119, ptr %__args.addr2.i, align 4
   %14 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i, label %if.then.i, label %if.end.i68
@@ -5476,8 +5476,8 @@ _ZNSt8functionIFbjjEED2Ev.exit:                   ; preds = %lpad, %if.then.i.i
   resume { ptr, i32 } %lpad.phi
 
 for.end69:                                        ; preds = %for.cond59, %for.body51, %_ZNK6vectorIjLb0EjE3endEv.exit66
-  %inc70 = add nuw i32 %idx.0118, 1
-  %incdec.ptr72 = getelementptr inbounds i8, ptr %__begin144.0119, i64 40
+  %inc70 = add nuw i32 %idx.0119, 1
+  %incdec.ptr72 = getelementptr inbounds i8, ptr %__begin144.0118, i64 40
   %cmp50.not = icmp eq ptr %incdec.ptr72, %add.ptr.i59
   br i1 %cmp50.not, label %for.end73, label %for.body51
 

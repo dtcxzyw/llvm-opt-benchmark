@@ -6233,9 +6233,9 @@ _ZN3euf9ac_plugin10monomial_t3endEv.exit:         ; preds = %_ZN6vectorIPN3euf9a
 
 for.body:                                         ; preds = %_ZN3euf9ac_plugin10monomial_t3endEv.exit, %for.inc
   %min_r.034 = phi i32 [ %min_r.1, %for.inc ], [ -1, %_ZN3euf9ac_plugin10monomial_t3endEv.exit ]
-  %__begin1.033 = phi ptr [ %incdec.ptr, %for.inc ], [ %21, %_ZN3euf9ac_plugin10monomial_t3endEv.exit ]
-  %min_n.032 = phi ptr [ %min_n.1, %for.inc ], [ null, %_ZN3euf9ac_plugin10monomial_t3endEv.exit ]
-  %24 = load ptr, ptr %__begin1.033, align 8
+  %min_n.033 = phi ptr [ %min_n.1, %for.inc ], [ null, %_ZN3euf9ac_plugin10monomial_t3endEv.exit ]
+  %__begin1.032 = phi ptr [ %incdec.ptr, %for.inc ], [ %21, %_ZN3euf9ac_plugin10monomial_t3endEv.exit ]
+  %24 = load ptr, ptr %__begin1.032, align 8
   %root = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load ptr, ptr %root, align 8
   %eqs = getelementptr inbounds i8, ptr %25, i64 64
@@ -6245,21 +6245,21 @@ for.body:                                         ; preds = %_ZN3euf9ac_plugin10
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %for.body
   %cmp12.not = icmp eq i32 %min_r.034, 0
-  %spec.select = select i1 %cmp12.not, ptr %min_n.032, ptr %24
+  %spec.select = select i1 %cmp12.not, ptr %min_n.033, ptr %24
   br label %for.inc
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.thread:           ; preds = %for.body
   %arrayidx.i23 = getelementptr inbounds i8, ptr %26, i64 -4
   %27 = load i32, ptr %arrayidx.i23, align 4
   %cmp1230 = icmp ult i32 %27, %min_r.034
-  %spec.select40 = select i1 %cmp1230, ptr %24, ptr %min_n.032
+  %spec.select40 = select i1 %cmp1230, ptr %24, ptr %min_n.033
   %spec.select41 = tail call i32 @llvm.umin.i32(i32 %27, i32 %min_r.034)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread, %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %min_n.1 = phi ptr [ %spec.select, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %spec.select40, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread ]
   %min_r.1 = phi i32 [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %spec.select41, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.033, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.032, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i21
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -7837,9 +7837,9 @@ if.end.i.i:                                       ; preds = %while.end
   br i1 %cmp4.not6.i.i, label %if.end18.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.inc.i.i
-  %curr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %24, %if.end.i.i ]
-  %overhead.07.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
-  %m_state.i.i.i = getelementptr inbounds i8, ptr %curr.08.i.i, i64 4
+  %overhead.08.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
+  %curr.07.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %24, %if.end.i.i ]
+  %m_state.i.i.i = getelementptr inbounds i8, ptr %curr.07.i.i, i64 4
   %26 = load i32, ptr %m_state.i.i.i, align 4
   %cmp.i.i.i23 = icmp eq i32 %26, 0
   br i1 %cmp.i.i.i23, label %if.else.i.i, label %if.then5.i.i
@@ -7849,12 +7849,12 @@ if.then5.i.i:                                     ; preds = %for.body.i.i
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add i32 %overhead.07.i.i, 1
+  %inc.i.i = add i32 %overhead.08.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then5.i.i
-  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.07.i.i, %if.then5.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.08.i.i, i64 56
+  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.08.i.i, %if.then5.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.07.i.i, i64 56
   %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp4.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !41
 

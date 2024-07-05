@@ -90,15 +90,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @prte_schizo_base_detect_proxy(ptr noundef %0) local_unnamed_addr #0 {
-  %.01115 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_schizo_base, i64 240), align 8
-  %.not16 = icmp eq ptr %.01115, getelementptr inbounds (i8, ptr @prte_schizo_base, i64 120)
+  %.015 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_schizo_base, i64 240), align 8
+  %.not16 = icmp eq ptr %.015, getelementptr inbounds (i8, ptr @prte_schizo_base, i64 120)
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %11
-  %.01119 = phi ptr [ %.011, %11 ], [ %.01115, %1 ]
-  %.018 = phi i32 [ %.1, %11 ], [ -1, %1 ]
-  %.0917 = phi ptr [ %.110, %11 ], [ null, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.01119, i64 152
+  %.019 = phi ptr [ %.0, %11 ], [ %.015, %1 ]
+  %.0918 = phi i32 [ %.1, %11 ], [ -1, %1 ]
+  %.01017 = phi ptr [ %.111, %11 ], [ null, %1 ]
+  %2 = getelementptr inbounds i8, ptr %.019, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -107,7 +107,7 @@ define ptr @prte_schizo_base_detect_proxy(ptr noundef %0) local_unnamed_addr #0 
 
 6:                                                ; preds = %.lr.ph
   %7 = tail call i32 %5(ptr noundef %0) #17
-  %8 = icmp slt i32 %.018, %7
+  %8 = icmp slt i32 %.0918, %7
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
@@ -115,16 +115,16 @@ define ptr @prte_schizo_base_detect_proxy(ptr noundef %0) local_unnamed_addr #0 
   br label %11
 
 11:                                               ; preds = %.lr.ph, %9, %6
-  %.110 = phi ptr [ %10, %9 ], [ %.0917, %6 ], [ %.0917, %.lr.ph ]
-  %.1 = phi i32 [ %7, %9 ], [ %.018, %6 ], [ %.018, %.lr.ph ]
-  %12 = getelementptr inbounds i8, ptr %.01119, i64 120
-  %.011 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %.011, getelementptr inbounds (i8, ptr @prte_schizo_base, i64 120)
+  %.111 = phi ptr [ %10, %9 ], [ %.01017, %6 ], [ %.01017, %.lr.ph ]
+  %.1 = phi i32 [ %7, %9 ], [ %.0918, %6 ], [ %.0918, %.lr.ph ]
+  %12 = getelementptr inbounds i8, ptr %.019, i64 120
+  %.0 = load ptr, ptr %12, align 8
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_schizo_base, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %11, %1
-  %.09.lcssa = phi ptr [ null, %1 ], [ %.110, %11 ]
-  ret ptr %.09.lcssa
+  %.010.lcssa = phi ptr [ null, %1 ], [ %.111, %11 ]
+  ret ptr %.010.lcssa
 }
 
 ; Function Attrs: noreturn nounwind uwtable
@@ -584,7 +584,7 @@ define noundef zeroext i1 @prte_schizo_base_check_prte_param(ptr noundef %0) loc
   br i1 %.not12, label %.loopexit, label %.lr.ph
 
 10:                                               ; preds = %.lr.ph
-  %11 = add i64 %.013, 1
+  %11 = add i64 %.01013, 1
   %12 = getelementptr inbounds [0 x ptr], ptr @prte_framework_names, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
@@ -592,14 +592,14 @@ define noundef zeroext i1 @prte_schizo_base_check_prte_param(ptr noundef %0) loc
 
 .lr.ph:                                           ; preds = %.preheader, %10
   %14 = phi ptr [ %13, %10 ], [ %9, %.preheader ]
-  %.013 = phi i64 [ %11, %10 ], [ 0, %.preheader ]
+  %.01013 = phi i64 [ %11, %10 ], [ 0, %.preheader ]
   %15 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %14, i64 noundef %6) #21
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %.preheader, %1
-  %.010 = phi i1 [ true, %1 ], [ false, %.preheader ], [ %16, %10 ], [ %16, %.lr.ph ]
-  ret i1 %.010
+  %.0 = phi i1 [ true, %1 ], [ false, %.preheader ], [ %16, %10 ], [ %16, %.lr.ph ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -810,7 +810,7 @@ prte_schizo_base_strip_quotes.exit89:             ; preds = %prte_schizo_base_st
   br i1 %.not12.i, label %prte_schizo_base_check_prte_param.exit, label %.lr.ph.i
 
 117:                                              ; preds = %.lr.ph.i
-  %118 = add i64 %.013.i, 1
+  %118 = add i64 %.01013.i, 1
   %119 = getelementptr inbounds [0 x ptr], ptr @prte_framework_names, i64 0, i64 %118
   %120 = load ptr, ptr %119, align 8
   %.not.i = icmp eq ptr %120, null
@@ -818,7 +818,7 @@ prte_schizo_base_strip_quotes.exit89:             ; preds = %prte_schizo_base_st
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %117
   %121 = phi ptr [ %120, %117 ], [ %116, %.preheader.i ]
-  %.013.i = phi i64 [ %118, %117 ], [ 0, %.preheader.i ]
+  %.01013.i = phi i64 [ %118, %117 ], [ 0, %.preheader.i ]
   %122 = call i32 @strncmp(ptr noundef %93, ptr noundef nonnull %121, i64 noundef %113) #21
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %.loopexit, label %117
@@ -1005,7 +1005,7 @@ setup_pmix_frameworks.exit:                       ; preds = %1, %2, %5, %7
   br i1 %.not12, label %.loopexit, label %.lr.ph
 
 17:                                               ; preds = %.lr.ph
-  %18 = add i64 %.013, 1
+  %18 = add i64 %.01013, 1
   %19 = getelementptr inbounds ptr, ptr %15, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
@@ -1013,14 +1013,14 @@ setup_pmix_frameworks.exit:                       ; preds = %1, %2, %5, %7
 
 .lr.ph:                                           ; preds = %.preheader, %17
   %21 = phi ptr [ %20, %17 ], [ %16, %.preheader ]
-  %.013 = phi i64 [ %18, %17 ], [ 0, %.preheader ]
+  %.01013 = phi i64 [ %18, %17 ], [ 0, %.preheader ]
   %22 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %21, i64 noundef %12) #21
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.loopexit, label %17
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %.preheader, %setup_pmix_frameworks.exit
-  %.010 = phi i1 [ true, %setup_pmix_frameworks.exit ], [ false, %.preheader ], [ %23, %17 ], [ %23, %.lr.ph ]
-  ret i1 %.010
+  %.0 = phi i1 [ true, %setup_pmix_frameworks.exit ], [ false, %.preheader ], [ %23, %17 ], [ %23, %.lr.ph ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable

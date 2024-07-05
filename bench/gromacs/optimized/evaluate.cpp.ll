@@ -1176,7 +1176,7 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %51
   %indvars.iv149 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next150, %51 ]
-  %.091131 = phi i64 [ 0, %.preheader.lr.ph ], [ %60, %51 ]
+  %.094130 = phi i64 [ 0, %.preheader.lr.ph ], [ %60, %51 ]
   %38 = load ptr, ptr %1, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 96
   %40 = load ptr, ptr %39, align 8
@@ -1185,7 +1185,7 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
   %43 = load ptr, ptr %37, align 8
   %44 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv149
   %45 = load i32, ptr %44, align 4
-  %sext154 = shl i64 %.091131, 32
+  %sext154 = shl i64 %.094130, 32
   %46 = ashr exact i64 %sext154, 32
   br label %47
 
@@ -1248,7 +1248,7 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
 
 .preheader114:                                    ; preds = %.preheader114.lr.ph, %97
   %indvars.iv143 = phi i64 [ 0, %.preheader114.lr.ph ], [ %indvars.iv.next144, %97 ]
-  %.293129 = phi i64 [ 0, %.preheader114.lr.ph ], [ %106, %97 ]
+  %.296128 = phi i64 [ 0, %.preheader114.lr.ph ], [ %106, %97 ]
   %84 = load ptr, ptr %1, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 96
   %86 = load ptr, ptr %85, align 8
@@ -1257,7 +1257,7 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
   %89 = load ptr, ptr %83, align 8
   %90 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv143
   %91 = load i32, ptr %90, align 4
-  %sext153 = shl i64 %.293129, 32
+  %sext153 = shl i64 %.296128, 32
   %92 = ashr exact i64 %sext153, 32
   br label %93
 
@@ -1320,7 +1320,7 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
 
 .preheader116:                                    ; preds = %.preheader116.lr.ph, %143
   %indvars.iv137 = phi i64 [ 0, %.preheader116.lr.ph ], [ %indvars.iv.next138, %143 ]
-  %.4127 = phi i64 [ 0, %.preheader116.lr.ph ], [ %152, %143 ]
+  %.4126 = phi i64 [ 0, %.preheader116.lr.ph ], [ %152, %143 ]
   %130 = load ptr, ptr %1, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 96
   %132 = load ptr, ptr %131, align 8
@@ -1329,7 +1329,7 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
   %135 = load ptr, ptr %129, align 8
   %136 = getelementptr inbounds i32, ptr %135, i64 %indvars.iv137
   %137 = load i32, ptr %136, align 4
-  %sext = shl i64 %.4127, 32
+  %sext = shl i64 %.4126, 32
   %138 = ashr exact i64 %sext, 32
   br label %139
 
@@ -3363,11 +3363,11 @@ define void @_Z28_gmx_sel_evaluate_arithmeticP18gmx_sel_evaluate_tRKSt10shared_p
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %60
   %41 = phi ptr [ %64, %60 ], [ %.pre84, %.lr.ph ]
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %60 ], [ 0, %.lr.ph ]
-  %.04973.us = phi float [ %.1.us, %60 ], [ 0.000000e+00, %.lr.ph ]
-  %.05470.us = phi i32 [ %spec.select.us, %60 ], [ 0, %.lr.ph ]
+  %.04973.us = phi i32 [ %spec.select.us, %60 ], [ 0, %.lr.ph ]
+  %.05470.us = phi float [ %.155.us, %60 ], [ 0.000000e+00, %.lr.ph ]
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = sext i32 %.05470.us to i64
+  %44 = sext i32 %.04973.us to i64
   %45 = getelementptr inbounds float, ptr %43, i64 %44
   %46 = load float, ptr %45, align 4
   %47 = load ptr, ptr %1, align 8
@@ -3405,18 +3405,18 @@ define void @_Z28_gmx_sel_evaluate_arithmeticP18gmx_sel_evaluate_tRKSt10shared_p
   br label %60
 
 60:                                               ; preds = %58, %57, %55, %53, %51, %50, %.lr.ph.split.us
-  %.1.us = phi float [ %.04973.us, %.lr.ph.split.us ], [ 1.000000e+00, %50 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %46, %57 ], [ %59, %58 ]
+  %.155.us = phi float [ %.05470.us, %.lr.ph.split.us ], [ 1.000000e+00, %50 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %46, %57 ], [ %59, %58 ]
   %61 = getelementptr inbounds i8, ptr %47, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds float, ptr %62, i64 %indvars.iv77
-  store float %.1.us, ptr %63, align 4
+  store float %.155.us, ptr %63, align 4
   %64 = load ptr, ptr %7, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 40
   %66 = load i32, ptr %65, align 8
   %67 = lshr i32 %66, 1
   %68 = and i32 %67, 1
   %69 = xor i32 %68, 1
-  %spec.select.us = add i32 %69, %.05470.us
+  %spec.select.us = add i32 %69, %.04973.us
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
   br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
@@ -3425,17 +3425,17 @@ define void @_Z28_gmx_sel_evaluate_arithmeticP18gmx_sel_evaluate_tRKSt10shared_p
   %70 = phi ptr [ %.pre82, %.lr.ph.split.preheader ], [ %108, %97 ]
   %71 = phi ptr [ %.pre84, %.lr.ph.split.preheader ], [ %102, %97 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %97 ]
-  %.04973 = phi float [ 0.000000e+00, %.lr.ph.split.preheader ], [ %.1, %97 ]
-  %.05271 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %spec.select60, %97 ]
-  %.05470 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %spec.select, %97 ]
+  %.04973 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %spec.select, %97 ]
+  %.05072 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %spec.select60, %97 ]
+  %.05470 = phi float [ 0.000000e+00, %.lr.ph.split.preheader ], [ %.155, %97 ]
   %72 = getelementptr inbounds i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = sext i32 %.05470 to i64
+  %74 = sext i32 %.04973 to i64
   %75 = getelementptr inbounds float, ptr %73, i64 %74
   %76 = load float, ptr %75, align 4
   %77 = getelementptr inbounds i8, ptr %70, i64 16
   %78 = load ptr, ptr %77, align 8
-  %79 = sext i32 %.05271 to i64
+  %79 = sext i32 %.05072 to i64
   %80 = getelementptr inbounds float, ptr %78, i64 %79
   %81 = load float, ptr %80, align 4
   %82 = load ptr, ptr %1, align 8
@@ -3477,25 +3477,25 @@ define void @_Z28_gmx_sel_evaluate_arithmeticP18gmx_sel_evaluate_tRKSt10shared_p
 
 97:                                               ; preds = %95, %93, %91, %89, %87, %85, %.lr.ph.split
   %98 = phi ptr [ %82, %.lr.ph.split ], [ %.pre83, %95 ], [ %82, %93 ], [ %82, %91 ], [ %82, %89 ], [ %82, %87 ], [ %82, %85 ]
-  %.1 = phi float [ %.04973, %.lr.ph.split ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ]
+  %.155 = phi float [ %.05470, %.lr.ph.split ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ]
   %99 = getelementptr inbounds i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds float, ptr %100, i64 %indvars.iv
-  store float %.1, ptr %101, align 4
+  store float %.155, ptr %101, align 4
   %102 = load ptr, ptr %7, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 40
   %104 = load i32, ptr %103, align 8
   %105 = lshr i32 %104, 1
   %106 = and i32 %105, 1
   %107 = xor i32 %106, 1
-  %spec.select = add i32 %107, %.05470
+  %spec.select = add i32 %107, %.04973
   %108 = load ptr, ptr %9, align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 40
   %110 = load i32, ptr %109, align 8
   %111 = lshr i32 %110, 1
   %112 = and i32 %111, 1
   %113 = xor i32 %112, 1
-  %spec.select60 = add i32 %113, %.05271
+  %spec.select60 = add i32 %113, %.05072
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count80
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19

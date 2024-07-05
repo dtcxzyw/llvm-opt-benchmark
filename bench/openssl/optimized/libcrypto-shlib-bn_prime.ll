@@ -853,8 +853,8 @@ land.lhs.true:                                    ; preds = %if.end32
   br i1 %cmp36, label %err, label %if.end39
 
 if.end39:                                         ; preds = %land.lhs.true, %if.end32
-  %ctx.addr.0 = phi ptr [ %call35, %land.lhs.true ], [ %ctx, %if.end32 ]
   %ctxlocal.0 = phi ptr [ %call35, %land.lhs.true ], [ null, %if.end32 ]
+  %ctx.addr.0 = phi ptr [ %call35, %land.lhs.true ], [ %ctx, %if.end32 ]
   %call40 = call i32 @ossl_bn_miller_rabin_is_prime(ptr noundef %w, i32 noundef %checks, ptr noundef nonnull %ctx.addr.0, ptr noundef %cb, i32 noundef 0, ptr noundef nonnull %status)
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %err, label %if.end43

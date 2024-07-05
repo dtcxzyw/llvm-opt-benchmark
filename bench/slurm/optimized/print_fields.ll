@@ -277,14 +277,14 @@ define void @print_fields_str(ptr nocapture noundef readonly %0, ptr noundef %1,
   %9 = load i32, ptr @print_fields_parsable_print, align 4
   %.not39 = icmp eq i32 %9, 0
   %.str.7..str.6 = select i1 %.not39, ptr @.str.7, ptr @.str.6
-  %.033 = select i1 %.not, ptr %.str.7..str.6, ptr %1
+  %.0 = select i1 %.not, ptr %.str.7..str.6, ptr %1
   %10 = icmp eq i32 %9, 2
   %11 = icmp ne i32 %2, 0
   %or.cond = and i1 %11, %10
   br i1 %or.cond, label %12, label %14
 
 12:                                               ; preds = %3
-  %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull %.033)
+  %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull %.0)
   br label %41
 
 14:                                               ; preds = %3
@@ -294,7 +294,7 @@ define void @print_fields_str(ptr nocapture noundef readonly %0, ptr noundef %1,
   br i1 %or.cond3, label %19, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull %.033)
+  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull %.0)
   br label %41
 
 19:                                               ; preds = %14
@@ -303,7 +303,7 @@ define void @print_fields_str(ptr nocapture noundef readonly %0, ptr noundef %1,
   br i1 %or.cond5, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %.033, ptr noundef nonnull %15)
+  %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %.0, ptr noundef nonnull %15)
   br label %41
 
 23:                                               ; preds = %19
@@ -718,17 +718,17 @@ define void @print_fields_double(ptr nocapture noundef readonly %0, ptr noundef 
   %52 = icmp slt i32 %6, %51
   %.neg = sub i32 %6, %51
   %53 = select i1 %52, i32 %.neg, i32 0
-  %.0 = add i32 %53, %6
+  %.057 = add i32 %53, %6
   %54 = load i32, ptr %0, align 8
   %55 = icmp eq i32 %54, %6
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %47
-  %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.0, i32 noundef %.0, double noundef %8)
+  %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.057, i32 noundef %.057, double noundef %8)
   br label %67
 
 58:                                               ; preds = %47
-  %59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %.0, i32 noundef %.0, double noundef %8)
+  %59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %.057, i32 noundef %.057, double noundef %8)
   br label %67
 
 60:                                               ; preds = %42

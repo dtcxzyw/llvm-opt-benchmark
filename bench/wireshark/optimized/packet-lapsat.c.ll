@@ -239,7 +239,7 @@ define internal i32 @dissect_lapsat(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %20
 
 20:                                               ; preds = %7, %18, %16
-  %.0102 = phi i32 [ %17, %16 ], [ %19, %18 ], [ 0, %7 ]
+  %.0104 = phi i32 [ %17, %16 ], [ %19, %18 ], [ 0, %7 ]
   %.not108 = icmp sgt i8 %10, -1
   %spec.select = select i1 %.not108, i32 3, i32 4
   %21 = load i32, ptr @proto_lapsat, align 4
@@ -282,7 +282,7 @@ define internal i32 @dissect_lapsat(ptr noundef %0, ptr noundef %1, ptr noundef 
   %switch.selectcmp72.i = icmp eq i32 %50, 0
   %switch.select73.i = select i1 %switch.selectcmp72.i, ptr @.str.104, ptr %switch.select.i
   %.not63.i = icmp eq i16 %47, 0
-  %.not64.i = icmp eq i32 %.0102, 0
+  %.not64.i = icmp eq i32 %.0104, 0
   %51 = select i1 %.not64.i, ptr @.str.109, ptr @.str.108
   %52 = select i1 %.not63.i, ptr @.str.110, ptr %51
   %53 = lshr i32 %46, 7
@@ -320,7 +320,7 @@ define internal i32 @dissect_lapsat(ptr noundef %0, ptr noundef %1, ptr noundef 
 64:                                               ; preds = %63, %62, %61, %60, %57, %55
   %.1.i = phi ptr [ @.str.106, %63 ], [ @.str.116, %62 ], [ @.str.115, %61 ], [ @.str.114, %60 ], [ %59, %57 ], [ @.str.113, %55 ]
   %.not61.i = icmp eq i16 %47, 0
-  %.not62.i = icmp eq i32 %.0102, 0
+  %.not62.i = icmp eq i32 %.0104, 0
   %65 = select i1 %.not62.i, ptr @.str.109, ptr @.str.108
   %66 = select i1 %.not61.i, ptr @.str.110, ptr %65
   %67 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %43, i64 noundef 80, ptr noundef nonnull @.str.117, ptr noundef nonnull %66, ptr noundef nonnull %.1.i) #3
@@ -358,7 +358,7 @@ define internal i32 @dissect_lapsat(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not69.i, label %dissect_control.exit, label %87
 
 87:                                               ; preds = %80
-  %.not70.i = icmp eq i32 %.0102, 0
+  %.not70.i = icmp eq i32 %.0104, 0
   %88 = load i32, ptr @hf_lapsat_ctl_f, align 4
   %89 = load i32, ptr @hf_lapsat_ctl_p, align 4
   %90 = select i1 %.not70.i, i32 %89, i32 %88
@@ -367,7 +367,7 @@ define internal i32 @dissect_lapsat(ptr noundef %0, ptr noundef %1, ptr noundef 
 91:                                               ; preds = %74
   %92 = load i32, ptr @hf_lapsat_ctl_ftype_s_u, align 4
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %92, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #3
-  %.not66.i = icmp eq i32 %.0102, 0
+  %.not66.i = icmp eq i32 %.0104, 0
   %94 = load i32, ptr @hf_lapsat_ctl_u_modifier_resp, align 4
   %95 = load i32, ptr @hf_lapsat_ctl_u_modifier_cmd, align 4
   %96 = select i1 %.not66.i, i32 %95, i32 %94
@@ -458,8 +458,8 @@ dissect_control.exit:                             ; preds = %80, %103, %107, %.s
   br label %146
 
 146:                                              ; preds = %144, %132
-  %.0104 = phi ptr [ %143, %132 ], [ %145, %144 ]
-  tail call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %.0104, ptr noundef nonnull @.str.101) #3
+  %.0102 = phi ptr [ %143, %132 ], [ %145, %144 ]
+  tail call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %.0102, ptr noundef nonnull @.str.101) #3
   %147 = and i16 %44, 16
   %148 = icmp eq i16 %147, 0
   br i1 %148, label %149, label %179
@@ -478,8 +478,8 @@ dissect_control.exit:                             ; preds = %80, %103, %107, %.s
   %158 = or disjoint i32 %155, %157
   %159 = load i32, ptr %14, align 4
   %160 = or i32 %158, %159
-  %161 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @lapsat_reassembly_table, ptr noundef %.0104, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %160, ptr noundef null, i32 noundef %127, i32 noundef %153) #3
-  %162 = tail call ptr @process_reassembled_data(ptr noundef %.0104, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @.str.102, ptr noundef %161, ptr noundef nonnull @lapsat_frag_items, ptr noundef null, ptr noundef %24) #3
+  %161 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @lapsat_reassembly_table, ptr noundef %.0102, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %160, ptr noundef null, i32 noundef %127, i32 noundef %153) #3
+  %162 = tail call ptr @process_reassembled_data(ptr noundef %.0102, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @.str.102, ptr noundef %161, ptr noundef nonnull @lapsat_frag_items, ptr noundef null, ptr noundef %24) #3
   %.not112 = icmp eq ptr %161, null
   br i1 %.not112, label %174, label %163
 
@@ -505,7 +505,7 @@ dissect_control.exit:                             ; preds = %80, %103, %107, %.s
   %175 = load ptr, ptr %8, align 8
   tail call void @col_append_str(ptr noundef %175, i32 noundef 25, ptr noundef nonnull @.str.103) #3
   %176 = load i32, ptr @hf_lapsat_fragment_data, align 4
-  %177 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %176, ptr noundef %.0104, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %177 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %176, ptr noundef %.0102, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   br label %178
 
 178:                                              ; preds = %169, %172, %174
@@ -515,12 +515,12 @@ dissect_control.exit:                             ; preds = %80, %103, %107, %.s
 179:                                              ; preds = %146
   %180 = load ptr, ptr @lapsat_sapi_dissector_table, align 8
   %181 = zext nneg i8 %12 to i32
-  %182 = tail call i32 @dissector_try_uint(ptr noundef %180, i32 noundef %181, ptr noundef %.0104, ptr noundef nonnull %1, ptr noundef %2) #3
+  %182 = tail call i32 @dissector_try_uint(ptr noundef %180, i32 noundef %181, ptr noundef %.0102, ptr noundef nonnull %1, ptr noundef %2) #3
   %.not110 = icmp eq i32 %182, 0
   br i1 %.not110, label %183, label %185
 
 183:                                              ; preds = %179
-  %184 = tail call i32 @call_data_dissector(ptr noundef %.0104, ptr noundef nonnull %1, ptr noundef %2) #3
+  %184 = tail call i32 @call_data_dissector(ptr noundef %.0102, ptr noundef nonnull %1, ptr noundef %2) #3
   br label %185
 
 185:                                              ; preds = %179, %183, %178

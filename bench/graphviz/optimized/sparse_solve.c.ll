@@ -152,7 +152,7 @@ gv_calloc.exit45.preheader.i:                     ; preds = %gv_calloc.exit.i13
 
 .preheader.i:                                     ; preds = %gv_calloc.exit45.i, %.preheader.lr.ph.i
   %indvars.iv64.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next65.i, %gv_calloc.exit45.i ]
-  %.04054.i = phi double [ 0.000000e+00, %.preheader.lr.ph.i ], [ %145, %gv_calloc.exit45.i ]
+  %.055.i = phi double [ 0.000000e+00, %.preheader.lr.ph.i ], [ %145, %gv_calloc.exit45.i ]
   br i1 %.not.i, label %gv_calloc.exit.i.thread.i, label %.lr.ph.i15
 
 gv_calloc.exit.i.thread.i:                        ; preds = %.preheader.i
@@ -248,7 +248,7 @@ gv_calloc.exit59.i.i:                             ; preds = %gv_calloc.exit56.i.
   %.064.i.i = phi ptr [ %.1.i.i, %128 ], [ %95, %gv_calloc.exit59.i.i ]
   %.not.i.i = phi i1 [ false, %128 ], [ true, %gv_calloc.exit59.i.i ]
   %.04762.i.i = phi ptr [ %132, %128 ], [ %55, %gv_calloc.exit59.i.i ]
-  %.04861.i.i = phi double [ %123, %128 ], [ 1.000000e+00, %gv_calloc.exit59.i.i ]
+  %.04961.i.i = phi double [ %123, %128 ], [ 1.000000e+00, %gv_calloc.exit59.i.i ]
   %113 = load ptr, ptr %7, align 8
   %114 = load double, ptr %23, align 8
   %115 = fptosi double %114 to i32
@@ -277,7 +277,7 @@ diag_precon.exit.i.i:                             ; preds = %.lr.ph.i.i.i, %.lr.
   br i1 %.not.i.i, label %127, label %124
 
 124:                                              ; preds = %diag_precon.exit.i.i
-  %125 = fdiv double %123, %.04861.i.i
+  %125 = fdiv double %123, %.04961.i.i
   %126 = call ptr @vector_saxpy(i32 noundef %9, ptr noundef %94, ptr noundef %.064.i.i, double noundef %125) #13
   br label %128
 
@@ -307,7 +307,7 @@ diag_precon.exit.i.i:                             ; preds = %.lr.ph.i.i.i, %.lr.
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %conjugate_gradient.exit.i
 
 conjugate_gradient.exit.i:                        ; preds = %128, %gv_calloc.exit59.i.i
-  %.049.lcssa.i.i = phi double [ %109, %gv_calloc.exit59.i.i ], [ %139, %128 ]
+  %.048.lcssa.i.i = phi double [ %109, %gv_calloc.exit59.i.i ], [ %139, %128 ]
   %.0.lcssa.i.i = phi ptr [ %95, %gv_calloc.exit59.i.i ], [ %.1.i.i, %128 ]
   call void @free(ptr noundef %94) #13
   %143 = load ptr, ptr %7, align 8
@@ -317,7 +317,7 @@ conjugate_gradient.exit.i:                        ; preds = %128, %gv_calloc.exi
   call void @free(ptr noundef %144) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %145 = fadd double %.04054.i, %.049.lcssa.i.i
+  %145 = fadd double %.055.i, %.048.lcssa.i.i
   br i1 %.not.i, label %gv_calloc.exit45.i, label %.lr.ph52.preheader.i
 
 .lr.ph52.preheader.i:                             ; preds = %conjugate_gradient.exit.i
@@ -341,11 +341,11 @@ gv_calloc.exit45.i:                               ; preds = %.lr.ph52.i, %conjug
   br i1 %exitcond68.not.i, label %cg.exit, label %.preheader.i
 
 cg.exit:                                          ; preds = %gv_calloc.exit45.i, %gv_calloc.exit45.preheader.i
-  %.040.lcssa.i = phi double [ 0.000000e+00, %gv_calloc.exit45.preheader.i ], [ %145, %gv_calloc.exit45.i ]
+  %.0.lcssa.i = phi double [ 0.000000e+00, %gv_calloc.exit45.preheader.i ], [ %145, %gv_calloc.exit45.i ]
   call void @free(ptr noundef %55) #13
   call void @free(ptr noundef %61) #13
   call void @free(ptr noundef %23) #13
-  ret double %.040.lcssa.i
+  ret double %.0.lcssa.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

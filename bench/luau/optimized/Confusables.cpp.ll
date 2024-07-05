@@ -12,30 +12,30 @@ define dso_local noundef ptr @_ZN4Luau14findConfusableEj(i32 noundef %0) local_u
   br label %_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i, %1
-  %.05.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i ], [ 1786, %1 ]
-  %.0114.i.i = phi ptr [ %.112.i.i, %_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i ], [ @_ZN4LuauL12kConfusablesE, %1 ]
-  %2 = lshr i64 %.05.i.i, 1
-  %3 = getelementptr inbounds %"struct.Luau::Confusable", ptr %.0114.i.i, i64 %2
+  %.05.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i ], [ @_ZN4LuauL12kConfusablesE, %1 ]
+  %.0114.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i ], [ 1786, %1 ]
+  %2 = lshr i64 %.0114.i.i, 1
+  %3 = getelementptr inbounds %"struct.Luau::Confusable", ptr %.05.i.i, i64 %2
   %.val.i.i = load i24, ptr %3, align 4
   %4 = zext i24 %.val.i.i to i32
   %5 = icmp ult i32 %4, %0
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = xor i64 %2, -1
-  %8 = add nsw i64 %.05.i.i, %7
-  %.112.i.i = select i1 %5, ptr %6, ptr %.0114.i.i
-  %.1.i.i = select i1 %5, i64 %8, i64 %2
-  %9 = icmp sgt i64 %.1.i.i, 0
+  %8 = add nsw i64 %.0114.i.i, %7
+  %.112.i.i = select i1 %5, i64 %8, i64 %2
+  %.1.i.i = select i1 %5, ptr %6, ptr %.05.i.i
+  %9 = icmp sgt i64 %.112.i.i, 0
   br i1 %9, label %_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.exit", !llvm.loop !5
 
 "_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.exit": ; preds = %_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i
-  %.not = icmp eq ptr %.112.i.i, getelementptr inbounds (i8, ptr @_ZN4LuauL12kConfusablesE, i64 14288)
+  %.not = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZN4LuauL12kConfusablesE, i64 14288)
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.exit"
-  %11 = load i24, ptr %.112.i.i, align 4
+  %11 = load i24, ptr %.1.i.i, align 4
   %12 = zext i24 %11 to i32
   %13 = icmp eq i32 %12, %0
-  %14 = getelementptr inbounds i8, ptr %.112.i.i, i64 3
+  %14 = getelementptr inbounds i8, ptr %.1.i.i, i64 3
   %spec.select = select i1 %13, ptr %14, ptr null
   br label %15
 

@@ -484,11 +484,11 @@ define internal i32 @dissect_gmr1_rach(ptr noundef %0, ptr noundef %1, ptr nound
   br label %15
 
 15:                                               ; preds = %13, %8, %4
-  %.041 = phi ptr [ @.str.201, %4 ], [ @.str.202, %8 ], [ %.str.203..str.201, %13 ]
+  %.042 = phi ptr [ @.str.201, %4 ], [ @.str.202, %8 ], [ %.str.203..str.201, %13 ]
   %.not47 = phi i1 [ true, %4 ], [ true, %8 ], [ %14, %13 ]
-  %.0 = phi i32 [ 0, %4 ], [ 5, %8 ], [ %.48, %13 ]
+  %.041 = phi i32 [ 0, %4 ], [ 5, %8 ], [ %.48, %13 ]
   %16 = load i32, ptr @proto_gmr1_rach, align 4
-  %17 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef %7, ptr noundef nonnull @.str.204, ptr noundef nonnull %.041) #7
+  %17 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef %7, ptr noundef nonnull @.str.204, ptr noundef nonnull %.042) #7
   %18 = load i32, ptr @ett_rach_msg, align 4
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #7
   %20 = getelementptr inbounds i8, ptr %1, i64 8
@@ -503,7 +503,7 @@ define internal i32 @dissect_gmr1_rach(ptr noundef %0, ptr noundef %1, ptr nound
 
 25:                                               ; preds = %15
   tail call void @col_append_str(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.206) #7
-  %26 = and i32 %.0, 1
+  %26 = and i32 %.041, 1
   %.not44 = icmp eq i32 %26, 0
   br i1 %.not44, label %71, label %27
 
@@ -572,7 +572,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %40, %50, %58, %62
 71:                                               ; preds = %dissect_gmr1_rach_kls1.exit, %25
   %.052 = phi i32 [ 0, %25 ], [ %37, %dissect_gmr1_rach_kls1.exit ]
   %.051 = phi i32 [ 0, %25 ], [ %39, %dissect_gmr1_rach_kls1.exit ]
-  %72 = and i32 %.0, 2
+  %72 = and i32 %.041, 2
   %.not45 = icmp eq i32 %72, 0
   br i1 %.not45, label %243, label %73
 
@@ -821,7 +821,7 @@ dissect_gmr1_rach_kls2.exit:                      ; preds = %_parse_dialed_numbe
   br label %243
 
 243:                                              ; preds = %dissect_gmr1_rach_kls2.exit, %71
-  %244 = and i32 %.0, 4
+  %244 = and i32 %.041, 4
   %.not46 = icmp eq i32 %244, 0
   br i1 %.not46, label %291, label %245
 
@@ -951,8 +951,8 @@ dissect_gmprs_rach_type2_kls2.exit:               ; preds = %308, %316
   br label %336
 
 336:                                              ; preds = %334, %22
-  %.042 = phi i32 [ %335, %334 ], [ %24, %22 ]
-  ret i32 %.042
+  %.0 = phi i32 [ %335, %334 ], [ %24, %22 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind

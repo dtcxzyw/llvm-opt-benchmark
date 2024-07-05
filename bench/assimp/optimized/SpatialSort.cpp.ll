@@ -740,20 +740,20 @@ while.cond16.preheader:                           ; preds = %while.body, %_ZNSt6
   br i1 %cmp17.not64, label %while.end25, label %land.rhs
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
-  %binaryStepSize.063 = phi i32 [ %div1520, %while.body ], [ %div719, %while.body.preheader ]
-  %index.062 = phi i32 [ %index.1, %while.body ], [ %div18, %while.body.preheader ]
-  %conv9 = zext i32 %index.062 to i64
+  %index.063 = phi i32 [ %index.1, %while.body ], [ %div18, %while.body.preheader ]
+  %binaryStepSize.062 = phi i32 [ %div1520, %while.body ], [ %div719, %while.body.preheader ]
+  %conv9 = zext i32 %index.063 to i64
   %mDistance = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %16, i64 %conv9, i32 2
   %mDistance.val = load i32, ptr %mDistance, align 4
   %sub.i27 = sub nsw i32 -2147483648, %mDistance.val
   %tobool.not1.i28 = icmp slt i32 %mDistance.val, 0
   %retval.0.i29 = select i1 %tobool.not1.i28, i32 %sub.i27, i32 %mDistance.val
   %cmp12 = icmp sgt i32 %sub, %retval.0.i29
-  %17 = sub nsw i32 0, %binaryStepSize.063
-  %index.1.p = select i1 %cmp12, i32 %binaryStepSize.063, i32 %17
-  %index.1 = add i32 %index.1.p, %index.062
-  %div1520 = lshr i32 %binaryStepSize.063, 1
-  %cmp = icmp ugt i32 %binaryStepSize.063, 3
+  %17 = sub nsw i32 0, %binaryStepSize.062
+  %index.1.p = select i1 %cmp12, i32 %binaryStepSize.062, i32 %17
+  %index.1 = add i32 %index.1.p, %index.063
+  %div1520 = lshr i32 %binaryStepSize.062, 1
+  %cmp = icmp ugt i32 %binaryStepSize.062, 3
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !21
 
 land.rhs:                                         ; preds = %while.cond16.preheader, %while.body24

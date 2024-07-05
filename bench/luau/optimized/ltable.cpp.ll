@@ -1853,16 +1853,16 @@ _ZL15updateaboundaryP5Tablei.exit.thread.thread:  ; preds = %55, %60, %42, %44, 
   br i1 %.not4953, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.055 = phi i32 [ %84, %.lr.ph ], [ %11, %.preheader ]
-  %.04254 = phi ptr [ %83, %.lr.ph ], [ %71, %.preheader ]
-  %77 = ashr i32 %.055, 1
+  %.04255 = phi ptr [ %83, %.lr.ph ], [ %71, %.preheader ]
+  %.04354 = phi i32 [ %84, %.lr.ph ], [ %11, %.preheader ]
+  %77 = ashr i32 %.04354, 1
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %struct.lua_TValue, ptr %.04254, i64 %78
+  %79 = getelementptr inbounds %struct.lua_TValue, ptr %.04255, i64 %78
   %80 = getelementptr inbounds i8, ptr %79, i64 12
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, ptr %.04254, ptr %79
-  %84 = sub nsw i32 %.055, %77
+  %83 = select i1 %82, ptr %.04255, ptr %79
+  %84 = sub nsw i32 %.04354, %77
   %.not49 = icmp ult i32 %84, 2
   br i1 %.not49, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
@@ -1887,13 +1887,13 @@ _ZL15updateaboundaryP5Tablei.exit.thread.thread:  ; preds = %55, %60, %42, %44, 
 
 _ZL15updateaboundaryP5Tablei.exit.sink.split:     ; preds = %96, %50, %67
   %.sink = phi i32 [ %68, %67 ], [ %51, %50 ], [ %97, %96 ]
-  %.043.ph = phi i32 [ %53, %67 ], [ %37, %50 ], [ %94, %96 ]
+  %.0.ph = phi i32 [ %53, %67 ], [ %37, %50 ], [ %94, %96 ]
   store i32 %.sink, ptr %2, align 4
   br label %_ZL15updateaboundaryP5Tablei.exit
 
 _ZL15updateaboundaryP5Tablei.exit:                ; preds = %_ZL15updateaboundaryP5Tablei.exit.sink.split, %6, %65, %48, %_ZL15updateaboundaryP5Tablei.exit.thread, %_ZL15updateaboundaryP5Tablei.exit.thread.thread, %._crit_edge, %32, %20
-  %.043 = phi i32 [ %11, %20 ], [ %12, %32 ], [ %94, %._crit_edge ], [ %11, %_ZL15updateaboundaryP5Tablei.exit.thread.thread ], [ %11, %_ZL15updateaboundaryP5Tablei.exit.thread ], [ %37, %48 ], [ %53, %65 ], [ %8, %6 ], [ %.043.ph, %_ZL15updateaboundaryP5Tablei.exit.sink.split ]
-  ret i32 %.043
+  %.0 = phi i32 [ %11, %20 ], [ %12, %32 ], [ %94, %._crit_edge ], [ %11, %_ZL15updateaboundaryP5Tablei.exit.thread.thread ], [ %11, %_ZL15updateaboundaryP5Tablei.exit.thread ], [ %37, %48 ], [ %53, %65 ], [ %8, %6 ], [ %.0.ph, %_ZL15updateaboundaryP5Tablei.exit.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2178,8 +2178,8 @@ _ZL11numusearrayPK5TablePi.exit:                  ; preds = %10, %._crit_edge.i
 
 32:                                               ; preds = %59, %_ZL11numusearrayPK5TablePi.exit
   %indvars.iv.i26 = phi i64 [ %31, %_ZL11numusearrayPK5TablePi.exit ], [ %indvars.iv.next.i27, %59 ]
-  %.01216.i = phi i32 [ 0, %_ZL11numusearrayPK5TablePi.exit ], [ %.2.i, %59 ]
-  %.01315.i = phi i32 [ 0, %_ZL11numusearrayPK5TablePi.exit ], [ %.114.i, %59 ]
+  %.016.i = phi i32 [ 0, %_ZL11numusearrayPK5TablePi.exit ], [ %.1.i, %59 ]
+  %.01315.i = phi i32 [ 0, %_ZL11numusearrayPK5TablePi.exit ], [ %.2.i, %59 ]
   %33 = load ptr, ptr %29, align 8
   %34 = getelementptr inbounds %struct.LuaNode, ptr %33, i64 %indvars.iv.i26
   %35 = getelementptr inbounds i8, ptr %34, i64 12
@@ -2216,17 +2216,17 @@ _ZL11numusearrayPK5TablePi.exit:                  ; preds = %10, %._crit_edge.i
 
 _ZL8countintdPi.exit.i:                           ; preds = %51, %43
   %.0.i.i = phi i32 [ 1, %51 ], [ 0, %43 ]
-  %56 = add nsw i32 %.0.i.i, %.01216.i
+  %56 = add nsw i32 %.0.i.i, %.01315.i
   br label %57
 
 57:                                               ; preds = %_ZL8countintdPi.exit.i, %38
-  %.1.i = phi i32 [ %56, %_ZL8countintdPi.exit.i ], [ %.01216.i, %38 ]
-  %58 = add nsw i32 %.01315.i, 1
+  %.114.i = phi i32 [ %56, %_ZL8countintdPi.exit.i ], [ %.01315.i, %38 ]
+  %58 = add nsw i32 %.016.i, 1
   br label %59
 
 59:                                               ; preds = %57, %32
-  %.114.i = phi i32 [ %.01315.i, %32 ], [ %58, %57 ]
-  %.2.i = phi i32 [ %.01216.i, %32 ], [ %.1.i, %57 ]
+  %.2.i = phi i32 [ %.01315.i, %32 ], [ %.114.i, %57 ]
+  %.1.i = phi i32 [ %.016.i, %32 ], [ %58, %57 ]
   %indvars.iv.next.i27 = add nsw i64 %indvars.iv.i26, -1
   %60 = icmp eq i64 %indvars.iv.i26, 0
   br i1 %60, label %_ZL10numusehashPK5TablePiS2_.exit, label %32, !llvm.loop !24
@@ -2298,7 +2298,7 @@ _ZL12computesizesPiS_.exit:                       ; preds = %.lr.ph.i32, %90, %8
   %.219.i = phi i32 [ 0, %80 ], [ %.118.i, %90 ], [ %.118.i, %.lr.ph.i32 ]
   %.2.i31 = phi i32 [ 0, %80 ], [ %.1.i34, %90 ], [ %.1.i34, %.lr.ph.i32 ]
   %94 = add i32 %.023.lcssa.i, 1
-  %95 = add i32 %94, %.114.i
+  %95 = add i32 %94, %.1.i
   %96 = sub i32 %95, %.219.i
   %97 = tail call fastcc noundef i32 @_ZL11adjustasizeP5TableiPK10lua_TValue(ptr noundef %1, i32 noundef %.2.i31, ptr noundef %2)
   %.not = icmp eq i32 %97, %.2.i31

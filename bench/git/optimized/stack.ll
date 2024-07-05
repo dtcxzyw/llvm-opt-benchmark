@@ -368,13 +368,13 @@ for.inc77.i:                                      ; preds = %stack_filename.exit
   br i1 %exitcond93.not.i, label %reftable_stack_reload_once.exit, label %for.body61.i, !llvm.loop !9
 
 done.loopexit.i:                                  ; preds = %if.end28.i, %stack_filename.exit.i
-  %err.0.ph.i = phi i32 [ %call29.i, %if.end28.i ], [ %call24.i, %stack_filename.exit.i ]
+  %err.0.ph.i = phi i32 [ %call24.i, %stack_filename.exit.i ], [ %call29.i, %if.end28.i ]
   %34 = trunc nuw nsw i64 %indvars.iv86.i to i32
   br label %done.i
 
 done.i:                                           ; preds = %done.loopexit.i, %while.end.i
-  %err.0.i = phi i32 [ %call40.i, %while.end.i ], [ %err.0.ph.i, %done.loopexit.i ]
   %new_readers_len.1.i = phi i32 [ %new_readers_len.0.lcssa.i, %while.end.i ], [ %34, %done.loopexit.i ]
+  %err.0.i = phi i32 [ %call40.i, %while.end.i ], [ %err.0.ph.i, %done.loopexit.i ]
   %cmp8179.not.i = icmp eq i32 %new_readers_len.1.i, 0
   br i1 %cmp8179.not.i, label %reftable_stack_reload_once.exit, label %for.body83.preheader.i
 
@@ -394,18 +394,18 @@ for.body83.i:                                     ; preds = %for.body83.i, %for.
   br i1 %exitcond98.not.i, label %reftable_stack_reload_once.exit, label %for.body83.i, !llvm.loop !10
 
 reftable_stack_reload_once.exit:                  ; preds = %for.inc77.i, %for.body83.i, %if.end55.i, %done.i
-  %new_tables.0108.i = phi ptr [ %call7.i, %done.i ], [ null, %if.end55.i ], [ %call7.i, %for.body83.i ], [ null, %for.inc77.i ]
-  %new_readers.0107.i = phi ptr [ %call4.i, %done.i ], [ null, %if.end55.i ], [ %call4.i, %for.body83.i ], [ null, %for.inc77.i ]
-  %err.0106.i = phi i32 [ %err.0.i, %done.i ], [ %call40.i, %if.end55.i ], [ %err.0.i, %for.body83.i ], [ %call40.i, %for.inc77.i ]
-  call void @reftable_free(ptr noundef %new_readers.0107.i) #14
-  call void @reftable_free(ptr noundef %new_tables.0108.i) #14
+  %err.0108.i = phi i32 [ %err.0.i, %done.i ], [ %call40.i, %if.end55.i ], [ %err.0.i, %for.body83.i ], [ %call40.i, %for.inc77.i ]
+  %new_tables.0107.i = phi ptr [ %call7.i, %done.i ], [ null, %if.end55.i ], [ %call7.i, %for.body83.i ], [ null, %for.inc77.i ]
+  %new_readers.0106.i = phi ptr [ %call4.i, %done.i ], [ null, %if.end55.i ], [ %call4.i, %for.body83.i ], [ null, %for.inc77.i ]
+  call void @reftable_free(ptr noundef %new_readers.0106.i) #14
+  call void @reftable_free(ptr noundef %new_tables.0107.i) #14
   call void @reftable_free(ptr noundef %call.i.i) #14
   call void @strbuf_release(ptr noundef nonnull %table_path.i) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %new_merged.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %table_path.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rd.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %src.i)
-  %cond = icmp eq i32 %err.0106.i, -4
+  %cond = icmp eq i32 %err.0108.i, -4
   br i1 %cond, label %if.end21, label %return.sink.split
 
 if.end21:                                         ; preds = %reftable_stack_reload_once.exit
@@ -442,7 +442,7 @@ if.end29:                                         ; preds = %if.end26
   br i1 %cmp3, label %return, label %if.end5
 
 return.sink.split:                                ; preds = %reftable_stack_reload_once.exit, %if.end21, %if.end10
-  %retval.0.ph = phi i32 [ %call11, %if.end10 ], [ %err.0106.i, %reftable_stack_reload_once.exit ], [ %call23, %if.end21 ]
+  %retval.0.ph = phi i32 [ %call11, %if.end10 ], [ %err.0108.i, %reftable_stack_reload_once.exit ], [ %call23, %if.end21 ]
   %.sink = load ptr, ptr %names, align 8
   call void @free_names(ptr noundef %.sink) #14
   br label %return
@@ -2103,8 +2103,8 @@ if.end174:                                        ; preds = %if.then172, %while.
   br i1 %tobool168.not, label %done, label %while.body, !llvm.loop !23
 
 done:                                             ; preds = %if.end174, %if.end164, %if.end45, %stack_uptodate.exit.thread91, %stack_uptodate.exit.thread, %if.then105, %if.then87, %if.then78, %if.then12, %entry, %lor.lhs.false, %if.end63, %for.end, %stack_uptodate.exit, %if.then161, %if.then152, %if.then145
-  %tobool186.not = phi i1 [ false, %stack_uptodate.exit ], [ false, %if.end45 ], [ false, %for.end ], [ true, %if.end63 ], [ false, %if.then145 ], [ false, %if.then152 ], [ false, %if.then161 ], [ true, %lor.lhs.false ], [ true, %entry ], [ true, %if.then12 ], [ true, %if.then78 ], [ false, %if.then87 ], [ false, %if.then105 ], [ false, %stack_uptodate.exit.thread ], [ false, %stack_uptodate.exit.thread91 ], [ true, %if.end164 ], [ true, %if.end174 ]
   %lock_file_fd.0 = phi i32 [ -1, %stack_uptodate.exit ], [ -1, %if.end45 ], [ -1, %for.end ], [ -1, %if.end63 ], [ %call75, %if.then145 ], [ -1, %if.then152 ], [ -1, %if.then161 ], [ -1, %lor.lhs.false ], [ -1, %entry ], [ %call9, %if.then12 ], [ %call75, %if.then78 ], [ %call75, %if.then87 ], [ %call75, %if.then105 ], [ -1, %stack_uptodate.exit.thread ], [ -1, %stack_uptodate.exit.thread91 ], [ -1, %if.end164 ], [ -1, %if.end174 ]
+  %tobool186.not = phi i1 [ false, %stack_uptodate.exit ], [ false, %if.end45 ], [ false, %for.end ], [ true, %if.end63 ], [ false, %if.then145 ], [ false, %if.then152 ], [ false, %if.then161 ], [ true, %lor.lhs.false ], [ true, %entry ], [ true, %if.then12 ], [ true, %if.then78 ], [ false, %if.then87 ], [ false, %if.then105 ], [ false, %stack_uptodate.exit.thread ], [ false, %stack_uptodate.exit.thread91 ], [ true, %if.end164 ], [ true, %if.end174 ]
   %err.3 = phi i32 [ %call.i76, %stack_uptodate.exit ], [ %.73, %if.end45 ], [ %call59, %for.end ], [ %call64, %if.end63 ], [ -2, %if.then145 ], [ -2, %if.then152 ], [ -2, %if.then161 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %., %if.then12 ], [ %.74, %if.then78 ], [ -2, %if.then87 ], [ -2, %if.then105 ], [ %call.i76, %stack_uptodate.exit.thread ], [ 1, %stack_uptodate.exit.thread91 ], [ %call167, %if.end164 ], [ %call167, %if.end174 ]
   call void @free_names(ptr noundef %call) #14
   %61 = load ptr, ptr %call5, align 8
@@ -3094,8 +3094,8 @@ if.end53.lr.ph.i:                                 ; preds = %if.end53.lr.ph.lr.p
   br label %if.end53.i
 
 done.i:                                           ; preds = %if.end31.i, %if.end27.i, %if.end36.split.us.us.i, %if.end27.us.us.i, %if.end91.i, %if.end86.split.split.i, %while.body48.backedge.i, %if.end53.i, %if.end86.split.split.us.us.i, %if.end91.us126.i, %while.body48.backedge.us86.us.i, %if.end53.us78.us.i, %if.end57.us.us108.i, %if.end91.us.i, %if.end53.lr.ph.us.i, %if.end64.us.split.us.us.us.i, %if.end91.us.us.i, %while.body48.backedge.us.us.us.us.i, %if.end53.us.us.us.us.i, %while.body48.preheader.i, %if.then26.i, %if.end.i, %if.then.i
-  %err.0.i = phi i32 [ %call15.i, %if.then.i ], [ %call18.i, %if.end.i ], [ %call43.i, %if.then26.i ], [ 0, %while.body48.preheader.i ], [ %call4967.us.us.us.us.i, %if.end53.us.us.us.us.i ], [ 0, %while.body48.backedge.us.us.us.us.i ], [ %call87.us.us.i, %if.end64.us.split.us.us.us.i ], [ 0, %if.end91.us.us.i ], [ %call87.us.i, %if.end57.us.us108.i ], [ %call4965105.us.i, %if.end53.lr.ph.us.i ], [ 0, %if.end91.us.i ], [ %call4967.us79.us.i, %if.end53.us78.us.i ], [ 0, %while.body48.backedge.us86.us.i ], [ %call87.us130.i, %if.end86.split.split.us.us.i ], [ 0, %if.end91.us126.i ], [ %call4967.i, %if.end53.i ], [ 0, %while.body48.backedge.i ], [ %call87.i, %if.end86.split.split.i ], [ 0, %if.end91.i ], [ %call23.us.us.i, %if.end27.us.us.i ], [ %call37.us.i, %if.end36.split.us.us.i ], [ %call37.i, %if.end31.i ], [ %call2364.i, %if.end27.i ]
   %entries.2.i = phi i64 [ 0, %if.then.i ], [ 0, %if.end.i ], [ %.us-phi.i, %if.then26.i ], [ %.us-phi.i, %while.body48.preheader.i ], [ %entries.1.ph103.us.us.i, %if.end53.us.us.us.us.i ], [ %entries.1.ph103.us.us.i, %while.body48.backedge.us.us.us.us.i ], [ %entries.1.ph103.us.us.i, %if.end64.us.split.us.us.us.i ], [ %inc92.us.us.i, %if.end91.us.us.i ], [ %entries.1.ph103.us.i, %if.end57.us.us108.i ], [ %entries.1.ph103.us.i, %if.end53.lr.ph.us.i ], [ %inc92.us.i, %if.end91.us.i ], [ %entries.1.ph103.us125.i, %if.end53.us78.us.i ], [ %entries.1.ph103.us125.i, %while.body48.backedge.us86.us.i ], [ %entries.1.ph103.us125.i, %if.end86.split.split.us.us.i ], [ %inc92.us127.i, %if.end91.us126.i ], [ %entries.1.ph103.i, %if.end53.i ], [ %entries.1.ph103.i, %while.body48.backedge.i ], [ %entries.1.ph103.i, %if.end86.split.split.i ], [ %inc92.i, %if.end91.i ], [ %entries.0.ph.us.i, %if.end27.us.us.i ], [ %entries.0.ph.us.i, %if.end36.split.us.us.i ], [ %entries.0.ph63.i, %if.end27.i ], [ %entries.0.ph63.i, %if.end31.i ]
+  %err.0.i = phi i32 [ %call15.i, %if.then.i ], [ %call18.i, %if.end.i ], [ %call43.i, %if.then26.i ], [ 0, %while.body48.preheader.i ], [ 0, %while.body48.backedge.us.us.us.us.i ], [ %call4967.us.us.us.us.i, %if.end53.us.us.us.us.i ], [ %call87.us.us.i, %if.end64.us.split.us.us.us.i ], [ 0, %if.end91.us.us.i ], [ %call87.us.i, %if.end57.us.us108.i ], [ %call4965105.us.i, %if.end53.lr.ph.us.i ], [ 0, %if.end91.us.i ], [ 0, %while.body48.backedge.us86.us.i ], [ %call4967.us79.us.i, %if.end53.us78.us.i ], [ %call87.us130.i, %if.end86.split.split.us.us.i ], [ 0, %if.end91.us126.i ], [ 0, %while.body48.backedge.i ], [ %call4967.i, %if.end53.i ], [ %call87.i, %if.end86.split.split.i ], [ 0, %if.end91.i ], [ %call23.us.us.i, %if.end27.us.us.i ], [ %call37.us.i, %if.end36.split.us.us.i ], [ %call37.i, %if.end31.i ], [ %call2364.i, %if.end27.i ]
   call void @reftable_iterator_destroy(ptr noundef nonnull %it.i) #14
   %28 = load ptr, ptr %mt.i, align 8
   %tobool94.not.i = icmp eq ptr %28, null

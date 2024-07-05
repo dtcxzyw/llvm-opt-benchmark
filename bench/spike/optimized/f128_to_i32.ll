@@ -10,10 +10,10 @@ define i64 @f128_to_i32(i64 %0, i64 %1, i8 noundef zeroext %2, i1 noundef zeroex
   %7 = and i64 %1, 281474976710655
   %.not23 = icmp eq i64 %6, 0
   %8 = or disjoint i64 %7, 281474976710656
-  %.0 = select i1 %.not23, i64 %7, i64 %8
+  %.021 = select i1 %.not23, i64 %7, i64 %8
   %9 = icmp ne i64 %0, 0
   %10 = zext i1 %9 to i64
-  %11 = or i64 %.0, %10
+  %11 = or i64 %.021, %10
   %12 = icmp ult i64 %6, 16419
   br i1 %12, label %13, label %softfloat_shiftRightJam64.exit
 

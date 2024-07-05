@@ -264,9 +264,9 @@ define internal i32 @dissect_msrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %22 = sub i32 %20, %18
   %23 = add i32 %20, 1
   %24 = sub i32 %12, %23
-  %.0257 = select i1 %21, i32 %19, i32 %22
-  %.0255 = select i1 %21, i32 0, i32 %24
-  %25 = icmp eq i32 %.0257, 3
+  %.0256 = select i1 %21, i32 0, i32 %24
+  %.0254 = select i1 %21, i32 %19, i32 %22
+  %25 = icmp eq i32 %.0254, 3
   br i1 %25, label %26, label %47
 
 26:                                               ; preds = %11
@@ -352,18 +352,18 @@ find_end_line.exit:                               ; preds = %52
   %70 = load ptr, ptr %68, align 8
   %71 = getelementptr inbounds i8, ptr %1, i64 408
   %72 = load ptr, ptr %71, align 8
-  %73 = call ptr @tvb_format_text(ptr noundef %72, ptr noundef %0, i32 noundef %18, i32 noundef %.0257) #6
+  %73 = call ptr @tvb_format_text(ptr noundef %72, ptr noundef %0, i32 noundef %18, i32 noundef %.0254) #6
   br i1 %.not268, label %79, label %74
 
 74:                                               ; preds = %64
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %70, i32 noundef 25, ptr noundef nonnull @.str.75, ptr noundef %73) #6
-  %.not269 = icmp eq i32 %.0255, 0
+  %.not269 = icmp eq i32 %.0256, 0
   br i1 %.not269, label %80, label %75
 
 75:                                               ; preds = %74
   %76 = load ptr, ptr %68, align 8
   %77 = load ptr, ptr %71, align 8
-  %78 = call ptr @tvb_format_text(ptr noundef %77, ptr noundef %0, i32 noundef %23, i32 noundef %.0255) #6
+  %78 = call ptr @tvb_format_text(ptr noundef %77, ptr noundef %0, i32 noundef %23, i32 noundef %.0256) #6
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.76, ptr noundef %78) #6
   br label %80
 
@@ -396,11 +396,11 @@ find_end_line.exit:                               ; preds = %52
   %95 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %94, ptr noundef %0, i32 noundef %14, i32 noundef %17, i32 noundef 2) #6
   %96 = getelementptr inbounds i8, ptr %1, i64 408
   %97 = load ptr, ptr %96, align 8
-  %98 = call ptr @tvb_get_string_enc(ptr noundef %97, ptr noundef %0, i32 noundef %18, i32 noundef %.0257, i32 noundef 2) #6
+  %98 = call ptr @tvb_get_string_enc(ptr noundef %97, ptr noundef %0, i32 noundef %18, i32 noundef %.0254, i32 noundef 2) #6
   %99 = call zeroext i1 @ws_strtou32(ptr noundef %98, ptr noundef null, ptr noundef nonnull %9) #6
   %100 = load i32, ptr @hf_msrp_status_code, align 4
   %101 = load i32, ptr %9, align 4
-  %102 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %100, ptr noundef %0, i32 noundef %18, i32 noundef %.0257, i32 noundef %101) #6
+  %102 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %100, ptr noundef %0, i32 noundef %18, i32 noundef %.0254, i32 noundef %101) #6
   br i1 %99, label %114, label %103
 
 103:                                              ; preds = %89
@@ -415,7 +415,7 @@ find_end_line.exit:                               ; preds = %52
   %110 = load i32, ptr @hf_msrp_transactionID, align 4
   %111 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %110, ptr noundef %0, i32 noundef %14, i32 noundef %17, i32 noundef 2) #6
   %112 = load i32, ptr @hf_msrp_method, align 4
-  %113 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %112, ptr noundef %0, i32 noundef %18, i32 noundef %.0257, i32 noundef 2) #6
+  %113 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %112, ptr noundef %0, i32 noundef %18, i32 noundef %.0254, i32 noundef 2) #6
   br label %114
 
 114:                                              ; preds = %89, %103, %105
@@ -548,29 +548,29 @@ show_setup_info.exit:                             ; preds = %171, %168, %proto_i
   br label %185
 
 185:                                              ; preds = %.lr.ph307, %243
-  %.0247306 = phi ptr [ null, %.lr.ph307 ], [ %.1, %243 ]
-  %.0248305 = phi i32 [ %48, %.lr.ph307 ], [ %244, %243 ]
-  %186 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.0248305, i32 noundef -1, ptr noundef nonnull %7, i32 noundef 0) #6
+  %.0246306 = phi i32 [ %48, %.lr.ph307 ], [ %244, %243 ]
+  %.0248305 = phi ptr [ null, %.lr.ph307 ], [ %.1249, %243 ]
+  %186 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.0246306, i32 noundef -1, ptr noundef nonnull %7, i32 noundef 0) #6
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %248, label %188
 
 188:                                              ; preds = %185
-  %189 = add i32 %186, %.0248305
-  %190 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0248305, i32 noundef %186, i8 noundef zeroext 58) #6
+  %189 = add i32 %186, %.0246306
+  %190 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0246306, i32 noundef %186, i8 noundef zeroext 58) #6
   %191 = icmp eq i32 %190, -1
   br i1 %191, label %192, label %199
 
 192:                                              ; preds = %188
   %193 = load ptr, ptr %183, align 8
-  %194 = call ptr @tvb_format_text(ptr noundef %193, ptr noundef %0, i32 noundef %.0248305, i32 noundef %186) #6
+  %194 = call ptr @tvb_format_text(ptr noundef %193, ptr noundef %0, i32 noundef %.0246306, i32 noundef %186) #6
   %195 = load i32, ptr @hf_msrp_hdr, align 4
   %196 = load i32, ptr %7, align 4
-  %197 = sub i32 %196, %.0248305
-  %198 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %179, i32 noundef %195, ptr noundef %0, i32 noundef %.0248305, i32 noundef %197, ptr noundef %194, ptr noundef nonnull @.str.79, ptr noundef %194) #6
+  %197 = sub i32 %196, %.0246306
+  %198 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %179, i32 noundef %195, ptr noundef %0, i32 noundef %.0246306, i32 noundef %197, ptr noundef %194, ptr noundef nonnull @.str.79, ptr noundef %194) #6
   br label %243
 
 199:                                              ; preds = %188
-  %200 = sub i32 %190, %.0248305
+  %200 = sub i32 %190, %.0246306
   %201 = zext i32 %200 to i64
   br label %202
 
@@ -583,7 +583,7 @@ show_setup_info.exit:                             ; preds = %171, %168, %proto_i
   br i1 %206, label %207, label %211
 
 207:                                              ; preds = %202
-  %208 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0248305, ptr noundef %204, i64 noundef %201) #6
+  %208 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0246306, ptr noundef %204, i64 noundef %201) #6
   %209 = icmp eq i32 %208, 0
   br i1 %209, label %msrp_is_known_msrp_header.exit.preheader, label %211
 
@@ -599,11 +599,11 @@ msrp_is_known_msrp_header.exit.preheader:         ; preds = %207
 
 msrp_is_known_msrp_header.exit.thread:            ; preds = %211
   %212 = load ptr, ptr %183, align 8
-  %213 = call ptr @tvb_format_text(ptr noundef %212, ptr noundef %0, i32 noundef %.0248305, i32 noundef %186) #6
+  %213 = call ptr @tvb_format_text(ptr noundef %212, ptr noundef %0, i32 noundef %.0246306, i32 noundef %186) #6
   %214 = load i32, ptr @hf_msrp_hdr, align 4
   %215 = load i32, ptr %7, align 4
-  %216 = sub i32 %215, %.0248305
-  %217 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %179, i32 noundef %214, ptr noundef %0, i32 noundef %.0248305, i32 noundef %216, ptr noundef %213, ptr noundef nonnull @.str.79, ptr noundef %213) #6
+  %216 = sub i32 %215, %.0246306
+  %217 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %179, i32 noundef %214, ptr noundef %0, i32 noundef %.0246306, i32 noundef %216, ptr noundef %213, ptr noundef nonnull @.str.79, ptr noundef %213) #6
   br label %243
 
 .lr.ph:                                           ; preds = %msrp_is_known_msrp_header.exit.preheader, %msrp_is_known_msrp_header.exit
@@ -629,10 +629,10 @@ msrp_is_known_msrp_header.exit:                   ; preds = %.lr.ph, %.lr.ph
   %223 = getelementptr [16 x i32], ptr @hf_header_array, i64 0, i64 %222
   %224 = load i32, ptr %223, align 4
   %225 = load i32, ptr %7, align 4
-  %226 = sub i32 %225, %.0248305
+  %226 = sub i32 %225, %.0246306
   %227 = load ptr, ptr %183, align 8
-  %228 = call ptr @tvb_format_text(ptr noundef %227, ptr noundef %0, i32 noundef %.0248305, i32 noundef %186) #6
-  %229 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %179, i32 noundef %224, ptr noundef %0, i32 noundef %.0248305, i32 noundef %226, ptr noundef %221, ptr noundef nonnull @.str.79, ptr noundef %228) #6
+  %228 = call ptr @tvb_format_text(ptr noundef %227, ptr noundef %0, i32 noundef %.0246306, i32 noundef %186) #6
+  %229 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %179, i32 noundef %224, ptr noundef %0, i32 noundef %.0246306, i32 noundef %226, ptr noundef %221, ptr noundef nonnull @.str.79, ptr noundef %228) #6
   %cond = icmp eq i64 %indvars.iv.i, 8
   br i1 %cond, label %230, label %243
 
@@ -642,29 +642,29 @@ msrp_is_known_msrp_header.exit:                   ; preds = %.lr.ph, %.lr.ph
   br i1 %.not272, label %239, label %.preheader
 
 .preheader:                                       ; preds = %230
-  %.0246298 = add nuw i32 %231, 1
-  %232 = icmp slt i32 %.0246298, %189
+  %.0247298 = add nuw i32 %231, 1
+  %232 = icmp slt i32 %.0247298, %189
   br i1 %232, label %.lr.ph300, label %.critedge2
 
 .lr.ph300:                                        ; preds = %.preheader, %234
-  %.0246299 = phi i32 [ %.0246, %234 ], [ %.0246298, %.preheader ]
-  %233 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0246299) #6
+  %.0247299 = phi i32 [ %.0247, %234 ], [ %.0247298, %.preheader ]
+  %233 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0247299) #6
   switch i8 %233, label %.critedge2 [
     i8 32, label %234
     i8 9, label %234
   ]
 
 234:                                              ; preds = %.lr.ph300, %.lr.ph300
-  %.0246 = add nsw i32 %.0246299, 1
-  %exitcond314.not = icmp eq i32 %.0246, %189
+  %.0247 = add nsw i32 %.0247299, 1
+  %exitcond314.not = icmp eq i32 %.0247, %189
   br i1 %exitcond314.not, label %.critedge2, label %.lr.ph300, !llvm.loop !8
 
 .critedge2:                                       ; preds = %234, %.lr.ph300, %.preheader
-  %.0246.lcssa = phi i32 [ %.0246298, %.preheader ], [ %.0246299, %.lr.ph300 ], [ %189, %234 ]
+  %.0247.lcssa = phi i32 [ %.0247298, %.preheader ], [ %.0247299, %.lr.ph300 ], [ %189, %234 ]
   %235 = sub i32 %231, %.0253.lcssa
-  %236 = sub i32 %189, %.0246.lcssa
+  %236 = sub i32 %189, %.0247.lcssa
   %237 = load ptr, ptr %183, align 8
-  %238 = call ptr @tvb_get_string_enc(ptr noundef %237, ptr noundef %0, i32 noundef %.0246.lcssa, i32 noundef %236, i32 noundef 2) #6
+  %238 = call ptr @tvb_get_string_enc(ptr noundef %237, ptr noundef %0, i32 noundef %.0247.lcssa, i32 noundef %236, i32 noundef 2) #6
   store ptr %238, ptr %184, align 8
   br label %239
 
@@ -676,7 +676,7 @@ msrp_is_known_msrp_header.exit:                   ; preds = %.lr.ph, %.lr.ph
   br label %243
 
 243:                                              ; preds = %msrp_is_known_msrp_header.exit.thread, %.critedge, %239, %192
-  %.1 = phi ptr [ %.0247306, %192 ], [ %.0247306, %msrp_is_known_msrp_header.exit.thread ], [ %242, %239 ], [ %.0247306, %.critedge ]
+  %.1249 = phi ptr [ %.0248305, %192 ], [ %.0248305, %msrp_is_known_msrp_header.exit.thread ], [ %242, %239 ], [ %.0248305, %.critedge ]
   %244 = load i32, ptr %7, align 4
   %245 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %244) #6
   %246 = icmp eq i32 %245, 0
@@ -694,12 +694,12 @@ msrp_is_known_msrp_header.exit:                   ; preds = %.lr.ph, %.lr.ph
   %254 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %252, ptr noundef %0, i32 noundef %253, i32 noundef -1, i32 noundef 2) #6
   %255 = load i32, ptr @ett_msrp_data, align 4
   %256 = call ptr @proto_item_add_subtree(ptr noundef %254, i32 noundef %255) #6
-  %.not277 = icmp eq ptr %.0247306, null
+  %.not277 = icmp eq ptr %.0248305, null
   br i1 %.not277, label %.critedge283, label %257
 
 257:                                              ; preds = %248
   %258 = load ptr, ptr @media_type_dissector_table, align 8
-  %259 = call i32 @dissector_try_string(ptr noundef %258, ptr noundef nonnull %.0247306, ptr noundef %251, ptr noundef nonnull %1, ptr noundef %256, ptr noundef nonnull %8) #6
+  %259 = call i32 @dissector_try_string(ptr noundef %258, ptr noundef nonnull %.0248305, ptr noundef %251, ptr noundef nonnull %1, ptr noundef %256, ptr noundef nonnull %8) #6
   %260 = icmp eq i32 %259, 0
   br i1 %260, label %.critedge283, label %.critedge281
 
@@ -709,11 +709,11 @@ msrp_is_known_msrp_header.exit:                   ; preds = %.lr.ph, %.lr.ph
   br i1 %.not278308, label %.critedge281, label %.lr.ph310
 
 .lr.ph310:                                        ; preds = %.critedge283, %.lr.ph310
-  %.1249309 = phi i32 [ %266, %.lr.ph310 ], [ 0, %.critedge283 ]
-  %262 = call i32 @tvb_find_line_end(ptr noundef %251, i32 noundef %.1249309, i32 noundef -1, ptr noundef nonnull %7, i32 noundef 0) #6
+  %.1309 = phi i32 [ %266, %.lr.ph310 ], [ 0, %.critedge283 ]
+  %262 = call i32 @tvb_find_line_end(ptr noundef %251, i32 noundef %.1309, i32 noundef -1, ptr noundef nonnull %7, i32 noundef 0) #6
   %263 = load i32, ptr %7, align 4
-  %264 = sub i32 %263, %.1249309
-  %265 = call ptr @proto_tree_add_format_text(ptr noundef %256, ptr noundef %251, i32 noundef %.1249309, i32 noundef %264) #6
+  %264 = sub i32 %263, %.1309
+  %265 = call ptr @proto_tree_add_format_text(ptr noundef %256, ptr noundef %251, i32 noundef %.1309, i32 noundef %264) #6
   %266 = load i32, ptr %7, align 4
   %267 = call i32 @tvb_offset_exists(ptr noundef %251, i32 noundef %266) #6
   %.not278 = icmp eq i32 %267, 0

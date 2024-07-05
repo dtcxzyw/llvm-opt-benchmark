@@ -850,11 +850,11 @@ define internal fastcc range(i32 -1, 1) i32 @write_body(ptr noundef %0, ptr noun
   br label %10
 
 10:                                               ; preds = %.lr.ph103, %._crit_edge
-  %.045101 = phi ptr [ %7, %.lr.ph103 ], [ %217, %._crit_edge ]
-  %11 = load i32, ptr %.045101, align 8
+  %.046101 = phi ptr [ %7, %.lr.ph103 ], [ %217, %._crit_edge ]
+  %11 = load i32, ptr %.046101, align 8
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = tail call fastcc zeroext i1 @write_node_test(ptr noundef %0, ptr noundef nonnull %.045101, i64 noundef %13)
+  %14 = tail call fastcc zeroext i1 @write_node_test(ptr noundef %0, ptr noundef nonnull %.046101, i64 noundef %13)
   br i1 %14, label %15, label %42
 
 15:                                               ; preds = %10
@@ -866,7 +866,7 @@ define internal fastcc range(i32 -1, 1) i32 @write_body(ptr noundef %0, ptr noun
 
 18:                                               ; preds = %15, %16
   %19 = phi ptr [ %17, %16 ], [ null, %15 ]
-  %20 = tail call ptr @agraphof(ptr noundef nonnull %.045101) #9
+  %20 = tail call ptr @agraphof(ptr noundef nonnull %.046101) #9
   %21 = load i32, ptr @Level, align 4
   %22 = getelementptr i8, ptr %20, i64 128
   %23 = icmp sgt i32 %21, 0
@@ -889,18 +889,18 @@ define internal fastcc range(i32 -1, 1) i32 @write_body(ptr noundef %0, ptr noun
   br i1 %30, label %write_node.exit.thread, label %24
 
 .loopexit.i:                                      ; preds = %24, %18
-  %31 = tail call fastcc i32 @write_nodename(ptr noundef nonnull %.045101, ptr noundef %1)
+  %31 = tail call fastcc i32 @write_nodename(ptr noundef nonnull %.046101, ptr noundef %1)
   %32 = icmp eq i32 %31, -1
   br i1 %32, label %write_node.exit.thread, label %33
 
 33:                                               ; preds = %.loopexit.i
-  %.val11.i = load i32, ptr %.045101, align 8
+  %.val11.i = load i32, ptr %.046101, align 8
   %34 = and i32 %.val11.i, 8
   %.not.i = icmp eq i32 %34, 0
   br i1 %.not.i, label %35, label %write_node.exit
 
 35:                                               ; preds = %33
-  %36 = tail call fastcc i32 @write_nondefault_attrs(ptr noundef nonnull %.045101, ptr noundef %1, ptr noundef %19)
+  %36 = tail call fastcc i32 @write_nondefault_attrs(ptr noundef nonnull %.046101, ptr noundef %1, ptr noundef %19)
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %write_node.exit.thread, label %write_node.exit
 
@@ -915,35 +915,35 @@ write_node.exit:                                  ; preds = %33, %35
   br i1 %41, label %write_node.exit.thread, label %42
 
 42:                                               ; preds = %write_node.exit, %10
-  %43 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.045101) #9
+  %43 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.046101) #9
   %.not5196 = icmp eq ptr %43, null
   br i1 %.not5196, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42, %write_edge_test.exit
-  %.098 = phi ptr [ %216, %write_edge_test.exit ], [ %43, %42 ]
-  %.04497 = phi ptr [ %.1, %write_edge_test.exit ], [ %.045101, %42 ]
-  %44 = load i32, ptr %.098, align 8
+  %.04498 = phi ptr [ %216, %write_edge_test.exit ], [ %43, %42 ]
+  %.04597 = phi ptr [ %.1, %write_edge_test.exit ], [ %.046101, %42 ]
+  %44 = load i32, ptr %.04498, align 8
   %45 = and i32 %44, 3
   %46 = icmp eq i32 %45, 2
-  %47 = getelementptr inbounds i8, ptr %.098, i64 -64
-  %48 = select i1 %46, ptr %.098, ptr %47
+  %47 = getelementptr inbounds i8, ptr %.04498, i64 -64
+  %48 = select i1 %46, ptr %.04498, ptr %47
   %49 = getelementptr inbounds i8, ptr %48, i64 56
   %50 = load ptr, ptr %49, align 8
-  %.not52 = icmp eq ptr %.04497, %50
+  %.not52 = icmp eq ptr %.04597, %50
   br i1 %.not52, label %96, label %51
 
 51:                                               ; preds = %.lr.ph
-  %52 = load i32, ptr %.045101, align 8
+  %52 = load i32, ptr %.046101, align 8
   %53 = lshr i32 %52, 4
   %54 = zext nneg i32 %53 to i64
   %55 = tail call fastcc zeroext i1 @write_node_test(ptr noundef %0, ptr noundef %50, i64 noundef %54)
   br i1 %55, label %56, label %96
 
 56:                                               ; preds = %51
-  %57 = load i32, ptr %.098, align 8
+  %57 = load i32, ptr %.04498, align 8
   %58 = and i32 %57, 3
   %59 = icmp eq i32 %58, 2
-  %60 = select i1 %59, ptr %.098, ptr %47
+  %60 = select i1 %59, ptr %.04498, ptr %47
   %61 = getelementptr inbounds i8, ptr %60, i64 56
   %62 = load ptr, ptr %61, align 8
   br i1 %.not50, label %65, label %63
@@ -1003,16 +1003,16 @@ write_node.exit67:                                ; preds = %80, %82
   br i1 %88, label %write_node.exit.thread, label %89
 
 89:                                               ; preds = %write_node.exit67
-  %90 = load i32, ptr %.098, align 8
+  %90 = load i32, ptr %.04498, align 8
   %91 = and i32 %90, 3
   %92 = icmp eq i32 %91, 2
-  %93 = select i1 %92, ptr %.098, ptr %47
+  %93 = select i1 %92, ptr %.04498, ptr %47
   %94 = getelementptr inbounds i8, ptr %93, i64 56
   %95 = load ptr, ptr %94, align 8
   br label %96
 
 96:                                               ; preds = %89, %51, %.lr.ph
-  %.1 = phi ptr [ %95, %89 ], [ %.04497, %51 ], [ %.04497, %.lr.ph ]
+  %.1 = phi ptr [ %95, %89 ], [ %.04597, %51 ], [ %.04597, %.lr.ph ]
   %97 = tail call ptr @agfstsubg(ptr noundef %0) #9
   %.not9.i = icmp eq ptr %97, null
   br i1 %.not9.i, label %.loopexit, label %.lr.ph.i
@@ -1099,7 +1099,7 @@ irrelevant_subgraph.exit:                         ; preds = %127
   br i1 %135, label %irrelevant_subgraph.exit.thread88, label %irrelevant_subgraph.exit.thread
 
 irrelevant_subgraph.exit.thread:                  ; preds = %123, %127, %99, %irrelevant_subgraph.exit
-  %136 = tail call ptr @agsubedge(ptr noundef nonnull %.010.i, ptr noundef nonnull %.098, i32 noundef 0) #9
+  %136 = tail call ptr @agsubedge(ptr noundef nonnull %.010.i, ptr noundef nonnull %.04498, i32 noundef 0) #9
   %.not8.i = icmp eq ptr %136, null
   br i1 %.not8.i, label %irrelevant_subgraph.exit.thread88, label %write_edge_test.exit
 
@@ -1117,16 +1117,16 @@ irrelevant_subgraph.exit.thread88:                ; preds = %.loopexit.i83, %irr
 
 140:                                              ; preds = %.loopexit, %138
   %141 = phi ptr [ %139, %138 ], [ null, %.loopexit ]
-  %142 = load i32, ptr %.098, align 8
+  %142 = load i32, ptr %.04498, align 8
   %143 = and i32 %142, 3
   %144 = icmp eq i32 %143, 3
   %.idx.i = select i1 %144, i64 0, i64 64
-  %145 = getelementptr inbounds i8, ptr %.098, i64 %.idx.i
+  %145 = getelementptr inbounds i8, ptr %.04498, i64 %.idx.i
   %146 = getelementptr inbounds i8, ptr %145, i64 56
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq i32 %143, 2
   %.idx28.i = select i1 %148, i64 0, i64 -64
-  %149 = getelementptr inbounds i8, ptr %.098, i64 %.idx28.i
+  %149 = getelementptr inbounds i8, ptr %.04498, i64 %.idx28.i
   %150 = getelementptr inbounds i8, ptr %149, i64 56
   %151 = load ptr, ptr %150, align 8
   %152 = tail call ptr @agraphof(ptr noundef %147) #9
@@ -1158,7 +1158,7 @@ irrelevant_subgraph.exit.thread88:                ; preds = %.loopexit.i83, %irr
 
 165:                                              ; preds = %.loopexit.i69
   %166 = load ptr, ptr @Tailport, align 8
-  %167 = tail call fastcc i32 @write_port(ptr noundef nonnull %.098, ptr noundef %1, ptr noundef %166)
+  %167 = tail call fastcc i32 @write_port(ptr noundef nonnull %.04498, ptr noundef %1, ptr noundef %166)
   %168 = icmp eq i32 %167, -1
   br i1 %168, label %write_node.exit.thread, label %169
 
@@ -1183,24 +1183,24 @@ irrelevant_subgraph.exit.thread88:                ; preds = %.loopexit.i83, %irr
 
 180:                                              ; preds = %177
   %181 = load ptr, ptr @Headport, align 8
-  %182 = tail call fastcc i32 @write_port(ptr noundef nonnull %.098, ptr noundef %1, ptr noundef %181)
+  %182 = tail call fastcc i32 @write_port(ptr noundef nonnull %.04498, ptr noundef %1, ptr noundef %181)
   %183 = icmp eq i32 %182, -1
   br i1 %183, label %write_node.exit.thread, label %184
 
 184:                                              ; preds = %180
-  %.val31.i = load i32, ptr %.098, align 8
+  %.val31.i = load i32, ptr %.04498, align 8
   %185 = and i32 %.val31.i, 8
   %.not29.i = icmp eq i32 %185, 0
   br i1 %.not29.i, label %186, label %189
 
 186:                                              ; preds = %184
-  %187 = tail call fastcc i32 @write_nondefault_attrs(ptr noundef nonnull %.098, ptr noundef %1, ptr noundef %141)
+  %187 = tail call fastcc i32 @write_nondefault_attrs(ptr noundef nonnull %.04498, ptr noundef %1, ptr noundef %141)
   %188 = icmp eq i32 %187, -1
   br i1 %188, label %write_node.exit.thread, label %write_edge.exit
 
 189:                                              ; preds = %184
-  %190 = tail call ptr @agnameof(ptr noundef nonnull %.098) #9
-  %191 = tail call ptr @agraphof(ptr noundef nonnull %.098) #9
+  %190 = tail call ptr @agnameof(ptr noundef nonnull %.04498) #9
+  %191 = tail call ptr @agraphof(ptr noundef nonnull %.04498) #9
   %192 = icmp eq ptr %190, null
   br i1 %192, label %write_edge.exit, label %193
 
@@ -1248,18 +1248,18 @@ write_edge.exit:                                  ; preds = %186, %189, %193, %2
   br i1 %215, label %write_node.exit.thread, label %write_edge_test.exit
 
 write_edge_test.exit:                             ; preds = %irrelevant_subgraph.exit.thread, %write_edge.exit
-  %216 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.098) #9
+  %216 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.04498) #9
   %.not51 = icmp eq ptr %216, null
   br i1 %.not51, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %write_edge_test.exit, %42
-  %217 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.045101) #9
+  %217 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.046101) #9
   %.not = icmp eq ptr %217, null
   br i1 %.not, label %write_node.exit.thread, label %10
 
 write_node.exit.thread:                           ; preds = %write_node.exit, %._crit_edge, %.loopexit.i, %35, %.lr.ph.i.i, %207, %202, %196, %186, %180, %177, %169, %165, %.loopexit.i69, %82, %.loopexit.i55, %write_edge.exit, %write_node.exit67, %.lr.ph.i.i62, %.lr.ph.i.i75, %5, %2
-  %.046 = phi i32 [ -1, %2 ], [ 0, %5 ], [ -1, %.lr.ph.i.i75 ], [ -1, %.lr.ph.i.i62 ], [ -1, %write_node.exit67 ], [ -1, %write_edge.exit ], [ -1, %.loopexit.i55 ], [ -1, %82 ], [ -1, %.loopexit.i69 ], [ -1, %165 ], [ -1, %169 ], [ -1, %177 ], [ -1, %180 ], [ -1, %186 ], [ -1, %196 ], [ -1, %202 ], [ -1, %207 ], [ -1, %.lr.ph.i.i ], [ -1, %write_node.exit ], [ 0, %._crit_edge ], [ -1, %.loopexit.i ], [ -1, %35 ]
-  ret i32 %.046
+  %.0 = phi i32 [ -1, %2 ], [ 0, %5 ], [ -1, %.lr.ph.i.i75 ], [ -1, %.lr.ph.i.i62 ], [ -1, %write_node.exit67 ], [ -1, %write_edge.exit ], [ -1, %.loopexit.i55 ], [ -1, %82 ], [ -1, %.loopexit.i69 ], [ -1, %165 ], [ -1, %169 ], [ -1, %177 ], [ -1, %180 ], [ -1, %186 ], [ -1, %196 ], [ -1, %202 ], [ -1, %207 ], [ -1, %.lr.ph.i.i ], [ -1, %write_node.exit ], [ 0, %._crit_edge ], [ -1, %.loopexit.i ], [ -1, %35 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -1389,21 +1389,21 @@ define internal fastcc range(i32 -1, 1) i32 @write_dict(ptr noundef %0, ptr noun
   br label %8
 
 8:                                                ; preds = %5, %6
-  %.049 = phi ptr [ %7, %6 ], [ null, %5 ]
+  %.050 = phi ptr [ %7, %6 ], [ null, %5 ]
   %9 = load ptr, ptr %3, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %3, ptr noundef null, i32 noundef 128) #9
   %.not85 = icmp eq ptr %10, null
   br i1 %.not85, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %11 = icmp eq ptr %.049, null
+  %11 = icmp eq ptr %.050, null
   %12 = getelementptr i8, ptr %0, i64 128
   br label %13
 
 13:                                               ; preds = %.lr.ph, %93
-  %.087 = phi ptr [ %10, %.lr.ph ], [ %95, %93 ]
-  %.05086 = phi i32 [ 0, %.lr.ph ], [ %.1, %93 ]
-  %14 = getelementptr inbounds i8, ptr %.087, i64 24
+  %.04987 = phi ptr [ %10, %.lr.ph ], [ %95, %93 ]
+  %.05186 = phi i32 [ 0, %.lr.ph ], [ %.1, %93 ]
+  %14 = getelementptr inbounds i8, ptr %.04987, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %20, label %17
@@ -1414,7 +1414,7 @@ define internal fastcc range(i32 -1, 1) i32 @write_dict(ptr noundef %0, ptr noun
   br i1 %19, label %20, label %36
 
 20:                                               ; preds = %17, %13
-  %21 = getelementptr inbounds i8, ptr %.087, i64 38
+  %21 = getelementptr inbounds i8, ptr %.04987, i64 38
   %22 = load i8, ptr %21, align 2
   %.not55 = icmp eq i8 %22, 0
   br i1 %.not55, label %23, label %36
@@ -1423,8 +1423,8 @@ define internal fastcc range(i32 -1, 1) i32 @write_dict(ptr noundef %0, ptr noun
   br i1 %11, label %93, label %24
 
 24:                                               ; preds = %23
-  %25 = load ptr, ptr %.049, align 8
-  %26 = tail call ptr %25(ptr noundef nonnull %.049, ptr noundef nonnull %.087, i32 noundef 4) #9
+  %25 = load ptr, ptr %.050, align 8
+  %26 = tail call ptr %25(ptr noundef nonnull %.050, ptr noundef nonnull %.04987, i32 noundef 4) #9
   %27 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
@@ -1442,8 +1442,8 @@ define internal fastcc range(i32 -1, 1) i32 @write_dict(ptr noundef %0, ptr noun
   br i1 %.not56, label %36, label %93
 
 36:                                               ; preds = %30, %33, %20, %17
-  %37 = add nsw i32 %.05086, 1
-  %38 = icmp eq i32 %.05086, 0
+  %37 = add nsw i32 %.05186, 1
+  %38 = icmp eq i32 %.05186, 0
   br i1 %38, label %39, label %61
 
 39:                                               ; preds = %36
@@ -1525,7 +1525,7 @@ define internal fastcc range(i32 -1, 1) i32 @write_dict(ptr noundef %0, ptr noun
   br i1 %75, label %indent.exit, label %69
 
 indent.exit68.thread:                             ; preds = %69, %66, %58
-  %76 = getelementptr inbounds i8, ptr %.087, i64 16
+  %76 = getelementptr inbounds i8, ptr %.04987, i64 16
   %77 = load ptr, ptr %76, align 8
   %78 = tail call ptr @agstrdup(ptr noundef nonnull %0, ptr noundef %77) #9
   %79 = tail call fastcc i32 @_write_canonstr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %78, i1 noundef zeroext true)
@@ -1552,9 +1552,9 @@ indent.exit68.thread:                             ; preds = %69, %66, %58
   br i1 %92, label %indent.exit, label %93
 
 93:                                               ; preds = %87, %33, %23
-  %.1 = phi i32 [ %37, %87 ], [ %.05086, %23 ], [ %.05086, %33 ]
+  %.1 = phi i32 [ %37, %87 ], [ %.05186, %23 ], [ %.05186, %33 ]
   %94 = load ptr, ptr %3, align 8
-  %95 = tail call ptr %94(ptr noundef nonnull %3, ptr noundef nonnull %.087, i32 noundef 8) #9
+  %95 = tail call ptr %94(ptr noundef nonnull %3, ptr noundef nonnull %.04987, i32 noundef 8) #9
   %.not = icmp eq ptr %95, null
   br i1 %.not, label %._crit_edge, label %13
 
@@ -1618,12 +1618,12 @@ indent.exit75.thread:                             ; preds = %109, %106, %97
   br i1 %4, label %indent.exit, label %121
 
 121:                                              ; preds = %indent.exit75.thread, %._crit_edge.thread
-  %122 = tail call ptr @dtview(ptr noundef nonnull %3, ptr noundef %.049) #9
+  %122 = tail call ptr @dtview(ptr noundef nonnull %3, ptr noundef %.050) #9
   br label %indent.exit
 
 indent.exit:                                      ; preds = %87, %82, %indent.exit68.thread, %61, %53, %.loopexit, %.lr.ph.i63, %.lr.ph.i, %.lr.ph.i70, %indent.exit75.thread, %._crit_edge.thread, %121, %100
-  %.051 = phi i32 [ -1, %100 ], [ %.mux, %indent.exit75.thread ], [ 0, %121 ], [ 0, %._crit_edge.thread ], [ -1, %.lr.ph.i70 ], [ -1, %.lr.ph.i ], [ -1, %.lr.ph.i63 ], [ -1, %.loopexit ], [ -1, %53 ], [ -1, %61 ], [ -1, %indent.exit68.thread ], [ -1, %82 ], [ -1, %87 ]
-  ret i32 %.051
+  %.0 = phi i32 [ -1, %100 ], [ %.mux, %indent.exit75.thread ], [ 0, %121 ], [ 0, %._crit_edge.thread ], [ -1, %.lr.ph.i70 ], [ -1, %.lr.ph.i ], [ -1, %.lr.ph.i63 ], [ -1, %.loopexit ], [ -1, %53 ], [ -1, %61 ], [ -1, %indent.exit68.thread ], [ -1, %82 ], [ -1, %87 ]
+  ret i32 %.0
 }
 
 declare ptr @dtview(ptr noundef, ptr noundef) local_unnamed_addr #1

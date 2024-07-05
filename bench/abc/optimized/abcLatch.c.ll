@@ -564,8 +564,8 @@ Abc_Base10Log.exit:                               ; preds = %2
   br i1 %20, label %.lr.ph41.us, label %.critedge2.us, !llvm.loop !8
 
 21:                                               ; preds = %.lr.ph.us, %Abc_NtkAddLatch.exit.us
-  %.038.us = phi i32 [ 0, %.lr.ph.us ], [ %31, %Abc_NtkAddLatch.exit.us ]
-  %.02937.us = phi ptr [ %13, %.lr.ph.us ], [ %22, %Abc_NtkAddLatch.exit.us ]
+  %.038.us = phi ptr [ %13, %.lr.ph.us ], [ %22, %Abc_NtkAddLatch.exit.us ]
+  %.02937.us = phi i32 [ 0, %.lr.ph.us ], [ %31, %Abc_NtkAddLatch.exit.us ]
   %22 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 5) #11
   %23 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 8) #11
   %24 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 4) #11
@@ -575,17 +575,17 @@ Abc_Base10Log.exit:                               ; preds = %2
   %28 = tail call ptr @Abc_ObjAssignName(ptr noundef %24, ptr noundef %27, ptr noundef nonnull @.str.1) #11
   tail call void @Abc_ObjAddFanin(ptr noundef %22, ptr noundef %23) #11
   tail call void @Abc_ObjAddFanin(ptr noundef %23, ptr noundef %24) #11
-  %.not.i35.us = icmp eq ptr %.02937.us, null
+  %.not.i35.us = icmp eq ptr %.038.us, null
   br i1 %.not.i35.us, label %Abc_NtkAddLatch.exit.us, label %29
 
 29:                                               ; preds = %21
-  tail call void @Abc_ObjAddFanin(ptr noundef %24, ptr noundef nonnull %.02937.us) #11
+  tail call void @Abc_ObjAddFanin(ptr noundef %24, ptr noundef nonnull %.038.us) #11
   br label %Abc_NtkAddLatch.exit.us
 
 Abc_NtkAddLatch.exit.us:                          ; preds = %29, %21
   %30 = getelementptr inbounds i8, ptr %23, i64 56
   store ptr inttoptr (i64 1 to ptr), ptr %30, align 8
-  %31 = add nuw nsw i32 %.038.us, 1
+  %31 = add nuw nsw i32 %.02937.us, 1
   %exitcond.not = icmp eq i32 %31, %1
   br i1 %exitcond.not, label %..preheader_crit_edge.us, label %21, !llvm.loop !9
 
@@ -1529,8 +1529,8 @@ Vec_IntFree.exit:                                 ; preds = %.critedge4.thread, 
   br i1 %163, label %.lr.ph92, label %.critedge6, !llvm.loop !18
 
 .critedge6:                                       ; preds = %.critedge2, %.critedge2.preheader, %1
-  %.050 = phi ptr [ null, %1 ], [ %26, %.critedge2.preheader ], [ %26, %.critedge2 ]
-  ret ptr %.050
+  %.0 = phi ptr [ null, %1 ], [ %26, %.critedge2.preheader ], [ %26, %.critedge2 ]
+  ret ptr %.0
 }
 
 declare i32 @Nm_ManFindIdByName(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1617,17 +1617,17 @@ define ptr @Abc_NtkConvertOnehot(ptr noundef %0) local_unnamed_addr #1 {
   br label %.lr.ph173
 
 .lr.ph173:                                        ; preds = %.lr.ph173.preheader, %.lr.ph173
-  %.1126172 = phi i32 [ %40, %.lr.ph173 ], [ 0, %.lr.ph173.preheader ]
+  %.1127172 = phi i32 [ %40, %.lr.ph173 ], [ 0, %.lr.ph173.preheader ]
   %35 = tail call ptr @Abc_NtkCreateObj(ptr noundef %33, i32 noundef 8) #11
   %36 = tail call ptr @Abc_NtkCreateObj(ptr noundef %33, i32 noundef 4) #11
   %37 = tail call ptr @Abc_NtkCreateObj(ptr noundef %33, i32 noundef 5) #11
   tail call void @Abc_ObjAddFanin(ptr noundef %35, ptr noundef %36) #11
   tail call void @Abc_ObjAddFanin(ptr noundef %37, ptr noundef %35) #11
-  %38 = icmp eq i32 %.1126172, %.0.lcssa
+  %38 = icmp eq i32 %.1127172, %.0.lcssa
   %spec.select = select i1 %38, ptr inttoptr (i64 2 to ptr), ptr inttoptr (i64 1 to ptr)
   %39 = getelementptr inbounds i8, ptr %35, i64 56
   store ptr %spec.select, ptr %39, align 8
-  %40 = add nuw nsw i32 %.1126172, 1
+  %40 = add nuw nsw i32 %.1127172, 1
   %exitcond211.not = icmp eq i32 %40, %smax
   br i1 %exitcond211.not, label %._crit_edge, label %.lr.ph173, !llvm.loop !20
 
@@ -1647,14 +1647,14 @@ define ptr @Abc_NtkConvertOnehot(ptr noundef %0) local_unnamed_addr #1 {
   br label %.lr.ph176
 
 .lr.ph176:                                        ; preds = %._crit_edge177, %.lr.ph180
-  %.2127178 = phi i32 [ 0, %.lr.ph180 ], [ %71, %._crit_edge177 ]
+  %.2128178 = phi i32 [ 0, %.lr.ph180 ], [ %71, %._crit_edge177 ]
   %48 = tail call ptr @Abc_NtkCreateObj(ptr noundef %33, i32 noundef 7) #11
-  %49 = shl nuw i32 1, %.2127178
+  %49 = shl nuw i32 1, %.2128178
   br label %50
 
 50:                                               ; preds = %.lr.ph176, %59
-  %.0123174 = phi i32 [ 0, %.lr.ph176 ], [ %60, %59 ]
-  %51 = and i32 %.0123174, %49
+  %.0124174 = phi i32 [ 0, %.lr.ph176 ], [ %60, %59 ]
+  %51 = and i32 %.0124174, %49
   %.not132 = icmp eq i32 %51, 0
   br i1 %.not132, label %59, label %52
 
@@ -1662,7 +1662,7 @@ define ptr @Abc_NtkConvertOnehot(ptr noundef %0) local_unnamed_addr #1 {
   %.val145 = load ptr, ptr %42, align 8
   %53 = getelementptr i8, ptr %.val145, i64 4
   %.val145.val = load i32, ptr %53, align 4
-  %54 = add nsw i32 %.val145.val, %.0123174
+  %54 = add nsw i32 %.val145.val, %.0124174
   %.val150 = load ptr, ptr %43, align 8
   %55 = getelementptr i8, ptr %.val150, i64 8
   %.val150.val = load ptr, ptr %55, align 8
@@ -1673,7 +1673,7 @@ define ptr @Abc_NtkConvertOnehot(ptr noundef %0) local_unnamed_addr #1 {
   br label %59
 
 59:                                               ; preds = %50, %52
-  %60 = add nuw nsw i32 %.0123174, 1
+  %60 = add nuw nsw i32 %.0124174, 1
   %exitcond213.not = icmp eq i32 %60, %smax212
   br i1 %exitcond213.not, label %._crit_edge177, label %50, !llvm.loop !21
 
@@ -1685,7 +1685,7 @@ define ptr @Abc_NtkConvertOnehot(ptr noundef %0) local_unnamed_addr #1 {
   %.val144 = load ptr, ptr %46, align 8
   %64 = getelementptr i8, ptr %.val144, i64 4
   %.val144.val = load i32, ptr %64, align 4
-  %65 = add nsw i32 %.val144.val, %.2127178
+  %65 = add nsw i32 %.val144.val, %.2128178
   %.val151 = load ptr, ptr %47, align 8
   %66 = getelementptr i8, ptr %.val151, i64 8
   %.val151.val = load ptr, ptr %66, align 8
@@ -1694,7 +1694,7 @@ define ptr @Abc_NtkConvertOnehot(ptr noundef %0) local_unnamed_addr #1 {
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 64
   store ptr %48, ptr %70, align 8
-  %71 = add nuw nsw i32 %.2127178, 1
+  %71 = add nuw nsw i32 %.2128178, 1
   %exitcond214.not = icmp eq i32 %71, %.val146
   br i1 %exitcond214.not, label %._crit_edge181, label %.lr.ph176, !llvm.loop !22
 
@@ -1939,8 +1939,8 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %101
   br label %191
 
 191:                                              ; preds = %.critedge8._crit_edge, %188, %23, %14, %5
-  %.0128 = phi ptr [ %6, %5 ], [ null, %14 ], [ null, %23 ], [ %33, %188 ], [ %33, %.critedge8._crit_edge ]
-  ret ptr %.0128
+  %.0123 = phi ptr [ %6, %5 ], [ null, %14 ], [ null, %23 ], [ %33, %188 ], [ %33, %.critedge8._crit_edge ]
+  ret ptr %.0123
 }
 
 declare ptr @Abc_NtkDup(ptr noundef) local_unnamed_addr #2

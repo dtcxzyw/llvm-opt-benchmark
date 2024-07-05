@@ -13864,7 +13864,7 @@ for.body.lr.ph:                                   ; preds = %if.end47
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %pq.addr.1252 = phi ptr [ %spec.select, %for.body.lr.ph ], [ %pq.addr.2, %for.inc ]
-  %pqd.addr.1250 = phi ptr [ %pqd.addr.0, %for.body.lr.ph ], [ %pqd.addr.2, %for.inc ]
+  %pqd.addr.1251 = phi ptr [ %pqd.addr.0, %for.body.lr.ph ], [ %pqd.addr.2, %for.inc ]
   %74 = load ptr, ptr %m_data.i88, align 8
   %arrayidx.i89 = getelementptr inbounds %struct.btMultibodyLink, ptr %74, i64 %indvars.iv
   %m_collider = getelementptr inbounds i8, ptr %arrayidx.i89, i64 544
@@ -13883,7 +13883,7 @@ if.then61:                                        ; preds = %land.lhs.true, %for
   %tobool62.not = icmp eq ptr %pq.addr.1252, null
   %m_jointPos = getelementptr inbounds i8, ptr %arrayidx.i89, i64 464
   %spec.select248 = select i1 %tobool62.not, ptr %m_jointPos, ptr %pq.addr.1252
-  %tobool70.not = icmp eq ptr %pqd.addr.1250, null
+  %tobool70.not = icmp eq ptr %pqd.addr.1251, null
   br i1 %tobool70.not, label %cond.false72, label %cond.end74
 
 cond.false72:                                     ; preds = %if.then61
@@ -13896,7 +13896,7 @@ cond.false72:                                     ; preds = %if.then61
   br label %cond.end74
 
 cond.end74:                                       ; preds = %if.then61, %cond.false72
-  %cond75 = phi ptr [ %arrayidx.i3.i, %cond.false72 ], [ %pqd.addr.1250, %if.then61 ]
+  %cond75 = phi ptr [ %arrayidx.i3.i, %cond.false72 ], [ %pqd.addr.1251, %if.then61 ]
   %m_jointType = getelementptr inbounds i8, ptr %arrayidx.i89, i64 564
   %81 = load i32, ptr %m_jointType, align 4
   switch i32 %81, label %if.end134 [
@@ -14168,7 +14168,7 @@ if.then138:                                       ; preds = %if.end134
 
 if.end142:                                        ; preds = %if.then138, %if.end134
   %pq.addr.2 = phi ptr [ %add.ptr141, %if.then138 ], [ null, %if.end134 ]
-  %tobool143.not = icmp eq ptr %pqd.addr.1250, null
+  %tobool143.not = icmp eq ptr %pqd.addr.1251, null
   br i1 %tobool143.not, label %for.inc, label %if.then144
 
 if.then144:                                       ; preds = %if.end142
@@ -14176,7 +14176,7 @@ if.then144:                                       ; preds = %if.end142
   %m_dofCount = getelementptr inbounds %struct.btMultibodyLink, ptr %229, i64 %indvars.iv, i32 24
   %230 = load i32, ptr %m_dofCount, align 4
   %idx.ext147 = sext i32 %230 to i64
-  %add.ptr148 = getelementptr inbounds float, ptr %pqd.addr.1250, i64 %idx.ext147
+  %add.ptr148 = getelementptr inbounds float, ptr %pqd.addr.1251, i64 %idx.ext147
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end142, %if.then144

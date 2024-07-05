@@ -5870,8 +5870,8 @@ define void @"_ZN80_$LT$flycheck..CargoCheckMessage$u20$as$u20$flycheck..command
 43:                                               ; preds = %56, %42, %27
   %.pre-phi = phi i64 [ %.pre34, %56 ], [ %25, %42 ], [ %25, %27 ]
   %44 = phi i64 [ %.pre, %56 ], [ %19, %42 ], [ %19, %27 ]
-  %.018 = phi i1 [ true, %56 ], [ false, %42 ], [ true, %27 ]
-  %.0 = phi i1 [ false, %56 ], [ true, %42 ], [ true, %27 ]
+  %.018 = phi i1 [ false, %56 ], [ true, %42 ], [ true, %27 ]
+  %.0 = phi i1 [ true, %56 ], [ false, %42 ], [ true, %27 ]
   %45 = icmp slt i64 %44, -9223372036854775804
   %46 = select i1 %45, i64 %.pre-phi, i64 0
   switch i64 %46, label %62 [
@@ -5930,10 +5930,10 @@ define void @"_ZN80_$LT$flycheck..CargoCheckMessage$u20$as$u20$flycheck..command
           to label %69 unwind label %66
 
 63:                                               ; preds = %43
-  br i1 %.018, label %65, label %69
+  br i1 %.0, label %65, label %69
 
 64:                                               ; preds = %43
-  br i1 %.0, label %68, label %69
+  br i1 %.018, label %68, label %69
 
 65:                                               ; preds = %63
   invoke void @"_ZN4core3ptr55drop_in_place$LT$cargo_metadata..messages..Artifact$GT$17h1c5f5889ec344135E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %9)

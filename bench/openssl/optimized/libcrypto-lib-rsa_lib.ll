@@ -430,19 +430,19 @@ ilog_e.exit:                                      ; preds = %for.body.i
 
 for.body.i14:                                     ; preds = %for.body.i14, %ilog_e.exit
   %indvars.iv.i = phi i64 [ 63, %ilog_e.exit ], [ %indvars.iv.next.i, %for.body.i14 ]
-  %r.011.i = phi i64 [ 0, %ilog_e.exit ], [ %r.1.i, %for.body.i14 ]
-  %x.addr.010.i = phi i64 [ %div1.i13, %ilog_e.exit ], [ %x.addr.1.i, %for.body.i14 ]
-  %shl.i = shl i64 %r.011.i, 1
-  %mul.i15 = mul i64 %r.011.i, 6
+  %x.addr.011.i = phi i64 [ %div1.i13, %ilog_e.exit ], [ %x.addr.1.i, %for.body.i14 ]
+  %r.010.i = phi i64 [ 0, %ilog_e.exit ], [ %r.1.i, %for.body.i14 ]
+  %shl.i = shl i64 %r.010.i, 1
+  %mul.i15 = mul i64 %r.010.i, 6
   %add.i16 = or disjoint i64 %shl.i, 1
   %mul1.i = mul i64 %mul.i15, %add.i16
-  %shr.i17 = lshr i64 %x.addr.010.i, %indvars.iv.i
+  %shr.i17 = lshr i64 %x.addr.011.i, %indvars.iv.i
   %cmp3.not.not.i = icmp ugt i64 %shr.i17, %mul1.i
   %add2.neg.i = xor i64 %mul1.i, -1
   %shl5.neg.i = shl i64 %add2.neg.i, %indvars.iv.i
-  %sub.i = select i1 %cmp3.not.not.i, i64 %shl5.neg.i, i64 0
-  %x.addr.1.i = add i64 %sub.i, %x.addr.010.i
   %r.1.i = select i1 %cmp3.not.not.i, i64 %add.i16, i64 %shl.i
+  %sub.i = select i1 %cmp3.not.not.i, i64 %shl5.neg.i, i64 0
+  %x.addr.1.i = add i64 %sub.i, %x.addr.011.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -3
   %cmp.i18 = icmp ugt i64 %indvars.iv.i, 2
   br i1 %cmp.i18, label %for.body.i14, label %icbrt64.exit, !llvm.loop !7

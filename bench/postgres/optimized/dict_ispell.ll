@@ -38,9 +38,9 @@ define dso_local i64 @dispell_init(ptr nocapture noundef readonly %0) local_unna
   br i1 %10, label %.lr.ph88, label %._crit_edge
 
 .lr.ph88:                                         ; preds = %.lr.ph, %55
-  %.0304887 = phi i8 [ %.131, %55 ], [ 0, %.lr.ph ]
-  %.0284986 = phi i8 [ %.129, %55 ], [ 0, %.lr.ph ]
-  %.0275085 = phi i1 [ %.1, %55 ], [ false, %.lr.ph ]
+  %.0304887 = phi i1 [ %.131, %55 ], [ false, %.lr.ph ]
+  %.0275086 = phi i8 [ %.128, %55 ], [ 0, %.lr.ph ]
+  %.05185 = phi i8 [ %.1, %55 ], [ 0, %.lr.ph ]
   %indvars.iv84 = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.lr.ph ]
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr %union.ListCell, ptr %11, i64 %indvars.iv84
@@ -52,7 +52,7 @@ define dso_local i64 @dispell_init(ptr nocapture noundef readonly %0) local_unna
   br i1 %17, label %18, label %27
 
 18:                                               ; preds = %.lr.ph88
-  %19 = trunc nuw i8 %.0284986 to i1
+  %19 = trunc nuw i8 %.0275086 to i1
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %18
@@ -75,7 +75,7 @@ define dso_local i64 @dispell_init(ptr nocapture noundef readonly %0) local_unna
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %27
-  %31 = trunc nuw i8 %.0304887 to i1
+  %31 = trunc nuw i8 %.05185 to i1
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %30
@@ -98,7 +98,7 @@ define dso_local i64 @dispell_init(ptr nocapture noundef readonly %0) local_unna
   br i1 %41, label %42, label %49
 
 42:                                               ; preds = %39
-  br i1 %.0275085, label %43, label %47
+  br i1 %.0304887, label %43, label %47
 
 43:                                               ; preds = %42
   %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -124,9 +124,9 @@ define dso_local i64 @dispell_init(ptr nocapture noundef readonly %0) local_unna
   unreachable
 
 55:                                               ; preds = %24, %47, %36
-  %.131 = phi i8 [ %.0304887, %24 ], [ 1, %36 ], [ %.0304887, %47 ]
-  %.129 = phi i8 [ 1, %24 ], [ %.0284986, %36 ], [ %.0284986, %47 ]
-  %.1 = phi i1 [ %.0275085, %24 ], [ %.0275085, %36 ], [ true, %47 ]
+  %.131 = phi i1 [ %.0304887, %24 ], [ %.0304887, %36 ], [ true, %47 ]
+  %.128 = phi i8 [ 1, %24 ], [ %.0275086, %36 ], [ %.0275086, %47 ]
+  %.1 = phi i8 [ %.05185, %24 ], [ 1, %36 ], [ %.05185, %47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv84, 1
   %56 = load i32, ptr %7, align 4
   %57 = sext i32 %56 to i64
@@ -134,17 +134,17 @@ define dso_local i64 @dispell_init(ptr nocapture noundef readonly %0) local_unna
   br i1 %58, label %.lr.ph88, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %55
-  %59 = trunc nuw i8 %.131 to i1
-  %60 = trunc nuw i8 %.129 to i1
+  %59 = trunc nuw i8 %.1 to i1
+  %60 = trunc nuw i8 %.128 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %.lr.ph
-  %.02849.lcssa = phi i1 [ %60, %.._crit_edge_crit_edge ], [ false, %.lr.ph ]
-  %.03048.lcssa = phi i1 [ %59, %.._crit_edge_crit_edge ], [ false, %.lr.ph ]
-  br i1 %.03048.lcssa, label %61, label %.critedge
+  %.051.lcssa = phi i1 [ %59, %.._crit_edge_crit_edge ], [ false, %.lr.ph ]
+  %.02750.lcssa = phi i1 [ %60, %.._crit_edge_crit_edge ], [ false, %.lr.ph ]
+  br i1 %.051.lcssa, label %61, label %.critedge
 
 61:                                               ; preds = %._crit_edge
-  br i1 %.02849.lcssa, label %62, label %67
+  br i1 %.02750.lcssa, label %62, label %67
 
 62:                                               ; preds = %61
   tail call void @NISortDictionary(ptr noundef nonnull %5) #6

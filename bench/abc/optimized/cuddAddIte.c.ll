@@ -141,8 +141,8 @@ addVarToConst.exit:                               ; preds = %8
   br label %77
 
 77:                                               ; preds = %70, %71
-  %.094 = phi ptr [ %74, %71 ], [ %1, %70 ]
-  %.093 = phi ptr [ %76, %71 ], [ %1, %70 ]
+  %.091 = phi ptr [ %76, %71 ], [ %1, %70 ]
+  %.090 = phi ptr [ %74, %71 ], [ %1, %70 ]
   %.088 = phi i32 [ %28, %71 ], [ %49, %70 ]
   %.0 = phi i32 [ %72, %71 ], [ -1, %70 ]
   %78 = icmp eq i32 %38, %.088
@@ -157,8 +157,8 @@ addVarToConst.exit:                               ; preds = %8
   br label %85
 
 85:                                               ; preds = %77, %79
+  %.095 = phi ptr [ %84, %79 ], [ %spec.select, %77 ]
   %.092 = phi ptr [ %82, %79 ], [ %spec.select, %77 ]
-  %.091 = phi ptr [ %84, %79 ], [ %spec.select, %77 ]
   %.1 = phi i32 [ %80, %79 ], [ %.0, %77 ]
   %86 = icmp eq i32 %48, %.088
   br i1 %86, label %87, label %93
@@ -172,10 +172,10 @@ addVarToConst.exit:                               ; preds = %8
   br label %93
 
 93:                                               ; preds = %85, %87
-  %.090 = phi ptr [ %90, %87 ], [ %.0133, %85 ]
-  %.089 = phi ptr [ %92, %87 ], [ %.0133, %85 ]
+  %.094 = phi ptr [ %90, %87 ], [ %.0133, %85 ]
+  %.093 = phi ptr [ %92, %87 ], [ %.0133, %85 ]
   %.2 = phi i32 [ %88, %87 ], [ %.1, %85 ]
-  %94 = tail call ptr @cuddAddIteRecur(ptr noundef nonnull %0, ptr noundef %.094, ptr noundef %.092, ptr noundef %.090)
+  %94 = tail call ptr @cuddAddIteRecur(ptr noundef nonnull %0, ptr noundef %.090, ptr noundef %.092, ptr noundef %.094)
   %95 = icmp eq ptr %94, null
   br i1 %95, label %123, label %96
 
@@ -187,7 +187,7 @@ addVarToConst.exit:                               ; preds = %8
   %101 = load i32, ptr %100, align 4
   %102 = add i32 %101, 1
   store i32 %102, ptr %100, align 4
-  %103 = tail call ptr @cuddAddIteRecur(ptr noundef nonnull %0, ptr noundef %.093, ptr noundef %.091, ptr noundef %.089)
+  %103 = tail call ptr @cuddAddIteRecur(ptr noundef nonnull %0, ptr noundef %.091, ptr noundef %.095, ptr noundef %.093)
   %104 = icmp eq ptr %103, null
   br i1 %104, label %105, label %106
 
@@ -228,8 +228,8 @@ addVarToConst.exit:                               ; preds = %8
   br label %123
 
 123:                                              ; preds = %4, %93, %.critedge, %15, %addVarToConst.exit, %8, %.thread, %117, %105, %67, %59
-  %.095 = phi ptr [ %60, %59 ], [ %68, %67 ], [ null, %105 ], [ null, %117 ], [ %118, %.thread ], [ %3, %8 ], [ %spec.select, %addVarToConst.exit ], [ %1, %15 ], [ %69, %.critedge ], [ null, %93 ], [ %2, %4 ]
-  ret ptr %.095
+  %.089 = phi ptr [ %60, %59 ], [ %68, %67 ], [ null, %105 ], [ null, %117 ], [ %118, %.thread ], [ %3, %8 ], [ %spec.select, %addVarToConst.exit ], [ %1, %15 ], [ %69, %.critedge ], [ null, %93 ], [ %2, %4 ]
+  ret ptr %.089
 }
 
 ; Function Attrs: nounwind uwtable
@@ -339,8 +339,8 @@ addVarToConst.exit:                               ; preds = %8
   br label %70
 
 70:                                               ; preds = %64, %65
-  %.065 = phi ptr [ %67, %65 ], [ %1, %64 ]
-  %.064 = phi ptr [ %69, %65 ], [ %1, %64 ]
+  %.062 = phi ptr [ %69, %65 ], [ %1, %64 ]
+  %.061 = phi ptr [ %67, %65 ], [ %1, %64 ]
   %.0 = phi i32 [ %31, %65 ], [ %50, %64 ]
   %71 = icmp eq i32 %39, %.0
   br i1 %71, label %72, label %77
@@ -353,8 +353,8 @@ addVarToConst.exit:                               ; preds = %8
   br label %77
 
 77:                                               ; preds = %70, %72
+  %.064 = phi ptr [ %76, %72 ], [ %spec.select, %70 ]
   %.063 = phi ptr [ %74, %72 ], [ %spec.select, %70 ]
-  %.062 = phi ptr [ %76, %72 ], [ %spec.select, %70 ]
   %78 = icmp eq i32 %49, %.0
   br i1 %78, label %79, label %84
 
@@ -366,9 +366,9 @@ addVarToConst.exit:                               ; preds = %8
   br label %84
 
 84:                                               ; preds = %77, %79
-  %.061 = phi ptr [ %81, %79 ], [ %.0103, %77 ]
-  %.060 = phi ptr [ %83, %79 ], [ %.0103, %77 ]
-  %85 = tail call ptr @Cudd_addIteConstant(ptr noundef nonnull %0, ptr noundef %.065, ptr noundef %.063, ptr noundef %.061)
+  %.066 = phi ptr [ %83, %79 ], [ %.0103, %77 ]
+  %.065 = phi ptr [ %81, %79 ], [ %.0103, %77 ]
+  %85 = tail call ptr @Cudd_addIteConstant(ptr noundef nonnull %0, ptr noundef %.061, ptr noundef %.063, ptr noundef %.065)
   %86 = icmp eq ptr %85, inttoptr (i64 1 to ptr)
   br i1 %86, label %.sink.split, label %87
 
@@ -378,7 +378,7 @@ addVarToConst.exit:                               ; preds = %8
   br i1 %89, label %90, label %.sink.split
 
 90:                                               ; preds = %87
-  %91 = tail call ptr @Cudd_addIteConstant(ptr noundef nonnull %0, ptr noundef %.064, ptr noundef %.062, ptr noundef %.060)
+  %91 = tail call ptr @Cudd_addIteConstant(ptr noundef nonnull %0, ptr noundef %.062, ptr noundef %.064, ptr noundef %.066)
   %92 = icmp eq ptr %91, inttoptr (i64 1 to ptr)
   br i1 %92, label %.sink.split, label %93
 
@@ -396,8 +396,8 @@ addVarToConst.exit:                               ; preds = %8
   br label %96
 
 96:                                               ; preds = %.sink.split, %4, %62, %57, %18, %addVarToConst.exit, %8
-  %.066 = phi ptr [ %3, %8 ], [ %spec.select, %addVarToConst.exit ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %57 ], [ %63, %62 ], [ %2, %4 ], [ %.sink, %.sink.split ]
-  ret ptr %.066
+  %.060 = phi ptr [ %3, %8 ], [ %spec.select, %addVarToConst.exit ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %57 ], [ %63, %62 ], [ %2, %4 ], [ %.sink, %.sink.split ]
+  ret ptr %.060
 }
 
 declare ptr @cuddConstantLookup(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -461,8 +461,8 @@ define ptr @Cudd_addEvalConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br label %35
 
 35:                                               ; preds = %29, %30
-  %.068 = phi ptr [ %32, %30 ], [ %1, %29 ]
   %.067 = phi ptr [ %34, %30 ], [ %1, %29 ]
+  %.066 = phi ptr [ %32, %30 ], [ %1, %29 ]
   %.not79 = icmp ugt i32 %27, %24
   br i1 %.not79, label %41, label %36
 
@@ -474,13 +474,13 @@ define ptr @Cudd_addEvalConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br label %41
 
 41:                                               ; preds = %35, %36
-  %.066 = phi ptr [ %38, %36 ], [ %2, %35 ]
-  %.0 = phi ptr [ %40, %36 ], [ %2, %35 ]
-  %.not80 = icmp eq ptr %.068, %12
+  %.069 = phi ptr [ %40, %36 ], [ %2, %35 ]
+  %.068 = phi ptr [ %38, %36 ], [ %2, %35 ]
+  %.not80 = icmp eq ptr %.066, %12
   br i1 %.not80, label %58, label %42
 
 42:                                               ; preds = %41
-  %43 = tail call ptr @Cudd_addEvalConst(ptr noundef nonnull %0, ptr noundef %.068, ptr noundef %.066)
+  %43 = tail call ptr @Cudd_addEvalConst(ptr noundef nonnull %0, ptr noundef %.066, ptr noundef %.068)
   %44 = icmp eq ptr %43, inttoptr (i64 1 to ptr)
   br i1 %44, label %48, label %45
 
@@ -498,7 +498,7 @@ define ptr @Cudd_addEvalConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br i1 %.not81, label %57, label %50
 
 50:                                               ; preds = %49
-  %51 = tail call ptr @Cudd_addEvalConst(ptr noundef nonnull %0, ptr noundef %.067, ptr noundef %.0)
+  %51 = tail call ptr @Cudd_addEvalConst(ptr noundef nonnull %0, ptr noundef %.067, ptr noundef %.069)
   %52 = icmp eq ptr %51, inttoptr (i64 1 to ptr)
   br i1 %52, label %56, label %53
 
@@ -522,7 +522,7 @@ common.ret83:                                     ; preds = %._crit_edge, %3, %7
   ret ptr %common.ret83.op
 
 58:                                               ; preds = %41
-  %59 = tail call ptr @Cudd_addEvalConst(ptr noundef nonnull %0, ptr noundef %.067, ptr noundef %.0)
+  %59 = tail call ptr @Cudd_addEvalConst(ptr noundef nonnull %0, ptr noundef %.067, ptr noundef %.069)
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_addEvalConst, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %59) #3
   br label %common.ret83
 }
@@ -732,8 +732,8 @@ define range(i32 0, 2) i32 @Cudd_addLeq(ptr noundef %0, ptr noundef %1, ptr noun
   br label %66
 
 66:                                               ; preds = %59, %61
-  %.053 = phi ptr [ %63, %61 ], [ %1, %59 ]
-  %.052 = phi ptr [ %65, %61 ], [ %1, %59 ]
+  %.051 = phi ptr [ %65, %61 ], [ %1, %59 ]
+  %.050 = phi ptr [ %63, %61 ], [ %1, %59 ]
   %.not61 = icmp ugt i32 %60, %50
   br i1 %.not61, label %72, label %67
 
@@ -745,14 +745,14 @@ define range(i32 0, 2) i32 @Cudd_addLeq(ptr noundef %0, ptr noundef %1, ptr noun
   br label %72
 
 72:                                               ; preds = %66, %67
-  %.051 = phi ptr [ %69, %67 ], [ %2, %66 ]
-  %.050 = phi ptr [ %71, %67 ], [ %2, %66 ]
-  %73 = tail call i32 @Cudd_addLeq(ptr noundef nonnull %0, ptr noundef %.052, ptr noundef %.050)
+  %.053 = phi ptr [ %69, %67 ], [ %2, %66 ]
+  %.052 = phi ptr [ %71, %67 ], [ %2, %66 ]
+  %73 = tail call i32 @Cudd_addLeq(ptr noundef nonnull %0, ptr noundef %.051, ptr noundef %.052)
   %.not62 = icmp eq i32 %73, 0
   br i1 %.not62, label %76, label %74
 
 74:                                               ; preds = %72
-  %75 = tail call i32 @Cudd_addLeq(ptr noundef nonnull %0, ptr noundef %.053, ptr noundef %.051)
+  %75 = tail call i32 @Cudd_addLeq(ptr noundef nonnull %0, ptr noundef %.050, ptr noundef %.053)
   br label %76
 
 76:                                               ; preds = %74, %72

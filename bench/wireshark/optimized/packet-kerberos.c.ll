@@ -6574,10 +6574,10 @@ dissect_krb5_PAC_CREDENTIAL_INFO.exit.i:          ; preds = %665, %decrypt_krb5_
   br label %749
 
 749:                                              ; preds = %732, %710
-  %.086.i.i = phi i32 [ %745, %732 ], [ 0, %710 ]
-  %.085.i.i = phi i32 [ %746, %732 ], [ 0, %710 ]
-  %.084.i.i = phi i32 [ %747, %732 ], [ 0, %710 ]
-  %.0.i.i25 = phi i32 [ %748, %732 ], [ 0, %710 ]
+  %.086.i.i = phi i32 [ %746, %732 ], [ 0, %710 ]
+  %.085.i.i = phi i32 [ %747, %732 ], [ 0, %710 ]
+  %.084.i.i = phi i32 [ %748, %732 ], [ 0, %710 ]
+  %.0.i.i25 = phi i32 [ %745, %732 ], [ 0, %710 ]
   %750 = load i32, ptr @hf_krb_pac_upn_upn_name, align 4
   %751 = zext i16 %718 to i32
   %752 = zext i16 %715 to i32
@@ -6586,24 +6586,24 @@ dissect_krb5_PAC_CREDENTIAL_INFO.exit.i:          ; preds = %665, %decrypt_krb5_
   %755 = zext i16 %724 to i32
   %756 = zext i16 %721 to i32
   %757 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %754, ptr noundef %629, i32 noundef %755, i32 noundef %756, i32 noundef -2147483644) #16
-  %758 = icmp ne i32 %.086.i.i, 0
-  %759 = icmp ne i32 %.085.i.i, 0
+  %758 = icmp ne i32 %.0.i.i25, 0
+  %759 = icmp ne i32 %.086.i.i, 0
   %or.cond.i.i26 = select i1 %758, i1 %759, i1 false
   br i1 %or.cond.i.i26, label %760, label %763
 
 760:                                              ; preds = %749
   %761 = load i32, ptr @hf_krb_pac_upn_samaccountname, align 4
-  %762 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %761, ptr noundef %629, i32 noundef %.086.i.i, i32 noundef %.085.i.i, i32 noundef -2147483644) #16
+  %762 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %761, ptr noundef %629, i32 noundef %.0.i.i25, i32 noundef %.086.i.i, i32 noundef -2147483644) #16
   br label %763
 
 763:                                              ; preds = %760, %749
-  %764 = icmp ne i32 %.084.i.i, 0
-  %765 = icmp ne i32 %.0.i.i25, 0
+  %764 = icmp ne i32 %.085.i.i, 0
+  %765 = icmp ne i32 %.084.i.i, 0
   %or.cond5.i.i = select i1 %764, i1 %765, i1 false
   br i1 %or.cond5.i.i, label %766, label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
 766:                                              ; preds = %763
-  %767 = call ptr @tvb_new_subset_length(ptr noundef %629, i32 noundef %.084.i.i, i32 noundef %.0.i.i25) #16
+  %767 = call ptr @tvb_new_subset_length(ptr noundef %629, i32 noundef %.085.i.i, i32 noundef %.084.i.i) #16
   %768 = call i32 @dissect_nt_sid(ptr noundef %767, i32 noundef 0, ptr noundef %714, ptr noundef nonnull @.str.862, ptr noundef null, i32 noundef -1) #16
   br label %dissect_krb5_AD_WIN2K_PAC_struct.exit
 
@@ -7601,7 +7601,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br label %32
 
 32:                                               ; preds = %29, %kerberos_get_private_data.exit
-  %.0 = phi ptr [ %31, %29 ], [ %4, %kerberos_get_private_data.exit ]
+  %.0147 = phi ptr [ %31, %29 ], [ %4, %kerberos_get_private_data.exit ]
   %33 = getelementptr inbounds i8, ptr %26, i64 20
   %34 = load i32, ptr %33, align 4
   switch i32 %34, label %103 [
@@ -7634,7 +7634,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   %37 = load i32, ptr %36, align 8
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 8
-  %39 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_Applications) #16
+  %39 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_Applications) #16
   %40 = load i32, ptr %36, align 8
   %41 = add i32 %40, -1
   store i32 %41, ptr %36, align 8
@@ -7650,27 +7650,27 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %switch.selectcmp.i, label %45, label %47
 
 45:                                               ; preds = %42
-  %46 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_pkinit_PA_PK_AS_REQ_Win2k) #16
+  %46 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_pkinit_PA_PK_AS_REQ_Win2k) #16
   br label %105
 
 47:                                               ; preds = %42
-  %48 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_pkinit_PA_PK_AS_REP_Win2k) #16
+  %48 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_pkinit_PA_PK_AS_REP_Win2k) #16
   br label %105
 
 49:                                               ; preds = %32
-  %50 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_pkinit_PaPkAsReq) #16
+  %50 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_pkinit_PaPkAsReq) #16
   br label %105
 
 51:                                               ; preds = %32
-  %52 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_pkinit_PaPkAsRep) #16
+  %52 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_pkinit_PaPkAsRep) #16
   br label %105
 
 53:                                               ; preds = %32
-  %54 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_PAC_REQUEST) #16
+  %54 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_PAC_REQUEST) #16
   br label %105
 
 55:                                               ; preds = %32
-  %56 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_S4U2Self) #16
+  %56 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_S4U2Self) #16
   br label %105
 
 57:                                               ; preds = %32
@@ -7679,7 +7679,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %57
-  %61 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_x509af_Certificate) #16
+  %61 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_x509af_Certificate) #16
   br label %105
 
 62:                                               ; preds = %57
@@ -7689,35 +7689,35 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %.not149, label %67, label %65
 
 65:                                               ; preds = %62
-  %66 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #16
+  %66 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #16
   br label %105
 
 67:                                               ; preds = %62
-  %68 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_S4U_X509_USER) #16
+  %68 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_S4U_X509_USER) #16
   br label %105
 
 69:                                               ; preds = %32
-  %70 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_krb5_PA_PROV_SRV_LOCATION) #16
+  %70 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_krb5_PA_PROV_SRV_LOCATION) #16
   br label %105
 
 71:                                               ; preds = %32
-  %72 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_ENC_TIMESTAMP) #16
+  %72 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_ENC_TIMESTAMP) #16
   br label %105
 
 73:                                               ; preds = %32
-  %74 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_ETYPE_INFO) #16
+  %74 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_ETYPE_INFO) #16
   br label %105
 
 75:                                               ; preds = %32
-  %76 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_ETYPE_INFO2) #16
+  %76 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_ETYPE_INFO2) #16
   br label %105
 
 77:                                               ; preds = %32
-  %78 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_krb5_PW_SALT) #16
+  %78 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_krb5_PW_SALT) #16
   br label %105
 
 79:                                               ; preds = %32
-  %80 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_AUTHENTICATION_SET_ELEM) #16
+  %80 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_AUTHENTICATION_SET_ELEM) #16
   br label %105
 
 81:                                               ; preds = %32
@@ -7728,52 +7728,52 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %switch.selectcmp.i152, label %83, label %85
 
 83:                                               ; preds = %81
-  %84 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_defer_PA_FX_FAST_REQUEST) #16
+  %84 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_defer_PA_FX_FAST_REQUEST) #16
   br label %105
 
 85:                                               ; preds = %81
-  %86 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_FX_FAST_REPLY) #16
+  %86 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_FX_FAST_REPLY) #16
   br label %105
 
 87:                                               ; preds = %32
-  %88 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_Applications) #16
+  %88 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_Applications) #16
   br label %105
 
 89:                                               ; preds = %32
-  %90 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_EncryptedChallenge) #16
+  %90 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_EncryptedChallenge) #16
   br label %105
 
 91:                                               ; preds = %32
-  %92 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_KERB_KEY_LIST_REQ) #16
+  %92 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_KERB_KEY_LIST_REQ) #16
   br label %105
 
 93:                                               ; preds = %32
-  %94 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_KERB_KEY_LIST_REP) #16
+  %94 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_KERB_KEY_LIST_REP) #16
   br label %105
 
 95:                                               ; preds = %32
-  %96 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_SUPPORTED_ENCTYPES) #16
+  %96 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_SUPPORTED_ENCTYPES) #16
   br label %105
 
 97:                                               ; preds = %32
-  %98 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_PAC_OPTIONS) #16
+  %98 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_PAC_OPTIONS) #16
   br label %105
 
 99:                                               ; preds = %32
-  %100 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_Checksum) #16
+  %100 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_Checksum) #16
   br label %105
 
 101:                                              ; preds = %32
-  %102 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_SPAKE) #16
+  %102 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @dissect_kerberos_PA_SPAKE) #16
   br label %105
 
 103:                                              ; preds = %32
-  %104 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #16
+  %104 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %.0147, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #16
   br label %105
 
 105:                                              ; preds = %83, %85, %60, %67, %65, %45, %47, %103, %101, %99, %97, %95, %93, %91, %89, %87, %79, %77, %75, %73, %71, %69, %55, %53, %51, %49, %35
-  %.0147 = phi i32 [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %84, %83 ], [ %86, %85 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %61, %60 ], [ %66, %65 ], [ %68, %67 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %46, %45 ], [ %48, %47 ], [ %39, %35 ]
-  ret i32 %.0147
+  %.0 = phi i32 [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %84, %83 ], [ %86, %85 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %61, %60 ], [ %66, %65 ], [ %68, %67 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %46, %45 ], [ %48, %47 ], [ %39, %35 ]
+  ret i32 %.0
 }
 
 declare i32 @dissect_pkinit_PA_PK_AS_REQ_Win2k(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2

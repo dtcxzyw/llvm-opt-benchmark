@@ -196,18 +196,18 @@ mXactCacheGetBySet.exit:                          ; preds = %15, %dlist_push_hea
   br label %.lr.ph
 
 32:                                               ; preds = %.lr.ph
-  %.0.mux = select i1 %35, i1 true, i1 %.035
+  %.0.mux = select i1 %35, i1 true, i1 %.034
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
-  %.035 = phi i1 [ false, %.lr.ph.preheader ], [ %.0.mux, %32 ]
+  %.034 = phi i1 [ false, %.lr.ph.preheader ], [ %.0.mux, %32 ]
   %33 = getelementptr %struct.MultiXactMember, ptr %1, i64 %indvars.iv, i32 1
   %34 = load i32, ptr %33, align 4
   %35 = icmp ugt i32 %34, 3
-  %brmerge.not = select i1 %35, i1 %.035, i1 false
+  %brmerge.not = select i1 %35, i1 %.034, i1 false
   br i1 %brmerge.not, label %36, label %32
 
 36:                                               ; preds = %.lr.ph
@@ -274,11 +274,11 @@ mXactCacheGetBySet.exit:                          ; preds = %15, %dlist_push_hea
 74:                                               ; preds = %71
   %75 = tail call ptr @get_database_name(i32 noundef %66) #13
   tail call void @SendPostmasterSignal(i32 noundef 3) #13
-  %.not.i30 = icmp eq ptr %75, null
+  %.not.i29 = icmp eq ptr %75, null
   %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %76)
   %77 = tail call i32 @errcode(i32 noundef 261) #13
-  br i1 %.not.i30, label %81, label %78
+  br i1 %.not.i29, label %81, label %78
 
 78:                                               ; preds = %74
   %79 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef nonnull %75) #13
@@ -347,15 +347,15 @@ mXactCacheGetBySet.exit:                          ; preds = %15, %dlist_push_hea
 
 110:                                              ; preds = %104, %52
   %111 = phi ptr [ %48, %52 ], [ %108, %104 ]
-  %.0.i29 = phi i32 [ %53, %52 ], [ %spec.store.select.i, %104 ]
-  %112 = and i32 %.0.i29, 2047
+  %.046.i = phi i32 [ %53, %52 ], [ %spec.store.select.i, %104 ]
+  %112 = and i32 %.046.i, 2047
   %113 = icmp ne i32 %112, 0
-  %114 = icmp ne i32 %.0.i29, 1
+  %114 = icmp ne i32 %.046.i, 1
   %or.cond.i.i = and i1 %114, %113
   br i1 %or.cond.i.i, label %ExtendMultiXactOffset.exit.i, label %115
 
 115:                                              ; preds = %110
-  %116 = lshr i32 %.0.i29, 11
+  %116 = lshr i32 %.046.i, 11
   %117 = zext nneg i32 %116 to i64
   %MultiXactOffsetCtlData.val.i.i = load ptr, ptr @MultiXactOffsetCtlData, align 8
   %MultiXactOffsetCtlData.val7.i.i = load i16, ptr getelementptr inbounds (i8, ptr @MultiXactOffsetCtlData, i64 8), align 8
@@ -567,7 +567,7 @@ GetNewMultiXactId.exit:                           ; preds = %222, %200
   %232 = load ptr, ptr @MainLWLockArray, align 8
   %233 = getelementptr i8, ptr %232, i64 1664
   call void @LWLockRelease(ptr noundef %233) #13
-  store i32 %.0.i29, ptr %5, align 4
+  store i32 %.046.i, ptr %5, align 4
   %234 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %spec.select.i, ptr %234, align 4
   %235 = getelementptr inbounds i8, ptr %5, i64 8
@@ -577,15 +577,15 @@ GetNewMultiXactId.exit:                           ; preds = %222, %200
   %236 = shl i32 %0, 3
   call void @XLogRegisterData(ptr noundef %1, i32 noundef %236) #13
   %237 = call i64 @XLogInsert(i8 noundef zeroext 6, i8 noundef zeroext 32) #13
-  call fastcc void @RecordNewMultiXact(i32 noundef %.0.i29, i32 noundef %spec.select.i, i32 noundef %0, ptr noundef %1)
+  call fastcc void @RecordNewMultiXact(i32 noundef %.046.i, i32 noundef %spec.select.i, i32 noundef %0, ptr noundef %1)
   %238 = load volatile i32, ptr @CritSectionCount, align 4
   %239 = add i32 %238, -1
   store volatile i32 %239, ptr @CritSectionCount, align 4
-  call fastcc void @mXactCachePut(i32 noundef %.0.i29, i32 noundef %0, ptr noundef %1)
+  call fastcc void @mXactCachePut(i32 noundef %.046.i, i32 noundef %0, ptr noundef %1)
   br label %240
 
 240:                                              ; preds = %mXactCacheGetBySet.exit, %GetNewMultiXactId.exit
-  %.025 = phi i32 [ %.0.i29, %GetNewMultiXactId.exit ], [ %30, %mXactCacheGetBySet.exit ]
+  %.025 = phi i32 [ %.046.i, %GetNewMultiXactId.exit ], [ %30, %mXactCacheGetBySet.exit ]
   ret i32 %.025
 }
 
@@ -799,25 +799,25 @@ mXactCacheGetById.exit.thread:                    ; preds = %select.unfold.i, %5
 
 49:                                               ; preds = %49, %.lr.ph.i138
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i138 ], [ %indvars.iv.next.i, %49 ]
-  %.0912.i = phi i32 [ %spec.store.select.i, %.lr.ph.i138 ], [ %.1.i, %49 ]
+  %.013.i = phi i32 [ %spec.store.select.i, %.lr.ph.i138 ], [ %.1.i, %49 ]
   %50 = getelementptr i32, ptr %48, i64 %indvars.iv.i
   %51 = load i32, ptr %50, align 4
   %.not11.i = icmp eq i32 %51, 0
-  %52 = sub i32 %51, %.0912.i
+  %52 = sub i32 %51, %.013.i
   %53 = icmp slt i32 %52, 0
-  %spec.select.i = select i1 %53, i32 %51, i32 %.0912.i
-  %.1.i = select i1 %.not11.i, i32 %.0912.i, i32 %spec.select.i
+  %spec.select.i = select i1 %53, i32 %51, i32 %.013.i
+  %.1.i = select i1 %.not11.i, i32 %.013.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %49, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %49, %38
-  %.09.lcssa.i = phi i32 [ %spec.store.select.i, %38 ], [ %.1.i, %49 ]
+  %.0.lcssa.i = phi i32 [ %spec.store.select.i, %38 ], [ %.1.i, %49 ]
   %54 = load ptr, ptr @OldestVisibleMXactId, align 8
   %55 = load i32, ptr @MyProcNumber, align 4
   %56 = sext i32 %55 to i64
   %57 = getelementptr i32, ptr %54, i64 %56
-  store i32 %.09.lcssa.i, ptr %57, align 4
+  store i32 %.0.lcssa.i, ptr %57, align 4
   %58 = load ptr, ptr @MainLWLockArray, align 8
   %59 = getelementptr i8, ptr %58, i64 1664
   tail call void @LWLockRelease(ptr noundef %59) #13
@@ -960,7 +960,7 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   br label %141
 
 141:                                              ; preds = %139, %134
-  %.2 = phi ptr [ %138, %139 ], [ %121, %134 ]
+  %.2107 = phi ptr [ %138, %139 ], [ %121, %134 ]
   %142 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @MultiXactOffsetCtlData, i64 noundef %96, i1 noundef zeroext true, i32 noundef %spec.store.select) #13
   %.pre = load ptr, ptr @MultiXactOffsetCtlData, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
@@ -972,15 +972,15 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
 
 143:                                              ; preds = %141, %124
   %144 = phi ptr [ %.pre157, %141 ], [ %131, %124 ]
-  %.0110 = phi i32 [ %142, %141 ], [ %125, %124 ]
-  %.3 = phi ptr [ %.2, %141 ], [ %121, %124 ]
+  %.3108 = phi ptr [ %.2107, %141 ], [ %121, %124 ]
+  %.0103 = phi i32 [ %142, %141 ], [ %125, %124 ]
   %145 = getelementptr i32, ptr %144, i64 %98
   %146 = load i32, ptr %145, align 4
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %148, label %.split
 
 148:                                              ; preds = %143
-  tail call void @LWLockRelease(ptr noundef %.3) #13
+  tail call void @LWLockRelease(ptr noundef %.3108) #13
   %149 = load volatile i32, ptr @InterruptPending, align 4
   %.not127 = icmp eq i32 %149, 0
   br i1 %.not127, label %151, label %150
@@ -995,15 +995,15 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
 
 .split:                                           ; preds = %143, %.split.us
   %.us-phi = phi i32 [ %113, %.split.us ], [ %133, %143 ]
-  %.us-phi141 = phi i32 [ %105, %.split.us ], [ %.0110, %143 ]
-  %.us-phi142 = phi i32 [ %77, %.split.us ], [ %146, %143 ]
-  %.us-phi143 = phi ptr [ %102, %.split.us ], [ %.3, %143 ]
-  %.0108 = sub i32 %.us-phi142, %.us-phi
-  tail call void @LWLockRelease(ptr noundef %.us-phi143) #13
-  %152 = sext i32 %.0108 to i64
+  %.us-phi141 = phi i32 [ %77, %.split.us ], [ %146, %143 ]
+  %.us-phi142 = phi ptr [ %102, %.split.us ], [ %.3108, %143 ]
+  %.us-phi143 = phi i32 [ %105, %.split.us ], [ %.0103, %143 ]
+  %.0110 = sub i32 %.us-phi141, %.us-phi
+  tail call void @LWLockRelease(ptr noundef %.us-phi142) #13
+  %152 = sext i32 %.0110 to i64
   %153 = shl nsw i64 %152, 3
   %154 = tail call ptr @palloc(i64 noundef %153) #13
-  %155 = icmp sgt i32 %.0108, 0
+  %155 = icmp sgt i32 %.0110, 0
   br i1 %155, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %.split
@@ -1013,17 +1013,17 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %195
   %.pre159 = phi ptr [ %.pre159161, %195 ], [ %.pre159.pre160, %.lr.ph.preheader ]
   %.0102149 = phi i64 [ %.1, %195 ], [ -1, %.lr.ph.preheader ]
-  %.5148 = phi ptr [ %.7, %195 ], [ null, %.lr.ph.preheader ]
-  %.0105147 = phi i32 [ %196, %195 ], [ 0, %.lr.ph.preheader ]
-  %.0106146 = phi i32 [ %.1107, %195 ], [ 0, %.lr.ph.preheader ]
-  %.0109145 = phi i32 [ %197, %195 ], [ %.us-phi, %.lr.ph.preheader ]
-  %.2112144 = phi i32 [ %.3113, %195 ], [ %.us-phi141, %.lr.ph.preheader ]
-  %156 = udiv i32 %.0109145, 1636
+  %.2148 = phi i32 [ %.3, %195 ], [ %.us-phi143, %.lr.ph.preheader ]
+  %.5147 = phi ptr [ %.7, %195 ], [ null, %.lr.ph.preheader ]
+  %.0109146 = phi i32 [ %197, %195 ], [ %.us-phi, %.lr.ph.preheader ]
+  %.0111145 = phi i32 [ %.1112, %195 ], [ 0, %.lr.ph.preheader ]
+  %.0113144 = phi i32 [ %196, %195 ], [ 0, %.lr.ph.preheader ]
+  %156 = udiv i32 %.0109146, 1636
   %157 = zext nneg i32 %156 to i64
-  %158 = lshr i32 %.0109145, 2
+  %158 = lshr i32 %.0109146, 2
   %159 = urem i32 %158, 409
   %160 = mul nuw nsw i32 %159, 20
-  %161 = and i32 %.0109145, 3
+  %161 = and i32 %.0109146, 3
   %162 = shl nuw nsw i32 %161, 2
   %163 = add nuw nsw i32 %162, 4
   %narrow = add nuw nsw i32 %163, %160
@@ -1037,15 +1037,15 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   %166 = zext i16 %MultiXactMemberCtlData.val136 to i64
   %167 = and i64 %166, %157
   %168 = getelementptr %union.LWLockPadded, ptr %MultiXactMemberCtlData.val.val, i64 %167
-  %.not130 = icmp eq ptr %168, %.5148
+  %.not130 = icmp eq ptr %168, %.5147
   br i1 %.not130, label %173, label %169
 
 169:                                              ; preds = %164
-  %.not131 = icmp eq ptr %.5148, null
+  %.not131 = icmp eq ptr %.5147, null
   br i1 %.not131, label %171, label %170
 
 170:                                              ; preds = %169
-  tail call void @LWLockRelease(ptr noundef nonnull %.5148) #13
+  tail call void @LWLockRelease(ptr noundef nonnull %.5147) #13
   br label %171
 
 171:                                              ; preds = %170, %169
@@ -1053,19 +1053,19 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   br label %173
 
 173:                                              ; preds = %171, %164
-  %.6 = phi ptr [ %168, %171 ], [ %.5148, %164 ]
+  %.6 = phi ptr [ %168, %171 ], [ %.5147, %164 ]
   %174 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @MultiXactMemberCtlData, i64 noundef %157, i1 noundef zeroext true, i32 noundef %0) #13
   %.pre158 = load ptr, ptr @MultiXactMemberCtlData, align 8
   br label %175
 
 175:                                              ; preds = %173, %.lr.ph
   %.pre159162 = phi ptr [ %.pre158, %173 ], [ %.pre159, %.lr.ph ]
-  %.3113 = phi i32 [ %174, %173 ], [ %.2112144, %.lr.ph ]
-  %.7 = phi ptr [ %.6, %173 ], [ %.5148, %.lr.ph ]
+  %.7 = phi ptr [ %.6, %173 ], [ %.5147, %.lr.ph ]
+  %.3 = phi i32 [ %174, %173 ], [ %.2148, %.lr.ph ]
   %.1 = phi i64 [ %157, %173 ], [ %.0102149, %.lr.ph ]
   %176 = getelementptr inbounds i8, ptr %.pre159162, i64 8
   %177 = load ptr, ptr %176, align 8
-  %178 = sext i32 %.3113 to i64
+  %178 = sext i32 %.3 to i64
   %179 = getelementptr ptr, ptr %177, i64 %178
   %180 = load ptr, ptr %179, align 8
   %181 = zext nneg i32 %narrow to i64
@@ -1078,7 +1078,7 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   %185 = shl nuw nsw i32 %161, 3
   %186 = zext nneg i32 %160 to i64
   %187 = getelementptr i8, ptr %180, i64 %186
-  %188 = sext i32 %.0106146 to i64
+  %188 = sext i32 %.0111145 to i64
   %189 = getelementptr %struct.MultiXactMember, ptr %154, i64 %188
   store i32 %183, ptr %189, align 4
   %190 = load i32, ptr %187, align 4
@@ -1086,16 +1086,16 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   %192 = and i32 %191, 255
   %193 = getelementptr inbounds i8, ptr %189, i64 4
   store i32 %192, ptr %193, align 4
-  %194 = add i32 %.0106146, 1
+  %194 = add i32 %.0111145, 1
   %.pre159.pre = load ptr, ptr @MultiXactMemberCtlData, align 8
   br label %195
 
 195:                                              ; preds = %175, %184
   %.pre159161 = phi ptr [ %.pre159.pre, %184 ], [ %.pre159162, %175 ]
-  %.1107 = phi i32 [ %194, %184 ], [ %.0106146, %175 ]
-  %196 = add nuw nsw i32 %.0105147, 1
-  %197 = add i32 %.0109145, 1
-  %exitcond.not = icmp eq i32 %196, %.0108
+  %.1112 = phi i32 [ %194, %184 ], [ %.0111145, %175 ]
+  %196 = add nuw nsw i32 %.0113144, 1
+  %197 = add i32 %.0109146, 1
+  %exitcond.not = icmp eq i32 %196, %.0110
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %195
@@ -1107,13 +1107,13 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.split, %198, %._crit_edge
-  %.0106.lcssa167 = phi i32 [ %.1107, %198 ], [ %.1107, %._crit_edge ], [ 0, %.split ]
-  tail call fastcc void @mXactCachePut(i32 noundef %0, i32 noundef %.0106.lcssa167, ptr noundef %154)
+  %.0111.lcssa167 = phi i32 [ %.1112, %198 ], [ %.1112, %._crit_edge ], [ 0, %.split ]
+  tail call fastcc void @mXactCachePut(i32 noundef %0, i32 noundef %.0111.lcssa167, ptr noundef %154)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %60, %4, %._crit_edge.thread
   %.sink = phi ptr [ %154, %._crit_edge.thread ], [ null, %4 ], [ null, %60 ]
-  %.0.ph = phi i32 [ %.0106.lcssa167, %._crit_edge.thread ], [ -1, %4 ], [ -1, %60 ]
+  %.0.ph = phi i32 [ %.0111.lcssa167, %._crit_edge.thread ], [ -1, %4 ], [ -1, %60 ]
   store ptr %.sink, ptr %1, align 8
   br label %199
 
@@ -1390,8 +1390,8 @@ define internal fastcc void @RecordNewMultiXact(i32 noundef %0, i32 noundef %1, 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %47 ]
   %.069 = phi i32 [ %1, %.lr.ph.preheader ], [ %77, %47 ]
   %.05268 = phi i64 [ -1, %.lr.ph.preheader ], [ %.1, %47 ]
-  %.05367 = phi ptr [ null, %.lr.ph.preheader ], [ %.2, %47 ]
-  %.05665 = phi i32 [ %13, %.lr.ph.preheader ], [ %.157, %47 ]
+  %.05367 = phi i32 [ %13, %.lr.ph.preheader ], [ %.154, %47 ]
+  %.05665 = phi ptr [ null, %.lr.ph.preheader ], [ %.2, %47 ]
   %27 = udiv i32 %.069, 1636
   %28 = zext nneg i32 %27 to i64
   %29 = lshr i32 %.069, 2
@@ -1413,15 +1413,15 @@ define internal fastcc void @RecordNewMultiXact(i32 noundef %0, i32 noundef %1, 
   %38 = zext i16 %MultiXactMemberCtlData.val64 to i64
   %39 = and i64 %38, %28
   %40 = getelementptr %union.LWLockPadded, ptr %MultiXactMemberCtlData.val.val, i64 %39
-  %.not61 = icmp eq ptr %40, %.05367
+  %.not61 = icmp eq ptr %40, %.05665
   br i1 %.not61, label %45, label %41
 
 41:                                               ; preds = %36
-  %.not62 = icmp eq ptr %.05367, null
+  %.not62 = icmp eq ptr %.05665, null
   br i1 %.not62, label %43, label %42
 
 42:                                               ; preds = %41
-  tail call void @LWLockRelease(ptr noundef nonnull %.05367) #13
+  tail call void @LWLockRelease(ptr noundef nonnull %.05665) #13
   br label %43
 
 43:                                               ; preds = %42, %41
@@ -1429,18 +1429,18 @@ define internal fastcc void @RecordNewMultiXact(i32 noundef %0, i32 noundef %1, 
   br label %45
 
 45:                                               ; preds = %43, %36
-  %.154 = phi ptr [ %40, %43 ], [ %.05367, %36 ]
+  %.157 = phi ptr [ %40, %43 ], [ %.05665, %36 ]
   %46 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @MultiXactMemberCtlData, i64 noundef %28, i1 noundef zeroext true, i32 noundef %0) #13
   br label %47
 
 47:                                               ; preds = %45, %.lr.ph
-  %.157 = phi i32 [ %46, %45 ], [ %.05665, %.lr.ph ]
-  %.2 = phi ptr [ %.154, %45 ], [ %.05367, %.lr.ph ]
+  %.2 = phi ptr [ %.157, %45 ], [ %.05665, %.lr.ph ]
+  %.154 = phi i32 [ %46, %45 ], [ %.05367, %.lr.ph ]
   %.1 = phi i64 [ %28, %45 ], [ %.05268, %.lr.ph ]
   %48 = load ptr, ptr @MultiXactMemberCtlData, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = sext i32 %.157 to i64
+  %51 = sext i32 %.154 to i64
   %52 = getelementptr ptr, ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = zext nneg i32 %narrow to i64
@@ -2069,13 +2069,13 @@ define dso_local void @SetMultiXactIdLimit(i32 noundef %0, i32 noundef %1, i1 no
   %spec.select = tail call i32 @llvm.umax.i32(i32 %4, i32 1)
   %5 = add i32 %spec.select, -3000000
   %6 = icmp eq i32 %5, 0
-  %.038 = select i1 %6, i32 -1, i32 %5
+  %.040 = select i1 %6, i32 -1, i32 %5
   %7 = add i32 %spec.select, -40000000
   %8 = icmp eq i32 %7, 0
-  %.039 = select i1 %8, i32 -1, i32 %7
+  %.038 = select i1 %8, i32 -1, i32 %7
   %9 = load i32, ptr @autovacuum_multixact_freeze_max_age, align 4
   %10 = add i32 %9, %0
-  %.040 = tail call i32 @llvm.umax.i32(i32 %10, i32 1)
+  %.037 = tail call i32 @llvm.umax.i32(i32 %10, i32 1)
   %11 = load ptr, ptr @MainLWLockArray, align 8
   %12 = getelementptr i8, ptr %11, i64 1664
   %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 0) #13
@@ -2085,11 +2085,11 @@ define dso_local void @SetMultiXactIdLimit(i32 noundef %0, i32 noundef %1, i1 no
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   store i32 %1, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %14, i64 28
-  store i32 %.040, ptr %17, align 4
+  store i32 %.037, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %14, i64 32
-  store i32 %.039, ptr %18, align 4
+  store i32 %.038, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %14, i64 36
-  store i32 %.038, ptr %19, align 4
+  store i32 %.040, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %14, i64 40
   store i32 %spec.select, ptr %20, align 4
   %21 = load i32, ptr %14, align 4
@@ -2221,8 +2221,8 @@ find_multixact_start.exit.i:                      ; preds = %55
 
 SetOffsetVacuumLimit.exit:                        ; preds = %91, %93, %95, %98
   %.2.i = phi i32 [ %.1.ph.i, %93 ], [ %.1.ph.i, %91 ], [ %49, %98 ], [ 0, %95 ]
+  %.019.i = phi i32 [ %86, %93 ], [ %86, %91 ], [ %51, %98 ], [ 0, %95 ]
   %.1.shrunk.i = phi i1 [ true, %93 ], [ true, %91 ], [ true, %98 ], [ false, %95 ]
-  %.0.i = phi i32 [ %86, %93 ], [ %86, %91 ], [ %51, %98 ], [ 0, %95 ]
   %99 = load ptr, ptr @MainLWLockArray, align 8
   %100 = getelementptr i8, ptr %99, i64 1664
   %101 = tail call zeroext i1 @LWLockAcquire(ptr noundef %100, i32 noundef 0) #13
@@ -2233,14 +2233,14 @@ SetOffsetVacuumLimit.exit:                        ; preds = %91, %93, %95, %98
   %105 = zext i1 %.1.shrunk.i to i8
   store i8 %105, ptr %104, align 4
   %106 = getelementptr inbounds i8, ptr %102, i64 44
-  store i32 %.0.i, ptr %106, align 4
+  store i32 %.019.i, ptr %106, align 4
   %107 = load ptr, ptr @MainLWLockArray, align 8
   %108 = getelementptr i8, ptr %107, i64 1664
   tail call void @LWLockRelease(ptr noundef %108) #13
   %109 = sub i32 %44, %.2.i
   %110 = icmp slt i32 %109, 0
   %not..1.shrunk.i = xor i1 %.1.shrunk.i, true
-  %111 = sub i32 %.040, %21
+  %111 = sub i32 %.037, %21
   %112 = icmp slt i32 %111, 0
   %113 = or i1 %112, %not..1.shrunk.i
   %brmerge = select i1 %113, i1 true, i1 %110
@@ -2256,7 +2256,7 @@ SetOffsetVacuumLimit.exit:                        ; preds = %91, %93, %95, %98
   br label %118
 
 118:                                              ; preds = %SetOffsetVacuumLimit.exit, %117, %114
-  %119 = sub i32 %.039, %21
+  %119 = sub i32 %.038, %21
   %120 = icmp slt i32 %119, 0
   br i1 %120, label %121, label %137
 
@@ -2905,10 +2905,10 @@ MultiXactAdvanceNextMXact.exit:                   ; preds = %47, %52
 
 .lr.ph:                                           ; preds = %MultiXactAdvanceNextMXact.exit, %65
   %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 0, %MultiXactAdvanceNextMXact.exit ]
-  %.04852 = phi i32 [ %.1, %65 ], [ %57, %MultiXactAdvanceNextMXact.exit ]
+  %.053 = phi i32 [ %.1, %65 ], [ %57, %MultiXactAdvanceNextMXact.exit ]
   %60 = getelementptr [0 x %struct.MultiXactMember], ptr %33, i64 0, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
-  %62 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %.04852, i32 noundef %61) #13
+  %62 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %.053, i32 noundef %61) #13
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %.lr.ph
@@ -2916,7 +2916,7 @@ MultiXactAdvanceNextMXact.exit:                   ; preds = %47, %52
   br label %65
 
 65:                                               ; preds = %.lr.ph, %63
-  %.1 = phi i32 [ %64, %63 ], [ %.04852, %.lr.ph ]
+  %.1 = phi i32 [ %64, %63 ], [ %.053, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load i32, ptr %31, align 4
   %67 = sext i32 %66 to i64
@@ -2924,8 +2924,8 @@ MultiXactAdvanceNextMXact.exit:                   ; preds = %47, %52
   br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %65, %MultiXactAdvanceNextMXact.exit
-  %.048.lcssa = phi i32 [ %57, %MultiXactAdvanceNextMXact.exit ], [ %.1, %65 ]
-  tail call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %.048.lcssa) #13
+  %.0.lcssa = phi i32 [ %57, %MultiXactAdvanceNextMXact.exit ], [ %.1, %65 ]
+  tail call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %.0.lcssa) #13
   br label %106
 
 69:                                               ; preds = %1

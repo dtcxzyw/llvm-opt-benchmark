@@ -889,19 +889,19 @@ if.else29:                                        ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.else29
-  %s.2 = phi i32 [ 0, %if.else29 ], [ %s.2.m32.0, %do.body ]
-  %x.0 = phi i32 [ 0, %if.else29 ], [ %x.0.mul38, %do.body ]
   %y.0 = phi i32 [ %0, %if.else29 ], [ %mul38.y.0, %do.body ]
-  %n.2 = phi i32 [ %11, %if.else29 ], [ %m32.0.n.2, %do.body ]
+  %x.0 = phi i32 [ 0, %if.else29 ], [ %x.0.mul38, %do.body ]
+  %s.2 = phi i32 [ 0, %if.else29 ], [ %s.2.m32.0, %do.body ]
   %m32.0 = phi i32 [ %shr33, %if.else29 ], [ %shr45, %do.body ]
+  %n.2 = phi i32 [ %11, %if.else29 ], [ %m32.0.n.2, %do.body ]
   %idxprom36 = zext nneg i32 %m32.0 to i64
   %arrayidx37 = getelementptr inbounds i32, ptr %12, i64 %idxprom36
   %14 = load i32, ptr %arrayidx37, align 4
   %mul38 = mul i32 %14, %shr31
   %cmp40 = icmp ugt i32 %mul38, %13
-  %s.2.m32.0 = select i1 %cmp40, i32 %s.2, i32 %m32.0
-  %x.0.mul38 = select i1 %cmp40, i32 %x.0, i32 %mul38
   %mul38.y.0 = select i1 %cmp40, i32 %mul38, i32 %y.0
+  %x.0.mul38 = select i1 %cmp40, i32 %x.0, i32 %mul38
+  %s.2.m32.0 = select i1 %cmp40, i32 %s.2, i32 %m32.0
   %m32.0.n.2 = select i1 %cmp40, i32 %m32.0, i32 %n.2
   %add44 = add i32 %s.2.m32.0, %m32.0.n.2
   %shr45 = lshr i32 %add44, 1
@@ -910,9 +910,9 @@ do.body:                                          ; preds = %do.body, %if.else29
 
 if.end47:                                         ; preds = %do.body, %while.end, %if.then21
   %15 = phi i32 [ %2, %if.then21 ], [ %2, %while.end ], [ %13, %do.body ]
-  %s.4 = phi i32 [ %s.0.lcssa, %if.then21 ], [ %s.0.lcssa, %while.end ], [ %s.2.m32.0, %do.body ]
-  %x.2 = phi i32 [ %mul, %if.then21 ], [ %mul, %while.end ], [ %x.0.mul38, %do.body ]
   %y.2 = phi i32 [ %mul27, %if.then21 ], [ %0, %while.end ], [ %mul38.y.0, %do.body ]
+  %x.2 = phi i32 [ %mul, %if.then21 ], [ %mul, %while.end ], [ %x.0.mul38, %do.body ]
+  %s.4 = phi i32 [ %s.0.lcssa, %if.then21 ], [ %s.0.lcssa, %while.end ], [ %s.2.m32.0, %do.body ]
   %value48 = getelementptr inbounds i8, ptr %this, i64 28
   %sub = sub i32 %15, %x.2
   store i32 %sub, ptr %value48, align 4
@@ -1108,8 +1108,8 @@ if.end.i:                                         ; preds = %for.body.i18, %if.t
 
 for.body16.i:                                     ; preds = %if.end.i, %for.body16.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %for.body16.i ], [ 0, %if.end.i ]
-  %sum.035.i = phi i32 [ %add23.i, %for.body16.i ], [ 0, %if.end.i ]
-  %mul.i = mul i32 %sum.035.i, %div.i
+  %sum.034.i = phi i32 [ %add23.i, %for.body16.i ], [ 0, %if.end.i ]
+  %mul.i = mul i32 %sum.034.i, %div.i
   %shr17.i = lshr i32 %mul.i, 16
   %29 = load ptr, ptr %M, align 8
   %arrayidx19.i = getelementptr inbounds i32, ptr %29, i64 %indvars.iv44.i
@@ -1117,7 +1117,7 @@ for.body16.i:                                     ; preds = %if.end.i, %for.body
   %30 = load ptr, ptr %symbol_count, align 8
   %arrayidx22.i = getelementptr inbounds i32, ptr %30, i64 %indvars.iv44.i
   %31 = load i32, ptr %arrayidx22.i, align 4
-  %add23.i = add i32 %31, %sum.035.i
+  %add23.i = add i32 %31, %sum.034.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %32 = load i32, ptr %data_symbols14.i, align 4
   %33 = zext i32 %32 to i64
@@ -1224,8 +1224,8 @@ for.body16.lr.ph:                                 ; preds = %if.then12
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.body16
   %indvars.iv44 = phi i64 [ 0, %for.body16.lr.ph ], [ %indvars.iv.next45, %for.body16 ]
-  %sum.035 = phi i32 [ 0, %for.body16.lr.ph ], [ %add23, %for.body16 ]
-  %mul = mul i32 %sum.035, %div
+  %sum.034 = phi i32 [ 0, %for.body16.lr.ph ], [ %add23, %for.body16 ]
+  %mul = mul i32 %sum.034, %div
   %shr17 = lshr i32 %mul, 16
   %13 = load ptr, ptr %this, align 8
   %arrayidx19 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv44
@@ -1233,7 +1233,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %14 = load ptr, ptr %symbol_count20, align 8
   %arrayidx22 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv44
   %15 = load i32, ptr %arrayidx22, align 4
-  %add23 = add i32 %15, %sum.035
+  %add23 = add i32 %15, %sum.034
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %16 = load i32, ptr %data_symbols14, align 4
   %17 = zext i32 %16 to i64
@@ -1242,8 +1242,8 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
 
 for.body30:                                       ; preds = %for.body30.lr.ph, %for.inc48
   %indvars.iv41 = phi i64 [ 0, %for.body30.lr.ph ], [ %indvars.iv.next42, %for.inc48 ]
-  %s.029 = phi i32 [ 0, %for.body30.lr.ph ], [ %s.1.lcssa, %for.inc48 ]
   %sum.128 = phi i32 [ 0, %for.body30.lr.ph ], [ %add39, %for.inc48 ]
+  %s.027 = phi i32 [ 0, %for.body30.lr.ph ], [ %s.1.lcssa, %for.inc48 ]
   %mul31 = mul i32 %sum.128, %div
   %shr32 = lshr i32 %mul31, 16
   %18 = load ptr, ptr %this, align 8
@@ -1258,13 +1258,13 @@ for.body30:                                       ; preds = %for.body30.lr.ph, %
   %22 = load i32, ptr %arrayidx42, align 4
   %23 = load i32, ptr %table_shift, align 8
   %shr43 = lshr i32 %22, %23
-  %cmp4424 = icmp ult i32 %s.029, %shr43
+  %cmp4424 = icmp ult i32 %s.027, %shr43
   br i1 %cmp4424, label %while.body.lr.ph, label %for.inc48
 
 while.body.lr.ph:                                 ; preds = %for.body30
   %24 = trunc nuw i64 %indvars.iv41 to i32
   %sub = add i32 %24, -1
-  %25 = zext i32 %s.029 to i64
+  %25 = zext i32 %s.027 to i64
   %wide.trip.count = zext i32 %shr43 to i64
   br label %while.body
 
@@ -1278,7 +1278,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %exitcond.not, label %for.inc48, label %while.body, !llvm.loop !12
 
 for.inc48:                                        ; preds = %while.body, %for.body30
-  %s.1.lcssa = phi i32 [ %s.029, %for.body30 ], [ %shr43, %while.body ]
+  %s.1.lcssa = phi i32 [ %s.027, %for.body30 ], [ %shr43, %while.body ]
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %27 = load i32, ptr %data_symbols28, align 4
   %28 = zext i32 %27 to i64
@@ -1405,19 +1405,19 @@ if.else29:                                        ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.else29
-  %s.2 = phi i32 [ 0, %if.else29 ], [ %s.2.m32.0, %do.body ]
-  %x.0 = phi i32 [ 0, %if.else29 ], [ %x.0.mul38, %do.body ]
   %y.0 = phi i32 [ %0, %if.else29 ], [ %mul38.y.0, %do.body ]
-  %n.2 = phi i32 [ %11, %if.else29 ], [ %m32.0.n.2, %do.body ]
+  %x.0 = phi i32 [ 0, %if.else29 ], [ %x.0.mul38, %do.body ]
+  %s.2 = phi i32 [ 0, %if.else29 ], [ %s.2.m32.0, %do.body ]
   %m32.0 = phi i32 [ %shr33, %if.else29 ], [ %shr45, %do.body ]
+  %n.2 = phi i32 [ %11, %if.else29 ], [ %m32.0.n.2, %do.body ]
   %idxprom36 = zext nneg i32 %m32.0 to i64
   %arrayidx37 = getelementptr inbounds i32, ptr %12, i64 %idxprom36
   %14 = load i32, ptr %arrayidx37, align 4
   %mul38 = mul i32 %14, %shr31
   %cmp40 = icmp ugt i32 %mul38, %13
-  %s.2.m32.0 = select i1 %cmp40, i32 %s.2, i32 %m32.0
-  %x.0.mul38 = select i1 %cmp40, i32 %x.0, i32 %mul38
   %mul38.y.0 = select i1 %cmp40, i32 %mul38, i32 %y.0
+  %x.0.mul38 = select i1 %cmp40, i32 %x.0, i32 %mul38
+  %s.2.m32.0 = select i1 %cmp40, i32 %s.2, i32 %m32.0
   %m32.0.n.2 = select i1 %cmp40, i32 %m32.0, i32 %n.2
   %add44 = add i32 %s.2.m32.0, %m32.0.n.2
   %shr45 = lshr i32 %add44, 1
@@ -1426,9 +1426,9 @@ do.body:                                          ; preds = %do.body, %if.else29
 
 if.end47:                                         ; preds = %do.body, %while.end, %if.then21
   %15 = phi i32 [ %2, %if.then21 ], [ %2, %while.end ], [ %13, %do.body ]
-  %s.4 = phi i32 [ %s.0.lcssa, %if.then21 ], [ %s.0.lcssa, %while.end ], [ %s.2.m32.0, %do.body ]
-  %x.2 = phi i32 [ %mul, %if.then21 ], [ %mul, %while.end ], [ %x.0.mul38, %do.body ]
   %y.2 = phi i32 [ %mul27, %if.then21 ], [ %0, %while.end ], [ %mul38.y.0, %do.body ]
+  %x.2 = phi i32 [ %mul, %if.then21 ], [ %mul, %while.end ], [ %x.0.mul38, %do.body ]
+  %s.4 = phi i32 [ %s.0.lcssa, %if.then21 ], [ %s.0.lcssa, %while.end ], [ %s.2.m32.0, %do.body ]
   %value48 = getelementptr inbounds i8, ptr %this, i64 28
   %sub = sub i32 %15, %x.2
   store i32 %sub, ptr %value48, align 4

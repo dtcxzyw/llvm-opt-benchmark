@@ -1063,8 +1063,8 @@ if.end273:                                        ; preds = %out.thread, %if.the
   br label %return
 
 fatal:                                            ; preds = %if.then265, %if.then136, %if.then5
-  %cbio.1 = phi ptr [ null, %if.then5 ], [ %cbio.0181, %if.then136 ], [ %cbio.0181, %if.then265 ]
   %getbio.2 = phi ptr [ null, %if.then5 ], [ %call128, %if.then136 ], [ %getbio.0, %if.then265 ]
+  %cbio.1 = phi ptr [ null, %if.then5 ], [ %cbio.0181, %if.then136 ], [ %cbio.0181, %if.then265 ]
   %timeout.addr.1 = phi i32 [ %timeout, %if.then5 ], [ %timeout, %if.then136 ], [ 0, %if.then265 ]
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %buf.i169)
   %call.i170 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf.i169, i64 noundef 200, ptr noundef nonnull @.str.50, i32 noundef 500, ptr noundef nonnull @.str.44) #11

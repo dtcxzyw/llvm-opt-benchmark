@@ -167,8 +167,8 @@ AddToken.exit:                                    ; preds = %TBufferNewPage.exit
 
 63:                                               ; preds = %.lr.ph, %.backedge
   %indvars.iv = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next, %.backedge ]
-  %.0117303 = phi ptr [ %20, %.lr.ph ], [ %.0117.be, %.backedge ]
-  %.0119302 = phi i32 [ %15, %.lr.ph ], [ %.0119.be, %.backedge ]
+  %.0118302 = phi i32 [ %15, %.lr.ph ], [ %.0118.be, %.backedge ]
+  %.0120301 = phi ptr [ %20, %.lr.ph ], [ %.0120.be, %.backedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %64 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv
   %65 = load i16, ptr %64, align 2
@@ -176,8 +176,8 @@ AddToken.exit:                                    ; preds = %TBufferNewPage.exit
   %66 = tail call i16 @llvm.abs.i16(i16 %65, i1 false)
   %67 = zext i16 %66 to i32
   %.not = icmp eq i16 %65, 0
-  %68 = add i32 %.0119302, 1
-  %69 = getelementptr inbounds i8, ptr %.0117303, i64 4
+  %68 = add i32 %.0118302, 1
+  %69 = getelementptr inbounds i8, ptr %.0120301, i64 4
   %70 = load i32, ptr %22, align 8
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %._crit_edge.i138, label %72
@@ -251,15 +251,15 @@ AddToken.exit141:                                 ; preds = %TBufferNewPage.exit
   br label %.backedge
 
 .backedge:                                        ; preds = %100, %AddToken.exit295
-  %.0119.be = phi i32 [ %632, %AddToken.exit295 ], [ %105, %100 ]
-  %.0117.be = phi ptr [ %635, %AddToken.exit295 ], [ %108, %100 ]
+  %.0120.be = phi ptr [ %635, %AddToken.exit295 ], [ %108, %100 ]
+  %.0118.be = phi i32 [ %632, %AddToken.exit295 ], [ %105, %100 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.loopexit, label %63, !llvm.loop !6
 
 109:                                              ; preds = %AddToken.exit141
   %110 = icmp ult i16 %66, 2
-  %111 = add i32 %.0119302, 2
-  %112 = getelementptr inbounds i8, ptr %.0117303, i64 8
+  %111 = add i32 %.0118302, 2
+  %112 = getelementptr inbounds i8, ptr %.0120301, i64 8
   %113 = load i32, ptr %22, align 8
   %114 = icmp sgt i32 %113, 0
   br i1 %114, label %._crit_edge.i146, label %115
@@ -323,8 +323,8 @@ AddToken.exit149:                                 ; preds = %TBufferNewPage.exit
 
 143:                                              ; preds = %AddToken.exit149
   %144 = icmp ult i16 %66, 5
-  %145 = add i32 %.0119302, 3
-  %146 = getelementptr inbounds i8, ptr %.0117303, i64 12
+  %145 = add i32 %.0118302, 3
+  %146 = getelementptr inbounds i8, ptr %.0120301, i64 12
   %147 = load i32, ptr %22, align 8
   %148 = icmp sgt i32 %147, 0
   br i1 %148, label %._crit_edge.i154, label %149
@@ -390,8 +390,8 @@ AddToken.exit157:                                 ; preds = %TBufferNewPage.exit
 
 179:                                              ; preds = %AddToken.exit157
   %.not297 = icmp eq i16 %66, 2
-  %180 = add i32 %.0119302, 4
-  %181 = getelementptr inbounds i8, ptr %.0117303, i64 16
+  %180 = add i32 %.0118302, 4
+  %181 = getelementptr inbounds i8, ptr %.0120301, i64 16
   br i1 %178, label %._crit_edge.i162, label %182
 
 ._crit_edge.i162:                                 ; preds = %179
@@ -453,8 +453,8 @@ AddToken.exit165:                                 ; preds = %TBufferNewPage.exit
 
 210:                                              ; preds = %AddToken.exit165
   %211 = icmp eq i16 %66, 4
-  %212 = add i32 %.0119302, 5
-  %213 = getelementptr inbounds i8, ptr %.0117303, i64 20
+  %212 = add i32 %.0118302, 5
+  %213 = getelementptr inbounds i8, ptr %.0120301, i64 20
   %214 = load i32, ptr %22, align 8
   %215 = icmp sgt i32 %214, 0
   br i1 %215, label %._crit_edge.i170, label %216
@@ -518,8 +518,8 @@ AddToken.exit173:                                 ; preds = %TBufferNewPage.exit
 
 244:                                              ; preds = %AddToken.exit157
   %245 = icmp ult i16 %66, 11
-  %246 = add i32 %.0119302, 6
-  %247 = getelementptr inbounds i8, ptr %.0117303, i64 24
+  %246 = add i32 %.0118302, 6
+  %247 = getelementptr inbounds i8, ptr %.0120301, i64 24
   br i1 %178, label %._crit_edge.i178, label %248
 
 ._crit_edge.i178:                                 ; preds = %244
@@ -581,8 +581,8 @@ AddToken.exit181:                                 ; preds = %TBufferNewPage.exit
 
 276:                                              ; preds = %AddToken.exit181
   %277 = icmp ult i16 %66, 7
-  %278 = add i32 %.0119302, 7
-  %279 = getelementptr inbounds i8, ptr %.0117303, i64 28
+  %278 = add i32 %.0118302, 7
+  %279 = getelementptr inbounds i8, ptr %.0120301, i64 28
   %280 = load i32, ptr %22, align 8
   %281 = icmp sgt i32 %280, 0
   br i1 %281, label %._crit_edge.i186, label %282
@@ -795,7 +795,7 @@ TBufferNewPage.exit.i205:                         ; preds = %358
   br i1 %378, label %379, label %431
 
 379:                                              ; preds = %376
-  %380 = getelementptr inbounds i8, ptr %.0117303, i64 32
+  %380 = getelementptr inbounds i8, ptr %.0120301, i64 32
   %381 = load i32, ptr %22, align 8
   %382 = icmp sgt i32 %381, 0
   br i1 %382, label %._crit_edge.i214, label %383
@@ -837,7 +837,7 @@ TBufferNewPage.exit.i213:                         ; preds = %385
   %397 = phi i32 [ %393, %TBufferNewPage.exit.i213 ], [ %381, %._crit_edge.i214 ]
   %398 = add nsw i32 %397, -1
   store i32 %398, ptr %22, align 8
-  %399 = trunc i32 %.0119302 to i16
+  %399 = trunc i32 %.0118302 to i16
   %400 = add i16 %399, 8
   %401 = sext i32 %398 to i64
   %402 = getelementptr inbounds i16, ptr %396, i64 %401
@@ -894,7 +894,7 @@ TBufferNewPage.exit.i221:                         ; preds = %413
   %425 = phi i32 [ %421, %TBufferNewPage.exit.i221 ], [ %409, %._crit_edge.i222 ]
   %426 = add nsw i32 %425, -1
   store i32 %426, ptr %22, align 8
-  %427 = trunc i32 %.0119302 to i16
+  %427 = trunc i32 %.0118302 to i16
   %428 = add i16 %427, 9
   %429 = sext i32 %426 to i64
   %430 = getelementptr inbounds i16, ptr %424, i64 %429
@@ -906,7 +906,7 @@ TBufferNewPage.exit.i221:                         ; preds = %413
   br i1 %432, label %433, label %486
 
 433:                                              ; preds = %431
-  %434 = getelementptr inbounds i8, ptr %.0117303, i64 32
+  %434 = getelementptr inbounds i8, ptr %.0120301, i64 32
   %435 = load i32, ptr %22, align 8
   %436 = icmp sgt i32 %435, 0
   br i1 %436, label %._crit_edge.i230, label %437
@@ -948,7 +948,7 @@ TBufferNewPage.exit.i229:                         ; preds = %439
   %451 = phi i32 [ %447, %TBufferNewPage.exit.i229 ], [ %435, %._crit_edge.i230 ]
   %452 = add nsw i32 %451, -1
   store i32 %452, ptr %22, align 8
-  %453 = trunc i32 %.0119302 to i16
+  %453 = trunc i32 %.0118302 to i16
   %454 = add i16 %453, 8
   %455 = sext i32 %452 to i64
   %456 = getelementptr inbounds i16, ptr %450, i64 %455
@@ -1005,7 +1005,7 @@ TBufferNewPage.exit.i237:                         ; preds = %467
   %479 = phi i32 [ %475, %TBufferNewPage.exit.i237 ], [ %463, %._crit_edge.i238 ]
   %480 = add nsw i32 %479, -1
   store i32 %480, ptr %22, align 8
-  %481 = trunc i32 %.0119302 to i16
+  %481 = trunc i32 %.0118302 to i16
   %482 = add i16 %481, 9
   %483 = or i16 %482, -32768
   %484 = sext i32 %480 to i64
@@ -1015,7 +1015,7 @@ TBufferNewPage.exit.i237:                         ; preds = %467
 
 486:                                              ; preds = %431
   %487 = icmp ult i32 %377, 64
-  %488 = getelementptr inbounds i8, ptr %.0117303, i64 32
+  %488 = getelementptr inbounds i8, ptr %.0120301, i64 32
   %489 = load i32, ptr %22, align 8
   %490 = icmp sgt i32 %489, 0
   br i1 %487, label %491, label %541
@@ -1060,7 +1060,7 @@ TBufferNewPage.exit.i245:                         ; preds = %494
   %506 = phi i32 [ %502, %TBufferNewPage.exit.i245 ], [ %489, %._crit_edge.i246 ]
   %507 = add nsw i32 %506, -1
   store i32 %507, ptr %22, align 8
-  %508 = trunc i32 %.0119302 to i16
+  %508 = trunc i32 %.0118302 to i16
   %509 = add i16 %508, 8
   %510 = or i16 %509, -32768
   %511 = sext i32 %507 to i64
@@ -1118,7 +1118,7 @@ TBufferNewPage.exit.i253:                         ; preds = %523
   %535 = phi i32 [ %531, %TBufferNewPage.exit.i253 ], [ %519, %._crit_edge.i254 ]
   %536 = add nsw i32 %535, -1
   store i32 %536, ptr %22, align 8
-  %537 = trunc i32 %.0119302 to i16
+  %537 = trunc i32 %.0118302 to i16
   %538 = add i16 %537, 10
   %539 = sext i32 %536 to i64
   %540 = getelementptr inbounds i16, ptr %534, i64 %539
@@ -1165,7 +1165,7 @@ TBufferNewPage.exit.i261:                         ; preds = %544
   %556 = phi i32 [ %552, %TBufferNewPage.exit.i261 ], [ %489, %._crit_edge.i262 ]
   %557 = add nsw i32 %556, -1
   store i32 %557, ptr %22, align 8
-  %558 = trunc i32 %.0119302 to i16
+  %558 = trunc i32 %.0118302 to i16
   %559 = add i16 %558, 8
   %560 = or i16 %559, -32768
   %561 = sext i32 %557 to i64
@@ -1223,7 +1223,7 @@ TBufferNewPage.exit.i269:                         ; preds = %573
   %585 = phi i32 [ %581, %TBufferNewPage.exit.i269 ], [ %569, %._crit_edge.i270 ]
   %586 = add nsw i32 %585, -1
   store i32 %586, ptr %22, align 8
-  %587 = trunc i32 %.0119302 to i16
+  %587 = trunc i32 %.0118302 to i16
   %588 = add i16 %587, 10
   %589 = or i16 %588, -32768
   %590 = sext i32 %586 to i64
@@ -1236,7 +1236,7 @@ AddToken.exit225:                                 ; preds = %583, %TBufferNewPag
   %.sink = phi i32 [ -11, %TBufferNewPage.exit.thread.i219 ], [ -11, %423 ], [ -19, %TBufferNewPage.exit.thread.i235 ], [ -19, %477 ], [ -35, %TBufferNewPage.exit.thread.i251 ], [ -35, %533 ], [ -67, %TBufferNewPage.exit.thread.i267 ], [ -67, %583 ]
   %.0114 = phi i32 [ 4, %TBufferNewPage.exit.thread.i219 ], [ 4, %423 ], [ 8, %TBufferNewPage.exit.thread.i235 ], [ 8, %477 ], [ 16, %TBufferNewPage.exit.thread.i251 ], [ 16, %533 ], [ 1024, %TBufferNewPage.exit.thread.i267 ], [ 1024, %583 ]
   %.0113 = phi ptr [ @VP8Cat3, %TBufferNewPage.exit.thread.i219 ], [ @VP8Cat3, %423 ], [ @VP8Cat4, %TBufferNewPage.exit.thread.i235 ], [ @VP8Cat4, %477 ], [ @VP8Cat5, %TBufferNewPage.exit.thread.i251 ], [ @VP8Cat5, %533 ], [ @VP8Cat6, %TBufferNewPage.exit.thread.i267 ], [ @VP8Cat6, %583 ]
-  %.sink315 = getelementptr inbounds i8, ptr %.0117303, i64 36
+  %.sink315 = getelementptr inbounds i8, ptr %.0120301, i64 36
   %592 = load i32, ptr %.sink315, align 4
   %593 = icmp ugt i32 %592, -131073
   %594 = add nsw i32 %592, 1
@@ -1453,8 +1453,8 @@ define hidden noundef i32 @VP8EmitTokens(ptr nocapture noundef %0, ptr noundef %
   br i1 %.not26, label %.lr.ph31.split.us, label %.lr.ph31.split
 
 .lr.ph31.split.us:                                ; preds = %.lr.ph31, %._crit_edge.us
-  %.02429.us = phi ptr [ %8, %._crit_edge.us ], [ %5, %.lr.ph31 ]
-  %8 = load ptr, ptr %.02429.us, align 8
+  %.029.us = phi ptr [ %8, %._crit_edge.us ], [ %5, %.lr.ph31 ]
+  %8 = load ptr, ptr %.029.us, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
 
@@ -1465,7 +1465,7 @@ define hidden noundef i32 @VP8EmitTokens(ptr nocapture noundef %0, ptr noundef %
 12:                                               ; preds = %10, %.lr.ph31.split.us
   %13 = phi i32 [ %11, %10 ], [ 0, %.lr.ph31.split.us ]
   %14 = load i32, ptr %7, align 4
-  %15 = getelementptr inbounds i8, ptr %.02429.us, i64 8
+  %15 = getelementptr inbounds i8, ptr %.029.us, i64 8
   %16 = icmp sgt i32 %14, %13
   br i1 %16, label %.lr.ph.us.preheader, label %._crit_edge.us
 
@@ -1507,8 +1507,8 @@ define hidden noundef i32 @VP8EmitTokens(ptr nocapture noundef %0, ptr noundef %
   br i1 %34, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !9
 
 .lr.ph31.split:                                   ; preds = %.lr.ph31, %._crit_edge
-  %.02429 = phi ptr [ %35, %._crit_edge ], [ %5, %.lr.ph31 ]
-  %35 = load ptr, ptr %.02429, align 8
+  %.029 = phi ptr [ %35, %._crit_edge ], [ %5, %.lr.ph31 ]
+  %35 = load ptr, ptr %.029, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %39
 
@@ -1519,7 +1519,7 @@ define hidden noundef i32 @VP8EmitTokens(ptr nocapture noundef %0, ptr noundef %
 39:                                               ; preds = %.lr.ph31.split, %37
   %40 = phi i32 [ %38, %37 ], [ 0, %.lr.ph31.split ]
   %41 = load i32, ptr %7, align 4
-  %42 = getelementptr inbounds i8, ptr %.02429, i64 8
+  %42 = getelementptr inbounds i8, ptr %.029, i64 8
   %43 = icmp sgt i32 %41, %40
   br i1 %43, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1558,7 +1558,7 @@ define hidden noundef i32 @VP8EmitTokens(ptr nocapture noundef %0, ptr noundef %
   br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %59, %39
-  tail call void @WebPSafeFree(ptr noundef nonnull %.02429) #5
+  tail call void @WebPSafeFree(ptr noundef nonnull %.029) #5
   br i1 %36, label %._crit_edge32, label %.lr.ph31.split, !llvm.loop !8
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %._crit_edge.us, %4
@@ -1589,13 +1589,13 @@ define hidden i64 @VP8EstimateTokenSize(ptr nocapture noundef readonly %0, ptr n
   br label %8
 
 .loopexit:                                        ; preds = %32, %13
-  %.1.lcssa = phi i64 [ %.02231, %13 ], [ %.2, %32 ]
+  %.1.lcssa = phi i64 [ %.032, %13 ], [ %.2, %32 ]
   br i1 %10, label %._crit_edge, label %8, !llvm.loop !10
 
 8:                                                ; preds = %.lr.ph33, %.loopexit
-  %.02132 = phi ptr [ %3, %.lr.ph33 ], [ %9, %.loopexit ]
-  %.02231 = phi i64 [ 0, %.lr.ph33 ], [ %.1.lcssa, %.loopexit ]
-  %9 = load ptr, ptr %.02132, align 8
+  %.032 = phi i64 [ 0, %.lr.ph33 ], [ %.1.lcssa, %.loopexit ]
+  %.02131 = phi ptr [ %3, %.lr.ph33 ], [ %9, %.loopexit ]
+  %9 = load ptr, ptr %.02131, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
 
@@ -1605,7 +1605,7 @@ define hidden i64 @VP8EstimateTokenSize(ptr nocapture noundef readonly %0, ptr n
 
 13:                                               ; preds = %8, %11
   %14 = phi i32 [ %12, %11 ], [ 0, %8 ]
-  %15 = getelementptr inbounds i8, ptr %.02132, i64 8
+  %15 = getelementptr inbounds i8, ptr %.02131, i64 8
   %16 = icmp sgt i32 %6, %14
   br i1 %16, label %.lr.ph.preheader, label %.loopexit
 
@@ -1615,7 +1615,7 @@ define hidden i64 @VP8EstimateTokenSize(ptr nocapture noundef readonly %0, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
-  %.129 = phi i64 [ %.02231, %.lr.ph.preheader ], [ %.2, %32 ]
+  %.129 = phi i64 [ %.032, %.lr.ph.preheader ], [ %.2, %32 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %18 = getelementptr inbounds i16, ptr %15, i64 %indvars.iv.next
   %19 = load i16, ptr %18, align 2
@@ -1653,8 +1653,8 @@ define hidden i64 @VP8EstimateTokenSize(ptr nocapture noundef readonly %0, ptr n
   br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
-  %.022.lcssa = phi i64 [ 0, %2 ], [ %.1.lcssa, %.loopexit ]
-  ret i64 %.022.lcssa
+  %.0.lcssa = phi i64 [ 0, %2 ], [ %.1.lcssa, %.loopexit ]
+  ret i64 %.0.lcssa
 }
 
 declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #2

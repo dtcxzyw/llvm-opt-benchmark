@@ -934,9 +934,9 @@ _ZN6hermes2vm9GCPointerINS0_8JSObjectEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGC
   br label %return
 
 return:                                           ; preds = %if.then32, %if.then25, %if.end, %_ZN6hermes2vm9GCPointerINS0_8JSObjectEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit, %if.then34, %if.then27, %if.then21, %_ZN6hermes2vm12_GLOBAL__N_112proxyOpFlagsERNS0_7RuntimeENS0_11PropOpFlagsEPKcNS0_10CallResultIbLNS0_6detail20CallResultSpecializeE1EEE.exit
-  %retval.sroa.16.0 = phi i32 [ %retval.sroa.6.0.i, %_ZN6hermes2vm12_GLOBAL__N_112proxyOpFlagsERNS0_7RuntimeENS0_11PropOpFlagsEPKcNS0_10CallResultIbLNS0_6detail20CallResultSpecializeE1EEE.exit ], [ 0, %if.then21 ], [ 0, %_ZN6hermes2vm9GCPointerINS0_8JSObjectEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit ], [ 0, %if.then34 ], [ 0, %if.then27 ], [ 0, %if.end ], [ 0, %if.then25 ], [ 0, %if.then32 ]
   %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.0.i, %_ZN6hermes2vm12_GLOBAL__N_112proxyOpFlagsERNS0_7RuntimeENS0_11PropOpFlagsEPKcNS0_10CallResultIbLNS0_6detail20CallResultSpecializeE1EEE.exit ], [ %bf.value.i, %if.then21 ], [ 257, %_ZN6hermes2vm9GCPointerINS0_8JSObjectEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit ], [ %bf.value.i69, %if.then34 ], [ %bf.value.i52, %if.then27 ], [ 257, %if.end ], [ 1, %if.then25 ], [ 1, %if.then32 ]
-  %retval.sroa.0.0.insert.insert = or i32 %retval.sroa.0.0, %retval.sroa.16.0
+  %retval.sroa.16.0 = phi i32 [ %retval.sroa.6.0.i, %_ZN6hermes2vm12_GLOBAL__N_112proxyOpFlagsERNS0_7RuntimeENS0_11PropOpFlagsEPKcNS0_10CallResultIbLNS0_6detail20CallResultSpecializeE1EEE.exit ], [ 0, %if.then21 ], [ 0, %_ZN6hermes2vm9GCPointerINS0_8JSObjectEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit ], [ 0, %if.then34 ], [ 0, %if.then27 ], [ 0, %if.end ], [ 0, %if.then25 ], [ 0, %if.then32 ]
+  %retval.sroa.0.0.insert.insert = or i32 %retval.sroa.16.0, %retval.sroa.0.0
   ret i32 %retval.sroa.0.0.insert.insert
 }
 
@@ -2988,10 +2988,10 @@ for.body219.lr.ph:                                ; preds = %if.end204
   br label %for.body219
 
 for.body219:                                      ; preds = %for.body219.lr.ph, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit
-  %toLast.0457 = phi i32 [ %131, %for.body219.lr.ph ], [ %dec220, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ]
-  %last.0456 = phi i32 [ %index.14, %for.body219.lr.ph ], [ %dec, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ]
-  %dec = add i32 %last.0456, -1
-  %dec220 = add i32 %toLast.0457, -1
+  %last.0457 = phi i32 [ %index.14, %for.body219.lr.ph ], [ %dec, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ]
+  %toLast.0456 = phi i32 [ %131, %for.body219.lr.ph ], [ %dec220, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ]
+  %dec = add i32 %last.0457, -1
+  %dec220 = add i32 %toLast.0456, -1
   %agg.tmp.sroa.0.0.copyload.i.i265 = load i64, ptr %call43, align 8
   %and.i.i.i.i.i266 = and i64 %agg.tmp.sroa.0.0.copyload.i.i265, 281474976710655
   %133 = inttoptr i64 %and.i.i.i.i.i266 to ptr
@@ -12082,9 +12082,9 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
-  %retval.sroa.4.0 = phi i32 [ %retval.sroa.4.0.extract.shift, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 0, %if.end ]
   %retval.sroa.0.0 = phi i32 [ %5, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ %bf.set.i, %if.end ]
-  %retval.sroa.0.0.insert.insert = or disjoint i32 %retval.sroa.0.0, %retval.sroa.4.0
+  %retval.sroa.4.0 = phi i32 [ %retval.sroa.4.0.extract.shift, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 0, %if.end ]
+  %retval.sroa.0.0.insert.insert = or disjoint i32 %retval.sroa.4.0, %retval.sroa.0.0
   ret i32 %retval.sroa.0.0.insert.insert
 }
 

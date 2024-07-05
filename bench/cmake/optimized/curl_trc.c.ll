@@ -233,23 +233,23 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
   br i1 %.not2126, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.loopexit
-  %.01827 = phi ptr [ %27, %.loopexit ], [ %6, %5 ]
-  %7 = load i8, ptr %.01827, align 1
+  %.01927 = phi ptr [ %27, %.loopexit ], [ %6, %5 ]
+  %7 = load i8, ptr %.01927, align 1
   switch i8 %7, label %12 [
     i8 45, label %8
     i8 43, label %10
   ]
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.01827, i64 1
+  %9 = getelementptr inbounds i8, ptr %.01927, i64 1
   br label %12
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.01827, i64 1
+  %11 = getelementptr inbounds i8, ptr %.01927, i64 1
   br label %12
 
 12:                                               ; preds = %.lr.ph, %10, %8
-  %.1 = phi ptr [ %11, %10 ], [ %9, %8 ], [ %.01827, %.lr.ph ]
+  %.1 = phi ptr [ %11, %10 ], [ %9, %8 ], [ %.01927, %.lr.ph ]
   %.0 = phi i32 [ 1, %10 ], [ 0, %8 ], [ 1, %.lr.ph ]
   br label %13
 
@@ -294,8 +294,8 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
   br label %29
 
 29:                                               ; preds = %1, %._crit_edge
-  %.019 = phi i32 [ 0, %._crit_edge ], [ 27, %1 ]
-  ret i32 %.019
+  %.018 = phi i32 [ 0, %._crit_edge ], [ 27, %1 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn

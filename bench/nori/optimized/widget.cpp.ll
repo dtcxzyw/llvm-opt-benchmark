@@ -1442,13 +1442,13 @@ define hidden noundef ptr @_ZN7nanogui6Widget6windowEv(ptr noundef nonnull reado
   br label %2
 
 2:                                                ; preds = %1, %4
-  %.010 = phi ptr [ %0, %1 ], [ %6, %4 ]
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %.010, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6WindowE, i64 0) #18
+  %.0710 = phi ptr [ %0, %1 ], [ %6, %4 ]
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %.0710, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6WindowE, i64 0) #18
   %.not9 = icmp eq ptr %3, null
   br i1 %.not9, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %.010, i64 16
+  %5 = getelementptr inbounds i8, ptr %.0710, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %2, !llvm.loop !45
@@ -1465,13 +1465,13 @@ define hidden noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull reado
   br label %2
 
 2:                                                ; preds = %1, %4
-  %.010 = phi ptr [ %0, %1 ], [ %6, %4 ]
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %.010, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6ScreenE, i64 0) #18
+  %.0710 = phi ptr [ %0, %1 ], [ %6, %4 ]
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %.0710, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6ScreenE, i64 0) #18
   %.not9 = icmp eq ptr %3, null
   br i1 %.not9, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %.010, i64 16
+  %5 = getelementptr inbounds i8, ptr %.0710, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %2, !llvm.loop !46
@@ -1485,13 +1485,13 @@ define hidden noundef ptr @_ZNK7nanogui6Widget6screenEv(ptr noundef nonnull read
   br label %2
 
 2:                                                ; preds = %4, %1
-  %.010.i = phi ptr [ %0, %1 ], [ %6, %4 ]
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %.010.i, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6ScreenE, i64 0) #18
+  %.0710.i = phi ptr [ %0, %1 ], [ %6, %4 ]
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %.0710.i, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6ScreenE, i64 0) #18
   %.not9.i = icmp eq ptr %3, null
   br i1 %.not9.i, label %4, label %_ZN7nanogui6Widget6screenEv.exit
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %.010.i, i64 16
+  %5 = getelementptr inbounds i8, ptr %.0710.i, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN7nanogui6Widget6screenEv.exit, label %2, !llvm.loop !46
@@ -1505,13 +1505,13 @@ define hidden noundef ptr @_ZNK7nanogui6Widget6windowEv(ptr noundef nonnull read
   br label %2
 
 2:                                                ; preds = %4, %1
-  %.010.i = phi ptr [ %0, %1 ], [ %6, %4 ]
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %.010.i, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6WindowE, i64 0) #18
+  %.0710.i = phi ptr [ %0, %1 ], [ %6, %4 ]
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %.0710.i, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6WindowE, i64 0) #18
   %.not9.i = icmp eq ptr %3, null
   br i1 %.not9.i, label %4, label %_ZN7nanogui6Widget6windowEv.exit
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %.010.i, i64 16
+  %5 = getelementptr inbounds i8, ptr %.0710.i, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN7nanogui6Widget6windowEv.exit, label %2, !llvm.loop !45

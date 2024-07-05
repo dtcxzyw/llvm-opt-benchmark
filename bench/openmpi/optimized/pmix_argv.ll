@@ -282,8 +282,8 @@ define noalias ptr @pmix_argv_copy_strip(ptr noundef readonly %0) local_unnamed_
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4, %._crit_edge.loopexit, %19, %21, %1
-  %.028 = phi ptr [ null, %1 ], [ null, %21 ], [ null, %19 ], [ %.pre, %._crit_edge.loopexit ], [ %5, %4 ]
-  ret ptr %.028
+  %.0 = phi ptr [ null, %1 ], [ null, %21 ], [ null, %19 ], [ %.pre, %._crit_edge.loopexit ], [ %5, %4 ]
+  ret ptr %.0
 }
 
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
@@ -503,8 +503,8 @@ pmix_argv_append.exit:                            ; preds = %.lr.ph55, %19
   br i1 %55, label %.lr.ph53, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph53, %pmix_argv_append.exit, %._crit_edge, %.preheader, %9, %3, %5
-  %.042 = phi i32 [ -27, %5 ], [ -27, %3 ], [ 0, %9 ], [ 0, %.preheader ], [ 0, %._crit_edge ], [ 0, %pmix_argv_append.exit ], [ 0, %.lr.ph53 ]
-  ret i32 %.042
+  %.0 = phi i32 [ -27, %5 ], [ -27, %3 ], [ 0, %9 ], [ 0, %.preheader ], [ 0, %._crit_edge ], [ 0, %pmix_argv_append.exit ], [ 0, %.lr.ph53 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -593,8 +593,8 @@ define range(i32 -27, 1) i32 @pmix_argv_insert_element(ptr noundef %0, i32 nound
   br label %pmix_argv_append.exit
 
 pmix_argv_append.exit:                            ; preds = %16, %14, %9, %3, %5, %._crit_edge
-  %.027 = phi i32 [ 0, %._crit_edge ], [ -27, %5 ], [ -27, %3 ], [ 0, %9 ], [ 0, %14 ], [ 0, %16 ]
-  ret i32 %.027
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -27, %5 ], [ -27, %3 ], [ 0, %9 ], [ 0, %14 ], [ 0, %16 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

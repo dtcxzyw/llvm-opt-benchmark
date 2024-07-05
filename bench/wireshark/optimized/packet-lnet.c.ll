@@ -598,9 +598,9 @@ dissect_ib_msg.exit:                              ; preds = %21, %36
   br label %89
 
 89:                                               ; preds = %87, %dissect_ib_msg.exit
-  %.0126 = phi i32 [ %46, %dissect_ib_msg.exit ], [ %88, %87 ]
+  %.0 = phi i32 [ %46, %dissect_ib_msg.exit ], [ %88, %87 ]
   %90 = load i32, ptr @hf_lnet_dest_nid, align 4
-  %91 = call i32 @lnet_dissect_struct_nid(ptr noundef %0, ptr noundef %20, i32 noundef %.0126, i32 noundef %90)
+  %91 = call i32 @lnet_dissect_struct_nid(ptr noundef %0, ptr noundef %20, i32 noundef %.0, i32 noundef %90)
   %92 = load i32, ptr @hf_lnet_src_nid, align 4
   %93 = call i32 @lnet_dissect_struct_nid(ptr noundef %0, ptr noundef %20, i32 noundef %91, i32 noundef %92)
   %94 = load i32, ptr @hf_lnet_src_pid, align 4
@@ -722,7 +722,7 @@ dissect_ib_msg.exit:                              ; preds = %21, %36
   br label %183
 
 183:                                              ; preds = %89, %176, %169, %147, %125, %112
-  %.1127 = phi i32 [ %110, %89 ], [ %182, %176 ], [ %175, %169 ], [ %168, %147 ], [ %146, %125 ], [ %124, %112 ]
+  %.1 = phi i32 [ %110, %89 ], [ %182, %176 ], [ %175, %169 ], [ %168, %147 ], [ %146, %125 ], [ %124, %112 ]
   %184 = load i32, ptr %11, align 4
   switch i32 %184, label %194 [
     i32 214, label %189
@@ -731,34 +731,34 @@ dissect_ib_msg.exit:                              ; preds = %21, %36
 
 185:                                              ; preds = %183
   %186 = load i32, ptr @hf_lnet_o2ib_cookie, align 4
-  %187 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %186, ptr noundef %0, i32 noundef %.1127, i32 noundef 8, i32 noundef -2147483648) #5
-  %188 = add i32 %.1127, 8
+  %187 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %186, ptr noundef %0, i32 noundef %.1, i32 noundef 8, i32 noundef -2147483648) #5
+  %188 = add i32 %.1, 8
   store i32 0, ptr %8, align 4
   br label %194
 
 189:                                              ; preds = %183
   %190 = load i32, ptr @hf_lnet_o2ib_cookie, align 4
-  %191 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %190, ptr noundef %0, i32 noundef %.1127, i32 noundef 8, i32 noundef -2147483648) #5
-  %192 = add i32 %.1127, 8
+  %191 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %190, ptr noundef %0, i32 noundef %.1, i32 noundef 8, i32 noundef -2147483648) #5
+  %192 = add i32 %.1, 8
   %193 = call fastcc i32 @dissect_struct_rdma_desc(ptr noundef %0, ptr noundef %20, i32 noundef %192)
   br label %194
 
 194:                                              ; preds = %189, %185, %183
-  %.2 = phi i32 [ %.1127, %183 ], [ %188, %185 ], [ %193, %189 ]
+  %.2 = phi i32 [ %.1, %183 ], [ %188, %185 ], [ %193, %189 ]
   %reass.sub = add i32 %13, 96
   %195 = sub i32 %reass.sub, %.2
   br label %.thread
 
 .thread:                                          ; preds = %48, %194
+  %.1126 = phi i32 [ %195, %194 ], [ %64, %48 ]
   %.3 = phi i32 [ %.2, %194 ], [ %63, %48 ]
-  %.1 = phi i32 [ %195, %194 ], [ %64, %48 ]
-  %196 = icmp sgt i32 %.1, 0
+  %196 = icmp sgt i32 %.1126, 0
   br i1 %196, label %197, label %.thread.thread
 
 197:                                              ; preds = %.thread
   %198 = load i32, ptr @hf_lnet_msg_filler, align 4
-  %199 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %198, ptr noundef %0, i32 noundef %.3, i32 noundef %.1, i32 noundef 0) #5
-  %200 = add i32 %.1, %.3
+  %199 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %198, ptr noundef %0, i32 noundef %.3, i32 noundef %.1126, i32 noundef 0) #5
+  %200 = add i32 %.3, %.1126
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %68, %78, %65, %197, %.thread
@@ -926,33 +926,33 @@ define internal fastcc noundef i32 @dissect_struct_rdma_desc(ptr noundef %0, ptr
   %11 = add i32 %2, 4
   %12 = load i32, ptr @hf_lnet_rdma_desc_nfrags, align 4
   %13 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %8, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %4) #5
-  %.03031 = add i32 %2, 8
+  %.031 = add i32 %2, 8
   %14 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.03034 = phi i32 [ %.030, %.lr.ph ], [ %.03031, %3 ]
-  %.033 = phi i32 [ %22, %.lr.ph ], [ 0, %3 ]
-  %.030.in32 = phi i32 [ %19, %.lr.ph ], [ %2, %3 ]
+  %.034 = phi i32 [ %.0, %.lr.ph ], [ %.031, %3 ]
+  %.0.in33 = phi i32 [ %19, %.lr.ph ], [ %2, %3 ]
+  %.03032 = phi i32 [ %22, %.lr.ph ], [ 0, %3 ]
   %15 = load i32, ptr @ett_lnet_rdma_frag, align 4
-  %16 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %8, ptr noundef %0, i32 noundef %.03034, i32 noundef 12, i32 noundef %15, ptr noundef null, ptr noundef nonnull @.str.214, i32 noundef %.033) #5
+  %16 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %8, ptr noundef %0, i32 noundef %.034, i32 noundef 12, i32 noundef %15, ptr noundef null, ptr noundef nonnull @.str.214, i32 noundef %.03032) #5
   %17 = load i32, ptr @hf_lnet_rdma_frag_size, align 4
-  %18 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef %.03034, i32 noundef 4, i32 noundef -2147483648) #5
-  %19 = add i32 %.030.in32, 12
+  %18 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef %.034, i32 noundef 4, i32 noundef -2147483648) #5
+  %19 = add i32 %.0.in33, 12
   %20 = load i32, ptr @hf_lnet_rdma_frag_addr, align 4
   %21 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 8, i32 noundef -2147483648) #5
-  %22 = add nuw i32 %.033, 1
-  %.030 = add i32 %.030.in32, 20
+  %22 = add nuw i32 %.03032, 1
+  %.0 = add i32 %.0.in33, 20
   %23 = load i32, ptr %4, align 4
   %24 = icmp ult i32 %22, %23
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.030.lcssa = phi i32 [ %.03031, %3 ], [ %.030, %.lr.ph ]
-  %25 = sub i32 %.030.lcssa, %2
+  %.0.lcssa = phi i32 [ %.031, %3 ], [ %.0, %.lr.ph ]
+  %25 = sub i32 %.0.lcssa, %2
   call void @proto_item_set_len(ptr noundef %6, i32 noundef %25) #5
-  ret i32 %.030.lcssa
+  ret i32 %.0.lcssa
 }
 
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

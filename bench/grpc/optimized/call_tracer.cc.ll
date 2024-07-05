@@ -957,10 +957,10 @@ for.body.preheader:                               ; preds = %if.end.i
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %attempt_tracers.sroa.0.158 = phi ptr [ %attempt_tracers.sroa.0.2, %for.inc ], [ %call5.i.i.i.i2, %for.body.preheader ]
-  %__begin2.sroa.0.057 = phi ptr [ %incdec.ptr.i10, %for.inc ], [ %1, %for.body.preheader ]
-  %attempt_tracers.sroa.16.156 = phi ptr [ %attempt_tracers.sroa.16.2, %for.inc ], [ %add.ptr21.i, %for.body.preheader ]
-  %attempt_tracers.sroa.9.155 = phi ptr [ %attempt_tracers.sroa.9.2, %for.inc ], [ %call5.i.i.i.i2, %for.body.preheader ]
-  %2 = load ptr, ptr %__begin2.sroa.0.057, align 8
+  %attempt_tracers.sroa.9.157 = phi ptr [ %attempt_tracers.sroa.9.2, %for.inc ], [ %call5.i.i.i.i2, %for.body.preheader ]
+  %__begin2.sroa.0.056 = phi ptr [ %incdec.ptr.i10, %for.inc ], [ %1, %for.body.preheader ]
+  %attempt_tracers.sroa.16.155 = phi ptr [ %attempt_tracers.sroa.16.2, %for.inc ], [ %add.ptr21.i, %for.body.preheader ]
+  %2 = load ptr, ptr %__begin2.sroa.0.056, align 8
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %3 = load ptr, ptr %vfn, align 8
@@ -968,15 +968,15 @@ for.body:                                         ; preds = %for.body.preheader,
           to label %invoke.cont8 unwind label %lpad.loopexit
 
 invoke.cont8:                                     ; preds = %for.body
-  %cmp.not.i = icmp eq ptr %attempt_tracers.sroa.9.155, %attempt_tracers.sroa.16.156
+  %cmp.not.i = icmp eq ptr %attempt_tracers.sroa.9.157, %attempt_tracers.sroa.16.155
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i6
 
 if.then.i6:                                       ; preds = %invoke.cont8
-  store ptr %call9, ptr %attempt_tracers.sroa.9.155, align 8
+  store ptr %call9, ptr %attempt_tracers.sroa.9.157, align 8
   br label %for.inc
 
 if.else.i:                                        ; preds = %invoke.cont8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %attempt_tracers.sroa.16.156 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %attempt_tracers.sroa.9.157 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %attempt_tracers.sroa.0.158 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
@@ -1029,11 +1029,11 @@ _ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_real
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i6
-  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %attempt_tracers.sroa.9.155, %if.then.i6 ]
-  %attempt_tracers.sroa.16.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %attempt_tracers.sroa.16.156, %if.then.i6 ]
+  %attempt_tracers.sroa.16.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %attempt_tracers.sroa.16.155, %if.then.i6 ]
+  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %attempt_tracers.sroa.9.157, %if.then.i6 ]
   %attempt_tracers.sroa.0.2 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %attempt_tracers.sroa.0.158, %if.then.i6 ]
   %attempt_tracers.sroa.9.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
-  %incdec.ptr.i10 = getelementptr inbounds i8, ptr %__begin2.sroa.0.057, i64 8
+  %incdec.ptr.i10 = getelementptr inbounds i8, ptr %__begin2.sroa.0.056, i64 8
   %cmp.i4.not = icmp eq ptr %incdec.ptr.i10, %0
   br i1 %cmp.i4.not, label %for.end, label %for.body
 
@@ -1062,8 +1062,8 @@ _ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EED2Ev.exit
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc, %if.end.i
-  %attempt_tracers.sroa.9.1.lcssa = phi ptr [ null, %if.end.i ], [ %attempt_tracers.sroa.9.2, %for.inc ]
   %attempt_tracers.sroa.16.1.lcssa = phi ptr [ null, %if.end.i ], [ %attempt_tracers.sroa.16.2, %for.inc ]
+  %attempt_tracers.sroa.9.1.lcssa = phi ptr [ null, %if.end.i ], [ %attempt_tracers.sroa.9.2, %for.inc ]
   %attempt_tracers.sroa.0.1.lcssa = phi ptr [ null, %if.end.i ], [ %attempt_tracers.sroa.0.2, %for.inc ]
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E)
   %6 = load ptr, ptr %5, align 8

@@ -2402,8 +2402,8 @@ land.lhs.true63:                                  ; preds = %if.else43
   br label %if.end74
 
 if.end74:                                         ; preds = %land.lhs.true63, %if.else43, %if.end31
-  %ptr.0 = phi ptr [ %9, %if.end31 ], [ %call, %if.else43 ], [ %call, %land.lhs.true63 ]
   %sendsize.3 = phi i64 [ %spec.select, %if.end31 ], [ %sendsize.2, %if.else43 ], [ %spec.select81, %land.lhs.true63 ]
+  %ptr.0 = phi ptr [ %9, %if.end31 ], [ %call, %if.else43 ], [ %call, %land.lhs.true63 ]
   %call75 = call i32 @Curl_nwrite(ptr noundef nonnull %data, i32 noundef %sockindex, ptr noundef %ptr.0, i64 noundef %sendsize.3, ptr noundef nonnull %amount) #12
   %tobool76.not = icmp eq i32 %call75, 0
   br i1 %tobool76.not, label %if.then77, label %if.end122
@@ -4776,18 +4776,18 @@ if.end80:                                         ; preds = %if.end75, %while.bo
 
 while.end:                                        ; preds = %if.end67, %if.then43, %if.end80, %if.then64, %land.lhs.true58, %do.body
   %count.065 = phi i32 [ %count.067, %do.body ], [ %count.067, %land.lhs.true58 ], [ %count.067, %if.then64 ], [ %count.1, %if.end80 ], [ 0, %if.then43 ], [ %count.067, %if.end67 ]
-  %result.3 = phi i32 [ 0, %do.body ], [ 0, %land.lhs.true58 ], [ 0, %if.then64 ], [ 0, %if.end80 ], [ %call44, %if.then43 ], [ %call72, %if.end67 ]
   %linecap.0 = phi i1 [ true, %do.body ], [ true, %land.lhs.true58 ], [ true, %if.then64 ], [ false, %if.end80 ], [ false, %if.then43 ], [ false, %if.end67 ]
+  %result.3 = phi i32 [ 0, %do.body ], [ 0, %land.lhs.true58 ], [ 0, %if.then64 ], [ 0, %if.end80 ], [ %call44, %if.then43 ], [ %call72, %if.end67 ]
   tail call void @Curl_cookie_freelist(ptr noundef nonnull %call34) #12
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then7, %land.lhs.true10, %while.end, %if.end36
-  %result.4 = phi i32 [ %result.3, %while.end ], [ 0, %if.end36 ], [ 0, %land.lhs.true10 ], [ 0, %if.then7 ]
-  %linecap.1 = phi i1 [ %linecap.0, %while.end ], [ false, %if.end36 ], [ false, %land.lhs.true10 ], [ false, %if.then7 ]
   %count.2 = phi i32 [ %count.065, %while.end ], [ 0, %if.end36 ], [ 0, %land.lhs.true10 ], [ 0, %if.then7 ]
+  %linecap.1 = phi i1 [ %linecap.0, %while.end ], [ false, %if.end36 ], [ false, %land.lhs.true10 ], [ false, %if.then7 ]
+  %result.4 = phi i32 [ %result.3, %while.end ], [ 0, %if.end36 ], [ 0, %land.lhs.true10 ], [ 0, %if.then7 ]
   %tobool82 = icmp eq ptr %addcookies.0, null
   %tobool84 = icmp ne i32 %result.4, 0
-  %16 = or i1 %tobool84, %linecap.1
+  %16 = or i1 %linecap.1, %tobool84
   %brmerge = or i1 %tobool82, %16
   br i1 %brmerge, label %if.end99, label %if.then87
 
@@ -4807,8 +4807,8 @@ if.then93:                                        ; preds = %if.then87, %if.end9
   br label %if.end99
 
 if.end99:                                         ; preds = %if.end81, %if.then93
-  %result.6 = phi i32 [ %result.4, %if.end81 ], [ %call96, %if.then93 ]
   %count.3 = phi i32 [ %count.2, %if.end81 ], [ %inc97, %if.then93 ]
+  %result.6 = phi i32 [ %result.4, %if.end81 ], [ %call96, %if.then93 ]
   %tobool100 = icmp eq i32 %count.3, 0
   %tobool102 = icmp ne i32 %result.6, 0
   %or.cond2 = select i1 %tobool100, i1 true, i1 %tobool102

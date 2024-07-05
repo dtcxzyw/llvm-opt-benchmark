@@ -3062,7 +3062,7 @@ Vec_WrdStartTruthTables.exit:                     ; preds = %..loopexit28_crit_e
 
 55:                                               ; preds = %53, %Vec_WrdFree.exit
   %.not36 = phi i1 [ true, %53 ], [ false, %Vec_WrdFree.exit ]
-  %.03351 = phi i32 [ 0, %53 ], [ 1, %Vec_WrdFree.exit ]
+  %.051 = phi i32 [ 0, %53 ], [ 1, %Vec_WrdFree.exit ]
   %56 = load i64, ptr %48, align 4
   br i1 %.not36, label %62, label %57
 
@@ -3137,7 +3137,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %76, %.lr.ph.i
 
 Abc_TtCountOnesVecXor.exit:                       ; preds = %Abc_TtCountOnes2.exit.i, %67
   %.0.lcssa.i = phi i32 [ 0, %67 ], [ %97, %Abc_TtCountOnes2.exit.i ]
-  %98 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %54, i32 noundef %.03351, i32 noundef %.0.lcssa.i)
+  %98 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %54, i32 noundef %.051, i32 noundef %.0.lcssa.i)
   %99 = load ptr, ptr %69, align 8
   %.not.i44 = icmp eq ptr %99, null
   br i1 %.not.i44, label %Vec_WrdFree.exit, label %100

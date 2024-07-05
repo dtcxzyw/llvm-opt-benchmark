@@ -78,36 +78,36 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6ve
 
 .lr.ph42:                                         ; preds = %.lr.ph42.preheader, %27
   %indvars.iv46 = phi i64 [ 0, %.lr.ph42.preheader ], [ %indvars.iv.next47, %27 ]
-  %.02139 = phi double [ 0.000000e+00, %.lr.ph42.preheader ], [ %.1, %27 ]
-  %.02338 = phi i32 [ 0, %.lr.ph42.preheader ], [ %.124, %27 ]
+  %.02139 = phi i32 [ 0, %.lr.ph42.preheader ], [ %.1, %27 ]
+  %.02238 = phi double [ 0.000000e+00, %.lr.ph42.preheader ], [ %.123, %27 ]
   %18 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %indvars.iv46
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %.lr.ph42
-  %22 = add nsw i32 %.02338, 1
+  %22 = add nsw i32 %.02139, 1
   %23 = uitofp nneg i32 %19 to double
   %24 = fdiv double %23, %17
   %25 = tail call double @log2(double noundef %24) #19
-  %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %.02139)
+  %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %.02238)
   br label %27
 
 27:                                               ; preds = %.lr.ph42, %21
-  %.124 = phi i32 [ %22, %21 ], [ %.02338, %.lr.ph42 ]
-  %.1 = phi double [ %26, %21 ], [ %.02139, %.lr.ph42 ]
+  %.123 = phi double [ %26, %21 ], [ %.02238, %.lr.ph42 ]
+  %.1 = phi i32 [ %22, %21 ], [ %.02139, %.lr.ph42 ]
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
   br i1 %exitcond50.not, label %._crit_edge43, label %.lr.ph42, !llvm.loop !6
 
 ._crit_edge43:                                    ; preds = %27, %._crit_edge
-  %.023.lcssa = phi i32 [ 0, %._crit_edge ], [ %.124, %27 ]
-  %.021.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ %.1, %27 ]
+  %.022.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ %.123, %27 ]
+  %.021.lcssa = phi i32 [ 0, %._crit_edge ], [ %.1, %27 ]
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %29, label %28
 
 28:                                               ; preds = %._crit_edge43
-  store i32 %.023.lcssa, ptr %3, align 4
+  store i32 %.021.lcssa, ptr %3, align 4
   br label %29
 
 29:                                               ; preds = %28, %._crit_edge43
@@ -119,7 +119,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6ve
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %29, %30
-  %31 = fneg double %.021.lcssa
+  %31 = fneg double %.022.lcssa
   %32 = fptosi double %31 to i64
   ret i64 %32
 }

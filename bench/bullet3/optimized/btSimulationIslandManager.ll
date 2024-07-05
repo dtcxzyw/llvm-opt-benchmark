@@ -363,7 +363,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
-  %index.011 = phi i32 [ 0, %for.body.lr.ph ], [ %index.1, %if.end ]
+  %index.012 = phi i32 [ 0, %for.body.lr.ph ], [ %index.1, %if.end ]
   %1 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx.i, align 8
@@ -374,13 +374,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %inc = add nsw i32 %index.011, 1
+  %inc = add nsw i32 %index.012, 1
   %m_islandTag1.i = getelementptr inbounds i8, ptr %2, i64 228
-  store i32 %index.011, ptr %m_islandTag1.i, align 4
+  store i32 %index.012, ptr %m_islandTag1.i, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %index.1 = phi i32 [ %index.011, %for.body ], [ %inc, %if.then ]
+  %index.1 = phi i32 [ %index.012, %for.body ], [ %inc, %if.then ]
   %m_companionId.i = getelementptr inbounds i8, ptr %2, i64 232
   store i32 -1, ptr %m_companionId.i, align 8
   %m_hitFraction.i = getelementptr inbounds i8, ptr %2, i64 300
@@ -414,7 +414,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %index.018 = phi i32 [ 0, %for.body.lr.ph ], [ %index.1, %for.inc ]
+  %index.019 = phi i32 [ 0, %for.body.lr.ph ], [ %index.1, %for.inc ]
   %1 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx.i, align 8
@@ -426,10 +426,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then:                                          ; preds = %for.body
   %4 = load ptr, ptr %m_data.i.i, align 8
-  %idxprom.i15.i = sext i32 %index.018 to i64
+  %idxprom.i15.i = sext i32 %index.019 to i64
   %arrayidx.i16.i = getelementptr inbounds %struct.btElement, ptr %4, i64 %idxprom.i15.i
   %5 = load i32, ptr %arrayidx.i16.i, align 4
-  %cmp.not17.i = icmp eq i32 %5, %index.018
+  %cmp.not17.i = icmp eq i32 %5, %index.019
   br i1 %cmp.not17.i, label %_ZN11btUnionFind4findEi.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then, %while.body.i
@@ -448,7 +448,7 @@ while.body.i:                                     ; preds = %if.then, %while.bod
   br i1 %cmp.not.i, label %_ZN11btUnionFind4findEi.exit, label %while.body.i, !llvm.loop !5
 
 _ZN11btUnionFind4findEi.exit:                     ; preds = %while.body.i, %if.then
-  %x.addr.0.lcssa.i = phi i32 [ %index.018, %if.then ], [ %8, %while.body.i ]
+  %x.addr.0.lcssa.i = phi i32 [ %index.019, %if.then ], [ %8, %while.body.i ]
   %m_islandTag1.i = getelementptr inbounds i8, ptr %2, i64 228
   store i32 %x.addr.0.lcssa.i, ptr %m_islandTag1.i, align 4
   %11 = load ptr, ptr %m_data.i.i, align 8
@@ -457,7 +457,7 @@ _ZN11btUnionFind4findEi.exit:                     ; preds = %while.body.i, %if.t
   store i32 %12, ptr %m_sz, align 4
   %m_companionId.i = getelementptr inbounds i8, ptr %2, i64 232
   store i32 -1, ptr %m_companionId.i, align 8
-  %inc = add nsw i32 %index.018, 1
+  %inc = add nsw i32 %index.019, 1
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
@@ -468,7 +468,7 @@ if.else:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN11btUnionFind4findEi.exit, %if.else
-  %index.1 = phi i32 [ %index.018, %if.else ], [ %inc, %_ZN11btUnionFind4findEi.exit ]
+  %index.1 = phi i32 [ %index.019, %if.else ], [ %inc, %_ZN11btUnionFind4findEi.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %m_size.i, align 4
   %14 = sext i32 %13 to i64
@@ -1042,8 +1042,8 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit
   %startIslandIndex.0111 = phi i32 [ 0, %for.body.lr.ph ], [ %endIslandIndex.0.lcssa, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit ]
-  %endManifoldIndex.0110 = phi i32 [ 1, %for.body.lr.ph ], [ %endManifoldIndex.2, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit ]
-  %startManifoldIndex.0109 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select26, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit ]
+  %startManifoldIndex.0110 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select26, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit ]
+  %endManifoldIndex.0109 = phi i32 [ 1, %for.body.lr.ph ], [ %endManifoldIndex.2, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit ]
   %11 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %startIslandIndex.0111 to i64
   %arrayidx.i.i = getelementptr inbounds %struct.btElement, ptr %11, i64 %idxprom.i.i
@@ -1169,12 +1169,12 @@ for.end.split.loop.exit117:                       ; preds = %land.rhs
 for.end:                                          ; preds = %_ZNK17btCollisionObject8isActiveEv.exit, %for.end.split.loop.exit117
   %islandSleeping.0.lcssa = phi i1 [ %islandSleeping.0106, %for.end.split.loop.exit117 ], [ %31, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %endIslandIndex.0.lcssa = phi i32 [ %32, %for.end.split.loop.exit117 ], [ %smax, %_ZNK17btCollisionObject8isActiveEv.exit ]
-  %cmp52 = icmp slt i32 %startManifoldIndex.0109, %7
+  %cmp52 = icmp slt i32 %startManifoldIndex.0110, %7
   br i1 %cmp52, label %if.then53, label %if.end79
 
 if.then53:                                        ; preds = %for.end
   %33 = load ptr, ptr %m_data.i52, align 8
-  %idxprom.i53 = sext i32 %startManifoldIndex.0109 to i64
+  %idxprom.i53 = sext i32 %startManifoldIndex.0110 to i64
   %arrayidx.i54 = getelementptr inbounds ptr, ptr %33, i64 %idxprom.i53
   %34 = load ptr, ptr %arrayidx.i54, align 8
   %m_body0.i.i = getelementptr inbounds i8, ptr %34, i64 840
@@ -1197,7 +1197,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit:     ; preds = %if.then53, %cond.fa
   br i1 %cmp59, label %for.cond64.preheader, label %if.end79
 
 for.cond64.preheader:                             ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit
-  %39 = add nsw i32 %startManifoldIndex.0109, 1
+  %39 = add nsw i32 %startManifoldIndex.0110, 1
   %smax114 = call i32 @llvm.smax.i32(i32 %7, i32 %39)
   br label %for.cond64
 
@@ -1235,11 +1235,11 @@ for.end77.split.loop.exit120:                     ; preds = %_Z11getIslandIdPK20
 
 for.end77:                                        ; preds = %for.cond64, %for.end77.split.loop.exit120
   %endManifoldIndex.1.lcssa = phi i32 [ %45, %for.end77.split.loop.exit120 ], [ %smax114, %for.cond64 ]
-  %sub = sub nsw i32 %endManifoldIndex.1.lcssa, %startManifoldIndex.0109
+  %sub = sub nsw i32 %endManifoldIndex.1.lcssa, %startManifoldIndex.0110
   br label %if.end79
 
 if.end79:                                         ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit, %for.end77, %for.end
-  %endManifoldIndex.2 = phi i32 [ %endManifoldIndex.1.lcssa, %for.end77 ], [ %endManifoldIndex.0110, %_Z11getIslandIdPK20btPersistentManifold.exit ], [ %endManifoldIndex.0110, %for.end ]
+  %endManifoldIndex.2 = phi i32 [ %endManifoldIndex.1.lcssa, %for.end77 ], [ %endManifoldIndex.0109, %_Z11getIslandIdPK20btPersistentManifold.exit ], [ %endManifoldIndex.0109, %for.end ]
   %numIslandManifolds.0 = phi i32 [ %sub, %for.end77 ], [ 0, %_Z11getIslandIdPK20btPersistentManifold.exit ], [ 0, %for.end ]
   %startManifold.0 = phi ptr [ %arrayidx.i54, %for.end77 ], [ null, %_Z11getIslandIdPK20btPersistentManifold.exit ], [ null, %for.end ]
   %.pre116 = load i32, ptr %m_size.i.i44, align 4
@@ -1260,7 +1260,7 @@ if.then81.if.end91_crit_edge:                     ; preds = %if.then81
 if.end91:                                         ; preds = %if.then81.if.end91_crit_edge, %if.end79
   %48 = phi i32 [ %.pre, %if.then81.if.end91_crit_edge ], [ %.pre116, %if.end79 ]
   %tobool92.not = icmp eq i32 %numIslandManifolds.0, 0
-  %spec.select26 = select i1 %tobool92.not, i32 %startManifoldIndex.0109, i32 %endManifoldIndex.2
+  %spec.select26 = select i1 %tobool92.not, i32 %startManifoldIndex.0110, i32 %endManifoldIndex.2
   %cmp3.i = icmp slt i32 %48, 0
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit
 
@@ -1346,8 +1346,8 @@ tailrecurse:                                      ; preds = %if.end17, %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %tailrecurse
-  %i.0 = phi i32 [ %lo.tr, %tailrecurse ], [ %i.2, %do.cond ]
   %j.0 = phi i32 [ %hi, %tailrecurse ], [ %j.2, %do.cond ]
+  %i.0 = phi i32 [ %lo.tr, %tailrecurse ], [ %i.2, %do.cond ]
   %2 = load ptr, ptr %m_data, align 8
   %3 = load ptr, ptr %m_body0.i.i11.i, align 8
   %m_islandTag1.i.i12.i = getelementptr inbounds i8, ptr %3, i64 228
@@ -1626,8 +1626,8 @@ if.then:                                          ; preds = %while.end11
   br label %do.cond
 
 do.cond:                                          ; preds = %while.end11, %if.then
-  %i.2 = phi i32 [ %inc12, %if.then ], [ %35, %while.end11 ]
   %j.2 = phi i32 [ %dec13, %if.then ], [ %66, %while.end11 ]
+  %i.2 = phi i32 [ %inc12, %if.then ], [ %35, %while.end11 ]
   %cmp14.not = icmp sgt i32 %i.2, %j.2
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !24
 
@@ -1666,8 +1666,8 @@ tailrecurse:                                      ; preds = %if.end17, %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %tailrecurse
-  %i.0 = phi i32 [ %lo.tr, %tailrecurse ], [ %i.2, %do.cond ]
   %j.0 = phi i32 [ %hi, %tailrecurse ], [ %j.2, %do.cond ]
+  %i.0 = phi i32 [ %lo.tr, %tailrecurse ], [ %i.2, %do.cond ]
   %2 = load ptr, ptr %m_data, align 8
   %3 = load ptr, ptr %m_body0.i.i1.i, align 8
   %m_islandTag1.i.i2.i = getelementptr inbounds i8, ptr %3, i64 228
@@ -1817,8 +1817,8 @@ if.then:                                          ; preds = %while.end11
   br label %do.cond
 
 do.cond:                                          ; preds = %while.end11, %if.then
-  %i.2 = phi i32 [ %inc12, %if.then ], [ %.us-phi49, %while.end11 ]
   %j.2 = phi i32 [ %dec13, %if.then ], [ %.us-phi53, %while.end11 ]
+  %i.2 = phi i32 [ %inc12, %if.then ], [ %.us-phi49, %while.end11 ]
   %cmp14.not = icmp sgt i32 %i.2, %j.2
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !27
 

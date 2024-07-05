@@ -153,13 +153,13 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %if.end41
   %i.0221 = phi i16 [ %inc50, %if.end41 ], [ 0, %for.body.preheader ]
-  %list.0220 = phi ptr [ %next.0.lcssa.i203, %if.end41 ], [ %0, %for.body.preheader ]
-  %missed.0219 = phi i16 [ %missed.1, %if.end41 ], [ 0, %for.body.preheader ]
-  %found.0218 = phi i16 [ %found.1, %if.end41 ], [ 0, %for.body.preheader ]
-  %retval1.0217 = phi i16 [ %retval1.2, %if.end41 ], [ 0, %for.body.preheader ]
+  %retval1.0220 = phi i16 [ %retval1.2, %if.end41 ], [ 0, %for.body.preheader ]
+  %found.0219 = phi i16 [ %found.1, %if.end41 ], [ 0, %for.body.preheader ]
+  %list.0218 = phi ptr [ %next.0.lcssa.i203, %if.end41 ], [ %0, %for.body.preheader ]
+  %missed.0217 = phi i16 [ %missed.1, %if.end41 ], [ 0, %for.body.preheader ]
   %info.sroa.4.0216 = phi i16 [ %spec.select, %if.end41 ], [ %finder_idx, %for.body.preheader ]
   %cmp.i = icmp sgt i16 %info.sroa.4.0216, -1
-  %tobool.not15.i = icmp eq ptr %list.0220, null
+  %tobool.not15.i = icmp eq ptr %list.0218, null
   br i1 %cmp.i, label %while.cond.preheader.i, label %while.cond9.preheader.i
 
 while.cond9.preheader.i:                          ; preds = %for.body
@@ -169,7 +169,7 @@ while.cond.preheader.i:                           ; preds = %for.body
   br i1 %tobool.not15.i, label %if.then, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i
-  %list.addr.016.i = phi ptr [ %5, %while.body.i ], [ %list.0220, %while.cond.preheader.i ]
+  %list.addr.016.i = phi ptr [ %5, %while.body.i ], [ %list.0218, %while.cond.preheader.i ]
   %info2.i = getelementptr inbounds i8, ptr %list.addr.016.i, i64 8
   %3 = load ptr, ptr %info2.i, align 8
   %idx3.i = getelementptr inbounds i8, ptr %3, i64 2
@@ -183,7 +183,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %tobool.not.i, label %core_list_find.exit, label %land.rhs.i, !llvm.loop !5
 
 land.rhs11.i:                                     ; preds = %while.cond9.preheader.i, %while.body19.i
-  %list.addr.113.i = phi ptr [ %10, %while.body19.i ], [ %list.0220, %while.cond9.preheader.i ]
+  %list.addr.113.i = phi ptr [ %10, %while.body19.i ], [ %list.0218, %while.cond9.preheader.i ]
   %info12.i = getelementptr inbounds i8, ptr %list.addr.113.i, i64 8
   %6 = load ptr, ptr %info12.i, align 8
   %7 = load i16, ptr %6, align 2
@@ -202,7 +202,7 @@ core_list_find.exit:                              ; preds = %land.rhs11.i, %whil
   br i1 %tobool.not15.i, label %core_list_reverse.exit, label %while.body.i39
 
 while.body.i39:                                   ; preds = %core_list_find.exit, %while.body.i39
-  %list.addr.07.i = phi ptr [ %11, %while.body.i39 ], [ %list.0220, %core_list_find.exit ]
+  %list.addr.07.i = phi ptr [ %11, %while.body.i39 ], [ %list.0218, %core_list_find.exit ]
   %next.06.i = phi ptr [ %list.addr.07.i, %while.body.i39 ], [ null, %core_list_find.exit ]
   %11 = load ptr, ptr %list.addr.07.i, align 8
   store ptr %next.06.i, ptr %list.addr.07.i, align 8
@@ -216,7 +216,7 @@ core_list_reverse.exit:                           ; preds = %while.body.i39, %co
 
 if.then:                                          ; preds = %while.cond9.preheader.i, %while.cond.preheader.i, %core_list_reverse.exit
   %next.0.lcssa.i202 = phi ptr [ %next.0.lcssa.i, %core_list_reverse.exit ], [ null, %while.cond.preheader.i ], [ null, %while.cond9.preheader.i ]
-  %inc = add i16 %missed.0219, 1
+  %inc = add i16 %missed.0217, 1
   %12 = load ptr, ptr %next.0.lcssa.i202, align 8
   %info10 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %info10, align 8
@@ -226,7 +226,7 @@ if.then:                                          ; preds = %while.cond9.prehead
   br label %if.end41
 
 if.else:                                          ; preds = %core_list_reverse.exit
-  %inc16 = add i16 %found.0218, 1
+  %inc16 = add i16 %found.0219, 1
   %info17 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %17 = load ptr, ptr %info17, align 8
   %18 = load i16, ptr %17, align 2
@@ -249,10 +249,10 @@ if.then33:                                        ; preds = %if.else
 
 if.end41:                                         ; preds = %if.else, %if.then33, %if.then
   %next.0.lcssa.i203 = phi ptr [ %next.0.lcssa.i202, %if.then ], [ %next.0.lcssa.i, %if.then33 ], [ %next.0.lcssa.i, %if.else ]
+  %missed.1 = phi i16 [ %inc, %if.then ], [ %missed.0217, %if.then33 ], [ %missed.0217, %if.else ]
+  %found.1 = phi i16 [ %found.0219, %if.then ], [ %inc16, %if.then33 ], [ %inc16, %if.else ]
   %.pn = phi i16 [ %16, %if.then ], [ %conv29, %if.then33 ], [ %conv29, %if.else ]
-  %found.1 = phi i16 [ %found.0218, %if.then ], [ %inc16, %if.then33 ], [ %inc16, %if.else ]
-  %missed.1 = phi i16 [ %inc, %if.then ], [ %missed.0219, %if.then33 ], [ %missed.0219, %if.else ]
-  %retval1.2 = add i16 %.pn, %retval1.0217
+  %retval1.2 = add i16 %.pn, %retval1.0220
   %inc48 = zext i1 %cmp.i to i16
   %spec.select = add nuw i16 %info.sroa.4.0216, %inc48
   %inc50 = add nuw nsw i16 %i.0221, 1
@@ -261,9 +261,9 @@ if.end41:                                         ; preds = %if.else, %if.then33
 
 for.end.loopexit:                                 ; preds = %if.end41
   %25 = and i16 %2, 255
-  %26 = sub i16 %retval1.2, %missed.1
-  %27 = shl i16 %found.1, 2
-  %28 = add i16 %26, %27
+  %26 = shl i16 %found.1, 2
+  %27 = sub i16 %26, %missed.1
+  %28 = add i16 %27, %retval1.2
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry

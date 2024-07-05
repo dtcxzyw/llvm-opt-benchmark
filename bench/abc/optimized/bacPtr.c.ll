@@ -1316,7 +1316,7 @@ Abc_UtilStrsav.exit:                              ; preds = %29, %30
 
 .lr.ph:                                           ; preds = %39, %Abc_UtilStrsav.exit83
   %indvars.iv = phi i64 [ %indvars.iv.next, %Abc_UtilStrsav.exit83 ], [ 1, %39 ]
-  %.04887 = phi ptr [ %56, %Abc_UtilStrsav.exit83 ], [ %42, %39 ]
+  %.04788 = phi ptr [ %56, %Abc_UtilStrsav.exit83 ], [ %42, %39 ]
   %43 = shl nuw nsw i64 %indvars.iv, 1
   %.val65 = load ptr, ptr %4, align 8
   %44 = getelementptr inbounds ptr, ptr %.val65, i64 %43
@@ -1329,7 +1329,7 @@ Abc_UtilStrsav.exit:                              ; preds = %29, %30
   br label %47
 
 47:                                               ; preds = %.lr.ph, %46
-  %48 = tail call ptr @Mio_PinReadName(ptr noundef nonnull %.04887) #14
+  %48 = tail call ptr @Mio_PinReadName(ptr noundef nonnull %.04788) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not.i82 = icmp eq ptr %48, null
   br i1 %.not.i82, label %Abc_UtilStrsav.exit83, label %49
@@ -1346,7 +1346,7 @@ Abc_UtilStrsav.exit83:                            ; preds = %47, %49
   %.val79 = load ptr, ptr %4, align 8
   %55 = getelementptr inbounds ptr, ptr %.val79, i64 %43
   store ptr %54, ptr %55, align 8
-  %56 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.04887) #14
+  %56 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.04788) #14
   %.not63 = icmp eq ptr %56, null
   br i1 %.not63, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 
@@ -1356,7 +1356,7 @@ Abc_UtilStrsav.exit83:                            ; preds = %47, %49
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %39
-  %.047.lcssa = phi i64 [ 2, %39 ], [ %58, %._crit_edge.loopexit ]
+  %.048.lcssa = phi i64 [ 2, %39 ], [ %58, %._crit_edge.loopexit ]
   %59 = tail call ptr @Mio_GateReadOutName(ptr noundef %41) #14
   %.not.i84 = icmp eq ptr %59, null
   br i1 %.not.i84, label %Abc_UtilStrsav.exit85, label %60
@@ -1371,7 +1371,7 @@ Abc_UtilStrsav.exit83:                            ; preds = %47, %49
 Abc_UtilStrsav.exit85:                            ; preds = %._crit_edge, %60
   %65 = phi ptr [ %63, %60 ], [ null, %._crit_edge ]
   %.val78 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds ptr, ptr %.val78, i64 %.047.lcssa
+  %66 = getelementptr inbounds ptr, ptr %.val78, i64 %.048.lcssa
   store ptr %65, ptr %66, align 8
   br label %67
 

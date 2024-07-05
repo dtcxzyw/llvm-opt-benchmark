@@ -263,12 +263,12 @@ while.end.thread:                                 ; preds = %if.end48
 
 while.body:                                       ; preds = %if.end48, %if.end84
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end84 ], [ %idxprom, %if.end48 ]
-  %num_compare_stages.0305 = phi i32 [ %num_compare_stages.1, %if.end84 ], [ 0, %if.end48 ]
-  %ce.0304 = phi ptr [ %spec.select, %if.end84 ], [ %6, %if.end48 ]
+  %ce.0305 = phi ptr [ %spec.select, %if.end84 ], [ %6, %if.end48 ]
+  %num_compare_stages.0304 = phi i32 [ %num_compare_stages.1, %if.end84 ], [ 0, %if.end48 ]
   %22 = load ptr, ptr %2, align 8
   %arrayidx53 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
   %23 = load ptr, ptr %arrayidx53, align 8
-  %name54 = getelementptr inbounds i8, ptr %ce.0304, i64 108
+  %name54 = getelementptr inbounds i8, ptr %ce.0305, i64 108
   %name56 = getelementptr inbounds i8, ptr %23, i64 108
   %call58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name54, ptr noundef nonnull dereferenceable(1) %name56) #15
   %tobool59.not = icmp eq i32 %call58, 0
@@ -285,7 +285,7 @@ if.end61:                                         ; preds = %while.body
 if.then67:                                        ; preds = %if.end61
   %ce_mode = getelementptr inbounds i8, ptr %23, i64 52
   %25 = load i32, ptr %ce_mode, align 4
-  %inc = add nsw i32 %num_compare_stages.0305, 1
+  %inc = add nsw i32 %num_compare_stages.0304, 1
   %sub = add nsw i32 %shr64, -2
   %idxprom70 = zext nneg i32 %sub to i64
   %arrayidx71 = getelementptr inbounds [0 x %struct.combine_diff_parent], ptr %parent, i64 0, i64 %idxprom70
@@ -361,9 +361,9 @@ ce_mode_from_stat.exit150:                        ; preds = %land.lhs.true13.i13
   br label %if.end84
 
 if.end84:                                         ; preds = %ce_mode_from_stat.exit150, %if.end61
-  %num_compare_stages.1 = phi i32 [ %inc, %ce_mode_from_stat.exit150 ], [ %num_compare_stages.0305, %if.end61 ]
+  %num_compare_stages.1 = phi i32 [ %inc, %ce_mode_from_stat.exit150 ], [ %num_compare_stages.0304, %if.end61 ]
   %cmp85 = icmp eq i32 %shr64, %spec.store.select
-  %spec.select = select i1 %cmp85, ptr %23, ptr %ce.0304
+  %spec.select = select i1 %cmp85, ptr %23, ptr %ce.0305
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !5
@@ -373,8 +373,8 @@ while.end.split.loop.exit332:                     ; preds = %while.body
   br label %while.end
 
 while.end:                                        ; preds = %if.end84, %while.end.split.loop.exit332
-  %ce.0.lcssa = phi ptr [ %ce.0304, %while.end.split.loop.exit332 ], [ %spec.select, %if.end84 ]
-  %num_compare_stages.0.lcssa = phi i32 [ %num_compare_stages.0305, %while.end.split.loop.exit332 ], [ %num_compare_stages.1, %if.end84 ]
+  %num_compare_stages.0.lcssa = phi i32 [ %num_compare_stages.0304, %while.end.split.loop.exit332 ], [ %num_compare_stages.1, %if.end84 ]
+  %ce.0.lcssa = phi ptr [ %ce.0305, %while.end.split.loop.exit332 ], [ %spec.select, %if.end84 ]
   %i.1.lcssa = phi i32 [ %32, %while.end.split.loop.exit332 ], [ %3, %if.end84 ]
   %dec = add nsw i32 %i.1.lcssa, -1
   %bf.load = load i64, ptr %combine_merges, align 8
@@ -688,8 +688,8 @@ if.end9.i.i214:                                   ; preds = %if.end3.i.i211, %if
 
 if.end165:                                        ; preds = %land.lhs.true13.i220, %if.end9.i.i214, %if.end3.i.i211, %if.end3.i.i211, %if.end.i.i209, %if.end20.i207, %land.lhs.true3.i229, %if.then124
   %dirty_submodule.2 = phi i32 [ 0, %if.then124 ], [ %dirty_submodule.1, %land.lhs.true3.i229 ], [ %dirty_submodule.1, %if.end20.i207 ], [ %dirty_submodule.1, %if.end.i.i209 ], [ %dirty_submodule.1, %if.end3.i.i211 ], [ %dirty_submodule.1, %if.end3.i.i211 ], [ %dirty_submodule.1, %if.end9.i.i214 ], [ %dirty_submodule.1, %land.lhs.true13.i220 ]
-  %newmode.0 = phi i32 [ %38, %if.then124 ], [ %62, %land.lhs.true3.i229 ], [ 40960, %if.end20.i207 ], [ 16384, %if.end.i.i209 ], [ 57344, %if.end3.i.i211 ], [ 57344, %if.end3.i.i211 ], [ %or.i.i217, %if.end9.i.i214 ], [ %spec.select301, %land.lhs.true13.i220 ]
   %changed.0 = phi i32 [ 0, %if.then124 ], [ %changed.1.i, %land.lhs.true3.i229 ], [ %changed.1.i, %if.end20.i207 ], [ %changed.1.i, %if.end.i.i209 ], [ %changed.1.i, %if.end3.i.i211 ], [ %changed.1.i, %if.end3.i.i211 ], [ %changed.1.i, %if.end9.i.i214 ], [ %changed.1.i, %land.lhs.true13.i220 ]
+  %newmode.0 = phi i32 [ %38, %if.then124 ], [ %62, %land.lhs.true3.i229 ], [ 40960, %if.end20.i207 ], [ 16384, %if.end.i.i209 ], [ 57344, %if.end3.i.i211 ], [ 57344, %if.end3.i.i211 ], [ %or.i.i217, %if.end9.i.i214 ], [ %spec.select301, %land.lhs.true13.i220 ]
   %tobool166 = icmp ne i32 %changed.0, 0
   %tobool168 = icmp ne i32 %dirty_submodule.2, 0
   %or.cond1 = select i1 %tobool166, i1 true, i1 %tobool168

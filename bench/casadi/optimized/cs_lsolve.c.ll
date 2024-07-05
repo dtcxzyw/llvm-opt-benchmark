@@ -82,8 +82,8 @@ define range(i32 0, 2) i32 @cs_lsolve(ptr noundef readonly %0, ptr noundef %1) l
   br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit33:                                      ; preds = %.loopexit, %8, %2, %3
-  %.030 = phi i32 [ 0, %3 ], [ 0, %2 ], [ 1, %8 ], [ 1, %.loopexit ]
-  ret i32 %.030
+  %.0 = phi i32 [ 0, %3 ], [ 0, %2 ], [ 1, %8 ], [ 1, %.loopexit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

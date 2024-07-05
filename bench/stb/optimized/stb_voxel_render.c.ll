@@ -358,10 +358,10 @@ if.then170:                                       ; preds = %if.end165
   br label %if.end180
 
 if.end180:                                        ; preds = %if.then109, %if.then170, %if.end165, %if.end106
+  %facerot.1 = phi i32 [ %shr177, %if.then170 ], [ %facerot.0, %if.end165 ], [ %facerot.0, %if.then109 ], [ %facerot.0, %if.end106 ]
   %retval.sroa.13.3 = phi i8 [ %retval.sroa.13.2, %if.then170 ], [ %retval.sroa.13.2, %if.end165 ], [ %retval.sroa.13.1, %if.then109 ], [ %retval.sroa.13.1, %if.end106 ]
   %retval.sroa.7.2 = phi i8 [ %retval.sroa.7.1, %if.then170 ], [ %retval.sroa.7.1, %if.end165 ], [ %retval.sroa.7.0, %if.then109 ], [ %retval.sroa.7.0, %if.end106 ]
   %retval.sroa.0.2 = phi i8 [ %retval.sroa.0.1, %if.then170 ], [ %retval.sroa.0.1, %if.end165 ], [ %retval.sroa.0.0, %if.then109 ], [ %retval.sroa.0.0, %if.end106 ]
-  %facerot.1 = phi i32 [ %shr177, %if.then170 ], [ %facerot.0, %if.end165 ], [ %facerot.0, %if.then109 ], [ %facerot.0, %if.end106 ]
   %tex2_for_tex1 = getelementptr inbounds i8, ptr %mm, i64 216
   %29 = load ptr, ptr %tex2_for_tex1, align 8
   %tobool182.not = icmp eq ptr %29, null
@@ -1037,8 +1037,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %normal1.0 = phi i8 [ %6, %if.then ], [ %3, %entry ]
   %normal2.0 = phi i8 [ %7, %if.then ], [ %5, %entry ]
+  %normal1.0 = phi i8 [ %6, %if.then ], [ %3, %entry ]
   %arrayidx21 = getelementptr inbounds i8, ptr %face_coord, i64 8
   %8 = load <2 x i32>, ptr %arrayidx21, align 4
   %arrayidx24 = getelementptr inbounds i8, ptr %v, i64 4
@@ -1088,8 +1088,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %normal1.0 = phi i8 [ %6, %if.then ], [ %3, %entry ]
   %normal2.0 = phi i8 [ %7, %if.then ], [ %5, %entry ]
+  %normal1.0 = phi i8 [ %6, %if.then ], [ %3, %entry ]
   %arrayidx21 = getelementptr inbounds i8, ptr %face_coord, i64 4
   %8 = load i32, ptr %arrayidx21, align 4
   %arrayidx23 = getelementptr inbounds i8, ptr %face_coord, i64 8

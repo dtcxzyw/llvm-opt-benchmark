@@ -1704,7 +1704,7 @@ _ZN7testing7MessageD2Ev.exit307:                  ; preds = %459, %_ZNKSt14defau
   br label %485
 
 464:                                              ; preds = %_ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit299, %_ZN7testing7MessageD2Ev.exit304
-  %.5 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit304 ], [ 0, %_ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit299 ]
+  %.584 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit304 ], [ 0, %_ZN7testing8internal8EqHelper7CompareIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit299 ]
   %465 = getelementptr inbounds i8, ptr %30, i64 8
   %466 = load ptr, ptr %465, align 8
   %.not.i.i308 = icmp eq ptr %466, null
@@ -1713,14 +1713,14 @@ _ZN7testing7MessageD2Ev.exit307:                  ; preds = %459, %_ZNKSt14defau
 _ZN7testing15AssertionResultD2Ev.exit242.sink.split: ; preds = %464, %_ZN7testing7MessageD2Ev.exit287, %_ZN7testing7MessageD2Ev.exit271, %_ZN7testing7MessageD2Ev.exit255, %_ZN7testing7MessageD2Ev.exit239
   %.sink498 = phi ptr [ %307, %_ZN7testing7MessageD2Ev.exit239 ], [ %343, %_ZN7testing7MessageD2Ev.exit255 ], [ %379, %_ZN7testing7MessageD2Ev.exit271 ], [ %417, %_ZN7testing7MessageD2Ev.exit287 ], [ %466, %464 ]
   %.sink.ph = phi ptr [ %291, %_ZN7testing7MessageD2Ev.exit239 ], [ %332, %_ZN7testing7MessageD2Ev.exit255 ], [ %368, %_ZN7testing7MessageD2Ev.exit271 ], [ %406, %_ZN7testing7MessageD2Ev.exit287 ], [ %465, %464 ]
-  %.6.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit239 ], [ 1, %_ZN7testing7MessageD2Ev.exit255 ], [ 1, %_ZN7testing7MessageD2Ev.exit271 ], [ 1, %_ZN7testing7MessageD2Ev.exit287 ], [ %.5, %464 ]
+  %.685.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit239 ], [ 1, %_ZN7testing7MessageD2Ev.exit255 ], [ 1, %_ZN7testing7MessageD2Ev.exit271 ], [ 1, %_ZN7testing7MessageD2Ev.exit287 ], [ %.584, %464 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink498) #19
   call void @_ZdlPv(ptr noundef nonnull %.sink498) #20
   br label %_ZN7testing15AssertionResultD2Ev.exit242
 
 _ZN7testing15AssertionResultD2Ev.exit242:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit242.sink.split, %464, %_ZN7testing7MessageD2Ev.exit287, %_ZN7testing7MessageD2Ev.exit271, %_ZN7testing7MessageD2Ev.exit255, %_ZN7testing7MessageD2Ev.exit239
   %.sink = phi ptr [ %291, %_ZN7testing7MessageD2Ev.exit239 ], [ %332, %_ZN7testing7MessageD2Ev.exit255 ], [ %368, %_ZN7testing7MessageD2Ev.exit271 ], [ %406, %_ZN7testing7MessageD2Ev.exit287 ], [ %465, %464 ], [ %.sink.ph, %_ZN7testing15AssertionResultD2Ev.exit242.sink.split ]
-  %.6 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit239 ], [ 1, %_ZN7testing7MessageD2Ev.exit255 ], [ 1, %_ZN7testing7MessageD2Ev.exit271 ], [ 1, %_ZN7testing7MessageD2Ev.exit287 ], [ %.5, %464 ], [ %.6.ph, %_ZN7testing15AssertionResultD2Ev.exit242.sink.split ]
+  %.685 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit239 ], [ 1, %_ZN7testing7MessageD2Ev.exit255 ], [ 1, %_ZN7testing7MessageD2Ev.exit271 ], [ 1, %_ZN7testing7MessageD2Ev.exit287 ], [ %.584, %464 ], [ %.685.ph, %_ZN7testing15AssertionResultD2Ev.exit242.sink.split ]
   store ptr null, ptr %.sink, align 8
   %467 = load ptr, ptr %14, align 8
   %.not.i.i.i = icmp eq ptr %467, null
@@ -1731,7 +1731,7 @@ _ZN7testing15AssertionResultD2Ev.exit242:         ; preds = %_ZN7testing15Assert
   br label %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit:             ; preds = %_ZN7testing15AssertionResultD2Ev.exit242, %468
-  %cond2 = icmp eq i32 %.6, 0
+  %cond2 = icmp eq i32 %.685, 0
   br i1 %cond2, label %469, label %877
 
 469:                                              ; preds = %_ZNSt6vectorIP4NodeSaIS1_EED2Ev.exit

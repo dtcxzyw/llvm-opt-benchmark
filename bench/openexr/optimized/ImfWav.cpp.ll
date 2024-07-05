@@ -12,27 +12,27 @@ entry:
   br i1 %cmp2.not152, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end60
-  %p2.0154 = phi i32 [ %shl, %if.end60 ], [ 2, %entry ]
-  %p.0153 = phi i32 [ %p2.0154, %if.end60 ], [ 1, %entry ]
-  %sub = sub nsw i32 %ny, %p2.0154
+  %p.0154 = phi i32 [ %p2.0153, %if.end60 ], [ 1, %entry ]
+  %p2.0153 = phi i32 [ %shl, %if.end60 ], [ 2, %entry ]
+  %sub = sub nsw i32 %ny, %p2.0153
   %mul = mul nsw i32 %sub, %oy
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr inbounds i16, ptr %in, i64 %idx.ext
-  %mul5 = mul nsw i32 %p.0153, %ox
-  %mul6 = mul nsw i32 %p2.0154, %ox
+  %mul5 = mul nsw i32 %p.0154, %ox
+  %mul6 = mul nsw i32 %p2.0153, %ox
   %cmp7.not146 = icmp slt i32 %mul, 0
   br i1 %cmp7.not146, label %for.end36, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.body
-  %mul4 = mul nsw i32 %p2.0154, %oy
-  %mul3 = mul nsw i32 %p.0153, %oy
-  %sub8 = sub nsw i32 %nx, %p2.0154
+  %mul4 = mul nsw i32 %p2.0153, %oy
+  %mul3 = mul nsw i32 %p.0154, %oy
+  %sub8 = sub nsw i32 %nx, %p2.0153
   %mul9 = mul nsw i32 %sub8, %ox
   %idx.ext10 = sext i32 %mul9 to i64
   %idx.ext15 = sext i32 %mul5 to i64
   %idx.ext17 = sext i32 %mul3 to i64
   %idx.ext21 = sext i32 %mul6 to i64
-  %and = and i32 %p.0153, %nx
+  %and = and i32 %p.0154, %nx
   %tobool23.not = icmp eq i32 %and, 0
   %idx.ext34 = sext i32 %mul4 to i64
   %cmp13.not144 = icmp slt i32 %mul9, 0
@@ -190,12 +190,12 @@ for.inc33:                                        ; preds = %for.end, %if.end31
 
 for.end36:                                        ; preds = %for.inc33, %while.body
   %py.0.lcssa = phi ptr [ %in, %while.body ], [ %add.ptr35, %for.inc33 ]
-  %and37 = and i32 %p.0153, %ny
+  %and37 = and i32 %p.0154, %ny
   %tobool38.not = icmp eq i32 %and37, 0
   br i1 %tobool38.not, label %if.end60, label %if.then39
 
 if.then39:                                        ; preds = %for.end36
-  %sub42 = sub nsw i32 %nx, %p2.0154
+  %sub42 = sub nsw i32 %nx, %p2.0153
   %mul43 = mul nsw i32 %sub42, %ox
   %idx.ext44 = sext i32 %mul43 to i64
   %add.ptr45 = getelementptr inbounds i16, ptr %py.0.lcssa, i64 %idx.ext44
@@ -247,7 +247,7 @@ for.body48:                                       ; preds = %for.body48.lr.ph, %
   br i1 %cmp47.not, label %if.end60, label %for.body48, !llvm.loop !7
 
 if.end60:                                         ; preds = %for.body48, %for.body48.us, %if.then39, %for.end36
-  %shl = shl i32 %p2.0154, 1
+  %shl = shl i32 %p2.0153, 1
   %cmp2.not = icmp sgt i32 %shl, %cond
   br i1 %cmp2.not, label %while.end, label %while.body, !llvm.loop !8
 
@@ -278,27 +278,27 @@ while.body6.preheader:                            ; preds = %while.end
   br label %while.body6
 
 while.body6:                                      ; preds = %while.body6.preheader, %if.end64
-  %p2.0130 = phi i32 [ %p.1129, %if.end64 ], [ %shr, %while.body6.preheader ]
-  %p.1129 = phi i32 [ %shr65, %if.end64 ], [ %shr3, %while.body6.preheader ]
-  %sub = sub nsw i32 %ny, %p2.0130
+  %p.1130 = phi i32 [ %shr65, %if.end64 ], [ %shr3, %while.body6.preheader ]
+  %p2.0129 = phi i32 [ %p.1130, %if.end64 ], [ %shr, %while.body6.preheader ]
+  %sub = sub nsw i32 %ny, %p2.0129
   %mul = mul nsw i32 %sub, %oy
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr inbounds i16, ptr %in, i64 %idx.ext
-  %mul9 = mul nsw i32 %p.1129, %ox
-  %mul10 = mul nsw i32 %p2.0130, %ox
+  %mul9 = mul nsw i32 %p.1130, %ox
+  %mul10 = mul nsw i32 %p2.0129, %ox
   %cmp11.not122 = icmp slt i32 %mul, 0
   br i1 %cmp11.not122, label %for.end40, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.body6
-  %mul8 = mul nsw i32 %p2.0130, %oy
-  %mul7 = mul nsw i32 %p.1129, %oy
-  %sub12 = sub nsw i32 %nx, %p2.0130
+  %mul8 = mul nsw i32 %p2.0129, %oy
+  %mul7 = mul nsw i32 %p.1130, %oy
+  %sub12 = sub nsw i32 %nx, %p2.0129
   %mul13 = mul nsw i32 %sub12, %ox
   %idx.ext14 = sext i32 %mul13 to i64
   %idx.ext19 = sext i32 %mul9 to i64
   %idx.ext21 = sext i32 %mul7 to i64
   %idx.ext25 = sext i32 %mul10 to i64
-  %and = and i32 %p.1129, %nx
+  %and = and i32 %p.1130, %nx
   %tobool27.not = icmp eq i32 %and, 0
   %idx.ext38 = sext i32 %mul8 to i64
   %cmp17.not120 = icmp slt i32 %mul13, 0
@@ -421,12 +421,12 @@ for.inc37:                                        ; preds = %for.end, %if.end35
 
 for.end40:                                        ; preds = %for.inc37, %while.body6
   %py.0.lcssa = phi ptr [ %in, %while.body6 ], [ %add.ptr39, %for.inc37 ]
-  %and41 = and i32 %p.1129, %ny
+  %and41 = and i32 %p.1130, %ny
   %tobool42.not = icmp eq i32 %and41, 0
   br i1 %tobool42.not, label %if.end64, label %if.then43
 
 if.then43:                                        ; preds = %for.end40
-  %sub46 = sub nsw i32 %nx, %p2.0130
+  %sub46 = sub nsw i32 %nx, %p2.0129
   %mul47 = mul nsw i32 %sub46, %ox
   %idx.ext48 = sext i32 %mul47 to i64
   %add.ptr49 = getelementptr inbounds i16, ptr %py.0.lcssa, i64 %idx.ext48
@@ -470,8 +470,8 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   br i1 %cmp51.not, label %if.end64, label %for.body52, !llvm.loop !12
 
 if.end64:                                         ; preds = %for.body52, %for.body52.us, %if.then43, %for.end40
-  %shr65 = lshr i32 %p.1129, 1
-  %cmp5.not = icmp ult i32 %p.1129, 2
+  %shr65 = lshr i32 %p.1130, 1
+  %cmp5.not = icmp ult i32 %p.1130, 2
   br i1 %cmp5.not, label %while.end66, label %while.body6, !llvm.loop !13
 
 while.end66:                                      ; preds = %if.end64, %while.end

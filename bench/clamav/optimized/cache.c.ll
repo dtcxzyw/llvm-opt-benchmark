@@ -227,8 +227,8 @@ cacheset_init.exit:                               ; preds = %cacheset_init.exit.
   br label %64
 
 64:                                               ; preds = %._crit_edge, %54, %._crit_edge73, %20, %7, %2
-  %.053 = phi i32 [ 0, %7 ], [ 1, %._crit_edge73 ], [ 1, %54 ], [ 0, %._crit_edge ], [ 1, %20 ], [ 1, %2 ]
-  ret i32 %.053
+  %.0 = phi i32 [ 0, %7 ], [ 1, %._crit_edge73 ], [ 1, %54 ], [ 0, %._crit_edge ], [ 1, %20 ], [ 1, %2 ]
+  ret i32 %.0
 }
 
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
@@ -1112,14 +1112,14 @@ define internal fastcc range(i32 0, 2) i32 @splay(ptr nocapture noundef readonly
   br label %8
 
 8:                                                ; preds = %.preheader, %88
-  %.075 = phi ptr [ %.176, %88 ], [ %4, %.preheader ]
-  %.073 = phi ptr [ %.174, %88 ], [ %4, %.preheader ]
-  %.072 = phi ptr [ %.3, %88 ], [ %6, %.preheader ]
-  %9 = getelementptr inbounds i8, ptr %.072, i64 56
+  %.076 = phi ptr [ %.177, %88 ], [ %4, %.preheader ]
+  %.074 = phi ptr [ %.175, %88 ], [ %4, %.preheader ]
+  %.073 = phi ptr [ %.3, %88 ], [ %6, %.preheader ]
+  %9 = getelementptr inbounds i8, ptr %.073, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = load i64, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %.072, i64 8
+  %13 = getelementptr inbounds i8, ptr %.073, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp slt i64 %12, %14
   br i1 %15, label %26, label %16
@@ -1130,7 +1130,7 @@ define internal fastcc range(i32 0, 2) i32 @splay(ptr nocapture noundef readonly
 
 18:                                               ; preds = %16
   %19 = load i64, ptr %0, align 8
-  %20 = load i64, ptr %.072, align 8
+  %20 = load i64, ptr %.073, align 8
   %21 = icmp slt i64 %19, %20
   br i1 %21, label %26, label %22
 
@@ -1143,7 +1143,7 @@ define internal fastcc range(i32 0, 2) i32 @splay(ptr nocapture noundef readonly
   br i1 %25, label %26, label %cmp.exit
 
 26:                                               ; preds = %8, %18, %24
-  %27 = getelementptr inbounds i8, ptr %.072, i64 16
+  %27 = getelementptr inbounds i8, ptr %.073, i64 16
   %28 = load ptr, ptr %27, align 8
   %.not92 = icmp eq ptr %28, null
   br i1 %.not92, label %89, label %29
@@ -1182,12 +1182,12 @@ define internal fastcc range(i32 0, 2) i32 @splay(ptr nocapture noundef readonly
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds i8, ptr %47, i64 32
-  store ptr %.072, ptr %49, align 8
+  store ptr %.073, ptr %49, align 8
   br label %50
 
 50:                                               ; preds = %48, %45
-  store ptr %.072, ptr %46, align 8
-  %51 = getelementptr inbounds i8, ptr %.072, i64 32
+  store ptr %.073, ptr %46, align 8
+  %51 = getelementptr inbounds i8, ptr %.073, i64 32
   store ptr %28, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %28, i64 16
   %53 = load ptr, ptr %52, align 8
@@ -1195,11 +1195,11 @@ define internal fastcc range(i32 0, 2) i32 @splay(ptr nocapture noundef readonly
   br i1 %.not94, label %89, label %cmp.exit101
 
 cmp.exit101:                                      ; preds = %42, %36, %50
-  %.1 = phi ptr [ %28, %50 ], [ %.072, %36 ], [ %.072, %42 ]
-  %54 = getelementptr inbounds i8, ptr %.075, i64 16
+  %.1 = phi ptr [ %28, %50 ], [ %.073, %36 ], [ %.073, %42 ]
+  %54 = getelementptr inbounds i8, ptr %.076, i64 16
   store ptr %.1, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %.1, i64 32
-  store ptr %.075, ptr %55, align 8
+  store ptr %.076, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %.1, i64 16
   br label %88
 
@@ -1208,7 +1208,7 @@ cmp.exit:                                         ; preds = %24
   br i1 %.not115, label %cmp.exit.thread108, label %89
 
 cmp.exit.thread108:                               ; preds = %22, %16, %cmp.exit
-  %57 = getelementptr inbounds i8, ptr %.072, i64 24
+  %57 = getelementptr inbounds i8, ptr %.073, i64 24
   %58 = load ptr, ptr %57, align 8
   %.not89 = icmp eq ptr %58, null
   br i1 %.not89, label %89, label %59
@@ -1251,12 +1251,12 @@ cmp.exit104.thread113:                            ; preds = %74, %72, %66
 
 79:                                               ; preds = %cmp.exit104.thread113
   %80 = getelementptr inbounds i8, ptr %78, i64 32
-  store ptr %.072, ptr %80, align 8
+  store ptr %.073, ptr %80, align 8
   br label %81
 
 81:                                               ; preds = %79, %cmp.exit104.thread113
-  store ptr %.072, ptr %77, align 8
-  %82 = getelementptr inbounds i8, ptr %.072, i64 32
+  store ptr %.073, ptr %77, align 8
+  %82 = getelementptr inbounds i8, ptr %.073, i64 32
   store ptr %58, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %58, i64 24
   %84 = load ptr, ptr %83, align 8
@@ -1264,47 +1264,47 @@ cmp.exit104.thread113:                            ; preds = %74, %72, %66
   br i1 %.not91, label %89, label %cmp.exit104.thread
 
 cmp.exit104.thread:                               ; preds = %74, %68, %59, %81
-  %.2 = phi ptr [ %58, %81 ], [ %.072, %59 ], [ %.072, %68 ], [ %.072, %74 ]
-  %85 = getelementptr inbounds i8, ptr %.073, i64 24
+  %.2 = phi ptr [ %58, %81 ], [ %.073, %59 ], [ %.073, %68 ], [ %.073, %74 ]
+  %85 = getelementptr inbounds i8, ptr %.074, i64 24
   store ptr %.2, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %.2, i64 32
-  store ptr %.073, ptr %86, align 8
+  store ptr %.074, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %.2, i64 24
   br label %88
 
 88:                                               ; preds = %cmp.exit104.thread, %cmp.exit101
-  %.176 = phi ptr [ %.1, %cmp.exit101 ], [ %.075, %cmp.exit104.thread ]
-  %.174 = phi ptr [ %.073, %cmp.exit101 ], [ %.2, %cmp.exit104.thread ]
+  %.177 = phi ptr [ %.1, %cmp.exit101 ], [ %.076, %cmp.exit104.thread ]
+  %.175 = phi ptr [ %.074, %cmp.exit101 ], [ %.2, %cmp.exit104.thread ]
   %.3.in = phi ptr [ %56, %cmp.exit101 ], [ %87, %cmp.exit104.thread ]
   %.3 = load ptr, ptr %.3.in, align 8
   br label %8
 
 89:                                               ; preds = %cmp.exit, %81, %cmp.exit.thread108, %50, %26
-  %.4 = phi ptr [ %28, %50 ], [ %.072, %26 ], [ %58, %81 ], [ %.072, %cmp.exit.thread108 ], [ %.072, %cmp.exit ]
+  %.4 = phi ptr [ %28, %50 ], [ %.073, %26 ], [ %58, %81 ], [ %.073, %cmp.exit.thread108 ], [ %.073, %cmp.exit ]
   %.0 = phi i32 [ 0, %50 ], [ 0, %26 ], [ 0, %81 ], [ 0, %cmp.exit.thread108 ], [ 1, %cmp.exit ]
   %90 = getelementptr inbounds i8, ptr %.4, i64 16
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %.073, i64 24
+  %92 = getelementptr inbounds i8, ptr %.074, i64 24
   store ptr %91, ptr %92, align 8
   %.not95 = icmp eq ptr %91, null
   br i1 %.not95, label %95, label %93
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds i8, ptr %91, i64 32
-  store ptr %.073, ptr %94, align 8
+  store ptr %.074, ptr %94, align 8
   br label %95
 
 95:                                               ; preds = %93, %89
   %96 = getelementptr inbounds i8, ptr %.4, i64 24
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %.075, i64 16
+  %98 = getelementptr inbounds i8, ptr %.076, i64 16
   store ptr %97, ptr %98, align 8
   %.not96 = icmp eq ptr %97, null
   br i1 %.not96, label %101, label %99
 
 99:                                               ; preds = %95
   %100 = getelementptr inbounds i8, ptr %97, i64 32
-  store ptr %.075, ptr %100, align 8
+  store ptr %.076, ptr %100, align 8
   br label %101
 
 101:                                              ; preds = %99, %95
@@ -1338,8 +1338,8 @@ cmp.exit104.thread:                               ; preds = %74, %68, %59, %81
   br label %113
 
 113:                                              ; preds = %3, %111
-  %.077 = phi i32 [ %.0, %111 ], [ 0, %3 ]
-  ret i32 %.077
+  %.072 = phi i32 [ %.0, %111 ], [ 0, %3 ]
+  ret i32 %.072
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

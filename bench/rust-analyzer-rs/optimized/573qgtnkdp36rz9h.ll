@@ -1234,22 +1234,22 @@ define noundef zeroext i1 @_ZN3vfs3Vfs17set_file_contents17hcb6bdaab284509eeE(pt
   br i1 %13, label %19, label %.thread
 
 14:                                               ; preds = %.body44, %.body
-  %.033 = phi i1 [ %18, %.body ], [ false, %.body44 ]
-  %.031 = phi i8 [ %.132.lpad-body, %.body ], [ %.2, %.body44 ]
+  %.033 = phi i8 [ %.1.lpad-body, %.body ], [ %.2, %.body44 ]
+  %.029 = phi i1 [ %18, %.body ], [ false, %.body44 ]
   %.pn41 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn, %.body44 ]
-  %15 = trunc nuw i8 %.031 to i1
+  %15 = trunc nuw i8 %.033 to i1
   br i1 %15, label %124, label %123
 
 16:                                               ; preds = %21, %111, %71, %27, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
-  %.132 = phi i8 [ 0, %71 ], [ 0, %111 ], [ 1, %27 ], [ 1, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread ], [ 1, %21 ]
+  %.1 = phi i8 [ 0, %71 ], [ 0, %111 ], [ 1, %27 ], [ 1, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread ], [ 1, %21 ]
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %35, %16
-  %.132.lpad-body = phi i8 [ %.132, %16 ], [ 1, %35 ]
+  %.1.lpad-body = phi i8 [ %.1, %16 ], [ 1, %35 ]
   %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %36, %35 ]
-  %18 = trunc nuw i8 %.132.lpad-body to i1
+  %18 = trunc nuw i8 %.1.lpad-body to i1
   br label %14
 
 19:                                               ; preds = %3
@@ -1490,14 +1490,14 @@ _ZN3vfs13path_interner12PathInterner6intern17h820e0cb538e82916E.exit.i: ; preds 
 
 92:                                               ; preds = %74, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h15310d7750beb9c3E.exit", %75
   %93 = phi i64 [ %58, %75 ], [ %58, %74 ], [ %.pre65, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h15310d7750beb9c3E.exit" ]
-  %.029 = phi i8 [ %., %75 ], [ 2, %74 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h15310d7750beb9c3E.exit" ]
+  %.030 = phi i8 [ %., %75 ], [ 2, %74 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h15310d7750beb9c3E.exit" ]
   %94 = icmp ugt i64 %93, %46
   br i1 %94, label %95, label %109, !prof !300
 
 95:                                               ; preds = %92
   %96 = load ptr, ptr %63, align 8, !nonnull !20, !noundef !20
   %97 = getelementptr inbounds [0 x i8], ptr %96, i64 0, i64 %46
-  store i8 %.029, ptr %97, align 1
+  store i8 %.030, ptr %97, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %98 = getelementptr inbounds i8, ptr %6, i64 32
   store i32 %59, ptr %98, align 8
@@ -1565,7 +1565,7 @@ _ZN3vfs13path_interner12PathInterner6intern17h820e0cb538e82916E.exit.i: ; preds 
   unreachable
 
 123:                                              ; preds = %124, %14
-  br i1 %.033, label %126, label %125
+  br i1 %.029, label %126, label %125
 
 124:                                              ; preds = %14
   invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h8902278e5838c018E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #21

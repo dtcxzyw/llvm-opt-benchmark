@@ -3242,9 +3242,9 @@ land.rhs.preheader.i:                             ; preds = %entry
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.body.i, %land.rhs.preheader.i
-  %i.022.i = phi i64 [ %inc.i, %for.body.i ], [ %div.i, %land.rhs.preheader.i ]
-  %start_off.021.i = phi i64 [ 0, %for.body.i ], [ %rem.i, %land.rhs.preheader.i ]
-  %tmp.020.i = phi ptr [ %add.ptr16.i, %for.body.i ], [ %scratch, %land.rhs.preheader.i ]
+  %tmp.022.i = phi ptr [ %add.ptr16.i, %for.body.i ], [ %scratch, %land.rhs.preheader.i ]
+  %i.021.i = phi i64 [ %inc.i, %for.body.i ], [ %div.i, %land.rhs.preheader.i ]
+  %start_off.020.i = phi i64 [ 0, %for.body.i ], [ %rem.i, %land.rhs.preheader.i ]
   %pending_nbytes.019.i = phi i64 [ %sub15.i, %for.body.i ], [ %conv.i, %land.rhs.preheader.i ]
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %5 = load ptr, ptr %bufs_.i, align 8
@@ -3252,23 +3252,23 @@ land.rhs.i:                                       ; preds = %for.body.i, %land.r
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.i = icmp ult i64 %i.022.i, %sub.ptr.div.i.i
+  %cmp.i = icmp ult i64 %i.021.i, %sub.ptr.div.i.i
   br i1 %cmp.i, label %for.body.i, label %if.then
 
 for.body.i:                                       ; preds = %land.rhs.i
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %5, i64 %i.022.i
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %5, i64 %i.021.i
   %6 = load ptr, ptr %add.ptr.i.i, align 8
   %pos_.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load i64, ptr %pos_.i.i, align 8
-  %sub.i = sub i64 %7, %start_off.021.i
+  %sub.i = sub i64 %7, %start_off.020.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %pending_nbytes.019.i, i64 %sub.i)
   %buf_.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %buf_.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %start_off.021.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tmp.020.i, ptr align 1 %add.ptr.i, i64 %spec.select.i, i1 false)
+  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %start_off.020.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tmp.022.i, ptr align 1 %add.ptr.i, i64 %spec.select.i, i1 false)
   %sub15.i = sub i64 %pending_nbytes.019.i, %spec.select.i
-  %add.ptr16.i = getelementptr inbounds i8, ptr %tmp.020.i, i64 %spec.select.i
-  %inc.i = add nuw i64 %i.022.i, 1
+  %add.ptr16.i = getelementptr inbounds i8, ptr %tmp.022.i, i64 %spec.select.i
+  %inc.i = add nuw i64 %i.021.i, 1
   %tobool.not.i = icmp eq i64 %sub15.i, 0
   br i1 %tobool.not.i, label %if.end, label %land.rhs.i, !llvm.loop !19
 
@@ -3313,9 +3313,9 @@ land.rhs.preheader:                               ; preds = %entry
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.body
-  %i.022 = phi i64 [ %inc, %for.body ], [ %div, %land.rhs.preheader ]
-  %start_off.021 = phi i64 [ 0, %for.body ], [ %rem, %land.rhs.preheader ]
-  %tmp.020 = phi ptr [ %add.ptr16, %for.body ], [ %data, %land.rhs.preheader ]
+  %tmp.022 = phi ptr [ %add.ptr16, %for.body ], [ %data, %land.rhs.preheader ]
+  %i.021 = phi i64 [ %inc, %for.body ], [ %div, %land.rhs.preheader ]
+  %start_off.020 = phi i64 [ 0, %for.body ], [ %rem, %land.rhs.preheader ]
   %pending_nbytes.019 = phi i64 [ %sub15, %for.body ], [ %conv, %land.rhs.preheader ]
   %4 = load ptr, ptr %_M_finish.i, align 8
   %5 = load ptr, ptr %bufs_, align 8
@@ -3323,23 +3323,23 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp ult i64 %i.022, %sub.ptr.div.i
+  %cmp = icmp ult i64 %i.021, %sub.ptr.div.i
   br i1 %cmp, label %for.body, label %return
 
 for.body:                                         ; preds = %land.rhs
-  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 %i.022
+  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 %i.021
   %6 = load ptr, ptr %add.ptr.i, align 8
   %pos_.i = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load i64, ptr %pos_.i, align 8
-  %sub = sub i64 %7, %start_off.021
+  %sub = sub i64 %7, %start_off.020
   %spec.select = tail call i64 @llvm.umin.i64(i64 %pending_nbytes.019, i64 %sub)
   %buf_.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %buf_.i, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 %start_off.021
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tmp.020, ptr align 1 %add.ptr, i64 %spec.select, i1 false)
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 %start_off.020
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tmp.022, ptr align 1 %add.ptr, i64 %spec.select, i1 false)
   %sub15 = sub i64 %pending_nbytes.019, %spec.select
-  %add.ptr16 = getelementptr inbounds i8, ptr %tmp.020, i64 %spec.select
-  %inc = add nuw i64 %i.022, 1
+  %add.ptr16 = getelementptr inbounds i8, ptr %tmp.022, i64 %spec.select
+  %inc = add nuw i64 %i.021, 1
   %tobool.not = icmp eq i64 %sub15, 0
   br i1 %tobool.not, label %return, label %land.rhs, !llvm.loop !19
 
@@ -4725,9 +4725,9 @@ land.rhs.preheader.i.i:                           ; preds = %if.end
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.body.i.i, %land.rhs.preheader.i.i
-  %i.022.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ %div.i.i, %land.rhs.preheader.i.i ]
-  %start_off.021.i.i = phi i64 [ 0, %for.body.i.i ], [ %rem.i.i, %land.rhs.preheader.i.i ]
-  %tmp.020.i.i = phi ptr [ %add.ptr16.i.i, %for.body.i.i ], [ %scratch, %land.rhs.preheader.i.i ]
+  %tmp.022.i.i = phi ptr [ %add.ptr16.i.i, %for.body.i.i ], [ %scratch, %land.rhs.preheader.i.i ]
+  %i.021.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ %div.i.i, %land.rhs.preheader.i.i ]
+  %start_off.020.i.i = phi i64 [ 0, %for.body.i.i ], [ %rem.i.i, %land.rhs.preheader.i.i ]
   %pending_nbytes.019.i.i = phi i64 [ %sub15.i.i, %for.body.i.i ], [ %conv.i.i, %land.rhs.preheader.i.i ]
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8
   %11 = load ptr, ptr %bufs_.i.i, align 8
@@ -4735,23 +4735,23 @@ land.rhs.i.i:                                     ; preds = %for.body.i.i, %land
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %cmp.i.i5 = icmp ult i64 %i.022.i.i, %sub.ptr.div.i.i.i
+  %cmp.i.i5 = icmp ult i64 %i.021.i.i, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i5, label %for.body.i.i, label %if.then.i
 
 for.body.i.i:                                     ; preds = %land.rhs.i.i
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %11, i64 %i.022.i.i
+  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %11, i64 %i.021.i.i
   %12 = load ptr, ptr %add.ptr.i.i.i, align 8
   %pos_.i.i.i = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load i64, ptr %pos_.i.i.i, align 8
-  %sub.i.i = sub i64 %13, %start_off.021.i.i
+  %sub.i.i = sub i64 %13, %start_off.020.i.i
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %pending_nbytes.019.i.i, i64 %sub.i.i)
   %buf_.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %buf_.i.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 %start_off.021.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tmp.020.i.i, ptr align 1 %add.ptr.i.i, i64 %spec.select.i.i, i1 false)
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 %start_off.020.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tmp.022.i.i, ptr align 1 %add.ptr.i.i, i64 %spec.select.i.i, i1 false)
   %sub15.i.i = sub i64 %pending_nbytes.019.i.i, %spec.select.i.i
-  %add.ptr16.i.i = getelementptr inbounds i8, ptr %tmp.020.i.i, i64 %spec.select.i.i
-  %inc.i.i = add nuw i64 %i.022.i.i, 1
+  %add.ptr16.i.i = getelementptr inbounds i8, ptr %tmp.022.i.i, i64 %spec.select.i.i
+  %inc.i.i = add nuw i64 %i.021.i.i, 1
   %tobool.not.i.i = icmp eq i64 %sub15.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %land.rhs.i.i, !llvm.loop !19
 
@@ -4879,35 +4879,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.021.i, 2
+  %add8.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.021.i, 3
+  %add13.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
+  %0 = udiv i32 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !34
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i

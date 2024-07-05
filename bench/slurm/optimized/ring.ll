@@ -298,15 +298,15 @@ define noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr noundef %2
 
 .lr.ph104:                                        ; preds = %.lr.ph104.preheader, %.lr.ph104
   %indvars.iv118 = phi i64 [ %21, %.lr.ph104.preheader ], [ %indvars.iv.next119, %.lr.ph104 ]
-  %.076103 = phi ptr [ %2, %.lr.ph104.preheader ], [ %spec.select93, %.lr.ph104 ]
+  %.074103 = phi ptr [ %2, %.lr.ph104.preheader ], [ %spec.select93, %.lr.ph104 ]
   %indvars.iv.next119 = add nsw i64 %indvars.iv118, -1
   %34 = getelementptr inbounds %struct.pmix_ring_msg, ptr %13, i64 %indvars.iv.next119, i32 2
-  store ptr %.076103, ptr %34, align 8
+  store ptr %.074103, ptr %34, align 8
   %35 = load ptr, ptr @pmix_ring_msgs, align 8
   %36 = getelementptr inbounds %struct.pmix_ring_msg, ptr %35, i64 %indvars.iv.next119, i32 1
   %37 = load ptr, ptr %36, align 8
   %.not91 = icmp eq ptr %37, null
-  %spec.select93 = select i1 %.not91, ptr %.076103, ptr %37
+  %spec.select93 = select i1 %.not91, ptr %.074103, ptr %37
   %38 = icmp ugt i64 %indvars.iv118, 1
   br i1 %38, label %.lr.ph104, label %.preheader94, !llvm.loop !11
 
@@ -337,8 +337,8 @@ define noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr noundef %2
   br label %53
 
 53:                                               ; preds = %49, %.lr.ph106
-  %.075 = phi i32 [ %52, %49 ], [ 0, %.lr.ph106 ]
-  tail call void @slurm_packmem(ptr noundef %48, i32 noundef %.075, ptr noundef %45) #8
+  %.078 = phi i32 [ %52, %49 ], [ 0, %.lr.ph106 ]
+  tail call void @slurm_packmem(ptr noundef %48, i32 noundef %.078, ptr noundef %45) #8
   %54 = getelementptr inbounds i8, ptr %44, i64 16
   %55 = load ptr, ptr %54, align 8
   %.not89 = icmp eq ptr %55, null
@@ -351,8 +351,8 @@ define noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr noundef %2
   br label %60
 
 60:                                               ; preds = %56, %53
-  %.074 = phi i32 [ %59, %56 ], [ 0, %53 ]
-  tail call void @slurm_packmem(ptr noundef %55, i32 noundef %.074, ptr noundef %45) #8
+  %.077 = phi i32 [ %59, %56 ], [ 0, %53 ]
+  tail call void @slurm_packmem(ptr noundef %55, i32 noundef %.077, ptr noundef %45) #8
   %61 = load i32, ptr @pmix_stepd_rank, align 4
   %62 = load i32, ptr @pmix_stepd_width, align 4
   %63 = mul nsw i32 %62, %61
@@ -559,16 +559,16 @@ define noundef i32 @pmix_ring_in(i32 noundef %0, i32 noundef %1, ptr noundef %2,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.04455 = phi i32 [ 0, %.lr.ph.preheader ], [ %32, %.lr.ph ]
+  %.04654 = phi i32 [ 0, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %30 = getelementptr inbounds %struct.pmix_ring_msg, ptr %22, i64 %indvars.iv
   %31 = load i32, ptr %30, align 8
-  %32 = add i32 %31, %.04455
+  %32 = add i32 %31, %.04654
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
-  %.044.lcssa = phi i32 [ 0, %21 ], [ %32, %.lr.ph ]
+  %.046.lcssa = phi i32 [ 0, %21 ], [ %32, %.lr.ph ]
   %33 = load i32, ptr @pmix_stepd_rank, align 4
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %35, label %61
@@ -577,7 +577,7 @@ define noundef i32 @pmix_ring_in(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   %36 = tail call ptr @slurm_init_buf(i32 noundef 1024) #8
   tail call void @slurm_pack16(i16 noundef zeroext 7, ptr noundef %36) #8
   tail call void @slurm_pack32(i32 noundef %33, ptr noundef %36) #8
-  tail call void @slurm_pack32(i32 noundef %.044.lcssa, ptr noundef %36) #8
+  tail call void @slurm_pack32(i32 noundef %.046.lcssa, ptr noundef %36) #8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %41, label %37
 
@@ -588,8 +588,8 @@ define noundef i32 @pmix_ring_in(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   br label %41
 
 41:                                               ; preds = %37, %35
-  %.043 = phi i32 [ %40, %37 ], [ 0, %35 ]
-  tail call void @slurm_packmem(ptr noundef %24, i32 noundef %.043, ptr noundef %36) #8
+  %.044 = phi i32 [ %40, %37 ], [ 0, %35 ]
+  tail call void @slurm_packmem(ptr noundef %24, i32 noundef %.044, ptr noundef %36) #8
   %.not52 = icmp eq ptr %28, null
   br i1 %.not52, label %46, label %42
 
@@ -600,8 +600,8 @@ define noundef i32 @pmix_ring_in(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   br label %46
 
 46:                                               ; preds = %42, %41
-  %.0 = phi i32 [ %45, %42 ], [ 0, %41 ]
-  tail call void @slurm_packmem(ptr noundef %28, i32 noundef %.0, ptr noundef %36) #8
+  %.043 = phi i32 [ %45, %42 ], [ 0, %41 ]
+  tail call void @slurm_packmem(ptr noundef %28, i32 noundef %.043, ptr noundef %36) #8
   %47 = load i32, ptr @pmix_stepd_rank, align 4
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %49, label %pmix_stepd_rank_parent.exit

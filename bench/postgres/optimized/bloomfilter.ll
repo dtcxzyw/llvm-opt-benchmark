@@ -86,13 +86,13 @@ define dso_local void @bloom_add_element(ptr nocapture noundef %0, ptr noundef %
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.pn26.i = phi i32 [ %18, %.lr.ph.preheader.i ], [ %23, %.lr.ph.i ]
-  %.02425.i = phi i32 [ %14, %.lr.ph.preheader.i ], [ %21, %.lr.ph.i ]
-  %.023.i = and i32 %.pn26.i, %13
-  %20 = add i32 %.023.i, %.02425.i
+  %.02326.i = phi i32 [ %14, %.lr.ph.preheader.i ], [ %21, %.lr.ph.i ]
+  %.pn25.i = phi i32 [ %18, %.lr.ph.preheader.i ], [ %23, %.lr.ph.i ]
+  %.024.i = and i32 %.pn25.i, %13
+  %20 = add i32 %.024.i, %.02326.i
   %21 = and i32 %20, %13
   %22 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %23 = add i32 %.023.i, %22
+  %23 = add i32 %.024.i, %22
   %24 = getelementptr i32, ptr %4, i64 %indvars.iv.i
   store i32 %21, ptr %24, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -155,13 +155,13 @@ define dso_local zeroext i1 @bloom_lacks_element(ptr nocapture noundef readonly 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.pn26.i = phi i32 [ %18, %.lr.ph.preheader.i ], [ %23, %.lr.ph.i ]
-  %.02425.i = phi i32 [ %14, %.lr.ph.preheader.i ], [ %21, %.lr.ph.i ]
-  %.023.i = and i32 %.pn26.i, %13
-  %20 = add i32 %.023.i, %.02425.i
+  %.02326.i = phi i32 [ %14, %.lr.ph.preheader.i ], [ %21, %.lr.ph.i ]
+  %.pn25.i = phi i32 [ %18, %.lr.ph.preheader.i ], [ %23, %.lr.ph.i ]
+  %.024.i = and i32 %.pn25.i, %13
+  %20 = add i32 %.024.i, %.02326.i
   %21 = and i32 %20, %13
   %22 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %23 = add i32 %.023.i, %22
+  %23 = add i32 %.024.i, %22
   %24 = getelementptr i32, ptr %4, i64 %indvars.iv.i
   store i32 %21, ptr %24, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

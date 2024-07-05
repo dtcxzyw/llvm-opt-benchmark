@@ -460,7 +460,7 @@ define i32 @slurm_persist_conn_wait_for_thread_loc() local_unnamed_addr #0 {
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %31
-  %.01630 = phi i1 [ false, %31 ], [ true, %.preheader ]
+  %.030 = phi i1 [ false, %31 ], [ true, %.preheader ]
   %5 = load i32, ptr @thread_count, align 4
   %6 = icmp slt i32 %5, 100
   br i1 %6, label %7, label %14
@@ -487,7 +487,7 @@ define i32 @slurm_persist_conn_wait_for_thread_loc() local_unnamed_addr #0 {
   unreachable
 
 14:                                               ; preds = %.lr.ph
-  br i1 %.01630, label %15, label %26
+  br i1 %.030, label %15, label %26
 
 15:                                               ; preds = %14
   %16 = tail call i64 @time(ptr noundef null) #12
@@ -531,7 +531,7 @@ define i32 @slurm_persist_conn_wait_for_thread_loc() local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.loopexit.loopexit, %.preheader
-  %.1 = phi i32 [ -1, %.preheader ], [ %33, %.loopexit.loopexit ], [ -1, %31 ]
+  %.117 = phi i32 [ -1, %.preheader ], [ %33, %.loopexit.loopexit ], [ -1, %31 ]
   %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @thread_count_lock) #12
   %.not25 = icmp eq i32 %34, 0
   br i1 %.not25, label %37, label %35
@@ -543,7 +543,7 @@ define i32 @slurm_persist_conn_wait_for_thread_loc() local_unnamed_addr #0 {
   unreachable
 
 37:                                               ; preds = %.loopexit
-  ret i32 %.1
+  ret i32 %.117
 }
 
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -1535,7 +1535,7 @@ define i32 @slurm_persist_msg_unpack(ptr nocapture noundef %0, ptr noundef %1, p
 
 25:                                               ; preds = %18, %8
   %26 = phi i16 [ %.pre, %8 ], [ %20, %18 ]
-  %.0 = phi i32 [ %11, %8 ], [ %19, %18 ]
+  %.023 = phi i32 [ %11, %8 ], [ %19, %18 ]
   %27 = icmp eq i16 %26, 6500
   br i1 %27, label %28, label %46
 
@@ -1571,8 +1571,8 @@ define i32 @slurm_persist_msg_unpack(ptr nocapture noundef %0, ptr noundef %1, p
   br label %46
 
 46:                                               ; preds = %12, %25, %33
-  %.023 = phi i32 [ %.0, %33 ], [ %.0, %25 ], [ -1, %12 ]
-  ret i32 %.023
+  %.0 = phi i32 [ %.023, %33 ], [ %.023, %25 ], [ -1, %12 ]
+  ret i32 %.0
 }
 
 declare void @free_buf(ptr noundef) local_unnamed_addr #2

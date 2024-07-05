@@ -38,23 +38,23 @@ define void @_Z14genQmmmIndicesRK10gmx_mtop_t(ptr dead_on_unwind noalias nocaptu
 .preheader28.us:                                  ; preds = %.preheader28.lr.ph, %._crit_edge48.split.us.us
   %12 = phi ptr [ %16, %._crit_edge48.split.us.us ], [ null, %.preheader28.lr.ph ]
   %.promoted.us.us84 = phi ptr [ %.promoted.us.us85, %._crit_edge48.split.us.us ], [ null, %.preheader28.lr.ph ]
-  %.sroa.020.058.us = phi ptr [ %17, %._crit_edge48.split.us.us ], [ %6, %.preheader28.lr.ph ]
-  %.02657.us = phi i32 [ %.1.lcssa.us, %._crit_edge48.split.us.us ], [ 0, %.preheader28.lr.ph ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.020.058.us, i64 4
+  %.02659.us = phi i32 [ %.1.lcssa.us, %._crit_edge48.split.us.us ], [ 0, %.preheader28.lr.ph ]
+  %.sroa.020.057.us = phi ptr [ %17, %._crit_edge48.split.us.us ], [ %6, %.preheader28.lr.ph ]
+  %13 = getelementptr inbounds i8, ptr %.sroa.020.057.us, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.preheader.us.us.preheader, label %._crit_edge48.split.us.us
 
 .preheader.us.us.preheader:                       ; preds = %.preheader28.us
-  %.pre87 = load i32, ptr %.sroa.020.058.us, align 8
+  %.pre87 = load i32, ptr %.sroa.020.057.us, align 8
   %.pre88 = load ptr, ptr %9, align 8
   br label %.preheader.us.us
 
 ._crit_edge48.split.us.us:                        ; preds = %._crit_edge.split.us.us.us, %.preheader28.us
   %16 = phi ptr [ %12, %.preheader28.us ], [ %27, %._crit_edge.split.us.us.us ]
   %.promoted.us.us85 = phi ptr [ %.promoted.us.us84, %.preheader28.us ], [ %.lcssa34.us.us, %._crit_edge.split.us.us.us ]
-  %.1.lcssa.us = phi i32 [ %.02657.us, %.preheader28.us ], [ %.2.lcssa.us.us, %._crit_edge.split.us.us.us ]
-  %17 = getelementptr inbounds i8, ptr %.sroa.020.058.us, i64 56
+  %.1.lcssa.us = phi i32 [ %.02659.us, %.preheader28.us ], [ %.2.lcssa.us.us, %._crit_edge.split.us.us.us ]
+  %17 = getelementptr inbounds i8, ptr %.sroa.020.057.us, i64 56
   %.not27.us = icmp eq ptr %17, %8
   br i1 %.not27.us, label %._crit_edge, label %.preheader28.us
 
@@ -65,7 +65,7 @@ define void @_Z14genQmmmIndicesRK10gmx_mtop_t(ptr dead_on_unwind noalias nocaptu
   %21 = phi i32 [ %29, %._crit_edge.split.us.us.us ], [ %.pre87, %.preheader.us.us.preheader ]
   %.promoted.us.us = phi ptr [ %.lcssa34.us.us, %._crit_edge.split.us.us.us ], [ %.promoted.us.us84, %.preheader.us.us.preheader ]
   %.01547.us.us = phi i32 [ %30, %._crit_edge.split.us.us.us ], [ 0, %.preheader.us.us.preheader ]
-  %.146.us.us = phi i32 [ %.2.lcssa.us.us, %._crit_edge.split.us.us.us ], [ %.02657.us, %.preheader.us.us.preheader ]
+  %.146.us.us = phi i32 [ %.2.lcssa.us.us, %._crit_edge.split.us.us.us ], [ %.02659.us, %.preheader.us.us.preheader ]
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds %struct.gmx_moltype_t, ptr %20, i64 %22, i32 1
   %24 = load i32, ptr %23, align 8
@@ -157,7 +157,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.us.us.us: ; preds = %_ZNSt6vectorIiSaIiE
   %59 = phi ptr [ %50, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.us.us.us ], [ %33, %35 ]
   %60 = add nsw i32 %.237.us.us.us, 1
   %61 = add nuw nsw i32 %.038.us.us.us, 1
-  %62 = load i32, ptr %.sroa.020.058.us, align 8
+  %62 = load i32, ptr %.sroa.020.057.us, align 8
   %63 = sext i32 %62 to i64
   %64 = load ptr, ptr %9, align 8
   %65 = getelementptr inbounds %struct.gmx_moltype_t, ptr %64, i64 %63, i32 1
@@ -173,15 +173,15 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.us.us.us: ; preds = %_ZNSt6vectorIiSaIiE
 .preheader28:                                     ; preds = %.preheader28.lr.ph, %._crit_edge48.split
   %68 = phi ptr [ %131, %._crit_edge48.split ], [ null, %.preheader28.lr.ph ]
   %.promoted79 = phi ptr [ %.promoted80, %._crit_edge48.split ], [ null, %.preheader28.lr.ph ]
-  %.sroa.020.058 = phi ptr [ %132, %._crit_edge48.split ], [ %6, %.preheader28.lr.ph ]
-  %.02657 = phi i32 [ %.1.lcssa, %._crit_edge48.split ], [ 0, %.preheader28.lr.ph ]
-  %69 = getelementptr inbounds i8, ptr %.sroa.020.058, i64 4
+  %.02659 = phi i32 [ %.1.lcssa, %._crit_edge48.split ], [ 0, %.preheader28.lr.ph ]
+  %.sroa.020.057 = phi ptr [ %132, %._crit_edge48.split ], [ %6, %.preheader28.lr.ph ]
+  %69 = getelementptr inbounds i8, ptr %.sroa.020.057, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.preheader.preheader, label %._crit_edge48.split
 
 .preheader.preheader:                             ; preds = %.preheader28
-  %.pre = load i32, ptr %.sroa.020.058, align 8
+  %.pre = load i32, ptr %.sroa.020.057, align 8
   %.pre82 = load ptr, ptr %9, align 8
   br label %.preheader
 
@@ -192,7 +192,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.us.us.us: ; preds = %_ZNSt6vectorIiSaIiE
   %75 = phi i32 [ %128, %._crit_edge.split ], [ %.pre, %.preheader.preheader ]
   %.promoted = phi ptr [ %.lcssa34, %._crit_edge.split ], [ %.promoted79, %.preheader.preheader ]
   %.01547 = phi i32 [ %129, %._crit_edge.split ], [ 0, %.preheader.preheader ]
-  %.146 = phi i32 [ %.2.lcssa, %._crit_edge.split ], [ %.02657, %.preheader.preheader ]
+  %.146 = phi i32 [ %.2.lcssa, %._crit_edge.split ], [ %.02659, %.preheader.preheader ]
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds %struct.gmx_moltype_t, ptr %74, i64 %76, i32 1
   %78 = load i32, ptr %77, align 8
@@ -318,7 +318,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %116 = phi ptr [ %103, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %82, %87 ], [ %82, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %117 = add nuw nsw i32 %.038, 1
-  %118 = load i32, ptr %.sroa.020.058, align 8
+  %118 = load i32, ptr %.sroa.020.057, align 8
   %119 = sext i32 %118 to i64
   %120 = load ptr, ptr %9, align 8
   %121 = getelementptr inbounds %struct.gmx_moltype_t, ptr %120, i64 %119, i32 1
@@ -346,8 +346,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 ._crit_edge48.split:                              ; preds = %._crit_edge.split, %.preheader28
   %131 = phi ptr [ %68, %.preheader28 ], [ %126, %._crit_edge.split ]
   %.promoted80 = phi ptr [ %.promoted79, %.preheader28 ], [ %.lcssa34, %._crit_edge.split ]
-  %.1.lcssa = phi i32 [ %.02657, %.preheader28 ], [ %.2.lcssa, %._crit_edge.split ]
-  %132 = getelementptr inbounds i8, ptr %.sroa.020.058, i64 56
+  %.1.lcssa = phi i32 [ %.02659, %.preheader28 ], [ %.2.lcssa, %._crit_edge.split ]
+  %132 = getelementptr inbounds i8, ptr %.sroa.020.057, i64 56
   %.not27 = icmp eq ptr %132, %8
   br i1 %.not27, label %._crit_edge, label %.preheader28
 

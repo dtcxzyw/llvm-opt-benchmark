@@ -1061,7 +1061,7 @@ Vec_IntDup.exit:                                  ; preds = %32, %37
 51:                                               ; preds = %.lr.ph, %127
   %52 = phi ptr [ %47, %.lr.ph ], [ %128, %127 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %127 ]
-  %.04788 = phi ptr [ null, %.lr.ph ], [ %.2, %127 ]
+  %.089 = phi ptr [ null, %.lr.ph ], [ %.2, %127 ]
   %53 = getelementptr i8, ptr %52, i64 8
   %.val62 = load ptr, ptr %53, align 8
   %54 = getelementptr inbounds ptr, ptr %.val62, i64 %indvars.iv
@@ -1189,7 +1189,7 @@ Aig_ObjChild0Copy.exit82:                         ; preds = %111, %115
   br label %Aig_ObjChild0Copy.exit
 
 Aig_ObjChild0Copy.exit:                           ; preds = %102, %64, %60, %Aig_ObjChild1Copy.exit, %Aig_ObjChild0Copy.exit82, %125, %103
-  %.1 = phi ptr [ %101, %Aig_ObjChild1Copy.exit ], [ %104, %103 ], [ %124, %Aig_ObjChild0Copy.exit82 ], [ %.val61, %125 ], [ %71, %64 ], [ null, %60 ], [ %.04788, %102 ]
+  %.1 = phi ptr [ %101, %Aig_ObjChild1Copy.exit ], [ %104, %103 ], [ %124, %Aig_ObjChild0Copy.exit82 ], [ %.val61, %125 ], [ %71, %64 ], [ null, %60 ], [ %.089, %102 ]
   %126 = getelementptr inbounds i8, ptr %55, i64 40
   store ptr %.1, ptr %126, align 8
   %.pre = load ptr, ptr %2, align 8
@@ -1197,7 +1197,7 @@ Aig_ObjChild0Copy.exit:                           ; preds = %102, %64, %60, %Aig
 
 127:                                              ; preds = %Aig_ObjChild0Copy.exit, %51
   %128 = phi ptr [ %52, %51 ], [ %.pre, %Aig_ObjChild0Copy.exit ]
-  %.2 = phi ptr [ %.04788, %51 ], [ %.1, %Aig_ObjChild0Copy.exit ]
+  %.2 = phi ptr [ %.089, %51 ], [ %.1, %Aig_ObjChild0Copy.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %129 = getelementptr i8, ptr %128, i64 4
   %.val = load i32, ptr %129, align 4
@@ -1655,7 +1655,7 @@ Abc_UtilStrsav.exit62:                            ; preds = %Abc_UtilStrsav.exit
 32:                                               ; preds = %.lr.ph, %90
   %33 = phi ptr [ %27, %.lr.ph ], [ %91, %90 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %.03874 = phi ptr [ null, %.lr.ph ], [ %.2, %90 ]
+  %.075 = phi ptr [ null, %.lr.ph ], [ %.2, %90 ]
   %34 = getelementptr i8, ptr %33, i64 8
   %.val50 = load ptr, ptr %34, align 8
   %35 = getelementptr inbounds ptr, ptr %.val50, i64 %indvars.iv
@@ -1764,7 +1764,7 @@ Aig_ObjChild0Copy.exit67:                         ; preds = %74, %78
   br label %Saig_ObjIsLo.exit.thread
 
 Saig_ObjIsLo.exit.thread:                         ; preds = %69, %72, %Saig_ObjIsLo.exit, %88, %Aig_ObjChild0Copy.exit67, %Aig_ObjChild1Copy.exit
-  %.1 = phi ptr [ %68, %Aig_ObjChild1Copy.exit ], [ %87, %Aig_ObjChild0Copy.exit67 ], [ %.val49, %88 ], [ %73, %72 ], [ null, %Saig_ObjIsLo.exit ], [ %.03874, %69 ]
+  %.1 = phi ptr [ %68, %Aig_ObjChild1Copy.exit ], [ %87, %Aig_ObjChild0Copy.exit67 ], [ %.val49, %88 ], [ %73, %72 ], [ null, %Saig_ObjIsLo.exit ], [ %.075, %69 ]
   %89 = getelementptr inbounds i8, ptr %36, i64 40
   store ptr %.1, ptr %89, align 8
   %.pre = load ptr, ptr %2, align 8
@@ -1772,7 +1772,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %69, %72, %Saig_ObjI
 
 90:                                               ; preds = %Saig_ObjIsLo.exit.thread, %32
   %91 = phi ptr [ %33, %32 ], [ %.pre, %Saig_ObjIsLo.exit.thread ]
-  %.2 = phi ptr [ %.03874, %32 ], [ %.1, %Saig_ObjIsLo.exit.thread ]
+  %.2 = phi ptr [ %.075, %32 ], [ %.1, %Saig_ObjIsLo.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %92 = getelementptr i8, ptr %91, i64 4
   %.val = load i32, ptr %92, align 4

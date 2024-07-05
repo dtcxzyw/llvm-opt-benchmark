@@ -116,23 +116,23 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #3 {
   br label %58
 
 58:                                               ; preds = %53, %124
-  %.03347 = phi i32 [ 0, %53 ], [ %126, %124 ]
-  %.03546 = phi ptr [ %57, %53 ], [ %.03645, %124 ]
-  %.03645 = phi ptr [ %13, %53 ], [ %125, %124 ]
-  %59 = getelementptr inbounds i8, ptr %.03645, i64 -1
+  %.047 = phi ptr [ %13, %53 ], [ %125, %124 ]
+  %.03446 = phi i32 [ 0, %53 ], [ %126, %124 ]
+  %.03645 = phi ptr [ %57, %53 ], [ %.047, %124 ]
+  %59 = getelementptr inbounds i8, ptr %.047, i64 -1
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   br label %62
 
 62:                                               ; preds = %58, %PutI4Mode.exit
   %indvars.iv = phi i64 [ 0, %58 ], [ %indvars.iv.next, %PutI4Mode.exit ]
-  %.044 = phi i32 [ %61, %58 ], [ %70, %PutI4Mode.exit ]
-  %63 = getelementptr inbounds i8, ptr %.03546, i64 %indvars.iv
+  %.03344 = phi i32 [ %61, %58 ], [ %70, %PutI4Mode.exit ]
+  %63 = getelementptr inbounds i8, ptr %.03645, i64 %indvars.iv
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i64
-  %66 = zext nneg i32 %.044 to i64
+  %66 = zext nneg i32 %.03344 to i64
   %67 = getelementptr inbounds [10 x [10 x [9 x i8]]], ptr @kBModesProba, i64 0, i64 %65, i64 %66
-  %68 = getelementptr inbounds i8, ptr %.03645, i64 %indvars.iv
+  %68 = getelementptr inbounds i8, ptr %.047, i64 %indvars.iv
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = icmp ne i8 %69, 0
@@ -220,8 +220,8 @@ PutI4Mode.exit:                                   ; preds = %62, %76, %83, %97, 
   br i1 %exitcond.not, label %124, label %62, !llvm.loop !4
 
 124:                                              ; preds = %PutI4Mode.exit
-  %125 = getelementptr inbounds i8, ptr %.03645, i64 %55
-  %126 = add nuw nsw i32 %.03347, 1
+  %125 = getelementptr inbounds i8, ptr %.047, i64 %55
+  %126 = add nuw nsw i32 %.03446, 1
   %exitcond49.not = icmp eq i32 %126, 4
   br i1 %exitcond49.not, label %.loopexit, label %58, !llvm.loop !6
 

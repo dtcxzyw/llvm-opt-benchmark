@@ -7513,10 +7513,10 @@ invoke.cont277:                                   ; preds = %if.else272
 
 for.body283:                                      ; preds = %invoke.cont277, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1251
   %childChanged.02610 = phi i1 [ %239, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1251 ], [ false, %invoke.cont277 ]
-  %__begin7.sroa.0.02609 = phi ptr [ %incdec.ptr.i1252, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1251 ], [ %spec.select.i.i1121, %invoke.cont277 ]
-  %typeChanged.02608 = phi i1 [ %typeChanged.1.shrunk, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1251 ], [ false, %invoke.cont277 ]
+  %typeChanged.02609 = phi i1 [ %typeChanged.1.shrunk, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1251 ], [ false, %invoke.cont277 ]
+  %__begin7.sroa.0.02608 = phi ptr [ %incdec.ptr.i1252, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1251 ], [ %spec.select.i.i1121, %invoke.cont277 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %220 = load ptr, ptr %__begin7.sroa.0.02609, align 8, !noalias !64
+  %220 = load ptr, ptr %__begin7.sroa.0.02608, align 8, !noalias !64
   store ptr %220, ptr %ref.tmp285, align 8, !alias.scope !64
   %bf.load.i.i.i1131 = load i64, ptr %220, align 8, !noalias !64
   %bf.lshr.i.i.i1132 = lshr i64 %bf.load.i.i.i1131, 40
@@ -7716,7 +7716,7 @@ if.else.i1215:                                    ; preds = %invoke.cont304
           to label %invoke.cont306 unwind label %lpad305
 
 invoke.cont306:                                   ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal8TypeNodeEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i, %if.else.i1215
-  br i1 %typeChanged.02608, label %cleanup.done, label %lor.rhs308
+  br i1 %typeChanged.02609, label %cleanup.done, label %lor.rhs308
 
 lor.rhs308:                                       ; preds = %invoke.cont306
   invoke void @_ZNK4cvc58internal12NodeTemplateILb1EE7getTypeEb(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %ref.tmp309, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp285, i1 noundef zeroext false)
@@ -7807,7 +7807,7 @@ terminate.lpad.i1250:                             ; preds = %if.then13.i.i1249
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1251: ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit1240, %if.then.i.i1243, %if.then13.i.i1249
-  %incdec.ptr.i1252 = getelementptr inbounds i8, ptr %__begin7.sroa.0.02609, i64 8
+  %incdec.ptr.i1252 = getelementptr inbounds i8, ptr %__begin7.sroa.0.02608, i64 8
   %cmp.i1130.not = icmp eq ptr %incdec.ptr.i1252, %add.ptr.i.i1129
   br i1 %cmp.i1130.not, label %for.end325.loopexit, label %for.body283
 

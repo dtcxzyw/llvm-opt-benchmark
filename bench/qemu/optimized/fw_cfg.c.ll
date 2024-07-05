@@ -105,17 +105,17 @@ for.body.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %pdir_entry.020 = phi ptr [ %incdec.ptr, %for.inc ], [ %add.ptr, %for.body.preheader ]
-  %i.019 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %name = getelementptr inbounds i8, ptr %pdir_entry.020, i64 8
+  %i.020 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+  %pdir_entry.019 = phi ptr [ %incdec.ptr, %for.inc ], [ %add.ptr, %for.body.preheader ]
+  %name = getelementptr inbounds i8, ptr %pdir_entry.019, i64 8
   %call3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %filename) #7
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %7 = load i32, ptr %pdir_entry.020, align 4
+  %7 = load i32, ptr %pdir_entry.019, align 4
   %8 = call noundef i32 @llvm.bswap.i32(i32 %7)
-  %select = getelementptr inbounds i8, ptr %pdir_entry.020, i64 4
+  %select = getelementptr inbounds i8, ptr %pdir_entry.019, i64 4
   %9 = load i16, ptr %select, align 4
   %10 = call noundef i16 @llvm.bswap.i16(i16 %9)
   %conv6 = zext i32 %8 to i64
@@ -130,8 +130,8 @@ if.then:                                          ; preds = %for.body
   br label %for.end
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw i32 %i.019, 1
-  %incdec.ptr = getelementptr i8, ptr %pdir_entry.020, i64 64
+  %inc = add nuw i32 %i.020, 1
+  %incdec.ptr = getelementptr i8, ptr %pdir_entry.019, i64 64
   %exitcond.not = icmp eq i32 %inc, %6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 

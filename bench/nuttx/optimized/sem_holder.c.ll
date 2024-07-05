@@ -420,14 +420,14 @@ nxsem_freeholder.exit.i.i:                        ; preds = %26, %30
 40:                                               ; preds = %33
   %41 = zext i8 %..i.i.i to i32
   %42 = getelementptr inbounds i8, ptr %9, i64 56
-  %.023.i.i.i = load ptr, ptr %42, align 8
-  %.not2124.i.i.i = icmp eq ptr %.023.i.i.i, null
+  %.01523.i.i.i = load ptr, ptr %42, align 8
+  %.not2124.i.i.i = icmp eq ptr %.01523.i.i.i, null
   br i1 %.not2124.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i6.i.i
 
 .lr.ph.i6.i.i:                                    ; preds = %40, %51
-  %.026.i.i.i = phi ptr [ %.0.i.i.i, %51 ], [ %.023.i.i.i, %40 ]
-  %.01525.i.i.i = phi i32 [ %.1.i7.i.i, %51 ], [ %41, %40 ]
-  %43 = getelementptr inbounds i8, ptr %.026.i.i.i, i64 16
+  %.01526.i.i.i = phi ptr [ %.015.i.i.i, %51 ], [ %.01523.i.i.i, %40 ]
+  %.025.i.i.i = phi i32 [ %.1.i7.i.i, %51 ], [ %41, %40 ]
+  %43 = getelementptr inbounds i8, ptr %.01526.i.i.i, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
@@ -438,19 +438,19 @@ nxsem_freeholder.exit.i.i:                        ; preds = %26, %30
   %48 = getelementptr inbounds i8, ptr %46, i64 28
   %49 = load i8, ptr %48, align 4
   %50 = zext i8 %49 to i32
-  %spec.select.i.i.i = tail call i32 @llvm.smax.i32(i32 %.01525.i.i.i, i32 %50)
+  %spec.select.i.i.i = tail call i32 @llvm.smax.i32(i32 %.025.i.i.i, i32 %50)
   br label %51
 
 51:                                               ; preds = %47, %.lr.ph.i6.i.i
-  %.1.i7.i.i = phi i32 [ %.01525.i.i.i, %.lr.ph.i6.i.i ], [ %spec.select.i.i.i, %47 ]
-  %52 = getelementptr inbounds i8, ptr %.026.i.i.i, i64 8
-  %.0.i.i.i = load ptr, ptr %52, align 8
-  %.not21.i.i.i = icmp eq ptr %.0.i.i.i, null
+  %.1.i7.i.i = phi i32 [ %.025.i.i.i, %.lr.ph.i6.i.i ], [ %spec.select.i.i.i, %47 ]
+  %52 = getelementptr inbounds i8, ptr %.01526.i.i.i, i64 8
+  %.015.i.i.i = load ptr, ptr %52, align 8
+  %.not21.i.i.i = icmp eq ptr %.015.i.i.i, null
   br i1 %.not21.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i6.i.i, !llvm.loop !13
 
 ._crit_edge.i.i.i:                                ; preds = %51, %40
-  %.015.lcssa.i.i.i = phi i32 [ %41, %40 ], [ %.1.i7.i.i, %51 ]
-  %53 = tail call i32 @nxsched_set_priority(ptr noundef %9, i32 noundef %.015.lcssa.i.i.i) #7
+  %.0.lcssa.i.i.i = phi i32 [ %41, %40 ], [ %.1.i7.i.i, %51 ]
+  %53 = tail call i32 @nxsched_set_priority(ptr noundef %9, i32 noundef %.0.lcssa.i.i.i) #7
   br label %nxsem_restoreholderprio_others.exit
 
 nxsem_restoreholderprio_others.exit:              ; preds = %.lr.ph.i, %33, %._crit_edge.i.i.i
@@ -551,14 +551,14 @@ nxsem_freeholder.exit.i.i42:                      ; preds = %74, %78
 88:                                               ; preds = %81
   %89 = zext i8 %..i.i.i17 to i32
   %90 = getelementptr inbounds i8, ptr %56, i64 56
-  %.023.i.i.i19 = load ptr, ptr %90, align 8
-  %.not2124.i.i.i20 = icmp eq ptr %.023.i.i.i19, null
+  %.01523.i.i.i19 = load ptr, ptr %90, align 8
+  %.not2124.i.i.i20 = icmp eq ptr %.01523.i.i.i19, null
   br i1 %.not2124.i.i.i20, label %._crit_edge.i.i.i29, label %.lr.ph.i6.i.i21
 
 .lr.ph.i6.i.i21:                                  ; preds = %88, %99
-  %.026.i.i.i22 = phi ptr [ %.0.i.i.i27, %99 ], [ %.023.i.i.i19, %88 ]
-  %.01525.i.i.i23 = phi i32 [ %.1.i7.i.i26, %99 ], [ %89, %88 ]
-  %91 = getelementptr inbounds i8, ptr %.026.i.i.i22, i64 16
+  %.01526.i.i.i22 = phi ptr [ %.015.i.i.i27, %99 ], [ %.01523.i.i.i19, %88 ]
+  %.025.i.i.i23 = phi i32 [ %.1.i7.i.i26, %99 ], [ %89, %88 ]
+  %91 = getelementptr inbounds i8, ptr %.01526.i.i.i22, i64 16
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
@@ -569,19 +569,19 @@ nxsem_freeholder.exit.i.i42:                      ; preds = %74, %78
   %96 = getelementptr inbounds i8, ptr %94, i64 28
   %97 = load i8, ptr %96, align 4
   %98 = zext i8 %97 to i32
-  %spec.select.i.i.i25 = tail call i32 @llvm.smax.i32(i32 %.01525.i.i.i23, i32 %98)
+  %spec.select.i.i.i25 = tail call i32 @llvm.smax.i32(i32 %.025.i.i.i23, i32 %98)
   br label %99
 
 99:                                               ; preds = %95, %.lr.ph.i6.i.i21
-  %.1.i7.i.i26 = phi i32 [ %.01525.i.i.i23, %.lr.ph.i6.i.i21 ], [ %spec.select.i.i.i25, %95 ]
-  %100 = getelementptr inbounds i8, ptr %.026.i.i.i22, i64 8
-  %.0.i.i.i27 = load ptr, ptr %100, align 8
-  %.not21.i.i.i28 = icmp eq ptr %.0.i.i.i27, null
+  %.1.i7.i.i26 = phi i32 [ %.025.i.i.i23, %.lr.ph.i6.i.i21 ], [ %spec.select.i.i.i25, %95 ]
+  %100 = getelementptr inbounds i8, ptr %.01526.i.i.i22, i64 8
+  %.015.i.i.i27 = load ptr, ptr %100, align 8
+  %.not21.i.i.i28 = icmp eq ptr %.015.i.i.i27, null
   br i1 %.not21.i.i.i28, label %._crit_edge.i.i.i29, label %.lr.ph.i6.i.i21, !llvm.loop !13
 
 ._crit_edge.i.i.i29:                              ; preds = %99, %88
-  %.015.lcssa.i.i.i30 = phi i32 [ %89, %88 ], [ %.1.i7.i.i26, %99 ]
-  %101 = tail call i32 @nxsched_set_priority(ptr noundef %56, i32 noundef %.015.lcssa.i.i.i30) #7
+  %.0.lcssa.i.i.i30 = phi i32 [ %89, %88 ], [ %.1.i7.i.i26, %99 ]
+  %101 = tail call i32 @nxsched_set_priority(ptr noundef %56, i32 noundef %.0.lcssa.i.i.i30) #7
   br label %nxsem_foreachholder.exit10
 
 nxsem_restoreholderprio_self.exit:                ; preds = %.lr.ph.i7
@@ -757,14 +757,14 @@ nxsem_freeholder.exit.i:                          ; preds = %23, %27
 37:                                               ; preds = %30
   %38 = zext i8 %..i.i to i32
   %39 = getelementptr inbounds i8, ptr %7, i64 56
-  %.023.i.i = load ptr, ptr %39, align 8
-  %.not2124.i.i = icmp eq ptr %.023.i.i, null
+  %.01523.i.i = load ptr, ptr %39, align 8
+  %.not2124.i.i = icmp eq ptr %.01523.i.i, null
   br i1 %.not2124.i.i, label %._crit_edge.i.i, label %.lr.ph.i6.i
 
 .lr.ph.i6.i:                                      ; preds = %37, %48
-  %.026.i.i = phi ptr [ %.0.i.i, %48 ], [ %.023.i.i, %37 ]
-  %.01525.i.i = phi i32 [ %.1.i7.i, %48 ], [ %38, %37 ]
-  %40 = getelementptr inbounds i8, ptr %.026.i.i, i64 16
+  %.01526.i.i = phi ptr [ %.015.i.i, %48 ], [ %.01523.i.i, %37 ]
+  %.025.i.i = phi i32 [ %.1.i7.i, %48 ], [ %38, %37 ]
+  %40 = getelementptr inbounds i8, ptr %.01526.i.i, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
@@ -775,19 +775,19 @@ nxsem_freeholder.exit.i:                          ; preds = %23, %27
   %45 = getelementptr inbounds i8, ptr %43, i64 28
   %46 = load i8, ptr %45, align 4
   %47 = zext i8 %46 to i32
-  %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %.01525.i.i, i32 %47)
+  %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %.025.i.i, i32 %47)
   br label %48
 
 48:                                               ; preds = %44, %.lr.ph.i6.i
-  %.1.i7.i = phi i32 [ %.01525.i.i, %.lr.ph.i6.i ], [ %spec.select.i.i, %44 ]
-  %49 = getelementptr inbounds i8, ptr %.026.i.i, i64 8
-  %.0.i.i = load ptr, ptr %49, align 8
-  %.not21.i.i = icmp eq ptr %.0.i.i, null
+  %.1.i7.i = phi i32 [ %.025.i.i, %.lr.ph.i6.i ], [ %spec.select.i.i, %44 ]
+  %49 = getelementptr inbounds i8, ptr %.01526.i.i, i64 8
+  %.015.i.i = load ptr, ptr %49, align 8
+  %.not21.i.i = icmp eq ptr %.015.i.i, null
   br i1 %.not21.i.i, label %._crit_edge.i.i, label %.lr.ph.i6.i, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %48, %37
-  %.015.lcssa.i.i = phi i32 [ %38, %37 ], [ %.1.i7.i, %48 ]
-  %50 = tail call i32 @nxsched_set_priority(ptr noundef %7, i32 noundef %.015.lcssa.i.i) #7
+  %.0.lcssa.i.i = phi i32 [ %38, %37 ], [ %.1.i7.i, %48 ]
+  %50 = tail call i32 @nxsched_set_priority(ptr noundef %7, i32 noundef %.0.lcssa.i.i) #7
   br label %nxsem_restoreholderprio.exit
 
 nxsem_restoreholderprio.exit:                     ; preds = %30, %._crit_edge.i.i

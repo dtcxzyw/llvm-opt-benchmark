@@ -2580,14 +2580,14 @@ _ZN17ForkDynScopeFrame12getProcStmtsEv.exit.thread: ; preds = %24, %_ZN17ForkDyn
   br label %41
 
 41:                                               ; preds = %39, %44
-  %.052178 = phi ptr [ %35, %39 ], [ %46, %44 ]
-  %42 = getelementptr inbounds i8, ptr %.052178, i64 64
+  %.050178 = phi ptr [ %35, %39 ], [ %46, %44 ]
+  %42 = getelementptr inbounds i8, ptr %.050178, i64 64
   %.sroa.0.0.copyload.i.i.i71 = load i16, ptr %42, align 8
   %43 = icmp eq i16 %.sroa.0.0.copyload.i.i.i71, 48
   br i1 %43, label %44, label %.critedge
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %.052178, i64 8
+  %45 = getelementptr inbounds i8, ptr %.050178, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not54 = icmp eq ptr %46, null
   br i1 %.not54, label %.critedge67, label %41, !llvm.loop !23
@@ -2806,7 +2806,7 @@ _ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i:      ; preds = %103, %100, %.noexc8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt15_Deque_iteratorIP6AstVarRS1_PS1_EppEv.exit
-  %.050184 = phi ptr [ %.151, %_ZNSt15_Deque_iteratorIP6AstVarRS1_PS1_EppEv.exit ], [ null, %.lr.ph.preheader ]
+  %.051184 = phi ptr [ %.152, %_ZNSt15_Deque_iteratorIP6AstVarRS1_PS1_EppEv.exit ], [ null, %.lr.ph.preheader ]
   %.sroa.11.0183 = phi ptr [ %.sroa.11.1, %_ZNSt15_Deque_iteratorIP6AstVarRS1_PS1_EppEv.exit ], [ %127, %.lr.ph.preheader ]
   %.sroa.8.0182 = phi ptr [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIP6AstVarRS1_PS1_EppEv.exit ], [ %129, %.lr.ph.preheader ]
   %.sroa.0129.0181 = phi ptr [ %.sroa.0129.1, %_ZNSt15_Deque_iteratorIP6AstVarRS1_PS1_EppEv.exit ], [ %123, %.lr.ph.preheader ]
@@ -3103,11 +3103,11 @@ _ZN7AstNode9privateAsI6AstVarPS_EEPT_S2_.exit:    ; preds = %194, %193
 
 238:                                              ; preds = %235, %.noexc121
   store ptr getelementptr inbounds (i8, ptr @_ZTV9AstAssign, i64 16), ptr %206, align 8
-  %239 = call noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef %.050184, ptr noundef nonnull %206)
+  %239 = call noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef %.051184, ptr noundef nonnull %206)
   br label %240
 
 240:                                              ; preds = %238, %.lr.ph
-  %.151 = phi ptr [ %.050184, %.lr.ph ], [ %239, %238 ]
+  %.152 = phi ptr [ %.051184, %.lr.ph ], [ %239, %238 ]
   %241 = getelementptr inbounds i8, ptr %.sroa.0129.0181, i64 8
   %242 = icmp eq ptr %241, %.sroa.8.0182
   br i1 %242, label %243, label %_ZNSt15_Deque_iteratorIP6AstVarRS1_PS1_EppEv.exit
@@ -3179,23 +3179,23 @@ _ZNSt15_Deque_iteratorIP6AstVarRS1_PS1_EppEv.exit: ; preds = %240, %243
   br label %270
 
 ._crit_edge:                                      ; preds = %_ZNSt15_Deque_iteratorIP6AstVarRS1_PS1_EppEv.exit
-  %.not58 = icmp eq ptr %.151, null
+  %.not58 = icmp eq ptr %.152, null
   br i1 %.not58, label %._crit_edge.thread, label %259
 
 259:                                              ; preds = %._crit_edge
-  %260 = call noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef nonnull %83, ptr noundef nonnull %.151)
+  %260 = call noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef nonnull %83, ptr noundef nonnull %.152)
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %121, %259, %._crit_edge
-  %.not59 = icmp eq ptr %.052178, %35
+  %.not59 = icmp eq ptr %.050178, %35
   br i1 %.not59, label %262, label %261
 
 261:                                              ; preds = %._crit_edge.thread
-  call void @_ZN7AstNode17addHereThisAsNextEPS_(ptr noundef nonnull align 8 dereferenceable(152) %.052178, ptr noundef nonnull %83)
+  call void @_ZN7AstNode17addHereThisAsNextEPS_(ptr noundef nonnull align 8 dereferenceable(152) %.050178, ptr noundef nonnull %83)
   br label %_ZN10VNRelinker6relinkEP7AstNode.exit
 
 262:                                              ; preds = %._crit_edge.thread
-  %263 = call noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef nonnull %83, ptr noundef nonnull %.052178)
+  %263 = call noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef nonnull %83, ptr noundef nonnull %.050178)
   br label %_ZN10VNRelinker6relinkEP7AstNode.exit
 
 _ZN10VNRelinker6relinkEP7AstNode.exit:            ; preds = %261, %262
@@ -7469,30 +7469,30 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7AstNodeSt4lessIS
 
 _ZN7AstNode11privateCastI8AstClassPKS_EEPKT_S3_.exit: ; preds = %29
   %31 = getelementptr inbounds i8, ptr %28, i64 32
-  %.03795 = load ptr, ptr %31, align 8
-  %.not5196 = icmp eq ptr %.03795, null
+  %.03695 = load ptr, ptr %31, align 8
+  %.not5196 = icmp eq ptr %.03695, null
   br i1 %.not5196, label %.loopexit77, label %_ZN7AstNode11privateCastI8AstScopePS_EEPT_S2_.exit
 
 _ZN7AstNode11privateCastI8AstScopePS_EEPT_S2_.exit: ; preds = %_ZN7AstNode11privateCastI8AstClassPKS_EEPKT_S3_.exit, %.loopexit
-  %.03797 = phi ptr [ %.037, %.loopexit ], [ %.03795, %_ZN7AstNode11privateCastI8AstClassPKS_EEPKT_S3_.exit ]
-  %32 = getelementptr inbounds i8, ptr %.03797, i64 64
+  %.03697 = phi ptr [ %.036, %.loopexit ], [ %.03695, %_ZN7AstNode11privateCastI8AstClassPKS_EEPKT_S3_.exit ]
+  %32 = getelementptr inbounds i8, ptr %.03697, i64 64
   %.sroa.0.0.copyload.i.i.i55 = load i16, ptr %32, align 8
   %.not76 = icmp eq i16 %.sroa.0.0.copyload.i.i.i55, 37
   br i1 %.not76, label %33, label %41
 
 33:                                               ; preds = %_ZN7AstNode11privateCastI8AstScopePS_EEPT_S2_.exit
-  %34 = getelementptr inbounds i8, ptr %.03797, i64 32
-  %.03991 = load ptr, ptr %34, align 8
-  %.not5392 = icmp eq ptr %.03991, null
+  %34 = getelementptr inbounds i8, ptr %.03697, i64 32
+  %.03891 = load ptr, ptr %34, align 8
+  %.not5392 = icmp eq ptr %.03891, null
   br i1 %.not5392, label %.loopexit, label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %33, %39
-  %.03993 = phi ptr [ %.039, %39 ], [ %.03991, %33 ]
-  %35 = call noundef zeroext i1 @_ZN8AstClass16isCacheableChildEPK7AstNode(ptr noundef nonnull %.03993)
+  %.03893 = phi ptr [ %.038, %39 ], [ %.03891, %33 ]
+  %35 = call noundef zeroext i1 @_ZN8AstClass16isCacheableChildEPK7AstNode(ptr noundef nonnull %.03893)
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %.lr.ph94
-  call void @_ZN10VMemberMap12memberInsertERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7AstNodeSt4lessIS6_ESaISt4pairIKS6_S8_EEES8_b(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull %.03993, i1 noundef zeroext true)
+  call void @_ZN10VMemberMap12memberInsertERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7AstNodeSt4lessIS6_ESaISt4pairIKS6_S8_EEES8_b(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull %.03893, i1 noundef zeroext true)
   br label %39
 
 37:                                               ; preds = %.critedge.i
@@ -7502,60 +7502,60 @@ _ZN7AstNode11privateCastI8AstScopePS_EEPT_S2_.exit: ; preds = %_ZN7AstNode11priv
   resume { ptr, i32 } %38
 
 39:                                               ; preds = %.lr.ph94, %36
-  %40 = getelementptr inbounds i8, ptr %.03993, i64 8
-  %.039 = load ptr, ptr %40, align 8
-  %.not53 = icmp eq ptr %.039, null
+  %40 = getelementptr inbounds i8, ptr %.03893, i64 8
+  %.038 = load ptr, ptr %40, align 8
+  %.not53 = icmp eq ptr %.038, null
   br i1 %.not53, label %.loopexit, label %.lr.ph94, !llvm.loop !48
 
 41:                                               ; preds = %_ZN7AstNode11privateCastI8AstScopePS_EEPT_S2_.exit
-  %42 = call noundef zeroext i1 @_ZN8AstClass16isCacheableChildEPK7AstNode(ptr noundef nonnull %.03797)
+  %42 = call noundef zeroext i1 @_ZN8AstClass16isCacheableChildEPK7AstNode(ptr noundef nonnull %.03697)
   br i1 %42, label %43, label %.loopexit
 
 43:                                               ; preds = %41
-  call void @_ZN10VMemberMap12memberInsertERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7AstNodeSt4lessIS6_ESaISt4pairIKS6_S8_EEES8_b(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull %.03797, i1 noundef zeroext true)
+  call void @_ZN10VMemberMap12memberInsertERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7AstNodeSt4lessIS6_ESaISt4pairIKS6_S8_EEES8_b(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull %.03697, i1 noundef zeroext true)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %33, %43, %41
-  %44 = getelementptr inbounds i8, ptr %.03797, i64 8
-  %.037 = load ptr, ptr %44, align 8
-  %.not51 = icmp eq ptr %.037, null
+  %44 = getelementptr inbounds i8, ptr %.03697, i64 8
+  %.036 = load ptr, ptr %44, align 8
+  %.not51 = icmp eq ptr %.036, null
   br i1 %.not51, label %.loopexit77, label %_ZN7AstNode11privateCastI8AstScopePS_EEPT_S2_.exit, !llvm.loop !49
 
 _ZN7AstNode11privateCastI8AstIfacePKS_EEPKT_S3_.exit: ; preds = %29
   %45 = getelementptr inbounds i8, ptr %28, i64 32
-  %.03888 = load ptr, ptr %45, align 8
-  %.not4889 = icmp eq ptr %.03888, null
+  %.03988 = load ptr, ptr %45, align 8
+  %.not4889 = icmp eq ptr %.03988, null
   br i1 %.not4889, label %.loopexit77, label %_ZN7AstNode11privateCastI8AstScopePS_EEPT_S2_.exit63
 
 _ZN7AstNode11privateCastI8AstScopePS_EEPT_S2_.exit63: ; preds = %_ZN7AstNode11privateCastI8AstIfacePKS_EEPKT_S3_.exit, %.loopexit78
-  %.03890 = phi ptr [ %.038, %.loopexit78 ], [ %.03888, %_ZN7AstNode11privateCastI8AstIfacePKS_EEPKT_S3_.exit ]
-  %46 = getelementptr inbounds i8, ptr %.03890, i64 64
+  %.03990 = phi ptr [ %.039, %.loopexit78 ], [ %.03988, %_ZN7AstNode11privateCastI8AstIfacePKS_EEPKT_S3_.exit ]
+  %46 = getelementptr inbounds i8, ptr %.03990, i64 64
   %.sroa.0.0.copyload.i.i.i61 = load i16, ptr %46, align 8
   %.not = icmp eq i16 %.sroa.0.0.copyload.i.i.i61, 37
   br i1 %.not, label %47, label %50
 
 47:                                               ; preds = %_ZN7AstNode11privateCastI8AstScopePS_EEPT_S2_.exit63
-  %48 = getelementptr inbounds i8, ptr %.03890, i64 32
-  %.03684 = load ptr, ptr %48, align 8
-  %.not5085 = icmp eq ptr %.03684, null
+  %48 = getelementptr inbounds i8, ptr %.03990, i64 32
+  %.03784 = load ptr, ptr %48, align 8
+  %.not5085 = icmp eq ptr %.03784, null
   br i1 %.not5085, label %.loopexit78, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %47, %.lr.ph87
-  %.03686 = phi ptr [ %.036, %.lr.ph87 ], [ %.03684, %47 ]
-  call void @_ZN10VMemberMap12memberInsertERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7AstNodeSt4lessIS6_ESaISt4pairIKS6_S8_EEES8_b(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull %.03686, i1 noundef zeroext true)
-  %49 = getelementptr inbounds i8, ptr %.03686, i64 8
-  %.036 = load ptr, ptr %49, align 8
-  %.not50 = icmp eq ptr %.036, null
+  %.03786 = phi ptr [ %.037, %.lr.ph87 ], [ %.03784, %47 ]
+  call void @_ZN10VMemberMap12memberInsertERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7AstNodeSt4lessIS6_ESaISt4pairIKS6_S8_EEES8_b(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull %.03786, i1 noundef zeroext true)
+  %49 = getelementptr inbounds i8, ptr %.03786, i64 8
+  %.037 = load ptr, ptr %49, align 8
+  %.not50 = icmp eq ptr %.037, null
   br i1 %.not50, label %.loopexit78, label %.lr.ph87, !llvm.loop !50
 
 50:                                               ; preds = %_ZN7AstNode11privateCastI8AstScopePS_EEPT_S2_.exit63
-  call void @_ZN10VMemberMap12memberInsertERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7AstNodeSt4lessIS6_ESaISt4pairIKS6_S8_EEES8_b(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull %.03890, i1 noundef zeroext true)
+  call void @_ZN10VMemberMap12memberInsertERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7AstNodeSt4lessIS6_ESaISt4pairIKS6_S8_EEES8_b(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull %.03990, i1 noundef zeroext true)
   br label %.loopexit78
 
 .loopexit78:                                      ; preds = %.lr.ph87, %47, %50
-  %51 = getelementptr inbounds i8, ptr %.03890, i64 8
-  %.038 = load ptr, ptr %51, align 8
-  %.not48 = icmp eq ptr %.038, null
+  %51 = getelementptr inbounds i8, ptr %.03990, i64 8
+  %.039 = load ptr, ptr %51, align 8
+  %.not48 = icmp eq ptr %.039, null
   br i1 %.not48, label %.loopexit77, label %_ZN7AstNode11privateCastI8AstScopePS_EEPT_S2_.exit63, !llvm.loop !51
 
 52:                                               ; preds = %29
@@ -9291,7 +9291,7 @@ _ZZN7AstNode13predicateImplI9AstVarRefLb0EZN15DynScopeVisitor5visitEP12AstAssign
   br label %.backedge
 
 .loopexit:                                        ; preds = %.backedge, %81, %.preheader.thread, %.preheader, %18
-  %.011 = phi i1 [ true, %18 ], [ false, %.preheader ], [ false, %.preheader.thread ], [ false, %.backedge ], [ true, %81 ]
+  %.0 = phi i1 [ true, %18 ], [ false, %.preheader ], [ false, %.preheader.thread ], [ false, %.backedge ], [ true, %81 ]
   %108 = load ptr, ptr %3, align 8
   %.not.i.i.i28 = icmp eq ptr %108, null
   br i1 %.not.i.i.i28, label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit29, label %109
@@ -9301,7 +9301,7 @@ _ZZN7AstNode13predicateImplI9AstVarRefLb0EZN15DynScopeVisitor5visitEP12AstAssign
   br label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit29
 
 _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit29:        ; preds = %.loopexit, %109
-  ret i1 %.011
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9645,7 +9645,7 @@ _ZZN7AstNode13predicateImplI7AstForkLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUl
   br i1 %93, label %.lr.ph, label %_ZZN7AstNode13predicateImplI7AstForkLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread, !llvm.loop !73
 
 _ZZN7AstNode13predicateImplI7AstForkLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread: ; preds = %_ZZN7AstNode13predicateImplI7AstForkLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit27, %71, %_ZZN7AstNode13predicateImplI7AstForkLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit, %15
-  %.011 = phi i1 [ true, %15 ], [ false, %_ZZN7AstNode13predicateImplI7AstForkLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit ], [ false, %_ZZN7AstNode13predicateImplI7AstForkLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit27 ], [ true, %71 ]
+  %.0 = phi i1 [ true, %15 ], [ false, %_ZZN7AstNode13predicateImplI7AstForkLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit ], [ false, %_ZZN7AstNode13predicateImplI7AstForkLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit27 ], [ true, %71 ]
   %94 = load ptr, ptr %3, align 8
   %.not.i.i.i28 = icmp eq ptr %94, null
   br i1 %.not.i.i.i28, label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit29, label %95
@@ -9655,7 +9655,7 @@ _ZZN7AstNode13predicateImplI7AstForkLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUl
   br label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit29
 
 _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit29:        ; preds = %_ZZN7AstNode13predicateImplI7AstForkLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread, %95
-  ret i1 %.011
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9900,7 +9900,7 @@ _ZZN7AstNode13predicateImplI12AstAssignDlyLb0EZN15DynScopeVisitor12hasAsyncForkE
   br i1 %89, label %.lr.ph, label %_ZZN7AstNode13predicateImplI12AstAssignDlyLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread, !llvm.loop !75
 
 _ZZN7AstNode13predicateImplI12AstAssignDlyLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread: ; preds = %_ZZN7AstNode13predicateImplI12AstAssignDlyLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit24, %66, %_ZZN7AstNode13predicateImplI12AstAssignDlyLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit, %11
-  %.011 = phi i1 [ true, %11 ], [ false, %_ZZN7AstNode13predicateImplI12AstAssignDlyLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit ], [ %68, %66 ], [ %68, %_ZZN7AstNode13predicateImplI12AstAssignDlyLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit24 ]
+  %.0 = phi i1 [ true, %11 ], [ false, %_ZZN7AstNode13predicateImplI12AstAssignDlyLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit ], [ %68, %66 ], [ %68, %_ZZN7AstNode13predicateImplI12AstAssignDlyLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit24 ]
   %90 = load ptr, ptr %3, align 8
   %.not.i.i.i25 = icmp eq ptr %90, null
   br i1 %.not.i.i.i25, label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit26, label %91
@@ -9910,7 +9910,7 @@ _ZZN7AstNode13predicateImplI12AstAssignDlyLb0EZN15DynScopeVisitor12hasAsyncForkE
   br label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit26
 
 _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit26:        ; preds = %_ZZN7AstNode13predicateImplI12AstAssignDlyLb0EZN15DynScopeVisitor12hasAsyncForkEPS_EUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread, %91
-  ret i1 %.011
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

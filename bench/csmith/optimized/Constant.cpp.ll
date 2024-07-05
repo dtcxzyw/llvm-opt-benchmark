@@ -793,8 +793,8 @@ define internal fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_
   br label %58
 
 58:                                               ; preds = %.lr.ph, %162
-  %.022.i54 = phi i64 [ 0, %.lr.ph ], [ %163, %162 ]
-  %59 = invoke noundef zeroext i1 @_ZNK4Type11is_bitfieldEm(ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %.022.i54)
+  %.026.i54 = phi i64 [ 0, %.lr.ph ], [ %163, %162 ]
+  %59 = invoke noundef zeroext i1 @_ZNK4Type11is_bitfieldEm(ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %.026.i54)
           to label %60 unwind label %.loopexit
 
 60:                                               ; preds = %58
@@ -802,7 +802,7 @@ define internal fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_
 
 61:                                               ; preds = %60
   %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds i32, ptr %62, i64 %.022.i54
+  %63 = getelementptr inbounds i32, ptr %62, i64 %.026.i54
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %162, label %68
@@ -825,7 +825,7 @@ define internal fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_
 
 68:                                               ; preds = %61
   %69 = load ptr, ptr %53, align 8
-  %70 = getelementptr inbounds ptr, ptr %69, i64 %.022.i54
+  %70 = getelementptr inbounds ptr, ptr %69, i64 %.026.i54
   %71 = load ptr, ptr %70, align 8
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -1034,7 +1034,7 @@ exp2.i.noexc:                                     ; preds = %98
   br label %143
 
 137:                                              ; preds = %130
-  %.not31.i = icmp eq i64 %.022.i54, 0
+  %.not31.i = icmp eq i64 %.026.i54, 0
   br i1 %.not31.i, label %140, label %138
 
 138:                                              ; preds = %137
@@ -1057,7 +1057,7 @@ exp2.i.noexc:                                     ; preds = %98
 
 144:                                              ; preds = %60
   %145 = load ptr, ptr %53, align 8
-  %146 = getelementptr inbounds ptr, ptr %145, i64 %.022.i54
+  %146 = getelementptr inbounds ptr, ptr %145, i64 %.026.i54
   %147 = load ptr, ptr %146, align 8
   invoke fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %147)
           to label %148 unwind label %.loopexit
@@ -1084,7 +1084,7 @@ exp2.i.noexc:                                     ; preds = %98
   br label %161
 
 155:                                              ; preds = %148
-  %.not28.i = icmp eq i64 %.022.i54, 0
+  %.not28.i = icmp eq i64 %.026.i54, 0
   br i1 %.not28.i, label %158, label %156
 
 156:                                              ; preds = %155
@@ -1111,7 +1111,7 @@ exp2.i.noexc:                                     ; preds = %98
   br label %162
 
 162:                                              ; preds = %.sink.split, %61
-  %163 = add nuw i64 %.022.i54, 1
+  %163 = add nuw i64 %.026.i54, 1
   %164 = load ptr, ptr %54, align 8
   %165 = load ptr, ptr %53, align 8
   %166 = ptrtoint ptr %164 to i64

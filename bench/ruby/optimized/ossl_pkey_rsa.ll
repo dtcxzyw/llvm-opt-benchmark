@@ -147,8 +147,8 @@ define internal noundef i64 @ossl_rsa_initialize(i32 noundef %0, ptr noundef %1,
 
 12:                                               ; preds = %9
   %13 = call ptr @RSA_new() #5
-  %.not43 = icmp eq ptr %13, null
-  br i1 %.not43, label %14, label %38
+  %.not42 = icmp eq ptr %13, null
+  br i1 %.not42, label %14, label %38
 
 14:                                               ; preds = %12
   %15 = load i64, ptr @eRSAError, align 8
@@ -164,15 +164,15 @@ define internal noundef i64 @ossl_rsa_initialize(i32 noundef %0, ptr noundef %1,
   store i64 %20, ptr %4, align 8
   %21 = call ptr @ossl_obj2bio(ptr noundef nonnull %4) #5
   %22 = call ptr @d2i_RSAPublicKey_bio(ptr noundef %21, ptr noundef null) #5
-  %.not39 = icmp eq ptr %22, null
-  br i1 %.not39, label %23, label %38
+  %.not38 = icmp eq ptr %22, null
+  br i1 %.not38, label %23, label %38
 
 23:                                               ; preds = %16
   %24 = call i64 @BIO_ctrl(ptr noundef %21, i32 noundef 1, i64 noundef 0, ptr noundef null) #5
   call void @ossl_clear_error() #5
   %25 = call ptr @PEM_read_bio_RSAPublicKey(ptr noundef %21, ptr noundef null, ptr noundef null, ptr noundef null) #5
-  %.not40 = icmp eq ptr %25, null
-  br i1 %.not40, label %26, label %38
+  %.not39 = icmp eq ptr %25, null
+  br i1 %.not39, label %26, label %38
 
 26:                                               ; preds = %23
   %27 = call i64 @BIO_ctrl(ptr noundef %21, i32 noundef 1, i64 noundef 0, ptr noundef null) #5
@@ -180,8 +180,8 @@ define internal noundef i64 @ossl_rsa_initialize(i32 noundef %0, ptr noundef %1,
   %28 = load i64, ptr %5, align 8
   %29 = call ptr @ossl_pkey_read_generic(ptr noundef %21, i64 noundef %28) #5
   %30 = call i32 @BIO_free(ptr noundef %21) #5
-  %.not41 = icmp eq ptr %29, null
-  br i1 %.not41, label %31, label %33
+  %.not40 = icmp eq ptr %29, null
+  br i1 %.not40, label %31, label %33
 
 31:                                               ; preds = %26
   %32 = load i64, ptr @eRSAError, align 8
@@ -190,8 +190,8 @@ define internal noundef i64 @ossl_rsa_initialize(i32 noundef %0, ptr noundef %1,
 
 33:                                               ; preds = %26
   %34 = call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %29) #5
-  %.not42 = icmp eq i32 %34, 6
-  br i1 %.not42, label %45, label %35
+  %.not41 = icmp eq i32 %34, 6
+  br i1 %.not41, label %45, label %35
 
 35:                                               ; preds = %33
   call void @EVP_PKEY_free(ptr noundef nonnull %29) #5
@@ -201,21 +201,21 @@ define internal noundef i64 @ossl_rsa_initialize(i32 noundef %0, ptr noundef %1,
   unreachable
 
 38:                                               ; preds = %23, %16, %12
-  %.031 = phi ptr [ %13, %12 ], [ %22, %16 ], [ %25, %23 ]
-  %.0 = phi ptr [ null, %12 ], [ %21, %16 ], [ %21, %23 ]
-  %39 = call i32 @BIO_free(ptr noundef %.0) #5
+  %.032 = phi ptr [ %13, %12 ], [ %22, %16 ], [ %25, %23 ]
+  %.031 = phi ptr [ null, %12 ], [ %21, %16 ], [ %21, %23 ]
+  %39 = call i32 @BIO_free(ptr noundef %.031) #5
   %40 = call ptr @EVP_PKEY_new() #5
-  %.not44 = icmp eq ptr %40, null
-  br i1 %.not44, label %43, label %41
+  %.not43 = icmp eq ptr %40, null
+  br i1 %.not43, label %43, label %41
 
 41:                                               ; preds = %38
-  %42 = call i32 @EVP_PKEY_assign(ptr noundef nonnull %40, i32 noundef 6, ptr noundef nonnull %.031) #5
-  %.not45 = icmp eq i32 %42, 1
-  br i1 %.not45, label %45, label %43
+  %42 = call i32 @EVP_PKEY_assign(ptr noundef nonnull %40, i32 noundef 6, ptr noundef nonnull %.032) #5
+  %.not44 = icmp eq i32 %42, 1
+  br i1 %.not44, label %45, label %43
 
 43:                                               ; preds = %41, %38
   call void @EVP_PKEY_free(ptr noundef %40) #5
-  call void @RSA_free(ptr noundef nonnull %.031) #5
+  call void @RSA_free(ptr noundef nonnull %.032) #5
   %44 = load i64, ptr @eRSAError, align 8
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %44, ptr noundef nonnull @.str.28) #6
   unreachable

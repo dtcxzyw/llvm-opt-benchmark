@@ -233,27 +233,27 @@ define dso_local void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noun
   br label %36
 
 36:                                               ; preds = %5, %47
-  %.050 = phi i32 [ 0, %5 ], [ %48, %47 ]
+  %.050 = phi float [ 0.000000e+00, %5 ], [ %38, %47 ]
   %.04549 = phi float [ 0.000000e+00, %5 ], [ %45, %47 ]
-  %.04648 = phi float [ 0.000000e+00, %5 ], [ %38, %47 ]
-  %37 = uitofp nneg i32 %.050 to float
+  %.04648 = phi i32 [ 0, %5 ], [ %48, %47 ]
+  %37 = uitofp nneg i32 %.04648 to float
   %38 = tail call float @llvm.fmuladd.f32(float %37, float %14, float %28)
   %39 = load i32, ptr %35, align 4
-  %40 = add nsw i32 %39, %.050
+  %40 = add nsw i32 %39, %.04648
   %41 = srem i32 %40, 256
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds [256 x float], ptr %1, i64 0, i64 %42
   %44 = load float, ptr %43, align 4
   %45 = tail call float @llvm.fmuladd.f32(float %44, float %24, float %34)
-  %.not = icmp eq i32 %.050, 0
+  %.not = icmp eq i32 %.04648, 0
   br i1 %.not, label %47, label %46
 
 46:                                               ; preds = %36
-  tail call void @_Z13imguiDrawLinefffffj(float noundef %.04648, float noundef %.04549, float noundef %38, float noundef %45, float noundef 2.000000e+00, i32 noundef %4)
+  tail call void @_Z13imguiDrawLinefffffj(float noundef %.050, float noundef %.04549, float noundef %38, float noundef %45, float noundef 2.000000e+00, i32 noundef %4)
   br label %47
 
 47:                                               ; preds = %46, %36
-  %48 = add nuw nsw i32 %.050, 1
+  %48 = add nuw nsw i32 %.04648, 1
   %exitcond.not = icmp eq i32 %48, 255
   br i1 %exitcond.not, label %49, label %36, !llvm.loop !10
 

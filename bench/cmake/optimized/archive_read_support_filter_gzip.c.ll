@@ -137,18 +137,18 @@ define internal fastcc i64 @peek_at_header(ptr noundef %0, ptr noundef writeonly
   br label %29
 
 29:                                               ; preds = %24, %19
+  %.054 = phi i64 [ %28, %24 ], [ 10, %19 ]
   %.053 = phi ptr [ %22, %24 ], [ %5, %19 ]
-  %.0 = phi i64 [ %28, %24 ], [ 10, %19 ]
   %30 = and i32 %13, 8
   %.not70 = icmp eq i32 %30, 0
   br i1 %.not70, label %44, label %.preheader84
 
 .preheader84:                                     ; preds = %29, %.thread
-  %.154 = phi ptr [ %.25579, %.thread ], [ %.053, %29 ]
-  %.1 = phi i64 [ %31, %.thread ], [ %.0, %29 ]
-  %31 = add nuw nsw i64 %.1, 1
+  %.155 = phi i64 [ %31, %.thread ], [ %.054, %29 ]
+  %.1 = phi ptr [ %.279, %.thread ], [ %.053, %29 ]
+  %31 = add nuw nsw i64 %.155, 1
   %32 = load i64, ptr %4, align 8
-  %.not71 = icmp sgt i64 %32, %.1
+  %.not71 = icmp sgt i64 %32, %.155
   br i1 %.not71, label %.thread, label %33
 
 33:                                               ; preds = %.preheader84
@@ -157,8 +157,8 @@ define internal fastcc i64 @peek_at_header(ptr noundef %0, ptr noundef writeonly
   br i1 %35, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %.preheader84, %33
-  %.25579 = phi ptr [ %34, %33 ], [ %.154, %.preheader84 ]
-  %36 = getelementptr inbounds i8, ptr %.25579, i64 %.1
+  %.279 = phi ptr [ %34, %33 ], [ %.1, %.preheader84 ]
+  %36 = getelementptr inbounds i8, ptr %.279, i64 %.155
   %37 = load i8, ptr %36, align 1
   %.not72 = icmp eq i8 %37, 0
   br i1 %.not72, label %38, label %.preheader84, !llvm.loop !5
@@ -170,23 +170,23 @@ define internal fastcc i64 @peek_at_header(ptr noundef %0, ptr noundef writeonly
   %40 = getelementptr inbounds i8, ptr %2, i64 160
   %41 = load ptr, ptr %40, align 8
   call void @free(ptr noundef %41) #8
-  %42 = getelementptr inbounds i8, ptr %.25579, i64 %.0
+  %42 = getelementptr inbounds i8, ptr %.279, i64 %.054
   %43 = call noalias ptr @strdup(ptr noundef nonnull %42) #8
   store ptr %43, ptr %40, align 8
   br label %44
 
 44:                                               ; preds = %38, %39, %29
-  %.356 = phi ptr [ %.25579, %39 ], [ %.25579, %38 ], [ %.053, %29 ]
-  %.2 = phi i64 [ %31, %39 ], [ %31, %38 ], [ %.0, %29 ]
+  %.256 = phi i64 [ %31, %39 ], [ %31, %38 ], [ %.054, %29 ]
+  %.3 = phi ptr [ %.279, %39 ], [ %.279, %38 ], [ %.053, %29 ]
   %.not73 = icmp ult i8 %12, 16
   br i1 %.not73, label %.loopexit83, label %.preheader
 
 .preheader:                                       ; preds = %44, %.thread80
-  %.457 = phi ptr [ %.55882, %.thread80 ], [ %.356, %44 ]
-  %.3 = phi i64 [ %45, %.thread80 ], [ %.2, %44 ]
-  %45 = add nsw i64 %.3, 1
+  %.357 = phi i64 [ %45, %.thread80 ], [ %.256, %44 ]
+  %.4 = phi ptr [ %.582, %.thread80 ], [ %.3, %44 ]
+  %45 = add nsw i64 %.357, 1
   %46 = load i64, ptr %4, align 8
-  %.not74 = icmp sgt i64 %46, %.3
+  %.not74 = icmp sgt i64 %46, %.357
   br i1 %.not74, label %.thread80, label %47
 
 47:                                               ; preds = %.preheader
@@ -195,26 +195,26 @@ define internal fastcc i64 @peek_at_header(ptr noundef %0, ptr noundef writeonly
   br i1 %49, label %.loopexit, label %.thread80
 
 .thread80:                                        ; preds = %.preheader, %47
-  %.55882 = phi ptr [ %48, %47 ], [ %.457, %.preheader ]
-  %50 = getelementptr inbounds i8, ptr %.55882, i64 %.3
+  %.582 = phi ptr [ %48, %47 ], [ %.4, %.preheader ]
+  %50 = getelementptr inbounds i8, ptr %.582, i64 %.357
   %51 = load i8, ptr %50, align 1
   %.not75 = icmp eq i8 %51, 0
   br i1 %.not75, label %.loopexit83, label %.preheader, !llvm.loop !7
 
 .loopexit83:                                      ; preds = %.thread80, %44
-  %.4 = phi i64 [ %.2, %44 ], [ %45, %.thread80 ]
+  %.458 = phi i64 [ %.256, %44 ], [ %45, %.thread80 ]
   %52 = and i32 %13, 2
   %.not76 = icmp eq i32 %52, 0
   br i1 %.not76, label %57, label %53
 
 53:                                               ; preds = %.loopexit83
-  %54 = add nsw i64 %.4, 2
+  %54 = add nsw i64 %.458, 2
   %55 = call ptr @__archive_read_filter_ahead(ptr noundef %0, i64 noundef %54, ptr noundef nonnull %4) #8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.loopexit, label %57
 
 57:                                               ; preds = %53, %.loopexit83
-  %.5 = phi i64 [ %.4, %.loopexit83 ], [ %54, %53 ]
+  %.559 = phi i64 [ %.458, %.loopexit83 ], [ %54, %53 ]
   %.not77 = icmp eq ptr %1, null
   br i1 %.not77, label %.loopexit, label %58
 
@@ -223,8 +223,8 @@ define internal fastcc i64 @peek_at_header(ptr noundef %0, ptr noundef writeonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %47, %57, %58, %53, %21, %10, %9, %3
-  %.059 = phi i64 [ 0, %3 ], [ 0, %9 ], [ 0, %10 ], [ 0, %21 ], [ 0, %53 ], [ %.5, %58 ], [ %.5, %57 ], [ 0, %47 ], [ 0, %33 ]
-  ret i64 %.059
+  %.0 = phi i64 [ 0, %3 ], [ 0, %9 ], [ 0, %10 ], [ 0, %21 ], [ 0, %53 ], [ %.559, %58 ], [ %.559, %57 ], [ 0, %47 ], [ 0, %33 ]
+  ret i64 %.0
 }
 
 declare ptr @__archive_read_filter_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1

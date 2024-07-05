@@ -595,12 +595,12 @@ define noundef i64 @_Z20logged_rv64i_ukmsr64P11processor_t6insn_tm(ptr noundef %
   br label %35
 
 35:                                               ; preds = %20, %51
+  %.03448 = phi i64 [ %33, %20 ], [ %48, %51 ]
   %36 = phi i1 [ true, %20 ], [ false, %51 ]
-  %.03448 = phi i64 [ 0, %20 ], [ 32, %51 ]
-  %.03547 = phi i64 [ %33, %20 ], [ %48, %51 ]
-  %37 = shl nuw i64 4294967295, %.03448
+  %.03547 = phi i64 [ 0, %20 ], [ 32, %51 ]
+  %37 = shl nuw i64 4294967295, %.03547
   %38 = and i64 %37, %25
-  %39 = shl i64 8589934590, %.03448
+  %39 = shl i64 8589934590, %.03547
   %40 = xor i64 %39, -1
   %41 = and i64 %37, %40
   %42 = udiv i64 %38, %41
@@ -609,8 +609,8 @@ define noundef i64 @_Z20logged_rv64i_ukmsr64P11processor_t6insn_tm(ptr noundef %
   %45 = udiv i64 %44, %41
   %46 = and i64 %45, 4294967295
   %47 = mul nuw i64 %46, %43
-  %.not.i = icmp ugt i64 %47, %.03547
-  %48 = tail call noundef i64 @llvm.usub.sat.i64(i64 %.03547, i64 %47)
+  %.not.i = icmp ugt i64 %47, %.03448
+  %48 = tail call noundef i64 @llvm.usub.sat.i64(i64 %.03448, i64 %47)
   br i1 %.not.i, label %49, label %51
 
 49:                                               ; preds = %35
@@ -961,12 +961,12 @@ define noundef i64 @_Z18fast_rv64e_ukmsr64P11processor_t6insn_tm(ptr nocapture n
   br label %56
 
 56:                                               ; preds = %52, %72
+  %.03958 = phi i64 [ %54, %52 ], [ %69, %72 ]
   %57 = phi i1 [ true, %52 ], [ false, %72 ]
-  %.03858 = phi i64 [ 0, %52 ], [ 32, %72 ]
-  %.03957 = phi i64 [ %54, %52 ], [ %69, %72 ]
-  %58 = shl nuw i64 4294967295, %.03858
+  %.04057 = phi i64 [ 0, %52 ], [ 32, %72 ]
+  %58 = shl nuw i64 4294967295, %.04057
   %59 = and i64 %58, %32
-  %60 = shl i64 8589934590, %.03858
+  %60 = shl i64 8589934590, %.04057
   %61 = xor i64 %60, -1
   %62 = and i64 %58, %61
   %63 = udiv i64 %59, %62
@@ -975,8 +975,8 @@ define noundef i64 @_Z18fast_rv64e_ukmsr64P11processor_t6insn_tm(ptr nocapture n
   %66 = udiv i64 %65, %62
   %67 = and i64 %66, 4294967295
   %68 = mul nuw i64 %67, %64
-  %.not.i = icmp ugt i64 %68, %.03957
-  %69 = tail call noundef i64 @llvm.usub.sat.i64(i64 %.03957, i64 %68)
+  %.not.i = icmp ugt i64 %68, %.03958
+  %69 = tail call noundef i64 @llvm.usub.sat.i64(i64 %.03958, i64 %68)
   br i1 %.not.i, label %70, label %72
 
 70:                                               ; preds = %56
@@ -1409,12 +1409,12 @@ define noundef i64 @_Z20logged_rv64e_ukmsr64P11processor_t6insn_tm(ptr noundef %
   br label %56
 
 56:                                               ; preds = %52, %72
+  %.04264 = phi i64 [ %54, %52 ], [ %69, %72 ]
   %57 = phi i1 [ true, %52 ], [ false, %72 ]
-  %.04264 = phi i64 [ 0, %52 ], [ 32, %72 ]
-  %.04363 = phi i64 [ %54, %52 ], [ %69, %72 ]
-  %58 = shl nuw i64 4294967295, %.04264
+  %.04363 = phi i64 [ 0, %52 ], [ 32, %72 ]
+  %58 = shl nuw i64 4294967295, %.04363
   %59 = and i64 %58, %32
-  %60 = shl i64 8589934590, %.04264
+  %60 = shl i64 8589934590, %.04363
   %61 = xor i64 %60, -1
   %62 = and i64 %58, %61
   %63 = udiv i64 %59, %62
@@ -1423,8 +1423,8 @@ define noundef i64 @_Z20logged_rv64e_ukmsr64P11processor_t6insn_tm(ptr noundef %
   %66 = udiv i64 %65, %62
   %67 = and i64 %66, 4294967295
   %68 = mul nuw i64 %67, %64
-  %.not.i = icmp ugt i64 %68, %.04363
-  %69 = tail call noundef i64 @llvm.usub.sat.i64(i64 %.04363, i64 %68)
+  %.not.i = icmp ugt i64 %68, %.04264
+  %69 = tail call noundef i64 @llvm.usub.sat.i64(i64 %.04264, i64 %68)
   br i1 %.not.i, label %70, label %72
 
 70:                                               ; preds = %56

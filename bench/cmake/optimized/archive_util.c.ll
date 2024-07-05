@@ -346,10 +346,10 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
 
 6:                                                ; preds = %4, %23
   %indvars.iv = phi i64 [ 1, %4 ], [ %indvars.iv.next, %23 ]
-  %.083 = phi ptr [ null, %4 ], [ %.1, %23 ]
-  %.05882 = phi ptr [ null, %4 ], [ %.159, %23 ]
-  %.06081 = phi i32 [ 0, %4 ], [ %.161, %23 ]
-  %.06280 = phi i32 [ 0, %4 ], [ %.163, %23 ]
+  %.05982 = phi i32 [ 0, %4 ], [ %.160, %23 ]
+  %.06181 = phi ptr [ null, %4 ], [ %.162, %23 ]
+  %.06380 = phi ptr [ null, %4 ], [ %.164, %23 ]
+  %.06579 = phi i32 [ 0, %4 ], [ %.166, %23 ]
   %7 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %5) #18
@@ -357,40 +357,40 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %6
-  %12 = add i32 %.06280, 1
+  %12 = add i32 %.05982, 1
   %13 = zext i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 3
-  %15 = tail call ptr @realloc(ptr noundef %.05882, i64 noundef %14) #20
+  %15 = tail call ptr @realloc(ptr noundef %.06380, i64 noundef %14) #20
   %.not70 = icmp eq ptr %15, null
   br i1 %.not70, label %16, label %23
 
 16:                                               ; preds = %11
-  tail call void @free(ptr noundef %.083) #17
-  tail call void @free(ptr noundef %.05882) #17
+  tail call void @free(ptr noundef %.06181) #17
+  tail call void @free(ptr noundef %.06380) #17
   br label %43
 
 17:                                               ; preds = %6
-  %18 = add i32 %.06081, 1
+  %18 = add i32 %.06579, 1
   %19 = zext i32 %18 to i64
   %20 = shl nuw nsw i64 %19, 3
-  %21 = tail call ptr @realloc(ptr noundef %.083, i64 noundef %20) #20
+  %21 = tail call ptr @realloc(ptr noundef %.06181, i64 noundef %20) #20
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %22, label %23
 
 22:                                               ; preds = %17
-  tail call void @free(ptr noundef %.083) #17
-  tail call void @free(ptr noundef %.05882) #17
+  tail call void @free(ptr noundef %.06181) #17
+  tail call void @free(ptr noundef %.06380) #17
   br label %43
 
 23:                                               ; preds = %17, %11
-  %.06280.sink = phi i32 [ %.06280, %11 ], [ %.06081, %17 ]
+  %.05982.sink = phi i32 [ %.05982, %11 ], [ %.06579, %17 ]
   %.sink111 = phi ptr [ %15, %11 ], [ %21, %17 ]
-  %.163 = phi i32 [ %12, %11 ], [ %.06280, %17 ]
-  %.161 = phi i32 [ %.06081, %11 ], [ %18, %17 ]
-  %.159 = phi ptr [ %15, %11 ], [ %.05882, %17 ]
-  %.1 = phi ptr [ %.083, %11 ], [ %21, %17 ]
+  %.166 = phi i32 [ %.06579, %11 ], [ %18, %17 ]
+  %.164 = phi ptr [ %15, %11 ], [ %.06380, %17 ]
+  %.162 = phi ptr [ %.06181, %11 ], [ %21, %17 ]
+  %.160 = phi i32 [ %12, %11 ], [ %.05982, %17 ]
   %24 = load ptr, ptr %7, align 8
-  %25 = zext i32 %.06280.sink to i64
+  %25 = zext i32 %.05982.sink to i64
   %26 = getelementptr inbounds ptr, ptr %.sink111, i64 %25
   store ptr %24, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -398,17 +398,17 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
   br i1 %exitcond.not, label %27, label %6, !llvm.loop !7
 
 27:                                               ; preds = %23
-  %28 = tail call fastcc i32 @archive_utility_string_sort_helper(ptr noundef %.159, i32 noundef %.163)
-  %.not89 = icmp eq i32 %.163, 0
+  %28 = tail call fastcc i32 @archive_utility_string_sort_helper(ptr noundef %.164, i32 noundef %.160)
+  %.not89 = icmp eq i32 %.160, 0
   br i1 %.not89, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %27
-  %wide.trip.count99 = zext i32 %.163 to i64
+  %wide.trip.count99 = zext i32 %.160 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv96 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next97, %.lr.ph ]
-  %29 = getelementptr inbounds ptr, ptr %.159, i64 %indvars.iv96
+  %29 = getelementptr inbounds ptr, ptr %.164, i64 %indvars.iv96
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv96
   store ptr %30, ptr %31, align 8
@@ -418,21 +418,21 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.pre-phi = phi i64 [ 0, %27 ], [ %wide.trip.count99, %.lr.ph ]
-  tail call void @free(ptr noundef %.159) #17
+  tail call void @free(ptr noundef %.164) #17
   %32 = getelementptr inbounds ptr, ptr %0, i64 %.pre-phi
   store ptr %5, ptr %32, align 8
-  %33 = tail call fastcc i32 @archive_utility_string_sort_helper(ptr noundef %.1, i32 noundef %.161)
-  %.not90 = icmp eq i32 %.161, 0
+  %33 = tail call fastcc i32 @archive_utility_string_sort_helper(ptr noundef %.162, i32 noundef %.166)
+  %.not90 = icmp eq i32 %.166, 0
   br i1 %.not90, label %._crit_edge88, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %._crit_edge
-  %34 = add i32 %.163, 1
-  %wide.trip.count104 = zext i32 %.161 to i64
+  %34 = add i32 %.160, 1
+  %wide.trip.count104 = zext i32 %.166 to i64
   br label %35
 
 35:                                               ; preds = %.lr.ph87, %35
   %indvars.iv101 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next102, %35 ]
-  %36 = getelementptr inbounds ptr, ptr %.1, i64 %indvars.iv101
+  %36 = getelementptr inbounds ptr, ptr %.162, i64 %indvars.iv101
   %37 = load ptr, ptr %36, align 8
   %38 = trunc nuw i64 %indvars.iv101 to i32
   %39 = add i32 %34, %38
@@ -444,13 +444,13 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
   br i1 %exitcond105.not, label %._crit_edge88, label %35, !llvm.loop !9
 
 ._crit_edge88:                                    ; preds = %35, %._crit_edge
-  tail call void @free(ptr noundef %.1) #17
+  tail call void @free(ptr noundef %.162) #17
   %42 = tail call i32 @llvm.smin.i32(i32 %28, i32 %33)
   br label %43
 
 43:                                               ; preds = %2, %._crit_edge88, %22, %16
-  %.066 = phi i32 [ -30, %16 ], [ -30, %22 ], [ %42, %._crit_edge88 ], [ 0, %2 ]
-  ret i32 %.066
+  %.0 = phi i32 [ -30, %16 ], [ -30, %22 ], [ %42, %._crit_edge88 ], [ 0, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind memory(read)

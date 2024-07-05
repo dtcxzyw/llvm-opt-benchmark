@@ -436,12 +436,12 @@ _ZN3nla7nex_mul3endEv.exit:                       ; preds = %invoke.cont8
   br i1 %cmp.not79, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN3nla7nex_mul3endEv.exit, %for.inc
-  %__begin1.081 = phi ptr [ %incdec.ptr, %for.inc ], [ %7, %_ZN3nla7nex_mul3endEv.exit ]
-  %seenj.080 = phi i1 [ %seenj.1, %for.inc ], [ false, %_ZN3nla7nex_mul3endEv.exit ]
-  %10 = load ptr, ptr %__begin1.081, align 8
-  %m_power.i = getelementptr inbounds i8, ptr %__begin1.081, i64 8
+  %seenj.081 = phi i1 [ %seenj.1, %for.inc ], [ false, %_ZN3nla7nex_mul3endEv.exit ]
+  %__begin1.080 = phi ptr [ %incdec.ptr, %for.inc ], [ %7, %_ZN3nla7nex_mul3endEv.exit ]
+  %10 = load ptr, ptr %__begin1.080, align 8
+  %m_power.i = getelementptr inbounds i8, ptr %__begin1.080, i64 8
   %11 = load i32, ptr %m_power.i, align 8
-  br i1 %seenj.080, label %if.else, label %land.lhs.true
+  br i1 %seenj.081, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
   %vtable = load ptr, ptr %10, align 8
@@ -576,7 +576,7 @@ if.then.i.i54:                                    ; preds = %lor.lhs.false.i.i46
 for.inc.sink.split.sink.split:                    ; preds = %if.then.i.i54, %if.then.i.i37
   %call38.sink.ph = phi ptr [ %call32, %if.then.i.i37 ], [ %call38, %if.then.i.i54 ]
   %.sink.ph = phi i32 [ %sub, %if.then.i.i37 ], [ %11, %if.then.i.i54 ]
-  %seenj.1.ph.ph = phi i1 [ true, %if.then.i.i37 ], [ %seenj.080, %if.then.i.i54 ]
+  %seenj.1.ph.ph = phi i1 [ true, %if.then.i.i37 ], [ %seenj.081, %if.then.i.i54 ]
   %.pre.i.i55 = load ptr, ptr %m_args.i, align 8
   %arrayidx8.phi.trans.insert.i.i56 = getelementptr inbounds i8, ptr %.pre.i.i55, i64 -4
   %.pre1.i.i57 = load i32, ptr %arrayidx8.phi.trans.insert.i.i56, align 4
@@ -587,7 +587,7 @@ for.inc.sink.split:                               ; preds = %for.inc.sink.split.
   %.sink87 = phi ptr [ %22, %lor.lhs.false.i.i29 ], [ %25, %lor.lhs.false.i.i46 ], [ %.pre.i.i55, %for.inc.sink.split.sink.split ]
   %call38.sink = phi ptr [ %call32, %lor.lhs.false.i.i29 ], [ %call38, %lor.lhs.false.i.i46 ], [ %call38.sink.ph, %for.inc.sink.split.sink.split ]
   %.sink = phi i32 [ %sub, %lor.lhs.false.i.i29 ], [ %11, %lor.lhs.false.i.i46 ], [ %.sink.ph, %for.inc.sink.split.sink.split ]
-  %seenj.1.ph = phi i1 [ true, %lor.lhs.false.i.i29 ], [ %seenj.080, %lor.lhs.false.i.i46 ], [ %seenj.1.ph.ph, %for.inc.sink.split.sink.split ]
+  %seenj.1.ph = phi i1 [ true, %lor.lhs.false.i.i29 ], [ %seenj.081, %lor.lhs.false.i.i46 ], [ %seenj.1.ph.ph, %for.inc.sink.split.sink.split ]
   %idx.ext.i.i50 = zext i32 %.sink88 to i64
   %add.ptr.i.i51 = getelementptr inbounds %"class.nla::nex_pow", ptr %.sink87, i64 %idx.ext.i.i50
   store ptr %call38.sink, ptr %add.ptr.i.i51, align 8
@@ -602,7 +602,7 @@ for.inc.sink.split:                               ; preds = %for.inc.sink.split.
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.end27
   %seenj.1 = phi i1 [ true, %if.end27 ], [ %seenj.1.ph, %for.inc.sink.split ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.081, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.080, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -4448,9 +4448,9 @@ _ZNK3nla7nex_sum3endEv.exit:                      ; preds = %if.end
   br i1 %cmp4.not24, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK3nla7nex_sum3endEv.exit, %for.inc
-  %__begin1.026 = phi ptr [ %incdec.ptr, %for.inc ], [ %1, %_ZNK3nla7nex_sum3endEv.exit ]
-  %scalar.025 = phi i1 [ %scalar.1, %for.inc ], [ false, %_ZNK3nla7nex_sum3endEv.exit ]
-  %4 = load ptr, ptr %__begin1.026, align 8
+  %scalar.026 = phi i1 [ %scalar.1, %for.inc ], [ false, %_ZNK3nla7nex_sum3endEv.exit ]
+  %__begin1.025 = phi ptr [ %incdec.ptr, %for.inc ], [ %1, %_ZNK3nla7nex_sum3endEv.exit ]
+  %4 = load ptr, ptr %__begin1.025, align 8
   %vtable.i = load ptr, ptr %4, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %5 = load ptr, ptr %vfn.i, align 8
@@ -4467,7 +4467,7 @@ if.end7:                                          ; preds = %for.body
   br i1 %cmp.i13, label %if.then9, label %if.end20
 
 if.then9:                                         ; preds = %if.end7
-  br i1 %scalar.025, label %return, label %if.end11
+  br i1 %scalar.026, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.then9
   %m_v.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -4476,7 +4476,7 @@ if.end11:                                         ; preds = %if.then9
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end11, %if.end7
-  %scalar.1 = phi i1 [ %scalar.025, %if.end7 ], [ %cmp.i.i.i.i, %if.end11 ]
+  %scalar.1 = phi i1 [ %scalar.026, %if.end7 ], [ %cmp.i.i.i.i, %if.end11 ]
   %vtable.i19 = load ptr, ptr %4, align 8
   %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 8
   %8 = load ptr, ptr %vfn.i20, align 8
@@ -4501,7 +4501,7 @@ _ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit: ; preds = %if.end.i
   br i1 %call7.i, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.end.i, %if.then.i, %_ZNK3nla11nex_creator13is_simplifiedERKNS_3nexE.exit
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.026, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.025, i64 8
   %cmp4.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp4.not, label %return, label %for.body
 

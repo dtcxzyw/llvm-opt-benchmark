@@ -243,13 +243,13 @@ cond.false:                                       ; preds = %if.end21
   unreachable
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
-  %total_expired.073 = phi i64 [ 0, %land.rhs.lr.ph ], [ %total_expired.2, %for.inc ]
-  %total_sampled.072 = phi i64 [ 0, %land.rhs.lr.ph ], [ %total_sampled.2, %for.inc ]
-  %dbs_performed.071 = phi i32 [ 0, %land.rhs.lr.ph ], [ %spec.select43, %for.inc ]
-  %iteration.070 = phi i32 [ 0, %land.rhs.lr.ph ], [ %inc5647, %for.inc ]
-  %j.069 = phi i32 [ 0, %land.rhs.lr.ph ], [ %inc128, %for.inc ]
+  %j.073 = phi i32 [ 0, %land.rhs.lr.ph ], [ %inc128, %for.inc ]
+  %iteration.072 = phi i32 [ 0, %land.rhs.lr.ph ], [ %inc5647, %for.inc ]
+  %total_expired.071 = phi i64 [ 0, %land.rhs.lr.ph ], [ %total_expired.2, %for.inc ]
+  %total_sampled.070 = phi i64 [ 0, %land.rhs.lr.ph ], [ %total_sampled.2, %for.inc ]
+  %dbs_performed.069 = phi i32 [ 0, %land.rhs.lr.ph ], [ %spec.select43, %for.inc ]
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
-  %cmp48 = icmp slt i32 %j.069, %7
+  %cmp48 = icmp slt i32 %j.073, %7
   br i1 %cmp48, label %for.body, label %for.end.loopexit
 
 for.body:                                         ; preds = %land.rhs
@@ -264,8 +264,8 @@ for.body:                                         ; preds = %land.rhs
   %call51 = call i64 @dbSize(ptr noundef %add.ptr, i32 noundef 1) #9
   %tobool52.not = icmp ne i64 %call51, 0
   %inc54 = zext i1 %tobool52.not to i32
-  %spec.select43 = add nuw nsw i32 %dbs_performed.071, %inc54
-  %inc5657 = add nsw i32 %iteration.070, 1
+  %spec.select43 = add nuw nsw i32 %dbs_performed.069, %inc54
+  %inc5657 = add nsw i32 %iteration.072, 1
   %call5758 = call i64 @dbSize(ptr noundef %add.ptr, i32 noundef 1) #9
   %cmp5859 = icmp eq i64 %call5758, 0
   br i1 %cmp5859, label %if.then60, label %if.end61.lr.ph
@@ -276,8 +276,8 @@ if.end61.lr.ph:                                   ; preds = %for.body
   br label %if.end61
 
 if.then60:                                        ; preds = %do.body.backedge, %for.body
-  %total_sampled.1.lcssa = phi i64 [ %total_sampled.072, %for.body ], [ %add8692, %do.body.backedge ]
-  %total_expired.1.lcssa = phi i64 [ %total_expired.073, %for.body ], [ %add8491, %do.body.backedge ]
+  %total_sampled.1.lcssa = phi i64 [ %total_sampled.070, %for.body ], [ %add8692, %do.body.backedge ]
+  %total_expired.1.lcssa = phi i64 [ %total_expired.071, %for.body ], [ %add8491, %do.body.backedge ]
   %inc56.lcssa = phi i32 [ %inc5657, %for.body ], [ %inc56, %do.body.backedge ]
   %avg_ttl = getelementptr inbounds i8, ptr %add.ptr, i64 56
   store i64 0, ptr %avg_ttl, align 8
@@ -286,8 +286,8 @@ if.then60:                                        ; preds = %do.body.backedge, %
 if.end61:                                         ; preds = %if.end61.lr.ph, %do.body.backedge
   %call5763 = phi i64 [ %call5758, %if.end61.lr.ph ], [ %call57, %do.body.backedge ]
   %inc5662 = phi i32 [ %inc5657, %if.end61.lr.ph ], [ %inc56, %do.body.backedge ]
-  %total_expired.161 = phi i64 [ %total_expired.073, %if.end61.lr.ph ], [ %add8491, %do.body.backedge ]
-  %total_sampled.160 = phi i64 [ %total_sampled.072, %if.end61.lr.ph ], [ %add8692, %do.body.backedge ]
+  %total_expired.161 = phi i64 [ %total_expired.071, %if.end61.lr.ph ], [ %add8491, %do.body.backedge ]
+  %total_sampled.160 = phi i64 [ %total_sampled.070, %if.end61.lr.ph ], [ %add8692, %do.body.backedge ]
   %call62 = call i64 @mstime() #9
   store i64 %call62, ptr %now, align 8
   %spec.select44 = call i64 @llvm.umin.i64(i64 %call5763, i64 %add)
@@ -381,15 +381,15 @@ for.inc:                                          ; preds = %lor.rhs, %if.then60
   %inc5647 = phi i32 [ %inc56.lcssa, %if.then60 ], [ %inc5662, %if.then115 ], [ %inc5662, %lor.rhs ]
   %total_sampled.2 = phi i64 [ %total_sampled.1.lcssa, %if.then60 ], [ %add8692, %if.then115 ], [ %add8692, %lor.rhs ]
   %total_expired.2 = phi i64 [ %total_expired.1.lcssa, %if.then60 ], [ %add8491, %if.then115 ], [ %add8491, %lor.rhs ]
-  %inc128 = add nuw nsw i32 %j.069, 1
+  %inc128 = add nuw nsw i32 %j.073, 1
   %cmp43 = icmp sge i32 %spec.select43, %spec.select
   %.b = load i1, ptr @activeExpireCycle.timelimit_exit, align 4
   %or.cond1.not = select i1 %cmp43, i1 true, i1 %.b
   br i1 %or.cond1.not, label %for.end.loopexit, label %land.rhs, !llvm.loop !8
 
 for.end.loopexit:                                 ; preds = %for.inc, %land.rhs
-  %total_sampled.0.lcssa.ph = phi i64 [ %total_sampled.072, %land.rhs ], [ %total_sampled.2, %for.inc ]
-  %total_expired.0.lcssa.ph = phi i64 [ %total_expired.073, %land.rhs ], [ %total_expired.2, %for.inc ]
+  %total_sampled.0.lcssa.ph = phi i64 [ %total_sampled.070, %land.rhs ], [ %total_sampled.2, %for.inc ]
+  %total_expired.0.lcssa.ph = phi i64 [ %total_expired.071, %land.rhs ], [ %total_expired.2, %for.inc ]
   %18 = sitofp i64 %total_expired.0.lcssa.ph to double
   br label %for.end
 
@@ -516,10 +516,10 @@ while.body:                                       ; preds = %if.end42, %if.end
 
 while.body9:                                      ; preds = %while.body, %if.end27
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end27 ], [ 0, %while.body ]
-  %new_dbids.024 = phi i64 [ %new_dbids.1, %if.end27 ], [ 0, %while.body ]
-  %dbids.023 = phi i64 [ %shr, %if.end27 ], [ %call6, %while.body ]
-  %noexpire.122 = phi i32 [ %noexpire.2, %if.end27 ], [ %noexpire.0, %while.body ]
-  %and = and i64 %dbids.023, 1
+  %noexpire.125 = phi i32 [ %noexpire.2, %if.end27 ], [ %noexpire.0, %while.body ]
+  %new_dbids.023 = phi i64 [ %new_dbids.1, %if.end27 ], [ 0, %while.body ]
+  %dbids.022 = phi i64 [ %shr, %if.end27 ], [ %call6, %while.body ]
+  %and = and i64 %dbids.022, 1
   %cmp10.not = icmp eq i64 %and, 0
   br i1 %cmp10.not, label %if.end27, label %if.then11
 
@@ -547,17 +547,17 @@ if.then20:                                        ; preds = %land.lhs.true
   br label %if.end27
 
 if.end21:                                         ; preds = %land.lhs.true
-  %inc = add nsw i32 %noexpire.122, 1
+  %inc = add nsw i32 %noexpire.125, 1
   %shl = shl nuw i64 1, %indvars.iv
-  %or = or i64 %shl, %new_dbids.024
+  %or = or i64 %shl, %new_dbids.023
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then20, %if.then11, %if.end21, %while.body9
-  %noexpire.2 = phi i32 [ %inc, %if.end21 ], [ %noexpire.122, %while.body9 ], [ %noexpire.122, %if.then11 ], [ %noexpire.122, %if.then20 ]
-  %new_dbids.1 = phi i64 [ %or, %if.end21 ], [ %new_dbids.024, %while.body9 ], [ %new_dbids.024, %if.then11 ], [ %new_dbids.024, %if.then20 ]
+  %new_dbids.1 = phi i64 [ %or, %if.end21 ], [ %new_dbids.023, %while.body9 ], [ %new_dbids.023, %if.then11 ], [ %new_dbids.023, %if.then20 ]
+  %noexpire.2 = phi i32 [ %inc, %if.end21 ], [ %noexpire.125, %while.body9 ], [ %noexpire.125, %if.then11 ], [ %noexpire.125, %if.then20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %shr = lshr i64 %dbids.023, 1
-  %tobool = icmp ugt i64 %dbids.023, 1
+  %shr = lshr i64 %dbids.022, 1
+  %tobool = icmp ugt i64 %dbids.022, 1
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
   %11 = sext i32 %10 to i64
   %cmp8 = icmp slt i64 %indvars.iv.next, %11

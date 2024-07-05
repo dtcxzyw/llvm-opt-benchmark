@@ -3334,16 +3334,16 @@ Vec_QueClear.exit:                                ; preds = %30, %7
   br i1 %.not326, label %91, label %.critedge2.thread
 
 91:                                               ; preds = %82, %78, %74
-  %.0185 = phi ptr [ %71, %78 ], [ %71, %74 ], [ %88, %82 ]
-  %.0184 = phi ptr [ null, %78 ], [ null, %74 ], [ %61, %82 ]
-  call void @Abc_SclFindNodesToUpdate(ptr noundef nonnull %.0185, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %.0184)
+  %.0186 = phi ptr [ %71, %78 ], [ %71, %74 ], [ %88, %82 ]
+  %.0185 = phi ptr [ null, %78 ], [ null, %74 ], [ %61, %82 ]
+  call void @Abc_SclFindNodesToUpdate(ptr noundef nonnull %.0186, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %.0185)
   tail call void @Abc_NodeCollectFanouts(ptr noundef nonnull %61, ptr noundef nonnull %11) #24
   %.val231333 = load i32, ptr %12, align 4
   %92 = icmp sgt i32 %.val231333, 0
   br i1 %92, label %.lr.ph, label %.critedge2.thread
 
 .lr.ph:                                           ; preds = %91
-  %.not207 = icmp eq ptr %.0184, null
+  %.not207 = icmp eq ptr %.0185, null
   %93 = getelementptr i8, ptr %61, i64 16
   br label %94
 
@@ -3368,7 +3368,7 @@ Vec_QueClear.exit:                                ; preds = %30, %7
   br i1 %or.cond, label %308, label %103
 
 103:                                              ; preds = %94
-  %104 = tail call i32 @Abc_NodeFindFanin(ptr noundef nonnull %98, ptr noundef %.0185) #24
+  %104 = tail call i32 @Abc_NodeFindFanin(ptr noundef nonnull %98, ptr noundef %.0186) #24
   %105 = icmp sgt i32 %104, -1
   br i1 %105, label %308, label %106
 
@@ -3376,7 +3376,7 @@ Vec_QueClear.exit:                                ; preds = %30, %7
   br i1 %.not207, label %110, label %107
 
 107:                                              ; preds = %106
-  %108 = tail call i32 @Abc_NodeFindFanin(ptr noundef nonnull %98, ptr noundef nonnull %.0184) #24
+  %108 = tail call i32 @Abc_NodeFindFanin(ptr noundef nonnull %98, ptr noundef nonnull %.0185) #24
   %109 = icmp sgt i32 %108, -1
   br i1 %109, label %308, label %110
 
@@ -3698,10 +3698,10 @@ Vec_FltPush.exit47.i:                             ; preds = %255, %Vec_FltGrow.e
 
 Abc_SclLoadStore3.exit:                           ; preds = %Vec_FltPush.exit47.i, %Vec_FltPush.exit33.i
   tail call void @Abc_SclUpdateLoadSplit(ptr noundef nonnull %0, ptr noundef nonnull %61, ptr noundef %98) #24
-  tail call void @Abc_ObjPatchFanin(ptr noundef %98, ptr noundef nonnull %61, ptr noundef %.0185) #24
+  tail call void @Abc_ObjPatchFanin(ptr noundef %98, ptr noundef nonnull %61, ptr noundef %.0186) #24
   %264 = load ptr, ptr %8, align 8
   %265 = load ptr, ptr %9, align 8
-  %266 = call i32 @Abc_SclFindBestCell(ptr noundef nonnull %0, ptr noundef %.0185, ptr noundef %264, ptr noundef %265, i32 noundef %3, i32 noundef %5, ptr noundef nonnull %10)
+  %266 = call i32 @Abc_SclFindBestCell(ptr noundef nonnull %0, ptr noundef %.0186, ptr noundef %264, ptr noundef %265, i32 noundef %3, i32 noundef %5, ptr noundef nonnull %10)
   %267 = load ptr, ptr %46, align 8
   %268 = getelementptr i8, ptr %267, i64 8
   %.val31.i = load ptr, ptr %268, align 8
@@ -3769,7 +3769,7 @@ Abc_SclLoadStore3.exit:                           ; preds = %Vec_FltPush.exit47.
   br i1 %301, label %.lr.ph.i268, label %Abc_SclLoadRestore3.exit, !llvm.loop !35
 
 Abc_SclLoadRestore3.exit:                         ; preds = %.lr.ph.i268, %Abc_SclLoadStore3.exit
-  tail call void @Abc_ObjPatchFanin(ptr noundef %98, ptr noundef %.0185, ptr noundef nonnull %61) #24
+  tail call void @Abc_ObjPatchFanin(ptr noundef %98, ptr noundef %.0186, ptr noundef nonnull %61) #24
   %302 = icmp eq i32 %266, -1
   br i1 %302, label %308, label %303
 
@@ -4017,8 +4017,8 @@ Vec_IntFree.exit276:                              ; preds = %Vec_IntFree.exit, %
   br i1 %.not324, label %413, label %.backedge
 
 413:                                              ; preds = %400, %404, %396
-  %.1186 = phi ptr [ %410, %404 ], [ %386, %400 ], [ %386, %396 ]
-  %414 = getelementptr inbounds i8, ptr %.1186, i64 20
+  %.1187 = phi ptr [ %410, %404 ], [ %386, %400 ], [ %386, %396 ]
+  %414 = getelementptr inbounds i8, ptr %.1187, i64 20
   %415 = load i32, ptr %414, align 4
   %416 = and i32 %415, 32
   %.not197 = icmp eq i32 %416, 0
@@ -4027,7 +4027,7 @@ Vec_IntFree.exit276:                              ; preds = %Vec_IntFree.exit, %
 417:                                              ; preds = %413
   %418 = getelementptr inbounds i8, ptr %378, i64 20
   %419 = getelementptr inbounds i8, ptr %380, i64 20
-  %420 = getelementptr inbounds i8, ptr %.1186, i64 20
+  %420 = getelementptr inbounds i8, ptr %.1187, i64 20
   %421 = load i32, ptr %418, align 4
   %422 = or i32 %421, 32
   store i32 %422, ptr %418, align 4
@@ -4219,13 +4219,13 @@ Vec_PtrPush.exit290:                              ; preds = %.Vec_PtrGrow.exit11
   store i32 %505, ptr %352, align 4
   %506 = sext i32 %481 to i64
   %507 = getelementptr inbounds ptr, ptr %504, i64 %506
-  store ptr %.1186, ptr %507, align 8
+  store ptr %.1187, ptr %507, align 8
   tail call void @Abc_SclUpdateLoadSplit(ptr noundef nonnull %0, ptr noundef nonnull %380, ptr noundef nonnull %378) #24
   tail call void @Abc_SclAddWireLoad(ptr noundef nonnull %0, ptr noundef nonnull %380, i32 noundef 1) #24
-  tail call void @Abc_SclAddWireLoad(ptr noundef nonnull %0, ptr noundef nonnull %.1186, i32 noundef 1) #24
-  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %378, ptr noundef nonnull %380, ptr noundef nonnull %.1186) #24
+  tail call void @Abc_SclAddWireLoad(ptr noundef nonnull %0, ptr noundef nonnull %.1187, i32 noundef 1) #24
+  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %378, ptr noundef nonnull %380, ptr noundef nonnull %.1187) #24
   tail call void @Abc_SclAddWireLoad(ptr noundef nonnull %0, ptr noundef nonnull %380, i32 noundef 0) #24
-  tail call void @Abc_SclAddWireLoad(ptr noundef nonnull %0, ptr noundef nonnull %.1186, i32 noundef 0) #24
+  tail call void @Abc_SclAddWireLoad(ptr noundef nonnull %0, ptr noundef nonnull %.1187, i32 noundef 0) #24
   tail call void @Abc_SclTimeIncUpdateLevel(ptr noundef nonnull %378) #24
   %508 = load ptr, ptr %358, align 8
   %509 = getelementptr i8, ptr %378, i64 16
@@ -4297,8 +4297,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %540 = getelementptr inbounds i32, ptr %536, i64 %539
   store i32 %.val215, ptr %540, align 4
   %541 = load ptr, ptr %358, align 8
-  %542 = getelementptr i8, ptr %.1186, i64 16
-  %.1186.val214 = load i32, ptr %542, align 8
+  %542 = getelementptr i8, ptr %.1187, i64 16
+  %.1187.val214 = load i32, ptr %542, align 8
   %543 = getelementptr inbounds i8, ptr %541, i64 4
   %544 = load i32, ptr %543, align 4
   %545 = load i32, ptr %541, align 8
@@ -4364,7 +4364,7 @@ Vec_IntPush.exit300:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %571, ptr %543, align 4
   %572 = sext i32 %570 to i64
   %573 = getelementptr inbounds i32, ptr %569, i64 %572
-  store i32 %.1186.val214, ptr %573, align 4
+  store i32 %.1187.val214, ptr %573, align 4
   %574 = load ptr, ptr %358, align 8
   %575 = getelementptr i8, ptr %380, i64 16
   %.val213 = load i32, ptr %575, align 8
@@ -4434,20 +4434,20 @@ Vec_IntPush.exit307:                              ; preds = %.Vec_IntGrow.exit10
   %605 = sext i32 %603 to i64
   %606 = getelementptr inbounds i32, ptr %602, i64 %605
   store i32 %.val213, ptr %606, align 4
-  %.1186.val253 = load ptr, ptr %.1186, align 8
-  %.1186.val254 = load i32, ptr %542, align 8
-  %607 = getelementptr i8, ptr %.1186.val253, i64 376
+  %.1187.val253 = load ptr, ptr %.1187, align 8
+  %.1187.val254 = load i32, ptr %542, align 8
+  %607 = getelementptr i8, ptr %.1187.val253, i64 376
   %.val.val.i = load ptr, ptr %607, align 8
   %608 = getelementptr i8, ptr %.val.val.i, i64 8
   %.val.val.val.i = load ptr, ptr %608, align 8
-  %609 = sext i32 %.1186.val254 to i64
+  %609 = sext i32 %.1187.val254 to i64
   %610 = getelementptr inbounds i32, ptr %.val.val.val.i, i64 %609
   %611 = load i32, ptr %610, align 4
   %612 = icmp eq i32 %611, -1
   br i1 %612, label %Abc_SclObjCell.exit, label %613
 
 613:                                              ; preds = %Vec_IntPush.exit307
-  %614 = getelementptr i8, ptr %.1186.val253, i64 368
+  %614 = getelementptr i8, ptr %.1187.val253, i64 368
   %.val4.val.i = load ptr, ptr %614, align 8
   %615 = getelementptr i8, ptr %.val4.val.i, i64 104
   %.val5.i = load ptr, ptr %615, align 8
@@ -4477,20 +4477,20 @@ Abc_SclObjCell.exit:                              ; preds = %Vec_IntPush.exit307
   %634 = load float, ptr %360, align 4
   %635 = fadd float %634, %633
   store float %635, ptr %360, align 4
-  %.1186.val255 = load ptr, ptr %.1186, align 8
-  %.1186.val256 = load i32, ptr %542, align 8
+  %.1187.val255 = load ptr, ptr %.1187, align 8
+  %.1187.val256 = load i32, ptr %542, align 8
   %636 = getelementptr i8, ptr %628, i64 8
   %.val257 = load i32, ptr %636, align 8
-  %637 = getelementptr i8, ptr %.1186.val255, i64 376
-  %.1186.val255.val = load ptr, ptr %637, align 8
-  %638 = getelementptr i8, ptr %.1186.val255.val, i64 8
-  %.1186.val255.val.val = load ptr, ptr %638, align 8
-  %639 = sext i32 %.1186.val256 to i64
-  %640 = getelementptr inbounds i32, ptr %.1186.val255.val.val, i64 %639
+  %637 = getelementptr i8, ptr %.1187.val255, i64 376
+  %.1187.val255.val = load ptr, ptr %637, align 8
+  %638 = getelementptr i8, ptr %.1187.val255.val, i64 8
+  %.1187.val255.val.val = load ptr, ptr %638, align 8
+  %639 = sext i32 %.1187.val256 to i64
+  %640 = getelementptr inbounds i32, ptr %.1187.val255.val.val, i64 %639
   store i32 %.val257, ptr %640, align 4
-  tail call void @Abc_SclUpdateLoad(ptr noundef nonnull %0, ptr noundef nonnull %.1186, ptr noundef %619, ptr noundef %628) #24
+  tail call void @Abc_SclUpdateLoad(ptr noundef nonnull %0, ptr noundef nonnull %.1187, ptr noundef %619, ptr noundef %628) #24
   %641 = load ptr, ptr %361, align 8
-  %.1186.val212 = load i32, ptr %542, align 8
+  %.1187.val212 = load i32, ptr %542, align 8
   %642 = getelementptr inbounds i8, ptr %641, i64 4
   %643 = load i32, ptr %642, align 4
   %644 = load i32, ptr %641, align 8
@@ -4556,7 +4556,7 @@ Vec_IntPush.exit314:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %670, ptr %642, align 4
   %671 = sext i32 %669 to i64
   %672 = getelementptr inbounds i32, ptr %668, i64 %671
-  store i32 %.1186.val212, ptr %672, align 4
+  store i32 %.1187.val212, ptr %672, align 4
   %673 = load ptr, ptr %361, align 8
   %674 = load i32, ptr %636, align 8
   %675 = getelementptr inbounds i8, ptr %673, i64 4
@@ -4627,7 +4627,7 @@ Vec_IntPush.exit321:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %674, ptr %705, align 4
   tail call void @Abc_SclTimeIncInsert(ptr noundef nonnull %0, ptr noundef nonnull %378) #24
   tail call void @Abc_SclTimeIncInsert(ptr noundef nonnull %0, ptr noundef nonnull %380) #24
-  tail call void @Abc_SclTimeIncInsert(ptr noundef nonnull %0, ptr noundef nonnull %.1186) #24
+  tail call void @Abc_SclTimeIncInsert(ptr noundef nonnull %0, ptr noundef nonnull %.1187) #24
   %706 = load ptr, ptr %362, align 8
   %.val211 = load i32, ptr %509, align 8
   %707 = getelementptr i8, ptr %706, i64 8
@@ -4643,10 +4643,10 @@ Vec_IntPush.exit321:                              ; preds = %.Vec_IntGrow.exit10
   %713 = getelementptr inbounds i32, ptr %.val227, i64 %712
   store i32 -1, ptr %713, align 4
   %714 = load ptr, ptr %362, align 8
-  %.1186.val209 = load i32, ptr %542, align 8
+  %.1187.val209 = load i32, ptr %542, align 8
   %715 = getelementptr i8, ptr %714, i64 8
   %.val228 = load ptr, ptr %715, align 8
-  %716 = sext i32 %.1186.val209 to i64
+  %716 = sext i32 %.1187.val209 to i64
   %717 = getelementptr inbounds i32, ptr %.val228, i64 %716
   store i32 -1, ptr %717, align 4
   %718 = load ptr, ptr %355, align 8
@@ -4661,7 +4661,7 @@ Vec_IntPush.exit321:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %.not199, label %724, label %723
 
 723:                                              ; preds = %721
-  tail call void @Abc_NodeInvUpdateObjFanoutPolarity(ptr noundef nonnull %.1186, ptr noundef nonnull %378) #24
+  tail call void @Abc_NodeInvUpdateObjFanoutPolarity(ptr noundef nonnull %.1187, ptr noundef nonnull %378) #24
   br label %724
 
 724:                                              ; preds = %723, %721, %Vec_IntPush.exit321
@@ -4670,14 +4670,14 @@ Vec_IntPush.exit321:                              ; preds = %.Vec_IntGrow.exit10
 725:                                              ; preds = %724
   %.val208 = load i32, ptr %575, align 8
   %.val = load i32, ptr %509, align 8
-  %.1186.val = load i32, ptr %542, align 8
+  %.1187.val = load i32, ptr %542, align 8
   %726 = load ptr, ptr %357, align 8
   %727 = getelementptr i8, ptr %726, i64 8
   %.val259 = load ptr, ptr %727, align 8
   %728 = getelementptr inbounds float, ptr %.val259, i64 %371
   %729 = load float, ptr %728, align 4
   %730 = fpext float %729 to double
-  %731 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.val208, i32 noundef %.val, i32 noundef %.1186.val, double noundef %730)
+  %731 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.val208, i32 noundef %.val, i32 noundef %.1187.val, double noundef %730)
   %732 = load ptr, ptr %619, align 8
   %733 = getelementptr inbounds i8, ptr %619, i64 104
   %734 = load i32, ptr %733, align 8
@@ -4729,8 +4729,8 @@ Vec_PtrFree.exit323:                              ; preds = %.critedge4, %.crite
   br label %752
 
 752:                                              ; preds = %Vec_IntFree.exit276, %Vec_PtrFree.exit323
-  %.0187 = phi i32 [ %.0176.ph.lcssa381388, %Vec_PtrFree.exit323 ], [ 0, %Vec_IntFree.exit276 ]
-  ret i32 %.0187
+  %.0181 = phi i32 [ %.0176.ph.lcssa381388, %Vec_PtrFree.exit323 ], [ 0, %Vec_IntFree.exit276 ]
+  ret i32 %.0181
 }
 
 declare i32 @Abc_SclIsInv(ptr noundef) local_unnamed_addr #2
@@ -5384,7 +5384,7 @@ Vec_IntFree.exit116:                              ; preds = %Vec_IntFree.exit, %
   br label %.outer
 
 .outer:                                           ; preds = %Vec_IntPush.exit127, %90
-  %.0.ph = phi i32 [ %253, %Vec_IntPush.exit127 ], [ 0, %90 ]
+  %.076.ph = phi i32 [ %253, %Vec_IntPush.exit127 ], [ 0, %90 ]
   %107 = load ptr, ptr %19, align 8
   %108 = getelementptr i8, ptr %107, i64 4
   %.val104143 = load i32, ptr %108, align 4
@@ -5681,12 +5681,12 @@ Vec_IntPush.exit127:                              ; preds = %.Vec_IntGrow.exit10
   %251 = sext i32 %.val to i64
   %252 = getelementptr inbounds i32, ptr %.val96, i64 %251
   store i32 %4, ptr %252, align 4
-  %253 = add nuw nsw i32 %.0.ph, 1
+  %253 = add nuw nsw i32 %.076.ph, 1
   %254 = icmp eq i32 %253, %97
   br i1 %254, label %.loopexit132, label %.outer, !llvm.loop !45
 
 .loopexit132:                                     ; preds = %Vec_IntPush.exit127, %.outer, %Abc_SclObjCheckMarkedFanFans.exit
-  %.1 = phi i32 [ %.0.ph, %Abc_SclObjCheckMarkedFanFans.exit ], [ %.0.ph, %.outer ], [ %97, %Vec_IntPush.exit127 ]
+  %.177 = phi i32 [ %.076.ph, %Abc_SclObjCheckMarkedFanFans.exit ], [ %.076.ph, %.outer ], [ %97, %Vec_IntPush.exit127 ]
   %.val98 = load i32, ptr %99, align 4
   %255 = icmp sgt i32 %.val98, 0
   %.pre = load ptr, ptr %101, align 8
@@ -5721,8 +5721,8 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %.crite
   br label %262
 
 262:                                              ; preds = %Vec_IntFree.exit116, %Vec_PtrFree.exit
-  %.079 = phi i32 [ %.1, %Vec_PtrFree.exit ], [ 0, %Vec_IntFree.exit116 ]
-  ret i32 %.079
+  %.0 = phi i32 [ %.177, %Vec_PtrFree.exit ], [ 0, %Vec_IntFree.exit116 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -6421,17 +6421,17 @@ Vec_IntDup.exit:                                  ; preds = %Abc_Clock.exit254, 
 
 144:                                              ; preds = %.lr.ph365, %394
   %.0364 = phi ptr [ null, %.lr.ph365 ], [ %.2325, %394 ]
-  %.0198363 = phi i32 [ 0, %.lr.ph365 ], [ %369, %394 ]
-  %.0200362 = phi i32 [ 0, %.lr.ph365 ], [ %368, %394 ]
-  %.0202361 = phi i32 [ 0, %.lr.ph365 ], [ %367, %394 ]
-  %.0204360 = phi i32 [ 0, %.lr.ph365 ], [ %366, %394 ]
-  %.0206359 = phi i32 [ 0, %.lr.ph365 ], [ %.1207, %394 ]
-  %.0208358 = phi i32 [ 0, %.lr.ph365 ], [ %.1209, %394 ]
-  %.0210357 = phi i32 [ -1, %.lr.ph365 ], [ %.3324, %394 ]
-  %.0214356 = phi i32 [ 0, %.lr.ph365 ], [ %395, %394 ]
-  %.0216355 = phi ptr [ null, %.lr.ph365 ], [ %.2218323, %394 ]
+  %.0198363 = phi ptr [ null, %.lr.ph365 ], [ %.2200324, %394 ]
+  %.0201362 = phi i32 [ 0, %.lr.ph365 ], [ %369, %394 ]
+  %.0203361 = phi i32 [ 0, %.lr.ph365 ], [ %368, %394 ]
+  %.0205360 = phi i32 [ 0, %.lr.ph365 ], [ %367, %394 ]
+  %.0207359 = phi i32 [ 0, %.lr.ph365 ], [ %366, %394 ]
+  %.0209358 = phi i32 [ 0, %.lr.ph365 ], [ %.1210, %394 ]
+  %.0211357 = phi i32 [ 0, %.lr.ph365 ], [ %.1212, %394 ]
+  %.0213356 = phi i32 [ -1, %.lr.ph365 ], [ %.3323, %394 ]
+  %.0217355 = phi i32 [ 0, %.lr.ph365 ], [ %395, %394 ]
   %145 = load i32, ptr %64, align 4
-  %146 = urem i32 %.0214356, 7
+  %146 = urem i32 %.0217355, 7
   %147 = icmp eq i32 %146, 6
   %148 = zext i1 %147 to i32
   %149 = add nsw i32 %145, %148
@@ -6439,11 +6439,11 @@ Vec_IntDup.exit:                                  ; preds = %Abc_Clock.exit254, 
   br i1 %150, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %144
-  %151 = icmp ne i32 %.0214356, 0
+  %151 = icmp ne i32 %.0217355, 0
   br label %152
 
 152:                                              ; preds = %.lr.ph, %Vec_IntFree.exit280
-  %.0213351 = phi i32 [ %149, %.lr.ph ], [ %266, %Vec_IntFree.exit280 ]
+  %.0216351 = phi i32 [ %149, %.lr.ph ], [ %266, %Vec_IntFree.exit280 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %153 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %17) #24
   %154 = icmp slt i32 %153, 0
@@ -6460,9 +6460,9 @@ Vec_IntDup.exit:                                  ; preds = %Abc_Clock.exit254, 
 Abc_Clock.exit256:                                ; preds = %152, %155
   %.0.i255.neg = phi i64 [ %.neg328, %155 ], [ 1, %152 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
-  %158 = call ptr @Abc_SclFindCriticalCoWindow(ptr noundef nonnull %78, i32 noundef %.0213351)
+  %158 = call ptr @Abc_SclFindCriticalCoWindow(ptr noundef nonnull %78, i32 noundef %.0216351)
   %159 = load i32, ptr %74, align 4
-  %160 = call ptr @Abc_SclFindCriticalNodeWindow(ptr noundef nonnull %78, ptr noundef %158, i32 noundef %.0213351, i32 noundef %159)
+  %160 = call ptr @Abc_SclFindCriticalNodeWindow(ptr noundef nonnull %78, ptr noundef %158, i32 noundef %.0216351, i32 noundef %159)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   %161 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %16) #24
   %162 = icmp slt i32 %161, 0
@@ -6505,7 +6505,7 @@ Abc_Clock.exit260:                                ; preds = %Abc_Clock.exit258, 
   br i1 %or.cond, label %179, label %187
 
 179:                                              ; preds = %Abc_Clock.exit260
-  %180 = srem i32 %.0214356, %177
+  %180 = srem i32 %.0217355, %177
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %182, label %187
 
@@ -6520,11 +6520,11 @@ Abc_Clock.exit260:                                ; preds = %Abc_Clock.exit258, 
   %188 = load i32, ptr %121, align 4
   %189 = load i32, ptr %122, align 4
   %190 = load i32, ptr %123, align 4
-  %191 = call i32 @Abc_SclFindUpsizes(ptr noundef nonnull %78, ptr noundef %160, i32 noundef %188, i32 noundef %189, i32 noundef %.0214356, i32 noundef %190, i32 poison)
+  %191 = call i32 @Abc_SclFindUpsizes(ptr noundef nonnull %78, ptr noundef %160, i32 noundef %188, i32 noundef %189, i32 noundef %.0217355, i32 noundef %190, i32 poison)
   br label %192
 
 192:                                              ; preds = %187, %182
-  %.2212 = phi i32 [ %186, %182 ], [ %191, %187 ]
+  %.2215 = phi i32 [ %186, %182 ], [ %191, %187 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   %193 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %14) #24
   %194 = icmp slt i32 %193, 0
@@ -6659,7 +6659,7 @@ Abc_Clock.exit277:                                ; preds = %Abc_SclUnmarkCritic
   %256 = load i64, ptr %118, align 8
   %257 = add nsw i64 %255, %256
   store i64 %257, ptr %118, align 8
-  %258 = icmp sgt i32 %.2212, 0
+  %258 = icmp sgt i32 %.2215, 0
   br i1 %258, label %.thread, label %259
 
 259:                                              ; preds = %Abc_Clock.exit277
@@ -6685,19 +6685,19 @@ Vec_IntFree.exit:                                 ; preds = %259, %262
 
 Vec_IntFree.exit280:                              ; preds = %Vec_IntFree.exit, %265
   call void @free(ptr noundef nonnull %160) #24
-  %266 = shl nsw i32 %.0213351, 1
-  %267 = icmp slt i32 %.0213351, 51
+  %266 = shl nsw i32 %.0216351, 1
+  %267 = icmp slt i32 %.0216351, 51
   br i1 %267, label %152, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %Vec_IntFree.exit280
-  %268 = icmp eq i32 %.2212, 0
+  %268 = icmp eq i32 %.2215, 0
   br i1 %268, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %Abc_Clock.exit277, %144, %._crit_edge
-  %.0213347 = phi i32 [ %266, %._crit_edge ], [ %149, %144 ], [ %.0213351, %Abc_Clock.exit277 ]
+  %.0216348 = phi i32 [ %266, %._crit_edge ], [ %149, %144 ], [ %.0216351, %Abc_Clock.exit277 ]
   %.2325 = phi ptr [ %158, %._crit_edge ], [ %.0364, %144 ], [ %158, %Abc_Clock.exit277 ]
-  %.3324 = phi i32 [ %.2212, %._crit_edge ], [ %.0210357, %144 ], [ %.2212, %Abc_Clock.exit277 ]
-  %.2218323 = phi ptr [ %160, %._crit_edge ], [ %.0216355, %144 ], [ %160, %Abc_Clock.exit277 ]
+  %.2200324 = phi ptr [ %160, %._crit_edge ], [ %.0198363, %144 ], [ %160, %Abc_Clock.exit277 ]
+  %.3323 = phi i32 [ %.2215, %._crit_edge ], [ %.0213356, %144 ], [ %.2215, %Abc_Clock.exit277 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   %269 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #24
   %270 = icmp slt i32 %269, 0
@@ -6728,12 +6728,12 @@ Abc_Clock.exit282:                                ; preds = %.thread, %271
 278:                                              ; preds = %275
   %279 = load i32, ptr %120, align 4
   %280 = icmp ne i32 %279, 0
-  %281 = icmp ne i32 %.0214356, 0
+  %281 = icmp ne i32 %.0217355, 0
   %or.cond3 = and i1 %281, %280
   br i1 %or.cond3, label %282, label %285
 
 282:                                              ; preds = %278
-  %283 = srem i32 %.0214356, %279
+  %283 = srem i32 %.0217355, %279
   %284 = icmp eq i32 %283, 0
   br i1 %284, label %287, label %285
 
@@ -6747,7 +6747,7 @@ Abc_Clock.exit282:                                ; preds = %.thread, %271
 
 288:                                              ; preds = %Abc_Clock.exit282
   %289 = load ptr, ptr %90, align 8
-  %290 = call ptr @Abc_SclFindTFO(ptr noundef %289, ptr noundef %.2218323)
+  %290 = call ptr @Abc_SclFindTFO(ptr noundef %289, ptr noundef %.2200324)
   call void @Abc_SclTimeCone(ptr noundef %78, ptr noundef %290) #24
   %291 = getelementptr i8, ptr %290, i64 4
   %.val = load i32, ptr %291, align 4
@@ -6765,7 +6765,7 @@ Vec_IntFree.exit284:                              ; preds = %288, %294
   br label %295
 
 295:                                              ; preds = %285, %287, %Vec_IntFree.exit284
-  %.1207 = phi i32 [ %.0206359, %287 ], [ %286, %285 ], [ %.val, %Vec_IntFree.exit284 ]
+  %.1210 = phi i32 [ %.0209358, %287 ], [ %286, %285 ], [ %.val, %Vec_IntFree.exit284 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   %296 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #24
   %297 = icmp slt i32 %296, 0
@@ -6865,15 +6865,15 @@ Abc_SclApplyUpdateToBest.exit:                    ; preds = %339, %332
   br label %354
 
 352:                                              ; preds = %Abc_SclReadMaxDelay.exit
-  %353 = add nsw i32 %.0208358, 1
+  %353 = add nsw i32 %.0211357, 1
   br label %354
 
 354:                                              ; preds = %352, %Abc_SclApplyUpdateToBest.exit
-  %.1209 = phi i32 [ 0, %Abc_SclApplyUpdateToBest.exit ], [ %353, %352 ]
+  %.1212 = phi i32 [ 0, %Abc_SclApplyUpdateToBest.exit ], [ %353, %352 ]
   %355 = getelementptr i8, ptr %.2325, i64 4
   %.2.val250 = load i32, ptr %355, align 4
-  %356 = getelementptr i8, ptr %.2218323, i64 4
-  %.2218.val249 = load i32, ptr %356, align 4
+  %356 = getelementptr i8, ptr %.2200324, i64 4
+  %.2200.val249 = load i32, ptr %356, align 4
   %357 = load i32, ptr %124, align 4
   %.not235 = icmp eq i32 %357, 0
   br i1 %.not235, label %358, label %363
@@ -6881,20 +6881,20 @@ Abc_SclApplyUpdateToBest.exit:                    ; preds = %339, %332
 358:                                              ; preds = %354
   %359 = load i32, ptr %37, align 4
   %360 = icmp ne i32 %359, 0
-  %361 = icmp eq i32 %.1209, 0
+  %361 = icmp eq i32 %.1212, 0
   %362 = select i1 %360, i1 %361, i1 false
   br label %363
 
 363:                                              ; preds = %358, %354
   %364 = phi i1 [ true, %354 ], [ %362, %358 ]
   %365 = zext i1 %364 to i32
-  call void @Abc_SclUpsizePrint(ptr noundef nonnull %78, i32 noundef %.0214356, i32 noundef %.0213347, i32 noundef %.2.val250, i32 noundef %.2218.val249, i32 noundef %.3324, i32 noundef %.1207, i32 noundef %365)
+  call void @Abc_SclUpsizePrint(ptr noundef nonnull %78, i32 noundef %.0217355, i32 noundef %.0216348, i32 noundef %.2.val250, i32 noundef %.2200.val249, i32 noundef %.3323, i32 noundef %.1210, i32 noundef %365)
   %.2.val = load i32, ptr %355, align 4
-  %366 = add nsw i32 %.2.val, %.0204360
-  %.2218.val = load i32, ptr %356, align 4
-  %367 = add nsw i32 %.2218.val, %.0202361
-  %368 = add nsw i32 %.1207, %.0200362
-  %369 = add nsw i32 %.3324, %.0198363
+  %366 = add nsw i32 %.2.val, %.0207359
+  %.2200.val = load i32, ptr %356, align 4
+  %367 = add nsw i32 %.2200.val, %.0205360
+  %368 = add nsw i32 %.1210, %.0203361
+  %369 = add nsw i32 %.3323, %.0201362
   %370 = getelementptr inbounds i8, ptr %.2325, i64 8
   %371 = load ptr, ptr %370, align 8
   %.not.i291 = icmp eq ptr %371, null
@@ -6906,7 +6906,7 @@ Abc_SclApplyUpdateToBest.exit:                    ; preds = %339, %332
 
 Vec_IntFree.exit292:                              ; preds = %363, %372
   call void @free(ptr noundef nonnull %.2325) #24
-  %373 = getelementptr inbounds i8, ptr %.2218323, i64 8
+  %373 = getelementptr inbounds i8, ptr %.2200324, i64 8
   %374 = load ptr, ptr %373, align 8
   %.not.i293 = icmp eq ptr %374, null
   br i1 %.not.i293, label %Vec_IntFree.exit294, label %375
@@ -6916,7 +6916,7 @@ Vec_IntFree.exit292:                              ; preds = %363, %372
   br label %Vec_IntFree.exit294
 
 Vec_IntFree.exit294:                              ; preds = %Vec_IntFree.exit292, %375
-  call void @free(ptr noundef nonnull %.2218323) #24
+  call void @free(ptr noundef nonnull %.2200324) #24
   br i1 %.not236, label %386, label %376
 
 376:                                              ; preds = %Vec_IntFree.exit294
@@ -6941,7 +6941,7 @@ Abc_Clock.exit296:                                ; preds = %376, %379
 
 386:                                              ; preds = %Abc_Clock.exit296, %Vec_IntFree.exit294
   %387 = load i32, ptr %139, align 4
-  %388 = icmp sgt i32 %.1209, %387
+  %388 = icmp sgt i32 %.1212, %387
   br i1 %388, label %.loopexit, label %389
 
 389:                                              ; preds = %386
@@ -6952,17 +6952,17 @@ Abc_Clock.exit296:                                ; preds = %376, %379
   br i1 %393, label %394, label %.loopexit
 
 394:                                              ; preds = %389
-  %395 = add nuw nsw i32 %.0214356, 1
+  %395 = add nuw nsw i32 %.0217355, 1
   %396 = load i32, ptr %2, align 4
   %397 = icmp slt i32 %395, %396
   br i1 %397, label %144, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %389, %386, %Abc_Clock.exit296, %._crit_edge, %394, %.preheader, %140
-  %.1215 = phi i32 [ 0, %140 ], [ 0, %.preheader ], [ %.0214356, %389 ], [ %.0214356, %386 ], [ %.0214356, %Abc_Clock.exit296 ], [ %.0214356, %._crit_edge ], [ %395, %394 ]
-  %.1205 = phi i32 [ 0, %140 ], [ 0, %.preheader ], [ %366, %389 ], [ %366, %386 ], [ %366, %Abc_Clock.exit296 ], [ %.0204360, %._crit_edge ], [ %366, %394 ]
-  %.1203 = phi i32 [ 0, %140 ], [ 0, %.preheader ], [ %367, %389 ], [ %367, %386 ], [ %367, %Abc_Clock.exit296 ], [ %.0202361, %._crit_edge ], [ %367, %394 ]
-  %.1201 = phi i32 [ 0, %140 ], [ 0, %.preheader ], [ %368, %389 ], [ %368, %386 ], [ %368, %Abc_Clock.exit296 ], [ %.0200362, %._crit_edge ], [ %368, %394 ]
-  %.1199 = phi i32 [ 0, %140 ], [ 0, %.preheader ], [ %369, %389 ], [ %369, %386 ], [ %369, %Abc_Clock.exit296 ], [ %.0198363, %._crit_edge ], [ %369, %394 ]
+  %.1218 = phi i32 [ 0, %140 ], [ 0, %.preheader ], [ %.0217355, %389 ], [ %.0217355, %386 ], [ %.0217355, %Abc_Clock.exit296 ], [ %.0217355, %._crit_edge ], [ %395, %394 ]
+  %.1208 = phi i32 [ 0, %140 ], [ 0, %.preheader ], [ %366, %389 ], [ %366, %386 ], [ %366, %Abc_Clock.exit296 ], [ %.0207359, %._crit_edge ], [ %366, %394 ]
+  %.1206 = phi i32 [ 0, %140 ], [ 0, %.preheader ], [ %367, %389 ], [ %367, %386 ], [ %367, %Abc_Clock.exit296 ], [ %.0205360, %._crit_edge ], [ %367, %394 ]
+  %.1204 = phi i32 [ 0, %140 ], [ 0, %.preheader ], [ %368, %389 ], [ %368, %386 ], [ %368, %Abc_Clock.exit296 ], [ %.0203361, %._crit_edge ], [ %368, %394 ]
+  %.1202 = phi i32 [ 0, %140 ], [ 0, %.preheader ], [ %369, %389 ], [ %369, %386 ], [ %369, %Abc_Clock.exit296 ], [ %.0201362, %._crit_edge ], [ %369, %394 ]
   %398 = load ptr, ptr %106, align 8
   %399 = load ptr, ptr %90, align 8
   %400 = getelementptr inbounds i8, ptr %399, i64 376
@@ -7139,12 +7139,12 @@ Abc_SclUpsizeRemoveDangling.exit:                 ; preds = %478, %.loopexit, %A
 
 486:                                              ; preds = %Abc_SclUpsizeRemoveDangling.exit
   %487 = load i32, ptr %64, align 4
-  %488 = call i32 @llvm.umax.i32(i32 %.1215, i32 1)
-  %489 = sdiv i32 %.1205, %488
-  %490 = sdiv i32 %.1203, %488
-  %491 = sdiv i32 %.1199, %488
-  %492 = sdiv i32 %.1201, %488
-  call void @Abc_SclUpsizePrint(ptr noundef %78, i32 noundef %.1215, i32 noundef %487, i32 noundef %489, i32 noundef %490, i32 noundef %491, i32 noundef %492, i32 noundef 1)
+  %488 = call i32 @llvm.umax.i32(i32 %.1218, i32 1)
+  %489 = sdiv i32 %.1208, %488
+  %490 = sdiv i32 %.1206, %488
+  %491 = sdiv i32 %.1202, %488
+  %492 = sdiv i32 %.1204, %488
+  call void @Abc_SclUpsizePrint(ptr noundef %78, i32 noundef %.1218, i32 noundef %487, i32 noundef %489, i32 noundef %490, i32 noundef %491, i32 noundef %492, i32 noundef 1)
   br label %495
 
 493:                                              ; preds = %Abc_SclUpsizeRemoveDangling.exit

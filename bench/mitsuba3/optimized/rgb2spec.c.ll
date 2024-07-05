@@ -164,10 +164,10 @@ define void @rgb2spec_fetch(ptr nocapture noundef readonly %0, ptr nocapture nou
   br label %33
 
 33:                                               ; preds = %25, %23, %27
-  %.0117 = phi float [ %32, %27 ], [ 0xFFF0000000000000, %23 ], [ 0x7FF0000000000000, %25 ]
+  %.0116 = phi float [ %32, %27 ], [ 0xFFF0000000000000, %23 ], [ 0x7FF0000000000000, %25 ]
   store <2 x float> zeroinitializer, ptr %2, align 4
   %34 = getelementptr inbounds i8, ptr %2, i64 8
-  store float %.0117, ptr %34, align 4
+  store float %.0116, ptr %34, align 4
   br label %.loopexit
 
 .preheader:                                       ; preds = %15, %.preheader
@@ -215,25 +215,25 @@ define void @rgb2spec_fetch(ptr nocapture noundef readonly %0, ptr nocapture nou
   br i1 %68, label %.lr.ph.i, label %rgb2spec_find_interval.exit
 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
-  %.019.i = phi i32 [ %.1.i, %.lr.ph.i ], [ %62, %42 ]
-  %.01618.i = phi i32 [ %.117.i, %.lr.ph.i ], [ 0, %42 ]
-  %69 = lshr i32 %.019.i, 1
-  %70 = add i32 %.01618.i, 1
+  %.019.i = phi i32 [ %.1.i, %.lr.ph.i ], [ 0, %42 ]
+  %.01618.i = phi i32 [ %.117.i, %.lr.ph.i ], [ %62, %42 ]
+  %69 = lshr i32 %.01618.i, 1
+  %70 = add i32 %.019.i, 1
   %71 = add i32 %70, %69
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds float, ptr %67, i64 %72
   %74 = load float, ptr %73, align 4
   %75 = fcmp contract ugt float %74, %45
   %.neg.i = xor i32 %69, -1
-  %76 = add nsw i32 %.019.i, %.neg.i
-  %.117.i = select i1 %75, i32 %.01618.i, i32 %71
-  %.1.i = select i1 %75, i32 %69, i32 %76
-  %77 = icmp sgt i32 %.1.i, 0
+  %76 = add nsw i32 %.01618.i, %.neg.i
+  %.117.i = select i1 %75, i32 %69, i32 %76
+  %.1.i = select i1 %75, i32 %.019.i, i32 %71
+  %77 = icmp sgt i32 %.117.i, 0
   br i1 %77, label %.lr.ph.i, label %rgb2spec_find_interval.exit, !llvm.loop !7
 
 rgb2spec_find_interval.exit:                      ; preds = %.lr.ph.i, %42
-  %.016.lcssa.i = phi i32 [ 0, %42 ], [ %.117.i, %.lr.ph.i ]
-  %78 = tail call i32 @llvm.smin.i32(i32 %.016.lcssa.i, i32 %62)
+  %.0.lcssa.i = phi i32 [ 0, %42 ], [ %.1.i, %.lr.ph.i ]
+  %78 = tail call i32 @llvm.smin.i32(i32 %.0.lcssa.i, i32 %62)
   %79 = mul nsw i32 %.1, %5
   %80 = add i32 %78, %79
   %81 = mul i32 %80, %5
@@ -265,20 +265,20 @@ rgb2spec_find_interval.exit:                      ; preds = %.lr.ph.i, %42
 
 106:                                              ; preds = %rgb2spec_find_interval.exit, %106
   %indvars.iv136 = phi i64 [ 0, %rgb2spec_find_interval.exit ], [ %indvars.iv.next137, %106 ]
-  %.0115129 = phi i32 [ %85, %rgb2spec_find_interval.exit ], [ %161, %106 ]
+  %.0118129 = phi i32 [ %85, %rgb2spec_find_interval.exit ], [ %161, %106 ]
   %107 = load ptr, ptr %105, align 8
-  %108 = zext i32 %.0115129 to i64
+  %108 = zext i32 %.0118129 to i64
   %109 = getelementptr inbounds float, ptr %107, i64 %108
   %110 = load float, ptr %109, align 4
   %111 = fmul contract float %90, %110
-  %112 = add i32 %.0115129, 3
+  %112 = add i32 %.0118129, 3
   %113 = zext i32 %112 to i64
   %114 = getelementptr inbounds float, ptr %107, i64 %113
   %115 = load float, ptr %114, align 4
   %116 = fmul contract float %89, %115
   %117 = fadd contract float %111, %116
   %118 = fmul contract float %93, %117
-  %119 = add i32 %.0115129, %86
+  %119 = add i32 %.0118129, %86
   %120 = zext i32 %119 to i64
   %121 = getelementptr inbounds float, ptr %107, i64 %120
   %122 = load float, ptr %121, align 4
@@ -292,7 +292,7 @@ rgb2spec_find_interval.exit:                      ; preds = %.lr.ph.i, %42
   %130 = fmul contract float %92, %129
   %131 = fadd contract float %118, %130
   %132 = fmul contract float %104, %131
-  %133 = add i32 %.0115129, %87
+  %133 = add i32 %.0118129, %87
   %134 = zext i32 %133 to i64
   %135 = getelementptr inbounds float, ptr %107, i64 %134
   %136 = load float, ptr %135, align 4
@@ -321,7 +321,7 @@ rgb2spec_find_interval.exit:                      ; preds = %.lr.ph.i, %42
   %159 = fadd contract float %132, %158
   %160 = getelementptr inbounds float, ptr %2, i64 %indvars.iv136
   store float %159, ptr %160, align 4
-  %161 = add i32 %.0115129, 1
+  %161 = add i32 %.0118129, 1
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next137, 3
   br i1 %exitcond139.not, label %.loopexit, label %106, !llvm.loop !8

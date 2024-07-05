@@ -127,11 +127,11 @@ define void @panic_notifier_call_chain(i64 noundef %0, ptr noundef %1) local_unn
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.01214 = phi ptr [ %7, %.lr.ph ], [ %5, %2 ]
-  %6 = getelementptr inbounds i8, ptr %.01214, i64 8
+  %.014 = phi ptr [ %7, %.lr.ph ], [ %5, %2 ]
+  %6 = getelementptr inbounds i8, ptr %.014, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %.01214, align 8
-  %9 = call i32 %8(ptr noundef nonnull %.01214, i64 noundef %0, ptr noundef %1) #2
+  %8 = load ptr, ptr %.014, align 8
+  %9 = call i32 %8(ptr noundef nonnull %.014, i64 noundef %0, ptr noundef %1) #2
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 

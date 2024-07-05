@@ -90,20 +90,20 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %13, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2, %.loopexit283
-  %.0159491 = phi i64 [ %.1160, %.loopexit283 ], [ 0, %2 ]
-  %.0162490 = phi i32 [ %.1163, %.loopexit283 ], [ %12, %2 ]
-  %.0165489 = phi i32 [ %.1166, %.loopexit283 ], [ 0, %2 ]
-  %.0169488 = phi i64 [ %.1170, %.loopexit283 ], [ 0, %2 ]
-  %.0172487 = phi i32 [ %.1173, %.loopexit283 ], [ 0, %2 ]
-  %.0175486 = phi i32 [ %.1176, %.loopexit283 ], [ 0, %2 ]
-  %.0178485 = phi i32 [ %.1179, %.loopexit283 ], [ -1, %2 ]
-  %.0181484 = phi i32 [ %.1182, %.loopexit283 ], [ 0, %2 ]
-  %.0184483 = phi i32 [ %.1185, %.loopexit283 ], [ 0, %2 ]
-  %.0187482 = phi i32 [ %.1188, %.loopexit283 ], [ 0, %2 ]
-  %.0190481 = phi i32 [ %.1191, %.loopexit283 ], [ 0, %2 ]
-  %.0193480 = phi ptr [ %.1194, %.loopexit283 ], [ null, %2 ]
-  %.0195479 = phi i32 [ %.3198, %.loopexit283 ], [ 1, %2 ]
-  %14 = sext i32 %.0195479 to i64
+  %.0155491 = phi i32 [ %.3, %.loopexit283 ], [ 1, %2 ]
+  %.0162490 = phi ptr [ %.1163, %.loopexit283 ], [ null, %2 ]
+  %.0164489 = phi i64 [ %.1165, %.loopexit283 ], [ 0, %2 ]
+  %.0167488 = phi i32 [ %.1168, %.loopexit283 ], [ %12, %2 ]
+  %.0170487 = phi i32 [ %.1171, %.loopexit283 ], [ 0, %2 ]
+  %.0174486 = phi i64 [ %.1175, %.loopexit283 ], [ 0, %2 ]
+  %.0177485 = phi i32 [ %.1178, %.loopexit283 ], [ 0, %2 ]
+  %.0180484 = phi i32 [ %.1181, %.loopexit283 ], [ 0, %2 ]
+  %.0183483 = phi i32 [ %.1184, %.loopexit283 ], [ -1, %2 ]
+  %.0186482 = phi i32 [ %.1187, %.loopexit283 ], [ 0, %2 ]
+  %.0189481 = phi i32 [ %.1190, %.loopexit283 ], [ 0, %2 ]
+  %.0192480 = phi i32 [ %.1193, %.loopexit283 ], [ 0, %2 ]
+  %.0195479 = phi i32 [ %.1196, %.loopexit283 ], [ 0, %2 ]
+  %14 = sext i32 %.0155491 to i64
   %15 = getelementptr ptr, ptr %1, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = load i8, ptr %16, align 1
@@ -117,7 +117,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not206, label %.critedge, label %22
 
 22:                                               ; preds = %19
-  %23 = add nsw i32 %.0195479, 1
+  %23 = add nsw i32 %.0155491, 1
   %24 = icmp eq i8 %21, 45
   br i1 %24, label %25, label %.preheader899
 
@@ -130,36 +130,36 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not207, label %.critedge, label %.preheader899
 
 .preheader899:                                    ; preds = %25, %22
-  %.1157.ph = phi ptr [ %20, %22 ], [ %28, %25 ]
-  %.1.ph = phi ptr [ @.str.2, %22 ], [ %26, %25 ]
+  %.1159.ph = phi ptr [ %20, %22 ], [ %28, %25 ]
+  %.1157.ph = phi ptr [ @.str.2, %22 ], [ %26, %25 ]
   br label %30
 
 30:                                               ; preds = %.backedge, %.preheader899
-  %.1196 = phi i32 [ %23, %.preheader899 ], [ %.1196.be, %.backedge ]
-  %.1191 = phi i32 [ %.0190481, %.preheader899 ], [ %.1191.be, %.backedge ]
-  %.1188 = phi i32 [ %.0187482, %.preheader899 ], [ %.1188.be, %.backedge ]
-  %.1185 = phi i32 [ %.0184483, %.preheader899 ], [ %.1185.be, %.backedge ]
-  %.1182 = phi i32 [ %.0181484, %.preheader899 ], [ %.1182.be, %.backedge ]
-  %.1179 = phi i32 [ %.0178485, %.preheader899 ], [ %.1179.be, %.backedge ]
-  %.1176 = phi i32 [ %.0175486, %.preheader899 ], [ %.1176.be, %.backedge ]
-  %.1173 = phi i32 [ %.0172487, %.preheader899 ], [ %.1173.be, %.backedge ]
-  %.1170 = phi i64 [ %.0169488, %.preheader899 ], [ %.1170.be, %.backedge ]
-  %.1166 = phi i32 [ %.0165489, %.preheader899 ], [ %.1166.be, %.backedge ]
-  %.1163 = phi i32 [ %.0162490, %.preheader899 ], [ %.1163.be, %.backedge ]
-  %.1160 = phi i64 [ %.0159491, %.preheader899 ], [ %.1160.be, %.backedge ]
-  %.1157 = phi ptr [ %.1157.ph, %.preheader899 ], [ %.1157.be, %.backedge ]
-  %.1 = phi ptr [ %.1.ph, %.preheader899 ], [ @.str.2, %.backedge ]
-  %31 = load i8, ptr %.1157, align 1
+  %.1196 = phi i32 [ %.0195479, %.preheader899 ], [ %.1196.be, %.backedge ]
+  %.1193 = phi i32 [ %.0192480, %.preheader899 ], [ %.1193.be, %.backedge ]
+  %.1190 = phi i32 [ %.0189481, %.preheader899 ], [ %.1190.be, %.backedge ]
+  %.1187 = phi i32 [ %.0186482, %.preheader899 ], [ %.1187.be, %.backedge ]
+  %.1184 = phi i32 [ %.0183483, %.preheader899 ], [ %.1184.be, %.backedge ]
+  %.1181 = phi i32 [ %.0180484, %.preheader899 ], [ %.1181.be, %.backedge ]
+  %.1178 = phi i32 [ %.0177485, %.preheader899 ], [ %.1178.be, %.backedge ]
+  %.1175 = phi i64 [ %.0174486, %.preheader899 ], [ %.1175.be, %.backedge ]
+  %.1171 = phi i32 [ %.0170487, %.preheader899 ], [ %.1171.be, %.backedge ]
+  %.1168 = phi i32 [ %.0167488, %.preheader899 ], [ %.1168.be, %.backedge ]
+  %.1165 = phi i64 [ %.0164489, %.preheader899 ], [ %.1165.be, %.backedge ]
+  %.1159 = phi ptr [ %.1159.ph, %.preheader899 ], [ %.1159.be, %.backedge ]
+  %.1157 = phi ptr [ %.1157.ph, %.preheader899 ], [ @.str.2, %.backedge ]
+  %.1 = phi i32 [ %23, %.preheader899 ], [ %.1.be, %.backedge ]
+  %31 = load i8, ptr %.1159, align 1
   %.not222 = icmp eq i8 %31, 0
   br i1 %.not222, label %32, label %.critedge2
 
 32:                                               ; preds = %30
-  %33 = load i8, ptr %.1, align 1
+  %33 = load i8, ptr %.1157, align 1
   %.not223 = icmp eq i8 %33, 0
   br i1 %.not223, label %.loopexit283, label %.thread
 
 .critedge2:                                       ; preds = %30
-  %34 = getelementptr i8, ptr %.1157, i64 1
+  %34 = getelementptr i8, ptr %.1159, i64 1
   %35 = zext i8 %31 to i32
   switch i8 %31, label %36 [
     i8 104, label %39
@@ -167,12 +167,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   ]
 
 36:                                               ; preds = %.critedge2
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(5) @.str.3) #14
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(5) @.str.3) #14
   %.not225 = icmp eq i32 %37, 0
   br i1 %.not225, label %39, label %40
 
 .thread:                                          ; preds = %32
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(5) @.str.3) #14
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(5) @.str.3) #14
   %.not225251 = icmp eq i32 %38, 0
   br i1 %.not225251, label %39, label %.thread257
 
@@ -186,28 +186,28 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %41, label %45, label %42
 
 42:                                               ; preds = %40
-  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(5) @.str.4) #14
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(5) @.str.4) #14
   %.not226 = icmp eq i32 %43, 0
   br i1 %.not226, label %45, label %57
 
 .thread257:                                       ; preds = %.thread
-  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(5) @.str.4) #14
+  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(5) @.str.4) #14
   %.not226259 = icmp eq i32 %44, 0
   br i1 %.not226259, label %45, label %.thread265
 
 45:                                               ; preds = %.thread257, %42, %40
-  %spec.select244248252256 = phi ptr [ %34, %42 ], [ %34, %40 ], [ %.1157, %.thread257 ]
+  %spec.select244248252256 = phi ptr [ %34, %42 ], [ %34, %40 ], [ %.1159, %.thread257 ]
   %46 = load i8, ptr %spec.select244248252256, align 1
   %.not243 = icmp eq i8 %46, 0
   br i1 %.not243, label %47, label %.loopexit283
 
 47:                                               ; preds = %45
-  %48 = icmp slt i32 %.1196, %0
+  %48 = icmp slt i32 %.1, %0
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %47
-  %50 = add nsw i32 %.1196, 1
-  %51 = sext i32 %.1196 to i64
+  %50 = add nsw i32 %.1, 1
+  %51 = sext i32 %.1 to i64
   %52 = getelementptr ptr, ptr %1, i64 %51
   %53 = load ptr, ptr %52, align 8
   br label %.loopexit283
@@ -223,18 +223,18 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %58, label %62, label %59
 
 59:                                               ; preds = %57
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(8) @.str.6) #14
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(8) @.str.6) #14
   %.not227 = icmp eq i32 %60, 0
   br i1 %.not227, label %62, label %79
 
 .thread265:                                       ; preds = %.thread257
-  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(8) @.str.6) #14
+  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(8) @.str.6) #14
   %.not227267 = icmp eq i32 %61, 0
   br i1 %.not227267, label %62, label %.thread273
 
 62:                                               ; preds = %.thread265, %59, %57
-  %spec.select244248252255260264 = phi ptr [ %34, %59 ], [ %34, %57 ], [ %.1157, %.thread265 ]
-  %.not242 = icmp slt i32 %.1196, %0
+  %spec.select244248252255260264 = phi ptr [ %34, %59 ], [ %34, %57 ], [ %.1159, %.thread265 ]
+  %.not242 = icmp slt i32 %.1, %0
   br i1 %.not242, label %66, label %63
 
 63:                                               ; preds = %62
@@ -244,7 +244,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   unreachable
 
 66:                                               ; preds = %62
-  %67 = icmp ugt i32 %.1166, 31
+  %67 = icmp ugt i32 %.1171, 31
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %66
@@ -254,12 +254,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   unreachable
 
 71:                                               ; preds = %66
-  %72 = zext nneg i32 %.1166 to i64
-  %73 = add nsw i32 %.1196, 1
-  %74 = sext i32 %.1196 to i64
+  %72 = zext nneg i32 %.1171 to i64
+  %73 = add nsw i32 %.1, 1
+  %74 = sext i32 %.1 to i64
   %75 = getelementptr ptr, ptr %1, i64 %74
   %76 = load ptr, ptr %75, align 8
-  %77 = add nuw nsw i32 %.1166, 1
+  %77 = add nuw nsw i32 %.1171, 1
   %78 = getelementptr [32 x ptr], ptr %4, i64 0, i64 %72
   store ptr %76, ptr %78, align 8
   br label %.backedge
@@ -269,18 +269,18 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %80, label %84, label %81
 
 81:                                               ; preds = %79
-  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(12) @.str.9) #14
+  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(12) @.str.9) #14
   %.not228 = icmp eq i32 %82, 0
   br i1 %.not228, label %84, label %86
 
 .thread273:                                       ; preds = %.thread265
-  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(12) @.str.9) #14
+  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(12) @.str.9) #14
   %.not228275 = icmp eq i32 %83, 0
   br i1 %.not228275, label %84, label %.thread277
 
 84:                                               ; preds = %.thread273, %81, %79
-  %spec.select244248252255260263268272 = phi ptr [ %34, %81 ], [ %34, %79 ], [ %.1157, %.thread273 ]
-  %85 = add i32 %.1191, 1
+  %spec.select244248252255260263268272 = phi ptr [ %34, %81 ], [ %34, %79 ], [ %.1159, %.thread273 ]
+  %85 = add i32 %.1196, 1
   br label %.backedge
 
 86:                                               ; preds = %81
@@ -289,13 +289,13 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 .thread277:                                       ; preds = %.thread273, %86
   %88 = phi i32 [ %35, %86 ], [ 0, %.thread273 ]
-  %spec.select244248252255260263268271276279 = phi ptr [ %34, %86 ], [ %.1157, %.thread273 ]
-  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(7) @.str.10) #14
+  %spec.select244248252255260263268271276279 = phi ptr [ %34, %86 ], [ %.1159, %.thread273 ]
+  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(7) @.str.10) #14
   %.not229 = icmp eq i32 %89, 0
   br i1 %.not229, label %.backedge, label %90
 
 90:                                               ; preds = %.thread277
-  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(7) @.str.11) #14
+  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(7) @.str.11) #14
   %.not230 = icmp eq i32 %91, 0
   br i1 %.not230, label %.backedge, label %92
 
@@ -304,12 +304,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %93, label %96, label %94
 
 94:                                               ; preds = %92
-  %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(5) @.str.12) #14
+  %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(5) @.str.12) #14
   %.not231 = icmp eq i32 %95, 0
   br i1 %.not231, label %96, label %98
 
 96:                                               ; preds = %94, %92
-  %97 = add i32 %.1188, 1
+  %97 = add i32 %.1193, 1
   br label %.backedge
 
 98:                                               ; preds = %94
@@ -317,26 +317,26 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %99, label %102, label %100
 
 100:                                              ; preds = %98
-  %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(6) @.str.13) #14
+  %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(6) @.str.13) #14
   %.not232 = icmp eq i32 %101, 0
   br i1 %.not232, label %102, label %104
 
 102:                                              ; preds = %100, %98
-  %103 = add i32 %.1185, 1
+  %103 = add i32 %.1190, 1
   br label %.backedge
 
 104:                                              ; preds = %100
-  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(4) @.str.14) #14
+  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(4) @.str.14) #14
   %.not233 = icmp eq i32 %105, 0
   br i1 %.not233, label %.backedge, label %106
 
 106:                                              ; preds = %104
-  %107 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(20) @.str.15) #14
+  %107 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(20) @.str.15) #14
   %.not234 = icmp eq i32 %107, 0
   br i1 %.not234, label %.backedge, label %108
 
 108:                                              ; preds = %106
-  %109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(7) @.str.16) #14
+  %109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(7) @.str.16) #14
   %.not235 = icmp eq i32 %109, 0
   br i1 %.not235, label %110, label %111
 
@@ -345,24 +345,24 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %.backedge
 
 111:                                              ; preds = %108
-  %112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(8) @.str.1) #14
+  %112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(8) @.str.1) #14
   %.not236 = icmp eq i32 %112, 0
   br i1 %.not236, label %.backedge, label %113
 
 .backedge:                                        ; preds = %111, %106, %104, %90, %86, %.thread277, %138, %125, %117, %110, %102, %96, %84, %71
-  %.1196.be = phi i32 [ %73, %71 ], [ %.1196, %84 ], [ %.1196, %96 ], [ %.1196, %102 ], [ %.1196, %117 ], [ %139, %138 ], [ %126, %125 ], [ %.1196, %110 ], [ %.1196, %.thread277 ], [ %.1196, %86 ], [ %.1196, %90 ], [ %.1196, %104 ], [ %.1196, %106 ], [ %.1196, %111 ]
-  %.1191.be = phi i32 [ %.1191, %71 ], [ %85, %84 ], [ %.1191, %96 ], [ %.1191, %102 ], [ %.1191, %117 ], [ %.1191, %138 ], [ %.1191, %125 ], [ %.1191, %110 ], [ %.1191, %.thread277 ], [ %.1191, %86 ], [ %.1191, %90 ], [ %.1191, %104 ], [ %.1191, %106 ], [ %.1191, %111 ]
-  %.1188.be = phi i32 [ %.1188, %71 ], [ %.1188, %84 ], [ %97, %96 ], [ %.1188, %102 ], [ %.1188, %117 ], [ %.1188, %138 ], [ %.1188, %125 ], [ %.1188, %110 ], [ %.1188, %.thread277 ], [ %.1188, %86 ], [ %.1188, %90 ], [ %.1188, %104 ], [ %.1188, %106 ], [ %.1188, %111 ]
-  %.1185.be = phi i32 [ %.1185, %71 ], [ %.1185, %84 ], [ %.1185, %96 ], [ %103, %102 ], [ %.1185, %117 ], [ %.1185, %138 ], [ %.1185, %125 ], [ %.1185, %110 ], [ %.1185, %.thread277 ], [ %.1185, %86 ], [ %.1185, %90 ], [ %.1185, %104 ], [ %.1185, %106 ], [ %.1185, %111 ]
-  %.1182.be = phi i32 [ %.1182, %71 ], [ %.1182, %84 ], [ %.1182, %96 ], [ %.1182, %102 ], [ %118, %117 ], [ %.1182, %138 ], [ %.1182, %125 ], [ %.1182, %110 ], [ %.1182, %.thread277 ], [ %.1182, %86 ], [ %.1182, %90 ], [ %.1182, %104 ], [ %.1182, %106 ], [ %.1182, %111 ]
-  %.1179.be = phi i32 [ %.1179, %71 ], [ %.1179, %84 ], [ %.1179, %96 ], [ %.1179, %102 ], [ %.1179, %117 ], [ %.1179, %138 ], [ %.1179, %125 ], [ %.1179, %110 ], [ 1, %.thread277 ], [ 1, %86 ], [ 0, %90 ], [ %.1179, %104 ], [ %.1179, %106 ], [ %.1179, %111 ]
-  %.1176.be = phi i32 [ %.1176, %71 ], [ %.1176, %84 ], [ %.1176, %96 ], [ %.1176, %102 ], [ %.1176, %117 ], [ %.1176, %138 ], [ %.1176, %125 ], [ %.1176, %110 ], [ %.1176, %.thread277 ], [ %.1176, %86 ], [ %.1176, %90 ], [ 1, %104 ], [ %.1176, %106 ], [ %.1176, %111 ]
-  %.1173.be = phi i32 [ %.1173, %71 ], [ %.1173, %84 ], [ %.1173, %96 ], [ %.1173, %102 ], [ %.1173, %117 ], [ %.1173, %138 ], [ %.1173, %125 ], [ %.1173, %110 ], [ %.1173, %.thread277 ], [ %.1173, %86 ], [ %.1173, %90 ], [ %.1173, %104 ], [ 1, %106 ], [ %.1173, %111 ]
-  %.1170.be = phi i64 [ %.1170, %71 ], [ %.1170, %84 ], [ %.1170, %96 ], [ %.1170, %102 ], [ %.1170, %117 ], [ %.1170, %138 ], [ %131, %125 ], [ %.1170, %110 ], [ %.1170, %.thread277 ], [ %.1170, %86 ], [ %.1170, %90 ], [ %.1170, %104 ], [ %.1170, %106 ], [ %.1170, %111 ]
-  %.1166.be = phi i32 [ %77, %71 ], [ %.1166, %84 ], [ %.1166, %96 ], [ %.1166, %102 ], [ %.1166, %117 ], [ %.1166, %138 ], [ %.1166, %125 ], [ %.1166, %110 ], [ %.1166, %.thread277 ], [ %.1166, %86 ], [ %.1166, %90 ], [ %.1166, %104 ], [ %.1166, %106 ], [ %.1166, %111 ]
-  %.1163.be = phi i32 [ %.1163, %71 ], [ %.1163, %84 ], [ %.1163, %96 ], [ %.1163, %102 ], [ %.1163, %117 ], [ %.1163, %138 ], [ %.1163, %125 ], [ %.1163, %110 ], [ %.1163, %.thread277 ], [ %.1163, %86 ], [ %.1163, %90 ], [ %.1163, %104 ], [ %.1163, %106 ], [ 1, %111 ]
-  %.1160.be = phi i64 [ %.1160, %71 ], [ %.1160, %84 ], [ %.1160, %96 ], [ %.1160, %102 ], [ %.1160, %117 ], [ %144, %138 ], [ %.1160, %125 ], [ %.1160, %110 ], [ %.1160, %.thread277 ], [ %.1160, %86 ], [ %.1160, %90 ], [ %.1160, %104 ], [ %.1160, %106 ], [ %.1160, %111 ]
-  %.1157.be = phi ptr [ %spec.select244248252255260264, %71 ], [ %spec.select244248252255260263268272, %84 ], [ %spec.select244248252255260263268271276279, %96 ], [ %spec.select244248252255260263268271276279, %102 ], [ %spec.select244248252255260263268271276279, %117 ], [ %spec.select244248252255260263268271276279, %138 ], [ %spec.select244248252255260263268271276279, %125 ], [ %spec.select244248252255260263268271276279, %110 ], [ %spec.select244248252255260263268271276279, %.thread277 ], [ %34, %86 ], [ %spec.select244248252255260263268271276279, %90 ], [ %spec.select244248252255260263268271276279, %104 ], [ %spec.select244248252255260263268271276279, %106 ], [ %spec.select244248252255260263268271276279, %111 ]
+  %.1196.be = phi i32 [ %.1196, %71 ], [ %85, %84 ], [ %.1196, %96 ], [ %.1196, %102 ], [ %.1196, %117 ], [ %.1196, %138 ], [ %.1196, %125 ], [ %.1196, %110 ], [ %.1196, %.thread277 ], [ %.1196, %86 ], [ %.1196, %90 ], [ %.1196, %104 ], [ %.1196, %106 ], [ %.1196, %111 ]
+  %.1193.be = phi i32 [ %.1193, %71 ], [ %.1193, %84 ], [ %97, %96 ], [ %.1193, %102 ], [ %.1193, %117 ], [ %.1193, %138 ], [ %.1193, %125 ], [ %.1193, %110 ], [ %.1193, %.thread277 ], [ %.1193, %86 ], [ %.1193, %90 ], [ %.1193, %104 ], [ %.1193, %106 ], [ %.1193, %111 ]
+  %.1190.be = phi i32 [ %.1190, %71 ], [ %.1190, %84 ], [ %.1190, %96 ], [ %103, %102 ], [ %.1190, %117 ], [ %.1190, %138 ], [ %.1190, %125 ], [ %.1190, %110 ], [ %.1190, %.thread277 ], [ %.1190, %86 ], [ %.1190, %90 ], [ %.1190, %104 ], [ %.1190, %106 ], [ %.1190, %111 ]
+  %.1187.be = phi i32 [ %.1187, %71 ], [ %.1187, %84 ], [ %.1187, %96 ], [ %.1187, %102 ], [ %118, %117 ], [ %.1187, %138 ], [ %.1187, %125 ], [ %.1187, %110 ], [ %.1187, %.thread277 ], [ %.1187, %86 ], [ %.1187, %90 ], [ %.1187, %104 ], [ %.1187, %106 ], [ %.1187, %111 ]
+  %.1184.be = phi i32 [ %.1184, %71 ], [ %.1184, %84 ], [ %.1184, %96 ], [ %.1184, %102 ], [ %.1184, %117 ], [ %.1184, %138 ], [ %.1184, %125 ], [ %.1184, %110 ], [ 1, %.thread277 ], [ 1, %86 ], [ 0, %90 ], [ %.1184, %104 ], [ %.1184, %106 ], [ %.1184, %111 ]
+  %.1181.be = phi i32 [ %.1181, %71 ], [ %.1181, %84 ], [ %.1181, %96 ], [ %.1181, %102 ], [ %.1181, %117 ], [ %.1181, %138 ], [ %.1181, %125 ], [ %.1181, %110 ], [ %.1181, %.thread277 ], [ %.1181, %86 ], [ %.1181, %90 ], [ 1, %104 ], [ %.1181, %106 ], [ %.1181, %111 ]
+  %.1178.be = phi i32 [ %.1178, %71 ], [ %.1178, %84 ], [ %.1178, %96 ], [ %.1178, %102 ], [ %.1178, %117 ], [ %.1178, %138 ], [ %.1178, %125 ], [ %.1178, %110 ], [ %.1178, %.thread277 ], [ %.1178, %86 ], [ %.1178, %90 ], [ %.1178, %104 ], [ 1, %106 ], [ %.1178, %111 ]
+  %.1175.be = phi i64 [ %.1175, %71 ], [ %.1175, %84 ], [ %.1175, %96 ], [ %.1175, %102 ], [ %.1175, %117 ], [ %.1175, %138 ], [ %131, %125 ], [ %.1175, %110 ], [ %.1175, %.thread277 ], [ %.1175, %86 ], [ %.1175, %90 ], [ %.1175, %104 ], [ %.1175, %106 ], [ %.1175, %111 ]
+  %.1171.be = phi i32 [ %77, %71 ], [ %.1171, %84 ], [ %.1171, %96 ], [ %.1171, %102 ], [ %.1171, %117 ], [ %.1171, %138 ], [ %.1171, %125 ], [ %.1171, %110 ], [ %.1171, %.thread277 ], [ %.1171, %86 ], [ %.1171, %90 ], [ %.1171, %104 ], [ %.1171, %106 ], [ %.1171, %111 ]
+  %.1168.be = phi i32 [ %.1168, %71 ], [ %.1168, %84 ], [ %.1168, %96 ], [ %.1168, %102 ], [ %.1168, %117 ], [ %.1168, %138 ], [ %.1168, %125 ], [ %.1168, %110 ], [ %.1168, %.thread277 ], [ %.1168, %86 ], [ %.1168, %90 ], [ %.1168, %104 ], [ %.1168, %106 ], [ 1, %111 ]
+  %.1165.be = phi i64 [ %.1165, %71 ], [ %.1165, %84 ], [ %.1165, %96 ], [ %.1165, %102 ], [ %.1165, %117 ], [ %144, %138 ], [ %.1165, %125 ], [ %.1165, %110 ], [ %.1165, %.thread277 ], [ %.1165, %86 ], [ %.1165, %90 ], [ %.1165, %104 ], [ %.1165, %106 ], [ %.1165, %111 ]
+  %.1159.be = phi ptr [ %spec.select244248252255260264, %71 ], [ %spec.select244248252255260263268272, %84 ], [ %spec.select244248252255260263268271276279, %96 ], [ %spec.select244248252255260263268271276279, %102 ], [ %spec.select244248252255260263268271276279, %117 ], [ %spec.select244248252255260263268271276279, %138 ], [ %spec.select244248252255260263268271276279, %125 ], [ %spec.select244248252255260263268271276279, %110 ], [ %spec.select244248252255260263268271276279, %.thread277 ], [ %34, %86 ], [ %spec.select244248252255260263268271276279, %90 ], [ %spec.select244248252255260263268271276279, %104 ], [ %spec.select244248252255260263268271276279, %106 ], [ %spec.select244248252255260263268271276279, %111 ]
+  %.1.be = phi i32 [ %73, %71 ], [ %.1, %84 ], [ %.1, %96 ], [ %.1, %102 ], [ %.1, %117 ], [ %139, %138 ], [ %126, %125 ], [ %.1, %110 ], [ %.1, %.thread277 ], [ %.1, %86 ], [ %.1, %90 ], [ %.1, %104 ], [ %.1, %106 ], [ %.1, %111 ]
   br label %30, !llvm.loop !7
 
 113:                                              ; preds = %111
@@ -370,21 +370,21 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %114, label %117, label %115
 
 115:                                              ; preds = %113
-  %116 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(5) @.str.17) #14
+  %116 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(5) @.str.17) #14
   %.not237 = icmp eq i32 %116, 0
   br i1 %.not237, label %117, label %119
 
 117:                                              ; preds = %115, %113
-  %118 = add i32 %.1182, 1
+  %118 = add i32 %.1187, 1
   br label %.backedge
 
 119:                                              ; preds = %115
-  %120 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(13) @.str.18) #14
+  %120 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(13) @.str.18) #14
   %.not238 = icmp eq i32 %120, 0
   br i1 %.not238, label %121, label %132
 
 121:                                              ; preds = %119
-  %.not239 = icmp slt i32 %.1196, %0
+  %.not239 = icmp slt i32 %.1, %0
   br i1 %.not239, label %125, label %122
 
 122:                                              ; preds = %121
@@ -394,8 +394,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   unreachable
 
 125:                                              ; preds = %121
-  %126 = add nsw i32 %.1196, 1
-  %127 = sext i32 %.1196 to i64
+  %126 = add nsw i32 %.1, 1
+  %127 = sext i32 %.1 to i64
   %128 = getelementptr ptr, ptr %1, i64 %127
   %129 = load ptr, ptr %128, align 8
   %130 = tail call double @strtod(ptr nocapture noundef %129, ptr noundef null) #16
@@ -403,12 +403,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %.backedge
 
 132:                                              ; preds = %119
-  %133 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(11) @.str.20) #14
+  %133 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1157, ptr noundef nonnull dereferenceable(11) @.str.20) #14
   %.not240 = icmp eq i32 %133, 0
   br i1 %.not240, label %134, label %145
 
 134:                                              ; preds = %132
-  %.not241 = icmp slt i32 %.1196, %0
+  %.not241 = icmp slt i32 %.1, %0
   br i1 %.not241, label %138, label %135
 
 135:                                              ; preds = %134
@@ -418,8 +418,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   unreachable
 
 138:                                              ; preds = %134
-  %139 = add nsw i32 %.1196, 1
-  %140 = sext i32 %.1196 to i64
+  %139 = add nsw i32 %.1, 1
+  %140 = sext i32 %.1 to i64
   %141 = getelementptr ptr, ptr %1, i64 %140
   %142 = load ptr, ptr %141, align 8
   %143 = tail call double @strtod(ptr nocapture noundef %142, ptr noundef null) #16
@@ -435,7 +435,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %151
 
 149:                                              ; preds = %145
-  %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %146, ptr noundef nonnull @.str.23, ptr noundef nonnull %.1) #17
+  %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %146, ptr noundef nonnull @.str.23, ptr noundef nonnull %.1157) #17
   br label %151
 
 151:                                              ; preds = %149, %147
@@ -444,26 +444,26 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   unreachable
 
 .loopexit283:                                     ; preds = %32, %45, %49
-  %.3198 = phi i32 [ %50, %49 ], [ %.1196, %45 ], [ %.1196, %32 ]
-  %.1194 = phi ptr [ %53, %49 ], [ %spec.select244248252256, %45 ], [ %.0193480, %32 ]
-  %152 = icmp slt i32 %.3198, %0
+  %.1163 = phi ptr [ %53, %49 ], [ %spec.select244248252256, %45 ], [ %.0162490, %32 ]
+  %.3 = phi i32 [ %50, %49 ], [ %.1, %45 ], [ %.1, %32 ]
+  %152 = icmp slt i32 %.3, %0
   br i1 %152, label %.lr.ph, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph, %19, %25, %.loopexit283, %2
-  %.0193.lcssa = phi ptr [ null, %2 ], [ %.1194, %.loopexit283 ], [ %.0193480, %25 ], [ %.0193480, %19 ], [ %.0193480, %.lr.ph ]
-  %.0190.lcssa = phi i32 [ 0, %2 ], [ %.1191, %.loopexit283 ], [ %.0190481, %25 ], [ %.0190481, %19 ], [ %.0190481, %.lr.ph ]
-  %.0187.lcssa = phi i32 [ 0, %2 ], [ %.1188, %.loopexit283 ], [ %.0187482, %25 ], [ %.0187482, %19 ], [ %.0187482, %.lr.ph ]
-  %.0184.lcssa = phi i32 [ 0, %2 ], [ %.1185, %.loopexit283 ], [ %.0184483, %25 ], [ %.0184483, %19 ], [ %.0184483, %.lr.ph ]
-  %.0181.lcssa = phi i32 [ 0, %2 ], [ %.1182, %.loopexit283 ], [ %.0181484, %25 ], [ %.0181484, %19 ], [ %.0181484, %.lr.ph ]
-  %.0178.lcssa = phi i32 [ -1, %2 ], [ %.1179, %.loopexit283 ], [ %.0178485, %25 ], [ %.0178485, %19 ], [ %.0178485, %.lr.ph ]
-  %.0175.lcssa = phi i32 [ 0, %2 ], [ %.1176, %.loopexit283 ], [ %.0175486, %25 ], [ %.0175486, %19 ], [ %.0175486, %.lr.ph ]
-  %.0172.lcssa = phi i32 [ 0, %2 ], [ %.1173, %.loopexit283 ], [ %.0172487, %25 ], [ %.0172487, %19 ], [ %.0172487, %.lr.ph ]
-  %.0169.lcssa = phi i64 [ 0, %2 ], [ %.1170, %.loopexit283 ], [ %.0169488, %25 ], [ %.0169488, %19 ], [ %.0169488, %.lr.ph ]
-  %.0165.lcssa = phi i32 [ 0, %2 ], [ %.1166, %.loopexit283 ], [ %.0165489, %25 ], [ %.0165489, %19 ], [ %.0165489, %.lr.ph ]
-  %.0162.lcssa = phi i32 [ %12, %2 ], [ %.1163, %.loopexit283 ], [ %.0162490, %25 ], [ %.0162490, %19 ], [ %.0162490, %.lr.ph ]
-  %.0159.lcssa = phi i64 [ 0, %2 ], [ %.1160, %.loopexit283 ], [ %.0159491, %25 ], [ %.0159491, %19 ], [ %.0159491, %.lr.ph ]
-  %.4 = phi i32 [ 1, %2 ], [ %.3198, %.loopexit283 ], [ %23, %25 ], [ %.0195479, %19 ], [ %.0195479, %.lr.ph ]
-  %.not208 = icmp eq i32 %.0162.lcssa, 0
+  %.0195.lcssa = phi i32 [ 0, %2 ], [ %.1196, %.loopexit283 ], [ %.0195479, %25 ], [ %.0195479, %19 ], [ %.0195479, %.lr.ph ]
+  %.0192.lcssa = phi i32 [ 0, %2 ], [ %.1193, %.loopexit283 ], [ %.0192480, %25 ], [ %.0192480, %19 ], [ %.0192480, %.lr.ph ]
+  %.0189.lcssa = phi i32 [ 0, %2 ], [ %.1190, %.loopexit283 ], [ %.0189481, %25 ], [ %.0189481, %19 ], [ %.0189481, %.lr.ph ]
+  %.0186.lcssa = phi i32 [ 0, %2 ], [ %.1187, %.loopexit283 ], [ %.0186482, %25 ], [ %.0186482, %19 ], [ %.0186482, %.lr.ph ]
+  %.0183.lcssa = phi i32 [ -1, %2 ], [ %.1184, %.loopexit283 ], [ %.0183483, %25 ], [ %.0183483, %19 ], [ %.0183483, %.lr.ph ]
+  %.0180.lcssa = phi i32 [ 0, %2 ], [ %.1181, %.loopexit283 ], [ %.0180484, %25 ], [ %.0180484, %19 ], [ %.0180484, %.lr.ph ]
+  %.0177.lcssa = phi i32 [ 0, %2 ], [ %.1178, %.loopexit283 ], [ %.0177485, %25 ], [ %.0177485, %19 ], [ %.0177485, %.lr.ph ]
+  %.0174.lcssa = phi i64 [ 0, %2 ], [ %.1175, %.loopexit283 ], [ %.0174486, %25 ], [ %.0174486, %19 ], [ %.0174486, %.lr.ph ]
+  %.0170.lcssa = phi i32 [ 0, %2 ], [ %.1171, %.loopexit283 ], [ %.0170487, %25 ], [ %.0170487, %19 ], [ %.0170487, %.lr.ph ]
+  %.0167.lcssa = phi i32 [ %12, %2 ], [ %.1168, %.loopexit283 ], [ %.0167488, %25 ], [ %.0167488, %19 ], [ %.0167488, %.lr.ph ]
+  %.0164.lcssa = phi i64 [ 0, %2 ], [ %.1165, %.loopexit283 ], [ %.0164489, %25 ], [ %.0164489, %19 ], [ %.0164489, %.lr.ph ]
+  %.0162.lcssa = phi ptr [ null, %2 ], [ %.1163, %.loopexit283 ], [ %.0162490, %25 ], [ %.0162490, %19 ], [ %.0162490, %.lr.ph ]
+  %.4 = phi i32 [ 1, %2 ], [ %.3, %.loopexit283 ], [ %23, %25 ], [ %.0155491, %19 ], [ %.0155491, %.lr.ph ]
+  %.not208 = icmp eq i32 %.0167.lcssa, 0
   br i1 %.not208, label %154, label %153
 
 153:                                              ; preds = %.critedge
@@ -471,7 +471,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %154
 
 154:                                              ; preds = %153, %.critedge
-  %.not209 = icmp eq i32 %.0184.lcssa, 0
+  %.not209 = icmp eq i32 %.0189.lcssa, 0
   br i1 %.not209, label %158, label %155
 
 155:                                              ; preds = %154
@@ -497,19 +497,19 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   unreachable
 
 164:                                              ; preds = %160
-  %.not211 = icmp eq i64 %.0169.lcssa, 0
+  %.not211 = icmp eq i64 %.0174.lcssa, 0
   br i1 %.not211, label %166, label %165
 
 165:                                              ; preds = %164
-  call void @JS_SetMemoryLimit(ptr noundef nonnull %.0154, i64 noundef %.0169.lcssa) #16
+  call void @JS_SetMemoryLimit(ptr noundef nonnull %.0154, i64 noundef %.0174.lcssa) #16
   br label %166
 
 166:                                              ; preds = %165, %164
-  %.not212 = icmp eq i64 %.0159.lcssa, 0
+  %.not212 = icmp eq i64 %.0164.lcssa, 0
   br i1 %.not212, label %168, label %167
 
 167:                                              ; preds = %166
-  call void @JS_SetMaxStackSize(ptr noundef nonnull %.0154, i64 noundef %.0159.lcssa) #16
+  call void @JS_SetMaxStackSize(ptr noundef nonnull %.0154, i64 noundef %.0164.lcssa) #16
   br label %168
 
 168:                                              ; preds = %167, %166
@@ -540,7 +540,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %176 = call ptr @js_init_module_std(ptr noundef nonnull %169, ptr noundef nonnull @.str.14) #16
   %177 = call ptr @js_init_module_os(ptr noundef nonnull %169, ptr noundef nonnull @.str.38) #16
   call void @JS_SetModuleLoaderFunc(ptr noundef nonnull %.0154, ptr noundef null, ptr noundef nonnull @js_module_loader, ptr noundef null) #16
-  %.not214 = icmp eq i32 %.0172.lcssa, 0
+  %.not214 = icmp eq i32 %.0177.lcssa, 0
   br i1 %.not214, label %179, label %178
 
 178:                                              ; preds = %175
@@ -548,7 +548,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %179
 
 179:                                              ; preds = %178, %175
-  %180 = icmp ne i32 %.0181.lcssa, 0
+  %180 = icmp ne i32 %.0186.lcssa, 0
   br i1 %180, label %220, label %181
 
 181:                                              ; preds = %179
@@ -565,7 +565,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %187 = sext i32 %.4 to i64
   %188 = getelementptr ptr, ptr %1, i64 %187
   call void @js_std_add_helpers(ptr noundef nonnull %169, i32 noundef %186, ptr noundef %188) #16
-  %.not215 = icmp eq i32 %.0175.lcssa, 0
+  %.not215 = icmp eq i32 %.0180.lcssa, 0
   br i1 %.not215, label %191, label %189
 
 189:                                              ; preds = %185
@@ -573,11 +573,11 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %191
 
 191:                                              ; preds = %189, %185
-  %192 = icmp sgt i32 %.0165.lcssa, 0
+  %192 = icmp sgt i32 %.0170.lcssa, 0
   br i1 %192, label %.lr.ph547.preheader, label %._crit_edge
 
 .lr.ph547.preheader:                              ; preds = %191
-  %wide.trip.count = zext nneg i32 %.0165.lcssa to i64
+  %wide.trip.count = zext nneg i32 %.0170.lcssa to i64
   br label %.lr.ph547
 
 193:                                              ; preds = %.lr.ph547
@@ -589,19 +589,19 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %indvars.iv = phi i64 [ 0, %.lr.ph547.preheader ], [ %indvars.iv.next, %193 ]
   %194 = getelementptr [32 x ptr], ptr %4, i64 0, i64 %indvars.iv
   %195 = load ptr, ptr %194, align 8
-  %196 = call fastcc i32 @eval_file(ptr noundef nonnull %169, ptr noundef %195, i32 noundef %.0178.lcssa)
+  %196 = call fastcc i32 @eval_file(ptr noundef nonnull %169, ptr noundef %195, i32 noundef %.0183.lcssa)
   %.not221 = icmp eq i32 %196, 0
   br i1 %.not221, label %193, label %.loopexit
 
 ._crit_edge:                                      ; preds = %193, %191
-  %.not216 = icmp eq ptr %.0193.lcssa, null
+  %.not216 = icmp eq ptr %.0162.lcssa, null
   br i1 %.not216, label %212, label %197
 
 197:                                              ; preds = %._crit_edge
-  %198 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0193.lcssa) #14
+  %198 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0162.lcssa) #14
   %sext = shl i64 %198, 32
   %199 = ashr exact i64 %sext, 32
-  %200 = call { i64, i64 } @JS_Eval(ptr noundef nonnull %169, ptr noundef nonnull %.0193.lcssa, i64 noundef %199, ptr noundef nonnull @.str.28, i32 noundef 0) #16
+  %200 = call { i64, i64 } @JS_Eval(ptr noundef nonnull %169, ptr noundef nonnull %.0162.lcssa, i64 noundef %199, ptr noundef nonnull @.str.28, i32 noundef 0) #16
   %.sroa.10.1.i = extractvalue { i64, i64 } %200, 1
   %.sroa.07.1.i = extractvalue { i64, i64 } %200, 0
   %201 = and i64 %.sroa.10.1.i, 4294967295
@@ -638,12 +638,12 @@ eval_buf.exit:                                    ; preds = %203, %206, %211
 
 213:                                              ; preds = %212
   %214 = load ptr, ptr %188, align 8
-  %215 = call fastcc i32 @eval_file(ptr noundef nonnull %169, ptr noundef %214, i32 noundef %.0178.lcssa)
+  %215 = call fastcc i32 @eval_file(ptr noundef nonnull %169, ptr noundef %214, i32 noundef %.0183.lcssa)
   %.not218 = icmp eq i32 %215, 0
   br i1 %.not218, label %216, label %.loopexit
 
 216:                                              ; preds = %213, %eval_buf.exit
-  %.not220 = icmp eq i32 %.0190.lcssa, 0
+  %.not220 = icmp eq i32 %.0195.lcssa, 0
   br i1 %.not220, label %219, label %.thread280
 
 .thread280:                                       ; preds = %212, %216
@@ -657,7 +657,7 @@ eval_buf.exit:                                    ; preds = %203, %206, %211
   br label %220
 
 220:                                              ; preds = %219, %179
-  %221 = icmp ne i32 %.0187.lcssa, 0
+  %221 = icmp ne i32 %.0192.lcssa, 0
   br i1 %221, label %222, label %224
 
 222:                                              ; preds = %220
@@ -681,7 +681,7 @@ eval_buf.exit:                                    ; preds = %203, %206, %211
   br label %229
 
 229:                                              ; preds = %.preheader, %.split550.us
-  %.0152551 = phi i32 [ 0, %.preheader ], [ %260, %.split550.us ]
+  %.0153551 = phi i32 [ 0, %.preheader ], [ %260, %.split550.us ]
   %230 = call i64 @clock() #16
   store i64 %230, ptr %6, align 16
   %231 = call ptr @JS_NewRuntime() #16
@@ -696,7 +696,7 @@ eval_buf.exit:                                    ; preds = %203, %206, %211
   call void @JS_FreeRuntime(ptr noundef %231) #16
   %236 = call i64 @clock() #16
   store i64 %236, ptr %228, align 16
-  %237 = icmp eq i32 %.0152551, 0
+  %237 = icmp eq i32 %.0153551, 0
   br i1 %237, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %229, %.split.us
@@ -738,7 +738,7 @@ eval_buf.exit:                                    ; preds = %203, %206, %211
   br i1 %259, label %.split, label %.split550.us, !llvm.loop !11
 
 .split550.us:                                     ; preds = %258, %.split.us
-  %260 = add nuw nsw i32 %.0152551, 1
+  %260 = add nuw nsw i32 %.0153551, 1
   %exitcond671.not = icmp eq i32 %260, 100
   br i1 %exitcond671.not, label %261, label %229, !llvm.loop !12
 
@@ -764,8 +764,8 @@ eval_buf.exit:                                    ; preds = %203, %206, %211
   br label %274
 
 274:                                              ; preds = %224, %261, %.loopexit
-  %.0153 = phi i32 [ 1, %.loopexit ], [ 0, %261 ], [ 0, %224 ]
-  ret i32 %.0153
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %261 ], [ 0, %224 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

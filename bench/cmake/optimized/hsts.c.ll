@@ -89,35 +89,35 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br i1 %7, label %hsts_create.exit, label %.preheader93
 
 .preheader93:                                     ; preds = %3, %.critedge10
-  %.069 = phi ptr [ %spec.select92, %.critedge10 ], [ %2, %3 ]
-  %.067 = phi i8 [ %.168, %.critedge10 ], [ 0, %3 ]
-  %.065 = phi i1 [ %.166, %.critedge10 ], [ false, %3 ]
-  %.064 = phi i8 [ %.1, %.critedge10 ], [ 0, %3 ]
+  %.070 = phi i8 [ %.171, %.critedge10 ], [ 0, %3 ]
+  %.068 = phi i1 [ %.169, %.critedge10 ], [ false, %3 ]
+  %.066 = phi i8 [ %.167, %.critedge10 ], [ 0, %3 ]
+  %.065 = phi ptr [ %spec.select92, %.critedge10 ], [ %2, %3 ]
   br label %8
 
 8:                                                ; preds = %.critedge2, %.preheader93
-  %.170 = phi ptr [ %.069, %.preheader93 ], [ %10, %.critedge2 ]
-  %9 = load i8, ptr %.170, align 1
+  %.1 = phi ptr [ %.065, %.preheader93 ], [ %10, %.critedge2 ]
+  %9 = load i8, ptr %.1, align 1
   switch i8 %9, label %.critedge [
     i8 9, label %.critedge2
     i8 32, label %.critedge2
   ]
 
 .critedge2:                                       ; preds = %8, %8
-  %10 = getelementptr inbounds i8, ptr %.170, i64 1
+  %10 = getelementptr inbounds i8, ptr %.1, i64 1
   br label %8, !llvm.loop !7
 
 .critedge:                                        ; preds = %8
-  %11 = call i32 @curl_strnequal(ptr noundef nonnull @.str, ptr noundef nonnull %.170, i64 noundef 8) #9
+  %11 = call i32 @curl_strnequal(ptr noundef nonnull @.str, ptr noundef nonnull %.1, i64 noundef 8) #9
   %.not80 = icmp eq i32 %11, 0
   br i1 %.not80, label %28, label %12
 
 12:                                               ; preds = %.critedge
-  %13 = trunc nuw i8 %.067 to i1
+  %13 = trunc nuw i8 %.070 to i1
   br i1 %13, label %hsts_create.exit, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %.170, i64 8
+  %15 = getelementptr inbounds i8, ptr %.1, i64 8
   br label %16
 
 16:                                               ; preds = %.critedge6, %14
@@ -160,19 +160,19 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br label %.critedge8
 
 28:                                               ; preds = %.critedge
-  %29 = call i32 @curl_strnequal(ptr noundef nonnull @.str.1, ptr noundef nonnull %.170, i64 noundef 17) #9
+  %29 = call i32 @curl_strnequal(ptr noundef nonnull @.str.1, ptr noundef nonnull %.1, i64 noundef 17) #9
   %.not81 = icmp eq i32 %29, 0
   br i1 %.not81, label %.preheader, label %30
 
 30:                                               ; preds = %28
-  br i1 %.065, label %hsts_create.exit, label %31
+  br i1 %.068, label %hsts_create.exit, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %.170, i64 17
+  %32 = getelementptr inbounds i8, ptr %.1, i64 17
   br label %.critedge8
 
 .preheader:                                       ; preds = %28, %34
-  %.5 = phi ptr [ %35, %34 ], [ %.170, %28 ]
+  %.5 = phi ptr [ %35, %34 ], [ %.1, %28 ]
   %33 = load i8, ptr %.5, align 1
   switch i8 %33, label %34 [
     i8 0, label %.critedge8
@@ -184,10 +184,10 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br label %.preheader, !llvm.loop !9
 
 .critedge8:                                       ; preds = %.preheader, %.preheader, %22, %26, %31
+  %.171 = phi i8 [ %.070, %31 ], [ 1, %26 ], [ 1, %22 ], [ %.070, %.preheader ], [ %.070, %.preheader ]
+  %.169 = phi i1 [ true, %31 ], [ %.068, %26 ], [ %.068, %22 ], [ %.068, %.preheader ], [ %.068, %.preheader ]
+  %.167 = phi i8 [ 1, %31 ], [ %.066, %26 ], [ %.066, %22 ], [ %.066, %.preheader ], [ %.066, %.preheader ]
   %.6 = phi ptr [ %32, %31 ], [ %27, %26 ], [ %23, %22 ], [ %.5, %.preheader ], [ %.5, %.preheader ]
-  %.168 = phi i8 [ %.067, %31 ], [ 1, %26 ], [ 1, %22 ], [ %.067, %.preheader ], [ %.067, %.preheader ]
-  %.166 = phi i1 [ true, %31 ], [ %.065, %26 ], [ %.065, %22 ], [ %.065, %.preheader ], [ %.065, %.preheader ]
-  %.1 = phi i8 [ 1, %31 ], [ %.064, %26 ], [ %.064, %22 ], [ %.064, %.preheader ], [ %.064, %.preheader ]
   br label %36
 
 36:                                               ; preds = %.critedge12, %.critedge8
@@ -211,7 +211,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br i1 %.not88, label %41, label %.preheader93, !llvm.loop !11
 
 41:                                               ; preds = %.critedge10
-  %42 = trunc nuw i8 %.168 to i1
+  %42 = trunc nuw i8 %.171 to i1
   br i1 %42, label %43, label %hsts_create.exit
 
 43:                                               ; preds = %41
@@ -249,12 +249,12 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   %59 = getelementptr inbounds i8, ptr %56, i64 40
   store i64 %57, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %56, i64 32
-  %61 = and i8 %.1, 1
+  %61 = and i8 %.167, 1
   store i8 %61, ptr %60, align 8
   br label %hsts_create.exit
 
 62:                                               ; preds = %52
-  %63 = and i8 %.1, 1
+  %63 = and i8 %.167, 1
   %64 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %.not.i = icmp eq i64 %64, 0
   br i1 %.not.i, label %hsts_create.exit, label %65
@@ -272,14 +272,14 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br i1 %.not25.i, label %hsts_create.exit, label %.thread30.i
 
 .thread30.i:                                      ; preds = %70, %65
-  %.033.i = phi i64 [ %71, %70 ], [ %64, %65 ]
+  %.02133.i = phi i64 [ %71, %70 ], [ %64, %65 ]
   %72 = load ptr, ptr @Curl_ccalloc, align 8
   %73 = call ptr %72(i64 noundef 1, i64 noundef 48) #9
   %.not26.i = icmp eq ptr %73, null
   br i1 %.not26.i, label %hsts_create.exit, label %74
 
 74:                                               ; preds = %.thread30.i
-  %75 = call ptr @Curl_memdup0(ptr noundef nonnull %1, i64 noundef %.033.i) #9
+  %75 = call ptr @Curl_memdup0(ptr noundef nonnull %1, i64 noundef %.02133.i) #9
   %.not27.i = icmp eq ptr %75, null
   br i1 %.not27.i, label %76, label %78
 
@@ -301,8 +301,8 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br label %hsts_create.exit
 
 hsts_create.exit:                                 ; preds = %30, %24, %.critedge4, %12, %78, %76, %.thread30.i, %70, %62, %45, %47, %41, %3, %58
-  %.071 = phi i32 [ 0, %58 ], [ 0, %3 ], [ 43, %41 ], [ 0, %47 ], [ 0, %45 ], [ 27, %76 ], [ 27, %.thread30.i ], [ 0, %78 ], [ 0, %70 ], [ 0, %62 ], [ 43, %12 ], [ 43, %.critedge4 ], [ 43, %24 ], [ 43, %30 ]
-  ret i32 %.071
+  %.0 = phi i32 [ 0, %58 ], [ 0, %3 ], [ 43, %41 ], [ 0, %47 ], [ 0, %45 ], [ 27, %76 ], [ 27, %.thread30.i ], [ 0, %78 ], [ 0, %70 ], [ 0, %62 ], [ 43, %12 ], [ 43, %.critedge4 ], [ 43, %24 ], [ 43, %30 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind
@@ -344,9 +344,9 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %47
-  %.048.us = phi ptr [ %18, %47 ], [ %15, %.lr.ph ]
-  %16 = load ptr, ptr %.048.us, align 8
-  %17 = getelementptr inbounds i8, ptr %.048.us, i64 16
+  %.03948.us = phi ptr [ %18, %47 ], [ %15, %.lr.ph ]
+  %16 = load ptr, ptr %.03948.us, align 8
+  %17 = getelementptr inbounds i8, ptr %.03948.us, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 40
   %20 = load i64, ptr %19, align 8
@@ -401,9 +401,9 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %.not43.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %62
-  %.048 = phi ptr [ %50, %62 ], [ %15, %.lr.ph ]
-  %48 = load ptr, ptr %.048, align 8
-  %49 = getelementptr inbounds i8, ptr %.048, i64 16
+  %.03948 = phi ptr [ %50, %62 ], [ %15, %.lr.ph ]
+  %48 = load ptr, ptr %.03948, align 8
+  %49 = getelementptr inbounds i8, ptr %.03948, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %48, i64 40
   %52 = load i64, ptr %51, align 8
@@ -432,8 +432,8 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %.not43, label %.loopexit, label %.lr.ph.split, !llvm.loop !12
 
 .loopexit:                                        ; preds = %58, %62, %41, %43, %47, %9, %3, %5
-  %.039 = phi ptr [ null, %5 ], [ null, %3 ], [ null, %9 ], [ %16, %41 ], [ %16, %43 ], [ null, %47 ], [ %48, %58 ], [ null, %62 ]
-  ret ptr %.039
+  %.0 = phi ptr [ null, %5 ], [ null, %3 ], [ null, %9 ], [ %16, %41 ], [ %16, %43 ], [ null, %47 ], [ %48, %58 ], [ null, %62 ]
+  ret ptr %.0
 }
 
 declare void @Curl_llist_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -800,14 +800,14 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr nocapture readnone
   br i1 %.not25.i.i.i, label %hsts_add.exit.i, label %.thread30.i.i.i
 
 .thread30.i.i.i:                                  ; preds = %39, %34
-  %.033.i.i.i = phi i64 [ %40, %39 ], [ %33, %34 ]
+  %.02133.i.i.i = phi i64 [ %40, %39 ], [ %33, %34 ]
   %41 = load ptr, ptr @Curl_ccalloc, align 8
   %42 = call ptr %41(i64 noundef 1, i64 noundef 48) #9
   %.not26.i.i.i = icmp eq ptr %42, null
   br i1 %.not26.i.i.i, label %hsts_add.exit.i, label %43
 
 43:                                               ; preds = %.thread30.i.i.i
-  %44 = call ptr @Curl_memdup0(ptr noundef nonnull %spec.select.i.i, i64 noundef %.033.i.i.i) #9
+  %44 = call ptr @Curl_memdup0(ptr noundef nonnull %spec.select.i.i, i64 noundef %.02133.i.i.i) #9
   %.not27.i.i.i = icmp eq ptr %44, null
   br i1 %.not27.i.i.i, label %45, label %47
 
@@ -918,7 +918,7 @@ define dso_local i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noundef %1) local_unn
 
 23:                                               ; preds = %21, %19
   %24 = phi ptr [ %.pre.i, %21 ], [ %17, %19 ]
-  %.0.i = phi i64 [ %22, %21 ], [ 9223372036854775807, %19 ]
+  %.011.i = phi i64 [ %22, %21 ], [ 9223372036854775807, %19 ]
   %25 = load i8, ptr %9, align 8
   %26 = and i8 %25, 1
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #10
@@ -938,14 +938,14 @@ define dso_local i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not25.i.i, label %hsts_create.exit.i, label %.thread30.i.i
 
 .thread30.i.i:                                    ; preds = %33, %28
-  %.033.i.i = phi i64 [ %34, %33 ], [ %27, %28 ]
+  %.02133.i.i = phi i64 [ %34, %33 ], [ %27, %28 ]
   %35 = load ptr, ptr @Curl_ccalloc, align 8
   %36 = call ptr %35(i64 noundef 1, i64 noundef 48) #9
   %.not26.i.i = icmp eq ptr %36, null
   br i1 %.not26.i.i, label %hsts_pull.exit, label %37
 
 37:                                               ; preds = %.thread30.i.i
-  %38 = call ptr @Curl_memdup0(ptr noundef nonnull %24, i64 noundef %.033.i.i) #9
+  %38 = call ptr @Curl_memdup0(ptr noundef nonnull %24, i64 noundef %.02133.i.i) #9
   %.not27.i.i = icmp eq ptr %38, null
   br i1 %.not27.i.i, label %39, label %41
 
@@ -958,7 +958,7 @@ define dso_local i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noundef %1) local_unn
   %42 = getelementptr inbounds i8, ptr %36, i64 24
   store ptr %38, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %36, i64 40
-  store i64 %.0.i, ptr %43, align 8
+  store i64 %.011.i, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %36, i64 32
   store i8 %26, ptr %44, align 8
   %45 = load ptr, ptr %15, align 8
@@ -987,13 +987,13 @@ hsts_create.exit.i:                               ; preds = %41, %33, %23
   br label %hsts_pull.exit
 
 hsts_pull.exit:                                   ; preds = %16, %.thread30.i.i, %5, %39, %._crit_edge.i
-  %.011.i = phi i32 [ %.mux20.i, %._crit_edge.i ], [ 0, %5 ], [ 27, %39 ], [ 43, %16 ], [ 27, %.thread30.i.i ]
+  %.0.i = phi i32 [ %.mux20.i, %._crit_edge.i ], [ 0, %5 ], [ 27, %39 ], [ 43, %16 ], [ 27, %.thread30.i.i ]
   call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   br label %53
 
 53:                                               ; preds = %2, %hsts_pull.exit
-  %.0 = phi i32 [ %.011.i, %hsts_pull.exit ], [ 0, %2 ]
+  %.0 = phi i32 [ %.0.i, %hsts_pull.exit ], [ 0, %2 ]
   ret i32 %.0
 }
 

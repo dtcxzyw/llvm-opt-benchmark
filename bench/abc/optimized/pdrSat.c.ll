@@ -687,10 +687,10 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   br label %45
 
 45:                                               ; preds = %.thread, %36
-  %.02837.in = phi ptr [ %42, %36 ], [ %35, %.thread ]
+  %.037.in = phi ptr [ %42, %36 ], [ %35, %.thread ]
   %46 = phi i32 [ %44, %36 ], [ 3, %.thread ]
-  %.02837 = load ptr, ptr %.02837.in, align 8
-  %47 = call i32 @Pdr_ObjSatVar(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %46, ptr noundef %.02837) #8
+  %.037 = load ptr, ptr %.037.in, align 8
+  %47 = call i32 @Pdr_ObjSatVar(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %46, ptr noundef %.037) #8
   %48 = load ptr, ptr %14, align 8
   %49 = load i32, ptr %24, align 4
   %50 = and i32 %49, 1
@@ -1219,7 +1219,7 @@ Vec_IntPush.exit104:                              ; preds = %.Vec_IntGrow.exit10
   br label %143
 
 143:                                              ; preds = %141, %Vec_IntPush.exit104
-  %.079 = phi ptr [ %107, %Vec_IntPush.exit104 ], [ %142, %141 ]
+  %.080 = phi ptr [ %107, %Vec_IntPush.exit104 ], [ %142, %141 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   %144 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #8
   %145 = icmp slt i32 %144, 0
@@ -1257,12 +1257,12 @@ Pdr_ManTimeLimit.exit109:                         ; preds = %Abc_Clock.exit106, 
   %161 = getelementptr inbounds i8, ptr %17, i64 512
   %162 = load i64, ptr %161, align 8
   store i64 %.0.i108, ptr %161, align 8
-  %163 = getelementptr i8, ptr %.079, i64 8
-  %.079.val91 = load ptr, ptr %163, align 8
-  %164 = getelementptr i8, ptr %.079, i64 4
-  %.079.val93 = load i32, ptr %164, align 4
-  %165 = sext i32 %.079.val93 to i64
-  %166 = getelementptr inbounds i32, ptr %.079.val91, i64 %165
+  %163 = getelementptr i8, ptr %.080, i64 8
+  %.080.val91 = load ptr, ptr %163, align 8
+  %164 = getelementptr i8, ptr %.080, i64 4
+  %.080.val93 = load i32, ptr %164, align 4
+  %165 = sext i32 %.080.val93 to i64
+  %166 = getelementptr inbounds i32, ptr %.080.val91, i64 %165
   %.not86 = icmp eq i32 %5, 0
   br i1 %.not86, label %171, label %167
 
@@ -1275,7 +1275,7 @@ Pdr_ManTimeLimit.exit109:                         ; preds = %Abc_Clock.exit106, 
 171:                                              ; preds = %Pdr_ManTimeLimit.exit109, %167
   %172 = phi i32 [ %170, %167 ], [ %4, %Pdr_ManTimeLimit.exit109 ]
   %173 = sext i32 %172 to i64
-  %174 = call i32 @sat_solver_solve(ptr noundef nonnull %17, ptr noundef %.079.val91, ptr noundef %166, i64 noundef %173, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
+  %174 = call i32 @sat_solver_solve(ptr noundef nonnull %17, ptr noundef %.080.val91, ptr noundef %166, i64 noundef %173, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
   store i64 %162, ptr %161, align 8
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %176, label %181
@@ -1291,8 +1291,8 @@ Pdr_ManTimeLimit.exit109:                         ; preds = %Abc_Clock.exit106, 
   br i1 %.not87, label %248, label %181
 
 181:                                              ; preds = %177, %171, %Pdr_ManTimeLimit.exit
-  %.078 = phi i32 [ %52, %Pdr_ManTimeLimit.exit ], [ %174, %171 ], [ 1, %177 ]
-  %.0 = phi i64 [ %.0.i, %Pdr_ManTimeLimit.exit ], [ %.0.i105, %171 ], [ %.0.i105, %177 ]
+  %.079 = phi i32 [ %52, %Pdr_ManTimeLimit.exit ], [ %174, %171 ], [ 1, %177 ]
+  %.078 = phi i64 [ %.0.i, %Pdr_ManTimeLimit.exit ], [ %.0.i105, %171 ], [ %.0.i105, %177 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   %182 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #8
   %183 = icmp slt i32 %182, 0
@@ -1310,12 +1310,12 @@ Pdr_ManTimeLimit.exit109:                         ; preds = %Abc_Clock.exit106, 
 Abc_Clock.exit111:                                ; preds = %181, %184
   %.0.i110 = phi i64 [ %190, %184 ], [ -1, %181 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %191 = sub nsw i64 %.0.i110, %.0
+  %191 = sub nsw i64 %.0.i110, %.078
   %192 = getelementptr inbounds i8, ptr %0, i64 384
   %193 = load i64, ptr %192, align 8
   %194 = add nsw i64 %193, %191
   store i64 %194, ptr %192, align 8
-  %195 = icmp eq i32 %.078, -1
+  %195 = icmp eq i32 %.079, -1
   %.not90 = icmp eq ptr %3, null
   br i1 %195, label %196, label %204
 
@@ -1415,8 +1415,8 @@ Abc_Clock.exit115:                                ; preds = %227, %230
   br label %248
 
 248:                                              ; preds = %203, %196, %Abc_Clock.exit115, %204, %176, %177, %Pdr_ManTimeLimit.exit
-  %.080 = phi i32 [ -1, %Pdr_ManTimeLimit.exit ], [ -1, %177 ], [ -1, %176 ], [ 1, %203 ], [ 1, %196 ], [ 0, %Abc_Clock.exit115 ], [ 0, %204 ]
-  ret i32 %.080
+  %.0 = phi i32 [ -1, %Pdr_ManTimeLimit.exit ], [ -1, %177 ], [ -1, %176 ], [ 1, %203 ], [ 1, %196 ], [ 0, %Abc_Clock.exit115 ], [ 0, %204 ]
+  ret i32 %.0
 }
 
 declare i32 @Pdr_ManFreeVar(ptr noundef, i32 noundef) local_unnamed_addr #1

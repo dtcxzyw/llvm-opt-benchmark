@@ -4172,33 +4172,33 @@ define internal range(i32 0, 2) i32 @Cba_CommandCec(ptr nocapture noundef %0, i3
   br label %27
 
 27:                                               ; preds = %18, %23
-  %.050 = phi ptr [ %26, %23 ], [ %20, %18 ]
+  %.049 = phi ptr [ %26, %23 ], [ %20, %18 ]
   br label %28
 
 28:                                               ; preds = %31, %27
-  %.049 = phi ptr [ %.050, %27 ], [ %32, %31 ]
-  %29 = load i8, ptr %.049, align 1
+  %.050 = phi ptr [ %.049, %27 ], [ %32, %31 ]
+  %29 = load i8, ptr %.050, align 1
   switch i8 %29, label %31 [
     i8 0, label %33
     i8 62, label %30
   ]
 
 30:                                               ; preds = %28
-  store i8 92, ptr %.049, align 1
+  store i8 92, ptr %.050, align 1
   br label %31
 
 31:                                               ; preds = %28, %30
-  %32 = getelementptr inbounds i8, ptr %.049, i64 1
+  %32 = getelementptr inbounds i8, ptr %.050, i64 1
   br label %28, !llvm.loop !31
 
 33:                                               ; preds = %28
-  %34 = call noalias ptr @fopen(ptr noundef %.050, ptr noundef nonnull @.str.12)
+  %34 = call noalias ptr @fopen(ptr noundef %.049, ptr noundef nonnull @.str.12)
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %33
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.13, ptr noundef %.050)
-  %37 = call ptr @Extra_FileGetSimilarName(ptr noundef %.050, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.13, ptr noundef %.049)
+  %37 = call ptr @Extra_FileGetSimilarName(ptr noundef %.049, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not66 = icmp eq ptr %37, null
   br i1 %.not66, label %39, label %38
 
@@ -4221,17 +4221,17 @@ define internal range(i32 0, 2) i32 @Cba_CommandCec(ptr nocapture noundef %0, i3
   br label %75
 
 45:                                               ; preds = %40
-  %46 = call ptr @Extra_FileNameExtension(ptr noundef %.050) #18
+  %46 = call ptr @Extra_FileNameExtension(ptr noundef %.049) #18
   %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(5) @.str.20) #19
   %.not62 = icmp eq i32 %47, 0
   br i1 %.not62, label %48, label %sub_0
 
 48:                                               ; preds = %45
-  %49 = call ptr @Cba_ManReadBlif(ptr noundef %.050) #18
+  %49 = call ptr @Cba_ManReadBlif(ptr noundef %.049) #18
   br label %61
 
 sub_0:                                            ; preds = %45
-  %50 = call ptr @Extra_FileNameExtension(ptr noundef %.050) #18
+  %50 = call ptr @Extra_FileNameExtension(ptr noundef %.049) #18
   %51 = load i8, ptr %50, align 1
   %.not = icmp eq i8 %51, 118
   br i1 %.not, label %.tail, label %.tail.thread
@@ -4243,17 +4243,17 @@ sub_0:                                            ; preds = %45
   br i1 %54, label %55, label %.tail.thread
 
 55:                                               ; preds = %.tail
-  %56 = call ptr @Cba_ManReadVerilog(ptr noundef %.050) #18
+  %56 = call ptr @Cba_ManReadVerilog(ptr noundef %.049) #18
   br label %61
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  %57 = call ptr @Extra_FileNameExtension(ptr noundef %.050) #18
+  %57 = call ptr @Extra_FileNameExtension(ptr noundef %.049) #18
   %58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(4) @.str.23) #19
   %.not64 = icmp eq i32 %58, 0
   br i1 %.not64, label %59, label %61
 
 59:                                               ; preds = %.tail.thread
-  %60 = call ptr @Cba_ManReadCba(ptr noundef %.050) #18
+  %60 = call ptr @Cba_ManReadCba(ptr noundef %.049) #18
   br label %61
 
 61:                                               ; preds = %55, %.tail.thread, %59, %48

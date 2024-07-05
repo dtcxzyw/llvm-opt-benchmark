@@ -19665,8 +19665,8 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %979
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %1318, %1317
-  %.sroa.659.sroa.6.0.i.i = phi i64 [ 0, %1317 ], [ 1, %1318 ]
   %.sroa.057.0.i.i = phi ptr [ inttoptr (i64 8 to ptr), %1317 ], [ %1310, %1318 ]
+  %.sroa.659.sroa.6.0.i.i = phi i64 [ 0, %1317 ], [ 1, %1318 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2537)
   call void @llvm.experimental.noalias.scope.decl(metadata !2540)
   %.sroa.0.sroa.0.424..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.0.sroa.0.i.i, i64 424

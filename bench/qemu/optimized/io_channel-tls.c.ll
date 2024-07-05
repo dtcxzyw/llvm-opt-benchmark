@@ -786,10 +786,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %if.end15, %for.body.lr.ph
-  %got.016 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %if.end15 ]
-  %i.015 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end15 ]
+  %i.016 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end15 ]
+  %got.015 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %if.end15 ]
   %0 = load ptr, ptr %session, align 8
-  %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %i.015
+  %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %i.016
   %1 = load ptr, ptr %arrayidx, align 8
   %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %iov_len, align 8
@@ -806,8 +806,8 @@ if.then:                                          ; preds = %for.body
   ]
 
 if.then6:                                         ; preds = %if.then
-  %tobool.not = icmp eq i64 %got.016, 0
-  %.got.0 = select i1 %tobool.not, i64 -2, i64 %got.016
+  %tobool.not = icmp eq i64 %got.015, 0
+  %.got.0 = select i1 %tobool.not, i64 -2, i64 %got.015
   br label %return
 
 while.end:                                        ; preds = %if.then
@@ -827,10 +827,10 @@ if.end13:                                         ; preds = %while.end.if.end13_
   br label %return
 
 if.end15:                                         ; preds = %for.body
-  %add = add i64 %call2, %got.016
+  %add = add i64 %call2, %got.015
   %6 = load i64, ptr %iov_len, align 8
   %cmp18 = icmp ult i64 %call2, %6
-  %inc = add nuw i64 %i.015, 1
+  %inc = add nuw i64 %i.016, 1
   %exitcond.not = icmp eq i64 %inc, %niov
   %or.cond = select i1 %cmp18, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %return, label %for.body, !llvm.loop !7

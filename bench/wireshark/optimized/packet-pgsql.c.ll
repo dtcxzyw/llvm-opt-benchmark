@@ -595,8 +595,8 @@ define internal i32 @dissect_pgsql_msg(ptr noundef %0, ptr noundef %1, ptr nound
   br label %25
 
 25:                                               ; preds = %14, %4
-  %.073 = phi ptr [ %13, %4 ], [ %16, %14 ]
-  %26 = getelementptr inbounds i8, ptr %.073, i64 8
+  %.0 = phi ptr [ %13, %4 ], [ %16, %14 ]
+  %26 = getelementptr inbounds i8, ptr %.0, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %1, i64 288
   %29 = load i32, ptr %28, align 8
@@ -638,7 +638,7 @@ define internal i32 @dissect_pgsql_msg(ptr noundef %0, ptr noundef %1, ptr nound
   br label %59
 
 46:                                               ; preds = %34
-  %47 = load ptr, ptr %.073, align 8
+  %47 = load ptr, ptr %.0, align 8
   %48 = getelementptr inbounds i8, ptr %1, i64 20
   %49 = load i32, ptr %48, align 4
   %50 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %47, i32 noundef %49) #4
@@ -663,7 +663,7 @@ switch.lookup:                                    ; preds = %46
   br label %59
 
 59:                                               ; preds = %46, %switch.lookup, %44, %42, %39, %35, %54, %56
-  %.0 = phi ptr [ %55, %54 ], [ %57, %56 ], [ @.str.202, %35 ], [ @.str.203, %39 ], [ @.str.204, %42 ], [ %.str.205..str.206, %44 ], [ %switch.load, %switch.lookup ], [ @.str.210, %46 ]
+  %.073 = phi ptr [ %55, %54 ], [ %57, %56 ], [ @.str.202, %35 ], [ @.str.203, %39 ], [ @.str.204, %42 ], [ %.str.205..str.206, %44 ], [ %switch.load, %switch.lookup ], [ @.str.210, %46 ]
   %60 = getelementptr inbounds i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8
   %.b = load i1, ptr @first_message, align 4
@@ -682,7 +682,7 @@ switch.lookup:                                    ; preds = %46
   %71 = load i32, ptr @ett_pgsql, align 4
   %72 = tail call ptr @proto_item_add_subtree(ptr noundef %70, i32 noundef %71) #4
   %73 = load i32, ptr @hf_type, align 4
-  %74 = tail call ptr @proto_tree_add_string(ptr noundef %72, i32 noundef %73, ptr noundef %0, i32 noundef 0, i32 noundef %spec.select, ptr noundef %.0) #4
+  %74 = tail call ptr @proto_tree_add_string(ptr noundef %72, i32 noundef %73, ptr noundef %0, i32 noundef 0, i32 noundef %spec.select, ptr noundef %.073) #4
   %75 = load i32, ptr @hf_length, align 4
   %76 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %75, ptr noundef %0, i32 noundef %spec.select, i32 noundef 4, i32 noundef 0) #4
   %77 = load i32, ptr @hf_frontend, align 4
@@ -726,7 +726,7 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   ]
 
 89:                                               ; preds = %88
-  %90 = load ptr, ptr %.073, align 8
+  %90 = load ptr, ptr %.0, align 8
   %91 = getelementptr inbounds i8, ptr %1, i64 20
   %92 = load i32, ptr %91, align 4
   %93 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %90, i32 noundef %92) #4
@@ -988,7 +988,7 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
 240:                                              ; preds = %211
   %241 = load i32, ptr @hf_request_code, align 4
   %242 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %241, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
-  %243 = load ptr, ptr %.073, align 8
+  %243 = load ptr, ptr %.0, align 8
   %244 = getelementptr inbounds i8, ptr %1, i64 20
   %245 = load i32, ptr %244, align 4
   tail call void @wmem_tree_insert32(ptr noundef %243, i32 noundef %245, ptr noundef nonnull inttoptr (i64 5 to ptr)) #4
@@ -997,7 +997,7 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
 246:                                              ; preds = %211
   %247 = load i32, ptr @hf_request_code, align 4
   %248 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %247, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
-  %249 = load ptr, ptr %.073, align 8
+  %249 = load ptr, ptr %.0, align 8
   %250 = getelementptr inbounds i8, ptr %1, i64 20
   %251 = load i32, ptr %250, align 4
   tail call void @wmem_tree_insert32(ptr noundef %249, i32 noundef %251, ptr noundef nonnull inttoptr (i64 6 to ptr)) #4
@@ -1141,14 +1141,14 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   br label %312
 
 312:                                              ; preds = %308, %299, %299
-  %313 = load ptr, ptr %.073, align 8
+  %313 = load ptr, ptr %.0, align 8
   %314 = getelementptr inbounds i8, ptr %1, i64 20
   %315 = load i32, ptr %314, align 4
   call void @wmem_tree_insert32(ptr noundef %313, i32 noundef %315, ptr noundef nonnull inttoptr (i64 4 to ptr)) #4
   br label %dissect_pgsql_be_msg.exit
 
 316:                                              ; preds = %299
-  %317 = load ptr, ptr %.073, align 8
+  %317 = load ptr, ptr %.0, align 8
   %318 = getelementptr inbounds i8, ptr %1, i64 20
   %319 = load i32, ptr %318, align 4
   call void @wmem_tree_insert32(ptr noundef %317, i32 noundef %319, ptr noundef nonnull inttoptr (i64 2 to ptr)) #4
@@ -1167,7 +1167,7 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   br i1 %326, label %.lr.ph242.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !12
 
 327:                                              ; preds = %299, %299
-  %328 = load ptr, ptr %.073, align 8
+  %328 = load ptr, ptr %.0, align 8
   %329 = getelementptr inbounds i8, ptr %1, i64 20
   %330 = load i32, ptr %329, align 4
   call void @wmem_tree_insert32(ptr noundef %328, i32 noundef %330, ptr noundef nonnull inttoptr (i64 3 to ptr)) #4

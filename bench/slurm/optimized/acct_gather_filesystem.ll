@@ -235,7 +235,7 @@ define i32 @acct_gather_filesystem_fini() local_unnamed_addr #0 {
   br label %38
 
 38:                                               ; preds = %35, %4
-  %.017 = phi i32 [ %37, %35 ], [ 0, %4 ]
+  %.0 = phi i32 [ %37, %35 ], [ 0, %4 ]
   store i32 0, ptr @plugin_inited, align 4
   %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #5
   %.not35 = icmp eq i32 %39, 0
@@ -248,7 +248,7 @@ define i32 @acct_gather_filesystem_fini() local_unnamed_addr #0 {
   unreachable
 
 42:                                               ; preds = %38
-  ret i32 %.017
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind

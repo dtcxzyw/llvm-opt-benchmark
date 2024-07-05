@@ -146,8 +146,8 @@ define hidden ptr @check_field_unit(ptr noundef %0, ptr noundef writeonly %1, i3
   br label %40
 
 40:                                               ; preds = %3, %33, %35, %28, %24, %25, %27, %15, %10
-  %.025 = phi ptr [ %11, %10 ], [ %16, %15 ], [ %36, %35 ], [ null, %33 ], [ %29, %28 ], [ null, %27 ], [ %26, %25 ], [ null, %24 ], [ null, %3 ]
-  ret ptr %.025
+  %.0 = phi ptr [ %11, %10 ], [ %16, %15 ], [ %36, %35 ], [ null, %33 ], [ %29, %28 ], [ null, %27 ], [ %26, %25 ], [ null, %24 ], [ null, %3 ]
+  ret ptr %.0
 }
 
 declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2

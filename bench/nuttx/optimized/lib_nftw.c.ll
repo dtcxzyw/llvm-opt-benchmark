@@ -31,41 +31,41 @@ define internal fastcc i32 @do_nftw(ptr noundef %0, ptr nocapture noundef readon
   br i1 %10, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %5, %13
-  %.076117 = phi i64 [ %14, %13 ], [ %9, %5 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.076117
+  %.077117 = phi i64 [ %14, %13 ], [ %9, %5 ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.077117
   %11 = load i8, ptr %gep, align 1
   %12 = icmp eq i8 %11, 47
   br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %.lr.ph
-  %14 = add i64 %.076117, -1
+  %14 = add i64 %.077117, -1
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
   store i8 0, ptr %15, align 1
   %16 = icmp ugt i64 %14, 1
   br i1 %16, label %.lr.ph, label %.critedge2, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph, %5
-  %.076.lcssa = phi i64 [ %9, %5 ], [ %.076117, %.lr.ph ]
-  %17 = add i64 %.076.lcssa, -1
+  %.077.lcssa = phi i64 [ %9, %5 ], [ %.077117, %.lr.ph ]
+  %17 = add i64 %.077.lcssa, -1
   %.not122 = icmp eq i64 %17, 0
   br i1 %.not122, label %.critedge2, label %.lr.ph124
 
 .lr.ph124:                                        ; preds = %.critedge, %19
-  %.078123 = phi i64 [ %20, %19 ], [ %17, %.critedge ]
-  %gep121 = getelementptr i8, ptr %invariant.gep, i64 %.078123
+  %.079123 = phi i64 [ %20, %19 ], [ %17, %.critedge ]
+  %gep121 = getelementptr i8, ptr %invariant.gep, i64 %.079123
   %18 = load i8, ptr %gep121, align 1
   %.not89 = icmp eq i8 %18, 47
   br i1 %.not89, label %.critedge2, label %19
 
 19:                                               ; preds = %.lr.ph124
-  %20 = add i64 %.078123, -1
+  %20 = add i64 %.079123, -1
   %.not = icmp eq i64 %20, 0
   br i1 %.not, label %.critedge2, label %.lr.ph124, !llvm.loop !8
 
 .critedge2:                                       ; preds = %13, %.lr.ph124, %19, %.critedge
   %21 = phi i64 [ 0, %.critedge ], [ %17, %19 ], [ %17, %.lr.ph124 ], [ 0, %13 ]
-  %.076.lcssa132 = phi i64 [ 1, %.critedge ], [ %.076.lcssa, %19 ], [ %.076.lcssa, %.lr.ph124 ], [ 1, %13 ]
-  %.078.lcssa = phi i64 [ 0, %.critedge ], [ %.078123, %.lr.ph124 ], [ 0, %19 ], [ 0, %13 ]
+  %.077.lcssa132 = phi i64 [ 1, %.critedge ], [ %.077.lcssa, %19 ], [ %.077.lcssa, %.lr.ph124 ], [ 1, %13 ]
+  %.079.lcssa = phi i64 [ 0, %.critedge ], [ %.079123, %.lr.ph124 ], [ 0, %19 ], [ 0, %13 ]
   %22 = and i32 %3, 1
   %.not90 = icmp eq i32 %22, 0
   br i1 %.not90, label %23, label %.thread
@@ -134,14 +134,14 @@ define internal fastcc i32 @do_nftw(ptr noundef %0, ptr nocapture noundef readon
   br i1 %52, label %.thread110, label %132
 
 .thread110:                                       ; preds = %37, %41, %.thread109, %32, %49, %47, %45
-  %.079 = phi ptr [ null, %47 ], [ %44, %45 ], [ null, %49 ], [ null, %32 ], [ null, %.thread109 ], [ null, %41 ], [ null, %37 ]
-  %.1 = phi i32 [ %., %47 ], [ %., %45 ], [ 2, %49 ], [ 6, %32 ], [ 4, %.thread109 ], [ %.103, %41 ], [ 0, %37 ]
+  %.1 = phi i32 [ %., %47 ], [ %., %45 ], [ 2, %49 ], [ 0, %37 ], [ %.103, %41 ], [ 4, %.thread109 ], [ 6, %32 ]
+  %.075 = phi ptr [ null, %47 ], [ %44, %45 ], [ null, %49 ], [ null, %37 ], [ null, %41 ], [ null, %.thread109 ], [ null, %32 ]
   %53 = and i32 %3, 4
   %.not94 = icmp eq i32 %53, 0
   br i1 %.not94, label %54, label %73
 
 54:                                               ; preds = %.thread110
-  %55 = trunc i64 %.078.lcssa to i32
+  %55 = trunc i64 %.079.lcssa to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i32 %55, ptr %7, align 4
   %56 = getelementptr inbounds i8, ptr %7, i64 4
@@ -159,7 +159,7 @@ define internal fastcc i32 @do_nftw(ptr noundef %0, ptr nocapture noundef readon
   br i1 %60, label %61, label %66
 
 61:                                               ; preds = %59
-  %62 = and i64 %.078.lcssa, 2147483647
+  %62 = and i64 %.079.lcssa, 2147483647
   %63 = getelementptr i8, ptr %0, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -1
   store i8 0, ptr %64, align 1
@@ -192,7 +192,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
   br i1 %.not95, label %73, label %132
 
 73:                                               ; preds = %call_nftw.exit, %.thread110
-  %.not96 = icmp eq ptr %.079, null
+  %.not96 = icmp eq ptr %.075, null
   br i1 %.not96, label %111, label %74
 
 74:                                               ; preds = %73
@@ -202,20 +202,20 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
   br i1 %.not97, label %80, label %77
 
 77:                                               ; preds = %74
-  %78 = add i64 %.076.lcssa132, 1
-  %79 = getelementptr inbounds i8, ptr %0, i64 %.076.lcssa132
+  %78 = add i64 %.077.lcssa132, 1
+  %79 = getelementptr inbounds i8, ptr %0, i64 %.077.lcssa132
   store i8 47, ptr %79, align 1
   br label %80
 
 80:                                               ; preds = %77, %74
-  %.177 = phi i64 [ %78, %77 ], [ %.076.lcssa132, %74 ]
-  %81 = call ptr @readdir(ptr noundef nonnull %.079) #6
+  %.178 = phi i64 [ %78, %77 ], [ %.077.lcssa132, %74 ]
+  %81 = call ptr @readdir(ptr noundef nonnull %.075) #6
   %.not98128 = icmp eq ptr %81, null
   br i1 %.not98128, label %._crit_edge, label %.lr.ph129
 
 .lr.ph129:                                        ; preds = %80
-  %82 = sub i64 256, %.177
-  %83 = getelementptr inbounds i8, ptr %0, i64 %.177
+  %82 = sub i64 256, %.178
+  %83 = getelementptr inbounds i8, ptr %0, i64 %.178
   %84 = add nsw i32 %2, -1
   %85 = add nsw i32 %4, 1
   br label %86
@@ -242,7 +242,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
   br i1 %.not101, label %.backedge, label %98
 
 .backedge:                                        ; preds = %94, %91, %104
-  %97 = call ptr @readdir(ptr noundef nonnull %.079) #6
+  %97 = call ptr @readdir(ptr noundef nonnull %.075) #6
   %.not98 = icmp eq ptr %97, null
   br i1 %.not98, label %._crit_edge, label %86, !llvm.loop !9
 
@@ -254,7 +254,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
 101:                                              ; preds = %98
   %102 = call ptr @__errno() #6
   store i32 36, ptr %102, align 4
-  %103 = call i32 @closedir(ptr noundef nonnull %.079)
+  %103 = call i32 @closedir(ptr noundef nonnull %.075)
   br label %132
 
 104:                                              ; preds = %98
@@ -264,20 +264,20 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
   br i1 %.not102, label %.backedge, label %107
 
 107:                                              ; preds = %104
-  %108 = call i32 @closedir(ptr noundef nonnull %.079)
+  %108 = call i32 @closedir(ptr noundef nonnull %.075)
   br label %132
 
 ._crit_edge:                                      ; preds = %.backedge, %80
-  %109 = getelementptr inbounds i8, ptr %0, i64 %.076.lcssa132
+  %109 = getelementptr inbounds i8, ptr %0, i64 %.077.lcssa132
   store i8 0, ptr %109, align 1
-  %110 = call i32 @closedir(ptr noundef nonnull %.079)
+  %110 = call i32 @closedir(ptr noundef nonnull %.075)
   br label %111
 
 111:                                              ; preds = %._crit_edge, %73
   br i1 %.not94, label %131, label %112
 
 112:                                              ; preds = %111
-  %113 = trunc i64 %.078.lcssa to i32
+  %113 = trunc i64 %.079.lcssa to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i32 %113, ptr %6, align 4
   %114 = getelementptr inbounds i8, ptr %6, i64 4
@@ -295,7 +295,7 @@ call_nftw.exit:                                   ; preds = %.thread.i, %70
   br i1 %118, label %119, label %124
 
 119:                                              ; preds = %117
-  %120 = and i64 %.078.lcssa, 2147483647
+  %120 = and i64 %.079.lcssa, 2147483647
   %121 = getelementptr i8, ptr %0, i64 %120
   %122 = getelementptr i8, ptr %121, i64 -1
   store i8 0, ptr %122, align 1

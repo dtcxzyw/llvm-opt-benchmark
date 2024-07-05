@@ -286,9 +286,9 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br label %55
 
 55:                                               ; preds = %53, %51, %49
-  %.012.neg.i = phi i64 [ -1, %49 ], [ %..i, %53 ], [ -2, %51 ]
+  %.013.neg.i = phi i64 [ -1, %49 ], [ %..i, %53 ], [ -2, %51 ]
   %56 = load i64, ptr %17, align 8, !noalias !7, !noundef !3
-  %57 = add i64 %56, %.012.neg.i
+  %57 = add i64 %56, %.013.neg.i
   store i64 %57, ptr %17, align 8, !noalias !7
   br label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit.thread5"
 
@@ -306,16 +306,16 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br i1 %66, label %.preheader54, label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit"
 
 .preheader54:                                     ; preds = %58, %.preheader54
-  %.013.i = phi i64 [ %71, %.preheader54 ], [ %67, %58 ]
+  %.012.i = phi i64 [ %71, %.preheader54 ], [ %67, %58 ]
   %68 = load ptr, ptr %10, align 8, !noalias !7, !nonnull !3, !align !4, !noundef !3
   %69 = load i64, ptr %11, align 8, !noalias !7, !noundef !3
-  %70 = call zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hed41348d7b0217d2E"(ptr nonnull align 1 %68, i64 %69, i64 %.013.i), !noalias !7
-  %71 = add i64 %.013.i, -1
+  %70 = call zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hed41348d7b0217d2E"(ptr nonnull align 1 %68, i64 %69, i64 %.012.i), !noalias !7
+  %71 = add i64 %.012.i, -1
   br i1 %70, label %72, label %.preheader54
 
 72:                                               ; preds = %.preheader54
   %73 = load i64, ptr %7, align 8, !noalias !7, !noundef !3
-  %74 = call i64 @_ZN4core3cmp6min_by17h83f2fa75b02956cbE(i64 %.013.i, i64 %73), !noalias !7
+  %74 = call i64 @_ZN4core3cmp6min_by17h83f2fa75b02956cbE(i64 %.012.i, i64 %73), !noalias !7
   store i64 %74, ptr %7, align 8, !noalias !7
   br label %"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hf0b449c59a63568fE.exit.thread5"
 

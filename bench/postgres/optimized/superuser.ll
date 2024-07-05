@@ -49,7 +49,7 @@ define dso_local zeroext i1 @superuser() local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %14, %11
-  %.0.i = phi i1 [ %23, %14 ], [ false, %11 ]
+  %.011.i = phi i1 [ %23, %14 ], [ false, %11 ]
   %.b16.i = load i1, ptr @roleid_callback_registered, align 1
   br i1 %.b16.i, label %26, label %25
 
@@ -60,13 +60,13 @@ define dso_local zeroext i1 @superuser() local_unnamed_addr #0 {
 
 26:                                               ; preds = %25, %24
   store i32 %1, ptr @last_roleid, align 4
-  %27 = zext i1 %.0.i to i8
+  %27 = zext i1 %.011.i to i8
   store i8 %27, ptr @last_roleid_is_super, align 1
   br label %superuser_arg.exit
 
 superuser_arg.exit:                               ; preds = %4, %7, %26
-  %.011.i = phi i1 [ %6, %4 ], [ %.0.i, %26 ], [ true, %7 ]
-  ret i1 %.011.i
+  %.0.i = phi i1 [ %6, %4 ], [ %.011.i, %26 ], [ true, %7 ]
+  ret i1 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -109,7 +109,7 @@ define dso_local zeroext i1 @superuser_arg(i32 noundef %0) local_unnamed_addr #0
   br label %24
 
 24:                                               ; preds = %11, %14
-  %.0 = phi i1 [ %23, %14 ], [ false, %11 ]
+  %.011 = phi i1 [ %23, %14 ], [ false, %11 ]
   %.b16 = load i1, ptr @roleid_callback_registered, align 1
   br i1 %.b16, label %26, label %25
 
@@ -120,13 +120,13 @@ define dso_local zeroext i1 @superuser_arg(i32 noundef %0) local_unnamed_addr #0
 
 26:                                               ; preds = %25, %24
   store i32 %0, ptr @last_roleid, align 4
-  %27 = zext i1 %.0 to i8
+  %27 = zext i1 %.011 to i8
   store i8 %27, ptr @last_roleid_is_super, align 1
   br label %28
 
 28:                                               ; preds = %7, %26, %4
-  %.011 = phi i1 [ %6, %4 ], [ %.0, %26 ], [ true, %7 ]
-  ret i1 %.011
+  %.0 = phi i1 [ %6, %4 ], [ %.011, %26 ], [ true, %7 ]
+  ret i1 %.0
 }
 
 declare i32 @GetUserId() local_unnamed_addr #1

@@ -467,21 +467,21 @@ define hidden i32 @butc_dissect_afsNetAddr(ptr noundef %0, i32 noundef %1, ptr n
   %or.cond = or i1 %.not28, %.not
   %12 = and i32 %1, -2
   %13 = add i32 %12, 2
-  %.026 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not29 = icmp eq ptr %3, null
   br i1 %.not29, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.026, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_butc_afsNetAddr, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.025 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.026 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.025 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_butc_afsNetAddr_type, align 4
-  %20 = tail call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.026, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
+  %20 = tail call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.025, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
   br label %21
 
 21:                                               ; preds = %21, %18
@@ -489,13 +489,13 @@ define hidden i32 @butc_dissect_afsNetAddr(ptr noundef %0, i32 noundef %1, ptr n
   %.078.i = phi i32 [ %20, %18 ], [ %24, %21 ]
   %22 = add nsw i32 %.09.i, -1
   %23 = load i32, ptr @hf_butc_afsNetAddr_data, align 4
-  %24 = tail call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %.078.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
+  %24 = tail call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %.078.i, ptr noundef %2, ptr noundef %.025, ptr noundef %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %fixedarray_butc_dissect_afsNetAddr_data.exit, label %21, !llvm.loop !4
 
 fixedarray_butc_dissect_afsNetAddr_data.exit:     ; preds = %21
-  %25 = sub i32 %24, %.026
-  tail call void @proto_item_set_len(ptr noundef %.025, i32 noundef %25) #4
+  %25 = sub i32 %24, %.0
+  tail call void @proto_item_set_len(ptr noundef %.026, i32 noundef %25) #4
   ret i32 %24
 }
 
@@ -511,41 +511,41 @@ define hidden i32 @butc_dissect_tc_dumpDesc(ptr noundef %0, i32 noundef %1, ptr 
   %or.cond = or i1 %.not76, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.074 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not77 = icmp eq ptr %3, null
   br i1 %.not77, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.074, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_butc_tc_dumpDesc, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.073 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.074 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.073 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_butc_tc_dumpDesc_vid, align 4
-  %20 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %.074, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
+  %20 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
   %21 = load i32, ptr @hf_butc_tc_dumpDesc_name, align 4
-  %22 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %21, i32 noundef 0, ptr noundef null) #4
+  %22 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %21, i32 noundef 0, ptr noundef null) #4
   %23 = load i32, ptr @hf_butc_tc_dumpDesc_partition, align 4
-  %24 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
+  %24 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
   %25 = load i32, ptr @hf_butc_tc_dumpDesc_date, align 4
-  %26 = tail call i32 @dissect_ndr_time_t(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
+  %26 = tail call i32 @dissect_ndr_time_t(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
   %27 = load i32, ptr @hf_butc_tc_dumpDesc_cloneDate, align 4
-  %28 = tail call i32 @dissect_ndr_time_t(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #4
+  %28 = tail call i32 @dissect_ndr_time_t(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #4
   %29 = load i32, ptr @hf_butc_tc_dumpDesc_hostAddr, align 4
-  %30 = tail call i32 @butc_dissect_afsNetAddr(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
+  %30 = tail call i32 @butc_dissect_afsNetAddr(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
   %31 = load i32, ptr @hf_butc_tc_dumpDesc_spare1, align 4
-  %32 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #4
+  %32 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #4
   %33 = load i32, ptr @hf_butc_tc_dumpDesc_spare2, align 4
-  %34 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef null) #4
+  %34 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef null) #4
   %35 = load i32, ptr @hf_butc_tc_dumpDesc_spare3, align 4
-  %36 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #4
+  %36 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #4
   %37 = load i32, ptr @hf_butc_tc_dumpDesc_spare4, align 4
-  %38 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #4
-  %39 = sub i32 %38, %.074
-  tail call void @proto_item_set_len(ptr noundef %.073, i32 noundef %39) #4
+  %38 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #4
+  %39 = sub i32 %38, %.0
+  tail call void @proto_item_set_len(ptr noundef %.074, i32 noundef %39) #4
   ret i32 %38
 }
 
@@ -559,49 +559,49 @@ define hidden i32 @butc_dissect_tc_restoreDesc(ptr noundef %0, i32 noundef %1, p
   %or.cond = or i1 %.not100, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.098 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not101 = icmp eq ptr %3, null
   br i1 %.not101, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.098, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_butc_tc_restoreDesc, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.097 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.098 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.097 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_butc_tc_restoreDesc_frag, align 4
-  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.098, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
+  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.097, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
   %21 = load i32, ptr @hf_butc_tc_restoreDesc_tapeName, align 4
-  %22 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %21, i32 noundef 0, ptr noundef null) #4
+  %22 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.097, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %21, i32 noundef 0, ptr noundef null) #4
   %23 = load i32, ptr @hf_butc_tc_restoreDesc_position, align 4
-  %24 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
+  %24 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.097, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
   %25 = load i32, ptr @hf_butc_tc_restoreDesc_origVid, align 4
-  %26 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
+  %26 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.097, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
   %27 = load i32, ptr @hf_butc_tc_restoreDesc_vid, align 4
-  %28 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #4
+  %28 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.097, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #4
   %29 = load i32, ptr @hf_butc_tc_restoreDesc_partition, align 4
-  %30 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #4
+  %30 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.097, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #4
   %31 = load i32, ptr @hf_butc_tc_restoreDesc_flags, align 4
-  %32 = tail call i32 @butc_dissect_Restore_flags(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 poison)
+  %32 = tail call i32 @butc_dissect_Restore_flags(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.097, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 poison)
   %33 = load i32, ptr @hf_butc_tc_restoreDesc_hostAddr, align 4
-  %34 = tail call i32 @butc_dissect_afsNetAddr(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 poison)
+  %34 = tail call i32 @butc_dissect_afsNetAddr(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.097, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 poison)
   %35 = load i32, ptr @hf_butc_tc_restoreDesc_realDumpId, align 4
-  %36 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #4
+  %36 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.097, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #4
   %37 = load i32, ptr @hf_butc_tc_restoreDesc_spare2, align 4
-  %38 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #4
+  %38 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.097, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #4
   %39 = load i32, ptr @hf_butc_tc_restoreDesc_spare3, align 4
-  %40 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef null) #4
+  %40 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.097, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef null) #4
   %41 = load i32, ptr @hf_butc_tc_restoreDesc_spare4, align 4
-  %42 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef null) #4
+  %42 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.097, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef null) #4
   %43 = load i32, ptr @hf_butc_tc_restoreDesc_oldName, align 4
-  %44 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %43, i32 noundef 0, ptr noundef null) #4
+  %44 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.097, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %43, i32 noundef 0, ptr noundef null) #4
   %45 = load i32, ptr @hf_butc_tc_restoreDesc_newName, align 4
-  %46 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %45, i32 noundef 0, ptr noundef null) #4
-  %47 = sub i32 %46, %.098
-  tail call void @proto_item_set_len(ptr noundef %.097, i32 noundef %47) #4
+  %46 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.097, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %45, i32 noundef 0, ptr noundef null) #4
+  %47 = sub i32 %46, %.0
+  tail call void @proto_item_set_len(ptr noundef %.098, i32 noundef %47) #4
   ret i32 %46
 }
 
@@ -615,39 +615,39 @@ define hidden i32 @butc_dissect_tc_dumpStat(ptr noundef %0, i32 noundef %1, ptr 
   %or.cond = or i1 %.not70, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.068 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not71 = icmp eq ptr %3, null
   br i1 %.not71, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.068, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_butc_tc_dumpStat, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.067 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.068 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.067 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_butc_tc_dumpStat_dumpID, align 4
-  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.068, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
+  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
   %21 = load i32, ptr @hf_butc_tc_dumpStat_bytesDumped, align 4
-  %22 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #4
+  %22 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #4
   %23 = load i32, ptr @hf_butc_tc_dumpStat_volumeBeingDumped, align 4
-  %24 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
+  %24 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
   %25 = load i32, ptr @hf_butc_tc_dumpStat_numVolErrs, align 4
-  %26 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
+  %26 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
   %27 = load i32, ptr @hf_butc_tc_dumpStat_flags, align 4
-  %28 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #4
+  %28 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #4
   %29 = load i32, ptr @hf_butc_tc_dumpStat_spare1, align 4
-  %30 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #4
+  %30 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #4
   %31 = load i32, ptr @hf_butc_tc_dumpStat_spare2, align 4
-  %32 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #4
+  %32 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #4
   %33 = load i32, ptr @hf_butc_tc_dumpStat_spare3, align 4
-  %34 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef null) #4
+  %34 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef null) #4
   %35 = load i32, ptr @hf_butc_tc_dumpStat_spare4, align 4
-  %36 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #4
-  %37 = sub i32 %36, %.068
-  tail call void @proto_item_set_len(ptr noundef %.067, i32 noundef %37) #4
+  %36 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #4
+  %37 = sub i32 %36, %.0
+  tail call void @proto_item_set_len(ptr noundef %.068, i32 noundef %37) #4
   ret i32 %36
 }
 
@@ -661,37 +661,37 @@ define hidden i32 @butc_dissect_tc_tapeLabel(ptr noundef %0, i32 noundef %1, ptr
   %or.cond = or i1 %.not64, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.062 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not65 = icmp eq ptr %3, null
   br i1 %.not65, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.062, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_butc_tc_tapeLabel, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.061 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.062 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.061 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_butc_tc_tapeLabel_size, align 4
-  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.062, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
+  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
   %21 = load i32, ptr @hf_butc_tc_tapeLabel_size_ext, align 4
-  %22 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #4
+  %22 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #4
   %23 = load i32, ptr @hf_butc_tc_tapeLabel_spare1, align 4
-  %24 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
+  %24 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
   %25 = load i32, ptr @hf_butc_tc_tapeLabel_spare2, align 4
-  %26 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
+  %26 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
   %27 = load i32, ptr @hf_butc_tc_tapeLabel_spare3, align 4
-  %28 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #4
+  %28 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #4
   %29 = load i32, ptr @hf_butc_tc_tapeLabel_spare4, align 4
-  %30 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #4
+  %30 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #4
   %31 = load i32, ptr @hf_butc_tc_tapeLabel_nameLen, align 4
-  %32 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #4
+  %32 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #4
   %33 = load i32, ptr @hf_butc_tc_tapeLabel_name, align 4
-  %34 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %33, i32 noundef 0, ptr noundef null) #4
-  %35 = sub i32 %34, %.062
-  tail call void @proto_item_set_len(ptr noundef %.061, i32 noundef %35) #4
+  %34 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %33, i32 noundef 0, ptr noundef null) #4
+  %35 = sub i32 %34, %.0
+  tail call void @proto_item_set_len(ptr noundef %.062, i32 noundef %35) #4
   ret i32 %34
 }
 
@@ -705,45 +705,45 @@ define hidden i32 @butc_dissect_tc_tapeSet(ptr noundef %0, i32 noundef %1, ptr n
   %or.cond = or i1 %.not88, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.086 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not89 = icmp eq ptr %3, null
   br i1 %.not89, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.086, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_butc_tc_tapeSet, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.085 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.086 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.085 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_butc_tc_tapeSet_id, align 4
-  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.086, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
+  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
   %21 = load i32, ptr @hf_butc_tc_tapeSet_tapeServer, align 4
-  %22 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %21, i32 noundef 0, ptr noundef null) #4
+  %22 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %21, i32 noundef 0, ptr noundef null) #4
   %23 = load i32, ptr @hf_butc_tc_tapeSet_format, align 4
-  %24 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %23, i32 noundef 0, ptr noundef null) #4
+  %24 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %23, i32 noundef 0, ptr noundef null) #4
   %25 = load i32, ptr @hf_butc_tc_tapeSet_maxTapes, align 4
-  %26 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
+  %26 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
   %27 = load i32, ptr @hf_butc_tc_tapeSet_a, align 4
-  %28 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #4
+  %28 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #4
   %29 = load i32, ptr @hf_butc_tc_tapeSet_b, align 4
-  %30 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #4
+  %30 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #4
   %31 = load i32, ptr @hf_butc_tc_tapeSet_expDate, align 4
-  %32 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #4
+  %32 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #4
   %33 = load i32, ptr @hf_butc_tc_tapeSet_expType, align 4
-  %34 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef null) #4
+  %34 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef null) #4
   %35 = load i32, ptr @hf_butc_tc_tapeSet_spare1, align 4
-  %36 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #4
+  %36 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #4
   %37 = load i32, ptr @hf_butc_tc_tapeSet_spare2, align 4
-  %38 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #4
+  %38 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #4
   %39 = load i32, ptr @hf_butc_tc_tapeSet_spare3, align 4
-  %40 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef null) #4
+  %40 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef null) #4
   %41 = load i32, ptr @hf_butc_tc_tapeSet_spare4, align 4
-  %42 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef null) #4
-  %43 = sub i32 %42, %.086
-  tail call void @proto_item_set_len(ptr noundef %.085, i32 noundef %43) #4
+  %42 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef null) #4
+  %43 = sub i32 %42, %.0
+  tail call void @proto_item_set_len(ptr noundef %.086, i32 noundef %43) #4
   ret i32 %42
 }
 
@@ -757,31 +757,31 @@ define hidden i32 @butc_dissect_tc_tcInfo(ptr noundef %0, i32 noundef %1, ptr no
   %or.cond = or i1 %.not46, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.044 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not47 = icmp eq ptr %3, null
   br i1 %.not47, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_butc_tc_tcInfo, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.043 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.044 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.043 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_butc_tc_tcInfo_tcVersion, align 4
-  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
+  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
   %21 = load i32, ptr @hf_butc_tc_tcInfo_spare1, align 4
-  %22 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #4
+  %22 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #4
   %23 = load i32, ptr @hf_butc_tc_tcInfo_spare2, align 4
-  %24 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
+  %24 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
   %25 = load i32, ptr @hf_butc_tc_tcInfo_spare3, align 4
-  %26 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
+  %26 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
   %27 = load i32, ptr @hf_butc_tc_tcInfo_spare4, align 4
-  %28 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #4
-  %29 = sub i32 %28, %.044
-  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %29) #4
+  %28 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #4
+  %29 = sub i32 %28, %.0
+  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %29) #4
   ret i32 %28
 }
 
@@ -795,24 +795,24 @@ define hidden i32 @butc_dissect_tc_restoreArray(ptr noundef %0, i32 noundef %1, 
   %or.cond = or i1 %.not28, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.026 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not29 = icmp eq ptr %3, null
   br i1 %.not29, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.026, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_butc_tc_restoreArray, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.025 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.026 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.025 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_butc_tc_restoreArray_tc_restoreArray_len, align 4
-  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.026, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
-  %21 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @ptr_butc_dissect_tc_restoreArray_tc_restoreArray_val) #4
-  %22 = sub i32 %21, %.026
-  tail call void @proto_item_set_len(ptr noundef %.025, i32 noundef %22) #4
+  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.025, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
+  %21 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.025, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @ptr_butc_dissect_tc_restoreArray_tc_restoreArray_val) #4
+  %22 = sub i32 %21, %.0
+  tail call void @proto_item_set_len(ptr noundef %.026, i32 noundef %22) #4
   ret i32 %21
 }
 
@@ -826,24 +826,24 @@ define hidden i32 @butc_dissect_tc_dumpArray(ptr noundef %0, i32 noundef %1, ptr
   %or.cond = or i1 %.not28, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.026 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not29 = icmp eq ptr %3, null
   br i1 %.not29, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.026, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_butc_tc_dumpArray, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.025 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.026 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.025 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_butc_tc_dumpArray_tc_dumpArray_len, align 4
-  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.026, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
-  %21 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @ptr_butc_dissect_tc_dumpArray_tc_dumpArray) #4
-  %22 = sub i32 %21, %.026
-  tail call void @proto_item_set_len(ptr noundef %.025, i32 noundef %22) #4
+  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.025, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
+  %21 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.025, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @ptr_butc_dissect_tc_dumpArray_tc_dumpArray) #4
+  %22 = sub i32 %21, %.0
+  tail call void @proto_item_set_len(ptr noundef %.026, i32 noundef %22) #4
   ret i32 %21
 }
 
@@ -857,41 +857,41 @@ define hidden i32 @butc_dissect_tc_dumpInterface(ptr noundef %0, i32 noundef %1,
   %or.cond = or i1 %.not76, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.074 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not77 = icmp eq ptr %3, null
   br i1 %.not77, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.074, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_butc_tc_dumpInterface, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.073 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.074 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.073 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_butc_tc_dumpInterface_dumpPath, align 4
-  %20 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %.074, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %19, i32 noundef 0, ptr noundef null) #4
+  %20 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %19, i32 noundef 0, ptr noundef null) #4
   %21 = load i32, ptr @hf_butc_tc_dumpInterface_volumeSetName, align 4
-  %22 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %21, i32 noundef 0, ptr noundef null) #4
+  %22 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %21, i32 noundef 0, ptr noundef null) #4
   %23 = load i32, ptr @hf_butc_tc_dumpInterface_dumpName, align 4
-  %24 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %23, i32 noundef 0, ptr noundef null) #4
+  %24 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %23, i32 noundef 0, ptr noundef null) #4
   %25 = load i32, ptr @hf_butc_tc_dumpInterface_tapeSet, align 4
-  %26 = tail call i32 @butc_dissect_tc_tapeSet(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
+  %26 = tail call i32 @butc_dissect_tc_tapeSet(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
   %27 = load i32, ptr @hf_butc_tc_dumpInterface_parentDumpId, align 4
-  %28 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #4
+  %28 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #4
   %29 = load i32, ptr @hf_butc_tc_dumpInterface_dumpLevel, align 4
-  %30 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #4
+  %30 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #4
   %31 = load i32, ptr @hf_butc_tc_dumpInterface_spare1, align 4
-  %32 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #4
+  %32 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #4
   %33 = load i32, ptr @hf_butc_tc_dumpInterface_spare2, align 4
-  %34 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef null) #4
+  %34 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef null) #4
   %35 = load i32, ptr @hf_butc_tc_dumpInterface_spare3, align 4
-  %36 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #4
+  %36 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #4
   %37 = load i32, ptr @hf_butc_tc_dumpInterface_spare4, align 4
-  %38 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #4
-  %39 = sub i32 %38, %.074
-  tail call void @proto_item_set_len(ptr noundef %.073, i32 noundef %39) #4
+  %38 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #4
+  %39 = sub i32 %38, %.0
+  tail call void @proto_item_set_len(ptr noundef %.074, i32 noundef %39) #4
   ret i32 %38
 }
 
@@ -905,29 +905,29 @@ define hidden i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %0, i32 nound
   %or.cond = or i1 %.not40, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.038 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not41 = icmp eq ptr %3, null
   br i1 %.not41, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_butc_tc_statusInfoSwitchVol, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.037 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.038 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.037 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_butc_tc_statusInfoSwitchVol_nKBytes, align 4
-  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
+  %20 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
   %21 = load i32, ptr @hf_butc_tc_statusInfoSwitchVol_volumeName, align 4
-  %22 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %21, i32 noundef 0, ptr noundef null) #4
+  %22 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %21, i32 noundef 0, ptr noundef null) #4
   %23 = load i32, ptr @hf_butc_tc_statusInfoSwitchVol_volsFailed, align 4
-  %24 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
+  %24 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
   %25 = load i32, ptr @hf_butc_tc_statusInfoSwitchVol_spare1, align 4
-  %26 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
-  %27 = sub i32 %26, %.038
-  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %27) #4
+  %26 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
+  %27 = sub i32 %26, %.0
+  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %27) #4
   ret i32 %26
 }
 
@@ -941,25 +941,25 @@ define hidden i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %0, i32 nou
   %or.cond = or i1 %.not28, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.026 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not29 = icmp eq ptr %3, null
   br i1 %.not29, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.026, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_butc_tc_statusInfoSwitchLabel, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.025 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.026 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.025 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_butc_tc_statusInfoSwitchLabel_tapeLabel, align 4
-  %20 = tail call i32 @butc_dissect_tc_tapeLabel(ptr noundef %0, i32 noundef %.026, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @butc_dissect_tc_tapeLabel(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.025, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_butc_tc_statusInfoSwitchLabel_spare1, align 4
-  %22 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #4
-  %23 = sub i32 %22, %.026
-  tail call void @proto_item_set_len(ptr noundef %.025, i32 noundef %23) #4
+  %22 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.025, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #4
+  %23 = sub i32 %22, %.0
+  tail call void @proto_item_set_len(ptr noundef %.026, i32 noundef %23) #4
   ret i32 %22
 }
 
@@ -975,25 +975,25 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %or.cond = or i1 %.not64, %.not
   %14 = and i32 %1, -4
   %15 = add i32 %14, 4
-  %.062 = select i1 %or.cond, i32 %1, i32 %15
+  %.0 = select i1 %or.cond, i32 %1, i32 %15
   %.not65 = icmp eq ptr %3, null
   br i1 %.not65, label %20, label %16
 
 16:                                               ; preds = %8
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.062, i32 noundef -1, i32 noundef 0) #4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %18 = load i32, ptr @ett_butc_tciStatusS, align 4
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #4
   br label %20
 
 20:                                               ; preds = %16, %8
-  %.061 = phi ptr [ %17, %16 ], [ null, %8 ]
-  %.0 = phi ptr [ %19, %16 ], [ null, %8 ]
+  %.062 = phi ptr [ %17, %16 ], [ null, %8 ]
+  %.061 = phi ptr [ %19, %16 ], [ null, %8 ]
   %21 = load i32, ptr @hf_butc_tciStatusS_taskName, align 4
-  %22 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %.062, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %21, i32 noundef 0, ptr noundef null) #4
+  %22 = tail call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %21, i32 noundef 0, ptr noundef null) #4
   %23 = load i32, ptr @hf_butc_tciStatusS_flags, align 4
-  %24 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
+  %24 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
   %25 = load i32, ptr @hf_butc_tciStatusS_lastPolled, align 4
-  %26 = tail call i32 @dissect_ndr_time_t(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
+  %26 = tail call i32 @dissect_ndr_time_t(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #4
   %27 = load i32, ptr @hf_butc_tciStatusS_info, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
@@ -1006,18 +1006,18 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %or.cond.i.i = or i1 %.not109.i.i, %.not.i.i
   %30 = and i32 %26, -4
   %31 = add i32 %30, 4
-  %.0107.i.i = select i1 %or.cond.i.i, i32 %26, i32 %31
-  %.not110.i.i = icmp eq ptr %.0, null
+  %.0.i.i = select i1 %or.cond.i.i, i32 %26, i32 %31
+  %.not110.i.i = icmp eq ptr %.061, null
   br i1 %.not110.i.i, label %35, label %32
 
 32:                                               ; preds = %20
   %33 = load i32, ptr @ett_butc_tc_statusInfoSwitch, align 4
-  %34 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %.0107.i.i, i32 noundef -1, i32 noundef %33, ptr noundef nonnull %9, ptr noundef nonnull @.str.197) #4
+  %34 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.061, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef -1, i32 noundef %33, ptr noundef nonnull %9, ptr noundef nonnull @.str.197) #4
   br label %35
 
 35:                                               ; preds = %32, %20
-  %.0.i.i = phi ptr [ %34, %32 ], [ null, %20 ]
-  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0107.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %10) #4
+  %.0107.i.i = phi ptr [ %34, %32 ], [ null, %20 ]
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %10) #4
   %37 = load i32, ptr %10, align 4
   switch i32 %37, label %butc_dissect_tciStatusS_info.exit [
     i32 0, label %38
@@ -1042,7 +1042,7 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %42 = add i32 %41, 4
   %.1.i.i = select i1 %or.cond131.i.i, i32 %36, i32 %42
   %43 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_NONE_none, align 4
-  %44 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.1.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, ptr noundef null) #4
+  %44 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.1.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, ptr noundef null) #4
   br label %butc_dissect_tciStatusS_info.exit
 
 45:                                               ; preds = %35
@@ -1055,7 +1055,7 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %49 = add i32 %48, 4
   %.2.i.i = select i1 %or.cond132.i.i, i32 %36, i32 %49
   %50 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_DUMP_vol, align 4
-  %51 = call i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %0, i32 noundef %.2.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 poison)
+  %51 = call i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %0, i32 noundef %.2.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 poison)
   br label %butc_dissect_tciStatusS_info.exit
 
 52:                                               ; preds = %35
@@ -1068,7 +1068,7 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %56 = add i32 %55, 4
   %.3.i.i = select i1 %or.cond133.i.i, i32 %36, i32 %56
   %57 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_RESTORE_vol, align 4
-  %58 = call i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %0, i32 noundef %.3.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, i32 poison)
+  %58 = call i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %0, i32 noundef %.3.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, i32 poison)
   br label %butc_dissect_tciStatusS_info.exit
 
 59:                                               ; preds = %35
@@ -1081,7 +1081,7 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %63 = add i32 %62, 4
   %.4.i.i = select i1 %or.cond134.i.i, i32 %36, i32 %63
   %64 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_LABELTAPE_label, align 4
-  %65 = call i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %0, i32 noundef %.4.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 poison)
+  %65 = call i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %0, i32 noundef %.4.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 poison)
   br label %butc_dissect_tciStatusS_info.exit
 
 66:                                               ; preds = %35
@@ -1094,7 +1094,7 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %70 = add i32 %69, 4
   %.5.i.i = select i1 %or.cond135.i.i, i32 %36, i32 %70
   %71 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_READLABEL_label, align 4
-  %72 = call i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %0, i32 noundef %.5.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %71, i32 poison)
+  %72 = call i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %0, i32 noundef %.5.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %71, i32 poison)
   br label %butc_dissect_tciStatusS_info.exit
 
 73:                                               ; preds = %35
@@ -1107,7 +1107,7 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %77 = add i32 %76, 4
   %.6.i.i = select i1 %or.cond136.i.i, i32 %36, i32 %77
   %78 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_SCANTAPE_spare1, align 4
-  %79 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.6.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, ptr noundef null) #4
+  %79 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.6.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, ptr noundef null) #4
   br label %butc_dissect_tciStatusS_info.exit
 
 80:                                               ; preds = %35
@@ -1120,7 +1120,7 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %84 = add i32 %83, 4
   %.7.i.i = select i1 %or.cond137.i.i, i32 %36, i32 %84
   %85 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_STATUS_spare2, align 4
-  %86 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.7.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %85, ptr noundef null) #4
+  %86 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.7.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %85, ptr noundef null) #4
   br label %butc_dissect_tciStatusS_info.exit
 
 87:                                               ; preds = %35
@@ -1133,7 +1133,7 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %91 = add i32 %90, 4
   %.8.i.i = select i1 %or.cond138.i.i, i32 %36, i32 %91
   %92 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_SAVEDB_spare3, align 4
-  %93 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.8.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, ptr noundef null) #4
+  %93 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.8.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, ptr noundef null) #4
   br label %butc_dissect_tciStatusS_info.exit
 
 94:                                               ; preds = %35
@@ -1146,7 +1146,7 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %98 = add i32 %97, 4
   %.9.i.i = select i1 %or.cond139.i.i, i32 %36, i32 %98
   %99 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_RESTOREDB_spare4, align 4
-  %100 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.9.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %99, ptr noundef null) #4
+  %100 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.9.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %99, ptr noundef null) #4
   br label %butc_dissect_tciStatusS_info.exit
 
 101:                                              ; preds = %35
@@ -1159,26 +1159,26 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %105 = add i32 %104, 4
   %.10.i.i = select i1 %or.cond140.i.i, i32 %36, i32 %105
   %106 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_SPARE_spare5, align 4
-  %107 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.10.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %106, ptr noundef null) #4
+  %107 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.10.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %106, ptr noundef null) #4
   br label %butc_dissect_tciStatusS_info.exit
 
 butc_dissect_tciStatusS_info.exit:                ; preds = %35, %38, %45, %52, %59, %66, %73, %80, %87, %94, %101
   %.11.i.i = phi i32 [ %36, %35 ], [ %107, %101 ], [ %100, %94 ], [ %93, %87 ], [ %86, %80 ], [ %79, %73 ], [ %72, %66 ], [ %65, %59 ], [ %58, %52 ], [ %51, %45 ], [ %44, %38 ]
   %108 = load ptr, ptr %9, align 8
-  %109 = sub i32 %.11.i.i, %.0107.i.i
+  %109 = sub i32 %.11.i.i, %.0.i.i
   call void @proto_item_set_len(ptr noundef %108, i32 noundef %109) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %110 = load i32, ptr @hf_butc_tciStatusS_taskId, align 4
-  %111 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.11.i.i, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %110, ptr noundef null) #4
+  %111 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.11.i.i, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %110, ptr noundef null) #4
   %112 = load i32, ptr @hf_butc_tciStatusS_spare2, align 4
-  %113 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %112, ptr noundef null) #4
+  %113 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %112, ptr noundef null) #4
   %114 = load i32, ptr @hf_butc_tciStatusS_spare3, align 4
-  %115 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %113, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %114, ptr noundef null) #4
+  %115 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %113, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %114, ptr noundef null) #4
   %116 = load i32, ptr @hf_butc_tciStatusS_spare4, align 4
-  %117 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %115, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %116, ptr noundef null) #4
-  %118 = sub i32 %117, %.062
-  call void @proto_item_set_len(ptr noundef %.061, i32 noundef %118) #4
+  %117 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %115, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %116, ptr noundef null) #4
+  %118 = sub i32 %117, %.0
+  call void @proto_item_set_len(ptr noundef %.062, i32 noundef %118) #4
   ret i32 %117
 }
 

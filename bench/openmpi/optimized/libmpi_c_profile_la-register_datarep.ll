@@ -124,8 +124,8 @@ opal_pointer_array_get_item.exit.i:               ; preds = %43, %37, %.lr.ph.i
   br label %ompi_errcode_get_mpi_code.exit
 
 ompi_errcode_get_mpi_code.exit:                   ; preds = %26, %20, %.preheader.i, %48
-  %.010.i = phi i32 [ %19, %20 ], [ %50, %48 ], [ 14, %.preheader.i ], [ 14, %26 ]
-  %51 = tail call i32 @ompi_errhandler_invoke(ptr noundef %21, ptr noundef nonnull @ompi_mpi_file_null, i32 noundef %22, i32 noundef %.010.i, ptr noundef nonnull @FUNC_NAME) #3
+  %.0.i = phi i32 [ %19, %20 ], [ %50, %48 ], [ 14, %.preheader.i ], [ 14, %26 ]
+  %51 = tail call i32 @ompi_errhandler_invoke(ptr noundef %21, ptr noundef nonnull @ompi_mpi_file_null, i32 noundef %22, i32 noundef %.0.i, ptr noundef nonnull @FUNC_NAME) #3
   br label %86
 
 52:                                               ; preds = %18
@@ -191,14 +191,14 @@ opal_pointer_array_get_item.exit.i25:             ; preds = %75, %69, %.lr.ph.i2
   br label %ompi_errcode_get_mpi_code.exit29
 
 ompi_errcode_get_mpi_code.exit29:                 ; preds = %58, %54, %.preheader.i20, %80
-  %.010.i21 = phi i32 [ %53, %54 ], [ %82, %80 ], [ 14, %.preheader.i20 ], [ 14, %58 ]
+  %.0.i21 = phi i32 [ %53, %54 ], [ %82, %80 ], [ 14, %.preheader.i20 ], [ 14, %58 ]
   %83 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_file_null, i64 128), align 8
   %84 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_file_null, i64 136), align 8
-  %85 = tail call i32 @ompi_errhandler_invoke(ptr noundef %83, ptr noundef nonnull @ompi_mpi_file_null, i32 noundef %84, i32 noundef %.010.i21, ptr noundef nonnull @FUNC_NAME) #3
+  %85 = tail call i32 @ompi_errhandler_invoke(ptr noundef %83, ptr noundef nonnull @ompi_mpi_file_null, i32 noundef %84, i32 noundef %.0.i21, ptr noundef nonnull @FUNC_NAME) #3
   br label %86
 
 86:                                               ; preds = %52, %ompi_errcode_get_mpi_code.exit29, %ompi_errcode_get_mpi_code.exit, %14
-  %.0 = phi i32 [ 13, %14 ], [ %51, %ompi_errcode_get_mpi_code.exit ], [ %.010.i21, %ompi_errcode_get_mpi_code.exit29 ], [ 0, %52 ]
+  %.0 = phi i32 [ 13, %14 ], [ %51, %ompi_errcode_get_mpi_code.exit ], [ %.0.i21, %ompi_errcode_get_mpi_code.exit29 ], [ 0, %52 ]
   ret i32 %.0
 }
 

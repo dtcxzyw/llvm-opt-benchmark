@@ -497,9 +497,9 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
 30:                                               ; preds = %.lr.ph, %80
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
   %31 = phi ptr [ %13, %.lr.ph ], [ %83, %80 ]
-  %.02961 = phi double [ 0.000000e+00, %.lr.ph ], [ %41, %80 ]
-  %.03060 = phi double [ 0.000000e+00, %.lr.ph ], [ %40, %80 ]
-  %.03159 = phi ptr [ %18, %.lr.ph ], [ %12, %80 ]
+  %.02962 = phi ptr [ %18, %.lr.ph ], [ %12, %80 ]
+  %.03160 = phi double [ 0.000000e+00, %.lr.ph ], [ %41, %80 ]
+  %.03259 = phi double [ 0.000000e+00, %.lr.ph ], [ %40, %80 ]
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds double, ptr %33, i64 %indvars.iv
@@ -508,8 +508,8 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds double, ptr %37, i64 %indvars.iv
   %39 = load double, ptr %38, align 8
-  %40 = fadd double %.03060, %35
-  %41 = fadd double %.02961, %39
+  %40 = fadd double %.03259, %35
+  %41 = fadd double %.03160, %39
   %42 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %42, ptr %19, align 8
   %43 = load ptr, ptr %20, align 8
@@ -520,7 +520,7 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
   %47 = load ptr, ptr %20, align 8
   %48 = load ptr, ptr %23, align 8
   %49 = load ptr, ptr %24, align 8
-  %50 = tail call i32 %49(double noundef %46, ptr noundef %.03159, ptr noundef %47, ptr noundef %48) #7
+  %50 = tail call i32 %49(double noundef %46, ptr noundef %.02962, ptr noundef %47, ptr noundef %48) #7
   %51 = load i64, ptr %25, align 8
   %52 = add nsw i64 %51, 1
   store i64 %52, ptr %25, align 8
@@ -531,7 +531,7 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
   %54 = load double, ptr %22, align 8
   %55 = fmul double %39, %54
   %56 = load ptr, ptr %20, align 8
-  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %.03159, double noundef %55, ptr noundef %56, ptr noundef %12) #7
+  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %.02962, double noundef %55, ptr noundef %56, ptr noundef %12) #7
   %57 = load double, ptr %21, align 8
   %58 = load double, ptr %22, align 8
   %59 = tail call double @llvm.fmuladd.f64(double %41, double %58, double %57)
@@ -586,8 +586,8 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
   br label %sprkStep_AccessStepMem.exit.thread
 
 sprkStep_AccessStepMem.exit.thread:               ; preds = %75, %53, %30, %10, %5, %._crit_edge
-  %.032 = phi i32 [ 0, %._crit_edge ], [ -21, %5 ], [ -21, %10 ], [ -38, %75 ], [ -8, %53 ], [ -8, %30 ]
-  ret i32 %.032
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -21, %5 ], [ -21, %10 ], [ -38, %75 ], [ -8, %53 ], [ -8, %30 ]
+  ret i32 %.0
 }
 
 declare i32 @SPRKStepSetDefaults(ptr noundef) local_unnamed_addr #1
@@ -901,8 +901,8 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
 39:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %40 = phi ptr [ %17, %.lr.ph ], [ %34, %33 ]
-  %.03870 = phi double [ 0.000000e+00, %.lr.ph ], [ %50, %33 ]
-  %.03969 = phi double [ 0.000000e+00, %.lr.ph ], [ %49, %33 ]
+  %.03970 = phi double [ 0.000000e+00, %.lr.ph ], [ %50, %33 ]
+  %.04069 = phi double [ 0.000000e+00, %.lr.ph ], [ %49, %33 ]
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds double, ptr %42, i64 %indvars.iv
@@ -911,8 +911,8 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds double, ptr %46, i64 %indvars.iv
   %48 = load double, ptr %47, align 8
-  %49 = fadd double %.03969, %44
-  %50 = fadd double %.03870, %48
+  %49 = fadd double %.04069, %44
+  %50 = fadd double %.03970, %48
   %51 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %51, ptr %21, align 8
   %52 = load ptr, ptr %22, align 8
@@ -990,8 +990,8 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
   br label %sprkStep_AccessStepMem.exit.thread
 
 sprkStep_AccessStepMem.exit.thread:               ; preds = %63, %39, %10, %5, %._crit_edge, %86
-  %.040 = phi i32 [ -38, %86 ], [ 0, %._crit_edge ], [ -21, %5 ], [ -21, %10 ], [ -8, %39 ], [ -8, %63 ]
-  ret i32 %.040
+  %.0 = phi i32 [ -38, %86 ], [ 0, %._crit_edge ], [ -21, %5 ], [ -21, %10 ], [ -8, %39 ], [ -8, %63 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)

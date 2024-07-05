@@ -97,28 +97,28 @@ if.then:                                          ; preds = %while.end
 while.body10:                                     ; preds = %while.body10.preheader, %if.end16
   %3 = phi i8 [ %4, %if.end16 ], [ %1, %while.body10.preheader ]
   %n.125 = phi i64 [ %n.2, %if.end16 ], [ %dec3, %while.body10.preheader ]
-  %src.addr.024 = phi ptr [ %incdec.ptr17, %if.end16 ], [ %src, %while.body10.preheader ]
-  %dst.addr.123 = phi ptr [ %dst.addr.2, %if.end16 ], [ %dst.addr.0.lcssa, %while.body10.preheader ]
+  %dst.addr.124 = phi ptr [ %dst.addr.2, %if.end16 ], [ %dst.addr.0.lcssa, %while.body10.preheader ]
+  %src.addr.023 = phi ptr [ %incdec.ptr17, %if.end16 ], [ %src, %while.body10.preheader ]
   %cmp11.not = icmp eq i64 %n.125, 0
   br i1 %cmp11.not, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %while.body10
-  %incdec.ptr14 = getelementptr inbounds i8, ptr %dst.addr.123, i64 1
-  store i8 %3, ptr %dst.addr.123, align 1
+  %incdec.ptr14 = getelementptr inbounds i8, ptr %dst.addr.124, i64 1
+  store i8 %3, ptr %dst.addr.124, align 1
   %dec15 = add i64 %n.125, -1
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then13, %while.body10
-  %dst.addr.2 = phi ptr [ %incdec.ptr14, %if.then13 ], [ %dst.addr.123, %while.body10 ]
+  %dst.addr.2 = phi ptr [ %incdec.ptr14, %if.then13 ], [ %dst.addr.124, %while.body10 ]
   %n.2 = phi i64 [ %dec15, %if.then13 ], [ 0, %while.body10 ]
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %src.addr.024, i64 1
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %src.addr.023, i64 1
   %4 = load i8, ptr %incdec.ptr17, align 1
   %cmp8.not = icmp eq i8 %4, 0
   br i1 %cmp8.not, label %while.end18, label %while.body10, !llvm.loop !9
 
 while.end18:                                      ; preds = %if.end16, %while.cond6.preheader
-  %dst.addr.1.lcssa = phi ptr [ %dst.addr.0.lcssa, %while.cond6.preheader ], [ %dst.addr.2, %if.end16 ]
   %src.addr.0.lcssa = phi ptr [ %src, %while.cond6.preheader ], [ %incdec.ptr17, %if.end16 ]
+  %dst.addr.1.lcssa = phi ptr [ %dst.addr.0.lcssa, %while.cond6.preheader ], [ %dst.addr.2, %if.end16 ]
   store i8 0, ptr %dst.addr.1.lcssa, align 1
   %sub.ptr.lhs.cast19 = ptrtoint ptr %src.addr.0.lcssa to i64
   %sub.ptr.rhs.cast20 = ptrtoint ptr %src to i64

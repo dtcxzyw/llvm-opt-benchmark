@@ -496,7 +496,7 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
 
 80:                                               ; preds = %.thread, %75
   %81 = phi i64 [ %78, %.thread ], [ %76, %75 ]
-  %.0107158 = phi i64 [ 0, %.thread ], [ %58, %75 ]
+  %.0158 = phi i64 [ 0, %.thread ], [ %58, %75 ]
   %82 = getelementptr inbounds i8, ptr %10, i64 28
   %83 = load i32, ptr %82, align 4
   %84 = icmp ugt i32 %83, 1
@@ -576,11 +576,11 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   %131 = add i32 %130, -1
   store i32 %131, ptr %16, align 8
   call void @h5tools_setstatus(i32 noundef 1) #15
-  %.not155 = icmp eq i64 %.0107158, 0
+  %.not155 = icmp eq i64 %.0158, 0
   br i1 %.not155, label %134, label %132
 
 132:                                              ; preds = %125
-  %133 = call i32 @H5Pclose(i64 noundef %.0107158) #15
+  %133 = call i32 @H5Pclose(i64 noundef %.0158) #15
   br label %134
 
 134:                                              ; preds = %132, %125
@@ -662,11 +662,11 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   %184 = load i32, ptr %28, align 8
   %185 = zext i32 %184 to i64
   %186 = call zeroext i1 @h5tools_render_element(ptr noundef %183, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %9, i64 noundef %185, i64 noundef 0, i64 noundef 0) #15
-  %.not148 = icmp eq i64 %.0107158, 0
+  %.not148 = icmp eq i64 %.0158, 0
   br i1 %.not148, label %189, label %187
 
 187:                                              ; preds = %182
-  %188 = call i32 @H5Pclose(i64 noundef %.0107158) #15
+  %188 = call i32 @H5Pclose(i64 noundef %.0158) #15
   br label %189
 
 189:                                              ; preds = %187, %182
@@ -682,11 +682,11 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   %194 = getelementptr inbounds i8, ptr %193, i64 16
   %195 = load ptr, ptr %194, align 8
   call void %195(i64 noundef %81, ptr noundef %1, ptr noundef null) #15
-  %.not141 = icmp eq i64 %.0107158, 0
+  %.not141 = icmp eq i64 %.0158, 0
   br i1 %.not141, label %198, label %196
 
 196:                                              ; preds = %192
-  %197 = call i32 @H5Pclose(i64 noundef %.0107158) #15
+  %197 = call i32 @H5Pclose(i64 noundef %.0158) #15
   br label %198
 
 198:                                              ; preds = %196, %192
@@ -779,7 +779,7 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   br label %245
 
 245:                                              ; preds = %238, %237
-  %.0 = phi i32 [ -1, %237 ], [ 0, %238 ]
+  %.0107 = phi i32 [ -1, %237 ], [ 0, %238 ]
   %246 = load i32, ptr %16, align 8
   %247 = add i32 %246, -1
   store i32 %247, ptr %16, align 8
@@ -1119,7 +1119,7 @@ dump_extlink.exit:                                ; preds = %300, %326, %336, %3
   br label %435
 
 435:                                              ; preds = %206, %207, %198, %.thread160, %42, %52, %212, %275, %384, %218, %265, %430, %189, %134, %35
-  %.2 = phi i32 [ -1, %35 ], [ -1, %212 ], [ -1, %206 ], [ 0, %207 ], [ -1, %134 ], [ 0, %189 ], [ 0, %198 ], [ -1, %.thread160 ], [ -1, %42 ], [ 0, %52 ], [ 0, %430 ], [ -1, %275 ], [ %.1, %384 ], [ -1, %218 ], [ %.0, %265 ]
+  %.2 = phi i32 [ -1, %35 ], [ -1, %212 ], [ -1, %206 ], [ 0, %207 ], [ -1, %134 ], [ 0, %189 ], [ 0, %198 ], [ -1, %.thread160 ], [ -1, %42 ], [ 0, %52 ], [ 0, %430 ], [ -1, %275 ], [ %.1, %384 ], [ -1, %218 ], [ %.0107, %265 ]
   call void @h5tools_str_close(ptr noundef nonnull %6) #15
   ret i32 %.2
 }

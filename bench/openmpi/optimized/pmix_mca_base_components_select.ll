@@ -39,15 +39,15 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
 15:                                               ; preds = %14, %9
   %16 = getelementptr inbounds i8, ptr %2, i64 120
   %17 = getelementptr inbounds i8, ptr %2, i64 240
-  %.07788 = load ptr, ptr %17, align 8
-  %.not89 = icmp eq ptr %.07788, %16
+  %.07888 = load ptr, ptr %17, align 8
+  %.not89 = icmp eq ptr %.07888, %16
   br i1 %.not89, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %6
   %18 = getelementptr inbounds i8, ptr %2, i64 120
   %19 = getelementptr inbounds i8, ptr %2, i64 240
-  %.0778895 = load ptr, ptr %19, align 8
-  %.not8996 = icmp eq ptr %.0778895, %18
+  %.0788895 = load ptr, ptr %19, align 8
+  %.not8996 = icmp eq ptr %.0788895, %18
   br i1 %.not8996, label %._crit_edge, label %.lr.ph.split.preheader
 
 .lr.ph:                                           ; preds = %15
@@ -57,13 +57,13 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
 
 .lr.ph.split.preheader:                           ; preds = %.thread, %.lr.ph
   %22 = phi ptr [ %16, %.lr.ph ], [ %18, %.thread ]
-  %.077889799 = phi ptr [ %.07788, %.lr.ph ], [ %.0778895, %.thread ]
+  %.078889799 = phi ptr [ %.07888, %.lr.ph ], [ %.0788895, %.thread ]
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %56
-  %.07791.us = phi ptr [ %.077.us, %56 ], [ %.07788, %.lr.ph ]
-  %.090.us = phi i32 [ %.1.us, %56 ], [ -2147483648, %.lr.ph ]
-  %23 = getelementptr inbounds i8, ptr %.07791.us, i64 144
+  %.07891.us = phi ptr [ %.078.us, %56 ], [ %.07888, %.lr.ph ]
+  %.07790.us = phi i32 [ %.1.us, %56 ], [ -2147483648, %.lr.ph ]
+  %23 = getelementptr inbounds i8, ptr %.07891.us, i64 144
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 176
   %26 = load ptr, ptr %25, align 8
@@ -107,7 +107,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
 
 45:                                               ; preds = %42, %41
   %46 = load i32, ptr %8, align 4
-  %47 = icmp sgt i32 %46, %.090.us
+  %47 = icmp sgt i32 %46, %.07790.us
   br i1 %47, label %48, label %56
 
 48:                                               ; preds = %45
@@ -133,16 +133,16 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
   br label %56
 
 56:                                               ; preds = %54, %53, %51, %50, %48, %45, %33
-  %.1.us = phi i32 [ %.090.us, %54 ], [ %.090.us, %53 ], [ %.090.us, %51 ], [ %.090.us, %50 ], [ %46, %48 ], [ %.090.us, %45 ], [ %.090.us, %33 ]
-  %57 = getelementptr inbounds i8, ptr %.07791.us, i64 120
-  %.077.us = load ptr, ptr %57, align 8
-  %.not.us = icmp eq ptr %.077.us, %16
+  %.1.us = phi i32 [ %.07790.us, %54 ], [ %.07790.us, %53 ], [ %.07790.us, %51 ], [ %.07790.us, %50 ], [ %46, %48 ], [ %.07790.us, %45 ], [ %.07790.us, %33 ]
+  %57 = getelementptr inbounds i8, ptr %.07891.us, i64 120
+  %.078.us = load ptr, ptr %57, align 8
+  %.not.us = icmp eq ptr %.078.us, %16
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %72
-  %.07791 = phi ptr [ %.077, %72 ], [ %.077889799, %.lr.ph.split.preheader ]
-  %.090 = phi i32 [ %.1, %72 ], [ -2147483648, %.lr.ph.split.preheader ]
-  %58 = getelementptr inbounds i8, ptr %.07791, i64 144
+  %.07891 = phi ptr [ %.078, %72 ], [ %.078889799, %.lr.ph.split.preheader ]
+  %.07790 = phi i32 [ %.1, %72 ], [ -2147483648, %.lr.ph.split.preheader ]
+  %58 = getelementptr inbounds i8, ptr %.07891, i64 144
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 176
   %61 = load ptr, ptr %60, align 8
@@ -163,7 +163,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
 
 68:                                               ; preds = %65
   %69 = load i32, ptr %8, align 4
-  %70 = icmp sgt i32 %69, %.090
+  %70 = icmp sgt i32 %69, %.07790
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %68
@@ -172,19 +172,19 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
   br label %72
 
 72:                                               ; preds = %65, %.lr.ph.split, %63, %68, %71
-  %.1 = phi i32 [ %69, %71 ], [ %.090, %68 ], [ %.090, %63 ], [ %.090, %.lr.ph.split ], [ %.090, %65 ]
-  %73 = getelementptr inbounds i8, ptr %.07791, i64 120
-  %.077 = load ptr, ptr %73, align 8
-  %.not = icmp eq ptr %.077, %22
+  %.1 = phi i32 [ %69, %71 ], [ %.07790, %68 ], [ %.07790, %63 ], [ %.07790, %.lr.ph.split ], [ %.07790, %65 ]
+  %73 = getelementptr inbounds i8, ptr %.07891, i64 120
+  %.078 = load ptr, ptr %73, align 8
+  %.not = icmp eq ptr %.078, %22
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %72, %56, %.thread, %15
-  %.0.lcssa = phi i32 [ -2147483648, %15 ], [ -2147483648, %.thread ], [ %.1.us, %56 ], [ %.1, %72 ]
+  %.077.lcssa = phi i32 [ -2147483648, %15 ], [ -2147483648, %.thread ], [ %.1.us, %56 ], [ %.1, %72 ]
   %.not85 = icmp eq ptr %5, null
   br i1 %.not85, label %75, label %74
 
 74:                                               ; preds = %._crit_edge
-  store i32 %.0.lcssa, ptr %5, align 4
+  store i32 %.077.lcssa, ptr %5, align 4
   br label %75
 
 75:                                               ; preds = %74, %._crit_edge
@@ -232,8 +232,8 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %63, %33, %95, %85
-  %.078 = phi i32 [ -46, %85 ], [ 0, %95 ], [ %35, %33 ], [ %64, %63 ]
-  ret i32 %.078
+  %.0 = phi i32 [ -46, %85 ], [ 0, %95 ], [ %35, %33 ], [ %64, %63 ]
+  ret i32 %.0
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

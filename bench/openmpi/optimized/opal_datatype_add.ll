@@ -27,7 +27,7 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
   br label %15
 
 15:                                               ; preds = %9, %7
-  %.0281 = phi i64 [ %14, %9 ], [ %4, %7 ]
+  %.0267 = phi i64 [ %14, %9 ], [ %4, %7 ]
   %16 = getelementptr inbounds i8, ptr %1, i64 18
   %17 = load i16, ptr %16, align 2
   switch i16 %17, label %64 [
@@ -125,7 +125,7 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
 68:                                               ; preds = %64
   %69 = getelementptr inbounds i8, ptr %1, i64 24
   %70 = load i64, ptr %69, align 8
-  %71 = icmp eq i64 %.0281, %70
+  %71 = icmp eq i64 %.0267, %70
   %72 = select i1 %71, i64 1, i64 3
   br label %82
 
@@ -149,9 +149,9 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
   br label %388
 
 82:                                               ; preds = %68, %79, %73
-  %.0280 = phi i64 [ %72, %68 ], [ %80, %79 ], [ %75, %73 ]
+  %.0268 = phi i64 [ %72, %68 ], [ %80, %79 ], [ %75, %73 ]
   %83 = add i64 %2, -1
-  %84 = mul i64 %.0281, %83
+  %84 = mul i64 %.0267, %83
   %85 = add i64 %84, %3
   %. = tail call i64 @llvm.smin.i64(i64 %85, i64 %3)
   %.325 = tail call i64 @llvm.smax.i64(i64 %85, i64 %3)
@@ -167,8 +167,8 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
   %95 = getelementptr inbounds i8, ptr %1, i64 40
   %96 = load i64, ptr %95, align 8
   %97 = add i64 %96, %.325
-  %.0269 = tail call i64 @llvm.smin.i64(i64 %94, i64 %97)
-  %.0268 = tail call i64 @llvm.smax.i64(i64 %94, i64 %97)
+  %.0272 = tail call i64 @llvm.smin.i64(i64 %94, i64 %97)
+  %.0271 = tail call i64 @llvm.smax.i64(i64 %94, i64 %97)
   %98 = getelementptr inbounds i8, ptr %0, i64 16
   %99 = load i16, ptr %98, align 8
   %100 = xor i16 %99, %66
@@ -187,7 +187,7 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
   br label %107
 
 107:                                              ; preds = %104, %102
-  %.2273 = phi i64 [ %106, %104 ], [ %88, %102 ]
+  %.2277 = phi i64 [ %106, %104 ], [ %88, %102 ]
   %108 = or i16 %99, 64
   store i16 %108, ptr %98, align 8
   %.pre = load i16, ptr %65, align 8
@@ -203,7 +203,7 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
 113:                                              ; preds = %109, %107
   %.pre-phi = phi i16 [ %100, %109 ], [ %.pre341, %107 ]
   %114 = phi i16 [ %99, %109 ], [ %108, %107 ]
-  %.3274 = phi i64 [ %112, %109 ], [ %.2273, %107 ]
+  %.3278 = phi i64 [ %112, %109 ], [ %.2277, %107 ]
   %115 = and i16 %.pre-phi, 128
   %.not306 = icmp eq i16 %115, 0
   br i1 %.not306, label %123, label %116
@@ -234,7 +234,7 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
   %128 = phi i16 [ %122, %121 ], [ %114, %123 ]
   %.3 = phi i64 [ %.2, %121 ], [ %126, %123 ]
   %129 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %.3274, ptr %129, align 8
+  store i64 %.3278, ptr %129, align 8
   %130 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %.3, ptr %130, align 8
   %131 = getelementptr inbounds i8, ptr %0, i64 72
@@ -248,7 +248,7 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
   br i1 %.not308, label %137, label %144
 
 137:                                              ; preds = %127
-  %138 = sub nsw i64 %.3, %.3274
+  %138 = sub nsw i64 %.3, %.3278
   %139 = zext i32 %135 to i64
   %140 = srem i64 %138, %139
   %.not309 = icmp eq i64 %140, 0
@@ -285,25 +285,25 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
   br label %160
 
 160:                                              ; preds = %149, %157
-  %.0267 = phi i64 [ %159, %157 ], [ %3, %149 ]
+  %.0269 = phi i64 [ %159, %157 ], [ %3, %149 ]
   %.not310 = icmp eq i64 %153, 0
   %161 = getelementptr inbounds i8, ptr %0, i64 32
   br i1 %.not310, label %168, label %162
 
 162:                                              ; preds = %160
   %163 = load i64, ptr %161, align 8
-  %164 = tail call noundef i64 @llvm.smin.i64(i64 %.0269, i64 %163)
+  %164 = tail call noundef i64 @llvm.smin.i64(i64 %.0272, i64 %163)
   store i64 %164, ptr %161, align 8
   %165 = getelementptr inbounds i8, ptr %0, i64 40
   %166 = load i64, ptr %165, align 8
-  %167 = tail call noundef i64 @llvm.smax.i64(i64 %.0268, i64 %166)
+  %167 = tail call noundef i64 @llvm.smax.i64(i64 %.0271, i64 %166)
   store i64 %167, ptr %165, align 8
   br label %170
 
 168:                                              ; preds = %160
-  store i64 %.0269, ptr %161, align 8
+  store i64 %.0272, ptr %161, align 8
   %169 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.0268, ptr %169, align 8
+  store i64 %.0271, ptr %169, align 8
   br label %170
 
 170:                                              ; preds = %168, %162
@@ -316,7 +316,7 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
   %176 = getelementptr inbounds i8, ptr %0, i64 144
   %177 = getelementptr inbounds i8, ptr %0, i64 152
   %178 = load i64, ptr %177, align 8
-  %179 = add i64 %178, %.0280
+  %179 = add i64 %178, %.0268
   %180 = and i64 %179, 4294967295
   %181 = load i64, ptr %176, align 8
   %182 = icmp ugt i64 %180, %181
@@ -373,7 +373,7 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
   store i16 %209, ptr %210, align 2
   %211 = getelementptr inbounds i8, ptr %193, i64 24
   store i64 %3, ptr %211, align 8
-  %212 = mul nsw i64 %.0281, %2
+  %212 = mul nsw i64 %.0267, %2
   %213 = getelementptr inbounds i8, ptr %193, i64 16
   store i64 %212, ptr %213, align 8
   %214 = getelementptr inbounds i8, ptr %193, i64 4
@@ -381,14 +381,14 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
   %215 = getelementptr inbounds i8, ptr %193, i64 8
   store i64 %2, ptr %215, align 8
   %216 = load i64, ptr %146, align 8
-  %.not318 = icmp eq i64 %.0281, %216
+  %.not318 = icmp eq i64 %.0267, %216
   br i1 %.not318, label %221, label %217
 
 217:                                              ; preds = %206
   %218 = trunc i64 %2 to i32
   store i32 %218, ptr %214, align 4
   store i64 1, ptr %215, align 8
-  store i64 %.0281, ptr %213, align 8
+  store i64 %.0267, ptr %213, align 8
   %.not319 = icmp eq i64 %2, 1
   br i1 %.not319, label %221, label %219
 
@@ -479,7 +479,7 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
   %267 = load ptr, ptr %256, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 16
   %269 = load i64, ptr %268, align 8
-  %270 = icmp eq i64 %269, %.0281
+  %270 = icmp eq i64 %269, %.0267
   br i1 %270, label %271, label %278
 
 271:                                              ; preds = %266
@@ -497,7 +497,7 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
   %279 = trunc i64 %2 to i32
   store i32 %279, ptr %263, align 4
   %280 = getelementptr inbounds i8, ptr %193, i64 16
-  store i64 %.0281, ptr %280, align 8
+  store i64 %.0267, ptr %280, align 8
   br label %292
 
 281:                                              ; preds = %262
@@ -505,7 +505,7 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
   %283 = getelementptr inbounds i8, ptr %193, i64 16
   %284 = load i64, ptr %283, align 8
   %285 = mul nsw i64 %284, %282
-  %286 = icmp eq i64 %.0281, %285
+  %286 = icmp eq i64 %.0267, %285
   br i1 %286, label %287, label %.thread
 
 287:                                              ; preds = %281
@@ -543,7 +543,7 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
   %304 = getelementptr inbounds i8, ptr %193, i64 4
   store i32 %303, ptr %304, align 4
   %305 = getelementptr inbounds i8, ptr %193, i64 24
-  store i64 %.0281, ptr %305, align 8
+  store i64 %.0267, ptr %305, align 8
   %306 = getelementptr inbounds i8, ptr %193, i64 16
   store i64 -1, ptr %306, align 8
   %307 = load i32, ptr %227, align 4
@@ -558,8 +558,8 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
 
 312:                                              ; preds = %.thread, %295
   %313 = phi i64 [ %.pre339, %.thread ], [ %253, %295 ]
-  %.0276 = phi ptr [ %311, %.thread ], [ %193, %295 ]
-  %.0275 = phi ptr [ %193, %.thread ], [ null, %295 ]
+  %.0280 = phi ptr [ %311, %.thread ], [ %193, %295 ]
+  %.0279 = phi ptr [ %193, %.thread ], [ null, %295 ]
   %.not332 = icmp eq i64 %313, 0
   br i1 %.not332, label %._crit_edge, label %.lr.ph
 
@@ -569,55 +569,55 @@ define range(i32 -1, 1) i32 @opal_datatype_add(ptr noundef %0, ptr nocapture nou
 
 315:                                              ; preds = %.lr.ph, %328
   %316 = phi i64 [ 0, %.lr.ph ], [ %331, %328 ]
-  %.1277330 = phi ptr [ %.0276, %.lr.ph ], [ %329, %328 ]
-  %.1279329 = phi i32 [ 0, %.lr.ph ], [ %330, %328 ]
+  %.1330 = phi i32 [ 0, %.lr.ph ], [ %330, %328 ]
+  %.1281329 = phi ptr [ %.0280, %.lr.ph ], [ %329, %328 ]
   %317 = load ptr, ptr %314, align 8
   %318 = getelementptr inbounds %union.dt_elem_desc, ptr %317, i64 %316
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.1277330, ptr noundef nonnull align 8 dereferenceable(32) %318, i64 32, i1 false)
-  %319 = load i16, ptr %.1277330, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.1281329, ptr noundef nonnull align 8 dereferenceable(32) %318, i64 32, i1 false)
+  %319 = load i16, ptr %.1281329, align 8
   %320 = and i16 %319, 256
   %.not315 = icmp eq i16 %320, 0
   br i1 %.not315, label %321, label %.sink.split
 
 321:                                              ; preds = %315
-  %322 = getelementptr inbounds i8, ptr %.1277330, i64 2
+  %322 = getelementptr inbounds i8, ptr %.1281329, i64 2
   %323 = load i16, ptr %322, align 2
   %324 = icmp eq i16 %323, 1
   br i1 %324, label %.sink.split, label %328
 
 .sink.split:                                      ; preds = %321, %315
-  %325 = getelementptr inbounds i8, ptr %.1277330, i64 24
+  %325 = getelementptr inbounds i8, ptr %.1281329, i64 24
   %326 = load i64, ptr %325, align 8
   %327 = add nsw i64 %326, %3
   store i64 %327, ptr %325, align 8
   br label %328
 
 328:                                              ; preds = %.sink.split, %321
-  %329 = getelementptr inbounds i8, ptr %.1277330, i64 32
-  %330 = add i32 %.1279329, 1
+  %329 = getelementptr inbounds i8, ptr %.1281329, i64 32
+  %330 = add i32 %.1330, 1
   %331 = zext i32 %330 to i64
   %332 = load i64, ptr %252, align 8
   %333 = icmp ugt i64 %332, %331
   br i1 %333, label %315, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %328, %312
-  %.1277.lcssa = phi ptr [ %.0276, %312 ], [ %329, %328 ]
+  %.1281.lcssa = phi ptr [ %.0280, %312 ], [ %329, %328 ]
   %.lcssa327 = phi i64 [ 0, %312 ], [ %332, %328 ]
   %334 = load i64, ptr %177, align 8
   %335 = add i64 %334, %.lcssa327
   store i64 %335, ptr %177, align 8
-  %.not314 = icmp eq ptr %.0275, null
+  %.not314 = icmp eq ptr %.0279, null
   br i1 %.not314, label %359, label %336
 
 336:                                              ; preds = %._crit_edge
-  %337 = getelementptr inbounds i8, ptr %.0275, i64 2
+  %337 = getelementptr inbounds i8, ptr %.0279, i64 2
   %338 = load i16, ptr %337, align 2
   %339 = icmp eq i16 %338, 0
   br i1 %339, label %.lr.ph.i, label %GET_FIRST_NON_LOOP.exit
 
 .lr.ph.i:                                         ; preds = %336, %.lr.ph.i
   %.05.i = phi i32 [ %341, %.lr.ph.i ], [ 0, %336 ]
-  %.034.i = phi ptr [ %340, %.lr.ph.i ], [ %.0275, %336 ]
+  %.034.i = phi ptr [ %340, %.lr.ph.i ], [ %.0279, %336 ]
   %340 = getelementptr inbounds i8, ptr %.034.i, i64 32
   %341 = add nuw nsw i32 %.05.i, 1
   %342 = getelementptr inbounds i8, ptr %.034.i, i64 34
@@ -631,24 +631,24 @@ GET_FIRST_NON_LOOP.exit.loopexit:                 ; preds = %.lr.ph.i
 
 GET_FIRST_NON_LOOP.exit:                          ; preds = %GET_FIRST_NON_LOOP.exit.loopexit, %336
   %.0.lcssa.i = phi i64 [ 0, %336 ], [ %345, %GET_FIRST_NON_LOOP.exit.loopexit ]
-  %346 = getelementptr inbounds i8, ptr %.1277.lcssa, i64 2
+  %346 = getelementptr inbounds i8, ptr %.1281.lcssa, i64 2
   store i16 1, ptr %346, align 2
-  %347 = load i16, ptr %.0275, align 8
+  %347 = load i16, ptr %.0279, align 8
   %348 = and i16 %347, -257
-  store i16 %348, ptr %.1277.lcssa, align 8
+  store i16 %348, ptr %.1281.lcssa, align 8
   %349 = load i64, ptr %252, align 8
   %350 = trunc i64 %349 to i32
   %351 = add i32 %350, 1
-  %352 = getelementptr inbounds i8, ptr %.1277.lcssa, i64 4
+  %352 = getelementptr inbounds i8, ptr %.1281.lcssa, i64 4
   store i32 %351, ptr %352, align 4
-  %353 = getelementptr inbounds %union.dt_elem_desc, ptr %.0275, i64 %.0.lcssa.i, i32 0, i32 4
+  %353 = getelementptr inbounds %union.dt_elem_desc, ptr %.0279, i64 %.0.lcssa.i, i32 0, i32 4
   %354 = load i64, ptr %353, align 8
-  %355 = getelementptr inbounds i8, ptr %.1277.lcssa, i64 24
+  %355 = getelementptr inbounds i8, ptr %.1281.lcssa, i64 24
   store i64 %354, ptr %355, align 8
   %356 = load i64, ptr %146, align 8
-  %357 = getelementptr inbounds i8, ptr %.1277.lcssa, i64 16
+  %357 = getelementptr inbounds i8, ptr %.1281.lcssa, i64 16
   store i64 %356, ptr %357, align 8
-  %358 = getelementptr inbounds i8, ptr %.1277.lcssa, i64 8
+  %358 = getelementptr inbounds i8, ptr %.1281.lcssa, i64 8
   store i32 -1, ptr %358, align 8
   br label %359
 
@@ -665,12 +665,12 @@ GET_FIRST_NON_LOOP.exit:                          ; preds = %GET_FIRST_NON_LOOP.
 365:                                              ; preds = %359
   %366 = load i64, ptr %92, align 8
   %367 = add nsw i64 %366, %3
-  %368 = icmp eq i64 %367, %.0267
+  %368 = icmp eq i64 %367, %.0269
   br i1 %368, label %369, label %382
 
 369:                                              ; preds = %365
   %370 = load i64, ptr %146, align 8
-  %371 = icmp eq i64 %370, %.0281
+  %371 = icmp eq i64 %370, %.0267
   %372 = icmp eq i64 %2, 1
   %or.cond = or i1 %372, %371
   br i1 %or.cond, label %373, label %382

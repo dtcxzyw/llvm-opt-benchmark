@@ -671,8 +671,8 @@ _ZL18bConvertFromOldTprP12t_swapcoords.exit.thread.thread: ; preds = %_ZL18bConv
 
 123:                                              ; preds = %132, %111
   %.135.i = phi i32 [ %.03437.i, %111 ], [ %135, %132 ]
-  %.026.i.i.i = phi i32 [ -1, %111 ], [ %.127.i.i.i, %132 ]
-  %.0.i.i.i = phi i32 [ %121, %111 ], [ %.1.i.i.i, %132 ]
+  %.026.i.i.i = phi i32 [ %121, %111 ], [ %.127.i.i.i, %132 ]
+  %.0.i.i.i = phi i32 [ -1, %111 ], [ %.1.i.i.i, %132 ]
   %124 = sext i32 %.135.i to i64
   %125 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %122, i64 %124
   %126 = getelementptr inbounds i8, ptr %125, i64 4
@@ -688,9 +688,9 @@ _ZL18bConvertFromOldTprP12t_swapcoords.exit.thread.thread: ; preds = %_ZL18bConv
   br i1 %.not.i.i.i, label %_ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit.i, label %132
 
 132:                                              ; preds = %129, %123
-  %.127.i.i.i = phi i32 [ %.026.i.i.i, %123 ], [ %.135.i, %129 ]
-  %.1.i.i.i = phi i32 [ %.135.i, %123 ], [ %.0.i.i.i, %129 ]
-  %133 = add nsw i32 %.127.i.i.i, 1
+  %.127.i.i.i = phi i32 [ %.135.i, %123 ], [ %.026.i.i.i, %129 ]
+  %.1.i.i.i = phi i32 [ %.0.i.i.i, %123 ], [ %.135.i, %129 ]
+  %133 = add i32 %.127.i.i.i, 1
   %134 = add i32 %133, %.1.i.i.i
   %135 = ashr i32 %134, 1
   br label %123, !llvm.loop !8
@@ -1331,8 +1331,8 @@ _ZL28outputStartStructureIfWantedRK10gmx_mtop_tPA3_f7PbcTypePA3_Kf.exit.i: ; pre
 
 475:                                              ; preds = %484, %458
   %.037.i = phi i32 [ 0, %458 ], [ %487, %484 ]
-  %.026.i.i = phi i32 [ -1, %458 ], [ %.127.i.i, %484 ]
-  %.0.i.i = phi i32 [ %473, %458 ], [ %.1.i.i, %484 ]
+  %.026.i.i = phi i32 [ %473, %458 ], [ %.127.i.i, %484 ]
+  %.0.i.i = phi i32 [ -1, %458 ], [ %.1.i.i, %484 ]
   %476 = sext i32 %.037.i to i64
   %477 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %474, i64 %476
   %478 = getelementptr inbounds i8, ptr %477, i64 4
@@ -1348,9 +1348,9 @@ _ZL28outputStartStructureIfWantedRK10gmx_mtop_tPA3_f7PbcTypePA3_Kf.exit.i: ; pre
   br i1 %.not.i.i351, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i, label %484
 
 484:                                              ; preds = %481, %475
-  %.127.i.i = phi i32 [ %.026.i.i, %475 ], [ %.037.i, %481 ]
-  %.1.i.i = phi i32 [ %.037.i, %475 ], [ %.0.i.i, %481 ]
-  %485 = add nsw i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.037.i, %475 ], [ %.026.i.i, %481 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %475 ], [ %.037.i, %481 ]
+  %485 = add i32 %.127.i.i, 1
   %486 = add i32 %485, %.1.i.i
   %487 = ashr i32 %486, 1
   br label %475, !llvm.loop !8
@@ -1399,8 +1399,8 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %481
 
 511:                                              ; preds = %520, %508
   %.2.i = phi i32 [ %.139.i, %508 ], [ %523, %520 ]
-  %.026.i27.i = phi i32 [ -1, %508 ], [ %.127.i31.i, %520 ]
-  %.0.i28.i = phi i32 [ %505, %508 ], [ %.1.i32.i, %520 ]
+  %.026.i27.i = phi i32 [ %505, %508 ], [ %.127.i31.i, %520 ]
+  %.0.i28.i = phi i32 [ -1, %508 ], [ %.1.i32.i, %520 ]
   %512 = sext i32 %.2.i to i64
   %513 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %506, i64 %512
   %514 = getelementptr inbounds i8, ptr %513, i64 4
@@ -1416,9 +1416,9 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %481
   br i1 %.not.i30.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit33.i, label %520
 
 520:                                              ; preds = %517, %511
-  %.127.i31.i = phi i32 [ %.026.i27.i, %511 ], [ %.2.i, %517 ]
-  %.1.i32.i = phi i32 [ %.2.i, %511 ], [ %.0.i28.i, %517 ]
-  %521 = add nsw i32 %.127.i31.i, 1
+  %.127.i31.i = phi i32 [ %.2.i, %511 ], [ %.026.i27.i, %517 ]
+  %.1.i32.i = phi i32 [ %.0.i28.i, %511 ], [ %.2.i, %517 ]
+  %521 = add i32 %.127.i31.i, 1
   %522 = add i32 %521, %.1.i32.i
   %523 = ashr i32 %522, 1
   br label %511, !llvm.loop !8
@@ -1475,8 +1475,8 @@ _ZL19get_group_apm_checkiP6t_swapbRK10gmx_mtop_t.exit: ; preds = %507, %497
 
 548:                                              ; preds = %557, %.lr.ph519
   %.1 = phi i32 [ %.0450516, %.lr.ph519 ], [ %560, %557 ]
-  %.026.i.i359 = phi i32 [ -1, %.lr.ph519 ], [ %.127.i.i363, %557 ]
-  %.0.i.i360 = phi i32 [ %546, %.lr.ph519 ], [ %.1.i.i364, %557 ]
+  %.026.i.i359 = phi i32 [ %546, %.lr.ph519 ], [ %.127.i.i363, %557 ]
+  %.0.i.i360 = phi i32 [ -1, %.lr.ph519 ], [ %.1.i.i364, %557 ]
   %549 = sext i32 %.1 to i64
   %550 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %547, i64 %549
   %551 = getelementptr inbounds i8, ptr %550, i64 4
@@ -1492,9 +1492,9 @@ _ZL19get_group_apm_checkiP6t_swapbRK10gmx_mtop_t.exit: ; preds = %507, %497
   br i1 %.not.i.i362, label %_ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit, label %557
 
 557:                                              ; preds = %554, %548
-  %.127.i.i363 = phi i32 [ %.026.i.i359, %548 ], [ %.1, %554 ]
-  %.1.i.i364 = phi i32 [ %.1, %548 ], [ %.0.i.i360, %554 ]
-  %558 = add nsw i32 %.127.i.i363, 1
+  %.127.i.i363 = phi i32 [ %.1, %548 ], [ %.026.i.i359, %554 ]
+  %.1.i.i364 = phi i32 [ %.0.i.i360, %548 ], [ %.1, %554 ]
+  %558 = add i32 %.127.i.i363, 1
   %559 = add i32 %558, %.1.i.i364
   %560 = ashr i32 %559, 1
   br label %548, !llvm.loop !8
@@ -1555,11 +1555,11 @@ _ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit: ; preds = %554
   br i1 %.not555, label %.loopexit, label %.lr.ph527
 
 .lr.ph527:                                        ; preds = %590, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit
-  %.0331525 = phi i64 [ %637, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ 0, %590 ]
+  %.0327525 = phi i64 [ %637, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ 0, %590 ]
   %.0451524 = phi i32 [ %.1452, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ], [ 0, %590 ]
   %598 = call { ptr, ptr } @_ZNK3gmx12LocalAtomSet11globalIndexEv(ptr noundef nonnull align 8 dereferenceable(8) %594)
   %599 = extractvalue { ptr, ptr } %598, 0
-  %600 = getelementptr inbounds i32, ptr %599, i64 %.0331525
+  %600 = getelementptr inbounds i32, ptr %599, i64 %.0327525
   %601 = load i32, ptr %600, align 4
   %602 = load ptr, ptr %446, align 8
   %603 = load ptr, ptr %445, align 8
@@ -1573,8 +1573,8 @@ _ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit: ; preds = %554
 
 610:                                              ; preds = %619, %.lr.ph527
   %.1452 = phi i32 [ %.0451524, %.lr.ph527 ], [ %622, %619 ]
-  %.026.i.i.i366 = phi i32 [ -1, %.lr.ph527 ], [ %.127.i.i.i370, %619 ]
-  %.0.i.i.i367 = phi i32 [ %608, %.lr.ph527 ], [ %.1.i.i.i371, %619 ]
+  %.026.i.i.i366 = phi i32 [ %608, %.lr.ph527 ], [ %.127.i.i.i370, %619 ]
+  %.0.i.i.i367 = phi i32 [ -1, %.lr.ph527 ], [ %.1.i.i.i371, %619 ]
   %611 = sext i32 %.1452 to i64
   %612 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %609, i64 %611
   %613 = getelementptr inbounds i8, ptr %612, i64 4
@@ -1590,9 +1590,9 @@ _ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit: ; preds = %554
   br i1 %.not.i.i.i369, label %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, label %619
 
 619:                                              ; preds = %616, %610
-  %.127.i.i.i370 = phi i32 [ %.026.i.i.i366, %610 ], [ %.1452, %616 ]
-  %.1.i.i.i371 = phi i32 [ %.1452, %610 ], [ %.0.i.i.i367, %616 ]
-  %620 = add nsw i32 %.127.i.i.i370, 1
+  %.127.i.i.i370 = phi i32 [ %.1452, %610 ], [ %.026.i.i.i366, %616 ]
+  %.1.i.i.i371 = phi i32 [ %.0.i.i.i367, %610 ], [ %.1452, %616 ]
+  %620 = add i32 %.127.i.i.i370, 1
   %621 = add i32 %620, %.1.i.i.i371
   %622 = ashr i32 %621, 1
   br label %610, !llvm.loop !8
@@ -1611,9 +1611,9 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %616
   %633 = getelementptr inbounds %struct.t_atom, ptr %631, i64 %632
   %634 = load float, ptr %633, align 4
   %635 = load ptr, ptr %593, align 8
-  %636 = getelementptr inbounds float, ptr %635, i64 %.0331525
+  %636 = getelementptr inbounds float, ptr %635, i64 %.0327525
   store float %634, ptr %636, align 4
-  %637 = add nuw i64 %.0331525, 1
+  %637 = add nuw i64 %.0327525, 1
   %638 = call noundef i64 @_ZNK3gmx12LocalAtomSet14numAtomsGlobalEv(ptr noundef nonnull align 8 dereferenceable(8) %594)
   %639 = icmp ult i64 %637, %638
   br i1 %639, label %.lr.ph527, label %.loopexit, !llvm.loop !28
@@ -1826,17 +1826,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit379: ;
   br label %726
 
 726:                                              ; preds = %.lr.ph535, %726
-  %.0327533 = phi i64 [ 0, %.lr.ph535 ], [ %744, %726 ]
+  %.0330533 = phi i64 [ 0, %.lr.ph535 ], [ %744, %726 ]
   %727 = load ptr, ptr %718, align 8
   %728 = getelementptr inbounds %struct.t_swapGroup, ptr %727, i64 %indvars.iv606, i32 2
   %729 = load ptr, ptr %728, align 8
-  %730 = getelementptr inbounds i32, ptr %729, i64 %.0327533
+  %730 = getelementptr inbounds i32, ptr %729, i64 %.0330533
   %731 = load i32, ptr %730, align 4
   %732 = sext i32 %731 to i64
   %733 = load ptr, ptr %719, align 8
   %734 = getelementptr inbounds %"class.gmx::BasicVector", ptr %733, i64 %732
   %735 = load ptr, ptr %725, align 8
-  %736 = getelementptr inbounds [3 x float], ptr %735, i64 %.0327533
+  %736 = getelementptr inbounds [3 x float], ptr %735, i64 %.0330533
   %737 = load float, ptr %734, align 4
   store float %737, ptr %736, align 4
   %738 = getelementptr inbounds i8, ptr %734, i64 4
@@ -1847,7 +1847,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit379: ;
   %742 = load float, ptr %741, align 4
   %743 = getelementptr inbounds i8, ptr %736, i64 8
   store float %742, ptr %743, align 4
-  %744 = add nuw i64 %.0327533, 1
+  %744 = add nuw i64 %.0330533, 1
   %745 = call noundef i64 @_ZNK3gmx12LocalAtomSet14numAtomsGlobalEv(ptr noundef nonnull align 8 dereferenceable(8) %723)
   %746 = icmp ult i64 %744, %745
   br i1 %746, label %726, label %._crit_edge536, !llvm.loop !31
@@ -4115,10 +4115,10 @@ _ZL26get_compartment_boundaries11CompartmentP6t_swapPA3_KfPfS5_.exit: ; preds = 
 82:                                               ; preds = %.lr.ph, %270
   %83 = phi i32 [ 0, %.lr.ph ], [ %271, %270 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %270 ]
-  %.0109 = phi i32 [ 0, %.lr.ph ], [ %273, %270 ]
+  %.090108 = phi i32 [ 0, %.lr.ph ], [ %273, %270 ]
   %84 = load i32, ptr %3, align 8
   %85 = load ptr, ptr %30, align 8
-  %86 = sext i32 %.0109 to i64
+  %86 = sext i32 %.090108 to i64
   %87 = sext i32 %84 to i64
   %88 = getelementptr inbounds [3 x float], ptr %85, i64 %86, i64 %87
   %89 = load float, ptr %88, align 4
@@ -4183,7 +4183,7 @@ _ZL11add_to_listiP16swap_compartmentf.exit:       ; preds = %108, %111
   %121 = load ptr, ptr %79, align 8
   %122 = sext i32 %109 to i64
   %123 = getelementptr inbounds i32, ptr %121, i64 %122
-  store i32 %.0109, ptr %123, align 4
+  store i32 %.090108, ptr %123, align 4
   %124 = load ptr, ptr %80, align 8
   %125 = getelementptr inbounds float, ptr %124, i64 %122
   store float %104, ptr %125, align 4
@@ -4449,7 +4449,7 @@ _ZL23detect_flux_per_channelP10swap_groupi11CompartmentPfP6DomainS4_P14ChannelHi
 270:                                              ; preds = %133, %268, %_ZL23detect_flux_per_channelP10swap_groupi11CompartmentPfP6DomainS4_P14ChannelHistoryPK12t_swapcoordsP6t_swapfflbP8_IO_FILE.exit, %130
   %271 = phi i32 [ %83, %133 ], [ %269, %268 ], [ %83, %_ZL23detect_flux_per_channelP10swap_groupi11CompartmentPfP6DomainS4_P14ChannelHistoryPK12t_swapcoordsP6t_swapfflbP8_IO_FILE.exit ], [ %83, %130 ]
   %272 = load i32, ptr %48, align 8
-  %273 = add nsw i32 %272, %.0109
+  %273 = add nsw i32 %272, %.090108
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %274 = call noundef i64 @_ZNK3gmx12LocalAtomSet14numAtomsGlobalEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
   %275 = trunc i64 %274 to i32
@@ -5219,7 +5219,7 @@ _ZL9need_swapPK12t_swapcoordsP6t_swap.exit:       ; preds = %143, %134
 219:                                              ; preds = %209, %._crit_edge335
   %220 = phi float [ %.pre, %209 ], [ %470, %._crit_edge335 ]
   %indvars.iv389 = phi i64 [ 0, %209 ], [ %indvars.iv.next390, %._crit_edge335 ]
-  %.0188337 = phi i32 [ 0, %209 ], [ %.1.lcssa, %._crit_edge335 ]
+  %.0189337 = phi i32 [ 0, %209 ], [ %.1.lcssa, %._crit_edge335 ]
   %221 = getelementptr inbounds [2 x float], ptr %212, i64 0, i64 %indvars.iv389
   %222 = load float, ptr %221, align 4
   %223 = fcmp ult float %222, %220
@@ -5247,7 +5247,7 @@ _ZL9need_swapPK12t_swapcoordsP6t_swap.exit:       ; preds = %143, %134
   br label %242
 
 242:                                              ; preds = %.lr.ph334, %465
-  %.1332 = phi i32 [ %.0188337, %.lr.ph334 ], [ %466, %465 ]
+  %.1332 = phi i32 [ %.0189337, %.lr.ph334 ], [ %466, %465 ]
   %243 = load ptr, ptr %189, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
   %244 = load i32, ptr %226, align 4
@@ -5689,7 +5689,7 @@ _ZL19translate_positionsPA3_fiPfS1_P5t_pbc.exit243: ; preds = %410, %_ZL19transl
 
 ._crit_edge335:                                   ; preds = %465, %219
   %470 = phi float [ %220, %219 ], [ %468, %465 ]
-  %.1.lcssa = phi i32 [ %.0188337, %219 ], [ %466, %465 ]
+  %.1.lcssa = phi i32 [ %.0189337, %219 ], [ %466, %465 ]
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
   %.not286 = icmp eq i64 %indvars.iv.next390, 2
   br i1 %.not286, label %471, label %219

@@ -2493,8 +2493,8 @@ _ZN3syn11parse_quote5parse17haa1ffed136ef1021E.exit: ; preds = %336
   %372 = getelementptr inbounds i8, ptr %.tr285, i64 56
   %373 = load ptr, ptr %372, align 8, !noundef !5
   %.not191 = icmp ne ptr %373, null
-  %.0178 = zext i1 %.not191 to i64
-  %374 = add i64 %371, %.0178
+  %.0 = zext i1 %.not191 to i64
+  %374 = add i64 %371, %.0
   %.not192 = icmp eq i64 %369, %374
   br i1 %.not192, label %375, label %379
 

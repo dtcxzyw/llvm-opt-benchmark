@@ -41,12 +41,12 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
 .preheader253:                                    ; preds = %.preheader253.backedge, %.preheader253.lr.ph
   %.0171326 = phi ptr [ %5, %.preheader253.lr.ph ], [ %.11, %.preheader253.backedge ]
   %.0172325 = phi i1 [ false, %.preheader253.lr.ph ], [ %.0172325.be, %.preheader253.backedge ]
-  %.0175324 = phi i1 [ true, %.preheader253.lr.ph ], [ %.0175324.be, %.preheader253.backedge ]
-  %.0181323 = phi i1 [ false, %.preheader253.lr.ph ], [ %.0181323.be, %.preheader253.backedge ]
+  %.0174324 = phi i1 [ true, %.preheader253.lr.ph ], [ %.0174324.be, %.preheader253.backedge ]
+  %.0177323 = phi i1 [ false, %.preheader253.lr.ph ], [ %.0177323.be, %.preheader253.backedge ]
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader253
-  %.0178 = phi ptr [ %.0171326, %.preheader253 ], [ %.0178.be, %.backedge.backedge ]
+  %.0182 = phi ptr [ %.0171326, %.preheader253 ], [ %.0182.be, %.backedge.backedge ]
   %.1 = phi ptr [ %.0171326, %.preheader253 ], [ %.1.be, %.backedge.backedge ]
   %15 = load i8, ptr %.1, align 1
   %16 = zext i8 %15 to i64
@@ -120,21 +120,21 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   %44 = ptrtoint ptr %.4 to i64
   %45 = ptrtoint ptr %.1 to i64
   %46 = sub i64 %44, %45
-  %47 = icmp ult ptr %.0178, %.1
+  %47 = icmp ult ptr %.0182, %.1
   %sext211 = shl i64 %46, 32
   %48 = ashr exact i64 %sext211, 32
   br i1 %47, label %49, label %.loopexit252._crit_edge
 
 49:                                               ; preds = %.loopexit252
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.0178, ptr align 1 %.1, i64 %48, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.0182, ptr nonnull align 1 %.1, i64 %48, i1 false)
   br label %.loopexit252._crit_edge
 
 .loopexit252._crit_edge:                          ; preds = %.loopexit252, %49
-  %50 = getelementptr inbounds i8, ptr %.0178, i64 %48
+  %50 = getelementptr inbounds i8, ptr %.0182, i64 %48
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.loopexit252._crit_edge, %68, %._crit_edge386, %104, %125
-  %.0178.be = phi ptr [ %50, %.loopexit252._crit_edge ], [ %70, %68 ], [ %92, %._crit_edge386 ], [ %108, %104 ], [ %129, %125 ]
+  %.0182.be = phi ptr [ %50, %.loopexit252._crit_edge ], [ %70, %68 ], [ %92, %._crit_edge386 ], [ %108, %104 ], [ %129, %125 ]
   %.1.be = phi ptr [ %.4, %.loopexit252._crit_edge ], [ %69, %68 ], [ %81, %._crit_edge386 ], [ %94, %104 ], [ %110, %125 ]
   br label %.backedge, !llvm.loop !5
 
@@ -182,8 +182,8 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
 
 68:                                               ; preds = %51
   %69 = getelementptr inbounds i8, ptr %.1, i64 2
-  %70 = getelementptr inbounds i8, ptr %.0178, i64 1
-  store i8 36, ptr %.0178, align 1
+  %70 = getelementptr inbounds i8, ptr %.0182, i64 1
+  store i8 36, ptr %.0182, align 1
   br label %.backedge.backedge
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %143
@@ -216,16 +216,16 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   %85 = trunc i64 %84 to i32
   %86 = sdiv i32 %85, 2
   %87 = add nsw i32 %86, -1
-  %88 = icmp ult ptr %.0178, %.1
+  %88 = icmp ult ptr %.0182, %.1
   %89 = sext i32 %87 to i64
   br i1 %88, label %90, label %._crit_edge386
 
 90:                                               ; preds = %80
-  call void @llvm.memset.p0.i64(ptr align 1 %.0178, i8 92, i64 %89, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %.0182, i8 92, i64 %89, i1 false)
   br label %._crit_edge386
 
 ._crit_edge386:                                   ; preds = %80, %90
-  %91 = getelementptr inbounds i8, ptr %.0178, i64 %89
+  %91 = getelementptr inbounds i8, ptr %.0182, i64 %89
   %92 = getelementptr inbounds i8, ptr %91, i64 1
   store i8 32, ptr %91, align 1
   br label %.backedge.backedge
@@ -238,21 +238,21 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   %97 = sub i64 %95, %96
   %98 = trunc i64 %97 to i32
   %99 = icmp sgt i32 %98, 2
-  %100 = icmp ult ptr %.0178, %.1
+  %100 = icmp ult ptr %.0182, %.1
   %or.cond213 = select i1 %99, i1 %100, i1 false
   br i1 %or.cond213, label %101, label %104
 
 101:                                              ; preds = %93
   %102 = add i64 %97, 4294967294
   %103 = and i64 %102, 4294967295
-  call void @llvm.memset.p0.i64(ptr align 1 %.0178, i8 92, i64 %103, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %.0182, i8 92, i64 %103, i1 false)
   br label %104
 
 104:                                              ; preds = %101, %93
   %105 = shl i64 %97, 32
   %sext204 = add i64 %105, -8589934592
   %106 = ashr exact i64 %sext204, 32
-  %107 = getelementptr inbounds i8, ptr %.0178, i64 %106
+  %107 = getelementptr inbounds i8, ptr %.0182, i64 %106
   %108 = getelementptr inbounds i8, ptr %107, i64 1
   store i8 35, ptr %107, align 1
   br label %.backedge.backedge
@@ -287,21 +287,21 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   %118 = sub i64 %116, %117
   %119 = trunc i64 %118 to i32
   %120 = icmp sgt i32 %119, 2
-  %121 = icmp ult ptr %.0178, %.1
+  %121 = icmp ult ptr %.0182, %.1
   %or.cond215 = select i1 %120, i1 %121, i1 false
   br i1 %or.cond215, label %122, label %125
 
 122:                                              ; preds = %115
   %123 = add i64 %118, 4294967294
   %124 = and i64 %123, 4294967295
-  call void @llvm.memset.p0.i64(ptr align 1 %.0178, i8 92, i64 %124, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %.0182, i8 92, i64 %124, i1 false)
   br label %125
 
 125:                                              ; preds = %122, %115
   %126 = shl i64 %118, 32
   %sext201 = add i64 %126, -8589934592
   %127 = ashr exact i64 %sext201, 32
-  %128 = getelementptr inbounds i8, ptr %.0178, i64 %127
+  %128 = getelementptr inbounds i8, ptr %.0182, i64 %127
   %129 = getelementptr inbounds i8, ptr %128, i64 1
   store i8 58, ptr %128, align 1
   br label %.backedge.backedge
@@ -351,19 +351,19 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   %147 = ptrtoint ptr %.1 to i64
   %148 = xor i64 %147, -1
   %149 = add i64 %146, %148
-  %150 = icmp ult ptr %.0178, %.1
+  %150 = icmp ult ptr %.0182, %.1
   %sext202 = shl i64 %149, 32
   %151 = ashr exact i64 %sext202, 32
   br i1 %150, label %152, label %._crit_edge385
 
 152:                                              ; preds = %144
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.0178, ptr nonnull align 1 %.1, i64 %151, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.0182, ptr nonnull align 1 %.1, i64 %151, i1 false)
   %.pre = load i8, ptr %110, align 1
   br label %._crit_edge385
 
 ._crit_edge385:                                   ; preds = %144, %152
   %153 = phi i8 [ %.pre, %152 ], [ %111, %144 ]
-  %154 = getelementptr inbounds i8, ptr %.0178, i64 %151
+  %154 = getelementptr inbounds i8, ptr %.0182, i64 %151
   %155 = icmp eq i8 %153, 10
   br label %.loopexit255
 
@@ -372,18 +372,18 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   %158 = ptrtoint ptr %157 to i64
   %159 = ptrtoint ptr %.1 to i64
   %160 = sub i64 %158, %159
-  %161 = icmp ult ptr %.0178, %.1
+  %161 = icmp ult ptr %.0182, %.1
   %162 = shl i64 %160, 32
   %sext = add i64 %162, -4294967296
   %163 = ashr exact i64 %sext, 32
   br i1 %161, label %164, label %._crit_edge384
 
 164:                                              ; preds = %156
-  call void @llvm.memset.p0.i64(ptr align 1 %.0178, i8 92, i64 %163, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %.0182, i8 92, i64 %163, i1 false)
   br label %._crit_edge384
 
 ._crit_edge384:                                   ; preds = %156, %164
-  %165 = getelementptr inbounds i8, ptr %.0178, i64 %163
+  %165 = getelementptr inbounds i8, ptr %.0182, i64 %163
   br label %.loopexit255
 
 166:                                              ; preds = %143
@@ -427,10 +427,10 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %61, %.loopexit255.loopexit.split.loop.exit, %._crit_edge385, %76, %35, %.loopexit254, %._crit_edge384, %.loopexit256, %33, %30
-  %.0180 = phi i1 [ false, %.loopexit254 ], [ false, %30 ], [ true, %33 ], [ false, %35 ], [ false, %.loopexit256 ], [ false, %._crit_edge384 ], [ false, %76 ], [ %155, %._crit_edge385 ], [ false, %.loopexit255.loopexit.split.loop.exit ], [ false, %61 ]
-  %.1179 = phi ptr [ %.0178, %.loopexit254 ], [ %.0178, %30 ], [ %.0178, %33 ], [ %.0178, %35 ], [ %.0178, %.loopexit256 ], [ %165, %._crit_edge384 ], [ %.0178, %76 ], [ %154, %._crit_edge385 ], [ %.0178, %.loopexit255.loopexit.split.loop.exit ], [ %.0178, %61 ]
+  %.1183 = phi ptr [ %.0182, %.loopexit254 ], [ %.0182, %30 ], [ %.0182, %33 ], [ %.0182, %35 ], [ %.0182, %.loopexit256 ], [ %165, %._crit_edge384 ], [ %.0182, %76 ], [ %154, %._crit_edge385 ], [ %.0182, %.loopexit255.loopexit.split.loop.exit ], [ %.0182, %61 ]
+  %.0181 = phi i1 [ false, %.loopexit254 ], [ false, %30 ], [ true, %33 ], [ false, %35 ], [ false, %.loopexit256 ], [ false, %._crit_edge384 ], [ false, %76 ], [ %155, %._crit_edge385 ], [ false, %.loopexit255.loopexit.split.loop.exit ], [ false, %61 ]
   %.11 = phi ptr [ %32, %.loopexit254 ], [ %31, %30 ], [ %34, %33 ], [ %36, %35 ], [ %75, %.loopexit256 ], [ %157, %._crit_edge384 ], [ %56, %76 ], [ %145, %._crit_edge385 ], [ %179, %.loopexit255.loopexit.split.loop.exit ], [ %56, %61 ]
-  %180 = ptrtoint ptr %.1179 to i64
+  %180 = ptrtoint ptr %.1183 to i64
   %181 = ptrtoint ptr %.0171326 to i64
   %182 = sub i64 %180, %181
   %183 = trunc i64 %182 to i32
@@ -452,9 +452,9 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
 
 .thread:                                          ; preds = %185, %191
   %.1173244 = phi i1 [ true, %191 ], [ %.0172325, %185 ]
-  %.0174242 = phi i32 [ %192, %191 ], [ %183, %185 ]
-  %.1176241 = phi i1 [ false, %191 ], [ %.0175324, %185 ]
-  %193 = zext nneg i32 %.0174242 to i64
+  %.1175242 = phi i1 [ false, %191 ], [ %.0174324, %185 ]
+  %.0180240 = phi i32 [ %192, %191 ], [ %183, %185 ]
+  %193 = zext nneg i32 %.0180240 to i64
   store ptr %.0171326, ptr %4, align 8
   store i64 %193, ptr %9, align 8
   %194 = load ptr, ptr %10, align 8
@@ -465,10 +465,10 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br i1 %198, label %199, label %261
 
 199:                                              ; preds = %.thread
-  br i1 %.0175324, label %228, label %200
+  br i1 %.0174324, label %228, label %200
 
 200:                                              ; preds = %199
-  br i1 %.0181323, label %._crit_edge.thread.sink.split, label %201
+  br i1 %.0177323, label %._crit_edge.thread.sink.split, label %201
 
 201:                                              ; preds = %200
   %202 = load ptr, ptr %12, align 8
@@ -623,28 +623,28 @@ _ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__n
   br label %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit
 
 261:                                              ; preds = %.thread
-  %spec.select216 = select i1 %.0175324, i1 true, i1 %.0181323
+  %spec.select216 = select i1 %.0174324, i1 true, i1 %.0177323
   br label %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit
 
 _ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit: ; preds = %.loopexit255, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i232, %236, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %203, %261, %228
   %.1173243 = phi i1 [ %.1173244, %228 ], [ %.1173244, %261 ], [ %.1173244, %203 ], [ %.1173244, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %.1173244, %236 ], [ %.1173244, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i232 ], [ %.0172325, %.loopexit255 ]
-  %.1176240 = phi i1 [ %.1176241, %228 ], [ %.1176241, %261 ], [ %.1176241, %203 ], [ %.1176241, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %.1176241, %236 ], [ %.1176241, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i232 ], [ %.0175324, %.loopexit255 ]
-  %.1182 = phi i1 [ %.0181323, %228 ], [ %spec.select216, %261 ], [ false, %203 ], [ false, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %.0181323, %236 ], [ %.0181323, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i232 ], [ %.0181323, %.loopexit255 ]
-  %not..0180 = xor i1 %.0180, true
-  %spec.select217 = select i1 %not..0180, i1 %.1182, i1 false
-  %spec.select218 = select i1 %.0180, i1 true, i1 %.1176240
+  %.1175241 = phi i1 [ %.1175242, %228 ], [ %.1175242, %261 ], [ %.1175242, %203 ], [ %.1175242, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %.1175242, %236 ], [ %.1175242, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i232 ], [ %.0174324, %.loopexit255 ]
+  %.1178 = phi i1 [ %.0177323, %228 ], [ %spec.select216, %261 ], [ false, %203 ], [ false, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %.0177323, %236 ], [ %.0177323, %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i232 ], [ %.0177323, %.loopexit255 ]
+  %not..0181 = xor i1 %.0181, true
+  %spec.select217 = select i1 %not..0181, i1 %.1178, i1 false
+  %spec.select218 = select i1 %.0181, i1 true, i1 %.1175241
   %262 = icmp ult ptr %.11, %7
   br i1 %262, label %.preheader253.backedge, label %._crit_edge
 
 .preheader253.backedge:                           ; preds = %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread
   %.0172325.be = phi i1 [ %.1173243, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit ], [ true, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread ]
-  %.0175324.be = phi i1 [ %spec.select218, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit ], [ %.0180, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread ]
-  %.0181323.be = phi i1 [ %spec.select217, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit ], [ %spec.select217403, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread ]
+  %.0174324.be = phi i1 [ %spec.select218, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit ], [ %.0181, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread ]
+  %.0177323.be = phi i1 [ %spec.select217, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit ], [ %spec.select217403, %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread ]
   br label %.preheader253, !llvm.loop !16
 
 _ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread: ; preds = %191
-  %not..0180402 = xor i1 %.0180, true
-  %spec.select217403 = select i1 %not..0180402, i1 %.0181323, i1 false
+  %not..0181402 = xor i1 %.0181, true
+  %spec.select217403 = select i1 %not..0181402, i1 %.0177323, i1 false
   %263 = icmp ult ptr %.11, %7
   br i1 %263, label %.preheader253.backedge, label %._crit_edge.thread
 

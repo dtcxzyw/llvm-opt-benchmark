@@ -346,8 +346,8 @@ define internal fastcc noundef i32 @nbc_schedule_round_append(ptr noundef %0, pt
   br label %nbc_schedule_grow.exit
 
 nbc_schedule_grow.exit:                           ; preds = %16, %26, %41, %42
-  %.029 = phi i32 [ 0, %42 ], [ 0, %41 ], [ -2, %16 ], [ -2, %26 ]
-  ret i32 %.029
+  %.0 = phi i32 [ 0, %42 ], [ 0, %41 ], [ -2, %16 ], [ -2, %26 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -445,8 +445,8 @@ define noundef i32 @NBC_Sched_barrier(ptr noundef %0) local_unnamed_addr #2 {
   br label %nbc_schedule_round_append.exit
 
 nbc_schedule_round_append.exit:                   ; preds = %11, %12
-  %.029.i = phi i32 [ 0, %12 ], [ -2, %11 ]
-  ret i32 %.029.i
+  %.0.i = phi i32 [ 0, %12 ], [ -2, %11 ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -860,7 +860,7 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
   br label %20
 
 20:                                               ; preds = %.lr.ph, %NBC_Copy.exit.thread
-  %.0214 = phi i32 [ 0, %.lr.ph ], [ %168, %NBC_Copy.exit.thread ]
+  %.0159214 = phi i32 [ 0, %.lr.ph ], [ %168, %NBC_Copy.exit.thread ]
   %.0164213 = phi ptr [ %14, %.lr.ph ], [ %.1165, %NBC_Copy.exit.thread ]
   %.0.copyload = load i32, ptr %.0164213, align 1
   switch i32 %.0.copyload, label %159 [
@@ -898,7 +898,7 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
   br label %29
 
 29:                                               ; preds = %21, %25
-  %.0160 = phi ptr [ %28, %25 ], [ %.sroa.470.0.copyload, %21 ]
+  %.0161 = phi ptr [ %28, %25 ], [ %.sroa.470.0.copyload, %21 ]
   %30 = load ptr, ptr %18, align 8
   %31 = load volatile i32, ptr %17, align 8
   %32 = sext i32 %31 to i64
@@ -926,12 +926,12 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds ptr, ptr %34, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 -8
-  %49 = call i32 %37(ptr noundef %.0160, i64 noundef %.sroa.167.0.copyload, ptr noundef %.sroa.773.0.copyload, i32 noundef %.sroa.1076.0.copyload, i32 noundef %38, i32 noundef 4, ptr noundef %44, ptr noundef nonnull %48) #17
+  %49 = call i32 %37(ptr noundef %.0161, i64 noundef %.sroa.167.0.copyload, ptr noundef %.sroa.773.0.copyload, i32 noundef %.sroa.1076.0.copyload, i32 noundef %38, i32 noundef 4, ptr noundef %44, ptr noundef nonnull %48) #17
   %.not184 = icmp eq i32 %49, 0
   br i1 %.not184, label %NBC_Copy.exit.thread, label %50
 
 50:                                               ; preds = %43
-  %51 = ptrtoint ptr %.0160 to i64
+  %51 = ptrtoint ptr %.0161 to i64
   %52 = load i32, ptr %16, align 4
   %53 = load ptr, ptr %19, align 8
   %54 = ptrtoint ptr %53 to i64
@@ -965,7 +965,7 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
   br label %63
 
 63:                                               ; preds = %55, %59
-  %.1161 = phi ptr [ %62, %59 ], [ %.sroa.4.0.copyload, %55 ]
+  %.1162 = phi ptr [ %62, %59 ], [ %.sroa.4.0.copyload, %55 ]
   %64 = load ptr, ptr %18, align 8
   %65 = load volatile i32, ptr %17, align 8
   %66 = sext i32 %65 to i64
@@ -993,12 +993,12 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds ptr, ptr %68, i64 %80
   %82 = getelementptr inbounds i8, ptr %81, i64 -8
-  %83 = call i32 %71(ptr noundef %.1161, i64 noundef %.sroa.153.0.copyload, ptr noundef %.sroa.7.0.copyload, i32 noundef %.sroa.1162.0.copyload, i32 noundef %72, ptr noundef %78, ptr noundef nonnull %82) #17
+  %83 = call i32 %71(ptr noundef %.1162, i64 noundef %.sroa.153.0.copyload, ptr noundef %.sroa.7.0.copyload, i32 noundef %.sroa.1162.0.copyload, i32 noundef %72, ptr noundef %78, ptr noundef nonnull %82) #17
   %.not181 = icmp eq i32 %83, 0
   br i1 %.not181, label %NBC_Copy.exit.thread, label %84
 
 84:                                               ; preds = %77
-  %85 = ptrtoint ptr %.1161 to i64
+  %85 = ptrtoint ptr %.1162 to i64
   %86 = load i32, ptr %16, align 4
   %87 = load ptr, ptr %19, align 8
   %88 = ptrtoint ptr %87 to i64
@@ -1031,7 +1031,7 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
   br label %95
 
 95:                                               ; preds = %89, %91
-  %.2162 = phi ptr [ %94, %91 ], [ %.sroa.342.0.copyload, %89 ]
+  %.2163 = phi ptr [ %94, %91 ], [ %.sroa.342.0.copyload, %89 ]
   %.not179 = icmp eq i8 %.sroa.2.0.copyload, 0
   br i1 %.not179, label %100, label %96
 
@@ -1042,8 +1042,8 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
   br label %100
 
 100:                                              ; preds = %95, %96
-  %.0159 = phi ptr [ %99, %96 ], [ %.sroa.645.0.copyload, %95 ]
-  call fastcc void @ompi_op_reduce(ptr noundef %.sroa.948.0.copyload, ptr noundef %.2162, ptr noundef %.0159, i64 noundef %.sroa.1250.0.copyload, ptr noundef %.sroa.10.0.copyload)
+  %.0160 = phi ptr [ %99, %96 ], [ %.sroa.645.0.copyload, %95 ]
+  call fastcc void @ompi_op_reduce(ptr noundef %.sroa.948.0.copyload, ptr noundef %.2163, ptr noundef %.0160, i64 noundef %.sroa.1250.0.copyload, ptr noundef %.sroa.10.0.copyload)
   br label %NBC_Copy.exit.thread
 
 101:                                              ; preds = %20
@@ -1222,7 +1222,7 @@ NBC_Unpack.exit:                                  ; preds = %147, %155
 
 NBC_Copy.exit.thread:                             ; preds = %112, %NBC_Unpack.exit, %100, %43, %77
   %.1165 = phi ptr [ %117, %NBC_Unpack.exit ], [ %90, %100 ], [ %56, %77 ], [ %22, %43 ], [ %102, %112 ]
-  %168 = add nuw nsw i32 %.0214, 1
+  %168 = add nuw nsw i32 %.0159214, 1
   %exitcond.not = icmp eq i32 %168, %.0.copyload115
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %20, !llvm.loop !8
 
@@ -1244,8 +1244,8 @@ NBC_Copy.exit.thread:                             ; preds = %112, %NBC_Unpack.ex
   br label %.loopexit189
 
 .loopexit189:                                     ; preds = %63, %29, %NBC_Copy.exit, %._crit_edge, %170, %159, %.loopexit, %84, %50
-  %.0163 = phi i32 [ -1, %159 ], [ %.0.i.ph, %.loopexit ], [ %83, %84 ], [ %49, %50 ], [ %115, %NBC_Copy.exit ], [ %172, %170 ], [ 0, %._crit_edge ], [ -2, %29 ], [ -2, %63 ]
-  ret i32 %.0163
+  %.0 = phi i32 [ -1, %159 ], [ %.0.i.ph, %.loopexit ], [ %83, %84 ], [ %49, %50 ], [ %115, %NBC_Copy.exit ], [ %172, %170 ], [ 0, %._crit_edge ], [ -2, %29 ], [ -2, %63 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

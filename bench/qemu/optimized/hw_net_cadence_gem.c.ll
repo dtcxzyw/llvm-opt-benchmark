@@ -1000,8 +1000,8 @@ do.end:                                           ; preds = %entry
   %tx_packet = getelementptr inbounds i8, ptr %s, i64 19857
   %num_priority_queues = getelementptr inbounds i8, ptr %s, i64 9472
   %2 = load i8, ptr %num_priority_queues, align 16
-  %cmp579.not = icmp eq i8 %2, 0
-  br i1 %cmp579.not, label %for.end, label %for.body.lr.ph
+  %cmp577.not = icmp eq i8 %2, 0
+  br i1 %cmp577.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.end
   %arrayidx.i.i = getelementptr i8, ptr %s, i64 9500
@@ -1033,12 +1033,12 @@ for.body.lr.ph:                                   ; preds = %do.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %5, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %.compoundliteral286.sroa.0.0586 = phi i32 [ undef, %for.body.lr.ph ], [ %.compoundliteral286.sroa.0.1487676, %for.inc ]
-  %.compoundliteral175.sroa.0.0585 = phi i32 [ undef, %for.body.lr.ph ], [ %.compoundliteral175.sroa.0.1495675, %for.inc ]
-  %.compoundliteral139.sroa.0.0584 = phi i32 [ undef, %for.body.lr.ph ], [ %.compoundliteral139.sroa.0.1503674, %for.inc ]
-  %.compoundliteral93.sroa.0.0583 = phi i32 [ undef, %for.body.lr.ph ], [ %.compoundliteral93.sroa.0.1511673, %for.inc ]
-  %total_bytes.0581 = phi i32 [ 0, %for.body.lr.ph ], [ %total_bytes.1519672, %for.inc ]
-  %p.0580 = phi ptr [ %tx_packet, %for.body.lr.ph ], [ %p.1527671, %for.inc ]
+  %.compoundliteral286.sroa.0.0584 = phi i32 [ undef, %for.body.lr.ph ], [ %.compoundliteral286.sroa.0.1487674, %for.inc ]
+  %.compoundliteral175.sroa.0.0583 = phi i32 [ undef, %for.body.lr.ph ], [ %.compoundliteral175.sroa.0.1495673, %for.inc ]
+  %.compoundliteral139.sroa.0.0582 = phi i32 [ undef, %for.body.lr.ph ], [ %.compoundliteral139.sroa.0.1503672, %for.inc ]
+  %.compoundliteral93.sroa.0.0581 = phi i32 [ undef, %for.body.lr.ph ], [ %.compoundliteral93.sroa.0.1511671, %for.inc ]
+  %total_bytes.0579 = phi i32 [ 0, %for.body.lr.ph ], [ %total_bytes.1519670, %for.inc ]
+  %p.0578 = phi ptr [ %tx_packet, %for.body.lr.ph ], [ %p.1527669, %for.inc ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %6 = load i32, ptr %arrayidx.i.i, align 4
   %7 = and i32 %6, 1073741824
@@ -1083,13 +1083,13 @@ while.body.lr.ph:                                 ; preds = %gem_get_tx_desc_add
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %do.end284
-  %desc.val557 = phi i32 [ %desc.val545, %while.body.lr.ph ], [ %desc.val, %do.end284 ]
-  %.compoundliteral286.sroa.0.1556 = phi i32 [ %.compoundliteral286.sroa.0.0586, %while.body.lr.ph ], [ %bf.clear291, %do.end284 ]
-  %.compoundliteral175.sroa.0.1555 = phi i32 [ %.compoundliteral175.sroa.0.0585, %while.body.lr.ph ], [ %.compoundliteral175.sroa.0.2, %do.end284 ]
-  %.compoundliteral139.sroa.0.1554 = phi i32 [ %.compoundliteral139.sroa.0.0584, %while.body.lr.ph ], [ %.compoundliteral139.sroa.0.2, %do.end284 ]
-  %.compoundliteral93.sroa.0.1553 = phi i32 [ %.compoundliteral93.sroa.0.0583, %while.body.lr.ph ], [ %bf.clear98, %do.end284 ]
-  %total_bytes.1552 = phi i32 [ %total_bytes.0581, %while.body.lr.ph ], [ %total_bytes.2, %do.end284 ]
-  %p.1549 = phi ptr [ %p.0580, %while.body.lr.ph ], [ %p.2, %do.end284 ]
+  %desc.val555 = phi i32 [ %desc.val545, %while.body.lr.ph ], [ %desc.val, %do.end284 ]
+  %.compoundliteral286.sroa.0.1554 = phi i32 [ %.compoundliteral286.sroa.0.0584, %while.body.lr.ph ], [ %bf.clear291, %do.end284 ]
+  %.compoundliteral175.sroa.0.1553 = phi i32 [ %.compoundliteral175.sroa.0.0583, %while.body.lr.ph ], [ %.compoundliteral175.sroa.0.2, %do.end284 ]
+  %.compoundliteral139.sroa.0.1552 = phi i32 [ %.compoundliteral139.sroa.0.0582, %while.body.lr.ph ], [ %.compoundliteral139.sroa.0.2, %do.end284 ]
+  %.compoundliteral93.sroa.0.1551 = phi i32 [ %.compoundliteral93.sroa.0.0581, %while.body.lr.ph ], [ %bf.clear98, %do.end284 ]
+  %total_bytes.1550 = phi i32 [ %total_bytes.0579, %while.body.lr.ph ], [ %total_bytes.2, %do.end284 ]
+  %p.1549 = phi ptr [ %p.0578, %while.body.lr.ph ], [ %p.2, %do.end284 ]
   %packet_desc_addr.0547 = phi i64 [ %or.i.i, %while.body.lr.ph ], [ %packet_desc_addr.2, %do.end284 ]
   %17 = load i32, ptr %regs, align 4
   %18 = and i32 %17, 8
@@ -1111,7 +1111,7 @@ if.end45:                                         ; preds = %while.body
   br i1 %cmp50, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end45
-  %and.i212 = and i32 %desc.val557, 8191
+  %and.i212 = and i32 %desc.val555, 8191
   %cmp54 = icmp eq i32 %and.i212, 0
   br i1 %cmp54, label %for.inc, label %if.end59
 
@@ -1152,11 +1152,11 @@ do.body71:                                        ; preds = %gem_get_max_buf_len
   %25 = load i32, ptr @qemu_loglevel, align 4
   %and.i218 = and i32 %25, 2048
   %cmp.i219.not = icmp eq i32 %and.i218, 0
-  %desc.val187.pre.pre653 = load i32, ptr %3, align 4
+  %desc.val187.pre.pre651 = load i32, ptr %3, align 4
   br i1 %cmp.i219.not, label %while.end, label %if.then76
 
 if.then76:                                        ; preds = %do.body71
-  %and.i220 = and i32 %desc.val187.pre.pre653, 8191
+  %and.i220 = and i32 %desc.val187.pre.pre651, 8191
   %26 = load i32, ptr %arrayidx.i, align 4
   %27 = and i32 %26, 8
   %tobool.not.i222 = icmp eq i32 %27, 0
@@ -1182,7 +1182,7 @@ gem_get_max_buf_len.exit234:                      ; preds = %if.then76, %if.then
   br label %while.end
 
 if.end89:                                         ; preds = %gem_get_max_buf_len.exit
-  %bf.set96 = and i32 %.compoundliteral93.sroa.0.1553, -67108864
+  %bf.set96 = and i32 %.compoundliteral93.sroa.0.1551, -67108864
   %bf.clear98 = or disjoint i32 %bf.set96, 1
   %desc.val197 = load i32, ptr %3, align 4
   %and.i247 = and i32 %desc.val197, 8191
@@ -1202,7 +1202,7 @@ if.end89:                                         ; preds = %gem_get_max_buf_len
   %and.i281 = and i32 %desc.val198, 8191
   %idx.ext = zext nneg i32 %and.i281 to i64
   %add.ptr = getelementptr i8, ptr %p.1549, i64 %idx.ext
-  %add = add i32 %and.i281, %total_bytes.1552
+  %add = add i32 %and.i281, %total_bytes.1550
   %31 = and i32 %desc.val198, 32768
   %tobool135.not = icmp eq i32 %31, 0
   br i1 %tobool135.not, label %if.end259, label %if.then136
@@ -1224,7 +1224,7 @@ gem_get_tx_desc_addr.exit296:                     ; preds = %if.then136, %if.the
   %cond10.i.i293 = load i32, ptr %arrayidx7.i.i, align 4
   %conv11.i.i294 = zext i32 %cond10.i.i293 to i64
   %or.i.i295 = or disjoint i64 %desc_addr.0.i.i289, %conv11.i.i294
-  %bf.set142 = and i32 %.compoundliteral139.sroa.0.1554, -67108864
+  %bf.set142 = and i32 %.compoundliteral139.sroa.0.1552, -67108864
   %bf.clear144 = or disjoint i32 %bf.set142, 1
   %call.i.i297 = call ptr @get_ptr_rcu_reader() #8
   %depth.i.i298 = getelementptr inbounds i8, ptr %call.i.i297, i64 12
@@ -1323,7 +1323,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit329:         ; preds = %if.end.i.i.i.i321, 
   %50 = load i32, ptr %arrayidx.i330, align 4
   %or.i331 = or i32 %50, -2147483648
   store i32 %or.i331, ptr %arrayidx.i330, align 4
-  %bf.set178 = and i32 %.compoundliteral175.sroa.0.1555, -67108864
+  %bf.set178 = and i32 %.compoundliteral175.sroa.0.1553, -67108864
   %bf.clear180 = or disjoint i32 %bf.set178, 1
   %call208 = call i32 @address_space_write(ptr noundef nonnull %dma_as, i64 noundef %or.i.i295, i32 %bf.clear180, ptr noundef nonnull %desc_first, i64 noundef 24) #8
   %desc.val201 = load i32, ptr %3, align 4
@@ -1509,8 +1509,8 @@ if.else250:                                       ; preds = %lor.lhs.false240
 if.end259:                                        ; preds = %if.then245, %if.else250, %if.end89
   %p.2 = phi ptr [ %add.ptr, %if.end89 ], [ %tx_packet, %if.else250 ], [ %tx_packet, %if.then245 ]
   %total_bytes.2 = phi i32 [ %add, %if.end89 ], [ 0, %if.else250 ], [ 0, %if.then245 ]
-  %.compoundliteral139.sroa.0.2 = phi i32 [ %.compoundliteral139.sroa.0.1554, %if.end89 ], [ %bf.clear144, %if.else250 ], [ %bf.clear144, %if.then245 ]
-  %.compoundliteral175.sroa.0.2 = phi i32 [ %.compoundliteral175.sroa.0.1555, %if.end89 ], [ %bf.clear180, %if.else250 ], [ %bf.clear180, %if.then245 ]
+  %.compoundliteral139.sroa.0.2 = phi i32 [ %.compoundliteral139.sroa.0.1552, %if.end89 ], [ %bf.clear144, %if.else250 ], [ %bf.clear144, %if.then245 ]
+  %.compoundliteral175.sroa.0.2 = phi i32 [ %.compoundliteral175.sroa.0.1553, %if.end89 ], [ %bf.clear180, %if.else250 ], [ %bf.clear180, %if.then245 ]
   %desc.val202 = load i32, ptr %3, align 4
   %79 = and i32 %desc.val202, 1073741824
   %tobool262.not = icmp eq i32 %79, 0
@@ -1553,12 +1553,12 @@ gem_get_tx_queue_base_addr.exit395:               ; preds = %if.end273, %sw.bb1.
   %base_addr.0.i.i391 = load i32, ptr %base_addr.0.in.i.i390, align 4
   %conv275 = zext i32 %base_addr.0.i.i391 to i64
   %or276 = or disjoint i64 %packet_desc_addr.1, %conv275
-  %.pre655 = select i1 %tobool.not.i396, i32 2, i32 4
-  %.pre656 = lshr i32 %s.val185, 28
-  %.pre657 = and i32 %.pre656, 2
-  %.pre659 = add nuw nsw i32 %.pre655, %.pre657
-  %.pre660 = shl nuw nsw i32 %.pre659, 2
-  %.pre662 = zext nneg i32 %.pre660 to i64
+  %.pre653 = select i1 %tobool.not.i396, i32 2, i32 4
+  %.pre654 = lshr i32 %s.val185, 28
+  %.pre655 = and i32 %.pre654, 2
+  %.pre657 = add nuw nsw i32 %.pre653, %.pre655
+  %.pre658 = shl nuw nsw i32 %.pre657, 2
+  %.pre660 = zext nneg i32 %.pre658 to i64
   br label %do.end284
 
 if.else277:                                       ; preds = %if.end259
@@ -1572,9 +1572,9 @@ if.else277:                                       ; preds = %if.end259
   br label %do.end284
 
 do.end284:                                        ; preds = %if.else277, %gem_get_tx_queue_base_addr.exit395
-  %mul320.pre-phi = phi i64 [ %conv280, %if.else277 ], [ %.pre662, %gem_get_tx_queue_base_addr.exit395 ]
+  %mul320.pre-phi = phi i64 [ %conv280, %if.else277 ], [ %.pre660, %gem_get_tx_queue_base_addr.exit395 ]
   %packet_desc_addr.2 = phi i64 [ %add281, %if.else277 ], [ %or276, %gem_get_tx_queue_base_addr.exit395 ]
-  %bf.set289 = and i32 %.compoundliteral286.sroa.0.1556, -67108864
+  %bf.set289 = and i32 %.compoundliteral286.sroa.0.1554, -67108864
   %bf.clear291 = or disjoint i32 %bf.set289, 1
   %call13.i = call i32 @address_space_read_full(ptr noundef nonnull %dma_as, i64 noundef %packet_desc_addr.2, i32 %bf.clear291, ptr noundef nonnull %desc, i64 noundef %mul320.pre-phi) #8
   %desc.val = load i32, ptr %3, align 4
@@ -1582,7 +1582,7 @@ do.end284:                                        ; preds = %if.else277, %gem_ge
   br i1 %cmp38, label %while.body, label %if.then326, !llvm.loop !16
 
 while.end:                                        ; preds = %gem_get_max_buf_len.exit234, %do.body71
-  %desc.val187.pre = phi i32 [ %desc.val187.pre.pre653, %do.body71 ], [ %desc.val187.pre.pre, %gem_get_max_buf_len.exit234 ]
+  %desc.val187.pre = phi i32 [ %desc.val187.pre.pre651, %do.body71 ], [ %desc.val187.pre.pre, %gem_get_max_buf_len.exit234 ]
   %not5.pn.in.i = load i32, ptr %not5.pn.in.in.i352, align 4
   %not5.pn.i = and i32 %not5.pn.in.i, 64
   %and6.sink.i = xor i32 %not5.pn.i, 64
@@ -1593,12 +1593,12 @@ while.end:                                        ; preds = %gem_get_max_buf_len
   br i1 %tobool325.not, label %for.inc, label %if.then326
 
 if.then326:                                       ; preds = %do.end284, %gem_get_tx_desc_addr.exit, %while.end
-  %.compoundliteral286.sroa.0.1487692 = phi i32 [ %.compoundliteral286.sroa.0.1556, %while.end ], [ %.compoundliteral286.sroa.0.0586, %gem_get_tx_desc_addr.exit ], [ %bf.clear291, %do.end284 ]
-  %.compoundliteral175.sroa.0.1495691 = phi i32 [ %.compoundliteral175.sroa.0.1555, %while.end ], [ %.compoundliteral175.sroa.0.0585, %gem_get_tx_desc_addr.exit ], [ %.compoundliteral175.sroa.0.2, %do.end284 ]
-  %.compoundliteral139.sroa.0.1503690 = phi i32 [ %.compoundliteral139.sroa.0.1554, %while.end ], [ %.compoundliteral139.sroa.0.0584, %gem_get_tx_desc_addr.exit ], [ %.compoundliteral139.sroa.0.2, %do.end284 ]
-  %.compoundliteral93.sroa.0.1511689 = phi i32 [ %.compoundliteral93.sroa.0.1553, %while.end ], [ %.compoundliteral93.sroa.0.0583, %gem_get_tx_desc_addr.exit ], [ %bf.clear98, %do.end284 ]
-  %total_bytes.1519688 = phi i32 [ %total_bytes.1552, %while.end ], [ %total_bytes.0581, %gem_get_tx_desc_addr.exit ], [ %total_bytes.2, %do.end284 ]
-  %p.1527687 = phi ptr [ %p.1549, %while.end ], [ %p.0580, %gem_get_tx_desc_addr.exit ], [ %p.2, %do.end284 ]
+  %.compoundliteral286.sroa.0.1487690 = phi i32 [ %.compoundliteral286.sroa.0.1554, %while.end ], [ %.compoundliteral286.sroa.0.0584, %gem_get_tx_desc_addr.exit ], [ %bf.clear291, %do.end284 ]
+  %.compoundliteral175.sroa.0.1495689 = phi i32 [ %.compoundliteral175.sroa.0.1553, %while.end ], [ %.compoundliteral175.sroa.0.0583, %gem_get_tx_desc_addr.exit ], [ %.compoundliteral175.sroa.0.2, %do.end284 ]
+  %.compoundliteral139.sroa.0.1503688 = phi i32 [ %.compoundliteral139.sroa.0.1552, %while.end ], [ %.compoundliteral139.sroa.0.0582, %gem_get_tx_desc_addr.exit ], [ %.compoundliteral139.sroa.0.2, %do.end284 ]
+  %.compoundliteral93.sroa.0.1511687 = phi i32 [ %.compoundliteral93.sroa.0.1551, %while.end ], [ %.compoundliteral93.sroa.0.0581, %gem_get_tx_desc_addr.exit ], [ %bf.clear98, %do.end284 ]
+  %total_bytes.1519686 = phi i32 [ %total_bytes.1550, %while.end ], [ %total_bytes.0579, %gem_get_tx_desc_addr.exit ], [ %total_bytes.2, %do.end284 ]
+  %p.1527685 = phi ptr [ %p.1549, %while.end ], [ %p.0578, %gem_get_tx_desc_addr.exit ], [ %p.2, %do.end284 ]
   %84 = load i32, ptr %arrayidx227, align 4
   %or329 = or i32 %84, 1
   store i32 %or329, ptr %arrayidx227, align 4
@@ -1641,12 +1641,12 @@ for.body.i459:                                    ; preds = %if.end333, %for.bod
   br i1 %cmp.i466, label %for.body.i459, label %for.inc, !llvm.loop !9
 
 for.inc:                                          ; preds = %lor.lhs.false, %if.end45, %for.body.i459, %if.end333, %while.end
-  %.compoundliteral286.sroa.0.1487676 = phi i32 [ %.compoundliteral286.sroa.0.1487692, %if.end333 ], [ %.compoundliteral286.sroa.0.1556, %while.end ], [ %.compoundliteral286.sroa.0.1487692, %for.body.i459 ], [ %.compoundliteral286.sroa.0.1556, %if.end45 ], [ %.compoundliteral286.sroa.0.1556, %lor.lhs.false ]
-  %.compoundliteral175.sroa.0.1495675 = phi i32 [ %.compoundliteral175.sroa.0.1495691, %if.end333 ], [ %.compoundliteral175.sroa.0.1555, %while.end ], [ %.compoundliteral175.sroa.0.1495691, %for.body.i459 ], [ %.compoundliteral175.sroa.0.1555, %if.end45 ], [ %.compoundliteral175.sroa.0.1555, %lor.lhs.false ]
-  %.compoundliteral139.sroa.0.1503674 = phi i32 [ %.compoundliteral139.sroa.0.1503690, %if.end333 ], [ %.compoundliteral139.sroa.0.1554, %while.end ], [ %.compoundliteral139.sroa.0.1503690, %for.body.i459 ], [ %.compoundliteral139.sroa.0.1554, %if.end45 ], [ %.compoundliteral139.sroa.0.1554, %lor.lhs.false ]
-  %.compoundliteral93.sroa.0.1511673 = phi i32 [ %.compoundliteral93.sroa.0.1511689, %if.end333 ], [ %.compoundliteral93.sroa.0.1553, %while.end ], [ %.compoundliteral93.sroa.0.1511689, %for.body.i459 ], [ %.compoundliteral93.sroa.0.1553, %if.end45 ], [ %.compoundliteral93.sroa.0.1553, %lor.lhs.false ]
-  %total_bytes.1519672 = phi i32 [ %total_bytes.1519688, %if.end333 ], [ %total_bytes.1552, %while.end ], [ %total_bytes.1519688, %for.body.i459 ], [ %total_bytes.1552, %if.end45 ], [ %total_bytes.1552, %lor.lhs.false ]
-  %p.1527671 = phi ptr [ %p.1527687, %if.end333 ], [ %p.1549, %while.end ], [ %p.1527687, %for.body.i459 ], [ %p.1549, %if.end45 ], [ %p.1549, %lor.lhs.false ]
+  %.compoundliteral286.sroa.0.1487674 = phi i32 [ %.compoundliteral286.sroa.0.1487690, %if.end333 ], [ %.compoundliteral286.sroa.0.1554, %while.end ], [ %.compoundliteral286.sroa.0.1487690, %for.body.i459 ], [ %.compoundliteral286.sroa.0.1554, %if.end45 ], [ %.compoundliteral286.sroa.0.1554, %lor.lhs.false ]
+  %.compoundliteral175.sroa.0.1495673 = phi i32 [ %.compoundliteral175.sroa.0.1495689, %if.end333 ], [ %.compoundliteral175.sroa.0.1553, %while.end ], [ %.compoundliteral175.sroa.0.1495689, %for.body.i459 ], [ %.compoundliteral175.sroa.0.1553, %if.end45 ], [ %.compoundliteral175.sroa.0.1553, %lor.lhs.false ]
+  %.compoundliteral139.sroa.0.1503672 = phi i32 [ %.compoundliteral139.sroa.0.1503688, %if.end333 ], [ %.compoundliteral139.sroa.0.1552, %while.end ], [ %.compoundliteral139.sroa.0.1503688, %for.body.i459 ], [ %.compoundliteral139.sroa.0.1552, %if.end45 ], [ %.compoundliteral139.sroa.0.1552, %lor.lhs.false ]
+  %.compoundliteral93.sroa.0.1511671 = phi i32 [ %.compoundliteral93.sroa.0.1511687, %if.end333 ], [ %.compoundliteral93.sroa.0.1551, %while.end ], [ %.compoundliteral93.sroa.0.1511687, %for.body.i459 ], [ %.compoundliteral93.sroa.0.1551, %if.end45 ], [ %.compoundliteral93.sroa.0.1551, %lor.lhs.false ]
+  %total_bytes.1519670 = phi i32 [ %total_bytes.1519686, %if.end333 ], [ %total_bytes.1550, %while.end ], [ %total_bytes.1519686, %for.body.i459 ], [ %total_bytes.1550, %if.end45 ], [ %total_bytes.1550, %lor.lhs.false ]
+  %p.1527669 = phi ptr [ %p.1527685, %if.end333 ], [ %p.1549, %while.end ], [ %p.1527685, %for.body.i459 ], [ %p.1549, %if.end45 ], [ %p.1549, %lor.lhs.false ]
   %cmp = icmp sgt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 

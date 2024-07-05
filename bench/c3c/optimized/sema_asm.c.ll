@@ -151,8 +151,8 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
   br i1 %exitcond.not.i, label %sema_add_clobbers.exit, label %38, !llvm.loop !9
 
 sema_add_clobbers.exit:                           ; preds = %30, %38, %24, %11, %5
-  %.031 = phi i1 [ false, %5 ], [ false, %24 ], [ false, %11 ], [ true, %38 ], [ false, %30 ]
-  ret i1 %.031
+  %.030 = phi i1 [ false, %5 ], [ false, %24 ], [ false, %11 ], [ true, %38 ], [ false, %30 ]
+  ret i1 %.030
 }
 
 declare void @sema_error_at(i64, ptr noundef, ...) local_unnamed_addr #1
@@ -422,8 +422,8 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br label %sema_check_asm_arg_reg.exit
 
 140:                                              ; preds = %130, %126, %124, %122, %120, %118, %112
-  %.080.i = phi i32 [ %136, %130 ], [ 128, %112 ], [ 80, %118 ], [ 64, %120 ], [ 32, %122 ], [ 16, %124 ], [ %.98.i, %126 ]
-  %.not97.i = icmp eq i32 %.082.i, %.080.i
+  %.081.i = phi i32 [ %136, %130 ], [ 128, %112 ], [ 80, %118 ], [ 64, %120 ], [ 32, %122 ], [ 16, %124 ], [ %.98.i, %126 ]
+  %.not97.i = icmp eq i32 %.082.i, %.081.i
   br i1 %.not97.i, label %sema_check_asm_arg_reg.exit, label %141
 
 141:                                              ; preds = %140
@@ -621,7 +621,7 @@ switch.lookup:                                    ; preds = %200
   br i1 %229, label %.thread.thread.i, label %.thread.i
 
 .thread.i:                                        ; preds = %.preheader.i, %225
-  %.05774.i = phi ptr [ %228, %225 ], [ %214, %.preheader.i ]
+  %.05974.i = phi ptr [ %228, %225 ], [ %214, %.preheader.i ]
   %230 = phi i32 [ %.pr.i, %225 ], [ %215, %.preheader.i ]
   %231 = add i32 %230, -3
   %232 = icmp ult i32 %231, 10
@@ -636,8 +636,8 @@ switch.lookup:                                    ; preds = %200
   br i1 %237, label %238, label %268
 
 238:                                              ; preds = %.thread.thread.i, %.thread.i
-  %.0577488.i = phi ptr [ %228, %.thread.thread.i ], [ %.05774.i, %.thread.i ]
-  %239 = tail call i32 @type_size(ptr noundef nonnull %.0577488.i) #4
+  %.0597488.i = phi ptr [ %228, %.thread.thread.i ], [ %.05974.i, %.thread.i ]
+  %239 = tail call i32 @type_size(ptr noundef nonnull %.0597488.i) #4
   %240 = shl i32 %239, 3
   %241 = lshr i64 %3, 48
   %242 = trunc nuw nsw i64 %241 to i32
@@ -700,11 +700,11 @@ sema_reg_int_suported_type.exit.i:                ; preds = %258, %255, %252, %2
 
 267:                                              ; preds = %sema_reg_int_suported_type.exit.i
   tail call fastcc void @asm_reg_add_input(ptr noundef %1, ptr noundef nonnull %7)
-  store ptr %.0577488.i, ptr %5, align 8
+  store ptr %.0597488.i, ptr %5, align 8
   br label %sema_check_asm_arg_reg.exit
 
 268:                                              ; preds = %.thread.thread.i, %.thread.i
-  %.057748992.i = phi ptr [ %.05774.i, %.thread.i ], [ %228, %.thread.thread.i ]
+  %.059748992.i = phi ptr [ %.05974.i, %.thread.i ], [ %228, %.thread.thread.i ]
   %.0.i = phi i32 [ %230, %.thread.i ], [ %235, %.thread.thread.i ]
   %269 = add i32 %.0.i, -13
   %270 = icmp ult i32 %269, 5
@@ -716,7 +716,7 @@ sema_reg_int_suported_type.exit.i:                ; preds = %258, %255, %252, %2
   br i1 %.not.i66.i, label %sema_reg_float_suported_type.exit.thread.i, label %273
 
 273:                                              ; preds = %271
-  %274 = tail call i32 @type_size(ptr noundef nonnull %.057748992.i) #4
+  %274 = tail call i32 @type_size(ptr noundef nonnull %.059748992.i) #4
   %275 = shl i32 %274, 3
   %276 = zext i32 %275 to i64
   %277 = and i32 %4, 16
@@ -764,7 +764,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
 
 294:                                              ; preds = %sema_reg_float_suported_type.exit.i
   tail call fastcc void @asm_reg_add_input(ptr noundef %1, ptr noundef nonnull %7)
-  store ptr %.057748992.i, ptr %5, align 8
+  store ptr %.059748992.i, ptr %5, align 8
   br label %sema_check_asm_arg_reg.exit
 
 295:                                              ; preds = %268
@@ -918,7 +918,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   br i1 %367, label %.thread.thread.i62, label %.thread.i45
 
 .thread.i45:                                      ; preds = %349, %363
-  %.0942.i = phi ptr [ %366, %363 ], [ %351, %349 ]
+  %.0962.i = phi ptr [ %366, %363 ], [ %351, %349 ]
   %368 = phi i32 [ %.pr.i44, %363 ], [ %352, %349 ]
   %369 = add i32 %368, -3
   %370 = icmp ult i32 %369, 10
@@ -933,7 +933,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   br i1 %375, label %376, label %423
 
 376:                                              ; preds = %.thread.thread.i62, %.thread.i45
-  %.094216.i = phi ptr [ %366, %.thread.thread.i62 ], [ %.0942.i, %.thread.i45 ]
+  %.096216.i = phi ptr [ %366, %.thread.thread.i62 ], [ %.0962.i, %.thread.i45 ]
   %377 = lshr i64 %3, 48
   %378 = trunc nuw nsw i64 %377 to i32
   %.not114.i = icmp ult i64 %3, 281474976710656
@@ -954,7 +954,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   br label %sema_check_asm_arg_reg.exit
 
 384:                                              ; preds = %376
-  %385 = tail call i32 @type_size(ptr noundef nonnull %.094216.i) #4
+  %385 = tail call i32 @type_size(ptr noundef nonnull %.096216.i) #4
   %386 = shl i32 %385, 3
   %387 = icmp eq i32 %386, 0
   %spec.store.select.i.i46 = select i1 %387, i32 -1, i32 %386
@@ -1044,7 +1044,7 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %402, %399, %396, %3
   br label %sema_check_asm_arg_reg.exit
 
 423:                                              ; preds = %.thread.thread.i62, %.thread.i45
-  %.09421519.i = phi ptr [ %.0942.i, %.thread.i45 ], [ %366, %.thread.thread.i62 ]
+  %.09621519.i = phi ptr [ %.0962.i, %.thread.i45 ], [ %366, %.thread.thread.i62 ]
   %.093.i = phi i32 [ %368, %.thread.i45 ], [ %373, %.thread.thread.i62 ]
   %424 = add i32 %.093.i, -13
   %425 = icmp ult i32 %424, 5
@@ -1070,7 +1070,7 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %402, %399, %396, %3
   br label %sema_check_asm_arg_reg.exit
 
 433:                                              ; preds = %426
-  %434 = tail call fastcc zeroext i1 @sema_reg_float_suported_type(i32 %4, ptr noundef nonnull %.09421519.i)
+  %434 = tail call fastcc zeroext i1 @sema_reg_float_suported_type(i32 %4, ptr noundef nonnull %.09621519.i)
   br i1 %434, label %sema_check_asm_arg_reg.exit, label %435
 
 435:                                              ; preds = %433

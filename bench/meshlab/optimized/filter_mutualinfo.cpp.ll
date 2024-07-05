@@ -4275,11 +4275,11 @@ switch.lookup:                                    ; preds = %74
   br i1 %151, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %148, %_ZN5QListIiED2Ev.exit
-  %.0113 = phi i32 [ %155, %_ZN5QListIiED2Ev.exit ], [ 0, %148 ]
+  %.035113 = phi i32 [ %155, %_ZN5QListIiED2Ev.exit ], [ 0, %148 ]
   %152 = load ptr, ptr %0, align 8
   %153 = getelementptr i8, ptr %152, i64 -32
   %154 = load i64, ptr %153, align 8
-  %155 = add nuw nsw i32 %.0113, 1
+  %155 = add nuw nsw i32 %.035113, 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %154
   %156 = load ptr, ptr %gep, align 8
   %.not.i = icmp eq ptr %156, null

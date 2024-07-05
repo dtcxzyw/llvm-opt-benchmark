@@ -335,11 +335,11 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr nocapture noundef readonly %0, i
   %185 = phi i32 [ %.promoted76, %.lr.ph ], [ %262, %181 ]
   %186 = phi i32 [ %.promoted75, %.lr.ph ], [ %237, %181 ]
   %187 = phi i32 [ %.promoted, %.lr.ph ], [ %212, %181 ]
-  %.174 = phi i32 [ %175, %.lr.ph ], [ %338, %181 ]
-  %.05773 = phi ptr [ %0, %.lr.ph ], [ %337, %181 ]
-  %188 = load i64, ptr %.05773, align 8
+  %.074 = phi ptr [ %0, %.lr.ph ], [ %337, %181 ]
+  %.173 = phi i32 [ %175, %.lr.ph ], [ %338, %181 ]
+  %188 = load i64, ptr %.074, align 8
   %189 = and i64 %188, 6148914691236517205
-  %190 = getelementptr inbounds i8, ptr %.05773, i64 8
+  %190 = getelementptr inbounds i8, ptr %.074, i64 8
   %191 = load i64, ptr %190, align 8
   %192 = shl i64 %191, 1
   %193 = and i64 %192, -6148914691236517206
@@ -363,7 +363,7 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr nocapture noundef readonly %0, i
   %211 = and i32 %210, 255
   %212 = add nsw i32 %211, %187
   store i32 %212, ptr %2, align 4
-  %213 = load i64, ptr %.05773, align 8
+  %213 = load i64, ptr %.074, align 8
   %214 = and i64 %213, 3689348814741910323
   %215 = load i64, ptr %190, align 8
   %216 = shl i64 %215, 2
@@ -389,7 +389,7 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr nocapture noundef readonly %0, i
   %236 = and i32 %235, 255
   %237 = add nsw i32 %236, %186
   store i32 %237, ptr %176, align 4
-  %238 = load i64, ptr %.05773, align 8
+  %238 = load i64, ptr %.074, align 8
   %239 = and i64 %238, 1085102592571150095
   %240 = load i64, ptr %190, align 8
   %241 = shl i64 %240, 4
@@ -415,7 +415,7 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr nocapture noundef readonly %0, i
   %261 = and i32 %260, 255
   %262 = add nsw i32 %261, %185
   store i32 %262, ptr %177, align 4
-  %263 = load i64, ptr %.05773, align 8
+  %263 = load i64, ptr %.074, align 8
   %264 = and i64 %263, 71777214294589695
   %265 = load i64, ptr %190, align 8
   %266 = shl i64 %265, 8
@@ -441,7 +441,7 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr nocapture noundef readonly %0, i
   %286 = and i32 %285, 255
   %287 = add nsw i32 %286, %184
   store i32 %287, ptr %178, align 4
-  %288 = load i64, ptr %.05773, align 8
+  %288 = load i64, ptr %.074, align 8
   %289 = and i64 %288, 281470681808895
   %290 = load i64, ptr %190, align 8
   %291 = shl i64 %290, 16
@@ -467,7 +467,7 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr nocapture noundef readonly %0, i
   %311 = and i32 %310, 255
   %312 = add nsw i32 %311, %183
   store i32 %312, ptr %179, align 4
-  %313 = load i64, ptr %.05773, align 8
+  %313 = load i64, ptr %.074, align 8
   %314 = and i64 %313, 4294967295
   %315 = load i64, ptr %190, align 8
   %316 = shl i64 %315, 32
@@ -492,9 +492,9 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr nocapture noundef readonly %0, i
   %335 = and i32 %334, 255
   %336 = add nsw i32 %335, %182
   store i32 %336, ptr %180, align 4
-  %337 = getelementptr inbounds i8, ptr %.05773, i64 16
-  %338 = add nsw i32 %.174, -1
-  %339 = icmp ugt i32 %.174, 1
+  %337 = getelementptr inbounds i8, ptr %.074, i64 16
+  %338 = add nsw i32 %.173, -1
+  %339 = icmp ugt i32 %.173, 1
   br i1 %339, label %181, label %.thread67, !llvm.loop !8
 
 .thread67:                                        ; preds = %181, %.preheader, %._crit_edge72, %42, %44, %61, %84, %106, %129, %152
@@ -557,14 +557,14 @@ define void @Kit_TruthChangePhase_64bit(ptr nocapture noundef %0, i32 noundef %1
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
-  %.136 = phi i32 [ 0, %.lr.ph ], [ %37, %34 ]
-  %.03135 = phi ptr [ %0, %.lr.ph ], [ %36, %34 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 8 %.03135, i64 %31, i1 false)
-  %35 = getelementptr inbounds i64, ptr %.03135, i64 %28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.03135, ptr nonnull align 8 %35, i64 %31, i1 false)
+  %.036 = phi ptr [ %0, %.lr.ph ], [ %36, %34 ]
+  %.135 = phi i32 [ 0, %.lr.ph ], [ %37, %34 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 8 %.036, i64 %31, i1 false)
+  %35 = getelementptr inbounds i64, ptr %.036, i64 %28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.036, ptr nonnull align 8 %35, i64 %31, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull align 16 %4, i64 %31, i1 false)
-  %36 = getelementptr inbounds i64, ptr %.03135, i64 %33
-  %37 = add nsw i32 %.136, %32
+  %36 = getelementptr inbounds i64, ptr %.036, i64 %33
+  %37 = add nsw i32 %.135, %32
   %38 = icmp slt i32 %37, %8
   br i1 %38, label %34, label %.loopexit, !llvm.loop !10
 
@@ -688,14 +688,14 @@ define void @Kit_TruthSwapAdjacentVars_64bit(ptr nocapture noundef %0, i32 nound
   br label %47
 
 47:                                               ; preds = %.lr.ph, %47
-  %.160 = phi i32 [ %36, %.lr.ph ], [ %50, %47 ]
-  %.05459 = phi ptr [ %39, %.lr.ph ], [ %49, %47 ]
-  %48 = getelementptr inbounds i64, ptr %.05459, i64 %43
+  %.060 = phi ptr [ %39, %.lr.ph ], [ %49, %47 ]
+  %.159 = phi i32 [ %36, %.lr.ph ], [ %50, %47 ]
+  %48 = getelementptr inbounds i64, ptr %.060, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 8 %48, i64 %44, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr align 8 %.05459, i64 %44, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.05459, ptr nonnull align 16 %4, i64 %44, i1 false)
-  %49 = getelementptr inbounds i64, ptr %.05459, i64 %46
-  %50 = add nsw i32 %.160, %45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr align 8 %.060, i64 %44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.060, ptr nonnull align 16 %4, i64 %44, i1 false)
+  %49 = getelementptr inbounds i64, ptr %.060, i64 %46
+  %50 = add nsw i32 %.159, %45
   %51 = icmp slt i32 %50, %8
   br i1 %51, label %47, label %.loopexit, !llvm.loop !13
 
@@ -878,14 +878,14 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i72, 
   br label %83
 
 83:                                               ; preds = %83, %.lr.ph.i77.us
-  %.160.i.us = phi i32 [ %72, %.lr.ph.i77.us ], [ %86, %83 ]
-  %.05459.i.us = phi ptr [ %75, %.lr.ph.i77.us ], [ %85, %83 ]
-  %84 = getelementptr inbounds i64, ptr %.05459.i.us, i64 %79
+  %.060.i.us = phi ptr [ %75, %.lr.ph.i77.us ], [ %85, %83 ]
+  %.159.i.us = phi i32 [ %72, %.lr.ph.i77.us ], [ %86, %83 ]
+  %84 = getelementptr inbounds i64, ptr %.060.i.us, i64 %79
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 8 %84, i64 %80, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %84, ptr align 8 %.05459.i.us, i64 %80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.05459.i.us, ptr nonnull align 16 %4, i64 %80, i1 false)
-  %85 = getelementptr inbounds i64, ptr %.05459.i.us, i64 %82
-  %86 = add nsw i32 %.160.i.us, %81
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %84, ptr align 8 %.060.i.us, i64 %80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.060.i.us, ptr nonnull align 16 %4, i64 %80, i1 false)
+  %85 = getelementptr inbounds i64, ptr %.060.i.us, i64 %82
+  %86 = add nsw i32 %.159.i.us, %81
   %87 = icmp slt i32 %86, %10
   br i1 %87, label %83, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !13
 
@@ -1012,14 +1012,14 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %83, %.lr.ph62.i.us,
   br label %150
 
 150:                                              ; preds = %150, %.lr.ph.i
-  %.136.i = phi i32 [ 0, %.lr.ph.i ], [ %153, %150 ]
-  %.03135.i = phi ptr [ %0, %.lr.ph.i ], [ %152, %150 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 8 %.03135.i, i64 %147, i1 false)
-  %151 = getelementptr inbounds i64, ptr %.03135.i, i64 %145
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.03135.i, ptr nonnull align 8 %151, i64 %147, i1 false)
+  %.036.i = phi ptr [ %0, %.lr.ph.i ], [ %152, %150 ]
+  %.135.i = phi i32 [ 0, %.lr.ph.i ], [ %153, %150 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 8 %.036.i, i64 %147, i1 false)
+  %151 = getelementptr inbounds i64, ptr %.036.i, i64 %145
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.036.i, ptr nonnull align 8 %151, i64 %147, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %151, ptr nonnull align 16 %5, i64 %147, i1 false)
-  %152 = getelementptr inbounds i64, ptr %.03135.i, i64 %149
-  %153 = add nsw i32 %.136.i, %148
+  %152 = getelementptr inbounds i64, ptr %.036.i, i64 %149
+  %153 = add nsw i32 %.135.i, %148
   %154 = icmp slt i32 %153, %10
   br i1 %154, label %150, label %Kit_TruthChangePhase_64bit.exit, !llvm.loop !10
 
@@ -1117,7 +1117,7 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92, 
   br label %50
 
 50:                                               ; preds = %.thread, %40, %Kit_TruthNot_64bit.exit, %37
-  %.078 = phi i32 [ %33, %37 ], [ %49, %Kit_TruthNot_64bit.exit ], [ %33, %40 ], [ 0, %.thread ]
+  %.080 = phi i32 [ %33, %37 ], [ %49, %Kit_TruthNot_64bit.exit ], [ %33, %40 ], [ 0, %.thread ]
   %.0 = phi i32 [ %39, %37 ], [ %47, %Kit_TruthNot_64bit.exit ], [ 0, %40 ], [ 0, %.thread ]
   tail call void @Kit_TruthCountOnesInCofs_64bit(ptr noundef %0, i32 noundef %1, ptr noundef %3)
   %51 = icmp sgt i32 %1, 0
@@ -1141,7 +1141,7 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92, 
 .lr.ph119.us:                                     ; preds = %.lr.ph119.us.backedge, %.lr.ph119.us.preheader
   %indvars.iv126 = phi i64 [ 0, %.lr.ph119.us.preheader ], [ %indvars.iv126.be, %.lr.ph119.us.backedge ]
   %.4118.us = phi i32 [ %.2, %.lr.ph119.us.preheader ], [ %.6.us, %.lr.ph119.us.backedge ]
-  %.079117.us = phi i32 [ 0, %.lr.ph119.us.preheader ], [ %.079117.us.be, %.lr.ph119.us.backedge ]
+  %.081116.us = phi i32 [ 0, %.lr.ph119.us.preheader ], [ %.081116.us.be, %.lr.ph119.us.backedge ]
   %54 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv126
   %55 = load i32, ptr %54, align 4
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
@@ -1168,9 +1168,9 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92, 
   %70 = icmp eq i32 %68, 0
   %.not89.us = xor i1 %70, %69
   %71 = shl nuw i32 1, %65
-  %72 = shl i32 3, %65
-  %73 = select i1 %.not89.us, i32 0, i32 %72
-  %.5.us = xor i32 %.4118.us, %73
+  %72 = xor i32 %.4118.us, %71
+  %73 = xor i32 %72, %67
+  %.5.us = select i1 %.not89.us, i32 %.4118.us, i32 %73
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5)
   %74 = icmp ult i64 %indvars.iv126, 5
   br i1 %74, label %107, label %75
@@ -1199,14 +1199,14 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92, 
   br label %90
 
 90:                                               ; preds = %90, %.lr.ph.i97.us
-  %.160.i.us = phi i32 [ %79, %.lr.ph.i97.us ], [ %93, %90 ]
-  %.05459.i.us = phi ptr [ %82, %.lr.ph.i97.us ], [ %92, %90 ]
-  %91 = getelementptr inbounds i64, ptr %.05459.i.us, i64 %86
+  %.060.i.us = phi ptr [ %82, %.lr.ph.i97.us ], [ %92, %90 ]
+  %.159.i.us = phi i32 [ %79, %.lr.ph.i97.us ], [ %93, %90 ]
+  %91 = getelementptr inbounds i64, ptr %.060.i.us, i64 %86
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 8 %91, i64 %87, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %91, ptr align 8 %.05459.i.us, i64 %87, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.05459.i.us, ptr nonnull align 16 %5, i64 %87, i1 false)
-  %92 = getelementptr inbounds i64, ptr %.05459.i.us, i64 %89
-  %93 = add nsw i32 %.160.i.us, %88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %91, ptr align 8 %.060.i.us, i64 %87, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.060.i.us, ptr nonnull align 16 %5, i64 %87, i1 false)
+  %92 = getelementptr inbounds i64, ptr %.060.i.us, i64 %89
+  %93 = add nsw i32 %.159.i.us, %88
   %94 = icmp slt i32 %93, %10
   br i1 %94, label %90, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !13
 
@@ -1266,18 +1266,18 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %90, %.lr.ph62.i.us,
   br label %125
 
 125:                                              ; preds = %Kit_TruthSwapAdjacentVars_64bit.exit.us, %.lr.ph119.us
-  %.180.us = phi i32 [ %.079117.us, %.lr.ph119.us ], [ 1, %Kit_TruthSwapAdjacentVars_64bit.exit.us ]
+  %.182.us = phi i32 [ %.081116.us, %.lr.ph119.us ], [ 1, %Kit_TruthSwapAdjacentVars_64bit.exit.us ]
   %.6.us = phi i32 [ %.4118.us, %.lr.ph119.us ], [ %.5.us, %Kit_TruthSwapAdjacentVars_64bit.exit.us ]
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
   br i1 %exitcond130.not, label %._crit_edge.us, label %.lr.ph119.us.backedge
 
 .lr.ph119.us.backedge:                            ; preds = %125, %._crit_edge.us
   %indvars.iv126.be = phi i64 [ %indvars.iv.next127, %125 ], [ 0, %._crit_edge.us ]
-  %.079117.us.be = phi i32 [ %.180.us, %125 ], [ 0, %._crit_edge.us ]
+  %.081116.us.be = phi i32 [ %.182.us, %125 ], [ 0, %._crit_edge.us ]
   br label %.lr.ph119.us, !llvm.loop !18
 
 ._crit_edge.us:                                   ; preds = %125
-  %.not.us = icmp eq i32 %.180.us, 0
+  %.not.us = icmp eq i32 %.182.us, 0
   br i1 %.not.us, label %.split.us, label %.lr.ph119.us.backedge
 
 126:                                              ; preds = %.lr.ph, %167
@@ -1286,7 +1286,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %90, %.lr.ph62.i.us,
   %127 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %128 = load i32, ptr %127, align 4
   %129 = shl nsw i32 %128, 1
-  %130 = icmp eq i32 %129, %.078
+  %130 = icmp eq i32 %129, %.080
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %126
@@ -1294,7 +1294,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %90, %.lr.ph62.i.us,
   br label %167
 
 133:                                              ; preds = %126
-  %134 = sub nsw i32 %.078, %128
+  %134 = sub nsw i32 %.080, %128
   %135 = icmp sgt i32 %128, %134
   br i1 %135, label %167, label %136
 
@@ -1346,14 +1346,14 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %90, %.lr.ph62.i.us,
   br label %162
 
 162:                                              ; preds = %162, %.lr.ph.i
-  %.136.i = phi i32 [ 0, %.lr.ph.i ], [ %165, %162 ]
-  %.03135.i = phi ptr [ %0, %.lr.ph.i ], [ %164, %162 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 8 %.03135.i, i64 %159, i1 false)
-  %163 = getelementptr inbounds i64, ptr %.03135.i, i64 %157
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.03135.i, ptr nonnull align 8 %163, i64 %159, i1 false)
+  %.036.i = phi ptr [ %0, %.lr.ph.i ], [ %164, %162 ]
+  %.135.i = phi i32 [ 0, %.lr.ph.i ], [ %165, %162 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 8 %.036.i, i64 %159, i1 false)
+  %163 = getelementptr inbounds i64, ptr %.036.i, i64 %157
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.036.i, ptr nonnull align 8 %163, i64 %159, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %163, ptr nonnull align 16 %6, i64 %159, i1 false)
-  %164 = getelementptr inbounds i64, ptr %.03135.i, i64 %161
-  %165 = add nsw i32 %.136.i, %160
+  %164 = getelementptr inbounds i64, ptr %.036.i, i64 %161
+  %165 = add nsw i32 %.135.i, %160
   %166 = icmp slt i32 %165, %10
   br i1 %166, label %162, label %Kit_TruthChangePhase_64bit.exit, !llvm.loop !10
 
@@ -1502,14 +1502,14 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i60, 
   br label %67
 
 67:                                               ; preds = %67, %.lr.ph.i65.us
-  %.160.i.us = phi i32 [ %56, %.lr.ph.i65.us ], [ %70, %67 ]
-  %.05459.i.us = phi ptr [ %59, %.lr.ph.i65.us ], [ %69, %67 ]
-  %68 = getelementptr inbounds i64, ptr %.05459.i.us, i64 %63
+  %.060.i.us = phi ptr [ %59, %.lr.ph.i65.us ], [ %69, %67 ]
+  %.159.i.us = phi i32 [ %56, %.lr.ph.i65.us ], [ %70, %67 ]
+  %68 = getelementptr inbounds i64, ptr %.060.i.us, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 8 %68, i64 %64, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %68, ptr align 8 %.05459.i.us, i64 %64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.05459.i.us, ptr nonnull align 16 %4, i64 %64, i1 false)
-  %69 = getelementptr inbounds i64, ptr %.05459.i.us, i64 %66
-  %70 = add nsw i32 %.160.i.us, %65
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %68, ptr align 8 %.060.i.us, i64 %64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.060.i.us, ptr nonnull align 16 %4, i64 %64, i1 false)
+  %69 = getelementptr inbounds i64, ptr %.060.i.us, i64 %66
+  %70 = add nsw i32 %.159.i.us, %65
   %71 = icmp slt i32 %70, %9
   br i1 %71, label %67, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !13
 
@@ -1639,14 +1639,14 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %67, %.lr.ph62.i.us,
   br label %134
 
 134:                                              ; preds = %134, %.lr.ph.i
-  %.136.i = phi i32 [ 0, %.lr.ph.i ], [ %137, %134 ]
-  %.03135.i = phi ptr [ %0, %.lr.ph.i ], [ %136, %134 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 8 %.03135.i, i64 %131, i1 false)
-  %135 = getelementptr inbounds i64, ptr %.03135.i, i64 %129
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.03135.i, ptr nonnull align 8 %135, i64 %131, i1 false)
+  %.036.i = phi ptr [ %0, %.lr.ph.i ], [ %136, %134 ]
+  %.135.i = phi i32 [ 0, %.lr.ph.i ], [ %137, %134 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 8 %.036.i, i64 %131, i1 false)
+  %135 = getelementptr inbounds i64, ptr %.036.i, i64 %129
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.036.i, ptr nonnull align 8 %135, i64 %131, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %135, ptr nonnull align 16 %5, i64 %131, i1 false)
-  %136 = getelementptr inbounds i64, ptr %.03135.i, i64 %133
-  %137 = add nsw i32 %.136.i, %132
+  %136 = getelementptr inbounds i64, ptr %.036.i, i64 %133
+  %137 = add nsw i32 %.135.i, %132
   %138 = icmp slt i32 %137, %9
   br i1 %138, label %134, label %Kit_TruthChangePhase_64bit.exit, !llvm.loop !10
 

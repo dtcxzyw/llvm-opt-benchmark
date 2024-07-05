@@ -294,7 +294,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Abc_Clock.exit, %Ve
 39:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
   %40 = phi ptr [ %33, %.lr.ph ], [ %79, %78 ]
-  %.068169 = phi i32 [ 0, %.lr.ph ], [ %.270, %78 ]
+  %.0170 = phi i32 [ 0, %.lr.ph ], [ %.2, %78 ]
   %41 = getelementptr i8, ptr %40, i64 8
   %.val81.val = load ptr, ptr %41, align 8
   %42 = getelementptr inbounds ptr, ptr %.val81.val, i64 %indvars.iv
@@ -334,9 +334,9 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Abc_Clock.exit, %Ve
   br label %61
 
 61:                                               ; preds = %55, %49
-  %.066 = phi i32 [ %54, %49 ], [ %60, %55 ]
-  %.169 = add nsw i32 %.066, %.068169
-  %.not77 = icmp eq i32 %.066, 0
+  %.069 = phi i32 [ %54, %49 ], [ %60, %55 ]
+  %.1 = add nsw i32 %.069, %.0170
+  %.not77 = icmp eq i32 %.069, 0
   br i1 %.not77, label %78, label %62
 
 62:                                               ; preds = %61
@@ -389,7 +389,7 @@ Abc_NtkIncrementTravId.exit104:                   ; preds = %62, %Vec_IntFill.ex
   br label %78
 
 78:                                               ; preds = %39, %Abc_NtkIncrementTravId.exit104, %61
-  %.270 = phi i32 [ %.169, %Abc_NtkIncrementTravId.exit104 ], [ %.169, %61 ], [ %.068169, %39 ]
+  %.2 = phi i32 [ %.1, %Abc_NtkIncrementTravId.exit104 ], [ %.1, %61 ], [ %.0170, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = load ptr, ptr %32, align 8
   %80 = getelementptr i8, ptr %79, i64 4
@@ -400,7 +400,7 @@ Abc_NtkIncrementTravId.exit104:                   ; preds = %62, %Vec_IntFill.ex
 
 .critedge2:                                       ; preds = %78, %Abc_NtkIncrementTravId.exit
   %83 = phi ptr [ %33, %Abc_NtkIncrementTravId.exit ], [ %79, %78 ]
-  %.068.lcssa = phi i32 [ 0, %Abc_NtkIncrementTravId.exit ], [ %.270, %78 ]
+  %.0.lcssa = phi i32 [ 0, %Abc_NtkIncrementTravId.exit ], [ %.2, %78 ]
   %84 = load ptr, ptr %12, align 8
   %.not.i105 = icmp eq ptr %84, null
   br i1 %.not.i105, label %85, label %Abc_NtkIncrementTravId.exit116
@@ -1265,7 +1265,7 @@ Abc_NtkMaxFlowMinCutUpdate.exit:                  ; preds = %.critedge8.i, %.cri
   %.val92 = load i32, ptr %132, align 8
   %455 = select i1 %.not.i130, ptr @.str.3, ptr @.str.2
   %.val = load i32, ptr %135, align 4
-  %456 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.val92, ptr noundef nonnull %455, i32 noundef %.068.lcssa, i32 noundef %.val)
+  %456 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.val92, ptr noundef nonnull %455, i32 noundef %.0.lcssa, i32 noundef %.val)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %457 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #12

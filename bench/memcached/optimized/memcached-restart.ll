@@ -575,28 +575,26 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %page_remain.058 = phi i32 [ %0, %while.body.lr.ph ], [ %page_remain.0.be, %while.cond.backedge ]
-  %checked.057 = phi i64 [ 0, %while.body.lr.ph ], [ %checked.0.be, %while.cond.backedge ]
+  %checked.058 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %while.cond.backedge ]
+  %page_remain.057 = phi i32 [ %0, %while.body.lr.ph ], [ %page_remain.0.be, %while.cond.backedge ]
   %9 = load ptr, ptr @mmap_base, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %checked.057
+  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %checked.058
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 132), align 4
   %conv7 = sext i32 %10 to i64
-  %rem = urem i64 %checked.057, %conv7
+  %rem = urem i64 %checked.058, %conv7
   %conv8 = trunc i64 %rem to i32
   %call9 = tail call i32 @slabs_fixup(ptr noundef %add.ptr, i32 noundef %conv8) #19
   %cmp10 = icmp eq i32 %call9, -1
-  br i1 %cmp10, label %if.then12, label %if.end14
+  br i1 %cmp10, label %while.cond.backedge, label %if.end14
 
-if.then12:                                        ; preds = %while.body
-  %conv13 = zext i32 %page_remain.058 to i64
-  %add = add i64 %checked.057, %conv13
-  br label %while.cond.backedge
-
-while.cond.backedge:                              ; preds = %if.then12, %if.end91
-  %checked.0.be = phi i64 [ %add, %if.then12 ], [ %checked.1, %if.end91 ]
-  %page_remain.0.be = phi i32 [ %0, %if.then12 ], [ %page_remain.1, %if.end91 ]
+while.cond.backedge:                              ; preds = %while.body, %if.end91
+  %page_remain.057.sink = phi i32 [ %narrow, %if.end91 ], [ %page_remain.057, %while.body ]
+  %checked.058.sink = phi i64 [ %add93, %if.end91 ], [ %checked.058, %while.body ]
+  %page_remain.0.be = phi i32 [ %page_remain.1, %if.end91 ], [ %0, %while.body ]
+  %conv13 = zext i32 %page_remain.057.sink to i64
+  %add = add i64 %checked.058.sink, %conv13
   %11 = load i64, ptr @slabmem_limit, align 8
-  %cmp4 = icmp ult i64 %checked.0.be, %11
+  %cmp4 = icmp ult i64 %add, %11
   br i1 %cmp4, label %while.body, label %while.end, !llvm.loop !12
 
 if.end14:                                         ; preds = %while.body
@@ -727,14 +725,12 @@ if.then83:                                        ; preds = %if.end81
 if.end91:                                         ; preds = %if.end81, %if.then83, %if.end34
   %size.1 = phi i32 [ %size.0, %if.then83 ], [ %size.0, %if.end81 ], [ %call9, %if.end34 ]
   %conv92 = sext i32 %size.1 to i64
-  %add93 = add i64 %checked.057, %conv92
-  %sub94 = sub i32 %page_remain.058, %size.1
+  %add93 = add i64 %checked.058, %conv92
+  %sub94 = sub i32 %page_remain.057, %size.1
   %cmp95 = icmp ugt i32 %size.1, %sub94
   %44 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 132), align 4
-  %narrow = select i1 %cmp95, i32 %sub94, i32 0
-  %add99 = zext i32 %narrow to i64
-  %checked.1 = add i64 %add93, %add99
   %page_remain.1 = select i1 %cmp95, i32 %44, i32 %sub94
+  %narrow = select i1 %cmp95, i32 %sub94, i32 0
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %if.end

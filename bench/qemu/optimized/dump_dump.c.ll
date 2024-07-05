@@ -1578,10 +1578,10 @@ if.end8.i:                                        ; preds = %write_dump_header.e
   br i1 %call216.i.i, label %while.body.i.i, label %if.end10.i.i
 
 while.body.i.i:                                   ; preds = %if.end8.i, %if.end.i20.i
-  %num_dumpable.018.i.i = phi i64 [ %inc.i.i, %if.end.i20.i ], [ 0, %if.end8.i ]
-  %last_pfn.017.i.i = phi i64 [ %113, %if.end.i20.i ], [ 0, %if.end8.i ]
+  %last_pfn.018.i.i = phi i64 [ %113, %if.end.i20.i ], [ 0, %if.end8.i ]
+  %num_dumpable.017.i.i = phi i64 [ %inc.i.i, %if.end.i20.i ], [ 0, %if.end8.i ]
   %113 = load i64, ptr %pfn.i.i, align 8
-  %call3.i19.i = call fastcc i32 @set_dump_bitmap(i64 noundef %last_pfn.017.i.i, i64 noundef %113, i1 noundef zeroext true, ptr noundef %call1.i.i, ptr noundef %s)
+  %call3.i19.i = call fastcc i32 @set_dump_bitmap(i64 noundef %last_pfn.018.i.i, i64 noundef %113, i1 noundef zeroext true, ptr noundef %call1.i.i, ptr noundef %s)
   %cmp.i.i = icmp slt i32 %call3.i19.i, 0
   br i1 %cmp.i.i, label %if.then.i22.i, label %if.end.i20.i
 
@@ -1590,7 +1590,7 @@ if.then.i22.i:                                    ; preds = %while.body.i.i
   br label %write_dump_bitmap.exit.i
 
 if.end.i20.i:                                     ; preds = %while.body.i.i
-  %inc.i.i = add i64 %num_dumpable.018.i.i, 1
+  %inc.i.i = add i64 %num_dumpable.017.i.i, 1
   %call2.i.i = call fastcc zeroext i1 @get_next_page(ptr noundef nonnull %block_iter.i.i, ptr noundef nonnull %pfn.i.i, ptr noundef null, ptr noundef %s)
   br i1 %call2.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !11
 
@@ -3553,8 +3553,8 @@ if.end:                                           ; preds = %if.else, %if.then
   br label %while.body.outer
 
 while.body.outer:                                 ; preds = %while.body.outer.backedge, %if.end
-  %buf.0.ph = phi ptr [ null, %if.end ], [ %buf.0.ph.be, %while.body.outer.backedge ]
   %addr.1.ph = phi i64 [ %addr.0, %if.end ], [ %addr.1.ph.be, %while.body.outer.backedge ]
+  %buf.0.ph = phi ptr [ null, %if.end ], [ %buf.0.ph.be, %while.body.outer.backedge ]
   %block.1.ph = phi ptr [ %block.0, %if.end ], [ %block.1.ph.be, %while.body.outer.backedge ]
   br label %while.body
 
@@ -3627,8 +3627,8 @@ lor.lhs.false:                                    ; preds = %if.end41
   br i1 %cmp51.not, label %while.body.outer.backedge, label %while.end
 
 while.body.outer.backedge:                        ; preds = %lor.lhs.false, %if.else66
-  %buf.0.ph.be = phi ptr [ null, %if.else66 ], [ %buf.1, %lor.lhs.false ]
   %addr.1.ph.be = phi i64 [ %13, %if.else66 ], [ %add45, %lor.lhs.false ]
+  %buf.0.ph.be = phi ptr [ null, %if.else66 ], [ %buf.1, %lor.lhs.false ]
   %block.1.ph.be = phi ptr [ %12, %if.else66 ], [ %block.1, %lor.lhs.false ]
   br label %while.body.outer
 

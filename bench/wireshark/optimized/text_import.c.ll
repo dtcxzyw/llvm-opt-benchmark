@@ -199,8 +199,8 @@ switch.lookup:                                    ; preds = %3
 
 .lr.ph5.i.split.us.split:                         ; preds = %.lr.ph5.i.split.us.split.preheader, %.loopexit.i.us
   %.112.us = phi ptr [ %49, %.loopexit.i.us ], [ %.011, %.lr.ph5.i.split.us.split.preheader ]
-  %.0414.i.us = phi i32 [ %.142.i.us, %.loopexit.i.us ], [ 0, %.lr.ph5.i.split.us.split.preheader ]
-  %.0433.i.us = phi i64 [ %.144.i.us, %.loopexit.i.us ], [ 0, %.lr.ph5.i.split.us.split.preheader ]
+  %.0433.i.us = phi i32 [ %.144.i.us, %.loopexit.i.us ], [ 0, %.lr.ph5.i.split.us.split.preheader ]
+  %.0452.i.us = phi i64 [ %.146.i.us, %.loopexit.i.us ], [ 0, %.lr.ph5.i.split.us.split.preheader ]
   %36 = load i8, ptr %.112.us, align 1
   %37 = zext i8 %36 to i64
   %38 = getelementptr [256 x i8], ptr %19, i64 0, i64 %37
@@ -217,17 +217,17 @@ switch.lookup:                                    ; preds = %3
 
 42:                                               ; preds = %.lr.ph5.i.split.us.split
   %43 = sext i8 %39 to i64
-  %44 = shl i64 %.0433.i.us, %32
+  %44 = shl i64 %.0452.i.us, %32
   %45 = or i64 %44, %43
-  %46 = add i32 %.0414.i.us, 1
+  %46 = add i32 %.0433.i.us, 1
   %47 = load i32, ptr %20, align 8
   %48 = icmp eq i32 %46, %47
-  %spec.select22 = select i1 %48, i32 0, i32 %46
+  %spec.select = select i1 %48, i32 0, i32 %46
   br label %.loopexit.i.us
 
 .loopexit.i.us:                                   ; preds = %42, %40
-  %.144.i.us = phi i64 [ %.0433.i.us, %40 ], [ %45, %42 ]
-  %.142.i.us = phi i32 [ %.0414.i.us, %40 ], [ %spec.select22, %42 ]
+  %.146.i.us = phi i64 [ %.0452.i.us, %40 ], [ %45, %42 ]
+  %.144.i.us = phi i32 [ %.0433.i.us, %40 ], [ %spec.select, %42 ]
   %49 = getelementptr i8, ptr %.112.us, i64 1
   %exitcond33.not = icmp eq ptr %49, %scevgep32
   br i1 %exitcond33.not, label %.critedge.i, label %.lr.ph5.i.split.us.split, !llvm.loop !4
@@ -235,8 +235,8 @@ switch.lookup:                                    ; preds = %3
 .lr.ph5.i.split:                                  ; preds = %.lr.ph5.i.split.preheader, %.loopexit.i
   %.112 = phi ptr [ %72, %.loopexit.i ], [ %.011, %.lr.ph5.i.split.preheader ]
   %.1 = phi ptr [ %.3, %.loopexit.i ], [ %.010, %.lr.ph5.i.split.preheader ]
-  %.0414.i = phi i32 [ %.142.i, %.loopexit.i ], [ 0, %.lr.ph5.i.split.preheader ]
-  %.0433.i = phi i64 [ %.144.i, %.loopexit.i ], [ 0, %.lr.ph5.i.split.preheader ]
+  %.0433.i = phi i32 [ %.144.i, %.loopexit.i ], [ 0, %.lr.ph5.i.split.preheader ]
+  %.0452.i = phi i64 [ %.146.i, %.loopexit.i ], [ 0, %.lr.ph5.i.split.preheader ]
   %50 = getelementptr i8, ptr %.1, i64 %29
   %.not50.i = icmp ugt ptr %50, %10
   br i1 %.not50.i, label %.critedge.i, label %51
@@ -258,9 +258,9 @@ switch.lookup:                                    ; preds = %3
 
 58:                                               ; preds = %51
   %59 = sext i8 %55 to i64
-  %60 = shl i64 %.0433.i, %32
+  %60 = shl i64 %.0452.i, %32
   %61 = or i64 %60, %59
-  %62 = add i32 %.0414.i, 1
+  %62 = add i32 %.0433.i, 1
   %63 = load i32, ptr %20, align 8
   %64 = icmp eq i32 %62, %63
   br i1 %64, label %.lr.ph.i, label %.loopexit.i
@@ -281,8 +281,8 @@ switch.lookup:                                    ; preds = %3
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %58, %56
   %.3 = phi ptr [ %.1, %58 ], [ %.1, %56 ], [ %70, %.lr.ph.i ]
-  %.144.i = phi i64 [ %61, %58 ], [ %.0433.i, %56 ], [ %61, %.lr.ph.i ]
-  %.142.i = phi i32 [ %62, %58 ], [ %.0414.i, %56 ], [ 0, %.lr.ph.i ]
+  %.146.i = phi i64 [ %61, %58 ], [ %.0452.i, %56 ], [ %61, %.lr.ph.i ]
+  %.144.i = phi i32 [ %62, %58 ], [ %.0433.i, %56 ], [ 0, %.lr.ph.i ]
   %72 = getelementptr i8, ptr %.112, i64 1
   %exitcond.not = icmp eq ptr %72, %scevgep30
   br i1 %exitcond.not, label %.critedge.i, label %.lr.ph5.i.split, !llvm.loop !4
@@ -290,12 +290,12 @@ switch.lookup:                                    ; preds = %3
 .critedge.i:                                      ; preds = %.lr.ph5.i.split, %51, %.loopexit.i, %.lr.ph5.i.split.us.split, %.loopexit.i.us, %.lr.ph5.i.split.us, %26
   %.213 = phi ptr [ %.011, %26 ], [ %.011, %.lr.ph5.i.split.us ], [ %.112.us, %.lr.ph5.i.split.us.split ], [ %49, %.loopexit.i.us ], [ %.112, %51 ], [ %72, %.loopexit.i ], [ %.112, %.lr.ph5.i.split ]
   %.4 = phi ptr [ %.010, %26 ], [ %.010, %.lr.ph5.i.split.us ], [ %.010, %.loopexit.i.us ], [ %.010, %.lr.ph5.i.split.us.split ], [ %.1, %51 ], [ %.3, %.loopexit.i ], [ %.1, %.lr.ph5.i.split ]
-  %.043.lcssa.i = phi i64 [ 0, %26 ], [ 0, %.lr.ph5.i.split.us ], [ %.0433.i.us, %.lr.ph5.i.split.us.split ], [ %.144.i.us, %.loopexit.i.us ], [ %.0433.i, %51 ], [ %.144.i, %.loopexit.i ], [ %.0433.i, %.lr.ph5.i.split ]
-  %.041.lcssa.i = phi i32 [ 0, %26 ], [ 0, %.lr.ph5.i.split.us ], [ %.0414.i.us, %.lr.ph5.i.split.us.split ], [ %.142.i.us, %.loopexit.i.us ], [ %.0414.i, %51 ], [ %.142.i, %.loopexit.i ], [ %.0414.i, %.lr.ph5.i.split ]
+  %.045.lcssa.i = phi i64 [ 0, %26 ], [ 0, %.lr.ph5.i.split.us ], [ %.0452.i.us, %.lr.ph5.i.split.us.split ], [ %.146.i.us, %.loopexit.i.us ], [ %.0452.i, %51 ], [ %.146.i, %.loopexit.i ], [ %.0452.i, %.lr.ph5.i.split ]
+  %.043.lcssa.i = phi i32 [ 0, %26 ], [ 0, %.lr.ph5.i.split.us ], [ %.0433.i.us, %.lr.ph5.i.split.us.split ], [ %.144.i.us, %.loopexit.i.us ], [ %.0433.i, %51 ], [ %.144.i, %.loopexit.i ], [ %.0433.i, %.lr.ph5.i.split ]
   %73 = lshr i16 %.fr23, 3
   %74 = and i16 %73, 63
   %75 = zext nneg i16 %74 to i32
-  %76 = mul i32 %.041.lcssa.i, %75
+  %76 = mul i32 %.043.lcssa.i, %75
   %77 = icmp sgt i32 %76, 7
   br i1 %77, label %.lr.ph20.preheader.i, label %parse_plain_data.exit
 
@@ -307,7 +307,7 @@ switch.lookup:                                    ; preds = %3
   %.5 = phi ptr [ %.4, %.lr.ph20.preheader.i ], [ %81, %.lr.ph20.i ]
   %indvars.iv23.i = phi i64 [ %78, %.lr.ph20.preheader.i ], [ %indvars.iv.next24.i, %.lr.ph20.i ]
   %indvars.iv.next24.i = add nsw i64 %indvars.iv23.i, -8
-  %79 = lshr i64 %.043.lcssa.i, %indvars.iv.next24.i
+  %79 = lshr i64 %.045.lcssa.i, %indvars.iv.next24.i
   %80 = trunc i64 %79 to i8
   store i8 %80, ptr %.5, align 1
   %81 = getelementptr i8, ptr %.5, i64 1
@@ -376,29 +376,29 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   br label %23
 
 23:                                               ; preds = %15, %9
-  %.096 = phi i32 [ %21, %15 ], [ 0, %9 ]
-  %.093 = phi i32 [ %22, %15 ], [ 0, %9 ]
+  %.090 = phi i32 [ %22, %15 ], [ 0, %9 ]
+  %.089 = phi i32 [ %21, %15 ], [ 0, %9 ]
   %.b124 = load i1, ptr @hdr_data_chunk, align 4
-  %24 = add i32 %.096, 16
-  %spec.select = select i1 %.b124, i32 %24, i32 %.096
+  %24 = add i32 %.089, 16
+  %spec.select = select i1 %.b124, i32 %24, i32 %.089
   %.b118 = load i1, ptr @hdr_sctp, align 4
   %25 = add i32 %spec.select, 12
-  %.298 = select i1 %.b118, i32 %25, i32 %spec.select
+  %.2 = select i1 %.b118, i32 %25, i32 %spec.select
   %.b114 = load i1, ptr @hdr_udp, align 4
-  %26 = add i32 %.298, 8
+  %26 = add i32 %.2, 8
   %27 = add i32 %26, %8
-  %.399 = select i1 %.b114, i32 %26, i32 %.298
-  %.194 = select i1 %.b114, i32 %27, i32 %.093
+  %.191 = select i1 %.b114, i32 %27, i32 %.090
+  %.3 = select i1 %.b114, i32 %26, i32 %.2
   %.b116 = load i1, ptr @hdr_tcp, align 4
-  %28 = add i32 %.399, 20
+  %28 = add i32 %.3, 20
   %29 = add i32 %28, %8
-  %.4100 = select i1 %.b116, i32 %28, i32 %.399
-  %.295 = select i1 %.b116, i32 %29, i32 %.194
+  %.292 = select i1 %.b116, i32 %29, i32 %.191
+  %.4 = select i1 %.b116, i32 %28, i32 %.3
   %.b112 = load i1, ptr @hdr_ip, align 4
   br i1 %.b112, label %30, label %38
 
 30:                                               ; preds = %23
-  %31 = add i32 %.4100, 20
+  %31 = add i32 %.4, 20
   %32 = and i32 %8, 3
   %33 = icmp eq i32 %32, 0
   %34 = sub nuw nsw i32 4, %32
@@ -419,13 +419,13 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %.0.i222 = select i1 %41, i32 0, i32 %42
   %43 = select i1 %.b124, i32 %.0.i222, i32 0
   %44 = add i32 %43, %8
-  %45 = add i32 %44, %.4100
-  %46 = add i32 %.4100, 40
+  %45 = add i32 %44, %.4
+  %46 = add i32 %.4, 40
   br label %47
 
 47:                                               ; preds = %38, %39, %30
-  %.5 = phi i32 [ %31, %30 ], [ %46, %39 ], [ %.4100, %38 ]
-  %.092 = phi i32 [ %37, %30 ], [ %45, %39 ], [ 0, %38 ]
+  %.0100 = phi i32 [ %37, %30 ], [ %45, %39 ], [ 0, %38 ]
+  %.5 = phi i32 [ %31, %30 ], [ %46, %39 ], [ %.4, %38 ]
   %.b110 = load i1, ptr @hdr_ethernet, align 4
   %48 = add i32 %.5, 14
   %spec.select218 = select i1 %.b110, i32 %48, i32 %.5
@@ -460,8 +460,8 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   br label %59
 
 59:                                               ; preds = %47, %57
-  %.091225 = phi i32 [ %spec.select219, %57 ], [ 0, %47 ]
-  %.090 = phi i32 [ 14, %57 ], [ 0, %47 ]
+  %.099225 = phi i32 [ %spec.select219, %57 ], [ 0, %47 ]
+  %.094 = phi i32 [ 14, %57 ], [ 0, %47 ]
   br i1 %.b112, label %60, label %79
 
 60:                                               ; preds = %59
@@ -480,7 +480,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %66 = select i1 %.not139, i32 %.269, i32 %65
   store i32 %spec.select221, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 12), align 4
   store i32 %66, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 16), align 4
-  %trunc142 = trunc i32 %.092 to i16
+  %trunc142 = trunc i32 %.0100 to i16
   %rev143 = tail call i16 @llvm.bswap.i16(i16 %trunc142)
   store i16 %rev143, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 2), align 2
   %67 = load i32, ptr @hdr_ip_proto, align 4
@@ -494,17 +494,17 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %71 = trunc i32 %70 to i16
   store i16 %71, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 10), align 2
   %72 = load ptr, ptr @packet_buf, align 8
-  %73 = zext nneg i32 %.090 to i64
+  %73 = zext nneg i32 %.094 to i64
   %74 = getelementptr i8, ptr %72, i64 %73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %74, ptr noundef nonnull align 4 dereferenceable(20) @HDR_IP, i64 20, i1 false)
-  %75 = add nuw nsw i32 %.090, 20
+  %75 = add nuw nsw i32 %.094, 20
   %76 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 12), align 4
   store <2 x i32> %76, ptr @pseudoh, align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @pseudoh, i64 8), align 8
   %77 = load i32, ptr @hdr_ip_proto, align 4
   %78 = trunc i32 %77 to i8
   store i8 %78, ptr getelementptr inbounds (i8, ptr @pseudoh, i64 9), align 1
-  %trunc144 = trunc i32 %.295 to i16
+  %trunc144 = trunc i32 %.292 to i16
   %rev145 = call i16 @llvm.bswap.i16(i16 %trunc144)
   store i16 %rev145, ptr getelementptr inbounds (i8, ptr @pseudoh, i64 10), align 2
   %.b113.pre = load i1, ptr @hdr_udp, align 4
@@ -550,22 +550,22 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %93 = and i8 %92, 15
   %94 = or disjoint i8 %93, 96
   store i8 %94, ptr @HDR_IPv6, align 4
-  %trunc134 = trunc i32 %.092 to i16
+  %trunc134 = trunc i32 %.0100 to i16
   %rev135 = tail call i16 @llvm.bswap.i16(i16 %trunc134)
   store i16 %rev135, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 4), align 4
   %95 = load i32, ptr @hdr_ip_proto, align 4
   %96 = trunc i32 %95 to i8
   store i8 %96, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 6), align 2
   store i8 32, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 7), align 1
-  %97 = zext nneg i32 %.090 to i64
+  %97 = zext nneg i32 %.094 to i64
   %98 = getelementptr i8, ptr %49, i64 %97
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %98, ptr noundef nonnull align 4 dereferenceable(40) @HDR_IPv6, i64 40, i1 false)
-  %99 = add nuw nsw i32 %.090, 40
+  %99 = add nuw nsw i32 %.094, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @pseudoh6, ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @HDR_IPv6, i64 8), i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @pseudoh6, i64 16), ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @HDR_IPv6, i64 24), i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) getelementptr inbounds (i8, ptr @pseudoh6, i64 36), i8 0, i64 3, i1 false)
   store i8 %96, ptr getelementptr inbounds (i8, ptr @pseudoh6, i64 39), align 1
-  %trunc136 = trunc i32 %.295 to i16
+  %trunc136 = trunc i32 %.292 to i16
   %rev137 = tail call i16 @llvm.bswap.i16(i16 %trunc136)
   %100 = zext i16 %rev137 to i32
   store i32 %100, ptr getelementptr inbounds (i8, ptr @pseudoh6, i64 32), align 4
@@ -575,7 +575,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   br i1 %.b114, label %102, label %122
 
 102:                                              ; preds = %91, %60, %101
-  %.1245 = phi i32 [ %75, %60 ], [ %.090, %101 ], [ %99, %91 ]
+  %.195245 = phi i32 [ %75, %60 ], [ %.094, %101 ], [ %99, %91 ]
   %103 = phi ptr [ %72, %60 ], [ %49, %101 ], [ %49, %91 ]
   %104 = load ptr, ptr @info_p, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 160
@@ -591,7 +591,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %rev151 = call i16 @llvm.bswap.i16(i16 %trunc150)
   store i16 %rev147, ptr @HDR_UDP, align 8
   store i16 %rev151, ptr getelementptr inbounds (i8, ptr @HDR_UDP, i64 2), align 2
-  %trunc155 = trunc i32 %.295 to i16
+  %trunc155 = trunc i32 %.292 to i16
   %rev156 = call i16 @llvm.bswap.i16(i16 %trunc155)
   store i16 %rev156, ptr getelementptr inbounds (i8, ptr @HDR_UDP, i64 4), align 4
   store i16 0, ptr getelementptr inbounds (i8, ptr @HDR_UDP, i64 6), align 2
@@ -615,16 +615,16 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %116 = trunc i32 %115 to i16
   store i16 %116, ptr getelementptr inbounds (i8, ptr @HDR_UDP, i64 6), align 2
   %117 = load ptr, ptr @packet_buf, align 8
-  %118 = zext nneg i32 %.1245 to i64
+  %118 = zext nneg i32 %.195245 to i64
   %119 = getelementptr i8, ptr %117, i64 %118
   %120 = load i64, ptr @HDR_UDP, align 8
   store i64 %120, ptr %119, align 1
-  %121 = add nuw nsw i32 %.1245, 8
+  %121 = add nuw nsw i32 %.195245, 8
   br label %122
 
 122:                                              ; preds = %91, %60, %102, %101
   %123 = phi ptr [ %117, %102 ], [ %49, %101 ], [ %72, %60 ], [ %49, %91 ]
-  %.2 = phi i32 [ %121, %102 ], [ %.090, %101 ], [ %75, %60 ], [ %99, %91 ]
+  %.296 = phi i32 [ %121, %102 ], [ %.094, %101 ], [ %75, %60 ], [ %99, %91 ]
   %.b115 = load i1, ptr @hdr_tcp, align 4
   br i1 %.b115, label %124, label %166
 
@@ -699,10 +699,10 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %156 = trunc i32 %155 to i16
   store i16 %156, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 16), align 4
   %157 = load ptr, ptr @packet_buf, align 8
-  %158 = zext nneg i32 %.2 to i64
+  %158 = zext nneg i32 %.296 to i64
   %159 = getelementptr i8, ptr %157, i64 %158
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %159, ptr noundef nonnull align 4 dereferenceable(20) @HDR_TCP, i64 20, i1 false)
-  %160 = add nuw nsw i32 %.2, 20
+  %160 = add nuw nsw i32 %.296, 20
   %tcp_in_seq_num.tcp_out_seq_num = select i1 %14, ptr @tcp_in_seq_num, ptr @tcp_out_seq_num
   %161 = load i32, ptr %tcp_in_seq_num.tcp_out_seq_num, align 4
   %162 = call i32 @llvm.bswap.i32(i32 %161)
@@ -714,7 +714,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
 
 166:                                              ; preds = %.sink.split, %122
   %167 = phi ptr [ %123, %122 ], [ %157, %.sink.split ]
-  %.3 = phi i32 [ %.2, %122 ], [ %160, %.sink.split ]
+  %.397 = phi i32 [ %.296, %122 ], [ %160, %.sink.split ]
   %.b121 = load i1, ptr @hdr_data_chunk, align 4
   br i1 %.b121, label %168, label %195
 
@@ -850,20 +850,20 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %239 = xor i32 %238, 16776960
   store i32 %239, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
   %240 = load ptr, ptr @packet_buf, align 8
-  %241 = sext i32 %.3 to i64
+  %241 = sext i32 %.397 to i64
   %242 = getelementptr i8, ptr %240, i64 %241
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %242, ptr noundef nonnull align 4 dereferenceable(12) @HDR_SCTP, i64 12, i1 false)
-  %243 = add i32 %.3, 12
+  %243 = add i32 %.397, 12
   br label %244
 
 244:                                              ; preds = %207, %195
-  %.4 = phi i32 [ %243, %207 ], [ %.3, %195 ]
+  %.498 = phi i32 [ %243, %207 ], [ %.397, %195 ]
   %.b119 = load i1, ptr @hdr_data_chunk, align 4
   br i1 %.b119, label %245, label %249
 
 245:                                              ; preds = %244
   %246 = load ptr, ptr @packet_buf, align 8
-  %247 = sext i32 %.4 to i64
+  %247 = sext i32 %.498 to i64
   %248 = getelementptr i8, ptr %246, i64 %247
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %248, ptr noundef nonnull align 4 dereferenceable(16) @HDR_DATA_CHUNK, i64 16, i1 false)
   br label %249
@@ -883,11 +883,11 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %rev208 = call i16 @llvm.bswap.i16(i16 %trunc207)
   store i16 %rev208, ptr getelementptr inbounds (i8, ptr @HDR_EXPORT_PDU, i64 2), align 2
   %256 = load ptr, ptr @packet_buf, align 8
-  %257 = sext i32 %.4 to i64
+  %257 = sext i32 %.498 to i64
   %258 = getelementptr i8, ptr %256, i64 %257
   %259 = load i32, ptr @HDR_EXPORT_PDU, align 4
   store i32 %259, ptr %258, align 1
-  %260 = add i32 %.4, 4
+  %260 = add i32 %.498, 4
   %261 = sext i32 %260 to i64
   %262 = getelementptr i8, ptr %256, i64 %261
   %263 = load ptr, ptr %252, align 8
@@ -901,7 +901,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
 
 268:                                              ; preds = %250, %249
   %.b = load i1, ptr @hdr_ethernet, align 4
-  %269 = icmp ne i32 %.091225, 0
+  %269 = icmp ne i32 %.099225, 0
   %or.cond = select i1 %.b, i1 %269, i1 false
   %.pre243 = load i32, ptr @curr_offset, align 4
   br i1 %or.cond, label %270, label %276
@@ -911,7 +911,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %272 = add i32 %.pre243, %spec.select218
   %273 = zext i32 %272 to i64
   %274 = getelementptr i8, ptr %271, i64 %273
-  %275 = zext nneg i32 %.091225 to i64
+  %275 = zext nneg i32 %.099225 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %274, i8 0, i64 %275, i1 false)
   br label %276
 
@@ -934,7 +934,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %287 = getelementptr inbounds i8, ptr %5, i64 232
   store ptr %286, ptr %287, align 8
   %288 = load i32, ptr @curr_offset, align 4
-  %289 = add i32 %.091225, %spec.select218
+  %289 = add i32 %.099225, %spec.select218
   %290 = add i32 %289, %288
   %291 = getelementptr inbounds i8, ptr %5, i64 64
   store i32 %290, ptr %291, align 8
@@ -947,7 +947,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %295 = getelementptr inbounds i8, ptr %5, i64 232
   store ptr %294, ptr %295, align 8
   %296 = load i32, ptr @curr_offset, align 4
-  %297 = add i32 %.091225, %spec.select218
+  %297 = add i32 %.099225, %spec.select218
   %298 = add i32 %297, %296
   %299 = getelementptr inbounds i8, ptr %5, i64 64
   %300 = getelementptr inbounds i8, ptr %5, i64 68
@@ -1206,8 +1206,8 @@ define internal fastcc range(i32 0, 2) i32 @_parse_time(ptr noundef %0, ptr noun
 
 .lr.ph12:                                         ; preds = %.lr.ph12.preheader, %.lr.ph12
   %.011 = phi i32 [ %47, %.lr.ph12 ], [ %45, %.lr.ph12.preheader ]
-  %.13610 = phi i32 [ %46, %.lr.ph12 ], [ %33, %.lr.ph12.preheader ]
-  %46 = sdiv i32 %.13610, 10
+  %.13710 = phi i32 [ %46, %.lr.ph12 ], [ %33, %.lr.ph12.preheader ]
+  %46 = sdiv i32 %.13710, 10
   %47 = add nsw i32 %.011, -1
   %.not45 = icmp eq i32 %47, 0
   br i1 %.not45, label %.thread2, label %.lr.ph12, !llvm.loop !11
@@ -1244,8 +1244,8 @@ define internal fastcc range(i32 0, 2) i32 @_parse_time(ptr noundef %0, ptr noun
   br label %56
 
 56:                                               ; preds = %.thread, %.thread2, %32, %28, %23, %14, %55
-  %.037 = phi i32 [ 1, %55 ], [ 0, %14 ], [ 0, %23 ], [ 0, %28 ], [ 0, %32 ], [ 0, %.thread2 ], [ 0, %.thread ]
-  ret i32 %.037
+  %.035 = phi i32 [ 1, %55 ], [ 0, %14 ], [ 0, %23 ], [ 0, %28 ], [ 0, %32 ], [ 0, %.thread2 ], [ 0, %.thread ]
+  ret i32 %.035
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2366,14 +2366,14 @@ switch.lookup:                                    ; preds = %9
   br label %86
 
 86:                                               ; preds = %70, %72, %85, %84, %76, %77
-  %.0 = phi i32 [ 8, %77 ], [ 3, %76 ], [ 0, %84 ], [ %spec.store.select, %85 ], [ 0, %72 ], [ 1, %70 ]
+  %.034 = phi i32 [ 8, %77 ], [ 3, %76 ], [ 0, %84 ], [ %spec.store.select, %85 ], [ 0, %72 ], [ 1, %70 ]
   %87 = load ptr, ptr @packet_buf, align 8
   tail call void @g_free(ptr noundef %87) #15
   br label %88
 
 88:                                               ; preds = %86, %69, %61, %59, %56, %5
-  %.034 = phi i32 [ 8, %5 ], [ 1, %61 ], [ %.0, %86 ], [ 8, %69 ], [ 1, %59 ], [ 1, %56 ]
-  ret i32 %.034
+  %.0 = phi i32 [ 8, %5 ], [ 1, %61 ], [ %.034, %86 ], [ 8, %69 ], [ 1, %59 ], [ 1, %56 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind

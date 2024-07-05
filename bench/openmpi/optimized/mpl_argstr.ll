@@ -1007,12 +1007,12 @@ quoted_printf.exit:                               ; preds = %15, %20, %11, %13, 
   br label %49
 
 49:                                               ; preds = %47, %45
-  %.0 = phi i32 [ %46, %45 ], [ %48, %47 ]
-  %50 = icmp eq i32 %.0, %5
+  %.033 = phi i32 [ %46, %45 ], [ %48, %47 ]
+  %50 = icmp eq i32 %.033, %5
   br i1 %50, label %51, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %49
-  %.pre = sext i32 %.0 to i64
+  %.pre = sext i32 %.033 to i64
   br label %52
 
 51:                                               ; preds = %49
@@ -1021,7 +1021,7 @@ quoted_printf.exit:                               ; preds = %15, %20, %11, %13, 
 
 52:                                               ; preds = %._crit_edge, %36, %40
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %38, %36 ], [ %34, %40 ]
-  %.1 = phi i32 [ %.0, %._crit_edge ], [ %37, %36 ], [ %.034.i, %40 ]
+  %.1 = phi i32 [ %.033, %._crit_edge ], [ %37, %36 ], [ %.034.i, %40 ]
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 %.pre-phi
   store ptr %54, ptr %0, align 8
@@ -1031,8 +1031,8 @@ quoted_printf.exit:                               ; preds = %15, %20, %11, %13, 
   br label %57
 
 57:                                               ; preds = %52, %51, %30
-  %.033 = phi i32 [ -1, %30 ], [ 0, %52 ], [ -1, %51 ]
-  ret i32 %.033
+  %.0 = phi i32 [ -1, %30 ], [ 0, %52 ], [ -1, %51 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -1342,9 +1342,9 @@ define range(i32 0, 6) i32 @MPL_str_add_string_arg(ptr nocapture noundef %0, ptr
   br label %quoted_printf.exit
 
 quoted_printf.exit:                               ; preds = %22, %17, %29, %26, %14, %31
-  %.0 = phi i32 [ %34, %31 ], [ %27, %26 ], [ %27, %29 ], [ 1, %14 ], [ %24, %22 ], [ %19, %17 ]
+  %.051 = phi i32 [ %34, %31 ], [ %27, %26 ], [ %27, %29 ], [ 1, %14 ], [ %24, %22 ], [ %19, %17 ]
   %35 = load i32, ptr %1, align 4
-  %36 = sub nsw i32 %35, %.0
+  %36 = sub nsw i32 %35, %.051
   store i32 %36, ptr %1, align 4
   %37 = icmp slt i32 %36, 1
   %38 = load ptr, ptr %0, align 8
@@ -1355,7 +1355,7 @@ quoted_printf.exit:                               ; preds = %22, %17, %29, %26, 
   br label %90
 
 40:                                               ; preds = %quoted_printf.exit
-  %41 = sext i32 %.0 to i64
+  %41 = sext i32 %.051 to i64
   %42 = getelementptr inbounds i8, ptr %38, i64 %41
   store ptr %42, ptr %0, align 8
   store i8 35, ptr %42, align 1
@@ -1481,8 +1481,8 @@ quoted_printf.exit78:                             ; preds = %60, %55, %67, %64, 
   br label %90
 
 90:                                               ; preds = %6, %4, %85, %84, %39
-  %.051 = phi i32 [ 5, %39 ], [ 5, %84 ], [ 0, %85 ], [ 4, %4 ], [ 4, %6 ]
-  ret i32 %.051
+  %.0 = phi i32 [ 5, %39 ], [ 5, %84 ], [ 0, %85 ], [ 4, %4 ], [ 4, %6 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind uwtable

@@ -114,11 +114,11 @@ define dso_local void @transfer_all_new_dbs(ptr nocapture noundef readonly %0, p
 
 .lr.ph38.split.us:                                ; preds = %.lr.ph38, %transfer_single_new_db.exit.us
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %transfer_single_new_db.exit.us ], [ 0, %.lr.ph38 ]
-  %.02236.us = phi i32 [ %34, %transfer_single_new_db.exit.us ], [ 0, %.lr.ph38 ]
+  %.02335.us = phi i32 [ %34, %transfer_single_new_db.exit.us ], [ 0, %.lr.ph38 ]
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr %struct.DbInfo, ptr %12, i64 %indvars.iv64
   %14 = load i32, ptr %10, align 8
-  %15 = icmp slt i32 %.02236.us, %14
+  %15 = icmp slt i32 %.02335.us, %14
   br i1 %15, label %.lr.ph.us, label %._crit_edge
 
 16:                                               ; preds = %.lr.ph.us, %22
@@ -178,24 +178,24 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
   %38 = load ptr, ptr %1, align 8
   %39 = getelementptr inbounds i8, ptr %13, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = sext i32 %.02236.us to i64
+  %41 = sext i32 %.02335.us to i64
   %42 = sext i32 %14 to i64
   br label %16
 
 .lr.ph38.split:                                   ; preds = %.lr.ph38, %transfer_single_new_db.exit
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %transfer_single_new_db.exit ], [ 0, %.lr.ph38 ]
-  %.02236 = phi i32 [ %77, %transfer_single_new_db.exit ], [ 0, %.lr.ph38 ]
+  %.02335 = phi i32 [ %77, %transfer_single_new_db.exit ], [ 0, %.lr.ph38 ]
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr %struct.DbInfo, ptr %43, i64 %indvars.iv57
   %45 = load i32, ptr %10, align 8
-  %46 = icmp slt i32 %.02236, %45
+  %46 = icmp slt i32 %.02335, %45
   br i1 %46, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph38.split
   %47 = load ptr, ptr %1, align 8
   %48 = getelementptr inbounds i8, ptr %44, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = sext i32 %.02236 to i64
+  %50 = sext i32 %.02335 to i64
   %51 = sext i32 %45 to i64
   br label %52
 

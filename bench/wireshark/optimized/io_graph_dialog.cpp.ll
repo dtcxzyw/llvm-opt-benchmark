@@ -11163,8 +11163,8 @@ _ZN7QStringD2Ev.exit73:                           ; preds = %62, %_ZN17QArrayDat
   br label %107
 
 107:                                              ; preds = %103, %81, %93
-  %.039 = phi i32 [ 0, %93 ], [ %., %81 ], [ %.69, %103 ]
-  invoke void @_ZN7QCursorC1EN2Qt11CursorShapeE(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %.039)
+  %.0 = phi i32 [ 0, %93 ], [ %., %81 ], [ %.69, %103 ]
+  invoke void @_ZN7QCursorC1EN2Qt11CursorShapeE(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %.0)
           to label %108 unwind label %64
 
 108:                                              ; preds = %107
@@ -11265,9 +11265,9 @@ _ZN7IOGraph14packetFromTimeEd.exit:               ; preds = %148
   %166 = zext nneg i32 %157 to i64
   %167 = getelementptr [250000 x %struct._io_graph_item_t], ptr %165, i64 0, i64 %166, i32 17
   %168 = getelementptr [250000 x %struct._io_graph_item_t], ptr %165, i64 0, i64 %166, i32 16
-  %.0.in = select i1 %switch.i, ptr %168, ptr %167
-  %.0 = load i32, ptr %.0.in, align 4
-  %169 = icmp slt i32 %.0, 0
+  %.022.in = select i1 %switch.i, ptr %168, ptr %167
+  %.022 = load i32, ptr %.022.in, align 4
+  %169 = icmp slt i32 %.022, 0
   br i1 %169, label %_ZN7IOGraph14packetFromTimeEd.exit.thread, label %179
 
 _ZN7IOGraph14packetFromTimeEd.exit.thread:        ; preds = %148, %118, %120, %147, %_ZN7IOGraph14packetFromTimeEd.exit
@@ -11316,11 +11316,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i94:    ; preds = %173
 
 _ZN13IOGraphDialog2trEPKcS1_i.exit97:             ; preds = %.invoke
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  %.not54 = icmp eq i32 %.0, 0
+  %.not54 = icmp eq i32 %.022, 0
   br i1 %.not54, label %_ZN7QStringD2Ev.exit169, label %181
 
 181:                                              ; preds = %_ZN13IOGraphDialog2trEPKcS1_i.exit97
-  store i32 %.0, ptr %121, align 8
+  store i32 %.022, ptr %121, align 8
   %182 = invoke zeroext i1 @is_packet_configuration_namespace()
           to label %183 unwind label %217
 
@@ -13194,12 +13194,12 @@ _ZN7QStringD2Ev.exit149:                          ; preds = %280, %_ZN17QArrayDa
   br label %.body
 
 282:                                              ; preds = %271, %_Z12qobject_castIP14QCPTextElementET_P7QObject.exit
-  %.031 = phi ptr [ %258, %271 ], [ %255, %_Z12qobject_castIP14QCPTextElementET_P7QObject.exit ]
+  %.032 = phi ptr [ %258, %271 ], [ %255, %_Z12qobject_castIP14QCPTextElementET_P7QObject.exit ]
   invoke void @_ZplRK7QStringPKc(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %24, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull @.str.68)
           to label %283 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 283:                                              ; preds = %282
-  invoke void @_ZN14QCPTextElement7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(282) %.031, ptr noundef nonnull align 8 dereferenceable(24) %24)
+  invoke void @_ZN14QCPTextElement7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(282) %.032, ptr noundef nonnull align 8 dereferenceable(24) %24)
           to label %284 unwind label %332
 
 284:                                              ; preds = %283
@@ -18658,7 +18658,7 @@ define void @_ZNK13IOGraphDialog7makeCsvER11QTextStream(ptr nocapture noundef no
 55:                                               ; preds = %.preheader131, %_ZN7QStringD2Ev.exit84
   %56 = phi ptr [ %33, %.preheader131 ], [ %.pre, %_ZN7QStringD2Ev.exit84 ]
   %indvars.iv = phi i64 [ 0, %.preheader131 ], [ %indvars.iv.next, %_ZN7QStringD2Ev.exit84 ]
-  %.036 = phi i32 [ 0, %.preheader131 ], [ %.238, %_ZN7QStringD2Ev.exit84 ]
+  %.034 = phi i32 [ 0, %.preheader131 ], [ %.236, %_ZN7QStringD2Ev.exit84 ]
   store i32 -1, ptr %13, align 8
   store i32 -1, ptr %34, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
@@ -18734,7 +18734,7 @@ define void @_ZNK13IOGraphDialog7makeCsvER11QTextStream(ptr nocapture noundef no
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 38000208
   %89 = load i32, ptr %88, align 8
-  %spec.select = call i32 @llvm.smax.i32(i32 %.036, i32 %89)
+  %spec.select = call i32 @llvm.smax.i32(i32 %.034, i32 %89)
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   %90 = getelementptr inbounds i8, ptr %87, i64 56
   %91 = load ptr, ptr %90, align 8, !noalias !99
@@ -19082,13 +19082,13 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i106:   ; preds = %_ZN7QStringD2Ev.exi
   br label %.body
 
 _ZN7QStringD2Ev.exit84:                           ; preds = %156, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82, %153, %76, %78
-  %.238 = phi i32 [ %.036, %78 ], [ %.036, %76 ], [ %spec.select, %153 ], [ %spec.select, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82 ], [ %spec.select, %156 ]
+  %.236 = phi i32 [ %.034, %78 ], [ %.034, %76 ], [ %spec.select, %153 ], [ %spec.select, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82 ], [ %spec.select, %156 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.pre = load ptr, ptr %32, align 8
   br label %55, !llvm.loop !105
 
 .loopexit135:                                     ; preds = %61, %31
-  %.339 = phi i32 [ 0, %31 ], [ %.036, %61 ]
+  %.337 = phi i32 [ 0, %31 ], [ %.034, %61 ]
   %194 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 noundef signext 10)
           to label %.lr.ph149 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -19101,8 +19101,8 @@ _ZN7QStringD2Ev.exit84:                           ; preds = %156, %_ZN17QArrayDa
   br label %200
 
 200:                                              ; preds = %.lr.ph149, %242
-  %.034148 = phi i32 [ 0, %.lr.ph149 ], [ %243, %242 ]
-  %201 = sitofp i32 %.034148 to double
+  %.038148 = phi i32 [ 0, %.lr.ph149 ], [ %243, %242 ]
+  %201 = sitofp i32 %.038148 to double
   %202 = fmul double %196, %201
   %203 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEd(ptr noundef nonnull align 8 dereferenceable(16) %1, double noundef %202)
           to label %204 unwind label %.loopexit
@@ -19159,7 +19159,7 @@ _ZN17QArrayDataPointerIP7IOGraphE5derefEv.exit.i.i.i112: ; preds = %214
   %218 = load ptr, ptr %.sroa.9.0146, align 8
   %219 = getelementptr inbounds i8, ptr %218, i64 38000208
   %220 = load i32, ptr %219, align 8
-  %.not41 = icmp sgt i32 %.034148, %220
+  %.not41 = icmp sgt i32 %.038148, %220
   br i1 %.not41, label %_ZNK7IOGraph12getItemValueEiPK13_capture_file.exit, label %221
 
 221:                                              ; preds = %.lr.ph
@@ -19179,7 +19179,7 @@ _ZN17QArrayDataPointerIP7IOGraphE5derefEv.exit.i.i.i112: ; preds = %214
   %233 = getelementptr inbounds i8, ptr %218, i64 172
   %234 = load i32, ptr %233, align 4
   %235 = load i32, ptr %219, align 8
-  %236 = invoke noundef double @get_io_graph_item(ptr noundef nonnull %228, i32 noundef %230, i32 noundef %.034148, i32 noundef %232, ptr noundef %227, i32 noundef %234, i32 noundef %235)
+  %236 = invoke noundef double @get_io_graph_item(ptr noundef nonnull %228, i32 noundef %230, i32 noundef %.038148, i32 noundef %232, ptr noundef %227, i32 noundef %234, i32 noundef %235)
           to label %_ZNK7IOGraph12getItemValueEiPK13_capture_file.exit unwind label %214
 
 _ZNK7IOGraph12getItemValueEiPK13_capture_file.exit: ; preds = %224, %.lr.ph
@@ -19197,8 +19197,8 @@ _ZNK7IOGraph12getItemValueEiPK13_capture_file.exit: ; preds = %224, %.lr.ph
   br i1 %.not130, label %._crit_edge, label %.lr.ph, !llvm.loop !109
 
 242:                                              ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP7IOGraphEED2Ev.exit
-  %243 = add i32 %.034148, 1
-  %.not40 = icmp sgt i32 %243, %.339
+  %243 = add i32 %.038148, 1
+  %.not40 = icmp sgt i32 %243, %.337
   br i1 %.not40, label %._crit_edge150, label %200, !llvm.loop !110
 
 ._crit_edge150:                                   ; preds = %242
@@ -20016,7 +20016,7 @@ define noundef range(i32 0, 2) i32 @_ZN7IOGraph9tapPacketEPvP12_packet_infoP12ep
 .lr.ph.i:                                         ; preds = %294, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %34, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %294 ]
   %.1253.i = phi i64 [ %spec.select.i, %.lr.ph.preheader.i ], [ %..i, %294 ]
-  %.0234252.i = phi i64 [ %273, %.lr.ph.preheader.i ], [ %295, %294 ]
+  %.0235252.i = phi i64 [ %273, %.lr.ph.preheader.i ], [ %295, %294 ]
   %281 = trunc i64 %.1253.i to i32
   %282 = mul i32 %281, 1000
   %283 = getelementptr %struct._io_graph_item_t, ptr %30, i64 %indvars.iv.i, i32 14
@@ -20041,7 +20041,7 @@ define noundef range(i32 0, 2) i32 @_ZN7IOGraph9tapPacketEPvP12_packet_infoP12ep
 
 294:                                              ; preds = %292
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %295 = sub i64 %.0234252.i, %.1253.i
+  %295 = sub i64 %.0235252.i, %.1253.i
   %..i = call i64 @llvm.umin.i64(i64 %295, i64 %65)
   %.not249.i = icmp eq i64 %295, 0
   br i1 %.not249.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !111
@@ -25986,14 +25986,14 @@ sub_0:                                            ; preds = %11
   br label %21
 
 21:                                               ; preds = %11, %.tail.thread, %18, %6
-  %.022 = phi ptr [ %8, %11 ], [ %19, %18 ], [ %20, %.tail.thread ], [ %8, %6 ]
+  %.021 = phi ptr [ %8, %11 ], [ %19, %18 ], [ %20, %.tail.thread ], [ %8, %6 ]
   %22 = getelementptr i8, ptr %3, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not26.not = icmp eq ptr %23, null
   br i1 %.not26.not, label %._crit_edge, label %.lr.ph
 
 24:                                               ; preds = %.lr.ph
-  %25 = add i32 %.02127, 1
+  %25 = add i32 %.02227, 1
   %26 = zext i32 %25 to i64
   %27 = getelementptr %struct._value_string, ptr %3, i64 %26, i32 1
   %28 = load ptr, ptr %27, align 8
@@ -26002,20 +26002,20 @@ sub_0:                                            ; preds = %11
 
 .lr.ph:                                           ; preds = %21, %24
   %29 = phi ptr [ %28, %24 ], [ %23, %21 ]
-  %.02127 = phi i32 [ %25, %24 ], [ 0, %21 ]
-  %30 = tail call i32 @g_strcmp0(ptr noundef nonnull %29, ptr noundef %.022)
+  %.02227 = phi i32 [ %25, %24 ], [ 0, %21 ]
+  %30 = tail call i32 @g_strcmp0(ptr noundef nonnull %29, ptr noundef %.021)
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.loopexit, label %24
 
 ._crit_edge:                                      ; preds = %24, %21
-  %32 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.280, ptr noundef %.022)
+  %32 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.280, ptr noundef %.021)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
   %.sink = phi ptr [ %32, %._crit_edge ], [ null, %.lr.ph ]
   %.not25 = phi i1 [ false, %._crit_edge ], [ true, %.lr.ph ]
   store ptr %.sink, ptr %5, align 8
-  tail call void @g_free(ptr noundef %.022)
+  tail call void @g_free(ptr noundef %.021)
   ret i1 %.not25
 }
 
@@ -29302,14 +29302,14 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE8freeDataEv.exit
-  %.02334 = phi i64 [ 0, %.lr.ph ], [ %144, %_ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE8freeDataEv.exit ]
-  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02334
+  %.02234 = phi i64 [ 0, %.lr.ph ], [ %144, %_ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE8freeDataEv.exit ]
+  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02234
   %42 = getelementptr inbounds i8, ptr %41, i64 128
   br label %43
 
 43:                                               ; preds = %40, %125
-  %.02233 = phi i64 [ 0, %40 ], [ %126, %125 ]
-  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02233
+  %.02333 = phi i64 [ 0, %40 ], [ %126, %125 ]
+  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02333
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, -1
   br i1 %.not, label %125, label %46
@@ -29460,7 +29460,7 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE6insertEm.exit: ; pr
   br label %125
 
 125:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE6insertEm.exit
-  %126 = add nuw nsw i64 %.02233, 1
+  %126 = add nuw nsw i64 %.02333, 1
   %exitcond.not = icmp eq i64 %126, 128
   br i1 %exitcond.not, label %127, label %43, !llvm.loop !166
 
@@ -29512,7 +29512,7 @@ _ZN12QHashPrivate4NodeI7QString15QHashDummyValueED2Ev.exit.i: ; preds = %136, %_
   br label %_ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE8freeDataEv.exit
 
 _ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE8freeDataEv.exit: ; preds = %127, %143
-  %144 = add nuw nsw i64 %.02334, 1
+  %144 = add nuw nsw i64 %.02234, 1
   %exitcond36.not = icmp eq i64 %144, %38
   br i1 %exitcond36.not, label %._crit_edge.thread, label %40, !llvm.loop !167
 
@@ -29877,16 +29877,16 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br label %49
 
 49:                                               ; preds = %.lr.ph, %145
-  %.02333 = phi i64 [ 0, %.lr.ph ], [ %146, %145 ]
+  %.033 = phi i64 [ 0, %.lr.ph ], [ %146, %145 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.02333
+  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.033
   %52 = getelementptr inbounds i8, ptr %51, i64 128
-  %53 = shl nuw i64 %.02333, 7
+  %53 = shl nuw i64 %.033, 7
   br label %54
 
 54:                                               ; preds = %49, %_ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit
-  %.031 = phi i64 [ 0, %49 ], [ %144, %_ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit ]
-  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.031
+  %.02331 = phi i64 [ 0, %49 ], [ %144, %_ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit ]
+  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.02331
   %56 = load i8, ptr %55, align 1
   %.not30 = icmp eq i8 %56, -1
   br i1 %.not30, label %_ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit, label %57
@@ -29949,7 +29949,7 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QS
   br i1 %98, label %_ZNK12QHashPrivate4DataINS_4NodeI7QString15QHashDummyValueEEE4findERKS2_.exit, label %.lr.ph.i, !llvm.loop !164
 
 99:                                               ; preds = %57
-  %100 = add nuw nsw i64 %.031, %53
+  %100 = add nuw nsw i64 %.02331, %53
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeI7QString15QHashDummyValueEEE4findERKS2_.exit
 
@@ -30043,12 +30043,12 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE6insertEm.exit: ; pr
   br label %_ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit
 
 _ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit: ; preds = %142, %_ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE6insertEm.exit, %54
-  %144 = add nuw nsw i64 %.031, 1
+  %144 = add nuw nsw i64 %.02331, 1
   %exitcond.not = icmp eq i64 %144, 128
   br i1 %exitcond.not, label %145, label %54, !llvm.loop !168
 
 145:                                              ; preds = %_ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit
-  %146 = add nuw nsw i64 %.02333, 1
+  %146 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %146, %47
   br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !169
 

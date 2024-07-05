@@ -539,7 +539,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %ret.079.us = phi i32 [ %ret.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %ret.078.us = phi i32 [ %ret.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %4 = load ptr, ptr %prerequisites, align 8
   %add.ptr.us = getelementptr inbounds %struct.string_list_item, ptr %4, i64 %indvars.iv83
   %5 = load ptr, ptr %add.ptr.us, align 8
@@ -550,8 +550,8 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %tobool10.not.us, label %if.end12.us, label %for.inc.us
 
 if.end12.us:                                      ; preds = %for.body.us
-  %inc.us = add nsw i32 %ret.079.us, 1
-  %cmp16.us = icmp eq i32 %ret.079.us, 0
+  %inc.us = add nsw i32 %ret.078.us, 1
+  %cmp16.us = icmp eq i32 %ret.078.us, 0
   br i1 %cmp16.us, label %if.then18.us, label %if.end21.us
 
 if.then18.us:                                     ; preds = %if.end12.us
@@ -564,7 +564,7 @@ if.end21.us:                                      ; preds = %if.then18.us, %if.e
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end21.us, %for.body.us
-  %ret.1.us = phi i32 [ %ret.079.us, %for.body.us ], [ %inc.us, %if.end21.us ]
+  %ret.1.us = phi i32 [ %ret.078.us, %for.body.us ], [ %inc.us, %if.end21.us ]
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %7 = load i64, ptr %nr, align 8
   %cmp.us = icmp ugt i64 %7, %indvars.iv.next84
@@ -586,14 +586,14 @@ _.exit30:                                         ; preds = %if.then, %if.end3.i
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
-  %ret.079 = phi i32 [ %spec.select, %for.body ], [ 0, %for.body.lr.ph ]
+  %ret.078 = phi i32 [ %spec.select, %for.body ], [ 0, %for.body.lr.ph ]
   %9 = load ptr, ptr %prerequisites, align 8
   %util = getelementptr inbounds %struct.string_list_item, ptr %9, i64 %indvars.iv, i32 1
   %10 = load ptr, ptr %util, align 8
   %call9 = tail call ptr @parse_object(ptr noundef nonnull %r, ptr noundef %10) #15
   %tobool10.not = icmp eq ptr %call9, null
   %inc = zext i1 %tobool10.not to i32
-  %spec.select = add nuw nsw i32 %ret.079, %inc
+  %spec.select = add nuw nsw i32 %ret.078, %inc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %11, %indvars.iv.next

@@ -2100,17 +2100,17 @@ argv2int.exit191:                                 ; preds = %if.then44, %land.rh
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end35, %land.lhs.true, %argv2int.exit191, %argv2int.exit163
-  %trend.0 = phi i32 [ %call16, %argv2int.exit163 ], [ %call47, %argv2int.exit191 ], [ %trstart.0, %land.lhs.true ], [ %trstart.0, %if.end35 ]
   %end.0 = phi i32 [ %conv.i162, %argv2int.exit163 ], [ %conv.i190, %argv2int.exit191 ], [ %30, %land.lhs.true ], [ %30, %if.end35 ]
+  %trend.0 = phi i32 [ %call16, %argv2int.exit163 ], [ %call47, %argv2int.exit191 ], [ %trstart.0, %land.lhs.true ], [ %trstart.0, %if.end35 ]
   %trstart.1 = phi i32 [ %call10, %argv2int.exit163 ], [ %trstart.0, %argv2int.exit191 ], [ %trstart.0, %land.lhs.true ], [ %trstart.0, %if.end35 ]
   %cmp54 = icmp slt i32 %end.0, 0
   br i1 %cmp54, label %if.then56, label %if.else68
 
 if.then56:                                        ; preds = %if.end53.thread, %if.end53
   %trstart.1199 = phi i32 [ %call10, %if.end53.thread ], [ %trstart.1, %if.end53 ]
-  %end.0197 = phi i32 [ -1, %if.end53.thread ], [ %end.0, %if.end53 ]
-  %trend.0196 = phi i32 [ %call15, %if.end53.thread ], [ %trend.0, %if.end53 ]
-  %conv57 = trunc i32 %trend.0196 to i16
+  %trend.0197 = phi i32 [ %call15, %if.end53.thread ], [ %trend.0, %if.end53 ]
+  %end.0196 = phi i32 [ -1, %if.end53.thread ], [ %end.0, %if.end53 ]
+  %conv57 = trunc i32 %trend.0197 to i16
   %conv58 = trunc i32 %call2 to i16
   store i16 147, ptr %ot1.i295, align 4
   store i16 %conv57, ptr %fold.i294, align 8
@@ -2130,7 +2130,7 @@ if.then56:                                        ; preds = %if.end53.thread, %i
   %call66 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   %len = getelementptr inbounds i8, ptr %retval.0.i, i64 20
   %39 = load i32, ptr %len, align 4
-  %add = add nsw i32 %end.0197, 1
+  %add = add nsw i32 %end.0196, 1
   %add67 = add i32 %add, %39
   br label %if.end82
 
@@ -2159,8 +2159,8 @@ if.else76:                                        ; preds = %if.else68
 
 if.end82:                                         ; preds = %if.then72, %if.else76, %if.then56
   %trstart.1198 = phi i32 [ %trstart.1199, %if.then56 ], [ %trstart.1, %if.then72 ], [ %trstart.1, %if.else76 ]
-  %trend.1 = phi i32 [ %call66, %if.then56 ], [ %trend.0, %if.then72 ], [ %call1, %if.else76 ]
   %end.1 = phi i32 [ %add67, %if.then56 ], [ %end.0, %if.then72 ], [ %41, %if.else76 ]
+  %trend.1 = phi i32 [ %call66, %if.then56 ], [ %trend.0, %if.then72 ], [ %call1, %if.else76 ]
   %call83 = call fastcc i32 @recff_string_start(ptr noundef nonnull %J, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %start, i32 noundef %trstart.1198, i32 noundef %call1, i32 noundef %call2)
   %42 = load i32, ptr %data, align 8
   %tobool85.not = icmp eq i32 %42, 0
@@ -4188,9 +4188,9 @@ for.inc:                                          ; preds = %for.body, %if.then1
 for.body22:                                       ; preds = %for.body22.lr.ph, %if.end42
   %13 = phi i32 [ %.pre85, %for.body22.lr.ph ], [ %17, %if.end42 ]
   %add1982 = phi i64 [ 1, %for.body22.lr.ph ], [ %add19, %if.end42 ]
-  %arg.181 = phi i64 [ 0, %for.body22.lr.ph ], [ %add1982, %if.end42 ]
-  %trr.080 = phi i32 [ %call.i103, %for.body22.lr.ph ], [ %trr.1, %if.end42 ]
-  %conv1.i110 = trunc i32 %trr.080 to i16
+  %trr.081 = phi i32 [ %call.i103, %for.body22.lr.ph ], [ %trr.1, %if.end42 ]
+  %arg.180 = phi i64 [ 0, %for.body22.lr.ph ], [ %add1982, %if.end42 ]
+  %conv1.i110 = trunc i32 %trr.081 to i16
   store i16 10773, ptr %ot1.i18.i, align 4
   store i16 %conv.i109, ptr %fold.i17.i, align 8
   store i16 %conv1.i110, ptr %op2.i21.i, align 2
@@ -4211,7 +4211,7 @@ if.then26:                                        ; preds = %for.body22
   store i16 %conv27, ptr %op2.i21.i, align 2
   %call28 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   %14 = load ptr, ptr %base.i, align 8
-  %arrayidx30 = getelementptr inbounds i32, ptr %14, i64 %arg.181
+  %arrayidx30 = getelementptr inbounds i32, ptr %14, i64 %arg.180
   store i32 %call28, ptr %arrayidx30, align 4
   br label %if.end42
 
@@ -4231,7 +4231,7 @@ if.else:                                          ; preds = %for.body22
   store i16 %conv35, ptr %op2.i21.i, align 2
   %call39 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   %15 = load ptr, ptr %base.i, align 8
-  %arrayidx41 = getelementptr inbounds i32, ptr %15, i64 %arg.181
+  %arrayidx41 = getelementptr inbounds i32, ptr %15, i64 %arg.180
   store i32 %call39, ptr %arrayidx41, align 4
   %.pre86 = trunc i32 %call36 to i16
   br label %if.end42

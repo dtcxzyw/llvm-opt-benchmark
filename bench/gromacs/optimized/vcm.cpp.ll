@@ -1550,13 +1550,13 @@ define internal void @_Z12calc_vcm_grpRK9t_mdatomsN3gmx8ArrayRefIKNS2_11BasicVec
   br label %64
 
 64:                                               ; preds = %60, %53
-  %.058 = phi i32 [ 0, %53 ], [ %63, %60 ]
+  %.059 = phi i32 [ 0, %53 ], [ %63, %60 ]
   %65 = load ptr, ptr %2, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 232
   %67 = getelementptr inbounds i8, ptr %65, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = mul nsw i32 %68, %12
-  %70 = add nsw i32 %69, %.058
+  %70 = add nsw i32 %69, %.059
   %71 = sext i32 %70 to i64
   %72 = load ptr, ptr %66, align 8
   %73 = getelementptr inbounds %struct.t_vcm_thread, ptr %72, i64 %71
@@ -2198,20 +2198,20 @@ _ZL8get_minvPA3_fS0_.exit.i:                      ; preds = %229
 
 297:                                              ; preds = %297, %.lr.ph160.i
   %indvars.iv177.i = phi i64 [ 0, %.lr.ph160.i ], [ %indvars.iv.next178.i, %297 ]
-  %.0141158.i = phi float [ 0.000000e+00, %.lr.ph160.i ], [ %301, %297 ]
+  %.0144158.i = phi float [ 0.000000e+00, %.lr.ph160.i ], [ %301, %297 ]
   %298 = getelementptr inbounds [3 x float], ptr %296, i64 0, i64 %indvars.iv177.i
   %299 = load float, ptr %298, align 4
   %300 = fmul float %299, %299
-  %301 = fadd float %.0141158.i, %300
+  %301 = fadd float %.0144158.i, %300
   %indvars.iv.next178.i = add nuw nsw i64 %indvars.iv177.i, 1
   %exitcond180.not.i = icmp eq i64 %indvars.iv.next178.i, %wide.trip.count.i
   br i1 %exitcond180.not.i, label %._crit_edge161.i, label %297, !llvm.loop !33
 
 ._crit_edge161.i:                                 ; preds = %297, %.preheader.i
-  %.0141.lcssa.i = phi float [ 0.000000e+00, %.preheader.i ], [ %301, %297 ]
+  %.0144.lcssa.i = phi float [ 0.000000e+00, %.preheader.i ], [ %301, %297 ]
   %302 = fpext float %286 to double
   %303 = fmul double %302, 5.000000e-01
-  %304 = fpext float %.0141.lcssa.i to double
+  %304 = fpext float %.0144.lcssa.i to double
   %305 = fmul double %303, %304
   %306 = fptrunc double %305 to float
   %307 = fmul float %306, 2.000000e+00
@@ -3835,7 +3835,7 @@ _ZL37doStopComMotionAccelerationCorrectionILi3EEviN3gmx8ArrayRefIKtEENS1_INS0_11
 
 632:                                              ; preds = %.lr.ph, %638
   %indvars.iv = phi i64 [ %631, %.lr.ph ], [ %indvars.iv.next, %638 ]
-  %.043136 = phi i32 [ 0, %.lr.ph ], [ %.1, %638 ]
+  %.0137 = phi i32 [ 0, %.lr.ph ], [ %.1, %638 ]
   %.sroa.01.0.copyload.i106 = load ptr, ptr %7, align 8
   %.sroa.0.0.copyload.i107 = load ptr, ptr %628, align 8
   %633 = icmp eq ptr %.sroa.01.0.copyload.i106, %.sroa.0.0.copyload.i107
@@ -3848,7 +3848,7 @@ _ZL37doStopComMotionAccelerationCorrectionILi3EEviN3gmx8ArrayRefIKtEENS1_INS0_11
   br label %638
 
 638:                                              ; preds = %634, %632
-  %.1 = phi i32 [ %.043136, %632 ], [ %637, %634 ]
+  %.1 = phi i32 [ %.0137, %632 ], [ %637, %634 ]
   %639 = load i64, ptr %3, align 8
   %640 = inttoptr i64 %639 to ptr
   %641 = getelementptr inbounds %"class.gmx::BasicVector", ptr %640, i64 %indvars.iv

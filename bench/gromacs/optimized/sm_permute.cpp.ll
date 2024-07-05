@@ -562,7 +562,7 @@ define internal void @_ZL16evaluate_permuteRKN3gmx20SelMethodEvalContextEP13gmx_
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %41 = phi i32 [ %66, %._crit_edge ], [ %34, %.preheader.lr.ph ]
   %42 = phi i32 [ %67, %._crit_edge ], [ %39, %.preheader.lr.ph ]
-  %.03956 = phi i32 [ %68, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %.03856 = phi i32 [ %68, %._crit_edge ], [ 0, %.preheader.lr.ph ]
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph, label %._crit_edge
 
@@ -572,7 +572,7 @@ define internal void @_ZL16evaluate_permuteRKN3gmx20SelMethodEvalContextEP13gmx_
   %45 = load ptr, ptr %36, align 8
   %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
-  %48 = add nsw i32 %47, %.03956
+  %48 = add nsw i32 %47, %.03856
   %49 = load ptr, ptr %37, align 8
   %50 = sext i32 %48 to i64
   %51 = getelementptr inbounds i32, ptr %49, i64 %50
@@ -607,7 +607,7 @@ define internal void @_ZL16evaluate_permuteRKN3gmx20SelMethodEvalContextEP13gmx_
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %66 = phi i32 [ %41, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
   %67 = phi i32 [ %42, %.preheader ], [ %63, %._crit_edge.loopexit ]
-  %68 = add nsw i32 %67, %.03956
+  %68 = add nsw i32 %67, %.03856
   %69 = icmp slt i32 %68, %66
   br i1 %69, label %.preheader, label %._crit_edge57, !llvm.loop !12
 

@@ -32,40 +32,40 @@ define i32 @idamax_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
   %indvars.iv55 = phi i64 [ 1, %.lr.ph51.preheader ], [ %indvars.iv.next56, %.lr.ph51 ]
-  %.050 = phi double [ %12, %.lr.ph51.preheader ], [ %.1, %.lr.ph51 ]
-  %.03049 = phi i32 [ 1, %.lr.ph51.preheader ], [ %.131, %.lr.ph51 ]
+  %.03149 = phi double [ %12, %.lr.ph51.preheader ], [ %.132, %.lr.ph51 ]
+  %.03348 = phi i32 [ 1, %.lr.ph51.preheader ], [ %.134, %.lr.ph51 ]
   %15 = getelementptr inbounds double, ptr %1, i64 %indvars.iv55
   %16 = load double, ptr %15, align 8
   %17 = tail call noundef double @llvm.fabs.f64(double %16)
-  %18 = fcmp ogt double %17, %.050
+  %18 = fcmp ogt double %17, %.03149
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %19 = trunc nuw nsw i64 %indvars.iv.next56 to i32
-  %.131 = select i1 %18, i32 %19, i32 %.03049
-  %.1 = select i1 %18, double %17, double %.050
+  %.134 = select i1 %18, i32 %19, i32 %.03348
+  %.132 = select i1 %18, double %17, double %.03149
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count
   br i1 %exitcond58.not, label %.loopexit, label %.lr.ph51, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %14, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.247 = phi double [ %12, %.lr.ph.preheader ], [ %.3, %.lr.ph ]
-  %.23246 = phi i32 [ 1, %.lr.ph.preheader ], [ %.333, %.lr.ph ]
-  %.13644 = phi i32 [ 1, %.lr.ph.preheader ], [ %26, %.lr.ph ]
+  %.147 = phi i32 [ 1, %.lr.ph.preheader ], [ %26, %.lr.ph ]
+  %.246 = phi double [ %12, %.lr.ph.preheader ], [ %.3, %.lr.ph ]
+  %.23545 = phi i32 [ 1, %.lr.ph.preheader ], [ %.336, %.lr.ph ]
   %20 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
   %21 = load double, ptr %20, align 8
   %22 = tail call noundef double @llvm.fabs.f64(double %21)
-  %23 = fcmp ogt double %22, %.247
+  %23 = fcmp ogt double %22, %.246
   %24 = trunc i64 %indvars.iv to i32
   %25 = add i32 %24, 1
-  %.333 = select i1 %23, i32 %25, i32 %.23246
-  %.3 = select i1 %23, double %22, double %.247
-  %26 = add nuw nsw i32 %.13644, 1
+  %.336 = select i1 %23, i32 %25, i32 %.23545
+  %.3 = select i1 %23, double %22, double %.246
+  %26 = add nuw nsw i32 %.147, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %14
   %exitcond.not = icmp eq i32 %26, %4
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph51, %8, %3
-  %.037 = phi i32 [ -1, %3 ], [ 1, %8 ], [ %.131, %.lr.ph51 ], [ %.333, %.lr.ph ]
-  ret i32 %.037
+  %.0 = phi i32 [ -1, %3 ], [ 1, %8 ], [ %.134, %.lr.ph51 ], [ %.336, %.lr.ph ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

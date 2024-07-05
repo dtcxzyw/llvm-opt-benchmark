@@ -547,8 +547,8 @@ define i32 @cli_bm_initoff(ptr nocapture noundef readonly %0, ptr nocapture noun
   br label %105
 
 105:                                              ; preds = %._crit_edge, %58, %23, %15, %7
-  %.060 = phi i32 [ %57, %58 ], [ 0, %._crit_edge ], [ 20, %23 ], [ 20, %15 ], [ 0, %7 ]
-  ret i32 %.060
+  %.0 = phi i32 [ %57, %58 ], [ 0, %._crit_edge ], [ 20, %23 ], [ 20, %15 ], [ 0, %7 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -748,9 +748,9 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br label %48
 
 48:                                               ; preds = %43, %16
-  %.0206 = phi i32 [ %47, %43 ], [ 0, %16 ]
+  %.0201 = phi i32 [ %47, %43 ], [ 0, %16 ]
   %49 = add i32 %1, -2
-  %50 = icmp ult i32 %.0206, %49
+  %50 = icmp ult i32 %.0201, %49
   br i1 %50, label %.lr.ph338.lr.ph, label %.outer._crit_edge
 
 .lr.ph338.lr.ph:                                  ; preds = %48
@@ -767,24 +767,24 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
 
 .lr.ph338:                                        ; preds = %.lr.ph338.lr.ph, %.outer
   %.0.ph368 = phi i32 [ 0, %.lr.ph338.lr.ph ], [ %.4, %.outer ]
-  %.1207.ph367 = phi i32 [ %.0206, %.lr.ph338.lr.ph ], [ %.3209, %.outer ]
+  %.1202.ph367 = phi i32 [ %.0201, %.lr.ph338.lr.ph ], [ %.3204, %.outer ]
   br label %56
 
 56:                                               ; preds = %.lr.ph338, %111
-  %.1207337 = phi i32 [ %.1207.ph367, %.lr.ph338 ], [ %.2208, %111 ]
-  %57 = zext i32 %.1207337 to i64
+  %.1202337 = phi i32 [ %.1202.ph367, %.lr.ph338 ], [ %.2203, %111 ]
+  %57 = zext i32 %.1202337 to i64
   %58 = getelementptr inbounds i8, ptr %0, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i64
   %61 = mul nuw nsw i64 %60, 211
-  %62 = add nuw i32 %.1207337, 1
+  %62 = add nuw i32 %.1202337, 1
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds i8, ptr %0, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i64
   %67 = mul nuw nsw i64 %66, 37
   %68 = add nuw nsw i64 %67, %61
-  %69 = add nuw i32 %.1207337, 2
+  %69 = add nuw i32 %.1202337, 2
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %0, i64 %70
   %72 = load i8, ptr %71, align 1
@@ -819,7 +819,7 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br i1 %.not246, label %111, label %91
 
 91:                                               ; preds = %90
-  %92 = add i32 %.1207337, %5
+  %92 = add i32 %.1202337, %5
   %93 = load i32, ptr %54, align 8
   %.promoted = load i32, ptr %53, align 4
   %94 = icmp ult i32 %.promoted, %93
@@ -872,21 +872,21 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br label %111
 
 111:                                              ; preds = %90, %109
-  %.2208 = phi i32 [ %110, %109 ], [ %62, %90 ]
-  %112 = icmp ult i32 %.2208, %49
+  %.2203 = phi i32 [ %110, %109 ], [ %62, %90 ]
+  %112 = icmp ult i32 %.2203, %49
   br i1 %112, label %56, label %.outer._crit_edge
 
 .lr.ph355:                                        ; preds = %87, %83
   %113 = getelementptr inbounds i8, ptr %0, i64 %57
-  %114 = add i32 %.1207337, %5
-  %115 = sub i32 %1, %.1207337
+  %114 = add i32 %.1202337, %5
+  %115 = sub i32 %1, %.1202337
   br label %116
 
 116:                                              ; preds = %.lr.ph355, %.backedge
   %.1353 = phi i32 [ %.0.ph368, %.lr.ph355 ], [ %.1.be, %.backedge ]
-  %.0199350 = phi ptr [ %82, %.lr.ph355 ], [ %.0199.be, %.backedge ]
+  %.0200350 = phi ptr [ %82, %.lr.ph355 ], [ %.0200.be, %.backedge ]
   %.not274349 = phi i1 [ true, %.lr.ph355 ], [ %.not253, %.backedge ]
-  %117 = getelementptr inbounds i8, ptr %.0199350, i64 62
+  %117 = getelementptr inbounds i8, ptr %.0200350, i64 62
   %118 = load i8, ptr %117, align 2
   %.not253 = icmp ne i8 %118, %59
   br i1 %.not253, label %119, label %120
@@ -896,37 +896,37 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
 
 .backedge:                                        ; preds = %.lr.ph344, %231, %230, %207, %197, %.critedge282, %152, %159, %140, %136, %120, %126, %119
   %.1.be = phi i32 [ %.1353, %119 ], [ %.1353, %126 ], [ %.1353, %120 ], [ %.1353, %136 ], [ %.1353, %140 ], [ %.1353, %159 ], [ %.1353, %152 ], [ %.1353, %.critedge282 ], [ %.1353, %197 ], [ %.1353, %207 ], [ %.2, %231 ], [ %.2, %230 ], [ %.1353, %.lr.ph344 ]
-  %.0199.be.in = getelementptr inbounds i8, ptr %.0199350, i64 48
-  %.0199.be = load ptr, ptr %.0199.be.in, align 8
-  %.not252 = icmp eq ptr %.0199.be, null
+  %.0200.be.in = getelementptr inbounds i8, ptr %.0200350, i64 48
+  %.0200.be = load ptr, ptr %.0200.be.in, align 8
+  %.not252 = icmp eq ptr %.0200.be, null
   br i1 %.not252, label %.loopexit, label %116
 
 120:                                              ; preds = %116
-  %121 = getelementptr inbounds i8, ptr %.0199350, i64 56
+  %121 = getelementptr inbounds i8, ptr %.0200350, i64 56
   %122 = load i16, ptr %121, align 8
   %123 = zext i16 %122 to i32
-  %124 = add i32 %.1207337, %123
+  %124 = add i32 %.1202337, %123
   %125 = icmp ugt i32 %124, %1
   br i1 %125, label %.backedge, label %126
 
 126:                                              ; preds = %120
-  %127 = getelementptr inbounds i8, ptr %.0199350, i64 58
+  %127 = getelementptr inbounds i8, ptr %.0200350, i64 58
   %128 = load i16, ptr %127, align 2
   %129 = zext i16 %128 to i32
-  %130 = icmp ult i32 %.1207337, %129
+  %130 = icmp ult i32 %.1202337, %129
   br i1 %130, label %.backedge, label %131
 
 131:                                              ; preds = %126
   br i1 %.not246, label %149, label %132
 
 132:                                              ; preds = %131
-  %133 = getelementptr inbounds i8, ptr %.0199350, i64 24
+  %133 = getelementptr inbounds i8, ptr %.0200350, i64 24
   %134 = load i32, ptr %133, align 8
   %135 = icmp eq i32 %134, 1
   br i1 %135, label %136, label %140
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %.0199350, i64 40
+  %137 = getelementptr inbounds i8, ptr %.0200350, i64 40
   %138 = load i32, ptr %137, align 8
   %139 = sub i32 %114, %129
   %.not255 = icmp eq i32 %138, %139
@@ -934,7 +934,7 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
 
 140:                                              ; preds = %132
   %141 = load ptr, ptr %7, align 8
-  %142 = getelementptr inbounds i8, ptr %.0199350, i64 40
+  %142 = getelementptr inbounds i8, ptr %.0200350, i64 40
   %143 = load i32, ptr %142, align 8
   %144 = zext i32 %143 to i64
   %145 = getelementptr inbounds i32, ptr %141, i64 %144
@@ -956,7 +956,7 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   %153 = zext i16 %151 to i64
   %154 = getelementptr inbounds i8, ptr %113, i64 %153
   %155 = load i8, ptr %154, align 1
-  %156 = load ptr, ptr %.0199350, align 8
+  %156 = load ptr, ptr %.0200350, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 %153
   %158 = load i8, ptr %157, align 1
   %.not257 = icmp eq i8 %155, %158
@@ -974,13 +974,13 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
 
 166:                                              ; preds = %159, %149
   %.not259 = icmp eq i16 %128, 0
-  %167 = sub i32 %.1207337, %129
+  %167 = sub i32 %.1202337, %129
   %168 = zext i16 %128 to i64
   %169 = sub nsw i64 0, %168
   %170 = getelementptr inbounds i8, ptr %113, i64 %169
-  %.0197.in.idx = select i1 %.not259, i64 0, i64 8
-  %.0197.in = getelementptr inbounds i8, ptr %.0199350, i64 %.0197.in.idx
-  %.0197 = load ptr, ptr %.0197.in, align 8
+  %.0198.in.idx = select i1 %.not259, i64 0, i64 8
+  %.0198.in = getelementptr inbounds i8, ptr %.0200350, i64 %.0198.in.idx
+  %.0198 = load ptr, ptr %.0198.in, align 8
   %171 = add nuw nsw i32 %129, %123
   %172 = icmp ne i32 %171, 0
   %173 = icmp ult i32 %167, %1
@@ -993,17 +993,17 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
 
 .lr.ph344:                                        ; preds = %.lr.ph344.preheader, %180
   %indvars.iv403 = phi i64 [ 0, %.lr.ph344.preheader ], [ %indvars.iv.next404, %180 ]
-  %.1204342 = phi i32 [ %167, %.lr.ph344.preheader ], [ %181, %180 ]
+  %.1210341 = phi i32 [ %167, %.lr.ph344.preheader ], [ %181, %180 ]
   %176 = getelementptr inbounds i8, ptr %170, i64 %indvars.iv403
   %177 = load i8, ptr %176, align 1
-  %178 = getelementptr inbounds i8, ptr %.0197, i64 %indvars.iv403
+  %178 = getelementptr inbounds i8, ptr %.0198, i64 %indvars.iv403
   %179 = load i8, ptr %178, align 1
   %.not260 = icmp eq i8 %177, %179
   br i1 %.not260, label %180, label %.backedge
 
 180:                                              ; preds = %.lr.ph344
   %indvars.iv.next404 = add nuw nsw i64 %indvars.iv403, 1
-  %181 = add nuw i32 %.1204342, 1
+  %181 = add nuw i32 %.1210341, 1
   %182 = icmp ult i64 %indvars.iv.next404, %175
   %183 = icmp ult i32 %181, %1
   %184 = select i1 %182, i1 %183, i1 false
@@ -1014,13 +1014,13 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br label %.critedge282
 
 .critedge282:                                     ; preds = %.critedge282.loopexit, %166
+  %.1210.lcssa = phi i32 [ %167, %166 ], [ %181, %.critedge282.loopexit ]
   %.0205.lcssa = phi i32 [ 0, %166 ], [ %185, %.critedge282.loopexit ]
-  %.1204.lcssa = phi i32 [ %167, %166 ], [ %181, %.critedge282.loopexit ]
-  %186 = getelementptr inbounds i8, ptr %.0199350, i64 64
+  %186 = getelementptr inbounds i8, ptr %.0200350, i64 64
   %187 = load i32, ptr %186, align 8
   %188 = and i32 %187, 1
   %.not262 = icmp eq i32 %188, 0
-  %.not263 = icmp eq i32 %.1204.lcssa, %1
+  %.not263 = icmp eq i32 %.1210.lcssa, %1
   %or.cond283 = select i1 %.not262, i1 true, i1 %.not263
   %189 = icmp eq i32 %171, %.0205.lcssa
   %or.cond462 = select i1 %or.cond283, i1 %189, i1 false
@@ -1030,13 +1030,13 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br i1 %.not246, label %191, label %215
 
 191:                                              ; preds = %190
-  %192 = getelementptr inbounds i8, ptr %.0199350, i64 40
+  %192 = getelementptr inbounds i8, ptr %.0200350, i64 40
   %193 = load i32, ptr %192, align 8
   %.not264 = icmp eq i32 %193, -1
   br i1 %.not264, label %215, label %194
 
 194:                                              ; preds = %191
-  %195 = getelementptr inbounds i8, ptr %.0199350, i64 24
+  %195 = getelementptr inbounds i8, ptr %.0200350, i64 24
   %196 = load i32, ptr %195, align 8
   %.not265 = icmp eq i32 %196, 1
   br i1 %.not265, label %204, label %197
@@ -1058,14 +1058,14 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br label %207
 
 201:                                              ; preds = %198
-  %202 = getelementptr inbounds i8, ptr %.0199350, i64 16
+  %202 = getelementptr inbounds i8, ptr %.0200350, i64 16
   %203 = load ptr, ptr %202, align 8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.10, ptr noundef %203) #8
   br label %.loopexit294
 
 204:                                              ; preds = %194
   store i32 %193, ptr %10, align 4
-  %205 = getelementptr inbounds i8, ptr %.0199350, i64 44
+  %205 = getelementptr inbounds i8, ptr %.0200350, i64 44
   %206 = load i32, ptr %205, align 4
   store i32 %206, ptr %11, align 4
   br label %207
@@ -1087,7 +1087,7 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br i1 %.not268, label %228, label %217
 
 217:                                              ; preds = %215
-  %218 = getelementptr inbounds i8, ptr %.0199350, i64 16
+  %218 = getelementptr inbounds i8, ptr %.0200350, i64 16
   %219 = load ptr, ptr %218, align 8
   store ptr %219, ptr %2, align 8
   br i1 %.not269, label %228, label %220
@@ -1112,7 +1112,7 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br i1 %.not271, label %230, label %229
 
 229:                                              ; preds = %228
-  store ptr %.0199350, ptr %3, align 8
+  store ptr %.0200350, ptr %3, align 8
   br label %230
 
 230:                                              ; preds = %229, %228
@@ -1126,12 +1126,12 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br i1 %.not273, label %.loopexit294, label %.backedge
 
 .loopexit:                                        ; preds = %56, %79, %119, %.backedge
-  %.0200 = phi i8 [ 1, %.backedge ], [ 1, %119 ], [ %77, %56 ], [ 1, %79 ]
+  %.0206 = phi i8 [ 1, %.backedge ], [ 1, %119 ], [ %77, %56 ], [ 1, %79 ]
   %.4 = phi i32 [ %.1353, %119 ], [ %.1.be, %.backedge ], [ %.0.ph368, %79 ], [ %.0.ph368, %56 ]
   br i1 %.not246, label %256, label %235
 
 235:                                              ; preds = %.loopexit
-  %236 = add i32 %.1207337, %5
+  %236 = add i32 %.1202337, %5
   %237 = load i32, ptr %54, align 8
   %.promoted359 = load i32, ptr %53, align 4
   %238 = icmp ult i32 %.promoted359, %237
@@ -1184,13 +1184,13 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br label %.outer
 
 256:                                              ; preds = %.loopexit
-  %257 = zext i8 %.0200 to i32
+  %257 = zext i8 %.0206 to i32
   br label %.outer
 
 .outer:                                           ; preds = %256, %254
   %.pn = phi i32 [ %255, %254 ], [ %257, %256 ]
-  %.3209 = add i32 %.pn, %.1207337
-  %258 = icmp ult i32 %.3209, %49
+  %.3204 = add i32 %.pn, %.1202337
+  %258 = icmp ult i32 %.3204, %49
   br i1 %258, label %.lr.ph338, label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer, %111, %48
@@ -1200,8 +1200,8 @@ define i32 @cli_bm_scanbuff(ptr nocapture noundef readonly %0, i32 noundef %1, p
   br label %.loopexit294
 
 .loopexit294:                                     ; preds = %231, %.outer._crit_edge, %.critedge5.thread, %.critedge2.thread, %41, %17, %9, %12, %201
-  %.0210 = phi i32 [ %200, %201 ], [ 0, %12 ], [ 0, %9 ], [ 0, %17 ], [ 0, %41 ], [ %., %.critedge2.thread ], [ %.289, %.critedge5.thread ], [ %.290, %.outer._crit_edge ], [ 1, %231 ]
-  ret i32 %.0210
+  %.0197 = phi i32 [ %200, %201 ], [ 0, %12 ], [ 0, %9 ], [ 0, %17 ], [ 0, %41 ], [ %., %.critedge2.thread ], [ %.289, %.critedge5.thread ], [ %.290, %.outer._crit_edge ], [ 1, %231 ]
+  ret i32 %.0197
 }
 
 declare i32 @cli_append_virus(ptr noundef, ptr noundef) local_unnamed_addr #1

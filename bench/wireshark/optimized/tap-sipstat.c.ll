@@ -288,10 +288,10 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr nocaptur
   br i1 %81, label %104, label %82
 
 82:                                               ; preds = %78, %54
-  %.0 = phi ptr [ %80, %78 ], [ %57, %54 ]
-  %83 = load i32, ptr %.0, align 8
+  %.059 = phi ptr [ %80, %78 ], [ %57, %54 ]
+  %83 = load i32, ptr %.059, align 8
   %84 = add i32 %83, 1
-  store i32 %84, ptr %.0, align 8
+  store i32 %84, ptr %.059, align 8
   br label %104
 
 85:                                               ; preds = %51
@@ -327,8 +327,8 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr nocaptur
   br label %104
 
 104:                                              ; preds = %82, %92, %100, %85, %78, %59
-  %.059 = phi i32 [ 0, %59 ], [ 0, %78 ], [ 0, %85 ], [ 1, %100 ], [ 1, %92 ], [ 1, %82 ]
-  ret i32 %.059
+  %.0 = phi i32 [ 0, %59 ], [ 0, %78 ], [ 0, %85 ], [ 1, %100 ], [ 1, %92 ], [ 1, %82 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

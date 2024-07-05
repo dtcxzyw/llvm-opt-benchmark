@@ -657,9 +657,9 @@ if.then34:                                        ; preds = %if.end28
 
 do.body2.i:                                       ; preds = %data_pending.exit.i, %if.then34
   %didwhat.0 = phi i32 [ 0, %if.then34 ], [ 1, %data_pending.exit.i ]
-  %maxloops.0.i = phi i32 [ 10, %if.then34 ], [ %dec.i, %data_pending.exit.i ]
-  %total_received.0.i = phi i64 [ 0, %if.then34 ], [ %29, %data_pending.exit.i ]
   %is_multiplex.0.i = phi i8 [ 0, %if.then34 ], [ %is_multiplex.1.i, %data_pending.exit.i ]
+  %total_received.0.i = phi i64 [ 0, %if.then34 ], [ %29, %data_pending.exit.i ]
+  %maxloops.0.i = phi i32 [ 10, %if.then34 ], [ %dec.i, %data_pending.exit.i ]
   %tobool.i = trunc nuw i8 %is_multiplex.0.i to i1
   br i1 %tobool.i, label %if.end.i, label %if.then.i
 

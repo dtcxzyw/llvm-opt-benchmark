@@ -186,8 +186,8 @@ _ZSt11max_elementIPKtET_S2_S2_.exit.i:            ; preds = %.lr.ph.i.i.i
 
 40:                                               ; preds = %40, %_ZSt11max_elementIPKtET_S2_S2_.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZSt11max_elementIPKtET_S2_S2_.exit.i ], [ %indvars.iv.next.i, %40 ]
-  %.03761.i = phi i32 [ 0, %_ZSt11max_elementIPKtET_S2_S2_.exit.i ], [ %spec.select55.i, %40 ]
-  %.05260.i = phi i32 [ 0, %_ZSt11max_elementIPKtET_S2_S2_.exit.i ], [ %spec.select54.i, %40 ]
+  %.03263.i = phi i32 [ 0, %_ZSt11max_elementIPKtET_S2_S2_.exit.i ], [ %spec.select56.i, %40 ]
+  %.05261.i = phi i32 [ 0, %_ZSt11max_elementIPKtET_S2_S2_.exit.i ], [ %spec.select55.i, %40 ]
   %41 = sub nsw i64 %indvars.iv.i, %38
   %42 = getelementptr inbounds [32 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %43 = load i16, ptr %42, align 2
@@ -195,10 +195,10 @@ _ZSt11max_elementIPKtET_S2_S2_.exit.i:            ; preds = %.lr.ph.i.i.i
   %45 = trunc i64 %41 to i32
   %46 = mul i32 %45, %45
   %47 = mul i32 %46, %44
-  %48 = icmp sgt i32 %47, %.03761.i
+  %48 = icmp sgt i32 %47, %.03263.i
   %49 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %spec.select54.i = select i1 %48, i32 %49, i32 %.05260.i
-  %spec.select55.i = call i32 @llvm.smax.i32(i32 %47, i32 %.03761.i)
+  %spec.select55.i = select i1 %48, i32 %49, i32 %.05261.i
+  %spec.select56.i = call i32 @llvm.smax.i32(i32 %47, i32 %.03263.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
   br i1 %exitcond.not.i, label %50, label %40, !llvm.loop !12
@@ -206,46 +206,46 @@ _ZSt11max_elementIPKtET_S2_S2_.exit.i:            ; preds = %.lr.ph.i.i.i
 50:                                               ; preds = %40
   %51 = trunc i64 %38 to i32
   %52 = zext i16 %39 to i32
-  %spec.select56.i = call i32 @llvm.smin.i32(i32 %spec.select54.i, i32 %51)
-  %spec.select57.i = call i32 @llvm.smax.i32(i32 %spec.select54.i, i32 %51)
-  %53 = sub nsw i32 %spec.select57.i, %spec.select56.i
+  %spec.select57.i = call i32 @llvm.smin.i32(i32 %spec.select55.i, i32 %51)
+  %spec.select58.i = call i32 @llvm.smax.i32(i32 %spec.select55.i, i32 %51)
+  %53 = sub nsw i32 %spec.select58.i, %spec.select57.i
   %54 = icmp slt i32 %53, 3
   br i1 %54, label %_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread, label %55
 
 55:                                               ; preds = %50
-  %56 = add nsw i32 %spec.select57.i, -1
-  %57 = icmp sgt i32 %56, %spec.select56.i
+  %56 = add nsw i32 %spec.select58.i, -1
+  %57 = icmp sgt i32 %56, %spec.select57.i
   br i1 %57, label %.lr.ph.preheader.i, label %_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit
 
 .lr.ph.preheader.i:                               ; preds = %55
   %58 = sext i32 %56 to i64
-  %59 = sext i32 %spec.select56.i to i64
+  %59 = sext i32 %spec.select57.i to i64
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %.lr.ph.i9, %.lr.ph.preheader.i
-  %indvars.iv67.i = phi i64 [ %58, %.lr.ph.preheader.i ], [ %indvars.iv.next68.i, %.lr.ph.i9 ]
-  %.03364.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %spec.select42.i, %.lr.ph.i9 ]
-  %.03463.i = phi i32 [ %56, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i9 ]
-  %60 = trunc i64 %indvars.iv67.i to i32
-  %61 = sub i32 %60, %spec.select56.i
+  %indvars.iv68.i = phi i64 [ %58, %.lr.ph.preheader.i ], [ %indvars.iv.next69.i, %.lr.ph.i9 ]
+  %.03465.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %spec.select42.i, %.lr.ph.i9 ]
+  %.03664.i = phi i32 [ %56, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i9 ]
+  %60 = trunc i64 %indvars.iv68.i to i32
+  %61 = sub i32 %60, %spec.select57.i
   %62 = mul nsw i32 %61, %61
-  %63 = sub i32 %spec.select57.i, %60
+  %63 = sub i32 %spec.select58.i, %60
   %64 = mul nsw i32 %62, %63
-  %65 = getelementptr inbounds [32 x i16], ptr %6, i64 0, i64 %indvars.iv67.i
+  %65 = getelementptr inbounds [32 x i16], ptr %6, i64 0, i64 %indvars.iv68.i
   %66 = load i16, ptr %65, align 2
   %67 = zext i16 %66 to i32
   %68 = sub nsw i32 %52, %67
   %69 = mul nsw i32 %64, %68
-  %70 = icmp sgt i32 %69, %.03364.i
-  %spec.select.i = select i1 %70, i32 %60, i32 %.03463.i
-  %spec.select42.i = call i32 @llvm.smax.i32(i32 %69, i32 %.03364.i)
-  %indvars.iv.next68.i = add nsw i64 %indvars.iv67.i, -1
-  %71 = icmp sgt i64 %indvars.iv.next68.i, %59
+  %70 = icmp sgt i32 %69, %.03465.i
+  %spec.select.i = select i1 %70, i32 %60, i32 %.03664.i
+  %spec.select42.i = call i32 @llvm.smax.i32(i32 %69, i32 %.03465.i)
+  %indvars.iv.next69.i = add nsw i64 %indvars.iv68.i, -1
+  %71 = icmp sgt i64 %indvars.iv.next69.i, %59
   br i1 %71, label %.lr.ph.i9, label %_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit, !llvm.loop !13
 
 _ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit: ; preds = %.lr.ph.i9, %55
-  %.034.lcssa.i = phi i32 [ %56, %55 ], [ %spec.select.i, %.lr.ph.i9 ]
-  %72 = shl i32 %.034.lcssa.i, 3
+  %.036.lcssa.i = phi i32 [ %56, %55 ], [ %spec.select.i, %.lr.ph.i9 ]
+  %72 = shl i32 %.036.lcssa.i, 3
   %73 = add nsw i32 %72, -1
   %74 = icmp slt i32 %72, 2
   br i1 %74, label %_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread, label %75
@@ -685,8 +685,8 @@ _ZSt11max_elementIPKtET_S2_S2_.exit.i:            ; preds = %.lr.ph.i.i.i
 
 41:                                               ; preds = %41, %_ZSt11max_elementIPKtET_S2_S2_.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZSt11max_elementIPKtET_S2_S2_.exit.i ], [ %indvars.iv.next.i, %41 ]
-  %.03761.i = phi i32 [ 0, %_ZSt11max_elementIPKtET_S2_S2_.exit.i ], [ %spec.select55.i, %41 ]
-  %.05260.i = phi i32 [ 0, %_ZSt11max_elementIPKtET_S2_S2_.exit.i ], [ %spec.select54.i, %41 ]
+  %.03263.i = phi i32 [ 0, %_ZSt11max_elementIPKtET_S2_S2_.exit.i ], [ %spec.select56.i, %41 ]
+  %.05261.i = phi i32 [ 0, %_ZSt11max_elementIPKtET_S2_S2_.exit.i ], [ %spec.select55.i, %41 ]
   %42 = sub nsw i64 %indvars.iv.i, %39
   %43 = getelementptr inbounds [32 x i16], ptr %3, i64 0, i64 %indvars.iv.i
   %44 = load i16, ptr %43, align 2
@@ -694,10 +694,10 @@ _ZSt11max_elementIPKtET_S2_S2_.exit.i:            ; preds = %.lr.ph.i.i.i
   %46 = trunc i64 %42 to i32
   %47 = mul i32 %46, %46
   %48 = mul i32 %47, %45
-  %49 = icmp sgt i32 %48, %.03761.i
+  %49 = icmp sgt i32 %48, %.03263.i
   %50 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %spec.select54.i = select i1 %49, i32 %50, i32 %.05260.i
-  %spec.select55.i = call i32 @llvm.smax.i32(i32 %48, i32 %.03761.i)
+  %spec.select55.i = select i1 %49, i32 %50, i32 %.05261.i
+  %spec.select56.i = call i32 @llvm.smax.i32(i32 %48, i32 %.03263.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
   br i1 %exitcond.not.i, label %51, label %41, !llvm.loop !12
@@ -705,46 +705,46 @@ _ZSt11max_elementIPKtET_S2_S2_.exit.i:            ; preds = %.lr.ph.i.i.i
 51:                                               ; preds = %41
   %52 = trunc i64 %39 to i32
   %53 = zext i16 %40 to i32
-  %spec.select56.i = call i32 @llvm.smin.i32(i32 %spec.select54.i, i32 %52)
-  %spec.select57.i = call i32 @llvm.smax.i32(i32 %spec.select54.i, i32 %52)
-  %54 = sub nsw i32 %spec.select57.i, %spec.select56.i
+  %spec.select57.i = call i32 @llvm.smin.i32(i32 %spec.select55.i, i32 %52)
+  %spec.select58.i = call i32 @llvm.smax.i32(i32 %spec.select55.i, i32 %52)
+  %54 = sub nsw i32 %spec.select58.i, %spec.select57.i
   %55 = icmp slt i32 %54, 3
   br i1 %55, label %_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread, label %56
 
 56:                                               ; preds = %51
-  %57 = add nsw i32 %spec.select57.i, -1
-  %58 = icmp sgt i32 %57, %spec.select56.i
+  %57 = add nsw i32 %spec.select58.i, -1
+  %58 = icmp sgt i32 %57, %spec.select57.i
   br i1 %58, label %.lr.ph.preheader.i, label %_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit
 
 .lr.ph.preheader.i:                               ; preds = %56
   %59 = sext i32 %57 to i64
-  %60 = sext i32 %spec.select56.i to i64
+  %60 = sext i32 %spec.select57.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv67.i = phi i64 [ %59, %.lr.ph.preheader.i ], [ %indvars.iv.next68.i, %.lr.ph.i ]
-  %.03364.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %spec.select42.i, %.lr.ph.i ]
-  %.03463.i = phi i32 [ %57, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %61 = trunc i64 %indvars.iv67.i to i32
-  %62 = sub i32 %61, %spec.select56.i
+  %indvars.iv68.i = phi i64 [ %59, %.lr.ph.preheader.i ], [ %indvars.iv.next69.i, %.lr.ph.i ]
+  %.03465.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %spec.select42.i, %.lr.ph.i ]
+  %.03664.i = phi i32 [ %57, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
+  %61 = trunc i64 %indvars.iv68.i to i32
+  %62 = sub i32 %61, %spec.select57.i
   %63 = mul nsw i32 %62, %62
-  %64 = sub i32 %spec.select57.i, %61
+  %64 = sub i32 %spec.select58.i, %61
   %65 = mul nsw i32 %63, %64
-  %66 = getelementptr inbounds [32 x i16], ptr %3, i64 0, i64 %indvars.iv67.i
+  %66 = getelementptr inbounds [32 x i16], ptr %3, i64 0, i64 %indvars.iv68.i
   %67 = load i16, ptr %66, align 2
   %68 = zext i16 %67 to i32
   %69 = sub nsw i32 %53, %68
   %70 = mul nsw i32 %65, %69
-  %71 = icmp sgt i32 %70, %.03364.i
-  %spec.select.i = select i1 %71, i32 %61, i32 %.03463.i
-  %spec.select42.i = call i32 @llvm.smax.i32(i32 %70, i32 %.03364.i)
-  %indvars.iv.next68.i = add nsw i64 %indvars.iv67.i, -1
-  %72 = icmp sgt i64 %indvars.iv.next68.i, %60
+  %71 = icmp sgt i32 %70, %.03465.i
+  %spec.select.i = select i1 %71, i32 %61, i32 %.03664.i
+  %spec.select42.i = call i32 @llvm.smax.i32(i32 %70, i32 %.03465.i)
+  %indvars.iv.next69.i = add nsw i64 %indvars.iv68.i, -1
+  %72 = icmp sgt i64 %indvars.iv.next69.i, %60
   br i1 %72, label %.lr.ph.i, label %_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit, !llvm.loop !13
 
 _ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit: ; preds = %.lr.ph.i, %56
-  %.034.lcssa.i = phi i32 [ %57, %56 ], [ %spec.select.i, %.lr.ph.i ]
-  %73 = shl i32 %.034.lcssa.i, 3
+  %.036.lcssa.i = phi i32 [ %57, %56 ], [ %spec.select.i, %.lr.ph.i ]
+  %73 = shl i32 %.036.lcssa.i, 3
   %74 = icmp slt i32 %73, 1
   br i1 %74, label %_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread, label %75
 

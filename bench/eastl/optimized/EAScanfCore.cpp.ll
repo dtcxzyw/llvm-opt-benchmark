@@ -3860,9 +3860,9 @@ if.end106.thread:                                 ; preds = %if.end
 while.body:                                       ; preds = %if.end, %sw.epilog
   %nBase.addr.0102 = phi i32 [ %nBase.addr.2, %sw.epilog ], [ %nBase, %if.end ]
   %state.0101 = phi i32 [ %state.2, %sw.epilog ], [ 1, %if.end ]
-  %c.0100 = phi i32 [ %c.4, %sw.epilog ], [ %call, %if.end ]
-  %nMaxValueCheck.199 = phi i64 [ %nMaxValueCheck.3, %sw.epilog ], [ %nMaxValueCheck.0, %if.end ]
-  %nValue.098 = phi i64 [ %nValue.1, %sw.epilog ], [ 0, %if.end ]
+  %nValue.0100 = phi i64 [ %nValue.1, %sw.epilog ], [ 0, %if.end ]
+  %c.099 = phi i32 [ %c.4, %sw.epilog ], [ %call, %if.end ]
+  %nMaxValueCheck.198 = phi i64 [ %nMaxValueCheck.3, %sw.epilog ], [ %nMaxValueCheck.0, %if.end ]
   %nSpaceCount.097 = phi i32 [ %nSpaceCount.1, %sw.epilog ], [ 0, %if.end ]
   switch i32 %state.0101, label %sw.epilog [
     i32 1, label %sw.bb
@@ -3873,7 +3873,7 @@ while.body:                                       ; preds = %if.end, %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %while.body
-  %1 = and i32 %c.0100, 255
+  %1 = and i32 %c.099, 255
   %idxprom.i = zext nneg i32 %1 to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
@@ -3887,7 +3887,7 @@ if.then13:                                        ; preds = %sw.bb
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb
-  switch i32 %c.0100, label %sw.epilog [
+  switch i32 %c.099, label %sw.epilog [
     i32 45, label %if.then17
     i32 43, label %if.then22
   ]
@@ -3911,7 +3911,7 @@ sw.bb28:                                          ; preds = %while.body
   %cmp29 = icmp eq i32 %nBase.addr.0102, 0
   %cmp30 = icmp eq i32 %nBase.addr.0102, 16
   %or.cond2 = or i1 %cmp29, %cmp30
-  %cmp32 = icmp eq i32 %c.0100, 48
+  %cmp32 = icmp eq i32 %c.099, 48
   %or.cond3 = and i1 %cmp32, %or.cond2
   br i1 %or.cond3, label %if.then33, label %if.else36
 
@@ -3924,7 +3924,7 @@ if.then33:                                        ; preds = %sw.bb28
 
 if.else36:                                        ; preds = %sw.bb28
   %spec.store.select = select i1 %cmp29, i32 10, i32 %nBase.addr.0102
-  %cmp40 = icmp eq i64 %nMaxValueCheck.199, 0
+  %cmp40 = icmp eq i64 %nMaxValueCheck.198, 0
   br i1 %cmp40, label %if.then41, label %sw.epilog
 
 if.then41:                                        ; preds = %if.else36
@@ -3933,7 +3933,7 @@ if.then41:                                        ; preds = %if.else36
   br label %sw.epilog
 
 sw.bb46:                                          ; preds = %while.body
-  %7 = and i32 %c.0100, -33
+  %7 = and i32 %c.099, -33
   %or.cond4 = icmp eq i32 %7, 88
   br i1 %or.cond4, label %if.then50, label %if.else53
 
@@ -3950,10 +3950,10 @@ if.else53:                                        ; preds = %sw.bb46
   br label %if.end57
 
 if.end57:                                         ; preds = %if.else53, %if.then50
-  %c.2 = phi i32 [ %call51, %if.then50 ], [ %c.0100, %if.else53 ]
+  %c.2 = phi i32 [ %call51, %if.then50 ], [ %c.099, %if.else53 ]
   %state.1 = phi i32 [ 8, %if.then50 ], [ 16, %if.else53 ]
   %nBase.addr.1 = phi i32 [ 16, %if.then50 ], [ %spec.store.select5, %if.else53 ]
-  %cmp58 = icmp eq i64 %nMaxValueCheck.199, 0
+  %cmp58 = icmp eq i64 %nMaxValueCheck.198, 0
   br i1 %cmp58, label %if.then59, label %sw.epilog
 
 if.then59:                                        ; preds = %if.end57
@@ -3962,7 +3962,7 @@ if.then59:                                        ; preds = %if.end57
   br label %sw.epilog
 
 sw.bb63:                                          ; preds = %while.body, %while.body
-  %sub = add nsw i32 %c.0100, -48
+  %sub = add nsw i32 %c.099, -48
   %cmp64 = icmp ult i32 %sub, 10
   br i1 %cmp64, label %if.then65, label %if.else73
 
@@ -3980,7 +3980,7 @@ if.else73:                                        ; preds = %sw.bb63
   br i1 %cmp74, label %land.lhs.true75, label %if.else85
 
 land.lhs.true75:                                  ; preds = %if.else73
-  %9 = and i32 %c.0100, 255
+  %9 = and i32 %c.099, 255
   %idxprom.i76 = zext nneg i32 %9 to i64
   %arrayidx.i77 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WLOWER_MAPE, i64 0, i64 %idxprom.i76
   %10 = load i8, ptr %arrayidx.i77, align 1
@@ -3998,9 +3998,9 @@ if.else85:                                        ; preds = %land.lhs.true75, %i
 
 if.end91:                                         ; preds = %land.lhs.true75, %if.then65
   %c.3 = phi i32 [ %sub, %if.then65 ], [ %sub82, %land.lhs.true75 ]
-  %cmp92 = icmp ugt i64 %nValue.098, %nMaxValueCheck.199
+  %cmp92 = icmp ugt i64 %nValue.0100, %nMaxValueCheck.198
   %conv95 = zext nneg i32 %nBase.addr.0102 to i64
-  %mul = mul i64 %nValue.098, %conv95
+  %mul = mul i64 %nValue.0100, %conv95
   %conv96 = zext nneg i32 %c.3 to i64
   %sub97 = sub i64 %nMaxValue, %mul
   %cmp98 = icmp ult i64 %sub97, %conv96
@@ -4021,9 +4021,9 @@ if.end91:                                         ; preds = %land.lhs.true75, %i
 
 sw.epilog:                                        ; preds = %if.else85, %if.then67, %if.else36, %if.then41, %if.then17, %if.then22, %if.else, %if.end57, %if.then59, %if.then33, %if.then13, %13, %while.body
   %nSpaceCount.1 = phi i32 [ %nSpaceCount.097, %while.body ], [ %nSpaceCount.097, %13 ], [ %nSpaceCount.097, %if.then59 ], [ %nSpaceCount.097, %if.end57 ], [ %nSpaceCount.097, %if.then33 ], [ %inc15, %if.then13 ], [ %nSpaceCount.097, %if.else ], [ %nSpaceCount.097, %if.then22 ], [ %nSpaceCount.097, %if.then17 ], [ %nSpaceCount.097, %if.then41 ], [ %nSpaceCount.097, %if.else36 ], [ %nSpaceCount.097, %if.then67 ], [ %nSpaceCount.097, %if.else85 ]
-  %nValue.1 = phi i64 [ %nValue.098, %while.body ], [ %add102, %13 ], [ %nValue.098, %if.then59 ], [ %nValue.098, %if.end57 ], [ %nValue.098, %if.then33 ], [ %nValue.098, %if.then13 ], [ %nValue.098, %if.else ], [ %nValue.098, %if.then22 ], [ %nValue.098, %if.then17 ], [ %nValue.098, %if.then41 ], [ %nValue.098, %if.else36 ], [ %nValue.098, %if.then67 ], [ %nValue.098, %if.else85 ]
-  %nMaxValueCheck.3 = phi i64 [ %nMaxValueCheck.199, %while.body ], [ %nMaxValueCheck.199, %13 ], [ %div61, %if.then59 ], [ %nMaxValueCheck.199, %if.end57 ], [ %nMaxValueCheck.199, %if.then33 ], [ %nMaxValueCheck.199, %if.then13 ], [ %nMaxValueCheck.199, %if.else ], [ %nMaxValueCheck.199, %if.then22 ], [ %nMaxValueCheck.199, %if.then17 ], [ %div43, %if.then41 ], [ %nMaxValueCheck.199, %if.else36 ], [ %nMaxValueCheck.199, %if.then67 ], [ %nMaxValueCheck.199, %if.else85 ]
-  %c.4 = phi i32 [ %c.0100, %while.body ], [ %call103, %13 ], [ %c.2, %if.then59 ], [ %c.2, %if.end57 ], [ %call34, %if.then33 ], [ %call14, %if.then13 ], [ %c.0100, %if.else ], [ %call23, %if.then22 ], [ %call18, %if.then17 ], [ %c.0100, %if.then41 ], [ %c.0100, %if.else36 ], [ %c.0100, %if.then67 ], [ %c.0100, %if.else85 ]
+  %nMaxValueCheck.3 = phi i64 [ %nMaxValueCheck.198, %while.body ], [ %nMaxValueCheck.198, %13 ], [ %div61, %if.then59 ], [ %nMaxValueCheck.198, %if.end57 ], [ %nMaxValueCheck.198, %if.then33 ], [ %nMaxValueCheck.198, %if.then13 ], [ %nMaxValueCheck.198, %if.else ], [ %nMaxValueCheck.198, %if.then22 ], [ %nMaxValueCheck.198, %if.then17 ], [ %div43, %if.then41 ], [ %nMaxValueCheck.198, %if.else36 ], [ %nMaxValueCheck.198, %if.then67 ], [ %nMaxValueCheck.198, %if.else85 ]
+  %c.4 = phi i32 [ %c.099, %while.body ], [ %call103, %13 ], [ %c.2, %if.then59 ], [ %c.2, %if.end57 ], [ %call34, %if.then33 ], [ %call14, %if.then13 ], [ %c.099, %if.else ], [ %call23, %if.then22 ], [ %call18, %if.then17 ], [ %c.099, %if.then41 ], [ %c.099, %if.else36 ], [ %c.099, %if.then67 ], [ %c.099, %if.else85 ]
+  %nValue.1 = phi i64 [ %nValue.0100, %while.body ], [ %add102, %13 ], [ %nValue.0100, %if.then59 ], [ %nValue.0100, %if.end57 ], [ %nValue.0100, %if.then33 ], [ %nValue.0100, %if.then13 ], [ %nValue.0100, %if.else ], [ %nValue.0100, %if.then22 ], [ %nValue.0100, %if.then17 ], [ %nValue.0100, %if.then41 ], [ %nValue.0100, %if.else36 ], [ %nValue.0100, %if.then67 ], [ %nValue.0100, %if.else85 ]
   %state.2 = phi i32 [ %state.0101, %while.body ], [ 16, %13 ], [ %state.1, %if.then59 ], [ %state.1, %if.end57 ], [ 4, %if.then33 ], [ 1, %if.then13 ], [ 2, %if.else ], [ 2, %if.then22 ], [ 2, %if.then17 ], [ 8, %if.then41 ], [ 8, %if.else36 ], [ %., %if.then67 ], [ %.75, %if.else85 ]
   %nBase.addr.2 = phi i32 [ %nBase.addr.0102, %while.body ], [ %nBase.addr.0102, %13 ], [ %nBase.addr.1, %if.then59 ], [ %nBase.addr.1, %if.end57 ], [ %nBase.addr.0102, %if.then33 ], [ %nBase.addr.0102, %if.then13 ], [ %nBase.addr.0102, %if.else ], [ %nBase.addr.0102, %if.then22 ], [ %nBase.addr.0102, %if.then17 ], [ %spec.store.select, %if.then41 ], [ %spec.store.select, %if.else36 ], [ %nBase.addr.0102, %if.then67 ], [ %nBase.addr.0102, %if.else85 ]
   %cmp6.not = icmp ne i32 %c.4, -1
@@ -5192,9 +5192,9 @@ if.end106.thread:                                 ; preds = %if.end
 while.body:                                       ; preds = %if.end, %sw.epilog
   %nBase.addr.0110 = phi i32 [ %nBase.addr.2, %sw.epilog ], [ %nBase, %if.end ]
   %state.0109 = phi i32 [ %state.2, %sw.epilog ], [ 1, %if.end ]
-  %c.0107 = phi i32 [ %c.4, %sw.epilog ], [ %call, %if.end ]
-  %nMaxValueCheck.1106 = phi i64 [ %nMaxValueCheck.3, %sw.epilog ], [ %nMaxValueCheck.0, %if.end ]
-  %nValue.0105 = phi i64 [ %nValue.1, %sw.epilog ], [ 0, %if.end ]
+  %nValue.0108 = phi i64 [ %nValue.1, %sw.epilog ], [ 0, %if.end ]
+  %c.0106 = phi i32 [ %c.4, %sw.epilog ], [ %call, %if.end ]
+  %nMaxValueCheck.1105 = phi i64 [ %nMaxValueCheck.3, %sw.epilog ], [ %nMaxValueCheck.0, %if.end ]
   %nSpaceCount.0104 = phi i32 [ %nSpaceCount.1, %sw.epilog ], [ 0, %if.end ]
   switch i32 %state.0109, label %sw.epilog [
     i32 1, label %sw.bb
@@ -5205,12 +5205,12 @@ while.body:                                       ; preds = %if.end, %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %while.body
-  %1 = and i32 %c.0107, 65280
+  %1 = and i32 %c.0106, 65280
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %_ZN2EA4StdC7IsspaceEDs.exit, label %if.else
 
 _ZN2EA4StdC7IsspaceEDs.exit:                      ; preds = %sw.bb
-  %conv10.mask = and i32 %c.0107, 255
+  %conv10.mask = and i32 %c.0106, 255
   %conv.i = zext nneg i32 %conv10.mask to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %conv.i
   %2 = load i8, ptr %arrayidx.i, align 1
@@ -5224,7 +5224,7 @@ if.then13:                                        ; preds = %_ZN2EA4StdC7Isspace
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb, %_ZN2EA4StdC7IsspaceEDs.exit
-  switch i32 %c.0107, label %sw.epilog [
+  switch i32 %c.0106, label %sw.epilog [
     i32 45, label %if.then17
     i32 43, label %if.then22
   ]
@@ -5248,7 +5248,7 @@ sw.bb28:                                          ; preds = %while.body
   %cmp29 = icmp eq i32 %nBase.addr.0110, 0
   %cmp30 = icmp eq i32 %nBase.addr.0110, 16
   %or.cond2 = or i1 %cmp29, %cmp30
-  %cmp32 = icmp eq i32 %c.0107, 48
+  %cmp32 = icmp eq i32 %c.0106, 48
   %or.cond3 = and i1 %cmp32, %or.cond2
   br i1 %or.cond3, label %if.then33, label %if.else36
 
@@ -5261,7 +5261,7 @@ if.then33:                                        ; preds = %sw.bb28
 
 if.else36:                                        ; preds = %sw.bb28
   %spec.store.select = select i1 %cmp29, i32 10, i32 %nBase.addr.0110
-  %cmp40 = icmp eq i64 %nMaxValueCheck.1106, 0
+  %cmp40 = icmp eq i64 %nMaxValueCheck.1105, 0
   br i1 %cmp40, label %if.then41, label %sw.epilog
 
 if.then41:                                        ; preds = %if.else36
@@ -5270,7 +5270,7 @@ if.then41:                                        ; preds = %if.else36
   br label %sw.epilog
 
 sw.bb46:                                          ; preds = %while.body
-  %7 = and i32 %c.0107, -33
+  %7 = and i32 %c.0106, -33
   %or.cond4 = icmp eq i32 %7, 88
   br i1 %or.cond4, label %if.then50, label %if.else53
 
@@ -5287,10 +5287,10 @@ if.else53:                                        ; preds = %sw.bb46
   br label %if.end57
 
 if.end57:                                         ; preds = %if.else53, %if.then50
-  %c.2 = phi i32 [ %call51, %if.then50 ], [ %c.0107, %if.else53 ]
+  %c.2 = phi i32 [ %call51, %if.then50 ], [ %c.0106, %if.else53 ]
   %state.1 = phi i32 [ 8, %if.then50 ], [ 16, %if.else53 ]
   %nBase.addr.1 = phi i32 [ 16, %if.then50 ], [ %spec.store.select5, %if.else53 ]
-  %cmp58 = icmp eq i64 %nMaxValueCheck.1106, 0
+  %cmp58 = icmp eq i64 %nMaxValueCheck.1105, 0
   br i1 %cmp58, label %if.then59, label %sw.epilog
 
 if.then59:                                        ; preds = %if.end57
@@ -5299,7 +5299,7 @@ if.then59:                                        ; preds = %if.end57
   br label %sw.epilog
 
 sw.bb63:                                          ; preds = %while.body, %while.body
-  %sub = add nsw i32 %c.0107, -48
+  %sub = add nsw i32 %c.0106, -48
   %cmp64 = icmp ult i32 %sub, 10
   br i1 %cmp64, label %if.then65, label %if.else73
 
@@ -5317,12 +5317,12 @@ if.else73:                                        ; preds = %sw.bb63
   br i1 %cmp74, label %land.lhs.true75, label %if.else85
 
 land.lhs.true75:                                  ; preds = %if.else73
-  %9 = and i32 %c.0107, 65280
+  %9 = and i32 %c.0106, 65280
   %cmp.i76 = icmp eq i32 %9, 0
   br i1 %cmp.i76, label %_ZN2EA4StdC7TolowerEDs.exit, label %land.lhs.true80
 
 _ZN2EA4StdC7TolowerEDs.exit:                      ; preds = %land.lhs.true75
-  %conv76.mask = and i32 %c.0107, 255
+  %conv76.mask = and i32 %c.0106, 255
   %conv.i79 = zext nneg i32 %conv76.mask to i64
   %arrayidx.i80 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WLOWER_MAPE, i64 0, i64 %conv.i79
   %10 = load i8, ptr %arrayidx.i80, align 1
@@ -5331,7 +5331,7 @@ _ZN2EA4StdC7TolowerEDs.exit:                      ; preds = %land.lhs.true75
   br i1 %cmp79, label %land.lhs.true80, label %if.else85
 
 land.lhs.true80:                                  ; preds = %land.lhs.true75, %_ZN2EA4StdC7TolowerEDs.exit
-  %cond.i7785 = phi i32 [ %conv1.i, %_ZN2EA4StdC7TolowerEDs.exit ], [ %c.0107, %land.lhs.true75 ]
+  %cond.i7785 = phi i32 [ %conv1.i, %_ZN2EA4StdC7TolowerEDs.exit ], [ %c.0106, %land.lhs.true75 ]
   %conv78 = and i32 %cond.i7785, 65535
   %sub82 = add nsw i32 %conv78, -87
   %cmp83 = icmp ult i32 %sub82, %nBase.addr.0110
@@ -5344,9 +5344,9 @@ if.else85:                                        ; preds = %land.lhs.true80, %_
 
 if.end91:                                         ; preds = %land.lhs.true80, %if.then65
   %c.3 = phi i32 [ %sub, %if.then65 ], [ %sub82, %land.lhs.true80 ]
-  %cmp92 = icmp ugt i64 %nValue.0105, %nMaxValueCheck.1106
+  %cmp92 = icmp ugt i64 %nValue.0108, %nMaxValueCheck.1105
   %conv95 = zext nneg i32 %nBase.addr.0110 to i64
-  %mul = mul i64 %nValue.0105, %conv95
+  %mul = mul i64 %nValue.0108, %conv95
   %conv96 = zext nneg i32 %c.3 to i64
   %sub97 = sub i64 %nMaxValue, %mul
   %cmp98 = icmp ult i64 %sub97, %conv96
@@ -5367,9 +5367,9 @@ if.end91:                                         ; preds = %land.lhs.true80, %i
 
 sw.epilog:                                        ; preds = %if.else85, %if.then67, %if.else36, %if.then41, %if.then17, %if.then22, %if.else, %if.end57, %if.then59, %if.then33, %if.then13, %13, %while.body
   %nSpaceCount.1 = phi i32 [ %nSpaceCount.0104, %while.body ], [ %nSpaceCount.0104, %13 ], [ %nSpaceCount.0104, %if.then59 ], [ %nSpaceCount.0104, %if.end57 ], [ %nSpaceCount.0104, %if.then33 ], [ %inc15, %if.then13 ], [ %nSpaceCount.0104, %if.else ], [ %nSpaceCount.0104, %if.then22 ], [ %nSpaceCount.0104, %if.then17 ], [ %nSpaceCount.0104, %if.then41 ], [ %nSpaceCount.0104, %if.else36 ], [ %nSpaceCount.0104, %if.then67 ], [ %nSpaceCount.0104, %if.else85 ]
-  %nValue.1 = phi i64 [ %nValue.0105, %while.body ], [ %add102, %13 ], [ %nValue.0105, %if.then59 ], [ %nValue.0105, %if.end57 ], [ %nValue.0105, %if.then33 ], [ %nValue.0105, %if.then13 ], [ %nValue.0105, %if.else ], [ %nValue.0105, %if.then22 ], [ %nValue.0105, %if.then17 ], [ %nValue.0105, %if.then41 ], [ %nValue.0105, %if.else36 ], [ %nValue.0105, %if.then67 ], [ %nValue.0105, %if.else85 ]
-  %nMaxValueCheck.3 = phi i64 [ %nMaxValueCheck.1106, %while.body ], [ %nMaxValueCheck.1106, %13 ], [ %div61, %if.then59 ], [ %nMaxValueCheck.1106, %if.end57 ], [ %nMaxValueCheck.1106, %if.then33 ], [ %nMaxValueCheck.1106, %if.then13 ], [ %nMaxValueCheck.1106, %if.else ], [ %nMaxValueCheck.1106, %if.then22 ], [ %nMaxValueCheck.1106, %if.then17 ], [ %div43, %if.then41 ], [ %nMaxValueCheck.1106, %if.else36 ], [ %nMaxValueCheck.1106, %if.then67 ], [ %nMaxValueCheck.1106, %if.else85 ]
-  %c.4 = phi i32 [ %c.0107, %while.body ], [ %call103, %13 ], [ %c.2, %if.then59 ], [ %c.2, %if.end57 ], [ %call34, %if.then33 ], [ %call14, %if.then13 ], [ %c.0107, %if.else ], [ %call23, %if.then22 ], [ %call18, %if.then17 ], [ %c.0107, %if.then41 ], [ %c.0107, %if.else36 ], [ %c.0107, %if.then67 ], [ %c.0107, %if.else85 ]
+  %nMaxValueCheck.3 = phi i64 [ %nMaxValueCheck.1105, %while.body ], [ %nMaxValueCheck.1105, %13 ], [ %div61, %if.then59 ], [ %nMaxValueCheck.1105, %if.end57 ], [ %nMaxValueCheck.1105, %if.then33 ], [ %nMaxValueCheck.1105, %if.then13 ], [ %nMaxValueCheck.1105, %if.else ], [ %nMaxValueCheck.1105, %if.then22 ], [ %nMaxValueCheck.1105, %if.then17 ], [ %div43, %if.then41 ], [ %nMaxValueCheck.1105, %if.else36 ], [ %nMaxValueCheck.1105, %if.then67 ], [ %nMaxValueCheck.1105, %if.else85 ]
+  %c.4 = phi i32 [ %c.0106, %while.body ], [ %call103, %13 ], [ %c.2, %if.then59 ], [ %c.2, %if.end57 ], [ %call34, %if.then33 ], [ %call14, %if.then13 ], [ %c.0106, %if.else ], [ %call23, %if.then22 ], [ %call18, %if.then17 ], [ %c.0106, %if.then41 ], [ %c.0106, %if.else36 ], [ %c.0106, %if.then67 ], [ %c.0106, %if.else85 ]
+  %nValue.1 = phi i64 [ %nValue.0108, %while.body ], [ %add102, %13 ], [ %nValue.0108, %if.then59 ], [ %nValue.0108, %if.end57 ], [ %nValue.0108, %if.then33 ], [ %nValue.0108, %if.then13 ], [ %nValue.0108, %if.else ], [ %nValue.0108, %if.then22 ], [ %nValue.0108, %if.then17 ], [ %nValue.0108, %if.then41 ], [ %nValue.0108, %if.else36 ], [ %nValue.0108, %if.then67 ], [ %nValue.0108, %if.else85 ]
   %state.2 = phi i32 [ %state.0109, %while.body ], [ 16, %13 ], [ %state.1, %if.then59 ], [ %state.1, %if.end57 ], [ 4, %if.then33 ], [ 1, %if.then13 ], [ 2, %if.else ], [ 2, %if.then22 ], [ 2, %if.then17 ], [ 8, %if.then41 ], [ 8, %if.else36 ], [ %., %if.then67 ], [ %.75, %if.else85 ]
   %nBase.addr.2 = phi i32 [ %nBase.addr.0110, %while.body ], [ %nBase.addr.0110, %13 ], [ %nBase.addr.1, %if.then59 ], [ %nBase.addr.1, %if.end57 ], [ %nBase.addr.0110, %if.then33 ], [ %nBase.addr.0110, %if.then13 ], [ %nBase.addr.0110, %if.else ], [ %nBase.addr.0110, %if.then22 ], [ %nBase.addr.0110, %if.then17 ], [ %spec.store.select, %if.then41 ], [ %spec.store.select, %if.else36 ], [ %nBase.addr.0110, %if.then67 ], [ %nBase.addr.0110, %if.else85 ]
   %cmp6.not = icmp ne i32 %c.4, -1
@@ -6552,9 +6552,9 @@ if.end102.thread:                                 ; preds = %if.end
 while.body:                                       ; preds = %if.end, %sw.epilog
   %nBase.addr.0107 = phi i32 [ %nBase.addr.2, %sw.epilog ], [ %nBase, %if.end ]
   %state.0106 = phi i32 [ %state.2, %sw.epilog ], [ 1, %if.end ]
-  %c.0104 = phi i32 [ %c.4, %sw.epilog ], [ %call, %if.end ]
-  %nMaxValueCheck.1103 = phi i64 [ %nMaxValueCheck.3, %sw.epilog ], [ %nMaxValueCheck.0, %if.end ]
-  %nValue.0102 = phi i64 [ %nValue.1, %sw.epilog ], [ 0, %if.end ]
+  %nValue.0105 = phi i64 [ %nValue.1, %sw.epilog ], [ 0, %if.end ]
+  %c.0103 = phi i32 [ %c.4, %sw.epilog ], [ %call, %if.end ]
+  %nMaxValueCheck.1102 = phi i64 [ %nMaxValueCheck.3, %sw.epilog ], [ %nMaxValueCheck.0, %if.end ]
   %nSpaceCount.0101 = phi i32 [ %nSpaceCount.1, %sw.epilog ], [ 0, %if.end ]
   switch i32 %state.0106, label %sw.epilog [
     i32 1, label %sw.bb
@@ -6565,11 +6565,11 @@ while.body:                                       ; preds = %if.end, %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %while.body
-  %cmp.i = icmp ult i32 %c.0104, 256
+  %cmp.i = icmp ult i32 %c.0103, 256
   br i1 %cmp.i, label %_ZN2EA4StdC7IsspaceEDi.exit, label %if.else
 
 _ZN2EA4StdC7IsspaceEDi.exit:                      ; preds = %sw.bb
-  %conv.i = zext nneg i32 %c.0104 to i64
+  %conv.i = zext nneg i32 %c.0103 to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 0, i64 %conv.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %2 = and i8 %1, 6
@@ -6582,7 +6582,7 @@ if.then12:                                        ; preds = %_ZN2EA4StdC7Isspace
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb, %_ZN2EA4StdC7IsspaceEDi.exit
-  switch i32 %c.0104, label %sw.epilog [
+  switch i32 %c.0103, label %sw.epilog [
     i32 45, label %if.then16
     i32 43, label %if.then21
   ]
@@ -6606,7 +6606,7 @@ sw.bb27:                                          ; preds = %while.body
   %cmp28 = icmp eq i32 %nBase.addr.0107, 0
   %cmp29 = icmp eq i32 %nBase.addr.0107, 16
   %or.cond2 = or i1 %cmp28, %cmp29
-  %cmp31 = icmp eq i32 %c.0104, 48
+  %cmp31 = icmp eq i32 %c.0103, 48
   %or.cond3 = and i1 %cmp31, %or.cond2
   br i1 %or.cond3, label %if.then32, label %if.else35
 
@@ -6619,7 +6619,7 @@ if.then32:                                        ; preds = %sw.bb27
 
 if.else35:                                        ; preds = %sw.bb27
   %spec.store.select = select i1 %cmp28, i32 10, i32 %nBase.addr.0107
-  %cmp39 = icmp eq i64 %nMaxValueCheck.1103, 0
+  %cmp39 = icmp eq i64 %nMaxValueCheck.1102, 0
   br i1 %cmp39, label %if.then40, label %sw.epilog
 
 if.then40:                                        ; preds = %if.else35
@@ -6628,7 +6628,7 @@ if.then40:                                        ; preds = %if.else35
   br label %sw.epilog
 
 sw.bb45:                                          ; preds = %while.body
-  %6 = and i32 %c.0104, -33
+  %6 = and i32 %c.0103, -33
   %or.cond4 = icmp eq i32 %6, 88
   br i1 %or.cond4, label %if.then49, label %if.else52
 
@@ -6645,10 +6645,10 @@ if.else52:                                        ; preds = %sw.bb45
   br label %if.end56
 
 if.end56:                                         ; preds = %if.else52, %if.then49
-  %c.2 = phi i32 [ %call50, %if.then49 ], [ %c.0104, %if.else52 ]
+  %c.2 = phi i32 [ %call50, %if.then49 ], [ %c.0103, %if.else52 ]
   %state.1 = phi i32 [ 8, %if.then49 ], [ 16, %if.else52 ]
   %nBase.addr.1 = phi i32 [ 16, %if.then49 ], [ %spec.store.select5, %if.else52 ]
-  %cmp57 = icmp eq i64 %nMaxValueCheck.1103, 0
+  %cmp57 = icmp eq i64 %nMaxValueCheck.1102, 0
   br i1 %cmp57, label %if.then58, label %sw.epilog
 
 if.then58:                                        ; preds = %if.end56
@@ -6657,7 +6657,7 @@ if.then58:                                        ; preds = %if.end56
   br label %sw.epilog
 
 sw.bb62:                                          ; preds = %while.body, %while.body
-  %sub = add nsw i32 %c.0104, -48
+  %sub = add nsw i32 %c.0103, -48
   %cmp63 = icmp ult i32 %sub, 10
   br i1 %cmp63, label %if.then64, label %if.else72
 
@@ -6675,18 +6675,18 @@ if.else72:                                        ; preds = %sw.bb62
   br i1 %cmp73, label %land.lhs.true74, label %if.else81
 
 land.lhs.true74:                                  ; preds = %if.else72
-  %cmp.i77 = icmp ult i32 %c.0104, 256
+  %cmp.i77 = icmp ult i32 %c.0103, 256
   br i1 %cmp.i77, label %cond.true.i79, label %_ZN2EA4StdC7TolowerEDi.exit
 
 cond.true.i79:                                    ; preds = %land.lhs.true74
-  %conv1.i = zext nneg i32 %c.0104 to i64
+  %conv1.i = zext nneg i32 %c.0103 to i64
   %arrayidx.i80 = getelementptr inbounds [256 x i8], ptr @_ZN2EA4StdC17EASTDC_WLOWER_MAPE, i64 0, i64 %conv1.i
   %8 = load i8, ptr %arrayidx.i80, align 1
   %conv2.i = zext i8 %8 to i32
   br label %_ZN2EA4StdC7TolowerEDi.exit
 
 _ZN2EA4StdC7TolowerEDi.exit:                      ; preds = %land.lhs.true74, %cond.true.i79
-  %cond.i78 = phi i32 [ %conv2.i, %cond.true.i79 ], [ %c.0104, %land.lhs.true74 ]
+  %cond.i78 = phi i32 [ %conv2.i, %cond.true.i79 ], [ %c.0103, %land.lhs.true74 ]
   %cmp76 = icmp ugt i32 %cond.i78, 96
   %sub78 = add nsw i32 %cond.i78, -87
   %cmp79 = icmp slt i32 %sub78, %nBase.addr.0107
@@ -6700,9 +6700,9 @@ if.else81:                                        ; preds = %_ZN2EA4StdC7Tolower
 
 if.end87:                                         ; preds = %_ZN2EA4StdC7TolowerEDi.exit, %if.then64
   %c.3 = phi i32 [ %sub, %if.then64 ], [ %sub78, %_ZN2EA4StdC7TolowerEDi.exit ]
-  %cmp88 = icmp ugt i64 %nValue.0102, %nMaxValueCheck.1103
+  %cmp88 = icmp ugt i64 %nValue.0105, %nMaxValueCheck.1102
   %conv91 = zext nneg i32 %nBase.addr.0107 to i64
-  %mul = mul i64 %nValue.0102, %conv91
+  %mul = mul i64 %nValue.0105, %conv91
   %conv92 = zext i32 %c.3 to i64
   %sub93 = sub i64 %nMaxValue, %mul
   %cmp94 = icmp ult i64 %sub93, %conv92
@@ -6724,9 +6724,9 @@ if.end87:                                         ; preds = %_ZN2EA4StdC7Tolower
 
 sw.epilog:                                        ; preds = %if.else81, %if.then66, %if.else35, %if.then40, %if.then16, %if.then21, %if.else, %if.end56, %if.then58, %if.then32, %if.then12, %11, %while.body
   %nSpaceCount.1 = phi i32 [ %nSpaceCount.0101, %while.body ], [ %nSpaceCount.0101, %11 ], [ %nSpaceCount.0101, %if.then58 ], [ %nSpaceCount.0101, %if.end56 ], [ %nSpaceCount.0101, %if.then32 ], [ %inc14, %if.then12 ], [ %nSpaceCount.0101, %if.else ], [ %nSpaceCount.0101, %if.then21 ], [ %nSpaceCount.0101, %if.then16 ], [ %nSpaceCount.0101, %if.then40 ], [ %nSpaceCount.0101, %if.else35 ], [ %nSpaceCount.0101, %if.then66 ], [ %nSpaceCount.0101, %if.else81 ]
-  %nValue.1 = phi i64 [ %nValue.0102, %while.body ], [ %add98, %11 ], [ %nValue.0102, %if.then58 ], [ %nValue.0102, %if.end56 ], [ %nValue.0102, %if.then32 ], [ %nValue.0102, %if.then12 ], [ %nValue.0102, %if.else ], [ %nValue.0102, %if.then21 ], [ %nValue.0102, %if.then16 ], [ %nValue.0102, %if.then40 ], [ %nValue.0102, %if.else35 ], [ %nValue.0102, %if.then66 ], [ %nValue.0102, %if.else81 ]
-  %nMaxValueCheck.3 = phi i64 [ %nMaxValueCheck.1103, %while.body ], [ %nMaxValueCheck.1103, %11 ], [ %div60, %if.then58 ], [ %nMaxValueCheck.1103, %if.end56 ], [ %nMaxValueCheck.1103, %if.then32 ], [ %nMaxValueCheck.1103, %if.then12 ], [ %nMaxValueCheck.1103, %if.else ], [ %nMaxValueCheck.1103, %if.then21 ], [ %nMaxValueCheck.1103, %if.then16 ], [ %div42, %if.then40 ], [ %nMaxValueCheck.1103, %if.else35 ], [ %nMaxValueCheck.1103, %if.then66 ], [ %nMaxValueCheck.1103, %if.else81 ]
-  %c.4 = phi i32 [ %c.0104, %while.body ], [ %call99, %11 ], [ %c.2, %if.then58 ], [ %c.2, %if.end56 ], [ %call33, %if.then32 ], [ %call13, %if.then12 ], [ %c.0104, %if.else ], [ %call22, %if.then21 ], [ %call17, %if.then16 ], [ %c.0104, %if.then40 ], [ %c.0104, %if.else35 ], [ %c.0104, %if.then66 ], [ %c.0104, %if.else81 ]
+  %nMaxValueCheck.3 = phi i64 [ %nMaxValueCheck.1102, %while.body ], [ %nMaxValueCheck.1102, %11 ], [ %div60, %if.then58 ], [ %nMaxValueCheck.1102, %if.end56 ], [ %nMaxValueCheck.1102, %if.then32 ], [ %nMaxValueCheck.1102, %if.then12 ], [ %nMaxValueCheck.1102, %if.else ], [ %nMaxValueCheck.1102, %if.then21 ], [ %nMaxValueCheck.1102, %if.then16 ], [ %div42, %if.then40 ], [ %nMaxValueCheck.1102, %if.else35 ], [ %nMaxValueCheck.1102, %if.then66 ], [ %nMaxValueCheck.1102, %if.else81 ]
+  %c.4 = phi i32 [ %c.0103, %while.body ], [ %call99, %11 ], [ %c.2, %if.then58 ], [ %c.2, %if.end56 ], [ %call33, %if.then32 ], [ %call13, %if.then12 ], [ %c.0103, %if.else ], [ %call22, %if.then21 ], [ %call17, %if.then16 ], [ %c.0103, %if.then40 ], [ %c.0103, %if.else35 ], [ %c.0103, %if.then66 ], [ %c.0103, %if.else81 ]
+  %nValue.1 = phi i64 [ %nValue.0105, %while.body ], [ %add98, %11 ], [ %nValue.0105, %if.then58 ], [ %nValue.0105, %if.end56 ], [ %nValue.0105, %if.then32 ], [ %nValue.0105, %if.then12 ], [ %nValue.0105, %if.else ], [ %nValue.0105, %if.then21 ], [ %nValue.0105, %if.then16 ], [ %nValue.0105, %if.then40 ], [ %nValue.0105, %if.else35 ], [ %nValue.0105, %if.then66 ], [ %nValue.0105, %if.else81 ]
   %state.2 = phi i32 [ %state.0106, %while.body ], [ 16, %11 ], [ %state.1, %if.then58 ], [ %state.1, %if.end56 ], [ 4, %if.then32 ], [ 1, %if.then12 ], [ 2, %if.else ], [ 2, %if.then21 ], [ 2, %if.then16 ], [ 8, %if.then40 ], [ 8, %if.else35 ], [ %., %if.then66 ], [ %.75, %if.else81 ]
   %nBase.addr.2 = phi i32 [ %nBase.addr.0107, %while.body ], [ %nBase.addr.0107, %11 ], [ %nBase.addr.1, %if.then58 ], [ %nBase.addr.1, %if.end56 ], [ %nBase.addr.0107, %if.then32 ], [ %nBase.addr.0107, %if.then12 ], [ %nBase.addr.0107, %if.else ], [ %nBase.addr.0107, %if.then21 ], [ %nBase.addr.0107, %if.then16 ], [ %spec.store.select, %if.then40 ], [ %spec.store.select, %if.else35 ], [ %nBase.addr.0107, %if.then66 ], [ %nBase.addr.0107, %if.else81 ]
   %cmp6.not = icmp ne i32 %c.4, -1

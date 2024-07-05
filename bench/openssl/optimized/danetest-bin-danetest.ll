@@ -213,7 +213,7 @@ lor.lhs.false24:                                  ; preds = %lor.lhs.false19
   br label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end70.i, %lor.lhs.false24
-  %testno.0.ph48.i = phi i32 [ 0, %lor.lhs.false24 ], [ %inc.i, %if.end70.i ]
+  %testno.0.ph49.i = phi i32 [ 0, %lor.lhs.false24 ], [ %inc.i, %if.end70.i ]
   %call41.i = call fastcc ptr @read_to_eol(ptr noundef %call)
   %cmp1.not42.i = icmp eq ptr %call41.i, null
   br i1 %cmp1.not42.i, label %while.end.i, label %while.body.i
@@ -232,7 +232,7 @@ if.then.i:                                        ; preds = %while.body.i, %whil
   br i1 %cmp1.not.i, label %while.end.i, label %while.body.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %inc.i = add nuw nsw i32 %testno.0.ph48.i, 1
+  %inc.i = add nuw nsw i32 %testno.0.ph49.i, 1
   %call7.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %call43.i, ptr noundef nonnull @.str.29, ptr noundef nonnull %ntlsa.i, ptr noundef nonnull %ncert.i, ptr noundef nonnull %noncheck.i, ptr noundef nonnull %want.i, ptr noundef nonnull %want_depth.i, ptr noundef nonnull %off.i) #9
   %cmp8.not.i = icmp eq i32 %call7.i, 5
   br i1 %cmp8.not.i, label %lor.lhs.false10.i, label %if.then12.i

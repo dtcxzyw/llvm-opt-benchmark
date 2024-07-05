@@ -357,8 +357,8 @@ define noundef i64 @_ZN5faiss14VectorIOReaderclEPvmm(ptr nocapture noundef nonnu
   br label %22
 
 22:                                               ; preds = %14, %18, %4
-  %.013 = phi i64 [ 0, %4 ], [ %spec.select, %18 ], [ %spec.select, %14 ]
-  ret i64 %.013
+  %.0 = phi i64 [ 0, %4 ], [ %spec.select, %18 ], [ %spec.select, %14 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

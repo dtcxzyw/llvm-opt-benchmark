@@ -1581,8 +1581,8 @@ Aig_ManObj.exit.thread:                           ; preds = %25, %Aig_ManObj.exi
   br label %84
 
 84:                                               ; preds = %._crit_edge, %Aig_ManObj.exit.thread
-  %.026 = phi i32 [ 0, %Aig_ManObj.exit.thread ], [ 1, %._crit_edge ]
-  ret i32 %.026
+  %.0 = phi i32 [ 0, %Aig_ManObj.exit.thread ], [ 1, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2971,8 +2971,8 @@ Dar2_LibCutMatch.exit:                            ; preds = %27, %5
   %indvars.iv62 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next63, %159 ]
   %78 = phi ptr [ %71, %.lr.ph59 ], [ %160, %159 ]
   %.04158 = phi i32 [ -1, %.lr.ph59 ], [ %.1, %159 ]
-  %.04456 = phi i32 [ -1000000, %.lr.ph59 ], [ %.145, %159 ]
-  %.04655 = phi i32 [ 1000000, %.lr.ph59 ], [ %.147, %159 ]
+  %.04257 = phi i32 [ 1000000, %.lr.ph59 ], [ %.143, %159 ]
+  %.04655 = phi i32 [ -1000000, %.lr.ph59 ], [ %.147, %159 ]
   %79 = getelementptr inbounds i8, ptr %78, i64 14304
   %80 = getelementptr inbounds [222 x ptr], ptr %79, i64 0, i64 %70
   %81 = load ptr, ptr %80, align 8
@@ -2994,17 +2994,17 @@ Dar2_LibCutMatch.exit:                            ; preds = %27, %5
   %94 = lshr i64 %93, 36
   %95 = getelementptr inbounds %struct.Dar_LibDat_t_, ptr %92, i64 %94, i32 1
   %96 = load i32, ptr %95, align 8
-  %97 = icmp sgt i32 %96, %.04655
+  %97 = icmp sgt i32 %96, %.04257
   br i1 %97, label %159, label %98
 
 98:                                               ; preds = %89
-  %99 = icmp ne i32 %96, %.04655
-  %.not51 = icmp slt i32 %.04456, %88
+  %99 = icmp ne i32 %96, %.04257
+  %.not51 = icmp slt i32 %.04655, %88
   %or.cond = select i1 %99, i1 true, i1 %.not51
   br i1 %or.cond, label %111, label %159
 
 100:                                              ; preds = %77
-  %101 = icmp sgt i32 %.04456, %88
+  %101 = icmp sgt i32 %.04655, %88
   br i1 %101, label %._crit_edge65, label %102
 
 ._crit_edge65:                                    ; preds = %100
@@ -3012,7 +3012,7 @@ Dar2_LibCutMatch.exit:                            ; preds = %27, %5
   br label %159
 
 102:                                              ; preds = %100
-  %103 = icmp eq i32 %.04456, %88
+  %103 = icmp eq i32 %.04655, %88
   %.pre.pre = load ptr, ptr @s_DarLib, align 8
   br i1 %103, label %104, label %111
 
@@ -3023,7 +3023,7 @@ Dar2_LibCutMatch.exit:                            ; preds = %27, %5
   %108 = lshr i64 %107, 36
   %109 = getelementptr inbounds %struct.Dar_LibDat_t_, ptr %106, i64 %108, i32 1
   %110 = load i32, ptr %109, align 8
-  %.not50 = icmp slt i32 %110, %.04655
+  %.not50 = icmp slt i32 %110, %.04257
   br i1 %.not50, label %111, label %159
 
 111:                                              ; preds = %102, %104, %98
@@ -3130,8 +3130,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 159:                                              ; preds = %._crit_edge65, %98, %104, %89, %._crit_edge
   %160 = phi ptr [ %90, %89 ], [ %.pre, %._crit_edge ], [ %.pre66, %._crit_edge65 ], [ %.pre.pre, %104 ], [ %90, %98 ]
-  %.147 = phi i32 [ %.04655, %89 ], [ %158, %._crit_edge ], [ %.04655, %._crit_edge65 ], [ %.04655, %104 ], [ %.04655, %98 ]
-  %.145 = phi i32 [ %.04456, %89 ], [ %88, %._crit_edge ], [ %.04456, %._crit_edge65 ], [ %.04456, %104 ], [ %.04456, %98 ]
+  %.147 = phi i32 [ %.04655, %89 ], [ %88, %._crit_edge ], [ %.04655, %._crit_edge65 ], [ %.04655, %104 ], [ %.04655, %98 ]
+  %.143 = phi i32 [ %.04257, %89 ], [ %158, %._crit_edge ], [ %.04257, %._crit_edge65 ], [ %.04257, %104 ], [ %.04257, %98 ]
   %.1 = phi i32 [ %.04158, %89 ], [ %152, %._crit_edge ], [ %.04158, %._crit_edge65 ], [ %.04158, %104 ], [ %.04158, %98 ]
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %161 = getelementptr inbounds i8, ptr %160, i64 13412

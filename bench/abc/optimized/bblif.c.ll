@@ -889,8 +889,8 @@ define noalias noundef ptr @Bbl_ManSortSop(ptr noundef %0, i32 noundef %1) local
   br label %51
 
 51:                                               ; preds = %47, %8
-  %.038 = phi ptr [ %11, %8 ], [ %41, %47 ]
-  ret ptr %.038
+  %.0 = phi ptr [ %11, %8 ], [ %41, %47 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -975,8 +975,8 @@ define i32 @Bbl_ManSopCheckUnique(ptr nocapture noundef %0, ptr nocapture nounde
   %15 = sext i32 %spec.store.select to i64
   %16 = sext i32 %spec.store.select1 to i64
   %17 = getelementptr inbounds [17 x [17 x i32]], ptr %14, i64 0, i64 %15, i64 %16
-  %.034 = load i32, ptr %17, align 4
-  %.not35 = icmp eq i32 %.034, 0
+  %.03034 = load i32, ptr %17, align 4
+  %.not35 = icmp eq i32 %.03034, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 64
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert40 = getelementptr i8, ptr %.pre, i64 8
@@ -992,8 +992,8 @@ define i32 @Bbl_ManSopCheckUnique(ptr nocapture noundef %0, ptr nocapture nounde
   br label %22
 
 22:                                               ; preds = %.lr.ph, %33
-  %.036 = phi i32 [ %.034, %.lr.ph ], [ %.0, %33 ]
-  %23 = sext i32 %.036 to i64
+  %.03036 = phi i32 [ %.03034, %.lr.ph ], [ %.030, %33 ]
+  %23 = sext i32 %.03036 to i64
   %24 = getelementptr inbounds i8, ptr %.pre.i.i.pre, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
@@ -1010,8 +1010,8 @@ define i32 @Bbl_ManSopCheckUnique(ptr nocapture noundef %0, ptr nocapture nounde
 
 33:                                               ; preds = %22, %30
   %34 = getelementptr inbounds i8, ptr %24, i64 4
-  %.0 = load i32, ptr %34, align 4
-  %.not = icmp eq i32 %.0, 0
+  %.030 = load i32, ptr %34, align 4
+  %.not = icmp eq i32 %.030, 0
   br i1 %.not, label %._crit_edge, label %22, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %33, %5
@@ -1063,7 +1063,7 @@ Bbl_ManCreateEntry.exit:                          ; preds = %51, %._crit_edge
   %59 = getelementptr inbounds i8, ptr %58, i64 -8
   store i32 %4, ptr %59, align 4
   %60 = getelementptr inbounds i8, ptr %58, i64 -4
-  store i32 %.034, ptr %60, align 4
+  store i32 %.03034, ptr %60, align 4
   %61 = load ptr, ptr %35, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
@@ -1075,8 +1075,8 @@ Bbl_ManCreateEntry.exit:                          ; preds = %51, %._crit_edge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %Bbl_ManCreateEntry.exit
-  %.030 = phi i32 [ %4, %Bbl_ManCreateEntry.exit ], [ %25, %30 ]
-  ret i32 %.030
+  %.0 = phi i32 [ %4, %Bbl_ManCreateEntry.exit ], [ %25, %30 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2080,13 +2080,13 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0,
   br label %._crit_edge67
 
 ._crit_edge67:                                    ; preds = %.lr.ph66.preheader, %._crit_edge.thread
-  %.044.lcssa = phi ptr [ %18, %._crit_edge.thread ], [ %scevgep, %.lr.ph66.preheader ]
-  %22 = getelementptr inbounds i8, ptr %.044.lcssa, i64 1
-  store i8 32, ptr %.044.lcssa, align 1
+  %.045.lcssa = phi ptr [ %18, %._crit_edge.thread ], [ %scevgep, %.lr.ph66.preheader ]
+  %22 = getelementptr inbounds i8, ptr %.045.lcssa, i64 1
+  store i8 32, ptr %.045.lcssa, align 1
   %23 = select i1 %15, i8 48, i8 49
-  %24 = getelementptr inbounds i8, ptr %.044.lcssa, i64 2
+  %24 = getelementptr inbounds i8, ptr %.045.lcssa, i64 2
   store i8 %23, ptr %22, align 1
-  %25 = getelementptr inbounds i8, ptr %.044.lcssa, i64 3
+  %25 = getelementptr inbounds i8, ptr %.045.lcssa, i64 3
   store i8 10, ptr %24, align 1
   br label %._crit_edge61
 
@@ -2105,7 +2105,7 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0,
 
 .lr.ph60.split.us:                                ; preds = %.lr.ph60, %46
   %.14257.us = phi i32 [ %47, %46 ], [ 0, %.lr.ph60 ]
-  %.14556.us = phi ptr [ %.3.us, %46 ], [ %31, %.lr.ph60 ]
+  %.14656.us = phi ptr [ %.3.us, %46 ], [ %31, %.lr.ph60 ]
   %33 = lshr i32 %.14257.us, 5
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds i32, ptr %0, i64 %34
@@ -2118,7 +2118,7 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0,
 
 .preheader.us:                                    ; preds = %.lr.ph60.split.us, %.preheader.us
   %.152.us = phi i32 [ %45, %.preheader.us ], [ 0, %.lr.ph60.split.us ]
-  %.251.us = phi ptr [ %44, %.preheader.us ], [ %.14556.us, %.lr.ph60.split.us ]
+  %.251.us = phi ptr [ %44, %.preheader.us ], [ %.14656.us, %.lr.ph60.split.us ]
   %41 = shl nuw i32 1, %.152.us
   %42 = and i32 %41, %.14257.us
   %.not.us = icmp eq i32 %42, 0
@@ -2130,7 +2130,7 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0,
   br i1 %exitcond75.not, label %._crit_edge54.us, label %.preheader.us, !llvm.loop !20
 
 46:                                               ; preds = %._crit_edge54.us, %.lr.ph60.split.us
-  %.3.us = phi ptr [ %.14556.us, %.lr.ph60.split.us ], [ %50, %._crit_edge54.us ]
+  %.3.us = phi ptr [ %.14656.us, %.lr.ph60.split.us ], [ %50, %._crit_edge54.us ]
   %47 = add nuw nsw i32 %.14257.us, 1
   %exitcond77.not = icmp eq i32 %47, %smax76
   br i1 %exitcond77.not, label %._crit_edge61, label %.lr.ph60.split.us, !llvm.loop !21
@@ -2146,7 +2146,7 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0,
 
 .lr.ph60.split:                                   ; preds = %.lr.ph60, %62
   %.14257 = phi i32 [ %63, %62 ], [ 0, %.lr.ph60 ]
-  %.14556 = phi ptr [ %.3, %62 ], [ %31, %.lr.ph60 ]
+  %.14656 = phi ptr [ %.3, %62 ], [ %31, %.lr.ph60 ]
   %51 = lshr i32 %.14257, 5
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds i32, ptr %0, i64 %52
@@ -2158,25 +2158,25 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr nocapture noundef readonly %0,
   br i1 %58, label %62, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph60.split
-  %59 = getelementptr inbounds i8, ptr %.14556, i64 1
-  store i8 32, ptr %.14556, align 1
-  %60 = getelementptr inbounds i8, ptr %.14556, i64 2
+  %59 = getelementptr inbounds i8, ptr %.14656, i64 1
+  store i8 32, ptr %.14656, align 1
+  %60 = getelementptr inbounds i8, ptr %.14656, i64 2
   store i8 49, ptr %59, align 1
-  %61 = getelementptr inbounds i8, ptr %.14556, i64 3
+  %61 = getelementptr inbounds i8, ptr %.14656, i64 3
   store i8 10, ptr %60, align 1
   br label %62
 
 62:                                               ; preds = %.lr.ph60.split, %.preheader
-  %.3 = phi ptr [ %.14556, %.lr.ph60.split ], [ %61, %.preheader ]
+  %.3 = phi ptr [ %.14656, %.lr.ph60.split ], [ %61, %.preheader ]
   %63 = add nuw nsw i32 %.14257, 1
   %exitcond74.not = icmp eq i32 %63, %smax76
   br i1 %exitcond74.not, label %._crit_edge61, label %.lr.ph60.split, !llvm.loop !21
 
 ._crit_edge61:                                    ; preds = %62, %46, %26, %._crit_edge67
-  %.145.lcssa.sink = phi ptr [ %25, %._crit_edge67 ], [ %31, %26 ], [ %.3.us, %46 ], [ %.3, %62 ]
-  %.046 = phi ptr [ %18, %._crit_edge67 ], [ %31, %26 ], [ %31, %46 ], [ %31, %62 ]
-  store i8 0, ptr %.145.lcssa.sink, align 1
-  ret ptr %.046
+  %.146.lcssa.sink = phi ptr [ %25, %._crit_edge67 ], [ %31, %26 ], [ %.3.us, %46 ], [ %.3, %62 ]
+  %.044 = phi ptr [ %18, %._crit_edge67 ], [ %31, %26 ], [ %31, %46 ], [ %31, %62 ]
+  store i8 0, ptr %.146.lcssa.sink, align 1
+  ret ptr %.044
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2314,7 +2314,7 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_e
   br label %.lr.ph92.us
 
 .lr.ph92.us:                                      ; preds = %.lr.ph92.us.preheader, %._crit_edge102.us
-  %.068106.us = phi i32 [ %57, %._crit_edge102.us ], [ 0, %.lr.ph92.us.preheader ]
+  %.069106.us = phi i32 [ %57, %._crit_edge102.us ], [ 0, %.lr.ph92.us.preheader ]
   %.072103.us = phi ptr [ %56, %._crit_edge102.us ], [ %0, %.lr.ph92.us.preheader ]
   %54 = getelementptr inbounds i8, ptr %.072103.us, i64 %53
   %55 = load i8, ptr %54, align 1
@@ -2323,7 +2323,7 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_e
 
 ._crit_edge102.us:                                ; preds = %.lr.ph101.us, %.lr.ph92.us, %..preheader83_crit_edge.us
   %56 = getelementptr inbounds i8, ptr %.072103.us, i64 %12
-  %57 = add nuw nsw i32 %.068106.us, 1
+  %57 = add nuw nsw i32 %.069106.us, 1
   %58 = icmp slt i32 %57, %51
   br i1 %58, label %.lr.ph92.us, label %._crit_edge108, !llvm.loop !26
 
@@ -2399,7 +2399,7 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_e
   br label %.preheader83.us118
 
 .preheader83.us118:                               ; preds = %.preheader83.us118.preheader, %._crit_edge102.us123
-  %.068106.us119 = phi i32 [ %92, %._crit_edge102.us123 ], [ 0, %.preheader83.us118.preheader ]
+  %.069106.us119 = phi i32 [ %92, %._crit_edge102.us123 ], [ 0, %.preheader83.us118.preheader ]
   %.072103.us120 = phi ptr [ %91, %._crit_edge102.us123 ], [ %0, %.preheader83.us118.preheader ]
   %83 = getelementptr inbounds i8, ptr %.072103.us120, i64 %53
   %84 = load i8, ptr %83, align 1
@@ -2420,18 +2420,18 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_e
 
 ._crit_edge102.us123:                             ; preds = %85
   %91 = getelementptr inbounds i8, ptr %.072103.us120, i64 %12
-  %92 = add nuw nsw i32 %.068106.us119, 1
+  %92 = add nuw nsw i32 %.069106.us119, 1
   %93 = icmp slt i32 %92, %51
   br i1 %93, label %.preheader83.us118, label %._crit_edge108, !llvm.loop !26
 
 .preheader83:                                     ; preds = %.lr.ph107.split, %.preheader83
-  %.068106 = phi i32 [ %97, %.preheader83 ], [ 0, %.lr.ph107.split ]
+  %.069106 = phi i32 [ %97, %.preheader83 ], [ 0, %.lr.ph107.split ]
   %.072103 = phi ptr [ %96, %.preheader83 ], [ %0, %.lr.ph107.split ]
   %94 = getelementptr inbounds i8, ptr %.072103, i64 %53
   %95 = load i8, ptr %94, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, i8 -1, i64 %17, i1 false)
   %96 = getelementptr inbounds i8, ptr %.072103, i64 %12
-  %97 = add nuw nsw i32 %.068106, 1
+  %97 = add nuw nsw i32 %.069106, 1
   %98 = icmp slt i32 %97, %51
   br i1 %98, label %.preheader83, label %._crit_edge108, !llvm.loop !26
 
@@ -2468,8 +2468,8 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_e
   br i1 %exitcond165.not, label %.loopexit, label %.lr.ph127, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph127, %102, %2, %14
-  %.071 = phi ptr [ null, %14 ], [ null, %2 ], [ %18, %102 ], [ %18, %.lr.ph127 ]
-  ret ptr %.071
+  %.067 = phi ptr [ null, %14 ], [ null, %2 ], [ %18, %102 ], [ %18, %.lr.ph127 ]
+  ret ptr %.067
 }
 
 ; Function Attrs: nounwind uwtable

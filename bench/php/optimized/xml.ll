@@ -2098,12 +2098,12 @@ _xml_decode_tag.exit282:                          ; preds = %_xml_xmlcharlen.exi
   br label %136
 
 136:                                              ; preds = %125, %133, %.critedge
-  %.0237 = phi ptr [ %126, %133 ], [ %121, %.critedge ], [ %126, %125 ]
+  %.0236 = phi ptr [ %126, %133 ], [ %121, %.critedge ], [ %126, %125 ]
   %137 = getelementptr inbounds i8, ptr %0, i64 64
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds i8, ptr %0, i64 56
   %140 = load ptr, ptr %139, align 8
-  call void @zend_call_known_function(ptr noundef nonnull %.0237, ptr noundef %138, ptr noundef %140, ptr noundef null, i32 noundef 3, ptr noundef nonnull %7, ptr noundef null) #16
+  call void @zend_call_known_function(ptr noundef nonnull %.0236, ptr noundef %138, ptr noundef %140, ptr noundef null, i32 noundef 3, ptr noundef nonnull %7, ptr noundef null) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %50) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %62) #16
@@ -2892,12 +2892,12 @@ _xml_xmlchar_zval.exit:                           ; preds = %20, %_xml_xmlcharle
   br label %54
 
 54:                                               ; preds = %43, %51, %_xml_xmlchar_zval.exit
-  %.0330 = phi ptr [ %44, %51 ], [ %39, %_xml_xmlchar_zval.exit ], [ %44, %43 ]
+  %.0328 = phi ptr [ %44, %51 ], [ %39, %_xml_xmlchar_zval.exit ], [ %44, %43 ]
   %55 = getelementptr inbounds i8, ptr %0, i64 144
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 136
   %58 = load ptr, ptr %57, align 8
-  call void @zend_call_known_function(ptr noundef nonnull %.0330, ptr noundef %56, ptr noundef %58, ptr noundef null, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #16
+  call void @zend_call_known_function(ptr noundef nonnull %.0328, ptr noundef %56, ptr noundef %58, ptr noundef null, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %23) #16
   br label %59
@@ -2930,8 +2930,8 @@ _xml_xmlchar_zval.exit:                           ; preds = %20, %_xml_xmlcharle
   br label %75
 
 75:                                               ; preds = %.lr.ph, %78
-  %.0327361 = phi i64 [ 0, %.lr.ph ], [ %79, %78 ]
-  %76 = getelementptr inbounds [1 x i8], ptr %74, i64 0, i64 %.0327361
+  %.0330361 = phi i64 [ 0, %.lr.ph ], [ %79, %78 ]
+  %76 = getelementptr inbounds [1 x i8], ptr %74, i64 0, i64 %.0330361
   %77 = load i8, ptr %76, align 1
   switch i8 %77, label %.loopexit [
     i8 32, label %78
@@ -2940,7 +2940,7 @@ _xml_xmlchar_zval.exit:                           ; preds = %20, %_xml_xmlcharle
   ]
 
 78:                                               ; preds = %75, %75, %75
-  %79 = add nuw i64 %.0327361, 1
+  %79 = add nuw i64 %.0330361, 1
   %exitcond.not = icmp eq i64 %79, %73
   br i1 %exitcond.not, label %.loopexit, label %75
 
@@ -3026,10 +3026,10 @@ _xml_xmlchar_zval.exit:                           ; preds = %20, %_xml_xmlcharle
   br label %131
 
 131:                                              ; preds = %114, %127, %105
-  %.0326 = phi ptr [ %108, %105 ], [ %117, %127 ], [ %117, %114 ]
-  store ptr %.0326, ptr %90, align 8
-  %132 = getelementptr inbounds i8, ptr %.0326, i64 24
-  %133 = getelementptr inbounds i8, ptr %.0326, i64 16
+  %.0 = phi ptr [ %108, %105 ], [ %117, %127 ], [ %117, %114 ]
+  store ptr %.0, ptr %90, align 8
+  %132 = getelementptr inbounds i8, ptr %.0, i64 24
+  %133 = getelementptr inbounds i8, ptr %.0, i64 16
   %134 = load i64, ptr %133, align 8
   %135 = getelementptr inbounds i8, ptr %132, i64 %134
   %136 = load i64, ptr %95, align 8
@@ -3114,14 +3114,14 @@ _xml_xmlchar_zval.exit:                           ; preds = %20, %_xml_xmlcharle
   br label %185
 
 183:                                              ; preds = %185
-  %184 = add i32 %.0325365, -1
+  %184 = add i32 %.0327365, -1
   %.not346 = icmp eq i32 %184, 0
   br i1 %.not346, label %.critedge, label %185
 
 185:                                              ; preds = %.lr.ph367, %183
-  %.0366 = phi ptr [ %181, %.lr.ph367 ], [ %186, %183 ]
-  %.0325365 = phi i32 [ %170, %.lr.ph367 ], [ %184, %183 ]
-  %186 = getelementptr inbounds i8, ptr %.0366, i64 %182
+  %.0325366 = phi ptr [ %181, %.lr.ph367 ], [ %186, %183 ]
+  %.0327365 = phi i32 [ %170, %.lr.ph367 ], [ %184, %183 ]
+  %186 = getelementptr inbounds i8, ptr %.0325366, i64 %182
   %187 = getelementptr inbounds i8, ptr %186, i64 8
   %188 = load i8, ptr %187, align 8
   %189 = icmp eq i8 %188, 0
@@ -3219,10 +3219,10 @@ _xml_xmlchar_zval.exit:                           ; preds = %20, %_xml_xmlcharle
   br label %246
 
 246:                                              ; preds = %229, %242, %220
-  %.0329 = phi ptr [ %223, %220 ], [ %232, %242 ], [ %232, %229 ]
-  store ptr %.0329, ptr %205, align 8
-  %247 = getelementptr inbounds i8, ptr %.0329, i64 24
-  %248 = getelementptr inbounds i8, ptr %.0329, i64 16
+  %.0326 = phi ptr [ %223, %220 ], [ %232, %242 ], [ %232, %229 ]
+  store ptr %.0326, ptr %205, align 8
+  %247 = getelementptr inbounds i8, ptr %.0326, i64 24
+  %248 = getelementptr inbounds i8, ptr %.0326, i64 16
   %249 = load i64, ptr %248, align 8
   %250 = getelementptr inbounds i8, ptr %247, i64 %249
   %251 = load i64, ptr %210, align 8
@@ -4358,12 +4358,12 @@ _xml_xmlchar_zval.exit76:                         ; preds = %_xml_xmlchar_zval.e
   br label %99
 
 99:                                               ; preds = %88, %96, %_xml_xmlchar_zval.exit76
-  %.040 = phi ptr [ %89, %96 ], [ %84, %_xml_xmlchar_zval.exit76 ], [ %89, %88 ]
+  %.0 = phi ptr [ %89, %96 ], [ %84, %_xml_xmlchar_zval.exit76 ], [ %89, %88 ]
   %100 = getelementptr inbounds i8, ptr %8, i64 344
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %8, i64 336
   %103 = load ptr, ptr %102, align 8
-  call void @zend_call_known_function(ptr noundef nonnull %.040, ptr noundef %101, ptr noundef %103, ptr noundef nonnull %7, i32 noundef 5, ptr noundef nonnull %6, ptr noundef null) #16
+  call void @zend_call_known_function(ptr noundef nonnull %.0, ptr noundef %101, ptr noundef %103, ptr noundef nonnull %7, i32 noundef 5, ptr noundef nonnull %6, ptr noundef null) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %25) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %40) #16
@@ -4381,8 +4381,8 @@ _xml_xmlchar_zval.exit76:                         ; preds = %_xml_xmlchar_zval.e
   br label %110
 
 110:                                              ; preds = %107, %99, %5, %9
-  %.041 = phi i32 [ 0, %9 ], [ 0, %5 ], [ %109, %107 ], [ 0, %99 ]
-  ret i32 %.041
+  %.040 = phi i32 [ 0, %9 ], [ 0, %5 ], [ %109, %107 ], [ 0, %99 ]
+  ret i32 %.040
 }
 
 declare ptr @XML_GetUserData(ptr noundef) local_unnamed_addr #4

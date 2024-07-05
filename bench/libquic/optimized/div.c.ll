@@ -313,11 +313,11 @@ for.body177.lr.ph:                                ; preds = %if.end172
   br label %for.body177
 
 for.body177:                                      ; preds = %for.body177.lr.ph, %if.end229
-  %wnump.0151 = phi ptr [ %arrayidx130, %for.body177.lr.ph ], [ %arrayidx180, %if.end229 ]
+  %i.1151 = phi i32 [ 0, %for.body177.lr.ph ], [ %inc231, %if.end229 ]
   %resp.1150 = phi ptr [ %resp.0, %for.body177.lr.ph ], [ %incdec.ptr233, %if.end229 ]
-  %i.1149 = phi i32 [ 0, %for.body177.lr.ph ], [ %inc231, %if.end229 ]
-  %46 = load i64, ptr %wnump.0151, align 8
-  %arrayidx180 = getelementptr inbounds i8, ptr %wnump.0151, i64 -8
+  %wnump.0149 = phi ptr [ %arrayidx130, %for.body177.lr.ph ], [ %arrayidx180, %if.end229 ]
+  %46 = load i64, ptr %wnump.0149, align 8
+  %arrayidx180 = getelementptr inbounds i8, ptr %wnump.0149, i64 -8
   %cmp181 = icmp eq i64 %46, %35
   br i1 %cmp181, label %if.end204, label %if.else184
 
@@ -328,7 +328,7 @@ if.else184:                                       ; preds = %for.body177
   %asmresult1.i = extractvalue { i64, i64 } %48, 1
   %conv186 = zext i64 %asmresult.i to i128
   %mul = mul nuw i128 %conv186, %conv185
-  %arrayidx189 = getelementptr inbounds i8, ptr %wnump.0151, i64 -16
+  %arrayidx189 = getelementptr inbounds i8, ptr %wnump.0149, i64 -16
   %49 = load i64, ptr %arrayidx189, align 8
   %conv190 = zext i64 %49 to i128
   %conv188139 = zext i64 %asmresult1.i to i128
@@ -379,15 +379,15 @@ if.then219:                                       ; preds = %if.end204
   br i1 %tobool225.not, label %if.end229, label %if.then226
 
 if.then226:                                       ; preds = %if.then219
-  %57 = load i64, ptr %wnump.0151, align 8
+  %57 = load i64, ptr %wnump.0149, align 8
   %inc227 = add i64 %57, 1
-  store i64 %inc227, ptr %wnump.0151, align 8
+  store i64 %inc227, ptr %wnump.0149, align 8
   br label %if.end229
 
 if.end229:                                        ; preds = %if.then219, %if.then226, %if.end204
   %q.2 = phi i64 [ %q.1, %if.end204 ], [ %dec220, %if.then219 ], [ %dec220, %if.then226 ]
   store i64 %q.2, ptr %resp.1150, align 8
-  %inc231 = add nuw nsw i32 %i.1149, 1
+  %inc231 = add nuw nsw i32 %i.1151, 1
   %incdec.ptr233 = getelementptr inbounds i8, ptr %resp.1150, i64 -8
   %exitcond.not = icmp eq i32 %inc231, %sub143
   br i1 %exitcond.not, label %for.end234, label %for.body177, !llvm.loop !10

@@ -2770,9 +2770,9 @@ for.body52.preheader:                             ; preds = %sw.bb9.i, %sw.bb6.i
   br label %for.body52
 
 for.body52:                                       ; preds = %for.body52.preheader, %for.inc59
-  %__begin446.sroa.0.0154 = phi ptr [ %68, %for.inc59 ], [ %27, %for.body52.preheader ]
-  %__begin446.sroa.5.0153 = phi ptr [ %spec.select, %for.inc59 ], [ null, %for.body52.preheader ]
-  %m_is_relevant.i67 = getelementptr inbounds i8, ptr %__begin446.sroa.0.0154, i64 16
+  %__begin446.sroa.5.0154 = phi ptr [ %spec.select, %for.inc59 ], [ null, %for.body52.preheader ]
+  %__begin446.sroa.0.0153 = phi ptr [ %68, %for.inc59 ], [ %27, %for.body52.preheader ]
+  %m_is_relevant.i67 = getelementptr inbounds i8, ptr %__begin446.sroa.0.0153, i64 16
   %58 = load i8, ptr %m_is_relevant.i67, align 8
   %tobool.i68 = trunc i8 %58 to i1
   br i1 %tobool.i68, label %for.inc59, label %if.then55
@@ -2869,7 +2869,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit83: ; preds = %lor.lhs.false.
   %65 = phi ptr [ %.pre.i80, %_ZN6vectorIPN3euf5enodeELb0EjE13expand_vectorEv.exit135 ], [ %59, %lor.lhs.false.i70 ]
   %idx.ext.i75 = zext i32 %64 to i64
   %add.ptr.i76 = getelementptr inbounds ptr, ptr %65, i64 %idx.ext.i75
-  store ptr %__begin446.sroa.0.0154, ptr %add.ptr.i76, align 8
+  store ptr %__begin446.sroa.0.0153, ptr %add.ptr.i76, align 8
   %66 = load ptr, ptr %m_todo, align 8
   %arrayidx10.i77 = getelementptr inbounds i8, ptr %66, i64 -4
   %67 = load i32, ptr %arrayidx10.i77, align 4
@@ -2878,9 +2878,9 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit83: ; preds = %lor.lhs.false.
   br label %for.inc59
 
 for.inc59:                                        ; preds = %for.body52, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit83
-  %tobool.not.i = icmp eq ptr %__begin446.sroa.5.0153, null
-  %spec.select = select i1 %tobool.not.i, ptr %__begin446.sroa.0.0154, ptr %__begin446.sroa.5.0153
-  %m_next.i = getelementptr inbounds i8, ptr %__begin446.sroa.0.0154, i64 56
+  %tobool.not.i = icmp eq ptr %__begin446.sroa.5.0154, null
+  %spec.select = select i1 %tobool.not.i, ptr %__begin446.sroa.0.0153, ptr %__begin446.sroa.5.0154
+  %m_next.i = getelementptr inbounds i8, ptr %__begin446.sroa.0.0153, i64 56
   %68 = load ptr, ptr %m_next.i, align 8
   %cmp.i.i66 = icmp ne ptr %spec.select, %27
   %cmp4.i.i = icmp ne ptr %68, %27

@@ -115,9 +115,9 @@ define internal range(i32 5, 1) i32 @dissect_ixiatrailer(ptr noundef %0, ptr nou
   br label %19
 
 19:                                               ; preds = %9, %15
-  %.069 = phi i1 [ %18, %15 ], [ false, %9 ]
+  %.071 = phi i1 [ %18, %15 ], [ false, %9 ]
   %.not85 = xor i1 %13, true
-  %brmerge = select i1 %.not85, i1 true, i1 %.069
+  %brmerge = select i1 %.not85, i1 true, i1 %.071
   %spec.store.select.mux = select i1 %13, i32 %11, i32 %spec.store.select
   br i1 %brmerge, label %20, label %.loopexit
 
@@ -162,11 +162,11 @@ define internal range(i32 5, 1) i32 @dissect_ixiatrailer(ptr noundef %0, ptr nou
   br i1 %.not90, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38, %64
-  %.089 = phi i32 [ %65, %64 ], [ 0, %38 ]
-  %.07188 = phi ptr [ %.1, %64 ], [ %35, %38 ]
-  %42 = add nuw i32 %.089, 1
-  %43 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.089) #3
-  %44 = add i32 %.089, 2
+  %.06989 = phi ptr [ %.1, %64 ], [ %35, %38 ]
+  %.07088 = phi i32 [ %65, %64 ], [ 0, %38 ]
+  %42 = add nuw i32 %.07088, 1
+  %43 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.07088) #3
+  %44 = add i32 %.07088, 2
   %45 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %42) #3
   %46 = zext i8 %45 to i32
   %47 = zext i8 %43 to i32
@@ -184,7 +184,7 @@ define internal range(i32 5, 1) i32 @dissect_ixiatrailer(ptr noundef %0, ptr nou
   br i1 %.not83, label %51, label %49
 
 49:                                               ; preds = %48
-  %50 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.07188, ptr noundef nonnull @ei_ixiatrailer_field_length_invalid, ptr noundef nonnull @.str.17, i32 noundef %46) #3
+  %50 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.06989, ptr noundef nonnull @ei_ixiatrailer_field_length_invalid, ptr noundef nonnull @.str.17, i32 noundef %46) #3
   br label %64
 
 51:                                               ; preds = %48
@@ -198,7 +198,7 @@ define internal range(i32 5, 1) i32 @dissect_ixiatrailer(ptr noundef %0, ptr nou
   br i1 %.not82, label %57, label %55
 
 55:                                               ; preds = %54
-  %56 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.07188, ptr noundef nonnull @ei_ixiatrailer_field_length_invalid, ptr noundef nonnull @.str.17, i32 noundef %46) #3
+  %56 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.06989, ptr noundef nonnull @ei_ixiatrailer_field_length_invalid, ptr noundef nonnull @.str.17, i32 noundef %46) #3
   br label %64
 
 57:                                               ; preds = %54
@@ -215,14 +215,14 @@ define internal range(i32 5, 1) i32 @dissect_ixiatrailer(ptr noundef %0, ptr nou
   br label %64
 
 64:                                               ; preds = %61, %57, %55, %51, %49
-  %.1 = phi ptr [ %63, %61 ], [ %.07188, %55 ], [ %59, %57 ], [ %.07188, %49 ], [ %53, %51 ]
+  %.1 = phi ptr [ %63, %61 ], [ %.06989, %55 ], [ %59, %57 ], [ %.06989, %49 ], [ %53, %51 ]
   %65 = add i32 %44, %46
   %66 = icmp ult i32 %65, %41
   br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %64, %38, %19, %24, %20, %4
-  %.072 = phi i32 [ 0, %4 ], [ 0, %20 ], [ 0, %24 ], [ 0, %19 ], [ 7, %38 ], [ %spec.store.select.mux, %64 ]
-  ret i32 %.072
+  %.0 = phi i32 [ 0, %4 ], [ 0, %20 ], [ 0, %24 ], [ 0, %19 ], [ 7, %38 ], [ %spec.store.select.mux, %64 ]
+  ret i32 %.0
 }
 
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1

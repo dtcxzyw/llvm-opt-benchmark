@@ -156,18 +156,18 @@ define internal range(i32 0, 2) i32 @httpstat_packet(ptr noundef %0, ptr nocaptu
   br label %26
 
 26:                                               ; preds = %24, %22, %20, %18
-  %.0 = phi i64 [ 199, %18 ], [ 299, %20 ], [ 399, %22 ], [ %., %24 ]
+  %.032 = phi i64 [ 199, %18 ], [ 299, %20 ], [ 399, %22 ], [ %., %24 ]
   %27 = load ptr, ptr %9, align 8
-  %28 = inttoptr i64 %.0 to ptr
+  %28 = inttoptr i64 %.032 to ptr
   %29 = tail call ptr @g_hash_table_lookup(ptr noundef %27, ptr noundef nonnull %28) #10
   %30 = icmp eq ptr %29, null
   br i1 %30, label %54, label %31
 
 31:                                               ; preds = %26, %8
-  %.032 = phi ptr [ %29, %26 ], [ %13, %8 ]
-  %32 = load i32, ptr %.032, align 8
+  %.033 = phi ptr [ %29, %26 ], [ %13, %8 ]
+  %32 = load i32, ptr %.033, align 8
   %33 = add i32 %32, 1
-  store i32 %33, ptr %.032, align 8
+  store i32 %33, ptr %.033, align 8
   br label %54
 
 34:                                               ; preds = %5
@@ -204,8 +204,8 @@ define internal range(i32 0, 2) i32 @httpstat_packet(ptr noundef %0, ptr nocaptu
   br label %54
 
 54:                                               ; preds = %31, %42, %50, %34, %26, %15
-  %.033 = phi i32 [ 0, %15 ], [ 0, %26 ], [ 0, %34 ], [ 1, %50 ], [ 1, %42 ], [ 1, %31 ]
-  ret i32 %.033
+  %.0 = phi i32 [ 0, %15 ], [ 0, %26 ], [ 0, %34 ], [ 1, %50 ], [ 1, %42 ], [ 1, %31 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

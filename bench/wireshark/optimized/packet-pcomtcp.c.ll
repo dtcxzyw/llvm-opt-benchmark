@@ -289,8 +289,8 @@ define internal i32 @dissect_pcomtcp(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %46
 
 46:                                               ; preds = %8, %4, %44
-  %.044 = phi i32 [ %45, %44 ], [ 0, %4 ], [ 0, %8 ]
-  ret i32 %.044
+  %.0 = phi i32 [ %45, %44 ], [ 0, %4 ], [ 0, %8 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

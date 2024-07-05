@@ -374,7 +374,7 @@ define internal i32 @dissect_btbnep(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %97
 
 97:                                               ; preds = %85, %94, %80
-  %.0150 = phi ptr [ %82, %80 ], [ null, %85 ], [ null, %94 ]
+  %.0152 = phi ptr [ %82, %80 ], [ null, %85 ], [ null, %94 ]
   %98 = add nuw nsw i32 %.1, 2
   br label %101
 
@@ -383,8 +383,8 @@ define internal i32 @dissect_btbnep(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %101
 
 101:                                              ; preds = %99, %97
-  %.0152 = phi i32 [ %78, %97 ], [ 0, %99 ]
-  %.1151 = phi ptr [ %.0150, %97 ], [ null, %99 ]
+  %.1153 = phi ptr [ %.0152, %97 ], [ null, %99 ]
+  %.0149 = phi i32 [ %78, %97 ], [ 0, %99 ]
   %.2 = phi i32 [ %98, %97 ], [ %100, %99 ]
   br i1 %.not, label %dissect_extension.exit, label %tailrecurse.i
 
@@ -428,7 +428,7 @@ dissect_extension.exit:                           ; preds = %119, %101
   br i1 %.not159, label %159, label %122
 
 122:                                              ; preds = %120
-  %123 = icmp ult i32 %.0152, 1501
+  %123 = icmp ult i32 %.0149, 1501
   br i1 %123, label %124, label %143
 
 124:                                              ; preds = %122
@@ -445,17 +445,17 @@ dissect_extension.exit:                           ; preds = %119, %101
   %.not161 = phi i1 [ false, %124 ], [ %128, %126 ]
   %130 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3) #2
   %131 = icmp sgt i32 %130, -1
-  %132 = icmp ugt i32 %.0152, %130
+  %132 = icmp ugt i32 %.0149, %130
   %or.cond = and i1 %131, %132
   br i1 %or.cond, label %133, label %135
 
 133:                                              ; preds = %129
-  %134 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.1151, ptr noundef nonnull @ei_btbnep_len_past_end) #2
+  %134 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.1153, ptr noundef nonnull @ei_btbnep_len_past_end) #2
   br label %135
 
 135:                                              ; preds = %133, %129
-  %.1153 = phi i32 [ %130, %133 ], [ %.0152, %129 ]
-  %136 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.3, i32 noundef %.1153) #2
+  %.1150 = phi i32 [ %130, %133 ], [ %.0149, %129 ]
+  %136 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.3, i32 noundef %.1150) #2
   br i1 %.not161, label %140, label %137
 
 137:                                              ; preds = %135
@@ -469,7 +469,7 @@ dissect_extension.exit:                           ; preds = %119, %101
   br label %162
 
 143:                                              ; preds = %122
-  %144 = icmp ult i32 %.0152, 1536
+  %144 = icmp ult i32 %.0149, 1536
   br i1 %144, label %145, label %148
 
 145:                                              ; preds = %143
@@ -480,8 +480,8 @@ dissect_extension.exit:                           ; preds = %119, %101
 148:                                              ; preds = %143
   %149 = load i32, ptr @hf_btbnep_type, align 4
   %150 = add i32 %.3, -2
-  %151 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %149, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef %.0152) #2
-  %152 = trunc nuw i32 %.0152 to i16
+  %151 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %149, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef %.0149) #2
+  %152 = trunc nuw i32 %.0149 to i16
   store i16 %152, ptr %5, align 8
   %153 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.3, ptr %153, align 4

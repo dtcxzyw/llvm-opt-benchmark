@@ -911,8 +911,8 @@ if.then26:                                        ; preds = %if.end22
   br label %if.end47
 
 if.end30:                                         ; preds = %if.end22, %if.then
-  %fnm.0 = phi ptr [ null, %if.end22 ], [ %call1, %if.then ]
   %rnm.0 = phi ptr [ %3, %if.end22 ], [ null, %if.then ]
+  %fnm.0 = phi ptr [ null, %if.end22 ], [ %call1, %if.then ]
   %5 = load ptr, ptr %pdp, align 8
   %tobool31.not = icmp eq ptr %5, null
   br i1 %tobool31.not, label %if.end33, label %if.then32

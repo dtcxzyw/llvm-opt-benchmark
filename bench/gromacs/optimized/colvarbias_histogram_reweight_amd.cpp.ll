@@ -2299,17 +2299,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 60:                                               ; preds = %.lr.ph, %73
   %61 = phi ptr [ %54, %.lr.ph ], [ %74, %73 ]
   %62 = phi ptr [ %58, %.lr.ph ], [ %79, %73 ]
-  %.02269 = phi i64 [ 0, %.lr.ph ], [ %75, %73 ]
+  %.02869 = phi i64 [ 0, %.lr.ph ], [ %75, %73 ]
   %63 = load ptr, ptr %59, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 392
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds double, ptr %65, i64 %.02269
+  %66 = getelementptr inbounds double, ptr %65, i64 %.02869
   %67 = load double, ptr %66, align 8
   %68 = fcmp ogt double %67, 0.000000e+00
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %60
-  %70 = getelementptr inbounds double, ptr %62, i64 %.02269
+  %70 = getelementptr inbounds double, ptr %62, i64 %.02869
   %71 = load double, ptr %70, align 8
   %72 = fdiv double %71, %67
   store double %72, ptr %70, align 8
@@ -2318,7 +2318,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 73:                                               ; preds = %60, %69
   %74 = phi ptr [ %61, %60 ], [ %.pre, %69 ]
-  %75 = add nuw i64 %.02269, 1
+  %75 = add nuw i64 %.02869, 1
   %76 = getelementptr inbounds i8, ptr %74, i64 392
   %77 = getelementptr inbounds i8, ptr %74, i64 400
   %78 = load ptr, ptr %77, align 8
@@ -4401,39 +4401,39 @@ define void @_ZNK22colvarbias_reweightaMD11hist_to_pmfEP18colvar_grid_scalarPKS0
   %20 = phi ptr [ %8, %.lr.ph ], [ %40, %37 ]
   %.055 = phi i1 [ true, %.lr.ph ], [ %.2, %37 ]
   %.03554 = phi i1 [ true, %.lr.ph ], [ %.136, %37 ]
-  %.03753 = phi i64 [ 0, %.lr.ph ], [ %38, %37 ]
-  %.03952 = phi double [ 0.000000e+00, %.lr.ph ], [ %.140, %37 ]
-  %.04151 = phi double [ 0.000000e+00, %.lr.ph ], [ %.243, %37 ]
+  %.03753 = phi double [ 0.000000e+00, %.lr.ph ], [ %.239, %37 ]
+  %.04052 = phi i64 [ 0, %.lr.ph ], [ %38, %37 ]
+  %.04251 = phi double [ 0.000000e+00, %.lr.ph ], [ %.143, %37 ]
   %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr inbounds double, ptr %21, i64 %.03753
+  %22 = getelementptr inbounds double, ptr %21, i64 %.04052
   %23 = load double, ptr %22, align 8
   %24 = fcmp ogt double %23, 0.000000e+00
   br i1 %24, label %25, label %37
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds double, ptr %20, i64 %.03753
+  %26 = getelementptr inbounds double, ptr %20, i64 %.04052
   %27 = load double, ptr %26, align 8
   %28 = tail call noundef double @log(double noundef %27) #17
   %29 = fmul double %17, %28
   %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds double, ptr %30, i64 %.03753
+  %31 = getelementptr inbounds double, ptr %30, i64 %.04052
   store double %29, ptr %31, align 8
-  %32 = fcmp olt double %29, %.04151
+  %32 = fcmp olt double %29, %.03753
   %33 = select i1 %.055, i1 true, i1 %32
-  %.142 = select i1 %33, double %29, double %.04151
+  %.138 = select i1 %33, double %29, double %.03753
   br i1 %.03554, label %37, label %34
 
 34:                                               ; preds = %25
-  %35 = fcmp ogt double %29, %.03952
-  %36 = select i1 %35, double %29, double %.03952
+  %35 = fcmp ogt double %29, %.04251
+  %36 = select i1 %35, double %29, double %.04251
   br label %37
 
 37:                                               ; preds = %25, %19, %34
-  %.243 = phi double [ %.142, %34 ], [ %.04151, %19 ], [ %.142, %25 ]
-  %.140 = phi double [ %36, %34 ], [ %.03952, %19 ], [ %29, %25 ]
+  %.143 = phi double [ %36, %34 ], [ %.04251, %19 ], [ %29, %25 ]
+  %.239 = phi double [ %.138, %34 ], [ %.03753, %19 ], [ %.138, %25 ]
   %.136 = phi i1 [ false, %34 ], [ %.03554, %19 ], [ false, %25 ]
   %.2 = phi i1 [ false, %34 ], [ %.055, %19 ], [ false, %25 ]
-  %38 = add nuw i64 %.03753, 1
+  %38 = add nuw i64 %.04052, 1
   %39 = load ptr, ptr %6, align 8
   %40 = load ptr, ptr %5, align 8
   %41 = ptrtoint ptr %39 to i64
@@ -4445,12 +4445,12 @@ define void @_ZNK22colvarbias_reweightaMD11hist_to_pmfEP18colvar_grid_scalarPKS0
 
 46:                                               ; preds = %.lr.ph58, %55
   %47 = phi ptr [ %40, %.lr.ph58 ], [ %58, %55 ]
-  %.13857 = phi i64 [ 0, %.lr.ph58 ], [ %56, %55 ]
+  %.14157 = phi i64 [ 0, %.lr.ph58 ], [ %56, %55 ]
   %48 = load ptr, ptr %18, align 8
-  %49 = getelementptr inbounds double, ptr %48, i64 %.13857
+  %49 = getelementptr inbounds double, ptr %48, i64 %.14157
   %50 = load double, ptr %49, align 8
   %51 = fcmp ogt double %50, 0.000000e+00
-  %52 = getelementptr inbounds double, ptr %47, i64 %.13857
+  %52 = getelementptr inbounds double, ptr %47, i64 %.14157
   br i1 %51, label %53, label %55
 
 53:                                               ; preds = %46
@@ -4458,10 +4458,10 @@ define void @_ZNK22colvarbias_reweightaMD11hist_to_pmfEP18colvar_grid_scalarPKS0
   br label %55
 
 55:                                               ; preds = %46, %53
-  %.pn = phi double [ %54, %53 ], [ %.140, %46 ]
-  %.sink = fsub double %.pn, %.243
+  %.pn = phi double [ %54, %53 ], [ %.143, %46 ]
+  %.sink = fsub double %.pn, %.239
   store double %.sink, ptr %52, align 8
-  %56 = add nuw i64 %.13857, 1
+  %56 = add nuw i64 %.14157, 1
   %57 = load ptr, ptr %6, align 8
   %58 = load ptr, ptr %5, align 8
   %59 = ptrtoint ptr %57 to i64

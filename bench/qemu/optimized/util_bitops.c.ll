@@ -36,26 +36,26 @@ if.end8:                                          ; preds = %if.end5
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end8, %if.end
-  %size.addr.0 = phi i64 [ %sub9, %if.end8 ], [ %sub, %if.end ]
   %p.0 = phi ptr [ %incdec.ptr, %if.end8 ], [ %add.ptr, %if.end ]
   %result.0 = phi i64 [ %add, %if.end8 ], [ %and, %if.end ]
+  %size.addr.0 = phi i64 [ %sub9, %if.end8 ], [ %sub, %if.end ]
   %cmp1145 = icmp ugt i64 %size.addr.0, 255
   br i1 %cmp1145, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end10, %if.end21
-  %result.148 = phi i64 [ %add23, %if.end21 ], [ %result.0, %if.end10 ]
-  %p.147 = phi ptr [ %add.ptr22, %if.end21 ], [ %p.0, %if.end10 ]
-  %size.addr.146 = phi i64 [ %sub24, %if.end21 ], [ %size.addr.0, %if.end10 ]
-  %1 = load i64, ptr %p.147, align 8
+  %size.addr.148 = phi i64 [ %sub24, %if.end21 ], [ %size.addr.0, %if.end10 ]
+  %result.147 = phi i64 [ %add23, %if.end21 ], [ %result.0, %if.end10 ]
+  %p.146 = phi ptr [ %add.ptr22, %if.end21 ], [ %p.0, %if.end10 ]
+  %1 = load i64, ptr %p.146, align 8
   %tobool15.not = icmp eq i64 %1, 0
   br i1 %tobool15.not, label %if.end17, label %found_middle
 
 if.end17:                                         ; preds = %while.body
-  %add.ptr14 = getelementptr i8, ptr %p.147, i64 24
+  %add.ptr14 = getelementptr i8, ptr %p.146, i64 24
   %2 = load i64, ptr %add.ptr14, align 8
-  %add.ptr13 = getelementptr i8, ptr %p.147, i64 16
+  %add.ptr13 = getelementptr i8, ptr %p.146, i64 16
   %3 = load i64, ptr %add.ptr13, align 8
-  %add.ptr12 = getelementptr i8, ptr %p.147, i64 8
+  %add.ptr12 = getelementptr i8, ptr %p.146, i64 8
   %4 = load i64, ptr %add.ptr12, align 8
   %or = or i64 %3, %2
   %or18 = or i64 %or, %4
@@ -63,44 +63,44 @@ if.end17:                                         ; preds = %while.body
   br i1 %tobool19.not, label %if.end21, label %while.body27.preheader
 
 if.end21:                                         ; preds = %if.end17
-  %add.ptr22 = getelementptr i8, ptr %p.147, i64 32
-  %add23 = add i64 %result.148, 256
-  %sub24 = add i64 %size.addr.146, -256
+  %add.ptr22 = getelementptr i8, ptr %p.146, i64 32
+  %add23 = add i64 %result.147, 256
+  %sub24 = add i64 %size.addr.148, -256
   %cmp11 = icmp ugt i64 %sub24, 255
   br i1 %cmp11, label %while.body, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %if.end21, %if.end10
-  %size.addr.1.lcssa = phi i64 [ %size.addr.0, %if.end10 ], [ %sub24, %if.end21 ]
   %p.1.lcssa = phi ptr [ %p.0, %if.end10 ], [ %add.ptr22, %if.end21 ]
   %result.1.lcssa = phi i64 [ %result.0, %if.end10 ], [ %add23, %if.end21 ]
+  %size.addr.1.lcssa = phi i64 [ %size.addr.0, %if.end10 ], [ %sub24, %if.end21 ]
   %cmp2654 = icmp ugt i64 %size.addr.1.lcssa, 63
   br i1 %cmp2654, label %while.body27.preheader, label %while.end34
 
 while.body27.preheader:                           ; preds = %if.end17, %while.end
-  %result.257.ph = phi i64 [ %result.1.lcssa, %while.end ], [ %result.148, %if.end17 ]
-  %p.256.ph = phi ptr [ %p.1.lcssa, %while.end ], [ %p.147, %if.end17 ]
-  %size.addr.255.ph = phi i64 [ %size.addr.1.lcssa, %while.end ], [ %size.addr.146, %if.end17 ]
+  %size.addr.257.ph = phi i64 [ %size.addr.1.lcssa, %while.end ], [ %size.addr.148, %if.end17 ]
+  %result.256.ph = phi i64 [ %result.1.lcssa, %while.end ], [ %result.147, %if.end17 ]
+  %p.255.ph = phi ptr [ %p.1.lcssa, %while.end ], [ %p.146, %if.end17 ]
   br label %while.body27
 
 while.body27:                                     ; preds = %while.body27.preheader, %if.end31
-  %result.257 = phi i64 [ %add32, %if.end31 ], [ %result.257.ph, %while.body27.preheader ]
-  %p.256 = phi ptr [ %incdec.ptr28, %if.end31 ], [ %p.256.ph, %while.body27.preheader ]
-  %size.addr.255 = phi i64 [ %sub33, %if.end31 ], [ %size.addr.255.ph, %while.body27.preheader ]
-  %5 = load i64, ptr %p.256, align 8
+  %size.addr.257 = phi i64 [ %sub33, %if.end31 ], [ %size.addr.257.ph, %while.body27.preheader ]
+  %result.256 = phi i64 [ %add32, %if.end31 ], [ %result.256.ph, %while.body27.preheader ]
+  %p.255 = phi ptr [ %incdec.ptr28, %if.end31 ], [ %p.255.ph, %while.body27.preheader ]
+  %5 = load i64, ptr %p.255, align 8
   %tobool29.not = icmp eq i64 %5, 0
   br i1 %tobool29.not, label %if.end31, label %found_middle
 
 if.end31:                                         ; preds = %while.body27
-  %incdec.ptr28 = getelementptr i8, ptr %p.256, i64 8
-  %add32 = add i64 %result.257, 64
-  %sub33 = add i64 %size.addr.255, -64
+  %incdec.ptr28 = getelementptr i8, ptr %p.255, i64 8
+  %add32 = add i64 %result.256, 64
+  %sub33 = add i64 %size.addr.257, -64
   %cmp26 = icmp ugt i64 %sub33, 63
   br i1 %cmp26, label %while.body27, label %while.end34, !llvm.loop !7
 
 while.end34:                                      ; preds = %if.end31, %while.end
-  %size.addr.2.lcssa = phi i64 [ %size.addr.1.lcssa, %while.end ], [ %sub33, %if.end31 ]
   %p.2.lcssa = phi ptr [ %p.1.lcssa, %while.end ], [ %incdec.ptr28, %if.end31 ]
   %result.2.lcssa = phi i64 [ %result.1.lcssa, %while.end ], [ %add32, %if.end31 ]
+  %size.addr.2.lcssa = phi i64 [ %size.addr.1.lcssa, %while.end ], [ %sub33, %if.end31 ]
   %tobool35.not = icmp eq i64 %size.addr.2.lcssa, 0
   br i1 %tobool35.not, label %return, label %if.end37
 
@@ -109,21 +109,21 @@ if.end37:                                         ; preds = %while.end34
   br label %found_first
 
 found_first:                                      ; preds = %if.then1, %if.end37
-  %size.addr.3 = phi i64 [ %sub, %if.then1 ], [ %size.addr.2.lcssa, %if.end37 ]
   %result.3 = phi i64 [ %and, %if.then1 ], [ %result.2.lcssa, %if.end37 ]
   %tmp.0 = phi i64 [ %and2, %if.then1 ], [ %6, %if.end37 ]
+  %size.addr.3 = phi i64 [ %sub, %if.then1 ], [ %size.addr.2.lcssa, %if.end37 ]
   %sub38 = sub nuw nsw i64 64, %size.addr.3
   %shr = lshr i64 -1, %sub38
-  %and39 = and i64 %tmp.0, %shr
+  %and39 = and i64 %shr, %tmp.0
   %cmp40 = icmp eq i64 %and39, 0
   br i1 %cmp40, label %if.then41, label %found_middle
 
 if.then41:                                        ; preds = %found_first
-  %add42 = add i64 %result.3, %size.addr.3
+  %add42 = add i64 %size.addr.3, %result.3
   br label %return
 
 found_middle:                                     ; preds = %while.body, %while.body27, %found_first, %if.end5
-  %result.4 = phi i64 [ %result.3, %found_first ], [ %and, %if.end5 ], [ %result.257, %while.body27 ], [ %result.148, %while.body ]
+  %result.4 = phi i64 [ %result.3, %found_first ], [ %and, %if.end5 ], [ %result.256, %while.body27 ], [ %result.147, %while.body ]
   %tmp.1 = phi i64 [ %and39, %found_first ], [ %and2, %if.end5 ], [ %5, %while.body27 ], [ %1, %while.body ]
   %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %tmp.1, i1 true)
   %add44 = add i64 %7, %result.4

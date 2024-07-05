@@ -725,8 +725,8 @@ define internal fastcc i64 @H5D__gather_file(ptr nocapture noundef readonly %0, 
   br label %.thread49
 
 41:                                               ; preds = %.lr.ph, %60
-  %.02955 = phi i64 [ %3, %.lr.ph ], [ %64, %60 ]
-  %42 = call i32 @H5S_select_iter_get_seq_list(ptr noundef %2, i64 noundef %., i64 noundef %.02955, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %33, ptr noundef nonnull %26) #8
+  %.02755 = phi i64 [ %3, %.lr.ph ], [ %64, %60 ]
+  %42 = call i32 @H5S_select_iter_get_seq_list(ptr noundef %2, i64 noundef %., i64 noundef %.02755, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %33, ptr noundef nonnull %26) #8
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %48
 
@@ -761,7 +761,7 @@ define internal fastcc i64 @H5D__gather_file(ptr nocapture noundef readonly %0, 
   %62 = getelementptr inbounds i8, ptr %61, i64 %51
   store ptr %62, ptr %16, align 8
   %63 = load i64, ptr %13, align 8
-  %64 = sub i64 %.02955, %63
+  %64 = sub i64 %.02755, %63
   %.not = icmp eq i64 %64, 0
   br i1 %.not, label %.loopexit.thread59, label %41
 
@@ -848,15 +848,15 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__compound_opt_read(i64 noundef 
 
 .lr.ph81:                                         ; preds = %.preheader, %._crit_edge
   %.180 = phi ptr [ %.2.lcssa, %._crit_edge ], [ %.04485, %.preheader ]
-  %.04579 = phi i64 [ %56, %._crit_edge ], [ 0, %.preheader ]
-  %46 = getelementptr inbounds i64, ptr %17, i64 %.04579
+  %.04679 = phi i64 [ %56, %._crit_edge ], [ 0, %.preheader ]
+  %46 = getelementptr inbounds i64, ptr %17, i64 %.04679
   %47 = load i64, ptr %46, align 8
   %48 = udiv i64 %47, %34
   %.not90 = icmp ugt i64 %34, %47
   br i1 %.not90, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph81
-  %49 = getelementptr inbounds i64, ptr %24, i64 %.04579
+  %49 = getelementptr inbounds i64, ptr %24, i64 %.04679
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %4, i64 %50
   br label %.lr.ph
@@ -874,7 +874,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__compound_opt_read(i64 noundef 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph81
   %.2.lcssa = phi ptr [ %.180, %.lr.ph81 ], [ %52, %.lr.ph ]
-  %56 = add nuw i64 %.04579, 1
+  %56 = add nuw i64 %.04679, 1
   %exitcond.not = icmp eq i64 %56, %41
   br i1 %exitcond.not, label %._crit_edge82, label %.lr.ph81
 
@@ -891,8 +891,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__compound_opt_read(i64 noundef 
   br label %.thread71
 
 .thread71:                                        ; preds = %.loopexit.thread, %11, %19, %.loopexit.thread94
-  %.0466275 = phi i32 [ 0, %.loopexit.thread94 ], [ -1, %19 ], [ -1, %11 ], [ -1, %.loopexit.thread ]
-  ret i32 %.0466275
+  %.0476175 = phi i32 [ 0, %.loopexit.thread94 ], [ -1, %19 ], [ -1, %11 ], [ -1, %.loopexit.thread ]
+  ret i32 %.0476175
 }
 
 declare i32 @H5T_convert(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1153,11 +1153,11 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write(ptr nocapture noundef readonly 
 
 .lr.ph.i:                                         ; preds = %152, %.lr.ph.i
   %.03.i = phi i64 [ %155, %.lr.ph.i ], [ 0, %152 ]
-  %.0132.i = phi ptr [ %154, %.lr.ph.i ], [ %.0122, %152 ]
-  %.0141.i = phi ptr [ %153, %.lr.ph.i ], [ %.0122, %152 ]
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.0132.i, ptr align 1 %.0141.i, i64 %148, i1 false)
-  %153 = getelementptr inbounds i8, ptr %.0141.i, i64 %.val
-  %154 = getelementptr inbounds i8, ptr %.0132.i, i64 %148
+  %.0132.i = phi ptr [ %153, %.lr.ph.i ], [ %.0122, %152 ]
+  %.0141.i = phi ptr [ %154, %.lr.ph.i ], [ %.0122, %152 ]
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.0141.i, ptr align 1 %.0132.i, i64 %148, i1 false)
+  %153 = getelementptr inbounds i8, ptr %.0132.i, i64 %.val
+  %154 = getelementptr inbounds i8, ptr %.0141.i, i64 %148
   %155 = add nuw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %155, %.1114
   br i1 %exitcond.not.i, label %H5D__compound_opt_write.exit, label %.lr.ph.i
@@ -1292,8 +1292,8 @@ H5D__scatter_file.exit.thread156:                 ; preds = %.preheader.i
   br label %H5D__scatter_file.exit.thread
 
 .lr.ph.i153:                                      ; preds = %.preheader.i, %237
-  %.02854.i = phi i64 [ %241, %237 ], [ %.1114, %.preheader.i ]
-  %219 = call i32 @H5S_select_iter_get_seq_list(ptr noundef nonnull %61, i64 noundef %..i, i64 noundef %.02854.i, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %211, ptr noundef nonnull %204) #8
+  %.02654.i = phi i64 [ %241, %237 ], [ %.1114, %.preheader.i ]
+  %219 = call i32 @H5S_select_iter_get_seq_list(ptr noundef nonnull %61, i64 noundef %..i, i64 noundef %.02654.i, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %211, ptr noundef nonnull %204) #8
   %220 = icmp slt i32 %219, 0
   br i1 %220, label %221, label %225
 
@@ -1328,7 +1328,7 @@ H5D__scatter_file.exit.thread156:                 ; preds = %.preheader.i
   %239 = getelementptr inbounds i8, ptr %238, i64 %228
   store ptr %239, ptr %107, align 8
   %240 = load i64, ptr %10, align 8
-  %241 = sub i64 %.02854.i, %240
+  %241 = sub i64 %.02654.i, %240
   %.not.i154 = icmp eq i64 %241, 0
   br i1 %.not.i154, label %H5D__scatter_file.exit, label %.lr.ph.i153
 
@@ -1486,12 +1486,12 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
   br label %.loopexit
 
 32:                                               ; preds = %.lr.ph, %150
-  %.0167265 = phi i64 [ 0, %.lr.ph ], [ %151, %150 ]
-  %.0170264 = phi i64 [ 0, %.lr.ph ], [ %.1171, %150 ]
-  %.0175263 = phi i64 [ 0, %.lr.ph ], [ %.2177, %150 ]
-  %.0178262 = phi ptr [ null, %.lr.ph ], [ %.1179, %150 ]
+  %.0169265 = phi i64 [ 0, %.lr.ph ], [ %151, %150 ]
+  %.0172264 = phi i64 [ 0, %.lr.ph ], [ %.1173, %150 ]
+  %.0177263 = phi i64 [ 0, %.lr.ph ], [ %.2179, %150 ]
+  %.0180262 = phi ptr [ null, %.lr.ph ], [ %.1181, %150 ]
   %33 = load ptr, ptr %24, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %.0167265
+  %34 = getelementptr inbounds ptr, ptr %33, i64 %.0169265
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 336
   %37 = load ptr, ptr %36, align 8
@@ -1508,29 +1508,29 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %28, align 8
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %.0167265
+  %47 = getelementptr inbounds ptr, ptr %46, i64 %.0169265
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds ptr, ptr %22, i64 %.0167265
+  %49 = getelementptr inbounds ptr, ptr %22, i64 %.0169265
   store ptr %48, ptr %49, align 8
   %50 = load ptr, ptr %26, align 8
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %.0167265
+  %51 = getelementptr inbounds ptr, ptr %50, i64 %.0169265
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds ptr, ptr %6, i64 %.0167265
+  %53 = getelementptr inbounds ptr, ptr %6, i64 %.0169265
   store ptr %52, ptr %53, align 8
   br label %150
 
 54:                                               ; preds = %41, %32
   %55 = getelementptr inbounds i8, ptr %35, i64 16
   %56 = tail call ptr @H5S_create_simple(i32 noundef 1, ptr noundef nonnull %55, ptr noundef null) #8
-  %57 = getelementptr inbounds ptr, ptr %22, i64 %.0167265
+  %57 = getelementptr inbounds ptr, ptr %22, i64 %.0169265
   store ptr %56, ptr %57, align 8
   %58 = icmp eq ptr %56, null
   br i1 %58, label %59, label %67
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds ptr, ptr %22, i64 %.0167265
+  %60 = getelementptr inbounds ptr, ptr %22, i64 %.0169265
   %61 = load i64, ptr %3, align 8
-  %62 = sub i64 %61, %.0167265
+  %62 = sub i64 %61, %.0169265
   %63 = shl i64 %62, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %60, i8 0, i64 %63, i1 false)
   %64 = load i64, ptr @H5E_DATASET_g, align 8
@@ -1540,7 +1540,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
 
 67:                                               ; preds = %54
   %68 = load ptr, ptr %24, align 8
-  %69 = getelementptr inbounds ptr, ptr %68, i64 %.0167265
+  %69 = getelementptr inbounds ptr, ptr %68, i64 %.0169265
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 316
   %72 = load i8, ptr %71, align 4
@@ -1549,19 +1549,19 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
 
 74:                                               ; preds = %67
   %75 = load ptr, ptr %26, align 8
-  %76 = getelementptr inbounds ptr, ptr %75, i64 %.0167265
+  %76 = getelementptr inbounds ptr, ptr %75, i64 %.0169265
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %70, i64 320
   %79 = load i64, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %77, i64 %79
-  %81 = getelementptr inbounds ptr, ptr %6, i64 %.0167265
+  %81 = getelementptr inbounds ptr, ptr %6, i64 %.0169265
   store ptr %80, ptr %81, align 8
   br label %95
 
 82:                                               ; preds = %67
   %83 = load ptr, ptr %25, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 %.0175263
-  %85 = getelementptr inbounds ptr, ptr %6, i64 %.0167265
+  %84 = getelementptr inbounds i8, ptr %83, i64 %.0177263
+  %85 = getelementptr inbounds ptr, ptr %6, i64 %.0169265
   store ptr %84, ptr %85, align 8
   %86 = load ptr, ptr %69, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 16
@@ -1572,11 +1572,11 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
   %92 = load i64, ptr %91, align 8
   %. = tail call i64 @llvm.umax.i64(i64 %90, i64 %92)
   %93 = mul i64 %., %88
-  %94 = add i64 %93, %.0175263
+  %94 = add i64 %93, %.0177263
   br label %95
 
 95:                                               ; preds = %82, %74
-  %.1176 = phi i64 [ %.0175263, %74 ], [ %94, %82 ]
+  %.1178 = phi i64 [ %.0177263, %74 ], [ %94, %82 ]
   %96 = getelementptr inbounds i8, ptr %37, i64 272
   %97 = load ptr, ptr %96, align 8
   %.not207 = icmp eq ptr %97, null
@@ -1602,20 +1602,20 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
 
 108:                                              ; preds = %105
   %109 = load ptr, ptr %27, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 %.0170264
+  %110 = getelementptr inbounds i8, ptr %109, i64 %.0172264
   %111 = load ptr, ptr %69, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 16
   %113 = load i64, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %37, i64 256
   %115 = load i64, ptr %114, align 8
   %116 = mul i64 %115, %113
-  %117 = add i64 %116, %.0170264
+  %117 = add i64 %116, %.0172264
   %118 = icmp eq i32 %107, 2
   br i1 %118, label %119, label %150
 
 119:                                              ; preds = %108
   %120 = load ptr, ptr %28, align 8
-  %121 = getelementptr inbounds ptr, ptr %120, i64 %.0167265
+  %121 = getelementptr inbounds ptr, ptr %120, i64 %.0169265
   %122 = load ptr, ptr %121, align 8
   %123 = tail call i32 @H5S_select_iter_init(ptr noundef nonnull %13, ptr noundef %122, i64 noundef %115, i32 noundef 0) #8
   %124 = icmp slt i32 %123, 0
@@ -1629,12 +1629,12 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
 
 129:                                              ; preds = %119
   %130 = load ptr, ptr %24, align 8
-  %131 = getelementptr inbounds ptr, ptr %130, i64 %.0167265
+  %131 = getelementptr inbounds ptr, ptr %130, i64 %.0169265
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 16
   %134 = load i64, ptr %133, align 8
   %135 = load ptr, ptr %26, align 8
-  %136 = getelementptr inbounds ptr, ptr %135, i64 %.0167265
+  %136 = getelementptr inbounds ptr, ptr %135, i64 %.0169265
   %137 = load ptr, ptr %136, align 8
   %138 = tail call i64 @H5D__gather_mem(ptr noundef %137, ptr noundef nonnull %13, i64 noundef %134, ptr noundef %110)
   %.not210 = icmp eq i64 %134, %138
@@ -1658,10 +1658,10 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
   br label %306
 
 150:                                              ; preds = %143, %45, %105, %108, %100
-  %.1179 = phi ptr [ %.0178262, %45 ], [ %110, %108 ], [ %.0178262, %105 ], [ %.0178262, %100 ], [ %110, %143 ]
-  %.2177 = phi i64 [ %.0175263, %45 ], [ %.1176, %108 ], [ %.1176, %105 ], [ %.1176, %100 ], [ %.1176, %143 ]
-  %.1171 = phi i64 [ %.0170264, %45 ], [ %117, %108 ], [ %.0170264, %105 ], [ %.0170264, %100 ], [ %117, %143 ]
-  %151 = add nuw i64 %.0167265, 1
+  %.1181 = phi ptr [ %.0180262, %45 ], [ %110, %108 ], [ %.0180262, %105 ], [ %.0180262, %100 ], [ %110, %143 ]
+  %.2179 = phi i64 [ %.0177263, %45 ], [ %.1178, %108 ], [ %.1178, %105 ], [ %.1178, %100 ], [ %.1178, %143 ]
+  %.1173 = phi i64 [ %.0172264, %45 ], [ %117, %108 ], [ %.0172264, %105 ], [ %.0172264, %100 ], [ %117, %143 ]
+  %151 = add nuw i64 %.0169265, 1
   %152 = load i64, ptr %3, align 8
   %153 = icmp ult i64 %151, %152
   br i1 %153, label %32, label %._crit_edge.loopexit
@@ -1671,7 +1671,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader245
-  %.0178.lcssa = phi ptr [ null, %.preheader245 ], [ %.1179, %._crit_edge.loopexit ]
+  %.0180.lcssa = phi ptr [ null, %.preheader245 ], [ %.1181, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ 0, %.preheader245 ], [ %154, %._crit_edge.loopexit ]
   %155 = load ptr, ptr %0, align 8
   %156 = getelementptr inbounds i8, ptr %0, i64 112
@@ -1704,20 +1704,20 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
 
 173:                                              ; preds = %.lr.ph271, %302
   %174 = phi i64 [ %164, %.lr.ph271 ], [ %303, %302 ]
-  %.1168269 = phi i64 [ 0, %.lr.ph271 ], [ %304, %302 ]
-  %.2172268 = phi i64 [ 0, %.lr.ph271 ], [ %.5, %302 ]
-  %.2180267 = phi ptr [ %.0178.lcssa, %.lr.ph271 ], [ %.5183, %302 ]
-  %175 = getelementptr inbounds ptr, ptr %22, i64 %.1168269
+  %.1170269 = phi i64 [ 0, %.lr.ph271 ], [ %304, %302 ]
+  %.2174268 = phi i64 [ 0, %.lr.ph271 ], [ %.5, %302 ]
+  %.2182267 = phi ptr [ %.0180.lcssa, %.lr.ph271 ], [ %.5185, %302 ]
+  %175 = getelementptr inbounds ptr, ptr %22, i64 %.1170269
   %176 = load ptr, ptr %175, align 8
   %177 = load ptr, ptr %166, align 8
-  %178 = getelementptr inbounds ptr, ptr %177, i64 %.1168269
+  %178 = getelementptr inbounds ptr, ptr %177, i64 %.1170269
   %179 = load ptr, ptr %178, align 8
   %.not = icmp eq ptr %176, %179
   br i1 %.not, label %302, label %180
 
 180:                                              ; preds = %173
   %181 = load ptr, ptr %165, align 8
-  %182 = getelementptr inbounds ptr, ptr %181, i64 %.1168269
+  %182 = getelementptr inbounds ptr, ptr %181, i64 %.1170269
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds i8, ptr %183, i64 336
   %185 = load ptr, ptr %184, align 8
@@ -1751,7 +1751,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
   br i1 %.not205, label %220, label %200
 
 200:                                              ; preds = %198
-  %201 = getelementptr inbounds ptr, ptr %.pre.pre292, i64 %.1168269
+  %201 = getelementptr inbounds ptr, ptr %.pre.pre292, i64 %.1170269
   %202 = load ptr, ptr %201, align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 316
   %204 = load i8, ptr %203, align 4
@@ -1761,10 +1761,10 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
 206:                                              ; preds = %200
   %207 = getelementptr inbounds i8, ptr %202, i64 16
   %208 = load i64, ptr %207, align 8
-  %209 = getelementptr inbounds ptr, ptr %6, i64 %.1168269
+  %209 = getelementptr inbounds ptr, ptr %6, i64 %.1170269
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %167, align 8
-  %212 = getelementptr inbounds ptr, ptr %211, i64 %.1168269
+  %212 = getelementptr inbounds ptr, ptr %211, i64 %.1170269
   %213 = load ptr, ptr %212, align 8
   %214 = call fastcc i32 @H5D__compound_opt_read(i64 noundef %208, ptr noundef nonnull %13, ptr noundef nonnull %186, ptr noundef %210, ptr noundef %213)
   %215 = icmp slt i32 %214, 0
@@ -1784,7 +1784,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
   br i1 %.not206, label %._crit_edge285, label %223
 
 ._crit_edge285:                                   ; preds = %220
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %.1168269
+  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %.1170269
   %.pre286 = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert287 = getelementptr inbounds i8, ptr %.pre286, i64 16
   %.pre288 = load i64, ptr %.phi.trans.insert287, align 8
@@ -1792,29 +1792,29 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
 
 223:                                              ; preds = %220
   %224 = load ptr, ptr %168, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 %.2172268
-  %226 = getelementptr inbounds ptr, ptr %.pre, i64 %.1168269
+  %225 = getelementptr inbounds i8, ptr %224, i64 %.2174268
+  %226 = getelementptr inbounds ptr, ptr %.pre, i64 %.1170269
   %227 = load ptr, ptr %226, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 16
   %229 = load i64, ptr %228, align 8
   %230 = load i64, ptr %187, align 8
   %231 = mul i64 %230, %229
-  %232 = add i64 %231, %.2172268
+  %232 = add i64 %231, %.2174268
   br label %233
 
 233:                                              ; preds = %._crit_edge285, %223
   %234 = phi i64 [ %229, %223 ], [ %.pre288, %._crit_edge285 ]
-  %.3181 = phi ptr [ %225, %223 ], [ %.2180267, %._crit_edge285 ]
-  %.3173 = phi i64 [ %232, %223 ], [ %.2172268, %._crit_edge285 ]
+  %.3183 = phi ptr [ %225, %223 ], [ %.2182267, %._crit_edge285 ]
+  %.3175 = phi i64 [ %232, %223 ], [ %.2174268, %._crit_edge285 ]
   %235 = getelementptr inbounds i8, ptr %185, i64 240
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds i8, ptr %185, i64 224
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds i8, ptr %185, i64 232
   %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds ptr, ptr %6, i64 %.1168269
+  %241 = getelementptr inbounds ptr, ptr %6, i64 %.1170269
   %242 = load ptr, ptr %241, align 8
-  %243 = call i32 @H5T_convert(ptr noundef %236, ptr noundef %238, ptr noundef %240, i64 noundef %234, i64 noundef 0, i64 noundef 0, ptr noundef %242, ptr noundef %.3181) #8
+  %243 = call i32 @H5T_convert(ptr noundef %236, ptr noundef %238, ptr noundef %240, i64 noundef %234, i64 noundef 0, i64 noundef 0, ptr noundef %242, ptr noundef %.3183) #8
   %244 = icmp slt i32 %243, 0
   br i1 %244, label %245, label %249
 
@@ -1845,7 +1845,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
   %261 = load ptr, ptr %2, align 8
   %262 = load ptr, ptr %241, align 8
   %263 = load ptr, ptr %165, align 8
-  %264 = getelementptr inbounds ptr, ptr %263, i64 %.1168269
+  %264 = getelementptr inbounds ptr, ptr %263, i64 %.1170269
   %265 = load ptr, ptr %264, align 8
   %266 = getelementptr inbounds i8, ptr %265, i64 16
   %267 = load i64, ptr %266, align 8
@@ -1862,7 +1862,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
 
 275:                                              ; preds = %260, %249
   %276 = load ptr, ptr %165, align 8
-  %277 = getelementptr inbounds ptr, ptr %276, i64 %.1168269
+  %277 = getelementptr inbounds ptr, ptr %276, i64 %.1170269
   %278 = load ptr, ptr %277, align 8
   %279 = getelementptr inbounds i8, ptr %278, i64 316
   %280 = load i8, ptr %279, align 4
@@ -1874,7 +1874,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
   %284 = getelementptr inbounds i8, ptr %278, i64 16
   %285 = load i64, ptr %284, align 8
   %286 = load ptr, ptr %167, align 8
-  %287 = getelementptr inbounds ptr, ptr %286, i64 %.1168269
+  %287 = getelementptr inbounds ptr, ptr %286, i64 %.1170269
   %288 = load ptr, ptr %287, align 8
   %289 = call i32 @H5D__scatter_mem(ptr noundef %283, ptr noundef nonnull %13, i64 noundef %285, ptr noundef %288)
   %290 = icmp slt i32 %289, 0
@@ -1887,8 +1887,8 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
   br label %306
 
 295:                                              ; preds = %275, %282, %206
-  %.4182 = phi ptr [ %.3181, %275 ], [ %.3181, %282 ], [ %.2180267, %206 ]
-  %.4174 = phi i64 [ %.3173, %275 ], [ %.3173, %282 ], [ %.2172268, %206 ]
+  %.4184 = phi ptr [ %.3183, %275 ], [ %.3183, %282 ], [ %.2182267, %206 ]
+  %.4176 = phi i64 [ %.3175, %275 ], [ %.3175, %282 ], [ %.2174268, %206 ]
   %296 = call i32 @H5S_select_iter_release(ptr noundef nonnull %13) #8
   %297 = icmp slt i32 %296, 0
   br i1 %297, label %298, label %._crit_edge289
@@ -1905,9 +1905,9 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
 
 302:                                              ; preds = %._crit_edge289, %173
   %303 = phi i64 [ %174, %173 ], [ %.pre290, %._crit_edge289 ]
-  %.5183 = phi ptr [ %.2180267, %173 ], [ %.4182, %._crit_edge289 ]
-  %.5 = phi i64 [ %.2172268, %173 ], [ %.4174, %._crit_edge289 ]
-  %304 = add nuw i64 %.1168269, 1
+  %.5185 = phi ptr [ %.2182267, %173 ], [ %.4184, %._crit_edge289 ]
+  %.5 = phi i64 [ %.2174268, %173 ], [ %.4176, %._crit_edge289 ]
+  %304 = add nuw i64 %.1170269, 1
   %305 = icmp ult i64 %304, %303
   br i1 %305, label %173, label %.loopexit
 
@@ -1944,11 +1944,11 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
 
 316:                                              ; preds = %.lr.ph274, %329
   %.2273 = phi i32 [ %.1239, %.lr.ph274 ], [ %.3, %329 ]
-  %.2169272 = phi i64 [ 0, %.lr.ph274 ], [ %330, %329 ]
-  %317 = getelementptr inbounds ptr, ptr %22, i64 %.2169272
+  %.2171272 = phi i64 [ 0, %.lr.ph274 ], [ %330, %329 ]
+  %317 = getelementptr inbounds ptr, ptr %22, i64 %.2171272
   %318 = load ptr, ptr %317, align 8
   %319 = load ptr, ptr %315, align 8
-  %320 = getelementptr inbounds ptr, ptr %319, i64 %.2169272
+  %320 = getelementptr inbounds ptr, ptr %319, i64 %.2171272
   %321 = load ptr, ptr %320, align 8
   %.not213 = icmp eq ptr %318, %321
   %.not214 = icmp eq ptr %318, null
@@ -1968,7 +1968,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
 
 329:                                              ; preds = %316, %322, %325
   %.3 = phi i32 [ -1, %325 ], [ %.2273, %322 ], [ %.2273, %316 ]
-  %330 = add nuw i64 %.2169272, 1
+  %330 = add nuw i64 %.2171272, 1
   %331 = load i64, ptr %3, align 8
   %332 = icmp ult i64 %330, %331
   br i1 %332, label %316, label %._crit_edge275
@@ -2056,18 +2056,18 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
 
 36:                                               ; preds = %.lr.ph, %261
   %37 = phi i64 [ %21, %.lr.ph ], [ %262, %261 ]
-  %.0204482 = phi i64 [ 0, %.lr.ph ], [ %263, %261 ]
-  %.0207481 = phi i64 [ 0, %.lr.ph ], [ %.2209, %261 ]
-  %.0210480 = phi ptr [ null, %.lr.ph ], [ %.3213, %261 ]
-  %.0215479 = phi ptr [ null, %.lr.ph ], [ %.3218, %261 ]
-  %.0220478 = phi ptr [ null, %.lr.ph ], [ %.3223, %261 ]
-  %.0225477 = phi ptr [ null, %.lr.ph ], [ %.3228, %261 ]
-  %.0230476 = phi ptr [ null, %.lr.ph ], [ %.3233, %261 ]
-  %.0235475 = phi i64 [ 0, %.lr.ph ], [ %.3238, %261 ]
-  %.0239474 = phi i64 [ 0, %.lr.ph ], [ %.2241, %261 ]
-  %.0246473 = phi i64 [ 0, %.lr.ph ], [ %.1247, %261 ]
+  %.0199483 = phi i64 [ 0, %.lr.ph ], [ %.1, %261 ]
+  %.0211481 = phi i64 [ 0, %.lr.ph ], [ %263, %261 ]
+  %.0214480 = phi i64 [ 0, %.lr.ph ], [ %.2216, %261 ]
+  %.0217479 = phi ptr [ null, %.lr.ph ], [ %.3220, %261 ]
+  %.0222478 = phi ptr [ null, %.lr.ph ], [ %.3225, %261 ]
+  %.0227477 = phi ptr [ null, %.lr.ph ], [ %.3230, %261 ]
+  %.0232476 = phi ptr [ null, %.lr.ph ], [ %.3235, %261 ]
+  %.0237475 = phi ptr [ null, %.lr.ph ], [ %.3240, %261 ]
+  %.0242474 = phi i64 [ 0, %.lr.ph ], [ %.3245, %261 ]
+  %.0246473 = phi i64 [ 0, %.lr.ph ], [ %.2248, %261 ]
   %38 = load ptr, ptr %25, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %.0204482
+  %39 = getelementptr inbounds ptr, ptr %38, i64 %.0211481
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 336
   %42 = load ptr, ptr %41, align 8
@@ -2089,21 +2089,21 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   br i1 %50, label %51, label %60
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds ptr, ptr %.pre597, i64 %.0204482
+  %52 = getelementptr inbounds ptr, ptr %.pre597, i64 %.0211481
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds ptr, ptr %23, i64 %.0204482
+  %54 = getelementptr inbounds ptr, ptr %23, i64 %.0211481
   store ptr %53, ptr %54, align 8
-  %55 = add i64 %.0246473, 1
+  %55 = add i64 %.0199483, 1
   %56 = load ptr, ptr %28, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %.0204482
+  %57 = getelementptr inbounds ptr, ptr %56, i64 %.0211481
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds ptr, ptr %7, i64 %.0204482
+  %59 = getelementptr inbounds ptr, ptr %7, i64 %.0211481
   store ptr %58, ptr %59, align 8
   br label %261
 
 60:                                               ; preds = %._crit_edge596, %47
   %61 = phi ptr [ %.pre, %._crit_edge596 ], [ %.pre597, %47 ]
-  %62 = getelementptr inbounds ptr, ptr %61, i64 %.0204482
+  %62 = getelementptr inbounds ptr, ptr %61, i64 %.0211481
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr i8, ptr %42, i64 248
   %65 = load i64, ptr %64, align 8
@@ -2119,11 +2119,11 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
 
 72:                                               ; preds = %60
   %73 = load ptr, ptr %25, align 8
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %.0204482
+  %74 = getelementptr inbounds ptr, ptr %73, i64 %.0211481
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 16
   %77 = call ptr @H5S_create_simple(i32 noundef 1, ptr noundef nonnull %76, ptr noundef null) #8
-  %78 = getelementptr inbounds ptr, ptr %23, i64 %.0204482
+  %78 = getelementptr inbounds ptr, ptr %23, i64 %.0211481
   store ptr %77, ptr %78, align 8
   %79 = icmp eq ptr %77, null
   br i1 %79, label %80, label %84
@@ -2135,9 +2135,9 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   br label %379
 
 84:                                               ; preds = %72
-  %85 = add i64 %.0246473, 1
+  %85 = add i64 %.0199483, 1
   %86 = load ptr, ptr %25, align 8
-  %87 = getelementptr inbounds ptr, ptr %86, i64 %.0204482
+  %87 = getelementptr inbounds ptr, ptr %86, i64 %.0211481
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 316
   %90 = load i8, ptr %89, align 4
@@ -2146,7 +2146,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
 
 92:                                               ; preds = %84
   %93 = load ptr, ptr %28, align 8
-  %94 = getelementptr inbounds ptr, ptr %93, i64 %.0204482
+  %94 = getelementptr inbounds ptr, ptr %93, i64 %.0211481
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %88, i64 320
   %97 = load i64, ptr %96, align 8
@@ -2155,7 +2155,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
 
 99:                                               ; preds = %84
   %100 = load ptr, ptr %27, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 %.0239474
+  %101 = getelementptr inbounds i8, ptr %100, i64 %.0246473
   %102 = getelementptr inbounds i8, ptr %88, i64 16
   %103 = load i64, ptr %102, align 8
   %104 = load i64, ptr %64, align 8
@@ -2163,9 +2163,9 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   %106 = load i64, ptr %105, align 8
   %. = call i64 @llvm.umax.i64(i64 %104, i64 %106)
   %107 = mul i64 %., %103
-  %108 = add i64 %107, %.0239474
+  %108 = add i64 %107, %.0246473
   %109 = load ptr, ptr %28, align 8
-  %110 = getelementptr inbounds ptr, ptr %109, i64 %.0204482
+  %110 = getelementptr inbounds ptr, ptr %109, i64 %.0211481
   %111 = load ptr, ptr %110, align 8
   %112 = call i64 @H5D__gather_mem(ptr noundef %111, ptr noundef nonnull %14, i64 noundef %103, ptr noundef %101)
   %.not269 = icmp eq i64 %103, %112
@@ -2178,10 +2178,10 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   br label %379
 
 117:                                              ; preds = %99, %92
-  %.1240 = phi i64 [ %.0239474, %92 ], [ %108, %99 ]
-  %.0201 = phi ptr [ %98, %92 ], [ %101, %99 ]
-  %118 = getelementptr inbounds ptr, ptr %7, i64 %.0204482
-  store ptr %.0201, ptr %118, align 8
+  %.1247 = phi i64 [ %.0246473, %92 ], [ %108, %99 ]
+  %.0204 = phi ptr [ %98, %92 ], [ %101, %99 ]
+  %118 = getelementptr inbounds ptr, ptr %7, i64 %.0211481
+  store ptr %.0204, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %42, i64 272
   %120 = load ptr, ptr %119, align 8
   %.not270 = icmp eq ptr %120, null
@@ -2202,7 +2202,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
 
 130:                                              ; preds = %124
   %131 = load ptr, ptr %25, align 8
-  %132 = getelementptr inbounds ptr, ptr %131, i64 %.0204482
+  %132 = getelementptr inbounds ptr, ptr %131, i64 %.0211481
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 316
   %135 = load i8, ptr %134, align 4
@@ -2218,11 +2218,11 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
 
 .lr.ph.i:                                         ; preds = %137, %.lr.ph.i
   %.03.i = phi i64 [ %142, %.lr.ph.i ], [ 0, %137 ]
-  %.0132.i = phi ptr [ %141, %.lr.ph.i ], [ %.0201, %137 ]
-  %.0141.i = phi ptr [ %140, %.lr.ph.i ], [ %.0201, %137 ]
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.0132.i, ptr align 1 %.0141.i, i64 %126, i1 false)
-  %140 = getelementptr inbounds i8, ptr %.0141.i, i64 %.val
-  %141 = getelementptr inbounds i8, ptr %.0132.i, i64 %126
+  %.0132.i = phi ptr [ %140, %.lr.ph.i ], [ %.0204, %137 ]
+  %.0141.i = phi ptr [ %141, %.lr.ph.i ], [ %.0204, %137 ]
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.0141.i, ptr align 1 %.0132.i, i64 %126, i1 false)
+  %140 = getelementptr inbounds i8, ptr %.0132.i, i64 %.val
+  %141 = getelementptr inbounds i8, ptr %.0141.i, i64 %126
   %142 = add nuw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %142, %139
   br i1 %exitcond.not.i, label %H5D__compound_opt_write.exit, label %.lr.ph.i
@@ -2235,21 +2235,21 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
 
 146:                                              ; preds = %143
   %147 = load ptr, ptr %29, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 %.0235475
+  %148 = getelementptr inbounds i8, ptr %147, i64 %.0242474
   %149 = load ptr, ptr %25, align 8
-  %150 = getelementptr inbounds ptr, ptr %149, i64 %.0204482
+  %150 = getelementptr inbounds ptr, ptr %149, i64 %.0211481
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 16
   %153 = load i64, ptr %152, align 8
   %154 = getelementptr inbounds i8, ptr %42, i64 256
   %155 = load i64, ptr %154, align 8
   %156 = mul i64 %155, %153
-  %157 = add i64 %156, %.0235475
+  %157 = add i64 %156, %.0242474
   %158 = icmp eq i32 %145, 2
   br i1 %158, label %159, label %.thread
 
 159:                                              ; preds = %146
-  %.not272 = icmp eq ptr %.0230476, null
+  %.not272 = icmp eq ptr %.0237475, null
   br i1 %.not272, label %160, label %197
 
 160:                                              ; preds = %159
@@ -2310,37 +2310,37 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   br label %379
 
 197:                                              ; preds = %190, %159
-  %.1231 = phi ptr [ %.0230476, %159 ], [ %163, %190 ]
-  %.1226 = phi ptr [ %.0225477, %159 ], [ %170, %190 ]
-  %.1221 = phi ptr [ %.0220478, %159 ], [ %177, %190 ]
-  %.1216 = phi ptr [ %.0215479, %159 ], [ %184, %190 ]
-  %.1211 = phi ptr [ %.0210480, %159 ], [ %191, %190 ]
+  %.1238 = phi ptr [ %.0237475, %159 ], [ %163, %190 ]
+  %.1233 = phi ptr [ %.0232476, %159 ], [ %170, %190 ]
+  %.1228 = phi ptr [ %.0227477, %159 ], [ %177, %190 ]
+  %.1223 = phi ptr [ %.0222478, %159 ], [ %184, %190 ]
+  %.1218 = phi ptr [ %.0217479, %159 ], [ %191, %190 ]
   %198 = load ptr, ptr %78, align 8
-  %199 = getelementptr inbounds ptr, ptr %.1231, i64 %.0207481
+  %199 = getelementptr inbounds ptr, ptr %.1238, i64 %.0214480
   store ptr %198, ptr %199, align 8
   %200 = load ptr, ptr %30, align 8
-  %201 = getelementptr inbounds ptr, ptr %200, i64 %.0204482
+  %201 = getelementptr inbounds ptr, ptr %200, i64 %.0211481
   %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds ptr, ptr %.1226, i64 %.0207481
+  %203 = getelementptr inbounds ptr, ptr %.1233, i64 %.0214480
   store ptr %202, ptr %203, align 8
   %204 = load ptr, ptr %31, align 8
-  %205 = getelementptr inbounds i64, ptr %204, i64 %.0204482
+  %205 = getelementptr inbounds i64, ptr %204, i64 %.0211481
   %206 = load i64, ptr %205, align 8
-  %207 = getelementptr inbounds i64, ptr %.1221, i64 %.0207481
+  %207 = getelementptr inbounds i64, ptr %.1228, i64 %.0214480
   store i64 %206, ptr %207, align 8
   %208 = load ptr, ptr %32, align 8
-  %209 = getelementptr inbounds i64, ptr %208, i64 %.0204482
+  %209 = getelementptr inbounds i64, ptr %208, i64 %.0211481
   %210 = load i64, ptr %209, align 8
-  %211 = getelementptr inbounds i64, ptr %.1216, i64 %.0207481
+  %211 = getelementptr inbounds i64, ptr %.1223, i64 %.0214480
   store i64 %210, ptr %211, align 8
-  %212 = getelementptr inbounds ptr, ptr %.1211, i64 %.0207481
+  %212 = getelementptr inbounds ptr, ptr %.1218, i64 %.0214480
   store ptr %148, ptr %212, align 8
-  %213 = add i64 %.0207481, 1
+  %213 = add i64 %.0214480, 1
   br label %H5D__compound_opt_write.exit
 
 .thread:                                          ; preds = %143, %146
-  %.0200280 = phi ptr [ %148, %146 ], [ null, %143 ]
-  %.1236279 = phi i64 [ %157, %146 ], [ %.0235475, %143 ]
+  %.0203280 = phi ptr [ %148, %146 ], [ null, %143 ]
+  %.1243279 = phi i64 [ %157, %146 ], [ %.0242474, %143 ]
   %214 = load i8, ptr %44, align 1
   %215 = trunc i8 %214 to i1
   br i1 %215, label %237, label %216
@@ -2359,12 +2359,12 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
 223:                                              ; preds = %216
   %224 = load ptr, ptr %2, align 8
   %225 = load ptr, ptr %25, align 8
-  %226 = getelementptr inbounds ptr, ptr %225, i64 %.0204482
+  %226 = getelementptr inbounds ptr, ptr %225, i64 %.0211481
   %227 = load ptr, ptr %226, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 16
   %229 = load i64, ptr %228, align 8
   %230 = load ptr, ptr %43, align 8
-  %231 = call i32 @H5Z_xform_eval(ptr noundef %224, ptr noundef %.0201, i64 noundef %229, ptr noundef %230) #8
+  %231 = call i32 @H5Z_xform_eval(ptr noundef %224, ptr noundef %.0204, i64 noundef %229, ptr noundef %230) #8
   %232 = icmp slt i32 %231, 0
   br i1 %232, label %233, label %237
 
@@ -2382,11 +2382,11 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   %242 = getelementptr inbounds i8, ptr %42, i64 232
   %243 = load ptr, ptr %242, align 8
   %244 = load ptr, ptr %25, align 8
-  %245 = getelementptr inbounds ptr, ptr %244, i64 %.0204482
+  %245 = getelementptr inbounds ptr, ptr %244, i64 %.0211481
   %246 = load ptr, ptr %245, align 8
   %247 = getelementptr inbounds i8, ptr %246, i64 16
   %248 = load i64, ptr %247, align 8
-  %249 = call i32 @H5T_convert(ptr noundef %239, ptr noundef %241, ptr noundef %243, i64 noundef %248, i64 noundef 0, i64 noundef 0, ptr noundef %.0201, ptr noundef %.0200280) #8
+  %249 = call i32 @H5T_convert(ptr noundef %239, ptr noundef %241, ptr noundef %243, i64 noundef %248, i64 noundef 0, i64 noundef 0, ptr noundef %.0204, ptr noundef %.0203280) #8
   %250 = icmp slt i32 %249, 0
   br i1 %250, label %251, label %H5D__compound_opt_write.exit
 
@@ -2397,13 +2397,13 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write_select(ptr nocapture noundef re
   br label %379
 
 H5D__compound_opt_write.exit:                     ; preds = %.lr.ph.i, %137, %197, %237
-  %.2237 = phi i64 [ %157, %197 ], [ %.1236279, %237 ], [ %.0235475, %137 ], [ %.0235475, %.lr.ph.i ]
-  %.2232 = phi ptr [ %.1231, %197 ], [ %.0230476, %237 ], [ %.0230476, %137 ], [ %.0230476, %.lr.ph.i ]
-  %.2227 = phi ptr [ %.1226, %197 ], [ %.0225477, %237 ], [ %.0225477, %137 ], [ %.0225477, %.lr.ph.i ]
-  %.2222 = phi ptr [ %.1221, %197 ], [ %.0220478, %237 ], [ %.0220478, %137 ], [ %.0220478, %.lr.ph.i ]
-  %.2217 = phi ptr [ %.1216, %197 ], [ %.0215479, %237 ], [ %.0215479, %137 ], [ %.0215479, %.lr.ph.i ]
-  %.2212 = phi ptr [ %.1211, %197 ], [ %.0210480, %237 ], [ %.0210480, %137 ], [ %.0210480, %.lr.ph.i ]
-  %.1208 = phi i64 [ %213, %197 ], [ %.0207481, %237 ], [ %.0207481, %137 ], [ %.0207481, %.lr.ph.i ]
+  %.2244 = phi i64 [ %157, %197 ], [ %.1243279, %237 ], [ %.0242474, %137 ], [ %.0242474, %.lr.ph.i ]
+  %.2239 = phi ptr [ %.1238, %197 ], [ %.0237475, %237 ], [ %.0237475, %137 ], [ %.0237475, %.lr.ph.i ]
+  %.2234 = phi ptr [ %.1233, %197 ], [ %.0232476, %237 ], [ %.0232476, %137 ], [ %.0232476, %.lr.ph.i ]
+  %.2229 = phi ptr [ %.1228, %197 ], [ %.0227477, %237 ], [ %.0227477, %137 ], [ %.0227477, %.lr.ph.i ]
+  %.2224 = phi ptr [ %.1223, %197 ], [ %.0222478, %237 ], [ %.0222478, %137 ], [ %.0222478, %.lr.ph.i ]
+  %.2219 = phi ptr [ %.1218, %197 ], [ %.0217479, %237 ], [ %.0217479, %137 ], [ %.0217479, %.lr.ph.i ]
+  %.1215 = phi i64 [ %213, %197 ], [ %.0214480, %237 ], [ %.0214480, %137 ], [ %.0214480, %.lr.ph.i ]
   %255 = call i32 @H5S_select_iter_release(ptr noundef nonnull %14) #8
   %256 = icmp slt i32 %255, 0
   br i1 %256, label %257, label %H5D__compound_opt_write.exit._crit_edge
@@ -2420,32 +2420,32 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
 
 261:                                              ; preds = %H5D__compound_opt_write.exit._crit_edge, %51
   %262 = phi i64 [ %37, %51 ], [ %.pre598, %H5D__compound_opt_write.exit._crit_edge ]
-  %.1247 = phi i64 [ %55, %51 ], [ %85, %H5D__compound_opt_write.exit._crit_edge ]
-  %.2241 = phi i64 [ %.0239474, %51 ], [ %.1240, %H5D__compound_opt_write.exit._crit_edge ]
-  %.3238 = phi i64 [ %.0235475, %51 ], [ %.2237, %H5D__compound_opt_write.exit._crit_edge ]
-  %.3233 = phi ptr [ %.0230476, %51 ], [ %.2232, %H5D__compound_opt_write.exit._crit_edge ]
-  %.3228 = phi ptr [ %.0225477, %51 ], [ %.2227, %H5D__compound_opt_write.exit._crit_edge ]
-  %.3223 = phi ptr [ %.0220478, %51 ], [ %.2222, %H5D__compound_opt_write.exit._crit_edge ]
-  %.3218 = phi ptr [ %.0215479, %51 ], [ %.2217, %H5D__compound_opt_write.exit._crit_edge ]
-  %.3213 = phi ptr [ %.0210480, %51 ], [ %.2212, %H5D__compound_opt_write.exit._crit_edge ]
-  %.2209 = phi i64 [ %.0207481, %51 ], [ %.1208, %H5D__compound_opt_write.exit._crit_edge ]
-  %263 = add nuw i64 %.0204482, 1
+  %.2248 = phi i64 [ %.0246473, %51 ], [ %.1247, %H5D__compound_opt_write.exit._crit_edge ]
+  %.3245 = phi i64 [ %.0242474, %51 ], [ %.2244, %H5D__compound_opt_write.exit._crit_edge ]
+  %.3240 = phi ptr [ %.0237475, %51 ], [ %.2239, %H5D__compound_opt_write.exit._crit_edge ]
+  %.3235 = phi ptr [ %.0232476, %51 ], [ %.2234, %H5D__compound_opt_write.exit._crit_edge ]
+  %.3230 = phi ptr [ %.0227477, %51 ], [ %.2229, %H5D__compound_opt_write.exit._crit_edge ]
+  %.3225 = phi ptr [ %.0222478, %51 ], [ %.2224, %H5D__compound_opt_write.exit._crit_edge ]
+  %.3220 = phi ptr [ %.0217479, %51 ], [ %.2219, %H5D__compound_opt_write.exit._crit_edge ]
+  %.2216 = phi i64 [ %.0214480, %51 ], [ %.1215, %H5D__compound_opt_write.exit._crit_edge ]
+  %.1 = phi i64 [ %55, %51 ], [ %85, %H5D__compound_opt_write.exit._crit_edge ]
+  %263 = add nuw i64 %.0211481, 1
   %264 = icmp ult i64 %263, %262
   br i1 %264, label %36, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %261
-  %265 = trunc i64 %.2209 to i32
+  %265 = trunc i64 %.2216 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader365
   %266 = phi i64 [ 0, %.preheader365 ], [ %262, %._crit_edge.loopexit ]
-  %.0246.lcssa = phi i64 [ 0, %.preheader365 ], [ %.1247, %._crit_edge.loopexit ]
-  %.0230.lcssa = phi ptr [ null, %.preheader365 ], [ %.3233, %._crit_edge.loopexit ]
-  %.0225.lcssa = phi ptr [ null, %.preheader365 ], [ %.3228, %._crit_edge.loopexit ]
-  %.0220.lcssa = phi ptr [ null, %.preheader365 ], [ %.3223, %._crit_edge.loopexit ]
-  %.0215.lcssa = phi ptr [ null, %.preheader365 ], [ %.3218, %._crit_edge.loopexit ]
-  %.0210.lcssa = phi ptr [ null, %.preheader365 ], [ %.3213, %._crit_edge.loopexit ]
-  %.0207.lcssa = phi i32 [ 0, %.preheader365 ], [ %265, %._crit_edge.loopexit ]
+  %.0237.lcssa = phi ptr [ null, %.preheader365 ], [ %.3240, %._crit_edge.loopexit ]
+  %.0232.lcssa = phi ptr [ null, %.preheader365 ], [ %.3235, %._crit_edge.loopexit ]
+  %.0227.lcssa = phi ptr [ null, %.preheader365 ], [ %.3230, %._crit_edge.loopexit ]
+  %.0222.lcssa = phi ptr [ null, %.preheader365 ], [ %.3225, %._crit_edge.loopexit ]
+  %.0217.lcssa = phi ptr [ null, %.preheader365 ], [ %.3220, %._crit_edge.loopexit ]
+  %.0214.lcssa = phi i32 [ 0, %.preheader365 ], [ %265, %._crit_edge.loopexit ]
+  %.0199.lcssa = phi i64 [ 0, %.preheader365 ], [ %.1, %._crit_edge.loopexit ]
   %267 = getelementptr inbounds i8, ptr %0, i64 232
   %268 = load i8, ptr %267, align 8
   %269 = trunc i8 %268 to i1
@@ -2453,7 +2453,7 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
 
 270:                                              ; preds = %._crit_edge
   %271 = load ptr, ptr %0, align 8
-  %272 = call i32 @H5F_shared_select_read(ptr noundef %271, i32 noundef 3, i32 noundef %.0207.lcssa, ptr noundef %.0230.lcssa, ptr noundef %.0225.lcssa, ptr noundef %.0220.lcssa, ptr noundef %.0215.lcssa, ptr noundef %.0210.lcssa) #8
+  %272 = call i32 @H5F_shared_select_read(ptr noundef %271, i32 noundef 3, i32 noundef %.0214.lcssa, ptr noundef %.0237.lcssa, ptr noundef %.0232.lcssa, ptr noundef %.0227.lcssa, ptr noundef %.0222.lcssa, ptr noundef %.0217.lcssa) #8
   %273 = icmp slt i32 %272, 0
   br i1 %273, label %277, label %.preheader364
 
@@ -2475,10 +2475,10 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
 
 281:                                              ; preds = %.lr.ph492, %360
   %282 = phi i64 [ %274, %.lr.ph492 ], [ %361, %360 ]
-  %.0491 = phi i64 [ 0, %.lr.ph492 ], [ %.1, %360 ]
-  %.1205490 = phi i64 [ 0, %.lr.ph492 ], [ %362, %360 ]
+  %.0200491 = phi i64 [ 0, %.lr.ph492 ], [ %.1201, %360 ]
+  %.1212490 = phi i64 [ 0, %.lr.ph492 ], [ %362, %360 ]
   %283 = load ptr, ptr %275, align 8
-  %284 = getelementptr inbounds ptr, ptr %283, i64 %.1205490
+  %284 = getelementptr inbounds ptr, ptr %283, i64 %.1212490
   %285 = load ptr, ptr %284, align 8
   %286 = getelementptr inbounds i8, ptr %285, i64 336
   %287 = load ptr, ptr %286, align 8
@@ -2515,7 +2515,7 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
 
 308:                                              ; preds = %304, %298, %295, %292
   %309 = load ptr, ptr %276, align 8
-  %310 = getelementptr inbounds ptr, ptr %7, i64 %.1205490
+  %310 = getelementptr inbounds ptr, ptr %7, i64 %.1212490
   %311 = load ptr, ptr %310, align 8
   %312 = ptrtoint ptr %311 to i64
   %313 = ptrtoint ptr %309 to i64
@@ -2540,7 +2540,7 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
 326:                                              ; preds = %319
   %327 = load ptr, ptr %3, align 8
   %328 = load ptr, ptr %275, align 8
-  %329 = getelementptr inbounds ptr, ptr %328, i64 %.1205490
+  %329 = getelementptr inbounds ptr, ptr %328, i64 %.1212490
   %330 = load ptr, ptr %329, align 8
   %331 = getelementptr inbounds i8, ptr %330, i64 16
   %332 = load i64, ptr %331, align 8
@@ -2551,7 +2551,7 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
 
 ._crit_edge599:                                   ; preds = %326
   %.pre600 = load ptr, ptr %275, align 8
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre600, i64 %.1205490
+  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre600, i64 %.1212490
   %.pre601 = load ptr, ptr %.phi.trans.insert, align 8
   br label %340
 
@@ -2571,7 +2571,7 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
   %347 = load ptr, ptr %346, align 8
   %348 = getelementptr inbounds i8, ptr %341, i64 16
   %349 = load i64, ptr %348, align 8
-  %350 = getelementptr inbounds ptr, ptr %.0210.lcssa, i64 %.0491
+  %350 = getelementptr inbounds ptr, ptr %.0217.lcssa, i64 %.0200491
   %351 = load ptr, ptr %350, align 8
   %352 = call i32 @H5T_convert(ptr noundef %343, ptr noundef %345, ptr noundef %347, i64 noundef %349, i64 noundef 0, i64 noundef 0, ptr noundef %315, ptr noundef %351) #8
   %353 = icmp slt i32 %352, 0
@@ -2584,14 +2584,14 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
   br label %386
 
 358:                                              ; preds = %340
-  %359 = add i64 %.0491, 1
+  %359 = add i64 %.0200491, 1
   %.pre602 = load i64, ptr %4, align 8
   br label %360
 
 360:                                              ; preds = %281, %304, %358
   %361 = phi i64 [ %.pre602, %358 ], [ %282, %304 ], [ %282, %281 ]
-  %.1 = phi i64 [ %359, %358 ], [ %.0491, %304 ], [ %.0491, %281 ]
-  %362 = add nuw i64 %.1205490, 1
+  %.1201 = phi i64 [ %359, %358 ], [ %.0200491, %304 ], [ %.0200491, %281 ]
+  %362 = add nuw i64 %.1212490, 1
   %363 = icmp ult i64 %362, %361
   br i1 %363, label %281, label %.loopexit
 
@@ -2616,12 +2616,12 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
   br label %386
 
 379:                                              ; preds = %80, %257, %165, %172, %179, %186, %193, %251, %219, %233, %113
-  %.2248.ph = phi i64 [ %85, %113 ], [ %85, %233 ], [ %85, %219 ], [ %85, %251 ], [ %85, %193 ], [ %85, %186 ], [ %85, %179 ], [ %85, %172 ], [ %85, %165 ], [ %85, %257 ], [ %.0246473, %80 ]
-  %.4234.ph = phi ptr [ %.0230476, %113 ], [ %.0230476, %233 ], [ %.0230476, %219 ], [ %.0230476, %251 ], [ %163, %193 ], [ %163, %186 ], [ %163, %179 ], [ %163, %172 ], [ null, %165 ], [ %.2232, %257 ], [ %.0230476, %80 ]
-  %.4229.ph = phi ptr [ %.0225477, %113 ], [ %.0225477, %233 ], [ %.0225477, %219 ], [ %.0225477, %251 ], [ %170, %193 ], [ %170, %186 ], [ %170, %179 ], [ null, %172 ], [ %.0225477, %165 ], [ %.2227, %257 ], [ %.0225477, %80 ]
-  %.4224.ph = phi ptr [ %.0220478, %113 ], [ %.0220478, %233 ], [ %.0220478, %219 ], [ %.0220478, %251 ], [ %177, %193 ], [ %177, %186 ], [ null, %179 ], [ %.0220478, %172 ], [ %.0220478, %165 ], [ %.2222, %257 ], [ %.0220478, %80 ]
-  %.4219.ph = phi ptr [ %.0215479, %113 ], [ %.0215479, %233 ], [ %.0215479, %219 ], [ %.0215479, %251 ], [ %184, %193 ], [ null, %186 ], [ %.0215479, %179 ], [ %.0215479, %172 ], [ %.0215479, %165 ], [ %.2217, %257 ], [ %.0215479, %80 ]
-  %.4214.ph = phi ptr [ %.0210480, %113 ], [ %.0210480, %233 ], [ %.0210480, %219 ], [ %.0210480, %251 ], [ null, %193 ], [ %.0210480, %186 ], [ %.0210480, %179 ], [ %.0210480, %172 ], [ %.0210480, %165 ], [ %.2212, %257 ], [ %.0210480, %80 ]
+  %.4241.ph = phi ptr [ %.0237475, %113 ], [ %.0237475, %233 ], [ %.0237475, %219 ], [ %.0237475, %251 ], [ %163, %193 ], [ %163, %186 ], [ %163, %179 ], [ %163, %172 ], [ null, %165 ], [ %.2239, %257 ], [ %.0237475, %80 ]
+  %.4236.ph = phi ptr [ %.0232476, %113 ], [ %.0232476, %233 ], [ %.0232476, %219 ], [ %.0232476, %251 ], [ %170, %193 ], [ %170, %186 ], [ %170, %179 ], [ null, %172 ], [ %.0232476, %165 ], [ %.2234, %257 ], [ %.0232476, %80 ]
+  %.4231.ph = phi ptr [ %.0227477, %113 ], [ %.0227477, %233 ], [ %.0227477, %219 ], [ %.0227477, %251 ], [ %177, %193 ], [ %177, %186 ], [ null, %179 ], [ %.0227477, %172 ], [ %.0227477, %165 ], [ %.2229, %257 ], [ %.0227477, %80 ]
+  %.4226.ph = phi ptr [ %.0222478, %113 ], [ %.0222478, %233 ], [ %.0222478, %219 ], [ %.0222478, %251 ], [ %184, %193 ], [ null, %186 ], [ %.0222478, %179 ], [ %.0222478, %172 ], [ %.0222478, %165 ], [ %.2224, %257 ], [ %.0222478, %80 ]
+  %.4221.ph = phi ptr [ %.0217479, %113 ], [ %.0217479, %233 ], [ %.0217479, %219 ], [ %.0217479, %251 ], [ null, %193 ], [ %.0217479, %186 ], [ %.0217479, %179 ], [ %.0217479, %172 ], [ %.0217479, %165 ], [ %.2219, %257 ], [ %.0217479, %80 ]
+  %.2.ph = phi i64 [ %85, %113 ], [ %85, %233 ], [ %85, %219 ], [ %85, %251 ], [ %85, %193 ], [ %85, %186 ], [ %85, %179 ], [ %85, %172 ], [ %85, %165 ], [ %85, %257 ], [ %.0199483, %80 ]
   %380 = call i32 @H5S_select_iter_release(ptr noundef nonnull %14) #8
   %381 = icmp slt i32 %380, 0
   br i1 %381, label %382, label %386
@@ -2637,20 +2637,20 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
   br label %404
 
 386:                                              ; preds = %379, %382, %.loopexit, %375, %354, %336, %322, %277, %68, %.thread329
-  %.1203348 = phi i32 [ -1, %.thread329 ], [ -1, %382 ], [ -1, %379 ], [ -1, %68 ], [ -1, %277 ], [ -1, %354 ], [ -1, %322 ], [ -1, %336 ], [ -1, %375 ], [ 0, %.loopexit ]
-  %.2248292347 = phi i64 [ 0, %.thread329 ], [ %.2248.ph, %382 ], [ %.2248.ph, %379 ], [ %.0246473, %68 ], [ %.0246.lcssa, %277 ], [ %.0246.lcssa, %354 ], [ %.0246.lcssa, %322 ], [ %.0246.lcssa, %336 ], [ %.0246.lcssa, %375 ], [ %.0246.lcssa, %.loopexit ]
-  %.4234296345 = phi ptr [ null, %.thread329 ], [ %.4234.ph, %382 ], [ %.4234.ph, %379 ], [ %.0230476, %68 ], [ %.0230.lcssa, %277 ], [ %.0230.lcssa, %354 ], [ %.0230.lcssa, %322 ], [ %.0230.lcssa, %336 ], [ %.0230.lcssa, %375 ], [ %.0230.lcssa, %.loopexit ]
-  %.4229298344 = phi ptr [ null, %.thread329 ], [ %.4229.ph, %382 ], [ %.4229.ph, %379 ], [ %.0225477, %68 ], [ %.0225.lcssa, %277 ], [ %.0225.lcssa, %354 ], [ %.0225.lcssa, %322 ], [ %.0225.lcssa, %336 ], [ %.0225.lcssa, %375 ], [ %.0225.lcssa, %.loopexit ]
-  %.4224300343 = phi ptr [ null, %.thread329 ], [ %.4224.ph, %382 ], [ %.4224.ph, %379 ], [ %.0220478, %68 ], [ %.0220.lcssa, %277 ], [ %.0220.lcssa, %354 ], [ %.0220.lcssa, %322 ], [ %.0220.lcssa, %336 ], [ %.0220.lcssa, %375 ], [ %.0220.lcssa, %.loopexit ]
-  %.4219302342 = phi ptr [ null, %.thread329 ], [ %.4219.ph, %382 ], [ %.4219.ph, %379 ], [ %.0215479, %68 ], [ %.0215.lcssa, %277 ], [ %.0215.lcssa, %354 ], [ %.0215.lcssa, %322 ], [ %.0215.lcssa, %336 ], [ %.0215.lcssa, %375 ], [ %.0215.lcssa, %.loopexit ]
-  %.4214304341 = phi ptr [ null, %.thread329 ], [ %.4214.ph, %382 ], [ %.4214.ph, %379 ], [ %.0210480, %68 ], [ %.0210.lcssa, %277 ], [ %.0210.lcssa, %354 ], [ %.0210.lcssa, %322 ], [ %.0210.lcssa, %336 ], [ %.0210.lcssa, %375 ], [ %.0210.lcssa, %.loopexit ]
+  %.1209348 = phi i32 [ -1, %.thread329 ], [ -1, %382 ], [ -1, %379 ], [ -1, %68 ], [ -1, %277 ], [ -1, %354 ], [ -1, %322 ], [ -1, %336 ], [ -1, %375 ], [ 0, %.loopexit ]
+  %.4241292347 = phi ptr [ null, %.thread329 ], [ %.4241.ph, %382 ], [ %.4241.ph, %379 ], [ %.0237475, %68 ], [ %.0237.lcssa, %277 ], [ %.0237.lcssa, %354 ], [ %.0237.lcssa, %322 ], [ %.0237.lcssa, %336 ], [ %.0237.lcssa, %375 ], [ %.0237.lcssa, %.loopexit ]
+  %.4236294346 = phi ptr [ null, %.thread329 ], [ %.4236.ph, %382 ], [ %.4236.ph, %379 ], [ %.0232476, %68 ], [ %.0232.lcssa, %277 ], [ %.0232.lcssa, %354 ], [ %.0232.lcssa, %322 ], [ %.0232.lcssa, %336 ], [ %.0232.lcssa, %375 ], [ %.0232.lcssa, %.loopexit ]
+  %.4231296345 = phi ptr [ null, %.thread329 ], [ %.4231.ph, %382 ], [ %.4231.ph, %379 ], [ %.0227477, %68 ], [ %.0227.lcssa, %277 ], [ %.0227.lcssa, %354 ], [ %.0227.lcssa, %322 ], [ %.0227.lcssa, %336 ], [ %.0227.lcssa, %375 ], [ %.0227.lcssa, %.loopexit ]
+  %.4226298344 = phi ptr [ null, %.thread329 ], [ %.4226.ph, %382 ], [ %.4226.ph, %379 ], [ %.0222478, %68 ], [ %.0222.lcssa, %277 ], [ %.0222.lcssa, %354 ], [ %.0222.lcssa, %322 ], [ %.0222.lcssa, %336 ], [ %.0222.lcssa, %375 ], [ %.0222.lcssa, %.loopexit ]
+  %.4221300343 = phi ptr [ null, %.thread329 ], [ %.4221.ph, %382 ], [ %.4221.ph, %379 ], [ %.0217479, %68 ], [ %.0217.lcssa, %277 ], [ %.0217.lcssa, %354 ], [ %.0217.lcssa, %322 ], [ %.0217.lcssa, %336 ], [ %.0217.lcssa, %375 ], [ %.0217.lcssa, %.loopexit ]
+  %.2305341 = phi i64 [ 0, %.thread329 ], [ %.2.ph, %382 ], [ %.2.ph, %379 ], [ %.0199483, %68 ], [ %.0199.lcssa, %277 ], [ %.0199.lcssa, %354 ], [ %.0199.lcssa, %322 ], [ %.0199.lcssa, %336 ], [ %.0199.lcssa, %375 ], [ %.0199.lcssa, %.loopexit ]
   %387 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %14) #8
   call void @free(ptr noundef %7) #8
   %.not274 = icmp eq ptr %23, null
   br i1 %.not274, label %404, label %.preheader
 
 .preheader:                                       ; preds = %386
-  %.not500 = icmp eq i64 %.2248292347, 0
+  %.not500 = icmp eq i64 %.2305341, 0
   br i1 %.not500, label %._crit_edge496, label %.lr.ph495
 
 .lr.ph495:                                        ; preds = %.preheader
@@ -2658,12 +2658,12 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
   br label %389
 
 389:                                              ; preds = %.lr.ph495, %402
-  %.2494 = phi i32 [ %.1203348, %.lr.ph495 ], [ %.3, %402 ]
-  %.2206493 = phi i64 [ 0, %.lr.ph495 ], [ %403, %402 ]
-  %390 = getelementptr inbounds ptr, ptr %23, i64 %.2206493
+  %.2210494 = phi i32 [ %.1209348, %.lr.ph495 ], [ %.3, %402 ]
+  %.2213493 = phi i64 [ 0, %.lr.ph495 ], [ %403, %402 ]
+  %390 = getelementptr inbounds ptr, ptr %23, i64 %.2213493
   %391 = load ptr, ptr %390, align 8
   %392 = load ptr, ptr %388, align 8
-  %393 = getelementptr inbounds ptr, ptr %392, i64 %.2206493
+  %393 = getelementptr inbounds ptr, ptr %392, i64 %.2213493
   %394 = load ptr, ptr %393, align 8
   %.not275 = icmp eq ptr %391, %394
   br i1 %.not275, label %402, label %395
@@ -2680,28 +2680,28 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
   br label %402
 
 402:                                              ; preds = %389, %395, %398
-  %.3 = phi i32 [ -1, %398 ], [ %.2494, %395 ], [ %.2494, %389 ]
-  %403 = add nuw i64 %.2206493, 1
-  %exitcond.not = icmp eq i64 %403, %.2248292347
+  %.3 = phi i32 [ -1, %398 ], [ %.2210494, %395 ], [ %.2210494, %389 ]
+  %403 = add nuw i64 %.2213493, 1
+  %exitcond.not = icmp eq i64 %403, %.2305341
   br i1 %exitcond.not, label %._crit_edge496, label %389
 
 ._crit_edge496:                                   ; preds = %402, %.preheader
-  %.2.lcssa = phi i32 [ %.1203348, %.preheader ], [ %.3, %402 ]
+  %.2210.lcssa = phi i32 [ %.1209348, %.preheader ], [ %.3, %402 ]
   call void @free(ptr noundef nonnull %23) #8
   br label %404
 
 404:                                              ; preds = %.thread349, %._crit_edge496, %386
-  %.4214304322363 = phi ptr [ %.4214304341, %._crit_edge496 ], [ %.4214304341, %386 ], [ null, %.thread349 ]
-  %.4219302323362 = phi ptr [ %.4219302342, %._crit_edge496 ], [ %.4219302342, %386 ], [ null, %.thread349 ]
-  %.4224300324361 = phi ptr [ %.4224300343, %._crit_edge496 ], [ %.4224300343, %386 ], [ null, %.thread349 ]
-  %.4229298325360 = phi ptr [ %.4229298344, %._crit_edge496 ], [ %.4229298344, %386 ], [ null, %.thread349 ]
-  %.4234296326359 = phi ptr [ %.4234296345, %._crit_edge496 ], [ %.4234296345, %386 ], [ null, %.thread349 ]
-  %.4 = phi i32 [ %.2.lcssa, %._crit_edge496 ], [ %.1203348, %386 ], [ -1, %.thread349 ]
-  call void @free(ptr noundef %.4234296326359) #8
-  call void @free(ptr noundef %.4229298325360) #8
-  call void @free(ptr noundef %.4224300324361) #8
-  call void @free(ptr noundef %.4219302323362) #8
-  call void @free(ptr noundef %.4214304322363) #8
+  %.4221300323363 = phi ptr [ %.4221300343, %._crit_edge496 ], [ %.4221300343, %386 ], [ null, %.thread349 ]
+  %.4226298324362 = phi ptr [ %.4226298344, %._crit_edge496 ], [ %.4226298344, %386 ], [ null, %.thread349 ]
+  %.4231296325361 = phi ptr [ %.4231296345, %._crit_edge496 ], [ %.4231296345, %386 ], [ null, %.thread349 ]
+  %.4236294326360 = phi ptr [ %.4236294346, %._crit_edge496 ], [ %.4236294346, %386 ], [ null, %.thread349 ]
+  %.4241292327359 = phi ptr [ %.4241292347, %._crit_edge496 ], [ %.4241292347, %386 ], [ null, %.thread349 ]
+  %.4 = phi i32 [ %.2210.lcssa, %._crit_edge496 ], [ %.1209348, %386 ], [ -1, %.thread349 ]
+  call void @free(ptr noundef %.4241292327359) #8
+  call void @free(ptr noundef %.4236294326360) #8
+  call void @free(ptr noundef %.4231296325361) #8
+  call void @free(ptr noundef %.4226298324362) #8
+  call void @free(ptr noundef %.4221300323363) #8
   ret i32 %.4
 }
 

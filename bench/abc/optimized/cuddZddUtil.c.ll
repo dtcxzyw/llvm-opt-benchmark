@@ -79,8 +79,8 @@ define range(i32 0, 2) i32 @Cudd_zddPrintMinterm(ptr nocapture noundef %0, ptr n
   br label %13
 
 13:                                               ; preds = %._crit_edge, %10
-  %.014 = phi i32 [ 0, %10 ], [ 1, %._crit_edge ]
-  ret i32 %.014
+  %.0 = phi i32 [ 0, %10 ], [ 1, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -261,8 +261,8 @@ define range(i32 0, 2) i32 @Cudd_zddPrintCover(ptr nocapture noundef %0, ptr nou
   br label %15
 
 15:                                               ; preds = %2, %._crit_edge, %12
-  %.015 = phi i32 [ 0, %12 ], [ 1, %._crit_edge ], [ 0, %2 ]
-  ret i32 %.015
+  %.0 = phi i32 [ 0, %12 ], [ 1, %._crit_edge ], [ 0, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -497,9 +497,9 @@ Cudd_zddPrintMinterm.exit:                        ; preds = %.lr.ph.i, %.prehead
   br label %.sink.split
 
 .sink.split:                                      ; preds = %43, %29, %9
-  %.sink39 = phi ptr [ %10, %9 ], [ %19, %29 ], [ %19, %43 ]
+  %.sink40 = phi ptr [ %10, %9 ], [ %19, %29 ], [ %19, %43 ]
   %.029.ph = phi i32 [ 1, %9 ], [ %.2, %29 ], [ %44, %43 ]
-  %46 = load ptr, ptr %.sink39, align 8
+  %46 = load ptr, ptr %.sink40, align 8
   %47 = tail call i32 @fflush(ptr noundef %46)
   br label %48
 
@@ -670,7 +670,7 @@ thread-pre-split._crit_edge:                      ; preds = %thread-pre-split, %
 
 .lr.ph106:                                        ; preds = %thread-pre-split, %77
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %77 ], [ %39, %thread-pre-split ]
-  %.080105 = phi ptr [ %82, %77 ], [ %42, %thread-pre-split ]
+  %.081105 = phi ptr [ %82, %77 ], [ %42, %thread-pre-split ]
   %62 = getelementptr ptr, ptr %31, i64 %indvars.iv132
   %63 = getelementptr i8, ptr %62, i64 -16
   %64 = load ptr, ptr %63, align 8
@@ -679,7 +679,7 @@ thread-pre-split._crit_edge:                      ; preds = %thread-pre-split, %
   %67 = inttoptr i64 %66 to ptr
   %68 = getelementptr inbounds i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
-  %.not91 = icmp eq ptr %69, %.080105
+  %.not91 = icmp eq ptr %69, %.081105
   br i1 %.not91, label %77, label %70
 
 70:                                               ; preds = %.lr.ph106
@@ -722,8 +722,8 @@ thread-pre-split._crit_edge:                      ; preds = %thread-pre-split, %
   br label %89
 
 89:                                               ; preds = %3, %87, %35, %25, %9
-  %.081 = phi ptr [ null, %9 ], [ null, %25 ], [ null, %35 ], [ %7, %87 ], [ null, %3 ]
-  ret ptr %.081
+  %.0 = phi ptr [ null, %9 ], [ null, %25 ], [ null, %35 ], [ %7, %87 ], [ null, %3 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -837,7 +837,7 @@ define range(i32 0, 2) i32 @Cudd_zddNextPath(ptr nocapture noundef %0, ptr nocap
 .lr.ph77:                                         ; preds = %.preheader, %92
   %71 = phi ptr [ %95, %92 ], [ %40, %.preheader ]
   %72 = phi i32 [ %94, %92 ], [ %41, %.preheader ]
-  %.076 = phi ptr [ %99, %92 ], [ %45, %.preheader ]
+  %.05576 = phi ptr [ %99, %92 ], [ %45, %.preheader ]
   %73 = sext i32 %72 to i64
   %74 = getelementptr ptr, ptr %71, i64 %73
   %75 = getelementptr i8, ptr %74, i64 -16
@@ -847,7 +847,7 @@ define range(i32 0, 2) i32 @Cudd_zddNextPath(ptr nocapture noundef %0, ptr nocap
   %79 = inttoptr i64 %78 to ptr
   %80 = getelementptr inbounds i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
-  %.not62 = icmp eq ptr %81, %.076
+  %.not62 = icmp eq ptr %81, %.05576
   %82 = load ptr, ptr %8, align 8
   %83 = load i32, ptr %79, align 8
   %84 = zext i32 %83 to i64
@@ -893,8 +893,8 @@ define range(i32 0, 2) i32 @Cudd_zddNextPath(ptr nocapture noundef %0, ptr nocap
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %.preheader._crit_edge, %101
-  %.055 = phi i32 [ 1, %101 ], [ 0, %.preheader._crit_edge ], [ 0, %._crit_edge ]
-  ret i32 %.055
+  %.0 = phi i32 [ 1, %101 ], [ 0, %.preheader._crit_edge ], [ 0, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -1093,13 +1093,13 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br label %56
 
 56:                                               ; preds = %56, %._crit_edge281
-  %.3198282 = phi i32 [ 0, %._crit_edge281 ], [ %59, %56 ]
-  %notmask = shl nsw i32 -1, %.3198282
+  %.3199282 = phi i32 [ 0, %._crit_edge281 ], [ %59, %56 ]
+  %notmask = shl nsw i32 -1, %.3199282
   %57 = xor i32 %notmask, -1
   %58 = zext nneg i32 %57 to i64
   %.not223 = icmp sgt i64 %.0192.lcssa, %58
-  %59 = add nuw nsw i32 %.3198282, 4
-  %60 = icmp ult i32 %.3198282, 60
+  %59 = add nuw nsw i32 %.3199282, 4
+  %60 = icmp ult i32 %.3199282, 60
   %or.cond = and i1 %.not223, %60
   br i1 %or.cond, label %56, label %61, !llvm.loop !15
 
@@ -1162,8 +1162,8 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br label %92
 
 92:                                               ; preds = %88, %86
-  %.0199 = phi i32 [ %87, %86 ], [ %91, %88 ]
-  %93 = icmp eq i32 %.0199, -1
+  %.0200 = phi i32 [ %87, %86 ], [ %91, %88 ]
+  %93 = icmp eq i32 %.0200, -1
   br i1 %93, label %.loopexit, label %94
 
 94:                                               ; preds = %78, %92
@@ -1222,8 +1222,8 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br label %115
 
 115:                                              ; preds = %111, %108
-  %.1200 = phi i32 [ %110, %108 ], [ %114, %111 ]
-  %116 = icmp eq i32 %.1200, -1
+  %.1201 = phi i32 [ %110, %108 ], [ %114, %111 ]
+  %116 = icmp eq i32 %.1201, -1
   br i1 %116, label %.loopexit, label %117
 
 117:                                              ; preds = %115
@@ -1267,8 +1267,8 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br label %142
 
 142:                                              ; preds = %137, %135
-  %.3202 = phi i32 [ %136, %135 ], [ %141, %137 ]
-  %143 = icmp eq i32 %.3202, -1
+  %.3203 = phi i32 [ %136, %135 ], [ %141, %137 ]
+  %143 = icmp eq i32 %.3203, -1
   br i1 %143, label %.loopexit, label %144
 
 144:                                              ; preds = %142
@@ -1428,8 +1428,8 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br label %202
 
 202:                                              ; preds = %198, %195
-  %.4203 = phi i32 [ %197, %195 ], [ %201, %198 ]
-  %203 = icmp eq i32 %.4203, -1
+  %.4204 = phi i32 [ %197, %195 ], [ %201, %198 ]
+  %203 = icmp eq i32 %.4204, -1
   br i1 %203, label %.loopexit, label %204
 
 204:                                              ; preds = %202
@@ -1595,14 +1595,14 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br label %281
 
 .loopexit:                                        ; preds = %.lr.ph275, %92, %117, %115, %._crit_edge297, %142, %128, %153, %177, %204, %202, %243, %229, %265, %67, %70, %73, %._crit_edge285, %97, %._crit_edge300, %._crit_edge310, %._crit_edge334
-  %.0204243.ph = phi ptr [ %46, %._crit_edge334 ], [ %46, %._crit_edge310 ], [ %46, %._crit_edge300 ], [ %46, %97 ], [ %46, %._crit_edge285 ], [ %46, %73 ], [ %46, %70 ], [ %46, %67 ], [ %46, %265 ], [ %46, %229 ], [ %46, %243 ], [ %46, %202 ], [ %46, %204 ], [ %46, %177 ], [ %46, %153 ], [ %46, %128 ], [ %46, %142 ], [ %46, %._crit_edge297 ], [ %46, %115 ], [ %46, %117 ], [ %46, %92 ], [ %37, %.lr.ph275 ]
+  %.0205243.ph = phi ptr [ %46, %._crit_edge334 ], [ %46, %._crit_edge310 ], [ %46, %._crit_edge300 ], [ %46, %97 ], [ %46, %._crit_edge285 ], [ %46, %73 ], [ %46, %70 ], [ %46, %67 ], [ %46, %265 ], [ %46, %229 ], [ %46, %243 ], [ %46, %202 ], [ %46, %204 ], [ %46, %177 ], [ %46, %153 ], [ %46, %128 ], [ %46, %142 ], [ %46, %._crit_edge297 ], [ %46, %115 ], [ %46, %117 ], [ %46, %92 ], [ %37, %.lr.ph275 ]
   call void @free(ptr noundef nonnull %12) #11
-  call void @st__free_table(ptr noundef nonnull %.0204243.ph) #11
+  call void @st__free_table(ptr noundef nonnull %.0205243.ph) #11
   br label %281
 
 281:                                              ; preds = %.thread, %.thread247, %.loopexit, %64, %61, %280
-  %.0205 = phi i32 [ 1, %280 ], [ 0, %61 ], [ 0, %64 ], [ 0, %.loopexit ], [ 0, %.thread ], [ 0, %.thread247 ]
-  ret i32 %.0205
+  %.0193 = phi i32 [ 1, %280 ], [ 0, %61 ], [ 0, %64 ], [ 0, %.loopexit ], [ 0, %.thread ], [ 0, %.thread247 ]
+  ret i32 %.0193
 }
 
 declare ptr @Cudd_Support(ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -1727,8 +1727,8 @@ define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, 
   br label %70
 
 70:                                               ; preds = %65, %58, %22, %19, %3, %69, %13
-  %.037 = phi i32 [ 1, %13 ], [ 1, %69 ], [ 0, %3 ], [ 1, %19 ], [ 0, %22 ], [ 0, %58 ], [ 0, %65 ]
-  ret i32 %.037
+  %.0 = phi i32 [ 1, %13 ], [ 1, %69 ], [ 0, %3 ], [ 1, %19 ], [ 0, %22 ], [ 0, %58 ], [ 0, %65 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind

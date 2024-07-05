@@ -793,7 +793,7 @@ pw_cell_header_size.exit268.pw_cell_header_size.exit268.thread_crit_edge: ; pred
 
 pw_cell_header_size.exit268.thread:               ; preds = %pw_cell_header_size.exit268.pw_cell_header_size.exit268.thread_crit_edge, %31, %31
   %36 = phi i32 [ %.pre, %pw_cell_header_size.exit268.pw_cell_header_size.exit268.thread_crit_edge ], [ %21, %31 ], [ %21, %31 ]
-  %.0273 = phi i32 [ 1, %pw_cell_header_size.exit268.pw_cell_header_size.exit268.thread_crit_edge ], [ 4, %31 ], [ 4, %31 ]
+  %.0225271 = phi i32 [ 1, %pw_cell_header_size.exit268.pw_cell_header_size.exit268.thread_crit_edge ], [ 4, %31 ], [ 4, %31 ]
   switch i32 %36, label %149 [
     i32 5, label %pw_cell_header_size.exit268.thread.thread
     i32 2, label %41
@@ -804,7 +804,7 @@ pw_cell_header_size.exit268.thread:               ; preds = %pw_cell_header_size
   ]
 
 pw_cell_header_size.exit268.thread.thread:        ; preds = %32, %pw_cell_header_size.exit268.thread
-  %.0273291 = phi i32 [ %.0273, %pw_cell_header_size.exit268.thread ], [ 4, %32 ]
+  %.0225271291 = phi i32 [ %.0225271, %pw_cell_header_size.exit268.thread ], [ 4, %32 ]
   %37 = getelementptr inbounds i8, ptr %3, i64 16
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 1
@@ -815,7 +815,7 @@ pw_cell_header_size.exit268.thread.thread:        ; preds = %32, %pw_cell_header
   unreachable
 
 41:                                               ; preds = %pw_cell_header_size.exit268.thread.thread, %pw_cell_header_size.exit268.thread, %pw_cell_header_size.exit268.thread
-  %.0273290 = phi i32 [ %.0273291, %pw_cell_header_size.exit268.thread.thread ], [ %.0273, %pw_cell_header_size.exit268.thread ], [ %.0273, %pw_cell_header_size.exit268.thread ]
+  %.0225271290 = phi i32 [ %.0225271291, %pw_cell_header_size.exit268.thread.thread ], [ %.0225271, %pw_cell_header_size.exit268.thread ], [ %.0225271, %pw_cell_header_size.exit268.thread ]
   %42 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #6
   %43 = lshr i16 %42, 4
   %44 = zext nneg i16 %43 to i32
@@ -932,7 +932,7 @@ switch.edge:                                      ; preds = %89, %85
   br label %pw_cell_header_size.exit268.thread275
 
 pw_cell_header_size.exit268.thread.thread292:     ; preds = %31, %pw_cell_header_size.exit268.thread
-  %.0273295 = phi i32 [ %.0273, %pw_cell_header_size.exit268.thread ], [ 3, %31 ]
+  %.0225271295 = phi i32 [ %.0225271, %pw_cell_header_size.exit268.thread ], [ 3, %31 ]
   %93 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 1) #6
   %94 = zext i16 %93 to i32
   store i32 %94, ptr %8, align 4
@@ -955,7 +955,7 @@ pw_cell_header_size.exit268.thread.thread296.sink.split: ; preds = %100, %98
   br label %pw_cell_header_size.exit268.thread.thread296
 
 pw_cell_header_size.exit268.thread.thread296:     ; preds = %pw_cell_header_size.exit268.thread.thread296.sink.split, %31, %100, %pw_cell_header_size.exit268.thread.thread292, %pw_cell_header_size.exit268.thread
-  %.0273294 = phi i32 [ %.0273295, %100 ], [ %.0273295, %pw_cell_header_size.exit268.thread.thread292 ], [ %.0273, %pw_cell_header_size.exit268.thread ], [ 1, %31 ], [ %.0273295, %pw_cell_header_size.exit268.thread.thread296.sink.split ]
+  %.0225271294 = phi i32 [ %.0225271295, %100 ], [ %.0225271295, %pw_cell_header_size.exit268.thread.thread292 ], [ %.0225271, %pw_cell_header_size.exit268.thread ], [ 1, %31 ], [ %.0225271295, %pw_cell_header_size.exit268.thread.thread296.sink.split ]
   %101 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
   %102 = zext i8 %101 to i32
   %103 = lshr i32 %102, 7
@@ -1063,10 +1063,10 @@ pw_cell_header_size.exit268.thread.thread296:     ; preds = %pw_cell_header_size
   unreachable
 
 pw_cell_header_size.exit268.thread275:            ; preds = %pw_cell_header_size.exit, %switch.edge, %124, %128, %147, %148, %146, %pw_cell_header_size.exit268
-  %.0274 = phi i32 [ %.0273290, %switch.edge ], [ %.0273294, %124 ], [ %.0273, %128 ], [ %.0273, %147 ], [ %.0273, %148 ], [ %.0273, %146 ], [ 0, %pw_cell_header_size.exit268 ], [ %19, %pw_cell_header_size.exit ]
-  %.not272 = phi i1 [ false, %switch.edge ], [ false, %124 ], [ false, %128 ], [ false, %147 ], [ false, %148 ], [ false, %146 ], [ true, %pw_cell_header_size.exit268 ], [ true, %pw_cell_header_size.exit ]
+  %.not274 = phi i1 [ false, %switch.edge ], [ false, %124 ], [ false, %128 ], [ false, %147 ], [ false, %148 ], [ false, %146 ], [ true, %pw_cell_header_size.exit268 ], [ true, %pw_cell_header_size.exit ]
+  %.0225272 = phi i32 [ %.0225271290, %switch.edge ], [ %.0225271294, %124 ], [ %.0225271, %128 ], [ %.0225271, %147 ], [ %.0225271, %148 ], [ %.0225271, %146 ], [ 0, %pw_cell_header_size.exit268 ], [ %19, %pw_cell_header_size.exit ]
   %150 = load i32, ptr @proto_cell_header, align 4
-  %151 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %150, ptr noundef %0, i32 noundef 0, i32 noundef %.0274, i32 noundef 0) #6
+  %151 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %150, ptr noundef %0, i32 noundef 0, i32 noundef %.0225272, i32 noundef 0) #6
   %152 = load i32, ptr %16, align 4
   %153 = icmp eq i32 %152, 6
   br i1 %153, label %154, label %155
@@ -1112,7 +1112,7 @@ pw_cell_header_size.exit268.thread275:            ; preds = %pw_cell_header_size
 169:                                              ; preds = %168, %154
   %170 = load i32, ptr @ett_cell_header, align 4
   %171 = tail call ptr @proto_item_add_subtree(ptr noundef %151, i32 noundef %170) #6
-  br i1 %.not272, label %270, label %172
+  br i1 %.not274, label %270, label %172
 
 172:                                              ; preds = %169
   %173 = load i32, ptr %16, align 4
@@ -1305,12 +1305,12 @@ proto_item_set_hidden.exit:                       ; preds = %242, %239, %238, %2
   unreachable
 
 270:                                              ; preds = %169
-  %271 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %151, ptr noundef nonnull @ei_pw_payload_size_invalid_error, ptr noundef nonnull @.str.162, i32 noundef %.0274) #6
+  %271 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %151, ptr noundef nonnull @ei_pw_payload_size_invalid_error, ptr noundef nonnull @.str.162, i32 noundef %.0225272) #6
   br label %272
 
 272:                                              ; preds = %270, %266, %261, %200, %4
-  %.0225 = phi i32 [ 0, %4 ], [ %.0274, %200 ], [ %.0274, %261 ], [ %.0274, %266 ], [ %.0274, %270 ]
-  ret i32 %.0225
+  %.0 = phi i32 [ 0, %4 ], [ %.0225272, %200 ], [ %.0225272, %261 ], [ %.0225272, %266 ], [ %.0225272, %270 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1392,9 +1392,9 @@ define internal i32 @dissect_aal5_sdu(ptr noundef %0, ptr noundef %1, ptr nounde
 40:                                               ; preds = %37, %33
   %41 = phi i32 [ %34, %33 ], [ %31, %37 ]
   %42 = phi i32 [ %35, %33 ], [ %32, %37 ]
-  %.073.in = phi i8 [ %36, %33 ], [ %39, %37 ]
-  %.073 = zext i8 %.073.in to i32
-  %43 = icmp eq i8 %.073.in, 0
+  %.074.in = phi i8 [ %36, %33 ], [ %39, %37 ]
+  %.074 = zext i8 %.074.in to i32
+  %43 = icmp eq i8 %.074.in, 0
   br i1 %43, label %57, label %44
 
 44:                                               ; preds = %40
@@ -1404,8 +1404,8 @@ define internal i32 @dissect_aal5_sdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %or.cond, label %.thread91.sink.split, label %47
 
 47:                                               ; preds = %44
-  %48 = add nsw i32 %.073, -4
-  %49 = icmp ult i8 %.073.in, 5
+  %48 = add nsw i32 %.074, -4
+  %49 = icmp ult i8 %.074.in, 5
   br i1 %49, label %.sink.split, label %50
 
 50:                                               ; preds = %47
@@ -1413,7 +1413,7 @@ define internal i32 @dissect_aal5_sdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %51, label %.sink.split, label %52
 
 52:                                               ; preds = %50
-  %53 = sub i32 %11, %.073
+  %53 = sub i32 %11, %.074
   %54 = icmp ne i32 %53, 0
   %or.cond7 = and i1 %54, %.not80
   br i1 %or.cond7, label %.thread91.sink.split, label %57
@@ -1472,7 +1472,7 @@ number_of_cells.exit:                             ; preds = %.thread91
 
 72:                                               ; preds = %66, %number_of_cells.exit
   %.ph99 = phi i32 [ %61, %number_of_cells.exit ], [ %68, %66 ]
-  %.074.ph = phi i32 [ 1, %number_of_cells.exit ], [ %spec.store.select.i, %66 ]
+  %.073.ph = phi i32 [ 1, %number_of_cells.exit ], [ %spec.store.select.i, %66 ]
   %73 = getelementptr inbounds i8, ptr %1, i64 8
   %74 = load ptr, ptr %73, align 8
   tail call void @col_set_str(ptr noundef %74, i32 noundef 34, ptr noundef nonnull @shortname_aal5_sdu) #6
@@ -1482,13 +1482,13 @@ number_of_cells.exit:                             ; preds = %.thread91
 
 76:                                               ; preds = %69, %72
   %77 = phi ptr [ %73, %72 ], [ %70, %69 ]
-  %.074108 = phi i32 [ %.074.ph, %72 ], [ -1, %69 ]
+  %.073108 = phi i32 [ %.073.ph, %72 ], [ -1, %69 ]
   %78 = phi i32 [ %.ph99, %72 ], [ %58, %69 ]
   %.07294106 = phi i32 [ %.07295, %72 ], [ %.072, %69 ]
   %.07196104 = phi i32 [ %.07197, %72 ], [ %.071, %69 ]
   %79 = load ptr, ptr %77, align 8
   tail call void @col_clear(ptr noundef %79, i32 noundef 25) #6
-  call fastcc void @col_append_pw_info(ptr noundef nonnull %1, i32 noundef %.07196104, i32 noundef %.074108, i32 noundef %.07294106, ptr noundef nonnull %5)
+  call fastcc void @col_append_pw_info(ptr noundef nonnull %1, i32 noundef %.07196104, i32 noundef %.073108, i32 noundef %.07294106, ptr noundef nonnull %5)
   %80 = load i32, ptr @proto_aal5_sdu, align 4
   %81 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %80, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
   %82 = load i32, ptr @ett_encaps, align 4
@@ -1629,8 +1629,8 @@ define internal i32 @dissect_11_or_aal5_pdu(ptr noundef %0, ptr noundef %1, ptr 
 20:                                               ; preds = %16, %17, %18
   %switch = phi i1 [ true, %16 ], [ false, %17 ], [ false, %18 ]
   %21 = phi i32 [ 4, %16 ], [ 3, %17 ], [ 6, %18 ]
-  %.083 = phi ptr [ @shortname_11_vpc, %16 ], [ @shortname_11_vcc, %17 ], [ @shortname_aal5_pdu, %18 ]
-  %.082 = phi ptr [ @longname_pw_atm_11_vpc, %16 ], [ @longname_pw_atm_11_vcc, %17 ], [ @longname_pw_atm_aal5_pdu, %18 ]
+  %.081 = phi ptr [ @longname_pw_atm_11_vpc, %16 ], [ @longname_pw_atm_11_vcc, %17 ], [ @longname_pw_atm_aal5_pdu, %18 ]
+  %.080 = phi ptr [ @shortname_11_vpc, %16 ], [ @shortname_11_vcc, %17 ], [ @shortname_aal5_pdu, %18 ]
   %22 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 0, ptr %22, align 4
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
@@ -1699,32 +1699,32 @@ number_of_cells.exit105:                          ; preds = %42
   br i1 %or.cond6, label %.sink.split, label %50
 
 .sink.split:                                      ; preds = %number_of_cells.exit105, %pw_cell_size.exit28.i
-  %.081.ph = phi i32 [ %36, %pw_cell_size.exit28.i ], [ %43, %number_of_cells.exit105 ]
-  %.080.ph = phi i32 [ %39, %pw_cell_size.exit28.i ], [ -1, %number_of_cells.exit105 ]
+  %.083.ph = phi i32 [ %39, %pw_cell_size.exit28.i ], [ -1, %number_of_cells.exit105 ]
+  %.082.ph = phi i32 [ %36, %pw_cell_size.exit28.i ], [ %43, %number_of_cells.exit105 ]
   %49 = or i32 %32, 128
   store i32 %49, ptr %22, align 4
   br label %50
 
 50:                                               ; preds = %.sink.split, %number_of_cells.exit105, %pw_cell_size.exit28.i
   %.not90 = phi i1 [ true, %pw_cell_size.exit28.i ], [ true, %number_of_cells.exit105 ], [ false, %.sink.split ]
-  %.081 = phi i32 [ %36, %pw_cell_size.exit28.i ], [ %43, %number_of_cells.exit105 ], [ %.081.ph, %.sink.split ]
-  %.080 = phi i32 [ %39, %pw_cell_size.exit28.i ], [ -1, %number_of_cells.exit105 ], [ %.080.ph, %.sink.split ]
+  %.083 = phi i32 [ %39, %pw_cell_size.exit28.i ], [ -1, %number_of_cells.exit105 ], [ %.083.ph, %.sink.split ]
+  %.082 = phi i32 [ %36, %pw_cell_size.exit28.i ], [ %43, %number_of_cells.exit105 ], [ %.082.ph, %.sink.split ]
   br i1 %13, label %51, label %55
 
 51:                                               ; preds = %50
   %52 = getelementptr inbounds i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8
-  tail call void @col_set_str(ptr noundef %53, i32 noundef 34, ptr noundef nonnull %.083) #6
+  tail call void @col_set_str(ptr noundef %53, i32 noundef 34, ptr noundef nonnull %.080) #6
   %54 = load ptr, ptr %52, align 8
   tail call void @col_clear(ptr noundef %54, i32 noundef 25) #6
-  call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %.081, i32 noundef %.080, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %.082, i32 noundef %.083, i32 noundef 0, ptr noundef nonnull %5)
   br label %55
 
 55:                                               ; preds = %51, %50
   %56 = load i32, ptr @proto_11_or_aal5_pdu, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %56, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %57, ptr noundef nonnull %.082, i32 noundef 0) #6
-  tail call void @pwc_item_append_text_n_items(ptr noundef %57, i32 noundef %.080, ptr noundef nonnull @.str.181) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %57, ptr noundef nonnull %.081, i32 noundef 0) #6
+  tail call void @pwc_item_append_text_n_items(ptr noundef %57, i32 noundef %.083, ptr noundef nonnull @.str.181) #6
   %58 = load i32, ptr @ett_encaps, align 4
   %59 = tail call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %58) #6
   switch i32 %21, label %64 [
@@ -1769,7 +1769,7 @@ proto_item_set_generated.exit:                    ; preds = %67, %70, %73
 
 77:                                               ; preds = %proto_item_set_generated.exit
   %78 = load i32, ptr @hf_11_ncells, align 4
-  %79 = tail call ptr @proto_tree_add_int(ptr noundef %59, i32 noundef %78, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.080) #6
+  %79 = tail call ptr @proto_tree_add_int(ptr noundef %59, i32 noundef %78, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.083) #6
   %.not.i106 = icmp eq ptr %79, null
   br i1 %.not.i106, label %proto_item_set_generated.exit108, label %80
 
@@ -1812,13 +1812,13 @@ default.unreachable:                              ; preds = %87
 
 pw_cell_size.exit:                                ; preds = %87, %88, %89
   %.0.i109 = phi i32 [ 48, %89 ], [ 51, %88 ], [ 49, %87 ]
-  %91 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %57, ptr noundef nonnull @ei_pw_payload_size_invalid_error, ptr noundef nonnull @.str.182, i32 noundef %.081, i32 noundef %.0.i109) #6
-  %.not91 = icmp eq i32 %.081, 0
+  %91 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %57, ptr noundef nonnull @ei_pw_payload_size_invalid_error, ptr noundef nonnull @.str.182, i32 noundef %.082, i32 noundef %.0.i109) #6
+  %.not91 = icmp eq i32 %.082, 0
   %brmerge = or i1 %.not91, %or.cond
   br i1 %brmerge, label %94, label %92
 
 92:                                               ; preds = %pw_cell_size.exit
-  %93 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %57, ptr noundef nonnull @ei_cell_broken, ptr noundef nonnull @.str.183, i32 noundef %.080) #6
+  %93 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %57, ptr noundef nonnull @ei_cell_broken, ptr noundef nonnull @.str.183, i32 noundef %.083) #6
   br label %94
 
 94:                                               ; preds = %pw_cell_size.exit, %92, %proto_item_set_generated.exit108
@@ -1832,11 +1832,11 @@ pw_cell_size.exit:                                ; preds = %87, %88, %89
   br i1 %or.cond15, label %101, label %102
 
 101:                                              ; preds = %94
-  call fastcc void @dissect_payload_and_padding(ptr noundef %98, ptr noundef %1, ptr noundef %2, i32 noundef %.081, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @dissect_payload_and_padding(ptr noundef %98, ptr noundef %1, ptr noundef %2, i32 noundef %.082, i32 noundef 0, ptr noundef nonnull %5)
   br label %119
 
 102:                                              ; preds = %94
-  %.not92 = icmp eq i32 %.081, 0
+  %.not92 = icmp eq i32 %.082, 0
   br i1 %.not92, label %119, label %103
 
 103:                                              ; preds = %102
@@ -1874,10 +1874,10 @@ pw_cell_size.exit:                                ; preds = %87, %88, %89
 122:                                              ; preds = %119
   %123 = getelementptr inbounds i8, ptr %1, i64 8
   %124 = load ptr, ptr %123, align 8
-  call void @col_set_str(ptr noundef %124, i32 noundef 34, ptr noundef nonnull %.083) #6
+  call void @col_set_str(ptr noundef %124, i32 noundef 34, ptr noundef nonnull %.080) #6
   %125 = load ptr, ptr %123, align 8
   call void @col_clear(ptr noundef %125, i32 noundef 25) #6
-  call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %.081, i32 noundef %.080, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %.082, i32 noundef %.083, i32 noundef 0, ptr noundef nonnull %5)
   br label %126
 
 126:                                              ; preds = %119, %122

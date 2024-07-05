@@ -698,27 +698,27 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %252, %256, %268
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %327
-  %.0173 = phi ptr [ %328, %327 ], [ %.0173.be, %.backedge.backedge ]
-  %.0165 = phi ptr [ %328, %327 ], [ %.0165.be, %.backedge.backedge ]
-  %.061 = phi i32 [ %330, %327 ], [ %.061.be, %.backedge.backedge ]
+  %.0169 = phi ptr [ %328, %327 ], [ %.0169.be, %.backedge.backedge ]
+  %.063 = phi ptr [ %328, %327 ], [ %.063.be, %.backedge.backedge ]
+  %.060 = phi i32 [ %330, %327 ], [ %.060.be, %.backedge.backedge ]
   br label %331
 
 331:                                              ; preds = %._crit_edge, %.backedge
-  %.1166 = phi ptr [ %.0165, %.backedge ], [ %369, %._crit_edge ]
-  %.162 = phi i32 [ %.061, %.backedge ], [ %368, %._crit_edge ]
-  %332 = load i8, ptr %.1166, align 1
+  %.164 = phi ptr [ %.063, %.backedge ], [ %369, %._crit_edge ]
+  %.1 = phi i32 [ %.060, %.backedge ], [ %368, %._crit_edge ]
+  %332 = load i8, ptr %.164, align 1
   %333 = zext i8 %332 to i64
   %334 = getelementptr inbounds [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %333
   %335 = load i8, ptr %334, align 1
-  %336 = sext i32 %.162 to i64
+  %336 = sext i32 %.1 to i64
   %337 = getelementptr inbounds [4670 x i16], ptr @_ZL9yy_accept, i64 0, i64 %336
   %338 = load i16, ptr %337, align 2
   %.not182 = icmp eq i16 %338, 0
   br i1 %.not182, label %340, label %339
 
 339:                                              ; preds = %331
-  store i32 %.162, ptr %309, align 8
-  store ptr %.1166, ptr %310, align 8
+  store i32 %.1, ptr %309, align 8
+  store ptr %.164, ptr %310, align 8
   br label %340
 
 340:                                              ; preds = %339, %331
@@ -730,13 +730,13 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %252, %256, %268
   %346 = getelementptr inbounds [8949 x i16], ptr @_ZL6yy_chk, i64 0, i64 %345
   %347 = load i16, ptr %346, align 2
   %348 = sext i16 %347 to i32
-  %.not1836147 = icmp eq i32 %.162, %348
+  %.not1836147 = icmp eq i32 %.1, %348
   br i1 %.not1836147, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %340, %357
   %349 = phi i64 [ %362, %357 ], [ %344, %340 ]
   %350 = phi i64 [ %358, %357 ], [ %336, %340 ]
-  %.01696148 = phi i8 [ %.1170, %357 ], [ %335, %340 ]
+  %.01716148 = phi i8 [ %.1172, %357 ], [ %335, %340 ]
   %351 = getelementptr inbounds [4800 x i16], ptr @_ZL6yy_def, i64 0, i64 %350
   %352 = load i16, ptr %351, align 2
   %353 = icmp sgt i16 %352, 4669
@@ -748,12 +748,12 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %252, %256, %268
   br label %357
 
 357:                                              ; preds = %354, %.lr.ph
-  %.1170 = phi i8 [ %356, %354 ], [ %.01696148, %.lr.ph ]
+  %.1172 = phi i8 [ %356, %354 ], [ %.01716148, %.lr.ph ]
   %358 = sext i16 %352 to i64
   %359 = getelementptr inbounds [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %358
   %360 = load i16, ptr %359, align 2
   %361 = sext i16 %360 to i64
-  %362 = zext i8 %.1170 to i64
+  %362 = zext i8 %.1172 to i64
   %363 = add nsw i64 %361, %362
   %364 = getelementptr inbounds [8949 x i16], ptr @_ZL6yy_chk, i64 0, i64 %363
   %365 = load i16, ptr %364, align 2
@@ -765,7 +765,7 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %252, %256, %268
   %366 = getelementptr inbounds [8949 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa
   %367 = load i16, ptr %366, align 2
   %368 = sext i16 %367 to i32
-  %369 = getelementptr inbounds i8, ptr %.1166, i64 1
+  %369 = getelementptr inbounds i8, ptr %.164, i64 1
   %370 = sext i16 %367 to i64
   %371 = getelementptr inbounds [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %370
   %372 = load i16, ptr %371, align 2
@@ -773,13 +773,13 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %252, %256, %268
   br i1 %.not184, label %.outer, label %331, !llvm.loop !7
 
 .outer:                                           ; preds = %._crit_edge, %.outer.backedge
-  %.1174.ph = phi ptr [ %.1174.ph.be, %.outer.backedge ], [ %.0173, %._crit_edge ]
-  %.2167.ph = phi ptr [ %.2167.ph.be, %.outer.backedge ], [ %369, %._crit_edge ]
+  %.1170.ph = phi ptr [ %.1170.ph.be, %.outer.backedge ], [ %.0169, %._crit_edge ]
+  %.265.ph = phi ptr [ %.265.ph.be, %.outer.backedge ], [ %369, %._crit_edge ]
   %.3.ph = phi i32 [ %.3.ph.be, %.outer.backedge ], [ %368, %._crit_edge ]
   br label %373
 
 373:                                              ; preds = %.outer, %395
-  %.2167 = phi ptr [ %397, %395 ], [ %.2167.ph, %.outer ]
+  %.265 = phi ptr [ %397, %395 ], [ %.265.ph, %.outer ]
   %.3 = phi i32 [ %398, %395 ], [ %.3.ph, %.outer ]
   %374 = sext i32 %.3 to i64
   %375 = getelementptr inbounds [4670 x i16], ptr @_ZL9yy_accept, i64 0, i64 %374
@@ -796,28 +796,28 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %252, %256, %268
   br label %384
 
 384:                                              ; preds = %378, %373
-  %.0171.in = phi i16 [ %383, %378 ], [ %376, %373 ]
-  %.3168 = phi ptr [ %379, %378 ], [ %.2167, %373 ]
-  %.0171 = sext i16 %.0171.in to i32
+  %.0173.in = phi i16 [ %383, %378 ], [ %376, %373 ]
+  %.366 = phi ptr [ %379, %378 ], [ %.265, %373 ]
+  %.0173 = sext i16 %.0173.in to i32
   %385 = load i32, ptr %304, align 8
   %386 = sext i32 %385 to i64
   %387 = sub nsw i64 0, %386
-  %388 = getelementptr inbounds i8, ptr %.1174.ph, i64 %387
+  %388 = getelementptr inbounds i8, ptr %.1170.ph, i64 %387
   store ptr %388, ptr %311, align 8
-  %389 = ptrtoint ptr %.3168 to i64
+  %389 = ptrtoint ptr %.366 to i64
   %390 = ptrtoint ptr %388 to i64
   %391 = sub i64 %389, %390
   %392 = trunc i64 %391 to i32
   store i32 %392, ptr %312, align 8
-  %393 = load i8, ptr %.3168, align 1
+  %393 = load i8, ptr %.366, align 1
   store i8 %393, ptr %307, align 8
-  store i8 0, ptr %.3168, align 1
-  store ptr %.3168, ptr %306, align 8
+  store i8 0, ptr %.366, align 1
+  store ptr %.366, ptr %306, align 8
   br label %394
 
 394:                                              ; preds = %11476, %384
-  %.1172 = phi i32 [ %.0171, %384 ], [ %11484, %11476 ]
-  switch i32 %.1172, label %11519 [
+  %.1174 = phi i32 [ %.0173, %384 ], [ %11484, %11476 ]
+  switch i32 %.1174, label %11519 [
     i32 0, label %395
     i32 1, label %399
     i32 2, label %406
@@ -1646,7 +1646,7 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %252, %256, %268
 
 395:                                              ; preds = %394
   %396 = load i8, ptr %307, align 8
-  store i8 %396, ptr %.3168, align 1
+  store i8 %396, ptr %.366, align 1
   %397 = load ptr, ptr %310, align 8
   %398 = load i32, ptr %309, align 8
   br label %373
@@ -1654,11 +1654,11 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %252, %256, %268
 399:                                              ; preds = %394
   store i32 19, ptr %308, align 4
   %400 = load i8, ptr %307, align 8
-  store i8 %400, ptr %.3168, align 1
+  store i8 %400, ptr %.366, align 1
   %401 = load i32, ptr %304, align 8
   %402 = sext i32 %401 to i64
   %403 = sub nsw i64 0, %402
-  %404 = getelementptr inbounds i8, ptr %.1174.ph, i64 %403
+  %404 = getelementptr inbounds i8, ptr %.1170.ph, i64 %403
   store ptr %404, ptr %306, align 8
   store ptr %404, ptr %311, align 8
   store i32 0, ptr %312, align 8
@@ -15016,14 +15016,14 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %252, %256, %268
   %9434 = call noundef ptr @_ZN8FileLine25copyOrSameFileLineAppliedEv(ptr noundef nonnull align 8 dereferenceable(40) %9433)
   store ptr %9434, ptr @yylval, align 8
   %9435 = load i8, ptr %307, align 8
-  store i8 %9435, ptr %.3168, align 1
-  %9436 = getelementptr inbounds i8, ptr %.1174.ph, i64 1
+  store i8 %9435, ptr %.366, align 1
+  %9436 = getelementptr inbounds i8, ptr %.1170.ph, i64 1
   %9437 = load i32, ptr %304, align 8
   %9438 = sext i32 %9437 to i64
   %9439 = sub nsw i64 0, %9438
   %9440 = getelementptr inbounds i8, ptr %9436, i64 %9439
   store ptr %9440, ptr %306, align 8
-  %9441 = getelementptr inbounds i8, ptr %.1174.ph, i64 %9439
+  %9441 = getelementptr inbounds i8, ptr %.1170.ph, i64 %9439
   store ptr %9441, ptr %311, align 8
   %9442 = ptrtoint ptr %9440 to i64
   %9443 = ptrtoint ptr %9441 to i64
@@ -18043,7 +18043,7 @@ _ZN10V3ParseImp14lexPopKeywordsEv.exit:           ; preds = %11024
 11418:                                            ; preds = %394
   %11419 = load ptr, ptr %311, align 8
   %11420 = load i8, ptr %307, align 8
-  store i8 %11420, ptr %.3168, align 1
+  store i8 %11420, ptr %.366, align 1
   %11421 = load ptr, ptr %313, align 8
   %11422 = load i64, ptr %314, align 8
   %11423 = getelementptr inbounds ptr, ptr %11421, i64 %11422
@@ -18115,15 +18115,15 @@ _ZN10V3ParseImp14lexPopKeywordsEv.exit:           ; preds = %11024
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %11466, %11491
-  %.0173.be = phi ptr [ %11465, %11466 ], [ %11503, %11491 ]
-  %.0165.be = phi ptr [ %11468, %11466 ], [ %11499, %11491 ]
-  %.061.be = phi i32 [ %11461, %11466 ], [ %11498, %11491 ]
+  %.0169.be = phi ptr [ %11465, %11466 ], [ %11503, %11491 ]
+  %.063.be = phi ptr [ %11468, %11466 ], [ %11499, %11491 ]
+  %.060.be = phi i32 [ %11461, %11466 ], [ %11498, %11491 ]
   br label %.backedge
 
 .outer.backedge:                                  ; preds = %11453, %11504
-  %.1174.ph.be = phi ptr [ %11518, %11504 ], [ %11465, %11453 ]
+  %.1170.ph.be = phi ptr [ %11518, %11504 ], [ %11465, %11453 ]
   %.3.ph.be = phi i32 [ %11514, %11504 ], [ %11460, %11453 ]
-  %.2167.ph.be = load ptr, ptr %306, align 8
+  %.265.ph.be = load ptr, ptr %306, align 8
   br label %.outer
 
 11469:                                            ; preds = %11445
@@ -19215,14 +19215,14 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN11V3LexerBase18yy_get_next_buff
   br i1 %46, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %42, %.lr.ph
-  %.03552 = phi i32 [ %50, %.lr.ph ], [ 0, %42 ]
-  %.03651 = phi ptr [ %47, %.lr.ph ], [ %11, %42 ]
-  %.03750 = phi ptr [ %49, %.lr.ph ], [ %9, %42 ]
-  %47 = getelementptr inbounds i8, ptr %.03651, i64 1
-  %48 = load i8, ptr %.03651, align 1
-  %49 = getelementptr inbounds i8, ptr %.03750, i64 1
-  store i8 %48, ptr %.03750, align 1
-  %50 = add nuw nsw i32 %.03552, 1
+  %.03352 = phi ptr [ %49, %.lr.ph ], [ %9, %42 ]
+  %.03451 = phi ptr [ %47, %.lr.ph ], [ %11, %42 ]
+  %.03550 = phi i32 [ %50, %.lr.ph ], [ 0, %42 ]
+  %47 = getelementptr inbounds i8, ptr %.03451, i64 1
+  %48 = load i8, ptr %.03451, align 1
+  %49 = getelementptr inbounds i8, ptr %.03352, i64 1
+  store i8 %48, ptr %.03352, align 1
+  %50 = add nuw nsw i32 %.03550, 1
   %exitcond.not = icmp eq i32 %50, %45
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
@@ -19251,8 +19251,8 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN11V3LexerBase18yy_get_next_buff
   %60 = xor i32 %45, -1
   %.pn.in53 = getelementptr inbounds i8, ptr %51, i64 24
   %.pn54 = load i32, ptr %.pn.in53, align 8
-  %.03355 = add i32 %.pn54, %60
-  %61 = icmp slt i32 %.03355, 1
+  %.03655 = add i32 %.pn54, %60
+  %61 = icmp slt i32 %.03655, 1
   br i1 %61, label %.lr.ph57.preheader, label %._crit_edge58
 
 .lr.ph57.preheader:                               ; preds = %59
@@ -19313,14 +19313,14 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN11V3LexerBase18yy_get_next_buff
   %92 = load ptr, ptr %91, align 8
   %.pn.in = getelementptr inbounds i8, ptr %92, i64 24
   %.pn = load i32, ptr %.pn.in, align 8
-  %.033 = add i32 %.pn, %60
-  %93 = icmp slt i32 %.033, 1
+  %.036 = add i32 %.pn, %60
+  %93 = icmp slt i32 %.036, 1
   br i1 %93, label %.lr.ph57, label %._crit_edge58, !llvm.loop !17
 
 ._crit_edge58:                                    ; preds = %85, %59
   %94 = phi ptr [ %51, %59 ], [ %92, %85 ]
-  %.033.lcssa = phi i32 [ %.03355, %59 ], [ %.033, %85 ]
-  %95 = tail call i32 @llvm.umin.i32(i32 %.033.lcssa, i32 8192)
+  %.036.lcssa = phi i32 [ %.03655, %59 ], [ %.036, %85 ]
+  %95 = tail call i32 @llvm.umin.i32(i32 %.036.lcssa, i32 8192)
   %96 = load ptr, ptr @_ZN10V3ParseImp8s_parsepE, align 8
   %97 = getelementptr inbounds i8, ptr %94, i64 8
   %98 = load ptr, ptr %97, align 8
@@ -19370,7 +19370,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN11V3LexerBase18yy_get_next_buff
   br label %127
 
 127:                                              ; preds = %107, %116, %121
-  %.034 = phi i32 [ 1, %116 ], [ 2, %121 ], [ 0, %107 ]
+  %.037 = phi i32 [ 1, %116 ], [ 2, %121 ], [ 0, %107 ]
   %128 = load i32, ptr %14, align 4
   %129 = add nsw i32 %128, %45
   %130 = load ptr, ptr %2, align 8
@@ -19459,7 +19459,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN11V3LexerBase18yy_get_next_buff
   br label %188
 
 188:                                              ; preds = %35, %163
-  %.0 = phi i32 [ %.034, %163 ], [ %., %35 ]
+  %.0 = phi i32 [ %.037, %163 ], [ %., %35 ]
   ret i32 %.0
 }
 

@@ -21,29 +21,29 @@ for.body.preheader:                               ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %hash.053 = phi i32 [ %add18, %for.body ], [ %len, %for.body.preheader ]
-  %len.addr.052 = phi i32 [ %dec, %for.body ], [ %shr, %for.body.preheader ]
-  %data.addr.051 = phi ptr [ %add.ptr16, %for.body ], [ %data, %for.body.preheader ]
-  %0 = load i16, ptr %data.addr.051, align 1
+  %data.addr.053 = phi ptr [ %add.ptr16, %for.body ], [ %data, %for.body.preheader ]
+  %hash.052 = phi i32 [ %add18, %for.body ], [ %len, %for.body.preheader ]
+  %len.addr.051 = phi i32 [ %dec, %for.body ], [ %shr, %for.body.preheader ]
+  %0 = load i16, ptr %data.addr.053, align 1
   %1 = zext i16 %0 to i32
-  %add5 = add i32 %hash.053, %1
-  %add.ptr = getelementptr inbounds i8, ptr %data.addr.051, i64 2
+  %add5 = add i32 %hash.052, %1
+  %add.ptr = getelementptr inbounds i8, ptr %data.addr.053, i64 2
   %2 = load i16, ptr %add.ptr, align 1
   %3 = zext i16 %2 to i32
   %4 = shl nuw nsw i32 %3, 11
   %shl14 = shl i32 %add5, 16
   %5 = xor i32 %shl14, %4
   %xor15 = xor i32 %5, %add5
-  %add.ptr16 = getelementptr inbounds i8, ptr %data.addr.051, i64 4
+  %add.ptr16 = getelementptr inbounds i8, ptr %data.addr.053, i64 4
   %shr17 = lshr i32 %xor15, 11
   %add18 = add i32 %shr17, %xor15
-  %dec = add nsw i32 %len.addr.052, -1
-  %cmp2 = icmp ugt i32 %len.addr.052, 1
+  %dec = add nsw i32 %len.addr.051, -1
+  %cmp2 = icmp ugt i32 %len.addr.051, 1
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %if.end
-  %data.addr.0.lcssa = phi ptr [ %data, %if.end ], [ %add.ptr16, %for.body ]
   %hash.0.lcssa = phi i32 [ %len, %if.end ], [ %add18, %for.body ]
+  %data.addr.0.lcssa = phi ptr [ %data, %if.end ], [ %add.ptr16, %for.body ]
   switch i32 %and, label %default.unreachable [
     i32 3, label %sw.bb
     i32 2, label %sw.bb34

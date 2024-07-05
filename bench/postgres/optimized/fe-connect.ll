@@ -417,7 +417,7 @@ define noundef ptr @PQconnectStartParams(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not89179.i, label %.critedge.i, label %.lr.ph181.i
 
 9:                                                ; preds = %.lr.ph181.i
-  %10 = add i32 %.077177180.i, 1
+  %10 = add i32 %.079177180.i, 1
   %11 = sext i32 %10 to i64
   %12 = getelementptr ptr, ptr %0, i64 %11
   %13 = load ptr, ptr %12, align 8
@@ -427,7 +427,7 @@ define noundef ptr @PQconnectStartParams(ptr nocapture noundef readonly %0, ptr 
 .lr.ph181.i:                                      ; preds = %.lr.ph.split.i, %9
   %14 = phi ptr [ %13, %9 ], [ %8, %.lr.ph.split.i ]
   %15 = phi i64 [ %11, %9 ], [ 0, %.lr.ph.split.i ]
-  %.077177180.i = phi i32 [ %10, %9 ], [ 0, %.lr.ph.split.i ]
+  %.079177180.i = phi i32 [ %10, %9 ], [ 0, %.lr.ph.split.i ]
   %16 = getelementptr ptr, ptr %1, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(7) @.str.118) #24
@@ -457,14 +457,14 @@ recognized_connection_string.exit.thread.i:       ; preds = %recognized_connecti
   br i1 %28, label %conninfo_array_parse.exit.thread, label %.critedge.i
 
 .critedge.i:                                      ; preds = %9, %recognized_connection_string.exit.thread.i, %recognized_connection_string.exit.i, %.lr.ph.split.i, %6
-  %.079.i = phi ptr [ %27, %recognized_connection_string.exit.thread.i ], [ null, %recognized_connection_string.exit.i ], [ null, %.lr.ph.split.i ], [ null, %6 ], [ null, %9 ]
+  %.077.i = phi ptr [ %27, %recognized_connection_string.exit.thread.i ], [ null, %recognized_connection_string.exit.i ], [ null, %.lr.ph.split.i ], [ null, %6 ], [ null, %9 ]
   %29 = tail call noalias dereferenceable_or_null(2296) ptr @malloc(i64 noundef 2296) #25
   %30 = icmp eq ptr %29, null
   br i1 %30, label %conninfo_init.exit.thread.i, label %.preheader.i.i
 
 conninfo_init.exit.thread.i:                      ; preds = %.critedge.i
   tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %7, ptr noundef nonnull @.str.44) #23
-  %31 = icmp eq ptr %.079.i, null
+  %31 = icmp eq ptr %.077.i, null
   br i1 %31, label %conninfo_array_parse.exit.thread, label %.preheader.i99.i
 
 .preheader.i.i:                                   ; preds = %.critedge.i, %.preheader.i.i
@@ -502,12 +502,12 @@ conninfo_init.exit.thread.i:                      ; preds = %.critedge.i
   br i1 %.not90195.i, label %._crit_edge199.i, label %.lr.ph198.i
 
 .preheader.i99.i:                                 ; preds = %conninfo_init.exit.thread.i
-  %44 = load ptr, ptr %.079.i, align 8
+  %44 = load ptr, ptr %.077.i, align 8
   %.not7.i.i = icmp eq ptr %44, null
   br i1 %.not7.i.i, label %PQconninfoFree.exit.sink.split.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i99.i, %.lr.ph.i.i
-  %.08.i.i = phi ptr [ %47, %.lr.ph.i.i ], [ %.079.i, %.preheader.i99.i ]
+  %.08.i.i = phi ptr [ %47, %.lr.ph.i.i ], [ %.077.i, %.preheader.i99.i ]
   %45 = getelementptr inbounds i8, ptr %.08.i.i, i64 24
   %46 = load ptr, ptr %45, align 8
   tail call void @free(ptr noundef %46) #23
@@ -519,8 +519,8 @@ conninfo_init.exit.thread.i:                      ; preds = %.critedge.i
 .lr.ph198.i:                                      ; preds = %.preheader167.i, %PQconninfoFree.exit135.i
   %49 = phi ptr [ %128, %PQconninfoFree.exit135.i ], [ %43, %.preheader167.i ]
   %50 = phi i64 [ %126, %PQconninfoFree.exit135.i ], [ 0, %.preheader167.i ]
-  %.1197.i = phi i32 [ %125, %PQconninfoFree.exit135.i ], [ 0, %.preheader167.i ]
-  %.180196.i = phi ptr [ %.2.i, %PQconninfoFree.exit135.i ], [ %.079.i, %.preheader167.i ]
+  %.1197.i = phi ptr [ %.2.i, %PQconninfoFree.exit135.i ], [ %.077.i, %.preheader167.i ]
+  %.180196.i = phi i32 [ %125, %PQconninfoFree.exit135.i ], [ 0, %.preheader167.i ]
   %51 = getelementptr ptr, ptr %1, i64 %50
   %52 = load ptr, ptr %51, align 8
   %.not91.i = icmp eq ptr %52, null
@@ -567,16 +567,16 @@ conninfo_init.exit.thread.i:                      ; preds = %.critedge.i
 
 ._crit_edge.i106.i:                               ; preds = %.lr.ph.i103.i, %.preheader166._crit_edge.i
   tail call void @free(ptr noundef %29) #23
-  %67 = icmp eq ptr %.180196.i, null
+  %67 = icmp eq ptr %.1197.i, null
   br i1 %67, label %conninfo_array_parse.exit.thread, label %.preheader.i108.i
 
 .preheader.i108.i:                                ; preds = %._crit_edge.i106.i
-  %68 = load ptr, ptr %.180196.i, align 8
+  %68 = load ptr, ptr %.1197.i, align 8
   %.not7.i109.i = icmp eq ptr %68, null
   br i1 %.not7.i109.i, label %PQconninfoFree.exit.sink.split.i, label %.lr.ph.i110.i
 
 .lr.ph.i110.i:                                    ; preds = %.preheader.i108.i, %.lr.ph.i110.i
-  %.08.i111.i = phi ptr [ %71, %.lr.ph.i110.i ], [ %.180196.i, %.preheader.i108.i ]
+  %.08.i111.i = phi ptr [ %71, %.lr.ph.i110.i ], [ %.1197.i, %.preheader.i108.i ]
   %69 = getelementptr inbounds i8, ptr %.08.i111.i, i64 24
   %70 = load ptr, ptr %69, align 8
   tail call void @free(ptr noundef %70) #23
@@ -588,18 +588,18 @@ conninfo_init.exit.thread.i:                      ; preds = %.critedge.i
 73:                                               ; preds = %.lr.ph184.i
   %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(7) @.str.118) #24
   %75 = icmp eq i32 %74, 0
-  %76 = icmp ne ptr %.180196.i, null
+  %76 = icmp ne ptr %.1197.i, null
   %or.cond3.i = select i1 %75, i1 %76, i1 false
   br i1 %or.cond3.i, label %.preheader165.i, label %110
 
 .preheader165.i:                                  ; preds = %73
-  %77 = load ptr, ptr %.180196.i, align 8
+  %77 = load ptr, ptr %.1197.i, align 8
   %.not95191.i = icmp eq ptr %77, null
   br i1 %.not95191.i, label %._crit_edge.i134.i, label %.lr.ph193.i
 
 .lr.ph193.i:                                      ; preds = %.preheader165.i, %.loopexit.i
   %78 = phi ptr [ %105, %.loopexit.i ], [ %77, %.preheader165.i ]
-  %.075192.i = phi ptr [ %104, %.loopexit.i ], [ %.180196.i, %.preheader165.i ]
+  %.075192.i = phi ptr [ %104, %.loopexit.i ], [ %.1197.i, %.preheader165.i ]
   %79 = getelementptr inbounds i8, ptr %.075192.i, i64 24
   %80 = load ptr, ptr %79, align 8
   %.not96.i = icmp eq ptr %80, null
@@ -658,12 +658,12 @@ conninfo_init.exit.thread.i:                      ; preds = %.critedge.i
 
 PQconninfoFree.exit121.i:                         ; preds = %.lr.ph.i117.i, %.preheader.i115.i
   tail call void @free(ptr noundef %29) #23
-  %99 = load ptr, ptr %.180196.i, align 8
+  %99 = load ptr, ptr %.1197.i, align 8
   %.not7.i123.i = icmp eq ptr %99, null
   br i1 %.not7.i123.i, label %PQconninfoFree.exit.sink.split.i, label %.lr.ph.i124.i
 
 .lr.ph.i124.i:                                    ; preds = %PQconninfoFree.exit121.i, %.lr.ph.i124.i
-  %.08.i125.i = phi ptr [ %102, %.lr.ph.i124.i ], [ %.180196.i, %PQconninfoFree.exit121.i ]
+  %.08.i125.i = phi ptr [ %102, %.lr.ph.i124.i ], [ %.1197.i, %PQconninfoFree.exit121.i ]
   %100 = getelementptr inbounds i8, ptr %.08.i125.i, i64 24
   %101 = load ptr, ptr %100, align 8
   tail call void @free(ptr noundef %101) #23
@@ -679,12 +679,12 @@ PQconninfoFree.exit121.i:                         ; preds = %.lr.ph.i117.i, %.pr
   br i1 %.not95.i, label %.preheader.i129.i, label %.lr.ph193.i, !llvm.loop !10
 
 .preheader.i129.i:                                ; preds = %.loopexit.i
-  %.pre.i = load ptr, ptr %.180196.i, align 8
+  %.pre.i = load ptr, ptr %.1197.i, align 8
   %.not7.i130.i = icmp eq ptr %.pre.i, null
   br i1 %.not7.i130.i, label %._crit_edge.i134.i, label %.lr.ph.i131.i
 
 .lr.ph.i131.i:                                    ; preds = %.preheader.i129.i, %.lr.ph.i131.i
-  %.08.i132.i = phi ptr [ %108, %.lr.ph.i131.i ], [ %.180196.i, %.preheader.i129.i ]
+  %.08.i132.i = phi ptr [ %108, %.lr.ph.i131.i ], [ %.1197.i, %.preheader.i129.i ]
   %106 = getelementptr inbounds i8, ptr %.08.i132.i, i64 24
   %107 = load ptr, ptr %106, align 8
   tail call void @free(ptr noundef %107) #23
@@ -694,7 +694,7 @@ PQconninfoFree.exit121.i:                         ; preds = %.lr.ph.i117.i, %.pr
   br i1 %.not.i133.i, label %._crit_edge.i134.i, label %.lr.ph.i131.i, !llvm.loop !7
 
 ._crit_edge.i134.i:                               ; preds = %.lr.ph.i131.i, %.preheader.i129.i, %.preheader165.i
-  tail call void @free(ptr noundef %.180196.i) #23
+  tail call void @free(ptr noundef %.1197.i) #23
   br label %PQconninfoFree.exit135.i
 
 110:                                              ; preds = %73
@@ -724,16 +724,16 @@ PQconninfoFree.exit121.i:                         ; preds = %.lr.ph.i117.i, %.pr
 
 PQconninfoFree.exit142.i:                         ; preds = %.lr.ph.i138.i, %.preheader.i136.i
   tail call void @free(ptr noundef %29) #23
-  %119 = icmp eq ptr %.180196.i, null
+  %119 = icmp eq ptr %.1197.i, null
   br i1 %119, label %conninfo_array_parse.exit.thread, label %.preheader.i143.i
 
 .preheader.i143.i:                                ; preds = %PQconninfoFree.exit142.i
-  %120 = load ptr, ptr %.180196.i, align 8
+  %120 = load ptr, ptr %.1197.i, align 8
   %.not7.i144.i = icmp eq ptr %120, null
   br i1 %.not7.i144.i, label %PQconninfoFree.exit.sink.split.i, label %.lr.ph.i145.i
 
 .lr.ph.i145.i:                                    ; preds = %.preheader.i143.i, %.lr.ph.i145.i
-  %.08.i146.i = phi ptr [ %123, %.lr.ph.i145.i ], [ %.180196.i, %.preheader.i143.i ]
+  %.08.i146.i = phi ptr [ %123, %.lr.ph.i145.i ], [ %.1197.i, %.preheader.i143.i ]
   %121 = getelementptr inbounds i8, ptr %.08.i146.i, i64 24
   %122 = load ptr, ptr %121, align 8
   tail call void @free(ptr noundef %122) #23
@@ -743,8 +743,8 @@ PQconninfoFree.exit142.i:                         ; preds = %.lr.ph.i138.i, %.pr
   br i1 %.not.i147.i, label %PQconninfoFree.exit.sink.split.i, label %.lr.ph.i145.i, !llvm.loop !7
 
 PQconninfoFree.exit135.i:                         ; preds = %110, %._crit_edge.i134.i, %53, %.lr.ph198.i
-  %.2.i = phi ptr [ %.180196.i, %110 ], [ %.180196.i, %53 ], [ %.180196.i, %.lr.ph198.i ], [ null, %._crit_edge.i134.i ]
-  %125 = add i32 %.1197.i, 1
+  %.2.i = phi ptr [ %.1197.i, %110 ], [ %.1197.i, %53 ], [ %.1197.i, %.lr.ph198.i ], [ null, %._crit_edge.i134.i ]
+  %125 = add i32 %.180196.i, 1
   %126 = sext i32 %125 to i64
   %127 = getelementptr ptr, ptr %0, i64 %126
   %128 = load ptr, ptr %127, align 8
@@ -752,17 +752,17 @@ PQconninfoFree.exit135.i:                         ; preds = %110, %._crit_edge.i
   br i1 %.not90.i, label %._crit_edge199.i, label %.lr.ph198.i, !llvm.loop !11
 
 ._crit_edge199.i:                                 ; preds = %PQconninfoFree.exit135.i, %.preheader167.i
-  %.180.lcssa.i = phi ptr [ %.079.i, %.preheader167.i ], [ %.2.i, %PQconninfoFree.exit135.i ]
-  %129 = icmp eq ptr %.180.lcssa.i, null
+  %.1.lcssa.i = phi ptr [ %.077.i, %.preheader167.i ], [ %.2.i, %PQconninfoFree.exit135.i ]
+  %129 = icmp eq ptr %.1.lcssa.i, null
   br i1 %129, label %PQconninfoFree.exit156.i, label %.preheader.i150.i
 
 .preheader.i150.i:                                ; preds = %._crit_edge199.i
-  %130 = load ptr, ptr %.180.lcssa.i, align 8
+  %130 = load ptr, ptr %.1.lcssa.i, align 8
   %.not7.i151.i = icmp eq ptr %130, null
   br i1 %.not7.i151.i, label %._crit_edge.i155.i, label %.lr.ph.i152.i
 
 .lr.ph.i152.i:                                    ; preds = %.preheader.i150.i, %.lr.ph.i152.i
-  %.08.i153.i = phi ptr [ %133, %.lr.ph.i152.i ], [ %.180.lcssa.i, %.preheader.i150.i ]
+  %.08.i153.i = phi ptr [ %133, %.lr.ph.i152.i ], [ %.1.lcssa.i, %.preheader.i150.i ]
   %131 = getelementptr inbounds i8, ptr %.08.i153.i, i64 24
   %132 = load ptr, ptr %131, align 8
   tail call void @free(ptr noundef %132) #23
@@ -772,7 +772,7 @@ PQconninfoFree.exit135.i:                         ; preds = %110, %._crit_edge.i
   br i1 %.not.i154.i, label %._crit_edge.i155.i, label %.lr.ph.i152.i, !llvm.loop !7
 
 ._crit_edge.i155.i:                               ; preds = %.lr.ph.i152.i, %.preheader.i150.i
-  tail call void @free(ptr noundef %.180.lcssa.i) #23
+  tail call void @free(ptr noundef %.1.lcssa.i) #23
   br label %PQconninfoFree.exit156.i
 
 PQconninfoFree.exit156.i:                         ; preds = %._crit_edge.i155.i, %._crit_edge199.i
@@ -795,7 +795,7 @@ PQconninfoFree.exit156.i:                         ; preds = %._crit_edge.i155.i,
   br i1 %.not.i161.i, label %PQconninfoFree.exit.sink.split.i, label %.lr.ph.i159.i, !llvm.loop !7
 
 PQconninfoFree.exit.sink.split.i:                 ; preds = %.lr.ph.i145.i, %.lr.ph.i124.i, %.lr.ph.i110.i, %.lr.ph.i159.i, %.lr.ph.i.i, %.preheader.i157.i, %.preheader.i143.i, %PQconninfoFree.exit121.i, %.preheader.i108.i, %.preheader.i99.i
-  %.sink.i = phi ptr [ %.079.i, %.preheader.i99.i ], [ %.180196.i, %.preheader.i108.i ], [ %.180196.i, %PQconninfoFree.exit121.i ], [ %.180196.i, %.preheader.i143.i ], [ %29, %.preheader.i157.i ], [ %.079.i, %.lr.ph.i.i ], [ %29, %.lr.ph.i159.i ], [ %.180196.i, %.lr.ph.i110.i ], [ %.180196.i, %.lr.ph.i124.i ], [ %.180196.i, %.lr.ph.i145.i ]
+  %.sink.i = phi ptr [ %.077.i, %.preheader.i99.i ], [ %.1197.i, %.preheader.i108.i ], [ %.1197.i, %PQconninfoFree.exit121.i ], [ %.1197.i, %.preheader.i143.i ], [ %29, %.preheader.i157.i ], [ %.077.i, %.lr.ph.i.i ], [ %29, %.lr.ph.i159.i ], [ %.1197.i, %.lr.ph.i110.i ], [ %.1197.i, %.lr.ph.i124.i ], [ %.1197.i, %.lr.ph.i145.i ]
   tail call void @free(ptr noundef %.sink.i) #23
   br label %conninfo_array_parse.exit.thread
 
@@ -1419,8 +1419,8 @@ define noundef ptr @pqMakeEmptyPGconn() local_unnamed_addr #0 {
   br label %38
 
 38:                                               ; preds = %33, %37, %0
-  %.062 = phi ptr [ null, %0 ], [ null, %37 ], [ %calloc, %33 ]
-  ret ptr %.062
+  %.0 = phi ptr [ null, %0 ], [ null, %37 ], [ %calloc, %33 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1541,7 +1541,7 @@ count_comma_separated_elems.exit:                 ; preds = %.preheader457, %.pr
 
 .preheader452:                                    ; preds = %32, %56
   %35 = phi ptr [ %52, %56 ], [ %28, %32 ]
-  %.0304477 = phi i32 [ %58, %56 ], [ 0, %32 ]
+  %.0300477 = phi i32 [ %58, %56 ], [ 0, %32 ]
   %.0430476 = phi ptr [ %57, %56 ], [ %8, %32 ]
   br label %36
 
@@ -1577,7 +1577,7 @@ count_comma_separated_elems.exit:                 ; preds = %.preheader457, %.pr
   br label %parse_comma_separated_list.exit
 
 parse_comma_separated_list.exit:                  ; preds = %.critedge.i, %47
-  %50 = zext nneg i32 %.0304477 to i64
+  %50 = zext nneg i32 %.0300477 to i64
   %51 = getelementptr %struct.pg_conn_host, ptr %35, i64 %50, i32 2
   store ptr %46, ptr %51, align 8
   %52 = load ptr, ptr %29, align 8
@@ -1588,7 +1588,7 @@ parse_comma_separated_list.exit:                  ; preds = %.critedge.i, %47
 
 56:                                               ; preds = %parse_comma_separated_list.exit
   %57 = getelementptr i8, ptr %.0.i387, i64 1
-  %58 = add nuw nsw i32 %.0304477, 1
+  %58 = add nuw nsw i32 %.0300477, 1
   %59 = load i32, ptr %26, align 8
   %60 = icmp slt i32 %58, %59
   %61 = and i1 %40, %60
@@ -1612,7 +1612,7 @@ parse_comma_separated_list.exit:                  ; preds = %.critedge.i, %47
 
 .preheader449:                                    ; preds = %.preheader450, %89
   %68 = phi ptr [ %85, %89 ], [ %62, %.preheader450 ]
-  %.1305479 = phi i32 [ %91, %89 ], [ 0, %.preheader450 ]
+  %.1479 = phi i32 [ %91, %89 ], [ 0, %.preheader450 ]
   %.0428478 = phi ptr [ %90, %89 ], [ %64, %.preheader450 ]
   br label %69
 
@@ -1648,7 +1648,7 @@ parse_comma_separated_list.exit:                  ; preds = %.critedge.i, %47
   br label %parse_comma_separated_list.exit392
 
 parse_comma_separated_list.exit392:               ; preds = %.critedge.i389, %80
-  %83 = zext nneg i32 %.1305479 to i64
+  %83 = zext nneg i32 %.1479 to i64
   %84 = getelementptr %struct.pg_conn_host, ptr %68, i64 %83, i32 1
   store ptr %79, ptr %84, align 8
   %85 = load ptr, ptr %29, align 8
@@ -1659,7 +1659,7 @@ parse_comma_separated_list.exit392:               ; preds = %.critedge.i389, %80
 
 89:                                               ; preds = %parse_comma_separated_list.exit392
   %90 = getelementptr i8, ptr %.0.i388, i64 1
-  %91 = add nuw nsw i32 %.1305479, 1
+  %91 = add nuw nsw i32 %.1479, 1
   %92 = load i32, ptr %26, align 8
   %93 = icmp slt i32 %91, %92
   %94 = and i1 %73, %93
@@ -2034,7 +2034,7 @@ pqGetHomeDirectory.exit:                          ; preds = %217, %220
   br label %248
 
 248:                                              ; preds = %245, %242
-  %.0303 = phi ptr [ %247, %245 ], [ %240, %242 ]
+  %.0305 = phi ptr [ %247, %245 ], [ %240, %242 ]
   %249 = getelementptr %struct.pg_conn_host, ptr %238, i64 %indvars.iv530, i32 3
   %250 = load ptr, ptr %249, align 8
   %251 = load ptr, ptr %194, align 8
@@ -2058,11 +2058,11 @@ pqGetHomeDirectory.exit:                          ; preds = %217, %220
   br i1 %261, label %passwordFromFile.exit, label %262
 
 262:                                              ; preds = %259
-  %263 = icmp eq ptr %.0303, null
+  %263 = icmp eq ptr %.0305, null
   br i1 %263, label %269, label %264
 
 264:                                              ; preds = %262
-  %265 = load i8, ptr %.0303, align 1
+  %265 = load i8, ptr %.0305, align 1
   switch i8 %265, label %.fold.split.i [
     i8 0, label %269
     i8 64, label %266
@@ -2070,16 +2070,16 @@ pqGetHomeDirectory.exit:                          ; preds = %217, %220
   ]
 
 266:                                              ; preds = %264, %264
-  %267 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0303, ptr noundef nonnull dereferenceable(5) @.str.1) #24
+  %267 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0305, ptr noundef nonnull dereferenceable(5) @.str.1) #24
   %268 = icmp eq i32 %267, 0
-  %spec.store.select.i = select i1 %268, ptr @.str.241, ptr %.0303
+  %spec.store.select.i = select i1 %268, ptr @.str.241, ptr %.0305
   br label %269
 
 .fold.split.i:                                    ; preds = %264
   br label %269
 
 269:                                              ; preds = %.fold.split.i, %266, %264, %262
-  %.049.i = phi ptr [ %spec.store.select.i, %266 ], [ @.str.241, %264 ], [ @.str.241, %262 ], [ %.0303, %.fold.split.i ]
+  %.049.i = phi ptr [ %spec.store.select.i, %266 ], [ @.str.241, %264 ], [ @.str.241, %262 ], [ %.0305, %.fold.split.i ]
   %270 = icmp eq ptr %250, null
   br i1 %270, label %274, label %271
 
@@ -2298,8 +2298,8 @@ passwordFromFile.exit:                            ; preds = %248, %255, %259, %2
 .preheader:                                       ; preds = %361, %440
   %364 = phi i32 [ 0, %361 ], [ %441, %440 ]
   %365 = phi i8 [ 1, %361 ], [ %442, %440 ]
-  %.0301497 = phi i8 [ 0, %361 ], [ %.1, %440 ]
-  %.0302496 = phi i1 [ true, %361 ], [ false, %440 ]
+  %.0302497 = phi i8 [ 0, %361 ], [ %.1303, %440 ]
+  %.0304496 = phi i1 [ true, %361 ], [ false, %440 ]
   %.0424495 = phi ptr [ %358, %361 ], [ %380, %440 ]
   br label %366
 
@@ -2338,7 +2338,7 @@ passwordFromFile.exit:                            ; preds = %248, %255, %259, %2
   br i1 %382, label %383, label %393
 
 383:                                              ; preds = %377
-  br i1 %.0302496, label %384, label %385
+  br i1 %.0304496, label %384, label %385
 
 384:                                              ; preds = %383
   store i8 0, ptr %362, align 8
@@ -2346,7 +2346,7 @@ passwordFromFile.exit:                            ; preds = %248, %255, %259, %2
   br label %389
 
 385:                                              ; preds = %383
-  %386 = trunc nuw i8 %.0301497 to i1
+  %386 = trunc nuw i8 %.0302497 to i1
   br i1 %386, label %389, label %387
 
 387:                                              ; preds = %385
@@ -2363,7 +2363,7 @@ passwordFromFile.exit:                            ; preds = %248, %255, %259, %2
   br label %397
 
 393:                                              ; preds = %377
-  %394 = trunc nuw i8 %.0301497 to i1
+  %394 = trunc nuw i8 %.0302497 to i1
   br i1 %394, label %395, label %397
 
 395:                                              ; preds = %393
@@ -2376,39 +2376,39 @@ passwordFromFile.exit:                            ; preds = %248, %255, %259, %2
 397:                                              ; preds = %393, %389
   %398 = phi i32 [ %390, %389 ], [ %364, %393 ]
   %399 = phi i8 [ %391, %389 ], [ %365, %393 ]
-  %.1 = phi i8 [ 1, %389 ], [ %.0301497, %393 ]
-  %.0300 = phi ptr [ %392, %389 ], [ %376, %393 ]
-  %400 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0300, ptr noundef nonnull dereferenceable(9) @.str.7) #24
+  %.1303 = phi i8 [ 1, %389 ], [ %.0302497, %393 ]
+  %.0301 = phi ptr [ %392, %389 ], [ %376, %393 ]
+  %400 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0301, ptr noundef nonnull dereferenceable(9) @.str.7) #24
   %401 = icmp eq i32 %400, 0
   br i1 %401, label %425, label %402
 
 402:                                              ; preds = %397
-  %403 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0300, ptr noundef nonnull dereferenceable(4) @.str.8) #24
+  %403 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0301, ptr noundef nonnull dereferenceable(4) @.str.8) #24
   %404 = icmp eq i32 %403, 0
   br i1 %404, label %425, label %405
 
 405:                                              ; preds = %402
-  %406 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0300, ptr noundef nonnull dereferenceable(4) @.str.9) #24
+  %406 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0301, ptr noundef nonnull dereferenceable(4) @.str.9) #24
   %407 = icmp eq i32 %406, 0
   br i1 %407, label %425, label %408
 
 408:                                              ; preds = %405
-  %409 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0300, ptr noundef nonnull dereferenceable(5) @.str.10) #24
+  %409 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0301, ptr noundef nonnull dereferenceable(5) @.str.10) #24
   %410 = icmp eq i32 %409, 0
   br i1 %410, label %425, label %411
 
 411:                                              ; preds = %408
-  %412 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0300, ptr noundef nonnull dereferenceable(14) @.str.11) #24
+  %412 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0301, ptr noundef nonnull dereferenceable(14) @.str.11) #24
   %413 = icmp eq i32 %412, 0
   br i1 %413, label %425, label %414
 
 414:                                              ; preds = %411
-  %415 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0300, ptr noundef nonnull dereferenceable(5) @.str.12) #24
+  %415 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0301, ptr noundef nonnull dereferenceable(5) @.str.12) #24
   %416 = icmp eq i32 %415, 0
   br i1 %416, label %417, label %423
 
 417:                                              ; preds = %414
-  %418 = trunc nuw i8 %.1 to i1
+  %418 = trunc nuw i8 %.1303 to i1
   %419 = trunc nuw i8 %399 to i1
   br i1 %418, label %420, label %421
 
@@ -2426,13 +2426,13 @@ passwordFromFile.exit:                            ; preds = %248, %255, %259, %2
 423:                                              ; preds = %414
   %424 = getelementptr inbounds i8, ptr %0, i64 376
   store i32 1, ptr %424, align 8
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef %.0300) #23
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef %.0301) #23
   call void @free(ptr noundef nonnull %376) #23
   br label %606
 
 425:                                              ; preds = %411, %408, %405, %402, %397
   %.0299 = phi i32 [ 8, %397 ], [ 32, %402 ], [ 384, %405 ], [ 768, %408 ], [ 7168, %411 ]
-  %426 = trunc nuw i8 %.1 to i1
+  %426 = trunc nuw i8 %.1303 to i1
   %427 = and i32 %398, %.0299
   br i1 %426, label %428, label %433
 
@@ -6540,8 +6540,8 @@ select.unfold.i.i:                                ; preds = %38, %35
   br label %42
 
 42:                                               ; preds = %44, %select.unfold.i.i
-  %.0127.i.i = phi ptr [ %41, %select.unfold.i.i ], [ %45, %44 ]
-  %43 = load i8, ptr %.0127.i.i, align 1
+  %.0.i.i = phi ptr [ %41, %select.unfold.i.i ], [ %45, %44 ]
+  %43 = load i8, ptr %.0.i.i, align 1
   switch i8 %43, label %44 [
     i8 64, label %.preheader211.i.i
     i8 0, label %.loopexit.i.i.preheader
@@ -6549,23 +6549,23 @@ select.unfold.i.i:                                ; preds = %38, %35
   ]
 
 44:                                               ; preds = %42
-  %45 = getelementptr i8, ptr %.0127.i.i, i64 1
+  %45 = getelementptr i8, ptr %.0.i.i, i64 1
   br label %42, !llvm.loop !37
 
 .preheader211.i.i:                                ; preds = %42, %47
-  %.1128.i.i = phi ptr [ %48, %47 ], [ %41, %42 ]
-  %46 = load i8, ptr %.1128.i.i, align 1
+  %.1.i.i = phi ptr [ %48, %47 ], [ %41, %42 ]
+  %46 = load i8, ptr %.1.i.i, align 1
   switch i8 %46, label %47 [
     i8 58, label %.critedge4.i.i
     i8 64, label %.critedge4.i.i
   ]
 
 47:                                               ; preds = %.preheader211.i.i
-  %48 = getelementptr i8, ptr %.1128.i.i, i64 1
+  %48 = getelementptr i8, ptr %.1.i.i, i64 1
   br label %.preheader211.i.i, !llvm.loop !38
 
 .critedge4.i.i:                                   ; preds = %.preheader211.i.i, %.preheader211.i.i
-  store i8 0, ptr %.1128.i.i, align 1
+  store i8 0, ptr %.1.i.i, align 1
   %49 = load i8, ptr %41, align 1
   %.not145.i.i = icmp eq i8 %49, 0
   br i1 %.not145.i.i, label %62, label %50
@@ -6609,14 +6609,14 @@ conninfo_storeval.exit.i.i:                       ; preds = %conninfo_find.exit.
   br i1 %63, label %.preheader.i, label %81
 
 .preheader.i:                                     ; preds = %62, %.preheader.i
-  %.2.i.i = phi ptr [ %65, %.preheader.i ], [ %.1128.i.i, %62 ]
+  %.2.i.i = phi ptr [ %65, %.preheader.i ], [ %.1.i.i, %62 ]
   %64 = load i8, ptr %.2.i.i, align 1
   %.not147.i.i = icmp eq i8 %64, 64
   %65 = getelementptr i8, ptr %.2.i.i, i64 1
   br i1 %.not147.i.i, label %66, label %.preheader.i, !llvm.loop !39
 
 66:                                               ; preds = %.preheader.i
-  %67 = getelementptr i8, ptr %.1128.i.i, i64 1
+  %67 = getelementptr i8, ptr %.1.i.i, i64 1
   store i8 0, ptr %.2.i.i, align 1
   %68 = load i8, ptr %67, align 1
   %.not148.i.i = icmp eq i8 %68, 0
@@ -6657,7 +6657,7 @@ conninfo_storeval.exit189.i.i:                    ; preds = %conninfo_find.exit.
   br label %81
 
 81:                                               ; preds = %conninfo_storeval.exit189.i.i, %66, %62
-  %.3.i.i = phi ptr [ %.2.i.i, %conninfo_storeval.exit189.i.i ], [ %.2.i.i, %66 ], [ %.1128.i.i, %62 ]
+  %.3.i.i = phi ptr [ %.2.i.i, %conninfo_storeval.exit189.i.i ], [ %.2.i.i, %66 ], [ %.1.i.i, %62 ]
   %82 = getelementptr i8, ptr %.3.i.i, i64 1
   br label %.loopexit.i.i.preheader
 
@@ -6739,10 +6739,10 @@ conninfo_storeval.exit189.i.i:                    ; preds = %conninfo_find.exit.
 
 .critedge8.i.i:                                   ; preds = %.preheader.i12.i, %.preheader.i12.i, %.preheader.i12.i, %.preheader.i12.i, %.preheader.i12.i, %95, %95, %95, %95, %95
   %107 = phi i8 [ %97, %95 ], [ %97, %95 ], [ %97, %95 ], [ %97, %95 ], [ %97, %95 ], [ %.pr208.i.i, %.preheader.i12.i ], [ %.pr208.i.i, %.preheader.i12.i ], [ %.pr208.i.i, %.preheader.i12.i ], [ %.pr208.i.i, %.preheader.i12.i ], [ %.pr208.i.i, %.preheader.i12.i ]
+  %.0126.i.i = phi ptr [ %86, %95 ], [ %86, %95 ], [ %86, %95 ], [ %86, %95 ], [ %86, %95 ], [ %.5.i.i, %.preheader.i12.i ], [ %.5.i.i, %.preheader.i12.i ], [ %.5.i.i, %.preheader.i12.i ], [ %.5.i.i, %.preheader.i12.i ], [ %.5.i.i, %.preheader.i12.i ]
   %.8.i.i = phi ptr [ %96, %95 ], [ %96, %95 ], [ %96, %95 ], [ %96, %95 ], [ %96, %95 ], [ %.7.i.i, %.preheader.i12.i ], [ %.7.i.i, %.preheader.i12.i ], [ %.7.i.i, %.preheader.i12.i ], [ %.7.i.i, %.preheader.i12.i ], [ %.7.i.i, %.preheader.i12.i ]
-  %.0124.i.i = phi ptr [ %86, %95 ], [ %86, %95 ], [ %86, %95 ], [ %86, %95 ], [ %86, %95 ], [ %.5.i.i, %.preheader.i12.i ], [ %.5.i.i, %.preheader.i12.i ], [ %.5.i.i, %.preheader.i12.i ], [ %.5.i.i, %.preheader.i12.i ], [ %.5.i.i, %.preheader.i12.i ]
   store i8 0, ptr %.8.i.i, align 1
-  call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef %.0124.i.i) #23
+  call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef %.0126.i.i) #23
   %108 = icmp eq i8 %107, 58
   br i1 %108, label %109, label %115
 
@@ -6770,9 +6770,9 @@ conninfo_storeval.exit189.i.i:                    ; preds = %conninfo_find.exit.
   br label %115
 
 115:                                              ; preds = %.critedge10.i.i, %.critedge8.i.i
+  %.0127.i.i = phi i8 [ %112, %.critedge10.i.i ], [ %107, %.critedge8.i.i ]
   %.10.i.i = phi ptr [ %.9.i.i, %.critedge10.i.i ], [ %.8.i.i, %.critedge8.i.i ]
-  %.0125.i.i = phi i8 [ %112, %.critedge10.i.i ], [ %107, %.critedge8.i.i ]
-  %.not167.i.i = icmp eq i8 %.0125.i.i, 44
+  %.not167.i.i = icmp eq i8 %.0127.i.i, 44
   br i1 %.not167.i.i, label %116, label %118
 
 116:                                              ; preds = %115
@@ -6841,7 +6841,7 @@ conninfo_storeval.exit201.i.i:                    ; preds = %conninfo_find.exit.
   br i1 %.not171.i.i, label %.preheader.i13.critedge.i, label %143
 
 143:                                              ; preds = %141, %138
-  switch i8 %.0125.i.i, label %144 [
+  switch i8 %.0127.i.i, label %144 [
     i8 63, label %153
     i8 0, label %153
   ]
@@ -6874,9 +6874,9 @@ conninfo_storeval.exit201.i.i:                    ; preds = %conninfo_find.exit.
   br i1 %.not175.i.i, label %.preheader.i13.critedge.i, label %153
 
 153:                                              ; preds = %151, %.critedge18.i.i, %143, %143
+  %.1128.i.i = phi i8 [ %147, %151 ], [ %147, %.critedge18.i.i ], [ %.0127.i.i, %143 ], [ %.0127.i.i, %143 ]
   %.12.i.i = phi ptr [ %.11.i.i, %151 ], [ %.11.i.i, %.critedge18.i.i ], [ %.10.i.i, %143 ], [ %.10.i.i, %143 ]
-  %.1.i.i = phi i8 [ %147, %151 ], [ %147, %.critedge18.i.i ], [ %.0125.i.i, %143 ], [ %.0125.i.i, %143 ]
-  %.not176.i.i = icmp eq i8 %.1.i.i, 0
+  %.not176.i.i = icmp eq i8 %.1128.i.i, 0
   br i1 %.not176.i.i, label %conninfo_uri_parse_options.exit.i, label %154
 
 154:                                              ; preds = %153
@@ -6893,10 +6893,10 @@ conninfo_uri_parse_options.exit.i:                ; preds = %154, %153
   br i1 %2, label %162, label %conninfo_uri_parse.exit
 
 .preheader.i13.critedge.i:                        ; preds = %154, %151, %141, %conninfo_find.exit.i198.i.i, %conninfo_find.exit.thread.i196.i.i, %118, %98, %94, %91, %conninfo_find.exit.i186.i.i, %conninfo_find.exit.thread.i184.i.i, %conninfo_find.exit.i.i.i, %conninfo_find.exit.thread.i.i.i, %uri_prefix_length.exit.i.i, %34, %30
-  %.0126.i.ph.i = phi ptr [ %32, %conninfo_find.exit.i198.i.i ], [ %32, %conninfo_find.exit.thread.i196.i.i ], [ %32, %conninfo_find.exit.i186.i.i ], [ %32, %conninfo_find.exit.thread.i184.i.i ], [ %32, %conninfo_find.exit.i.i.i ], [ %32, %conninfo_find.exit.thread.i.i.i ], [ %32, %91 ], [ %32, %141 ], [ %32, %151 ], [ %32, %154 ], [ %32, %118 ], [ %32, %98 ], [ %32, %94 ], [ %32, %uri_prefix_length.exit.i.i ], [ null, %34 ], [ null, %30 ]
+  %.0124.i.ph.i = phi ptr [ %32, %conninfo_find.exit.i198.i.i ], [ %32, %conninfo_find.exit.thread.i196.i.i ], [ %32, %conninfo_find.exit.i186.i.i ], [ %32, %conninfo_find.exit.thread.i184.i.i ], [ %32, %conninfo_find.exit.i.i.i ], [ %32, %conninfo_find.exit.thread.i.i.i ], [ %32, %91 ], [ %32, %141 ], [ %32, %151 ], [ %32, %154 ], [ %32, %118 ], [ %32, %98 ], [ %32, %94 ], [ %32, %uri_prefix_length.exit.i.i ], [ null, %34 ], [ null, %30 ]
   call void @termPQExpBuffer(ptr noundef nonnull %4) #23
   call void @termPQExpBuffer(ptr noundef nonnull %5) #23
-  call void @free(ptr noundef %.0126.i.ph.i) #23
+  call void @free(ptr noundef %.0124.i.ph.i) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %157 = load ptr, ptr %11, align 8
@@ -6943,9 +6943,9 @@ PQconninfoFree.exit21.i:                          ; preds = %.lr.ph.i17.i, %.pre
 uri_prefix_length.exit:                           ; preds = %8
   %169 = tail call noalias dereferenceable_or_null(2296) ptr @malloc(i64 noundef 2296) #25
   %170 = icmp eq ptr %169, null
-  br i1 %170, label %conninfo_init.exit.thread.i18, label %.preheader.i.i8
+  br i1 %170, label %conninfo_init.exit.thread.i19, label %.preheader.i.i8
 
-conninfo_init.exit.thread.i18:                    ; preds = %uri_prefix_length.exit
+conninfo_init.exit.thread.i19:                    ; preds = %uri_prefix_length.exit
   tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.44) #23
   br label %conninfo_uri_parse.exit
 
@@ -6968,9 +6968,9 @@ conninfo_init.exit.thread.i18:                    ; preds = %uri_prefix_length.e
 178:                                              ; preds = %174
   %179 = getelementptr i8, ptr %.02731.i.i9, i64 112
   %180 = icmp ult ptr %171, %179
-  br i1 %180, label %.lr.ph.preheader.i.i17, label %conninfo_init.exit.i12
+  br i1 %180, label %.lr.ph.preheader.i.i18, label %conninfo_init.exit.i12
 
-.lr.ph.preheader.i.i17:                           ; preds = %178
+.lr.ph.preheader.i.i18:                           ; preds = %178
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %171, i8 0, i64 56, i1 false)
   br label %conninfo_init.exit.i12
 
@@ -6978,7 +6978,7 @@ conninfo_init.exit.thread.i18:                    ; preds = %uri_prefix_length.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %171, i8 0, i64 56, i1 false)
   br label %conninfo_init.exit.i12
 
-conninfo_init.exit.i12:                           ; preds = %181, %.lr.ph.preheader.i.i17, %178
+conninfo_init.exit.i12:                           ; preds = %181, %.lr.ph.preheader.i.i18, %178
   %182 = tail call noalias ptr @strdup(ptr noundef readonly %0) #23
   %183 = icmp eq ptr %182, null
   br i1 %183, label %.preheader.i96.i, label %.preheader123.i
@@ -6995,26 +6995,26 @@ conninfo_init.exit.i12:                           ; preds = %181, %.lr.ph.prehea
 .preheader.i96.i:                                 ; preds = %conninfo_init.exit.i12
   tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.44) #23
   %186 = load ptr, ptr %169, align 8
-  %.not7.i.i13 = icmp eq ptr %186, null
-  br i1 %.not7.i.i13, label %PQconninfoFree.exit.i16, label %.lr.ph.i.i14
+  %.not7.i.i14 = icmp eq ptr %186, null
+  br i1 %.not7.i.i14, label %PQconninfoFree.exit.i17, label %.lr.ph.i.i15
 
-.lr.ph.i.i14:                                     ; preds = %.preheader.i96.i, %.lr.ph.i.i14
-  %.08.i.i15 = phi ptr [ %189, %.lr.ph.i.i14 ], [ %169, %.preheader.i96.i ]
-  %187 = getelementptr inbounds i8, ptr %.08.i.i15, i64 24
+.lr.ph.i.i15:                                     ; preds = %.preheader.i96.i, %.lr.ph.i.i15
+  %.08.i.i16 = phi ptr [ %189, %.lr.ph.i.i15 ], [ %169, %.preheader.i96.i ]
+  %187 = getelementptr inbounds i8, ptr %.08.i.i16, i64 24
   %188 = load ptr, ptr %187, align 8
   tail call void @free(ptr noundef %188) #23
-  %189 = getelementptr i8, ptr %.08.i.i15, i64 56
+  %189 = getelementptr i8, ptr %.08.i.i16, i64 56
   %190 = load ptr, ptr %189, align 8
   %.not.i97.i = icmp eq ptr %190, null
-  br i1 %.not.i97.i, label %PQconninfoFree.exit.i16, label %.lr.ph.i.i14, !llvm.loop !7
+  br i1 %.not.i97.i, label %PQconninfoFree.exit.i17, label %.lr.ph.i.i15, !llvm.loop !7
 
-PQconninfoFree.exit.i16:                          ; preds = %.lr.ph.i.i14, %.preheader.i96.i
+PQconninfoFree.exit.i17:                          ; preds = %.lr.ph.i.i15, %.preheader.i96.i
   tail call void @free(ptr noundef %169) #23
   br label %conninfo_uri_parse.exit
 
 191:                                              ; preds = %.backedge125.i, %.lr.ph152.i
   %192 = phi i8 [ %184, %.lr.ph152.i ], [ %200, %.backedge125.i ]
-  %.069151.i = phi ptr [ %182, %.lr.ph152.i ], [ %.069.be.i, %.backedge125.i ]
+  %.070151.i = phi ptr [ %182, %.lr.ph152.i ], [ %.070.be.i, %.backedge125.i ]
   %193 = load ptr, ptr %185, align 8
   %194 = zext i8 %192 to i64
   %195 = getelementptr i16, ptr %193, i64 %194
@@ -7024,18 +7024,18 @@ PQconninfoFree.exit.i16:                          ; preds = %.lr.ph.i.i14, %.pre
   br i1 %.not82.i, label %.preheader121.i, label %198
 
 198:                                              ; preds = %191
-  %199 = getelementptr i8, ptr %.069151.i, i64 1
+  %199 = getelementptr i8, ptr %.070151.i, i64 1
   br label %.backedge125.i
 
 .backedge125.i:                                   ; preds = %266, %198
-  %.069.be.i = phi ptr [ %199, %198 ], [ %.10.i, %266 ]
-  %200 = load i8, ptr %.069.be.i, align 1
+  %.070.be.i = phi ptr [ %199, %198 ], [ %.10.i, %266 ]
+  %200 = load i8, ptr %.070.be.i, align 1
   %.not.i = icmp eq i8 %200, 0
   br i1 %.not.i, label %._crit_edge.i, label %191, !llvm.loop !44
 
 .preheader121.i:                                  ; preds = %191, %216
   %201 = phi i8 [ %.pre.i, %216 ], [ %192, %191 ]
-  %.170.i = phi ptr [ %217, %216 ], [ %.069151.i, %191 ]
+  %.171.i = phi ptr [ %217, %216 ], [ %.070151.i, %191 ]
   switch i8 %201, label %202 [
     i8 0, label %.loopexit122.i
     i8 61, label %.loopexit122.i
@@ -7050,13 +7050,13 @@ PQconninfoFree.exit.i16:                          ; preds = %.lr.ph.i.i14, %.pre
   br i1 %.not84.i, label %216, label %207
 
 207:                                              ; preds = %202
-  store i8 0, ptr %.170.i, align 1
+  store i8 0, ptr %.171.i, align 1
   br label %208
 
 208:                                              ; preds = %210, %207
-  %.170.pn.i = phi ptr [ %.170.i, %207 ], [ %.271.i, %210 ]
-  %.271.i = getelementptr i8, ptr %.170.pn.i, i64 1
-  %209 = load i8, ptr %.271.i, align 1
+  %.171.pn.i = phi ptr [ %.171.i, %207 ], [ %.272.i, %210 ]
+  %.272.i = getelementptr i8, ptr %.171.pn.i, i64 1
+  %209 = load i8, ptr %.272.i, align 1
   %.not85.i = icmp eq i8 %209, 0
   br i1 %.not85.i, label %.preheader.i98.i, label %210
 
@@ -7070,18 +7070,18 @@ PQconninfoFree.exit.i16:                          ; preds = %.lr.ph.i.i14, %.pre
   br i1 %.not86.i, label %.loopexit122.i, label %208, !llvm.loop !45
 
 216:                                              ; preds = %202
-  %217 = getelementptr i8, ptr %.170.i, i64 1
+  %217 = getelementptr i8, ptr %.171.i, i64 1
   %.pre.i = load i8, ptr %217, align 1
   br label %.preheader121.i, !llvm.loop !46
 
 .loopexit122.i:                                   ; preds = %.preheader121.i, %.preheader121.i, %210
   %218 = phi i8 [ %209, %210 ], [ %201, %.preheader121.i ], [ %201, %.preheader121.i ]
-  %.372.i = phi ptr [ %.271.i, %210 ], [ %.170.i, %.preheader121.i ], [ %.170.i, %.preheader121.i ]
+  %.373.i = phi ptr [ %.272.i, %210 ], [ %.171.i, %.preheader121.i ], [ %.171.i, %.preheader121.i ]
   %.not87.i = icmp eq i8 %218, 61
   br i1 %.not87.i, label %224, label %.preheader.i98.i
 
 .preheader.i98.i:                                 ; preds = %.loopexit122.i, %208
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.126, ptr noundef nonnull %.069151.i) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.126, ptr noundef nonnull %.070151.i) #23
   %219 = load ptr, ptr %169, align 8
   %.not7.i99.i = icmp eq ptr %219, null
   br i1 %.not7.i99.i, label %PQconninfoFree.exit104.i, label %.lr.ph.i100.i
@@ -7102,12 +7102,12 @@ PQconninfoFree.exit104.i:                         ; preds = %.lr.ph.i100.i, %.pr
   br label %conninfo_uri_parse.exit
 
 224:                                              ; preds = %.loopexit122.i
-  store i8 0, ptr %.372.i, align 1
+  store i8 0, ptr %.373.i, align 1
   br label %225
 
 225:                                              ; preds = %227, %224
-  %.372.pn.i = phi ptr [ %.372.i, %224 ], [ %.4.i, %227 ]
-  %.4.i = getelementptr i8, ptr %.372.pn.i, i64 1
+  %.373.pn.i = phi ptr [ %.373.i, %224 ], [ %.4.i, %227 ]
+  %.4.i = getelementptr i8, ptr %.373.pn.i, i64 1
   %226 = load i8, ptr %.4.i, align 1
   %cond.i = icmp eq i8 %226, 0
   br i1 %cond.i, label %.loopexit.i, label %227
@@ -7127,7 +7127,7 @@ PQconninfoFree.exit104.i:                         ; preds = %.lr.ph.i100.i, %.pr
 
 .lr.ph.i:                                         ; preds = %233, %249
   %234 = phi i8 [ %.pr.i, %249 ], [ %226, %233 ]
-  %.0148.i = phi ptr [ %250, %249 ], [ %.4.i, %233 ]
+  %.069148.i = phi ptr [ %250, %249 ], [ %.4.i, %233 ]
   %.5147.i = phi ptr [ %.6.ph.i, %249 ], [ %.4.i, %233 ]
   %235 = load ptr, ptr %185, align 8
   %236 = zext i8 %234 to i64
@@ -7159,20 +7159,20 @@ PQconninfoFree.exit104.i:                         ; preds = %.lr.ph.i100.i, %.pr
 249:                                              ; preds = %247, %242
   %.sink.i = phi i8 [ %246, %247 ], [ %234, %242 ]
   %.6.ph.i = phi ptr [ %248, %247 ], [ %244, %242 ]
-  %250 = getelementptr i8, ptr %.0148.i, i64 1
-  store i8 %.sink.i, ptr %.0148.i, align 1
+  %250 = getelementptr i8, ptr %.069148.i, i64 1
+  store i8 %.sink.i, ptr %.069148.i, align 1
   %.pr.i = load i8, ptr %.6.ph.i, align 1
   %.not92.i = icmp eq i8 %.pr.i, 0
   br i1 %.not92.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !48
 
 .loopexit.i:                                      ; preds = %225, %245, %249, %240
-  %.0138.i = phi ptr [ %.0148.i, %240 ], [ %.0148.i, %245 ], [ %250, %249 ], [ %.4.i, %225 ]
+  %.069138.i = phi ptr [ %.069148.i, %240 ], [ %.069148.i, %245 ], [ %250, %249 ], [ %.4.i, %225 ]
   %.7.i = phi ptr [ %241, %240 ], [ %244, %245 ], [ %.6.ph.i, %249 ], [ %.4.i, %225 ]
-  store i8 0, ptr %.0138.i, align 1
+  store i8 0, ptr %.069138.i, align 1
   br label %266
 
 251:                                              ; preds = %233
-  %252 = getelementptr i8, ptr %.372.pn.i, i64 2
+  %252 = getelementptr i8, ptr %.373.pn.i, i64 2
   br label %.backedge.i.outer
 
 .backedge.i.outer:                                ; preds = %.backedge.sink.split.i, %251
@@ -7231,7 +7231,7 @@ PQconninfoFree.exit111.i:                         ; preds = %.lr.ph.i107.i, %.pr
 
 266:                                              ; preds = %264, %.loopexit.i
   %.10.i = phi ptr [ %.7.i, %.loopexit.i ], [ %265, %264 ]
-  %267 = tail call fastcc ptr @conninfo_storeval(ptr noundef nonnull %169, ptr noundef nonnull %.069151.i, ptr noundef nonnull %.4.i, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext false)
+  %267 = tail call fastcc ptr @conninfo_storeval(ptr noundef nonnull %169, ptr noundef nonnull %.070151.i, ptr noundef nonnull %.4.i, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %.not95.i = icmp eq ptr %267, null
   br i1 %.not95.i, label %.preheader.i112.i, label %.backedge125.i
 
@@ -7267,8 +7267,8 @@ PQconninfoFree.exit118.i:                         ; preds = %.lr.ph.i114.i, %.pr
   tail call void @PQconninfoFree(ptr noundef nonnull %169)
   br label %conninfo_uri_parse.exit
 
-conninfo_uri_parse.exit:                          ; preds = %275, %273, %._crit_edge.i, %PQconninfoFree.exit118.i, %PQconninfoFree.exit111.i, %PQconninfoFree.exit104.i, %PQconninfoFree.exit.i16, %conninfo_init.exit.thread.i18, %PQconninfoFree.exit21.i, %162, %PQconninfoFree.exit.i, %conninfo_uri_parse_options.exit.i, %conninfo_init.exit.thread.i
-  %.0 = phi ptr [ null, %PQconninfoFree.exit21.i ], [ null, %PQconninfoFree.exit.i ], [ %11, %162 ], [ %11, %conninfo_uri_parse_options.exit.i ], [ null, %conninfo_init.exit.thread.i ], [ null, %PQconninfoFree.exit.i16 ], [ null, %PQconninfoFree.exit104.i ], [ null, %PQconninfoFree.exit118.i ], [ null, %PQconninfoFree.exit111.i ], [ null, %275 ], [ %169, %273 ], [ %169, %._crit_edge.i ], [ null, %conninfo_init.exit.thread.i18 ]
+conninfo_uri_parse.exit:                          ; preds = %275, %273, %._crit_edge.i, %PQconninfoFree.exit118.i, %PQconninfoFree.exit111.i, %PQconninfoFree.exit104.i, %PQconninfoFree.exit.i17, %conninfo_init.exit.thread.i19, %PQconninfoFree.exit21.i, %162, %PQconninfoFree.exit.i, %conninfo_uri_parse_options.exit.i, %conninfo_init.exit.thread.i
+  %.0 = phi ptr [ null, %PQconninfoFree.exit21.i ], [ null, %PQconninfoFree.exit.i ], [ %11, %162 ], [ %11, %conninfo_uri_parse_options.exit.i ], [ null, %conninfo_init.exit.thread.i ], [ null, %PQconninfoFree.exit.i17 ], [ null, %PQconninfoFree.exit104.i ], [ null, %PQconninfoFree.exit118.i ], [ null, %PQconninfoFree.exit111.i ], [ null, %275 ], [ %169, %273 ], [ %169, %._crit_edge.i ], [ null, %conninfo_init.exit.thread.i19 ]
   ret ptr %.0
 }
 
@@ -7328,8 +7328,8 @@ conninfo_init.exit.thread:                        ; preds = %8
 
 .preheader:                                       ; preds = %.preheader.preheader, %conninfo_storeval.exit
   %22 = phi ptr [ %50, %conninfo_storeval.exit ], [ @.str.130, %.preheader.preheader ]
-  %.022 = phi ptr [ %49, %conninfo_storeval.exit ], [ @PQconninfoOptions, %.preheader.preheader ]
-  %23 = getelementptr inbounds i8, ptr %.022, i64 56
+  %.01322 = phi ptr [ %49, %conninfo_storeval.exit ], [ @PQconninfoOptions, %.preheader.preheader ]
+  %23 = getelementptr inbounds i8, ptr %.01322, i64 56
   %24 = load i64, ptr %23, align 8
   %25 = icmp slt i64 %24, 0
   br i1 %25, label %conninfo_storeval.exit, label %26
@@ -7388,7 +7388,7 @@ conninfo_find.exit.i:                             ; preds = %.lr.ph.i.i
   br label %conninfo_storeval.exit
 
 conninfo_storeval.exit:                           ; preds = %40, %46, %45, %35, %26, %.preheader
-  %49 = getelementptr i8, ptr %.022, i64 64
+  %49 = getelementptr i8, ptr %.01322, i64 64
   %50 = load ptr, ptr %49, align 8
   %.not19 = icmp eq ptr %50, null
   br i1 %.not19, label %.loopexit, label %.preheader, !llvm.loop !49
@@ -7398,8 +7398,8 @@ conninfo_storeval.exit:                           ; preds = %40, %46, %45, %35, 
   br label %51
 
 51:                                               ; preds = %4, %1, %.loopexit
-  %.013 = phi ptr [ %9, %.loopexit ], [ null, %1 ], [ null, %4 ]
-  ret ptr %.013
+  %.0 = phi ptr [ %9, %.loopexit ], [ null, %1 ], [ null, %4 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7970,14 +7970,14 @@ define range(i32 -1, 1) i32 @PQsetClientEncoding(ptr noundef %0, ptr noundef %1)
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.011 = phi ptr [ %12, %10 ], [ %1, %7 ]
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.011) #24
+  %.012 = phi ptr [ %12, %10 ], [ %1, %7 ]
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.012) #24
   %15 = add i64 %14, -101
   %16 = icmp ult i64 %15, -129
   br i1 %16, label %24, label %17
 
 17:                                               ; preds = %13
-  %18 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @PQsetClientEncoding.query, ptr noundef %.011) #23
+  %18 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @PQsetClientEncoding.query, ptr noundef %.012) #23
   %19 = call ptr @PQexec(ptr noundef nonnull %0, ptr noundef nonnull %3) #23
   %20 = icmp eq ptr %19, null
   br i1 %20, label %24, label %21
@@ -7991,8 +7991,8 @@ define range(i32 -1, 1) i32 @PQsetClientEncoding(ptr noundef %0, ptr noundef %1)
   br label %24
 
 24:                                               ; preds = %17, %13, %2, %4, %21
-  %.012 = phi i32 [ %., %21 ], [ -1, %4 ], [ -1, %2 ], [ -1, %13 ], [ -1, %17 ]
-  ret i32 %.012
+  %.011 = phi i32 [ %., %21 ], [ -1, %4 ], [ -1, %2 ], [ -1, %13 ], [ -1, %17 ]
+  ret i32 %.011
 }
 
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -8138,8 +8138,8 @@ define internal fastcc noundef zeroext i1 @conninfo_uri_parse_params(ptr noundef
 
 7:                                                ; preds = %.preheader, %19
   %8 = phi i8 [ %.pr, %19 ], [ %6, %.preheader ]
-  %.045 = phi ptr [ %.146, %19 ], [ null, %.preheader ]
-  %.044 = phi ptr [ %.2, %19 ], [ %.050100, %.preheader ]
+  %.046 = phi ptr [ %.147, %19 ], [ null, %.preheader ]
+  %.045 = phi ptr [ %.2, %19 ], [ %.050100, %.preheader ]
   switch i8 %8, label %17 [
     i8 61, label %9
     i8 0, label %.loopexit
@@ -8147,7 +8147,7 @@ define internal fastcc noundef zeroext i1 @conninfo_uri_parse_params(ptr noundef
   ]
 
 9:                                                ; preds = %7
-  %.not56 = icmp eq ptr %.045, null
+  %.not56 = icmp eq ptr %.046, null
   br i1 %.not56, label %11, label %10
 
 10:                                               ; preds = %9
@@ -8155,18 +8155,18 @@ define internal fastcc noundef zeroext i1 @conninfo_uri_parse_params(ptr noundef
   br label %.loopexit59
 
 11:                                               ; preds = %9
-  %12 = getelementptr i8, ptr %.044, i64 1
-  store i8 0, ptr %.044, align 1
+  %12 = getelementptr i8, ptr %.045, i64 1
+  store i8 0, ptr %.045, align 1
   br label %19
 
 13:                                               ; preds = %7
-  %14 = getelementptr i8, ptr %.044, i64 1
-  store i8 0, ptr %.044, align 1
+  %14 = getelementptr i8, ptr %.045, i64 1
+  store i8 0, ptr %.045, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %13
-  %.1 = phi ptr [ %14, %13 ], [ %.044, %7 ]
-  %15 = icmp eq ptr %.045, null
+  %.1 = phi ptr [ %14, %13 ], [ %.045, %7 ]
+  %15 = icmp eq ptr %.046, null
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %.loopexit
@@ -8174,11 +8174,11 @@ define internal fastcc noundef zeroext i1 @conninfo_uri_parse_params(ptr noundef
   br label %.loopexit59
 
 17:                                               ; preds = %7
-  %18 = getelementptr i8, ptr %.044, i64 1
+  %18 = getelementptr i8, ptr %.045, i64 1
   br label %19
 
 19:                                               ; preds = %17, %11
-  %.146 = phi ptr [ %12, %11 ], [ %.045, %17 ]
+  %.147 = phi ptr [ %12, %11 ], [ %.046, %17 ]
   %.2 = phi ptr [ %12, %11 ], [ %18, %17 ]
   %.pr = load i8, ptr %.2, align 1
   br label %7
@@ -8189,7 +8189,7 @@ define internal fastcc noundef zeroext i1 @conninfo_uri_parse_params(ptr noundef
   br i1 %22, label %23, label %.loopexit59
 
 23:                                               ; preds = %20
-  %24 = tail call fastcc ptr @conninfo_uri_decode(ptr noundef nonnull %.045, ptr noundef %2)
+  %24 = tail call fastcc ptr @conninfo_uri_decode(ptr noundef nonnull %.046, ptr noundef %2)
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %27
 
@@ -8213,23 +8213,23 @@ define internal fastcc noundef zeroext i1 @conninfo_uri_parse_params(ptr noundef
   br label %34
 
 34:                                               ; preds = %33, %30, %27
-  %.048 = phi ptr [ @.str.26, %33 ], [ %21, %30 ], [ %21, %27 ]
-  %.247 = phi ptr [ @.str.18, %33 ], [ %24, %30 ], [ %24, %27 ]
-  %.0 = phi i1 [ false, %33 ], [ true, %30 ], [ true, %27 ]
+  %.049 = phi ptr [ @.str.26, %33 ], [ %21, %30 ], [ %21, %27 ]
+  %.248 = phi ptr [ @.str.18, %33 ], [ %24, %30 ], [ %24, %27 ]
+  %.044 = phi i1 [ false, %33 ], [ true, %30 ], [ true, %27 ]
   %35 = load i64, ptr %5, align 8
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.048, ptr noundef nonnull dereferenceable(11) @.str.239) #24
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.049, ptr noundef nonnull dereferenceable(11) @.str.239) #24
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %34
-  %39 = load i8, ptr %.247, align 1
+  %39 = load i8, ptr %.248, align 1
   %40 = icmp eq i8 %39, 49
   %.str.18..str.17.i = select i1 %40, ptr @.str.18, ptr @.str.17
   br label %41
 
 41:                                               ; preds = %38, %34
-  %.021.i = phi ptr [ %.247, %34 ], [ %.str.18..str.17.i, %38 ]
-  %.020.i = phi ptr [ %.048, %34 ], [ @.str.26, %38 ]
+  %.021.i = phi ptr [ %.248, %34 ], [ %.str.18..str.17.i, %38 ]
+  %.020.i = phi ptr [ %.049, %34 ], [ @.str.26, %38 ]
   %42 = load ptr, ptr %1, align 8
   %.not9.i.i = icmp eq ptr %42, null
   br i1 %.not9.i.i, label %conninfo_storeval.exit.thread, label %.lr.ph.i.i
@@ -8262,7 +8262,7 @@ conninfo_storeval.exit:                           ; preds = %conninfo_find.exit.
   %53 = load ptr, ptr %52, align 8
   tail call void @free(ptr noundef %53) #23
   store ptr %49, ptr %52, align 8
-  br i1 %.0, label %60, label %61
+  br i1 %.044, label %60, label %61
 
 conninfo_storeval.exit.thread:                    ; preds = %41, %46, %51
   %54 = phi i64 [ %.pre, %51 ], [ %35, %46 ], [ %35, %41 ]
@@ -8272,20 +8272,20 @@ conninfo_storeval.exit.thread:                    ; preds = %41, %46, %51
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %conninfo_storeval.exit.thread
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.123, ptr noundef nonnull %.048) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.123, ptr noundef nonnull %.049) #23
   br label %58
 
 58:                                               ; preds = %57, %conninfo_storeval.exit.thread
-  br i1 %.0, label %59, label %.loopexit59
+  br i1 %.044, label %59, label %.loopexit59
 
 59:                                               ; preds = %58
-  tail call void @free(ptr noundef %.048) #23
-  tail call void @free(ptr noundef %.247) #23
+  tail call void @free(ptr noundef %.049) #23
+  tail call void @free(ptr noundef %.248) #23
   br label %.loopexit59
 
 60:                                               ; preds = %conninfo_storeval.exit
-  tail call void @free(ptr noundef %.048) #23
-  tail call void @free(ptr noundef %.247) #23
+  tail call void @free(ptr noundef %.049) #23
+  tail call void @free(ptr noundef %.248) #23
   br label %61
 
 61:                                               ; preds = %60, %conninfo_storeval.exit
@@ -8311,15 +8311,15 @@ define internal fastcc noalias noundef ptr @conninfo_uri_decode(ptr noundef %0, 
   br label %.loopexit
 
 .preheader:                                       ; preds = %2, %38
-  %.021 = phi ptr [ %.122, %38 ], [ %5, %2 ]
-  %.0 = phi ptr [ %.1, %38 ], [ %0, %2 ]
-  %8 = load i8, ptr %.0, align 1
+  %.022 = phi ptr [ %.123, %38 ], [ %5, %2 ]
+  %.021 = phi ptr [ %.1, %38 ], [ %0, %2 ]
+  %8 = load i8, ptr %.021, align 1
   %.not = icmp eq i8 %8, 37
-  %9 = getelementptr i8, ptr %.0, i64 1
+  %9 = getelementptr i8, ptr %.021, i64 1
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %.preheader
-  store i8 %8, ptr %.021, align 1
+  store i8 %8, ptr %.022, align 1
   %.not26 = icmp eq i8 %8, 0
   br i1 %.not26, label %.loopexit, label %38
 
@@ -8343,8 +8343,8 @@ define internal fastcc noalias noundef ptr @conninfo_uri_decode(ptr noundef %0, 
 19:                                               ; preds = %11, %15, %17
   %.sink21.i = phi i32 [ -48, %11 ], [ -55, %15 ], [ -87, %17 ]
   %20 = add nsw i32 %.sink21.i, %13
-  %21 = getelementptr i8, ptr %.0, i64 2
-  %22 = getelementptr i8, ptr %.0, i64 3
+  %21 = getelementptr i8, ptr %.021, i64 2
+  %22 = getelementptr i8, ptr %.021, i64 3
   %23 = load i8, ptr %21, align 1
   %24 = sext i8 %23 to i32
   %25 = add i8 %23, -48
@@ -8381,17 +8381,17 @@ get_hexdigit.exit:                                ; preds = %28, %17
 
 36:                                               ; preds = %30
   %37 = trunc i32 %33 to i8
-  store i8 %37, ptr %.021, align 1
+  store i8 %37, ptr %.022, align 1
   br label %38
 
 38:                                               ; preds = %10, %36
   %.1 = phi ptr [ %9, %10 ], [ %22, %36 ]
-  %.122 = getelementptr i8, ptr %.021, i64 1
+  %.123 = getelementptr i8, ptr %.022, i64 1
   br label %.preheader
 
 .loopexit:                                        ; preds = %10, %35, %get_hexdigit.exit, %7
-  %.023 = phi ptr [ null, %7 ], [ null, %35 ], [ null, %get_hexdigit.exit ], [ %5, %10 ]
-  ret ptr %.023
+  %.0 = phi ptr [ null, %7 ], [ null, %35 ], [ null, %get_hexdigit.exit ], [ %5, %10 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -8419,8 +8419,8 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
 
 .lr.ph103:                                        ; preds = %.preheader84, %.backedge
   %11 = phi ptr [ %44, %.backedge ], [ %9, %.preheader84 ]
-  %.069102 = phi i32 [ %12, %.backedge ], [ 0, %.preheader84 ]
-  %12 = add i32 %.069102, 1
+  %.070102 = phi i32 [ %12, %.backedge ], [ 0, %.preheader84 ]
+  %12 = add i32 %.070102, 1
   %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #24
   %14 = icmp ugt i64 %13, 1022
   br i1 %14, label %15, label %16
@@ -8440,9 +8440,9 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
   br label %19
 
 19:                                               ; preds = %.lr.ph, %27
-  %.06592 = phi i32 [ %17, %.lr.ph ], [ %28, %27 ]
+  %.06692 = phi i32 [ %17, %.lr.ph ], [ %28, %27 ]
   %20 = load ptr, ptr %18, align 8
-  %21 = zext nneg i32 %.06592 to i64
+  %21 = zext nneg i32 %.06692 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %21
   %22 = load i8, ptr %gep, align 1
   %23 = zext i8 %22 to i64
@@ -8453,11 +8453,11 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
   br i1 %.not76, label %.critedge, label %27
 
 27:                                               ; preds = %19
-  %28 = add nsw i32 %.06592, -1
+  %28 = add nsw i32 %.06692, -1
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr i8, ptr %11, i64 %29
   store i8 0, ptr %30, align 1
-  %31 = icmp sgt i32 %.06592, 1
+  %31 = icmp sgt i32 %.06692, 1
   br i1 %31, label %19, label %.critedge, !llvm.loop !52
 
 .critedge:                                        ; preds = %19, %27, %16
@@ -8472,7 +8472,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
 
 35:                                               ; preds = %.lr.ph96, %41
   %36 = phi i8 [ %32, %.lr.ph96 ], [ %43, %41 ]
-  %.06695 = phi ptr [ %11, %.lr.ph96 ], [ %42, %41 ]
+  %.06795 = phi ptr [ %11, %.lr.ph96 ], [ %42, %41 ]
   %37 = zext i8 %36 to i64
   %38 = getelementptr i16, ptr %34, i64 %37
   %39 = load i16, ptr %38, align 2
@@ -8481,7 +8481,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
   br i1 %.not78, label %.critedge2, label %41
 
 41:                                               ; preds = %35
-  %42 = getelementptr i8, ptr %.06695, i64 1
+  %42 = getelementptr i8, ptr %.06795, i64 1
   %43 = load i8, ptr %42, align 1
   %.not77 = icmp eq i8 %43, 0
   br i1 %.not77, label %.backedge, label %35, !llvm.loop !53
@@ -8508,7 +8508,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
   br i1 %47, label %.loopexit, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr i8, ptr %.06695, i64 1
+  %49 = getelementptr i8, ptr %.06795, i64 1
   %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %51 = call i32 @strncmp(ptr noundef %49, ptr noundef %1, i64 noundef %50) #24
   %52 = icmp eq i32 %51, 0
@@ -8516,7 +8516,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
 
 53:                                               ; preds = %48
   %54 = add i64 %50, 1
-  %55 = getelementptr i8, ptr %.06695, i64 %54
+  %55 = getelementptr i8, ptr %.06795, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 93
   br i1 %57, label %.backedge.sink.split, label %58
@@ -8530,7 +8530,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
   br i1 %61, label %62, label %.backedge
 
 62:                                               ; preds = %59
-  %63 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06695, i32 noundef 61) #24
+  %63 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06795, i32 noundef 61) #24
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %66
 
@@ -8541,7 +8541,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
 66:                                               ; preds = %62
   %67 = getelementptr i8, ptr %63, i64 1
   store i8 0, ptr %63, align 1
-  %68 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.06695, ptr noundef nonnull dereferenceable(8) @.str.130) #24
+  %68 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.06795, ptr noundef nonnull dereferenceable(8) @.str.130) #24
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %73, label %.preheader
 
@@ -8551,7 +8551,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
   br i1 %.not79.not97, label %.critedge82, label %.lr.ph99.preheader
 
 .lr.ph99.preheader:                               ; preds = %.preheader
-  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %.06695) #24
+  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %.06795) #24
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %.lr.ph99._crit_edge, label %.lr.ph143
 
@@ -8560,8 +8560,8 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
   br label %.loopexit
 
 .lr.ph143:                                        ; preds = %.lr.ph99.preheader, %.lr.ph99
-  %.06898142 = phi i32 [ %74, %.lr.ph99 ], [ 0, %.lr.ph99.preheader ]
-  %74 = add i32 %.06898142, 1
+  %.06998142 = phi i32 [ %74, %.lr.ph99 ], [ 0, %.lr.ph99.preheader ]
+  %74 = add i32 %.06998142, 1
   %75 = sext i32 %74 to i64
   %76 = getelementptr %struct._PQconninfoOption, ptr %2, i64 %75
   %77 = load ptr, ptr %76, align 8
@@ -8569,7 +8569,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
   br i1 %.not79.not, label %.critedge82, label %.lr.ph99, !llvm.loop !55
 
 .lr.ph99:                                         ; preds = %.lr.ph143
-  %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) %.06695) #24
+  %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) %.06795) #24
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %.lr.ph99._crit_edge, label %.lr.ph143, !llvm.loop !55
 
@@ -8595,13 +8595,13 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %.backedge, %.preheader84, %.critedge82, %85, %73, %65, %15
-  %.070 = phi i32 [ 2, %15 ], [ 3, %65 ], [ 3, %73 ], [ 3, %.critedge82 ], [ 3, %85 ], [ 0, %.preheader84 ], [ 0, %.backedge ], [ 0, %45 ]
+  %.068 = phi i32 [ 2, %15 ], [ 3, %65 ], [ 3, %73 ], [ 3, %.critedge82 ], [ 3, %85 ], [ 0, %.preheader84 ], [ 0, %.backedge ], [ 0, %45 ]
   %86 = call i32 @fclose(ptr noundef nonnull %7)
   br label %87
 
 87:                                               ; preds = %.loopexit, %10
-  %.067 = phi i32 [ 1, %10 ], [ %.070, %.loopexit ]
-  ret i32 %.067
+  %.065 = phi i32 [ 1, %10 ], [ %.068, %.loopexit ]
+  ret i32 %.065
 }
 
 ; Function Attrs: nofree nounwind

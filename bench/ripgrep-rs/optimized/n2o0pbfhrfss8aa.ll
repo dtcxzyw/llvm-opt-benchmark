@@ -1175,24 +1175,24 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   br label %126
 
 .thread427:                                       ; preds = %126, %131, %139, %143
-  %.1.lcssa = phi i64 [ %.1441, %126 ], [ %.1441, %131 ], [ %.1441, %139 ], [ %146, %143 ]
-  %.sroa.22.1.lcssa = phi i64 [ %.sroa.22.1442, %126 ], [ %.sroa.22.1442, %131 ], [ %.sroa.22.1442, %139 ], [ %.fca.0.16.extract213, %143 ]
-  %.sroa.21.1.lcssa = phi i64 [ %.sroa.21.1443, %126 ], [ %.sroa.21.1443, %131 ], [ %.sroa.21.1443, %139 ], [ %.fca.0.15.extract212, %143 ]
-  %.sroa.20.1.lcssa = phi i64 [ %.sroa.20.1444, %126 ], [ %.sroa.20.1444, %131 ], [ %.sroa.20.1444, %139 ], [ %.fca.0.14.extract211, %143 ]
-  %.sroa.19.1.lcssa = phi i64 [ %.sroa.19.1445, %126 ], [ %.sroa.19.1445, %131 ], [ %.sroa.19.1445, %139 ], [ %.fca.0.13.extract210, %143 ]
-  %.sroa.18.1.lcssa = phi i64 [ %.sroa.18.1446, %126 ], [ %.sroa.18.1446, %131 ], [ %.sroa.18.1446, %139 ], [ %.fca.0.12.extract209, %143 ]
-  %.sroa.17.1.lcssa = phi i64 [ %.sroa.17.1447, %126 ], [ %.sroa.17.1447, %131 ], [ %.sroa.17.1447, %139 ], [ %.fca.0.11.extract208, %143 ]
-  %.sroa.16.1.lcssa = phi i64 [ %.sroa.16.1448, %126 ], [ %.sroa.16.1448, %131 ], [ %.sroa.16.1448, %139 ], [ %.fca.0.10.extract207, %143 ]
-  %.sroa.15.1.lcssa = phi i64 [ %.sroa.15.1449, %126 ], [ %.sroa.15.1449, %131 ], [ %.sroa.15.1449, %139 ], [ %.fca.0.9.extract206, %143 ]
-  %.sroa.14.1.lcssa = phi i64 [ %.sroa.14.1450, %126 ], [ %.sroa.14.1450, %131 ], [ %.sroa.14.1450, %139 ], [ %.fca.0.8.extract205, %143 ]
-  %.sroa.13.1.lcssa = phi i64 [ %.sroa.13.1451, %126 ], [ %.sroa.13.1451, %131 ], [ %.sroa.13.1451, %139 ], [ %.fca.0.7.extract204, %143 ]
-  %.sroa.12.1.lcssa = phi i64 [ %.sroa.12.1452, %126 ], [ %.sroa.12.1452, %131 ], [ %.sroa.12.1452, %139 ], [ %.fca.0.6.extract203, %143 ]
-  %.sroa.1132.1.lcssa = phi i64 [ %.sroa.1132.1453, %126 ], [ %.sroa.1132.1453, %131 ], [ %.sroa.1132.1453, %139 ], [ %.fca.0.5.extract202, %143 ]
-  %.sroa.10.1.lcssa = phi i64 [ %.sroa.10.1454, %126 ], [ %.sroa.10.1454, %131 ], [ %.sroa.10.1454, %139 ], [ %.fca.0.4.extract201, %143 ]
-  %.sroa.9.1.lcssa = phi i64 [ %.sroa.9.1455, %126 ], [ %.sroa.9.1455, %131 ], [ %.sroa.9.1455, %139 ], [ %.fca.0.3.extract200, %143 ]
-  %.sroa.8.1.lcssa = phi i64 [ %.sroa.8.1456, %126 ], [ %.sroa.8.1456, %131 ], [ %.sroa.8.1456, %139 ], [ %.fca.0.2.extract199, %143 ]
-  %.sroa.7.1.lcssa = phi i64 [ %.sroa.7.1457, %126 ], [ %.sroa.7.1457, %131 ], [ %.sroa.7.1457, %139 ], [ %.fca.0.1.extract198, %143 ]
-  %.sroa.013.1.lcssa = phi i64 [ %.sroa.013.1458, %126 ], [ %.sroa.013.1458, %131 ], [ %.sroa.013.1458, %139 ], [ %.fca.0.0.extract197, %143 ]
+  %.sroa.22.1.lcssa = phi i64 [ %.sroa.22.1441, %126 ], [ %.sroa.22.1441, %131 ], [ %.sroa.22.1441, %139 ], [ %.fca.0.16.extract213, %143 ]
+  %.sroa.21.1.lcssa = phi i64 [ %.sroa.21.1442, %126 ], [ %.sroa.21.1442, %131 ], [ %.sroa.21.1442, %139 ], [ %.fca.0.15.extract212, %143 ]
+  %.sroa.20.1.lcssa = phi i64 [ %.sroa.20.1443, %126 ], [ %.sroa.20.1443, %131 ], [ %.sroa.20.1443, %139 ], [ %.fca.0.14.extract211, %143 ]
+  %.sroa.19.1.lcssa = phi i64 [ %.sroa.19.1444, %126 ], [ %.sroa.19.1444, %131 ], [ %.sroa.19.1444, %139 ], [ %.fca.0.13.extract210, %143 ]
+  %.sroa.18.1.lcssa = phi i64 [ %.sroa.18.1445, %126 ], [ %.sroa.18.1445, %131 ], [ %.sroa.18.1445, %139 ], [ %.fca.0.12.extract209, %143 ]
+  %.sroa.17.1.lcssa = phi i64 [ %.sroa.17.1446, %126 ], [ %.sroa.17.1446, %131 ], [ %.sroa.17.1446, %139 ], [ %.fca.0.11.extract208, %143 ]
+  %.sroa.16.1.lcssa = phi i64 [ %.sroa.16.1447, %126 ], [ %.sroa.16.1447, %131 ], [ %.sroa.16.1447, %139 ], [ %.fca.0.10.extract207, %143 ]
+  %.sroa.15.1.lcssa = phi i64 [ %.sroa.15.1448, %126 ], [ %.sroa.15.1448, %131 ], [ %.sroa.15.1448, %139 ], [ %.fca.0.9.extract206, %143 ]
+  %.sroa.14.1.lcssa = phi i64 [ %.sroa.14.1449, %126 ], [ %.sroa.14.1449, %131 ], [ %.sroa.14.1449, %139 ], [ %.fca.0.8.extract205, %143 ]
+  %.sroa.13.1.lcssa = phi i64 [ %.sroa.13.1450, %126 ], [ %.sroa.13.1450, %131 ], [ %.sroa.13.1450, %139 ], [ %.fca.0.7.extract204, %143 ]
+  %.sroa.12.1.lcssa = phi i64 [ %.sroa.12.1451, %126 ], [ %.sroa.12.1451, %131 ], [ %.sroa.12.1451, %139 ], [ %.fca.0.6.extract203, %143 ]
+  %.sroa.1132.1.lcssa = phi i64 [ %.sroa.1132.1452, %126 ], [ %.sroa.1132.1452, %131 ], [ %.sroa.1132.1452, %139 ], [ %.fca.0.5.extract202, %143 ]
+  %.sroa.10.1.lcssa = phi i64 [ %.sroa.10.1453, %126 ], [ %.sroa.10.1453, %131 ], [ %.sroa.10.1453, %139 ], [ %.fca.0.4.extract201, %143 ]
+  %.sroa.9.1.lcssa = phi i64 [ %.sroa.9.1454, %126 ], [ %.sroa.9.1454, %131 ], [ %.sroa.9.1454, %139 ], [ %.fca.0.3.extract200, %143 ]
+  %.sroa.8.1.lcssa = phi i64 [ %.sroa.8.1455, %126 ], [ %.sroa.8.1455, %131 ], [ %.sroa.8.1455, %139 ], [ %.fca.0.2.extract199, %143 ]
+  %.sroa.7.1.lcssa = phi i64 [ %.sroa.7.1456, %126 ], [ %.sroa.7.1456, %131 ], [ %.sroa.7.1456, %139 ], [ %.fca.0.1.extract198, %143 ]
+  %.sroa.013.1.lcssa = phi i64 [ %.sroa.013.1457, %126 ], [ %.sroa.013.1457, %131 ], [ %.sroa.013.1457, %139 ], [ %.fca.0.0.extract197, %143 ]
+  %.1.lcssa = phi i64 [ %.1458, %126 ], [ %.1458, %131 ], [ %.1458, %139 ], [ %146, %143 ]
   %.0378 = phi i64 [ %.sroa.0172.0439, %126 ], [ %.sroa.0172.0439, %131 ], [ %.sroa.0172.0439, %139 ], [ %.0.sroa.speculated.i, %143 ]
   %123 = getelementptr inbounds i8, ptr %2, i64 24
   %124 = load i8, ptr %123, align 8, !range !12, !noundef !5
@@ -1200,24 +1200,24 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   br i1 %125, label %147, label %.thread430
 
 126:                                              ; preds = %.lr.ph459, %143
-  %.sroa.013.1458 = phi i64 [ %.fca.0.0.extract, %.lr.ph459 ], [ %.fca.0.0.extract197, %143 ]
-  %.sroa.7.1457 = phi i64 [ %.fca.0.1.extract, %.lr.ph459 ], [ %.fca.0.1.extract198, %143 ]
-  %.sroa.8.1456 = phi i64 [ %.fca.0.2.extract, %.lr.ph459 ], [ %.fca.0.2.extract199, %143 ]
-  %.sroa.9.1455 = phi i64 [ %.fca.0.3.extract, %.lr.ph459 ], [ %.fca.0.3.extract200, %143 ]
-  %.sroa.10.1454 = phi i64 [ %.fca.0.4.extract, %.lr.ph459 ], [ %.fca.0.4.extract201, %143 ]
-  %.sroa.1132.1453 = phi i64 [ %.fca.0.5.extract, %.lr.ph459 ], [ %.fca.0.5.extract202, %143 ]
-  %.sroa.12.1452 = phi i64 [ %.fca.0.6.extract, %.lr.ph459 ], [ %.fca.0.6.extract203, %143 ]
-  %.sroa.13.1451 = phi i64 [ %.fca.0.7.extract, %.lr.ph459 ], [ %.fca.0.7.extract204, %143 ]
-  %.sroa.14.1450 = phi i64 [ %.fca.0.8.extract, %.lr.ph459 ], [ %.fca.0.8.extract205, %143 ]
-  %.sroa.15.1449 = phi i64 [ %.fca.0.9.extract, %.lr.ph459 ], [ %.fca.0.9.extract206, %143 ]
-  %.sroa.16.1448 = phi i64 [ %.fca.0.10.extract, %.lr.ph459 ], [ %.fca.0.10.extract207, %143 ]
-  %.sroa.17.1447 = phi i64 [ %.fca.0.11.extract, %.lr.ph459 ], [ %.fca.0.11.extract208, %143 ]
-  %.sroa.18.1446 = phi i64 [ %.fca.0.12.extract, %.lr.ph459 ], [ %.fca.0.12.extract209, %143 ]
-  %.sroa.19.1445 = phi i64 [ %.fca.0.13.extract, %.lr.ph459 ], [ %.fca.0.13.extract210, %143 ]
-  %.sroa.20.1444 = phi i64 [ %.fca.0.14.extract, %.lr.ph459 ], [ %.fca.0.14.extract211, %143 ]
-  %.sroa.21.1443 = phi i64 [ %.fca.0.15.extract, %.lr.ph459 ], [ %.fca.0.15.extract212, %143 ]
-  %.sroa.22.1442 = phi i64 [ %.fca.0.16.extract, %.lr.ph459 ], [ %.fca.0.16.extract213, %143 ]
-  %.1441 = phi i64 [ %64, %.lr.ph459 ], [ %146, %143 ]
+  %.1458 = phi i64 [ %64, %.lr.ph459 ], [ %146, %143 ]
+  %.sroa.013.1457 = phi i64 [ %.fca.0.0.extract, %.lr.ph459 ], [ %.fca.0.0.extract197, %143 ]
+  %.sroa.7.1456 = phi i64 [ %.fca.0.1.extract, %.lr.ph459 ], [ %.fca.0.1.extract198, %143 ]
+  %.sroa.8.1455 = phi i64 [ %.fca.0.2.extract, %.lr.ph459 ], [ %.fca.0.2.extract199, %143 ]
+  %.sroa.9.1454 = phi i64 [ %.fca.0.3.extract, %.lr.ph459 ], [ %.fca.0.3.extract200, %143 ]
+  %.sroa.10.1453 = phi i64 [ %.fca.0.4.extract, %.lr.ph459 ], [ %.fca.0.4.extract201, %143 ]
+  %.sroa.1132.1452 = phi i64 [ %.fca.0.5.extract, %.lr.ph459 ], [ %.fca.0.5.extract202, %143 ]
+  %.sroa.12.1451 = phi i64 [ %.fca.0.6.extract, %.lr.ph459 ], [ %.fca.0.6.extract203, %143 ]
+  %.sroa.13.1450 = phi i64 [ %.fca.0.7.extract, %.lr.ph459 ], [ %.fca.0.7.extract204, %143 ]
+  %.sroa.14.1449 = phi i64 [ %.fca.0.8.extract, %.lr.ph459 ], [ %.fca.0.8.extract205, %143 ]
+  %.sroa.15.1448 = phi i64 [ %.fca.0.9.extract, %.lr.ph459 ], [ %.fca.0.9.extract206, %143 ]
+  %.sroa.16.1447 = phi i64 [ %.fca.0.10.extract, %.lr.ph459 ], [ %.fca.0.10.extract207, %143 ]
+  %.sroa.17.1446 = phi i64 [ %.fca.0.11.extract, %.lr.ph459 ], [ %.fca.0.11.extract208, %143 ]
+  %.sroa.18.1445 = phi i64 [ %.fca.0.12.extract, %.lr.ph459 ], [ %.fca.0.12.extract209, %143 ]
+  %.sroa.19.1444 = phi i64 [ %.fca.0.13.extract, %.lr.ph459 ], [ %.fca.0.13.extract210, %143 ]
+  %.sroa.20.1443 = phi i64 [ %.fca.0.14.extract, %.lr.ph459 ], [ %.fca.0.14.extract211, %143 ]
+  %.sroa.21.1442 = phi i64 [ %.fca.0.15.extract, %.lr.ph459 ], [ %.fca.0.15.extract212, %143 ]
+  %.sroa.22.1441 = phi i64 [ %.fca.0.16.extract, %.lr.ph459 ], [ %.fca.0.16.extract213, %143 ]
   %.0377440 = phi i64 [ %119, %.lr.ph459 ], [ %140, %143 ]
   %.sroa.0172.0439 = phi i64 [ 0, %.lr.ph459 ], [ %127, %143 ]
   %127 = add nuw nsw i64 %.sroa.0172.0439, 1
@@ -1279,24 +1279,24 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.17194)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.18195)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.19196)
-  store i64 %.sroa.013.1458, ptr %.sroa.0180, align 8
-  store i64 %.sroa.7.1457, ptr %.sroa.4181, align 8
-  store i64 %.sroa.8.1456, ptr %.sroa.5182, align 8
-  store i64 %.sroa.9.1455, ptr %.sroa.6183, align 8
-  store i64 %.sroa.10.1454, ptr %.sroa.7184, align 8
-  store i64 %.sroa.1132.1453, ptr %.sroa.8185, align 8
-  store i64 %.sroa.12.1452, ptr %.sroa.9186, align 8
-  store i64 %.sroa.13.1451, ptr %.sroa.10187, align 8
-  store i64 %.sroa.14.1450, ptr %.sroa.11188, align 8
-  store i64 %.sroa.15.1449, ptr %.sroa.12189, align 8
-  store i64 %.sroa.16.1448, ptr %.sroa.13190, align 8
-  store i64 %.sroa.17.1447, ptr %.sroa.14191, align 8
-  store i64 %.sroa.18.1446, ptr %.sroa.15192, align 8
-  store i64 %.sroa.19.1445, ptr %.sroa.16193, align 8
-  store i64 %.sroa.20.1444, ptr %.sroa.17194, align 8
-  store i64 %.sroa.21.1443, ptr %.sroa.18195, align 8
-  store i64 %.sroa.22.1442, ptr %.sroa.19196, align 8
-  %144 = and i64 %.1441, %122
+  store i64 %.sroa.013.1457, ptr %.sroa.0180, align 8
+  store i64 %.sroa.7.1456, ptr %.sroa.4181, align 8
+  store i64 %.sroa.8.1455, ptr %.sroa.5182, align 8
+  store i64 %.sroa.9.1454, ptr %.sroa.6183, align 8
+  store i64 %.sroa.10.1453, ptr %.sroa.7184, align 8
+  store i64 %.sroa.1132.1452, ptr %.sroa.8185, align 8
+  store i64 %.sroa.12.1451, ptr %.sroa.9186, align 8
+  store i64 %.sroa.13.1450, ptr %.sroa.10187, align 8
+  store i64 %.sroa.14.1449, ptr %.sroa.11188, align 8
+  store i64 %.sroa.15.1448, ptr %.sroa.12189, align 8
+  store i64 %.sroa.16.1447, ptr %.sroa.13190, align 8
+  store i64 %.sroa.17.1446, ptr %.sroa.14191, align 8
+  store i64 %.sroa.18.1445, ptr %.sroa.15192, align 8
+  store i64 %.sroa.19.1444, ptr %.sroa.16193, align 8
+  store i64 %.sroa.20.1443, ptr %.sroa.17194, align 8
+  store i64 %.sroa.21.1442, ptr %.sroa.18195, align 8
+  store i64 %.sroa.22.1441, ptr %.sroa.19196, align 8
+  %144 = and i64 %.1458, %122
   %145 = getelementptr inbounds { i64, [16 x i64] }, ptr %59, i64 %144
   %.sroa.0180.0..sroa.0180.0..sroa.0180.0..sroa.0180.0..sroa.0180.0.copyload = load volatile i64, ptr %.sroa.0180, align 8
   store volatile i64 %.sroa.0180.0..sroa.0180.0..sroa.0180.0..sroa.0180.0..sroa.0180.0.copyload, ptr %145, align 8
@@ -1365,7 +1365,7 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.17194)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.18195)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.19196)
-  %146 = add i64 %.1441, 1
+  %146 = add i64 %.1458, 1
   %exitcond545.not = icmp eq i64 %127, %.0.sroa.speculated.i
   br i1 %exitcond545.not, label %.thread427, label %126
 
@@ -1563,7 +1563,6 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   br i1 %exitcond546.not, label %.thread430, label %151
 
 .thread430:                                       ; preds = %151, %.preheader, %147, %.thread427, %103
-  %.0 = phi i64 [ %.1.lcssa, %.thread427 ], [ %104, %103 ], [ %.1.lcssa, %147 ], [ %64, %.preheader ], [ %.1.lcssa, %151 ]
   %.sroa.22.0 = phi i64 [ %.sroa.22.1.lcssa, %.thread427 ], [ %.fca.0.16.extract, %103 ], [ %.sroa.22.1.lcssa, %147 ], [ %.fca.0.16.extract, %.preheader ], [ %.sroa.22.1.lcssa, %151 ]
   %.sroa.21.0 = phi i64 [ %.sroa.21.1.lcssa, %.thread427 ], [ %.fca.0.15.extract, %103 ], [ %.sroa.21.1.lcssa, %147 ], [ %.fca.0.15.extract, %.preheader ], [ %.sroa.21.1.lcssa, %151 ]
   %.sroa.20.0 = phi i64 [ %.sroa.20.1.lcssa, %.thread427 ], [ %.fca.0.14.extract, %103 ], [ %.sroa.20.1.lcssa, %147 ], [ %.fca.0.14.extract, %.preheader ], [ %.sroa.20.1.lcssa, %151 ]
@@ -1581,6 +1580,7 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   %.sroa.8.0 = phi i64 [ %.sroa.8.1.lcssa, %.thread427 ], [ %.fca.0.2.extract, %103 ], [ %.sroa.8.1.lcssa, %147 ], [ %.fca.0.2.extract, %.preheader ], [ %.sroa.8.1.lcssa, %151 ]
   %.sroa.7.0 = phi i64 [ %.sroa.7.1.lcssa, %.thread427 ], [ %.fca.0.1.extract, %103 ], [ %.sroa.7.1.lcssa, %147 ], [ %.fca.0.1.extract, %.preheader ], [ %.sroa.7.1.lcssa, %151 ]
   %.sroa.013.0 = phi i64 [ %.sroa.013.1.lcssa, %.thread427 ], [ %.fca.0.0.extract, %103 ], [ %.sroa.013.1.lcssa, %147 ], [ %.fca.0.0.extract, %.preheader ], [ %.sroa.013.1.lcssa, %151 ]
+  %.0 = phi i64 [ %.1.lcssa, %.thread427 ], [ %104, %103 ], [ %.1.lcssa, %147 ], [ %64, %.preheader ], [ %.1.lcssa, %151 ]
   fence release
   %161 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %162 = getelementptr inbounds i8, ptr %161, i64 264
@@ -2039,8 +2039,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hc59e90ee995b0b5eE.llvm.18333092558533072501.exit"
 
 "_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hc59e90ee995b0b5eE.llvm.18333092558533072501.exit": ; preds = %3, %5
-  %.sroa.3.0.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i, %3 ]
   %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
+  %.sroa.3.0.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i, %3 ]
   store i64 1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2165,8 +2165,8 @@ define hidden { i64, i64 } @"_ZN3std4hash6random11RandomState3new4KEYS7__getit28
   br label %8
 
 8:                                                ; preds = %2, %4
-  %.sroa.3.0 = phi i64 [ %7, %4 ], [ %.sroa.6.0.copyload, %2 ]
   %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %2 ]
+  %.sroa.3.0 = phi i64 [ %7, %4 ], [ %.sroa.6.0.copyload, %2 ]
   %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
   ret { i64, i64 } %10

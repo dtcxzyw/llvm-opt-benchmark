@@ -248,7 +248,7 @@ _ZN3fst3raw4node13StateAnyTrans5input17habe74b031ebffa10E.exit.i.i: ; preds = %5
   br i1 %65, label %_ZN3fst3raw4node13StateAnyTrans5input17habe74b031ebffa10E.exit..loopexit_crit_edge.i.i, label %66
 
 _ZN3fst3raw4node13StateAnyTrans5input17habe74b031ebffa10E.exit..loopexit_crit_edge.i.i: ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17habe74b031ebffa10E.exit.i.i
-  %.pre341.i.i = lshr exact i8 %.sroa.0.sroa.17.0.copyload.i.i, 4
+  %.pre342.i.i = lshr exact i8 %.sroa.0.sroa.17.0.copyload.i.i, 4
   br label %.loopexit.i.i
 
 66:                                               ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17habe74b031ebffa10E.exit.i.i
@@ -295,22 +295,22 @@ _ZN3fst3raw4node13StateAnyTrans5input17habe74b031ebffa10E.exit..loopexit_crit_ed
   br i1 %85, label %.loopexit.i.i, label %.lr.ph.i.i.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %_ZN3fst3raw4node13StateAnyTrans5input17habe74b031ebffa10E.exit..loopexit_crit_edge.i.i
-  %.pre-phi342.i.i = phi i8 [ %.pre341.i.i, %_ZN3fst3raw4node13StateAnyTrans5input17habe74b031ebffa10E.exit..loopexit_crit_edge.i.i ], [ %68, %.lr.ph.i.i.i.i ]
+  %.pre-phi343.i.i = phi i8 [ %.pre342.i.i, %_ZN3fst3raw4node13StateAnyTrans5input17habe74b031ebffa10E.exit..loopexit_crit_edge.i.i ], [ %68, %.lr.ph.i.i.i.i ]
   %.sroa.0.0.i31.i.i = phi i64 [ 0, %_ZN3fst3raw4node13StateAnyTrans5input17habe74b031ebffa10E.exit..loopexit_crit_edge.i.i ], [ %84, %.lr.ph.i.i.i.i ]
-  %86 = zext nneg i8 %.pre-phi342.i.i to i64
+  %86 = zext nneg i8 %.pre-phi343.i.i to i64
   %.neg3.i.i.i = select i1 %53, i64 -2, i64 -1
-  %.neg149.i.i = sub i64 %.sroa.0.sroa.11.0.copyload.i.i, %45
-  %.neg151.i.i = add i64 %.neg149.i.i, %.sroa.01.0.neg.i.i.i
-  %87 = add i64 %.neg151.i.i, %.neg3.i.i.i
+  %.neg150.i.i = sub i64 %.sroa.0.sroa.11.0.copyload.i.i, %45
+  %.neg152.i.i = add i64 %.neg150.i.i, %.sroa.01.0.neg.i.i.i
+  %87 = add i64 %.neg152.i.i, %.neg3.i.i.i
   %.neg.i.i = xor i64 %.sroa.0.sroa.0.0.copyload.i.i, -1
-  %.neg255.i.i = mul i64 %86, %.neg.i.i
-  %88 = add i64 %87, %.neg255.i.i
+  %.neg256.i.i = mul i64 %86, %.neg.i.i
+  %88 = add i64 %87, %.neg256.i.i
   %89 = icmp ugt i64 %88, %.sroa.0.sroa.9.0.copyload.i.i
   br i1 %89, label %.invoke382, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i33.i.i"
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i33.i.i": ; preds = %.loopexit.i.i
   %90 = getelementptr inbounds i8, ptr %.sroa.0.sroa.8.0.copyload.i.i, i64 %88
-  %91 = add nsw i8 %.pre-phi342.i.i, -1
+  %91 = add nsw i8 %.pre-phi343.i.i, -1
   %or.cond.i.i34.i.i = icmp ult i8 %91, 8
   br i1 %or.cond.i.i34.i.i, label %92, label %.invoke
 
@@ -416,20 +416,20 @@ _ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit.i.i: ; preds = %1
   %137 = zext nneg i8 %136 to i64
   %138 = icmp eq i8 %136, 0
   %.pre.i.i = lshr i8 %.sroa.0.sroa.17.0.copyload.i.i, 4
-  %.pre332.i.i = sext i1 %123 to i64
+  %.pre333.i.i = sext i1 %123 to i64
   br i1 %138, label %_ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit._ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit_crit_edge.i.i, label %139
 
 _ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit._ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit_crit_edge.i.i: ; preds = %_ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit.i.i
-  %.pre333.i.i = add i64 %.sroa.0.sroa.11.0.copyload.i.i, %.pre332.i.i
-  %.pre335.i.i = xor i8 %.pre.i.i, -1
-  %.pre337.i.i = sext i8 %.pre335.i.i to i64
-  %.pre339.i.i = add i64 %.pre333.i.i, %.pre337.i.i
+  %.pre334.i.i = add i64 %.sroa.0.sroa.11.0.copyload.i.i, %.pre333.i.i
+  %.pre336.i.i = xor i8 %.pre.i.i, -1
+  %.pre338.i.i = sext i8 %.pre336.i.i to i64
+  %.pre340.i.i = add i64 %.pre334.i.i, %.pre338.i.i
   br label %_ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i
 
 139:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit.i.i
   %140 = xor i8 %.pre.i.i, -1
   %141 = sext i8 %140 to i64
-  %142 = add i64 %.sroa.0.sroa.11.0.copyload.i.i, %.pre332.i.i
+  %142 = add i64 %.sroa.0.sroa.11.0.copyload.i.i, %.pre333.i.i
   %143 = add i64 %142, %141
   %144 = sub i64 %143, %137
   %145 = icmp ugt i64 %144, %.sroa.0.sroa.9.0.copyload.i.i
@@ -466,13 +466,13 @@ _ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit._ZN3fst3raw4node1
   br i1 %159, label %_ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i, label %.lr.ph.i.i48.i.i
 
 _ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i: ; preds = %.lr.ph.i.i48.i.i, %_ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit._ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit_crit_edge.i.i
-  %.pre-phi340.i.i = phi i64 [ %.pre339.i.i, %_ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit._ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit_crit_edge.i.i ], [ %143, %.lr.ph.i.i48.i.i ]
+  %.pre-phi341.i.i = phi i64 [ %.pre340.i.i, %_ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit._ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit_crit_edge.i.i ], [ %143, %.lr.ph.i.i48.i.i ]
   %.sroa.0.0.i52.i.i = phi i64 [ 0, %_ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit._ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit_crit_edge.i.i ], [ %158, %.lr.ph.i.i48.i.i ]
-  %160 = icmp ugt i64 %.pre-phi340.i.i, %.sroa.0.sroa.9.0.copyload.i.i
+  %160 = icmp ugt i64 %.pre-phi341.i.i, %.sroa.0.sroa.9.0.copyload.i.i
   br i1 %160, label %.invoke382, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i54.i.i"
 
 .invoke382:                                       ; preds = %_ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i, %139, %.loopexit.i.i, %66
-  %161 = phi i64 [ %71, %66 ], [ %88, %.loopexit.i.i ], [ %144, %139 ], [ %.pre-phi340.i.i, %_ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i ]
+  %161 = phi i64 [ %71, %66 ], [ %88, %.loopexit.i.i ], [ %144, %139 ], [ %.pre-phi341.i.i, %_ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i ]
   %162 = phi ptr [ @anon.e9210886d2176cd81ab0181827bc3854.15, %66 ], [ @anon.e9210886d2176cd81ab0181827bc3854.13, %.loopexit.i.i ], [ @anon.e9210886d2176cd81ab0181827bc3854.20, %139 ], [ @anon.e9210886d2176cd81ab0181827bc3854.17, %_ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i ]
   invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef %161, i64 noundef %.sroa.0.sroa.9.0.copyload.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %162) #23
           to label %.cont383 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -483,13 +483,13 @@ _ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i: ; preds = %
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i54.i.i": ; preds = %_ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i
   %163 = icmp ne ptr %.sroa.0.sroa.8.0.copyload.i.i, null
   call void @llvm.assume(i1 %163)
-  %164 = getelementptr inbounds i8, ptr %.sroa.0.sroa.8.0.copyload.i.i, i64 %.pre-phi340.i.i
+  %164 = getelementptr inbounds i8, ptr %.sroa.0.sroa.8.0.copyload.i.i, i64 %.pre-phi341.i.i
   %165 = add nsw i8 %.pre.i.i, -1
   %or.cond.i.i55.i.i = icmp ult i8 %165, 8
   br i1 %or.cond.i.i55.i.i, label %166, label %.invoke
 
 166:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8ec98c82d84e9576E.exit.i54.i.i"
-  %167 = sub nuw i64 %.sroa.0.sroa.9.0.copyload.i.i, %.pre-phi340.i.i
+  %167 = sub nuw i64 %.sroa.0.sroa.9.0.copyload.i.i, %.pre-phi341.i.i
   %168 = zext nneg i8 %.pre.i.i to i64
   %169 = icmp ult i64 %167, %168
   br i1 %169, label %.invoke380, label %.lr.ph.preheader.i.i56.i.i
@@ -538,9 +538,9 @@ _ZN3fst3raw4node13StateOneTrans10trans_addr17h36b4100dc122c81cE.exit.i.i: ; pred
   unreachable
 
 _ZN3fst3raw4node4Node10transition17hebd1ab1d7bb177ddE.exit.i.i: ; preds = %_ZN3fst3raw4node13StateOneTrans10trans_addr17h36b4100dc122c81cE.exit.i.i, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hcb909ae714b84168E.exit.i.i
-  %.sroa.11.0.i.i = phi i8 [ %62, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hcb909ae714b84168E.exit.i.i ], [ %.sroa.0.0.i43.i.i, %_ZN3fst3raw4node13StateOneTrans10trans_addr17h36b4100dc122c81cE.exit.i.i ], [ %.sroa.0.0.i41.i.i, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i ]
-  %.sroa.7110.0.i.i = phi i64 [ %.sroa.0.0.i40.i.i, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hcb909ae714b84168E.exit.i.i ], [ %.sroa.0.0.i61.i.i, %_ZN3fst3raw4node13StateOneTrans10trans_addr17h36b4100dc122c81cE.exit.i.i ], [ %120, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i ]
   %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.i31.i.i, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hcb909ae714b84168E.exit.i.i ], [ %.sroa.0.0.i52.i.i, %_ZN3fst3raw4node13StateOneTrans10trans_addr17h36b4100dc122c81cE.exit.i.i ], [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i ]
+  %.sroa.7110.0.i.i = phi i64 [ %.sroa.0.0.i40.i.i, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hcb909ae714b84168E.exit.i.i ], [ %.sroa.0.0.i61.i.i, %_ZN3fst3raw4node13StateOneTrans10trans_addr17h36b4100dc122c81cE.exit.i.i ], [ %120, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i ]
+  %.sroa.11.0.i.i = phi i8 [ %62, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hcb909ae714b84168E.exit.i.i ], [ %.sroa.0.0.i43.i.i, %_ZN3fst3raw4node13StateOneTrans10trans_addr17h36b4100dc122c81cE.exit.i.i ], [ %.sroa.0.0.i41.i.i, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i ]
   %186 = add i64 %.sroa.0.0.i.i, %.sroa.0.sroa.7.0.copyload.i.i
   %187 = load ptr, ptr %14, align 8, !alias.scope !14, !noalias !15, !nonnull !4, !align !66, !noundef !4
   %188 = getelementptr inbounds i8, ptr %187, i64 8
@@ -664,8 +664,8 @@ _ZN3fst3raw5Bound11exceeded_by17h1c99b49e8be62cceE.exit69.thread.i.i: ; preds = 
 
 229:                                              ; preds = %205
   %230 = load i64, ptr %15, align 8, !alias.scope !90, !noalias !15, !noundef !4
-  %.not147.i.i = icmp eq i64 %230, 0
-  br i1 %.not147.i.i, label %234, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h42f8bb88de7ec77eE.exit.i.i"
+  %.not148.i.i = icmp eq i64 %230, 0
+  br i1 %.not148.i.i, label %234, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h42f8bb88de7ec77eE.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h42f8bb88de7ec77eE.exit.i.i": ; preds = %229
   %231 = add i64 %230, -1

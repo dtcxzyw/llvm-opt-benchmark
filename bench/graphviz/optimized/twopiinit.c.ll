@@ -74,16 +74,16 @@ define void @twopi_init_graph(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not2731.i, label %._crit_edge35.i, label %.lr.ph34.i
 
 .lr.ph34.i:                                       ; preds = %.lr.ph39.i, %.lr.ph34.i
-  %.02532.i = phi ptr [ %34, %.lr.ph34.i ], [ %26, %.lr.ph39.i ]
-  %27 = tail call ptr @agbindrec(ptr noundef nonnull %.02532.i, ptr noundef nonnull @.str.8, i32 noundef 240, i32 noundef 1) #8
-  %28 = tail call i32 @common_init_edge(ptr noundef nonnull %.02532.i) #8
+  %.02432.i = phi ptr [ %34, %.lr.ph34.i ], [ %26, %.lr.ph39.i ]
+  %27 = tail call ptr @agbindrec(ptr noundef nonnull %.02432.i, ptr noundef nonnull @.str.8, i32 noundef 240, i32 noundef 1) #8
+  %28 = tail call i32 @common_init_edge(ptr noundef nonnull %.02432.i) #8
   %29 = load ptr, ptr @E_weight, align 8
-  %30 = tail call double @late_double(ptr noundef nonnull %.02532.i, ptr noundef %29, double noundef 1.000000e+00, double noundef 0.000000e+00) #8
-  %31 = getelementptr inbounds i8, ptr %.02532.i, i64 16
+  %30 = tail call double @late_double(ptr noundef nonnull %.02432.i, ptr noundef %29, double noundef 1.000000e+00, double noundef 0.000000e+00) #8
+  %31 = getelementptr inbounds i8, ptr %.02432.i, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 176
   store double %30, ptr %33, align 8
-  %34 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02532.i) #8
+  %34 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02432.i) #8
   %.not27.i = icmp eq ptr %34, null
   br i1 %.not27.i, label %._crit_edge35.i, label %.lr.ph34.i
 

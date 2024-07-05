@@ -993,8 +993,8 @@ define internal range(i32 -1, 1) i32 @_server_read(ptr nocapture noundef %0, ptr
   %195 = load ptr, ptr %4, align 8
   %. = select i1 %194, i64 232, i64 240
   %196 = getelementptr inbounds i8, ptr %195, i64 %.
-  %.0 = load ptr, ptr %196, align 8
-  %197 = getelementptr inbounds i8, ptr %.0, i64 8
+  %.082 = load ptr, ptr %196, align 8
+  %197 = getelementptr inbounds i8, ptr %.082, i64 8
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 36
   %200 = load i8, ptr %199, align 4
@@ -1008,8 +1008,8 @@ define internal range(i32 -1, 1) i32 @_server_read(ptr nocapture noundef %0, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %144, %181, %24, %27, %189, %174, %112, %75, %57
-  %.082 = phi i32 [ 0, %57 ], [ 0, %75 ], [ 0, %112 ], [ 0, %174 ], [ 0, %189 ], [ -1, %27 ], [ -1, %24 ], [ 0, %181 ], [ 0, %144 ]
-  ret i32 %.082
+  %.0 = phi i32 [ 0, %57 ], [ 0, %75 ], [ 0, %112 ], [ 0, %174 ], [ 0, %189 ], [ -1, %27 ], [ -1, %24 ], [ 0, %181 ], [ 0, %144 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

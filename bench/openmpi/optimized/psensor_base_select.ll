@@ -34,13 +34,13 @@ define noundef i32 @pmix_psensor_base_select() local_unnamed_addr #0 {
 
 5:                                                ; preds = %0
   store i8 1, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 280), align 8
-  %.02232 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 320), align 8
-  %.not33 = icmp eq ptr %.02232, getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 200)
+  %.02332 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 320), align 8
+  %.not33 = icmp eq ptr %.02332, getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 200)
   br i1 %.not33, label %._crit_edge, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %5, %60
-  %.02234 = phi ptr [ %.022, %60 ], [ %.02232, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.02234, i64 144
+  %.02334 = phi ptr [ %.023, %60 ], [ %.02332, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.02334, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %8, 64
@@ -161,9 +161,9 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %26, %2
   br label %60
 
 60:                                               ; preds = %.sink.split, %16
-  %61 = getelementptr inbounds i8, ptr %.02234, i64 120
-  %.022 = load ptr, ptr %61, align 8
-  %.not = icmp eq ptr %.022, getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 200)
+  %61 = getelementptr inbounds i8, ptr %.02334, i64 120
+  %.023 = load ptr, ptr %61, align 8
+  %.not = icmp eq ptr %.023, getelementptr inbounds (i8, ptr @pmix_psensor_base_framework, i64 200)
   br i1 %.not, label %._crit_edge, label %.lr.ph35, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %60, %5

@@ -667,15 +667,15 @@ BitmapDoneInitializingSharedState.exit:           ; preds = %81, %83
   br label %96
 
 96:                                               ; preds = %85, %91, %37, %42
-  %.1108 = phi ptr [ null, %91 ], [ null, %85 ], [ %38, %42 ], [ %38, %37 ]
   %.1105 = phi ptr [ %87, %91 ], [ %87, %85 ], [ null, %42 ], [ null, %37 ]
+  %.1 = phi ptr [ null, %91 ], [ null, %85 ], [ %38, %42 ], [ %38, %37 ]
   store i8 1, ptr %19, align 8
   br label %97
 
 97:                                               ; preds = %.thread, %96, %22
-  %.2109 = phi ptr [ %24, %22 ], [ %.1108, %96 ], [ null, %.thread ]
+  %.1108 = phi ptr [ %18, %22 ], [ null, %96 ], [ %18, %.thread ]
   %.2106 = phi ptr [ null, %22 ], [ %.1105, %96 ], [ %26, %.thread ]
-  %.1 = phi ptr [ %18, %22 ], [ null, %96 ], [ %18, %.thread ]
+  %.2 = phi ptr [ %24, %22 ], [ %.1, %96 ], [ null, %.thread ]
   %98 = getelementptr inbounds i8, ptr %4, i64 24
   %99 = getelementptr inbounds i8, ptr %0, i64 304
   %100 = getelementptr inbounds i8, ptr %4, i64 16
@@ -696,7 +696,7 @@ BitmapDoneInitializingSharedState.exit:           ; preds = %81, %83
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %97
-  %.2 = phi ptr [ %.1, %97 ], [ %.2.be, %.backedge.backedge ]
+  %.2109 = phi ptr [ %.1108, %97 ], [ %.2109.be, %.backedge.backedge ]
   %115 = load volatile i32, ptr @InterruptPending, align 4
   %.not119 = icmp eq i32 %115, 0
   br i1 %.not119, label %117, label %116
@@ -706,14 +706,14 @@ BitmapDoneInitializingSharedState.exit:           ; preds = %81, %83
   br label %117
 
 117:                                              ; preds = %.backedge, %116
-  %118 = icmp eq ptr %.2, null
+  %118 = icmp eq ptr %.2109, null
   br i1 %118, label %119, label %230
 
 119:                                              ; preds = %117
   br i1 %16, label %120, label %122
 
 120:                                              ; preds = %119
-  %121 = call ptr @tbm_iterate(ptr noundef %.2109) #6
+  %121 = call ptr @tbm_iterate(ptr noundef %.2) #6
   br label %124
 
 122:                                              ; preds = %119
@@ -992,7 +992,7 @@ table_scan_bitmap_next_block.exit._crit_edge:     ; preds = %table_scan_bitmap_n
   br label %BitmapAdjustPrefetchTarget.exit
 
 BitmapAdjustPrefetchTarget.exit:                  ; preds = %229, %209, %207, %205, %202, %198, %235, %232, %250, %237
-  %.4 = phi ptr [ %.2, %250 ], [ %.2, %237 ], [ %.2, %235 ], [ %.2, %232 ], [ %storemerge, %198 ], [ %storemerge, %202 ], [ %storemerge, %205 ], [ %storemerge, %207 ], [ %storemerge, %209 ], [ %storemerge, %229 ]
+  %.4 = phi ptr [ %.2109, %250 ], [ %.2109, %237 ], [ %.2109, %235 ], [ %.2109, %232 ], [ %storemerge, %198 ], [ %storemerge, %202 ], [ %storemerge, %205 ], [ %storemerge, %207 ], [ %storemerge, %209 ], [ %storemerge, %229 ]
   %251 = load ptr, ptr %3, align 8
   %252 = icmp eq ptr %251, null
   br i1 %252, label %253, label %284
@@ -1187,7 +1187,7 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %331
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %345, %366, %table_scan_bitmap_next_block.exit
-  %.2.be = phi ptr [ %.4, %366 ], [ null, %345 ], [ %storemerge, %table_scan_bitmap_next_block.exit ]
+  %.2109.be = phi ptr [ %.4, %366 ], [ null, %345 ], [ %storemerge, %table_scan_bitmap_next_block.exit ]
   br label %.backedge
 
 346:                                              ; preds = %table_scan_bitmap_next_tuple.exit

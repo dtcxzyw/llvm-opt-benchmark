@@ -3009,7 +3009,7 @@ default.unreachable11:                            ; preds = %4
 
 6:                                                ; preds = %4
   %7 = icmp ne i16 %3, 0
-  %.10 = zext i1 %7 to i16
+  %. = zext i1 %7 to i16
   br label %15
 
 8:                                                ; preds = %4
@@ -3022,14 +3022,14 @@ default.unreachable11:                            ; preds = %4
   br i1 %14, label %16, label %19
 
 15:                                               ; preds = %25, %4, %6
-  %.sroa.8.0 = phi i16 [ 1, %6 ], [ %2, %4 ], [ %12, %25 ]
+  %.sroa.01.0 = phi i16 [ %., %6 ], [ %5, %4 ], [ 1, %25 ]
   %.sroa.5.0 = phi i16 [ 1, %6 ], [ %1, %4 ], [ %10, %25 ]
-  %.sroa.01.0 = phi i16 [ %.10, %6 ], [ %5, %4 ], [ 1, %25 ]
+  %.sroa.8.0 = phi i16 [ 1, %6 ], [ %2, %4 ], [ %12, %25 ]
   %.sroa.8.0.insert.ext = zext i16 %.sroa.8.0 to i48
   %.sroa.8.0.insert.shift = shl nuw i48 %.sroa.8.0.insert.ext, 32
   %.sroa.5.0.insert.ext = zext i16 %.sroa.5.0 to i48
   %.sroa.5.0.insert.shift = shl nuw nsw i48 %.sroa.5.0.insert.ext, 16
-  %.sroa.5.0.insert.insert = or disjoint i48 %.sroa.5.0.insert.shift, %.sroa.8.0.insert.shift
+  %.sroa.5.0.insert.insert = or disjoint i48 %.sroa.8.0.insert.shift, %.sroa.5.0.insert.shift
   %.sroa.01.0.insert.ext = zext nneg i16 %.sroa.01.0 to i48
   %.sroa.01.0.insert.insert = or disjoint i48 %.sroa.5.0.insert.insert, %.sroa.01.0.insert.ext
   ret i48 %.sroa.01.0.insert.insert

@@ -1391,16 +1391,16 @@ if.then2:                                         ; preds = %if.else
 
 while.body:                                       ; preds = %if.then2, %while.body
   %13 = phi i16 [ %.pre, %while.body ], [ %12, %if.then2 ]
-  %result.017 = phi ptr [ %result.1, %while.body ], [ null, %if.then2 ]
-  %s.addr.016 = phi ptr [ %incdec.ptr18, %while.body ], [ %s, %if.then2 ]
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %s.addr.016, i64 2
+  %s.addr.017 = phi ptr [ %incdec.ptr18, %while.body ], [ %s, %if.then2 ]
+  %result.016 = phi ptr [ %result.1, %while.body ], [ null, %if.then2 ]
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %s.addr.017, i64 2
   %conv5 = zext i16 %13 to i32
   %cmp9 = icmp eq i32 %conv3, %conv5
   %.pre = load i16, ptr %incdec.ptr18, align 2
   %conv10 = zext i16 %.pre to i32
   %cmp12 = icmp eq i32 %conv4, %conv10
   %14 = select i1 %cmp9, i1 %cmp12, i1 false
-  %result.1 = select i1 %14, ptr %s.addr.016, ptr %result.017
+  %result.1 = select i1 %14, ptr %s.addr.017, ptr %result.016
   %cmp6.not = icmp eq i16 %.pre, 0
   br i1 %cmp6.not, label %return, label %while.body, !llvm.loop !20
 
@@ -1848,8 +1848,8 @@ while.cond:                                       ; preds = %while.cond, %entry
   br i1 %cmp.not, label %while.cond1, label %while.cond, !llvm.loop !29
 
 while.cond1:                                      ; preds = %while.cond, %while.cond1
-  %dst.addr.1 = phi ptr [ %incdec.ptr3, %while.cond1 ], [ %dst.addr.0, %while.cond ]
   %src.addr.0 = phi ptr [ %incdec.ptr2, %while.cond1 ], [ %src, %while.cond ]
+  %dst.addr.1 = phi ptr [ %incdec.ptr3, %while.cond1 ], [ %dst.addr.0, %while.cond ]
   %incdec.ptr2 = getelementptr inbounds i8, ptr %src.addr.0, i64 2
   %1 = load i16, ptr %src.addr.0, align 2
   %incdec.ptr3 = getelementptr inbounds i8, ptr %dst.addr.1, i64 2
@@ -1910,8 +1910,8 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond, %entry
-  %s1.addr.0 = phi ptr [ %s1, %entry ], [ %incdec.ptr, %for.cond ]
   %s2.addr.0 = phi ptr [ %s2, %entry ], [ %incdec.ptr1, %for.cond ]
+  %s1.addr.0 = phi ptr [ %s1, %entry ], [ %incdec.ptr, %for.cond ]
   %incdec.ptr = getelementptr inbounds i8, ptr %s1.addr.0, i64 2
   %0 = load i16, ptr %s1.addr.0, align 2
   %incdec.ptr1 = getelementptr inbounds i8, ptr %s2.addr.0, i64 2
@@ -2463,8 +2463,8 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %entry
-  %dst.addr.0 = phi ptr [ %dst, %entry ], [ %incdec.ptr1, %while.cond ]
   %src.addr.0 = phi ptr [ %src, %entry ], [ %incdec.ptr, %while.cond ]
+  %dst.addr.0 = phi ptr [ %dst, %entry ], [ %incdec.ptr1, %while.cond ]
   %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.0, i64 2
   %0 = load i16, ptr %src.addr.0, align 2
   %incdec.ptr1 = getelementptr inbounds i8, ptr %dst.addr.0, i64 2
@@ -2483,16 +2483,16 @@ entry:
   br i1 %cmp3, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %entry, %land.rhs
-  %n.addr.06 = phi i32 [ %dec, %land.rhs ], [ %n, %entry ]
-  %src.addr.05 = phi ptr [ %incdec.ptr, %land.rhs ], [ %src, %entry ]
-  %dst.addr.04 = phi ptr [ %incdec.ptr1, %land.rhs ], [ %dst, %entry ]
-  %0 = load i16, ptr %src.addr.05, align 2
-  store i16 %0, ptr %dst.addr.04, align 2
+  %dst.addr.06 = phi ptr [ %incdec.ptr1, %land.rhs ], [ %dst, %entry ]
+  %n.addr.05 = phi i32 [ %dec, %land.rhs ], [ %n, %entry ]
+  %src.addr.04 = phi ptr [ %incdec.ptr, %land.rhs ], [ %src, %entry ]
+  %0 = load i16, ptr %src.addr.04, align 2
+  store i16 %0, ptr %dst.addr.06, align 2
   %cmp2.not = icmp ne i16 %0, 0
-  %incdec.ptr1 = getelementptr inbounds i8, ptr %dst.addr.04, i64 2
-  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.05, i64 2
-  %dec = add nsw i32 %n.addr.06, -1
-  %cmp = icmp ugt i32 %n.addr.06, 1
+  %incdec.ptr1 = getelementptr inbounds i8, ptr %dst.addr.06, i64 2
+  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.04, i64 2
+  %dec = add nsw i32 %n.addr.05, -1
+  %cmp = icmp ugt i32 %n.addr.05, 1
   %or.cond = select i1 %cmp2.not, i1 %cmp, i1 false
   br i1 %or.cond, label %land.rhs, label %while.end, !llvm.loop !40
 
@@ -2603,10 +2603,10 @@ for.cond.preheader:                               ; preds = %if.end4
 
 if.end9:                                          ; preds = %for.cond.preheader, %if.end20
   %1 = phi i16 [ %5, %if.end20 ], [ %0, %for.cond.preheader ]
-  %number.addr.035 = phi i32 [ %dec, %if.end20 ], [ %number, %for.cond.preheader ]
-  %s.addr.034 = phi ptr [ %s.addr.1, %if.end20 ], [ %s, %for.cond.preheader ]
-  %incdec.ptr36 = getelementptr inbounds i8, ptr %s.addr.034, i64 2
-  %cmp10 = icmp eq i32 %number.addr.035, 0
+  %s.addr.035 = phi ptr [ %s.addr.1, %if.end20 ], [ %s, %for.cond.preheader ]
+  %number.addr.034 = phi i32 [ %dec, %if.end20 ], [ %number, %for.cond.preheader ]
+  %incdec.ptr36 = getelementptr inbounds i8, ptr %s.addr.035, i64 2
+  %cmp10 = icmp eq i32 %number.addr.034, 0
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end9
@@ -2618,13 +2618,13 @@ land.lhs.true:                                    ; preds = %if.end12
   %3 = load i16, ptr %incdec.ptr36, align 2
   %4 = and i16 %3, -1024
   %cmp17 = icmp eq i16 %4, -9216
-  %incdec.ptr19 = getelementptr inbounds i8, ptr %s.addr.034, i64 4
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %s.addr.035, i64 4
   %spec.select = select i1 %cmp17, ptr %incdec.ptr19, ptr %incdec.ptr36
   br label %if.end20
 
 if.end20:                                         ; preds = %land.lhs.true, %if.end12
   %s.addr.1 = phi ptr [ %incdec.ptr36, %if.end12 ], [ %spec.select, %land.lhs.true ]
-  %dec = add nsw i32 %number.addr.035, -1
+  %dec = add nsw i32 %number.addr.034, -1
   %5 = load i16, ptr %s.addr.1, align 2
   %cmp7 = icmp eq i16 %5, 0
   br i1 %cmp7, label %return, label %if.end9, !llvm.loop !43
@@ -2648,14 +2648,14 @@ if.end26:                                         ; preds = %if.end23
 
 if.end30:                                         ; preds = %if.end26, %if.end50
   %maxSupplementary.029 = phi i32 [ %maxSupplementary.1, %if.end50 ], [ %sub, %if.end26 ]
-  %number.addr.128 = phi i32 [ %dec51, %if.end50 ], [ %number, %if.end26 ]
-  %s.addr.227 = phi ptr [ %s.addr.3, %if.end50 ], [ %s, %if.end26 ]
-  %cmp31 = icmp eq i32 %number.addr.128, 0
+  %s.addr.228 = phi ptr [ %s.addr.3, %if.end50 ], [ %s, %if.end26 ]
+  %number.addr.127 = phi i32 [ %dec51, %if.end50 ], [ %number, %if.end26 ]
+  %cmp31 = icmp eq i32 %number.addr.127, 0
   br i1 %cmp31, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.end30
-  %incdec.ptr34 = getelementptr inbounds i8, ptr %s.addr.227, i64 2
-  %6 = load i16, ptr %s.addr.227, align 2
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %s.addr.228, i64 2
+  %6 = load i16, ptr %s.addr.228, align 2
   %7 = and i16 %6, -1024
   %cmp37 = icmp ne i16 %7, -10240
   %cmp39.not = icmp eq ptr %incdec.ptr34, %add.ptr
@@ -2669,7 +2669,7 @@ land.lhs.true40:                                  ; preds = %if.end33
   br i1 %cmp43, label %if.then44, label %if.end50
 
 if.then44:                                        ; preds = %land.lhs.true40
-  %incdec.ptr45 = getelementptr inbounds i8, ptr %s.addr.227, i64 4
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %s.addr.228, i64 4
   %dec46 = add nsw i32 %maxSupplementary.029, -1
   %cmp47 = icmp slt i32 %maxSupplementary.029, 2
   br i1 %cmp47, label %return, label %if.end50
@@ -2677,7 +2677,7 @@ if.then44:                                        ; preds = %land.lhs.true40
 if.end50:                                         ; preds = %if.then44, %land.lhs.true40, %if.end33
   %s.addr.3 = phi ptr [ %incdec.ptr45, %if.then44 ], [ %incdec.ptr34, %land.lhs.true40 ], [ %incdec.ptr34, %if.end33 ]
   %maxSupplementary.1 = phi i32 [ %dec46, %if.then44 ], [ %maxSupplementary.029, %land.lhs.true40 ], [ %maxSupplementary.029, %if.end33 ]
-  %dec51 = add nsw i32 %number.addr.128, -1
+  %dec51 = add nsw i32 %number.addr.127, -1
   %cmp28 = icmp eq ptr %s.addr.3, %add.ptr
   br i1 %cmp28, label %return, label %if.end30, !llvm.loop !44
 
@@ -2758,19 +2758,19 @@ while.body.preheader:                             ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end
-  %buf2.addr.09 = phi ptr [ %incdec.ptr5, %if.end ], [ %buf2, %while.body.preheader ]
-  %buf1.addr.08 = phi ptr [ %incdec.ptr, %if.end ], [ %buf1, %while.body.preheader ]
-  %0 = load i16, ptr %buf1.addr.08, align 2
+  %buf1.addr.09 = phi ptr [ %incdec.ptr, %if.end ], [ %buf1, %while.body.preheader ]
+  %buf2.addr.08 = phi ptr [ %incdec.ptr5, %if.end ], [ %buf2, %while.body.preheader ]
+  %0 = load i16, ptr %buf1.addr.09, align 2
   %conv = zext i16 %0 to i32
-  %1 = load i16, ptr %buf2.addr.09, align 2
+  %1 = load i16, ptr %buf2.addr.08, align 2
   %conv2 = zext i16 %1 to i32
   %sub = sub nsw i32 %conv, %conv2
   %cmp3.not = icmp eq i32 %sub, 0
   br i1 %cmp3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %buf1.addr.08, i64 2
-  %incdec.ptr5 = getelementptr inbounds i8, ptr %buf2.addr.09, i64 2
+  %incdec.ptr = getelementptr inbounds i8, ptr %buf1.addr.09, i64 2
+  %incdec.ptr5 = getelementptr inbounds i8, ptr %buf2.addr.08, i64 2
   %cmp1 = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp1, label %while.body, label %return, !llvm.loop !46
 
@@ -3110,12 +3110,12 @@ entry:
   br i1 %cmp20.not, label %while.cond.us.us.outer, label %while.cond.outer
 
 while.cond.us.us.outer:                           ; preds = %entry, %if.end17.us.us
-  %segment.0.us.us.ph = phi ptr [ %add.ptr19.us.us, %if.end17.us.us ], [ %src, %entry ]
   %i.0.us.us.ph = phi i32 [ %add41.us.us, %if.end17.us.us ], [ 0, %entry ]
+  %src.addr.0.us.us.ph = phi ptr [ %add.ptr19.us.us, %if.end17.us.us ], [ %src, %entry ]
   br label %while.cond.us.us
 
 while.cond.us.us:                                 ; preds = %while.cond.us.us.outer, %if.else43.us.us
-  %src.addr.0.us.us = phi ptr [ %incdec.ptr44.us.us, %if.else43.us.us ], [ %segment.0.us.us.ph, %while.cond.us.us.outer ]
+  %src.addr.0.us.us = phi ptr [ %incdec.ptr44.us.us, %if.else43.us.us ], [ %src.addr.0.us.us.ph, %while.cond.us.us.outer ]
   %0 = load i8, ptr %src.addr.0.us.us, align 1
   switch i8 %0, label %if.else43.us.us [
     i8 0, label %while.end
@@ -3133,9 +3133,9 @@ if.then.us.us:                                    ; preds = %while.cond.us.us
   br i1 %cmp15.us.us, label %err, label %if.end17.us.us
 
 if.end17.us.us:                                   ; preds = %if.then.us.us
-  %cmp3.not.us.us = icmp eq ptr %src.addr.0.us.us, %segment.0.us.us.ph
+  %cmp3.not.us.us = icmp eq ptr %src.addr.0.us.us, %src.addr.0.us.us.ph
   %sub.ptr.lhs.cast8.us.us = ptrtoint ptr %src.addr.0.us.us to i64
-  %sub.ptr.rhs.cast9.us.us = ptrtoint ptr %segment.0.us.us.ph to i64
+  %sub.ptr.rhs.cast9.us.us = ptrtoint ptr %src.addr.0.us.us.ph to i64
   %sub.ptr.sub10.us.us = sub i64 %sub.ptr.lhs.cast8.us.us, %sub.ptr.rhs.cast9.us.us
   %conv11.us.us = trunc i64 %sub.ptr.sub10.us.us to i32
   %add.us.us = select i1 %cmp3.not.us.us, i32 0, i32 %conv11.us.us
@@ -3152,7 +3152,7 @@ if.else43.us.us:                                  ; preds = %while.cond.us.us
   br label %while.cond.us.us, !llvm.loop !49
 
 while.cond:                                       ; preds = %while.cond.outer, %if.else43
-  %src.addr.0 = phi ptr [ %incdec.ptr44, %if.else43 ], [ %segment.0.ph, %while.cond.outer ]
+  %src.addr.0 = phi ptr [ %incdec.ptr44, %if.else43 ], [ %src.addr.0.ph, %while.cond.outer ]
   %2 = load i8, ptr %src.addr.0, align 1
   switch i8 %2, label %if.else43 [
     i8 0, label %while.end
@@ -3161,7 +3161,7 @@ while.cond:                                       ; preds = %while.cond.outer, %
 
 if.then:                                          ; preds = %while.cond
   store i32 0, ptr %lenParsed, align 4
-  %cmp3.not = icmp eq ptr %src.addr.0, %segment.0.ph
+  %cmp3.not = icmp eq ptr %src.addr.0, %src.addr.0.ph
   br i1 %cmp3.not, label %if.end12, label %if.then4
 
 if.then4:                                         ; preds = %if.then
@@ -3169,12 +3169,12 @@ if.then4:                                         ; preds = %if.then
   %add.ptr = getelementptr inbounds i16, ptr %dest, i64 %idx.ext
   %sub = sub nsw i32 %destCapacity, %i.0.ph
   %sub.ptr.lhs.cast = ptrtoint ptr %src.addr.0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %segment.0.ph to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %src.addr.0.ph to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv7 = trunc i64 %sub.ptr.sub to i32
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %sub, i32 0)
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %spec.store.select.i, i32 %conv7)
-  tail call void @u_charsToUChars_75(ptr noundef %segment.0.ph, ptr noundef nonnull %add.ptr, i32 noundef %spec.select.i)
+  tail call void @u_charsToUChars_75(ptr noundef %src.addr.0.ph, ptr noundef nonnull %add.ptr, i32 noundef %spec.select.i)
   %add = add nsw i32 %i.0.ph, %conv7
   br label %if.end12
 
@@ -3228,8 +3228,8 @@ while.cond.outer.backedge:                        ; preds = %if.else, %if.then26
   br label %while.cond.outer, !llvm.loop !49
 
 while.cond.outer:                                 ; preds = %entry, %while.cond.outer.backedge
-  %segment.0.ph = phi ptr [ %add.ptr19, %while.cond.outer.backedge ], [ %src, %entry ]
   %i.0.ph = phi i32 [ %i.0.ph.be, %while.cond.outer.backedge ], [ 0, %entry ]
+  %src.addr.0.ph = phi ptr [ %add.ptr19, %while.cond.outer.backedge ], [ %src, %entry ]
   br label %while.cond
 
 if.else38:                                        ; preds = %if.end17
@@ -3241,42 +3241,42 @@ if.else43:                                        ; preds = %while.cond
   br label %while.cond, !llvm.loop !49
 
 while.end:                                        ; preds = %while.cond, %while.cond.us.us
-  %.us-phi = phi ptr [ %src.addr.0.us.us, %while.cond.us.us ], [ %src.addr.0, %while.cond ]
-  %.us-phi60 = phi ptr [ %segment.0.us.us.ph, %while.cond.us.us ], [ %segment.0.ph, %while.cond ]
-  %.us-phi61 = phi i32 [ %i.0.us.us.ph, %while.cond.us.us ], [ %i.0.ph, %while.cond ]
-  %cmp46.not = icmp eq ptr %.us-phi, %.us-phi60
+  %.us-phi = phi ptr [ %src.addr.0.us.us.ph, %while.cond.us.us ], [ %src.addr.0.ph, %while.cond ]
+  %.us-phi60 = phi i32 [ %i.0.us.us.ph, %while.cond.us.us ], [ %i.0.ph, %while.cond ]
+  %.us-phi61 = phi ptr [ %src.addr.0.us.us, %while.cond.us.us ], [ %src.addr.0, %while.cond ]
+  %cmp46.not = icmp eq ptr %.us-phi61, %.us-phi
   br i1 %cmp46.not, label %if.end63, label %if.then47
 
 if.then47:                                        ; preds = %while.end
   br i1 %cmp20.not, label %if.then47.if.end57_crit_edge, label %if.then49
 
 if.then47.if.end57_crit_edge:                     ; preds = %if.then47
-  %.pre = ptrtoint ptr %.us-phi to i64
-  %.pre112 = ptrtoint ptr %.us-phi60 to i64
+  %.pre = ptrtoint ptr %.us-phi61 to i64
+  %.pre112 = ptrtoint ptr %.us-phi to i64
   %.pre113 = sub i64 %.pre, %.pre112
   %.pre114 = trunc i64 %.pre113 to i32
   br label %if.end57
 
 if.then49:                                        ; preds = %if.then47
-  %idx.ext50 = sext i32 %.us-phi61 to i64
+  %idx.ext50 = sext i32 %.us-phi60 to i64
   %add.ptr51 = getelementptr inbounds i16, ptr %dest, i64 %idx.ext50
-  %sub52 = sub nsw i32 %destCapacity, %.us-phi61
-  %sub.ptr.lhs.cast53 = ptrtoint ptr %.us-phi to i64
-  %sub.ptr.rhs.cast54 = ptrtoint ptr %.us-phi60 to i64
+  %sub52 = sub nsw i32 %destCapacity, %.us-phi60
+  %sub.ptr.lhs.cast53 = ptrtoint ptr %.us-phi61 to i64
+  %sub.ptr.rhs.cast54 = ptrtoint ptr %.us-phi to i64
   %sub.ptr.sub55 = sub i64 %sub.ptr.lhs.cast53, %sub.ptr.rhs.cast54
   %conv56 = trunc i64 %sub.ptr.sub55 to i32
   %spec.store.select.i55 = tail call i32 @llvm.smax.i32(i32 %sub52, i32 0)
   %spec.select.i56 = tail call i32 @llvm.smin.i32(i32 %spec.store.select.i55, i32 %conv56)
-  tail call void @u_charsToUChars_75(ptr noundef %.us-phi60, ptr noundef nonnull %add.ptr51, i32 noundef %spec.select.i56)
+  tail call void @u_charsToUChars_75(ptr noundef %.us-phi, ptr noundef nonnull %add.ptr51, i32 noundef %spec.select.i56)
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then47.if.end57_crit_edge, %if.then49
   %conv61.pre-phi = phi i32 [ %.pre114, %if.then47.if.end57_crit_edge ], [ %conv56, %if.then49 ]
-  %add62 = add nsw i32 %.us-phi61, %conv61.pre-phi
+  %add62 = add nsw i32 %.us-phi60, %conv61.pre-phi
   br label %if.end63
 
 if.end63:                                         ; preds = %if.end57, %while.end
-  %i.4 = phi i32 [ %add62, %if.end57 ], [ %.us-phi61, %while.end ]
+  %i.4 = phi i32 [ %add62, %if.end57 ], [ %.us-phi60, %while.end ]
   %cmp64.not = icmp ne ptr %dest, null
   %cmp66 = icmp slt i32 %i.4, %destCapacity
   %or.cond54 = select i1 %cmp64.not, i1 %cmp66, i1 false

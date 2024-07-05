@@ -588,7 +588,7 @@ define void @_Z12write_dd_pdbPKclS0_RK10gmx_mtop_tPK9t_commreciPA3_KfS9_(ptr nou
   br label %20
 
 20:                                               ; preds = %15, %8
-  %.043 = phi i32 [ %19, %15 ], [ %5, %8 ]
+  %.042 = phi i32 [ %19, %15 ], [ %5, %8 ]
   %21 = call noundef ptr @_Z12gmx_step_strlPc(i64 noundef %1, ptr noundef nonnull %10)
   %22 = load i32, ptr %4, align 8
   %23 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %0, ptr noundef %21, i32 noundef %22) #14
@@ -615,7 +615,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %25, %28
   %32 = trunc i8 %31 to i1
   %33 = select i1 %32, i32 3, i32 0
   call void @_Z17gmx_write_pdb_boxP8_IO_FILE7PbcTypePA3_Kf(ptr noundef %24, i32 noundef %33, ptr noundef %7)
-  %34 = icmp sgt i32 %.043, 0
+  %34 = icmp sgt i32 %.042, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
@@ -626,7 +626,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %25, %28
   %39 = getelementptr inbounds i8, ptr %3, i64 112
   %40 = getelementptr inbounds i8, ptr %3, i64 760
   %41 = getelementptr inbounds i8, ptr %13, i64 320
-  %wide.trip.count = zext nneg i32 %.043 to i64
+  %wide.trip.count = zext nneg i32 %.042 to i64
   br label %42
 
 42:                                               ; preds = %.lr.ph, %137
@@ -647,8 +647,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %25, %28
 
 54:                                               ; preds = %63, %42
   %.1 = phi i32 [ %.04750, %42 ], [ %66, %63 ]
-  %.026.i.i = phi i32 [ -1, %42 ], [ %.127.i.i, %63 ]
-  %.0.i.i = phi i32 [ %52, %42 ], [ %.1.i.i, %63 ]
+  %.026.i.i = phi i32 [ %52, %42 ], [ %.127.i.i, %63 ]
+  %.0.i.i = phi i32 [ -1, %42 ], [ %.1.i.i, %63 ]
   %55 = sext i32 %.1 to i64
   %56 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %53, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 4
@@ -663,9 +663,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %25, %28
   br i1 %.not.i.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i, label %63
 
 63:                                               ; preds = %60, %54
-  %.127.i.i = phi i32 [ %.026.i.i, %54 ], [ %.1, %60 ]
-  %.1.i.i = phi i32 [ %.1, %54 ], [ %.0.i.i, %60 ]
-  %64 = add nsw i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.1, %54 ], [ %.026.i.i, %60 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %54 ], [ %.1, %60 ]
+  %64 = add i32 %.127.i.i, 1
   %65 = add i32 %64, %.1.i.i
   %66 = ashr i32 %65, 1
   br label %54, !llvm.loop !15

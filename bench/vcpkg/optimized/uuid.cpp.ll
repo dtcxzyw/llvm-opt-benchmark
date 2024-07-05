@@ -54,12 +54,12 @@ _ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_.exit1: ; preds = %_
           to label %.preheader56.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 .preheader56.i:                                   ; preds = %_ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_.exit1, %28
-  %.041.idx65.i = phi i64 [ %.041.add.i, %28 ], [ 0, %_ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_.exit1 ]
-  %.04264.i = phi i1 [ false, %28 ], [ true, %_ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_.exit1 ]
-  %.04363.i = phi i64 [ %14, %28 ], [ 0, %_ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_.exit1 ]
-  %.041.ptr.i = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_116uuid_of_integersB5cxx11Emm.uuid_top_field_size, i64 %.041.idx65.i
-  %11 = load i64, ptr %.041.ptr.i, align 8, !noalias !5
-  br i1 %.04264.i, label %13, label %12
+  %.04065.i = phi i1 [ false, %28 ], [ true, %_ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_.exit1 ]
+  %.04164.i = phi i64 [ %14, %28 ], [ 0, %_ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_.exit1 ]
+  %.043.idx63.i = phi i64 [ %.043.add.i, %28 ], [ 0, %_ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_.exit1 ]
+  %.043.ptr.i = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_116uuid_of_integersB5cxx11Emm.uuid_top_field_size, i64 %.043.idx63.i
+  %11 = load i64, ptr %.043.ptr.i, align 8, !noalias !5
+  br i1 %.04065.i, label %13, label %12
 
 12:                                               ; preds = %.preheader56.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 45)
@@ -96,16 +96,16 @@ _ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_.exit1: ; preds = %_
   br label %.body
 
 13:                                               ; preds = %12, %.preheader56.i
-  %14 = add i64 %11, %.04363.i
+  %14 = add i64 %11, %.04164.i
   br label %_ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.exit.i
 
 _ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.exit.i: ; preds = %.noexc.i, %13
-  %.040.i = phi i64 [ %.04363.i, %13 ], [ %17, %.noexc.i ]
-  %15 = icmp ult i64 %.040.i, %14
+  %.042.i = phi i64 [ %.04164.i, %13 ], [ %17, %.noexc.i ]
+  %15 = icmp ult i64 %.042.i, %14
   br i1 %15, label %16, label %28
 
 16:                                               ; preds = %_ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.exit.i
-  %17 = add nuw i64 %.040.i, 1
+  %17 = add nuw i64 %.042.i, 1
   %18 = shl i64 %17, 3
   %19 = sub i64 64, %18
   %20 = lshr i64 %8, %19
@@ -124,8 +124,8 @@ _ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsI
           to label %_ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 28:                                               ; preds = %_ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.exit.i
-  %.041.add.i = add nuw nsw i64 %.041.idx65.i, 8
-  %.not.i = icmp eq i64 %.041.add.i, 24
+  %.043.add.i = add nuw nsw i64 %.043.idx63.i, 8
+  %.not.i = icmp eq i64 %.043.add.i, 24
   br i1 %.not.i, label %.preheader.i, label %.preheader56.i
 
 .preheader.i:                                     ; preds = %28, %44

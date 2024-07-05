@@ -296,17 +296,17 @@ for.body.lr.ph.i:                                 ; preds = %while.end.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %o.0206.i = phi ptr [ %o.0189.i, %for.body.lr.ph.i ], [ %o.0.i, %for.inc.i ]
-  %nfpr.0203.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %nfpr.2.i, %for.inc.i ]
-  %narg.0198.i = phi i32 [ 1, %for.body.lr.ph.i ], [ %inc253.i, %for.inc.i ]
-  %nsp.0195.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %nsp.2.i, %for.inc.i ]
-  %ngpr.1192.i = phi i32 [ %ngpr.0.i, %for.body.lr.ph.i ], [ %ngpr.3.i, %for.inc.i ]
-  %fid.1191.i = phi i32 [ %fid.0.le.i, %for.body.lr.ph.i ], [ %fid.2.i, %for.inc.i ]
-  %tobool52.not.i = icmp eq i32 %fid.1191.i, 0
+  %fid.1205.i = phi i32 [ %fid.0.le.i, %for.body.lr.ph.i ], [ %fid.2.i, %for.inc.i ]
+  %ngpr.1202.i = phi i32 [ %ngpr.0.i, %for.body.lr.ph.i ], [ %ngpr.3.i, %for.inc.i ]
+  %nsp.0199.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %nsp.2.i, %for.inc.i ]
+  %narg.0194.i = phi i32 [ 1, %for.body.lr.ph.i ], [ %inc253.i, %for.inc.i ]
+  %nfpr.0191.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %nfpr.2.i, %for.inc.i ]
+  %tobool52.not.i = icmp eq i32 %fid.1205.i, 0
   br i1 %tobool52.not.i, label %if.else60.i, label %if.then53.i
 
 if.then53.i:                                      ; preds = %for.body.i
   %26 = load ptr, ptr %3, align 8
-  %idxprom.i.i39 = zext nneg i32 %fid.1191.i to i64
+  %idxprom.i.i39 = zext nneg i32 %fid.1205.i to i64
   %arrayidx.i.i40 = getelementptr inbounds %struct.CType, ptr %26, i64 %idxprom.i.i39
   %sib56.i = getelementptr inbounds i8, ptr %arrayidx.i.i40, i64 8
   %27 = load i16, ptr %sib56.i, align 8
@@ -332,8 +332,8 @@ if.end65.i:                                       ; preds = %if.else60.i
 
 if.end67.i:                                       ; preds = %if.end65.i, %if.then53.i
   %30 = phi ptr [ %26, %if.then53.i ], [ %.pre212.i, %if.end65.i ]
-  %fid.2.i = phi i32 [ %conv57.i, %if.then53.i ], [ 0, %if.end65.i ]
   %did.0.i = phi i32 [ %and59.i, %if.then53.i ], [ %call66.i, %if.end65.i ]
+  %fid.2.i = phi i32 [ %conv57.i, %if.then53.i ], [ 0, %if.end65.i ]
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %if.end67.i
@@ -386,14 +386,14 @@ if.then103.i:                                     ; preds = %if.else98.i
   br i1 %tobool109.not.i, label %if.then110.i, label %if.else155.i
 
 if.then110.i:                                     ; preds = %if.then103.i
-  %conv111.i = trunc i32 %nsp.0195.i to i8
+  %conv111.i = trunc i32 %nsp.0199.i to i8
   store i8 %conv111.i, ptr %nsp112.i, align 4
-  %conv113.i = trunc i32 %ngpr.1192.i to i8
+  %conv113.i = trunc i32 %ngpr.1202.i to i8
   store i8 %conv113.i, ptr %ngpr114.i, align 2
-  %conv115.i = trunc nuw i32 %nfpr.0203.i to i8
+  %conv115.i = trunc nuw i32 %nfpr.0191.i to i8
   store i8 %conv115.i, ptr %nfpr116.i, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dp.i.i)
-  %shl.i.i = shl i32 %narg.0198.i, 8
+  %shl.i.i = shl i32 %narg.0194.i, 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %dp.i.i, i8 0, i64 16, i1 false)
   call void @lj_cconv_ct_tv(ptr noundef nonnull %3, ptr noundef nonnull %ct.i.0.i, ptr noundef nonnull %dp.i.i, ptr noundef nonnull %o.0206.i, i32 noundef %shl.i.i) #7
   %33 = load i8, ptr %ngpr114.i, align 2
@@ -506,12 +506,12 @@ if.then141.thread228.i:                           ; preds = %if.end139.i, %if.th
   %sub168224.i = phi i32 [ %sub165.i, %if.then141.thread.i ], [ %sub170.i, %if.end78.i ], [ %43, %if.end139.i ]
   %div136169222.i = phi i32 [ %div136166.i, %if.then141.thread.i ], [ %div136171.i, %if.end78.i ], [ %44, %if.end139.i ]
   %45 = phi i32 [ 1, %if.then141.thread.i ], [ %div136171.i, %if.end78.i ], [ %44, %if.end139.i ]
-  %add146.i = add nuw nsw i32 %45, %nfpr.0203.i
+  %add146.i = add nuw nsw i32 %45, %nfpr.0191.i
   %cmp147.i = icmp ult i32 %add146.i, 9
   br i1 %cmp147.i, label %if.then149.i, label %if.end167.i
 
 if.then149.i:                                     ; preds = %if.then141.thread228.i
-  %idxprom151.i = zext nneg i32 %nfpr.0203.i to i64
+  %idxprom151.i = zext nneg i32 %nfpr.0191.i to i64
   %arrayidx152.i = getelementptr inbounds [8 x %union.FPRArg], ptr %fpr.i, i64 0, i64 %idxprom151.i
   br label %if.end187.i
 
@@ -524,12 +524,12 @@ if.else155.i:                                     ; preds = %if.then103.i
 land.lhs.true.i:                                  ; preds = %if.end139.i, %if.else155.i, %if.end78.i
   %sub156177.i = phi i32 [ %sub151.i, %if.else155.i ], [ %sub170.i, %if.end78.i ], [ 15, %if.end139.i ]
   %div136158176.i = phi i32 [ %div136152.i, %if.else155.i ], [ %div136171.i, %if.end78.i ], [ 1, %if.end139.i ]
-  %add158.i = add i32 %div136158176.i, %ngpr.1192.i
+  %add158.i = add i32 %div136158176.i, %ngpr.1202.i
   %cmp159.i = icmp ult i32 %add158.i, 7
   br i1 %cmp159.i, label %if.then161.i, label %if.end167.i
 
 if.then161.i:                                     ; preds = %land.lhs.true.i
-  %idxprom163.i = zext i32 %ngpr.1192.i to i64
+  %idxprom163.i = zext i32 %ngpr.1202.i to i64
   %arrayidx164.i = getelementptr inbounds [6 x i64], ptr %gpr.i, i64 0, i64 %idxprom163.i
   br label %if.end187.i
 
@@ -542,7 +542,7 @@ if.end167.i:                                      ; preds = %land.lhs.true.i, %i
   %and170.i = and i32 %shr169.i, 15
   %notmask.i = shl nsw i32 -1, %and170.i
   %sub171.i = xor i32 %notmask.i, -1
-  %add175.i = add nsw i32 %nsp.0195.i, %sub171.i
+  %add175.i = add nsw i32 %nsp.0199.i, %sub171.i
   %and176.i = and i32 %add175.i, %notmask.i
   %mul.i = and i32 %sub157.i, -8
   %add179.i = add i32 %and176.i, %mul.i
@@ -561,11 +561,11 @@ if.end183.i:                                      ; preds = %if.end167.i
 if.end187.i:                                      ; preds = %if.end183.i, %if.then161.i, %if.then149.i
   %div136159.i = phi i32 [ %div136169222.i, %if.then149.i ], [ %div136160.i, %if.end183.i ], [ %div136158176.i, %if.then161.i ]
   %cmp223153.i = phi i1 [ %cmp223167226.i, %if.then149.i ], [ %cmp223154.i, %if.end183.i ], [ false, %if.then161.i ]
-  %ngpr.2.i = phi i32 [ %ngpr.1192.i, %if.then149.i ], [ %ngpr.1192.i, %if.end183.i ], [ %add158.i, %if.then161.i ]
-  %nsp.1.i = phi i32 [ %nsp.0195.i, %if.then149.i ], [ %add179.i, %if.end183.i ], [ %nsp.0195.i, %if.then161.i ]
-  %nfpr.1.i = phi i32 [ %add146.i, %if.then149.i ], [ %nfpr.0203.i, %if.end183.i ], [ %nfpr.0203.i, %if.then161.i ]
+  %nfpr.1.i = phi i32 [ %add146.i, %if.then149.i ], [ %nfpr.0191.i, %if.end183.i ], [ %nfpr.0191.i, %if.then161.i ]
+  %nsp.1.i = phi i32 [ %nsp.0199.i, %if.then149.i ], [ %add179.i, %if.end183.i ], [ %nsp.0199.i, %if.then161.i ]
+  %ngpr.2.i = phi i32 [ %ngpr.1202.i, %if.then149.i ], [ %ngpr.1202.i, %if.end183.i ], [ %add158.i, %if.then161.i ]
   %dp51.0.i = phi ptr [ %arrayidx152.i, %if.then149.i ], [ %add.ptr178.i, %if.end183.i ], [ %arrayidx164.i, %if.then161.i ]
-  %shl188.i = shl i32 %narg.0198.i, 8
+  %shl188.i = shl i32 %narg.0194.i, 8
   call void @lj_cconv_ct_tv(ptr noundef nonnull %3, ptr noundef nonnull %ct.i.0.i, ptr noundef nonnull %dp51.0.i, ptr noundef nonnull %o.0206.i, i32 noundef %shl188.i) #7
   %47 = load i32, ptr %ct.i.0.i, align 8
   %and190.i = and i32 %47, -201326592
@@ -637,10 +637,10 @@ if.then235.i:                                     ; preds = %land.lhs.true228.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then235.i, %land.lhs.true228.i, %if.end222.i, %if.end121.i
-  %ngpr.3.i = phi i32 [ %ngpr.2.i, %if.then235.i ], [ %ngpr.2.i, %land.lhs.true228.i ], [ %ngpr.2.i, %if.end222.i ], [ %conv125.i, %if.end121.i ]
-  %nsp.2.i = phi i32 [ %nsp.1.i, %if.then235.i ], [ %nsp.1.i, %land.lhs.true228.i ], [ %nsp.1.i, %if.end222.i ], [ %conv123.i, %if.end121.i ]
   %nfpr.2.i = phi i32 [ %nfpr.1.i, %if.then235.i ], [ %nfpr.1.i, %land.lhs.true228.i ], [ %nfpr.1.i, %if.end222.i ], [ %conv127.i, %if.end121.i ]
-  %inc253.i = add i32 %narg.0198.i, 1
+  %nsp.2.i = phi i32 [ %nsp.1.i, %if.then235.i ], [ %nsp.1.i, %land.lhs.true228.i ], [ %nsp.1.i, %if.end222.i ], [ %conv123.i, %if.end121.i ]
+  %ngpr.3.i = phi i32 [ %ngpr.2.i, %if.then235.i ], [ %ngpr.2.i, %land.lhs.true228.i ], [ %ngpr.2.i, %if.end222.i ], [ %conv125.i, %if.end121.i ]
+  %inc253.i = add i32 %narg.0194.i, 1
   %o.0.i = getelementptr inbounds i8, ptr %o.0206.i, i64 8
   %cmp48.i = icmp ult ptr %o.0.i, %14
   br i1 %cmp48.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !8
@@ -652,9 +652,9 @@ for.end.loopexit.i:                               ; preds = %for.inc.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %while.end.i
-  %fid.1.lcssa.i = phi i32 [ %fid.0.le.i, %while.end.i ], [ %fid.2.i, %for.end.loopexit.i ]
-  %nsp.0.lcssa.i = phi i8 [ 7, %while.end.i ], [ %56, %for.end.loopexit.i ]
   %nfpr.0.lcssa.i = phi i8 [ 0, %while.end.i ], [ %54, %for.end.loopexit.i ]
+  %nsp.0.lcssa.i = phi i8 [ 7, %while.end.i ], [ %56, %for.end.loopexit.i ]
+  %fid.1.lcssa.i = phi i32 [ %fid.0.le.i, %while.end.i ], [ %fid.2.i, %for.end.loopexit.i ]
   %tobool254.not.i = icmp eq i32 %fid.1.lcssa.i, 0
   br i1 %tobool254.not.i, label %ccall_set_args.exit, label %if.then255.i
 

@@ -654,8 +654,8 @@ if.end50:                                         ; preds = %if.end43
   br label %err
 
 err:                                              ; preds = %if.end50, %if.end43, %if.end36, %if.end27, %if.end, %entry, %lor.lhs.false, %lor.lhs.false9, %lor.lhs.false12, %lor.lhs.false15, %lor.lhs.false18
-  %untrcert.0 = phi ptr [ null, %if.end43 ], [ null, %if.end36 ], [ %call1, %if.end27 ], [ %call1, %if.end ], [ %call1, %lor.lhs.false18 ], [ %call1, %lor.lhs.false15 ], [ %call1, %lor.lhs.false12 ], [ %call1, %lor.lhs.false9 ], [ %call1, %lor.lhs.false ], [ %call1, %entry ], [ null, %if.end50 ]
   %trcert.0 = phi ptr [ null, %if.end43 ], [ null, %if.end36 ], [ null, %if.end27 ], [ %call2, %if.end ], [ %call2, %lor.lhs.false18 ], [ %call2, %lor.lhs.false15 ], [ %call2, %lor.lhs.false12 ], [ %call2, %lor.lhs.false9 ], [ %call2, %lor.lhs.false ], [ %call2, %entry ], [ null, %if.end50 ]
+  %untrcert.0 = phi ptr [ null, %if.end43 ], [ null, %if.end36 ], [ %call1, %if.end27 ], [ %call1, %if.end ], [ %call1, %lor.lhs.false18 ], [ %call1, %lor.lhs.false15 ], [ %call1, %lor.lhs.false12 ], [ %call1, %lor.lhs.false9 ], [ %call1, %lor.lhs.false ], [ %call1, %entry ], [ null, %if.end50 ]
   %testresult.0 = phi i32 [ 0, %if.end43 ], [ 0, %if.end36 ], [ 0, %if.end27 ], [ 0, %if.end ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false15 ], [ 0, %lor.lhs.false12 ], [ 0, %lor.lhs.false9 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %if.end50 ]
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %call3) #3
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %call4) #3

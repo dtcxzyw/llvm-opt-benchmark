@@ -1788,7 +1788,7 @@ if.then205:                                       ; preds = %if.end201
 for.body211:                                      ; preds = %for.body211.lr.ph, %if.end238
   %56 = phi ptr [ %.pre178, %for.body211.lr.ph ], [ %65, %if.end238 ]
   %indvars.iv171 = phi i64 [ 0, %for.body211.lr.ph ], [ %indvars.iv.next172, %if.end238 ]
-  %offset.1156 = phi i32 [ %offset.0, %for.body211.lr.ph ], [ %add246, %if.end238 ]
+  %offset.1155 = phi i32 [ %offset.0, %for.body211.lr.ph ], [ %add246, %if.end238 ]
   %arrayidx215 = getelementptr inbounds %"struct.icu_75::Item", ptr %56, i64 %indvars.iv171
   %57 = load ptr, ptr %arrayidx215, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %57 to i64
@@ -1796,7 +1796,7 @@ for.body211:                                      ; preds = %for.body211.lr.ph, 
   %58 = trunc i64 %sub.ptr.sub to i32
   %conv219 = add i32 %add180, %58
   store i32 %conv219, ptr %entry2, align 4
-  store i32 %offset.1156, ptr %dataOffset, align 4
+  store i32 %offset.1155, ptr %dataOffset, align 4
   br i1 %cmp76.not, label %if.end231, label %if.then221
 
 if.then221:                                       ; preds = %for.body211
@@ -1830,7 +1830,7 @@ if.end238:                                        ; preds = %if.end231
   %65 = load ptr, ptr %items213, align 8
   %length242 = getelementptr inbounds %"struct.icu_75::Item", ptr %65, i64 %indvars.iv171, i32 2
   %66 = load i32, ptr %length242, align 8
-  %add246 = add nsw i32 %66, %offset.1156
+  %add246 = add nsw i32 %66, %offset.1155
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %67 = load i32, ptr %itemCount, align 4
   %68 = sext i32 %67 to i64
@@ -1864,9 +1864,9 @@ for.body265.preheader:                            ; preds = %if.end260
   br label %for.body265
 
 for.body265:                                      ; preds = %for.body265.preheader, %for.inc296
-  %i.3159 = phi i32 [ %inc297, %for.inc296 ], [ 0, %for.body265.preheader ]
-  %pItem.0158 = phi ptr [ %incdec.ptr, %for.inc296 ], [ %73, %for.body265.preheader ]
-  %type266 = getelementptr inbounds i8, ptr %pItem.0158, i64 21
+  %pItem.0159 = phi ptr [ %incdec.ptr, %for.inc296 ], [ %73, %for.body265.preheader ]
+  %i.3158 = phi i32 [ %inc297, %for.inc296 ], [ 0, %for.body265.preheader ]
+  %type266 = getelementptr inbounds i8, ptr %pItem.0159, i64 21
   %74 = load i8, ptr %type266, align 1
   %cmp.i131 = icmp eq i8 %74, 108
   %cmp2.i132 = icmp eq i8 %74, 98
@@ -1880,9 +1880,9 @@ for.body265:                                      ; preds = %for.body265.prehead
   br i1 %cmp270.not, label %if.end284, label %if.then271
 
 if.then271:                                       ; preds = %for.body265
-  %data = getelementptr inbounds i8, ptr %pItem.0158, i64 8
+  %data = getelementptr inbounds i8, ptr %pItem.0159, i64 8
   %78 = load ptr, ptr %data, align 8
-  %length274 = getelementptr inbounds i8, ptr %pItem.0158, i64 16
+  %length274 = getelementptr inbounds i8, ptr %pItem.0159, i64 16
   %79 = load i32, ptr %length274, align 8
   %call276 = call i32 @udata_swap(ptr noundef nonnull %77, ptr noundef %78, i32 noundef %79, ptr noundef %78, ptr noundef nonnull %errorCode)
   %80 = load i32, ptr %errorCode, align 4
@@ -1891,7 +1891,7 @@ if.then271:                                       ; preds = %for.body265
 
 if.then279:                                       ; preds = %if.then271
   %81 = load ptr, ptr @stderr, align 8
-  %conv280 = zext nneg i32 %i.3159 to i64
+  %conv280 = zext nneg i32 %i.3158 to i64
   %call281 = call ptr @u_errorName_75(i32 noundef %80)
   %call282 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.27, i64 noundef %conv280, ptr noundef %call281) #24
   %82 = load i32, ptr %errorCode, align 4
@@ -1899,9 +1899,9 @@ if.then279:                                       ; preds = %if.then271
   unreachable
 
 if.end284:                                        ; preds = %if.then271, %for.body265
-  %data285 = getelementptr inbounds i8, ptr %pItem.0158, i64 8
+  %data285 = getelementptr inbounds i8, ptr %pItem.0159, i64 8
   %83 = load ptr, ptr %data285, align 8
-  %length286 = getelementptr inbounds i8, ptr %pItem.0158, i64 16
+  %length286 = getelementptr inbounds i8, ptr %pItem.0159, i64 16
   %84 = load i32, ptr %length286, align 8
   %conv287 = sext i32 %84 to i64
   %call288 = call i64 @fwrite(ptr noundef %83, i64 noundef 1, i64 noundef %conv287, ptr noundef nonnull %call71)
@@ -1912,14 +1912,14 @@ if.end284:                                        ; preds = %if.then271, %for.bo
 
 if.then292:                                       ; preds = %if.end284
   %86 = load ptr, ptr @stderr, align 8
-  %conv293 = zext nneg i32 %i.3159 to i64
+  %conv293 = zext nneg i32 %i.3158 to i64
   %call294 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.28, i64 noundef %conv293, ptr noundef %filename) #24
   call void @exit(i32 noundef 4) #21
   unreachable
 
 for.inc296:                                       ; preds = %if.end284
-  %incdec.ptr = getelementptr inbounds i8, ptr %pItem.0158, i64 24
-  %inc297 = add nuw nsw i32 %i.3159, 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %pItem.0159, i64 24
+  %inc297 = add nuw nsw i32 %i.3158, 1
   %87 = load i32, ptr %itemCount, align 4
   %cmp264 = icmp slt i32 %inc297, %87
   br i1 %cmp264, label %for.body265, label %for.end298, !llvm.loop !11

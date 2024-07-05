@@ -932,8 +932,8 @@ _ZNSt10unique_ptrIN3gmx22StatePropagatorDataGpuESt14default_deleteIS1_EED2Ev.exi
   %.sroa.23.1 = phi ptr [ %.sroa.23.4424442465, %1263 ], [ %38, %.preheader495 ]
   %.sroa.11.1 = phi ptr [ %.sroa.11.4425441466, %1263 ], [ %38, %.preheader495 ]
   %.sroa.0299.7 = phi ptr [ %.sroa.0299.10426440467, %1263 ], [ %36, %.preheader495 ]
-  %.0356 = phi i8 [ %.3359400423443464, %1263 ], [ 0, %.preheader495 ]
-  %.0348 = phi i32 [ %.7355401422444463, %1263 ], [ 0, %.preheader495 ]
+  %.0352 = phi i8 [ %.3355400423443464, %1263 ], [ 0, %.preheader495 ]
+  %.0344 = phi i32 [ %.7351401422444463, %1263 ], [ 0, %.preheader495 ]
   %.0340 = phi i32 [ %.7402421445462, %1263 ], [ 0, %.preheader495 ]
   %.0336 = phi float [ %.3339403420446461, %1263 ], [ 0.000000e+00, %.preheader495 ]
   %.0 = phi float [ %.3404419447460, %1263 ], [ 0.000000e+00, %.preheader495 ]
@@ -945,7 +945,7 @@ _ZNSt10unique_ptrIN3gmx22StatePropagatorDataGpuESt14default_deleteIS1_EED2Ev.exi
   %.sroa.23.2 = phi ptr [ %.sroa.23.1, %228 ], [ %.sroa.23.4, %_ZL22reset_pmeonly_countersP13gmx_wallcycleP23gmx_walltime_accountingP6t_nrnblb.exit ]
   %.sroa.11.2 = phi ptr [ %.sroa.11.1, %228 ], [ %.sroa.11.4, %_ZL22reset_pmeonly_countersP13gmx_wallcycleP23gmx_walltime_accountingP6t_nrnblb.exit ]
   %.sroa.0299.8 = phi ptr [ %.sroa.0299.7, %228 ], [ %.sroa.0299.10, %_ZL22reset_pmeonly_countersP13gmx_wallcycleP23gmx_walltime_accountingP6t_nrnblb.exit ]
-  %.1349 = phi i32 [ %.0348, %228 ], [ %.5353, %_ZL22reset_pmeonly_countersP13gmx_wallcycleP23gmx_walltime_accountingP6t_nrnblb.exit ]
+  %.1345 = phi i32 [ %.0344, %228 ], [ %.5349, %_ZL22reset_pmeonly_countersP13gmx_wallcycleP23gmx_walltime_accountingP6t_nrnblb.exit ]
   %.1341 = phi i32 [ %.0340, %228 ], [ %.5, %_ZL22reset_pmeonly_countersP13gmx_wallcycleP23gmx_walltime_accountingP6t_nrnblb.exit ]
   %.1 = phi ptr [ %.059, %228 ], [ %.2, %_ZL22reset_pmeonly_countersP13gmx_wallcycleP23gmx_walltime_accountingP6t_nrnblb.exit ]
   %230 = load ptr, ptr %22, align 8
@@ -991,9 +991,9 @@ _ZNSt10unique_ptrIN3gmx22StatePropagatorDataGpuESt14default_deleteIS1_EED2Ev.exi
   br label %269
 
 269:                                              ; preds = %.noexc127, %229
-  %.2350 = phi i32 [ %.1349, %229 ], [ %.5353, %.noexc127 ]
-  %.0346 = phi float [ 0.000000e+00, %229 ], [ %.1347, %.noexc127 ]
-  %.0344 = phi float [ 0.000000e+00, %229 ], [ %.1345, %.noexc127 ]
+  %.0360 = phi float [ 0.000000e+00, %229 ], [ %.1361, %.noexc127 ]
+  %.0358 = phi float [ 0.000000e+00, %229 ], [ %.1359, %.noexc127 ]
+  %.2346 = phi i32 [ %.1345, %229 ], [ %.5349, %.noexc127 ]
   %.2342 = phi i32 [ %.1341, %229 ], [ %.5, %.noexc127 ]
   %.0139.i = phi i1 [ false, %229 ], [ %.1140311.i, %.noexc127 ]
   %.0123.i = phi i32 [ 0, %229 ], [ %.6315.i, %.noexc127 ]
@@ -1060,8 +1060,8 @@ _ZNSt10unique_ptrIN3gmx22StatePropagatorDataGpuESt14default_deleteIS1_EED2Ev.exi
   br label %310
 
 310:                                              ; preds = %305, %292
-  %.1347 = phi float [ %.0346, %292 ], [ %308, %305 ]
-  %.1345 = phi float [ %.0344, %292 ], [ %309, %305 ]
+  %.1361 = phi float [ %.0360, %292 ], [ %308, %305 ]
+  %.1359 = phi float [ %.0358, %292 ], [ %309, %305 ]
   %.2.i = phi i32 [ %spec.select.i, %292 ], [ 2, %305 ]
   %311 = and i32 %293, 4096
   %.not159.i.not = icmp eq i32 %311, 0
@@ -2334,7 +2334,7 @@ default.unreachable.i:                            ; preds = %790
   br i1 %.0139.i, label %.thread317.i, label %.noexc123
 
 .thread317.i:                                     ; preds = %.loopexit218.thread.i, %827
-  %.3351 = phi i32 [ %.2350, %827 ], [ %785, %.loopexit218.thread.i ]
+  %.3347 = phi i32 [ %.2346, %827 ], [ %785, %.loopexit218.thread.i ]
   %.3343 = phi i32 [ %.2342, %827 ], [ %784, %.loopexit218.thread.i ]
   %.7136314323.i = phi i32 [ 0, %827 ], [ %.6135.i, %.loopexit218.thread.i ]
   %.6316321.i = phi i32 [ %.0123.i, %827 ], [ %.5.i, %.loopexit218.thread.i ]
@@ -2386,7 +2386,7 @@ default.unreachable.i:                            ; preds = %790
           to label %.noexc123 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc123:                                        ; preds = %.noexc122, %.noexc120, %827
-  %.4352 = phi i32 [ %.3351, %.noexc120 ], [ %.2350, %827 ], [ %.3351, %.noexc122 ]
+  %.4348 = phi i32 [ %.3347, %.noexc120 ], [ %.2346, %827 ], [ %.3347, %.noexc122 ]
   %.4 = phi i32 [ %.3343, %.noexc120 ], [ %.2342, %827 ], [ %.3343, %.noexc122 ]
   %.7136314322.i = phi i32 [ %.7136314323.i, %.noexc120 ], [ 0, %827 ], [ %.7136314323.i, %.noexc122 ]
   %850 = load <8 x float>, ptr %192, align 4
@@ -2469,7 +2469,7 @@ default.unreachable.i:                            ; preds = %790
   br i1 %.not217.i, label %.thread.i, label %863
 
 893:                                              ; preds = %.loopexit218.thread.i, %.loopexit218.i
-  %.5353 = phi i32 [ %.2350, %.loopexit218.i ], [ %785, %.loopexit218.thread.i ]
+  %.5349 = phi i32 [ %.2346, %.loopexit218.i ], [ %785, %.loopexit218.thread.i ]
   %.5 = phi i32 [ %.2342, %.loopexit218.i ], [ %784, %.loopexit218.thread.i ]
   %.6315.i = phi i32 [ %.0123.i, %.loopexit218.i ], [ %.5.i, %.loopexit218.thread.i ]
   %.7136313.i = phi i32 [ 0, %.loopexit218.i ], [ %.6135.i, %.loopexit218.thread.i ]
@@ -2486,8 +2486,8 @@ default.unreachable.i:                            ; preds = %790
   ]
 
 .thread449:                                       ; preds = %.noexc127, %.thread.i
-  %.3359.ph = phi i8 [ %856, %.thread.i ], [ %.0356, %.noexc127 ]
-  %.7355.ph = phi i32 [ %.4352, %.thread.i ], [ %.5353, %.noexc127 ]
+  %.3355.ph = phi i8 [ %856, %.thread.i ], [ %.0352, %.noexc127 ]
+  %.7351.ph = phi i32 [ %.4348, %.thread.i ], [ %.5349, %.noexc127 ]
   %.7.ph = phi i32 [ %.4, %.thread.i ], [ %.5, %.noexc127 ]
   %.3339.ph = phi float [ %853, %.thread.i ], [ %.0336, %.noexc127 ]
   %.3.ph = phi float [ %852, %.thread.i ], [ %.0, %.noexc127 ]
@@ -2516,7 +2516,7 @@ default.unreachable.i:                            ; preds = %790
 
 902:                                              ; preds = %.noexc134
   %903 = load ptr, ptr %.sroa.022.027.i, align 8
-  invoke void @_Z14gmx_pme_reinitPP9gmx_pme_tPK9t_commrecS0_PK10t_inputrecPKiff(ptr noundef nonnull %14, ptr noundef %1, ptr noundef %903, ptr noundef %5, ptr noundef nonnull %25, float noundef %.1347, float noundef %.1345)
+  invoke void @_Z14gmx_pme_reinitPP9gmx_pme_tPK9t_commrecS0_PK10t_inputrecPKiff(ptr noundef nonnull %14, ptr noundef %1, ptr noundef %903, ptr noundef %5, ptr noundef nonnull %25, float noundef %.1361, float noundef %.1359)
           to label %.noexc135 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc135:                                        ; preds = %902
@@ -2538,7 +2538,7 @@ default.unreachable.i:                            ; preds = %790
   %908 = getelementptr inbounds i8, ptr %.sroa.11.2, i64 -8
   store ptr null, ptr %15, align 8
   %909 = load ptr, ptr %908, align 8
-  invoke void @_Z14gmx_pme_reinitPP9gmx_pme_tPK9t_commrecS0_PK10t_inputrecPKiff(ptr noundef nonnull %15, ptr noundef %1, ptr noundef %909, ptr noundef %5, ptr noundef nonnull %25, float noundef %.1347, float noundef %.1345)
+  invoke void @_Z14gmx_pme_reinitPP9gmx_pme_tPK9t_commrecS0_PK10t_inputrecPKiff(ptr noundef nonnull %15, ptr noundef %1, ptr noundef %909, ptr noundef %5, ptr noundef nonnull %25, float noundef %.1361, float noundef %.1359)
           to label %.noexc137 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc137:                                        ; preds = %._crit_edge.i132
@@ -2762,8 +2762,8 @@ _ZL22reset_pmeonly_countersP13gmx_wallcycleP23gmx_walltime_accountingP6t_nrnblb.
   %.sroa.0299.10426440467 = phi ptr [ %.sroa.0299.8, %.thread449 ], [ %.sroa.0299.10, %987 ]
   %.sroa.11.4425441466 = phi ptr [ %.sroa.11.2, %.thread449 ], [ %.sroa.11.4, %987 ]
   %.sroa.23.4424442465 = phi ptr [ %.sroa.23.2, %.thread449 ], [ %.sroa.23.4, %987 ]
-  %.3359400423443464 = phi i8 [ %.3359.ph, %.thread449 ], [ %.0356, %987 ]
-  %.7355401422444463 = phi i32 [ %.7355.ph, %.thread449 ], [ %.5353, %987 ]
+  %.3355400423443464 = phi i8 [ %.3355.ph, %.thread449 ], [ %.0352, %987 ]
+  %.7351401422444463 = phi i32 [ %.7351.ph, %.thread449 ], [ %.5349, %987 ]
   %.7402421445462 = phi i32 [ %.7.ph, %.thread449 ], [ %.5, %987 ]
   %.3339403420446461 = phi float [ %.3339.ph, %.thread449 ], [ %.0336, %987 ]
   %.3404419447460 = phi float [ %.3.ph, %.thread449 ], [ %.0, %987 ]
@@ -2850,7 +2850,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1007, %.n
 
 _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit149: ; preds = %1026, %1022, %.noexc148, %1010
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %26, i8 0, i64 20, i1 false)
-  %1040 = and i8 %.3359400423443464, 1
+  %1040 = and i8 %.3355400423443464, 1
   store i8 %1040, ptr %200, align 1
   store i8 %1040, ptr %201, align 1
   store i8 1, ptr %202, align 1
@@ -2962,7 +2962,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit149: ; preds = %1026, 
   %1121 = sub i64 %1119, %1120
   %1122 = getelementptr inbounds i8, ptr %1116, i64 %1121
   store ptr %1122, ptr %208, align 8
-  %1123 = invoke noundef i32 @_Z10gmx_pme_doP9gmx_pme_tN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEENS2_IS4_EENS2_IKfEES9_S9_S9_S9_S9_PA3_S8_PK9t_commreciiP6t_nrnbP13gmx_wallcyclePA3_fSK_PfSL_ffSL_SL_RKNS1_12StepWorkloadE(ptr noundef %.2427439468, ptr %1060, ptr %1066, ptr %1068, ptr %1074, ptr noundef nonnull byval(%"class.gmx::ArrayRef.195") align 8 %28, ptr noundef nonnull byval(%"class.gmx::ArrayRef.195") align 8 %29, ptr noundef nonnull byval(%"class.gmx::ArrayRef.195") align 8 %30, ptr noundef nonnull byval(%"class.gmx::ArrayRef.195") align 8 %31, ptr noundef nonnull byval(%"class.gmx::ArrayRef.195") align 8 %32, ptr noundef nonnull byval(%"class.gmx::ArrayRef.195") align 8 %33, ptr noundef nonnull %21, ptr noundef %1, i32 noundef %.7402421445462, i32 noundef %.7355401422444463, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %209, ptr noundef nonnull %210, ptr noundef nonnull %211, ptr noundef nonnull %212, float noundef %.3404419447460, float noundef %.3339403420446461, ptr noundef nonnull %213, ptr noundef nonnull %214, ptr noundef nonnull align 1 dereferenceable(20) %26)
+  %1123 = invoke noundef i32 @_Z10gmx_pme_doP9gmx_pme_tN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEENS2_IS4_EENS2_IKfEES9_S9_S9_S9_S9_PA3_S8_PK9t_commreciiP6t_nrnbP13gmx_wallcyclePA3_fSK_PfSL_ffSL_SL_RKNS1_12StepWorkloadE(ptr noundef %.2427439468, ptr %1060, ptr %1066, ptr %1068, ptr %1074, ptr noundef nonnull byval(%"class.gmx::ArrayRef.195") align 8 %28, ptr noundef nonnull byval(%"class.gmx::ArrayRef.195") align 8 %29, ptr noundef nonnull byval(%"class.gmx::ArrayRef.195") align 8 %30, ptr noundef nonnull byval(%"class.gmx::ArrayRef.195") align 8 %31, ptr noundef nonnull byval(%"class.gmx::ArrayRef.195") align 8 %32, ptr noundef nonnull byval(%"class.gmx::ArrayRef.195") align 8 %33, ptr noundef nonnull %21, ptr noundef %1, i32 noundef %.7402421445462, i32 noundef %.7351401422444463, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %209, ptr noundef nonnull %210, ptr noundef nonnull %211, ptr noundef nonnull %212, float noundef %.3404419447460, float noundef %.3339403420446461, ptr noundef nonnull %213, ptr noundef nonnull %214, ptr noundef nonnull align 1 dereferenceable(20) %26)
           to label %1124 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1124:                                             ; preds = %1058

@@ -659,7 +659,7 @@ for.body20.preheader.i:                           ; preds = %for.cond.i
 
 for.body20.i:                                     ; preds = %send_batch.exit.i, %for.body20.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %for.body20.preheader.i ], [ %indvars.iv.next36.i, %send_batch.exit.i ]
-  %batch_beginning.033.i = phi i64 [ 0, %for.body20.preheader.i ], [ %add.i, %send_batch.exit.i ]
+  %batch_beginning.032.i = phi i64 [ 0, %for.body20.preheader.i ], [ %add.i, %send_batch.exit.i ]
   %arrayidx22.i = getelementptr inbounds %struct.pc_worker, ptr %call1.i, i64 %indvars.iv35.i
   %cmp23.i = icmp ult i64 %indvars.iv35.i, %rem.i
   %inc26.i = zext i1 %cmp23.i to i64
@@ -674,7 +674,7 @@ for.body.i.i:                                     ; preds = %for.body20.i, %send
   %i.05.i.i = phi i64 [ %inc.i.i11, %send_one_item.exit.i.i ], [ 0, %for.body20.i ]
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 8), align 8
   %13 = getelementptr %struct.parallel_checkout_item, ptr %12, i64 %i.05.i.i
-  %arrayidx.i.i = getelementptr %struct.parallel_checkout_item, ptr %13, i64 %batch_beginning.033.i
+  %arrayidx.i.i = getelementptr %struct.parallel_checkout_item, ptr %13, i64 %batch_beginning.032.i
   %working_tree_encoding1.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
   %14 = load ptr, ptr %working_tree_encoding1.i.i.i, align 8
   %15 = load ptr, ptr %arrayidx.i.i, align 8
@@ -767,10 +767,10 @@ send_batch.exit.i:                                ; preds = %send_one_item.exit.
   tail call void @packet_flush(i32 noundef %11) #16
   %call1.i.i = tail call i32 @sigchain_pop(i32 noundef 13) #16
   %next_item_to_complete.i = getelementptr inbounds i8, ptr %arrayidx22.i, i64 120
-  store i64 %batch_beginning.033.i, ptr %next_item_to_complete.i, align 8
+  store i64 %batch_beginning.032.i, ptr %next_item_to_complete.i, align 8
   %nr_items_to_complete.i = getelementptr inbounds i8, ptr %arrayidx22.i, i64 128
   store i64 %spec.select.i, ptr %nr_items_to_complete.i, align 8
-  %add.i = add i64 %spec.select.i, %batch_beginning.033.i
+  %add.i = add i64 %spec.select.i, %batch_beginning.032.i
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %conv.i
   br i1 %exitcond39.not.i, label %setup_workers.exit, label %for.body20.i, !llvm.loop !9
@@ -821,8 +821,8 @@ if.end.i13:                                       ; preds = %if.then.i30
 
 for.body20.i20:                                   ; preds = %for.cond15.preheader.i, %for.inc61.i
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %for.inc61.i ], [ 0, %for.cond15.preheader.i ]
-  %nr.050.i = phi i32 [ %nr.1.i, %for.inc61.i ], [ %call7.i19, %for.cond15.preheader.i ]
   %active_workers.149.i = phi i32 [ %active_workers.3.i, %for.inc61.i ], [ %active_workers.0.ph52.i, %for.cond15.preheader.i ]
+  %nr.048.i = phi i32 [ %nr.1.i, %for.inc61.i ], [ %call7.i19, %for.cond15.preheader.i ]
   %arrayidx22.i21 = getelementptr inbounds %struct.pc_worker, ptr %call1.i, i64 %indvars.iv62.i
   %arrayidx24.i = getelementptr inbounds %struct.pollfd, ptr %call.i, i64 %indvars.iv62.i
   %revents.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 6
@@ -962,12 +962,12 @@ if.then56.i:                                      ; preds = %if.else51.i
 
 if.end59.i:                                       ; preds = %if.else51.i, %if.then48.i, %if.then.i20.i.i, %if.then27.i.i, %if.end23.i.i, %if.then38.i
   %active_workers.2.i = phi i32 [ %dec.i, %if.then38.i ], [ %dec50.i, %if.then48.i ], [ %active_workers.149.i, %if.else51.i ], [ %active_workers.149.i, %if.end23.i.i ], [ %active_workers.149.i, %if.then27.i.i ], [ %active_workers.149.i, %if.then.i20.i.i ]
-  %dec60.i = add nsw i32 %nr.050.i, -1
+  %dec60.i = add nsw i32 %nr.048.i, -1
   br label %for.inc61.i
 
 for.inc61.i:                                      ; preds = %if.end59.i, %for.body20.i20
+  %nr.1.i = phi i32 [ %dec60.i, %if.end59.i ], [ %nr.048.i, %for.body20.i20 ]
   %active_workers.3.i = phi i32 [ %active_workers.2.i, %if.end59.i ], [ %active_workers.149.i, %for.body20.i20 ]
-  %nr.1.i = phi i32 [ %dec60.i, %if.end59.i ], [ %nr.050.i, %for.body20.i20 ]
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %cmp16.i = icmp ult i64 %indvars.iv.next63.i, %conv.i
   %cmp18.i = icmp sgt i32 %nr.1.i, 0
@@ -1043,9 +1043,9 @@ for.cond2.preheader.i:                            ; preds = %for.inc.i49
 
 for.body4.outer.i:                                ; preds = %for.cond2.preheader.i, %for.inc17.thread.i
   %47 = phi i64 [ %55, %for.inc17.thread.i ], [ %53, %for.cond2.preheader.i ]
-  %48 = phi i1 [ false, %for.inc17.thread.i ], [ true, %for.cond2.preheader.i ]
+  %ret.022.ph.i = phi i32 [ -1, %for.inc17.thread.i ], [ 0, %for.cond2.preheader.i ]
   %i.121.ph.i = phi i64 [ %inc1832.i, %for.inc17.thread.i ], [ 0, %for.cond2.preheader.i ]
-  %ret.020.ph.i = phi i32 [ -1, %for.inc17.thread.i ], [ 0, %for.cond2.preheader.i ]
+  %48 = phi i1 [ false, %for.inc17.thread.i ], [ true, %for.cond2.preheader.i ]
   br label %for.body4.i
 
 for.body.i46:                                     ; preds = %for.inc.i49, %for.body.preheader.i45
@@ -1075,8 +1075,8 @@ for.inc.i49:                                      ; preds = %if.then.i58, %for.b
 
 for.body4.i:                                      ; preds = %for.inc17.i, %for.body4.outer.i
   %55 = phi i64 [ %65, %for.inc17.i ], [ %47, %for.body4.outer.i ]
+  %ret.022.i = phi i32 [ %ret.1.i, %for.inc17.i ], [ %ret.022.ph.i, %for.body4.outer.i ]
   %i.121.i = phi i64 [ %inc18.i, %for.inc17.i ], [ %i.121.ph.i, %for.body4.outer.i ]
-  %ret.020.i = phi i32 [ %ret.1.i, %for.inc17.i ], [ %ret.020.ph.i, %for.body4.outer.i ]
   %56 = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 8), align 8
   %arrayidx6.i = getelementptr inbounds %struct.parallel_checkout_item, ptr %56, i64 %i.121.i
   %status7.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 56
@@ -1106,7 +1106,7 @@ sw.bb12.i:                                        ; preds = %for.body4.i
   %checkout_counter14.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 48
   %61 = load ptr, ptr %checkout_counter14.i, align 8
   %call.i52 = tail call i32 @checkout_entry_ca(ptr noundef %60, ptr noundef nonnull %ca.i, ptr noundef %state, ptr noundef null, ptr noundef %61) #16
-  %or.i = or i32 %call.i52, %ret.020.i
+  %or.i = or i32 %call.i52, %ret.022.i
   %62 = load ptr, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 32), align 8
   %tobool.not.i.i53 = icmp eq ptr %62, null
   br i1 %tobool.not.i.i53, label %for.inc17.i, label %if.then.i.i54
@@ -1125,7 +1125,7 @@ sw.default.i:                                     ; preds = %for.body4.i
   unreachable
 
 for.inc17.i:                                      ; preds = %if.then.i.i54, %sw.bb12.i, %if.then8.i, %sw.bb.i, %for.body4.i
-  %ret.1.i = phi i32 [ %ret.020.i, %if.then8.i ], [ %ret.020.i, %sw.bb.i ], [ -1, %for.body4.i ], [ %or.i, %sw.bb12.i ], [ %or.i, %if.then.i.i54 ]
+  %ret.1.i = phi i32 [ %ret.022.i, %if.then8.i ], [ %ret.022.i, %sw.bb.i ], [ -1, %for.body4.i ], [ %or.i, %sw.bb12.i ], [ %or.i, %if.then.i.i54 ]
   %inc18.i = add nuw i64 %i.121.i, 1
   %65 = load i64, ptr getelementptr inbounds (i8, ptr @parallel_checkout, i64 16), align 8
   %cmp3.i = icmp ult i64 %inc18.i, %65
@@ -1140,12 +1140,12 @@ for.end19.i:                                      ; preds = %for.inc17.i
   br i1 %48, label %handle_results.exit, label %if.then21.i
 
 if.then21.i:                                      ; preds = %for.inc17.thread.i, %for.end19.i
-  %ret.13439.i = phi i32 [ %ret.1.i, %for.end19.i ], [ -1, %for.inc17.thread.i ]
+  %ret.13539.i = phi i32 [ %ret.1.i, %for.end19.i ], [ -1, %for.inc17.thread.i ]
   %call22.i = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32) #16
   br label %handle_results.exit
 
 handle_results.exit:                              ; preds = %if.then11, %if.end12, %for.cond2.preheader.i, %for.end19.i, %if.then21.i
-  %ret.0.lcssa29.i = phi i32 [ %ret.13439.i, %if.then21.i ], [ %ret.1.i, %for.end19.i ], [ 0, %for.cond2.preheader.i ], [ 0, %if.end12 ], [ 0, %if.then11 ]
+  %ret.0.lcssa29.i = phi i32 [ %ret.13539.i, %if.then21.i ], [ %ret.1.i, %for.end19.i ], [ 0, %for.cond2.preheader.i ], [ 0, %if.end12 ], [ 0, %if.then11 ]
   %66 = load i32, ptr @parallel_checkout, align 8
   %cmp.i59 = icmp eq i32 %66, 0
   br i1 %cmp.i59, label %if.then.i61, label %finish_parallel_checkout.exit

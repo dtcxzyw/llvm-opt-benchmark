@@ -631,9 +631,9 @@ invoke.cont165:                                   ; preds = %if.end164
   br label %do.body
 
 do.body:                                          ; preds = %do.cond586, %invoke.cont165
-  %infoffset.0 = phi i32 [ 0, %invoke.cont165 ], [ %add, %do.cond586 ]
   %outfoffset.0 = phi i32 [ 0, %invoke.cont165 ], [ %outfoffset.3, %do.cond586 ]
   %rd.0 = phi i64 [ 0, %invoke.cont165 ], [ %call167, %do.cond586 ]
+  %infoffset.0 = phi i32 [ 0, %invoke.cont165 ], [ %add, %do.cond586 ]
   %sig.0 = phi i8 [ %46, %invoke.cont165 ], [ %sig.4, %do.cond586 ]
   %conv = trunc i64 %rd.0 to i32
   %add = add i32 %infoffset.0, %conv
@@ -1983,19 +1983,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %printTranslits.0861 = phi i8 [ 0, %for.body.lr.ph ], [ %printTranslits.1, %for.inc ]
   %printCanon.0860 = phi i8 [ 0, %for.body.lr.ph ], [ %printCanon.1, %for.inc ]
   %printConvs.0859 = phi i8 [ 0, %for.body.lr.ph ], [ %printConvs.1, %for.inc ]
-  %remainArgvLimit.0.idx858 = phi i64 [ 8, %for.body.lr.ph ], [ %remainArgvLimit.1.idx, %for.inc ]
-  %iter.0857 = phi ptr [ %add.ptr10.ptr, %for.body.lr.ph ], [ %incdec.ptr326, %for.inc ]
-  %touctxt.0856 = phi ptr [ null, %for.body.lr.ph ], [ %touctxt.1, %for.inc ]
-  %toucallback.0855 = phi ptr [ @UCNV_TO_U_CALLBACK_STOP_75, %for.body.lr.ph ], [ %toucallback.1, %for.inc ]
-  %fromuctxt.0854 = phi ptr [ null, %for.body.lr.ph ], [ %fromuctxt.1, %for.inc ]
-  %fromucallback.0853 = phi ptr [ @UCNV_FROM_U_CALLBACK_STOP_75, %for.body.lr.ph ], [ %fromucallback.1, %for.inc ]
-  %fallback.0852 = phi i8 [ 0, %for.body.lr.ph ], [ %fallback.1, %for.inc ]
-  %outfilestr.0851 = phi ptr [ null, %for.body.lr.ph ], [ %outfilestr.1, %for.inc ]
-  %translit.0850 = phi ptr [ null, %for.body.lr.ph ], [ %translit.1, %for.inc ]
-  %tocpage.0849 = phi ptr [ null, %for.body.lr.ph ], [ %tocpage.1, %for.inc ]
-  %fromcpage.0848 = phi ptr [ null, %for.body.lr.ph ], [ %fromcpage.1, %for.inc ]
-  %bufsz.0847 = phi i64 [ 4096, %for.body.lr.ph ], [ %bufsz.1, %for.inc ]
-  %4 = load ptr, ptr %iter.0857, align 8
+  %bufsz.0858 = phi i64 [ 4096, %for.body.lr.ph ], [ %bufsz.1, %for.inc ]
+  %remainArgvLimit.0.idx857 = phi i64 [ 8, %for.body.lr.ph ], [ %remainArgvLimit.1.idx, %for.inc ]
+  %fromcpage.0856 = phi ptr [ null, %for.body.lr.ph ], [ %fromcpage.1, %for.inc ]
+  %iter.0855 = phi ptr [ %add.ptr10.ptr, %for.body.lr.ph ], [ %incdec.ptr326, %for.inc ]
+  %touctxt.0854 = phi ptr [ null, %for.body.lr.ph ], [ %touctxt.1, %for.inc ]
+  %toucallback.0853 = phi ptr [ @UCNV_TO_U_CALLBACK_STOP_75, %for.body.lr.ph ], [ %toucallback.1, %for.inc ]
+  %fromuctxt.0852 = phi ptr [ null, %for.body.lr.ph ], [ %fromuctxt.1, %for.inc ]
+  %fromucallback.0851 = phi ptr [ @UCNV_FROM_U_CALLBACK_STOP_75, %for.body.lr.ph ], [ %fromucallback.1, %for.inc ]
+  %fallback.0850 = phi i8 [ 0, %for.body.lr.ph ], [ %fallback.1, %for.inc ]
+  %outfilestr.0849 = phi ptr [ null, %for.body.lr.ph ], [ %outfilestr.1, %for.inc ]
+  %translit.0848 = phi ptr [ null, %for.body.lr.ph ], [ %translit.1, %for.inc ]
+  %tocpage.0847 = phi ptr [ null, %for.body.lr.ph ], [ %tocpage.1, %for.inc ]
+  %4 = load ptr, ptr %iter.0855, align 8
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
   %7 = sub nsw i32 45, %6
@@ -2028,7 +2028,7 @@ lor.lhs.false:                                    ; preds = %for.body.tail
   br i1 %tobool15.not, label %if.then16, label %sub_0275
 
 if.then16:                                        ; preds = %lor.lhs.false, %for.body.tail
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %iter.0857, i64 8
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %iter.0855, i64 8
   %cmp18.not = icmp eq ptr %incdec.ptr17, %add.ptr
   br i1 %cmp18.not, label %if.then298.invoke, label %if.then19
 
@@ -2065,7 +2065,7 @@ lor.lhs.false26:                                  ; preds = %if.else23.tail
   br i1 %tobool28.not, label %if.then29, label %sub_0279
 
 if.then29:                                        ; preds = %lor.lhs.false26, %if.else23.tail
-  %incdec.ptr30 = getelementptr inbounds i8, ptr %iter.0857, i64 8
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %iter.0855, i64 8
   %cmp31.not = icmp eq ptr %incdec.ptr30, %add.ptr
   br i1 %cmp31.not, label %if.then298.invoke, label %if.then32
 
@@ -2097,7 +2097,7 @@ if.else36.tail:                                   ; preds = %sub_0279, %sub_1280
   br i1 %cmp38, label %if.then39, label %if.else46
 
 if.then39:                                        ; preds = %if.else36.tail
-  %incdec.ptr40 = getelementptr inbounds i8, ptr %iter.0857, i64 8
+  %incdec.ptr40 = getelementptr inbounds i8, ptr %iter.0855, i64 8
   %cmp41.not = icmp eq ptr %incdec.ptr40, %add.ptr
   br i1 %cmp41.not, label %if.then298.invoke, label %if.then42
 
@@ -2144,7 +2144,7 @@ lor.lhs.false57:                                  ; preds = %if.else54.tail
   br i1 %tobool59.not, label %if.then60, label %sub_0287
 
 if.then60:                                        ; preds = %lor.lhs.false57, %if.else54.tail
-  %incdec.ptr61 = getelementptr inbounds i8, ptr %iter.0857, i64 8
+  %incdec.ptr61 = getelementptr inbounds i8, ptr %iter.0855, i64 8
   %cmp62.not = icmp eq ptr %incdec.ptr61, %add.ptr
   br i1 %cmp62.not, label %if.then298.invoke, label %if.then63
 
@@ -2242,7 +2242,7 @@ if.then104:                                       ; preds = %if.else101
   br i1 %tobool105.not, label %if.end108, label %if.then298.invoke
 
 if.end108:                                        ; preds = %if.then104
-  %incdec.ptr109 = getelementptr inbounds i8, ptr %iter.0857, i64 8
+  %incdec.ptr109 = getelementptr inbounds i8, ptr %iter.0855, i64 8
   %cmp110.not = icmp eq ptr %incdec.ptr109, %add.ptr
   br i1 %cmp110.not, label %if.then298.invoke, label %if.then111
 
@@ -2404,7 +2404,7 @@ if.else162:                                       ; preds = %if.else158.tail
   br i1 %tobool164.not, label %if.then165, label %if.else187
 
 if.then165:                                       ; preds = %if.else162
-  %incdec.ptr166 = getelementptr inbounds i8, ptr %iter.0857, i64 8
+  %incdec.ptr166 = getelementptr inbounds i8, ptr %iter.0855, i64 8
   %cmp167.not = icmp eq ptr %incdec.ptr166, %add.ptr
   br i1 %cmp167.not, label %if.then298.invoke, label %if.then168
 
@@ -2469,7 +2469,7 @@ if.else187:                                       ; preds = %if.else162
   br i1 %tobool189.not, label %if.then190, label %sub_0307
 
 if.then190:                                       ; preds = %if.else187
-  %incdec.ptr191 = getelementptr inbounds i8, ptr %iter.0857, i64 8
+  %incdec.ptr191 = getelementptr inbounds i8, ptr %iter.0855, i64 8
   %cmp192.not = icmp eq ptr %incdec.ptr191, %add.ptr
   br i1 %cmp192.not, label %if.then298.invoke, label %if.then193
 
@@ -2557,7 +2557,7 @@ if.else217:                                       ; preds = %if.else213.tail
   br i1 %tobool219.not, label %if.then220, label %sub_0311
 
 if.then220:                                       ; preds = %if.else217
-  %incdec.ptr221 = getelementptr inbounds i8, ptr %iter.0857, i64 8
+  %incdec.ptr221 = getelementptr inbounds i8, ptr %iter.0855, i64 8
   %cmp222.not = icmp eq ptr %incdec.ptr221, %add.ptr
   br i1 %cmp222.not, label %if.then298.invoke, label %if.then223
 
@@ -2737,9 +2737,9 @@ lor.lhs.false272:                                 ; preds = %if.else269.tail
   br i1 %tobool274.not, label %if.then275, label %if.else283
 
 if.then275:                                       ; preds = %lor.lhs.false272, %if.else269.tail
-  %incdec.ptr276 = getelementptr inbounds i8, ptr %iter.0857, i64 8
+  %incdec.ptr276 = getelementptr inbounds i8, ptr %iter.0855, i64 8
   %cmp277 = icmp eq ptr %incdec.ptr276, %add.ptr
-  %tobool278 = icmp ne ptr %outfilestr.0851, null
+  %tobool278 = icmp ne ptr %outfilestr.0849, null
   %or.cond1 = select i1 %cmp277, i1 true, i1 %tobool278
   br i1 %or.cond1, label %if.then298.invoke, label %if.then279
 
@@ -2783,23 +2783,23 @@ if.then298.cont:                                  ; preds = %if.then298.invoke
   unreachable
 
 if.else300:                                       ; preds = %land.lhs.true295, %if.else292
-  %remainArgvLimit.0.add = add nsw i64 %remainArgvLimit.0.idx858, 8
+  %remainArgvLimit.0.add = add nsw i64 %remainArgvLimit.0.idx857, 8
   store ptr %4, ptr %remainArgvLimit.0.ptr864, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else253.tail, %lor.lhs.false256, %if.else246.tail, %lor.lhs.false249, %if.else213.tail, %if.else158.tail, %if.then142, %if.else132, %if.end98, %if.then86, %if.else50, %if.else46, %if.then19, %if.then42, %invoke.cont112, %if.then198, %if.then228, %if.then279, %if.then290, %if.else300, %if.then286, %if.then172, %if.then63, %if.then32
-  %bufsz.1 = phi i64 [ %bufsz.0847, %if.then19 ], [ %bufsz.0847, %if.then32 ], [ %bufsz.0847, %if.then42 ], [ %conv, %if.then63 ], [ %bufsz.0847, %invoke.cont112 ], [ %bufsz.0847, %if.then286 ], [ %bufsz.0847, %if.then290 ], [ %bufsz.0847, %if.else300 ], [ %bufsz.0847, %if.then279 ], [ %bufsz.0847, %if.then228 ], [ %bufsz.0847, %if.then198 ], [ %bufsz.0847, %if.then172 ], [ %bufsz.0847, %if.else46 ], [ %bufsz.0847, %if.else50 ], [ %bufsz.0847, %if.then86 ], [ %bufsz.0847, %if.end98 ], [ %bufsz.0847, %if.else132 ], [ %bufsz.0847, %if.then142 ], [ %bufsz.0847, %if.else158.tail ], [ %bufsz.0847, %if.else213.tail ], [ %bufsz.0847, %lor.lhs.false249 ], [ %bufsz.0847, %if.else246.tail ], [ %bufsz.0847, %lor.lhs.false256 ], [ %bufsz.0847, %if.else253.tail ]
-  %fromcpage.1 = phi ptr [ %17, %if.then19 ], [ %fromcpage.0848, %if.then32 ], [ %fromcpage.0848, %if.then42 ], [ %fromcpage.0848, %if.then63 ], [ %fromcpage.0848, %invoke.cont112 ], [ %fromcpage.0848, %if.then286 ], [ %fromcpage.0848, %if.then290 ], [ %fromcpage.0848, %if.else300 ], [ %fromcpage.0848, %if.then279 ], [ %fromcpage.0848, %if.then228 ], [ %fromcpage.0848, %if.then198 ], [ %fromcpage.0848, %if.then172 ], [ %fromcpage.0848, %if.else46 ], [ %fromcpage.0848, %if.else50 ], [ %fromcpage.0848, %if.then86 ], [ %fromcpage.0848, %if.end98 ], [ %fromcpage.0848, %if.else132 ], [ %fromcpage.0848, %if.then142 ], [ %fromcpage.0848, %if.else158.tail ], [ %fromcpage.0848, %if.else213.tail ], [ %fromcpage.0848, %lor.lhs.false249 ], [ %fromcpage.0848, %if.else246.tail ], [ %fromcpage.0848, %lor.lhs.false256 ], [ %fromcpage.0848, %if.else253.tail ]
-  %tocpage.1 = phi ptr [ %tocpage.0849, %if.then19 ], [ %27, %if.then32 ], [ %tocpage.0849, %if.then42 ], [ %tocpage.0849, %if.then63 ], [ %tocpage.0849, %invoke.cont112 ], [ %tocpage.0849, %if.then286 ], [ %tocpage.0849, %if.then290 ], [ %tocpage.0849, %if.else300 ], [ %tocpage.0849, %if.then279 ], [ %tocpage.0849, %if.then228 ], [ %tocpage.0849, %if.then198 ], [ %tocpage.0849, %if.then172 ], [ %tocpage.0849, %if.else46 ], [ %tocpage.0849, %if.else50 ], [ %tocpage.0849, %if.then86 ], [ %tocpage.0849, %if.end98 ], [ %tocpage.0849, %if.else132 ], [ %tocpage.0849, %if.then142 ], [ %tocpage.0849, %if.else158.tail ], [ %tocpage.0849, %if.else213.tail ], [ %tocpage.0849, %lor.lhs.false249 ], [ %tocpage.0849, %if.else246.tail ], [ %tocpage.0849, %lor.lhs.false256 ], [ %tocpage.0849, %if.else253.tail ]
-  %translit.1 = phi ptr [ %translit.0850, %if.then19 ], [ %translit.0850, %if.then32 ], [ %37, %if.then42 ], [ %translit.0850, %if.then63 ], [ %translit.0850, %invoke.cont112 ], [ %translit.0850, %if.then286 ], [ %translit.0850, %if.then290 ], [ %translit.0850, %if.else300 ], [ %translit.0850, %if.then279 ], [ %translit.0850, %if.then228 ], [ %translit.0850, %if.then198 ], [ %translit.0850, %if.then172 ], [ %translit.0850, %if.else46 ], [ %translit.0850, %if.else50 ], [ %translit.0850, %if.then86 ], [ %translit.0850, %if.end98 ], [ %translit.0850, %if.else132 ], [ %translit.0850, %if.then142 ], [ %translit.0850, %if.else158.tail ], [ %translit.0850, %if.else213.tail ], [ %translit.0850, %lor.lhs.false249 ], [ %translit.0850, %if.else246.tail ], [ %translit.0850, %lor.lhs.false256 ], [ %translit.0850, %if.else253.tail ]
-  %outfilestr.1 = phi ptr [ %outfilestr.0851, %if.then19 ], [ %outfilestr.0851, %if.then32 ], [ %outfilestr.0851, %if.then42 ], [ %outfilestr.0851, %if.then63 ], [ %outfilestr.0851, %invoke.cont112 ], [ %outfilestr.0851, %if.then286 ], [ %outfilestr.0851, %if.then290 ], [ %outfilestr.0851, %if.else300 ], [ %169, %if.then279 ], [ %outfilestr.0851, %if.then228 ], [ %outfilestr.0851, %if.then198 ], [ %outfilestr.0851, %if.then172 ], [ %outfilestr.0851, %if.else46 ], [ %outfilestr.0851, %if.else50 ], [ %outfilestr.0851, %if.then86 ], [ %outfilestr.0851, %if.end98 ], [ %outfilestr.0851, %if.else132 ], [ %outfilestr.0851, %if.then142 ], [ %outfilestr.0851, %if.else158.tail ], [ %outfilestr.0851, %if.else213.tail ], [ %outfilestr.0851, %lor.lhs.false249 ], [ %outfilestr.0851, %if.else246.tail ], [ %outfilestr.0851, %lor.lhs.false256 ], [ %outfilestr.0851, %if.else253.tail ]
-  %fallback.1 = phi i8 [ %fallback.0852, %if.then19 ], [ %fallback.0852, %if.then32 ], [ %fallback.0852, %if.then42 ], [ %fallback.0852, %if.then63 ], [ %fallback.0852, %invoke.cont112 ], [ %fallback.0852, %if.then286 ], [ %fallback.0852, %if.then290 ], [ %fallback.0852, %if.else300 ], [ %fallback.0852, %if.then279 ], [ %fallback.0852, %if.then228 ], [ %fallback.0852, %if.then198 ], [ %fallback.0852, %if.then172 ], [ 1, %if.else46 ], [ 0, %if.else50 ], [ %fallback.0852, %if.then86 ], [ %fallback.0852, %if.end98 ], [ %fallback.0852, %if.else132 ], [ %fallback.0852, %if.then142 ], [ %fallback.0852, %if.else158.tail ], [ %fallback.0852, %if.else213.tail ], [ %fallback.0852, %lor.lhs.false249 ], [ %fallback.0852, %if.else246.tail ], [ %fallback.0852, %lor.lhs.false256 ], [ %fallback.0852, %if.else253.tail ]
-  %fromucallback.1 = phi ptr [ %fromucallback.0853, %if.then19 ], [ %fromucallback.0853, %if.then32 ], [ %fromucallback.0853, %if.then42 ], [ %fromucallback.0853, %if.then63 ], [ %fromucallback.0853, %invoke.cont112 ], [ %fromucallback.0853, %if.then286 ], [ %fromucallback.0853, %if.then290 ], [ %fromucallback.0853, %if.else300 ], [ %fromucallback.0853, %if.then279 ], [ %126, %if.then228 ], [ %fromucallback.0853, %if.then198 ], [ %103, %if.then172 ], [ %fromucallback.0853, %if.else46 ], [ %fromucallback.0853, %if.else50 ], [ %fromucallback.0853, %if.then86 ], [ %fromucallback.0853, %if.end98 ], [ %fromucallback.0853, %if.else132 ], [ %fromucallback.0853, %if.then142 ], [ @UCNV_FROM_U_CALLBACK_SKIP_75, %if.else158.tail ], [ %fromucallback.0853, %if.else213.tail ], [ %fromucallback.0853, %lor.lhs.false249 ], [ %fromucallback.0853, %if.else246.tail ], [ %fromucallback.0853, %lor.lhs.false256 ], [ %fromucallback.0853, %if.else253.tail ]
-  %fromuctxt.1 = phi ptr [ %fromuctxt.0854, %if.then19 ], [ %fromuctxt.0854, %if.then32 ], [ %fromuctxt.0854, %if.then42 ], [ %fromuctxt.0854, %if.then63 ], [ %fromuctxt.0854, %invoke.cont112 ], [ %fromuctxt.0854, %if.then286 ], [ %fromuctxt.0854, %if.then290 ], [ %fromuctxt.0854, %if.else300 ], [ %fromuctxt.0854, %if.then279 ], [ %127, %if.then228 ], [ %fromuctxt.0854, %if.then198 ], [ %104, %if.then172 ], [ %fromuctxt.0854, %if.else46 ], [ %fromuctxt.0854, %if.else50 ], [ %fromuctxt.0854, %if.then86 ], [ %fromuctxt.0854, %if.end98 ], [ %fromuctxt.0854, %if.else132 ], [ %fromuctxt.0854, %if.then142 ], [ %fromuctxt.0854, %if.else158.tail ], [ %fromuctxt.0854, %if.else213.tail ], [ %fromuctxt.0854, %lor.lhs.false249 ], [ %fromuctxt.0854, %if.else246.tail ], [ %fromuctxt.0854, %lor.lhs.false256 ], [ %fromuctxt.0854, %if.else253.tail ]
-  %toucallback.1 = phi ptr [ %toucallback.0855, %if.then19 ], [ %toucallback.0855, %if.then32 ], [ %toucallback.0855, %if.then42 ], [ %toucallback.0855, %if.then63 ], [ %toucallback.0855, %invoke.cont112 ], [ %toucallback.0855, %if.then286 ], [ %toucallback.0855, %if.then290 ], [ %toucallback.0855, %if.else300 ], [ %toucallback.0855, %if.then279 ], [ %128, %if.then228 ], [ %110, %if.then198 ], [ %toucallback.0855, %if.then172 ], [ %toucallback.0855, %if.else46 ], [ %toucallback.0855, %if.else50 ], [ %toucallback.0855, %if.then86 ], [ %toucallback.0855, %if.end98 ], [ %toucallback.0855, %if.else132 ], [ %toucallback.0855, %if.then142 ], [ %toucallback.0855, %if.else158.tail ], [ @UCNV_TO_U_CALLBACK_SKIP_75, %if.else213.tail ], [ %toucallback.0855, %lor.lhs.false249 ], [ %toucallback.0855, %if.else246.tail ], [ %toucallback.0855, %lor.lhs.false256 ], [ %toucallback.0855, %if.else253.tail ]
-  %touctxt.1 = phi ptr [ %touctxt.0856, %if.then19 ], [ %touctxt.0856, %if.then32 ], [ %touctxt.0856, %if.then42 ], [ %touctxt.0856, %if.then63 ], [ %touctxt.0856, %invoke.cont112 ], [ %touctxt.0856, %if.then286 ], [ %touctxt.0856, %if.then290 ], [ %touctxt.0856, %if.else300 ], [ %touctxt.0856, %if.then279 ], [ %129, %if.then228 ], [ %111, %if.then198 ], [ %touctxt.0856, %if.then172 ], [ %touctxt.0856, %if.else46 ], [ %touctxt.0856, %if.else50 ], [ %touctxt.0856, %if.then86 ], [ %touctxt.0856, %if.end98 ], [ %touctxt.0856, %if.else132 ], [ %touctxt.0856, %if.then142 ], [ %touctxt.0856, %if.else158.tail ], [ %touctxt.0856, %if.else213.tail ], [ %touctxt.0856, %lor.lhs.false249 ], [ %touctxt.0856, %if.else246.tail ], [ %touctxt.0856, %lor.lhs.false256 ], [ %touctxt.0856, %if.else253.tail ]
-  %iter.1 = phi ptr [ %incdec.ptr17, %if.then19 ], [ %incdec.ptr30, %if.then32 ], [ %incdec.ptr40, %if.then42 ], [ %incdec.ptr61, %if.then63 ], [ %incdec.ptr109, %invoke.cont112 ], [ %iter.0857, %if.then286 ], [ %iter.0857, %if.then290 ], [ %iter.0857, %if.else300 ], [ %incdec.ptr276, %if.then279 ], [ %incdec.ptr221, %if.then228 ], [ %incdec.ptr191, %if.then198 ], [ %incdec.ptr166, %if.then172 ], [ %iter.0857, %if.else46 ], [ %iter.0857, %if.else50 ], [ %iter.0857, %if.then86 ], [ %iter.0857, %if.end98 ], [ %iter.0857, %if.else132 ], [ %iter.0857, %if.then142 ], [ %iter.0857, %if.else158.tail ], [ %iter.0857, %if.else213.tail ], [ %iter.0857, %lor.lhs.false249 ], [ %iter.0857, %if.else246.tail ], [ %iter.0857, %lor.lhs.false256 ], [ %iter.0857, %if.else253.tail ]
-  %remainArgvLimit.1.idx = phi i64 [ %remainArgvLimit.0.idx858, %if.then19 ], [ %remainArgvLimit.0.idx858, %if.then32 ], [ %remainArgvLimit.0.idx858, %if.then42 ], [ %remainArgvLimit.0.idx858, %if.then63 ], [ %remainArgvLimit.0.idx858, %invoke.cont112 ], [ %remainArgvLimit.0.idx858, %if.then286 ], [ %remainArgvLimit.0.idx858, %if.then290 ], [ %remainArgvLimit.0.add, %if.else300 ], [ %remainArgvLimit.0.idx858, %if.then279 ], [ %remainArgvLimit.0.idx858, %if.then228 ], [ %remainArgvLimit.0.idx858, %if.then198 ], [ %remainArgvLimit.0.idx858, %if.then172 ], [ %remainArgvLimit.0.idx858, %if.else46 ], [ %remainArgvLimit.0.idx858, %if.else50 ], [ %remainArgvLimit.0.idx858, %if.then86 ], [ %remainArgvLimit.0.idx858, %if.end98 ], [ %remainArgvLimit.0.idx858, %if.else132 ], [ %remainArgvLimit.0.idx858, %if.then142 ], [ %remainArgvLimit.0.idx858, %if.else158.tail ], [ %remainArgvLimit.0.idx858, %if.else213.tail ], [ %remainArgvLimit.0.idx858, %lor.lhs.false249 ], [ %remainArgvLimit.0.idx858, %if.else246.tail ], [ %remainArgvLimit.0.idx858, %lor.lhs.false256 ], [ %remainArgvLimit.0.idx858, %if.else253.tail ]
+  %tocpage.1 = phi ptr [ %tocpage.0847, %if.then19 ], [ %27, %if.then32 ], [ %tocpage.0847, %if.then42 ], [ %tocpage.0847, %if.then63 ], [ %tocpage.0847, %invoke.cont112 ], [ %tocpage.0847, %if.then286 ], [ %tocpage.0847, %if.then290 ], [ %tocpage.0847, %if.else300 ], [ %tocpage.0847, %if.then279 ], [ %tocpage.0847, %if.then228 ], [ %tocpage.0847, %if.then198 ], [ %tocpage.0847, %if.then172 ], [ %tocpage.0847, %if.else46 ], [ %tocpage.0847, %if.else50 ], [ %tocpage.0847, %if.then86 ], [ %tocpage.0847, %if.end98 ], [ %tocpage.0847, %if.else132 ], [ %tocpage.0847, %if.then142 ], [ %tocpage.0847, %if.else158.tail ], [ %tocpage.0847, %if.else213.tail ], [ %tocpage.0847, %lor.lhs.false249 ], [ %tocpage.0847, %if.else246.tail ], [ %tocpage.0847, %lor.lhs.false256 ], [ %tocpage.0847, %if.else253.tail ]
+  %translit.1 = phi ptr [ %translit.0848, %if.then19 ], [ %translit.0848, %if.then32 ], [ %37, %if.then42 ], [ %translit.0848, %if.then63 ], [ %translit.0848, %invoke.cont112 ], [ %translit.0848, %if.then286 ], [ %translit.0848, %if.then290 ], [ %translit.0848, %if.else300 ], [ %translit.0848, %if.then279 ], [ %translit.0848, %if.then228 ], [ %translit.0848, %if.then198 ], [ %translit.0848, %if.then172 ], [ %translit.0848, %if.else46 ], [ %translit.0848, %if.else50 ], [ %translit.0848, %if.then86 ], [ %translit.0848, %if.end98 ], [ %translit.0848, %if.else132 ], [ %translit.0848, %if.then142 ], [ %translit.0848, %if.else158.tail ], [ %translit.0848, %if.else213.tail ], [ %translit.0848, %lor.lhs.false249 ], [ %translit.0848, %if.else246.tail ], [ %translit.0848, %lor.lhs.false256 ], [ %translit.0848, %if.else253.tail ]
+  %outfilestr.1 = phi ptr [ %outfilestr.0849, %if.then19 ], [ %outfilestr.0849, %if.then32 ], [ %outfilestr.0849, %if.then42 ], [ %outfilestr.0849, %if.then63 ], [ %outfilestr.0849, %invoke.cont112 ], [ %outfilestr.0849, %if.then286 ], [ %outfilestr.0849, %if.then290 ], [ %outfilestr.0849, %if.else300 ], [ %169, %if.then279 ], [ %outfilestr.0849, %if.then228 ], [ %outfilestr.0849, %if.then198 ], [ %outfilestr.0849, %if.then172 ], [ %outfilestr.0849, %if.else46 ], [ %outfilestr.0849, %if.else50 ], [ %outfilestr.0849, %if.then86 ], [ %outfilestr.0849, %if.end98 ], [ %outfilestr.0849, %if.else132 ], [ %outfilestr.0849, %if.then142 ], [ %outfilestr.0849, %if.else158.tail ], [ %outfilestr.0849, %if.else213.tail ], [ %outfilestr.0849, %lor.lhs.false249 ], [ %outfilestr.0849, %if.else246.tail ], [ %outfilestr.0849, %lor.lhs.false256 ], [ %outfilestr.0849, %if.else253.tail ]
+  %fallback.1 = phi i8 [ %fallback.0850, %if.then19 ], [ %fallback.0850, %if.then32 ], [ %fallback.0850, %if.then42 ], [ %fallback.0850, %if.then63 ], [ %fallback.0850, %invoke.cont112 ], [ %fallback.0850, %if.then286 ], [ %fallback.0850, %if.then290 ], [ %fallback.0850, %if.else300 ], [ %fallback.0850, %if.then279 ], [ %fallback.0850, %if.then228 ], [ %fallback.0850, %if.then198 ], [ %fallback.0850, %if.then172 ], [ 1, %if.else46 ], [ 0, %if.else50 ], [ %fallback.0850, %if.then86 ], [ %fallback.0850, %if.end98 ], [ %fallback.0850, %if.else132 ], [ %fallback.0850, %if.then142 ], [ %fallback.0850, %if.else158.tail ], [ %fallback.0850, %if.else213.tail ], [ %fallback.0850, %lor.lhs.false249 ], [ %fallback.0850, %if.else246.tail ], [ %fallback.0850, %lor.lhs.false256 ], [ %fallback.0850, %if.else253.tail ]
+  %fromucallback.1 = phi ptr [ %fromucallback.0851, %if.then19 ], [ %fromucallback.0851, %if.then32 ], [ %fromucallback.0851, %if.then42 ], [ %fromucallback.0851, %if.then63 ], [ %fromucallback.0851, %invoke.cont112 ], [ %fromucallback.0851, %if.then286 ], [ %fromucallback.0851, %if.then290 ], [ %fromucallback.0851, %if.else300 ], [ %fromucallback.0851, %if.then279 ], [ %126, %if.then228 ], [ %fromucallback.0851, %if.then198 ], [ %103, %if.then172 ], [ %fromucallback.0851, %if.else46 ], [ %fromucallback.0851, %if.else50 ], [ %fromucallback.0851, %if.then86 ], [ %fromucallback.0851, %if.end98 ], [ %fromucallback.0851, %if.else132 ], [ %fromucallback.0851, %if.then142 ], [ @UCNV_FROM_U_CALLBACK_SKIP_75, %if.else158.tail ], [ %fromucallback.0851, %if.else213.tail ], [ %fromucallback.0851, %lor.lhs.false249 ], [ %fromucallback.0851, %if.else246.tail ], [ %fromucallback.0851, %lor.lhs.false256 ], [ %fromucallback.0851, %if.else253.tail ]
+  %fromuctxt.1 = phi ptr [ %fromuctxt.0852, %if.then19 ], [ %fromuctxt.0852, %if.then32 ], [ %fromuctxt.0852, %if.then42 ], [ %fromuctxt.0852, %if.then63 ], [ %fromuctxt.0852, %invoke.cont112 ], [ %fromuctxt.0852, %if.then286 ], [ %fromuctxt.0852, %if.then290 ], [ %fromuctxt.0852, %if.else300 ], [ %fromuctxt.0852, %if.then279 ], [ %127, %if.then228 ], [ %fromuctxt.0852, %if.then198 ], [ %104, %if.then172 ], [ %fromuctxt.0852, %if.else46 ], [ %fromuctxt.0852, %if.else50 ], [ %fromuctxt.0852, %if.then86 ], [ %fromuctxt.0852, %if.end98 ], [ %fromuctxt.0852, %if.else132 ], [ %fromuctxt.0852, %if.then142 ], [ %fromuctxt.0852, %if.else158.tail ], [ %fromuctxt.0852, %if.else213.tail ], [ %fromuctxt.0852, %lor.lhs.false249 ], [ %fromuctxt.0852, %if.else246.tail ], [ %fromuctxt.0852, %lor.lhs.false256 ], [ %fromuctxt.0852, %if.else253.tail ]
+  %toucallback.1 = phi ptr [ %toucallback.0853, %if.then19 ], [ %toucallback.0853, %if.then32 ], [ %toucallback.0853, %if.then42 ], [ %toucallback.0853, %if.then63 ], [ %toucallback.0853, %invoke.cont112 ], [ %toucallback.0853, %if.then286 ], [ %toucallback.0853, %if.then290 ], [ %toucallback.0853, %if.else300 ], [ %toucallback.0853, %if.then279 ], [ %128, %if.then228 ], [ %110, %if.then198 ], [ %toucallback.0853, %if.then172 ], [ %toucallback.0853, %if.else46 ], [ %toucallback.0853, %if.else50 ], [ %toucallback.0853, %if.then86 ], [ %toucallback.0853, %if.end98 ], [ %toucallback.0853, %if.else132 ], [ %toucallback.0853, %if.then142 ], [ %toucallback.0853, %if.else158.tail ], [ @UCNV_TO_U_CALLBACK_SKIP_75, %if.else213.tail ], [ %toucallback.0853, %lor.lhs.false249 ], [ %toucallback.0853, %if.else246.tail ], [ %toucallback.0853, %lor.lhs.false256 ], [ %toucallback.0853, %if.else253.tail ]
+  %touctxt.1 = phi ptr [ %touctxt.0854, %if.then19 ], [ %touctxt.0854, %if.then32 ], [ %touctxt.0854, %if.then42 ], [ %touctxt.0854, %if.then63 ], [ %touctxt.0854, %invoke.cont112 ], [ %touctxt.0854, %if.then286 ], [ %touctxt.0854, %if.then290 ], [ %touctxt.0854, %if.else300 ], [ %touctxt.0854, %if.then279 ], [ %129, %if.then228 ], [ %111, %if.then198 ], [ %touctxt.0854, %if.then172 ], [ %touctxt.0854, %if.else46 ], [ %touctxt.0854, %if.else50 ], [ %touctxt.0854, %if.then86 ], [ %touctxt.0854, %if.end98 ], [ %touctxt.0854, %if.else132 ], [ %touctxt.0854, %if.then142 ], [ %touctxt.0854, %if.else158.tail ], [ %touctxt.0854, %if.else213.tail ], [ %touctxt.0854, %lor.lhs.false249 ], [ %touctxt.0854, %if.else246.tail ], [ %touctxt.0854, %lor.lhs.false256 ], [ %touctxt.0854, %if.else253.tail ]
+  %iter.1 = phi ptr [ %incdec.ptr17, %if.then19 ], [ %incdec.ptr30, %if.then32 ], [ %incdec.ptr40, %if.then42 ], [ %incdec.ptr61, %if.then63 ], [ %incdec.ptr109, %invoke.cont112 ], [ %iter.0855, %if.then286 ], [ %iter.0855, %if.then290 ], [ %iter.0855, %if.else300 ], [ %incdec.ptr276, %if.then279 ], [ %incdec.ptr221, %if.then228 ], [ %incdec.ptr191, %if.then198 ], [ %incdec.ptr166, %if.then172 ], [ %iter.0855, %if.else46 ], [ %iter.0855, %if.else50 ], [ %iter.0855, %if.then86 ], [ %iter.0855, %if.end98 ], [ %iter.0855, %if.else132 ], [ %iter.0855, %if.then142 ], [ %iter.0855, %if.else158.tail ], [ %iter.0855, %if.else213.tail ], [ %iter.0855, %lor.lhs.false249 ], [ %iter.0855, %if.else246.tail ], [ %iter.0855, %lor.lhs.false256 ], [ %iter.0855, %if.else253.tail ]
+  %fromcpage.1 = phi ptr [ %17, %if.then19 ], [ %fromcpage.0856, %if.then32 ], [ %fromcpage.0856, %if.then42 ], [ %fromcpage.0856, %if.then63 ], [ %fromcpage.0856, %invoke.cont112 ], [ %fromcpage.0856, %if.then286 ], [ %fromcpage.0856, %if.then290 ], [ %fromcpage.0856, %if.else300 ], [ %fromcpage.0856, %if.then279 ], [ %fromcpage.0856, %if.then228 ], [ %fromcpage.0856, %if.then198 ], [ %fromcpage.0856, %if.then172 ], [ %fromcpage.0856, %if.else46 ], [ %fromcpage.0856, %if.else50 ], [ %fromcpage.0856, %if.then86 ], [ %fromcpage.0856, %if.end98 ], [ %fromcpage.0856, %if.else132 ], [ %fromcpage.0856, %if.then142 ], [ %fromcpage.0856, %if.else158.tail ], [ %fromcpage.0856, %if.else213.tail ], [ %fromcpage.0856, %lor.lhs.false249 ], [ %fromcpage.0856, %if.else246.tail ], [ %fromcpage.0856, %lor.lhs.false256 ], [ %fromcpage.0856, %if.else253.tail ]
+  %remainArgvLimit.1.idx = phi i64 [ %remainArgvLimit.0.idx857, %if.then19 ], [ %remainArgvLimit.0.idx857, %if.then32 ], [ %remainArgvLimit.0.idx857, %if.then42 ], [ %remainArgvLimit.0.idx857, %if.then63 ], [ %remainArgvLimit.0.idx857, %invoke.cont112 ], [ %remainArgvLimit.0.idx857, %if.then286 ], [ %remainArgvLimit.0.idx857, %if.then290 ], [ %remainArgvLimit.0.add, %if.else300 ], [ %remainArgvLimit.0.idx857, %if.then279 ], [ %remainArgvLimit.0.idx857, %if.then228 ], [ %remainArgvLimit.0.idx857, %if.then198 ], [ %remainArgvLimit.0.idx857, %if.then172 ], [ %remainArgvLimit.0.idx857, %if.else46 ], [ %remainArgvLimit.0.idx857, %if.else50 ], [ %remainArgvLimit.0.idx857, %if.then86 ], [ %remainArgvLimit.0.idx857, %if.end98 ], [ %remainArgvLimit.0.idx857, %if.else132 ], [ %remainArgvLimit.0.idx857, %if.then142 ], [ %remainArgvLimit.0.idx857, %if.else158.tail ], [ %remainArgvLimit.0.idx857, %if.else213.tail ], [ %remainArgvLimit.0.idx857, %lor.lhs.false249 ], [ %remainArgvLimit.0.idx857, %if.else246.tail ], [ %remainArgvLimit.0.idx857, %lor.lhs.false256 ], [ %remainArgvLimit.0.idx857, %if.else253.tail ]
+  %bufsz.1 = phi i64 [ %bufsz.0858, %if.then19 ], [ %bufsz.0858, %if.then32 ], [ %bufsz.0858, %if.then42 ], [ %conv, %if.then63 ], [ %bufsz.0858, %invoke.cont112 ], [ %bufsz.0858, %if.then286 ], [ %bufsz.0858, %if.then290 ], [ %bufsz.0858, %if.else300 ], [ %bufsz.0858, %if.then279 ], [ %bufsz.0858, %if.then228 ], [ %bufsz.0858, %if.then198 ], [ %bufsz.0858, %if.then172 ], [ %bufsz.0858, %if.else46 ], [ %bufsz.0858, %if.else50 ], [ %bufsz.0858, %if.then86 ], [ %bufsz.0858, %if.end98 ], [ %bufsz.0858, %if.else132 ], [ %bufsz.0858, %if.then142 ], [ %bufsz.0858, %if.else158.tail ], [ %bufsz.0858, %if.else213.tail ], [ %bufsz.0858, %lor.lhs.false249 ], [ %bufsz.0858, %if.else246.tail ], [ %bufsz.0858, %lor.lhs.false256 ], [ %bufsz.0858, %if.else253.tail ]
   %printConvs.1 = phi i8 [ %printConvs.0859, %if.then19 ], [ %printConvs.0859, %if.then32 ], [ %printConvs.0859, %if.then42 ], [ %printConvs.0859, %if.then63 ], [ %printConvs.0859, %invoke.cont112 ], [ %printConvs.0859, %if.then286 ], [ %printConvs.0859, %if.then290 ], [ %printConvs.0859, %if.else300 ], [ %printConvs.0859, %if.then279 ], [ %printConvs.0859, %if.then228 ], [ %printConvs.0859, %if.then198 ], [ %printConvs.0859, %if.then172 ], [ %printConvs.0859, %if.else46 ], [ %printConvs.0859, %if.else50 ], [ 1, %if.then86 ], [ %printConvs.0859, %if.end98 ], [ %printConvs.0859, %if.else132 ], [ 0, %if.then142 ], [ %printConvs.0859, %if.else158.tail ], [ %printConvs.0859, %if.else213.tail ], [ %printConvs.0859, %lor.lhs.false249 ], [ %printConvs.0859, %if.else246.tail ], [ %printConvs.0859, %lor.lhs.false256 ], [ %printConvs.0859, %if.else253.tail ]
   %printCanon.1 = phi i8 [ %printCanon.0860, %if.then19 ], [ %printCanon.0860, %if.then32 ], [ %printCanon.0860, %if.then42 ], [ %printCanon.0860, %if.then63 ], [ %printCanon.0860, %invoke.cont112 ], [ %printCanon.0860, %if.then286 ], [ %printCanon.0860, %if.then290 ], [ %printCanon.0860, %if.else300 ], [ %printCanon.0860, %if.then279 ], [ %printCanon.0860, %if.then228 ], [ %printCanon.0860, %if.then198 ], [ %printCanon.0860, %if.then172 ], [ %printCanon.0860, %if.else46 ], [ %printCanon.0860, %if.else50 ], [ %printCanon.0860, %if.then86 ], [ %printCanon.0860, %if.end98 ], [ 1, %if.else132 ], [ %printCanon.0860, %if.then142 ], [ %printCanon.0860, %if.else158.tail ], [ %printCanon.0860, %if.else213.tail ], [ %printCanon.0860, %lor.lhs.false249 ], [ %printCanon.0860, %if.else246.tail ], [ %printCanon.0860, %lor.lhs.false256 ], [ %printCanon.0860, %if.else253.tail ]
   %printTranslits.1 = phi i8 [ %printTranslits.0861, %if.then19 ], [ %printTranslits.0861, %if.then32 ], [ %printTranslits.0861, %if.then42 ], [ %printTranslits.0861, %if.then63 ], [ 0, %invoke.cont112 ], [ %printTranslits.0861, %if.then286 ], [ %printTranslits.0861, %if.then290 ], [ %printTranslits.0861, %if.else300 ], [ %printTranslits.0861, %if.then279 ], [ %printTranslits.0861, %if.then228 ], [ %printTranslits.0861, %if.then198 ], [ %printTranslits.0861, %if.then172 ], [ %printTranslits.0861, %if.else46 ], [ %printTranslits.0861, %if.else50 ], [ 0, %if.then86 ], [ 0, %if.end98 ], [ %printTranslits.0861, %if.else132 ], [ 1, %if.then142 ], [ %printTranslits.0861, %if.else158.tail ], [ %printTranslits.0861, %if.else213.tail ], [ %printTranslits.0861, %lor.lhs.false249 ], [ %printTranslits.0861, %if.else246.tail ], [ %printTranslits.0861, %lor.lhs.false256 ], [ %printTranslits.0861, %if.else253.tail ]
@@ -3356,45 +3356,45 @@ lor.lhs.false344.tail:                            ; preds = %sub_0327, %sub_1328
 if.then347:                                       ; preds = %if.end342.thread, %lor.lhs.false344.tail, %if.end342
   %remainArgvLimit.0.ptr.lcssa.ptr98710081058 = phi ptr [ %remainArgvLimit.0.ptr.lcssa.ptr967, %if.end342.thread ], [ %remainArgvLimit.0.ptr.lcssa.ptr, %lor.lhs.false344.tail ], [ %remainArgvLimit.0.ptr.lcssa.ptr, %if.end342 ]
   %verbose.0.lcssa98610091056 = phi i8 [ 0, %if.end342.thread ], [ %verbose.1, %lor.lhs.false344.tail ], [ %verbose.1, %if.end342 ]
-  %remainArgvLimit.0.idx.lcssa98110101054 = phi i64 [ 8, %if.end342.thread ], [ %remainArgvLimit.1.idx, %lor.lhs.false344.tail ], [ %remainArgvLimit.1.idx, %if.end342 ]
-  %touctxt.0.lcssa98010111052 = phi ptr [ null, %if.end342.thread ], [ %touctxt.1, %lor.lhs.false344.tail ], [ %touctxt.1, %if.end342 ]
-  %toucallback.0.lcssa97910121050 = phi ptr [ @UCNV_TO_U_CALLBACK_STOP_75, %if.end342.thread ], [ %toucallback.1, %lor.lhs.false344.tail ], [ %toucallback.1, %if.end342 ]
-  %fromuctxt.0.lcssa97810131048 = phi ptr [ null, %if.end342.thread ], [ %fromuctxt.1, %lor.lhs.false344.tail ], [ %fromuctxt.1, %if.end342 ]
-  %fromucallback.0.lcssa97710141046 = phi ptr [ @UCNV_FROM_U_CALLBACK_STOP_75, %if.end342.thread ], [ %fromucallback.1, %lor.lhs.false344.tail ], [ %fromucallback.1, %if.end342 ]
-  %fallback.0.lcssa97610151044 = phi i8 [ 0, %if.end342.thread ], [ %fallback.1, %lor.lhs.false344.tail ], [ %fallback.1, %if.end342 ]
-  %outfilestr.0.lcssa97510161042 = phi ptr [ null, %if.end342.thread ], [ %outfilestr.1, %lor.lhs.false344.tail ], [ %outfilestr.1, %if.end342 ]
-  %translit.0.lcssa97410171040 = phi ptr [ null, %if.end342.thread ], [ %translit.1, %lor.lhs.false344.tail ], [ %translit.1, %if.end342 ]
-  %tocpage.0.lcssa97310181038 = phi ptr [ null, %if.end342.thread ], [ %tocpage.1, %lor.lhs.false344.tail ], [ %tocpage.1, %if.end342 ]
-  %bufsz.0.lcssa97110201036 = phi i64 [ 4096, %if.end342.thread ], [ %bufsz.1, %lor.lhs.false344.tail ], [ %bufsz.1, %if.end342 ]
+  %bufsz.0.lcssa98110101054 = phi i64 [ 4096, %if.end342.thread ], [ %bufsz.1, %lor.lhs.false344.tail ], [ %bufsz.1, %if.end342 ]
+  %remainArgvLimit.0.idx.lcssa98010111052 = phi i64 [ 8, %if.end342.thread ], [ %remainArgvLimit.1.idx, %lor.lhs.false344.tail ], [ %remainArgvLimit.1.idx, %if.end342 ]
+  %touctxt.0.lcssa97810131050 = phi ptr [ null, %if.end342.thread ], [ %touctxt.1, %lor.lhs.false344.tail ], [ %touctxt.1, %if.end342 ]
+  %toucallback.0.lcssa97710141048 = phi ptr [ @UCNV_TO_U_CALLBACK_STOP_75, %if.end342.thread ], [ %toucallback.1, %lor.lhs.false344.tail ], [ %toucallback.1, %if.end342 ]
+  %fromuctxt.0.lcssa97610151046 = phi ptr [ null, %if.end342.thread ], [ %fromuctxt.1, %lor.lhs.false344.tail ], [ %fromuctxt.1, %if.end342 ]
+  %fromucallback.0.lcssa97510161044 = phi ptr [ @UCNV_FROM_U_CALLBACK_STOP_75, %if.end342.thread ], [ %fromucallback.1, %lor.lhs.false344.tail ], [ %fromucallback.1, %if.end342 ]
+  %fallback.0.lcssa97410171042 = phi i8 [ 0, %if.end342.thread ], [ %fallback.1, %lor.lhs.false344.tail ], [ %fallback.1, %if.end342 ]
+  %outfilestr.0.lcssa97310181040 = phi ptr [ null, %if.end342.thread ], [ %outfilestr.1, %lor.lhs.false344.tail ], [ %outfilestr.1, %if.end342 ]
+  %translit.0.lcssa97210191038 = phi ptr [ null, %if.end342.thread ], [ %translit.1, %lor.lhs.false344.tail ], [ %translit.1, %if.end342 ]
+  %tocpage.0.lcssa97110201036 = phi ptr [ null, %if.end342.thread ], [ %tocpage.1, %lor.lhs.false344.tail ], [ %tocpage.1, %if.end342 ]
   %call349 = invoke ptr @ucnv_getDefaultName_75()
           to label %if.end350 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end350:                                        ; preds = %if.then347, %lor.lhs.false344.tail
   %remainArgvLimit.0.ptr.lcssa.ptr98710081057 = phi ptr [ %remainArgvLimit.0.ptr.lcssa.ptr, %lor.lhs.false344.tail ], [ %remainArgvLimit.0.ptr.lcssa.ptr98710081058, %if.then347 ]
   %verbose.0.lcssa98610091055 = phi i8 [ %verbose.1, %lor.lhs.false344.tail ], [ %verbose.0.lcssa98610091056, %if.then347 ]
-  %remainArgvLimit.0.idx.lcssa98110101053 = phi i64 [ %remainArgvLimit.1.idx, %lor.lhs.false344.tail ], [ %remainArgvLimit.0.idx.lcssa98110101054, %if.then347 ]
-  %touctxt.0.lcssa98010111051 = phi ptr [ %touctxt.1, %lor.lhs.false344.tail ], [ %touctxt.0.lcssa98010111052, %if.then347 ]
-  %toucallback.0.lcssa97910121049 = phi ptr [ %toucallback.1, %lor.lhs.false344.tail ], [ %toucallback.0.lcssa97910121050, %if.then347 ]
-  %fromuctxt.0.lcssa97810131047 = phi ptr [ %fromuctxt.1, %lor.lhs.false344.tail ], [ %fromuctxt.0.lcssa97810131048, %if.then347 ]
-  %fromucallback.0.lcssa97710141045 = phi ptr [ %fromucallback.1, %lor.lhs.false344.tail ], [ %fromucallback.0.lcssa97710141046, %if.then347 ]
-  %fallback.0.lcssa97610151043 = phi i8 [ %fallback.1, %lor.lhs.false344.tail ], [ %fallback.0.lcssa97610151044, %if.then347 ]
-  %outfilestr.0.lcssa97510161041 = phi ptr [ %outfilestr.1, %lor.lhs.false344.tail ], [ %outfilestr.0.lcssa97510161042, %if.then347 ]
-  %translit.0.lcssa97410171039 = phi ptr [ %translit.1, %lor.lhs.false344.tail ], [ %translit.0.lcssa97410171040, %if.then347 ]
-  %tocpage.0.lcssa97310181037 = phi ptr [ %tocpage.1, %lor.lhs.false344.tail ], [ %tocpage.0.lcssa97310181038, %if.then347 ]
-  %bufsz.0.lcssa97110201035 = phi i64 [ %bufsz.1, %lor.lhs.false344.tail ], [ %bufsz.0.lcssa97110201036, %if.then347 ]
+  %bufsz.0.lcssa98110101053 = phi i64 [ %bufsz.1, %lor.lhs.false344.tail ], [ %bufsz.0.lcssa98110101054, %if.then347 ]
+  %remainArgvLimit.0.idx.lcssa98010111051 = phi i64 [ %remainArgvLimit.1.idx, %lor.lhs.false344.tail ], [ %remainArgvLimit.0.idx.lcssa98010111052, %if.then347 ]
+  %touctxt.0.lcssa97810131049 = phi ptr [ %touctxt.1, %lor.lhs.false344.tail ], [ %touctxt.0.lcssa97810131050, %if.then347 ]
+  %toucallback.0.lcssa97710141047 = phi ptr [ %toucallback.1, %lor.lhs.false344.tail ], [ %toucallback.0.lcssa97710141048, %if.then347 ]
+  %fromuctxt.0.lcssa97610151045 = phi ptr [ %fromuctxt.1, %lor.lhs.false344.tail ], [ %fromuctxt.0.lcssa97610151046, %if.then347 ]
+  %fromucallback.0.lcssa97510161043 = phi ptr [ %fromucallback.1, %lor.lhs.false344.tail ], [ %fromucallback.0.lcssa97510161044, %if.then347 ]
+  %fallback.0.lcssa97410171041 = phi i8 [ %fallback.1, %lor.lhs.false344.tail ], [ %fallback.0.lcssa97410171042, %if.then347 ]
+  %outfilestr.0.lcssa97310181039 = phi ptr [ %outfilestr.1, %lor.lhs.false344.tail ], [ %outfilestr.0.lcssa97310181040, %if.then347 ]
+  %translit.0.lcssa97210191037 = phi ptr [ %translit.1, %lor.lhs.false344.tail ], [ %translit.0.lcssa97210191038, %if.then347 ]
+  %tocpage.0.lcssa97110201035 = phi ptr [ %tocpage.1, %lor.lhs.false344.tail ], [ %tocpage.0.lcssa97110201036, %if.then347 ]
   %fromcpage.2 = phi ptr [ %fromcpage.1, %lor.lhs.false344.tail ], [ %call349, %if.then347 ]
-  %tobool351.not = icmp eq ptr %tocpage.0.lcssa97310181037, null
+  %tobool351.not = icmp eq ptr %tocpage.0.lcssa97110201035, null
   br i1 %tobool351.not, label %if.then355, label %sub_0330
 
 sub_0330:                                         ; preds = %if.end350
-  %207 = load i8, ptr %tocpage.0.lcssa97310181037, align 1
+  %207 = load i8, ptr %tocpage.0.lcssa97110201035, align 1
   %208 = zext i8 %207 to i32
   %209 = add nsw i32 %208, -45
   %.not911 = icmp eq i32 %209, 0
   br i1 %.not911, label %sub_1331, label %lor.lhs.false352.tail
 
 sub_1331:                                         ; preds = %sub_0330
-  %210 = getelementptr inbounds i8, ptr %tocpage.0.lcssa97310181037, i64 1
+  %210 = getelementptr inbounds i8, ptr %tocpage.0.lcssa97110201035, i64 1
   %211 = load i8, ptr %210, align 1
   %212 = zext i8 %211 to i32
   br label %lor.lhs.false352.tail
@@ -3409,19 +3409,19 @@ if.then355:                                       ; preds = %lor.lhs.false352.ta
           to label %if.end358 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end358:                                        ; preds = %if.then355, %lor.lhs.false352.tail
-  %tocpage.2 = phi ptr [ %tocpage.0.lcssa97310181037, %lor.lhs.false352.tail ], [ %call357, %if.then355 ]
-  %cmp359.not = icmp eq ptr %outfilestr.0.lcssa97510161041, null
+  %tocpage.2 = phi ptr [ %tocpage.0.lcssa97110201035, %lor.lhs.false352.tail ], [ %call357, %if.then355 ]
+  %cmp359.not = icmp eq ptr %outfilestr.0.lcssa97310181039, null
   br i1 %cmp359.not, label %if.else382, label %sub_0333
 
 sub_0333:                                         ; preds = %if.end358
-  %214 = load i8, ptr %outfilestr.0.lcssa97510161041, align 1
+  %214 = load i8, ptr %outfilestr.0.lcssa97310181039, align 1
   %215 = zext i8 %214 to i32
   %216 = add nsw i32 %215, -45
   %.not912 = icmp eq i32 %216, 0
   br i1 %.not912, label %sub_1334, label %land.lhs.true360.tail
 
 sub_1334:                                         ; preds = %sub_0333
-  %217 = getelementptr inbounds i8, ptr %outfilestr.0.lcssa97510161041, i64 1
+  %217 = getelementptr inbounds i8, ptr %outfilestr.0.lcssa97310181039, i64 1
   %218 = load i8, ptr %217, align 1
   %219 = zext i8 %218 to i32
   br label %land.lhs.true360.tail
@@ -3432,12 +3432,12 @@ land.lhs.true360.tail:                            ; preds = %sub_0333, %sub_1334
   br i1 %tobool362.not, label %if.else382, label %if.then363
 
 if.then363:                                       ; preds = %land.lhs.true360.tail
-  %call365 = call noalias ptr @fopen(ptr noundef nonnull %outfilestr.0.lcssa97510161041, ptr noundef nonnull @.str.58)
+  %call365 = call noalias ptr @fopen(ptr noundef nonnull %outfilestr.0.lcssa97310181039, ptr noundef nonnull @.str.58)
   %cmp366 = icmp eq ptr %call365, null
   br i1 %cmp366, label %if.then367, label %if.end383
 
 if.then367:                                       ; preds = %if.then363
-  invoke void @_ZN6icu_7513UnicodeStringC1EPKcS2_(ptr noundef nonnull align 8 dereferenceable(64) %str1, ptr noundef nonnull %outfilestr.0.lcssa97510161041, ptr noundef nonnull @.str.2)
+  invoke void @_ZN6icu_7513UnicodeStringC1EPKcS2_(ptr noundef nonnull align 8 dereferenceable(64) %str1, ptr noundef nonnull %outfilestr.0.lcssa97310181039, ptr noundef nonnull @.str.2)
           to label %invoke.cont368 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont368:                                   ; preds = %if.then367
@@ -3530,17 +3530,17 @@ if.else382:                                       ; preds = %land.lhs.true360.ta
 if.end383:                                        ; preds = %if.then363, %if.else382
   %outfile.0 = phi ptr [ %call365, %if.then363 ], [ %229, %if.else382 ]
   %bufsz.i = getelementptr inbounds i8, ptr %cf, i64 24
-  store i64 %bufsz.0.lcssa97110201035, ptr %bufsz.i, align 8
-  %mul.i250 = shl nuw nsw i64 %bufsz.0.lcssa97110201035, 1
+  store i64 %bufsz.0.lcssa98110101053, ptr %bufsz.i, align 8
+  %mul.i250 = shl nuw nsw i64 %bufsz.0.lcssa98110101053, 1
   %call.i252 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i250) #26
           to label %call.i.noexc251 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.noexc251:                                  ; preds = %if.end383
   store ptr %call.i252, ptr %cf, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i252, i64 %bufsz.0.lcssa97110201035
+  %add.ptr.i = getelementptr inbounds i8, ptr %call.i252, i64 %bufsz.0.lcssa98110101053
   %outbuf.i = getelementptr inbounds i8, ptr %cf, i64 8
   store ptr %add.ptr.i, ptr %outbuf.i, align 8
-  %add.i = shl i64 %bufsz.0.lcssa97110201035, 2
+  %add.i = shl i64 %bufsz.0.lcssa98110101053, 2
   %230 = add i64 %add.i, 4
   %call6.i253 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %230) #26
           to label %invoke.cont384 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -3548,7 +3548,7 @@ call.i.noexc251:                                  ; preds = %if.end383
 invoke.cont384:                                   ; preds = %call.i.noexc251
   %fromoffsets.i = getelementptr inbounds i8, ptr %cf, i64 16
   store ptr %call6.i253, ptr %fromoffsets.i, align 8
-  %cmp385 = icmp sgt i64 %remainArgvLimit.0.idx.lcssa98110101053, 8
+  %cmp385 = icmp sgt i64 %remainArgvLimit.0.idx.lcssa98010111051, 8
   %conv390 = zext nneg i8 %verbose.0.lcssa98610091055 to i32
   br i1 %cmp385, label %for.body389, label %if.else399
 
@@ -3560,7 +3560,7 @@ for.cond387:                                      ; preds = %invoke.cont391
 for.body389:                                      ; preds = %invoke.cont384, %for.cond387
   %iter.2882 = phi ptr [ %incdec.ptr397, %for.cond387 ], [ %add.ptr10.ptr, %invoke.cont384 ]
   %231 = load ptr, ptr %iter.2882, align 8
-  %call392 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %cf, ptr noundef %pname.0, ptr noundef %fromcpage.2, ptr noundef %toucallback.0.lcssa97910121049, ptr noundef %touctxt.0.lcssa98010111051, ptr noundef %tocpage.2, ptr noundef %fromucallback.0.lcssa97710141045, ptr noundef %fromuctxt.0.lcssa97810131047, i8 noundef signext %fallback.0.lcssa97610151043, ptr noundef %translit.0.lcssa97410171039, ptr noundef %231, ptr noundef %outfile.0, i32 noundef %conv390)
+  %call392 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %cf, ptr noundef %pname.0, ptr noundef %fromcpage.2, ptr noundef %toucallback.0.lcssa97710141047, ptr noundef %touctxt.0.lcssa97810131049, ptr noundef %tocpage.2, ptr noundef %fromucallback.0.lcssa97510161043, ptr noundef %fromuctxt.0.lcssa97610151045, i8 noundef signext %fallback.0.lcssa97410171041, ptr noundef %translit.0.lcssa97210191037, ptr noundef %231, ptr noundef %outfile.0, i32 noundef %conv390)
           to label %invoke.cont391 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont391:                                   ; preds = %for.body389
@@ -3568,7 +3568,7 @@ invoke.cont391:                                   ; preds = %for.body389
   br i1 %tobool393.not, label %error_exit, label %for.cond387
 
 if.else399:                                       ; preds = %invoke.cont384
-  %call402 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %cf, ptr noundef %pname.0, ptr noundef %fromcpage.2, ptr noundef %toucallback.0.lcssa97910121049, ptr noundef %touctxt.0.lcssa98010111051, ptr noundef %tocpage.2, ptr noundef %fromucallback.0.lcssa97710141045, ptr noundef %fromuctxt.0.lcssa97810131047, i8 noundef signext %fallback.0.lcssa97610151043, ptr noundef %translit.0.lcssa97410171039, ptr noundef null, ptr noundef %outfile.0, i32 noundef %conv390)
+  %call402 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %cf, ptr noundef %pname.0, ptr noundef %fromcpage.2, ptr noundef %toucallback.0.lcssa97710141047, ptr noundef %touctxt.0.lcssa97810131049, ptr noundef %tocpage.2, ptr noundef %fromucallback.0.lcssa97510161043, ptr noundef %fromuctxt.0.lcssa97610151045, i8 noundef signext %fallback.0.lcssa97410171041, ptr noundef %translit.0.lcssa97210191037, ptr noundef null, ptr noundef %outfile.0, i32 noundef %conv390)
           to label %invoke.cont401 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont401:                                   ; preds = %if.else399

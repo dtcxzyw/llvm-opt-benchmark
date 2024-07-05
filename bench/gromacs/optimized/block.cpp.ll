@@ -280,15 +280,15 @@ define void @_Z9pr_blockaP8_IO_FILEiPKcN3gmx8ArrayRefIK10IndexGroupEEb(ptr nound
   br i1 %.not40, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %17
-  %.031 = add nsw i32 %26, %19
+  %.032 = add nsw i32 %26, %19
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
-  %.043 = phi i1 [ false, %37 ], [ true, %.lr.ph.preheader ]
-  %.142 = phi i32 [ %39, %37 ], [ %.031, %.lr.ph.preheader ]
+  %.03143 = phi i1 [ false, %37 ], [ true, %.lr.ph.preheader ]
+  %.142 = phi i32 [ %39, %37 ], [ %.032, %.lr.ph.preheader ]
   %.sroa.035.041 = phi ptr [ %40, %37 ], [ %27, %.lr.ph.preheader ]
   %29 = load i32, ptr %.sroa.035.041, align 4
-  br i1 %.043, label %33, label %30
+  br i1 %.03143, label %33, label %30
 
 30:                                               ; preds = %.lr.ph
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9) #6

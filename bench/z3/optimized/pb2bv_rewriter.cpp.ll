@@ -13471,8 +13471,8 @@ if.else55:                                        ; preds = %invoke.cont50
   br label %if.end59
 
 if.end59:                                         ; preds = %if.else55, %if.then52
-  %c1.0 = phi i32 [ %add53, %if.then52 ], [ %div5731, %if.else55 ]
   %c2.0 = phi i32 [ %div33, %if.then52 ], [ %div5832, %if.else55 ]
+  %c1.0 = phi i32 [ %add53, %if.then52 ], [ %div5731, %if.else55 ]
   %44 = load ptr, ptr %even_a, align 8
   %cmp.i71 = icmp eq ptr %44, null
   br i1 %cmp.i71, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, label %if.end.i72

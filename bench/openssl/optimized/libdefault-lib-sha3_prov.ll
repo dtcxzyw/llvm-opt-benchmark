@@ -87,8 +87,8 @@ if.end6:                                          ; preds = %if.then2
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end6, %if.end
-  %inp.addr.0 = phi ptr [ %add.ptr10, %if.end6 ], [ %inp, %if.end ]
   %len.addr.0 = phi i64 [ %sub11, %if.end6 ], [ %len, %if.end ]
+  %inp.addr.0 = phi ptr [ %add.ptr10, %if.end6 ], [ %inp, %if.end ]
   %meth16 = getelementptr inbounds i8, ptr %vctx, i64 400
   %4 = load ptr, ptr %meth16, align 8
   %call18 = tail call i64 %4(ptr noundef nonnull %vctx, ptr noundef %inp.addr.0, i64 noundef %len.addr.0) #4

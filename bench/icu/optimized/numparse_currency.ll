@@ -988,8 +988,8 @@ cleanup:                                          ; preds = %lor.end49, %land.lh
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
-  %longestFullMatch.072 = phi i32 [ 0, %for.cond.preheader ], [ %longestFullMatch.1, %for.body ]
-  %maybeMore.0.in71 = phi i1 [ %5, %for.cond.preheader ], [ %20, %for.body ]
+  %maybeMore.0.in73 = phi i1 [ %5, %for.cond.preheader ], [ %20, %for.body ]
+  %longestFullMatch.071 = phi i32 [ 0, %for.cond.preheader ], [ %longestFullMatch.1, %for.body ]
   %arrayidx = getelementptr inbounds [8 x %"class.icu_75::UnicodeString"], ptr %fLocalLongNames, i64 0, i64 %indvars.iv
   %call67 = tail call noundef i32 @_ZN6icu_7513StringSegment21getCommonPrefixLengthERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx)
   %fUnion.i.i55 = getelementptr inbounds i8, ptr %arrayidx, i64 8
@@ -1001,10 +1001,10 @@ for.body:                                         ; preds = %for.cond.preheader,
   %18 = load i32, ptr %fLength.i58, align 4
   %cond.i59 = select i1 %cmp.i.i56, i32 %18, i32 %shr.i.i57
   %cmp69 = icmp eq i32 %call67, %cond.i59
-  %19 = tail call i32 @llvm.smax.i32(i32 %cond.i59, i32 %longestFullMatch.072)
-  %longestFullMatch.1 = select i1 %cmp69, i32 %19, i32 %longestFullMatch.072
+  %19 = tail call i32 @llvm.smax.i32(i32 %cond.i59, i32 %longestFullMatch.071)
+  %longestFullMatch.1 = select i1 %cmp69, i32 %19, i32 %longestFullMatch.071
   %cmp78 = icmp sgt i32 %call67, 0
-  %20 = or i1 %maybeMore.0.in71, %cmp78
+  %20 = or i1 %maybeMore.0.in73, %cmp78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6

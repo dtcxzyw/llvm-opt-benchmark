@@ -60,13 +60,13 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   br label %41
 
 41:                                               ; preds = %40, %34
-  %.0201 = phi i32 [ %1, %40 ], [ %39, %34 ]
-  %.0200 = phi ptr [ %0, %40 ], [ %38, %34 ]
-  %.0199 = phi ptr [ null, %40 ], [ %38, %34 ]
-  call void @Ptngc_comp_make_dict_hist(ptr noundef %.0200, i32 noundef %.0201, ptr noundef %23, ptr noundef nonnull %9, ptr noundef %24) #4
+  %.0201 = phi ptr [ null, %40 ], [ %38, %34 ]
+  %.0200 = phi i32 [ %1, %40 ], [ %39, %34 ]
+  %.0199 = phi ptr [ %0, %40 ], [ %38, %34 ]
+  call void @Ptngc_comp_make_dict_hist(ptr noundef %.0199, i32 noundef %.0200, ptr noundef %23, ptr noundef nonnull %9, ptr noundef %24) #4
   %42 = load i32, ptr %9, align 4
   %43 = getelementptr inbounds i8, ptr %2, i64 14
-  call void @Ptngc_comp_conv_to_huffman(ptr noundef %.0200, i32 noundef %.0201, ptr noundef %23, i32 noundef %42, ptr noundef %24, ptr noundef nonnull %43, ptr noundef nonnull %12, ptr noundef %25, ptr noundef nonnull %13, ptr noundef %26, ptr noundef nonnull %14) #4
+  call void @Ptngc_comp_conv_to_huffman(ptr noundef %.0199, i32 noundef %.0200, ptr noundef %23, i32 noundef %42, ptr noundef %24, ptr noundef nonnull %43, ptr noundef nonnull %12, ptr noundef %25, ptr noundef nonnull %13, ptr noundef %26, ptr noundef nonnull %14) #4
   %44 = load i32, ptr %12, align 4
   store i32 %44, ptr %4, align 4
   %45 = load i32, ptr %13, align 4
@@ -140,18 +140,18 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   %89 = trunc nuw i32 %88 to i8
   %90 = getelementptr inbounds i8, ptr %2, i64 5
   store i8 %89, ptr %90, align 1
-  %91 = trunc i32 %.0201 to i8
+  %91 = trunc i32 %.0200 to i8
   %92 = getelementptr inbounds i8, ptr %2, i64 6
   store i8 %91, ptr %92, align 1
-  %93 = lshr i32 %.0201, 8
+  %93 = lshr i32 %.0200, 8
   %94 = trunc i32 %93 to i8
   %95 = getelementptr inbounds i8, ptr %2, i64 7
   store i8 %94, ptr %95, align 1
-  %96 = lshr i32 %.0201, 16
+  %96 = lshr i32 %.0200, 16
   %97 = trunc i32 %96 to i8
   %98 = getelementptr inbounds i8, ptr %2, i64 8
   store i8 %97, ptr %98, align 1
-  %99 = lshr i32 %.0201, 24
+  %99 = lshr i32 %.0200, 24
   %100 = trunc nuw i32 %99 to i8
   %101 = getelementptr inbounds i8, ptr %2, i64 9
   store i8 %100, ptr %101, align 1
@@ -244,18 +244,18 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   %153 = trunc nuw i32 %152 to i8
   %154 = getelementptr inbounds i8, ptr %2, i64 5
   store i8 %153, ptr %154, align 1
-  %155 = trunc i32 %.0201 to i8
+  %155 = trunc i32 %.0200 to i8
   %156 = getelementptr inbounds i8, ptr %2, i64 6
   store i8 %155, ptr %156, align 1
-  %157 = lshr i32 %.0201, 8
+  %157 = lshr i32 %.0200, 8
   %158 = trunc i32 %157 to i8
   %159 = getelementptr inbounds i8, ptr %2, i64 7
   store i8 %158, ptr %159, align 1
-  %160 = lshr i32 %.0201, 16
+  %160 = lshr i32 %.0200, 16
   %161 = trunc i32 %160 to i8
   %162 = getelementptr inbounds i8, ptr %2, i64 8
   store i8 %161, ptr %162, align 1
-  %163 = lshr i32 %.0201, 24
+  %163 = lshr i32 %.0200, 24
   %164 = trunc nuw i32 %163 to i8
   %165 = getelementptr inbounds i8, ptr %2, i64 9
   store i8 %164, ptr %165, align 1
@@ -402,18 +402,18 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   %250 = trunc nuw i32 %249 to i8
   %251 = getelementptr inbounds i8, ptr %2, i64 5
   store i8 %250, ptr %251, align 1
-  %252 = trunc i32 %.0201 to i8
+  %252 = trunc i32 %.0200 to i8
   %253 = getelementptr inbounds i8, ptr %2, i64 6
   store i8 %252, ptr %253, align 1
-  %254 = lshr i32 %.0201, 8
+  %254 = lshr i32 %.0200, 8
   %255 = trunc i32 %254 to i8
   %256 = getelementptr inbounds i8, ptr %2, i64 7
   store i8 %255, ptr %256, align 1
-  %257 = lshr i32 %.0201, 16
+  %257 = lshr i32 %.0200, 16
   %258 = trunc i32 %257 to i8
   %259 = getelementptr inbounds i8, ptr %2, i64 8
   store i8 %258, ptr %259, align 1
-  %260 = lshr i32 %.0201, 24
+  %260 = lshr i32 %.0200, 24
   %261 = trunc nuw i32 %260 to i8
   %262 = getelementptr inbounds i8, ptr %2, i64 9
   store i8 %261, ptr %262, align 1
@@ -547,7 +547,7 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not, label %338, label %339
 
 338:                                              ; preds = %.loopexit
-  call void @free(ptr noundef %.0199) #4
+  call void @free(ptr noundef %.0201) #4
   br label %339
 
 339:                                              ; preds = %338, %.loopexit

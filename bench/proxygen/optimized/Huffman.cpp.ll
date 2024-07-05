@@ -151,15 +151,15 @@ for.body.i:                                       ; preds = %_ZN8proxygen7huffma
 
 while.body.i.i:                                   ; preds = %for.body.i, %if.end.i.i
   %code.addr.018.i.i = phi i32 [ %and21.i.i, %if.end.i.i ], [ %1, %for.body.i ]
-  %snode.017.i.i = phi ptr [ %arrayidx17.i.i, %if.end.i.i ], [ %table_.i.i, %for.body.i ]
-  %bits.addr.016.i.i = phi i8 [ %conv20.i.i, %if.end.i.i ], [ %3, %for.body.i ]
-  %conv.i.i = zext i8 %bits.addr.016.i.i to i32
+  %bits.addr.017.i.i = phi i8 [ %conv20.i.i, %if.end.i.i ], [ %3, %for.body.i ]
+  %snode.016.i.i = phi ptr [ %arrayidx17.i.i, %if.end.i.i ], [ %table_.i.i, %for.body.i ]
+  %conv.i.i = zext i8 %bits.addr.017.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i, -8
   %shl.i.i = shl i32 255, %sub.i.i
   %and.i.i = and i32 %shl.i.i, %code.addr.018.i.i
   %shr.i.i = lshr i32 %and.i.i, %sub.i.i
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
-  %arrayidx5.i.i = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.017.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx5.i.i = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.016.i.i, i64 0, i64 %idxprom.i.i
   %metadata.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 1
   %bf.load.i.i.i = load i8, ptr %metadata.i.i.i, align 1
   %4 = and i8 %bf.load.i.i.i, 16
@@ -193,8 +193,8 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i, !llvm.loop !4
 
 _ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i:  ; preds = %if.end.i.i, %for.body.i
-  %bits.addr.0.lcssa.i.i = phi i8 [ %3, %for.body.i ], [ %conv20.i.i, %if.end.i.i ]
   %snode.0.lcssa.i.i = phi ptr [ %table_.i.i, %for.body.i ], [ %arrayidx17.i.i, %if.end.i.i ]
+  %bits.addr.0.lcssa.i.i = phi i8 [ %3, %for.body.i ], [ %conv20.i.i, %if.end.i.i ]
   %code.addr.0.lcssa.i.i = phi i32 [ %1, %for.body.i ], [ %and21.i.i, %if.end.i.i ]
   tail call void @_ZN8proxygen7huffman8HuffTree9fillIndexERNS0_13SuperHuffNodeEjhhh(ptr noundef nonnull align 8 dereferenceable(23576) %this, ptr noundef nonnull align 1 dereferenceable(512) %snode.0.lcssa.i.i, i32 noundef %code.addr.0.lcssa.i.i, i8 noundef zeroext %bits.addr.0.lcssa.i.i, i8 noundef zeroext %conv.i, i8 noundef zeroext %bits.addr.0.lcssa.i.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -227,15 +227,15 @@ for.body:                                         ; preds = %entry, %_ZN8proxyge
 
 while.body.i:                                     ; preds = %for.body, %if.end.i
   %code.addr.018.i = phi i32 [ %and21.i, %if.end.i ], [ %1, %for.body ]
-  %snode.017.i = phi ptr [ %arrayidx17.i, %if.end.i ], [ %table_.i, %for.body ]
-  %bits.addr.016.i = phi i8 [ %conv20.i, %if.end.i ], [ %3, %for.body ]
-  %conv.i = zext i8 %bits.addr.016.i to i32
+  %bits.addr.017.i = phi i8 [ %conv20.i, %if.end.i ], [ %3, %for.body ]
+  %snode.016.i = phi ptr [ %arrayidx17.i, %if.end.i ], [ %table_.i, %for.body ]
+  %conv.i = zext i8 %bits.addr.017.i to i32
   %sub.i = add nsw i32 %conv.i, -8
   %shl.i = shl i32 255, %sub.i
   %and.i = and i32 %shl.i, %code.addr.018.i
   %shr.i = lshr i32 %and.i, %sub.i
   %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx5.i = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.017.i, i64 0, i64 %idxprom.i
+  %arrayidx5.i = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.016.i, i64 0, i64 %idxprom.i
   %metadata.i.i = getelementptr inbounds i8, ptr %arrayidx5.i, i64 1
   %bf.load.i.i = load i8, ptr %metadata.i.i, align 1
   %4 = and i8 %bf.load.i.i, 16
@@ -269,8 +269,8 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   br i1 %cmp.i, label %while.body.i, label %_ZN8proxygen7huffman8HuffTree6insertEjhh.exit, !llvm.loop !4
 
 _ZN8proxygen7huffman8HuffTree6insertEjhh.exit:    ; preds = %if.end.i, %for.body
-  %bits.addr.0.lcssa.i = phi i8 [ %3, %for.body ], [ %conv20.i, %if.end.i ]
   %snode.0.lcssa.i = phi ptr [ %table_.i, %for.body ], [ %arrayidx17.i, %if.end.i ]
+  %bits.addr.0.lcssa.i = phi i8 [ %3, %for.body ], [ %conv20.i, %if.end.i ]
   %code.addr.0.lcssa.i = phi i32 [ %1, %for.body ], [ %and21.i, %if.end.i ]
   tail call void @_ZN8proxygen7huffman8HuffTree9fillIndexERNS0_13SuperHuffNodeEjhhh(ptr noundef nonnull align 8 dereferenceable(23576) %this, ptr noundef nonnull align 1 dereferenceable(512) %snode.0.lcssa.i, i32 noundef %code.addr.0.lcssa.i, i8 noundef zeroext %bits.addr.0.lcssa.i, i8 noundef zeroext %conv, i8 noundef zeroext %bits.addr.0.lcssa.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -335,15 +335,15 @@ for.body.i:                                       ; preds = %_ZN8proxygen7huffma
 
 while.body.i.i:                                   ; preds = %for.body.i, %if.end.i.i
   %code.addr.018.i.i = phi i32 [ %and21.i.i, %if.end.i.i ], [ %3, %for.body.i ]
-  %snode.017.i.i = phi ptr [ %arrayidx17.i.i, %if.end.i.i ], [ %table_.i.i, %for.body.i ]
-  %bits.addr.016.i.i = phi i8 [ %conv20.i.i, %if.end.i.i ], [ %5, %for.body.i ]
-  %conv.i.i = zext i8 %bits.addr.016.i.i to i32
+  %bits.addr.017.i.i = phi i8 [ %conv20.i.i, %if.end.i.i ], [ %5, %for.body.i ]
+  %snode.016.i.i = phi ptr [ %arrayidx17.i.i, %if.end.i.i ], [ %table_.i.i, %for.body.i ]
+  %conv.i.i = zext i8 %bits.addr.017.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i, -8
   %shl.i.i = shl i32 255, %sub.i.i
   %and.i.i = and i32 %shl.i.i, %code.addr.018.i.i
   %shr.i.i = lshr i32 %and.i.i, %sub.i.i
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
-  %arrayidx5.i.i = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.017.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx5.i.i = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.016.i.i, i64 0, i64 %idxprom.i.i
   %metadata.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 1
   %bf.load.i.i.i = load i8, ptr %metadata.i.i.i, align 1
   %6 = and i8 %bf.load.i.i.i, 16
@@ -377,8 +377,8 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i, !llvm.loop !4
 
 _ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i:  ; preds = %if.end.i.i, %for.body.i
-  %bits.addr.0.lcssa.i.i = phi i8 [ %5, %for.body.i ], [ %conv20.i.i, %if.end.i.i ]
   %snode.0.lcssa.i.i = phi ptr [ %table_.i.i, %for.body.i ], [ %arrayidx17.i.i, %if.end.i.i ]
+  %bits.addr.0.lcssa.i.i = phi i8 [ %5, %for.body.i ], [ %conv20.i.i, %if.end.i.i ]
   %code.addr.0.lcssa.i.i = phi i32 [ %3, %for.body.i ], [ %and21.i.i, %if.end.i.i ]
   tail call void @_ZN8proxygen7huffman8HuffTree9fillIndexERNS0_13SuperHuffNodeEjhhh(ptr noundef nonnull align 8 dereferenceable(23576) %this, ptr noundef nonnull align 1 dereferenceable(512) %snode.0.lcssa.i.i, i32 noundef %code.addr.0.lcssa.i.i, i8 noundef zeroext %bits.addr.0.lcssa.i.i, i8 noundef zeroext %conv.i, i8 noundef zeroext %bits.addr.0.lcssa.i.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -399,49 +399,49 @@ entry:
 while.body:                                       ; preds = %entry, %if.end30
   %cmp35 = phi i1 [ %cmp, %if.end30 ], [ true, %entry ]
   %snode.034 = phi ptr [ %snode.1, %if.end30 ], [ %table_, %entry ]
-  %i.033 = phi i32 [ %i.128, %if.end30 ], [ 0, %entry ]
-  %wbits.032 = phi i32 [ %wbits.3, %if.end30 ], [ 0, %entry ]
-  %w.031 = phi i32 [ %and, %if.end30 ], [ 0, %entry ]
-  %cmp4 = icmp ult i32 %wbits.032, 8
+  %w.033 = phi i32 [ %and, %if.end30 ], [ 0, %entry ]
+  %i.032 = phi i32 [ %i.127, %if.end30 ], [ 0, %entry ]
+  %wbits.031 = phi i32 [ %wbits.3, %if.end30 ], [ 0, %entry ]
+  %cmp4 = icmp ult i32 %wbits.031, 8
   %or.cond = select i1 %cmp35, i1 %cmp4, i1 false
   br i1 %or.cond, label %if.end.thread, label %if.end
 
 if.end.thread:                                    ; preds = %while.body
-  %shl = shl i32 %w.031, 8
-  %idxprom = zext i32 %i.033 to i64
+  %shl = shl i32 %w.033, 8
+  %idxprom = zext i32 %i.032 to i64
   %arrayidx5 = getelementptr inbounds i8, ptr %buf, i64 %idxprom
   %0 = load i8, ptr %arrayidx5, align 1
   %conv = zext i8 %0 to i32
   %or = or disjoint i32 %shl, %conv
-  %add = or disjoint i32 %wbits.032, 8
-  %inc = add nuw i32 %i.033, 1
+  %add = or disjoint i32 %wbits.031, 8
+  %inc = add nuw i32 %i.032, 1
   br label %if.then7
 
 if.end:                                           ; preds = %while.body
-  %cmp6 = icmp ugt i32 %wbits.032, 7
+  %cmp6 = icmp ugt i32 %wbits.031, 7
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end.thread, %if.end
-  %i.129 = phi i32 [ %inc, %if.end.thread ], [ %i.033, %if.end ]
-  %wbits.127 = phi i32 [ %add, %if.end.thread ], [ %wbits.032, %if.end ]
-  %w.126 = phi i32 [ %or, %if.end.thread ], [ %w.031, %if.end ]
-  %sub = add i32 %wbits.127, -8
-  %shr = lshr i32 %w.126, %sub
+  %w.129 = phi i32 [ %or, %if.end.thread ], [ %w.033, %if.end ]
+  %i.128 = phi i32 [ %inc, %if.end.thread ], [ %i.032, %if.end ]
+  %wbits.126 = phi i32 [ %add, %if.end.thread ], [ %wbits.031, %if.end ]
+  %sub = add i32 %wbits.126, -8
+  %shr = lshr i32 %w.129, %sub
   br label %if.end16
 
 if.else:                                          ; preds = %if.end
-  %conv9 = sub nuw nsw i32 8, %wbits.032
-  %shl11 = shl i32 %w.031, %conv9
+  %conv9 = sub nuw nsw i32 8, %wbits.031
+  %shl11 = shl i32 %w.033, %conv9
   %notmask = shl nsw i32 -1, %conv9
   %sub14 = xor i32 %notmask, -1
   %or15 = or i32 %shl11, %sub14
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else, %if.then7
-  %i.128 = phi i32 [ %i.129, %if.then7 ], [ %i.033, %if.else ]
-  %w.2 = phi i32 [ %w.126, %if.then7 ], [ %or15, %if.else ]
-  %wbits.2 = phi i32 [ %wbits.127, %if.then7 ], [ 8, %if.else ]
+  %i.127 = phi i32 [ %i.128, %if.then7 ], [ %i.032, %if.else ]
+  %wbits.2 = phi i32 [ %wbits.126, %if.then7 ], [ 8, %if.else ]
   %key.0 = phi i32 [ %shr, %if.then7 ], [ %or15, %if.else ]
+  %w.2 = phi i32 [ %w.129, %if.then7 ], [ %or15, %if.else ]
   %idxprom17 = zext i32 %key.0 to i64
   %arrayidx18 = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.034, i64 0, i64 %idxprom17
   %metadata.i = getelementptr inbounds i8, ptr %arrayidx18, i64 1
@@ -473,7 +473,7 @@ if.end30:                                         ; preds = %if.else24, %if.then
   %notmask21 = shl nsw i32 -1, %wbits.3
   %sub32 = xor i32 %notmask21, -1
   %and = and i32 %w.2, %sub32
-  %cmp = icmp ult i32 %i.128, %size
+  %cmp = icmp ult i32 %i.127, %size
   %cmp2 = icmp ne i32 %wbits.3, 0
   %4 = select i1 %cmp, i1 true, i1 %cmp2
   br i1 %4, label %while.body, label %while.end, !llvm.loop !7
@@ -491,15 +491,15 @@ entry:
 
 while.body:                                       ; preds = %entry, %if.end
   %code.addr.018 = phi i32 [ %and21, %if.end ], [ %code, %entry ]
-  %snode.017 = phi ptr [ %arrayidx17, %if.end ], [ %table_, %entry ]
-  %bits.addr.016 = phi i8 [ %conv20, %if.end ], [ %bits, %entry ]
-  %conv = zext i8 %bits.addr.016 to i32
+  %bits.addr.017 = phi i8 [ %conv20, %if.end ], [ %bits, %entry ]
+  %snode.016 = phi ptr [ %arrayidx17, %if.end ], [ %table_, %entry ]
+  %conv = zext i8 %bits.addr.017 to i32
   %sub = add nsw i32 %conv, -8
   %shl = shl i32 255, %sub
   %and = and i32 %shl, %code.addr.018
   %shr = lshr i32 %and, %sub
   %idxprom = zext nneg i32 %shr to i64
-  %arrayidx5 = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.017, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [256 x %"struct.proxygen::huffman::HuffNode"], ptr %snode.016, i64 0, i64 %idxprom
   %metadata.i = getelementptr inbounds i8, ptr %arrayidx5, i64 1
   %bf.load.i = load i8, ptr %metadata.i, align 1
   %0 = and i8 %bf.load.i, 16
@@ -533,8 +533,8 @@ if.end:                                           ; preds = %while.body.if.end_c
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end, %entry
-  %bits.addr.0.lcssa = phi i8 [ %bits, %entry ], [ %conv20, %if.end ]
   %snode.0.lcssa = phi ptr [ %table_, %entry ], [ %arrayidx17, %if.end ]
+  %bits.addr.0.lcssa = phi i8 [ %bits, %entry ], [ %conv20, %if.end ]
   %code.addr.0.lcssa = phi i32 [ %code, %entry ], [ %and21, %if.end ]
   tail call void @_ZN8proxygen7huffman8HuffTree9fillIndexERNS0_13SuperHuffNodeEjhhh(ptr noundef nonnull align 8 dereferenceable(23576) %this, ptr noundef nonnull align 1 dereferenceable(512) %snode.0.lcssa, i32 noundef %code.addr.0.lcssa, i8 noundef zeroext %bits.addr.0.lcssa, i8 noundef zeroext %ch, i8 noundef zeroext %bits.addr.0.lcssa)
   ret void

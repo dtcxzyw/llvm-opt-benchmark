@@ -1571,12 +1571,12 @@ define i32 @ompi_coll_tuned_allgatherv_intra_dec_fixed(ptr noundef %0, i32 nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.071 = phi i64 [ 0, %.lr.ph.preheader ], [ %17, %.lr.ph ]
+  %.05371 = phi i64 [ 0, %.lr.ph.preheader ], [ %17, %.lr.ph ]
   %13 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = mul i64 %.068, %15
-  %17 = add i64 %16, %.071
+  %17 = add i64 %16, %.05371
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -1722,8 +1722,8 @@ define i32 @ompi_coll_tuned_allgatherv_intra_dec_fixed(ptr noundef %0, i32 nound
   br label %.thread74
 
 .thread74:                                        ; preds = %9, %81, %79, %77, %75, %73, %69, %65, %63, %59, %57, %53, %51, %47, %45, %41, %37, %35, %33, %31, %29, %25, %23, %21
-  %.054 = phi i32 [ 3, %21 ], [ 5, %23 ], [ %., %25 ], [ 1, %29 ], [ 4, %31 ], [ 3, %33 ], [ 4, %35 ], [ %.57, %37 ], [ %.58, %41 ], [ 1, %45 ], [ %.59, %47 ], [ 1, %51 ], [ %.60, %53 ], [ 1, %57 ], [ %.61, %59 ], [ 2, %63 ], [ %.62, %65 ], [ %.63, %69 ], [ 2, %73 ], [ 1, %75 ], [ 2, %77 ], [ %.64, %79 ], [ %.65, %81 ], [ 1, %9 ]
-  %83 = tail call i32 @ompi_coll_tuned_allgatherv_intra_do_this(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %.054, i32 noundef 0, i32 noundef 0) #2
+  %.0 = phi i32 [ 3, %21 ], [ 5, %23 ], [ %., %25 ], [ 1, %29 ], [ 4, %31 ], [ 3, %33 ], [ 4, %35 ], [ %.57, %37 ], [ %.58, %41 ], [ 1, %45 ], [ %.59, %47 ], [ 1, %51 ], [ %.60, %53 ], [ 1, %57 ], [ %.61, %59 ], [ 2, %63 ], [ %.62, %65 ], [ %.63, %69 ], [ 2, %73 ], [ 1, %75 ], [ 2, %77 ], [ %.64, %79 ], [ %.65, %81 ], [ 1, %9 ]
+  %83 = tail call i32 @ompi_coll_tuned_allgatherv_intra_do_this(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %.0, i32 noundef 0, i32 noundef 0) #2
   ret i32 %83
 }
 

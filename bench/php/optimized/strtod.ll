@@ -14,21 +14,21 @@ define hidden double @lexbor_strtod_internal(ptr noundef %0, i64 noundef %1, i32
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %8
-  %.043 = phi ptr [ %9, %8 ], [ %0, %3 ]
-  %7 = load i8, ptr %.043, align 1
+  %.03243 = phi ptr [ %9, %8 ], [ %0, %3 ]
+  %7 = load i8, ptr %.03243, align 1
   %.not = icmp eq i8 %7, 48
   br i1 %.not, label %8, label %._crit_edge
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.043, i64 1
+  %9 = getelementptr inbounds i8, ptr %.03243, i64 1
   %10 = icmp ult ptr %9, %5
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %8, %.lr.ph, %3
-  %.0.lcssa = phi ptr [ %0, %3 ], [ %.043, %.lr.ph ], [ %9, %8 ]
-  %.031 = phi ptr [ %0, %3 ], [ %.043, %.lr.ph ], [ %0, %8 ]
+  %.032.lcssa = phi ptr [ %0, %3 ], [ %.03243, %.lr.ph ], [ %9, %8 ]
+  %.031 = phi ptr [ %0, %3 ], [ %.03243, %.lr.ph ], [ %0, %8 ]
   %11 = ptrtoint ptr %5 to i64
-  %12 = ptrtoint ptr %.0.lcssa to i64
+  %12 = ptrtoint ptr %.032.lcssa to i64
   %13 = sub i64 %11, %12
   %14 = getelementptr inbounds i8, ptr %.031, i64 %13
   br label %15
@@ -72,12 +72,12 @@ define hidden double @lexbor_strtod_internal(ptr noundef %0, i64 noundef %1, i32
   br i1 %36, label %.lr.ph.i.i.i, label %lexbor_strtod_read_uint64.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %34, %.lr.ph.i.i.i
-  %.014.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i ], [ %.031, %34 ]
-  %.01213.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i ], [ 0, %34 ]
-  %37 = getelementptr inbounds i8, ptr %.014.i.i.i, i64 1
-  %38 = load i8, ptr %.014.i.i.i, align 1
+  %.014.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i ], [ 0, %34 ]
+  %.01213.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i ], [ %.031, %34 ]
+  %37 = getelementptr inbounds i8, ptr %.01213.i.i.i, i64 1
+  %38 = load i8, ptr %.01213.i.i.i, align 1
   %39 = add i8 %38, -48
-  %40 = mul nuw i64 %.01213.i.i.i, 10
+  %40 = mul nuw i64 %.014.i.i.i, 10
   %41 = zext i8 %39 to i64
   %42 = add i64 %40, %41
   %43 = icmp ult ptr %37, %35
@@ -91,7 +91,7 @@ lexbor_strtod_read_uint64.exit.i.i.loopexit:      ; preds = %.lr.ph.i.i.i
 
 lexbor_strtod_read_uint64.exit.i.i:               ; preds = %lexbor_strtod_read_uint64.exit.i.i.loopexit, %34
   %.pre-phi = phi i64 [ %.pre, %lexbor_strtod_read_uint64.exit.i.i.loopexit ], [ %21, %34 ]
-  %.012.lcssa.i.i.i = phi i64 [ %42, %lexbor_strtod_read_uint64.exit.i.i.loopexit ], [ 0, %34 ]
+  %.0.lcssa.i.i.i = phi i64 [ %42, %lexbor_strtod_read_uint64.exit.i.i.loopexit ], [ 0, %34 ]
   %46 = sub i64 %.pre-phi, %21
   %.not.i.i = icmp eq i64 %46, %23
   br i1 %.not.i.i, label %lexbor_strtod_diyfp_read.exit.i, label %47
@@ -101,11 +101,11 @@ lexbor_strtod_read_uint64.exit.i.i:               ; preds = %lexbor_strtod_read_
   %49 = load i8, ptr %48, align 1
   %50 = icmp ugt i8 %49, 52
   %51 = zext i1 %50 to i64
-  %spec.select.i.i = add i64 %.012.lcssa.i.i.i, %51
+  %spec.select.i.i = add i64 %.0.lcssa.i.i.i, %51
   br label %lexbor_strtod_diyfp_read.exit.i
 
 lexbor_strtod_diyfp_read.exit.i:                  ; preds = %47, %lexbor_strtod_read_uint64.exit.i.i
-  %.0.i.i = phi i64 [ %.012.lcssa.i.i.i, %lexbor_strtod_read_uint64.exit.i.i ], [ %spec.select.i.i, %47 ]
+  %.0.i.i = phi i64 [ %.0.lcssa.i.i.i, %lexbor_strtod_read_uint64.exit.i.i ], [ %spec.select.i.i, %47 ]
   %52 = sub i64 %23, %46
   %53 = trunc i64 %52 to i32
   %54 = add nsw i32 %28, %53
@@ -329,8 +329,8 @@ lexbor_strtod_diyfp_strtod.exit:                  ; preds = %lexbor_diyfp_normal
   br label %176
 
 176:                                              ; preds = %32, %25, %19, %lexbor_strtod_diyfp_strtod.exit
-  %.032 = phi double [ %.0.i, %lexbor_strtod_diyfp_strtod.exit ], [ 0.000000e+00, %19 ], [ 0x7FF0000000000000, %25 ], [ 0.000000e+00, %32 ]
-  ret double %.032
+  %.0 = phi double [ %.0.i, %lexbor_strtod_diyfp_strtod.exit ], [ 0.000000e+00, %19 ], [ 0x7FF0000000000000, %25 ], [ 0.000000e+00, %32 ]
+  ret double %.0
 }
 
 declare { i64, i32 } @lexbor_cached_power_dec(i32 noundef, ptr noundef) local_unnamed_addr #1

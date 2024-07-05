@@ -72,22 +72,22 @@ for.body.preheader:                               ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.preheader, %for.end
   %i.042 = phi i64 [ %inc23, %for.end ], [ 0, %for.body.preheader ]
-  %bin_cur.041 = phi ptr [ %incdec.ptr21, %for.end ], [ %arrayidx, %for.body.preheader ]
-  %shard_cur.040 = phi ptr [ %incdec.ptr, %for.end ], [ %call6, %for.body.preheader ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %shard_cur.040, i64 144
-  %call12 = tail call zeroext i1 @malloc_mutex_init(ptr noundef nonnull %shard_cur.040, ptr noundef nonnull @.str, i32 noundef 16, i32 noundef 0) #9
+  %shard_cur.041 = phi ptr [ %incdec.ptr, %for.end ], [ %call6, %for.body.preheader ]
+  %bin_cur.040 = phi ptr [ %incdec.ptr21, %for.end ], [ %arrayidx, %for.body.preheader ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %shard_cur.041, i64 144
+  %call12 = tail call zeroext i1 @malloc_mutex_init(ptr noundef nonnull %shard_cur.041, ptr noundef nonnull @.str, i32 noundef 16, i32 noundef 0) #9
   br i1 %call12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %for.body
-  %enabled = getelementptr inbounds i8, ptr %shard_cur.040, i64 112
+  %enabled = getelementptr inbounds i8, ptr %shard_cur.041, i64 112
   store i8 1, ptr %enabled, align 8
-  %bins = getelementptr inbounds i8, ptr %shard_cur.040, i64 120
-  store ptr %bin_cur.041, ptr %bins, align 8
+  %bins = getelementptr inbounds i8, ptr %shard_cur.041, i64 120
+  store ptr %bin_cur.040, ptr %bins, align 8
   br label %for.body18
 
 for.body18:                                       ; preds = %if.end14, %for.body18
   %indvars.iv = phi i64 [ 0, %if.end14 ], [ %indvars.iv.next, %for.body18 ]
-  %bin_cur.137 = phi ptr [ %bin_cur.041, %if.end14 ], [ %incdec.ptr21, %for.body18 ]
+  %bin_cur.137 = phi ptr [ %bin_cur.040, %if.end14 ], [ %incdec.ptr21, %for.body18 ]
   %9 = load ptr, ptr %bins, align 8
   %arrayidx20 = getelementptr inbounds %struct.sec_bin_s, ptr %9, i64 %indvars.iv
   store i8 0, ptr %arrayidx20, align 8
@@ -99,9 +99,9 @@ for.body18:                                       ; preds = %if.end14, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body18, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body18
-  %bytes_cur = getelementptr inbounds i8, ptr %shard_cur.040, i64 128
+  %bytes_cur = getelementptr inbounds i8, ptr %shard_cur.041, i64 128
   store i64 0, ptr %bytes_cur, align 8
-  %to_flush_next = getelementptr inbounds i8, ptr %shard_cur.040, i64 136
+  %to_flush_next = getelementptr inbounds i8, ptr %shard_cur.041, i64 136
   store i32 0, ptr %to_flush_next, align 8
   %inc23 = add nuw i64 %i.042, 1
   %10 = load i64, ptr %opts, align 8

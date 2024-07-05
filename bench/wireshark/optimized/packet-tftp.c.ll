@@ -633,9 +633,9 @@ define internal fastcc void @dissect_tftp_message(ptr noundef %0, ptr noundef %1
   br label %31
 
 31:                                               ; preds = %28, %25
-  %.0285 = phi ptr [ %27, %25 ], [ %30, %28 ]
+  %.0283 = phi ptr [ %27, %25 ], [ %30, %28 ]
   %32 = load i32, ptr @hf_tftp_destination_file, align 4
-  %33 = tail call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %32, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef %.0285) #6
+  %33 = tail call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %32, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef %.0283) #6
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %34
 
@@ -676,7 +676,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %34, %37
   br label %proto_item_set_generated.exit323
 
 proto_item_set_generated.exit323:                 ; preds = %49, %46, %proto_item_set_generated.exit, %4
-  %.1 = phi ptr [ null, %4 ], [ %.0285, %proto_item_set_generated.exit ], [ %.0285, %46 ], [ %.0285, %49 ]
+  %.1 = phi ptr [ null, %4 ], [ %.0283, %proto_item_set_generated.exit ], [ %.0283, %46 ], [ %.0283, %49 ]
   switch i16 %14, label %375 [
     i16 1, label %53
     i16 2, label %74
@@ -891,8 +891,8 @@ proto_item_set_generated.exit326:                 ; preds = %123, %127, %130
   br label %183
 
 183:                                              ; preds = %173, %181
-  %.0283 = phi ptr [ %180, %173 ], [ %182, %181 ]
-  %184 = icmp eq ptr %.0283, null
+  %.0284 = phi ptr [ %180, %173 ], [ %182, %181 ]
+  %184 = icmp eq ptr %.0284, null
   br i1 %184, label %.thread, label %187
 
 .thread:                                          ; preds = %166, %168, %183
@@ -905,19 +905,19 @@ proto_item_set_generated.exit326:                 ; preds = %123, %127, %130
   %189 = load i32, ptr %188, align 4
   %190 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 %189, ptr %190, align 4
-  %191 = call i32 @tvb_reported_length(ptr noundef nonnull %.0283) #6
+  %191 = call i32 @tvb_reported_length(ptr noundef nonnull %.0284) #6
   %.not313 = icmp eq i32 %191, 0
   br i1 %.not313, label %199, label %192
 
 192:                                              ; preds = %187
   store ptr %.1, ptr %7, align 8
   %193 = load ptr, ptr @heur_subdissector_list, align 8
-  %194 = call i32 @dissector_try_heuristic(ptr noundef %193, ptr noundef nonnull %.0283, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
+  %194 = call i32 @dissector_try_heuristic(ptr noundef %193, ptr noundef nonnull %.0284, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
   %.not314 = icmp eq i32 %194, 0
   br i1 %.not314, label %195, label %197
 
 195:                                              ; preds = %192
-  %196 = call i32 @call_data_dissector(ptr noundef nonnull %.0283, ptr noundef nonnull %2, ptr noundef %3) #6
+  %196 = call i32 @call_data_dissector(ptr noundef nonnull %.0284, ptr noundef nonnull %2, ptr noundef %3) #6
   br label %199
 
 197:                                              ; preds = %192
@@ -1222,8 +1222,8 @@ error_is_likely_tsize_probe.exit:                 ; preds = %360, %357
   br label %error_is_likely_tsize_probe.exit.thread
 
 error_is_likely_tsize_probe.exit.thread:          ; preds = %351, %354, %357, %360, %349, %error_is_likely_tsize_probe.exit, %366
-  %.0284 = phi ptr [ %372, %366 ], [ @ei_tftp_likely_tsize_probe, %error_is_likely_tsize_probe.exit ], [ @ei_tftp_error, %349 ], [ @ei_tftp_error, %360 ], [ @ei_tftp_error, %357 ], [ @ei_tftp_error, %354 ], [ @ei_tftp_error, %351 ]
-  %373 = tail call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %13, ptr noundef nonnull %.0284) #6
+  %.0285 = phi ptr [ %372, %366 ], [ @ei_tftp_likely_tsize_probe, %error_is_likely_tsize_probe.exit ], [ @ei_tftp_error, %349 ], [ @ei_tftp_error, %360 ], [ @ei_tftp_error, %357 ], [ @ei_tftp_error, %354 ], [ @ei_tftp_error, %351 ]
+  %373 = tail call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %13, ptr noundef nonnull %.0285) #6
   br label %.thread336
 
 374:                                              ; preds = %proto_item_set_generated.exit323
@@ -1256,14 +1256,14 @@ define internal fastcc range(i32 0, 2) i32 @is_valid_request_body(ptr noundef %0
   br label %6
 
 6:                                                ; preds = %.lr.ph, %16
-  %.02632 = phi i32 [ 2, %.lr.ph ], [ %17, %16 ]
-  %.02731 = phi i32 [ 0, %.lr.ph ], [ %.1, %16 ]
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02632) #6
+  %.02632 = phi i32 [ 0, %.lr.ph ], [ %.1, %16 ]
+  %.02731 = phi i32 [ 2, %.lr.ph ], [ %17, %16 ]
+  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02731) #6
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = add i32 %.02731, 1
+  %10 = add i32 %.02632, 1
   br label %16
 
 11:                                               ; preds = %6
@@ -1275,8 +1275,8 @@ define internal fastcc range(i32 0, 2) i32 @is_valid_request_body(ptr noundef %0
   br i1 %.not, label %.loopexit, label %16
 
 16:                                               ; preds = %9, %11
-  %.1 = phi i32 [ %10, %9 ], [ %.02731, %11 ]
-  %17 = add nuw nsw i32 %.02632, 1
+  %.1 = phi i32 [ %10, %9 ], [ %.02632, %11 ]
+  %17 = add nuw nsw i32 %.02731, 1
   %18 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %19 = icmp slt i32 %17, %18
   br i1 %19, label %6, label %._crit_edge, !llvm.loop !4

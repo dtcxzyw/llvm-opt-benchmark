@@ -3092,46 +3092,46 @@ define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr nocapture nou
 
 .lr.ph139.split.us:                               ; preds = %.lr.ph139.split.us.preheader, %38
   %26 = phi i32 [ %39, %38 ], [ 0, %.lr.ph139.split.us.preheader ]
-  %.0105136.us = phi i32 [ %40, %38 ], [ 0, %.lr.ph139.split.us.preheader ]
+  %.098136.us = phi i32 [ %40, %38 ], [ 0, %.lr.ph139.split.us.preheader ]
   %27 = load i32, ptr %2, align 4
-  %28 = shl nuw i32 1, %.0105136.us
+  %28 = shl nuw i32 1, %.098136.us
   %29 = and i32 %27, %28
   %.not115.us = icmp eq i32 %29, 0
   br i1 %.not115.us, label %38, label %.preheader121.us
 
 .preheader121.us:                                 ; preds = %.lr.ph139.split.us, %.preheader121.us
   %indvars.iv166 = phi i64 [ %indvars.iv.next167, %.preheader121.us ], [ 0, %.lr.ph139.split.us ]
-  %.0102134.us = phi i32 [ %.1103.us, %.preheader121.us ], [ 0, %.lr.ph139.split.us ]
+  %.0106133.us = phi i32 [ %.1107.us, %.preheader121.us ], [ 0, %.lr.ph139.split.us ]
   %30 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv166
   %31 = load i8, ptr %30, align 1
   %32 = zext nneg i8 %31 to i32
   %33 = shl nuw i32 1, %32
-  %34 = and i32 %33, %.0105136.us
+  %34 = and i32 %33, %.098136.us
   %.not116.us = icmp eq i32 %34, 0
   %35 = trunc nuw nsw i64 %indvars.iv166 to i32
   %36 = shl nuw i32 1, %35
   %37 = select i1 %.not116.us, i32 0, i32 %36
-  %.1103.us = or i32 %37, %.0102134.us
+  %.1107.us = or i32 %37, %.0106133.us
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count
   br i1 %exitcond169.not, label %._crit_edge.us, label %.preheader121.us, !llvm.loop !45
 
 38:                                               ; preds = %._crit_edge.us, %.lr.ph139.split.us
   %39 = phi i32 [ %42, %._crit_edge.us ], [ %26, %.lr.ph139.split.us ]
-  %40 = add nuw nsw i32 %.0105136.us, 1
+  %40 = add nuw nsw i32 %.098136.us, 1
   %exitcond171.not = icmp eq i32 %40, %smax170
   br i1 %exitcond171.not, label %.loopexit, label %.lr.ph139.split.us, !llvm.loop !46
 
 ._crit_edge.us:                                   ; preds = %.preheader121.us
-  %41 = shl nuw i32 1, %.1103.us
+  %41 = shl nuw i32 1, %.1107.us
   %42 = or i32 %26, %41
   store i32 %42, ptr %4, align 4
   br label %38
 
 .lr.ph139.split:                                  ; preds = %.lr.ph139, %46
-  %.0105136 = phi i32 [ %47, %46 ], [ 0, %.lr.ph139 ]
+  %.098136 = phi i32 [ %47, %46 ], [ 0, %.lr.ph139 ]
   %43 = load i32, ptr %2, align 4
-  %44 = shl nuw i32 1, %.0105136
+  %44 = shl nuw i32 1, %.098136
   %45 = and i32 %43, %44
   %.not115 = icmp eq i32 %45, 0
   br i1 %.not115, label %46, label %.preheader121
@@ -3141,7 +3141,7 @@ define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr nocapture nou
   br label %46
 
 46:                                               ; preds = %.lr.ph139.split, %.preheader121
-  %47 = add nuw nsw i32 %.0105136, 1
+  %47 = add nuw nsw i32 %.098136, 1
   %exitcond165.not = icmp eq i32 %47, %smax170
   br i1 %exitcond165.not, label %.loopexit, label %.lr.ph139.split, !llvm.loop !46
 
@@ -3158,42 +3158,42 @@ define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr nocapture nou
 51:                                               ; preds = %48, %74
   %52 = phi i32 [ 0, %48 ], [ %75, %74 ]
   %53 = phi i32 [ 0, %48 ], [ %76, %74 ]
-  %.0100129 = phi i32 [ 0, %48 ], [ %77, %74 ]
+  %.0103129 = phi i32 [ 0, %48 ], [ %77, %74 ]
   %54 = load i32, ptr %2, align 4
-  %55 = shl nuw i32 1, %.0100129
+  %55 = shl nuw i32 1, %.0103129
   %56 = and i32 %54, %55
   %.not113 = icmp eq i32 %56, 0
   br i1 %.not113, label %74, label %.preheader126
 
 .preheader126:                                    ; preds = %51, %.preheader126
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader126 ], [ 0, %51 ]
-  %.096128 = phi i32 [ %.197, %.preheader126 ], [ 0, %51 ]
+  %.099128 = phi i32 [ %.1100, %.preheader126 ], [ 0, %51 ]
   %57 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv
   %58 = load i8, ptr %57, align 1
   %59 = zext nneg i8 %58 to i32
   %60 = shl nuw i32 1, %59
-  %61 = and i32 %60, %.0100129
+  %61 = and i32 %60, %.0103129
   %.not114 = icmp eq i32 %61, 0
   %62 = trunc nuw nsw i64 %indvars.iv to i32
   %63 = shl nuw nsw i32 1, %62
   %64 = select i1 %.not114, i32 0, i32 %63
-  %.197 = or i32 %64, %.096128
+  %.1100 = or i32 %64, %.099128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %65, label %.preheader126, !llvm.loop !47
 
 65:                                               ; preds = %.preheader126
-  %66 = icmp slt i32 %.197, 32
+  %66 = icmp slt i32 %.1100, 32
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %65
-  %68 = shl nuw i32 1, %.197
+  %68 = shl nuw i32 1, %.1100
   %69 = or i32 %52, %68
   store i32 %69, ptr %4, align 4
   br label %74
 
 70:                                               ; preds = %65
-  %71 = add nsw i32 %.197, -32
+  %71 = add nsw i32 %.1100, -32
   %72 = shl nuw i32 1, %71
   %73 = or i32 %53, %72
   store i32 %73, ptr %49, align 4
@@ -3202,16 +3202,16 @@ define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr nocapture nou
 74:                                               ; preds = %51, %70, %67
   %75 = phi i32 [ %52, %51 ], [ %52, %70 ], [ %69, %67 ]
   %76 = phi i32 [ %53, %51 ], [ %73, %70 ], [ %53, %67 ]
-  %77 = add nuw nsw i32 %.0100129, 1
+  %77 = add nuw nsw i32 %.0103129, 1
   %exitcond159.not = icmp eq i32 %77, 32
   br i1 %exitcond159.not, label %.lr.ph, label %51, !llvm.loop !48
 
 78:                                               ; preds = %.lr.ph, %102
   %79 = phi i32 [ %75, %.lr.ph ], [ %103, %102 ]
   %80 = phi i32 [ %76, %.lr.ph ], [ %104, %102 ]
-  %.1101132 = phi i32 [ 32, %.lr.ph ], [ %105, %102 ]
+  %.1104132 = phi i32 [ 32, %.lr.ph ], [ %105, %102 ]
   %81 = load i32, ptr %50, align 4
-  %82 = add nsw i32 %.1101132, -32
+  %82 = add nsw i32 %.1104132, -32
   %83 = shl nuw i32 1, %82
   %84 = and i32 %81, %83
   %.not111 = icmp eq i32 %84, 0
@@ -3224,7 +3224,7 @@ define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr nocapture nou
   %86 = load i8, ptr %85, align 1
   %87 = zext nneg i8 %86 to i32
   %88 = shl nuw i32 1, %87
-  %89 = and i32 %88, %.1101132
+  %89 = and i32 %88, %.1104132
   %.not112 = icmp eq i32 %89, 0
   %90 = trunc nuw nsw i64 %indvars.iv160 to i32
   %91 = shl nuw nsw i32 1, %90
@@ -3254,7 +3254,7 @@ define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr nocapture nou
 102:                                              ; preds = %78, %98, %95
   %103 = phi i32 [ %79, %78 ], [ %79, %98 ], [ %97, %95 ]
   %104 = phi i32 [ %80, %78 ], [ %101, %98 ], [ %80, %95 ]
-  %105 = add nuw nsw i32 %.1101132, 1
+  %105 = add nuw nsw i32 %.1104132, 1
   %exitcond164.not = icmp eq i32 %105, 64
   br i1 %exitcond164.not, label %.loopexit, label %78, !llvm.loop !50
 
@@ -3277,12 +3277,12 @@ define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr nocapture nou
   br label %.lr.ph146
 
 .lr.ph146:                                        ; preds = %.lr.ph146.preheader, %134
-  %.195144 = phi i32 [ %135, %134 ], [ 0, %.lr.ph146.preheader ]
-  %111 = lshr i32 %.195144, 5
+  %.197144 = phi i32 [ %135, %134 ], [ 0, %.lr.ph146.preheader ]
+  %111 = lshr i32 %.197144, 5
   %112 = zext nneg i32 %111 to i64
   %113 = getelementptr inbounds i32, ptr %2, i64 %112
   %114 = load i32, ptr %113, align 4
-  %115 = and i32 %.195144, 31
+  %115 = and i32 %.197144, 31
   %116 = shl nuw i32 1, %115
   %117 = and i32 %114, %116
   %.not = icmp eq i32 %117, 0
@@ -3290,17 +3290,17 @@ define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr nocapture nou
 
 .preheader119:                                    ; preds = %.lr.ph146, %.preheader119
   %indvars.iv175 = phi i64 [ %indvars.iv.next176, %.preheader119 ], [ 0, %.lr.ph146 ]
-  %.0143 = phi i32 [ %.1, %.preheader119 ], [ 0, %.lr.ph146 ]
+  %.093143 = phi i32 [ %.1, %.preheader119 ], [ 0, %.lr.ph146 ]
   %118 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv175
   %119 = load i8, ptr %118, align 1
   %120 = zext nneg i8 %119 to i32
   %121 = shl nuw i32 1, %120
-  %122 = and i32 %121, %.195144
+  %122 = and i32 %121, %.197144
   %.not110 = icmp eq i32 %122, 0
   %123 = trunc nuw nsw i64 %indvars.iv175 to i32
   %124 = shl nuw nsw i32 1, %123
   %125 = select i1 %.not110, i32 0, i32 %124
-  %.1 = or i32 %125, %.0143
+  %.1 = or i32 %125, %.093143
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next176, 5
   br i1 %exitcond178.not, label %126, label %.preheader119, !llvm.loop !51
@@ -3317,7 +3317,7 @@ define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr nocapture nou
   br label %134
 
 134:                                              ; preds = %.lr.ph146, %126
-  %135 = add nuw nsw i32 %.195144, 1
+  %135 = add nuw nsw i32 %.197144, 1
   %exitcond180.not = icmp eq i32 %135, %110
   br i1 %exitcond180.not, label %.loopexit, label %.lr.ph146, !llvm.loop !52
 
@@ -4463,19 +4463,19 @@ define internal fastcc noundef i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0)
   br label %.preheader
 
 2:                                                ; preds = %65
-  %3 = add nuw nsw i32 %.01418, 1
+  %3 = add nuw nsw i32 %.019, 1
   %exitcond.not = icmp eq i32 %3, 10
   br i1 %exitcond.not, label %67, label %.preheader, !llvm.loop !78
 
 .preheader:                                       ; preds = %1, %2
-  %.019 = phi i64 [ %0, %1 ], [ %64, %2 ]
-  %.01418 = phi i32 [ 0, %1 ], [ %3, %2 ]
+  %.019 = phi i32 [ 0, %1 ], [ %3, %2 ]
+  %.01418 = phi i64 [ %0, %1 ], [ %64, %2 ]
   br label %4
 
 4:                                                ; preds = %.preheader, %4
   %5 = phi i64 [ -4294967296, %.preheader ], [ %7, %4 ]
   %indvars.iv = phi i64 [ 4, %.preheader ], [ %indvars.iv.next, %4 ]
-  %.117 = phi i64 [ %.019, %.preheader ], [ %64, %4 ]
+  %.117 = phi i64 [ %.01418, %.preheader ], [ %64, %4 ]
   %6 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %8 = xor i64 %7, -1
@@ -4540,11 +4540,11 @@ define internal fastcc noundef i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0)
   br i1 %.not, label %65, label %4, !llvm.loop !79
 
 65:                                               ; preds = %4
-  %66 = icmp eq i64 %.019, %64
+  %66 = icmp eq i64 %.01418, %64
   br i1 %66, label %67, label %2
 
 67:                                               ; preds = %65, %2
-  %.lcssa.lcssa = phi i64 [ %.019, %65 ], [ %64, %2 ]
+  %.lcssa.lcssa = phi i64 [ %.01418, %65 ], [ %64, %2 ]
   ret i64 %.lcssa.lcssa
 }
 
@@ -5499,8 +5499,8 @@ define void @Extra_BitMatrixShow(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %exitcond27.not, label %._crit_edge19, label %.lr.ph18.split.us, !llvm.loop !101
 
 .lr.ph18.split:                                   ; preds = %.lr.ph18, %20
-  %.01216 = phi i32 [ %21, %20 ], [ 0, %.lr.ph18 ]
-  %17 = and i32 %.01216, 63
+  %.016 = phi i32 [ %21, %20 ], [ 0, %.lr.ph18 ]
+  %17 = and i32 %.016, 63
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %20
 
@@ -5510,7 +5510,7 @@ define void @Extra_BitMatrixShow(ptr nocapture noundef readonly %0, i32 noundef 
 
 20:                                               ; preds = %19, %.lr.ph18.split
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7)
-  %21 = add nuw nsw i32 %.01216, 1
+  %21 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %21, %4
   br i1 %exitcond.not, label %._crit_edge19, label %.lr.ph18.split, !llvm.loop !101
 

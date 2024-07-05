@@ -184,7 +184,7 @@ define hidden void @_ZN5ceres8internal23ScratchEvaluatePreparer7PrepareEPKNS0_13
 
 21:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
-  %.01617 = phi ptr [ %19, %.lr.ph ], [ %.1, %59 ]
+  %.018 = phi ptr [ %19, %.lr.ph ], [ %.1, %59 ]
   %22 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
@@ -223,7 +223,7 @@ _ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread: ; preds = %21, %_
 
 43:                                               ; preds = %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit
   %44 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
-  store ptr %.01617, ptr %44, align 8
+  store ptr %.018, ptr %44, align 8
   %45 = load ptr, ptr %29, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %50
@@ -244,11 +244,11 @@ _ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit: ; preds = %47, %50
   %55 = phi i32 [ %49, %47 ], [ %54, %50 ]
   %56 = mul nsw i32 %55, %8
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds double, ptr %.01617, i64 %57
+  %58 = getelementptr inbounds double, ptr %.018, i64 %57
   br label %59
 
 59:                                               ; preds = %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit
-  %.1 = phi ptr [ %.01617, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread ], [ %58, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit ]
+  %.1 = phi ptr [ %.018, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread ], [ %58, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !15

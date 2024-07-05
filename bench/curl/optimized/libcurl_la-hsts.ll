@@ -92,10 +92,10 @@ entry:
   br i1 %call1, label %return, label %do.body
 
 do.body:                                          ; preds = %entry, %while.end89
-  %p.0 = phi ptr [ %spec.select42, %while.end89 ], [ %header, %entry ]
   %gotma.0 = phi i8 [ %gotma.1, %while.end89 ], [ 0, %entry ]
   %gotinc.0 = phi i1 [ %gotinc.1, %while.end89 ], [ false, %entry ]
   %subdomains.0 = phi i8 [ %subdomains.1, %while.end89 ], [ 0, %entry ]
+  %p.0 = phi ptr [ %spec.select42, %while.end89 ], [ %header, %entry ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %do.body
@@ -187,10 +187,10 @@ while.body69:                                     ; preds = %while.cond61
   br label %while.cond61, !llvm.loop !8
 
 if.end73:                                         ; preds = %while.cond61, %while.cond61, %if.end42, %if.end49, %if.end58
-  %p.6 = phi ptr [ %add.ptr59, %if.end58 ], [ %incdec.ptr50, %if.end49 ], [ %2, %if.end42 ], [ %p.5, %while.cond61 ], [ %p.5, %while.cond61 ]
   %gotma.1 = phi i8 [ %gotma.0, %if.end58 ], [ 1, %if.end49 ], [ 1, %if.end42 ], [ %gotma.0, %while.cond61 ], [ %gotma.0, %while.cond61 ]
   %gotinc.1 = phi i1 [ true, %if.end58 ], [ %gotinc.0, %if.end49 ], [ %gotinc.0, %if.end42 ], [ %gotinc.0, %while.cond61 ], [ %gotinc.0, %while.cond61 ]
   %subdomains.1 = phi i8 [ 1, %if.end58 ], [ %subdomains.0, %if.end49 ], [ %subdomains.0, %if.end42 ], [ %subdomains.0, %while.cond61 ], [ %subdomains.0, %while.cond61 ]
+  %p.6 = phi ptr [ %add.ptr59, %if.end58 ], [ %incdec.ptr50, %if.end49 ], [ %2, %if.end42 ], [ %p.5, %while.cond61 ], [ %p.5, %while.cond61 ]
   br label %while.cond74
 
 while.cond74:                                     ; preds = %while.body87, %if.end73

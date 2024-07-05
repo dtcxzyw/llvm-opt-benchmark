@@ -1727,8 +1727,8 @@ if.end19:                                         ; preds = %if.end
 
 while.body:                                       ; preds = %if.end42, %if.end19
   %7 = phi i64 [ %.pre, %if.end19 ], [ %add68, %if.end42 ]
-  %ilast.sroa.4.0 = phi i64 [ %ilast.sroa.4.0.copyload, %if.end19 ], [ %ilast.sroa.4.1.lcssa, %if.end42 ]
   %ilast.sroa.0.0 = phi i64 [ %ilast.sroa.0.0.copyload, %if.end19 ], [ %ilast.sroa.0.1.lcssa, %if.end42 ]
+  %ilast.sroa.4.0 = phi i64 [ %ilast.sroa.4.0.copyload, %if.end19 ], [ %ilast.sroa.4.1.lcssa, %if.end42 ]
   %obuf.addr.0 = phi ptr [ %obuf, %if.end19 ], [ %add.ptr65, %if.end42 ]
   %ibuf.addr.0 = phi ptr [ %ibuf, %if.end19 ], [ %ibuf.addr.1.lcssa, %if.end42 ]
   %shr = lshr i64 %7, 32
@@ -1758,8 +1758,8 @@ while.body25:                                     ; preds = %while.body25.prehea
   br i1 %cmp28.not, label %while.cond21, label %the_end, !llvm.loop !51
 
 while.end:                                        ; preds = %while.cond21, %while.body
-  %ilast.sroa.4.1.lcssa = phi i64 [ %ilast.sroa.4.0, %while.body ], [ %ilast.sroa.4.0.copyload13, %while.cond21 ]
   %ilast.sroa.0.1.lcssa = phi i64 [ %ilast.sroa.0.0, %while.body ], [ %ilast.sroa.0.0.copyload11, %while.cond21 ]
+  %ilast.sroa.4.1.lcssa = phi i64 [ %ilast.sroa.4.0, %while.body ], [ %ilast.sroa.4.0.copyload13, %while.cond21 ]
   %ibuf.addr.1.lcssa = phi ptr [ %ibuf.addr.0, %while.body ], [ %incdec.ptr, %while.cond21 ]
   %.lcssa55 = phi i32 [ %ipos.promoted, %while.body ], [ %inc27, %while.cond21 ]
   %cmp32.not = icmp ult ptr %obuf.addr.0, %add.ptr1
@@ -1805,8 +1805,8 @@ if.end42:                                         ; preds = %if.then39, %if.end3
   br label %while.body
 
 the_end:                                          ; preds = %while.end, %while.body25
-  %ilast.sroa.4.2 = phi i64 [ %ilast.sroa.4.0.copyload13, %while.body25 ], [ %ilast.sroa.4.1.lcssa, %while.end ]
   %ilast.sroa.0.2 = phi i64 [ %ilast.sroa.0.0.copyload11, %while.body25 ], [ %ilast.sroa.0.1.lcssa, %while.end ]
+  %ilast.sroa.4.2 = phi i64 [ %ilast.sroa.4.0.copyload13, %while.body25 ], [ %ilast.sroa.4.1.lcssa, %while.end ]
   %ibuf.addr.2 = phi ptr [ %incdec.ptr, %while.body25 ], [ %ibuf.addr.1.lcssa, %while.end ]
   %sub.ptr.lhs.cast = ptrtoint ptr %ibuf.addr.2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ibuf to i64
@@ -1888,8 +1888,8 @@ if.end18:                                         ; preds = %if.end
 
 while.body:                                       ; preds = %if.end41, %if.end18
   %5 = phi i64 [ %.pre, %if.end18 ], [ %add64, %if.end41 ]
-  %ilast.sroa.4.0 = phi i64 [ %ilast.sroa.4.0.copyload, %if.end18 ], [ %ilast.sroa.4.1.lcssa, %if.end41 ]
   %ilast.sroa.0.0 = phi i64 [ %ilast.sroa.0.0.copyload, %if.end18 ], [ %ilast.sroa.0.1.lcssa, %if.end41 ]
+  %ilast.sroa.4.0 = phi i64 [ %ilast.sroa.4.0.copyload, %if.end18 ], [ %ilast.sroa.4.1.lcssa, %if.end41 ]
   %obuf.addr.0 = phi ptr [ %obuf, %if.end18 ], [ %add.ptr61, %if.end41 ]
   %ibuf.addr.0 = phi ptr [ %ibuf, %if.end18 ], [ %ibuf.addr.1.lcssa, %if.end41 ]
   %shr = lshr i64 %5, 32
@@ -1919,8 +1919,8 @@ while.body24:                                     ; preds = %while.body24.prehea
   br i1 %cmp27.not, label %while.cond20, label %the_end, !llvm.loop !53
 
 while.end:                                        ; preds = %while.cond20, %while.body
-  %ilast.sroa.4.1.lcssa = phi i64 [ %ilast.sroa.4.0, %while.body ], [ %ilast.sroa.4.0.copyload13, %while.cond20 ]
   %ilast.sroa.0.1.lcssa = phi i64 [ %ilast.sroa.0.0, %while.body ], [ %ilast.sroa.0.0.copyload11, %while.cond20 ]
+  %ilast.sroa.4.1.lcssa = phi i64 [ %ilast.sroa.4.0, %while.body ], [ %ilast.sroa.4.0.copyload13, %while.cond20 ]
   %ibuf.addr.1.lcssa = phi ptr [ %ibuf.addr.0, %while.body ], [ %incdec.ptr, %while.cond20 ]
   %.lcssa55 = phi i32 [ %ipos.promoted, %while.body ], [ %inc26, %while.cond20 ]
   %cmp31.not = icmp ult ptr %obuf.addr.0, %add.ptr1
@@ -1962,8 +1962,8 @@ if.end41:                                         ; preds = %if.then38, %if.end3
   br label %while.body
 
 the_end:                                          ; preds = %while.end, %while.body24
-  %ilast.sroa.4.2 = phi i64 [ %ilast.sroa.4.0.copyload13, %while.body24 ], [ %ilast.sroa.4.1.lcssa, %while.end ]
   %ilast.sroa.0.2 = phi i64 [ %ilast.sroa.0.0.copyload11, %while.body24 ], [ %ilast.sroa.0.1.lcssa, %while.end ]
+  %ilast.sroa.4.2 = phi i64 [ %ilast.sroa.4.0.copyload13, %while.body24 ], [ %ilast.sroa.4.1.lcssa, %while.end ]
   %ibuf.addr.2 = phi ptr [ %incdec.ptr, %while.body24 ], [ %ibuf.addr.1.lcssa, %while.end ]
   %sub.ptr.lhs.cast = ptrtoint ptr %ibuf.addr.2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ibuf to i64

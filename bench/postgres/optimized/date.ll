@@ -156,8 +156,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_in(ptr nocapture n
   br i1 %.not, label %22, label %.thread
 
 .thread:                                          ; preds = %1, %18
-  %.050 = phi i32 [ %20, %18 ], [ %16, %1 ]
-  call void @DateTimeParseError(i32 noundef %.050, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull @.str.5, ptr noundef %15) #16
+  %.03750 = phi i32 [ %20, %18 ], [ %16, %1 ]
+  call void @DateTimeParseError(i32 noundef %.03750, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull @.str.5, ptr noundef %15) #16
   %21 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %21, align 4
   br label %61
@@ -249,8 +249,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_in(ptr nocapture n
   br label %61
 
 61:                                               ; preds = %22, %55, %53, %46, %44, %58, %26, %25, %.thread
-  %.037 = phi i64 [ 0, %.thread ], [ 0, %26 ], [ -2147483648, %25 ], [ %60, %58 ], [ 0, %44 ], [ 0, %46 ], [ 0, %53 ], [ 0, %55 ], [ 2147483647, %22 ]
-  ret i64 %.037
+  %.0 = phi i64 [ 0, %.thread ], [ 0, %26 ], [ -2147483648, %25 ], [ %60, %58 ], [ 0, %44 ], [ 0, %46 ], [ 0, %53 ], [ 0, %55 ], [ 2147483647, %22 ]
+  ret i64 %.0
 }
 
 declare i32 @ParseDateTime(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -2980,14 +2980,14 @@ define dso_local i64 @extract_date(ptr nocapture noundef %0) local_unnamed_addr 
   br label %43
 
 43:                                               ; preds = %41, %36
-  %.0 = phi i32 [ %42, %41 ], [ %39, %36 ]
+  %.040 = phi i32 [ %42, %41 ], [ %39, %36 ]
   %44 = icmp eq i32 %12, -2147483648
   %45 = add i32 %12, -2147483647
   %or.cond = icmp ult i32 %45, 2
   br i1 %or.cond, label %46, label %67
 
 46:                                               ; preds = %43
-  switch i32 %.0, label %168 [
+  switch i32 %.040, label %168 [
     i32 17, label %47
     i32 0, label %47
   ]
@@ -3043,7 +3043,7 @@ define dso_local i64 @extract_date(ptr nocapture noundef %0) local_unnamed_addr 
   unreachable
 
 67:                                               ; preds = %43
-  switch i32 %.0, label %168 [
+  switch i32 %.040, label %168 [
     i32 17, label %68
     i32 0, label %157
   ]
@@ -3235,14 +3235,14 @@ define dso_local i64 @extract_date(ptr nocapture noundef %0) local_unnamed_addr 
   unreachable
 
 173:                                              ; preds = %128, %136, %159, %119, %123, %109, %113, %100, %103, %92, %94, %142, %126, %83, %77, %74, %71
-  %.040 = phi i64 [ %151, %142 ], [ %spec.store.select, %136 ], [ %127, %126 ], [ %122, %119 ], [ %125, %123 ], [ %112, %109 ], [ %115, %113 ], [ %102, %100 ], [ %105, %103 ], [ %93, %92 ], [ %96, %94 ], [ %88, %83 ], [ %82, %77 ], [ %76, %74 ], [ %73, %71 ], [ %162, %159 ], [ %spec.select, %128 ]
-  %174 = call ptr @int64_to_numeric(i64 noundef %.040) #16
+  %.041 = phi i64 [ %151, %142 ], [ %spec.store.select, %136 ], [ %127, %126 ], [ %122, %119 ], [ %125, %123 ], [ %112, %109 ], [ %115, %113 ], [ %102, %100 ], [ %105, %103 ], [ %93, %92 ], [ %96, %94 ], [ %88, %83 ], [ %82, %77 ], [ %76, %74 ], [ %73, %71 ], [ %162, %159 ], [ %spec.select, %128 ]
+  %174 = call ptr @int64_to_numeric(i64 noundef %.041) #16
   %175 = ptrtoint ptr %174 to i64
   br label %176
 
 176:                                              ; preds = %173, %57, %52, %49
-  %.041 = phi i64 [ %56, %52 ], [ %61, %57 ], [ 0, %49 ], [ %175, %173 ]
-  ret i64 %.041
+  %.0 = phi i64 [ %56, %52 ], [ %61, %57 ], [ 0, %49 ], [ %175, %173 ]
+  ret i64 %.0
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
@@ -4078,8 +4078,8 @@ define dso_local range(i64 0, 2) i64 @overlaps_time(ptr nocapture noundef %0) lo
   br label %25
 
 25:                                               ; preds = %24, %22, %23
-  %.050 = phi i64 [ %5, %23 ], [ %5, %22 ], [ %spec.select, %24 ]
-  %.049 = phi i8 [ %14, %23 ], [ 1, %22 ], [ %14, %24 ]
+  %.050 = phi i8 [ %14, %23 ], [ 1, %22 ], [ %14, %24 ]
+  %.049 = phi i64 [ %5, %23 ], [ %5, %22 ], [ %spec.select, %24 ]
   %.047 = phi i64 [ %3, %23 ], [ %5, %22 ], [ %spec.select53, %24 ]
   br i1 %18, label %26, label %27
 
@@ -4090,15 +4090,15 @@ define dso_local range(i64 0, 2) i64 @overlaps_time(ptr nocapture noundef %0) lo
   br i1 %21, label %29, label %28
 
 28:                                               ; preds = %27
-  %spec.select54 = tail call i64 @llvm.smin.i64(i64 %7, i64 %9)
-  %spec.select55 = tail call i64 @llvm.smax.i64(i64 %7, i64 %9)
+  %spec.select54 = tail call i64 @llvm.smax.i64(i64 %7, i64 %9)
+  %spec.select55 = tail call i64 @llvm.smin.i64(i64 %7, i64 %9)
   br label %29
 
 29:                                               ; preds = %28, %26, %27
-  %.052 = phi i64 [ %7, %27 ], [ %9, %26 ], [ %spec.select54, %28 ]
-  %.051 = phi i64 [ %9, %27 ], [ %9, %26 ], [ %spec.select55, %28 ]
+  %.052 = phi i64 [ %9, %27 ], [ %9, %26 ], [ %spec.select54, %28 ]
+  %.051 = phi i64 [ %7, %27 ], [ %9, %26 ], [ %spec.select55, %28 ]
   %.048 = phi i8 [ %20, %27 ], [ 1, %26 ], [ %20, %28 ]
-  %30 = icmp sgt i64 %.047, %.052
+  %30 = icmp sgt i64 %.047, %.051
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %29
@@ -4106,23 +4106,23 @@ define dso_local range(i64 0, 2) i64 @overlaps_time(ptr nocapture noundef %0) lo
   br i1 %32, label %.sink.split, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp slt i64 %.047, %.051
+  %34 = icmp slt i64 %.047, %.052
   br i1 %34, label %49, label %35
 
 35:                                               ; preds = %33
-  %36 = trunc i8 %.049 to i1
+  %36 = trunc i8 %.050 to i1
   br i1 %36, label %.sink.split, label %49
 
 37:                                               ; preds = %29
-  %38 = icmp slt i64 %.047, %.052
-  %39 = trunc i8 %.049 to i1
+  %38 = icmp slt i64 %.047, %.051
+  %39 = trunc i8 %.050 to i1
   br i1 %38, label %40, label %45
 
 40:                                               ; preds = %37
   br i1 %39, label %.sink.split, label %41
 
 41:                                               ; preds = %40
-  %42 = icmp slt i64 %.052, %.050
+  %42 = icmp slt i64 %.051, %.049
   br i1 %42, label %49, label %43
 
 43:                                               ; preds = %41
@@ -4612,8 +4612,8 @@ define internal fastcc i64 @time_part_common(ptr nocapture noundef readonly %0, 
   br label %40
 
 40:                                               ; preds = %38, %33
-  %.037 = phi i32 [ %39, %38 ], [ %36, %33 ]
-  %41 = icmp eq i32 %.037, 17
+  %.038 = phi i32 [ %39, %38 ], [ %36, %33 ]
+  %41 = icmp eq i32 %.038, 17
   br i1 %41, label %42, label %93
 
 42:                                               ; preds = %40
@@ -4707,7 +4707,7 @@ define internal fastcc i64 @time_part_common(ptr nocapture noundef readonly %0, 
   unreachable
 
 93:                                               ; preds = %40
-  %94 = icmp eq i32 %.037, 0
+  %94 = icmp eq i32 %.038, 0
   %95 = load i32, ptr %3, align 4
   %96 = icmp eq i32 %95, 11
   %or.cond = select i1 %94, i1 %96, i1 false
@@ -4737,16 +4737,16 @@ define internal fastcc i64 @time_part_common(ptr nocapture noundef readonly %0, 
   unreachable
 
 110:                                              ; preds = %42, %54, %87
-  %.038 = phi i64 [ %44, %87 ], [ %58, %54 ], [ %47, %42 ]
+  %.037 = phi i64 [ %44, %87 ], [ %58, %54 ], [ %47, %42 ]
   br i1 %1, label %111, label %114
 
 111:                                              ; preds = %110
-  %112 = call ptr @int64_to_numeric(i64 noundef %.038) #16
+  %112 = call ptr @int64_to_numeric(i64 noundef %.037) #16
   %113 = ptrtoint ptr %112 to i64
   br label %117
 
 114:                                              ; preds = %110
-  %115 = sitofp i64 %.038 to double
+  %115 = sitofp i64 %.037 to double
   %116 = bitcast double %115 to i64
   br label %117
 
@@ -5767,8 +5767,8 @@ define dso_local range(i64 0, 2) i64 @overlaps_timetz(ptr nocapture noundef %0) 
   br label %26
 
 26:                                               ; preds = %24, %22, %23
-  %.050 = phi i64 [ %5, %23 ], [ %5, %22 ], [ %spec.select, %24 ]
-  %.049 = phi i8 [ %14, %23 ], [ 1, %22 ], [ %14, %24 ]
+  %.050 = phi i8 [ %14, %23 ], [ 1, %22 ], [ %14, %24 ]
+  %.049 = phi i64 [ %5, %23 ], [ %5, %22 ], [ %spec.select, %24 ]
   %.047 = phi i64 [ %3, %23 ], [ %5, %22 ], [ %spec.select53, %24 ]
   br i1 %18, label %27, label %28
 
@@ -5781,15 +5781,15 @@ define dso_local range(i64 0, 2) i64 @overlaps_timetz(ptr nocapture noundef %0) 
 29:                                               ; preds = %28
   %30 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %7, i64 noundef %9) #16
   %.not56 = icmp eq i64 %30, 0
-  %spec.select54 = select i1 %.not56, i64 %7, i64 %9
-  %spec.select55 = select i1 %.not56, i64 %9, i64 %7
+  %spec.select54 = select i1 %.not56, i64 %9, i64 %7
+  %spec.select55 = select i1 %.not56, i64 %7, i64 %9
   br label %31
 
 31:                                               ; preds = %29, %27, %28
-  %.052 = phi i64 [ %7, %28 ], [ %9, %27 ], [ %spec.select54, %29 ]
-  %.051 = phi i64 [ %9, %28 ], [ %9, %27 ], [ %spec.select55, %29 ]
+  %.052 = phi i64 [ %9, %28 ], [ %9, %27 ], [ %spec.select54, %29 ]
+  %.051 = phi i64 [ %7, %28 ], [ %9, %27 ], [ %spec.select55, %29 ]
   %.048 = phi i8 [ %20, %28 ], [ 1, %27 ], [ %20, %29 ]
-  %32 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %.047, i64 noundef %.052) #16
+  %32 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %.047, i64 noundef %.051) #16
   %.not57 = icmp eq i64 %32, 0
   br i1 %.not57, label %39, label %33
 
@@ -5798,25 +5798,25 @@ define dso_local range(i64 0, 2) i64 @overlaps_timetz(ptr nocapture noundef %0) 
   br i1 %34, label %.sink.split, label %35
 
 35:                                               ; preds = %33
-  %36 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.047, i64 noundef %.051) #16
+  %36 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.047, i64 noundef %.052) #16
   %.not60 = icmp eq i64 %36, 0
   br i1 %.not60, label %37, label %51
 
 37:                                               ; preds = %35
-  %38 = trunc i8 %.049 to i1
+  %38 = trunc i8 %.050 to i1
   br i1 %38, label %.sink.split, label %51
 
 39:                                               ; preds = %31
-  %40 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.047, i64 noundef %.052) #16
+  %40 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.047, i64 noundef %.051) #16
   %.not58 = icmp eq i64 %40, 0
-  %41 = trunc i8 %.049 to i1
+  %41 = trunc i8 %.050 to i1
   br i1 %.not58, label %47, label %42
 
 42:                                               ; preds = %39
   br i1 %41, label %.sink.split, label %43
 
 43:                                               ; preds = %42
-  %44 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.052, i64 noundef %.050) #16
+  %44 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.051, i64 noundef %.049) #16
   %.not59 = icmp eq i64 %44, 0
   br i1 %.not59, label %45, label %51
 
@@ -6061,8 +6061,8 @@ define internal fastcc i64 @timetz_part_common(ptr nocapture noundef readonly %0
   br label %41
 
 41:                                               ; preds = %39, %34
-  %.039 = phi i32 [ %40, %39 ], [ %37, %34 ]
-  %42 = icmp eq i32 %.039, 17
+  %.040 = phi i32 [ %40, %39 ], [ %37, %34 ]
+  %42 = icmp eq i32 %.040, 17
   br i1 %42, label %43, label %109
 
 43:                                               ; preds = %41
@@ -6180,7 +6180,7 @@ define internal fastcc i64 @timetz_part_common(ptr nocapture noundef readonly %0
   unreachable
 
 109:                                              ; preds = %41
-  %110 = icmp eq i32 %.039, 0
+  %110 = icmp eq i32 %.040, 0
   %111 = load i32, ptr %3, align 4
   %112 = icmp eq i32 %111, 11
   %or.cond = select i1 %110, i1 %112, i1 false
@@ -6220,16 +6220,16 @@ define internal fastcc i64 @timetz_part_common(ptr nocapture noundef readonly %0
   unreachable
 
 136:                                              ; preds = %43, %58, %61, %66, %70, %103
-  %.040 = phi i64 [ %46, %103 ], [ %74, %70 ], [ %69, %66 ], [ %65, %61 ], [ %60, %58 ], [ %49, %43 ]
+  %.039 = phi i64 [ %46, %103 ], [ %74, %70 ], [ %69, %66 ], [ %65, %61 ], [ %60, %58 ], [ %49, %43 ]
   br i1 %1, label %137, label %140
 
 137:                                              ; preds = %136
-  %138 = call ptr @int64_to_numeric(i64 noundef %.040) #16
+  %138 = call ptr @int64_to_numeric(i64 noundef %.039) #16
   %139 = ptrtoint ptr %138 to i64
   br label %143
 
 140:                                              ; preds = %136
-  %141 = sitofp i64 %.040 to double
+  %141 = sitofp i64 %.039 to double
   %142 = bitcast double %141 to i64
   br label %143
 

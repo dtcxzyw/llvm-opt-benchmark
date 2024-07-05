@@ -1165,19 +1165,19 @@ define internal fastcc range(i32 -29, 1) i32 @match(ptr noundef readonly %0, ptr
   br label %29
 
 29:                                               ; preds = %28, %25
-  %.026 = phi i32 [ 0, %28 ], [ -1, %25 ]
+  %.027 = phi i32 [ 0, %28 ], [ -1, %25 ]
   tail call void @free(ptr noundef nonnull %10) #18
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %29
   %.sink = phi ptr [ %13, %29 ], [ %10, %12 ]
-  %.027.ph = phi i32 [ %.026, %29 ], [ -29, %12 ]
+  %.026.ph = phi i32 [ %.027, %29 ], [ -29, %12 ]
   tail call void @free(ptr noundef nonnull %.sink) #18
   br label %30
 
 30:                                               ; preds = %.sink.split, %7, %9, %2
-  %.027 = phi i32 [ 0, %2 ], [ -29, %9 ], [ -1, %7 ], [ %.027.ph, %.sink.split ]
-  ret i32 %.027
+  %.026 = phi i32 [ 0, %2 ], [ -29, %9 ], [ -1, %7 ], [ %.026.ph, %.sink.split ]
+  ret i32 %.026
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)

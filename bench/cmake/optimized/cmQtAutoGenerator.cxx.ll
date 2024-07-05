@@ -2593,14 +2593,14 @@ define dso_local void @_ZN17cmQtAutoGenerator12SettingsFindB5cxx11ESt17basic_str
 
 26:                                               ; preds = %32, %.lr.ph.i.i
   %.033.i.i = phi i64 [ %1, %.lr.ph.i.i ], [ %35, %32 ]
-  %.02032.i.i = phi ptr [ %2, %.lr.ph.i.i ], [ %33, %32 ]
+  %.02132.i.i = phi ptr [ %2, %.lr.ph.i.i ], [ %33, %32 ]
   %27 = sub i64 %.033.i.i, %18
   %28 = add i64 %27, 1
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %26
-  %30 = call ptr @memchr(ptr noundef %.02032.i.i, i32 noundef %24, i64 noundef %28) #21
+  %30 = call ptr @memchr(ptr noundef %.02132.i.i, i32 noundef %24, i64 noundef %28) #21
   %.not26.i.i = icmp eq ptr %30, null
   br i1 %.not26.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
@@ -2624,9 +2624,9 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit: ; preds = %_ZNSt1
   br i1 %.not, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread33
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread33: ; preds = %5, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit
-  %.021.i.i36 = phi i64 [ %38, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ 0, %5 ]
+  %.020.i.i36 = phi i64 [ %38, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ 0, %5 ]
   %39 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
-  %40 = add i64 %39, %.021.i.i36
+  %40 = add i64 %39, %.020.i.i36
   %41 = icmp ult i64 %40, %1
   br i1 %41, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread
 
@@ -2652,8 +2652,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %_ZNSt11c
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread: ; preds = %26, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %32, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %21, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread33, %48, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit
-  %.sroa.0.0 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit ], [ %.sroa.speculated.i, %48 ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread33 ], [ 0, %21 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ 0, %32 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 0, %26 ]
   %.sroa.3.0 = phi ptr [ null, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ null, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit ], [ %43, %48 ], [ null, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread33 ], [ null, %21 ], [ null, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ null, %32 ], [ null, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ null, %26 ]
+  %.sroa.0.0 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit ], [ %.sroa.speculated.i, %48 ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread33 ], [ 0, %21 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ 0, %32 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 0, %26 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %50 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %.sroa.0.0, ptr %.sroa.3.0) #21

@@ -4008,8 +4008,8 @@ Bac_NtkAlloc.exit:                                ; preds = %Vec_IntGrow.exit25.
   br i1 %171, label %64, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %Bac_NtkAlloc.exit, %Vec_IntAlloc.exit
-  %.040.lcssa = phi ptr [ %9, %Vec_IntAlloc.exit ], [ %66, %Bac_NtkAlloc.exit ]
-  %172 = getelementptr inbounds i8, ptr %.040.lcssa, i64 4
+  %.0.lcssa = phi ptr [ %9, %Vec_IntAlloc.exit ], [ %66, %Bac_NtkAlloc.exit ]
+  %172 = getelementptr inbounds i8, ptr %.0.lcssa, i64 4
   %173 = load i8, ptr %172, align 4
   %174 = and i8 %173, 1
   %.not = icmp eq i8 %174, 0
@@ -4026,15 +4026,15 @@ Bac_NtkAlloc.exit:                                ; preds = %Vec_IntGrow.exit25.
   br i1 %179, label %Psr_ManIsMapped.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %177
-  %180 = getelementptr i8, ptr %.040.lcssa, i64 212
+  %180 = getelementptr i8, ptr %.0.lcssa, i64 212
   %.val21.i = load i32, ptr %180, align 4
   %181 = icmp sgt i32 %.val21.i, 0
   br i1 %181, label %.lr.ph.i62, label %Psr_ManIsMapped.exit.thread
 
 .lr.ph.i62:                                       ; preds = %.preheader.i
-  %182 = getelementptr i8, ptr %.040.lcssa, i64 200
-  %183 = getelementptr i8, ptr %.040.lcssa, i64 216
-  %184 = getelementptr i8, ptr %.040.lcssa, i64 8
+  %182 = getelementptr i8, ptr %.0.lcssa, i64 200
+  %183 = getelementptr i8, ptr %.0.lcssa, i64 216
+  %184 = getelementptr i8, ptr %.0.lcssa, i64 8
   br label %185
 
 185:                                              ; preds = %208, %.lr.ph.i62
@@ -4400,7 +4400,7 @@ Bac_ManNtk.exit79:                                ; preds = %303, %307
   br i1 %312, label %303, label %.critedge2, !llvm.loop !35
 
 .critedge2:                                       ; preds = %Bac_ManNtk.exit79, %Psr_ManIsMapped.exit.thread, %Bac_ManFree.exit
-  %.0 = phi ptr [ null, %Bac_ManFree.exit ], [ %10, %Psr_ManIsMapped.exit.thread ], [ %10, %Bac_ManNtk.exit79 ]
+  %.040 = phi ptr [ null, %Bac_ManFree.exit ], [ %10, %Psr_ManIsMapped.exit.thread ], [ %10, %Bac_ManNtk.exit79 ]
   %.not.i80 = icmp eq ptr %48, null
   br i1 %.not.i80, label %Vec_IntFree.exit, label %313
 
@@ -4420,7 +4420,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %313
 
 Vec_IntFree.exit82:                               ; preds = %Vec_IntFree.exit, %315
   call void @free(ptr noundef nonnull %50) #16
-  ret ptr %.0
+  ret ptr %.040
 }
 
 declare i32 @Abc_NamObjNumMax(ptr noundef) local_unnamed_addr #1

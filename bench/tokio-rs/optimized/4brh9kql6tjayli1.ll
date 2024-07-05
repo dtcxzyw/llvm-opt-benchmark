@@ -9596,7 +9596,7 @@ define hidden void @"_ZN5tokio7runtime4time54_$LT$impl$u20$tokio..runtime..time.
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %12
-  %.054.ph = phi i64 [ 0, %12 ], [ %.054.ph.be, %.outer.backedge ]
+  %.053.ph = phi i64 [ 0, %12 ], [ %.053.ph.be, %.outer.backedge ]
   br label %16
 
 16:                                               ; preds = %.backedge, %.outer
@@ -9642,11 +9642,11 @@ define hidden void @"_ZN5tokio7runtime4time54_$LT$impl$u20$tokio..runtime..time.
 
 29:                                               ; preds = %28
   %.fca.1.extract.i.i.le = extractvalue { ptr, ptr } %26, 1
-  %30 = icmp ugt i64 %.054.ph, 31
+  %30 = icmp ugt i64 %.053.ph, 31
   br i1 %30, label %40, label %31, !prof !1643
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds [32 x { ptr, ptr }], ptr %5, i64 0, i64 %.054.ph
+  %32 = getelementptr inbounds [32 x { ptr, ptr }], ptr %5, i64 0, i64 %.053.ph
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1644)
   %33 = load ptr, ptr %32, align 8, !alias.scope !1644, !noundef !4
   %34 = icmp eq ptr %33, null
@@ -9663,7 +9663,7 @@ define hidden void @"_ZN5tokio7runtime4time54_$LT$impl$u20$tokio..runtime..time.
           to label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.3285439092171202888.exit" unwind label %41
 
 40:                                               ; preds = %29
-  invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.054.ph, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.437abf4fc75871fa06817f7f17e4beb4.100) #34
+  invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.053.ph, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.437abf4fc75871fa06817f7f17e4beb4.100) #34
           to label %44 unwind label %67
 
 41:                                               ; preds = %35
@@ -9681,7 +9681,7 @@ define hidden void @"_ZN5tokio7runtime4time54_$LT$impl$u20$tokio..runtime..time.
   store ptr %.fca.0.extract.i.i65, ptr %32, align 8
   %45 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %.fca.1.extract.i.i.le, ptr %45, align 8
-  %46 = add nuw nsw i64 %.054.ph, 1
+  %46 = add nuw nsw i64 %.053.ph, 1
   %47 = icmp eq i64 %46, 32
   br i1 %47, label %48, label %.outer.backedge
 
@@ -9735,7 +9735,7 @@ _ZN5tokio7runtime4time5Inner4lock17hc6aef85257c604f9E.exit77: ; preds = %.noexc7
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %_ZN5tokio7runtime4time5Inner4lock17hc6aef85257c604f9E.exit77, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.3285439092171202888.exit"
-  %.054.ph.be = phi i64 [ %46, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.3285439092171202888.exit" ], [ 0, %_ZN5tokio7runtime4time5Inner4lock17hc6aef85257c604f9E.exit77 ]
+  %.053.ph.be = phi i64 [ %46, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hc490b1dedfd7c3deE.llvm.3285439092171202888.exit" ], [ 0, %_ZN5tokio7runtime4time5Inner4lock17hc6aef85257c604f9E.exit77 ]
   br label %.outer
 
 64:                                               ; preds = %59
@@ -9768,9 +9768,9 @@ _ZN5tokio7runtime4time5Inner4lock17hc6aef85257c604f9E.exit77: ; preds = %.noexc7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1640
   %switch.not.not = icmp eq i64 %74, 0
   %.049 = select i1 %trunc.i, i64 %77, i64 -1
-  %.053 = select i1 %switch.not.not, i64 0, i64 %.049
+  %.055 = select i1 %switch.not.not, i64 0, i64 %.049
   %78 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 %.053, ptr %78, align 8
+  store i64 %.055, ptr %78, align 8
   %79 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h5ccce900420b99d6E.llvm.700930863383756518(ptr noundef nonnull %0, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
           to label %.noexc82 unwind label %.thread103.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -9785,18 +9785,18 @@ _ZN5tokio7runtime4time5Inner4lock17hc6aef85257c604f9E.exit77: ; preds = %.noexc7
           to label %"_ZN4core3ptr102drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..time..InnerState$GT$$GT$17he881a5200f4b27eaE.exit84" unwind label %.thread103.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 "_ZN4core3ptr102drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..time..InnerState$GT$$GT$17he881a5200f4b27eaE.exit84": ; preds = %.noexc82, %82
-  %83 = icmp ugt i64 %.054.ph, 32
+  %83 = icmp ugt i64 %.053.ph, 32
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %"_ZN4core3ptr102drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..time..InnerState$GT$$GT$17he881a5200f4b27eaE.exit84"
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.054.ph, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.437abf4fc75871fa06817f7f17e4beb4.102) #34
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.053.ph, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.437abf4fc75871fa06817f7f17e4beb4.102) #34
           to label %.noexc85 unwind label %.thread103.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc85:                                         ; preds = %84
   unreachable
 
 85:                                               ; preds = %"_ZN4core3ptr102drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..time..InnerState$GT$$GT$17he881a5200f4b27eaE.exit84"
-  %86 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 %.054.ph
+  %86 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 %.053.ph
   br label %87
 
 87:                                               ; preds = %122, %85

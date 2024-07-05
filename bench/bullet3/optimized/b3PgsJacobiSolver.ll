@@ -139,9 +139,9 @@ if.else.i:                                        ; preds = %entry
   br label %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit
 
 _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit:   ; preds = %if.then.i, %if.else.i
-  %l1.sroa.0.0 = phi float [ 0.000000e+00, %if.then.i ], [ %mul58.i, %if.else.i ]
   %l2.sroa.3.0 = phi float [ %mul31.i, %if.then.i ], [ %mul80.i, %if.else.i ]
   %l2.sroa.0.0 = phi float [ %mul23.i, %if.then.i ], [ %mul73.i, %if.else.i ]
+  %l1.sroa.0.0 = phi float [ 0.000000e+00, %if.then.i ], [ %mul58.i, %if.else.i ]
   %l1.sroa.4.0 = phi float [ %mul.i, %if.then.i ], [ %mul63.i, %if.else.i ]
   %l1.sroa.7.0 = phi float [ %mul20.i, %if.then.i ], [ 0.000000e+00, %if.else.i ]
   %mul83.sink.i = phi float [ %mul38.i, %if.then.i ], [ %mul83.i, %if.else.i ]

@@ -100,8 +100,8 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr nocapture noundef %0, ptr n
   br i1 %.not, label %.preheader82, label %47
 
 .preheader82:                                     ; preds = %39
-  %.06590 = load ptr, ptr %6, align 8
-  %.not7591 = icmp eq ptr %.06590, null
+  %.06490 = load ptr, ptr %6, align 8
+  %.not7591 = icmp eq ptr %.06490, null
   br i1 %.not7591, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader82
@@ -115,7 +115,7 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr nocapture noundef %0, ptr n
   br label %142
 
 50:                                               ; preds = %.lr.ph, %139
-  %.06593 = phi ptr [ %.06590, %.lr.ph ], [ %.065, %139 ]
+  %.06493 = phi ptr [ %.06490, %.lr.ph ], [ %.064, %139 ]
   %.06692 = phi ptr [ %11, %.lr.ph ], [ %55, %139 ]
   %51 = load i32, ptr %1, align 4
   %52 = add i32 %51, 1
@@ -147,11 +147,11 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr nocapture noundef %0, ptr n
   br label %142
 
 64:                                               ; preds = %50
-  %65 = getelementptr inbounds i8, ptr %.06593, i64 4
+  %65 = getelementptr inbounds i8, ptr %.06493, i64 4
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %.06593, i64 8
+  %67 = getelementptr inbounds i8, ptr %.06493, i64 8
   %68 = load i32, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %.06593, i64 12
+  %69 = getelementptr inbounds i8, ptr %.06493, i64 12
   %70 = load i32, ptr %69, align 4
   %71 = call i32 @socket(i32 noundef %66, i32 noundef %68, i32 noundef %70) #8
   %72 = icmp eq i32 %71, -1
@@ -211,9 +211,9 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr nocapture noundef %0, ptr n
   %104 = load i64, ptr %103, align 8
   %105 = trunc i64 %104 to i32
   %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.10, i32 noundef %105) #8
-  %107 = getelementptr inbounds i8, ptr %.06593, i64 24
+  %107 = getelementptr inbounds i8, ptr %.06493, i64 24
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %.06593, i64 16
+  %109 = getelementptr inbounds i8, ptr %.06493, i64 16
   %110 = load i32, ptr %109, align 8
   %111 = call i32 @bind(i32 noundef %71, ptr %108, i32 noundef %110) #8
   %112 = icmp eq i32 %111, -1
@@ -256,9 +256,9 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr nocapture noundef %0, ptr n
   br label %139
 
 139:                                              ; preds = %134, %128, %113, %73
-  %140 = getelementptr inbounds i8, ptr %.06593, i64 40
-  %.065 = load ptr, ptr %140, align 8
-  %.not75 = icmp eq ptr %.065, null
+  %140 = getelementptr inbounds i8, ptr %.06493, i64 40
+  %.064 = load ptr, ptr %140, align 8
+  %.not75 = icmp eq ptr %.064, null
   br i1 %.not75, label %._crit_edge.loopexit, label %50
 
 ._crit_edge.loopexit:                             ; preds = %139

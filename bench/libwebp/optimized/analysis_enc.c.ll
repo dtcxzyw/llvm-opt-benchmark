@@ -272,7 +272,7 @@ MergeJobs.exit:                                   ; preds = %.critedge54
   br i1 %exitcond165.not.i, label %.preheader120.i, label %134, !llvm.loop !8
 
 .preheader119.i:                                  ; preds = %._crit_edge.i, %.preheader120.i
-  %.1104145.i = phi i32 [ 0, %.preheader120.i ], [ %186, %._crit_edge.i ]
+  %.1100145.i = phi i32 [ 0, %.preheader120.i ], [ %186, %._crit_edge.i ]
   br i1 %125, label %.lr.ph132.preheader.i, label %.preheader118.i
 
 .lr.ph132.preheader.i:                            ; preds = %.preheader119.i
@@ -349,8 +349,8 @@ MergeJobs.exit:                                   ; preds = %.critedge54
 .lr.ph141.i:                                      ; preds = %.preheader117.i, %184
   %indvars.iv178.i = phi i64 [ %indvars.iv.next179.i, %184 ], [ 0, %.preheader117.i ]
   %.1140.i = phi i32 [ %.2.i, %184 ], [ 0, %.preheader117.i ]
-  %.099138.i = phi i32 [ %.1100.i, %184 ], [ 0, %.preheader117.i ]
-  %.0101137.i = phi i32 [ %.1102.i, %184 ], [ 0, %.preheader117.i ]
+  %.0101138.i = phi i32 [ %.1102.i, %184 ], [ 0, %.preheader117.i ]
+  %.0103137.i = phi i32 [ %.1104.i, %184 ], [ 0, %.preheader117.i ]
   %168 = getelementptr inbounds [4 x i32], ptr %5, i64 0, i64 %indvars.iv178.i
   %169 = load i32, ptr %168, align 4
   %.not111.i = icmp eq i32 %169, 0
@@ -366,32 +366,32 @@ MergeJobs.exit:                                   ; preds = %.critedge54
   %177 = load i32, ptr %176, align 4
   %178 = sub nsw i32 %177, %175
   %179 = call i32 @llvm.abs.i32(i32 %178, i1 true)
-  %180 = add nuw nsw i32 %179, %.099138.i
+  %180 = add nuw nsw i32 %179, %.0101138.i
   store i32 %175, ptr %176, align 4
   %181 = mul nsw i32 %175, %169
   %182 = add nsw i32 %181, %.1140.i
-  %183 = add nsw i32 %169, %.0101137.i
+  %183 = add nsw i32 %169, %.0103137.i
   br label %184
 
 184:                                              ; preds = %170, %.lr.ph141.i
-  %.1102.i = phi i32 [ %183, %170 ], [ %.0101137.i, %.lr.ph141.i ]
-  %.1100.i = phi i32 [ %180, %170 ], [ %.099138.i, %.lr.ph141.i ]
+  %.1104.i = phi i32 [ %183, %170 ], [ %.0103137.i, %.lr.ph141.i ]
+  %.1102.i = phi i32 [ %180, %170 ], [ %.0101138.i, %.lr.ph141.i ]
   %.2.i = phi i32 [ %182, %170 ], [ %.1140.i, %.lr.ph141.i ]
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
   %exitcond182.not.i = icmp eq i64 %indvars.iv.next179.i, %wide.trip.count181.i.pre-phi
   br i1 %exitcond182.not.i, label %._crit_edge.i, label %.lr.ph141.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %184
-  %185 = icmp slt i32 %.1100.i, 5
-  %186 = add nuw nsw i32 %.1104145.i, 1
+  %185 = icmp slt i32 %.1102.i, 5
+  %186 = add nuw nsw i32 %.1100145.i, 1
   %exitcond183.not.i = icmp eq i32 %186, 6
   %or.cond.i = select i1 %185, i1 true, i1 %exitcond183.not.i
   br i1 %or.cond.i, label %._crit_edge.thread.sink.split.i, label %.preheader119.i, !llvm.loop !12
 
 ._crit_edge.thread.sink.split.i:                  ; preds = %._crit_edge.i
-  %187 = sdiv i32 %.1102.i, 2
+  %187 = sdiv i32 %.1104.i, 2
   %188 = add nsw i32 %.2.i, %187
-  %189 = sdiv i32 %188, %.1102.i
+  %189 = sdiv i32 %188, %.1104.i
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %.preheader117.i, %._crit_edge.thread.sink.split.i
@@ -647,25 +647,25 @@ SmoothSegmentMap.exit.i:                          ; preds = %._crit_edge69.i.i, 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
   %indvars.iv.i114.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %indvars.iv.next.i115.i, %.preheader.i.i ]
   %.049.i.i = phi i32 [ %336, %.preheader.preheader.i.i ], [ %spec.select.i.i, %.preheader.i.i ]
-  %.04047.i.i = phi i32 [ %336, %.preheader.preheader.i.i ], [ %.141.i.i, %.preheader.i.i ]
+  %.03848.i.i = phi i32 [ %336, %.preheader.preheader.i.i ], [ %.139.i.i, %.preheader.i.i ]
   %338 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i114.i
   %339 = load i32, ptr %338, align 4
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %.049.i.i, i32 %339)
-  %.141.i.i = call i32 @llvm.smax.i32(i32 %.04047.i.i, i32 %339)
+  %.139.i.i = call i32 @llvm.smax.i32(i32 %.03848.i.i, i32 %339)
   %indvars.iv.next.i115.i = add nuw nsw i64 %indvars.iv.i114.i, 1
   %exitcond.not.i116.i = icmp eq i64 %indvars.iv.next.i115.i, %wide.trip.count.i113.i
   br i1 %exitcond.not.i116.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !19
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %334
-  %.242.i.i = phi i32 [ %336, %334 ], [ %.141.i.i, %.preheader.i.i ]
+  %.240.i.i = phi i32 [ %336, %334 ], [ %.139.i.i, %.preheader.i.i ]
   %.2.i.i = phi i32 [ %336, %334 ], [ %spec.select.i.i, %.preheader.i.i ]
   %340 = icmp sgt i32 %335, 0
   br i1 %340, label %.lr.ph.i.i, label %AssignSegments.exit
 
 .lr.ph.i.i:                                       ; preds = %.loopexit.i.i
-  %341 = icmp eq i32 %.242.i.i, %.2.i.i
+  %341 = icmp eq i32 %.240.i.i, %.2.i.i
   %342 = add nsw i32 %.2.i.i, 1
-  %spec.select46.i.i = select i1 %341, i32 %342, i32 %.242.i.i
+  %spec.select46.i.i = select i1 %341, i32 %342, i32 %.240.i.i
   %343 = sub nsw i32 %spec.select46.i.i, %.2.i.i
   %344 = getelementptr inbounds i8, ptr %0, i64 608
   %wide.trip.count55.i.i = zext nneg i32 %335 to i64
@@ -875,8 +875,8 @@ FastMBAnalyze.exit.i:                             ; preds = %55, %54
 57:                                               ; preds = %GetAlpha.exit.i.i, %56
   %58 = phi i1 [ true, %56 ], [ false, %GetAlpha.exit.i.i ]
   %indvars.iv.i18.i = phi i64 [ 0, %56 ], [ 1, %GetAlpha.exit.i.i ]
-  %.020.i.i = phi i32 [ 0, %56 ], [ %spec.select16.i.i, %GetAlpha.exit.i.i ]
-  %.01219.i.i = phi i32 [ -1, %56 ], [ %spec.select.i.i, %GetAlpha.exit.i.i ]
+  %.01219.i.i = phi i32 [ 0, %56 ], [ %spec.select16.i.i, %GetAlpha.exit.i.i ]
+  %.01318.i.i = phi i32 [ -1, %56 ], [ %spec.select.i.i, %GetAlpha.exit.i.i ]
   store i32 0, ptr %4, align 4
   store i32 1, ptr %18, align 4
   %59 = load ptr, ptr @VP8CollectHistogram, align 8
@@ -899,10 +899,10 @@ FastMBAnalyze.exit.i:                             ; preds = %55, %54
 
 GetAlpha.exit.i.i:                                ; preds = %67, %57
   %70 = phi i32 [ %69, %67 ], [ 0, %57 ]
-  %71 = icmp sgt i32 %70, %.01219.i.i
-  %spec.select.i.i = call i32 @llvm.smax.i32(i32 %70, i32 %.01219.i.i)
+  %71 = icmp sgt i32 %70, %.01318.i.i
+  %spec.select.i.i = call i32 @llvm.smax.i32(i32 %70, i32 %.01318.i.i)
   %72 = trunc nuw nsw i64 %indvars.iv.i18.i to i32
-  %spec.select16.i.i = select i1 %71, i32 %72, i32 %.020.i.i
+  %spec.select16.i.i = select i1 %71, i32 %72, i32 %.01219.i.i
   br i1 %58, label %57, label %MBAnalyzeBestIntra16Mode.exit.i, !llvm.loop !24
 
 MBAnalyzeBestIntra16Mode.exit.i:                  ; preds = %GetAlpha.exit.i.i
@@ -921,7 +921,7 @@ MBAnalyzeBestIntra16Mode.exit.i:                  ; preds = %GetAlpha.exit.i.i
 76:                                               ; preds = %GetAlpha.exit.i22.i, %75
   %77 = phi i1 [ true, %75 ], [ false, %GetAlpha.exit.i22.i ]
   %indvars.iv.i19.i = phi i64 [ 0, %75 ], [ 1, %GetAlpha.exit.i22.i ]
-  %.01625.i.i = phi i32 [ -1, %75 ], [ %spec.select.i23.i, %GetAlpha.exit.i22.i ]
+  %.026.i.i = phi i32 [ -1, %75 ], [ %spec.select.i23.i, %GetAlpha.exit.i22.i ]
   %.01724.i.i = phi i32 [ 0, %75 ], [ %.118.i.i, %GetAlpha.exit.i22.i ]
   %.01923.i20.i = phi i32 [ 0, %75 ], [ %.120.i.i, %GetAlpha.exit.i22.i ]
   store i32 0, ptr %3, align 4
@@ -947,16 +947,16 @@ MBAnalyzeBestIntra16Mode.exit.i:                  ; preds = %GetAlpha.exit.i.i
 
 GetAlpha.exit.i22.i:                              ; preds = %87, %76
   %90 = phi i32 [ %89, %87 ], [ 0, %76 ]
-  %spec.select.i23.i = call i32 @llvm.smax.i32(i32 %90, i32 %.01625.i.i)
-  %91 = icmp slt i32 %90, %.01923.i20.i
+  %spec.select.i23.i = call i32 @llvm.smax.i32(i32 %90, i32 %.026.i.i)
+  %91 = icmp slt i32 %90, %.01724.i.i
   %or.cond.i.i = select i1 %77, i1 true, i1 %91
-  %.120.i.i = select i1 %or.cond.i.i, i32 %90, i32 %.01923.i20.i
   %92 = trunc nuw nsw i64 %indvars.iv.i19.i to i32
-  %.118.i.i = select i1 %or.cond.i.i, i32 %92, i32 %.01724.i.i
+  %.120.i.i = select i1 %or.cond.i.i, i32 %92, i32 %.01923.i20.i
+  %.118.i.i = select i1 %or.cond.i.i, i32 %90, i32 %.01724.i.i
   br i1 %77, label %76, label %MBAnalyze.exit, !llvm.loop !25
 
 MBAnalyze.exit:                                   ; preds = %GetAlpha.exit.i22.i
-  call void @VP8SetIntraUVMode(ptr noundef nonnull %1, i32 noundef %.118.i.i) #6
+  call void @VP8SetIntraUVMode(ptr noundef nonnull %1, i32 noundef %.120.i.i) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %93 = add i32 %spec.select.i23.i, %.0.i
   %94 = ashr i32 %93, 2

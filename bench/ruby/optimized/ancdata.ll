@@ -306,11 +306,11 @@ rbimpl_intern_const.exit109:                      ; preds = %.lr.ph.i107, %rbimp
 
 86:                                               ; preds = %rbimpl_intern_const.exit109, %75
   %storemerge = phi i64 [ %78, %75 ], [ %85, %rbimpl_intern_const.exit109 ]
-  %.086 = phi i64 [ %76, %75 ], [ %81, %rbimpl_intern_const.exit109 ]
-  %.085 = phi i64 [ %77, %75 ], [ %83, %rbimpl_intern_const.exit109 ]
+  %.086 = phi i64 [ %77, %75 ], [ %83, %rbimpl_intern_const.exit109 ]
+  %.085 = phi i64 [ %76, %75 ], [ %81, %rbimpl_intern_const.exit109 ]
   store i64 %storemerge, ptr %15, align 8
-  %87 = call i32 @rsock_level_arg(i32 noundef %22, i64 noundef %.086) #11
-  %88 = call i32 @rsock_cmsg_type_arg(i32 noundef %22, i32 noundef %87, i64 noundef %.085) #11
+  %87 = call i32 @rsock_level_arg(i32 noundef %22, i64 noundef %.085) #11
+  %88 = call i32 @rsock_cmsg_type_arg(i32 noundef %22, i32 noundef %87, i64 noundef %.086) #11
   %89 = call i64 @rb_string_value(ptr noundef nonnull %15) #11
   %90 = load i64, ptr %57, align 8
   %91 = load i64, ptr %15, align 8
@@ -796,9 +796,9 @@ rb_num2int_inline.exit:                           ; preds = %33, %35
   unreachable
 
 59:                                               ; preds = %.outer188, %96
-  %.0115 = phi i64 [ %.1116, %96 ], [ %.0115.ph189, %.outer188 ]
-  %.1110 = phi i32 [ %spec.select137, %96 ], [ %.1110.ph190, %.outer188 ]
-  %60 = icmp eq i64 %.0115, 4
+  %.0109 = phi i64 [ %.1110, %96 ], [ %.0109.ph189, %.outer188 ]
+  %.1107 = phi i32 [ %spec.select137, %96 ], [ %.1107.ph190, %.outer188 ]
+  %60 = icmp eq i64 %.0109, 4
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %59
@@ -806,12 +806,12 @@ rb_num2int_inline.exit:                           ; preds = %33, %35
   br label %65
 
 63:                                               ; preds = %59
-  %64 = call i64 @rb_str_resize(i64 noundef %.0115, i64 noundef %.0105.ph191) #11
+  %64 = call i64 @rb_str_resize(i64 noundef %.0109, i64 noundef %.0105.ph191) #11
   br label %65
 
 65:                                               ; preds = %63, %61
-  %.1116 = phi i64 [ %62, %61 ], [ %.0115, %63 ]
-  %66 = inttoptr i64 %.1116 to ptr
+  %.1110 = phi i64 [ %62, %61 ], [ %.0109, %63 ]
+  %66 = inttoptr i64 %.1110 to ptr
   %67 = load i64, ptr %66, align 8, !noalias !28
   %68 = and i64 %67, 8192
   %.not.i.i = icmp eq i64 %68, 0
@@ -829,12 +829,12 @@ RSTRING_PTR.exit:                                 ; preds = %65, %70
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %RSTRING_PTR.exit
-  %74 = call i64 @rb_str_tmp_new(i64 noundef %.0112.ph) #11
+  %74 = call i64 @rb_str_tmp_new(i64 noundef %.0116.ph) #11
   store i64 %74, ptr %14, align 8
   br label %77
 
 75:                                               ; preds = %RSTRING_PTR.exit
-  %76 = call i64 @rb_str_resize(i64 noundef %71, i64 noundef %.0112.ph) #11
+  %76 = call i64 @rb_str_resize(i64 noundef %71, i64 noundef %.0116.ph) #11
   br label %77
 
 77:                                               ; preds = %75, %73
@@ -862,8 +862,8 @@ RSTRING_PTR.exit148:                              ; preds = %77, %83
   store i64 %.0105.ph191, ptr %49, align 8
   store ptr %.sroa.2.0.i147, ptr %50, align 8
   store i64 %194, ptr %51, align 8
-  %84 = or i32 %.1110, 2
-  %spec.select137 = select i1 %.not123, i32 %.1110, i32 %84
+  %84 = or i32 %.1107, 2
+  %spec.select137 = select i1 %.not123, i32 %.1107, i32 %84
   call void @rb_io_check_closed(ptr noundef %43) #11
   %85 = load i32, ptr %52, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
@@ -1036,7 +1036,7 @@ discard_cmsg.exit.i:                              ; preds = %.lr.ph.i.i, %141, %
   br i1 %.not.i149, label %rsock_discard_cmsg_resource.exit, label %.lr.ph.i, !llvm.loop !27
 
 158:                                              ; preds = %123
-  %159 = icmp slt i64 %.0112.ph, 0
+  %159 = icmp slt i64 %.0116.ph, 0
   br i1 %159, label %160, label %.thread174
 
 160:                                              ; preds = %158
@@ -1045,14 +1045,14 @@ discard_cmsg.exit.i:                              ; preds = %.lr.ph.i.i, %141, %
   unreachable
 
 .thread174:                                       ; preds = %122, %158
-  %162 = shl nuw i64 %.0112.ph, 1
+  %162 = shl nuw i64 %.0116.ph, 1
   br label %.loopexit181
 
 163:                                              ; preds = %127, %119, %118
   br i1 %or.cond139, label %.loopexit181, label %198
 
 .loopexit181:                                     ; preds = %163, %.thread174
-  %.1113178 = phi i64 [ %162, %.thread174 ], [ %.0112.ph, %163 ]
+  %.1117178 = phi i64 [ %162, %.thread174 ], [ %.0116.ph, %163 ]
   %164 = load i64, ptr %51, align 8
   %165 = icmp eq i64 %164, 0
   br i1 %165, label %.outer.backedge, label %166
@@ -1113,30 +1113,30 @@ discard_cmsg.exit.i154:                           ; preds = %.lr.ph.i.i157, %177
   br i1 %.not.i155, label %.outer.backedge, label %.lr.ph.i152, !llvm.loop !27
 
 .outer:                                           ; preds = %.outer.backedge, %.preheader
-  %.0115.ph = phi i64 [ 4, %.preheader ], [ %.1116, %.outer.backedge ]
-  %.0112.ph = phi i64 [ %31, %.preheader ], [ %.1113178, %.outer.backedge ]
-  %.1110.ph = phi i32 [ %spec.select, %.preheader ], [ %spec.select137, %.outer.backedge ]
-  %.0108.ph = phi i32 [ 0, %.preheader ], [ %.0108.ph185, %.outer.backedge ]
+  %.0116.ph = phi i64 [ %31, %.preheader ], [ %.1117178, %.outer.backedge ]
+  %.0114.ph = phi i32 [ 0, %.preheader ], [ %.0114.ph183, %.outer.backedge ]
+  %.0109.ph = phi i64 [ 4, %.preheader ], [ %.1110, %.outer.backedge ]
+  %.1107.ph = phi i32 [ %spec.select, %.preheader ], [ %spec.select137, %.outer.backedge ]
   %.0105.ph = phi i64 [ %23, %.preheader ], [ %.2, %.outer.backedge ]
   %.0104.ph = phi i32 [ %45, %.preheader ], [ 1, %.outer.backedge ]
-  %194 = and i64 %.0112.ph, 4294967295
-  %195 = icmp ugt i64 %.0112.ph, 65536
-  %196 = trunc i64 %.0112.ph to i32
+  %194 = and i64 %.0116.ph, 4294967295
+  %195 = icmp ugt i64 %.0116.ph, 65536
+  %196 = trunc i64 %.0116.ph to i32
   %197 = add i32 %196, -65536
   br label %.outer182
 
 .outer182:                                        ; preds = %.outer, %rsock_discard_cmsg_resource.exit
-  %.0115.ph183 = phi i64 [ %.0115.ph, %.outer ], [ %.1116, %rsock_discard_cmsg_resource.exit ]
-  %.1110.ph184 = phi i32 [ %.1110.ph, %.outer ], [ %spec.select137, %rsock_discard_cmsg_resource.exit ]
-  %.0108.ph185 = phi i32 [ %.0108.ph, %.outer ], [ 1, %rsock_discard_cmsg_resource.exit ]
+  %.0114.ph183 = phi i32 [ %.0114.ph, %.outer ], [ 1, %rsock_discard_cmsg_resource.exit ]
+  %.0109.ph184 = phi i64 [ %.0109.ph, %.outer ], [ %.1110, %rsock_discard_cmsg_resource.exit ]
+  %.1107.ph185 = phi i32 [ %.1107.ph, %.outer ], [ %spec.select137, %rsock_discard_cmsg_resource.exit ]
   %.0105.ph186 = phi i64 [ %.0105.ph, %.outer ], [ %.1, %rsock_discard_cmsg_resource.exit ]
   %.0104.ph187 = phi i32 [ %.0104.ph, %.outer ], [ %.0104.ph192, %rsock_discard_cmsg_resource.exit ]
-  %.not126 = icmp eq i32 %.0108.ph185, 0
+  %.not126 = icmp eq i32 %.0114.ph183, 0
   br label %.outer188
 
 .outer188:                                        ; preds = %.outer188.backedge, %.outer182
-  %.0115.ph189 = phi i64 [ %.0115.ph183, %.outer182 ], [ %.1116, %.outer188.backedge ]
-  %.1110.ph190 = phi i32 [ %.1110.ph184, %.outer182 ], [ %spec.select, %.outer188.backedge ]
+  %.0109.ph189 = phi i64 [ %.0109.ph184, %.outer182 ], [ %.1110, %.outer188.backedge ]
+  %.1107.ph190 = phi i32 [ %.1107.ph185, %.outer182 ], [ %spec.select, %.outer188.backedge ]
   %.0105.ph191 = phi i64 [ %.0105.ph186, %.outer182 ], [ %.2, %.outer188.backedge ]
   %.0104.ph192 = phi i32 [ %.0104.ph187, %.outer182 ], [ 0, %.outer188.backedge ]
   %.not123 = icmp eq i32 %.0104.ph192, 0
@@ -1207,7 +1207,7 @@ discard_cmsg.exit.i164:                           ; preds = %.lr.ph.i.i167, %213
   br i1 %.not.i165, label %.outer188.backedge, label %.lr.ph.i162, !llvm.loop !27
 
 230:                                              ; preds = %198, %.loopexit193
-  %231 = icmp eq i64 %.1116, 4
+  %231 = icmp eq i64 %.1110, 4
   br i1 %231, label %232, label %234
 
 232:                                              ; preds = %230
@@ -1215,13 +1215,13 @@ discard_cmsg.exit.i164:                           ; preds = %.lr.ph.i.i167, %213
   br label %238
 
 234:                                              ; preds = %230
-  %235 = call i64 @rb_str_resize(i64 noundef %.1116, i64 noundef %87) #11
+  %235 = call i64 @rb_str_resize(i64 noundef %.1110, i64 noundef %87) #11
   %236 = load i64, ptr @rb_cString, align 8
-  %237 = call i64 @rb_obj_reveal(i64 noundef %.1116, i64 noundef %236) #11
+  %237 = call i64 @rb_obj_reveal(i64 noundef %.1110, i64 noundef %236) #11
   br label %238
 
 238:                                              ; preds = %234, %232
-  %.2117 = phi i64 [ %233, %232 ], [ %.1116, %234 ]
+  %.2111 = phi i64 [ %233, %232 ], [ %.1110, %234 ]
   %239 = load ptr, ptr %11, align 8
   %240 = load i32, ptr %46, align 8
   %241 = call i64 @rsock_io_socket_addrinfo(i64 noundef %0, ptr noundef %239, i32 noundef %240) #11
@@ -1229,7 +1229,7 @@ discard_cmsg.exit.i164:                           ; preds = %.lr.ph.i.i167, %213
   %243 = sext i32 %242 to i64
   %244 = shl nsw i64 %243, 1
   %245 = or disjoint i64 %244, 1
-  %246 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %.2117, i64 noundef %241, i64 noundef %245) #11
+  %246 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %.2111, i64 noundef %241, i64 noundef %245) #11
   %247 = call i32 @rsock_getfamily(ptr noundef nonnull %43) #11
   %248 = load i64, ptr %51, align 8
   %.not129 = icmp eq i64 %248, 0
@@ -1251,22 +1251,22 @@ discard_cmsg.exit.i164:                           ; preds = %.lr.ph.i.i167, %213
   br i1 %.not180, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %discard_cmsg.exit.us
-  %.0114305.us = phi ptr [ %303, %discard_cmsg.exit.us ], [ %250, %.lr.ph ]
-  %257 = load i64, ptr %.0114305.us, align 8
+  %.0115305.us = phi ptr [ %303, %discard_cmsg.exit.us ], [ %250, %.lr.ph ]
+  %257 = load i64, ptr %.0115305.us, align 8
   %258 = icmp eq i64 %257, 0
   br i1 %258, label %.split.us, label %259
 
 259:                                              ; preds = %.lr.ph.split.us
-  %260 = getelementptr inbounds i8, ptr %.0114305.us, i64 %257
+  %260 = getelementptr inbounds i8, ptr %.0115305.us, i64 %257
   %.not131.us = icmp ugt ptr %260, %251
   %261 = select i1 %.not131.us, ptr %251, ptr %260
-  %262 = getelementptr inbounds i8, ptr %.0114305.us, i64 16
+  %262 = getelementptr inbounds i8, ptr %.0115305.us, i64 16
   %263 = ptrtoint ptr %261 to i64
   %264 = ptrtoint ptr %262 to i64
   %265 = sub i64 %263, %264
-  %266 = getelementptr inbounds i8, ptr %.0114305.us, i64 8
+  %266 = getelementptr inbounds i8, ptr %.0115305.us, i64 8
   %267 = load i32, ptr %266, align 8
-  %268 = getelementptr inbounds i8, ptr %.0114305.us, i64 12
+  %268 = getelementptr inbounds i8, ptr %.0115305.us, i64 12
   %269 = load i32, ptr %268, align 4
   %270 = call i64 @rb_str_new(ptr noundef nonnull %262, i64 noundef %265) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -1293,9 +1293,9 @@ discard_cmsg.exit.i164:                           ; preds = %.lr.ph.i.i167, %213
   br i1 %286, label %287, label %discard_cmsg.exit.us
 
 287:                                              ; preds = %284
-  %288 = load i64, ptr %.0114305.us, align 8
-  %289 = getelementptr inbounds i8, ptr %.0114305.us, i64 %288
-  %290 = getelementptr inbounds i8, ptr %.0114305.us, i64 20
+  %288 = load i64, ptr %.0115305.us, align 8
+  %289 = getelementptr inbounds i8, ptr %.0115305.us, i64 %288
+  %290 = getelementptr inbounds i8, ptr %.0115305.us, i64 20
   %291 = icmp sgt i64 %288, 19
   %292 = icmp ule ptr %290, %251
   %293 = and i1 %292, %291
@@ -1316,13 +1316,13 @@ discard_cmsg.exit.i164:                           ; preds = %.lr.ph.i.i167, %213
 
 discard_cmsg.exit.us:                             ; preds = %.lr.ph.i173.us, %287, %284, %259
   %302 = call i64 @rb_ary_push(i64 noundef %246, i64 noundef %272) #11
-  %303 = call ptr @__cmsg_nxthdr(ptr noundef nonnull %11, ptr noundef nonnull %.0114305.us) #11
+  %303 = call ptr @__cmsg_nxthdr(ptr noundef nonnull %11, ptr noundef nonnull %.0115305.us) #11
   %.not130.us = icmp eq ptr %303, null
   br i1 %.not130.us, label %select.unfold._crit_edge, label %.lr.ph.split.us, !llvm.loop !34
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %make_io_for_unix_rights.exit
-  %.0114305 = phi ptr [ %370, %make_io_for_unix_rights.exit ], [ %250, %.lr.ph ]
-  %304 = load i64, ptr %.0114305, align 8
+  %.0115305 = phi ptr [ %370, %make_io_for_unix_rights.exit ], [ %250, %.lr.ph ]
+  %304 = load i64, ptr %.0115305, align 8
   %305 = icmp eq i64 %304, 0
   br i1 %305, label %.split.us, label %307
 
@@ -1332,16 +1332,16 @@ discard_cmsg.exit.us:                             ; preds = %.lr.ph.i173.us, %28
   unreachable
 
 307:                                              ; preds = %.lr.ph.split
-  %308 = getelementptr inbounds i8, ptr %.0114305, i64 %304
+  %308 = getelementptr inbounds i8, ptr %.0115305, i64 %304
   %.not131 = icmp ugt ptr %308, %251
   %309 = select i1 %.not131, ptr %251, ptr %308
-  %310 = getelementptr inbounds i8, ptr %.0114305, i64 16
+  %310 = getelementptr inbounds i8, ptr %.0115305, i64 16
   %311 = ptrtoint ptr %309 to i64
   %312 = ptrtoint ptr %310 to i64
   %313 = sub i64 %311, %312
-  %314 = getelementptr inbounds i8, ptr %.0114305, i64 8
+  %314 = getelementptr inbounds i8, ptr %.0115305, i64 8
   %315 = load i32, ptr %314, align 8
-  %316 = getelementptr inbounds i8, ptr %.0114305, i64 12
+  %316 = getelementptr inbounds i8, ptr %.0115305, i64 12
   %317 = load i32, ptr %316, align 4
   %318 = call i64 @rb_str_new(ptr noundef nonnull %310, i64 noundef %313) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -1383,9 +1383,9 @@ discard_cmsg.exit.us:                             ; preds = %.lr.ph.i173.us, %28
 rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i.i171, %335
   %.lcssa.i.i = phi i64 [ %.pr.i.i, %335 ], [ %337, %.lr.ph.i.i171 ]
   %338 = call i64 @rb_ivar_set(i64 noundef %320, i64 noundef %.lcssa.i.i, i64 noundef %336) #11
-  %339 = load i64, ptr %.0114305, align 8
-  %340 = getelementptr inbounds i8, ptr %.0114305, i64 %339
-  %341 = getelementptr inbounds i8, ptr %.0114305, i64 20
+  %339 = load i64, ptr %.0115305, align 8
+  %340 = getelementptr inbounds i8, ptr %.0115305, i64 %339
+  %341 = getelementptr inbounds i8, ptr %.0115305, i64 20
   %342 = icmp sgt i64 %339, 19
   %343 = icmp ule ptr %341, %251
   %344 = and i1 %343, %342
@@ -1452,7 +1452,7 @@ rbimpl_intern_const.exit31.i:                     ; preds = %.lr.ph.i29.i, %361
 make_io_for_unix_rights.exit:                     ; preds = %307, %332, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8)
   %369 = call i64 @rb_ary_push(i64 noundef %246, i64 noundef %320) #11
-  %370 = call ptr @__cmsg_nxthdr(ptr noundef nonnull %11, ptr noundef nonnull %.0114305) #11
+  %370 = call ptr @__cmsg_nxthdr(ptr noundef nonnull %11, ptr noundef nonnull %.0115305) #11
   %.not130 = icmp eq ptr %370, null
   br i1 %.not130, label %select.unfold._crit_edge, label %.lr.ph.split, !llvm.loop !34
 

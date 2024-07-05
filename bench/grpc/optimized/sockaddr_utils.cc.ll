@@ -610,8 +610,8 @@ invoke.cont74:                                    ; preds = %if.then73
 
 land.lhs.true81:                                  ; preds = %if.then65, %invoke.cont74
   %sin6_scope_id.0.ph = phi i32 [ %28, %invoke.cont74 ], [ 0, %if.then65 ]
-  %ip.0.ph = phi ptr [ %resolved_addr.addr.0.sroa.phi.sroa.phi, %invoke.cont74 ], [ %resolved_addr.addr.0.sroa.phi.sroa.phi116, %if.then65 ]
   %port.0.shrunk.ph = phi i16 [ %call75, %invoke.cont74 ], [ %call67, %if.then65 ]
+  %ip.0.ph = phi ptr [ %resolved_addr.addr.0.sroa.phi.sroa.phi, %invoke.cont74 ], [ %resolved_addr.addr.0.sroa.phi.sroa.phi116, %if.then65 ]
   %port.084 = zext i16 %port.0.shrunk.ph to i32
   %29 = load i16, ptr %resolved_addr.addr.0.sroa.phi, align 2
   %conv83 = zext i16 %29 to i32
@@ -2226,10 +2226,10 @@ if.else55:                                        ; preds = %if.else44
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then34, %if.else55, %if.then46, %if.then23
-  %address_parts.sroa.11.0 = phi i32 [ 0, %if.then23 ], [ 0, %if.then34 ], [ 0, %if.then46 ], [ %and62, %if.else55 ]
-  %address_parts.sroa.7.0 = phi i32 [ 0, %if.then23 ], [ 0, %if.then34 ], [ %and53, %if.then46 ], [ %address_parts.sroa.7.0.copyload, %if.else55 ]
-  %address_parts.sroa.4.0 = phi i32 [ 0, %if.then23 ], [ %and41, %if.then34 ], [ %address_parts.sroa.4.0.copyload, %if.then46 ], [ %address_parts.sroa.4.0.copyload, %if.else55 ]
   %address_parts.sroa.0.0 = phi i32 [ %and28, %if.then23 ], [ %address_parts.sroa.0.0.copyload, %if.then34 ], [ %address_parts.sroa.0.0.copyload, %if.then46 ], [ %address_parts.sroa.0.0.copyload, %if.else55 ]
+  %address_parts.sroa.4.0 = phi i32 [ 0, %if.then23 ], [ %and41, %if.then34 ], [ %address_parts.sroa.4.0.copyload, %if.then46 ], [ %address_parts.sroa.4.0.copyload, %if.else55 ]
+  %address_parts.sroa.7.0 = phi i32 [ 0, %if.then23 ], [ 0, %if.then34 ], [ %and53, %if.then46 ], [ %address_parts.sroa.7.0.copyload, %if.else55 ]
+  %address_parts.sroa.11.0 = phi i32 [ 0, %if.then23 ], [ 0, %if.then34 ], [ 0, %if.then46 ], [ %and62, %if.else55 ]
   store i32 %address_parts.sroa.0.0, ptr %sin6_addr21, align 4
   store i32 %address_parts.sroa.4.0, ptr %address_parts.sroa.4.0.sin6_addr21.sroa_idx, align 4
   store i32 %address_parts.sroa.7.0, ptr %address_parts.sroa.7.0.sin6_addr21.sroa_idx, align 4

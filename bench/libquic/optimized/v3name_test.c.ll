@@ -660,9 +660,9 @@ while.end:                                        ; preds = %vaarg.end
   br label %out
 
 out:                                              ; preds = %if.end24, %if.end20, %vaarg.end15, %while.end, %entry
-  %ret.0 = phi i32 [ 0, %entry ], [ %spec.select, %while.end ], [ 0, %vaarg.end15 ], [ 0, %if.end20 ], [ 0, %if.end24 ]
   %gen.1 = phi ptr [ null, %entry ], [ null, %while.end ], [ %call17, %if.end24 ], [ %call17, %if.end20 ], [ null, %vaarg.end15 ]
   %ia5.1 = phi ptr [ null, %entry ], [ null, %while.end ], [ %call21, %if.end24 ], [ null, %if.end20 ], [ null, %vaarg.end15 ]
+  %ret.0 = phi i32 [ 0, %entry ], [ %spec.select, %while.end ], [ 0, %vaarg.end15 ], [ 0, %if.end20 ], [ 0, %if.end24 ]
   call void @ASN1_IA5STRING_free(ptr noundef %ia5.1) #11
   call void @GENERAL_NAME_free(ptr noundef %gen.1) #11
   call void @GENERAL_NAMES_free(ptr noundef %call) #11

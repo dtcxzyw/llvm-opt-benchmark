@@ -104,27 +104,27 @@ Abc_Clock.exit89:                                 ; preds = %29, %33
   br label %50
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.070129 = phi i32 [ %49, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.067129 = phi i32 [ %49, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %48 = call i32 @Abc_Random(i32 noundef 0) #11
-  %49 = add nuw i32 %.070129, 1
-  %exitcond.not = icmp eq i32 %.070129, %smax
+  %49 = add nuw i32 %.067129, 1
+  %exitcond.not = icmp eq i32 %.067129, %smax
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !4
 
 50:                                               ; preds = %.preheader, %169
-  %.067132 = phi ptr [ %42, %.preheader ], [ %.1114, %169 ]
-  %.068131 = phi i32 [ -1, %.preheader ], [ %.169113, %169 ]
-  %.071130 = phi i32 [ 0, %.preheader ], [ %170, %169 ]
+  %.068132 = phi i32 [ 0, %.preheader ], [ %170, %169 ]
+  %.069131 = phi i32 [ -1, %.preheader ], [ %.1114, %169 ]
+  %.070130 = phi ptr [ %42, %.preheader ], [ %.171113, %169 ]
   %51 = call i32 @Abc_Random(i32 noundef 0) #11
   %52 = and i32 %51, 1
   br i1 %.not77, label %56, label %53
 
 53:                                               ; preds = %50
-  %54 = urem i32 %.071130, 5
+  %54 = urem i32 %.068132, 5
   %55 = add nuw nsw i32 %54, 2
   br label %59
 
 56:                                               ; preds = %50
-  %57 = and i32 %.071130, 3
+  %57 = and i32 %.068132, 3
   %58 = add nuw nsw i32 %57, 3
   br label %59
 
@@ -181,13 +181,13 @@ Abc_Clock.exit89:                                 ; preds = %29, %33
 80:                                               ; preds = %71, %79
   %81 = call ptr (...) @Abc_FrameGetGlobalFrame() #11
   %82 = call ptr @Abc_FrameReadGia(ptr noundef %81) #11
-  %83 = getelementptr inbounds i8, ptr %.067132, i64 24
+  %83 = getelementptr inbounds i8, ptr %.070130, i64 24
   %84 = load i32, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %.067132, i64 64
+  %85 = getelementptr inbounds i8, ptr %.070130, i64 64
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr i8, ptr %86, i64 4
   %.val.i = load i32, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %.067132, i64 72
+  %88 = getelementptr inbounds i8, ptr %.070130, i64 72
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr i8, ptr %89, i64 4
   %.val3.i = load i32, ptr %90, align 4
@@ -209,12 +209,12 @@ Abc_Clock.exit89:                                 ; preds = %29, %33
   br i1 %103, label %104, label %.thread
 
 104:                                              ; preds = %80
-  call void @Gia_ManStop(ptr noundef nonnull %.067132) #11
+  call void @Gia_ManStop(ptr noundef nonnull %.070130) #11
   %105 = call ptr @Gia_ManDup(ptr noundef nonnull %82) #11
   br i1 %.not133, label %.thread, label %106
 
 106:                                              ; preds = %104
-  %107 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.071130)
+  %107 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.068132)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   %108 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #11
   %109 = icmp slt i32 %108, 0
@@ -258,8 +258,8 @@ Abc_Clock.exit99:                                 ; preds = %106, %110
   br label %.thread
 
 .thread:                                          ; preds = %80, %Abc_Clock.exit99, %104
-  %.1114 = phi ptr [ %105, %Abc_Clock.exit99 ], [ %105, %104 ], [ %.067132, %80 ]
-  %.169113 = phi i32 [ %.071130, %Abc_Clock.exit99 ], [ %.071130, %104 ], [ %.068131, %80 ]
+  %.1114 = phi i32 [ %.068132, %Abc_Clock.exit99 ], [ %.068132, %104 ], [ %.069131, %80 ]
+  %.171113 = phi ptr [ %105, %Abc_Clock.exit99 ], [ %105, %104 ], [ %.070130, %80 ]
   br i1 %.not84, label %151, label %137
 
 137:                                              ; preds = %.thread
@@ -288,11 +288,11 @@ Abc_Clock.exit103:                                ; preds = %137, %140
   br i1 %.not85, label %149, label %.thread115
 
 149:                                              ; preds = %147
-  %150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %1, i32 noundef %.071130)
+  %150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %1, i32 noundef %.068132)
   br label %.thread115
 
 151:                                              ; preds = %Abc_Clock.exit103, %.thread
-  %152 = sub nsw i32 %.071130, %.169113
+  %152 = sub nsw i32 %.068132, %.1114
   %153 = icmp sgt i32 %152, %0
   br i1 %153, label %154, label %169
 
@@ -322,7 +322,7 @@ Abc_Clock.exit105:                                ; preds = %154, %157
   br label %.thread115
 
 169:                                              ; preds = %151
-  %170 = add nuw nsw i32 %.071130, 1
+  %170 = add nuw nsw i32 %.068132, 1
   %exitcond141.not = icmp eq i32 %170, 100000
   br i1 %exitcond141.not, label %171, label %50, !llvm.loop !6
 
@@ -379,11 +379,11 @@ Abc_Clock.exit109:                                ; preds = %187, %190
   %198 = sitofp i64 %197 to float
   %199 = fdiv float %198, 1.000000e+06
   %200 = fpext float %199 to double
-  %201 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef -1, i32 noundef %2, i32 noundef %.071130, double noundef %200)
+  %201 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef -1, i32 noundef %2, i32 noundef %.068132, double noundef %200)
   br label %202
 
 202:                                              ; preds = %Abc_Clock.exit107, %Abc_Clock.exit109, %.thread115, %78, %74
-  %.066 = phi ptr [ null, %74 ], [ null, %78 ], [ %.1114, %.thread115 ], [ %.1114, %Abc_Clock.exit109 ], [ %.1114, %Abc_Clock.exit107 ]
+  %.066 = phi ptr [ null, %74 ], [ null, %78 ], [ %.171113, %.thread115 ], [ %.171113, %Abc_Clock.exit109 ], [ %.171113, %Abc_Clock.exit107 ]
   ret ptr %.066
 }
 

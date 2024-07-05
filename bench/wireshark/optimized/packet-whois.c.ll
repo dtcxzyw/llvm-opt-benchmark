@@ -370,8 +370,8 @@ proto_item_set_generated.exit:                    ; preds = %108, %105, %102, %1
   br label %154
 
 154:                                              ; preds = %proto_item_set_generated.exit, %65, %49
-  %.093 = phi i32 [ %153, %proto_item_set_generated.exit ], [ -1, %49 ], [ -1, %65 ]
-  ret i32 %.093
+  %.091 = phi i32 [ %153, %proto_item_set_generated.exit ], [ -1, %49 ], [ -1, %65 ]
+  ret i32 %.091
 }
 
 ; Function Attrs: nounwind uwtable

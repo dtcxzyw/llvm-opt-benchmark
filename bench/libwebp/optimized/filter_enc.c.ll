@@ -314,21 +314,21 @@ define hidden void @VP8AdjustFilterStrength(ptr nocapture noundef readonly %0) l
 
 12:                                               ; preds = %7, %12
   %indvars.iv = phi i64 [ 1, %7 ], [ %indvars.iv.next, %12 ]
-  %.03648 = phi double [ %11, %7 ], [ %.137, %12 ]
-  %.03847 = phi i32 [ 0, %7 ], [ %.139, %12 ]
+  %.03647 = phi i32 [ 0, %7 ], [ %.1, %12 ]
+  %.04046 = phi double [ %11, %7 ], [ %.141, %12 ]
   %13 = getelementptr inbounds [4 x [64 x double]], ptr %8, i64 0, i64 %indvars.iv53, i64 %indvars.iv
   %14 = load double, ptr %13, align 8
-  %15 = fcmp ogt double %14, %.03648
+  %15 = fcmp ogt double %14, %.04046
+  %.141 = select i1 %15, double %14, double %.04046
   %16 = trunc nuw nsw i64 %indvars.iv to i32
-  %.139 = select i1 %15, i32 %16, i32 %.03847
-  %.137 = select i1 %15, double %14, double %.03648
+  %.1 = select i1 %15, i32 %16, i32 %.03647
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %17, label %12, !llvm.loop !12
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds [4 x %struct.VP8SegmentInfo], ptr %6, i64 0, i64 %indvars.iv53, i32 6
-  store i32 %.139, ptr %18, align 4
+  store i32 %.1, ptr %18, align 4
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 4
   br i1 %exitcond56.not, label %.loopexit, label %7, !llvm.loop !13
@@ -349,7 +349,7 @@ define hidden void @VP8AdjustFilterStrength(ptr nocapture noundef readonly %0) l
 
 27:                                               ; preds = %.preheader, %45
   %indvars.iv57 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %45 ]
-  %.03550 = phi i32 [ 0, %.preheader ], [ %spec.select, %45 ]
+  %.03850 = phi i32 [ 0, %.preheader ], [ %spec.select, %45 ]
   %28 = getelementptr inbounds [4 x %struct.VP8SegmentInfo], ptr %24, i64 0, i64 %indvars.iv57
   %29 = getelementptr inbounds i8, ptr %28, i64 688
   %30 = load i32, ptr %29, align 8
@@ -374,7 +374,7 @@ define hidden void @VP8AdjustFilterStrength(ptr nocapture noundef readonly %0) l
 
 45:                                               ; preds = %44, %27
   %46 = phi i32 [ %40, %44 ], [ %42, %27 ]
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.03550, i32 %46)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.03850, i32 %46)
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 4
   br i1 %exitcond60.not, label %47, label %27, !llvm.loop !14

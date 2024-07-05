@@ -7791,12 +7791,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %69, %"_ZZN29cmLocalUnixMakefileGenerator315CreateCDCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SB_ENK3$_0clB5cxx11ESB_.exit.i"
-  %.sroa.01.010.i = phi ptr [ %77, %"_ZZN29cmLocalUnixMakefileGenerator315CreateCDCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SB_ENK3$_0clB5cxx11ESB_.exit.i" ], [ %70, %69 ]
+  %.sroa.04.010.i = phi ptr [ %77, %"_ZZN29cmLocalUnixMakefileGenerator315CreateCDCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SB_ENK3$_0clB5cxx11ESB_.exit.i" ], [ %70, %69 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc30 unwind label %82
 
 .noexc30:                                         ; preds = %.lr.ph.i
-  %73 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.010.i)
+  %73 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.010.i)
           to label %"_ZZN29cmLocalUnixMakefileGenerator315CreateCDCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SB_ENK3$_0clB5cxx11ESB_.exit.i" unwind label %74
 
 74:                                               ; preds = %.noexc30
@@ -7806,9 +7806,9 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.body
 
 "_ZZN29cmLocalUnixMakefileGenerator315CreateCDCommandERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKS6_SB_ENK3$_0clB5cxx11ESB_.exit.i": ; preds = %.noexc30
-  %76 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.010.i, ptr noundef nonnull align 8 dereferenceable(32) %5) #20
+  %76 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.010.i, ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
-  %77 = getelementptr i8, ptr %.sroa.01.010.i, i64 32
+  %77 = getelementptr i8, ptr %.sroa.04.010.i, i64 32
   %.not.i = icmp eq ptr %77, %72
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !370
 
@@ -8487,9 +8487,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %37
 
 37:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %.preheader
-  %.0.idx108 = phi i64 [ 0, %.preheader ], [ %.0.add, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
-  %.0.ptr = getelementptr inbounds i8, ptr @__const._ZN29cmLocalUnixMakefileGenerator322WriteSpecialTargetsTopERSo.vcs_rules, i64 %.0.idx108
-  %38 = load ptr, ptr %.0.ptr, align 8
+  %.032.idx108 = phi i64 [ 0, %.preheader ], [ %.032.add, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
+  %.032.ptr = getelementptr inbounds i8, ptr @__const._ZN29cmLocalUnixMakefileGenerator322WriteSpecialTargetsTopERSo.vcs_rules, i64 %.032.idx108
+  %38 = load ptr, ptr %.032.ptr, align 8
   store ptr %38, ptr %7, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRPKcEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -8547,8 +8547,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %47
-  %.0.add = add nuw nsw i64 %.0.idx108, 8
-  %.not = icmp eq i64 %.0.add, 40
+  %.032.add = add nuw nsw i64 %.032.idx108, 8
+  %.not = icmp eq i64 %.032.add, 40
   br i1 %.not, label %.loopexit, label %37
 
 48:                                               ; preds = %.noexc, %2
@@ -12260,7 +12260,7 @@ _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
 
 .lr.ph.i.i.i45.preheader:                         ; preds = %.preheader, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
   %81 = phi ptr [ %106, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit ], [ %80, %.preheader ]
-  %.021122 = phi i32 [ %100, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit ], [ 0, %.preheader ]
+  %.023122 = phi i32 [ %100, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit ], [ 0, %.preheader ]
   br label %.lr.ph.i.i.i45
 
 .lr.ph.i.i.i45:                                   ; preds = %.lr.ph.i.i.i45.preheader, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i48
@@ -12304,12 +12304,12 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 
 95:                                               ; preds = %89
   %96 = icmp sgt i32 %91, -1
-  %97 = icmp ult i32 %.021122, 1000
+  %97 = icmp ult i32 %.023122, 1000
   %98 = and i1 %97, %96
   br i1 %98, label %99, label %.thread
 
 99:                                               ; preds = %95
-  %100 = add nuw nsw i32 %.021122, 1
+  %100 = add nuw nsw i32 %.023122, 1
   %101 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 12, ptr noundef nonnull @.str.143, i32 noundef %100) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc unwind label %.loopexit

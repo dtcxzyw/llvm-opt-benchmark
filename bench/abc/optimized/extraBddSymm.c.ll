@@ -98,15 +98,15 @@ Extra_SymmPairsAllocate.exit:                     ; preds = %.lr.ph.i, %3
 
 .lr.ph:                                           ; preds = %Extra_SymmPairsAllocate.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Extra_SymmPairsAllocate.exit ]
-  %.05765 = phi ptr [ %31, %.lr.ph ], [ %2, %Extra_SymmPairsAllocate.exit ]
-  %25 = load i32, ptr %.05765, align 8
+  %.05665 = phi ptr [ %31, %.lr.ph ], [ %2, %Extra_SymmPairsAllocate.exit ]
+  %25 = load i32, ptr %.05665, align 8
   %26 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
   store i32 %25, ptr %26, align 4
   %27 = zext i32 %25 to i64
   %28 = getelementptr inbounds i32, ptr %calloc, i64 %27
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %29, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %.05765, i64 16
+  %30 = getelementptr inbounds i8, ptr %.05665, i64 16
   %31 = load ptr, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq ptr %31, %24
@@ -126,12 +126,12 @@ Extra_SymmPairsAllocate.exit:                     ; preds = %.lr.ph.i, %3
 
 36:                                               ; preds = %.lr.ph70, %Extra_zddSelectOneSubset.exit
   %37 = phi i32 [ 0, %.lr.ph70 ], [ %59, %Extra_zddSelectOneSubset.exit ]
-  %.05668 = phi ptr [ %1, %.lr.ph70 ], [ %60, %Extra_zddSelectOneSubset.exit ]
+  %.05768 = phi ptr [ %1, %.lr.ph70 ], [ %60, %Extra_zddSelectOneSubset.exit ]
   br label %38
 
 38:                                               ; preds = %38, %36
   store i32 0, ptr %34, align 8
-  %39 = tail call ptr @extraZddSelectOneSubset(ptr noundef nonnull %0, ptr noundef %.05668)
+  %39 = tail call ptr @extraZddSelectOneSubset(ptr noundef nonnull %0, ptr noundef %.05768)
   %40 = load i32, ptr %34, align 8
   %41 = icmp eq i32 %40, 1
   br i1 %41, label %38, label %Extra_zddSelectOneSubset.exit, !llvm.loop !8
@@ -160,9 +160,9 @@ Extra_zddSelectOneSubset.exit:                    ; preds = %38
   store i8 1, ptr %58, align 1
   %59 = add nuw nsw i32 %37, 1
   store i32 %59, ptr %35, align 8
-  %60 = tail call ptr @Cudd_zddDiff(ptr noundef nonnull %0, ptr noundef %.05668, ptr noundef nonnull %39) #10
+  %60 = tail call ptr @Cudd_zddDiff(ptr noundef nonnull %0, ptr noundef %.05768, ptr noundef nonnull %39) #10
   tail call void @Cudd_Ref(ptr noundef %60) #10
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.05668) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.05768) #10
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %39) #10
   %61 = load ptr, ptr %32, align 8
   %.not62 = icmp eq ptr %60, %61
@@ -217,17 +217,17 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %175
 
 .lr.ph181:                                        ; preds = %.lr.ph181.preheader, %.lr.ph181
-  %.0149180 = phi ptr [ %17, %.lr.ph181 ], [ %2, %.lr.ph181.preheader ]
-  %.0150179 = phi i32 [ %18, %.lr.ph181 ], [ 0, %.lr.ph181.preheader ]
-  %16 = getelementptr inbounds i8, ptr %.0149180, i64 16
+  %.0147180 = phi i32 [ %18, %.lr.ph181 ], [ 0, %.lr.ph181.preheader ]
+  %.0152179 = phi ptr [ %17, %.lr.ph181 ], [ %2, %.lr.ph181.preheader ]
+  %16 = getelementptr inbounds i8, ptr %.0152179, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = add nuw nsw i32 %.0150179, 1
-  %exitcond189.not = icmp eq i32 %.0150179, %12
+  %18 = add nuw nsw i32 %.0147180, 1
+  %exitcond189.not = icmp eq i32 %.0147180, %12
   br i1 %exitcond189.not, label %._crit_edge182, label %.lr.ph181, !llvm.loop !10
 
 ._crit_edge182:                                   ; preds = %.lr.ph181, %.preheader
-  %.0149.lcssa = phi ptr [ %2, %.preheader ], [ %17, %.lr.ph181 ]
-  %19 = tail call ptr @extraZddTuplesFromBdd(ptr noundef %0, ptr noundef %.0149.lcssa, ptr noundef %2)
+  %.0152.lcssa = phi ptr [ %2, %.preheader ], [ %17, %.lr.ph181 ]
+  %19 = tail call ptr @extraZddTuplesFromBdd(ptr noundef %0, ptr noundef %.0152.lcssa, ptr noundef %2)
   br label %175
 
 20:                                               ; preds = %3
@@ -250,8 +250,8 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not184, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
-  %.0146171 = phi ptr [ %34, %.lr.ph ], [ %2, %22 ]
-  %33 = getelementptr inbounds i8, ptr %.0146171, i64 16
+  %.0149171 = phi ptr [ %34, %.lr.ph ], [ %2, %22 ]
+  %33 = getelementptr inbounds i8, ptr %.0149171, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
@@ -261,7 +261,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
-  %.0146.lcssa = phi ptr [ %2, %22 ], [ %34, %.lr.ph ]
+  %.0149.lcssa = phi ptr [ %2, %22 ], [ %34, %.lr.ph ]
   %.not168 = icmp eq ptr %6, %1
   %40 = getelementptr inbounds i8, ptr %6, i64 16
   %41 = getelementptr inbounds i8, ptr %6, i64 24
@@ -283,11 +283,11 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %53
 
 53:                                               ; preds = %51, %43
-  %.0148 = phi ptr [ %46, %43 ], [ %42, %51 ]
-  %.0147 = phi ptr [ %50, %43 ], [ %52, %51 ]
-  %54 = getelementptr inbounds i8, ptr %.0146.lcssa, i64 16
+  %.0151 = phi ptr [ %46, %43 ], [ %42, %51 ]
+  %.0150 = phi ptr [ %50, %43 ], [ %52, %51 ]
+  %54 = getelementptr inbounds i8, ptr %.0149.lcssa, i64 16
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %.0148, ptr noundef %55)
+  %56 = tail call ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %.0151, ptr noundef %55)
   %57 = icmp eq ptr %56, null
   br i1 %57, label %175, label %58
 
@@ -306,7 +306,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 
 68:                                               ; preds = %58
   %69 = load ptr, ptr %54, align 8
-  %70 = tail call ptr @extraZddSymmPairsCompute(ptr noundef nonnull %0, ptr noundef %.0147, ptr noundef %69)
+  %70 = tail call ptr @extraZddSymmPairsCompute(ptr noundef nonnull %0, ptr noundef %.0150, ptr noundef %69)
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %73
 
@@ -344,14 +344,14 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %90
 
 90:                                               ; preds = %58, %83
-  %.0151 = phi ptr [ %80, %83 ], [ %56, %58 ]
+  %.0146 = phi ptr [ %80, %83 ], [ %56, %58 ]
   %91 = load ptr, ptr %54, align 8
-  %92 = tail call ptr @extraZddGetSymmetricVars(ptr noundef nonnull %0, ptr noundef %.0147, ptr noundef %.0148, ptr noundef %91)
+  %92 = tail call ptr @extraZddGetSymmetricVars(ptr noundef nonnull %0, ptr noundef %.0150, ptr noundef %.0151, ptr noundef %91)
   %93 = icmp eq ptr %92, null
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %90
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0151) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0146) #10
   br label %175
 
 95:                                               ; preds = %90
@@ -374,7 +374,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %104
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0151) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0146) #10
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %92) #10
   br label %175
 
@@ -389,12 +389,12 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %117 = load i32, ptr %99, align 4
   %118 = add i32 %117, -1
   store i32 %118, ptr %99, align 4
-  %119 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef nonnull %.0151, ptr noundef nonnull %107) #10
+  %119 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef nonnull %.0146, ptr noundef nonnull %107) #10
   %120 = icmp eq ptr %119, null
   br i1 %120, label %121, label %122
 
 121:                                              ; preds = %110
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0151) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0146) #10
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %107) #10
   br label %175
 
@@ -406,12 +406,12 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %127 = load i32, ptr %126, align 4
   %128 = add i32 %127, 1
   store i32 %128, ptr %126, align 4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0151) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0146) #10
   br label %129
 
 129:                                              ; preds = %95, %122
   %.sink = phi ptr [ %107, %122 ], [ %92, %95 ]
-  %.1 = phi ptr [ %119, %122 ], [ %.0151, %95 ]
+  %.1 = phi ptr [ %119, %122 ], [ %.0146, %95 ]
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #10
   br i1 %.not184, label %130, label %168
 
@@ -511,8 +511,8 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %175
 
 175:                                              ; preds = %53, %20, %168, %160, %150, %133, %121, %109, %94, %82, %72, %._crit_edge182, %13
-  %.0152 = phi ptr [ %15, %13 ], [ %19, %._crit_edge182 ], [ null, %94 ], [ null, %133 ], [ %.2, %168 ], [ null, %150 ], [ null, %160 ], [ null, %109 ], [ null, %121 ], [ null, %72 ], [ null, %82 ], [ %21, %20 ], [ null, %53 ]
-  ret ptr %.0152
+  %.0145 = phi ptr [ %15, %13 ], [ %19, %._crit_edge182 ], [ null, %94 ], [ null, %133 ], [ %.2, %168 ], [ null, %150 ], [ null, %160 ], [ null, %109 ], [ null, %121 ], [ null, %72 ], [ null, %82 ], [ %21, %20 ], [ null, %53 ]
+  ret ptr %.0145
 }
 
 ; Function Attrs: nounwind uwtable
@@ -604,8 +604,8 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %._crit_edge176, %.lr.ph
-  %.0143175 = phi ptr [ %49, %.lr.ph ], [ %3, %._crit_edge176 ]
-  %48 = getelementptr inbounds i8, ptr %.0143175, i64 16
+  %.0145175 = phi ptr [ %49, %.lr.ph ], [ %3, %._crit_edge176 ]
+  %48 = getelementptr inbounds i8, ptr %.0145175, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
@@ -615,7 +615,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge176
-  %.0143.lcssa = phi ptr [ %3, %._crit_edge176 ], [ %49, %.lr.ph ]
+  %.0145.lcssa = phi ptr [ %3, %._crit_edge176 ], [ %49, %.lr.ph ]
   %.not173 = icmp sgt i32 %35, %42
   br i1 %.not173, label %69, label %55
 
@@ -641,8 +641,8 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %69
 
 69:                                               ; preds = %._crit_edge, %59, %67
-  %.0147 = phi ptr [ %62, %59 ], [ %58, %67 ], [ %1, %._crit_edge ]
-  %.0146 = phi ptr [ %66, %59 ], [ %68, %67 ], [ %1, %._crit_edge ]
+  %.0149 = phi ptr [ %62, %59 ], [ %58, %67 ], [ %1, %._crit_edge ]
+  %.0148 = phi ptr [ %66, %59 ], [ %68, %67 ], [ %1, %._crit_edge ]
   %.not174 = icmp sgt i32 %42, %35
   br i1 %.not174, label %84, label %70
 
@@ -668,11 +668,11 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %84
 
 84:                                               ; preds = %69, %74, %82
-  %.0145 = phi ptr [ %77, %74 ], [ %73, %82 ], [ %2, %69 ]
-  %.0144 = phi ptr [ %81, %74 ], [ %83, %82 ], [ %2, %69 ]
-  %85 = getelementptr inbounds i8, ptr %.0143.lcssa, i64 16
+  %.0147 = phi ptr [ %77, %74 ], [ %73, %82 ], [ %2, %69 ]
+  %.0146 = phi ptr [ %81, %74 ], [ %83, %82 ], [ %2, %69 ]
+  %85 = getelementptr inbounds i8, ptr %.0145.lcssa, i64 16
   %86 = load ptr, ptr %85, align 8
-  %87 = tail call ptr @extraZddGetSymmetricVars(ptr noundef nonnull %0, ptr noundef %.0147, ptr noundef %.0145, ptr noundef %86)
+  %87 = tail call ptr @extraZddGetSymmetricVars(ptr noundef nonnull %0, ptr noundef %.0149, ptr noundef %.0147, ptr noundef %86)
   %88 = icmp eq ptr %87, null
   br i1 %88, label %186, label %89
 
@@ -691,7 +691,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
 
 99:                                               ; preds = %89
   %100 = load ptr, ptr %85, align 8
-  %101 = tail call ptr @extraZddGetSymmetricVars(ptr noundef nonnull %0, ptr noundef %.0146, ptr noundef %.0144, ptr noundef %100)
+  %101 = tail call ptr @extraZddGetSymmetricVars(ptr noundef nonnull %0, ptr noundef %.0148, ptr noundef %.0146, ptr noundef %100)
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %104
 
@@ -729,12 +729,12 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %121
 
 121:                                              ; preds = %89, %114
-  %.0148 = phi ptr [ %111, %114 ], [ %87, %89 ]
-  %122 = icmp eq ptr %.0147, %.0144
+  %.0144 = phi ptr [ %111, %114 ], [ %87, %89 ]
+  %122 = icmp eq ptr %.0149, %.0146
   br i1 %122, label %123, label %149
 
 123:                                              ; preds = %121
-  %124 = load i32, ptr %.0143.lcssa, align 8
+  %124 = load i32, ptr %.0145.lcssa, align 8
   %125 = shl i32 %124, 1
   %126 = getelementptr inbounds i8, ptr %0, i64 40
   %127 = load ptr, ptr %126, align 8
@@ -744,7 +744,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %130, label %131, label %132
 
 131:                                              ; preds = %123
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0148) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0144) #10
   br label %186
 
 132:                                              ; preds = %123
@@ -755,12 +755,12 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   %137 = load i32, ptr %136, align 4
   %138 = add i32 %137, 1
   store i32 %138, ptr %136, align 4
-  %139 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef nonnull %.0148, ptr noundef nonnull %129) #10
+  %139 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef nonnull %.0144, ptr noundef nonnull %129) #10
   %140 = icmp eq ptr %139, null
   br i1 %140, label %141, label %142
 
 141:                                              ; preds = %132
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0148) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0144) #10
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %129) #10
   br label %186
 
@@ -772,14 +772,14 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   %147 = load i32, ptr %146, align 4
   %148 = add i32 %147, 1
   store i32 %148, ptr %146, align 4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0148) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0144) #10
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %129) #10
   br label %149
 
 149:                                              ; preds = %142, %121
-  %.1 = phi ptr [ %139, %142 ], [ %.0148, %121 ]
+  %.1 = phi ptr [ %139, %142 ], [ %.0144, %121 ]
   %150 = icmp ne ptr %1, %2
-  %.not172 = icmp eq ptr %.0143.lcssa, %3
+  %.not172 = icmp eq ptr %.0145.lcssa, %3
   %or.cond = or i1 %150, %.not172
   br i1 %or.cond, label %._crit_edge177, label %151
 
@@ -790,7 +790,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %182
 
 151:                                              ; preds = %149
-  %152 = tail call ptr @cuddBddExistAbstractRecur(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %.0143.lcssa) #10
+  %152 = tail call ptr @cuddBddExistAbstractRecur(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %.0145.lcssa) #10
   %153 = icmp eq ptr %152, null
   br i1 %153, label %154, label %155
 
@@ -856,8 +856,8 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %186
 
 186:                                              ; preds = %84, %23, %182, %174, %164, %154, %141, %131, %113, %103, %20, %18
-  %.0149 = phi ptr [ %19, %18 ], [ %22, %20 ], [ null, %131 ], [ null, %141 ], [ null, %154 ], [ null, %164 ], [ null, %174 ], [ %.2, %182 ], [ null, %103 ], [ null, %113 ], [ %24, %23 ], [ null, %84 ]
-  ret ptr %.0149
+  %.0 = phi ptr [ %19, %18 ], [ %22, %20 ], [ null, %131 ], [ null, %141 ], [ null, %154 ], [ null, %164 ], [ null, %174 ], [ %.2, %182 ], [ null, %103 ], [ null, %113 ], [ %24, %23 ], [ null, %84 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1003,7 +1003,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 .lr.ph:                                           ; preds = %15, %29
   %24 = phi i32 [ %32, %29 ], [ %22, %15 ]
-  %.07396 = phi ptr [ %31, %29 ], [ %1, %15 ]
+  %.07596 = phi ptr [ %31, %29 ], [ %1, %15 ]
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds i32, ptr %17, i64 %25
   %27 = load i32, ptr %26, align 4
@@ -1011,25 +1011,25 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %28, label %29, label %.thread92
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.07396, i64 16
+  %30 = getelementptr inbounds i8, ptr %.07596, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, 2147483647
   br i1 %33, label %.thread92, label %.lr.ph, !llvm.loop !17
 
 .thread92:                                        ; preds = %29, %.lr.ph, %15
-  %.07395 = phi ptr [ %1, %15 ], [ %31, %29 ], [ %.07396, %.lr.ph ]
+  %.07595 = phi ptr [ %1, %15 ], [ %31, %29 ], [ %.07596, %.lr.ph ]
   %34 = phi i32 [ 2147483647, %15 ], [ 2147483647, %29 ], [ %27, %.lr.ph ]
   %35 = icmp eq i32 %21, %34
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %.thread92
-  %37 = getelementptr inbounds i8, ptr %.07395, i64 16
+  %37 = getelementptr inbounds i8, ptr %.07595, i64 16
   %38 = load ptr, ptr %37, align 8
   br label %39
 
 39:                                               ; preds = %.thread92, %36
-  %.0 = phi ptr [ %38, %36 ], [ %.07395, %.thread92 ]
+  %.074 = phi ptr [ %38, %36 ], [ %.07595, %.thread92 ]
   %.not90 = icmp eq ptr %6, %2
   %40 = getelementptr inbounds i8, ptr %6, i64 16
   %41 = getelementptr inbounds i8, ptr %6, i64 24
@@ -1051,9 +1051,9 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %53
 
 53:                                               ; preds = %51, %43
-  %.075 = phi ptr [ %46, %43 ], [ %42, %51 ]
-  %.074 = phi ptr [ %50, %43 ], [ %52, %51 ]
-  %54 = tail call ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %.0, ptr noundef %.075)
+  %.077 = phi ptr [ %46, %43 ], [ %42, %51 ]
+  %.076 = phi ptr [ %50, %43 ], [ %52, %51 ]
+  %54 = tail call ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %.074, ptr noundef %.077)
   %55 = icmp eq ptr %54, null
   br i1 %55, label %98, label %56
 
@@ -1065,7 +1065,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %61 = load i32, ptr %60, align 4
   %62 = add i32 %61, 1
   store i32 %62, ptr %60, align 4
-  %63 = tail call ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef nonnull %54, ptr noundef %.074)
+  %63 = tail call ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef nonnull %54, ptr noundef %.076)
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %66
 
@@ -1082,11 +1082,11 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %72 = add i32 %71, 1
   store i32 %72, ptr %70, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %54) #10
-  %.not91 = icmp eq ptr %.07395, %1
+  %.not91 = icmp eq ptr %.07595, %1
   br i1 %.not91, label %94, label %73
 
 73:                                               ; preds = %66
-  %74 = tail call ptr @cuddBddExistAbstractRecur(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.07395) #10
+  %74 = tail call ptr @cuddBddExistAbstractRecur(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.07595) #10
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %77
 
@@ -1125,17 +1125,17 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 94:                                               ; preds = %87, %66
   %.pre-phi101 = phi ptr [ %90, %87 ], [ %69, %66 ]
-  %.076 = phi ptr [ %84, %87 ], [ %63, %66 ]
+  %.073 = phi ptr [ %84, %87 ], [ %63, %66 ]
   %95 = getelementptr inbounds i8, ptr %.pre-phi101, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = add i32 %96, -1
   store i32 %97, ptr %95, align 4
-  tail call void @cuddCacheInsert2(ptr noundef %0, ptr noundef nonnull @extraBddReduceVarSet, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.076) #10
+  tail call void @cuddCacheInsert2(ptr noundef %0, ptr noundef nonnull @extraBddReduceVarSet, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.073) #10
   br label %98
 
 98:                                               ; preds = %53, %13, %3, %9, %94, %86, %76, %65
-  %.077 = phi ptr [ null, %65 ], [ null, %76 ], [ null, %86 ], [ %.076, %94 ], [ %1, %9 ], [ %1, %3 ], [ %14, %13 ], [ null, %53 ]
-  ret ptr %.077
+  %.0 = phi ptr [ null, %65 ], [ null, %76 ], [ null, %86 ], [ %.073, %94 ], [ %1, %9 ], [ %1, %3 ], [ %14, %13 ], [ null, %53 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: none) uwtable
@@ -1420,13 +1420,13 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   br label %63
 
 63:                                               ; preds = %47, %53, %61
-  %.098 = phi ptr [ %56, %53 ], [ %52, %61 ], [ null, %47 ]
-  %.097 = phi ptr [ %60, %53 ], [ %62, %61 ], [ null, %47 ]
+  %.0100 = phi ptr [ %56, %53 ], [ %52, %61 ], [ null, %47 ]
+  %.099 = phi ptr [ %60, %53 ], [ %62, %61 ], [ null, %47 ]
   %64 = icmp slt i32 %25, %.095
   br i1 %64, label %65, label %74
 
 65:                                               ; preds = %63
-  %66 = tail call ptr @extraBddCheckVarsSymmetric(ptr noundef nonnull %0, ptr noundef %.098, ptr noundef %2)
+  %66 = tail call ptr @extraBddCheckVarsSymmetric(ptr noundef nonnull %0, ptr noundef %.0100, ptr noundef %2)
   %67 = load ptr, ptr %4, align 8
   %68 = ptrtoint ptr %67 to i64
   %69 = xor i64 %68, 1
@@ -1435,7 +1435,7 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %71, label %137, label %72
 
 72:                                               ; preds = %65
-  %73 = tail call ptr @extraBddCheckVarsSymmetric(ptr noundef nonnull %0, ptr noundef %.097, ptr noundef %2)
+  %73 = tail call ptr @extraBddCheckVarsSymmetric(ptr noundef nonnull %0, ptr noundef %.099, ptr noundef %2)
   br label %137
 
 74:                                               ; preds = %63
@@ -1448,7 +1448,7 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   %79 = ptrtoint ptr %78 to i64
   %80 = xor i64 %79, 1
   %81 = inttoptr i64 %80 to ptr
-  %82 = tail call ptr @extraBddCheckVarsSymmetric(ptr noundef nonnull %0, ptr noundef %.098, ptr noundef %81)
+  %82 = tail call ptr @extraBddCheckVarsSymmetric(ptr noundef nonnull %0, ptr noundef %.0100, ptr noundef %81)
   %83 = load ptr, ptr %4, align 8
   %84 = ptrtoint ptr %83 to i64
   %85 = xor i64 %84, 1
@@ -1461,7 +1461,7 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   %90 = ptrtoint ptr %89 to i64
   %91 = xor i64 %90, 1
   %92 = inttoptr i64 %91 to ptr
-  %93 = tail call ptr @extraBddCheckVarsSymmetric(ptr noundef nonnull %0, ptr noundef %.097, ptr noundef %92)
+  %93 = tail call ptr @extraBddCheckVarsSymmetric(ptr noundef nonnull %0, ptr noundef %.099, ptr noundef %92)
   %94 = load ptr, ptr %4, align 8
   %95 = ptrtoint ptr %94 to i64
   %96 = xor i64 %95, 1
@@ -1482,7 +1482,7 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %48, label %105, label %124
 
 105:                                              ; preds = %104
-  %106 = tail call ptr @extraBddCheckVarsSymmetric(ptr noundef nonnull %0, ptr noundef %.098, ptr noundef %2)
+  %106 = tail call ptr @extraBddCheckVarsSymmetric(ptr noundef nonnull %0, ptr noundef %.0100, ptr noundef %2)
   %107 = load ptr, ptr %4, align 8
   %108 = ptrtoint ptr %107 to i64
   %109 = xor i64 %108, 1
@@ -1491,7 +1491,7 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %111, label %137, label %112
 
 112:                                              ; preds = %105
-  %113 = tail call ptr @extraBddCheckVarsSymmetric(ptr noundef nonnull %0, ptr noundef %.097, ptr noundef %2)
+  %113 = tail call ptr @extraBddCheckVarsSymmetric(ptr noundef nonnull %0, ptr noundef %.099, ptr noundef %2)
   %114 = load ptr, ptr %4, align 8
   %115 = ptrtoint ptr %114 to i64
   %116 = xor i64 %115, 1
@@ -1532,13 +1532,13 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   br label %137
 
 137:                                              ; preds = %119, %99, %112, %105, %88, %76, %65, %135, %130, %127, %72
-  %.099 = phi ptr [ %73, %72 ], [ %129, %127 ], [ %134, %130 ], [ %136, %135 ], [ %70, %65 ], [ %86, %76 ], [ %97, %88 ], [ %110, %105 ], [ %117, %112 ], [ %spec.select, %99 ], [ %spec.select126, %119 ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddCheckVarsSymmetric, ptr noundef %1, ptr noundef %2, ptr noundef %.099) #10
+  %.098 = phi ptr [ %73, %72 ], [ %129, %127 ], [ %134, %130 ], [ %136, %135 ], [ %70, %65 ], [ %86, %76 ], [ %97, %88 ], [ %110, %105 ], [ %117, %112 ], [ %spec.select, %99 ], [ %spec.select126, %119 ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddCheckVarsSymmetric, ptr noundef %1, ptr noundef %2, ptr noundef %.098) #10
   br label %138
 
 138:                                              ; preds = %10, %3, %137
-  %.0100 = phi ptr [ %.099, %137 ], [ %5, %3 ], [ %11, %10 ]
-  ret ptr %.0100
+  %.097 = phi ptr [ %.098, %137 ], [ %5, %3 ], [ %11, %10 ]
+  ret ptr %.097
 }
 
 ; Function Attrs: nounwind uwtable

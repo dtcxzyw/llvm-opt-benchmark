@@ -135,7 +135,7 @@ define void @_Z14posres_wrapperP6t_nrnbRK22InteractionDefinitionsPK5t_pbcPA3_KfP
 .lr.ph.i:                                         ; preds = %.loopexit79.i, %.loopexit.i
   %.0 = phi float [ %106, %.loopexit.i ], [ 0.000000e+00, %.loopexit79.i ]
   %indvars.iv100.i = phi i64 [ %indvars.iv.next101.i, %.loopexit.i ], [ 0, %.loopexit79.i ]
-  %.07386.i = phi float [ %94, %.loopexit.i ], [ 0.000000e+00, %.loopexit79.i ]
+  %.07486.i = phi float [ %94, %.loopexit.i ], [ 0.000000e+00, %.loopexit79.i ]
   %65 = or disjoint i64 %indvars.iv100.i, 1
   %66 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv100.i
   %67 = load i32, ptr %66, align 4
@@ -154,7 +154,7 @@ define void @_Z14posres_wrapperP6t_nrnbRK22InteractionDefinitionsPK5t_pbcPA3_KfP
 77:                                               ; preds = %77, %.lr.ph.i
   %.1 = phi float [ %.0, %.lr.ph.i ], [ %106, %77 ]
   %indvars.iv96.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next97.i, %77 ]
-  %.185.i = phi float [ %.07386.i, %.lr.ph.i ], [ %94, %77 ]
+  %.17584.i = phi float [ %.07486.i, %.lr.ph.i ], [ %94, %77 ]
   %78 = getelementptr inbounds [3 x float], ptr %75, i64 0, i64 %indvars.iv96.i
   %79 = load float, ptr %78, align 4
   %80 = getelementptr inbounds [3 x float], ptr %76, i64 0, i64 %indvars.iv96.i
@@ -169,7 +169,7 @@ define void @_Z14posres_wrapperP6t_nrnbRK22InteractionDefinitionsPK5t_pbcPA3_KfP
   %89 = fmul double %88, 5.000000e-01
   %90 = fpext float %86 to double
   %91 = fmul double %89, %90
-  %92 = fpext float %.185.i to double
+  %92 = fpext float %.17584.i to double
   %93 = call double @llvm.fmuladd.f64(double %91, double %90, double %92)
   %94 = fptrunc double %93 to float
   %95 = fsub float %81, %79
@@ -214,7 +214,7 @@ define void @_Z14posres_wrapperP6t_nrnbRK22InteractionDefinitionsPK5t_pbcPA3_KfP
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.loopexit79.i
   %.2 = phi double [ %122, %._crit_edge.loopexit.i ], [ 0.000000e+00, %.loopexit79.i ]
   %123 = phi float [ %.pre105.i, %._crit_edge.loopexit.i ], [ 0.000000e+00, %.loopexit79.i ]
-  %.073.lcssa.i = phi float [ %94, %._crit_edge.loopexit.i ], [ 0.000000e+00, %.loopexit79.i ]
+  %.074.lcssa.i = phi float [ %94, %._crit_edge.loopexit.i ], [ 0.000000e+00, %.loopexit79.i ]
   %124 = phi <2 x float> [ %121, %._crit_edge.loopexit.i ], [ zeroinitializer, %.loopexit79.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
   store <2 x float> %124, ptr %9, align 8
@@ -251,7 +251,7 @@ _ZN12_GLOBAL__N_16posresILb1EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15)
   %135 = getelementptr inbounds i8, ptr %4, i64 208
   %136 = load float, ptr %135, align 4
-  %137 = fadd float %.073.lcssa.i, %136
+  %137 = fadd float %.074.lcssa.i, %136
   store float %137, ptr %135, align 4
   %138 = getelementptr inbounds i8, ptr %4, i64 600
   %139 = load double, ptr %138, align 8
@@ -994,14 +994,14 @@ define void @_Z16fbposres_wrapperP6t_nrnbRK22InteractionDefinitionsPK5t_pbcPA3_K
   br label %55
 
 .loopexit.i:                                      ; preds = %231
-  %52 = fadd float %.0111197.i, %.0116.i
+  %52 = fadd float %.0112197.i, %.0116.i
   %53 = trunc nuw i64 %indvars.iv.next212.i to i32
   %54 = icmp slt i32 %53, %23
   br i1 %54, label %55, label %._crit_edge.loopexit.i, !llvm.loop !20
 
 55:                                               ; preds = %.loopexit.i, %.lr.ph.i
   %indvars.iv211.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next212.i, %.loopexit.i ]
-  %.0111197.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %52, %.loopexit.i ]
+  %.0112197.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %52, %.loopexit.i ]
   %56 = or disjoint i64 %indvars.iv211.i, 1
   %57 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv211.i
   %58 = load i32, ptr %57, align 4
@@ -1366,7 +1366,7 @@ _ZN12_GLOBAL__N_120do_fbposres_cylinderEiPfS0_ffb.exit.i: ; preds = %220, %217, 
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.loopexit190.i
   %251 = phi float [ 0.000000e+00, %.loopexit190.i ], [ %.pre216.i, %._crit_edge.loopexit.i ]
-  %.0111.lcssa.i = phi float [ 0.000000e+00, %.loopexit190.i ], [ %52, %._crit_edge.loopexit.i ]
+  %.0112.lcssa.i = phi float [ 0.000000e+00, %.loopexit190.i ], [ %52, %._crit_edge.loopexit.i ]
   %252 = phi <2 x float> [ zeroinitializer, %.loopexit190.i ], [ %250, %._crit_edge.loopexit.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
   store <2 x float> %252, ptr %8, align 8
@@ -1403,7 +1403,7 @@ _ZN12_GLOBAL__N_18fbposresEiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pb
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
   %263 = getelementptr inbounds i8, ptr %4, i64 212
   %264 = load float, ptr %263, align 4
-  %265 = fadd float %.0111.lcssa.i, %264
+  %265 = fadd float %.0112.lcssa.i, %264
   store float %265, ptr %263, align 4
   %266 = load ptr, ptr %16, align 8
   %267 = load ptr, ptr %15, align 8

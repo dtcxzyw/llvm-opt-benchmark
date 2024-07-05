@@ -235,7 +235,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   %24 = icmp eq i64 %23, 0
   %or.cond = select i1 %22, i1 true, i1 %24
   %25 = sub nsw i64 %23, %21
-  %.055 = select i1 %or.cond, i64 0, i64 %25
+  %.054 = select i1 %or.cond, i64 0, i64 %25
   %26 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1306), align 2
   %27 = udiv i16 %26, 3
   %28 = zext nneg i16 %27 to i64
@@ -274,7 +274,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %38, %153
   %46 = phi ptr [ %156, %153 ], [ %45, %38 ]
   %.0113 = phi i32 [ %47, %153 ], [ 0, %38 ]
-  %.054112 = phi ptr [ %.2, %153 ], [ null, %38 ]
+  %.055112 = phi ptr [ %.2, %153 ], [ null, %38 ]
   %47 = add nuw nsw i32 %.0113, 1
   %48 = getelementptr inbounds i8, ptr %46, i64 304
   %49 = load i32, ptr %48, align 8
@@ -306,7 +306,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   %62 = getelementptr inbounds i8, ptr %46, i64 224
   %63 = load i64, ptr %62, align 8
   %.not74 = icmp eq i64 %63, 0
-  %.not75 = icmp sgt i64 %63, %.055
+  %.not75 = icmp sgt i64 %63, %.054
   %or.cond96 = select i1 %.not74, i1 true, i1 %.not75
   br i1 %or.cond96, label %78, label %64
 
@@ -315,13 +315,13 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br i1 %65, label %.thread, label %66
 
 66:                                               ; preds = %64
-  %.not76 = icmp eq ptr %.054112, null
+  %.not76 = icmp eq ptr %.055112, null
   %67 = getelementptr inbounds i8, ptr %46, i64 256
   %68 = load ptr, ptr %67, align 8
   br i1 %.not76, label %71, label %69
 
 69:                                               ; preds = %66
-  %70 = call i32 @hostlist_push_host(ptr noundef nonnull %.054112, ptr noundef %68) #6
+  %70 = call i32 @hostlist_push_host(ptr noundef nonnull %.055112, ptr noundef %68) #6
   br label %76
 
 71:                                               ; preds = %66
@@ -336,7 +336,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   unreachable
 
 76:                                               ; preds = %71, %69
-  %.1 = phi ptr [ %.054112, %69 ], [ %72, %71 ]
+  %.1 = phi ptr [ %.055112, %69 ], [ %72, %71 ]
   call void @set_node_down_ptr(ptr noundef nonnull %46, ptr noundef nonnull @.str.6) #6
   %77 = getelementptr inbounds i8, ptr %46, i64 308
   store i8 0, ptr %77, align 4
@@ -475,7 +475,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br label %153
 
 153:                                              ; preds = %125, %58, %145, %149, %122, %108, %112, %.lr.ph, %52, %76
-  %.2 = phi ptr [ %.054112, %.lr.ph ], [ %.054112, %52 ], [ %.054112, %112 ], [ %.054112, %108 ], [ %.054112, %149 ], [ %.054112, %145 ], [ %.054112, %122 ], [ %.1, %76 ], [ %.054112, %58 ], [ %.054112, %125 ]
+  %.2 = phi ptr [ %.055112, %.lr.ph ], [ %.055112, %52 ], [ %.055112, %112 ], [ %.055112, %108 ], [ %.055112, %149 ], [ %.055112, %145 ], [ %.055112, %122 ], [ %.1, %76 ], [ %.055112, %58 ], [ %.055112, %125 ]
   %154 = load i32, ptr %1, align 4
   %155 = add nsw i32 %154, 1
   store i32 %155, ptr %1, align 4
@@ -489,7 +489,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %38
   %157 = phi ptr [ %9, %38 ], [ %.pre, %._crit_edge.loopexit ]
-  %.054.lcssa = phi ptr [ null, %38 ], [ %.2, %._crit_edge.loopexit ]
+  %.055.lcssa = phi ptr [ null, %38 ], [ %.2, %._crit_edge.loopexit ]
   store i1 true, ptr @ping_nodes.restart_flag, align 1
   %158 = load i32, ptr %157, align 8
   %159 = icmp eq i32 %158, 0
@@ -559,16 +559,16 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br label %187
 
 187:                                              ; preds = %186, %177
-  %.not67 = icmp eq ptr %.054.lcssa, null
+  %.not67 = icmp eq ptr %.055.lcssa, null
   br i1 %.not67, label %191, label %188
 
 188:                                              ; preds = %187
-  call void @hostlist_uniq(ptr noundef nonnull %.054.lcssa) #6
-  %189 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %.054.lcssa) #6
+  call void @hostlist_uniq(ptr noundef nonnull %.055.lcssa) #6
+  %189 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %.055.lcssa) #6
   store ptr %189, ptr %2, align 8
   %190 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, ptr noundef %189) #6
   call void @slurm_xfree(ptr noundef nonnull %2) #6
-  call void @hostlist_destroy(ptr noundef nonnull %.054.lcssa) #6
+  call void @hostlist_destroy(ptr noundef nonnull %.055.lcssa) #6
   br label %191
 
 191:                                              ; preds = %188, %187
@@ -659,7 +659,7 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
   br label %33
 
 33:                                               ; preds = %26, %0
-  %.0 = phi i32 [ %32, %26 ], [ 0, %0 ]
+  %.033 = phi i32 [ %32, %26 ], [ 0, %0 ]
   %34 = tail call ptr @next_node(ptr noundef nonnull @run_health_check.base_node_loc) #6
   %.not3861 = icmp eq ptr %34, null
   br i1 %.not3861, label %.critedge, label %.lr.ph
@@ -742,9 +742,9 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %106
   %75 = phi ptr [ %109, %106 ], [ %34, %.lr.ph.split.us ]
-  %.03362.us = phi i32 [ %76, %106 ], [ 0, %.lr.ph.split.us ]
-  %76 = add nuw i32 %.03362.us, 1
-  %exitcond.not = icmp eq i32 %.03362.us, %.0
+  %.062.us = phi i32 [ %76, %106 ], [ 0, %.lr.ph.split.us ]
+  %76 = add nuw i32 %.062.us, 1
+  %exitcond.not = icmp eq i32 %.062.us, %.033
   br i1 %exitcond.not, label %.loopexit, label %77
 
 77:                                               ; preds = %.lr.ph.split.us.split
@@ -806,16 +806,16 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %165
   %110 = phi ptr [ %168, %165 ], [ %34, %.lr.ph ]
-  %.03362 = phi i32 [ %.1, %165 ], [ 0, %.lr.ph ]
+  %.062 = phi i32 [ %.1, %165 ], [ 0, %.lr.ph ]
   br i1 %.not, label %113, label %111
 
 111:                                              ; preds = %.lr.ph.split
-  %112 = add nsw i32 %.03362, 1
-  %.not39 = icmp slt i32 %.03362, %.0
+  %112 = add nsw i32 %.062, 1
+  %.not39 = icmp slt i32 %.062, %.033
   br i1 %.not39, label %113, label %.loopexit
 
 113:                                              ; preds = %111, %.lr.ph.split
-  %.1 = phi i32 [ %112, %111 ], [ %.03362, %.lr.ph.split ]
+  %.1 = phi i32 [ %112, %111 ], [ %.062, %.lr.ph.split ]
   %114 = getelementptr inbounds i8, ptr %110, i64 304
   %115 = load i32, ptr %114, align 8
   %116 = and i32 %115, 15

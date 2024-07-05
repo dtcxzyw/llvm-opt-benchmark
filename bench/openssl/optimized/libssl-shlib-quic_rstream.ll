@@ -117,17 +117,17 @@ if.end9.i.preheader:                              ; preds = %if.end20
 if.end9.i:                                        ; preds = %if.end9.i.preheader, %if.end9.i
   %rnew.sroa.9.1 = phi i64 [ %add.i, %if.end9.i ], [ %rnew.sroa.9.047, %if.end9.i.preheader ]
   %buf_len.addr.235.i = phi i64 [ %buf_len.addr.2.i, %if.end9.i ], [ %buf_len.addr.230.i, %if.end9.i.preheader ]
-  %pushed.033.i = phi i64 [ %add19.i, %if.end9.i ], [ 0, %if.end9.i.preheader ]
-  %buf.addr.032.i = phi ptr [ %add.ptr17.i, %if.end9.i ], [ %add.ptr.i, %if.end9.i.preheader ]
+  %buf.addr.033.i = phi ptr [ %add.ptr17.i, %if.end9.i ], [ %add.ptr.i, %if.end9.i.preheader ]
+  %pushed.032.i = phi i64 [ %add19.i, %if.end9.i ], [ 0, %if.end9.i.preheader ]
   %rem.i19 = urem i64 %rnew.sroa.9.1, %num_bytes
   %sub12.i = sub i64 %num_bytes, %rem.i19
   %spec.select22.i = tail call i64 @llvm.umin.i64(i64 %buf_len.addr.235.i, i64 %sub12.i)
   %add.ptr.i20 = getelementptr inbounds i8, ptr %call4, i64 %rem.i19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i20, ptr align 1 %buf.addr.032.i, i64 %spec.select22.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i20, ptr align 1 %buf.addr.033.i, i64 %spec.select22.i, i1 false)
   %add.i = add i64 %spec.select22.i, %rnew.sroa.9.1
-  %add.ptr17.i = getelementptr inbounds i8, ptr %buf.addr.032.i, i64 %spec.select22.i
+  %add.ptr17.i = getelementptr inbounds i8, ptr %buf.addr.033.i, i64 %spec.select22.i
   %sub18.i = sub i64 %buf_len.addr.235.i, %spec.select22.i
-  %add19.i = add i64 %spec.select22.i, %pushed.033.i
+  %add19.i = add i64 %spec.select22.i, %pushed.032.i
   %sub.i.i = sub i64 %sub.i.neg.i26.i, %add.i
   %spec.select.i21 = tail call i64 @llvm.umin.i64(i64 %sub18.i, i64 %sub.i.i)
   %sub.i22 = sub i64 4611686018427387904, %add.i
@@ -848,17 +848,17 @@ for.cond.preheader.i:                             ; preds = %safe_add_u64.exit39
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %if.end21.i
   %cmp11.i = phi i1 [ false, %if.end21.i ], [ true, %for.cond.preheader.i ]
-  %buf_len.addr.051.i = phi i64 [ %sub24.i, %if.end21.i ], [ %buf_len, %for.cond.preheader.i ]
+  %logical_offset.addr.051.i = phi i64 [ %add.i, %if.end21.i ], [ %logical_offset, %for.cond.preheader.i ]
   %buf.addr.050.i = phi ptr [ %add.ptr23.i, %if.end21.i ], [ %buf, %for.cond.preheader.i ]
-  %logical_offset.addr.049.i = phi i64 [ %add.i, %if.end21.i ], [ %logical_offset, %for.cond.preheader.i ]
+  %buf_len.addr.049.i = phi i64 [ %sub24.i, %if.end21.i ], [ %buf_len, %for.cond.preheader.i ]
   %13 = load i64, ptr %alloc.i.i, align 8
-  %rem.i = urem i64 %logical_offset.addr.049.i, %13
+  %rem.i = urem i64 %logical_offset.addr.051.i, %13
   %sub.i = sub i64 %13, %rem.i
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %buf_len.addr.051.i, i64 %sub.i)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %buf_len.addr.049.i, i64 %sub.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %rem.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %buf.addr.050.i, i64 %spec.select.i, i1 false)
   %14 = load i64, ptr %1, align 8
-  %add.i = add i64 %spec.select.i, %logical_offset.addr.049.i
+  %add.i = add i64 %spec.select.i, %logical_offset.addr.051.i
   %cmp17.i = icmp ult i64 %14, %add.i
   br i1 %cmp17.i, label %if.then18.i, label %if.end21.i
 
@@ -868,7 +868,7 @@ if.then18.i:                                      ; preds = %for.body.i
 
 if.end21.i:                                       ; preds = %if.then18.i, %for.body.i
   %add.ptr23.i = getelementptr inbounds i8, ptr %buf.addr.050.i, i64 %spec.select.i
-  %sub24.i = sub i64 %buf_len.addr.051.i, %spec.select.i
+  %sub24.i = sub i64 %buf_len.addr.049.i, %spec.select.i
   %cmp10.i = icmp ne i64 %sub24.i, 0
   %15 = and i1 %cmp11.i, %cmp10.i
   br i1 %15, label %for.body.i, label %ring_buf_write_at.exit, !llvm.loop !7

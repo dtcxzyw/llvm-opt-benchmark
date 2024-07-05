@@ -371,23 +371,23 @@ define internal fastcc void @_load_dbd_state() unnamed_addr #0 {
   br i1 %.not28, label %.lr.ph.us, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread45, %.lr.ph.lr.ph
-  %.04750 = phi i16 [ %41, %.lr.ph.lr.ph ], [ 0, %.thread45 ]
+  %.0214750 = phi i16 [ %41, %.lr.ph.lr.ph ], [ 0, %.thread45 ]
   %42 = phi ptr [ %37, %.lr.ph.lr.ph ], [ %39, %.thread45 ]
   br label %.lr.ph
 
 .lr.ph.us:                                        ; preds = %.lr.ph.lr.ph, %.lr.ph.us
   %43 = phi ptr [ %46, %.lr.ph.us ], [ %37, %.lr.ph.lr.ph ]
-  %.021.ph37.us = phi i32 [ %45, %.lr.ph.us ], [ 0, %.lr.ph.lr.ph ]
+  %.022.ph37.us = phi i32 [ %45, %.lr.ph.us ], [ 0, %.lr.ph.lr.ph ]
   %44 = load ptr, ptr @agent_list, align 8
   call void @slurm_list_enqueue(ptr noundef %44, ptr noundef nonnull %43) #13
-  %45 = add nuw nsw i32 %.021.ph37.us, 1
+  %45 = add nuw nsw i32 %.022.ph37.us, 1
   %46 = call fastcc ptr @_load_dbd_rec(i32 noundef %7)
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.loopexit, label %.lr.ph.us
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread32.split
   %48 = phi ptr [ %61, %.thread32.split ], [ %42, %.lr.ph.preheader ]
-  %.021.ph37 = phi i32 [ %60, %.thread32.split ], [ 0, %.lr.ph.preheader ]
+  %.022.ph37 = phi i32 [ %60, %.thread32.split ], [ 0, %.lr.ph.preheader ]
   br label %49
 
 49:                                               ; preds = %.lr.ph, %.thread
@@ -395,7 +395,7 @@ define internal fastcc void @_load_dbd_state() unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %51 = getelementptr inbounds i8, ptr %50, i64 20
   store i32 0, ptr %51, align 4
-  %52 = call i32 @slurm_unpack_slurmdbd_msg(ptr noundef nonnull %4, i16 noundef zeroext %.04750, ptr noundef nonnull %50) #13
+  %52 = call i32 @slurm_unpack_slurmdbd_msg(ptr noundef nonnull %4, i16 noundef zeroext %.0214750, ptr noundef nonnull %50) #13
   call void @slurm_free_buf(ptr noundef nonnull %50) #13
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %.thread
@@ -414,19 +414,19 @@ define internal fastcc void @_load_dbd_state() unnamed_addr #0 {
 .thread32.split:                                  ; preds = %54
   %59 = load ptr, ptr @agent_list, align 8
   call void @slurm_list_enqueue(ptr noundef %59, ptr noundef nonnull %55) #13
-  %60 = add nuw nsw i32 %.021.ph37, 1
+  %60 = add nuw nsw i32 %.022.ph37, 1
   %61 = call fastcc ptr @_load_dbd_rec(i32 noundef %7)
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph.us, %.thread32.split, %.thread, %.thread45, %34, %21
-  %.1 = phi i32 [ 0, %21 ], [ 0, %34 ], [ 0, %.thread45 ], [ %.021.ph37, %.thread ], [ %60, %.thread32.split ], [ %45, %.lr.ph.us ]
+  %.123 = phi i32 [ 0, %21 ], [ 0, %34 ], [ 0, %.thread45 ], [ %.022.ph37, %.thread ], [ %60, %.thread32.split ], [ %45, %.lr.ph.us ]
   %63 = call i32 @slurm_get_log_level() #13
   %64 = icmp sgt i32 %63, 3
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %.loopexit
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.61, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._load_dbd_state, i32 noundef %.1) #13
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.61, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._load_dbd_state, i32 noundef %.123) #13
   br label %66
 
 66:                                               ; preds = %65, %.loopexit
@@ -780,7 +780,7 @@ define range(i32 -1, 1) i32 @slurmdbd_agent_send(i16 noundef zeroext %0, ptr nou
   br label %73
 
 73:                                               ; preds = %60, %62
-  %.0 = phi i32 [ 0, %60 ], [ -1, %62 ]
+  %.023 = phi i32 [ 0, %60 ], [ -1, %62 ]
   %74 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @agent_cond) #13
   %.not33 = icmp eq i32 %74, 0
   br i1 %.not33, label %78, label %75
@@ -803,8 +803,8 @@ define range(i32 -1, 1) i32 @slurmdbd_agent_send(i16 noundef zeroext %0, ptr nou
   unreachable
 
 82:                                               ; preds = %78, %17, %38
-  %.023 = phi i32 [ -1, %38 ], [ -1, %17 ], [ %.0, %78 ]
-  ret i32 %.023
+  %.0 = phi i32 [ -1, %38 ], [ -1, %17 ], [ %.023, %78 ]
+  ret i32 %.0
 }
 
 declare i32 @slurm_get_log_level() local_unnamed_addr #1
@@ -1320,7 +1320,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   br label %161
 
 161:                                              ; preds = %159, %154
-  %.0 = phi ptr [ %158, %154 ], [ %160, %159 ]
+  %.069 = phi ptr [ %158, %154 ], [ %160, %159 ]
   %162 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @agent_lock) #13
   %.not115 = icmp eq i32 %162, 0
   br i1 %.not115, label %167, label %164
@@ -1338,7 +1338,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   unreachable
 
 167:                                              ; preds = %161
-  %168 = icmp eq ptr %.0, null
+  %168 = icmp eq ptr %.069, null
   br i1 %168, label %.thread152, label %198
 
 .thread152:                                       ; preds = %.thread, %167
@@ -1411,7 +1411,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
 
 198:                                              ; preds = %167
   %199 = load ptr, ptr @slurmdbd_conn, align 8
-  %200 = call i32 @slurm_persist_send_msg(ptr noundef %199, ptr noundef nonnull %.0) #13
+  %200 = call i32 @slurm_persist_send_msg(ptr noundef %199, ptr noundef nonnull %.069) #13
   %.not116 = icmp eq i32 %200, 0
   br i1 %.not116, label %212, label %201
 
@@ -1638,7 +1638,7 @@ _get_return_code.exit:                            ; preds = %290
   br label %_get_return_code.exit.thread
 
 _get_return_code.exit.thread:                     ; preds = %290, %210, %_get_return_code.exit, %305, %_handle_mult_rc_ret.exit
-  %.069 = phi i32 [ %200, %210 ], [ %.0.i, %_handle_mult_rc_ret.exit ], [ 11, %305 ], [ %294, %_get_return_code.exit ], [ -1, %290 ]
+  %.0 = phi i32 [ %200, %210 ], [ %.0.i, %_handle_mult_rc_ret.exit ], [ 11, %305 ], [ %294, %_get_return_code.exit ], [ -1, %290 ]
   %307 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @slurmdbd_lock) #13
   %.not121 = icmp eq i32 %307, 0
   br i1 %.not121, label %310, label %308
@@ -1706,7 +1706,7 @@ _get_return_code.exit.thread:                     ; preds = %290, %210, %_get_re
 334:                                              ; preds = %330
   %335 = load ptr, ptr @agent_list, align 8
   %336 = icmp ne ptr %335, null
-  %337 = icmp eq i32 %.069, 0
+  %337 = icmp eq i32 %.0, 0
   %or.cond9 = select i1 %336, i1 %337, i1 false
   %338 = load ptr, ptr %11, align 8
   %.not129 = icmp eq ptr %338, null
@@ -1733,7 +1733,7 @@ _get_return_code.exit.thread:                     ; preds = %290, %210, %_get_re
   br i1 %.not131, label %345, label %344
 
 344:                                              ; preds = %.thread155, %342
-  %.1158 = phi ptr [ %.0, %.thread155 ], [ %343, %342 ]
+  %.1158 = phi ptr [ %.069, %.thread155 ], [ %343, %342 ]
   call void @slurm_free_buf(ptr noundef nonnull %.1158) #13
   br label %345
 
@@ -1754,7 +1754,7 @@ _get_return_code.exit.thread:                     ; preds = %290, %210, %_get_re
 
 349:                                              ; preds = %348, %347
   store ptr null, ptr %11, align 8
-  call void @slurm_free_buf(ptr noundef nonnull %.0) #13
+  call void @slurm_free_buf(ptr noundef nonnull %.069) #13
   br label %350
 
 350:                                              ; preds = %349, %346
@@ -1771,7 +1771,7 @@ _get_return_code.exit.thread:                     ; preds = %290, %210, %_get_re
   br i1 %356, label %357, label %358
 
 357:                                              ; preds = %354
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.32, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._agent, i32 noundef %.069) #13
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.32, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._agent, i32 noundef %.0) #13
   br label %358
 
 358:                                              ; preds = %357, %354

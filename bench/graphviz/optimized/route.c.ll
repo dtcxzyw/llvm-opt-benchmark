@@ -259,19 +259,19 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   %119 = fsub double %117, %114
   %120 = insertelement <2 x double> poison, double %92, i64 0
   %121 = shufflevector <2 x double> %120, <2 x double> poison, <2 x i32> zeroinitializer
-  %122 = insertelement <2 x double> %121, double %119, i64 0
+  %122 = insertelement <2 x double> %121, double %119, i64 1
   %123 = fmul <2 x double> %121, %122
   %124 = insertelement <2 x double> poison, double %90, i64 0
   %125 = shufflevector <2 x double> %124, <2 x double> poison, <2 x i32> zeroinitializer
-  %126 = insertelement <2 x double> %125, double %118, i64 0
+  %126 = insertelement <2 x double> %125, double %118, i64 1
   %127 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %125, <2 x double> %126, <2 x double> %123)
   %128 = insertelement <2 x double> poison, double %96, i64 0
   %129 = shufflevector <2 x double> %128, <2 x double> poison, <2 x i32> zeroinitializer
-  %130 = insertelement <2 x double> %129, double %119, i64 1
+  %130 = shufflevector <2 x double> %122, <2 x double> %128, <2 x i32> <i32 1, i32 2>
   %131 = fmul <2 x double> %129, %130
   %132 = insertelement <2 x double> poison, double %94, i64 0
   %133 = shufflevector <2 x double> %132, <2 x double> poison, <2 x i32> zeroinitializer
-  %134 = insertelement <2 x double> %133, double %118, i64 1
+  %134 = shufflevector <2 x double> %126, <2 x double> %132, <2 x i32> <i32 1, i32 2>
   %135 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %133, <2 x double> %134, <2 x double> %131)
   %136 = fadd <2 x double> %86, %127
   %137 = fadd <2 x double> %87, %135
@@ -285,30 +285,30 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   %139 = phi <2 x double> [ zeroinitializer, %._crit_edge ], [ zeroinitializer, %.preheader ], [ %137, %85 ]
   %140 = fneg double %.sroa.12.0.lcssa.i
   %141 = fmul double %.sroa.12.0.lcssa.i, %140
-  %142 = extractelement <2 x double> %138, i64 1
-  %143 = extractelement <2 x double> %139, i64 0
+  %142 = extractelement <2 x double> %138, i64 0
+  %143 = extractelement <2 x double> %139, i64 1
   %144 = tail call double @llvm.fmuladd.f64(double %142, double %143, double %141)
   %145 = tail call double @llvm.fabs.f64(double %144)
   %146 = fcmp ult double %145, 0x3EB0C6F7A0B5ED8D
   br i1 %146, label %.thread.i, label %147
 
 147:                                              ; preds = %._crit_edge.i
-  %148 = extractelement <2 x double> %139, i64 1
+  %148 = extractelement <2 x double> %139, i64 0
   %149 = fneg double %148
-  %150 = shufflevector <2 x double> %138, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %151 = insertelement <2 x double> %150, double %.sroa.12.0.lcssa.i, i64 0
-  %152 = insertelement <2 x double> poison, double %149, i64 0
-  %153 = insertelement <2 x double> %152, double %140, i64 1
+  %150 = shufflevector <2 x double> %138, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %151 = insertelement <2 x double> %150, double %.sroa.12.0.lcssa.i, i64 1
+  %152 = insertelement <2 x double> poison, double %140, i64 0
+  %153 = insertelement <2 x double> %152, double %149, i64 1
   %154 = fmul <2 x double> %151, %153
   %155 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %138, <2 x double> %139, <2 x double> %154)
   %156 = insertelement <2 x double> poison, double %144, i64 0
   %157 = shufflevector <2 x double> %156, <2 x double> poison, <2 x i32> zeroinitializer
   %158 = fdiv <2 x double> %155, %157
   %159 = fcmp olt double %145, 0x3EB0C6F7A0B5ED8D
-  %160 = extractelement <2 x double> %158, i64 0
+  %160 = extractelement <2 x double> %158, i64 1
   %161 = fcmp ole double %160, 0.000000e+00
   %or.cond.i = select i1 %159, i1 true, i1 %161
-  %162 = extractelement <2 x double> %158, i64 1
+  %162 = extractelement <2 x double> %158, i64 0
   %163 = fcmp ole double %162, 0.000000e+00
   %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %163
   br i1 %or.cond3.i, label %.thread.i, label %._crit_edge118.i
@@ -339,14 +339,14 @@ mkspline.exit:                                    ; preds = %._crit_edge118.i, %
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge118.i ], [ %164, %.thread.i ]
   %179 = phi <2 x double> [ %158, %._crit_edge118.i ], [ %178, %.thread.i ]
   %180 = load <2 x double>, ptr %2, align 8
-  %181 = shufflevector <2 x double> %179, <2 x double> poison, <2 x i32> zeroinitializer
+  %181 = shufflevector <2 x double> %179, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %182 = insertelement <2 x double> poison, double %4, i64 0
   %183 = insertelement <2 x double> %182, double %5, i64 1
   %184 = fmul <2 x double> %181, %183
   %185 = getelementptr %struct.Pxy_t, ptr %2, i64 %.pre-phi.i
   %186 = getelementptr i8, ptr %185, i64 -16
   %187 = load <2 x double>, ptr %186, align 8
-  %188 = shufflevector <2 x double> %179, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %188 = shufflevector <2 x double> %179, <2 x double> poison, <2 x i32> zeroinitializer
   %189 = insertelement <2 x double> poison, double %6, i64 0
   %190 = insertelement <2 x double> %189, double %7, i64 1
   %191 = fmul <2 x double> %188, %190
@@ -368,10 +368,10 @@ mkspline.exit:                                    ; preds = %._crit_edge118.i, %
   br label %204
 
 204:                                              ; preds = %434, %mkspline.exit
-  %.032.i = phi double [ 4.000000e+00, %mkspline.exit ], [ %.133.i, %434 ]
+  %.033.i = phi double [ 4.000000e+00, %mkspline.exit ], [ %.134.i, %434 ]
   %.not.i = phi i1 [ false, %mkspline.exit ], [ true, %434 ]
   store <2 x double> %180, ptr %13, align 16
-  %205 = insertelement <2 x double> poison, double %.032.i, i64 0
+  %205 = insertelement <2 x double> poison, double %.033.i, i64 0
   %206 = shufflevector <2 x double> %205, <2 x double> poison, <2 x i32> zeroinitializer
   %207 = fmul <2 x double> %184, %206
   %208 = fdiv <2 x double> %207, <double 3.000000e+00, double 3.000000e+00>
@@ -847,7 +847,7 @@ growops.exit.i:                                   ; preds = %409, %.loopexit.i
 
 416:                                              ; preds = %395
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  %417 = fcmp olt double %.032.i, 5.000000e-03
+  %417 = fcmp olt double %.033.i, 5.000000e-03
   br i1 %417, label %418, label %434
 
 418:                                              ; preds = %416
@@ -891,9 +891,9 @@ growops.exit52.i:                                 ; preds = %427, %419
   br i1 %exitcond.not.i131, label %splinefits.exit, label %430
 
 434:                                              ; preds = %416
-  %435 = fcmp ogt double %.032.i, 1.000000e-02
-  %436 = fmul double %.032.i, 5.000000e-01
-  %.133.i = select i1 %435, double %436, double 0.000000e+00
+  %435 = fcmp ogt double %.033.i, 1.000000e-02
+  %436 = fmul double %.033.i, 5.000000e-01
+  %.134.i = select i1 %435, double %436, double 0.000000e+00
   br label %204
 
 splinefits.exit:                                  ; preds = %430, %412
@@ -914,7 +914,7 @@ splinefits.exit:                                  ; preds = %430, %412
   %440 = extractelement <2 x double> %184, i64 1
   %441 = fmul double %440, 0x3FD5555555555555
   %442 = fadd double %200, %439
-  %443 = fadd double %441, %201
+  %443 = fadd double %201, %441
   %444 = extractelement <2 x double> %191, i64 0
   %445 = fmul double %444, 0x3FD5555555555555
   %446 = extractelement <2 x double> %191, i64 1

@@ -261,7 +261,7 @@ define internal fastcc void @_forward_msg_internal(ptr noundef %0, ptr noundef r
   %10 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %11 = zext i16 %10 to i32
   %12 = mul nuw nsw i32 %11, 1000
-  %.046 = select i1 %9, i32 %12, i32 %4
+  %.0 = select i1 %9, i32 %12, i32 %4
   %13 = icmp sgt i32 %5, 0
   br i1 %13, label %.lr.ph, label %._crit_edge
 
@@ -280,7 +280,7 @@ define internal fastcc void @_forward_msg_internal(ptr noundef %0, ptr noundef r
   %20 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 232, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 600, ptr noundef nonnull @__func__._forward_msg_internal) #10
   store ptr %2, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 224
-  store i32 %.046, ptr %21, align 8
+  store i32 %.0, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %20, i64 8
   %23 = getelementptr inbounds i8, ptr %20, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %23, ptr noundef nonnull align 8 dereferenceable(128) %14, i64 128, i1 false)
@@ -316,13 +316,13 @@ define internal fastcc void @_forward_msg_internal(ptr noundef %0, ptr noundef r
   br label %41
 
 41:                                               ; preds = %38, %33
-  %.0 = phi ptr [ %36, %33 ], [ %40, %38 ]
+  %.045 = phi ptr [ %36, %33 ], [ %40, %38 ]
   %42 = getelementptr inbounds i8, ptr %20, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %42, i8 0, i64 64, i1 false)
   %43 = getelementptr inbounds i8, ptr %20, i64 66
   store i16 -2, ptr %43, align 2
   %44 = getelementptr inbounds i8, ptr %20, i64 72
-  store ptr %.0, ptr %44, align 8
+  store ptr %.045, ptr %44, align 8
   %45 = load i16, ptr %18, align 4
   %46 = getelementptr inbounds i8, ptr %20, i64 84
   store i16 %45, ptr %46, align 4
@@ -584,7 +584,7 @@ _get_alias_addrs.exit:                            ; preds = %3, %._crit_edge.i
   br i1 %.not28.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !9
 
 .split.us.i:                                      ; preds = %76, %85, %.lr.ph.split.i
-  %.04651.i = phi ptr [ null, %.lr.ph.split.i ], [ null, %85 ], [ %69, %76 ]
+  %.0204551.i = phi ptr [ null, %.lr.ph.split.i ], [ null, %85 ], [ %69, %76 ]
   %.us-phi.i = phi ptr [ %83, %.lr.ph.split.i ], [ %83, %85 ], [ %71, %76 ]
   %89 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %0) #10
   store ptr %89, ptr %5, align 8
@@ -608,9 +608,9 @@ _get_alias_addrs.exit:                            ; preds = %3, %._crit_edge.i
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.backedge.us.i, %.backedge.i, %94, %.thread.i, %64
-  %.047.i = phi ptr [ %69, %.thread.i ], [ null, %64 ], [ %.04651.i, %94 ], [ null, %.backedge.i ], [ %69, %.backedge.us.i ]
+  %.02046.i = phi ptr [ %69, %.thread.i ], [ null, %64 ], [ %.0204551.i, %94 ], [ null, %.backedge.i ], [ %69, %.backedge.us.i ]
   call void @hostlist_iterator_destroy(ptr noundef %53) #10
-  call void @hostlist_destroy(ptr noundef %.047.i) #10
+  call void @hostlist_destroy(ptr noundef %.02046.i) #10
   %97 = load ptr, ptr @last_alias_addrs, align 8
   %.not31.i = icmp eq ptr %97, null
   br i1 %.not31.i, label %102, label %98
@@ -1313,19 +1313,19 @@ define internal noalias noundef ptr @_forward_thread(ptr noundef %0) #0 {
   %12 = getelementptr inbounds i8, ptr %4, i64 112
   %13 = getelementptr inbounds i8, ptr %4, i64 16
   %14 = getelementptr inbounds i8, ptr %4, i64 8
-  br label %.outer.outer
-
-.outer.outer:                                     ; preds = %1, %206
-  %.0177.ph.ph = phi ptr [ %5, %1 ], [ %203, %206 ]
-  %.0170.ph.ph = phi i32 [ 0, %1 ], [ %.1171, %206 ]
   br label %.outer
 
-.outer:                                           ; preds = %.outer.outer, %134
-  %.0177.ph = phi ptr [ %131, %134 ], [ %.0177.ph.ph, %.outer.outer ]
+.outer:                                           ; preds = %206, %1
+  %.0172.ph = phi i32 [ %.1173, %206 ], [ 0, %1 ]
+  %.0.ph = phi ptr [ %203, %206 ], [ %5, %1 ]
+  br label %.outer268.outer
+
+.outer268.outer:                                  ; preds = %134, %.outer
+  %.0.ph269.ph = phi ptr [ %131, %134 ], [ %.0.ph, %.outer ]
   br label %.outer268
 
-.outer268:                                        ; preds = %.outer, %62
-  %.0172.ph = phi i32 [ -1, %.outer ], [ %48, %62 ]
+.outer268:                                        ; preds = %.outer268.outer, %62
+  %.0170.ph = phi i32 [ %48, %62 ], [ -1, %.outer268.outer ]
   br label %15
 
 15:                                               ; preds = %.outer268, %44
@@ -1486,10 +1486,10 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
 
 86:                                               ; preds = %84, %85, %81, %82
   %87 = getelementptr inbounds i8, ptr %18, i64 8
-  call void @pack_header(ptr noundef nonnull %87, ptr noundef %.0177.ph) #10
-  %88 = getelementptr inbounds i8, ptr %.0177.ph, i64 16
+  call void @pack_header(ptr noundef nonnull %87, ptr noundef %.0.ph269.ph) #10
+  %88 = getelementptr inbounds i8, ptr %.0.ph269.ph, i64 16
   %89 = load i32, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %.0177.ph, i64 20
+  %90 = getelementptr inbounds i8, ptr %.0.ph269.ph, i64 20
   %91 = load i32, ptr %90, align 4
   %92 = sub i32 %89, %91
   %93 = load i32, ptr %13, align 8
@@ -1499,7 +1499,7 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
 95:                                               ; preds = %86
   %96 = add i32 %91, 1024
   %97 = add i32 %96, %93
-  %98 = getelementptr inbounds i8, ptr %.0177.ph, i64 8
+  %98 = getelementptr inbounds i8, ptr %.0.ph269.ph, i64 8
   %99 = sext i32 %97 to i64
   %100 = call ptr @slurm_xrecalloc(ptr noundef nonnull %98, i64 noundef 1, i64 noundef %99, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 194, ptr noundef nonnull @__func__._forward_thread) #10
   store i32 %97, ptr %88, align 8
@@ -1514,7 +1514,7 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
   br i1 %.not211, label %113, label %103
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %.0177.ph, i64 8
+  %104 = getelementptr inbounds i8, ptr %.0.ph269.ph, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = zext i32 %.pre451 to i64
   %107 = getelementptr inbounds i8, ptr %105, i64 %106
@@ -1529,7 +1529,7 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
 
 113:                                              ; preds = %103, %101
   %114 = phi i32 [ %112, %103 ], [ %.pre451, %101 ]
-  %115 = getelementptr inbounds i8, ptr %.0177.ph, i64 8
+  %115 = getelementptr inbounds i8, ptr %.0.ph269.ph, i64 8
   %116 = load ptr, ptr %115, align 8
   %117 = zext i32 %114 to i64
   %118 = call i64 @slurm_msg_sendto(i32 noundef %48, ptr noundef %116, i64 noundef %117) #10
@@ -1557,7 +1557,7 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
   br i1 %128, label %129, label %.thread262
 
 129:                                              ; preds = %125
-  call void @free_buf(ptr noundef nonnull %.0177.ph) #10
+  call void @free_buf(ptr noundef nonnull %.0.ph269.ph) #10
   %130 = load i32, ptr %13, align 8
   %131 = call ptr @init_buf(i32 noundef %130) #10
   %132 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #10
@@ -1575,7 +1575,7 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
   %137 = getelementptr inbounds i8, ptr %136, i64 8
   %138 = call i32 @hostlist_count(ptr noundef %8) #10
   call fastcc void @_forward_msg_internal(ptr noundef %8, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %137, i32 noundef 0, i32 noundef %138)
-  br label %.outer, !llvm.loop !13
+  br label %.outer268.outer, !llvm.loop !13
 
 139:                                              ; preds = %113
   %140 = load ptr, ptr %2, align 8
@@ -1664,8 +1664,8 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
 
 181:                                              ; preds = %._crit_edge452, %167
   %182 = phi i32 [ %180, %167 ], [ %.pre453, %._crit_edge452 ]
-  %.1171 = phi i32 [ %178, %167 ], [ %.0170.ph.ph, %._crit_edge452 ]
-  %183 = call ptr @slurm_receive_resp_msgs(i32 noundef %48, i32 noundef %.1171, i32 noundef %182) #10
+  %.1173 = phi i32 [ %178, %167 ], [ %.0172.ph, %._crit_edge452 ]
+  %183 = call ptr @slurm_receive_resp_msgs(i32 noundef %48, i32 noundef %.1173, i32 noundef %182) #10
   %.not214 = icmp eq ptr %183, null
   br i1 %.not214, label %191, label %184
 
@@ -1712,7 +1712,7 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
   br i1 %200, label %201, label %.thread262
 
 201:                                              ; preds = %198
-  call void @free_buf(ptr noundef nonnull %.0177.ph) #10
+  call void @free_buf(ptr noundef nonnull %.0.ph269.ph) #10
   %202 = load i32, ptr %13, align 8
   %203 = call ptr @init_buf(i32 noundef %202) #10
   %204 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #10
@@ -1726,7 +1726,7 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
 
 206:                                              ; preds = %201
   %207 = call i32 @close(i32 noundef %48) #10
-  br label %.outer.outer, !llvm.loop !13
+  br label %.outer, !llvm.loop !13
 
 split:                                            ; preds = %184, %._crit_edge454
   %208 = phi i32 [ %190, %._crit_edge454 ], [ 1, %184 ]
@@ -1751,12 +1751,12 @@ split:                                            ; preds = %184, %._crit_edge45
 
 .lr.ph364:                                        ; preds = %210, %239
   %218 = phi ptr [ %240, %239 ], [ %217, %210 ]
-  %.0169363 = phi i32 [ %.3249, %239 ], [ 0, %210 ]
+  %.0175363 = phi i32 [ %.3249, %239 ], [ 0, %210 ]
   %219 = call ptr @list_iterator_create(ptr noundef nonnull %183) #10
   br label %220
 
 220:                                              ; preds = %227, %.lr.ph364
-  %.1 = phi i32 [ %.0169363, %.lr.ph364 ], [ %.2, %227 ]
+  %.1176 = phi i32 [ %.0175363, %.lr.ph364 ], [ %.2177, %227 ]
   %221 = call ptr @list_next(ptr noundef %219) #10
   %.not225 = icmp eq ptr %221, null
   br i1 %.not225, label %231, label %222
@@ -1774,7 +1774,7 @@ split:                                            ; preds = %184, %._crit_edge45
 
 227:                                              ; preds = %225, %222
   %228 = phi ptr [ %224, %222 ], [ %226, %225 ]
-  %.2 = phi i32 [ %.1, %222 ], [ 1, %225 ]
+  %.2177 = phi i32 [ %.1176, %222 ], [ 1, %225 ]
   %229 = call i32 @xstrcmp(ptr noundef nonnull %218, ptr noundef %228) #10
   %.not227 = icmp eq i32 %229, 0
   br i1 %.not227, label %230, label %220, !llvm.loop !15
@@ -1808,7 +1808,7 @@ split:                                            ; preds = %184, %._crit_edge45
   unreachable
 
 239:                                              ; preds = %230, %235
-  %.3249 = phi i32 [ %.1, %235 ], [ %.2, %230 ]
+  %.3249 = phi i32 [ %.1176, %235 ], [ %.2177, %230 ]
   call void @free(ptr noundef %218) #10
   %240 = call ptr @hostlist_next(ptr noundef %211) #10
   %.not217 = icmp eq ptr %240, null
@@ -1898,23 +1898,23 @@ split:                                            ; preds = %184, %._crit_edge45
   br label %.thread257
 
 .thread257:                                       ; preds = %.thread251, %._crit_edge367
-  %.1173256261 = phi i32 [ %48, %._crit_edge367 ], [ %.0172.ph, %.thread251 ]
+  %.1171255261 = phi i32 [ %48, %._crit_edge367 ], [ %.0170.ph, %.thread251 ]
   call void @free(ptr noundef %16) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %.lr.ph, %.thread257
-  %.2174 = phi i32 [ %.1173256261, %.thread257 ], [ %48, %.lr.ph ], [ %.0172.ph, %41 ]
-  %270 = icmp sgt i32 %.2174, -1
+  %.2 = phi i32 [ %.1171255261, %.thread257 ], [ %48, %.lr.ph ], [ %.0170.ph, %41 ]
+  %270 = icmp sgt i32 %.2, -1
   br i1 %270, label %.thread262, label %.thread265
 
 .thread262:                                       ; preds = %198, %125, %147, %.loopexit
-  %.2174264 = phi i32 [ %.2174, %.loopexit ], [ %48, %147 ], [ %48, %125 ], [ %48, %198 ]
-  %271 = call i32 @close(i32 noundef %.2174264) #10
+  %.2264 = phi i32 [ %.2, %.loopexit ], [ %48, %147 ], [ %48, %125 ], [ %48, %198 ]
+  %271 = call i32 @close(i32 noundef %.2264) #10
   %272 = icmp slt i32 %271, 0
   br i1 %272, label %273, label %.thread265
 
 273:                                              ; preds = %.thread262
-  %274 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, i32 noundef %.2174264) #10
+  %274 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, i32 noundef %.2264) #10
   br label %.thread265
 
 .thread265:                                       ; preds = %55, %273, %.thread262, %.loopexit
@@ -1942,11 +1942,11 @@ split:                                            ; preds = %184, %._crit_edge45
   br label %destroy_forward.exit
 
 destroy_forward.exit:                             ; preds = %281, %284
-  %.not242 = icmp eq ptr %.0177.ph, null
+  %.not242 = icmp eq ptr %.0.ph269.ph, null
   br i1 %.not242, label %287, label %286
 
 286:                                              ; preds = %destroy_forward.exit
-  call void @free_buf(ptr noundef nonnull %.0177.ph) #10
+  call void @free_buf(ptr noundef nonnull %.0.ph269.ph) #10
   br label %287
 
 287:                                              ; preds = %286, %destroy_forward.exit

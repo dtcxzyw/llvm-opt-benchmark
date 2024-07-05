@@ -115,14 +115,14 @@ _ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EED2Ev.exit16: ; preds
 
 33:                                               ; preds = %32, %22
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %23, %22 ]
-  %.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.110 = extractvalue { ptr, i32 } %.pn.pn, 1
   %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #5
-  %35 = icmp eq i32 %.1, %34
+  %35 = icmp eq i32 %.110, %34
   br i1 %35, label %36, label %45
 
 36:                                               ; preds = %33
-  %.110 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %37 = call ptr @__cxa_begin_catch(ptr %.110) #5
+  %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %37 = call ptr @__cxa_begin_catch(ptr %.1) #5
   %38 = load ptr, ptr @stderr, align 8
   invoke void @_ZN3gmx22printFatalErrorMessageEP8_IO_FILERKSt9exception(ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(8) %37)
           to label %39 unwind label %42

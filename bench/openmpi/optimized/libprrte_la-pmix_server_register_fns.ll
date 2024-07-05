@@ -211,11 +211,11 @@ define i32 @prte_pmix_server_register_nspace(ptr noundef %0) local_unnamed_addr 
 
 .lr.ph:                                           ; preds = %.preheader703, %.lr.ph
   %56 = phi i8 [ %63, %.lr.ph ], [ %51, %.preheader703 ]
-  %.0442718 = phi i32 [ %62, %.lr.ph ], [ 0, %.preheader703 ]
-  %.0443717 = phi ptr [ %57, %.lr.ph ], [ @prte_process_info, %.preheader703 ]
-  %57 = getelementptr inbounds i8, ptr %.0443717, i64 1
+  %.0443718 = phi i32 [ %62, %.lr.ph ], [ 0, %.preheader703 ]
+  %.0444717 = phi ptr [ %57, %.lr.ph ], [ @prte_process_info, %.preheader703 ]
+  %57 = getelementptr inbounds i8, ptr %.0444717, i64 1
   %58 = sext i8 %56 to i32
-  %59 = add i32 %.0442718, %58
+  %59 = add i32 %.0443718, %58
   %60 = mul i32 %59, 1025
   %61 = lshr i32 %60, 6
   %62 = xor i32 %61, %60
@@ -224,8 +224,8 @@ define i32 @prte_pmix_server_register_nspace(ptr noundef %0) local_unnamed_addr 
   br i1 %.not512, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader703
-  %.0442.lcssa = phi i32 [ 0, %.preheader703 ], [ %62, %.lr.ph ]
-  %64 = mul i32 %.0442.lcssa, 9
+  %.0443.lcssa = phi i32 [ 0, %.preheader703 ], [ %62, %.lr.ph ]
+  %64 = mul i32 %.0443.lcssa, 9
   %65 = lshr i32 %64, 11
   %66 = xor i32 %65, %64
   %67 = mul i32 %66, 32769
@@ -1127,10 +1127,10 @@ pmix_obj_new_tma.exit612:                         ; preds = %.lr.ph.i.i609, %494
 
 .lr.ph729:                                        ; preds = %527, %.lr.ph729
   %indvars.iv778 = phi i64 [ %indvars.iv.next779, %.lr.ph729 ], [ 0, %527 ]
-  %.0445727 = phi ptr [ %542, %.lr.ph729 ], [ %533, %527 ]
+  %.0447727 = phi ptr [ %542, %.lr.ph729 ], [ %533, %527 ]
   %534 = getelementptr inbounds %struct.pmix_proc, ptr %529, i64 %indvars.iv778
-  %535 = getelementptr inbounds i8, ptr %.0445727, i64 144
-  %536 = getelementptr inbounds i8, ptr %.0445727, i64 400
+  %535 = getelementptr inbounds i8, ptr %.0447727, i64 144
+  %536 = getelementptr inbounds i8, ptr %.0447727, i64 400
   %537 = load i32, ptr %536, align 8
   call void @PMIx_Load_procid(ptr noundef %534, ptr noundef nonnull %535, i32 noundef %537) #11
   %538 = load ptr, ptr %532, align 8
@@ -1138,7 +1138,7 @@ pmix_obj_new_tma.exit612:                         ; preds = %.lr.ph.i.i609, %494
   %540 = load i32, ptr %536, align 8
   call void @PMIx_Load_procid(ptr noundef %539, ptr noundef nonnull %535, i32 noundef %540) #11
   %indvars.iv.next779 = add nuw nsw i64 %indvars.iv778, 1
-  %541 = getelementptr inbounds i8, ptr %.0445727, i64 120
+  %541 = getelementptr inbounds i8, ptr %.0447727, i64 120
   %542 = load ptr, ptr %541, align 8
   %.not564 = icmp eq ptr %542, %421
   br i1 %.not564, label %._crit_edge730, label %.lr.ph729, !llvm.loop !11
@@ -1280,7 +1280,7 @@ pmix_obj_run_destructors.exit625:                 ; preds = %.lr.ph.i622, %._cri
   br label %607
 
 607:                                              ; preds = %599, %602, %605, %._crit_edge735
-  %.0444 = phi i1 [ true, %605 ], [ false, %602 ], [ true, %599 ], [ true, %._crit_edge735 ]
+  %.0445 = phi i1 [ true, %605 ], [ false, %602 ], [ true, %599 ], [ true, %._crit_edge735 ]
   %608 = load i64, ptr getelementptr inbounds (i8, ptr @prte_pmix_server_globals, i64 1168), align 8
   %.not526 = icmp eq i64 %608, 0
   br i1 %.not526, label %613, label %609
@@ -1500,7 +1500,7 @@ pmix_pointer_array_get_item.exit631:              ; preds = %pmix_pointer_array_
   %730 = add i32 %729, %728
   store i32 %730, ptr %2, align 4
   %731 = call i32 @PMIx_Info_list_add(ptr noundef %647, ptr noundef nonnull @.str.60, ptr noundef nonnull %2, i16 noundef zeroext 40) #11
-  br i1 %.0444, label %735, label %732
+  br i1 %.0445, label %735, label %732
 
 732:                                              ; preds = %727
   %733 = load ptr, ptr %10, align 8
@@ -1580,7 +1580,7 @@ pmix_pointer_array_get_item.exit631:              ; preds = %pmix_pointer_array_
   br i1 %776, label %pmix_pointer_array_get_item.exit628, label %._crit_edge740, !llvm.loop !16
 
 ._crit_edge740:                                   ; preds = %.loopexit698, %613
-  br i1 %.0444, label %779, label %777
+  br i1 %.0445, label %779, label %777
 
 777:                                              ; preds = %._crit_edge740
   %778 = load ptr, ptr %10, align 8
@@ -2212,15 +2212,15 @@ pmix_obj_run_destructors.exit688:                 ; preds = %.lr.ph.i685, %._cri
   br label %1059
 
 1059:                                             ; preds = %912, %pmix_obj_run_destructors.exit688, %1058
-  %.0454 = phi i32 [ %1048, %1058 ], [ %1048, %pmix_obj_run_destructors.exit688 ], [ 0, %912 ]
-  %.0446 = phi ptr [ %938, %1058 ], [ %938, %pmix_obj_run_destructors.exit688 ], [ %850, %912 ]
+  %.0448 = phi ptr [ %938, %1058 ], [ %938, %pmix_obj_run_destructors.exit688 ], [ %850, %912 ]
+  %.0446 = phi i32 [ %1048, %1058 ], [ %1048, %pmix_obj_run_destructors.exit688 ], [ 0, %912 ]
   %1060 = load i64, ptr %12, align 8
-  call void @PMIx_Info_free(ptr noundef %.0446, i64 noundef %1060) #11
+  call void @PMIx_Info_free(ptr noundef %.0448, i64 noundef %1060) #11
   br label %1061
 
 1061:                                             ; preds = %1039, %pmix_obj_run_destructors.exit683, %888, %pmix_obj_run_destructors.exit654, %1059, %935, %927, %918, %910, %.loopexit700, %.loopexit699, %356, %310, %293, %.loopexit702, %85, %78, %71, %54, %47
-  %.0455 = phi i32 [ %48, %47 ], [ %55, %54 ], [ %72, %71 ], [ %79, %78 ], [ %86, %85 ], [ %111, %.loopexit702 ], [ %295, %293 ], [ %312, %310 ], [ %357, %356 ], [ %661, %.loopexit699 ], [ %718, %.loopexit700 ], [ %898, %910 ], [ %919, %918 ], [ %928, %927 ], [ %936, %935 ], [ %.0454, %1059 ], [ %877, %pmix_obj_run_destructors.exit654 ], [ %877, %888 ], [ %962, %pmix_obj_run_destructors.exit683 ], [ %962, %1039 ]
-  ret i32 %.0455
+  %.0442 = phi i32 [ %48, %47 ], [ %55, %54 ], [ %72, %71 ], [ %79, %78 ], [ %86, %85 ], [ %111, %.loopexit702 ], [ %295, %293 ], [ %312, %310 ], [ %357, %356 ], [ %661, %.loopexit699 ], [ %718, %.loopexit700 ], [ %898, %910 ], [ %919, %918 ], [ %928, %927 ], [ %936, %935 ], [ %.0446, %1059 ], [ %877, %pmix_obj_run_destructors.exit654 ], [ %877, %888 ], [ %962, %pmix_obj_run_destructors.exit683 ], [ %962, %1039 ]
+  ret i32 %.0442
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

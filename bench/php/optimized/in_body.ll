@@ -108,13 +108,13 @@ define hidden i32 @lxb_html_tree_insertion_mode_in_body_text_append(ptr noundef 
   br i1 %.not2124, label %.loopexit, label %.lr.ph
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.025, i64 1
+  %15 = getelementptr inbounds i8, ptr %.01825, i64 1
   %.not21 = icmp eq ptr %15, %13
   br i1 %.not21, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %14
-  %.025 = phi ptr [ %15, %14 ], [ %10, %9 ]
-  %16 = load i8, ptr %.025, align 1
+  %.01825 = phi ptr [ %15, %14 ], [ %10, %9 ]
+  %16 = load i8, ptr %.01825, align 1
   %17 = zext i8 %16 to i64
   %18 = getelementptr inbounds [256 x i8], ptr @lexbor_tokenizer_chars_map, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
@@ -131,8 +131,8 @@ define hidden i32 @lxb_html_tree_insertion_mode_in_body_text_append(ptr noundef 
   br label %22
 
 22:                                               ; preds = %.loopexit, %2
-  %.018 = phi i32 [ %3, %2 ], [ %21, %.loopexit ]
-  ret i32 %.018
+  %.0 = phi i32 [ %3, %2 ], [ %21, %.loopexit ]
+  ret i32 %.0
 }
 
 declare i32 @lxb_html_tree_active_formatting_reconstruct_elements(ptr noundef) local_unnamed_addr #1
@@ -1214,13 +1214,13 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_text(ptr
   br i1 %.not2124.i, label %lxb_html_tree_insertion_mode_in_body_text_append.exit, label %.lr.ph.i
 
 42:                                               ; preds = %.lr.ph.i
-  %43 = getelementptr inbounds i8, ptr %.025.i, i64 1
+  %43 = getelementptr inbounds i8, ptr %.01825.i, i64 1
   %.not21.i = icmp eq ptr %43, %41
   br i1 %.not21.i, label %lxb_html_tree_insertion_mode_in_body_text_append.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %38, %42
-  %.025.i = phi ptr [ %43, %42 ], [ %39, %38 ]
-  %44 = load i8, ptr %.025.i, align 1
+  %.01825.i = phi ptr [ %43, %42 ], [ %39, %38 ]
+  %44 = load i8, ptr %.01825.i, align 1
   %45 = zext i8 %44 to i64
   %46 = getelementptr inbounds [256 x i8], ptr @lexbor_tokenizer_chars_map, i64 0, i64 %45
   %47 = load i8, ptr %46, align 1

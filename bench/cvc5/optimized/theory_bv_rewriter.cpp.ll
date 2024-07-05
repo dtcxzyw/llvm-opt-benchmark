@@ -31485,8 +31485,8 @@ if.else:                                          ; preds = %invoke.cont46
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then52
-  %x.sroa.0.2 = phi ptr [ %18, %if.then52 ], [ %21, %if.else ]
   %c.sroa.0.2.in = phi ptr [ %arrayidx.i.i143, %if.then52 ], [ %arrayidx.i.i194, %if.else ]
+  %x.sroa.0.2 = phi ptr [ %18, %if.then52 ], [ %21, %if.else ]
   %c.sroa.0.2 = load ptr, ptr %c.sroa.0.2.in, align 8, !noalias !619
   %call.i200 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %c.sroa.0.2)
   %23 = load i32, ptr %call.i200, align 8
@@ -32116,8 +32116,8 @@ if.else:                                          ; preds = %invoke.cont46
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then52
-  %t.sroa.0.2 = phi ptr [ %18, %if.then52 ], [ %21, %if.else ]
   %c.sroa.0.2.in = phi ptr [ %arrayidx.i.i136, %if.then52 ], [ %arrayidx.i.i187, %if.else ]
+  %t.sroa.0.2 = phi ptr [ %18, %if.then52 ], [ %21, %if.else ]
   %c.sroa.0.2 = load ptr, ptr %c.sroa.0.2.in, align 8, !noalias !619
   store ptr %t.sroa.0.2, ptr %agg.tmp, align 8
   %call76 = call noundef i32 @_ZN4cvc58internal6theory2bv5utils7getSizeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp)
@@ -33259,8 +33259,8 @@ if.else:                                          ; preds = %invoke.cont
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %x.sroa.0.2 = phi ptr [ %10, %if.then ], [ %13, %if.else ]
   %c.sroa.0.2.in = phi ptr [ %arrayidx.i.i74, %if.then ], [ %arrayidx.i.i122, %if.else ]
+  %x.sroa.0.2 = phi ptr [ %10, %if.then ], [ %13, %if.else ]
   %c.sroa.0.2 = load ptr, ptr %c.sroa.0.2.in, align 8, !noalias !619
   %call.i128 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %c.sroa.0.2)
   %15 = load i32, ptr %call.i128, align 8
@@ -34206,8 +34206,8 @@ if.else:                                          ; preds = %invoke.cont
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %t.sroa.0.2 = phi ptr [ %10, %if.then ], [ %13, %if.else ]
   %c.sroa.0.2.in = phi ptr [ %arrayidx.i.i54, %if.then ], [ %arrayidx.i.i102, %if.else ]
+  %t.sroa.0.2 = phi ptr [ %10, %if.then ], [ %13, %if.else ]
   %c.sroa.0.2 = load ptr, ptr %c.sroa.0.2.in, align 8, !noalias !619
   %call.i108 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %c.sroa.0.2)
   store ptr %t.sroa.0.2, ptr %agg.tmp, align 8
@@ -36399,8 +36399,8 @@ if.else:                                          ; preds = %invoke.cont99
   br i1 %cmp110, label %if.end118, label %return
 
 if.end118:                                        ; preds = %invoke.cont99, %if.else
-  %addxt.sroa.0.2 = phi ptr [ %59, %if.else ], [ %58, %invoke.cont99 ]
   %a.sroa.0.2 = phi ptr [ %58, %if.else ], [ %59, %invoke.cont99 ]
+  %addxt.sroa.0.2 = phi ptr [ %59, %if.else ], [ %58, %invoke.cont99 ]
   %d_kind.i.i.i.i235 = getelementptr inbounds i8, ptr %addxt.sroa.0.2, i64 8
   %call2.i.i.i241249 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 96)
   %cmp.i.i242 = icmp eq i32 %call2.i.i.i241249, 2
@@ -50401,9 +50401,9 @@ invoke.cont26:                                    ; preds = %invoke.cont22
   br i1 %cmp.i.not522, label %for.end, label %invoke.cont31
 
 invoke.cont31:                                    ; preds = %invoke.cont26, %if.end
-  %__begin3.sroa.0.0524 = phi ptr [ %incdec.ptr.i, %if.end ], [ %spec.select.i.i, %invoke.cont26 ]
-  %concat.sroa.0.0523 = phi ptr [ %concat.sroa.0.2, %if.end ], [ %4, %invoke.cont26 ]
-  %23 = load ptr, ptr %__begin3.sroa.0.0524, align 8, !noalias !1474
+  %concat.sroa.0.0524 = phi ptr [ %concat.sroa.0.2, %if.end ], [ %4, %invoke.cont26 ]
+  %__begin3.sroa.0.0523 = phi ptr [ %incdec.ptr.i, %if.end ], [ %spec.select.i.i, %invoke.cont26 ]
+  %23 = load ptr, ptr %__begin3.sroa.0.0523, align 8, !noalias !1474
   %24 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i155 = icmp eq i8 %24, 0
   br i1 %guard.uninitialized.i.i155, label %init.check.i.i157, label %invoke.cont33, !prof !600
@@ -50435,7 +50435,7 @@ lpad.i.i161:                                      ; preds = %init.i.i159
 
 invoke.cont33:                                    ; preds = %invoke.cont.i.i162, %init.check.i.i157, %invoke.cont31
   %27 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
-  %cmp.i156 = icmp eq ptr %concat.sroa.0.0523, %27
+  %cmp.i156 = icmp eq ptr %concat.sroa.0.0524, %27
   br i1 %cmp.i156, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %invoke.cont33
@@ -50481,8 +50481,8 @@ lpad38:                                           ; preds = %if.else
   br label %ehcleanup289
 
 if.end:                                           ; preds = %land.lhs.true, %if.else
-  %concat.sroa.0.2 = phi ptr [ %concat.sroa.0.0523, %if.else ], [ %23, %land.lhs.true ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0524, i64 8
+  %concat.sroa.0.2 = phi ptr [ %concat.sroa.0.0524, %if.else ], [ %23, %land.lhs.true ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0523, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %invoke.cont31
 
@@ -74841,8 +74841,8 @@ if.end113:                                        ; preds = %if.end.i254, %if.th
   br label %while.cond.outer.outer
 
 while.cond.outer.outer:                           ; preds = %if.end113, %invoke.cont191
-  %iLeft.sroa.0.0.ph.ph = phi ptr [ %16, %if.end113 ], [ %iLeft.sroa.0.1846, %invoke.cont191 ]
   %iRight.sroa.0.0.ph.ph = phi ptr [ %17, %if.end113 ], [ %call.i320, %invoke.cont191 ]
+  %iLeft.sroa.0.0.ph.ph = phi ptr [ %16, %if.end113 ], [ %iLeft.sroa.0.1846, %invoke.cont191 ]
   %termLeft.sroa.0.2.ph.ph = phi ptr [ %termLeft.sroa.0.1, %if.end113 ], [ %termLeft.sroa.0.4848, %invoke.cont191 ]
   %termRight.sroa.0.2.ph.ph.in = phi ptr [ %termRight.sroa.0.1.in, %if.end113 ], [ %_M_storage.i.i322, %invoke.cont191 ]
   %changed.0.ph.ph = phi i1 [ false, %if.end113 ], [ %changed.1835844, %invoke.cont191 ]
@@ -74850,8 +74850,8 @@ while.cond.outer.outer:                           ; preds = %if.end113, %invoke.
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.outer, %if.then185
-  %iLeft.sroa.0.0.ph = phi ptr [ %iLeft.sroa.0.1846, %if.then185 ], [ %iLeft.sroa.0.0.ph.ph, %while.cond.outer.outer ]
   %iRight.sroa.0.0.ph = phi ptr [ %call.i320, %if.then185 ], [ %iRight.sroa.0.0.ph.ph, %while.cond.outer.outer ]
+  %iLeft.sroa.0.0.ph = phi ptr [ %iLeft.sroa.0.1846, %if.then185 ], [ %iLeft.sroa.0.0.ph.ph, %while.cond.outer.outer ]
   %termLeft.sroa.0.2.ph = phi ptr [ %termLeft.sroa.0.4848, %if.then185 ], [ %termLeft.sroa.0.2.ph.ph, %while.cond.outer.outer ]
   %changed.0.ph = phi i1 [ %changed.1835844, %if.then185 ], [ %changed.0.ph.ph, %while.cond.outer.outer ]
   %cmp.i266.not = icmp eq ptr %iRight.sroa.0.0.ph, %5

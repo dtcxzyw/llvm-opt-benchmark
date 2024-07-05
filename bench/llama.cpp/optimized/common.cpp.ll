@@ -1811,35 +1811,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.021.i, 2
+  %add8.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.021.i, 3
+  %add13.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
+  %0 = udiv i32 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !7
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
@@ -1998,15 +1998,15 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %input_idx.042 = phi i64 [ 0, %for.body.lr.ph ], [ %inc50, %for.inc ]
-  %output_idx.041 = phi i64 [ 0, %for.body.lr.ph ], [ %inc47, %for.inc ]
-  %call1 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %input, i64 noundef %input_idx.042)
+  %output_idx.042 = phi i64 [ 0, %for.body.lr.ph ], [ %inc47, %for.inc ]
+  %input_idx.041 = phi i64 [ 0, %for.body.lr.ph ], [ %inc50, %for.inc ]
+  %call1 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %input, i64 noundef %input_idx.041)
   %0 = load i8, ptr %call1, align 1
   %cmp2 = icmp eq i8 %0, 92
   br i1 %cmp2, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %for.body
-  %add = add nuw i64 %input_idx.042, 1
+  %add = add nuw i64 %input_idx.041, 1
   %cmp3 = icmp ult i64 %add, %call
   br i1 %cmp3, label %if.then, label %if.else
 
@@ -2039,12 +2039,12 @@ sw.bb20:                                          ; preds = %if.then
   br label %for.inc
 
 sw.bb23:                                          ; preds = %if.then
-  %add24 = add i64 %input_idx.042, 3
+  %add24 = add i64 %input_idx.041, 3
   %cmp25 = icmp ult i64 %add24, %call
   br i1 %cmp25, label %if.then26, label %sw.default
 
 if.then26:                                        ; preds = %sw.bb23
-  %add27 = add nuw i64 %input_idx.042, 2
+  %add27 = add nuw i64 %input_idx.041, 2
   %call28 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %input, i64 noundef %add27)
   %2 = load i8, ptr %call28, align 1
   store i8 %2, ptr %x, align 1
@@ -2063,25 +2063,25 @@ if.then35:                                        ; preds = %if.then26
   br label %for.inc
 
 sw.default:                                       ; preds = %sw.bb23, %if.then26, %if.then
-  %inc41 = add i64 %output_idx.041, 1
-  %call42 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %input, i64 noundef %output_idx.041)
+  %inc41 = add i64 %output_idx.042, 1
+  %call42 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %input, i64 noundef %output_idx.042)
   store i8 92, ptr %call42, align 1
   %call43 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %input, i64 noundef %add)
   %5 = load i8, ptr %call43, align 1
   br label %for.inc
 
 if.else:                                          ; preds = %land.lhs.true, %for.body
-  %call46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %input, i64 noundef %input_idx.042)
+  %call46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %input, i64 noundef %input_idx.041)
   %6 = load i8, ptr %call46, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.else, %sw.default, %if.then35, %sw.bb20, %sw.bb17, %sw.bb14, %sw.bb11, %sw.bb8
   %.sink43 = phi i64 [ 1, %if.else ], [ 2, %sw.default ], [ 1, %if.then35 ], [ 1, %sw.bb20 ], [ 1, %sw.bb17 ], [ 1, %sw.bb14 ], [ 1, %sw.bb11 ], [ 1, %sw.bb8 ], [ 1, %if.then ]
-  %output_idx.041.sink = phi i64 [ %output_idx.041, %if.else ], [ %inc41, %sw.default ], [ %output_idx.041, %if.then35 ], [ %output_idx.041, %sw.bb20 ], [ %output_idx.041, %sw.bb17 ], [ %output_idx.041, %sw.bb14 ], [ %output_idx.041, %sw.bb11 ], [ %output_idx.041, %sw.bb8 ], [ %output_idx.041, %if.then ]
+  %output_idx.042.sink = phi i64 [ %output_idx.042, %if.else ], [ %inc41, %sw.default ], [ %output_idx.042, %if.then35 ], [ %output_idx.042, %sw.bb20 ], [ %output_idx.042, %sw.bb17 ], [ %output_idx.042, %sw.bb14 ], [ %output_idx.042, %sw.bb11 ], [ %output_idx.042, %sw.bb8 ], [ %output_idx.042, %if.then ]
   %.sink = phi i8 [ %6, %if.else ], [ %5, %sw.default ], [ %conv37, %if.then35 ], [ %1, %sw.bb20 ], [ %1, %sw.bb17 ], [ %1, %sw.bb14 ], [ 9, %sw.bb11 ], [ 13, %sw.bb8 ], [ 10, %if.then ]
-  %input_idx.1 = phi i64 [ %input_idx.042, %if.else ], [ %add, %sw.default ], [ %add24, %if.then35 ], [ %add, %sw.bb20 ], [ %add, %sw.bb17 ], [ %add, %sw.bb14 ], [ %add, %sw.bb11 ], [ %add, %sw.bb8 ], [ %add, %if.then ]
-  %inc47 = add i64 %output_idx.041, %.sink43
-  %call48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %input, i64 noundef %output_idx.041.sink)
+  %input_idx.1 = phi i64 [ %input_idx.041, %if.else ], [ %add, %sw.default ], [ %add24, %if.then35 ], [ %add, %sw.bb20 ], [ %add, %sw.bb17 ], [ %add, %sw.bb14 ], [ %add, %sw.bb11 ], [ %add, %sw.bb8 ], [ %add, %if.then ]
+  %inc47 = add i64 %output_idx.042, %.sink43
+  %call48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %input, i64 noundef %output_idx.042.sink)
   store i8 %.sink, ptr %call48, align 1
   %inc50 = add i64 %input_idx.1, 1
   %cmp = icmp ult i64 %inc50, %call
@@ -13802,8 +13802,8 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us: ; preds = %land.lh
   br label %for.cond.us, !llvm.loop !58
 
 for.cond:                                         ; preds = %entry, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit
-  %__first.sroa.0.0 = phi ptr [ %__first.sroa.0.2, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %__first.coerce0, %entry ]
   %__last.sroa.0.0 = phi ptr [ %__last.sroa.0.15, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %__last.coerce0, %entry ]
+  %__first.sroa.0.0 = phi ptr [ %__first.sroa.0.2, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %__first.coerce0, %entry ]
   %__first.sroa.6.0 = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %__first.coerce1, %entry ]
   %tobool.not.i.i.i.i = icmp ne ptr %__first.sroa.0.0, null
   %cmp.i.i.i.i.i.i = icmp eq i32 %__first.sroa.6.0, -1

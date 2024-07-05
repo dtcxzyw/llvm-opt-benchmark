@@ -256,8 +256,8 @@ define internal i64 @_warc_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
   br label %14
 
 14:                                               ; preds = %9, %3
-  %.011 = phi i64 [ %2, %3 ], [ %spec.select15, %9 ]
-  ret i64 %.011
+  %.0 = phi i64 [ %2, %3 ], [ %spec.select15, %9 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -352,8 +352,8 @@ define internal fastcc range(i64 -1, 512) i64 @_popul_ehdr(ptr noundef %0, ptr n
   br label %32
 
 32:                                               ; preds = %27, %31
-  %.0 = phi ptr [ @_popul_ehdr._fil, %31 ], [ @_popul_ehdr._uri, %27 ]
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %.0, ptr noundef nonnull %20) #14
+  %.019 = phi ptr [ @_popul_ehdr._fil, %31 ], [ @_popul_ehdr._uri, %27 ]
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %.019, ptr noundef nonnull %20) #14
   br label %33
 
 33:                                               ; preds = %32, %13
@@ -445,8 +445,8 @@ xstrftime.exit27:                                 ; preds = %xstrftime.exit, %43
   br label %78
 
 78:                                               ; preds = %2, %72
-  %.019 = phi i64 [ %spec.select, %72 ], [ -1, %2 ]
-  ret i64 %.019
+  %.0 = phi i64 [ %spec.select, %72 ], [ -1, %2 ]
+  ret i64 %.0
 }
 
 declare ptr @archive_strncat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

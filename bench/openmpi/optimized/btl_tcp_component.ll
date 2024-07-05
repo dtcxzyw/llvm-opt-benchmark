@@ -1009,22 +1009,22 @@ define noundef ptr @mca_btl_tcp_component_init(ptr nocapture noundef writeonly %
   br i1 %41, label %.lr.ph95.i, label %._crit_edge96.i
 
 .lr.ph95.i:                                       ; preds = %39, %53
-  %.06493.i = phi i32 [ %.165.i, %53 ], [ 0, %39 ]
-  %.06692.i = phi i32 [ %54, %53 ], [ %40, %39 ]
-  %42 = tail call i32 @opal_ifindextokindex(i32 noundef %.06692.i) #15
+  %.05793.i = phi i32 [ %54, %53 ], [ %40, %39 ]
+  %.05992.i = phi i32 [ %.160.i, %53 ], [ 0, %39 ]
+  %42 = tail call i32 @opal_ifindextokindex(i32 noundef %.05793.i) #15
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.preheader.i, label %53
 
 .preheader.i:                                     ; preds = %.lr.ph95.i
-  %44 = icmp sgt i32 %.06493.i, 0
+  %44 = icmp sgt i32 %.05992.i, 0
   br i1 %44, label %.lr.ph.preheader.i, label %.preheader..critedge111_crit_edge.i
 
 .preheader..critedge111_crit_edge.i:              ; preds = %.preheader.i
-  %.pre.i = sext i32 %.06493.i to i64
+  %.pre.i = sext i32 %.05992.i to i64
   br label %.critedge111.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %45 = zext nneg i32 %.06493.i to i64
+  %45 = zext nneg i32 %.05992.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1044,19 +1044,19 @@ define noundef ptr @mca_btl_tcp_component_init(ptr nocapture noundef writeonly %
   %.pre-phi.i = phi i64 [ %.pre.i, %.preheader..critedge111_crit_edge.i ], [ %45, %._crit_edge.i ]
   %51 = getelementptr inbounds i32, ptr %calloc.i, i64 %.pre-phi.i
   store i32 %42, ptr %51, align 4
-  %52 = add nsw i32 %.06493.i, 1
+  %52 = add nsw i32 %.05992.i, 1
   br label %53
 
 53:                                               ; preds = %.critedge111.i, %._crit_edge.i, %.lr.ph95.i
-  %.165.i = phi i32 [ %52, %.critedge111.i ], [ %.06493.i, %._crit_edge.i ], [ %.06493.i, %.lr.ph95.i ]
-  %54 = tail call i32 @opal_ifnext(i32 noundef %.06692.i) #15
+  %.160.i = phi i32 [ %52, %.critedge111.i ], [ %.05992.i, %._crit_edge.i ], [ %.05992.i, %.lr.ph95.i ]
+  %54 = tail call i32 @opal_ifnext(i32 noundef %.05793.i) #15
   %55 = icmp sgt i32 %54, -1
   br i1 %55, label %.lr.ph95.i, label %._crit_edge96.i, !llvm.loop !10
 
 ._crit_edge96.i:                                  ; preds = %53, %39
-  %.064.lcssa.i = phi i32 [ 0, %39 ], [ %.165.i, %53 ]
+  %.059.lcssa.i = phi i32 [ 0, %39 ], [ %.160.i, %53 ]
   %56 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 288), align 16
-  %57 = mul i32 %56, %.064.lcssa.i
+  %57 = mul i32 %56, %.059.lcssa.i
   %58 = zext i32 %57 to i64
   %59 = shl nuw nsw i64 %58, 3
   %60 = tail call noalias ptr @malloc(i64 noundef %59) #16
@@ -1082,7 +1082,7 @@ mca_btl_tcp_component_create_instances.exit.thread26: ; preds = %._crit_edge96.i
 
 .lr.ph:                                           ; preds = %.lr.ph101.i.preheader, %.lr.ph101.i
   %65 = phi ptr [ %73, %.lr.ph101.i ], [ %64, %.lr.ph101.i.preheader ]
-  %.05999.i52 = phi ptr [ %72, %.lr.ph101.i ], [ %63, %.lr.ph101.i.preheader ]
+  %.06399.i52 = phi ptr [ %72, %.lr.ph101.i ], [ %63, %.lr.ph101.i.preheader ]
   %66 = tail call i32 @opal_ifnametokindex(ptr noundef nonnull %65) #15
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %68, label %.lr.ph101.i
@@ -1095,7 +1095,7 @@ mca_btl_tcp_component_create_instances.exit.thread26: ; preds = %._crit_edge96.i
 
 .lr.ph101.i:                                      ; preds = %.lr.ph
   tail call fastcc void @mca_btl_tcp_create(i32 noundef %66, ptr noundef nonnull %65)
-  %72 = getelementptr inbounds i8, ptr %.05999.i52, i64 8
+  %72 = getelementptr inbounds i8, ptr %.06399.i52, i64 8
   %73 = load ptr, ptr %72, align 8
   %.not73.i = icmp eq ptr %73, null
   br i1 %.not73.i, label %.critedge.i, label %.lr.ph
@@ -1108,12 +1108,12 @@ mca_btl_tcp_component_create_instances.exit.thread26: ; preds = %._crit_edge96.i
 75:                                               ; preds = %.critedge.i
   %76 = tail call fastcc ptr @split_and_resolve(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 760), ptr noundef nonnull @.str.34, i1 noundef zeroext false)
   %.fr.i = freeze ptr %76
-  %77 = icmp sgt i32 %.064.lcssa.i, 0
+  %77 = icmp sgt i32 %.059.lcssa.i, 0
   br i1 %77, label %.lr.ph110.i, label %.loopexit.i
 
 .lr.ph110.i:                                      ; preds = %75
   %cond103.i = icmp eq ptr %.fr.i, null
-  %wide.trip.count120.i = zext nneg i32 %.064.lcssa.i to i64
+  %wide.trip.count120.i = zext nneg i32 %.059.lcssa.i to i64
   br i1 %cond103.i, label %.critedge2.thread.us.i, label %.lr.ph106.i
 
 .critedge2.thread.us.i:                           ; preds = %.lr.ph110.i, %.critedge2.thread.us.i
@@ -1134,8 +1134,8 @@ mca_btl_tcp_component_create_instances.exit.thread26: ; preds = %._crit_edge96.i
   br label %84
 
 84:                                               ; preds = %86, %.lr.ph106.i
-  %.160104.i = phi ptr [ %.fr.i, %.lr.ph106.i ], [ %90, %86 ]
-  %85 = load ptr, ptr %.160104.i, align 8
+  %.164104.i = phi ptr [ %.fr.i, %.lr.ph106.i ], [ %90, %86 ]
+  %85 = load ptr, ptr %.164104.i, align 8
   %.not76.i = icmp eq ptr %85, null
   br i1 %.not76.i, label %.critedge2.thread.i, label %86
 
@@ -1143,7 +1143,7 @@ mca_btl_tcp_component_create_instances.exit.thread26: ; preds = %._crit_edge96.i
   %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #17
   %88 = call i32 @strncmp(ptr noundef nonnull %85, ptr noundef nonnull %10, i64 noundef %87) #17
   %89 = icmp eq i32 %88, 0
-  %90 = getelementptr inbounds i8, ptr %.160104.i, i64 8
+  %90 = getelementptr inbounds i8, ptr %.164104.i, i64 8
   br i1 %89, label %.critedge2.i, label %84, !llvm.loop !12
 
 .critedge2.thread.i:                              ; preds = %84
@@ -1156,7 +1156,7 @@ mca_btl_tcp_component_create_instances.exit.thread26: ; preds = %._crit_edge96.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph106.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %.critedge2.i, %.critedge2.thread.us.i, %75, %.critedge.i, %68
-  %.061.i = phi ptr [ null, %68 ], [ null, %.critedge.i ], [ %.fr.i, %75 ], [ null, %.critedge2.thread.us.i ], [ %.fr.i, %.critedge2.i ]
+  %.065.i = phi ptr [ null, %68 ], [ null, %.critedge.i ], [ %.fr.i, %75 ], [ null, %.critedge2.thread.us.i ], [ %.fr.i, %.critedge2.i ]
   %.not = phi i1 [ false, %68 ], [ true, %.critedge.i ], [ true, %75 ], [ true, %.critedge2.thread.us.i ], [ true, %.critedge2.i ]
   br i1 %.not98.i, label %92, label %91
 
@@ -1165,11 +1165,11 @@ mca_btl_tcp_component_create_instances.exit.thread26: ; preds = %._crit_edge96.i
   br label %92
 
 92:                                               ; preds = %91, %.loopexit.i
-  %.not78.i = icmp eq ptr %.061.i, null
+  %.not78.i = icmp eq ptr %.065.i, null
   br i1 %.not78.i, label %mca_btl_tcp_component_create_instances.exit, label %93
 
 93:                                               ; preds = %92
-  call void @opal_argv_free(ptr noundef nonnull %.061.i) #15
+  call void @opal_argv_free(ptr noundef nonnull %.065.i) #15
   br label %mca_btl_tcp_component_create_instances.exit
 
 mca_btl_tcp_component_create_instances.exit.thread: ; preds = %3, %35
@@ -1967,8 +1967,8 @@ define internal fastcc ptr @split_and_resolve(ptr noundef %0, ptr noundef %1, i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.064.lcssa = phi i32 [ 0, %.preheader ], [ %37, %._crit_edge.loopexit ]
-  %38 = icmp eq i32 %.064.lcssa, %28
+  %.063.lcssa = phi i32 [ 0, %.preheader ], [ %37, %._crit_edge.loopexit ]
+  %38 = icmp eq i32 %.063.lcssa, %28
   br i1 %38, label %._crit_edge.thread, label %104
 
 ._crit_edge.thread:                               ; preds = %36, %._crit_edge
@@ -2031,15 +2031,15 @@ define internal fastcc ptr @split_and_resolve(ptr noundef %0, ptr noundef %1, i1
   br i1 %69, label %.lr.ph94, label %._crit_edge95.thread
 
 .lr.ph94:                                         ; preds = %67, %93
-  %.092 = phi i32 [ %.1, %93 ], [ 0, %67 ]
-  %.06291 = phi i32 [ %94, %93 ], [ %68, %67 ]
-  %70 = call i32 @opal_ifindextoaddr(i32 noundef %.06291, ptr noundef nonnull %8, i32 noundef 128) #15
+  %.06492 = phi i32 [ %.165, %93 ], [ 0, %67 ]
+  %.06691 = phi i32 [ %94, %93 ], [ %68, %67 ]
+  %70 = call i32 @opal_ifindextoaddr(i32 noundef %.06691, ptr noundef nonnull %8, i32 noundef 128) #15
   %71 = call zeroext i1 @opal_net_samenetwork(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %55) #15
   br i1 %71, label %72, label %93
 
 72:                                               ; preds = %.lr.ph94
-  %73 = add nsw i32 %.092, 1
-  %74 = call i32 @opal_ifindextoname(i32 noundef %.06291, ptr noundef nonnull %6, i32 noundef 32) #15
+  %73 = add nsw i32 %.06492, 1
+  %74 = call i32 @opal_ifindextoname(i32 noundef %.06691, ptr noundef nonnull %6, i32 noundef 32) #15
   %75 = load i32, ptr %4, align 4
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %.lr.ph84, label %._crit_edge85
@@ -2067,8 +2067,8 @@ define internal fastcc ptr @split_and_resolve(ptr noundef %0, ptr noundef %1, i1
   br label %._crit_edge85
 
 ._crit_edge85:                                    ; preds = %._crit_edge85.loopexit, %72
-  %.165.lcssa = phi i32 [ 0, %72 ], [ %84, %._crit_edge85.loopexit ]
-  %85 = icmp eq i32 %.165.lcssa, %75
+  %.1.lcssa = phi i32 [ 0, %72 ], [ %84, %._crit_edge85.loopexit ]
+  %85 = icmp eq i32 %.1.lcssa, %75
   br i1 %85, label %._crit_edge85.thread, label %93
 
 ._crit_edge85.thread:                             ; preds = %83, %._crit_edge85
@@ -2087,13 +2087,13 @@ define internal fastcc ptr @split_and_resolve(ptr noundef %0, ptr noundef %1, i1
   br label %93
 
 93:                                               ; preds = %.lr.ph94, %91, %._crit_edge85
-  %.1 = phi i32 [ %73, %91 ], [ %73, %._crit_edge85 ], [ %.092, %.lr.ph94 ]
-  %94 = call i32 @opal_ifnext(i32 noundef %.06291) #15
+  %.165 = phi i32 [ %73, %91 ], [ %73, %._crit_edge85 ], [ %.06492, %.lr.ph94 ]
+  %94 = call i32 @opal_ifnext(i32 noundef %.06691) #15
   %95 = icmp sgt i32 %94, -1
   br i1 %95, label %.lr.ph94, label %._crit_edge95, !llvm.loop !20
 
 ._crit_edge95:                                    ; preds = %93
-  %96 = icmp eq i32 %.1, 0
+  %96 = icmp eq i32 %.165, 0
   br i1 %96, label %._crit_edge95.thread, label %104
 
 ._crit_edge95.thread:                             ; preds = %67, %._crit_edge95
@@ -2142,8 +2142,8 @@ define internal fastcc ptr @split_and_resolve(ptr noundef %0, ptr noundef %1, i1
   br label %115
 
 115:                                              ; preds = %13, %3, %10, %._crit_edge101.thread
-  %.063 = phi ptr [ %114, %._crit_edge101.thread ], [ null, %10 ], [ null, %3 ], [ null, %13 ]
-  ret ptr %.063
+  %.0 = phi ptr [ %114, %._crit_edge101.thread ], [ null, %10 ], [ null, %3 ], [ null, %13 ]
+  ret ptr %.0
 }
 
 declare i32 @opal_ifnametokindex(ptr noundef) local_unnamed_addr #2

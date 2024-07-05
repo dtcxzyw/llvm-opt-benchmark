@@ -183,12 +183,12 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
-  %r.011.i = phi i32 [ 285804033, %entry ], [ %shr.i, %for.body.i ]
-  %d.addr.010.i = phi double [ %call, %entry ], [ %5, %for.body.i ]
-  %and.i = and i32 %r.011.i, 255
+  %d.addr.012.i = phi double [ %call, %entry ], [ %5, %for.body.i ]
+  %r.010.i = phi i32 [ 285804033, %entry ], [ %shr.i, %for.body.i ]
+  %and.i = and i32 %r.010.i, 255
   %shl.i = shl nuw i32 1, %and.i
-  %shr.i = lshr i32 %r.011.i, 8
-  %5 = tail call double @llvm.fmuladd.f64(double %d.addr.010.i, double 0x400921FB54442D18, double 0x4005BF0A8B145769)
+  %shr.i = lshr i32 %r.010.i, 8
+  %5 = tail call double @llvm.fmuladd.f64(double %d.addr.012.i, double 0x400921FB54442D18, double 0x4005BF0A8B145769)
   %6 = bitcast double %5 to i64
   %conv.i = zext i32 %shl.i to i64
   %cmp1.i = icmp ult i64 %6, %conv.i

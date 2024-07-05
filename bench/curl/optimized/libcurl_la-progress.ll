@@ -347,8 +347,8 @@ if.then35.i:                                      ; preds = %if.else.i37
   br label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.then35.i, %if.else.i37, %if.then26.i, %land.lhs.true.i, %if.end12.i
-  %ulpercen.0.i = phi i64 [ %div31.i, %if.then26.i ], [ %div40.i39, %if.then35.i ], [ 0, %if.else.i37 ], [ 0, %land.lhs.true.i ], [ 0, %if.end12.i ]
   %ulestimate.0.i = phi i64 [ %div22.i, %if.then26.i ], [ %div22.i, %if.then35.i ], [ %div22.i, %if.else.i37 ], [ 0, %land.lhs.true.i ], [ 0, %if.end12.i ]
+  %ulpercen.0.i = phi i64 [ %div31.i, %if.then26.i ], [ %div40.i39, %if.then35.i ], [ 0, %if.else.i37 ], [ 0, %land.lhs.true.i ], [ 0, %if.end12.i ]
   %and46.i = and i32 %38, 64
   %tobool47.not.i = icmp eq i32 %and46.i, 0
   br i1 %tobool47.not.i, label %if.end78.i, label %land.lhs.true48.i

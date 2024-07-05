@@ -3036,8 +3036,8 @@ if.end53.i:                                       ; preds = %if.end50.i, %if.els
   br label %_ssl_get_default_verify_paths_impl.exit
 
 if.then.i.i:                                      ; preds = %if.end50.i, %if.end35.i, %if.end20.i
-  %ofile.1.ph.i = phi ptr [ null, %if.end20.i ], [ %ofile.09.i, %if.end35.i ], [ %ofile.09.i, %if.end50.i ]
   %odir_env.1.ph.i = phi ptr [ null, %if.end20.i ], [ null, %if.end35.i ], [ %odir_env.012.i, %if.end50.i ]
+  %ofile.1.ph.i = phi ptr [ null, %if.end20.i ], [ %ofile.09.i, %if.end35.i ], [ %ofile.09.i, %if.end50.i ]
   %4 = load i64, ptr %ofile_env.03.i, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %5, 0
@@ -4121,9 +4121,9 @@ if.then245.thread:                                ; preds = %if.then9
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %v.0176 = phi ptr [ null, %for.body.lr.ph ], [ %call218.sink, %for.inc ]
-  %j.0175 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %call19 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call5, i32 noundef %j.0175) #11
+  %j.0176 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %v.0175 = phi ptr [ null, %for.body.lr.ph ], [ %call218.sink, %for.inc ]
+  %call19 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call5, i32 noundef %j.0176) #11
   %1 = load i32, ptr %call19, align 8
   switch i32 %1, label %sw.default176 [
     i32 4, label %sw.bb
@@ -4214,7 +4214,7 @@ sw.epilog.sink.split:                             ; preds = %if.end36, %sw.bb40,
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end36
-  %v.1 = phi ptr [ %v.0176, %if.end36 ], [ %call44, %sw.epilog.sink.split ]
+  %v.1 = phi ptr [ %v.0175, %if.end36 ], [ %call44, %sw.epilog.sink.split ]
   %as.0 = phi ptr [ null, %if.end36 ], [ %7, %sw.epilog.sink.split ]
   %cmp46 = icmp eq ptr %v.1, null
   br i1 %cmp46, label %if.then47, label %if.end48
@@ -4619,7 +4619,7 @@ if.then1.i253:                                    ; preds = %if.end.i250
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i250, %if.then1.i253, %if.end228
-  %inc = add nuw nsw i32 %j.0175, 1
+  %inc = add nuw nsw i32 %j.0176, 1
   %call16 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call5) #11
   %cmp17 = icmp slt i32 %inc, %call16
   br i1 %cmp17, label %for.body, label %if.end231, !llvm.loop !7
@@ -5152,9 +5152,9 @@ if.then25:                                        ; preds = %if.end22
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end22, %if.then25, %entry
-  %errstr.addr.0 = phi ptr [ %call26, %if.then25 ], [ %errstr, %if.end22 ], [ %errstr, %entry ]
-  %reason_obj.0 = phi ptr [ %call5, %if.then25 ], [ %call5, %if.end22 ], [ null, %entry ]
   %lib_obj.0 = phi ptr [ %call15, %if.then25 ], [ %call15, %if.end22 ], [ null, %entry ]
+  %reason_obj.0 = phi ptr [ %call5, %if.then25 ], [ %call5, %if.end22 ], [ null, %entry ]
+  %errstr.addr.0 = phi ptr [ %call26, %if.then25 ], [ %errstr, %if.end22 ], [ %errstr, %entry ]
   %cmp29 = icmp eq ptr %errstr.addr.0, null
   %spec.store.select = select i1 %cmp29, ptr @.str.26, ptr %errstr.addr.0
   %cmp33.not = icmp eq ptr %sslsock, null
@@ -14237,9 +14237,9 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %len.021.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %len.1.i, %for.inc.i ]
-  %i.020.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc29.i, %for.inc.i ]
-  %call16.i = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i, i32 noundef %i.020.i) #11
+  %i.021.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc29.i, %for.inc.i ]
+  %len.020.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %len.1.i, %for.inc.i ]
+  %call16.i = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i, i32 noundef %i.021.i) #11
   %call19.i = tail call i32 @OPENSSL_sk_find(ptr noundef nonnull %call2.i, ptr noundef %call16.i) #11
   %cmp20.i = icmp slt i32 %call19.i, 0
   br i1 %cmp20.i, label %for.inc.i, label %if.end23.i
@@ -14266,16 +14266,16 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %_ssl__SSLSocket_shared_ciphers_impl.exit
 
 if.end27.i:                                       ; preds = %if.end23.i
-  %inc.i = add i32 %len.021.i, 1
-  %conv28.i = sext i32 %len.021.i to i64
+  %inc.i = add i32 %len.020.i, 1
+  %conv28.i = sext i32 %len.020.i to i64
   %call8.val.i = load ptr, ptr %2, align 8
   %arrayidx.i.i = getelementptr ptr, ptr %call8.val.i, i64 %conv28.i
   store ptr %call24.i, ptr %arrayidx.i.i, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end27.i, %for.body.i
-  %len.1.i = phi i32 [ %len.021.i, %for.body.i ], [ %inc.i, %if.end27.i ]
-  %inc29.i = add nuw nsw i32 %i.020.i, 1
+  %len.1.i = phi i32 [ %len.020.i, %for.body.i ], [ %inc.i, %if.end27.i ]
+  %inc29.i = add nuw nsw i32 %i.021.i, 1
   %call13.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call.i) #11
   %cmp.i = icmp slt i32 %inc29.i, %call13.i
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !19
@@ -15078,9 +15078,9 @@ sw.default:                                       ; preds = %if.then
   br label %if.end56
 
 if.end56:                                         ; preds = %sw.bb36.split, %sw.bb36, %if.then45, %if.else27, %if.then33, %if.then, %sw.bb, %sw.bb4, %sw.bb5, %sw.bb7, %sw.default, %if.then14, %if.else24, %if.else22, %if.then53, %entry
-  %type.2 = phi ptr [ %2, %sw.default ], [ %19, %if.then53 ], [ %12, %if.then14 ], [ %14, %if.else22 ], [ %15, %if.else24 ], [ %2, %sw.bb7 ], [ %6, %sw.bb5 ], [ %5, %sw.bb4 ], [ %4, %sw.bb ], [ %2, %entry ], [ %2, %if.then ], [ %17, %if.then33 ], [ %2, %if.else27 ], [ %2, %sw.bb36 ], [ %18, %if.then45 ], [ %2, %sw.bb36.split ]
   %errstr.1 = phi ptr [ @.str.242, %sw.default ], [ @.str.239, %if.then53 ], [ @.str.239, %if.then14 ], [ @.str.239, %if.else22 ], [ @.str.240, %if.else24 ], [ @.str.238, %sw.bb7 ], [ @.str.236, %sw.bb5 ], [ @.str.235, %sw.bb4 ], [ @.str.234, %sw.bb ], [ null, %entry ], [ @.str.237, %if.then ], [ null, %if.then33 ], [ null, %if.else27 ], [ @.str.241, %sw.bb36 ], [ null, %if.then45 ], [ null, %sw.bb36.split ]
   %p.0 = phi i32 [ 10, %sw.default ], [ 8, %if.then53 ], [ 8, %if.then14 ], [ 8, %if.else22 ], [ 5, %if.else24 ], [ %err.sroa.0.0.copyload, %sw.bb7 ], [ 3, %sw.bb5 ], [ 2, %sw.bb4 ], [ 6, %sw.bb ], [ 0, %entry ], [ %err.sroa.0.0.copyload, %if.then ], [ 5, %if.then33 ], [ 5, %if.else27 ], [ 1, %sw.bb36 ], [ 1, %if.then45 ], [ 1, %sw.bb36.split ]
+  %type.2 = phi ptr [ %2, %sw.default ], [ %19, %if.then53 ], [ %12, %if.then14 ], [ %14, %if.else22 ], [ %15, %if.else24 ], [ %2, %sw.bb7 ], [ %6, %sw.bb5 ], [ %5, %sw.bb4 ], [ %4, %sw.bb ], [ %2, %entry ], [ %2, %if.then ], [ %17, %if.then33 ], [ %2, %if.else27 ], [ %2, %sw.bb36 ], [ %18, %if.then45 ], [ %2, %sw.bb36.split ]
   tail call fastcc void @fill_and_set_sslerror(ptr noundef nonnull %1, ptr noundef nonnull %sslsock, ptr noundef %type.2, i32 noundef %p.0, ptr noundef %errstr.1, i32 noundef %lineno, i64 noundef %call)
   tail call void @ERR_clear_error() #11
   %exc.i = getelementptr inbounds i8, ptr %sslsock, i64 72

@@ -253,16 +253,16 @@ define internal i32 @dissect_rftap(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 42:                                               ; preds = %112, %12
   %.0132.i = phi i32 [ 8, %12 ], [ %.1.i, %112 ]
-  %.0124131.i = phi i32 [ 0, %12 ], [ %113, %112 ]
-  %.0125130.i = phi i32 [ 1, %12 ], [ %114, %112 ]
+  %.0124131.i = phi i32 [ 1, %12 ], [ %114, %112 ]
+  %.0125130.i = phi i32 [ 0, %12 ], [ %113, %112 ]
   %43 = load i64, ptr %5, align 8
-  %44 = zext i32 %.0125130.i to i64
+  %44 = zext i32 %.0124131.i to i64
   %45 = and i64 %43, %44
   %.not128.i = icmp eq i64 %45, 0
   br i1 %.not128.i, label %112, label %46
 
 46:                                               ; preds = %42
-  switch i32 %.0124131.i, label %dissect_rftap_header.exit [
+  switch i32 %.0125130.i, label %dissect_rftap_header.exit [
     i32 0, label %47
     i32 1, label %51
     i32 2, label %55
@@ -367,8 +367,8 @@ define internal i32 @dissect_rftap(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 112:                                              ; preds = %102, %98, %85, %81, %75, %69, %63, %59, %55, %51, %47, %46, %46, %42
   %.1.i = phi i32 [ %111, %102 ], [ %101, %98 ], [ %97, %85 ], [ %84, %81 ], [ %80, %75 ], [ %74, %69 ], [ %68, %63 ], [ %.0132.i, %46 ], [ %.0132.i, %46 ], [ %62, %59 ], [ %58, %55 ], [ %54, %51 ], [ %50, %47 ], [ %.0132.i, %42 ]
-  %113 = add nuw nsw i32 %.0124131.i, 1
-  %114 = shl i32 %.0125130.i, 1
+  %113 = add nuw nsw i32 %.0125130.i, 1
+  %114 = shl i32 %.0124131.i, 1
   %exitcond.not.i = icmp eq i32 %113, 16
   br i1 %exitcond.not.i, label %115, label %42, !llvm.loop !4
 

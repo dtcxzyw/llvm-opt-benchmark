@@ -56,13 +56,13 @@ define ptr @Mvc_CoverAlgebraicMultiply(ptr noundef %0, ptr noundef %1) local_unn
   br label %43
 
 33:                                               ; preds = %36
-  %34 = add nsw i32 %.06076, -1
-  %35 = icmp sgt i32 %.06076, 0
+  %34 = add nsw i32 %.06176, -1
+  %35 = icmp sgt i32 %.06176, 0
   br i1 %35, label %36, label %.thread71, !llvm.loop !4
 
 36:                                               ; preds = %.preheader75, %33
-  %.06076 = phi i32 [ %10, %.preheader75 ], [ %34, %33 ]
-  %37 = zext nneg i32 %.06076 to i64
+  %.06176 = phi i32 [ %10, %.preheader75 ], [ %34, %33 ]
+  %37 = zext nneg i32 %.06176 to i64
   %38 = getelementptr inbounds [1 x i32], ptr %11, i64 0, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = getelementptr inbounds [1 x i32], ptr %13, i64 0, i64 %37
@@ -72,9 +72,9 @@ define ptr @Mvc_CoverAlgebraicMultiply(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not, label %33, label %.thread
 
 43:                                               ; preds = %27, %14
-  %.061.in.in = phi i32 [ %19, %14 ], [ %32, %27 ]
-  %.061.in.not = icmp eq i32 %.061.in.in, 0
-  br i1 %.061.in.not, label %.thread71, label %.thread
+  %.062.in.in = phi i32 [ %19, %14 ], [ %32, %27 ]
+  %.062.in.not = icmp eq i32 %.062.in.in, 0
+  br i1 %.062.in.not, label %.thread71, label %.thread
 
 .thread:                                          ; preds = %36, %20, %43
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -83,8 +83,8 @@ define ptr @Mvc_CoverAlgebraicMultiply(ptr noundef %0, ptr noundef %1) local_unn
 .thread71:                                        ; preds = %33, %.thread, %43
   %44 = tail call ptr @Mvc_CoverClone(ptr noundef %0) #4
   %45 = getelementptr inbounds i8, ptr %0, i64 16
-  %.06381 = load ptr, ptr %45, align 8
-  %.not6782 = icmp eq ptr %.06381, null
+  %.081 = load ptr, ptr %45, align 8
+  %.not6782 = icmp eq ptr %.081, null
   br i1 %.not6782, label %._crit_edge, label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.thread71
@@ -97,28 +97,28 @@ define ptr @Mvc_CoverAlgebraicMultiply(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %51, label %._crit_edge, label %.lr.ph84.split
 
 .loopexit74:                                      ; preds = %91, %.lr.ph84.split
-  %.063 = load ptr, ptr %.06383, align 8
-  %.not67 = icmp eq ptr %.063, null
+  %.0 = load ptr, ptr %.083, align 8
+  %.not67 = icmp eq ptr %.0, null
   br i1 %.not67, label %._crit_edge, label %.lr.ph84.splitthread-pre-split, !llvm.loop !6
 
 .lr.ph84.splitthread-pre-split:                   ; preds = %.loopexit74
-  %.06278.pr = load ptr, ptr %46, align 8
+  %.06378.pr = load ptr, ptr %46, align 8
   br label %.lr.ph84.split
 
 .lr.ph84.split:                                   ; preds = %.lr.ph84, %.lr.ph84.splitthread-pre-split
-  %.06278 = phi ptr [ %.06278.pr, %.lr.ph84.splitthread-pre-split ], [ %50, %.lr.ph84 ]
-  %.06383 = phi ptr [ %.063, %.lr.ph84.splitthread-pre-split ], [ %.06381, %.lr.ph84 ]
-  %.not6879 = icmp eq ptr %.06278, null
+  %.06378 = phi ptr [ %.06378.pr, %.lr.ph84.splitthread-pre-split ], [ %50, %.lr.ph84 ]
+  %.083 = phi ptr [ %.0, %.lr.ph84.splitthread-pre-split ], [ %.081, %.lr.ph84 ]
+  %.not6879 = icmp eq ptr %.06378, null
   br i1 %.not6879, label %.loopexit74, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph84.split
-  %52 = getelementptr inbounds i8, ptr %.06383, i64 8
-  %53 = getelementptr inbounds i8, ptr %.06383, i64 16
-  %54 = getelementptr inbounds i8, ptr %.06383, i64 20
+  %52 = getelementptr inbounds i8, ptr %.083, i64 8
+  %53 = getelementptr inbounds i8, ptr %.083, i64 16
+  %54 = getelementptr inbounds i8, ptr %.083, i64 20
   br label %55
 
 55:                                               ; preds = %.lr.ph, %91
-  %.06280 = phi ptr [ %.06278, %.lr.ph ], [ %.062, %91 ]
+  %.06380 = phi ptr [ %.06378, %.lr.ph ], [ %.063, %91 ]
   %56 = tail call ptr @Mvc_CubeAlloc(ptr noundef %44) #4
   %57 = load i32, ptr %52, align 8
   %58 = and i32 %57, 16777215
@@ -128,7 +128,7 @@ define ptr @Mvc_CoverAlgebraicMultiply(ptr noundef %0, ptr noundef %1) local_unn
   ]
 
 .preheader:                                       ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %.06280, i64 16
+  %59 = getelementptr inbounds i8, ptr %.06380, i64 16
   %60 = getelementptr inbounds i8, ptr %56, i64 16
   %61 = and i32 %57, 16777215
   %62 = zext nneg i32 %61 to i64
@@ -136,7 +136,7 @@ define ptr @Mvc_CoverAlgebraicMultiply(ptr noundef %0, ptr noundef %1) local_unn
 
 63:                                               ; preds = %55
   %64 = load i32, ptr %53, align 8
-  %65 = getelementptr inbounds i8, ptr %.06280, i64 16
+  %65 = getelementptr inbounds i8, ptr %.06380, i64 16
   %66 = load i32, ptr %65, align 8
   %67 = or i32 %66, %64
   %68 = getelementptr inbounds i8, ptr %56, i64 16
@@ -145,13 +145,13 @@ define ptr @Mvc_CoverAlgebraicMultiply(ptr noundef %0, ptr noundef %1) local_unn
 
 69:                                               ; preds = %55
   %70 = load i32, ptr %53, align 8
-  %71 = getelementptr inbounds i8, ptr %.06280, i64 16
+  %71 = getelementptr inbounds i8, ptr %.06380, i64 16
   %72 = load i32, ptr %71, align 8
   %73 = or i32 %72, %70
   %74 = getelementptr inbounds i8, ptr %56, i64 16
   store i32 %73, ptr %74, align 8
   %75 = load i32, ptr %54, align 4
-  %76 = getelementptr inbounds i8, ptr %.06280, i64 20
+  %76 = getelementptr inbounds i8, ptr %.06380, i64 20
   %77 = load i32, ptr %76, align 4
   %78 = or i32 %77, %75
   %79 = getelementptr inbounds i8, ptr %56, i64 20
@@ -188,8 +188,8 @@ define ptr @Mvc_CoverAlgebraicMultiply(ptr noundef %0, ptr noundef %1) local_unn
   %92 = load i32, ptr %49, align 8
   %93 = add nsw i32 %92, 1
   store i32 %93, ptr %49, align 8
-  %.062 = load ptr, ptr %.06280, align 8
-  %.not68 = icmp eq ptr %.062, null
+  %.063 = load ptr, ptr %.06380, align 8
+  %.not68 = icmp eq ptr %.063, null
   br i1 %.not68, label %.loopexit74, label %55, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit74, %.lr.ph84, %.thread71
@@ -208,8 +208,8 @@ declare ptr @Mvc_CubeAlloc(ptr noundef) local_unnamed_addr #1
 define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Mvc_CoverClone(ptr noundef %0) #4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %.03958 = load ptr, ptr %4, align 8
-  %.not59 = icmp eq ptr %.03958, null
+  %.058 = load ptr, ptr %4, align 8
+  %.not59 = icmp eq ptr %.058, null
   br i1 %.not59, label %._crit_edge, label %.lr.ph61
 
 .lr.ph61:                                         ; preds = %2
@@ -220,17 +220,17 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr nocapture noundef rea
   br label %9
 
 9:                                                ; preds = %.lr.ph61, %.critedge
-  %.03960 = phi ptr [ %.03958, %.lr.ph61 ], [ %.039, %.critedge ]
-  %.03850 = load ptr, ptr %5, align 8
-  %.not4151 = icmp eq ptr %.03850, null
+  %.060 = phi ptr [ %.058, %.lr.ph61 ], [ %.0, %.critedge ]
+  %.03950 = load ptr, ptr %5, align 8
+  %.not4151 = icmp eq ptr %.03950, null
   br i1 %.not4151, label %.critedge47, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %10 = getelementptr inbounds i8, ptr %.03960, i64 8
+  %10 = getelementptr inbounds i8, ptr %.060, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 16777215
-  %13 = getelementptr inbounds i8, ptr %.03960, i64 20
-  %14 = getelementptr inbounds i8, ptr %.03960, i64 16
+  %13 = getelementptr inbounds i8, ptr %.060, i64 20
+  %14 = getelementptr inbounds i8, ptr %.060, i64 16
   switch i32 %12, label %.preheader [
     i32 0, label %.lr.ph.split.us
     i32 1, label %.lr.ph.split.us53
@@ -241,15 +241,15 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr nocapture noundef rea
   br label %16
 
 16:                                               ; preds = %.critedge45.us, %.lr.ph.split.us
-  %.03852.us = phi ptr [ %.03850, %.lr.ph.split.us ], [ %.038.us, %.critedge45.us ]
-  %17 = getelementptr inbounds i8, ptr %.03852.us, i64 16
+  %.03952.us = phi ptr [ %.03950, %.lr.ph.split.us ], [ %.039.us, %.critedge45.us ]
+  %17 = getelementptr inbounds i8, ptr %.03952.us, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %15, %18
   br i1 %19, label %.critedge, label %.critedge45.us
 
 .critedge45.us:                                   ; preds = %16
-  %.038.us = load ptr, ptr %.03852.us, align 8
-  %.not41.us = icmp eq ptr %.038.us, null
+  %.039.us = load ptr, ptr %.03952.us, align 8
+  %.not41.us = icmp eq ptr %.039.us, null
   br i1 %.not41.us, label %.critedge47, label %16, !llvm.loop !10
 
 .lr.ph.split.us53:                                ; preds = %.lr.ph
@@ -257,37 +257,37 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr nocapture noundef rea
   br label %21
 
 21:                                               ; preds = %.critedge45.us55, %.lr.ph.split.us53
-  %.03852.us54 = phi ptr [ %.03850, %.lr.ph.split.us53 ], [ %.038.us56, %.critedge45.us55 ]
-  %22 = getelementptr inbounds i8, ptr %.03852.us54, i64 16
+  %.03952.us54 = phi ptr [ %.03950, %.lr.ph.split.us53 ], [ %.039.us56, %.critedge45.us55 ]
+  %22 = getelementptr inbounds i8, ptr %.03952.us54, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %20, %23
   br i1 %24, label %25, label %.critedge45.us55
 
 25:                                               ; preds = %21
   %26 = load i32, ptr %13, align 4
-  %27 = getelementptr inbounds i8, ptr %.03852.us54, i64 20
+  %27 = getelementptr inbounds i8, ptr %.03952.us54, i64 20
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %26, %28
   br i1 %29, label %.critedge, label %.critedge45.us55
 
 .critedge45.us55:                                 ; preds = %25, %21
-  %.038.us56 = load ptr, ptr %.03852.us54, align 8
-  %.not41.us57 = icmp eq ptr %.038.us56, null
+  %.039.us56 = load ptr, ptr %.03952.us54, align 8
+  %.not41.us57 = icmp eq ptr %.039.us56, null
   br i1 %.not41.us57, label %.critedge47, label %21, !llvm.loop !10
 
 .preheader:                                       ; preds = %.lr.ph, %.critedge45.loopexit
-  %.03852 = phi ptr [ %.038, %.critedge45.loopexit ], [ %.03850, %.lr.ph ]
-  %30 = getelementptr inbounds i8, ptr %.03852, i64 16
+  %.03952 = phi ptr [ %.039, %.critedge45.loopexit ], [ %.03950, %.lr.ph ]
+  %30 = getelementptr inbounds i8, ptr %.03952, i64 16
   br label %34
 
 31:                                               ; preds = %34
-  %32 = add nsw i32 %.049, -1
-  %33 = icmp sgt i32 %.049, 0
+  %32 = add nsw i32 %.03649, -1
+  %33 = icmp sgt i32 %.03649, 0
   br i1 %33, label %34, label %.critedge, !llvm.loop !11
 
 34:                                               ; preds = %.preheader, %31
-  %.049 = phi i32 [ %12, %.preheader ], [ %32, %31 ]
-  %35 = zext nneg i32 %.049 to i64
+  %.03649 = phi i32 [ %12, %.preheader ], [ %32, %31 ]
+  %35 = zext nneg i32 %.03649 to i64
   %36 = getelementptr inbounds [1 x i32], ptr %14, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds [1 x i32], ptr %30, i64 0, i64 %35
@@ -296,12 +296,12 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr nocapture noundef rea
   br i1 %.not42, label %31, label %.critedge45.loopexit
 
 .critedge45.loopexit:                             ; preds = %34
-  %.038 = load ptr, ptr %.03852, align 8
-  %.not41 = icmp eq ptr %.038, null
+  %.039 = load ptr, ptr %.03952, align 8
+  %.not41 = icmp eq ptr %.039, null
   br i1 %.not41, label %.critedge47, label %.preheader, !llvm.loop !10
 
 .critedge47:                                      ; preds = %.critedge45.us55, %.critedge45.us, %.critedge45.loopexit, %9
-  %40 = tail call ptr @Mvc_CubeDup(ptr noundef %3, ptr noundef nonnull %.03960) #4
+  %40 = tail call ptr @Mvc_CubeDup(ptr noundef %3, ptr noundef nonnull %.060) #4
   %41 = load ptr, ptr %6, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %45, label %43
@@ -321,8 +321,8 @@ define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr nocapture noundef rea
   br label %.critedge
 
 .critedge:                                        ; preds = %25, %16, %31, %45
-  %.039 = load ptr, ptr %.03960, align 8
-  %.not = icmp eq ptr %.039, null
+  %.0 = load ptr, ptr %.060, align 8
+  %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.critedge, %2

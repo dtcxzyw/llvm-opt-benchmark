@@ -621,9 +621,9 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_get_addr(ptr nocapture nou
   br label %55
 
 55:                                               ; preds = %50, %.loopexit
-  %.045 = phi i64 [ %49, %.loopexit ], [ %54, %50 ]
+  %.0 = phi i64 [ %49, %.loopexit ], [ %54, %50 ]
   %56 = getelementptr inbounds i8, ptr %1, i64 56
-  store i64 %.045, ptr %56, align 8
+  store i64 %.0, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 56
@@ -632,7 +632,7 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_get_addr(ptr nocapture nou
   br i1 %.not51, label %78, label %61
 
 61:                                               ; preds = %55
-  %62 = call i32 @H5EA_get(ptr noundef %22, i64 noundef %.045, ptr noundef nonnull %4) #10
+  %62 = call i32 @H5EA_get(ptr noundef %22, i64 noundef %.0, ptr noundef nonnull %4) #10
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %64, label %68
 
@@ -659,7 +659,7 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_get_addr(ptr nocapture nou
 
 78:                                               ; preds = %55
   %79 = getelementptr inbounds i8, ptr %1, i64 32
-  %80 = call i32 @H5EA_get(ptr noundef %22, i64 noundef %.045, ptr noundef nonnull %79) #10
+  %80 = call i32 @H5EA_get(ptr noundef %22, i64 noundef %.0, ptr noundef nonnull %79) #10
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %82, label %86
 
@@ -692,8 +692,8 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_get_addr(ptr nocapture nou
   br label %97
 
 97:                                               ; preds = %93, %95, %82, %64, %12
-  %.044 = phi i32 [ -1, %64 ], [ 0, %93 ], [ 0, %95 ], [ -1, %82 ], [ -1, %12 ]
-  ret i32 %.044
+  %.045 = phi i32 [ -1, %64 ], [ 0, %93 ], [ 0, %95 ], [ -1, %82 ], [ -1, %12 ]
+  ret i32 %.045
 }
 
 ; Function Attrs: nounwind uwtable
@@ -986,7 +986,7 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_remove(ptr nocapture nound
   br label %61
 
 61:                                               ; preds = %56, %.loopexit
-  %.048 = phi i64 [ %55, %.loopexit ], [ %60, %56 ]
+  %.0 = phi i64 [ %55, %.loopexit ], [ %60, %56 ]
   %62 = getelementptr inbounds i8, ptr %0, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 56
@@ -995,7 +995,7 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_remove(ptr nocapture nound
   br i1 %.not54, label %98, label %66
 
 66:                                               ; preds = %61
-  %67 = call i32 @H5EA_get(ptr noundef %28, i64 noundef %.048, ptr noundef nonnull %4) #10
+  %67 = call i32 @H5EA_get(ptr noundef %28, i64 noundef %.0, ptr noundef nonnull %4) #10
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %69, label %73
 
@@ -1034,7 +1034,7 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_remove(ptr nocapture nound
   store i32 0, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 0, ptr %91, align 4
-  %92 = call i32 @H5EA_set(ptr noundef %28, i64 noundef %.048, ptr noundef nonnull %4) #10
+  %92 = call i32 @H5EA_set(ptr noundef %28, i64 noundef %.0, ptr noundef nonnull %4) #10
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %94, label %129
 
@@ -1046,7 +1046,7 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_remove(ptr nocapture nound
 
 98:                                               ; preds = %61
   store i64 -1, ptr %5, align 8
-  %99 = call i32 @H5EA_get(ptr noundef %28, i64 noundef %.048, ptr noundef nonnull %5) #10
+  %99 = call i32 @H5EA_get(ptr noundef %28, i64 noundef %.0, ptr noundef nonnull %5) #10
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %101, label %105
 
@@ -1082,7 +1082,7 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_remove(ptr nocapture nound
 
 122:                                              ; preds = %109, %105
   store i64 -1, ptr %5, align 8
-  %123 = call i32 @H5EA_set(ptr noundef %28, i64 noundef %.048, ptr noundef nonnull %5) #10
+  %123 = call i32 @H5EA_set(ptr noundef %28, i64 noundef %.0, ptr noundef nonnull %5) #10
   %124 = icmp slt i32 %123, 0
   br i1 %124, label %125, label %129
 
@@ -1093,8 +1093,8 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_remove(ptr nocapture nound
   br label %129
 
 129:                                              ; preds = %89, %122, %125, %118, %101, %94, %85, %69, %21, %13
-  %.047 = phi i32 [ -1, %21 ], [ -1, %69 ], [ -1, %94 ], [ 0, %89 ], [ -1, %85 ], [ -1, %101 ], [ -1, %125 ], [ 0, %122 ], [ -1, %118 ], [ -1, %13 ]
-  ret i32 %.047
+  %.048 = phi i32 [ -1, %21 ], [ -1, %69 ], [ -1, %94 ], [ 0, %89 ], [ -1, %85 ], [ -1, %101 ], [ -1, %125 ], [ 0, %122 ], [ -1, %118 ], [ -1, %13 ]
+  ret i32 %.048
 }
 
 ; Function Attrs: nounwind uwtable

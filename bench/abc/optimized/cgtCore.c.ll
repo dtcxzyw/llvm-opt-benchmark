@@ -105,8 +105,8 @@ define range(i32 0, 2) i32 @Cgt_SimulationFilter(ptr nocapture noundef readonly 
   br i1 %.not22, label %33, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %33, %.lr.ph33, %27, %.preheader26, %.preheader
-  %.020 = phi i32 [ 1, %.preheader ], [ 1, %.preheader26 ], [ 0, %.lr.ph33 ], [ 1, %27 ], [ 0, %.lr.ph ], [ 1, %33 ]
-  ret i32 %.020
+  %.0 = phi i32 [ 1, %.preheader ], [ 1, %.preheader26 ], [ 0, %.lr.ph33 ], [ 1, %27 ], [ 0, %.lr.ph ], [ 1, %33 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1501,8 +1501,8 @@ Abc_Clock.exit27:                                 ; preds = %Abc_Clock.exit, %18
   br label %27
 
 27:                                               ; preds = %24, %Abc_Clock.exit27
-  %.023 = phi ptr [ %9, %24 ], [ %2, %Abc_Clock.exit27 ]
-  %28 = call ptr @Cgt_ManCreate(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.023) #16
+  %.0 = phi ptr [ %9, %24 ], [ %2, %Abc_Clock.exit27 ]
+  %28 = call ptr @Cgt_ManCreate(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0) #16
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %3, ptr %29, align 8
   %30 = call ptr @Cgt_ManDeriveAigForGating(ptr noundef %28) #16
@@ -1546,9 +1546,9 @@ Abc_Clock.exit29:                                 ; preds = %27, %34
   br i1 %.not.i, label %Bar_ProgressUpdate.exit.us, label %.lr.ph.split
 
 Bar_ProgressUpdate.exit.us:                       ; preds = %.lr.ph, %Bar_ProgressUpdate.exit.us
-  %.038.us = phi i32 [ %52, %Bar_ProgressUpdate.exit.us ], [ 0, %.lr.ph ]
-  call void @Bar_ProgressUpdate_int(ptr noundef null, i32 noundef %.038.us, ptr noundef null) #16
-  %52 = call i32 @Cgt_ClockGatingRange(ptr noundef nonnull %28, i32 noundef %.038.us)
+  %.02338.us = phi i32 [ %52, %Bar_ProgressUpdate.exit.us ], [ 0, %.lr.ph ]
+  call void @Bar_ProgressUpdate_int(ptr noundef null, i32 noundef %.02338.us, ptr noundef null) #16
+  %52 = call i32 @Cgt_ClockGatingRange(ptr noundef nonnull %28, i32 noundef %.02338.us)
   %53 = load ptr, ptr %31, align 8
   %54 = getelementptr i8, ptr %53, i64 140
   %.val.us = load i32, ptr %54, align 4
@@ -1556,17 +1556,17 @@ Bar_ProgressUpdate.exit.us:                       ; preds = %.lr.ph, %Bar_Progre
   br i1 %55, label %Bar_ProgressUpdate.exit.us, label %._crit_edge, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %Bar_ProgressUpdate.exit
-  %.038 = phi i32 [ %59, %Bar_ProgressUpdate.exit ], [ 0, %.lr.ph ]
+  %.02338 = phi i32 [ %59, %Bar_ProgressUpdate.exit ], [ 0, %.lr.ph ]
   %56 = load i32, ptr %48, align 4
-  %57 = icmp sgt i32 %56, %.038
+  %57 = icmp sgt i32 %56, %.02338
   br i1 %57, label %Bar_ProgressUpdate.exit, label %58
 
 58:                                               ; preds = %.lr.ph.split
-  call void @Bar_ProgressUpdate_int(ptr noundef nonnull %48, i32 noundef %.038, ptr noundef null) #16
+  call void @Bar_ProgressUpdate_int(ptr noundef nonnull %48, i32 noundef %.02338, ptr noundef null) #16
   br label %Bar_ProgressUpdate.exit
 
 Bar_ProgressUpdate.exit:                          ; preds = %.lr.ph.split, %58
-  %59 = call i32 @Cgt_ClockGatingRange(ptr noundef nonnull %28, i32 noundef %.038)
+  %59 = call i32 @Cgt_ClockGatingRange(ptr noundef nonnull %28, i32 noundef %.02338)
   %60 = load ptr, ptr %31, align 8
   %61 = getelementptr i8, ptr %60, i64 140
   %.val = load i32, ptr %61, align 4

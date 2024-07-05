@@ -2771,18 +2771,18 @@ while.body.i:                                     ; preds = %call18.i.noexc, %wh
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %while.body.i
-  %__len.013.i.i.i = phi i64 [ 8, %while.body.i ], [ %__len.1.i.i.i, %while.body.i.i.i ]
-  %__first.addr.012.i.i.i = phi ptr [ @_ZN7rocksdb24CompressedSecondaryCache17malloc_bin_sizes_E, %while.body.i ], [ %__first.addr.1.i.i.i, %while.body.i.i.i ]
-  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %add.ptr.i.i.i.i.i70 = getelementptr inbounds i16, ptr %__first.addr.012.i.i.i, i64 %shr.i.i.i
+  %__first.addr.013.i.i.i = phi ptr [ @_ZN7rocksdb24CompressedSecondaryCache17malloc_bin_sizes_E, %while.body.i ], [ %__first.addr.1.i.i.i, %while.body.i.i.i ]
+  %__len.012.i.i.i = phi i64 [ 8, %while.body.i ], [ %__len.1.i.i.i, %while.body.i.i.i ]
+  %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
+  %add.ptr.i.i.i.i.i70 = getelementptr inbounds i16, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %62 = load i16, ptr %add.ptr.i.i.i.i.i70, align 2
   %conv.i.i.i.i = zext i16 %62 to i64
   %cmp.i.i.i.i = icmp ult i64 %add.i, %conv.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i70, i64 2
   %63 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %63
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__first.addr.012.i.i.i, ptr %incdec.ptr.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.012.i.i.i, %63
   %__len.1.i.i.i = select i1 %cmp.i.i.i.i, i64 %shr.i.i.i, i64 %sub2.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__first.addr.013.i.i.i, ptr %incdec.ptr.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt11upper_boundIPKtmET_S2_S2_RKT0_.exit.i, !llvm.loop !33
 
@@ -3056,18 +3056,18 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body
-  %__len.013.i.i = phi i64 [ 8, %while.body ], [ %__len.1.i.i, %while.body.i.i ]
-  %__first.addr.012.i.i = phi ptr [ @_ZN7rocksdb24CompressedSecondaryCache17malloc_bin_sizes_E, %while.body ], [ %__first.addr.1.i.i, %while.body.i.i ]
-  %shr.i.i = lshr i64 %__len.013.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %__first.addr.012.i.i, i64 %shr.i.i
+  %__first.addr.013.i.i = phi ptr [ @_ZN7rocksdb24CompressedSecondaryCache17malloc_bin_sizes_E, %while.body ], [ %__first.addr.1.i.i, %while.body.i.i ]
+  %__len.012.i.i = phi i64 [ 8, %while.body ], [ %__len.1.i.i, %while.body.i.i ]
+  %shr.i.i = lshr i64 %__len.012.i.i, 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %__first.addr.013.i.i, i64 %shr.i.i
   %2 = load i16, ptr %add.ptr.i.i.i.i, align 2
   %conv.i.i.i = zext i16 %2 to i64
   %cmp.i.i.i = icmp ult i64 %add, %conv.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 2
   %3 = xor i64 %shr.i.i, -1
-  %sub2.i.i = add nsw i64 %__len.013.i.i, %3
-  %__first.addr.1.i.i = select i1 %cmp.i.i.i, ptr %__first.addr.012.i.i, ptr %incdec.ptr.i.i
+  %sub2.i.i = add nsw i64 %__len.012.i.i, %3
   %__len.1.i.i = select i1 %cmp.i.i.i, i64 %shr.i.i, i64 %sub2.i.i
+  %__first.addr.1.i.i = select i1 %cmp.i.i.i, ptr %__first.addr.013.i.i, ptr %incdec.ptr.i.i
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11upper_boundIPKtmET_S2_S2_RKT0_.exit, !llvm.loop !33
 

@@ -611,8 +611,8 @@ cleanup.action29:                                 ; preds = %invoke.cont13
   br label %ehcleanup32
 
 ehcleanup32:                                      ; preds = %lpad12, %cleanup.action29, %ehcleanup26
-  %arrayinit.endOfInit.1 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 128), %cleanup.action29 ], [ getelementptr inbounds (i8, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 192), %ehcleanup26 ], [ getelementptr inbounds (i8, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 128), %lpad12 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %91, %cleanup.action29 ], [ %.pn, %ehcleanup26 ], [ %88, %lpad12 ]
+  %arrayinit.endOfInit.1 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 128), %cleanup.action29 ], [ getelementptr inbounds (i8, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 192), %ehcleanup26 ], [ getelementptr inbounds (i8, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 128), %lpad12 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #8
   br label %ehcleanup43
@@ -637,8 +637,8 @@ ehcleanup43.thread:                               ; preds = %cleanup.action41, %
   br label %cleanup.done48
 
 ehcleanup43:                                      ; preds = %ehcleanup32, %cleanup.action35, %lpad5
-  %arrayinit.endOfInit.3 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 64), %cleanup.action35 ], [ %arrayinit.endOfInit.1, %ehcleanup32 ], [ getelementptr inbounds (i8, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 64), %lpad5 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %92, %cleanup.action35 ], [ %.pn.pn.pn, %ehcleanup32 ], [ %87, %lpad5 ]
+  %arrayinit.endOfInit.3 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 64), %cleanup.action35 ], [ %arrayinit.endOfInit.1, %ehcleanup32 ], [ getelementptr inbounds (i8, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 64), %lpad5 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8

@@ -136,7 +136,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 .lr.ph:                                           ; preds = %.preheader, %59
   %10 = phi i32 [ %60, %59 ], [ %8, %.preheader ]
   %.067147 = phi i32 [ %.1, %59 ], [ 0, %.preheader ]
-  %.069146 = phi i32 [ %.170, %59 ], [ 0, %.preheader ]
+  %.068146 = phi i32 [ %.169, %59 ], [ 0, %.preheader ]
   %.0123145 = phi i32 [ %.2, %59 ], [ 0, %.preheader ]
   %sext = shl i32 %10, 24
   %11 = ashr exact i32 %sext, 24
@@ -261,7 +261,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
 
 59:                                               ; preds = %.lr.ph, %55, %57, %52, %47, %44, %41, %parse_flag.exit, %12
   %.2 = phi i32 [ %.0123145, %57 ], [ %.0123145, %55 ], [ %.0123145, %52 ], [ %.0123145, %47 ], [ %.0123145, %.lr.ph ], [ %.0123145, %44 ], [ %.0123145, %41 ], [ %37, %parse_flag.exit ], [ %.0123145, %12 ]
-  %.170 = phi i32 [ %.069146, %57 ], [ %.069146, %55 ], [ %.069146, %52 ], [ %.069146, %47 ], [ 1, %.lr.ph ], [ %.069146, %44 ], [ %.069146, %41 ], [ %.069146, %parse_flag.exit ], [ %.069146, %12 ]
+  %.169 = phi i32 [ %.068146, %57 ], [ %.068146, %55 ], [ %.068146, %52 ], [ %.068146, %47 ], [ 1, %.lr.ph ], [ %.068146, %44 ], [ %.068146, %41 ], [ %.068146, %parse_flag.exit ], [ %.068146, %12 ]
   %.1 = phi i32 [ %.067147, %57 ], [ %.067147, %55 ], [ 1, %52 ], [ %.067147, %47 ], [ %.067147, %.lr.ph ], [ %.067147, %44 ], [ %.067147, %41 ], [ %.067147, %parse_flag.exit ], [ %.067147, %12 ]
   %60 = tail call i32 @H5_get_option(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.63, ptr noundef nonnull @l_opts) #13
   %.not = icmp eq i32 %60, -1
@@ -269,7 +269,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
 
 ._crit_edge:                                      ; preds = %59, %.preheader
   %.0123.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %59 ]
-  %.069.lcssa = phi i32 [ 0, %.preheader ], [ %.170, %59 ]
+  %.068.lcssa = phi i32 [ 0, %.preheader ], [ %.169, %59 ]
   %.067.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %59 ]
   %61 = load ptr, ptr @fname_src, align 8
   %62 = icmp eq ptr %61, null
@@ -346,7 +346,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   unreachable
 
 .thread:                                          ; preds = %84, %86
-  %.066130 = phi i64 [ %88, %86 ], [ %78, %84 ]
+  %.0130 = phi i64 [ %88, %86 ], [ %78, %84 ]
   %.not102 = icmp eq i32 %.067.lcssa, 0
   br i1 %.not102, label %101, label %92
 
@@ -465,7 +465,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   br label %343
 
 161:                                              ; preds = %141
-  %.not105 = icmp eq i32 %.069.lcssa, 0
+  %.not105 = icmp eq i32 %.068.lcssa, 0
   br i1 %.not105, label %184, label %162
 
 162:                                              ; preds = %161
@@ -516,19 +516,19 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
 
 .lr.ph152:                                        ; preds = %184, %.lr.ph152._crit_edge
   %188 = phi ptr [ %216, %.lr.ph152._crit_edge ], [ %185, %184 ]
-  %.0150 = phi i64 [ %192, %.lr.ph152._crit_edge ], [ 1, %184 ]
-  %189 = getelementptr inbounds i8, ptr %188, i64 %.0150
+  %.065150 = phi i64 [ %192, %.lr.ph152._crit_edge ], [ 1, %184 ]
+  %189 = getelementptr inbounds i8, ptr %188, i64 %.065150
   %190 = load i8, ptr %189, align 1
   %191 = icmp eq i8 %190, 47
-  %192 = add nuw i64 %.0150, 1
+  %192 = add nuw i64 %.065150, 1
   br i1 %191, label %193, label %.lr.ph152._crit_edge
 
 193:                                              ; preds = %.lr.ph152
   %194 = tail call noalias ptr @calloc(i64 noundef %192, i64 noundef 1) #16
-  %195 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %194, ptr noundef nonnull dereferenceable(1) %188, i64 noundef %.0150) #13
-  %196 = getelementptr inbounds i8, ptr %194, i64 %.0150
+  %195 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %194, ptr noundef nonnull dereferenceable(1) %188, i64 noundef %.065150) #13
+  %196 = getelementptr inbounds i8, ptr %194, i64 %.065150
   store i8 0, ptr %196, align 1
-  %197 = tail call i32 @H5Lexists(i64 noundef %.066130, ptr noundef %194, i64 noundef 0) #13
+  %197 = tail call i32 @H5Lexists(i64 noundef %.0130, ptr noundef %194, i64 noundef 0) #13
   %198 = icmp slt i32 %197, 1
   br i1 %198, label %199, label %215
 
@@ -587,7 +587,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   br i1 %221, label %224, label %243
 
 224:                                              ; preds = %.critedge
-  %225 = call i32 @H5Lcopy(i64 noundef %80, ptr noundef %222, i64 noundef %.066130, ptr noundef %223, i64 noundef 0, i64 noundef 0) #13
+  %225 = call i32 @H5Lcopy(i64 noundef %80, ptr noundef %222, i64 noundef %.0130, ptr noundef %223, i64 noundef 0, i64 noundef 0) #13
   %226 = icmp slt i32 %225, 0
   br i1 %226, label %227, label %262
 
@@ -618,7 +618,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   br label %343
 
 243:                                              ; preds = %.critedge
-  %244 = call i32 @H5Ocopy(i64 noundef %80, ptr noundef %222, i64 noundef %.066130, ptr noundef %223, i64 noundef %103, i64 noundef %143) #13
+  %244 = call i32 @H5Ocopy(i64 noundef %80, ptr noundef %222, i64 noundef %.0130, ptr noundef %223, i64 noundef %103, i64 noundef %143) #13
   %245 = icmp slt i32 %244, 0
   br i1 %245, label %246, label %262
 
@@ -752,7 +752,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   br label %343
 
 323:                                              ; preds = %304
-  %324 = call i32 @H5Fclose(i64 noundef %.066130) #13
+  %324 = call i32 @H5Fclose(i64 noundef %.0130) #13
   %325 = icmp slt i32 %324, 0
   br i1 %325, label %326, label %342
 
@@ -787,7 +787,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   unreachable
 
 343:                                              ; preds = %326, %338, %334, %307, %319, %315, %288, %300, %296, %269, %281, %277, %246, %258, %254, %227, %239, %235, %199, %211, %207, %165, %177, %173, %145, %157, %153, %125, %137, %133, %105, %117, %113
-  %.068 = phi i64 [ -1, %113 ], [ -1, %117 ], [ -1, %105 ], [ -1, %133 ], [ -1, %137 ], [ -1, %125 ], [ %143, %153 ], [ %143, %157 ], [ %143, %145 ], [ %143, %173 ], [ %143, %177 ], [ %143, %165 ], [ %143, %207 ], [ %143, %211 ], [ %143, %199 ], [ %143, %235 ], [ %143, %239 ], [ %143, %227 ], [ %143, %254 ], [ %143, %258 ], [ %143, %246 ], [ %143, %277 ], [ %143, %281 ], [ %143, %269 ], [ %143, %296 ], [ %143, %300 ], [ %143, %288 ], [ %143, %315 ], [ %143, %319 ], [ %143, %307 ], [ %143, %334 ], [ %143, %338 ], [ %143, %326 ]
+  %.070 = phi i64 [ -1, %113 ], [ -1, %117 ], [ -1, %105 ], [ -1, %133 ], [ -1, %137 ], [ -1, %125 ], [ %143, %153 ], [ %143, %157 ], [ %143, %145 ], [ %143, %173 ], [ %143, %177 ], [ %143, %165 ], [ %143, %207 ], [ %143, %211 ], [ %143, %199 ], [ %143, %235 ], [ %143, %239 ], [ %143, %227 ], [ %143, %254 ], [ %143, %258 ], [ %143, %246 ], [ %143, %277 ], [ %143, %281 ], [ %143, %269 ], [ %143, %296 ], [ %143, %300 ], [ %143, %288 ], [ %143, %315 ], [ %143, %319 ], [ %143, %307 ], [ %143, %334 ], [ %143, %338 ], [ %143, %326 ]
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %344 = getelementptr inbounds i8, ptr %3, i64 8
   %345 = load ptr, ptr %344, align 8
@@ -816,9 +816,9 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
 
 356:                                              ; preds = %353, %350
   %357 = call i32 @H5Pclose(i64 noundef %103) #13
-  %358 = call i32 @H5Pclose(i64 noundef %.068) #13
+  %358 = call i32 @H5Pclose(i64 noundef %.070) #13
   %359 = call i32 @H5Fclose(i64 noundef %80) #13
-  %360 = call i32 @H5Fclose(i64 noundef %.066130) #13
+  %360 = call i32 @H5Fclose(i64 noundef %.0130) #13
   %361 = load i32, ptr %4, align 4
   %.not119 = icmp eq i32 %361, 0
   %362 = load ptr, ptr %5, align 8

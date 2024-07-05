@@ -667,9 +667,9 @@ define weak_odr void @_Z20nbnxmSimdPruneKernelIL12KernelLayout0EEvP16NbnxnPairli
 
 .preheader:                                       ; preds = %.preheader161, %132
   %121 = phi i1 [ false, %132 ], [ true, %.preheader161 ]
-  %.0143168 = phi i32 [ 1, %132 ], [ 0, %.preheader161 ]
-  %122 = shl nuw nsw i32 1, %.0143168
-  %123 = shl nuw nsw i32 2, %.0143168
+  %.0145168 = phi i32 [ 1, %132 ], [ 0, %.preheader161 ]
+  %122 = shl nuw nsw i32 1, %.0145168
+  %123 = shl nuw nsw i32 2, %.0145168
   %124 = zext nneg i32 %123 to i64
   %125 = zext nneg i32 %122 to i64
   br label %126

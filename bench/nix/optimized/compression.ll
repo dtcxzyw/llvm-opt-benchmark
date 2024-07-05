@@ -795,9 +795,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
 39:                                               ; preds = %38, %32
   %.pn.pn = phi { ptr, i32 } [ %.pn, %38 ], [ %33, %32 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.112 = extractvalue { ptr, i32 } %.pn.pn, 1
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix24UnknownCompressionMethodE) #20
-  %41 = icmp eq i32 %.113, %40
+  %41 = icmp eq i32 %.112, %40
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %39
@@ -812,7 +812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
 
 46:                                               ; preds = %39
   %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #20
-  %48 = icmp eq i32 %.113, %47
+  %48 = icmp eq i32 %.112, %47
   %49 = call ptr @__cxa_begin_catch(ptr %.1) #20
   br i1 %48, label %50, label %68
 
@@ -2950,9 +2950,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
 39:                                               ; preds = %38, %32
   %.pn.pn = phi { ptr, i32 } [ %.pn, %38 ], [ %33, %32 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %.115 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.114 = extractvalue { ptr, i32 } %.pn.pn, 1
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix16CompressionErrorE) #20
-  %41 = icmp eq i32 %.115, %40
+  %41 = icmp eq i32 %.114, %40
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %39
@@ -2967,7 +2967,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
 
 46:                                               ; preds = %39
   %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #20
-  %48 = icmp eq i32 %.115, %47
+  %48 = icmp eq i32 %.114, %47
   %49 = call ptr @__cxa_begin_catch(ptr %.1) #20
   br i1 %48, label %50, label %68
 
@@ -4596,9 +4596,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %2
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %16, %.lr.ph.i.i
   %.041.i.i = phi i64 [ %9, %.lr.ph.i.i ], [ %19, %16 ]
-  %.02740.i.i = phi ptr [ %11, %.lr.ph.i.i ], [ %17, %16 ]
+  %.02840.i.i = phi ptr [ %11, %.lr.ph.i.i ], [ %17, %16 ]
   %13 = add i64 %.041.i.i, -1
-  %14 = tail call ptr @memchr(ptr noundef nonnull %.02740.i.i, i32 noundef 58, i64 noundef %13) #20
+  %14 = tail call ptr @memchr(ptr noundef nonnull %.02840.i.i, i32 noundef 58, i64 noundef %13) #20
   %.not34.i.i = icmp eq ptr %14, null
   br i1 %.not34.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 

@@ -1163,12 +1163,12 @@ for.body.lr.ph:                                   ; preds = %_ZNK6vectorIN2lp8ro
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin1.0344 = phi ptr [ %50, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %least_coeff_is_bounded.0343 = phi i8 [ 0, %for.body.lr.ph ], [ %least_coeff_is_bounded.2, %for.inc ]
-  %least_coeff_index.0342 = phi i32 [ 0, %for.body.lr.ph ], [ %least_coeff_index.2, %for.inc ]
-  %least_coeff_is_unique.0341 = phi i1 [ false, %for.body.lr.ph ], [ %least_coeff_is_unique.2, %for.inc ]
-  %53 = load i32, ptr %__begin1.0344, align 8
-  %m_coeff.i = getelementptr inbounds i8, ptr %__begin1.0344, i64 8
+  %least_coeff_is_bounded.0344 = phi i8 [ 0, %for.body.lr.ph ], [ %least_coeff_is_bounded.2, %for.inc ]
+  %__begin1.0343 = phi ptr [ %50, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %least_coeff_is_unique.0342 = phi i1 [ false, %for.body.lr.ph ], [ %least_coeff_is_unique.2, %for.inc ]
+  %least_coeff_index.0341 = phi i32 [ 0, %for.body.lr.ph ], [ %least_coeff_index.2, %for.inc ]
+  %53 = load i32, ptr %__begin1.0343, align 8
+  %m_coeff.i = getelementptr inbounds i8, ptr %__begin1.0343, i64 8
   %54 = load ptr, ptr %lra, align 8
   %call22 = invoke noundef zeroext i1 @_ZNK2lp10lar_solver15column_is_fixedEj(ptr noundef nonnull align 8 dereferenceable(1888) %54, i32 noundef %53)
           to label %invoke.cont21 unwind label %lpad.loopexit.split-lp.loopexit
@@ -1681,16 +1681,16 @@ invoke.cont87:                                    ; preds = %invoke.cont83, %if.
   %134 = load i32, ptr %arrayidx.i.i.i240, align 4
   %.off.i.i241 = add i32 %134, -3
   %switch.i.i242 = icmp ult i32 %.off.i.i241, 2
-  %135 = and i8 %least_coeff_is_bounded.0343, 1
+  %135 = and i8 %least_coeff_is_bounded.0344, 1
   %tobool9024 = icmp ne i8 %135, 0
   %tobool90 = select i1 %switch.i.i242, i1 %tobool9024, i1 false
   %frombool91 = zext i1 %tobool90 to i8
   br label %if.end93
 
 if.end93:                                         ; preds = %if.then.i.i.i.i233, %call4.i.i.i.i.noexc235, %if.then.i.i16.i.i, %invoke.cont83, %invoke.cont87, %invoke.cont78
-  %least_coeff_is_unique.1 = phi i1 [ true, %invoke.cont78 ], [ false, %invoke.cont87 ], [ %least_coeff_is_unique.0341, %invoke.cont83 ], [ %least_coeff_is_unique.0341, %if.then.i.i16.i.i ], [ %least_coeff_is_unique.0341, %call4.i.i.i.i.noexc235 ], [ %least_coeff_is_unique.0341, %if.then.i.i.i.i233 ]
-  %least_coeff_index.1 = phi i32 [ %53, %invoke.cont78 ], [ %least_coeff_index.0342, %invoke.cont87 ], [ %least_coeff_index.0342, %invoke.cont83 ], [ %least_coeff_index.0342, %if.then.i.i16.i.i ], [ %least_coeff_index.0342, %call4.i.i.i.i.noexc235 ], [ %least_coeff_index.0342, %if.then.i.i.i.i233 ]
-  %least_coeff_is_bounded.1 = phi i8 [ %frombool80, %invoke.cont78 ], [ %frombool91, %invoke.cont87 ], [ %least_coeff_is_bounded.0343, %invoke.cont83 ], [ %least_coeff_is_bounded.0343, %if.then.i.i16.i.i ], [ %least_coeff_is_bounded.0343, %call4.i.i.i.i.noexc235 ], [ %least_coeff_is_bounded.0343, %if.then.i.i.i.i233 ]
+  %least_coeff_index.1 = phi i32 [ %53, %invoke.cont78 ], [ %least_coeff_index.0341, %invoke.cont87 ], [ %least_coeff_index.0341, %invoke.cont83 ], [ %least_coeff_index.0341, %if.then.i.i16.i.i ], [ %least_coeff_index.0341, %call4.i.i.i.i.noexc235 ], [ %least_coeff_index.0341, %if.then.i.i.i.i233 ]
+  %least_coeff_is_unique.1 = phi i1 [ true, %invoke.cont78 ], [ false, %invoke.cont87 ], [ %least_coeff_is_unique.0342, %invoke.cont83 ], [ %least_coeff_is_unique.0342, %if.then.i.i16.i.i ], [ %least_coeff_is_unique.0342, %call4.i.i.i.i.noexc235 ], [ %least_coeff_is_unique.0342, %if.then.i.i.i.i233 ]
+  %least_coeff_is_bounded.1 = phi i8 [ %frombool80, %invoke.cont78 ], [ %frombool91, %invoke.cont87 ], [ %least_coeff_is_bounded.0344, %invoke.cont83 ], [ %least_coeff_is_bounded.0344, %if.then.i.i16.i.i ], [ %least_coeff_is_bounded.0344, %call4.i.i.i.i.noexc235 ], [ %least_coeff_is_bounded.0344, %if.then.i.i.i.i233 ]
   %136 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %136, ptr noundef nonnull align 8 dereferenceable(16) %aux59)
           to label %.noexc.i244 unwind label %terminate.lpad.i243
@@ -1707,10 +1707,10 @@ terminate.lpad.i243:                              ; preds = %.noexc.i244, %if.en
   unreachable
 
 for.inc:                                          ; preds = %.noexc.i244, %.noexc.i48, %invoke.cont56
-  %least_coeff_is_unique.2 = phi i1 [ true, %invoke.cont56 ], [ %least_coeff_is_unique.0341, %.noexc.i48 ], [ %least_coeff_is_unique.1, %.noexc.i244 ]
-  %least_coeff_index.2 = phi i32 [ %53, %invoke.cont56 ], [ %least_coeff_index.0342, %.noexc.i48 ], [ %least_coeff_index.1, %.noexc.i244 ]
-  %least_coeff_is_bounded.2 = phi i8 [ %frombool, %invoke.cont56 ], [ %least_coeff_is_bounded.0343, %.noexc.i48 ], [ %least_coeff_is_bounded.1, %.noexc.i244 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0344, i64 40
+  %least_coeff_index.2 = phi i32 [ %53, %invoke.cont56 ], [ %least_coeff_index.0341, %.noexc.i48 ], [ %least_coeff_index.1, %.noexc.i244 ]
+  %least_coeff_is_unique.2 = phi i1 [ true, %invoke.cont56 ], [ %least_coeff_is_unique.0342, %.noexc.i48 ], [ %least_coeff_is_unique.1, %.noexc.i244 ]
+  %least_coeff_is_bounded.2 = phi i8 [ %frombool, %invoke.cont56 ], [ %least_coeff_is_bounded.0344, %.noexc.i48 ], [ %least_coeff_is_bounded.1, %.noexc.i244 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0343, i64 40
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %invoke.cont98.loopexit, label %for.body
 
@@ -1719,8 +1719,8 @@ invoke.cont98.loopexit:                           ; preds = %for.inc
   br label %invoke.cont98
 
 invoke.cont98:                                    ; preds = %invoke.cont, %invoke.cont98.loopexit, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit
-  %least_coeff_is_unique.0.lcssa = phi i1 [ false, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit ], [ %least_coeff_is_unique.2, %invoke.cont98.loopexit ], [ false, %invoke.cont ]
   %least_coeff_index.0.lcssa = phi i32 [ 0, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit ], [ %least_coeff_index.2, %invoke.cont98.loopexit ], [ 0, %invoke.cont ]
+  %least_coeff_is_unique.0.lcssa = phi i1 [ false, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit ], [ %least_coeff_is_unique.2, %invoke.cont98.loopexit ], [ false, %invoke.cont ]
   %least_coeff_is_bounded.0.lcssa = phi i1 [ false, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit ], [ %139, %invoke.cont98.loopexit ], [ false, %invoke.cont ]
   %140 = load i32, ptr %gcds, align 8
   %cmp.i.i.i.i247 = icmp eq i32 %140, 0

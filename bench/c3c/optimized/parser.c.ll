@@ -797,8 +797,8 @@ advance.exit:                                     ; preds = %9
   br label %.outer, !llvm.loop !11
 
 .loopexit79:                                      ; preds = %26, %34
-  %.052 = phi ptr [ null, %34 ], [ %.061.ph, %26 ]
-  ret ptr %.052
+  %.054 = phi ptr [ null, %34 ], [ %.061.ph, %26 ]
+  ret ptr %.054
 }
 
 declare ptr @parse_top_level_statement(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -819,50 +819,50 @@ define dso_local zeroext i1 @parse_stdin() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %14
   %5 = phi i32 [ %18, %14 ], [ %3, %0 ]
   %.02738 = phi i64 [ %.1, %14 ], [ 65536, %0 ]
-  %.02837 = phi ptr [ %.129, %14 ], [ %1, %0 ]
-  %.03036 = phi i64 [ %16, %14 ], [ 0, %0 ]
+  %.02837 = phi i64 [ %16, %14 ], [ 0, %0 ]
+  %.02936 = phi ptr [ %.130, %14 ], [ %1, %0 ]
   %6 = add i64 %.02738, -1
-  %.not = icmp ult i64 %.03036, %6
+  %.not = icmp ult i64 %.02837, %6
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %.lr.ph
   %8 = shl i64 %.02738, 1
-  %9 = icmp eq ptr %1, %.02837
+  %9 = icmp eq ptr %1, %.02936
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
   %11 = call noalias ptr @malloc(i64 noundef %8) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr nonnull align 16 %1, i64 %.03036, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr nonnull align 16 %1, i64 %.02837, i1 false)
   br label %14
 
 12:                                               ; preds = %7
-  %13 = call ptr @realloc(ptr noundef nonnull %.02837, i64 noundef %8) #13
+  %13 = call ptr @realloc(ptr noundef nonnull %.02936, i64 noundef %8) #13
   br label %14
 
 14:                                               ; preds = %10, %12, %.lr.ph
-  %.129 = phi ptr [ %11, %10 ], [ %13, %12 ], [ %.02837, %.lr.ph ]
+  %.130 = phi ptr [ %11, %10 ], [ %13, %12 ], [ %.02936, %.lr.ph ]
   %.1 = phi i64 [ %8, %10 ], [ %8, %12 ], [ %.02738, %.lr.ph ]
   %15 = trunc i32 %5 to i8
-  %16 = add i64 %.03036, 1
-  %17 = getelementptr inbounds i8, ptr %.129, i64 %.03036
+  %16 = add i64 %.02837, 1
+  %17 = getelementptr inbounds i8, ptr %.130, i64 %.02837
   store i8 %15, ptr %17, align 1
   %18 = call i32 @getchar()
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %14, %0
-  %.030.lcssa = phi i64 [ 0, %0 ], [ %16, %14 ]
-  %.028.lcssa = phi ptr [ %1, %0 ], [ %.129, %14 ]
-  %20 = getelementptr inbounds [65536 x i8], ptr %1, i64 0, i64 %.030.lcssa
+  %.029.lcssa = phi ptr [ %1, %0 ], [ %.130, %14 ]
+  %.028.lcssa = phi i64 [ 0, %0 ], [ %16, %14 ]
+  %20 = getelementptr inbounds [65536 x i8], ptr %1, i64 0, i64 %.028.lcssa
   store i8 0, ptr %20, align 1
-  %21 = add i64 %.030.lcssa, 1
+  %21 = add i64 %.028.lcssa, 1
   %22 = call ptr @calloc_arena(i64 noundef %21) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull align 1 %.028.lcssa, i64 %21, i1 false)
-  %.not33 = icmp eq ptr %.028.lcssa, %1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull align 1 %.029.lcssa, i64 %21, i1 false)
+  %.not33 = icmp eq ptr %.029.lcssa, %1
   br i1 %.not33, label %24, label %23
 
 23:                                               ; preds = %._crit_edge
-  call void @free(ptr noundef nonnull %.028.lcssa) #10
+  call void @free(ptr noundef nonnull %.029.lcssa) #10
   br label %24
 
 24:                                               ; preds = %23, %._crit_edge

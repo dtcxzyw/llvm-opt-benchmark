@@ -40,22 +40,22 @@ define void @_ZN3gmx21repartitionAtomMassesEP10gmx_mtop_tbfP14WarningHandler(ptr
   br i1 %.not8.i, label %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit, label %.lr.ph12.i
 
 .lr.ph12.i:                                       ; preds = %4, %._crit_edge.i
-  %.sroa.01.010.i = phi ptr [ %20, %._crit_edge.i ], [ %.val, %4 ]
-  %.059.i = phi float [ %.1.lcssa.i, %._crit_edge.i ], [ 0x47EFFFFFE0000000, %4 ]
-  %9 = getelementptr inbounds i8, ptr %.sroa.01.010.i, i64 8
+  %.0510.i = phi float [ %.1.lcssa.i, %._crit_edge.i ], [ 0x47EFFFFFE0000000, %4 ]
+  %.sroa.01.09.i = phi ptr [ %20, %._crit_edge.i ], [ %.val, %4 ]
+  %9 = getelementptr inbounds i8, ptr %.sroa.01.09.i, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph12.i
-  %12 = getelementptr inbounds i8, ptr %.sroa.01.010.i, i64 16
+  %12 = getelementptr inbounds i8, ptr %.sroa.01.09.i, i64 16
   %13 = load ptr, ptr %12, align 8
   %wide.trip.count.i = zext nneg i32 %10 to i64
   br label %14
 
 14:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
-  %.16.i = phi float [ %.059.i, %.lr.ph.i ], [ %.2.i, %14 ]
+  %.16.i = phi float [ %.0510.i, %.lr.ph.i ], [ %.2.i, %14 ]
   %15 = getelementptr inbounds %struct.t_atom, ptr %13, i64 %indvars.iv.i
   %16 = load float, ptr %15, align 4
   %17 = fcmp ogt float %16, 0.000000e+00
@@ -67,8 +67,8 @@ define void @_ZN3gmx21repartitionAtomMassesEP10gmx_mtop_tbfP14WarningHandler(ptr
   br i1 %exitcond.not.i, label %._crit_edge.i, label %14, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %14, %.lr.ph12.i
-  %.1.lcssa.i = phi float [ %.059.i, %.lr.ph12.i ], [ %.2.i, %14 ]
-  %20 = getelementptr inbounds i8, ptr %.sroa.01.010.i, i64 2384
+  %.1.lcssa.i = phi float [ %.0510.i, %.lr.ph12.i ], [ %.2.i, %14 ]
+  %20 = getelementptr inbounds i8, ptr %.sroa.01.09.i, i64 2384
   %.not.i = icmp eq ptr %20, %.val142
   br i1 %.not.i, label %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit, label %.lr.ph12.i
 
@@ -222,8 +222,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc143, %_ZNSt6v
   br label %87
 
 87:                                               ; preds = %.lr.ph251, %107
-  %.0130250 = phi i32 [ 0, %.lr.ph251 ], [ %109, %107 ]
-  %88 = sext i32 %.0130250 to i64
+  %.0132250 = phi i32 [ 0, %.lr.ph251 ], [ %109, %107 ]
+  %88 = sext i32 %.0132250 to i64
   %gep245 = getelementptr i32, ptr %invariant.gep244, i64 %88
   %89 = load i32, ptr %gep245, align 4
   %90 = sext i32 %89 to i64
@@ -259,7 +259,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc143, %_ZNSt6v
 107:                                              ; preds = %99, %105
   %storemerge137 = phi i32 [ %106, %105 ], [ -2, %99 ]
   store i32 %storemerge137, ptr %102, align 4
-  %108 = add i32 %.0130250, 1
+  %108 = add i32 %.0132250, 1
   %109 = add i32 %108, %86
   %110 = sext i32 %109 to i64
   %111 = icmp sgt i64 %84, %110

@@ -164,8 +164,8 @@ define ptr @cs_transpose(ptr noundef readonly %0, i32 noundef %1) local_unnamed_
   br label %91
 
 91:                                               ; preds = %2, %3, %._crit_edge67, %29
-  %.053 = phi ptr [ %90, %._crit_edge67 ], [ %30, %29 ], [ null, %3 ], [ null, %2 ]
-  ret ptr %.053
+  %.0 = phi ptr [ %90, %._crit_edge67 ], [ %30, %29 ], [ null, %3 ], [ null, %2 ]
+  ret ptr %.0
 }
 
 declare ptr @cs_spalloc(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

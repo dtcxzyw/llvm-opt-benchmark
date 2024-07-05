@@ -192,10 +192,10 @@ if.then26:                                        ; preds = %if.else
   br label %fail
 
 if.end31:                                         ; preds = %if.else, %if.then14
-  %node_map_from.0.in = phi ptr [ %0, %if.then14 ], [ %alias, %if.else ]
   %node_map_to.0.in = phi ptr [ %alias, %if.then14 ], [ %0, %if.else ]
-  %node_map_to.0 = load ptr, ptr %node_map_to.0.in, align 8
+  %node_map_from.0.in = phi ptr [ %0, %if.then14 ], [ %alias, %if.else ]
   %node_map_from.0 = load ptr, ptr %node_map_from.0.in, align 8
+  %node_map_to.0 = load ptr, ptr %node_map_to.0.in, align 8
   %call32 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @qapi_free_BitmapMigrationBitmapAlias) #11
   %call33 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #13
   %call34 = tail call noalias ptr @g_strdup(ptr noundef %node_map_to.0) #11

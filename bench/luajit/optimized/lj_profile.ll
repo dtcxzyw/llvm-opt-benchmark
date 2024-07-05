@@ -65,9 +65,9 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
   %1 = phi i8 [ %0, %while.body.lr.ph ], [ %9, %sw.epilog ]
-  %interval.029 = phi i32 [ 10, %while.body.lr.ph ], [ %interval.2, %sw.epilog ]
-  %mode.addr.028 = phi ptr [ %mode, %while.body.lr.ph ], [ %mode.addr.2, %sw.epilog ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %mode.addr.028, i64 1
+  %mode.addr.029 = phi ptr [ %mode, %while.body.lr.ph ], [ %mode.addr.2, %sw.epilog ]
+  %interval.028 = phi i32 [ 10, %while.body.lr.ph ], [ %interval.2, %sw.epilog ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %mode.addr.029, i64 1
   switch i8 %1, label %sw.epilog [
     i8 105, label %while.cond1.preheader
     i8 108, label %sw.bb12
@@ -82,10 +82,10 @@ while.cond1.preheader:                            ; preds = %while.body
 
 while.body7:                                      ; preds = %while.cond1.preheader, %while.body7
   %4 = phi i8 [ %5, %while.body7 ], [ %2, %while.cond1.preheader ]
-  %interval.125 = phi i32 [ %add, %while.body7 ], [ 0, %while.cond1.preheader ]
-  %mode.addr.124 = phi ptr [ %incdec.ptr8, %while.body7 ], [ %incdec.ptr, %while.cond1.preheader ]
-  %mul = mul nsw i32 %interval.125, 10
-  %incdec.ptr8 = getelementptr inbounds i8, ptr %mode.addr.124, i64 1
+  %mode.addr.125 = phi ptr [ %incdec.ptr8, %while.body7 ], [ %incdec.ptr, %while.cond1.preheader ]
+  %interval.124 = phi i32 [ %add, %while.body7 ], [ 0, %while.cond1.preheader ]
+  %mul = mul nsw i32 %interval.124, 10
+  %incdec.ptr8 = getelementptr inbounds i8, ptr %mode.addr.125, i64 1
   %narrow = add nsw i8 %4, -48
   %sub = zext nneg i8 %narrow to i32
   %add = add nsw i32 %mul, %sub
@@ -95,8 +95,8 @@ while.body7:                                      ; preds = %while.cond1.prehead
   br i1 %or.cond, label %while.body7, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body7, %while.cond1.preheader
-  %mode.addr.1.lcssa = phi ptr [ %incdec.ptr, %while.cond1.preheader ], [ %incdec.ptr8, %while.body7 ]
   %interval.1.lcssa = phi i32 [ 0, %while.cond1.preheader ], [ %add, %while.body7 ]
+  %mode.addr.1.lcssa = phi ptr [ %incdec.ptr, %while.cond1.preheader ], [ %incdec.ptr8, %while.body7 ]
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %interval.1.lcssa, i32 1)
   br label %sw.epilog
 
@@ -110,8 +110,8 @@ sw.bb12:                                          ; preds = %while.body, %while.
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %while.body, %sw.bb12, %while.end
+  %interval.2 = phi i32 [ %interval.028, %while.body ], [ %interval.028, %sw.bb12 ], [ %spec.store.select, %while.end ]
   %mode.addr.2 = phi ptr [ %incdec.ptr, %while.body ], [ %incdec.ptr, %sw.bb12 ], [ %mode.addr.1.lcssa, %while.end ]
-  %interval.2 = phi i32 [ %interval.029, %while.body ], [ %interval.029, %sw.bb12 ], [ %spec.store.select, %while.end ]
   %9 = load i8, ptr %mode.addr.2, align 1
   %tobool.not = icmp eq i8 %9, 0
   br i1 %tobool.not, label %while.end13, label %while.body, !llvm.loop !6

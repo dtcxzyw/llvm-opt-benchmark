@@ -267,8 +267,8 @@ define internal i32 @dissect_bluecom(ptr noundef %0, ptr noundef %1, ptr noundef
   %43 = load ptr, ptr %11, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.98, i32 noundef %25, i32 noundef %22) #4
   store volatile i32 0, ptr %5, align 4
-  %.0..0..0..0.3784 = load volatile i32, ptr %5, align 4
-  %44 = icmp ult i32 %.0..0..0..0.3784, %22
+  %.0..0..0..0.3783 = load volatile i32, ptr %5, align 4
+  %44 = icmp ult i32 %.0..0..0..0.3783, %22
   br i1 %44, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
@@ -479,38 +479,38 @@ define internal i32 @dissect_bluecom(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %181
 
 181:                                              ; preds = %173, %.thread100.i, %.thread.i, %145
-  %.0.i = phi i32 [ 0, %145 ], [ 40, %173 ], [ 40, %.thread100.i ], [ 40, %.thread.i ]
+  %.095.i = phi i32 [ 0, %145 ], [ 40, %173 ], [ 40, %.thread100.i ], [ 40, %.thread.i ]
   br i1 %.not66.i, label %dissect_bcp_sync_data.exit, label %182
 
 182:                                              ; preds = %181
   %183 = load i32, ptr @ett_bcp_data, align 4
   %184 = load ptr, ptr %50, align 8
-  %185 = or disjoint i32 %.0.i, 16
+  %185 = or disjoint i32 %.095.i, 16
   %186 = call ptr @tvb_get_string_enc(ptr noundef %184, ptr noundef %89, i32 noundef %185, i32 noundef 32, i32 noundef 0) #4
   %187 = load ptr, ptr %50, align 8
-  %188 = add nuw nsw i32 %.0.i, 12
+  %188 = add nuw nsw i32 %.095.i, 12
   %189 = call ptr @tvb_address_to_str(ptr noundef %187, ptr noundef %89, i32 noundef 2, i32 noundef %188) #4
-  %190 = call i32 @tvb_get_letohl(ptr noundef %89, i32 noundef %.0.i) #4
-  %191 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef %.0.i, i32 noundef %147, i32 noundef %183, ptr noundef null, ptr noundef nonnull @.str.113, ptr noundef %186, ptr noundef %189, i32 noundef %190) #4
+  %190 = call i32 @tvb_get_letohl(ptr noundef %89, i32 noundef %.095.i) #4
+  %191 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef %.095.i, i32 noundef %147, i32 noundef %183, ptr noundef null, ptr noundef nonnull @.str.113, ptr noundef %186, ptr noundef %189, i32 noundef %190) #4
   %192 = load i32, ptr @hf_bcp_searchrsp_error, align 4
-  %193 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %192, ptr noundef %89, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #4
-  %194 = or disjoint i32 %.0.i, 4
+  %193 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %192, ptr noundef %89, i32 noundef %.095.i, i32 noundef 4, i32 noundef 0) #4
+  %194 = or disjoint i32 %.095.i, 4
   %195 = load i32, ptr @hf_bcp_searchrsp_starttime, align 4
   %196 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %195, ptr noundef %89, i32 noundef %194, i32 noundef 4, i32 noundef 0) #4
-  %197 = add nuw nsw i32 %.0.i, 8
+  %197 = add nuw nsw i32 %.095.i, 8
   %198 = load i32, ptr @hf_bcp_searchrsp_lenin, align 4
   %199 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %198, ptr noundef %89, i32 noundef %197, i32 noundef 2, i32 noundef 0) #4
-  %200 = add nuw nsw i32 %.0.i, 10
+  %200 = add nuw nsw i32 %.095.i, 10
   %201 = load i32, ptr @hf_bcp_searchrsp_lenout, align 4
   %202 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %201, ptr noundef %89, i32 noundef %200, i32 noundef 2, i32 noundef 0) #4
   %203 = load i32, ptr @hf_bcp_searchrsp_ipaddr, align 4
   %204 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %203, ptr noundef %89, i32 noundef %188, i32 noundef 4, i32 noundef 0) #4
   %205 = load i32, ptr @hf_bcp_searchrsp_name, align 4
   %206 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %205, ptr noundef %89, i32 noundef %185, i32 noundef 32, i32 noundef 0) #4
-  %207 = add nuw nsw i32 %.0.i, 48
+  %207 = add nuw nsw i32 %.095.i, 48
   %208 = load i32, ptr @hf_bcp_searchrsp_ethaddr, align 4
   %209 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %208, ptr noundef %89, i32 noundef %207, i32 noundef 6, i32 noundef 0) #4
-  %210 = add nuw nsw i32 %.0.i, 54
+  %210 = add nuw nsw i32 %.095.i, 54
   %.not97.i = icmp eq i32 %147, %210
   br i1 %.not97.i, label %dissect_bcp_sync_data.exit, label %211
 
@@ -555,19 +555,19 @@ define internal i32 @dissect_bluecom(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %241
 
 241:                                              ; preds = %238, %217, %214
-  %.0.i65 = phi i32 [ 60, %238 ], [ 54, %217 ], [ 0, %214 ]
+  %.0.i = phi i32 [ 60, %238 ], [ 54, %217 ], [ 0, %214 ]
   br i1 %.not66.i, label %dissect_bcp_sync_data.exit, label %242
 
 242:                                              ; preds = %241
   %243 = load i32, ptr @ett_bcp_data, align 4
-  %244 = call i32 @tvb_get_ntohl(ptr noundef %89, i32 noundef %.0.i65) #4
-  %245 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef %.0.i65, i32 noundef %216, i32 noundef %243, ptr noundef null, ptr noundef nonnull @.str.115, i32 noundef %244) #4
+  %244 = call i32 @tvb_get_ntohl(ptr noundef %89, i32 noundef %.0.i) #4
+  %245 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef %.0.i, i32 noundef %216, i32 noundef %243, ptr noundef null, ptr noundef nonnull @.str.115, i32 noundef %244) #4
   %246 = load i32, ptr @hf_bcp_connectrsp_error, align 4
-  %247 = call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %246, ptr noundef %89, i32 noundef %.0.i65, i32 noundef 4, i32 noundef 0) #4
-  %248 = add nuw nsw i32 %.0.i65, 4
+  %247 = call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %246, ptr noundef %89, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #4
+  %248 = add nuw nsw i32 %.0.i, 4
   %249 = load i32, ptr @hf_bcp_connectrsp_lenin, align 4
   %250 = call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %249, ptr noundef %89, i32 noundef %248, i32 noundef 2, i32 noundef 0) #4
-  %251 = add nuw nsw i32 %.0.i65, 6
+  %251 = add nuw nsw i32 %.0.i, 6
   %252 = load i32, ptr @hf_bcp_connectrsp_lenout, align 4
   %253 = call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %252, ptr noundef %89, i32 noundef %251, i32 noundef 2, i32 noundef 0) #4
   br label %dissect_bcp_sync_data.exit
@@ -575,8 +575,8 @@ define internal i32 @dissect_bluecom(ptr noundef %0, ptr noundef %1, ptr noundef
 254:                                              ; preds = %102
   %255 = load ptr, ptr @bcp_subdissector_table, align 8
   %256 = call ptr @dissector_get_uint_handle(ptr noundef %255, i32 noundef %25) #4
-  %.not.i66 = icmp eq ptr %256, null
-  br i1 %.not.i66, label %259, label %257
+  %.not.i65 = icmp eq ptr %256, null
+  br i1 %.not.i65, label %259, label %257
 
 257:                                              ; preds = %254
   %258 = call i32 @call_dissector(ptr noundef nonnull %256, ptr noundef %89, ptr noundef %1, ptr noundef %17) #4

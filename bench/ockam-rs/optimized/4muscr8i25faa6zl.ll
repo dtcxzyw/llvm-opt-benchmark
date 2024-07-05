@@ -9606,8 +9606,8 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   br label %.loopexit79
 
 .loopexit79:                                      ; preds = %69, %83
-  %.sroa.657.0 = phi i64 [ %87, %83 ], [ %70, %69 ]
   %.sroa.055.0 = phi ptr [ %77, %83 ], [ %67, %69 ]
+  %.sroa.657.0 = phi i64 [ %87, %83 ], [ %70, %69 ]
   %90 = add i64 %.sroa.657.0, -1
   %91 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h56ea5d3dbf106d50E.llvm.14133294462695460135"()
           to label %.noexc31 unwind label %.loopexit85

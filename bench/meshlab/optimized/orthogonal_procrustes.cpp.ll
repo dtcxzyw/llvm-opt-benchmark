@@ -2203,30 +2203,30 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_13CwiseBinaryOpINS_8internal18scala
 
 .preheader202:                                    ; preds = %.preheader203, %300
   %.1213 = phi i1 [ %.3, %300 ], [ true, %.preheader203 ]
-  %.064212 = phi i64 [ %301, %300 ], [ 1, %.preheader203 ]
+  %.063212 = phi i64 [ %301, %300 ], [ 1, %.preheader203 ]
   %.1189211 = phi double [ %.3191, %300 ], [ %.0188215, %.preheader203 ]
-  %.idx.i68 = mul i64 %.064212, 24
+  %.idx.i68 = mul i64 %.063212, 24
   %159 = getelementptr i8, ptr %130, i64 %.idx.i68
-  %160 = getelementptr double, ptr %159, i64 %.064212
-  %161 = getelementptr inbounds double, ptr %130, i64 %.064212
+  %160 = getelementptr double, ptr %159, i64 %.063212
+  %161 = getelementptr inbounds double, ptr %130, i64 %.063212
   %162 = getelementptr inbounds i8, ptr %0, i64 %.idx.i68
   %163 = getelementptr inbounds i8, ptr %139, i64 %.idx.i68
   br label %164
 
 164:                                              ; preds = %.preheader202, %298
   %.2210 = phi i1 [ %.1213, %.preheader202 ], [ %.3, %298 ]
-  %.063208 = phi i64 [ 0, %.preheader202 ], [ %299, %298 ]
+  %.064208 = phi i64 [ 0, %.preheader202 ], [ %299, %298 ]
   %.2190207 = phi double [ %.1189211, %.preheader202 ], [ %.3191, %298 ]
   %165 = fmul double %.2190207, 0x3CC0000000000000
   %166 = fcmp ogt double %165, 0x10000000000000
   %.sroa.speculated159 = select i1 %166, double %165, double 0x10000000000000
-  %.idx.i = mul i64 %.063208, 24
+  %.idx.i = mul i64 %.064208, 24
   %167 = getelementptr i8, ptr %130, i64 %.idx.i
-  %168 = getelementptr double, ptr %167, i64 %.064212
+  %168 = getelementptr double, ptr %167, i64 %.063212
   %169 = load double, ptr %168, align 8
   %170 = tail call noundef double @llvm.fabs.f64(double %169)
   %171 = fcmp ogt double %170, %.sroa.speculated159
-  %.phi.trans.insert = getelementptr double, ptr %159, i64 %.063208
+  %.phi.trans.insert = getelementptr double, ptr %159, i64 %.064208
   %.pre = load double, ptr %.phi.trans.insert, align 8
   %172 = tail call double @llvm.fabs.f64(double %.pre)
   %173 = fcmp ogt double %172, %.sroa.speculated159
@@ -2239,7 +2239,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_13CwiseBinaryOpINS_8internal18scala
   store double %174, ptr %4, align 16, !noalias !13
   store double %169, ptr %132, align 16
   store double %.pre, ptr %133, align 8
-  %175 = getelementptr double, ptr %167, i64 %.063208
+  %175 = getelementptr double, ptr %167, i64 %.064208
   %176 = load double, ptr %175, align 8
   store double %176, ptr %134, align 8
   %177 = fsub double %.pre, %169
@@ -2343,7 +2343,7 @@ _ZN5Eigen8internal19real_2x2_jacobi_svdINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEdlEEvR
   br i1 %or.cond.i.i, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit, label %236
 
 236:                                              ; preds = %_ZN5Eigen8internal19real_2x2_jacobi_svdINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEdlEEvRKT_T1_S7_PNS_14JacobiRotationIT0_EESB_.exit
-  %237 = getelementptr inbounds double, ptr %130, i64 %.063208
+  %237 = getelementptr inbounds double, ptr %130, i64 %.064208
   %238 = fneg double %233
   br label %239
 
@@ -2467,12 +2467,12 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE15applyOnTheRightIdEEvl
 298:                                              ; preds = %164, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit94
   %.3191 = phi double [ %.sroa.speculated145, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit94 ], [ %.2190207, %164 ]
   %.3 = phi i1 [ false, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit94 ], [ %.2210, %164 ]
-  %299 = add nuw nsw i64 %.063208, 1
-  %exitcond.not = icmp eq i64 %299, %.064212
+  %299 = add nuw nsw i64 %.064208, 1
+  %exitcond.not = icmp eq i64 %299, %.063212
   br i1 %exitcond.not, label %300, label %164, !llvm.loop !18
 
 300:                                              ; preds = %298
-  %301 = add nuw nsw i64 %.064212, 1
+  %301 = add nuw nsw i64 %.063212, 1
   %302 = load i64, ptr %131, align 8
   %303 = icmp slt i64 %301, %302
   br i1 %303, label %.preheader202, label %.loopexit204, !llvm.loop !19

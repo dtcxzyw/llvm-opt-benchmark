@@ -29,15 +29,15 @@ define void @ompi_dist_graph_create_adjacent_f(ptr nocapture noundef readonly %0
   %17 = icmp eq ptr %3, @mpi_fortran_unweighted_
   %18 = icmp eq ptr %3, @mpi_fortran_weights_empty_
   %. = select i1 %18, ptr inttoptr (i64 3 to ptr), ptr %3
-  %.0 = select i1 %17, ptr inttoptr (i64 2 to ptr), ptr %.
+  %.030 = select i1 %17, ptr inttoptr (i64 2 to ptr), ptr %.
   %19 = icmp eq ptr %6, @mpi_fortran_unweighted_
   %20 = icmp eq ptr %6, @mpi_fortran_weights_empty_
   %.34 = select i1 %20, ptr inttoptr (i64 3 to ptr), ptr %6
-  %.030 = select i1 %19, ptr inttoptr (i64 2 to ptr), ptr %.34
+  %.0 = select i1 %19, ptr inttoptr (i64 2 to ptr), ptr %.34
   %21 = load i32, ptr %1, align 4
   %22 = load i32, ptr %4, align 4
   %23 = load i32, ptr %8, align 4
-  %24 = call i32 @PMPI_Dist_graph_create_adjacent(ptr noundef %14, i32 noundef %21, ptr noundef %2, ptr noundef %.0, i32 noundef %22, ptr noundef %5, ptr noundef %.030, ptr noundef %16, i32 noundef %23, ptr noundef nonnull %12) #2
+  %24 = call i32 @PMPI_Dist_graph_create_adjacent(ptr noundef %14, i32 noundef %21, ptr noundef %2, ptr noundef %.030, i32 noundef %22, ptr noundef %5, ptr noundef %.0, ptr noundef %16, i32 noundef %23, ptr noundef nonnull %12) #2
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %26, label %25
 

@@ -503,15 +503,15 @@ define noundef ptr @Cnf_CutCompose(ptr nocapture noundef readonly %0, ptr nocapt
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18, %._crit_edge.loopexit.split.loop.exit, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %19, %._crit_edge.loopexit.split.loop.exit ], [ %13, %18 ]
+  %.0108.lcssa = phi i32 [ 0, %4 ], [ %19, %._crit_edge.loopexit.split.loop.exit ], [ %13, %18 ]
   %20 = add i8 %12, -1
   store i8 %20, ptr %1, align 8
   %21 = sext i8 %20 to i32
-  %22 = icmp slt i32 %.0.lcssa, %21
+  %22 = icmp slt i32 %.0108.lcssa, %21
   br i1 %22, label %.lr.ph.i, label %Cnf_CutRemoveIthVar.exit
 
 .lr.ph.i:                                         ; preds = %._crit_edge
-  %23 = zext nneg i32 %.0.lcssa to i64
+  %23 = zext nneg i32 %.0108.lcssa to i64
   %24 = sext i8 %20 to i64
   br label %25
 
@@ -668,16 +668,16 @@ Cnf_CutMergeLeaves.exit:                          ; preds = %.preheader.i, %._cr
 87:                                               ; preds = %Cnf_CutMergeLeaves.exit
   %88 = load i8, ptr %1, align 8
   %89 = sext i8 %88 to i32
-  %90 = icmp slt i32 %.0.lcssa, %89
+  %90 = icmp slt i32 %.0108.lcssa, %89
   br i1 %90, label %.lr.ph.i118, label %.._crit_edge_crit_edge.i
 
 .._crit_edge_crit_edge.i:                         ; preds = %87
-  %.pre.i = zext nneg i32 %.0.lcssa to i64
+  %.pre.i = zext nneg i32 %.0108.lcssa to i64
   br label %Cnf_CutInsertIthVar.exit
 
 .lr.ph.i118:                                      ; preds = %87
   %91 = sext i8 %88 to i64
-  %92 = zext nneg i32 %.0.lcssa to i64
+  %92 = zext nneg i32 %.0108.lcssa to i64
   br label %93
 
 93:                                               ; preds = %93, %.lr.ph.i118
@@ -790,7 +790,7 @@ Cnf_CutInsertIthVar.exit:                         ; preds = %Cnf_CutInsertIthVar
   %159 = sext i8 %158 to i32
   %160 = add nsw i32 %159, 1
   %161 = shl nsw i32 -1, %160
-  %162 = shl nuw i32 1, %.0.lcssa
+  %162 = shl nuw i32 1, %.0108.lcssa
   %.demorgan = or i32 %161, %162
   %163 = xor i32 %.demorgan, -1
   tail call void @Kit_TruthShrink(ptr noundef %10, ptr noundef %6, i32 noundef %159, i32 noundef %160, i32 noundef %163, i32 noundef 1) #12
@@ -918,16 +918,16 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
 Kit_TruthMux.exit:                                ; preds = %select.unfold.i, %Cnf_TruthPhase.exit134
   %231 = load i8, ptr %1, align 8
   %232 = sext i8 %231 to i32
-  %233 = icmp slt i32 %.0.lcssa, %232
+  %233 = icmp slt i32 %.0108.lcssa, %232
   br i1 %233, label %.lr.ph.i140, label %.._crit_edge_crit_edge.i137
 
 .._crit_edge_crit_edge.i137:                      ; preds = %Kit_TruthMux.exit
-  %.pre.i138 = zext nneg i32 %.0.lcssa to i64
+  %.pre.i138 = zext nneg i32 %.0108.lcssa to i64
   br label %Cnf_CutInsertIthVar.exit143
 
 .lr.ph.i140:                                      ; preds = %Kit_TruthMux.exit
   %234 = sext i8 %231 to i64
-  %235 = zext nneg i32 %.0.lcssa to i64
+  %235 = zext nneg i32 %.0108.lcssa to i64
   br label %236
 
 236:                                              ; preds = %236, %.lr.ph.i140
@@ -1139,8 +1139,8 @@ Kit_TruthNot.exit157:                             ; preds = %Kit_TruthNot.exit15
   br label %341
 
 341:                                              ; preds = %329, %338, %336, %246, %Cnf_CutInsertIthVar.exit
-  %.0109 = phi ptr [ null, %Cnf_CutInsertIthVar.exit ], [ %111, %246 ], [ %111, %336 ], [ %111, %338 ], [ %111, %329 ]
-  ret ptr %.0109
+  %.0 = phi ptr [ null, %Cnf_CutInsertIthVar.exit ], [ %111, %246 ], [ %111, %336 ], [ %111, %338 ], [ %111, %329 ]
+  ret ptr %.0
 }
 
 declare void @Kit_TruthShrink(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

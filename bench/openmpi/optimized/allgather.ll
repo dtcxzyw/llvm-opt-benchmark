@@ -28,20 +28,20 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not25.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %20
-  %.01728.i = phi ptr [ %23, %20 ], [ %0, %8 ]
-  %.01827.i = phi ptr [ %22, %20 ], [ %18, %8 ]
-  %.01926.i = phi i64 [ %24, %20 ], [ %14, %8 ]
-  %spec.select24.i = tail call i64 @llvm.umin.i64(i64 %.01926.i, i64 2147483647)
+  %.01828.i = phi ptr [ %23, %20 ], [ %0, %8 ]
+  %.01927.i = phi ptr [ %22, %20 ], [ %18, %8 ]
+  %.02026.i = phi i64 [ %24, %20 ], [ %14, %8 ]
+  %spec.select24.i = tail call i64 @llvm.umin.i64(i64 %.02026.i, i64 2147483647)
   %spec.select.i = trunc nuw nsw i64 %spec.select24.i to i32
-  %19 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i, ptr noundef %.01827.i, ptr noundef %.01728.i) #4
+  %19 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i, ptr noundef %.01927.i, ptr noundef %.01828.i) #4
   %.not22.i = icmp eq i32 %19, 0
   br i1 %.not22.i, label %20, label %ompi_datatype_copy_content_same_ddt.exit
 
 20:                                               ; preds = %.lr.ph.i
   %21 = mul nsw i64 %spec.select24.i, %13
-  %22 = getelementptr inbounds i8, ptr %.01827.i, i64 %21
-  %23 = getelementptr inbounds i8, ptr %.01728.i, i64 %21
-  %24 = sub i64 %.01926.i, %spec.select24.i
+  %22 = getelementptr inbounds i8, ptr %.01927.i, i64 %21
+  %23 = getelementptr inbounds i8, ptr %.01828.i, i64 %21
+  %24 = sub i64 %.02026.i, %spec.select24.i
   %.not.i = icmp eq i64 %24, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !4
 
@@ -112,28 +112,28 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.0154201 = phi ptr [ %18, %.lr.ph ], [ %.1, %124 ]
   %.0155200 = phi i64 [ %14, %.lr.ph ], [ %128, %124 ]
   %.0156199 = phi i64 [ %15, %.lr.ph ], [ %127, %124 ]
-  %.0157198 = phi i32 [ %4, %.lr.ph ], [ %.1158, %124 ]
-  %.0165197 = phi i32 [ 1, %.lr.ph ], [ %126, %124 ]
+  %.0158198 = phi i32 [ %4, %.lr.ph ], [ %.1159, %124 ]
+  %.0166197 = phi i32 [ 1, %.lr.ph ], [ %126, %124 ]
   %64 = load ptr, ptr %61, align 8
   %65 = getelementptr inbounds i32, ptr %64, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4
   %67 = icmp sgt i32 %66, %4
-  %68 = add nsw i32 %.0157198, %.0165197
+  %68 = add nsw i32 %.0158198, %.0166197
   %69 = sub i64 0, %.0156199
-  %70 = sub nsw i32 %.0157198, %.0165197
-  %.0160 = select i1 %67, i32 %68, i32 %70
+  %70 = sub nsw i32 %.0158198, %.0166197
+  %.0161 = select i1 %67, i32 %68, i32 %70
   %.0156.pn = select i1 %67, i64 %.0156199, i64 %69
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.0154201, i64 %.0156.pn
-  %71 = icmp slt i32 %.0160, %31
+  %71 = icmp slt i32 %.0161, %31
   br i1 %71, label %72, label %82
 
 72:                                               ; preds = %63
-  %73 = add nsw i32 %68, %.0165197
-  %.0159.in = select i1 %67, i32 %73, i32 %.0157198
-  %spec.select = call i32 @llvm.smin.i32(i32 %.0159.in, i32 %31)
-  %74 = sub i32 %spec.select, %.0160
+  %73 = add nsw i32 %68, %.0166197
+  %.0160.in = select i1 %67, i32 %73, i32 %.0158198
+  %spec.select = call i32 @llvm.smin.i32(i32 %.0160.in, i32 %31)
+  %74 = sub i32 %spec.select, %.0161
   %75 = load i32, ptr %29, align 4
-  %76 = add nsw i32 %75, %.0160
+  %76 = add nsw i32 %75, %.0161
   %77 = sext i32 %76 to i64
   %78 = mul i64 %15, %77
   %79 = getelementptr inbounds i8, ptr %1, i64 %78
@@ -164,14 +164,14 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 95:                                               ; preds = %90, %89
   %.0167 = phi i32 [ 1, %89 ], [ 2, %90 ]
-  %96 = icmp slt i32 %.0157198, %31
+  %96 = icmp slt i32 %.0158198, %31
   br i1 %96, label %97, label %106
 
 97:                                               ; preds = %95
   %spec.select189 = call i32 @llvm.smin.i32(i32 %68, i32 %31)
-  %98 = sub i32 %spec.select189, %.0157198
+  %98 = sub i32 %spec.select189, %.0158198
   %99 = load i32, ptr %29, align 4
-  %100 = add nsw i32 %99, %.0157198
+  %100 = add nsw i32 %99, %.0158198
   %101 = sext i32 %100 to i64
   %102 = mul i64 %15, %101
   %103 = getelementptr inbounds i8, ptr %1, i64 %102
@@ -210,10 +210,10 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
 124:                                              ; preds = %122, %113
   %.1168 = phi i32 [ %123, %122 ], [ %114, %113 ]
   %125 = icmp slt i32 %66, %4
-  %.1158 = select i1 %125, i32 %70, i32 %.0157198
+  %.1159 = select i1 %125, i32 %70, i32 %.0158198
   %.1.idx = select i1 %125, i64 %69, i64 0
   %.1 = getelementptr inbounds i8, ptr %.0154201, i64 %.1.idx
-  %126 = shl nsw i32 %.0165197, 1
+  %126 = shl nsw i32 %.0166197, 1
   %127 = shl i64 %.0156199, 1
   %128 = shl i64 %.0155200, 1
   %129 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8

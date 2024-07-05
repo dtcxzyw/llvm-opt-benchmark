@@ -86,17 +86,17 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
 
 44:                                               ; preds = %43, %44
   %indvars.iv = phi i64 [ 0, %43 ], [ %indvars.iv.next, %44 ]
-  %.04680 = phi i64 [ %42, %43 ], [ %51, %44 ]
-  %.04779 = phi i64 [ 0, %43 ], [ %48, %44 ]
-  %.04878 = phi i64 [ 0, %43 ], [ %53, %44 ]
+  %.04681 = phi i64 [ %42, %43 ], [ %51, %44 ]
+  %.04780 = phi i64 [ 0, %43 ], [ %48, %44 ]
+  %.04879 = phi i64 [ 0, %43 ], [ %53, %44 ]
   %45 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %39, i64 %indvars.iv
   %46 = getelementptr inbounds i8, ptr %45, i64 16
   %47 = load i64, ptr %46, align 8
-  %48 = add i64 %47, %.04779
+  %48 = add i64 %47, %.04780
   %49 = getelementptr inbounds i8, ptr %45, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = ptrtoint ptr %50 to i64
-  %52 = sub i64 %.04878, %.04680
+  %52 = sub i64 %.04879, %.04681
   %53 = add i64 %52, %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -135,8 +135,8 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %.078109.i = phi i64 [ %.179.i, %150 ], [ 0, %.critedge ]
   %.080108.i = phi i32 [ %.282.i, %150 ], [ 0, %.critedge ]
   %.083107.i = phi i32 [ %.184.i, %150 ], [ 1, %.critedge ]
-  %.086105.i = phi ptr [ %.187.i, %150 ], [ %66, %.critedge ]
-  %.089104.i = phi i64 [ %.291.i, %150 ], [ 0, %.critedge ]
+  %.086105.i = phi i64 [ %.288.i, %150 ], [ 0, %.critedge ]
+  %.089104.i = phi ptr [ %.190.i, %150 ], [ %66, %.critedge ]
   %69 = icmp eq i32 %.080108.i, 0
   br i1 %69, label %70, label %86
 
@@ -144,11 +144,11 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %71 = load ptr, ptr %4, align 8
   %72 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %71, i64 %indvars.iv.i
   %73 = load ptr, ptr %72, align 8
-  store ptr %73, ptr %.086105.i, align 8
+  store ptr %73, ptr %.089104.i, align 8
   %74 = load ptr, ptr %4, align 8
   %75 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %74, i64 %indvars.iv.i, i32 2
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %.086105.i, i64 8
+  %77 = getelementptr inbounds i8, ptr %.089104.i, i64 8
   store i64 %76, ptr %77, align 8
   %78 = load ptr, ptr %4, align 8
   %79 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %78, i64 %indvars.iv.i
@@ -173,7 +173,7 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %90 = mul nsw i32 %89, 100
   %91 = sext i32 %90 to i64
   %92 = shl nsw i64 %91, 4
-  %93 = call ptr @realloc(ptr noundef %.086105.i, i64 noundef %92) #13
+  %93 = call ptr @realloc(ptr noundef %.089104.i, i64 noundef %92) #13
   %94 = icmp eq ptr %93, null
   br i1 %94, label %95, label %96
 
@@ -182,7 +182,7 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   br label %mca_fbtl_posix_preadv_generic.exit
 
 96:                                               ; preds = %88, %86
-  %.187.i = phi ptr [ %93, %88 ], [ %.086105.i, %86 ]
+  %.190.i = phi ptr [ %93, %88 ], [ %.089104.i, %86 ]
   %.184.i = phi i32 [ %89, %88 ], [ %.083107.i, %86 ]
   %97 = load i32, ptr %36, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -211,7 +211,7 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
 114:                                              ; preds = %99
   %115 = load ptr, ptr %108, align 8
   %116 = sext i32 %.181.i to i64
-  %117 = getelementptr inbounds %struct.iovec, ptr %.187.i, i64 %116
+  %117 = getelementptr inbounds %struct.iovec, ptr %.190.i, i64 %116
   store ptr %115, ptr %117, align 8
   %118 = load ptr, ptr %4, align 8
   %119 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %118, i64 %indvars.iv.next.i, i32 2
@@ -240,19 +240,19 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %137 = load i32, ptr %136, align 4
   %138 = call ptr @strerror(i32 noundef %137) #10
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.6, i32 noundef %133, ptr noundef %138) #10
-  call void @free(ptr noundef %.187.i) #10
+  call void @free(ptr noundef %.190.i) #10
   call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #10
   br label %mca_fbtl_posix_preadv_generic.exit
 
 139:                                              ; preds = %131
   %140 = load i32, ptr %0, align 8
-  %141 = call i64 @preadv(i32 noundef %140, ptr noundef %.187.i, i32 noundef %.181.i, i64 noundef %.179.i) #10
+  %141 = call i64 @preadv(i32 noundef %140, ptr noundef %.190.i, i32 noundef %.181.i, i64 noundef %.179.i) #10
   call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #10
   %142 = icmp sgt i64 %141, 0
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %139
-  %144 = add nuw nsw i64 %141, %.089104.i
+  %144 = add nuw nsw i64 %141, %.086105.i
   br label %150
 
 145:                                              ; preds = %139
@@ -266,11 +266,11 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %148 = load i32, ptr %147, align 4
   %149 = call ptr @strerror(i32 noundef %148) #10
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef %149) #10
-  call void @free(ptr noundef %.187.i) #10
+  call void @free(ptr noundef %.190.i) #10
   br label %mca_fbtl_posix_preadv_generic.exit
 
 150:                                              ; preds = %145, %143, %114
-  %.291.i = phi i64 [ %.089104.i, %114 ], [ %144, %143 ], [ %.089104.i, %145 ]
+  %.288.i = phi i64 [ %.086105.i, %114 ], [ %144, %143 ], [ %.086105.i, %145 ]
   %.282.i = phi i32 [ %130, %114 ], [ 0, %143 ], [ 0, %145 ]
   %.2.i = phi i64 [ %129, %114 ], [ %.1.i, %143 ], [ %.1.i, %145 ]
   %151 = load i32, ptr %36, align 8
@@ -279,18 +279,18 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %153, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %150, %145
-  %.089.lcssa.i = phi i64 [ %.089104.i, %145 ], [ %.291.i, %150 ]
-  call void @free(ptr noundef %.187.i) #10
+  %.086.lcssa.i = phi i64 [ %.086105.i, %145 ], [ %.288.i, %150 ]
+  call void @free(ptr noundef %.190.i) #10
   br label %mca_fbtl_posix_preadv_generic.exit
 
 .lr.ph157.i:                                      ; preds = %59, %._crit_edge147.i
   %154 = phi i32 [ %231, %._crit_edge147.i ], [ %37, %59 ]
-  %.0101155.i = phi i32 [ %.2.i59.in, %._crit_edge147.i ], [ 0, %59 ]
-  %.0103154.i = phi ptr [ %.1104.i, %._crit_edge147.i ], [ null, %59 ]
-  %.0105153.i = phi i64 [ %.1106.lcssa.i, %._crit_edge147.i ], [ 0, %59 ]
-  %.0109152.i = phi i64 [ %.1110.i, %._crit_edge147.i ], [ 0, %59 ]
+  %.0102155.i = phi i64 [ %.1103.i, %._crit_edge147.i ], [ 0, %59 ]
+  %.0104154.i = phi i32 [ %.2.i59.in, %._crit_edge147.i ], [ 0, %59 ]
+  %.0106153.i = phi ptr [ %.1107.i, %._crit_edge147.i ], [ null, %59 ]
+  %.0108152.i = phi i64 [ %.1109.lcssa.i, %._crit_edge147.i ], [ 0, %59 ]
   %155 = load ptr, ptr %4, align 8
-  %156 = sext i32 %.0101155.i to i64
+  %156 = sext i32 %.0104154.i to i64
   %157 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %155, i64 %156, i32 1
   %158 = load ptr, ptr %157, align 8
   %159 = ptrtoint ptr %158 to i64
@@ -302,8 +302,8 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
 
 163:                                              ; preds = %173, %.lr.ph157.i
   %indvars.iv.i57 = phi i64 [ %156, %.lr.ph157.i ], [ %indvars.iv.next.i58, %173 ]
-  %.098138.i = phi i32 [ %.0101155.i, %.lr.ph157.i ], [ %spec.select121.i, %173 ]
-  %.099137.i = phi i64 [ 0, %.lr.ph157.i ], [ %spec.select.i, %173 ]
+  %.099138.i = phi i32 [ %.0104154.i, %.lr.ph157.i ], [ %spec.select121.i, %173 ]
+  %.0100137.i = phi i64 [ 0, %.lr.ph157.i ], [ %spec.select.i, %173 ]
   %164 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %155, i64 %indvars.iv.i57
   %165 = getelementptr inbounds i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8
@@ -316,20 +316,20 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %172, label %.loopexit.i, label %173
 
 173:                                              ; preds = %163
-  %174 = icmp ugt i64 %171, %.099137.i
-  %spec.select.i = call i64 @llvm.umax.i64(i64 %171, i64 %.099137.i)
+  %174 = icmp ugt i64 %171, %.0100137.i
+  %spec.select.i = call i64 @llvm.umax.i64(i64 %171, i64 %.0100137.i)
   %175 = trunc nsw i64 %indvars.iv.i57 to i32
-  %spec.select121.i = select i1 %174, i32 %175, i32 %.098138.i
+  %spec.select121.i = select i1 %174, i32 %175, i32 %.099138.i
   %indvars.iv.next.i58 = add nsw i64 %indvars.iv.i57, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next.i58, %smax
-  br i1 %exitcond96.not, label %.loopexit.i, label %163, !llvm.loop !7
+  %exitcond97.not = icmp eq i64 %indvars.iv.next.i58, %smax
+  br i1 %exitcond97.not, label %.loopexit.i, label %163, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %173, %163
-  %.098124.i = phi i32 [ %.098138.i, %163 ], [ %spec.select121.i, %173 ]
+  %.099124.i = phi i32 [ %.099138.i, %163 ], [ %spec.select121.i, %173 ]
   %.2.i59.in.in = phi i64 [ %indvars.iv.i57, %163 ], [ %smax, %173 ]
   %.2.i59.in = trunc i64 %.2.i59.in.in to i32
   %.2.i59 = add i32 %.2.i59.in, -1
-  %176 = sext i32 %.098124.i to i64
+  %176 = sext i32 %.099124.i to i64
   %177 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %155, i64 %176
   %178 = getelementptr inbounds i8, ptr %177, i64 8
   %179 = load ptr, ptr %178, align 8
@@ -338,15 +338,15 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %182 = load i64, ptr %181, align 8
   %183 = sub i64 %180, %159
   %184 = add i64 %183, %182
-  %185 = icmp ugt i64 %184, %.0109152.i
+  %185 = icmp ugt i64 %184, %.0102155.i
   br i1 %185, label %186, label %192
 
 186:                                              ; preds = %.loopexit.i
-  %.not119.i = icmp eq ptr %.0103154.i, null
+  %.not119.i = icmp eq ptr %.0106153.i, null
   br i1 %.not119.i, label %188, label %187
 
 187:                                              ; preds = %186
-  call void @free(ptr noundef nonnull %.0103154.i) #10
+  call void @free(ptr noundef nonnull %.0106153.i) #10
   br label %188
 
 188:                                              ; preds = %187, %186
@@ -359,8 +359,8 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   br label %mca_fbtl_posix_preadv_generic.exit
 
 192:                                              ; preds = %188, %.loopexit.i
-  %.1110.i = phi i64 [ %.0109152.i, %.loopexit.i ], [ %184, %188 ]
-  %.1104.i = phi ptr [ %.0103154.i, %.loopexit.i ], [ %189, %188 ]
+  %.1107.i = phi ptr [ %.0106153.i, %.loopexit.i ], [ %189, %188 ]
+  %.1103.i = phi i64 [ %.0102155.i, %.loopexit.i ], [ %184, %188 ]
   %193 = call i32 @mca_fbtl_posix_lock(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 0, i64 noundef %159, i64 noundef %184, i32 noundef 10, ptr noundef nonnull %3) #10
   %194 = icmp sgt i32 %193, 0
   br i1 %194, label %195, label %.preheader.i60
@@ -375,15 +375,15 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %198 = call ptr @strerror(i32 noundef %197) #10
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.4, i32 noundef %193, ptr noundef %198) #10
   call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #10
-  call void @free(ptr noundef %.1104.i) #10
+  call void @free(ptr noundef %.1107.i) #10
   br label %mca_fbtl_posix_preadv_generic.exit
 
 .lr.ph.i61:                                       ; preds = %.preheader.i60, %208
-  %.097139.i = phi i64 [ %209, %208 ], [ 0, %.preheader.i60 ]
+  %.098139.i = phi i64 [ %209, %208 ], [ 0, %.preheader.i60 ]
   %199 = load i32, ptr %0, align 8
-  %200 = getelementptr inbounds i8, ptr %.1104.i, i64 %.097139.i
-  %201 = sub i64 %184, %.097139.i
-  %202 = add i64 %.097139.i, %159
+  %200 = getelementptr inbounds i8, ptr %.1107.i, i64 %.098139.i
+  %201 = sub i64 %184, %.098139.i
+  %202 = add i64 %.098139.i, %159
   %203 = call i64 @pread(i32 noundef %199, ptr noundef %200, i64 noundef %201, i64 noundef %202) #10
   switch i64 %203, label %208 [
     i64 -1, label %204
@@ -396,60 +396,60 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   %207 = call ptr @strerror(i32 noundef %206) #10
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %207) #10
   call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #10
-  call void @free(ptr noundef %.1104.i) #10
+  call void @free(ptr noundef %.1107.i) #10
   br label %mca_fbtl_posix_preadv_generic.exit
 
 208:                                              ; preds = %.lr.ph.i61
-  %209 = add i64 %203, %.097139.i
+  %209 = add i64 %203, %.098139.i
   %210 = icmp ult i64 %209, %184
   br i1 %210, label %.lr.ph.i61, label %._crit_edge.i62, !llvm.loop !8
 
 ._crit_edge.i62:                                  ; preds = %208, %.lr.ph.i61, %.preheader.i60
-  %.097.lcssa.i = phi i64 [ 0, %.preheader.i60 ], [ %209, %208 ], [ %.097139.i, %.lr.ph.i61 ]
+  %.098.lcssa.i = phi i64 [ 0, %.preheader.i60 ], [ %209, %208 ], [ %.098139.i, %.lr.ph.i61 ]
   call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #10
   %211 = load ptr, ptr %4, align 8
   %212 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %211, i64 %156, i32 1
   %213 = load ptr, ptr %212, align 8
   %214 = ptrtoint ptr %213 to i64
-  %.not120142.i = icmp sgt i32 %.0101155.i, %.2.i59
+  %.not120142.i = icmp sgt i32 %.0104154.i, %.2.i59
   br i1 %.not120142.i, label %._crit_edge147.i, label %.lr.ph146.i
 
 .lr.ph146.i:                                      ; preds = %._crit_edge.i62, %222
   %indvars.iv169.i = phi i64 [ %indvars.iv.next170.i, %222 ], [ %156, %._crit_edge.i62 ]
-  %.1106144.i = phi i64 [ %230, %222 ], [ %.0105153.i, %._crit_edge.i62 ]
+  %.1109144.i = phi i64 [ %230, %222 ], [ %.0108152.i, %._crit_edge.i62 ]
   %215 = load ptr, ptr %4, align 8
   %216 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %215, i64 %indvars.iv169.i
   %217 = getelementptr inbounds i8, ptr %216, i64 8
   %218 = load ptr, ptr %217, align 8
   %219 = ptrtoint ptr %218 to i64
   %220 = sub i64 %219, %214
-  %221 = icmp ugt i64 %220, %.097.lcssa.i
+  %221 = icmp ugt i64 %220, %.098.lcssa.i
   br i1 %221, label %._crit_edge147.i, label %222
 
 222:                                              ; preds = %.lr.ph146.i
   %223 = getelementptr inbounds i8, ptr %216, i64 16
   %224 = load i64, ptr %223, align 8
   %225 = add i64 %224, %220
-  %226 = icmp ugt i64 %225, %.097.lcssa.i
-  %227 = sub i64 %.097.lcssa.i, %220
+  %226 = icmp ugt i64 %225, %.098.lcssa.i
+  %227 = sub i64 %.098.lcssa.i, %220
   %spec.select122.i = select i1 %226, i64 %227, i64 %224
   %228 = load ptr, ptr %216, align 8
-  %229 = getelementptr inbounds i8, ptr %.1104.i, i64 %220
+  %229 = getelementptr inbounds i8, ptr %.1107.i, i64 %220
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %228, ptr align 1 %229, i64 %spec.select122.i, i1 false)
-  %230 = add i64 %spec.select122.i, %.1106144.i
+  %230 = add i64 %spec.select122.i, %.1109144.i
   %indvars.iv.next170.i = add nsw i64 %indvars.iv169.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next170.i to i32
   %exitcond.not.i = icmp eq i32 %.2.i59.in, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %._crit_edge147.i, label %.lr.ph146.i, !llvm.loop !9
 
 ._crit_edge147.i:                                 ; preds = %222, %.lr.ph146.i, %._crit_edge.i62
-  %.1106.lcssa.i = phi i64 [ %.0105153.i, %._crit_edge.i62 ], [ %230, %222 ], [ %.1106144.i, %.lr.ph146.i ]
+  %.1109.lcssa.i = phi i64 [ %.0108152.i, %._crit_edge.i62 ], [ %230, %222 ], [ %.1109144.i, %.lr.ph146.i ]
   %231 = load i32, ptr %36, align 8
   %.not.i63 = icmp sgt i32 %231, %.2.i59.in
   br i1 %.not.i63, label %.lr.ph157.i, label %._crit_edge158.i, !llvm.loop !10
 
 ._crit_edge158.i:                                 ; preds = %._crit_edge147.i
-  call void @free(ptr noundef %.1104.i) #10
+  call void @free(ptr noundef %.1107.i) #10
   br label %mca_fbtl_posix_preadv_generic.exit
 
 232:                                              ; preds = %35
@@ -474,18 +474,18 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i64, label %mca_fbtl_posix_preadv_single.exit, label %.lr.ph.i65
 
 .lr.ph.i65:                                       ; preds = %241, %261
-  %.036.i = phi i64 [ %262, %261 ], [ 0, %241 ]
+  %.03236.i = phi i64 [ %262, %261 ], [ 0, %241 ]
   %245 = load i32, ptr %0, align 8
   %246 = load ptr, ptr %4, align 8
   %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 %.036.i
+  %248 = getelementptr inbounds i8, ptr %247, i64 %.03236.i
   %249 = getelementptr inbounds i8, ptr %246, i64 16
   %250 = load i64, ptr %249, align 8
-  %251 = sub i64 %250, %.036.i
+  %251 = sub i64 %250, %.03236.i
   %252 = getelementptr inbounds i8, ptr %246, i64 8
   %253 = load ptr, ptr %252, align 8
   %254 = ptrtoint ptr %253 to i64
-  %255 = add i64 %.036.i, %254
+  %255 = add i64 %.03236.i, %254
   %256 = call i64 @pread(i32 noundef %245, ptr noundef %248, i64 noundef %251, i64 noundef %255) #10
   switch i64 %256, label %261 [
     i64 -1, label %257
@@ -500,17 +500,17 @@ define i64 @mca_fbtl_posix_preadv(ptr noundef %0) local_unnamed_addr #0 {
   br label %mca_fbtl_posix_preadv_single.exit
 
 261:                                              ; preds = %.lr.ph.i65
-  %262 = add i64 %256, %.036.i
+  %262 = add i64 %256, %.03236.i
   %263 = icmp ult i64 %262, %244
   br i1 %263, label %.lr.ph.i65, label %mca_fbtl_posix_preadv_single.exit, !llvm.loop !11
 
 mca_fbtl_posix_preadv_single.exit:                ; preds = %.lr.ph.i65, %261, %237, %241, %257
-  %.032.i = phi i64 [ -1, %237 ], [ -1, %257 ], [ 0, %241 ], [ %262, %261 ], [ %.036.i, %.lr.ph.i65 ]
+  %.0.i67 = phi i64 [ -1, %237 ], [ -1, %257 ], [ 0, %241 ], [ %262, %261 ], [ %.03236.i, %.lr.ph.i65 ]
   call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #10
   br label %mca_fbtl_posix_preadv_generic.exit
 
 mca_fbtl_posix_preadv_generic.exit:               ; preds = %._crit_edge158.i, %204, %195, %191, %._crit_edge.i, %146, %135, %95, %68, %mca_fbtl_posix_preadv_single.exit
-  %.051 = phi i64 [ %.032.i, %mca_fbtl_posix_preadv_single.exit ], [ -2, %68 ], [ -2, %95 ], [ -1, %135 ], [ -1, %146 ], [ %.089.lcssa.i, %._crit_edge.i ], [ %.1106.lcssa.i, %._crit_edge158.i ], [ -2, %191 ], [ -1, %195 ], [ -1, %204 ]
+  %.051 = phi i64 [ %.0.i67, %mca_fbtl_posix_preadv_single.exit ], [ -2, %68 ], [ -2, %95 ], [ -1, %135 ], [ -1, %146 ], [ %.086.lcssa.i, %._crit_edge.i ], [ %.1109.lcssa.i, %._crit_edge158.i ], [ -2, %191 ], [ -1, %195 ], [ -1, %204 ]
   %264 = load i32, ptr %8, align 4
   %.not54 = icmp eq i32 %264, 0
   br i1 %.not54, label %266, label %265

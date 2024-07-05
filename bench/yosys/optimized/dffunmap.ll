@@ -288,15 +288,15 @@ define internal void @_ZN12_GLOBAL__N_112DffunmapPass7executeESt6vectorINSt7__cx
   %20 = phi ptr [ %32, %29 ], [ %15, %3 ]
   %.093 = phi i1 [ %.1, %29 ], [ false, %3 ]
   %.02492 = phi i8 [ %.125, %29 ], [ 0, %3 ]
-  %.03491 = phi i64 [ %30, %29 ], [ 1, %3 ]
-  %21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %20, i64 %.03491
+  %.02691 = phi i64 [ %30, %29 ], [ 1, %3 ]
+  %21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %20, i64 %.02691
   %22 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.13) #15
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %.lr.ph
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %25, i64 %.03491
+  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %25, i64 %.02691
   %27 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull @.str.14) #15
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %._crit_edge
@@ -304,7 +304,7 @@ define internal void @_ZN12_GLOBAL__N_112DffunmapPass7executeESt6vectorINSt7__cx
 29:                                               ; preds = %24, %.lr.ph
   %.125 = phi i8 [ %.02492, %.lr.ph ], [ 1, %24 ]
   %.1 = phi i1 [ true, %.lr.ph ], [ %.093, %24 ]
-  %30 = add nuw i64 %.03491, 1
+  %30 = add nuw i64 %.02691, 1
   %31 = load ptr, ptr %13, align 8
   %32 = load ptr, ptr %1, align 8
   %33 = ptrtoint ptr %31 to i64
@@ -315,11 +315,11 @@ define internal void @_ZN12_GLOBAL__N_112DffunmapPass7executeESt6vectorINSt7__cx
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %29, %24, %3
-  %.034.lcssa = phi i64 [ 1, %3 ], [ %.03491, %24 ], [ %30, %29 ]
+  %.026.lcssa = phi i64 [ 1, %3 ], [ %.02691, %24 ], [ %30, %29 ]
   %.024.lcssa = phi i8 [ 0, %3 ], [ %.02492, %24 ], [ %.125, %29 ]
   %.0.lcssa = phi i1 [ false, %3 ], [ %.093, %24 ], [ %.1, %29 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  invoke void @_ZN5Yosys4Pass10extra_argsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEmPNS_5RTLIL6DesignEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %6, i64 noundef %.034.lcssa, ptr noundef %2, i1 noundef zeroext true)
+  invoke void @_ZN5Yosys4Pass10extra_argsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEmPNS_5RTLIL6DesignEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %6, i64 noundef %.026.lcssa, ptr noundef %2, i1 noundef zeroext true)
           to label %38 unwind label %48
 
 38:                                               ; preds = %._crit_edge

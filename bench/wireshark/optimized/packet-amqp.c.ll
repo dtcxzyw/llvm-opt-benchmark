@@ -6537,24 +6537,24 @@ define internal fastcc void @dissect_amqp_0_9_field_array(ptr noundef %0, ptr no
 
 8:                                                ; preds = %.lr.ph, %17
   %.05 = phi i32 [ %2, %.lr.ph ], [ %18, %17 ]
-  %.0294 = phi i32 [ 0, %.lr.ph ], [ %20, %17 ]
-  %.0303 = phi i32 [ %3, %.lr.ph ], [ %19, %17 ]
+  %.0294 = phi i32 [ %3, %.lr.ph ], [ %19, %17 ]
+  %.0303 = phi i32 [ 0, %.lr.ph ], [ %20, %17 ]
   %9 = load i32, ptr @hf_amqp_field, align 4
-  %10 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %6, i32 noundef %9, ptr noundef %0, i32 noundef %.05, i32 noundef 0, ptr noundef nonnull @.str.1420, i32 noundef %.0294) #12
+  %10 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %6, i32 noundef %9, ptr noundef %0, i32 noundef %.05, i32 noundef 0, ptr noundef nonnull @.str.1420, i32 noundef %.0303) #12
   %11 = load i32, ptr @ett_amqp_0_9_field, align 4
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #12
   %13 = load ptr, ptr %7, align 8
-  %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %13, ptr noundef nonnull @.str.1420, i32 noundef %.0294) #12
+  %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %13, ptr noundef nonnull @.str.1420, i32 noundef %.0303) #12
   tail call void @increment_dissection_depth(ptr noundef %1) #12
-  %15 = tail call fastcc i32 @dissect_amqp_0_9_field_value(ptr noundef %0, ptr noundef %1, i32 noundef %.05, i32 noundef %.0303, ptr noundef %12)
+  %15 = tail call fastcc i32 @dissect_amqp_0_9_field_value(ptr noundef %0, ptr noundef %1, i32 noundef %.05, i32 noundef %.0294, ptr noundef %12)
   tail call void @decrement_dissection_depth(ptr noundef %1) #12
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %8
   %18 = add i32 %15, %.05
-  %19 = sub i32 %.0303, %15
-  %20 = add i32 %.0294, 1
+  %19 = sub i32 %.0294, %15
+  %20 = add i32 %.0303, 1
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %.loopexit, label %8, !llvm.loop !9
 
@@ -11439,16 +11439,16 @@ define internal fastcc void @dissect_amqp_0_10_map(ptr noundef %0, ptr noundef %
   br i1 %.not, label %.critedge, label %.lr.ph102
 
 .lr.ph102:                                        ; preds = %2, %75
-  %.074101 = phi i32 [ %.175, %75 ], [ 4, %2 ]
-  %.076100 = phi i32 [ %76, %75 ], [ 0, %2 ]
-  %9 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.074101) #12
+  %.0101 = phi i32 [ %76, %75 ], [ 0, %2 ]
+  %.073100 = phi i32 [ %.174, %75 ], [ 4, %2 ]
+  %9 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.073100) #12
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %.lr.ph102
-  %12 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.074101) #12
+  %12 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.073100) #12
   %13 = zext i8 %12 to i32
-  %14 = add i32 %.074101, 1
+  %14 = add i32 %.073100, 1
   %15 = call ptr @wmem_packet_scope() #12
   %16 = call ptr @tvb_get_string_enc(ptr noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef %13, i32 noundef 2) #12
   %17 = add i32 %14, %13
@@ -11493,7 +11493,7 @@ define internal fastcc void @dissect_amqp_0_10_map(ptr noundef %0, ptr noundef %
   %38 = add nuw nsw i32 %13, 2
   %39 = add nuw nsw i32 %38, %36
   %40 = load ptr, ptr %3, align 8
-  %41 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %37, ptr noundef %0, i32 noundef %.074101, i32 noundef %39, ptr noundef nonnull @.str.1440, ptr noundef %16, ptr noundef %30, ptr noundef %40) #12
+  %41 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %37, ptr noundef %0, i32 noundef %.073100, i32 noundef %39, ptr noundef nonnull @.str.1440, ptr noundef %16, ptr noundef %30, ptr noundef %40) #12
   br label %75
 
 .loopexit:                                        ; preds = %.lr.ph, %11
@@ -11508,7 +11508,7 @@ define internal fastcc void @dissect_amqp_0_10_map(ptr noundef %0, ptr noundef %
   %46 = load i32, ptr @hf_amqp_field, align 4
   %47 = add nuw nsw i32 %13, 6
   %48 = add nuw nsw i32 %47, %45
-  %49 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %46, ptr noundef %0, i32 noundef %.074101, i32 noundef %48, ptr noundef nonnull @.str.1441, ptr noundef %16, i32 noundef %45) #12
+  %49 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %46, ptr noundef %0, i32 noundef %.073100, i32 noundef %48, ptr noundef nonnull @.str.1441, ptr noundef %16, i32 noundef %45) #12
   br label %73
 
 50:                                               ; preds = %.loopexit
@@ -11547,25 +11547,25 @@ define internal fastcc void @dissect_amqp_0_10_map(ptr noundef %0, ptr noundef %
 
 67:                                               ; preds = %57, %54, %50, %58, %61, %64
   %.2 = phi ptr [ @.str.1442, %50 ], [ @.str.1442, %54 ], [ @.str.1442, %64 ], [ @.str.1442, %61 ], [ @.str.1442, %58 ], [ @.str.1443, %57 ]
-  %.072 = phi i32 [ %53, %50 ], [ 5, %54 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ 1, %57 ]
-  %.0 = phi i32 [ 0, %50 ], [ 0, %54 ], [ 4, %64 ], [ 2, %61 ], [ 1, %58 ], [ %53, %57 ]
+  %.075 = phi i32 [ %53, %50 ], [ 5, %54 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ 1, %57 ]
+  %.072 = phi i32 [ 0, %50 ], [ 0, %54 ], [ 4, %64 ], [ 2, %61 ], [ 1, %58 ], [ %53, %57 ]
   %68 = load i32, ptr @hf_amqp_field, align 4
   %69 = add nuw nsw i32 %13, 2
-  %70 = add nuw nsw i32 %69, %.072
-  %71 = add nuw nsw i32 %70, %.0
-  %72 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %68, ptr noundef %0, i32 noundef %.074101, i32 noundef %71, ptr noundef nonnull @.str.1446, ptr noundef %16, ptr noundef nonnull %.2, i32 noundef %.072) #12
+  %70 = add nuw nsw i32 %69, %.075
+  %71 = add nuw nsw i32 %70, %.072
+  %72 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %68, ptr noundef %0, i32 noundef %.073100, i32 noundef %71, ptr noundef nonnull @.str.1446, ptr noundef %16, ptr noundef nonnull %.2, i32 noundef %.075) #12
   br label %73
 
 73:                                               ; preds = %67, %43
-  %.173 = phi i32 [ %.072, %67 ], [ %45, %43 ]
-  %.1 = phi i32 [ %.0, %67 ], [ 4, %43 ]
-  %74 = add nuw nsw i32 %.1, %.173
+  %.176 = phi i32 [ %.075, %67 ], [ %45, %43 ]
+  %.1 = phi i32 [ %.072, %67 ], [ 4, %43 ]
+  %74 = add nuw nsw i32 %.1, %.176
   br label %75
 
 75:                                               ; preds = %.lr.ph.i._crit_edge, %73
   %.pn = phi i32 [ %36, %.lr.ph.i._crit_edge ], [ %74, %73 ]
-  %.175 = add i32 %.pn, %19
-  %76 = add nuw i32 %.076100, 1
+  %.174 = add i32 %.pn, %19
+  %76 = add nuw i32 %.0101, 1
   %exitcond.not = icmp eq i32 %76, %6
   br i1 %exitcond.not, label %.critedge, label %.lr.ph102, !llvm.loop !14
 
@@ -11599,9 +11599,9 @@ define internal fastcc void @dissect_amqp_0_10_array(ptr noundef %0, ptr noundef
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %52
-  %.04751 = phi i32 [ %53, %52 ], [ 0, %.lr.ph.preheader ]
-  %.04850 = phi i32 [ %.1, %52 ], [ %19, %.lr.ph.preheader ]
-  %20 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.04850) #12
+  %.04751 = phi i32 [ %.1, %52 ], [ %19, %.lr.ph.preheader ]
+  %.04850 = phi i32 [ %53, %52 ], [ 0, %.lr.ph.preheader ]
+  %20 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.04751) #12
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %22, label %.critedge
 
@@ -11613,18 +11613,18 @@ define internal fastcc void @dissect_amqp_0_10_array(ptr noundef %0, ptr noundef
   ]
 
 24:                                               ; preds = %22
-  %25 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.04850) #12
+  %25 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.04751) #12
   %26 = load i32, ptr @hf_amqp_0_10_array_string, align 4
-  %27 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %26, ptr noundef %0, i32 noundef %.04850, i32 noundef 2, i32 noundef 2) #12
+  %27 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %26, ptr noundef %0, i32 noundef %.04751, i32 noundef 2, i32 noundef 2) #12
   %28 = zext i16 %25 to i32
-  %29 = add i32 %.04850, 2
+  %29 = add i32 %.04751, 2
   %30 = add i32 %29, %28
   br label %52
 
 31:                                               ; preds = %22
   %32 = load i32, ptr @hf_amqp_0_10_struct32_size, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %33 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %32, ptr noundef %0, i32 noundef %.04850, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %5) #12
+  %33 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %32, ptr noundef %0, i32 noundef %.04751, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %5) #12
   %34 = load i32, ptr %5, align 4
   %35 = icmp ugt i32 %34, 65535
   br i1 %35, label %36, label %amqp_0_10_get_32bit_size_new.exit
@@ -11636,7 +11636,7 @@ define internal fastcc void @dissect_amqp_0_10_array(ptr noundef %0, ptr noundef
 amqp_0_10_get_32bit_size_new.exit:                ; preds = %31, %36
   %38 = phi i32 [ 65535, %36 ], [ %34, %31 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %39 = add i32 %.04850, 4
+  %39 = add i32 %.04751, 4
   %40 = load i32, ptr @hf_amqp_0_10_struct32, align 4
   %41 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef 2, i32 noundef 0) #12
   call void @proto_item_set_len(ptr noundef %41, i32 noundef %38) #12
@@ -11664,7 +11664,7 @@ amqp_0_10_get_32bit_size_new.exit:                ; preds = %31, %36
 
 52:                                               ; preds = %24, %48
   %.1 = phi i32 [ %49, %48 ], [ %30, %24 ]
-  %53 = add nuw i32 %.04751, 1
+  %53 = add nuw i32 %.04850, 1
   %54 = load i32, ptr %7, align 4
   %55 = icmp ult i32 %53, %54
   br i1 %55, label %.lr.ph, label %.critedge, !llvm.loop !15
@@ -11911,16 +11911,16 @@ define internal fastcc void @format_amqp_0_10_sequence_set(ptr noundef %0, i32 n
   br label %12
 
 12:                                               ; preds = %.lr.ph, %12
-  %.025 = phi i32 [ 0, %.lr.ph ], [ %19, %12 ]
-  %.02024 = phi i32 [ %1, %.lr.ph ], [ %18, %12 ]
-  %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.02024) #12
-  %14 = add i32 %.02024, 4
+  %.025 = phi i32 [ %1, %.lr.ph ], [ %18, %12 ]
+  %.02024 = phi i32 [ 0, %.lr.ph ], [ %19, %12 ]
+  %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.025) #12
+  %14 = add i32 %.025, 4
   %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14) #12
-  %16 = icmp ult i32 %.025, %11
+  %16 = icmp ult i32 %.02024, %11
   %17 = select i1 %16, ptr @.str.1473, ptr @.str.1375
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1472, i32 noundef %13, i32 noundef %15, ptr noundef nonnull %17) #12
-  %18 = add i32 %.02024, 8
-  %19 = add nuw nsw i32 %.025, 2
+  %18 = add i32 %.025, 8
+  %19 = add nuw nsw i32 %.02024, 2
   %20 = icmp ult i32 %19, %8
   br i1 %20, label %12, label %._crit_edge, !llvm.loop !16
 
@@ -12329,11 +12329,11 @@ define internal fastcc i32 @dissect_amqp_1_0_list(ptr noundef %0, ptr noundef %1
   br label %77
 
 32:                                               ; preds = %8, %23, %17
-  %.075 = phi i32 [ 4, %23 ], [ 1, %17 ], [ 0, %8 ]
-  %.073 = phi i32 [ %26, %23 ], [ %22, %17 ], [ 0, %8 ]
-  %.072 = phi i32 [ %24, %23 ], [ %19, %17 ], [ 0, %8 ]
-  %33 = add nuw nsw i32 %.075, 1
-  %34 = add i32 %33, %.072
+  %.076 = phi i32 [ 4, %23 ], [ 1, %17 ], [ 0, %8 ]
+  %.074 = phi i32 [ %26, %23 ], [ %22, %17 ], [ 0, %8 ]
+  %.073 = phi i32 [ %24, %23 ], [ %19, %17 ], [ 0, %8 ]
+  %33 = add nuw nsw i32 %.076, 1
+  %34 = add i32 %33, %.073
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef %34, i32 noundef 0) #12
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %36, label %38
@@ -12345,9 +12345,9 @@ define internal fastcc i32 @dissect_amqp_1_0_list(ptr noundef %0, ptr noundef %1
 38:                                               ; preds = %32, %36
   %39 = phi ptr [ %37, %36 ], [ %7, %32 ]
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %35, ptr noundef nonnull @.str.1416, ptr noundef %39) #12
-  %40 = shl nuw nsw i32 %.075, 1
+  %40 = shl nuw nsw i32 %.076, 1
   %41 = add i32 %40, %16
-  %.not80 = icmp eq i32 %.073, 0
+  %.not80 = icmp eq i32 %.074, 0
   br i1 %.not80, label %45, label %42
 
 42:                                               ; preds = %38
@@ -12356,18 +12356,18 @@ define internal fastcc i32 @dissect_amqp_1_0_list(ptr noundef %0, ptr noundef %1
   br label %45
 
 45:                                               ; preds = %42, %38
-  %.076 = phi ptr [ %44, %42 ], [ %35, %38 ]
+  %.078 = phi ptr [ %44, %42 ], [ %35, %38 ]
   %46 = icmp eq i32 %5, 0
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %45
-  %48 = icmp eq i32 %.073, 1
+  %48 = icmp eq i32 %.074, 1
   %49 = select i1 %48, ptr @.str.1375, ptr @.str.1467
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.076, ptr noundef nonnull @.str.1492, i32 noundef %.073, ptr noundef nonnull %49) #12
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.078, ptr noundef nonnull @.str.1492, i32 noundef %.074, ptr noundef nonnull %49) #12
   br label %50
 
 50:                                               ; preds = %47, %45
-  %51 = icmp ugt i32 %.073, %.072
+  %51 = icmp ugt i32 %.074, %.073
   br i1 %51, label %53, label %.preheader
 
 .preheader:                                       ; preds = %50
@@ -12375,17 +12375,17 @@ define internal fastcc i32 @dissect_amqp_1_0_list(ptr noundef %0, ptr noundef %1
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %52 = zext i32 %5 to i64
-  %wide.trip.count = zext i32 %.073 to i64
+  %wide.trip.count = zext i32 %.074 to i64
   br label %.lr.ph
 
 53:                                               ; preds = %50
-  %54 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.076, ptr noundef nonnull @ei_amqp_invalid_number_of_params, ptr noundef nonnull @.str.1493, i32 noundef %.073, i32 noundef %.072) #12
+  %54 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.078, ptr noundef nonnull @ei_amqp_invalid_number_of_params, ptr noundef nonnull @.str.1493, i32 noundef %.074, i32 noundef %.073) #12
   br label %77
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %get_amqp_1_0_type_value_formatter.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %get_amqp_1_0_type_value_formatter.exit ]
-  %.07882 = phi i32 [ %41, %.lr.ph.preheader ], [ %72, %get_amqp_1_0_type_value_formatter.exit ]
-  %55 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.07882) #12
+  %.07782 = phi i32 [ %41, %.lr.ph.preheader ], [ %72, %get_amqp_1_0_type_value_formatter.exit ]
+  %55 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.07782) #12
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %57, label %.critedge.loopexit
 
@@ -12411,15 +12411,15 @@ get_amqp_1_0_type_value_formatter.exit:           ; preds = %57, %59
   store i32 0, ptr %10, align 4
   store ptr null, ptr %11, align 8
   store ptr null, ptr %12, align 8
-  %62 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %.07882, ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
+  %62 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %.07782, ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
   %63 = load ptr, ptr %12, align 8
   %64 = load i32, ptr %13, align 4
-  %65 = add i32 %64, %.07882
+  %65 = add i32 %64, %.07782
   %66 = trunc nuw i32 %62 to i8
   %67 = load i32, ptr %9, align 4
   %68 = load i32, ptr %10, align 4
   %69 = load ptr, ptr %11, align 8
-  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %66, i32 noundef %65, i32 noundef %67, ptr noundef %63, i32 noundef %68, ptr noundef %69, ptr noundef nonnull %14, ptr noundef %.076)
+  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %66, i32 noundef %65, i32 noundef %67, ptr noundef %63, i32 noundef %68, ptr noundef %69, ptr noundef nonnull %14, ptr noundef %.078)
   %70 = load i32, ptr %14, align 4
   %71 = add i32 %70, %64
   store i32 %71, ptr %14, align 4
@@ -12429,7 +12429,7 @@ get_amqp_1_0_type_value_formatter.exit:           ; preds = %57, %59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %72 = add i32 %71, %.07882
+  %72 = add i32 %71, %.07782
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !18
 
@@ -12438,24 +12438,24 @@ get_amqp_1_0_type_value_formatter.exit:           ; preds = %57, %59
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
-  %.078.lcssa = phi i32 [ %41, %.preheader ], [ %.07882, %.critedge.loopexit ]
-  %.074.lcssa = phi i32 [ 0, %.preheader ], [ %indvars94.le, %.critedge.loopexit ]
-  %.not81 = icmp eq i32 %.074.lcssa, %.073
+  %.077.lcssa = phi i32 [ %41, %.preheader ], [ %.07782, %.critedge.loopexit ]
+  %.075.lcssa = phi i32 [ 0, %.preheader ], [ %indvars94.le, %.critedge.loopexit ]
+  %.not81 = icmp eq i32 %.075.lcssa, %.074
   br i1 %.not81, label %.critedge.thread, label %73
 
 73:                                               ; preds = %.critedge
-  %74 = add i32 %.074.lcssa, %.073
-  %75 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.076, ptr noundef nonnull @ei_amqp_invalid_number_of_params, ptr noundef nonnull @.str.1494, i32 noundef %74, i32 noundef %.074.lcssa) #12
+  %74 = add i32 %.075.lcssa, %.074
+  %75 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.078, ptr noundef nonnull @ei_amqp_invalid_number_of_params, ptr noundef nonnull @.str.1494, i32 noundef %74, i32 noundef %.075.lcssa) #12
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %get_amqp_1_0_type_value_formatter.exit, %73, %.critedge
-  %.078.lcssa98 = phi i32 [ %.078.lcssa, %73 ], [ %.078.lcssa, %.critedge ], [ %72, %get_amqp_1_0_type_value_formatter.exit ]
-  %76 = sub i32 %.078.lcssa98, %2
+  %.077.lcssa98 = phi i32 [ %.077.lcssa, %73 ], [ %.077.lcssa, %.critedge ], [ %72, %get_amqp_1_0_type_value_formatter.exit ]
+  %76 = sub i32 %.077.lcssa98, %2
   br label %77
 
 77:                                               ; preds = %.critedge.thread, %53, %27
-  %.077 = phi i32 [ 0, %27 ], [ 0, %53 ], [ %76, %.critedge.thread ]
-  ret i32 %.077
+  %.072 = phi i32 [ 0, %27 ], [ 0, %53 ], [ %76, %.critedge.thread ]
+  ret i32 %.072
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12574,10 +12574,10 @@ define internal fastcc range(i32 0, 256) i32 @get_amqp_1_0_type_formatter(ptr no
   br label %42
 
 42:                                               ; preds = %36, %29, %28, %25, %23, %20, %17, %11
-  %.043 = phi i32 [ 0, %36 ], [ 0, %29 ], [ 0, %28 ], [ %27, %25 ], [ %24, %23 ], [ %22, %20 ], [ %19, %17 ], [ 0, %11 ]
-  %.0 = phi i32 [ %41, %36 ], [ %35, %29 ], [ 16, %28 ], [ 8, %25 ], [ 4, %23 ], [ 2, %20 ], [ 1, %17 ], [ 0, %11 ]
-  %43 = add i32 %.0, %spec.select
-  %44 = icmp eq i32 %.043, 29
+  %.045 = phi i32 [ 0, %36 ], [ 0, %29 ], [ 0, %28 ], [ %27, %25 ], [ %24, %23 ], [ %22, %20 ], [ %19, %17 ], [ 0, %11 ]
+  %.043 = phi i32 [ %41, %36 ], [ %35, %29 ], [ 16, %28 ], [ 8, %25 ], [ 4, %23 ], [ 2, %20 ], [ 1, %17 ], [ 0, %11 ]
+  %43 = add i32 %.043, %spec.select
+  %44 = icmp eq i32 %.045, 29
   br i1 %44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42, %45
@@ -12589,7 +12589,7 @@ define internal fastcc range(i32 0, 256) i32 @get_amqp_1_0_type_formatter(ptr no
 45:                                               ; preds = %.lr.ph
   %46 = getelementptr [27 x %struct.amqp_defined_types_t], ptr @amqp_1_0_defined_types, i64 0, i64 %indvars.iv.next
   %47 = load i32, ptr %46, align 16
-  %48 = icmp eq i32 %47, %.043
+  %48 = icmp eq i32 %47, %.045
   br i1 %48, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %45, %42
@@ -12612,12 +12612,12 @@ define internal fastcc range(i32 0, 256) i32 @get_amqp_1_0_type_formatter(ptr no
   br label %58
 
 58:                                               ; preds = %.loopexit, %7
-  %.146 = phi i32 [ %57, %.loopexit ], [ %9, %7 ]
-  %.1.in = phi i8 [ %56, %.loopexit ], [ %8, %7 ]
-  %.1 = zext i8 %.1.in to i32
-  %59 = sub i32 %.146, %1
+  %.146.in = phi i8 [ %56, %.loopexit ], [ %8, %7 ]
+  %.1 = phi i32 [ %57, %.loopexit ], [ %9, %7 ]
+  %.146 = zext i8 %.146.in to i32
+  %59 = sub i32 %.1, %1
   store i32 %59, ptr %6, align 4
-  ret i32 %.1
+  ret i32 %.146
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12861,13 +12861,13 @@ decode_fixed_type.exit.thread:                    ; preds = %.lr.ph
   br label %dissect_amqp_1_0_map.exit
 
 114:                                              ; preds = %104, %98
-  %.092.i = phi i32 [ 4, %104 ], [ 1, %98 ]
-  %.091.i = phi i32 [ %107, %104 ], [ %103, %98 ]
-  %.0.i = phi i32 [ %105, %104 ], [ %100, %98 ]
+  %.095.i = phi i32 [ 4, %104 ], [ 1, %98 ]
+  %.093.i = phi i32 [ %107, %104 ], [ %103, %98 ]
+  %.092.i = phi i32 [ %105, %104 ], [ %100, %98 ]
   %115 = tail call i32 @proto_registrar_get_ftype(i32 noundef %4) #12
   %.not.i = icmp eq i32 %115, 0
-  %116 = add nuw nsw i32 %.092.i, 1
-  %117 = add i32 %116, %.0.i
+  %116 = add nuw nsw i32 %.095.i, 1
+  %117 = add i32 %116, %.092.i
   br i1 %.not.i, label %120, label %118
 
 118:                                              ; preds = %114
@@ -12888,55 +12888,55 @@ decode_fixed_type.exit.thread:                    ; preds = %.lr.ph
   br label %126
 
 126:                                              ; preds = %123, %118
-  %.093.i = phi ptr [ %119, %118 ], [ %125, %123 ]
-  %127 = shl nuw nsw i32 %.092.i, 1
+  %.096.i = phi ptr [ %119, %118 ], [ %125, %123 ]
+  %127 = shl nuw nsw i32 %.095.i, 1
   %128 = add i32 %127, %3
-  %.not101.i = icmp eq i32 %.091.i, 0
+  %.not101.i = icmp eq i32 %.093.i, 0
   br i1 %.not101.i, label %.thread145, label %129
 
 129:                                              ; preds = %126
   %130 = load i32, ptr @ett_amqp_1_0_map, align 4
-  %131 = tail call ptr @proto_item_add_subtree(ptr noundef %.093.i, i32 noundef %130) #12
-  %132 = and i32 %.091.i, 1
+  %131 = tail call ptr @proto_item_add_subtree(ptr noundef %.096.i, i32 noundef %130) #12
+  %132 = and i32 %.093.i, 1
   %.not102.i = icmp eq i32 %132, 0
   br i1 %.not102.i, label %.thread145, label %133
 
 133:                                              ; preds = %129
-  %134 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %131, ptr noundef nonnull @ei_amqp_invalid_number_of_params, ptr noundef nonnull @.str.1532, i32 noundef %.091.i) #12
+  %134 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %131, ptr noundef nonnull @ei_amqp_invalid_number_of_params, ptr noundef nonnull @.str.1532, i32 noundef %.093.i) #12
   %135 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %96) #12
   br label %dissect_amqp_1_0_map.exit
 
 .thread145:                                       ; preds = %126, %129
-  %.194.i148 = phi ptr [ %131, %129 ], [ %.093.i, %126 ]
-  %136 = icmp ugt i32 %.091.i, %.0.i
+  %.197.i148 = phi ptr [ %131, %129 ], [ %.096.i, %126 ]
+  %136 = icmp ugt i32 %.093.i, %.092.i
   br i1 %136, label %137, label %140
 
 137:                                              ; preds = %.thread145
-  %138 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.194.i148, ptr noundef nonnull @ei_amqp_invalid_number_of_params, ptr noundef nonnull @.str.1533, i32 noundef %.091.i, i32 noundef %.0.i) #12
+  %138 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.197.i148, ptr noundef nonnull @ei_amqp_invalid_number_of_params, ptr noundef nonnull @.str.1533, i32 noundef %.093.i, i32 noundef %.092.i) #12
   %139 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %96) #12
   br label %dissect_amqp_1_0_map.exit
 
 140:                                              ; preds = %.thread145
-  %141 = lshr exact i32 %.091.i, 1
-  %142 = icmp eq i32 %.091.i, 2
+  %141 = lshr exact i32 %.093.i, 1
+  %142 = icmp eq i32 %.093.i, 2
   %143 = select i1 %142, ptr @.str.1375, ptr @.str.1467
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.194.i148, ptr noundef nonnull @.str.1534, i32 noundef %141, ptr noundef nonnull %143) #12
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.197.i148, ptr noundef nonnull @.str.1534, i32 noundef %141, ptr noundef nonnull %143) #12
   br i1 %.not101.i, label %.critedge.i, label %.lr.ph174
 
 .lr.ph174:                                        ; preds = %140, %174
-  %.1.i173 = phi i32 [ %175, %174 ], [ %.091.i, %140 ]
-  %.096.i172 = phi i32 [ %.197.i, %174 ], [ %128, %140 ]
-  %144 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.096.i172) #12
+  %.091.i173 = phi i32 [ %.1.i, %174 ], [ %128, %140 ]
+  %.194.i172 = phi i32 [ %175, %174 ], [ %.093.i, %140 ]
+  %144 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.091.i173) #12
   %145 = icmp sgt i32 %144, 0
   br i1 %145, label %146, label %.critedge.i
 
 146:                                              ; preds = %.lr.ph174
-  %147 = and i32 %.1.i173, 1
+  %147 = and i32 %.194.i172, 1
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %149, label %170
 
 149:                                              ; preds = %146
-  %150 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.096.i172) #12
+  %150 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.091.i173) #12
   %151 = icmp eq i8 %150, 64
   br i1 %151, label %decode_fixed_type.exit142, label %.lr.ph169
 
@@ -12956,7 +12956,7 @@ decode_fixed_type.exit142:                        ; preds = %152, %149
   %.lcssa = phi ptr [ @amqp_1_0_fixed_types, %149 ], [ %153, %152 ]
   %156 = getelementptr inbounds i8, ptr %.lcssa, i64 32
   %157 = load ptr, ptr %156, align 8
-  %158 = add i32 %.096.i172, 1
+  %158 = add i32 %.091.i173, 1
   %159 = getelementptr inbounds i8, ptr %.lcssa, i64 20
   %160 = load i32, ptr %159, align 4
   %161 = call i32 %157(ptr noundef %0, i32 noundef %158, i32 noundef %160, ptr noundef nonnull %17) #12
@@ -12966,38 +12966,38 @@ decode_fixed_type.exit142:                        ; preds = %152, %149
 
 decode_fixed_type.exit142.thread:                 ; preds = %.lr.ph169
   %163 = load i32, ptr @hf_amqp_1_0_map, align 4
-  %164 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.096.i172) #12
+  %164 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.091.i173) #12
   %165 = zext i8 %164 to i32
-  %166 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %.194.i148, i32 noundef %163, ptr noundef %0, i32 noundef %.096.i172, i32 noundef 1, ptr noundef nonnull @.str.1535, i32 noundef %165) #12
-  %167 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.096.i172) #12
+  %166 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %.197.i148, i32 noundef %163, ptr noundef %0, i32 noundef %.091.i173, i32 noundef 1, ptr noundef nonnull @.str.1535, i32 noundef %165) #12
+  %167 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.091.i173) #12
   %168 = zext i8 %167 to i32
-  %169 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.194.i148, ptr noundef nonnull @ei_amqp_unknown_amqp_type, ptr noundef nonnull @.str.1536, i32 noundef %168) #12
+  %169 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.197.i148, ptr noundef nonnull @ei_amqp_unknown_amqp_type, ptr noundef nonnull @.str.1536, i32 noundef %168) #12
   br label %174
 
 170:                                              ; preds = %146
   %171 = load i32, ptr @hf_amqp_1_0_list, align 4
   %172 = load ptr, ptr %17, align 8
-  call fastcc void @get_amqp_1_0_type_value_formatter(ptr noundef %0, ptr noundef %1, i32 noundef %.096.i172, i32 noundef %171, ptr noundef %172, ptr noundef nonnull %16, ptr noundef %.194.i148)
+  call fastcc void @get_amqp_1_0_type_value_formatter(ptr noundef %0, ptr noundef %1, i32 noundef %.091.i173, i32 noundef %171, ptr noundef %172, ptr noundef nonnull %16, ptr noundef %.197.i148)
   %173 = load i32, ptr %16, align 4
   br label %174
 
 174:                                              ; preds = %170, %decode_fixed_type.exit142.thread, %decode_fixed_type.exit142
   %.pn.i = phi i32 [ %162, %decode_fixed_type.exit142 ], [ 1, %decode_fixed_type.exit142.thread ], [ %173, %170 ]
-  %.197.i = add i32 %.pn.i, %.096.i172
-  %175 = add i32 %.1.i173, -1
+  %.1.i = add i32 %.pn.i, %.091.i173
+  %175 = add i32 %.194.i172, -1
   %.not103.i = icmp eq i32 %175, 0
   br i1 %.not103.i, label %.critedge.i, label %.lr.ph174, !llvm.loop !22
 
 .critedge.i:                                      ; preds = %174, %.lr.ph174, %140
-  %.096.i.lcssa = phi i32 [ %128, %140 ], [ %.096.i172, %.lr.ph174 ], [ %.197.i, %174 ]
-  %176 = sub i32 %.096.i.lcssa, %96
+  %.091.i.lcssa = phi i32 [ %128, %140 ], [ %.091.i173, %.lr.ph174 ], [ %.1.i, %174 ]
+  %176 = sub i32 %.091.i.lcssa, %96
   br label %dissect_amqp_1_0_map.exit
 
 dissect_amqp_1_0_map.exit:                        ; preds = %108, %133, %137, %.critedge.i
-  %.095.i = phi i32 [ %113, %108 ], [ %135, %133 ], [ %139, %137 ], [ %176, %.critedge.i ]
+  %.0.i = phi i32 [ %113, %108 ], [ %135, %133 ], [ %139, %137 ], [ %176, %.critedge.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  %177 = add i32 %.095.i, -1
+  %177 = add i32 %.0.i, -1
   store i32 %177, ptr %8, align 4
   br label %253
 
@@ -13040,15 +13040,15 @@ dissect_amqp_1_0_map.exit:                        ; preds = %108, %133, %137, %.
   br label %dissect_amqp_1_0_array.exit
 
 197:                                              ; preds = %187, %181
-  %.081.i = phi i32 [ 4, %187 ], [ 1, %181 ]
-  %.079.i = phi i32 [ %190, %187 ], [ %186, %181 ]
-  %.078.i = phi i32 [ %188, %187 ], [ %183, %181 ]
-  %198 = shl nuw nsw i32 %.081.i, 1
+  %.083.i = phi i32 [ 4, %187 ], [ 1, %181 ]
+  %.081.i = phi i32 [ %190, %187 ], [ %186, %181 ]
+  %.080.i = phi i32 [ %188, %187 ], [ %183, %181 ]
+  %198 = shl nuw nsw i32 %.083.i, 1
   %199 = add i32 %198, %3
   %200 = call fastcc i32 @get_amqp_1_0_type_formatter(ptr noundef %0, i32 noundef %199, ptr noundef nonnull %11, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %12)
   %201 = load i32, ptr %11, align 4
-  %202 = add nuw nsw i32 %.081.i, 1
-  %203 = add i32 %202, %.078.i
+  %202 = add nuw nsw i32 %.083.i, 1
+  %203 = add i32 %202, %.080.i
   %204 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %201, ptr noundef %0, i32 noundef %179, i32 noundef %203, i32 noundef 0) #12
   %.not.i135 = icmp eq ptr %5, null
   br i1 %.not.i135, label %205, label %207
@@ -13062,7 +13062,7 @@ dissect_amqp_1_0_map.exit:                        ; preds = %108, %133, %137, %.
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %204, ptr noundef nonnull @.str.1416, ptr noundef %208) #12
   %209 = load i32, ptr %12, align 4
   %210 = add i32 %199, %209
-  %.not86.i = icmp eq i32 %.079.i, 0
+  %.not86.i = icmp eq i32 %.081.i, 0
   br i1 %.not86.i, label %214, label %211
 
 211:                                              ; preds = %207
@@ -13071,18 +13071,18 @@ dissect_amqp_1_0_map.exit:                        ; preds = %108, %133, %137, %.
   br label %214
 
 214:                                              ; preds = %211, %207
-  %.082.i = phi ptr [ %213, %211 ], [ %204, %207 ]
+  %.084.i = phi ptr [ %213, %211 ], [ %204, %207 ]
   %215 = icmp eq i32 %6, 0
   br i1 %215, label %216, label %219
 
 216:                                              ; preds = %214
-  %217 = icmp eq i32 %.079.i, 1
+  %217 = icmp eq i32 %.081.i, 1
   %218 = select i1 %217, ptr @.str.1375, ptr @.str.1467
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.082.i, ptr noundef nonnull @.str.1538, i32 noundef %.079.i, ptr noundef nonnull %218) #12
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.084.i, ptr noundef nonnull @.str.1538, i32 noundef %.081.i, ptr noundef nonnull %218) #12
   br label %219
 
 219:                                              ; preds = %216, %214
-  %220 = icmp ugt i32 %.079.i, %.078.i
+  %220 = icmp ugt i32 %.081.i, %.080.i
   br i1 %220, label %225, label %.preheader151
 
 .preheader151:                                    ; preds = %219
@@ -13093,18 +13093,18 @@ dissect_amqp_1_0_map.exit:                        ; preds = %108, %133, %137, %.
   %222 = load i32, ptr %13, align 4
   %223 = load ptr, ptr %14, align 8
   %224 = zext i32 %6 to i64
-  %wide.trip.count = zext i32 %.079.i to i64
+  %wide.trip.count = zext i32 %.081.i to i64
   br label %228
 
 225:                                              ; preds = %219
-  %226 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.082.i, ptr noundef nonnull @ei_amqp_invalid_number_of_params, ptr noundef nonnull @.str.1539, i32 noundef %.079.i, i32 noundef %.078.i) #12
+  %226 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.084.i, ptr noundef nonnull @ei_amqp_invalid_number_of_params, ptr noundef nonnull @.str.1539, i32 noundef %.081.i, i32 noundef %.080.i) #12
   %227 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %179) #12
   br label %dissect_amqp_1_0_array.exit
 
 228:                                              ; preds = %.lr.ph160, %236
   %indvars.iv = phi i64 [ 0, %.lr.ph160 ], [ %indvars.iv.next, %236 ]
-  %.084.i157 = phi i32 [ %210, %.lr.ph160 ], [ %240, %236 ]
-  %229 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.084.i157) #12
+  %.079.i158 = phi i32 [ %210, %.lr.ph160 ], [ %240, %236 ]
+  %229 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.079.i158) #12
   %230 = icmp sgt i32 %229, 0
   br i1 %230, label %231, label %.critedge.i136.loopexit
 
@@ -13123,12 +13123,12 @@ dissect_amqp_1_0_map.exit:                        ; preds = %108, %133, %137, %.
   %.0.i137 = load i32, ptr %.0.in.i, align 4
   %237 = tail call ptr @proto_registrar_get_nth(i32 noundef %201) #12
   %238 = load ptr, ptr %237, align 8
-  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %221, i32 noundef %.084.i157, i32 noundef %.0.i137, ptr noundef %238, i32 noundef %222, ptr noundef %223, ptr noundef nonnull %12, ptr noundef %.082.i)
+  call fastcc void @get_amqp_1_0_value_formatter(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %221, i32 noundef %.079.i158, i32 noundef %.0.i137, ptr noundef %238, i32 noundef %222, ptr noundef %223, ptr noundef nonnull %12, ptr noundef %.084.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %239 = load i32, ptr %12, align 4
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %239, i32 1)
   store i32 %spec.store.select, ptr %12, align 4
-  %240 = add i32 %spec.store.select, %.084.i157
+  %240 = add i32 %spec.store.select, %.079.i158
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.i136.thread, label %228, !llvm.loop !23
 
@@ -13137,29 +13137,29 @@ dissect_amqp_1_0_map.exit:                        ; preds = %108, %133, %137, %.
   br label %.critedge.i136
 
 .critedge.i136:                                   ; preds = %.critedge.i136.loopexit, %.preheader151
-  %.084.i.lcssa = phi i32 [ %210, %.preheader151 ], [ %.084.i157, %.critedge.i136.loopexit ]
-  %.080.i.lcssa = phi i32 [ 0, %.preheader151 ], [ %indvars184.le, %.critedge.i136.loopexit ]
-  %.not87.i = icmp eq i32 %.080.i.lcssa, %.079.i
+  %.082.i.lcssa = phi i32 [ 0, %.preheader151 ], [ %indvars184.le, %.critedge.i136.loopexit ]
+  %.079.i.lcssa = phi i32 [ %210, %.preheader151 ], [ %.079.i158, %.critedge.i136.loopexit ]
+  %.not87.i = icmp eq i32 %.082.i.lcssa, %.081.i
   br i1 %.not87.i, label %.critedge.i136.thread, label %241
 
 241:                                              ; preds = %.critedge.i136
-  %242 = add i32 %.080.i.lcssa, %.079.i
-  %243 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.082.i, ptr noundef nonnull @ei_amqp_invalid_number_of_params, ptr noundef nonnull @.str.1540, i32 noundef %242, i32 noundef %.080.i.lcssa) #12
+  %242 = add i32 %.082.i.lcssa, %.081.i
+  %243 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.084.i, ptr noundef nonnull @ei_amqp_invalid_number_of_params, ptr noundef nonnull @.str.1540, i32 noundef %242, i32 noundef %.082.i.lcssa) #12
   br label %.critedge.i136.thread
 
 .critedge.i136.thread:                            ; preds = %236, %241, %.critedge.i136
-  %.084.i.lcssa188 = phi i32 [ %.084.i.lcssa, %241 ], [ %.084.i.lcssa, %.critedge.i136 ], [ %240, %236 ]
-  %244 = sub i32 %.084.i.lcssa188, %179
+  %.079.i.lcssa188 = phi i32 [ %.079.i.lcssa, %241 ], [ %.079.i.lcssa, %.critedge.i136 ], [ %240, %236 ]
+  %244 = sub i32 %.079.i.lcssa188, %179
   br label %dissect_amqp_1_0_array.exit
 
 dissect_amqp_1_0_array.exit:                      ; preds = %191, %225, %.critedge.i136.thread
-  %.083.i = phi i32 [ %196, %191 ], [ %227, %225 ], [ %244, %.critedge.i136.thread ]
+  %.078.i = phi i32 [ %196, %191 ], [ %227, %225 ], [ %244, %.critedge.i136.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  %245 = add i32 %.083.i, -1
+  %245 = add i32 %.078.i, -1
   store i32 %245, ptr %8, align 4
   br label %253
 

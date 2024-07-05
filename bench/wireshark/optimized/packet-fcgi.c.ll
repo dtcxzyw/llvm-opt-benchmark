@@ -320,7 +320,7 @@ define internal fastcc void @dissect_nv_pairs(ptr noundef %0, ptr nocapture noun
 
 16:                                               ; preds = %13, %11
   %.sink = phi i32 [ 4, %13 ], [ 1, %11 ]
-  %.047 = phi i32 [ %15, %13 ], [ %12, %11 ]
+  %.046 = phi i32 [ %15, %13 ], [ %12, %11 ]
   %17 = add i32 %.048, %.sink
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %17) #2
   %19 = icmp sgt i8 %18, -1
@@ -337,18 +337,18 @@ define internal fastcc void @dissect_nv_pairs(ptr noundef %0, ptr nocapture noun
 
 25:                                               ; preds = %22, %20
   %.sink50 = phi i32 [ 4, %22 ], [ 1, %20 ]
-  %.046 = phi i32 [ %24, %22 ], [ %21, %20 ]
+  %.047 = phi i32 [ %24, %22 ], [ %21, %20 ]
   %26 = add i32 %17, %.sink50
   %27 = load ptr, ptr %7, align 8
-  %28 = tail call ptr @tvb_get_string_enc(ptr noundef %27, ptr noundef %0, i32 noundef %26, i32 noundef %.047, i32 noundef 0) #2
-  %29 = add i32 %26, %.047
-  %.not = icmp eq i32 %.046, 0
+  %28 = tail call ptr @tvb_get_string_enc(ptr noundef %27, ptr noundef %0, i32 noundef %26, i32 noundef %.046, i32 noundef 0) #2
+  %29 = add i32 %26, %.046
+  %.not = icmp eq i32 %.047, 0
   br i1 %.not, label %37, label %30
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %7, align 8
-  %32 = tail call ptr @tvb_get_string_enc(ptr noundef %31, ptr noundef %0, i32 noundef %29, i32 noundef %.046, i32 noundef 0) #2
-  %33 = add i32 %29, %.046
+  %32 = tail call ptr @tvb_get_string_enc(ptr noundef %31, ptr noundef %0, i32 noundef %29, i32 noundef %.047, i32 noundef 0) #2
+  %33 = add i32 %29, %.047
   %34 = load i32, ptr @hf_fcgi_nv_name, align 4
   %35 = sub i32 %33, %.048
   %36 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %.048, i32 noundef %35, ptr noundef %28, ptr noundef nonnull @.str.54, ptr noundef %28, ptr noundef %32) #2

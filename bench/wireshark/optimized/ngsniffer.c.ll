@@ -759,12 +759,12 @@ define internal range(i32 0, 2) i32 @ngsniffer_seek_read(ptr nocapture noundef r
   %31 = icmp eq ptr %30, null
   %32 = getelementptr inbounds i8, ptr %11, i64 96
   %33 = getelementptr inbounds i8, ptr %30, i64 8
-  %.063.in.i = select i1 %31, ptr %32, ptr %33
-  %.063.i = load ptr, ptr %.063.in.i, align 8
+  %.064.in.i = select i1 %31, ptr %32, ptr %33
+  %.064.i = load ptr, ptr %.064.in.i, align 8
   br label %34
 
 34:                                               ; preds = %39, %28
-  %.1.i = phi ptr [ %.063.i, %28 ], [ %37, %39 ]
+  %.1.i = phi ptr [ %.064.i, %28 ], [ %37, %39 ]
   %cond.i = icmp eq ptr %.1.i, null
   br i1 %cond.i, label %44, label %35
 
@@ -871,13 +871,13 @@ define internal range(i32 0, 2) i32 @ngsniffer_seek_read(ptr nocapture noundef r
 
 ng_file_seek_rand.exit.thread18:                  ; preds = %20, %45, %47, %83
   %86 = phi i64 [ %84, %83 ], [ %17, %20 ], [ %17, %47 ], [ %17, %45 ]
-  %.064.i = phi i64 [ %85, %83 ], [ %18, %20 ], [ %18, %47 ], [ 0, %45 ]
-  %87 = trunc i64 %.064.i to i32
+  %.063.i = phi i64 [ %85, %83 ], [ %18, %20 ], [ %18, %47 ], [ 0, %45 ]
+  %87 = trunc i64 %.063.i to i32
   %88 = getelementptr inbounds i8, ptr %11, i64 76
   %89 = load i32, ptr %88, align 4
   %90 = add i32 %89, %87
   store i32 %90, ptr %88, align 4
-  %91 = add i64 %.064.i, %86
+  %91 = add i64 %.063.i, %86
   store i64 %91, ptr %16, align 8
   br label %95
 
@@ -1701,14 +1701,14 @@ ng_read_bytes.exit139:                            ; preds = %282
   unreachable
 
 set_metadata_frame2.exit:                         ; preds = %317, %ng_read_bytes.exit139, %116, %115, %114, %113, %101, %97, %96, %92, %set_pseudo_header_frame4.exit
-  %.096 = phi i16 [ %.val118, %set_pseudo_header_frame4.exit ], [ %41, %92 ], [ %41, %96 ], [ %41, %97 ], [ %41, %101 ], [ %41, %113 ], [ %41, %114 ], [ %41, %115 ], [ %41, %116 ], [ %292, %ng_read_bytes.exit139 ], [ %292, %317 ]
-  %.095 = phi i16 [ %.val116, %set_pseudo_header_frame4.exit ], [ %47, %92 ], [ %47, %96 ], [ %47, %97 ], [ %47, %101 ], [ %47, %113 ], [ %47, %114 ], [ %47, %115 ], [ %47, %116 ], [ %298, %ng_read_bytes.exit139 ], [ %298, %317 ]
-  %.094 = phi i16 [ %.val112, %set_pseudo_header_frame4.exit ], [ %63, %92 ], [ %63, %96 ], [ %63, %97 ], [ %63, %101 ], [ %63, %113 ], [ %63, %114 ], [ %63, %115 ], [ %63, %116 ], [ %314, %ng_read_bytes.exit139 ], [ %314, %317 ]
-  %.093 = phi i16 [ %.val114, %set_pseudo_header_frame4.exit ], [ %57, %92 ], [ %57, %96 ], [ %57, %97 ], [ %57, %101 ], [ %57, %113 ], [ %57, %114 ], [ %57, %115 ], [ %57, %116 ], [ %308, %ng_read_bytes.exit139 ], [ %308, %317 ]
-  %.092 = phi i8 [ %142, %set_pseudo_header_frame4.exit ], [ %49, %92 ], [ %49, %96 ], [ %49, %97 ], [ %49, %101 ], [ %49, %113 ], [ %49, %114 ], [ %49, %115 ], [ %49, %116 ], [ %300, %ng_read_bytes.exit139 ], [ %300, %317 ]
-  %.091 = phi i8 [ %144, %set_pseudo_header_frame4.exit ], [ %51, %92 ], [ %51, %96 ], [ %51, %97 ], [ %51, %101 ], [ %51, %113 ], [ %51, %114 ], [ %51, %115 ], [ %51, %116 ], [ %302, %ng_read_bytes.exit139 ], [ %302, %317 ]
+  %.096 = phi i16 [ %.val116, %set_pseudo_header_frame4.exit ], [ %47, %92 ], [ %47, %96 ], [ %47, %97 ], [ %47, %101 ], [ %47, %113 ], [ %47, %114 ], [ %47, %115 ], [ %47, %116 ], [ %298, %ng_read_bytes.exit139 ], [ %298, %317 ]
+  %.095 = phi i16 [ %.val112, %set_pseudo_header_frame4.exit ], [ %63, %92 ], [ %63, %96 ], [ %63, %97 ], [ %63, %101 ], [ %63, %113 ], [ %63, %114 ], [ %63, %115 ], [ %63, %116 ], [ %314, %ng_read_bytes.exit139 ], [ %314, %317 ]
+  %.094 = phi i16 [ %.val114, %set_pseudo_header_frame4.exit ], [ %57, %92 ], [ %57, %96 ], [ %57, %97 ], [ %57, %101 ], [ %57, %113 ], [ %57, %114 ], [ %57, %115 ], [ %57, %116 ], [ %308, %ng_read_bytes.exit139 ], [ %308, %317 ]
+  %.093 = phi i8 [ %142, %set_pseudo_header_frame4.exit ], [ %49, %92 ], [ %49, %96 ], [ %49, %97 ], [ %49, %101 ], [ %49, %113 ], [ %49, %114 ], [ %49, %115 ], [ %49, %116 ], [ %300, %ng_read_bytes.exit139 ], [ %300, %317 ]
+  %.092 = phi i8 [ %144, %set_pseudo_header_frame4.exit ], [ %51, %92 ], [ %51, %96 ], [ %51, %97 ], [ %51, %101 ], [ %51, %113 ], [ %51, %114 ], [ %51, %115 ], [ %51, %116 ], [ %302, %ng_read_bytes.exit139 ], [ %302, %317 ]
+  %.091 = phi i16 [ %.val118, %set_pseudo_header_frame4.exit ], [ %41, %92 ], [ %41, %96 ], [ %41, %97 ], [ %41, %101 ], [ %41, %113 ], [ %41, %114 ], [ %41, %115 ], [ %41, %116 ], [ %292, %ng_read_bytes.exit139 ], [ %292, %317 ]
   %.1 = phi i32 [ %147, %set_pseudo_header_frame4.exit ], [ %64, %92 ], [ %64, %96 ], [ %64, %97 ], [ %64, %101 ], [ %64, %113 ], [ %64, %114 ], [ %64, %115 ], [ %64, %116 ], [ %315, %ng_read_bytes.exit139 ], [ %315, %317 ]
-  %320 = zext i16 %.093 to i32
+  %320 = zext i16 %.094 to i32
   %321 = icmp ult i32 %.1, %320
   br i1 %321, label %322, label %324
 
@@ -1728,8 +1728,8 @@ set_metadata_frame2.exit:                         ; preds = %317, %ng_read_bytes
   br label %327
 
 327:                                              ; preds = %325, %324
-  %328 = zext i16 %.094 to i32
-  %.not103 = icmp eq i16 %.094, 0
+  %328 = zext i16 %.095 to i32
+  %.not103 = icmp eq i16 %.095, 0
   %329 = select i1 %.not103, i32 1, i32 3
   %330 = load i32, ptr %17, align 4
   %331 = or i32 %330, %329
@@ -1739,7 +1739,7 @@ set_metadata_frame2.exit:                         ; preds = %317, %ng_read_bytes
   %334 = getelementptr inbounds i8, ptr %4, i64 68
   store i32 %332, ptr %334, align 4
   store i32 %320, ptr %333, align 8
-  %335 = zext i16 %.093 to i64
+  %335 = zext i16 %.094 to i64
   call void @ws_buffer_assure_space(ptr noundef %5, i64 noundef %335) #13
   %336 = load ptr, ptr %5, align 8
   %337 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1771,7 +1771,7 @@ ng_read_bytes.exit142:                            ; preds = %327
   ]
 
 349:                                              ; preds = %ng_read_bytes.exit142
-  %350 = icmp eq i16 %.093, 0
+  %350 = icmp eq i16 %.094, 0
   br i1 %350, label %382, label %351
 
 351:                                              ; preds = %349
@@ -1780,7 +1780,7 @@ ng_read_bytes.exit142:                            ; preds = %327
   br i1 %353, label %382, label %354
 
 354:                                              ; preds = %351
-  %.not.i.i = icmp eq i16 %.093, 1
+  %.not.i.i = icmp eq i16 %.094, 1
   br i1 %.not.i.i, label %381, label %355
 
 355:                                              ; preds = %354
@@ -1859,7 +1859,7 @@ ng_read_bytes.exit142:                            ; preds = %327
   %388 = getelementptr inbounds i8, ptr %4, i64 85
   %389 = load i8, ptr %388, align 1
   %390 = icmp eq i8 %389, 3
-  %391 = icmp ugt i16 %.093, 1
+  %391 = icmp ugt i16 %.094, 1
   %or.cond.i143 = and i1 %391, %390
   br i1 %or.cond.i143, label %392, label %fix_pseudo_header.exit
 
@@ -1893,12 +1893,12 @@ fix_pseudo_header.exit:                           ; preds = %372, %ng_read_bytes
   %.0.i144 = phi i32 [ %346, %ng_read_bytes.exit142 ], [ 13, %399 ], [ 13, %405 ], [ 13, %401 ], [ 13, %387 ], [ %.019.i.ph.i, %385 ], [ %.019.i.ph.i, %386 ], [ 12, %381 ], [ 12, %.critedge.i.i ], [ 27, %375 ], [ 12, %372 ]
   %406 = getelementptr inbounds i8, ptr %4, i64 72
   store i32 %.0.i144, ptr %406, align 8
-  %407 = zext i8 %.092 to i64
+  %407 = zext i8 %.093 to i64
   %408 = shl nuw nsw i64 %407, 32
-  %409 = zext i16 %.095 to i64
+  %409 = zext i16 %.096 to i64
   %410 = shl nuw nsw i64 %409, 16
   %411 = or disjoint i64 %408, %410
-  %412 = zext i16 %.096 to i64
+  %412 = zext i16 %.091 to i64
   %413 = or disjoint i64 %411, %412
   %414 = getelementptr inbounds i8, ptr %19, i64 12
   %415 = load i32, ptr %414, align 4
@@ -1907,7 +1907,7 @@ fix_pseudo_header.exit:                           ; preds = %372, %ng_read_bytes
   %418 = udiv i64 %417, 1000000000000
   %.neg = mul i64 %418, -1000000000000
   %419 = add i64 %.neg, %417
-  %420 = zext i8 %.091 to i64
+  %420 = zext i8 %.092 to i64
   %421 = mul nuw nsw i64 %420, 86400
   %422 = getelementptr inbounds i8, ptr %19, i64 16
   %423 = load i64, ptr %422, align 8
@@ -2221,9 +2221,9 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
   %16 = sext i16 %15 to i32
   %17 = icmp sgt i16 %13, -1
   %18 = sub nsw i32 0, %16
-  %.032 = select i1 %17, i32 %16, i32 %18
+  %.033 = select i1 %17, i32 %16, i32 %18
   %19 = call noalias dereferenceable_or_null(65536) ptr @g_malloc(i64 noundef 65536) #15
-  %20 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef %19, i32 noundef %.032, ptr noundef %2, ptr noundef %3) #13
+  %20 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef %19, i32 noundef %.033, ptr noundef %2, ptr noundef %3) #13
   %.not36 = icmp eq i32 %20, 0
   br i1 %.not36, label %21, label %22
 
@@ -2232,7 +2232,7 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
   br label %156
 
 22:                                               ; preds = %7
-  %23 = zext nneg i32 %.032 to i64
+  %23 = zext nneg i32 %.033 to i64
   %24 = load i64, ptr %8, align 8
   %25 = add i64 %24, %23
   store i64 %25, ptr %8, align 8
@@ -2250,16 +2250,16 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
   br i1 %30, label %.lr.ph.i, label %SnifferDecompress.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %146
-  %.0172.i = phi i32 [ %.1.i, %146 ], [ 0, %.preheader.i ]
-  %.0123171.i = phi i32 [ %.1124.i, %146 ], [ 0, %.preheader.i ]
-  %.0125170.i = phi ptr [ %.1126.i, %146 ], [ %26, %.preheader.i ]
-  %.0127169.i = phi ptr [ %.2.i, %146 ], [ %19, %.preheader.i ]
-  %31 = lshr i32 %.0123171.i, 1
-  %32 = icmp ult i32 %.0123171.i, 2
+  %.0123172.i = phi ptr [ %.2.i, %146 ], [ %19, %.preheader.i ]
+  %.0124171.i = phi i32 [ %.1125.i, %146 ], [ 0, %.preheader.i ]
+  %.0126170.i = phi i32 [ %.1127.i, %146 ], [ 0, %.preheader.i ]
+  %.0128169.i = phi ptr [ %.1129.i, %146 ], [ %26, %.preheader.i ]
+  %31 = lshr i32 %.0126170.i, 1
+  %32 = icmp ult i32 %.0126170.i, 2
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = getelementptr i8, ptr %.0127169.i, i64 2
+  %34 = getelementptr i8, ptr %.0123172.i, i64 2
   %.not.i = icmp ult ptr %34, %28
   br i1 %.not.i, label %37, label %35
 
@@ -2270,20 +2270,20 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
   br label %SnifferDecompress.exit.thread
 
 37:                                               ; preds = %33
-  %.0127.val.i = load i16, ptr %.0127169.i, align 1
-  %38 = zext i16 %.0127.val.i to i32
+  %.0123.val.i = load i16, ptr %.0123172.i, align 1
+  %38 = zext i16 %.0123.val.i to i32
   br label %39
 
 39:                                               ; preds = %37, %.lr.ph.i
-  %.1128.i = phi ptr [ %34, %37 ], [ %.0127169.i, %.lr.ph.i ]
-  %.1124.i = phi i32 [ 32768, %37 ], [ %31, %.lr.ph.i ]
-  %.1.i = phi i32 [ %38, %37 ], [ %.0172.i, %.lr.ph.i ]
-  %40 = and i32 %.1.i, %.1124.i
+  %.1127.i = phi i32 [ 32768, %37 ], [ %31, %.lr.ph.i ]
+  %.1125.i = phi i32 [ %38, %37 ], [ %.0124171.i, %.lr.ph.i ]
+  %.1.i = phi ptr [ %34, %37 ], [ %.0123172.i, %.lr.ph.i ]
+  %40 = and i32 %.1125.i, %.1127.i
   %.not145.i = icmp eq i32 %40, 0
   br i1 %.not145.i, label %41, label %48
 
 41:                                               ; preds = %39
-  %42 = getelementptr i8, ptr %.0125170.i, i64 1
+  %42 = getelementptr i8, ptr %.0128169.i, i64 1
   %43 = icmp ugt ptr %42, %29
   br i1 %43, label %44, label %45
 
@@ -2292,17 +2292,17 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
   br label %SnifferDecompress.exit.thread
 
 45:                                               ; preds = %41
-  %46 = getelementptr i8, ptr %.1128.i, i64 1
-  %47 = load i8, ptr %.1128.i, align 1
-  store i8 %47, ptr %.0125170.i, align 1
+  %46 = getelementptr i8, ptr %.1.i, i64 1
+  %47 = load i8, ptr %.1.i, align 1
+  store i8 %47, ptr %.0128169.i, align 1
   br label %146
 
 48:                                               ; preds = %39
-  %49 = load i8, ptr %.1128.i, align 1
+  %49 = load i8, ptr %.1.i, align 1
   %50 = zext i8 %49 to i32
   %51 = lshr i32 %50, 4
   %52 = and i32 %50, 15
-  %53 = getelementptr i8, ptr %.1128.i, i64 1
+  %53 = getelementptr i8, ptr %.1.i, i64 1
   switch i32 %51, label %119 [
     i32 0, label %54
     i32 1, label %66
@@ -2312,7 +2312,7 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
 54:                                               ; preds = %48
   %55 = add nuw nsw i32 %52, 3
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr i8, ptr %.0125170.i, i64 %56
+  %57 = getelementptr i8, ptr %.0128169.i, i64 %56
   %58 = icmp ugt ptr %57, %29
   br i1 %58, label %59, label %60
 
@@ -2331,9 +2331,9 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
   br label %SnifferDecompress.exit.thread
 
 63:                                               ; preds = %60
-  %64 = getelementptr i8, ptr %.1128.i, i64 2
+  %64 = getelementptr i8, ptr %.1.i, i64 2
   %65 = load i8, ptr %53, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0125170.i, i8 %65, i64 %56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0128169.i, i8 %65, i64 %56, i1 false)
   br label %146
 
 66:                                               ; preds = %48
@@ -2347,14 +2347,14 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
   br label %SnifferDecompress.exit.thread
 
 69:                                               ; preds = %66
-  %70 = getelementptr i8, ptr %.1128.i, i64 2
+  %70 = getelementptr i8, ptr %.1.i, i64 2
   %71 = load i8, ptr %53, align 1
   %72 = zext i8 %71 to i32
   %73 = shl nuw nsw i32 %72, 4
   %74 = add nuw nsw i32 %52, 19
   %75 = add nuw nsw i32 %74, %73
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr i8, ptr %.0125170.i, i64 %76
+  %77 = getelementptr i8, ptr %.0128169.i, i64 %76
   %78 = icmp ugt ptr %77, %29
   br i1 %78, label %79, label %80
 
@@ -2373,9 +2373,9 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
   br label %SnifferDecompress.exit.thread
 
 83:                                               ; preds = %80
-  %84 = getelementptr i8, ptr %.1128.i, i64 3
+  %84 = getelementptr i8, ptr %.1.i, i64 3
   %85 = load i8, ptr %70, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0125170.i, i8 %85, i64 %76, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0128169.i, i8 %85, i64 %76, i1 false)
   br label %146
 
 86:                                               ; preds = %48
@@ -2389,7 +2389,7 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
   br label %SnifferDecompress.exit.thread
 
 89:                                               ; preds = %86
-  %90 = getelementptr i8, ptr %.1128.i, i64 2
+  %90 = getelementptr i8, ptr %.1.i, i64 2
   %91 = load i8, ptr %53, align 1
   %92 = zext i8 %91 to i32
   %93 = shl nuw nsw i32 %92, 4
@@ -2405,11 +2405,11 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
   br label %SnifferDecompress.exit.thread
 
 98:                                               ; preds = %89
-  %99 = getelementptr i8, ptr %.1128.i, i64 3
+  %99 = getelementptr i8, ptr %.1.i, i64 3
   %100 = load i8, ptr %90, align 1
   %101 = zext i8 %100 to i64
   %102 = add nuw nsw i64 %101, 16
-  %103 = getelementptr i8, ptr %.0125170.i, i64 %102
+  %103 = getelementptr i8, ptr %.0128169.i, i64 %102
   %104 = icmp ugt ptr %103, %29
   br i1 %104, label %105, label %106
 
@@ -2420,7 +2420,7 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
 106:                                              ; preds = %98
   %107 = zext nneg i32 %95 to i64
   %108 = sub nsw i64 0, %107
-  %109 = getelementptr i8, ptr %.0125170.i, i64 %108
+  %109 = getelementptr i8, ptr %.0128169.i, i64 %108
   %110 = icmp ult ptr %109, %26
   br i1 %110, label %111, label %113
 
@@ -2432,7 +2432,7 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
 
 113:                                              ; preds = %106
   %114 = getelementptr i8, ptr %109, i64 %102
-  %115 = icmp ugt ptr %114, %.0125170.i
+  %115 = icmp ugt ptr %114, %.0128169.i
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %113
@@ -2442,7 +2442,7 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
   br label %SnifferDecompress.exit.thread
 
 118:                                              ; preds = %113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0125170.i, ptr noundef nonnull align 1 dereferenceable(1) %109, i64 %102, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0128169.i, ptr noundef nonnull align 1 dereferenceable(1) %109, i64 %102, i1 false)
   br label %146
 
 119:                                              ; preds = %48
@@ -2456,9 +2456,9 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
   br label %SnifferDecompress.exit.thread
 
 122:                                              ; preds = %119
-  %123 = getelementptr i8, ptr %.1128.i, i64 2
+  %123 = getelementptr i8, ptr %.1.i, i64 2
   %124 = zext nneg i32 %51 to i64
-  %125 = getelementptr i8, ptr %.0125170.i, i64 %124
+  %125 = getelementptr i8, ptr %.0128169.i, i64 %124
   %126 = icmp ugt ptr %125, %29
   br i1 %126, label %127, label %128
 
@@ -2474,7 +2474,7 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
   %133 = add nuw nsw i32 %132, %131
   %134 = zext nneg i32 %133 to i64
   %135 = sub nsw i64 0, %134
-  %136 = getelementptr i8, ptr %.0125170.i, i64 %135
+  %136 = getelementptr i8, ptr %.0128169.i, i64 %135
   %137 = icmp ult ptr %136, %26
   br i1 %137, label %138, label %140
 
@@ -2486,7 +2486,7 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
 
 140:                                              ; preds = %128
   %141 = getelementptr i8, ptr %136, i64 %124
-  %142 = icmp ugt ptr %141, %.0125170.i
+  %142 = icmp ugt ptr %141, %.0128169.i
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %140
@@ -2496,18 +2496,18 @@ define internal fastcc range(i32 0, 2) i32 @read_blob(ptr noundef %0, ptr nocapt
   br label %SnifferDecompress.exit.thread
 
 145:                                              ; preds = %140
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0125170.i, ptr align 1 %136, i64 %124, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0128169.i, ptr align 1 %136, i64 %124, i1 false)
   br label %146
 
 146:                                              ; preds = %145, %118, %83, %63, %45
+  %.1129.i = phi ptr [ %125, %145 ], [ %103, %118 ], [ %77, %83 ], [ %57, %63 ], [ %42, %45 ]
   %.2.i = phi ptr [ %123, %145 ], [ %99, %118 ], [ %84, %83 ], [ %64, %63 ], [ %46, %45 ]
-  %.1126.i = phi ptr [ %125, %145 ], [ %103, %118 ], [ %77, %83 ], [ %57, %63 ], [ %42, %45 ]
   %147 = icmp ult ptr %.2.i, %28
   br i1 %147, label %.lr.ph.i, label %SnifferDecompress.exit, !llvm.loop !10
 
 SnifferDecompress.exit:                           ; preds = %146, %.preheader.i
-  %.0125.lcssa.i = phi ptr [ %26, %.preheader.i ], [ %.1126.i, %146 ]
-  %148 = ptrtoint ptr %.0125.lcssa.i to i64
+  %.0128.lcssa.i = phi ptr [ %26, %.preheader.i ], [ %.1129.i, %146 ]
+  %148 = ptrtoint ptr %.0128.lcssa.i to i64
   %149 = ptrtoint ptr %26 to i64
   %150 = sub i64 %148, %149
   %151 = trunc i64 %150 to i32
@@ -2528,8 +2528,8 @@ SnifferDecompress.exit.thread:                    ; preds = %44, %61, %59, %81, 
   br label %156
 
 156:                                              ; preds = %4, %153, %SnifferDecompress.exit.thread, %21
-  %.033 = phi i32 [ 1, %153 ], [ 0, %SnifferDecompress.exit.thread ], [ 0, %21 ], [ 0, %4 ]
-  ret i32 %.033
+  %.031 = phi i32 [ 1, %153 ], [ 0, %SnifferDecompress.exit.thread ], [ 0, %21 ], [ 0, %4 ]
+  ret i32 %.031
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2694,7 +2694,7 @@ define internal range(i32 0, 2) i32 @ngsniffer_dump(ptr noundef %0, ptr noundef 
 
 58:                                               ; preds = %27, %30, %34
   %.sink = phi i64 [ %57, %34 ], [ 0, %30 ], [ 0, %27 ]
-  %.0 = phi i16 [ %45, %34 ], [ 0, %30 ], [ 0, %27 ]
+  %.063 = phi i16 [ %45, %34 ], [ 0, %30 ], [ 0, %27 ]
   %59 = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %.sink, ptr %59, align 8
   store i16 4, ptr %8, align 2
@@ -2703,7 +2703,7 @@ define internal range(i32 0, 2) i32 @ngsniffer_dump(ptr noundef %0, ptr noundef 
   %61 = getelementptr inbounds i8, ptr %8, i64 4
   store i16 0, ptr %61, align 2
   %62 = getelementptr inbounds i8, ptr %8, i64 6
-  store i16 %.0, ptr %62, align 2
+  store i16 %.063, ptr %62, align 2
   %63 = getelementptr inbounds i8, ptr %8, i64 8
   store i8 4, ptr %63, align 2
   %64 = load i32, ptr %16, align 8
@@ -2868,8 +2868,8 @@ define internal range(i32 0, 2) i32 @ngsniffer_dump(ptr noundef %0, ptr noundef 
   br label %152
 
 152:                                              ; preds = %148, %140, %74, %58, %24, %20, %14
-  %.063 = phi i32 [ 0, %14 ], [ 0, %20 ], [ 0, %24 ], [ 0, %58 ], [ 0, %74 ], [ 0, %140 ], [ %., %148 ]
-  ret i32 %.063
+  %.0 = phi i32 [ 0, %14 ], [ 0, %20 ], [ 0, %24 ], [ 0, %58 ], [ 0, %74 ], [ 0, %140 ], [ %., %148 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

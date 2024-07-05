@@ -217,9 +217,9 @@ memiszero.exit:                                   ; preds = %43
   br label %361
 
 .lr.ph236:                                        ; preds = %109, %346
-  %.0151235 = phi i64 [ %347, %346 ], [ 512, %109 ]
+  %.0152235 = phi i64 [ %347, %346 ], [ 512, %109 ]
   %117 = load ptr, ptr %0, align 8
-  %118 = call fastcc i32 @get_record(ptr noundef nonnull %11, ptr noundef %117, i64 noundef %.0151235, i32 noundef 0, ptr noundef %1, ptr noundef %2)
+  %118 = call fastcc i32 @get_record(ptr noundef nonnull %11, ptr noundef %117, i64 noundef %.0152235, i32 noundef 0, ptr noundef %1, ptr noundef %2)
   %119 = sext i32 %118 to i64
   %120 = icmp slt i32 %118, 0
   br i1 %120, label %121, label %128
@@ -326,7 +326,7 @@ memiszero.exit:                                   ; preds = %43
 
 185:                                              ; preds = %165, %165
   %186 = load ptr, ptr %0, align 8
-  %187 = call i64 @file_seek(ptr noundef %186, i64 noundef %.0151235, i32 noundef 0, ptr noundef %1) #11
+  %187 = call i64 @file_seek(ptr noundef %186, i64 noundef %.0152235, i32 noundef 0, ptr noundef %1) #11
   %188 = icmp eq i64 %187, -1
   br i1 %188, label %189, label %351
 
@@ -615,7 +615,7 @@ memiszero.exit:                                   ; preds = %43
   br label %346
 
 346:                                              ; preds = %190, %326
-  %347 = add i64 %.0151235, %119
+  %347 = add i64 %.0152235, %119
   %348 = load i32, ptr %12, align 4
   %349 = add i32 %348, -1
   store i32 %349, ptr %12, align 4
@@ -644,8 +644,8 @@ memiszero.exit:                                   ; preds = %43
   br label %361
 
 361:                                              ; preds = %9, %7, %351, %324, %317, %291, %253, %248, %242, %239, %194, %189, %157, %130, %121, %._crit_edge, %101
-  %.0152 = phi i32 [ -1, %._crit_edge ], [ -1, %121 ], [ -1, %130 ], [ -1, %157 ], [ -1, %189 ], [ 1, %351 ], [ -1, %194 ], [ 0, %239 ], [ 0, %242 ], [ -1, %248 ], [ -1, %253 ], [ -1, %317 ], [ -1, %324 ], [ -1, %291 ], [ -1, %101 ], [ %., %7 ], [ 0, %9 ]
-  ret i32 %.0152
+  %.0 = phi i32 [ -1, %._crit_edge ], [ -1, %121 ], [ -1, %130 ], [ -1, %157 ], [ -1, %189 ], [ 1, %351 ], [ -1, %194 ], [ 0, %239 ], [ 0, %242 ], [ -1, %248 ], [ -1, %253 ], [ -1, %317 ], [ -1, %324 ], [ -1, %291 ], [ -1, %101 ], [ %., %7 ], [ 0, %9 ]
+  ret i32 %.0
 }
 
 declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -865,10 +865,10 @@ define internal range(i32 0, 2) i32 @k12_read(ptr nocapture noundef readonly %0,
   br label %.loopexit
 
 16:                                               ; preds = %.lr.ph, %.backedge
-  %.052 = phi i64 [ %10, %.lr.ph ], [ %77, %.backedge ]
-  store i64 %.052, ptr %5, align 8
+  %.04252 = phi i64 [ %10, %.lr.ph ], [ %77, %.backedge ]
+  store i64 %.04252, ptr %5, align 8
   %17 = load ptr, ptr %0, align 8
-  %18 = tail call fastcc i32 @get_record(ptr noundef nonnull %8, ptr noundef %17, i64 noundef %.052, i32 noundef 0, ptr noundef %3, ptr noundef %4)
+  %18 = tail call fastcc i32 @get_record(ptr noundef nonnull %8, ptr noundef %17, i64 noundef %.04252, i32 noundef 0, ptr noundef %3, ptr noundef %4)
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %.loopexit, label %20
 
@@ -947,7 +947,7 @@ define internal range(i32 0, 2) i32 @k12_read(ptr nocapture noundef readonly %0,
 75:                                               ; preds = %69, %27
   %.041 = phi ptr [ %68, %27 ], [ %74, %69 ]
   %76 = zext nneg i32 %18 to i64
-  %77 = add i64 %.052, %76
+  %77 = add i64 %.04252, %76
   %78 = and i8 %46, -16
   %.masked = zext i8 %78 to i32
   %79 = or disjoint i32 %44, %.masked
@@ -978,8 +978,8 @@ define internal range(i32 0, 2) i32 @k12_read(ptr nocapture noundef readonly %0,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %86, %25, %22, %._crit_edge
-  %.042 = phi i32 [ 0, %._crit_edge ], [ 0, %22 ], [ 0, %25 ], [ %87, %86 ], [ 0, %16 ]
-  ret i32 %.042
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %22 ], [ 0, %25 ], [ %87, %86 ], [ 0, %16 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

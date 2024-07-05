@@ -804,16 +804,16 @@ switch.lookup:                                    ; preds = %4
   br i1 %.not.i.i, label %dissect_bmp_stat_report.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %139, %255
-  %.0129.i.i = phi i32 [ %256, %255 ], [ 0, %139 ]
-  %.0127128.i.i = phi i32 [ %.1.i.i, %255 ], [ 52, %139 ]
+  %.0129.i.i = phi i32 [ %.1.i.i, %255 ], [ 52, %139 ]
+  %.0127128.i.i = phi i32 [ %256, %255 ], [ 0, %139 ]
   %143 = load i32, ptr @hf_stat_type, align 4
-  %144 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %143, ptr noundef %0, i32 noundef %.0127128.i.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %18) #5
+  %144 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %143, ptr noundef %0, i32 noundef %.0129.i.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %18) #5
   %145 = load i32, ptr @ett_bmp_stat_type, align 4
   %146 = call ptr @proto_item_add_subtree(ptr noundef %144, i32 noundef %145) #5
-  %147 = add i32 %.0127128.i.i, 2
+  %147 = add i32 %.0129.i.i, 2
   %148 = load i32, ptr @hf_stat_len, align 4
   %149 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %146, i32 noundef %148, ptr noundef %0, i32 noundef %147, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %17) #5
-  %150 = add i32 %.0127128.i.i, 4
+  %150 = add i32 %.0129.i.i, 4
   %151 = load i32, ptr @hf_stat_data, align 4
   %152 = load i32, ptr %17, align 4
   %153 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %151, ptr noundef %0, i32 noundef %150, i32 noundef %152, i32 noundef 0) #5
@@ -842,133 +842,133 @@ switch.lookup:                                    ; preds = %4
 155:                                              ; preds = %.lr.ph.i.i
   %156 = load i32, ptr @hf_stat_data_prefix_rej, align 4
   %157 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %156, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef 0) #5
-  %158 = add i32 %.0127128.i.i, 8
+  %158 = add i32 %.0129.i.i, 8
   br label %255
 
 159:                                              ; preds = %.lr.ph.i.i
   %160 = load i32, ptr @hf_stat_data_prefix_dup, align 4
   %161 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %160, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef 0) #5
-  %162 = add i32 %.0127128.i.i, 8
+  %162 = add i32 %.0129.i.i, 8
   br label %255
 
 163:                                              ; preds = %.lr.ph.i.i
   %164 = load i32, ptr @hf_stat_data_withdraw_dup, align 4
   %165 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %164, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef 0) #5
-  %166 = add i32 %.0127128.i.i, 8
+  %166 = add i32 %.0129.i.i, 8
   br label %255
 
 167:                                              ; preds = %.lr.ph.i.i
   %168 = load i32, ptr @hf_stat_data_cluster_loop, align 4
   %169 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %168, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef 0) #5
-  %170 = add i32 %.0127128.i.i, 8
+  %170 = add i32 %.0129.i.i, 8
   br label %255
 
 171:                                              ; preds = %.lr.ph.i.i
   %172 = load i32, ptr @hf_stat_data_as_loop, align 4
   %173 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %172, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef 0) #5
-  %174 = add i32 %.0127128.i.i, 8
+  %174 = add i32 %.0129.i.i, 8
   br label %255
 
 175:                                              ; preds = %.lr.ph.i.i
   %176 = load i32, ptr @hf_stat_data_inv_originator, align 4
   %177 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %176, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef 0) #5
-  %178 = add i32 %.0127128.i.i, 8
+  %178 = add i32 %.0129.i.i, 8
   br label %255
 
 179:                                              ; preds = %.lr.ph.i.i
   %180 = load i32, ptr @hf_stat_data_as_confed_loop, align 4
   %181 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %180, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef 0) #5
-  %182 = add i32 %.0127128.i.i, 8
+  %182 = add i32 %.0129.i.i, 8
   br label %255
 
 183:                                              ; preds = %.lr.ph.i.i
   %184 = load i32, ptr @hf_stat_data_routes_adj_rib_in, align 4
   %185 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %184, ptr noundef %0, i32 noundef %150, i32 noundef 8, i32 noundef 0) #5
-  %186 = add i32 %.0127128.i.i, 12
+  %186 = add i32 %.0129.i.i, 12
   br label %255
 
 187:                                              ; preds = %.lr.ph.i.i
   %188 = load i32, ptr @hf_stat_data_routes_loc_rib, align 4
   %189 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %188, ptr noundef %0, i32 noundef %150, i32 noundef 8, i32 noundef 0) #5
-  %190 = add i32 %.0127128.i.i, 12
+  %190 = add i32 %.0129.i.i, 12
   br label %255
 
 191:                                              ; preds = %.lr.ph.i.i
   %192 = load i32, ptr @hf_stat_data_routes_per_adj_rib_in_afi, align 4
   %193 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %192, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef 0) #5
-  %194 = add i32 %.0127128.i.i, 6
+  %194 = add i32 %.0129.i.i, 6
   %195 = load i32, ptr @hf_stat_data_routes_per_adj_rib_in_safi, align 4
   %196 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %195, ptr noundef %0, i32 noundef %194, i32 noundef 1, i32 noundef 0) #5
-  %197 = add i32 %.0127128.i.i, 7
+  %197 = add i32 %.0129.i.i, 7
   %198 = load i32, ptr @hf_stat_data_routes_per_adj_rib_in, align 4
   %199 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %198, ptr noundef %0, i32 noundef %197, i32 noundef 8, i32 noundef 0) #5
-  %200 = add i32 %.0127128.i.i, 15
+  %200 = add i32 %.0129.i.i, 15
   br label %255
 
 201:                                              ; preds = %.lr.ph.i.i
   %202 = load i32, ptr @hf_stat_data_routes_per_loc_rib_afi, align 4
   %203 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %202, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef 0) #5
-  %204 = add i32 %.0127128.i.i, 6
+  %204 = add i32 %.0129.i.i, 6
   %205 = load i32, ptr @hf_stat_data_routes_per_loc_rib_safi, align 4
   %206 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %205, ptr noundef %0, i32 noundef %204, i32 noundef 1, i32 noundef 0) #5
-  %207 = add i32 %.0127128.i.i, 7
+  %207 = add i32 %.0129.i.i, 7
   %208 = load i32, ptr @hf_stat_data_routes_per_loc_rib, align 4
   %209 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %208, ptr noundef %0, i32 noundef %207, i32 noundef 8, i32 noundef 0) #5
-  %210 = add i32 %.0127128.i.i, 15
+  %210 = add i32 %.0129.i.i, 15
   br label %255
 
 211:                                              ; preds = %.lr.ph.i.i
   %212 = load i32, ptr @hf_stat_data_update_treat, align 4
   %213 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %212, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef 0) #5
-  %214 = add i32 %.0127128.i.i, 8
+  %214 = add i32 %.0129.i.i, 8
   br label %255
 
 215:                                              ; preds = %.lr.ph.i.i
   %216 = load i32, ptr @hf_stat_data_prefixes_treat, align 4
   %217 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %216, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef 0) #5
-  %218 = add i32 %.0127128.i.i, 8
+  %218 = add i32 %.0129.i.i, 8
   br label %255
 
 219:                                              ; preds = %.lr.ph.i.i
   %220 = load i32, ptr @hf_stat_data_duplicate_update, align 4
   %221 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %220, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef 0) #5
-  %222 = add i32 %.0127128.i.i, 8
+  %222 = add i32 %.0129.i.i, 8
   br label %255
 
 223:                                              ; preds = %.lr.ph.i.i
   %224 = load i32, ptr @hf_stat_data_routes_pre_adj_rib_out, align 4
   %225 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %224, ptr noundef %0, i32 noundef %150, i32 noundef 8, i32 noundef 0) #5
-  %226 = add i32 %.0127128.i.i, 12
+  %226 = add i32 %.0129.i.i, 12
   br label %255
 
 227:                                              ; preds = %.lr.ph.i.i
   %228 = load i32, ptr @hf_stat_data_routes_post_adj_rib_out, align 4
   %229 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %228, ptr noundef %0, i32 noundef %150, i32 noundef 8, i32 noundef 0) #5
-  %230 = add i32 %.0127128.i.i, 12
+  %230 = add i32 %.0129.i.i, 12
   br label %255
 
 231:                                              ; preds = %.lr.ph.i.i
   %232 = load i32, ptr @hf_stat_data_routes_pre_per_adj_rib_out_afi, align 4
   %233 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %232, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef 0) #5
-  %234 = add i32 %.0127128.i.i, 6
+  %234 = add i32 %.0129.i.i, 6
   %235 = load i32, ptr @hf_stat_data_routes_pre_per_adj_rib_out_safi, align 4
   %236 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %235, ptr noundef %0, i32 noundef %234, i32 noundef 1, i32 noundef 0) #5
-  %237 = add i32 %.0127128.i.i, 7
+  %237 = add i32 %.0129.i.i, 7
   %238 = load i32, ptr @hf_stat_data_routes_pre_per_adj_rib_out, align 4
   %239 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %238, ptr noundef %0, i32 noundef %237, i32 noundef 8, i32 noundef 0) #5
-  %240 = add i32 %.0127128.i.i, 15
+  %240 = add i32 %.0129.i.i, 15
   br label %255
 
 241:                                              ; preds = %.lr.ph.i.i
   %242 = load i32, ptr @hf_stat_data_routes_post_per_adj_rib_out_afi, align 4
   %243 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %242, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef 0) #5
-  %244 = add i32 %.0127128.i.i, 6
+  %244 = add i32 %.0129.i.i, 6
   %245 = load i32, ptr @hf_stat_data_routes_post_per_adj_rib_out_safi, align 4
   %246 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %245, ptr noundef %0, i32 noundef %244, i32 noundef 1, i32 noundef 0) #5
-  %247 = add i32 %.0127128.i.i, 7
+  %247 = add i32 %.0129.i.i, 7
   %248 = load i32, ptr @hf_stat_data_routes_post_per_adj_rib_out, align 4
   %249 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %248, ptr noundef %0, i32 noundef %247, i32 noundef 8, i32 noundef 0) #5
-  %250 = add i32 %.0127128.i.i, 15
+  %250 = add i32 %.0129.i.i, 15
   br label %255
 
 251:                                              ; preds = %.lr.ph.i.i
@@ -979,7 +979,7 @@ switch.lookup:                                    ; preds = %4
 
 255:                                              ; preds = %251, %241, %231, %227, %223, %219, %215, %211, %201, %191, %187, %183, %179, %175, %171, %167, %163, %159, %155
   %.1.i.i = phi i32 [ %254, %251 ], [ %250, %241 ], [ %240, %231 ], [ %230, %227 ], [ %226, %223 ], [ %222, %219 ], [ %218, %215 ], [ %214, %211 ], [ %210, %201 ], [ %200, %191 ], [ %190, %187 ], [ %186, %183 ], [ %182, %179 ], [ %178, %175 ], [ %174, %171 ], [ %170, %167 ], [ %166, %163 ], [ %162, %159 ], [ %158, %155 ]
-  %256 = add nuw i32 %.0129.i.i, 1
+  %256 = add nuw i32 %.0127128.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %256, %140
   br i1 %exitcond.not.i.i, label %dissect_bmp_stat_report.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 

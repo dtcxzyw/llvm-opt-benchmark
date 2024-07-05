@@ -3098,7 +3098,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10cmCTestBZR12UpdateParser1
 
 12:                                               ; preds = %.lr.ph, %30
   %.025 = phi ptr [ %1, %.lr.ph ], [ %31, %30 ]
-  %.01324 = phi i1 [ %narrow, %.lr.ph ], [ %.1, %30 ]
+  %.01424 = phi i1 [ %narrow, %.lr.ph ], [ %.1, %30 ]
   %13 = load i8, ptr %.025, align 1
   switch i8 %13, label %28 [
     i8 13, label %14
@@ -3106,7 +3106,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10cmCTestBZR12UpdateParser1
   ]
 
 14:                                               ; preds = %12, %12
-  br i1 %.01324, label %30, label %15
+  br i1 %.01424, label %30, label %15
 
 15:                                               ; preds = %14
   %16 = load ptr, ptr %9, align 8

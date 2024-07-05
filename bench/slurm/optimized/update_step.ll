@@ -37,7 +37,7 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr nocapture noundef
 
 9:                                                ; preds = %.lr.ph, %100
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %100 ]
-  %.048108 = phi i32 [ 0, %.lr.ph ], [ %.1, %100 ]
+  %.049107 = phi i32 [ 0, %.lr.ph ], [ %.1, %100 ]
   %10 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 61) #9
@@ -107,8 +107,8 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr nocapture noundef
   %53 = icmp eq i8 %51, 45
   %brmerge = or i1 %52, %53
   %54 = getelementptr inbounds i8, ptr %12, i64 2
-  %.047 = select i1 %brmerge, ptr %54, ptr %18
-  %55 = call i32 @time_str2mins(ptr noundef nonnull %.047) #8
+  %.050 = select i1 %brmerge, ptr %54, ptr %18
+  %55 = call i32 @time_str2mins(ptr noundef nonnull %.050) #8
   %56 = icmp eq i32 %55, -2
   br i1 %56, label %57, label %59
 
@@ -208,7 +208,7 @@ _get_step_time.exit:                              ; preds = %74
 91:                                               ; preds = %59, %83, %89
   %.0 = phi i32 [ %84, %83 ], [ %90, %89 ], [ %55, %59 ]
   store i32 %.0, ptr %8, align 4
-  %92 = add nsw i32 %.048108, 1
+  %92 = add nsw i32 %.049107, 1
   br label %100
 
 93:                                               ; preds = %46
@@ -222,7 +222,7 @@ _get_step_time.exit:                              ; preds = %74
   br label %108
 
 100:                                              ; preds = %30, %91, %35
-  %.1 = phi i32 [ %.048108, %35 ], [ %92, %91 ], [ %.048108, %30 ]
+  %.1 = phi i32 [ %.049107, %35 ], [ %92, %91 ], [ %.049107, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !9
@@ -247,8 +247,8 @@ _get_step_time.exit:                              ; preds = %74
   br label %108
 
 108:                                              ; preds = %104, %106, %._crit_edge.thread, %93, %87, %.loopexit, %57, %39, %23
-  %.050 = phi i32 [ 0, %39 ], [ 0, %93 ], [ 0, %57 ], [ 0, %.loopexit ], [ 0, %87 ], [ -1, %23 ], [ 0, %._crit_edge.thread ], [ %107, %106 ], [ 0, %104 ]
-  ret i32 %.050
+  %.047 = phi i32 [ 0, %39 ], [ 0, %93 ], [ 0, %57 ], [ 0, %.loopexit ], [ 0, %87 ], [ -1, %23 ], [ 0, %._crit_edge.thread ], [ %107, %106 ], [ 0, %104 ]
+  ret i32 %.047
 }
 
 declare void @slurm_init_update_step_msg(ptr noundef) local_unnamed_addr #1

@@ -2552,8 +2552,8 @@ _ZN19ModelHelperTreeItemI9PrefsItemE12prependChildEPS0_.exit: ; preds = %17
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %21 = getelementptr inbounds i8, ptr %0, i64 32
-  %.03649 = load ptr, ptr %21, align 8
-  %.not4150 = icmp eq ptr %.03649, null
+  %.03749 = load ptr, ptr %21, align 8
+  %.not4150 = icmp eq ptr %.03749, null
   br i1 %.not4150, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN19ModelHelperTreeItemI9PrefsItemE12prependChildEPS0_.exit
@@ -2561,8 +2561,8 @@ _ZN19ModelHelperTreeItemI9PrefsItemE12prependChildEPS0_.exit: ; preds = %17
   br label %23
 
 23:                                               ; preds = %.lr.ph, %_ZL17prefInsertPrefPtrPvP10preference.exit
-  %.03651 = phi ptr [ %.03649, %.lr.ph ], [ %.036, %_ZL17prefInsertPrefPtrPvP10preference.exit ]
-  %24 = load ptr, ptr %.03651, align 8
+  %.03751 = phi ptr [ %.03749, %.lr.ph ], [ %.037, %_ZL17prefInsertPrefPtrPvP10preference.exit ]
+  %24 = load ptr, ptr %.03751, align 8
   %.not42 = icmp eq ptr %24, null
   br i1 %.not42, label %.critedge, label %25
 
@@ -2644,9 +2644,9 @@ _ZN19ModelHelperTreeItemI9PrefsItemE12prependChildEPS0_.exit47: ; preds = %38
   br label %common.resume
 
 _ZL17prefInsertPrefPtrPvP10preference.exit:       ; preds = %51, %47, %_ZN19ModelHelperTreeItemI9PrefsItemE12prependChildEPS0_.exit47, %33, %25, %28
-  %56 = getelementptr inbounds i8, ptr %.03651, i64 8
-  %.036 = load ptr, ptr %56, align 8
-  %.not41 = icmp eq ptr %.036, null
+  %56 = getelementptr inbounds i8, ptr %.03751, i64 8
+  %.037 = load ptr, ptr %56, align 8
+  %.not41 = icmp eq ptr %.037, null
   br i1 %.not41, label %.critedge, label %23, !llvm.loop !90
 
 .critedge:                                        ; preds = %23, %_ZL17prefInsertPrefPtrPvP10preference.exit, %_ZN19ModelHelperTreeItemI9PrefsItemE12prependChildEPS0_.exit

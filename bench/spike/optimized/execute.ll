@@ -1297,8 +1297,8 @@ _ZN6insn_t6lengthEv.exit:                         ; preds = %3, %27, %29
 
 41:                                               ; preds = %.lr.ph, %83
   %.sroa.086.094 = phi ptr [ %.sroa.086.091, %.lr.ph ], [ %.sroa.086.0, %83 ]
-  %.06493 = phi i32 [ undef, %.lr.ph ], [ %.2, %83 ]
-  %.06692 = phi i1 [ false, %.lr.ph ], [ %.268, %83 ]
+  %.093 = phi i1 [ false, %.lr.ph ], [ %.2, %83 ]
+  %.06692 = phi i32 [ undef, %.lr.ph ], [ %.268, %83 ]
   %42 = getelementptr inbounds i8, ptr %.sroa.086.094, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
   %43 = load i64, ptr %9, align 8
@@ -1335,13 +1335,13 @@ _ZN6insn_t6lengthEv.exit:                         ; preds = %3, %27, %29
   br label %56
 
 56:                                               ; preds = %45, %55, %54, %51, %50, %49
+  %.167 = phi i32 [ %.06692, %45 ], [ %18, %55 ], [ %.06692, %54 ], [ %53, %51 ], [ %20, %50 ], [ %18, %49 ]
+  %.065 = phi i1 [ false, %45 ], [ false, %55 ], [ true, %54 ], [ false, %51 ], [ false, %50 ], [ false, %49 ]
+  %.064 = phi i1 [ false, %45 ], [ false, %55 ], [ false, %54 ], [ true, %51 ], [ false, %50 ], [ false, %49 ]
   %57 = phi i1 [ false, %45 ], [ true, %55 ], [ false, %54 ], [ false, %51 ], [ false, %50 ], [ false, %49 ]
-  %.065 = phi i32 [ 32, %45 ], [ 99, %55 ], [ 32, %54 ], [ 118, %51 ], [ 102, %50 ], [ 120, %49 ]
-  %.1 = phi i32 [ %.06493, %45 ], [ %18, %55 ], [ %.06493, %54 ], [ %53, %51 ], [ %20, %50 ], [ %18, %49 ]
-  %.063 = phi i1 [ false, %45 ], [ false, %55 ], [ true, %54 ], [ false, %51 ], [ false, %50 ], [ false, %49 ]
-  %.0 = phi i1 [ false, %45 ], [ false, %55 ], [ false, %54 ], [ true, %51 ], [ false, %50 ], [ false, %49 ]
-  %.not = xor i1 %.06692, true
-  %brmerge = or i1 %.063, %.0
+  %.063 = phi i32 [ 32, %45 ], [ 99, %55 ], [ 32, %54 ], [ 118, %51 ], [ 102, %50 ], [ 120, %49 ]
+  %.not = xor i1 %.093, true
+  %brmerge = or i1 %.065, %.064
   %or.cond = and i1 %brmerge, %.not
   br i1 %or.cond, label %58, label %71
 
@@ -1362,8 +1362,8 @@ _ZN6insn_t6lengthEv.exit:                         ; preds = %3, %27, %29
   br label %71
 
 71:                                               ; preds = %58, %56
-  %.167 = phi i1 [ %.06692, %56 ], [ true, %58 ]
-  br i1 %.063, label %83, label %72
+  %.1 = phi i1 [ %.093, %56 ], [ true, %58 ]
+  br i1 %.065, label %83, label %72
 
 72:                                               ; preds = %71
   br i1 %57, label %73, label %76
@@ -1374,26 +1374,26 @@ _ZN6insn_t6lengthEv.exit:                         ; preds = %3, %27, %29
   br label %78
 
 76:                                               ; preds = %72
-  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.8, i32 noundef %.065, i32 noundef %47) #18
+  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.8, i32 noundef %.063, i32 noundef %47) #18
   br label %78
 
 78:                                               ; preds = %76, %73
-  br i1 %.0, label %79, label %82
+  br i1 %.064, label %79, label %82
 
 79:                                               ; preds = %78
   %sext = shl i64 %46, 32
   %80 = ashr exact i64 %sext, 32
   %81 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %40, i64 noundef %80, i64 noundef 0, i1 noundef zeroext false)
-  tail call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %.1, ptr noundef nonnull %81)
+  tail call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %.167, ptr noundef nonnull %81)
   br label %83
 
 82:                                               ; preds = %78
-  call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %.1, ptr noundef nonnull %39)
+  call fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr noundef %11, i32 noundef %.167, ptr noundef nonnull %39)
   br label %83
 
 83:                                               ; preds = %71, %82, %79, %41
-  %.268 = phi i1 [ %.06692, %41 ], [ %.167, %71 ], [ %.167, %79 ], [ %.167, %82 ]
-  %.2 = phi i32 [ %.06493, %41 ], [ %.1, %71 ], [ %.1, %79 ], [ %.1, %82 ]
+  %.268 = phi i32 [ %.06692, %41 ], [ %.167, %71 ], [ %.167, %79 ], [ %.167, %82 ]
+  %.2 = phi i1 [ %.093, %41 ], [ %.1, %71 ], [ %.1, %79 ], [ %.1, %82 ]
   %.sroa.086.0 = load ptr, ptr %.sroa.086.094, align 8
   %84 = icmp eq ptr %.sroa.086.0, null
   br i1 %84, label %._crit_edge, label %41

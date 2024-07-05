@@ -1360,11 +1360,11 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   br label %166
 
 .body.thread56:                                   ; preds = %.body.thread
-  br i1 %.031.lpad-body53, label %174, label %.body.thread56.thread
+  br i1 %.0.lpad-body53, label %174, label %.body.thread56.thread
 
 .body.thread:                                     ; preds = %79, %.body.i, %.body
   %eh.lpad-body55 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body ], [ %80, %79 ], [ %.pn.i, %.body.i ]
-  %.031.lpad-body53 = phi i1 [ true, %.body ], [ false, %79 ], [ false, %.body.i ]
+  %.0.lpad-body53 = phi i1 [ true, %.body ], [ false, %79 ], [ false, %.body.i ]
   %171 = getelementptr inbounds i8, ptr %33, i64 32
   invoke fastcc void @"_ZN4core3ptr254drop_in_place$LT$tokio_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h39472eecb29bab70E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %171) #29
           to label %.body.thread56 unwind label %172

@@ -32,8 +32,8 @@ define void @Dec_GraphPrint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br label %12
 
 12:                                               ; preds = %7, %4
-  %.038 = phi ptr [ %11, %7 ], [ %2, %4 ]
-  %.037 = phi ptr [ %9, %7 ], [ null, %4 ]
+  %.038 = phi ptr [ %9, %7 ], [ null, %4 ]
+  %.036 = phi ptr [ %11, %7 ], [ %2, %4 ]
   %13 = icmp eq ptr %3, null
   %spec.store.select = select i1 %13, ptr @.str, ptr %3
   %14 = getelementptr i8, ptr %1, i64 4
@@ -47,13 +47,13 @@ define void @Dec_GraphPrint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.03656 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %16 = getelementptr inbounds ptr, ptr %.038, i64 %indvars.iv
+  %.03756 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
+  %16 = getelementptr inbounds ptr, ptr %.036, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #8
   %.fr63 = freeze i64 %18
   %19 = trunc i64 %.fr63 to i32
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.03656, i32 %19)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.03756, i32 %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !4
@@ -91,7 +91,7 @@ define void @Dec_GraphPrint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %.not.i = icmp eq i32 %34, 0
   %35 = select i1 %.not.i, ptr @.str.10, ptr @.str.9
   %36 = zext nneg i32 %33 to i64
-  %37 = getelementptr inbounds ptr, ptr %.038, i64 %36
+  %37 = getelementptr inbounds ptr, ptr %.036, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Dec_GraphPrintGetLeafName.Buffer, ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %35, ptr noundef %38) #7
   %fputs.i = tail call i32 @fputs(ptr nonnull @Dec_GraphPrintGetLeafName.Buffer, ptr %0)
@@ -107,16 +107,16 @@ define void @Dec_GraphPrint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %45 = getelementptr inbounds i8, ptr %44, i64 -24
   %.val48 = load i32, ptr %27, align 8
   %46 = and i32 %.val48, 1
-  call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %45, i32 noundef %46, ptr noundef %.038, ptr noundef nonnull %5)
+  call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %45, i32 noundef %46, ptr noundef %.036, ptr noundef nonnull %5)
   br label %47
 
 47:                                               ; preds = %31, %40, %20
   %fputc = call i32 @fputc(i32 10, ptr %0)
-  %.not43 = icmp eq ptr %.037, null
+  %.not43 = icmp eq ptr %.038, null
   br i1 %.not43, label %49, label %48
 
 48:                                               ; preds = %47
-  call void @Abc_NodeFreeNames(ptr noundef nonnull %.037) #7
+  call void @Abc_NodeFreeNames(ptr noundef nonnull %.038) #7
   br label %49
 
 49:                                               ; preds = %48, %47

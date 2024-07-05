@@ -566,28 +566,28 @@ define internal i32 @KINBBDPrecSetup(ptr noundef %0, ptr noundef %1, ptr nocaptu
 
 54:                                               ; preds = %._crit_edge132.i, %.lr.ph136.i
   %55 = phi i64 [ %50, %.lr.ph136.i ], [ %112, %._crit_edge132.i ]
-  %.0101134.i = phi i64 [ 1, %.lr.ph136.i ], [ %113, %._crit_edge132.i ]
-  %56 = add nsw i64 %.0101134.i, -1
-  %.not140.i = icmp sgt i64 %.0101134.i, %55
+  %.0100134.i = phi i64 [ 1, %.lr.ph136.i ], [ %113, %._crit_edge132.i ]
+  %56 = add nsw i64 %.0100134.i, -1
+  %.not140.i = icmp sgt i64 %.0100134.i, %55
   br i1 %.not140.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %54, %.lr.ph.i
-  %.0124.i = phi i64 [ %69, %.lr.ph.i ], [ %56, %54 ]
+  %.0102124.i = phi i64 [ %69, %.lr.ph.i ], [ %56, %54 ]
   %57 = load double, ptr %51, align 8
-  %58 = getelementptr inbounds double, ptr %20, i64 %.0124.i
+  %58 = getelementptr inbounds double, ptr %20, i64 %.0102124.i
   %59 = load double, ptr %58, align 8
   %60 = tail call double @llvm.fabs.f64(double %59)
-  %61 = getelementptr inbounds double, ptr %21, i64 %.0124.i
+  %61 = getelementptr inbounds double, ptr %21, i64 %.0102124.i
   %62 = load double, ptr %61, align 8
   %63 = fdiv double 1.000000e+00, %62
   %64 = fcmp ogt double %60, %63
   %.122.i = select i1 %64, double %60, double %63
   %65 = fmul double %57, %.122.i
-  %66 = getelementptr inbounds double, ptr %24, i64 %.0124.i
+  %66 = getelementptr inbounds double, ptr %24, i64 %.0102124.i
   %67 = load double, ptr %66, align 8
   %68 = fadd double %67, %65
   store double %68, ptr %66, align 8
-  %69 = add nsw i64 %.0124.i, %49
+  %69 = add nsw i64 %.0102124.i, %49
   %70 = load i64, ptr %36, align 8
   %71 = icmp slt i64 %69, %70
   br i1 %71, label %.lr.ph.i, label %._crit_edge.i
@@ -605,7 +605,7 @@ define internal i32 @KINBBDPrecSetup(ptr noundef %0, ptr noundef %1, ptr nocaptu
 
 .preheader.i:                                     ; preds = %._crit_edge.i
   %77 = load i64, ptr %36, align 8
-  %.not141.i = icmp sgt i64 %.0101134.i, %77
+  %.not141.i = icmp sgt i64 %.0100134.i, %77
   br i1 %.not141.i, label %._crit_edge132.i, label %.lr.ph131.i
 
 .lr.ph131.i:                                      ; preds = %.preheader.i, %._crit_edge129.i
@@ -638,18 +638,18 @@ define internal i32 @KINBBDPrecSetup(ptr noundef %0, ptr noundef %1, ptr nocaptu
   br i1 %.not121125.i, label %._crit_edge129.i, label %.lr.ph128.i
 
 .lr.ph128.i:                                      ; preds = %.lr.ph131.i, %.lr.ph128.i
-  %.0100126.i = phi i64 [ %108, %.lr.ph128.i ], [ %94, %.lr.ph131.i ]
-  %100 = getelementptr inbounds double, ptr %23, i64 %.0100126.i
+  %.0101126.i = phi i64 [ %108, %.lr.ph128.i ], [ %94, %.lr.ph131.i ]
+  %100 = getelementptr inbounds double, ptr %23, i64 %.0101126.i
   %101 = load double, ptr %100, align 8
-  %102 = getelementptr inbounds double, ptr %22, i64 %.0100126.i
+  %102 = getelementptr inbounds double, ptr %22, i64 %.0101126.i
   %103 = load double, ptr %102, align 8
   %104 = fsub double %101, %103
   %105 = fmul double %91, %104
-  %106 = sub nsw i64 %.0100126.i, %.1130.i
+  %106 = sub nsw i64 %.0101126.i, %.1130.i
   %107 = getelementptr inbounds double, ptr %82, i64 %106
   store double %105, ptr %107, align 8
-  %108 = add nuw nsw i64 %.0100126.i, 1
-  %.not121.not.i = icmp slt i64 %.0100126.i, %99
+  %108 = add nuw nsw i64 %.0101126.i, 1
+  %.not121.not.i = icmp slt i64 %.0101126.i, %99
   br i1 %.not121.not.i, label %.lr.ph128.i, label %._crit_edge129.loopexit.i
 
 ._crit_edge129.loopexit.i:                        ; preds = %.lr.ph128.i
@@ -664,8 +664,8 @@ define internal i32 @KINBBDPrecSetup(ptr noundef %0, ptr noundef %1, ptr nocaptu
 
 ._crit_edge132.i:                                 ; preds = %._crit_edge129.i, %.preheader.i
   %112 = phi i64 [ %77, %.preheader.i ], [ %109, %._crit_edge129.i ]
-  %113 = add nuw i64 %.0101134.i, 1
-  %exitcond.not.i = icmp eq i64 %.0101134.i, %..i
+  %113 = add nuw i64 %.0100134.i, 1
+  %exitcond.not.i = icmp eq i64 %.0100134.i, %..i
   br i1 %exitcond.not.i, label %KBBDDQJac.exit, label %54
 
 .loopexit:                                        ; preds = %._crit_edge.i, %27, %33

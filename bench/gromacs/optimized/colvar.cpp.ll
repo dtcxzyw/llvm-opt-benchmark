@@ -8701,8 +8701,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6ve
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_SH_T0_.exit
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_SH_T0_.exit: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_SH_T0_.exit.preheader, %56
-  %.sroa.012.0.i = phi ptr [ %50, %56 ], [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_SH_T0_.exit.preheader ]
   %.sroa.09.0.i = phi ptr [ %.sroa.09.1.i, %56 ], [ %1, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_SH_T0_.exit.preheader ]
+  %.sroa.012.0.i = phi ptr [ %50, %56 ], [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_SH_T0_.exit.preheader ]
   br label %46
 
 46:                                               ; preds = %46, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_SH_T0_.exit
@@ -26088,8 +26088,8 @@ define void @_ZN6colvar15build_atom_listEv(ptr noundef nonnull align 8 dereferen
 
 .lr.ph64:                                         ; preds = %.preheader, %.loopexit53
   %20 = phi ptr [ %82, %.loopexit53 ], [ %19, %.preheader ]
-  %.02963 = phi i64 [ %75, %.loopexit53 ], [ 0, %.preheader ]
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %.02963
+  %.02363 = phi i64 [ %75, %.loopexit53 ], [ 0, %.preheader ]
+  %21 = getelementptr inbounds ptr, ptr %20, i64 %.02363
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 504
   %24 = getelementptr inbounds i8, ptr %22, i64 512
@@ -26100,12 +26100,12 @@ define void @_ZN6colvar15build_atom_listEv(ptr noundef nonnull align 8 dereferen
 
 .lr.ph:                                           ; preds = %.lr.ph64, %29
   %27 = phi ptr [ %37, %29 ], [ %26, %.lr.ph64 ]
-  %.02859 = phi i64 [ %35, %29 ], [ 0, %.lr.ph64 ]
+  %.02959 = phi i64 [ %35, %29 ], [ 0, %.lr.ph64 ]
   %28 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
           to label %29 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds %"class.colvarmodule::atom", ptr %27, i64 %.02859, i32 1
+  %30 = getelementptr inbounds %"class.colvarmodule::atom", ptr %27, i64 %.02959, i32 1
   %31 = getelementptr inbounds i8, ptr %28, i64 16
   %32 = load i32, ptr %30, align 4
   store i32 %32, ptr %31, align 4
@@ -26113,7 +26113,7 @@ define void @_ZN6colvar15build_atom_listEv(ptr noundef nonnull align 8 dereferen
   %33 = load i64, ptr %7, align 8
   %34 = add i64 %33, 1
   store i64 %34, ptr %7, align 8
-  %35 = add nuw i64 %.02859, 1
+  %35 = add nuw i64 %.02959, 1
   %36 = load ptr, ptr %24, align 8
   %37 = load ptr, ptr %23, align 8
   %38 = ptrtoint ptr %36 to i64
@@ -26193,7 +26193,7 @@ define void @_ZN6colvar15build_atom_listEv(ptr noundef nonnull align 8 dereferen
   br i1 %74, label %.lr.ph62, label %.loopexit53, !llvm.loop !92
 
 .loopexit53:                                      ; preds = %61, %52, %._crit_edge, %48
-  %75 = add nuw i64 %.02963, 1
+  %75 = add nuw i64 %.02363, 1
   %76 = load ptr, ptr %8, align 8
   %77 = getelementptr inbounds ptr, ptr %76, i64 %.066
   %78 = load ptr, ptr %77, align 8
@@ -29734,8 +29734,8 @@ _ZN6colvar18calc_cvc_JacobiansEim.exit:           ; preds = %_ZN6colvar15calc_cv
   br label %_ZN6colvar20calc_cvc_total_forceEim.exit72
 
 _ZN6colvar20calc_cvc_total_forceEim.exit72:       ; preds = %_ZN6colvar18calc_cvc_JacobiansEim.exit, %156, %._crit_edge.i65, %3
-  %.032 = phi i32 [ %6, %3 ], [ 0, %._crit_edge.i65 ], [ 0, %156 ], [ 0, %_ZN6colvar18calc_cvc_JacobiansEim.exit ]
-  ret i32 %.032
+  %.021 = phi i32 [ %6, %3 ], [ 0, %._crit_edge.i65 ], [ 0, %156 ], [ 0, %_ZN6colvar18calc_cvc_JacobiansEim.exit ]
+  ret i32 %.021
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -38743,42 +38743,42 @@ _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %45, %_ZNSt6vectorIb
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i
   %.019.i.i.i.i.i.i = phi i64 [ %65, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %47, %.lr.ph.i.i.i.i.i.preheader.i ]
   %.sroa.511.018.i.i.i.i.i.i = phi i32 [ %spec.select14.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.03.017.i.i.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.5.016.i.i.i.i.i.i = phi i32 [ %.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.08.015.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %43, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.08.017.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %43, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.03.016.i.i.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.5.015.i.i.i.i.i.i = phi i32 [ %.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
   %48 = zext nneg i32 %.sroa.511.018.i.i.i.i.i.i to i64
   %49 = shl nuw i64 1, %48
-  %50 = load i64, ptr %.sroa.08.015.i.i.i.i.i.i, align 8
+  %50 = load i64, ptr %.sroa.08.017.i.i.i.i.i.i, align 8
   %51 = and i64 %50, %49
   %.not.i.i.i.i.i7.i = icmp eq i64 %51, 0
-  %52 = zext nneg i32 %.sroa.5.016.i.i.i.i.i.i to i64
+  %52 = zext nneg i32 %.sroa.5.015.i.i.i.i.i.i to i64
   %53 = shl nuw i64 1, %52
   br i1 %.not.i.i.i.i.i7.i, label %57, label %54
 
 54:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %55 = load i64, ptr %.sroa.03.017.i.i.i.i.i.i, align 8
+  %55 = load i64, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
   %56 = or i64 %55, %53
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 57:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %58 = xor i64 %53, -1
-  %59 = load i64, ptr %.sroa.03.017.i.i.i.i.i.i, align 8
+  %59 = load i64, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
   %60 = and i64 %59, %58
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %57, %54
   %storemerge.i.i.i.i.i.i = phi i64 [ %60, %57 ], [ %56, %54 ]
-  store i64 %storemerge.i.i.i.i.i.i, ptr %.sroa.03.017.i.i.i.i.i.i, align 8
+  store i64 %storemerge.i.i.i.i.i.i, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
   %61 = add i32 %.sroa.511.018.i.i.i.i.i.i, 1
   %62 = icmp eq i32 %.sroa.511.018.i.i.i.i.i.i, 63
   %spec.select.idx.i.i.i.i.i.i = select i1 %62, i64 8, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.015.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.017.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
   %spec.select14.i.i.i.i.i.i = select i1 %62, i32 0, i32 %61
-  %63 = add i32 %.sroa.5.016.i.i.i.i.i.i, 1
-  %64 = icmp eq i32 %.sroa.5.016.i.i.i.i.i.i, 63
+  %63 = add i32 %.sroa.5.015.i.i.i.i.i.i, 1
+  %64 = icmp eq i32 %.sroa.5.015.i.i.i.i.i.i, 63
   %.sroa.5.1.i.i.i.i.i.i = select i1 %64, i32 0, i32 %63
   %.sroa.03.1.idx.i.i.i.i.i.i = select i1 %64, i64 8, i64 0
-  %.sroa.03.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.03.017.i.i.i.i.i.i, i64 %.sroa.03.1.idx.i.i.i.i.i.i
+  %.sroa.03.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.03.016.i.i.i.i.i.i, i64 %.sroa.03.1.idx.i.i.i.i.i.i
   %65 = add nsw i64 %.019.i.i.i.i.i.i, -1
   %66 = icmp sgt i64 %.019.i.i.i.i.i.i, 1
   br i1 %66, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, !llvm.loop !202

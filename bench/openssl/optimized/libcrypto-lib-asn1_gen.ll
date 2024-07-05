@@ -289,8 +289,8 @@ if.end41.i:                                       ; preds = %if.end36.i
   br label %asn1_multi.exit
 
 asn1_multi.exit:                                  ; preds = %for.body.i, %if.end17.i, %if.end9, %if.end5.i, %if.end29.i, %if.end32.i, %if.end36.i, %if.end41.i
-  %ret.0.i = phi ptr [ null, %if.end29.i ], [ null, %if.end32.i ], [ %call33.i, %if.end36.i ], [ %call33.i, %if.end41.i ], [ null, %if.end5.i ], [ null, %if.end9 ], [ null, %if.end17.i ], [ null, %for.body.i ]
   %sect.1.i = phi ptr [ %sect.0.i, %if.end29.i ], [ %sect.0.i, %if.end32.i ], [ %sect.0.i, %if.end36.i ], [ %sect.0.i, %if.end41.i ], [ null, %if.end5.i ], [ null, %if.end9 ], [ %call6.i, %if.end17.i ], [ %call6.i, %for.body.i ]
+  %ret.0.i = phi ptr [ null, %if.end29.i ], [ null, %if.end32.i ], [ %call33.i, %if.end36.i ], [ %call33.i, %if.end41.i ], [ null, %if.end5.i ], [ null, %if.end9 ], [ null, %if.end17.i ], [ null, %for.body.i ]
   %6 = load ptr, ptr %der.i, align 8
   call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 455) #7
   call void @OPENSSL_sk_pop_free(ptr noundef %call.i, ptr noundef nonnull @ASN1_TYPE_free) #7

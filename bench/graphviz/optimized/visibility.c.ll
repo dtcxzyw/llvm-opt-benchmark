@@ -177,13 +177,13 @@ allocArray.exit:                                  ; preds = %gv_calloc.exit23.i,
   %69 = add i32 %indvars76.i, -1
   %70 = icmp eq i32 %49, %69
   %71 = add i32 %indvars76.i, -2
-  %.058.i = select i1 %70, i32 %71, i32 %69
-  %72 = icmp sgt i32 %.058.i, -1
+  %.0.i = select i1 %70, i32 %71, i32 %69
+  %72 = icmp sgt i32 %.0.i, -1
   br i1 %72, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %47
   %73 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv74.i
-  %74 = zext nneg i32 %.058.i to i64
+  %74 = zext nneg i32 %.0.i to i64
   br label %75
 
 75:                                               ; preds = %clear.exit.i, %.lr.ph.i
@@ -542,14 +542,14 @@ gv_calloc.exit:                                   ; preds = %18
   br label %polyhit.exit
 
 polyhit.exit:                                     ; preds = %.split.loop.exit15.i, %gv_calloc.exit
-  %.096 = phi i32 [ %1, %gv_calloc.exit ], [ %44, %.split.loop.exit15.i ]
-  %45 = icmp sgt i32 %.096, -1
+  %.0 = phi i32 [ %1, %gv_calloc.exit ], [ %44, %.split.loop.exit15.i ]
+  %45 = icmp sgt i32 %.0, -1
   br i1 %45, label %46, label %polyhit.exit.thread
 
 46:                                               ; preds = %polyhit.exit
   %47 = getelementptr inbounds i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = zext nneg i32 %.096 to i64
+  %49 = zext nneg i32 %.0 to i64
   %50 = getelementptr inbounds i32, ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = getelementptr inbounds i8, ptr %50, i64 4
@@ -557,27 +557,27 @@ polyhit.exit:                                     ; preds = %.split.loop.exit15.
   br label %polyhit.exit.thread
 
 polyhit.exit.thread:                              ; preds = %29, %polyhit.exit, %46
-  %.094 = phi i32 [ %51, %46 ], [ %6, %polyhit.exit ], [ %6, %29 ]
-  %.0 = phi i32 [ %53, %46 ], [ %6, %polyhit.exit ], [ %6, %29 ]
-  %54 = icmp sgt i32 %.094, 0
+  %.095 = phi i32 [ %51, %46 ], [ %6, %polyhit.exit ], [ %6, %29 ]
+  %.094 = phi i32 [ %53, %46 ], [ %6, %polyhit.exit ], [ %6, %29 ]
+  %54 = icmp sgt i32 %.095, 0
   br i1 %54, label %.lr.ph, label %.preheader179
 
 .lr.ph:                                           ; preds = %polyhit.exit.thread
-  %wide.trip.count.i = zext nneg i32 %.094 to i64
-  %55 = icmp slt i32 %.0, %6
-  %56 = sext i32 %.0 to i64
+  %wide.trip.count.i = zext nneg i32 %.095 to i64
+  %55 = icmp slt i32 %.094, %6
+  %56 = sext i32 %.094 to i64
   br label %65
 
 .preheader179:                                    ; preds = %clear.exit.thread162, %polyhit.exit.thread
-  %57 = icmp slt i32 %.094, %.0
+  %57 = icmp slt i32 %.095, %.094
   br i1 %57, label %.lr.ph185.preheader, label %.preheader
 
 .lr.ph185.preheader:                              ; preds = %.preheader179
-  %58 = sext i32 %.094 to i64
+  %58 = sext i32 %.095 to i64
   %59 = shl nsw i64 %58, 3
   %scevgep = getelementptr i8, ptr %20, i64 %59
-  %60 = xor i32 %.094, -1
-  %61 = add i32 %.0, %60
+  %60 = xor i32 %.095, -1
+  %61 = add i32 %.094, %60
   %62 = zext i32 %61 to i64
   %63 = shl nuw nsw i64 %62, 3
   %64 = add nuw nsw i64 %63, 8
@@ -941,7 +941,7 @@ clear.exit.thread162:                             ; preds = %intersect.exit134, 
   br i1 %exitcond.not, label %.preheader179, label %65
 
 .preheader:                                       ; preds = %.lr.ph185.preheader, %.preheader179
-  %310 = icmp slt i32 %.0, %6
+  %310 = icmp slt i32 %.094, %6
   br i1 %310, label %.lr.ph187, label %.preheader.._crit_edge_crit_edge
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
@@ -949,8 +949,8 @@ clear.exit.thread162:                             ; preds = %intersect.exit134, 
   br label %._crit_edge
 
 .lr.ph187:                                        ; preds = %.preheader
-  %wide.trip.count.i119 = zext nneg i32 %.094 to i64
-  %311 = sext i32 %.0 to i64
+  %wide.trip.count.i119 = zext nneg i32 %.095 to i64
+  %311 = sext i32 %.094 to i64
   %wide.trip.count199 = sext i32 %6 to i64
   br label %312
 

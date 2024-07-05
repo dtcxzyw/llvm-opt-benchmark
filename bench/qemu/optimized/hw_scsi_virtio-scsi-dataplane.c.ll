@@ -159,16 +159,16 @@ for.cond.preheader:                               ; preds = %if.end15
   br i1 %cmp2360.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end28
-  %vq_init_count.062 = phi i32 [ %inc29, %if.end28 ], [ 2, %for.cond.preheader ]
-  %i.061 = phi i32 [ %inc30, %if.end28 ], [ 0, %for.cond.preheader ]
-  %add24 = add i32 %i.061, 2
+  %i.062 = phi i32 [ %inc30, %if.end28 ], [ 0, %for.cond.preheader ]
+  %vq_init_count.061 = phi i32 [ %inc29, %if.end28 ], [ 2, %for.cond.preheader ]
+  %add24 = add i32 %i.062, 2
   %call25 = tail call fastcc i32 @virtio_scsi_set_host_notifier(ptr noundef %call.i56, i32 noundef %add24)
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %if.end28, label %fail_host_notifiers
 
 if.end28:                                         ; preds = %for.body
-  %inc29 = add i32 %vq_init_count.062, 1
-  %inc30 = add nuw i32 %i.061, 1
+  %inc29 = add i32 %vq_init_count.061, 1
+  %inc30 = add nuw i32 %i.062, 1
   %7 = load i32, ptr %conf, align 8
   %cmp23 = icmp ult i32 %inc30, %7
   br i1 %cmp23, label %for.body, label %for.end, !llvm.loop !5
@@ -219,11 +219,11 @@ for.end50:                                        ; preds = %for.body43, %if.the
   br label %return
 
 fail_host_notifiers:                              ; preds = %for.body
-  %cmp5465 = icmp sgt i32 %vq_init_count.062, 0
+  %cmp5465 = icmp sgt i32 %vq_init_count.061, 0
   br i1 %cmp5465, label %for.body55.preheader, label %for.end60.thread
 
 for.body55.preheader:                             ; preds = %if.end15, %fail_host_notifiers
-  %vq_init_count.173 = phi i32 [ %vq_init_count.062, %fail_host_notifiers ], [ 1, %if.end15 ]
+  %vq_init_count.173 = phi i32 [ %vq_init_count.061, %fail_host_notifiers ], [ 1, %if.end15 ]
   br label %for.body55
 
 for.body55:                                       ; preds = %for.body55.preheader, %for.body55

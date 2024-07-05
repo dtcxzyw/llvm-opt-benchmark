@@ -707,12 +707,12 @@ define internal fastcc void @dissect_forces(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %174, %.lr.ph.i.i.i
-  %.05561.i.i.i = phi i32 [ %197, %.lr.ph.i.i.i ], [ 0, %174 ]
+  %.05461.i.i.i = phi i32 [ %197, %.lr.ph.i.i.i ], [ 0, %174 ]
   %193 = load i32, ptr @hf_forces_lfbselect_tlv_type_operation_path_IDs, align 4
-  %194 = shl nuw nsw i32 %.05561.i.i.i, 2
+  %194 = shl nuw nsw i32 %.05461.i.i.i, 2
   %195 = add i32 %194, %188
   %196 = call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %193, ptr noundef %0, i32 noundef %195, i32 noundef 4, i32 noundef 0) #4
-  %197 = add nuw nsw i32 %.05561.i.i.i, 1
+  %197 = add nuw nsw i32 %.05461.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %197, %190
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 

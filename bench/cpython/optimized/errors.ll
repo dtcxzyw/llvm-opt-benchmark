@@ -5167,14 +5167,14 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %done
 
 do.body.sink.split:                               ; preds = %if.end.i72, %if.end.i.i
-  %obj.addr.0.ph = phi ptr [ %obj, %if.end.i.i ], [ null, %if.end.i72 ]
   %tobool48.not.ph = phi ptr [ @.str.48, %if.end.i.i ], [ @.str.51, %if.end.i72 ]
+  %obj.addr.0.ph = phi ptr [ %obj, %if.end.i.i ], [ null, %if.end.i72 ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i) #16
   br label %do.body
 
 do.body:                                          ; preds = %do.body.sink.split, %if.end.i.i, %if.then34.i, %if.end28, %Py_DECREF.exit59, %if.end.i72, %if.then39
-  %obj.addr.0 = phi ptr [ null, %if.then39 ], [ null, %if.end.i72 ], [ %call33, %Py_DECREF.exit59 ], [ %obj, %if.end28 ], [ %obj, %if.then34.i ], [ %obj, %if.end.i.i ], [ %obj.addr.0.ph, %do.body.sink.split ]
   %tobool48.not = phi ptr [ @.str.51, %if.then39 ], [ @.str.51, %if.end.i72 ], [ @.str.52, %Py_DECREF.exit59 ], [ @.str.48, %if.end28 ], [ @.str.48, %if.then34.i ], [ @.str.48, %if.end.i.i ], [ %tobool48.not.ph, %do.body.sink.split ]
+  %obj.addr.0 = phi ptr [ null, %if.then39 ], [ null, %if.end.i72 ], [ %call33, %Py_DECREF.exit59 ], [ %obj, %if.end28 ], [ %obj, %if.then34.i ], [ %obj, %if.end.i.i ], [ %obj.addr.0.ph, %do.body.sink.split ]
   %call49 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %tobool48.not) #16
   %cmp.not.i = icmp eq ptr %err_msg.0, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i66

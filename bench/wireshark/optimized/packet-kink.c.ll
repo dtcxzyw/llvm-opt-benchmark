@@ -603,8 +603,8 @@ tailrecurse.backedge:                             ; preds = %45, %86, %121, %148
   %221 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %219) #5
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %221, i32 %220)
   %222 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %219) #5
-  %.0.i51 = tail call i32 @llvm.smin.i32(i32 %222, i32 %220)
-  %223 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %1, i32 noundef %219, i32 noundef %spec.select.i, i32 noundef %.0.i51) #5
+  %.072.i = tail call i32 @llvm.smin.i32(i32 %222, i32 %220)
+  %223 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %1, i32 noundef %219, i32 noundef %spec.select.i, i32 noundef %.072.i) #5
   tail call void @isakmp_dissect_payloads(ptr noundef %223, ptr noundef %192, i32 noundef 1, i8 noundef zeroext %207, i32 noundef 0, i32 noundef %220, ptr noundef %0) #5
   br label %224
 
@@ -613,12 +613,12 @@ tailrecurse.backedge:                             ; preds = %45, %86, %121, %148
   %.not.i49 = icmp eq i32 %225, 0
   %reass.sub.i50 = and i32 %190, 65532
   %226 = add nuw nsw i32 %reass.sub.i50, 4
-  %.073.i = select i1 %.not.i49, i32 %190, i32 %226
-  %.not79.i = icmp eq i32 %.073.i, 0
+  %.0.i51 = select i1 %.not.i49, i32 %190, i32 %226
+  %.not79.i = icmp eq i32 %.0.i51, 0
   br i1 %.not79.i, label %dissect_payload_kink_ap_req.exit, label %227
 
 227:                                              ; preds = %224
-  %228 = add i32 %.073.i, %.tr62
+  %228 = add i32 %.0.i51, %.tr62
   br label %tailrecurse.backedge
 
 229:                                              ; preds = %tailrecurse

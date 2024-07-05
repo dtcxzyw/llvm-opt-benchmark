@@ -1066,8 +1066,8 @@ define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %
 
 .lr.ph:                                           ; preds = %58, %dissect_uftp_encinfo.exit
   %.1132 = phi i32 [ %143, %dissect_uftp_encinfo.exit ], [ %.0115, %58 ]
-  %.0116131 = phi i32 [ %142, %dissect_uftp_encinfo.exit ], [ %59, %58 ]
-  %61 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1132, i32 noundef %.0116131) #4
+  %.0117131 = phi i32 [ %142, %dissect_uftp_encinfo.exit ], [ %59, %58 ]
+  %61 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1132, i32 noundef %.0117131) #4
   %62 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1132) #4
   %cond = icmp eq i8 %62, 1
   br i1 %cond, label %63, label %dissect_uftp_encinfo.exit.thread
@@ -1161,13 +1161,13 @@ define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %
   br label %126
 
 126:                                              ; preds = %124, %89
-  %.0114.i = phi i32 [ %125, %124 ], [ 44, %89 ]
+  %.0115.i = phi i32 [ %125, %124 ], [ 44, %89 ]
   %.not121.i = icmp eq i16 %75, 0
   br i1 %.not121.i, label %138, label %127
 
 127:                                              ; preds = %126
-  %128 = call ptr @tvb_new_subset_length(ptr noundef %61, i32 noundef %.0114.i, i32 noundef %76) #4
-  %129 = call zeroext i8 @tvb_get_guint8(ptr noundef %61, i32 noundef %.0114.i) #4
+  %128 = call ptr @tvb_new_subset_length(ptr noundef %61, i32 noundef %.0115.i, i32 noundef %76) #4
+  %129 = call zeroext i8 @tvb_get_guint8(ptr noundef %61, i32 noundef %.0115.i) #4
   switch i8 %129, label %136 [
     i8 1, label %130
     i8 2, label %133
@@ -1185,11 +1185,11 @@ define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %
 
 136:                                              ; preds = %133, %130, %127
   %.0.i = phi i32 [ 0, %127 ], [ %135, %133 ], [ %132, %130 ]
-  %137 = add nuw nsw i32 %.0.i, %.0114.i
+  %137 = add nuw nsw i32 %.0.i, %.0115.i
   br label %138
 
 138:                                              ; preds = %136, %126
-  %.1.i = phi i32 [ %137, %136 ], [ %.0114.i, %126 ]
+  %.1.i = phi i32 [ %137, %136 ], [ %.0115.i, %126 ]
   %.not122.i = icmp eq i16 %77, 0
   br i1 %.not122.i, label %dissect_uftp_encinfo.exit, label %139
 
@@ -1199,7 +1199,7 @@ define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %
   br label %dissect_uftp_encinfo.exit
 
 dissect_uftp_encinfo.exit:                        ; preds = %138, %139
-  %142 = sub nsw i32 %.0116131, %84
+  %142 = sub nsw i32 %.0117131, %84
   %143 = add i32 %84, %.1132
   %144 = icmp sgt i32 %142, 0
   br i1 %144, label %.lr.ph, label %dissect_uftp_encinfo.exit.thread, !llvm.loop !6
@@ -1222,11 +1222,11 @@ dissect_uftp_encinfo.exit.thread:                 ; preds = %dissect_uftp_encinf
 
 .lr.ph136:                                        ; preds = %.lr.ph136.preheader, %.lr.ph136
   %.2135 = phi i32 [ %155, %.lr.ph136 ], [ %13, %.lr.ph136.preheader ]
-  %.0117134 = phi i32 [ %156, %.lr.ph136 ], [ 0, %.lr.ph136.preheader ]
+  %.0118134 = phi i32 [ %156, %.lr.ph136 ], [ 0, %.lr.ph136.preheader ]
   %153 = load i32, ptr @hf_uftp_dest, align 4
   %154 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %0, i32 noundef %.2135, i32 noundef 4, i32 noundef 0) #4
   %155 = add i32 %.2135, 4
-  %156 = add nuw nsw i32 %.0117134, 1
+  %156 = add nuw nsw i32 %.0118134, 1
   %exitcond.not = icmp eq i32 %156, %umax
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph136, !llvm.loop !7
 
@@ -1313,10 +1313,10 @@ define internal fastcc void @dissect_uftp_register(ptr noundef %0, ptr noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.06874 = phi i32 [ %13, %.lr.ph.preheader ], [ %56, %.lr.ph ]
+  %.06974 = phi i32 [ %13, %.lr.ph.preheader ], [ %56, %.lr.ph ]
   %54 = load i32, ptr @hf_uftp_dest, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef %.06874, i32 noundef 4, i32 noundef 0) #4
-  %56 = add nuw nsw i32 %.06874, 4
+  %55 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef %.06974, i32 noundef 4, i32 noundef 0) #4
+  %56 = add nuw nsw i32 %.06974, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %48
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
@@ -1734,10 +1734,10 @@ define internal fastcc void @dissect_uftp_fileinfo(ptr noundef %0, ptr noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0109114 = phi i32 [ %14, %.lr.ph.preheader ], [ %90, %.lr.ph ]
+  %.0108115 = phi i32 [ %14, %.lr.ph.preheader ], [ %90, %.lr.ph ]
   %88 = load i32, ptr @hf_uftp_dest, align 4
-  %89 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %88, ptr noundef %0, i32 noundef %.0109114, i32 noundef 4, i32 noundef 0) #4
-  %90 = add nuw nsw i32 %.0109114, 4
+  %89 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %88, ptr noundef %0, i32 noundef %.0108115, i32 noundef 4, i32 noundef 0) #4
+  %90 = add nuw nsw i32 %.0108115, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %82
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
@@ -1828,10 +1828,10 @@ define internal fastcc void @dissect_uftp_fileinfoack(ptr noundef %0, ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.06874 = phi i32 [ %13, %.lr.ph.preheader ], [ %60, %.lr.ph ]
+  %.06974 = phi i32 [ %13, %.lr.ph.preheader ], [ %60, %.lr.ph ]
   %58 = load i32, ptr @hf_uftp_dest, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %0, i32 noundef %.06874, i32 noundef 4, i32 noundef 0) #4
-  %60 = add nuw nsw i32 %.06874, 4
+  %59 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %0, i32 noundef %.06974, i32 noundef 4, i32 noundef 0) #4
+  %60 = add nuw nsw i32 %.06974, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %52
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
@@ -2067,10 +2067,10 @@ define internal fastcc void @dissect_uftp_done(ptr noundef %0, ptr noundef %1, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.06470 = phi i32 [ %12, %.lr.ph.preheader ], [ %53, %.lr.ph ]
+  %.06570 = phi i32 [ %12, %.lr.ph.preheader ], [ %53, %.lr.ph ]
   %51 = load i32, ptr @hf_uftp_dest, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %0, i32 noundef %.06470, i32 noundef 4, i32 noundef 0) #4
-  %53 = add nuw nsw i32 %.06470, 4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %0, i32 noundef %.06570, i32 noundef 4, i32 noundef 0) #4
+  %53 = add nuw nsw i32 %.06570, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %45
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
@@ -2223,10 +2223,10 @@ define internal fastcc void @dissect_uftp_complete(ptr noundef %0, ptr noundef %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %60
-  %.08093 = phi i32 [ %73, %60 ], [ %41, %.lr.ph.preheader ]
-  %.08192 = phi i32 [ %74, %60 ], [ 8, %.lr.ph.preheader ]
-  %42 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.08192, i32 noundef %.08093) #4
-  %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08192) #4
+  %.08193 = phi i32 [ %73, %60 ], [ %41, %.lr.ph.preheader ]
+  %.08292 = phi i32 [ %74, %60 ], [ 8, %.lr.ph.preheader ]
+  %42 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.08292, i32 noundef %.08193) #4
+  %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08292) #4
   %cond = icmp eq i8 %43, 7
   br i1 %cond, label %44, label %dissect_uftp_freespace.exit.thread
 
@@ -2268,9 +2268,9 @@ define internal fastcc void @dissect_uftp_complete(ptr noundef %0, ptr noundef %
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %69, ptr noundef %42, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
   %71 = load i32, ptr @hf_uftp_freespace_freespace, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %71, ptr noundef %42, i32 noundef 4, i32 noundef 8, i32 noundef 0) #4
-  %73 = add nsw i32 %.08093, -12
-  %74 = add nuw nsw i32 %.08192, 12
-  %75 = icmp sgt i32 %.08093, 12
+  %73 = add nsw i32 %.08193, -12
+  %74 = add nuw nsw i32 %.08292, 12
+  %75 = icmp sgt i32 %.08193, 12
   br i1 %75, label %.lr.ph, label %dissect_uftp_freespace.exit.thread, !llvm.loop !17
 
 dissect_uftp_freespace.exit.thread:               ; preds = %60, %.lr.ph, %25, %57, %47

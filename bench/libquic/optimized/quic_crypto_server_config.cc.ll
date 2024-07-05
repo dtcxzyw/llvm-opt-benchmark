@@ -8648,8 +8648,8 @@ if.end385:                                        ; preds = %invoke.cont381, %in
           to label %invoke.cont388 unwind label %lpad367
 
 invoke.cont388:                                   ; preds = %if.end385
-  %diversification.sroa.0.0 = extractvalue { i32, ptr } %call384.pn, 0
   %diversification.sroa.4.0 = extractvalue { i32, ptr } %call384.pn, 1
+  %diversification.sroa.0.0 = extractvalue { i32, ptr } %call384.pn, 0
   %77 = load i32, ptr %aead129, align 4
   %client_nonce391 = getelementptr inbounds i8, ptr %validate_chlo_result, i64 128
   %agg.tmp390.sroa.0.0.copyload = load ptr, ptr %client_nonce391, align 8
@@ -15578,8 +15578,8 @@ if.end:                                           ; preds = %while.body
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.backedge, %if.end
-  %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %if.end ], [ %incdec.ptr.i.i.i, %while.body.i.i.backedge ]
   %__last.sroa.0.0.i.i = phi ptr [ %storemerge13, %if.end ], [ %__last.sroa.0.1.i.i, %while.body.i.i.backedge ]
+  %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %if.end ], [ %incdec.ptr.i.i.i, %while.body.i.i.backedge ]
   br label %while.cond4.i.i
 
 while.cond4.i.i:                                  ; preds = %while.cond4.i.i, %while.body.i.i

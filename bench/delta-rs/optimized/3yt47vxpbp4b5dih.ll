@@ -24012,11 +24012,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %143
   br i1 %.not.i.i.i.i47, label %364, label %368
 
 .lr.ph.i.i.i:                                     ; preds = %346, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i"
-  %.0.i13.i.i.i = phi i16 [ %353, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i" ], [ %349, %346 ]
-  %350 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i13.i.i.i, i1 true)
+  %.022.i13.i.i.i = phi i16 [ %353, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i" ], [ %349, %346 ]
+  %350 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i13.i.i.i, i1 true)
   %351 = zext nneg i16 %350 to i64
-  %352 = add i16 %.0.i13.i.i.i, -1
-  %353 = and i16 %352, %.0.i13.i.i.i
+  %352 = add i16 %.022.i13.i.i.i, -1
+  %353 = and i16 %352, %.022.i13.i.i.i
   %354 = add i64 %.sroa.0.021.i.i.i.i, %351
   %355 = and i64 %354, %.val4.i.i.i
   %356 = sub nsw i64 0, %355
@@ -24575,11 +24575,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %143
   br i1 %.not.i.i.i.i112, label %648, label %652
 
 .lr.ph.i.i.i106:                                  ; preds = %630, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i109"
-  %.0.i13.i.i.i107 = phi i16 [ %637, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i109" ], [ %633, %630 ]
-  %634 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i13.i.i.i107, i1 true)
+  %.022.i13.i.i.i107 = phi i16 [ %637, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i109" ], [ %633, %630 ]
+  %634 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i13.i.i.i107, i1 true)
   %635 = zext nneg i16 %634 to i64
-  %636 = add i16 %.0.i13.i.i.i107, -1
-  %637 = and i16 %636, %.0.i13.i.i.i107
+  %636 = add i16 %.022.i13.i.i.i107, -1
+  %637 = and i16 %636, %.022.i13.i.i.i107
   %638 = add i64 %.sroa.0.021.i.i.i.i103, %635
   %639 = and i64 %638, %.val4.i.i.i96
   %640 = sub nsw i64 0, %639
@@ -27507,17 +27507,17 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i:
   br i1 %245, label %247, label %264
 
 247:                                              ; preds = %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i, %226
-  %.065.i.i.i = phi i64 [ 2, %226 ], [ %243, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i ]
+  %.061.i.i.i = phi i64 [ 2, %226 ], [ %243, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i ]
   %.0.i.i.i = phi i64 [ 3, %226 ], [ %246, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i ]
   %248 = getelementptr inbounds i8, ptr %29, i64 24
   %249 = load ptr, ptr %248, align 8, !alias.scope !5455, !noalias !5456, !nonnull !4, !noundef !4
   %250 = getelementptr inbounds i8, ptr %29, i64 32
   %251 = load i64, ptr %250, align 8, !alias.scope !5455, !noalias !5456, !noundef !4
-  %252 = icmp ult i64 %.065.i.i.i, %251
+  %252 = icmp ult i64 %.061.i.i.i, %251
   br i1 %252, label %253, label %264
 
 253:                                              ; preds = %247
-  %254 = getelementptr inbounds i64, ptr %249, i64 %.065.i.i.i
+  %254 = getelementptr inbounds i64, ptr %249, i64 %.061.i.i.i
   %255 = load i64, ptr %254, align 8, !noalias !5458, !noundef !4
   %256 = icmp ne i64 %255, 0
   %257 = icmp ult i64 %.0.i.i.i, %251
@@ -28852,16 +28852,16 @@ define noundef zeroext i1 @"_ZN70_$LT$deltalake_aws..DynamoDbConfig$u20$as$u20$c
   %60 = getelementptr inbounds i8, ptr %0, i64 88
   %..val22 = load i64, ptr %60, align 8, !alias.scope !5731, !noundef !4
   %61 = getelementptr inbounds i8, ptr %1, i64 88
-  %.017.val23 = load i64, ptr %61, align 8, !alias.scope !5734, !noundef !4
-  %.not.i.i25 = icmp eq i64 %..val22, %.017.val23
+  %.016.val23 = load i64, ptr %61, align 8, !alias.scope !5734, !noundef !4
+  %.not.i.i25 = icmp eq i64 %..val22, %.016.val23
   br i1 %.not.i.i25, label %62, label %.critedge
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds i8, ptr %1, i64 80
-  %.017.val = load ptr, ptr %63, align 8, !alias.scope !5734, !nonnull !4, !noundef !4
+  %.016.val = load ptr, ptr %63, align 8, !alias.scope !5734, !nonnull !4, !noundef !4
   %64 = getelementptr inbounds i8, ptr %0, i64 80
   %..val = load ptr, ptr %64, align 8, !alias.scope !5731, !nonnull !4, !noundef !4
-  %bcmp.i.i27 = tail call i32 @bcmp(ptr nonnull readonly %..val, ptr nonnull readonly %.017.val, i64 %..val22), !alias.scope !5737
+  %bcmp.i.i27 = tail call i32 @bcmp(ptr nonnull readonly %..val, ptr nonnull readonly %.016.val, i64 %..val22), !alias.scope !5737
   %65 = icmp eq i32 %bcmp.i.i27, 0
   br label %.critedge
 }

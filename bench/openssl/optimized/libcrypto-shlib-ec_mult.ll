@@ -622,7 +622,6 @@ if.then51:                                        ; preds = %if.then38
   br label %err
 
 if.end54:                                         ; preds = %land.lhs.true13, %if.end27, %land.lhs.true30, %land.lhs.true33, %if.then38, %if.end21
-  %generator.0 = phi ptr [ %call24, %if.then38 ], [ null, %if.end21 ], [ %call24, %land.lhs.true33 ], [ %call24, %land.lhs.true30 ], [ %call24, %if.end27 ], [ null, %land.lhs.true13 ]
   %blocksize.0 = phi i64 [ %9, %if.then38 ], [ 0, %if.end21 ], [ 0, %land.lhs.true33 ], [ 0, %land.lhs.true30 ], [ 0, %if.end27 ], [ 0, %land.lhs.true13 ]
   %numblocks.1 = phi i64 [ %spec.select, %if.then38 ], [ 0, %if.end21 ], [ 1, %land.lhs.true33 ], [ 1, %land.lhs.true30 ], [ 1, %if.end27 ], [ 0, %land.lhs.true13 ]
   %pre_points_per_block.0 = phi i64 [ %shl, %if.then38 ], [ 0, %if.end21 ], [ 0, %land.lhs.true33 ], [ 0, %land.lhs.true30 ], [ 0, %if.end27 ], [ 0, %land.lhs.true13 ]
@@ -630,6 +629,7 @@ if.end54:                                         ; preds = %land.lhs.true13, %i
   %cmp160.not = phi i1 [ true, %if.then38 ], [ true, %if.end21 ], [ false, %land.lhs.true33 ], [ false, %land.lhs.true30 ], [ false, %if.end27 ], [ true, %land.lhs.true13 ]
   %cmp155.not = phi i1 [ false, %if.then38 ], [ false, %if.end21 ], [ true, %land.lhs.true33 ], [ true, %land.lhs.true30 ], [ true, %if.end27 ], [ false, %land.lhs.true13 ]
   %num_scalar.0 = phi i64 [ 0, %if.then38 ], [ 0, %if.end21 ], [ 1, %land.lhs.true33 ], [ 1, %land.lhs.true30 ], [ 1, %if.end27 ], [ 0, %land.lhs.true13 ]
+  %generator.0 = phi ptr [ %call24, %if.then38 ], [ null, %if.end21 ], [ %call24, %land.lhs.true33 ], [ %call24, %land.lhs.true30 ], [ %call24, %if.end27 ], [ null, %land.lhs.true13 ]
   %add55 = add i64 %numblocks.1, %num
   %mul56 = shl i64 %add55, 3
   %call57 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %mul56, ptr noundef nonnull @.str, i32 noundef 507) #6
@@ -1367,20 +1367,20 @@ for.body107.lr.ph:                                ; preds = %for.cond104.prehead
   br label %for.body107
 
 for.body107:                                      ; preds = %for.body107.lr.ph, %for.inc152
-  %i.1152 = phi i64 [ 0, %for.body107.lr.ph ], [ %inc153, %for.inc152 ]
-  %var.0151 = phi ptr [ %call79, %for.body107.lr.ph ], [ %var.1, %for.inc152 ]
+  %var.0152 = phi ptr [ %call79, %for.body107.lr.ph ], [ %var.1, %for.inc152 ]
+  %i.1151 = phi i64 [ 0, %for.body107.lr.ph ], [ %inc153, %for.inc152 ]
   %call108 = tail call i32 @EC_POINT_dbl(ptr noundef nonnull %group, ptr noundef nonnull %call92, ptr noundef nonnull %call95, ptr noundef nonnull %ctx.addr.099) #6
   %tobool109.not = icmp eq i32 %call108, 0
   br i1 %tobool109.not, label %if.end173, label %if.end111
 
 if.end111:                                        ; preds = %for.body107
-  %0 = load ptr, ptr %var.0151, align 8
+  %0 = load ptr, ptr %var.0152, align 8
   %call112 = tail call i32 @EC_POINT_copy(ptr noundef %0, ptr noundef nonnull %call95) #6
   %tobool113.not = icmp eq i32 %call112, 0
   br i1 %tobool113.not, label %if.end173, label %for.body119.preheader
 
 for.body119.preheader:                            ; preds = %if.end111
-  %var.1143 = getelementptr inbounds i8, ptr %var.0151, i64 8
+  %var.1143 = getelementptr inbounds i8, ptr %var.0152, i64 8
   br label %for.body119
 
 for.cond116:                                      ; preds = %for.body119
@@ -1393,7 +1393,7 @@ for.cond116:                                      ; preds = %for.body119
 for.body119:                                      ; preds = %for.body119.preheader, %for.cond116
   %var.1148 = phi ptr [ %var.1, %for.cond116 ], [ %var.1143, %for.body119.preheader ]
   %j.0147 = phi i64 [ %inc125, %for.cond116 ], [ 1, %for.body119.preheader ]
-  %var.0.pn146 = phi ptr [ %var.1148, %for.cond116 ], [ %var.0151, %for.body119.preheader ]
+  %var.0.pn146 = phi ptr [ %var.1148, %for.cond116 ], [ %var.0152, %for.body119.preheader ]
   %1 = load ptr, ptr %var.1148, align 8
   %2 = load ptr, ptr %var.0.pn146, align 8
   %call120 = tail call i32 @EC_POINT_add(ptr noundef nonnull %group, ptr noundef %1, ptr noundef nonnull %call92, ptr noundef %2, ptr noundef nonnull %ctx.addr.099) #6
@@ -1401,7 +1401,7 @@ for.body119:                                      ; preds = %for.body119.prehead
   br i1 %tobool121.not, label %if.end173, label %for.cond116
 
 for.end127:                                       ; preds = %for.cond116
-  %cmp129 = icmp ult i64 %i.1152, %sub128
+  %cmp129 = icmp ult i64 %i.1151, %sub128
   br i1 %cmp129, label %if.end135, label %for.inc152
 
 if.end135:                                        ; preds = %for.end127
@@ -1421,7 +1421,7 @@ for.body143:                                      ; preds = %if.end135, %for.con
   br i1 %tobool145.not, label %if.end173, label %for.cond140
 
 for.inc152:                                       ; preds = %for.cond140, %for.end127
-  %inc153 = add nuw nsw i64 %i.1152, 1
+  %inc153 = add nuw nsw i64 %i.1151, 1
   %exitcond159.not = icmp eq i64 %inc153, %umax
   br i1 %exitcond159.not, label %for.end154, label %for.body107, !llvm.loop !20
 
@@ -1458,8 +1458,8 @@ if.end173.thread:                                 ; preds = %if.then3, %if.end8
   br label %if.end.i92
 
 if.end173:                                        ; preds = %for.body107, %if.end111, %if.end135, %for.body119, %for.body143, %if.end99, %lor.lhs.false157, %if.end163, %for.end154, %if.then98, %if.then90, %if.end18, %if.then17, %if.end11
-  %tmp_point.0.ph = phi ptr [ %call92, %if.end99 ], [ %call92, %lor.lhs.false157 ], [ %call92, %if.end163 ], [ %call92, %for.end154 ], [ %call92, %if.then98 ], [ null, %if.then90 ], [ null, %if.end18 ], [ null, %if.then17 ], [ null, %if.end11 ], [ %call92, %for.body143 ], [ %call92, %for.body119 ], [ %call92, %if.end135 ], [ %call92, %if.end111 ], [ %call92, %for.body107 ]
   %base.1.ph = phi ptr [ %call95, %if.end99 ], [ %call95, %lor.lhs.false157 ], [ %call95, %if.end163 ], [ %call95, %for.end154 ], [ null, %if.then98 ], [ null, %if.then90 ], [ null, %if.end18 ], [ null, %if.then17 ], [ null, %if.end11 ], [ %call95, %for.body143 ], [ %call95, %for.body119 ], [ %call95, %if.end135 ], [ %call95, %if.end111 ], [ %call95, %for.body107 ]
+  %tmp_point.0.ph = phi ptr [ %call92, %if.end99 ], [ %call92, %lor.lhs.false157 ], [ %call92, %if.end163 ], [ %call92, %for.end154 ], [ %call92, %if.then98 ], [ null, %if.then90 ], [ null, %if.end18 ], [ null, %if.then17 ], [ null, %if.end11 ], [ %call92, %for.body143 ], [ %call92, %for.body119 ], [ %call92, %if.end135 ], [ %call92, %if.end111 ], [ %call92, %for.body107 ]
   %points.0.ph = phi ptr [ %call79, %if.end99 ], [ %call79, %lor.lhs.false157 ], [ null, %if.end163 ], [ %call79, %for.end154 ], [ %call79, %if.then98 ], [ %call79, %if.then90 ], [ null, %if.end18 ], [ null, %if.then17 ], [ null, %if.end11 ], [ %call79, %for.body143 ], [ %call79, %for.body119 ], [ %call79, %if.end135 ], [ %call79, %if.end111 ], [ %call79, %for.body107 ]
   %pre_comp.0.ph = phi ptr [ %call.i, %if.end99 ], [ %call.i, %lor.lhs.false157 ], [ null, %if.end163 ], [ %call.i, %for.end154 ], [ %call.i, %if.then98 ], [ %call.i, %if.then90 ], [ %call.i, %if.end18 ], [ %call.i, %if.then17 ], [ %call.i, %if.end11 ], [ %call.i, %for.body143 ], [ %call.i, %for.body119 ], [ %call.i, %if.end135 ], [ %call.i, %if.end111 ], [ %call.i, %for.body107 ]
   %ret.0.ph = phi i32 [ 0, %if.end99 ], [ 0, %lor.lhs.false157 ], [ 1, %if.end163 ], [ 0, %for.end154 ], [ 0, %if.then98 ], [ 0, %if.then90 ], [ 0, %if.end18 ], [ 0, %if.then17 ], [ 0, %if.end11 ], [ 0, %for.body143 ], [ 0, %for.body119 ], [ 0, %if.end135 ], [ 0, %if.end111 ], [ 0, %for.body107 ]
@@ -1469,8 +1469,8 @@ if.end173:                                        ; preds = %for.body107, %if.en
   br i1 %cmp.i91, label %EC_ec_pre_comp_free.exit, label %if.end.i92
 
 if.end.i92:                                       ; preds = %if.end173.thread, %if.end173
-  %tmp_point.0111136 = phi ptr [ null, %if.end173.thread ], [ %tmp_point.0.ph, %if.end173 ]
-  %base.1113134 = phi ptr [ null, %if.end173.thread ], [ %base.1.ph, %if.end173 ]
+  %base.1110136 = phi ptr [ null, %if.end173.thread ], [ %base.1.ph, %if.end173 ]
+  %tmp_point.0112134 = phi ptr [ null, %if.end173.thread ], [ %tmp_point.0.ph, %if.end173 ]
   %points.0115132 = phi ptr [ null, %if.end173.thread ], [ %points.0.ph, %if.end173 ]
   %pre_comp.0117131 = phi ptr [ %call.i, %if.end173.thread ], [ %pre_comp.0.ph, %if.end173 ]
   %ret.0119129 = phi i32 [ 0, %if.end173.thread ], [ %ret.0.ph, %if.end173 ]
@@ -1521,8 +1521,8 @@ if.end9.i:                                        ; preds = %for.end.i, %if.end3
   br label %EC_ec_pre_comp_free.exit
 
 EC_ec_pre_comp_free.exit:                         ; preds = %if.end173, %CRYPTO_DOWN_REF.exit.i, %if.end9.i
-  %tmp_point.0111137 = phi ptr [ %tmp_point.0.ph, %if.end173 ], [ %tmp_point.0111136, %CRYPTO_DOWN_REF.exit.i ], [ %tmp_point.0111136, %if.end9.i ]
-  %base.1113135 = phi ptr [ %base.1.ph, %if.end173 ], [ %base.1113134, %CRYPTO_DOWN_REF.exit.i ], [ %base.1113134, %if.end9.i ]
+  %base.1110137 = phi ptr [ %base.1.ph, %if.end173 ], [ %base.1110136, %CRYPTO_DOWN_REF.exit.i ], [ %base.1110136, %if.end9.i ]
+  %tmp_point.0112135 = phi ptr [ %tmp_point.0.ph, %if.end173 ], [ %tmp_point.0112134, %CRYPTO_DOWN_REF.exit.i ], [ %tmp_point.0112134, %if.end9.i ]
   %points.0115133 = phi ptr [ %points.0.ph, %if.end173 ], [ %points.0115132, %CRYPTO_DOWN_REF.exit.i ], [ %points.0115132, %if.end9.i ]
   %ret.0119130 = phi i32 [ %ret.0.ph, %if.end173 ], [ %ret.0119129, %CRYPTO_DOWN_REF.exit.i ], [ %ret.0119129, %if.end9.i ]
   %tobool174.not = icmp eq ptr %points.0115133, null
@@ -1547,8 +1547,8 @@ for.end182:                                       ; preds = %for.body179, %for.c
   br label %if.end183
 
 if.end183:                                        ; preds = %for.end182, %EC_ec_pre_comp_free.exit
-  tail call void @EC_POINT_free(ptr noundef %tmp_point.0111137) #6
-  tail call void @EC_POINT_free(ptr noundef %base.1113135) #6
+  tail call void @EC_POINT_free(ptr noundef %tmp_point.0112135) #6
+  tail call void @EC_POINT_free(ptr noundef %base.1110137) #6
   br label %return
 
 return:                                           ; preds = %if.end.i, %entry, %if.end183

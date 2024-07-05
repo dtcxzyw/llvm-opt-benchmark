@@ -8309,9 +8309,9 @@ if.else.i.i.i:                                    ; preds = %if.then
   br label %_ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE6_M_popEv.exit
 
 _ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE6_M_popEv.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %__e.sroa.4.0 = phi i64 [ %__e.sroa.4.0.copyload521, %if.else.i.i.i ], [ %__e.sroa.4.0.copyload, %if.then.i.i.i ]
   %__e.sroa.3.0 = phi i64 [ %__e.sroa.3.0.copyload520, %if.else.i.i.i ], [ %__e.sroa.3.0.copyload, %if.then.i.i.i ]
   %__e.sroa.0.0 = phi ptr [ %__e.sroa.0.0.copyload519, %if.else.i.i.i ], [ %__e.sroa.0.0.copyload, %if.then.i.i.i ]
+  %__e.sroa.4.0 = phi i64 [ %__e.sroa.4.0.copyload521, %if.else.i.i.i ], [ %__e.sroa.4.0.copyload, %if.then.i.i.i ]
   %storemerge.i.i.i = phi ptr [ %add.ptr8.i.i.i.i, %if.else.i.i.i ], [ %incdec.ptr.i.i.i.i, %if.then.i.i.i ]
   store ptr %storemerge.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !noalias !131
   %_M_nfa = getelementptr inbounds i8, ptr %this, i64 256

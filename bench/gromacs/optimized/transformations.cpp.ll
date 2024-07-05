@@ -4138,8 +4138,8 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   br label %18
 
 18:                                               ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i, %14
-  %.sroa.012.0.i.i = phi ptr [ %9, %14 ], [ %21, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
   %.sroa.09.0.i.i = phi ptr [ %storemerge16, %14 ], [ %.sroa.09.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
+  %.sroa.012.0.i.i = phi ptr [ %9, %14 ], [ %21, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
   br label %19
 
 19:                                               ; preds = %19, %18
@@ -4764,8 +4764,8 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   br label %19
 
 19:                                               ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i, %15
-  %.sroa.012.0.i.i = phi ptr [ %10, %15 ], [ %22, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
   %.sroa.09.0.i.i = phi ptr [ %storemerge16, %15 ], [ %.sroa.09.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
+  %.sroa.012.0.i.i = phi ptr [ %10, %15 ], [ %22, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
   br label %20
 
 20:                                               ; preds = %20, %19
@@ -5282,8 +5282,8 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   br label %18
 
 18:                                               ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i, %14
-  %.sroa.012.0.i.i = phi ptr [ %9, %14 ], [ %21, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
   %.sroa.09.0.i.i = phi ptr [ %storemerge16, %14 ], [ %.sroa.09.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
+  %.sroa.012.0.i.i = phi ptr [ %9, %14 ], [ %21, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
   br label %19
 
 19:                                               ; preds = %19, %18
@@ -5783,8 +5783,8 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   br label %18
 
 18:                                               ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i, %14
-  %.sroa.012.0.i.i = phi ptr [ %9, %14 ], [ %21, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
   %.sroa.09.0.i.i = phi ptr [ %storemerge16, %14 ], [ %.sroa.09.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
+  %.sroa.012.0.i.i = phi ptr [ %9, %14 ], [ %21, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i ]
   br label %19
 
 19:                                               ; preds = %19, %18

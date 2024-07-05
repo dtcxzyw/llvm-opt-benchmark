@@ -95,13 +95,13 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
 
 .lr.ph101.split.us:                               ; preds = %.lr.ph101, %.loopexit.us
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.loopexit.us ], [ 0, %.lr.ph101 ]
-  %.082100.us = phi i32 [ %65, %.loopexit.us ], [ 0, %.lr.ph101 ]
+  %.08399.us = phi i32 [ %65, %.loopexit.us ], [ 0, %.lr.ph101 ]
   %62 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv111
-  store i32 %.082100.us, ptr %62, align 4
+  store i32 %.08399.us, ptr %62, align 4
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %indvars113 = trunc i64 %indvars.iv.next112 to i32
   %63 = trunc nuw nsw i64 %indvars.iv111 to i32
-  %64 = tail call i32 @cs_scatter(ptr noundef nonnull %0, i32 noundef %63, double noundef %2, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars113, ptr noundef nonnull %48, i32 noundef %.082100.us) #2
+  %64 = tail call i32 @cs_scatter(ptr noundef nonnull %0, i32 noundef %63, double noundef %2, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars113, ptr noundef nonnull %48, i32 noundef %.08399.us) #2
   %65 = tail call i32 @cs_scatter(ptr noundef nonnull %1, i32 noundef %63, double noundef %3, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars113, ptr noundef nonnull %48, i32 noundef %64) #2
   %66 = load i32, ptr %62, align 4
   %67 = icmp slt i32 %66, %65
@@ -131,21 +131,21 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
 
 .lr.ph101.split:                                  ; preds = %.lr.ph101, %.lr.ph101.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph101.split ], [ 0, %.lr.ph101 ]
-  %.082100 = phi i32 [ %78, %.lr.ph101.split ], [ 0, %.lr.ph101 ]
+  %.08399 = phi i32 [ %78, %.lr.ph101.split ], [ 0, %.lr.ph101 ]
   %75 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv
-  store i32 %.082100, ptr %75, align 4
+  store i32 %.08399, ptr %75, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32
   %76 = trunc nuw nsw i64 %indvars.iv to i32
-  %77 = tail call i32 @cs_scatter(ptr noundef nonnull %0, i32 noundef %76, double noundef %2, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars, ptr noundef nonnull %48, i32 noundef %.082100) #2
+  %77 = tail call i32 @cs_scatter(ptr noundef nonnull %0, i32 noundef %76, double noundef %2, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars, ptr noundef nonnull %48, i32 noundef %.08399) #2
   %78 = tail call i32 @cs_scatter(ptr noundef nonnull %1, i32 noundef %76, double noundef %3, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars, ptr noundef nonnull %48, i32 noundef %77) #2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count115
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph101.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph101.split, %.loopexit.us, %54
-  %.082.lcssa = phi i32 [ 0, %54 ], [ %65, %.loopexit.us ], [ %78, %.lr.ph101.split ]
+  %.083.lcssa = phi i32 [ 0, %54 ], [ %65, %.loopexit.us ], [ %78, %.lr.ph101.split ]
   %79 = getelementptr inbounds i32, ptr %56, i64 %27
-  store i32 %.082.lcssa, ptr %79, align 4
+  store i32 %.083.lcssa, ptr %79, align 4
   %80 = tail call i32 @cs_sprealloc(ptr noundef nonnull %48, i32 noundef 0) #2
   %81 = tail call ptr @cs_done(ptr noundef nonnull %48, ptr noundef nonnull %36, ptr noundef %46, i32 noundef 1) #2
   br label %82

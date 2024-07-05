@@ -3299,9 +3299,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_130cmExecuteProcessCommandFixTextER
   %10 = phi ptr [ %28, %26 ], [ %4, %2 ]
   %11 = phi i64 [ %32, %26 ], [ %8, %2 ]
   %12 = phi i64 [ %29, %26 ], [ 0, %2 ]
-  %.036 = phi i32 [ %.1, %26 ], [ 0, %2 ]
-  %.02735 = phi i32 [ %13, %26 ], [ 0, %2 ]
-  %13 = add i32 %.02735, 1
+  %.036 = phi i32 [ %13, %26 ], [ 0, %2 ]
+  %.02735 = phi i32 [ %.1, %26 ], [ 0, %2 ]
+  %13 = add i32 %.036, 1
   %14 = getelementptr inbounds i8, ptr %9, i64 %12
   %15 = load i8, ptr %14, align 1
   switch i8 %15, label %22 [
@@ -3321,8 +3321,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_130cmExecuteProcessCommandFixTextER
   br i1 %.not32, label %26, label %22
 
 22:                                               ; preds = %16, %.lr.ph, %19
-  %23 = add i32 %.036, 1
-  %24 = zext i32 %.036 to i64
+  %23 = add i32 %.02735, 1
+  %24 = zext i32 %.02735 to i64
   %25 = getelementptr inbounds i8, ptr %9, i64 %24
   store i8 %15, ptr %25, align 1
   %.pre = load ptr, ptr %3, align 8
@@ -3332,7 +3332,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_130cmExecuteProcessCommandFixTextER
 26:                                               ; preds = %.lr.ph, %22, %19
   %27 = phi ptr [ %.pre41, %22 ], [ %9, %19 ], [ %9, %.lr.ph ]
   %28 = phi ptr [ %.pre, %22 ], [ %10, %19 ], [ %10, %.lr.ph ]
-  %.1 = phi i32 [ %23, %22 ], [ %.036, %19 ], [ %.036, %.lr.ph ]
+  %.1 = phi i32 [ %23, %22 ], [ %.02735, %19 ], [ %.02735, %.lr.ph ]
   %29 = zext i32 %13 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = ptrtoint ptr %27 to i64
@@ -3461,41 +3461,41 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.030.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %.02329.i = phi i32 [ %18, %17 ], [ %4, %2 ]
-  %6 = icmp ult i32 %.02329.i, 100
+  %.02230.i = phi i32 [ %18, %17 ], [ %4, %2 ]
+  %.02329.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %6 = icmp ult i32 %.02230.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.030.i, 1
+  %8 = add i32 %.02329.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i32 %.02329.i, 1000
+  %10 = icmp ult i32 %.02230.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.030.i, 2
+  %12 = add i32 %.02329.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %.02329.i, 10000
+  %14 = icmp ult i32 %.02230.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.030.i, 3
+  %16 = add i32 %.02329.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i32 %.02329.i, 10000
-  %19 = add i32 %.030.i, 4
-  %20 = icmp ult i32 %.02329.i, 100000
+  %18 = udiv i32 %.02230.i, 10000
+  %19 = add i32 %.02329.i, 4
+  %20 = icmp ult i32 %.02230.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !21
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
-  %21 = add i32 %.022.i, %.lobit
+  %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -3526,7 +3526,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %29, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %28
-  %30 = add i32 %.022.i, -1
+  %30 = add i32 %.0.i, -1
   br label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i

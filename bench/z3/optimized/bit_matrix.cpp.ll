@@ -504,12 +504,12 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %13 = phi ptr [ %5, %for.body17.lr.ph ], [ %21, %_ZN10bit_matrix12row_iteratorppEv.exit ]
   %14 = phi ptr [ %5, %for.body17.lr.ph ], [ %22, %_ZN10bit_matrix12row_iteratorppEv.exit ]
   %indvars.iv = phi i64 [ 0, %for.body17.lr.ph ], [ %indvars.iv.next, %_ZN10bit_matrix12row_iteratorppEv.exit ]
-  %__begin3.sroa.4.062 = phi ptr [ %11, %for.body17.lr.ph ], [ %__begin3.sroa.4.1, %_ZN10bit_matrix12row_iteratorppEv.exit ]
-  %cmp.i26.not = icmp eq ptr %__begin3.sroa.4.062, %__begin1.sroa.5.064
+  %__begin3.sroa.4.061 = phi ptr [ %11, %for.body17.lr.ph ], [ %__begin3.sroa.4.1, %_ZN10bit_matrix12row_iteratorppEv.exit ]
+  %cmp.i26.not = icmp eq ptr %__begin3.sroa.4.061, %__begin1.sroa.5.064
   br i1 %cmp.i26.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body17
-  %arrayidx.i = getelementptr inbounds i64, ptr %__begin3.sroa.4.062, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds i64, ptr %__begin3.sroa.4.061, i64 %idxprom.i
   %15 = load i64, ptr %arrayidx.i, align 8
   %and2.i = and i64 %15, %shl.i
   %cmp.i28.not = icmp eq i64 %and2.i, 0
@@ -522,7 +522,7 @@ for.body.i:                                       ; preds = %land.lhs.true, %for
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %land.lhs.true ]
   %arrayidx.i31 = getelementptr inbounds i64, ptr %__begin1.sroa.5.064, i64 %indvars.iv.i
   %17 = load i64, ptr %arrayidx.i31, align 8
-  %arrayidx4.i = getelementptr inbounds i64, ptr %__begin3.sroa.4.062, i64 %indvars.iv.i
+  %arrayidx4.i = getelementptr inbounds i64, ptr %__begin3.sroa.4.061, i64 %indvars.iv.i
   %18 = load i64, ptr %arrayidx4.i, align 8
   %xor.i = xor i64 %18, %17
   store i64 %xor.i, ptr %arrayidx4.i, align 8
@@ -556,7 +556,7 @@ if.then.i.i37:                                    ; preds = %_ZNK6vectorIPmLb0Ej
   br label %_ZN10bit_matrix12row_iteratorppEv.exit
 
 _ZN10bit_matrix12row_iteratorppEv.exit:           ; preds = %for.inc, %_ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i, %if.then.i.i37
-  %__begin3.sroa.4.1 = phi ptr [ %__begin3.sroa.4.062, %for.inc ], [ %25, %if.then.i.i37 ], [ %__begin3.sroa.4.062, %_ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i ]
+  %__begin3.sroa.4.1 = phi ptr [ %__begin3.sroa.4.061, %for.inc ], [ %25, %if.then.i.i37 ], [ %__begin3.sroa.4.061, %_ZNK6vectorIPmLb0EjE4sizeEv.exit.i.i ]
   %cmp.i25.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %cmp.i25.not, label %for.inc28, label %for.body17
 

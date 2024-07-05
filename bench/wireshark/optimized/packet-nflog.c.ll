@@ -163,17 +163,17 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %43
-  %.0131163.us = phi i16 [ %.1154.us, %43 ], [ 0, %.lr.ph.split.us.preheader ]
-  %.0132162.us = phi ptr [ %.1133.us, %43 ], [ null, %.lr.ph.split.us.preheader ]
-  %.0134158.us = phi i32 [ %46, %43 ], [ 4, %.lr.ph.split.us.preheader ]
-  %26 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0134158.us) #2
+  %.0133160.us = phi i32 [ %46, %43 ], [ 4, %.lr.ph.split.us.preheader ]
+  %.0134159.us = phi i16 [ %.1154.us, %43 ], [ 0, %.lr.ph.split.us.preheader ]
+  %.0135158.us = phi ptr [ %.1136.us, %43 ], [ null, %.lr.ph.split.us.preheader ]
+  %26 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0133160.us) #2
   %27 = zext i16 %26 to i32
   %28 = icmp ult i16 %26, 4
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %.lr.ph.split.us
   %30 = add i16 %26, -4
-  %31 = or disjoint i32 %.0134158.us, 2
+  %31 = or disjoint i32 %.0133160.us, 2
   %32 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %31) #2
   %33 = and i16 %32, 32767
   %34 = icmp eq i16 %33, 1
@@ -187,47 +187,47 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 37:                                               ; preds = %.thread.us
   %38 = zext i16 %30 to i32
-  %39 = add i32 %.0134158.us, 4
+  %39 = add i32 %.0133160.us, 4
   %40 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %38) #2
   br label %43
 
 .thread152.us:                                    ; preds = %29
-  %41 = add i32 %.0134158.us, 4
+  %41 = add i32 %.0133160.us, 4
   %42 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %41) #2
   br label %43
 
 43:                                               ; preds = %.thread152.us, %37, %.thread.us
-  %.1154.us = phi i16 [ %.0131163.us, %37 ], [ %.0131163.us, %.thread.us ], [ %42, %.thread152.us ]
-  %.1133.us = phi ptr [ %40, %37 ], [ %.0132162.us, %.thread.us ], [ %.0132162.us, %.thread152.us ]
+  %.1154.us = phi i16 [ %.0134159.us, %37 ], [ %.0134159.us, %.thread.us ], [ %42, %.thread152.us ]
+  %.1136.us = phi ptr [ %40, %37 ], [ %.0135158.us, %.thread.us ], [ %.0135158.us, %.thread152.us ]
   %44 = add nuw nsw i32 %27, 3
   %45 = and i32 %44, 131068
-  %46 = add i32 %45, %.0134158.us
+  %46 = add i32 %45, %.0133160.us
   %47 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %46) #2
   %48 = icmp sgt i32 %47, 3
   br i1 %48, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread.thread178
-  %.0131163 = phi i16 [ %.1154, %.thread.thread178 ], [ 0, %.lr.ph ]
-  %.0132162 = phi ptr [ %.1133, %.thread.thread178 ], [ null, %.lr.ph ]
-  %.0134158 = phi i32 [ %139, %.thread.thread178 ], [ 4, %.lr.ph ]
-  %49 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0134158) #2
+  %.0133160 = phi i32 [ %139, %.thread.thread178 ], [ 4, %.lr.ph ]
+  %.0134159 = phi i16 [ %.1154, %.thread.thread178 ], [ 0, %.lr.ph ]
+  %.0135158 = phi ptr [ %.1136, %.thread.thread178 ], [ null, %.lr.ph ]
+  %49 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0133160) #2
   %50 = zext i16 %49 to i32
   %51 = icmp ult i16 %49, 4
   br i1 %51, label %.loopexit, label %52
 
 52:                                               ; preds = %.lr.ph.split
   %53 = add i16 %49, -4
-  %54 = or disjoint i32 %.0134158, 2
+  %54 = or disjoint i32 %.0133160, 2
   %55 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %54) #2
   %56 = and i16 %55, 32767
   %57 = load i32, ptr @hf_nflog_tlv, align 4
   %58 = zext nneg i16 %56 to i32
   %59 = tail call ptr @val_to_str_const(i32 noundef %58, ptr noundef nonnull @nflog_tlv_vals, ptr noundef nonnull @.str.67) #2
-  %60 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef nonnull %15, i32 noundef %57, ptr noundef %0, i32 noundef %.0134158, i32 noundef %50, ptr noundef null, ptr noundef nonnull @.str.66, ptr noundef %59, i32 noundef %58, i32 noundef %50) #2
+  %60 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef nonnull %15, i32 noundef %57, ptr noundef %0, i32 noundef %.0133160, i32 noundef %50, ptr noundef null, ptr noundef nonnull @.str.66, ptr noundef %59, i32 noundef %58, i32 noundef %50) #2
   %61 = load i32, ptr @ett_nflog_tlv, align 4
   %62 = tail call ptr @proto_item_add_subtree(ptr noundef %60, i32 noundef %61) #2
   %63 = load i32, ptr @hf_nflog_tlv_length, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %63, ptr noundef %0, i32 noundef %.0134158, i32 noundef 2, i32 noundef -2147483648) #2
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %63, ptr noundef %0, i32 noundef %.0133160, i32 noundef 2, i32 noundef -2147483648) #2
   %65 = load i32, ptr @hf_nflog_tlv_type, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %65, ptr noundef %0, i32 noundef %54, i32 noundef 2, i32 noundef -2147483648) #2
   switch i16 %56, label %117 [
@@ -253,7 +253,7 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 71:                                               ; preds = %69
   %72 = load i32, ptr @hf_nflog_tlv_ifindex_indev, align 4
-  %73 = add i32 %.0134158, 4
+  %73 = add i32 %.0133160, 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %72, ptr noundef %0, i32 noundef %73, i32 noundef 4, i32 noundef 0) #2
   br label %.thread.thread178
 
@@ -263,7 +263,7 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 77:                                               ; preds = %75
   %78 = load i32, ptr @hf_nflog_tlv_ifindex_outdev, align 4
-  %79 = add i32 %.0134158, 4
+  %79 = add i32 %.0133160, 4
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %78, ptr noundef %0, i32 noundef %79, i32 noundef 4, i32 noundef 0) #2
   br label %.thread.thread178
 
@@ -273,7 +273,7 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 83:                                               ; preds = %81
   %84 = load i32, ptr @hf_nflog_tlv_ifindex_physindev, align 4
-  %85 = add i32 %.0134158, 4
+  %85 = add i32 %.0133160, 4
   %86 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %84, ptr noundef %0, i32 noundef %85, i32 noundef 4, i32 noundef 0) #2
   br label %.thread.thread178
 
@@ -283,7 +283,7 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 89:                                               ; preds = %87
   %90 = load i32, ptr @hf_nflog_tlv_ifindex_physoutdev, align 4
-  %91 = add i32 %.0134158, 4
+  %91 = add i32 %.0133160, 4
   %92 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %90, ptr noundef %0, i32 noundef %91, i32 noundef 4, i32 noundef 0) #2
   br label %.thread.thread178
 
@@ -294,7 +294,7 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
 94:                                               ; preds = %93
   %95 = zext i16 %53 to i32
   %96 = load i32, ptr @hf_nflog_tlv_prefix, align 4
-  %97 = add i32 %.0134158, 4
+  %97 = add i32 %.0133160, 4
   %98 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %96, ptr noundef %0, i32 noundef %97, i32 noundef %95, i32 noundef 0) #2
   br label %.thread.thread178
 
@@ -304,7 +304,7 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 101:                                              ; preds = %99
   %102 = load i32, ptr @hf_nflog_tlv_uid, align 4
-  %103 = add i32 %.0134158, 4
+  %103 = add i32 %.0133160, 4
   %104 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %102, ptr noundef %0, i32 noundef %103, i32 noundef 4, i32 noundef 0) #2
   br label %.thread.thread178
 
@@ -314,7 +314,7 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 107:                                              ; preds = %105
   %108 = load i32, ptr @hf_nflog_tlv_gid, align 4
-  %109 = add i32 %.0134158, 4
+  %109 = add i32 %.0133160, 4
   %110 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %108, ptr noundef %0, i32 noundef %109, i32 noundef 4, i32 noundef 0) #2
   br label %.thread.thread178
 
@@ -324,13 +324,13 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 113:                                              ; preds = %111
   %114 = load i32, ptr @hf_nflog_tlv_timestamp, align 4
-  %115 = add i32 %.0134158, 4
+  %115 = add i32 %.0133160, 4
   %116 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %114, ptr noundef %0, i32 noundef %115, i32 noundef 16, i32 noundef 16) #2
   br label %.thread.thread178
 
 117:                                              ; preds = %111, %105, %99, %93, %87, %81, %75, %69, %67, %52
   %118 = load i32, ptr @hf_nflog_tlv_unknown, align 4
-  %119 = add i32 %.0134158, 4
+  %119 = add i32 %.0133160, 4
   %120 = zext i16 %53 to i32
   %121 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %118, ptr noundef %0, i32 noundef %119, i32 noundef %120, i32 noundef 0) #2
   %122 = icmp eq i16 %56, 1
@@ -340,15 +340,15 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .thread176:                                       ; preds = %67
   %124 = load i32, ptr @hf_nflog_tlv_hwprotocol, align 4
-  %125 = add i32 %.0134158, 4
+  %125 = add i32 %.0133160, 4
   %126 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %124, ptr noundef %0, i32 noundef %125, i32 noundef 2, i32 noundef 0) #2
   %127 = load i32, ptr @hf_nflog_tlv_hook, align 4
-  %128 = add i32 %.0134158, 6
+  %128 = add i32 %.0133160, 6
   %129 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %127, ptr noundef %0, i32 noundef %128, i32 noundef 1, i32 noundef 0) #2
   br label %.thread152
 
 .thread152:                                       ; preds = %.thread176, %117
-  %130 = add i32 %.0134158, 4
+  %130 = add i32 %.0133160, 4
   %131 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %130) #2
   br label %.thread.thread178
 
@@ -358,37 +358,37 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 133:                                              ; preds = %52, %.thread
   %134 = zext i16 %53 to i32
-  %135 = add i32 %.0134158, 4
+  %135 = add i32 %.0133160, 4
   %136 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %135, i32 noundef %134) #2
   br label %.thread.thread178
 
 .thread.thread178:                                ; preds = %71, %77, %83, %89, %94, %101, %107, %113, %.thread152, %133, %.thread
-  %.1154 = phi i16 [ %.0131163, %133 ], [ %.0131163, %.thread ], [ %131, %.thread152 ], [ %.0131163, %113 ], [ %.0131163, %107 ], [ %.0131163, %101 ], [ %.0131163, %94 ], [ %.0131163, %89 ], [ %.0131163, %83 ], [ %.0131163, %77 ], [ %.0131163, %71 ]
-  %.1133 = phi ptr [ %136, %133 ], [ %.0132162, %.thread ], [ %.0132162, %.thread152 ], [ %.0132162, %113 ], [ %.0132162, %107 ], [ %.0132162, %101 ], [ %.0132162, %94 ], [ %.0132162, %89 ], [ %.0132162, %83 ], [ %.0132162, %77 ], [ %.0132162, %71 ]
+  %.1154 = phi i16 [ %.0134159, %133 ], [ %.0134159, %.thread ], [ %131, %.thread152 ], [ %.0134159, %113 ], [ %.0134159, %107 ], [ %.0134159, %101 ], [ %.0134159, %94 ], [ %.0134159, %89 ], [ %.0134159, %83 ], [ %.0134159, %77 ], [ %.0134159, %71 ]
+  %.1136 = phi ptr [ %136, %133 ], [ %.0135158, %.thread ], [ %.0135158, %.thread152 ], [ %.0135158, %113 ], [ %.0135158, %107 ], [ %.0135158, %101 ], [ %.0135158, %94 ], [ %.0135158, %89 ], [ %.0135158, %83 ], [ %.0135158, %77 ], [ %.0135158, %71 ]
   %137 = add nuw nsw i32 %50, 3
   %138 = and i32 %137, 131068
-  %139 = add i32 %138, %.0134158
+  %139 = add i32 %138, %.0133160
   %140 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %139) #2
   %141 = icmp sgt i32 %140, 3
   br i1 %141, label %.lr.ph.split, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.thread.thread178, %43
-  %.0132.lcssa = phi ptr [ %.1133.us, %43 ], [ %.1133, %.thread.thread178 ]
-  %.0131.lcssa = phi i16 [ %.1154.us, %43 ], [ %.1154, %.thread.thread178 ]
-  %142 = icmp ne ptr %.0132.lcssa, null
-  %143 = icmp ne i16 %.0131.lcssa, 0
+  %.0135.lcssa = phi ptr [ %.1136.us, %43 ], [ %.1136, %.thread.thread178 ]
+  %.0134.lcssa = phi i16 [ %.1154.us, %43 ], [ %.1154, %.thread.thread178 ]
+  %142 = icmp ne ptr %.0135.lcssa, null
+  %143 = icmp ne i16 %.0134.lcssa, 0
   %or.cond5 = select i1 %142, i1 %143, i1 false
   br i1 %or.cond5, label %144, label %150
 
 144:                                              ; preds = %._crit_edge
-  %145 = zext i16 %.0131.lcssa to i32
+  %145 = zext i16 %.0134.lcssa to i32
   %146 = load ptr, ptr @ethertype_table, align 8
-  %147 = tail call i32 @dissector_try_uint(ptr noundef %146, i32 noundef %145, ptr noundef nonnull %.0132.lcssa, ptr noundef %1, ptr noundef %2) #2
+  %147 = tail call i32 @dissector_try_uint(ptr noundef %146, i32 noundef %145, ptr noundef nonnull %.0135.lcssa, ptr noundef %1, ptr noundef %2) #2
   %.not147 = icmp eq i32 %147, 0
   br i1 %.not147, label %148, label %.thread183
 
 148:                                              ; preds = %144
-  %149 = tail call i32 @call_data_dissector(ptr noundef nonnull %.0132.lcssa, ptr noundef %1, ptr noundef %2) #2
+  %149 = tail call i32 @call_data_dissector(ptr noundef nonnull %.0135.lcssa, ptr noundef %1, ptr noundef %2) #2
   br label %.thread183
 
 150:                                              ; preds = %._crit_edge
@@ -402,16 +402,16 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 152:                                              ; preds = %151
   %153 = load ptr, ptr @ip_handle, align 8
-  %154 = tail call i32 @call_dissector(ptr noundef %153, ptr noundef nonnull %.0132.lcssa, ptr noundef %1, ptr noundef %2) #2
+  %154 = tail call i32 @call_dissector(ptr noundef %153, ptr noundef nonnull %.0135.lcssa, ptr noundef %1, ptr noundef %2) #2
   br label %.thread183
 
 155:                                              ; preds = %151
   %156 = load ptr, ptr @ip6_handle, align 8
-  %157 = tail call i32 @call_dissector(ptr noundef %156, ptr noundef nonnull %.0132.lcssa, ptr noundef %1, ptr noundef %2) #2
+  %157 = tail call i32 @call_dissector(ptr noundef %156, ptr noundef nonnull %.0135.lcssa, ptr noundef %1, ptr noundef %2) #2
   br label %.thread183
 
 158:                                              ; preds = %151
-  %159 = tail call i32 @call_data_dissector(ptr noundef nonnull %.0132.lcssa, ptr noundef %1, ptr noundef %2) #2
+  %159 = tail call i32 @call_data_dissector(ptr noundef nonnull %.0135.lcssa, ptr noundef %1, ptr noundef %2) #2
   br label %.thread183
 
 .thread183:                                       ; preds = %11, %.thread171, %150, %158, %155, %152, %144, %148
@@ -419,8 +419,8 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread183
-  %.0136 = phi i32 [ %160, %.thread183 ], [ %.0134158.us, %.lr.ph.split.us ], [ %.0134158, %.lr.ph.split ]
-  ret i32 %.0136
+  %.0131 = phi i32 [ %160, %.thread183 ], [ %.0133160.us, %.lr.ph.split.us ], [ %.0133160, %.lr.ph.split ]
+  ret i32 %.0131
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

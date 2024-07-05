@@ -266,13 +266,13 @@ proto_item_set_generated.exit190:                 ; preds = %82, %86, %89
   br i1 %.not204, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %proto_item_set_generated.exit190, %.lr.ph
-  %.0158200 = phi i32 [ %97, %.lr.ph ], [ 0, %proto_item_set_generated.exit190 ]
+  %.0159200 = phi i32 [ %97, %.lr.ph ], [ 0, %proto_item_set_generated.exit190 ]
   %93 = call ptr @wmem_file_scope() #4
-  %94 = call ptr @p_get_proto_name_and_key(ptr noundef %93, ptr noundef nonnull %1, i32 noundef %.0158200) #4
+  %94 = call ptr @p_get_proto_name_and_key(ptr noundef %93, ptr noundef nonnull %1, i32 noundef %.0159200) #4
   %.0..0..0..0.85 = load volatile ptr, ptr %6, align 8
   %95 = load i32, ptr @hf_file_proto_name_and_key, align 4
   %96 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %.0..0..0..0.85, i32 noundef %95, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %94, ptr noundef nonnull @.str.34, ptr noundef %94) #4
-  %97 = add nuw i32 %.0158200, 1
+  %97 = add nuw i32 %.0159200, 1
   %exitcond.not = icmp eq i32 %97, %83
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
@@ -692,17 +692,17 @@ proto_item_set_generated.exit193:                 ; preds = %212, %209, %._crit_
   br label %296
 
 296:                                              ; preds = %293, %283
-  %.0159 = phi ptr [ %286, %283 ], [ %295, %293 ]
-  %.not183 = icmp eq ptr %.0159, null
+  %.0158 = phi ptr [ %286, %283 ], [ %295, %293 ]
+  %.not183 = icmp eq ptr %.0158, null
   br i1 %.not183, label %proto_item_set_generated.exit199, label %297
 
 297:                                              ; preds = %296
   %298 = load ptr, ptr %98, align 8
   %299 = getelementptr inbounds i8, ptr %298, i64 40
-  store ptr %.0159, ptr %299, align 8
+  store ptr %.0158, ptr %299, align 8
   %.0..0..0..0.87 = load volatile ptr, ptr %6, align 8
   %300 = load i32, ptr @hf_file_color_filter_name, align 4
-  %301 = load ptr, ptr %.0159, align 8
+  %301 = load ptr, ptr %.0158, align 8
   %302 = call ptr @proto_tree_add_string(ptr noundef %.0..0..0..0.87, i32 noundef %300, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %301) #4
   %.not.i194 = icmp eq ptr %302, null
   br i1 %.not.i194, label %proto_item_set_generated.exit196, label %303
@@ -723,7 +723,7 @@ proto_item_set_generated.exit193:                 ; preds = %212, %209, %._crit_
 proto_item_set_generated.exit196:                 ; preds = %297, %303, %306
   %.0..0..0..0.88 = load volatile ptr, ptr %6, align 8
   %310 = load i32, ptr @hf_file_color_filter_text, align 4
-  %311 = getelementptr inbounds i8, ptr %.0159, i64 8
+  %311 = getelementptr inbounds i8, ptr %.0158, i64 8
   %312 = load ptr, ptr %311, align 8
   %313 = call ptr @proto_tree_add_string(ptr noundef %.0..0..0..0.88, i32 noundef %310, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %312) #4
   %.not.i197 = icmp eq ptr %313, null

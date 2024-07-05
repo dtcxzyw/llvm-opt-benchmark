@@ -97,11 +97,11 @@ define internal range(i32 -30, 1) i32 @archive_filter_uuencode_open(ptr nocaptur
   br label %16
 
 16:                                               ; preds = %8, %13, %12, %1
-  %.0 = phi i64 [ %15, %13 ], [ 65536, %12 ], [ 65536, %1 ], [ %10, %8 ]
+  %.020 = phi i64 [ %15, %13 ], [ 65536, %12 ], [ 65536, %1 ], [ %10, %8 ]
   %17 = getelementptr inbounds i8, ptr %3, i64 56
-  store i64 %.0, ptr %17, align 8
+  store i64 %.020, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %3, i64 32
-  %19 = add nsw i64 %.0, 512
+  %19 = add nsw i64 %.020, 512
   %20 = tail call ptr @archive_string_ensure(ptr noundef nonnull %18, i64 noundef %19) #6
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %24
@@ -120,8 +120,8 @@ define internal range(i32 -30, 1) i32 @archive_filter_uuencode_open(ptr nocaptur
   br label %28
 
 28:                                               ; preds = %24, %22
-  %.020 = phi i32 [ -30, %22 ], [ 0, %24 ]
-  ret i32 %.020
+  %.0 = phi i32 [ -30, %22 ], [ 0, %24 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -227,7 +227,7 @@ define internal i32 @archive_filter_uuencode_write(ptr nocapture noundef readonl
 
 12:                                               ; preds = %.lr.ph, %12
   %.04051 = phi ptr [ %1, %.lr.ph ], [ %14, %12 ]
-  %.04150 = phi i64 [ %2, %.lr.ph ], [ %18, %12 ]
+  %.04250 = phi i64 [ %2, %.lr.ph ], [ %18, %12 ]
   %13 = phi i64 [ %9, %.lr.ph ], [ %.pr, %12 ]
   %14 = getelementptr inbounds i8, ptr %.04051, i64 1
   %15 = load i8, ptr %.04051, align 1
@@ -235,7 +235,7 @@ define internal i32 @archive_filter_uuencode_write(ptr nocapture noundef readonl
   store i64 %16, ptr %8, align 8
   %17 = getelementptr inbounds [45 x i8], ptr %11, i64 0, i64 %13
   store i8 %15, ptr %17, align 1
-  %18 = add i64 %.04150, -1
+  %18 = add i64 %.04250, -1
   %.pr = load i64, ptr %8, align 8
   %19 = icmp ult i64 %.pr, 45
   %20 = icmp ne i64 %18, 0
@@ -247,7 +247,7 @@ define internal i32 @archive_filter_uuencode_write(ptr nocapture noundef readonl
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %.040.lcssa75 = phi ptr [ %14, %._crit_edge ], [ %1, %.preheader ]
-  %.041.lcssa74 = phi i64 [ %18, %._crit_edge ], [ %2, %.preheader ]
+  %.042.lcssa74 = phi i64 [ %18, %._crit_edge ], [ %2, %.preheader ]
   %22 = getelementptr inbounds i8, ptr %5, i64 32
   %23 = getelementptr inbounds i8, ptr %5, i64 72
   tail call fastcc void @uu_encode(ptr noundef nonnull %22, ptr noundef nonnull %23, i64 noundef 45)
@@ -255,9 +255,9 @@ define internal i32 @archive_filter_uuencode_write(ptr nocapture noundef readonl
   br label %24
 
 24:                                               ; preds = %._crit_edge.thread, %7
-  %.142 = phi i64 [ %.041.lcssa74, %._crit_edge.thread ], [ %2, %7 ]
+  %.143 = phi i64 [ %.042.lcssa74, %._crit_edge.thread ], [ %2, %7 ]
   %.1 = phi ptr [ %.040.lcssa75, %._crit_edge.thread ], [ %1, %7 ]
-  %25 = icmp ugt i64 %.142, 44
+  %25 = icmp ugt i64 %.143, 44
   br i1 %25, label %.lr.ph57, label %._crit_edge58
 
 .lr.ph57:                                         ; preds = %24
@@ -266,23 +266,23 @@ define internal i32 @archive_filter_uuencode_write(ptr nocapture noundef readonl
 
 27:                                               ; preds = %.lr.ph57, %27
   %.255 = phi ptr [ %.1, %.lr.ph57 ], [ %29, %27 ]
-  %.24354 = phi i64 [ %.142, %.lr.ph57 ], [ %28, %27 ]
+  %.24454 = phi i64 [ %.143, %.lr.ph57 ], [ %28, %27 ]
   tail call fastcc void @uu_encode(ptr noundef nonnull %26, ptr noundef %.255, i64 noundef 45)
-  %28 = add i64 %.24354, -45
+  %28 = add i64 %.24454, -45
   %29 = getelementptr inbounds i8, ptr %.255, i64 45
   %30 = icmp ugt i64 %28, 44
   br i1 %30, label %27, label %._crit_edge58, !llvm.loop !8
 
 ._crit_edge58:                                    ; preds = %27, %24
-  %.243.lcssa = phi i64 [ %.142, %24 ], [ %28, %27 ]
+  %.244.lcssa = phi i64 [ %.143, %24 ], [ %28, %27 ]
   %.2.lcssa = phi ptr [ %.1, %24 ], [ %29, %27 ]
-  %.not48 = icmp eq i64 %.243.lcssa, 0
+  %.not48 = icmp eq i64 %.244.lcssa, 0
   br i1 %.not48, label %33, label %31
 
 31:                                               ; preds = %._crit_edge58
   %32 = getelementptr inbounds i8, ptr %5, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 1 %.2.lcssa, i64 %.243.lcssa, i1 false)
-  store i64 %.243.lcssa, ptr %8, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 1 %.2.lcssa, i64 %.244.lcssa, i1 false)
+  store i64 %.244.lcssa, ptr %8, align 8
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge58
@@ -317,8 +317,8 @@ define internal i32 @archive_filter_uuencode_write(ptr nocapture noundef readonl
   br i1 %.not49, label %.loopexit, label %40, !llvm.loop !9
 
 .loopexit:                                        ; preds = %40, %33, %._crit_edge, %3
-  %.044 = phi i32 [ 0, %3 ], [ 0, %._crit_edge ], [ 0, %33 ], [ %44, %40 ]
-  ret i32 %.044
+  %.041 = phi i32 [ 0, %3 ], [ 0, %._crit_edge ], [ 0, %33 ], [ %44, %40 ]
+  ret i32 %.041
 }
 
 ; Function Attrs: nounwind uwtable

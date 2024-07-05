@@ -74,7 +74,7 @@ define i32 @Dch_NodeHash(ptr nocapture noundef readonly %0, ptr nocapture nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.02027 = phi i32 [ 0, %.lr.ph.preheader ], [ %27, %.lr.ph ]
+  %.028 = phi i32 [ 0, %.lr.ph.preheader ], [ %27, %.lr.ph ]
   %20 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %22 = xor i32 %21, -1
@@ -82,21 +82,21 @@ define i32 @Dch_NodeHash(ptr nocapture noundef readonly %0, ptr nocapture nounde
   %24 = getelementptr inbounds [128 x i32], ptr @Dch_NodeHash.s_FPrimes, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = mul i32 %25, %22
-  %27 = xor i32 %26, %.02027
+  %27 = xor i32 %26, %.028
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
   %indvars.iv36 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next37, %.lr.ph31 ]
-  %.12129 = phi i32 [ 0, %.lr.ph31.preheader ], [ %34, %.lr.ph31 ]
+  %.130 = phi i32 [ 0, %.lr.ph31.preheader ], [ %34, %.lr.ph31 ]
   %28 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv36
   %29 = load i32, ptr %28, align 4
   %30 = and i64 %indvars.iv36, 127
   %31 = getelementptr inbounds [128 x i32], ptr @Dch_NodeHash.s_FPrimes, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = mul i32 %32, %29
-  %34 = xor i32 %33, %.12129
+  %34 = xor i32 %33, %.130
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
   br i1 %exitcond40.not, label %.loopexit, label %.lr.ph31, !llvm.loop !6
@@ -169,8 +169,8 @@ define range(i32 0, 2) i32 @Dch_NodeIsConst(ptr nocapture noundef readonly %0, p
   br i1 %.not17, label %23, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %.lr.ph29, %23, %.preheader22, %.preheader
-  %.016 = phi i32 [ 1, %.preheader ], [ 1, %.preheader22 ], [ 0, %.lr.ph29 ], [ 1, %23 ], [ 0, %.lr.ph ], [ 1, %20 ]
-  ret i32 %.016
+  %.0 = phi i32 [ 1, %.preheader ], [ 1, %.preheader22 ], [ 0, %.lr.ph29 ], [ 1, %23 ], [ 0, %.lr.ph ], [ 1, %20 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -249,8 +249,8 @@ define range(i32 0, 2) i32 @Dch_NodesAreEqual(ptr nocapture noundef readonly %0,
   br i1 %.not24, label %34, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %28, %.lr.ph38, %34, %.preheader31, %.preheader
-  %.023 = phi i32 [ 1, %.preheader ], [ 1, %.preheader31 ], [ 0, %.lr.ph38 ], [ 1, %34 ], [ 0, %.lr.ph ], [ 1, %28 ]
-  ret i32 %.023
+  %.0 = phi i32 [ 1, %.preheader ], [ 1, %.preheader31 ], [ 0, %.lr.ph38 ], [ 1, %34 ], [ 0, %.lr.ph ], [ 1, %28 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

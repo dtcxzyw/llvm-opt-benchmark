@@ -590,8 +590,8 @@ define dso_local range(i32 -1, 1) i32 @cred_revoke(i32 noundef %0, i64 noundef %
   br label %22
 
 22:                                               ; preds = %15, %9
-  %.0 = phi ptr [ %14, %9 ], [ %16, %15 ]
-  %23 = getelementptr inbounds i8, ptr %.0, i64 24
+  %.017 = phi ptr [ %14, %9 ], [ %16, %15 ]
+  %23 = getelementptr inbounds i8, ptr %.017, i64 24
   %24 = load i64, ptr %23, align 8
   %.not25 = icmp eq i64 %24, 0
   br i1 %.not25, label %35, label %25
@@ -612,7 +612,7 @@ define dso_local range(i32 -1, 1) i32 @cred_revoke(i32 noundef %0, i64 noundef %
   br label %31
 
 31:                                               ; preds = %30, %27
-  %32 = getelementptr inbounds i8, ptr %.0, i64 8
+  %32 = getelementptr inbounds i8, ptr %.017, i64 8
   store i64 2147483647, ptr %32, align 8
   br label %35
 
@@ -641,8 +641,8 @@ define dso_local range(i32 -1, 1) i32 @cred_revoke(i32 noundef %0, i64 noundef %
   unreachable
 
 41:                                               ; preds = %33, %35
-  %.017 = phi i32 [ 0, %35 ], [ -1, %33 ]
-  ret i32 %.017
+  %.0 = phi i32 [ 0, %35 ], [ -1, %33 ]
+  ret i32 %.0
 }
 
 declare void @slurm_seterrno(i32 noundef) local_unnamed_addr #1

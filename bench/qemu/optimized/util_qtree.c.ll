@@ -794,8 +794,8 @@ while.body195.preheader.sink.split:               ; preds = %if.else108, %if.els
 
 while.body195.sink.split:                         ; preds = %if.end262, %while.body195.preheader.sink.split
   %.sink231.sink = phi i8 [ %.sink231, %while.body195.preheader.sink.split ], [ %.sink236, %if.end262 ]
-  %balance.1.ph = phi ptr [ %11, %while.body195.preheader.sink.split ], [ %45, %if.end262 ]
   %idx.4.ph = phi i32 [ %dec205, %while.body195.preheader.sink.split ], [ %dec196, %if.end262 ]
+  %balance.1.ph = phi ptr [ %11, %while.body195.preheader.sink.split ], [ %45, %if.end262 ]
   %balance57.sink232.sink247 = getelementptr inbounds i8, ptr %balance.1.ph, i64 32
   %44 = load i8, ptr %balance57.sink232.sink247, align 8
   %sub = add i8 %44, %.sink231.sink
@@ -803,8 +803,8 @@ while.body195.sink.split:                         ; preds = %if.end262, %while.b
   br label %while.body195
 
 while.body195:                                    ; preds = %while.body195.sink.split, %if.end191
-  %balance.1 = phi ptr [ %38, %if.end191 ], [ %balance.1.ph, %while.body195.sink.split ]
   %idx.4 = phi i32 [ %idx.2.lcssa218, %if.end191 ], [ %idx.4.ph, %while.body195.sink.split ]
+  %balance.1 = phi ptr [ %38, %if.end191 ], [ %balance.1.ph, %while.body195.sink.split ]
   %dec196 = add i32 %idx.4, -1
   %idxprom197 = sext i32 %dec196 to i64
   %arrayidx198 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %idxprom197

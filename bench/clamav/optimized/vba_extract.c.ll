@@ -2427,13 +2427,13 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   br i1 %15, label %.preheader, label %._crit_edge
 
 .preheader:                                       ; preds = %11, %.preheader.backedge
-  %.1113 = phi i32 [ %.1113.be, %.preheader.backedge ], [ 1, %11 ]
-  %.071112 = phi i32 [ %.071112.be, %.preheader.backedge ], [ 1, %11 ]
-  %.174111 = phi i32 [ %.174111.be, %.preheader.backedge ], [ 0, %11 ]
-  %16 = and i32 %.174111, 4095
+  %.1113 = phi i32 [ %.1113.be, %.preheader.backedge ], [ 0, %11 ]
+  %.173112 = phi i32 [ %.173112.be, %.preheader.backedge ], [ 1, %11 ]
+  %.075111 = phi i32 [ %.075111.be, %.preheader.backedge ], [ 1, %11 ]
+  %16 = and i32 %.1113, 4095
   %17 = load i8, ptr %4, align 1
   %18 = zext i8 %17 to i32
-  %19 = and i32 %.071112, %18
+  %19 = and i32 %.075111, %18
   %.not85 = icmp eq i32 %19, 0
   br i1 %.not85, label %73, label %20
 
@@ -2479,7 +2479,7 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   %41 = add nuw nsw i16 %40, 3
   %42 = lshr i32 %37, %op.rdx124
   %43 = xor i32 %42, -1
-  %44 = add i32 %.174111, %43
+  %44 = add i32 %.1113, %43
   %45 = zext nneg i16 %41 to i32
   %46 = add i32 %44, %45
   %47 = and i32 %46, 4095
@@ -2505,20 +2505,20 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   %59 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %58
   %60 = zext nneg i16 %41 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull align 1 dereferenceable(1) %59, i64 %60, i1 false)
-  %61 = add i32 %.174111, %45
+  %61 = add i32 %.1113, %45
   br label %.loopexit
 
 62:                                               ; preds = %.preheader125, %62
   %.0110 = phi i16 [ %63, %62 ], [ %41, %.preheader125 ]
-  %.275109 = phi i32 [ %69, %62 ], [ %.174111, %.preheader125 ]
+  %.2109 = phi i32 [ %69, %62 ], [ %.1113, %.preheader125 ]
   %63 = add i16 %.0110, -1
-  %64 = add i32 %.275109, %43
+  %64 = add i32 %.2109, %43
   %65 = and i32 %64, 4095
   %66 = zext nneg i32 %65 to i64
   %67 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %66
   %68 = load i8, ptr %67, align 1
-  %69 = add i32 %.275109, 1
-  %70 = and i32 %.275109, 4095
+  %69 = add i32 %.2109, 1
+  %70 = and i32 %.2109, 4095
   %71 = zext nneg i32 %70 to i64
   %72 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %71
   store i8 %68, ptr %72, align 1
@@ -2526,10 +2526,10 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   br i1 %.not96, label %.loopexit, label %62
 
 73:                                               ; preds = %.preheader
-  %74 = icmp ne i32 %.174111, 0
+  %74 = icmp ne i32 %.1113, 0
   %75 = icmp eq i32 %16, 0
   %or.cond4 = and i1 %74, %75
-  %76 = icmp ne i32 %.1113, 0
+  %76 = icmp ne i32 %.173112, 0
   %or.cond6 = and i1 %or.cond4, %76
   br i1 %or.cond6, label %77, label %83
 
@@ -2557,36 +2557,36 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   %86 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %85, i64 noundef 1) #17
   %87 = icmp eq i64 %86, 1
   %88 = zext i1 %87 to i32
-  %spec.select = add i32 %.174111, %88
+  %spec.select = add i32 %.1113, %88
   br label %.loopexit
 
 .loopexit:                                        ; preds = %62, %83, %55
   %.3 = phi i32 [ %61, %55 ], [ %spec.select, %83 ], [ %69, %62 ]
-  %89 = shl nuw nsw i32 %.071112, 1
-  %90 = icmp ult i32 %.071112, 128
+  %89 = shl nuw nsw i32 %.075111, 1
+  %90 = icmp ult i32 %.075111, 128
   br i1 %90, label %.preheader.backedge, label %.loopexit101
 
 .preheader.backedge:                              ; preds = %.loopexit, %.loopexit101
-  %.1113.be = phi i32 [ 1, %.loopexit ], [ %.2, %.loopexit101 ]
-  %.071112.be = phi i32 [ %89, %.loopexit ], [ 1, %.loopexit101 ]
-  %.174111.be = phi i32 [ %.3, %.loopexit ], [ %.174106, %.loopexit101 ]
+  %.1113.be = phi i32 [ %.3, %.loopexit ], [ %.1104, %.loopexit101 ]
+  %.173112.be = phi i32 [ 1, %.loopexit ], [ %.274, %.loopexit101 ]
+  %.075111.be = phi i32 [ %89, %.loopexit ], [ 1, %.loopexit101 ]
   br label %.preheader
 
 .loopexit101:                                     ; preds = %.loopexit, %81
-  %.174106 = phi i32 [ %.174111, %81 ], [ %.3, %.loopexit ]
-  %.2 = phi i32 [ 0, %81 ], [ 1, %.loopexit ]
+  %.1104 = phi i32 [ %.1113, %81 ], [ %.3, %.loopexit ]
+  %.274 = phi i32 [ 0, %81 ], [ 1, %.loopexit ]
   %91 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 1) #17
   %92 = icmp eq i64 %91, 1
   br i1 %92, label %.preheader.backedge, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit101
-  %93 = and i32 %.174106, 4095
+  %93 = and i32 %.1104, 4095
   %94 = zext nneg i32 %93 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
-  %.073.lcssa = phi i64 [ 0, %11 ], [ %94, %._crit_edge.loopexit ]
-  %95 = call i32 @blobAddData(ptr noundef nonnull %9, ptr noundef nonnull %6, i64 noundef %.073.lcssa) #17
+  %.071.lcssa = phi i64 [ 0, %11 ], [ %94, %._crit_edge.loopexit ]
+  %95 = call i32 @blobAddData(ptr noundef nonnull %9, ptr noundef nonnull %6, i64 noundef %.071.lcssa) #17
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %97, label %99
 
@@ -2613,8 +2613,8 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   br label %104
 
 104:                                              ; preds = %97, %98, %79, %80, %22, %23, %8, %3, %102
-  %.072 = phi ptr [ %103, %102 ], [ null, %3 ], [ null, %8 ], [ null, %23 ], [ null, %22 ], [ null, %80 ], [ null, %79 ], [ null, %98 ], [ null, %97 ]
-  ret ptr %.072
+  %.070 = phi ptr [ %103, %102 ], [ null, %3 ], [ null, %8 ], [ null, %23 ], [ null, %22 ], [ null, %80 ], [ null, %79 ], [ null, %98 ], [ null, %97 ]
+  ret ptr %.070
 }
 
 declare i32 @cli_gentempfd_with_prefix(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -2881,7 +2881,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 56:                                               ; preds = %50, %51
   %.str.131.sink = phi ptr [ @.str.130, %51 ], [ @.str.131, %50 ]
-  %.0106 = phi i32 [ 1, %51 ], [ 0, %50 ]
+  %.0110 = phi i32 [ 1, %51 ], [ 0, %50 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.131.sink) #17
   br label %57
 
@@ -3033,9 +3033,9 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 123:                                              ; preds = %.lr.ph, %200
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %200 ]
-  %.0107218 = phi ptr [ null, %.lr.ph ], [ %.1, %200 ]
-  %.0108217 = phi i32 [ 0, %.lr.ph ], [ %207, %200 ]
-  %.0109216 = phi i16 [ 0, %.lr.ph ], [ %.1110, %200 ]
+  %.0106218 = phi ptr [ null, %.lr.ph ], [ %.1, %200 ]
+  %.0107217 = phi i16 [ 0, %.lr.ph ], [ %.1108, %200 ]
+  %.0109216 = phi i32 [ 0, %.lr.ph ], [ %207, %200 ]
   %124 = load ptr, ptr %119, align 8
   %125 = getelementptr inbounds i32, ptr %124, i64 %indvars.iv
   store i32 0, ptr %125, align 4
@@ -3057,12 +3057,12 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %read_uint16.exit156.thread
 
 132:                                              ; preds = %127
-  %133 = icmp ugt i16 %.0.i.i155, %.0109216
+  %133 = icmp ugt i16 %.0.i.i155, %.0107217
   br i1 %133, label %134, label %140
 
 134:                                              ; preds = %132
   %135 = zext i16 %.0.i.i155 to i64
-  %136 = call ptr @cli_max_realloc(ptr noundef %.0107218, i64 noundef %135) #17
+  %136 = call ptr @cli_max_realloc(ptr noundef %.0106218, i64 noundef %135) #17
   %137 = icmp eq ptr %136, null
   br i1 %137, label %read_uint16.exit156.thread.loopexit.split.loop.exit290, label %138
 
@@ -3072,8 +3072,8 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 140:                                              ; preds = %138, %132
   %141 = phi i16 [ %139, %138 ], [ %.0.i.i155, %132 ]
-  %.1110 = phi i16 [ %139, %138 ], [ %.0109216, %132 ]
-  %.1 = phi ptr [ %136, %138 ], [ %.0107218, %132 ]
+  %.1108 = phi i16 [ %139, %138 ], [ %.0107217, %132 ]
+  %.1 = phi ptr [ %136, %138 ], [ %.0106218, %132 ]
   %142 = zext i16 %141 to i64
   %143 = call i64 @cli_readn(i32 noundef %24, ptr noundef %.1, i64 noundef %142) #17
   %144 = load i16, ptr %12, align 2
@@ -3088,7 +3088,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 148:                                              ; preds = %140
   %149 = zext i16 %144 to i32
-  %150 = call fastcc ptr @get_unicode_name(ptr noundef %.1, i32 noundef %149, i32 noundef %.0106)
+  %150 = call fastcc ptr @get_unicode_name(ptr noundef %.1, i32 noundef %149, i32 noundef %.0110)
   %151 = icmp eq ptr %150, null
   br i1 %151, label %read_uint16.exit156.thread.loopexit.split.loop.exit287, label %152
 
@@ -3202,7 +3202,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   store i32 %203, ptr %205, align 4
   %206 = call i64 @lseek(i32 noundef %24, i64 noundef 2, i32 noundef 1) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %207 = add nuw nsw i32 %.0108217, 1
+  %207 = add nuw nsw i32 %.0109216, 1
   %208 = load i16, ptr %4, align 2
   %209 = zext i16 %208 to i64
   %210 = icmp ult i64 %indvars.iv.next, %209
@@ -3241,8 +3241,8 @@ read_uint16.exit156.thread.loopexit.split.loop.exit290: ; preds = %134
   br label %read_uint16.exit156.thread
 
 read_uint16.exit156.thread:                       ; preds = %200, %read_uint16.exit156.thread.loopexit.split.loop.exit, %read_uint16.exit156.thread.loopexit.split.loop.exit272, %read_uint16.exit156.thread.loopexit.split.loop.exit275, %read_uint16.exit156.thread.loopexit.split.loop.exit278, %read_uint16.exit156.thread.loopexit.split.loop.exit281, %read_uint16.exit156.thread.loopexit.split.loop.exit284, %read_uint16.exit156.thread.loopexit.split.loop.exit287, %read_uint16.exit156.thread.loopexit.split.loop.exit290, %166, %156, %146, %130
-  %.0108215 = phi i32 [ %131, %130 ], [ %147, %146 ], [ %157, %156 ], [ %167, %166 ], [ %211, %read_uint16.exit156.thread.loopexit.split.loop.exit ], [ %212, %read_uint16.exit156.thread.loopexit.split.loop.exit272 ], [ %213, %read_uint16.exit156.thread.loopexit.split.loop.exit275 ], [ %214, %read_uint16.exit156.thread.loopexit.split.loop.exit278 ], [ %215, %read_uint16.exit156.thread.loopexit.split.loop.exit281 ], [ %216, %read_uint16.exit156.thread.loopexit.split.loop.exit284 ], [ %217, %read_uint16.exit156.thread.loopexit.split.loop.exit287 ], [ %218, %read_uint16.exit156.thread.loopexit.split.loop.exit290 ], [ %207, %200 ]
-  %.2 = phi ptr [ %.0107218, %130 ], [ %.1, %146 ], [ %.1, %156 ], [ %.1, %166 ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit272 ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit275 ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit278 ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit281 ], [ %.0107218, %read_uint16.exit156.thread.loopexit.split.loop.exit284 ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit287 ], [ %.0107218, %read_uint16.exit156.thread.loopexit.split.loop.exit290 ], [ %.1, %200 ]
+  %.0109215 = phi i32 [ %131, %130 ], [ %147, %146 ], [ %157, %156 ], [ %167, %166 ], [ %211, %read_uint16.exit156.thread.loopexit.split.loop.exit ], [ %212, %read_uint16.exit156.thread.loopexit.split.loop.exit272 ], [ %213, %read_uint16.exit156.thread.loopexit.split.loop.exit275 ], [ %214, %read_uint16.exit156.thread.loopexit.split.loop.exit278 ], [ %215, %read_uint16.exit156.thread.loopexit.split.loop.exit281 ], [ %216, %read_uint16.exit156.thread.loopexit.split.loop.exit284 ], [ %217, %read_uint16.exit156.thread.loopexit.split.loop.exit287 ], [ %218, %read_uint16.exit156.thread.loopexit.split.loop.exit290 ], [ %207, %200 ]
+  %.2 = phi ptr [ %.0106218, %130 ], [ %.1, %146 ], [ %.1, %156 ], [ %.1, %166 ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit272 ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit275 ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit278 ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit281 ], [ %.0106218, %read_uint16.exit156.thread.loopexit.split.loop.exit284 ], [ %.1, %read_uint16.exit156.thread.loopexit.split.loop.exit287 ], [ %.0106218, %read_uint16.exit156.thread.loopexit.split.loop.exit290 ], [ %.1, %200 ]
   %.not138 = icmp eq ptr %.2, null
   br i1 %.not138, label %read_uint16.exit156.thread.thread, label %219
 
@@ -3251,11 +3251,11 @@ read_uint16.exit156.thread:                       ; preds = %200, %read_uint16.e
   br label %read_uint16.exit156.thread.thread
 
 read_uint16.exit156.thread.thread:                ; preds = %.preheader, %219, %read_uint16.exit156.thread
-  %.0108215259 = phi i32 [ %.0108215, %219 ], [ %.0108215, %read_uint16.exit156.thread ], [ 0, %.preheader ]
+  %.0109215259 = phi i32 [ %.0109215, %219 ], [ %.0109215, %read_uint16.exit156.thread ], [ 0, %.preheader ]
   %220 = call i32 @close(i32 noundef %24) #17
   %221 = load i16, ptr %4, align 2
   %222 = zext i16 %221 to i32
-  %223 = icmp ult i32 %.0108215259, %222
+  %223 = icmp ult i32 %.0109215259, %222
   br i1 %223, label %224, label %232
 
 224:                                              ; preds = %read_uint16.exit156.thread.thread
@@ -3289,10 +3289,10 @@ define internal fastcc i32 @vba_read_project_strings(i32 noundef %0, i32 noundef
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %2
-  %.037 = phi ptr [ null, %2 ], [ %.138, %.backedge.backedge ]
-  %.035 = phi i16 [ 0, %2 ], [ %.136, %.backedge.backedge ]
-  %.034 = phi i32 [ 0, %2 ], [ %61, %.backedge.backedge ]
+  %.037 = phi i32 [ 0, %2 ], [ %61, %.backedge.backedge ]
   %.not = phi i1 [ false, %2 ], [ %or.cond, %.backedge.backedge ]
+  %.034 = phi i16 [ 0, %2 ], [ %.135, %.backedge.backedge ]
+  %.0 = phi ptr [ null, %2 ], [ %.1, %.backedge.backedge ]
   br i1 %.not, label %thread-pre-split, label %5
 
 5:                                                ; preds = %.backedge
@@ -3326,12 +3326,12 @@ thread-pre-split:                                 ; preds = %.backedge
   br label %read_uint16.exit.thread
 
 15:                                               ; preds = %8
-  %16 = icmp ugt i16 %9, %.035
+  %16 = icmp ugt i16 %9, %.034
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %15
   %18 = zext i16 %9 to i64
-  %19 = call ptr @cli_max_realloc(ptr noundef %.037, i64 noundef %18) #17
+  %19 = call ptr @cli_max_realloc(ptr noundef %.0, i64 noundef %18) #17
   %20 = icmp eq ptr %19, null
   br i1 %20, label %read_uint16.exit.thread, label %21
 
@@ -3340,8 +3340,8 @@ thread-pre-split:                                 ; preds = %.backedge
   br label %23
 
 23:                                               ; preds = %21, %15
-  %.138 = phi ptr [ %19, %21 ], [ %.037, %15 ]
-  %.136 = phi i16 [ %22, %21 ], [ %.035, %15 ]
+  %.135 = phi i16 [ %22, %21 ], [ %.034, %15 ]
+  %.1 = phi ptr [ %19, %21 ], [ %.0, %15 ]
   %24 = call i64 @lseek(i32 noundef %0, i64 noundef 0, i32 noundef 1) #17
   %25 = icmp eq i64 %24, -1
   br i1 %25, label %26, label %27
@@ -3353,7 +3353,7 @@ thread-pre-split:                                 ; preds = %.backedge
 27:                                               ; preds = %23
   %28 = load i16, ptr %4, align 2
   %29 = zext i16 %28 to i64
-  %30 = call i64 @cli_readn(i32 noundef %0, ptr noundef %.138, i64 noundef %29) #17
+  %30 = call i64 @cli_readn(i32 noundef %0, ptr noundef %.1, i64 noundef %29) #17
   %31 = load i16, ptr %4, align 2
   %32 = zext i16 %31 to i64
   %.not46 = icmp eq i64 %30, %32
@@ -3371,7 +3371,7 @@ thread-pre-split:                                 ; preds = %.backedge
 
 37:                                               ; preds = %27
   %38 = zext i16 %31 to i32
-  %39 = call fastcc ptr @get_unicode_name(ptr noundef %.138, i32 noundef %38, i32 noundef %1)
+  %39 = call fastcc ptr @get_unicode_name(ptr noundef %.1, i32 noundef %38, i32 noundef %1)
   %40 = load i16, ptr %4, align 2
   %41 = zext i16 %40 to i32
   %.not47 = icmp eq ptr %39, null
@@ -3405,7 +3405,7 @@ thread-pre-split:                                 ; preds = %.backedge
   br label %56
 
 56:                                               ; preds = %55, %49
-  %.1 = phi i32 [ 0, %55 ], [ %.034, %49 ]
+  %.138 = phi i32 [ 0, %55 ], [ %.037, %49 ]
   call void @free(ptr noundef %39) #17
   br label %read_uint16.exit.thread
 
@@ -3420,7 +3420,7 @@ thread-pre-split:                                 ; preds = %.backedge
   %rev.i.i53 = call i16 @llvm.bswap.i16(i16 %60)
   %.0.i.i54 = select i1 %.not.i.i, i16 %60, i16 %rev.i.i53
   store i16 %.0.i.i54, ptr %4, align 2
-  %61 = add nuw nsw i32 %.034, 1
+  %61 = add nuw nsw i32 %.037, 1
   %62 = add i16 %.0.i.i54, -1
   %or.cond = icmp ult i16 %62, -2
   br i1 %or.cond, label %.backedge.backedge, label %63
@@ -3470,10 +3470,10 @@ vba56_test_middle.exit:                           ; preds = %67, %71, %.sink.spl
   br label %.backedge
 
 read_uint16.exit.thread:                          ; preds = %57, %5, %17, %33, %36, %11, %14, %66, %56, %26
-  %.239 = phi ptr [ %.037, %14 ], [ %.037, %11 ], [ %.138, %26 ], [ %.138, %36 ], [ %.138, %33 ], [ %.138, %56 ], [ %.138, %66 ], [ %.138, %57 ], [ %.037, %5 ], [ %.037, %17 ]
-  %.2 = phi i32 [ 0, %14 ], [ %.034, %11 ], [ 0, %26 ], [ 0, %36 ], [ %.034, %33 ], [ %.1, %56 ], [ 0, %66 ], [ %.034, %57 ], [ 0, %5 ], [ 0, %17 ]
-  call void @free(ptr noundef %.239) #17
-  ret i32 %.2
+  %.239 = phi i32 [ 0, %14 ], [ %.037, %11 ], [ 0, %26 ], [ 0, %36 ], [ %.037, %33 ], [ %.138, %56 ], [ 0, %66 ], [ %.037, %57 ], [ 0, %5 ], [ 0, %17 ]
+  %.2 = phi ptr [ %.0, %14 ], [ %.0, %11 ], [ %.1, %26 ], [ %.1, %36 ], [ %.1, %33 ], [ %.1, %56 ], [ %.1, %66 ], [ %.1, %57 ], [ %.0, %5 ], [ %.0, %17 ]
+  call void @free(ptr noundef %.2) #17
+  ret i32 %.239
 }
 
 ; Function Attrs: nounwind
@@ -3595,9 +3595,9 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly %0, i32 nounde
   br i1 %.not79, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %17, %16, %19
-  %.05878 = phi i32 [ %20, %19 ], [ %1, %16 ], [ %1, %17 ]
+  %.05778 = phi i32 [ %20, %19 ], [ %1, %16 ], [ %1, %17 ]
   %21 = phi i64 [ 2, %19 ], [ 1, %16 ], [ 2, %17 ]
-  %sext = zext nneg i32 %.05878 to i64
+  %sext = zext nneg i32 %.05778 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %69
@@ -3685,7 +3685,7 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly %0, i32 nounde
   %.2 = getelementptr inbounds i8, ptr %.1.pn, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %21
   %70 = trunc nuw i64 %indvars.iv.next to i32
-  %71 = icmp sgt i32 %.05878, %70
+  %71 = icmp sgt i32 %.05778, %70
   br i1 %71, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %69, %42, %19
@@ -4358,23 +4358,23 @@ word_read_fib.exit.thread:                        ; preds = %seekandread.exit.th
   br label %71
 
 71:                                               ; preds = %71, %69
-  %.024.i.i = phi i16 [ %57, %69 ], [ %82, %71 ]
-  %.023.i.i = phi ptr [ %70, %69 ], [ %80, %71 ]
+  %.025.i.i = phi i16 [ %57, %69 ], [ %82, %71 ]
+  %.024.i.i = phi ptr [ %70, %69 ], [ %80, %71 ]
   %.0.i16.i = phi ptr [ %63, %69 ], [ %81, %71 ]
   %72 = getelementptr inbounds i8, ptr %.0.i16.i, i64 1
   %73 = load i8, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %.023.i.i, i64 8
+  %74 = getelementptr inbounds i8, ptr %.024.i.i, i64 8
   store i8 %73, ptr %74, align 4
   %75 = getelementptr inbounds i8, ptr %.0.i16.i, i64 12
   %76 = load i32, ptr %75, align 1
-  store i32 %76, ptr %.023.i.i, align 4
+  store i32 %76, ptr %.024.i.i, align 4
   %77 = getelementptr inbounds i8, ptr %.0.i16.i, i64 20
   %78 = load i32, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.023.i.i, i64 4
+  %79 = getelementptr inbounds i8, ptr %.024.i.i, i64 4
   store i32 %78, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %.023.i.i, i64 12
+  %80 = getelementptr inbounds i8, ptr %.024.i.i, i64 12
   %81 = getelementptr inbounds i8, ptr %.0.i16.i, i64 24
-  %82 = add i16 %.024.i.i, -1
+  %82 = add i16 %.025.i.i, -1
   %.not28.i.i = icmp eq i16 %82, 0
   br i1 %.not28.i.i, label %83, label %71
 
@@ -4764,8 +4764,8 @@ word_read_macro_info.exit:                        ; preds = %word_skip_macro_int
   br label %239
 
 239:                                              ; preds = %word_read_fib.exit.thread, %.loopexit100, %.loopexit, %25, %20
-  %.041 = phi ptr [ null, %20 ], [ null, %25 ], [ %.039, %.loopexit ], [ null, %.loopexit100 ], [ null, %word_read_fib.exit.thread ]
-  ret ptr %.041
+  %.040 = phi ptr [ null, %20 ], [ null, %25 ], [ %.039, %.loopexit ], [ null, %.loopexit100 ], [ null, %word_read_fib.exit.thread ]
+  ret ptr %.040
 }
 
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1

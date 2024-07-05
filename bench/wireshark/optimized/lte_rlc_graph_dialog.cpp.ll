@@ -3738,8 +3738,8 @@ define void @_ZN17LteRlcGraphDialog9fillGraphEv(ptr noundef nonnull align 8 dere
   br i1 %41, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %29, %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit
-  %.040199 = phi i32 [ %84, %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit ], [ 0, %29 ]
-  %42 = call noundef ptr @_ZNK11QCustomPlot5graphEi(ptr noundef nonnull align 8 dereferenceable(513) %26, i32 noundef %.040199)
+  %.035199 = phi i32 [ %84, %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit ], [ 0, %29 ]
+  %42 = call noundef ptr @_ZNK11QCustomPlot5graphEi(ptr noundef nonnull align 8 dereferenceable(513) %26, i32 noundef %.035199)
   %43 = getelementptr inbounds i8, ptr %42, i64 192
   %44 = load ptr, ptr %43, align 8, !noalias !7
   %45 = getelementptr inbounds i8, ptr %42, i64 200
@@ -3839,9 +3839,9 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %75, 
   unreachable
 
 _ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit: ; preds = %69, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i, %79
-  %83 = call noundef ptr @_ZNK11QCustomPlot5graphEi(ptr noundef nonnull align 8 dereferenceable(513) %26, i32 noundef %.040199)
+  %83 = call noundef ptr @_ZNK11QCustomPlot5graphEi(ptr noundef nonnull align 8 dereferenceable(513) %26, i32 noundef %.035199)
   call void @_ZN12QCPLayerable10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(57) %83, i1 noundef zeroext true)
-  %84 = add nuw nsw i32 %.040199, 1
+  %84 = add nuw nsw i32 %.035199, 1
   %85 = call noundef i32 @_ZNK11QCustomPlot10graphCountEv(ptr noundef nonnull align 8 dereferenceable(513) %26)
   %86 = icmp slt i32 %84, %85
   br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !10
@@ -4048,7 +4048,7 @@ _ZN9QMultiMapIdP11rlc_segmentE6insertERKdRKS1_.exit: ; preds = %.lr.ph.i.i.i.i, 
   br label %._crit_edge205
 
 ._crit_edge205:                                   ; preds = %._crit_edge205.loopexit, %106
-  %.035209 = phi ptr [ %.pre, %._crit_edge205.loopexit ], [ null, %106 ]
+  %.036209 = phi ptr [ %.pre, %._crit_edge205.loopexit ], [ null, %106 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
@@ -4057,11 +4057,11 @@ _ZN9QMultiMapIdP11rlc_segmentE6insertERKdRKS1_.exit: ; preds = %.lr.ph.i.i.i.i, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  %.not43 = icmp eq ptr %.035209, null
+  %.not43 = icmp eq ptr %.036209, null
   br i1 %.not43, label %._crit_edge215, label %.lr.ph214
 
 .lr.ph214:                                        ; preds = %._crit_edge205
-  %178 = getelementptr inbounds i8, ptr %.035209, i64 2108
+  %178 = getelementptr inbounds i8, ptr %.036209, i64 2108
   %179 = load i16, ptr %178, align 4
   %180 = zext nneg i16 %179 to i32
   %181 = getelementptr inbounds i8, ptr %0, i64 196
@@ -4085,35 +4085,35 @@ _ZN9QMultiMapIdP11rlc_segmentE6insertERKdRKS1_.exit: ; preds = %.lr.ph.i.i.i.i, 
   br label %198
 
 198:                                              ; preds = %.lr.ph214, %.loopexit
-  %.035212 = phi ptr [ %.035209, %.lr.ph214 ], [ %.035, %.loopexit ]
-  %.037211 = phi i32 [ -1, %.lr.ph214 ], [ %.1, %.loopexit ]
-  %199 = getelementptr inbounds i8, ptr %.035212, i64 16
+  %.036212 = phi ptr [ %.036209, %.lr.ph214 ], [ %.036, %.loopexit ]
+  %.038211 = phi i32 [ -1, %.lr.ph214 ], [ %.1, %.loopexit ]
+  %199 = getelementptr inbounds i8, ptr %.036212, i64 16
   %200 = load i64, ptr %199, align 8
   %201 = sitofp i64 %200 to double
-  %202 = getelementptr inbounds i8, ptr %.035212, i64 24
+  %202 = getelementptr inbounds i8, ptr %.036212, i64 24
   %203 = load i32, ptr %202, align 8
   %204 = uitofp i32 %203 to double
   %205 = fdiv double %204, 1.000000e+06
   %206 = fadd double %205, %201
   %207 = load i8, ptr %181, align 4
-  %208 = getelementptr inbounds i8, ptr %.035212, i64 2098
+  %208 = getelementptr inbounds i8, ptr %.036212, i64 2098
   %209 = load i8, ptr %208, align 2
   %210 = load i16, ptr %182, align 2
   %211 = load i16, ptr %183, align 8
   %212 = load i16, ptr %184, align 2
   %213 = load i8, ptr %185, align 4
   %214 = load i8, ptr %186, align 1
-  %215 = getelementptr inbounds i8, ptr %.035212, i64 2100
+  %215 = getelementptr inbounds i8, ptr %.036212, i64 2100
   %216 = load i16, ptr %215, align 4
-  %217 = getelementptr inbounds i8, ptr %.035212, i64 2102
+  %217 = getelementptr inbounds i8, ptr %.036212, i64 2102
   %218 = load i16, ptr %217, align 2
-  %219 = getelementptr inbounds i8, ptr %.035212, i64 2104
+  %219 = getelementptr inbounds i8, ptr %.036212, i64 2104
   %220 = load i16, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %.035212, i64 2106
+  %221 = getelementptr inbounds i8, ptr %.036212, i64 2106
   %222 = load i8, ptr %221, align 2
-  %223 = getelementptr inbounds i8, ptr %.035212, i64 2107
+  %223 = getelementptr inbounds i8, ptr %.036212, i64 2107
   %224 = load i8, ptr %223, align 1
-  %225 = getelementptr inbounds i8, ptr %.035212, i64 28
+  %225 = getelementptr inbounds i8, ptr %.036212, i64 28
   %226 = load i32, ptr %225, align 4
   %227 = invoke i32 @compare_rlc_headers(i8 noundef zeroext %207, i8 noundef zeroext %209, i16 noundef zeroext %210, i16 noundef zeroext %211, i16 noundef zeroext %212, i8 noundef zeroext %213, i8 noundef zeroext %214, i16 noundef zeroext %216, i16 noundef zeroext %218, i16 noundef zeroext %220, i8 noundef zeroext %222, i8 noundef zeroext %224, i32 noundef %226)
           to label %228 unwind label %.loopexit.split-lp.loopexit
@@ -4128,7 +4128,7 @@ _ZN9QMultiMapIdP11rlc_segmentE6insertERKdRKS1_.exit: ; preds = %.lr.ph.i.i.i.i, 
   br i1 %.not45, label %231, label %280
 
 231:                                              ; preds = %229
-  %232 = getelementptr inbounds i8, ptr %.035212, i64 36
+  %232 = getelementptr inbounds i8, ptr %.036212, i64 36
   %233 = load i16, ptr %232, align 4
   %.not46 = icmp eq i16 %233, 0
   br i1 %.not46, label %273, label %234
@@ -4142,7 +4142,7 @@ _ZN9QMultiMapIdP11rlc_segmentE6insertERKdRKS1_.exit: ; preds = %.lr.ph.i.i.i.i, 
 
 236:                                              ; preds = %234
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %237 = getelementptr inbounds i8, ptr %.035212, i64 32
+  %237 = getelementptr inbounds i8, ptr %.036212, i64 32
   %238 = load i32, ptr %237, align 8
   %239 = uitofp i32 %238 to double
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -4300,7 +4300,7 @@ _ZN17QArrayDataPointerIdE5derefEv.exit.i.i81:     ; preds = %_ZN5QListIdED2Ev.ex
 
 275:                                              ; preds = %273
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %276 = getelementptr inbounds i8, ptr %.035212, i64 32
+  %276 = getelementptr inbounds i8, ptr %.036212, i64 32
   %277 = load i32, ptr %276, align 8
   %278 = uitofp i32 %277 to double
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -4314,9 +4314,9 @@ _ZN5QListIdE6appendEd.exit85:                     ; preds = %275
   br label %.loopexit
 
 280:                                              ; preds = %229
-  %281 = getelementptr inbounds i8, ptr %.035212, i64 40
+  %281 = getelementptr inbounds i8, ptr %.036212, i64 40
   %282 = load i32, ptr %281, align 8
-  %.not47 = icmp eq i32 %282, %.037211
+  %.not47 = icmp eq i32 %282, %.038211
   br i1 %.not47, label %.loopexit, label %283
 
 283:                                              ; preds = %280
@@ -4341,13 +4341,13 @@ _ZN5QListIdE6appendEd.exit85:                     ; preds = %275
 291:                                              ; preds = %285
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %292 = load i32, ptr %281, align 8
-  %293 = getelementptr inbounds i8, ptr %.035212, i64 44
+  %293 = getelementptr inbounds i8, ptr %.036212, i64 44
   %294 = load i16, ptr %293, align 4
   %.not216 = icmp eq i16 %294, 0
   br i1 %.not216, label %.loopexit, label %.lr.ph208
 
 .lr.ph208:                                        ; preds = %291
-  %295 = getelementptr inbounds i8, ptr %.035212, i64 48
+  %295 = getelementptr inbounds i8, ptr %.036212, i64 48
   br label %296
 
 296:                                              ; preds = %.lr.ph208, %_ZN5QListIdE6appendEd.exit89
@@ -4624,9 +4624,9 @@ _ZN5QListIdE6appendEd.exit89:                     ; preds = %377, %383, %_ZN9QtP
   br i1 %428, label %296, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %_ZN5QListIdE6appendEd.exit89, %291, %_ZN5QListIdE6appendEd.exit85, %_ZN5QListIdE6appendEd.exit53, %228, %280
-  %.1 = phi i32 [ %.037211, %280 ], [ %.037211, %_ZN5QListIdE6appendEd.exit53 ], [ %.037211, %_ZN5QListIdE6appendEd.exit85 ], [ %.037211, %228 ], [ %292, %291 ], [ %292, %_ZN5QListIdE6appendEd.exit89 ]
-  %.035 = load ptr, ptr %.035212, align 8
-  %.not44 = icmp eq ptr %.035, null
+  %.1 = phi i32 [ %.038211, %280 ], [ %.038211, %_ZN5QListIdE6appendEd.exit53 ], [ %.038211, %_ZN5QListIdE6appendEd.exit85 ], [ %.038211, %228 ], [ %292, %291 ], [ %292, %_ZN5QListIdE6appendEd.exit89 ]
+  %.036 = load ptr, ptr %.036212, align 8
+  %.not44 = icmp eq ptr %.036, null
   br i1 %.not44, label %._crit_edge215, label %198, !llvm.loop !15
 
 ._crit_edge215:                                   ; preds = %.loopexit, %._crit_edge205

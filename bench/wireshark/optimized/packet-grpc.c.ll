@@ -387,7 +387,7 @@ define internal fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, 
   br label %19
 
 19:                                               ; preds = %17, %15, %10
-  %.067 = phi ptr [ %2, %10 ], [ %18, %17 ], [ %2, %15 ]
+  %.066 = phi ptr [ %2, %10 ], [ %18, %17 ], [ %2, %15 ]
   %.not85 = icmp eq i32 %8, 0
   br i1 %.not85, label %.loopexit, label %.lr.ph
 
@@ -398,8 +398,8 @@ define internal fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, 
   br label %23
 
 23:                                               ; preds = %.lr.ph, %dissect_grpc_message.exit
-  %.084 = phi i32 [ 0, %.lr.ph ], [ %.0.i, %dissect_grpc_message.exit ]
-  %24 = sub i32 %8, %.084
+  %.06784 = phi i32 [ 0, %.lr.ph ], [ %.0.i, %dissect_grpc_message.exit ]
+  %24 = sub i32 %8, %.06784
   %25 = icmp ult i32 %24, 5
   br i1 %25, label %26, label %33
 
@@ -411,14 +411,14 @@ define internal fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, 
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %1, i64 332
-  store i32 %.084, ptr %30, align 4
+  store i32 %.06784, ptr %30, align 4
   %31 = sub nuw nsw i32 5, %24
   %32 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 %31, ptr %32, align 8
   br label %114
 
 33:                                               ; preds = %23
-  %34 = add nuw i32 %.084, 1
+  %34 = add nuw i32 %.06784, 1
   %35 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %34) #5
   %36 = add i32 %35, 5
   %37 = icmp ult i32 %24, %36
@@ -432,14 +432,14 @@ define internal fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, 
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %1, i64 332
-  store i32 %.084, ptr %42, align 4
+  store i32 %.06784, ptr %42, align 4
   %43 = sub i32 %36, %24
   %44 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 %43, ptr %44, align 8
   br label %114
 
 45:                                               ; preds = %33
-  %46 = icmp eq i32 %.084, 0
+  %46 = icmp eq i32 %.06784, 0
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %45
@@ -453,7 +453,7 @@ define internal fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, 
 
 51:                                               ; preds = %47, %45
   %52 = load i32, ptr @proto_grpc, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %.067, i32 noundef %52, ptr noundef %0, i32 noundef %.084, i32 noundef %36, i32 noundef 0) #5
+  %53 = call ptr @proto_tree_add_item(ptr noundef %.066, i32 noundef %52, ptr noundef %0, i32 noundef %.06784, i32 noundef %36, i32 noundef 0) #5
   %54 = load i32, ptr @ett_grpc_message, align 4
   %55 = call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %54) #5
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %53, ptr noundef nonnull @.str.61, ptr noundef %13) #5
@@ -474,9 +474,9 @@ define internal fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %61 = load ptr, ptr %22, align 8
   %62 = load i32, ptr @hf_grpc_frame_type, align 4
-  %63 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %62, ptr noundef %0, i32 noundef %.084, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #5
+  %63 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %62, ptr noundef %0, i32 noundef %.06784, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #5
   %64 = load i32, ptr @hf_grpc_compressed_flag, align 4
-  %65 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %64, ptr noundef %0, i32 noundef %.084, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #5
+  %65 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %55, i32 noundef %64, ptr noundef %0, i32 noundef %.06784, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #5
   %66 = load i32, ptr %5, align 4
   %67 = icmp eq i32 %66, 1
   br i1 %67, label %68, label %70
@@ -489,7 +489,7 @@ define internal fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, 
 70:                                               ; preds = %68, %60
   %71 = load i32, ptr @hf_grpc_message_length, align 4
   %72 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %71, ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef 0) #5
-  %73 = add i32 %.084, 5
+  %73 = add i32 %.06784, 5
   %74 = icmp eq i32 %35, 0
   br i1 %74, label %dissect_grpc_message.exit, label %75
 
@@ -563,7 +563,7 @@ can_uncompress_body.exit.thread.i:                ; preds = %can_uncompress_body
   br label %dissect_body_data.exit.i
 
 dissect_body_data.exit.i:                         ; preds = %108, %104, %can_uncompress_body.exit.thread.i, %96, %90, %86
-  %110 = add i32 %36, %.084
+  %110 = add i32 %36, %.06784
   br label %dissect_grpc_message.exit
 
 dissect_grpc_message.exit:                        ; preds = %70, %dissect_body_data.exit.i
@@ -576,7 +576,7 @@ dissect_grpc_message.exit:                        ; preds = %70, %dissect_body_d
 
 .loopexit.sink.split:                             ; preds = %38, %26
   %.sink = phi i32 [ 5, %26 ], [ %36, %38 ]
-  %112 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.067, ptr noundef nonnull %1, ptr noundef nonnull @ei_grpc_body_malformed, ptr noundef %0, i32 noundef %.084, i32 noundef -1, ptr noundef nonnull @.str.59, i32 noundef %24, i32 noundef %.sink) #5
+  %112 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.066, ptr noundef nonnull %1, ptr noundef nonnull @ei_grpc_body_malformed, ptr noundef %0, i32 noundef %.06784, i32 noundef -1, ptr noundef nonnull @.str.59, i32 noundef %24, i32 noundef %.sink) #5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %dissect_grpc_message.exit, %.loopexit.sink.split, %19
@@ -584,8 +584,8 @@ dissect_grpc_message.exit:                        ; preds = %70, %dissect_body_d
   br label %114
 
 114:                                              ; preds = %.loopexit, %41, %29
-  %.066 = phi i32 [ %.084, %29 ], [ %113, %.loopexit ], [ %.084, %41 ]
-  ret i32 %.066
+  %.0 = phi i32 [ %.06784, %29 ], [ %113, %.loopexit ], [ %.06784, %41 ]
+  ret i32 %.0
 }
 
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1

@@ -216,13 +216,13 @@ vm_extend.exit:                                   ; preds = %23, %30
   br label %40
 
 40:                                               ; preds = %38, %vm_extend.exit
-  %.0 = phi i32 [ %27, %vm_extend.exit ], [ %39, %38 ]
-  %41 = icmp slt i32 %.0, 0
+  %.018 = phi i32 [ %27, %vm_extend.exit ], [ %39, %38 ]
+  %41 = icmp slt i32 %.018, 0
   br i1 %41, label %BufferGetPage.exit, label %BufferGetPage.exit.thread
 
 BufferGetPage.exit:                               ; preds = %40
   %42 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %43 = xor i32 %.0, -1
+  %43 = xor i32 %.018, -1
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr ptr, ptr %42, i64 %44
   %46 = load ptr, ptr %45, align 8
@@ -233,7 +233,7 @@ BufferGetPage.exit:                               ; preds = %40
 
 BufferGetPage.exit.thread:                        ; preds = %40
   %49 = load ptr, ptr @BufferBlocks, align 8
-  %50 = add nsw i32 %.0, -1
+  %50 = add nsw i32 %.018, -1
   %51 = sext i32 %50 to i64
   %52 = shl nsw i64 %51, 13
   %53 = getelementptr i8, ptr %49, i64 %52
@@ -243,7 +243,7 @@ BufferGetPage.exit.thread:                        ; preds = %40
   br i1 %55, label %BufferGetPage.exit22.thread, label %66
 
 BufferGetPage.exit22:                             ; preds = %BufferGetPage.exit
-  tail call void @LockBuffer(i32 noundef %.0, i32 noundef 2) #7
+  tail call void @LockBuffer(i32 noundef %.018, i32 noundef 2) #7
   %56 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %57 = getelementptr ptr, ptr %56, i64 %44
   %58 = load ptr, ptr %57, align 8
@@ -253,7 +253,7 @@ BufferGetPage.exit22:                             ; preds = %BufferGetPage.exit
   br i1 %60, label %BufferGetPage.exit24, label %65
 
 BufferGetPage.exit22.thread:                      ; preds = %BufferGetPage.exit.thread
-  tail call void @LockBuffer(i32 noundef %.0, i32 noundef 2) #7
+  tail call void @LockBuffer(i32 noundef %.018, i32 noundef 2) #7
   %61 = load ptr, ptr @BufferBlocks, align 8
   %62 = getelementptr i8, ptr %61, i64 %52
   %63 = getelementptr i8, ptr %62, i64 14
@@ -267,12 +267,12 @@ BufferGetPage.exit24:                             ; preds = %BufferGetPage.exit2
   br label %65
 
 65:                                               ; preds = %BufferGetPage.exit22.thread, %BufferGetPage.exit24, %BufferGetPage.exit22
-  tail call void @LockBuffer(i32 noundef %.0, i32 noundef 0) #7
+  tail call void @LockBuffer(i32 noundef %.018, i32 noundef 0) #7
   br label %66
 
 66:                                               ; preds = %BufferGetPage.exit.thread, %BufferGetPage.exit, %65, %22
-  %.018 = phi i32 [ 0, %22 ], [ %.0, %65 ], [ %.0, %BufferGetPage.exit ], [ %.0, %BufferGetPage.exit.thread ]
-  ret i32 %.018
+  %.0 = phi i32 [ 0, %22 ], [ %.018, %65 ], [ %.018, %BufferGetPage.exit ], [ %.018, %BufferGetPage.exit.thread ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -548,8 +548,8 @@ define dso_local void @visibilitymap_count(ptr noundef %0, ptr nocapture noundef
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit.us
   %6 = phi i32 [ %29, %.loopexit.us ], [ %4, %.lr.ph ]
-  %.02643.us = phi i32 [ %27, %.loopexit.us ], [ 0, %.lr.ph ]
-  %.02942.us = phi i32 [ %28, %.loopexit.us ], [ 0, %.lr.ph ]
+  %.02444.us = phi i32 [ %28, %.loopexit.us ], [ 0, %.lr.ph ]
+  %.02543.us = phi i32 [ %27, %.loopexit.us ], [ 0, %.lr.ph ]
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %14, label %8
 
@@ -576,29 +576,29 @@ BufferGetPage.exit.us:                            ; preds = %14, %8
 
 21:                                               ; preds = %BufferGetPage.exit.us, %21
   %indvars.iv51 = phi i64 [ 0, %BufferGetPage.exit.us ], [ %indvars.iv.next52, %21 ]
-  %.12739.us = phi i32 [ %.02643.us, %BufferGetPage.exit.us ], [ %27, %21 ]
+  %.12639.us = phi i32 [ %.02543.us, %BufferGetPage.exit.us ], [ %27, %21 ]
   %22 = load ptr, ptr @pg_popcount64, align 8
   %23 = getelementptr i64, ptr %20, i64 %indvars.iv51
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 6148914691236517205
   %26 = tail call i32 %22(i64 noundef %25) #7
-  %27 = add i32 %26, %.12739.us
+  %27 = add i32 %26, %.12639.us
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 1021
   br i1 %exitcond54.not, label %.loopexit.us, label %21, !llvm.loop !5
 
 .loopexit.us:                                     ; preds = %21
   tail call void @ReleaseBuffer(i32 noundef %6) #7
-  %28 = add i32 %.02942.us, 1
+  %28 = add i32 %.02444.us, 1
   %29 = tail call fastcc i32 @vm_readbuf(ptr noundef %0, i32 noundef %28, i1 noundef zeroext false)
   %.not33.us = icmp eq i32 %29, 0
   br i1 %.not33.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit35
   %30 = phi i32 [ %58, %.loopexit35 ], [ %4, %.lr.ph ]
-  %.02444 = phi i32 [ %56, %.loopexit35 ], [ 0, %.lr.ph ]
-  %.02643 = phi i32 [ %51, %.loopexit35 ], [ 0, %.lr.ph ]
-  %.02942 = phi i32 [ %57, %.loopexit35 ], [ 0, %.lr.ph ]
+  %.02444 = phi i32 [ %57, %.loopexit35 ], [ 0, %.lr.ph ]
+  %.02543 = phi i32 [ %51, %.loopexit35 ], [ 0, %.lr.ph ]
+  %.02742 = phi i32 [ %56, %.loopexit35 ], [ 0, %.lr.ph ]
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %32, label %38
 
@@ -625,39 +625,39 @@ BufferGetPage.exit:                               ; preds = %32, %38
 
 45:                                               ; preds = %BufferGetPage.exit, %45
   %indvars.iv = phi i64 [ 0, %BufferGetPage.exit ], [ %indvars.iv.next, %45 ]
-  %.12537 = phi i32 [ %.02444, %BufferGetPage.exit ], [ %56, %45 ]
-  %.22836 = phi i32 [ %.02643, %BufferGetPage.exit ], [ %51, %45 ]
+  %.237 = phi i32 [ %.02543, %BufferGetPage.exit ], [ %51, %45 ]
+  %.12836 = phi i32 [ %.02742, %BufferGetPage.exit ], [ %56, %45 ]
   %46 = load ptr, ptr @pg_popcount64, align 8
   %47 = getelementptr i64, ptr %44, i64 %indvars.iv
   %48 = load i64, ptr %47, align 8
   %49 = and i64 %48, 6148914691236517205
   %50 = tail call i32 %46(i64 noundef %49) #7
-  %51 = add i32 %50, %.22836
+  %51 = add i32 %50, %.237
   %52 = load ptr, ptr @pg_popcount64, align 8
   %53 = load i64, ptr %47, align 8
   %54 = and i64 %53, -6148914691236517206
   %55 = tail call i32 %52(i64 noundef %54) #7
-  %56 = add i32 %55, %.12537
+  %56 = add i32 %55, %.12836
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1021
   br i1 %exitcond.not, label %.loopexit35, label %45, !llvm.loop !7
 
 .loopexit35:                                      ; preds = %45
   tail call void @ReleaseBuffer(i32 noundef %30) #7
-  %57 = add i32 %.02942, 1
+  %57 = add i32 %.02444, 1
   %58 = tail call fastcc i32 @vm_readbuf(ptr noundef %0, i32 noundef %57, i1 noundef zeroext false)
   %.not33 = icmp eq i32 %58, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.loopexit35, %.loopexit.us, %3
-  %.026.lcssa = phi i32 [ 0, %3 ], [ %27, %.loopexit.us ], [ %51, %.loopexit35 ]
-  %.024.lcssa = phi i32 [ 0, %3 ], [ 0, %.loopexit.us ], [ %56, %.loopexit35 ]
-  store i32 %.026.lcssa, ptr %1, align 4
+  %.027.lcssa = phi i32 [ 0, %3 ], [ 0, %.loopexit.us ], [ %56, %.loopexit35 ]
+  %.025.lcssa = phi i32 [ 0, %3 ], [ %27, %.loopexit.us ], [ %51, %.loopexit35 ]
+  store i32 %.025.lcssa, ptr %1, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %60, label %59
 
 59:                                               ; preds = %._crit_edge
-  store i32 %.024.lcssa, ptr %2, align 4
+  store i32 %.027.lcssa, ptr %2, align 4
   br label %60
 
 60:                                               ; preds = %59, %._crit_edge
@@ -859,8 +859,8 @@ RelationGetSmgr.exit55:                           ; preds = %101, %104
   br label %110
 
 110:                                              ; preds = %RelationGetSmgr.exit55, %21, %RelationGetSmgr.exit
-  %.048 = phi i32 [ -1, %RelationGetSmgr.exit ], [ -1, %21 ], [ %.049., %RelationGetSmgr.exit55 ]
-  ret i32 %.048
+  %.0 = phi i32 [ -1, %RelationGetSmgr.exit ], [ -1, %21 ], [ %.049., %RelationGetSmgr.exit55 ]
+  ret i32 %.0
 }
 
 declare zeroext i1 @smgrexists(ptr noundef, i32 noundef) local_unnamed_addr #1

@@ -92,15 +92,15 @@ define void @dormtr_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br label %53
 
 53:                                               ; preds = %51, %51, %52
-  %.069 = phi i32 [ 1, %52 ], [ 2, %51 ], [ 2, %51 ]
-  %.068 = phi i32 [ 2, %52 ], [ 1, %51 ], [ 1, %51 ]
+  %.069 = phi i32 [ 2, %52 ], [ 1, %51 ], [ 1, %51 ]
+  %.068 = phi i32 [ 1, %52 ], [ 2, %51 ], [ 2, %51 ]
   %54 = add nsw i32 %.067, -1
   store i32 %54, ptr %14, align 4
   %55 = sext i32 %18 to i64
   %56 = getelementptr double, ptr %20, i64 %55
   %57 = getelementptr i8, ptr %56, i64 16
-  %58 = mul nsw i32 %.068, %21
-  %59 = add nsw i32 %58, %.069
+  %58 = mul nsw i32 %.069, %21
+  %59 = add nsw i32 %.068, %58
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds double, ptr %23, i64 %60
   call void @dormqr_(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef %57, ptr noundef nonnull %6, ptr noundef %7, ptr noundef %61, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %17)

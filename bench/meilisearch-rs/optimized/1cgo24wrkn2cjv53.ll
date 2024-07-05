@@ -36701,10 +36701,10 @@ _ZN10rayon_core8registry9in_worker17h4e10399ced0f1d17E.exit: ; preds = %65, %69
   call void @llvm.experimental.noalias.scope.decl(metadata !12120)
   %71 = getelementptr inbounds i32, ptr %.sroa.079.0.copyload, i64 %.sroa.3.0.copyload
   %72 = icmp eq ptr %71, %.sroa.081.0.copyload
-  %73 = select i1 %72, i64 %.sroa.383.0.copyload, i64 0
-  %.sroa.7.0.i = add i64 %73, %.sroa.3.0.copyload
-  %74 = select i1 %72, i64 %.sroa.282.0.copyload, i64 0
-  %.sroa.5.0.i = add i64 %74, %.sroa.2.0.copyload
+  %73 = select i1 %72, i64 %.sroa.282.0.copyload, i64 0
+  %.sroa.5.0.i = add i64 %73, %.sroa.2.0.copyload
+  %74 = select i1 %72, i64 %.sroa.383.0.copyload, i64 0
+  %.sroa.7.0.i = add i64 %74, %.sroa.3.0.copyload
   %75 = getelementptr inbounds i8, ptr %0, i64 24
   call void @"_ZN143_$LT$rayon..iter..extend..ListReducer$u20$as$u20$rayon..iter..plumbing..Reducer$LT$alloc..collections..linked_list..LinkedList$LT$T$GT$$GT$$GT$6reduce17h464d3e268ffa8a7eE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %75, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9), !noalias !12121
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !12115
@@ -37722,8 +37722,8 @@ _ZN10rayon_core8registry9in_worker17hd0dbfbea0bff63a5E.exit: ; preds = %.noexc38
   unreachable
 
 90:                                               ; preds = %82, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit2.i.i"
-  %.sroa.731.0.i = phi i64 [ %85, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit2.i.i" ], [ %.sroa.694.0.copyload, %82 ]
   %.sroa.530.0.i = phi i64 [ %84, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit2.i.i" ], [ %.sroa.593.0.copyload, %82 ]
+  %.sroa.731.0.i = phi i64 [ %85, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit2.i.i" ], [ %.sroa.694.0.copyload, %82 ]
   %91 = getelementptr inbounds i32, ptr %.sroa.091.0.copyload, i64 %.sroa.3.0.copyload
   %92 = icmp eq ptr %91, %.sroa.095.0.copyload
   %93 = select i1 %92, i64 %.sroa.296.0.copyload, i64 0
@@ -38097,10 +38097,10 @@ _ZN10rayon_core8registry9in_worker17hb956fb878e08df71E.exit: ; preds = %.noexc38
   call void @llvm.experimental.noalias.scope.decl(metadata !12541)
   %78 = getelementptr inbounds i32, ptr %.sroa.088.0.copyload, i64 %.sroa.3.0.copyload
   %79 = icmp eq ptr %78, %.sroa.090.0.copyload
-  %80 = select i1 %79, i64 %.sroa.392.0.copyload, i64 0
-  %.sroa.7.0.i = add i64 %80, %.sroa.3.0.copyload
-  %81 = select i1 %79, i64 %.sroa.291.0.copyload, i64 0
-  %.sroa.5.0.i = add i64 %81, %.sroa.2.0.copyload
+  %80 = select i1 %79, i64 %.sroa.291.0.copyload, i64 0
+  %.sroa.5.0.i = add i64 %80, %.sroa.2.0.copyload
+  %81 = select i1 %79, i64 %.sroa.392.0.copyload, i64 0
+  %.sroa.7.0.i = add i64 %81, %.sroa.3.0.copyload
   %82 = getelementptr inbounds i8, ptr %0, i64 24
   call void @"_ZN143_$LT$rayon..iter..extend..ListReducer$u20$as$u20$rayon..iter..plumbing..Reducer$LT$alloc..collections..linked_list..LinkedList$LT$T$GT$$GT$$GT$6reduce17h464d3e268ffa8a7eE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %82, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !12536
@@ -38523,8 +38523,8 @@ _ZN10rayon_core8registry9in_worker17hd620fb05175a6aa6E.exit: ; preds = %67, %71
   resume { ptr, i32 } %80
 
 "_ZN119_$LT$rayon..iter..unzip..UnzipReducer$LT$RA$C$RB$GT$$u20$as$u20$rayon..iter..plumbing..Reducer$LT$$LP$A$C$B$RP$$GT$$GT$6reduce17h7a816b5595b2cba8E.exit": ; preds = %75, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit2.i.i"
-  %.sroa.731.0.i = phi i64 [ %78, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit2.i.i" ], [ %.sroa.686.0.copyload, %75 ]
   %.sroa.530.0.i = phi i64 [ %77, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit2.i.i" ], [ %.sroa.585.0.copyload, %75 ]
+  %.sroa.731.0.i = phi i64 [ %78, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit2.i.i" ], [ %.sroa.686.0.copyload, %75 ]
   %83 = getelementptr inbounds i32, ptr %.sroa.083.0.copyload, i64 %.sroa.3.0.copyload
   %84 = icmp eq ptr %83, %.sroa.087.0.copyload
   %85 = select i1 %84, i64 %.sroa.288.0.copyload, i64 0

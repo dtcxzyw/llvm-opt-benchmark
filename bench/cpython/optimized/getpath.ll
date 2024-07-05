@@ -1297,10 +1297,10 @@ for.body.lr.ph:                                   ; preds = %if.end5
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end28
-  %i.063 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end28 ]
-  %first.062 = phi i64 [ 0, %for.body.lr.ph ], [ %first.1, %if.end28 ]
-  %cchFinal.061 = phi i64 [ 0, %for.body.lr.ph ], [ %add29, %if.end28 ]
-  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.063
+  %cchFinal.063 = phi i64 [ 0, %for.body.lr.ph ], [ %add29, %if.end28 ]
+  %i.062 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end28 ]
+  %first.061 = phi i64 [ 0, %for.body.lr.ph ], [ %first.1, %if.end28 ]
+  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.062
   %5 = load ptr, ptr %arrayidx, align 8
   %cmp9 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp9, label %if.then10, label %if.else
@@ -1320,7 +1320,7 @@ if.else:                                          ; preds = %for.body
 
 if.then14:                                        ; preds = %if.else
   %call15 = call ptr @PyUnicode_AsWideCharString(ptr noundef %5, ptr noundef nonnull %cch) #10
-  %arrayidx16 = getelementptr ptr, ptr %call6, i64 %i.063
+  %arrayidx16 = getelementptr ptr, ptr %call6, i64 %i.062
   store ptr %call15, ptr %arrayidx16, align 8
   %tobool18.not = icmp eq ptr %call15, null
   br i1 %tobool18.not, label %for.cond36.preheader, label %if.end20
@@ -1328,7 +1328,7 @@ if.then14:                                        ; preds = %if.else
 if.end20:                                         ; preds = %if.then14
   %call22 = call i32 @_Py_isabs(ptr noundef nonnull %call15) #10
   %tobool23.not = icmp eq i32 %call22, 0
-  %spec.select = select i1 %tobool23.not, i64 %first.062, i64 %i.063
+  %spec.select = select i1 %tobool23.not, i64 %first.061, i64 %i.062
   %.pre = load i64, ptr %cch, align 8
   br label %if.end28
 
@@ -1339,10 +1339,10 @@ if.else26:                                        ; preds = %if.else
 
 if.end28:                                         ; preds = %if.end20, %if.then10
   %10 = phi i64 [ 0, %if.then10 ], [ %.pre, %if.end20 ]
-  %first.1 = phi i64 [ %first.062, %if.then10 ], [ %spec.select, %if.end20 ]
-  %add = add i64 %cchFinal.061, 1
+  %first.1 = phi i64 [ %first.061, %if.then10 ], [ %spec.select, %if.end20 ]
+  %add = add i64 %cchFinal.063, 1
   %add29 = add i64 %add, %10
-  %inc = add nuw nsw i64 %i.063, 1
+  %inc = add nuw nsw i64 %i.062, 1
   %exitcond.not = icmp eq i64 %inc, %args.val48
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
@@ -1807,8 +1807,8 @@ if.then32:                                        ; preds = %while.cond, %while.
   br label %done
 
 done:                                             ; preds = %while.end.thread21, %while.end, %if.then32, %if.end
-  %r.1 = phi ptr [ null, %while.end ], [ null, %if.then32 ], [ null, %if.end ], [ %call9, %while.end.thread21 ]
   %path.3 = phi ptr [ %path.1, %while.end ], [ null, %if.then32 ], [ null, %if.end ], [ %path.0, %while.end.thread21 ]
+  %r.1 = phi ptr [ null, %while.end ], [ null, %if.then32 ], [ null, %if.end ], [ %call9, %while.end.thread21 ]
   call void @PyMem_RawFree(ptr noundef %path.3) #10
   br label %return
 

@@ -522,7 +522,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
 77:                                               ; preds = %74, %52
   %78 = phi ptr [ %42, %52 ], [ %.pre32, %74 ]
   %79 = phi i64 [ %62, %52 ], [ %.pre31, %74 ]
-  %.0240 = phi i32 [ 0, %52 ], [ 2, %74 ]
+  %.0235 = phi i32 [ 0, %52 ], [ 2, %74 ]
   %80 = getelementptr inbounds %struct.H5EA_sblk_info_t, ptr %78, i64 %43, i32 1
   %81 = load i64, ptr %80, align 8
   %82 = call ptr @H5EA__dblock_protect(ptr noundef nonnull %.0.val, ptr noundef nonnull %22, i64 noundef %79, i64 noundef %81, i32 noundef %2) #5
@@ -608,7 +608,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
 
 129:                                              ; preds = %126, %111
   %130 = phi i64 [ %116, %111 ], [ %.pre28, %126 ]
-  %.1241 = phi i32 [ 0, %111 ], [ 2, %126 ]
+  %.1 = phi i32 [ 0, %111 ], [ 2, %126 ]
   %131 = call ptr @H5EA__sblock_protect(ptr noundef nonnull %.0.val, ptr noundef nonnull %22, i64 noundef %130, i32 noundef %38, i32 noundef %2) #5
   %132 = icmp eq ptr %131, null
   br i1 %132, label %133, label %140
@@ -689,7 +689,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
   br label %184
 
 184:                                              ; preds = %183, %168, %165, %140
-  %.0237 = phi i32 [ 0, %140 ], [ 2, %168 ], [ 2, %183 ], [ 2, %165 ]
+  %.0236 = phi i32 [ 0, %140 ], [ 2, %168 ], [ 2, %183 ], [ 2, %165 ]
   %185 = load i64, ptr %141, align 8
   %186 = urem i64 %48, %185
   %187 = getelementptr inbounds i8, ptr %131, i64 344
@@ -758,7 +758,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
   br label %237
 
 237:                                              ; preds = %232, %189
-  %.1238 = phi i32 [ %.0237, %189 ], [ 2, %232 ]
+  %.1237 = phi i32 [ %.0236, %189 ], [ 2, %232 ]
   %238 = call ptr @H5EA__dblk_page_protect(ptr noundef nonnull %.0.val, ptr noundef nonnull %131, i64 noundef %212, i32 noundef %2) #5
   %239 = icmp eq ptr %238, null
   br i1 %239, label %240, label %244
@@ -847,11 +847,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
   br label %.sink.split
 
 289:                                              ; preds = %24, %84, %103, %70, %133, %240, %252, %228, %266, %281, %177, %161, %122, %17
-  %.0244.ph = phi ptr [ null, %17 ], [ null, %122 ], [ null, %161 ], [ null, %177 ], [ %264, %281 ], [ null, %266 ], [ null, %228 ], [ null, %252 ], [ null, %240 ], [ null, %133 ], [ null, %70 ], [ %82, %103 ], [ null, %84 ], [ null, %24 ]
-  %.0243.ph = phi ptr [ null, %17 ], [ null, %122 ], [ null, %161 ], [ null, %177 ], [ null, %281 ], [ null, %266 ], [ null, %228 ], [ %238, %252 ], [ null, %240 ], [ null, %133 ], [ null, %70 ], [ null, %103 ], [ null, %84 ], [ null, %24 ]
-  %.2242.ph = phi i32 [ 0, %17 ], [ 0, %122 ], [ %.1241, %161 ], [ %.1241, %177 ], [ %.1241, %281 ], [ %.1241, %266 ], [ %.1241, %228 ], [ %.1241, %252 ], [ %.1241, %240 ], [ %.1241, %133 ], [ 0, %70 ], [ %.0240, %103 ], [ %.0240, %84 ], [ 0, %24 ]
-  %.2239.ph = phi i32 [ 0, %17 ], [ 0, %122 ], [ 0, %161 ], [ 2, %177 ], [ %.0237, %281 ], [ %.0237, %266 ], [ %.0237, %228 ], [ %.1238, %252 ], [ %.1238, %240 ], [ 0, %133 ], [ 0, %70 ], [ 0, %103 ], [ 0, %84 ], [ 0, %24 ]
-  %.1235.ph = phi i1 [ false, %17 ], [ %.not, %122 ], [ %.not, %161 ], [ %.not, %177 ], [ %.not, %281 ], [ %.not, %266 ], [ %.not, %228 ], [ %.not, %252 ], [ %.not, %240 ], [ %.not, %133 ], [ %.not, %70 ], [ %.not, %103 ], [ %.not, %84 ], [ %.not, %24 ]
+  %.1240.ph = phi i1 [ false, %17 ], [ %.not, %122 ], [ %.not, %161 ], [ %.not, %177 ], [ %.not, %281 ], [ %.not, %266 ], [ %.not, %228 ], [ %.not, %252 ], [ %.not, %240 ], [ %.not, %133 ], [ %.not, %70 ], [ %.not, %103 ], [ %.not, %84 ], [ %.not, %24 ]
+  %.2238.ph = phi i32 [ 0, %17 ], [ 0, %122 ], [ 0, %161 ], [ 2, %177 ], [ %.0236, %281 ], [ %.0236, %266 ], [ %.0236, %228 ], [ %.1237, %252 ], [ %.1237, %240 ], [ 0, %133 ], [ 0, %70 ], [ 0, %103 ], [ 0, %84 ], [ 0, %24 ]
+  %.2.ph = phi i32 [ 0, %17 ], [ 0, %122 ], [ %.1, %161 ], [ %.1, %177 ], [ %.1, %281 ], [ %.1, %266 ], [ %.1, %228 ], [ %.1, %252 ], [ %.1, %240 ], [ %.1, %133 ], [ 0, %70 ], [ %.0235, %103 ], [ %.0235, %84 ], [ 0, %24 ]
+  %.0234.ph = phi ptr [ null, %17 ], [ null, %122 ], [ null, %161 ], [ null, %177 ], [ null, %281 ], [ null, %266 ], [ null, %228 ], [ %238, %252 ], [ null, %240 ], [ null, %133 ], [ null, %70 ], [ null, %103 ], [ null, %84 ], [ null, %24 ]
+  %.0233.ph = phi ptr [ null, %17 ], [ null, %122 ], [ null, %161 ], [ null, %177 ], [ %264, %281 ], [ null, %266 ], [ null, %228 ], [ null, %252 ], [ null, %240 ], [ null, %133 ], [ null, %70 ], [ %82, %103 ], [ null, %84 ], [ null, %24 ]
   %.0232.ph = phi ptr [ null, %17 ], [ null, %122 ], [ %131, %161 ], [ %131, %177 ], [ %131, %281 ], [ %131, %266 ], [ %131, %228 ], [ %131, %252 ], [ %131, %240 ], [ null, %133 ], [ null, %70 ], [ null, %103 ], [ null, %84 ], [ null, %24 ]
   %.0.ph = phi ptr [ null, %17 ], [ %22, %122 ], [ %22, %161 ], [ %22, %177 ], [ %22, %281 ], [ %22, %266 ], [ %22, %228 ], [ %22, %252 ], [ %22, %240 ], [ %22, %133 ], [ %22, %70 ], [ %22, %103 ], [ %22, %84 ], [ null, %24 ]
   store ptr null, ptr %3, align 8
@@ -863,12 +863,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
   %H5EA__dblock_unprotect.sink = phi ptr [ @H5EA__dblock_unprotect, %108 ], [ @H5EA__dblock_unprotect, %286 ], [ @H5EA__dblk_page_unprotect, %257 ], [ @H5EA__iblock_unprotect, %34 ], [ null, %289 ]
   %.023.ph = phi ptr [ %22, %108 ], [ %22, %286 ], [ %22, %257 ], [ %22, %34 ], [ %.0.ph, %289 ]
   %.023221.ph = phi ptr [ null, %108 ], [ %131, %286 ], [ %131, %257 ], [ null, %34 ], [ %.0232.ph, %289 ]
-  %.023319.ph = phi i32 [ 0, %108 ], [ 0, %286 ], [ 0, %257 ], [ 0, %34 ], [ -1, %289 ]
-  %.123517.ph = phi i1 [ %.not, %108 ], [ %.not, %286 ], [ %.not, %257 ], [ %.not, %34 ], [ %.1235.ph, %289 ]
-  %.223915.ph = phi i32 [ 0, %108 ], [ %.0237, %286 ], [ %.1238, %257 ], [ 0, %34 ], [ %.2239.ph, %289 ]
-  %.224213.ph = phi i32 [ %.0240, %108 ], [ %.1241, %286 ], [ %.1241, %257 ], [ 0, %34 ], [ %.2242.ph, %289 ]
-  %.024311.ph = phi ptr [ null, %108 ], [ null, %286 ], [ %238, %257 ], [ null, %34 ], [ %.0243.ph, %289 ]
-  %.02449.ph = phi ptr [ %82, %108 ], [ %264, %286 ], [ null, %257 ], [ null, %34 ], [ %.0244.ph, %289 ]
+  %.023319.ph = phi ptr [ %82, %108 ], [ %264, %286 ], [ null, %257 ], [ null, %34 ], [ %.0233.ph, %289 ]
+  %.023417.ph = phi ptr [ null, %108 ], [ null, %286 ], [ %238, %257 ], [ null, %34 ], [ %.0234.ph, %289 ]
+  %.215.ph = phi i32 [ %.0235, %108 ], [ %.1, %286 ], [ %.1, %257 ], [ 0, %34 ], [ %.2.ph, %289 ]
+  %.223813.ph = phi i32 [ 0, %108 ], [ %.0236, %286 ], [ %.1237, %257 ], [ 0, %34 ], [ %.2238.ph, %289 ]
+  %.124011.ph = phi i1 [ %.not, %108 ], [ %.not, %286 ], [ %.not, %257 ], [ %.not, %34 ], [ %.1240.ph, %289 ]
+  %.02429.ph = phi i32 [ 0, %108 ], [ 0, %286 ], [ 0, %257 ], [ 0, %34 ], [ -1, %289 ]
   store ptr %.sink33, ptr %4, align 8
   store i64 %.sink, ptr %5, align 8
   store ptr %H5EA__dblock_unprotect.sink, ptr %6, align 8
@@ -877,15 +877,15 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
 290:                                              ; preds = %.sink.split, %12, %63, %117, %148, %222
   %.023 = phi ptr [ null, %12 ], [ %22, %63 ], [ %22, %117 ], [ %22, %148 ], [ %22, %222 ], [ %.023.ph, %.sink.split ]
   %.023221 = phi ptr [ null, %12 ], [ null, %63 ], [ null, %117 ], [ %131, %148 ], [ %131, %222 ], [ %.023221.ph, %.sink.split ]
-  %.023319 = phi i32 [ 0, %12 ], [ 0, %63 ], [ 0, %117 ], [ 0, %148 ], [ 0, %222 ], [ %.023319.ph, %.sink.split ]
-  %.123517 = phi i1 [ false, %12 ], [ %.not, %63 ], [ %.not, %117 ], [ %.not, %148 ], [ %.not, %222 ], [ %.123517.ph, %.sink.split ]
-  %.223915 = phi i32 [ 0, %12 ], [ 0, %63 ], [ 0, %117 ], [ 0, %148 ], [ %.0237, %222 ], [ %.223915.ph, %.sink.split ]
-  %.224213 = phi i32 [ 0, %12 ], [ 0, %63 ], [ 0, %117 ], [ %.1241, %148 ], [ %.1241, %222 ], [ %.224213.ph, %.sink.split ]
-  %.024311 = phi ptr [ null, %12 ], [ null, %63 ], [ null, %117 ], [ null, %148 ], [ null, %222 ], [ %.024311.ph, %.sink.split ]
-  %.02449 = phi ptr [ null, %12 ], [ null, %63 ], [ null, %117 ], [ null, %148 ], [ null, %222 ], [ %.02449.ph, %.sink.split ]
+  %.023319 = phi ptr [ null, %12 ], [ null, %63 ], [ null, %117 ], [ null, %148 ], [ null, %222 ], [ %.023319.ph, %.sink.split ]
+  %.023417 = phi ptr [ null, %12 ], [ null, %63 ], [ null, %117 ], [ null, %148 ], [ null, %222 ], [ %.023417.ph, %.sink.split ]
+  %.215 = phi i32 [ 0, %12 ], [ 0, %63 ], [ 0, %117 ], [ %.1, %148 ], [ %.1, %222 ], [ %.215.ph, %.sink.split ]
+  %.223813 = phi i32 [ 0, %12 ], [ 0, %63 ], [ 0, %117 ], [ 0, %148 ], [ %.0236, %222 ], [ %.223813.ph, %.sink.split ]
+  %.124011 = phi i1 [ false, %12 ], [ %.not, %63 ], [ %.not, %117 ], [ %.not, %148 ], [ %.not, %222 ], [ %.124011.ph, %.sink.split ]
+  %.02429 = phi i32 [ 0, %12 ], [ 0, %63 ], [ 0, %117 ], [ 0, %148 ], [ 0, %222 ], [ %.02429.ph, %.sink.split ]
   %291 = load i8, ptr %8, align 1
   %292 = trunc i8 %291 to i1
-  %293 = or i1 %.123517, %292
+  %293 = or i1 %.124011, %292
   br i1 %293, label %294, label %301
 
 294:                                              ; preds = %290
@@ -900,7 +900,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
   br label %301
 
 301:                                              ; preds = %294, %297, %290
-  %.1 = phi i32 [ -1, %297 ], [ %.023319, %294 ], [ %.023319, %290 ]
+  %.1243 = phi i32 [ -1, %297 ], [ %.02429, %294 ], [ %.02429, %290 ]
   %.not272 = icmp eq ptr %.023, null
   br i1 %.not272, label %311, label %302
 
@@ -910,7 +910,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
   br i1 %.not273, label %311, label %304
 
 304:                                              ; preds = %302
-  %305 = call i32 @H5EA__iblock_unprotect(ptr noundef nonnull %.023, i32 noundef %.224213) #5
+  %305 = call i32 @H5EA__iblock_unprotect(ptr noundef nonnull %.023, i32 noundef %.215) #5
   %306 = icmp slt i32 %305, 0
   br i1 %306, label %307, label %311
 
@@ -921,12 +921,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
   br label %311
 
 311:                                              ; preds = %307, %304, %302, %301
-  %.2 = phi i32 [ -1, %307 ], [ %.1, %304 ], [ %.1, %302 ], [ %.1, %301 ]
+  %.2244 = phi i32 [ -1, %307 ], [ %.1243, %304 ], [ %.1243, %302 ], [ %.1243, %301 ]
   %.not274 = icmp eq ptr %.023221, null
   br i1 %.not274, label %319, label %312
 
 312:                                              ; preds = %311
-  %313 = call i32 @H5EA__sblock_unprotect(ptr noundef nonnull %.023221, i32 noundef %.223915) #5
+  %313 = call i32 @H5EA__sblock_unprotect(ptr noundef nonnull %.023221, i32 noundef %.223813) #5
   %314 = icmp slt i32 %313, 0
   br i1 %314, label %315, label %319
 
@@ -937,17 +937,17 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
   br label %319
 
 319:                                              ; preds = %315, %312, %311
-  %.3 = phi i32 [ -1, %315 ], [ %.2, %312 ], [ %.2, %311 ]
-  %.not275 = icmp eq ptr %.02449, null
+  %.3 = phi i32 [ -1, %315 ], [ %.2244, %312 ], [ %.2244, %311 ]
+  %.not275 = icmp eq ptr %.023319, null
   br i1 %.not275, label %329, label %320
 
 320:                                              ; preds = %319
   %321 = load ptr, ptr %3, align 8
-  %.not276 = icmp eq ptr %321, %.02449
+  %.not276 = icmp eq ptr %321, %.023319
   br i1 %.not276, label %329, label %322
 
 322:                                              ; preds = %320
-  %323 = call i32 @H5EA__dblock_unprotect(ptr noundef nonnull %.02449, i32 noundef 0) #5
+  %323 = call i32 @H5EA__dblock_unprotect(ptr noundef nonnull %.023319, i32 noundef 0) #5
   %324 = icmp slt i32 %323, 0
   br i1 %324, label %325, label %329
 
@@ -959,16 +959,16 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr 
 
 329:                                              ; preds = %325, %322, %320, %319
   %.4 = phi i32 [ -1, %325 ], [ %.3, %322 ], [ %.3, %320 ], [ %.3, %319 ]
-  %.not277 = icmp eq ptr %.024311, null
+  %.not277 = icmp eq ptr %.023417, null
   br i1 %.not277, label %339, label %330
 
 330:                                              ; preds = %329
   %331 = load ptr, ptr %3, align 8
-  %.not278 = icmp eq ptr %331, %.024311
+  %.not278 = icmp eq ptr %331, %.023417
   br i1 %.not278, label %339, label %332
 
 332:                                              ; preds = %330
-  %333 = call i32 @H5EA__dblk_page_unprotect(ptr noundef nonnull %.024311, i32 noundef 0) #5
+  %333 = call i32 @H5EA__dblk_page_unprotect(ptr noundef nonnull %.023417, i32 noundef 0) #5
   %334 = icmp slt i32 %333, 0
   br i1 %334, label %335, label %339
 

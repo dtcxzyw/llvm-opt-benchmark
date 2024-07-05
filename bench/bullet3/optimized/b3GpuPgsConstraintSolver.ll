@@ -5993,14 +5993,14 @@ for.cond10.preheader.lr.ph:                       ; preds = %while.cond.preheade
 
 for.cond10.preheader:                             ; preds = %for.cond10.preheader.lr.ph, %invoke.cont111
   %numSwaps.0119 = phi i32 [ 0, %for.cond10.preheader.lr.ph ], [ %numSwaps.1.lcssa, %invoke.cont111 ]
-  %batchIdx.0118 = phi i32 [ 0, %for.cond10.preheader.lr.ph ], [ %inc112, %invoke.cont111 ]
+  %curBodyUsed.0118 = phi i32 [ 0, %for.cond10.preheader.lr.ph ], [ %curBodyUsed.1.lcssa, %invoke.cont111 ]
   %numValidConstraints.0117 = phi i32 [ 0, %for.cond10.preheader.lr.ph ], [ %numValidConstraints.1.lcssa, %invoke.cont111 ]
-  %curBodyUsed.0116 = phi i32 [ 0, %for.cond10.preheader.lr.ph ], [ %curBodyUsed.1.lcssa, %invoke.cont111 ]
-  %cmp11102 = icmp sgt i32 %curBodyUsed.0116, 0
+  %batchIdx.0116 = phi i32 [ 0, %for.cond10.preheader.lr.ph ], [ %inc112, %invoke.cont111 ]
+  %cmp11102 = icmp sgt i32 %curBodyUsed.0118, 0
   br i1 %cmp11102, label %for.body12.preheader, label %for.cond23.preheader
 
 for.body12.preheader:                             ; preds = %for.cond10.preheader
-  %wide.trip.count127 = zext nneg i32 %curBodyUsed.0116 to i64
+  %wide.trip.count127 = zext nneg i32 %curBodyUsed.0118 to i64
   br label %for.body12
 
 for.cond23.preheader:                             ; preds = %for.body12, %for.cond10.preheader
@@ -6041,8 +6041,8 @@ terminate.lpad.i:                                 ; preds = %lpad13
 for.body25:                                       ; preds = %for.body25.preheader, %for.inc108
   %indvars.iv134 = phi i64 [ %9, %for.body25.preheader ], [ %indvars.iv.next135, %for.inc108 ]
   %numSwaps.1111 = phi i32 [ %numSwaps.0119, %for.body25.preheader ], [ %numSwaps.3, %for.inc108 ]
+  %curBodyUsed.1110 = phi i32 [ 0, %for.body25.preheader ], [ %curBodyUsed.4, %for.inc108 ]
   %numValidConstraints.1109 = phi i32 [ %numValidConstraints.0117, %for.body25.preheader ], [ %numValidConstraints.2, %for.inc108 ]
-  %curBodyUsed.1108 = phi i32 [ 0, %for.body25.preheader ], [ %curBodyUsed.4, %for.inc108 ]
   %nCurrentBatch.0107 = phi i32 [ 0, %for.body25.preheader ], [ %nCurrentBatch.1, %for.inc108 ]
   %arrayidx = getelementptr inbounds %struct.b3BatchConstraint, ptr %cs, i64 %indvars.iv134
   %16 = load i32, ptr %arrayidx, align 4
@@ -6105,15 +6105,15 @@ if.then57:                                        ; preds = %if.then55
   %26 = load i32, ptr %arrayidx.i75, align 4
   %or = or i32 %26, %shl59
   store i32 %or, ptr %arrayidx.i75, align 4
-  %inc63 = add nsw i32 %curBodyUsed.1108, 1
+  %inc63 = add nsw i32 %curBodyUsed.1110, 1
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 16), align 8
-  %idxprom.i76 = sext i32 %curBodyUsed.1108 to i64
+  %idxprom.i76 = sext i32 %curBodyUsed.1110 to i64
   %arrayidx.i77 = getelementptr inbounds i32, ptr %27, i64 %idxprom.i76
   store i32 %18, ptr %arrayidx.i77, align 4
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then57, %if.then55
-  %curBodyUsed.2 = phi i32 [ %curBodyUsed.1108, %if.then55 ], [ %inc63, %if.then57 ]
+  %curBodyUsed.2 = phi i32 [ %curBodyUsed.1110, %if.then55 ], [ %inc63, %if.then57 ]
   br i1 %.not97, label %if.then68, label %if.end78
 
 if.then68:                                        ; preds = %if.end66
@@ -6136,7 +6136,7 @@ if.then68:                                        ; preds = %if.end66
 if.end78:                                         ; preds = %if.then68, %if.end66
   %curBodyUsed.3 = phi i32 [ %curBodyUsed.2, %if.end66 ], [ %inc75, %if.then68 ]
   %m_batchId = getelementptr inbounds i8, ptr %arrayidx, i64 12
-  store i32 %batchIdx.0118, ptr %m_batchId, align 4
+  store i32 %batchIdx.0116, ptr %m_batchId, align 4
   %31 = trunc nsw i64 %indvars.iv134 to i32
   %cmp81.not = icmp eq i32 %numValidConstraints.1109, %31
   br i1 %cmp81.not, label %if.end89, label %if.then82
@@ -6183,8 +6183,8 @@ for.body97:                                       ; preds = %for.body97.preheade
 
 for.inc108:                                       ; preds = %for.body97, %for.cond95.preheader, %if.end52, %if.end89
   %nCurrentBatch.1 = phi i32 [ %inc91, %if.end89 ], [ %nCurrentBatch.0107, %if.end52 ], [ 0, %for.cond95.preheader ], [ 0, %for.body97 ]
-  %curBodyUsed.4 = phi i32 [ %curBodyUsed.3, %if.end89 ], [ %curBodyUsed.1108, %if.end52 ], [ 0, %for.cond95.preheader ], [ 0, %for.body97 ]
   %numValidConstraints.2 = phi i32 [ %inc90, %if.end89 ], [ %numValidConstraints.1109, %if.end52 ], [ %inc90, %for.cond95.preheader ], [ %inc90, %for.body97 ]
+  %curBodyUsed.4 = phi i32 [ %curBodyUsed.3, %if.end89 ], [ %curBodyUsed.1110, %if.end52 ], [ 0, %for.cond95.preheader ], [ 0, %for.body97 ]
   %numSwaps.3 = phi i32 [ %numSwaps.2, %if.end89 ], [ %numSwaps.1111, %if.end52 ], [ %numSwaps.2, %for.cond95.preheader ], [ %numSwaps.2, %for.body97 ]
   %indvars.iv.next135 = add nsw i64 %indvars.iv134, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count137
@@ -6192,8 +6192,8 @@ for.inc108:                                       ; preds = %for.body97, %for.co
 
 for.end110:                                       ; preds = %for.inc108, %for.cond23.preheader
   %nCurrentBatch.0.lcssa = phi i32 [ 0, %for.cond23.preheader ], [ %nCurrentBatch.1, %for.inc108 ]
-  %curBodyUsed.1.lcssa = phi i32 [ 0, %for.cond23.preheader ], [ %curBodyUsed.4, %for.inc108 ]
   %numValidConstraints.1.lcssa = phi i32 [ %numValidConstraints.0117, %for.cond23.preheader ], [ %numValidConstraints.2, %for.inc108 ]
+  %curBodyUsed.1.lcssa = phi i32 [ 0, %for.cond23.preheader ], [ %curBodyUsed.4, %for.inc108 ]
   %numSwaps.1.lcssa = phi i32 [ %numSwaps.0119, %for.cond23.preheader ], [ %numSwaps.3, %for.inc108 ]
   %35 = load ptr, ptr %m_gpuData, align 8
   %m_size.i.i = getelementptr inbounds i8, ptr %35, i64 356
@@ -6225,7 +6225,7 @@ invoke.cont111:                                   ; preds = %.noexc89, %for.end1
   %40 = load i32, ptr %m_size.i.i, align 4
   %inc.i = add nsw i32 %40, 1
   store i32 %inc.i, ptr %m_size.i.i, align 4
-  %inc112 = add nuw nsw i32 %batchIdx.0118, 1
+  %inc112 = add nuw nsw i32 %batchIdx.0116, 1
   %cmp8 = icmp slt i32 %numValidConstraints.1.lcssa, %numConstraints
   br i1 %cmp8, label %for.cond10.preheader, label %while.end, !llvm.loop !27
 

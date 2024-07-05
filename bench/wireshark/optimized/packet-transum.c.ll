@@ -1082,8 +1082,8 @@ append_to_rrpd_list.exit.i.i:                     ; preds = %385, %383
   br label %406
 
 406:                                              ; preds = %417, %.lr.ph.i.i.i
-  %.011.i.i.i = phi ptr [ %402, %.lr.ph.i.i.i ], [ %418, %417 ]
-  %407 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.011.i.i.i) #6
+  %.0911.i.i.i = phi ptr [ %402, %.lr.ph.i.i.i ], [ %418, %417 ]
+  %407 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0911.i.i.i) #6
   %408 = getelementptr inbounds i8, ptr %407, i64 4
   %409 = load i8, ptr %408, align 4
   %410 = load i8, ptr %404, align 4
@@ -1098,7 +1098,7 @@ append_to_rrpd_list.exit.i.i:                     ; preds = %385, %383
   br i1 %416, label %find_temp_rsp_rrpd.exit.i.i, label %417
 
 417:                                              ; preds = %412, %406
-  %418 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.011.i.i.i) #6
+  %418 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0911.i.i.i) #6
   %.not.i.i.i = icmp eq ptr %418, null
   br i1 %.not.i.i.i, label %.loopexit59.i.i, label %406, !llvm.loop !6
 
@@ -1138,8 +1138,8 @@ find_temp_rsp_rrpd.exit.i.i:                      ; preds = %412
   br label %432
 
 432:                                              ; preds = %443, %.lr.ph.i50.i.i
-  %.011.i51.i.i = phi ptr [ %402, %.lr.ph.i50.i.i ], [ %444, %443 ]
-  %433 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.011.i51.i.i) #6
+  %.0911.i51.i.i = phi ptr [ %402, %.lr.ph.i50.i.i ], [ %444, %443 ]
+  %433 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0911.i51.i.i) #6
   %434 = getelementptr inbounds i8, ptr %433, i64 4
   %435 = load i8, ptr %434, align 4
   %436 = load i8, ptr %430, align 4
@@ -1154,7 +1154,7 @@ find_temp_rsp_rrpd.exit.i.i:                      ; preds = %412
   br i1 %442, label %find_temp_rsp_rrpd.exit54.i.i, label %443
 
 443:                                              ; preds = %438, %432
-  %444 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.011.i51.i.i) #6
+  %444 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0911.i51.i.i) #6
   %.not.i52.i.i = icmp eq ptr %444, null
   br i1 %.not.i52.i.i, label %.loopexit.i.i, label %432, !llvm.loop !6
 

@@ -24,11 +24,11 @@ if.then.i24:                                      ; preds = %entry
   br label %do.body.i30
 
 do.body.i30:                                      ; preds = %do.body.i30, %if.then.i24
-  %p.i8.0 = phi ptr [ %input, %if.then.i24 ], [ %add.ptr15.i42, %do.body.i30 ]
-  %v1.i12.0 = phi i32 [ %add2.i27, %if.then.i24 ], [ %mul1.i, %do.body.i30 ]
   %v2.i13.0 = phi i32 [ %add3.i28, %if.then.i24 ], [ %mul1.i107, %do.body.i30 ]
   %v3.i14.0 = phi i32 [ %seed, %if.then.i24 ], [ %mul1.i111, %do.body.i30 ]
   %v4.i15.0 = phi i32 [ %sub.i29, %if.then.i24 ], [ %mul1.i115, %do.body.i30 ]
+  %v1.i12.0 = phi i32 [ %add2.i27, %if.then.i24 ], [ %mul1.i, %do.body.i30 ]
+  %p.i8.0 = phi ptr [ %input, %if.then.i24 ], [ %add.ptr15.i42, %do.body.i30 ]
   %p.i8.0.val = load i32, ptr %p.i8.0, align 1
   %mul.i = mul i32 %p.i8.0.val, -2048144777
   %add.i = add i32 %mul.i, %v1.i12.0
@@ -71,8 +71,8 @@ if.else.i18:                                      ; preds = %entry
   br label %XXH32_endian_align.exit60
 
 XXH32_endian_align.exit60:                        ; preds = %if.else.i18, %do.end.i44
-  %p.i8.1 = phi ptr [ %add.ptr15.i42, %do.end.i44 ], [ %input, %if.else.i18 ]
   %h32.i10.0 = phi i32 [ %add28.i59, %do.end.i44 ], [ %add29.i19, %if.else.i18 ]
+  %p.i8.1 = phi ptr [ %add.ptr15.i42, %do.end.i44 ], [ %input, %if.else.i18 ]
   %conv.i20 = trunc i64 %len to i32
   %add30.i21 = add i32 %h32.i10.0, %conv.i20
   %and.i22 = and i64 %len, 15
@@ -302,11 +302,11 @@ if.then.i22:                                      ; preds = %entry
   br label %do.body.i28
 
 do.body.i28:                                      ; preds = %do.body.i28, %if.then.i22
-  %p.i8.0 = phi ptr [ %input, %if.then.i22 ], [ %add.ptr15.i40, %do.body.i28 ]
-  %v1.i12.0 = phi i64 [ %add2.i25, %if.then.i22 ], [ %mul1.i, %do.body.i28 ]
   %v2.i13.0 = phi i64 [ %add3.i26, %if.then.i22 ], [ %mul1.i123, %do.body.i28 ]
   %v3.i14.0 = phi i64 [ %seed, %if.then.i22 ], [ %mul1.i127, %do.body.i28 ]
   %v4.i15.0 = phi i64 [ %sub.i27, %if.then.i22 ], [ %mul1.i131, %do.body.i28 ]
+  %v1.i12.0 = phi i64 [ %add2.i25, %if.then.i22 ], [ %mul1.i, %do.body.i28 ]
+  %p.i8.0 = phi ptr [ %input, %if.then.i22 ], [ %add.ptr15.i40, %do.body.i28 ]
   %p.i8.0.val = load i64, ptr %p.i8.0, align 1
   %mul.i = mul i64 %p.i8.0.val, -4417276706812531889
   %add.i = add i64 %mul.i, %v1.i12.0
@@ -373,8 +373,8 @@ if.else.i18:                                      ; preds = %entry
   br label %XXH64_endian_align.exit62
 
 XXH64_endian_align.exit62:                        ; preds = %if.else.i18, %do.end.i42
-  %p.i8.1 = phi ptr [ %add.ptr15.i40, %do.end.i42 ], [ %input, %if.else.i18 ]
   %h64.i10.0 = phi i64 [ %add.i151, %do.end.i42 ], [ %add33.i19, %if.else.i18 ]
+  %p.i8.1 = phi ptr [ %add.ptr15.i40, %do.end.i42 ], [ %input, %if.else.i18 ]
   %add34.i20 = add i64 %h64.i10.0, %len
   %call35.i21 = tail call fastcc i64 @XXH64_finalize(i64 noundef %add34.i20, ptr noundef %p.i8.1, i64 noundef %len)
   ret i64 %call35.i21

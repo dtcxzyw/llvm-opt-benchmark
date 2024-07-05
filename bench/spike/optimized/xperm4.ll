@@ -108,19 +108,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_xperm4P11p
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %11
-  %.022.i = phi i64 [ %29, %.lr.ph.i ], [ 0, %11 ]
-  %.01821.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %11 ]
-  %21 = lshr i64 %20, %.022.i
+  %.022.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %11 ]
+  %.01821.i = phi i64 [ %29, %.lr.ph.i ], [ 0, %11 ]
+  %21 = lshr i64 %20, %.01821.i
   %22 = shl i64 %21, 2
   %23 = and i64 %22, 60
   %24 = icmp ult i64 %23, 32
   %25 = lshr i64 %16, %23
   %26 = and i64 %25, 15
-  %27 = shl nuw nsw i64 %26, %.022.i
+  %27 = shl nuw nsw i64 %26, %.01821.i
   %28 = select i1 %24, i64 %27, i64 0
-  %.1.i = or i64 %28, %.01821.i
-  %29 = add nuw nsw i64 %.022.i, 4
-  %30 = icmp ult i64 %.022.i, 28
+  %.1.i = or i64 %28, %.022.i
+  %29 = add nuw nsw i64 %.01821.i, 4
+  %30 = icmp ult i64 %.01821.i, 28
   br i1 %30, label %.lr.ph.i, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %.lr.ph.i
@@ -190,17 +190,17 @@ define noundef i64 @_Z17fast_rv64i_xperm4P11processor_t6insn_tm(ptr nocapture no
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %11
-  %.022.i = phi i64 [ %27, %.lr.ph.i ], [ 0, %11 ]
-  %.01821.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %11 ]
-  %21 = lshr i64 %20, %.022.i
+  %.022.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %11 ]
+  %.01821.i = phi i64 [ %27, %.lr.ph.i ], [ 0, %11 ]
+  %21 = lshr i64 %20, %.01821.i
   %22 = shl i64 %21, 2
   %23 = and i64 %22, 60
   %24 = lshr i64 %16, %23
   %25 = and i64 %24, 15
-  %26 = shl i64 %25, %.022.i
-  %.1.i = or i64 %26, %.01821.i
-  %27 = add nuw nsw i64 %.022.i, 4
-  %28 = icmp ult i64 %.022.i, 60
+  %26 = shl i64 %25, %.01821.i
+  %.1.i = or i64 %26, %.022.i
+  %27 = add nuw nsw i64 %.01821.i, 4
+  %28 = icmp ult i64 %.01821.i, 60
   br i1 %28, label %.lr.ph.i, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %.lr.ph.i
@@ -252,19 +252,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_xperm4P1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %11
-  %.022.i = phi i64 [ %29, %.lr.ph.i ], [ 0, %11 ]
-  %.01821.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %11 ]
-  %21 = lshr i64 %20, %.022.i
+  %.022.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %11 ]
+  %.01821.i = phi i64 [ %29, %.lr.ph.i ], [ 0, %11 ]
+  %21 = lshr i64 %20, %.01821.i
   %22 = shl i64 %21, 2
   %23 = and i64 %22, 60
   %24 = icmp ult i64 %23, 32
   %25 = lshr i64 %16, %23
   %26 = and i64 %25, 15
-  %27 = shl nuw nsw i64 %26, %.022.i
+  %27 = shl nuw nsw i64 %26, %.01821.i
   %28 = select i1 %24, i64 %27, i64 0
-  %.1.i = or i64 %28, %.01821.i
-  %29 = add nuw nsw i64 %.022.i, 4
-  %30 = icmp ult i64 %.022.i, 28
+  %.1.i = or i64 %28, %.022.i
+  %29 = add nuw nsw i64 %.01821.i, 4
+  %30 = icmp ult i64 %.01821.i, 28
   br i1 %30, label %.lr.ph.i, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %.lr.ph.i
@@ -377,17 +377,17 @@ define noundef i64 @_Z19logged_rv64i_xperm4P11processor_t6insn_tm(ptr noundef %0
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %11
-  %.022.i = phi i64 [ %27, %.lr.ph.i ], [ 0, %11 ]
-  %.01821.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %11 ]
-  %21 = lshr i64 %20, %.022.i
+  %.022.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %11 ]
+  %.01821.i = phi i64 [ %27, %.lr.ph.i ], [ 0, %11 ]
+  %21 = lshr i64 %20, %.01821.i
   %22 = shl i64 %21, 2
   %23 = and i64 %22, 60
   %24 = lshr i64 %16, %23
   %25 = and i64 %24, 15
-  %26 = shl i64 %25, %.022.i
-  %.1.i = or i64 %26, %.01821.i
-  %27 = add nuw nsw i64 %.022.i, 4
-  %28 = icmp ult i64 %.022.i, 60
+  %26 = shl i64 %25, %.01821.i
+  %.1.i = or i64 %26, %.022.i
+  %27 = add nuw nsw i64 %.01821.i, 4
+  %28 = icmp ult i64 %.01821.i, 60
   br i1 %28, label %.lr.ph.i, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %.lr.ph.i
@@ -528,19 +528,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_xperm4P11p
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %32
-  %.022.i = phi i64 [ %43, %.lr.ph.i ], [ 0, %32 ]
-  %.01821.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %32 ]
-  %35 = lshr i64 %34, %.022.i
+  %.022.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %32 ]
+  %.01821.i = phi i64 [ %43, %.lr.ph.i ], [ 0, %32 ]
+  %35 = lshr i64 %34, %.01821.i
   %36 = shl i64 %35, 2
   %37 = and i64 %36, 60
   %38 = icmp ult i64 %37, 32
   %39 = lshr i64 %23, %37
   %40 = and i64 %39, 15
-  %41 = shl nuw nsw i64 %40, %.022.i
+  %41 = shl nuw nsw i64 %40, %.01821.i
   %42 = select i1 %38, i64 %41, i64 0
-  %.1.i = or i64 %42, %.01821.i
-  %43 = add nuw nsw i64 %.022.i, 4
-  %44 = icmp ult i64 %.022.i, 28
+  %.1.i = or i64 %42, %.022.i
+  %43 = add nuw nsw i64 %.01821.i, 4
+  %44 = icmp ult i64 %.01821.i, 28
   br i1 %44, label %.lr.ph.i, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %.lr.ph.i
@@ -644,17 +644,17 @@ define noundef i64 @_Z17fast_rv64e_xperm4P11processor_t6insn_tm(ptr nocapture no
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %32
-  %.022.i = phi i64 [ %41, %.lr.ph.i ], [ 0, %32 ]
-  %.01821.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %32 ]
-  %35 = lshr i64 %34, %.022.i
+  %.022.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %32 ]
+  %.01821.i = phi i64 [ %41, %.lr.ph.i ], [ 0, %32 ]
+  %35 = lshr i64 %34, %.01821.i
   %36 = shl i64 %35, 2
   %37 = and i64 %36, 60
   %38 = lshr i64 %23, %37
   %39 = and i64 %38, 15
-  %40 = shl i64 %39, %.022.i
-  %.1.i = or i64 %40, %.01821.i
-  %41 = add nuw nsw i64 %.022.i, 4
-  %42 = icmp ult i64 %.022.i, 60
+  %40 = shl i64 %39, %.01821.i
+  %.1.i = or i64 %40, %.022.i
+  %41 = add nuw nsw i64 %.01821.i, 4
+  %42 = icmp ult i64 %.01821.i, 60
   br i1 %42, label %.lr.ph.i, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %.lr.ph.i
@@ -754,19 +754,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_xperm4P1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %32
-  %.022.i = phi i64 [ %43, %.lr.ph.i ], [ 0, %32 ]
-  %.01821.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %32 ]
-  %35 = lshr i64 %34, %.022.i
+  %.022.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %32 ]
+  %.01821.i = phi i64 [ %43, %.lr.ph.i ], [ 0, %32 ]
+  %35 = lshr i64 %34, %.01821.i
   %36 = shl i64 %35, 2
   %37 = and i64 %36, 60
   %38 = icmp ult i64 %37, 32
   %39 = lshr i64 %23, %37
   %40 = and i64 %39, 15
-  %41 = shl nuw nsw i64 %40, %.022.i
+  %41 = shl nuw nsw i64 %40, %.01821.i
   %42 = select i1 %38, i64 %41, i64 0
-  %.1.i = or i64 %42, %.01821.i
-  %43 = add nuw nsw i64 %.022.i, 4
-  %44 = icmp ult i64 %.022.i, 28
+  %.1.i = or i64 %42, %.022.i
+  %43 = add nuw nsw i64 %.01821.i, 4
+  %44 = icmp ult i64 %.01821.i, 28
   br i1 %44, label %.lr.ph.i, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %.lr.ph.i
@@ -927,17 +927,17 @@ define noundef i64 @_Z19logged_rv64e_xperm4P11processor_t6insn_tm(ptr noundef %0
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %32
-  %.022.i = phi i64 [ %41, %.lr.ph.i ], [ 0, %32 ]
-  %.01821.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %32 ]
-  %35 = lshr i64 %34, %.022.i
+  %.022.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %32 ]
+  %.01821.i = phi i64 [ %41, %.lr.ph.i ], [ 0, %32 ]
+  %35 = lshr i64 %34, %.01821.i
   %36 = shl i64 %35, 2
   %37 = and i64 %36, 60
   %38 = lshr i64 %23, %37
   %39 = and i64 %38, 15
-  %40 = shl i64 %39, %.022.i
-  %.1.i = or i64 %40, %.01821.i
-  %41 = add nuw nsw i64 %.022.i, 4
-  %42 = icmp ult i64 %.022.i, 60
+  %40 = shl i64 %39, %.01821.i
+  %.1.i = or i64 %40, %.022.i
+  %41 = add nuw nsw i64 %.01821.i, 4
+  %42 = icmp ult i64 %.01821.i, 60
   br i1 %42, label %.lr.ph.i, label %_ZL5xpermmmmm.exit, !llvm.loop !4
 
 _ZL5xpermmmmm.exit:                               ; preds = %.lr.ph.i

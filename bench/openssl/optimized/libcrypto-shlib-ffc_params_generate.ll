@@ -381,10 +381,10 @@ if.end220:                                        ; preds = %lor.lhs.false214, %
   br i1 %cmp222, label %pass, label %g_only
 
 g_only:                                           ; preds = %if.end220, %if.then115
-  %seed.2 = phi ptr [ %4, %if.then115 ], [ %seed.1188, %if.end220 ]
-  %seed_tmp.0 = phi ptr [ null, %if.then115 ], [ %call130, %if.end220 ]
   %q.0 = phi ptr [ %11, %if.then115 ], [ %call120, %if.end220 ]
   %p.0 = phi ptr [ %10, %if.then115 ], [ %call119, %if.end220 ]
+  %seed_tmp.0 = phi ptr [ null, %if.then115 ], [ %call130, %if.end220 ]
+  %seed.2 = phi ptr [ %4, %if.then115 ], [ %seed.1188, %if.end220 ]
   %call226 = tail call ptr @BN_MONT_CTX_new() #5
   %cmp227 = icmp eq ptr %call226, null
   br i1 %cmp227, label %err, label %if.end230
@@ -529,10 +529,10 @@ if.end326:                                        ; preds = %if.end322
 
 pass:                                             ; preds = %if.end220, %if.end283, %if.end326
   %and328.pre-phi = phi i32 [ %and235, %if.end283 ], [ %and235, %if.end326 ], [ 0, %if.end220 ]
-  %seed.3 = phi ptr [ %seed.2, %if.end283 ], [ %seed.2, %if.end326 ], [ %seed.1188, %if.end220 ]
-  %seed_tmp.1 = phi ptr [ %seed_tmp.0, %if.end283 ], [ %seed_tmp.0, %if.end326 ], [ %call130, %if.end220 ]
   %mont.0 = phi ptr [ %call226, %if.end283 ], [ %call226, %if.end326 ], [ null, %if.end220 ]
+  %seed_tmp.1 = phi ptr [ %seed_tmp.0, %if.end283 ], [ %seed_tmp.0, %if.end326 ], [ %call130, %if.end220 ]
   %canonical_g.1 = phi i32 [ %canonical_g.0, %if.end283 ], [ %canonical_g.0, %if.end326 ], [ 0, %if.end220 ]
+  %seed.3 = phi ptr [ %seed.2, %if.end283 ], [ %seed.2, %if.end326 ], [ %seed.1188, %if.end220 ]
   %cmp329 = icmp ne i32 %and328.pre-phi, 0
   %cmp332 = icmp eq i32 %canonical_g.1, 0
   %or.cond = and i1 %cmp329, %cmp332
@@ -540,13 +540,13 @@ pass:                                             ; preds = %if.end220, %if.end2
   br label %err
 
 err:                                              ; preds = %if.end196, %if.end186, %if.end182, %for.cond, %pass, %if.end322, %if.end309, %lor.lhs.false313, %if.end279, %if.then273, %if.end243, %land.lhs.true247, %land.lhs.true238, %if.end230, %g_only, %land.lhs.true211, %lor.lhs.false214, %for.end, %if.end157, %if.end140, %if.end129, %if.end118, %if.end51, %if.end46, %if.end41, %if.end23, %if.end19, %if.then269, %if.then261, %if.then204, %if.then181, %if.then154, %if.then139, %if.then128, %if.then105, %if.then95, %if.then83, %if.then40, %if.then15
-  %ok.0 = phi i32 [ 0, %if.end19 ], [ 0, %if.end23 ], [ 0, %if.then40 ], [ 0, %if.end41 ], [ 0, %if.end46 ], [ 0, %if.end51 ], [ 0, %if.then95 ], [ 0, %if.then105 ], [ 0, %g_only ], [ 0, %if.then269 ], [ 0, %if.end309 ], [ 0, %lor.lhs.false313 ], [ 0, %if.end322 ], [ 0, %if.end279 ], [ 0, %if.then261 ], [ 0, %if.then273 ], [ 0, %land.lhs.true247 ], [ 0, %if.end243 ], [ 0, %land.lhs.true238 ], [ 0, %if.end230 ], [ 0, %if.end118 ], [ 0, %if.then128 ], [ 0, %if.end129 ], [ 0, %if.then139 ], [ 0, %if.end140 ], [ 0, %if.then154 ], [ 0, %if.then181 ], [ 0, %land.lhs.true211 ], [ 0, %lor.lhs.false214 ], [ 0, %for.end ], [ 0, %if.then204 ], [ 0, %if.end157 ], [ 0, %if.then83 ], [ 0, %if.then15 ], [ %., %pass ], [ 0, %for.cond ], [ 0, %if.end182 ], [ 0, %if.end186 ], [ 0, %if.end196 ]
-  %seed.4 = phi ptr [ null, %if.end19 ], [ null, %if.end23 ], [ null, %if.then40 ], [ null, %if.end41 ], [ null, %if.end46 ], [ null, %if.end51 ], [ %4, %if.then95 ], [ %4, %if.then105 ], [ %seed.2, %g_only ], [ %seed.2, %if.then269 ], [ %seed.2, %if.end309 ], [ %seed.2, %lor.lhs.false313 ], [ %seed.2, %if.end322 ], [ %seed.2, %if.end279 ], [ %seed.2, %if.then261 ], [ %seed.2, %if.then273 ], [ %seed.2, %land.lhs.true247 ], [ %seed.2, %if.end243 ], [ %seed.2, %land.lhs.true238 ], [ %seed.2, %if.end230 ], [ %4, %if.end118 ], [ %4, %if.then128 ], [ %4, %if.end129 ], [ null, %if.then139 ], [ null, %if.end140 ], [ %4, %if.then154 ], [ %seed.1188, %if.then181 ], [ %seed.1188, %land.lhs.true211 ], [ %seed.1188, %lor.lhs.false214 ], [ %seed.1188, %for.end ], [ %seed.1188, %if.then204 ], [ %seed.1188, %if.end157 ], [ %4, %if.then83 ], [ null, %if.then15 ], [ %seed.3, %pass ], [ %seed.1188, %for.cond ], [ %seed.1188, %if.end182 ], [ %seed.1188, %if.end186 ], [ %seed.1188, %if.end196 ]
-  %seed_tmp.2 = phi ptr [ null, %if.end19 ], [ null, %if.end23 ], [ null, %if.then40 ], [ null, %if.end41 ], [ null, %if.end46 ], [ null, %if.end51 ], [ null, %if.then95 ], [ null, %if.then105 ], [ %seed_tmp.0, %g_only ], [ %seed_tmp.0, %if.then269 ], [ %seed_tmp.0, %if.end309 ], [ %seed_tmp.0, %lor.lhs.false313 ], [ %seed_tmp.0, %if.end322 ], [ %seed_tmp.0, %if.end279 ], [ %seed_tmp.0, %if.then261 ], [ %seed_tmp.0, %if.then273 ], [ %seed_tmp.0, %land.lhs.true247 ], [ %seed_tmp.0, %if.end243 ], [ %seed_tmp.0, %land.lhs.true238 ], [ %seed_tmp.0, %if.end230 ], [ null, %if.end118 ], [ null, %if.then128 ], [ null, %if.end129 ], [ %call130, %if.then139 ], [ %call130, %if.end140 ], [ %call130, %if.then154 ], [ %call130, %if.then181 ], [ %call130, %land.lhs.true211 ], [ %call130, %lor.lhs.false214 ], [ %call130, %for.end ], [ %call130, %if.then204 ], [ %call130, %if.end157 ], [ null, %if.then83 ], [ null, %if.then15 ], [ %seed_tmp.1, %pass ], [ %call130, %for.cond ], [ %call130, %if.end182 ], [ %call130, %if.end186 ], [ %call130, %if.end196 ]
   %mont.1 = phi ptr [ null, %if.end19 ], [ null, %if.end23 ], [ null, %if.then40 ], [ null, %if.end41 ], [ null, %if.end46 ], [ null, %if.end51 ], [ null, %if.then95 ], [ null, %if.then105 ], [ null, %g_only ], [ %call226, %if.then269 ], [ %call226, %if.end309 ], [ %call226, %lor.lhs.false313 ], [ %call226, %if.end322 ], [ %call226, %if.end279 ], [ %call226, %if.then261 ], [ %call226, %if.then273 ], [ %call226, %land.lhs.true247 ], [ %call226, %if.end243 ], [ %call226, %land.lhs.true238 ], [ %call226, %if.end230 ], [ null, %if.end118 ], [ null, %if.then128 ], [ null, %if.end129 ], [ null, %if.then139 ], [ null, %if.end140 ], [ null, %if.then154 ], [ null, %if.then181 ], [ null, %land.lhs.true211 ], [ null, %lor.lhs.false214 ], [ null, %for.end ], [ null, %if.then204 ], [ null, %if.end157 ], [ null, %if.then83 ], [ null, %if.then15 ], [ %mont.0, %pass ], [ null, %for.cond ], [ null, %if.end182 ], [ null, %if.end186 ], [ null, %if.end196 ]
+  %seed_tmp.2 = phi ptr [ null, %if.end19 ], [ null, %if.end23 ], [ null, %if.then40 ], [ null, %if.end41 ], [ null, %if.end46 ], [ null, %if.end51 ], [ null, %if.then95 ], [ null, %if.then105 ], [ %seed_tmp.0, %g_only ], [ %seed_tmp.0, %if.then269 ], [ %seed_tmp.0, %if.end309 ], [ %seed_tmp.0, %lor.lhs.false313 ], [ %seed_tmp.0, %if.end322 ], [ %seed_tmp.0, %if.end279 ], [ %seed_tmp.0, %if.then261 ], [ %seed_tmp.0, %if.then273 ], [ %seed_tmp.0, %land.lhs.true247 ], [ %seed_tmp.0, %if.end243 ], [ %seed_tmp.0, %land.lhs.true238 ], [ %seed_tmp.0, %if.end230 ], [ null, %if.end118 ], [ null, %if.then128 ], [ null, %if.end129 ], [ %call130, %if.then139 ], [ %call130, %if.end140 ], [ %call130, %if.then154 ], [ %call130, %if.then181 ], [ %call130, %land.lhs.true211 ], [ %call130, %lor.lhs.false214 ], [ %call130, %for.end ], [ %call130, %if.then204 ], [ %call130, %if.end157 ], [ null, %if.then83 ], [ null, %if.then15 ], [ %seed_tmp.1, %pass ], [ %call130, %for.cond ], [ %call130, %if.end182 ], [ %call130, %if.end186 ], [ %call130, %if.end196 ]
   %ctx.0 = phi ptr [ null, %if.end19 ], [ null, %if.end23 ], [ null, %if.then40 ], [ null, %if.end41 ], [ null, %if.end46 ], [ %call47, %if.end51 ], [ %call47, %if.then95 ], [ %call47, %if.then105 ], [ %call47, %g_only ], [ %call47, %if.then269 ], [ %call47, %if.end309 ], [ %call47, %lor.lhs.false313 ], [ %call47, %if.end322 ], [ %call47, %if.end279 ], [ %call47, %if.then261 ], [ %call47, %if.then273 ], [ %call47, %land.lhs.true247 ], [ %call47, %if.end243 ], [ %call47, %land.lhs.true238 ], [ %call47, %if.end230 ], [ %call47, %if.end118 ], [ %call47, %if.then128 ], [ %call47, %if.end129 ], [ %call47, %if.then139 ], [ %call47, %if.end140 ], [ %call47, %if.then154 ], [ %call47, %if.then181 ], [ %call47, %land.lhs.true211 ], [ %call47, %lor.lhs.false214 ], [ %call47, %for.end ], [ %call47, %if.then204 ], [ %call47, %if.end157 ], [ %call47, %if.then83 ], [ null, %if.then15 ], [ %call47, %pass ], [ %call47, %for.cond ], [ %call47, %if.end182 ], [ %call47, %if.end186 ], [ %call47, %if.end196 ]
   %mctx.0 = phi ptr [ null, %if.end19 ], [ null, %if.end23 ], [ null, %if.then40 ], [ null, %if.end41 ], [ %call42, %if.end46 ], [ %call42, %if.end51 ], [ %call42, %if.then95 ], [ %call42, %if.then105 ], [ %call42, %g_only ], [ %call42, %if.then269 ], [ %call42, %if.end309 ], [ %call42, %lor.lhs.false313 ], [ %call42, %if.end322 ], [ %call42, %if.end279 ], [ %call42, %if.then261 ], [ %call42, %if.then273 ], [ %call42, %land.lhs.true247 ], [ %call42, %if.end243 ], [ %call42, %land.lhs.true238 ], [ %call42, %if.end230 ], [ %call42, %if.end118 ], [ %call42, %if.then128 ], [ %call42, %if.end129 ], [ %call42, %if.then139 ], [ %call42, %if.end140 ], [ %call42, %if.then154 ], [ %call42, %if.then181 ], [ %call42, %land.lhs.true211 ], [ %call42, %lor.lhs.false214 ], [ %call42, %for.end ], [ %call42, %if.then204 ], [ %call42, %if.end157 ], [ %call42, %if.then83 ], [ null, %if.then15 ], [ %call42, %pass ], [ %call42, %for.cond ], [ %call42, %if.end182 ], [ %call42, %if.end186 ], [ %call42, %if.end196 ]
   %md.1 = phi ptr [ null, %if.end19 ], [ %call18, %if.end23 ], [ %call18, %if.then40 ], [ %call18, %if.end41 ], [ %call18, %if.end46 ], [ %call18, %if.end51 ], [ %call18, %if.then95 ], [ %call18, %if.then105 ], [ %call18, %g_only ], [ %call18, %if.then269 ], [ %call18, %if.end309 ], [ %call18, %lor.lhs.false313 ], [ %call18, %if.end322 ], [ %call18, %if.end279 ], [ %call18, %if.then261 ], [ %call18, %if.then273 ], [ %call18, %land.lhs.true247 ], [ %call18, %if.end243 ], [ %call18, %land.lhs.true238 ], [ %call18, %if.end230 ], [ %call18, %if.end118 ], [ %call18, %if.then128 ], [ %call18, %if.end129 ], [ %call18, %if.then139 ], [ %call18, %if.end140 ], [ %call18, %if.then154 ], [ %call18, %if.then181 ], [ %call18, %land.lhs.true211 ], [ %call18, %lor.lhs.false214 ], [ %call18, %for.end ], [ %call18, %if.then204 ], [ %call18, %if.end157 ], [ %call18, %if.then83 ], [ null, %if.then15 ], [ %call18, %pass ], [ %call18, %for.cond ], [ %call18, %if.end182 ], [ %call18, %if.end186 ], [ %call18, %if.end196 ]
+  %seed.4 = phi ptr [ null, %if.end19 ], [ null, %if.end23 ], [ null, %if.then40 ], [ null, %if.end41 ], [ null, %if.end46 ], [ null, %if.end51 ], [ %4, %if.then95 ], [ %4, %if.then105 ], [ %seed.2, %g_only ], [ %seed.2, %if.then269 ], [ %seed.2, %if.end309 ], [ %seed.2, %lor.lhs.false313 ], [ %seed.2, %if.end322 ], [ %seed.2, %if.end279 ], [ %seed.2, %if.then261 ], [ %seed.2, %if.then273 ], [ %seed.2, %land.lhs.true247 ], [ %seed.2, %if.end243 ], [ %seed.2, %land.lhs.true238 ], [ %seed.2, %if.end230 ], [ %4, %if.end118 ], [ %4, %if.then128 ], [ %4, %if.end129 ], [ null, %if.then139 ], [ null, %if.end140 ], [ %4, %if.then154 ], [ %seed.1188, %if.then181 ], [ %seed.1188, %land.lhs.true211 ], [ %seed.1188, %lor.lhs.false214 ], [ %seed.1188, %for.end ], [ %seed.1188, %if.then204 ], [ %seed.1188, %if.end157 ], [ %4, %if.then83 ], [ null, %if.then15 ], [ %seed.3, %pass ], [ %seed.1188, %for.cond ], [ %seed.1188, %if.end182 ], [ %seed.1188, %if.end186 ], [ %seed.1188, %if.end196 ]
+  %ok.0 = phi i32 [ 0, %if.end19 ], [ 0, %if.end23 ], [ 0, %if.then40 ], [ 0, %if.end41 ], [ 0, %if.end46 ], [ 0, %if.end51 ], [ 0, %if.then95 ], [ 0, %if.then105 ], [ 0, %g_only ], [ 0, %if.then269 ], [ 0, %if.end309 ], [ 0, %lor.lhs.false313 ], [ 0, %if.end322 ], [ 0, %if.end279 ], [ 0, %if.then261 ], [ 0, %if.then273 ], [ 0, %land.lhs.true247 ], [ 0, %if.end243 ], [ 0, %land.lhs.true238 ], [ 0, %if.end230 ], [ 0, %if.end118 ], [ 0, %if.then128 ], [ 0, %if.end129 ], [ 0, %if.then139 ], [ 0, %if.end140 ], [ 0, %if.then154 ], [ 0, %if.then181 ], [ 0, %land.lhs.true211 ], [ 0, %lor.lhs.false214 ], [ 0, %for.end ], [ 0, %if.then204 ], [ 0, %if.end157 ], [ 0, %if.then83 ], [ 0, %if.then15 ], [ %., %pass ], [ 0, %for.cond ], [ 0, %if.end182 ], [ 0, %if.end186 ], [ 0, %if.end196 ]
   %seed337 = getelementptr inbounds i8, ptr %params, i64 32
   %31 = load ptr, ptr %seed337, align 8
   %cmp338.not = icmp eq ptr %seed.4, %31
@@ -1310,8 +1310,8 @@ for.cond:                                         ; preds = %if.end162, %if.end1
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end60.i, %for.cond
-  %generate_seed.addr.0.i = phi i1 [ %14, %for.cond ], [ false, %if.end60.i ]
   %m.0.i = phi i32 [ %m.0, %for.cond ], [ %inc.i, %if.end60.i ]
+  %generate_seed.addr.0.i = phi i1 [ %14, %for.cond ], [ false, %if.end60.i ]
   %inc.i = add nsw i32 %m.0.i, 1
   %call1.i = call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 0, i32 noundef %m.0.i) #5
   %tobool.not.i = icmp eq i32 %call1.i, 0
@@ -1462,8 +1462,8 @@ if.end183:                                        ; preds = %if.end176, %if.end1
   br i1 %cmp185, label %pass, label %g_only
 
 g_only:                                           ; preds = %if.end183, %if.then121
-  %q.0 = phi ptr [ %12, %if.then121 ], [ %call65, %if.end183 ]
   %p.0 = phi ptr [ %11, %if.then121 ], [ %call66, %if.end183 ]
+  %q.0 = phi ptr [ %12, %if.then121 ], [ %call65, %if.end183 ]
   %call189 = call ptr @BN_MONT_CTX_new() #5
   %cmp190 = icmp eq ptr %call189, null
   br i1 %cmp190, label %if.then281, label %if.end193
@@ -1582,20 +1582,20 @@ pass:                                             ; preds = %if.end223, %if.end2
   br label %if.then281
 
 if.then281:                                       ; preds = %if.end132, %if.end136, %if.end162, %if.then152, %if.then175, %if.then181, %for.end, %g_only, %if.end193, %if.then199, %if.end204, %if.end208, %land.lhs.true217, %if.end223, %lor.lhs.false257, %if.end253, %if.end266, %pass, %generate_q_fips186_2.exit.thread, %if.end223.thread, %if.end72, %if.then89, %if.then110, %if.then100, %if.end62
-  %mont.1165 = phi ptr [ null, %if.end62 ], [ null, %if.then100 ], [ null, %if.then110 ], [ null, %if.then89 ], [ null, %if.end72 ], [ null, %g_only ], [ %call189, %if.end253 ], [ %call189, %lor.lhs.false257 ], [ %call189, %if.end266 ], [ %call189, %if.end223 ], [ %call189, %land.lhs.true217 ], [ %call189, %if.end208 ], [ %call189, %if.end204 ], [ %call189, %if.then199 ], [ %call189, %if.end193 ], [ null, %if.then152 ], [ null, %if.then175 ], [ null, %if.then181 ], [ null, %for.end ], [ %mont.0, %pass ], [ null, %generate_q_fips186_2.exit.thread ], [ %call189, %if.end223.thread ], [ null, %if.end162 ], [ null, %if.end136 ], [ null, %if.end132 ]
-  %ok.0164 = phi i32 [ 0, %if.end62 ], [ 0, %if.then100 ], [ 0, %if.then110 ], [ 0, %if.then89 ], [ 0, %if.end72 ], [ 0, %g_only ], [ 0, %if.end253 ], [ 0, %lor.lhs.false257 ], [ 0, %if.end266 ], [ 0, %if.end223 ], [ 0, %land.lhs.true217 ], [ 0, %if.end208 ], [ 0, %if.end204 ], [ 0, %if.then199 ], [ 0, %if.end193 ], [ 0, %if.then152 ], [ 0, %if.then175 ], [ 0, %if.then181 ], [ 0, %for.end ], [ %., %pass ], [ 0, %generate_q_fips186_2.exit.thread ], [ 0, %if.end223.thread ], [ 0, %if.end162 ], [ 0, %if.end136 ], [ 0, %if.end132 ]
+  %ok.0167 = phi i32 [ 0, %if.end62 ], [ 0, %if.then100 ], [ 0, %if.then110 ], [ 0, %if.then89 ], [ 0, %if.end72 ], [ 0, %g_only ], [ 0, %if.end253 ], [ 0, %lor.lhs.false257 ], [ 0, %if.end266 ], [ 0, %if.end223 ], [ 0, %land.lhs.true217 ], [ 0, %if.end208 ], [ 0, %if.end204 ], [ 0, %if.then199 ], [ 0, %if.end193 ], [ 0, %if.then152 ], [ 0, %if.then175 ], [ 0, %if.then181 ], [ 0, %for.end ], [ %., %pass ], [ 0, %generate_q_fips186_2.exit.thread ], [ 0, %if.end223.thread ], [ 0, %if.end162 ], [ 0, %if.end136 ], [ 0, %if.end132 ]
+  %mont.1164 = phi ptr [ null, %if.end62 ], [ null, %if.then100 ], [ null, %if.then110 ], [ null, %if.then89 ], [ null, %if.end72 ], [ null, %g_only ], [ %call189, %if.end253 ], [ %call189, %lor.lhs.false257 ], [ %call189, %if.end266 ], [ %call189, %if.end223 ], [ %call189, %land.lhs.true217 ], [ %call189, %if.end208 ], [ %call189, %if.end204 ], [ %call189, %if.then199 ], [ %call189, %if.end193 ], [ null, %if.then152 ], [ null, %if.then175 ], [ null, %if.then181 ], [ null, %for.end ], [ %mont.0, %pass ], [ null, %generate_q_fips186_2.exit.thread ], [ %call189, %if.end223.thread ], [ null, %if.end162 ], [ null, %if.end136 ], [ null, %if.end132 ]
   call void @BN_CTX_end(ptr noundef nonnull %call58) #5
   br label %if.end282
 
 if.end282:                                        ; preds = %if.then16, %if.end57, %if.then51, %if.then43, %if.then34, %if.end20, %if.then281
-  %ctx.0156 = phi ptr [ %call58, %if.then281 ], [ null, %if.end20 ], [ null, %if.then34 ], [ null, %if.then43 ], [ null, %if.then51 ], [ null, %if.end57 ], [ null, %if.then16 ]
-  %md.1155 = phi ptr [ %call19, %if.then281 ], [ null, %if.end20 ], [ %call19, %if.then34 ], [ %call19, %if.then43 ], [ %call19, %if.then51 ], [ %call19, %if.end57 ], [ null, %if.then16 ]
-  %mont.1154 = phi ptr [ %mont.1165, %if.then281 ], [ null, %if.end20 ], [ null, %if.then34 ], [ null, %if.then43 ], [ null, %if.then51 ], [ null, %if.end57 ], [ null, %if.then16 ]
-  %ok.0153 = phi i32 [ %ok.0164, %if.then281 ], [ 0, %if.end20 ], [ 0, %if.then34 ], [ 0, %if.then43 ], [ 0, %if.then51 ], [ 0, %if.end57 ], [ 0, %if.then16 ]
-  call void @BN_CTX_free(ptr noundef %ctx.0156) #5
-  call void @BN_MONT_CTX_free(ptr noundef %mont.1154) #5
-  call void @EVP_MD_free(ptr noundef %md.1155) #5
-  ret i32 %ok.0153
+  %ok.0156 = phi i32 [ %ok.0167, %if.then281 ], [ 0, %if.end20 ], [ 0, %if.then34 ], [ 0, %if.then43 ], [ 0, %if.then51 ], [ 0, %if.end57 ], [ 0, %if.then16 ]
+  %ctx.0155 = phi ptr [ %call58, %if.then281 ], [ null, %if.end20 ], [ null, %if.then34 ], [ null, %if.then43 ], [ null, %if.then51 ], [ null, %if.end57 ], [ null, %if.then16 ]
+  %md.1154 = phi ptr [ %call19, %if.then281 ], [ null, %if.end20 ], [ %call19, %if.then34 ], [ %call19, %if.then43 ], [ %call19, %if.then51 ], [ %call19, %if.end57 ], [ null, %if.then16 ]
+  %mont.1153 = phi ptr [ %mont.1164, %if.then281 ], [ null, %if.end20 ], [ null, %if.then34 ], [ null, %if.then43 ], [ null, %if.then51 ], [ null, %if.end57 ], [ null, %if.then16 ]
+  call void @BN_CTX_free(ptr noundef %ctx.0155) #5
+  call void @BN_MONT_CTX_free(ptr noundef %mont.1153) #5
+  call void @EVP_MD_free(ptr noundef %md.1154) #5
+  ret i32 %ok.0156
 }
 
 ; Function Attrs: nounwind uwtable

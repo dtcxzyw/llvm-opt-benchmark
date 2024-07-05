@@ -6423,14 +6423,14 @@ invoke.cont73:                                    ; preds = %if.end58, %if.end13
   %ei_end.sroa.20.0657 = phi ptr [ %ei_end.sroa.20.1, %if.end139 ], [ %ei_end.sroa.20.8.copyload534, %if.end58 ]
   %ei_end.sroa.22.0656 = phi ptr [ %ei_end.sroa.22.1, %if.end139 ], [ %29, %if.end58 ]
   %ei_end.sroa.10.0655 = phi ptr [ %ei_end.sroa.10.1, %if.end139 ], [ %ei_end.sroa.10.8.copyload524, %if.end58 ]
-  %ei_end.sroa.0.0654 = phi ptr [ %ei_end.sroa.0.1, %if.end139 ], [ %28, %if.end58 ]
-  %ei.sroa.32.0653 = phi ptr [ %ei.sroa.32.1, %if.end139 ], [ %ei.sroa.32.8.copyload559, %if.end58 ]
-  %ei.sroa.35.0651 = phi ptr [ %ei.sroa.35.1, %if.end139 ], [ %27, %if.end58 ]
-  %ei.sroa.21.0649 = phi ptr [ %ei.sroa.21.1, %if.end139 ], [ %ei.sroa.21.8.copyload555, %if.end58 ]
-  %ei.sroa.0.0648 = phi ptr [ %ei.sroa.0.5, %if.end139 ], [ %26, %if.end58 ]
-  %serial2.i.i.i.i.i.i.i162 = getelementptr inbounds i8, ptr %ei.sroa.0.0648, i64 48
+  %ei.sroa.0.0654 = phi ptr [ %ei.sroa.0.5, %if.end139 ], [ %26, %if.end58 ]
+  %ei.sroa.21.0652 = phi ptr [ %ei.sroa.21.1, %if.end139 ], [ %ei.sroa.21.8.copyload555, %if.end58 ]
+  %ei.sroa.35.0650 = phi ptr [ %ei.sroa.35.1, %if.end139 ], [ %27, %if.end58 ]
+  %ei.sroa.32.0649 = phi ptr [ %ei.sroa.32.1, %if.end139 ], [ %ei.sroa.32.8.copyload559, %if.end58 ]
+  %ei_end.sroa.0.0648 = phi ptr [ %ei_end.sroa.0.1, %if.end139 ], [ %28, %if.end58 ]
+  %serial2.i.i.i.i.i.i.i162 = getelementptr inbounds i8, ptr %ei.sroa.0.0654, i64 48
   %31 = load i64, ptr %serial2.i.i.i.i.i.i.i162, align 8
-  %target.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.0.0648, i64 40
+  %target.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.0.0654, i64 40
   %32 = load ptr, ptr %target.i.i.i, align 8
   %serial2.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 96
   %33 = load i64, ptr %serial2.i.i.i.i, align 8
@@ -6456,13 +6456,13 @@ invoke.cont73:                                    ; preds = %if.end58, %if.end13
 invoke.cont82:                                    ; preds = %invoke.cont73
   %tobool.i.i.i180 = trunc nuw i8 %src_e.sroa.0.2658 to i1
   %spec.select = select i1 %tobool.i.i.i180, i8 %src_e.sroa.0.2658, i8 1
-  %40 = load ptr, ptr %ei.sroa.0.0648, align 8
-  %cmp.i.i.i.i.not5.i.i.i.i = icmp eq ptr %40, %ei.sroa.35.0651
+  %40 = load ptr, ptr %ei.sroa.0.0654, align 8
+  %cmp.i.i.i.i.not5.i.i.i.i = icmp eq ptr %40, %ei.sroa.35.0650
   br i1 %cmp.i.i.i.i.not5.i.i.i.i, label %invoke.cont91, label %land.rhs.lr.ph.i.i.i.i
 
 land.rhs.lr.ph.i.i.i.i:                           ; preds = %invoke.cont82
-  %_M_element_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.21.0649, i64 24
-  %_M_before_begin.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.21.0649, i64 16
+  %_M_element_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.21.0652, i64 24
+  %_M_before_begin.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.21.0652, i64 16
   %41 = load i64, ptr %_M_element_count.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %41, 0
   br i1 %cmp.not.not.i.i.i.i.i.i.i.i.i, label %land.rhs.i.i.i.i.us, label %land.rhs.lr.ph.i.i.i.i.split
@@ -6485,13 +6485,13 @@ for.body.i.i.i.i.i.i.i.i.i.us:                    ; preds = %for.cond.i.i.i.i.i.
 
 while.body.i.i.i.i.loopexit.us:                   ; preds = %for.body.i.i.i.i.i.i.i.i.i.us
   %42 = load ptr, ptr %ei.sroa.0.1.us, align 8
-  %cmp.i.i.i.i.not.i.i.i.i.us = icmp eq ptr %42, %ei.sroa.35.0651
+  %cmp.i.i.i.i.not.i.i.i.i.us = icmp eq ptr %42, %ei.sroa.35.0650
   br i1 %cmp.i.i.i.i.not.i.i.i.i.us, label %invoke.cont91, label %land.rhs.i.i.i.i.us, !llvm.loop !57
 
 land.rhs.lr.ph.i.i.i.i.split:                     ; preds = %land.rhs.lr.ph.i.i.i.i
-  %_M_bucket_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.21.0649, i64 8
+  %_M_bucket_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.21.0652, i64 8
   %43 = load i64, ptr %_M_bucket_count.i.i.i.i.i.i.i.i.i.i, align 8
-  %44 = load ptr, ptr %ei.sroa.21.0649, align 8
+  %44 = load ptr, ptr %ei.sroa.21.0652, align 8
   br label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.split
@@ -6538,7 +6538,7 @@ lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.end3.i.i.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i
   %53 = load ptr, ptr %ei.sroa.0.1, align 8
-  %cmp.i.i.i.i.not.i.i.i.i = icmp eq ptr %53, %ei.sroa.35.0651
+  %cmp.i.i.i.i.not.i.i.i.i = icmp eq ptr %53, %ei.sroa.35.0650
   br i1 %cmp.i.i.i.i.not.i.i.i.i, label %invoke.cont91, label %land.rhs.i.i.i.i, !llvm.loop !57
 
 invoke.cont91:                                    ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i, %while.body.i.i.i.i.loopexit.us, %if.end3.i.i.i.i.i.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i.i.i.us, %invoke.cont82
@@ -6559,7 +6559,7 @@ if.then.i.i231:                                   ; preds = %invoke.cont91
 
 invoke.cont.i.i.i.i.i.i.i.i249:                   ; preds = %if.then.i.i231
   %m_storage.i2.i.i.i.i.i.i.i.i251 = getelementptr inbounds i8, ptr %54, i64 24
-  store ptr %ei.sroa.0.0648, ptr %m_storage.i2.i.i.i.i.i.i.i.i251, align 8
+  store ptr %ei.sroa.0.0654, ptr %m_storage.i2.i.i.i.i.i.i.i.i251, align 8
   %ref.tmp86.sroa.11.sroa.3.0.m_storage.i2.i.i.i.i.i.i.i.i251.sroa_idx = getelementptr inbounds i8, ptr %54, i64 32
   store i64 %31, ptr %ref.tmp86.sroa.11.sroa.3.0.m_storage.i2.i.i.i.i.i.i.i.i251.sroa_idx, align 8
   store i8 1, ptr %second.i.i.i.i.i232, align 8
@@ -6569,15 +6569,15 @@ _ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9u
   %second.i.i.i.i.i.i236 = getelementptr inbounds i8, ptr %54, i64 40
   store ptr %ei.sroa.0.2, ptr %second.i.i.i.i.i.i236, align 8
   %m_predicate.i.i.i.i.i.i.i.i238 = getelementptr inbounds i8, ptr %54, i64 48
-  store ptr %ei.sroa.21.0649, ptr %m_predicate.i.i.i.i.i.i.i.i238, align 8
+  store ptr %ei.sroa.21.0652, ptr %m_predicate.i.i.i.i.i.i.i.i238, align 8
   %ref.tmp86.sroa.17.sroa.3.0.m_predicate.i.i.i.i.i.i.i.i238.sroa_idx = getelementptr inbounds i8, ptr %54, i64 56
   store i64 %ei.sroa.29.8.copyload557, ptr %ref.tmp86.sroa.17.sroa.3.0.m_predicate.i.i.i.i.i.i.i.i238.sroa_idx, align 8
   %ref.tmp86.sroa.17.sroa.4.0.m_predicate.i.i.i.i.i.i.i.i238.sroa_idx = getelementptr inbounds i8, ptr %54, i64 64
-  store ptr %ei.sroa.32.0653, ptr %ref.tmp86.sroa.17.sroa.4.0.m_predicate.i.i.i.i.i.i.i.i238.sroa_idx, align 8
+  store ptr %ei.sroa.32.0649, ptr %ref.tmp86.sroa.17.sroa.4.0.m_predicate.i.i.i.i.i.i.i.i238.sroa_idx, align 8
   %m_end.i.i.i.i.i.i.i.i240 = getelementptr inbounds i8, ptr %54, i64 72
-  store ptr %ei.sroa.35.0651, ptr %m_end.i.i.i.i.i.i.i.i240, align 8
+  store ptr %ei.sroa.35.0650, ptr %m_end.i.i.i.i.i.i.i.i240, align 8
   %second.i.i.i.i.i.i.i242 = getelementptr inbounds i8, ptr %54, i64 80
-  store ptr %ei_end.sroa.0.0654, ptr %second.i.i.i.i.i.i.i242, align 8
+  store ptr %ei_end.sroa.0.0648, ptr %second.i.i.i.i.i.i.i242, align 8
   %m_predicate.i2.i.i.i.i.i.i.i244 = getelementptr inbounds i8, ptr %54, i64 88
   store ptr %ei_end.sroa.10.0655, ptr %m_predicate.i2.i.i.i.i.i.i.i244, align 8
   %ref.tmp86.sroa.26.sroa.3.0.m_predicate.i2.i.i.i.i.i.i.i244.sroa_idx = getelementptr inbounds i8, ptr %54, i64 96
@@ -6633,7 +6633,7 @@ _ZNSt12_Vector_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_grap
 
 invoke.cont.i.i.i.i.i.i.i:                        ; preds = %_ZNSt12_Vector_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INSA_9iterators15filter_iteratorINSA_6detail18out_edge_predicateINS1_15bad_edge_filterISt13unordered_setISD_St4hashISD_ESt8equal_toISD_ESaISD_EEEENSA_8keep_allENSA_14filtered_graphIS5_SR_SS_EEEENS8_17out_edge_iteratorEEESX_EEESaIS10_EE11_M_allocateEm.exit.i
   %m_storage.i2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
-  store ptr %ei.sroa.0.0648, ptr %m_storage.i2.i.i.i.i.i.i.i, align 8
+  store ptr %ei.sroa.0.0654, ptr %m_storage.i2.i.i.i.i.i.i.i, align 8
   %ref.tmp86.sroa.11.sroa.3.0.m_storage.i2.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   store i64 %31, ptr %ref.tmp86.sroa.11.sroa.3.0.m_storage.i2.i.i.i.i.i.i.i.sroa_idx, align 8
   store i8 1, ptr %second.i.i.i.i435, align 8
@@ -6643,15 +6643,15 @@ invoke.cont.i438:                                 ; preds = %invoke.cont.i.i.i.i
   %second.i.i.i.i.i439 = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
   store ptr %ei.sroa.0.2, ptr %second.i.i.i.i.i439, align 8
   %m_predicate.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 48
-  store ptr %ei.sroa.21.0649, ptr %m_predicate.i.i.i.i.i.i.i, align 8
+  store ptr %ei.sroa.21.0652, ptr %m_predicate.i.i.i.i.i.i.i, align 8
   %ref.tmp86.sroa.17.sroa.3.0.m_predicate.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 56
   store i64 %ei.sroa.29.8.copyload557, ptr %ref.tmp86.sroa.17.sroa.3.0.m_predicate.i.i.i.i.i.i.i.sroa_idx, align 8
   %ref.tmp86.sroa.17.sroa.4.0.m_predicate.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 64
-  store ptr %ei.sroa.32.0653, ptr %ref.tmp86.sroa.17.sroa.4.0.m_predicate.i.i.i.i.i.i.i.sroa_idx, align 8
+  store ptr %ei.sroa.32.0649, ptr %ref.tmp86.sroa.17.sroa.4.0.m_predicate.i.i.i.i.i.i.i.sroa_idx, align 8
   %m_end.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 72
-  store ptr %ei.sroa.35.0651, ptr %m_end.i.i.i.i.i.i.i, align 8
+  store ptr %ei.sroa.35.0650, ptr %m_end.i.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i441 = getelementptr inbounds i8, ptr %add.ptr.i, i64 80
-  store ptr %ei_end.sroa.0.0654, ptr %second.i.i.i.i.i.i441, align 8
+  store ptr %ei_end.sroa.0.0648, ptr %second.i.i.i.i.i.i441, align 8
   %m_predicate.i2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 88
   store ptr %ei_end.sroa.10.0655, ptr %m_predicate.i2.i.i.i.i.i.i, align 8
   %ref.tmp86.sroa.26.sroa.3.0.m_predicate.i2.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 96
@@ -6970,13 +6970,13 @@ lpad.i:                                           ; preds = %.noexc354
   br label %ehcleanup146
 
 invoke.cont136:                                   ; preds = %invoke.cont73
-  %92 = load ptr, ptr %ei.sroa.0.0648, align 8
-  %cmp.i.i.i.i.not5.i.i.i.i362 = icmp eq ptr %92, %ei.sroa.35.0651
+  %92 = load ptr, ptr %ei.sroa.0.0654, align 8
+  %cmp.i.i.i.i.not5.i.i.i.i362 = icmp eq ptr %92, %ei.sroa.35.0650
   br i1 %cmp.i.i.i.i.not5.i.i.i.i362, label %if.end139, label %land.rhs.lr.ph.i.i.i.i363
 
 land.rhs.lr.ph.i.i.i.i363:                        ; preds = %invoke.cont136
-  %_M_element_count.i.i.i.i.i.i.i.i.i.i365 = getelementptr inbounds i8, ptr %ei.sroa.21.0649, i64 24
-  %_M_before_begin.i.i.i.i.i.i.i.i.i.i.i367 = getelementptr inbounds i8, ptr %ei.sroa.21.0649, i64 16
+  %_M_element_count.i.i.i.i.i.i.i.i.i.i365 = getelementptr inbounds i8, ptr %ei.sroa.21.0652, i64 24
+  %_M_before_begin.i.i.i.i.i.i.i.i.i.i.i367 = getelementptr inbounds i8, ptr %ei.sroa.21.0652, i64 16
   %93 = load i64, ptr %_M_element_count.i.i.i.i.i.i.i.i.i.i365, align 8
   %cmp.not.not.i.i.i.i.i.i.i.i.i370 = icmp eq i64 %93, 0
   br i1 %cmp.not.not.i.i.i.i.i.i.i.i.i370, label %land.rhs.i.i.i.i368.us, label %land.rhs.lr.ph.i.i.i.i363.split
@@ -6999,13 +6999,13 @@ for.body.i.i.i.i.i.i.i.i.i399.us:                 ; preds = %for.cond.i.i.i.i.i.
 
 while.body.i.i.i.i393.loopexit.us:                ; preds = %for.body.i.i.i.i.i.i.i.i.i399.us
   %94 = load ptr, ptr %ei.sroa.0.3.us, align 8
-  %cmp.i.i.i.i.not.i.i.i.i394.us = icmp eq ptr %94, %ei.sroa.35.0651
+  %cmp.i.i.i.i.not.i.i.i.i394.us = icmp eq ptr %94, %ei.sroa.35.0650
   br i1 %cmp.i.i.i.i.not.i.i.i.i394.us, label %if.end139, label %land.rhs.i.i.i.i368.us, !llvm.loop !57
 
 land.rhs.lr.ph.i.i.i.i363.split:                  ; preds = %land.rhs.lr.ph.i.i.i.i363
-  %_M_bucket_count.i.i.i.i.i.i.i.i.i.i366 = getelementptr inbounds i8, ptr %ei.sroa.21.0649, i64 8
+  %_M_bucket_count.i.i.i.i.i.i.i.i.i.i366 = getelementptr inbounds i8, ptr %ei.sroa.21.0652, i64 8
   %95 = load i64, ptr %_M_bucket_count.i.i.i.i.i.i.i.i.i.i366, align 8
-  %96 = load ptr, ptr %ei.sroa.21.0649, align 8
+  %96 = load ptr, ptr %ei.sroa.21.0652, align 8
   br label %land.rhs.i.i.i.i368
 
 land.rhs.i.i.i.i368:                              ; preds = %while.body.i.i.i.i393, %land.rhs.lr.ph.i.i.i.i363.split
@@ -7052,15 +7052,15 @@ lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i384:           ; preds = %if.end3.i.i.i.i.i.i
 
 while.body.i.i.i.i393:                            ; preds = %for.cond.i.i.i.i.i.i.i.i.i.i.i388, %if.end.i.i.i.i.i.i.i.i.i.i.i375
   %105 = load ptr, ptr %ei.sroa.0.3, align 8
-  %cmp.i.i.i.i.not.i.i.i.i394 = icmp eq ptr %105, %ei.sroa.35.0651
+  %cmp.i.i.i.i.not.i.i.i.i394 = icmp eq ptr %105, %ei.sroa.35.0650
   br i1 %cmp.i.i.i.i.not.i.i.i.i394, label %if.end139, label %land.rhs.i.i.i.i368, !llvm.loop !57
 
 if.end139:                                        ; preds = %land.rhs.i.i.i285, %while.body.i.i.i317, %while.body.i.i.loopexit.us.i329, %land.rhs.i.i.i.i368, %while.body.i.i.i.i393, %while.body.i.i.i.i393.loopexit.us, %if.end3.i.i.i.i.i.i.i.i.i.i297, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i300, %for.cond.i.i.i.i.i.i.i.us.i321, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i384, %if.end3.i.i.i.i.i.i.i.i.i.i.i381, %for.cond.i.i.i.i.i.i.i.i.i395.us, %invoke.cont104, %invoke.cont136
-  %ei.sroa.0.5 = phi ptr [ %92, %invoke.cont136 ], [ %71, %invoke.cont104 ], [ %ei.sroa.0.3.us, %for.cond.i.i.i.i.i.i.i.i.i395.us ], [ %ei.sroa.0.3, %if.end3.i.i.i.i.i.i.i.i.i.i.i381 ], [ %ei.sroa.0.3, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i384 ], [ %ref.tmp4.sroa.0.0.us.i320, %for.cond.i.i.i.i.i.i.i.us.i321 ], [ %ref.tmp4.sroa.0.0.i286, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i300 ], [ %ref.tmp4.sroa.0.0.i286, %if.end3.i.i.i.i.i.i.i.i.i.i297 ], [ %94, %while.body.i.i.i.i393.loopexit.us ], [ %ei.sroa.0.3, %land.rhs.i.i.i.i368 ], [ %105, %while.body.i.i.i.i393 ], [ %73, %while.body.i.i.loopexit.us.i329 ], [ %84, %while.body.i.i.i317 ], [ %ref.tmp4.sroa.0.0.i286, %land.rhs.i.i.i285 ]
-  %ei.sroa.21.1 = phi ptr [ %ei.sroa.21.0649, %invoke.cont136 ], [ %agg.tmp.sroa.0.0.copyload.i276, %invoke.cont104 ], [ %ei.sroa.21.0649, %for.cond.i.i.i.i.i.i.i.i.i395.us ], [ %ei.sroa.21.0649, %if.end3.i.i.i.i.i.i.i.i.i.i.i381 ], [ %ei.sroa.21.0649, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i384 ], [ %agg.tmp.sroa.0.0.copyload.i276, %for.cond.i.i.i.i.i.i.i.us.i321 ], [ %agg.tmp.sroa.0.0.copyload.i276, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i300 ], [ %agg.tmp.sroa.0.0.copyload.i276, %if.end3.i.i.i.i.i.i.i.i.i.i297 ], [ %ei.sroa.21.0649, %while.body.i.i.i.i393.loopexit.us ], [ %ei.sroa.21.0649, %while.body.i.i.i.i393 ], [ %ei.sroa.21.0649, %land.rhs.i.i.i.i368 ], [ %agg.tmp.sroa.0.0.copyload.i276, %while.body.i.i.loopexit.us.i329 ], [ %agg.tmp.sroa.0.0.copyload.i276, %while.body.i.i.i317 ], [ %agg.tmp.sroa.0.0.copyload.i276, %land.rhs.i.i.i285 ]
-  %ei.sroa.35.1 = phi ptr [ %ei.sroa.35.0651, %invoke.cont136 ], [ %m_header.i.i.i.i.i277, %invoke.cont104 ], [ %ei.sroa.35.0651, %for.cond.i.i.i.i.i.i.i.i.i395.us ], [ %ei.sroa.35.0651, %if.end3.i.i.i.i.i.i.i.i.i.i.i381 ], [ %ei.sroa.35.0651, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i384 ], [ %m_header.i.i.i.i.i277, %for.cond.i.i.i.i.i.i.i.us.i321 ], [ %m_header.i.i.i.i.i277, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i300 ], [ %m_header.i.i.i.i.i277, %if.end3.i.i.i.i.i.i.i.i.i.i297 ], [ %ei.sroa.35.0651, %while.body.i.i.i.i393.loopexit.us ], [ %ei.sroa.35.0651, %while.body.i.i.i.i393 ], [ %ei.sroa.35.0651, %land.rhs.i.i.i.i368 ], [ %m_header.i.i.i.i.i277, %while.body.i.i.loopexit.us.i329 ], [ %m_header.i.i.i.i.i277, %while.body.i.i.i317 ], [ %m_header.i.i.i.i.i277, %land.rhs.i.i.i285 ]
-  %ei.sroa.32.1 = phi ptr [ %ei.sroa.32.0653, %invoke.cont136 ], [ %g, %invoke.cont104 ], [ %ei.sroa.32.0653, %for.cond.i.i.i.i.i.i.i.i.i395.us ], [ %ei.sroa.32.0653, %if.end3.i.i.i.i.i.i.i.i.i.i.i381 ], [ %ei.sroa.32.0653, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i384 ], [ %g, %for.cond.i.i.i.i.i.i.i.us.i321 ], [ %g, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i300 ], [ %g, %if.end3.i.i.i.i.i.i.i.i.i.i297 ], [ %ei.sroa.32.0653, %while.body.i.i.i.i393.loopexit.us ], [ %ei.sroa.32.0653, %while.body.i.i.i.i393 ], [ %ei.sroa.32.0653, %land.rhs.i.i.i.i368 ], [ %g, %while.body.i.i.loopexit.us.i329 ], [ %g, %while.body.i.i.i317 ], [ %g, %land.rhs.i.i.i285 ]
-  %ei_end.sroa.0.1 = phi ptr [ %ei_end.sroa.0.0654, %invoke.cont136 ], [ %m_header.i.i.i.i.i277, %invoke.cont104 ], [ %ei_end.sroa.0.0654, %for.cond.i.i.i.i.i.i.i.i.i395.us ], [ %ei_end.sroa.0.0654, %if.end3.i.i.i.i.i.i.i.i.i.i.i381 ], [ %ei_end.sroa.0.0654, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i384 ], [ %m_header.i.i.i.i.i277, %for.cond.i.i.i.i.i.i.i.us.i321 ], [ %m_header.i.i.i.i.i277, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i300 ], [ %m_header.i.i.i.i.i277, %if.end3.i.i.i.i.i.i.i.i.i.i297 ], [ %ei_end.sroa.0.0654, %while.body.i.i.i.i393.loopexit.us ], [ %ei_end.sroa.0.0654, %while.body.i.i.i.i393 ], [ %ei_end.sroa.0.0654, %land.rhs.i.i.i.i368 ], [ %m_header.i.i.i.i.i277, %while.body.i.i.loopexit.us.i329 ], [ %m_header.i.i.i.i.i277, %while.body.i.i.i317 ], [ %m_header.i.i.i.i.i277, %land.rhs.i.i.i285 ]
+  %ei_end.sroa.0.1 = phi ptr [ %ei_end.sroa.0.0648, %invoke.cont136 ], [ %m_header.i.i.i.i.i277, %invoke.cont104 ], [ %ei_end.sroa.0.0648, %for.cond.i.i.i.i.i.i.i.i.i395.us ], [ %ei_end.sroa.0.0648, %if.end3.i.i.i.i.i.i.i.i.i.i.i381 ], [ %ei_end.sroa.0.0648, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i384 ], [ %m_header.i.i.i.i.i277, %for.cond.i.i.i.i.i.i.i.us.i321 ], [ %m_header.i.i.i.i.i277, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i300 ], [ %m_header.i.i.i.i.i277, %if.end3.i.i.i.i.i.i.i.i.i.i297 ], [ %ei_end.sroa.0.0648, %while.body.i.i.i.i393.loopexit.us ], [ %ei_end.sroa.0.0648, %while.body.i.i.i.i393 ], [ %ei_end.sroa.0.0648, %land.rhs.i.i.i.i368 ], [ %m_header.i.i.i.i.i277, %while.body.i.i.loopexit.us.i329 ], [ %m_header.i.i.i.i.i277, %while.body.i.i.i317 ], [ %m_header.i.i.i.i.i277, %land.rhs.i.i.i285 ]
+  %ei.sroa.32.1 = phi ptr [ %ei.sroa.32.0649, %invoke.cont136 ], [ %g, %invoke.cont104 ], [ %ei.sroa.32.0649, %for.cond.i.i.i.i.i.i.i.i.i395.us ], [ %ei.sroa.32.0649, %if.end3.i.i.i.i.i.i.i.i.i.i.i381 ], [ %ei.sroa.32.0649, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i384 ], [ %g, %for.cond.i.i.i.i.i.i.i.us.i321 ], [ %g, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i300 ], [ %g, %if.end3.i.i.i.i.i.i.i.i.i.i297 ], [ %ei.sroa.32.0649, %while.body.i.i.i.i393.loopexit.us ], [ %ei.sroa.32.0649, %while.body.i.i.i.i393 ], [ %ei.sroa.32.0649, %land.rhs.i.i.i.i368 ], [ %g, %while.body.i.i.loopexit.us.i329 ], [ %g, %while.body.i.i.i317 ], [ %g, %land.rhs.i.i.i285 ]
+  %ei.sroa.35.1 = phi ptr [ %ei.sroa.35.0650, %invoke.cont136 ], [ %m_header.i.i.i.i.i277, %invoke.cont104 ], [ %ei.sroa.35.0650, %for.cond.i.i.i.i.i.i.i.i.i395.us ], [ %ei.sroa.35.0650, %if.end3.i.i.i.i.i.i.i.i.i.i.i381 ], [ %ei.sroa.35.0650, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i384 ], [ %m_header.i.i.i.i.i277, %for.cond.i.i.i.i.i.i.i.us.i321 ], [ %m_header.i.i.i.i.i277, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i300 ], [ %m_header.i.i.i.i.i277, %if.end3.i.i.i.i.i.i.i.i.i.i297 ], [ %ei.sroa.35.0650, %while.body.i.i.i.i393.loopexit.us ], [ %ei.sroa.35.0650, %while.body.i.i.i.i393 ], [ %ei.sroa.35.0650, %land.rhs.i.i.i.i368 ], [ %m_header.i.i.i.i.i277, %while.body.i.i.loopexit.us.i329 ], [ %m_header.i.i.i.i.i277, %while.body.i.i.i317 ], [ %m_header.i.i.i.i.i277, %land.rhs.i.i.i285 ]
+  %ei.sroa.21.1 = phi ptr [ %ei.sroa.21.0652, %invoke.cont136 ], [ %agg.tmp.sroa.0.0.copyload.i276, %invoke.cont104 ], [ %ei.sroa.21.0652, %for.cond.i.i.i.i.i.i.i.i.i395.us ], [ %ei.sroa.21.0652, %if.end3.i.i.i.i.i.i.i.i.i.i.i381 ], [ %ei.sroa.21.0652, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i384 ], [ %agg.tmp.sroa.0.0.copyload.i276, %for.cond.i.i.i.i.i.i.i.us.i321 ], [ %agg.tmp.sroa.0.0.copyload.i276, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i300 ], [ %agg.tmp.sroa.0.0.copyload.i276, %if.end3.i.i.i.i.i.i.i.i.i.i297 ], [ %ei.sroa.21.0652, %while.body.i.i.i.i393.loopexit.us ], [ %ei.sroa.21.0652, %while.body.i.i.i.i393 ], [ %ei.sroa.21.0652, %land.rhs.i.i.i.i368 ], [ %agg.tmp.sroa.0.0.copyload.i276, %while.body.i.i.loopexit.us.i329 ], [ %agg.tmp.sroa.0.0.copyload.i276, %while.body.i.i.i317 ], [ %agg.tmp.sroa.0.0.copyload.i276, %land.rhs.i.i.i285 ]
+  %ei.sroa.0.5 = phi ptr [ %92, %invoke.cont136 ], [ %71, %invoke.cont104 ], [ %ei.sroa.0.3.us, %for.cond.i.i.i.i.i.i.i.i.i395.us ], [ %ei.sroa.0.3, %if.end3.i.i.i.i.i.i.i.i.i.i.i381 ], [ %ei.sroa.0.3, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i384 ], [ %ref.tmp4.sroa.0.0.us.i320, %for.cond.i.i.i.i.i.i.i.us.i321 ], [ %ref.tmp4.sroa.0.0.i286, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i300 ], [ %ref.tmp4.sroa.0.0.i286, %if.end3.i.i.i.i.i.i.i.i.i.i297 ], [ %94, %while.body.i.i.i.i393.loopexit.us ], [ %ei.sroa.0.3, %land.rhs.i.i.i.i368 ], [ %105, %while.body.i.i.i.i393 ], [ %73, %while.body.i.i.loopexit.us.i329 ], [ %ref.tmp4.sroa.0.0.i286, %land.rhs.i.i.i285 ], [ %84, %while.body.i.i.i317 ]
   %ei_end.sroa.10.1 = phi ptr [ %ei_end.sroa.10.0655, %invoke.cont136 ], [ %agg.tmp.sroa.0.0.copyload.i276, %invoke.cont104 ], [ %ei_end.sroa.10.0655, %for.cond.i.i.i.i.i.i.i.i.i395.us ], [ %ei_end.sroa.10.0655, %if.end3.i.i.i.i.i.i.i.i.i.i.i381 ], [ %ei_end.sroa.10.0655, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i384 ], [ %agg.tmp.sroa.0.0.copyload.i276, %for.cond.i.i.i.i.i.i.i.us.i321 ], [ %agg.tmp.sroa.0.0.copyload.i276, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i300 ], [ %agg.tmp.sroa.0.0.copyload.i276, %if.end3.i.i.i.i.i.i.i.i.i.i297 ], [ %ei_end.sroa.10.0655, %while.body.i.i.i.i393.loopexit.us ], [ %ei_end.sroa.10.0655, %while.body.i.i.i.i393 ], [ %ei_end.sroa.10.0655, %land.rhs.i.i.i.i368 ], [ %agg.tmp.sroa.0.0.copyload.i276, %while.body.i.i.loopexit.us.i329 ], [ %agg.tmp.sroa.0.0.copyload.i276, %while.body.i.i.i317 ], [ %agg.tmp.sroa.0.0.copyload.i276, %land.rhs.i.i.i285 ]
   %ei_end.sroa.22.1 = phi ptr [ %ei_end.sroa.22.0656, %invoke.cont136 ], [ %m_header.i.i.i.i.i277, %invoke.cont104 ], [ %ei_end.sroa.22.0656, %for.cond.i.i.i.i.i.i.i.i.i395.us ], [ %ei_end.sroa.22.0656, %if.end3.i.i.i.i.i.i.i.i.i.i.i381 ], [ %ei_end.sroa.22.0656, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i384 ], [ %m_header.i.i.i.i.i277, %for.cond.i.i.i.i.i.i.i.us.i321 ], [ %m_header.i.i.i.i.i277, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i300 ], [ %m_header.i.i.i.i.i277, %if.end3.i.i.i.i.i.i.i.i.i.i297 ], [ %ei_end.sroa.22.0656, %while.body.i.i.i.i393.loopexit.us ], [ %ei_end.sroa.22.0656, %while.body.i.i.i.i393 ], [ %ei_end.sroa.22.0656, %land.rhs.i.i.i.i368 ], [ %m_header.i.i.i.i.i277, %while.body.i.i.loopexit.us.i329 ], [ %m_header.i.i.i.i.i277, %while.body.i.i.i317 ], [ %m_header.i.i.i.i.i277, %land.rhs.i.i.i285 ]
   %ei_end.sroa.20.1 = phi ptr [ %ei_end.sroa.20.0657, %invoke.cont136 ], [ %g, %invoke.cont104 ], [ %ei_end.sroa.20.0657, %for.cond.i.i.i.i.i.i.i.i.i395.us ], [ %ei_end.sroa.20.0657, %if.end3.i.i.i.i.i.i.i.i.i.i.i381 ], [ %ei_end.sroa.20.0657, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i.i384 ], [ %g, %for.cond.i.i.i.i.i.i.i.us.i321 ], [ %g, %lor.lhs.false.i.i.i.i.i.i.i.i.i.i300 ], [ %g, %if.end3.i.i.i.i.i.i.i.i.i.i297 ], [ %ei_end.sroa.20.0657, %while.body.i.i.i.i393.loopexit.us ], [ %ei_end.sroa.20.0657, %while.body.i.i.i.i393 ], [ %ei_end.sroa.20.0657, %land.rhs.i.i.i.i368 ], [ %g, %while.body.i.i.loopexit.us.i329 ], [ %g, %while.body.i.i.i317 ], [ %g, %land.rhs.i.i.i285 ]

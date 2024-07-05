@@ -638,7 +638,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_ukaddwP11p
   br label %53
 
 53:                                               ; preds = %51, %48
-  %.027 = phi i64 [ -1, %48 ], [ %52, %51 ]
+  %.028 = phi i64 [ -1, %48 ], [ %52, %51 ]
   %54 = lshr i64 %1, 7
   %55 = and i64 %54, 31
   %56 = icmp ugt i64 %55, 15
@@ -662,7 +662,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_ukaddwP11p
 
 63:                                               ; preds = %62
   %64 = getelementptr inbounds [32 x i64], ptr %30, i64 0, i64 %55
-  store i64 %.027, ptr %64, align 8
+  store i64 %.028, ptr %64, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %62, %63
@@ -770,7 +770,7 @@ define noundef i64 @_Z17fast_rv64e_ukaddwP11processor_t6insn_tm(ptr nocapture no
   br label %53
 
 53:                                               ; preds = %51, %48
-  %.027 = phi i64 [ -1, %48 ], [ %52, %51 ]
+  %.028 = phi i64 [ -1, %48 ], [ %52, %51 ]
   %54 = lshr i64 %1, 7
   %55 = and i64 %54, 31
   %56 = icmp ugt i64 %55, 15
@@ -794,7 +794,7 @@ define noundef i64 @_Z17fast_rv64e_ukaddwP11processor_t6insn_tm(ptr nocapture no
 
 63:                                               ; preds = %62
   %64 = getelementptr inbounds [32 x i64], ptr %30, i64 0, i64 %55
-  store i64 %.027, ptr %64, align 8
+  store i64 %.028, ptr %64, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %62, %63

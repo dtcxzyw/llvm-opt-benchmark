@@ -358,13 +358,13 @@ cond.end.lr.ph.i:                                 ; preds = %if.end8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %process_cqe.exit.thread.i, %cond.end.lr.ph.i
-  %head.019.i = phi i32 [ %12, %cond.end.lr.ph.i ], [ %inc5.i, %process_cqe.exit.thread.i ]
-  %num_ready.018.i = phi i32 [ 0, %cond.end.lr.ph.i ], [ %24, %process_cqe.exit.thread.i ]
-  %num_cqes.017.i = phi i32 [ 0, %cond.end.lr.ph.i ], [ %inc4.i, %process_cqe.exit.thread.i ]
+  %num_cqes.019.i = phi i32 [ 0, %cond.end.lr.ph.i ], [ %inc4.i, %process_cqe.exit.thread.i ]
+  %head.018.i = phi i32 [ %12, %cond.end.lr.ph.i ], [ %inc5.i, %process_cqe.exit.thread.i ]
+  %num_ready.017.i = phi i32 [ 0, %cond.end.lr.ph.i ], [ %24, %process_cqe.exit.thread.i ]
   %15 = load ptr, ptr %cqes.i, align 8
   %16 = load ptr, ptr %kring_mask.i, align 8
   %17 = load i32, ptr %16, align 4
-  %and.i8 = and i32 %17, %head.019.i
+  %and.i8 = and i32 %17, %head.018.i
   %idxprom.i = zext i32 %and.i8 to i64
   %arrayidx.i = getelementptr %struct.io_uring_cqe, ptr %15, i64 %idxprom.i
   %tobool.not.i = icmp eq ptr %arrayidx.i, null
@@ -405,21 +405,21 @@ if.then15.i.i:                                    ; preds = %do.body.i.i10
   %or11.i.i.i = and i32 %23, 29
   call void @aio_add_ready_handler(ptr noundef %ready_list, ptr noundef nonnull %18, i32 noundef %or11.i.i.i) #6
   call fastcc void @add_poll_add_sqe(ptr noundef nonnull %ctx, ptr noundef nonnull %18)
-  %inc.i = add i32 %num_ready.018.i, 1
+  %inc.i = add i32 %num_ready.017.i, 1
   br label %process_cqe.exit.thread.i
 
 process_cqe.exit.thread.i:                        ; preds = %22, %if.then15.i.i, %do.body.i.i10, %for.body.i
-  %24 = phi i32 [ %inc.i, %22 ], [ %num_ready.018.i, %for.body.i ], [ %num_ready.018.i, %do.body.i.i10 ], [ %num_ready.018.i, %if.then15.i.i ]
-  %inc4.i = add i32 %num_cqes.017.i, 1
-  %inc5.i = add i32 %head.019.i, 1
+  %24 = phi i32 [ %inc.i, %22 ], [ %num_ready.017.i, %for.body.i ], [ %num_ready.017.i, %do.body.i.i10 ], [ %num_ready.017.i, %if.then15.i.i ]
+  %inc4.i = add i32 %num_cqes.019.i, 1
+  %inc5.i = add i32 %head.018.i, 1
   %25 = load ptr, ptr %ktail.i, align 8
   %26 = load atomic i32, ptr %25 acquire, align 4
   %cmp.not.i = icmp eq i32 %inc5.i, %26
   br i1 %cmp.not.i, label %for.end.i, label %cond.end.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %process_cqe.exit.thread.i, %cond.end.i
-  %num_cqes.0.lcssa.i = phi i32 [ %num_cqes.017.i, %cond.end.i ], [ %inc4.i, %process_cqe.exit.thread.i ]
-  %num_ready.0.lcssa.i = phi i32 [ %num_ready.018.i, %cond.end.i ], [ %24, %process_cqe.exit.thread.i ]
+  %num_ready.0.lcssa.i = phi i32 [ %num_ready.017.i, %cond.end.i ], [ %24, %process_cqe.exit.thread.i ]
+  %num_cqes.0.lcssa.i = phi i32 [ %num_cqes.019.i, %cond.end.i ], [ %inc4.i, %process_cqe.exit.thread.i ]
   %tobool.not.i10.i = icmp eq i32 %num_cqes.0.lcssa.i, 0
   br i1 %tobool.not.i10.i, label %process_cq_ring.exit, label %if.then.i.i
 

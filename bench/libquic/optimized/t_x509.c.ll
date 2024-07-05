@@ -1097,8 +1097,8 @@ if.end3:                                          ; preds = %if.end
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end59, %if.end3
-  %s.0 = phi ptr [ %add.ptr, %if.end3 ], [ %incdec.ptr, %if.end59 ]
   %c.0 = phi ptr [ %add.ptr, %if.end3 ], [ %c.128, %if.end59 ]
+  %s.0 = phi ptr [ %add.ptr, %if.end3 ], [ %incdec.ptr, %if.end59 ]
   %1 = load i8, ptr %s.0, align 1
   switch i8 %1, label %if.end59 [
     i8 47, label %land.lhs.true

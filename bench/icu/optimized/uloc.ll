@@ -5199,8 +5199,8 @@ ehcleanup133:                                     ; preds = %ehcleanup, %lpad70
   br label %ehcleanup260
 
 if.end135:                                        ; preds = %invoke.cont58, %if.else61, %if.end132
-  %scriptSize.0 = phi i32 [ %29, %if.end132 ], [ 0, %if.else61 ], [ 0, %invoke.cont58 ]
   %variantSize.2 = phi i32 [ %variantSize.1, %if.end132 ], [ 0, %if.else61 ], [ 0, %invoke.cont58 ]
+  %scriptSize.0 = phi i32 [ %29, %if.end132 ], [ 0, %if.else61 ], [ 0, %invoke.cont58 ]
   %fieldCount.4 = phi i32 [ %fieldCount.3, %if.end132 ], [ 0, %if.else61 ], [ 0, %invoke.cont58 ]
   %and = and i32 %options, 1
   %cmp136.not = icmp eq i32 %and, 0

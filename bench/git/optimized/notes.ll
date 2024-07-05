@@ -2051,7 +2051,7 @@ redo.preheader.us.us:                             ; preds = %determine_fanout.ex
 while.body.i46.us.us:                             ; preds = %sw.bb45.split.us.split.us.us.us, %while.body.i46.us.us
   %indvars.iv7.i47.us.us = phi i64 [ %indvars.iv.next8.i55.us.us, %while.body.i46.us.us ], [ 0, %sw.bb45.split.us.split.us.us.us ]
   %indvars.iv.i48.us.us = phi i64 [ %indvars.iv.next.i52.us.us, %while.body.i46.us.us ], [ 0, %sw.bb45.split.us.split.us.us.us ]
-  %fanout.addr.02.i49.us.us = phi i8 [ %dec.i57.us.us, %while.body.i46.us.us ], [ %retval.0.i, %sw.bb45.split.us.split.us.us.us ]
+  %fanout.addr.04.i49.us.us = phi i8 [ %dec.i57.us.us, %while.body.i46.us.us ], [ %retval.0.i, %sw.bb45.split.us.split.us.us.us ]
   %2 = or disjoint i64 %indvars.iv.i48.us.us, 1
   %arrayidx.i50.us.us = getelementptr inbounds i8, ptr %call.i44.us.us, i64 %indvars.iv.i48.us.us
   %3 = load i8, ptr %arrayidx.i50.us.us, align 1
@@ -2065,7 +2065,7 @@ while.body.i46.us.us:                             ; preds = %sw.bb45.split.us.sp
   %indvars.iv.next8.i55.us.us = add nuw nsw i64 %indvars.iv7.i47.us.us, 3
   %gep11.i56.us.us = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @for_each_note_helper.path, i64 2), i64 %indvars.iv7.i47.us.us
   store i8 47, ptr %gep11.i56.us.us, align 1
-  %dec.i57.us.us = add i8 %fanout.addr.02.i49.us.us, -1
+  %dec.i57.us.us = add i8 %fanout.addr.04.i49.us.us, -1
   %tobool.not.i58.us.us = icmp eq i8 %dec.i57.us.us, 0
   br i1 %tobool.not.i58.us.us, label %while.end.loopexit.i59.us.us, label %while.body.i46.us.us, !llvm.loop !14
 
@@ -2150,7 +2150,7 @@ redo.preheader.us:                                ; preds = %determine_fanout.ex
 while.body.i46.us:                                ; preds = %sw.bb45.split.us.split.us80, %while.body.i46.us
   %indvars.iv7.i47.us = phi i64 [ %indvars.iv.next8.i55.us, %while.body.i46.us ], [ 0, %sw.bb45.split.us.split.us80 ]
   %indvars.iv.i48.us = phi i64 [ %indvars.iv.next.i52.us, %while.body.i46.us ], [ 0, %sw.bb45.split.us.split.us80 ]
-  %fanout.addr.02.i49.us = phi i8 [ %dec.i57.us, %while.body.i46.us ], [ %retval.0.i, %sw.bb45.split.us.split.us80 ]
+  %fanout.addr.04.i49.us = phi i8 [ %dec.i57.us, %while.body.i46.us ], [ %retval.0.i, %sw.bb45.split.us.split.us80 ]
   %14 = or disjoint i64 %indvars.iv.i48.us, 1
   %arrayidx.i50.us = getelementptr inbounds i8, ptr %call.i44.us, i64 %indvars.iv.i48.us
   %15 = load i8, ptr %arrayidx.i50.us, align 1
@@ -2164,7 +2164,7 @@ while.body.i46.us:                                ; preds = %sw.bb45.split.us.sp
   %indvars.iv.next8.i55.us = add nuw nsw i64 %indvars.iv7.i47.us, 3
   %gep11.i56.us = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @for_each_note_helper.path, i64 2), i64 %indvars.iv7.i47.us
   store i8 47, ptr %gep11.i56.us, align 1
-  %dec.i57.us = add i8 %fanout.addr.02.i49.us, -1
+  %dec.i57.us = add i8 %fanout.addr.04.i49.us, -1
   %tobool.not.i58.us = icmp eq i8 %dec.i57.us, 0
   br i1 %tobool.not.i58.us, label %while.end.loopexit.i59.us, label %while.body.i46.us, !llvm.loop !14
 
@@ -2255,7 +2255,7 @@ sw.bb4:                                           ; preds = %redo
 while.body.i:                                     ; preds = %sw.bb4, %while.body.i
   %indvars.iv7.i = phi i64 [ %indvars.iv.next8.i, %while.body.i ], [ 0, %sw.bb4 ]
   %indvars.iv.i39 = phi i64 [ %indvars.iv.next.i41, %while.body.i ], [ 0, %sw.bb4 ]
-  %fanout.addr.02.i = phi i8 [ %dec.i, %while.body.i ], [ %retval.0.i, %sw.bb4 ]
+  %fanout.addr.04.i = phi i8 [ %dec.i, %while.body.i ], [ %retval.0.i, %sw.bb4 ]
   %29 = or disjoint i64 %indvars.iv.i39, 1
   %arrayidx.i40 = getelementptr inbounds i8, ptr %call.i, i64 %indvars.iv.i39
   %30 = load i8, ptr %arrayidx.i40, align 1
@@ -2269,7 +2269,7 @@ while.body.i:                                     ; preds = %sw.bb4, %while.body
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 3
   %gep11.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @for_each_note_helper.path, i64 2), i64 %indvars.iv7.i
   store i8 47, ptr %gep11.i, align 1
-  %dec.i = add i8 %fanout.addr.02.i, -1
+  %dec.i = add i8 %fanout.addr.04.i, -1
   %tobool.not.i42 = icmp eq i8 %dec.i, 0
   br i1 %tobool.not.i42, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !14
 
@@ -2320,7 +2320,7 @@ sw.bb45.split:                                    ; preds = %redo
 while.body.i46:                                   ; preds = %sw.bb45.split, %while.body.i46
   %indvars.iv7.i47 = phi i64 [ %indvars.iv.next8.i55, %while.body.i46 ], [ 0, %sw.bb45.split ]
   %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i52, %while.body.i46 ], [ 0, %sw.bb45.split ]
-  %fanout.addr.02.i49 = phi i8 [ %dec.i57, %while.body.i46 ], [ %retval.0.i, %sw.bb45.split ]
+  %fanout.addr.04.i49 = phi i8 [ %dec.i57, %while.body.i46 ], [ %retval.0.i, %sw.bb45.split ]
   %35 = or disjoint i64 %indvars.iv.i48, 1
   %arrayidx.i50 = getelementptr inbounds i8, ptr %call.i44, i64 %indvars.iv.i48
   %36 = load i8, ptr %arrayidx.i50, align 1
@@ -2334,7 +2334,7 @@ while.body.i46:                                   ; preds = %sw.bb45.split, %whi
   %indvars.iv.next8.i55 = add nuw nsw i64 %indvars.iv7.i47, 3
   %gep11.i56 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @for_each_note_helper.path, i64 2), i64 %indvars.iv7.i47
   store i8 47, ptr %gep11.i56, align 1
-  %dec.i57 = add i8 %fanout.addr.02.i49, -1
+  %dec.i57 = add i8 %fanout.addr.04.i49, -1
   %tobool.not.i58 = icmp eq i8 %dec.i57, 0
   br i1 %tobool.not.i58, label %while.end.loopexit.i59, label %while.body.i46, !llvm.loop !14
 

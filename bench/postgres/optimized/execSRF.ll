@@ -425,7 +425,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   br label %89
 
 89:                                               ; preds = %160, %.loopexit115
-  %.0101.not = phi i1 [ false, %.loopexit115 ], [ true, %160 ]
+  %.0100.not = phi i1 [ false, %.loopexit115 ], [ true, %160 ]
   %.096 = phi ptr [ null, %.loopexit115 ], [ %.4, %160 ]
   %.0 = phi ptr [ null, %.loopexit115 ], [ %.1, %160 ]
   %90 = load volatile i32, ptr @InterruptPending, align 4
@@ -477,7 +477,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   br i1 %109, label %.loopexit, label %110
 
 110:                                              ; preds = %107
-  br i1 %.0101.not, label %119, label %111
+  br i1 %.0100.not, label %119, label %111
 
 111:                                              ; preds = %110
   %112 = load ptr, ptr %86, align 8
@@ -594,7 +594,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
 165:                                              ; preds = %105
   %166 = load i32, ptr %85, align 8
   %167 = icmp ne i32 %166, 0
-  %or.cond.not.not135 = select i1 %.0101.not, i1 true, i1 %167
+  %or.cond.not.not135 = select i1 %.0100.not, i1 true, i1 %167
   %.not133 = xor i1 %88, true
   %brmerge = select i1 %or.cond.not.not135, i1 true, i1 %.not133
   br i1 %brmerge, label %168, label %.loopexit

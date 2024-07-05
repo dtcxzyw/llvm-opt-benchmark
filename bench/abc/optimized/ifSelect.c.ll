@@ -293,15 +293,15 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not46, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %Vec_PtrPush.exit, %114
-  %.02948 = phi ptr [ %116, %114 ], [ %1, %Vec_PtrPush.exit ]
-  %39 = getelementptr inbounds i8, ptr %.02948, i64 24
+  %.02848 = phi ptr [ %116, %114 ], [ %1, %Vec_PtrPush.exit ]
+  %39 = getelementptr inbounds i8, ptr %.02848, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 @If_ManNodeShapeMap_rec(ptr noundef %0, ptr noundef %40, ptr noundef nonnull %2, ptr noundef %3)
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %114, label %43
 
 43:                                               ; preds = %.preheader
-  %44 = getelementptr inbounds i8, ptr %.02948, i64 32
+  %44 = getelementptr inbounds i8, ptr %.02848, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 @If_ManNodeShapeMap_rec(ptr noundef %0, ptr noundef %45, ptr noundef nonnull %2, ptr noundef %3)
   %47 = icmp eq i32 %46, -1
@@ -376,7 +376,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %80 = sext i32 %78 to i64
   %81 = getelementptr inbounds i32, ptr %77, i64 %80
   store i32 %50, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %.02948, i64 4
+  %82 = getelementptr inbounds i8, ptr %.02848, i64 4
   %83 = load i32, ptr %82, align 4
   %84 = load i32, ptr %51, align 4
   %85 = load i32, ptr %3, align 8
@@ -447,7 +447,7 @@ Vec_IntPush.exit45:                               ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit
 
 114:                                              ; preds = %43, %.preheader
-  %115 = getelementptr inbounds i8, ptr %.02948, i64 40
+  %115 = getelementptr inbounds i8, ptr %.02848, i64 40
   %116 = load ptr, ptr %115, align 8
   %.not31 = icmp eq ptr %116, null
   br i1 %.not31, label %.loopexit.loopexit, label %.preheader, !llvm.loop !7
@@ -704,16 +704,16 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 .preheader:                                       ; preds = %Vec_PtrPush.exit, %51
   %.065 = phi i32 [ %.1, %51 ], [ 0, %Vec_PtrPush.exit ]
-  %.03764 = phi ptr [ %.138, %51 ], [ null, %Vec_PtrPush.exit ]
-  %.03963 = phi ptr [ %53, %51 ], [ %1, %Vec_PtrPush.exit ]
-  %39 = getelementptr inbounds i8, ptr %.03963, i64 24
+  %.03764 = phi ptr [ %53, %51 ], [ %1, %Vec_PtrPush.exit ]
+  %.03863 = phi ptr [ %.139, %51 ], [ null, %Vec_PtrPush.exit ]
+  %39 = getelementptr inbounds i8, ptr %.03764, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 @If_ManNodeShapeMap2_rec(ptr noundef %0, ptr noundef %40, ptr noundef nonnull %2, ptr noundef %3)
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %51, label %43
 
 43:                                               ; preds = %.preheader
-  %44 = getelementptr inbounds i8, ptr %.03963, i64 32
+  %44 = getelementptr inbounds i8, ptr %.03764, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 @If_ManNodeShapeMap2_rec(ptr noundef %0, ptr noundef %45, ptr noundef nonnull %2, ptr noundef %3)
   %47 = icmp eq i32 %46, -1
@@ -722,20 +722,20 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 48:                                               ; preds = %43
   %49 = or i32 %46, %41
   %50 = icmp slt i32 %.065, %49
-  %spec.select = select i1 %50, ptr %.03963, ptr %.03764
+  %spec.select = select i1 %50, ptr %.03764, ptr %.03863
   %spec.select47 = tail call i32 @llvm.smax.i32(i32 %.065, i32 %49)
   br label %51
 
 51:                                               ; preds = %48, %43, %.preheader
-  %.138 = phi ptr [ %.03764, %.preheader ], [ %.03764, %43 ], [ %spec.select, %48 ]
+  %.139 = phi ptr [ %.03863, %.preheader ], [ %.03863, %43 ], [ %spec.select, %48 ]
   %.1 = phi i32 [ %.065, %.preheader ], [ %.065, %43 ], [ %spec.select47, %48 ]
-  %52 = getelementptr inbounds i8, ptr %.03963, i64 40
+  %52 = getelementptr inbounds i8, ptr %.03764, i64 40
   %53 = load ptr, ptr %52, align 8
   %.not45 = icmp eq ptr %53, null
   br i1 %.not45, label %54, label %.preheader, !llvm.loop !11
 
 54:                                               ; preds = %51
-  %.not46 = icmp eq ptr %.138, null
+  %.not46 = icmp eq ptr %.139, null
   br i1 %.not46, label %._crit_edge, label %55
 
 ._crit_edge:                                      ; preds = %54
@@ -811,7 +811,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %87 = sext i32 %85 to i64
   %88 = getelementptr inbounds i32, ptr %84, i64 %87
   store i32 %57, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %.138, i64 4
+  %89 = getelementptr inbounds i8, ptr %.139, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = load i32, ptr %58, align 4
   %92 = load i32, ptr %3, align 8
@@ -882,8 +882,8 @@ Vec_IntPush.exit61:                               ; preds = %.Vec_IntGrow.exit10
   br label %121
 
 121:                                              ; preds = %Vec_IntPush.exit61, %._crit_edge, %Vec_PtrPush.exit, %4
-  %.040 = phi i32 [ %.val50, %4 ], [ -1, %Vec_PtrPush.exit ], [ %.val.pre, %._crit_edge ], [ %.1, %Vec_IntPush.exit61 ]
-  ret i32 %.040
+  %.036 = phi i32 [ %.val50, %4 ], [ -1, %Vec_PtrPush.exit ], [ %.val.pre, %._crit_edge ], [ %.1, %Vec_IntPush.exit61 ]
+  ret i32 %.036
 }
 
 ; Function Attrs: nounwind uwtable

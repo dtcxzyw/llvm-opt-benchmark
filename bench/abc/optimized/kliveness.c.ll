@@ -1019,7 +1019,7 @@ define range(i32 0, 2) i32 @Abc_CommandCS_kLiveness(ptr noundef %0, i32 noundef 
   br label %25
 
 25:                                               ; preds = %23, %20
-  %.072 = phi ptr [ %24, %23 ], [ %22, %20 ]
+  %.071 = phi ptr [ %24, %23 ], [ %22, %20 ]
   %.070 = phi ptr [ %12, %23 ], [ %21, %20 ]
   %26 = icmp eq i32 %.269, 1
   br i1 %26, label %27, label %collectSafetyInvariantPOIndex.exit
@@ -1272,14 +1272,14 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   br i1 %or.cond, label %134, label %.thread138
 
 134:                                              ; preds = %132
-  %135 = call ptr @generateWorkingAigWithDSC(ptr noundef %.072, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef %.1) #16
+  %135 = call ptr @generateWorkingAigWithDSC(ptr noundef %.071, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef %.1) #16
   br label %138
 
 .thread138:                                       ; preds = %27, %132
   %.1145 = phi ptr [ %.1, %132 ], [ null, %27 ]
   %.2143 = phi i32 [ %.2, %132 ], [ -1, %27 ]
   %136 = phi i1 [ %97, %132 ], [ false, %27 ]
-  %137 = call ptr @generateWorkingAig(ptr noundef %.072, ptr noundef nonnull %12, ptr noundef nonnull %10) #16
+  %137 = call ptr @generateWorkingAig(ptr noundef %.071, ptr noundef nonnull %12, ptr noundef nonnull %10) #16
   br label %138
 
 138:                                              ; preds = %.thread138, %134
@@ -1292,29 +1292,29 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   br label %141
 
 141:                                              ; preds = %138, %145
-  %.071163 = phi i32 [ 1, %138 ], [ %147, %145 ]
-  %.174162 = phi ptr [ %140, %138 ], [ %146, %145 ]
+  %.173163 = phi ptr [ %140, %138 ], [ %146, %145 ]
+  %.074162 = phi i32 [ 1, %138 ], [ %147, %145 ]
   %142 = load i32, ptr %11, align 4
-  %143 = call i32 @flipConePdr(ptr noundef %.174162, i32 noundef %.269, i32 noundef %142, i32 noundef %.2142, i32 noundef %.071163)
+  %143 = call i32 @flipConePdr(ptr noundef %.173163, i32 noundef %.269, i32 noundef %142, i32 noundef %.2142, i32 noundef %.074162)
   %.not79 = icmp eq i32 %143, 0
   br i1 %.not79, label %145, label %144
 
 144:                                              ; preds = %141
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, i32 noundef %.071163)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, i32 noundef %.074162)
   br label %.loopexit
 
 145:                                              ; preds = %141
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.13, i32 noundef %.071163)
-  %146 = call ptr @introduceAbsorberLogic(ptr noundef %.174162, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %.071163)
-  call void @Aig_ManStop(ptr noundef %.174162) #16
-  %147 = add nuw nsw i32 %.071163, 1
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.13, i32 noundef %.074162)
+  %146 = call ptr @introduceAbsorberLogic(ptr noundef %.173163, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %.074162)
+  call void @Aig_ManStop(ptr noundef %.173163) #16
+  %147 = add nuw nsw i32 %.074162, 1
   %exitcond.not = icmp eq i32 %147, 500
   br i1 %exitcond.not, label %.loopexit, label %141, !llvm.loop !20
 
 .loopexit:                                        ; preds = %145, %144
-  %.174157 = phi ptr [ %.174162, %144 ], [ %146, %145 ]
-  call void @Aig_ManStop(ptr noundef %.174157) #16
-  call void @Aig_ManStop(ptr noundef %.072) #16
+  %.173156 = phi ptr [ %.173163, %144 ], [ %146, %145 ]
+  call void @Aig_ManStop(ptr noundef %.173156) #16
+  call void @Aig_ManStop(ptr noundef %.071) #16
   %.not.i116 = icmp eq ptr %.1144, null
   br i1 %139, label %148, label %163
 

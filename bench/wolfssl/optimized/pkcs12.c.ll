@@ -968,7 +968,7 @@ if.else88:                                        ; preds = %if.then58
 
 if.then99:                                        ; preds = %if.end, %if.else88
   %18 = phi ptr [ %0, %if.end ], [ %.pre, %if.else88 ]
-  %totalSz.0 = phi i32 [ 0, %if.end ], [ %add32, %if.else88 ]
+  %sdBufSz.0 = phi i32 [ 0, %if.end ], [ %add32, %if.else88 ]
   %sdBuf.0 = phi ptr [ null, %if.end ], [ %call33, %if.else88 ]
   %dataSz = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load i32, ptr %dataSz, align 8
@@ -977,7 +977,7 @@ if.then99:                                        ; preds = %if.end, %if.else88
   br i1 %cmp110, label %if.then112, label %if.end219
 
 if.then112:                                       ; preds = %if.then99
-  %add101 = add i32 %totalSz.0, 23
+  %add101 = add i32 %sdBufSz.0, 23
   %add107 = add i32 %add101, %19
   %add113 = add i32 %add107, %call109
   %call115 = call i32 @SetSequence(i32 noundef %add113, ptr noundef nonnull %seq) #9
@@ -1011,8 +1011,8 @@ if.then135:                                       ; preds = %if.else132
   br label %if.end143
 
 if.end143:                                        ; preds = %if.then135, %if.else132, %if.then129
-  %ret.4 = phi i32 [ 0, %if.then129 ], [ 0, %if.else132 ], [ %spec.select148, %if.then135 ]
   %buf.0 = phi ptr [ %call131, %if.then129 ], [ %20, %if.else132 ], [ %20, %if.then135 ]
+  %ret.4 = phi i32 [ 0, %if.then129 ], [ 0, %if.else132 ], [ %spec.select148, %if.then135 ]
   %cmp144 = icmp eq ptr %buf.0, null
   %spec.select149 = select i1 %cmp144, i32 -125, i32 %ret.4
   %cmp148 = icmp eq i32 %spec.select149, 0
@@ -1025,7 +1025,7 @@ if.then150:                                       ; preds = %if.end143
   %conv159 = zext nneg i32 %call109 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx157, ptr nonnull align 1 %ver, i64 %conv159, i1 false)
   %add160 = add i32 %call115, %call109
-  %sub = sub i32 %add116, %totalSz.0
+  %sub = sub i32 %add116, %sdBufSz.0
   %reass.sub = sub i32 %sub, %add160
   %sub162 = add i32 %reass.sub, -4
   %call164 = call i32 @SetSequence(i32 noundef %sub162, ptr noundef nonnull %seq) #9
@@ -1078,7 +1078,7 @@ if.then207:                                       ; preds = %if.then150
   %add203 = add i32 %28, %add194
   %idxprom208 = zext i32 %add203 to i64
   %arrayidx209 = getelementptr inbounds i8, ptr %buf.0, i64 %idxprom208
-  %conv210 = zext i32 %totalSz.0 to i64
+  %conv210 = zext i32 %sdBufSz.0 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx209, ptr align 1 %sdBuf.0, i64 %conv210, i1 false)
   br label %if.end211
 
@@ -1245,8 +1245,8 @@ for.cond.preheader:                               ; preds = %if.end27
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end417
   %ci.0218.in = phi ptr [ %next418, %if.end417 ], [ %14, %for.cond.preheader ]
-  %i.0217 = phi i32 [ %inc, %if.end417 ], [ 0, %for.cond.preheader ]
-  %tailList.0216 = phi ptr [ %tailList.1.lcssa, %if.end417 ], [ null, %for.cond.preheader ]
+  %tailList.0217 = phi ptr [ %tailList.1.lcssa, %if.end417 ], [ null, %for.cond.preheader ]
+  %i.0216 = phi i32 [ %inc, %if.end417 ], [ 0, %for.cond.preheader ]
   %call362190.lcssa203215 = phi ptr [ %call362190.lcssa, %if.end417 ], [ null, %for.cond.preheader ]
   %ci.0218 = load ptr, ptr %ci.0218.in, align 8
   store i32 0, ptr %idx, align 4
@@ -1350,8 +1350,8 @@ if.end142:                                        ; preds = %if.end131
   br i1 %cmp145, label %if.then439.loopexit170, label %if.end149
 
 if.end149:                                        ; preds = %if.end142, %if.end112
-  %buf.1 = phi ptr [ %call100, %if.end112 ], [ null, %if.end142 ]
   %data39.0 = phi ptr [ %call100, %if.end112 ], [ %16, %if.end142 ]
+  %buf.1 = phi ptr [ %call100, %if.end112 ], [ null, %if.end142 ]
   %dataSz150 = getelementptr inbounds i8, ptr %ci.0218, i64 20
   %35 = load i32, ptr %dataSz150, align 4
   %call151 = call i32 @GetSequence(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %totalSz, i32 noundef %35) #9
@@ -1367,7 +1367,7 @@ if.end155:                                        ; preds = %if.end149
   br i1 %cmp156198, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end155, %if.end408
-  %tailList.1200 = phi ptr [ %tailList.3, %if.end408 ], [ %tailList.0216, %if.end155 ]
+  %tailList.1200 = phi ptr [ %tailList.3, %if.end408 ], [ %tailList.0217, %if.end155 ]
   %call362190199 = phi ptr [ %call362189, %if.end408 ], [ %call362190.lcssa203215, %if.end155 ]
   %38 = load i32, ptr %dataSz150, align 4
   %call159 = call i32 @GetSequence(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %bagSz, i32 noundef %38) #9
@@ -1674,7 +1674,7 @@ if.end408:                                        ; preds = %if.then407, %sw.epi
 
 while.end:                                        ; preds = %if.end408, %if.end155
   %call362190.lcssa = phi ptr [ %call362190.lcssa203215, %if.end155 ], [ %call362189, %if.end408 ]
-  %tailList.1.lcssa = phi ptr [ %tailList.0216, %if.end155 ], [ %tailList.3, %if.end408 ]
+  %tailList.1.lcssa = phi ptr [ %tailList.0217, %if.end155 ], [ %tailList.3, %if.end408 ]
   %cmp409.not = icmp eq ptr %buf.1, null
   br i1 %cmp409.not, label %if.end417, label %if.then415
 
@@ -1684,7 +1684,7 @@ if.then415:                                       ; preds = %while.end
 
 if.end417:                                        ; preds = %if.then415, %while.end
   %next418 = getelementptr inbounds i8, ptr %ci.0218, i64 8
-  %inc = add nuw i32 %i.0217, 1
+  %inc = add nuw i32 %i.0216, 1
   %89 = load ptr, ptr %safe28, align 8
   %numCI = getelementptr inbounds i8, ptr %89, i64 20
   %90 = load i32, ptr %numCI, align 4
@@ -1721,15 +1721,15 @@ if.then439.loopexit:                              ; preds = %if.end360, %sw.epil
   br label %if.then439
 
 if.then439.loopexit170:                           ; preds = %if.end131, %if.end125, %do.end114, %if.end97, %if.end86, %do.end45, %if.end142, %if.end149, %if.end104, %if.end74, %if.end68, %if.end62, %if.end56
-  %buf.3.ph.ph.ph = phi ptr [ null, %if.end131 ], [ null, %if.end125 ], [ null, %do.end114 ], [ null, %if.end97 ], [ null, %if.end86 ], [ null, %do.end45 ], [ null, %if.end142 ], [ %buf.1, %if.end149 ], [ %call100, %if.end104 ], [ null, %if.end74 ], [ null, %if.end68 ], [ null, %if.end62 ], [ null, %if.end56 ]
   %ret.0.ph.ph.ph171 = phi i32 [ -140, %if.end131 ], [ -140, %if.end125 ], [ -140, %do.end114 ], [ -125, %if.end97 ], [ -140, %if.end86 ], [ -140, %do.end45 ], [ %call144, %if.end142 ], [ %call151, %if.end149 ], [ %call106, %if.end104 ], [ %call82, %if.end74 ], [ %call70, %if.end68 ], [ %call64, %if.end62 ], [ %call58, %if.end56 ]
+  %buf.3.ph.ph.ph = phi ptr [ null, %if.end131 ], [ null, %if.end125 ], [ null, %do.end114 ], [ null, %if.end97 ], [ null, %if.end86 ], [ null, %do.end45 ], [ null, %if.end142 ], [ %buf.1, %if.end149 ], [ %call100, %if.end104 ], [ null, %if.end74 ], [ null, %if.end68 ], [ null, %if.end62 ], [ null, %if.end56 ]
   store ptr %call362190.lcssa203215, ptr %certList, align 8
   br label %if.then439
 
 if.then439:                                       ; preds = %if.then439.loopexit170, %if.then439.loopexit, %if.then331, %if.then188, %if.then377, %if.then245, %if.then260
   %94 = phi ptr [ %call362190199, %if.then377 ], [ %call362190199, %if.then245 ], [ %call362190199, %if.then260 ], [ %call362190199, %if.then331 ], [ %call362190199, %if.then188 ], [ %call362190199, %if.then439.loopexit ], [ %call362190.lcssa203215, %if.then439.loopexit170 ]
-  %buf.3.ph.ph = phi ptr [ %buf.1, %if.then377 ], [ %buf.1, %if.then245 ], [ %buf.1, %if.then260 ], [ %buf.1, %if.then331 ], [ %buf.1, %if.then188 ], [ %buf.1, %if.then439.loopexit ], [ %buf.3.ph.ph.ph, %if.then439.loopexit170 ]
   %ret.0.ph.ph = phi i32 [ -125, %if.then377 ], [ %call240, %if.then245 ], [ -125, %if.then260 ], [ %spec.select169, %if.then331 ], [ %spec.select, %if.then188 ], [ %ret.0.ph.ph.ph, %if.then439.loopexit ], [ %ret.0.ph.ph.ph171, %if.then439.loopexit170 ]
+  %buf.3.ph.ph = phi ptr [ %buf.1, %if.then377 ], [ %buf.1, %if.then245 ], [ %buf.1, %if.then260 ], [ %buf.1, %if.then331 ], [ %buf.1, %if.then188 ], [ %buf.1, %if.then439.loopexit ], [ %buf.3.ph.ph.ph, %if.then439.loopexit170 ]
   %.pr = load ptr, ptr %pkey, align 8
   %tobool440.not = icmp eq ptr %.pr, null
   br i1 %tobool440.not, label %if.end447, label %if.then445
@@ -1745,13 +1745,13 @@ if.end447.loopexit:                               ; preds = %if.then196
 
 if.end447:                                        ; preds = %if.end447.loopexit, %if.then445, %if.then439
   %95 = phi ptr [ %94, %if.then445 ], [ %94, %if.then439 ], [ %call362190199, %if.end447.loopexit ]
-  %ret.0.ph168 = phi i32 [ %ret.0.ph.ph, %if.then445 ], [ %ret.0.ph.ph, %if.then439 ], [ -125, %if.end447.loopexit ]
-  %buf.3.ph167 = phi ptr [ %buf.3.ph.ph, %if.then445 ], [ %buf.3.ph.ph, %if.then439 ], [ %buf.1, %if.end447.loopexit ]
-  %tobool448.not = icmp eq ptr %buf.3.ph167, null
+  %buf.3.ph168 = phi ptr [ %buf.3.ph.ph, %if.then445 ], [ %buf.3.ph.ph, %if.then439 ], [ %buf.1, %if.end447.loopexit ]
+  %ret.0.ph167 = phi i32 [ %ret.0.ph.ph, %if.then445 ], [ %ret.0.ph.ph, %if.then439 ], [ -125, %if.end447.loopexit ]
+  %tobool448.not = icmp eq ptr %buf.3.ph168, null
   br i1 %tobool448.not, label %if.end455, label %if.then453
 
 if.then453:                                       ; preds = %if.end447
-  call void @wolfSSL_Free(ptr noundef nonnull %buf.3.ph167) #9
+  call void @wolfSSL_Free(ptr noundef nonnull %buf.3.ph168) #9
   %.pre246 = load ptr, ptr %certList, align 8
   br label %if.end455
 
@@ -1778,7 +1778,7 @@ if.then11.i:                                      ; preds = %if.then6.i, %while.
   br i1 %cmp1.old.not.i, label %return, label %while.body.i
 
 return:                                           ; preds = %if.then11.i, %if.end455, %if.else434, %if.then433, %wc_PKCS12_verify.exit.thread, %if.end27, %wc_PKCS12_verify.exit, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ -213, %wc_PKCS12_verify.exit ], [ -173, %if.end27 ], [ -213, %wc_PKCS12_verify.exit.thread ], [ 0, %if.else434 ], [ 0, %if.then433 ], [ %ret.0.ph168, %if.end455 ], [ %ret.0.ph168, %if.then11.i ]
+  %retval.0 = phi i32 [ -173, %entry ], [ -213, %wc_PKCS12_verify.exit ], [ -173, %if.end27 ], [ -213, %wc_PKCS12_verify.exit.thread ], [ 0, %if.else434 ], [ 0, %if.then433 ], [ %ret.0.ph167, %if.end455 ], [ %ret.0.ph167, %if.then11.i ]
   ret i32 %retval.0
 }
 
@@ -1934,11 +1934,11 @@ if.end.i58.i:                                     ; preds = %if.end14.i
 
 for.body.i.i:                                     ; preds = %if.end.i58.i, %for.body.i.i
   %indvars.iv70.i.i = phi i64 [ %indvars.iv.next71.i.i, %for.body.i.i ], [ 0, %if.end.i58.i ]
-  %idx.065.i.i = phi i32 [ %inc17.i.i, %for.body.i.i ], [ %add11.i.i, %if.end.i58.i ]
+  %idx.066.i.i = phi i32 [ %inc17.i.i, %for.body.i.i ], [ %add11.i.i, %if.end.i58.i ]
   %arrayidx16.i.i = getelementptr inbounds [11 x i8], ptr @WC_PKCS12_KeyBag_OID, i64 0, i64 %indvars.iv70.i.i
   %2 = load i8, ptr %arrayidx16.i.i, align 1
-  %inc17.i.i = add i32 %idx.065.i.i, 1
-  %idxprom18.i.i = zext i32 %idx.065.i.i to i64
+  %inc17.i.i = add i32 %idx.066.i.i, 1
+  %idxprom18.i.i = zext i32 %idx.066.i.i to i64
   %arrayidx19.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idxprom18.i.i
   store i8 %2, ptr %arrayidx19.i.i, align 1
   %indvars.iv.next71.i.i = add nuw nsw i64 %indvars.iv70.i.i, 1
@@ -1947,11 +1947,11 @@ for.body.i.i:                                     ; preds = %if.end.i58.i, %for.
 
 for.body35.i.i:                                   ; preds = %if.end.i58.i, %for.body35.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body35.i.i ], [ 0, %if.end.i58.i ]
-  %idx.161.i.i = phi i32 [ %inc38.i.i, %for.body35.i.i ], [ %add11.i.i, %if.end.i58.i ]
+  %idx.162.i.i = phi i32 [ %inc38.i.i, %for.body35.i.i ], [ %add11.i.i, %if.end.i58.i ]
   %arrayidx37.i.i = getelementptr inbounds [11 x i8], ptr @WC_PKCS12_ShroudedKeyBag_OID, i64 0, i64 %indvars.iv.i.i
   %3 = load i8, ptr %arrayidx37.i.i, align 1
-  %inc38.i.i = add i32 %idx.161.i.i, 1
-  %idxprom39.i.i = zext i32 %idx.161.i.i to i64
+  %inc38.i.i = add i32 %idx.162.i.i, 1
+  %idxprom39.i.i = zext i32 %idx.162.i.i to i64
   %arrayidx40.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idxprom39.i.i
   store i8 %3, ptr %arrayidx40.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

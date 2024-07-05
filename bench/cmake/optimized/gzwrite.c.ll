@@ -97,19 +97,19 @@ define internal fastcc noundef i64 @gz_write(ptr noundef %0, ptr noundef %1, i64
   br label %29
 
 27:                                               ; preds = %38
-  %28 = sub nsw i64 %.02025.i, %.pre-phi.i
+  %28 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %28, 0
   br i1 %.not22.i, label %gz_zero.exit, label %29, !llvm.loop !5
 
 29:                                               ; preds = %27, %.lr.ph.i
-  %.not2326.i = phi i1 [ false, %.lr.ph.i ], [ true, %27 ]
-  %.02025.i = phi i64 [ %17, %.lr.ph.i ], [ %28, %27 ]
+  %.02026.i = phi i64 [ %17, %.lr.ph.i ], [ %28, %27 ]
+  %.not2325.i = phi i1 [ false, %.lr.ph.i ], [ true, %27 ]
   %30 = load i32, ptr %6, align 8
   %31 = zext i32 %30 to i64
-  %32 = icmp slt i64 %.02025.i, %31
-  %33 = trunc i64 %.02025.i to i32
+  %32 = icmp slt i64 %.02026.i, %31
+  %33 = trunc i64 %.02026.i to i32
   %34 = select i1 %32, i32 %33, i32 %30
-  br i1 %.not2326.i, label %._crit_edge.i, label %35
+  br i1 %.not2325.i, label %._crit_edge.i, label %35
 
 ._crit_edge.i:                                    ; preds = %29
   %.pre.i = zext i32 %34 to i64
@@ -147,8 +147,8 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   br label %51
 
 51:                                               ; preds = %.preheader, %78
+  %.055 = phi i64 [ %77, %78 ], [ %2, %.preheader ]
   %.054 = phi ptr [ %79, %78 ], [ %1, %.preheader ]
-  %.053 = phi i64 [ %77, %78 ], [ %2, %.preheader ]
   %52 = load i32, ptr %48, align 8
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %._crit_edge
@@ -175,8 +175,8 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   %65 = load i32, ptr %6, align 8
   %66 = sub i32 %65, %64
   %67 = zext i32 %66 to i64
-  %68 = icmp ult i64 %.053, %67
-  %69 = trunc nuw i64 %.053 to i32
+  %68 = icmp ult i64 %.055, %67
+  %69 = trunc nuw i64 %.055 to i32
   %spec.select = select i1 %68, i32 %69, i32 %66
   %70 = and i64 %63, 4294967295
   %71 = getelementptr inbounds i8, ptr %57, i64 %70
@@ -188,7 +188,7 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   %75 = load i64, ptr %50, align 8
   %76 = add nsw i64 %75, %72
   store i64 %76, ptr %50, align 8
-  %77 = sub i64 %.053, %72
+  %77 = sub i64 %.055, %72
   %.not61 = icmp eq i64 %77, 0
   br i1 %.not61, label %.critedge, label %78
 
@@ -231,8 +231,8 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   br i1 %.not60, label %.critedge, label %89, !llvm.loop !7
 
 .critedge:                                        ; preds = %38, %94, %89, %78, %56, %21, %84, %9, %3
-  %.055 = phi i64 [ 0, %3 ], [ 0, %9 ], [ 0, %84 ], [ 0, %21 ], [ %2, %56 ], [ 0, %78 ], [ %2, %94 ], [ 0, %89 ], [ 0, %38 ]
-  ret i64 %.055
+  %.053 = phi i64 [ 0, %3 ], [ 0, %9 ], [ 0, %84 ], [ 0, %21 ], [ %2, %56 ], [ 0, %78 ], [ %2, %94 ], [ 0, %89 ], [ 0, %38 ]
+  ret i64 %.053
 }
 
 ; Function Attrs: nounwind uwtable
@@ -330,19 +330,19 @@ define dso_local range(i32 -1, 256) i32 @cm_zlib_gzputc(ptr noundef %0, i32 noun
   br label %29
 
 27:                                               ; preds = %38
-  %28 = sub nsw i64 %.02025.i, %.pre-phi.i
+  %28 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %28, 0
   br i1 %.not22.i, label %gz_zero.exit, label %29, !llvm.loop !5
 
 29:                                               ; preds = %27, %.lr.ph.i
-  %.not2326.i = phi i1 [ false, %.lr.ph.i ], [ true, %27 ]
-  %.02025.i = phi i64 [ %17, %.lr.ph.i ], [ %28, %27 ]
+  %.02026.i = phi i64 [ %17, %.lr.ph.i ], [ %28, %27 ]
+  %.not2325.i = phi i1 [ false, %.lr.ph.i ], [ true, %27 ]
   %30 = load i32, ptr %24, align 8
   %31 = zext i32 %30 to i64
-  %32 = icmp slt i64 %.02025.i, %31
-  %33 = trunc i64 %.02025.i to i32
+  %32 = icmp slt i64 %.02026.i, %31
+  %33 = trunc i64 %.02026.i to i32
   %34 = select i1 %32, i32 %33, i32 %30
-  br i1 %.not2326.i, label %._crit_edge.i, label %35
+  br i1 %.not2325.i, label %._crit_edge.i, label %35
 
 ._crit_edge.i:                                    ; preds = %29
   %.pre.i = zext i32 %34 to i64
@@ -535,19 +535,19 @@ define dso_local i32 @cm_zlib_gzvprintf(ptr noundef %0, ptr nocapture noundef re
   br label %37
 
 35:                                               ; preds = %46
-  %36 = sub nsw i64 %.02025.i, %.pre-phi.i
+  %36 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %36, 0
   br i1 %.not22.i, label %gz_zero.exit, label %37, !llvm.loop !5
 
 37:                                               ; preds = %35, %.lr.ph.i
-  %.not2326.i = phi i1 [ false, %.lr.ph.i ], [ true, %35 ]
-  %.02025.i = phi i64 [ %26, %.lr.ph.i ], [ %36, %35 ]
+  %.02026.i = phi i64 [ %26, %.lr.ph.i ], [ %36, %35 ]
+  %.not2325.i = phi i1 [ false, %.lr.ph.i ], [ true, %35 ]
   %38 = load i32, ptr %13, align 8
   %39 = zext i32 %38 to i64
-  %40 = icmp slt i64 %.02025.i, %39
-  %41 = trunc i64 %.02025.i to i32
+  %40 = icmp slt i64 %.02026.i, %39
+  %41 = trunc i64 %.02026.i to i32
   %42 = select i1 %40, i32 %41, i32 %38
-  br i1 %.not2326.i, label %._crit_edge.i, label %43
+  br i1 %.not2325.i, label %._crit_edge.i, label %43
 
 ._crit_edge.i:                                    ; preds = %37
   %.pre.i = zext i32 %42 to i64
@@ -1049,19 +1049,19 @@ define dso_local i32 @cm_zlib_gzflush(ptr noundef %0, i32 noundef %1) local_unna
   br label %28
 
 26:                                               ; preds = %37
-  %27 = sub nsw i64 %.02025.i, %.pre-phi.i
+  %27 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %27, 0
   br i1 %.not22.i, label %gz_zero.exit, label %28, !llvm.loop !5
 
 28:                                               ; preds = %26, %.lr.ph.i
-  %.not2326.i = phi i1 [ false, %.lr.ph.i ], [ true, %26 ]
-  %.02025.i = phi i64 [ %15, %.lr.ph.i ], [ %27, %26 ]
+  %.02026.i = phi i64 [ %15, %.lr.ph.i ], [ %27, %26 ]
+  %.not2325.i = phi i1 [ false, %.lr.ph.i ], [ true, %26 ]
   %29 = load i32, ptr %23, align 8
   %30 = zext i32 %29 to i64
-  %31 = icmp slt i64 %.02025.i, %30
-  %32 = trunc i64 %.02025.i to i32
+  %31 = icmp slt i64 %.02026.i, %30
+  %32 = trunc i64 %.02026.i to i32
   %33 = select i1 %31, i32 %32, i32 %29
-  br i1 %.not2326.i, label %._crit_edge.i, label %34
+  br i1 %.not2325.i, label %._crit_edge.i, label %34
 
 ._crit_edge.i:                                    ; preds = %28
   %.pre.i = zext i32 %33 to i64
@@ -1159,19 +1159,19 @@ define dso_local i32 @cm_zlib_gzsetparams(ptr noundef %0, i32 noundef %1, i32 no
   br label %37
 
 35:                                               ; preds = %46
-  %36 = sub nsw i64 %.02025.i, %.pre-phi.i
+  %36 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %36, 0
   br i1 %.not22.i, label %gz_zero.exit, label %37, !llvm.loop !5
 
 37:                                               ; preds = %35, %.lr.ph.i
-  %.not2326.i = phi i1 [ false, %.lr.ph.i ], [ true, %35 ]
-  %.02025.i = phi i64 [ %25, %.lr.ph.i ], [ %36, %35 ]
+  %.02026.i = phi i64 [ %25, %.lr.ph.i ], [ %36, %35 ]
+  %.not2325.i = phi i1 [ false, %.lr.ph.i ], [ true, %35 ]
   %38 = load i32, ptr %32, align 8
   %39 = zext i32 %38 to i64
-  %40 = icmp slt i64 %.02025.i, %39
-  %41 = trunc i64 %.02025.i to i32
+  %40 = icmp slt i64 %.02026.i, %39
+  %41 = trunc i64 %.02026.i to i32
   %42 = select i1 %40, i32 %41, i32 %38
-  br i1 %.not2326.i, label %._crit_edge.i, label %43
+  br i1 %.not2325.i, label %._crit_edge.i, label %43
 
 ._crit_edge.i:                                    ; preds = %37
   %.pre.i = zext i32 %42 to i64
@@ -1280,19 +1280,19 @@ define dso_local i32 @cm_zlib_gzclose_w(ptr noundef %0) local_unnamed_addr #0 {
   br label %24
 
 22:                                               ; preds = %33
-  %23 = sub nsw i64 %.02025.i, %.pre-phi.i
+  %23 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %23, 0
   br i1 %.not22.i, label %gz_zero.exit, label %24, !llvm.loop !5
 
 24:                                               ; preds = %22, %.lr.ph.i
-  %.not2326.i = phi i1 [ false, %.lr.ph.i ], [ true, %22 ]
-  %.02025.i = phi i64 [ %11, %.lr.ph.i ], [ %23, %22 ]
+  %.02026.i = phi i64 [ %11, %.lr.ph.i ], [ %23, %22 ]
+  %.not2325.i = phi i1 [ false, %.lr.ph.i ], [ true, %22 ]
   %25 = load i32, ptr %19, align 8
   %26 = zext i32 %25 to i64
-  %27 = icmp slt i64 %.02025.i, %26
-  %28 = trunc i64 %.02025.i to i32
+  %27 = icmp slt i64 %.02026.i, %26
+  %28 = trunc i64 %.02026.i to i32
   %29 = select i1 %27, i32 %28, i32 %25
-  br i1 %.not2326.i, label %._crit_edge.i, label %30
+  br i1 %.not2325.i, label %._crit_edge.i, label %30
 
 ._crit_edge.i:                                    ; preds = %24
   %.pre.i = zext i32 %29 to i64
@@ -1322,7 +1322,7 @@ define dso_local i32 @cm_zlib_gzclose_w(ptr noundef %0) local_unnamed_addr #0 {
   br label %gz_zero.exit
 
 gz_zero.exit:                                     ; preds = %22, %18, %.loopexit, %6
-  %.0 = phi i32 [ %40, %.loopexit ], [ 0, %6 ], [ 0, %18 ], [ 0, %22 ]
+  %.020 = phi i32 [ %40, %.loopexit ], [ 0, %6 ], [ 0, %18 ], [ 0, %22 ]
   %41 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 4)
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %43, label %46
@@ -1333,7 +1333,7 @@ gz_zero.exit:                                     ; preds = %22, %18, %.loopexit
   br label %46
 
 46:                                               ; preds = %43, %gz_zero.exit
-  %.1 = phi i32 [ %45, %43 ], [ %.0, %gz_zero.exit ]
+  %.1 = phi i32 [ %45, %43 ], [ %.020, %gz_zero.exit ]
   %47 = getelementptr inbounds i8, ptr %0, i64 40
   %48 = load i32, ptr %47, align 8
   %.not23 = icmp eq i32 %48, 0
@@ -1373,8 +1373,8 @@ gz_zero.exit:                                     ; preds = %22, %18, %.loopexit
   br label %67
 
 67:                                               ; preds = %3, %1, %60
-  %.020 = phi i32 [ %spec.select, %60 ], [ -2, %1 ], [ -2, %3 ]
-  ret i32 %.020
+  %.0 = phi i32 [ %spec.select, %60 ], [ -2, %1 ], [ -2, %3 ]
+  ret i32 %.0
 }
 
 declare i32 @cm_zlib_deflateEnd(ptr noundef) local_unnamed_addr #1

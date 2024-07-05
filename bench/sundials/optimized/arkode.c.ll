@@ -1740,7 +1740,7 @@ define i32 @arkEvolve(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
 
 .backedge:                                        ; preds = %.backedge.backedge, %.thread._crit_edge
   %82 = phi i32 [ %.promoted, %.thread._crit_edge ], [ %300, %.backedge.backedge ]
-  %.0253 = phi i64 [ 0, %.thread._crit_edge ], [ %263, %.backedge.backedge ]
+  %.0250 = phi i64 [ 0, %.thread._crit_edge ], [ %263, %.backedge.backedge ]
   %83 = load double, ptr %49, align 8
   store double %83, ptr %50, align 8
   %84 = load i32, ptr %40, align 4
@@ -1821,7 +1821,7 @@ define i32 @arkEvolve(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
 121:                                              ; preds = %102, %104, %.backedge
   %122 = load i64, ptr %59, align 8
   %123 = icmp slt i64 %122, 1
-  %.not283 = icmp slt i64 %.0253, %122
+  %.not283 = icmp slt i64 %.0250, %122
   %or.cond296 = select i1 %123, i1 true, i1 %.not283
   br i1 %or.cond296, label %129, label %124
 
@@ -2015,10 +2015,10 @@ arkCheckConvergence.exit:                         ; preds = %.lr.ph
   br i1 %216, label %.thread344, label %217
 
 217:                                              ; preds = %214, %arkCheckConvergence.exit
-  %.0252 = phi i32 [ %215, %214 ], [ 0, %arkCheckConvergence.exit ]
+  %.0253 = phi i32 [ %215, %214 ], [ 0, %arkCheckConvergence.exit ]
   %218 = load i32, ptr %80, align 8
   %219 = icmp ne i32 %218, 0
-  %220 = icmp eq i32 %.0252, 0
+  %220 = icmp eq i32 %.0253, 0
   %or.cond5 = and i1 %220, %219
   br i1 %or.cond5, label %221, label %224
 
@@ -2028,7 +2028,7 @@ arkCheckConvergence.exit:                         ; preds = %.lr.ph
   br i1 %223, label %.thread344, label %224
 
 224:                                              ; preds = %221, %217
-  %.1 = phi i32 [ %222, %221 ], [ %.0252, %217 ]
+  %.1 = phi i32 [ %222, %221 ], [ %.0253, %217 ]
   %225 = load i32, ptr %67, align 8
   %.not287 = icmp eq i32 %225, 0
   br i1 %.not287, label %229, label %254
@@ -2125,7 +2125,7 @@ arkCheckConvergence.exit:                         ; preds = %.lr.ph
   br label %.loopexit
 
 262:                                              ; preds = %.thread339
-  %263 = add nuw nsw i64 %.0253, 1
+  %263 = add nuw nsw i64 %.0250, 1
   %264 = load ptr, ptr %30, align 8
   %.not290 = icmp eq ptr %264, null
   br i1 %.not290, label %.thread348, label %265
@@ -5081,7 +5081,7 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %69
   %.083100.us = phi double [ %82, %69 ], [ %59, %.lr.ph ]
-  %.08699.us = phi i32 [ %70, %69 ], [ 1, %.lr.ph ]
+  %.08599.us = phi i32 [ %70, %69 ], [ 1, %.lr.ph ]
   %65 = load double, ptr %3, align 8
   %66 = fmul double %.0.i, %65
   %67 = fmul double %.0.i, %66
@@ -5089,7 +5089,7 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
   br i1 %68, label %77, label %74
 
 69:                                               ; preds = %88
-  %70 = add nuw nsw i32 %.08699.us, 1
+  %70 = add nuw nsw i32 %.08599.us, 1
   %71 = fneg double %82
   %72 = call i32 @arkYddNorm(ptr noundef %0, double noundef %71, ptr noundef nonnull %3)
   %73 = icmp slt i32 %72, 0
@@ -5112,7 +5112,7 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
 
 81:                                               ; preds = %.sink.split, %77, %74
   %82 = phi double [ 0.000000e+00, %77 ], [ 0.000000e+00, %74 ], [ %80, %.sink.split ]
-  %83 = icmp eq i32 %.08699.us, 4
+  %83 = icmp eq i32 %.08599.us, 4
   br i1 %83, label %.split.us, label %84
 
 84:                                               ; preds = %81
@@ -5123,7 +5123,7 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
   br i1 %or.cond.us, label %.split.us, label %88
 
 88:                                               ; preds = %84
-  %89 = icmp ugt i32 %.08699.us, 1
+  %89 = icmp ugt i32 %.08599.us, 1
   %90 = fcmp ogt double %85, 2.000000e+00
   %or.cond3.us = and i1 %89, %90
   br i1 %or.cond3.us, label %.split.us, label %69
@@ -5136,14 +5136,14 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
   br label %.loopexit.sink.split
 
 94:                                               ; preds = %116
-  %95 = add nuw nsw i32 %.08699, 1
+  %95 = add nuw nsw i32 %.08599, 1
   %96 = call i32 @arkYddNorm(ptr noundef %0, double noundef %110, ptr noundef nonnull %3)
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %.loopexit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %94
   %.083100 = phi double [ %110, %94 ], [ %59, %.lr.ph ]
-  %.08699 = phi i32 [ %95, %94 ], [ 1, %.lr.ph ]
+  %.08599 = phi i32 [ %95, %94 ], [ 1, %.lr.ph ]
   %98 = load double, ptr %3, align 8
   %99 = fmul double %.0.i, %98
   %100 = fmul double %.0.i, %99
@@ -5167,7 +5167,7 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
 
 109:                                              ; preds = %.sink.split108, %105, %102
   %110 = phi double [ 0.000000e+00, %102 ], [ 0.000000e+00, %105 ], [ %108, %.sink.split108 ]
-  %111 = icmp eq i32 %.08699, 4
+  %111 = icmp eq i32 %.08599, 4
   br i1 %111, label %.split.us, label %112
 
 112:                                              ; preds = %109
@@ -5178,7 +5178,7 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
   br i1 %or.cond, label %.split.us, label %116
 
 116:                                              ; preds = %112
-  %117 = icmp ugt i32 %.08699, 1
+  %117 = icmp ugt i32 %.08599, 1
   %118 = fcmp ogt double %113, 2.000000e+00
   %or.cond3 = and i1 %117, %118
   br i1 %or.cond3, label %.split.us, label %94
@@ -5201,8 +5201,8 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
   br label %.loopexit
 
 .loopexit:                                        ; preds = %94, %69, %.loopexit.sink.split, %.preheader, %22, %8, %2
-  %.082 = phi i32 [ -27, %2 ], [ -27, %8 ], [ -8, %22 ], [ -8, %.preheader ], [ 0, %.loopexit.sink.split ], [ -8, %69 ], [ -8, %94 ]
-  ret i32 %.082
+  %.079 = phi i32 [ -27, %2 ], [ -27, %8 ], [ -8, %22 ], [ -8, %.preheader ], [ 0, %.loopexit.sink.split ], [ -8, %69 ], [ -8, %94 ]
+  ret i32 %.079
 }
 
 declare i32 @arkRootCheck1(ptr noundef) local_unnamed_addr #3

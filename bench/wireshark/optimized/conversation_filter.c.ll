@@ -265,15 +265,15 @@ define ptr @conversation_filter_from_packet(ptr noundef %0) local_unnamed_addr #
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.preheader.i
-  %.012.i.i = phi ptr [ %9, %7 ], [ %2, %.lr.ph.i.preheader.i ]
-  %4 = load ptr, ptr %.012.i.i, align 8
+  %.0912.i.i = phi ptr [ %9, %7 ], [ %2, %.lr.ph.i.preheader.i ]
+  %4 = load ptr, ptr %.0912.i.i, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %3) #4
   %.not10.i.i = icmp eq i32 %6, 0
   br i1 %.not10.i.i, label %find_conversation_filter.exit.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i
-  %8 = getelementptr inbounds i8, ptr %.012.i.i, i64 8
+  %8 = getelementptr inbounds i8, ptr %.0912.i.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %find_conversation_filter.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !6
@@ -321,15 +321,15 @@ define ptr @conversation_filter_from_log(ptr noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.preheader.i
-  %.012.i.i = phi ptr [ %9, %7 ], [ %2, %.lr.ph.i.preheader.i ]
-  %4 = load ptr, ptr %.012.i.i, align 8
+  %.0912.i.i = phi ptr [ %9, %7 ], [ %2, %.lr.ph.i.preheader.i ]
+  %4 = load ptr, ptr %.0912.i.i, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %3) #4
   %.not10.i.i = icmp eq i32 %6, 0
   br i1 %.not10.i.i, label %find_conversation_filter.exit.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i
-  %8 = getelementptr inbounds i8, ptr %.012.i.i, i64 8
+  %8 = getelementptr inbounds i8, ptr %.0912.i.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %find_conversation_filter.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !6

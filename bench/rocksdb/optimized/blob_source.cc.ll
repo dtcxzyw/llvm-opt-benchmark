@@ -4767,8 +4767,8 @@ invoke.cont13.i:                                  ; preds = %invoke.cont54.i.i, 
   br i1 %cmp.i.i2.i.i24.i, label %while.body.i.us.i, label %while.body.i.i
 
 while.body.i.us.i:                                ; preds = %invoke.cont13.i, %invoke.cont19.i.us.i
-  %agg.tmp11.sroa.4.0.in.us.i = phi i64 [ %agg.tmp.sroa.2.0.copyload.i18.us.i, %invoke.cont19.i.us.i ], [ %.fr.i35, %invoke.cont13.i ]
   %agg.tmp14.sroa.2.0.us.i = phi i64 [ %storemerge.i.us.i, %invoke.cont19.i.us.i ], [ %2, %invoke.cont13.i ]
+  %agg.tmp11.sroa.4.0.in.us.i = phi i64 [ %agg.tmp.sroa.2.0.copyload.i18.us.i, %invoke.cont19.i.us.i ], [ %.fr.i35, %invoke.cont13.i ]
   %agg.tmp.val.val.i19.us.i = load ptr, ptr %18, align 8, !noalias !65
   %agg.tmp.val.val6.i.us.i = load ptr, ptr %19, align 8, !noalias !65
   %invariant.gep.us.i = getelementptr i8, ptr %agg.tmp.val.val6.i.us.i, i64 -384
@@ -4820,8 +4820,8 @@ invoke.cont19.i.us.i:                             ; preds = %while.end14.i.us.i
   br label %while.body.i.us.i, !llvm.loop !70
 
 while.body.i.i:                                   ; preds = %invoke.cont13.i, %invoke.cont19.i.i
-  %agg.tmp11.sroa.4.0.in.i = phi i64 [ %agg.tmp.sroa.2.0.copyload.i18.i, %invoke.cont19.i.i ], [ %.fr.i35, %invoke.cont13.i ]
   %agg.tmp14.sroa.2.0.i = phi i64 [ %storemerge.i.i, %invoke.cont19.i.i ], [ %2, %invoke.cont13.i ]
+  %agg.tmp11.sroa.4.0.in.i = phi i64 [ %agg.tmp.sroa.2.0.copyload.i18.i, %invoke.cont19.i.i ], [ %.fr.i35, %invoke.cont13.i ]
   %agg.tmp.val.val.i19.i = load ptr, ptr %18, align 8, !noalias !65
   %agg.tmp.val.val6.i.i = load ptr, ptr %19, align 8, !noalias !65
   %invariant.gep.i = getelementptr i8, ptr %agg.tmp.val.val6.i.i, i64 -384
@@ -5115,8 +5115,8 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %invoke.cont13
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
-  %agg.tmp1.sroa.2.0.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__i.sroa.6.039, %for.body.i.i.i.i.i.preheader ]
   %agg.tmp2.sroa.3.0.i.i.i.i = phi i64 [ %dec.i5.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.i14, %for.body.i.i.i.i.i.preheader ]
+  %agg.tmp1.sroa.2.0.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__i.sroa.6.039, %for.body.i.i.i.i.i.preheader ]
   %__n.014.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ]
   %dec.i.i.i.i.i.i = add i64 %agg.tmp1.sroa.2.0.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %dec.i.i.i.i.i.i, 8

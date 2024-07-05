@@ -288,10 +288,10 @@ define internal fastcc noundef zeroext i1 @grow_table(ptr noundef %0, i32 nounde
   br i1 %.not50, label %13, label %65
 
 13:                                               ; preds = %12, %2
-  %.0 = phi i32 [ %11, %12 ], [ %9, %2 ]
+  %.042 = phi i32 [ %11, %12 ], [ %9, %2 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 152
   %15 = load ptr, ptr %14, align 8
-  %16 = sext i32 %.0 to i64
+  %16 = sext i32 %.042 to i64
   %17 = shl nsw i64 %16, 3
   br i1 %.not.i, label %22, label %18
 
@@ -313,13 +313,13 @@ pmix_tma_realloc.exit:                            ; preds = %18, %22
 25:                                               ; preds = %pmix_tma_realloc.exit
   %26 = getelementptr inbounds i8, ptr %0, i64 128
   %27 = load i32, ptr %26, align 8
-  %28 = sub i32 %.0, %27
+  %28 = sub i32 %.042, %27
   %29 = getelementptr inbounds i8, ptr %0, i64 124
   %30 = load i32, ptr %29, align 4
   %31 = add nsw i32 %28, %30
   store i32 %31, ptr %29, align 4
   store ptr %.0.i, ptr %14, align 8
-  %32 = icmp slt i32 %27, %.0
+  %32 = icmp slt i32 %27, %.042
   br i1 %32, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %25
@@ -400,12 +400,12 @@ pmix_tma_realloc.exit55:                          ; preds = %48, %52
   br i1 %exitcond65.not, label %.loopexit, label %.lr.ph59, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph59, %55, %._crit_edge
-  store i32 %.0, ptr %26, align 8
+  store i32 %.042, ptr %26, align 8
   br label %65
 
 65:                                               ; preds = %pmix_tma_realloc.exit55, %pmix_tma_realloc.exit, %12, %.loopexit
-  %.043 = phi i1 [ true, %.loopexit ], [ false, %12 ], [ false, %pmix_tma_realloc.exit ], [ false, %pmix_tma_realloc.exit55 ]
-  ret i1 %.043
+  %.0 = phi i1 [ true, %.loopexit ], [ false, %12 ], [ false, %pmix_tma_realloc.exit ], [ false, %pmix_tma_realloc.exit55 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable

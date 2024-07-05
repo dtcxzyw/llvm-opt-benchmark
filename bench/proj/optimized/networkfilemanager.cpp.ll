@@ -5271,8 +5271,8 @@ _ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exi
 117:                                              ; preds = %_ZNSt6vectorIxSaIxEE12emplace_backIJxEEEvDpOT_.exit, %114
   %.pre184 = phi ptr [ %94, %114 ], [ %.pre185, %_ZNSt6vectorIxSaIxEE12emplace_backIJxEEEvDpOT_.exit ]
   %118 = phi ptr [ %94, %114 ], [ %152, %_ZNSt6vectorIxSaIxEE12emplace_backIJxEEEvDpOT_.exit ]
-  %.sroa.7.0 = phi ptr [ null, %114 ], [ %.sroa.7.1, %_ZNSt6vectorIxSaIxEE12emplace_backIJxEEEvDpOT_.exit ]
   %.sroa.12.0 = phi ptr [ null, %114 ], [ %.sroa.12.1, %_ZNSt6vectorIxSaIxEE12emplace_backIJxEEEvDpOT_.exit ]
+  %.sroa.7.0 = phi ptr [ null, %114 ], [ %.sroa.7.1, %_ZNSt6vectorIxSaIxEE12emplace_backIJxEEEvDpOT_.exit ]
   %.sroa.0138.0 = phi ptr [ null, %114 ], [ %.sroa.0138.1, %_ZNSt6vectorIxSaIxEE12emplace_backIJxEEEvDpOT_.exit ]
   %119 = load ptr, ptr %118, align 8
   %120 = invoke noundef i32 @sqlite3_step(ptr noundef %119)
@@ -5305,7 +5305,7 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit69: ; preds = %117
   br label %_ZNSt6vectorIxSaIxEE12emplace_backIJxEEEvDpOT_.exit
 
 131:                                              ; preds = %127
-  %132 = ptrtoint ptr %.sroa.7.0 to i64
+  %132 = ptrtoint ptr %.sroa.12.0 to i64
   %133 = ptrtoint ptr %.sroa.0138.0 to i64
   %134 = sub i64 %132, %133
   %135 = icmp eq i64 %134, 9223372036854775800
@@ -5362,8 +5362,8 @@ _ZNSt6vectorIxSaIxEE17_M_realloc_insertIJxEEEvN9__gnu_cxx17__normal_iteratorIPxS
 _ZNSt6vectorIxSaIxEE12emplace_backIJxEEEvDpOT_.exit: ; preds = %_ZNSt6vectorIxSaIxEE17_M_realloc_insertIJxEEEvN9__gnu_cxx17__normal_iteratorIPxS1_EEDpOT_.exit.i, %130
   %.pre185 = phi ptr [ %.pre, %_ZNSt6vectorIxSaIxEE17_M_realloc_insertIJxEEEvN9__gnu_cxx17__normal_iteratorIPxS1_EEDpOT_.exit.i ], [ %.pre184, %130 ]
   %152 = phi ptr [ %.pre, %_ZNSt6vectorIxSaIxEE17_M_realloc_insertIJxEEEvN9__gnu_cxx17__normal_iteratorIPxS1_EEDpOT_.exit.i ], [ %118, %130 ]
-  %.pn163 = phi ptr [ %149, %_ZNSt6vectorIxSaIxEE17_M_realloc_insertIJxEEEvN9__gnu_cxx17__normal_iteratorIPxS1_EEDpOT_.exit.i ], [ %.sroa.7.0, %130 ]
   %.sroa.12.1 = phi ptr [ %151, %_ZNSt6vectorIxSaIxEE17_M_realloc_insertIJxEEEvN9__gnu_cxx17__normal_iteratorIPxS1_EEDpOT_.exit.i ], [ %.sroa.12.0, %130 ]
+  %.pn163 = phi ptr [ %149, %_ZNSt6vectorIxSaIxEE17_M_realloc_insertIJxEEEvN9__gnu_cxx17__normal_iteratorIPxS1_EEDpOT_.exit.i ], [ %.sroa.7.0, %130 ]
   %.sroa.0138.1 = phi ptr [ %145, %_ZNSt6vectorIxSaIxEE17_M_realloc_insertIJxEEEvN9__gnu_cxx17__normal_iteratorIPxS1_EEDpOT_.exit.i ], [ %.sroa.0138.0, %130 ]
   %.sroa.7.1 = getelementptr inbounds i8, ptr %.pn163, i64 8
   %153 = getelementptr inbounds i8, ptr %152, i64 12
@@ -8836,8 +8836,8 @@ define void @proj_grid_cache_set_filename(ptr noundef %0, ptr noundef %1) local_
   br label %8
 
 8:                                                ; preds = %6, %2
-  %.08 = phi ptr [ %7, %6 ], [ %0, %2 ]
-  tail call void @_Z11pj_load_iniP6pj_ctx(ptr noundef %.08)
+  %.0 = phi ptr [ %7, %6 ], [ %0, %2 ]
+  tail call void @_Z11pj_load_iniP6pj_ctx(ptr noundef %.0)
   %.not.not = icmp eq ptr %1, null
   br i1 %.not.not, label %10, label %9
 
@@ -8851,7 +8851,7 @@ define void @proj_grid_cache_set_filename(ptr noundef %0, ptr noundef %1) local_
   br label %11
 
 11:                                               ; preds = %9, %10
-  %12 = getelementptr inbounds i8, ptr %.08, i64 456
+  %12 = getelementptr inbounds i8, ptr %.0, i64 456
   %13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   br i1 %.not.not, label %15, label %14

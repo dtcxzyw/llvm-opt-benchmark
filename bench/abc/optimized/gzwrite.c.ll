@@ -80,19 +80,19 @@ define range(i32 0, -2147483648) i32 @gzwrite(ptr noundef %0, ptr noundef %1, i3
   br label %39
 
 37:                                               ; preds = %48
-  %38 = sub nsw i64 %.02025.i, %.pre-phi.i
+  %38 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %38, 0
   br i1 %.not22.i, label %gz_zero.exit, label %39, !llvm.loop !4
 
 39:                                               ; preds = %37, %.lr.ph.i
-  %.not2326.i = phi i1 [ false, %.lr.ph.i ], [ true, %37 ]
-  %.02025.i = phi i64 [ %28, %.lr.ph.i ], [ %38, %37 ]
+  %.02026.i = phi i64 [ %28, %.lr.ph.i ], [ %38, %37 ]
+  %.not2325.i = phi i1 [ false, %.lr.ph.i ], [ true, %37 ]
   %40 = load i32, ptr %17, align 8
   %41 = zext i32 %40 to i64
-  %42 = icmp slt i64 %.02025.i, %41
-  %43 = trunc i64 %.02025.i to i32
+  %42 = icmp slt i64 %.02026.i, %41
+  %43 = trunc i64 %.02026.i to i32
   %44 = select i1 %42, i32 %43, i32 %40
-  br i1 %.not2326.i, label %._crit_edge.i, label %45
+  br i1 %.not2325.i, label %._crit_edge.i, label %45
 
 ._crit_edge.i:                                    ; preds = %39
   %.pre.i = zext i32 %44 to i64
@@ -128,8 +128,8 @@ gz_zero.exit:                                     ; preds = %37, %34, %23
   br label %59
 
 59:                                               ; preds = %.preheader, %76
-  %.051 = phi ptr [ %77, %76 ], [ %1, %.preheader ]
-  %.050 = phi i32 [ %75, %76 ], [ %2, %.preheader ]
+  %.052 = phi i32 [ %75, %76 ], [ %2, %.preheader ]
+  %.050 = phi ptr [ %77, %76 ], [ %1, %.preheader ]
   %60 = load i32, ptr %56, align 8
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %._crit_edge
@@ -147,23 +147,23 @@ gz_zero.exit:                                     ; preds = %37, %34, %23
   %65 = phi ptr [ %.pre, %._crit_edge ], [ %63, %62 ]
   %66 = load i32, ptr %17, align 8
   %67 = sub i32 %66, %60
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %67, i32 %.050)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %67, i32 %.052)
   %68 = zext i32 %60 to i64
   %69 = getelementptr inbounds i8, ptr %65, i64 %68
   %70 = zext i32 %spec.select to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %.051, i64 %70, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %.050, i64 %70, i1 false)
   %71 = load i32, ptr %56, align 8
   %72 = add i32 %71, %spec.select
   store i32 %72, ptr %56, align 8
   %73 = load i64, ptr %57, align 8
   %74 = add nsw i64 %73, %70
   store i64 %74, ptr %57, align 8
-  %75 = sub i32 %.050, %spec.select
+  %75 = sub i32 %.052, %spec.select
   %.not60 = icmp eq i32 %75, 0
   br i1 %.not60, label %.critedge, label %76
 
 76:                                               ; preds = %64
-  %77 = getelementptr inbounds i8, ptr %.051, i64 %70
+  %77 = getelementptr inbounds i8, ptr %.050, i64 %70
   %78 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %79 = icmp eq i32 %78, -1
   br i1 %79, label %gz_zero.exit.thread, label %59, !llvm.loop !6
@@ -194,8 +194,8 @@ gz_zero.exit:                                     ; preds = %37, %34, %23
   br label %gz_zero.exit.thread
 
 gz_zero.exit.thread:                              ; preds = %48, %76, %31, %85, %82, %20, %14, %5, %8, %3, %.critedge, %13
-  %.052 = phi i32 [ 0, %13 ], [ %2, %.critedge ], [ 0, %3 ], [ 0, %8 ], [ 0, %5 ], [ 0, %14 ], [ 0, %20 ], [ 0, %82 ], [ 0, %85 ], [ 0, %31 ], [ 0, %76 ], [ 0, %48 ]
-  ret i32 %.052
+  %.0 = phi i32 [ 0, %13 ], [ %2, %.critedge ], [ 0, %3 ], [ 0, %8 ], [ 0, %5 ], [ 0, %14 ], [ 0, %20 ], [ 0, %82 ], [ 0, %85 ], [ 0, %31 ], [ 0, %76 ], [ 0, %48 ]
+  ret i32 %.0
 }
 
 declare hidden void @gz_error(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -550,19 +550,19 @@ define i32 @gzputc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %28
 
 26:                                               ; preds = %37
-  %27 = sub nsw i64 %.02025.i, %.pre-phi.i
+  %27 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %27, 0
   br i1 %.not22.i, label %gz_zero.exit, label %28, !llvm.loop !4
 
 28:                                               ; preds = %26, %.lr.ph.i
-  %.not2326.i = phi i1 [ false, %.lr.ph.i ], [ true, %26 ]
-  %.02025.i = phi i64 [ %16, %.lr.ph.i ], [ %27, %26 ]
+  %.02026.i = phi i64 [ %16, %.lr.ph.i ], [ %27, %26 ]
+  %.not2325.i = phi i1 [ false, %.lr.ph.i ], [ true, %26 ]
   %29 = load i32, ptr %23, align 8
   %30 = zext i32 %29 to i64
-  %31 = icmp slt i64 %.02025.i, %30
-  %32 = trunc i64 %.02025.i to i32
+  %31 = icmp slt i64 %.02026.i, %30
+  %32 = trunc i64 %.02026.i to i32
   %33 = select i1 %31, i32 %32, i32 %29
-  br i1 %.not2326.i, label %._crit_edge.i, label %34
+  br i1 %.not2325.i, label %._crit_edge.i, label %34
 
 ._crit_edge.i:                                    ; preds = %28
   %.pre.i = zext i32 %33 to i64
@@ -709,19 +709,19 @@ define range(i32 -1, -2147483648) i32 @gzprintf(ptr noundef %0, ptr nocapture no
   br label %34
 
 32:                                               ; preds = %43
-  %33 = sub nsw i64 %.02025.i, %.pre-phi.i
+  %33 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %33, 0
   br i1 %.not22.i, label %gz_zero.exit, label %34, !llvm.loop !4
 
 34:                                               ; preds = %32, %.lr.ph.i
-  %.not2326.i = phi i1 [ false, %.lr.ph.i ], [ true, %32 ]
-  %.02025.i = phi i64 [ %23, %.lr.ph.i ], [ %33, %32 ]
+  %.02026.i = phi i64 [ %23, %.lr.ph.i ], [ %33, %32 ]
+  %.not2325.i = phi i1 [ false, %.lr.ph.i ], [ true, %32 ]
   %35 = load i32, ptr %12, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp slt i64 %.02025.i, %36
-  %38 = trunc i64 %.02025.i to i32
+  %37 = icmp slt i64 %.02026.i, %36
+  %38 = trunc i64 %.02026.i to i32
   %39 = select i1 %37, i32 %38, i32 %35
-  br i1 %.not2326.i, label %._crit_edge.i, label %40
+  br i1 %.not2325.i, label %._crit_edge.i, label %40
 
 ._crit_edge.i:                                    ; preds = %34
   %.pre.i = zext i32 %39 to i64
@@ -849,19 +849,19 @@ define i32 @gzflush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %27
 
 25:                                               ; preds = %36
-  %26 = sub nsw i64 %.02025.i, %.pre-phi.i
+  %26 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %26, 0
   br i1 %.not22.i, label %gz_zero.exit, label %27, !llvm.loop !4
 
 27:                                               ; preds = %25, %.lr.ph.i
-  %.not2326.i = phi i1 [ false, %.lr.ph.i ], [ true, %25 ]
-  %.02025.i = phi i64 [ %14, %.lr.ph.i ], [ %26, %25 ]
+  %.02026.i = phi i64 [ %14, %.lr.ph.i ], [ %26, %25 ]
+  %.not2325.i = phi i1 [ false, %.lr.ph.i ], [ true, %25 ]
   %28 = load i32, ptr %22, align 8
   %29 = zext i32 %28 to i64
-  %30 = icmp slt i64 %.02025.i, %29
-  %31 = trunc i64 %.02025.i to i32
+  %30 = icmp slt i64 %.02026.i, %29
+  %31 = trunc i64 %.02026.i to i32
   %32 = select i1 %30, i32 %31, i32 %28
-  br i1 %.not2326.i, label %._crit_edge.i, label %33
+  br i1 %.not2325.i, label %._crit_edge.i, label %33
 
 ._crit_edge.i:                                    ; preds = %27
   %.pre.i = zext i32 %32 to i64
@@ -955,19 +955,19 @@ define i32 @gzsetparams(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   br label %36
 
 34:                                               ; preds = %45
-  %35 = sub nsw i64 %.02025.i, %.pre-phi.i
+  %35 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %35, 0
   br i1 %.not22.i, label %gz_zero.exit, label %36, !llvm.loop !4
 
 36:                                               ; preds = %34, %.lr.ph.i
-  %.not2326.i = phi i1 [ false, %.lr.ph.i ], [ true, %34 ]
-  %.02025.i = phi i64 [ %24, %.lr.ph.i ], [ %35, %34 ]
+  %.02026.i = phi i64 [ %24, %.lr.ph.i ], [ %35, %34 ]
+  %.not2325.i = phi i1 [ false, %.lr.ph.i ], [ true, %34 ]
   %37 = load i32, ptr %31, align 8
   %38 = zext i32 %37 to i64
-  %39 = icmp slt i64 %.02025.i, %38
-  %40 = trunc i64 %.02025.i to i32
+  %39 = icmp slt i64 %.02026.i, %38
+  %40 = trunc i64 %.02026.i to i32
   %41 = select i1 %39, i32 %40, i32 %37
-  br i1 %.not2326.i, label %._crit_edge.i, label %42
+  br i1 %.not2325.i, label %._crit_edge.i, label %42
 
 ._crit_edge.i:                                    ; preds = %36
   %.pre.i = zext i32 %41 to i64
@@ -1071,19 +1071,19 @@ define range(i32 -2, 1) i32 @gzclose_w(ptr noundef %0) local_unnamed_addr #0 {
   br label %23
 
 21:                                               ; preds = %32
-  %22 = sub nsw i64 %.02025.i, %.pre-phi.i
+  %22 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %22, 0
   br i1 %.not22.i, label %gz_zero.exit, label %23, !llvm.loop !4
 
 23:                                               ; preds = %21, %.lr.ph.i
-  %.not2326.i = phi i1 [ false, %.lr.ph.i ], [ true, %21 ]
-  %.02025.i = phi i64 [ %10, %.lr.ph.i ], [ %22, %21 ]
+  %.02026.i = phi i64 [ %10, %.lr.ph.i ], [ %22, %21 ]
+  %.not2325.i = phi i1 [ false, %.lr.ph.i ], [ true, %21 ]
   %24 = load i32, ptr %18, align 8
   %25 = zext i32 %24 to i64
-  %26 = icmp slt i64 %.02025.i, %25
-  %27 = trunc i64 %.02025.i to i32
+  %26 = icmp slt i64 %.02026.i, %25
+  %27 = trunc i64 %.02026.i to i32
   %28 = select i1 %26, i32 %27, i32 %24
-  br i1 %.not2326.i, label %._crit_edge.i, label %29
+  br i1 %.not2325.i, label %._crit_edge.i, label %29
 
 ._crit_edge.i:                                    ; preds = %23
   %.pre.i = zext i32 %28 to i64
@@ -1108,9 +1108,9 @@ define range(i32 -2, 1) i32 @gzclose_w(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %37, label %gz_zero.exit, label %21
 
 gz_zero.exit:                                     ; preds = %32, %21, %17, %14, %5
-  %.0 = phi i32 [ 0, %5 ], [ -1, %14 ], [ 0, %17 ], [ 0, %21 ], [ -1, %32 ]
+  %.019 = phi i32 [ 0, %5 ], [ -1, %14 ], [ 0, %17 ], [ 0, %21 ], [ -1, %32 ]
   %38 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 4)
-  %39 = add nsw i32 %38, %.0
+  %39 = add nsw i32 %38, %.019
   %40 = getelementptr inbounds i8, ptr %0, i64 120
   %41 = tail call i32 @deflateEnd(ptr noundef nonnull %40) #13
   %42 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1133,8 +1133,8 @@ gz_zero.exit:                                     ; preds = %32, %21, %17, %14, 
   br label %53
 
 53:                                               ; preds = %3, %1, %gz_zero.exit
-  %.019 = phi i32 [ %52, %gz_zero.exit ], [ -2, %1 ], [ -2, %3 ]
-  ret i32 %.019
+  %.0 = phi i32 [ %52, %gz_zero.exit ], [ -2, %1 ], [ -2, %3 ]
+  ret i32 %.0
 }
 
 declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #1

@@ -253,10 +253,10 @@ define range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) local_unname
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.backedge, %7
-  %.032.ph66 = phi ptr [ %2, %7 ], [ %26, %.lr.ph.split.us.backedge ]
-  %.033.ph64 = phi i32 [ 4, %7 ], [ %27, %.lr.ph.split.us.backedge ]
-  %11 = zext nneg i32 %.033.ph64 to i64
-  %12 = call i64 @write(i32 noundef %0, ptr noundef %.032.ph66, i64 noundef %11) #9
+  %.030.ph66 = phi i32 [ 4, %7 ], [ %27, %.lr.ph.split.us.backedge ]
+  %.031.ph64 = phi ptr [ %2, %7 ], [ %26, %.lr.ph.split.us.backedge ]
+  %11 = zext nneg i32 %.030.ph66 to i64
+  %12 = call i64 @write(i32 noundef %0, ptr noundef %.031.ph64, i64 noundef %11) #9
   %13 = trunc i64 %12 to i32
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %.lr.ph62, label %.split.us
@@ -273,7 +273,7 @@ define range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) local_unname
   ]
 
 18:                                               ; preds = %16, %16
-  %19 = call i64 @write(i32 noundef %0, ptr noundef %.032.ph66, i64 noundef %11) #9
+  %19 = call i64 @write(i32 noundef %0, ptr noundef %.031.ph64, i64 noundef %11) #9
   %20 = trunc i64 %19 to i32
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %16, label %.split.us
@@ -284,15 +284,15 @@ define range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) local_unname
   br i1 %23, label %24, label %59
 
 24:                                               ; preds = %.split57.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 173, ptr noundef nonnull @__func__.acct_gather_write_conf, i32 noundef %.033.ph64, i32 noundef 4) #9
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 173, ptr noundef nonnull @__func__.acct_gather_write_conf, i32 noundef %.030.ph66, i32 noundef 4) #9
   br label %59
 
 .split.us:                                        ; preds = %18, %.lr.ph.split.us
   %.us-phi = phi i64 [ %12, %.lr.ph.split.us ], [ %19, %18 ]
   %.us-phi55 = phi i32 [ %13, %.lr.ph.split.us ], [ %20, %18 ]
   %25 = and i64 %.us-phi, 2147483647
-  %26 = getelementptr inbounds i8, ptr %.032.ph66, i64 %25
-  %27 = sub nsw i32 %.033.ph64, %.us-phi55
+  %26 = getelementptr inbounds i8, ptr %.031.ph64, i64 %25
+  %27 = sub nsw i32 %.030.ph66, %.us-phi55
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %29, label %.outer45._crit_edge
 
@@ -319,10 +319,10 @@ define range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) local_unname
   br label %.lr.ph68.split.us
 
 .lr.ph68.split.us:                                ; preds = %.lr.ph68.split.us.backedge, %.lr.ph68.split.us.preheader
-  %.030.ph85 = phi ptr [ %.pre97, %.lr.ph68.split.us.preheader ], [ %49, %.lr.ph68.split.us.backedge ]
-  %.031.ph83 = phi i32 [ %10, %.lr.ph68.split.us.preheader ], [ %50, %.lr.ph68.split.us.backedge ]
-  %34 = zext nneg i32 %.031.ph83 to i64
-  %35 = tail call i64 @write(i32 noundef %0, ptr noundef %.030.ph85, i64 noundef %34) #9
+  %.032.ph85 = phi ptr [ %.pre97, %.lr.ph68.split.us.preheader ], [ %49, %.lr.ph68.split.us.backedge ]
+  %.033.ph83 = phi i32 [ %10, %.lr.ph68.split.us.preheader ], [ %50, %.lr.ph68.split.us.backedge ]
+  %34 = zext nneg i32 %.033.ph83 to i64
+  %35 = tail call i64 @write(i32 noundef %0, ptr noundef %.032.ph85, i64 noundef %34) #9
   %36 = trunc i64 %35 to i32
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %.lr.ph80, label %.split71.us
@@ -339,7 +339,7 @@ define range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) local_unname
   ]
 
 41:                                               ; preds = %39, %39
-  %42 = tail call i64 @write(i32 noundef %0, ptr noundef %.030.ph85, i64 noundef %34) #9
+  %42 = tail call i64 @write(i32 noundef %0, ptr noundef %.032.ph85, i64 noundef %34) #9
   %43 = trunc i64 %42 to i32
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %39, label %.split71.us
@@ -350,15 +350,15 @@ define range(i32 -1, 1) i32 @acct_gather_write_conf(i32 noundef %0) local_unname
   br i1 %46, label %47, label %59
 
 47:                                               ; preds = %.split75.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @__func__.acct_gather_write_conf, i32 noundef %.031.ph83, i32 noundef %10) #9
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @__func__.acct_gather_write_conf, i32 noundef %.033.ph83, i32 noundef %10) #9
   br label %59
 
 .split71.us:                                      ; preds = %41, %.lr.ph68.split.us
   %.us-phi72 = phi i64 [ %35, %.lr.ph68.split.us ], [ %42, %41 ]
   %.us-phi73 = phi i32 [ %36, %.lr.ph68.split.us ], [ %43, %41 ]
   %48 = and i64 %.us-phi72, 2147483647
-  %49 = getelementptr inbounds i8, ptr %.030.ph85, i64 %48
-  %50 = sub nsw i32 %.031.ph83, %.us-phi73
+  %49 = getelementptr inbounds i8, ptr %.032.ph85, i64 %48
+  %50 = sub nsw i32 %.033.ph83, %.us-phi73
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %52, label %.outer._crit_edge
 
@@ -728,8 +728,8 @@ define range(i32 -1, 1) i32 @acct_gather_conf_destroy() local_unnamed_addr #0 {
   unreachable
 
 14:                                               ; preds = %10, %0
-  %.04 = phi i32 [ 0, %0 ], [ %.3, %10 ]
-  ret i32 %.04
+  %.0 = phi i32 [ 0, %0 ], [ %.3, %10 ]
+  ret i32 %.0
 }
 
 declare i32 @acct_gather_energy_fini() local_unnamed_addr #1

@@ -40,7 +40,7 @@ define ptr @reoTransferNodesToUnits_rec(ptr noundef %0, ptr noundef %1) local_un
 
 .lr.ph:                                           ; preds = %10, %37
   %27 = phi ptr [ %41, %37 ], [ %24, %10 ]
-  %.074 = phi i32 [ %39, %37 ], [ %20, %10 ]
+  %.06374 = phi i32 [ %39, %37 ], [ %20, %10 ]
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %7
@@ -56,7 +56,7 @@ define ptr @reoTransferNodesToUnits_rec(ptr noundef %0, ptr noundef %1) local_un
   br label %113
 
 37:                                               ; preds = %.lr.ph
-  %38 = add nsw i32 %.074, 1
+  %38 = add nsw i32 %.06374, 1
   %39 = srem i32 %38, %17
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds %struct._reo_hash, ptr %22, i64 %40
@@ -183,9 +183,9 @@ define ptr @reoTransferNodesToUnits_rec(ptr noundef %0, ptr noundef %1) local_un
   %.pn.in = phi ptr [ %33, %31 ], [ %44, %109 ]
   %114 = and i64 %5, 1
   %.pn = ptrtoint ptr %.pn.in to i64
-  %.063.in = xor i64 %114, %.pn
-  %.063 = inttoptr i64 %.063.in to ptr
-  ret ptr %.063
+  %.0.in = xor i64 %114, %.pn
+  %.0 = inttoptr i64 %.0.in to ptr
+  ret ptr %.0
 }
 
 declare ptr @reoUnitsGetNextUnit(ptr noundef) local_unnamed_addr #1
@@ -227,7 +227,7 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
 
 .lr.ph:                                           ; preds = %11, %38
   %28 = phi ptr [ %42, %38 ], [ %25, %11 ]
-  %.082 = phi i32 [ %40, %38 ], [ %21, %11 ]
+  %.06982 = phi i32 [ %40, %38 ], [ %21, %11 ]
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, %8
@@ -242,7 +242,7 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   br label %142
 
 38:                                               ; preds = %.lr.ph
-  %39 = add nsw i32 %.082, 1
+  %39 = add nsw i32 %.06982, 1
   %40 = srem i32 %39, %18
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds %struct._reo_hash, ptr %23, i64 %41
@@ -331,7 +331,7 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
 98:                                               ; preds = %89, %49
   %.sink = phi ptr [ %77, %89 ], [ %57, %49 ]
   %.sink98 = phi i32 [ -1, %89 ], [ 1, %49 ]
-  %.069 = phi ptr [ %86, %89 ], [ %53, %49 ]
+  %.070 = phi ptr [ %86, %89 ], [ %53, %49 ]
   %99 = load i32, ptr %.sink, align 4
   %100 = add i32 %99, %.sink98
   store i32 %100, ptr %.sink, align 4
@@ -374,7 +374,7 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   store ptr %8, ptr %120, align 8
   %121 = load ptr, ptr %102, align 8
   %122 = getelementptr inbounds %struct._reo_hash, ptr %121, i64 %.lcssa77, i32 2
-  store ptr %.069, ptr %122, align 8
+  store ptr %.070, ptr %122, align 8
   %123 = getelementptr inbounds i8, ptr %0, i64 224
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds i8, ptr %0, i64 232
@@ -383,8 +383,8 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   store i32 %127, ptr %125, align 8
   %128 = sext i32 %126 to i64
   %129 = getelementptr inbounds ptr, ptr %124, i64 %128
-  store ptr %.069, ptr %129, align 8
-  tail call void @Cudd_Ref(ptr noundef %.069) #2
+  store ptr %.070, ptr %129, align 8
+  tail call void @Cudd_Ref(ptr noundef %.070) #2
   br label %130
 
 130:                                              ; preds = %._crit_edge, %98
@@ -392,7 +392,7 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   %132 = load i32, ptr %131, align 4
   %133 = add nsw i32 %132, 1
   store i32 %133, ptr %131, align 4
-  %134 = ptrtoint ptr %.069 to i64
+  %134 = ptrtoint ptr %.070 to i64
   %135 = and i64 %134, -2
   %136 = inttoptr i64 %135 to ptr
   %137 = getelementptr inbounds i8, ptr %136, i64 4
@@ -404,8 +404,8 @@ define ptr @reoTransferUnitsToNodes_rec(ptr noundef %0, ptr noundef %1) local_un
   br label %142
 
 142:                                              ; preds = %58, %130, %88, %72, %32
-  %.070 = phi ptr [ %37, %32 ], [ %141, %130 ], [ null, %72 ], [ null, %88 ], [ null, %58 ]
-  ret ptr %.070
+  %.0 = phi ptr [ %37, %32 ], [ %141, %130 ], [ null, %72 ], [ null, %88 ], [ null, %58 ]
+  ret ptr %.0
 }
 
 declare ptr @cuddUniqueConst(ptr noundef, double noundef) local_unnamed_addr #1

@@ -755,7 +755,7 @@ for.body131.lr.ph:                                ; preds = %while.body126
 
 for.body131:                                      ; preds = %for.body131.lr.ph, %for.body131
   %indvars.iv436 = phi i64 [ 0, %for.body131.lr.ph ], [ %indvars.iv.next437, %for.body131 ]
-  %iNeed.0418 = phi i32 [ 0, %for.body131.lr.ph ], [ %spec.select, %for.body131 ]
+  %iNeed.0419 = phi i32 [ 0, %for.body131.lr.ph ], [ %spec.select, %for.body131 ]
   %arrayidx136 = getelementptr inbounds i32, ptr %75, i64 %indvars.iv436
   %77 = load i32, ptr %arrayidx136, align 4
   %conv137 = zext i32 %77 to i64
@@ -763,7 +763,7 @@ for.body131:                                      ; preds = %for.body131.lr.ph, 
   %78 = load i32, ptr %add.ptr.i149, align 4
   %cmp139 = icmp eq i32 %78, -1
   %inc141 = zext i1 %cmp139 to i32
-  %spec.select = add i32 %iNeed.0418, %inc141
+  %spec.select = add i32 %iNeed.0419, %inc141
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
   %exitcond439.not = icmp eq i64 %indvars.iv.next437, %wide.trip.count
   br i1 %exitcond439.not, label %for.end145, label %for.body131, !llvm.loop !15

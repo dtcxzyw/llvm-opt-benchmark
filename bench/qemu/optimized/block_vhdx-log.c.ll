@@ -662,14 +662,14 @@ if.then10:                                        ; preds = %if.end9
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then10, %if.end9
-  %aligned_length.0 = phi i32 [ %sub15, %if.then10 ], [ %length, %if.end9 ]
-  %leading_length.0 = phi i32 [ %cond, %if.then10 ], [ 0, %if.end9 ]
   %partial_sectors.0 = phi i32 [ 1, %if.then10 ], [ 0, %if.end9 ]
+  %leading_length.0 = phi i32 [ %cond, %if.then10 ], [ 0, %if.end9 ]
+  %aligned_length.0 = phi i32 [ %sub15, %if.then10 ], [ %length, %if.end9 ]
   %div1887 = lshr i32 %aligned_length.0, 12
   %sub23 = and i32 %aligned_length.0, 4095
   %tobool25 = icmp ne i32 %sub23, 0
   %inc27 = zext i1 %tobool25 to i32
-  %spec.select = add nuw nsw i32 %partial_sectors.0, %div1887
+  %spec.select = add nuw nsw i32 %div1887, %partial_sectors.0
   %add = add nuw nsw i32 %spec.select, %inc27
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %6 = load ptr, ptr %file, align 8
@@ -1101,8 +1101,8 @@ inc_and_exit:                                     ; preds = %if.end6, %if.end12.
 
 free_and_exit:                                    ; preds = %for.body, %vhdx_log_read_sectors.exit.thread, %if.end40, %if.end14, %inc_and_exit, %if.end45
   %22 = phi ptr [ null, %inc_and_exit ], [ %.pre, %if.end14 ], [ %.pre, %if.end40 ], [ %.pre, %if.end45 ], [ %.pre, %vhdx_log_read_sectors.exit.thread ], [ %.pre, %for.body ]
-  %ret.2 = phi i32 [ %ret.0.i47, %inc_and_exit ], [ %call18, %if.end14 ], [ %ret.1, %if.end40 ], [ %ret.1, %if.end45 ], [ %call.i40, %vhdx_log_read_sectors.exit.thread ], [ 0, %for.body ]
   %buffer.0 = phi ptr [ null, %inc_and_exit ], [ null, %if.end14 ], [ %call25, %if.end40 ], [ %call25, %if.end45 ], [ %call25, %vhdx_log_read_sectors.exit.thread ], [ %call25, %for.body ]
+  %ret.2 = phi i32 [ %ret.0.i47, %inc_and_exit ], [ %call18, %if.end14 ], [ %ret.1, %if.end40 ], [ %ret.1, %if.end45 ], [ %call.i40, %vhdx_log_read_sectors.exit.thread ], [ 0, %for.body ]
   call void @qemu_vfree(ptr noundef %buffer.0) #8
   call void @qemu_vfree(ptr noundef %22) #8
   ret i32 %ret.2

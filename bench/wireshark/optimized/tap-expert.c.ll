@@ -98,7 +98,7 @@ define internal void @expert_stat_init(ptr noundef %0, ptr nocapture readnone %1
   br label %.thread33
 
 .thread33:                                        ; preds = %.thread, %5, %.thread36, %22
-  %.026 = phi ptr [ null, %22 ], [ %spec.select, %.thread36 ], [ null, %5 ], [ null, %.thread ]
+  %.027 = phi ptr [ null, %22 ], [ %spec.select, %.thread36 ], [ null, %5 ], [ null, %.thread ]
   %27 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #11
   %28 = tail call ptr @g_string_chunk_new(i64 noundef 100) #9
   %29 = getelementptr inbounds i8, ptr %27, i64 40
@@ -115,7 +115,7 @@ define internal void @expert_stat_init(ptr noundef %0, ptr nocapture readnone %1
   br i1 %exitcond.not, label %33, label %30, !llvm.loop !5
 
 33:                                               ; preds = %30
-  %34 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str, ptr noundef nonnull %27, ptr noundef %.026, i32 noundef 0, ptr noundef nonnull @expert_stat_reset, ptr noundef nonnull @expert_stat_packet, ptr noundef nonnull @expert_stat_draw, ptr noundef nonnull @expert_tapdata_free) #9
+  %34 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str, ptr noundef nonnull %27, ptr noundef %.027, i32 noundef 0, ptr noundef nonnull @expert_stat_reset, ptr noundef nonnull @expert_stat_packet, ptr noundef nonnull @expert_stat_draw, ptr noundef nonnull @expert_tapdata_free) #9
   %.not30 = icmp eq ptr %34, null
   br i1 %.not30, label %39, label %35
 

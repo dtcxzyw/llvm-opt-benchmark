@@ -43,13 +43,13 @@ define i32 @prte_ethtool_get_speed(ptr noundef %0) local_unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %7, %11
-  %.0 = phi i32 [ 0, %7 ], [ %spec.store.select, %11 ]
+  %.06 = phi i32 [ 0, %7 ], [ %spec.store.select, %11 ]
   %20 = call i32 @close(i32 noundef %5) #4
   br label %21
 
 21:                                               ; preds = %1, %19
-  %.06 = phi i32 [ %.0, %19 ], [ 0, %1 ]
-  ret i32 %.06
+  %.0 = phi i32 [ %.06, %19 ], [ 0, %1 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

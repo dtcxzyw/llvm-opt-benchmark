@@ -70,13 +70,13 @@ entry:
   %1 = load i32, ptr %r2, align 4
   %spec.select = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
   %retval.sroa.0.0 = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
-  %retval.sroa.0.1 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 %retval.sroa.0.0)
   %tmp1.sroa.0.1 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %retval.sroa.0.0)
+  %retval.sroa.0.1 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 %retval.sroa.0.0)
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond, %entry
-  %retval.sroa.0.2 = phi i32 [ %retval.sroa.0.1, %entry ], [ %rem.i.i, %for.cond ]
   %tmp1.sroa.0.2 = phi i32 [ %tmp1.sroa.0.1, %entry ], [ %retval.sroa.0.2, %for.cond ]
+  %retval.sroa.0.2 = phi i32 [ %retval.sroa.0.1, %entry ], [ %rem.i.i, %for.cond ]
   %rem.i.i = urem i32 %tmp1.sroa.0.2, %retval.sroa.0.2
   %cmp.i4 = icmp eq i32 %rem.i.i, 0
   br i1 %cmp.i4, label %if.then9, label %for.cond, !llvm.loop !6
@@ -92,13 +92,13 @@ entry:
   %1 = load i32, ptr %r2, align 4
   %spec.select.i = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
   %retval.sroa.0.0.i = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
-  %retval.sroa.0.1.i = tail call i32 @llvm.umin.i32(i32 %spec.select.i, i32 %retval.sroa.0.0.i)
   %tmp1.sroa.0.1.i = tail call i32 @llvm.umax.i32(i32 %spec.select.i, i32 %retval.sroa.0.0.i)
+  %retval.sroa.0.1.i = tail call i32 @llvm.umin.i32(i32 %spec.select.i, i32 %retval.sroa.0.0.i)
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i, %entry
-  %retval.sroa.0.2.i = phi i32 [ %retval.sroa.0.1.i, %entry ], [ %rem.i.i.i, %for.cond.i ]
   %tmp1.sroa.0.2.i = phi i32 [ %tmp1.sroa.0.1.i, %entry ], [ %retval.sroa.0.2.i, %for.cond.i ]
+  %retval.sroa.0.2.i = phi i32 [ %retval.sroa.0.1.i, %entry ], [ %rem.i.i.i, %for.cond.i ]
   %rem.i.i.i = urem i32 %tmp1.sroa.0.2.i, %retval.sroa.0.2.i
   %cmp.i4.i = icmp eq i32 %rem.i.i.i, 0
   br i1 %cmp.i4.i, label %_Z3gcdRK9s_integerS1_.exit, label %for.cond.i, !llvm.loop !6
@@ -124,10 +124,10 @@ entry:
 declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #7
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

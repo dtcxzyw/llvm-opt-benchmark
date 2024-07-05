@@ -1346,11 +1346,11 @@ _ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit
   br label %return
 
 return:                                           ; preds = %if.end11, %entry, %_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit, %if.then10
-  %retval.sroa.10.0 = phi i64 [ 47244640256, %if.then10 ], [ %12, %_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit ], [ 38654705664, %entry ], [ 47244640256, %if.end11 ]
   %retval.sroa.5.0 = phi i64 [ 2147483648, %if.then10 ], [ %retval.sroa.4.0.i, %_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit ], [ 2147483648, %entry ], [ 2147483648, %if.end11 ]
   %retval.sroa.0.0 = phi ptr [ @.str.1, %if.then10 ], [ %retval.sroa.0.0.i, %_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit ], [ @.str, %entry ], [ @.str.2, %if.end11 ]
+  %retval.sroa.10.0 = phi i64 [ 47244640256, %if.then10 ], [ %12, %_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit ], [ 38654705664, %entry ], [ 47244640256, %if.end11 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %retval.sroa.5.8.insert.insert = or i64 %retval.sroa.5.0, %retval.sroa.10.0
+  %retval.sroa.5.8.insert.insert = or i64 %retval.sroa.10.0, %retval.sroa.5.0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.5.8.insert.insert, 1
   ret { ptr, i64 } %.fca.1.insert
 }
@@ -2090,8 +2090,8 @@ _ZNK6hermes2vm15StringPrimitive12getStringRefIcEEN4llvh8ArrayRefIT_EEv.exit: ; p
   br label %if.end29
 
 if.end29:                                         ; preds = %_ZNK6hermes2vm15StringPrimitive12getStringRefIcEEN4llvh8ArrayRefIT_EEv.exit, %if.else
-  %str.sroa.6.0 = phi i64 [ %conv.i, %_ZNK6hermes2vm15StringPrimitive12getStringRefIcEEN4llvh8ArrayRefIT_EEv.exit ], [ %str.coerce1, %if.else ]
   %str.sroa.0.0 = phi ptr [ %retval.0.i.i.i, %_ZNK6hermes2vm15StringPrimitive12getStringRefIcEEN4llvh8ArrayRefIT_EEv.exit ], [ %str.coerce0, %if.else ]
+  %str.sroa.6.0 = phi i64 [ %conv.i, %_ZNK6hermes2vm15StringPrimitive12getStringRefIcEEN4llvh8ArrayRefIT_EEv.exit ], [ %str.coerce1, %if.else ]
   %tobool.not.i.i.i.i.i = icmp eq i64 %str.sroa.6.0, 0
   br i1 %tobool.not.i.i.i.i.i, label %cleanup38, label %if.then.i.i.i.i.i
 
@@ -2259,8 +2259,8 @@ _ZNK6hermes2vm15StringPrimitive12getStringRefIDsEEN4llvh8ArrayRefIT_EEv.exit: ; 
   br label %if.end29
 
 if.end29:                                         ; preds = %_ZNK6hermes2vm15StringPrimitive12getStringRefIDsEEN4llvh8ArrayRefIT_EEv.exit, %if.else
-  %str.sroa.6.0 = phi i64 [ %conv.i, %_ZNK6hermes2vm15StringPrimitive12getStringRefIDsEEN4llvh8ArrayRefIT_EEv.exit ], [ %str.coerce1, %if.else ]
   %str.sroa.0.0 = phi ptr [ %retval.0.i.i.i, %_ZNK6hermes2vm15StringPrimitive12getStringRefIDsEEN4llvh8ArrayRefIT_EEv.exit ], [ %str.coerce0, %if.else ]
+  %str.sroa.6.0 = phi i64 [ %conv.i, %_ZNK6hermes2vm15StringPrimitive12getStringRefIDsEEN4llvh8ArrayRefIT_EEv.exit ], [ %str.coerce1, %if.else ]
   %tobool.not.i.i.i.i.i = icmp eq i64 %str.sroa.6.0, 0
   br i1 %tobool.not.i.i.i.i.i, label %cleanup38, label %if.then.i.i.i.i.i
 
@@ -3251,8 +3251,8 @@ _ZNK6hermes2vm15StringPrimitive12getStringRefIcEEN4llvh8ArrayRefIT_EEv.exit: ; p
   br label %if.end29
 
 if.end29:                                         ; preds = %_ZNK6hermes2vm15StringPrimitive12getStringRefIcEEN4llvh8ArrayRefIT_EEv.exit, %if.else
-  %str.sroa.6.0 = phi i64 [ %conv.i, %_ZNK6hermes2vm15StringPrimitive12getStringRefIcEEN4llvh8ArrayRefIT_EEv.exit ], [ %str.coerce1, %if.else ]
   %str.sroa.0.0 = phi ptr [ %retval.0.i.i.i, %_ZNK6hermes2vm15StringPrimitive12getStringRefIcEEN4llvh8ArrayRefIT_EEv.exit ], [ %str.coerce0, %if.else ]
+  %str.sroa.6.0 = phi i64 [ %conv.i, %_ZNK6hermes2vm15StringPrimitive12getStringRefIcEEN4llvh8ArrayRefIT_EEv.exit ], [ %str.coerce1, %if.else ]
   %tobool.not.i.i.i.i.i = icmp eq i64 %str.sroa.6.0, 0
   br i1 %tobool.not.i.i.i.i.i, label %cleanup38, label %if.then.i.i.i.i.i
 
@@ -3418,8 +3418,8 @@ _ZNK6hermes2vm15StringPrimitive12getStringRefIDsEEN4llvh8ArrayRefIT_EEv.exit: ; 
   br label %if.end29
 
 if.end29:                                         ; preds = %_ZNK6hermes2vm15StringPrimitive12getStringRefIDsEEN4llvh8ArrayRefIT_EEv.exit, %if.else
-  %str.sroa.6.0 = phi i64 [ %conv.i, %_ZNK6hermes2vm15StringPrimitive12getStringRefIDsEEN4llvh8ArrayRefIT_EEv.exit ], [ %str.coerce1, %if.else ]
   %str.sroa.0.0 = phi ptr [ %retval.0.i.i.i, %_ZNK6hermes2vm15StringPrimitive12getStringRefIDsEEN4llvh8ArrayRefIT_EEv.exit ], [ %str.coerce0, %if.else ]
+  %str.sroa.6.0 = phi i64 [ %conv.i, %_ZNK6hermes2vm15StringPrimitive12getStringRefIDsEEN4llvh8ArrayRefIT_EEv.exit ], [ %str.coerce1, %if.else ]
   %tobool.not.i.i.i.i.i = icmp eq i64 %str.sroa.6.0, 0
   br i1 %tobool.not.i.i.i.i.i, label %cleanup38, label %if.then.i.i.i.i.i
 

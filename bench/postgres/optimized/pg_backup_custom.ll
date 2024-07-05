@@ -1009,52 +1009,52 @@ define internal void @_PrepParallelRestore(ptr nocapture noundef readonly %0) #0
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 504
   %5 = load ptr, ptr %4, align 8
-  %.0.in35 = getelementptr inbounds i8, ptr %5, i64 8
-  %.036 = load ptr, ptr %.0.in35, align 8
-  %.not37 = icmp eq ptr %.036, %5
+  %.025.in35 = getelementptr inbounds i8, ptr %5, i64 8
+  %.02536 = load ptr, ptr %.025.in35, align 8
+  %.not37 = icmp eq ptr %.02536, %5
   br i1 %.not37, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %20
   %6 = phi ptr [ %21, %20 ], [ %5, %1 ]
-  %.040 = phi ptr [ %.0, %20 ], [ %.036, %1 ]
-  %.02339 = phi ptr [ %.1, %20 ], [ null, %1 ]
-  %.02438 = phi ptr [ %.125, %20 ], [ null, %1 ]
-  %7 = getelementptr inbounds i8, ptr %.040, i64 144
+  %.02540 = phi ptr [ %.025, %20 ], [ %.02536, %1 ]
+  %.039 = phi ptr [ %.1, %20 ], [ null, %1 ]
+  %.02338 = phi ptr [ %.124, %20 ], [ null, %1 ]
+  %7 = getelementptr inbounds i8, ptr %.02540, i64 144
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
   %.not33 = icmp eq i32 %9, 2
   br i1 %.not33, label %10, label %20
 
 10:                                               ; preds = %.lr.ph
-  %.not34 = icmp eq ptr %.02438, null
+  %.not34 = icmp eq ptr %.039, null
   br i1 %.not34, label %20, label %11
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds i8, ptr %8, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.02339, i64 8
+  %14 = getelementptr inbounds i8, ptr %.02338, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = icmp sgt i64 %13, %15
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %11
   %18 = sub i64 %13, %15
-  %19 = getelementptr inbounds i8, ptr %.02438, i64 152
+  %19 = getelementptr inbounds i8, ptr %.039, i64 152
   store i64 %18, ptr %19, align 8
   %.pre = load ptr, ptr %4, align 8
   br label %20
 
 20:                                               ; preds = %10, %17, %11, %.lr.ph
   %21 = phi ptr [ %6, %.lr.ph ], [ %6, %11 ], [ %.pre, %17 ], [ %6, %10 ]
-  %.125 = phi ptr [ %.02438, %.lr.ph ], [ %.040, %11 ], [ %.040, %17 ], [ %.040, %10 ]
-  %.1 = phi ptr [ %.02339, %.lr.ph ], [ %8, %11 ], [ %8, %17 ], [ %8, %10 ]
-  %.0.in = getelementptr inbounds i8, ptr %.040, i64 8
-  %.0 = load ptr, ptr %.0.in, align 8
-  %.not = icmp eq ptr %.0, %21
+  %.124 = phi ptr [ %.02338, %.lr.ph ], [ %8, %11 ], [ %8, %17 ], [ %8, %10 ]
+  %.1 = phi ptr [ %.039, %.lr.ph ], [ %.02540, %11 ], [ %.02540, %17 ], [ %.02540, %10 ]
+  %.025.in = getelementptr inbounds i8, ptr %.02540, i64 8
+  %.025 = load ptr, ptr %.025.in, align 8
+  %.not = icmp eq ptr %.025, %21
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %20
-  %.not30 = icmp eq ptr %.125, null
+  %.not30 = icmp eq ptr %.1, null
   br i1 %.not30, label %._crit_edge.thread, label %22
 
 22:                                               ; preds = %._crit_edge
@@ -1078,14 +1078,14 @@ define internal void @_PrepParallelRestore(ptr nocapture noundef readonly %0) #0
 30:                                               ; preds = %25
   %31 = load ptr, ptr %26, align 8
   %32 = tail call i64 @ftello(ptr noundef %31)
-  %33 = getelementptr inbounds i8, ptr %.1, i64 8
+  %33 = getelementptr inbounds i8, ptr %.124, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = icmp sgt i64 %32, %34
   br i1 %35, label %36, label %._crit_edge.thread
 
 36:                                               ; preds = %30
   %37 = sub i64 %32, %34
-  %38 = getelementptr inbounds i8, ptr %.125, i64 152
+  %38 = getelementptr inbounds i8, ptr %.1, i64 152
   store i64 %37, ptr %38, align 8
   br label %._crit_edge.thread
 

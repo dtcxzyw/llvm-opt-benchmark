@@ -920,8 +920,8 @@ is_conninfo_option.exit:                          ; preds = %27
 31:                                               ; preds = %is_conninfo_option.exit, %37
   %32 = phi ptr [ @.str.14, %is_conninfo_option.exit ], [ %39, %37 ]
   %.039 = phi i1 [ false, %is_conninfo_option.exit ], [ %.1, %37 ]
-  %.02038 = phi ptr [ @libpq_conninfo_options, %is_conninfo_option.exit ], [ %38, %37 ]
-  %33 = getelementptr inbounds i8, ptr %.02038, i64 8
+  %.02138 = phi ptr [ @libpq_conninfo_options, %is_conninfo_option.exit ], [ %38, %37 ]
+  %33 = getelementptr inbounds i8, ptr %.02138, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, %8
   br i1 %35, label %36, label %37
@@ -932,7 +932,7 @@ is_conninfo_option.exit:                          ; preds = %27
 
 37:                                               ; preds = %31, %36
   %.1 = phi i1 [ true, %36 ], [ %.039, %31 ]
-  %38 = getelementptr i8, ptr %.02038, i64 16
+  %38 = getelementptr i8, ptr %.02138, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not26 = icmp eq ptr %39, null
   br i1 %.not26, label %40, label %31, !llvm.loop !7

@@ -501,12 +501,12 @@ amr_ft_to_bytes.exit:                             ; preds = %62, %88
   br label %93
 
 93:                                               ; preds = %amr_ft_to_bytes.exit, %93
-  %.085 = phi i8 [ 0, %amr_ft_to_bytes.exit ], [ %97, %93 ]
+  %.07985 = phi i8 [ 0, %amr_ft_to_bytes.exit ], [ %97, %93 ]
   %.184 = phi i32 [ %80, %amr_ft_to_bytes.exit ], [ %96, %93 ]
   %94 = load i32, ptr @hf_osmux_amr_data, align 4
   %95 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %94, ptr noundef %0, i32 noundef %.184, i32 noundef %92, i32 noundef 0) #10
   %96 = add i32 %.184, %92
-  %97 = add i8 %.085, 1
+  %97 = add i8 %.07985, 1
   %98 = load i8, ptr %24, align 1
   %.not81 = icmp ult i8 %98, %97
   br i1 %.not81, label %99, label %93, !llvm.loop !6

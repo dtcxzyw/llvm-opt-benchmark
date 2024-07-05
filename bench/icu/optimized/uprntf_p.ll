@@ -31,9 +31,9 @@ for.cond.i.preheader:                             ; preds = %lor.lhs.false, %ent
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %if.end106.i
-  %alias.addr.0.i = phi ptr [ %alias.addr.2.lcssa.i, %if.end106.i ], [ %fmt, %for.cond.i.preheader ]
   %size.0.i = phi i32 [ %spec.select.i, %if.end106.i ], [ 0, %for.cond.i.preheader ]
   %pos.0.i = phi i32 [ %pos.1.lcssa.i, %if.end106.i ], [ 0, %for.cond.i.preheader ]
+  %alias.addr.0.i = phi ptr [ %alias.addr.2.lcssa.i, %if.end106.i ], [ %fmt, %for.cond.i.preheader ]
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %for.cond.i
@@ -66,10 +66,10 @@ if.then64.i:                                      ; preds = %if.end.i
 
 while.body96.i:                                   ; preds = %if.then64.i, %while.body96.i
   %4 = phi i16 [ %5, %while.body96.i ], [ %3, %if.then64.i ]
-  %pos.1161.i = phi i32 [ %add.i, %while.body96.i ], [ %sub.i, %if.then64.i ]
-  %alias.addr.2160.i = phi ptr [ %incdec.ptr97.i, %while.body96.i ], [ %incdec.ptr65.i, %if.then64.i ]
-  %mul.i = mul nsw i32 %pos.1161.i, 10
-  %incdec.ptr97.i = getelementptr inbounds i8, ptr %alias.addr.2160.i, i64 2
+  %alias.addr.2161.i = phi ptr [ %incdec.ptr97.i, %while.body96.i ], [ %incdec.ptr65.i, %if.then64.i ]
+  %pos.1160.i = phi i32 [ %add.i, %while.body96.i ], [ %sub.i, %if.then64.i ]
+  %mul.i = mul nsw i32 %pos.1160.i, 10
+  %incdec.ptr97.i = getelementptr inbounds i8, ptr %alias.addr.2161.i, i64 2
   %conv98.i = zext nneg i16 %4 to i32
   %sub99.i = add nsw i32 %conv98.i, -48
   %add.i = add i32 %sub99.i, %mul.i
@@ -80,8 +80,8 @@ while.body96.i:                                   ; preds = %if.then64.i, %while
 
 if.end101.i:                                      ; preds = %while.body96.i, %if.then64.i
   %6 = phi i16 [ %3, %if.then64.i ], [ %5, %while.body96.i ]
-  %alias.addr.2.lcssa.i = phi ptr [ %incdec.ptr65.i, %if.then64.i ], [ %incdec.ptr97.i, %while.body96.i ]
   %pos.1.lcssa.i = phi i32 [ %sub.i, %if.then64.i ], [ %add.i, %while.body96.i ]
+  %alias.addr.2.lcssa.i = phi ptr [ %incdec.ptr65.i, %if.then64.i ], [ %incdec.ptr97.i, %while.body96.i ]
   %cmp103.not.i = icmp eq i16 %6, 36
   br i1 %cmp103.not.i, label %if.end106.i, label %if.end4
 
@@ -125,8 +125,8 @@ if.then130.i:                                     ; preds = %if.end128.i
   br label %return
 
 for.cond133.i:                                    ; preds = %for.end.i, %if.end321.i
-  %alias.addr.4.i = phi ptr [ %alias.addr.8.i, %if.end321.i ], [ %fmt, %for.end.i ]
   %pos.3.i = phi i32 [ %dec.i, %if.end321.i ], [ %pos.0.i, %for.end.i ]
+  %alias.addr.4.i = phi ptr [ %alias.addr.8.i, %if.end321.i ], [ %fmt, %for.end.i ]
   br label %while.cond134.i
 
 while.cond134.i:                                  ; preds = %while.body141.i, %for.cond133.i
@@ -169,10 +169,10 @@ if.then178.i:                                     ; preds = %if.end147.i
 
 while.body213.i:                                  ; preds = %if.then178.i, %while.body213.i
   %11 = phi i16 [ %12, %while.body213.i ], [ %10, %if.then178.i ]
-  %pos.4166.i = phi i32 [ %add218.i, %while.body213.i ], [ %sub181.i, %if.then178.i ]
-  %alias.addr.6165.i = phi ptr [ %incdec.ptr215.i, %while.body213.i ], [ %incdec.ptr179.i, %if.then178.i ]
-  %mul214.i = mul nsw i32 %pos.4166.i, 10
-  %incdec.ptr215.i = getelementptr inbounds i8, ptr %alias.addr.6165.i, i64 2
+  %alias.addr.6166.i = phi ptr [ %incdec.ptr215.i, %while.body213.i ], [ %incdec.ptr179.i, %if.then178.i ]
+  %pos.4165.i = phi i32 [ %add218.i, %while.body213.i ], [ %sub181.i, %if.then178.i ]
+  %mul214.i = mul nsw i32 %pos.4165.i, 10
+  %incdec.ptr215.i = getelementptr inbounds i8, ptr %alias.addr.6166.i, i64 2
   %conv216.i = zext nneg i16 %11 to i32
   %sub217.i = add nsw i32 %conv216.i, -48
   %add218.i = add i32 %sub217.i, %mul214.i
@@ -183,8 +183,8 @@ while.body213.i:                                  ; preds = %if.then178.i, %whil
 
 if.end220.i:                                      ; preds = %while.body213.i, %if.then178.i, %if.end147.i
   %13 = phi i16 [ %9, %if.end147.i ], [ %10, %if.then178.i ], [ %12, %while.body213.i ]
-  %alias.addr.7.i = phi ptr [ %incdec.ptr148.i, %if.end147.i ], [ %incdec.ptr179.i, %if.then178.i ], [ %incdec.ptr215.i, %while.body213.i ]
   %pos.5.i = phi i32 [ %pos.3.i, %if.end147.i ], [ %sub181.i, %if.then178.i ], [ %add218.i, %while.body213.i ]
+  %alias.addr.7.i = phi ptr [ %incdec.ptr148.i, %if.end147.i ], [ %incdec.ptr179.i, %if.then178.i ], [ %incdec.ptr215.i, %while.body213.i ]
   %dec.i = add nsw i32 %pos.5.i, -1
   %idxprom.i = sext i32 %dec.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %call114.i, i64 %idxprom.i

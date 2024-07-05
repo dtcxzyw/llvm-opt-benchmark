@@ -80,8 +80,8 @@ for.inc:                                          ; preds = %land.lhs.true, %for
 for.body36:                                       ; preds = %for.cond32.preheader, %for.inc62
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %for.inc62 ], [ 0, %for.cond32.preheader ]
   %5 = phi ptr [ %6, %for.inc62 ], [ %3, %for.cond32.preheader ]
-  %end.269 = phi ptr [ %end.3, %for.inc62 ], [ %end.0.lcssa, %for.cond32.preheader ]
-  %or.cond52.not = icmp eq ptr %end.269, %5
+  %end.270 = phi ptr [ %end.3, %for.inc62 ], [ %end.0.lcssa, %for.cond32.preheader ]
+  %or.cond52.not = icmp eq ptr %end.270, %5
   br i1 %or.cond52.not, label %land.lhs.true45, label %for.inc62
 
 land.lhs.true45:                                  ; preds = %for.body36
@@ -89,11 +89,11 @@ land.lhs.true45:                                  ; preds = %for.body36
   %add.ptr51 = getelementptr inbounds i8, ptr %5, i64 %call50
   %cmp52.not = icmp slt i64 %call50, 0
   %add.ptr60 = getelementptr inbounds i8, ptr %add.ptr51, i64 1
-  %spec.select53 = select i1 %cmp52.not, ptr %end.269, ptr %add.ptr60
+  %spec.select53 = select i1 %cmp52.not, ptr %end.270, ptr %add.ptr60
   br label %for.inc62
 
 for.inc62:                                        ; preds = %land.lhs.true45, %for.body36
-  %end.3 = phi ptr [ %end.269, %for.body36 ], [ %spec.select53, %land.lhs.true45 ]
+  %end.3 = phi ptr [ %end.270, %for.body36 ], [ %spec.select53, %land.lhs.true45 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %arrayidx34 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.next74
   %6 = load ptr, ptr %arrayidx34, align 8
@@ -108,8 +108,8 @@ for.end64.loopexit:                               ; preds = %for.inc62
   br label %for.end64
 
 for.end64:                                        ; preds = %for.end64.loopexit, %for.cond32.preheader
-  %end.2.lcssa = phi ptr [ %end.0.lcssa, %for.cond32.preheader ], [ %end.3, %for.end64.loopexit ]
   %i.1.lcssa = phi i64 [ 8, %for.cond32.preheader ], [ %10, %for.end64.loopexit ]
+  %end.2.lcssa = phi ptr [ %end.0.lcssa, %for.cond32.preheader ], [ %end.3, %for.end64.loopexit ]
   %call66 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #13
   store ptr %call66, ptr @SPT.0, align 8
   %tobool67.not = icmp eq ptr %call66, null

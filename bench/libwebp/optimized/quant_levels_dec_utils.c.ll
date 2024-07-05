@@ -67,8 +67,8 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef %0, i32 noun
   %.sroa.55.0 = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %.sroa.55.2, %._crit_edge.us.i.i ]
   %.promoted44.us54.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %.promoted44.us52.i.i, %._crit_edge.us.i.i ]
   %.promoted.us50.i.i = phi i32 [ 255, %.preheader.lr.ph.i.i ], [ %.promoted.us48.i.i, %._crit_edge.us.i.i ]
-  %.046.us.i.i = phi ptr [ %0, %.preheader.lr.ph.i.i ], [ %54, %._crit_edge.us.i.i ]
-  %.03745.us.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %55, %._crit_edge.us.i.i ]
+  %.03646.us.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %55, %._crit_edge.us.i.i ]
+  %.03745.us.i.i = phi ptr [ %0, %.preheader.lr.ph.i.i ], [ %54, %._crit_edge.us.i.i ]
   br label %42
 
 42:                                               ; preds = %42, %.preheader.us.i.i
@@ -79,7 +79,7 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef %0, i32 noun
   %.promoted.us49.i.i = phi i32 [ %.promoted.us50.i.i, %.preheader.us.i.i ], [ %.promoted.us48.i.i, %42 ]
   %43 = phi i32 [ %.promoted44.us54.i.i, %.preheader.us.i.i ], [ %51, %42 ]
   %44 = phi i32 [ %.promoted.us50.i.i, %.preheader.us.i.i ], [ %49, %42 ]
-  %45 = getelementptr inbounds i8, ptr %.046.us.i.i, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds i8, ptr %.03745.us.i.i, i64 %indvars.iv.i.i
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = icmp sgt i32 %44, %47
@@ -98,8 +98,8 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef %0, i32 noun
   br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %42, !llvm.loop !4
 
 ._crit_edge.us.i.i:                               ; preds = %42
-  %54 = getelementptr inbounds i8, ptr %.046.us.i.i, i64 %41
-  %55 = add nuw nsw i32 %.03745.us.i.i, 1
+  %54 = getelementptr inbounds i8, ptr %.03745.us.i.i, i64 %41
+  %55 = add nuw nsw i32 %.03646.us.i.i, 1
   %exitcond59.not.i.i = icmp eq i32 %55, %2
   br i1 %exitcond59.not.i.i, label %._crit_edge47.i.i, label %.preheader.us.i.i, !llvm.loop !6
 
@@ -112,7 +112,7 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef %0, i32 noun
   %.sroa.49.0 = phi i32 [ 0, %._crit_edge47.i.i ], [ %.sroa.49.1, %68 ]
   %59 = phi i32 [ %57, %._crit_edge47.i.i ], [ %69, %68 ]
   %indvars.iv60.i.i = phi i64 [ 0, %._crit_edge47.i.i ], [ %indvars.iv.next61.i.i, %68 ]
-  %.03656.i.i = phi i32 [ -1, %._crit_edge47.i.i ], [ %.1.i.i, %68 ]
+  %.03855.i.i = phi i32 [ -1, %._crit_edge47.i.i ], [ %.139.i.i, %68 ]
   %60 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %indvars.iv60.i.i
   %61 = load i8, ptr %60, align 1
   %.not.i.i = icmp eq i8 %61, 0
@@ -120,19 +120,19 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef %0, i32 noun
 
 62:                                               ; preds = %58
   %63 = add nsw i32 %.sroa.49.0, 1
-  %64 = icmp sgt i32 %.03656.i.i, -1
+  %64 = icmp sgt i32 %.03855.i.i, -1
   %65 = trunc nuw nsw i64 %indvars.iv60.i.i to i32
   br i1 %64, label %66, label %68
 
 66:                                               ; preds = %62
-  %67 = sub nsw i32 %65, %.03656.i.i
+  %67 = sub nsw i32 %65, %.03855.i.i
   %spec.select = tail call i32 @llvm.smin.i32(i32 %67, i32 %59)
   br label %68
 
 68:                                               ; preds = %66, %62, %58
   %.sroa.49.1 = phi i32 [ %.sroa.49.0, %58 ], [ %63, %62 ], [ %63, %66 ]
   %69 = phi i32 [ %59, %58 ], [ %59, %62 ], [ %spec.select, %66 ]
-  %.1.i.i = phi i32 [ %.03656.i.i, %58 ], [ %65, %62 ], [ %65, %66 ]
+  %.139.i.i = phi i32 [ %.03855.i.i, %58 ], [ %65, %62 ], [ %65, %66 ]
   %indvars.iv.next61.i.i = add nuw nsw i64 %indvars.iv60.i.i, 1
   %exitcond63.not.i.i = icmp eq i64 %indvars.iv.next61.i.i, 256
   br i1 %exitcond63.not.i.i, label %CountLevels.exit.i, label %58, !llvm.loop !7
@@ -212,11 +212,11 @@ CountLevels.exit.i:                               ; preds = %68
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.03437.i = phi i16 [ 0, %.lr.ph.preheader.i ], [ %107, %.lr.ph.i ]
+  %.038.i = phi i16 [ 0, %.lr.ph.preheader.i ], [ %107, %.lr.ph.i ]
   %104 = getelementptr inbounds i8, ptr %.sroa.17.195, i64 %indvars.iv.i
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i16
-  %107 = add i16 %.03437.i, %106
+  %107 = add i16 %.038.i, %106
   %108 = getelementptr inbounds i16, ptr %.sroa.43.198, i64 %indvars.iv.i
   %109 = load i16, ptr %108, align 2
   %110 = add i16 %107, %109

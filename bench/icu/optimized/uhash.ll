@@ -642,9 +642,9 @@ if.then18:                                        ; preds = %for.body
 
 do.body.i:                                        ; preds = %if.end28.i, %if.then18
   %.pre47.i = phi i32 [ %18, %if.then18 ], [ %.pre.i, %if.end28.i ]
-  %firstDeleted.0.i = phi i32 [ -1, %if.then18 ], [ %firstDeleted.1.i, %if.end28.i ]
-  %theIndex.0.i = phi i32 [ %rem.i, %if.then18 ], [ %rem31.i, %if.end28.i ]
   %jump.0.i = phi i32 [ 0, %if.then18 ], [ %jump.1.i, %if.end28.i ]
+  %theIndex.0.i = phi i32 [ %rem.i, %if.then18 ], [ %rem31.i, %if.end28.i ]
+  %firstDeleted.0.i = phi i32 [ -1, %if.then18 ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i36 = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i37 = getelementptr inbounds %struct.UHashElement, ptr %17, i64 %idxprom.i36
   %19 = load i32, ptr %arrayidx.i37, align 8
@@ -763,9 +763,9 @@ entry:
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
   %.pre47.i = phi i32 [ %2, %entry ], [ %.pre.i, %if.end28.i ]
-  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
+  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
+  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
@@ -856,9 +856,9 @@ entry:
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
   %.pre47.i = phi i32 [ %3, %entry ], [ %.pre.i, %if.end28.i ]
-  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
+  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
+  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 8
@@ -947,9 +947,9 @@ entry:
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
   %.pre47.i = phi i32 [ %2, %entry ], [ %.pre.i, %if.end28.i ]
-  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
+  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
+  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
@@ -1040,9 +1040,9 @@ entry:
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
   %.pre47.i = phi i32 [ %3, %entry ], [ %.pre.i, %if.end28.i ]
-  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
+  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
+  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 8
@@ -1131,9 +1131,9 @@ entry:
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
   %.pre47.i = phi i32 [ %2, %entry ], [ %.pre.i, %if.end28.i ]
-  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
+  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
+  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
@@ -1229,9 +1229,9 @@ entry:
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
   %.pre47.i = phi i32 [ %3, %entry ], [ %.pre.i, %if.end28.i ]
-  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
+  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
+  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 8
@@ -1374,9 +1374,9 @@ if.end18:                                         ; preds = %if.then13, %if.end1
 
 do.body.i:                                        ; preds = %if.end28.i, %if.end18
   %.pre47.i = phi i32 [ %8, %if.end18 ], [ %.pre.i, %if.end28.i ]
-  %firstDeleted.0.i = phi i32 [ -1, %if.end18 ], [ %firstDeleted.1.i, %if.end28.i ]
-  %theIndex.0.i = phi i32 [ %rem.i, %if.end18 ], [ %rem31.i, %if.end28.i ]
   %jump.0.i = phi i32 [ 0, %if.end18 ], [ %jump.1.i, %if.end28.i ]
+  %theIndex.0.i = phi i32 [ %rem.i, %if.end18 ], [ %rem31.i, %if.end28.i ]
+  %firstDeleted.0.i = phi i32 [ -1, %if.end18 ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %7, i64 %idxprom.i
   %9 = load i32, ptr %arrayidx.i, align 8
@@ -1616,9 +1616,9 @@ entry:
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
   %.pre47.i = phi i32 [ %2, %entry ], [ %.pre.i, %if.end28.i ]
-  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
+  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
+  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
@@ -1921,9 +1921,9 @@ entry:
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
   %.pre47.i = phi i32 [ %2, %entry ], [ %.pre.i, %if.end28.i ]
-  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
+  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
+  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
@@ -2016,9 +2016,9 @@ entry:
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
   %.pre47.i = phi i32 [ %3, %entry ], [ %.pre.i, %if.end28.i ]
-  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
+  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
+  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 8
@@ -2109,9 +2109,9 @@ entry:
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
   %.pre47.i = phi i32 [ %2, %entry ], [ %.pre.i, %if.end28.i ]
-  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
-  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %jump.0.i = phi i32 [ 0, %entry ], [ %jump.1.i, %if.end28.i ]
+  %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
+  %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
@@ -2335,9 +2335,9 @@ if.then.i:                                        ; preds = %for.cond.i
 
 do.body.i:                                        ; preds = %if.end28.i, %if.then.i
   %.pre47.i = phi i32 [ %13, %if.then.i ], [ %.pre.i, %if.end28.i ]
-  %firstDeleted.0.i = phi i32 [ -1, %if.then.i ], [ %firstDeleted.1.i, %if.end28.i ]
-  %theIndex.0.i = phi i32 [ %rem.i, %if.then.i ], [ %rem31.i, %if.end28.i ]
   %jump.0.i = phi i32 [ 0, %if.then.i ], [ %jump.1.i, %if.end28.i ]
+  %theIndex.0.i = phi i32 [ %rem.i, %if.then.i ], [ %rem31.i, %if.end28.i ]
+  %firstDeleted.0.i = phi i32 [ -1, %if.then.i ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
   %arrayidx.i20 = getelementptr inbounds %struct.UHashElement, ptr %12, i64 %idxprom.i
   %14 = load i32, ptr %arrayidx.i20, align 8

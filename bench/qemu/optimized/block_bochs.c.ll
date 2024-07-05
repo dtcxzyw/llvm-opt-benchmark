@@ -357,12 +357,12 @@ while.body.lr.ph:                                 ; preds = %if.end8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end26
-  %bytes_done.025 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end26 ]
-  %nb_sectors.024 = phi i32 [ %conv, %while.body.lr.ph ], [ %dec, %if.end26 ]
-  %sector_num.023 = phi i64 [ %shr, %while.body.lr.ph ], [ %inc, %if.end26 ]
+  %sector_num.025 = phi i64 [ %shr, %while.body.lr.ph ], [ %inc, %if.end26 ]
+  %bytes_done.024 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end26 ]
+  %nb_sectors.023 = phi i32 [ %conv, %while.body.lr.ph ], [ %dec, %if.end26 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %bitmap_entry.i)
   %3 = load ptr, ptr %opaque, align 8
-  %mul.i = shl i64 %sector_num.023, 9
+  %mul.i = shl i64 %sector_num.025, 9
   %extent_size.i = getelementptr inbounds i8, ptr %3, i64 72
   %4 = load i32, ptr %extent_size.i, align 8
   %conv.i = zext i32 %4 to i64
@@ -440,7 +440,7 @@ if.then13.loopexit:                               ; preds = %seek_to_sector.exit
 if.end15:                                         ; preds = %seek_to_sector.exit.thread, %seek_to_sector.exit
   %retval.0.i16 = phi i64 [ 0, %seek_to_sector.exit.thread ], [ %add28.i, %seek_to_sector.exit ]
   call void @qemu_iovec_reset(ptr noundef nonnull %local_qiov) #10
-  call void @qemu_iovec_concat(ptr noundef nonnull %local_qiov, ptr noundef %qiov, i64 noundef %bytes_done.025, i64 noundef 512) #10
+  call void @qemu_iovec_concat(ptr noundef nonnull %local_qiov, ptr noundef %qiov, i64 noundef %bytes_done.024, i64 noundef 512) #10
   %cmp16.not = icmp eq i64 %retval.0.i16, 0
   br i1 %cmp16.not, label %if.else24, label %if.then18
 
@@ -455,10 +455,10 @@ if.else24:                                        ; preds = %if.end15
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then18, %if.else24
-  %dec = add nsw i32 %nb_sectors.024, -1
-  %inc = add nsw i64 %sector_num.023, 1
-  %add = add nuw nsw i64 %bytes_done.025, 512
-  %cmp9 = icmp sgt i32 %nb_sectors.024, 1
+  %dec = add nsw i32 %nb_sectors.023, -1
+  %inc = add nsw i64 %sector_num.025, 1
+  %add = add nuw nsw i64 %bytes_done.024, 512
+  %cmp9 = icmp sgt i32 %nb_sectors.023, 1
   br i1 %cmp9, label %while.body, label %fail, !llvm.loop !5
 
 fail:                                             ; preds = %if.then18, %if.end26, %seek_to_sector.exit.thread17, %if.then13.loopexit, %if.end8

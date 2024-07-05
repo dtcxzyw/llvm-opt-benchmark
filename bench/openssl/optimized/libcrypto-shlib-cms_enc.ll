@@ -275,7 +275,7 @@ if.then173:                                       ; preds = %if.end169
 err.thread.sink.split:                            ; preds = %if.end163, %if.then142, %if.end134, %if.then122, %lor.lhs.false124, %land.lhs.true, %if.else60, %if.end46, %if.then36, %lor.lhs.false, %if.then19, %if.then27
   %.sink100 = phi i32 [ 73, %if.then27 ], [ 79, %if.then19 ], [ 86, %lor.lhs.false ], [ 86, %if.then36 ], [ 92, %if.end46 ], [ 103, %if.else60 ], [ 111, %land.lhs.true ], [ 149, %lor.lhs.false124 ], [ 149, %if.then122 ], [ 163, %if.end134 ], [ 169, %if.then142 ], [ 181, %if.end163 ]
   %.sink = phi i32 [ 148, %if.then27 ], [ 101, %if.then19 ], [ 194, %lor.lhs.false ], [ 194, %if.then36 ], [ 524294, %if.end46 ], [ 102, %if.else60 ], [ 184, %land.lhs.true ], [ 118, %lor.lhs.false124 ], [ 118, %if.then122 ], [ 101, %if.end134 ], [ 524301, %if.then142 ], [ 102, %if.end163 ]
-  %fetched_ciph.072.ph.ph = phi ptr [ null, %if.then27 ], [ %call21, %if.then19 ], [ %call21, %lor.lhs.false ], [ %call21, %if.then36 ], [ %call21, %if.end46 ], [ %call21, %if.else60 ], [ %call21, %land.lhs.true ], [ %call21, %lor.lhs.false124 ], [ %call21, %if.then122 ], [ %call21, %if.end134 ], [ %call21, %if.then142 ], [ %call21, %if.end163 ]
+  %fetched_ciph.073.ph.ph = phi ptr [ null, %if.then27 ], [ %call21, %if.then19 ], [ %call21, %lor.lhs.false ], [ %call21, %if.then36 ], [ %call21, %if.end46 ], [ %call21, %if.else60 ], [ %call21, %land.lhs.true ], [ %call21, %lor.lhs.false124 ], [ %call21, %if.then122 ], [ %call21, %if.end134 ], [ %call21, %if.then142 ], [ %call21, %if.end163 ]
   %tkey.3.ph.ph = phi ptr [ null, %if.then27 ], [ null, %if.then19 ], [ null, %lor.lhs.false ], [ null, %if.then36 ], [ null, %if.end46 ], [ null, %if.else60 ], [ null, %land.lhs.true ], [ %tkey.1, %lor.lhs.false124 ], [ %tkey.1, %if.then122 ], [ %tkey.2, %if.end134 ], [ %tkey.2, %if.then142 ], [ %tkey.2, %if.end163 ]
   %tkeylen.0.ph.ph = phi i64 [ 0, %if.then27 ], [ 0, %if.then19 ], [ 0, %lor.lhs.false ], [ 0, %if.then36 ], [ 0, %if.end46 ], [ 0, %if.else60 ], [ 0, %land.lhs.true ], [ %conv87, %lor.lhs.false124 ], [ %conv87, %if.then122 ], [ %conv87, %if.end134 ], [ %conv87, %if.then142 ], [ %conv87, %if.end163 ]
   call void @ERR_new() #3
@@ -284,10 +284,10 @@ err.thread.sink.split:                            ; preds = %if.end163, %if.then
   br label %err.thread
 
 err.thread:                                       ; preds = %err.thread.sink.split, %if.then52, %if.end81, %if.then92, %if.end97, %if.then153
-  %fetched_ciph.072.ph = phi ptr [ %call21, %if.end97 ], [ %call21, %if.then92 ], [ %call21, %if.then153 ], [ %call21, %if.end81 ], [ %call21, %if.then52 ], [ %fetched_ciph.072.ph.ph, %err.thread.sink.split ]
+  %fetched_ciph.073.ph = phi ptr [ %call21, %if.end97 ], [ %call21, %if.then92 ], [ %call21, %if.then153 ], [ %call21, %if.end81 ], [ %call21, %if.then52 ], [ %fetched_ciph.073.ph.ph, %err.thread.sink.split ]
   %tkey.3.ph = phi ptr [ %call93, %if.end97 ], [ null, %if.then92 ], [ %tkey.2, %if.then153 ], [ null, %if.end81 ], [ null, %if.then52 ], [ %tkey.3.ph.ph, %err.thread.sink.split ]
   %tkeylen.0.ph = phi i64 [ %conv87, %if.end97 ], [ %conv87, %if.then92 ], [ %conv87, %if.then153 ], [ 0, %if.end81 ], [ 0, %if.then52 ], [ %tkeylen.0.ph.ph, %err.thread.sink.split ]
-  call void @EVP_CIPHER_free(ptr noundef %fetched_ciph.072.ph) #3
+  call void @EVP_CIPHER_free(ptr noundef %fetched_ciph.073.ph) #3
   %key182.c = getelementptr inbounds i8, ptr %ec, i64 32
   %29 = load ptr, ptr %key182.c, align 8
   %keylen183.c = getelementptr inbounds i8, ptr %ec, i64 40

@@ -72,15 +72,15 @@ define hidden void @zif_ctype_alnum(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 .preheader:                                       ; preds = %11, %21
-  %.0 = phi ptr [ %24, %21 ], [ %13, %11 ]
-  %20 = icmp ult ptr %.0, %16
+  %.044 = phi ptr [ %24, %21 ], [ %13, %11 ]
+  %20 = icmp ult ptr %.044, %16
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.0, i64 1
-  %25 = load i8, ptr %.0, align 1
+  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
@@ -199,15 +199,15 @@ define hidden void @zif_ctype_alpha(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 .preheader:                                       ; preds = %11, %21
-  %.0 = phi ptr [ %24, %21 ], [ %13, %11 ]
-  %20 = icmp ult ptr %.0, %16
+  %.044 = phi ptr [ %24, %21 ], [ %13, %11 ]
+  %20 = icmp ult ptr %.044, %16
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.0, i64 1
-  %25 = load i8, ptr %.0, align 1
+  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
@@ -311,15 +311,15 @@ define hidden void @zif_ctype_cntrl(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 .preheader:                                       ; preds = %11, %21
-  %.0 = phi ptr [ %24, %21 ], [ %13, %11 ]
-  %20 = icmp ult ptr %.0, %16
+  %.044 = phi ptr [ %24, %21 ], [ %13, %11 ]
+  %20 = icmp ult ptr %.044, %16
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.0, i64 1
-  %25 = load i8, ptr %.0, align 1
+  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
@@ -423,15 +423,15 @@ define hidden void @zif_ctype_digit(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 .preheader:                                       ; preds = %11, %21
-  %.0 = phi ptr [ %24, %21 ], [ %13, %11 ]
-  %20 = icmp ult ptr %.0, %16
+  %.044 = phi ptr [ %24, %21 ], [ %13, %11 ]
+  %20 = icmp ult ptr %.044, %16
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.0, i64 1
-  %25 = load i8, ptr %.0, align 1
+  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
@@ -534,15 +534,15 @@ define hidden void @zif_ctype_lower(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 .preheader:                                       ; preds = %11, %21
-  %.0 = phi ptr [ %24, %21 ], [ %13, %11 ]
-  %20 = icmp ult ptr %.0, %16
+  %.044 = phi ptr [ %24, %21 ], [ %13, %11 ]
+  %20 = icmp ult ptr %.044, %16
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.0, i64 1
-  %25 = load i8, ptr %.0, align 1
+  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
@@ -646,15 +646,15 @@ define hidden void @zif_ctype_graph(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 .preheader:                                       ; preds = %11, %21
-  %.0 = phi ptr [ %24, %21 ], [ %13, %11 ]
-  %20 = icmp ult ptr %.0, %16
+  %.044 = phi ptr [ %24, %21 ], [ %13, %11 ]
+  %20 = icmp ult ptr %.044, %16
   br i1 %20, label %21, label %31
 
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.0, i64 1
-  %25 = load i8, ptr %.0, align 1
+  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
@@ -757,15 +757,15 @@ define hidden void @zif_ctype_print(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 .preheader:                                       ; preds = %11, %21
-  %.0 = phi ptr [ %24, %21 ], [ %13, %11 ]
-  %20 = icmp ult ptr %.0, %16
+  %.044 = phi ptr [ %24, %21 ], [ %13, %11 ]
+  %20 = icmp ult ptr %.044, %16
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.0, i64 1
-  %25 = load i8, ptr %.0, align 1
+  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
@@ -869,15 +869,15 @@ define hidden void @zif_ctype_punct(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 .preheader:                                       ; preds = %11, %21
-  %.0 = phi ptr [ %24, %21 ], [ %13, %11 ]
-  %20 = icmp ult ptr %.0, %16
+  %.044 = phi ptr [ %24, %21 ], [ %13, %11 ]
+  %20 = icmp ult ptr %.044, %16
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.0, i64 1
-  %25 = load i8, ptr %.0, align 1
+  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
@@ -981,15 +981,15 @@ define hidden void @zif_ctype_space(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 .preheader:                                       ; preds = %11, %21
-  %.0 = phi ptr [ %24, %21 ], [ %13, %11 ]
-  %20 = icmp ult ptr %.0, %16
+  %.044 = phi ptr [ %24, %21 ], [ %13, %11 ]
+  %20 = icmp ult ptr %.044, %16
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.0, i64 1
-  %25 = load i8, ptr %.0, align 1
+  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
@@ -1093,15 +1093,15 @@ define hidden void @zif_ctype_upper(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 .preheader:                                       ; preds = %11, %21
-  %.0 = phi ptr [ %24, %21 ], [ %13, %11 ]
-  %20 = icmp ult ptr %.0, %16
+  %.044 = phi ptr [ %24, %21 ], [ %13, %11 ]
+  %20 = icmp ult ptr %.044, %16
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.0, i64 1
-  %25 = load i8, ptr %.0, align 1
+  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
@@ -1205,15 +1205,15 @@ define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr nocapture noundef write
   br label %ctype_fallback.exit
 
 .preheader:                                       ; preds = %11, %21
-  %.0 = phi ptr [ %24, %21 ], [ %13, %11 ]
-  %20 = icmp ult ptr %.0, %16
+  %.044 = phi ptr [ %24, %21 ], [ %13, %11 ]
+  %20 = icmp ult ptr %.044, %16
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.0, i64 1
-  %25 = load i8, ptr %.0, align 1
+  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2

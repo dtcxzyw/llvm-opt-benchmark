@@ -1478,8 +1478,8 @@ _is_feature_valid.exit:                           ; preds = %29, %.preheader.i
   br label %.loopexit17
 
 .loopexit17:                                      ; preds = %._crit_edge, %.loopexit17.sink.split, %2
-  %.011 = phi i32 [ 0, %2 ], [ -1, %.loopexit17.sink.split ], [ 0, %._crit_edge ]
-  ret i32 %.011
+  %.010 = phi i32 [ 0, %2 ], [ -1, %.loopexit17.sink.split ], [ 0, %._crit_edge ]
+  ret i32 %.010
 }
 
 declare i32 @s_p_get_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1594,8 +1594,8 @@ define internal range(i32 -1, 2) i32 @_parse_feature_node(ptr nocapture noundef 
   br label %31
 
 31:                                               ; preds = %29, %25
-  %.018 = phi i32 [ %30, %29 ], [ 0, %25 ]
-  ret i32 %.018
+  %.0 = phi i32 [ %30, %29 ], [ 0, %25 ]
+  ret i32 %.0
 }
 
 declare i32 @s_p_parse_line(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

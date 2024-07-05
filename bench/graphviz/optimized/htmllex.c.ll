@@ -1026,16 +1026,16 @@ define internal void @characterData(ptr nocapture readnone %0, ptr nocapture nou
   br i1 %or.cond, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %agxbputc.exit
-  %.014 = phi i32 [ %.1, %agxbputc.exit ], [ 0, %3 ]
-  %.0713 = phi i32 [ %32, %agxbputc.exit ], [ %2, %3 ]
-  %.0812 = phi ptr [ %5, %agxbputc.exit ], [ %1, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.0812, i64 1
-  %6 = load i8, ptr %.0812, align 1
+  %.014 = phi ptr [ %5, %agxbputc.exit ], [ %1, %3 ]
+  %.0713 = phi i32 [ %.1, %agxbputc.exit ], [ 0, %3 ]
+  %.0812 = phi i32 [ %32, %agxbputc.exit ], [ %2, %3 ]
+  %5 = getelementptr inbounds i8, ptr %.014, i64 1
+  %6 = load i8, ptr %.014, align 1
   %7 = icmp ugt i8 %6, 31
   br i1 %7, label %8, label %agxbputc.exit
 
 8:                                                ; preds = %.lr.ph
-  %9 = add nsw i32 %.014, 1
+  %9 = add nsw i32 %.0713, 1
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @state, i64 24), align 8
   %11 = getelementptr i8, ptr %10, i64 31
   %.val.i.i = load i8, ptr %11, align 1
@@ -1090,8 +1090,8 @@ agxbsizeof.exit.i:                                ; preds = %13, %agxblen.exit.i
   br label %agxbputc.exit
 
 agxbputc.exit:                                    ; preds = %25, %20, %.lr.ph
-  %.1 = phi i32 [ %.014, %.lr.ph ], [ %9, %20 ], [ %9, %25 ]
-  %32 = add nsw i32 %.0713, -1
+  %.1 = phi i32 [ %.0713, %.lr.ph ], [ %9, %20 ], [ %9, %25 ]
+  %32 = add nsw i32 %.0812, -1
   %.not9 = icmp eq i32 %32, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 

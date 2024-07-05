@@ -209,7 +209,7 @@ opal_datatype_span.exit.i:                        ; preds = %76, %opal_obj_run_c
   store ptr %98, ptr %99, align 8
   %100 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %12, ptr noundef nonnull %3, i64 noundef %41, ptr noundef nonnull %92) #7
   %.not219.i = icmp eq i32 %100, 0
-  br i1 %.not219.i, label %101, label %opal_obj_run_destructors.exit280.sink.split.i
+  br i1 %.not219.i, label %101, label %opal_obj_run_destructors.exit281.sink.split.i
 
 101:                                              ; preds = %90
   %102 = add nsw i32 %.val25.val, -1
@@ -228,12 +228,12 @@ opal_datatype_span.exit.i:                        ; preds = %76, %opal_obj_run_c
   store ptr %109, ptr %110, align 8
   %111 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %13, ptr noundef nonnull %3, i64 noundef %44, ptr noundef %1) #7
   %.not221.i = icmp eq i32 %111, 0
-  br i1 %.not221.i, label %112, label %opal_obj_run_destructors.exit280.sink.split.i
+  br i1 %.not221.i, label %112, label %opal_obj_run_destructors.exit281.sink.split.i
 
 112:                                              ; preds = %103, %ompi_datatype_is_contiguous_memory_layout.exit._crit_edge.i
   %.pre-phi.i = phi i32 [ %.pre.i, %ompi_datatype_is_contiguous_memory_layout.exit._crit_edge.i ], [ %102, %103 ]
-  %.0196.i = phi ptr [ null, %ompi_datatype_is_contiguous_memory_layout.exit._crit_edge.i ], [ %92, %103 ]
-  %.0195.i = phi ptr [ null, %ompi_datatype_is_contiguous_memory_layout.exit._crit_edge.i ], [ %88, %103 ]
+  %.0198.i = phi ptr [ null, %ompi_datatype_is_contiguous_memory_layout.exit._crit_edge.i ], [ %92, %103 ]
+  %.0197.i = phi ptr [ null, %ompi_datatype_is_contiguous_memory_layout.exit._crit_edge.i ], [ %88, %103 ]
   %113 = icmp ne ptr %0, inttoptr (i64 1 to ptr)
   %.not222.i = icmp eq i32 %.pre-phi.i, %5
   %or.cond.i = select i1 %113, i1 true, i1 %.not222.i
@@ -268,8 +268,8 @@ opal_datatype_span.exit243.i:                     ; preds = %118, %114
   br i1 %131, label %132, label %133
 
 132:                                              ; preds = %opal_datatype_span.exit243.i
-  %.not230.i = icmp eq ptr %.0195.i, null
-  br i1 %.not230.i, label %reduce_inorder.exit, label %opal_obj_run_destructors.exit280.sink.split.i
+  %.not230.i = icmp eq ptr %.0197.i, null
+  br i1 %.not230.i, label %reduce_inorder.exit, label %opal_obj_run_destructors.exit281.sink.split.i
 
 133:                                              ; preds = %opal_datatype_span.exit243.i
   %134 = sub i64 0, %.17.i
@@ -280,38 +280,38 @@ opal_datatype_span.exit243.i:                     ; preds = %118, %114
   br i1 %117, label %ompi_datatype_copy_content_same_ddt.exit.i, label %.lr.ph.i244.i
 
 .lr.ph.i244.i:                                    ; preds = %133, %138
-  %.01728.i.i = phi ptr [ %141, %138 ], [ %1, %133 ]
-  %.01827.i.i = phi ptr [ %140, %138 ], [ %135, %133 ]
-  %.01926.i.i = phi i64 [ %142, %138 ], [ %44, %133 ]
-  %spec.select24.i.i = call i64 @llvm.umin.i64(i64 %.01926.i.i, i64 2147483647)
+  %.01828.i.i = phi ptr [ %141, %138 ], [ %1, %133 ]
+  %.01927.i.i = phi ptr [ %140, %138 ], [ %135, %133 ]
+  %.02026.i.i = phi i64 [ %142, %138 ], [ %44, %133 ]
+  %spec.select24.i.i = call i64 @llvm.umin.i64(i64 %.02026.i.i, i64 2147483647)
   %spec.select.i.i = trunc nuw nsw i64 %spec.select24.i.i to i32
-  %137 = call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i.i, ptr noundef %.01827.i.i, ptr noundef %.01728.i.i) #7
+  %137 = call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i.i, ptr noundef %.01927.i.i, ptr noundef %.01828.i.i) #7
   %.not22.i.i = icmp eq i32 %137, 0
   br i1 %.not22.i.i, label %138, label %ompi_datatype_copy_content_same_ddt.exit.i
 
 138:                                              ; preds = %.lr.ph.i244.i
   %139 = mul nsw i64 %spec.select24.i.i, %136
-  %140 = getelementptr inbounds i8, ptr %.01827.i.i, i64 %139
-  %141 = getelementptr inbounds i8, ptr %.01728.i.i, i64 %139
-  %142 = sub i64 %.01926.i.i, %spec.select24.i.i
-  %.not.i245.i = icmp eq i64 %142, 0
-  br i1 %.not.i245.i, label %ompi_datatype_copy_content_same_ddt.exit.i, label %.lr.ph.i244.i, !llvm.loop !6
+  %140 = getelementptr inbounds i8, ptr %.01927.i.i, i64 %139
+  %141 = getelementptr inbounds i8, ptr %.01828.i.i, i64 %139
+  %142 = sub i64 %.02026.i.i, %spec.select24.i.i
+  %.not.i246.i = icmp eq i64 %142, 0
+  br i1 %.not.i246.i, label %ompi_datatype_copy_content_same_ddt.exit.i, label %.lr.ph.i244.i, !llvm.loop !6
 
 ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %138, %.lr.ph.i244.i, %101, %133, %112
   %.not222.i59 = phi i1 [ %.not222.i, %112 ], [ %.not222.i, %133 ], [ true, %101 ], [ %.not222.i, %.lr.ph.i244.i ], [ %.not222.i, %138 ]
-  %.0195.i58 = phi ptr [ %.0195.i, %112 ], [ %.0195.i, %133 ], [ %88, %101 ], [ %.0195.i, %.lr.ph.i244.i ], [ %.0195.i, %138 ]
-  %.0196.i57 = phi ptr [ %.0196.i, %112 ], [ %.0196.i, %133 ], [ %92, %101 ], [ %.0196.i, %.lr.ph.i244.i ], [ %.0196.i, %138 ]
+  %.0197.i58 = phi ptr [ %.0197.i, %112 ], [ %.0197.i, %133 ], [ %88, %101 ], [ %.0197.i, %.lr.ph.i244.i ], [ %.0197.i, %138 ]
+  %.0198.i57 = phi ptr [ %.0198.i, %112 ], [ %.0198.i, %133 ], [ %92, %101 ], [ %.0198.i, %.lr.ph.i244.i ], [ %.0198.i, %138 ]
   %.pre-phi.i56 = phi i32 [ %.pre-phi.i, %112 ], [ %.pre-phi.i, %133 ], [ %5, %101 ], [ %.pre-phi.i, %.lr.ph.i244.i ], [ %.pre-phi.i, %138 ]
-  %.0193.i = phi ptr [ null, %112 ], [ %130, %133 ], [ null, %101 ], [ %130, %.lr.ph.i244.i ], [ %130, %138 ]
+  %.0195.i = phi ptr [ null, %112 ], [ %130, %133 ], [ null, %101 ], [ %130, %.lr.ph.i244.i ], [ %130, %138 ]
   %.0182.i = phi ptr [ %0, %112 ], [ %135, %133 ], [ %0, %101 ], [ %135, %.lr.ph.i244.i ], [ %135, %138 ]
   %143 = getelementptr inbounds i8, ptr %.val26, i64 64
   %144 = getelementptr inbounds i8, ptr %.val26, i64 40
   %145 = mul i64 %41, %38
   %146 = getelementptr inbounds i8, ptr %.val26, i64 48
   %147 = sext i32 %.val25.val to i64
-  %148 = icmp eq ptr %.0195.i58, null
+  %148 = icmp eq ptr %.0197.i58, null
   %.not225.i = icmp ne ptr %.0182.i, inttoptr (i64 1 to ptr)
-  %.not25.i248.i = icmp eq i32 %2, 0
+  %.not25.i249.i = icmp eq i32 %2, 0
   %149 = add i32 %.val25.val, -2
   %150 = icmp sgt i32 %.val25.val, 1
   %151 = getelementptr inbounds i8, ptr %12, i64 24
@@ -323,10 +323,10 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %138, %.lr.ph.i244.i
   br label %157
 
 157:                                              ; preds = %296, %ompi_datatype_copy_content_same_ddt.exit.i
-  %.0197.i = phi i64 [ 0, %ompi_datatype_copy_content_same_ddt.exit.i ], [ %291, %296 ]
-  %.0190.i = phi i64 [ %44, %ompi_datatype_copy_content_same_ddt.exit.i ], [ %290, %296 ]
-  %.0188.i = phi i64 [ 0, %ompi_datatype_copy_content_same_ddt.exit.i ], [ %indvars.iv.next59.i, %296 ]
-  %.0187.i = phi i1 [ true, %ompi_datatype_copy_content_same_ddt.exit.i ], [ %.2.i, %296 ]
+  %.0199.i = phi i64 [ 0, %ompi_datatype_copy_content_same_ddt.exit.i ], [ %291, %296 ]
+  %.0192.i = phi i64 [ %44, %ompi_datatype_copy_content_same_ddt.exit.i ], [ %290, %296 ]
+  %.0190.i = phi i64 [ 0, %ompi_datatype_copy_content_same_ddt.exit.i ], [ %indvars.iv.next57.i, %296 ]
+  %.0188.i = phi i1 [ true, %ompi_datatype_copy_content_same_ddt.exit.i ], [ %.2.i, %296 ]
   %158 = load i32, ptr %143, align 8
   %159 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
   %160 = urem i32 %158, %159
@@ -340,16 +340,16 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %138, %.lr.ph.i244.i
   br i1 %167, label %.loopexit17.i, label %.preheader16.i
 
 168:                                              ; preds = %.preheader16.i
-  %169 = add nuw nsw i32 %.018631.i, 1
+  %169 = add nuw nsw i32 %.018731.i, 1
   %exitcond50.not.i = icmp eq i32 %169, 100000
   br i1 %exitcond50.not.i, label %172, label %.preheader16.i.backedge
 
 .preheader16.i.backedge:                          ; preds = %168, %172
-  %.018631.i.be = phi i32 [ %169, %168 ], [ 0, %172 ]
+  %.018731.i.be = phi i32 [ %169, %168 ], [ 0, %172 ]
   br label %.preheader16.i, !llvm.loop !7
 
 .preheader16.i:                                   ; preds = %157, %.preheader16.i.backedge
-  %.018631.i = phi i32 [ %.018631.i.be, %.preheader16.i.backedge ], [ 0, %157 ]
+  %.018731.i = phi i32 [ %.018731.i.be, %.preheader16.i.backedge ], [ 0, %157 ]
   %170 = load volatile i32, ptr %165, align 4
   %171 = icmp eq i32 %170, 0
   br i1 %171, label %.loopexit17.i, label %168
@@ -371,7 +371,7 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %138, %.lr.ph.i244.i
   %180 = mul i32 %179, %160
   %181 = add nsw i32 %160, 1
   %182 = mul nsw i32 %179, %181
-  %sext.i = shl i64 %.0188.i, 32
+  %sext.i = shl i64 %.0190.i, 32
   %183 = ashr exact i64 %sext.i, 32
   %184 = mul i64 %183, %145
   %185 = getelementptr inbounds i8, ptr %1, i64 %184
@@ -380,45 +380,45 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %138, %.lr.ph.i244.i
   br label %188
 
 188:                                              ; preds = %._crit_edge.i, %.loopexit17.i
-  %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %._crit_edge.i ], [ %183, %.loopexit17.i ]
-  %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %._crit_edge.i ], [ %186, %.loopexit17.i ]
-  %.1198.i = phi i64 [ %291, %._crit_edge.i ], [ %.0197.i, %.loopexit17.i ]
-  %.0194.i = phi ptr [ %292, %._crit_edge.i ], [ %185, %.loopexit17.i ]
-  %.1191.i = phi i64 [ %290, %._crit_edge.i ], [ %.0190.i, %.loopexit17.i ]
-  %.1.i = phi i1 [ %.2.i, %._crit_edge.i ], [ %.0187.i, %.loopexit17.i ]
+  %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %._crit_edge.i ], [ %186, %.loopexit17.i ]
+  %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %._crit_edge.i ], [ %183, %.loopexit17.i ]
+  %.1200.i = phi i64 [ %291, %._crit_edge.i ], [ %.0199.i, %.loopexit17.i ]
+  %.0196.i = phi ptr [ %292, %._crit_edge.i ], [ %185, %.loopexit17.i ]
+  %.1193.i = phi i64 [ %290, %._crit_edge.i ], [ %.0192.i, %.loopexit17.i ]
+  %.1189.i = phi i1 [ %.2.i, %._crit_edge.i ], [ %.0188.i, %.loopexit17.i ]
   br i1 %.not222.i59, label %189, label %198
 
 189:                                              ; preds = %188
-  %brmerge.not.i = select i1 %.1.i, i1 %.not225.i, i1 false
-  br i1 %brmerge.not.i, label %190, label %ompi_datatype_copy_content_same_ddt.exit258.i
+  %brmerge.not.i = select i1 %.1189.i, i1 %.not225.i, i1 false
+  br i1 %brmerge.not.i, label %190, label %ompi_datatype_copy_content_same_ddt.exit259.i
 
 190:                                              ; preds = %189
-  %.val.i246.i = load i64, ptr %36, align 8
-  %.val23.i247.i = load i64, ptr %37, align 8
-  %191 = sub nsw i64 %.val23.i247.i, %.val.i246.i
-  br i1 %.not25.i248.i, label %ompi_datatype_copy_content_same_ddt.exit258.i, label %.lr.ph.i249.i
+  %.val.i247.i = load i64, ptr %36, align 8
+  %.val23.i248.i = load i64, ptr %37, align 8
+  %191 = sub nsw i64 %.val23.i248.i, %.val.i247.i
+  br i1 %.not25.i249.i, label %ompi_datatype_copy_content_same_ddt.exit259.i, label %.lr.ph.i250.i
 
-.lr.ph.i249.i:                                    ; preds = %190, %193
-  %.01728.i250.i = phi ptr [ %196, %193 ], [ %.0182.i, %190 ]
-  %.01827.i251.i = phi ptr [ %195, %193 ], [ %.0194.i, %190 ]
-  %.01926.i252.i = phi i64 [ %197, %193 ], [ %44, %190 ]
-  %spec.select24.i253.i = call i64 @llvm.umin.i64(i64 %.01926.i252.i, i64 2147483647)
-  %spec.select.i254.i = trunc nuw nsw i64 %spec.select24.i253.i to i32
-  %192 = call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i254.i, ptr noundef %.01827.i251.i, ptr noundef %.01728.i250.i) #7
-  %.not22.i255.i = icmp eq i32 %192, 0
-  br i1 %.not22.i255.i, label %193, label %ompi_datatype_copy_content_same_ddt.exit258.i
+.lr.ph.i250.i:                                    ; preds = %190, %193
+  %.01828.i251.i = phi ptr [ %196, %193 ], [ %.0182.i, %190 ]
+  %.01927.i252.i = phi ptr [ %195, %193 ], [ %.0196.i, %190 ]
+  %.02026.i253.i = phi i64 [ %197, %193 ], [ %44, %190 ]
+  %spec.select24.i254.i = call i64 @llvm.umin.i64(i64 %.02026.i253.i, i64 2147483647)
+  %spec.select.i255.i = trunc nuw nsw i64 %spec.select24.i254.i to i32
+  %192 = call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i255.i, ptr noundef %.01927.i252.i, ptr noundef %.01828.i251.i) #7
+  %.not22.i256.i = icmp eq i32 %192, 0
+  br i1 %.not22.i256.i, label %193, label %ompi_datatype_copy_content_same_ddt.exit259.i
 
-193:                                              ; preds = %.lr.ph.i249.i
-  %194 = mul nsw i64 %spec.select24.i253.i, %191
-  %195 = getelementptr inbounds i8, ptr %.01827.i251.i, i64 %194
-  %196 = getelementptr inbounds i8, ptr %.01728.i250.i, i64 %194
-  %197 = sub i64 %.01926.i252.i, %spec.select24.i253.i
-  %.not.i257.i = icmp eq i64 %197, 0
-  br i1 %.not.i257.i, label %ompi_datatype_copy_content_same_ddt.exit258.i, label %.lr.ph.i249.i, !llvm.loop !6
+193:                                              ; preds = %.lr.ph.i250.i
+  %194 = mul nsw i64 %spec.select24.i254.i, %191
+  %195 = getelementptr inbounds i8, ptr %.01927.i252.i, i64 %194
+  %196 = getelementptr inbounds i8, ptr %.01828.i251.i, i64 %194
+  %197 = sub i64 %.02026.i253.i, %spec.select24.i254.i
+  %.not.i258.i = icmp eq i64 %197, 0
+  br i1 %.not.i258.i, label %ompi_datatype_copy_content_same_ddt.exit259.i, label %.lr.ph.i250.i, !llvm.loop !6
 
 198:                                              ; preds = %188
   %199 = load ptr, ptr %146, align 8
-  %200 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %199, i64 %indvars.iv56.i
+  %200 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %199, i64 %indvars.iv58.i
   %201 = load ptr, ptr %200, align 8
   %202 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %203 = mul nsw i32 %202, %5
@@ -431,16 +431,16 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %138, %.lr.ph.i244.i
   br i1 %.not22333.i, label %.preheader13.i, label %.loopexit14.i
 
 209:                                              ; preds = %.preheader13.i
-  %210 = add nuw nsw i32 %.018532.i, 1
+  %210 = add nuw nsw i32 %.018632.i, 1
   %exitcond51.not.i = icmp eq i32 %210, 100000
   br i1 %exitcond51.not.i, label %212, label %.preheader13.i.backedge
 
 .preheader13.i.backedge:                          ; preds = %209, %212
-  %.018532.i.be = phi i32 [ %210, %209 ], [ 0, %212 ]
+  %.018632.i.be = phi i32 [ %210, %209 ], [ 0, %212 ]
   br label %.preheader13.i, !llvm.loop !8
 
 .preheader13.i:                                   ; preds = %198, %.preheader13.i.backedge
-  %.018532.i = phi i32 [ %.018532.i.be, %.preheader13.i.backedge ], [ 0, %198 ]
+  %.018632.i = phi i32 [ %.018632.i.be, %.preheader13.i.backedge ], [ 0, %198 ]
   %211 = load volatile i64, ptr %207, align 8
   %.not224.i = icmp eq i64 %211, 0
   br i1 %.not224.i, label %209, label %.loopexit14.i
@@ -465,8 +465,8 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %138, %.lr.ph.i244.i
   %221 = sext i32 %220 to i64
   %222 = getelementptr inbounds i8, ptr %218, i64 %221
   %223 = load i64, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0194.i, ptr align 1 %222, i64 %223, i1 false)
-  br label %ompi_datatype_copy_content_same_ddt.exit258.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0196.i, ptr align 1 %222, i64 %223, i1 false)
+  br label %ompi_datatype_copy_content_same_ddt.exit259.i
 
 224:                                              ; preds = %.loopexit14.i
   store i64 %42, ptr %10, align 8
@@ -479,17 +479,17 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %138, %.lr.ph.i244.i
   store ptr %230, ptr %9, align 8
   store i64 %42, ptr %43, align 8
   %231 = call i32 @opal_convertor_unpack(ptr noundef nonnull %13, ptr noundef nonnull %9, ptr noundef nonnull @mca_coll_sm_one, ptr noundef nonnull %10) #7
-  br label %ompi_datatype_copy_content_same_ddt.exit258.i
+  br label %ompi_datatype_copy_content_same_ddt.exit259.i
 
-ompi_datatype_copy_content_same_ddt.exit258.i:    ; preds = %193, %.lr.ph.i249.i, %224, %216, %190, %189
-  %.2.i = phi i1 [ false, %189 ], [ %.1.i, %216 ], [ %.1.i, %224 ], [ false, %190 ], [ false, %.lr.ph.i249.i ], [ false, %193 ]
+ompi_datatype_copy_content_same_ddt.exit259.i:    ; preds = %193, %.lr.ph.i250.i, %224, %216, %190, %189
+  %.2.i = phi i1 [ false, %189 ], [ %.1189.i, %216 ], [ %.1189.i, %224 ], [ false, %190 ], [ false, %.lr.ph.i250.i ], [ false, %193 ]
   br i1 %150, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %ompi_datatype_copy_content_same_ddt.exit258.i
-  %232 = trunc i64 %.1191.i to i32
+.lr.ph.i:                                         ; preds = %ompi_datatype_copy_content_same_ddt.exit259.i
+  %232 = trunc i64 %.1193.i to i32
   %233 = call i32 @llvm.smin.i32(i32 %232, i32 %154)
   %234 = sext i32 %233 to i64
-  %235 = mul i64 %indvars.iv58.i, %145
+  %235 = mul i64 %indvars.iv56.i, %145
   %236 = getelementptr inbounds i8, ptr %.0182.i, i64 %235
   br label %237
 
@@ -500,7 +500,7 @@ ompi_datatype_copy_content_same_ddt.exit258.i:    ; preds = %193, %.lr.ph.i249.i
 
 239:                                              ; preds = %237
   %240 = load ptr, ptr %146, align 8
-  %241 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %240, i64 %indvars.iv56.i
+  %241 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %240, i64 %indvars.iv58.i
   %242 = load ptr, ptr %241, align 8
   %243 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %244 = mul nsw i32 %243, %5
@@ -562,8 +562,8 @@ ompi_datatype_copy_content_same_ddt.exit258.i:    ; preds = %193, %.lr.ph.i249.i
   %272 = call i32 @opal_convertor_unpack(ptr noundef nonnull %12, ptr noundef nonnull %9, ptr noundef nonnull @mca_coll_sm_one, ptr noundef nonnull %10) #7
   %273 = load i64, ptr %151, align 8
   %274 = load i64, ptr %11, align 8
-  %.not.i259.i = icmp ugt i64 %273, %274
-  br i1 %.not.i259.i, label %278, label %275
+  %.not.i260.i = icmp ugt i64 %273, %274
+  br i1 %.not.i260.i, label %278, label %275
 
 275:                                              ; preds = %264
   %276 = load i32, ptr %152, align 4
@@ -586,8 +586,8 @@ ompi_datatype_copy_content_same_ddt.exit258.i:    ; preds = %193, %.lr.ph.i249.i
   %.not17.i.i = icmp eq i32 %284, 0
   %285 = and i32 %282, 786432
   %.not18.i.i = icmp eq i32 %285, 0
-  %or.cond.i261.i = or i1 %.not17.i.i, %.not18.i.i
-  br i1 %or.cond.i261.i, label %287, label %286
+  %or.cond.i262.i = or i1 %.not17.i.i, %.not18.i.i
+  br i1 %or.cond.i262.i, label %287, label %286
 
 286:                                              ; preds = %281
   store i64 %274, ptr %153, align 8
@@ -598,20 +598,20 @@ ompi_datatype_copy_content_same_ddt.exit258.i:    ; preds = %193, %.lr.ph.i249.i
   br label %opal_convertor_set_position.exit.i
 
 opal_convertor_set_position.exit.i:               ; preds = %287, %286, %278, %275, %256, %237
-  %.sink.i = phi ptr [ %263, %256 ], [ %236, %237 ], [ %.0196.i57, %275 ], [ %.0196.i57, %278 ], [ %.0196.i57, %286 ], [ %.0196.i57, %287 ]
-  call fastcc void @ompi_op_reduce(ptr noundef readonly %4, ptr noundef %.sink.i, ptr noundef %.0194.i, i64 noundef %234, ptr noundef %3)
+  %.sink.i = phi ptr [ %263, %256 ], [ %236, %237 ], [ %.0198.i57, %275 ], [ %.0198.i57, %278 ], [ %.0198.i57, %286 ], [ %.0198.i57, %287 ]
+  call fastcc void @ompi_op_reduce(ptr noundef readonly %4, ptr noundef %.sink.i, ptr noundef %.0196.i, i64 noundef %234, ptr noundef %3)
   %indvars.iv.next54.i = add nsw i64 %indvars.iv53.i, -1
   %289 = icmp sgt i64 %indvars.iv53.i, 0
   br i1 %289, label %237, label %._crit_edge.i, !llvm.loop !10
 
-._crit_edge.i:                                    ; preds = %opal_convertor_set_position.exit.i, %ompi_datatype_copy_content_same_ddt.exit258.i
-  %290 = sub i64 %.1191.i, %41
-  %291 = add i64 %.1198.i, %42
-  %indvars.iv.next57.i = add nsw i64 %indvars.iv56.i, 1
+._crit_edge.i:                                    ; preds = %opal_convertor_set_position.exit.i, %ompi_datatype_copy_content_same_ddt.exit259.i
+  %290 = sub i64 %.1193.i, %41
+  %291 = add i64 %.1200.i, %42
   %indvars.iv.next59.i = add nsw i64 %indvars.iv58.i, 1
-  %292 = getelementptr inbounds i8, ptr %.0194.i, i64 %145
+  %indvars.iv.next57.i = add nsw i64 %indvars.iv56.i, 1
+  %292 = getelementptr inbounds i8, ptr %.0196.i, i64 %145
   %293 = icmp ult i64 %291, %45
-  %294 = icmp slt i64 %indvars.iv.next57.i, %187
+  %294 = icmp slt i64 %indvars.iv.next59.i, %187
   %295 = select i1 %293, i1 %294, i1 false
   br i1 %295, label %188, label %296, !llvm.loop !11
 
@@ -627,42 +627,42 @@ opal_convertor_set_position.exit.i:               ; preds = %287, %286, %278, %2
   %301 = getelementptr inbounds i8, ptr %300, i64 48
   %302 = load ptr, ptr %301, align 8
   %303 = load ptr, ptr %302, align 8
-  %.not6.i262.i = icmp eq ptr %303, null
-  br i1 %.not6.i262.i, label %opal_obj_run_destructors.exit.i, label %.lr.ph.i263.i
+  %.not6.i263.i = icmp eq ptr %303, null
+  br i1 %.not6.i263.i, label %opal_obj_run_destructors.exit.i, label %.lr.ph.i264.i
 
-.lr.ph.i263.i:                                    ; preds = %299, %.lr.ph.i263.i
-  %304 = phi ptr [ %306, %.lr.ph.i263.i ], [ %303, %299 ]
-  %.07.i264.i = phi ptr [ %305, %.lr.ph.i263.i ], [ %302, %299 ]
+.lr.ph.i264.i:                                    ; preds = %299, %.lr.ph.i264.i
+  %304 = phi ptr [ %306, %.lr.ph.i264.i ], [ %303, %299 ]
+  %.07.i265.i = phi ptr [ %305, %.lr.ph.i264.i ], [ %302, %299 ]
   call void %304(ptr noundef nonnull %12) #7
-  %305 = getelementptr inbounds i8, ptr %.07.i264.i, i64 8
+  %305 = getelementptr inbounds i8, ptr %.07.i265.i, i64 8
   %306 = load ptr, ptr %305, align 8
-  %.not.i265.i = icmp eq ptr %306, null
-  br i1 %.not.i265.i, label %opal_obj_run_destructors.exit.i, label %.lr.ph.i263.i, !llvm.loop !13
+  %.not.i266.i = icmp eq ptr %306, null
+  br i1 %.not.i266.i, label %opal_obj_run_destructors.exit.i, label %.lr.ph.i264.i, !llvm.loop !13
 
-opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i263.i, %299
+opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i264.i, %299
   %307 = load ptr, ptr %13, align 8
   %308 = getelementptr inbounds i8, ptr %307, i64 48
   %309 = load ptr, ptr %308, align 8
   %310 = load ptr, ptr %309, align 8
-  %.not6.i266.i = icmp eq ptr %310, null
-  br i1 %.not6.i266.i, label %opal_obj_run_destructors.exit270.i, label %.lr.ph.i267.i
+  %.not6.i267.i = icmp eq ptr %310, null
+  br i1 %.not6.i267.i, label %opal_obj_run_destructors.exit271.i, label %.lr.ph.i268.i
 
-.lr.ph.i267.i:                                    ; preds = %opal_obj_run_destructors.exit.i, %.lr.ph.i267.i
-  %311 = phi ptr [ %313, %.lr.ph.i267.i ], [ %310, %opal_obj_run_destructors.exit.i ]
-  %.07.i268.i = phi ptr [ %312, %.lr.ph.i267.i ], [ %309, %opal_obj_run_destructors.exit.i ]
+.lr.ph.i268.i:                                    ; preds = %opal_obj_run_destructors.exit.i, %.lr.ph.i268.i
+  %311 = phi ptr [ %313, %.lr.ph.i268.i ], [ %310, %opal_obj_run_destructors.exit.i ]
+  %.07.i269.i = phi ptr [ %312, %.lr.ph.i268.i ], [ %309, %opal_obj_run_destructors.exit.i ]
   call void %311(ptr noundef nonnull %13) #7
-  %312 = getelementptr inbounds i8, ptr %.07.i268.i, i64 8
+  %312 = getelementptr inbounds i8, ptr %.07.i269.i, i64 8
   %313 = load ptr, ptr %312, align 8
-  %.not.i269.i = icmp eq ptr %313, null
-  br i1 %.not.i269.i, label %opal_obj_run_destructors.exit270.i, label %.lr.ph.i267.i, !llvm.loop !13
+  %.not.i270.i = icmp eq ptr %313, null
+  br i1 %.not.i270.i, label %opal_obj_run_destructors.exit271.i, label %.lr.ph.i268.i, !llvm.loop !13
 
-opal_obj_run_destructors.exit270.i:               ; preds = %.lr.ph.i267.i, %opal_obj_run_destructors.exit.i
-  call void @free(ptr noundef %.0195.i58) #7
+opal_obj_run_destructors.exit271.i:               ; preds = %.lr.ph.i268.i, %opal_obj_run_destructors.exit.i
+  call void @free(ptr noundef %.0197.i58) #7
   br label %314
 
-314:                                              ; preds = %opal_obj_run_destructors.exit270.i, %298
-  %.not227.i = icmp eq ptr %.0193.i, null
-  br i1 %.not227.i, label %reduce_inorder.exit, label %opal_obj_run_destructors.exit280.sink.split.i
+314:                                              ; preds = %opal_obj_run_destructors.exit271.i, %298
+  %.not227.i = icmp eq ptr %.0195.i, null
+  br i1 %.not227.i, label %reduce_inorder.exit, label %opal_obj_run_destructors.exit281.sink.split.i
 
 315:                                              ; preds = %31
   %316 = load i32, ptr @opal_class_init_epoch, align 4
@@ -680,19 +680,19 @@ opal_obj_run_destructors.exit270.i:               ; preds = %.lr.ph.i267.i, %opa
   store volatile i32 1, ptr %320, align 8
   %321 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %322 = load ptr, ptr %321, align 8
-  %.not6.i271.i = icmp eq ptr %322, null
-  br i1 %.not6.i271.i, label %opal_obj_run_constructors.exit275.i, label %.lr.ph.i272.i
+  %.not6.i272.i = icmp eq ptr %322, null
+  br i1 %.not6.i272.i, label %opal_obj_run_constructors.exit276.i, label %.lr.ph.i273.i
 
-.lr.ph.i272.i:                                    ; preds = %319, %.lr.ph.i272.i
-  %323 = phi ptr [ %325, %.lr.ph.i272.i ], [ %322, %319 ]
-  %.07.i273.i = phi ptr [ %324, %.lr.ph.i272.i ], [ %321, %319 ]
+.lr.ph.i273.i:                                    ; preds = %319, %.lr.ph.i273.i
+  %323 = phi ptr [ %325, %.lr.ph.i273.i ], [ %322, %319 ]
+  %.07.i274.i = phi ptr [ %324, %.lr.ph.i273.i ], [ %321, %319 ]
   call void %323(ptr noundef nonnull %14) #7
-  %324 = getelementptr inbounds i8, ptr %.07.i273.i, i64 8
+  %324 = getelementptr inbounds i8, ptr %.07.i274.i, i64 8
   %325 = load ptr, ptr %324, align 8
-  %.not.i274.i = icmp eq ptr %325, null
-  br i1 %.not.i274.i, label %opal_obj_run_constructors.exit275.i, label %.lr.ph.i272.i, !llvm.loop !4
+  %.not.i275.i = icmp eq ptr %325, null
+  br i1 %.not.i275.i, label %opal_obj_run_constructors.exit276.i, label %.lr.ph.i273.i, !llvm.loop !4
 
-opal_obj_run_constructors.exit275.i:              ; preds = %.lr.ph.i272.i, %319
+opal_obj_run_constructors.exit276.i:              ; preds = %.lr.ph.i273.i, %319
   %326 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %327 = getelementptr inbounds i8, ptr %326, i64 16
   %328 = getelementptr inbounds i8, ptr %14, i64 16
@@ -706,7 +706,7 @@ opal_obj_run_constructors.exit275.i:              ; preds = %.lr.ph.i272.i, %319
   %.not215.i = icmp eq i32 %333, 0
   br i1 %.not215.i, label %.preheader22.i, label %reduce_inorder.exit
 
-.preheader22.i:                                   ; preds = %opal_obj_run_constructors.exit275.i
+.preheader22.i:                                   ; preds = %opal_obj_run_constructors.exit276.i
   %334 = getelementptr inbounds i8, ptr %.val26, i64 64
   %335 = getelementptr inbounds i8, ptr %.val26, i64 40
   %336 = getelementptr inbounds i8, ptr %.val26, i64 48
@@ -714,7 +714,7 @@ opal_obj_run_constructors.exit275.i:              ; preds = %.lr.ph.i272.i, %319
   br label %338
 
 338:                                              ; preds = %390, %.preheader22.i
-  %.2199.i = phi i64 [ %380, %390 ], [ 0, %.preheader22.i ]
+  %.2201.i = phi i64 [ %380, %390 ], [ 0, %.preheader22.i ]
   %339 = load i32, ptr %334, align 8
   %340 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
   %341 = urem i32 %339, %340
@@ -764,7 +764,7 @@ opal_obj_run_constructors.exit275.i:              ; preds = %.lr.ph.i272.i, %319
 
 369:                                              ; preds = %369, %.loopexit20.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %369 ], [ %367, %.loopexit20.i ]
-  %.3.i = phi i64 [ %380, %369 ], [ %.2199.i, %.loopexit20.i ]
+  %.3.i = phi i64 [ %380, %369 ], [ %.2201.i, %.loopexit20.i ]
   %370 = load ptr, ptr %336, align 8
   %371 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %370, i64 %indvars.iv.i
   store i64 %42, ptr %10, align 8
@@ -802,26 +802,26 @@ opal_obj_run_constructors.exit275.i:              ; preds = %.lr.ph.i272.i, %319
   %394 = getelementptr inbounds i8, ptr %393, i64 48
   %395 = load ptr, ptr %394, align 8
   %396 = load ptr, ptr %395, align 8
-  %.not6.i276.i = icmp eq ptr %396, null
-  br i1 %.not6.i276.i, label %reduce_inorder.exit, label %.lr.ph.i277.i
+  %.not6.i277.i = icmp eq ptr %396, null
+  br i1 %.not6.i277.i, label %reduce_inorder.exit, label %.lr.ph.i278.i
 
-.lr.ph.i277.i:                                    ; preds = %392, %.lr.ph.i277.i
-  %397 = phi ptr [ %399, %.lr.ph.i277.i ], [ %396, %392 ]
-  %.07.i278.i = phi ptr [ %398, %.lr.ph.i277.i ], [ %395, %392 ]
+.lr.ph.i278.i:                                    ; preds = %392, %.lr.ph.i278.i
+  %397 = phi ptr [ %399, %.lr.ph.i278.i ], [ %396, %392 ]
+  %.07.i279.i = phi ptr [ %398, %.lr.ph.i278.i ], [ %395, %392 ]
   call void %397(ptr noundef nonnull %14) #7
-  %398 = getelementptr inbounds i8, ptr %.07.i278.i, i64 8
+  %398 = getelementptr inbounds i8, ptr %.07.i279.i, i64 8
   %399 = load ptr, ptr %398, align 8
-  %.not.i279.i = icmp eq ptr %399, null
-  br i1 %.not.i279.i, label %reduce_inorder.exit, label %.lr.ph.i277.i, !llvm.loop !13
+  %.not.i280.i = icmp eq ptr %399, null
+  br i1 %.not.i280.i, label %reduce_inorder.exit, label %.lr.ph.i278.i, !llvm.loop !13
 
-opal_obj_run_destructors.exit280.sink.split.i:    ; preds = %314, %132, %103, %90
-  %.0193.sink.i = phi ptr [ %88, %90 ], [ %88, %103 ], [ %.0195.i, %132 ], [ %.0193.i, %314 ]
+opal_obj_run_destructors.exit281.sink.split.i:    ; preds = %314, %132, %103, %90
+  %.0195.sink.i = phi ptr [ %88, %90 ], [ %88, %103 ], [ %.0197.i, %132 ], [ %.0195.i, %314 ]
   %.0.ph.i = phi i32 [ %100, %90 ], [ %111, %103 ], [ -2, %132 ], [ 0, %314 ]
-  call void @free(ptr noundef nonnull %.0193.sink.i) #7
+  call void @free(ptr noundef nonnull %.0195.sink.i) #7
   br label %reduce_inorder.exit
 
-reduce_inorder.exit:                              ; preds = %.lr.ph.i277.i, %opal_datatype_span.exit.i, %132, %314, %opal_obj_run_constructors.exit275.i, %392, %opal_obj_run_destructors.exit280.sink.split.i
-  %.0.i = phi i32 [ -2, %opal_datatype_span.exit.i ], [ -2, %132 ], [ %333, %opal_obj_run_constructors.exit275.i ], [ 0, %314 ], [ 0, %392 ], [ %.0.ph.i, %opal_obj_run_destructors.exit280.sink.split.i ], [ 0, %.lr.ph.i277.i ]
+reduce_inorder.exit:                              ; preds = %.lr.ph.i278.i, %opal_datatype_span.exit.i, %132, %314, %opal_obj_run_constructors.exit276.i, %392, %opal_obj_run_destructors.exit281.sink.split.i
+  %.0.i = phi i32 [ -2, %opal_datatype_span.exit.i ], [ -2, %132 ], [ %333, %opal_obj_run_constructors.exit276.i ], [ 0, %314 ], [ 0, %392 ], [ %.0.ph.i, %opal_obj_run_destructors.exit281.sink.split.i ], [ 0, %.lr.ph.i278.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)

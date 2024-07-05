@@ -1688,8 +1688,8 @@ rb_array_len.exit:                                ; preds = %16, %19
   unreachable
 
 26:                                               ; preds = %.lr.ph100, %._crit_edge
-  %.08499 = phi i64 [ 0, %.lr.ph100 ], [ %74, %._crit_edge ]
-  %27 = tail call i64 @rb_ary_entry(i64 noundef %1, i64 noundef %.08499) #9
+  %.08699 = phi i64 [ 0, %.lr.ph100 ], [ %74, %._crit_edge ]
+  %27 = tail call i64 @rb_ary_entry(i64 noundef %1, i64 noundef %.08699) #9
   %28 = and i64 %27, 7
   %29 = icmp ne i64 %28, 0
   %30 = icmp eq i64 %27, 0
@@ -1727,7 +1727,7 @@ rb_array_len.exit:                                ; preds = %16, %19
 rb_array_len.exit92:                              ; preds = %41, %44
   %.0.i91 = phi i64 [ %43, %41 ], [ %46, %44 ]
   %47 = load ptr, ptr %23, align 8
-  %48 = getelementptr %struct.pm_options_scope, ptr %47, i64 %.08499
+  %48 = getelementptr %struct.pm_options_scope, ptr %47, i64 %.08699
   %49 = tail call zeroext i1 @pm_options_scope_init(ptr noundef %48, i64 noundef %.0.i91) #8
   br i1 %49, label %.preheader, label %51
 
@@ -1745,8 +1745,8 @@ rb_array_len.exit92:                              ; preds = %41, %44
   unreachable
 
 53:                                               ; preds = %.lr.ph, %RB_SYMBOL_P.exit.thread
-  %.08398 = phi i64 [ 0, %.lr.ph ], [ %73, %RB_SYMBOL_P.exit.thread ]
-  %54 = tail call i64 @rb_ary_entry(i64 noundef %27, i64 noundef %.08398) #9
+  %.08598 = phi i64 [ 0, %.lr.ph ], [ %73, %RB_SYMBOL_P.exit.thread ]
+  %54 = tail call i64 @rb_ary_entry(i64 noundef %27, i64 noundef %.08598) #9
   %55 = and i64 %54, 255
   %56 = icmp eq i64 %55, 12
   br i1 %56, label %RB_SYMBOL_P.exit.thread, label %57
@@ -1773,17 +1773,17 @@ RB_SYMBOL_P.exit.thread93:                        ; preds = %57, %RB_SYMBOL_P.ex
 
 RB_SYMBOL_P.exit.thread:                          ; preds = %53, %RB_SYMBOL_P.exit
   %68 = load ptr, ptr %50, align 8
-  %69 = getelementptr %struct.pm_string_t, ptr %68, i64 %.08398
+  %69 = getelementptr %struct.pm_string_t, ptr %68, i64 %.08598
   %70 = tail call i64 @rb_sym2id(i64 noundef %54) #8
   %71 = tail call ptr @rb_id2name(i64 noundef %70) #8
   %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #9
   tail call void @pm_string_constant_init(ptr noundef %69, ptr noundef %71, i64 noundef %72) #8
-  %73 = add nuw i64 %.08398, 1
+  %73 = add nuw i64 %.08598, 1
   %exitcond.not = icmp eq i64 %73, %.0.i91
   br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %RB_SYMBOL_P.exit.thread, %.preheader
-  %74 = add nuw i64 %.08499, 1
+  %74 = add nuw i64 %.08699, 1
   %exitcond108.not = icmp eq i64 %74, %.0.i
   br i1 %exitcond108.not, label %._crit_edge101, label %26, !llvm.loop !47
 

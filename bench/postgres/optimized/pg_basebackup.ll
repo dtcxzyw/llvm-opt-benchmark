@@ -2069,7 +2069,7 @@ sub_1136:                                         ; preds = %sub_0135
   br label %690
 
 690:                                              ; preds = %688, %685
-  %.0143.i = phi i32 [ %687, %685 ], [ %689, %688 ]
+  %.0.i73 = phi i32 [ %687, %685 ], [ %689, %688 ]
   call void @PQclear(ptr noundef %667) #17
   %691 = load i32, ptr @verbose, align 4
   %692 = icmp ne i32 %691, 0
@@ -2079,7 +2079,7 @@ sub_1136:                                         ; preds = %sub_0135
   br i1 %or.cond6.i, label %695, label %696
 
 695:                                              ; preds = %690
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.211, ptr noundef nonnull %15, i32 noundef %.0143.i) #17
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.211, ptr noundef nonnull %15, i32 noundef %.0.i73) #17
   br label %696
 
 696:                                              ; preds = %695, %690
@@ -2113,7 +2113,7 @@ sub_1136:                                         ; preds = %sub_0135
   store i32 %708, ptr @tablespacecount, align 4
   %709 = call i32 @PQntuples(ptr noundef %698) #17
   %710 = icmp sgt i32 %709, 0
-  br i1 %710, label %.lr.ph.i76, label %._crit_edge.i73
+  br i1 %710, label %.lr.ph.i76, label %._crit_edge.i74
 
 .lr.ph.i76:                                       ; preds = %707, %738
   %.0145237.i = phi i32 [ %739, %738 ], [ 0, %707 ]
@@ -2173,17 +2173,17 @@ get_tablespace_mapping.exit.i:                    ; preds = %727, %732
   br label %737
 
 737:                                              ; preds = %734, %get_tablespace_mapping.exit.i
-  %.0142.i = phi ptr [ %.07.i.i, %get_tablespace_mapping.exit.i ], [ %736, %734 ]
-  call fastcc void @verify_dir_is_empty_or_create(ptr noundef %.0142.i, ptr noundef nonnull @made_tablespace_dirs, ptr noundef nonnull @found_tablespace_dirs)
+  %.0144.i = phi ptr [ %.07.i.i, %get_tablespace_mapping.exit.i ], [ %736, %734 ]
+  call fastcc void @verify_dir_is_empty_or_create(ptr noundef %.0144.i, ptr noundef nonnull @made_tablespace_dirs, ptr noundef nonnull @found_tablespace_dirs)
   br label %738
 
 738:                                              ; preds = %737, %719, %.lr.ph.i76
   %739 = add nuw nsw i32 %.0145237.i, 1
   %740 = call i32 @PQntuples(ptr noundef %698) #17
   %741 = icmp slt i32 %739, %740
-  br i1 %741, label %.lr.ph.i76, label %._crit_edge.i73, !llvm.loop !12
+  br i1 %741, label %.lr.ph.i76, label %._crit_edge.i74, !llvm.loop !12
 
-._crit_edge.i73:                                  ; preds = %738, %707
+._crit_edge.i74:                                  ; preds = %738, %707
   %742 = load i8, ptr @format, align 1
   %743 = icmp eq i8 %742, 116
   %744 = load ptr, ptr @basedir, align 8
@@ -2191,7 +2191,7 @@ get_tablespace_mapping.exit.i:                    ; preds = %727, %732
   %or.cond11.i = select i1 %743, i1 %745, i1 false
   br i1 %or.cond11.i, label %sub_0.i, label %.thread228.i
 
-sub_0.i:                                          ; preds = %._crit_edge.i73
+sub_0.i:                                          ; preds = %._crit_edge.i74
   %746 = load i8, ptr %744, align 1
   %747 = zext i8 %746 to i32
   %748 = add nsw i32 %747, -45
@@ -2220,8 +2220,8 @@ sub_1.i:                                          ; preds = %sub_0.i
   call void @exit(i32 noundef 1) #19
   unreachable
 
-.thread228.i:                                     ; preds = %754, %.tail.i, %._crit_edge.i73
-  %759 = phi i1 [ true, %754 ], [ false, %.tail.i ], [ false, %._crit_edge.i73 ]
+.thread228.i:                                     ; preds = %754, %.tail.i, %._crit_edge.i74
+  %759 = phi i1 [ true, %754 ], [ false, %.tail.i ], [ false, %._crit_edge.i74 ]
   %760 = load i32, ptr @includewal, align 4
   %761 = icmp eq i32 %760, 2
   br i1 %761, label %762, label %863
@@ -2240,8 +2240,8 @@ sub_1.i:                                          ; preds = %sub_0.i
   %767 = icmp eq i32 %766, 1
   %768 = getelementptr inbounds i8, ptr %27, i64 8
   %769 = load i32, ptr %768, align 8
-  %.0141.i = zext i1 %767 to i32
-  %.0140.i = select i1 %767, i32 %769, i32 0
+  %.0142.i = zext i1 %767 to i32
+  %.0141.i = select i1 %767, i32 %769, i32 0
   %770 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
@@ -2249,13 +2249,13 @@ sub_1.i:                                          ; preds = %sub_0.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11)
   %771 = call ptr @pg_malloc0(i64 noundef 1064) #17
   %772 = getelementptr inbounds i8, ptr %771, i64 1048
-  store i32 %.0143.i, ptr %772, align 8
+  store i32 %.0.i73, ptr %772, align 8
   %773 = getelementptr inbounds i8, ptr %771, i64 1040
   store ptr %770, ptr %773, align 8
   %774 = getelementptr inbounds i8, ptr %771, i64 1052
-  store i32 %.0141.i, ptr %774, align 4
+  store i32 %.0142.i, ptr %774, align 4
   %775 = getelementptr inbounds i8, ptr %771, i64 1056
-  store i32 %.0140.i, ptr %775, align 8
+  store i32 %.0141.i, ptr %775, align 8
   %776 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %15, ptr noundef nonnull @.str.235, ptr noundef nonnull %8, ptr noundef nonnull %9) #17
   %.not23.i.i = icmp eq i32 %776, 2
   br i1 %.not23.i.i, label %778, label %777
@@ -2443,14 +2443,14 @@ StartLogStreamer.exit.i:                          ; preds = %859
   br label %863
 
 863:                                              ; preds = %StartLogStreamer.exit.i, %.thread228.i
-  br i1 %506, label %869, label %.preheader.i74
+  br i1 %506, label %869, label %.preheader.i75
 
-.preheader.i74:                                   ; preds = %863
+.preheader.i75:                                   ; preds = %863
   %864 = call i32 @PQntuples(ptr noundef %698) #17
   %865 = icmp sgt i32 %864, 0
   br i1 %865, label %.lr.ph239.i, label %._crit_edge240.i
 
-.lr.ph239.i:                                      ; preds = %.preheader.i74
+.lr.ph239.i:                                      ; preds = %.preheader.i75
   %866 = getelementptr inbounds i8, ptr %4, i64 8
   %867 = getelementptr inbounds i8, ptr %6, i64 16
   %868 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2534,7 +2534,7 @@ ReceiveArchiveStream.exit.i:                      ; preds = %892, %889
   br label %907
 
 907:                                              ; preds = %903, %902
-  %.0.i75 = phi ptr [ null, %902 ], [ %906, %903 ]
+  %.0140.i = phi ptr [ null, %902 ], [ %906, %903 ]
   %908 = load ptr, ptr @conn, align 8
   %909 = icmp ne i32 %.1238.i, 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -2545,7 +2545,7 @@ ReceiveArchiveStream.exit.i:                      ; preds = %892, %889
   %911 = icmp sgt i32 %910, 119999
   %912 = call i32 @PQserverVersion(ptr noundef %908) #17
   %913 = icmp slt i32 %912, 150000
-  %914 = call fastcc ptr @CreateBackupStreamer(ptr noundef nonnull %19, ptr noundef %.0.i75, ptr noundef nonnull %5, i1 noundef zeroext %911, i1 noundef zeroext %913, ptr noundef nonnull %27)
+  %914 = call fastcc ptr @CreateBackupStreamer(ptr noundef nonnull %19, ptr noundef %.0140.i, ptr noundef nonnull %5, i1 noundef zeroext %911, i1 noundef zeroext %913, ptr noundef nonnull %27)
   store ptr %914, ptr %866, align 8
   %915 = zext i1 %909 to i32
   store i32 %915, ptr %4, align 8
@@ -2607,7 +2607,7 @@ ReceiveTarFile.exit.i:                            ; preds = %925, %progress_upda
   %939 = icmp slt i32 %937, %938
   br i1 %939, label %900, label %._crit_edge240.i, !llvm.loop !13
 
-._crit_edge240.i:                                 ; preds = %ReceiveTarFile.exit.i, %.preheader.i74
+._crit_edge240.i:                                 ; preds = %ReceiveTarFile.exit.i, %.preheader.i75
   br i1 %759, label %951, label %940
 
 940:                                              ; preds = %._crit_edge240.i
@@ -4311,15 +4311,15 @@ sub_091:                                          ; preds = %66
   br label %112
 
 112:                                              ; preds = %97, %101, %108, %104, %99
-  %.065 = phi ptr [ %100, %99 ], [ %103, %101 ], [ %107, %104 ], [ %111, %108 ], [ null, %97 ]
+  %.064 = phi ptr [ %100, %99 ], [ %103, %101 ], [ %107, %104 ], [ %111, %108 ], [ null, %97 ]
   br i1 %56, label %113, label %115
 
 113:                                              ; preds = %112
-  %114 = call ptr @bbstreamer_tar_archiver_new(ptr noundef %.065) #17
+  %114 = call ptr @bbstreamer_tar_archiver_new(ptr noundef %.064) #17
   br label %115
 
 115:                                              ; preds = %113, %112
-  %.1 = phi ptr [ %114, %113 ], [ %.065, %112 ]
+  %.1 = phi ptr [ %114, %113 ], [ %.064, %112 ]
   %.b3.i = load i1, ptr @showprogress, align 1
   %116 = load i32, ptr @verbose, align 4
   %117 = icmp ne i32 %116, 0

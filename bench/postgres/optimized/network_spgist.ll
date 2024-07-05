@@ -448,7 +448,7 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %.preheader, %46
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.preheader ]
-  %.054 = phi i32 [ %.1, %46 ], [ 3, %.preheader ]
+  %.04053 = phi i32 [ %.141, %46 ], [ 3, %.preheader ]
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr %struct.ScanKeyData, ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds i8, ptr %15, i64 6
@@ -473,8 +473,8 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
   %25 = getelementptr inbounds i8, ptr %21, i64 %.v43
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 2
-  %28 = and i32 %.054, 1
-  %spec.select = select i1 %27, i32 %28, i32 %.054
+  %28 = and i32 %.04053, 1
+  %spec.select = select i1 %27, i32 %28, i32 %.04053
   br label %46
 
 29:                                               ; preds = %.lr.ph, %.lr.ph
@@ -485,8 +485,8 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
   %32 = getelementptr inbounds i8, ptr %21, i64 %.v
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 3
-  %35 = and i32 %.054, 2
-  %spec.select48 = select i1 %34, i32 %35, i32 %.054
+  %35 = and i32 %.04053, 2
+  %spec.select48 = select i1 %34, i32 %35, i32 %.04053
   br label %46
 
 36:                                               ; preds = %.lr.ph
@@ -500,15 +500,15 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %36
-  %43 = and i32 %.054, 1
+  %43 = and i32 %.04053, 1
   br label %46
 
 44:                                               ; preds = %36
-  %45 = and i32 %.054, 2
+  %45 = and i32 %.04053, 2
   br label %46
 
 46:                                               ; preds = %29, %22, %.lr.ph, %44, %42
-  %.1 = phi i32 [ %43, %42 ], [ %45, %44 ], [ %.054, %.lr.ph ], [ %spec.select, %22 ], [ %spec.select48, %29 ]
+  %.141 = phi i32 [ %43, %42 ], [ %45, %44 ], [ %.04053, %.lr.ph ], [ %spec.select, %22 ], [ %spec.select48, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %11, align 8
   %48 = sext i32 %47 to i64
@@ -533,7 +533,7 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
   br label %.loopexit52
 
 .loopexit52:                                      ; preds = %46, %54
-  %.2 = phi i32 [ %62, %54 ], [ %.1, %46 ]
+  %.2 = phi i32 [ %62, %54 ], [ %.141, %46 ]
   store i32 0, ptr %7, align 8
   %.not46 = icmp eq i32 %.2, 0
   br i1 %.not46, label %.loopexit, label %63
@@ -558,8 +558,8 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
 
 .lr.ph56:                                         ; preds = %63, %82
   %72 = phi i32 [ %83, %82 ], [ %70, %63 ]
-  %.14155 = phi i32 [ %84, %82 ], [ 0, %63 ]
-  %73 = shl nuw i32 1, %.14155
+  %.155 = phi i32 [ %84, %82 ], [ 0, %63 ]
+  %73 = shl nuw i32 1, %.155
   %74 = and i32 %73, %.251
   %.not47 = icmp eq i32 %74, 0
   br i1 %.not47, label %82, label %75
@@ -569,7 +569,7 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
   %77 = load i32, ptr %7, align 8
   %78 = sext i32 %77 to i64
   %79 = getelementptr i32, ptr %76, i64 %78
-  store i32 %.14155, ptr %79, align 4
+  store i32 %.155, ptr %79, align 4
   %80 = load i32, ptr %7, align 8
   %81 = add i32 %80, 1
   store i32 %81, ptr %7, align 8
@@ -578,7 +578,7 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
 
 82:                                               ; preds = %.lr.ph56, %75
   %83 = phi i32 [ %72, %.lr.ph56 ], [ %.pre, %75 ]
-  %84 = add nuw nsw i32 %.14155, 1
+  %84 = add nuw nsw i32 %.155, 1
   %85 = icmp slt i32 %84, %83
   br i1 %85, label %.lr.ph56, label %.loopexit, !llvm.loop !10
 
@@ -612,7 +612,7 @@ define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noun
 
 19:                                               ; preds = %.lr.ph, %select.unfold285
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %select.unfold285 ]
-  %.1295 = phi i32 [ %., %.lr.ph ], [ %.11, %select.unfold285 ]
+  %.1296 = phi i32 [ %., %.lr.ph ], [ %.11, %select.unfold285 ]
   %20 = getelementptr %struct.ScanKeyData, ptr %2, i64 %indvars.iv
   %21 = getelementptr inbounds i8, ptr %20, i64 64
   %22 = load i64, ptr %21, align 8
@@ -665,16 +665,16 @@ define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noun
   %44 = getelementptr inbounds i8, ptr %31, i64 1
   %45 = load i8, ptr %44, align 1
   %.not189 = icmp ugt i8 %11, %45
-  %46 = and i32 %.1295, 12
-  %spec.select221 = select i1 %.not189, i32 %.1295, i32 %46
+  %46 = and i32 %.1296, 12
+  %spec.select221 = select i1 %.not189, i32 %.1296, i32 %46
   br label %select.unfold244
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds i8, ptr %31, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = icmp ult i8 %11, %49
-  %51 = and i32 %.1295, 12
-  %spec.select222 = select i1 %50, i32 %51, i32 %.1295
+  %51 = and i32 %.1296, 12
+  %spec.select222 = select i1 %50, i32 %51, i32 %.1296
   br label %select.unfold244
 
 52:                                               ; preds = %42
@@ -686,7 +686,7 @@ define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noun
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %52
-  %59 = and i32 %.1295, 3
+  %59 = and i32 %.1296, 3
   br label %select.unfold244
 
 60:                                               ; preds = %52
@@ -700,7 +700,7 @@ define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noun
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %61
-  %66 = and i32 %.1295, 3
+  %66 = and i32 %.1296, 3
   br label %select.unfold244
 
 67:                                               ; preds = %61
@@ -714,16 +714,16 @@ define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noun
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %69
-  %74 = and i32 %.1295, 12
+  %74 = and i32 %.1296, 12
   br label %select.unfold244
 
 75:                                               ; preds = %69
   %76 = icmp eq i8 %11, %71
-  %77 = and i32 %.1295, 3
+  %77 = and i32 %.1296, 3
   br i1 %76, label %select.unfold244, label %.thread
 
 select.unfold244:                                 ; preds = %75, %60, %67, %47, %43, %73, %65, %58, %42
-  %.3 = phi i32 [ %.1295, %42 ], [ %74, %73 ], [ %66, %65 ], [ %59, %58 ], [ %spec.select221, %43 ], [ %spec.select222, %47 ], [ %.1295, %67 ], [ %.1295, %60 ], [ %77, %75 ]
+  %.3 = phi i32 [ %.1296, %42 ], [ %74, %73 ], [ %66, %65 ], [ %59, %58 ], [ %spec.select221, %43 ], [ %spec.select222, %47 ], [ %.1296, %67 ], [ %.1296, %60 ], [ %77, %75 ]
   %.not190 = icmp eq i32 %.3, 0
   br i1 %.not190, label %.thread, label %78
 
@@ -982,7 +982,7 @@ default.unreachable:                              ; preds = %164
   unreachable
 
 select.unfold285:                                 ; preds = %178, %174, %176, %179, %181, %183, %86, %87, %89, %37, %38, %40, %.thread280, %.thread270, %115
-  %.11 = phi i32 [ %.6, %115 ], [ %.7273, %.thread270 ], [ %.9, %.thread280 ], [ %.1295, %37 ], [ %.1295, %38 ], [ %.1295, %40 ], [ %.3, %86 ], [ %.3, %87 ], [ %.3, %89 ], [ %.9, %174 ], [ %.9, %176 ], [ %.9, %179 ], [ %.9, %181 ], [ %.9, %183 ], [ %.9, %178 ]
+  %.11 = phi i32 [ %.6, %115 ], [ %.7273, %.thread270 ], [ %.9, %.thread280 ], [ %.1296, %37 ], [ %.1296, %38 ], [ %.1296, %40 ], [ %.3, %86 ], [ %.3, %87 ], [ %.3, %89 ], [ %.9, %174 ], [ %.9, %176 ], [ %.9, %179 ], [ %.9, %181 ], [ %.9, %183 ], [ %.9, %178 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %19, !llvm.loop !11

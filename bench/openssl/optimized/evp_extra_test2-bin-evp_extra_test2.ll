@@ -475,9 +475,9 @@ if.end19:                                         ; preds = %if.end13
   br label %err
 
 err:                                              ; preds = %if.end13, %if.end8, %if.end, %entry, %if.end19
-  %ok.0 = phi i32 [ %call21, %if.end19 ], [ 0, %if.end13 ], [ 0, %if.end8 ], [ 0, %if.end ], [ 0, %entry ]
   %key_bio.0 = phi ptr [ %call4, %if.end19 ], [ %call4, %if.end13 ], [ %call4, %if.end8 ], [ %call4, %if.end ], [ null, %entry ]
   %pkey.0 = phi ptr [ %call20, %if.end19 ], [ %call9, %if.end13 ], [ %call9, %if.end8 ], [ null, %if.end ], [ null, %entry ]
+  %ok.0 = phi i32 [ %call21, %if.end19 ], [ 0, %if.end13 ], [ 0, %if.end8 ], [ 0, %if.end ], [ 0, %entry ]
   tail call void @EVP_PKEY_free(ptr noundef %pkey.0) #7
   %call25 = tail call i32 @BIO_free(ptr noundef %key_bio.0) #7
   %call26 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %call) #7
@@ -1741,8 +1741,8 @@ if.end28:                                         ; preds = %if.end23
   br label %err
 
 err:                                              ; preds = %if.end28, %if.end23, %if.end15, %if.end11, %if.end7, %if.end
-  %ok.0 = phi i32 [ 0, %if.end23 ], [ 0, %if.end15 ], [ 0, %if.end11 ], [ 0, %if.end7 ], [ 0, %if.end ], [ %spec.select, %if.end28 ]
   %read_pkey.0 = phi ptr [ %call24, %if.end23 ], [ null, %if.end15 ], [ null, %if.end11 ], [ null, %if.end7 ], [ null, %if.end ], [ %call24, %if.end28 ]
+  %ok.0 = phi i32 [ 0, %if.end23 ], [ 0, %if.end15 ], [ 0, %if.end11 ], [ 0, %if.end7 ], [ 0, %if.end ], [ %spec.select, %if.end28 ]
   %undo_ui_method.0 = phi ptr [ %call16, %if.end23 ], [ %call16, %if.end15 ], [ null, %if.end11 ], [ null, %if.end7 ], [ null, %if.end ], [ %call16, %if.end28 ]
   tail call void @test_openssl_errors() #7
   tail call void @EVP_PKEY_free(ptr noundef %read_pkey.0) #7
@@ -2153,8 +2153,8 @@ lor.lhs.false39:                                  ; preds = %if.end35
 
 end:                                              ; preds = %lor.lhs.false39, %if.end35, %if.end16, %lor.lhs.false20, %lor.lhs.false24, %pkey_has_private.exit, %if.end, %lor.lhs.false11, %entry, %lor.lhs.false
   %7 = phi ptr [ %.pre11, %if.end35 ], [ null, %pkey_has_private.exit ], [ null, %lor.lhs.false24 ], [ null, %lor.lhs.false20 ], [ null, %if.end16 ], [ null, %lor.lhs.false11 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ], [ %.pre, %lor.lhs.false39 ]
-  %ret.0 = phi i32 [ 0, %if.end35 ], [ 0, %pkey_has_private.exit ], [ 0, %lor.lhs.false24 ], [ 0, %lor.lhs.false20 ], [ 0, %if.end16 ], [ 0, %lor.lhs.false11 ], [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false39 ]
   %fromctx.0 = phi ptr [ %call17, %if.end35 ], [ %call17, %pkey_has_private.exit ], [ %call17, %lor.lhs.false24 ], [ %call17, %lor.lhs.false20 ], [ %call17, %if.end16 ], [ null, %lor.lhs.false11 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call17, %lor.lhs.false39 ]
+  %ret.0 = phi i32 [ 0, %if.end35 ], [ 0, %pkey_has_private.exit ], [ 0, %lor.lhs.false24 ], [ 0, %lor.lhs.false20 ], [ 0, %if.end16 ], [ 0, %lor.lhs.false11 ], [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false39 ]
   call void @EVP_PKEY_free(ptr noundef %7) #7
   %8 = load ptr, ptr %fromkey, align 8
   call void @EVP_PKEY_free(ptr noundef %8) #7

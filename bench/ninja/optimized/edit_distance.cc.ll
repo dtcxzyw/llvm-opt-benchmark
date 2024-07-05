@@ -76,17 +76,17 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %.lr.ph93.split.us.split
 
 .lr.ph93.split.us.split:                          ; preds = %.lr.ph93.split.us.split.preheader, %22
-  %.04491.us = phi i32 [ %23, %22 ], [ 1, %.lr.ph93.split.us.split.preheader ]
-  %exitcond154 = icmp eq i32 %.04491.us, %21
+  %.04591.us = phi i32 [ %23, %22 ], [ 1, %.lr.ph93.split.us.split.preheader ]
+  %exitcond154 = icmp eq i32 %.04591.us, %21
   br i1 %exitcond154, label %.split, label %22
 
 22:                                               ; preds = %.lr.ph93.split.us.split
-  %23 = add nuw i32 %.04491.us, 1
-  %exitcond155.not = icmp eq i32 %.04491.us, %7
+  %23 = add nuw i32 %.04591.us, 1
+  %exitcond155.not = icmp eq i32 %.04591.us, %7
   br i1 %exitcond155.not, label %._crit_edge94.split.us, label %.lr.ph93.split.us.split, !llvm.loop !5
 
 ._crit_edge94.split.us:                           ; preds = %22, %.lr.ph93.split.us, %.lr.ph93.thread
-  %.us-phi = phi i32 [ %7, %.lr.ph93.thread ], [ %7, %.lr.ph93.split.us ], [ %.04491.us, %22 ]
+  %.us-phi = phi i32 [ %7, %.lr.ph93.thread ], [ %7, %.lr.ph93.split.us ], [ %.04591.us, %22 ]
   store i32 %.us-phi, ptr %.sroa.0.0, align 4
   br label %._crit_edge94
 
@@ -114,14 +114,14 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 30:                                               ; preds = %30, %.lr.ph89.us.us
   %31 = phi i32 [ %.sroa.speculated.us.us.us, %30 ], [ %26, %.lr.ph89.us.us ]
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %30 ], [ 1, %.lr.ph89.us.us ]
-  %.04387.us.us.us = phi i32 [ %33, %30 ], [ %29, %.lr.ph89.us.us ]
+  %.04487.us.us.us = phi i32 [ %33, %30 ], [ %29, %.lr.ph89.us.us ]
   %32 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %indvars.iv144
   %33 = load i32, ptr %32, align 4
   %gep168 = getelementptr i8, ptr %invariant.gep167, i64 %indvars.iv144
   %34 = load i8, ptr %gep168, align 1
   %35 = icmp ne i8 %.pre158, %34
   %36 = zext i1 %35 to i32
-  %37 = add nsw i32 %.04387.us.us.us, %36
+  %37 = add nsw i32 %.04487.us.us.us, %36
   %38 = tail call i32 @llvm.smin.i32(i32 %33, i32 %31)
   %39 = add nsw i32 %38, 1
   %.sroa.speculated.us.us.us = tail call i32 @llvm.smin.i32(i32 %39, i32 %37)
@@ -153,7 +153,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 45:                                               ; preds = %45, %.lr.ph89.us
   %46 = phi i32 [ %.sroa.speculated.us.us, %45 ], [ %40, %.lr.ph89.us ]
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %45 ], [ 1, %.lr.ph89.us ]
-  %.04387.us.us = phi i32 [ %48, %45 ], [ %43, %.lr.ph89.us ]
+  %.04487.us.us = phi i32 [ %48, %45 ], [ %43, %.lr.ph89.us ]
   %.08286.us.us = phi i32 [ %.sroa.speculated62.us.us, %45 ], [ %40, %.lr.ph89.us ]
   %47 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %indvars.iv134
   %48 = load i32, ptr %47, align 4
@@ -161,7 +161,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %49 = load i8, ptr %gep, align 1
   %50 = icmp ne i8 %.pre157, %49
   %51 = zext i1 %50 to i32
-  %52 = add nsw i32 %.04387.us.us, %51
+  %52 = add nsw i32 %.04487.us.us, %51
   %53 = tail call i32 @llvm.smin.i32(i32 %48, i32 %46)
   %54 = add nsw i32 %53, 1
   %.sroa.speculated.us.us = tail call i32 @llvm.smin.i32(i32 %54, i32 %52)
@@ -191,7 +191,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 60:                                               ; preds = %73, %.lr.ph89.us98
   %61 = phi i32 [ %storemerge, %73 ], [ %56, %.lr.ph89.us98 ]
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %73 ], [ 1, %.lr.ph89.us98 ]
-  %.04387.us = phi i32 [ %63, %73 ], [ %59, %.lr.ph89.us98 ]
+  %.04487.us = phi i32 [ %63, %73 ], [ %59, %.lr.ph89.us98 ]
   %62 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %indvars.iv124
   %63 = load i32, ptr %62, align 4
   %64 = add nsw i64 %indvars.iv124, -1
@@ -209,7 +209,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %73
 
 73:                                               ; preds = %60, %68
-  %storemerge = phi i32 [ %72, %68 ], [ %.04387.us, %60 ]
+  %storemerge = phi i32 [ %72, %68 ], [ %.04487.us, %60 ]
   store i32 %storemerge, ptr %62, align 4
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count147
@@ -247,7 +247,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 81:                                               ; preds = %.lr.ph89, %94
   %82 = phi i32 [ %77, %.lr.ph89 ], [ %storemerge103, %94 ]
   %indvars.iv114 = phi i64 [ 1, %.lr.ph89 ], [ %indvars.iv.next115, %94 ]
-  %.04387 = phi i32 [ %80, %.lr.ph89 ], [ %84, %94 ]
+  %.04487 = phi i32 [ %80, %.lr.ph89 ], [ %84, %94 ]
   %.08286 = phi i32 [ %77, %.lr.ph89 ], [ %.sroa.speculated62, %94 ]
   %83 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %indvars.iv114
   %84 = load i32, ptr %83, align 4
@@ -266,7 +266,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %94
 
 94:                                               ; preds = %81, %89
-  %storemerge103 = phi i32 [ %93, %89 ], [ %.04387, %81 ]
+  %storemerge103 = phi i32 [ %93, %89 ], [ %.04487, %81 ]
   store i32 %storemerge103, ptr %83, align 4
   %.sroa.speculated62 = tail call i32 @llvm.smin.i32(i32 %storemerge103, i32 %.08286)
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
@@ -288,9 +288,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge94, %.split
-  %.046 = phi i32 [ %96, %.split ], [ %99, %._crit_edge94 ]
+  %.0 = phi i32 [ %96, %.split ], [ %99, %._crit_edge94 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #8
-  ret i32 %.046
+  ret i32 %.0
 }
 
 declare i32 @__gxx_personality_v0(...)

@@ -1773,8 +1773,8 @@ if.end78:                                         ; preds = %if.then76, %if.end7
   br i1 %cmp82, label %out, label %if.end87
 
 if.end87:                                         ; preds = %if.end78, %if.end36
-  %iounit.0 = phi i32 [ 0, %if.end36 ], [ %call80, %if.end78 ]
   %err.1.in = phi i64 [ %call38, %if.end36 ], [ %call81, %if.end78 ]
+  %iounit.0 = phi i32 [ 0, %if.end36 ], [ %call80, %if.end78 ]
   %err.1 = add nuw i64 %err.1.in, 7
   %26 = load i16, ptr %tag, align 4
   %27 = load i8, ptr %id, align 2
@@ -6004,9 +6004,9 @@ for.body.preheader:                               ; preds = %p9array_new_V9fsPat
 for.body:                                         ; preds = %for.body.preheader, %if.end30
   %18 = phi ptr [ %.pre, %for.body.preheader ], [ %19, %if.end30 ]
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end30 ]
-  %offset.0179 = phi i64 [ %add, %for.body.preheader ], [ %add32, %if.end30 ]
+  %offset.0178 = phi i64 [ %add, %for.body.preheader ], [ %add32, %if.end30 ]
   %arrayidx = getelementptr %struct.V9fsString, ptr %18, i64 %indvars.iv
-  %call20 = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef %offset.0179, ptr noundef nonnull @.str.17, ptr noundef %arrayidx)
+  %call20 = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef %offset.0178, ptr noundef nonnull @.str.17, ptr noundef %arrayidx)
   %conv21 = trunc i64 %call20 to i32
   %cmp22 = icmp slt i32 %conv21, 0
   br i1 %cmp22, label %out_nofid, label %if.end25
@@ -6026,7 +6026,7 @@ name_is_illegal.exit:                             ; preds = %if.end25
 
 if.end30:                                         ; preds = %name_is_illegal.exit
   %conv31 = and i64 %call20, 2147483647
-  %add32 = add i64 %conv31, %offset.0179
+  %add32 = add i64 %conv31, %offset.0178
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i16, ptr %nwnames, align 2
   %23 = zext i16 %22 to i64
@@ -6222,14 +6222,14 @@ for.inc111:                                       ; preds = %lor.lhs.false.tail,
 
 do.end.loopexit:                                  ; preds = %for.inc111, %for.body59, %if.end87
   %indvars.iv.next214.lcssa.sink = phi i64 [ %indvars.iv213, %if.end87 ], [ %indvars.iv213, %for.body59 ], [ %indvars.iv.next214, %for.inc111 ]
-  %err.2.ph = phi i32 [ -4, %if.end87 ], [ -4, %for.body59 ], [ %err.1, %for.inc111 ]
   %any_err.0.ph = phi i32 [ -4, %if.end87 ], [ -4, %for.body59 ], [ 0, %for.inc111 ]
+  %err.2.ph = phi i32 [ -4, %if.end87 ], [ -4, %for.body59 ], [ %err.1, %for.inc111 ]
   %indvars.le = trunc i64 %indvars.iv.next214.lcssa.sink to i32
   br label %do.end
 
 do.end:                                           ; preds = %do.end.loopexit, %if.end54, %if.end38, %if.then101, %if.then83, %if.then51
-  %err.2 = phi i32 [ %sub, %if.then51 ], [ %sub85, %if.then83 ], [ %sub103, %if.then101 ], [ -4, %if.end38 ], [ %call48, %if.end54 ], [ %err.2.ph, %do.end.loopexit ]
   %any_err.0 = phi i32 [ %sub, %if.then51 ], [ %sub85, %if.then83 ], [ %sub103, %if.then101 ], [ -4, %if.end38 ], [ 0, %if.end54 ], [ %any_err.0.ph, %do.end.loopexit ]
+  %err.2 = phi i32 [ %sub, %if.then51 ], [ %sub85, %if.then83 ], [ %sub103, %if.then101 ], [ -4, %if.end38 ], [ %call48, %if.end54 ], [ %err.2.ph, %do.end.loopexit ]
   %nwalked.1 = phi i32 [ 0, %if.then51 ], [ %56, %if.then83 ], [ %60, %if.then101 ], [ 0, %if.end38 ], [ 0, %if.end54 ], [ %indvars.le, %do.end.loopexit ]
   call void @qemu_coroutine_yield() #22
   %cmp116 = icmp sgt i32 %err.2, -1
@@ -6275,8 +6275,8 @@ for.body137.lr.ph:                                ; preds = %if.end131
 
 for.body137:                                      ; preds = %for.body137.lr.ph, %if.end158
   %indvars.iv216 = phi i64 [ 0, %for.body137.lr.ph ], [ %indvars.iv.next217, %if.end158 ]
-  %any_err.1195 = phi i32 [ %or125, %for.body137.lr.ph ], [ %any_err.2, %if.end158 ]
-  %err.3194 = phi i32 [ %call124, %for.body137.lr.ph ], [ %err.4, %if.end158 ]
+  %err.3195 = phi i32 [ %call124, %for.body137.lr.ph ], [ %err.4, %if.end158 ]
+  %any_err.1194 = phi i32 [ %or125, %for.body137.lr.ph ], [ %any_err.2, %if.end158 ]
   %74 = phi ptr [ %call.i113, %for.body137.lr.ph ], [ %97, %if.end158 ]
   %75 = phi i16 [ %71, %for.body137.lr.ph ], [ %96, %if.end158 ]
   %76 = load ptr, ptr %s1, align 8
@@ -6327,7 +6327,7 @@ if.then147:                                       ; preds = %for.body137, %lor.l
   %arrayidx149 = getelementptr %struct.stat, ptr %stbufs.0, i64 %indvars.iv216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %stbuf, ptr noundef nonnull align 8 dereferenceable(144) %arrayidx149, i64 144, i1 false)
   %call150 = call fastcc i32 @stat_to_qid(ptr noundef nonnull %opaque, ptr noundef nonnull %stbuf, ptr noundef nonnull %qid)
-  %or151 = or i32 %call150, %any_err.1195
+  %or151 = or i32 %call150, %any_err.1194
   %cmp152 = icmp slt i32 %call150, 0
   br i1 %cmp152, label %for.end163.split.loop.exit248, label %if.end155
 
@@ -6350,8 +6350,8 @@ if.end155:                                        ; preds = %if.then147
 if.end158:                                        ; preds = %if.end155, %lor.lhs.false141.tail
   %96 = phi i16 [ %93, %if.end155 ], [ %75, %lor.lhs.false141.tail ]
   %97 = phi ptr [ %call.i122, %if.end155 ], [ %74, %lor.lhs.false141.tail ]
-  %err.4 = phi i32 [ %call150, %if.end155 ], [ %err.3194, %lor.lhs.false141.tail ]
-  %any_err.2 = phi i32 [ %or151, %if.end155 ], [ %any_err.1195, %lor.lhs.false141.tail ]
+  %any_err.2 = phi i32 [ %or151, %if.end155 ], [ %any_err.1194, %lor.lhs.false141.tail ]
+  %err.4 = phi i32 [ %call150, %if.end155 ], [ %err.3195, %lor.lhs.false141.tail ]
   %arrayidx160 = getelementptr %struct.V9fsQID, ptr %qids.0, i64 %indvars.iv216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx160, ptr noundef nonnull align 8 dereferenceable(16) %qid, i64 16, i1 false)
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
@@ -6366,8 +6366,8 @@ for.end163:                                       ; preds = %if.end158, %for.end
   %.lcssa192 = phi i16 [ %75, %for.end163.split.loop.exit248 ], [ %96, %if.end158 ]
   %.lcssa = phi ptr [ %74, %for.end163.split.loop.exit248 ], [ %97, %if.end158 ]
   %name_idx.0.lcssa = phi i32 [ %98, %for.end163.split.loop.exit248 ], [ %nwalked.1, %if.end158 ]
-  %err.5 = phi i32 [ %call150, %for.end163.split.loop.exit248 ], [ %err.4, %if.end158 ]
   %any_err.3 = phi i32 [ %or151, %for.end163.split.loop.exit248 ], [ %any_err.2, %if.end158 ]
+  %err.5 = phi i32 [ %call150, %for.end163.split.loop.exit248 ], [ %err.4, %if.end158 ]
   store ptr %.lcssa, ptr %data.i94, align 8
   store i16 %.lcssa192, ptr %path, align 8
   %cmp164 = icmp slt i32 %any_err.3, 0

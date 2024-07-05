@@ -60620,8 +60620,8 @@ define hidden void @"_ZN126_$LT$ockam_identity..models..purpose_key_attestation.
   br label %161
 
 105:                                              ; preds = %.preheader, %191
-  %.sroa.045.4 = phi i8 [ %.sroa.045.5, %191 ], [ 2, %.preheader ]
   %.0146 = phi i32 [ %192, %191 ], [ 0, %.preheader ]
+  %.sroa.045.4 = phi i8 [ %.sroa.045.5, %191 ], [ 2, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22)
   invoke void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %106 unwind label %.loopexit
@@ -65103,7 +65103,7 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
   br label %206
 
 107:                                              ; preds = %.lr.ph486, %132
-  %.0328485 = phi i32 [ 0, %.lr.ph486 ], [ %133, %132 ]
+  %.0329485 = phi i32 [ 0, %.lr.ph486 ], [ %133, %132 ]
   %.sroa.077.4484 = phi i1 [ false, %.lr.ph486 ], [ %.sroa.077.6, %132 ]
   %108 = load i8, ptr %78, align 8, !range !8539, !noundef !5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26)
@@ -65138,7 +65138,7 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
   br i1 %112, label %114, label %115
 
 .critedge:                                        ; preds = %107
-  %113 = icmp eq i32 %.0328485, 0
+  %113 = icmp eq i32 %.0329485, 0
   br i1 %113, label %120, label %122
 
 114:                                              ; preds = %110
@@ -65233,7 +65233,7 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
 
 132:                                              ; preds = %138, %125
   %.sroa.077.6 = phi i1 [ true, %125 ], [ %.sroa.077.4484, %138 ]
-  %133 = add i32 %.0328485, 1
+  %133 = add i32 %.0329485, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26)
   call void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %134 = load i64, ptr %26, align 8, !range !7479, !noundef !5
@@ -65393,7 +65393,7 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
 
 172:                                              ; preds = %.lr.ph478, %197
   %.sroa.0158.4477 = phi i1 [ false, %.lr.ph478 ], [ %.sroa.0158.6, %197 ]
-  %.0329476 = phi i32 [ 0, %.lr.ph478 ], [ %198, %197 ]
+  %.0328476 = phi i32 [ 0, %.lr.ph478 ], [ %198, %197 ]
   %173 = load i8, ptr %146, align 8, !range !8539, !noundef !5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
   %.not = icmp eq i8 %173, 25
@@ -65427,7 +65427,7 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
   br i1 %177, label %179, label %180
 
 .critedge362:                                     ; preds = %172
-  %178 = icmp eq i32 %.0329476, 0
+  %178 = icmp eq i32 %.0328476, 0
   br i1 %178, label %185, label %187
 
 179:                                              ; preds = %175
@@ -65522,7 +65522,7 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
 
 197:                                              ; preds = %203, %190
   %.sroa.0158.6 = phi i1 [ true, %190 ], [ %.sroa.0158.4477, %203 ]
-  %198 = add i32 %.0329476, 1
+  %198 = add i32 %.0328476, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
   call void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %199 = load i64, ptr %16, align 8, !range !7479, !noundef !5
@@ -67832,7 +67832,7 @@ define hidden void @_ZN16tracing_appender7rolling7builder7Builder15filename_pref
           to label %12 unwind label %9
 
 9:                                                ; preds = %39, %4
-  %.04 = phi i1 [ true, %4 ], [ false, %39 ]
+  %.0 = phi i1 [ true, %4 ], [ false, %39 ]
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = getelementptr inbounds i8, ptr %1, i64 16
@@ -67941,7 +67941,7 @@ define hidden void @_ZN16tracing_appender7rolling7builder7Builder15filename_pref
   unreachable
 
 50:                                               ; preds = %9
-  br i1 %.04, label %52, label %51
+  br i1 %.0, label %52, label %51
 
 51:                                               ; preds = %52, %50
   resume { ptr, i32 } %10
@@ -69978,11 +69978,11 @@ default.unreachable110:                           ; preds = %38, %19
   br i1 %57, label %90, label %91
 
 .body45:                                          ; preds = %72, %59, %49
-  %.136.lpad-body = phi i1 [ false, %49 ], [ %60, %59 ], [ false, %72 ]
+  %.139.lpad-body = phi i1 [ false, %49 ], [ %60, %59 ], [ false, %72 ]
   %eh.lpad-body = phi { ptr, i32 } [ %50, %49 ], [ %61, %59 ], [ %73, %72 ]
   %58 = load i64, ptr %3, align 8, !range !8121
   %.not = icmp eq i64 %58, 3
-  %or.cond43 = select i1 %.136.lpad-body, i1 true, i1 %.not
+  %or.cond43 = select i1 %.139.lpad-body, i1 true, i1 %.not
   br i1 %or.cond43, label %.thread, label %155
 
 59:                                               ; preds = %137, %87
@@ -122309,8 +122309,8 @@ default.unreachable365:                           ; preds = %719, %313, %196, %1
   br label %90
 
 .thread366:                                       ; preds = %72, %.noexc114
-  %.sroa.3.0.i = phi i32 [ %.fca.1.extract.i, %.noexc114 ], [ %77, %72 ]
   %.sroa.02.0.i = phi i64 [ %.fca.0.extract.i, %.noexc114 ], [ %75, %72 ]
+  %.sroa.3.0.i = phi i32 [ %.fca.1.extract.i, %.noexc114 ], [ %77, %72 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %69)
   %86 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.02.0.i, ptr %86, align 8

@@ -1066,8 +1066,8 @@ if.then14.i:                                      ; preds = %if.then.i1029
   br label %runRevNfa.exit
 
 runRevNfa.exit:                                   ; preds = %mmbit_set_i.exit732, %land.lhs.true.i, %if.then.i1029, %if.then14.i
-  %history_bytes.0.i = phi i64 [ %sub11.i, %if.then14.i ], [ %199, %if.then.i1029 ], [ %199, %land.lhs.true.i ], [ 0, %mmbit_set_i.exit732 ]
   %hbuf.0.i = phi ptr [ %add.ptr.i1030, %if.then14.i ], [ %201, %if.then.i1029 ], [ %201, %land.lhs.true.i ], [ %201, %mmbit_set_i.exit732 ]
+  %history_bytes.0.i = phi i64 [ %sub11.i, %if.then14.i ], [ %199, %if.then.i1029 ], [ %199, %land.lhs.true.i ], [ 0, %mmbit_set_i.exit732 ]
   store i64 %to_offset, ptr %from_offset.i479, align 8
   %call19.i = call signext i8 @nfaBlockExecReverse(ptr noundef nonnull %add.ptr2.i.i, i64 noundef %to_offset, ptr noundef %200, i64 noundef %sub.i1026, ptr noundef %hbuf.0.i, i64 noundef %history_bytes.0.i, ptr noundef nonnull @somRevCallback, ptr noundef nonnull %from_offset.i479) #7
   %203 = load i32, ptr %onmatch49, align 4
@@ -1347,10 +1347,10 @@ if.then14.i1055:                                  ; preds = %if.then.i1052
   br label %runRevNfa.exit1058
 
 runRevNfa.exit1058:                               ; preds = %if.then57, %land.lhs.true.i1045, %if.then.i1052, %if.then14.i1055
-  %history_bytes.0.i1049 = phi i64 [ %sub11.i1053, %if.then14.i1055 ], [ %254, %if.then.i1052 ], [ %254, %land.lhs.true.i1045 ], [ 0, %if.then57 ]
-  %hbuf.0.i1050 = phi ptr [ %add.ptr.i1057, %if.then14.i1055 ], [ %256, %if.then.i1052 ], [ %256, %land.lhs.true.i1045 ], [ %256, %if.then57 ]
+  %hbuf.0.i1049 = phi ptr [ %add.ptr.i1057, %if.then14.i1055 ], [ %256, %if.then.i1052 ], [ %256, %land.lhs.true.i1045 ], [ %256, %if.then57 ]
+  %history_bytes.0.i1050 = phi i64 [ %sub11.i1053, %if.then14.i1055 ], [ %254, %if.then.i1052 ], [ %254, %land.lhs.true.i1045 ], [ 0, %if.then57 ]
   store i64 %to_offset, ptr %from_offset.i445, align 8
-  %call19.i1051 = call signext i8 @nfaBlockExecReverse(ptr noundef nonnull %add.ptr2.i.i1038, i64 noundef %to_offset, ptr noundef %255, i64 noundef %sub.i1040, ptr noundef %hbuf.0.i1050, i64 noundef %history_bytes.0.i1049, ptr noundef nonnull @somRevCallback, ptr noundef nonnull %from_offset.i445) #7
+  %call19.i1051 = call signext i8 @nfaBlockExecReverse(ptr noundef nonnull %add.ptr2.i.i1038, i64 noundef %to_offset, ptr noundef %255, i64 noundef %sub.i1040, ptr noundef %hbuf.0.i1049, i64 noundef %history_bytes.0.i1050, ptr noundef nonnull @somRevCallback, ptr noundef nonnull %from_offset.i445) #7
   %258 = load i32, ptr %onmatch54, align 4
   br i1 %cmp.i768, label %mmbit_set_i.exit545, label %if.else.i541
 
@@ -1679,10 +1679,10 @@ if.then14.i1084:                                  ; preds = %if.then.i1081
   br label %runRevNfa.exit1087
 
 runRevNfa.exit1087:                               ; preds = %if.then66, %land.lhs.true.i1073, %if.then.i1081, %if.then14.i1084
-  %history_bytes.0.i1078 = phi i64 [ %sub11.i1082, %if.then14.i1084 ], [ %322, %if.then.i1081 ], [ %322, %land.lhs.true.i1073 ], [ 0, %if.then66 ]
-  %hbuf.0.i1079 = phi ptr [ %add.ptr.i1086, %if.then14.i1084 ], [ %324, %if.then.i1081 ], [ %324, %land.lhs.true.i1073 ], [ %324, %if.then66 ]
+  %hbuf.0.i1078 = phi ptr [ %add.ptr.i1086, %if.then14.i1084 ], [ %324, %if.then.i1081 ], [ %324, %land.lhs.true.i1073 ], [ %324, %if.then66 ]
+  %history_bytes.0.i1079 = phi i64 [ %sub11.i1082, %if.then14.i1084 ], [ %322, %if.then.i1081 ], [ %322, %land.lhs.true.i1073 ], [ 0, %if.then66 ]
   store i64 %to_offset, ptr %from_offset.i, align 8
-  %call19.i1080 = call signext i8 @nfaBlockExecReverse(ptr noundef nonnull %add.ptr2.i.i1066, i64 noundef %to_offset, ptr noundef %323, i64 noundef %sub.i1068, ptr noundef %hbuf.0.i1079, i64 noundef %history_bytes.0.i1078, ptr noundef nonnull @somRevCallback, ptr noundef nonnull %from_offset.i) #7
+  %call19.i1080 = call signext i8 @nfaBlockExecReverse(ptr noundef nonnull %add.ptr2.i.i1066, i64 noundef %to_offset, ptr noundef %323, i64 noundef %sub.i1068, ptr noundef %hbuf.0.i1078, i64 noundef %history_bytes.0.i1079, ptr noundef nonnull @somRevCallback, ptr noundef nonnull %from_offset.i) #7
   %326 = load i32, ptr %onmatch61, align 4
   br i1 %cmp.i777, label %mmbit_set_i.exit556, label %if.else.i552
 
@@ -2809,8 +2809,8 @@ if.then14:                                        ; preds = %if.then
   br label %do.end18
 
 do.end18:                                         ; preds = %if.then, %if.then14, %land.lhs.true, %entry
-  %history_bytes.0 = phi i64 [ %sub11, %if.then14 ], [ %4, %if.then ], [ %4, %land.lhs.true ], [ 0, %entry ]
   %hbuf.0 = phi ptr [ %add.ptr, %if.then14 ], [ %6, %if.then ], [ %6, %land.lhs.true ], [ %6, %entry ]
+  %history_bytes.0 = phi i64 [ %sub11, %if.then14 ], [ %4, %if.then ], [ %4, %land.lhs.true ], [ 0, %entry ]
   store i64 %to_offset, ptr %from_offset, align 8
   %call19 = tail call signext i8 @nfaBlockExecReverse(ptr noundef nonnull %add.ptr2.i, i64 noundef %to_offset, ptr noundef %5, i64 noundef %sub, ptr noundef %hbuf.0, i64 noundef %history_bytes.0, ptr noundef nonnull @somRevCallback, ptr noundef nonnull %from_offset) #7
   ret void
@@ -2893,8 +2893,8 @@ if.then14.i:                                      ; preds = %if.then.i
   br label %runRevNfa.exit
 
 runRevNfa.exit:                                   ; preds = %do.end14, %land.lhs.true.i, %if.then.i, %if.then14.i
-  %history_bytes.0.i = phi i64 [ %sub11.i, %if.then14.i ], [ %11, %if.then.i ], [ %11, %land.lhs.true.i ], [ 0, %do.end14 ]
   %hbuf.0.i = phi ptr [ %add.ptr.i, %if.then14.i ], [ %13, %if.then.i ], [ %13, %land.lhs.true.i ], [ %13, %do.end14 ]
+  %history_bytes.0.i = phi i64 [ %sub11.i, %if.then14.i ], [ %11, %if.then.i ], [ %11, %land.lhs.true.i ], [ 0, %do.end14 ]
   store i64 %to_offset, ptr %from_offset, align 8
   %call19.i = call signext i8 @nfaBlockExecReverse(ptr noundef nonnull %add.ptr2.i.i, i64 noundef %to_offset, ptr noundef %12, i64 noundef %sub.i, ptr noundef %hbuf.0.i, i64 noundef %history_bytes.0.i, ptr noundef nonnull @somRevCallback, ptr noundef nonnull %from_offset) #7
   %15 = load i64, ptr %from_offset, align 8
@@ -3786,9 +3786,9 @@ if.else.i239:                                     ; preds = %if.end.i233
   br label %while.body.i958
 
 while.body.i958:                                  ; preds = %while.body.i958.backedge, %if.else.i239
-  %level.i947.1 = phi i32 [ 0, %if.else.i239 ], [ %level.i947.1.be, %while.body.i958.backedge ]
-  %key.i948.1 = phi i32 [ 0, %if.else.i239 ], [ %key.i948.1.be, %while.body.i958.backedge ]
   %key_rem.i949.1 = phi i64 [ 0, %if.else.i239 ], [ %key_rem.i949.1.be, %while.body.i958.backedge ]
+  %key.i948.1 = phi i32 [ 0, %if.else.i239 ], [ %key.i948.1.be, %while.body.i958.backedge ]
+  %level.i947.1 = phi i32 [ 0, %if.else.i239 ], [ %level.i947.1.be, %while.body.i958.backedge ]
   %cmp3.i960 = icmp ult i64 %key_rem.i949.1, 64
   br i1 %cmp3.i960, label %if.then5.i971, label %if.end19.i961
 
@@ -3821,9 +3821,9 @@ if.end17.i991:                                    ; preds = %if.then11.i985
   br label %while.body.i958.backedge
 
 while.body.i958.backedge:                         ; preds = %if.end17.i991, %if.end23.i964
-  %level.i947.1.be = phi i32 [ %inc.i989, %if.end17.i991 ], [ %dec.i962, %if.end23.i964 ]
-  %key.i948.1.be = phi i32 [ %add13.i988, %if.end17.i991 ], [ %shr28.i969, %if.end23.i964 ]
   %key_rem.i949.1.be = phi i64 [ 0, %if.end17.i991 ], [ %add26.i967, %if.end23.i964 ]
+  %key.i948.1.be = phi i32 [ %add13.i988, %if.end17.i991 ], [ %shr28.i969, %if.end23.i964 ]
+  %level.i947.1.be = phi i32 [ %inc.i989, %if.end17.i991 ], [ %dec.i962, %if.end23.i964 ]
   br label %while.body.i958
 
 if.end19.i961:                                    ; preds = %if.then5.i971, %while.body.i958
@@ -4116,9 +4116,9 @@ if.else.i260:                                     ; preds = %if.end2.i257
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %if.else.i260
-  %level.i.1 = phi i32 [ %conv.i.i920, %if.else.i260 ], [ %level.i.1.be, %while.body.i.backedge ]
-  %key.i918.1 = phi i32 [ %shr.i, %if.else.i260 ], [ %key.i918.1.be, %while.body.i.backedge ]
   %key_rem.i.1 = phi i32 [ %add.i932, %if.else.i260 ], [ %key_rem.i.1.be, %while.body.i.backedge ]
+  %key.i918.1 = phi i32 [ %shr.i, %if.else.i260 ], [ %key.i918.1.be, %while.body.i.backedge ]
+  %level.i.1 = phi i32 [ %conv.i.i920, %if.else.i260 ], [ %level.i.1.be, %while.body.i.backedge ]
   %cmp3.i = icmp ult i32 %key_rem.i.1, 64
   br i1 %cmp3.i, label %if.then5.i, label %if.end19.i
 
@@ -4152,9 +4152,9 @@ if.end17.i:                                       ; preds = %if.then11.i
   br label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %if.end17.i, %if.end23.i
-  %level.i.1.be = phi i32 [ %inc.i928, %if.end17.i ], [ %dec.i, %if.end23.i ]
-  %key.i918.1.be = phi i32 [ %add13.i, %if.end17.i ], [ %shr28.i, %if.end23.i ]
   %key_rem.i.1.be = phi i32 [ 0, %if.end17.i ], [ %narrow605, %if.end23.i ]
+  %key.i918.1.be = phi i32 [ %add13.i, %if.end17.i ], [ %shr28.i, %if.end23.i ]
+  %level.i.1.be = phi i32 [ %inc.i928, %if.end17.i ], [ %dec.i, %if.end23.i ]
   br label %while.body.i
 
 if.end19.i:                                       ; preds = %if.then5.i, %while.body.i

@@ -61,15 +61,15 @@ define dso_local ptr @Curl_HMAC_init(ptr noundef %0, ptr noundef %1, i32 noundef
 
 40:                                               ; preds = %26, %16
   %41 = phi ptr [ %.pre, %26 ], [ %17, %16 ]
-  %.050 = phi ptr [ %35, %26 ], [ %1, %16 ]
-  %.049 = phi i32 [ %39, %26 ], [ %2, %16 ]
+  %.051 = phi i32 [ %39, %26 ], [ %2, %16 ]
+  %.048 = phi ptr [ %35, %26 ], [ %1, %16 ]
   %42 = load ptr, ptr %0, align 8
   %43 = tail call i32 %42(ptr noundef %41) #2
   %44 = load ptr, ptr %0, align 8
   %45 = load ptr, ptr %22, align 8
   %46 = tail call i32 %44(ptr noundef %45) #2
-  %47 = zext i32 %.049 to i64
-  %.not58 = icmp eq i32 %.049, 0
+  %47 = zext i32 %.051 to i64
+  %.not58 = icmp eq i32 %.051, 0
   br i1 %.not58, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40
@@ -78,7 +78,7 @@ define dso_local ptr @Curl_HMAC_init(ptr noundef %0, ptr noundef %1, i32 noundef
 
 .preheader:                                       ; preds = %52, %40
   %49 = load i32, ptr %23, align 4
-  %50 = icmp ult i32 %.049, %49
+  %50 = icmp ult i32 %.051, %49
   br i1 %50, label %.lr.ph57, label %.loopexit
 
 .lr.ph57:                                         ; preds = %.preheader
@@ -86,34 +86,34 @@ define dso_local ptr @Curl_HMAC_init(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %63
 
 52:                                               ; preds = %.lr.ph, %52
-  %.04855 = phi i64 [ 0, %.lr.ph ], [ %62, %52 ]
-  %.15154 = phi ptr [ %.050, %.lr.ph ], [ %57, %52 ]
-  %53 = load i8, ptr %.15154, align 1
+  %.155 = phi ptr [ %.048, %.lr.ph ], [ %57, %52 ]
+  %.04954 = phi i64 [ 0, %.lr.ph ], [ %62, %52 ]
+  %53 = load i8, ptr %.155, align 1
   %54 = xor i8 %53, 54
   store i8 %54, ptr %4, align 1
   %55 = load ptr, ptr %48, align 8
   %56 = load ptr, ptr %18, align 8
   call void %55(ptr noundef %56, ptr noundef nonnull %4, i32 noundef 1) #2
-  %57 = getelementptr inbounds i8, ptr %.15154, i64 1
-  %58 = load i8, ptr %.15154, align 1
+  %57 = getelementptr inbounds i8, ptr %.155, i64 1
+  %58 = load i8, ptr %.155, align 1
   %59 = xor i8 %58, 92
   store i8 %59, ptr %4, align 1
   %60 = load ptr, ptr %48, align 8
   %61 = load ptr, ptr %22, align 8
   call void %60(ptr noundef %61, ptr noundef nonnull %4, i32 noundef 1) #2
-  %62 = add nuw nsw i64 %.04855, 1
+  %62 = add nuw nsw i64 %.04954, 1
   %exitcond.not = icmp eq i64 %62, %47
   br i1 %exitcond.not, label %.preheader, label %52, !llvm.loop !5
 
 63:                                               ; preds = %.lr.ph57, %63
-  %.156 = phi i64 [ %47, %.lr.ph57 ], [ %68, %63 ]
+  %.15056 = phi i64 [ %47, %.lr.ph57 ], [ %68, %63 ]
   %64 = load ptr, ptr %51, align 8
   %65 = load ptr, ptr %18, align 8
   call void %64(ptr noundef %65, ptr noundef nonnull @hmac_ipad, i32 noundef 1) #2
   %66 = load ptr, ptr %51, align 8
   %67 = load ptr, ptr %22, align 8
   call void %66(ptr noundef %67, ptr noundef nonnull @hmac_opad, i32 noundef 1) #2
-  %68 = add nuw nsw i64 %.156, 1
+  %68 = add nuw nsw i64 %.15056, 1
   %69 = load i32, ptr %23, align 4
   %70 = zext i32 %69 to i64
   %71 = icmp ult i64 %68, %70

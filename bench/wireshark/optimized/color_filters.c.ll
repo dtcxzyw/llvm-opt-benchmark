@@ -760,8 +760,8 @@ define ptr @color_filters_colorize_packet(ptr noundef %0) local_unnamed_addr #0 
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %13
-  %.018 = phi ptr [ %.0.pr, %13 ], [ %4, %1 ]
-  %5 = load ptr, ptr %.018, align 8
+  %.01118 = phi ptr [ %.011.pr, %13 ], [ %4, %1 ]
+  %5 = load ptr, ptr %.01118, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 28
   %7 = load i32, ptr %6, align 4
   %.not15 = icmp eq i32 %7, 0
@@ -778,14 +778,14 @@ define ptr @color_filters_colorize_packet(ptr noundef %0) local_unnamed_addr #0 
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %11, %8, %.preheader
-  %14 = getelementptr inbounds i8, ptr %.018, i64 8
-  %.0.pr = load ptr, ptr %14, align 8
-  %.not14 = icmp eq ptr %.0.pr, null
+  %14 = getelementptr inbounds i8, ptr %.01118, i64 8
+  %.011.pr = load ptr, ptr %14, align 8
+  %.not14 = icmp eq ptr %.011.pr, null
   br i1 %.not14, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %13, %11, %1
-  %.011 = phi ptr [ null, %1 ], [ null, %13 ], [ %5, %11 ]
-  ret ptr %.011
+  %.0 = phi ptr [ null, %1 ], [ null, %13 ], [ %5, %11 ]
+  ret ptr %.0
 }
 
 declare zeroext i1 @dfilter_apply_edt(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -858,27 +858,27 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   %14 = tail call noalias dereferenceable_or_null(129) ptr @g_malloc(i64 noundef 129) #18
   %15 = load ptr, ptr @g_ascii_table, align 8
   %16 = icmp eq ptr %2, @color_filter_list
+  br label %.outer.outer
+
+.outer.outer:                                     ; preds = %.outer.outer.backedge, %4
+  %.081.ph.ph = phi i32 [ 128, %4 ], [ %.182, %.outer.outer.backedge ]
+  %.078.ph.ph = phi i32 [ 128, %4 ], [ %.179, %.outer.outer.backedge ]
+  %.072.ph.ph = phi i32 [ 0, %4 ], [ %.072.ph.ph.be, %.outer.outer.backedge ]
+  %.not.ph.ph = phi i1 [ true, %4 ], [ false, %.outer.outer.backedge ]
+  %.065.ph.ph = phi ptr [ %14, %4 ], [ %.166, %.outer.outer.backedge ]
+  %.0.ph.ph = phi ptr [ %13, %4 ], [ %.1, %.outer.outer.backedge ]
   br label %.outer
 
-.outer:                                           ; preds = %.outer.backedge, %4
-  %.080.ph = phi ptr [ %14, %4 ], [ %.181, %.outer.backedge ]
-  %.077.ph = phi i32 [ 128, %4 ], [ %.178, %.outer.backedge ]
-  %.074.ph = phi i32 [ 128, %4 ], [ %.175, %.outer.backedge ]
-  %.068.ph = phi i32 [ 0, %4 ], [ %.068.ph.be, %.outer.backedge ]
-  %.not.ph = phi i1 [ true, %4 ], [ false, %.outer.backedge ]
-  %.0.ph = phi ptr [ %13, %4 ], [ %.1, %.outer.backedge ]
-  br label %.outer105
-
-.outer105:                                        ; preds = %.outer, %43
-  %.077.ph106 = phi i32 [ %.077.ph, %.outer ], [ %.178, %43 ]
-  %.068.ph108 = phi i32 [ %.068.ph, %.outer ], [ %.169, %43 ]
-  %.not.ph109 = phi i1 [ %.not.ph, %.outer ], [ false, %43 ]
-  %.0.ph110 = phi ptr [ %.0.ph, %.outer ], [ %.1, %43 ]
+.outer:                                           ; preds = %.outer.outer, %43
+  %.081.ph = phi i32 [ %.182, %43 ], [ %.081.ph.ph, %.outer.outer ]
+  %.072.ph = phi i32 [ %.173, %43 ], [ %.072.ph.ph, %.outer.outer ]
+  %.not.ph = phi i1 [ false, %43 ], [ %.not.ph.ph, %.outer.outer ]
+  %.0.ph = phi ptr [ %.1, %43 ], [ %.0.ph.ph, %.outer.outer ]
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.outer105
-  %.068 = phi i32 [ %.068.ph108, %.outer105 ], [ %.068.be, %.backedge.backedge ]
-  %.not = phi i1 [ %.not.ph109, %.outer105 ], [ %.not.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.outer
+  %.072 = phi i32 [ %.072.ph, %.outer ], [ %.072.be, %.backedge.backedge ]
+  %.not = phi i1 [ %.not.ph, %.outer ], [ %.not.be, %.backedge.backedge ]
   br i1 %.not, label %.loopexit103, label %.preheader101
 
 .preheader101:                                    ; preds = %.backedge, %.preheader101
@@ -889,7 +889,7 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   ]
 
 .loopexit103:                                     ; preds = %.preheader101, %.backedge
-  %.169 = phi i32 [ %.068, %.backedge ], [ 0, %.preheader101 ]
+  %.173 = phi i32 [ %.072, %.backedge ], [ 0, %.preheader101 ]
   br label %18
 
 18:                                               ; preds = %20, %.loopexit103
@@ -916,14 +916,14 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %26, %.critedge
-  %.068.be = phi i32 [ %.169, %26 ], [ 1, %.critedge ]
+  %.072.be = phi i32 [ %.173, %26 ], [ 1, %.critedge ]
   %.not.be = phi i1 [ false, %26 ], [ true, %.critedge ]
   br label %.backedge
 
 .preheader100:                                    ; preds = %.critedge, %34
-  %.178 = phi i32 [ %.279, %34 ], [ %.077.ph106, %.critedge ]
-  %.072 = phi i32 [ %36, %34 ], [ 0, %.critedge ]
-  %.1 = phi ptr [ %.2, %34 ], [ %.0.ph110, %.critedge ]
+  %.182 = phi i32 [ %.283, %34 ], [ %.081.ph, %.critedge ]
+  %.076 = phi i32 [ %36, %34 ], [ 0, %.critedge ]
+  %.1 = phi ptr [ %.2, %34 ], [ %.0.ph, %.critedge ]
   %27 = call i32 @getc_unlocked(ptr noundef %1)
   switch i32 %27, label %28 [
     i32 -1, label %39
@@ -931,41 +931,41 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   ]
 
 28:                                               ; preds = %.preheader100
-  %.not93 = icmp ult i32 %.072, %.178
+  %.not93 = icmp ult i32 %.076, %.182
   br i1 %.not93, label %34, label %29
 
 29:                                               ; preds = %28
-  %30 = shl i32 %.178, 1
+  %30 = shl i32 %.182, 1
   %31 = or disjoint i32 %30, 1
   %32 = zext i32 %31 to i64
   %33 = call ptr @g_realloc(ptr noundef %.1, i64 noundef %32) #15
   br label %34
 
 34:                                               ; preds = %29, %28
-  %.279 = phi i32 [ %30, %29 ], [ %.178, %28 ]
+  %.283 = phi i32 [ %30, %29 ], [ %.182, %28 ]
   %.2 = phi ptr [ %33, %29 ], [ %.1, %28 ]
   %35 = trunc i32 %27 to i8
-  %36 = add i32 %.072, 1
-  %37 = zext i32 %.072 to i64
+  %36 = add i32 %.076, 1
+  %37 = zext i32 %.076 to i64
   %38 = getelementptr i8, ptr %.2, i64 %37
   store i8 %35, ptr %38, align 1
   br label %.preheader100
 
 39:                                               ; preds = %.preheader100, %.preheader100
   %40 = icmp eq i32 %27, -1
-  %41 = zext i32 %.072 to i64
+  %41 = zext i32 %.076 to i64
   %42 = getelementptr i8, ptr %.1, i64 %41
   store i8 0, ptr %42, align 1
   br i1 %40, label %.loopexit, label %43
 
 43:                                               ; preds = %39
-  %44 = icmp eq i32 %.072, 0
-  br i1 %44, label %.outer105, label %.preheader
+  %44 = icmp eq i32 %.076, 0
+  br i1 %44, label %.outer, label %.preheader
 
 .preheader:                                       ; preds = %43, %52
-  %.181 = phi ptr [ %.282, %52 ], [ %.080.ph, %43 ]
-  %.175 = phi i32 [ %.276, %52 ], [ %.074.ph, %43 ]
-  %.173 = phi i32 [ %54, %52 ], [ 0, %43 ]
+  %.179 = phi i32 [ %.280, %52 ], [ %.078.ph.ph, %43 ]
+  %.177 = phi i32 [ %54, %52 ], [ 0, %43 ]
+  %.166 = phi ptr [ %.267, %52 ], [ %.065.ph.ph, %43 ]
   %45 = call i32 @getc_unlocked(ptr noundef %1)
   switch i32 %45, label %46 [
     i32 -1, label %57
@@ -973,54 +973,54 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   ]
 
 46:                                               ; preds = %.preheader
-  %.not94 = icmp ult i32 %.173, %.175
+  %.not94 = icmp ult i32 %.177, %.179
   br i1 %.not94, label %52, label %47
 
 47:                                               ; preds = %46
-  %48 = shl i32 %.175, 1
+  %48 = shl i32 %.179, 1
   %49 = or disjoint i32 %48, 1
   %50 = zext i32 %49 to i64
-  %51 = call ptr @g_realloc(ptr noundef %.181, i64 noundef %50) #15
+  %51 = call ptr @g_realloc(ptr noundef %.166, i64 noundef %50) #15
   br label %52
 
 52:                                               ; preds = %47, %46
-  %.282 = phi ptr [ %51, %47 ], [ %.181, %46 ]
-  %.276 = phi i32 [ %48, %47 ], [ %.175, %46 ]
+  %.280 = phi i32 [ %48, %47 ], [ %.179, %46 ]
+  %.267 = phi ptr [ %51, %47 ], [ %.166, %46 ]
   %53 = trunc i32 %45 to i8
-  %54 = add i32 %.173, 1
-  %55 = zext i32 %.173 to i64
-  %56 = getelementptr i8, ptr %.282, i64 %55
+  %54 = add i32 %.177, 1
+  %55 = zext i32 %.177 to i64
+  %56 = getelementptr i8, ptr %.267, i64 %55
   store i8 %53, ptr %56, align 1
   br label %.preheader
 
 57:                                               ; preds = %.preheader, %.preheader
   %58 = icmp eq i32 %45, -1
-  %59 = zext i32 %.173 to i64
-  %60 = getelementptr i8, ptr %.181, i64 %59
+  %59 = zext i32 %.177 to i64
+  %60 = getelementptr i8, ptr %.166, i64 %59
   store i8 0, ptr %60, align 1
   br i1 %58, label %.loopexit, label %61
 
 61:                                               ; preds = %57
-  %62 = icmp eq i32 %.173, 0
-  br i1 %62, label %.outer.backedge, label %63
+  %62 = icmp eq i32 %.177, 0
+  br i1 %62, label %.outer.outer.backedge, label %63
 
 63:                                               ; preds = %61
   %64 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
   %65 = icmp eq i32 %64, 6
-  br i1 %65, label %66, label %.outer.backedge
+  br i1 %65, label %66, label %.outer.outer.backedge
 
-.outer.backedge:                                  ; preds = %63, %92, %88, %61
-  %.068.ph.be = phi i32 [ %.169, %63 ], [ %.270, %92 ], [ %.270, %88 ], [ %.169, %61 ]
-  br label %.outer
+.outer.outer.backedge:                            ; preds = %63, %92, %88, %61
+  %.072.ph.ph.be = phi i32 [ %.173, %63 ], [ %.274, %92 ], [ %.274, %88 ], [ %.173, %61 ]
+  br label %.outer.outer
 
 66:                                               ; preds = %63
   store ptr null, ptr %11, align 8
   store ptr null, ptr %12, align 8
-  %.not95 = icmp eq i32 %.169, 0
+  %.not95 = icmp eq i32 %.173, 0
   br i1 %.not95, label %67, label %73
 
 67:                                               ; preds = %66
-  %68 = call zeroext i1 @dfilter_compile_full(ptr noundef nonnull %.181, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 6, ptr noundef nonnull @__func__.read_filters_file) #15
+  %68 = call zeroext i1 @dfilter_compile_full(ptr noundef nonnull %.166, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 6, ptr noundef nonnull @__func__.read_filters_file) #15
   br i1 %68, label %73, label %69
 
 69:                                               ; preds = %67
@@ -1032,7 +1032,7 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   br label %73
 
 73:                                               ; preds = %69, %67, %66
-  %.270 = phi i32 [ 1, %66 ], [ 0, %67 ], [ 1, %69 ]
+  %.274 = phi i32 [ 1, %66 ], [ 0, %67 ], [ 1, %69 ]
   %74 = load i16, ptr %5, align 2
   %75 = load i16, ptr %6, align 2
   %76 = load i16, ptr %7, align 2
@@ -1042,7 +1042,7 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   %80 = call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #14
   %81 = call noalias ptr @g_strdup(ptr noundef %.1) #15
   store ptr %81, ptr %80, align 8
-  %82 = call noalias ptr @g_strdup(ptr noundef nonnull %.181) #15
+  %82 = call noalias ptr @g_strdup(ptr noundef nonnull %.166) #15
   %83 = getelementptr inbounds i8, ptr %80, i64 8
   store ptr %82, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %80, i64 16
@@ -1058,7 +1058,7 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %80, i64 26
   store i16 %76, ptr %.sroa.3.0..sroa_idx, align 2
   %86 = getelementptr inbounds i8, ptr %80, i64 28
-  store i32 %.270, ptr %86, align 4
+  store i32 %.274, ptr %86, align 4
   %87 = load ptr, ptr %11, align 8
   br i1 %16, label %88, label %92
 
@@ -1068,16 +1068,16 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   %90 = load ptr, ptr @color_filter_list, align 8
   %91 = call ptr @g_slist_append(ptr noundef %90, ptr noundef nonnull %80) #15
   store ptr %91, ptr @color_filter_list, align 8
-  br label %.outer.backedge
+  br label %.outer.outer.backedge
 
 92:                                               ; preds = %73
   call void @dfilter_free(ptr noundef %87) #15
   call void %3(ptr noundef nonnull %80, ptr noundef %2) #15
-  br label %.outer.backedge
+  br label %.outer.outer.backedge
 
 .loopexit:                                        ; preds = %57, %39, %.preheader101, %18
-  %.383 = phi ptr [ %.080.ph, %18 ], [ %.080.ph, %.preheader101 ], [ %.080.ph, %39 ], [ %.181, %57 ]
-  %.3 = phi ptr [ %.0.ph110, %18 ], [ %.0.ph110, %.preheader101 ], [ %.1, %39 ], [ %.1, %57 ]
+  %.368 = phi ptr [ %.065.ph.ph, %18 ], [ %.065.ph.ph, %.preheader101 ], [ %.065.ph.ph, %39 ], [ %.166, %57 ]
+  %.3 = phi ptr [ %.0.ph, %18 ], [ %.0.ph, %.preheader101 ], [ %.1, %39 ], [ %.1, %57 ]
   %93 = call i32 @ferror(ptr noundef %1) #15
   %.not96 = icmp eq i32 %93, 0
   br i1 %.not96, label %97, label %94
@@ -1088,10 +1088,10 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   br label %97
 
 97:                                               ; preds = %94, %.loopexit
-  %.065 = phi i32 [ %96, %94 ], [ 0, %.loopexit ]
+  %.069 = phi i32 [ %96, %94 ], [ 0, %.loopexit ]
   call void @g_free(ptr noundef %.3) #15
-  call void @g_free(ptr noundef %.383) #15
-  ret i32 %.065
+  call void @g_free(ptr noundef %.368) #15
+  ret i32 %.069
 }
 
 ; Function Attrs: nofree nounwind

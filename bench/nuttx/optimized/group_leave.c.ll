@@ -90,11 +90,11 @@ group_removemember.exit.thread:                   ; preds = %6, %group_removemem
   br label %37
 
 37:                                               ; preds = %37, %group_removemember.exit.thread
-  %.011.in.i.i = phi ptr [ @g_grouphead, %group_removemember.exit.thread ], [ %.011.i.i, %37 ]
-  %.0.i.i = phi ptr [ null, %group_removemember.exit.thread ], [ %.011.i.i, %37 ]
-  %.011.i.i = load ptr, ptr %.011.in.i.i, align 8
-  %38 = icmp ne ptr %.011.i.i, null
-  %39 = icmp ne ptr %.011.i.i, %5
+  %.011.i.i = phi ptr [ null, %group_removemember.exit.thread ], [ %.0.i.i, %37 ]
+  %.0.in.i.i = phi ptr [ @g_grouphead, %group_removemember.exit.thread ], [ %.0.i.i, %37 ]
+  %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
+  %38 = icmp ne ptr %.0.i.i, null
+  %39 = icmp ne ptr %.0.i.i, %5
   %40 = and i1 %38, %39
   br i1 %40, label %37, label %41, !llvm.loop !11
 
@@ -102,11 +102,11 @@ group_removemember.exit.thread:                   ; preds = %6, %group_removemem
   br i1 %38, label %42, label %44
 
 42:                                               ; preds = %41
-  %.not.i.i8 = icmp eq ptr %.0.i.i, null
-  %43 = load ptr, ptr %.011.i.i, align 8
-  %g_grouphead..0.i.i = select i1 %.not.i.i8, ptr @g_grouphead, ptr %.0.i.i
-  store ptr %43, ptr %g_grouphead..0.i.i, align 8
-  store ptr null, ptr %.011.i.i, align 8
+  %.not.i.i8 = icmp eq ptr %.011.i.i, null
+  %43 = load ptr, ptr %.0.i.i, align 8
+  %g_grouphead..011.i.i = select i1 %.not.i.i8, ptr @g_grouphead, ptr %.011.i.i
+  store ptr %43, ptr %g_grouphead..011.i.i, align 8
+  store ptr null, ptr %.0.i.i, align 8
   br label %44
 
 44:                                               ; preds = %42, %41

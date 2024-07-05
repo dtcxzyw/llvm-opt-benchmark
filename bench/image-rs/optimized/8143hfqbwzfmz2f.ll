@@ -7778,16 +7778,16 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h0f9329
   %62 = getelementptr inbounds i8, ptr %1, i64 53
   %63 = load i8, ptr %62, align 1, !range !1232, !noundef !4
   %.not = icmp eq i8 %63, 2
-  %.0299.in.in.v = select i1 %.not, i64 60, i64 36
-  %.0299.in.in = getelementptr inbounds i8, ptr %1, i64 %.0299.in.in.v
+  %.0302.in.in.v = select i1 %.not, i64 60, i64 36
+  %.0302.in.in = getelementptr inbounds i8, ptr %1, i64 %.0302.in.in.v
   %.0291.in.in.v = select i1 %.not, i64 56, i64 32
   %.0291.in.in = getelementptr inbounds i8, ptr %1, i64 %.0291.in.in.v
   %.0291.in317 = load i32, ptr %.0291.in.in, align 8, !noundef !4
-  %.0299.in = load i32, ptr %.0299.in.in, align 4, !noundef !4
-  %.0299 = zext i32 %.0299.in to i64
+  %.0302.in = load i32, ptr %.0302.in.in, align 4, !noundef !4
+  %.0302 = zext i32 %.0302.in to i64
   %64 = tail call noundef i64 @_ZN3png7encoder11PartialInfo25raw_row_length_from_width17hb65731470f5a0097E(ptr noalias noundef nonnull readonly align 4 dereferenceable(52) %37, i32 noundef %.0291.in317)
   %65 = add i64 %64, -1
-  %66 = mul i64 %65, %.0299
+  %66 = mul i64 %65, %.0302
   %.not318 = icmp eq i64 %66, %3
   br i1 %.not318, label %68, label %75
 
@@ -7990,7 +7990,7 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h0f9329
   store ptr %126, ptr %.sroa.2283.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 16
   store i64 %.sroa.5184.sroa.0.0.copyload, ptr %.sroa.3.0..sroa_idx, align 8
-  %128 = mul i64 %64, %.0299
+  %128 = mul i64 %64, %.0302
   %129 = call i64 @llvm.usub.sat.i64(i64 %128, i64 1)
   %130 = udiv i64 %129, 65535
   %131 = mul i64 %130, 65540
@@ -8918,16 +8918,16 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h3045c3
   %62 = getelementptr inbounds i8, ptr %1, i64 53
   %63 = load i8, ptr %62, align 1, !range !1232, !noundef !4
   %.not = icmp eq i8 %63, 2
-  %.0299.in.in.v = select i1 %.not, i64 60, i64 36
-  %.0299.in.in = getelementptr inbounds i8, ptr %1, i64 %.0299.in.in.v
+  %.0302.in.in.v = select i1 %.not, i64 60, i64 36
+  %.0302.in.in = getelementptr inbounds i8, ptr %1, i64 %.0302.in.in.v
   %.0291.in.in.v = select i1 %.not, i64 56, i64 32
   %.0291.in.in = getelementptr inbounds i8, ptr %1, i64 %.0291.in.in.v
   %.0291.in317 = load i32, ptr %.0291.in.in, align 8, !noundef !4
-  %.0299.in = load i32, ptr %.0299.in.in, align 4, !noundef !4
-  %.0299 = zext i32 %.0299.in to i64
+  %.0302.in = load i32, ptr %.0302.in.in, align 4, !noundef !4
+  %.0302 = zext i32 %.0302.in to i64
   %64 = tail call noundef i64 @_ZN3png7encoder11PartialInfo25raw_row_length_from_width17hb65731470f5a0097E(ptr noalias noundef nonnull readonly align 4 dereferenceable(52) %37, i32 noundef %.0291.in317)
   %65 = add i64 %64, -1
-  %66 = mul i64 %65, %.0299
+  %66 = mul i64 %65, %.0302
   %.not318 = icmp eq i64 %66, %3
   br i1 %.not318, label %68, label %75
 
@@ -9130,7 +9130,7 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h3045c3
   store ptr %126, ptr %.sroa.2283.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 16
   store i64 %.sroa.5184.sroa.0.0.copyload, ptr %.sroa.3.0..sroa_idx, align 8
-  %128 = mul i64 %64, %.0299
+  %128 = mul i64 %64, %.0302
   %129 = call i64 @llvm.usub.sat.i64(i64 %128, i64 1)
   %130 = udiv i64 %129, 65535
   %131 = mul i64 %130, 65540

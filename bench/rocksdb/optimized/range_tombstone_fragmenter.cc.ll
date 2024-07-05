@@ -6424,8 +6424,8 @@ invoke.cont13:                                    ; preds = %invoke.cont11.i, %i
   br i1 %cmp.i.i2.i44.i, label %while.body.i.us, label %while.body.i
 
 while.body.i.us:                                  ; preds = %invoke.cont13, %invoke.cont19.i.us
-  %agg.tmp11.sroa.4.0.in.us = phi i64 [ %agg.tmp11.sroa.4.1.us, %invoke.cont19.i.us ], [ %.fr, %invoke.cont13 ]
   %agg.tmp14.sroa.2.0.us = phi i64 [ %storemerge.i.us, %invoke.cont19.i.us ], [ %agg.tmp14.sroa.2.0.copyload, %invoke.cont13 ]
+  %agg.tmp11.sroa.4.0.in.us = phi i64 [ %agg.tmp11.sroa.4.1.us, %invoke.cont19.i.us ], [ %.fr, %invoke.cont13 ]
   %agg.tmp11.sroa.4.0.us = add nuw i64 %agg.tmp11.sroa.4.0.in.us, 1
   %cmp.i.i.i40.i.us = icmp ult i64 %agg.tmp11.sroa.4.0.in.us, 7
   %24 = load ptr, ptr %values_.i.i.i.i17, align 8, !noalias !93
@@ -6488,8 +6488,8 @@ while.body3.i.preheader.us:                       ; preds = %while.body.i.us
   br label %while.body3.i.us
 
 while.body.i:                                     ; preds = %invoke.cont13, %invoke.cont19.i
-  %agg.tmp11.sroa.4.0.in = phi i64 [ %agg.tmp11.sroa.4.1, %invoke.cont19.i ], [ %.fr, %invoke.cont13 ]
   %agg.tmp14.sroa.2.0 = phi i64 [ %storemerge.i, %invoke.cont19.i ], [ %agg.tmp14.sroa.2.0.copyload, %invoke.cont13 ]
+  %agg.tmp11.sroa.4.0.in = phi i64 [ %agg.tmp11.sroa.4.1, %invoke.cont19.i ], [ %.fr, %invoke.cont13 ]
   %agg.tmp11.sroa.4.0 = add i64 %agg.tmp11.sroa.4.0.in, 1
   %cmp.i.i.i40.i = icmp ult i64 %agg.tmp11.sroa.4.0, 8
   %35 = load ptr, ptr %values_.i.i.i.i17, align 8, !noalias !93
@@ -6884,8 +6884,8 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %invoke.cont13
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
-  %agg.tmp1.sroa.2.0.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__i.sroa.6.039, %for.body.i.i.i.i.i.preheader ]
   %agg.tmp2.sroa.3.0.i.i.i.i = phi i64 [ %dec.i5.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.i11, %for.body.i.i.i.i.i.preheader ]
+  %agg.tmp1.sroa.2.0.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__i.sroa.6.039, %for.body.i.i.i.i.i.preheader ]
   %__n.014.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ]
   %dec.i.i.i.i.i.i = add i64 %agg.tmp1.sroa.2.0.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %dec.i.i.i.i.i.i, 8
@@ -7346,8 +7346,8 @@ invoke.cont13.i:                                  ; preds = %invoke.cont54.i.i, 
   br i1 %cmp.i.i2.i.i33.i, label %while.body.i.us.i25, label %while.body.i.i23
 
 while.body.i.us.i25:                              ; preds = %invoke.cont13.i, %invoke.cont19.i.us.i
-  %agg.tmp11.sroa.4.0.in.us.i = phi i64 [ %agg.tmp11.sroa.4.1.us.us.i, %invoke.cont19.i.us.i ], [ %.fr.i60, %invoke.cont13.i ]
   %agg.tmp14.sroa.3.0.us.i = phi i64 [ %storemerge.i.us.us.i, %invoke.cont19.i.us.i ], [ %2, %invoke.cont13.i ]
+  %agg.tmp11.sroa.4.0.in.us.i = phi i64 [ %agg.tmp11.sroa.4.1.us.us.i, %invoke.cont19.i.us.i ], [ %.fr.i60, %invoke.cont13.i ]
   br label %while.cond1.i.us.us.i
 
 invoke.cont19.i.us.i:                             ; preds = %while.end14.i.us.split.us.i
@@ -7412,8 +7412,8 @@ while.cond1.i.us.us.i:                            ; preds = %while.cond1.i.us.us
   br i1 %cmp.i.i.i39.us.us.i, label %while.cond1.i.us.us.i, label %while.cond6.i.us.us.i, !llvm.loop !130
 
 while.body.i.i23:                                 ; preds = %invoke.cont13.i, %invoke.cont19.i.i
-  %agg.tmp11.sroa.4.0.in.i = phi i64 [ %agg.tmp11.sroa.4.1.i, %invoke.cont19.i.i ], [ %.fr.i60, %invoke.cont13.i ]
   %agg.tmp14.sroa.3.0.i = phi i64 [ %storemerge.i.i, %invoke.cont19.i.i ], [ %2, %invoke.cont13.i ]
+  %agg.tmp11.sroa.4.0.in.i = phi i64 [ %agg.tmp11.sroa.4.1.i, %invoke.cont19.i.i ], [ %.fr.i60, %invoke.cont13.i ]
   br label %while.cond1.i.i
 
 while.cond1.i.i:                                  ; preds = %while.cond1.i.i, %while.body.i.i23
@@ -7515,8 +7515,8 @@ invoke.cont.lr.ph:                                ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %invoke.cont
-  %__secondChild.077 = phi i64 [ %__holeIndex, %invoke.cont.lr.ph ], [ %spec.select, %invoke.cont ]
-  %add = shl i64 %__secondChild.077, 1
+  %__holeIndex.addr.077 = phi i64 [ %__holeIndex, %invoke.cont.lr.ph ], [ %spec.select, %invoke.cont ]
+  %add = shl i64 %__holeIndex.addr.077, 1
   %mul = add i64 %add, 2
   %1 = load ptr, ptr %__first, align 8, !noalias !101
   %2 = load i64, ptr %index_.i, align 8, !noalias !101
@@ -7556,7 +7556,7 @@ invoke.cont:                                      ; preds = %invoke.cont.lr.ph, 
   %12 = getelementptr %"class.rocksdb::Slice", ptr %11, i64 %add.i32
   %add.ptr.i.i.i = getelementptr i8, ptr %12, i64 -128
   %retval.0.i.i = select i1 %cmp.i.i35, ptr %arrayidx.i.i, ptr %add.ptr.i.i.i
-  %add.i37 = add i64 %9, %__secondChild.077
+  %add.i37 = add i64 %9, %__holeIndex.addr.077
   %cmp.i.i40 = icmp ult i64 %add.i37, 8
   %arrayidx.i.i42 = getelementptr inbounds %"class.rocksdb::Slice", ptr %10, i64 %add.i37
   %13 = getelementptr %"class.rocksdb::Slice", ptr %11, i64 %add.i37
@@ -7567,7 +7567,7 @@ invoke.cont:                                      ; preds = %invoke.cont.lr.ph, 
   br i1 %cmp, label %invoke.cont, label %while.end, !llvm.loop !132
 
 while.end:                                        ; preds = %invoke.cont, %entry
-  %__secondChild.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %invoke.cont ]
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %invoke.cont ]
   %and = and i64 %__len, 1
   %cmp15 = icmp eq i64 %and, 0
   br i1 %cmp15, label %land.lhs.true, label %if.end35
@@ -7575,11 +7575,11 @@ while.end:                                        ; preds = %invoke.cont, %entry
 land.lhs.true:                                    ; preds = %while.end
   %sub16 = add nsw i64 %__len, -2
   %div17 = ashr exact i64 %sub16, 1
-  %cmp18 = icmp eq i64 %__secondChild.0.lcssa, %div17
+  %cmp18 = icmp eq i64 %__holeIndex.addr.0.lcssa, %div17
   br i1 %cmp18, label %invoke.cont30, label %if.end35
 
 invoke.cont30:                                    ; preds = %land.lhs.true
-  %add20 = shl nsw i64 %__secondChild.0.lcssa, 1
+  %add20 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub23 = or disjoint i64 %add20, 1
   %14 = load ptr, ptr %__first, align 8, !noalias !101
   %index_.i46 = getelementptr inbounds i8, ptr %__first, i64 8
@@ -7594,7 +7594,7 @@ invoke.cont30:                                    ; preds = %land.lhs.true
   %18 = getelementptr %"class.rocksdb::Slice", ptr %17, i64 %add.i47
   %add.ptr.i.i.i54 = getelementptr i8, ptr %18, i64 -128
   %retval.0.i.i55 = select i1 %cmp.i.i50, ptr %arrayidx.i.i52, ptr %add.ptr.i.i.i54
-  %add.i57 = add i64 %15, %__secondChild.0.lcssa
+  %add.i57 = add i64 %15, %__holeIndex.addr.0.lcssa
   %cmp.i.i60 = icmp ult i64 %add.i57, 8
   %arrayidx.i.i62 = getelementptr inbounds %"class.rocksdb::Slice", ptr %16, i64 %add.i57
   %19 = getelementptr %"class.rocksdb::Slice", ptr %17, i64 %add.i57
@@ -7604,7 +7604,7 @@ invoke.cont30:                                    ; preds = %land.lhs.true
   br label %if.end35
 
 if.end35:                                         ; preds = %invoke.cont30, %land.lhs.true, %while.end
-  %__holeIndex.addr.1 = phi i64 [ %sub23, %invoke.cont30 ], [ %__secondChild.0.lcssa, %land.lhs.true ], [ %__secondChild.0.lcssa, %while.end ]
+  %__holeIndex.addr.1 = phi i64 [ %sub23, %invoke.cont30 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
   %user_comparator_2.i.i.i = getelementptr inbounds i8, ptr %__comp, i64 8
   %20 = load i64, ptr %user_comparator_2.i.i.i, align 8
   %21 = inttoptr i64 %20 to ptr
@@ -7747,8 +7747,8 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %invoke.cont13
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
-  %agg.tmp1.sroa.2.0.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__i.sroa.6.048, %for.body.i.i.i.i.i.preheader ]
   %agg.tmp2.sroa.3.0.i.i.i.i = phi i64 [ %dec.i5.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.i17, %for.body.i.i.i.i.i.preheader ]
+  %agg.tmp1.sroa.2.0.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__i.sroa.6.048, %for.body.i.i.i.i.i.preheader ]
   %__n.014.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ]
   %dec.i.i.i.i.i.i = add i64 %agg.tmp1.sroa.2.0.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %dec.i.i.i.i.i.i, 8
@@ -9797,8 +9797,8 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %if.end, %entry
-  %__first.sroa.0.0 = phi ptr [ %__first.coerce, %entry ], [ %incdec.ptr.i, %if.end ]
   %__last.sroa.0.0 = phi ptr [ %__last.coerce, %entry ], [ %__last.sroa.0.1, %if.end ]
+  %__first.sroa.0.0 = phi ptr [ %__first.coerce, %entry ], [ %incdec.ptr.i, %if.end ]
   br label %while.cond3
 
 while.cond3:                                      ; preds = %while.cond3, %while.body

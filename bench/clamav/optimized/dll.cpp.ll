@@ -560,14 +560,14 @@ _ZN5ArrayIcED2Ev.exit126:                         ; preds = %225, %222, %180
 _ZN5ArrayIwED2Ev.exit129:                         ; preds = %233, %_ZN5ArrayIcED2Ev.exit126, %.body, %31
   %.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %eh.lpad-body, %.body ], [ %.pn, %_ZN5ArrayIcED2Ev.exit126 ], [ %.pn, %233 ]
   %.1 = phi ptr [ %.0100, %31 ], [ null, %.body ], [ %8, %_ZN5ArrayIcED2Ev.exit126 ], [ %8, %233 ]
-  %.1102 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %.1104 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %.1102 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %.1104 = extractvalue { ptr, i32 } %.pn.pn, 1
   %234 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI8RAR_EXIT) #17
-  %235 = icmp eq i32 %.1102, %234
+  %235 = icmp eq i32 %.1104, %234
   br i1 %235, label %236, label %244
 
 236:                                              ; preds = %_ZN5ArrayIwED2Ev.exit129
-  %237 = call ptr @__cxa_begin_catch(ptr %.1104) #17
+  %237 = call ptr @__cxa_begin_catch(ptr %.1102) #17
   %238 = load i32, ptr %237, align 4
   %.not120 = icmp eq ptr %.1, null
   br i1 %.not120, label %.thread130, label %241
@@ -586,11 +586,11 @@ _ZN5ArrayIwED2Ev.exit129:                         ; preds = %233, %_ZN5ArrayIcED
 
 244:                                              ; preds = %_ZN5ArrayIwED2Ev.exit129
   %245 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #17
-  %246 = icmp eq i32 %.1102, %245
+  %246 = icmp eq i32 %.1104, %245
   br i1 %246, label %247, label %256
 
 247:                                              ; preds = %244
-  %248 = call ptr @__cxa_begin_catch(ptr %.1104) #17
+  %248 = call ptr @__cxa_begin_catch(ptr %.1102) #17
   %249 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 11, ptr %249, align 1
   %.not119 = icmp eq ptr %.1, null

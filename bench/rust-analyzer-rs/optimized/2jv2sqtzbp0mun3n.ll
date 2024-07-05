@@ -1104,10 +1104,10 @@ _ZN6parser6output6Output5error17ha9ef9eb6c6dc120cE.exit: ; preds = %"_ZN5alloc3v
   br label %174
 
 .lr.ph:                                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h23a5e21eecb9a844E.exit", %"_ZN4core3ptr41drop_in_place$LT$parser..event..Event$GT$17h4ee5504d989e8cdbE.exit"
-  %.077180 = phi i64 [ %124, %"_ZN4core3ptr41drop_in_place$LT$parser..event..Event$GT$17h4ee5504d989e8cdbE.exit" ], [ %.sroa.01.0183, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h23a5e21eecb9a844E.exit" ]
-  %.sroa.3.0179 = phi i32 [ %137, %"_ZN4core3ptr41drop_in_place$LT$parser..event..Event$GT$17h4ee5504d989e8cdbE.exit" ], [ %.sroa.9.0.copyload, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h23a5e21eecb9a844E.exit" ]
-  %123 = zext i32 %.sroa.3.0179 to i64
-  %124 = add i64 %.077180, %123
+  %.sroa.3.0180 = phi i32 [ %137, %"_ZN4core3ptr41drop_in_place$LT$parser..event..Event$GT$17h4ee5504d989e8cdbE.exit" ], [ %.sroa.9.0.copyload, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h23a5e21eecb9a844E.exit" ]
+  %.078179 = phi i64 [ %124, %"_ZN4core3ptr41drop_in_place$LT$parser..event..Event$GT$17h4ee5504d989e8cdbE.exit" ], [ %.sroa.01.0183, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h23a5e21eecb9a844E.exit" ]
+  %123 = zext i32 %.sroa.3.0180 to i64
+  %124 = add i64 %.078179, %123
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   %125 = load i64, ptr %17, align 8, !noundef !4
   %126 = icmp ult i64 %124, %125

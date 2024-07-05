@@ -118,10 +118,10 @@ define internal fastcc ptr @_process_util_by_report(ptr noundef %0, ptr noundef 
   br label %.thread134
 
 .thread134:                                       ; preds = %.thread130, %49
-  %.194 = phi ptr [ %50, %49 ], [ %43, %.thread130 ]
-  %.092 = phi ptr [ %48, %49 ], [ null, %.thread130 ]
+  %.195 = phi ptr [ %50, %49 ], [ %43, %.thread130 ]
+  %.093 = phi ptr [ %48, %49 ], [ null, %.thread130 ]
   %51 = call ptr @list_iterator_create(ptr noundef nonnull %35) #4
-  %52 = call ptr @list_iterator_create(ptr noundef %.194) #4
+  %52 = call ptr @list_iterator_create(ptr noundef %.195) #4
   %53 = call ptr @list_next(ptr noundef %51) #4
   %.not104166 = icmp eq ptr %53, null
   br i1 %.not104166, label %._crit_edge, label %.lr.ph
@@ -517,19 +517,19 @@ _process_assoc_type.exit:                         ; preds = %.backedge.us26.i, %
 ._crit_edge:                                      ; preds = %.backedge, %.thread134
   call void @list_iterator_destroy(ptr noundef %52) #4
   call void @list_iterator_destroy(ptr noundef %51) #4
-  %.not105 = icmp eq ptr %.194, null
+  %.not105 = icmp eq ptr %.195, null
   br i1 %.not105, label %228, label %227
 
 227:                                              ; preds = %._crit_edge
-  call void @list_destroy(ptr noundef nonnull %.194) #4
+  call void @list_destroy(ptr noundef nonnull %.195) #4
   br label %228
 
 228:                                              ; preds = %227, %._crit_edge
-  %.not106 = icmp eq ptr %.092, null
+  %.not106 = icmp eq ptr %.093, null
   br i1 %.not106, label %.thread158, label %229
 
 229:                                              ; preds = %228
-  call void @list_destroy(ptr noundef nonnull %.092) #4
+  call void @list_destroy(ptr noundef nonnull %.093) #4
   br label %.thread158
 
 .thread158:                                       ; preds = %228, %229
@@ -551,8 +551,8 @@ _process_assoc_type.exit:                         ; preds = %.backedge.us26.i, %
   br label %.thread154
 
 .thread154:                                       ; preds = %.thread158, %234, %233, %25
-  %.095 = phi ptr [ null, %25 ], [ null, %234 ], [ null, %233 ], [ %9, %.thread158 ]
-  ret ptr %.095
+  %.091 = phi ptr [ null, %25 ], [ null, %234 ], [ null, %233 ], [ %9, %.thread158 ]
+  ret ptr %.091
 }
 
 ; Function Attrs: nounwind uwtable

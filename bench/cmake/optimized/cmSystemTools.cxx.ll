@@ -8771,12 +8771,12 @@ _ZL25cm_archive_entry_pathnameB5cxx11P13archive_entry.exit182: ; preds = %.noexc
   br label %.body102
 
 .loopexit228:                                     ; preds = %106, %275, %278, %247, %107, %285
-  %.048 = phi i32 [ %105, %107 ], [ %245, %247 ], [ %276, %278 ], [ 0, %275 ], [ %250, %285 ], [ %105, %106 ]
+  %.049 = phi i32 [ %105, %107 ], [ %245, %247 ], [ %276, %278 ], [ 0, %275 ], [ %250, %285 ], [ %105, %106 ]
   %291 = getelementptr inbounds i8, ptr %8, i64 8
   br label %292
 
 292:                                              ; preds = %.loopexit228, %317
-  %.0 = phi i1 [ false, %.loopexit228 ], [ true, %317 ]
+  %.048 = phi i1 [ false, %.loopexit228 ], [ true, %317 ]
   %293 = invoke i32 @archive_match_path_unmatched_inclusions_next(ptr noundef nonnull %51, ptr noundef nonnull %36)
           to label %294 unwind label %.loopexit
 
@@ -8920,7 +8920,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMe
   br label %.body102
 
 328:                                              ; preds = %294
-  br i1 %.0, label %358, label %329
+  br i1 %.048, label %358, label %329
 
 329:                                              ; preds = %328
   %330 = icmp eq i32 %293, -30
@@ -9024,15 +9024,15 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17cmMe
           to label %356 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 356:                                              ; preds = %354
-  %357 = icmp ult i32 %.048, 2
+  %357 = icmp ult i32 %.049, 2
   br label %358
 
 358:                                              ; preds = %328, %103, %356, %343, %88, %66
-  %.049 = phi i1 [ false, %66 ], [ false, %88 ], [ false, %343 ], [ %357, %356 ], [ false, %103 ], [ false, %328 ]
+  %.0 = phi i1 [ false, %66 ], [ false, %88 ], [ false, %343 ], [ %357, %356 ], [ false, %103 ], [ false, %328 ]
   %359 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #30
   %360 = call ptr @setlocale(i32 noundef 0, ptr noundef %359) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #30
-  ret i1 %.049
+  ret i1 %.0
 
 .body102:                                         ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %96, %.body201, %.body186, %290, %.body160, %237, %.body140, %134, %.body106, %.body98, %.body
   %.pn87.pn = phi { ptr, i32 } [ %.pn87, %.body ], [ %eh.lpad-body99, %.body98 ], [ %.pn82.pn.pn, %.body186 ], [ %.pn80, %.body201 ], [ %.pn77, %290 ], [ %.pn74, %.body140 ], [ %135, %134 ], [ %.pn72, %.body106 ], [ %.pn, %.body160 ], [ %238, %237 ], [ %97, %96 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit222, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit226, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit229, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp230, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
@@ -11337,15 +11337,15 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
   br label %6
 
 6:                                                ; preds = %37, %3
-  %.043.i = phi ptr [ %4, %3 ], [ %.346.i, %37 ]
-  %.042.i = phi ptr [ %5, %3 ], [ %spec.select.i, %37 ]
+  %.044.i = phi ptr [ %5, %3 ], [ %spec.select.i, %37 ]
+  %.043.i = phi ptr [ %4, %3 ], [ %.3.i, %37 ]
   %7 = load i8, ptr %.043.i, align 1
   %8 = add i8 %7, -48
   %or.cond.i = icmp ult i8 %8, 10
   br i1 %or.cond.i, label %.critedge.i.preheader, label %9
 
 9:                                                ; preds = %6
-  %10 = load i8, ptr %.042.i, align 1
+  %10 = load i8, ptr %.044.i, align 1
   %11 = add i8 %10, -48
   %or.cond53.i = icmp ult i8 %11, 10
   br i1 %or.cond53.i, label %.critedge.i.preheader, label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
@@ -11354,48 +11354,48 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %.critedge.i
-  %.144.i = phi ptr [ %14, %.critedge.i ], [ %.043.i, %.critedge.i.preheader ]
-  %12 = load i8, ptr %.144.i, align 1
+  %.1.i = phi ptr [ %14, %.critedge.i ], [ %.043.i, %.critedge.i.preheader ]
+  %12 = load i8, ptr %.1.i, align 1
   %13 = icmp eq i8 %12, 48
-  %14 = getelementptr inbounds i8, ptr %.144.i, i64 1
+  %14 = getelementptr inbounds i8, ptr %.1.i, i64 1
   br i1 %13, label %.critedge.i, label %.preheader56.i, !llvm.loop !395
 
 .preheader56.i:                                   ; preds = %.critedge.i, %.preheader56.i
-  %.1.i = phi ptr [ %17, %.preheader56.i ], [ %.042.i, %.critedge.i ]
-  %15 = load i8, ptr %.1.i, align 1
+  %.145.i = phi ptr [ %17, %.preheader56.i ], [ %.044.i, %.critedge.i ]
+  %15 = load i8, ptr %.145.i, align 1
   %16 = icmp eq i8 %15, 48
-  %17 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %17 = getelementptr inbounds i8, ptr %.145.i, i64 1
   br i1 %16, label %.preheader56.i, label %.preheader.i, !llvm.loop !396
 
 .preheader.i:                                     ; preds = %.preheader56.i, %.preheader.i
-  %.245.i = phi ptr [ %20, %.preheader.i ], [ %.144.i, %.preheader56.i ]
-  %18 = load i8, ptr %.245.i, align 1
+  %.2.i = phi ptr [ %20, %.preheader.i ], [ %.1.i, %.preheader56.i ]
+  %18 = load i8, ptr %.2.i, align 1
   %19 = add i8 %18, -48
   %or.cond54.i = icmp ult i8 %19, 10
-  %20 = getelementptr inbounds i8, ptr %.245.i, i64 1
+  %20 = getelementptr inbounds i8, ptr %.2.i, i64 1
   br i1 %or.cond54.i, label %.preheader.i, label %.critedge4.i, !llvm.loop !397
 
 .critedge4.i:                                     ; preds = %.preheader.i, %.critedge4.i
-  %.2.i = phi ptr [ %23, %.critedge4.i ], [ %.1.i, %.preheader.i ]
-  %21 = load i8, ptr %.2.i, align 1
+  %.246.i = phi ptr [ %23, %.critedge4.i ], [ %.145.i, %.preheader.i ]
+  %21 = load i8, ptr %.246.i, align 1
   %22 = add i8 %21, -48
   %or.cond55.i = icmp ult i8 %22, 10
-  %23 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %23 = getelementptr inbounds i8, ptr %.246.i, i64 1
   br i1 %or.cond55.i, label %.critedge4.i, label %.critedge6.i, !llvm.loop !398
 
 .critedge6.i:                                     ; preds = %.critedge4.i
-  %24 = ptrtoint ptr %.245.i to i64
-  %25 = ptrtoint ptr %.144.i to i64
+  %24 = ptrtoint ptr %.2.i to i64
+  %25 = ptrtoint ptr %.1.i to i64
   %26 = sub i64 %24, %25
-  %27 = ptrtoint ptr %.2.i to i64
-  %28 = ptrtoint ptr %.1.i to i64
+  %27 = ptrtoint ptr %.246.i to i64
+  %28 = ptrtoint ptr %.145.i to i64
   %.neg.i = sub i64 %28, %27
   %29 = add i64 %.neg.i, %26
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %.critedge6.i
-  %32 = tail call i32 @strncmp(ptr noundef nonnull %.144.i, ptr noundef nonnull %.1.i, i64 noundef %26) #32
+  %32 = tail call i32 @strncmp(ptr noundef nonnull %.1.i, ptr noundef nonnull %.145.i, i64 noundef %26) #32
   %33 = sext i32 %32 to i64
   br label %34
 
@@ -11411,17 +11411,17 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
 37:                                               ; preds = %36
   %38 = icmp eq i8 %21, 46
   %spec.select.idx.i = zext i1 %38 to i64
-  %spec.select.i = getelementptr inbounds i8, ptr %.2.i, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds i8, ptr %.246.i, i64 %spec.select.idx.i
   %39 = icmp eq i8 %18, 46
-  %.346.idx.i = zext i1 %39 to i64
-  %.346.i = getelementptr inbounds i8, ptr %.245.i, i64 %.346.idx.i
+  %.3.idx.i = zext i1 %39 to i64
+  %.3.i = getelementptr inbounds i8, ptr %.2.i, i64 %.3.idx.i
   br label %6, !llvm.loop !399
 
 _ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit: ; preds = %9, %34, %36
   %.sink.i = phi i32 [ 2, %34 ], [ 4, %36 ], [ 1, %9 ]
   %40 = and i32 %.sink.i, %0
-  %.047.i = icmp ne i32 %40, 0
-  ret i1 %.047.i
+  %.042.i = icmp ne i32 %40, 0
+  ret i1 %.042.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11430,15 +11430,15 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
   br label %5
 
 5:                                                ; preds = %36, %3
-  %.043.i = phi ptr [ %4, %3 ], [ %.346.i, %36 ]
-  %.042.i = phi ptr [ %2, %3 ], [ %spec.select.i, %36 ]
+  %.044.i = phi ptr [ %2, %3 ], [ %spec.select.i, %36 ]
+  %.043.i = phi ptr [ %4, %3 ], [ %.3.i, %36 ]
   %6 = load i8, ptr %.043.i, align 1
   %7 = add i8 %6, -48
   %or.cond.i = icmp ult i8 %7, 10
   br i1 %or.cond.i, label %.critedge.i.preheader, label %8
 
 8:                                                ; preds = %5
-  %9 = load i8, ptr %.042.i, align 1
+  %9 = load i8, ptr %.044.i, align 1
   %10 = add i8 %9, -48
   %or.cond53.i = icmp ult i8 %10, 10
   br i1 %or.cond53.i, label %.critedge.i.preheader, label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
@@ -11447,48 +11447,48 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %.critedge.i
-  %.144.i = phi ptr [ %13, %.critedge.i ], [ %.043.i, %.critedge.i.preheader ]
-  %11 = load i8, ptr %.144.i, align 1
+  %.1.i = phi ptr [ %13, %.critedge.i ], [ %.043.i, %.critedge.i.preheader ]
+  %11 = load i8, ptr %.1.i, align 1
   %12 = icmp eq i8 %11, 48
-  %13 = getelementptr inbounds i8, ptr %.144.i, i64 1
+  %13 = getelementptr inbounds i8, ptr %.1.i, i64 1
   br i1 %12, label %.critedge.i, label %.preheader56.i, !llvm.loop !395
 
 .preheader56.i:                                   ; preds = %.critedge.i, %.preheader56.i
-  %.1.i = phi ptr [ %16, %.preheader56.i ], [ %.042.i, %.critedge.i ]
-  %14 = load i8, ptr %.1.i, align 1
+  %.145.i = phi ptr [ %16, %.preheader56.i ], [ %.044.i, %.critedge.i ]
+  %14 = load i8, ptr %.145.i, align 1
   %15 = icmp eq i8 %14, 48
-  %16 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %16 = getelementptr inbounds i8, ptr %.145.i, i64 1
   br i1 %15, label %.preheader56.i, label %.preheader.i, !llvm.loop !396
 
 .preheader.i:                                     ; preds = %.preheader56.i, %.preheader.i
-  %.245.i = phi ptr [ %19, %.preheader.i ], [ %.144.i, %.preheader56.i ]
-  %17 = load i8, ptr %.245.i, align 1
+  %.2.i = phi ptr [ %19, %.preheader.i ], [ %.1.i, %.preheader56.i ]
+  %17 = load i8, ptr %.2.i, align 1
   %18 = add i8 %17, -48
   %or.cond54.i = icmp ult i8 %18, 10
-  %19 = getelementptr inbounds i8, ptr %.245.i, i64 1
+  %19 = getelementptr inbounds i8, ptr %.2.i, i64 1
   br i1 %or.cond54.i, label %.preheader.i, label %.critedge4.i, !llvm.loop !397
 
 .critedge4.i:                                     ; preds = %.preheader.i, %.critedge4.i
-  %.2.i = phi ptr [ %22, %.critedge4.i ], [ %.1.i, %.preheader.i ]
-  %20 = load i8, ptr %.2.i, align 1
+  %.246.i = phi ptr [ %22, %.critedge4.i ], [ %.145.i, %.preheader.i ]
+  %20 = load i8, ptr %.246.i, align 1
   %21 = add i8 %20, -48
   %or.cond55.i = icmp ult i8 %21, 10
-  %22 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %22 = getelementptr inbounds i8, ptr %.246.i, i64 1
   br i1 %or.cond55.i, label %.critedge4.i, label %.critedge6.i, !llvm.loop !398
 
 .critedge6.i:                                     ; preds = %.critedge4.i
-  %23 = ptrtoint ptr %.245.i to i64
-  %24 = ptrtoint ptr %.144.i to i64
+  %23 = ptrtoint ptr %.2.i to i64
+  %24 = ptrtoint ptr %.1.i to i64
   %25 = sub i64 %23, %24
-  %26 = ptrtoint ptr %.2.i to i64
-  %27 = ptrtoint ptr %.1.i to i64
+  %26 = ptrtoint ptr %.246.i to i64
+  %27 = ptrtoint ptr %.145.i to i64
   %.neg.i = sub i64 %27, %26
   %28 = add i64 %.neg.i, %25
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %.critedge6.i
-  %31 = tail call i32 @strncmp(ptr noundef nonnull %.144.i, ptr noundef nonnull %.1.i, i64 noundef %25) #32
+  %31 = tail call i32 @strncmp(ptr noundef nonnull %.1.i, ptr noundef nonnull %.145.i, i64 noundef %25) #32
   %32 = sext i32 %31 to i64
   br label %33
 
@@ -11504,17 +11504,17 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
 36:                                               ; preds = %35
   %37 = icmp eq i8 %20, 46
   %spec.select.idx.i = zext i1 %37 to i64
-  %spec.select.i = getelementptr inbounds i8, ptr %.2.i, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds i8, ptr %.246.i, i64 %spec.select.idx.i
   %38 = icmp eq i8 %17, 46
-  %.346.idx.i = zext i1 %38 to i64
-  %.346.i = getelementptr inbounds i8, ptr %.245.i, i64 %.346.idx.i
+  %.3.idx.i = zext i1 %38 to i64
+  %.3.i = getelementptr inbounds i8, ptr %.2.i, i64 %.3.idx.i
   br label %5, !llvm.loop !399
 
 _ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit: ; preds = %8, %33, %35
   %.sink.i = phi i32 [ 2, %33 ], [ 4, %35 ], [ 1, %8 ]
   %39 = and i32 %.sink.i, %0
-  %.047.i = icmp ne i32 %39, 0
-  ret i1 %.047.i
+  %.042.i = icmp ne i32 %39, 0
+  ret i1 %.042.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12378,14 +12378,14 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.us: ; preds = %.lr
 
 14:                                               ; preds = %22, %.lr.ph.i.i
   %.033.i.i = phi i64 [ %10, %.lr.ph.i.i ], [ %25, %22 ]
-  %.02032.i.i = phi ptr [ %11, %.lr.ph.i.i ], [ %23, %22 ]
+  %.02132.i.i = phi ptr [ %11, %.lr.ph.i.i ], [ %23, %22 ]
   %15 = sub i64 %.033.i.i, %.0.val1
   %16 = add i64 %15, 1
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %14
-  %18 = tail call ptr @memchr(ptr noundef %.02032.i.i, i32 noundef %13, i64 noundef %16) #30
+  %18 = tail call ptr @memchr(ptr noundef %.02132.i.i, i32 noundef %13, i64 noundef %16) #30
   %.not26.i.i = icmp eq ptr %18, null
   br i1 %.not26.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
@@ -12949,9 +12949,9 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit:          ; preds = %15
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %29, %.lr.ph.i.i
   %.033.i.i = phi i64 [ %.pr, %.lr.ph.i.i ], [ %32, %29 ]
-  %.02032.i.i = phi ptr [ %.sroa.4.0.copyload13.pre.pre, %.lr.ph.i.i ], [ %30, %29 ]
+  %.02132.i.i = phi ptr [ %.sroa.4.0.copyload13.pre.pre, %.lr.ph.i.i ], [ %30, %29 ]
   %26 = add i64 %.033.i.i, -7
-  %27 = call ptr @memchr(ptr noundef %.02032.i.i, i32 noundef 107, i64 noundef %26) #30
+  %27 = call ptr @memchr(ptr noundef %.02132.i.i, i32 noundef 107, i64 noundef %26) #30
   %.not26.i.i = icmp eq ptr %27, null
   br i1 %.not26.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 

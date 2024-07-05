@@ -84,20 +84,20 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   br label %32
 
 32:                                               ; preds = %.lr.ph, %97
-  %.0187227 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1188, %97 ]
-  %.0193226 = phi i32 [ 0, %.lr.ph ], [ %98, %97 ]
-  %.0194225 = phi i32 [ 0, %.lr.ph ], [ %.2196, %97 ]
-  %.0197224 = phi i32 [ 0, %.lr.ph ], [ %.2199, %97 ]
-  %.0200223 = phi i32 [ 0, %.lr.ph ], [ %.1201, %97 ]
-  %.0202222 = phi i32 [ 0, %.lr.ph ], [ %.1203, %97 ]
+  %.0186227 = phi i32 [ 0, %.lr.ph ], [ %.1187, %97 ]
+  %.0189226 = phi i32 [ 0, %.lr.ph ], [ %.1190, %97 ]
+  %.0191225 = phi i32 [ 0, %.lr.ph ], [ %.2193, %97 ]
+  %.0194224 = phi i32 [ 0, %.lr.ph ], [ %.2196, %97 ]
+  %.0197223 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1198, %97 ]
+  %.0199222 = phi i32 [ 0, %.lr.ph ], [ %98, %97 ]
   call void @vacuum_delay_point() #4
-  %33 = call i64 %1(ptr noundef %0, i32 noundef %.0193226, ptr noundef nonnull %5) #4
+  %33 = call i64 %1(ptr noundef %0, i32 noundef %.0199222, ptr noundef nonnull %5) #4
   %34 = load i8, ptr %5, align 1
   %35 = trunc i8 %34 to i1
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %32
-  %37 = add i32 %.0202222, 1
+  %37 = add i32 %.0186227, 1
   br label %97
 
 38:                                               ; preds = %32
@@ -141,7 +141,7 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
 62:                                               ; preds = %59, %42
   %63 = phi i64 [ %50, %42 ], [ %61, %59 ]
   %64 = uitofp nneg i64 %63 to double
-  %65 = fadd double %.0187227, %64
+  %65 = fadd double %.0197223, %64
   %66 = call ptr @pg_detoast_datum(ptr noundef nonnull %39) #4
   br i1 %.not260, label %67, label %73
 
@@ -170,7 +170,7 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   br i1 %74, label %93, label %75
 
 75:                                               ; preds = %.thread251, %73
-  %76 = sext i32 %.0197224 to i64
+  %76 = sext i32 %.0191225 to i64
   %77 = getelementptr %struct.RangeBound, ptr %24, i64 %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   %78 = getelementptr %struct.RangeBound, ptr %25, i64 %76
@@ -195,48 +195,48 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   br label %90
 
 90:                                               ; preds = %81, %75, %84
-  %.0185 = phi double [ %89, %84 ], [ %.mux, %81 ], [ 0x7FF0000000000000, %75 ]
+  %.0188 = phi double [ %89, %84 ], [ %.mux, %81 ], [ 0x7FF0000000000000, %75 ]
   %91 = getelementptr double, ptr %27, i64 %76
-  store double %.0185, ptr %91, align 8
-  %92 = add i32 %.0197224, 1
+  store double %.0188, ptr %91, align 8
+  %92 = add i32 %.0191225, 1
   br label %95
 
 93:                                               ; preds = %.thread250, %73
-  %94 = add i32 %.0194225, 1
+  %94 = add i32 %.0194224, 1
   br label %95
 
 95:                                               ; preds = %93, %90
-  %.1198 = phi i32 [ %.0197224, %93 ], [ %92, %90 ]
-  %.1195 = phi i32 [ %94, %93 ], [ %.0194225, %90 ]
-  %96 = add i32 %.0200223, 1
+  %.1195 = phi i32 [ %94, %93 ], [ %.0194224, %90 ]
+  %.1192 = phi i32 [ %.0191225, %93 ], [ %92, %90 ]
+  %96 = add i32 %.0189226, 1
   br label %97
 
 97:                                               ; preds = %95, %36
-  %.1203 = phi i32 [ %37, %36 ], [ %.0202222, %95 ]
-  %.1201 = phi i32 [ %.0200223, %36 ], [ %96, %95 ]
-  %.2199 = phi i32 [ %.0197224, %36 ], [ %.1198, %95 ]
-  %.2196 = phi i32 [ %.0194225, %36 ], [ %.1195, %95 ]
-  %.1188 = phi double [ %.0187227, %36 ], [ %65, %95 ]
-  %98 = add nuw nsw i32 %.0193226, 1
+  %.1198 = phi double [ %.0197223, %36 ], [ %65, %95 ]
+  %.2196 = phi i32 [ %.0194224, %36 ], [ %.1195, %95 ]
+  %.2193 = phi i32 [ %.0191225, %36 ], [ %.1192, %95 ]
+  %.1190 = phi i32 [ %.0189226, %36 ], [ %96, %95 ]
+  %.1187 = phi i32 [ %37, %36 ], [ %.0186227, %95 ]
+  %98 = add nuw nsw i32 %.0199222, 1
   %exitcond.not = icmp eq i32 %98, %2
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %97
   %99 = sitofp i32 %.2196 to double
-  %100 = icmp sgt i32 %.1201, 0
+  %100 = icmp sgt i32 %.1190, 0
   br i1 %100, label %101, label %191
 
 101:                                              ; preds = %._crit_edge
   %102 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 1, ptr %102, align 8
-  %103 = sitofp i32 %.1203 to double
+  %103 = sitofp i32 %.1187 to double
   %104 = sitofp i32 %2 to double
   %105 = fdiv double %103, %104
   %106 = fptrunc double %105 to float
   %107 = getelementptr inbounds i8, ptr %0, i64 68
   store float %106, ptr %107, align 4
-  %108 = uitofp nneg i32 %.1201 to double
-  %109 = fdiv double %.1188, %108
+  %108 = uitofp nneg i32 %.1190 to double
+  %109 = fdiv double %.1198, %108
   %110 = fptosi double %109 to i32
   %111 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %110, ptr %111, align 8
@@ -248,20 +248,20 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %116, ptr @CurrentMemoryContext, align 8
-  %118 = icmp sgt i32 %.2199, 1
+  %118 = icmp sgt i32 %.2193, 1
   br i1 %118, label %119, label %.thread
 
 119:                                              ; preds = %101
-  %120 = zext nneg i32 %.2199 to i64
+  %120 = zext nneg i32 %.2193 to i64
   call void @qsort_interruptible(ptr noundef %24, i64 noundef %120, i64 noundef 16, ptr noundef nonnull @range_bound_qsort_cmp, ptr noundef %.0) #4
   call void @qsort_interruptible(ptr noundef %25, i64 noundef %120, i64 noundef 16, ptr noundef nonnull @range_bound_qsort_cmp, ptr noundef %.0) #4
-  %121 = icmp sgt i32 %.2199, %12
+  %121 = icmp sgt i32 %.2193, %12
   %122 = add nsw i32 %12, 1
-  %spec.select = select i1 %121, i32 %122, i32 %.2199
+  %spec.select = select i1 %121, i32 %122, i32 %.2193
   %123 = sext i32 %spec.select to i64
   %124 = shl nsw i64 %123, 3
   %125 = call ptr @palloc(i64 noundef %124) #4
-  %126 = add nsw i32 %.2199, -1
+  %126 = add nsw i32 %.2193, -1
   %127 = add nsw i32 %spec.select, -1
   %128 = sdiv i32 %126, %127
   %129 = srem i32 %126, %127
@@ -274,22 +274,22 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
 
 .lr.ph236:                                        ; preds = %.lr.ph236.preheader, %.lr.ph236
   %indvars.iv = phi i64 [ 0, %.lr.ph236.preheader ], [ %indvars.iv.next, %.lr.ph236 ]
-  %.0178233 = phi i32 [ 0, %.lr.ph236.preheader ], [ %.1179, %.lr.ph236 ]
-  %.0180232 = phi i32 [ 0, %.lr.ph236.preheader ], [ %.1181, %.lr.ph236 ]
-  %131 = sext i32 %.0180232 to i64
+  %.0179233 = phi i32 [ 0, %.lr.ph236.preheader ], [ %.1180, %.lr.ph236 ]
+  %.0181232 = phi i32 [ 0, %.lr.ph236.preheader ], [ %.1182, %.lr.ph236 ]
+  %131 = sext i32 %.0181232 to i64
   %132 = getelementptr %struct.RangeBound, ptr %24, i64 %131
   %133 = getelementptr %struct.RangeBound, ptr %25, i64 %131
   %134 = call ptr @range_serialize(ptr noundef %.0, ptr noundef %132, ptr noundef %133, i1 noundef zeroext false, ptr noundef null) #4
   %135 = ptrtoint ptr %134 to i64
   %136 = getelementptr i64, ptr %125, i64 %indvars.iv
   store i64 %135, ptr %136, align 8
-  %137 = add i32 %.0180232, %128
-  %138 = add i32 %.0178233, %129
+  %137 = add i32 %.0181232, %128
+  %138 = add i32 %.0179233, %129
   %.not214 = icmp sge i32 %138, %127
   %139 = zext i1 %.not214 to i32
-  %.1181 = add i32 %137, %139
+  %.1182 = add i32 %137, %139
   %140 = select i1 %.not214, i32 %127, i32 0
-  %.1179 = sub i32 %138, %140
+  %.1180 = sub i32 %138, %140
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond244.not, label %._crit_edge237, label %.lr.ph236, !llvm.loop !7
@@ -328,17 +328,17 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
 .lr.ph242:                                        ; preds = %.lr.ph242.preheader, %.lr.ph242
   %indvars.iv245 = phi i64 [ 0, %.lr.ph242.preheader ], [ %indvars.iv.next246, %.lr.ph242 ]
   %.2239 = phi i32 [ 0, %.lr.ph242.preheader ], [ %.3, %.lr.ph242 ]
-  %.2182238 = phi i32 [ 0, %.lr.ph242.preheader ], [ %.3183, %.lr.ph242 ]
-  %157 = sext i32 %.2182238 to i64
+  %.2183238 = phi i32 [ 0, %.lr.ph242.preheader ], [ %.3184, %.lr.ph242 ]
+  %157 = sext i32 %.2183238 to i64
   %158 = getelementptr double, ptr %27, i64 %157
   %159 = load i64, ptr %158, align 8
   %160 = getelementptr i64, ptr %156, i64 %indvars.iv245
   store i64 %159, ptr %160, align 8
-  %161 = add i32 %.2182238, %128
+  %161 = add i32 %.2183238, %128
   %162 = add i32 %.2239, %129
   %.not213 = icmp sge i32 %162, %127
   %163 = zext i1 %.not213 to i32
-  %.3183 = add i32 %161, %163
+  %.3184 = add i32 %161, %163
   %164 = select i1 %.not213, i32 %127, i32 0
   %.3 = sub i32 %162, %164
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
@@ -350,51 +350,51 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph242, %._crit_edge237, %.thread
-  %.0192219 = phi i64 [ 0, %.thread ], [ 1, %._crit_edge237 ], [ 1, %.lr.ph242 ]
-  %.2191 = phi i32 [ 0, %.thread ], [ %spec.select, %._crit_edge237 ], [ %spec.select, %.lr.ph242 ]
-  %.0184 = phi ptr [ %165, %.thread ], [ %156, %._crit_edge237 ], [ %156, %.lr.ph242 ]
+  %.0200219 = phi i64 [ 0, %.thread ], [ 1, %._crit_edge237 ], [ 1, %.lr.ph242 ]
+  %.2203 = phi i32 [ 0, %.thread ], [ %spec.select, %._crit_edge237 ], [ %spec.select, %.lr.ph242 ]
+  %.0185 = phi ptr [ %165, %.thread ], [ %156, %._crit_edge237 ], [ %156, %.lr.ph242 ]
   %166 = getelementptr inbounds i8, ptr %0, i64 92
-  %167 = getelementptr [5 x i32], ptr %166, i64 0, i64 %.0192219
+  %167 = getelementptr [5 x i32], ptr %166, i64 0, i64 %.0200219
   store i32 672, ptr %167, align 4
   %168 = getelementptr inbounds i8, ptr %0, i64 112
-  %169 = getelementptr [5 x i32], ptr %168, i64 0, i64 %.0192219
+  %169 = getelementptr [5 x i32], ptr %168, i64 0, i64 %.0200219
   store i32 0, ptr %169, align 4
   %170 = getelementptr inbounds i8, ptr %0, i64 216
-  %171 = getelementptr [5 x ptr], ptr %170, i64 0, i64 %.0192219
-  store ptr %.0184, ptr %171, align 8
+  %171 = getelementptr [5 x ptr], ptr %170, i64 0, i64 %.0200219
+  store ptr %.0185, ptr %171, align 8
   %172 = getelementptr inbounds i8, ptr %0, i64 192
-  %173 = getelementptr [5 x i32], ptr %172, i64 0, i64 %.0192219
-  store i32 %.2191, ptr %173, align 4
+  %173 = getelementptr [5 x i32], ptr %172, i64 0, i64 %.0200219
+  store i32 %.2203, ptr %173, align 4
   %174 = getelementptr inbounds i8, ptr %0, i64 256
-  %175 = getelementptr [5 x i32], ptr %174, i64 0, i64 %.0192219
+  %175 = getelementptr [5 x i32], ptr %174, i64 0, i64 %.0200219
   store i32 701, ptr %175, align 4
   %176 = getelementptr inbounds i8, ptr %0, i64 276
-  %177 = getelementptr [5 x i16], ptr %176, i64 0, i64 %.0192219
+  %177 = getelementptr [5 x i16], ptr %176, i64 0, i64 %.0200219
   store i16 8, ptr %177, align 2
   %178 = getelementptr inbounds i8, ptr %0, i64 286
-  %179 = getelementptr [5 x i8], ptr %178, i64 0, i64 %.0192219
+  %179 = getelementptr [5 x i8], ptr %178, i64 0, i64 %.0200219
   store i8 1, ptr %179, align 1
   %180 = getelementptr inbounds i8, ptr %0, i64 291
-  %181 = getelementptr [5 x i8], ptr %180, i64 0, i64 %.0192219
+  %181 = getelementptr [5 x i8], ptr %180, i64 0, i64 %.0200219
   store i8 100, ptr %181, align 1
   %182 = call ptr @palloc(i64 noundef 4) #4
   %183 = fdiv double %99, %108
   %184 = fptrunc double %183 to float
   store float %184, ptr %182, align 4
   %185 = getelementptr inbounds i8, ptr %0, i64 152
-  %186 = getelementptr [5 x ptr], ptr %185, i64 0, i64 %.0192219
+  %186 = getelementptr [5 x ptr], ptr %185, i64 0, i64 %.0200219
   store ptr %182, ptr %186, align 8
   %187 = getelementptr inbounds i8, ptr %0, i64 132
-  %188 = getelementptr [5 x i32], ptr %187, i64 0, i64 %.0192219
+  %188 = getelementptr [5 x i32], ptr %187, i64 0, i64 %.0200219
   store i32 1, ptr %188, align 4
   %189 = getelementptr inbounds i8, ptr %0, i64 80
-  %190 = getelementptr [5 x i16], ptr %189, i64 0, i64 %.0192219
+  %190 = getelementptr [5 x i16], ptr %189, i64 0, i64 %.0200219
   store i16 6, ptr %190, align 2
   store ptr %117, ptr @CurrentMemoryContext, align 8
   br label %.thread258
 
 191:                                              ; preds = %._crit_edge
-  %192 = icmp sgt i32 %.1203, 0
+  %192 = icmp sgt i32 %.1187, 0
   br i1 %192, label %193, label %.thread258
 
 193:                                              ; preds = %191

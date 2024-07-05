@@ -193,15 +193,15 @@ define dso_local void @LogRecoveryConflict(i32 noundef %0, i64 noundef %1, i64 n
   br i1 %.not2226, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %27
-  %.028 = phi ptr [ %28, %27 ], [ %3, %.preheader ]
-  %.01927 = phi i32 [ %.1, %27 ], [ 0, %.preheader ]
-  %18 = load i32, ptr %.028, align 4
+  %.028 = phi i32 [ %.1, %27 ], [ 0, %.preheader ]
+  %.01927 = phi ptr [ %28, %27 ], [ %3, %.preheader ]
+  %18 = load i32, ptr %.01927, align 4
   %19 = call ptr @ProcNumberGetProc(i32 noundef %18) #7
   %.not23 = icmp eq ptr %19, null
   br i1 %.not23, label %27, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = icmp eq i32 %.01927, 0
+  %21 = icmp eq i32 %.028, 0
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %20
@@ -213,13 +213,13 @@ define dso_local void @LogRecoveryConflict(i32 noundef %0, i64 noundef %1, i64 n
   %24 = getelementptr inbounds i8, ptr %19, i64 60
   %25 = load i32, ptr %24, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %8, ptr noundef nonnull %.str.3.sink, i32 noundef %25) #7
-  %26 = add i32 %.01927, 1
+  %26 = add i32 %.028, 1
   br label %27
 
 27:                                               ; preds = %23, %.lr.ph
-  %.1 = phi i32 [ %26, %23 ], [ %.01927, %.lr.ph ]
-  %28 = getelementptr i8, ptr %.028, i64 8
-  %29 = getelementptr i8, ptr %.028, i64 12
+  %.1 = phi i32 [ %26, %23 ], [ %.028, %.lr.ph ]
+  %28 = getelementptr i8, ptr %.01927, i64 8
+  %29 = getelementptr i8, ptr %.01927, i64 12
   %30 = load i32, ptr %29, align 4
   %.not22 = icmp eq i32 %30, 0
   br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !7
@@ -369,22 +369,22 @@ define internal fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef 
   br i1 %18, label %.thread61, label %.lr.ph47
 
 .lr.ph47:                                         ; preds = %9, %13, %16
-  %.03455 = phi i64 [ %17, %16 ], [ 0, %13 ], [ 0, %9 ]
-  %.not37 = icmp eq i64 %.03455, 0
+  %.02955 = phi i64 [ %17, %16 ], [ 0, %13 ], [ 0, %9 ]
+  %.not37 = icmp eq i64 %.02955, 0
   br label %19
 
 19:                                               ; preds = %.lr.ph47, %._crit_edge
-  %.02945 = phi ptr [ %0, %.lr.ph47 ], [ %75, %._crit_edge ]
-  %.03044 = phi i8 [ 0, %.lr.ph47 ], [ %.1.lcssa, %._crit_edge ]
-  %.03143 = phi i8 [ 0, %.lr.ph47 ], [ %.132.lcssa, %._crit_edge ]
+  %.045 = phi ptr [ %0, %.lr.ph47 ], [ %75, %._crit_edge ]
+  %.03144 = phi i8 [ 0, %.lr.ph47 ], [ %.1.lcssa, %._crit_edge ]
+  %.03243 = phi i8 [ 0, %.lr.ph47 ], [ %.133.lcssa, %._crit_edge ]
   store i32 1000, ptr @standbyWait_us, align 4
-  %20 = load i64, ptr %.02945, align 4
+  %20 = load i64, ptr %.045, align 4
   %21 = call zeroext i1 @VirtualXactLock(i64 %20, i1 noundef zeroext false) #7
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %72
-  %.140 = phi i8 [ %.2, %72 ], [ %.03044, %19 ]
-  %.13239 = phi i8 [ %.3, %72 ], [ %.03143, %19 ]
+  %.140 = phi i8 [ %.3, %72 ], [ %.03144, %19 ]
+  %.13339 = phi i8 [ %.234, %72 ], [ %.03243, %19 ]
   %22 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %24, label %23
@@ -447,7 +447,7 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
   br label %48
 
 44:                                               ; preds = %36
-  %45 = load i64, ptr %.02945, align 4
+  %45 = load i64, ptr %.045, align 4
   %46 = call i32 @CancelVirtualTransaction(i64 %45, i32 noundef %1) #7
   %.not36 = icmp eq i32 %46, 0
   br i1 %.not36, label %48, label %47
@@ -460,8 +460,8 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
   br i1 %.not37, label %72, label %49
 
 49:                                               ; preds = %48
-  %50 = trunc nuw i8 %.140 to i1
-  %51 = trunc nuw i8 %.13239 to i1
+  %50 = trunc nuw i8 %.13339 to i1
+  %51 = trunc nuw i8 %.140 to i1
   %52 = select i1 %50, i1 %51, i1 false
   br i1 %52, label %72, label %._crit_edge51
 
@@ -483,11 +483,11 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
   br label %63
 
 63:                                               ; preds = %._crit_edge51, %61
-  %.0 = phi i64 [ %62, %61 ], [ 0, %._crit_edge51 ]
+  %.030 = phi i64 [ %62, %61 ], [ 0, %._crit_edge51 ]
   br i1 %60, label %64, label %67
 
 64:                                               ; preds = %63
-  %65 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.03455, i64 noundef %.0, i32 noundef 500) #7
+  %65 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.02955, i64 noundef %.030, i32 noundef 500) #7
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %64
@@ -495,42 +495,42 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
   br label %67
 
 67:                                               ; preds = %66, %64, %63
-  %.233 = phi i8 [ 1, %66 ], [ %.13239, %64 ], [ %.13239, %63 ]
+  %.2 = phi i8 [ 1, %66 ], [ %.140, %64 ], [ %.140, %63 ]
   br i1 %56, label %68, label %72
 
 68:                                               ; preds = %67
   %69 = load i32, ptr @DeadlockTimeout, align 4
-  %70 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.03455, i64 noundef %.0, i32 noundef %69) #7
+  %70 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.02955, i64 noundef %.030, i32 noundef %69) #7
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %68
-  call void @LogRecoveryConflict(i32 noundef %1, i64 noundef %.03455, i64 noundef %.0, ptr noundef nonnull %.02945, i1 noundef zeroext true)
+  call void @LogRecoveryConflict(i32 noundef %1, i64 noundef %.02955, i64 noundef %.030, ptr noundef nonnull %.045, i1 noundef zeroext true)
   br label %72
 
 72:                                               ; preds = %49, %67, %68, %71, %48
-  %.3 = phi i8 [ %.233, %71 ], [ %.233, %68 ], [ %.233, %67 ], [ %.13239, %48 ], [ %.13239, %49 ]
-  %.2 = phi i8 [ 1, %71 ], [ %.140, %68 ], [ %.140, %67 ], [ %.140, %48 ], [ %.140, %49 ]
-  %73 = load i64, ptr %.02945, align 4
+  %.234 = phi i8 [ 1, %71 ], [ %.13339, %68 ], [ %.13339, %67 ], [ %.13339, %48 ], [ %.13339, %49 ]
+  %.3 = phi i8 [ %.2, %71 ], [ %.2, %68 ], [ %.2, %67 ], [ %.140, %48 ], [ %.140, %49 ]
+  %73 = load i64, ptr %.045, align 4
   %74 = call zeroext i1 @VirtualXactLock(i64 %73, i1 noundef zeroext false) #7
   br i1 %74, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %72, %19
-  %.132.lcssa = phi i8 [ %.03143, %19 ], [ %.3, %72 ]
-  %.1.lcssa = phi i8 [ %.03044, %19 ], [ %.2, %72 ]
-  %75 = getelementptr i8, ptr %.02945, i64 8
-  %76 = getelementptr i8, ptr %.02945, i64 12
+  %.133.lcssa = phi i8 [ %.03243, %19 ], [ %.234, %72 ]
+  %.1.lcssa = phi i8 [ %.03144, %19 ], [ %.3, %72 ]
+  %75 = getelementptr i8, ptr %.045, i64 8
+  %76 = getelementptr i8, ptr %.045, i64 12
   %77 = load i32, ptr %76, align 4
   %.not35 = icmp eq i32 %77, 0
   br i1 %.not35, label %._crit_edge48, label %19, !llvm.loop !9
 
 ._crit_edge48:                                    ; preds = %._crit_edge
-  %78 = trunc nuw i8 %.1.lcssa to i1
-  %79 = trunc nuw i8 %.132.lcssa to i1
+  %78 = trunc nuw i8 %.133.lcssa to i1
+  %79 = trunc nuw i8 %.1.lcssa to i1
   br i1 %78, label %80, label %82
 
 80:                                               ; preds = %._crit_edge48
   %81 = call i64 @GetCurrentTimestamp() #7
-  call void @LogRecoveryConflict(i32 noundef %1, i64 noundef %.03455, i64 noundef %81, ptr noundef null, i1 noundef zeroext false)
+  call void @LogRecoveryConflict(i32 noundef %1, i64 noundef %.02955, i64 noundef %81, ptr noundef null, i1 noundef zeroext false)
   br i1 %79, label %83, label %.thread61
 
 82:                                               ; preds = %._crit_edge48

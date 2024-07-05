@@ -930,11 +930,11 @@ invoke.cont95:                                    ; preds = %if.else91
 invoke.cont112:                                   ; preds = %invoke.cont95, %invoke.cont114
   %toVisit.sroa.0.5294 = phi ptr [ %toVisit.sroa.0.6, %invoke.cont114 ], [ %toVisit.sroa.0.1300, %invoke.cont95 ]
   %toVisit.sroa.10.5293 = phi ptr [ %toVisit.sroa.10.6, %invoke.cont114 ], [ %add.ptr.i.i, %invoke.cont95 ]
-  %__begin6.sroa.0.0292 = phi ptr [ %incdec.ptr.i94, %invoke.cont114 ], [ %spec.select.i.i72, %invoke.cont95 ]
-  %toVisit.sroa.30.5291 = phi ptr [ %toVisit.sroa.30.6, %invoke.cont114 ], [ %toVisit.sroa.30.1298, %invoke.cont95 ]
-  %36 = load ptr, ptr %__begin6.sroa.0.0292, align 8, !noalias !16
+  %toVisit.sroa.30.5292 = phi ptr [ %toVisit.sroa.30.6, %invoke.cont114 ], [ %toVisit.sroa.30.1298, %invoke.cont95 ]
+  %__begin6.sroa.0.0291 = phi ptr [ %incdec.ptr.i94, %invoke.cont114 ], [ %spec.select.i.i72, %invoke.cont95 ]
+  %36 = load ptr, ptr %__begin6.sroa.0.0291, align 8, !noalias !16
   %37 = load ptr, ptr %current, align 8
-  %cmp.not.i.i86 = icmp eq ptr %toVisit.sroa.10.5293, %toVisit.sroa.30.5291
+  %cmp.not.i.i86 = icmp eq ptr %toVisit.sroa.10.5293, %toVisit.sroa.30.5292
   br i1 %cmp.not.i.i86, label %if.else.i.i91, label %if.then.i.i87
 
 if.then.i.i87:                                    ; preds = %invoke.cont112
@@ -1009,11 +1009,11 @@ if.then.i31.i207:                                 ; preds = %invoke.cont14.i204
   br label %invoke.cont114
 
 invoke.cont114:                                   ; preds = %.noexc92, %if.then.i.i87
-  %toVisit.sroa.30.6 = phi ptr [ %add.ptr29.i209, %.noexc92 ], [ %toVisit.sroa.30.5291, %if.then.i.i87 ]
+  %toVisit.sroa.30.6 = phi ptr [ %add.ptr29.i209, %.noexc92 ], [ %toVisit.sroa.30.5292, %if.then.i.i87 ]
   %__cur.0.lcssa.i.i.i.i.i.i193.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i193, %.noexc92 ], [ %toVisit.sroa.10.5293, %if.then.i.i87 ]
   %toVisit.sroa.0.6 = phi ptr [ %cond.i19.i179, %.noexc92 ], [ %toVisit.sroa.0.5294, %if.then.i.i87 ]
   %toVisit.sroa.10.6 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i193.pn, i64 16
-  %incdec.ptr.i94 = getelementptr inbounds i8, ptr %__begin6.sroa.0.0292, i64 8
+  %incdec.ptr.i94 = getelementptr inbounds i8, ptr %__begin6.sroa.0.0291, i64 8
   %cmp.i82.not = icmp eq ptr %incdec.ptr.i94, %add.ptr.i.i81
   br i1 %cmp.i82.not, label %cleanup, label %invoke.cont112
 

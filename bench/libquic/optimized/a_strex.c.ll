@@ -120,19 +120,19 @@ for.body.lr.ph:                                   ; preds = %sw.epilog
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end112
   %outlen.093 = phi i32 [ %spec.store.select, %for.body.lr.ph ], [ %add113, %if.end112 ]
-  %prev.092 = phi i32 [ -1, %for.body.lr.ph ], [ %5, %if.end112 ]
-  %i.091 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end112 ]
-  %3 = xor i32 %i.091, -1
+  %i.092 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end112 ]
+  %prev.091 = phi i32 [ -1, %for.body.lr.ph ], [ %5, %if.end112 ]
+  %3 = xor i32 %i.092, -1
   %sub17 = add nsw i32 %call11, %3
-  %i.091.sink = select i1 %tobool15.not, i32 %i.091, i32 %sub17
-  %call20 = call ptr @X509_NAME_get_entry(ptr noundef %n, i32 noundef %i.091.sink) #10
-  %cmp22.not = icmp eq i32 %prev.092, -1
+  %i.092.sink = select i1 %tobool15.not, i32 %i.092, i32 %sub17
+  %call20 = call ptr @X509_NAME_get_entry(ptr noundef %n, i32 noundef %i.092.sink) #10
+  %cmp22.not = icmp eq i32 %prev.091, -1
   br i1 %cmp22.not, label %if.end44, label %if.then24
 
 if.then24:                                        ; preds = %for.body
   %set = getelementptr inbounds i8, ptr %call20, i64 16
   %4 = load i32, ptr %set, align 8
-  %cmp25 = icmp eq i32 %prev.092, %4
+  %cmp25 = icmp eq i32 %prev.091, %4
   br i1 %cmp25, label %if.then27, label %if.else32
 
 if.then27:                                        ; preds = %if.then24
@@ -256,7 +256,7 @@ if.end98:                                         ; preds = %if.end95, %if.end44
 
 if.end112:                                        ; preds = %if.end98
   %add113 = add nsw i32 %call108, %outlen.3
-  %inc = add nuw nsw i32 %i.091, 1
+  %inc = add nuw nsw i32 %i.092, 1
   %exitcond.not = icmp eq i32 %inc, %call11
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
 
@@ -892,7 +892,7 @@ for.body.lr.ph:                                   ; preds = %sw.epilog
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end54
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end54 ]
-  %outlen.140 = phi i32 [ %outlen.042, %for.body.lr.ph ], [ %add, %if.end54 ]
+  %outlen.139 = phi i32 [ %outlen.042, %for.body.lr.ph ], [ %add, %if.end54 ]
   %arrayidx = getelementptr inbounds [6 x i8], ptr %utfbuf, i64 0, i64 %indvars.iv
   %17 = load i8, ptr %arrayidx, align 1
   %conv45 = zext i8 %17 to i64
@@ -901,7 +901,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp51, label %return, label %if.end54
 
 if.end54:                                         ; preds = %for.body
-  %add = add nuw nsw i32 %call50, %outlen.140
+  %add = add nuw nsw i32 %call50, %outlen.139
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end66.loopexit, label %for.body, !llvm.loop !13

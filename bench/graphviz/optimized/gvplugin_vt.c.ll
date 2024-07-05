@@ -60,9 +60,9 @@ define internal fastcc void @process(ptr noundef %0, i32 noundef %1) unnamed_add
 
 11:                                               ; preds = %.lr.ph, %97
   %12 = phi i32 [ %9, %.lr.ph ], [ %99, %97 ]
-  %.05168 = phi i32 [ 0, %.lr.ph ], [ %98, %97 ]
+  %.04868 = phi i32 [ 0, %.lr.ph ], [ %98, %97 ]
   %13 = mul i32 %12, %.069
-  %14 = add i32 %13, %.05168
+  %14 = add i32 %13, %.04868
   %15 = shl i32 %14, 2
   %16 = or disjoint i32 %15, 2
   %17 = zext i32 %16 to i64
@@ -81,10 +81,10 @@ define internal fastcc void @process(ptr noundef %0, i32 noundef %1) unnamed_add
   br i1 %8, label %.preheader66, label %51
 
 .preheader66:                                     ; preds = %11, %.preheader66
-  %.017.i = phi i64 [ %50, %.preheader66 ], [ 0, %11 ]
-  %.01116.i = phi i32 [ %spec.select18.i, %.preheader66 ], [ -1, %11 ]
-  %.01215.i = phi i32 [ %spec.select.i, %.preheader66 ], [ 0, %11 ]
-  %30 = getelementptr inbounds [8 x %struct.color_t], ptr @COLORS, i64 0, i64 %.017.i
+  %.017.i = phi i32 [ %spec.select18.i, %.preheader66 ], [ 0, %11 ]
+  %.01116.i = phi i64 [ %50, %.preheader66 ], [ 0, %11 ]
+  %.01215.i = phi i32 [ %spec.select.i, %.preheader66 ], [ -1, %11 ]
+  %30 = getelementptr inbounds [8 x %struct.color_t], ptr @COLORS, i64 0, i64 %.01116.i
   %31 = load i64, ptr %30, align 16
   %32 = getelementptr inbounds i8, ptr %30, i64 8
   %33 = load i64, ptr %32, align 8
@@ -107,16 +107,16 @@ define internal fastcc void @process(ptr noundef %0, i32 noundef %1) unnamed_add
   %45 = select i1 %42, i32 %43, i32 %44
   %46 = add i32 %41, %37
   %47 = add i32 %46, %45
-  %48 = icmp ult i32 %47, %.01116.i
+  %48 = icmp ult i32 %47, %.01215.i
   %49 = trunc i64 %31 to i32
-  %spec.select.i = select i1 %48, i32 %49, i32 %.01215.i
-  %spec.select18.i = tail call i32 @llvm.umin.i32(i32 %47, i32 %.01116.i)
-  %50 = add nuw nsw i64 %.017.i, 1
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %47, i32 %.01215.i)
+  %spec.select18.i = select i1 %48, i32 %49, i32 %.017.i
+  %50 = add nuw nsw i64 %.01116.i, 1
   %exitcond.not.i = icmp eq i64 %50, 8
   br i1 %exitcond.not.i, label %get_color.exit, label %.preheader66
 
 get_color.exit:                                   ; preds = %.preheader66
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %spec.select.i) #3
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %spec.select18.i) #3
   br label %52
 
 51:                                               ; preds = %11
@@ -131,7 +131,7 @@ get_color.exit:                                   ; preds = %.preheader66
 55:                                               ; preds = %52
   %56 = load i32, ptr %7, align 8
   %57 = mul i32 %56, %10
-  %58 = add i32 %57, %.05168
+  %58 = add i32 %57, %.04868
   %59 = shl i32 %58, 2
   %60 = or disjoint i32 %59, 2
   %61 = zext i32 %60 to i64
@@ -150,16 +150,16 @@ get_color.exit:                                   ; preds = %.preheader66
   br label %74
 
 74:                                               ; preds = %55, %52
-  %.050 = phi i32 [ %64, %55 ], [ 0, %52 ]
-  %.049 = phi i32 [ %69, %55 ], [ 0, %52 ]
-  %.048 = phi i32 [ %73, %55 ], [ 0, %52 ]
+  %.051 = phi i32 [ %64, %55 ], [ 0, %52 ]
+  %.050 = phi i32 [ %69, %55 ], [ 0, %52 ]
+  %.049 = phi i32 [ %73, %55 ], [ 0, %52 ]
   br i1 %8, label %.preheader, label %96
 
 .preheader:                                       ; preds = %74, %.preheader
-  %.017.i54 = phi i64 [ %95, %.preheader ], [ 0, %74 ]
-  %.01116.i55 = phi i32 [ %spec.select18.i63, %.preheader ], [ -1, %74 ]
-  %.01215.i56 = phi i32 [ %spec.select.i62, %.preheader ], [ 0, %74 ]
-  %75 = getelementptr inbounds [8 x %struct.color_t], ptr @COLORS, i64 0, i64 %.017.i54
+  %.017.i54 = phi i32 [ %spec.select18.i63, %.preheader ], [ 0, %74 ]
+  %.01116.i55 = phi i64 [ %95, %.preheader ], [ 0, %74 ]
+  %.01215.i56 = phi i32 [ %spec.select.i62, %.preheader ], [ -1, %74 ]
+  %75 = getelementptr inbounds [8 x %struct.color_t], ptr @COLORS, i64 0, i64 %.01116.i55
   %76 = load i64, ptr %75, align 16
   %77 = getelementptr inbounds i8, ptr %75, i64 8
   %78 = load i64, ptr %77, align 8
@@ -168,39 +168,39 @@ get_color.exit:                                   ; preds = %.preheader66
   %.sroa.4.8.extract.trunc.i.i59 = trunc i64 %78 to i32
   %.sroa.8.8.extract.shift.i.i60 = lshr i64 %78, 32
   %.sroa.8.8.extract.trunc.i.i61 = trunc nuw i64 %.sroa.8.8.extract.shift.i.i60 to i32
-  %79 = icmp ugt i32 %.050, %.sroa.1.0.extract.trunc.i.i58
-  %80 = sub nsw i32 %.050, %.sroa.1.0.extract.trunc.i.i58
-  %81 = sub i32 %.sroa.1.0.extract.trunc.i.i58, %.050
+  %79 = icmp ugt i32 %.051, %.sroa.1.0.extract.trunc.i.i58
+  %80 = sub nsw i32 %.051, %.sroa.1.0.extract.trunc.i.i58
+  %81 = sub i32 %.sroa.1.0.extract.trunc.i.i58, %.051
   %82 = select i1 %79, i32 %80, i32 %81
-  %83 = icmp ugt i32 %.049, %.sroa.4.8.extract.trunc.i.i59
-  %84 = sub nsw i32 %.049, %.sroa.4.8.extract.trunc.i.i59
-  %85 = sub i32 %.sroa.4.8.extract.trunc.i.i59, %.049
+  %83 = icmp ugt i32 %.050, %.sroa.4.8.extract.trunc.i.i59
+  %84 = sub nsw i32 %.050, %.sroa.4.8.extract.trunc.i.i59
+  %85 = sub i32 %.sroa.4.8.extract.trunc.i.i59, %.050
   %86 = select i1 %83, i32 %84, i32 %85
-  %87 = icmp ugt i32 %.048, %.sroa.8.8.extract.trunc.i.i61
-  %88 = sub nsw i32 %.048, %.sroa.8.8.extract.trunc.i.i61
-  %89 = sub i32 %.sroa.8.8.extract.trunc.i.i61, %.048
+  %87 = icmp ugt i32 %.049, %.sroa.8.8.extract.trunc.i.i61
+  %88 = sub nsw i32 %.049, %.sroa.8.8.extract.trunc.i.i61
+  %89 = sub i32 %.sroa.8.8.extract.trunc.i.i61, %.049
   %90 = select i1 %87, i32 %88, i32 %89
   %91 = add i32 %86, %82
   %92 = add i32 %91, %90
-  %93 = icmp ult i32 %92, %.01116.i55
+  %93 = icmp ult i32 %92, %.01215.i56
   %94 = trunc i64 %76 to i32
-  %spec.select.i62 = select i1 %93, i32 %94, i32 %.01215.i56
-  %spec.select18.i63 = tail call i32 @llvm.umin.i32(i32 %92, i32 %.01116.i55)
-  %95 = add nuw nsw i64 %.017.i54, 1
+  %spec.select.i62 = tail call i32 @llvm.umin.i32(i32 %92, i32 %.01215.i56)
+  %spec.select18.i63 = select i1 %93, i32 %94, i32 %.017.i54
+  %95 = add nuw nsw i64 %.01116.i55, 1
   %exitcond.not.i64 = icmp eq i64 %95, 8
   br i1 %exitcond.not.i64, label %get_color.exit65, label %.preheader
 
 get_color.exit65:                                 ; preds = %.preheader
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %spec.select.i62) #3
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %spec.select18.i63) #3
   br label %97
 
 96:                                               ; preds = %74
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %.050, i32 noundef %.049, i32 noundef %.048) #3
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %.051, i32 noundef %.050, i32 noundef %.049) #3
   br label %97
 
 97:                                               ; preds = %96, %get_color.exit65
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.7) #3
-  %98 = add nuw i32 %.05168, 1
+  %98 = add nuw i32 %.04868, 1
   %99 = load i32, ptr %7, align 8
   %100 = icmp ult i32 %98, %99
   br i1 %100, label %11, label %._crit_edge

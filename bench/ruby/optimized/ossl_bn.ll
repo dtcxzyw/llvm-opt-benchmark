@@ -436,7 +436,7 @@ rb_num2int_inline.exit:                           ; preds = %12, %14
   br label %17
 
 17:                                               ; preds = %rb_num2int_inline.exit, %3
-  %.0 = phi i32 [ %16, %rb_num2int_inline.exit ], [ 10, %3 ]
+  %.014 = phi i32 [ %16, %rb_num2int_inline.exit ], [ 10, %3 ]
   %18 = load i64, ptr %5, align 8
   %19 = icmp eq i64 %18, 4
   br i1 %19, label %20, label %22
@@ -448,27 +448,27 @@ rb_num2int_inline.exit:                           ; preds = %12, %14
 
 22:                                               ; preds = %17
   %23 = and i64 %18, 1
-  %.not.i25 = icmp eq i64 %23, 0
-  br i1 %.not.i25, label %24, label %rb_integer_type_p.exit.thread
+  %.not.i24 = icmp eq i64 %23, 0
+  br i1 %.not.i24, label %24, label %rb_integer_type_p.exit.thread
 
 24:                                               ; preds = %22
   %25 = and i64 %18, 6
   %26 = icmp ne i64 %25, 0
   %27 = icmp eq i64 %18, 0
   %28 = or i1 %27, %26
-  br i1 %28, label %rb_integer_type_p.exit.thread30, label %rb_integer_type_p.exit
+  br i1 %28, label %rb_integer_type_p.exit.thread29, label %rb_integer_type_p.exit
 
 rb_integer_type_p.exit:                           ; preds = %24
   %29 = inttoptr i64 %18 to ptr
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 31
   %32 = icmp eq i64 %31, 10
-  br i1 %32, label %rb_integer_type_p.exit.thread, label %rb_integer_type_p.exit.thread30
+  br i1 %32, label %rb_integer_type_p.exit.thread, label %rb_integer_type_p.exit.thread29
 
 rb_integer_type_p.exit.thread:                    ; preds = %22, %rb_integer_type_p.exit
   %33 = call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_bn_type) #10
-  %.not24 = icmp eq ptr %33, null
-  br i1 %.not24, label %34, label %36
+  %.not23 = icmp eq ptr %33, null
+  br i1 %.not23, label %34, label %36
 
 34:                                               ; preds = %rb_integer_type_p.exit.thread
   %35 = load i64, ptr @rb_eRuntimeError, align 8
@@ -480,17 +480,17 @@ rb_integer_type_p.exit.thread:                    ; preds = %22, %rb_integer_typ
   %38 = call fastcc ptr @integer_to_bnptr(i64 noundef %37, ptr noundef nonnull %33)
   br label %98
 
-rb_integer_type_p.exit.thread30:                  ; preds = %24, %rb_integer_type_p.exit
+rb_integer_type_p.exit.thread29:                  ; preds = %24, %rb_integer_type_p.exit
   %39 = load i64, ptr @cBN, align 8
   %40 = call i64 @rb_obj_is_kind_of(i64 noundef %18, i64 noundef %39) #10
   %41 = and i64 %40, -5
-  %.not32 = icmp eq i64 %41, 0
+  %.not31 = icmp eq i64 %41, 0
   %42 = call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_bn_type) #10
-  br i1 %.not32, label %55, label %43
+  br i1 %.not31, label %55, label %43
 
-43:                                               ; preds = %rb_integer_type_p.exit.thread30
-  %.not21 = icmp eq ptr %42, null
-  br i1 %.not21, label %44, label %46
+43:                                               ; preds = %rb_integer_type_p.exit.thread29
+  %.not20 = icmp eq ptr %42, null
+  br i1 %.not20, label %44, label %46
 
 44:                                               ; preds = %43
   %45 = load i64, ptr @rb_eRuntimeError, align 8
@@ -500,8 +500,8 @@ rb_integer_type_p.exit.thread30:                  ; preds = %24, %rb_integer_typ
 46:                                               ; preds = %43
   %47 = load i64, ptr %5, align 8
   %48 = call ptr @rb_check_typeddata(i64 noundef %47, ptr noundef nonnull @ossl_bn_type) #10
-  %.not22 = icmp eq ptr %48, null
-  br i1 %.not22, label %49, label %51
+  %.not21 = icmp eq ptr %48, null
+  br i1 %.not21, label %49, label %51
 
 49:                                               ; preds = %46
   %50 = load i64, ptr @rb_eRuntimeError, align 8
@@ -510,15 +510,15 @@ rb_integer_type_p.exit.thread30:                  ; preds = %24, %rb_integer_typ
 
 51:                                               ; preds = %46
   %52 = call ptr @BN_copy(ptr noundef nonnull %42, ptr noundef nonnull %48) #10
-  %.not23 = icmp eq ptr %52, null
-  br i1 %.not23, label %53, label %98
+  %.not22 = icmp eq ptr %52, null
+  br i1 %.not22, label %53, label %98
 
 53:                                               ; preds = %51
   %54 = load i64, ptr @eBNError, align 8
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %54, ptr noundef null) #11
   unreachable
 
-55:                                               ; preds = %rb_integer_type_p.exit.thread30
+55:                                               ; preds = %rb_integer_type_p.exit.thread29
   store ptr %42, ptr %4, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %56, label %58
@@ -529,7 +529,7 @@ rb_integer_type_p.exit.thread30:                  ; preds = %24, %rb_integer_typ
   unreachable
 
 58:                                               ; preds = %55
-  %59 = call i32 @llvm.fshl.i32(i32 %.0, i32 %.0, i32 31)
+  %59 = call i32 @llvm.fshl.i32(i32 %.014, i32 %.014, i32 31)
   switch i32 %59, label %96 [
     i32 0, label %60
     i32 1, label %73
@@ -555,8 +555,8 @@ RSTRING_LENINT.exit:                              ; preds = %60
   %68 = trunc i64 %65 to i32
   %69 = load ptr, ptr %4, align 8
   %70 = call ptr @BN_mpi2bn(ptr noundef %61, i32 noundef %68, ptr noundef %69) #10
-  %.not20 = icmp eq ptr %70, null
-  br i1 %.not20, label %71, label %98
+  %.not19 = icmp eq ptr %70, null
+  br i1 %.not19, label %71, label %98
 
 71:                                               ; preds = %RSTRING_LENINT.exit
   %72 = load i64, ptr @eBNError, align 8
@@ -570,21 +570,21 @@ RSTRING_LENINT.exit:                              ; preds = %60
   %77 = getelementptr inbounds i8, ptr %76, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, 2147483648
-  %.not.i.i27 = icmp ult i64 %79, 4294967296
-  br i1 %.not.i.i27, label %RSTRING_LENINT.exit28, label %80
+  %.not.i.i26 = icmp ult i64 %79, 4294967296
+  br i1 %.not.i.i26, label %RSTRING_LENINT.exit27, label %80
 
 80:                                               ; preds = %73
   call void @rb_out_of_int(i64 noundef %78) #12
   unreachable
 
-RSTRING_LENINT.exit28:                            ; preds = %73
+RSTRING_LENINT.exit27:                            ; preds = %73
   %81 = trunc i64 %78 to i32
   %82 = load ptr, ptr %4, align 8
   %83 = call ptr @BN_bin2bn(ptr noundef %74, i32 noundef %81, ptr noundef %82) #10
-  %.not19 = icmp eq ptr %83, null
-  br i1 %.not19, label %84, label %98
+  %.not18 = icmp eq ptr %83, null
+  br i1 %.not18, label %84, label %98
 
-84:                                               ; preds = %RSTRING_LENINT.exit28
+84:                                               ; preds = %RSTRING_LENINT.exit27
   %85 = load i64, ptr @eBNError, align 8
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %85, ptr noundef null) #11
   unreachable
@@ -592,8 +592,8 @@ RSTRING_LENINT.exit28:                            ; preds = %73
 86:                                               ; preds = %58
   %87 = call ptr @rb_string_value_cstr(ptr noundef nonnull %5) #10
   %88 = call i32 @BN_dec2bn(ptr noundef nonnull %4, ptr noundef %87) #10
-  %.not18 = icmp eq i32 %88, 0
-  br i1 %.not18, label %89, label %98
+  %.not17 = icmp eq i32 %88, 0
+  br i1 %.not17, label %89, label %98
 
 89:                                               ; preds = %86
   %90 = load i64, ptr @eBNError, align 8
@@ -603,8 +603,8 @@ RSTRING_LENINT.exit28:                            ; preds = %73
 91:                                               ; preds = %58
   %92 = call ptr @rb_string_value_cstr(ptr noundef nonnull %5) #10
   %93 = call i32 @BN_hex2bn(ptr noundef nonnull %4, ptr noundef %92) #10
-  %.not17 = icmp eq i32 %93, 0
-  br i1 %.not17, label %94, label %98
+  %.not16 = icmp eq i32 %93, 0
+  br i1 %.not16, label %94, label %98
 
 94:                                               ; preds = %91
   %95 = load i64, ptr @eBNError, align 8
@@ -613,10 +613,10 @@ RSTRING_LENINT.exit28:                            ; preds = %73
 
 96:                                               ; preds = %58
   %97 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %97, ptr noundef nonnull @.str.67, i32 noundef %.0) #11
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %97, ptr noundef nonnull @.str.67, i32 noundef %.014) #11
   unreachable
 
-98:                                               ; preds = %RSTRING_LENINT.exit, %RSTRING_LENINT.exit28, %86, %91, %51, %36
+98:                                               ; preds = %RSTRING_LENINT.exit, %RSTRING_LENINT.exit27, %86, %91, %51, %36
   ret i64 %2
 }
 
@@ -2036,7 +2036,7 @@ define internal i64 @ossl_bn_s_rand(i32 noundef %0, ptr noundef %1, i64 noundef 
   br label %12
 
 12:                                               ; preds = %8, %3
-  %.011 = phi i32 [ 0, %3 ], [ %11, %8 ]
+  %.0 = phi i32 [ 0, %3 ], [ %11, %8 ]
   %13 = load i64, ptr %5, align 8
   %14 = and i64 %13, 1
   %.not.i = icmp eq i64 %14, 0
@@ -2056,8 +2056,8 @@ rb_num2int_inline.exit:                           ; preds = %15, %17
   br label %20
 
 20:                                               ; preds = %rb_num2int_inline.exit, %3
-  %.1 = phi i32 [ 0, %3 ], [ %.011, %rb_num2int_inline.exit ]
-  %.0 = phi i32 [ 0, %3 ], [ %19, %rb_num2int_inline.exit ]
+  %.011 = phi i32 [ 0, %3 ], [ %19, %rb_num2int_inline.exit ]
+  %.1 = phi i32 [ 0, %3 ], [ %.0, %rb_num2int_inline.exit ]
   %21 = load i64, ptr %4, align 8
   %22 = and i64 %21, 1
   %.not.i13 = icmp eq i64 %22, 0
@@ -2085,7 +2085,7 @@ rb_num2int_inline.exit15:                         ; preds = %23, %25
 
 31:                                               ; preds = %rb_num2int_inline.exit15
   %32 = trunc i64 %.0.i14 to i32
-  %33 = call i32 @BN_rand(ptr noundef nonnull %28, i32 noundef %32, i32 noundef %.0, i32 noundef %.1) #10
+  %33 = call i32 @BN_rand(ptr noundef nonnull %28, i32 noundef %32, i32 noundef %.011, i32 noundef %.1) #10
   %34 = icmp slt i32 %33, 1
   br i1 %34, label %35, label %37
 
@@ -2178,8 +2178,8 @@ rb_num2int_inline.exit:                           ; preds = %11, %13
   br label %26
 
 26:                                               ; preds = %24, %20, %rb_num2int_inline.exit
-  %.013 = phi ptr [ null, %rb_num2int_inline.exit ], [ %25, %24 ], [ null, %20 ]
-  %.012 = phi ptr [ null, %rb_num2int_inline.exit ], [ %21, %24 ], [ %21, %20 ]
+  %.012 = phi ptr [ null, %rb_num2int_inline.exit ], [ %25, %24 ], [ null, %20 ]
+  %.0 = phi ptr [ null, %rb_num2int_inline.exit ], [ %21, %24 ], [ %21, %20 ]
   %27 = call i64 @rb_data_typed_object_wrap(i64 noundef %2, ptr noundef null, ptr noundef nonnull @ossl_bn_type) #10
   %28 = call ptr @BN_new() #10
   %.not = icmp eq ptr %28, null
@@ -2191,7 +2191,7 @@ rb_num2int_inline.exit:                           ; preds = %11, %13
   unreachable
 
 31:                                               ; preds = %26
-  %32 = call i32 @BN_generate_prime_ex(ptr noundef nonnull %28, i32 noundef %15, i32 noundef %spec.select, ptr noundef %.012, ptr noundef %.013, ptr noundef null) #10
+  %32 = call i32 @BN_generate_prime_ex(ptr noundef nonnull %28, i32 noundef %15, i32 noundef %spec.select, ptr noundef %.0, ptr noundef %.012, ptr noundef null) #10
   %.not15 = icmp eq i32 %32, 0
   br i1 %.not15, label %33, label %35
 
@@ -3039,14 +3039,14 @@ define internal fastcc ptr @integer_to_bnptr(i64 noundef %0, ptr noundef %1) unn
   br label %9
 
 9:                                                ; preds = %6, %9
-  %.02634 = phi i64 [ %8, %6 ], [ %12, %9 ]
-  %.02733 = phi i64 [ 7, %6 ], [ %13, %9 ]
-  %10 = trunc i64 %.02634 to i8
-  %11 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %.02733
+  %.02634 = phi i64 [ 7, %6 ], [ %13, %9 ]
+  %.02733 = phi i64 [ %8, %6 ], [ %12, %9 ]
+  %10 = trunc i64 %.02733 to i8
+  %11 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %.02634
   store i8 %10, ptr %11, align 1
-  %12 = lshr i64 %.02634, 8
-  %13 = add nsw i64 %.02733, -1
-  %.not35 = icmp eq i64 %.02733, 0
+  %12 = lshr i64 %.02733, 8
+  %13 = add nsw i64 %.02634, -1
+  %.not35 = icmp eq i64 %.02634, 0
   br i1 %.not35, label %14, label %9, !llvm.loop !13
 
 14:                                               ; preds = %9

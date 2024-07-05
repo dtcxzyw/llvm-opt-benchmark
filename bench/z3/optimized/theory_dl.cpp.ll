@@ -3935,10 +3935,10 @@ while.body.lr.ph:                                 ; preds = %land.lhs.true
   %.fr = freeze i64 %2
   %cmp = icmp ult i64 %.fr, 4294967295
   %conv = trunc i64 %.fr to i32
-  %spec.select13 = select i1 %cmp, i32 %conv, i32 0
+  %spec.select = select i1 %cmp, i32 %conv, i32 0
   %m_next = getelementptr inbounds i8, ptr %call, i64 24
   %3 = load i32, ptr %m_next, align 8
-  %add = add i32 %3, %spec.select13
+  %add = add i32 %3, %spec.select
   br i1 %cmp, label %while.body, label %while.body.us.preheader
 
 while.body.us.preheader:                          ; preds = %while.body.lr.ph.thread, %while.body.lr.ph

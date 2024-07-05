@@ -66,8 +66,8 @@ define i16 @f16_div(i16 %0, i16 %1) local_unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %19, %26
-  %.078 = phi i64 [ %29, %26 ], [ %12, %19 ]
-  %.077 = phi i8 [ %28, %26 ], [ %11, %19 ]
+  %.076 = phi i64 [ %29, %26 ], [ %12, %19 ]
+  %.075 = phi i8 [ %28, %26 ], [ %11, %19 ]
   %.not90 = icmp eq i8 %6, 0
   br i1 %.not90, label %31, label %36
 
@@ -84,22 +84,22 @@ define i16 @f16_div(i16 %0, i16 %1) local_unnamed_addr #0 {
 36:                                               ; preds = %32, %30
   %.074 = phi i64 [ %7, %30 ], [ %35, %32 ]
   %.0 = phi i8 [ %6, %30 ], [ %34, %32 ]
-  %37 = sub i8 %.0, %.077
+  %37 = sub i8 %.0, %.075
   %38 = or i64 %.074, 1024
-  %39 = or i64 %.078, 1024
+  %39 = or i64 %.076, 1024
   %40 = icmp ult i64 %38, %39
   %.079.v = select i1 %40, i8 13, i8 14
   %.079 = add i8 %37, %.079.v
   %.1.v = select i1 %40, i64 5, i64 4
   %.1 = shl i64 %38, %.1.v
-  %41 = lshr i64 %.078, 6
+  %41 = lshr i64 %.076, 6
   %42 = and i64 %41, 15
   %43 = getelementptr inbounds [16 x i16], ptr @softfloat_approxRecip_1k0s, i64 0, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = getelementptr inbounds [16 x i16], ptr @softfloat_approxRecip_1k1s, i64 0, i64 %42
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i64
-  %48 = and i64 %.078, 63
+  %48 = and i64 %.076, 63
   %49 = mul nuw nsw i64 %48, %47
   %50 = lshr i64 %49, 10
   %51 = trunc nuw nsw i64 %50 to i16
@@ -136,9 +136,9 @@ define i16 @f16_div(i16 %0, i16 %1) local_unnamed_addr #0 {
   br label %72
 
 72:                                               ; preds = %70, %68, %36
-  %.076 = phi i64 [ %62, %36 ], [ %69, %68 ], [ %spec.select, %70 ]
+  %.078 = phi i64 [ %62, %36 ], [ %69, %68 ], [ %spec.select, %70 ]
   %73 = sext i8 %.079 to i64
-  %74 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %13, i64 noundef %73, i64 noundef %.076) #2
+  %74 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %13, i64 noundef %73, i64 noundef %.078) #2
   br label %82
 
 75:                                               ; preds = %20, %18, %15

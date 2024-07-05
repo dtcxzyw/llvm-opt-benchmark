@@ -2167,7 +2167,7 @@ define internal fastcc i32 @dissect_uds_internal(ptr noundef %0, ptr noundef %1,
   %83 = load i32, ptr @ett_uds, align 4
   %84 = tail call ptr @proto_item_add_subtree(ptr noundef %82, i32 noundef %83) #9
   %. = select i1 %79, i16 %3, i16 %4
-  %.01059 = zext i16 %. to i32
+  %.01058 = zext i16 %. to i32
   switch i8 %5, label %190 [
     i8 0, label %85
     i8 1, label %86
@@ -2534,7 +2534,7 @@ uds_proto_tree_add_address_item.exit1162:         ; preds = %179, %uds_proto_ite
   br label %190
 
 190:                                              ; preds = %uds_proto_tree_add_address_item.exit1162, %uds_proto_tree_add_address_item.exit, %85, %74
-  %.1 = phi i32 [ %.01059, %74 ], [ %.01059, %uds_proto_tree_add_address_item.exit1162 ], [ %.01059, %uds_proto_tree_add_address_item.exit ], [ -1, %85 ]
+  %.1 = phi i32 [ %.01058, %74 ], [ %.01058, %uds_proto_tree_add_address_item.exit1162 ], [ %.01058, %uds_proto_tree_add_address_item.exit ], [ -1, %85 ]
   %191 = load i32, ptr @hf_uds_service, align 4
   %192 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %191, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
   %193 = load i32, ptr @hf_uds_reply, align 4
@@ -2697,9 +2697,9 @@ uds_proto_tree_add_address_item.exit1162:         ; preds = %179, %uds_proto_ite
   br label %.thread1182
 
 270:                                              ; preds = %.preheader, %infocol_append_data_name.exit
-  %.01060 = phi i32 [ %304, %infocol_append_data_name.exit ], [ 1, %.preheader ]
+  %.01059 = phi i32 [ %304, %infocol_append_data_name.exit ], [ 1, %.preheader ]
   %271 = load i32, ptr @hf_uds_rdbi_data_identifier, align 4
-  %272 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %84, i32 noundef %271, ptr noundef %0, i32 noundef %.01060, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %24) #9
+  %272 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %84, i32 noundef %271, ptr noundef %0, i32 noundef %.01059, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %24) #9
   store ptr %272, ptr %18, align 8
   %273 = load i32, ptr %24, align 4
   %274 = and i32 %273, 65535
@@ -2791,8 +2791,8 @@ uds_lookup_data_name.exit.thread.i1165:           ; preds = %uds_lookup_data_nam
   br label %infocol_append_data_name.exit
 
 infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_name.exit.i1168, %uds_lookup_data_name.exit.thread.i1165
-  %304 = add i32 %.01060, 2
-  %305 = add i32 %.01060, 4
+  %304 = add i32 %.01059, 2
+  %305 = add i32 %.01059, 4
   %.not1108 = icmp ult i32 %60, %305
   br i1 %.not1108, label %.loopexit, label %270, !llvm.loop !7
 
@@ -2824,21 +2824,21 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br i1 %79, label %.preheader1191, label %.loopexit
 
 .preheader1191:                                   ; preds = %319, %.loopexit1190
-  %.11061 = phi i32 [ %.3, %.loopexit1190 ], [ 3, %319 ]
+  %.11060 = phi i32 [ %.3, %.loopexit1190 ], [ 3, %319 ]
   %322 = load i32, ptr @hf_uds_rsdbi_scaling_byte, align 4
-  %323 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %322, ptr noundef %0, i32 noundef %.11061, i32 noundef 1, i32 noundef 0) #9
+  %323 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %322, ptr noundef %0, i32 noundef %.11060, i32 noundef 1, i32 noundef 0) #9
   store ptr %323, ptr %18, align 8
   %324 = load i32, ptr @ett_uds_rsdbi_scaling_byte, align 4
   %325 = call ptr @proto_item_add_subtree(ptr noundef %323, i32 noundef %324) #9
   %326 = load i32, ptr @hf_uds_rsdbi_scaling_byte_data_type, align 4
-  %327 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %325, i32 noundef %326, ptr noundef %0, i32 noundef %.11061, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %25) #9
+  %327 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %325, i32 noundef %326, ptr noundef %0, i32 noundef %.11060, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %25) #9
   %328 = load i32, ptr @hf_uds_rsdbi_scaling_byte_num_of_bytes, align 4
-  %329 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %325, i32 noundef %328, ptr noundef %0, i32 noundef %.11061, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %26) #9
+  %329 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %325, i32 noundef %328, ptr noundef %0, i32 noundef %.11060, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %26) #9
   %330 = load i32, ptr %25, align 4
   %331 = call ptr @val_to_str(i32 noundef %330, ptr noundef nonnull @uds_rsdbi_data_types, ptr noundef nonnull @.str.731) #9
   %332 = load i32, ptr %26, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %323, ptr noundef nonnull @.str.730, ptr noundef %331, i32 noundef %332) #9
-  %333 = add nuw i32 %.11061, 1
+  %333 = add nuw i32 %.11060, 1
   %334 = load i32, ptr %25, align 4
   switch i32 %334, label %.loopexit1190 [
     i32 2, label %335
@@ -2859,7 +2859,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %343 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %342, ptr noundef %0, i32 noundef %333, i32 noundef 1, i32 noundef 0) #9
   %344 = load i32, ptr %26, align 4
   %345 = add i32 %344, %333
-  %346 = add i32 %.11061, 3
+  %346 = add i32 %.11060, 3
   %.not11071199 = icmp ugt i32 %346, %345
   br i1 %.not11071199, label %.loopexit1190, label %.lr.ph1201
 
@@ -5188,10 +5188,10 @@ define internal fastcc noundef i32 @dissect_uds_dtc_and_status_record(ptr nounde
   br label %33
 
 33:                                               ; preds = %21, %28, %31
-  %.030 = phi i32 [ %24, %21 ], [ %20, %28 ], [ %3, %31 ]
-  %.0 = phi ptr [ %17, %21 ], [ %17, %28 ], [ %32, %31 ]
+  %.030 = phi ptr [ %17, %21 ], [ %17, %28 ], [ %32, %31 ]
+  %.0 = phi i32 [ %24, %21 ], [ %20, %28 ], [ %3, %31 ]
   %34 = load i32, ptr @hf_uds_rdtci_dtc_id, align 4
-  %35 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0, i32 noundef %34, ptr noundef %0, i32 noundef %.030, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %13) #9
+  %35 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.030, i32 noundef %34, ptr noundef %0, i32 noundef %.0, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %13) #9
   %36 = load i32, ptr %13, align 4
   %37 = load ptr, ptr @uds_ht_dtc_ids, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -5235,10 +5235,10 @@ uds_lookup_dtc_name.exit.thread.i:                ; preds = %uds_lookup_dtc_name
   br label %protoitem_append_dtc_name.exit
 
 protoitem_append_dtc_name.exit:                   ; preds = %uds_lookup_dtc_name.exit.i, %uds_lookup_dtc_name.exit.thread.i
-  %50 = add i32 %.030, 3
+  %50 = add i32 %.0, 3
   %51 = load i32, ptr @hf_uds_rdtci_dtc_status, align 4
   %52 = load i32, ptr @ett_uds_dtc_status_bits, align 4
-  %53 = call ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef %.0, ptr noundef %0, i32 noundef %50, i32 noundef %51, i32 noundef %52, ptr noundef nonnull @dissect_uds_dtc_and_status_record.dtc_status_flags, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %14) #9
+  %53 = call ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef %.030, ptr noundef %0, i32 noundef %50, i32 noundef %51, i32 noundef %52, ptr noundef nonnull @dissect_uds_dtc_and_status_record.dtc_status_flags, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %14) #9
   %54 = load i32, ptr %13, align 4
   %55 = load ptr, ptr @uds_ht_dtc_ids, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -5293,7 +5293,7 @@ uds_lookup_dtc_name.exit.thread:                  ; preds = %generic_lookup_addr
   br label %77
 
 77:                                               ; preds = %uds_lookup_dtc_name.exit.thread, %68
-  %78 = add i32 %.030, 4
+  %78 = add i32 %.0, 4
   %79 = getelementptr inbounds i8, ptr %1, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = load i32, ptr %13, align 4

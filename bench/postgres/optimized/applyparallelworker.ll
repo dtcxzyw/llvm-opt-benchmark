@@ -139,7 +139,7 @@ pa_can_start.exit:                                ; preds = %14
   %31 = getelementptr inbounds i8, ptr %30, i64 25
   %32 = load i8, ptr %31, align 1
   %33 = trunc i8 %32 to i1
-  br i1 %33, label %27, label %pa_launch_parallel_worker.exit.thread31
+  br i1 %33, label %27, label %pa_launch_parallel_worker.exit.thread32
 
 ._crit_edge.i:                                    ; preds = %27, %.lr.ph.i, %20
   %34 = load ptr, ptr @ApplyContext, align 8
@@ -212,9 +212,9 @@ pa_launch_parallel_worker.exit.thread:            ; preds = %._crit_edge.i
   %72 = load i32, ptr %71, align 4
   %73 = call i32 @dsm_segment_handle(ptr noundef nonnull %44) #10
   %74 = call zeroext i1 @logicalrep_worker_launch(i32 noundef 3, i32 noundef %66, i32 noundef %68, ptr noundef %70, i32 noundef %72, i32 noundef 0, i32 noundef %73) #10
-  br i1 %74, label %pa_launch_parallel_worker.exit, label %pa_launch_parallel_worker.exit.thread35
+  br i1 %74, label %pa_launch_parallel_worker.exit, label %pa_launch_parallel_worker.exit.thread36
 
-pa_launch_parallel_worker.exit.thread35:          ; preds = %45
+pa_launch_parallel_worker.exit.thread36:          ; preds = %45
   call fastcc void @pa_free_worker_info(ptr noundef nonnull %36)
   store ptr %35, ptr @CurrentMemoryContext, align 8
   br label %pa_can_start.exit.thread
@@ -224,15 +224,15 @@ pa_launch_parallel_worker.exit:                   ; preds = %45
   %76 = call ptr @lappend(ptr noundef %75, ptr noundef nonnull %36) #10
   store ptr %76, ptr @ParallelApplyWorkerPool, align 8
   store ptr %35, ptr @CurrentMemoryContext, align 8
-  br label %pa_launch_parallel_worker.exit.thread31
+  br label %pa_launch_parallel_worker.exit.thread32
 
-pa_launch_parallel_worker.exit.thread31:          ; preds = %28, %pa_launch_parallel_worker.exit
-  %.017.i34 = phi ptr [ %36, %pa_launch_parallel_worker.exit ], [ %30, %28 ]
+pa_launch_parallel_worker.exit.thread32:          ; preds = %28, %pa_launch_parallel_worker.exit
+  %.0.i2835 = phi ptr [ %36, %pa_launch_parallel_worker.exit ], [ %30, %28 ]
   %77 = load ptr, ptr @ParallelApplyTxnHash, align 8
   %.not26 = icmp eq ptr %77, null
   br i1 %.not26, label %78, label %84
 
-78:                                               ; preds = %pa_launch_parallel_worker.exit.thread31
+78:                                               ; preds = %pa_launch_parallel_worker.exit.thread32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false)
   %79 = getelementptr inbounds i8, ptr %5, i64 32
   store i64 4, ptr %79, align 8
@@ -245,8 +245,8 @@ pa_launch_parallel_worker.exit.thread31:          ; preds = %28, %pa_launch_para
   store ptr %83, ptr @ParallelApplyTxnHash, align 8
   br label %84
 
-84:                                               ; preds = %78, %pa_launch_parallel_worker.exit.thread31
-  %85 = phi ptr [ %83, %78 ], [ %77, %pa_launch_parallel_worker.exit.thread31 ]
+84:                                               ; preds = %78, %pa_launch_parallel_worker.exit.thread32
+  %85 = phi ptr [ %83, %78 ], [ %77, %pa_launch_parallel_worker.exit.thread32 ]
   %86 = call ptr @hash_search(ptr noundef %85, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4) #10
   %87 = load i8, ptr %4, align 1
   %88 = trunc i8 %87 to i1
@@ -260,7 +260,7 @@ pa_launch_parallel_worker.exit.thread31:          ; preds = %28, %pa_launch_para
   unreachable
 
 92:                                               ; preds = %84
-  %93 = getelementptr inbounds i8, ptr %.017.i34, i64 32
+  %93 = getelementptr inbounds i8, ptr %.0.i2835, i64 32
   %94 = load ptr, ptr %93, align 8
   %95 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %94, i8 1, ptr elementtype(i8) %94) #10, !srcloc !6
   %.not27 = icmp eq i8 %95, 0
@@ -282,15 +282,15 @@ pa_launch_parallel_worker.exit.thread31:          ; preds = %28, %pa_launch_para
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
   %105 = load ptr, ptr %93, align 8
   store i8 0, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %.017.i34, i64 25
+  %106 = getelementptr inbounds i8, ptr %.0.i2835, i64 25
   store i8 1, ptr %106, align 1
-  %107 = getelementptr inbounds i8, ptr %.017.i34, i64 24
+  %107 = getelementptr inbounds i8, ptr %.0.i2835, i64 24
   store i8 0, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %86, i64 8
-  store ptr %.017.i34, ptr %108, align 8
+  store ptr %.0.i2835, ptr %108, align 8
   br label %pa_can_start.exit.thread
 
-pa_can_start.exit.thread:                         ; preds = %14, %9, %1, %pa_launch_parallel_worker.exit.thread35, %pa_launch_parallel_worker.exit.thread, %pa_can_start.exit, %99
+pa_can_start.exit.thread:                         ; preds = %14, %9, %1, %pa_launch_parallel_worker.exit.thread36, %pa_launch_parallel_worker.exit.thread, %pa_can_start.exit, %99
   ret void
 }
 

@@ -1724,7 +1724,7 @@ define dso_local i32 @io_init_tasks_stdio(ptr noundef %0) local_unnamed_addr #0 
 
 24:                                               ; preds = %.lr.ph, %479
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %479 ]
-  %.021 = phi i32 [ 0, %.lr.ph ], [ %480, %479 ]
+  %.0820 = phi i32 [ 0, %.lr.ph ], [ %480, %479 ]
   %25 = load ptr, ptr %12, align 8
   %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
@@ -2615,7 +2615,7 @@ _init_task_stdio_fds.exit.thread:                 ; preds = %56, %434, %445, %30
   br label %479
 
 479:                                              ; preds = %_init_task_stdio_fds.exit.thread, %478
-  %480 = phi i32 [ %.021, %478 ], [ -1, %_init_task_stdio_fds.exit.thread ]
+  %480 = phi i32 [ %.0820, %478 ], [ -1, %_init_task_stdio_fds.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %481 = load i32, ptr %10, align 8
   %482 = zext i32 %481 to i64
@@ -2623,8 +2623,8 @@ _init_task_stdio_fds.exit.thread:                 ; preds = %56, %434, %445, %30
   br i1 %483, label %24, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %479, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %480, %479 ]
-  ret i32 %.0.lcssa
+  %.08.lcssa = phi i32 [ 0, %1 ], [ %480, %479 ]
+  ret i32 %.08.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4210,7 +4210,7 @@ _shrink_msg_cache.exit.loopexit:                  ; preds = %_free_outgoing_msg.
   br label %55
 
 55:                                               ; preds = %52, %50, %47, %38
-  %.036.i = phi i1 [ false, %50 ], [ false, %38 ], [ true, %47 ], [ %54, %52 ]
+  %.037.i = phi i1 [ false, %50 ], [ false, %38 ], [ true, %47 ], [ %54, %52 ]
   %56 = call i32 @get_log_level() #9
   %57 = icmp sgt i32 %56, 8
   br i1 %57, label %58, label %60
@@ -4226,12 +4226,12 @@ _shrink_msg_cache.exit.loopexit:                  ; preds = %_free_outgoing_msg.
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %60
-  %64 = select i1 %.036.i, ptr @.str.77, ptr @.str.78
+  %64 = select i1 %.037.i, ptr @.str.77, ptr @.str.78
   call void (i32, ptr, ...) @log_var(i32 noundef 9, ptr noundef nonnull @.str.79, ptr noundef nonnull @__func__._task_build_message, ptr noundef nonnull %64) #9
   br label %65
 
 65:                                               ; preds = %63, %60
-  %brmerge.i = select i1 %.036.i, i1 true, i1 %.not.i
+  %brmerge.i = select i1 %.037.i, i1 true, i1 %.not.i
   br i1 %brmerge.i, label %69, label %66
 
 66:                                               ; preds = %65
@@ -4273,18 +4273,18 @@ _shrink_msg_cache.exit.loopexit:                  ; preds = %_free_outgoing_msg.
   br label %_task_build_message.exit.thread
 
 85:                                               ; preds = %71, %69
-  %.0.i = phi i32 [ %70, %69 ], [ %72, %71 ]
+  %.036.i = phi i32 [ %70, %69 ], [ %72, %71 ]
   %86 = load i16, ptr %12, align 8
   %87 = load <2 x i16>, ptr %11, align 4
   store i16 %86, ptr %13, align 4
   store <2 x i16> %87, ptr %2, align 4
-  store i32 %.0.i, ptr %14, align 4
+  store i32 %.036.i, ptr %14, align 4
   %88 = call i32 @get_log_level() #9
   %89 = icmp sgt i32 %88, 7
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %85
-  call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.82, ptr noundef nonnull @__func__._task_build_message, i32 noundef %.0.i) #9
+  call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.82, ptr noundef nonnull @__func__._task_build_message, i32 noundef %.036.i) #9
   br label %91
 
 91:                                               ; preds = %90, %85

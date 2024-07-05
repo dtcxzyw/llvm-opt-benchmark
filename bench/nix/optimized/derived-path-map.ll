@@ -650,23 +650,23 @@ define linkonce_odr i8 @_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKSt3setINS
   br i1 %13, label %_ZNKSt8__detail10_Synth3wayclISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EESC_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2, %29
-  %.sroa.04.022.i.i.i.i = phi ptr [ %31, %29 ], [ %11, %2 ]
-  %.sroa.09.021.i.i.i.i = phi ptr [ %30, %29 ], [ %8, %2 ]
-  %14 = icmp eq ptr %.sroa.04.022.i.i.i.i, %12
+  %.sroa.09.022.i.i.i.i = phi ptr [ %30, %29 ], [ %8, %2 ]
+  %.sroa.04.021.i.i.i.i = phi ptr [ %31, %29 ], [ %11, %2 ]
+  %14 = icmp eq ptr %.sroa.04.021.i.i.i.i, %12
   br i1 %14, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EERKSt3mapIS8_N3nix14DerivedPathMapISC_E9ChildNodeESA_SaISt4pairIKS8_SJ_EEEEESR_Lm1ETpTnmJEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit, label %15
 
 15:                                               ; preds = %.lr.ph.i.i.i.i
-  %16 = getelementptr inbounds i8, ptr %.sroa.09.021.i.i.i.i, i64 40
+  %16 = getelementptr inbounds i8, ptr %.sroa.09.022.i.i.i.i, i64 40
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %.sroa.04.022.i.i.i.i, i64 40
+  %18 = getelementptr inbounds i8, ptr %.sroa.04.021.i.i.i.i, i64 40
   %19 = load i64, ptr %18, align 8
   %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %19, i64 %17)
   %20 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i, 0
   br i1 %20, label %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %.sroa.04.022.i.i.i.i, i64 32
-  %22 = getelementptr inbounds i8, ptr %.sroa.09.021.i.i.i.i, i64 32
+  %21 = getelementptr inbounds i8, ptr %.sroa.04.021.i.i.i.i, i64 32
+  %22 = getelementptr inbounds i8, ptr %.sroa.09.022.i.i.i.i, i64 32
   %23 = load ptr, ptr %21, align 8
   %24 = load ptr, ptr %22, align 8
   %25 = tail call i32 @memcmp(ptr noundef %24, ptr noundef %23, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #17
@@ -683,8 +683,8 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br i1 %28, label %29, label %.loopexit.split.loop.exit.i.i.i.i
 
 29:                                               ; preds = %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i
-  %30 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.09.021.i.i.i.i) #20
-  %31 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.022.i.i.i.i) #20
+  %30 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.09.022.i.i.i.i) #20
+  %31 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.021.i.i.i.i) #20
   %32 = icmp eq ptr %30, %9
   br i1 %32, label %_ZNKSt8__detail10_Synth3wayclISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EESC_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !32
 

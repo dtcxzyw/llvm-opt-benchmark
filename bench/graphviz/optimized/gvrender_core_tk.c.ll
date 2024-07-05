@@ -244,8 +244,8 @@ switch.lookup:                                    ; preds = %63
   %73 = getelementptr inbounds i8, ptr %64, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 8
-  %.013.i = load i64, ptr %75, align 8
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load36, ptr noundef nonnull %switch.load, i64 noundef %.013.i) #6
+  %.014.i = load i64, ptr %75, align 8
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load36, ptr noundef nonnull %switch.load, i64 noundef %.014.i) #6
   %76 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
   br label %77
 
@@ -440,8 +440,8 @@ switch.lookup:                                    ; preds = %85
   %95 = getelementptr inbounds i8, ptr %86, i64 16
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 8
-  %.013.i = load i64, ptr %97, align 8
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load40, ptr noundef nonnull %switch.load, i64 noundef %.013.i) #6
+  %.014.i = load i64, ptr %97, align 8
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load40, ptr noundef nonnull %switch.load, i64 noundef %.014.i) #6
   %98 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
   br label %99
 
@@ -630,8 +630,8 @@ switch.lookup:                                    ; preds = %81
   %91 = getelementptr inbounds i8, ptr %82, i64 16
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 8
-  %.013.i = load i64, ptr %93, align 8
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load35, ptr noundef nonnull %switch.load, i64 noundef %.013.i) #6
+  %.014.i = load i64, ptr %93, align 8
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load35, ptr noundef nonnull %switch.load, i64 noundef %.014.i) #6
   %94 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
   br label %95
 
@@ -754,8 +754,8 @@ switch.lookup:                                    ; preds = %51
   %62 = getelementptr inbounds i8, ptr %53, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
-  %.013.i = load i64, ptr %64, align 8
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load22, ptr noundef nonnull %switch.load, i64 noundef %.013.i) #6
+  %.014.i = load i64, ptr %64, align 8
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load22, ptr noundef nonnull %switch.load, i64 noundef %.014.i) #6
   %65 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
   br label %66
 
@@ -873,8 +873,8 @@ switch.lookup:                                    ; preds = %47
   %57 = getelementptr inbounds i8, ptr %48, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 8
-  %.013.i = load i64, ptr %59, align 8
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load18, ptr noundef nonnull %switch.load, i64 noundef %.013.i) #6
+  %.014.i = load i64, ptr %59, align 8
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load18, ptr noundef nonnull %switch.load, i64 noundef %.014.i) #6
   %60 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
   br label %61
 

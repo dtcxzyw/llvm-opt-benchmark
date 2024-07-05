@@ -270,8 +270,8 @@ define range(i32 -1, 1) i32 @H5F_cwfs_find_free_heap(ptr noundef %0, i64 noundef
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %86, %3, %.preheader, %.loopexit, %98, %82, %67
-  %.055 = phi i32 [ 0, %98 ], [ 0, %.loopexit ], [ -1, %67 ], [ -1, %82 ], [ 0, %.preheader ], [ 0, %3 ], [ 0, %86 ]
-  ret i32 %.055
+  %.057 = phi i32 [ 0, %98 ], [ 0, %.loopexit ], [ -1, %67 ], [ -1, %82 ], [ 0, %.preheader ], [ 0, %3 ], [ 0, %86 ]
+  ret i32 %.057
 }
 
 declare i64 @H5HG_get_addr(ptr noundef) local_unnamed_addr #2

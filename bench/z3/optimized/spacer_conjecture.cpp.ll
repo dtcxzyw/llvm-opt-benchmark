@@ -235,9 +235,9 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   br i1 %cmp11.not24, label %cleanup, label %for.body
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %for.inc
-  %__begin1.026 = phi ptr [ %incdec.ptr, %for.inc ], [ %11, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
-  %count.025 = phi i32 [ %count.1, %for.inc ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
-  %14 = load ptr, ptr %__begin1.026, align 8
+  %count.026 = phi i32 [ %count.1, %for.inc ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
+  %__begin1.025 = phi ptr [ %incdec.ptr, %for.inc ], [ %11, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
+  %14 = load ptr, ptr %__begin1.025, align 8
   %call13 = invoke noundef zeroext i1 @_ZN6spacer15is_mono_var_litEP4exprR11ast_manager(ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(976) %1)
           to label %invoke.cont12 unwind label %lpad.loopexit
 
@@ -245,7 +245,7 @@ invoke.cont12:                                    ; preds = %for.body
   br i1 %call13, label %if.then14, label %for.inc
 
 if.then14:                                        ; preds = %invoke.cont12
-  %tobool.not = icmp eq i32 %count.025, 0
+  %tobool.not = icmp eq i32 %count.026, 0
   br i1 %tobool.not, label %if.end16, label %cleanup
 
 lpad.loopexit:                                    ; preds = %for.body, %if.then2.i.i.i
@@ -297,8 +297,8 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.then2.i.i.i, %if
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %invoke.cont12
-  %count.1 = phi i32 [ %count.025, %invoke.cont12 ], [ 1, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.026, i64 8
+  %count.1 = phi i32 [ %count.026, %invoke.cont12 ], [ 1, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.025, i64 8
   %cmp11.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp11.not, label %for.end.loopexit, label %for.body
 

@@ -1559,11 +1559,11 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.012.i = phi i8 [ %105, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.01011.i = phi i16 [ %104, %.lr.ph.i ], [ %102, %.lr.ph.i.preheader ]
-  %103 = call fastcc signext i16 @dissect_net_type(ptr noundef %0, i16 noundef signext %.01011.i, ptr noundef %2)
+  %.012.i = phi i16 [ %104, %.lr.ph.i ], [ %102, %.lr.ph.i.preheader ]
+  %.01011.i = phi i8 [ %105, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %103 = call fastcc signext i16 @dissect_net_type(ptr noundef %0, i16 noundef signext %.012.i, ptr noundef %2)
   %104 = call fastcc signext i16 @dissect_link_addr(ptr noundef %0, i16 noundef signext %103, ptr noundef %2)
-  %105 = add nuw i8 %.012.i, 1
+  %105 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %105, %100
   br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !7
 
@@ -1579,15 +1579,15 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
   br label %.lr.ph.i276
 
 .lr.ph.i276:                                      ; preds = %.lr.ph.i276.preheader, %.lr.ph.i276
-  %.012.i277 = phi i8 [ %115, %.lr.ph.i276 ], [ 0, %.lr.ph.i276.preheader ]
-  %.01011.i278.in = phi i16 [ %111, %.lr.ph.i276 ], [ %109, %.lr.ph.i276.preheader ]
-  %.01011.i278 = add i16 %.01011.i278.in, 1
-  %110 = call fastcc signext i16 @dissect_net_type(ptr noundef %0, i16 noundef signext %.01011.i278, ptr noundef %2)
+  %.012.i277.in = phi i16 [ %111, %.lr.ph.i276 ], [ %109, %.lr.ph.i276.preheader ]
+  %.01011.i278 = phi i8 [ %115, %.lr.ph.i276 ], [ 0, %.lr.ph.i276.preheader ]
+  %.012.i277 = add i16 %.012.i277.in, 1
+  %110 = call fastcc signext i16 @dissect_net_type(ptr noundef %0, i16 noundef signext %.012.i277, ptr noundef %2)
   %111 = call fastcc signext i16 @dissect_net_type(ptr noundef %0, i16 noundef signext %110, ptr noundef %2)
   %112 = load i32, ptr @hf_mbb_ho_supp, align 4
   %113 = sext i16 %111 to i32
   %114 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %112, ptr noundef %0, i32 noundef %113, i32 noundef 1, i32 noundef 0) #5
-  %115 = add nuw i8 %.012.i277, 1
+  %115 = add nuw i8 %.01011.i278, 1
   %exitcond.not.i279 = icmp eq i8 %115, %108
   br i1 %exitcond.not.i279, label %dissect_mih_list.exit, label %.lr.ph.i276, !llvm.loop !7
 
@@ -1672,14 +1672,14 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
   br label %.lr.ph.i283
 
 .lr.ph.i283:                                      ; preds = %.lr.ph.i283.preheader, %.lr.ph.i283
-  %.012.i284 = phi i8 [ %168, %.lr.ph.i283 ], [ 0, %.lr.ph.i283.preheader ]
-  %.01011.i285 = phi i16 [ %167, %.lr.ph.i283 ], [ %162, %.lr.ph.i283.preheader ]
+  %.012.i284 = phi i16 [ %167, %.lr.ph.i283 ], [ %162, %.lr.ph.i283.preheader ]
+  %.01011.i285 = phi i8 [ %168, %.lr.ph.i283 ], [ 0, %.lr.ph.i283.preheader ]
   %163 = load i32, ptr @hf_link_type, align 4
-  %164 = sext i16 %.01011.i285 to i32
+  %164 = sext i16 %.012.i284 to i32
   %165 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %163, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #5
-  %166 = add i16 %.01011.i285, 1
+  %166 = add i16 %.012.i284, 1
   %167 = call fastcc signext i16 @dissect_link_addr(ptr noundef %0, i16 noundef signext %166, ptr noundef %2)
-  %168 = add nuw i8 %.012.i284, 1
+  %168 = add nuw i8 %.01011.i285, 1
   %exitcond.not.i286 = icmp eq i8 %168, %160
   br i1 %exitcond.not.i286, label %dissect_mih_list.exit, label %.lr.ph.i283, !llvm.loop !7
 
@@ -1811,9 +1811,9 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
   br label %.lr.ph.i290
 
 .lr.ph.i290:                                      ; preds = %.lr.ph.i290.preheader, %dissect_iq_rdf_data.exit
-  %.012.i291 = phi i8 [ %256, %dissect_iq_rdf_data.exit ], [ 0, %.lr.ph.i290.preheader ]
-  %.01011.i292 = phi i16 [ %255, %dissect_iq_rdf_data.exit ], [ %233, %.lr.ph.i290.preheader ]
-  %234 = sext i16 %.01011.i292 to i32
+  %.012.i291 = phi i16 [ %255, %dissect_iq_rdf_data.exit ], [ %233, %.lr.ph.i290.preheader ]
+  %.01011.i292 = phi i8 [ %256, %dissect_iq_rdf_data.exit ], [ 0, %.lr.ph.i290.preheader ]
+  %234 = sext i16 %.012.i291 to i32
   %235 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %234) #5
   %.not.i296 = icmp eq i8 %235, 0
   br i1 %.not.i296, label %dissect_iq_rdf_data.exit, label %236
@@ -1826,12 +1826,12 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
   %241 = zext i8 %238 to i32
   %242 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %239, ptr noundef %0, i32 noundef %240, i32 noundef %241, i32 noundef 0) #5
   %243 = zext i8 %238 to i16
-  %244 = add i16 %.01011.i292, 1
+  %244 = add i16 %.012.i291, 1
   %245 = add i16 %244, %243
   br label %dissect_iq_rdf_data.exit
 
 dissect_iq_rdf_data.exit:                         ; preds = %.lr.ph.i290, %236
-  %.0.i297 = phi i16 [ %245, %236 ], [ %.01011.i292, %.lr.ph.i290 ]
+  %.0.i297 = phi i16 [ %245, %236 ], [ %.012.i291, %.lr.ph.i290 ]
   %246 = add i16 %.0.i297, 1
   %247 = sext i16 %246 to i32
   %248 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %247) #5
@@ -1842,7 +1842,7 @@ dissect_iq_rdf_data.exit:                         ; preds = %.lr.ph.i290, %236
   %253 = zext i8 %248 to i16
   %254 = add i16 %.0.i297, 2
   %255 = add i16 %254, %253
-  %256 = add nuw i8 %.012.i291, 1
+  %256 = add nuw i8 %.01011.i292, 1
   %exitcond.not.i293 = icmp eq i8 %256, %231
   br i1 %exitcond.not.i293, label %dissect_mih_list.exit, label %.lr.ph.i290, !llvm.loop !7
 
@@ -2000,10 +2000,10 @@ define internal fastcc void @dissect_mih_list(ptr noundef %0, i16 noundef signex
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.012 = phi i8 [ %9, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01011 = phi i16 [ %8, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %8 = tail call signext i16 %3(ptr noundef %0, i16 noundef signext %.01011, ptr noundef %2) #5
-  %9 = add nuw i8 %.012, 1
+  %.012 = phi i16 [ %8, %.lr.ph ], [ %7, %.lr.ph.preheader ]
+  %.01011 = phi i8 [ %9, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %8 = tail call signext i16 %3(ptr noundef %0, i16 noundef signext %.012, ptr noundef %2) #5
+  %9 = add nuw i8 %.01011, 1
   %exitcond.not = icmp eq i8 %9, %6
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -2170,15 +2170,15 @@ define internal fastcc void @dissect_link_status_req(ptr noundef %0, i16 noundef
   br i1 %.not.i, label %dissect_mih_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %dissect_link_param_type.exit
-  %.012.i = phi i8 [ %24, %dissect_link_param_type.exit ], [ 0, %3 ]
-  %.01011.i = phi i16 [ %23, %dissect_link_param_type.exit ], [ %14, %3 ]
-  %15 = sext i16 %.01011.i to i32
+  %.012.i = phi i16 [ %23, %dissect_link_param_type.exit ], [ %14, %3 ]
+  %.01011.i = phi i8 [ %24, %dissect_link_param_type.exit ], [ 0, %3 ]
+  %15 = sext i16 %.012.i to i32
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %15) #5
   %17 = icmp ult i8 %16, 12
   br i1 %17, label %switch.lookup, label %dissect_link_param_type.exit
 
 switch.lookup:                                    ; preds = %.lr.ph.i
-  %18 = add i16 %.01011.i, 1
+  %18 = add i16 %.012.i, 1
   %19 = zext nneg i8 %16 to i64
   %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.dissect_link_param, i64 0, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -2188,18 +2188,18 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   br label %dissect_link_param_type.exit
 
 dissect_link_param_type.exit:                     ; preds = %.lr.ph.i, %switch.lookup
-  %23 = add i16 %.01011.i, 2
-  %24 = add nuw i8 %.012.i, 1
+  %23 = add i16 %.012.i, 2
+  %24 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %24, %13
   br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !7
 
 dissect_mih_list.exit:                            ; preds = %dissect_link_param_type.exit, %3
-  %.010.lcssa.i = phi i16 [ %14, %3 ], [ %23, %dissect_link_param_type.exit ]
-  %25 = sext i16 %.010.lcssa.i to i32
+  %.0.lcssa.i = phi i16 [ %14, %3 ], [ %23, %dissect_link_param_type.exit ]
+  %25 = sext i16 %.0.lcssa.i to i32
   %26 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %25) #5
   %27 = load i32, ptr @ett_link_desc_req, align 4
   %28 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %25, i32 noundef 3, i32 noundef %27, ptr noundef null, ptr noundef nonnull @.str.610) #5
-  %29 = add i16 %.010.lcssa.i, 2
+  %29 = add i16 %.0.lcssa.i, 2
   %.not32 = icmp eq i16 %26, 0
   %30 = sext i16 %29 to i32
   %hf_num_cos.val = load i32, ptr @hf_num_cos, align 4
@@ -2223,9 +2223,9 @@ define internal signext i16 @dissect_status_list(ptr noundef %0, i16 noundef sig
   br i1 %.not.i, label %dissect_mih_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.012.i = phi i8 [ %18, %.lr.ph.i ], [ 0, %3 ]
-  %.01011.i = phi i16 [ %17, %.lr.ph.i ], [ %11, %3 ]
-  %12 = sext i16 %.01011.i to i32
+  %.012.i = phi i16 [ %17, %.lr.ph.i ], [ %11, %3 ]
+  %.01011.i = phi i8 [ %18, %.lr.ph.i ], [ 0, %3 ]
+  %12 = sext i16 %.012.i to i32
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %12) #5
   %.not.i26 = icmp eq i8 %13, 0
   %14 = add nsw i32 %12, 1
@@ -2235,39 +2235,39 @@ define internal signext i16 @dissect_status_list(ptr noundef %0, i16 noundef sig
   %hf_channel_id.val.i = load i32, ptr @hf_channel_id, align 4
   %15 = select i1 %.not.i26, i32 %hf_op_mode.val.i, i32 %hf_channel_id.val.i
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef %..i, i32 noundef 0) #5
-  %17 = add i16 %.12.i, %.01011.i
-  %18 = add nuw i8 %.012.i, 1
+  %17 = add i16 %.12.i, %.012.i
+  %18 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %18, %10
   br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !7
 
 dissect_mih_list.exit:                            ; preds = %.lr.ph.i, %3
-  %.010.lcssa.i = phi i16 [ %11, %3 ], [ %17, %.lr.ph.i ]
-  %19 = sext i16 %.010.lcssa.i to i32
+  %.0.lcssa.i = phi i16 [ %11, %3 ], [ %17, %.lr.ph.i ]
+  %19 = sext i16 %.0.lcssa.i to i32
   %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %19) #5
-  %21 = add i16 %.010.lcssa.i, 1
+  %21 = add i16 %.0.lcssa.i, 1
   %.not.i12 = icmp eq i8 %20, 0
   br i1 %.not.i12, label %dissect_mih_list.exit18, label %.lr.ph.i13
 
 .lr.ph.i13:                                       ; preds = %dissect_mih_list.exit, %.lr.ph.i13
-  %.012.i14 = phi i8 [ %23, %.lr.ph.i13 ], [ 0, %dissect_mih_list.exit ]
-  %.01011.i15 = phi i16 [ %22, %.lr.ph.i13 ], [ %21, %dissect_mih_list.exit ]
-  %22 = tail call fastcc signext i16 @dissect_link_param(ptr noundef %0, i16 noundef signext %.01011.i15, ptr noundef %2) #5
-  %23 = add nuw i8 %.012.i14, 1
+  %.012.i14 = phi i16 [ %22, %.lr.ph.i13 ], [ %21, %dissect_mih_list.exit ]
+  %.01011.i15 = phi i8 [ %23, %.lr.ph.i13 ], [ 0, %dissect_mih_list.exit ]
+  %22 = tail call fastcc signext i16 @dissect_link_param(ptr noundef %0, i16 noundef signext %.012.i14, ptr noundef %2) #5
+  %23 = add nuw i8 %.01011.i15, 1
   %exitcond.not.i16 = icmp eq i8 %23, %20
   br i1 %exitcond.not.i16, label %dissect_mih_list.exit18, label %.lr.ph.i13, !llvm.loop !7
 
 dissect_mih_list.exit18:                          ; preds = %.lr.ph.i13, %dissect_mih_list.exit
-  %.010.lcssa.i17 = phi i16 [ %21, %dissect_mih_list.exit ], [ %22, %.lr.ph.i13 ]
-  %24 = sext i16 %.010.lcssa.i17 to i32
+  %.0.lcssa.i17 = phi i16 [ %21, %dissect_mih_list.exit ], [ %22, %.lr.ph.i13 ]
+  %24 = sext i16 %.0.lcssa.i17 to i32
   %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %24) #5
-  %26 = add i16 %.010.lcssa.i17, 1
+  %26 = add i16 %.0.lcssa.i17, 1
   %.not.i19 = icmp eq i8 %25, 0
   br i1 %.not.i19, label %dissect_mih_list.exit25, label %.lr.ph.i20
 
 .lr.ph.i20:                                       ; preds = %dissect_mih_list.exit18, %.lr.ph.i20
-  %.012.i21 = phi i8 [ %33, %.lr.ph.i20 ], [ 0, %dissect_mih_list.exit18 ]
-  %.01011.i22 = phi i16 [ %32, %.lr.ph.i20 ], [ %26, %dissect_mih_list.exit18 ]
-  %27 = sext i16 %.01011.i22 to i32
+  %.012.i21 = phi i16 [ %32, %.lr.ph.i20 ], [ %26, %dissect_mih_list.exit18 ]
+  %.01011.i22 = phi i8 [ %33, %.lr.ph.i20 ], [ 0, %dissect_mih_list.exit18 ]
+  %27 = sext i16 %.012.i21 to i32
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #5
   %.not.i27 = icmp eq i8 %28, 0
   %29 = add nsw i32 %27, 1
@@ -2275,14 +2275,14 @@ dissect_mih_list.exit18:                          ; preds = %.lr.ph.i13, %dissec
   %hf_num_queue.val.i = load i32, ptr @hf_num_queue, align 4
   %30 = select i1 %.not.i27, i32 %hf_num_cos.val.i, i32 %hf_num_queue.val.i
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %29, i32 noundef 1, i32 noundef 0) #5
-  %32 = add i16 %.01011.i22, 2
-  %33 = add nuw i8 %.012.i21, 1
+  %32 = add i16 %.012.i21, 2
+  %33 = add nuw i8 %.01011.i22, 1
   %exitcond.not.i23 = icmp eq i8 %33, %25
   br i1 %exitcond.not.i23, label %dissect_mih_list.exit25, label %.lr.ph.i20, !llvm.loop !7
 
 dissect_mih_list.exit25:                          ; preds = %.lr.ph.i20, %dissect_mih_list.exit18
-  %.010.lcssa.i24 = phi i16 [ %26, %dissect_mih_list.exit18 ], [ %32, %.lr.ph.i20 ]
-  ret i16 %.010.lcssa.i24
+  %.0.lcssa.i24 = phi i16 [ %26, %dissect_mih_list.exit18 ], [ %32, %.lr.ph.i20 ]
+  ret i16 %.0.lcssa.i24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2381,16 +2381,16 @@ define internal signext i16 @dissect_link_poa(ptr noundef %0, i16 noundef signex
   br i1 %.not.i, label %dissect_mih_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.012.i = phi i8 [ %13, %.lr.ph.i ], [ 0, %3 ]
-  %.01011.i = phi i16 [ %12, %.lr.ph.i ], [ %11, %3 ]
-  %12 = tail call fastcc signext i16 @dissect_link_addr(ptr noundef %0, i16 noundef signext %.01011.i, ptr noundef %2) #5
-  %13 = add nuw i8 %.012.i, 1
+  %.012.i = phi i16 [ %12, %.lr.ph.i ], [ %11, %3 ]
+  %.01011.i = phi i8 [ %13, %.lr.ph.i ], [ 0, %3 ]
+  %12 = tail call fastcc signext i16 @dissect_link_addr(ptr noundef %0, i16 noundef signext %.012.i, ptr noundef %2) #5
+  %13 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %13, %10
   br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !7
 
 dissect_mih_list.exit:                            ; preds = %.lr.ph.i, %3
-  %.010.lcssa.i = phi i16 [ %11, %3 ], [ %12, %.lr.ph.i ]
-  ret i16 %.010.lcssa.i
+  %.0.lcssa.i = phi i16 [ %11, %3 ], [ %12, %.lr.ph.i ]
+  ret i16 %.0.lcssa.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2409,16 +2409,16 @@ define internal signext i16 @dissect_rq_result(ptr noundef %0, i16 noundef signe
   br i1 %.not.i.i, label %dissect_link_poa.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
-  %.012.i.i = phi i8 [ %15, %.lr.ph.i.i ], [ 0, %3 ]
-  %.01011.i.i = phi i16 [ %14, %.lr.ph.i.i ], [ %13, %3 ]
-  %14 = tail call fastcc signext i16 @dissect_link_addr(ptr noundef %0, i16 noundef signext %.01011.i.i, ptr noundef %6) #5
-  %15 = add nuw i8 %.012.i.i, 1
+  %.012.i.i = phi i16 [ %14, %.lr.ph.i.i ], [ %13, %3 ]
+  %.01011.i.i = phi i8 [ %15, %.lr.ph.i.i ], [ 0, %3 ]
+  %14 = tail call fastcc signext i16 @dissect_link_addr(ptr noundef %0, i16 noundef signext %.012.i.i, ptr noundef %6) #5
+  %15 = add nuw i8 %.01011.i.i, 1
   %exitcond.not.i.i = icmp eq i8 %15, %12
   br i1 %exitcond.not.i.i, label %dissect_link_poa.exit, label %.lr.ph.i.i, !llvm.loop !7
 
 dissect_link_poa.exit:                            ; preds = %.lr.ph.i.i, %3
-  %.010.lcssa.i.i = phi i16 [ %13, %3 ], [ %14, %.lr.ph.i.i ]
-  %16 = tail call fastcc signext i16 @dissect_qos_list(ptr noundef %0, i16 noundef signext %.010.lcssa.i.i, ptr noundef %2)
+  %.0.lcssa.i.i = phi i16 [ %13, %3 ], [ %14, %.lr.ph.i.i ]
+  %16 = tail call fastcc signext i16 @dissect_qos_list(ptr noundef %0, i16 noundef signext %.0.lcssa.i.i, ptr noundef %2)
   %17 = add i16 %16, 1
   %18 = sext i16 %17 to i32
   %19 = add nsw i32 %18, -1
@@ -2618,123 +2618,123 @@ define internal fastcc signext i16 @dissect_qos_list(ptr noundef %0, i16 noundef
   br i1 %.not.i, label %dissect_mih_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.012.i = phi i8 [ %21, %.lr.ph.i ], [ 0, %3 ]
-  %.01011.i = phi i16 [ %20, %.lr.ph.i ], [ %12, %3 ]
+  %.012.i = phi i16 [ %20, %.lr.ph.i ], [ %12, %3 ]
+  %.01011.i = phi i8 [ %21, %.lr.ph.i ], [ 0, %3 ]
   %13 = load i32, ptr @hf_cos_id, align 4
-  %14 = sext i16 %.01011.i to i32
+  %14 = sext i16 %.012.i to i32
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef 0) #5
-  %16 = add i16 %.01011.i, 1
+  %16 = add i16 %.012.i, 1
   %17 = load i32, ptr @hf_cos_value, align 4
   %18 = sext i16 %16 to i32
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %0, i32 noundef %18, i32 noundef 2, i32 noundef 0) #5
-  %20 = add i16 %.01011.i, 3
-  %21 = add nuw i8 %.012.i, 1
+  %20 = add i16 %.012.i, 3
+  %21 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %21, %11
   br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !7
 
 dissect_mih_list.exit:                            ; preds = %.lr.ph.i, %3
-  %.010.lcssa.i = phi i16 [ %12, %3 ], [ %20, %.lr.ph.i ]
-  %22 = sext i16 %.010.lcssa.i to i32
+  %.0.lcssa.i = phi i16 [ %12, %3 ], [ %20, %.lr.ph.i ]
+  %22 = sext i16 %.0.lcssa.i to i32
   %23 = load i32, ptr @ett_avg_pk_tx_delay, align 4
   %24 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef %23, ptr noundef null, ptr noundef nonnull @.str.605) #5
   %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %22) #5
-  %26 = add i16 %.010.lcssa.i, 1
+  %26 = add i16 %.0.lcssa.i, 1
   %.not.i34 = icmp eq i8 %25, 0
   br i1 %.not.i34, label %dissect_mih_list.exit40, label %.lr.ph.i35
 
 .lr.ph.i35:                                       ; preds = %dissect_mih_list.exit, %.lr.ph.i35
-  %.012.i36 = phi i8 [ %35, %.lr.ph.i35 ], [ 0, %dissect_mih_list.exit ]
-  %.01011.i37 = phi i16 [ %34, %.lr.ph.i35 ], [ %26, %dissect_mih_list.exit ]
+  %.012.i36 = phi i16 [ %34, %.lr.ph.i35 ], [ %26, %dissect_mih_list.exit ]
+  %.01011.i37 = phi i8 [ %35, %.lr.ph.i35 ], [ 0, %dissect_mih_list.exit ]
   %27 = load i32, ptr @hf_cos_id, align 4
-  %28 = sext i16 %.01011.i37 to i32
+  %28 = sext i16 %.012.i36 to i32
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef 0) #5
-  %30 = add i16 %.01011.i37, 1
+  %30 = add i16 %.012.i36, 1
   %31 = load i32, ptr @hf_cos_value, align 4
   %32 = sext i16 %30 to i32
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %31, ptr noundef %0, i32 noundef %32, i32 noundef 2, i32 noundef 0) #5
-  %34 = add i16 %.01011.i37, 3
-  %35 = add nuw i8 %.012.i36, 1
+  %34 = add i16 %.012.i36, 3
+  %35 = add nuw i8 %.01011.i37, 1
   %exitcond.not.i38 = icmp eq i8 %35, %25
   br i1 %exitcond.not.i38, label %dissect_mih_list.exit40, label %.lr.ph.i35, !llvm.loop !7
 
 dissect_mih_list.exit40:                          ; preds = %.lr.ph.i35, %dissect_mih_list.exit
-  %.010.lcssa.i39 = phi i16 [ %26, %dissect_mih_list.exit ], [ %34, %.lr.ph.i35 ]
-  %36 = sext i16 %.010.lcssa.i39 to i32
+  %.0.lcssa.i39 = phi i16 [ %26, %dissect_mih_list.exit ], [ %34, %.lr.ph.i35 ]
+  %36 = sext i16 %.0.lcssa.i39 to i32
   %37 = load i32, ptr @ett_max_pk_tx_delay, align 4
   %38 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %36, i32 noundef 1, i32 noundef %37, ptr noundef null, ptr noundef nonnull @.str.606) #5
   %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %36) #5
-  %40 = add i16 %.010.lcssa.i39, 1
+  %40 = add i16 %.0.lcssa.i39, 1
   %.not.i41 = icmp eq i8 %39, 0
   br i1 %.not.i41, label %dissect_mih_list.exit47, label %.lr.ph.i42
 
 .lr.ph.i42:                                       ; preds = %dissect_mih_list.exit40, %.lr.ph.i42
-  %.012.i43 = phi i8 [ %49, %.lr.ph.i42 ], [ 0, %dissect_mih_list.exit40 ]
-  %.01011.i44 = phi i16 [ %48, %.lr.ph.i42 ], [ %40, %dissect_mih_list.exit40 ]
+  %.012.i43 = phi i16 [ %48, %.lr.ph.i42 ], [ %40, %dissect_mih_list.exit40 ]
+  %.01011.i44 = phi i8 [ %49, %.lr.ph.i42 ], [ 0, %dissect_mih_list.exit40 ]
   %41 = load i32, ptr @hf_cos_id, align 4
-  %42 = sext i16 %.01011.i44 to i32
+  %42 = sext i16 %.012.i43 to i32
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %41, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #5
-  %44 = add i16 %.01011.i44, 1
+  %44 = add i16 %.012.i43, 1
   %45 = load i32, ptr @hf_cos_value, align 4
   %46 = sext i16 %44 to i32
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %45, ptr noundef %0, i32 noundef %46, i32 noundef 2, i32 noundef 0) #5
-  %48 = add i16 %.01011.i44, 3
-  %49 = add nuw i8 %.012.i43, 1
+  %48 = add i16 %.012.i43, 3
+  %49 = add nuw i8 %.01011.i44, 1
   %exitcond.not.i45 = icmp eq i8 %49, %39
   br i1 %exitcond.not.i45, label %dissect_mih_list.exit47, label %.lr.ph.i42, !llvm.loop !7
 
 dissect_mih_list.exit47:                          ; preds = %.lr.ph.i42, %dissect_mih_list.exit40
-  %.010.lcssa.i46 = phi i16 [ %40, %dissect_mih_list.exit40 ], [ %48, %.lr.ph.i42 ]
-  %50 = sext i16 %.010.lcssa.i46 to i32
+  %.0.lcssa.i46 = phi i16 [ %40, %dissect_mih_list.exit40 ], [ %48, %.lr.ph.i42 ]
+  %50 = sext i16 %.0.lcssa.i46 to i32
   %51 = load i32, ptr @ett_pk_delay_jitter, align 4
   %52 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %50, i32 noundef 1, i32 noundef %51, ptr noundef null, ptr noundef nonnull @.str.607) #5
   %53 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %50) #5
-  %54 = add i16 %.010.lcssa.i46, 1
+  %54 = add i16 %.0.lcssa.i46, 1
   %.not.i48 = icmp eq i8 %53, 0
   br i1 %.not.i48, label %dissect_mih_list.exit54, label %.lr.ph.i49
 
 .lr.ph.i49:                                       ; preds = %dissect_mih_list.exit47, %.lr.ph.i49
-  %.012.i50 = phi i8 [ %63, %.lr.ph.i49 ], [ 0, %dissect_mih_list.exit47 ]
-  %.01011.i51 = phi i16 [ %62, %.lr.ph.i49 ], [ %54, %dissect_mih_list.exit47 ]
+  %.012.i50 = phi i16 [ %62, %.lr.ph.i49 ], [ %54, %dissect_mih_list.exit47 ]
+  %.01011.i51 = phi i8 [ %63, %.lr.ph.i49 ], [ 0, %dissect_mih_list.exit47 ]
   %55 = load i32, ptr @hf_cos_id, align 4
-  %56 = sext i16 %.01011.i51 to i32
+  %56 = sext i16 %.012.i50 to i32
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %55, ptr noundef %0, i32 noundef %56, i32 noundef 1, i32 noundef 0) #5
-  %58 = add i16 %.01011.i51, 1
+  %58 = add i16 %.012.i50, 1
   %59 = load i32, ptr @hf_cos_value, align 4
   %60 = sext i16 %58 to i32
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %59, ptr noundef %0, i32 noundef %60, i32 noundef 2, i32 noundef 0) #5
-  %62 = add i16 %.01011.i51, 3
-  %63 = add nuw i8 %.012.i50, 1
+  %62 = add i16 %.012.i50, 3
+  %63 = add nuw i8 %.01011.i51, 1
   %exitcond.not.i52 = icmp eq i8 %63, %53
   br i1 %exitcond.not.i52, label %dissect_mih_list.exit54, label %.lr.ph.i49, !llvm.loop !7
 
 dissect_mih_list.exit54:                          ; preds = %.lr.ph.i49, %dissect_mih_list.exit47
-  %.010.lcssa.i53 = phi i16 [ %54, %dissect_mih_list.exit47 ], [ %62, %.lr.ph.i49 ]
-  %64 = sext i16 %.010.lcssa.i53 to i32
+  %.0.lcssa.i53 = phi i16 [ %54, %dissect_mih_list.exit47 ], [ %62, %.lr.ph.i49 ]
+  %64 = sext i16 %.0.lcssa.i53 to i32
   %65 = load i32, ptr @ett_pk_loss_rate, align 4
   %66 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef %65, ptr noundef null, ptr noundef nonnull @.str.608) #5
   %67 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %64) #5
-  %68 = add i16 %.010.lcssa.i53, 1
+  %68 = add i16 %.0.lcssa.i53, 1
   %.not.i55 = icmp eq i8 %67, 0
   br i1 %.not.i55, label %dissect_mih_list.exit61, label %.lr.ph.i56
 
 .lr.ph.i56:                                       ; preds = %dissect_mih_list.exit54, %.lr.ph.i56
-  %.012.i57 = phi i8 [ %77, %.lr.ph.i56 ], [ 0, %dissect_mih_list.exit54 ]
-  %.01011.i58 = phi i16 [ %76, %.lr.ph.i56 ], [ %68, %dissect_mih_list.exit54 ]
+  %.012.i57 = phi i16 [ %76, %.lr.ph.i56 ], [ %68, %dissect_mih_list.exit54 ]
+  %.01011.i58 = phi i8 [ %77, %.lr.ph.i56 ], [ 0, %dissect_mih_list.exit54 ]
   %69 = load i32, ptr @hf_cos_id, align 4
-  %70 = sext i16 %.01011.i58 to i32
+  %70 = sext i16 %.012.i57 to i32
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %69, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef 0) #5
-  %72 = add i16 %.01011.i58, 1
+  %72 = add i16 %.012.i57, 1
   %73 = load i32, ptr @hf_cos_value, align 4
   %74 = sext i16 %72 to i32
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %73, ptr noundef %0, i32 noundef %74, i32 noundef 2, i32 noundef 0) #5
-  %76 = add i16 %.01011.i58, 3
-  %77 = add nuw i8 %.012.i57, 1
+  %76 = add i16 %.012.i57, 3
+  %77 = add nuw i8 %.01011.i58, 1
   %exitcond.not.i59 = icmp eq i8 %77, %67
   br i1 %exitcond.not.i59, label %dissect_mih_list.exit61, label %.lr.ph.i56, !llvm.loop !7
 
 dissect_mih_list.exit61:                          ; preds = %.lr.ph.i56, %dissect_mih_list.exit54
-  %.010.lcssa.i60 = phi i16 [ %68, %dissect_mih_list.exit54 ], [ %76, %.lr.ph.i56 ]
-  ret i16 %.010.lcssa.i60
+  %.0.lcssa.i60 = phi i16 [ %68, %dissect_mih_list.exit54 ], [ %76, %.lr.ph.i56 ]
+  ret i16 %.0.lcssa.i60
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2797,9 +2797,9 @@ define internal signext i16 @dissect_link_action_rsp(ptr noundef %0, i16 noundef
   br i1 %.not.i, label %dissect_mih_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
-  %.012.i = phi i8 [ %36, %.lr.ph.i ], [ 0, %16 ]
-  %.01011.i = phi i16 [ %35, %.lr.ph.i ], [ %19, %16 ]
-  %20 = tail call fastcc signext i16 @dissect_link_addr(ptr noundef %0, i16 noundef signext %.01011.i, ptr noundef %2)
+  %.012.i = phi i16 [ %35, %.lr.ph.i ], [ %19, %16 ]
+  %.01011.i = phi i8 [ %36, %.lr.ph.i ], [ 0, %16 ]
+  %20 = tail call fastcc signext i16 @dissect_link_addr(ptr noundef %0, i16 noundef signext %.012.i, ptr noundef %2)
   %21 = sext i16 %20 to i32
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %21) #5
   %23 = load i32, ptr @hf_network_id, align 4
@@ -2818,7 +2818,7 @@ define internal signext i16 @dissect_link_action_rsp(ptr noundef %0, i16 noundef
   %33 = select i1 %.not.i14, i32 %hf_sig_strength_dbm.val.i, i32 %hf_sig_strength_per.val.i
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %32, i32 noundef 1, i32 noundef 0) #5
   %35 = add i16 %28, 3
-  %36 = add nuw i8 %.012.i, 1
+  %36 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %36, %18
   br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !7
 
@@ -2836,9 +2836,9 @@ define internal signext i16 @dissect_mih_evt_cfg_info(ptr noundef %0, i16 nounde
   br i1 %.not.i, label %dissect_mih_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %dissect_link_det_cfg.exit
-  %.012.i = phi i8 [ %40, %dissect_link_det_cfg.exit ], [ 0, %3 ]
-  %.01011.i = phi i16 [ %39, %dissect_link_det_cfg.exit ], [ %6, %3 ]
-  %7 = sext i16 %.01011.i to i32
+  %.012.i = phi i16 [ %39, %dissect_link_det_cfg.exit ], [ %6, %3 ]
+  %.01011.i = phi i8 [ %40, %dissect_link_det_cfg.exit ], [ 0, %3 ]
+  %7 = sext i16 %.012.i to i32
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #5
   %.not.i13 = icmp eq i8 %8, 0
   br i1 %.not.i13, label %19, label %9
@@ -2851,12 +2851,12 @@ define internal signext i16 @dissect_mih_evt_cfg_info(ptr noundef %0, i16 nounde
   %14 = zext i8 %11 to i32
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef %14, i32 noundef 0) #5
   %16 = zext i8 %11 to i16
-  %17 = add i16 %.01011.i, 1
+  %17 = add i16 %.012.i, 1
   %18 = add i16 %17, %16
   br label %19
 
 19:                                               ; preds = %9, %.lr.ph.i
-  %.0.i = phi i16 [ %18, %9 ], [ %.01011.i, %.lr.ph.i ]
+  %.0.i = phi i16 [ %18, %9 ], [ %.012.i, %.lr.ph.i ]
   %20 = add i16 %.0.i, 1
   %21 = sext i16 %20 to i32
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %21) #5
@@ -2893,29 +2893,29 @@ define internal signext i16 @dissect_mih_evt_cfg_info(ptr noundef %0, i16 nounde
 dissect_link_det_cfg.exit:                        ; preds = %30, %34
   %.2.i = phi i16 [ %38, %34 ], [ %31, %30 ]
   %39 = add i16 %.2.i, 1
-  %40 = add nuw i8 %.012.i, 1
+  %40 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %40, %5
   br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !7
 
 dissect_mih_list.exit:                            ; preds = %dissect_link_det_cfg.exit, %3
-  %.010.lcssa.i = phi i16 [ %6, %3 ], [ %39, %dissect_link_det_cfg.exit ]
-  %41 = sext i16 %.010.lcssa.i to i32
+  %.0.lcssa.i = phi i16 [ %6, %3 ], [ %39, %dissect_link_det_cfg.exit ]
+  %41 = sext i16 %.0.lcssa.i to i32
   %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %41) #5
-  %43 = add i16 %.010.lcssa.i, 1
+  %43 = add i16 %.0.lcssa.i, 1
   %.not.i6 = icmp eq i8 %42, 0
   br i1 %.not.i6, label %dissect_mih_list.exit12, label %.lr.ph.i7
 
 .lr.ph.i7:                                        ; preds = %dissect_mih_list.exit, %.lr.ph.i7
-  %.012.i8 = phi i8 [ %45, %.lr.ph.i7 ], [ 0, %dissect_mih_list.exit ]
-  %.01011.i9 = phi i16 [ %44, %.lr.ph.i7 ], [ %43, %dissect_mih_list.exit ]
-  %44 = tail call signext i16 @dissect_link_cfg_param(ptr noundef %0, i16 noundef signext %.01011.i9, ptr noundef %2) #5
-  %45 = add nuw i8 %.012.i8, 1
+  %.012.i8 = phi i16 [ %44, %.lr.ph.i7 ], [ %43, %dissect_mih_list.exit ]
+  %.01011.i9 = phi i8 [ %45, %.lr.ph.i7 ], [ 0, %dissect_mih_list.exit ]
+  %44 = tail call signext i16 @dissect_link_cfg_param(ptr noundef %0, i16 noundef signext %.012.i8, ptr noundef %2) #5
+  %45 = add nuw i8 %.01011.i9, 1
   %exitcond.not.i10 = icmp eq i8 %45, %42
   br i1 %exitcond.not.i10, label %dissect_mih_list.exit12, label %.lr.ph.i7, !llvm.loop !7
 
 dissect_mih_list.exit12:                          ; preds = %.lr.ph.i7, %dissect_mih_list.exit
-  %.010.lcssa.i11 = phi i16 [ %43, %dissect_mih_list.exit ], [ %44, %.lr.ph.i7 ]
-  ret i16 %.010.lcssa.i11
+  %.0.lcssa.i11 = phi i16 [ %43, %dissect_mih_list.exit ], [ %44, %.lr.ph.i7 ]
+  ret i16 %.0.lcssa.i11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3247,17 +3247,17 @@ dissect_link_param_type.exit:                     ; preds = %3, %switch.lookup
   br i1 %.not.i, label %dissect_mih_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %29, %.lr.ph.i
-  %.012.i = phi i8 [ %45, %.lr.ph.i ], [ 0, %29 ]
-  %.01011.i = phi i16 [ %44, %.lr.ph.i ], [ %36, %29 ]
+  %.012.i = phi i16 [ %44, %.lr.ph.i ], [ %36, %29 ]
+  %.01011.i = phi i8 [ %45, %.lr.ph.i ], [ 0, %29 ]
   %37 = load i32, ptr @hf_cos_id, align 4
-  %38 = sext i16 %.01011.i to i32
+  %38 = sext i16 %.012.i to i32
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #5
-  %40 = add i16 %.01011.i, 1
+  %40 = add i16 %.012.i, 1
   %41 = load i32, ptr @hf_cos_value, align 4
   %42 = sext i16 %40 to i32
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %41, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef 0) #5
-  %44 = add i16 %.01011.i, 3
-  %45 = add nuw i8 %.012.i, 1
+  %44 = add i16 %.012.i, 3
+  %45 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %45, %35
   br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !7
 
@@ -3274,17 +3274,17 @@ dissect_link_param_type.exit:                     ; preds = %3, %switch.lookup
   br i1 %.not.i47, label %dissect_mih_list.exit, label %.lr.ph.i48
 
 .lr.ph.i48:                                       ; preds = %46, %.lr.ph.i48
-  %.012.i49 = phi i8 [ %62, %.lr.ph.i48 ], [ 0, %46 ]
-  %.01011.i50 = phi i16 [ %61, %.lr.ph.i48 ], [ %53, %46 ]
+  %.012.i49 = phi i16 [ %61, %.lr.ph.i48 ], [ %53, %46 ]
+  %.01011.i50 = phi i8 [ %62, %.lr.ph.i48 ], [ 0, %46 ]
   %54 = load i32, ptr @hf_cos_id, align 4
-  %55 = sext i16 %.01011.i50 to i32
+  %55 = sext i16 %.012.i49 to i32
   %56 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef 0) #5
-  %57 = add i16 %.01011.i50, 1
+  %57 = add i16 %.012.i49, 1
   %58 = load i32, ptr @hf_cos_value, align 4
   %59 = sext i16 %57 to i32
   %60 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %58, ptr noundef %0, i32 noundef %59, i32 noundef 2, i32 noundef 0) #5
-  %61 = add i16 %.01011.i50, 3
-  %62 = add nuw i8 %.012.i49, 1
+  %61 = add i16 %.012.i49, 3
+  %62 = add nuw i8 %.01011.i50, 1
   %exitcond.not.i51 = icmp eq i8 %62, %52
   br i1 %exitcond.not.i51, label %dissect_mih_list.exit, label %.lr.ph.i48, !llvm.loop !7
 
@@ -3301,17 +3301,17 @@ dissect_link_param_type.exit:                     ; preds = %3, %switch.lookup
   br i1 %.not.i54, label %dissect_mih_list.exit, label %.lr.ph.i55
 
 .lr.ph.i55:                                       ; preds = %63, %.lr.ph.i55
-  %.012.i56 = phi i8 [ %79, %.lr.ph.i55 ], [ 0, %63 ]
-  %.01011.i57 = phi i16 [ %78, %.lr.ph.i55 ], [ %70, %63 ]
+  %.012.i56 = phi i16 [ %78, %.lr.ph.i55 ], [ %70, %63 ]
+  %.01011.i57 = phi i8 [ %79, %.lr.ph.i55 ], [ 0, %63 ]
   %71 = load i32, ptr @hf_cos_id, align 4
-  %72 = sext i16 %.01011.i57 to i32
+  %72 = sext i16 %.012.i56 to i32
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %71, ptr noundef %0, i32 noundef %72, i32 noundef 1, i32 noundef 0) #5
-  %74 = add i16 %.01011.i57, 1
+  %74 = add i16 %.012.i56, 1
   %75 = load i32, ptr @hf_cos_value, align 4
   %76 = sext i16 %74 to i32
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %75, ptr noundef %0, i32 noundef %76, i32 noundef 2, i32 noundef 0) #5
-  %78 = add i16 %.01011.i57, 3
-  %79 = add nuw i8 %.012.i56, 1
+  %78 = add i16 %.012.i56, 3
+  %79 = add nuw i8 %.01011.i57, 1
   %exitcond.not.i58 = icmp eq i8 %79, %69
   br i1 %exitcond.not.i58, label %dissect_mih_list.exit, label %.lr.ph.i55, !llvm.loop !7
 
@@ -3328,17 +3328,17 @@ dissect_link_param_type.exit:                     ; preds = %3, %switch.lookup
   br i1 %.not.i61, label %dissect_mih_list.exit, label %.lr.ph.i62
 
 .lr.ph.i62:                                       ; preds = %80, %.lr.ph.i62
-  %.012.i63 = phi i8 [ %96, %.lr.ph.i62 ], [ 0, %80 ]
-  %.01011.i64 = phi i16 [ %95, %.lr.ph.i62 ], [ %87, %80 ]
+  %.012.i63 = phi i16 [ %95, %.lr.ph.i62 ], [ %87, %80 ]
+  %.01011.i64 = phi i8 [ %96, %.lr.ph.i62 ], [ 0, %80 ]
   %88 = load i32, ptr @hf_cos_id, align 4
-  %89 = sext i16 %.01011.i64 to i32
+  %89 = sext i16 %.012.i63 to i32
   %90 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %88, ptr noundef %0, i32 noundef %89, i32 noundef 1, i32 noundef 0) #5
-  %91 = add i16 %.01011.i64, 1
+  %91 = add i16 %.012.i63, 1
   %92 = load i32, ptr @hf_cos_value, align 4
   %93 = sext i16 %91 to i32
   %94 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %92, ptr noundef %0, i32 noundef %93, i32 noundef 2, i32 noundef 0) #5
-  %95 = add i16 %.01011.i64, 3
-  %96 = add nuw i8 %.012.i63, 1
+  %95 = add i16 %.012.i63, 3
+  %96 = add nuw i8 %.01011.i64, 1
   %exitcond.not.i65 = icmp eq i8 %96, %86
   br i1 %exitcond.not.i65, label %dissect_mih_list.exit, label %.lr.ph.i62, !llvm.loop !7
 
@@ -3355,17 +3355,17 @@ dissect_link_param_type.exit:                     ; preds = %3, %switch.lookup
   br i1 %.not.i68, label %dissect_mih_list.exit, label %.lr.ph.i69
 
 .lr.ph.i69:                                       ; preds = %97, %.lr.ph.i69
-  %.012.i70 = phi i8 [ %113, %.lr.ph.i69 ], [ 0, %97 ]
-  %.01011.i71 = phi i16 [ %112, %.lr.ph.i69 ], [ %104, %97 ]
+  %.012.i70 = phi i16 [ %112, %.lr.ph.i69 ], [ %104, %97 ]
+  %.01011.i71 = phi i8 [ %113, %.lr.ph.i69 ], [ 0, %97 ]
   %105 = load i32, ptr @hf_cos_id, align 4
-  %106 = sext i16 %.01011.i71 to i32
+  %106 = sext i16 %.012.i70 to i32
   %107 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %105, ptr noundef %0, i32 noundef %106, i32 noundef 1, i32 noundef 0) #5
-  %108 = add i16 %.01011.i71, 1
+  %108 = add i16 %.012.i70, 1
   %109 = load i32, ptr @hf_cos_value, align 4
   %110 = sext i16 %108 to i32
   %111 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %109, ptr noundef %0, i32 noundef %110, i32 noundef 2, i32 noundef 0) #5
-  %112 = add i16 %.01011.i71, 3
-  %113 = add nuw i8 %.012.i70, 1
+  %112 = add i16 %.012.i70, 3
+  %113 = add nuw i8 %.01011.i71, 1
   %exitcond.not.i72 = icmp eq i8 %113, %103
   br i1 %exitcond.not.i72, label %dissect_mih_list.exit, label %.lr.ph.i69, !llvm.loop !7
 

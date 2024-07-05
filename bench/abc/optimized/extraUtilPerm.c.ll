@@ -1643,14 +1643,14 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   br label %83
 
 83:                                               ; preds = %59, %66, %50
-  %.060 = phi i32 [ %53, %50 ], [ %62, %59 ], [ %71, %66 ]
-  %.059 = phi i32 [ %56, %50 ], [ %65, %59 ], [ %82, %66 ]
+  %.060 = phi i32 [ %56, %50 ], [ %65, %59 ], [ %82, %66 ]
+  %.059 = phi i32 [ %53, %50 ], [ %62, %59 ], [ %71, %66 ]
   %84 = load i32, ptr %42, align 4
   %85 = and i32 %84, 2147483647
   %86 = load i32, ptr %44, align 4
   %87 = and i32 %86, 2147483647
   %88 = tail call i32 @llvm.umin.i32(i32 %85, i32 %87)
-  %89 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef nonnull %0, i32 noundef %88, i32 noundef %.059, i32 noundef %.060)
+  %89 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef nonnull %0, i32 noundef %88, i32 noundef %.060, i32 noundef %.059)
   %90 = load ptr, ptr %13, align 8
   %91 = load i32, ptr %19, align 4
   %92 = and i32 %91, %18
@@ -1792,16 +1792,16 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   br label %83
 
 83:                                               ; preds = %59, %66, %50
-  %.065 = phi i32 [ %53, %50 ], [ %62, %59 ], [ %71, %66 ]
-  %.064 = phi i32 [ %56, %50 ], [ %65, %59 ], [ %82, %66 ]
-  %84 = tail call i32 @Abc_ZddThresh(ptr noundef nonnull %0, i32 noundef %.064, i32 noundef 5)
-  %85 = tail call i32 @Abc_ZddDiff(ptr noundef nonnull %0, i32 noundef %84, i32 noundef %.065)
+  %.065 = phi i32 [ %56, %50 ], [ %65, %59 ], [ %82, %66 ]
+  %.064 = phi i32 [ %53, %50 ], [ %62, %59 ], [ %71, %66 ]
+  %84 = tail call i32 @Abc_ZddThresh(ptr noundef nonnull %0, i32 noundef %.065, i32 noundef 5)
+  %85 = tail call i32 @Abc_ZddDiff(ptr noundef nonnull %0, i32 noundef %84, i32 noundef %.064)
   %86 = load i32, ptr %42, align 4
   %87 = and i32 %86, 2147483647
   %88 = load i32, ptr %44, align 4
   %89 = and i32 %88, 2147483647
   %90 = tail call i32 @llvm.umin.i32(i32 %87, i32 %89)
-  %91 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef nonnull %0, i32 noundef %90, i32 noundef %85, i32 noundef %.065)
+  %91 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef nonnull %0, i32 noundef %90, i32 noundef %85, i32 noundef %.064)
   %92 = load ptr, ptr %13, align 8
   %93 = load i32, ptr %19, align 4
   %94 = and i32 %93, %18
@@ -1966,33 +1966,33 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %6, %23, %27, %Abc_Z
   br label %97
 
 97:                                               ; preds = %85, %77, %87, %67
-  %.077 = phi i32 [ %2, %67 ], [ %2, %77 ], [ %96, %87 ], [ %2, %85 ]
-  %.0 = phi i32 [ %74, %67 ], [ %84, %77 ], [ %40, %87 ], [ %40, %85 ]
+  %.079 = phi i32 [ %2, %67 ], [ %2, %77 ], [ %96, %87 ], [ %2, %85 ]
+  %.078 = phi i32 [ %74, %67 ], [ %84, %77 ], [ %40, %87 ], [ %40, %85 ]
   %98 = getelementptr inbounds i8, ptr %36, i64 8
   %99 = load i32, ptr %98, align 4
   %100 = tail call i32 @Abc_ZddPerm(ptr noundef nonnull %0, i32 noundef %99, i32 noundef %2)
   %101 = getelementptr inbounds i8, ptr %36, i64 4
   %102 = load i32, ptr %101, align 4
-  %103 = tail call i32 @Abc_ZddPerm(ptr noundef nonnull %0, i32 noundef %102, i32 noundef %.077)
+  %103 = tail call i32 @Abc_ZddPerm(ptr noundef nonnull %0, i32 noundef %102, i32 noundef %.079)
   %.val94 = load ptr, ptr %34, align 8
   %104 = sext i32 %100 to i64
   %105 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %.val94, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = and i32 %106, 2147483647
-  %108 = icmp sgt i32 %107, %.0
+  %108 = icmp sgt i32 %107, %.078
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %97
-  %110 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef nonnull %0, i32 noundef %.0, i32 noundef %103, i32 noundef %100)
+  %110 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef nonnull %0, i32 noundef %.078, i32 noundef %103, i32 noundef %100)
   br label %114
 
 111:                                              ; preds = %97
-  %112 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef nonnull %0, i32 noundef %.0, i32 noundef %103, i32 noundef 0)
+  %112 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef nonnull %0, i32 noundef %.078, i32 noundef %103, i32 noundef 0)
   %113 = tail call i32 @Abc_ZddUnion(ptr noundef nonnull %0, i32 noundef %100, i32 noundef %112)
   br label %114
 
 114:                                              ; preds = %52, %111, %109, %48
-  %.078 = phi i32 [ %49, %48 ], [ %58, %52 ], [ %110, %109 ], [ %113, %111 ]
+  %.077 = phi i32 [ %49, %48 ], [ %58, %52 ], [ %110, %109 ], [ %113, %111 ]
   %115 = load ptr, ptr %7, align 8
   %116 = load i32, ptr %13, align 4
   %117 = and i32 %116, %12
@@ -2004,7 +2004,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %6, %23, %27, %Abc_Z
   %121 = getelementptr inbounds i8, ptr %119, i64 8
   store i32 5, ptr %121, align 4
   %122 = getelementptr inbounds i8, ptr %119, i64 12
-  store i32 %.078, ptr %122, align 4
+  store i32 %.077, ptr %122, align 4
   %123 = getelementptr inbounds i8, ptr %0, i64 60
   %124 = load i32, ptr %123, align 4
   %125 = add nsw i32 %124, 1
@@ -2012,8 +2012,8 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %6, %23, %27, %Abc_Z
   br label %126
 
 126:                                              ; preds = %Abc_ZddCacheLookup.exit, %3, %114, %4
-  %.079 = phi i32 [ %5, %4 ], [ %.078, %114 ], [ %1, %3 ], [ %32, %Abc_ZddCacheLookup.exit ]
-  ret i32 %.079
+  %.0 = phi i32 [ %5, %4 ], [ %.077, %114 ], [ %1, %3 ], [ %32, %Abc_ZddCacheLookup.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -3127,7 +3127,7 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i
 
 17:                                               ; preds = %.preheader, %Abc_ZddBuildSet.exit
   %indvars.iv103 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next104, %Abc_ZddBuildSet.exit ]
-  %.093 = phi i32 [ 0, %.preheader ], [ %139, %Abc_ZddBuildSet.exit ]
+  %.04292 = phi i32 [ 0, %.preheader ], [ %139, %Abc_ZddBuildSet.exit ]
   %18 = trunc nuw nsw i64 %indvars.iv103 to i32
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %18)
   %20 = getelementptr inbounds [3 x [5 x i32]], ptr %2, i64 0, i64 %indvars.iv103
@@ -3418,7 +3418,7 @@ Abc_ZddUniqueCreate.exit:                         ; preds = %103, %.lr.ph.i75, %
 
 Abc_ZddBuildSet.exit:                             ; preds = %Abc_ZddUniqueCreate.exit, %Abc_ZddCombPrint.exit.thread
   %.0.lcssa.i = phi i32 [ 1, %Abc_ZddCombPrint.exit.thread ], [ %.035.i, %Abc_ZddUniqueCreate.exit ]
-  %139 = tail call i32 @Abc_ZddUnion(ptr noundef %0, i32 noundef %.093, i32 noundef %.0.lcssa.i)
+  %139 = tail call i32 @Abc_ZddUnion(ptr noundef %0, i32 noundef %.04292, i32 noundef %.0.lcssa.i)
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next104, 3
   br i1 %exitcond106.not, label %140, label %17, !llvm.loop !28
@@ -3658,7 +3658,7 @@ Abc_Clock.exit71:                                 ; preds = %Abc_ZddManCreatePer
 
 .preheader89:                                     ; preds = %Abc_Clock.exit71, %Abc_ZddBuildSet.exit
   %indvars.iv114 = phi i64 [ 0, %Abc_Clock.exit71 ], [ %indvars.iv.next115, %Abc_ZddBuildSet.exit ]
-  %.06597 = phi i32 [ 1, %Abc_Clock.exit71 ], [ %180, %Abc_ZddBuildSet.exit ]
+  %.06697 = phi i32 [ 1, %Abc_Clock.exit71 ], [ %180, %Abc_ZddBuildSet.exit ]
   br label %60
 
 60:                                               ; preds = %.preheader89, %60
@@ -3898,7 +3898,7 @@ Abc_ZddUniqueCreate.exit:                         ; preds = %140, %.lr.ph.i78, %
   br i1 %175, label %.lr.ph.i78, label %Abc_ZddBuildSet.exit, !llvm.loop !7
 
 Abc_ZddBuildSet.exit:                             ; preds = %Abc_ZddUniqueCreate.exit
-  %176 = call i32 @Abc_ZddUnion(ptr noundef nonnull %16, i32 noundef %.06597, i32 noundef %.035.i)
+  %176 = call i32 @Abc_ZddUnion(ptr noundef nonnull %16, i32 noundef %.06697, i32 noundef %.035.i)
   %177 = call i32 @Abc_ZddPermProduct(ptr noundef nonnull %16, i32 noundef %.035.i, i32 noundef %.035.i)
   %178 = call i32 @Abc_ZddUnion(ptr noundef nonnull %16, i32 noundef %176, i32 noundef %177)
   %179 = call i32 @Abc_ZddPermProduct(ptr noundef nonnull %16, i32 noundef %177, i32 noundef %.035.i)
@@ -3940,8 +3940,8 @@ Abc_Clock.exit82:                                 ; preds = %181, %188
 
 199:                                              ; preds = %Abc_Clock.exit84, %Abc_Clock.exit82
   %.1100 = phi i32 [ 2, %Abc_Clock.exit82 ], [ %217, %Abc_Clock.exit84 ]
-  %.06499 = phi i32 [ %180, %Abc_Clock.exit82 ], [ %200, %Abc_Clock.exit84 ]
-  %200 = call i32 @Abc_ZddPermProduct(ptr noundef nonnull %16, i32 noundef %.06499, i32 noundef %180)
+  %.06799 = phi i32 [ %180, %Abc_Clock.exit82 ], [ %200, %Abc_Clock.exit84 ]
+  %200 = call i32 @Abc_ZddPermProduct(ptr noundef nonnull %16, i32 noundef %.06799, i32 noundef %180)
   %201 = call i32 @Abc_ZddCountPaths(ptr noundef nonnull %16, i32 noundef %200)
   %202 = call i32 @Abc_ZddCount_rec(ptr noundef nonnull readonly %16, i32 noundef %200)
   call void @Abc_ZddUnmark_rec(ptr noundef nonnull readonly %16, i32 noundef %200)
@@ -3968,7 +3968,7 @@ Abc_Clock.exit84:                                 ; preds = %199, %207
   %214 = sitofp i64 %213 to double
   %215 = fdiv double %214, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, double noundef %215)
-  %216 = icmp eq i32 %.06499, %200
+  %216 = icmp eq i32 %.06799, %200
   %217 = add nuw nsw i32 %.1100, 1
   %exitcond118.not = icmp eq i32 %217, 101
   %or.cond = select i1 %216, i1 true, i1 %exitcond118.not

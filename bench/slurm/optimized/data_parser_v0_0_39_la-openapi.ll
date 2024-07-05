@@ -282,10 +282,10 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
   br label %42
 
 42:                                               ; preds = %36, %27, %30, %33, %39
-  %.070 = phi i32 [ %41, %39 ], [ 11, %33 ], [ 11, %30 ], [ 11, %27 ], [ 10, %36 ]
+  %.069 = phi i32 [ %41, %39 ], [ 11, %33 ], [ 11, %30 ], [ 11, %27 ], [ 10, %36 ]
   %43 = getelementptr inbounds i8, ptr %1, i64 24
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call ptr @set_openapi_props(ptr noundef %0, i32 noundef %.070, ptr noundef %44)
+  %45 = tail call ptr @set_openapi_props(ptr noundef %0, i32 noundef %.069, ptr noundef %44)
   %.not85 = icmp eq ptr %45, null
   br i1 %.not85, label %.loopexit, label %46
 

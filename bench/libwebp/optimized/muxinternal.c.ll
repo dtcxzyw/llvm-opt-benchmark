@@ -225,8 +225,8 @@ ChunkSearchNextInList.exit24.thread:              ; preds = %ChunkSearchNextInLi
   br label %ChunkSearchNextInList.exit.thread
 
 ChunkSearchNextInList.exit.thread:                ; preds = %6, %3, %ChunkSearchNextInList.exit24.thread
-  %.013 = phi ptr [ %19, %ChunkSearchNextInList.exit24.thread ], [ null, %3 ], [ null, %6 ]
-  ret ptr %.013
+  %.0 = phi ptr [ %19, %ChunkSearchNextInList.exit24.thread ], [ null, %3 ], [ null, %6 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -768,7 +768,7 @@ define hidden range(i32 -3, 2) i32 @MuxImagePush(ptr nocapture noundef readonly 
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.019 = phi ptr [ %4, %.lr.ph ], [ %1, %2 ]
+  %.01319 = phi ptr [ %4, %.lr.ph ], [ %1, %2 ]
   %3 = phi ptr [ %5, %.lr.ph ], [ %.pr, %2 ]
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -776,7 +776,7 @@ define hidden range(i32 -3, 2) i32 @MuxImagePush(ptr nocapture noundef readonly 
   br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi ptr [ %1, %2 ], [ %.019, %.lr.ph ]
+  %.013.lcssa = phi ptr [ %1, %2 ], [ %.01319, %.lr.ph ]
   %7 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef 56) #12
   %8 = icmp eq ptr %7, null
   br i1 %8, label %12, label %.sink.split
@@ -785,16 +785,16 @@ define hidden range(i32 -3, 2) i32 @MuxImagePush(ptr nocapture noundef readonly 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 48, i1 false)
   %9 = getelementptr inbounds i8, ptr %7, i64 48
   store ptr null, ptr %9, align 8
-  %10 = load ptr, ptr %.0.lcssa, align 8
+  %10 = load ptr, ptr %.013.lcssa, align 8
   %.not17 = icmp eq ptr %10, null
   %11 = getelementptr inbounds i8, ptr %10, i64 48
-  %.sink = select i1 %.not17, ptr %.0.lcssa, ptr %11
+  %.sink = select i1 %.not17, ptr %.013.lcssa, ptr %11
   store ptr %7, ptr %.sink, align 8
   br label %12
 
 12:                                               ; preds = %.sink.split, %._crit_edge
-  %.013 = phi i32 [ -3, %._crit_edge ], [ 1, %.sink.split ]
-  ret i32 %.013
+  %.0 = phi i32 [ -3, %._crit_edge ], [ 1, %.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -824,17 +824,17 @@ define hidden range(i32 0, 2) i32 @MuxImageDeleteNth(ptr nocapture noundef %0, i
   br i1 %.not.i.i, label %MuxImageCount.exit.i, label %.lr.ph24.i.i, !llvm.loop !13
 
 MuxImageCount.exit.i:                             ; preds = %.lr.ph24.i.i, %2
-  %.014.i = phi i32 [ %1, %2 ], [ %5, %.lr.ph24.i.i ]
+  %.015.i = phi i32 [ %1, %2 ], [ %5, %.lr.ph24.i.i ]
   %.not21.i = icmp eq ptr %.pre.i, null
   br i1 %.not21.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %MuxImageCount.exit.i
-  %8 = icmp eq i32 %.014.i, 1
+  %8 = icmp eq i32 %.015.i, 1
   br i1 %8, label %SearchImageToGetOrDelete.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %9 = add i32 %11, 1
-  %10 = icmp eq i32 %9, %.014.i
+  %10 = icmp eq i32 %9, %.015.i
   br i1 %10, label %SearchImageToGetOrDelete.exit.loopexit, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -882,17 +882,17 @@ define hidden range(i32 0, 2) i32 @MuxImageGetNth(ptr nocapture noundef readonly
   br i1 %.not.i.i, label %MuxImageCount.exit.i, label %.lr.ph24.i.i, !llvm.loop !13
 
 MuxImageCount.exit.i:                             ; preds = %.lr.ph24.i.i, %3
-  %.014.i = phi i32 [ %1, %3 ], [ %6, %.lr.ph24.i.i ]
+  %.015.i = phi i32 [ %1, %3 ], [ %6, %.lr.ph24.i.i ]
   %.not21.i = icmp eq ptr %.pre.i, null
   br i1 %.not21.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %MuxImageCount.exit.i
-  %9 = icmp eq i32 %.014.i, 1
+  %9 = icmp eq i32 %.015.i, 1
   br i1 %9, label %SearchImageToGetOrDelete.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %10 = add i32 %12, 1
-  %11 = icmp eq i32 %10, %.014.i
+  %11 = icmp eq i32 %10, %.015.i
   br i1 %11, label %SearchImageToGetOrDelete.exit, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i

@@ -259,15 +259,15 @@ define range(i32 -1, 1) i32 @H5O__debug_real(ptr noundef %0, ptr noundef %1, i64
 
 111:                                              ; preds = %.lr.ph, %151
   %112 = phi i64 [ 0, %.lr.ph ], [ %163, %151 ]
-  %.0321378 = phi i32 [ 0, %.lr.ph ], [ %162, %151 ]
-  %.0323377 = phi i64 [ 0, %.lr.ph ], [ %156, %151 ]
-  %.0324376 = phi i64 [ 0, %.lr.ph ], [ %153, %151 ]
-  %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.33, i32 noundef %4, ptr noundef nonnull @.str.3, i32 noundef %.0321378) #7
+  %.0319378 = phi i64 [ 0, %.lr.ph ], [ %153, %151 ]
+  %.0320377 = phi i64 [ 0, %.lr.ph ], [ %156, %151 ]
+  %.0323376 = phi i32 [ 0, %.lr.ph ], [ %162, %151 ]
+  %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.33, i32 noundef %4, ptr noundef nonnull @.str.3, i32 noundef %.0323376) #7
   %114 = load ptr, ptr %109, align 8
   %115 = getelementptr inbounds %struct.H5O_chunk_t, ptr %114, i64 %112
   %116 = load i64, ptr %115, align 8
   %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.34, i32 noundef %106, ptr noundef nonnull @.str.3, i32 noundef %108, ptr noundef nonnull @.str.35, i64 noundef %116) #7
-  %118 = icmp eq i32 %.0321378, 0
+  %118 = icmp eq i32 %.0323376, 0
   %119 = load ptr, ptr %109, align 8
   br i1 %118, label %120, label %148
 
@@ -319,25 +319,25 @@ define range(i32 -1, 1) i32 @H5O__debug_real(ptr noundef %0, ptr noundef %1, i64
 
 151:                                              ; preds = %148, %144
   %152 = phi ptr [ %127, %144 ], [ %119, %148 ]
-  %.0317 = phi i64 [ %147, %144 ], [ %150, %148 ]
-  %153 = add i64 %.0317, %.0324376
+  %.0321 = phi i64 [ %147, %144 ], [ %150, %148 ]
+  %153 = add i64 %.0321, %.0319378
   %154 = getelementptr inbounds %struct.H5O_chunk_t, ptr %152, i64 %112, i32 2
   %155 = load i64, ptr %154, align 8
-  %156 = add i64 %155, %.0323377
-  %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.37, i32 noundef %106, ptr noundef nonnull @.str.3, i32 noundef %108, ptr noundef nonnull @.str.38, i64 noundef %.0317) #7
+  %156 = add i64 %155, %.0320377
+  %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.37, i32 noundef %106, ptr noundef nonnull @.str.3, i32 noundef %108, ptr noundef nonnull @.str.38, i64 noundef %.0321) #7
   %158 = load ptr, ptr %109, align 8
   %159 = getelementptr inbounds %struct.H5O_chunk_t, ptr %158, i64 %112, i32 2
   %160 = load i64, ptr %159, align 8
   %161 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.37, i32 noundef %106, ptr noundef nonnull @.str.3, i32 noundef %108, ptr noundef nonnull @.str.39, i64 noundef %160) #7
-  %162 = add i32 %.0321378, 1
+  %162 = add i32 %.0323376, 1
   %163 = zext i32 %162 to i64
   %164 = load i64, ptr %100, align 8
   %165 = icmp ugt i64 %164, %163
   br i1 %165, label %111, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %151, %94
-  %.0324.lcssa = phi i64 [ 0, %94 ], [ %153, %151 ]
-  %.0323.lcssa = phi i64 [ 0, %94 ], [ %156, %151 ]
+  %.0320.lcssa = phi i64 [ 0, %94 ], [ %156, %151 ]
+  %.0319.lcssa = phi i64 [ 0, %94 ], [ %153, %151 ]
   %166 = call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #8
   %167 = icmp eq ptr %166, null
   br i1 %167, label %.thread372, label %.preheader
@@ -367,8 +367,8 @@ define range(i32 -1, 1) i32 @H5O__debug_real(ptr noundef %0, ptr noundef %1, i64
 
 181:                                              ; preds = %.lr.ph382, %425
   %182 = phi i64 [ 0, %.lr.ph382 ], [ %427, %425 ]
-  %.0318381 = phi i64 [ 0, %.lr.ph382 ], [ %.1319, %425 ]
-  %.1322380 = phi i32 [ 0, %.lr.ph382 ], [ %426, %425 ]
+  %.0381 = phi i64 [ 0, %.lr.ph382 ], [ %.1, %425 ]
+  %.1324380 = phi i32 [ 0, %.lr.ph382 ], [ %426, %425 ]
   %183 = load i8, ptr %15, align 8
   %184 = icmp eq i8 %183, 1
   br i1 %184, label %191, label %185
@@ -392,10 +392,10 @@ define range(i32 -1, 1) i32 @H5O__debug_real(ptr noundef %0, ptr noundef %1, i64
   %199 = load i32, ptr %198, align 8
   %200 = icmp eq i32 %199, 16
   %201 = select i1 %200, i64 %192, i64 0
-  %202 = add i64 %193, %.0318381
+  %202 = add i64 %193, %.0381
   %203 = add i64 %202, %197
-  %.1319 = add i64 %203, %201
-  %204 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.41, i32 noundef %4, ptr noundef nonnull @.str.3, i32 noundef %.1322380) #7
+  %.1 = add i64 %203, %201
+  %204 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.41, i32 noundef %4, ptr noundef nonnull @.str.3, i32 noundef %.1324380) #7
   %205 = load ptr, ptr %170, align 8
   %206 = getelementptr inbounds %struct.H5O_mesg_t, ptr %205, i64 %182
   %207 = load ptr, ptr %206, align 8
@@ -443,13 +443,13 @@ define range(i32 -1, 1) i32 @H5O__debug_real(ptr noundef %0, ptr noundef %1, i64
 
 234:                                              ; preds = %232, %230
   %235 = phi i8 [ %.pre393, %232 ], [ %229, %230 ]
-  %.0 = phi i8 [ 1, %232 ], [ 0, %230 ]
+  %.0317 = phi i8 [ 1, %232 ], [ 0, %230 ]
   %236 = and i8 %235, 2
   %.not347 = icmp eq i8 %236, 0
   br i1 %.not347, label %241, label %237
 
 237:                                              ; preds = %234
-  %238 = trunc nuw i8 %.0 to i1
+  %238 = trunc nuw i8 %.0317 to i1
   %239 = select i1 %238, ptr @.str.48, ptr @.str.49
   %240 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.50, ptr noundef nonnull %239) #7
   %.pre394 = load ptr, ptr %170, align 8
@@ -459,13 +459,13 @@ define range(i32 -1, 1) i32 @H5O__debug_real(ptr noundef %0, ptr noundef %1, i64
 
 241:                                              ; preds = %237, %234
   %242 = phi i8 [ %.pre396, %237 ], [ %235, %234 ]
-  %.1 = phi i8 [ 1, %237 ], [ %.0, %234 ]
+  %.1318 = phi i8 [ 1, %237 ], [ %.0317, %234 ]
   %243 = and i8 %242, 4
   %.not348 = icmp eq i8 %243, 0
   br i1 %.not348, label %248, label %244
 
 244:                                              ; preds = %241
-  %245 = trunc nuw i8 %.1 to i1
+  %245 = trunc nuw i8 %.1318 to i1
   %246 = select i1 %245, ptr @.str.48, ptr @.str.49
   %247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.51, ptr noundef nonnull %246) #7
   %.pre397 = load ptr, ptr %170, align 8
@@ -475,7 +475,7 @@ define range(i32 -1, 1) i32 @H5O__debug_real(ptr noundef %0, ptr noundef %1, i64
 
 248:                                              ; preds = %244, %241
   %249 = phi i8 [ %.pre399, %244 ], [ %242, %241 ]
-  %.2 = phi i8 [ 1, %244 ], [ %.1, %241 ]
+  %.2 = phi i8 [ 1, %244 ], [ %.1318, %241 ]
   %250 = and i8 %249, 8
   %.not349 = icmp eq i8 %250, 0
   br i1 %.not349, label %255, label %251
@@ -762,16 +762,16 @@ define range(i32 -1, 1) i32 @H5O__debug_real(ptr noundef %0, ptr noundef %1, i64
   br label %425
 
 425:                                              ; preds = %421, %423, %210
-  %426 = add i32 %.1322380, 1
+  %426 = add i32 %.1324380, 1
   %427 = zext i32 %426 to i64
   %428 = load i64, ptr %95, align 8
   %429 = icmp ugt i64 %428, %427
   br i1 %429, label %181, label %._crit_edge383
 
 ._crit_edge383:                                   ; preds = %425, %.preheader
-  %.0318.lcssa = phi i64 [ 0, %.preheader ], [ %.1319, %425 ]
-  %430 = add i64 %.0318.lcssa, %.0323.lcssa
-  %.not343 = icmp eq i64 %430, %.0324.lcssa
+  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %425 ]
+  %430 = add i64 %.0.lcssa, %.0320.lcssa
+  %.not343 = icmp eq i64 %430, %.0319.lcssa
   br i1 %.not343, label %.thread368, label %431
 
 431:                                              ; preds = %._crit_edge383
@@ -779,13 +779,13 @@ define range(i32 -1, 1) i32 @H5O__debug_real(ptr noundef %0, ptr noundef %1, i64
   br label %.thread368
 
 .thread368:                                       ; preds = %431, %._crit_edge383, %353, %409
-  %.0320370 = phi i32 [ -1, %409 ], [ -1, %353 ], [ 0, %._crit_edge383 ], [ 0, %431 ]
+  %.0322370 = phi i32 [ -1, %409 ], [ -1, %353 ], [ 0, %._crit_edge383 ], [ 0, %431 ]
   %433 = call ptr @H5MM_xfree(ptr noundef nonnull %166) #7
   br label %434
 
 434:                                              ; preds = %.thread372, %.thread368
-  %.0320371 = phi i32 [ %.0320370, %.thread368 ], [ -1, %.thread372 ]
-  ret i32 %.0320371
+  %.0322371 = phi i32 [ %.0322370, %.thread368 ], [ -1, %.thread372 ]
+  ret i32 %.0322371
 }
 
 ; Function Attrs: nofree nounwind

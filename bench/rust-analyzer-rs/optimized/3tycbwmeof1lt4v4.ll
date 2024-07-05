@@ -495,13 +495,13 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i11.i.i", %6
   %9 = phi ptr [ %spec.select.i14.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i11.i.i" ], [ null, %6 ]
   %.not7.i.i = icmp eq ptr %9, null
-  %spec.select.i.i = select i1 %.not7.i.i, i64 %.pre.i.i.i, i64 %.pre.i10.i.i
-  %spec.select8.i.i = select i1 %.not7.i.i, ptr %1, ptr %9
+  %spec.select.i.i = select i1 %.not7.i.i, ptr %1, ptr %9
+  %spec.select8.i.i = select i1 %.not7.i.i, i64 %.pre.i.i.i, i64 %.pre.i10.i.i
   br label %"_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..FnMut$LT$$LP$$RF$str$C$$RP$$GT$$GT$8call_mut17hbadcb482ed96c6acE.llvm.15991208680112502686.exit"
 
 "_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..FnMut$LT$$LP$$RF$str$C$$RP$$GT$$GT$8call_mut17hbadcb482ed96c6acE.llvm.15991208680112502686.exit": ; preds = %3, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i.i.i", %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15.i.i"
-  %.sroa.4.0.i.i = phi i64 [ %spec.select.i.i, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15.i.i" ], [ %2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i.i.i" ], [ 0, %3 ]
-  %.sroa.01.0.i.i = phi ptr [ %spec.select8.i.i, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15.i.i" ], [ %1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i.i.i" ], [ %1, %3 ]
+  %.sroa.01.0.i.i = phi ptr [ %spec.select.i.i, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15.i.i" ], [ %1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i.i.i" ], [ %1, %3 ]
+  %.sroa.4.0.i.i = phi i64 [ %spec.select8.i.i, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15.i.i" ], [ %2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i.i.i" ], [ 0, %3 ]
   %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.01.0.i.i, 0
   %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.4.0.i.i, 1
   ret { ptr, i64 } %11
@@ -1213,13 +1213,13 @@ define hidden { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops.
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15": ; preds = %6, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i11"
   %9 = phi ptr [ %spec.select.i14, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i11" ], [ null, %6 ]
   %.not7 = icmp eq ptr %9, null
-  %spec.select = select i1 %.not7, i64 %.pre.i, i64 %.pre.i10
-  %spec.select8 = select i1 %.not7, ptr %1, ptr %9
+  %spec.select = select i1 %.not7, ptr %1, ptr %9
+  %spec.select8 = select i1 %.not7, i64 %.pre.i, i64 %.pre.i10
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit.thread"
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit.thread": ; preds = %3, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i", %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15"
-  %.sroa.4.0 = phi i64 [ %spec.select, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15" ], [ %2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i" ], [ 0, %3 ]
-  %.sroa.01.0 = phi ptr [ %spec.select8, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15" ], [ %1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i" ], [ %1, %3 ]
+  %.sroa.01.0 = phi ptr [ %spec.select, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15" ], [ %1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i" ], [ %1, %3 ]
+  %.sroa.4.0 = phi i64 [ %spec.select8, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15" ], [ %2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i" ], [ 0, %3 ]
   %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.01.0, 0
   %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %11
@@ -1254,13 +1254,13 @@ define hidden { ptr, i64 } @"_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops.
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i11.i", %6
   %9 = phi ptr [ %spec.select.i14.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i11.i" ], [ null, %6 ]
   %.not7.i = icmp eq ptr %9, null
-  %spec.select.i = select i1 %.not7.i, i64 %.pre.i.i, i64 %.pre.i10.i
-  %spec.select8.i = select i1 %.not7.i, ptr %1, ptr %9
+  %spec.select.i = select i1 %.not7.i, ptr %1, ptr %9
+  %spec.select8.i = select i1 %.not7.i, i64 %.pre.i.i, i64 %.pre.i10.i
   br label %"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.15991208680112502686.exit"
 
 "_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.15991208680112502686.exit": ; preds = %3, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i.i", %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15.i"
-  %.sroa.4.0.i = phi i64 [ %spec.select.i, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15.i" ], [ %2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i.i" ], [ 0, %3 ]
-  %.sroa.01.0.i = phi ptr [ %spec.select8.i, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15.i" ], [ %1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i.i" ], [ %1, %3 ]
+  %.sroa.01.0.i = phi ptr [ %spec.select.i, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15.i" ], [ %1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i.i" ], [ %1, %3 ]
+  %.sroa.4.0.i = phi i64 [ %spec.select8.i, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit15.i" ], [ %2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb1ed1218b23cf131E.exit.i.i" ], [ 0, %3 ]
   %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.01.0.i, 0
   %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.4.0.i, 1
   ret { ptr, i64 } %11

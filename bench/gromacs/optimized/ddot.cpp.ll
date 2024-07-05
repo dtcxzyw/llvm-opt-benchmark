@@ -22,29 +22,29 @@ define double @ddot_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %13 = icmp slt i32 %8, 0
   %14 = sub nsw i32 1, %.fr100
   %15 = mul nsw i32 %8, %14
-  %.061 = select i1 %13, i32 %15, i32 0
+  %.067 = select i1 %13, i32 %15, i32 0
   %16 = icmp slt i32 %7, 0
   %17 = mul nsw i32 %14, %7
-  %.063 = select i1 %16, i32 %17, i32 0
-  %18 = sext i32 %.061 to i64
-  %19 = sext i32 %8 to i64
-  %20 = sext i32 %.063 to i64
-  %21 = sext i32 %7 to i64
+  %.065 = select i1 %16, i32 %17, i32 0
+  %18 = sext i32 %.065 to i64
+  %19 = sext i32 %7 to i64
+  %20 = sext i32 %.067 to i64
+  %21 = sext i32 %8 to i64
   br label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
   %indvars.iv94 = phi i64 [ %20, %.lr.ph84.preheader ], [ %indvars.iv.next95, %.lr.ph84 ]
   %indvars.iv92 = phi i64 [ %18, %.lr.ph84.preheader ], [ %indvars.iv.next93, %.lr.ph84 ]
   %.083 = phi double [ 0.000000e+00, %.lr.ph84.preheader ], [ %26, %.lr.ph84 ]
-  %.06580 = phi i32 [ 0, %.lr.ph84.preheader ], [ %27, %.lr.ph84 ]
-  %22 = getelementptr inbounds double, ptr %1, i64 %indvars.iv94
+  %.06282 = phi i32 [ 0, %.lr.ph84.preheader ], [ %27, %.lr.ph84 ]
+  %22 = getelementptr inbounds double, ptr %1, i64 %indvars.iv92
   %23 = load double, ptr %22, align 8
-  %24 = getelementptr inbounds double, ptr %3, i64 %indvars.iv92
+  %24 = getelementptr inbounds double, ptr %3, i64 %indvars.iv94
   %25 = load double, ptr %24, align 8
   %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %.083)
-  %27 = add nuw nsw i32 %.06580, 1
-  %indvars.iv.next95 = add nsw i64 %indvars.iv94, %21
+  %27 = add nuw nsw i32 %.06282, 1
   %indvars.iv.next93 = add nsw i64 %indvars.iv92, %19
+  %indvars.iv.next95 = add nsw i64 %indvars.iv94, %21
   %exitcond99.not = icmp eq i32 %27, %.fr100
   br i1 %exitcond99.not, label %.loopexit, label %.lr.ph84, !llvm.loop !4
 
@@ -117,8 +117,8 @@ define double @ddot_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %68, label %.lr.ph78, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph78, %.lr.ph84, %.preheader, %5
-  %.068 = phi double [ 0.000000e+00, %5 ], [ %.1.lcssa, %.preheader ], [ %26, %.lr.ph84 ], [ %66, %.lr.ph78 ]
-  ret double %.068
+  %.061 = phi double [ 0.000000e+00, %5 ], [ %.1.lcssa, %.preheader ], [ %26, %.lr.ph84 ], [ %66, %.lr.ph78 ]
+  ret double %.061
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

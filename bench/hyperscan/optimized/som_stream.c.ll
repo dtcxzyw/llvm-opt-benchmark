@@ -186,9 +186,9 @@ if.else.i25:                                      ; preds = %if.end.i19
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %if.else.i25
-  %level.i.1 = phi i32 [ 0, %if.else.i25 ], [ %level.i.1.be, %while.body.i.backedge ]
-  %key.i186.1 = phi i32 [ 0, %if.else.i25 ], [ %key.i186.1.be, %while.body.i.backedge ]
   %key_rem.i.1 = phi i64 [ 0, %if.else.i25 ], [ %key_rem.i.1.be, %while.body.i.backedge ]
+  %key.i186.1 = phi i32 [ 0, %if.else.i25 ], [ %key.i186.1.be, %while.body.i.backedge ]
+  %level.i.1 = phi i32 [ 0, %if.else.i25 ], [ %level.i.1.be, %while.body.i.backedge ]
   %cmp3.i = icmp ult i64 %key_rem.i.1, 64
   br i1 %cmp3.i, label %if.then5.i, label %if.end19.i
 
@@ -221,9 +221,9 @@ if.end17.i:                                       ; preds = %if.then11.i
   br label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %if.end17.i, %if.end23.i
-  %level.i.1.be = phi i32 [ %inc.i198, %if.end17.i ], [ %dec.i, %if.end23.i ]
-  %key.i186.1.be = phi i32 [ %add13.i, %if.end17.i ], [ %shr28.i, %if.end23.i ]
   %key_rem.i.1.be = phi i64 [ 0, %if.end17.i ], [ %add26.i, %if.end23.i ]
+  %key.i186.1.be = phi i32 [ %add13.i, %if.end17.i ], [ %shr28.i, %if.end23.i ]
+  %level.i.1.be = phi i32 [ %inc.i198, %if.end17.i ], [ %dec.i, %if.end23.i ]
   br label %while.body.i
 
 if.end19.i:                                       ; preds = %if.then5.i, %while.body.i
@@ -550,9 +550,9 @@ if.else.i:                                        ; preds = %if.end2.i
   br label %while.body.i216
 
 while.body.i216:                                  ; preds = %while.body.i216.backedge, %if.else.i
-  %level.i208.1 = phi i32 [ %conv.i547, %if.else.i ], [ %level.i208.1.be, %while.body.i216.backedge ]
-  %key.i209.1 = phi i32 [ %shr.i249, %if.else.i ], [ %key.i209.1.be, %while.body.i216.backedge ]
   %key_rem.i210.1 = phi i32 [ %add.i252, %if.else.i ], [ %key_rem.i210.1.be, %while.body.i216.backedge ]
+  %key.i209.1 = phi i32 [ %shr.i249, %if.else.i ], [ %key.i209.1.be, %while.body.i216.backedge ]
+  %level.i208.1 = phi i32 [ %conv.i547, %if.else.i ], [ %level.i208.1.be, %while.body.i216.backedge ]
   %cmp3.i218 = icmp ult i32 %key_rem.i210.1, 64
   br i1 %cmp3.i218, label %if.then5.i229, label %if.end19.i219
 
@@ -586,9 +586,9 @@ if.end17.i246:                                    ; preds = %if.then11.i240
   br label %while.body.i216.backedge
 
 while.body.i216.backedge:                         ; preds = %if.end17.i246, %if.end23.i222
-  %level.i208.1.be = phi i32 [ %inc.i244, %if.end17.i246 ], [ %dec.i220, %if.end23.i222 ]
-  %key.i209.1.be = phi i32 [ %add13.i243, %if.end17.i246 ], [ %shr28.i227, %if.end23.i222 ]
   %key_rem.i210.1.be = phi i32 [ 0, %if.end17.i246 ], [ %narrow201, %if.end23.i222 ]
+  %key.i209.1.be = phi i32 [ %add13.i243, %if.end17.i246 ], [ %shr28.i227, %if.end23.i222 ]
+  %level.i208.1.be = phi i32 [ %inc.i244, %if.end17.i246 ], [ %dec.i220, %if.end23.i222 ]
   br label %while.body.i216
 
 if.end19.i219:                                    ; preds = %if.then5.i229, %while.body.i216
@@ -792,9 +792,9 @@ if.else.i26:                                      ; preds = %if.end.i20
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %if.else.i26
-  %level.i.1 = phi i32 [ 0, %if.else.i26 ], [ %level.i.1.be, %while.body.i.backedge ]
-  %key.i185.1 = phi i32 [ 0, %if.else.i26 ], [ %key.i185.1.be, %while.body.i.backedge ]
   %key_rem.i.1 = phi i64 [ 0, %if.else.i26 ], [ %key_rem.i.1.be, %while.body.i.backedge ]
+  %key.i185.1 = phi i32 [ 0, %if.else.i26 ], [ %key.i185.1.be, %while.body.i.backedge ]
+  %level.i.1 = phi i32 [ 0, %if.else.i26 ], [ %level.i.1.be, %while.body.i.backedge ]
   %cmp3.i = icmp ult i64 %key_rem.i.1, 64
   br i1 %cmp3.i, label %if.then5.i, label %if.end19.i
 
@@ -827,9 +827,9 @@ if.end17.i:                                       ; preds = %if.then11.i
   br label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %if.end17.i, %if.end23.i
-  %level.i.1.be = phi i32 [ %inc.i196, %if.end17.i ], [ %dec.i, %if.end23.i ]
-  %key.i185.1.be = phi i32 [ %add13.i, %if.end17.i ], [ %shr28.i, %if.end23.i ]
   %key_rem.i.1.be = phi i64 [ 0, %if.end17.i ], [ %add26.i, %if.end23.i ]
+  %key.i185.1.be = phi i32 [ %add13.i, %if.end17.i ], [ %shr28.i, %if.end23.i ]
+  %level.i.1.be = phi i32 [ %inc.i196, %if.end17.i ], [ %dec.i, %if.end23.i ]
   br label %while.body.i
 
 if.end19.i:                                       ; preds = %if.then5.i, %while.body.i
@@ -1263,9 +1263,9 @@ if.end2.i:                                        ; preds = %loadSomValue.exit
   br label %while.body.i215
 
 while.body.i215:                                  ; preds = %while.body.i215.backedge, %if.end2.i
-  %level.i207.1 = phi i32 [ %conv.i546, %if.end2.i ], [ %level.i207.1.be, %while.body.i215.backedge ]
-  %key.i208.1 = phi i32 [ %shr.i248, %if.end2.i ], [ %key.i208.1.be, %while.body.i215.backedge ]
   %key_rem.i209.1 = phi i32 [ %add.i251, %if.end2.i ], [ %key_rem.i209.1.be, %while.body.i215.backedge ]
+  %key.i208.1 = phi i32 [ %shr.i248, %if.end2.i ], [ %key.i208.1.be, %while.body.i215.backedge ]
+  %level.i207.1 = phi i32 [ %conv.i546, %if.end2.i ], [ %level.i207.1.be, %while.body.i215.backedge ]
   %cmp3.i217 = icmp ult i32 %key_rem.i209.1, 64
   br i1 %cmp3.i217, label %if.then5.i228, label %if.end19.i218
 
@@ -1299,9 +1299,9 @@ if.end17.i245:                                    ; preds = %if.then11.i239
   br label %while.body.i215.backedge
 
 while.body.i215.backedge:                         ; preds = %if.end17.i245, %if.end23.i221
-  %level.i207.1.be = phi i32 [ %inc.i243, %if.end17.i245 ], [ %dec.i219, %if.end23.i221 ]
-  %key.i208.1.be = phi i32 [ %add13.i242, %if.end17.i245 ], [ %shr28.i226, %if.end23.i221 ]
   %key_rem.i209.1.be = phi i32 [ 0, %if.end17.i245 ], [ %narrow191, %if.end23.i221 ]
+  %key.i208.1.be = phi i32 [ %add13.i242, %if.end17.i245 ], [ %shr28.i226, %if.end23.i221 ]
+  %level.i207.1.be = phi i32 [ %inc.i243, %if.end17.i245 ], [ %dec.i219, %if.end23.i221 ]
   br label %while.body.i215
 
 if.end19.i218:                                    ; preds = %if.then5.i228, %while.body.i215

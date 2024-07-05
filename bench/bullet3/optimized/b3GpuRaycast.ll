@@ -636,10 +636,10 @@ for.cond:                                         ; preds = %if.end29
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %curHitNormal.sroa.0.036 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %curHitNormal.sroa.0.1, %for.cond ]
+  %exitFraction.037 = phi float [ %1, %for.body.lr.ph ], [ %exitFraction.1, %for.cond ]
+  %enterFraction.036 = phi float [ 0xBFB99999A0000000, %for.body.lr.ph ], [ %enterFraction.1, %for.cond ]
   %curHitNormal.sroa.3.035 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %curHitNormal.sroa.3.1, %for.cond ]
-  %enterFraction.034 = phi float [ 0xBFB99999A0000000, %for.body.lr.ph ], [ %enterFraction.1, %for.cond ]
-  %exitFraction.033 = phi float [ %1, %for.body.lr.ph ], [ %exitFraction.1, %for.cond ]
+  %curHitNormal.sroa.0.034 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %curHitNormal.sroa.0.1, %for.cond ]
   %gep = getelementptr %struct.b3GpuFace, ptr %invariant.gep, i64 %indvars.iv
   %11 = load float, ptr %gep, align 16
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %gep, i64 4
@@ -666,7 +666,7 @@ if.then:                                          ; preds = %for.body
 if.then13:                                        ; preds = %if.then
   %sub = fsub float %add5, %add10
   %div = fdiv float %add5, %sub
-  %cmp14 = fcmp ogt float %exitFraction.033, %div
+  %cmp14 = fcmp ogt float %exitFraction.037, %div
   br i1 %cmp14, label %if.then15, label %if.end29
 
 if.then15:                                        ; preds = %if.then13
@@ -679,7 +679,7 @@ if.else:                                          ; preds = %for.body
 if.then18:                                        ; preds = %if.else
   %sub20 = fsub float %add5, %add10
   %div21 = fdiv float %add5, %sub20
-  %cmp22 = fcmp ugt float %enterFraction.034, %div21
+  %cmp22 = fcmp ugt float %enterFraction.036, %div21
   br i1 %cmp22, label %if.end29, label %if.then23
 
 if.then23:                                        ; preds = %if.then18
@@ -689,10 +689,10 @@ if.then23:                                        ; preds = %if.then18
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then23, %if.then18, %if.then, %if.then15, %if.then13
-  %exitFraction.1 = phi float [ %div, %if.then15 ], [ %exitFraction.033, %if.then13 ], [ %exitFraction.033, %if.then ], [ %exitFraction.033, %if.then23 ], [ %exitFraction.033, %if.then18 ]
-  %enterFraction.1 = phi float [ %enterFraction.034, %if.then15 ], [ %enterFraction.034, %if.then13 ], [ %enterFraction.034, %if.then ], [ %div21, %if.then23 ], [ %enterFraction.034, %if.then18 ]
+  %curHitNormal.sroa.0.1 = phi <2 x float> [ %curHitNormal.sroa.0.034, %if.then15 ], [ %curHitNormal.sroa.0.034, %if.then13 ], [ %curHitNormal.sroa.0.034, %if.then ], [ %curHitNormal.sroa.0.0.copyload, %if.then23 ], [ %curHitNormal.sroa.0.034, %if.then18 ]
   %curHitNormal.sroa.3.1 = phi <2 x float> [ %curHitNormal.sroa.3.035, %if.then15 ], [ %curHitNormal.sroa.3.035, %if.then13 ], [ %curHitNormal.sroa.3.035, %if.then ], [ %curHitNormal.sroa.3.12.vec.insert, %if.then23 ], [ %curHitNormal.sroa.3.035, %if.then18 ]
-  %curHitNormal.sroa.0.1 = phi <2 x float> [ %curHitNormal.sroa.0.036, %if.then15 ], [ %curHitNormal.sroa.0.036, %if.then13 ], [ %curHitNormal.sroa.0.036, %if.then ], [ %curHitNormal.sroa.0.0.copyload, %if.then23 ], [ %curHitNormal.sroa.0.036, %if.then18 ]
+  %enterFraction.1 = phi float [ %enterFraction.036, %if.then15 ], [ %enterFraction.036, %if.then13 ], [ %enterFraction.036, %if.then ], [ %div21, %if.then23 ], [ %enterFraction.036, %if.then18 ]
+  %exitFraction.1 = phi float [ %div, %if.then15 ], [ %exitFraction.037, %if.then13 ], [ %exitFraction.037, %if.then ], [ %exitFraction.037, %if.then23 ], [ %exitFraction.037, %if.then18 ]
   %cmp30 = fcmp ugt float %exitFraction.1, %enterFraction.1
   br i1 %cmp30, label %for.cond, label %return
 
@@ -735,8 +735,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc90
   %indvars.iv256 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next257, %for.inc90 ]
-  %hitNormal.sroa.0.0240 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %hitNormal.sroa.0.1.lcssa267, %for.inc90 ]
-  %hitNormal.sroa.3.0239 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %hitNormal.sroa.3.1.lcssa266, %for.inc90 ]
+  %hitNormal.sroa.3.0253 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %hitNormal.sroa.3.1.lcssa267, %for.inc90 ]
+  %hitNormal.sroa.0.0252 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %hitNormal.sroa.0.1.lcssa266, %for.inc90 ]
   %1 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.b3RayInfo, ptr %1, i64 %indvars.iv256
   %rayFrom.sroa.0.0.copyload = load float, ptr %arrayidx.i, align 16
@@ -768,9 +768,9 @@ for.body10.lr.ph:                                 ; preds = %for.body
 for.body10:                                       ; preds = %for.body10.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body10.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %hitBodyIndex.0221 = phi i32 [ -1, %for.body10.lr.ph ], [ %hitBodyIndex.2, %for.inc ]
-  %hitNormal.sroa.0.1204 = phi <2 x float> [ %hitNormal.sroa.0.0240, %for.body10.lr.ph ], [ %hitNormal.sroa.0.4, %for.inc ]
-  %hitNormal.sroa.3.1203 = phi <2 x float> [ %hitNormal.sroa.3.0239, %for.body10.lr.ph ], [ %hitNormal.sroa.3.4, %for.inc ]
-  %hitFraction.0202 = phi float [ %3, %for.body10.lr.ph ], [ %hitFraction.4, %for.inc ]
+  %hitFraction.0217 = phi float [ %3, %for.body10.lr.ph ], [ %hitFraction.4, %for.inc ]
+  %hitNormal.sroa.3.1216 = phi <2 x float> [ %hitNormal.sroa.3.0253, %for.body10.lr.ph ], [ %hitNormal.sroa.3.4, %for.inc ]
+  %hitNormal.sroa.0.1215 = phi <2 x float> [ %hitNormal.sroa.0.0252, %for.body10.lr.ph ], [ %hitNormal.sroa.0.4, %for.inc ]
   %arrayidx = getelementptr inbounds %struct.b3RigidBodyData, ptr %bodies, i64 %indvars.iv
   %m_collidableIdx = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %7 = load i32, ptr %m_collidableIdx, align 16
@@ -833,7 +833,7 @@ if.then.i:                                        ; preds = %sw.bb
   %sub.i = fsub float %fneg.i, %call.i.i
   %div.i = fdiv float %sub.i, %5
   %cmp11.i = fcmp oge float %div.i, 0.000000e+00
-  %cmp12.i = fcmp olt float %div.i, %hitFraction.0202
+  %cmp12.i = fcmp olt float %div.i, %hitFraction.0217
   %or.cond.i = select i1 %cmp11.i, i1 %cmp12.i, i1 false
   %convexWorldTransform.sroa.27.48.copyload.pre259 = load float, ptr %arrayidx, align 16
   br i1 %or.cond.i, label %invoke.cont35, label %invoke.cont52
@@ -880,9 +880,9 @@ invoke.cont35:                                    ; preds = %if.then.i
 
 invoke.cont52:                                    ; preds = %for.body10.invoke.cont52_crit_edge, %sw.bb, %if.then.i, %invoke.cont35
   %convexWorldTransform.sroa.27.48.copyload = phi float [ %convexWorldTransform.sroa.27.48.copyload.pre, %for.body10.invoke.cont52_crit_edge ], [ %convexWorldTransform.sroa.27.48.copyload.pre259, %invoke.cont35 ], [ %convexWorldTransform.sroa.27.48.copyload.pre259, %if.then.i ], [ %14, %sw.bb ]
-  %hitFraction.2 = phi float [ %hitFraction.0202, %for.body10.invoke.cont52_crit_edge ], [ %div.i, %invoke.cont35 ], [ %hitFraction.0202, %if.then.i ], [ %hitFraction.0202, %sw.bb ]
-  %hitNormal.sroa.3.2 = phi <2 x float> [ %hitNormal.sroa.3.1203, %for.body10.invoke.cont52_crit_edge ], [ %ref.tmp.sroa.6.8.vec.insert, %invoke.cont35 ], [ %hitNormal.sroa.3.1203, %if.then.i ], [ %hitNormal.sroa.3.1203, %sw.bb ]
-  %hitNormal.sroa.0.2 = phi <2 x float> [ %hitNormal.sroa.0.1204, %for.body10.invoke.cont52_crit_edge ], [ %46, %invoke.cont35 ], [ %hitNormal.sroa.0.1204, %if.then.i ], [ %hitNormal.sroa.0.1204, %sw.bb ]
+  %hitNormal.sroa.0.2 = phi <2 x float> [ %hitNormal.sroa.0.1215, %for.body10.invoke.cont52_crit_edge ], [ %46, %invoke.cont35 ], [ %hitNormal.sroa.0.1215, %if.then.i ], [ %hitNormal.sroa.0.1215, %sw.bb ]
+  %hitNormal.sroa.3.2 = phi <2 x float> [ %hitNormal.sroa.3.1216, %for.body10.invoke.cont52_crit_edge ], [ %ref.tmp.sroa.6.8.vec.insert, %invoke.cont35 ], [ %hitNormal.sroa.3.1216, %if.then.i ], [ %hitNormal.sroa.3.1216, %sw.bb ]
+  %hitFraction.2 = phi float [ %hitFraction.0217, %for.body10.invoke.cont52_crit_edge ], [ %div.i, %invoke.cont35 ], [ %hitFraction.0217, %if.then.i ], [ %hitFraction.0217, %sw.bb ]
   %hitBodyIndex.1 = phi i32 [ %hitBodyIndex.0221, %for.body10.invoke.cont52_crit_edge ], [ %47, %invoke.cont35 ], [ %hitBodyIndex.0221, %if.then.i ], [ %hitBodyIndex.0221, %sw.bb ]
   %convexWorldTransform.sroa.29.48.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %convexWorldTransform.sroa.29.48.copyload = load float, ptr %convexWorldTransform.sroa.29.48.arrayidx.sroa_idx, align 4
@@ -989,10 +989,10 @@ for.cond.i:                                       ; preds = %if.end29.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %curHitNormal.sroa.0.036.i = phi <2 x float> [ zeroinitializer, %for.body.lr.ph.i ], [ %curHitNormal.sroa.0.1.i, %for.cond.i ]
+  %exitFraction.037.i = phi float [ %hitFraction.2, %for.body.lr.ph.i ], [ %exitFraction.1.i, %for.cond.i ]
+  %enterFraction.036.i = phi float [ 0xBFB99999A0000000, %for.body.lr.ph.i ], [ %enterFraction.1.i, %for.cond.i ]
   %curHitNormal.sroa.3.035.i = phi <2 x float> [ zeroinitializer, %for.body.lr.ph.i ], [ %curHitNormal.sroa.3.1.i, %for.cond.i ]
-  %enterFraction.034.i = phi float [ 0xBFB99999A0000000, %for.body.lr.ph.i ], [ %enterFraction.1.i, %for.cond.i ]
-  %exitFraction.033.i = phi float [ %hitFraction.2, %for.body.lr.ph.i ], [ %exitFraction.1.i, %for.cond.i ]
+  %curHitNormal.sroa.0.034.i = phi <2 x float> [ zeroinitializer, %for.body.lr.ph.i ], [ %curHitNormal.sroa.0.1.i, %for.cond.i ]
   %gep.i = getelementptr %struct.b3GpuFace, ptr %invariant.gep.i, i64 %indvars.iv.i
   %81 = load float, ptr %gep.i, align 16
   %arrayidx4.i.i.i108 = getelementptr inbounds i8, ptr %gep.i, i64 4
@@ -1019,7 +1019,7 @@ if.then.i112:                                     ; preds = %for.body.i
 if.then13.i114:                                   ; preds = %if.then.i112
   %sub.i115 = fsub float %add5.i, %add10.i
   %div.i116 = fdiv float %add5.i, %sub.i115
-  %cmp14.i = fcmp ogt float %exitFraction.033.i, %div.i116
+  %cmp14.i = fcmp ogt float %exitFraction.037.i, %div.i116
   br i1 %cmp14.i, label %if.then15.i, label %if.end29.i
 
 if.then15.i:                                      ; preds = %if.then13.i114
@@ -1032,7 +1032,7 @@ if.else.i:                                        ; preds = %for.body.i
 if.then18.i:                                      ; preds = %if.else.i
   %sub20.i = fsub float %add5.i, %add10.i
   %div21.i = fdiv float %add5.i, %sub20.i
-  %cmp22.i = fcmp ugt float %enterFraction.034.i, %div21.i
+  %cmp22.i = fcmp ugt float %enterFraction.036.i, %div21.i
   br i1 %cmp22.i, label %if.end29.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.then18.i
@@ -1042,10 +1042,10 @@ if.then23.i:                                      ; preds = %if.then18.i
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then23.i, %if.then18.i, %if.then15.i, %if.then13.i114, %if.then.i112
-  %exitFraction.1.i = phi float [ %div.i116, %if.then15.i ], [ %exitFraction.033.i, %if.then13.i114 ], [ %exitFraction.033.i, %if.then.i112 ], [ %exitFraction.033.i, %if.then23.i ], [ %exitFraction.033.i, %if.then18.i ]
-  %enterFraction.1.i = phi float [ %enterFraction.034.i, %if.then15.i ], [ %enterFraction.034.i, %if.then13.i114 ], [ %enterFraction.034.i, %if.then.i112 ], [ %div21.i, %if.then23.i ], [ %enterFraction.034.i, %if.then18.i ]
+  %curHitNormal.sroa.0.1.i = phi <2 x float> [ %curHitNormal.sroa.0.034.i, %if.then15.i ], [ %curHitNormal.sroa.0.034.i, %if.then13.i114 ], [ %curHitNormal.sroa.0.034.i, %if.then.i112 ], [ %curHitNormal.sroa.0.0.copyload.i, %if.then23.i ], [ %curHitNormal.sroa.0.034.i, %if.then18.i ]
   %curHitNormal.sroa.3.1.i = phi <2 x float> [ %curHitNormal.sroa.3.035.i, %if.then15.i ], [ %curHitNormal.sroa.3.035.i, %if.then13.i114 ], [ %curHitNormal.sroa.3.035.i, %if.then.i112 ], [ %curHitNormal.sroa.3.12.vec.insert.i, %if.then23.i ], [ %curHitNormal.sroa.3.035.i, %if.then18.i ]
-  %curHitNormal.sroa.0.1.i = phi <2 x float> [ %curHitNormal.sroa.0.036.i, %if.then15.i ], [ %curHitNormal.sroa.0.036.i, %if.then13.i114 ], [ %curHitNormal.sroa.0.036.i, %if.then.i112 ], [ %curHitNormal.sroa.0.0.copyload.i, %if.then23.i ], [ %curHitNormal.sroa.0.036.i, %if.then18.i ]
+  %enterFraction.1.i = phi float [ %enterFraction.036.i, %if.then15.i ], [ %enterFraction.036.i, %if.then13.i114 ], [ %enterFraction.036.i, %if.then.i112 ], [ %div21.i, %if.then23.i ], [ %enterFraction.036.i, %if.then18.i ]
+  %exitFraction.1.i = phi float [ %div.i116, %if.then15.i ], [ %exitFraction.037.i, %if.then13.i114 ], [ %exitFraction.037.i, %if.then.i112 ], [ %exitFraction.037.i, %if.then23.i ], [ %exitFraction.037.i, %if.then18.i ]
   %cmp30.i = fcmp ugt float %exitFraction.1.i, %enterFraction.1.i
   br i1 %cmp30.i, label %for.cond.i, label %invoke.cont63.thread
 
@@ -1071,10 +1071,10 @@ invoke.cont68:                                    ; preds = %if.then67
           to label %for.inc unwind label %lpad
 
 for.inc:                                          ; preds = %invoke.cont63.thread, %for.end.i, %invoke.cont68, %sw.default
-  %hitFraction.4 = phi float [ %hitFraction.0202, %sw.default ], [ %hitFraction.0202, %invoke.cont68 ], [ %hitFraction.2, %invoke.cont63.thread ], [ %enterFraction.1.i, %for.end.i ]
-  %hitNormal.sroa.3.4 = phi <2 x float> [ %hitNormal.sroa.3.1203, %sw.default ], [ %hitNormal.sroa.3.1203, %invoke.cont68 ], [ %hitNormal.sroa.3.2, %invoke.cont63.thread ], [ %curHitNormal.sroa.3.1.i, %for.end.i ]
-  %hitNormal.sroa.0.4 = phi <2 x float> [ %hitNormal.sroa.0.1204, %sw.default ], [ %hitNormal.sroa.0.1204, %invoke.cont68 ], [ %hitNormal.sroa.0.2, %invoke.cont63.thread ], [ %curHitNormal.sroa.0.1.i, %for.end.i ]
-  %hitBodyIndex.2 = phi i32 [ %hitBodyIndex.0221, %sw.default ], [ %hitBodyIndex.0221, %invoke.cont68 ], [ %hitBodyIndex.1, %invoke.cont63.thread ], [ %89, %for.end.i ]
+  %hitNormal.sroa.0.4 = phi <2 x float> [ %hitNormal.sroa.0.1215, %sw.default ], [ %hitNormal.sroa.0.1215, %invoke.cont68 ], [ %curHitNormal.sroa.0.1.i, %for.end.i ], [ %hitNormal.sroa.0.2, %invoke.cont63.thread ]
+  %hitNormal.sroa.3.4 = phi <2 x float> [ %hitNormal.sroa.3.1216, %sw.default ], [ %hitNormal.sroa.3.1216, %invoke.cont68 ], [ %curHitNormal.sroa.3.1.i, %for.end.i ], [ %hitNormal.sroa.3.2, %invoke.cont63.thread ]
+  %hitFraction.4 = phi float [ %hitFraction.0217, %sw.default ], [ %hitFraction.0217, %invoke.cont68 ], [ %enterFraction.1.i, %for.end.i ], [ %hitFraction.2, %invoke.cont63.thread ]
+  %hitBodyIndex.2 = phi i32 [ %hitBodyIndex.0221, %sw.default ], [ %hitBodyIndex.0221, %invoke.cont68 ], [ %89, %for.end.i ], [ %hitBodyIndex.1, %invoke.cont63.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body10, !llvm.loop !7
@@ -1125,8 +1125,8 @@ if.then72:                                        ; preds = %for.end
   br label %for.inc90
 
 for.inc90:                                        ; preds = %for.body, %for.end, %if.then72
-  %hitNormal.sroa.0.1.lcssa267 = phi <2 x float> [ %hitNormal.sroa.0.4, %for.end ], [ %hitNormal.sroa.0.4, %if.then72 ], [ %hitNormal.sroa.0.0240, %for.body ]
-  %hitNormal.sroa.3.1.lcssa266 = phi <2 x float> [ %hitNormal.sroa.3.4, %for.end ], [ %hitNormal.sroa.3.4, %if.then72 ], [ %hitNormal.sroa.3.0239, %for.body ]
+  %hitNormal.sroa.3.1.lcssa267 = phi <2 x float> [ %hitNormal.sroa.3.4, %for.end ], [ %hitNormal.sroa.3.4, %if.then72 ], [ %hitNormal.sroa.3.0253, %for.body ]
+  %hitNormal.sroa.0.1.lcssa266 = phi <2 x float> [ %hitNormal.sroa.0.4, %for.end ], [ %hitNormal.sroa.0.4, %if.then72 ], [ %hitNormal.sroa.0.0252, %for.body ]
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %104 = load i32, ptr %m_size.i, align 4
   %105 = sext i32 %104 to i64

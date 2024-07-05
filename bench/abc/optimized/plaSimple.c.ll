@@ -245,9 +245,9 @@ Vec_IntCountZero.exit:                            ; preds = %8, %4, %14
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
-  %.080106 = phi i32 [ %27, %.lr.ph ], [ 0, %19 ]
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.14, i32 noundef %.080106) #15
-  %27 = add nuw nsw i32 %.080106, 1
+  %.0106 = phi i32 [ %27, %.lr.ph ], [ 0, %19 ]
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.14, i32 noundef %.0106) #15
+  %27 = add nuw nsw i32 %.0106, 1
   %exitcond.not = icmp eq i32 %27, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
@@ -262,9 +262,9 @@ Vec_IntCountZero.exit:                            ; preds = %8, %4, %14
   br i1 %31, label %.lr.ph110, label %._crit_edge111
 
 .lr.ph110:                                        ; preds = %._crit_edge, %.lr.ph110
-  %.181108 = phi i32 [ %33, %.lr.ph110 ], [ 0, %._crit_edge ]
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.14, i32 noundef %.181108) #15
-  %33 = add nuw nsw i32 %.181108, 1
+  %.1108 = phi i32 [ %33, %.lr.ph110 ], [ 0, %._crit_edge ]
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.14, i32 noundef %.1108) #15
+  %33 = add nuw nsw i32 %.1108, 1
   %.val91 = load i32, ptr %30, align 4
   %34 = icmp slt i32 %33, %.val91
   br i1 %34, label %.lr.ph110, label %._crit_edge111, !llvm.loop !10
@@ -561,13 +561,13 @@ define noalias noundef ptr @Pla_ManFxMinimize(ptr nocapture noundef readonly %0,
 28:                                               ; preds = %.lr.ph, %122
   %29 = phi i32 [ 0, %.lr.ph ], [ %123, %122 ]
   %30 = phi i32 [ 0, %.lr.ph ], [ %124, %122 ]
-  %.0100148 = phi i32 [ 0, %.lr.ph ], [ %126, %122 ]
+  %.0148 = phi i32 [ 0, %.lr.ph ], [ %126, %122 ]
   %31 = phi i32 [ 0, %.lr.ph ], [ %125, %122 ]
-  %32 = lshr i32 %.0100148, 6
+  %32 = lshr i32 %.0148, 6
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds i64, ptr %0, i64 %33
   %35 = load i64, ptr %34, align 8
-  %36 = and i32 %.0100148, 63
+  %36 = and i32 %.0148, 63
   %37 = zext nneg i32 %36 to i64
   %38 = shl nuw i64 1, %37
   %39 = and i64 %35, %38
@@ -594,7 +594,7 @@ Pla_ManExpendDirNum.exit.thread:                  ; preds = %44
   %.011.i = phi i32 [ %.1.i, %61 ], [ 0, %44 ]
   %.0910.i = phi i32 [ %62, %61 ], [ 0, %44 ]
   %47 = shl nuw i32 1, %.0910.i
-  %48 = xor i32 %47, %.0100148
+  %48 = xor i32 %47, %.0148
   %49 = ashr i32 %48, 6
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i64, ptr %0, i64 %50
@@ -635,7 +635,7 @@ Pla_ManExpendDirNum.exit:                         ; preds = %61
   %68 = or i64 %42, %38
   store i64 %68, ptr %41, align 8
   %69 = add nsw i32 %31, 1
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %18, i32 noundef %.0100148, i32 noundef -1)
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %18, i32 noundef %.0148, i32 noundef -1)
   br label %122
 
 70:                                               ; preds = %Pla_ManExpendDirNum.exit
@@ -643,7 +643,7 @@ Pla_ManExpendDirNum.exit:                         ; preds = %61
   store i64 %71, ptr %41, align 8
   %72 = load i32, ptr %5, align 16
   %73 = shl nuw i32 1, %72
-  %74 = xor i32 %73, %.0100148
+  %74 = xor i32 %73, %.0148
   %75 = and i32 %74, 63
   %76 = zext nneg i32 %75 to i64
   %77 = shl nuw i64 1, %76
@@ -654,7 +654,7 @@ Pla_ManExpendDirNum.exit:                         ; preds = %61
   %82 = or i64 %77, %81
   store i64 %82, ptr %80, align 8
   %83 = add nsw i32 %29, 1
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %18, i32 noundef %.0100148, i32 noundef %72)
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %18, i32 noundef %.0148, i32 noundef %72)
   br label %122
 
 84:                                               ; preds = %Pla_ManExpendDirNum.exit
@@ -662,7 +662,7 @@ Pla_ManExpendDirNum.exit:                         ; preds = %61
   %86 = shl nuw i32 1, %85
   %87 = load i32, ptr %23, align 4
   %88 = shl nuw i32 1, %87
-  %89 = xor i32 %86, %.0100148
+  %89 = xor i32 %86, %.0148
   %90 = xor i32 %89, %88
   %91 = ashr i32 %90, 6
   %92 = sext i32 %91 to i64
@@ -687,7 +687,7 @@ Pla_ManExpendDirNum.exit:                         ; preds = %61
   %107 = load i64, ptr %106, align 8
   %108 = or i64 %107, %103
   store i64 %108, ptr %106, align 8
-  %109 = xor i32 %88, %.0100148
+  %109 = xor i32 %88, %.0148
   %110 = and i32 %109, 63
   %111 = zext nneg i32 %110 to i64
   %112 = shl nuw i64 1, %111
@@ -708,18 +708,18 @@ Pla_ManExpendDirNum.exit:                         ; preds = %61
   %123 = phi i32 [ %29, %Pla_ManExpendDirNum.exit ], [ %29, %28 ], [ %29, %40 ], [ %29, %84 ], [ %29, %99 ], [ %83, %70 ], [ %29, %67 ]
   %124 = phi i32 [ %30, %Pla_ManExpendDirNum.exit ], [ %30, %28 ], [ %30, %40 ], [ %30, %84 ], [ %121, %99 ], [ %30, %70 ], [ %30, %67 ]
   %125 = phi i32 [ %31, %Pla_ManExpendDirNum.exit ], [ %31, %28 ], [ %31, %40 ], [ %31, %84 ], [ %31, %99 ], [ %31, %70 ], [ %69, %67 ]
-  %126 = add nuw nsw i32 %.0100148, 1
+  %126 = add nuw nsw i32 %.0148, 1
   %exitcond.not = icmp eq i32 %126, %smax
   br i1 %exitcond.not, label %.preheader, label %28, !llvm.loop !17
 
 127:                                              ; preds = %.lr.ph159, %193
   %128 = phi i32 [ 0, %.lr.ph159 ], [ %194, %193 ]
-  %.1101158 = phi i32 [ 0, %.lr.ph159 ], [ %195, %193 ]
-  %129 = lshr i32 %.1101158, 6
+  %.1158 = phi i32 [ 0, %.lr.ph159 ], [ %195, %193 ]
+  %129 = lshr i32 %.1158, 6
   %130 = zext nneg i32 %129 to i64
   %131 = getelementptr inbounds i64, ptr %0, i64 %130
   %132 = load i64, ptr %131, align 8
-  %133 = and i32 %.1101158, 63
+  %133 = and i32 %.1158, 63
   %134 = zext nneg i32 %133 to i64
   %135 = shl nuw i64 1, %134
   %136 = and i64 %132, %135
@@ -740,7 +740,7 @@ Pla_ManExpendDirNum.exit:                         ; preds = %61
   %.011.i125 = phi i32 [ %.1.i128, %156 ], [ 0, %141 ]
   %.0910.i126 = phi i32 [ %157, %156 ], [ 0, %141 ]
   %142 = shl nuw i32 1, %.0910.i126
-  %143 = xor i32 %142, %.1101158
+  %143 = xor i32 %142, %.1158
   %144 = ashr i32 %143, 6
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds i64, ptr %0, i64 %145
@@ -778,7 +778,7 @@ Pla_ManExpendDirNum.exit130:                      ; preds = %156
   %159 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %indvars.iv
   %160 = load i32, ptr %159, align 4
   %161 = shl nuw i32 1, %160
-  %162 = xor i32 %161, %.1101158
+  %162 = xor i32 %161, %.1158
   %163 = ashr i32 %162, 6
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds i64, ptr %0, i64 %164
@@ -808,16 +808,16 @@ Pla_ManExpendDirNum.exit130:                      ; preds = %156
 
 ._crit_edge:                                      ; preds = %175, %._crit_edge.loopexit.split.loop.exit, %141, %Pla_ManExpendDirNum.exit130
   %.0.lcssa.i123202 = phi i32 [ %.1.i128, %Pla_ManExpendDirNum.exit130 ], [ 0, %141 ], [ %.1.i128, %._crit_edge.loopexit.split.loop.exit ], [ %.1.i128, %175 ]
-  %.0.lcssa = phi i32 [ 0, %Pla_ManExpendDirNum.exit130 ], [ 0, %141 ], [ %176, %._crit_edge.loopexit.split.loop.exit ], [ %.1.i128, %175 ]
-  %177 = icmp eq i32 %.0.lcssa, %.0.lcssa.i123202
-  %spec.store.select = select i1 %177, i32 0, i32 %.0.lcssa
+  %.0100.lcssa = phi i32 [ 0, %Pla_ManExpendDirNum.exit130 ], [ 0, %141 ], [ %176, %._crit_edge.loopexit.split.loop.exit ], [ %.1.i128, %175 ]
+  %177 = icmp eq i32 %.0100.lcssa, %.0.lcssa.i123202
+  %spec.store.select = select i1 %177, i32 0, i32 %.0100.lcssa
   %178 = or i64 %139, %135
   store i64 %178, ptr %138, align 8
   %179 = zext nneg i32 %spec.store.select to i64
   %180 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %179
   %181 = load i32, ptr %180, align 4
   %182 = shl nuw i32 1, %181
-  %183 = xor i32 %182, %.1101158
+  %183 = xor i32 %182, %.1158
   %184 = and i32 %183, 63
   %185 = zext nneg i32 %184 to i64
   %186 = shl nuw i64 1, %185
@@ -828,12 +828,12 @@ Pla_ManExpendDirNum.exit130:                      ; preds = %156
   %191 = or i64 %186, %190
   store i64 %191, ptr %189, align 8
   %192 = add nsw i32 %128, 1
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %18, i32 noundef %.1101158, i32 noundef %181)
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %18, i32 noundef %.1158, i32 noundef %181)
   br label %193
 
 193:                                              ; preds = %127, %137, %._crit_edge
   %194 = phi i32 [ %128, %127 ], [ %128, %137 ], [ %192, %._crit_edge ]
-  %195 = add nuw nsw i32 %.1101158, 1
+  %195 = add nuw nsw i32 %.1158, 1
   %exitcond187.not = icmp eq i32 %195, %smax186
   br i1 %exitcond187.not, label %._crit_edge160, label %127, !llvm.loop !19
 
@@ -981,16 +981,16 @@ Pla_TtCountOnes.exit142:                          ; preds = %.lr.ph.i137, %Pla_T
   br i1 %262, label %.lr.ph169, label %._crit_edge170
 
 .lr.ph169:                                        ; preds = %263, %283
-  %.1167 = phi i32 [ %285, %283 ], [ 0, %263 ]
+  %.1101167 = phi i32 [ %285, %283 ], [ 0, %263 ]
   %269 = phi i64 [ %284, %283 ], [ 0, %263 ]
-  %270 = icmp eq i32 %.1167, %268
+  %270 = icmp eq i32 %.1101167, %268
   br i1 %270, label %283, label %271
 
 271:                                              ; preds = %.lr.ph169
-  %272 = shl nuw i32 1, %.1167
+  %272 = shl nuw i32 1, %.1101167
   %273 = and i32 %272, %266
   %.not111 = icmp eq i32 %273, 0
-  %274 = shl nuw i32 %.1167, 1
+  %274 = shl nuw i32 %.1101167, 1
   %275 = and i32 %274, 62
   %276 = zext nneg i32 %275 to i64
   br i1 %.not111, label %280, label %277
@@ -1007,7 +1007,7 @@ Pla_TtCountOnes.exit142:                          ; preds = %.lr.ph.i137, %Pla_T
 
 283:                                              ; preds = %277, %280, %.lr.ph169
   %284 = phi i64 [ %279, %277 ], [ %282, %280 ], [ %269, %.lr.ph169 ]
-  %285 = add nuw nsw i32 %.1167, 1
+  %285 = add nuw nsw i32 %.1101167, 1
   %exitcond196.not = icmp eq i32 %285, %1
   br i1 %exitcond196.not, label %._crit_edge170, label %.lr.ph169, !llvm.loop !23
 

@@ -1236,7 +1236,7 @@ if.end7.us:                                       ; preds = %if.end7.us.preheade
   %sub.ptr.rhs.cast.us68 = phi i64 [ %sub.ptr.rhs.cast.us, %if.end20.us ], [ %sub.ptr.lhs.cast.us60, %if.end7.us.preheader ]
   %12 = phi i64 [ %23, %if.end20.us ], [ %9, %if.end7.us.preheader ]
   %13 = phi ptr [ %22, %if.end20.us ], [ %10, %if.end7.us.preheader ]
-  %removed.140.us67 = phi i1 [ %removed.2.us, %if.end20.us ], [ %removed.089, %if.end7.us.preheader ]
+  %removed.141.us67 = phi i1 [ %removed.2.us, %if.end20.us ], [ %removed.089, %if.end7.us.preheader ]
   %sub.ptr.lhs.cast9.us = ptrtoint ptr %call4.us69 to i64
   %sub.ptr.sub11.us = sub i64 %sub.ptr.lhs.cast9.us, %sub.ptr.rhs.cast.us68
   %mul.i.i16.us = shl i64 %12, 5
@@ -1278,7 +1278,7 @@ delete.end.us:                                    ; preds = %delete.notnull.us, 
   br label %if.end20.us
 
 if.end20.us:                                      ; preds = %delete.end.us, %if.end7.us
-  %removed.2.us = phi i1 [ true, %delete.end.us ], [ %removed.140.us67, %if.end7.us ]
+  %removed.2.us = phi i1 [ true, %delete.end.us ], [ %removed.141.us67, %if.end7.us ]
   %incdec.ptr.us = getelementptr inbounds i8, ptr %call4.us69, i64 1
   %21 = load i64, ptr %length_92, align 8
   %22 = load ptr, ptr %this, align 8
@@ -1305,7 +1305,7 @@ if.end7:                                          ; preds = %if.end7.preheader, 
   %sub.ptr.rhs.cast55 = phi i64 [ %sub.ptr.rhs.cast, %if.end20 ], [ %sub.ptr.lhs.cast47, %if.end7.preheader ]
   %24 = phi i64 [ %39, %if.end20 ], [ %9, %if.end7.preheader ]
   %25 = phi ptr [ %38, %if.end20 ], [ %10, %if.end7.preheader ]
-  %removed.14054 = phi i1 [ %removed.2, %if.end20 ], [ %removed.089, %if.end7.preheader ]
+  %removed.14154 = phi i1 [ %removed.2, %if.end20 ], [ %removed.089, %if.end7.preheader ]
   %sub.ptr.lhs.cast9 = ptrtoint ptr %call456 to i64
   %sub.ptr.sub11 = sub i64 %sub.ptr.lhs.cast9, %sub.ptr.rhs.cast55
   %mul.i.i16 = shl i64 %24, 5
@@ -1376,7 +1376,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end.i.i.i.i, %_ZNK8proxygen30AsciiCaseUnderscoreInsensitiveclEcc.exit.i.i, %if.end7, %delete.end
-  %removed.2 = phi i1 [ true, %delete.end ], [ %removed.14054, %if.end7 ], [ %removed.14054, %_ZNK8proxygen30AsciiCaseUnderscoreInsensitiveclEcc.exit.i.i ], [ %removed.14054, %if.end.i.i.i.i ]
+  %removed.2 = phi i1 [ true, %delete.end ], [ %removed.14154, %if.end7 ], [ %removed.14154, %_ZNK8proxygen30AsciiCaseUnderscoreInsensitiveclEcc.exit.i.i ], [ %removed.14154, %if.end.i.i.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %call456, i64 1
   %37 = load i64, ptr %length_92, align 8
   %38 = load ptr, ptr %this, align 8

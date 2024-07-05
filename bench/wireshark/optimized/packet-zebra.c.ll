@@ -1521,7 +1521,7 @@ define internal fastcc void @zebra_route(ptr noundef %0, i32 noundef %1, ptr nou
 
 33:                                               ; preds = %27, %16
   %.sink = phi i32 [ 2, %27 ], [ 7, %16 ]
-  %.0 = phi i32 [ 0, %27 ], [ %24, %16 ]
+  %.0233 = phi i32 [ 0, %27 ], [ %24, %16 ]
   %34 = add i32 %.sink, %3
   %35 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %34) #4
   %36 = icmp ugt i8 %7, 3
@@ -1568,14 +1568,14 @@ define internal fastcc void @zebra_route(ptr noundef %0, i32 noundef %1, ptr nou
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %54, ptr noundef %2, i32 noundef %41, i32 noundef 1, i32 noundef 0) #4
   %56 = add i32 %34, 2
   %57 = icmp ne i8 %7, 5
-  %58 = and i32 %.0, 1024
+  %58 = and i32 %.0233, 1024
   %.not = icmp eq i32 %58, 0
   %or.cond260 = select i1 %57, i1 true, i1 %.not
   br i1 %or.cond260, label %59, label %61
 
 59:                                               ; preds = %53
   %.not243 = icmp eq i8 %7, 5
-  %60 = and i32 %.0, 32
+  %60 = and i32 %.0233, 32
   %.not244 = icmp eq i32 %60, 0
   %or.cond261 = select i1 %.not243, i1 true, i1 %.not244
   br i1 %or.cond261, label %65, label %61
@@ -1595,18 +1595,18 @@ define internal fastcc void @zebra_route(ptr noundef %0, i32 noundef %1, ptr nou
   br label %70
 
 70:                                               ; preds = %52, %65, %47, %48
-  %.0233 = phi i8 [ %5, %48 ], [ %5, %47 ], [ %66, %65 ], [ %5, %52 ]
+  %.0232 = phi i8 [ %5, %48 ], [ %5, %47 ], [ %66, %65 ], [ %5, %52 ]
   %.2 = phi i32 [ %51, %48 ], [ %41, %47 ], [ %69, %65 ], [ %41, %52 ]
   %71 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.2) #4
   %72 = load i32, ptr @hf_zebra_prefixlen, align 4
   %73 = zext i8 %71 to i32
   %74 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %72, ptr noundef %2, i32 noundef %.2, i32 noundef 1, i32 noundef %73) #4
   %75 = add i32 %.2, 1
-  %76 = icmp eq i8 %.0233, 10
+  %76 = icmp eq i8 %.0232, 10
   br i1 %76, label %89, label %77
 
 77:                                               ; preds = %70
-  %78 = icmp eq i8 %.0233, 2
+  %78 = icmp eq i8 %.0232, 2
   br i1 %78, label %79, label %._crit_edge296
 
 ._crit_edge296:                                   ; preds = %77
@@ -1678,7 +1678,7 @@ define internal fastcc void @zebra_route(ptr noundef %0, i32 noundef %1, ptr nou
   br label %129
 
 118:                                              ; preds = %103
-  %119 = icmp eq i8 %.0233, 2
+  %119 = icmp eq i8 %.0232, 2
   br i1 %119, label %120, label %._crit_edge295
 
 ._crit_edge295:                                   ; preds = %118
@@ -1741,7 +1741,7 @@ define internal fastcc void @zebra_route(ptr noundef %0, i32 noundef %1, ptr nou
   br label %153
 
 151:                                              ; preds = %143
-  %152 = call fastcc i32 @zebra_route_nexthop(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %.3, i16 noundef zeroext %4, i8 noundef zeroext %.0233, i8 noundef zeroext %7)
+  %152 = call fastcc i32 @zebra_route_nexthop(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %.3, i16 noundef zeroext %4, i8 noundef zeroext %.0232, i8 noundef zeroext %7)
   br label %153
 
 153:                                              ; preds = %136, %151, %144, %131
@@ -1972,17 +1972,17 @@ define internal fastcc void @zebra_nexthop_update(ptr noundef %0, ptr noundef %1
   br label %18
 
 18:                                               ; preds = %.sink.split, %4
-  %.0150 = phi i32 [ %13, %4 ], [ %17, %.sink.split ]
+  %.0149 = phi i32 [ %13, %4 ], [ %17, %.sink.split ]
   %19 = icmp ugt i8 %3, 4
   br i1 %19, label %.thread162, label %26
 
 .thread162:                                       ; preds = %18
   %20 = load i32, ptr @hf_zebra_type_v5, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %.0150, i32 noundef 1, i32 noundef 0) #4
-  %22 = add i32 %.0150, 1
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %.0149, i32 noundef 1, i32 noundef 0) #4
+  %22 = add i32 %.0149, 1
   %23 = load i32, ptr @hf_zebra_instance, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %23, ptr noundef %1, i32 noundef %22, i32 noundef 2, i32 noundef 0) #4
-  %25 = add i32 %.0150, 3
+  %25 = add i32 %.0149, 3
   br label %28
 
 26:                                               ; preds = %18
@@ -1990,7 +1990,7 @@ define internal fastcc void @zebra_nexthop_update(ptr noundef %0, ptr noundef %1
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %.thread162, %26
-  %.2164 = phi i32 [ %25, %.thread162 ], [ %.0150, %26 ]
+  %.2164 = phi i32 [ %25, %.thread162 ], [ %.0149, %26 ]
   %29 = load i32, ptr @hf_zebra_distance, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %29, ptr noundef %1, i32 noundef %.2164, i32 noundef 1, i32 noundef 0) #4
   %31 = add i32 %.2164, 1
@@ -1998,7 +1998,7 @@ define internal fastcc void @zebra_nexthop_update(ptr noundef %0, ptr noundef %1
 
 32:                                               ; preds = %28, %26
   %33 = phi i1 [ true, %28 ], [ false, %26 ]
-  %.3 = phi i32 [ %31, %28 ], [ %.0150, %26 ]
+  %.3 = phi i32 [ %31, %28 ], [ %.0149, %26 ]
   %34 = load i32, ptr @hf_zebra_metric, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %34, ptr noundef %1, i32 noundef %.3, i32 noundef 4, i32 noundef 0) #4
   %36 = add i32 %.3, 4

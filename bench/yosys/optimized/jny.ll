@@ -1013,10 +1013,10 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge, %1
   ret void
 
 158:                                              ; preds = %.lr.ph, %960
-  %.015160 = phi i1 [ true, %.lr.ph ], [ false, %960 ]
+  %.020160 = phi i1 [ true, %.lr.ph ], [ false, %960 ]
   %.sroa.068.0159 = phi ptr [ %130, %.lr.ph ], [ %961, %960 ]
   %159 = load ptr, ptr %.sroa.068.0159, align 8
-  br i1 %.015160, label %167, label %160
+  br i1 %.020160, label %167, label %160
 
 160:                                              ; preds = %158
   %161 = load ptr, ptr %0, align 8
@@ -2420,9 +2420,9 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringENS1_7SigSpecEED2Ev.exit.i: ; preds = %638, %63
   br i1 %.not52.i.i, label %._crit_edge.i.i, label %.lr.ph.i35.i
 
 .lr.ph.i35.i:                                     ; preds = %654, %850
-  %.01354.i.i = phi i1 [ false, %850 ], [ true, %654 ]
+  %.01454.i.i = phi i1 [ false, %850 ], [ true, %654 ]
   %.sroa.049.053.i.i = phi ptr [ %851, %850 ], [ %655, %654 ]
-  br i1 %.01354.i.i, label %663, label %658
+  br i1 %.01454.i.i, label %663, label %658
 
 658:                                              ; preds = %.lr.ph.i35.i
   %659 = load ptr, ptr %0, align 8

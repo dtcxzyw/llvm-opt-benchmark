@@ -41,7 +41,7 @@ define hidden range(i32 -1, 2) i32 @vms_open(ptr noundef %0, ptr noundef %1, ptr
   br label %6
 
 6:                                                ; preds = %26, %3
-  %.029.i = phi i32 [ 0, %3 ], [ %27, %26 ]
+  %.02329.i = phi i32 [ 0, %3 ], [ %27, %26 ]
   %7 = load ptr, ptr %0, align 8
   %8 = call i64 @file_tell(ptr noundef %7) #7
   %9 = icmp eq i64 %8, -1
@@ -79,7 +79,7 @@ define hidden range(i32 -1, 2) i32 @vms_open(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not26.i, label %26, label %vms_check_file_type.exit
 
 26:                                               ; preds = %24, %16
-  %27 = add nuw nsw i32 %.029.i, 1
+  %27 = add nuw nsw i32 %.02329.i, 1
   %exitcond.not.i = icmp eq i32 %27, 200
   br i1 %exitcond.not.i, label %vms_check_file_type.exit.thread, label %6, !llvm.loop !4
 
@@ -301,7 +301,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_vms_packet(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %42, %50
   %45 = phi i8 [ %52, %50 ], [ %44, %42 ]
-  %.074151 = phi ptr [ %51, %50 ], [ %43, %42 ]
+  %.075151 = phi ptr [ %51, %50 ], [ %43, %42 ]
   %46 = zext i8 %45 to i64
   %47 = getelementptr i16, ptr %.pre.i, i64 %46
   %48 = load i16, ptr %47, align 2
@@ -310,7 +310,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_vms_packet(ptr noundef %0, ptr
   br i1 %.not88, label %50, label %.critedge
 
 50:                                               ; preds = %.lr.ph
-  %51 = getelementptr i8, ptr %.074151, i64 1
+  %51 = getelementptr i8, ptr %.075151, i64 1
   %52 = load i8, ptr %51, align 1
   %.not87 = icmp eq i8 %52, 0
   br i1 %.not87, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -322,7 +322,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_vms_packet(ptr noundef %0, ptr
   br label %224
 
 .critedge:                                        ; preds = %.lr.ph
-  %54 = call zeroext i1 @ws_strtou32(ptr noundef nonnull %.074151, ptr noundef nonnull %13, ptr noundef nonnull %8) #7
+  %54 = call zeroext i1 @ws_strtou32(ptr noundef nonnull %.075151, ptr noundef nonnull %13, ptr noundef nonnull %8) #7
   br i1 %54, label %55, label %63
 
 55:                                               ; preds = %.critedge
@@ -341,7 +341,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_vms_packet(ptr noundef %0, ptr
 
 63:                                               ; preds = %58, %.critedge
   store i32 -13, ptr %3, align 4
-  %64 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %.074151) #7
+  %64 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %.075151) #7
   store ptr %64, ptr %4, align 8
   br label %224
 
@@ -505,8 +505,8 @@ isdumpline.exit:                                  ; preds = %75, %.preheader.i, 
   br label %135
 
 135:                                              ; preds = %.lr.ph160, %.loopexit
-  %.0158 = phi i32 [ 0, %.lr.ph160 ], [ %.2, %.loopexit ]
-  %.073157 = phi i32 [ 0, %.lr.ph160 ], [ %217, %.loopexit ]
+  %.073158 = phi i32 [ 0, %.lr.ph160 ], [ %.2, %.loopexit ]
+  %.074157 = phi i32 [ 0, %.lr.ph160 ], [ %217, %.loopexit ]
   %136 = call ptr @file_gets(ptr noundef nonnull %7, i32 noundef 240, ptr noundef %0) #7
   %137 = icmp eq ptr %136, null
   br i1 %137, label %138, label %141
@@ -520,7 +520,7 @@ isdumpline.exit:                                  ; preds = %75, %.preheader.i, 
 
 141:                                              ; preds = %135
   store i8 0, ptr %19, align 16
-  %142 = icmp eq i32 %.073157, 0
+  %142 = icmp eq i32 %.074157, 0
   br i1 %142, label %.preheader139, label %.critedge3
 
 .preheader139:                                    ; preds = %141, %180
@@ -604,7 +604,7 @@ isdumpline.exit128:                               ; preds = %165
   br i1 %.not95, label %isdumpline.exit128.thread, label %.preheader
 
 .preheader:                                       ; preds = %isdumpline.exit128
-  %172 = sext i32 %.0158 to i64
+  %172 = sext i32 %.073158 to i64
   %173 = getelementptr [241 x i8], ptr %7, i64 0, i64 %172
   %174 = load i8, ptr %173, align 1
   %.not96152 = icmp eq i8 %174, 0
@@ -628,7 +628,7 @@ isdumpline.exit128.thread:                        ; preds = %152, %.preheader.i1
 
 .lr.ph154:                                        ; preds = %.preheader, %186
   %181 = phi i8 [ %190, %186 ], [ %174, %.preheader ]
-  %.1153 = phi i32 [ %187, %186 ], [ %.0158, %.preheader ]
+  %.1153 = phi i32 [ %187, %186 ], [ %.073158, %.preheader ]
   %182 = zext i8 %181 to i64
   %183 = getelementptr i16, ptr %.pre.i, i64 %182
   %184 = load i16, ptr %183, align 2
@@ -645,10 +645,10 @@ isdumpline.exit128.thread:                        ; preds = %152, %.preheader.i1
   br i1 %.not96, label %.critedge3, label %.lr.ph154, !llvm.loop !13
 
 .critedge3:                                       ; preds = %186, %.lr.ph154, %.preheader, %141
-  %.2 = phi i32 [ %.0158, %141 ], [ %.0158, %.preheader ], [ %187, %186 ], [ %.1153, %.lr.ph154 ]
-  %191 = zext i32 %.073157 to i64
+  %.2 = phi i32 [ %.073158, %141 ], [ %.073158, %.preheader ], [ %187, %186 ], [ %.1153, %.lr.ph154 ]
+  %191 = zext i32 %.074157 to i64
   %192 = load i32, ptr %8, align 4
-  %193 = sub i32 %192, %.073157
+  %193 = sub i32 %192, %.074157
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6)
   store i8 0, ptr %132, align 1
   %194 = sext i32 %.2 to i64
@@ -701,7 +701,7 @@ isdumpline.exit128.thread:                        ; preds = %152, %.preheader.i1
 
 .loopexit:                                        ; preds = %202, %198
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6)
-  %217 = add i32 %.073157, 16
+  %217 = add i32 %.074157, 16
   %218 = load i32, ptr %8, align 4
   %219 = icmp ult i32 %217, %218
   br i1 %219, label %135, label %._crit_edge161, !llvm.loop !15
@@ -719,8 +719,8 @@ isdumpline.exit128.thread:                        ; preds = %152, %.preheader.i1
   br label %224
 
 224:                                              ; preds = %._crit_edge161, %221, %215, %177, %138, %102, %97, %63, %._crit_edge, %39, %23
-  %.077 = phi i32 [ 0, %23 ], [ 0, %102 ], [ 0, %138 ], [ 0, %177 ], [ 0, %215 ], [ 0, %97 ], [ 0, %63 ], [ 0, %._crit_edge ], [ 0, %39 ], [ %., %221 ], [ 1, %._crit_edge161 ]
-  ret i32 %.077
+  %.0 = phi i32 [ 0, %23 ], [ 0, %102 ], [ 0, %138 ], [ 0, %177 ], [ 0, %215 ], [ 0, %97 ], [ 0, %63 ], [ 0, %._crit_edge ], [ 0, %39 ], [ %., %221 ], [ 1, %._crit_edge161 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind

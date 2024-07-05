@@ -1519,8 +1519,8 @@ Vec_IntPush.exit218:                              ; preds = %.Vec_IntGrow.exit10
   br label %163
 
 163:                                              ; preds = %.lr.ph294, %432
-  %.0155293 = phi i32 [ 0, %.lr.ph294 ], [ %429, %432 ]
-  %.0158292 = phi i32 [ 1, %.lr.ph294 ], [ %294, %432 ]
+  %.0293 = phi i32 [ 1, %.lr.ph294 ], [ %294, %432 ]
+  %.0156292 = phi i32 [ 0, %.lr.ph294 ], [ %429, %432 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   %164 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #15
   %165 = icmp slt i32 %164, 0
@@ -1547,7 +1547,7 @@ Abc_Clock.exit220:                                ; preds = %163, %166
 
 .lr.ph275:                                        ; preds = %Abc_Clock.exit220, %236
   %indvars.iv302 = phi i64 [ %indvars.iv.next303, %236 ], [ 0, %Abc_Clock.exit220 ]
-  %.0152274 = phi i32 [ %.1, %236 ], [ 0, %Abc_Clock.exit220 ]
+  %.0153274 = phi i32 [ %.1, %236 ], [ 0, %Abc_Clock.exit220 ]
   %.val194 = load ptr, ptr %50, align 8
   %171 = getelementptr inbounds i32, ptr %.val194, i64 %indvars.iv302
   %172 = load i32, ptr %171, align 4
@@ -1625,7 +1625,7 @@ Vec_IntPush.exit227:                              ; preds = %.Vec_IntGrow.exit10
   %205 = sext i32 %180 to i64
   %206 = getelementptr inbounds i32, ptr %203, i64 %205
   store i32 %179, ptr %206, align 4
-  %207 = add nsw i32 %.0152274, 1
+  %207 = add nsw i32 %.0153274, 1
   br label %236
 
 208:                                              ; preds = %.lr.ph275
@@ -1693,7 +1693,7 @@ Vec_IntPush.exit234:                              ; preds = %.Vec_IntGrow.exit10
   br label %236
 
 236:                                              ; preds = %Vec_IntPush.exit227, %Vec_IntPush.exit234
-  %.1 = phi i32 [ %207, %Vec_IntPush.exit227 ], [ %.0152274, %Vec_IntPush.exit234 ]
+  %.1 = phi i32 [ %207, %Vec_IntPush.exit227 ], [ %.0153274, %Vec_IntPush.exit234 ]
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
   %.val180 = load i32, ptr %44, align 4
   %237 = sext i32 %.val180 to i64
@@ -1722,7 +1722,7 @@ Vec_IntPush.exit234:                              ; preds = %.Vec_IntGrow.exit10
 
 Vec_IntSum.exit:                                  ; preds = %241, %Abc_Clock.exit220, %.critedge4
   %245 = phi i1 [ false, %.critedge4 ], [ false, %Abc_Clock.exit220 ], [ %239, %241 ]
-  %.0152.lcssa326 = phi i32 [ %.1, %.critedge4 ], [ 0, %Abc_Clock.exit220 ], [ %.1, %241 ]
+  %.0153.lcssa326 = phi i32 [ %.1, %.critedge4 ], [ 0, %Abc_Clock.exit220 ], [ %.1, %241 ]
   %246 = phi i32 [ %.pre, %.critedge4 ], [ 0, %Abc_Clock.exit220 ], [ %.pre, %241 ]
   %.0.lcssa.i = phi i32 [ 0, %.critedge4 ], [ 0, %Abc_Clock.exit220 ], [ %244, %241 ]
   %.val179 = load i32, ptr %93, align 4
@@ -1734,7 +1734,7 @@ Vec_IntSum.exit:                                  ; preds = %241, %Abc_Clock.exi
   br i1 %.not171, label %.loopexit, label %250
 
 250:                                              ; preds = %249
-  %251 = add nuw nsw i32 %.0155293, 1
+  %251 = add nuw nsw i32 %.0156292, 1
   %252 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %251)
   br label %.loopexit
 
@@ -1773,7 +1773,7 @@ Vec_IntSum.exit:                                  ; preds = %241, %Abc_Clock.exi
   br i1 %271, label %272, label %274
 
 272:                                              ; preds = %267
-  %273 = add nsw i32 %270, %.0158292
+  %273 = add nsw i32 %270, %.0293
   store i32 %273, ptr %269, align 4
   %.pre.i240 = load i32, ptr %261, align 8
   br label %274
@@ -1792,7 +1792,7 @@ Vec_IntSum.exit:                                  ; preds = %241, %Abc_Clock.exi
   br i1 %280, label %.lr.ph23.i, label %Cnf_DataLiftGia.exit
 
 .lr.ph23.i:                                       ; preds = %.critedge.i
-  %281 = shl nsw i32 %.0158292, 1
+  %281 = shl nsw i32 %.0293, 1
   %282 = getelementptr inbounds i8, ptr %259, i64 24
   br label %283
 
@@ -1813,7 +1813,7 @@ Vec_IntSum.exit:                                  ; preds = %241, %Abc_Clock.exi
 Cnf_DataLiftGia.exit:                             ; preds = %283, %.critedge.i
   %292 = getelementptr inbounds i8, ptr %259, i64 8
   %293 = load i32, ptr %292, align 8
-  %294 = add nsw i32 %293, %.0158292
+  %294 = add nsw i32 %293, %.0293
   call void @sat_solver_setnvars(ptr noundef %14, i32 noundef %294) #15
   %295 = getelementptr inbounds i8, ptr %259, i64 16
   %296 = load i32, ptr %295, align 8
@@ -1980,7 +1980,7 @@ sat_solver_add_buffer.exit:                       ; preds = %326, %335
 
 368:                                              ; preds = %.lr.ph290, %393
   %indvars.iv314 = phi i64 [ 0, %.lr.ph290 ], [ %indvars.iv.next315, %393 ]
-  %.0153289 = phi i32 [ 0, %.lr.ph290 ], [ %.1154, %393 ]
+  %.0154289 = phi i32 [ 0, %.lr.ph290 ], [ %.1155, %393 ]
   %369 = getelementptr inbounds i32, ptr %.val189, i64 %indvars.iv314
   %370 = load i32, ptr %369, align 4
   store i32 %370, ptr %13, align 4
@@ -2004,7 +2004,7 @@ sat_solver_add_buffer.exit:                       ; preds = %326, %335
   ]
 
 381:                                              ; preds = %372
-  %382 = add nsw i32 %.0153289, 1
+  %382 = add nsw i32 %.0154289, 1
   br label %393
 
 383:                                              ; preds = %372
@@ -2030,17 +2030,17 @@ sat_solver_add_buffer.exit:                       ; preds = %326, %335
   br label %393
 
 393:                                              ; preds = %390, %392, %368, %381
-  %.1154 = phi i32 [ %.0153289, %368 ], [ %382, %381 ], [ %.0153289, %392 ], [ %.0153289, %390 ]
+  %.1155 = phi i32 [ %.0154289, %368 ], [ %382, %381 ], [ %.0154289, %392 ], [ %.0154289, %390 ]
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next315, %wide.trip.count
   br i1 %exitcond.not, label %.critedge11, label %368, !llvm.loop !21
 
 .critedge11:                                      ; preds = %393, %.critedge9
-  %.0153.lcssa = phi i32 [ 0, %.critedge9 ], [ %.1154, %393 ]
+  %.0154.lcssa = phi i32 [ 0, %.critedge9 ], [ %.1155, %393 ]
   br i1 %.not171, label %427, label %394
 
 394:                                              ; preds = %.critedge11
-  %395 = add nuw nsw i32 %.0155293, 1
+  %395 = add nuw nsw i32 %.0156292, 1
   %396 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %395)
   %397 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %294)
   %398 = call i32 @sat_solver_nclauses(ptr noundef %14) #15
@@ -2061,8 +2061,8 @@ sat_solver_add_buffer.exit:                       ; preds = %326, %335
   %411 = xor i32 %410, -1
   %412 = add i32 %403, %411
   %413 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %412)
-  %414 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.0152.lcssa326)
-  %415 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.0153.lcssa)
+  %414 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.0153.lcssa326)
+  %415 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.0154.lcssa)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %416 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #15
   %417 = icmp slt i32 %416, 0
@@ -2087,8 +2087,8 @@ Abc_Clock.exit244:                                ; preds = %394, %418
   br label %427
 
 427:                                              ; preds = %Abc_Clock.exit244, %.critedge11
-  %428 = icmp eq i32 %.0153.lcssa, 0
-  %429 = add nuw nsw i32 %.0155293, 1
+  %428 = icmp eq i32 %.0154.lcssa, 0
+  %429 = add nuw nsw i32 %.0156292, 1
   br i1 %428, label %430, label %432
 
 430:                                              ; preds = %427
@@ -2100,7 +2100,7 @@ Abc_Clock.exit244:                                ; preds = %394, %418
   br i1 %exitcond317.not, label %.loopexit, label %163, !llvm.loop !22
 
 .loopexit:                                        ; preds = %432, %.critedge2, %430, %250, %249, %383
-  %.0 = phi i32 [ 1, %250 ], [ 1, %249 ], [ 0, %383 ], [ 1, %430 ], [ 1, %.critedge2 ], [ 1, %432 ]
+  %.0152 = phi i32 [ 1, %250 ], [ 1, %249 ], [ 0, %383 ], [ 1, %430 ], [ 1, %.critedge2 ], [ 1, %432 ]
   call void @sat_solver_delete(ptr noundef %14) #15
   call void @Gia_ManStopP(ptr noundef nonnull %12) #15
   %433 = load ptr, ptr %50, align 8
@@ -2163,7 +2163,7 @@ Vec_IntFree.exit253:                              ; preds = %Vec_IntFree.exit251
 
 Vec_IntFree.exit255:                              ; preds = %Vec_IntFree.exit253, %444
   call void @free(ptr noundef nonnull %153) #15
-  ret i32 %.0
+  ret i32 %.0152
 }
 
 declare ptr @sat_solver_new() local_unnamed_addr #1

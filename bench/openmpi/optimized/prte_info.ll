@@ -133,14 +133,14 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.preheader, %24
-  %.0 = phi ptr [ %27, %24 ], [ null, %.preheader ], [ null, %18 ]
-  %28 = tail call ptr @prte_schizo_base_detect_proxy(ptr noundef %.0) #9
+  %.056 = phi ptr [ %27, %24 ], [ null, %.preheader ], [ null, %18 ]
+  %28 = tail call ptr @prte_schizo_base_detect_proxy(ptr noundef %.056) #9
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %.loopexit
   %31 = load ptr, ptr @prte_tool_basename, align 8
-  %32 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 1, ptr noundef %31, ptr noundef %.0) #9
+  %32 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 1, ptr noundef %31, ptr noundef %.056) #9
   br label %145
 
 33:                                               ; preds = %.loopexit
@@ -333,7 +333,7 @@ pmix_obj_run_constructors.exit96:                 ; preds = %.lr.ph.i93, %81
   br label %.thread104
 
 .thread104:                                       ; preds = %105, %107
-  %.159106 = phi i1 [ true, %107 ], [ %103, %105 ]
+  %.1106 = phi i1 [ true, %107 ], [ %103, %105 ]
   %108 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.26)
   br i1 %108, label %109, label %.thread108
 
@@ -342,7 +342,7 @@ pmix_obj_run_constructors.exit96:                 ; preds = %.lr.ph.i93, %81
   br label %.thread108
 
 .thread108:                                       ; preds = %.thread104, %109
-  %.260110 = phi i1 [ true, %109 ], [ %.159106, %.thread104 ]
+  %.2110 = phi i1 [ true, %109 ], [ %.1106, %.thread104 ]
   %110 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.27)
   br i1 %110, label %111, label %.thread112
 
@@ -351,7 +351,7 @@ pmix_obj_run_constructors.exit96:                 ; preds = %.lr.ph.i93, %81
   br label %.thread112
 
 .thread112:                                       ; preds = %.thread108, %111
-  %.3114 = phi i1 [ true, %111 ], [ %.260110, %.thread108 ]
+  %.3114 = phi i1 [ true, %111 ], [ %.2110, %.thread108 ]
   %112 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.28)
   br i1 %112, label %.thread120, label %.thread116
 
@@ -439,8 +439,8 @@ pmix_obj_run_destructors.exit101:                 ; preds = %.lr.ph.i98, %.threa
   br label %145
 
 145:                                              ; preds = %71, %74, %pmix_obj_run_destructors.exit, %35, %33, %16, %13, %11, %9, %pmix_obj_run_destructors.exit101, %64, %30
-  %.056 = phi i32 [ 1, %30 ], [ %50, %64 ], [ 0, %pmix_obj_run_destructors.exit101 ], [ %10, %9 ], [ %10, %11 ], [ %14, %13 ], [ %14, %16 ], [ 1, %33 ], [ 1, %35 ], [ 0, %pmix_obj_run_destructors.exit ], [ -1, %74 ], [ -1, %71 ]
-  ret i32 %.056
+  %.0 = phi i32 [ 1, %30 ], [ %50, %64 ], [ 0, %pmix_obj_run_destructors.exit101 ], [ %10, %9 ], [ %10, %11 ], [ %14, %13 ], [ %14, %16 ], [ 1, %33 ], [ 1, %35 ], [ 0, %pmix_obj_run_destructors.exit ], [ -1, %74 ], [ -1, %71 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind

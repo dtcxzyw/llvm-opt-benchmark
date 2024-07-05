@@ -4127,15 +4127,15 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.cond:                                         ; preds = %for.body
   %2 = load i64, ptr %storage_.i.i, align 8
-  %add = add nsw i64 %2, %sum.010
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.011, i64 16
+  %add = add nsw i64 %2, %sum.011
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.010, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %__begin2.sroa.0.011 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i, %for.cond ]
-  %sum.010 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.cond ]
-  %3 = load ptr, ptr %__begin2.sroa.0.011, align 8
+  %sum.011 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.cond ]
+  %__begin2.sroa.0.010 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i, %for.cond ]
+  %3 = load ptr, ptr %__begin2.sroa.0.010, align 8
   call void @_ZN5arrow4util20ReferencedBufferSizeERKNS_5ArrayE(ptr nonnull sret(%"class.arrow::Result.28") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %4 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %4, null
@@ -4258,15 +4258,15 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.cond:                                         ; preds = %for.body
   %3 = load i64, ptr %storage_.i.i, align 8
-  %add = add nsw i64 %3, %sum.010
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.011, i64 16
+  %add = add nsw i64 %3, %sum.011
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.010, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %__begin2.sroa.0.011 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr.i, %for.cond ]
-  %sum.010 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.cond ]
-  %4 = load ptr, ptr %__begin2.sroa.0.011, align 8
+  %sum.011 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.cond ]
+  %__begin2.sroa.0.010 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr.i, %for.cond ]
+  %4 = load ptr, ptr %__begin2.sroa.0.010, align 8
   call void @_ZN5arrow4util20ReferencedBufferSizeERKNS_5ArrayE(ptr nonnull sret(%"class.arrow::Result.28") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %5 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %5, null
@@ -4388,9 +4388,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc25
-  %__begin2.sroa.0.021 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr.i7, %for.inc25 ]
-  %sum.020 = phi i64 [ 0, %for.body.lr.ph ], [ %sum.1.lcssa, %for.inc25 ]
-  %3 = load ptr, ptr %__begin2.sroa.0.021, align 8
+  %sum.021 = phi i64 [ 0, %for.body.lr.ph ], [ %sum.1.lcssa, %for.inc25 ]
+  %__begin2.sroa.0.020 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr.i7, %for.inc25 ]
+  %3 = load ptr, ptr %__begin2.sroa.0.020, align 8
   %4 = load ptr, ptr %3, align 8
   %_M_finish.i5 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %_M_finish.i5, align 8
@@ -4399,15 +4399,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.cond12:                                       ; preds = %for.body14
   %6 = load i64, ptr %storage_.i.i, align 8
-  %add = add nsw i64 %6, %sum.117
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.018, i64 16
+  %add = add nsw i64 %6, %sum.118
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.017, i64 16
   %cmp.i6.not = icmp eq ptr %incdec.ptr.i, %5
   br i1 %cmp.i6.not, label %for.inc25, label %for.body14
 
 for.body14:                                       ; preds = %for.body, %for.cond12
-  %__begin3.sroa.0.018 = phi ptr [ %incdec.ptr.i, %for.cond12 ], [ %4, %for.body ]
-  %sum.117 = phi i64 [ %add, %for.cond12 ], [ %sum.020, %for.body ]
-  %7 = load ptr, ptr %__begin3.sroa.0.018, align 8
+  %sum.118 = phi i64 [ %add, %for.cond12 ], [ %sum.021, %for.body ]
+  %__begin3.sroa.0.017 = phi ptr [ %incdec.ptr.i, %for.cond12 ], [ %4, %for.body ]
+  %7 = load ptr, ptr %__begin3.sroa.0.017, align 8
   call void @_ZN5arrow4util20ReferencedBufferSizeERKNS_5ArrayE(ptr nonnull sret(%"class.arrow::Result.28") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %7)
   %8 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %8, null
@@ -4500,8 +4500,8 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i:         ; preds = %if.end8.sink.split.
   br label %return
 
 for.inc25:                                        ; preds = %for.cond12, %for.body
-  %sum.1.lcssa = phi i64 [ %sum.020, %for.body ], [ %add, %for.cond12 ]
-  %incdec.ptr.i7 = getelementptr inbounds i8, ptr %__begin2.sroa.0.021, i64 16
+  %sum.1.lcssa = phi i64 [ %sum.021, %for.body ], [ %add, %for.cond12 ]
+  %incdec.ptr.i7 = getelementptr inbounds i8, ptr %__begin2.sroa.0.020, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i7, %2
   br i1 %cmp.i.not, label %for.end27, label %for.body
 

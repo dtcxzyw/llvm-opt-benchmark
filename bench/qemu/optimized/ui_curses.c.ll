@@ -1288,9 +1288,9 @@ if.then23:                                        ; preds = %if.then19
 
 if.end29:                                         ; preds = %if.then.i65, %if.then.i, %console_getch.exit49.thread122, %console_getch.exit49.thread, %console_getch.exit49, %if.then19, %curses2foo.exit69, %curses2foo.exit
   %maybe_keycode.2 = phi i32 [ %maybe_keycode.1115, %console_getch.exit49 ], [ %next_maybe_keycode.0.ph126134, %curses2foo.exit69 ], [ %next_maybe_keycode.0.ph126134, %if.then19 ], [ %maybe_keycode.1115, %curses2foo.exit ], [ %maybe_keycode.1115, %console_getch.exit49.thread ], [ %maybe_keycode.1115, %console_getch.exit49.thread122 ], [ 1, %if.then.i ], [ 1, %if.then.i65 ]
-  %chr.0 = phi i32 [ %.pr, %console_getch.exit49 ], [ %.pr119124.sink, %curses2foo.exit69 ], [ %.pr119124.sink, %if.then19 ], [ %.pr, %curses2foo.exit ], [ %.pr, %console_getch.exit49.thread ], [ %.pr, %console_getch.exit49.thread122 ], [ %.pr, %if.then.i ], [ %.pr119, %if.then.i65 ]
   %keycode.0 = phi i32 [ 1, %console_getch.exit49 ], [ -1, %curses2foo.exit69 ], [ %or, %if.then19 ], [ %ret.1.i, %curses2foo.exit ], [ 1, %console_getch.exit49.thread ], [ 1, %console_getch.exit49.thread122 ], [ -1, %if.then.i ], [ -1, %if.then.i65 ]
   %keycode_alt.0 = phi i32 [ 0, %console_getch.exit49 ], [ 1024, %curses2foo.exit69 ], [ 1024, %if.then19 ], [ 0, %curses2foo.exit ], [ 0, %console_getch.exit49.thread ], [ 0, %console_getch.exit49.thread122 ], [ 0, %if.then.i ], [ 1024, %if.then.i65 ]
+  %chr.0 = phi i32 [ %.pr, %console_getch.exit49 ], [ %.pr119124.sink, %curses2foo.exit69 ], [ %.pr119124.sink, %if.then19 ], [ %.pr, %curses2foo.exit ], [ %.pr, %console_getch.exit49.thread ], [ %.pr, %console_getch.exit49.thread122 ], [ %.pr, %if.then.i ], [ %.pr119, %if.then.i65 ]
   %14 = load ptr, ptr @kbd_layout, align 8
   %tobool30.not = icmp eq ptr %14, null
   br i1 %tobool30.not, label %if.end53, label %if.then31
@@ -1344,9 +1344,9 @@ if.then36:                                        ; preds = %if.then34
 
 if.end45:                                         ; preds = %if.end29.thread179, %if.end29.thread, %if.then.i85, %if.else.i71, %if.then34, %if.then36, %curses2foo.exit89
   %maybe_keycode.2152170 = phi i32 [ %maybe_keycode.2152172, %if.then36 ], [ %maybe_keycode.2152172, %curses2foo.exit89 ], [ %maybe_keycode.2152172, %if.then34 ], [ 0, %if.else.i71 ], [ 1, %if.then.i85 ], [ 0, %if.end29.thread ], [ 0, %if.end29.thread179 ]
-  %keycode_alt.0158163 = phi i32 [ %keycode_alt.0, %if.then36 ], [ %keycode_alt.0, %curses2foo.exit89 ], [ %keycode_alt.0, %if.then34 ], [ %keycode_alt.0, %if.else.i71 ], [ %keycode_alt.0, %if.then.i85 ], [ 1024, %if.end29.thread ], [ 0, %if.end29.thread179 ]
+  %keycode_alt.0154166 = phi i32 [ %keycode_alt.0, %if.then36 ], [ %keycode_alt.0, %curses2foo.exit89 ], [ %keycode_alt.0, %if.then34 ], [ %keycode_alt.0, %if.else.i71 ], [ %keycode_alt.0, %if.then.i85 ], [ 1024, %if.end29.thread ], [ 0, %if.end29.thread179 ]
   %18 = phi ptr [ %14, %if.then36 ], [ %14, %curses2foo.exit89 ], [ %14, %if.then34 ], [ %14, %if.else.i71 ], [ %14, %if.then.i85 ], [ %16, %if.end29.thread ], [ %15, %if.end29.thread179 ]
-  %chr.0156 = phi i32 [ %chr.0, %if.then36 ], [ %chr.0, %curses2foo.exit89 ], [ %chr.0, %if.then34 ], [ %chr.0, %if.else.i71 ], [ %chr.0, %if.then.i85 ], [ %.pr119124, %if.end29.thread ], [ %.pr, %if.end29.thread179 ]
+  %chr.0157 = phi i32 [ %chr.0, %if.then36 ], [ %chr.0, %curses2foo.exit89 ], [ %chr.0, %if.then34 ], [ %chr.0, %if.else.i71 ], [ %chr.0, %if.then.i85 ], [ %.pr119124, %if.end29.thread ], [ %.pr, %if.end29.thread179 ]
   %keysym.1 = phi i32 [ %or43, %if.then36 ], [ %ret.1.i73, %curses2foo.exit89 ], [ %chr.0, %if.then34 ], [ %chr.0, %if.else.i71 ], [ %chr.0, %if.then.i85 ], [ %.pr119124, %if.end29.thread ], [ %.pr, %if.end29.thread179 ]
   %and = and i32 %keysym.1, 16777215
   %call46 = call i32 @keysym2scancode(ptr noundef nonnull %18, i32 noundef %and, ptr noundef null, i1 noundef zeroext false) #12
@@ -1356,12 +1356,12 @@ if.end45:                                         ; preds = %if.end29.thread179,
 if.end49:                                         ; preds = %if.end45
   %and50 = ashr i32 %keysym.1, 16
   %shr = and i32 %and50, -256
-  %19 = or i32 %keycode_alt.0158163, %shr
+  %19 = or i32 %keycode_alt.0154166, %shr
   %or52 = or i32 %19, %call46
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end49, %if.end29
-  %chr.0155 = phi i32 [ %chr.0156, %if.end49 ], [ %chr.0, %if.end29 ]
+  %chr.0156 = phi i32 [ %chr.0157, %if.end49 ], [ %chr.0, %if.end29 ]
   %maybe_keycode.2153 = phi i32 [ %maybe_keycode.2152170, %if.end49 ], [ %maybe_keycode.2, %if.end29 ]
   %keycode.1 = phi i32 [ %or52, %if.end49 ], [ %keycode.0, %if.end29 ]
   %cmp54 = icmp eq i32 %keycode.1, -1
@@ -1453,25 +1453,25 @@ if.else93:                                        ; preds = %if.end56
   br i1 %cmp.i90, label %if.then.i105, label %if.else.i91
 
 if.then.i105:                                     ; preds = %if.else93
-  %cmp1.i106 = icmp slt i32 %chr.0155, 256
+  %cmp1.i106 = icmp slt i32 %chr.0156, 256
   br i1 %cmp1.i106, label %curses2foo.exit109, label %curses2foo.exit109.thread
 
 if.else.i91:                                      ; preds = %if.else93
-  %cmp3.i92 = icmp slt i32 %chr.0155, 511
+  %cmp3.i92 = icmp slt i32 %chr.0156, 511
   br i1 %cmp3.i92, label %curses2foo.exit109, label %curses2foo.exit109.thread
 
 curses2foo.exit109:                               ; preds = %if.then.i105, %if.else.i91
   %_curseskey2qemu.sink = phi ptr [ @_curseskey2qemu, %if.else.i91 ], [ @_curses2qemu, %if.then.i105 ]
-  %idxprom5.i95 = sext i32 %chr.0155 to i64
+  %idxprom5.i95 = sext i32 %chr.0156 to i64
   %arrayidx6.i96 = getelementptr i32, ptr %_curseskey2qemu.sink, i64 %idxprom5.i95
   %ret.1.i93 = load i32, ptr %arrayidx6.i96, align 4
   %ret.1.i93.fr = freeze i32 %ret.1.i93
   %cmp95 = icmp eq i32 %ret.1.i93.fr, -1
-  %spec.select178 = select i1 %cmp95, i32 %chr.0155, i32 %ret.1.i93.fr
+  %spec.select178 = select i1 %cmp95, i32 %chr.0156, i32 %ret.1.i93.fr
   br label %curses2foo.exit109.thread
 
 curses2foo.exit109.thread:                        ; preds = %curses2foo.exit109, %if.then.i105, %if.else.i91
-  %20 = phi i32 [ %chr.0155, %if.then.i105 ], [ %chr.0155, %if.else.i91 ], [ %spec.select178, %curses2foo.exit109 ]
+  %20 = phi i32 [ %chr.0156, %if.then.i105 ], [ %chr.0156, %if.else.i91 ], [ %spec.select178, %curses2foo.exit109 ]
   call void @qemu_text_console_put_keysym(ptr noundef null, i32 noundef %20) #12
   br label %while.body.backedge
 
@@ -1565,14 +1565,14 @@ for.cond2.preheader.lr.ph:                        ; preds = %entry
 
 for.cond2.preheader:                              ; preds = %for.cond2.preheader.lr.ph, %for.inc33
   %3 = phi i32 [ %2, %for.cond2.preheader.lr.ph ], [ %14, %for.inc33 ]
-  %line.021 = phi ptr [ %add.ptr, %for.cond2.preheader.lr.ph ], [ %add.ptr36, %for.inc33 ]
-  %y.addr.020 = phi i32 [ %y, %for.cond2.preheader.lr.ph ], [ %inc34, %for.inc33 ]
+  %y.addr.021 = phi i32 [ %y, %for.cond2.preheader.lr.ph ], [ %inc34, %for.inc33 ]
+  %line.020 = phi ptr [ %add.ptr, %for.cond2.preheader.lr.ph ], [ %add.ptr36, %for.inc33 ]
   %cmp316 = icmp sgt i32 %3, 0
   br i1 %cmp316, label %for.body5, label %for.end
 
 for.body5:                                        ; preds = %for.cond2.preheader, %if.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end ], [ 0, %for.cond2.preheader ]
-  %arrayidx = getelementptr i32, ptr %line.021, i64 %indvars.iv
+  %arrayidx = getelementptr i32, ptr %line.020, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx, align 4
   %and = and i32 %4, 255
   %and8 = and i32 %4, -256
@@ -1604,7 +1604,7 @@ if.end:                                           ; preds = %for.body5, %if.then
 
 for.end:                                          ; preds = %if.end, %for.cond2.preheader
   %11 = load ptr, ptr @screenpad, align 8
-  %call29 = call i32 @wmove(ptr noundef %11, i32 noundef %y.addr.020, i32 noundef 0) #12
+  %call29 = call i32 @wmove(ptr noundef %11, i32 noundef %y.addr.021, i32 noundef 0) #12
   %cmp30 = icmp eq i32 %call29, -1
   br i1 %cmp30, label %for.inc33, label %cond.false
 
@@ -1615,10 +1615,10 @@ cond.false:                                       ; preds = %for.end
   br label %for.inc33
 
 for.inc33:                                        ; preds = %cond.false, %for.end
-  %inc34 = add nsw i32 %y.addr.020, 1
+  %inc34 = add nsw i32 %y.addr.021, 1
   %14 = load i32, ptr @width, align 4
   %idx.ext35 = sext i32 %14 to i64
-  %add.ptr36 = getelementptr i32, ptr %line.021, i64 %idx.ext35
+  %add.ptr36 = getelementptr i32, ptr %line.020, i64 %idx.ext35
   %exitcond.not = icmp eq i32 %inc34, %add
   br i1 %exitcond.not, label %for.end37, label %for.cond2.preheader, !llvm.loop !12
 

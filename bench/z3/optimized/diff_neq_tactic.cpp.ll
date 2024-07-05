@@ -6082,15 +6082,15 @@ for.body32.i.preheader:                           ; preds = %for.cond30.preheade
   br label %for.body32.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %it.047.i = phi ptr [ %3, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
-  %max.046.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %max.1.i, %for.inc.i ]
+  %max.047.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %max.1.i, %for.inc.i ]
+  %it.046.i = phi ptr [ %3, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
   %v.045.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %v.2.i, %for.inc.i ]
-  %7 = load i32, ptr %it.047.i, align 4
+  %7 = load i32, ptr %it.046.i, align 4
   %8 = load ptr, ptr %m_stack.i, align 8
   %idxprom.i27.i = zext i32 %7 to i64
   %arrayidx.i28.i = getelementptr inbounds i32, ptr %8, i64 %idxprom.i27.i
   %9 = load i32, ptr %arrayidx.i28.i, align 4
-  %m_k.i = getelementptr inbounds i8, ptr %it.047.i, i64 4
+  %m_k.i = getelementptr inbounds i8, ptr %it.046.i, i64 4
   %10 = load i32, ptr %m_k.i, align 4
   %add.i = add nsw i32 %10, %9
   %cmp7.i = icmp slt i32 %add.i, %v.045.i
@@ -6126,13 +6126,13 @@ if.end23.i:                                       ; preds = %if.end12.i
   %idxprom.i33.i = zext i32 %add.i to i64
   %arrayidx.i34.i = getelementptr inbounds i8, ptr %13, i64 %idxprom.i33.i
   store i8 1, ptr %arrayidx.i34.i, align 1
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 %max.046.i)
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 %max.047.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end17.i, %if.end23.i, %for.body.i
   %v.2.i = phi i32 [ %v.045.i, %for.body.i ], [ %v.045.i, %if.end23.i ], [ %inc43.i, %if.end17.i ]
-  %max.1.i = phi i32 [ %max.046.i, %for.body.i ], [ %spec.select.i, %if.end23.i ], [ %max.046.i, %if.end17.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.047.i, i64 8
+  %max.1.i = phi i32 [ %max.047.i, %for.body.i ], [ %spec.select.i, %if.end23.i ], [ %max.047.i, %if.end17.i ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.046.i, i64 8
   %cmp5.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp5.not.i, label %for.cond30.preheader.i, label %for.body.i, !llvm.loop !34
 
@@ -6258,15 +6258,15 @@ for.cond30.preheader.i:                           ; preds = %for.inc.i
   br i1 %cmp31.not.not49.i, label %for.body32.i, label %_ZN15diff_neq_tactic3imp12choose_valueEji.exit
 
 for.body.i:                                       ; preds = %_ZNK6vectorIN15diff_neq_tactic3imp5diseqELb0EjE3endEv.exit.i, %for.inc.i
-  %it.047.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %11, %_ZNK6vectorIN15diff_neq_tactic3imp5diseqELb0EjE3endEv.exit.i ]
-  %max.046.i = phi i32 [ %max.1.i, %for.inc.i ], [ %5, %_ZNK6vectorIN15diff_neq_tactic3imp5diseqELb0EjE3endEv.exit.i ]
+  %max.047.i = phi i32 [ %max.1.i, %for.inc.i ], [ %5, %_ZNK6vectorIN15diff_neq_tactic3imp5diseqELb0EjE3endEv.exit.i ]
+  %it.046.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %11, %_ZNK6vectorIN15diff_neq_tactic3imp5diseqELb0EjE3endEv.exit.i ]
   %v.045.i = phi i32 [ %v.2.i, %for.inc.i ], [ %add, %_ZNK6vectorIN15diff_neq_tactic3imp5diseqELb0EjE3endEv.exit.i ]
-  %14 = load i32, ptr %it.047.i, align 4
+  %14 = load i32, ptr %it.046.i, align 4
   %15 = load ptr, ptr %m_stack, align 8
   %idxprom.i27.i = zext i32 %14 to i64
   %arrayidx.i28.i = getelementptr inbounds i32, ptr %15, i64 %idxprom.i27.i
   %16 = load i32, ptr %arrayidx.i28.i, align 4
-  %m_k.i = getelementptr inbounds i8, ptr %it.047.i, i64 4
+  %m_k.i = getelementptr inbounds i8, ptr %it.046.i, i64 4
   %17 = load i32, ptr %m_k.i, align 4
   %add.i = add nsw i32 %17, %16
   %cmp7.i = icmp slt i32 %add.i, %v.045.i
@@ -6302,13 +6302,13 @@ if.end23.i:                                       ; preds = %if.end12.i
   %idxprom.i33.i = zext i32 %add.i to i64
   %arrayidx.i34.i = getelementptr inbounds i8, ptr %20, i64 %idxprom.i33.i
   store i8 1, ptr %arrayidx.i34.i, align 1
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 %max.046.i)
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 %max.047.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end17.i, %if.end23.i, %for.body.i
   %v.2.i = phi i32 [ %v.045.i, %for.body.i ], [ %v.045.i, %if.end23.i ], [ %inc43.i, %if.end17.i ]
-  %max.1.i = phi i32 [ %max.046.i, %for.body.i ], [ %spec.select.i, %if.end23.i ], [ %max.046.i, %if.end17.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.047.i, i64 8
+  %max.1.i = phi i32 [ %max.047.i, %for.body.i ], [ %spec.select.i, %if.end23.i ], [ %max.047.i, %if.end17.i ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.046.i, i64 8
   %cmp5.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp5.not.i, label %for.cond30.preheader.i, label %for.body.i, !llvm.loop !34
 
@@ -6479,10 +6479,10 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
+declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #14
+declare i32 @llvm.umax.i32(i32, i32) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

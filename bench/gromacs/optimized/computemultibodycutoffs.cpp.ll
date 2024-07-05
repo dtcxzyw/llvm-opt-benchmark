@@ -101,20 +101,20 @@ define void @_Z21dd_bonded_cg_distanceRKN3gmx8MDLoggerERK10gmx_mtop_tRK10t_input
   %.sroa.12166.0364 = phi i32 [ -1, %.lr.ph367 ], [ %.sroa.12166.3, %_ZN7t_graphD2Ev.exit82 ]
   %.sroa.9165.0363 = phi i32 [ -1, %.lr.ph367 ], [ %.sroa.9165.3, %_ZN7t_graphD2Ev.exit82 ]
   %.sroa.6164.0362 = phi i32 [ -1, %.lr.ph367 ], [ %.sroa.6164.3, %_ZN7t_graphD2Ev.exit82 ]
-  %.sroa.0136.0361 = phi ptr [ %21, %.lr.ph367 ], [ %289, %_ZN7t_graphD2Ev.exit82 ]
-  %.sroa.11.0360 = phi i32 [ -1, %.lr.ph367 ], [ %.sroa.11.3, %_ZN7t_graphD2Ev.exit82 ]
-  %.sroa.8.0359 = phi i32 [ -1, %.lr.ph367 ], [ %.sroa.8.3, %_ZN7t_graphD2Ev.exit82 ]
-  %.sroa.5148.0358 = phi i32 [ -1, %.lr.ph367 ], [ %.sroa.5148.3, %_ZN7t_graphD2Ev.exit82 ]
-  %.sroa.0146.0357 = phi float [ 0.000000e+00, %.lr.ph367 ], [ %.sroa.0146.3, %_ZN7t_graphD2Ev.exit82 ]
-  %.sroa.0162.0356 = phi float [ 0.000000e+00, %.lr.ph367 ], [ %.sroa.0162.3, %_ZN7t_graphD2Ev.exit82 ]
-  %53 = load i32, ptr %.sroa.0136.0361, align 8
+  %.sroa.0162.0361 = phi float [ 0.000000e+00, %.lr.ph367 ], [ %.sroa.0162.3, %_ZN7t_graphD2Ev.exit82 ]
+  %.sroa.0146.0360 = phi float [ 0.000000e+00, %.lr.ph367 ], [ %.sroa.0146.3, %_ZN7t_graphD2Ev.exit82 ]
+  %.sroa.5148.0359 = phi i32 [ -1, %.lr.ph367 ], [ %.sroa.5148.3, %_ZN7t_graphD2Ev.exit82 ]
+  %.sroa.8.0358 = phi i32 [ -1, %.lr.ph367 ], [ %.sroa.8.3, %_ZN7t_graphD2Ev.exit82 ]
+  %.sroa.11.0357 = phi i32 [ -1, %.lr.ph367 ], [ %.sroa.11.3, %_ZN7t_graphD2Ev.exit82 ]
+  %.sroa.0136.0356 = phi ptr [ %21, %.lr.ph367 ], [ %289, %_ZN7t_graphD2Ev.exit82 ]
+  %53 = load i32, ptr %.sroa.0136.0356, align 8
   %54 = sext i32 %53 to i64
   %55 = load ptr, ptr %24, align 8
   %56 = getelementptr inbounds %struct.gmx_moltype_t, ptr %55, i64 %54
   %57 = getelementptr inbounds i8, ptr %56, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, 1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.sroa.0136.0361, i64 4
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.sroa.0136.0356, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br i1 %59, label %._crit_edge407, label %60
 
@@ -294,11 +294,11 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
   %.sroa.12166.1344 = phi i32 [ %.sroa.12166.0364, %.lr.ph ], [ %.sroa.12166.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
   %.sroa.9165.1343 = phi i32 [ %.sroa.9165.0363, %.lr.ph ], [ %.sroa.9165.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
   %.sroa.6164.1342 = phi i32 [ %.sroa.6164.0362, %.lr.ph ], [ %.sroa.6164.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
-  %.sroa.11.1341 = phi i32 [ %.sroa.11.0360, %.lr.ph ], [ %.sroa.11.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
-  %.sroa.8.1340 = phi i32 [ %.sroa.8.0359, %.lr.ph ], [ %.sroa.8.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
-  %.sroa.5148.1339 = phi i32 [ %.sroa.5148.0358, %.lr.ph ], [ %.sroa.5148.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
-  %.sroa.0146.1338 = phi float [ %.sroa.0146.0357, %.lr.ph ], [ %.sroa.0146.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
-  %.sroa.0162.1337 = phi float [ %.sroa.0162.0356, %.lr.ph ], [ %.sroa.0162.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
+  %.sroa.0162.1341 = phi float [ %.sroa.0162.0361, %.lr.ph ], [ %.sroa.0162.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
+  %.sroa.0146.1340 = phi float [ %.sroa.0146.0360, %.lr.ph ], [ %.sroa.0146.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
+  %.sroa.5148.1339 = phi i32 [ %.sroa.5148.0359, %.lr.ph ], [ %.sroa.5148.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
+  %.sroa.8.1338 = phi i32 [ %.sroa.8.0358, %.lr.ph ], [ %.sroa.8.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
+  %.sroa.11.1337 = phi i32 [ %.sroa.11.0357, %.lr.ph ], [ %.sroa.11.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
   %114 = load i32, ptr %30, align 8
   %115 = sext i32 %.156345 to i64
   %116 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %115
@@ -637,8 +637,8 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i: ; preds = %.e
   %.sroa.9.8 = phi i32 [ %.sroa.9.7, %.lr.ph86.i ], [ %.sroa.9.11, %._crit_edge.i ]
   %.sroa.6.8 = phi i32 [ %.sroa.6.7, %.lr.ph86.i ], [ %.sroa.6.11, %._crit_edge.i ]
   %.sroa.0122.8 = phi float [ %.sroa.0122.7, %.lr.ph86.i ], [ %.sroa.0122.11, %._crit_edge.i ]
-  %.05684.i = phi i64 [ 0, %.lr.ph86.i ], [ %264, %._crit_edge.i ]
-  %233 = getelementptr i32, ptr %223, i64 %.05684.i
+  %.05784.i = phi i64 [ 0, %.lr.ph86.i ], [ %264, %._crit_edge.i ]
+  %233 = getelementptr i32, ptr %223, i64 %.05784.i
   %234 = load i32, ptr %233, align 4
   %235 = getelementptr i8, ptr %233, i64 4
   %236 = load i32, ptr %235, align 4
@@ -650,9 +650,9 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i: ; preds = %.e
 .lr.ph.i67:                                       ; preds = %232
   %239 = sext i32 %234 to i64
   %240 = getelementptr inbounds i32, ptr %228, i64 %239
-  %241 = getelementptr inbounds %"class.gmx::BasicVector", ptr %106, i64 %.05684.i
+  %241 = getelementptr inbounds %"class.gmx::BasicVector", ptr %106, i64 %.05784.i
   %242 = getelementptr inbounds i8, ptr %241, i64 8
-  %243 = trunc i64 %.05684.i to i32
+  %243 = trunc i64 %.05784.i to i32
   br label %244
 
 244:                                              ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit64.i, %.lr.ph.i67
@@ -663,7 +663,7 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i: ; preds = %.e
   %.sroa.0.083.i = phi ptr [ %240, %.lr.ph.i67 ], [ %263, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit64.i ]
   %245 = load i32, ptr %.sroa.0.083.i, align 4
   %246 = sext i32 %245 to i64
-  %.not.i68 = icmp eq i64 %.05684.i, %246
+  %.not.i68 = icmp eq i64 %.05784.i, %246
   br i1 %.not.i68, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit64.i, label %247
 
 247:                                              ; preds = %244
@@ -701,8 +701,8 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit64.i: ; preds = %262
   %.sroa.9.11 = phi i32 [ %.sroa.9.8, %232 ], [ %.sroa.9.10, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit64.i ]
   %.sroa.6.11 = phi i32 [ %.sroa.6.8, %232 ], [ %.sroa.6.10, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit64.i ]
   %.sroa.0122.11 = phi float [ %.sroa.0122.8, %232 ], [ %.sroa.0122.10, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit64.i ]
-  %264 = add nuw nsw i64 %.05684.i, 1
-  %exitcond.not = icmp eq i64 %.05684.i, %231
+  %264 = add nuw nsw i64 %.05784.i, 1
+  %exitcond.not = icmp eq i64 %.05784.i, %231
   br i1 %exitcond.not, label %.loopexit, label %232, !llvm.loop !12
 
 .loopexit:                                        ; preds = %._crit_edge.i, %221, %220
@@ -711,7 +711,7 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit64.i: ; preds = %262
   %.sroa.6.12 = phi i32 [ %.sroa.6.7, %221 ], [ %.sroa.6.7, %220 ], [ %.sroa.6.11, %._crit_edge.i ]
   %.sroa.0122.12 = phi float [ %.sroa.0122.7, %221 ], [ %.sroa.0122.7, %220 ], [ %.sroa.0122.11, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %13)
-  %265 = fcmp olt float %.sroa.0162.1337, %.sroa.0122.12
+  %265 = fcmp olt float %.sroa.0162.1341, %.sroa.0122.12
   br i1 %265, label %266, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit
 
 266:                                              ; preds = %.loopexit
@@ -720,11 +720,11 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit64.i: ; preds = %262
   br label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit
 
 _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit: ; preds = %.loopexit, %266
-  %.sroa.0162.2 = phi float [ %.sroa.0122.12, %266 ], [ %.sroa.0162.1337, %.loopexit ]
+  %.sroa.0162.2 = phi float [ %.sroa.0122.12, %266 ], [ %.sroa.0162.1341, %.loopexit ]
   %.sroa.6164.2 = phi i32 [ %.sroa.6.12, %266 ], [ %.sroa.6164.1342, %.loopexit ]
   %.sroa.9165.2 = phi i32 [ %268, %266 ], [ %.sroa.9165.1343, %.loopexit ]
   %.sroa.12166.2 = phi i32 [ %267, %266 ], [ %.sroa.12166.1344, %.loopexit ]
-  %269 = fcmp olt float %.sroa.0146.1338, %.sroa.0112.7
+  %269 = fcmp olt float %.sroa.0146.1340, %.sroa.0112.7
   br i1 %269, label %270, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72
 
 270:                                              ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit
@@ -733,10 +733,10 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit: ; preds = %.loopex
   br label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72
 
 _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72: ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit, %270
-  %.sroa.0146.2 = phi float [ %.sroa.0112.7, %270 ], [ %.sroa.0146.1338, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit ]
+  %.sroa.11.2 = phi i32 [ %271, %270 ], [ %.sroa.11.1337, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit ]
+  %.sroa.8.2 = phi i32 [ %272, %270 ], [ %.sroa.8.1338, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit ]
   %.sroa.5148.2 = phi i32 [ %.sroa.3.7, %270 ], [ %.sroa.5148.1339, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit ]
-  %.sroa.8.2 = phi i32 [ %272, %270 ], [ %.sroa.8.1340, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit ]
-  %.sroa.11.2 = phi i32 [ %271, %270 ], [ %.sroa.11.1341, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit ]
+  %.sroa.0146.2 = phi float [ %.sroa.0112.7, %270 ], [ %.sroa.0146.1340, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit ]
   %273 = load i32, ptr %57, align 8
   %274 = add nsw i32 %273, %.156345
   %275 = add nuw nsw i32 %.0346, 1
@@ -774,11 +774,11 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72: ; preds = %_ZL26
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit
 
 ._crit_edge:                                      ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72, %105
-  %.sroa.0162.1.lcssa = phi float [ %.sroa.0162.0356, %105 ], [ %.sroa.0162.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
-  %.sroa.0146.1.lcssa = phi float [ %.sroa.0146.0357, %105 ], [ %.sroa.0146.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
-  %.sroa.5148.1.lcssa = phi i32 [ %.sroa.5148.0358, %105 ], [ %.sroa.5148.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
-  %.sroa.8.1.lcssa = phi i32 [ %.sroa.8.0359, %105 ], [ %.sroa.8.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
-  %.sroa.11.1.lcssa = phi i32 [ %.sroa.11.0360, %105 ], [ %.sroa.11.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
+  %.sroa.11.1.lcssa = phi i32 [ %.sroa.11.0357, %105 ], [ %.sroa.11.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
+  %.sroa.8.1.lcssa = phi i32 [ %.sroa.8.0358, %105 ], [ %.sroa.8.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
+  %.sroa.5148.1.lcssa = phi i32 [ %.sroa.5148.0359, %105 ], [ %.sroa.5148.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
+  %.sroa.0146.1.lcssa = phi float [ %.sroa.0146.0360, %105 ], [ %.sroa.0146.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
+  %.sroa.0162.1.lcssa = phi float [ %.sroa.0162.0361, %105 ], [ %.sroa.0162.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
   %.sroa.6164.1.lcssa = phi i32 [ %.sroa.6164.0362, %105 ], [ %.sroa.6164.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
   %.sroa.9165.1.lcssa = phi i32 [ %.sroa.9165.0363, %105 ], [ %.sroa.9165.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
   %.sroa.12166.1.lcssa = phi i32 [ %.sroa.12166.0364, %105 ], [ %.sroa.12166.2, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit72 ]
@@ -832,25 +832,25 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit: ; preds = %.loopexit249, %
   br label %458
 
 _ZN7t_graphD2Ev.exit82:                           ; preds = %288, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i80, %._crit_edge407
-  %.sroa.0162.3 = phi float [ %.sroa.0162.0356, %._crit_edge407 ], [ %.sroa.0162.1.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i80 ], [ %.sroa.0162.1.lcssa, %288 ]
-  %.sroa.0146.3 = phi float [ %.sroa.0146.0357, %._crit_edge407 ], [ %.sroa.0146.1.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i80 ], [ %.sroa.0146.1.lcssa, %288 ]
-  %.sroa.5148.3 = phi i32 [ %.sroa.5148.0358, %._crit_edge407 ], [ %.sroa.5148.1.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i80 ], [ %.sroa.5148.1.lcssa, %288 ]
-  %.sroa.8.3 = phi i32 [ %.sroa.8.0359, %._crit_edge407 ], [ %.sroa.8.1.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i80 ], [ %.sroa.8.1.lcssa, %288 ]
-  %.sroa.11.3 = phi i32 [ %.sroa.11.0360, %._crit_edge407 ], [ %.sroa.11.1.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i80 ], [ %.sroa.11.1.lcssa, %288 ]
+  %.sroa.11.3 = phi i32 [ %.sroa.11.0357, %._crit_edge407 ], [ %.sroa.11.1.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i80 ], [ %.sroa.11.1.lcssa, %288 ]
+  %.sroa.8.3 = phi i32 [ %.sroa.8.0358, %._crit_edge407 ], [ %.sroa.8.1.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i80 ], [ %.sroa.8.1.lcssa, %288 ]
+  %.sroa.5148.3 = phi i32 [ %.sroa.5148.0359, %._crit_edge407 ], [ %.sroa.5148.1.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i80 ], [ %.sroa.5148.1.lcssa, %288 ]
+  %.sroa.0146.3 = phi float [ %.sroa.0146.0360, %._crit_edge407 ], [ %.sroa.0146.1.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i80 ], [ %.sroa.0146.1.lcssa, %288 ]
+  %.sroa.0162.3 = phi float [ %.sroa.0162.0361, %._crit_edge407 ], [ %.sroa.0162.1.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i80 ], [ %.sroa.0162.1.lcssa, %288 ]
   %.sroa.6164.3 = phi i32 [ %.sroa.6164.0362, %._crit_edge407 ], [ %.sroa.6164.1.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i80 ], [ %.sroa.6164.1.lcssa, %288 ]
   %.sroa.9165.3 = phi i32 [ %.sroa.9165.0363, %._crit_edge407 ], [ %.sroa.9165.1.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i80 ], [ %.sroa.9165.1.lcssa, %288 ]
   %.sroa.12166.3 = phi i32 [ %.sroa.12166.0364, %._crit_edge407 ], [ %.sroa.12166.1.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i80 ], [ %.sroa.12166.1.lcssa, %288 ]
   %.2 = phi i32 [ %64, %._crit_edge407 ], [ %.156.lcssa, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i80 ], [ %.156.lcssa, %288 ]
-  %289 = getelementptr inbounds i8, ptr %.sroa.0136.0361, i64 56
+  %289 = getelementptr inbounds i8, ptr %.sroa.0136.0356, i64 56
   %.not246 = icmp eq ptr %289, %23
   br i1 %.not246, label %._crit_edge368, label %52
 
 ._crit_edge368:                                   ; preds = %_ZN7t_graphD2Ev.exit82, %9
-  %.sroa.0162.0.lcssa = phi float [ 0.000000e+00, %9 ], [ %.sroa.0162.3, %_ZN7t_graphD2Ev.exit82 ]
-  %.sroa.0146.0.lcssa = phi float [ 0.000000e+00, %9 ], [ %.sroa.0146.3, %_ZN7t_graphD2Ev.exit82 ]
-  %.sroa.5148.0.lcssa = phi i32 [ -1, %9 ], [ %.sroa.5148.3, %_ZN7t_graphD2Ev.exit82 ]
-  %.sroa.8.0.lcssa = phi i32 [ -1, %9 ], [ %.sroa.8.3, %_ZN7t_graphD2Ev.exit82 ]
   %.sroa.11.0.lcssa = phi i32 [ -1, %9 ], [ %.sroa.11.3, %_ZN7t_graphD2Ev.exit82 ]
+  %.sroa.8.0.lcssa = phi i32 [ -1, %9 ], [ %.sroa.8.3, %_ZN7t_graphD2Ev.exit82 ]
+  %.sroa.5148.0.lcssa = phi i32 [ -1, %9 ], [ %.sroa.5148.3, %_ZN7t_graphD2Ev.exit82 ]
+  %.sroa.0146.0.lcssa = phi float [ 0.000000e+00, %9 ], [ %.sroa.0146.3, %_ZN7t_graphD2Ev.exit82 ]
+  %.sroa.0162.0.lcssa = phi float [ 0.000000e+00, %9 ], [ %.sroa.0162.3, %_ZN7t_graphD2Ev.exit82 ]
   %.sroa.6164.0.lcssa = phi i32 [ -1, %9 ], [ %.sroa.6164.3, %_ZN7t_graphD2Ev.exit82 ]
   %.sroa.9165.0.lcssa = phi i32 [ -1, %9 ], [ %.sroa.9165.3, %_ZN7t_graphD2Ev.exit82 ]
   %.sroa.12166.0.lcssa = phi i32 [ -1, %9 ], [ %.sroa.12166.3, %_ZN7t_graphD2Ev.exit82 ]
@@ -887,11 +887,11 @@ _ZN7t_graphD2Ev.exit82:                           ; preds = %288, %_ZNSt6vectorI
   br label %305
 
 305:                                              ; preds = %.loopexit39.i, %297
-  %.sroa.0162.4 = phi float [ %.sroa.0162.0.lcssa, %297 ], [ %.sroa.0162.11, %.loopexit39.i ]
-  %.sroa.0146.4 = phi float [ %.sroa.0146.0.lcssa, %297 ], [ %.sroa.0146.11, %.loopexit39.i ]
-  %.sroa.5148.4 = phi i32 [ %.sroa.5148.0.lcssa, %297 ], [ %.sroa.5148.11, %.loopexit39.i ]
-  %.sroa.8.4 = phi i32 [ %.sroa.8.0.lcssa, %297 ], [ %.sroa.8.11, %.loopexit39.i ]
   %.sroa.11.4 = phi i32 [ %.sroa.11.0.lcssa, %297 ], [ %.sroa.11.11, %.loopexit39.i ]
+  %.sroa.8.4 = phi i32 [ %.sroa.8.0.lcssa, %297 ], [ %.sroa.8.11, %.loopexit39.i ]
+  %.sroa.5148.4 = phi i32 [ %.sroa.5148.0.lcssa, %297 ], [ %.sroa.5148.11, %.loopexit39.i ]
+  %.sroa.0146.4 = phi float [ %.sroa.0146.0.lcssa, %297 ], [ %.sroa.0146.11, %.loopexit39.i ]
+  %.sroa.0162.4 = phi float [ %.sroa.0162.0.lcssa, %297 ], [ %.sroa.0162.11, %.loopexit39.i ]
   %.sroa.6164.4 = phi i32 [ %.sroa.6164.0.lcssa, %297 ], [ %.sroa.6164.11, %.loopexit39.i ]
   %.sroa.9165.4 = phi i32 [ %.sroa.9165.0.lcssa, %297 ], [ %.sroa.9165.11, %.loopexit39.i ]
   %.sroa.12166.4 = phi i32 [ %.sroa.12166.0.lcssa, %297 ], [ %.sroa.12166.11, %.loopexit39.i ]
@@ -1011,19 +1011,19 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89.us.us.us: ; 
   br i1 %358, label %.preheader.us.i84.us, label %.loopexit39.i, !llvm.loop !16
 
 .preheader.us.i84:                                ; preds = %.preheader.us.preheader.i83, %._crit_edge.us.i87.split
-  %.sroa.0146.5 = phi float [ %.sroa.0146.10, %._crit_edge.us.i87.split ], [ %.sroa.0146.4, %.preheader.us.preheader.i83 ]
-  %.sroa.5148.5 = phi i32 [ %.sroa.5148.10, %._crit_edge.us.i87.split ], [ %.sroa.5148.4, %.preheader.us.preheader.i83 ]
-  %.sroa.8.5 = phi i32 [ %.sroa.8.10, %._crit_edge.us.i87.split ], [ %.sroa.8.4, %.preheader.us.preheader.i83 ]
   %.sroa.11.5 = phi i32 [ %.sroa.11.10, %._crit_edge.us.i87.split ], [ %.sroa.11.4, %.preheader.us.preheader.i83 ]
+  %.sroa.8.5 = phi i32 [ %.sroa.8.10, %._crit_edge.us.i87.split ], [ %.sroa.8.4, %.preheader.us.preheader.i83 ]
+  %.sroa.5148.5 = phi i32 [ %.sroa.5148.10, %._crit_edge.us.i87.split ], [ %.sroa.5148.4, %.preheader.us.preheader.i83 ]
+  %.sroa.0146.5 = phi float [ %.sroa.0146.10, %._crit_edge.us.i87.split ], [ %.sroa.0146.4, %.preheader.us.preheader.i83 ]
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %._crit_edge.us.i87.split ], [ 0, %.preheader.us.preheader.i83 ]
   %359 = add nuw nsw i64 %indvars.iv56.i, 1
   br label %360
 
 360:                                              ; preds = %.loopexit.us.i, %.preheader.us.i84
-  %.sroa.0146.6 = phi float [ %.sroa.0146.5, %.preheader.us.i84 ], [ %.sroa.0146.10, %.loopexit.us.i ]
-  %.sroa.5148.6 = phi i32 [ %.sroa.5148.5, %.preheader.us.i84 ], [ %.sroa.5148.10, %.loopexit.us.i ]
-  %.sroa.8.6 = phi i32 [ %.sroa.8.5, %.preheader.us.i84 ], [ %.sroa.8.10, %.loopexit.us.i ]
   %.sroa.11.6 = phi i32 [ %.sroa.11.5, %.preheader.us.i84 ], [ %.sroa.11.10, %.loopexit.us.i ]
+  %.sroa.8.6 = phi i32 [ %.sroa.8.5, %.preheader.us.i84 ], [ %.sroa.8.10, %.loopexit.us.i ]
+  %.sroa.5148.6 = phi i32 [ %.sroa.5148.5, %.preheader.us.i84 ], [ %.sroa.5148.10, %.loopexit.us.i ]
+  %.sroa.0146.6 = phi float [ %.sroa.0146.5, %.preheader.us.i84 ], [ %.sroa.0146.10, %.loopexit.us.i ]
   %indvars.iv51.i = phi i64 [ 0, %.preheader.us.i84 ], [ %indvars.iv.next52.i, %.loopexit.us.i ]
   %indvars.iv.i85 = phi i64 [ 1, %.preheader.us.i84 ], [ %indvars.iv.next.i86, %.loopexit.us.i ]
   %361 = load ptr, ptr %309, align 8
@@ -1035,10 +1035,10 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89.us.us.us: ; 
   br i1 %365, label %.lr.ph.us.i88, label %.loopexit.us.i
 
 366:                                              ; preds = %.lr.ph.us.i88, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89
-  %.sroa.0146.7 = phi float [ %.sroa.0146.6, %.lr.ph.us.i88 ], [ %.sroa.0146.9, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
-  %.sroa.5148.7 = phi i32 [ %.sroa.5148.6, %.lr.ph.us.i88 ], [ %.sroa.5148.9, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
-  %.sroa.8.7 = phi i32 [ %.sroa.8.6, %.lr.ph.us.i88 ], [ %.sroa.8.9, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
   %.sroa.11.7 = phi i32 [ %.sroa.11.6, %.lr.ph.us.i88 ], [ %.sroa.11.9, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
+  %.sroa.8.7 = phi i32 [ %.sroa.8.6, %.lr.ph.us.i88 ], [ %.sroa.8.9, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
+  %.sroa.5148.7 = phi i32 [ %.sroa.5148.6, %.lr.ph.us.i88 ], [ %.sroa.5148.9, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
+  %.sroa.0146.7 = phi float [ %.sroa.0146.6, %.lr.ph.us.i88 ], [ %.sroa.0146.9, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
   %indvars.iv48.i = phi i64 [ %indvars.iv.i85, %.lr.ph.us.i88 ], [ %indvars.iv.next49.i, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
   %367 = load ptr, ptr %309, align 8
   %368 = getelementptr inbounds i32, ptr %367, i64 %indvars.iv48.i
@@ -1060,19 +1060,19 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89.us.us.us: ; 
   br label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89
 
 _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89: ; preds = %.else151, %366
-  %.sroa.0146.9 = phi float [ %.sroa.0146.7, %366 ], [ %378, %.else151 ]
-  %.sroa.5148.9 = phi i32 [ %.sroa.5148.7, %366 ], [ %306, %.else151 ]
-  %.sroa.8.9 = phi i32 [ %.sroa.8.7, %366 ], [ %364, %.else151 ]
   %.sroa.11.9 = phi i32 [ %.sroa.11.7, %366 ], [ %370, %.else151 ]
+  %.sroa.8.9 = phi i32 [ %.sroa.8.7, %366 ], [ %364, %.else151 ]
+  %.sroa.5148.9 = phi i32 [ %.sroa.5148.7, %366 ], [ %306, %.else151 ]
+  %.sroa.0146.9 = phi float [ %.sroa.0146.7, %366 ], [ %378, %.else151 ]
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %exitcond.not.i90 = icmp eq i64 %indvars.iv.next49.i, %324
   br i1 %exitcond.not.i90, label %.loopexit.us.i, label %366, !llvm.loop !15
 
 .loopexit.us.i:                                   ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89, %360
-  %.sroa.0146.10 = phi float [ %.sroa.0146.6, %360 ], [ %.sroa.0146.9, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
-  %.sroa.5148.10 = phi i32 [ %.sroa.5148.6, %360 ], [ %.sroa.5148.9, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
-  %.sroa.8.10 = phi i32 [ %.sroa.8.6, %360 ], [ %.sroa.8.9, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
   %.sroa.11.10 = phi i32 [ %.sroa.11.6, %360 ], [ %.sroa.11.9, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
+  %.sroa.8.10 = phi i32 [ %.sroa.8.6, %360 ], [ %.sroa.8.9, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
+  %.sroa.5148.10 = phi i32 [ %.sroa.5148.6, %360 ], [ %.sroa.5148.9, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
+  %.sroa.0146.10 = phi float [ %.sroa.0146.6, %360 ], [ %.sroa.0146.9, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89 ]
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i85, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %324
   br i1 %exitcond55.not.i, label %._crit_edge.us.i87.split, label %360, !llvm.loop !14
@@ -1096,11 +1096,11 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i89: ; preds = %
   br i1 %390, label %.preheader.us.i84, label %.loopexit39.i, !llvm.loop !16
 
 .loopexit39.i:                                    ; preds = %._crit_edge.us.i87.split, %._crit_edge.us.i87.split.us.us, %308, %305
-  %.sroa.0162.11 = phi float [ %.sroa.0162.4, %308 ], [ %.sroa.0162.4, %305 ], [ %.sroa.0162.10.us.us, %._crit_edge.us.i87.split.us.us ], [ %.sroa.0162.4, %._crit_edge.us.i87.split ]
-  %.sroa.0146.11 = phi float [ %.sroa.0146.4, %308 ], [ %.sroa.0146.4, %305 ], [ %.sroa.0146.4, %._crit_edge.us.i87.split.us.us ], [ %.sroa.0146.10, %._crit_edge.us.i87.split ]
-  %.sroa.5148.11 = phi i32 [ %.sroa.5148.4, %308 ], [ %.sroa.5148.4, %305 ], [ %.sroa.5148.4, %._crit_edge.us.i87.split.us.us ], [ %.sroa.5148.10, %._crit_edge.us.i87.split ]
-  %.sroa.8.11 = phi i32 [ %.sroa.8.4, %308 ], [ %.sroa.8.4, %305 ], [ %.sroa.8.4, %._crit_edge.us.i87.split.us.us ], [ %.sroa.8.10, %._crit_edge.us.i87.split ]
   %.sroa.11.11 = phi i32 [ %.sroa.11.4, %308 ], [ %.sroa.11.4, %305 ], [ %.sroa.11.4, %._crit_edge.us.i87.split.us.us ], [ %.sroa.11.10, %._crit_edge.us.i87.split ]
+  %.sroa.8.11 = phi i32 [ %.sroa.8.4, %308 ], [ %.sroa.8.4, %305 ], [ %.sroa.8.4, %._crit_edge.us.i87.split.us.us ], [ %.sroa.8.10, %._crit_edge.us.i87.split ]
+  %.sroa.5148.11 = phi i32 [ %.sroa.5148.4, %308 ], [ %.sroa.5148.4, %305 ], [ %.sroa.5148.4, %._crit_edge.us.i87.split.us.us ], [ %.sroa.5148.10, %._crit_edge.us.i87.split ]
+  %.sroa.0146.11 = phi float [ %.sroa.0146.4, %308 ], [ %.sroa.0146.4, %305 ], [ %.sroa.0146.4, %._crit_edge.us.i87.split.us.us ], [ %.sroa.0146.10, %._crit_edge.us.i87.split ]
+  %.sroa.0162.11 = phi float [ %.sroa.0162.4, %308 ], [ %.sroa.0162.4, %305 ], [ %.sroa.0162.10.us.us, %._crit_edge.us.i87.split.us.us ], [ %.sroa.0162.4, %._crit_edge.us.i87.split ]
   %.sroa.6164.11 = phi i32 [ %.sroa.6164.4, %308 ], [ %.sroa.6164.4, %305 ], [ %.sroa.6164.10.us.us, %._crit_edge.us.i87.split.us.us ], [ %.sroa.6164.4, %._crit_edge.us.i87.split ]
   %.sroa.9165.11 = phi i32 [ %.sroa.9165.4, %308 ], [ %.sroa.9165.4, %305 ], [ %.sroa.9165.10.us.us, %._crit_edge.us.i87.split.us.us ], [ %.sroa.9165.4, %._crit_edge.us.i87.split ]
   %.sroa.12166.11 = phi i32 [ %.sroa.12166.4, %308 ], [ %.sroa.12166.4, %305 ], [ %.sroa.12166.10.us.us, %._crit_edge.us.i87.split.us.us ], [ %.sroa.12166.4, %._crit_edge.us.i87.split ]
@@ -1115,11 +1115,11 @@ _ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm94EEN3gmx16DDBondedCh
   br label %391
 
 391:                                              ; preds = %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm94EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit, %._crit_edge368
-  %.sroa.0162.12 = phi float [ %.sroa.0162.11, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm94EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.0162.0.lcssa, %._crit_edge368 ]
-  %.sroa.0146.12 = phi float [ %.sroa.0146.11, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm94EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.0146.0.lcssa, %._crit_edge368 ]
-  %.sroa.5148.12 = phi i32 [ %.sroa.5148.11, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm94EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.5148.0.lcssa, %._crit_edge368 ]
-  %.sroa.8.12 = phi i32 [ %.sroa.8.11, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm94EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.8.0.lcssa, %._crit_edge368 ]
   %.sroa.11.12 = phi i32 [ %.sroa.11.11, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm94EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.11.0.lcssa, %._crit_edge368 ]
+  %.sroa.8.12 = phi i32 [ %.sroa.8.11, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm94EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.8.0.lcssa, %._crit_edge368 ]
+  %.sroa.5148.12 = phi i32 [ %.sroa.5148.11, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm94EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.5148.0.lcssa, %._crit_edge368 ]
+  %.sroa.0146.12 = phi float [ %.sroa.0146.11, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm94EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.0146.0.lcssa, %._crit_edge368 ]
+  %.sroa.0162.12 = phi float [ %.sroa.0162.11, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm94EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.0162.0.lcssa, %._crit_edge368 ]
   %.sroa.6164.12 = phi i32 [ %.sroa.6164.11, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm94EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.6164.0.lcssa, %._crit_edge368 ]
   %.sroa.9165.12 = phi i32 [ %.sroa.9165.11, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm94EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.9165.0.lcssa, %._crit_edge368 ]
   %.sroa.12166.12 = phi i32 [ %.sroa.12166.11, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm94EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.12166.0.lcssa, %._crit_edge368 ]

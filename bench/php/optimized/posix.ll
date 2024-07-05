@@ -335,9 +335,9 @@ define hidden void @zif_posix_kill(ptr noundef %0, ptr nocapture noundef writeon
 
 .thread112:                                       ; preds = %14, %7, %22
   %.0119 = phi i32 [ 9, %22 ], [ 9, %14 ], [ 1, %7 ]
-  %.096118 = phi ptr [ %17, %22 ], [ %9, %14 ], [ null, %7 ]
-  %.097117 = phi i32 [ 2, %22 ], [ 1, %14 ], [ 0, %7 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0119, i32 noundef %.097117, ptr noundef null, i32 noundef 0, ptr noundef %.096118) #11
+  %.097118 = phi ptr [ %17, %22 ], [ %9, %14 ], [ null, %7 ]
+  %.098117 = phi i32 [ 2, %22 ], [ 1, %14 ], [ 0, %7 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0119, i32 noundef %.098117, ptr noundef null, i32 noundef 0, ptr noundef %.097118) #11
   br label %36
 
 .thread126:                                       ; preds = %..thread126_crit_edge, %.thread108
@@ -572,9 +572,9 @@ define hidden void @zif_posix_setuid(ptr noundef %0, ptr nocapture noundef write
 
 14:                                               ; preds = %12, %.thread78
   %.085 = phi i32 [ 1, %.thread78 ], [ 9, %12 ]
-  %.05884 = phi ptr [ null, %.thread78 ], [ %7, %12 ]
-  %.05983 = phi i32 [ 0, %.thread78 ], [ 1, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.085, i32 noundef %.05983, ptr noundef null, i32 noundef 0, ptr noundef %.05884) #11
+  %.05784 = phi i32 [ 0, %.thread78 ], [ 1, %12 ]
+  %.05983 = phi ptr [ null, %.thread78 ], [ %7, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.085, i32 noundef %.05784, ptr noundef null, i32 noundef 0, ptr noundef %.05983) #11
   br label %25
 
 .thread86:                                        ; preds = %..thread86_crit_edge, %.thread68
@@ -639,9 +639,9 @@ define hidden void @zif_posix_setgid(ptr noundef %0, ptr nocapture noundef write
 
 14:                                               ; preds = %12, %.thread78
   %.085 = phi i32 [ 1, %.thread78 ], [ 9, %12 ]
-  %.05884 = phi ptr [ null, %.thread78 ], [ %7, %12 ]
-  %.05983 = phi i32 [ 0, %.thread78 ], [ 1, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.085, i32 noundef %.05983, ptr noundef null, i32 noundef 0, ptr noundef %.05884) #11
+  %.05784 = phi i32 [ 0, %.thread78 ], [ 1, %12 ]
+  %.05983 = phi ptr [ null, %.thread78 ], [ %7, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.085, i32 noundef %.05784, ptr noundef null, i32 noundef 0, ptr noundef %.05983) #11
   br label %25
 
 .thread86:                                        ; preds = %..thread86_crit_edge, %.thread68
@@ -706,9 +706,9 @@ define hidden void @zif_posix_seteuid(ptr noundef %0, ptr nocapture noundef writ
 
 14:                                               ; preds = %12, %.thread78
   %.085 = phi i32 [ 1, %.thread78 ], [ 9, %12 ]
-  %.05884 = phi ptr [ null, %.thread78 ], [ %7, %12 ]
-  %.05983 = phi i32 [ 0, %.thread78 ], [ 1, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.085, i32 noundef %.05983, ptr noundef null, i32 noundef 0, ptr noundef %.05884) #11
+  %.05784 = phi i32 [ 0, %.thread78 ], [ 1, %12 ]
+  %.05983 = phi ptr [ null, %.thread78 ], [ %7, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.085, i32 noundef %.05784, ptr noundef null, i32 noundef 0, ptr noundef %.05983) #11
   br label %25
 
 .thread86:                                        ; preds = %..thread86_crit_edge, %.thread68
@@ -773,9 +773,9 @@ define hidden void @zif_posix_setegid(ptr noundef %0, ptr nocapture noundef writ
 
 14:                                               ; preds = %12, %.thread78
   %.085 = phi i32 [ 1, %.thread78 ], [ 9, %12 ]
-  %.05884 = phi ptr [ null, %.thread78 ], [ %7, %12 ]
-  %.05983 = phi i32 [ 0, %.thread78 ], [ 1, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.085, i32 noundef %.05983, ptr noundef null, i32 noundef 0, ptr noundef %.05884) #11
+  %.05784 = phi i32 [ 0, %.thread78 ], [ 1, %12 ]
+  %.05983 = phi ptr [ null, %.thread78 ], [ %7, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.085, i32 noundef %.05784, ptr noundef null, i32 noundef 0, ptr noundef %.05983) #11
   br label %25
 
 .thread86:                                        ; preds = %..thread86_crit_edge, %.thread68
@@ -1046,9 +1046,9 @@ define hidden void @zif_posix_setpgid(ptr noundef %0, ptr nocapture noundef writ
 
 .thread112:                                       ; preds = %14, %7, %22
   %.0119 = phi i32 [ 9, %22 ], [ 9, %14 ], [ 1, %7 ]
-  %.096118 = phi ptr [ %17, %22 ], [ %9, %14 ], [ null, %7 ]
-  %.097117 = phi i32 [ 2, %22 ], [ 1, %14 ], [ 0, %7 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0119, i32 noundef %.097117, ptr noundef null, i32 noundef 0, ptr noundef %.096118) #11
+  %.097118 = phi ptr [ %17, %22 ], [ %9, %14 ], [ null, %7 ]
+  %.098117 = phi i32 [ 2, %22 ], [ 1, %14 ], [ 0, %7 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0119, i32 noundef %.098117, ptr noundef null, i32 noundef 0, ptr noundef %.097118) #11
   br label %36
 
 .thread126:                                       ; preds = %..thread126_crit_edge, %.thread108
@@ -1115,9 +1115,9 @@ define hidden void @zif_posix_getpgid(ptr noundef %0, ptr nocapture noundef writ
 
 14:                                               ; preds = %12, %.thread81
   %.05888 = phi i32 [ 1, %.thread81 ], [ 9, %12 ]
-  %.06087 = phi ptr [ null, %.thread81 ], [ %7, %12 ]
-  %.06186 = phi i32 [ 0, %.thread81 ], [ 1, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05888, i32 noundef %.06186, ptr noundef null, i32 noundef 0, ptr noundef %.06087) #11
+  %.05987 = phi i32 [ 0, %.thread81 ], [ 1, %12 ]
+  %.06186 = phi ptr [ null, %.thread81 ], [ %7, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05888, i32 noundef %.05987, ptr noundef null, i32 noundef 0, ptr noundef %.06186) #11
   br label %26
 
 .thread89:                                        ; preds = %..thread89_crit_edge, %.thread71
@@ -1185,9 +1185,9 @@ define hidden void @zif_posix_getsid(ptr noundef %0, ptr nocapture noundef write
 
 14:                                               ; preds = %12, %.thread81
   %.05888 = phi i32 [ 1, %.thread81 ], [ 9, %12 ]
-  %.06087 = phi ptr [ null, %.thread81 ], [ %7, %12 ]
-  %.06186 = phi i32 [ 0, %.thread81 ], [ 1, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05888, i32 noundef %.06186, ptr noundef null, i32 noundef 0, ptr noundef %.06087) #11
+  %.05987 = phi i32 [ 0, %.thread81 ], [ 1, %12 ]
+  %.06186 = phi ptr [ null, %.thread81 ], [ %7, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05888, i32 noundef %.05987, ptr noundef null, i32 noundef 0, ptr noundef %.06186) #11
   br label %26
 
 .thread89:                                        ; preds = %..thread89_crit_edge, %.thread71
@@ -1747,10 +1747,10 @@ thread-pre-split:                                 ; preds = %14
 
 .thread127:                                       ; preds = %14, %18, %7, %28
   %.0136 = phi i32 [ 9, %28 ], [ 9, %14 ], [ 9, %18 ], [ 1, %7 ]
-  %.0103135 = phi i32 [ 0, %28 ], [ 16, %14 ], [ 16, %18 ], [ 0, %7 ]
-  %.0104134 = phi ptr [ %23, %28 ], [ %9, %14 ], [ %9, %18 ], [ null, %7 ]
-  %.0105133 = phi i32 [ 2, %28 ], [ 1, %14 ], [ 1, %18 ], [ 0, %7 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0136, i32 noundef %.0105133, ptr noundef null, i32 noundef %.0103135, ptr noundef %.0104134) #11
+  %.0104135 = phi i32 [ 0, %28 ], [ 16, %14 ], [ 16, %18 ], [ 0, %7 ]
+  %.0105134 = phi ptr [ %23, %28 ], [ %9, %14 ], [ %9, %18 ], [ null, %7 ]
+  %.0106133 = phi i32 [ 2, %28 ], [ 1, %14 ], [ 1, %18 ], [ 0, %7 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0136, i32 noundef %.0106133, ptr noundef null, i32 noundef %.0104135, ptr noundef %.0105134) #11
   br label %48
 
 .thread144:                                       ; preds = %..thread144_crit_edge, %.thread123
@@ -1950,11 +1950,11 @@ thread-pre-split:                                 ; preds = %17
   br label %71
 
 71:                                               ; preds = %57, %66
-  %.0183 = phi i64 [ %70, %66 ], [ 0, %57 ]
+  %.0187 = phi i64 [ %70, %66 ], [ 0, %57 ]
   %72 = load ptr, ptr %3, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 24
   %74 = trunc i64 %58 to i32
-  %75 = call i32 @mknod(ptr noundef nonnull %73, i32 noundef %74, i64 noundef %.0183) #11
+  %75 = call i32 @mknod(ptr noundef nonnull %73, i32 noundef %74, i64 noundef %.0187) #11
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %81
 
@@ -2347,11 +2347,11 @@ define hidden void @zif_posix_getgrnam(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %14, label %17, label %16
 
 16:                                               ; preds = %6, %13
-  %.071 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.070 = phi ptr [ null, %6 ], [ %8, %13 ]
-  %.069 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.068 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.068, i32 noundef %.071, ptr noundef null, i32 noundef %.069, ptr noundef %.070) #11
+  %.072 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.071 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.070 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  %.069 = phi i32 [ 1, %6 ], [ 9, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.069, i32 noundef %.070, ptr noundef null, i32 noundef %.072, ptr noundef %.071) #11
   br label %30
 
 17:                                               ; preds = %13, %.thread82
@@ -2427,10 +2427,10 @@ define hidden void @zif_posix_getgrgid(ptr noundef %0, ptr noundef %1) #0 {
   br label %14
 
 14:                                               ; preds = %12, %.thread87
-  %.06394 = phi i32 [ 1, %.thread87 ], [ 9, %12 ]
-  %.06593 = phi ptr [ null, %.thread87 ], [ %7, %12 ]
-  %.06692 = phi i32 [ 0, %.thread87 ], [ 1, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.06394, i32 noundef %.06692, ptr noundef null, i32 noundef 0, ptr noundef %.06593) #11
+  %.06394 = phi i32 [ 0, %.thread87 ], [ 1, %12 ]
+  %.06493 = phi i32 [ 1, %.thread87 ], [ 9, %12 ]
+  %.06592 = phi ptr [ null, %.thread87 ], [ %7, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.06493, i32 noundef %.06394, ptr noundef null, i32 noundef 0, ptr noundef %.06592) #11
   br label %29
 
 .thread95:                                        ; preds = %..thread95_crit_edge, %.thread77
@@ -2543,11 +2543,11 @@ define hidden void @zif_posix_getpwnam(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %14, label %17, label %16
 
 16:                                               ; preds = %6, %13
-  %.071 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.070 = phi ptr [ null, %6 ], [ %8, %13 ]
-  %.069 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.068 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.068, i32 noundef %.071, ptr noundef null, i32 noundef %.069, ptr noundef %.070) #11
+  %.072 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.071 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.070 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  %.069 = phi i32 [ 1, %6 ], [ 9, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.069, i32 noundef %.070, ptr noundef null, i32 noundef %.072, ptr noundef %.071) #11
   br label %30
 
 17:                                               ; preds = %13, %.thread82
@@ -2622,10 +2622,10 @@ define hidden void @zif_posix_getpwuid(ptr noundef %0, ptr noundef %1) #0 {
   br label %14
 
 14:                                               ; preds = %12, %.thread87
-  %.06394 = phi i32 [ 1, %.thread87 ], [ 9, %12 ]
-  %.06593 = phi ptr [ null, %.thread87 ], [ %7, %12 ]
-  %.06692 = phi i32 [ 0, %.thread87 ], [ 1, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.06394, i32 noundef %.06692, ptr noundef null, i32 noundef 0, ptr noundef %.06593) #11
+  %.06394 = phi i32 [ 0, %.thread87 ], [ 1, %12 ]
+  %.06493 = phi i32 [ 1, %.thread87 ], [ 9, %12 ]
+  %.06592 = phi ptr [ null, %.thread87 ], [ %7, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.06493, i32 noundef %.06394, ptr noundef null, i32 noundef 0, ptr noundef %.06592) #11
   br label %29
 
 .thread95:                                        ; preds = %..thread95_crit_edge, %.thread77
@@ -2704,10 +2704,10 @@ define hidden void @zif_posix_getrlimit(ptr noundef %0, ptr noundef %1) #0 {
   br label %.thread139
 
 .thread122:                                       ; preds = %18, %11
-  %.075132 = phi i32 [ 1, %11 ], [ 9, %18 ]
-  %.077131 = phi i32 [ 0, %11 ], [ 1, %18 ]
-  %.078130 = phi ptr [ null, %11 ], [ %15, %18 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.075132, i32 noundef %.077131, ptr noundef null, i32 noundef %.077131, ptr noundef %.078130) #11
+  %.076132 = phi i32 [ 0, %11 ], [ 1, %18 ]
+  %.077131 = phi ptr [ null, %11 ], [ %15, %18 ]
+  %.078130 = phi i32 [ 1, %11 ], [ 9, %18 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.078130, i32 noundef %.076132, ptr noundef null, i32 noundef %.076132, ptr noundef %.077131) #11
   br label %.loopexit
 
 20:                                               ; preds = %14
@@ -2725,8 +2725,8 @@ define hidden void @zif_posix_getrlimit(ptr noundef %0, ptr noundef %1) #0 {
 
 25:                                               ; preds = %.thread137, %48
   %26 = phi ptr [ @.str.139, %.thread137 ], [ %51, %48 ]
-  %.076145 = phi ptr [ @limits, %.thread137 ], [ %49, %48 ]
-  %27 = load i32, ptr %.076145, align 8
+  %.075145 = phi ptr [ @limits, %.thread137 ], [ %49, %48 ]
+  %27 = load i32, ptr %.075145, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
@@ -2780,8 +2780,8 @@ define hidden void @zif_posix_getrlimit(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
-  %49 = getelementptr inbounds i8, ptr %.076145, i64 16
-  %50 = getelementptr inbounds i8, ptr %.076145, i64 24
+  %49 = getelementptr inbounds i8, ptr %.075145, i64 16
+  %50 = getelementptr inbounds i8, ptr %.075145, i64 24
   %51 = load ptr, ptr %50, align 8
   %.not86 = icmp eq ptr %51, null
   br i1 %.not86, label %.loopexit, label %25
@@ -2911,9 +2911,9 @@ define hidden void @zif_posix_setrlimit(ptr noundef %0, ptr nocapture noundef wr
 
 .thread154:                                       ; preds = %24, %16, %9, %32
   %.0161 = phi i32 [ 9, %32 ], [ 9, %24 ], [ 9, %16 ], [ 1, %9 ]
-  %.0134160 = phi ptr [ %27, %32 ], [ %19, %24 ], [ %11, %16 ], [ null, %9 ]
-  %.0135159 = phi i32 [ 3, %32 ], [ 2, %24 ], [ 1, %16 ], [ 0, %9 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0161, i32 noundef %.0135159, ptr noundef null, i32 noundef 0, ptr noundef %.0134160) #11
+  %.0135160 = phi ptr [ %27, %32 ], [ %19, %24 ], [ %11, %16 ], [ null, %9 ]
+  %.0136159 = phi i32 [ 3, %32 ], [ 2, %24 ], [ 1, %16 ], [ 0, %9 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0161, i32 noundef %.0136159, ptr noundef null, i32 noundef 0, ptr noundef %.0135160) #11
   br label %47
 
 .thread168:                                       ; preds = %..thread168_crit_edge, %.thread150
@@ -3004,10 +3004,10 @@ define hidden void @zif_posix_strerror(ptr noundef %0, ptr nocapture noundef wri
   br label %15
 
 14:                                               ; preds = %12, %.thread132
-  %.0139 = phi i32 [ 1, %.thread132 ], [ 9, %12 ]
-  %.0116138 = phi ptr [ null, %.thread132 ], [ %7, %12 ]
-  %.0117137 = phi i32 [ 0, %.thread132 ], [ 1, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0139, i32 noundef %.0117137, ptr noundef null, i32 noundef 0, ptr noundef %.0116138) #11
+  %.0114139 = phi i32 [ 0, %.thread132 ], [ 1, %12 ]
+  %.0115138 = phi i32 [ 1, %.thread132 ], [ 9, %12 ]
+  %.0116137 = phi ptr [ null, %.thread132 ], [ %7, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0115138, i32 noundef %.0114139, ptr noundef null, i32 noundef 0, ptr noundef %.0116137) #11
   br label %29
 
 15:                                               ; preds = %._crit_edge, %.thread127
@@ -3097,10 +3097,10 @@ define hidden void @zif_posix_initgroups(ptr noundef %0, ptr nocapture noundef w
 
 .thread133:                                       ; preds = %14, %7, %26
   %.0144 = phi i32 [ 9, %26 ], [ 9, %14 ], [ 1, %7 ]
-  %.0100143 = phi i32 [ 0, %26 ], [ 4, %14 ], [ 0, %7 ]
-  %.0101142 = phi ptr [ %21, %26 ], [ %9, %14 ], [ null, %7 ]
-  %.0102141 = phi i32 [ 2, %26 ], [ 1, %14 ], [ 0, %7 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0144, i32 noundef %.0102141, ptr noundef null, i32 noundef %.0100143, ptr noundef %.0101142) #11
+  %.0101143 = phi i32 [ 0, %26 ], [ 4, %14 ], [ 0, %7 ]
+  %.0102142 = phi ptr [ %21, %26 ], [ %9, %14 ], [ null, %7 ]
+  %.0103141 = phi i32 [ 2, %26 ], [ 1, %14 ], [ 0, %7 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0144, i32 noundef %.0103141, ptr noundef null, i32 noundef %.0101143, ptr noundef %.0102142) #11
   br label %37
 
 .thread156:                                       ; preds = %26, %.thread129
@@ -3163,9 +3163,9 @@ define hidden void @zif_posix_sysconf(ptr noundef %0, ptr nocapture noundef writ
 
 14:                                               ; preds = %12, %.thread79
   %.05786 = phi i32 [ 1, %.thread79 ], [ 9, %12 ]
-  %.05985 = phi ptr [ null, %.thread79 ], [ %7, %12 ]
-  %.06084 = phi i32 [ 0, %.thread79 ], [ 1, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05786, i32 noundef %.06084, ptr noundef null, i32 noundef 0, ptr noundef %.05985) #11
+  %.05885 = phi i32 [ 0, %.thread79 ], [ 1, %12 ]
+  %.06084 = phi ptr [ null, %.thread79 ], [ %7, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05786, i32 noundef %.05885, ptr noundef null, i32 noundef 0, ptr noundef %.06084) #11
   br label %19
 
 .thread87:                                        ; preds = %..thread87_crit_edge, %.thread69
@@ -3255,10 +3255,10 @@ thread-pre-split:                                 ; preds = %14
 
 .thread156:                                       ; preds = %14, %18, %7, %31
   %.0114167 = phi i32 [ 9, %31 ], [ 9, %14 ], [ 9, %18 ], [ 1, %7 ]
-  %.0115166 = phi i32 [ 0, %31 ], [ 16, %14 ], [ 16, %18 ], [ 0, %7 ]
-  %.0116165 = phi ptr [ %26, %31 ], [ %9, %14 ], [ %9, %18 ], [ null, %7 ]
-  %.0117164 = phi i32 [ 2, %31 ], [ 1, %14 ], [ 1, %18 ], [ 0, %7 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0114167, i32 noundef %.0117164, ptr noundef null, i32 noundef %.0115166, ptr noundef %.0116165) #11
+  %.0117166 = phi i32 [ 0, %31 ], [ 16, %14 ], [ 16, %18 ], [ 0, %7 ]
+  %.0118165 = phi ptr [ %26, %31 ], [ %9, %14 ], [ %9, %18 ], [ null, %7 ]
+  %.0119164 = phi i32 [ 2, %31 ], [ 1, %14 ], [ 1, %18 ], [ 0, %7 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0114167, i32 noundef %.0119164, ptr noundef null, i32 noundef %.0117166, ptr noundef %.0118165) #11
   br label %53
 
 .thread179:                                       ; preds = %31, %.thread151
@@ -3351,9 +3351,9 @@ define hidden void @zif_posix_fpathconf(ptr noundef %0, ptr nocapture noundef wr
 
 16:                                               ; preds = %14, %.thread137
   %.0104145 = phi i32 [ 1, %.thread137 ], [ 9, %14 ]
-  %.0106144 = phi ptr [ null, %.thread137 ], [ %9, %14 ]
-  %.0107143 = phi i32 [ 0, %.thread137 ], [ 2, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0104145, i32 noundef %.0107143, ptr noundef null, i32 noundef 0, ptr noundef %.0106144) #11
+  %.0106144 = phi i32 [ 0, %.thread137 ], [ 2, %14 ]
+  %.0108143 = phi ptr [ null, %.thread137 ], [ %9, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0104145, i32 noundef %.0106144, ptr noundef null, i32 noundef 0, ptr noundef %.0108143) #11
   br label %44
 
 .thread146:                                       ; preds = %14, %.thread125

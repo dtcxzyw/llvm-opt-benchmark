@@ -85,10 +85,10 @@ define range(i32 0, 2) i32 @Fraig_HashTableLookupS(ptr noundef %0, ptr noundef %
   %14 = inttoptr i64 %13 to ptr
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %11, %15
-  %spec.select = select i1 %16, ptr %2, ptr %1
-  %spec.select42 = select i1 %16, ptr %1, ptr %2
-  %17 = ptrtoint ptr %spec.select to i64
-  %18 = ptrtoint ptr %spec.select42 to i64
+  %spec.select = select i1 %16, ptr %1, ptr %2
+  %spec.select42 = select i1 %16, ptr %2, ptr %1
+  %17 = ptrtoint ptr %spec.select42 to i64
+  %18 = ptrtoint ptr %spec.select to i64
   %19 = mul i64 %18, 12582917
   %20 = add i64 %19, %17
   %21 = getelementptr inbounds i8, ptr %7, i64 8
@@ -106,13 +106,13 @@ define range(i32 0, 2) i32 @Fraig_HashTableLookupS(ptr noundef %0, ptr noundef %
   %.03748 = phi ptr [ %.037, %36 ], [ %.03746, %4 ]
   %28 = getelementptr inbounds i8, ptr %.03748, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, %spec.select
+  %30 = icmp eq ptr %29, %spec.select42
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %.lr.ph
   %32 = getelementptr inbounds i8, ptr %.03748, i64 40
   %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, %spec.select42
+  %34 = icmp eq ptr %33, %spec.select
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %31
@@ -233,7 +233,7 @@ Fraig_TableResizeS.exit:                          ; preds = %._crit_edge48.i, %7
 
 80:                                               ; preds = %Fraig_TableResizeS.exit, %._crit_edge
   %.pre-phi = phi i64 [ %.pre, %Fraig_TableResizeS.exit ], [ %26, %._crit_edge ]
-  %81 = call ptr @Fraig_NodeCreate(ptr noundef %0, ptr noundef %spec.select, ptr noundef %spec.select42) #14
+  %81 = call ptr @Fraig_NodeCreate(ptr noundef %0, ptr noundef %spec.select42, ptr noundef %spec.select) #14
   %82 = load ptr, ptr %7, align 8
   %83 = getelementptr inbounds ptr, ptr %82, i64 %.pre-phi
   %84 = load ptr, ptr %83, align 8
@@ -1210,7 +1210,7 @@ define range(i32 0, 2) i32 @Fraig_TableRehashF0(ptr nocapture noundef readonly %
 .lr.ph98.split:                                   ; preds = %.lr.ph98, %._crit_edge.split
   %30 = phi i32 [ %56, %._crit_edge.split ], [ %6, %.lr.ph98 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split ], [ 0, %.lr.ph98 ]
-  %.05194 = phi i32 [ %.152.lcssa, %._crit_edge.split ], [ 0, %.lr.ph98 ]
+  %.05294 = phi i32 [ %.153.lcssa, %._crit_edge.split ], [ 0, %.lr.ph98 ]
   %31 = load ptr, ptr %4, align 8
   %32 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
@@ -1219,14 +1219,14 @@ define range(i32 0, 2) i32 @Fraig_TableRehashF0(ptr nocapture noundef readonly %
 
 .split:                                           ; preds = %.lr.ph98.split, %.split83
   %.sink117 = phi ptr [ %35, %.split83 ], [ %33, %.lr.ph98.split ]
-  %.15288 = phi i32 [ %.556, %.split83 ], [ %.05194, %.lr.ph98.split ]
+  %.15387 = phi i32 [ %.557, %.split83 ], [ %.05294, %.lr.ph98.split ]
   %34 = getelementptr inbounds i8, ptr %.sink117, i64 64
   %35 = load ptr, ptr %34, align 8
   br label %36
 
 36:                                               ; preds = %55, %.split
   %.sink118 = phi ptr [ %.sink117, %.split ], [ %38, %55 ]
-  %.25380 = phi i32 [ %.15288, %.split ], [ %.556, %55 ]
+  %.25480 = phi i32 [ %.15387, %.split ], [ %.557, %55 ]
   %37 = getelementptr inbounds i8, ptr %.sink118, i64 72
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %.sink118, i64 100
@@ -1235,25 +1235,25 @@ define range(i32 0, 2) i32 @Fraig_TableRehashF0(ptr nocapture noundef readonly %
   %42 = urem i32 %40, %41
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds ptr, ptr %calloc, i64 %43
-  %.05775 = load ptr, ptr %44, align 8
-  %.not6976 = icmp eq ptr %.05775, null
+  %.05875 = load ptr, ptr %44, align 8
+  %.not6976 = icmp eq ptr %.05875, null
   br i1 %.not6976, label %.thread.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %47
-  %.05777 = phi ptr [ %.057, %47 ], [ %.05775, %36 ]
-  %45 = getelementptr inbounds i8, ptr %.05777, i64 100
+  %.05877 = phi ptr [ %.058, %47 ], [ %.05875, %36 ]
+  %45 = getelementptr inbounds i8, ptr %.05877, i64 100
   %46 = load i32, ptr %45, align 4
   %.not70 = icmp eq i32 %40, %46
   br i1 %.not70, label %49, label %47
 
 47:                                               ; preds = %.lr.ph
-  %48 = getelementptr inbounds i8, ptr %.05777, i64 64
-  %.057 = load ptr, ptr %48, align 8
-  %.not69 = icmp eq ptr %.057, null
+  %48 = getelementptr inbounds i8, ptr %.05877, i64 64
+  %.058 = load ptr, ptr %48, align 8
+  %.not69 = icmp eq ptr %.058, null
   br i1 %.not69, label %.thread.loopexit, label %.lr.ph, !llvm.loop !34
 
 49:                                               ; preds = %.lr.ph
-  %50 = getelementptr inbounds i8, ptr %.05777, i64 72
+  %50 = getelementptr inbounds i8, ptr %.05877, i64 72
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %.sink118, i64 72
   store ptr %51, ptr %52, align 8
@@ -1262,14 +1262,14 @@ define range(i32 0, 2) i32 @Fraig_TableRehashF0(ptr nocapture noundef readonly %
 
 .thread.loopexit:                                 ; preds = %47, %36
   %53 = getelementptr inbounds i8, ptr %.sink118, i64 64
-  store ptr %.05775, ptr %53, align 8
+  store ptr %.05875, ptr %53, align 8
   store ptr %.sink118, ptr %44, align 8
   %54 = getelementptr inbounds i8, ptr %.sink118, i64 72
   store ptr null, ptr %54, align 8
   br label %55
 
 55:                                               ; preds = %49, %.thread.loopexit
-  %.556 = phi i32 [ 1, %49 ], [ %.25380, %.thread.loopexit ]
+  %.557 = phi i32 [ 1, %49 ], [ %.25480, %.thread.loopexit ]
   %.not71 = icmp eq ptr %38, null
   br i1 %.not71, label %.split83, label %36, !llvm.loop !32
 
@@ -1283,14 +1283,14 @@ define range(i32 0, 2) i32 @Fraig_TableRehashF0(ptr nocapture noundef readonly %
 
 ._crit_edge.split:                                ; preds = %.lr.ph98.split, %._crit_edge.split.loopexit
   %56 = phi i32 [ %.pre, %._crit_edge.split.loopexit ], [ %30, %.lr.ph98.split ]
-  %.152.lcssa = phi i32 [ %.556, %._crit_edge.split.loopexit ], [ %.05194, %.lr.ph98.split ]
+  %.153.lcssa = phi i32 [ %.557, %._crit_edge.split.loopexit ], [ %.05294, %.lr.ph98.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
   br i1 %58, label %.lr.ph98.split, label %._crit_edge99, !llvm.loop !31
 
 ._crit_edge99:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %2
-  %.051.lcssa = phi i32 [ 0, %2 ], [ 0, %._crit_edge.split.us.us ], [ %.152.lcssa, %._crit_edge.split ]
+  %.052.lcssa = phi i32 [ 0, %2 ], [ 0, %._crit_edge.split.us.us ], [ %.153.lcssa, %._crit_edge.split ]
   %59 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %59, null
   br i1 %.not, label %61, label %60
@@ -1301,7 +1301,7 @@ define range(i32 0, 2) i32 @Fraig_TableRehashF0(ptr nocapture noundef readonly %
 
 61:                                               ; preds = %._crit_edge99, %60
   store ptr %calloc, ptr %4, align 8
-  ret i32 %.051.lcssa
+  ret i32 %.052.lcssa
 }
 
 ; Function Attrs: nounwind

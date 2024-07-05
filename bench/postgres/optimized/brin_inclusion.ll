@@ -320,14 +320,14 @@ inclusion_get_procinfo.exit75:                    ; preds = %inclusion_get_proci
   br label %164
 
 164:                                              ; preds = %155, %157, %150, %inclusion_get_procinfo.exit75
-  %.058 = phi i64 [ %146, %inclusion_get_procinfo.exit75 ], [ %163, %157 ], [ %146, %155 ], [ %146, %150 ]
+  %.059 = phi i64 [ %146, %inclusion_get_procinfo.exit75 ], [ %163, %157 ], [ %146, %155 ], [ %146, %150 ]
   %165 = load ptr, ptr %37, align 8
-  store i64 %.058, ptr %165, align 8
+  store i64 %.059, ptr %165, align 8
   br label %166
 
 166:                                              ; preds = %94, %inclusion_get_procinfo.exit.thread, %68, %36, %164, %122, %72
-  %.059 = phi i64 [ 1, %72 ], [ 1, %164 ], [ 1, %122 ], [ 0, %36 ], [ 0, %68 ], [ 1, %inclusion_get_procinfo.exit.thread ], [ 0, %94 ]
-  ret i64 %.059
+  %.0 = phi i64 [ 1, %72 ], [ 1, %164 ], [ 1, %122 ], [ 0, %36 ], [ 0, %68 ], [ 1, %inclusion_get_procinfo.exit.thread ], [ 0, %94 ]
+  ret i64 %.0
 }
 
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1

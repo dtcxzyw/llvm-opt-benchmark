@@ -265,8 +265,8 @@ define internal i32 @dissect_nvme_mi(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %46
 
 46:                                               ; preds = %42, %18
-  %.076 = phi i32 [ %45, %42 ], [ %40, %18 ]
-  %.0 = phi i32 [ %44, %42 ], [ 0, %18 ]
+  %.077 = phi i32 [ %45, %42 ], [ %40, %18 ]
+  %.075 = phi i32 [ %44, %42 ], [ 0, %18 ]
   %47 = load ptr, ptr %10, align 8
   %48 = load i32, ptr %5, align 4
   %49 = call ptr @val_to_str_const(i32 noundef %48, ptr noundef nonnull @mi_type_vals, ptr noundef nonnull @.str.111) #3
@@ -287,10 +287,10 @@ define internal i32 @dissect_nvme_mi(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %59
 
 59:                                               ; preds = %55, %46
-  %.077 = phi ptr [ %54, %46 ], [ %57, %55 ]
+  %.076 = phi ptr [ %54, %46 ], [ %57, %55 ]
   %60 = load i32, ptr %8, align 4
   %61 = zext i32 %60 to i64
-  %62 = getelementptr [2 x %struct.nvme_mi_command], ptr %.077, i64 0, i64 %61
+  %62 = getelementptr [2 x %struct.nvme_mi_command], ptr %.076, i64 0, i64 %61
   %63 = load i32, ptr %6, align 4
   %.not82 = icmp eq i32 %63, 0
   br i1 %.not82, label %94, label %64
@@ -396,7 +396,7 @@ proto_item_set_generated.exit91:                  ; preds = %103, %100, %97, %94
   br label %117
 
 117:                                              ; preds = %proto_item_set_generated.exit91, %proto_item_set_generated.exit88
-  %118 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef %.076) #3
+  %118 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef %.077) #3
   %119 = load i32, ptr %5, align 4
   switch i32 %119, label %dissect_nvme_mi_mi.exit [
     i32 1, label %120
@@ -564,9 +564,9 @@ dissect_nvme_mi_mi.exit:                          ; preds = %.sink.split.i92, %1
   br i1 %.not85, label %233, label %229
 
 229:                                              ; preds = %dissect_nvme_mi_mi.exit
-  %230 = add i32 %.076, 4
+  %230 = add i32 %.077, 4
   %231 = load i32, ptr @hf_nvme_mi_mic, align 4
-  %232 = call ptr @proto_tree_add_checksum(ptr noundef %22, ptr noundef %0, i32 noundef %230, i32 noundef %231, i32 noundef -1, ptr noundef null, ptr noundef nonnull %1, i32 noundef %.0, i32 noundef 0, i32 noundef 1) #3
+  %232 = call ptr @proto_tree_add_checksum(ptr noundef %22, ptr noundef %0, i32 noundef %230, i32 noundef %231, i32 noundef -1, ptr noundef null, ptr noundef nonnull %1, i32 noundef %.075, i32 noundef 0, i32 noundef 1) #3
   br label %233
 
 233:                                              ; preds = %229, %dissect_nvme_mi_mi.exit
@@ -574,8 +574,8 @@ dissect_nvme_mi_mi.exit:                          ; preds = %.sink.split.i92, %1
   br label %235
 
 235:                                              ; preds = %233, %15
-  %.075 = phi i32 [ %17, %15 ], [ %234, %233 ]
-  ret i32 %.075
+  %.0 = phi i32 [ %17, %15 ], [ %234, %233 ]
+  ret i32 %.0
 }
 
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

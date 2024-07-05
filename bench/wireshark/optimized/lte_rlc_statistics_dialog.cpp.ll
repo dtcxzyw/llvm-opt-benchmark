@@ -10155,8 +10155,8 @@ _ZN7QStringD2Ev.exit69.thread:                    ; preds = %64, %_ZN7QStringD2E
   br label %_ZN10QByteArrayD2Ev.exit73
 
 _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i, %_ZN7QStringD2Ev.exit25, %_ZN7QStringD2Ev.exit
-  %.sroa.077.1 = phi ptr [ null, %_ZN7QStringD2Ev.exit ], [ %33, %_ZN7QStringD2Ev.exit25 ], [ %33, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i ], [ %33, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i ]
   %.sroa.782.0 = phi ptr [ null, %_ZN7QStringD2Ev.exit ], [ %35, %_ZN7QStringD2Ev.exit25 ], [ %35, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i ], [ %35, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i ]
+  %.sroa.077.1 = phi ptr [ null, %_ZN7QStringD2Ev.exit ], [ %33, %_ZN7QStringD2Ev.exit25 ], [ %33, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i ], [ %33, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i ]
   %76 = load ptr, ptr @mainApp, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, i64 16, ptr nonnull @.str.72)

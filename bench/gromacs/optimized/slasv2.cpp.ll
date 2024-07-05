@@ -16,61 +16,61 @@ define void @slasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %16
 
 16:                                               ; preds = %15, %9
-  %.0151 = phi float [ %13, %15 ], [ %11, %9 ]
-  %.0149 = phi float [ %11, %15 ], [ %13, %9 ]
-  %.0148 = phi float [ %12, %15 ], [ %10, %9 ]
-  %.0147 = phi float [ %10, %15 ], [ %12, %9 ]
-  %.0136 = phi i32 [ 3, %15 ], [ 1, %9 ]
+  %.0153 = phi float [ %12, %15 ], [ %10, %9 ]
+  %.0152 = phi float [ %11, %15 ], [ %13, %9 ]
+  %.0151 = phi float [ %10, %15 ], [ %12, %9 ]
+  %.0150 = phi float [ %13, %15 ], [ %11, %9 ]
+  %.0138 = phi i32 [ 3, %15 ], [ 1, %9 ]
   %17 = load float, ptr %1, align 4
   %18 = tail call noundef float @llvm.fabs.f32(float %17)
   %19 = fcmp olt float %18, 0x3810000000000000
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
-  store float %.0149, ptr %3, align 4
-  store float %.0151, ptr %4, align 4
+  store float %.0152, ptr %3, align 4
+  store float %.0150, ptr %4, align 4
   br label %108
 
 21:                                               ; preds = %16
-  %22 = fcmp ogt float %18, %.0151
+  %22 = fcmp ogt float %18, %.0150
   br i1 %22, label %23, label %32
 
 23:                                               ; preds = %21
-  %24 = fdiv float %.0151, %18
+  %24 = fdiv float %.0150, %18
   %25 = fcmp olt float %24, 0x3E80000000000000
   br i1 %25, label %.thread, label %32
 
 .thread:                                          ; preds = %23
   store float %18, ptr %4, align 4
-  %26 = fcmp ogt float %.0149, 1.000000e+00
-  %27 = fmul float %.0149, %24
-  %28 = fdiv float %18, %.0149
-  %29 = fdiv float %.0151, %28
+  %26 = fcmp ogt float %.0152, 1.000000e+00
+  %27 = fmul float %.0152, %24
+  %28 = fdiv float %18, %.0152
+  %29 = fdiv float %.0150, %28
   %storemerge = select i1 %26, float %29, float %27
   store float %storemerge, ptr %3, align 4
-  %30 = fdiv float %.0147, %17
-  %31 = fdiv float %.0148, %17
-  %.1144..1142182 = select i1 %14, float %31, float %30
-  %.1142..1144183 = select i1 %14, float %30, float %31
+  %30 = fdiv float %.0151, %17
+  %31 = fdiv float %.0153, %17
+  %.1146..1144182 = select i1 %14, float %31, float %30
+  %.1144..1146183 = select i1 %14, float %30, float %31
   store float 1.000000e+00, ptr %8, align 4
-  store float %.1144..1142182, ptr %7, align 4
-  store float %.1142..1144183, ptr %6, align 4
+  store float %.1146..1144182, ptr %7, align 4
+  store float %.1144..1146183, ptr %6, align 4
   store float 1.000000e+00, ptr %5, align 4
   br label %.thread172
 
 32:                                               ; preds = %23, %21
-  %.1137.ph = phi i32 [ %.0136, %21 ], [ 2, %23 ]
-  %33 = fsub float %.0151, %.0149
-  %34 = fsub float %.0151, %33
+  %.1139.ph = phi i32 [ %.0138, %21 ], [ 2, %23 ]
+  %33 = fsub float %.0150, %.0152
+  %34 = fsub float %.0150, %33
   %35 = tail call noundef float @llvm.fabs.f32(float %34)
-  %36 = fadd float %.0151, %33
+  %36 = fadd float %.0150, %33
   %37 = tail call noundef float @llvm.fabs.f32(float %36)
   %38 = fmul float %37, 0x3E80000000000000
   %39 = fcmp uge float %35, %38
-  %40 = fdiv float %33, %.0151
-  %.0150 = select i1 %39, float %40, float 1.000000e+00
-  %41 = fdiv float %17, %.0148
-  %42 = fsub float 2.000000e+00, %.0150
+  %40 = fdiv float %33, %.0150
+  %.0136 = select i1 %39, float %40, float 1.000000e+00
+  %41 = fdiv float %17, %.0153
+  %42 = fsub float 2.000000e+00, %.0136
   %43 = fmul float %41, %41
   %44 = fmul float %42, %42
   %45 = fadd float %43, %44
@@ -79,21 +79,21 @@ define void @slasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %47 = fcmp olt float %46, 0x3810000000000000
   %48 = and i1 %47, %39
   %49 = tail call float @llvm.fabs.f32(float %41)
-  %50 = tail call float @llvm.fmuladd.f32(float %.0150, float %.0150, float %43)
+  %50 = tail call float @llvm.fmuladd.f32(float %.0136, float %.0136, float %43)
   %sqrt174 = tail call float @llvm.sqrt.f32(float %50)
-  %.0153 = select i1 %48, float %49, float %sqrt174
-  %51 = fadd float %.0153, %sqrt
+  %.0137 = select i1 %48, float %49, float %sqrt174
+  %51 = fadd float %.0137, %sqrt
   %52 = fmul float %51, 5.000000e-01
-  %53 = fdiv float %.0149, %52
+  %53 = fdiv float %.0152, %52
   store float %53, ptr %3, align 4
-  %54 = fmul float %.0151, %52
+  %54 = fmul float %.0150, %52
   store float %54, ptr %4, align 4
   %55 = tail call noundef float @llvm.fabs.f32(float %43)
   %56 = fcmp olt float %55, 0x3810000000000000
   br i1 %56, label %57, label %75
 
 57:                                               ; preds = %32
-  %58 = fcmp ogt float %.0148, 0.000000e+00
+  %58 = fcmp ogt float %.0153, 0.000000e+00
   br i1 %48, label %59, label %65
 
 59:                                               ; preds = %57
@@ -118,9 +118,9 @@ define void @slasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %91
 
 75:                                               ; preds = %32
-  %76 = insertelement <2 x float> poison, float %.0150, i64 0
+  %76 = insertelement <2 x float> poison, float %.0136, i64 0
   %77 = insertelement <2 x float> %76, float %42, i64 1
-  %78 = insertelement <2 x float> poison, float %.0153, i64 0
+  %78 = insertelement <2 x float> poison, float %.0137, i64 0
   %79 = insertelement <2 x float> %78, float %sqrt, i64 1
   %80 = fadd <2 x float> %77, %79
   %81 = insertelement <2 x float> poison, float %41, i64 0
@@ -137,16 +137,16 @@ define void @slasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %91
 
 91:                                               ; preds = %59, %65, %75
-  %.0152 = phi float [ %64, %59 ], [ %74, %65 ], [ %90, %75 ]
-  %92 = fmul float %.0152, %.0152
+  %.0149 = phi float [ %64, %59 ], [ %74, %65 ], [ %90, %75 ]
+  %92 = fmul float %.0149, %.0149
   %93 = fpext float %92 to double
   %94 = fadd double %93, 4.000000e+00
   %sqrt175 = tail call double @llvm.sqrt.f64(double %94)
   %95 = fptrunc double %sqrt175 to float
   %96 = fdiv float 2.000000e+00, %95
-  %97 = insertelement <2 x float> poison, float %.0147, i64 0
-  %98 = insertelement <2 x float> %97, float %.0152, i64 1
-  %99 = insertelement <2 x float> poison, float %.0148, i64 0
+  %97 = insertelement <2 x float> poison, float %.0151, i64 0
+  %98 = insertelement <2 x float> %97, float %.0149, i64 1
+  %99 = insertelement <2 x float> poison, float %.0153, i64 0
   %100 = insertelement <2 x float> %99, float %95, i64 1
   %101 = fdiv <2 x float> %98, %100
   %102 = extractelement <2 x float> %101, i64 1
@@ -158,20 +158,20 @@ define void @slasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %108
 
 108:                                              ; preds = %91, %20
-  %.1146 = phi float [ 1.000000e+00, %20 ], [ %104, %91 ]
-  %.1144 = phi float [ 1.000000e+00, %20 ], [ %96, %91 ]
-  %.1142 = phi float [ 0.000000e+00, %20 ], [ %107, %91 ]
-  %.1140 = phi float [ 0.000000e+00, %20 ], [ %102, %91 ]
-  %.2138 = phi i32 [ %.0136, %20 ], [ %.1137.ph, %91 ]
-  %.1140..1146 = select i1 %14, float %.1140, float %.1146
-  %.1144..1142 = select i1 %14, float %.1144, float %.1142
-  %.1142..1144 = select i1 %14, float %.1142, float %.1144
-  %.1146..1140 = select i1 %14, float %.1146, float %.1140
-  store float %.1140..1146, ptr %8, align 4
-  store float %.1144..1142, ptr %7, align 4
-  store float %.1142..1144, ptr %6, align 4
-  store float %.1146..1140, ptr %5, align 4
-  switch i32 %.2138, label %110 [
+  %.1148 = phi float [ 1.000000e+00, %20 ], [ %104, %91 ]
+  %.1146 = phi float [ 1.000000e+00, %20 ], [ %96, %91 ]
+  %.1144 = phi float [ 0.000000e+00, %20 ], [ %107, %91 ]
+  %.1142 = phi float [ 0.000000e+00, %20 ], [ %102, %91 ]
+  %.2140 = phi i32 [ %.0138, %20 ], [ %.1139.ph, %91 ]
+  %.1142..1148 = select i1 %14, float %.1142, float %.1148
+  %.1146..1144 = select i1 %14, float %.1146, float %.1144
+  %.1144..1146 = select i1 %14, float %.1144, float %.1146
+  %.1148..1142 = select i1 %14, float %.1148, float %.1142
+  store float %.1142..1148, ptr %8, align 4
+  store float %.1146..1144, ptr %7, align 4
+  store float %.1144..1146, ptr %6, align 4
+  store float %.1148..1142, ptr %5, align 4
+  switch i32 %.2140, label %110 [
     i32 1, label %.thread169
     i32 2, label %.thread172
   ]
@@ -184,10 +184,10 @@ define void @slasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %.thread172
 
 .thread172:                                       ; preds = %108, %.thread, %.thread169, %110
-  %.1146..1140185.sink = phi float [ %109, %.thread169 ], [ %.1146..1140, %110 ], [ 1.000000e+00, %.thread ], [ %.1146..1140, %108 ]
+  %.1148..1142185.sink = phi float [ %109, %.thread169 ], [ %.1148..1142, %110 ], [ 1.000000e+00, %.thread ], [ %.1148..1142, %108 ]
   %.sink196 = phi ptr [ %8, %.thread169 ], [ %7, %110 ], [ %8, %.thread ], [ %8, %108 ]
   %.sink = phi ptr [ %0, %.thread169 ], [ %2, %110 ], [ %1, %.thread ], [ %1, %108 ]
-  %111 = fcmp ogt float %.1146..1140185.sink, 0.000000e+00
+  %111 = fcmp ogt float %.1148..1142185.sink, 0.000000e+00
   %112 = load float, ptr %.sink196, align 4
   %113 = fcmp ogt float %112, 0.000000e+00
   %114 = select i1 %113, double 1.000000e+00, double -1.000000e+00

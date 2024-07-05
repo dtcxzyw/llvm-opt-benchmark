@@ -1078,22 +1078,22 @@ define hidden i32 @find_among(ptr noundef %0, ptr nocapture noundef readonly %1,
   br label %.outer
 
 .outer:                                           ; preds = %41, %3
-  %.068.ph = phi i32 [ 0, %3 ], [ %.068., %41 ]
-  %.066.ph = phi i32 [ %2, %3 ], [ %..066, %41 ]
-  %.064.ph = phi i32 [ 0, %3 ], [ %.064..058, %41 ]
-  %.062.ph = phi i32 [ 0, %3 ], [ %.058..062, %41 ]
+  %.068.ph = phi i32 [ %2, %3 ], [ %..068, %41 ]
+  %.066.ph = phi i32 [ 0, %3 ], [ %.066..058, %41 ]
+  %.064.ph = phi i32 [ 0, %3 ], [ %.058..064, %41 ]
   %12 = phi i1 [ false, %3 ], [ true, %41 ]
+  %.060.ph = phi i32 [ 0, %3 ], [ %.060., %41 ]
   br label %13
 
 13:                                               ; preds = %.outer, %._crit_edge
-  %.068 = phi i32 [ %.068., %._crit_edge ], [ %.068.ph, %.outer ]
-  %.066 = phi i32 [ %..066, %._crit_edge ], [ %.066.ph, %.outer ]
-  %.064 = phi i32 [ %.064..058, %._crit_edge ], [ %.064.ph, %.outer ]
-  %.062 = phi i32 [ %.058..062, %._crit_edge ], [ %.062.ph, %.outer ]
-  %14 = sub i32 %.066, %.068
+  %.068 = phi i32 [ %..068, %._crit_edge ], [ %.068.ph, %.outer ]
+  %.066 = phi i32 [ %.066..058, %._crit_edge ], [ %.066.ph, %.outer ]
+  %.064 = phi i32 [ %.058..064, %._crit_edge ], [ %.064.ph, %.outer ]
+  %.060 = phi i32 [ %.060., %._crit_edge ], [ %.060.ph, %.outer ]
+  %14 = sub i32 %.068, %.060
   %15 = ashr i32 %14, 1
-  %16 = add i32 %15, %.068
-  %17 = tail call i32 @llvm.smin.i32(i32 %.064, i32 %.062)
+  %16 = add i32 %15, %.060
+  %17 = tail call i32 @llvm.smin.i32(i32 %.066, i32 %.064)
   %18 = sext i32 %16 to i64
   %19 = getelementptr %struct.among, ptr %1, i64 %18
   %20 = load i32, ptr %19, align 8
@@ -1132,27 +1132,27 @@ define hidden i32 @find_among(ptr noundef %0, ptr nocapture noundef readonly %1,
   %.058.lcssa = phi i32 [ %17, %13 ], [ %11, %23 ], [ %.05780, %26 ], [ %20, %36 ]
   %.1 = phi i32 [ 0, %13 ], [ -1, %23 ], [ %35, %26 ], [ 0, %36 ]
   %38 = icmp slt i32 %.1, 0
-  %.068. = select i1 %38, i32 %.068, i32 %16
-  %..066 = select i1 %38, i32 %16, i32 %.066
-  %.064..058 = select i1 %38, i32 %.064, i32 %.058.lcssa
-  %.058..062 = select i1 %38, i32 %.058.lcssa, i32 %.062
-  %39 = sub i32 %..066, %.068.
+  %..068 = select i1 %38, i32 %16, i32 %.068
+  %.066..058 = select i1 %38, i32 %.066, i32 %.058.lcssa
+  %.058..064 = select i1 %38, i32 %.058.lcssa, i32 %.064
+  %.060. = select i1 %38, i32 %.060, i32 %16
+  %39 = sub i32 %..068, %.060.
   %40 = icmp slt i32 %39, 2
   br i1 %40, label %41, label %13
 
 41:                                               ; preds = %._crit_edge
-  %42 = icmp sgt i32 %.068., 0
-  %43 = icmp eq i32 %..066, %.068.
+  %42 = icmp sgt i32 %.060., 0
+  %43 = icmp eq i32 %..068, %.060.
   %or.cond = or i1 %43, %12
   %or.cond95 = or i1 %42, %or.cond
   br i1 %or.cond95, label %.preheader, label %.outer
 
 .preheader:                                       ; preds = %41, %56
-  %.2 = phi i32 [ %58, %56 ], [ %.068., %41 ]
+  %.2 = phi i32 [ %58, %56 ], [ %.060., %41 ]
   %44 = sext i32 %.2 to i64
   %45 = getelementptr %struct.among, ptr %1, i64 %44
   %46 = load i32, ptr %45, align 8
-  %.not75 = icmp slt i32 %.064..058, %46
+  %.not75 = icmp slt i32 %.066..058, %46
   br i1 %.not75, label %56, label %47
 
 47:                                               ; preds = %.preheader
@@ -1201,22 +1201,22 @@ define hidden i32 @find_among_b(ptr noundef %0, ptr nocapture noundef readonly %
   br label %.outer
 
 .outer:                                           ; preds = %48, %3
-  %.068.ph = phi i32 [ 0, %3 ], [ %.068., %48 ]
-  %.066.ph = phi i32 [ %2, %3 ], [ %..066, %48 ]
-  %.064.ph = phi i32 [ 0, %3 ], [ %.064..058, %48 ]
-  %.062.ph = phi i32 [ 0, %3 ], [ %.058..062, %48 ]
+  %.068.ph = phi i32 [ %2, %3 ], [ %..068, %48 ]
+  %.066.ph = phi i32 [ 0, %3 ], [ %.066..058, %48 ]
+  %.064.ph = phi i32 [ 0, %3 ], [ %.058..064, %48 ]
   %13 = phi i1 [ false, %3 ], [ true, %48 ]
+  %.060.ph = phi i32 [ 0, %3 ], [ %.060., %48 ]
   br label %14
 
 14:                                               ; preds = %.outer, %._crit_edge
-  %.068 = phi i32 [ %.068., %._crit_edge ], [ %.068.ph, %.outer ]
-  %.066 = phi i32 [ %..066, %._crit_edge ], [ %.066.ph, %.outer ]
-  %.064 = phi i32 [ %.064..058, %._crit_edge ], [ %.064.ph, %.outer ]
-  %.062 = phi i32 [ %.058..062, %._crit_edge ], [ %.062.ph, %.outer ]
-  %15 = sub i32 %.066, %.068
+  %.068 = phi i32 [ %..068, %._crit_edge ], [ %.068.ph, %.outer ]
+  %.066 = phi i32 [ %.066..058, %._crit_edge ], [ %.066.ph, %.outer ]
+  %.064 = phi i32 [ %.058..064, %._crit_edge ], [ %.064.ph, %.outer ]
+  %.060 = phi i32 [ %.060., %._crit_edge ], [ %.060.ph, %.outer ]
+  %15 = sub i32 %.068, %.060
   %16 = ashr i32 %15, 1
-  %17 = add i32 %16, %.068
-  %18 = tail call i32 @llvm.smin.i32(i32 %.064, i32 %.062)
+  %17 = add i32 %16, %.060
+  %18 = tail call i32 @llvm.smin.i32(i32 %.066, i32 %.064)
   %19 = sext i32 %17 to i64
   %20 = getelementptr %struct.among, ptr %1, i64 %19
   %21 = load i32, ptr %20, align 8
@@ -1261,27 +1261,27 @@ define hidden i32 @find_among_b(ptr noundef %0, ptr nocapture noundef readonly %
   %.058.lcssa = phi i32 [ %18, %14 ], [ %12, %26 ], [ %.05879, %29 ], [ %21, %41 ]
   %.1 = phi i32 [ 0, %14 ], [ -1, %26 ], [ %40, %29 ], [ 0, %41 ]
   %45 = icmp slt i32 %.1, 0
-  %.068. = select i1 %45, i32 %.068, i32 %17
-  %..066 = select i1 %45, i32 %17, i32 %.066
-  %.064..058 = select i1 %45, i32 %.064, i32 %.058.lcssa
-  %.058..062 = select i1 %45, i32 %.058.lcssa, i32 %.062
-  %46 = sub i32 %..066, %.068.
+  %..068 = select i1 %45, i32 %17, i32 %.068
+  %.066..058 = select i1 %45, i32 %.066, i32 %.058.lcssa
+  %.058..064 = select i1 %45, i32 %.058.lcssa, i32 %.064
+  %.060. = select i1 %45, i32 %.060, i32 %17
+  %46 = sub i32 %..068, %.060.
   %47 = icmp slt i32 %46, 2
   br i1 %47, label %48, label %14
 
 48:                                               ; preds = %._crit_edge
-  %49 = icmp sgt i32 %.068., 0
-  %50 = icmp eq i32 %..066, %.068.
+  %49 = icmp sgt i32 %.060., 0
+  %50 = icmp eq i32 %..068, %.060.
   %or.cond = or i1 %50, %13
   %or.cond95 = or i1 %49, %or.cond
   br i1 %or.cond95, label %.preheader, label %.outer
 
 .preheader:                                       ; preds = %48, %63
-  %.2 = phi i32 [ %65, %63 ], [ %.068., %48 ]
+  %.2 = phi i32 [ %65, %63 ], [ %.060., %48 ]
   %51 = sext i32 %.2 to i64
   %52 = getelementptr %struct.among, ptr %1, i64 %51
   %53 = load i32, ptr %52, align 8
-  %.not75 = icmp slt i32 %.064..058, %53
+  %.not75 = icmp slt i32 %.066..058, %53
   br i1 %.not75, label %63, label %54
 
 54:                                               ; preds = %.preheader
@@ -1707,18 +1707,18 @@ increase_size.exit._crit_edge:                    ; preds = %increase_size.exit
 36:                                               ; preds = %increase_size.exit._crit_edge, %22
   %37 = phi i32 [ %.pre23, %increase_size.exit._crit_edge ], [ %4, %22 ]
   %38 = phi ptr [ %.pre, %increase_size.exit._crit_edge ], [ %15, %22 ]
-  %.0 = phi ptr [ %34, %increase_size.exit._crit_edge ], [ %1, %22 ]
+  %.016 = phi ptr [ %34, %increase_size.exit._crit_edge ], [ %1, %22 ]
   %39 = sext i32 %37 to i64
   %40 = getelementptr i8, ptr %38, i64 %39
   %41 = sext i32 %23 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0, ptr align 1 %40, i64 %41, i1 false)
-  %42 = getelementptr i8, ptr %.0, i64 -4
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.016, ptr align 1 %40, i64 %41, i1 false)
+  %42 = getelementptr i8, ptr %.016, i64 -4
   store i32 %23, ptr %42, align 4
   br label %lose_s.exit
 
 lose_s.exit:                                      ; preds = %increase_size.exit.thread, %20, %slice_check.exit.thread, %increase_size.exit, %36
-  %.016 = phi ptr [ %.0, %36 ], [ null, %increase_size.exit ], [ null, %slice_check.exit.thread ], [ null, %20 ], [ null, %increase_size.exit.thread ]
-  ret ptr %.016
+  %.0 = phi ptr [ %.016, %36 ], [ null, %increase_size.exit ], [ null, %slice_check.exit.thread ], [ null, %20 ], [ null, %increase_size.exit.thread ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1750,17 +1750,17 @@ increase_size.exit:                               ; preds = %8
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %increase_size.exit, %2
-  %.0 = phi ptr [ %15, %increase_size.exit ], [ %1, %2 ]
+  %.012 = phi ptr [ %15, %increase_size.exit ], [ %1, %2 ]
   %18 = load ptr, ptr %0, align 8
   %19 = sext i32 %4 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0, ptr align 1 %18, i64 %19, i1 false)
-  %20 = getelementptr i8, ptr %.0, i64 -4
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.012, ptr align 1 %18, i64 %19, i1 false)
+  %20 = getelementptr i8, ptr %.012, i64 -4
   store i32 %4, ptr %20, align 4
   br label %21
 
 21:                                               ; preds = %increase_size.exit.thread, %increase_size.exit, %17
-  %.012 = phi ptr [ %.0, %17 ], [ null, %increase_size.exit ], [ null, %increase_size.exit.thread ]
-  ret ptr %.012
+  %.0 = phi ptr [ %.012, %17 ], [ null, %increase_size.exit ], [ null, %increase_size.exit.thread ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

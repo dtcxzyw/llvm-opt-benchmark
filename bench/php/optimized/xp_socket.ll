@@ -99,7 +99,7 @@ define internal i64 @php_sockop_write(ptr nocapture noundef readonly %0, ptr nou
   br label %php_pollfd_for.exit.us.us
 
 php_pollfd_for.exit.us.us:                        ; preds = %45, %.split.us.us
-  %.0.us.us = phi i32 [ 11, %.split.us.us ], [ 4, %45 ]
+  %.049.us.us = phi i32 [ 11, %.split.us.us ], [ 4, %45 ]
   %31 = load i32, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i32 %31, ptr %4, align 4
@@ -188,7 +188,7 @@ php_pollfd_for.exit:                              ; preds = %74
 
 .split84:                                         ; preds = %.split, %php_pollfd_for.exit, %php_pollfd_for.exit.us.us
   %.us-phi85 = phi i64 [ %26, %php_pollfd_for.exit.us.us ], [ %56, %php_pollfd_for.exit ], [ %56, %.split ]
-  %.us-phi86 = phi i32 [ %.0.us.us, %php_pollfd_for.exit.us.us ], [ 4, %php_pollfd_for.exit ], [ 11, %.split ]
+  %.us-phi86 = phi i32 [ %.049.us.us, %php_pollfd_for.exit.us.us ], [ 4, %php_pollfd_for.exit ], [ 11, %.split ]
   store i8 1, ptr %22, align 8
   br label %.loopexit68
 
@@ -268,8 +268,8 @@ php_pollfd_for.exit:                              ; preds = %74
   br label %.critedge
 
 .critedge:                                        ; preds = %59, %29, %81, %.loopexit68, %86, %90, %92, %96, %103, %105, %.thread, %3, %7
-  %.049 = phi i64 [ 0, %7 ], [ 0, %3 ], [ %.lcssa72, %.thread ], [ %.lcssa72, %105 ], [ %.lcssa72, %103 ], [ %.lcssa72, %96 ], [ %.lcssa72, %92 ], [ %.lcssa72, %90 ], [ %.lcssa72, %86 ], [ %77, %.loopexit68 ], [ %77, %81 ], [ 0, %29 ], [ 0, %59 ]
-  ret i64 %.049
+  %.0 = phi i64 [ 0, %7 ], [ 0, %3 ], [ %.lcssa72, %.thread ], [ %.lcssa72, %105 ], [ %.lcssa72, %103 ], [ %.lcssa72, %96 ], [ %.lcssa72, %92 ], [ %.lcssa72, %90 ], [ %.lcssa72, %86 ], [ %77, %.loopexit68 ], [ %77, %81 ], [ 0, %29 ], [ 0, %59 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -486,8 +486,8 @@ php_sock_stream_wait_for_data.exit..thread65_crit_edge: ; preds = %php_sock_stre
   br label %.critedge
 
 .critedge:                                        ; preds = %php_sock_stream_wait_for_data.exit, %php_sock_stream_wait_for_data.exit.thread, %65, %75, %69, %82, %86, %88, %92, %99, %101, %79, %3, %7
-  %.049 = phi i64 [ -1, %7 ], [ -1, %3 ], [ %63, %79 ], [ %63, %101 ], [ %63, %99 ], [ %63, %92 ], [ %63, %88 ], [ %63, %86 ], [ %63, %82 ], [ 0, %65 ], [ 0, %75 ], [ %63, %69 ], [ -1, %php_sock_stream_wait_for_data.exit.thread ], [ -1, %php_sock_stream_wait_for_data.exit ]
-  ret i64 %.049
+  %.0 = phi i64 [ -1, %7 ], [ -1, %3 ], [ %63, %79 ], [ %63, %101 ], [ %63, %99 ], [ %63, %92 ], [ %63, %88 ], [ %63, %86 ], [ %63, %82 ], [ 0, %65 ], [ 0, %75 ], [ %63, %69 ], [ -1, %php_sock_stream_wait_for_data.exit.thread ], [ -1, %php_sock_stream_wait_for_data.exit ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1698,8 +1698,8 @@ define internal fastcc noalias ptr @parse_ip_address_ex(ptr noundef %0, i64 noun
   br label %40
 
 40:                                               ; preds = %.thread, %38, %16, %17, %31, %19
-  %.028 = phi ptr [ %26, %19 ], [ %37, %31 ], [ null, %17 ], [ null, %16 ], [ null, %38 ], [ null, %.thread ]
-  ret ptr %.028
+  %.0 = phi ptr [ %26, %19 ], [ %37, %31 ], [ null, %17 ], [ null, %16 ], [ null, %38 ], [ null, %.thread ]
+  ret ptr %.0
 }
 
 declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #5

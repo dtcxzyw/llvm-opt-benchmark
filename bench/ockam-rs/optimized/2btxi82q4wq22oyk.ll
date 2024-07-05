@@ -12732,23 +12732,23 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit317: ; preds = %34
   br label %657
 
 657:                                              ; preds = %.lr.ph582, %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$bool$C$ockam_abac..error..EvalError$GT$$GT$17h1c1106815fd33470E.exit"
-  %.sroa.0445.0581 = phi ptr [ %645, %.lr.ph582 ], [ %658, %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$bool$C$ockam_abac..error..EvalError$GT$$GT$17h1c1106815fd33470E.exit" ]
-  %.sroa.8.0499580 = phi ptr [ %645, %.lr.ph582 ], [ %.sroa.8.2501, %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$bool$C$ockam_abac..error..EvalError$GT$$GT$17h1c1106815fd33470E.exit" ]
-  %.sroa.15.0579 = phi i64 [ 1, %.lr.ph582 ], [ 0, %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$bool$C$ockam_abac..error..EvalError$GT$$GT$17h1c1106815fd33470E.exit" ]
-  %.not.i.i409578 = phi i1 [ false, %.lr.ph582 ], [ true, %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$bool$C$ockam_abac..error..EvalError$GT$$GT$17h1c1106815fd33470E.exit" ]
-  %658 = getelementptr inbounds i8, ptr %.sroa.0445.0581, i64 32
-  br i1 %.not.i.i409578, label %659, label %661
+  %.sroa.15.0581 = phi i64 [ 1, %.lr.ph582 ], [ 0, %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$bool$C$ockam_abac..error..EvalError$GT$$GT$17h1c1106815fd33470E.exit" ]
+  %.not.i.i409580 = phi i1 [ false, %.lr.ph582 ], [ true, %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$bool$C$ockam_abac..error..EvalError$GT$$GT$17h1c1106815fd33470E.exit" ]
+  %.sroa.8.0499579 = phi ptr [ %645, %.lr.ph582 ], [ %.sroa.8.2501, %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$bool$C$ockam_abac..error..EvalError$GT$$GT$17h1c1106815fd33470E.exit" ]
+  %.sroa.0445.0578 = phi ptr [ %645, %.lr.ph582 ], [ %658, %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$bool$C$ockam_abac..error..EvalError$GT$$GT$17h1c1106815fd33470E.exit" ]
+  %658 = getelementptr inbounds i8, ptr %.sroa.0445.0578, i64 32
+  br i1 %.not.i.i409580, label %659, label %661
 
 659:                                              ; preds = %657
-  %660 = icmp eq ptr %.sroa.8.0499580, %647
+  %660 = icmp eq ptr %.sroa.8.0499579, %647
   br i1 %660, label %select.unfold.loopexit, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h893abe2535492e61E.exit.i.thread537"
 
 661:                                              ; preds = %657
-  %662 = ptrtoint ptr %.sroa.8.0499580 to i64
+  %662 = ptrtoint ptr %.sroa.8.0499579 to i64
   %663 = sub nuw i64 %656, %662
   %664 = lshr exact i64 %663, 5
-  %.not.i.i.i410.not = icmp ugt i64 %664, %.sroa.15.0579
-  %665 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.8.0499580, i64 %.sroa.15.0579
+  %.not.i.i.i410.not = icmp ugt i64 %664, %.sroa.15.0581
+  %665 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.8.0499579, i64 %.sroa.15.0581
   br i1 %.not.i.i.i410.not, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h893abe2535492e61E.exit.i.thread537", label %select.unfold.loopexit
 
 select.unfold.loopexit:                           ; preds = %661, %659, %"_ZN4core3ptr84drop_in_place$LT$core..result..Result$LT$bool$C$ockam_abac..error..EvalError$GT$$GT$17h1c1106815fd33470E.exit"
@@ -12789,10 +12789,10 @@ select.unfold:                                    ; preds = %135, %select.unfold
   unreachable
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h893abe2535492e61E.exit.i.thread537": ; preds = %659, %661
-  %.sroa.4.0.i = phi ptr [ %665, %661 ], [ %.sroa.8.0499580, %659 ]
+  %.sroa.4.0.i = phi ptr [ %665, %661 ], [ %.sroa.8.0499579, %659 ]
   %.sroa.8.2501 = getelementptr inbounds i8, ptr %.sroa.4.0.i, i64 32
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %18)
-  invoke void @_ZN10ockam_abac4expr4Expr6equals17h018d2d4c7207878cE(ptr noalias nocapture noundef nonnull sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0445.0581, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.4.0.i)
+  invoke void @_ZN10ockam_abac4expr4Expr6equals17h018d2d4c7207878cE(ptr noalias nocapture noundef nonnull sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0445.0578, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.4.0.i)
           to label %691 unwind label %.loopexit542
 
 674:                                              ; preds = %._crit_edge.i412, %select.unfold

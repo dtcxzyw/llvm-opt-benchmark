@@ -59,8 +59,8 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %switch12.i, label %if.end27.i, label %return
 
 if.end27.i:                                       ; preds = %if.else.i, %if.end.i
-  %taba.0.i = phi ptr [ %arrayidx4.i, %if.end.i ], [ %arrayidx.i, %if.else.i ]
   %tabb.0.i = phi ptr [ %arrayidx.i, %if.end.i ], [ %arrayidx4.i, %if.else.i ]
+  %taba.0.i = phi ptr [ %arrayidx4.i, %if.end.i ], [ %arrayidx.i, %if.else.i ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %taba.0.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
@@ -148,8 +148,8 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br i1 %switch12.i.i, label %if.end27.i.i, label %return
 
 if.end27.i.i:                                     ; preds = %if.else.i.i, %if.end.i.i
-  %taba.0.i.i = phi ptr [ %arrayidx4.i.i, %if.end.i.i ], [ %arrayidx.i.i, %if.else.i.i ]
   %tabb.0.i.i = phi ptr [ %arrayidx.i.i, %if.end.i.i ], [ %arrayidx4.i.i, %if.else.i.i ]
+  %taba.0.i.i = phi ptr [ %arrayidx4.i.i, %if.end.i.i ], [ %arrayidx.i.i, %if.else.i.i ]
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %taba.0.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 3
@@ -763,8 +763,8 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br i1 %switch12.i.i, label %if.end27.i.i, label %docse
 
 if.end27.i.i:                                     ; preds = %if.else.i.i, %if.end.i.i
-  %taba.0.i.i = phi ptr [ %arrayidx4.i.i, %if.end.i.i ], [ %arrayidx.i23, %if.else.i.i ]
   %tabb.0.i.i = phi ptr [ %arrayidx.i23, %if.end.i.i ], [ %arrayidx4.i.i, %if.else.i.i ]
+  %taba.0.i.i = phi ptr [ %arrayidx4.i.i, %if.end.i.i ], [ %arrayidx.i23, %if.else.i.i ]
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %taba.0.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 3
@@ -821,8 +821,8 @@ if.else.i:                                        ; preds = %if.end.i24
   br i1 %switch12.i, label %if.end27.i, label %docse
 
 if.end27.i:                                       ; preds = %if.else.i, %if.end.i24
-  %taba.0.i = phi ptr [ %arrayidx4.i, %if.end.i24 ], [ %arrayidx.i23, %if.else.i ]
   %tabb.0.i = phi ptr [ %arrayidx.i23, %if.end.i24 ], [ %arrayidx4.i, %if.else.i ]
+  %taba.0.i = phi ptr [ %arrayidx4.i, %if.end.i24 ], [ %arrayidx.i23, %if.else.i ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %taba.0.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
@@ -1045,8 +1045,8 @@ if.then7:                                         ; preds = %if.end
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then7, %if.end
-  %ka.0.in = phi i16 [ %4, %if.then7 ], [ %1, %if.end ]
   %keya.0 = phi ptr [ %arrayidx12, %if.then7 ], [ %arrayidx, %if.end ]
+  %ka.0.in = phi i16 [ %4, %if.then7 ], [ %1, %if.end ]
   %idxprom16 = zext i16 %0 to i64
   %arrayidx17 = getelementptr inbounds %union.IRIns, ptr %2, i64 %idxprom16
   %o18 = getelementptr inbounds i8, ptr %arrayidx17, i64 5
@@ -1124,8 +1124,8 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %switch12.i, label %if.end27.i, label %return
 
 if.end27.i:                                       ; preds = %if.else.i, %if.end.i
-  %taba.0.i = phi ptr [ %arrayidx4.i, %if.end.i ], [ %arrayidx.i, %if.else.i ]
   %tabb.0.i = phi ptr [ %arrayidx.i, %if.end.i ], [ %arrayidx4.i, %if.else.i ]
+  %taba.0.i = phi ptr [ %arrayidx4.i, %if.end.i ], [ %arrayidx.i, %if.else.i ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %taba.0.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1258,20 +1258,20 @@ if.else.i69:                                      ; preds = %if.end.i67
   br i1 %switch12.i70, label %if.end27.i72, label %return
 
 if.end27.i72:                                     ; preds = %if.else.i69, %if.end.i67
-  %taba.0.i73 = phi ptr [ %arrayidx4.i63, %if.end.i67 ], [ %arrayidx.i61, %if.else.i69 ]
-  %tabb.0.i74 = phi ptr [ %arrayidx.i61, %if.end.i67 ], [ %arrayidx4.i63, %if.else.i69 ]
-  %sub.ptr.lhs.cast.i.i75 = ptrtoint ptr %taba.0.i73 to i64
+  %tabb.0.i73 = phi ptr [ %arrayidx.i61, %if.end.i67 ], [ %arrayidx4.i63, %if.else.i69 ]
+  %taba.0.i74 = phi ptr [ %arrayidx4.i63, %if.end.i67 ], [ %arrayidx.i61, %if.else.i69 ]
+  %sub.ptr.lhs.cast.i.i75 = ptrtoint ptr %taba.0.i74 to i64
   %sub.ptr.rhs.cast.i.i76 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i77 = sub i64 %sub.ptr.lhs.cast.i.i75, %sub.ptr.rhs.cast.i.i76
   %sub.ptr.div.i.i78 = lshr exact i64 %sub.ptr.sub.i.i77, 3
   %conv.i.i79 = trunc i64 %sub.ptr.div.i.i78 to i32
-  %ir.addr.01.i.i80 = getelementptr inbounds i8, ptr %taba.0.i73, i64 8
-  %cmp2.i.i81 = icmp ult ptr %ir.addr.01.i.i80, %tabb.0.i74
+  %ir.addr.01.i.i80 = getelementptr inbounds i8, ptr %taba.0.i74, i64 8
+  %cmp2.i.i81 = icmp ult ptr %ir.addr.01.i.i80, %tabb.0.i73
   br i1 %cmp2.i.i81, label %for.body.i.i82, label %return
 
 for.body.i.i82:                                   ; preds = %if.end27.i72, %for.inc.i.i88
   %ir.addr.04.i.i83 = phi ptr [ %ir.addr.0.i.i89, %for.inc.i.i88 ], [ %ir.addr.01.i.i80, %if.end27.i72 ]
-  %ir.pn3.i.i84 = phi ptr [ %ir.addr.04.i.i83, %for.inc.i.i88 ], [ %taba.0.i73, %if.end27.i72 ]
+  %ir.pn3.i.i84 = phi ptr [ %ir.addr.04.i.i83, %for.inc.i.i88 ], [ %taba.0.i74, %if.end27.i72 ]
   %op2.i.i85 = getelementptr inbounds i8, ptr %ir.pn3.i.i84, i64 10
   %36 = load i16, ptr %op2.i.i85, align 2
   %conv3.i.i86 = zext i16 %36 to i32
@@ -1287,7 +1287,7 @@ land.lhs.true.i.i91:                              ; preds = %for.body.i.i82
 
 for.inc.i.i88:                                    ; preds = %land.lhs.true.i.i91, %for.body.i.i82
   %ir.addr.0.i.i89 = getelementptr inbounds i8, ptr %ir.addr.04.i.i83, i64 8
-  %cmp.i.i90 = icmp ult ptr %ir.addr.0.i.i89, %tabb.0.i74
+  %cmp.i.i90 = icmp ult ptr %ir.addr.0.i.i89, %tabb.0.i73
   br i1 %cmp.i.i90, label %for.body.i.i82, label %return, !llvm.loop !4
 
 return:                                           ; preds = %for.inc.i.i88, %land.lhs.true.i.i91, %for.inc.i.i, %land.lhs.true.i.i, %if.end27.i72, %if.else.i69, %if.else157, %if.end27.i, %if.else.i, %if.else, %if.end153, %if.else144, %if.end136, %if.then121, %if.then96, %if.end75, %if.then71, %entry
@@ -1525,8 +1525,8 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br i1 %switch12.i.i, label %if.end27.i.i, label %doemit
 
 if.end27.i.i:                                     ; preds = %if.else.i.i, %if.end.i.i
-  %taba.0.i.i = phi ptr [ %arrayidx4.i.i, %if.end.i.i ], [ %arrayidx.i.i, %if.else.i.i ]
   %tabb.0.i.i = phi ptr [ %arrayidx.i.i, %if.end.i.i ], [ %arrayidx4.i.i, %if.else.i.i ]
+  %taba.0.i.i = phi ptr [ %arrayidx4.i.i, %if.end.i.i ], [ %arrayidx.i.i, %if.else.i.i ]
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %taba.0.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 3
@@ -1653,8 +1653,8 @@ if.else.i:                                        ; preds = %if.end.i49
   br i1 %switch12.i, label %if.end27.i, label %doemit
 
 if.end27.i:                                       ; preds = %if.else.i, %if.end.i49
-  %taba.0.i = phi ptr [ %arrayidx4.i, %if.end.i49 ], [ %arrayidx.i48, %if.else.i ]
   %tabb.0.i = phi ptr [ %arrayidx.i48, %if.end.i49 ], [ %arrayidx4.i, %if.else.i ]
+  %taba.0.i = phi ptr [ %arrayidx4.i, %if.end.i49 ], [ %arrayidx.i48, %if.else.i ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %taba.0.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
@@ -2090,8 +2090,8 @@ if.else.i.i.us:                                   ; preds = %if.end.i.i.us
   br i1 %switch12.i.i.us, label %if.end27.i.i.us, label %cselim
 
 if.end27.i.i.us:                                  ; preds = %if.else.i.i.us, %if.end.i.i.us
-  %taba.0.i.i.us = phi ptr [ %arrayidx4.i.i.us, %if.end.i.i.us ], [ %arrayidx.i.i, %if.else.i.i.us ]
   %tabb.0.i.i.us = phi ptr [ %arrayidx.i.i, %if.end.i.i.us ], [ %arrayidx4.i.i.us, %if.else.i.i.us ]
+  %taba.0.i.i.us = phi ptr [ %arrayidx4.i.i.us, %if.end.i.i.us ], [ %arrayidx.i.i, %if.else.i.i.us ]
   %sub.ptr.lhs.cast.i.i.i.us = ptrtoint ptr %taba.0.i.i.us to i64
   %sub.ptr.sub.i.i.i.us = sub i64 %sub.ptr.lhs.cast.i.i.i.us, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i.us = lshr exact i64 %sub.ptr.sub.i.i.i.us, 3
@@ -2260,8 +2260,8 @@ if.else.i.i.us:                                   ; preds = %if.end.i.i.us
   br i1 %switch12.i.i.us, label %if.end27.i.i.us, label %sw.bb16.us
 
 if.end27.i.i.us:                                  ; preds = %if.else.i.i.us, %if.end.i.i.us
-  %taba.0.i.i.us = phi ptr [ %arrayidx4.i.i.us, %if.end.i.i.us ], [ %arrayidx.i.i.us, %if.else.i.i.us ]
   %tabb.0.i.i.us = phi ptr [ %arrayidx.i.i.us, %if.end.i.i.us ], [ %arrayidx4.i.i.us, %if.else.i.i.us ]
+  %taba.0.i.i.us = phi ptr [ %arrayidx4.i.i.us, %if.end.i.i.us ], [ %arrayidx.i.i.us, %if.else.i.i.us ]
   %sub.ptr.lhs.cast.i.i.i.us = ptrtoint ptr %taba.0.i.i.us to i64
   %sub.ptr.sub.i.i.i.us = sub i64 %sub.ptr.lhs.cast.i.i.i.us, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i.us = lshr exact i64 %sub.ptr.sub.i.i.i.us, 3
@@ -2687,9 +2687,9 @@ if.end.i:                                         ; preds = %cond.false.i, %cond
   br i1 %29, label %if.then21.i, label %doemit
 
 if.then21.i:                                      ; preds = %if.end.i, %land.lhs.true.i
-  %ofs.0144.i = phi i64 [ %cond.i, %if.end.i ], [ 0, %land.lhs.true.i ]
-  %ir.addr.0143.i = phi ptr [ %arrayidx16.i, %if.end.i ], [ %xr.1, %land.lhs.true.i ]
-  %30 = load i16, ptr %ir.addr.0143.i, align 8
+  %ir.addr.0144.i = phi ptr [ %arrayidx16.i, %if.end.i ], [ %xr.1, %land.lhs.true.i ]
+  %ofs.0143.i = phi i64 [ %cond.i, %if.end.i ], [ 0, %land.lhs.true.i ]
+  %30 = load i16, ptr %ir.addr.0144.i, align 8
   %idxprom25.i = zext i16 %30 to i64
   %arrayidx26.i = getelementptr inbounds %union.IRIns, ptr %14, i64 %idxprom25.i
   %o27.i = getelementptr inbounds i8, ptr %arrayidx26.i, i64 5
@@ -2723,7 +2723,7 @@ if.else54.i:                                      ; preds = %land.lhs.true46.i, 
   br label %if.end56.i
 
 if.end56.i:                                       ; preds = %if.else54.i, %land.lhs.true46.i, %if.then36.i
-  %ir1.0.i = phi ptr [ %arrayidx26.i, %if.then36.i ], [ %ir.addr.0143.i, %if.else54.i ], [ %arrayidx26.i, %land.lhs.true46.i ]
+  %ir1.0.i = phi ptr [ %arrayidx26.i, %if.then36.i ], [ %ir.addr.0144.i, %if.else54.i ], [ %arrayidx26.i, %land.lhs.true46.i ]
   %shift.0.i = phi i64 [ %34, %if.then36.i ], [ 0, %if.else54.i ], [ 1, %land.lhs.true46.i ]
   %37 = load i16, ptr %ir1.0.i, align 8
   %idxprom60.i = zext i16 %37 to i64
@@ -2752,10 +2752,10 @@ if.then75.i:                                      ; preds = %land.lhs.true70.i
   %42 = load i32, ptr %arrayidx80.i, align 8
   %conv81.i = sext i32 %42 to i64
   %shl.i = shl i64 %conv81.i, %shift.0.i
-  %add.i = add nsw i64 %shl.i, %ofs.0144.i
+  %add.i = add nsw i64 %shl.i, %ofs.0143.i
   %43 = load i16, ptr %arrayidx61.i, align 8
   %conv85.i = zext i16 %43 to i32
-  %cmp86.not.i = icmp eq ptr %ir1.0.i, %ir.addr.0143.i
+  %cmp86.not.i = icmp eq ptr %ir1.0.i, %ir.addr.0144.i
   br i1 %cmp86.not.i, label %if.end102.i, label %land.lhs.true88.i
 
 land.lhs.true88.i:                                ; preds = %if.then75.i
@@ -2834,7 +2834,7 @@ if.end102.loopexit130.i:                          ; preds = %land.lhs.true.i64.i
 
 if.end102.i:                                      ; preds = %land.lhs.true.i.i, %if.end102.loopexit130.i, %if.then75.i
   %idxref.0.i = phi i32 [ %conv85.i, %if.then75.i ], [ %ref.017.i53.le.i, %if.end102.loopexit130.i ], [ %ref.017.i.i, %land.lhs.true.i.i ]
-  %op2103.i = getelementptr inbounds i8, ptr %ir.addr.0143.i, i64 2
+  %op2103.i = getelementptr inbounds i8, ptr %ir.addr.0144.i, i64 2
   %50 = load i16, ptr %op2103.i, align 2
   %conv104.i = zext i16 %50 to i32
   %arrayidx.i70.i = getelementptr inbounds i8, ptr %J, i64 484
@@ -3003,8 +3003,8 @@ cond.false:                                       ; preds = %if.then13
   br label %if.end30
 
 if.end30:                                         ; preds = %cond.true, %cond.false, %land.lhs.true9, %if.end
-  %ofsa.0 = phi i64 [ 0, %land.lhs.true9 ], [ 0, %if.end ], [ %9, %cond.true ], [ %conv29, %cond.false ]
-  %basea.0 = phi ptr [ %refa, %land.lhs.true9 ], [ %refa, %if.end ], [ %arrayidx23, %cond.true ], [ %arrayidx23, %cond.false ]
+  %basea.0 = phi ptr [ %refa, %land.lhs.true9 ], [ %refa, %if.end ], [ %arrayidx23, %cond.false ], [ %arrayidx23, %cond.true ]
+  %ofsa.0 = phi i64 [ 0, %land.lhs.true9 ], [ 0, %if.end ], [ %conv29, %cond.false ], [ %9, %cond.true ]
   %o31 = getelementptr inbounds i8, ptr %arrayidx, i64 5
   %11 = load i8, ptr %o31, align 1
   %cmp33 = icmp eq i8 %11, 41
@@ -3038,8 +3038,8 @@ cond.false58:                                     ; preds = %if.then40
   br label %if.end62
 
 if.end62:                                         ; preds = %cond.true56, %cond.false58, %land.lhs.true35, %if.end30
-  %ofsb.0 = phi i64 [ 0, %land.lhs.true35 ], [ 0, %if.end30 ], [ %15, %cond.true56 ], [ %conv59, %cond.false58 ]
-  %baseb.0 = phi ptr [ %arrayidx, %land.lhs.true35 ], [ %arrayidx, %if.end30 ], [ %arrayidx51, %cond.true56 ], [ %arrayidx51, %cond.false58 ]
+  %baseb.0 = phi ptr [ %arrayidx, %land.lhs.true35 ], [ %arrayidx, %if.end30 ], [ %arrayidx51, %cond.false58 ], [ %arrayidx51, %cond.true56 ]
+  %ofsb.0 = phi i64 [ 0, %land.lhs.true35 ], [ 0, %if.end30 ], [ %conv59, %cond.false58 ], [ %15, %cond.true56 ]
   %o63 = getelementptr inbounds i8, ptr %basea.0, i64 5
   %17 = load i8, ptr %o63, align 1
   %cmp65 = icmp eq i8 %17, 25
@@ -3061,8 +3061,8 @@ if.then72:                                        ; preds = %land.lhs.true67
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then72, %land.lhs.true67, %if.end62
-  %ofsb.1 = phi i64 [ %add, %if.then72 ], [ %ofsb.0, %land.lhs.true67 ], [ %ofsb.0, %if.end62 ]
   %baseb.1 = phi ptr [ %basea.0, %if.then72 ], [ %baseb.0, %land.lhs.true67 ], [ %baseb.0, %if.end62 ]
+  %ofsb.1 = phi i64 [ %add, %if.then72 ], [ %ofsb.0, %land.lhs.true67 ], [ %ofsb.0, %if.end62 ]
   %cmp77 = icmp eq ptr %basea.0, %baseb.1
   %t80 = getelementptr inbounds i8, ptr %xa, i64 4
   %21 = load i8, ptr %t80, align 4

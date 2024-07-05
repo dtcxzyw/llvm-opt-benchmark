@@ -164,8 +164,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %15, %ompi_comm_inva
   br label %81
 
 81:                                               ; preds = %73, %79
-  %.053.ph = phi i32 [ 77, %73 ], [ 75, %79 ]
-  %82 = call fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %.053.ph)
+  %.059.ph = phi i32 [ 77, %73 ], [ 75, %79 ]
+  %82 = call fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %.059.ph)
   %83 = getelementptr inbounds i8, ptr %0, i64 296
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 304
@@ -202,8 +202,8 @@ ompi_comm_iface_create_check.exit:                ; preds = %76
   br label %opal_thread_add_fetch_32.exit
 
 opal_thread_add_fetch_32.exit:                    ; preds = %98, %101
-  %.0.i51 = phi i32 [ %100, %98 ], [ %104, %101 ]
-  %105 = icmp eq i32 %.0.i51, 0
+  %.0.i57 = phi i32 [ %100, %98 ], [ %104, %101 ]
+  %105 = icmp eq i32 %.0.i57, 0
   br i1 %105, label %106, label %115
 
 106:                                              ; preds = %opal_thread_add_fetch_32.exit
@@ -308,8 +308,8 @@ opal_pointer_array_get_item.exit:                 ; preds = %.lr.ph, %16, %22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %.preheader, %27, %1
-  %.010 = phi i32 [ %0, %1 ], [ %29, %27 ], [ 14, %.preheader ], [ 14, %5 ]
-  ret i32 %.010
+  %.0 = phi i32 [ %0, %1 ], [ %29, %27 ], [ 14, %.preheader ], [ 14, %5 ]
+  ret i32 %.0
 }
 
 declare i32 @mca_topo_base_comm_select(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

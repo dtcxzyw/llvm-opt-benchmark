@@ -974,8 +974,8 @@ _ZNSt6vectorIxSaIxEE5clearEv.exit52:              ; preds = %_ZNSt6vectorIxSaIxE
 128:                                              ; preds = %.lr.ph, %211
   %129 = phi ptr [ %119, %.lr.ph ], [ %212, %211 ]
   %130 = phi ptr [ %118, %.lr.ph ], [ %213, %211 ]
-  %.032123 = phi i64 [ 0, %.lr.ph ], [ %214, %211 ]
-  %131 = getelementptr inbounds i64, ptr %129, i64 %.032123
+  %.038123 = phi i64 [ 0, %.lr.ph ], [ %214, %211 ]
+  %131 = getelementptr inbounds i64, ptr %129, i64 %.038123
   %132 = load i64, ptr %131, align 8
   %133 = icmp eq i64 %132, -1
   br i1 %133, label %211, label %140
@@ -1086,9 +1086,9 @@ _ZNSt6vectorIxSaIxEE17_M_realloc_insertIJRKxEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIxSaIxEE9push_backERKx.exit:          ; preds = %_ZNSt6vectorIxSaIxEE17_M_realloc_insertIJRKxEEEvN9__gnu_cxx17__normal_iteratorIPxS1_EEDpOT_.exit.i, %148
   %174 = load ptr, ptr %5, align 8
-  %175 = getelementptr inbounds i64, ptr %174, i64 %.032123
+  %175 = getelementptr inbounds i64, ptr %174, i64 %.038123
   %176 = load i64, ptr %175, align 8
-  %177 = getelementptr inbounds i64, ptr %20, i64 %.032123
+  %177 = getelementptr inbounds i64, ptr %20, i64 %.038123
   %178 = load i64, ptr %177, align 8
   %179 = load ptr, ptr %110, align 8
   %180 = load ptr, ptr %121, align 8
@@ -1167,7 +1167,7 @@ _ZNSt6vectorIxSaIxEE9push_backERKx.exit66:        ; preds = %_ZNSt6vectorIxSaIxE
 211:                                              ; preds = %140, %128, %_ZNSt6vectorIxSaIxEE9push_backERKx.exit66
   %212 = phi ptr [ %129, %140 ], [ %129, %128 ], [ %.pre127, %_ZNSt6vectorIxSaIxEE9push_backERKx.exit66 ]
   %213 = phi ptr [ %130, %140 ], [ %130, %128 ], [ %.pre126, %_ZNSt6vectorIxSaIxEE9push_backERKx.exit66 ]
-  %214 = add nuw nsw i64 %.032123, 1
+  %214 = add nuw nsw i64 %.038123, 1
   %215 = ptrtoint ptr %213 to i64
   %216 = ptrtoint ptr %212 to i64
   %217 = sub i64 %215, %216
@@ -2705,8 +2705,8 @@ _ZNSt6vectorIxSaIxEE5clearEv.exit72:              ; preds = %_ZNSt6vectorIxSaIxE
 .lr.ph:                                           ; preds = %_ZNSt6vectorIxSaIxEE5clearEv.exit72, %306
   %231 = phi ptr [ %307, %306 ], [ %224, %_ZNSt6vectorIxSaIxEE5clearEv.exit72 ]
   %232 = phi ptr [ %308, %306 ], [ %223, %_ZNSt6vectorIxSaIxEE5clearEv.exit72 ]
-  %.047171 = phi i64 [ %309, %306 ], [ 0, %_ZNSt6vectorIxSaIxEE5clearEv.exit72 ]
-  %233 = getelementptr inbounds i64, ptr %231, i64 %.047171
+  %.052171 = phi i64 [ %309, %306 ], [ 0, %_ZNSt6vectorIxSaIxEE5clearEv.exit72 ]
+  %233 = getelementptr inbounds i64, ptr %231, i64 %.052171
   %234 = load i64, ptr %233, align 8
   %235 = icmp eq i64 %234, -1
   br i1 %235, label %306, label %236
@@ -2784,9 +2784,9 @@ _ZNSt6vectorIxSaIxEE17_M_realloc_insertIJRKxEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIxSaIxEE9push_backERKx.exit:          ; preds = %_ZNSt6vectorIxSaIxEE17_M_realloc_insertIJRKxEEEvN9__gnu_cxx17__normal_iteratorIPxS1_EEDpOT_.exit.i, %244
   %269 = load ptr, ptr %5, align 8
-  %270 = getelementptr inbounds i64, ptr %269, i64 %.047171
+  %270 = getelementptr inbounds i64, ptr %269, i64 %.052171
   %271 = load i64, ptr %270, align 8
-  %272 = getelementptr inbounds i64, ptr %30, i64 %.047171
+  %272 = getelementptr inbounds i64, ptr %30, i64 %.052171
   %273 = load i64, ptr %272, align 8
   %274 = load ptr, ptr %47, align 8
   %275 = load ptr, ptr %51, align 8
@@ -2865,7 +2865,7 @@ _ZNSt6vectorIxSaIxEE9push_backERKx.exit86:        ; preds = %_ZNSt6vectorIxSaIxE
 306:                                              ; preds = %236, %.lr.ph, %_ZNSt6vectorIxSaIxEE9push_backERKx.exit86
   %307 = phi ptr [ %231, %236 ], [ %231, %.lr.ph ], [ %.pre201, %_ZNSt6vectorIxSaIxEE9push_backERKx.exit86 ]
   %308 = phi ptr [ %232, %236 ], [ %232, %.lr.ph ], [ %.pre200, %_ZNSt6vectorIxSaIxEE9push_backERKx.exit86 ]
-  %309 = add nuw nsw i64 %.047171, 1
+  %309 = add nuw nsw i64 %.052171, 1
   %310 = ptrtoint ptr %308 to i64
   %311 = ptrtoint ptr %307 to i64
   %312 = sub i64 %310, %311

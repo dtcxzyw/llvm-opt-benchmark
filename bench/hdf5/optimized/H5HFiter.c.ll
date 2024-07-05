@@ -104,8 +104,8 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr noc
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %35, %._crit_edge.loopexit.split.loop.exit, %20
-  %.070.lcssa = phi i32 [ 0, %20 ], [ %36, %._crit_edge.loopexit.split.loop.exit ], [ %22, %35 ]
-  %37 = zext i32 %.070.lcssa to i64
+  %.071.lcssa = phi i32 [ 0, %20 ], [ %36, %._crit_edge.loopexit.split.loop.exit ], [ %22, %35 ]
+  %37 = zext i32 %.071.lcssa to i64
   %38 = getelementptr inbounds i64, ptr %.pre, i64 %37
   %39 = load i64, ptr %38, align 8
   %40 = sub i64 %.0, %39
@@ -114,11 +114,11 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr noc
   %43 = load i64, ptr %42, align 8
   %44 = udiv i64 %40, %43
   %45 = trunc i64 %44 to i32
-  store i32 %.070.lcssa, ptr %21, align 8
+  store i32 %.071.lcssa, ptr %21, align 8
   %46 = getelementptr inbounds i8, ptr %21, i64 4
   store i32 %45, ptr %46, align 4
   %47 = load i32, ptr %8, align 8
-  %48 = mul i32 %47, %.070.lcssa
+  %48 = mul i32 %47, %.071.lcssa
   %49 = add i32 %48, %45
   %50 = getelementptr inbounds i8, ptr %21, i64 8
   store i32 %49, ptr %50, align 8
@@ -244,11 +244,11 @@ H5VM_log2_gen.exit:                               ; preds = %75, %81, %87, %93, 
   br label %126
 
 126:                                              ; preds = %H5VM_log2_gen.exit, %51
-  %.074 = phi i64 [ %52, %51 ], [ %66, %H5VM_log2_gen.exit ]
-  %.073 = phi i32 [ %53, %51 ], [ %125, %H5VM_log2_gen.exit ]
-  %.072 = phi ptr [ null, %51 ], [ %59, %H5VM_log2_gen.exit ]
-  %.071 = phi i32 [ 0, %51 ], [ %61, %H5VM_log2_gen.exit ]
-  %127 = call ptr @H5HF__man_iblock_protect(ptr noundef nonnull %0, i64 noundef %.074, i32 noundef %.073, ptr noundef %.072, i32 noundef %.071, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull %4) #8
+  %.074 = phi ptr [ null, %51 ], [ %59, %H5VM_log2_gen.exit ]
+  %.073 = phi i32 [ 0, %51 ], [ %61, %H5VM_log2_gen.exit ]
+  %.072 = phi i32 [ %53, %51 ], [ %125, %H5VM_log2_gen.exit ]
+  %.070 = phi i64 [ %52, %51 ], [ %66, %H5VM_log2_gen.exit ]
+  %127 = call ptr @H5HF__man_iblock_protect(ptr noundef nonnull %0, i64 noundef %.070, i32 noundef %.072, ptr noundef %.074, i32 noundef %.073, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull %4) #8
   %128 = icmp eq ptr %127, null
   br i1 %128, label %129, label %133
 
@@ -299,7 +299,7 @@ H5VM_log2_gen.exit:                               ; preds = %75, %81, %87, %93, 
 
 161:                                              ; preds = %154
   %162 = load i32, ptr %15, align 8
-  %163 = icmp ult i32 %.070.lcssa, %162
+  %163 = icmp ult i32 %.071.lcssa, %162
   br i1 %163, label %179, label %164
 
 164:                                              ; preds = %161
@@ -421,10 +421,10 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_reset(ptr nocapture noundef %0) loca
   br i1 %.not, label %18, label %.preheader
 
 .preheader:                                       ; preds = %1, %15
-  %.016 = phi ptr [ %5, %15 ], [ %3, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.016, i64 24
+  %.01116 = phi ptr [ %5, %15 ], [ %3, %1 ]
+  %4 = getelementptr inbounds i8, ptr %.01116, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %.016, i64 16
+  %6 = getelementptr inbounds i8, ptr %.01116, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not15 = icmp eq ptr %7, null
   br i1 %.not15, label %15, label %8
@@ -441,7 +441,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_reset(ptr nocapture noundef %0) loca
   br label %19
 
 15:                                               ; preds = %8, %.preheader
-  %16 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5HF_block_loc_t_reg_free_list, ptr noundef nonnull %.016) #8
+  %16 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5HF_block_loc_t_reg_free_list, ptr noundef nonnull %.01116) #8
   %.not14 = icmp eq ptr %5, null
   br i1 %.not14, label %17, label %.preheader
 
@@ -454,8 +454,8 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_reset(ptr nocapture noundef %0) loca
   br label %19
 
 19:                                               ; preds = %18, %11
-  %.011 = phi i32 [ -1, %11 ], [ 0, %18 ]
-  ret i32 %.011
+  %.0 = phi i32 [ -1, %11 ], [ 0, %18 ]
+  ret i32 %.0
 }
 
 declare i32 @H5HF__iblock_decr(ptr noundef) local_unnamed_addr #3

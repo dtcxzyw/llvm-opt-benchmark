@@ -2476,8 +2476,8 @@ define void @display_signed_time(ptr noundef %0, i64 noundef %1, ptr nocapture n
   br label %19
 
 19:                                               ; preds = %16, %8
-  %.030.ph = phi i64 [ %1, %8 ], [ %18, %16 ]
-  %.029.ph = phi i32 [ %10, %8 ], [ %13, %16 ]
+  %.030.ph = phi i32 [ %10, %8 ], [ %13, %16 ]
+  %.029.ph = phi i64 [ %1, %8 ], [ %18, %16 ]
   %.0.ph = phi ptr [ %0, %8 ], [ %17, %16 ]
   %.pr = load i64, ptr %2, align 8
   %20 = icmp slt i64 %.pr, 0
@@ -2485,8 +2485,8 @@ define void @display_signed_time(ptr noundef %0, i64 noundef %1, ptr nocapture n
 
 .thread:                                          ; preds = %12, %19
   %.048 = phi ptr [ %.0.ph, %19 ], [ %0, %12 ]
-  %.02945 = phi i32 [ %.029.ph, %19 ], [ %13, %12 ]
-  %.03042 = phi i64 [ %.030.ph, %19 ], [ %1, %12 ]
+  %.02945 = phi i64 [ %.029.ph, %19 ], [ %1, %12 ]
+  %.03042 = phi i32 [ %.030.ph, %19 ], [ %13, %12 ]
   %21 = phi i64 [ %.pr, %19 ], [ %14, %12 ]
   %22 = sub i64 0, %21
   %23 = icmp ugt i64 %22, 9
@@ -2562,8 +2562,8 @@ define void @display_signed_time(ptr noundef %0, i64 noundef %1, ptr nocapture n
 
 uint64_to_str_back.exit19.sink.split.i:           ; preds = %._crit_edge.thread21.i7.i, %38, %.sink.split.i.i, %._crit_edge.i.i
   %.047 = phi ptr [ %.048, %._crit_edge.i.i ], [ %.048, %.sink.split.i.i ], [ %.0.ph, %._crit_edge.thread21.i7.i ], [ %.0.ph, %38 ]
-  %.02944 = phi i32 [ %.02945, %._crit_edge.i.i ], [ %.02945, %.sink.split.i.i ], [ %.029.ph, %._crit_edge.thread21.i7.i ], [ %.029.ph, %38 ]
-  %.03041 = phi i64 [ %.03042, %._crit_edge.i.i ], [ %.03042, %.sink.split.i.i ], [ %.030.ph, %._crit_edge.thread21.i7.i ], [ %.030.ph, %38 ]
+  %.02944 = phi i64 [ %.02945, %._crit_edge.i.i ], [ %.02945, %.sink.split.i.i ], [ %.029.ph, %._crit_edge.thread21.i7.i ], [ %.029.ph, %38 ]
+  %.03041 = phi i32 [ %.03042, %._crit_edge.i.i ], [ %.03042, %.sink.split.i.i ], [ %.030.ph, %._crit_edge.thread21.i7.i ], [ %.030.ph, %38 ]
   %.sink29.i11.sink.i = phi ptr [ %33, %._crit_edge.i.i ], [ %37, %.sink.split.i.i ], [ %.1.lcssa26.i8.i, %._crit_edge.thread21.i7.i ], [ %6, %38 ]
   %.sink.i12.sink.i = phi i8 [ 45, %._crit_edge.i.i ], [ 45, %.sink.split.i.i ], [ %54, %._crit_edge.thread21.i7.i ], [ 48, %38 ]
   %55 = getelementptr i8, ptr %.sink29.i11.sink.i, i64 -1
@@ -2572,13 +2572,13 @@ uint64_to_str_back.exit19.sink.split.i:           ; preds = %._crit_edge.thread2
 
 int64_to_str_back.exit:                           ; preds = %._crit_edge.i17.i, %uint64_to_str_back.exit19.sink.split.i
   %.046 = phi ptr [ %.0.ph, %._crit_edge.i17.i ], [ %.047, %uint64_to_str_back.exit19.sink.split.i ]
-  %.02943 = phi i32 [ %.029.ph, %._crit_edge.i17.i ], [ %.02944, %uint64_to_str_back.exit19.sink.split.i ]
-  %.03040 = phi i64 [ %.030.ph, %._crit_edge.i17.i ], [ %.03041, %uint64_to_str_back.exit19.sink.split.i ]
+  %.02943 = phi i64 [ %.029.ph, %._crit_edge.i17.i ], [ %.02944, %uint64_to_str_back.exit19.sink.split.i ]
+  %.03040 = phi i32 [ %.030.ph, %._crit_edge.i17.i ], [ %.03041, %uint64_to_str_back.exit19.sink.split.i ]
   %.0.i = phi ptr [ %51, %._crit_edge.i17.i ], [ %55, %uint64_to_str_back.exit19.sink.split.i ]
   %56 = ptrtoint ptr %6 to i64
   %57 = ptrtoint ptr %.0.i to i64
   %58 = sub i64 %56, %57
-  %59 = add i64 %.03040, -1
+  %59 = add i64 %.02943, -1
   %. = call i64 @llvm.umin.i64(i64 %58, i64 %59)
   %60 = icmp eq i64 %., 0
   br i1 %60, label %68, label %61
@@ -2594,8 +2594,8 @@ int64_to_str_back.exit:                           ; preds = %._crit_edge.i17.i, 
   br label %68
 
 65:                                               ; preds = %61
-  %66 = sub i64 %.03040, %.
-  %67 = call i32 @format_fractional_part_nsecs(ptr noundef %62, i64 noundef %66, i32 noundef %.02943, ptr noundef nonnull @.str.6, i32 noundef %3)
+  %66 = sub i64 %.02943, %.
+  %67 = call i32 @format_fractional_part_nsecs(ptr noundef %62, i64 noundef %66, i32 noundef %.03040, ptr noundef nonnull @.str.6, i32 noundef %3)
   br label %68
 
 68:                                               ; preds = %int64_to_str_back.exit, %4, %65, %64

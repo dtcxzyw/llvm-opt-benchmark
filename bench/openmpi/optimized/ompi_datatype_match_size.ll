@@ -90,8 +90,8 @@ opal_pointer_array_get_item.exit:                 ; preds = %12, %20, %26
   br i1 %40, label %12, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %33, %37, %3
-  %.014 = phi ptr [ @ompi_mpi_datatype_null, %3 ], [ @ompi_mpi_datatype_null, %37 ], [ %.0.i, %33 ]
-  ret ptr %.014
+  %.0 = phi ptr [ @ompi_mpi_datatype_null, %3 ], [ @ompi_mpi_datatype_null, %37 ], [ %.0.i, %33 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind

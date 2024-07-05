@@ -16648,8 +16648,8 @@ ehcleanup:                                        ; preds = %lpad4, %lpad2
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad ]
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
   %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches = icmp eq i32 %ehselector.slot.1, %10
   br i1 %matches, label %catch25, label %catch.fallthrough

@@ -10381,13 +10381,13 @@ for.body56.lr.ph:                                 ; preds = %if.then42
 
 for.body56:                                       ; preds = %for.body56.lr.ph, %for.body56
   %indvars.iv126 = phi i64 [ 0, %for.body56.lr.ph ], [ %indvars.iv.next127, %for.body56 ]
-  %memPtr51.0117 = phi ptr [ %20, %for.body56.lr.ph ], [ %incdec.ptr62, %for.body56 ]
+  %memPtr51.0118 = phi ptr [ %20, %for.body56.lr.ph ], [ %incdec.ptr62, %for.body56 ]
   %21 = load ptr, ptr %m_data.i70, align 8
   %arrayidx.i74 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv126
   %22 = load i32, ptr %arrayidx.i74, align 4
-  store i32 %22, ptr %memPtr51.0117, align 4
+  store i32 %22, ptr %memPtr51.0118, align 4
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %incdec.ptr62 = getelementptr inbounds i8, ptr %memPtr51.0117, i64 4
+  %incdec.ptr62 = getelementptr inbounds i8, ptr %memPtr51.0118, i64 4
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
   br i1 %exitcond130.not, label %for.end63, label %for.body56, !llvm.loop !74
 

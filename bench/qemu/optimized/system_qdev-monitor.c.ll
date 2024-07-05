@@ -376,9 +376,9 @@ for.cond1.preheader:                              ; preds = %entry, %for.cond1.f
   br label %for.body2
 
 for.body2:                                        ; preds = %for.cond1.preheader, %for.inc
-  %cat_printed.018 = phi i1 [ false, %for.cond1.preheader ], [ %cat_printed.2, %for.inc ]
-  %elt.017 = phi ptr [ %call, %for.cond1.preheader ], [ %17, %for.inc ]
-  %2 = load ptr, ptr %elt.017, align 8
+  %elt.018 = phi ptr [ %call, %for.cond1.preheader ], [ %17, %for.inc ]
+  %cat_printed.017 = phi i1 [ false, %for.cond1.preheader ], [ %cat_printed.2, %for.inc ]
+  %2 = load ptr, ptr %elt.018, align 8
   %call3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %2, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.5, i32 noundef 190, ptr noundef nonnull @__func__.qdev_print_devinfos) #8
   %categories7 = getelementptr inbounds i8, ptr %call3, i64 96
   %categories7.val = load i64, ptr %categories7, align 8
@@ -404,7 +404,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   br i1 %tobool12, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %land.lhs.true, %lor.lhs.false
-  br i1 %cat_printed.018, label %if.end17, label %if.then14
+  br i1 %cat_printed.017, label %if.end17, label %if.then14
 
 if.then14:                                        ; preds = %if.end
   %5 = load ptr, ptr %arrayidx, align 8
@@ -520,8 +520,8 @@ qdev_print_devinfo.exit:                          ; preds = %if.end13.i, %if.the
   br label %for.inc
 
 for.inc:                                          ; preds = %cond.true, %cond.false, %land.lhs.true, %qdev_print_devinfo.exit
-  %cat_printed.2 = phi i1 [ true, %qdev_print_devinfo.exit ], [ %cat_printed.018, %land.lhs.true ], [ %cat_printed.018, %cond.true ], [ %cat_printed.018, %cond.false ]
-  %next = getelementptr inbounds i8, ptr %elt.017, i64 8
+  %cat_printed.2 = phi i1 [ true, %qdev_print_devinfo.exit ], [ %cat_printed.017, %land.lhs.true ], [ %cat_printed.017, %cond.true ], [ %cat_printed.017, %cond.false ]
+  %next = getelementptr inbounds i8, ptr %elt.018, i64 8
   %17 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %17, null
   br i1 %tobool.not, label %for.cond1.for.inc18_crit_edge, label %for.body2, !llvm.loop !10

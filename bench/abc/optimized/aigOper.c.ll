@@ -1216,14 +1216,14 @@ Aig_IthVar.exit82:                                ; preds = %.lr.ph.i77, %33
   br label %46
 
 46:                                               ; preds = %26, %41, %Aig_IthVar.exit82, %18
-  %.053 = phi ptr [ %21, %18 ], [ %.val69, %26 ], [ %40, %Aig_IthVar.exit82 ], [ %45, %41 ]
+  %.055 = phi ptr [ %21, %18 ], [ %.val69, %26 ], [ %40, %Aig_IthVar.exit82 ], [ %45, %41 ]
   %47 = tail call i32 @rand() #7
   %48 = and i32 %47, 1
   %49 = icmp eq i32 %48, 0
-  %50 = ptrtoint ptr %.053 to i64
+  %50 = ptrtoint ptr %.055 to i64
   %51 = xor i64 %50, 1
   %52 = inttoptr i64 %51 to ptr
-  %.154 = select i1 %49, ptr %52, ptr %.053
+  %.156 = select i1 %49, ptr %52, ptr %.055
   %53 = tail call i32 @rand() #7
   %54 = srem i32 %53, 10
   %55 = icmp eq i32 %54, 0
@@ -1286,14 +1286,14 @@ Aig_IthVar.exit90:                                ; preds = %.lr.ph.i85, %71
   br label %84
 
 84:                                               ; preds = %64, %79, %Aig_IthVar.exit90, %56
-  %.055 = phi ptr [ %59, %56 ], [ %.val68, %64 ], [ %78, %Aig_IthVar.exit90 ], [ %83, %79 ]
+  %.057 = phi ptr [ %59, %56 ], [ %.val68, %64 ], [ %78, %Aig_IthVar.exit90 ], [ %83, %79 ]
   %85 = tail call i32 @rand() #7
   %86 = and i32 %85, 1
   %87 = icmp eq i32 %86, 0
-  %88 = ptrtoint ptr %.055 to i64
+  %88 = ptrtoint ptr %.057 to i64
   %89 = xor i64 %88, 1
   %90 = inttoptr i64 %89 to ptr
-  %.156 = select i1 %87, ptr %90, ptr %.055
+  %.158 = select i1 %87, ptr %90, ptr %.057
   %91 = tail call i32 @rand() #7
   %92 = srem i32 %91, 10
   %93 = icmp eq i32 %92, 0
@@ -1356,19 +1356,19 @@ Aig_IthVar.exit98:                                ; preds = %.lr.ph.i93, %109
   br label %122
 
 122:                                              ; preds = %102, %117, %Aig_IthVar.exit98, %94
-  %.057 = phi ptr [ %97, %94 ], [ %.val67, %102 ], [ %116, %Aig_IthVar.exit98 ], [ %121, %117 ]
+  %.053 = phi ptr [ %97, %94 ], [ %.val67, %102 ], [ %116, %Aig_IthVar.exit98 ], [ %121, %117 ]
   %123 = tail call i32 @rand() #7
   %124 = and i32 %123, 1
   %125 = icmp eq i32 %124, 0
-  %126 = ptrtoint ptr %.057 to i64
+  %126 = ptrtoint ptr %.053 to i64
   %127 = xor i64 %126, 1
   %128 = inttoptr i64 %127 to ptr
-  %.158 = select i1 %125, ptr %128, ptr %.057
-  %129 = tail call ptr @Aig_And(ptr noundef %5, ptr noundef %.154, ptr noundef %.156)
-  %130 = ptrtoint ptr %.154 to i64
+  %.154 = select i1 %125, ptr %128, ptr %.053
+  %129 = tail call ptr @Aig_And(ptr noundef %5, ptr noundef %.156, ptr noundef %.158)
+  %130 = ptrtoint ptr %.156 to i64
   %131 = xor i64 %130, 1
   %132 = inttoptr i64 %131 to ptr
-  %133 = tail call ptr @Aig_And(ptr noundef %5, ptr noundef %132, ptr noundef %.158)
+  %133 = tail call ptr @Aig_And(ptr noundef %5, ptr noundef %132, ptr noundef %.154)
   %134 = ptrtoint ptr %129 to i64
   %135 = xor i64 %134, 1
   %136 = inttoptr i64 %135 to ptr

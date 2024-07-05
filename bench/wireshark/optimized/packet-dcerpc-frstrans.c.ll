@@ -523,27 +523,27 @@ define hidden i32 @frstrans_dissect_struct_VersionVector(ptr noundef %0, i32 nou
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.036 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_frstrans_frstrans_VersionVector, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_frstrans_frstrans_VersionVector_db_guid, align 4
-  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
+  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
   %21 = load i32, ptr @hf_frstrans_frstrans_VersionVector_low, align 4
-  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #4
+  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #4
   %23 = load i32, ptr @hf_frstrans_frstrans_VersionVector_high, align 4
-  %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
-  %25 = sub i32 %24, %.036
-  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %25) #4
+  %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
+  %25 = sub i32 %24, %.0
+  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #4
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 96
@@ -587,40 +587,40 @@ define hidden i32 @frstrans_dissect_struct_Update(ptr noundef %0, i32 noundef %1
   %or.cond = or i1 %.not122, %.not
   %13 = and i32 %1, -8
   %14 = add i32 %13, 8
-  %.0120 = select i1 %or.cond, i32 %1, i32 %14
+  %.0 = select i1 %or.cond, i32 %1, i32 %14
   %.not123 = icmp eq ptr %3, null
   br i1 %.not123, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0120, i32 noundef -1, i32 noundef 0) #4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %17 = load i32, ptr @ett_frstrans_frstrans_Update, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #4
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.0119 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.0120 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0119 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_frstrans_frstrans_Update_present, align 4
-  %21 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0120, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, i32 noundef 0) #4
+  %21 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, i32 noundef 0) #4
   %22 = load i32, ptr @hf_frstrans_frstrans_Update_name_conflict, align 4
-  %23 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #4
+  %23 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #4
   %24 = load i32, ptr @hf_frstrans_frstrans_Update_attributes, align 4
-  %25 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 noundef 0) #4
+  %25 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 noundef 0) #4
   %26 = load i32, ptr @hf_frstrans_frstrans_Update_fence, align 4
-  %27 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26) #4
+  %27 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26) #4
   %28 = load i32, ptr @hf_frstrans_frstrans_Update_clock, align 4
-  %29 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28) #4
+  %29 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28) #4
   %30 = load i32, ptr @hf_frstrans_frstrans_Update_create_time, align 4
-  %31 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30) #4
+  %31 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30) #4
   %32 = load i32, ptr @hf_frstrans_frstrans_Update_content_set_guid, align 4
-  %33 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef null) #4
+  %33 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef null) #4
   br label %34
 
 34:                                               ; preds = %34, %19
   %.010.i = phi i32 [ 0, %19 ], [ %37, %34 ]
   %.089.i = phi i32 [ %33, %19 ], [ %36, %34 ]
   %35 = load i32, ptr @hf_frstrans_frstrans_Update_sha1_hash, align 4
-  %36 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #4
+  %36 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0119, ptr noundef %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #4
   %37 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %37, 20
   br i1 %exitcond.not.i, label %frstrans_dissect_element_Update_sha1_hash.exit, label %34, !llvm.loop !4
@@ -629,34 +629,34 @@ frstrans_dissect_element_Update_sha1_hash.exit:   ; preds = %34, %frstrans_disse
   %.010.i128 = phi i32 [ %40, %frstrans_dissect_element_Update_sha1_hash.exit ], [ 0, %34 ]
   %.089.i129 = phi i32 [ %39, %frstrans_dissect_element_Update_sha1_hash.exit ], [ %36, %34 ]
   %38 = load i32, ptr @hf_frstrans_frstrans_Update_rdc_similarity, align 4
-  %39 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i129, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i129, ptr noundef %2, ptr noundef %.0119, ptr noundef %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = add nuw nsw i32 %.010.i128, 1
   %exitcond.not.i130 = icmp eq i32 %40, 16
   br i1 %exitcond.not.i130, label %frstrans_dissect_element_Update_rdc_similarity.exit, label %frstrans_dissect_element_Update_sha1_hash.exit, !llvm.loop !6
 
 frstrans_dissect_element_Update_rdc_similarity.exit: ; preds = %frstrans_dissect_element_Update_sha1_hash.exit
   %41 = load i32, ptr @hf_frstrans_frstrans_Update_uid_db_guid, align 4
-  %42 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %41, ptr noundef null) #4
+  %42 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0119, ptr noundef %4, ptr noundef %5, i32 noundef %41, ptr noundef null) #4
   %43 = load i32, ptr @hf_frstrans_frstrans_Update_uid_version, align 4
-  %44 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %43, ptr noundef null) #4
+  %44 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0119, ptr noundef %4, ptr noundef %5, i32 noundef %43, ptr noundef null) #4
   %45 = load i32, ptr @hf_frstrans_frstrans_Update_gsvn_db_guid, align 4
-  %46 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %45, ptr noundef null) #4
+  %46 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0119, ptr noundef %4, ptr noundef %5, i32 noundef %45, ptr noundef null) #4
   %47 = load i32, ptr @hf_frstrans_frstrans_Update_gsvn_version, align 4
-  %48 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %47, ptr noundef null) #4
+  %48 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.0119, ptr noundef %4, ptr noundef %5, i32 noundef %47, ptr noundef null) #4
   %49 = load i32, ptr @hf_frstrans_frstrans_Update_parent_db_guid, align 4
-  %50 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %49, ptr noundef null) #4
+  %50 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.0119, ptr noundef %4, ptr noundef %5, i32 noundef %49, ptr noundef null) #4
   %51 = load i32, ptr @hf_frstrans_frstrans_Update_parent_version, align 4
-  %52 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %51, ptr noundef null) #4
+  %52 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.0119, ptr noundef %4, ptr noundef %5, i32 noundef %51, ptr noundef null) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %53 = load i32, ptr @hf_frstrans_frstrans_Update_name, align 4
-  %54 = call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %52, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %53, i32 noundef 0, ptr noundef nonnull %9) #4
+  %54 = call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %52, ptr noundef %2, ptr noundef %.0119, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %53, i32 noundef 0, ptr noundef nonnull %9) #4
   %55 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0, ptr noundef nonnull @.str.210, ptr noundef %55) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0119, ptr noundef nonnull @.str.210, ptr noundef %55) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %56 = load i32, ptr @hf_frstrans_frstrans_Update_flags, align 4
-  %57 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %54, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %56, i32 noundef 0) #4
-  %58 = sub i32 %57, %.0120
-  call void @proto_item_set_len(ptr noundef %.0119, i32 noundef %58) #4
+  %57 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %54, ptr noundef %2, ptr noundef %.0119, ptr noundef %4, ptr noundef %5, i32 noundef %56, i32 noundef 0) #4
+  %58 = sub i32 %57, %.0
+  call void @proto_item_set_len(ptr noundef %.0120, i32 noundef %58) #4
   %59 = getelementptr inbounds i8, ptr %4, i64 72
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 96
@@ -741,39 +741,39 @@ define hidden i32 @frstrans_dissect_struct_EpoqueVector(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not74, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.072 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not75 = icmp eq ptr %3, null
   br i1 %.not75, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.072, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_frstrans_frstrans_EpoqueVector, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.071 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.072 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.071 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_frstrans_frstrans_EpoqueVector_machine_guid, align 4
-  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.072, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
+  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
   %21 = load i32, ptr @hf_frstrans_frstrans_EpoqueVector_year, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = load i32, ptr @hf_frstrans_frstrans_EpoqueVector_month, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
   %25 = load i32, ptr @hf_frstrans_frstrans_EpoqueVector_day_of_week, align 4
-  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #4
+  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #4
   %27 = load i32, ptr @hf_frstrans_frstrans_EpoqueVector_day, align 4
-  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #4
+  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #4
   %29 = load i32, ptr @hf_frstrans_frstrans_EpoqueVector_hour, align 4
-  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #4
+  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #4
   %31 = load i32, ptr @hf_frstrans_frstrans_EpoqueVector_minute, align 4
-  %32 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #4
+  %32 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #4
   %33 = load i32, ptr @hf_frstrans_frstrans_EpoqueVector_second, align 4
-  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
+  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
   %35 = load i32, ptr @hf_frstrans_frstrans_EpoqueVector_milli_seconds, align 4
-  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #4
-  %37 = sub i32 %36, %.072
-  tail call void @proto_item_set_len(ptr noundef %.071, i32 noundef %37) #4
+  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #4
+  %37 = sub i32 %36, %.0
+  tail call void @proto_item_set_len(ptr noundef %.072, i32 noundef %37) #4
   %38 = getelementptr inbounds i8, ptr %4, i64 72
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
@@ -810,31 +810,31 @@ define hidden i32 @frstrans_dissect_struct_AsyncVersionVectorResponse(ptr nounde
   %or.cond = or i1 %.not50, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.048 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not51 = icmp eq ptr %3, null
   br i1 %.not51, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.048, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_frstrans_frstrans_AsyncVersionVectorResponse, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.047 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.048 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.047 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_frstrans_frstrans_AsyncVersionVectorResponse_vv_generation, align 4
-  %20 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.048, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
+  %20 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
   %21 = load i32, ptr @hf_frstrans_frstrans_AsyncVersionVectorResponse_version_vector_count, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = load i32, ptr @hf_frstrans_frstrans_AsyncVersionVectorResponse_version_vector, align 4
-  %24 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @frstrans_dissect_element_AsyncVersionVectorResponse_version_vector_, i32 noundef 2, ptr noundef nonnull @.str.211, i32 noundef %23) #4
+  %24 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @frstrans_dissect_element_AsyncVersionVectorResponse_version_vector_, i32 noundef 2, ptr noundef nonnull @.str.211, i32 noundef %23) #4
   %25 = load i32, ptr @hf_frstrans_frstrans_AsyncVersionVectorResponse_epoque_vector_count, align 4
-  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #4
+  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #4
   %27 = load i32, ptr @hf_frstrans_frstrans_AsyncVersionVectorResponse_epoque_vector, align 4
-  %28 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @frstrans_dissect_element_AsyncVersionVectorResponse_epoque_vector_, i32 noundef 2, ptr noundef nonnull @.str.212, i32 noundef %27) #4
-  %29 = sub i32 %28, %.048
-  tail call void @proto_item_set_len(ptr noundef %.047, i32 noundef %29) #4
+  %28 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @frstrans_dissect_element_AsyncVersionVectorResponse_epoque_vector_, i32 noundef 2, ptr noundef nonnull @.str.212, i32 noundef %27) #4
+  %29 = sub i32 %28, %.0
+  tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %29) #4
   %30 = getelementptr inbounds i8, ptr %4, i64 72
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 96
@@ -871,27 +871,27 @@ define hidden i32 @frstrans_dissect_struct_AsyncResponseContext(ptr noundef %0, 
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.036 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_frstrans_frstrans_AsyncResponseContext, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_frstrans_frstrans_AsyncResponseContext_sequence_number, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr @hf_frstrans_frstrans_AsyncResponseContext_status, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = load i32, ptr @hf_frstrans_frstrans_AsyncResponseContext_response, align 4
-  %24 = tail call i32 @frstrans_dissect_struct_AsyncVersionVectorResponse(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 poison)
-  %25 = sub i32 %24, %.036
-  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %25) #4
+  %24 = tail call i32 @frstrans_dissect_struct_AsyncVersionVectorResponse(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 poison)
+  %25 = sub i32 %24, %.0
+  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #4
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 96
@@ -1003,23 +1003,23 @@ define hidden i32 @frstrans_dissect_struct_RdcParameterGeneric(ptr noundef %0, i
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.038 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %30 = load i32, ptr @ett_frstrans_frstrans_RdcParameterGeneric, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #4
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.037 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.038 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.037 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_frstrans_frstrans_RdcParameterGeneric_chunker_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #4
+  %34 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %35
 
@@ -1027,14 +1027,14 @@ define hidden i32 @frstrans_dissect_struct_RdcParameterGeneric(ptr noundef %0, i
   %.010.i = phi i32 [ 0, %32 ], [ %38, %35 ]
   %.089.i = phi i32 [ %34, %32 ], [ %37, %35 ]
   %36 = load i32, ptr @hf_frstrans_frstrans_RdcParameterGeneric_chunker_parameters, align 4
-  %37 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.037, ptr noundef %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %38, 64
   br i1 %exitcond.not.i, label %frstrans_dissect_element_RdcParameterGeneric_chunker_parameters.exit, label %35, !llvm.loop !7
 
 frstrans_dissect_element_RdcParameterGeneric_chunker_parameters.exit: ; preds = %35
-  %39 = sub i32 %37, %.038
-  call void @proto_item_set_len(ptr noundef %.037, i32 noundef %39) #4
+  %39 = sub i32 %37, %.0
+  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %39) #4
   %40 = load ptr, ptr %10, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 96
   %42 = load i32, ptr %41, align 8
@@ -1071,25 +1071,25 @@ define hidden i32 @frstrans_dissect_struct_RdcParameterFilterMax(ptr noundef %0,
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -2
   %13 = add i32 %12, 2
-  %.030 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_frstrans_frstrans_RdcParameterFilterMax, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_frstrans_frstrans_RdcParameterFilterMax_min_horizon_size, align 4
-  %20 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr @hf_frstrans_frstrans_RdcParameterFilterMax_max_window_size, align 4
-  %22 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
-  %23 = sub i32 %22, %.030
-  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #4
+  %22 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %23 = sub i32 %22, %.0
+  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -1126,25 +1126,25 @@ define hidden i32 @frstrans_dissect_struct_RdcParameterFilterPoint(ptr noundef %
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -2
   %13 = add i32 %12, 2
-  %.030 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_frstrans_frstrans_RdcParameterFilterPoint, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_frstrans_frstrans_RdcParameterFilterPoint_min_chunk_size, align 4
-  %20 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr @hf_frstrans_frstrans_RdcParameterFilterPoint_max_chunk_size, align 4
-  %22 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
-  %23 = sub i32 %22, %.030
-  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #4
+  %22 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %23 = sub i32 %22, %.0
+  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -1210,39 +1210,39 @@ define hidden i32 @frstrans_dissect_struct_RdcParameters(ptr noundef %0, i32 nou
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.038 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %34, label %30
 
 30:                                               ; preds = %29
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %32 = load i32, ptr @ett_frstrans_frstrans_RdcParameters, align 4
   %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #4
   br label %34
 
 34:                                               ; preds = %30, %29
-  %.037 = phi ptr [ %31, %30 ], [ null, %29 ]
-  %.0 = phi ptr [ %33, %30 ], [ null, %29 ]
+  %.038 = phi ptr [ %31, %30 ], [ null, %29 ]
+  %.037 = phi ptr [ %33, %30 ], [ null, %29 ]
   %35 = load i32, ptr @hf_frstrans_frstrans_RdcParameters_rdc_chunker_algorithm, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %36 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %11) #4
+  %36 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %11) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %37 = load i32, ptr @hf_frstrans_frstrans_RdcParameters_u, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.0, null
+  %.not.i.i = icmp eq ptr %.037, null
   br i1 %.not.i.i, label %41, label %38
 
 38:                                               ; preds = %34
   %39 = load i32, ptr @ett_frstrans_frstrans_RdcParameterUnion, align 4
-  %40 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %36, i32 noundef -1, i32 noundef %39, ptr noundef nonnull %9, ptr noundef nonnull @.str.213) #4
+  %40 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.037, ptr noundef %0, i32 noundef %36, i32 noundef -1, i32 noundef %39, ptr noundef nonnull %9, ptr noundef nonnull @.str.213) #4
   br label %41
 
 41:                                               ; preds = %38, %34
-  %.0.i.i = phi ptr [ %40, %38 ], [ null, %34 ]
-  %42 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %10) #4
+  %.039.i.i = phi ptr [ %40, %38 ], [ null, %34 ]
+  %42 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.039.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %10) #4
   %43 = load ptr, ptr %12, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -1276,7 +1276,7 @@ define hidden i32 @frstrans_dissect_struct_RdcParameters(ptr noundef %0, i32 nou
   br label %59
 
 59:                                               ; preds = %56, %54, %51, %49
-  %.039.i.i = phi i32 [ %42, %49 ], [ %53, %51 ], [ %42, %54 ], [ %58, %56 ]
+  %.0.i.i = phi i32 [ %42, %49 ], [ %53, %51 ], [ %42, %54 ], [ %58, %56 ]
   %60 = load i32, ptr %10, align 4
   switch i32 %60, label %frstrans_dissect_element_RdcParameters_u.exit [
     i32 0, label %61
@@ -1286,28 +1286,28 @@ define hidden i32 @frstrans_dissect_struct_RdcParameters(ptr noundef %0, i32 nou
 
 61:                                               ; preds = %59
   %62 = load i32, ptr @hf_frstrans_frstrans_RdcParameterUnion_filter_generic, align 4
-  %63 = call i32 @frstrans_dissect_struct_RdcParameterGeneric(ptr noundef %0, i32 noundef %.039.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 poison)
+  %63 = call i32 @frstrans_dissect_struct_RdcParameterGeneric(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.039.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 poison)
   br label %frstrans_dissect_element_RdcParameters_u.exit
 
 64:                                               ; preds = %59
   %65 = load i32, ptr @hf_frstrans_frstrans_RdcParameterUnion_filter_max, align 4
-  %66 = call i32 @frstrans_dissect_struct_RdcParameterFilterMax(ptr noundef %0, i32 noundef %.039.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, i32 poison)
+  %66 = call i32 @frstrans_dissect_struct_RdcParameterFilterMax(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.039.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, i32 poison)
   br label %frstrans_dissect_element_RdcParameters_u.exit
 
 67:                                               ; preds = %59
   %68 = load i32, ptr @hf_frstrans_frstrans_RdcParameterUnion_filter_point, align 4
-  %69 = call i32 @frstrans_dissect_struct_RdcParameterFilterPoint(ptr noundef %0, i32 noundef %.039.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %68, i32 poison)
+  %69 = call i32 @frstrans_dissect_struct_RdcParameterFilterPoint(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.039.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %68, i32 poison)
   br label %frstrans_dissect_element_RdcParameters_u.exit
 
 frstrans_dissect_element_RdcParameters_u.exit:    ; preds = %59, %61, %64, %67
-  %.1.i.i = phi i32 [ %.039.i.i, %59 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %59 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ]
   %70 = load ptr, ptr %9, align 8
   %71 = sub i32 %.1.i.i, %36
   call void @proto_item_set_len(ptr noundef %70, i32 noundef %71) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %72 = sub i32 %.1.i.i, %.038
-  call void @proto_item_set_len(ptr noundef %.037, i32 noundef %72) #4
+  %72 = sub i32 %.1.i.i, %.0
+  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %72) #4
   %73 = load ptr, ptr %12, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 96
   %75 = load i32, ptr %74, align 8
@@ -1418,43 +1418,43 @@ define hidden i32 @frstrans_dissect_struct_RdcFileInfo(ptr noundef %0, i32 nound
   %or.cond = or i1 %.not62, %.not
   %15 = and i32 %1, -8
   %16 = add i32 %15, 8
-  %.060 = select i1 %or.cond, i32 %1, i32 %16
+  %.0 = select i1 %or.cond, i32 %1, i32 %16
   %.not63 = icmp eq ptr %3, null
   br i1 %.not63, label %21, label %17
 
 17:                                               ; preds = %8
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.060, i32 noundef -1, i32 noundef 0) #4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %19 = load i32, ptr @ett_frstrans_frstrans_RdcFileInfo, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #4
   br label %21
 
 21:                                               ; preds = %17, %8
-  %.059 = phi ptr [ %18, %17 ], [ null, %8 ]
-  %.0 = phi ptr [ %20, %17 ], [ null, %8 ]
+  %.060 = phi ptr [ %18, %17 ], [ null, %8 ]
+  %.059 = phi ptr [ %20, %17 ], [ null, %8 ]
   %22 = load i32, ptr @hf_frstrans_frstrans_RdcFileInfo_on_disk_file_size, align 4
-  %23 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.060, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef null) #4
+  %23 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef null) #4
   %24 = load i32, ptr @hf_frstrans_frstrans_RdcFileInfo_file_size_estimate, align 4
-  %25 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef null) #4
+  %25 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef null) #4
   %26 = load i32, ptr @hf_frstrans_frstrans_RdcFileInfo_rdc_version, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %27 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %11) #4
+  %27 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %11) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %28 = load i32, ptr @hf_frstrans_frstrans_RdcFileInfo_rdc_minimum_compatible_version, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  %29 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, ptr noundef nonnull %10) #4
+  %29 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, ptr noundef nonnull %10) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %30 = load i32, ptr @hf_frstrans_frstrans_RdcFileInfo_rdc_signature_levels, align 4
-  %31 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 noundef 0) #4
+  %31 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 noundef 0) #4
   %32 = load i32, ptr @hf_frstrans_frstrans_RdcFileInfo_compression_algorithm, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %33 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef nonnull %9) #4
+  %33 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %34 = call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @frstrans_dissect_element_RdcFileInfo_rdc_filter_parameters_) #4
-  %35 = sub i32 %34, %.060
-  call void @proto_item_set_len(ptr noundef %.059, i32 noundef %35) #4
+  %34 = call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @frstrans_dissect_element_RdcFileInfo_rdc_filter_parameters_) #4
+  %35 = sub i32 %34, %.0
+  call void @proto_item_set_len(ptr noundef %.060, i32 noundef %35) #4
   %36 = getelementptr inbounds i8, ptr %4, i64 72
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96

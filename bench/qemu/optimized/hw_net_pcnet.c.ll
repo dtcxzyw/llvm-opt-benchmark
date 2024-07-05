@@ -344,12 +344,12 @@ while.body.preheader:                             ; preds = %lor.lhs.false122, %
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
-  %p.0282 = phi ptr [ %incdec.ptr, %while.body ], [ %buffer, %while.body.preheader ]
-  %fcs.0281 = phi i32 [ %xor139, %while.body ], [ -1, %while.body.preheader ]
-  %shr135 = lshr i32 %fcs.0281, 8
-  %incdec.ptr = getelementptr i8, ptr %p.0282, i64 1
-  %41 = load i8, ptr %p.0282, align 1
-  %fcs.0.tr = trunc i32 %fcs.0281 to i8
+  %fcs.0282 = phi i32 [ %xor139, %while.body ], [ -1, %while.body.preheader ]
+  %p.0281 = phi ptr [ %incdec.ptr, %while.body ], [ %buffer, %while.body.preheader ]
+  %shr135 = lshr i32 %fcs.0282, 8
+  %incdec.ptr = getelementptr i8, ptr %p.0281, i64 1
+  %41 = load i8, ptr %p.0281, align 1
+  %fcs.0.tr = trunc i32 %fcs.0282 to i8
   %xor.narrow = xor i8 %41, %fcs.0.tr
   %idxprom = zext i8 %xor.narrow to i64
   %arrayidx138 = getelementptr [256 x i32], ptr @crctab, i64 0, i64 %idxprom
@@ -365,12 +365,12 @@ while.end:                                        ; preds = %while.body
   br label %if.end163
 
 while.body149:                                    ; preds = %while.body149.preheader, %while.body149
-  %p144.0278 = phi ptr [ %incdec.ptr151, %while.body149 ], [ %buffer, %while.body149.preheader ]
-  %fcs143.0277 = phi i32 [ %xor157, %while.body149 ], [ -1, %while.body149.preheader ]
-  %shr150 = lshr i32 %fcs143.0277, 8
-  %incdec.ptr151 = getelementptr i8, ptr %p144.0278, i64 1
-  %43 = load i8, ptr %p144.0278, align 1
-  %fcs143.0.tr = trunc i32 %fcs143.0277 to i8
+  %fcs143.0278 = phi i32 [ %xor157, %while.body149 ], [ -1, %while.body149.preheader ]
+  %p144.0277 = phi ptr [ %incdec.ptr151, %while.body149 ], [ %buffer, %while.body149.preheader ]
+  %shr150 = lshr i32 %fcs143.0278, 8
+  %incdec.ptr151 = getelementptr i8, ptr %p144.0277, i64 1
+  %43 = load i8, ptr %p144.0277, align 1
+  %fcs143.0.tr = trunc i32 %fcs143.0278 to i8
   %xor153.narrow = xor i8 %43, %fcs143.0.tr
   %idxprom155 = zext i8 %xor153.narrow to i64
   %arrayidx156 = getelementptr [256 x i32], ptr @crctab, i64 0, i64 %idxprom155
@@ -3261,9 +3261,9 @@ if.end:                                           ; preds = %entry
   br label %txagain.outer
 
 txagain.outer:                                    ; preds = %if.end301, %if.end
-  %xmit_cxda.0.ph = phi i64 [ %xmit_cxda.1, %if.end301 ], [ 0, %if.end ]
   %count.0.in.ph = phi i32 [ %count.0, %if.end301 ], [ %conv, %if.end ]
   %add_crc.0.ph = phi i32 [ %add_crc.4, %if.end301 ], [ 0, %if.end ]
+  %xmit_cxda.0.ph = phi i64 [ %xmit_cxda.1, %if.end301 ], [ 0, %if.end ]
   br label %txagain
 
 txagain:                                          ; preds = %txagain.outer, %if.else348
@@ -3372,8 +3372,8 @@ if.then78:                                        ; preds = %cond.end70
   br label %if.end84
 
 if.end84:                                         ; preds = %cond.end70, %if.then78, %pcnet_tmd_load.exit
-  %xmit_cxda.1 = phi i64 [ %cond71, %if.then78 ], [ %cond71, %cond.end70 ], [ %xmit_cxda.0.ph, %pcnet_tmd_load.exit ]
   %add_crc.1 = phi i32 [ %shr82, %if.then78 ], [ %add_crc.0.ph, %cond.end70 ], [ %add_crc.0.ph, %pcnet_tmd_load.exit ]
+  %xmit_cxda.1 = phi i64 [ %cond71, %if.then78 ], [ %cond71, %cond.end70 ], [ %xmit_cxda.0.ph, %pcnet_tmd_load.exit ]
   %42 = load i32, ptr %lnkst, align 16
   %cmp85 = icmp eq i32 %42, 0
   br i1 %cmp85, label %land.lhs.true, label %if.end125

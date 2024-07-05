@@ -78,14 +78,14 @@ define noalias ptr @pdf_convert_utf(ptr nocapture noundef readonly %0, i64 nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %23, %25
-  %.027 = phi ptr [ %28, %25 ], [ null, %23 ], [ null, %15 ]
+  %.028 = phi ptr [ %28, %25 ], [ null, %23 ], [ null, %15 ]
   call void @free(ptr noundef nonnull %9) #14
   call void @free(ptr noundef nonnull %11) #14
   br label %30
 
 30:                                               ; preds = %2, %.loopexit, %14
-  %.028 = phi ptr [ %.027, %.loopexit ], [ null, %14 ], [ null, %2 ]
-  ret ptr %.028
+  %.0 = phi ptr [ %.028, %.loopexit ], [ null, %14 ], [ null, %2 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -351,8 +351,8 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   br i1 %.not113, label %16, label %.preheader
 
 .preheader:                                       ; preds = %13
-  %.not136 = icmp eq i64 %3, 0
-  br i1 %.not136, label %._crit_edge, label %.lr.ph
+  %.not137 = icmp eq i64 %3, 0
+  br i1 %.not137, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %15 = getelementptr inbounds i8, ptr %6, i64 3
@@ -363,24 +363,24 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   br label %.critedge
 
 17:                                               ; preds = %.lr.ph, %66
-  %.092131 = phi i64 [ 0, %.lr.ph ], [ %67, %66 ]
-  %.093130 = phi i64 [ 0, %.lr.ph ], [ %.3, %66 ]
-  %18 = add nuw i64 %.092131, 1
+  %.093132 = phi i64 [ 0, %.lr.ph ], [ %67, %66 ]
+  %.094131 = phi i64 [ 0, %.lr.ph ], [ %.3, %66 ]
+  %18 = add nuw i64 %.093132, 1
   %19 = icmp ult i64 %18, %3
-  %20 = getelementptr inbounds i8, ptr %10, i64 %.092131
+  %20 = getelementptr inbounds i8, ptr %10, i64 %.093132
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 92
-  %or.cond141 = select i1 %19, i1 %22, i1 false
-  br i1 %or.cond141, label %23, label %.sink.split
+  %or.cond142 = select i1 %19, i1 %22, i1 false
+  br i1 %or.cond142, label %23, label %.sink.split
 
 23:                                               ; preds = %17
-  %24 = add i64 %.092131, 3
+  %24 = add i64 %.093132, 3
   %25 = icmp ult i64 %24, %3
-  br i1 %25, label %26, label %._crit_edge138
+  br i1 %25, label %26, label %._crit_edge139
 
-._crit_edge138:                                   ; preds = %23
-  %.phi.trans.insert139 = getelementptr inbounds i8, ptr %10, i64 %18
-  %.pre140 = load i8, ptr %.phi.trans.insert139, align 1
+._crit_edge139:                                   ; preds = %23
+  %.phi.trans.insert140 = getelementptr inbounds i8, ptr %10, i64 %18
+  %.pre141 = load i8, ptr %.phi.trans.insert140, align 1
   br label %55
 
 26:                                               ; preds = %23
@@ -427,8 +427,8 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   %54 = trunc i64 %50 to i8
   br label %.sink.split
 
-55:                                               ; preds = %._crit_edge138, %42, %35, %26
-  %56 = phi i8 [ %.pre140, %._crit_edge138 ], [ %30, %42 ], [ %30, %35 ], [ %30, %26 ]
+55:                                               ; preds = %._crit_edge139, %42, %35, %26
+  %56 = phi i8 [ %.pre141, %._crit_edge139 ], [ %30, %42 ], [ %30, %35 ], [ %30, %26 ]
   switch i8 %56, label %66 [
     i8 110, label %.sink.split
     i8 114, label %57
@@ -463,23 +463,23 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
 
 .sink.split:                                      ; preds = %17, %55, %53, %63, %62, %61, %60, %59, %58, %57
   %.sink = phi i8 [ 13, %57 ], [ 9, %58 ], [ 8, %59 ], [ 12, %60 ], [ %56, %61 ], [ %56, %62 ], [ %56, %63 ], [ %54, %53 ], [ 10, %55 ], [ %21, %17 ]
-  %.1.ph = phi i64 [ %18, %57 ], [ %18, %58 ], [ %18, %59 ], [ %18, %60 ], [ %18, %61 ], [ %18, %62 ], [ %18, %63 ], [ %24, %53 ], [ %18, %55 ], [ %.092131, %17 ]
-  %64 = add i64 %.093130, 1
-  %65 = getelementptr inbounds i8, ptr %14, i64 %.093130
+  %.1.ph = phi i64 [ %18, %57 ], [ %18, %58 ], [ %18, %59 ], [ %18, %60 ], [ %18, %61 ], [ %18, %62 ], [ %18, %63 ], [ %24, %53 ], [ %18, %55 ], [ %.093132, %17 ]
+  %64 = add i64 %.094131, 1
+  %65 = getelementptr inbounds i8, ptr %14, i64 %.094131
   store i8 %.sink, ptr %65, align 1
   br label %66
 
 66:                                               ; preds = %.sink.split, %55, %49
-  %.3 = phi i64 [ %.093130, %49 ], [ %.093130, %55 ], [ %64, %.sink.split ]
+  %.3 = phi i64 [ %.094131, %49 ], [ %.094131, %55 ], [ %64, %.sink.split ]
   %.1 = phi i64 [ %24, %49 ], [ %18, %55 ], [ %.1.ph, %.sink.split ]
   %67 = add i64 %.1, 1
   %68 = icmp ult i64 %67, %3
   br i1 %68, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %66, %.preheader
-  %.093.lcssa = phi i64 [ 0, %.preheader ], [ %.3, %66 ]
+  %.094.lcssa = phi i64 [ 0, %.preheader ], [ %.3, %66 ]
   call void @free(ptr noundef nonnull %10) #14
-  %69 = add i64 %.093.lcssa, 1
+  %69 = add i64 %.094.lcssa, 1
   %70 = call ptr @cli_max_calloc(i64 noundef %69, i64 noundef 1) #14
   %.not114 = icmp eq ptr %70, null
   br i1 %.not114, label %71, label %72
@@ -489,13 +489,13 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   br label %.critedge
 
 72:                                               ; preds = %._crit_edge
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr nonnull align 1 %14, i64 %.093.lcssa, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr nonnull align 1 %14, i64 %.094.lcssa, i1 false)
   call void @free(ptr noundef %14) #14
   br label %73
 
 73:                                               ; preds = %72, %11
-  %.098 = phi ptr [ %70, %72 ], [ %10, %11 ]
-  %.096 = phi i64 [ %.093.lcssa, %72 ], [ %3, %11 ]
+  %.099 = phi ptr [ %70, %72 ], [ %10, %11 ]
+  %.097 = phi i64 [ %.094.lcssa, %72 ], [ %3, %11 ]
   %74 = getelementptr inbounds i8, ptr %0, i64 12
   %75 = load i32, ptr %74, align 4
   %76 = and i32 %75, 131072
@@ -510,7 +510,7 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
 
 79:                                               ; preds = %77
   %80 = call i32 @get_enc_method(ptr noundef nonnull %0, ptr noundef %1) #14
-  %81 = icmp ult i64 %.096, 2
+  %81 = icmp ult i64 %.097, 2
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %79
@@ -518,11 +518,11 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   br label %pdf_decrypt_string.exit.thread
 
 83:                                               ; preds = %79
-  %84 = load i8, ptr %.098, align 1
+  %84 = load i8, ptr %.099, align 1
   %85 = icmp eq i8 %84, 60
-  %86 = getelementptr inbounds i8, ptr %.098, i64 1
-  %spec.select.i = select i1 %85, ptr %86, ptr %.098
-  %87 = getelementptr inbounds i8, ptr %.098, i64 %.096
+  %86 = getelementptr inbounds i8, ptr %.099, i64 1
+  %spec.select.i = select i1 %85, ptr %86, ptr %.099
+  %87 = getelementptr inbounds i8, ptr %.099, i64 %.097
   %88 = getelementptr inbounds i8, ptr %87, i64 -1
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 62
@@ -553,7 +553,7 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   br label %101
 
 101:                                              ; preds = %100, %98
-  %.039.i = phi ptr [ %.098, %100 ], [ %96, %98 ]
+  %.039.i = phi ptr [ %.099, %100 ], [ %96, %98 ]
   %.038.i = phi ptr [ null, %100 ], [ %96, %98 ]
   %102 = getelementptr inbounds i8, ptr %1, i64 16
   %103 = load i32, ptr %102, align 8
@@ -570,12 +570,12 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
   br label %108
 
 108:                                              ; preds = %106, %105
-  %.0 = phi i64 [ %93, %105 ], [ %107, %106 ]
+  %.0125 = phi i64 [ %93, %105 ], [ %107, %106 ]
   %.not46.i = icmp eq ptr %.038.i, null
   br i1 %.not46.i, label %pdf_decrypt_string.exit, label %109
 
 109:                                              ; preds = %108, %.thread50.i
-  %.1125 = phi i64 [ %.0, %108 ], [ %93, %.thread50.i ]
+  %.1126 = phi i64 [ %.0125, %108 ], [ %93, %.thread50.i ]
   %.03755.i = phi ptr [ %104, %108 ], [ null, %.thread50.i ]
   %.154.i = phi ptr [ %.038.i, %108 ], [ %96, %.thread50.i ]
   call void @free(ptr noundef nonnull %.154.i) #14
@@ -583,19 +583,19 @@ define ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef read
 
 pdf_decrypt_string.exit.thread:                   ; preds = %82, %94, %77
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @free(ptr noundef nonnull %.098) #14
+  call void @free(ptr noundef nonnull %.099) #14
   br label %.critedge
 
 pdf_decrypt_string.exit:                          ; preds = %108, %109
-  %.2126 = phi i64 [ %.0, %108 ], [ %.1125, %109 ]
+  %.2127 = phi i64 [ %.0125, %108 ], [ %.1126, %109 ]
   %.036.i = phi ptr [ %104, %108 ], [ %.03755.i, %109 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @free(ptr noundef nonnull %.098) #14
+  call void @free(ptr noundef nonnull %.099) #14
   %.not116 = icmp eq ptr %.036.i, null
   br i1 %.not116, label %.critedge, label %110
 
 110:                                              ; preds = %pdf_decrypt_string.exit
-  %111 = add i64 %.2126, 1
+  %111 = add i64 %.2127, 1
   %112 = call ptr @cli_max_calloc(i64 noundef %111, i64 noundef 1) #14
   %.not117 = icmp eq ptr %112, null
   br i1 %.not117, label %113, label %114
@@ -605,36 +605,36 @@ pdf_decrypt_string.exit:                          ; preds = %108, %109
   br label %.critedge
 
 114:                                              ; preds = %110
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %112, ptr nonnull align 1 %.036.i, i64 %.2126, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %112, ptr nonnull align 1 %.036.i, i64 %.2127, i1 false)
   call void @free(ptr noundef nonnull %.036.i) #14
   br label %115
 
 115:                                              ; preds = %114, %73
-  %.199 = phi ptr [ %112, %114 ], [ %.098, %73 ]
-  %.197 = phi i64 [ %.2126, %114 ], [ %.096, %73 ]
-  %.not119132.not = icmp eq i64 %.197, 0
-  br i1 %.not119132.not, label %.critedge, label %.lr.ph135
+  %.1100 = phi ptr [ %112, %114 ], [ %.099, %73 ]
+  %.198 = phi i64 [ %.2127, %114 ], [ %.097, %73 ]
+  %.not119133.not = icmp eq i64 %.198, 0
+  br i1 %.not119133.not, label %.critedge, label %.lr.ph136
 
-116:                                              ; preds = %.lr.ph135
-  %117 = add nuw i64 %.2133, 1
-  %exitcond.not = icmp eq i64 %117, %.197
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph135
+116:                                              ; preds = %.lr.ph136
+  %117 = add nuw i64 %.2134, 1
+  %exitcond.not = icmp eq i64 %117, %.198
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph136
 
-.lr.ph135:                                        ; preds = %115, %116
-  %.2133 = phi i64 [ %117, %116 ], [ 0, %115 ]
-  %118 = getelementptr inbounds i8, ptr %.199, i64 %.2133
+.lr.ph136:                                        ; preds = %115, %116
+  %.2134 = phi i64 [ %117, %116 ], [ 0, %115 ]
+  %118 = getelementptr inbounds i8, ptr %.1100, i64 %.2134
   %119 = load i8, ptr %118, align 1
   %or.cond = icmp slt i8 %119, 1
   br i1 %or.cond, label %120, label %116
 
-120:                                              ; preds = %.lr.ph135
-  %121 = call ptr @pdf_convert_utf(ptr noundef nonnull %.199, i64 noundef %.197)
-  call void @free(ptr noundef nonnull %.199) #14
+120:                                              ; preds = %.lr.ph136
+  %121 = call ptr @pdf_convert_utf(ptr noundef nonnull %.1100, i64 noundef %.198)
+  call void @free(ptr noundef nonnull %.1100) #14
   br label %.critedge
 
 .critedge:                                        ; preds = %116, %115, %pdf_decrypt_string.exit.thread, %120, %pdf_decrypt_string.exit, %8, %4, %113, %71, %16
-  %.0101 = phi ptr [ null, %113 ], [ null, %71 ], [ null, %16 ], [ null, %4 ], [ null, %8 ], [ null, %pdf_decrypt_string.exit ], [ %121, %120 ], [ null, %pdf_decrypt_string.exit.thread ], [ %.199, %115 ], [ %.199, %116 ]
-  ret ptr %.0101
+  %.0 = phi ptr [ null, %113 ], [ null, %71 ], [ null, %16 ], [ null, %4 ], [ null, %8 ], [ null, %pdf_decrypt_string.exit ], [ %121, %120 ], [ null, %pdf_decrypt_string.exit.thread ], [ %.1100, %115 ], [ %.1100, %116 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -722,21 +722,21 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not247, label %._crit_edge, label %.lr.ph376
 
 .lr.ph376:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0214292375 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %46 = getelementptr inbounds i8, ptr %.0214292375, i64 1
+  %.0213292375 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %46 = getelementptr inbounds i8, ptr %.0213292375, i64 1
   %47 = ptrtoint ptr %46 to i64
   %48 = sub i64 %47, %42
   %49 = icmp ult i64 %48, %43
   br i1 %49, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.preheader284
-  %.0214.lcssa = phi ptr [ %2, %.preheader284 ], [ %2, %.lr.ph.preheader ], [ %46, %.lr.ph ]
+  %.0213.lcssa = phi ptr [ %2, %.preheader284 ], [ %2, %.lr.ph.preheader ], [ %46, %.lr.ph ]
   %.lcssa291 = phi i64 [ 0, %.preheader284 ], [ 0, %.lr.ph.preheader ], [ %48, %.lr.ph ]
   %50 = icmp eq i64 %.lcssa291, %43
   br i1 %50, label %._crit_edge.thread, label %51
 
 51:                                               ; preds = %._crit_edge
-  %52 = getelementptr inbounds i8, ptr %.0214.lcssa, i64 %39
+  %52 = getelementptr inbounds i8, ptr %.0213.lcssa, i64 %39
   %.pre322 = ptrtoint ptr %52 to i64
   br label %53
 
@@ -902,8 +902,8 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 133:                                              ; preds = %.preheader283, %139
   %.0211312 = phi i64 [ %114, %.preheader283 ], [ %141, %139 ]
-  %.0213311 = phi ptr [ %117, %.preheader283 ], [ %140, %139 ]
-  %134 = load i8, ptr %.0213311, align 1
+  %.0214311 = phi ptr [ %117, %.preheader283 ], [ %140, %139 ]
+  %134 = load i8, ptr %.0214311, align 1
   %135 = sext i8 %134 to i64
   %136 = getelementptr inbounds i16, ptr %127, i64 %135
   %137 = load i16, ptr %136, align 2
@@ -912,7 +912,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not273, label %.critedge2, label %139
 
 139:                                              ; preds = %133
-  %140 = getelementptr inbounds i8, ptr %.0213311, i64 1
+  %140 = getelementptr inbounds i8, ptr %.0214311, i64 1
   %141 = add i64 %.0211312, -1
   %142 = ptrtoint ptr %140 to i64
   %143 = sub i64 %142, %125
@@ -925,7 +925,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 .critedge2:                                       ; preds = %133, %..critedge2_crit_edge
   %145 = phi i8 [ %.pre, %..critedge2_crit_edge ], [ %134, %133 ]
-  %.0213.lcssa = phi ptr [ %140, %..critedge2_crit_edge ], [ %.0213311, %133 ]
+  %.0214.lcssa = phi ptr [ %140, %..critedge2_crit_edge ], [ %.0214311, %133 ]
   %.0211.lcssa = phi i64 [ %141, %..critedge2_crit_edge ], [ %.0211312, %133 ]
   switch i8 %145, label %152 [
     i8 40, label %146
@@ -936,7 +936,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %147 = load i32, ptr %11, align 4
   %148 = add i32 %147, 1
   store i32 %148, ptr %11, align 4
-  %149 = call ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0213.lcssa, i64 noundef %.0211.lcssa, ptr noundef null, ptr noundef null, ptr noundef %6)
+  %149 = call ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0214.lcssa, i64 noundef %.0211.lcssa, ptr noundef null, ptr noundef null, ptr noundef %6)
   %150 = load i32, ptr %11, align 4
   %151 = add i32 %150, -1
   store i32 %151, ptr %11, align 4
@@ -1845,8 +1845,8 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br label %267
 
 267:                                              ; preds = %.loopexit296, %266, %103, %104, %73, %68, %70, %.loopexit298, %30, %32, %15, %25, %5, %14
-  %.0224 = phi ptr [ null, %14 ], [ null, %5 ], [ null, %25 ], [ null, %15 ], [ null, %32 ], [ null, %30 ], [ null, %.loopexit298 ], [ null, %70 ], [ null, %68 ], [ null, %73 ], [ %74, %104 ], [ %74, %103 ], [ %74, %266 ], [ %74, %.loopexit296 ]
-  ret ptr %.0224
+  %.0223 = phi ptr [ null, %14 ], [ null, %5 ], [ null, %25 ], [ null, %15 ], [ null, %32 ], [ null, %30 ], [ null, %.loopexit298 ], [ null, %70 ], [ null, %68 ], [ null, %73 ], [ %74, %104 ], [ %74, %103 ], [ %74, %266 ], [ %74, %.loopexit296 ]
+  ret ptr %.0223
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
@@ -1990,7 +1990,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %170
   %.promoted = phi ptr [ %53, %.preheader.lr.ph ], [ %171, %170 ]
-  %.0121195 = phi i1 [ true, %.preheader.lr.ph ], [ false, %170 ]
+  %.0122195 = phi i1 [ true, %.preheader.lr.ph ], [ false, %170 ]
   %57 = icmp ult ptr %.promoted, %.0120187.ptr.lcssa
   br i1 %57, label %.lr.ph192, label %.critedge
 
@@ -2158,7 +2158,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   %.0115170 = phi ptr [ null, %.thread163 ], [ %.0115, %134 ]
   %.0116169 = phi ptr [ %125, %.thread163 ], [ %.0116, %134 ]
   %142 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #17
-  br i1 %.0121195, label %143, label %149
+  br i1 %.0122195, label %143, label %149
 
 143:                                              ; preds = %138
   store ptr %142, ptr %56, align 8
@@ -2266,8 +2266,8 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br label %.loopexit173
 
 .loopexit173:                                     ; preds = %.thread, %.backedge, %.loopexit, %173, %50, %30, %16, %26, %5, %15
-  %.0123 = phi ptr [ null, %15 ], [ null, %5 ], [ null, %26 ], [ null, %16 ], [ null, %30 ], [ null, %50 ], [ %51, %173 ], [ %51, %.loopexit ], [ null, %.backedge ], [ null, %.thread ]
-  ret ptr %.0123
+  %.0121 = phi ptr [ null, %15 ], [ null, %5 ], [ null, %26 ], [ null, %16 ], [ null, %30 ], [ null, %50 ], [ %51, %173 ], [ %51, %.loopexit ], [ null, %.backedge ], [ null, %.thread ]
+  ret ptr %.0121
 }
 
 ; Function Attrs: nounwind uwtable

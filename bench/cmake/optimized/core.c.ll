@@ -1350,8 +1350,8 @@ define dso_local void @uv__io_start(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %23
 
 23:                                               ; preds = %15, %12
-  %.027.i = phi ptr [ %18, %15 ], [ null, %12 ]
-  %.026.i = phi ptr [ %22, %15 ], [ null, %12 ]
+  %.027.i = phi ptr [ %22, %15 ], [ null, %12 ]
+  %.026.i = phi ptr [ %18, %15 ], [ null, %12 ]
   %24 = add i32 %8, 2
   %25 = lshr i32 %24, 1
   %26 = or i32 %25, %24
@@ -1395,10 +1395,10 @@ define dso_local void @uv__io_start(ptr noundef %0, ptr noundef %1, i32 noundef 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %42
   %52 = zext i32 %36 to i64
   %53 = getelementptr inbounds ptr, ptr %39, i64 %52
-  store ptr %.027.i, ptr %53, align 8
+  store ptr %.026.i, ptr %53, align 8
   %54 = zext i32 %34 to i64
   %55 = getelementptr inbounds ptr, ptr %39, i64 %54
-  store ptr %.026.i, ptr %55, align 8
+  store ptr %.027.i, ptr %55, align 8
   store ptr %39, ptr %13, align 8
   store i32 %36, ptr %10, align 8
   %.pre = load i32, ptr %4, align 8
@@ -1947,18 +1947,18 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__getpwuid_r(ptr nou
   br i1 %8, label %.loopexit, label %.preheader
 
 9:                                                ; preds = %21
-  %10 = shl i64 %.048, 1
+  %10 = shl i64 %.03548, 1
   %11 = call ptr @uv__malloc(i64 noundef %10) #22
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5, %9
   %13 = phi ptr [ %11, %9 ], [ %7, %5 ]
-  %.048 = phi i64 [ %10, %9 ], [ 2000, %5 ]
+  %.03548 = phi i64 [ %10, %9 ], [ 2000, %5 ]
   br label %14
 
 14:                                               ; preds = %.preheader, %14
-  %15 = call i32 @getpwuid_r(i32 noundef %6, ptr noundef nonnull %2, ptr noundef nonnull %13, i64 noundef %.048, ptr noundef nonnull %3) #22
+  %15 = call i32 @getpwuid_r(i32 noundef %6, ptr noundef nonnull %2, ptr noundef nonnull %13, i64 noundef %.03548, ptr noundef nonnull %3) #22
   %16 = icmp eq i32 %15, 4
   br i1 %16, label %14, label %17, !llvm.loop !16
 
@@ -2033,8 +2033,8 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__getpwuid_r(ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %5, %25, %1, %43, %42, %23
-  %.035 = phi i32 [ %24, %23 ], [ -12, %42 ], [ 0, %43 ], [ -22, %1 ], [ -2, %25 ], [ -12, %5 ], [ -12, %9 ]
-  ret i32 %.035
+  %.0 = phi i32 [ %24, %23 ], [ -12, %42 ], [ 0, %43 ], [ -22, %1 ], [ -2, %25 ], [ -12, %5 ], [ -12, %9 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2189,7 +2189,7 @@ define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr nocapture noundef %0, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv54 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next55, %30 ]
-  %.045 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %30 ]
+  %.03645 = phi i32 [ 0, %.lr.ph.preheader ], [ %.137, %30 ]
   %10 = load ptr, ptr @environ, align 8
   %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv54
   %12 = load ptr, ptr %11, align 8
@@ -2202,11 +2202,11 @@ define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr nocapture noundef %0, 
   br i1 %16, label %.preheader, label %19
 
 .preheader:                                       ; preds = %14
-  %17 = icmp sgt i32 %.045, 0
+  %17 = icmp sgt i32 %.03645, 0
   br i1 %17, label %.lr.ph49, label %._crit_edge50
 
 .lr.ph49:                                         ; preds = %.preheader
-  %18 = zext nneg i32 %.045 to i64
+  %18 = zext nneg i32 %.03645 to i64
   br label %31
 
 19:                                               ; preds = %14
@@ -2221,29 +2221,29 @@ define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr nocapture noundef %0, 
 23:                                               ; preds = %19
   store i8 0, ptr %20, align 1
   %24 = load ptr, ptr %0, align 8
-  %25 = sext i32 %.045 to i64
+  %25 = sext i32 %.03645 to i64
   %26 = getelementptr inbounds %struct.uv_env_item_s, ptr %24, i64 %25
   store ptr %15, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %20, i64 1
   %28 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %27, ptr %28, align 8
-  %29 = add nsw i32 %.045, 1
+  %29 = add nsw i32 %.03645, 1
   br label %30
 
 30:                                               ; preds = %23, %22
-  %.1 = phi i32 [ %.045, %22 ], [ %29, %23 ]
+  %.137 = phi i32 [ %.03645, %22 ], [ %29, %23 ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
   br i1 %exitcond.not, label %.sink.split, label %.lr.ph, !llvm.loop !18
 
 31:                                               ; preds = %.lr.ph49, %31
-  %.13748 = phi i32 [ 0, %.lr.ph49 ], [ %35, %31 ]
+  %.148 = phi i32 [ 0, %.lr.ph49 ], [ %35, %31 ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds %struct.uv_env_item_s, ptr %32, i64 %18
   %34 = load ptr, ptr %33, align 8
   tail call void @uv__free(ptr noundef %34) #22
-  %35 = add nuw nsw i32 %.13748, 1
-  %exitcond59.not = icmp eq i32 %35, %.045
+  %35 = add nuw nsw i32 %.148, 1
+  %exitcond59.not = icmp eq i32 %35, %.03645
   br i1 %exitcond59.not, label %._crit_edge50, label %31, !llvm.loop !19
 
 ._crit_edge50:                                    ; preds = %31, %.preheader
@@ -2253,14 +2253,14 @@ define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr nocapture noundef %0, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph, %30, %.preheader42, %._crit_edge50
-  %.sink = phi i32 [ 0, %._crit_edge50 ], [ 0, %.preheader42 ], [ %.045, %.lr.ph ], [ %.1, %30 ]
-  %.038.ph = phi i32 [ -12, %._crit_edge50 ], [ 0, %.preheader42 ], [ 0, %30 ], [ 0, %.lr.ph ]
+  %.sink = phi i32 [ 0, %._crit_edge50 ], [ 0, %.preheader42 ], [ %.03645, %.lr.ph ], [ %.137, %30 ]
+  %.0.ph = phi i32 [ -12, %._crit_edge50 ], [ 0, %.preheader42 ], [ 0, %30 ], [ 0, %.lr.ph ]
   store i32 %.sink, ptr %1, align 4
   br label %37
 
 37:                                               ; preds = %.sink.split, %7
-  %.038 = phi i32 [ -12, %7 ], [ %.038.ph, %.sink.split ]
-  ret i32 %.038
+  %.0 = phi i32 [ -12, %7 ], [ %.0.ph, %.sink.split ]
+  ret i32 %.0
 }
 
 declare ptr @uv__calloc(i64 noundef, i64 noundef) local_unnamed_addr #1

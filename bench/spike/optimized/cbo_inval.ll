@@ -359,11 +359,11 @@ define linkonce_odr void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8
   br label %12
 
 12:                                               ; preds = %.lr.ph, %12
-  %.04565 = phi i64 [ 0, %.lr.ph ], [ %14, %12 ]
-  %13 = add i64 %.04565, %10
+  %.065 = phi i64 [ 0, %.lr.ph ], [ %14, %12 ]
+  %13 = add i64 %.065, %10
   store i8 0, ptr %11, align 8
   tail call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbmSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 1, i64 noundef %13, i1 noundef zeroext false, i64 noundef %1, ptr noundef nonnull byval(%"class.std::optional") align 8 %5)
-  %14 = add nuw i64 %.04565, 1
+  %14 = add nuw i64 %.065, 1
   %15 = load i64, ptr %7, align 8
   %16 = icmp ult i64 %14, %15
   br i1 %16, label %12, label %._crit_edge, !llvm.loop !4
@@ -540,10 +540,10 @@ _ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit: ; preds = %.noe
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit61, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp62, %.loopexit.split-lp.loopexit.split-lp ]
-  %.0 = extractvalue { ptr, i32 } %lpad.phi, 1
   %.039 = extractvalue { ptr, i32 } %lpad.phi, 0
+  %.040 = extractvalue { ptr, i32 } %lpad.phi, 1
   %92 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #15
-  %93 = icmp eq i32 %.0, %92
+  %93 = icmp eq i32 %.040, %92
   br i1 %93, label %107, label %135
 
 94:                                               ; preds = %68
@@ -619,7 +619,7 @@ _ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit: ; preds = %.noe
 
 135:                                              ; preds = %.loopexit.split-lp
   %136 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #15
-  %137 = icmp eq i32 %.0, %136
+  %137 = icmp eq i32 %.040, %136
   br i1 %137, label %138, label %166
 
 138:                                              ; preds = %135
@@ -669,7 +669,7 @@ _ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit: ; preds = %.noe
 
 166:                                              ; preds = %135
   %167 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #15
-  %168 = icmp eq i32 %.0, %167
+  %168 = icmp eq i32 %.040, %167
   br i1 %168, label %169, label %197
 
 169:                                              ; preds = %166
@@ -719,7 +719,7 @@ _ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit: ; preds = %.noe
 
 197:                                              ; preds = %166
   %198 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #15
-  %199 = icmp eq i32 %.0, %198
+  %199 = icmp eq i32 %.040, %198
   br i1 %199, label %200, label %243
 
 200:                                              ; preds = %197

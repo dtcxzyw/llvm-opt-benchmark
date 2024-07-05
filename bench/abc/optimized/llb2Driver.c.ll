@@ -427,11 +427,11 @@ define noundef ptr @Llb_DriverPhaseCube(ptr nocapture noundef readonly %0, ptr n
 
 12:                                               ; preds = %.lr.ph, %42
   %.val37 = phi i32 [ %.val34, %.lr.ph ], [ %.val, %42 ]
-  %.036 = phi i32 [ 0, %.lr.ph ], [ %43, %42 ]
-  %.02435 = phi ptr [ %6, %.lr.ph ], [ %.1, %42 ]
+  %.036 = phi ptr [ %6, %.lr.ph ], [ %.1, %42 ]
+  %.02435 = phi i32 [ 0, %.lr.ph ], [ %43, %42 ]
   %13 = load ptr, ptr %9, align 8
   %.val26 = load i32, ptr %10, align 8
-  %14 = add nsw i32 %.val26, %.036
+  %14 = add nsw i32 %.val26, %.02435
   %15 = getelementptr i8, ptr %13, i64 8
   %.val27 = load ptr, ptr %15, align 8
   %16 = sext i32 %14 to i64
@@ -478,24 +478,24 @@ Aig_ObjFaninId0.exit:                             ; preds = %12, %20
 Aig_ObjFaninId0.exit33:                           ; preds = %33, %34
   %39 = phi i32 [ %38, %34 ], [ -1, %33 ]
   %40 = tail call ptr @Cudd_bddIthVar(ptr noundef %2, i32 noundef %39) #8
-  %41 = tail call ptr @Cudd_bddAnd(ptr noundef %2, ptr noundef %.02435, ptr noundef %40) #8
+  %41 = tail call ptr @Cudd_bddAnd(ptr noundef %2, ptr noundef %.036, ptr noundef %40) #8
   tail call void @Cudd_Ref(ptr noundef %41) #8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.02435) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.036) #8
   %.val.pre = load i32, ptr %7, align 8
   br label %42
 
 42:                                               ; preds = %30, %Aig_ObjFaninId0.exit, %Aig_ObjFaninId0.exit33
   %.val = phi i32 [ %.val37, %Aig_ObjFaninId0.exit ], [ %.val.pre, %Aig_ObjFaninId0.exit33 ], [ %.val37, %30 ]
-  %.1 = phi ptr [ %.02435, %Aig_ObjFaninId0.exit ], [ %41, %Aig_ObjFaninId0.exit33 ], [ %.02435, %30 ]
-  %43 = add nuw nsw i32 %.036, 1
+  %.1 = phi ptr [ %.036, %Aig_ObjFaninId0.exit ], [ %41, %Aig_ObjFaninId0.exit33 ], [ %.036, %30 ]
+  %43 = add nuw nsw i32 %.02435, 1
   %44 = icmp slt i32 %43, %.val
   br i1 %44, label %12, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %42, %3
-  %.024.lcssa = phi ptr [ %6, %3 ], [ %.1, %42 ]
-  tail call void @Cudd_Deref(ptr noundef %.024.lcssa) #8
+  %.0.lcssa = phi ptr [ %6, %3 ], [ %.1, %42 ]
+  tail call void @Cudd_Deref(ptr noundef %.0.lcssa) #8
   store i64 %5, ptr %4, align 8
-  ret ptr %.024.lcssa
+  ret ptr %.0.lcssa
 }
 
 declare ptr @Cudd_ReadOne(ptr noundef) local_unnamed_addr #2
@@ -535,7 +535,7 @@ define noundef ptr @Llb_DriverLastPartition(ptr nocapture noundef readonly %0, p
 13:                                               ; preds = %.lr.ph, %Saig_ObjIsLi.exit.thread
   %.val5569 = phi i32 [ %.val5563, %.lr.ph ], [ %.val55, %Saig_ObjIsLi.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Saig_ObjIsLi.exit.thread ]
-  %.04564 = phi ptr [ %8, %.lr.ph ], [ %.1, %Saig_ObjIsLi.exit.thread ]
+  %.04664 = phi ptr [ %8, %.lr.ph ], [ %.1, %Saig_ObjIsLi.exit.thread ]
   %.val56 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.val56, null
   br i1 %.not.i, label %Aig_ManObj.exit, label %14
@@ -603,42 +603,42 @@ Aig_ObjFaninId0.exit:                             ; preds = %24, %28
 
 43:                                               ; preds = %41, %Aig_ObjFaninId0.exit
   %.pre-phi = phi i64 [ %.pre, %41 ], [ %36, %Aig_ObjFaninId0.exit ]
-  %.046 = phi ptr [ %42, %41 ], [ %35, %Aig_ObjFaninId0.exit ]
-  %44 = ptrtoint ptr %.046 to i64
+  %.045 = phi ptr [ %42, %41 ], [ %35, %Aig_ObjFaninId0.exit ]
+  %44 = ptrtoint ptr %.045 to i64
   %45 = and i64 %.pre-phi, 1
   %46 = xor i64 %45, %44
   %47 = inttoptr i64 %46 to ptr
   %48 = tail call ptr @Cudd_bddXnor(ptr noundef %6, ptr noundef %26, ptr noundef %47) #8
   tail call void @Cudd_Ref(ptr noundef %48) #8
-  %49 = tail call ptr @Cudd_bddAnd(ptr noundef %6, ptr noundef %.04564, ptr noundef %48) #8
+  %49 = tail call ptr @Cudd_bddAnd(ptr noundef %6, ptr noundef %.04664, ptr noundef %48) #8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %43
-  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %.04564) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %.04664) #8
   tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %48) #8
   br label %56
 
 52:                                               ; preds = %43
   tail call void @Cudd_Ref(ptr noundef nonnull %49) #8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %.04564) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %.04664) #8
   tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %48) #8
   %.val55.pre = load i32, ptr %9, align 4
   br label %Saig_ObjIsLi.exit.thread
 
 Saig_ObjIsLi.exit.thread:                         ; preds = %Aig_ManObj.exit, %Saig_ObjIsLi.exit, %52
   %.val55 = phi i32 [ %.val55.pre, %52 ], [ %.val5569, %Saig_ObjIsLi.exit ], [ %.val5569, %Aig_ManObj.exit ]
-  %.1 = phi ptr [ %49, %52 ], [ %.04564, %Saig_ObjIsLi.exit ], [ %.04564, %Aig_ManObj.exit ]
+  %.1 = phi ptr [ %49, %52 ], [ %.04664, %Saig_ObjIsLi.exit ], [ %.04664, %Aig_ManObj.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = sext i32 %.val55 to i64
   %54 = icmp slt i64 %indvars.iv.next, %53
   br i1 %54, label %13, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %Saig_ObjIsLi.exit.thread, %3
-  %.045.lcssa = phi ptr [ %8, %3 ], [ %.1, %Saig_ObjIsLi.exit.thread ]
+  %.046.lcssa = phi ptr [ %8, %3 ], [ %.1, %Saig_ObjIsLi.exit.thread ]
   tail call void @Cudd_AutodynDisable(ptr noundef %6) #8
   %55 = getelementptr inbounds i8, ptr %6, i64 736
-  store ptr %.045.lcssa, ptr %55, align 8
+  store ptr %.046.lcssa, ptr %55, align 8
   store i64 0, ptr %7, align 8
   br label %56
 

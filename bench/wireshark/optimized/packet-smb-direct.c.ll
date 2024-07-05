@@ -347,7 +347,7 @@ define internal fastcc range(i32 -1, 4) i32 @is_smb_direct(ptr noundef %0) unnam
   br label %40
 
 40:                                               ; preds = %37, %34, %31, %27
-  %.0 = phi i32 [ 0, %34 ], [ 0, %31 ], [ 0, %27 ], [ %spec.select35, %37 ]
+  %.027 = phi i32 [ 0, %34 ], [ 0, %31 ], [ 0, %27 ], [ %spec.select35, %37 ]
   %41 = icmp eq i32 %2, 20
   br i1 %41, label %42, label %51
 
@@ -360,7 +360,7 @@ define internal fastcc range(i32 -1, 4) i32 @is_smb_direct(ptr noundef %0) unnam
   %.not31 = icmp eq i32 %45, 0
   %46 = select i1 %.not31, i1 %.not30, i1 false
   %47 = select i1 %46, i1 %.not, i1 false
-  %48 = icmp ne i32 %.0, 0
+  %48 = icmp ne i32 %.027, 0
   %49 = select i1 %47, i1 %48, i1 false
   %or.cond = or i1 %28, %49
   %50 = xor i1 %28, true
@@ -389,13 +389,13 @@ define internal fastcc range(i32 -1, 4) i32 @is_smb_direct(ptr noundef %0) unnam
   br i1 %.not33, label %60, label %.thread
 
 60:                                               ; preds = %58
-  %.not34 = icmp eq i32 %.0, 0
+  %.not34 = icmp eq i32 %.027, 0
   %. = select i1 %.not34, i32 -1, i32 3
   br label %.thread
 
 .thread:                                          ; preds = %42, %60, %58, %55, %53, %51, %15, %1
-  %.028 = phi i32 [ -1, %1 ], [ 2, %15 ], [ -1, %51 ], [ -1, %53 ], [ -1, %55 ], [ -1, %58 ], [ %., %60 ], [ %spec.select2, %42 ]
-  ret i32 %.028
+  %.0 = phi i32 [ -1, %1 ], [ 2, %15 ], [ -1, %51 ], [ -1, %53 ], [ -1, %55 ], [ -1, %58 ], [ %., %60 ], [ %spec.select2, %42 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

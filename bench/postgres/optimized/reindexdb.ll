@@ -701,16 +701,16 @@ define internal fastcc void @reindex_one_database(ptr noundef %0, i32 noundef %1
   br i1 %33, label %94, label %34
 
 34:                                               ; preds = %27, %28, %31, %23, %24
-  %.066 = phi ptr [ %2, %27 ], [ %32, %31 ], [ %29, %28 ], [ %2, %23 ], [ %25, %24 ]
-  %.065 = phi i32 [ %1, %27 ], [ 4, %31 ], [ 4, %28 ], [ %1, %23 ], [ %1, %24 ]
+  %.068 = phi ptr [ %2, %27 ], [ %32, %31 ], [ %29, %28 ], [ %2, %23 ], [ %25, %24 ]
+  %.067 = phi i32 [ %1, %27 ], [ 4, %31 ], [ 4, %28 ], [ %1, %23 ], [ %1, %24 ]
   %smax = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   br label %35
 
 35:                                               ; preds = %36, %34
-  %.067.in = phi ptr [ %.066, %34 ], [ %.067, %36 ]
+  %.065.in = phi ptr [ %.068, %34 ], [ %.065, %36 ]
   %.0 = phi i32 [ 0, %34 ], [ %37, %36 ]
-  %.067 = load ptr, ptr %.067.in, align 8
-  %.not77 = icmp eq ptr %.067, null
+  %.065 = load ptr, ptr %.065.in, align 8
+  %.not77 = icmp eq ptr %.065, null
   br i1 %.not77, label %38, label %36
 
 36:                                               ; preds = %35
@@ -723,14 +723,14 @@ define internal fastcc void @reindex_one_database(ptr noundef %0, i32 noundef %1
   %39 = tail call i32 @llvm.smin.i32(i32 %.1, i32 %7)
   %40 = tail call ptr @ParallelSlotsSetup(i32 noundef %39, ptr noundef %0, ptr noundef %3, i1 noundef zeroext %4, ptr noundef null) #10
   tail call void @ParallelSlotsAdoptConn(ptr noundef %40, ptr noundef %12) #10
-  %41 = load ptr, ptr %.066, align 8
-  %42 = sext i32 %.065 to i64
+  %41 = load ptr, ptr %.068, align 8
+  %42 = sext i32 %.067 to i64
   %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.reindex_one_database, i64 0, i64 %42
   br label %43
 
 43:                                               ; preds = %run_reindex_command.exit, %38
-  %.168 = phi ptr [ %41, %38 ], [ %88, %run_reindex_command.exit ]
-  %44 = getelementptr inbounds i8, ptr %.168, i64 9
+  %.166 = phi ptr [ %41, %38 ], [ %88, %run_reindex_command.exit ]
+  %44 = getelementptr inbounds i8, ptr %.166, i64 9
   %45 = load volatile i32, ptr @CancelRequested, align 4
   %.not79 = icmp eq i32 %45, 0
   br i1 %.not79, label %46, label %.loopexit
@@ -786,7 +786,7 @@ switch.lookup:                                    ; preds = %56, %57
   br label %59
 
 59:                                               ; preds = %58, %switch.lookup
-  switch i32 %.065, label %default.unreachable.i [
+  switch i32 %.067, label %default.unreachable.i [
     i32 0, label %60
     i32 3, label %60
     i32 1, label %62
@@ -823,7 +823,7 @@ switch.lookup:                                    ; preds = %56, %57
   br i1 %71, label %run_reindex_command.exit, label %72
 
 72:                                               ; preds = %68
-  switch i32 %.065, label %default.unreachable.i [
+  switch i32 %.067, label %default.unreachable.i [
     i32 0, label %73
     i32 1, label %76
     i32 2, label %79
@@ -864,7 +864,7 @@ switch.lookup:                                    ; preds = %56, %57
 run_reindex_command.exit:                         ; preds = %68, %73, %76, %79, %82, %85
   call void @termPQExpBuffer(ptr noundef nonnull %10) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  %88 = load ptr, ptr %.168, align 8
+  %88 = load ptr, ptr %.166, align 8
   %.not81 = icmp eq ptr %88, null
   br i1 %.not81, label %89, label %43, !llvm.loop !9
 
@@ -875,12 +875,12 @@ run_reindex_command.exit:                         ; preds = %68, %73, %76, %79, 
 
 .loopexit:                                        ; preds = %46, %43, %89
   %.064 = phi i1 [ %not., %89 ], [ true, %43 ], [ true, %46 ]
-  %.not82 = icmp eq ptr %.066, %2
+  %.not82 = icmp eq ptr %.068, %2
   br i1 %.not82, label %92, label %91
 
 91:                                               ; preds = %.loopexit
-  call void @simple_string_list_destroy(ptr noundef nonnull %.066) #10
-  call void @pg_free(ptr noundef nonnull %.066) #10
+  call void @simple_string_list_destroy(ptr noundef nonnull %.068) #10
+  call void @pg_free(ptr noundef nonnull %.068) #10
   br label %92
 
 92:                                               ; preds = %91, %.loopexit
@@ -918,15 +918,15 @@ define internal fastcc ptr @get_parallel_object_list(ptr noundef %0, i32 noundef
 
 7:                                                ; preds = %4
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.40) #10
-  %.02428 = load ptr, ptr %2, align 8
-  %.not29 = icmp eq ptr %.02428, null
+  %.02528 = load ptr, ptr %2, align 8
+  %.not29 = icmp eq ptr %.02528, null
   br i1 %.not29, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %10
-  %.02431 = phi ptr [ %.024, %10 ], [ %.02428, %7 ]
-  %.030 = phi i1 [ true, %10 ], [ false, %7 ]
-  %8 = getelementptr inbounds i8, ptr %.02431, i64 9
-  br i1 %.030, label %9, label %10
+  %.02531 = phi ptr [ %.025, %10 ], [ %.02528, %7 ]
+  %.02430 = phi i1 [ true, %10 ], [ false, %7 ]
+  %8 = getelementptr inbounds i8, ptr %.02531, i64 9
+  br i1 %.02430, label %9, label %10
 
 9:                                                ; preds = %.lr.ph
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.41) #10
@@ -934,8 +934,8 @@ define internal fastcc ptr @get_parallel_object_list(ptr noundef %0, i32 noundef
 
 10:                                               ; preds = %.lr.ph, %9
   call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef %0) #10
-  %.024 = load ptr, ptr %.02431, align 8
-  %.not = icmp eq ptr %.024, null
+  %.025 = load ptr, ptr %.02531, align 8
+  %.not = icmp eq ptr %.025, null
   br i1 %.not, label %.sink.split, label %.lr.ph, !llvm.loop !10
 
 .sink.split:                                      ; preds = %10, %7, %4
@@ -963,15 +963,15 @@ define internal fastcc ptr @get_parallel_object_list(ptr noundef %0, i32 noundef
   br i1 %19, label %.lr.ph34, label %._crit_edge35
 
 .lr.ph34:                                         ; preds = %17, %.lr.ph34
-  %.02532 = phi i32 [ %24, %.lr.ph34 ], [ 0, %17 ]
-  %20 = call ptr @PQgetvalue(ptr noundef %13, i32 noundef %.02532, i32 noundef 1) #10
-  %21 = call ptr @PQgetvalue(ptr noundef %13, i32 noundef %.02532, i32 noundef 0) #10
+  %.02632 = phi i32 [ %24, %.lr.ph34 ], [ 0, %17 ]
+  %20 = call ptr @PQgetvalue(ptr noundef %13, i32 noundef %.02632, i32 noundef 1) #10
+  %21 = call ptr @PQgetvalue(ptr noundef %13, i32 noundef %.02632, i32 noundef 0) #10
   %22 = call ptr @fmtQualifiedId(ptr noundef %20, ptr noundef %21) #10
   call void @appendPQExpBufferStr(ptr noundef nonnull %6, ptr noundef %22) #10
   %23 = load ptr, ptr %6, align 8
   call void @simple_string_list_append(ptr noundef %18, ptr noundef %23) #10
   call void @resetPQExpBuffer(ptr noundef nonnull %6) #10
-  %24 = add nuw nsw i32 %.02532, 1
+  %24 = add nuw nsw i32 %.02632, 1
   %exitcond.not = icmp eq i32 %24, %14
   br i1 %exitcond.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !11
 
@@ -981,8 +981,8 @@ define internal fastcc ptr @get_parallel_object_list(ptr noundef %0, i32 noundef
   br label %25
 
 25:                                               ; preds = %._crit_edge35, %16
-  %.026 = phi ptr [ null, %16 ], [ %18, %._crit_edge35 ]
-  ret ptr %.026
+  %.0 = phi ptr [ null, %16 ], [ %18, %._crit_edge35 ]
+  ret ptr %.0
 }
 
 declare ptr @ParallelSlotsSetup(i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2

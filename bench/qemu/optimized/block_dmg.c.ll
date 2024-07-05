@@ -695,8 +695,8 @@ if.end47:                                         ; preds = %if.end38
   br i1 %cmp49, label %fail, label %while.cond
 
 fail:                                             ; preds = %if.end38, %if.end47, %lor.lhs.false32, %if.else29, %while.cond, %if.end18, %read_uint32.exit37.thread, %read_uint32.exit31.thread, %read_uint32.exit.thread, %if.else9, %if.else
-  %ret.0 = phi i32 [ -22, %if.else ], [ -22, %if.else9 ], [ %call.i, %read_uint32.exit.thread ], [ %call.i27, %read_uint32.exit31.thread ], [ %call.i33, %read_uint32.exit37.thread ], [ 0, %if.end18 ], [ %call43, %if.end38 ], [ %call48, %if.end47 ], [ -22, %lor.lhs.false32 ], [ -22, %if.else29 ], [ 0, %while.cond ]
   %buffer.1 = phi ptr [ null, %if.else ], [ null, %if.else9 ], [ null, %read_uint32.exit.thread ], [ null, %read_uint32.exit31.thread ], [ %buffer.054, %read_uint32.exit37.thread ], [ null, %if.end18 ], [ %call41, %if.end38 ], [ %call41, %if.end47 ], [ %buffer.054, %lor.lhs.false32 ], [ %buffer.054, %if.else29 ], [ %call41, %while.cond ]
+  %ret.0 = phi i32 [ -22, %if.else ], [ -22, %if.else9 ], [ %call.i, %read_uint32.exit.thread ], [ %call.i27, %read_uint32.exit31.thread ], [ %call.i33, %read_uint32.exit37.thread ], [ 0, %if.end18 ], [ %call43, %if.end38 ], [ %call48, %if.end47 ], [ -22, %lor.lhs.false32 ], [ -22, %if.else29 ], [ 0, %while.cond ]
   call void @g_free(ptr noundef %buffer.1) #11
   ret i32 %ret.0
 }
@@ -746,8 +746,8 @@ if.end11:                                         ; preds = %while.body
   br i1 %cmp14, label %fail, label %while.cond, !llvm.loop !9
 
 fail:                                             ; preds = %while.cond, %while.body, %if.end11, %if.end, %entry
-  %ret.0 = phi i32 [ -22, %entry ], [ -22, %if.end ], [ 0, %while.cond ], [ -22, %while.body ], [ %call13, %if.end11 ]
   %buffer.0 = phi ptr [ null, %entry ], [ %call, %if.end ], [ %call, %if.end11 ], [ %call, %while.body ], [ %call, %while.cond ]
+  %ret.0 = phi i32 [ -22, %entry ], [ -22, %if.end ], [ 0, %while.cond ], [ -22, %while.body ], [ %call13, %if.end11 ]
   call void @g_free(ptr noundef %buffer.0) #11
   ret i32 %ret.0
 }

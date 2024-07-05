@@ -1141,8 +1141,8 @@ default.unreachable:                              ; preds = %168, %.thread226
   %330 = getelementptr inbounds i8, ptr %.tr255, i64 56
   %331 = load ptr, ptr %330, align 8, !noundef !4
   %.not189 = icmp ne ptr %331, null
-  %.0181 = zext i1 %.not189 to i64
-  %332 = add i64 %329, %.0181
+  %.0 = zext i1 %.not189 to i64
+  %332 = add i64 %329, %.0
   %.not190 = icmp eq i64 %327, %332
   br i1 %.not190, label %333, label %337
 

@@ -68,8 +68,8 @@ define dso_local i64 @Curl_h1_req_parse_read(ptr noundef %0, ptr noundef %1, i64
   br label %16
 
 16:                                               ; preds = %.lr.ph, %127
-  %.064 = phi i64 [ 0, %.lr.ph ], [ %61, %127 ]
-  %.03463 = phi ptr [ %1, %.lr.ph ], [ %62, %127 ]
+  %.065 = phi ptr [ %1, %.lr.ph ], [ %62, %127 ]
+  %.03463 = phi i64 [ 0, %.lr.ph ], [ %61, %127 ]
   %.03562 = phi i64 [ %2, %.lr.ph ], [ %63, %127 ]
   %17 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %17, null
@@ -82,14 +82,14 @@ define dso_local i64 @Curl_h1_req_parse_read(ptr noundef %0, ptr noundef %1, i64
   br label %19
 
 19:                                               ; preds = %18, %16
-  %20 = call ptr @memchr(ptr noundef %.03463, i32 noundef 10, i64 noundef %.03562) #7
+  %20 = call ptr @memchr(ptr noundef %.065, i32 noundef 10, i64 noundef %.03562) #7
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %55, label %detect_line.exit.i
 
 detect_line.exit.i:                               ; preds = %19
-  store ptr %.03463, ptr %11, align 8
+  store ptr %.065, ptr %11, align 8
   %21 = ptrtoint ptr %20 to i64
-  %22 = ptrtoint ptr %.03463 to i64
+  %22 = ptrtoint ptr %.065 to i64
   %reass.sub = sub i64 %21, %22
   %23 = add i64 %reass.sub, 1
   store i64 %23, ptr %12, align 8
@@ -175,7 +175,7 @@ next_line.exit.thread47:                          ; preds = %49, %50, %51
 
 55:                                               ; preds = %19
   store i32 81, ptr %5, align 4
-  %56 = call i32 @Curl_dyn_addn(ptr noundef nonnull %13, ptr noundef %.03463, i64 noundef %.03562) #6
+  %56 = call i32 @Curl_dyn_addn(ptr noundef nonnull %13, ptr noundef %.065, i64 noundef %.03562) #6
   store i32 %56, ptr %5, align 4
   %.not33.i = icmp ne i32 %56, 0
   %57 = icmp slt i64 %.03562, 0
@@ -186,13 +186,13 @@ next_line.exit.thread.loopexit:                   ; preds = %28, %55
   %58 = phi i32 [ %30, %28 ], [ %56, %55 ]
   %.fr = freeze i32 %58
   %59 = icmp eq i32 %.fr, 81
-  %spec.select = select i1 %59, i64 %.064, i64 -1
+  %spec.select = select i1 %59, i64 %.03463, i64 -1
   br label %.loopexit.sink.split
 
 60:                                               ; preds = %55, %next_line.exit.thread47
   %.031.i49 = phi i64 [ %24, %next_line.exit.thread47 ], [ %.03562, %55 ]
-  %61 = add i64 %.031.i49, %.064
-  %62 = getelementptr inbounds i8, ptr %.03463, i64 %.031.i49
+  %61 = add i64 %.031.i49, %.03463
+  %62 = getelementptr inbounds i8, ptr %.065, i64 %.031.i49
   %63 = sub i64 %.03562, %.031.i49
   %64 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %64, null
@@ -297,8 +297,8 @@ next_line.exit.thread.loopexit:                   ; preds = %28, %55
   br label %start_req.exit
 
 115:                                              ; preds = %112, %100, %98, %95
-  %.080.ph.i = phi ptr [ null, %100 ], [ %76, %98 ], [ null, %95 ], [ null, %112 ]
-  %.079.ph.i = phi ptr [ %76, %100 ], [ null, %98 ], [ %76, %95 ], [ %76, %112 ]
+  %.081.ph.i = phi ptr [ null, %100 ], [ %76, %98 ], [ null, %95 ], [ null, %112 ]
+  %.080.ph.i = phi ptr [ %76, %100 ], [ null, %98 ], [ %76, %95 ], [ %76, %112 ]
   %.075.ph.i = phi i64 [ 0, %100 ], [ %90, %98 ], [ 0, %95 ], [ 0, %112 ]
   %.074.ph.i = phi i64 [ %90, %100 ], [ 0, %98 ], [ 1, %95 ], [ %90, %112 ]
   br i1 %.not95.i, label %118, label %116
@@ -309,7 +309,7 @@ next_line.exit.thread.loopexit:                   ; preds = %28, %55
 
 118:                                              ; preds = %116, %115
   %.076.i = phi i64 [ %117, %116 ], [ 0, %115 ]
-  %119 = call i32 @Curl_http_req_make(ptr noundef nonnull %0, ptr noundef nonnull %64, i64 noundef %75, ptr noundef %3, i64 noundef %.076.i, ptr noundef %.080.ph.i, i64 noundef %.075.ph.i, ptr noundef %.079.ph.i, i64 noundef %.074.ph.i) #6
+  %119 = call i32 @Curl_http_req_make(ptr noundef nonnull %0, ptr noundef nonnull %64, i64 noundef %75, ptr noundef %3, i64 noundef %.076.i, ptr noundef %.081.ph.i, i64 noundef %.075.ph.i, ptr noundef %.080.ph.i, i64 noundef %.074.ph.i) #6
   br label %start_req.exit
 
 start_req.exit.thread:                            ; preds = %103, %110, %112, %84, %68, %108, %72, %81

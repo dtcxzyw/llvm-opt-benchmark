@@ -288,8 +288,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %138
 
 138:                                              ; preds = %.preheader, %224
-  %.0167 = phi i32 [ 0, %.preheader ], [ %225, %224 ]
-  %139 = lshr i32 %.0167, 1
+  %.094167 = phi i32 [ 0, %.preheader ], [ %225, %224 ]
+  %139 = lshr i32 %.094167, 1
   %140 = load ptr, ptr %32, align 8
   %.val123 = load i32, ptr %124, align 4
   %141 = sext i32 %.val123 to i64
@@ -298,7 +298,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %144 = load i64, ptr %125, align 8
   %145 = trunc i64 %144 to i32
   %146 = lshr i32 %145, 3
-  %147 = xor i32 %146, %.0167
+  %147 = xor i32 %146, %.094167
   %148 = and i32 %147, 1
   %149 = shl nsw i32 %143, 1
   %150 = or disjoint i32 %148, %149
@@ -332,7 +332,7 @@ Vec_IntPush.exit148:                              ; preds = %138
   %168 = load i64, ptr %125, align 8
   %169 = trunc i64 %168 to i32
   %170 = lshr i32 %169, 3
-  %171 = xor i32 %170, %.0167
+  %171 = xor i32 %170, %.094167
   %172 = and i32 %171, 1
   %173 = shl nsw i32 %.val125, 1
   %174 = or disjoint i32 %172, %173
@@ -418,7 +418,7 @@ Vec_PtrPush.exit155:                              ; preds = %.Vec_PtrGrow.exit11
   %212 = load i64, ptr %125, align 8
   %213 = trunc i64 %212 to i32
   %214 = lshr i32 %213, 3
-  %215 = xor i32 %214, %.0167
+  %215 = xor i32 %214, %.094167
   %216 = and i32 %215, 1
   %.not102 = icmp eq i32 %216, 0
   %217 = select i1 %.not102, i32 43, i32 45
@@ -433,7 +433,7 @@ Vec_PtrPush.exit155:                              ; preds = %.Vec_PtrGrow.exit11
   br label %.loopexit
 
 224:                                              ; preds = %138
-  %225 = add nuw nsw i32 %.0167, 1
+  %225 = add nuw nsw i32 %.094167, 1
   %exitcond.not = icmp eq i32 %225, 3
   br i1 %exitcond.not, label %.loopexit, label %138, !llvm.loop !6
 

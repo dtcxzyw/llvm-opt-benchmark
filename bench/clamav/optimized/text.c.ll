@@ -151,9 +151,9 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %10, label %textAdd.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %36, %.preheader.i
-  %.022.i = phi ptr [ %38, %.preheader.i ], [ %0, %36 ]
+  %.023.i = phi ptr [ %38, %.preheader.i ], [ %0, %36 ]
   %.0.i = phi i32 [ %39, %.preheader.i ], [ 0, %36 ]
-  %37 = getelementptr inbounds i8, ptr %.022.i, i64 8
+  %37 = getelementptr inbounds i8, ptr %.023.i, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %38, null
   %39 = add nuw nsw i32 %.0.i, 1
@@ -164,8 +164,8 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %41
 
 41:                                               ; preds = %49, %40
-  %.02136.i = phi ptr [ %9, %40 ], [ %51, %49 ]
-  %.135.i = phi ptr [ %.022.i, %40 ], [ %42, %49 ]
+  %.02236.i = phi ptr [ %9, %40 ], [ %51, %49 ]
+  %.135.i = phi ptr [ %.023.i, %40 ], [ %42, %49 ]
   %42 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %43 = getelementptr inbounds i8, ptr %.135.i, i64 8
   store ptr %42, ptr %43, align 8
@@ -177,7 +177,7 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   unreachable
 
 45:                                               ; preds = %41
-  %46 = load ptr, ptr %.02136.i, align 8
+  %46 = load ptr, ptr %.02236.i, align 8
   %.not32.i = icmp eq ptr %46, null
   br i1 %.not32.i, label %49, label %47
 
@@ -188,7 +188,7 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 49:                                               ; preds = %47, %45
   %storemerge.i = phi ptr [ %48, %47 ], [ null, %45 ]
   store ptr %storemerge.i, ptr %42, align 8
-  %50 = getelementptr inbounds i8, ptr %.02136.i, i64 8
+  %50 = getelementptr inbounds i8, ptr %.02236.i, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not30.i = icmp eq ptr %51, null
   br i1 %.not30.i, label %52, label %41

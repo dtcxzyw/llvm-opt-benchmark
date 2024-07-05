@@ -1726,9 +1726,9 @@ for.body.lr.ph:                                   ; preds = %invoke.cont76
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin2.sroa.0.0289 = phi ptr [ %38, %for.body.lr.ph ], [ %incdec.ptr.i204, %for.inc ]
-  %count.0288 = phi i32 [ 0, %for.body.lr.ph ], [ %count.1, %for.inc ]
-  %41 = load i32, ptr %__begin2.sroa.0.0289, align 4
+  %count.0289 = phi i32 [ 0, %for.body.lr.ph ], [ %count.1, %for.inc ]
+  %__begin2.sroa.0.0288 = phi ptr [ %38, %for.body.lr.ph ], [ %incdec.ptr.i204, %for.inc ]
+  %41 = load i32, ptr %__begin2.sroa.0.0288, align 4
   %cmp = icmp slt i32 %41, 0
   %.lobit36 = ashr i32 %41, 31
   %cond = xor i32 %.lobit36, %41
@@ -1836,7 +1836,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
   br label %invoke.cont98
 
 invoke.cont98:                                    ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i170
-  %inc = add i32 %count.0288, 1
+  %inc = add i32 %count.0289, 1
   %50 = load ptr, ptr %m_mapping_counts, align 8
   %add.ptr.i175 = getelementptr inbounds i32, ptr %50, i64 %conv
   %51 = load i32, ptr %add.ptr.i175, align 4
@@ -1918,7 +1918,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
 
 for.inc:                                          ; preds = %if.then.i179, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %invoke.cont98
   %count.1 = phi i32 [ %inc, %invoke.cont98 ], [ 0, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ 0, %if.then.i179 ]
-  %incdec.ptr.i204 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0289, i64 4
+  %incdec.ptr.i204 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0288, i64 4
   %cmp.i167.not = icmp eq ptr %incdec.ptr.i204, %37
   br i1 %cmp.i167.not, label %for.end.loopexit, label %for.body
 

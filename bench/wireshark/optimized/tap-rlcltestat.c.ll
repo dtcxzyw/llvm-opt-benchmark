@@ -154,21 +154,21 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
   br label %.thread92
 
 38:                                               ; preds = %.preheader, %47
-  %.06799 = phi ptr [ %33, %.preheader ], [ %48, %47 ]
-  %39 = getelementptr inbounds i8, ptr %.06799, i64 8
+  %.06899 = phi ptr [ %33, %.preheader ], [ %48, %47 ]
+  %39 = getelementptr inbounds i8, ptr %.06899, i64 8
   %40 = load i8, ptr %39, align 8
   %41 = icmp eq i8 %40, %34
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %.06799, i64 10
+  %43 = getelementptr inbounds i8, ptr %.06899, i64 10
   %44 = load i16, ptr %43, align 2
   %45 = load i16, ptr %35, align 4
   %46 = icmp eq i16 %44, %45
   br i1 %46, label %.thread88, label %47
 
 47:                                               ; preds = %38, %42
-  %48 = load ptr, ptr %.06799, align 8
+  %48 = load ptr, ptr %.06899, align 8
   %.not75 = icmp eq ptr %48, null
   br i1 %.not75, label %49, label %38, !llvm.loop !5
 
@@ -227,7 +227,7 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
   br label %.thread88
 
 .thread88:                                        ; preds = %42, %63, %64
-  %.191 = phi ptr [ %37, %64 ], [ %50, %63 ], [ %.06799, %42 ]
+  %.191 = phi ptr [ %37, %64 ], [ %50, %63 ], [ %.06899, %42 ]
   %74 = getelementptr inbounds i8, ptr %3, i64 4
   %75 = load i16, ptr %74, align 4
   %76 = getelementptr inbounds i8, ptr %.191, i64 10
@@ -354,8 +354,8 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr noc
   br label %.thread92
 
 .thread92:                                        ; preds = %49, %.thread95, %124, %142, %5, %22, %12
-  %.068 = phi i32 [ 1, %22 ], [ 1, %12 ], [ 0, %5 ], [ 1, %142 ], [ 1, %124 ], [ 0, %.thread95 ], [ 0, %49 ]
-  ret i32 %.068
+  %.066 = phi i32 [ 1, %22 ], [ 1, %12 ], [ 0, %5 ], [ 1, %142 ], [ 1, %124 ], [ 0, %.thread95 ], [ 0, %49 ]
+  ret i32 %.066
 }
 
 ; Function Attrs: nofree nounwind uwtable

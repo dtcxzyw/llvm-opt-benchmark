@@ -437,7 +437,7 @@ define range(i32 -1, 1) i32 @auth_g_fini() local_unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %.preheader, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.preheader ]
-  %.019 = phi i32 [ %.1, %22 ], [ 0, %.preheader ]
+  %.01118 = phi i32 [ %.1, %22 ], [ 0, %.preheader ]
   %8 = load ptr, ptr @g_context, align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
@@ -461,7 +461,7 @@ define range(i32 -1, 1) i32 @auth_g_fini() local_unnamed_addr #1 {
   br label %22
 
 22:                                               ; preds = %12, %15, %.lr.ph
-  %.1 = phi i32 [ %.019, %.lr.ph ], [ -1, %15 ], [ -1, %12 ]
+  %.1 = phi i32 [ %.01118, %.lr.ph ], [ -1, %15 ], [ -1, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr @g_context_num, align 4
   %24 = sext i32 %23 to i64
@@ -469,14 +469,14 @@ define range(i32 -1, 1) i32 @auth_g_fini() local_unnamed_addr #1 {
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %22, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %22 ]
+  %.011.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %22 ]
   tail call void @slurm_xfree(ptr noundef nonnull @ops) #11
   tail call void @slurm_xfree(ptr noundef nonnull @g_context) #11
   store i32 -1, ptr @g_context_num, align 4
   br label %26
 
 26:                                               ; preds = %._crit_edge, %4
-  %.2 = phi i32 [ %.0.lcssa, %._crit_edge ], [ 0, %4 ]
+  %.2 = phi i32 [ %.011.lcssa, %._crit_edge ], [ 0, %4 ]
   %27 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #11
   %.not16 = icmp eq i32 %27, 0
   br i1 %.not16, label %30, label %28
@@ -848,8 +848,8 @@ define ptr @auth_g_get_host(ptr noundef readonly %0) local_unnamed_addr #1 {
   br label %53
 
 53:                                               ; preds = %47, %44, %52, %48, %31, %35, %21, %24, %1, %3, %40
-  %.022 = phi ptr [ null, %40 ], [ null, %3 ], [ null, %1 ], [ %16, %24 ], [ %16, %21 ], [ %32, %35 ], [ %32, %31 ], [ %43, %47 ], [ %43, %44 ], [ %49, %52 ], [ %49, %48 ]
-  ret ptr %.022
+  %.0 = phi ptr [ null, %40 ], [ null, %3 ], [ null, %1 ], [ %16, %24 ], [ %16, %21 ], [ %32, %35 ], [ %32, %31 ], [ %43, %47 ], [ %43, %44 ], [ %49, %52 ], [ %49, %48 ]
+  ret ptr %.0
 }
 
 declare i32 @slurm_get_peer_addr(i32 noundef, ptr noundef) local_unnamed_addr #7
@@ -1166,7 +1166,7 @@ define ptr @auth_g_token_generate(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %.preheader, %16
-  %.011 = phi ptr [ %19, %16 ], [ null, %.preheader ], [ null, %10 ]
+  %.0 = phi ptr [ %19, %16 ], [ null, %.preheader ], [ null, %10 ]
   %20 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #11
   %.not14 = icmp eq i32 %20, 0
   br i1 %.not14, label %23, label %21
@@ -1178,7 +1178,7 @@ define ptr @auth_g_token_generate(i32 noundef %0, ptr noundef %1, i32 noundef %2
   unreachable
 
 23:                                               ; preds = %.loopexit
-  ret ptr %.011
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

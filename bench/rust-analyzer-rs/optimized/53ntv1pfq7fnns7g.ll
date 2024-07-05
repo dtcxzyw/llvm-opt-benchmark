@@ -177,8 +177,8 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   br label %34
 
 .loopexit.i.i.i.i.i.i:                            ; preds = %94, %92, %90
-  %.012.i.i.i.i.i.i.i = phi i64 [ 1, %90 ], [ %..i.i.i.i.i.i.i, %94 ], [ 2, %92 ]
-  %33 = add i64 %.012.i.i.i.i.i.i.i, %36
+  %.013.i.i.i.i.i.i.i = phi i64 [ 1, %90 ], [ %..i.i.i.i.i.i.i, %94 ], [ 2, %92 ]
+  %33 = add i64 %.013.i.i.i.i.i.i.i, %36
   store i64 %33, ptr %28, align 8, !alias.scope !64, !noalias !65
   br label %34
 
@@ -5212,7 +5212,7 @@ _ZN8smallvec10infallible17h81a4879240e90066E.exit: ; preds = %"_ZN8smallvec17Sma
   %.sroa.7.0105 = phi ptr [ %.sroa.7.0.copyload34, %.lr.ph ], [ %.sroa.7.2, %126 ]
   %.sroa.13.0104 = phi i64 [ %.sroa.13.0.copyload39, %.lr.ph ], [ %.sroa.13.1, %126 ]
   %.sroa.16.0103 = phi ptr [ %.sroa.16.0.copyload43, %.lr.ph ], [ %.sroa.16.1, %126 ]
-  %.sroa.756.0101 = phi i64 [ %55, %.lr.ph ], [ %129, %126 ]
+  %.sroa.756.0102 = phi i64 [ %55, %.lr.ph ], [ %129, %126 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i), !noalias !1964
   %71 = icmp eq ptr %.sroa.7.0105, null
   br i1 %71, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h906c3df83ffc88b7E.exit.thread.i.i, label %72
@@ -5413,23 +5413,23 @@ common.resume:                                    ; preds = %113, %131
   %.sroa.4.0.i.i.i = phi ptr [ undef, %86 ], [ undef, %.noexc ], [ %85, %.noexc10 ]
   %.sroa.0.0.i.i.i = phi i64 [ 1, %86 ], [ 0, %.noexc ], [ 2, %.noexc10 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !2002
-  %127 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink3.i, i64 %.sroa.756.0101
+  %127 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink3.i, i64 %.sroa.756.0102
   store i64 %.sroa.0.0.i.i.i, ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 8
   store ptr %.sroa.4.0.i.i.i, ptr %128, align 8
-  %129 = add i64 %.sroa.756.0101, 1
+  %129 = add i64 %.sroa.756.0102, 1
   %exitcond.not = icmp eq i64 %129, %.sink.i.pre-phi
   br i1 %exitcond.not, label %._crit_edge, label %70
 
 130:                                              ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h906c3df83ffc88b7E.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i), !noalias !1964
-  store i64 %.sroa.756.0101, ptr %.sink2.i, align 8
+  store i64 %.sroa.756.0102, ptr %.sink2.i, align 8
   br label %125
 
 131:                                              ; preds = %.thread18.i, %83, %.noexc10
   %132 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.756.0101, ptr %.sink2.i, align 8
+  store i64 %.sroa.756.0102, ptr %.sink2.i, align 8
   br label %common.resume
 }
 
@@ -6252,7 +6252,7 @@ _ZN8smallvec10infallible17h81a4879240e90066E.exit: ; preds = %"_ZN8smallvec17Sma
   %.sroa.7.0105 = phi ptr [ %.sroa.7.0.copyload34, %.lr.ph ], [ %.sroa.7.2, %126 ]
   %.sroa.13.0104 = phi i64 [ %.sroa.13.0.copyload39, %.lr.ph ], [ %.sroa.13.1, %126 ]
   %.sroa.16.0103 = phi ptr [ %.sroa.16.0.copyload43, %.lr.ph ], [ %.sroa.16.1, %126 ]
-  %.sroa.756.0101 = phi i64 [ %55, %.lr.ph ], [ %129, %126 ]
+  %.sroa.756.0102 = phi i64 [ %55, %.lr.ph ], [ %129, %126 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i), !noalias !2213
   %71 = icmp eq ptr %.sroa.7.0105, null
   br i1 %71, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h906c3df83ffc88b7E.exit.thread.i.i, label %72
@@ -6453,23 +6453,23 @@ common.resume:                                    ; preds = %113, %131
   %.sroa.4.0.i.i.i = phi ptr [ undef, %86 ], [ undef, %.noexc ], [ %85, %.noexc10 ]
   %.sroa.0.0.i.i.i = phi i64 [ 1, %86 ], [ 0, %.noexc ], [ 2, %.noexc10 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !2251
-  %127 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink3.i, i64 %.sroa.756.0101
+  %127 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink3.i, i64 %.sroa.756.0102
   store i64 %.sroa.0.0.i.i.i, ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 8
   store ptr %.sroa.4.0.i.i.i, ptr %128, align 8
-  %129 = add i64 %.sroa.756.0101, 1
+  %129 = add i64 %.sroa.756.0102, 1
   %exitcond.not = icmp eq i64 %129, %.sink.i.pre-phi
   br i1 %exitcond.not, label %._crit_edge, label %70
 
 130:                                              ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h906c3df83ffc88b7E.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i), !noalias !2213
-  store i64 %.sroa.756.0101, ptr %.sink2.i, align 8
+  store i64 %.sroa.756.0102, ptr %.sink2.i, align 8
   br label %125
 
 131:                                              ; preds = %.thread18.i, %83, %.noexc10
   %132 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.756.0101, ptr %.sink2.i, align 8
+  store i64 %.sroa.756.0102, ptr %.sink2.i, align 8
   br label %common.resume
 }
 
@@ -7373,7 +7373,7 @@ _ZN8smallvec10infallible17h81a4879240e90066E.exit: ; preds = %"_ZN8smallvec17Sma
   %.sroa.7.0105 = phi ptr [ %.sroa.7.0.copyload34, %.lr.ph ], [ %.sroa.7.2, %126 ]
   %.sroa.13.0104 = phi i64 [ %.sroa.13.0.copyload39, %.lr.ph ], [ %.sroa.13.1, %126 ]
   %.sroa.16.0103 = phi ptr [ %.sroa.16.0.copyload43, %.lr.ph ], [ %.sroa.16.1, %126 ]
-  %.sroa.756.0101 = phi i64 [ %55, %.lr.ph ], [ %129, %126 ]
+  %.sroa.756.0102 = phi i64 [ %55, %.lr.ph ], [ %129, %126 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i), !noalias !2557
   %71 = icmp eq ptr %.sroa.7.0105, null
   br i1 %71, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h906c3df83ffc88b7E.exit.thread.i.i, label %72
@@ -7574,23 +7574,23 @@ common.resume:                                    ; preds = %113, %131
   %.sroa.4.0.i.i.i = phi ptr [ undef, %86 ], [ undef, %.noexc ], [ %85, %.noexc10 ]
   %.sroa.0.0.i.i.i = phi i64 [ 1, %86 ], [ 0, %.noexc ], [ 2, %.noexc10 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !2595
-  %127 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink3.i, i64 %.sroa.756.0101
+  %127 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink3.i, i64 %.sroa.756.0102
   store i64 %.sroa.0.0.i.i.i, ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 8
   store ptr %.sroa.4.0.i.i.i, ptr %128, align 8
-  %129 = add i64 %.sroa.756.0101, 1
+  %129 = add i64 %.sroa.756.0102, 1
   %exitcond.not = icmp eq i64 %129, %.sink.i.pre-phi
   br i1 %exitcond.not, label %._crit_edge, label %70
 
 130:                                              ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h906c3df83ffc88b7E.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i), !noalias !2557
-  store i64 %.sroa.756.0101, ptr %.sink2.i, align 8
+  store i64 %.sroa.756.0102, ptr %.sink2.i, align 8
   br label %125
 
 131:                                              ; preds = %.thread18.i, %83, %.noexc10
   %132 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.756.0101, ptr %.sink2.i, align 8
+  store i64 %.sroa.756.0102, ptr %.sink2.i, align 8
   br label %common.resume
 }
 
@@ -9496,7 +9496,7 @@ _ZN8smallvec10infallible17h81a4879240e90066E.exit: ; preds = %"_ZN8smallvec17Sma
   %.sroa.7.0105 = phi ptr [ %.sroa.7.0.copyload34, %.lr.ph ], [ %.sroa.7.2, %126 ]
   %.sroa.13.0104 = phi i64 [ %.sroa.13.0.copyload39, %.lr.ph ], [ %.sroa.13.1, %126 ]
   %.sroa.16.0103 = phi ptr [ %.sroa.16.0.copyload43, %.lr.ph ], [ %.sroa.16.1, %126 ]
-  %.sroa.756.0101 = phi i64 [ %55, %.lr.ph ], [ %129, %126 ]
+  %.sroa.756.0102 = phi i64 [ %55, %.lr.ph ], [ %129, %126 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i), !noalias !2993
   %71 = icmp eq ptr %.sroa.7.0105, null
   br i1 %71, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h906c3df83ffc88b7E.exit.thread.i.i, label %72
@@ -9697,23 +9697,23 @@ common.resume:                                    ; preds = %113, %131
   %.sroa.4.0.i.i.i = phi ptr [ undef, %86 ], [ undef, %.noexc ], [ %85, %.noexc10 ]
   %.sroa.0.0.i.i.i = phi i64 [ 1, %86 ], [ 0, %.noexc ], [ 2, %.noexc10 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !3031
-  %127 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink3.i, i64 %.sroa.756.0101
+  %127 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink3.i, i64 %.sroa.756.0102
   store i64 %.sroa.0.0.i.i.i, ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 8
   store ptr %.sroa.4.0.i.i.i, ptr %128, align 8
-  %129 = add i64 %.sroa.756.0101, 1
+  %129 = add i64 %.sroa.756.0102, 1
   %exitcond.not = icmp eq i64 %129, %.sink.i.pre-phi
   br i1 %exitcond.not, label %._crit_edge, label %70
 
 130:                                              ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h906c3df83ffc88b7E.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i), !noalias !2993
-  store i64 %.sroa.756.0101, ptr %.sink2.i, align 8
+  store i64 %.sroa.756.0102, ptr %.sink2.i, align 8
   br label %125
 
 131:                                              ; preds = %.thread18.i, %83, %.noexc10
   %132 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.756.0101, ptr %.sink2.i, align 8
+  store i64 %.sroa.756.0102, ptr %.sink2.i, align 8
   br label %common.resume
 }
 
@@ -11298,7 +11298,7 @@ _ZN8smallvec10infallible17h81a4879240e90066E.exit: ; preds = %"_ZN8smallvec17Sma
   %.sroa.7.0105 = phi ptr [ %.sroa.7.0.copyload34, %.lr.ph ], [ %.sroa.7.2, %126 ]
   %.sroa.13.0104 = phi i64 [ %.sroa.13.0.copyload39, %.lr.ph ], [ %.sroa.13.1, %126 ]
   %.sroa.16.0103 = phi ptr [ %.sroa.16.0.copyload43, %.lr.ph ], [ %.sroa.16.1, %126 ]
-  %.sroa.756.0101 = phi i64 [ %55, %.lr.ph ], [ %129, %126 ]
+  %.sroa.756.0102 = phi i64 [ %55, %.lr.ph ], [ %129, %126 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i), !noalias !3384
   %71 = icmp eq ptr %.sroa.7.0105, null
   br i1 %71, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h906c3df83ffc88b7E.exit.thread.i.i, label %72
@@ -11499,23 +11499,23 @@ common.resume:                                    ; preds = %113, %131
   %.sroa.4.0.i.i.i = phi ptr [ undef, %86 ], [ undef, %.noexc ], [ %85, %.noexc10 ]
   %.sroa.0.0.i.i.i = phi i64 [ 1, %86 ], [ 0, %.noexc ], [ 2, %.noexc10 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !3422
-  %127 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink3.i, i64 %.sroa.756.0101
+  %127 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink3.i, i64 %.sroa.756.0102
   store i64 %.sroa.0.0.i.i.i, ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 8
   store ptr %.sroa.4.0.i.i.i, ptr %128, align 8
-  %129 = add i64 %.sroa.756.0101, 1
+  %129 = add i64 %.sroa.756.0102, 1
   %exitcond.not = icmp eq i64 %129, %.sink.i.pre-phi
   br i1 %exitcond.not, label %._crit_edge, label %70
 
 130:                                              ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h906c3df83ffc88b7E.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i), !noalias !3384
-  store i64 %.sroa.756.0101, ptr %.sink2.i, align 8
+  store i64 %.sroa.756.0102, ptr %.sink2.i, align 8
   br label %125
 
 131:                                              ; preds = %.thread18.i, %83, %.noexc10
   %132 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.756.0101, ptr %.sink2.i, align 8
+  store i64 %.sroa.756.0102, ptr %.sink2.i, align 8
   br label %common.resume
 }
 

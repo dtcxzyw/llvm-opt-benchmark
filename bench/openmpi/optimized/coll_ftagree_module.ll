@@ -97,8 +97,8 @@ ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.t
   br label %33
 
 33:                                               ; preds = %30, %ompi_comm_remote_size.exit
-  %.0 = phi i32 [ %29, %ompi_comm_remote_size.exit ], [ %.val28.val, %30 ]
-  %34 = shl nsw i32 %.0, 1
+  %.024 = phi i32 [ %29, %ompi_comm_remote_size.exit ], [ %.val28.val, %30 ]
+  %34 = shl nsw i32 %.024, 1
   %35 = getelementptr inbounds i8, ptr %7, i64 600
   store i32 %34, ptr %35, align 8
   %36 = sext i32 %34 to i64
@@ -147,8 +147,8 @@ ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.t
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %11, %33, %47, %46, %55, %54, %2
-  %.024 = phi ptr [ null, %2 ], [ %7, %54 ], [ %7, %55 ], [ %7, %46 ], [ %7, %47 ], [ %7, %33 ], [ null, %11 ]
-  ret ptr %.024
+  %.0 = phi ptr [ null, %2 ], [ %7, %54 ], [ %7, %55 ], [ %7, %46 ], [ %7, %47 ], [ %7, %33 ], [ null, %11 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

@@ -387,8 +387,8 @@ define i32 @pmix_mca_base_framework_close(ptr noundef %0) local_unnamed_addr #1 
   br label %31
 
 31:                                               ; preds = %29, %27
-  %.0 = phi i32 [ %28, %27 ], [ %30, %29 ]
-  %.not63 = icmp eq i32 %.0, 0
+  %.053 = phi i32 [ %28, %27 ], [ %30, %29 ]
+  %.not63 = icmp eq i32 %.053, 0
   br i1 %.not63, label %pmix_list_remove_first.exit.thread, label %framework_close_output.exit
 
 32:                                               ; preds = %.lr.ph, %69
@@ -600,8 +600,8 @@ pmix_obj_run_destructors.exit84:                  ; preds = %.lr.ph.i81, %._crit
   br label %framework_close_output.exit
 
 framework_close_output.exit:                      ; preds = %135, %pmix_obj_run_destructors.exit84, %31, %6, %1
-  %.053 = phi i32 [ 0, %1 ], [ 0, %6 ], [ %.0, %31 ], [ 0, %pmix_obj_run_destructors.exit84 ], [ 0, %135 ]
-  ret i32 %.053
+  %.0 = phi i32 [ 0, %1 ], [ 0, %6 ], [ %.053, %31 ], [ 0, %pmix_obj_run_destructors.exit84 ], [ 0, %135 ]
+  ret i32 %.0
 }
 
 declare i32 @pmix_mca_base_var_group_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

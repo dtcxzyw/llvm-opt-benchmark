@@ -402,7 +402,7 @@ define internal i32 @dissect_clnp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %119
 
 119:                                              ; preds = %109, %117, %101
-  %.0316 = phi i1 [ true, %101 ], [ %.not335, %109 ], [ true, %117 ]
+  %.0318 = phi i1 [ true, %101 ], [ %.not335, %109 ], [ true, %117 ]
   %120 = icmp eq i8 %34, 9
   br i1 %120, label %121, label %123
 
@@ -576,19 +576,19 @@ set_address_tvb.exit350:                          ; preds = %171, %.split.i348
   br label %213
 
 213:                                              ; preds = %208, %set_address_tvb.exit350
-  %.0318 = phi i32 [ %212, %208 ], [ 0, %set_address_tvb.exit350 ]
-  %.0317 = phi i32 [ %211, %208 ], [ 0, %set_address_tvb.exit350 ]
-  %.0315 = phi i32 [ %209, %208 ], [ %186, %set_address_tvb.exit350 ]
+  %.0317 = phi i32 [ %209, %208 ], [ %186, %set_address_tvb.exit350 ]
+  %.0316 = phi i32 [ %211, %208 ], [ 0, %set_address_tvb.exit350 ]
+  %.0315 = phi i32 [ %212, %208 ], [ 0, %set_address_tvb.exit350 ]
   %.0314 = phi i8 [ %210, %208 ], [ %187, %set_address_tvb.exit350 ]
-  call void @dissect_osi_options(i8 noundef zeroext %.0314, ptr noundef %0, i32 noundef %.0315, ptr noundef %39, ptr noundef nonnull %1) #2
+  call void @dissect_osi_options(i8 noundef zeroext %.0314, ptr noundef %0, i32 noundef %.0317, ptr noundef %39, ptr noundef nonnull %1) #2
   %214 = zext i8 %.0314 to i32
-  %215 = add nuw nsw i32 %.0315, %214
+  %215 = add nuw nsw i32 %.0317, %214
   %216 = getelementptr inbounds i8, ptr %1, i64 272
   %217 = load i32, ptr %216, align 8
   %218 = load i32, ptr @clnp_reassemble, align 4
   %.not337 = icmp ne i32 %218, 0
   %brmerge.not352 = and i1 %61, %.not337
-  %219 = icmp ne i32 %.0317, 0
+  %219 = icmp ne i32 %.0316, 0
   %or.cond = select i1 %66, i1 true, i1 %219
   %or.cond345 = select i1 %brmerge.not352, i1 %or.cond, i1 false
   br i1 %or.cond345, label %220, label %228
@@ -599,11 +599,11 @@ set_address_tvb.exit350:                          ; preds = %171, %.split.i348
   %.not338 = icmp ne i32 %222, 0
   %223 = icmp ugt i32 %93, %36
   %224 = and i1 %223, %.not338
-  %or.cond346 = select i1 %224, i1 %.0316, i1 false
+  %or.cond346 = select i1 %224, i1 %.0318, i1 false
   br i1 %or.cond346, label %225, label %228
 
 225:                                              ; preds = %220
-  %226 = call ptr @fragment_add_check(ptr noundef nonnull @clnp_reassembly_table, ptr noundef %0, i32 noundef %215, ptr noundef nonnull %1, i32 noundef %.0318, ptr noundef null, i32 noundef %.0317, i32 noundef %221, i32 noundef %65) #2
+  %226 = call ptr @fragment_add_check(ptr noundef nonnull @clnp_reassembly_table, ptr noundef %0, i32 noundef %215, ptr noundef nonnull %1, i32 noundef %.0315, ptr noundef null, i32 noundef %.0316, i32 noundef %221, i32 noundef %65) #2
   %227 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %215, ptr noundef nonnull %1, ptr noundef nonnull @.str.110, ptr noundef %226, ptr noundef nonnull @clnp_frag_items, ptr noundef nonnull %6, ptr noundef %39) #2
   br label %236
 
@@ -628,13 +628,13 @@ set_address_tvb.exit350:                          ; preds = %171, %.split.i348
   br label %236
 
 236:                                              ; preds = %235, %234, %225
-  %.0 = phi ptr [ %227, %225 ], [ %231, %234 ], [ %231, %235 ]
-  %237 = icmp eq ptr %.0, null
+  %.0313 = phi ptr [ %227, %225 ], [ %231, %234 ], [ %231, %235 ]
+  %237 = icmp eq ptr %.0313, null
   br i1 %237, label %.thread, label %242
 
 .thread:                                          ; preds = %228, %236
   %238 = load ptr, ptr %10, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %238, i32 noundef 25, ptr noundef nonnull @.str.111, ptr noundef %60, ptr noundef nonnull %5, i32 noundef %.0317) #2
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %238, i32 noundef 25, ptr noundef nonnull @.str.111, ptr noundef %60, ptr noundef nonnull %5, i32 noundef %.0316) #2
   %239 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %215) #2
   %240 = call i32 @call_data_dissector(ptr noundef %239, ptr noundef nonnull %1, ptr noundef %2) #2
   store i32 %217, ptr %216, align 8
@@ -658,13 +658,13 @@ set_address_tvb.exit350:                          ; preds = %171, %.split.i348
   br i1 %246, label %247, label %255
 
 247:                                              ; preds = %245
-  %248 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0, i32 noundef 0) #2
+  %248 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0313, i32 noundef 0) #2
   %249 = icmp eq i8 %248, -123
   br i1 %249, label %250, label %255
 
 250:                                              ; preds = %247
   %251 = load ptr, ptr @idrp_handle, align 8
-  %252 = call i32 @call_dissector(ptr noundef %251, ptr noundef nonnull %.0, ptr noundef nonnull %1, ptr noundef %2) #2
+  %252 = call i32 @call_dissector(ptr noundef %251, ptr noundef nonnull %.0313, ptr noundef nonnull %1, ptr noundef %2) #2
   %.not341 = icmp eq i32 %252, 0
   br i1 %.not341, label %255, label %253
 
@@ -684,7 +684,7 @@ set_address_tvb.exit350:                          ; preds = %171, %.split.i348
 
 261:                                              ; preds = %255
   %262 = load ptr, ptr @ositp_handle, align 8
-  %263 = call i32 @call_dissector(ptr noundef %262, ptr noundef nonnull %.0, ptr noundef nonnull %1, ptr noundef %2) #2
+  %263 = call i32 @call_dissector(ptr noundef %262, ptr noundef nonnull %.0313, ptr noundef nonnull %1, ptr noundef %2) #2
   %.not342 = icmp eq i32 %263, 0
   br i1 %.not342, label %266, label %264
 
@@ -695,7 +695,7 @@ set_address_tvb.exit350:                          ; preds = %171, %.split.i348
 
 266:                                              ; preds = %261, %255
   %267 = load ptr, ptr @clnp_heur_subdissector_list, align 8
-  %268 = call i32 @dissector_try_heuristic(ptr noundef %267, ptr noundef nonnull %.0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef null) #2
+  %268 = call i32 @dissector_try_heuristic(ptr noundef %267, ptr noundef nonnull %.0313, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef null) #2
   %.not343 = icmp eq i32 %268, 0
   br i1 %.not343, label %288, label %269
 
@@ -720,7 +720,7 @@ set_address_tvb.exit350:                          ; preds = %171, %.split.i348
   %280 = or i8 %278, 1
   store i8 %280, ptr %277, align 4
   %281 = load ptr, ptr @clnp_handle, align 8
-  %282 = call i32 @call_dissector(ptr noundef %281, ptr noundef nonnull %.0, ptr noundef nonnull %1, ptr noundef %276) #2
+  %282 = call i32 @call_dissector(ptr noundef %281, ptr noundef nonnull %.0313, ptr noundef nonnull %1, ptr noundef %276) #2
   %283 = load i8, ptr %277, align 4
   %284 = and i8 %283, -2
   %285 = or disjoint i8 %284, %279
@@ -735,14 +735,14 @@ set_address_tvb.exit350:                          ; preds = %171, %.split.i348
 288:                                              ; preds = %244, %266, %242
   %289 = load ptr, ptr %10, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %289, i32 noundef 25, ptr noundef nonnull @.str.105, ptr noundef %60, ptr noundef nonnull %5) #2
-  %290 = call i32 @call_data_dissector(ptr noundef nonnull %.0, ptr noundef nonnull %1, ptr noundef %2) #2
+  %290 = call i32 @call_data_dissector(ptr noundef nonnull %.0313, ptr noundef nonnull %1, ptr noundef %2) #2
   store i32 %217, ptr %216, align 8
   %291 = call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %292
 
 292:                                              ; preds = %288, %286, %269, %264, %253, %.thread, %206, %190, %168, %154, %133, %121, %96, %45, %30, %16
-  %.0313 = phi i32 [ %27, %16 ], [ %32, %30 ], [ 2, %45 ], [ 7, %96 ], [ 9, %121 ], [ 10, %133 ], [ %132, %154 ], [ %164, %168 ], [ %186, %190 ], [ %186, %206 ], [ %241, %.thread ], [ %291, %288 ], [ %287, %286 ], [ %254, %253 ], [ %265, %264 ], [ %270, %269 ]
-  ret i32 %.0313
+  %.0 = phi i32 [ %27, %16 ], [ %32, %30 ], [ 2, %45 ], [ 7, %96 ], [ 9, %121 ], [ 10, %133 ], [ %132, %154 ], [ %164, %168 ], [ %186, %190 ], [ %186, %206 ], [ %241, %.thread ], [ %291, %288 ], [ %287, %286 ], [ %254, %253 ], [ %265, %264 ], [ %270, %269 ]
+  ret i32 %.0
 }
 
 declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

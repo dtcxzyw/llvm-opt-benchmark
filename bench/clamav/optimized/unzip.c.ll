@@ -115,24 +115,24 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br label %.outer
 
 .outer:                                           ; preds = %45, %13
-  %.0112.ph = phi i32 [ %18, %45 ], [ %3, %13 ]
-  %.0108.ph = phi i64 [ %37, %45 ], [ 1, %13 ]
-  %.0106.ph = phi i32 [ %16, %45 ], [ 0, %13 ]
-  %.0103.ph = phi ptr [ %43, %45 ], [ %calloc, %13 ]
-  %.0101.ph = phi i64 [ %spec.select, %45 ], [ 0, %13 ]
+  %.0110.ph = phi ptr [ %43, %45 ], [ %calloc, %13 ]
+  %.0108.ph = phi i64 [ %spec.select, %45 ], [ 0, %13 ]
+  %.0102.ph = phi i32 [ %16, %45 ], [ 0, %13 ]
+  %.0100.ph = phi i64 [ %37, %45 ], [ 1, %13 ]
+  %.098.ph = phi i32 [ %18, %45 ], [ %3, %13 ]
   br label %15
 
 15:                                               ; preds = %.outer, %33
-  %.0112 = phi i32 [ %18, %33 ], [ %.0112.ph, %.outer ]
-  %.0106 = phi i32 [ %16, %33 ], [ %.0106.ph, %.outer ]
-  %.0101 = phi i64 [ %spec.select, %33 ], [ %.0101.ph, %.outer ]
-  %16 = add i32 %.0106, 1
-  %17 = getelementptr inbounds %struct.zip_record, ptr %.0103.ph, i64 %.0101
-  %18 = call fastcc i32 @parse_central_directory_file_header(ptr noundef %1, i32 noundef %.0112, i32 noundef %2, i32 noundef %16, ptr noundef nonnull %7, ptr noundef %0, ptr noundef null, ptr noundef nonnull %17)
+  %.0108 = phi i64 [ %spec.select, %33 ], [ %.0108.ph, %.outer ]
+  %.0102 = phi i32 [ %16, %33 ], [ %.0102.ph, %.outer ]
+  %.098 = phi i32 [ %18, %33 ], [ %.098.ph, %.outer ]
+  %16 = add i32 %.0102, 1
+  %17 = getelementptr inbounds %struct.zip_record, ptr %.0110.ph, i64 %.0108
+  %18 = call fastcc i32 @parse_central_directory_file_header(ptr noundef %1, i32 noundef %.098, i32 noundef %2, i32 noundef %16, ptr noundef nonnull %7, ptr noundef %0, ptr noundef null, ptr noundef nonnull %17)
   %19 = load i32, ptr %7, align 4
   %.not = icmp ne i32 %19, 27
   %20 = zext i1 %.not to i64
-  %spec.select = add i64 %.0101, %20
+  %spec.select = add i64 %.0108, %20
   %.not220 = icmp ne i32 %18, 0
   %21 = icmp eq i32 %19, 1
   br i1 %.not220, label %22, label %50
@@ -173,9 +173,9 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
 
 36:                                               ; preds = %33
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #12
-  %37 = add i64 %.0108.ph, 1
+  %37 = add i64 %.0100.ph, 1
   %38 = mul i64 %37, 3200
-  %39 = mul i64 %.0108.ph, 3200
+  %39 = mul i64 %.0100.ph, 3200
   %40 = icmp ult i64 %38, %39
   br i1 %40, label %41, label %42
 
@@ -184,7 +184,7 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br label %.preheader
 
 42:                                               ; preds = %36
-  %43 = tail call ptr @cli_max_realloc(ptr noundef nonnull %.0103.ph, i64 noundef %38) #12
+  %43 = tail call ptr @cli_max_realloc(ptr noundef nonnull %.0110.ph, i64 noundef %38) #12
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.preheader, label %45
 
@@ -204,20 +204,20 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %52, label %53, label %.loopexit
 
 53:                                               ; preds = %51
-  tail call void @cli_qsort(ptr noundef nonnull %.0103.ph, i64 noundef %spec.select, i64 noundef 32, ptr noundef nonnull @sort_by_file_offset) #12
+  tail call void @cli_qsort(ptr noundef nonnull %.0110.ph, i64 noundef %spec.select, i64 noundef 32, ptr noundef nonnull @sort_by_file_offset) #12
   br label %56
 
 54:                                               ; preds = %100
-  %55 = add nuw i64 %.1107192, 1
+  %55 = add nuw i64 %.1103193, 1
   %exitcond.not = icmp eq i64 %55, %spec.select
   br i1 %exitcond.not, label %.loopexit, label %56
 
 56:                                               ; preds = %53, %54
-  %.099193 = phi i32 [ 0, %53 ], [ %.1100, %54 ]
-  %.1107192 = phi i64 [ 1, %53 ], [ %55, %54 ]
-  %57 = add i64 %.1107192, -1
-  %58 = getelementptr inbounds %struct.zip_record, ptr %.0103.ph, i64 %57
-  %59 = getelementptr inbounds %struct.zip_record, ptr %.0103.ph, i64 %.1107192
+  %.1103193 = phi i64 [ 1, %53 ], [ %55, %54 ]
+  %.0106192 = phi i32 [ 0, %53 ], [ %.1107, %54 ]
+  %57 = add i64 %.1103193, -1
+  %58 = getelementptr inbounds %struct.zip_record, ptr %.0110.ph, i64 %57
+  %59 = getelementptr inbounds %struct.zip_record, ptr %.0110.ph, i64 %.1103193
   %60 = getelementptr inbounds i8, ptr %58, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = getelementptr inbounds i8, ptr %58, i64 8
@@ -260,7 +260,7 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %or.cond141, label %86, label %100
 
 86:                                               ; preds = %82, %78
-  %87 = add i32 %.099193, 1
+  %87 = add i32 %.0106192, 1
   %88 = icmp eq i32 %75, %71
   %89 = icmp eq i32 %66, %61
   %or.cond172 = select i1 %88, i1 %89, i1 false
@@ -289,7 +289,7 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not132, label %.preheader, label %106
 
 100:                                              ; preds = %91, %92, %82
-  %.1100 = phi i32 [ %87, %91 ], [ %87, %92 ], [ %.099193, %82 ]
+  %.1107 = phi i32 [ %87, %91 ], [ %87, %92 ], [ %.0106192, %82 ]
   %101 = tail call i32 @cli_checktimelimit(ptr noundef %0) #12
   %.not133 = icmp eq i32 %101, 0
   br i1 %.not133, label %54, label %102
@@ -302,7 +302,7 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br label %.preheader
 
 .loopexit:                                        ; preds = %54, %51
-  store ptr %.0103.ph, ptr %4, align 8
+  store ptr %.0110.ph, ptr %4, align 8
   store i64 %spec.select, ptr %5, align 8
   br label %.thread159
 
@@ -312,14 +312,14 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not134, label %.thread159, label %.preheader
 
 .preheader:                                       ; preds = %26, %41, %50, %42, %22, %106, %77, %102, %95
-  %.0110151226 = phi i32 [ 26, %77 ], [ 21, %102 ], [ 26, %95 ], [ %107, %106 ], [ 1, %50 ], [ 26, %41 ], [ 21, %26 ], [ 1, %22 ], [ 20, %42 ]
-  %.1154225 = phi i1 [ %.not220, %77 ], [ %.not220, %102 ], [ %.not220, %95 ], [ %.not220, %106 ], [ false, %22 ], [ false, %42 ], [ false, %50 ], [ false, %41 ], [ false, %26 ]
+  %.1105153226 = phi i1 [ %.not220, %95 ], [ %.not220, %102 ], [ %.not220, %77 ], [ %.not220, %106 ], [ false, %22 ], [ false, %42 ], [ false, %50 ], [ false, %41 ], [ false, %26 ]
+  %.099154225 = phi i32 [ 26, %95 ], [ 21, %102 ], [ 26, %77 ], [ %107, %106 ], [ 1, %50 ], [ 26, %41 ], [ 21, %26 ], [ 1, %22 ], [ 20, %42 ]
   %.not195 = icmp eq i64 %spec.select, 0
   br i1 %.not195, label %.thread145.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %111
   %.0194 = phi i64 [ %112, %111 ], [ 0, %.preheader ]
-  %108 = getelementptr inbounds %struct.zip_record, ptr %.0103.ph, i64 %.0194, i32 7
+  %108 = getelementptr inbounds %struct.zip_record, ptr %.0110.ph, i64 %.0194, i32 7
   %109 = load ptr, ptr %108, align 8
   %.not136 = icmp eq ptr %109, null
   br i1 %.not136, label %111, label %110
@@ -335,13 +335,13 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %exitcond219.not, label %.thread145.thread, label %.lr.ph
 
 .thread145.thread:                                ; preds = %111, %.preheader
-  tail call void @free(ptr noundef nonnull %.0103.ph) #12
-  %spec.select254 = select i1 %.1154225, i32 25, i32 %.0110151226
+  tail call void @free(ptr noundef nonnull %.0110.ph) #12
+  %spec.select254 = select i1 %.1105153226, i32 25, i32 %.099154225
   br label %.thread159
 
 .thread159:                                       ; preds = %.thread145.thread, %11, %.loopexit, %10, %106
-  %.1111 = phi i32 [ 0, %106 ], [ 0, %10 ], [ 0, %.loopexit ], [ 20, %11 ], [ %spec.select254, %.thread145.thread ]
-  ret i32 %.1111
+  %.1 = phi i32 [ 0, %106 ], [ 0, %10 ], [ 0, %.loopexit ], [ 20, %11 ], [ %spec.select254, %.thread145.thread ]
+  ret i32 %.1
 }
 
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
@@ -521,7 +521,7 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
 
 107:                                              ; preds = %.thread34, %99
   %108 = phi i32 [ %106, %.thread34 ], [ %103, %99 ]
-  %.19940 = phi i32 [ 0, %.thread34 ], [ 1, %99 ]
+  %.140 = phi i32 [ 0, %.thread34 ], [ 1, %99 ]
   %109 = load i32, ptr %56, align 1
   %110 = add i32 %2, -30
   %111 = icmp ult i32 %109, %110
@@ -587,7 +587,7 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
 
 .thread3:                                         ; preds = %._crit_edge, %115, %112, %85, %61, %.thread19
   %.011 = phi i32 [ %106, %._crit_edge ], [ %103, %.thread19 ], [ %108, %115 ], [ %108, %112 ], [ %72, %85 ], [ %33, %61 ]
-  %.28 = phi i32 [ 0, %._crit_edge ], [ 1, %.thread19 ], [ %.19940, %115 ], [ %.19940, %112 ], [ 1, %85 ], [ 1, %61 ]
+  %.29 = phi i32 [ 0, %._crit_edge ], [ 1, %.thread19 ], [ %.140, %115 ], [ %.140, %112 ], [ 1, %85 ], [ 1, %61 ]
   %137 = getelementptr i8, ptr %0, i64 16
   %.val.i119 = load ptr, ptr %137, align 8
   %138 = getelementptr i8, ptr %0, i64 72
@@ -599,7 +599,7 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
   %143 = getelementptr inbounds i8, ptr %0, i64 128
   %144 = load ptr, ptr %143, align 8
   call void %144(ptr noundef %0, i64 noundef %142, i64 noundef 46) #12
-  %145 = icmp eq i32 %.28, 0
+  %145 = icmp eq i32 %.29, 0
   %spec.select45 = select i1 %145, i32 %.011, i32 0
   br label %.thread21
 
@@ -735,9 +735,9 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 
 42:                                               ; preds = %.lr.ph168, %133
   %43 = phi i32 [ 0, %.lr.ph168 ], [ %134, %133 ]
-  %.0166 = phi i64 [ 0, %.lr.ph168 ], [ %135, %133 ]
-  %.099165 = phi i32 [ 0, %.lr.ph168 ], [ %.1100, %133 ]
-  %.not118 = icmp eq i64 %.0166, 0
+  %.0167 = phi i32 [ 0, %.lr.ph168 ], [ %.1, %133 ]
+  %.099165 = phi i64 [ 0, %.lr.ph168 ], [ %135, %133 ]
+  %.not118 = icmp eq i64 %.099165, 0
   %.pre = load ptr, ptr %5, align 8
   br i1 %.not118, label %._crit_edge195, label %44
 
@@ -746,7 +746,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
   br label %63
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds %struct.zip_record, ptr %.pre, i64 %.0166
+  %45 = getelementptr inbounds %struct.zip_record, ptr %.pre, i64 %.099165
   %46 = load i32, ptr %45, align 8
   %47 = getelementptr i8, ptr %45, i64 -32
   %48 = load i32, ptr %47, align 8
@@ -775,14 +775,14 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 
 63:                                               ; preds = %._crit_edge195, %56, %50, %44
   %64 = phi i32 [ %.pre196, %._crit_edge195 ], [ %46, %56 ], [ %46, %50 ], [ %46, %44 ]
-  %65 = getelementptr inbounds %struct.zip_record, ptr %.pre, i64 %.0166, i32 1
+  %65 = getelementptr inbounds %struct.zip_record, ptr %.pre, i64 %.099165, i32 1
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %66, %64
   %68 = zext i32 %67 to i64
   %69 = load ptr, ptr %18, align 8
   %70 = call ptr %69(ptr noundef %8, i64 noundef %68, i64 noundef 30, i32 noundef 1) #12
   %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds %struct.zip_record, ptr %71, i64 %.0166
+  %72 = getelementptr inbounds %struct.zip_record, ptr %71, i64 %.099165
   %73 = getelementptr inbounds i8, ptr %72, i64 20
   %74 = load i32, ptr %73, align 4
   %.not119 = icmp eq i32 %74, 0
@@ -805,7 +805,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 
 85:                                               ; preds = %84
   %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds %struct.zip_record, ptr %86, i64 %.0166
+  %87 = getelementptr inbounds %struct.zip_record, ptr %86, i64 %.099165
   %88 = getelementptr inbounds i8, ptr %87, i64 8
   %89 = load i32, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %87, i64 12
@@ -815,7 +815,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
   %94 = load ptr, ptr %18, align 8
   %95 = call ptr %94(ptr noundef nonnull %8, i64 noundef %93, i64 noundef 30, i32 noundef 1) #12
   %96 = load ptr, ptr %5, align 8
-  %97 = getelementptr inbounds %struct.zip_record, ptr %96, i64 %.0166, i32 7
+  %97 = getelementptr inbounds %struct.zip_record, ptr %96, i64 %.099165, i32 7
   %98 = load ptr, ptr %97, align 8
   %99 = call fastcc i32 @zdecrypt(ptr noundef %70, i32 noundef %89, i32 noundef %91, ptr noundef %95, ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @cli_magic_scan_desc, ptr noundef %98)
   br label %115
@@ -825,7 +825,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 
 101:                                              ; preds = %100
   %102 = load ptr, ptr %5, align 8
-  %103 = getelementptr inbounds %struct.zip_record, ptr %102, i64 %.0166
+  %103 = getelementptr inbounds %struct.zip_record, ptr %102, i64 %.099165
   %104 = getelementptr inbounds i8, ptr %103, i64 8
   %105 = load i32, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %103, i64 12
@@ -841,7 +841,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 
 115:                                              ; preds = %100, %101, %84, %85
   %.pr158 = phi i32 [ 0, %100 ], [ %114, %101 ], [ 0, %84 ], [ %99, %85 ]
-  %116 = add i32 %.099165, 1
+  %116 = add i32 %.0167, 1
   %117 = load ptr, ptr %41, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 84
   %119 = load i32, ptr %118, align 4
@@ -885,8 +885,8 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 
 133:                                              ; preds = %132, %62
   %134 = phi i32 [ %43, %62 ], [ %121, %132 ]
-  %.1100 = phi i32 [ %.099165, %62 ], [ %116, %132 ]
-  %135 = add nuw i64 %.0166, 1
+  %.1 = phi i32 [ %.0167, %62 ], [ %116, %132 ]
+  %135 = add nuw i64 %.099165, 1
   %136 = load i64, ptr %6, align 8
   %137 = icmp ult i64 %135, %136
   br i1 %137, label %42, label %.loopexit.loopexit
@@ -898,7 +898,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 .loopexit.loopexit:                               ; preds = %133, %132
   %.ph = phi i32 [ %134, %133 ], [ %121, %132 ]
   %.pr162.ph = phi i32 [ 0, %133 ], [ %.pr161, %132 ]
-  %.2.ph.ph = phi i32 [ %.1100, %133 ], [ %116, %132 ]
+  %.2.ph.ph = phi i32 [ %.1, %133 ], [ %116, %132 ]
   %138 = lshr i32 %.2.ph.ph, 2
   br label %.loopexit
 
@@ -920,15 +920,15 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 
 143:                                              ; preds = %.lr.ph175, %158
   %.3174 = phi i32 [ 0, %.lr.ph175 ], [ %145, %158 ]
-  %.0103173 = phi i32 [ 0, %.lr.ph175 ], [ %148, %158 ]
-  %144 = sub i32 %11, %.0103173
+  %.0101173 = phi i32 [ 0, %.lr.ph175 ], [ %148, %158 ]
+  %144 = sub i32 %11, %.0101173
   %145 = add i32 %.3174, 1
-  %146 = call fastcc i32 @parse_local_file_header(ptr noundef %8, i32 noundef %.0103173, i32 noundef %144, ptr noundef nonnull %2, i32 noundef %145, ptr noundef null, ptr noundef nonnull %3, ptr noundef %0, i32 noundef 1, ptr noundef nonnull @cli_magic_scan_desc, ptr noundef null)
+  %146 = call fastcc i32 @parse_local_file_header(ptr noundef %8, i32 noundef %.0101173, i32 noundef %144, ptr noundef nonnull %2, i32 noundef %145, ptr noundef null, ptr noundef nonnull %3, ptr noundef %0, i32 noundef 1, ptr noundef nonnull @cli_magic_scan_desc, ptr noundef null)
   %.not128 = icmp eq i32 %146, 0
   br i1 %.not128, label %.critedge, label %147
 
 147:                                              ; preds = %143
-  %148 = add i32 %146, %.0103173
+  %148 = add i32 %146, %.0101173
   %149 = load ptr, ptr %142, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 84
   %151 = load i32, ptr %150, align 4
@@ -972,9 +972,9 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph178:                                        ; preds = %.preheader, %170
   %163 = phi i64 [ %171, %170 ], [ %162, %.preheader ]
-  %.1177 = phi i64 [ %172, %170 ], [ 0, %.preheader ]
+  %.1100177 = phi i64 [ %172, %170 ], [ 0, %.preheader ]
   %164 = load ptr, ptr %5, align 8
-  %165 = getelementptr inbounds %struct.zip_record, ptr %164, i64 %.1177, i32 7
+  %165 = getelementptr inbounds %struct.zip_record, ptr %164, i64 %.1100177, i32 7
   %166 = load ptr, ptr %165, align 8
   %.not133 = icmp eq ptr %166, null
   br i1 %.not133, label %170, label %167
@@ -982,14 +982,14 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 167:                                              ; preds = %.lr.ph178
   call void @free(ptr noundef nonnull %166) #12
   %168 = load ptr, ptr %5, align 8
-  %169 = getelementptr inbounds %struct.zip_record, ptr %168, i64 %.1177, i32 7
+  %169 = getelementptr inbounds %struct.zip_record, ptr %168, i64 %.1100177, i32 7
   store ptr null, ptr %169, align 8
   %.pre199 = load i64, ptr %6, align 8
   br label %170
 
 170:                                              ; preds = %.lr.ph178, %167
   %171 = phi i64 [ %163, %.lr.ph178 ], [ %.pre199, %167 ]
-  %172 = add nuw i64 %.1177, 1
+  %172 = add nuw i64 %.1100177, 1
   %173 = icmp ult i64 %172, %171
   br i1 %173, label %.lr.ph178, label %._crit_edge.loopexit
 
@@ -1062,9 +1062,9 @@ define internal fastcc i32 @zdecrypt(ptr nocapture noundef readonly %0, i32 noun
 
 40:                                               ; preds = %.lr.ph, %208
   %41 = phi i1 [ %32, %.lr.ph ], [ %210, %208 ]
-  %.011024 = phi ptr [ %30, %.lr.ph ], [ %.1111, %208 ]
-  %.011223 = phi ptr [ %28, %.lr.ph ], [ %.1113, %208 ]
-  %42 = select i1 %41, ptr %.011024, ptr %.011223
+  %.011224 = phi ptr [ %28, %.lr.ph ], [ %.1113, %208 ]
+  %.011423 = phi ptr [ %30, %.lr.ph ], [ %.1115, %208 ]
+  %42 = select i1 %41, ptr %.011423, ptr %.011224
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   %44 = load i16, ptr %43, align 8
   %.not.i = icmp eq i16 %44, 0
@@ -1372,20 +1372,20 @@ zinitkey.exit:                                    ; preds = %zinitkey.exit.loope
   br i1 %41, label %202, label %205
 
 202:                                              ; preds = %201
-  %203 = getelementptr inbounds i8, ptr %.011024, i64 24
+  %203 = getelementptr inbounds i8, ptr %.011423, i64 24
   %204 = load ptr, ptr %203, align 8
   br label %208
 
 205:                                              ; preds = %201
-  %206 = getelementptr inbounds i8, ptr %.011223, i64 24
+  %206 = getelementptr inbounds i8, ptr %.011224, i64 24
   %207 = load ptr, ptr %206, align 8
   br label %208
 
 208:                                              ; preds = %205, %202
-  %.1113 = phi ptr [ %.011223, %202 ], [ %207, %205 ]
-  %.1111 = phi ptr [ %204, %202 ], [ null, %205 ]
+  %.1115 = phi ptr [ %204, %202 ], [ null, %205 ]
+  %.1113 = phi ptr [ %.011224, %202 ], [ %207, %205 ]
   %209 = icmp ne ptr %.1113, null
-  %210 = icmp ne ptr %.1111, null
+  %210 = icmp ne ptr %.1115, null
   %211 = select i1 %209, i1 true, i1 %210
   br i1 %211, label %40, label %._crit_edge
 
@@ -2000,10 +2000,10 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   br label %112
 
 112:                                              ; preds = %102, %109
-  %.0138.in = phi ptr [ %111, %109 ], [ %62, %102 ]
-  %.0137.in = phi ptr [ %110, %109 ], [ %60, %102 ]
-  %.0137 = load i32, ptr %.0137.in, align 1
+  %.0139.in = phi ptr [ %111, %109 ], [ %62, %102 ]
+  %.0138.in = phi ptr [ %110, %109 ], [ %60, %102 ]
   %.0138 = load i32, ptr %.0138.in, align 1
+  %.0139 = load i32, ptr %.0139.in, align 1
   %113 = getelementptr inbounds i8, ptr %17, i64 28
   %114 = load i16, ptr %113, align 1
   %115 = zext i16 %114 to i32
@@ -2021,7 +2021,7 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   %120 = zext i16 %114 to i64
   %121 = getelementptr inbounds i8, ptr %54, i64 %120
   %122 = sub i32 %55, %115
-  %.not163 = icmp eq i32 %.0138, 0
+  %.not163 = icmp eq i32 %.0139, 0
   br i1 %.not163, label %123, label %124
 
 123:                                              ; preds = %119
@@ -2029,7 +2029,7 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   br label %179
 
 124:                                              ; preds = %119
-  %125 = icmp ult i32 %122, %.0138
+  %125 = icmp ult i32 %122, %.0139
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %124
@@ -2047,7 +2047,7 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   %132 = load i16, ptr %56, align 1
   %133 = and i16 %132, 1
   %.not166 = icmp eq i16 %133, 0
-  %134 = zext i32 %.0138 to i64
+  %134 = zext i32 %.0139 to i64
   %135 = load ptr, ptr %15, align 8
   %.val.i176 = load ptr, ptr %36, align 8
   %.val4.i177 = load i64, ptr %37, align 8
@@ -2064,7 +2064,7 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
 
 142:                                              ; preds = %141
   %143 = load ptr, ptr %13, align 8
-  %144 = call fastcc i32 @zdecrypt(ptr noundef nonnull %121, i32 noundef %.0138, i32 noundef %.0137, ptr noundef nonnull %17, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %9, ptr noundef %143)
+  %144 = call fastcc i32 @zdecrypt(ptr noundef nonnull %121, i32 noundef %.0139, i32 noundef %.0138, ptr noundef nonnull %17, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %9, ptr noundef %143)
   store i32 %144, ptr %6, align 4
   br label %176
 
@@ -2075,7 +2075,7 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   %147 = load i16, ptr %66, align 1
   %148 = load i16, ptr %56, align 1
   %149 = load ptr, ptr %13, align 8
-  %150 = call fastcc i32 @unz(ptr noundef nonnull %121, i32 noundef %.0138, i32 noundef %.0137, i16 noundef zeroext %147, i16 noundef zeroext %148, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %9, ptr noundef %149, i1 noundef zeroext false)
+  %150 = call fastcc i32 @unz(ptr noundef nonnull %121, i32 noundef %.0139, i32 noundef %.0138, i16 noundef zeroext %147, i16 noundef zeroext %148, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %9, ptr noundef %149, i1 noundef zeroext false)
   store i32 %150, ptr %6, align 4
   br label %176
 
@@ -2105,9 +2105,9 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   %165 = getelementptr inbounds i8, ptr %10, i64 4
   store i32 %164, ptr %165, align 4
   %166 = getelementptr inbounds i8, ptr %10, i64 8
-  store i32 %.0138, ptr %166, align 8
+  store i32 %.0139, ptr %166, align 8
   %167 = getelementptr inbounds i8, ptr %10, i64 12
-  store i32 %.0137, ptr %167, align 4
+  store i32 %.0138, ptr %167, align 4
   %168 = load i16, ptr %66, align 1
   %169 = getelementptr inbounds i8, ptr %10, i64 16
   store i16 %168, ptr %169, align 8
@@ -2120,18 +2120,18 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   %175 = getelementptr inbounds i8, ptr %10, i64 20
   store i32 %174, ptr %175, align 4
   store i32 0, ptr %6, align 4
-  %.pre9 = zext i32 %.0138 to i64
+  %.pre9 = zext i32 %.0139 to i64
   br label %176
 
 176:                                              ; preds = %142, %141, %146, %145, %160
   %.pre-phi = phi i64 [ %134, %142 ], [ %134, %141 ], [ %134, %146 ], [ %134, %145 ], [ %.pre9, %160 ]
   %177 = getelementptr inbounds i8, ptr %121, i64 %.pre-phi
-  %178 = sub i32 %122, %.0138
+  %178 = sub i32 %122, %.0139
   br label %179
 
 179:                                              ; preds = %176, %123
-  %.0140 = phi i32 [ %178, %176 ], [ %122, %123 ]
-  %.0139 = phi ptr [ %177, %176 ], [ %121, %123 ]
+  %.0140 = phi ptr [ %177, %176 ], [ %121, %123 ]
+  %.0 = phi i32 [ %178, %176 ], [ %122, %123 ]
   %180 = getelementptr inbounds i8, ptr %0, i64 128
   %181 = load ptr, ptr %180, align 8
   call void %181(ptr noundef nonnull %0, i64 noundef %14, i64 noundef 30) #12
@@ -2141,7 +2141,7 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   br i1 %.not169, label %205, label %184
 
 184:                                              ; preds = %179
-  %185 = icmp ult i32 %.0140, 12
+  %185 = icmp ult i32 %.0, 12
   br i1 %185, label %186, label %187
 
 186:                                              ; preds = %184
@@ -2152,7 +2152,7 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   %188 = load ptr, ptr %15, align 8
   %.val.i178 = load ptr, ptr %36, align 8
   %.val4.i179 = load i64, ptr %37, align 8
-  %189 = ptrtoint ptr %.0139 to i64
+  %189 = ptrtoint ptr %.0140 to i64
   %190 = ptrtoint ptr %.val.i178 to i64
   %191 = add i64 %.val4.i179, %190
   %192 = sub i64 %189, %191
@@ -2161,12 +2161,12 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   br i1 %.not170, label %203, label %194
 
 194:                                              ; preds = %187
-  %195 = load i32, ptr %.0139, align 1
+  %195 = load i32, ptr %.0140, align 1
   %196 = icmp eq i32 %195, 134695760
   br i1 %196, label %197, label %203
 
 197:                                              ; preds = %194
-  %198 = and i32 %.0140, -4
+  %198 = and i32 %.0, -4
   %199 = icmp eq i32 %198, 12
   br i1 %199, label %200, label %201
 
@@ -2175,16 +2175,16 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   br label %210
 
 201:                                              ; preds = %197
-  %202 = getelementptr inbounds i8, ptr %.0139, i64 4
+  %202 = getelementptr inbounds i8, ptr %.0140, i64 4
   br label %203
 
 203:                                              ; preds = %194, %201, %187
-  %.1 = phi ptr [ %202, %201 ], [ %.0139, %194 ], [ %.0139, %187 ]
+  %.1 = phi ptr [ %202, %201 ], [ %.0140, %194 ], [ %.0140, %187 ]
   %204 = getelementptr inbounds i8, ptr %.1, i64 12
   br label %205
 
 205:                                              ; preds = %203, %179
-  %.2 = phi ptr [ %204, %203 ], [ %.0139, %179 ]
+  %.2 = phi ptr [ %204, %203 ], [ %.0140, %179 ]
   %206 = ptrtoint ptr %.2 to i64
   %207 = ptrtoint ptr %17 to i64
   %208 = sub i64 %206, %207
@@ -2192,7 +2192,7 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   br label %210
 
 210:                                              ; preds = %205, %200, %186, %126, %116, %106, %99, %86, %81, %30, %21, %18
-  %.0 = phi i32 [ 0, %21 ], [ 0, %30 ], [ 0, %81 ], [ 0, %86 ], [ 0, %99 ], [ 0, %116 ], [ 0, %126 ], [ 0, %186 ], [ 0, %200 ], [ %209, %205 ], [ 0, %106 ], [ 0, %18 ]
+  %.0137 = phi i32 [ 0, %21 ], [ 0, %30 ], [ 0, %81 ], [ 0, %86 ], [ 0, %99 ], [ 0, %116 ], [ 0, %126 ], [ 0, %186 ], [ 0, %200 ], [ %209, %205 ], [ 0, %106 ], [ 0, %18 ]
   %211 = load ptr, ptr %13, align 8
   %.not172 = icmp eq ptr %211, null
   br i1 %.not172, label %213, label %212
@@ -2202,7 +2202,7 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   br label %213
 
 213:                                              ; preds = %212, %210
-  ret i32 %.0
+  ret i32 %.0137
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2353,8 +2353,8 @@ define i32 @unzip_search(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br label %14
 
 14:                                               ; preds = %11, %9
-  %.051 = phi ptr [ %1, %9 ], [ %13, %11 ]
-  %15 = getelementptr inbounds i8, ptr %.051, i64 88
+  %.052 = phi ptr [ %1, %9 ], [ %13, %11 ]
+  %15 = getelementptr inbounds i8, ptr %.052, i64 88
   %16 = load i64, ptr %15, align 8
   %17 = icmp ult i64 %16, 46
   br i1 %17, label %18, label %19
@@ -2370,14 +2370,14 @@ define i32 @unzip_search(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br i1 %.not75, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %.051, i64 104
+  %22 = getelementptr inbounds i8, ptr %.052, i64 104
   %23 = zext i32 %21 to i64
   br label %24
 
 24:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %25 = load ptr, ptr %22, align 8
-  %26 = tail call ptr %25(ptr noundef nonnull %.051, i64 noundef %indvars.iv, i64 noundef 20, i32 noundef 0) #12
+  %26 = tail call ptr %25(ptr noundef nonnull %.052, i64 noundef %indvars.iv, i64 noundef 20, i32 noundef 0) #12
   %.not61 = icmp eq ptr %26, null
   br i1 %.not61, label %35, label %27
 
@@ -2411,10 +2411,10 @@ define i32 @unzip_search(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br i1 %6, label %.lr.ph79.split.us, label %.lr.ph79.split
 
 .lr.ph79.split.us:                                ; preds = %.lr.ph79, %.critedge72.us
-  %.278.us = phi i32 [ %41, %.critedge72.us ], [ %32, %.lr.ph79 ]
-  %.05277.us = phi i32 [ %40, %.critedge72.us ], [ 0, %.lr.ph79 ]
-  %40 = add i32 %.05277.us, 1
-  %41 = call fastcc i32 @parse_central_directory_file_header(ptr noundef %.051, i32 noundef %.278.us, i32 noundef %20, i32 noundef %40, ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null)
+  %.05078.us = phi i32 [ %40, %.critedge72.us ], [ 0, %.lr.ph79 ]
+  %.277.us = phi i32 [ %41, %.critedge72.us ], [ %32, %.lr.ph79 ]
+  %40 = add i32 %.05078.us, 1
+  %41 = call fastcc i32 @parse_central_directory_file_header(ptr noundef %.052, i32 noundef %.277.us, i32 noundef %20, i32 noundef %40, ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null)
   %.not64.us = icmp eq i32 %41, 0
   br i1 %.not64.us, label %.critedge, label %42
 
@@ -2456,10 +2456,10 @@ define i32 @unzip_search(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br i1 %53, label %.lr.ph79.split.us, label %.critedge
 
 .lr.ph79.split:                                   ; preds = %.lr.ph79, %.critedge72
-  %.278 = phi i32 [ %55, %.critedge72 ], [ %32, %.lr.ph79 ]
-  %.05277 = phi i32 [ %54, %.critedge72 ], [ 0, %.lr.ph79 ]
-  %54 = add i32 %.05277, 1
-  %55 = call fastcc i32 @parse_central_directory_file_header(ptr noundef %.051, i32 noundef %.278, i32 noundef %20, i32 noundef %54, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %2, ptr noundef null)
+  %.05078 = phi i32 [ %54, %.critedge72 ], [ 0, %.lr.ph79 ]
+  %.277 = phi i32 [ %55, %.critedge72 ], [ %32, %.lr.ph79 ]
+  %54 = add i32 %.05078, 1
+  %55 = call fastcc i32 @parse_central_directory_file_header(ptr noundef %.052, i32 noundef %.277, i32 noundef %20, i32 noundef %54, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %2, ptr noundef null)
   %.not64 = icmp eq i32 %55, 0
   br i1 %.not64, label %.critedge, label %56
 

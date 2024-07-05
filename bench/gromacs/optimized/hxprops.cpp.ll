@@ -73,7 +73,7 @@ define noundef float @_Z11ellipticityiP4t_bb(i32 noundef %0, ptr nocapture nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv25 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next26, %.loopexit ]
-  %.01821 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1, %.loopexit ]
+  %.01921 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1, %.loopexit ]
   %4 = getelementptr inbounds %struct.t_bb, ptr %1, i64 %indvars.iv25
   %5 = load <2 x float>, ptr %4, align 4
   br label %7
@@ -102,18 +102,18 @@ define noundef float @_Z11ellipticityiP4t_bb(i32 noundef %0, ptr nocapture nound
   store i32 %18, ptr %16, align 4
   %19 = getelementptr inbounds i8, ptr %8, i64 8
   %20 = load float, ptr %19, align 4
-  %21 = fadd float %.01821, %20
+  %21 = fadd float %.01921, %20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %15
-  %.1 = phi float [ %21, %15 ], [ %.01821, %6 ]
+  %.1 = phi float [ %21, %15 ], [ %.01921, %6 ]
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count
   br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
-  %.018.lcssa = phi float [ 0.000000e+00, %2 ], [ %.1, %.loopexit ]
-  ret float %.018.lcssa
+  %.019.lcssa = phi float [ 0.000000e+00, %2 ], [ %.1, %.loopexit ]
+  ret float %.019.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -230,11 +230,11 @@ define noundef float @_Z5twistiPKiPA3_f(i32 noundef %0, ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.024 = phi i32 [ %5, %.lr.ph.preheader ], [ %7, %.lr.ph ]
-  %.01822 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %30, %.lr.ph ]
+  %.024 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %30, %.lr.ph ]
+  %.01623 = phi i32 [ %5, %.lr.ph.preheader ], [ %7, %.lr.ph ]
   %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = sext i32 %.024 to i64
+  %8 = sext i32 %.01623 to i64
   %9 = getelementptr inbounds [3 x float], ptr %2, i64 %8
   %10 = sext i32 %7 to i64
   %11 = getelementptr inbounds [3 x float], ptr %2, i64 %10
@@ -258,17 +258,17 @@ define noundef float @_Z5twistiPKiPA3_f(i32 noundef %0, ptr nocapture noundef re
   %27 = fptrunc double %26 to float
   %28 = fcmp olt float %27, -9.000000e+01
   %29 = fadd float %27, 3.600000e+02
-  %.017 = select i1 %28, float %29, float %27
-  %30 = fadd float %.01822, %.017
+  %.018 = select i1 %28, float %29, float %27
+  %30 = fadd float %.024, %.018
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.018.lcssa = phi float [ 0.000000e+00, %3 ], [ %30, %.lr.ph ]
+  %.0.lcssa = phi float [ 0.000000e+00, %3 ], [ %30, %.lr.ph ]
   %31 = add nsw i32 %0, -1
   %32 = sitofp i32 %31 to float
-  %33 = fdiv float %.018.lcssa, %32
+  %33 = fdiv float %.0.lcssa, %32
   ret float %33
 }
 

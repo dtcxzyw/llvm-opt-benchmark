@@ -282,26 +282,26 @@ define range(i32 0, 2) i32 @Map_SuperTableInsert(ptr nocapture noundef %0, ptr n
   %19 = load ptr, ptr %0, align 8
   %20 = zext i32 %18 to i64
   %21 = getelementptr inbounds ptr, ptr %19, i64 %20
-  %.033 = load ptr, ptr %21, align 8
-  %.not3234 = icmp eq ptr %.033, null
+  %.03133 = load ptr, ptr %21, align 8
+  %.not3234 = icmp eq ptr %.03133, null
   br i1 %.not3234, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %28
-  %.035 = phi ptr [ %.0, %28 ], [ %.033, %11 ]
-  %22 = load i32, ptr %.035, align 8
+  %.03135 = phi ptr [ %.031, %28 ], [ %.03133, %11 ]
+  %22 = load i32, ptr %.03135, align 8
   %23 = icmp eq i32 %22, %13
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %.035, i64 4
+  %25 = getelementptr inbounds i8, ptr %.03135, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, %15
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %.lr.ph, %24
-  %29 = getelementptr inbounds i8, ptr %.035, i64 24
-  %.0 = load ptr, ptr %29, align 8
-  %.not32 = icmp eq ptr %.0, null
+  %29 = getelementptr inbounds i8, ptr %.03135, i64 24
+  %.031 = load ptr, ptr %29, align 8
+  %.not32 = icmp eq ptr %.031, null
   br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %28, %11
@@ -332,8 +332,8 @@ define range(i32 0, 2) i32 @Map_SuperTableInsert(ptr nocapture noundef %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %._crit_edge
-  %.031 = phi i32 [ 0, %._crit_edge ], [ 1, %24 ]
-  ret i32 %.031
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %24 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

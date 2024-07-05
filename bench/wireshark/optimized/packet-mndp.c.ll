@@ -184,7 +184,7 @@ define internal fastcc i32 @dissect_mndp(ptr noundef %0, ptr noundef %1, ptr nou
   br label %17
 
 17:                                               ; preds = %.lr.ph, %dissect_tlv.exit
-  %.023 = phi i32 [ 4, %.lr.ph ], [ %.057.i, %dissect_tlv.exit ]
+  %.023 = phi i32 [ 4, %.lr.ph ], [ %.0.i, %dissect_tlv.exit ]
   %18 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.023) #3
   %19 = zext i16 %18 to i32
   %20 = add i32 %.023, 2
@@ -266,9 +266,9 @@ extval_to_str_idx.exit82.i:                       ; preds = %43, %.sink.split.i.
 49:                                               ; preds = %extval_to_str_idx.exit82.i
   %50 = add i32 %47, %22
   %.not.i = icmp eq i32 %.sink.i.i8.i, -1
-  br i1 %.not.i, label %.thread20.i, label %53
+  br i1 %.not.i, label %.thread13.i, label %53
 
-.thread20.i:                                      ; preds = %49
+.thread13.i:                                      ; preds = %49
   %51 = load i32, ptr @hf_mndp_tlv_data, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %51, ptr noundef %0, i32 noundef %47, i32 noundef %22, i32 noundef 0) #3
   br label %dissect_tlv.exit
@@ -279,26 +279,26 @@ extval_to_str_idx.exit82.i:                       ; preds = %43, %.sink.split.i.
   %56 = getelementptr inbounds i8, ptr %55, i64 24
   %57 = load ptr, ptr %56, align 8
   %.not65.i = icmp eq ptr %57, null
-  br i1 %.not65.i, label %58, label %.thread16.i
+  br i1 %.not65.i, label %58, label %.thread11.i
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds i8, ptr %55, i64 32
   %60 = load ptr, ptr %59, align 8
   %.not66.i = icmp eq ptr %60, null
-  br i1 %.not66.i, label %.thread16.i, label %.thread.i
+  br i1 %.not66.i, label %.thread11.i, label %.thread.i
 
-.thread16.i:                                      ; preds = %58, %53
+.thread11.i:                                      ; preds = %58, %53
   br label %.thread.i
 
-.thread.i:                                        ; preds = %.thread16.i, %58
-  %.015.i = phi i32 [ 0, %.thread16.i ], [ 1, %58 ]
+.thread.i:                                        ; preds = %.thread11.i, %58
+  %.05710.i = phi i32 [ 0, %.thread11.i ], [ 1, %58 ]
   %61 = getelementptr %struct._ext_value_string, ptr @mndp_body_tlv_vals, i64 %54, i32 2
   %62 = load ptr, ptr %61, align 8
   %.not68.i = icmp eq ptr %62, null
   %hf_mndp_tlv_data..i = select i1 %.not68.i, ptr @hf_mndp_tlv_data, ptr %62
-  %..015.i = select i1 %.not68.i, i32 0, i32 %.015.i
+  %..05710.i = select i1 %.not68.i, i32 0, i32 %.05710.i
   %63 = load i32, ptr %hf_mndp_tlv_data..i, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %63, ptr noundef %0, i32 noundef %47, i32 noundef %22, i32 noundef %..015.i) #3
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %63, ptr noundef %0, i32 noundef %47, i32 noundef %22, i32 noundef %..05710.i) #3
   br i1 %.not65.i, label %dissect_tlv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.thread.i
@@ -320,13 +320,13 @@ extval_to_str_idx.exit82.i:                       ; preds = %43, %.sink.split.i.
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 198, ptr noundef nonnull @.str.45) #4
   unreachable
 
-dissect_tlv.exit:                                 ; preds = %66, %extval_to_str_idx.exit82.i, %.thread20.i, %.thread.i
-  %.057.i = phi i32 [ %47, %extval_to_str_idx.exit82.i ], [ %50, %.thread.i ], [ %50, %.thread20.i ], [ %50, %66 ]
-  %73 = icmp ult i32 %.057.i, %6
+dissect_tlv.exit:                                 ; preds = %66, %extval_to_str_idx.exit82.i, %.thread13.i, %.thread.i
+  %.0.i = phi i32 [ %47, %extval_to_str_idx.exit82.i ], [ %50, %.thread.i ], [ %50, %.thread13.i ], [ %50, %66 ]
+  %73 = icmp ult i32 %.0.i, %6
   br i1 %73, label %17, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %dissect_tlv.exit, %3
-  %.0.lcssa = phi i32 [ 4, %3 ], [ %.057.i, %dissect_tlv.exit ]
+  %.0.lcssa = phi i32 [ 4, %3 ], [ %.0.i, %dissect_tlv.exit ]
   ret i32 %.0.lcssa
 }
 

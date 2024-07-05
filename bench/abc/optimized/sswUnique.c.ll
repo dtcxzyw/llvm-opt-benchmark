@@ -432,7 +432,7 @@ define range(i32 0, 2) i32 @Ssw_ManUniqueOne(ptr noundef %0, ptr noundef %1, ptr
   %16 = phi ptr [ %11, %.lr.ph ], [ %36, %Saig_ObjIsLo.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Saig_ObjIsLo.exit.thread ]
   %.070 = phi i32 [ 0, %.lr.ph ], [ %.1, %Saig_ObjIsLo.exit.thread ]
-  %.04569 = phi i32 [ 0, %.lr.ph ], [ %.146, %Saig_ObjIsLo.exit.thread ]
+  %.04768 = phi i32 [ 0, %.lr.ph ], [ %.148, %Saig_ObjIsLo.exit.thread ]
   %17 = getelementptr i8, ptr %16, i64 8
   %.val55 = load ptr, ptr %17, align 8
   %18 = getelementptr inbounds ptr, ptr %.val55, i64 %indvars.iv
@@ -452,8 +452,8 @@ Saig_ObjIsLo.exit:                                ; preds = %15
   br i1 %.not65, label %Saig_ObjIsLo.exit.thread, label %24
 
 24:                                               ; preds = %Saig_ObjIsLo.exit
-  %25 = add nsw i32 %.04569, 1
-  %26 = sext i32 %.04569 to i64
+  %25 = add nsw i32 %.04768, 1
+  %26 = sext i32 %.04768 to i64
   %27 = getelementptr inbounds ptr, ptr %.val55, i64 %26
   store ptr %19, ptr %27, align 8
   %28 = load ptr, ptr %14, align 8
@@ -474,7 +474,7 @@ Saig_ObjIsLo.exit:                                ; preds = %15
 
 Saig_ObjIsLo.exit.thread:                         ; preds = %15, %24, %Saig_ObjIsLo.exit
   %36 = phi ptr [ %16, %Saig_ObjIsLo.exit ], [ %.pre, %24 ], [ %16, %15 ]
-  %.146 = phi i32 [ %.04569, %Saig_ObjIsLo.exit ], [ %25, %24 ], [ %.04569, %15 ]
+  %.148 = phi i32 [ %.04768, %Saig_ObjIsLo.exit ], [ %25, %24 ], [ %.04768, %15 ]
   %.1 = phi i32 [ %.070, %Saig_ObjIsLo.exit ], [ %spec.select, %24 ], [ %.070, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = getelementptr i8, ptr %36, i64 4
@@ -485,10 +485,10 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %15, %24, %Saig_ObjI
 
 .critedge:                                        ; preds = %Saig_ObjIsLo.exit.thread, %4
   %.lcssa66 = phi ptr [ %11, %4 ], [ %36, %Saig_ObjIsLo.exit.thread ]
-  %.045.lcssa = phi i32 [ 0, %4 ], [ %.146, %Saig_ObjIsLo.exit.thread ]
+  %.047.lcssa = phi i32 [ 0, %4 ], [ %.148, %Saig_ObjIsLo.exit.thread ]
   %.0.lcssa = phi i32 [ 0, %4 ], [ %.1, %Saig_ObjIsLo.exit.thread ]
   %40 = getelementptr i8, ptr %.lcssa66, i64 4
-  store i32 %.045.lcssa, ptr %40, align 4
+  store i32 %.047.lcssa, ptr %40, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %41, label %.thread
 

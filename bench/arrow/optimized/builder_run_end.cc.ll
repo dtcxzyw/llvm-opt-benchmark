@@ -2836,18 +2836,18 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread: ; p
   br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit40
 
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
-  %__len.013.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %4, %entry ]
-  %__first.addr.012.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
-  %shr.i.i.i.i = lshr i64 %__len.013.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i16, ptr %__first.addr.012.i.i.i.i, i64 %shr.i.i.i.i
+  %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
+  %__len.012.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %4, %entry ]
+  %shr.i.i.i.i = lshr i64 %__len.012.i.i.i.i, 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i16, ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
   %5 = load i16, ptr %add.ptr.i.i.i.i.i.i, align 2
   %conv.i.i.i.i.i = sext i16 %5 to i64
   %cmp.i.i.i.i.i = icmp slt i64 %add24, %conv.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 2
   %6 = xor i64 %shr.i.i.i.i, -1
-  %sub2.i.i.i.i = add nsw i64 %__len.013.i.i.i.i, %6
-  %__first.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__first.addr.012.i.i.i.i, ptr %incdec.ptr.i.i.i.i
+  %sub2.i.i.i.i = add nsw i64 %__len.012.i.i.i.i, %6
   %__len.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %shr.i.i.i.i, i64 %sub2.i.i.i.i
+  %__first.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__first.addr.013.i.i.i.i, ptr %incdec.ptr.i.i.i.i
   %cmp.i.i.i.i = icmp sgt i64 %__len.1.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit, !llvm.loop !140
 
@@ -2860,24 +2860,24 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit: ; preds = 
   br label %while.body.i.i.i.i24
 
 while.body.i.i.i.i24:                             ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit, %while.body.i.i.i.i24
-  %__len.013.i.i.i.i25 = phi i64 [ %__len.1.i.i.i.i38, %while.body.i.i.i.i24 ], [ %4, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit ]
-  %__first.addr.012.i.i.i.i26 = phi ptr [ %__first.addr.1.i.i.i.i37, %while.body.i.i.i.i24 ], [ %add.ptr.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit ]
-  %shr.i.i.i.i27 = lshr i64 %__len.013.i.i.i.i25, 1
-  %add.ptr.i.i.i.i.i.i30 = getelementptr inbounds i16, ptr %__first.addr.012.i.i.i.i26, i64 %shr.i.i.i.i27
+  %__first.addr.013.i.i.i.i25 = phi ptr [ %__first.addr.1.i.i.i.i38, %while.body.i.i.i.i24 ], [ %add.ptr.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit ]
+  %__len.012.i.i.i.i26 = phi i64 [ %__len.1.i.i.i.i37, %while.body.i.i.i.i24 ], [ %4, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit ]
+  %shr.i.i.i.i27 = lshr i64 %__len.012.i.i.i.i26, 1
+  %add.ptr.i.i.i.i.i.i30 = getelementptr inbounds i16, ptr %__first.addr.013.i.i.i.i25, i64 %shr.i.i.i.i27
   %7 = load i16, ptr %add.ptr.i.i.i.i.i.i30, align 2
   %conv.i.i.i.i.i33 = sext i16 %7 to i64
   %cmp.i.i.i.i.i34 = icmp slt i64 %add.i.i, %conv.i.i.i.i.i33
   %incdec.ptr.i.i.i.i35 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i30, i64 2
   %8 = xor i64 %shr.i.i.i.i27, -1
-  %sub2.i.i.i.i36 = add nsw i64 %__len.013.i.i.i.i25, %8
-  %__first.addr.1.i.i.i.i37 = select i1 %cmp.i.i.i.i.i34, ptr %__first.addr.012.i.i.i.i26, ptr %incdec.ptr.i.i.i.i35
-  %__len.1.i.i.i.i38 = select i1 %cmp.i.i.i.i.i34, i64 %shr.i.i.i.i27, i64 %sub2.i.i.i.i36
-  %cmp.i.i.i.i39 = icmp sgt i64 %__len.1.i.i.i.i38, 0
+  %sub2.i.i.i.i36 = add nsw i64 %__len.012.i.i.i.i26, %8
+  %__len.1.i.i.i.i37 = select i1 %cmp.i.i.i.i.i34, i64 %shr.i.i.i.i27, i64 %sub2.i.i.i.i36
+  %__first.addr.1.i.i.i.i38 = select i1 %cmp.i.i.i.i.i34, ptr %__first.addr.013.i.i.i.i25, ptr %incdec.ptr.i.i.i.i35
+  %cmp.i.i.i.i39 = icmp sgt i64 %__len.1.i.i.i.i37, 0
   br i1 %cmp.i.i.i.i39, label %while.body.i.i.i.i24, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit40.loopexit, !llvm.loop !140
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit40.loopexit: ; preds = %while.body.i.i.i.i24
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 1
-  %.pre273 = ptrtoint ptr %__first.addr.1.i.i.i.i37 to i64
+  %.pre273 = ptrtoint ptr %__first.addr.1.i.i.i.i38 to i64
   br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit40
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit40: ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit40.loopexit, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread
@@ -3042,18 +3042,18 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread: ; p
   br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit40
 
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
-  %__len.013.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %4, %entry ]
-  %__first.addr.012.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
-  %shr.i.i.i.i = lshr i64 %__len.013.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.012.i.i.i.i, i64 %shr.i.i.i.i
+  %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
+  %__len.012.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %4, %entry ]
+  %shr.i.i.i.i = lshr i64 %__len.012.i.i.i.i, 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
   %5 = load i32, ptr %add.ptr.i.i.i.i.i.i, align 4
   %conv.i.i.i.i.i = sext i32 %5 to i64
   %cmp.i.i.i.i.i = icmp slt i64 %add24, %conv.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 4
   %6 = xor i64 %shr.i.i.i.i, -1
-  %sub2.i.i.i.i = add nsw i64 %__len.013.i.i.i.i, %6
-  %__first.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__first.addr.012.i.i.i.i, ptr %incdec.ptr.i.i.i.i
+  %sub2.i.i.i.i = add nsw i64 %__len.012.i.i.i.i, %6
   %__len.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %shr.i.i.i.i, i64 %sub2.i.i.i.i
+  %__first.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__first.addr.013.i.i.i.i, ptr %incdec.ptr.i.i.i.i
   %cmp.i.i.i.i = icmp sgt i64 %__len.1.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit, !llvm.loop !161
 
@@ -3066,24 +3066,24 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit: ; preds = 
   br label %while.body.i.i.i.i24
 
 while.body.i.i.i.i24:                             ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit, %while.body.i.i.i.i24
-  %__len.013.i.i.i.i25 = phi i64 [ %__len.1.i.i.i.i38, %while.body.i.i.i.i24 ], [ %4, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit ]
-  %__first.addr.012.i.i.i.i26 = phi ptr [ %__first.addr.1.i.i.i.i37, %while.body.i.i.i.i24 ], [ %add.ptr.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit ]
-  %shr.i.i.i.i27 = lshr i64 %__len.013.i.i.i.i25, 1
-  %add.ptr.i.i.i.i.i.i30 = getelementptr inbounds i32, ptr %__first.addr.012.i.i.i.i26, i64 %shr.i.i.i.i27
+  %__first.addr.013.i.i.i.i25 = phi ptr [ %__first.addr.1.i.i.i.i38, %while.body.i.i.i.i24 ], [ %add.ptr.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit ]
+  %__len.012.i.i.i.i26 = phi i64 [ %__len.1.i.i.i.i37, %while.body.i.i.i.i24 ], [ %4, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit ]
+  %shr.i.i.i.i27 = lshr i64 %__len.012.i.i.i.i26, 1
+  %add.ptr.i.i.i.i.i.i30 = getelementptr inbounds i32, ptr %__first.addr.013.i.i.i.i25, i64 %shr.i.i.i.i27
   %7 = load i32, ptr %add.ptr.i.i.i.i.i.i30, align 4
   %conv.i.i.i.i.i33 = sext i32 %7 to i64
   %cmp.i.i.i.i.i34 = icmp slt i64 %add.i.i, %conv.i.i.i.i.i33
   %incdec.ptr.i.i.i.i35 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i30, i64 4
   %8 = xor i64 %shr.i.i.i.i27, -1
-  %sub2.i.i.i.i36 = add nsw i64 %__len.013.i.i.i.i25, %8
-  %__first.addr.1.i.i.i.i37 = select i1 %cmp.i.i.i.i.i34, ptr %__first.addr.012.i.i.i.i26, ptr %incdec.ptr.i.i.i.i35
-  %__len.1.i.i.i.i38 = select i1 %cmp.i.i.i.i.i34, i64 %shr.i.i.i.i27, i64 %sub2.i.i.i.i36
-  %cmp.i.i.i.i39 = icmp sgt i64 %__len.1.i.i.i.i38, 0
+  %sub2.i.i.i.i36 = add nsw i64 %__len.012.i.i.i.i26, %8
+  %__len.1.i.i.i.i37 = select i1 %cmp.i.i.i.i.i34, i64 %shr.i.i.i.i27, i64 %sub2.i.i.i.i36
+  %__first.addr.1.i.i.i.i38 = select i1 %cmp.i.i.i.i.i34, ptr %__first.addr.013.i.i.i.i25, ptr %incdec.ptr.i.i.i.i35
+  %cmp.i.i.i.i39 = icmp sgt i64 %__len.1.i.i.i.i37, 0
   br i1 %cmp.i.i.i.i39, label %while.body.i.i.i.i24, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit40.loopexit, !llvm.loop !161
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit40.loopexit: ; preds = %while.body.i.i.i.i24
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 2
-  %.pre273 = ptrtoint ptr %__first.addr.1.i.i.i.i37 to i64
+  %.pre273 = ptrtoint ptr %__first.addr.1.i.i.i.i38 to i64
   br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit40
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit40: ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit40.loopexit, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread
@@ -3248,17 +3248,17 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread: ; p
   br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit39
 
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
-  %__len.013.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %4, %entry ]
-  %__first.addr.012.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
-  %shr.i.i.i.i = lshr i64 %__len.013.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__first.addr.012.i.i.i.i, i64 %shr.i.i.i.i
+  %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
+  %__len.012.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %4, %entry ]
+  %shr.i.i.i.i = lshr i64 %__len.012.i.i.i.i, 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
   %5 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp slt i64 %add24, %5
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %6 = xor i64 %shr.i.i.i.i, -1
-  %sub2.i.i.i.i = add nsw i64 %__len.013.i.i.i.i, %6
-  %__first.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__first.addr.012.i.i.i.i, ptr %incdec.ptr.i.i.i.i
+  %sub2.i.i.i.i = add nsw i64 %__len.012.i.i.i.i, %6
   %__len.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %shr.i.i.i.i, i64 %sub2.i.i.i.i
+  %__first.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__first.addr.013.i.i.i.i, ptr %incdec.ptr.i.i.i.i
   %cmp.i.i.i.i = icmp sgt i64 %__len.1.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit, !llvm.loop !182
 
@@ -3271,23 +3271,23 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit: ; preds = 
   br label %while.body.i.i.i.i24
 
 while.body.i.i.i.i24:                             ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit, %while.body.i.i.i.i24
-  %__len.013.i.i.i.i25 = phi i64 [ %__len.1.i.i.i.i37, %while.body.i.i.i.i24 ], [ %4, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit ]
-  %__first.addr.012.i.i.i.i26 = phi ptr [ %__first.addr.1.i.i.i.i36, %while.body.i.i.i.i24 ], [ %add.ptr.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit ]
-  %shr.i.i.i.i27 = lshr i64 %__len.013.i.i.i.i25, 1
-  %add.ptr.i.i.i.i.i.i30 = getelementptr inbounds i64, ptr %__first.addr.012.i.i.i.i26, i64 %shr.i.i.i.i27
+  %__first.addr.013.i.i.i.i25 = phi ptr [ %__first.addr.1.i.i.i.i37, %while.body.i.i.i.i24 ], [ %add.ptr.i.i.i.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit ]
+  %__len.012.i.i.i.i26 = phi i64 [ %__len.1.i.i.i.i36, %while.body.i.i.i.i24 ], [ %4, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit ]
+  %shr.i.i.i.i27 = lshr i64 %__len.012.i.i.i.i26, 1
+  %add.ptr.i.i.i.i.i.i30 = getelementptr inbounds i64, ptr %__first.addr.013.i.i.i.i25, i64 %shr.i.i.i.i27
   %7 = load i64, ptr %add.ptr.i.i.i.i.i.i30, align 8
   %cmp.i.i.i.i.i33 = icmp slt i64 %add.i.i, %7
   %incdec.ptr.i.i.i.i34 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i30, i64 8
   %8 = xor i64 %shr.i.i.i.i27, -1
-  %sub2.i.i.i.i35 = add nsw i64 %__len.013.i.i.i.i25, %8
-  %__first.addr.1.i.i.i.i36 = select i1 %cmp.i.i.i.i.i33, ptr %__first.addr.012.i.i.i.i26, ptr %incdec.ptr.i.i.i.i34
-  %__len.1.i.i.i.i37 = select i1 %cmp.i.i.i.i.i33, i64 %shr.i.i.i.i27, i64 %sub2.i.i.i.i35
-  %cmp.i.i.i.i38 = icmp sgt i64 %__len.1.i.i.i.i37, 0
+  %sub2.i.i.i.i35 = add nsw i64 %__len.012.i.i.i.i26, %8
+  %__len.1.i.i.i.i36 = select i1 %cmp.i.i.i.i.i33, i64 %shr.i.i.i.i27, i64 %sub2.i.i.i.i35
+  %__first.addr.1.i.i.i.i37 = select i1 %cmp.i.i.i.i.i33, ptr %__first.addr.013.i.i.i.i25, ptr %incdec.ptr.i.i.i.i34
+  %cmp.i.i.i.i38 = icmp sgt i64 %__len.1.i.i.i.i36, 0
   br i1 %cmp.i.i.i.i38, label %while.body.i.i.i.i24, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit39.loopexit, !llvm.loop !182
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit39.loopexit: ; preds = %while.body.i.i.i.i24
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
-  %.pre281 = ptrtoint ptr %__first.addr.1.i.i.i.i36 to i64
+  %.pre281 = ptrtoint ptr %__first.addr.1.i.i.i.i37 to i64
   br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit39
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit39: ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit39.loopexit, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread

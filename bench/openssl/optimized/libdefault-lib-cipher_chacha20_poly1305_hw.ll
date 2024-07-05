@@ -356,8 +356,8 @@ if.end100:                                        ; preds = %if.else85, %if.then
   br i1 %cmp102.not, label %err, label %if.end100.if.then103_crit_edge
 
 if.end100.if.then103_crit_edge:                   ; preds = %if.end100
-  %out.addr.0 = getelementptr inbounds i8, ptr %out, i64 %plen.0
   %in.addr.0 = getelementptr inbounds i8, ptr %in, i64 %plen.0
+  %out.addr.0 = getelementptr inbounds i8, ptr %out, i64 %plen.0
   %bf.load105.pre = load i8, ptr %mac_inited, align 8
   br label %if.then103
 
@@ -365,8 +365,8 @@ if.then103:                                       ; preds = %if.end100.if.then10
   %bf.load105 = phi i8 [ %bf.load46, %if.end100.thread ], [ %bf.load105.pre, %if.end100.if.then103_crit_edge ]
   %cmp102.not113 = phi i1 [ %cmp102.not108, %if.end100.thread ], [ false, %if.end100.if.then103_crit_edge ]
   %plen.1112 = phi i64 [ %0, %if.end100.thread ], [ %plen.0, %if.end100.if.then103_crit_edge ]
-  %in.addr.0111 = phi ptr [ null, %if.end100.thread ], [ %in.addr.0, %if.end100.if.then103_crit_edge ]
-  %out.addr.0110 = phi ptr [ %out, %if.end100.thread ], [ %out.addr.0, %if.end100.if.then103_crit_edge ]
+  %out.addr.0111 = phi ptr [ %out, %if.end100.thread ], [ %out.addr.0, %if.end100.if.then103_crit_edge ]
+  %in.addr.0110 = phi ptr [ null, %if.end100.thread ], [ %in.addr.0, %if.end100.if.then103_crit_edge ]
   %bf.clear106 = and i8 %bf.load105, 1
   %tobool108.not = icmp eq i8 %bf.clear106, 0
   br i1 %tobool108.not, label %if.end121, label %if.then109
@@ -415,7 +415,7 @@ if.end128:                                        ; preds = %if.then126, %if.end
   %bf.load139 = load i8, ptr %mac_inited, align 8
   %bf.clear140 = and i8 %bf.load139, -3
   store i8 %bf.clear140, ptr %mac_inited, align 8
-  %cmp142.not = icmp eq ptr %in.addr.0111, null
+  %cmp142.not = icmp eq ptr %in.addr.0110, null
   %or.cond102 = select i1 %cmp142.not, i1 true, i1 %cmp102.not113
   %bf.load166 = load i8, ptr %enc130, align 4
   %22 = and i8 %bf.load166, 2
@@ -426,17 +426,17 @@ if.then145:                                       ; preds = %if.end128
   br i1 %tobool170.not, label %if.else155, label %if.then152
 
 if.then152:                                       ; preds = %if.then145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out.addr.0110, ptr noundef nonnull align 4 dereferenceable(16) %tag, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %out.addr.0111, ptr noundef nonnull align 4 dereferenceable(16) %tag, i64 16, i1 false)
   br label %err
 
 if.else155:                                       ; preds = %if.then145
-  %call157 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %temp, ptr noundef nonnull %in.addr.0111, i64 noundef 16) #7
+  %call157 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %temp, ptr noundef nonnull %in.addr.0110, i64 noundef 16) #7
   %tobool158.not = icmp eq i32 %call157, 0
   br i1 %tobool158.not, label %if.end161, label %if.then159
 
 if.then159:                                       ; preds = %if.else155
   %idx.neg = sub i64 0, %plen.1112
-  %add.ptr160 = getelementptr inbounds i8, ptr %out.addr.0110, i64 %idx.neg
+  %add.ptr160 = getelementptr inbounds i8, ptr %out.addr.0111, i64 %idx.neg
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr160, i8 0, i64 %plen.1112, i1 false)
   br label %err
 

@@ -857,11 +857,11 @@ invoke.cont87.lr.ph:                              ; preds = %invoke.cont81
   br label %invoke.cont87
 
 invoke.cont87:                                    ; preds = %invoke.cont87.lr.ph, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS7_ESaIS7_ELi256ELb0EEEEERS7_PS7_EppEv.exit
-  %__begin276.sroa.0.0292 = phi ptr [ %84, %invoke.cont87.lr.ph ], [ %__begin276.sroa.0.2, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS7_ESaIS7_ELi256ELb0EEEEERS7_PS7_EppEv.exit ]
-  %__begin276.sroa.8.0291 = phi i32 [ 0, %invoke.cont87.lr.ph ], [ %__begin276.sroa.8.2, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS7_ESaIS7_ELi256ELb0EEEEERS7_PS7_EppEv.exit ]
-  %87 = and i32 %__begin276.sroa.8.0291, 255
+  %__begin276.sroa.8.0292 = phi i32 [ 0, %invoke.cont87.lr.ph ], [ %__begin276.sroa.8.2, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS7_ESaIS7_ELi256ELb0EEEEERS7_PS7_EppEv.exit ]
+  %__begin276.sroa.0.0291 = phi ptr [ %84, %invoke.cont87.lr.ph ], [ %__begin276.sroa.0.2, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS7_ESaIS7_ELi256ELb0EEEEERS7_PS7_EppEv.exit ]
+  %87 = and i32 %__begin276.sroa.8.0292, 255
   %conv6.i112 = zext nneg i32 %87 to i64
-  %add.ptr.i.i.i.i.i113 = getelementptr inbounds i8, ptr %__begin276.sroa.0.0292, i64 12
+  %add.ptr.i.i.i.i.i113 = getelementptr inbounds i8, ptr %__begin276.sroa.0.0291, i64 12
   %arrayidx.i.i.i114 = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i113, i64 %conv6.i112
   %vtable = load ptr, ptr %call.i103, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -1101,21 +1101,21 @@ _ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit: ;
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %121 = load ptr, ptr %vfn.i.i, align 8
   call void %121(ptr noundef nonnull align 8 dereferenceable(16) %call.i116) #18
-  %arrayidx.i.i.i180 = getelementptr i8, ptr %__begin276.sroa.0.0292, i64 11
+  %arrayidx.i.i.i180 = getelementptr i8, ptr %__begin276.sroa.0.0291, i64 11
   %122 = load i8, ptr %arrayidx.i.i.i180, align 1
   %cmp.i.not.i.i = icmp eq i8 %122, 0
   br i1 %cmp.i.not.i.i, label %if.else.i.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit
-  %inc.i.i = add nsw i32 %__begin276.sroa.8.0291, 1
-  %arrayidx.i1.i.i = getelementptr i8, ptr %__begin276.sroa.0.0292, i64 10
+  %inc.i.i = add nsw i32 %__begin276.sroa.8.0292, 1
+  %arrayidx.i1.i.i = getelementptr i8, ptr %__begin276.sroa.0.0291, i64 10
   %123 = load i8, ptr %arrayidx.i1.i.i, align 1
   %conv.i.i181 = zext i8 %123 to i32
   %cmp8.i.i.i = icmp eq i32 %inc.i.i, %conv.i.i181
   br i1 %cmp8.i.i.i, label %land.rhs.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS7_ESaIS7_ELi256ELb0EEEEERS7_PS7_EppEv.exit
 
 land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i, %while.body.i.i.i
-  %124 = phi ptr [ %125, %while.body.i.i.i ], [ %__begin276.sroa.0.0292, %land.lhs.true.i.i ]
+  %124 = phi ptr [ %125, %while.body.i.i.i ], [ %__begin276.sroa.0.0291, %land.lhs.true.i.i ]
   %125 = load ptr, ptr %124, align 8
   %arrayidx.i.i.i.i.i = getelementptr i8, ptr %125, i64 11
   %126 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
@@ -1131,8 +1131,8 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %cmp.i2.i.i, label %land.rhs.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS7_ESaIS7_ELi256ELb0EEEEERS7_PS7_EppEv.exit.loopexit257.split.loop.exit284, !llvm.loop !29
 
 if.else.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit
-  %add.ptr.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__begin276.sroa.0.0292, i64 256
-  %129 = add i32 %__begin276.sroa.8.0291, 1
+  %add.ptr.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__begin276.sroa.0.0291, i64 256
+  %129 = add i32 %__begin276.sroa.8.0292, 1
   %130 = and i32 %129, 255
   %idxprom.i.i.i.i = zext nneg i32 %130 to i64
   %arrayidx.i4.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i3.i.i.i, i64 %idxprom.i.i.i.i
@@ -1152,8 +1152,8 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   br label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS7_ESaIS7_ELi256ELb0EEEEERS7_PS7_EppEv.exit
 
 _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS7_ESaIS7_ELi256ELb0EEEEERS7_PS7_EppEv.exit: ; preds = %land.rhs.i.i.i, %while.cond24.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS7_ESaIS7_ELi256ELb0EEEEERS7_PS7_EppEv.exit.loopexit257.split.loop.exit284, %land.lhs.true.i.i
+  %__begin276.sroa.0.2 = phi ptr [ %__begin276.sroa.0.0291, %land.lhs.true.i.i ], [ %125, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS7_ESaIS7_ELi256ELb0EEEEERS7_PS7_EppEv.exit.loopexit257.split.loop.exit284 ], [ %storemerge.i.i.i, %while.cond24.i.i.i ], [ %__begin276.sroa.0.0291, %land.rhs.i.i.i ]
   %__begin276.sroa.8.2 = phi i32 [ %inc.i.i, %land.lhs.true.i.i ], [ %conv8.i.i.i.le, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS7_ESaIS7_ELi256ELb0EEEEERS7_PS7_EppEv.exit.loopexit257.split.loop.exit284 ], [ 0, %while.cond24.i.i.i ], [ %inc.i.i, %land.rhs.i.i.i ]
-  %__begin276.sroa.0.2 = phi ptr [ %__begin276.sroa.0.0292, %land.lhs.true.i.i ], [ %125, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS7_ESaIS7_ELi256ELb0EEEEERS7_PS7_EppEv.exit.loopexit257.split.loop.exit284 ], [ %storemerge.i.i.i, %while.cond24.i.i.i ], [ %__begin276.sroa.0.0292, %land.rhs.i.i.i ]
   %cmp.i.i110 = icmp ne ptr %__begin276.sroa.0.2, %85
   %cmp6.i.i = icmp ne i32 %__begin276.sroa.8.2, %conv.i.i
   %.not.i = select i1 %cmp.i.i110, i1 true, i1 %cmp6.i.i

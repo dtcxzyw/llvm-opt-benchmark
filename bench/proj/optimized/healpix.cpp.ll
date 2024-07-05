@@ -296,58 +296,58 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
 
 .lr.ph60.i.i:                                     ; preds = %24, %53
   %indvars.iv63.i.i = phi i64 [ %indvars.iv.next64.i.i, %53 ], [ 1, %24 ]
-  %.sroa.09.058.i.i = phi double [ %26, %53 ], [ 0xC00921FB54442D1A, %24 ]
-  %.sroa.7.057.i.i = phi double [ %28, %53 ], [ 0x3FE921FB54442D18, %24 ]
-  %.056.i.i = phi i32 [ %.1.i.i, %53 ], [ 0, %24 ]
+  %.sroa.09.057.i.i = phi double [ %26, %53 ], [ 0xC00921FB54442D1A, %24 ]
+  %.sroa.7.056.i.i = phi double [ %28, %53 ], [ 0x3FE921FB54442D18, %24 ]
+  %.04855.i.i = phi i32 [ %.149.i.i, %53 ], [ 0, %24 ]
   %25 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv63.i.i
   %26 = load double, ptr %25, align 16
   %27 = getelementptr inbounds i8, ptr %25, i64 8
   %28 = load double, ptr %27, align 8
-  %29 = fcmp olt double %.sroa.7.057.i.i, %28
-  %30 = select i1 %29, double %.sroa.7.057.i.i, double %28
+  %29 = fcmp olt double %.sroa.7.056.i.i, %28
+  %30 = select i1 %29, double %.sroa.7.056.i.i, double %28
   %31 = fcmp olt double %30, %16
   br i1 %31, label %32, label %53
 
 32:                                               ; preds = %.lr.ph60.i.i
-  %33 = fcmp ogt double %.sroa.7.057.i.i, %28
-  %34 = select i1 %33, double %.sroa.7.057.i.i, double %28
+  %33 = fcmp ogt double %.sroa.7.056.i.i, %28
+  %34 = select i1 %33, double %.sroa.7.056.i.i, double %28
   %35 = fcmp ult double %34, %16
   br i1 %35, label %53, label %36
 
 36:                                               ; preds = %32
-  %37 = fcmp ogt double %.sroa.09.058.i.i, %26
-  %38 = select i1 %37, double %.sroa.09.058.i.i, double %26
+  %37 = fcmp ogt double %.sroa.09.057.i.i, %26
+  %38 = select i1 %37, double %.sroa.09.057.i.i, double %26
   %39 = fcmp oge double %38, %12
-  %40 = fcmp une double %.sroa.7.057.i.i, %28
+  %40 = fcmp une double %.sroa.7.056.i.i, %28
   %or.cond.i.i = and i1 %40, %39
   br i1 %or.cond.i.i, label %41, label %53
 
 41:                                               ; preds = %36
-  %42 = fcmp oeq double %.sroa.09.058.i.i, %26
+  %42 = fcmp oeq double %.sroa.09.057.i.i, %26
   br i1 %42, label %51, label %43
 
 43:                                               ; preds = %41
-  %44 = fsub double %16, %.sroa.7.057.i.i
-  %45 = fsub double %26, %.sroa.09.058.i.i
+  %44 = fsub double %16, %.sroa.7.056.i.i
+  %45 = fsub double %26, %.sroa.09.057.i.i
   %46 = fmul double %44, %45
-  %47 = fsub double %28, %.sroa.7.057.i.i
+  %47 = fsub double %28, %.sroa.7.056.i.i
   %48 = fdiv double %46, %47
-  %49 = fadd double %.sroa.09.058.i.i, %48
+  %49 = fadd double %.sroa.09.057.i.i, %48
   %50 = fcmp ult double %49, %12
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %43, %41
-  %52 = add nsw i32 %.056.i.i, 1
+  %52 = add nsw i32 %.04855.i.i, 1
   br label %53
 
 53:                                               ; preds = %51, %43, %36, %32, %.lr.ph60.i.i
-  %.1.i.i = phi i32 [ %52, %51 ], [ %.056.i.i, %43 ], [ %.056.i.i, %36 ], [ %.056.i.i, %32 ], [ %.056.i.i, %.lr.ph60.i.i ]
+  %.149.i.i = phi i32 [ %52, %51 ], [ %.04855.i.i, %43 ], [ %.04855.i.i, %36 ], [ %.04855.i.i, %32 ], [ %.04855.i.i, %.lr.ph60.i.i ]
   %indvars.iv.next64.i.i = add nuw nsw i64 %indvars.iv63.i.i, 1
   %exitcond67.not.i.i = icmp eq i64 %indvars.iv.next64.i.i, 19
   br i1 %exitcond67.not.i.i, label %_ZL8in_imageddiii.exit, label %.lr.ph60.i.i, !llvm.loop !6
 
 _ZL8in_imageddiii.exit:                           ; preds = %53
-  %54 = and i32 %.1.i.i, 1
+  %54 = and i32 %.149.i.i, 1
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %_ZL8in_imageddiii.exit.thread
 
@@ -514,58 +514,58 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
 
 .lr.ph60.i.i:                                     ; preds = %24, %53
   %indvars.iv63.i.i = phi i64 [ %indvars.iv.next64.i.i, %53 ], [ 1, %24 ]
-  %.sroa.09.058.i.i = phi double [ %26, %53 ], [ 0xC00921FB54442D1A, %24 ]
-  %.sroa.7.057.i.i = phi double [ %28, %53 ], [ 0x3FE921FB54442D18, %24 ]
-  %.056.i.i = phi i32 [ %.1.i.i, %53 ], [ 0, %24 ]
+  %.sroa.09.057.i.i = phi double [ %26, %53 ], [ 0xC00921FB54442D1A, %24 ]
+  %.sroa.7.056.i.i = phi double [ %28, %53 ], [ 0x3FE921FB54442D18, %24 ]
+  %.04855.i.i = phi i32 [ %.149.i.i, %53 ], [ 0, %24 ]
   %25 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv63.i.i
   %26 = load double, ptr %25, align 16
   %27 = getelementptr inbounds i8, ptr %25, i64 8
   %28 = load double, ptr %27, align 8
-  %29 = fcmp olt double %.sroa.7.057.i.i, %28
-  %30 = select i1 %29, double %.sroa.7.057.i.i, double %28
+  %29 = fcmp olt double %.sroa.7.056.i.i, %28
+  %30 = select i1 %29, double %.sroa.7.056.i.i, double %28
   %31 = fcmp olt double %30, %16
   br i1 %31, label %32, label %53
 
 32:                                               ; preds = %.lr.ph60.i.i
-  %33 = fcmp ogt double %.sroa.7.057.i.i, %28
-  %34 = select i1 %33, double %.sroa.7.057.i.i, double %28
+  %33 = fcmp ogt double %.sroa.7.056.i.i, %28
+  %34 = select i1 %33, double %.sroa.7.056.i.i, double %28
   %35 = fcmp ult double %34, %16
   br i1 %35, label %53, label %36
 
 36:                                               ; preds = %32
-  %37 = fcmp ogt double %.sroa.09.058.i.i, %26
-  %38 = select i1 %37, double %.sroa.09.058.i.i, double %26
+  %37 = fcmp ogt double %.sroa.09.057.i.i, %26
+  %38 = select i1 %37, double %.sroa.09.057.i.i, double %26
   %39 = fcmp oge double %38, %12
-  %40 = fcmp une double %.sroa.7.057.i.i, %28
+  %40 = fcmp une double %.sroa.7.056.i.i, %28
   %or.cond.i.i = and i1 %40, %39
   br i1 %or.cond.i.i, label %41, label %53
 
 41:                                               ; preds = %36
-  %42 = fcmp oeq double %.sroa.09.058.i.i, %26
+  %42 = fcmp oeq double %.sroa.09.057.i.i, %26
   br i1 %42, label %51, label %43
 
 43:                                               ; preds = %41
-  %44 = fsub double %16, %.sroa.7.057.i.i
-  %45 = fsub double %26, %.sroa.09.058.i.i
+  %44 = fsub double %16, %.sroa.7.056.i.i
+  %45 = fsub double %26, %.sroa.09.057.i.i
   %46 = fmul double %44, %45
-  %47 = fsub double %28, %.sroa.7.057.i.i
+  %47 = fsub double %28, %.sroa.7.056.i.i
   %48 = fdiv double %46, %47
-  %49 = fadd double %.sroa.09.058.i.i, %48
+  %49 = fadd double %.sroa.09.057.i.i, %48
   %50 = fcmp ult double %49, %12
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %43, %41
-  %52 = add nsw i32 %.056.i.i, 1
+  %52 = add nsw i32 %.04855.i.i, 1
   br label %53
 
 53:                                               ; preds = %51, %43, %36, %32, %.lr.ph60.i.i
-  %.1.i.i = phi i32 [ %52, %51 ], [ %.056.i.i, %43 ], [ %.056.i.i, %36 ], [ %.056.i.i, %32 ], [ %.056.i.i, %.lr.ph60.i.i ]
+  %.149.i.i = phi i32 [ %52, %51 ], [ %.04855.i.i, %43 ], [ %.04855.i.i, %36 ], [ %.04855.i.i, %32 ], [ %.04855.i.i, %.lr.ph60.i.i ]
   %indvars.iv.next64.i.i = add nuw nsw i64 %indvars.iv63.i.i, 1
   %exitcond67.not.i.i = icmp eq i64 %indvars.iv.next64.i.i, 19
   br i1 %exitcond67.not.i.i, label %_ZL8in_imageddiii.exit, label %.lr.ph60.i.i, !llvm.loop !6
 
 _ZL8in_imageddiii.exit:                           ; preds = %53
-  %54 = and i32 %.1.i.i, 1
+  %54 = and i32 %.149.i.i, 1
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %_ZL8in_imageddiii.exit.thread
 
@@ -1394,58 +1394,58 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
 
 .lr.ph60.i:                                       ; preds = %15, %44
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %44 ], [ 1, %15 ]
-  %.sroa.09.058.i = phi double [ %17, %44 ], [ 0xC00921FB54442D1A, %15 ]
-  %.sroa.7.057.i = phi double [ %19, %44 ], [ 0x3FE921FB54442D18, %15 ]
-  %.056.i = phi i32 [ %.1.i, %44 ], [ 0, %15 ]
+  %.sroa.09.057.i = phi double [ %17, %44 ], [ 0xC00921FB54442D1A, %15 ]
+  %.sroa.7.056.i = phi double [ %19, %44 ], [ 0x3FE921FB54442D18, %15 ]
+  %.04855.i = phi i32 [ %.149.i, %44 ], [ 0, %15 ]
   %16 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv63.i
   %17 = load double, ptr %16, align 16
   %18 = getelementptr inbounds i8, ptr %16, i64 8
   %19 = load double, ptr %18, align 8
-  %20 = fcmp olt double %.sroa.7.057.i, %19
-  %21 = select i1 %20, double %.sroa.7.057.i, double %19
+  %20 = fcmp olt double %.sroa.7.056.i, %19
+  %21 = select i1 %20, double %.sroa.7.056.i, double %19
   %22 = fcmp olt double %21, %1
   br i1 %22, label %23, label %44
 
 23:                                               ; preds = %.lr.ph60.i
-  %24 = fcmp ogt double %.sroa.7.057.i, %19
-  %25 = select i1 %24, double %.sroa.7.057.i, double %19
+  %24 = fcmp ogt double %.sroa.7.056.i, %19
+  %25 = select i1 %24, double %.sroa.7.056.i, double %19
   %26 = fcmp ult double %25, %1
   br i1 %26, label %44, label %27
 
 27:                                               ; preds = %23
-  %28 = fcmp ogt double %.sroa.09.058.i, %17
-  %29 = select i1 %28, double %.sroa.09.058.i, double %17
+  %28 = fcmp ogt double %.sroa.09.057.i, %17
+  %29 = select i1 %28, double %.sroa.09.057.i, double %17
   %30 = fcmp oge double %29, %0
-  %31 = fcmp une double %.sroa.7.057.i, %19
+  %31 = fcmp une double %.sroa.7.056.i, %19
   %or.cond.i = and i1 %31, %30
   br i1 %or.cond.i, label %32, label %44
 
 32:                                               ; preds = %27
-  %33 = fcmp oeq double %.sroa.09.058.i, %17
+  %33 = fcmp oeq double %.sroa.09.057.i, %17
   br i1 %33, label %42, label %34
 
 34:                                               ; preds = %32
-  %35 = fsub double %1, %.sroa.7.057.i
-  %36 = fsub double %17, %.sroa.09.058.i
+  %35 = fsub double %1, %.sroa.7.056.i
+  %36 = fsub double %17, %.sroa.09.057.i
   %37 = fmul double %35, %36
-  %38 = fsub double %19, %.sroa.7.057.i
+  %38 = fsub double %19, %.sroa.7.056.i
   %39 = fdiv double %37, %38
-  %40 = fadd double %.sroa.09.058.i, %39
+  %40 = fadd double %.sroa.09.057.i, %39
   %41 = fcmp ult double %40, %0
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %34, %32
-  %43 = add nsw i32 %.056.i, 1
+  %43 = add nsw i32 %.04855.i, 1
   br label %44
 
 44:                                               ; preds = %42, %34, %27, %23, %.lr.ph60.i
-  %.1.i = phi i32 [ %43, %42 ], [ %.056.i, %34 ], [ %.056.i, %27 ], [ %.056.i, %23 ], [ %.056.i, %.lr.ph60.i ]
+  %.149.i = phi i32 [ %43, %42 ], [ %.04855.i, %34 ], [ %.04855.i, %27 ], [ %.04855.i, %23 ], [ %.04855.i, %.lr.ph60.i ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, 19
   br i1 %exitcond67.not.i, label %._crit_edge61.loopexit.i, label %.lr.ph60.i, !llvm.loop !6
 
 ._crit_edge61.loopexit.i:                         ; preds = %44
-  %45 = and i32 %.1.i, 1
+  %45 = and i32 %.149.i, 1
   br label %_ZL6pnpolyiPA2_ddd.exit
 
 46:                                               ; preds = %5
@@ -1522,58 +1522,58 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
 
 .lr.ph60.i18:                                     ; preds = %85, %114
   %indvars.iv63.i19 = phi i64 [ %indvars.iv.next64.i24, %114 ], [ 1, %85 ]
-  %.sroa.09.058.i20 = phi double [ %87, %114 ], [ 0xC00921FB54442D1A, %85 ]
-  %.sroa.7.057.i21 = phi double [ %89, %114 ], [ 0x3FE921FB54442D21, %85 ]
-  %.056.i22 = phi i32 [ %.1.i23, %114 ], [ 0, %85 ]
+  %.sroa.09.057.i20 = phi double [ %87, %114 ], [ 0xC00921FB54442D1A, %85 ]
+  %.sroa.7.056.i21 = phi double [ %89, %114 ], [ 0x3FE921FB54442D21, %85 ]
+  %.04855.i22 = phi i32 [ %.149.i23, %114 ], [ 0, %85 ]
   %86 = getelementptr inbounds [2 x double], ptr %6, i64 %indvars.iv63.i19
   %87 = load double, ptr %86, align 16
   %88 = getelementptr inbounds i8, ptr %86, i64 8
   %89 = load double, ptr %88, align 8
-  %90 = fcmp olt double %.sroa.7.057.i21, %89
-  %91 = select i1 %90, double %.sroa.7.057.i21, double %89
+  %90 = fcmp olt double %.sroa.7.056.i21, %89
+  %91 = select i1 %90, double %.sroa.7.056.i21, double %89
   %92 = fcmp olt double %91, %1
   br i1 %92, label %93, label %114
 
 93:                                               ; preds = %.lr.ph60.i18
-  %94 = fcmp ogt double %.sroa.7.057.i21, %89
-  %95 = select i1 %94, double %.sroa.7.057.i21, double %89
+  %94 = fcmp ogt double %.sroa.7.056.i21, %89
+  %95 = select i1 %94, double %.sroa.7.056.i21, double %89
   %96 = fcmp ult double %95, %1
   br i1 %96, label %114, label %97
 
 97:                                               ; preds = %93
-  %98 = fcmp ogt double %.sroa.09.058.i20, %87
-  %99 = select i1 %98, double %.sroa.09.058.i20, double %87
+  %98 = fcmp ogt double %.sroa.09.057.i20, %87
+  %99 = select i1 %98, double %.sroa.09.057.i20, double %87
   %100 = fcmp oge double %99, %0
-  %101 = fcmp une double %.sroa.7.057.i21, %89
+  %101 = fcmp une double %.sroa.7.056.i21, %89
   %or.cond.i28 = and i1 %101, %100
   br i1 %or.cond.i28, label %102, label %114
 
 102:                                              ; preds = %97
-  %103 = fcmp oeq double %.sroa.09.058.i20, %87
+  %103 = fcmp oeq double %.sroa.09.057.i20, %87
   br i1 %103, label %112, label %104
 
 104:                                              ; preds = %102
-  %105 = fsub double %1, %.sroa.7.057.i21
-  %106 = fsub double %87, %.sroa.09.058.i20
+  %105 = fsub double %1, %.sroa.7.056.i21
+  %106 = fsub double %87, %.sroa.09.057.i20
   %107 = fmul double %105, %106
-  %108 = fsub double %89, %.sroa.7.057.i21
+  %108 = fsub double %89, %.sroa.7.056.i21
   %109 = fdiv double %107, %108
-  %110 = fadd double %.sroa.09.058.i20, %109
+  %110 = fadd double %.sroa.09.057.i20, %109
   %111 = fcmp ult double %110, %0
   br i1 %111, label %114, label %112
 
 112:                                              ; preds = %104, %102
-  %113 = add nsw i32 %.056.i22, 1
+  %113 = add nsw i32 %.04855.i22, 1
   br label %114
 
 114:                                              ; preds = %112, %104, %97, %93, %.lr.ph60.i18
-  %.1.i23 = phi i32 [ %113, %112 ], [ %.056.i22, %104 ], [ %.056.i22, %97 ], [ %.056.i22, %93 ], [ %.056.i22, %.lr.ph60.i18 ]
+  %.149.i23 = phi i32 [ %113, %112 ], [ %.04855.i22, %104 ], [ %.04855.i22, %97 ], [ %.04855.i22, %93 ], [ %.04855.i22, %.lr.ph60.i18 ]
   %indvars.iv.next64.i24 = add nuw nsw i64 %indvars.iv63.i19, 1
   %exitcond67.not.i25 = icmp eq i64 %indvars.iv.next64.i24, 12
   br i1 %exitcond67.not.i25, label %._crit_edge61.loopexit.i26, label %.lr.ph60.i18, !llvm.loop !6
 
 ._crit_edge61.loopexit.i26:                       ; preds = %114
-  %115 = and i32 %.1.i23, 1
+  %115 = and i32 %.149.i23, 1
   br label %_ZL6pnpolyiPA2_ddd.exit
 
 _ZL6pnpolyiPA2_ddd.exit:                          ; preds = %81, %11, %._crit_edge61.loopexit.i26, %._crit_edge61.loopexit.i

@@ -633,15 +633,15 @@ Abc_NtkFraigMergeClassMapped.exit.i:              ; preds = %272, %.preheader2.i
 
 .lr.ph.i18.i:                                     ; preds = %.critedge2.i74, %.lr.ph.i18.i
   %.04056.i.i = phi ptr [ %.040.i.i, %.lr.ph.i18.i ], [ %.04053.i.i, %.critedge2.i74 ]
-  %.04155.i.i = phi ptr [ %spec.select.i19.i, %.lr.ph.i18.i ], [ %279, %.critedge2.i74 ]
-  %281 = getelementptr inbounds i8, ptr %.04155.i.i, i64 20
+  %.04355.i.i = phi ptr [ %spec.select.i19.i, %.lr.ph.i18.i ], [ %279, %.critedge2.i74 ]
+  %281 = getelementptr inbounds i8, ptr %.04355.i.i, i64 20
   %282 = load i32, ptr %281, align 4
   %283 = lshr i32 %282, 12
   %284 = getelementptr inbounds i8, ptr %.04056.i.i, i64 20
   %285 = load i32, ptr %284, align 4
   %286 = lshr i32 %285, 12
   %287 = icmp ugt i32 %283, %286
-  %spec.select.i19.i = select i1 %287, ptr %.04056.i.i, ptr %.04155.i.i
+  %spec.select.i19.i = select i1 %287, ptr %.04056.i.i, ptr %.04355.i.i
   %288 = getelementptr inbounds i8, ptr %.04056.i.i, i64 8
   %.040.i.i = load ptr, ptr %288, align 8
   %.not.i.i = icmp eq ptr %.040.i.i, null
@@ -652,20 +652,20 @@ Abc_NtkFraigMergeClassMapped.exit.i:              ; preds = %272, %.preheader2.i
   br i1 %.not4957.i.i, label %Abc_NtkFraigMergeClass.exit.i, label %.lr.ph63.i.i
 
 .lr.ph63.i.i:                                     ; preds = %._crit_edge.i.i, %.critedge2.i74
-  %.041.lcssa73.i.i = phi ptr [ %spec.select.i19.i, %._crit_edge.i.i ], [ %279, %.critedge2.i74 ]
-  %289 = getelementptr inbounds i8, ptr %.041.lcssa73.i.i, i64 20
+  %.043.lcssa73.i.i = phi ptr [ %spec.select.i19.i, %._crit_edge.i.i ], [ %279, %.critedge2.i74 ]
+  %289 = getelementptr inbounds i8, ptr %.043.lcssa73.i.i, i64 20
   br label %290
 
 .preheader.i20.i:                                 ; preds = %299
-  %.not5066.i.i = icmp eq ptr %.146.i.i, null
+  %.not5066.i.i = icmp eq ptr %.142.i.i, null
   br i1 %.not5066.i.i, label %._crit_edge69.i.i, label %.lr.ph68.i.i
 
 290:                                              ; preds = %300, %.lr.ph63.i.i
   %.061.i.i = phi ptr [ %.04053.i.i, %.lr.ph63.i.i ], [ %302, %300 ]
   %.160.i.i = phi ptr [ %279, %.lr.ph63.i.i ], [ %.061.i.i, %300 ]
-  %.04359.i.i = phi ptr [ null, %.lr.ph63.i.i ], [ %.144.i.i, %300 ]
+  %.04159.i.i = phi ptr [ null, %.lr.ph63.i.i ], [ %.142.i.i, %300 ]
   %.04558.i.i = phi ptr [ null, %.lr.ph63.i.i ], [ %.146.i.i, %300 ]
-  %291 = icmp eq ptr %.160.i.i, %.041.lcssa73.i.i
+  %291 = icmp eq ptr %.160.i.i, %.043.lcssa73.i.i
   br i1 %291, label %299, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %290
@@ -676,15 +676,15 @@ Abc_NtkFraigMergeClassMapped.exit.i:              ; preds = %272, %.preheader2.i
   %296 = and i32 %295, 128
   %297 = icmp eq i32 %296, 0
   %298 = getelementptr inbounds i8, ptr %.160.i.i, i64 8
-  %.04558..04359.i.i = select i1 %297, ptr %.04558.i.i, ptr %.04359.i.i
-  %.160..04558.i.i = select i1 %297, ptr %.160.i.i, ptr %.04558.i.i
-  %.04359..160.i.i = select i1 %297, ptr %.04359.i.i, ptr %.160.i.i
-  store ptr %.04558..04359.i.i, ptr %298, align 8
+  %.04159..04558.i.i = select i1 %297, ptr %.04159.i.i, ptr %.04558.i.i
+  %.04558..160.i.i = select i1 %297, ptr %.04558.i.i, ptr %.160.i.i
+  %.160..04159.i.i = select i1 %297, ptr %.160.i.i, ptr %.04159.i.i
+  store ptr %.04159..04558.i.i, ptr %298, align 8
   br label %299
 
 299:                                              ; preds = %.sink.split.i.i, %290
-  %.146.i.i = phi ptr [ %.04558.i.i, %290 ], [ %.160..04558.i.i, %.sink.split.i.i ]
-  %.144.i.i = phi ptr [ %.04359.i.i, %290 ], [ %.04359..160.i.i, %.sink.split.i.i ]
+  %.146.i.i = phi ptr [ %.04558.i.i, %290 ], [ %.04558..160.i.i, %.sink.split.i.i ]
+  %.142.i.i = phi ptr [ %.04159.i.i, %290 ], [ %.160..04159.i.i, %.sink.split.i.i ]
   %.not52.i.i = icmp eq ptr %.061.i.i, null
   br i1 %.not52.i.i, label %.preheader.i20.i, label %300
 
@@ -694,23 +694,23 @@ Abc_NtkFraigMergeClassMapped.exit.i:              ; preds = %272, %.preheader2.i
   br label %290, !llvm.loop !19
 
 .lr.ph68.i.i:                                     ; preds = %.preheader.i20.i, %.lr.ph68.i.i
-  %.267.i.i = phi ptr [ %304, %.lr.ph68.i.i ], [ %.146.i.i, %.preheader.i20.i ]
-  call void @Abc_ObjTransferFanout(ptr noundef nonnull %.267.i.i, ptr noundef %.041.lcssa73.i.i) #9
+  %.267.i.i = phi ptr [ %304, %.lr.ph68.i.i ], [ %.142.i.i, %.preheader.i20.i ]
+  call void @Abc_ObjTransferFanout(ptr noundef nonnull %.267.i.i, ptr noundef %.043.lcssa73.i.i) #9
   %303 = getelementptr inbounds i8, ptr %.267.i.i, i64 8
   %304 = load ptr, ptr %303, align 8
   %.not50.i.i = icmp eq ptr %304, null
   br i1 %.not50.i.i, label %._crit_edge69.i.i, label %.lr.ph68.i.i, !llvm.loop !20
 
 ._crit_edge69.i.i:                                ; preds = %.lr.ph68.i.i, %.preheader.i20.i
-  %305 = icmp eq ptr %.144.i.i, null
+  %305 = icmp eq ptr %.146.i.i, null
   br i1 %305, label %Abc_NtkFraigMergeClass.exit.i, label %306
 
 306:                                              ; preds = %._crit_edge69.i.i
-  %307 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %0, ptr noundef %.041.lcssa73.i.i) #9
+  %307 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %0, ptr noundef %.043.lcssa73.i.i) #9
   br label %308
 
 308:                                              ; preds = %308, %306
-  %.370.i.i = phi ptr [ %.144.i.i, %306 ], [ %310, %308 ]
+  %.370.i.i = phi ptr [ %.146.i.i, %306 ], [ %310, %308 ]
   call void @Abc_ObjTransferFanout(ptr noundef nonnull %.370.i.i, ptr noundef %307) #9
   %309 = getelementptr inbounds i8, ptr %.370.i.i, i64 8
   %310 = load ptr, ptr %309, align 8
@@ -1266,8 +1266,8 @@ Abc_NtkCleanup.exit110:                           ; preds = %.critedge2, %188
   br label %194
 
 194:                                              ; preds = %192, %4
-  %.063 = phi i32 [ %193, %192 ], [ 1, %4 ]
-  ret i32 %.063
+  %.0 = phi i32 [ %193, %192 ], [ 1, %4 ]
+  ret i32 %.0
 }
 
 declare i32 @Abc_NtkCheck(ptr noundef) local_unnamed_addr #1
@@ -1919,8 +1919,8 @@ define i32 @Abc_NtkLatchSweep(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %1 ]
   %6 = phi ptr [ %64, %63 ], [ %3, %1 ]
-  %.02456 = phi i32 [ %.1, %63 ], [ 0, %1 ]
-  %.02554 = phi ptr [ %.126, %63 ], [ null, %1 ]
+  %.02556 = phi i32 [ %.1, %63 ], [ 0, %1 ]
+  %.02654 = phi ptr [ %.127, %63 ], [ null, %1 ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val39.val = load ptr, ptr %7, align 8
   %8 = getelementptr inbounds ptr, ptr %.val39.val, i64 %indvars.iv
@@ -1964,25 +1964,25 @@ define i32 @Abc_NtkLatchSweep(ptr noundef %0) local_unnamed_addr #0 {
 
 24:                                               ; preds = %22, %20
   %.val42 = phi i32 [ 2, %22 ], [ 1, %20 ]
-  %25 = icmp eq ptr %.02554, null
+  %25 = icmp eq ptr %.02654, null
   br i1 %25, label %63, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr i8, ptr %.02554, i64 56
-  %.025.val = load ptr, ptr %27, align 8
-  %28 = ptrtoint ptr %.025.val to i64
+  %27 = getelementptr i8, ptr %.02654, i64 56
+  %.026.val = load ptr, ptr %27, align 8
+  %28 = ptrtoint ptr %.026.val to i64
   %29 = trunc i64 %28 to i32
   %.not31 = icmp eq i32 %.val42, %29
-  %.025.val45 = load ptr, ptr %.02554, align 8
-  %30 = getelementptr i8, ptr %.02554, i64 48
-  %.025.val46 = load ptr, ptr %30, align 8
-  %31 = getelementptr i8, ptr %.025.val45, i64 32
-  %.025.val45.val = load ptr, ptr %31, align 8
-  %.025.val46.val = load i32, ptr %.025.val46, align 4
-  %32 = getelementptr i8, ptr %.025.val45.val, i64 8
-  %.025.val45.val.val = load ptr, ptr %32, align 8
-  %33 = sext i32 %.025.val46.val to i64
-  %34 = getelementptr inbounds ptr, ptr %.025.val45.val.val, i64 %33
+  %.026.val45 = load ptr, ptr %.02654, align 8
+  %30 = getelementptr i8, ptr %.02654, i64 48
+  %.026.val46 = load ptr, ptr %30, align 8
+  %31 = getelementptr i8, ptr %.026.val45, i64 32
+  %.026.val45.val = load ptr, ptr %31, align 8
+  %.026.val46.val = load i32, ptr %.026.val46, align 4
+  %32 = getelementptr i8, ptr %.026.val45.val, i64 8
+  %.026.val45.val.val = load ptr, ptr %32, align 8
+  %33 = sext i32 %.026.val46.val to i64
+  %34 = getelementptr inbounds ptr, ptr %.026.val45.val.val, i64 %33
   %35 = load ptr, ptr %34, align 8
   br i1 %.not31, label %50, label %36
 
@@ -2015,7 +2015,7 @@ define i32 @Abc_NtkLatchSweep(ptr noundef %0) local_unnamed_addr #0 {
   br label %50
 
 50:                                               ; preds = %26, %36, %38
-  %.027 = phi ptr [ %37, %36 ], [ %49, %38 ], [ %35, %26 ]
+  %.024 = phi ptr [ %37, %36 ], [ %49, %38 ], [ %35, %26 ]
   %.val47 = load ptr, ptr %9, align 8
   %51 = getelementptr i8, ptr %9, i64 48
   %.val48 = load ptr, ptr %51, align 8
@@ -2027,7 +2027,7 @@ define i32 @Abc_NtkLatchSweep(ptr noundef %0) local_unnamed_addr #0 {
   %54 = sext i32 %.val48.val to i64
   %55 = getelementptr inbounds ptr, ptr %.val47.val.val, i64 %54
   %56 = load ptr, ptr %55, align 8
-  tail call void @Abc_ObjTransferFanout(ptr noundef %56, ptr noundef %.027) #9
+  tail call void @Abc_ObjTransferFanout(ptr noundef %56, ptr noundef %.024) #9
   %.val49 = load ptr, ptr %9, align 8
   %.val50 = load ptr, ptr %51, align 8
   %57 = getelementptr i8, ptr %.val49, i64 32
@@ -2039,12 +2039,12 @@ define i32 @Abc_NtkLatchSweep(ptr noundef %0) local_unnamed_addr #0 {
   %60 = getelementptr inbounds ptr, ptr %.val49.val.val, i64 %59
   %61 = load ptr, ptr %60, align 8
   tail call void @Abc_NtkDeleteObj_rec(ptr noundef %61, i32 noundef 0) #9
-  %62 = add nsw i32 %.02456, 1
+  %62 = add nsw i32 %.02556, 1
   br label %63
 
 63:                                               ; preds = %24, %12, %50, %.lr.ph
-  %.126 = phi ptr [ %.02554, %12 ], [ %.02554, %50 ], [ %.02554, %.lr.ph ], [ %9, %24 ]
-  %.1 = phi i32 [ %.02456, %12 ], [ %62, %50 ], [ %.02456, %.lr.ph ], [ %.02456, %24 ]
+  %.127 = phi ptr [ %.02654, %12 ], [ %.02654, %50 ], [ %.02654, %.lr.ph ], [ %9, %24 ]
+  %.1 = phi i32 [ %.02556, %12 ], [ %62, %50 ], [ %.02556, %.lr.ph ], [ %.02556, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load ptr, ptr %2, align 8
   %65 = getelementptr i8, ptr %64, i64 4
@@ -2054,8 +2054,8 @@ define i32 @Abc_NtkLatchSweep(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %67, label %.lr.ph, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %63, %1
-  %.024.lcssa = phi i32 [ 0, %1 ], [ %.1, %63 ]
-  ret i32 %.024.lcssa
+  %.025.lcssa = phi i32 [ 0, %1 ], [ %.1, %63 ]
+  ret i32 %.025.lcssa
 }
 
 declare ptr @Abc_NtkCreateNodeInv(ptr noundef, ptr noundef) local_unnamed_addr #1

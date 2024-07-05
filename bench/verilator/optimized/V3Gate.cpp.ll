@@ -6014,41 +6014,41 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.030.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %.02329.i = phi i32 [ %18, %17 ], [ %4, %2 ]
-  %6 = icmp ult i32 %.02329.i, 100
+  %.02230.i = phi i32 [ %18, %17 ], [ %4, %2 ]
+  %.02329.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %6 = icmp ult i32 %.02230.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.030.i, 1
+  %8 = add i32 %.02329.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i32 %.02329.i, 1000
+  %10 = icmp ult i32 %.02230.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.030.i, 2
+  %12 = add i32 %.02329.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %.02329.i, 10000
+  %14 = icmp ult i32 %.02230.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.030.i, 3
+  %16 = add i32 %.02329.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i32 %.02329.i, 10000
-  %19 = add i32 %.030.i, 4
-  %20 = icmp ult i32 %.02329.i, 100000
+  %18 = udiv i32 %.02230.i, 10000
+  %19 = add i32 %.02329.i, 4
+  %20 = icmp ult i32 %.02230.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !35
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
-  %21 = add i32 %.022.i, %.lobit
+  %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -6079,7 +6079,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %29, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %28
-  %30 = add i32 %.022.i, -1
+  %30 = add i32 %.0.i, -1
   br label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i
@@ -14415,13 +14415,13 @@ _ZN13GateOkVisitorC2EP7AstNodebb.exit:            ; preds = %106, %.invoke.i._ZN
   br label %155
 
 155:                                              ; preds = %290, %.lr.ph
-  %.sroa.049.0123 = phi ptr [ %153, %.lr.ph ], [ %.sroa.7.0122, %290 ]
-  %.sroa.7.0122.in = getelementptr inbounds i8, ptr %.sroa.049.0123, i64 8
-  %.sroa.7.0122 = load ptr, ptr %.sroa.7.0122.in, align 8
-  %.not61 = icmp eq ptr %.sroa.7.0122, null
-  %156 = select i1 %.not61, ptr %.sroa.049.0123, ptr %.sroa.7.0122
+  %.sroa.049.0122 = phi ptr [ %153, %.lr.ph ], [ %.sroa.7.0123, %290 ]
+  %.sroa.7.0123.in = getelementptr inbounds i8, ptr %.sroa.049.0122, i64 8
+  %.sroa.7.0123 = load ptr, ptr %.sroa.7.0123.in, align 8
+  %.not61 = icmp eq ptr %.sroa.7.0123, null
+  %156 = select i1 %.not61, ptr %.sroa.049.0122, ptr %.sroa.7.0123
   call void @llvm.prefetch.p0(ptr nonnull %156, i32 1, i32 3, i32 1)
-  %157 = getelementptr inbounds i8, ptr %.sroa.049.0123, i64 48
+  %157 = getelementptr inbounds i8, ptr %.sroa.049.0122, i64 48
   %158 = load ptr, ptr %157, align 8
   %159 = load ptr, ptr %158, align 8
   %160 = load ptr, ptr %159, align 8
@@ -14736,7 +14736,7 @@ _ZlsRSoPK7AstNode.exit98:                         ; preds = %263, %265
           to label %_ZN7AstNode7foreachIZN10GateDedupe5visitEP13GateVarVertexEUlP13AstNodeVarRefE_EEvOT_.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN7AstNode7foreachIZN10GateDedupe5visitEP13GateVarVertexEUlP13AstNodeVarRefE_EEvOT_.exit: ; preds = %289, %277, %286
-  invoke void @_ZN11V3GraphEdge11relinkFrompEP13V3GraphVertex(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.049.0123, ptr noundef %.sroa.0.0.i)
+  invoke void @_ZN11V3GraphEdge11relinkFrompEP13V3GraphVertex(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.049.0122, ptr noundef %.sroa.0.0.i)
           to label %290 unwind label %.loopexit.split-lp.loopexit
 
 290:                                              ; preds = %_ZN7AstNode7foreachIZN10GateDedupe5visitEP13GateVarVertexEUlP13AstNodeVarRefE_EEvOT_.exit
@@ -16016,7 +16016,7 @@ _ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP13A
   br i1 %89, label %.lr.ph, label %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP13AstNodeAssignEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit.thread, !llvm.loop !118
 
 _ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP13AstNodeAssignEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit.thread: ; preds = %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP13AstNodeAssignEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit24, %66, %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP13AstNodeAssignEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit, %11
-  %.011 = phi i1 [ true, %11 ], [ false, %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP13AstNodeAssignEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit ], [ %68, %66 ], [ %68, %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP13AstNodeAssignEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit24 ]
+  %.0 = phi i1 [ true, %11 ], [ false, %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP13AstNodeAssignEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit ], [ %68, %66 ], [ %68, %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP13AstNodeAssignEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit24 ]
   %90 = load ptr, ptr %3, align 8
   %.not.i.i.i25 = icmp eq ptr %90, null
   br i1 %.not.i.i.i25, label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit26, label %91
@@ -16026,7 +16026,7 @@ _ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP13A
   br label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit26
 
 _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit26:        ; preds = %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP13AstNodeAssignEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit.thread, %91
-  ret i1 %.011
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -16292,7 +16292,7 @@ _ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP9As
   br i1 %89, label %.lr.ph, label %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP9AstNodeIfEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit.thread, !llvm.loop !120
 
 _ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP9AstNodeIfEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit.thread: ; preds = %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP9AstNodeIfEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit24, %66, %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP9AstNodeIfEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit, %11
-  %.011 = phi i1 [ true, %11 ], [ false, %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP9AstNodeIfEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit ], [ %68, %66 ], [ %68, %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP9AstNodeIfEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit24 ]
+  %.0 = phi i1 [ true, %11 ], [ false, %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP9AstNodeIfEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit ], [ %68, %66 ], [ %68, %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP9AstNodeIfEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit24 ]
   %90 = load ptr, ptr %3, align 8
   %.not.i.i.i25 = icmp eq ptr %90, null
   br i1 %.not.i.i.i25, label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit26, label %91
@@ -16302,7 +16302,7 @@ _ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP9As
   br label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit26
 
 _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit26:        ; preds = %_ZZN7AstNode13predicateImplI11AstExprStmtLb0EZN20GateDedupeVarVisitor5visitEP9AstNodeIfEUlPS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlPS_E_clESG_.exit.thread, %91
-  ret i1 %.011
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17785,8 +17785,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   resume { ptr, i32 } %48
 
 .critedge:                                        ; preds = %15, %_ZNK16VSelfPointerTexteqERKS_.exit, %7, %11, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread20
-  %.012 = phi i1 [ %.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread20 ], [ false, %7 ], [ %14, %11 ], [ false, %_ZNK16VSelfPointerTexteqERKS_.exit ], [ false, %15 ]
-  ret i1 %.012
+  %.011 = phi i1 [ %.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread20 ], [ false, %7 ], [ %14, %11 ], [ false, %_ZNK16VSelfPointerTexteqERKS_.exit ], [ false, %15 ]
+  ret i1 %.011
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

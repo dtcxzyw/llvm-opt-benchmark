@@ -2418,8 +2418,8 @@ if.end29:                                         ; preds = %if.then26, %if.end2
   br label %out
 
 out:                                              ; preds = %if.end29, %if.then12, %if.then5
-  %substrings.1 = phi ptr [ %call2, %if.then12 ], [ %substrings.0, %if.end29 ], [ %call2, %if.then5 ]
   %ret.1 = phi i32 [ -1, %if.then12 ], [ %ret.0, %if.end29 ], [ -1, %if.then5 ]
+  %substrings.1 = phi ptr [ %call2, %if.then12 ], [ %substrings.0, %if.end29 ], [ %call2, %if.then5 ]
   call void @g_strfreev(ptr noundef %substrings.1) #26
   call void @visit_free(ptr noundef %call) #26
   ret i32 %ret.1
@@ -3764,15 +3764,15 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc10
   %i.014 = phi i32 [ %inc11, %for.inc10 ], [ 0, %entry ]
-  %crc.013 = phi i32 [ %spec.select, %for.inc10 ], [ -1, %entry ]
-  %p.addr.012 = phi ptr [ %incdec.ptr, %for.inc10 ], [ %p, %entry ]
-  %0 = load i8, ptr %p.addr.012, align 1
+  %p.addr.013 = phi ptr [ %incdec.ptr, %for.inc10 ], [ %p, %entry ]
+  %crc.012 = phi i32 [ %spec.select, %for.inc10 ], [ -1, %entry ]
+  %0 = load i8, ptr %p.addr.013, align 1
   br label %for.body3
 
 for.body3:                                        ; preds = %for.body, %for.body3
   %b.010 = phi i8 [ %0, %for.body ], [ %shr, %for.body3 ]
   %j.09 = phi i32 [ 0, %for.body ], [ %inc, %for.body3 ]
-  %crc.18 = phi i32 [ %crc.013, %for.body ], [ %spec.select, %for.body3 ]
+  %crc.18 = phi i32 [ %crc.012, %for.body ], [ %spec.select, %for.body3 ]
   %crc.1.lobit = lshr i32 %crc.18, 31
   %1 = and i8 %b.010, 1
   %and5 = zext nneg i8 %1 to i32
@@ -3786,7 +3786,7 @@ for.body3:                                        ; preds = %for.body, %for.body
   br i1 %exitcond.not, label %for.inc10, label %for.body3, !llvm.loop !40
 
 for.inc10:                                        ; preds = %for.body3
-  %incdec.ptr = getelementptr i8, ptr %p.addr.012, i64 1
+  %incdec.ptr = getelementptr i8, ptr %p.addr.013, i64 1
   %inc11 = add nuw nsw i32 %i.014, 1
   %exitcond15.not = icmp eq i32 %inc11, %len
   br i1 %exitcond15.not, label %for.end12, label %for.body, !llvm.loop !41

@@ -2998,11 +2998,11 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
   br label %43
 
 43:                                               ; preds = %.lr.ph, %.split58.us
-  %.04060 = phi i32 [ 0, %.lr.ph ], [ %.1, %.split58.us ]
-  %.04159 = phi i32 [ 0, %.lr.ph ], [ %127, %.split58.us ]
-  %44 = icmp eq i32 %.04159, 0
+  %.03960 = phi i32 [ 0, %.lr.ph ], [ %127, %.split58.us ]
+  %.04159 = phi i32 [ 0, %.lr.ph ], [ %.1, %.split58.us ]
+  %44 = icmp eq i32 %.03960, 0
   %45 = and i1 %44, %2
-  %46 = add nuw nsw i32 %.04060, 1
+  %46 = add nuw nsw i32 %.04159, 1
   br i1 %45, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %43, %62
@@ -3055,12 +3055,12 @@ _ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.e
   br label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit
 
 .split:                                           ; preds = %43, %108
-  %.039 = phi i32 [ %121, %108 ], [ 0, %43 ]
+  %.040 = phi i32 [ %121, %108 ], [ 0, %43 ]
   %71 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %72 unwind label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit.loopexit.split
 
 72:                                               ; preds = %.split
-  %73 = icmp slt i32 %.039, %71
+  %73 = icmp slt i32 %.040, %71
   br i1 %73, label %74, label %.split58.us
 
 74:                                               ; preds = %72
@@ -3068,8 +3068,8 @@ _ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.e
           to label %76 unwind label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit.loopexit.split
 
 76:                                               ; preds = %74
-  %77 = mul nsw i32 %75, %.04060
-  %78 = add nsw i32 %77, %.039
+  %77 = mul nsw i32 %75, %.04159
+  %78 = add nsw i32 %77, %.040
   %79 = sext i32 %78 to i64
   %80 = load ptr, ptr %41, align 8
   %81 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %80, i64 %79
@@ -3079,7 +3079,7 @@ _ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.e
 
 84:                                               ; preds = %76
   %85 = mul nsw i32 %83, %46
-  %86 = add nsw i32 %85, %.039
+  %86 = add nsw i32 %85, %.040
   %87 = sext i32 %86 to i64
   %88 = load ptr, ptr %41, align 8
   %89 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %88, i64 %87
@@ -3088,8 +3088,8 @@ _ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.e
           to label %92 unwind label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit.loopexit.split
 
 92:                                               ; preds = %84
-  %93 = mul nsw i32 %91, %.04060
-  %94 = add nsw i32 %93, %.039
+  %93 = mul nsw i32 %91, %.04159
+  %94 = add nsw i32 %93, %.040
   %95 = sext i32 %94 to i64
   %96 = load ptr, ptr %41, align 8
   %97 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %96, i64 %95, i32 1
@@ -3099,7 +3099,7 @@ _ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.e
 
 100:                                              ; preds = %92
   %101 = mul nsw i32 %99, %46
-  %102 = add nsw i32 %101, %.039
+  %102 = add nsw i32 %101, %.040
   %103 = sext i32 %102 to i64
   %104 = load ptr, ptr %41, align 8
   %105 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %104, i64 %103, i32 1
@@ -3108,8 +3108,8 @@ _ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.e
           to label %108 unwind label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit.loopexit.split
 
 108:                                              ; preds = %100
-  %109 = mul nsw i32 %107, %.04159
-  %110 = add nsw i32 %109, %.039
+  %109 = mul nsw i32 %107, %.03960
+  %110 = add nsw i32 %109, %.040
   %111 = sext i32 %110 to i64
   %112 = load ptr, ptr %42, align 8
   %113 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %112, i64 %111
@@ -3124,7 +3124,7 @@ _ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.e
   %119 = load i64, ptr %118, align 8
   %120 = or i64 %119, 7
   store i64 %120, ptr %118, align 8
-  %121 = add nuw nsw i32 %.039, 1
+  %121 = add nuw nsw i32 %.040, 1
   br label %.split, !llvm.loop !25
 
 122:                                              ; preds = %22, %3, %16
@@ -3158,8 +3158,8 @@ _ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.e
 
 .split58.us:                                      ; preds = %72, %48
   %.1.v = phi i32 [ 1, %48 ], [ 2, %72 ]
-  %.1 = add nuw nsw i32 %.1.v, %.04060
-  %127 = add nuw nsw i32 %.04159, 1
+  %.1 = add nuw nsw i32 %.1.v, %.04159
+  %127 = add nuw nsw i32 %.03960, 1
   %exitcond.not = icmp eq i32 %127, %10
   br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !26
 

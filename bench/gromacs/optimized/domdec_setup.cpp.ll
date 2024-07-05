@@ -1903,10 +1903,10 @@ _ZL15inhomogeneous_zRK10t_inputrec.exit57.i:      ; preds = %_ZL8usingPmeRK22Cou
   br label %283
 
 _ZL15inhomogeneous_zRK10t_inputrec.exit57.thread.i: ; preds = %_ZL15inhomogeneous_zRK10t_inputrec.exit57.i, %_ZL8usingPmeRK22CoulombInteractionType.exit.i54.i, %241
-  %.042.i = phi i32 [ %spec.store.select.i, %241 ], [ %spec.store.select.i, %_ZL8usingPmeRK22CoulombInteractionType.exit.i54.i ], [ %spec.select.i, %_ZL15inhomogeneous_zRK10t_inputrec.exit57.i ]
+  %.044.i = phi i32 [ %spec.store.select.i, %241 ], [ %spec.store.select.i, %_ZL8usingPmeRK22CoulombInteractionType.exit.i54.i ], [ %spec.select.i, %_ZL15inhomogeneous_zRK10t_inputrec.exit57.i ]
   %264 = trunc i64 %indvars.iv.i to i32
   %265 = or i32 %264, 88
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef nonnull @.str.28, i32 noundef %265, i32 noundef %.042.i)
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef nonnull @.str.28, i32 noundef %265, i32 noundef %.044.i)
           to label %266 unwind label %262
 
 266:                                              ; preds = %_ZL15inhomogeneous_zRK10t_inputrec.exit57.thread.i
@@ -2958,7 +2958,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %.sink.split, %.si
   %216 = phi i1 [ true, %.split242.us ], [ false, %260 ]
   %indvars.iv301.sroa.phi.sroa.speculated = phi i32 [ %.sroa.0.1, %.split242.us ], [ %.sroa.5.0, %260 ]
   %indvars.iv301 = phi i64 [ 0, %.split242.us ], [ 1, %260 ]
-  %.0181245 = phi float [ 0.000000e+00, %.split242.us ], [ %.2, %260 ]
+  %.0182245 = phi float [ 0.000000e+00, %.split242.us ], [ %.2, %260 ]
   %217 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %indvars.iv301
   %218 = load i32, ptr %217, align 4
   %219 = srem i32 %218, %indvars.iv301.sroa.phi.sroa.speculated
@@ -2985,11 +2985,11 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %.sink.split, %.si
 231:                                              ; preds = %225, %222
   %232 = phi double [ %224, %222 ], [ %230, %225 ]
   %233 = fptrunc double %232 to float
-  %234 = tail call float @llvm.fmuladd.f32(float %210, float %233, float %.0181245)
+  %234 = tail call float @llvm.fmuladd.f32(float %210, float %233, float %.0182245)
   br label %235
 
 235:                                              ; preds = %231, %215
-  %.1 = phi float [ %234, %231 ], [ %.0181245, %215 ]
+  %.1 = phi float [ %234, %231 ], [ %.0182245, %215 ]
   %236 = icmp sgt i32 %indvars.iv301.sroa.phi.sroa.speculated, 1
   br i1 %236, label %237, label %260
 

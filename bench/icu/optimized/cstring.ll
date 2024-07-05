@@ -236,8 +236,8 @@ if.then8:                                         ; preds = %if.end24, %for.cond
 if.else13:                                        ; preds = %for.cond.preheader, %if.end24
   %2 = phi i8 [ %9, %if.end24 ], [ %1, %for.cond.preheader ]
   %3 = phi i8 [ %8, %if.end24 ], [ %0, %for.cond.preheader ]
-  %str2.addr.016 = phi ptr [ %incdec.ptr25, %if.end24 ], [ %str2, %for.cond.preheader ]
-  %str1.addr.015 = phi ptr [ %incdec.ptr, %if.end24 ], [ %str1, %for.cond.preheader ]
+  %str1.addr.016 = phi ptr [ %incdec.ptr, %if.end24 ], [ %str1, %for.cond.preheader ]
+  %str2.addr.015 = phi ptr [ %incdec.ptr25, %if.end24 ], [ %str2, %for.cond.preheader ]
   %cmp15 = icmp eq i8 %2, 0
   br i1 %cmp15, label %return, label %if.else17
 
@@ -257,8 +257,8 @@ if.else17:                                        ; preds = %if.else13
   br i1 %cmp21.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.else17
-  %incdec.ptr = getelementptr inbounds i8, ptr %str1.addr.015, i64 1
-  %incdec.ptr25 = getelementptr inbounds i8, ptr %str2.addr.016, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %str1.addr.016, i64 1
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %str2.addr.015, i64 1
   %8 = load i8, ptr %incdec.ptr, align 1
   %9 = load i8, ptr %incdec.ptr25, align 1
   %cmp7 = icmp eq i8 %8, 0
@@ -290,11 +290,11 @@ for.cond.preheader:                               ; preds = %if.else3
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end24
   %dec17.in = phi i32 [ %dec17, %if.end24 ], [ %n, %for.cond.preheader ]
-  %str2.addr.016 = phi ptr [ %incdec.ptr25, %if.end24 ], [ %str2, %for.cond.preheader ]
-  %str1.addr.015 = phi ptr [ %incdec.ptr, %if.end24 ], [ %str1, %for.cond.preheader ]
+  %str1.addr.016 = phi ptr [ %incdec.ptr, %if.end24 ], [ %str1, %for.cond.preheader ]
+  %str2.addr.015 = phi ptr [ %incdec.ptr25, %if.end24 ], [ %str2, %for.cond.preheader ]
   %dec17 = add i32 %dec17.in, -1
-  %0 = load i8, ptr %str1.addr.015, align 1
-  %1 = load i8, ptr %str2.addr.016, align 1
+  %0 = load i8, ptr %str1.addr.016, align 1
+  %1 = load i8, ptr %str2.addr.015, align 1
   %cmp7 = icmp eq i8 %0, 0
   br i1 %cmp7, label %if.then8, label %if.else13
 
@@ -323,8 +323,8 @@ if.else17:                                        ; preds = %if.else13
   br i1 %cmp21.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.else17
-  %incdec.ptr = getelementptr inbounds i8, ptr %str1.addr.015, i64 1
-  %incdec.ptr25 = getelementptr inbounds i8, ptr %str2.addr.016, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %str1.addr.016, i64 1
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %str2.addr.015, i64 1
   %tobool.not = icmp eq i32 %dec17, 0
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !10
 

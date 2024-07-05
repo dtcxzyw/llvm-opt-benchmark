@@ -3294,11 +3294,11 @@ define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11opera
 
 .lr.ph:                                           ; preds = %10, %.thread
   %.038 = phi i1 [ %.1, %.thread ], [ true, %10 ]
-  %.sroa.020.037 = phi ptr [ %44, %.thread ], [ %12, %10 ]
-  %.sroa.023.036 = phi i32 [ %.sroa.023.2, %.thread ], [ undef, %10 ]
-  %.sroa.2.035 = phi i32 [ %.sroa.2.2, %.thread ], [ undef, %10 ]
-  %.sroa.324.034 = phi i8 [ %.sroa.324.2, %.thread ], [ 0, %10 ]
-  %16 = load ptr, ptr %.sroa.020.037, align 8
+  %.sroa.324.037 = phi i8 [ %.sroa.324.2, %.thread ], [ 0, %10 ]
+  %.sroa.2.036 = phi i32 [ %.sroa.2.2, %.thread ], [ undef, %10 ]
+  %.sroa.023.035 = phi i32 [ %.sroa.023.2, %.thread ], [ undef, %10 ]
+  %.sroa.020.034 = phi ptr [ %44, %.thread ], [ %12, %10 ]
+  %16 = load ptr, ptr %.sroa.020.034, align 8
   br i1 %.038, label %24, label %17
 
 17:                                               ; preds = %.lr.ph
@@ -3333,8 +3333,8 @@ define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11opera
           to label %36 unwind label %49
 
 36:                                               ; preds = %34
-  %37 = trunc i8 %.sroa.324.034 to i1
-  %38 = icmp sge i32 %.sroa.2.035, %.sroa.0.sroa.2.0.extract.trunc
+  %37 = trunc i8 %.sroa.324.037 to i1
+  %38 = icmp sge i32 %.sroa.2.036, %.sroa.0.sroa.2.0.extract.trunc
   %or.cond.not = select i1 %37, i1 %38, i1 false
   %or.cond = select i1 %35, i1 true, i1 %or.cond.not
   br i1 %or.cond, label %.thread, label %39
@@ -3352,11 +3352,11 @@ define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11opera
   br label %.thread
 
 .thread:                                          ; preds = %36, %39, %42, %22
-  %.sroa.324.2 = phi i8 [ %.sroa.324.034, %42 ], [ %.sroa.324.034, %22 ], [ %.fca.1.extract, %39 ], [ %.sroa.324.034, %36 ]
-  %.sroa.2.2 = phi i32 [ %.sroa.2.035, %42 ], [ %.sroa.2.035, %22 ], [ %.sroa.0.sroa.2.0.extract.trunc, %39 ], [ %.sroa.2.035, %36 ]
-  %.sroa.023.2 = phi i32 [ %.sroa.023.036, %42 ], [ %.sroa.023.036, %22 ], [ %.sroa.023.0.extract.trunc, %39 ], [ %.sroa.023.036, %36 ]
+  %.sroa.023.2 = phi i32 [ %.sroa.023.035, %42 ], [ %.sroa.023.035, %22 ], [ %.sroa.023.0.extract.trunc, %39 ], [ %.sroa.023.035, %36 ]
+  %.sroa.2.2 = phi i32 [ %.sroa.2.036, %42 ], [ %.sroa.2.036, %22 ], [ %.sroa.0.sroa.2.0.extract.trunc, %39 ], [ %.sroa.2.036, %36 ]
+  %.sroa.324.2 = phi i8 [ %.sroa.324.037, %42 ], [ %.sroa.324.037, %22 ], [ %.fca.1.extract, %39 ], [ %.sroa.324.037, %36 ]
   %.1 = phi i1 [ %43, %42 ], [ %23, %22 ], [ true, %39 ], [ true, %36 ]
-  %44 = getelementptr inbounds i8, ptr %.sroa.020.037, i64 8
+  %44 = getelementptr inbounds i8, ptr %.sroa.020.034, i64 8
   %45 = icmp eq ptr %44, %14
   br i1 %45, label %.loopexit.loopexit, label %.lr.ph
 
@@ -3367,9 +3367,9 @@ define { i64, i8 } @_ZN8triggers8module_t26detect_memory_access_matchENS_11opera
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %10, %5
-  %.sroa.324.3 = phi i8 [ 0, %5 ], [ 0, %10 ], [ %.sroa.324.2, %.loopexit.loopexit ]
-  %.sroa.2.3 = phi i64 [ 0, %5 ], [ 0, %10 ], [ %47, %.loopexit.loopexit ]
   %.sroa.023.3 = phi i64 [ 0, %5 ], [ 0, %10 ], [ %48, %.loopexit.loopexit ]
+  %.sroa.2.3 = phi i64 [ 0, %5 ], [ 0, %10 ], [ %47, %.loopexit.loopexit ]
+  %.sroa.324.3 = phi i8 [ 0, %5 ], [ 0, %10 ], [ %.sroa.324.2, %.loopexit.loopexit ]
   %.sroa.023.0.insert.insert = or disjoint i64 %.sroa.2.3, %.sroa.023.3
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.023.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.324.3, 1
@@ -3420,11 +3420,11 @@ define { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr nocapture n
   br i1 %21, label %._crit_edge48.thread, label %.lr.ph47
 
 .lr.ph47:                                         ; preds = %18, %34
-  %.sroa.019.045 = phi ptr [ %35, %34 ], [ %19, %18 ]
-  %.sroa.026.044 = phi i32 [ %.sroa.026.1, %34 ], [ undef, %18 ]
-  %.sroa.2.043 = phi i32 [ %.sroa.2.1, %34 ], [ undef, %18 ]
-  %.sroa.4.042 = phi i8 [ %.sroa.4.1, %34 ], [ 0, %18 ]
-  %22 = load ptr, ptr %.sroa.019.045, align 8
+  %.sroa.4.045 = phi i8 [ %.sroa.4.1, %34 ], [ 0, %18 ]
+  %.sroa.2.044 = phi i32 [ %.sroa.2.1, %34 ], [ undef, %18 ]
+  %.sroa.026.043 = phi i32 [ %.sroa.026.1, %34 ], [ undef, %18 ]
+  %.sroa.019.042 = phi ptr [ %35, %34 ], [ %19, %18 ]
+  %22 = load ptr, ptr %.sroa.019.042, align 8
   %23 = load ptr, ptr %0, align 8
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 104
@@ -3441,8 +3441,8 @@ define { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr nocapture n
 30:                                               ; preds = %28
   %.sroa.017.sroa.2.0.extract.shift = lshr i64 %.fca.0.extract, 32
   %.sroa.017.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.017.sroa.2.0.extract.shift to i32
-  %31 = trunc i8 %.sroa.4.042 to i1
-  %32 = icmp sge i32 %.sroa.2.043, %.sroa.017.sroa.2.0.extract.trunc
+  %31 = trunc i8 %.sroa.4.045 to i1
+  %32 = icmp sge i32 %.sroa.2.044, %.sroa.017.sroa.2.0.extract.trunc
   %or.cond.not = select i1 %31, i1 %32, i1 false
   br i1 %or.cond.not, label %34, label %33
 
@@ -3451,10 +3451,10 @@ define { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr nocapture n
   br label %34
 
 34:                                               ; preds = %30, %28, %33
-  %.sroa.4.1 = phi i8 [ %.fca.1.extract, %33 ], [ %.sroa.4.042, %28 ], [ %.sroa.4.042, %30 ]
-  %.sroa.2.1 = phi i32 [ %.sroa.017.sroa.2.0.extract.trunc, %33 ], [ %.sroa.2.043, %28 ], [ %.sroa.2.043, %30 ]
-  %.sroa.026.1 = phi i32 [ %.sroa.026.0.extract.trunc, %33 ], [ %.sroa.026.044, %28 ], [ %.sroa.026.044, %30 ]
-  %35 = getelementptr inbounds i8, ptr %.sroa.019.045, i64 8
+  %.sroa.026.1 = phi i32 [ %.sroa.026.0.extract.trunc, %33 ], [ %.sroa.026.043, %28 ], [ %.sroa.026.043, %30 ]
+  %.sroa.2.1 = phi i32 [ %.sroa.017.sroa.2.0.extract.trunc, %33 ], [ %.sroa.2.044, %28 ], [ %.sroa.2.044, %30 ]
+  %.sroa.4.1 = phi i8 [ %.fca.1.extract, %33 ], [ %.sroa.4.045, %28 ], [ %.sroa.4.045, %30 ]
+  %35 = getelementptr inbounds i8, ptr %.sroa.019.042, i64 8
   %36 = icmp eq ptr %35, %20
   br i1 %36, label %._crit_edge48, label %.lr.ph47
 
@@ -3465,9 +3465,9 @@ define { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr nocapture n
   br i1 %or.cond32, label %.loopexit, label %._crit_edge48.thread
 
 ._crit_edge48.thread:                             ; preds = %18, %._crit_edge48
-  %.sroa.026.0.lcssa61 = phi i32 [ %.sroa.026.1, %._crit_edge48 ], [ undef, %18 ]
+  %.sroa.4.0.lcssa61 = phi i8 [ %.sroa.4.1, %._crit_edge48 ], [ 0, %18 ]
   %.sroa.2.0.lcssa60 = phi i32 [ %.sroa.2.1, %._crit_edge48 ], [ undef, %18 ]
-  %.sroa.4.0.lcssa59 = phi i8 [ %.sroa.4.1, %._crit_edge48 ], [ 0, %18 ]
+  %.sroa.026.0.lcssa59 = phi i32 [ %.sroa.026.1, %._crit_edge48 ], [ undef, %18 ]
   %38 = load ptr, ptr %2, align 8
   %39 = load ptr, ptr %4, align 8
   %40 = icmp eq ptr %38, %39
@@ -3489,9 +3489,9 @@ define { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr nocapture n
   br i1 %48, label %.loopexit, label %.lr.ph53
 
 .loopexit:                                        ; preds = %46, %._crit_edge48.thread, %._crit_edge48, %._crit_edge
-  %.sroa.4.2 = phi i8 [ 0, %._crit_edge ], [ %.sroa.4.1, %._crit_edge48 ], [ %.sroa.4.0.lcssa59, %._crit_edge48.thread ], [ %.sroa.4.0.lcssa59, %46 ]
+  %.sroa.026.2 = phi i32 [ undef, %._crit_edge ], [ %.sroa.026.1, %._crit_edge48 ], [ %.sroa.026.0.lcssa59, %._crit_edge48.thread ], [ %.sroa.026.0.lcssa59, %46 ]
   %.sroa.2.2 = phi i32 [ undef, %._crit_edge ], [ 1, %._crit_edge48 ], [ %.sroa.2.0.lcssa60, %._crit_edge48.thread ], [ %.sroa.2.0.lcssa60, %46 ]
-  %.sroa.026.2 = phi i32 [ undef, %._crit_edge ], [ %.sroa.026.1, %._crit_edge48 ], [ %.sroa.026.0.lcssa61, %._crit_edge48.thread ], [ %.sroa.026.0.lcssa61, %46 ]
+  %.sroa.4.2 = phi i8 [ 0, %._crit_edge ], [ %.sroa.4.1, %._crit_edge48 ], [ %.sroa.4.0.lcssa61, %._crit_edge48.thread ], [ %.sroa.4.0.lcssa61, %46 ]
   %.sroa.2.0.insert.ext = zext i32 %.sroa.2.2 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.026.0.insert.ext = zext i32 %.sroa.026.2 to i64
@@ -3539,11 +3539,11 @@ define { i64, i8 } @_ZN8triggers8module_t17detect_trap_matchERK6trap_t(ptr nocap
   br i1 %12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %24
-  %.sroa.010.020 = phi ptr [ %25, %24 ], [ %9, %7 ]
-  %.sroa.013.019 = phi i32 [ %.sroa.013.1, %24 ], [ undef, %7 ]
-  %.sroa.2.018 = phi i32 [ %.sroa.2.1, %24 ], [ undef, %7 ]
-  %.sroa.314.017 = phi i8 [ %.sroa.314.1, %24 ], [ 0, %7 ]
-  %13 = load ptr, ptr %.sroa.010.020, align 8
+  %.sroa.314.020 = phi i8 [ %.sroa.314.1, %24 ], [ 0, %7 ]
+  %.sroa.2.019 = phi i32 [ %.sroa.2.1, %24 ], [ undef, %7 ]
+  %.sroa.013.018 = phi i32 [ %.sroa.013.1, %24 ], [ undef, %7 ]
+  %.sroa.010.017 = phi ptr [ %25, %24 ], [ %9, %7 ]
+  %13 = load ptr, ptr %.sroa.010.017, align 8
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 120
@@ -3557,8 +3557,8 @@ define { i64, i8 } @_ZN8triggers8module_t17detect_trap_matchERK6trap_t(ptr nocap
 20:                                               ; preds = %.lr.ph
   %.sroa.0.sroa.2.0.extract.shift = lshr i64 %.fca.0.extract, 32
   %.sroa.0.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.0.sroa.2.0.extract.shift to i32
-  %21 = trunc i8 %.sroa.314.017 to i1
-  %22 = icmp sge i32 %.sroa.2.018, %.sroa.0.sroa.2.0.extract.trunc
+  %21 = trunc i8 %.sroa.314.020 to i1
+  %22 = icmp sge i32 %.sroa.2.019, %.sroa.0.sroa.2.0.extract.trunc
   %or.cond.not = select i1 %21, i1 %22, i1 false
   br i1 %or.cond.not, label %24, label %23
 
@@ -3567,10 +3567,10 @@ define { i64, i8 } @_ZN8triggers8module_t17detect_trap_matchERK6trap_t(ptr nocap
   br label %24
 
 24:                                               ; preds = %20, %.lr.ph, %23
-  %.sroa.314.1 = phi i8 [ %.fca.1.extract, %23 ], [ %.sroa.314.017, %.lr.ph ], [ %.sroa.314.017, %20 ]
-  %.sroa.2.1 = phi i32 [ %.sroa.0.sroa.2.0.extract.trunc, %23 ], [ %.sroa.2.018, %.lr.ph ], [ %.sroa.2.018, %20 ]
-  %.sroa.013.1 = phi i32 [ %.sroa.013.0.extract.trunc, %23 ], [ %.sroa.013.019, %.lr.ph ], [ %.sroa.013.019, %20 ]
-  %25 = getelementptr inbounds i8, ptr %.sroa.010.020, i64 8
+  %.sroa.013.1 = phi i32 [ %.sroa.013.0.extract.trunc, %23 ], [ %.sroa.013.018, %.lr.ph ], [ %.sroa.013.018, %20 ]
+  %.sroa.2.1 = phi i32 [ %.sroa.0.sroa.2.0.extract.trunc, %23 ], [ %.sroa.2.019, %.lr.ph ], [ %.sroa.2.019, %20 ]
+  %.sroa.314.1 = phi i8 [ %.fca.1.extract, %23 ], [ %.sroa.314.020, %.lr.ph ], [ %.sroa.314.020, %20 ]
+  %25 = getelementptr inbounds i8, ptr %.sroa.010.017, i64 8
   %26 = icmp eq ptr %25, %11
   br i1 %26, label %.loopexit.loopexit, label %.lr.ph
 
@@ -3581,9 +3581,9 @@ define { i64, i8 } @_ZN8triggers8module_t17detect_trap_matchERK6trap_t(ptr nocap
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %7, %2
-  %.sroa.314.2 = phi i8 [ 0, %2 ], [ 0, %7 ], [ %.sroa.314.1, %.loopexit.loopexit ]
-  %.sroa.2.2 = phi i64 [ 0, %2 ], [ 0, %7 ], [ %28, %.loopexit.loopexit ]
   %.sroa.013.2 = phi i64 [ 0, %2 ], [ 0, %7 ], [ %29, %.loopexit.loopexit ]
+  %.sroa.2.2 = phi i64 [ 0, %2 ], [ 0, %7 ], [ %28, %.loopexit.loopexit ]
+  %.sroa.314.2 = phi i8 [ 0, %2 ], [ 0, %7 ], [ %.sroa.314.1, %.loopexit.loopexit ]
   %.sroa.013.0.insert.insert = or disjoint i64 %.sroa.2.2, %.sroa.013.2
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.013.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.314.2, 1

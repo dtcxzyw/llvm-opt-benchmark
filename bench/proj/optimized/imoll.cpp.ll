@@ -326,8 +326,8 @@ define internal noundef ptr @_ZL19pj_imoll_destructorP8PJconstsi(ptr noundef %0,
   br label %16
 
 16:                                               ; preds = %.sink.split, %2
-  %.016 = phi ptr [ null, %2 ], [ %15, %.sink.split ]
-  ret ptr %.016
+  %.0 = phi ptr [ null, %2 ], [ %15, %.sink.split ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable

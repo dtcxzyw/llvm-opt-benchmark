@@ -445,7 +445,7 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5deca
   br i1 %.not146154, label %._crit_edge158, label %.lr.ph157
 
 ._crit_edge158:                                   ; preds = %.lr.ph157, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit
-  %.056.lcssa = phi i32 [ 1, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit ], [ %spec.select, %.lr.ph157 ]
+  %.055.lcssa = phi i32 [ 1, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit ], [ %spec.select, %.lr.ph157 ]
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i
 
 _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i:     ; preds = %._crit_edge158
@@ -481,10 +481,10 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5deca
   br label %95
 
 .lr.ph157:                                        ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit, %.lr.ph157
-  %.056156 = phi i32 [ %spec.select, %.lr.ph157 ], [ 1, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit ]
+  %.055156 = phi i32 [ %spec.select, %.lr.ph157 ], [ 1, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit ]
   %.sroa.7141.0155 = phi ptr [ %88, %.lr.ph157 ], [ %70, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit ]
   %87 = load i32, ptr %.sroa.7141.0155, align 4
-  %spec.select = call i32 @llvm.smax.i32(i32 %87, i32 %.056156)
+  %spec.select = call i32 @llvm.smax.i32(i32 %87, i32 %.055156)
   %88 = getelementptr i8, ptr %.sroa.7141.0155, i64 4
   %.not146 = icmp eq ptr %88, %75
   br i1 %.not146, label %._crit_edge158, label %.lr.ph157, !llvm.loop !15
@@ -520,21 +520,21 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i78:   ; preds = %91
   br label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit80
 
 95:                                               ; preds = %.lr.ph163, %_ZN5QListI7QPointFE6appendEOS0_.exit
-  %.055162 = phi double [ 0.000000e+00, %.lr.ph163 ], [ %102, %_ZN5QListI7QPointFE6appendEOS0_.exit ]
+  %.057162 = phi double [ 0.000000e+00, %.lr.ph163 ], [ %102, %_ZN5QListI7QPointFE6appendEOS0_.exit ]
   %.sroa.9.0161 = phi ptr [ %79, %.lr.ph163 ], [ %103, %_ZN5QListI7QPointFE6appendEOS0_.exit ]
   %96 = load i32, ptr %.sroa.9.0161, align 4
   %97 = mul i32 %96, %36
-  %98 = sdiv i32 %97, %.056.lcssa
+  %98 = sdiv i32 %97, %.055.lcssa
   %99 = sitofp i32 %98 to double
   %100 = fsub double %84, %99
-  store double %.055162, ptr %11, align 8
+  store double %.057162, ptr %11, align 8
   store double %100, ptr %85, align 8
   %101 = load i64, ptr %86, align 8
   invoke void @_ZN9QtPrivate12QPodArrayOpsI7QPointFE7emplaceIJS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %101, ptr noundef nonnull align 8 dereferenceable(16) %11)
           to label %_ZN5QListI7QPointFE6appendEOS0_.exit unwind label %91
 
 _ZN5QListI7QPointFE6appendEOS0_.exit:             ; preds = %95
-  %102 = fadd double %38, %.055162
+  %102 = fadd double %38, %.057162
   %103 = getelementptr i8, ptr %.sroa.9.0161, i64 4
   %.not147 = icmp eq ptr %103, %83
   br i1 %.not147, label %._crit_edge164, label %95, !llvm.loop !16

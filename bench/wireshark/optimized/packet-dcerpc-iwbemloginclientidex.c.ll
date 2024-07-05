@@ -112,25 +112,25 @@ define hidden i32 @IWbemLoginClientIDEx_dissect_struct_FILETIME(ptr noundef %0, 
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.030 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #3
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
   %16 = load i32, ptr @ett_IWbemLoginClientIDEx_FILETIME, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #3
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_IWbemLoginClientIDEx_FILETIME_dwLowDateTime, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
   %21 = load i32, ptr @hf_IWbemLoginClientIDEx_FILETIME_dwHighDateTime, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #3
-  %23 = sub i32 %22, %.030
-  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #3
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #3
+  %23 = sub i32 %22, %.0
+  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #3
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96

@@ -1091,16 +1091,16 @@ if.else13.preheader:                              ; preds = %for.cond.preheader
 
 if.else13:                                        ; preds = %if.else13.preheader, %if.else13
   %shr65 = phi i32 [ %shr, %if.else13 ], [ %shr61, %if.else13.preheader ]
-  %hi.064 = phi i32 [ %shr.hi.0, %if.else13 ], [ %sub, %if.else13.preheader ]
-  %lo.063 = phi i32 [ %lo.0.shr, %if.else13 ], [ 0, %if.else13.preheader ]
+  %lo.064 = phi i32 [ %lo.0.shr, %if.else13 ], [ 0, %if.else13.preheader ]
+  %hi.063 = phi i32 [ %shr.hi.0, %if.else13 ], [ %sub, %if.else13.preheader ]
   %idxprom14 = sext i32 %shr65 to i64
   %arrayidx15 = getelementptr inbounds i16, ptr %0, i64 %idxprom14
   %4 = load i16, ptr %arrayidx15, align 2
   %conv16 = zext i16 %4 to i32
   %cmp17 = icmp sgt i32 %conv16, %c
-  %lo.0.shr = select i1 %cmp17, i32 %lo.063, i32 %shr65
-  %shr.hi.0 = select i1 %cmp17, i32 %shr65, i32 %hi.064
-  %add = add nsw i32 %shr.hi.0, %lo.0.shr
+  %shr.hi.0 = select i1 %cmp17, i32 %shr65, i32 %hi.063
+  %lo.0.shr = select i1 %cmp17, i32 %lo.064, i32 %shr65
+  %add = add nsw i32 %lo.0.shr, %shr.hi.0
   %shr = ashr i32 %add, 1
   %cmp11 = icmp eq i32 %shr, %lo.0.shr
   br i1 %cmp11, label %if.end25, label %if.else13, !llvm.loop !6

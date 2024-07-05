@@ -830,7 +830,7 @@ proto_item_set_generated.exit24.i:                ; preds = %41, %38, %34
   br label %show_setup_info.exit
 
 show_setup_info.exit:                             ; preds = %50, %47, %proto_item_set_generated.exit24.i, %proto_item_set_generated.exit.i, %find_sprt_conversation_data.exit.thread.i, %8, %4
-  %.091 = phi ptr [ %12, %8 ], [ null, %4 ], [ %12, %find_sprt_conversation_data.exit.thread.i ], [ %12, %proto_item_set_generated.exit.i ], [ %12, %proto_item_set_generated.exit24.i ], [ %12, %47 ], [ %12, %50 ]
+  %.0 = phi ptr [ %12, %8 ], [ null, %4 ], [ %12, %find_sprt_conversation_data.exit.thread.i ], [ %12, %proto_item_set_generated.exit.i ], [ %12, %proto_item_set_generated.exit24.i ], [ %12, %47 ], [ %12, %50 ]
   %54 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #3
   %55 = lshr i16 %54, 14
   %56 = and i16 %54, 16383
@@ -863,19 +863,19 @@ find_sprt_conversation_data.exit.thread:          ; preds = %show_setup_info.exi
   br label %find_sprt_conversation_data.exit102
 
 find_sprt_conversation_data.exit102:              ; preds = %68, %find_sprt_conversation_data.exit.thread, %find_sprt_conversation_data.exit
-  %.089 = phi ptr [ %61, %find_sprt_conversation_data.exit ], [ %70, %68 ], [ null, %find_sprt_conversation_data.exit.thread ]
+  %.091 = phi ptr [ %61, %find_sprt_conversation_data.exit ], [ %70, %68 ], [ null, %find_sprt_conversation_data.exit.thread ]
   %71 = load i32, ptr @hf_sprt_header_extension_bit, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %.091, i32 noundef %71, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %71, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %73 = load i32, ptr @hf_sprt_subsession_id, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %.091, i32 noundef %73, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %73, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %75 = load i32, ptr @hf_sprt_reserved_bit, align 4
-  %76 = tail call ptr @proto_tree_add_item(ptr noundef %.091, i32 noundef %75, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %75, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
   %77 = load i32, ptr @hf_sprt_payload_type, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %.091, i32 noundef %77, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %77, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
   %79 = load i32, ptr @hf_sprt_transport_channel_id, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %.091, i32 noundef %79, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %79, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
   %81 = load i32, ptr @hf_sprt_sequence_number, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %.091, i32 noundef %81, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %81, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
   %83 = zext nneg i16 %55 to i32
   %84 = icmp ult i16 %54, 16384
   %85 = zext nneg i16 %56 to i32
@@ -888,34 +888,34 @@ find_sprt_conversation_data.exit102:              ; preds = %68, %find_sprt_conv
   br label %89
 
 89:                                               ; preds = %87, %find_sprt_conversation_data.exit102
-  %90 = getelementptr inbounds i8, ptr %.089, i64 24
+  %90 = getelementptr inbounds i8, ptr %.091, i64 24
   %91 = zext nneg i16 %55 to i64
   %92 = getelementptr [4 x i32], ptr %90, i64 0, i64 %91
   store i32 %85, ptr %92, align 4
   %93 = load i32, ptr @hf_sprt_number_of_ack_fields, align 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %.091, i32 noundef %93, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #3
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %93, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #3
   %95 = load i32, ptr @hf_sprt_base_sequence_number, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %.091, i32 noundef %95, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #3
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %95, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #3
   %.not97 = icmp ult i16 %57, 16384
   br i1 %.not97, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %89
   %97 = load i32, ptr @hf_sprt_ack_field_items, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %.091, i32 noundef %97, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #3
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %97, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #3
   %99 = load i32, ptr @ett_sprt_ack_fields, align 4
   %100 = tail call ptr @proto_item_add_subtree(ptr noundef %98, i32 noundef %99) #3
   %101 = zext nneg i16 %58 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0111 = phi i32 [ %107, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.090110 = phi i32 [ %106, %.lr.ph ], [ 6, %.lr.ph.preheader ]
+  %.089111 = phi i32 [ %106, %.lr.ph ], [ 6, %.lr.ph.preheader ]
+  %.090110 = phi i32 [ %107, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %102 = load i32, ptr @hf_sprt_transport_channel_item, align 4
-  %103 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %102, ptr noundef %0, i32 noundef %.090110, i32 noundef 2, i32 noundef 0) #3
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %102, ptr noundef %0, i32 noundef %.089111, i32 noundef 2, i32 noundef 0) #3
   %104 = load i32, ptr @hf_sprt_sequence_item, align 4
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %104, ptr noundef %0, i32 noundef %.090110, i32 noundef 2, i32 noundef 0) #3
-  %106 = add nuw nsw i32 %.090110, 2
-  %107 = add nuw nsw i32 %.0111, 1
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %104, ptr noundef %0, i32 noundef %.089111, i32 noundef 2, i32 noundef 0) #3
+  %106 = add nuw nsw i32 %.089111, 2
+  %107 = add nuw nsw i32 %.090110, 1
   %exitcond.not = icmp eq i32 %107, %101
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
@@ -941,7 +941,7 @@ find_sprt_conversation_data.exit102:              ; preds = %68, %find_sprt_conv
 
 116:                                              ; preds = %111
   %117 = load i32, ptr @hf_sprt_payload_length, align 4
-  %118 = tail call ptr @proto_tree_add_uint(ptr noundef %.091, i32 noundef %117, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %115) #3
+  %118 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %117, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %115) #3
   tail call void @proto_item_set_len(ptr noundef %118, i32 noundef %115) #3
   %119 = load i32, ptr @ett_payload, align 4
   %120 = tail call ptr @proto_item_add_subtree(ptr noundef %118, i32 noundef %119) #3
@@ -1170,7 +1170,7 @@ find_sprt_conversation_data.exit102:              ; preds = %68, %find_sprt_conv
   %288 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %287) #3
   %289 = load i32, ptr @hf_sprt_payload_msg_connect_dlci_enabled, align 4
   %290 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %289, ptr noundef %0, i32 noundef %287, i32 noundef 2, i32 noundef 0) #3
-  %291 = getelementptr inbounds i8, ptr %.089, i64 44
+  %291 = getelementptr inbounds i8, ptr %.091, i64 44
   %292 = load i32, ptr %291, align 4
   %293 = icmp eq i32 %292, 0
   br i1 %293, label %.sink.split.i, label %297
@@ -1180,7 +1180,7 @@ find_sprt_conversation_data.exit102:              ; preds = %68, %find_sprt_conv
   %295 = load i32, ptr %294, align 4
   store i32 %295, ptr %291, align 4
   %.not670.i = icmp sgt i16 %288, -1
-  %296 = getelementptr inbounds i8, ptr %.089, i64 40
+  %296 = getelementptr inbounds i8, ptr %.091, i64 40
   %..i = select i1 %.not670.i, i32 2, i32 1
   store i32 %..i, ptr %296, align 4
   br label %297
@@ -1424,7 +1424,7 @@ switch.early.test.i:                              ; preds = %335, %.thread.i
   br i1 %.not667.i, label %proto_item_set_generated.exit.i104, label %479
 
 479:                                              ; preds = %477
-  %480 = getelementptr inbounds i8, ptr %.089, i64 40
+  %480 = getelementptr inbounds i8, ptr %.091, i64 40
   %481 = load i32, ptr %480, align 4
   switch i32 %481, label %525 [
     i32 1, label %482
@@ -1458,7 +1458,7 @@ switch.early.test.i:                              ; preds = %335, %.thread.i
   %.1664.i = phi i32 [ %491, %482 ], [ %499, %493 ]
   %.3.i = phi i32 [ %490, %482 ], [ %498, %493 ]
   %501 = load i32, ptr @hf_sprt_payload_i_octet_dlci_setup_by_connect_frame, align 4
-  %502 = getelementptr inbounds i8, ptr %.089, i64 44
+  %502 = getelementptr inbounds i8, ptr %.091, i64 44
   %503 = load i32, ptr %502, align 4
   %504 = tail call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %501, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %503) #3
   %.not.i.i105 = icmp eq ptr %504, null
@@ -1491,7 +1491,7 @@ switch.early.test.i:                              ; preds = %335, %.thread.i
 
 proto_item_set_generated.exit673.i:               ; preds = %514, %511, %508
   %518 = load i32, ptr @hf_sprt_payload_i_octet_dlci_setup_by_connect_frame, align 4
-  %519 = getelementptr inbounds i8, ptr %.089, i64 44
+  %519 = getelementptr inbounds i8, ptr %.091, i64 44
   %520 = load i32, ptr %519, align 4
   %521 = tail call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %518, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %520) #3
   %.not.i674.i = icmp eq ptr %521, null
@@ -1625,7 +1625,7 @@ proto_item_set_generated.exit.i104:               ; preds = %proto_item_set_gene
 
 613:                                              ; preds = %111
   %614 = load i32, ptr @hf_sprt_payload_no_data, align 4
-  %615 = tail call ptr @proto_tree_add_item(ptr noundef %.091, i32 noundef %614, ptr noundef %0, i32 noundef %.1, i32 noundef 0, i32 noundef 0) #3
+  %615 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %614, ptr noundef %0, i32 noundef %.1, i32 noundef 0, i32 noundef 0) #3
   %616 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %616, i32 noundef 25, ptr noundef nonnull @.str.408) #3
   br label %dissect_sprt_data.exit

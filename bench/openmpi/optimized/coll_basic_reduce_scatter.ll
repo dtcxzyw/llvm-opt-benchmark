@@ -152,8 +152,8 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br label %87
 
 87:                                               ; preds = %83, %85
-  %.0260 = phi i32 [ %84, %83 ], [ %86, %85 ]
-  %88 = icmp sgt i32 %.0260, -1
+  %.0262 = phi i32 [ %84, %83 ], [ %86, %85 ]
+  %88 = icmp sgt i32 %.0262, -1
   br i1 %88, label %89, label %210
 
 89:                                               ; preds = %87
@@ -242,21 +242,21 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br i1 %120, label %.lr.ph397, label %._crit_edge398
 
 .lr.ph397:                                        ; preds = %._crit_edge374, %195
-  %.0254395 = phi i32 [ %196, %195 ], [ %68, %._crit_edge374 ]
-  %.0255394 = phi i32 [ %.1256435, %195 ], [ 0, %._crit_edge374 ]
-  %.0259393 = phi i32 [ %197, %195 ], [ %119, %._crit_edge374 ]
-  %121 = xor i32 %.0259393, %.0260
+  %.0256395 = phi i32 [ %196, %195 ], [ %68, %._crit_edge374 ]
+  %.0257394 = phi i32 [ %.1258435, %195 ], [ 0, %._crit_edge374 ]
+  %.0261393 = phi i32 [ %197, %195 ], [ %119, %._crit_edge374 ]
+  %121 = xor i32 %.0261393, %.0262
   %122 = icmp slt i32 %121, %69
   %123 = shl nuw nsw i32 %121, 1
   %124 = or disjoint i32 %123, 1
   %125 = add nsw i32 %121, %69
   %126 = select i1 %122, i32 %124, i32 %125
-  %127 = icmp slt i32 %.0260, %121
-  %128 = add i32 %.0255394, %.0259393
+  %127 = icmp slt i32 %.0262, %121
+  %128 = add i32 %.0257394, %.0261393
   br i1 %127, label %129, label %.lr.ph378.preheader
 
 129:                                              ; preds = %.lr.ph397
-  %130 = icmp slt i32 %128, %.0254395
+  %130 = icmp slt i32 %128, %.0256395
   br i1 %130, label %.lr.ph387.preheader, label %.lr.ph391.preheader
 
 .lr.ph387.preheader:                              ; preds = %129
@@ -265,7 +265,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 
 .lr.ph391.preheader:                              ; preds = %.lr.ph387, %129
   %.0251.lcssa = phi i32 [ 0, %129 ], [ %136, %.lr.ph387 ]
-  %132 = sext i32 %.0255394 to i64
+  %132 = sext i32 %.0257394 to i64
   %133 = sext i32 %128 to i64
   br label %.lr.ph391
 
@@ -277,7 +277,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %136 = add nsw i32 %135, %.0251385
   %indvars.iv.next425 = add nuw nsw i64 %indvars.iv424, 1
   %137 = trunc nuw i64 %indvars.iv.next425 to i32
-  %138 = icmp sgt i32 %.0254395, %137
+  %138 = icmp sgt i32 %.0256395, %137
   br i1 %138, label %.lr.ph387, label %.lr.ph391.preheader, !llvm.loop !8
 
 .lr.ph391:                                        ; preds = %.lr.ph391.preheader, %.lr.ph391
@@ -291,12 +291,12 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br i1 %142, label %.lr.ph391, label %.loopexit, !llvm.loop !9
 
 .lr.ph378.preheader:                              ; preds = %.lr.ph397
-  %143 = sext i32 %.0255394 to i64
+  %143 = sext i32 %.0257394 to i64
   %144 = sext i32 %128 to i64
   br label %.lr.ph378
 
 .preheader361:                                    ; preds = %.lr.ph378
-  %145 = icmp slt i32 %128, %.0254395
+  %145 = icmp slt i32 %128, %.0256395
   br i1 %145, label %.lr.ph382.preheader, label %.loopexit.thread
 
 .lr.ph382.preheader:                              ; preds = %.preheader361
@@ -321,12 +321,12 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %153 = add nsw i32 %152, %.1381
   %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1
   %154 = trunc nuw i64 %indvars.iv.next422 to i32
-  %155 = icmp sgt i32 %.0254395, %154
+  %155 = icmp sgt i32 %.0256395, %154
   br i1 %155, label %.lr.ph382, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph382, %.lr.ph391
-  %.1258 = phi i32 [ %128, %.lr.ph391 ], [ %.0255394, %.lr.ph382 ]
-  %.1256 = phi i32 [ %.0255394, %.lr.ph391 ], [ %128, %.lr.ph382 ]
+  %.1260 = phi i32 [ %128, %.lr.ph391 ], [ %.0257394, %.lr.ph382 ]
+  %.1258 = phi i32 [ %.0257394, %.lr.ph391 ], [ %128, %.lr.ph382 ]
   %.2253 = phi i32 [ %.0251.lcssa, %.lr.ph391 ], [ %149, %.lr.ph382 ]
   %.2 = phi i32 [ %141, %.lr.ph391 ], [ %153, %.lr.ph382 ]
   %156 = icmp sgt i32 %.2, 0
@@ -334,7 +334,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 
 157:                                              ; preds = %.loopexit
   %158 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
-  %159 = zext nneg i32 %.1256 to i64
+  %159 = zext nneg i32 %.1258 to i64
   %160 = getelementptr inbounds i32, ptr %95, i64 %159
   %161 = load i32, ptr %160, align 4
   %162 = sext i32 %161 to i64
@@ -354,14 +354,14 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %168 = phi i1 [ true, %157 ], [ false, %.loopexit ], [ false, %.preheader361 ]
   %.2437 = phi i32 [ %.2, %157 ], [ %.2, %.loopexit ], [ 0, %.preheader361 ]
   %.2253436 = phi i32 [ %.2253, %157 ], [ %.2253, %.loopexit ], [ %149, %.preheader361 ]
-  %.1256435 = phi i32 [ %.1256, %157 ], [ %.1256, %.loopexit ], [ %128, %.preheader361 ]
-  %.1258434 = phi i32 [ %.1258, %157 ], [ %.1258, %.loopexit ], [ %.0255394, %.preheader361 ]
+  %.1258435 = phi i32 [ %.1258, %157 ], [ %.1258, %.loopexit ], [ %128, %.preheader361 ]
+  %.1260434 = phi i32 [ %.1260, %157 ], [ %.1260, %.loopexit ], [ %.0257394, %.preheader361 ]
   %169 = icmp sgt i32 %.2253436, 0
   br i1 %169, label %170, label %181
 
 170:                                              ; preds = %.loopexit.thread
   %171 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
-  %172 = zext nneg i32 %.1258434 to i64
+  %172 = zext nneg i32 %.1260434 to i64
   %173 = getelementptr inbounds i32, ptr %95, i64 %172
   %174 = load i32, ptr %173, align 4
   %175 = sext i32 %174 to i64
@@ -392,7 +392,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br label %260
 
 186:                                              ; preds = %182
-  %187 = zext nneg i32 %.1256435 to i64
+  %187 = zext nneg i32 %.1258435 to i64
   %188 = getelementptr inbounds i32, ptr %95, i64 %187
   %189 = load i32, ptr %188, align 4
   %190 = sext i32 %189 to i64
@@ -404,9 +404,9 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br label %195
 
 195:                                              ; preds = %186, %181
-  %196 = add nuw nsw i32 %.1256435, %.0259393
-  %197 = lshr i32 %.0259393, 1
-  %.not399 = icmp ult i32 %.0259393, 2
+  %196 = add nuw nsw i32 %.1258435, %.0261393
+  %197 = lshr i32 %.0261393, 1
+  %.not399 = icmp ult i32 %.0261393, 2
   br i1 %.not399, label %._crit_edge398, label %.lr.ph397, !llvm.loop !12
 
 ._crit_edge398:                                   ; preds = %195, %._crit_edge374
@@ -489,15 +489,15 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   br i1 %240, label %.thread357, label %241
 
 241:                                              ; preds = %236, %234
-  %.0264 = phi ptr [ %239, %236 ], [ null, %234 ]
-  %.0262 = phi ptr [ %237, %236 ], [ null, %234 ]
+  %.0266 = phi ptr [ %239, %236 ], [ null, %234 ]
+  %.0264 = phi ptr [ %237, %236 ], [ null, %234 ]
   %242 = getelementptr inbounds i8, ptr %5, i64 328
   %243 = load ptr, ptr %242, align 8
   %244 = getelementptr inbounds i8, ptr %243, i64 176
   %245 = load ptr, ptr %244, align 8
   %246 = getelementptr inbounds i8, ptr %243, i64 184
   %247 = load ptr, ptr %246, align 8
-  %248 = tail call i32 %245(ptr noundef %spec.select, ptr noundef %.0264, i32 noundef %29, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 0, ptr noundef %5, ptr noundef %247) #6
+  %248 = tail call i32 %245(ptr noundef %spec.select, ptr noundef %.0266, i32 noundef %29, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 0, ptr noundef %5, ptr noundef %247) #6
   %249 = icmp eq i32 %248, 0
   br i1 %249, label %250, label %260
 
@@ -510,7 +510,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %256 = load i32, ptr %255, align 4
   %257 = getelementptr inbounds i8, ptr %251, i64 264
   %258 = load ptr, ptr %257, align 8
-  %259 = tail call i32 %253(ptr noundef %.0264, ptr noundef nonnull %2, ptr noundef nonnull %14, ptr noundef nonnull %3, ptr noundef %1, i32 noundef %256, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %258) #6
+  %259 = tail call i32 %253(ptr noundef %.0266, ptr noundef nonnull %2, ptr noundef nonnull %14, ptr noundef nonnull %3, ptr noundef %1, i32 noundef %256, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %258) #6
   br label %260
 
 .thread341:                                       ; preds = %60, %75, %99, %79, %89
@@ -524,32 +524,32 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 
 260:                                              ; preds = %167, %180, %185, %208, %241, %250, %210, %220, %.thread340.thread, %215, %225
   %.7 = phi i32 [ %166, %167 ], [ %179, %180 ], [ %184, %185 ], [ %207, %208 ], [ %219, %215 ], [ 0, %.thread340.thread ], [ %233, %225 ], [ 0, %220 ], [ 0, %210 ], [ %259, %250 ], [ %248, %241 ]
-  %.1263 = phi ptr [ %56, %167 ], [ %56, %180 ], [ %56, %185 ], [ %56, %208 ], [ %56, %215 ], [ %56, %.thread340.thread ], [ %56, %225 ], [ %56, %220 ], [ %56, %210 ], [ %.0262, %250 ], [ %.0262, %241 ]
-  %.0261 = phi ptr [ %61, %167 ], [ %61, %180 ], [ %61, %185 ], [ %61, %208 ], [ %61, %215 ], [ %61, %.thread340.thread ], [ %61, %225 ], [ %61, %220 ], [ %61, %210 ], [ null, %250 ], [ null, %241 ]
+  %.1265 = phi ptr [ %56, %167 ], [ %56, %180 ], [ %56, %185 ], [ %56, %208 ], [ %56, %215 ], [ %56, %.thread340.thread ], [ %56, %225 ], [ %56, %220 ], [ %56, %210 ], [ %.0264, %250 ], [ %.0264, %241 ]
+  %.0263 = phi ptr [ %61, %167 ], [ %61, %180 ], [ %61, %185 ], [ %61, %208 ], [ %61, %215 ], [ %61, %.thread340.thread ], [ %61, %225 ], [ %61, %220 ], [ %61, %210 ], [ null, %250 ], [ null, %241 ]
   call void @free(ptr noundef %14) #6
-  %.not325 = icmp eq ptr %.1263, null
+  %.not325 = icmp eq ptr %.1265, null
   br i1 %.not325, label %262, label %261
 
 261:                                              ; preds = %.thread341, %260
-  %.0261349 = phi ptr [ %61, %.thread341 ], [ %.0261, %260 ]
-  %.1263348 = phi ptr [ %56, %.thread341 ], [ %.1263, %260 ]
+  %.0263349 = phi ptr [ %61, %.thread341 ], [ %.0263, %260 ]
+  %.1265348 = phi ptr [ %56, %.thread341 ], [ %.1265, %260 ]
   %.7346 = phi i32 [ %.7.ph, %.thread341 ], [ %.7, %260 ]
-  call void @free(ptr noundef nonnull %.1263348) #6
+  call void @free(ptr noundef nonnull %.1265348) #6
   br label %262
 
 262:                                              ; preds = %261, %260
-  %.0261350 = phi ptr [ %.0261349, %261 ], [ %.0261, %260 ]
+  %.0263350 = phi ptr [ %.0263349, %261 ], [ %.0263, %260 ]
   %.7347 = phi i32 [ %.7346, %261 ], [ %.7, %260 ]
-  %.not326 = icmp eq ptr %.0261350, null
+  %.not326 = icmp eq ptr %.0263350, null
   br i1 %.not326, label %264, label %263
 
 263:                                              ; preds = %262
-  call void @free(ptr noundef nonnull %.0261350) #6
+  call void @free(ptr noundef nonnull %.0263350) #6
   br label %264
 
 264:                                              ; preds = %.thread357, %262, %263, %7, %31
-  %.0275 = phi i32 [ 0, %31 ], [ -2, %7 ], [ %.7347, %263 ], [ %.7347, %262 ], [ -2, %.thread357 ]
-  ret i32 %.0275
+  %.0254 = phi i32 [ 0, %31 ], [ -2, %7 ], [ %.7347, %263 ], [ %.7347, %262 ], [ -2, %.thread357 ]
+  ret i32 %.0254
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -704,25 +704,25 @@ ompi_comm_remote_size.exit:                       ; preds = %7, %13
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.092146 = phi i32 [ 0, %.lr.ph.preheader ], [ %24, %.lr.ph ]
+  %.093146 = phi i32 [ 0, %.lr.ph.preheader ], [ %24, %.lr.ph ]
   %22 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
-  %24 = add nsw i32 %23, %.092146
+  %24 = add nsw i32 %23, %.093146
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %ompi_comm_remote_size.exit
-  %.092.lcssa = phi i32 [ 0, %ompi_comm_remote_size.exit ], [ %24, %.lr.ph ]
+  %.093.lcssa = phi i32 [ 0, %ompi_comm_remote_size.exit ], [ %24, %.lr.ph ]
   %25 = icmp eq i32 %.val, 0
   br i1 %25, label %26, label %79
 
 26:                                               ; preds = %._crit_edge
-  %27 = sext i32 %.092.lcssa to i64
+  %27 = sext i32 %.093.lcssa to i64
   %28 = getelementptr inbounds i8, ptr %3, i64 24
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
-  %31 = icmp eq i32 %.092.lcssa, 0
+  %31 = icmp eq i32 %.093.lcssa, 0
   %or.cond.i = or i1 %31, %30
   br i1 %or.cond.i, label %opal_datatype_span.exit, label %32
 
@@ -807,31 +807,31 @@ opal_datatype_span.exit:                          ; preds = %26, %32
   br i1 %74, label %.lr.ph154, label %.loopexit
 
 .lr.ph154:                                        ; preds = %.preheader, %77
-  %.085153 = phi ptr [ %.086152, %77 ], [ %65, %.preheader ]
-  %.086152 = phi ptr [ %.085153, %77 ], [ %64, %.preheader ]
+  %.086153 = phi ptr [ %.087152, %77 ], [ %65, %.preheader ]
+  %.087152 = phi ptr [ %.086153, %77 ], [ %64, %.preheader ]
   %.2151 = phi i32 [ %78, %77 ], [ 1, %.preheader ]
   %75 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
-  %76 = call i32 %75(ptr noundef %.085153, i64 noundef %27, ptr noundef %3, i32 noundef %.2151, i32 noundef -22, ptr noundef %5, ptr noundef null) #6
+  %76 = call i32 %75(ptr noundef %.086153, i64 noundef %27, ptr noundef %3, i32 noundef %.2151, i32 noundef -22, ptr noundef %5, ptr noundef null) #6
   %.not108 = icmp eq i32 %76, 0
   br i1 %.not108, label %77, label %.loopexit143
 
 77:                                               ; preds = %.lr.ph154
-  call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef %.086152, ptr noundef %.085153, i64 noundef %27, ptr noundef %3)
+  call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef %.087152, ptr noundef %.086153, i64 noundef %27, ptr noundef %3)
   %78 = add nuw nsw i32 %.2151, 1
   %exitcond165.not = icmp eq i32 %78, %18
   br i1 %exitcond165.not, label %.loopexit, label %.lr.ph154, !llvm.loop !16
 
 79:                                               ; preds = %._crit_edge
   %80 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
-  %81 = sext i32 %.092.lcssa to i64
+  %81 = sext i32 %.093.lcssa to i64
   %82 = tail call i32 %80(ptr noundef %0, i64 noundef %81, ptr noundef %3, i32 noundef 0, i32 noundef -22, i32 noundef 4, ptr noundef %5) #6
   %.not = icmp eq i32 %82, 0
   br i1 %.not, label %.loopexit, label %.thread139
 
 .loopexit:                                        ; preds = %77, %.preheader, %79
-  %.090 = phi ptr [ null, %79 ], [ %58, %.preheader ], [ %58, %77 ]
-  %.088 = phi ptr [ null, %79 ], [ %59, %.preheader ], [ %59, %77 ]
-  %.187 = phi ptr [ null, %79 ], [ %64, %.preheader ], [ %.085153, %77 ]
+  %.091 = phi ptr [ null, %79 ], [ %58, %.preheader ], [ %58, %77 ]
+  %.089 = phi ptr [ null, %79 ], [ %59, %.preheader ], [ %59, %77 ]
+  %.188 = phi ptr [ null, %79 ], [ %64, %.preheader ], [ %.086153, %77 ]
   %.084 = phi ptr [ null, %79 ], [ %48, %.preheader ], [ %48, %77 ]
   %83 = getelementptr inbounds i8, ptr %5, i64 264
   %84 = load ptr, ptr %83, align 8
@@ -844,34 +844,34 @@ opal_datatype_span.exit:                          ; preds = %26, %32
   %91 = load i32, ptr %90, align 4
   %92 = getelementptr inbounds i8, ptr %86, i64 264
   %93 = load ptr, ptr %92, align 8
-  %94 = call i32 %88(ptr noundef %.187, ptr noundef %2, ptr noundef %.084, ptr noundef %3, ptr noundef %1, i32 noundef %91, ptr noundef %3, i32 noundef 0, ptr noundef %84, ptr noundef %93) #6
+  %94 = call i32 %88(ptr noundef %.188, ptr noundef %2, ptr noundef %.084, ptr noundef %3, ptr noundef %1, i32 noundef %91, ptr noundef %3, i32 noundef 0, ptr noundef %84, ptr noundef %93) #6
   br label %.loopexit143
 
 .loopexit143:                                     ; preds = %.lr.ph154, %._crit_edge150, %.loopexit
-  %.093 = phi i32 [ %94, %.loopexit ], [ -2, %._crit_edge150 ], [ %76, %.lr.ph154 ]
-  %.191 = phi ptr [ %.090, %.loopexit ], [ %58, %._crit_edge150 ], [ %58, %.lr.ph154 ]
-  %.189 = phi ptr [ %.088, %.loopexit ], [ %59, %._crit_edge150 ], [ %59, %.lr.ph154 ]
+  %.192 = phi ptr [ %.091, %.loopexit ], [ %58, %._crit_edge150 ], [ %58, %.lr.ph154 ]
+  %.190 = phi ptr [ %.089, %.loopexit ], [ %59, %._crit_edge150 ], [ %59, %.lr.ph154 ]
+  %.085 = phi i32 [ %94, %.loopexit ], [ -2, %._crit_edge150 ], [ %76, %.lr.ph154 ]
   %.1 = phi ptr [ %.084, %.loopexit ], [ %48, %._crit_edge150 ], [ %48, %.lr.ph154 ]
-  %.not109 = icmp eq ptr %.191, null
+  %.not109 = icmp eq ptr %.192, null
   br i1 %.not109, label %95, label %.thread
 
 .thread:                                          ; preds = %71, %68, %62, %.loopexit143
   %.1124 = phi ptr [ %.1, %.loopexit143 ], [ %48, %62 ], [ %48, %68 ], [ %48, %71 ]
-  %.189122 = phi ptr [ %.189, %.loopexit143 ], [ %59, %62 ], [ %59, %68 ], [ %59, %71 ]
-  %.191121 = phi ptr [ %.191, %.loopexit143 ], [ %58, %62 ], [ %58, %68 ], [ %58, %71 ]
-  %.093119 = phi i32 [ %.093, %.loopexit143 ], [ %67, %62 ], [ %70, %68 ], [ %73, %71 ]
-  call void @free(ptr noundef nonnull %.191121) #6
+  %.085122 = phi i32 [ %.085, %.loopexit143 ], [ %67, %62 ], [ %70, %68 ], [ %73, %71 ]
+  %.190120 = phi ptr [ %.190, %.loopexit143 ], [ %59, %62 ], [ %59, %68 ], [ %59, %71 ]
+  %.192119 = phi ptr [ %.192, %.loopexit143 ], [ %58, %62 ], [ %58, %68 ], [ %58, %71 ]
+  call void @free(ptr noundef nonnull %.192119) #6
   br label %95
 
 95:                                               ; preds = %.thread, %.loopexit143
   %.1125 = phi ptr [ %.1124, %.thread ], [ %.1, %.loopexit143 ]
-  %.189123 = phi ptr [ %.189122, %.thread ], [ %.189, %.loopexit143 ]
-  %.093120 = phi i32 [ %.093119, %.thread ], [ %.093, %.loopexit143 ]
-  %.not110 = icmp eq ptr %.189123, null
+  %.085123 = phi i32 [ %.085122, %.thread ], [ %.085, %.loopexit143 ]
+  %.190121 = phi ptr [ %.190120, %.thread ], [ %.190, %.loopexit143 ]
+  %.not110 = icmp eq ptr %.190121, null
   br i1 %.not110, label %97, label %96
 
 96:                                               ; preds = %95
-  call void @free(ptr noundef nonnull %.189123) #6
+  call void @free(ptr noundef nonnull %.190121) #6
   br label %97
 
 97:                                               ; preds = %96, %95
@@ -883,7 +883,7 @@ opal_datatype_span.exit:                          ; preds = %26, %32
   br label %.thread139
 
 .thread139:                                       ; preds = %79, %97, %98, %opal_datatype_span.exit
-  %.0 = phi i32 [ -2, %opal_datatype_span.exit ], [ %.093120, %98 ], [ %.093120, %97 ], [ %82, %79 ]
+  %.0 = phi i32 [ -2, %opal_datatype_span.exit ], [ %.085123, %98 ], [ %.085123, %97 ], [ %82, %79 ]
   ret i32 %.0
 }
 

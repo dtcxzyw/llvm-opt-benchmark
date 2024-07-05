@@ -105,41 +105,41 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.030.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %.02329.i = phi i32 [ %18, %17 ], [ %4, %2 ]
-  %6 = icmp ult i32 %.02329.i, 100
+  %.02230.i = phi i32 [ %18, %17 ], [ %4, %2 ]
+  %.02329.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %6 = icmp ult i32 %.02230.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.030.i, 1
+  %8 = add i32 %.02329.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i32 %.02329.i, 1000
+  %10 = icmp ult i32 %.02230.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.030.i, 2
+  %12 = add i32 %.02329.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %.02329.i, 10000
+  %14 = icmp ult i32 %.02230.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.030.i, 3
+  %16 = add i32 %.02329.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i32 %.02329.i, 10000
-  %19 = add i32 %.030.i, 4
-  %20 = icmp ult i32 %.02329.i, 100000
+  %18 = udiv i32 %.02230.i, 10000
+  %19 = add i32 %.02329.i, 4
+  %20 = icmp ult i32 %.02230.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
-  %21 = add i32 %.022.i, %.lobit
+  %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
   %23 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #7
@@ -152,7 +152,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br i1 %26, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
-  %27 = add i32 %.022.i, -1
+  %27 = add i32 %.0.i, -1
   br label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11, %.lr.ph.preheader.i
@@ -292,10 +292,10 @@ define dso_local void @_ZN9Stockfish9Bitboards4initEv() local_unnamed_addr #3 {
   br label %52
 
 39:                                               ; preds = %22, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit
-  %.029.idx127 = phi i64 [ 0, %22 ], [ %.029.add, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit ]
+  %.028.idx127 = phi i64 [ 0, %22 ], [ %.028.add, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit ]
   %40 = phi i64 [ %.promoted, %22 ], [ %51, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit ]
-  %.029.ptr = getelementptr inbounds i8, ptr @constinit, i64 %.029.idx127
-  %41 = load i32, ptr %.029.ptr, align 4
+  %.028.ptr = getelementptr inbounds i8, ptr @constinit, i64 %.028.idx127
+  %41 = load i32, ptr %.028.ptr, align 4
   %42 = add nsw i32 %41, %37
   %43 = icmp ult i32 %42, 64
   br i1 %43, label %44, label %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit
@@ -312,8 +312,8 @@ define dso_local void @_ZN9Stockfish9Bitboards4initEv() local_unnamed_addr #3 {
 _ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit: ; preds = %39, %44
   %50 = phi i64 [ 0, %39 ], [ %spec.select.i, %44 ]
   %51 = or i64 %40, %50
-  %.029.add = add nuw nsw i64 %.029.idx127, 4
-  %.not = icmp eq i64 %.029.add, 32
+  %.028.add = add nuw nsw i64 %.028.idx127, 4
+  %.not = icmp eq i64 %.028.add, 32
   br i1 %.not, label %.preheader, label %39
 
 52:                                               ; preds = %.preheader, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit38
@@ -372,9 +372,9 @@ _ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit38: ; preds = %52
   br label %86
 
 86:                                               ; preds = %65, %222
-  %.028.idx132 = phi i64 [ 0, %65 ], [ %.028.add, %222 ]
-  %.028.ptr = getelementptr inbounds i8, ptr %1, i64 %.028.idx132
-  %87 = load i32, ptr %.028.ptr, align 4
+  %.029.idx132 = phi i64 [ 0, %65 ], [ %.029.add, %222 ]
+  %.029.ptr = getelementptr inbounds i8, ptr %1, i64 %.029.idx132
+  %87 = load i32, ptr %.029.ptr, align 4
   %88 = zext i32 %87 to i64
   %89 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 %88, i64 %indvars.iv148
   %90 = load i64, ptr %89, align 8
@@ -553,8 +553,8 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit44: ; preds = %_ZN9Stoc
   br i1 %exitcond147.not, label %222, label %91, !llvm.loop !19
 
 222:                                              ; preds = %218
-  %.028.add = add nuw nsw i64 %.028.idx132, 4
-  %.not35 = icmp eq i64 %.028.add, 8
+  %.029.add = add nuw nsw i64 %.029.idx132, 4
+  %.not35 = icmp eq i64 %.029.add, 8
   br i1 %.not35, label %223, label %86
 
 223:                                              ; preds = %222
@@ -578,8 +578,8 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_111init_magicsENS_9PieceT
 
 8:                                                ; preds = %3, %154
   %indvars.iv102 = phi i64 [ 0, %3 ], [ %indvars.iv.next103, %154 ]
-  %.04293 = phi i64 [ 0, %3 ], [ %indvars.iv.next, %154 ]
-  %.04492 = phi i32 [ 0, %3 ], [ %127, %154 ]
+  %.04293 = phi i32 [ 0, %3 ], [ %127, %154 ]
+  %.04492 = phi i64 [ 0, %3 ], [ %indvars.iv.next, %154 ]
   %indvars104 = trunc i64 %indvars.iv102 to i32
   %9 = and i64 %indvars.iv102, 56
   %10 = and i64 %indvars.iv102, 7
@@ -662,7 +662,7 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit: ; p
 52:                                               ; preds = %_ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit
   %53 = getelementptr i8, ptr %26, i64 -16
   %54 = load ptr, ptr %53, align 8
-  %sext106 = shl i64 %.04293, 32
+  %sext106 = shl i64 %.04492, 32
   %55 = ashr exact i64 %sext106, 29
   %56 = getelementptr inbounds i8, ptr %54, i64 %55
   br label %57
@@ -748,7 +748,7 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
   br label %91
 
 91:                                               ; preds = %83, %.split.loop.exit108
-  %.14590 = phi i32 [ %.04492, %83 ], [ %127, %.split.loop.exit108 ]
+  %.14390 = phi i32 [ %.04293, %83 ], [ %127, %.split.loop.exit108 ]
   %.sroa.0.089 = phi i64 [ %89, %83 ], [ %.sroa.0.1.lcssa, %.split.loop.exit108 ]
   store i64 0, ptr %90, align 8
   %92 = load i8, ptr @_ZN9Stockfish8PopCnt16E, align 16
@@ -800,7 +800,7 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
 
 ._crit_edge:                                      ; preds = %.lr.ph, %91
   %.sroa.0.1.lcssa = phi i64 [ %.sroa.0.089, %91 ], [ %114, %.lr.ph ]
-  %127 = add nsw i32 %.14590, 1
+  %127 = add nsw i32 %.14390, 1
   br label %128
 
 128:                                              ; preds = %._crit_edge, %152
@@ -817,7 +817,7 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
   %138 = and i64 %137, 4294967295
   %139 = getelementptr inbounds [4096 x i32], ptr %6, i64 0, i64 %138
   %140 = load i32, ptr %139, align 4
-  %.not53 = icmp sgt i32 %140, %.14590
+  %.not53 = icmp sgt i32 %140, %.14390
   br i1 %.not53, label %146, label %141
 
 141:                                              ; preds = %128

@@ -166,7 +166,7 @@ get_rightop.exit.i.i:                             ; preds = %43, %list_length.ex
 
 63:                                               ; preds = %57, %49
   %.sink.i.i = phi ptr [ %.0.i27.i.i, %49 ], [ %39, %57 ]
-  %.0.i.i = phi i1 [ false, %49 ], [ true, %57 ]
+  %.022.i.i = phi i1 [ false, %49 ], [ true, %57 ]
   %64 = tail call ptr @ExecInitExpr(ptr noundef %.sink.i.i, ptr noundef nonnull %4) #7
   %65 = tail call ptr @palloc(i64 noundef 24) #7
   %66 = getelementptr inbounds i8, ptr %65, i64 16
@@ -189,7 +189,7 @@ get_rightop.exit.i.i:                             ; preds = %43, %list_length.ex
   br label %71
 
 71:                                               ; preds = %70, %63
-  %not..0.i.i = xor i1 %.0.i.i, true
+  %not..022.i.i = xor i1 %.022.i.i, true
   br label %MakeTidOpExpr.exit.i
 
 72:                                               ; preds = %63
@@ -200,7 +200,7 @@ get_rightop.exit.i.i:                             ; preds = %43, %list_length.ex
   unreachable
 
 MakeTidOpExpr.exit.i:                             ; preds = %71, %69, %63
-  %storemerge.in.i.i = phi i1 [ %not..0.i.i, %71 ], [ %.0.i.i, %69 ], [ %.0.i.i, %63 ]
+  %storemerge.in.i.i = phi i1 [ %not..022.i.i, %71 ], [ %.022.i.i, %69 ], [ %.022.i.i, %63 ]
   %storemerge.i.i = zext i1 %storemerge.in.i.i to i32
   store i32 %storemerge.i.i, ptr %65, align 8
   %75 = getelementptr inbounds i8, ptr %65, i64 8
@@ -423,12 +423,12 @@ TidRangeEval.exit:                                ; preds = %.lr.ph
   br label %98
 
 98:                                               ; preds = %87, %72
-  %.0 = phi ptr [ %81, %72 ], [ %8, %87 ]
+  %.023 = phi ptr [ %81, %72 ], [ %8, %87 ]
   store i8 1, ptr %15, align 4
   br label %99
 
 99:                                               ; preds = %98, %1
-  %.1 = phi ptr [ %8, %1 ], [ %.0, %98 ]
+  %.1 = phi ptr [ %8, %1 ], [ %.023, %98 ]
   %100 = load ptr, ptr %.1, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 312
   %102 = load ptr, ptr %101, align 8
@@ -447,8 +447,8 @@ TidRangeEval.exit:                                ; preds = %.lr.ph
   br label %111
 
 111:                                              ; preds = %TidRangeEval.exit, %99, %106
-  %.023 = phi ptr [ null, %TidRangeEval.exit ], [ %12, %106 ], [ %12, %99 ]
-  ret ptr %.023
+  %.0 = phi ptr [ null, %TidRangeEval.exit ], [ %12, %106 ], [ %12, %99 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

@@ -194,7 +194,7 @@ define internal i32 @dissect_cesoeth(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .sink.split:                                      ; preds = %41, %39
   %l0_m_names.sink = phi ptr [ @l1_m_names, %39 ], [ @l0_m_names, %41 ]
-  %.096.ph = phi ptr [ %40, %39 ], [ %42, %41 ]
+  %.0.ph = phi ptr [ %40, %39 ], [ %42, %41 ]
   %43 = load ptr, ptr %8, align 8
   %44 = zext nneg i8 %30 to i32
   %45 = call ptr @val_to_str_const(i32 noundef %44, ptr noundef nonnull %l0_m_names.sink, ptr noundef nonnull @.str.54) #2
@@ -202,18 +202,18 @@ define internal i32 @dissect_cesoeth(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %46
 
 46:                                               ; preds = %.sink.split, %41
-  %.096 = phi ptr [ %42, %41 ], [ %.096.ph, %.sink.split ]
+  %.0 = phi ptr [ %42, %41 ], [ %.0.ph, %.sink.split ]
   %47 = icmp ugt i8 %32, 41
   br i1 %47, label %48, label %62
 
 48:                                               ; preds = %46
-  %49 = call ptr @proto_item_get_subtree(ptr noundef %.096) #2
+  %49 = call ptr @proto_item_get_subtree(ptr noundef %.0) #2
   %.not109 = icmp eq ptr %49, null
   br i1 %.not109, label %62, label %.preheader
 
 .preheader:                                       ; preds = %48
-  %.0117 = load ptr, ptr %2, align 8
-  %.not110118 = icmp eq ptr %.0117, null
+  %.097117 = load ptr, ptr %2, align 8
+  %.not110118 = icmp eq ptr %.097117, null
   br i1 %.not110118, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -221,8 +221,8 @@ define internal i32 @dissect_cesoeth(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %51
 
 51:                                               ; preds = %.lr.ph, %59
-  %.0119 = phi ptr [ %.0117, %.lr.ph ], [ %.0, %59 ]
-  %52 = getelementptr inbounds i8, ptr %.0119, i64 32
+  %.097119 = phi ptr [ %.097117, %.lr.ph ], [ %.097, %59 ]
+  %52 = getelementptr inbounds i8, ptr %.097119, i64 32
   %53 = load ptr, ptr %52, align 8
   %.not111 = icmp eq ptr %53, null
   br i1 %.not111, label %59, label %54
@@ -235,18 +235,18 @@ define internal i32 @dissect_cesoeth(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %58, label %._crit_edge, label %59
 
 59:                                               ; preds = %51, %54
-  %60 = getelementptr inbounds i8, ptr %.0119, i64 16
-  %.0 = load ptr, ptr %60, align 8
-  %.not110 = icmp eq ptr %.0, null
+  %60 = getelementptr inbounds i8, ptr %.097119, i64 16
+  %.097 = load ptr, ptr %60, align 8
+  %.not110 = icmp eq ptr %.097, null
   br i1 %.not110, label %._crit_edge, label %51, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %59, %54, %.preheader
-  %.0.lcssa = phi ptr [ null, %.preheader ], [ %.0119, %54 ], [ null, %59 ]
-  %61 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0.lcssa, ptr noundef nonnull @ei_cesoeth_length, ptr noundef nonnull @.str.55) #2
+  %.097.lcssa = phi ptr [ null, %.preheader ], [ %.097119, %54 ], [ null, %59 ]
+  %61 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.097.lcssa, ptr noundef nonnull @ei_cesoeth_length, ptr noundef nonnull @.str.55) #2
   br label %62
 
 62:                                               ; preds = %48, %._crit_edge, %46
-  %.099 = phi i32 [ %33, %46 ], [ 0, %._crit_edge ], [ 0, %48 ]
+  %.098 = phi i32 [ %33, %46 ], [ 0, %._crit_edge ], [ 0, %48 ]
   br i1 %.not107, label %65, label %63
 
 63:                                               ; preds = %62
@@ -266,8 +266,8 @@ define internal i32 @dissect_cesoeth(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %70
 
 70:                                               ; preds = %66, %65
-  %.not113 = icmp eq i32 %.099, 0
-  %71 = sub nuw nsw i32 42, %.099
+  %.not113 = icmp eq i32 %.098, 0
+  %71 = sub nuw nsw i32 42, %.098
   %72 = select i1 %.not113, i32 0, i32 %71
   %73 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8) #2
   %74 = sub i32 %73, %72
@@ -321,24 +321,24 @@ define internal i32 @dissect_cesoeth(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %106
 
 106:                                              ; preds = %90, %87, %84, %81, %79
-  %.097 = phi ptr [ %105, %90 ], [ %77, %87 ], [ %77, %84 ], [ %77, %81 ], [ %77, %79 ]
-  %107 = call i32 @call_data_dissector(ptr noundef %.097, ptr noundef %1, ptr noundef %2) #2
+  %.099 = phi ptr [ %105, %90 ], [ %77, %87 ], [ %77, %84 ], [ %77, %81 ], [ %77, %79 ]
+  %107 = call i32 @call_data_dissector(ptr noundef %.099, ptr noundef %1, ptr noundef %2) #2
   %108 = add nuw i32 %74, 8
   br label %109
 
 109:                                              ; preds = %106, %70
-  %.098 = phi i32 [ %108, %106 ], [ 8, %70 ]
+  %.096 = phi i32 [ %108, %106 ], [ 8, %70 ]
   %.not116 = icmp eq i32 %72, 0
   br i1 %.not116, label %114, label %110
 
 110:                                              ; preds = %109
   %111 = load i32, ptr @hf_cesoeth_padding, align 4
-  %112 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %111, ptr noundef %0, i32 noundef %.098, i32 noundef %72, i32 noundef 0) #2
-  %113 = add nuw i32 %.098, %72
+  %112 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %111, ptr noundef %0, i32 noundef %.096, i32 noundef %72, i32 noundef 0) #2
+  %113 = add nuw i32 %.096, %72
   br label %114
 
 114:                                              ; preds = %110, %109
-  %.1 = phi i32 [ %113, %110 ], [ %.098, %109 ]
+  %.1 = phi i32 [ %113, %110 ], [ %.096, %109 ]
   ret i32 %.1
 }
 

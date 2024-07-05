@@ -80,13 +80,13 @@ define dso_local i32 @lzma_stream_buffer_decode(ptr noundef %0, i32 noundef %1, 
   br label %45
 
 45:                                               ; preds = %36, %37, %28, %40, %23
-  %.0 = phi i32 [ 6, %40 ], [ %26, %23 ], [ 0, %28 ], [ %., %37 ], [ %34, %36 ]
+  %.039 = phi i32 [ 6, %40 ], [ %26, %23 ], [ 0, %28 ], [ %., %37 ], [ %34, %36 ]
   call void @lzma_next_end(ptr noundef nonnull %10, ptr noundef %2) #3
   br label %46
 
 46:                                               ; preds = %18, %13, %9, %15, %20, %45
-  %.039 = phi i32 [ %.0, %45 ], [ 11, %20 ], [ 11, %15 ], [ 11, %9 ], [ 11, %13 ], [ 11, %18 ]
-  ret i32 %.039
+  %.0 = phi i32 [ %.039, %45 ], [ 11, %20 ], [ 11, %15 ], [ 11, %9 ], [ 11, %13 ], [ 11, %18 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

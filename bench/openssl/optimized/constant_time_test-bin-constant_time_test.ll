@@ -217,7 +217,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %ret.0122 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
+  %ret.0121 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
   %arrayidx2 = getelementptr inbounds [10 x i32], ptr @test_values, i64 0, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx2, align 4
   %and2.i.i = and i32 %2, %3
@@ -334,7 +334,7 @@ test_binary_op.exit84.thread:                     ; preds = %land.lhs.true.i76, 
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true4.i70, %land.lhs.true.i65, %land.lhs.true4.i59, %land.lhs.true.i54, %land.lhs.true4.i48, %land.lhs.true.i43, %land.lhs.true4.i37, %land.lhs.true.i32, %land.lhs.true4.i, %land.lhs.true.i, %for.body, %test_select.exit, %test_binary_op.exit84.thread, %land.lhs.true4.i81, %land.lhs.true.i76
-  %ret.1 = phi i32 [ %ret.0122, %land.lhs.true.i76 ], [ %ret.0122, %land.lhs.true4.i81 ], [ 0, %test_binary_op.exit84.thread ], [ 0, %test_select.exit ], [ 0, %for.body ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true.i32 ], [ 0, %land.lhs.true4.i37 ], [ 0, %land.lhs.true.i43 ], [ 0, %land.lhs.true4.i48 ], [ 0, %land.lhs.true.i54 ], [ 0, %land.lhs.true4.i59 ], [ 0, %land.lhs.true.i65 ], [ 0, %land.lhs.true4.i70 ]
+  %ret.1 = phi i32 [ %ret.0121, %land.lhs.true.i76 ], [ %ret.0121, %land.lhs.true4.i81 ], [ 0, %test_binary_op.exit84.thread ], [ 0, %test_select.exit ], [ 0, %for.body ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true.i32 ], [ 0, %land.lhs.true4.i37 ], [ 0, %land.lhs.true.i43 ], [ 0, %land.lhs.true4.i48 ], [ 0, %land.lhs.true.i54 ], [ 0, %land.lhs.true4.i59 ], [ 0, %land.lhs.true.i65 ], [ 0, %land.lhs.true4.i70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
@@ -353,7 +353,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %ret.0124 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
+  %ret.0123 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
   %arrayidx3 = getelementptr inbounds [9 x i8], ptr @test_values_8, i64 0, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx3, align 1
   %cmp5.not = icmp ult i8 %0, %1
@@ -443,7 +443,7 @@ test_binary_op_8.exit84.thread:                   ; preds = %land.lhs.true.i76, 
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true4.i69, %land.lhs.true.i64, %land.lhs.true4.i57, %land.lhs.true.i52, %land.lhs.true4.i45, %land.lhs.true.i40, %land.lhs.true4.i33, %land.lhs.true.i28, %land.lhs.true4.i, %land.lhs.true.i, %test_binary_op_8.exit84.thread, %land.lhs.true4.i81, %land.lhs.true.i76
-  %ret.1 = phi i32 [ %ret.0124, %land.lhs.true.i76 ], [ %ret.0124, %land.lhs.true4.i81 ], [ 0, %test_binary_op_8.exit84.thread ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true.i28 ], [ 0, %land.lhs.true4.i33 ], [ 0, %land.lhs.true.i40 ], [ 0, %land.lhs.true4.i45 ], [ 0, %land.lhs.true.i52 ], [ 0, %land.lhs.true4.i57 ], [ 0, %land.lhs.true.i64 ], [ 0, %land.lhs.true4.i69 ]
+  %ret.1 = phi i32 [ %ret.0123, %land.lhs.true.i76 ], [ %ret.0123, %land.lhs.true4.i81 ], [ 0, %test_binary_op_8.exit84.thread ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true.i28 ], [ 0, %land.lhs.true4.i33 ], [ 0, %land.lhs.true.i40 ], [ 0, %land.lhs.true4.i45 ], [ 0, %land.lhs.true.i52 ], [ 0, %land.lhs.true4.i57 ], [ 0, %land.lhs.true.i64 ], [ 0, %land.lhs.true4.i69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
@@ -467,7 +467,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %ret.0139 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
+  %ret.0138 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
   %arrayidx2 = getelementptr inbounds [10 x i64], ptr @test_values_s, i64 0, i64 %indvars.iv
   %3 = load i64, ptr %arrayidx2, align 8
   %and2.i.i = and i64 %2, %3
@@ -615,7 +615,7 @@ test_binary_op_s.exit99.thread:                   ; preds = %land.lhs.true.i90, 
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true4.i83, %land.lhs.true.i78, %land.lhs.true4.i71, %land.lhs.true.i66, %land.lhs.true4.i59, %land.lhs.true.i54, %land.lhs.true4.i47, %land.lhs.true.i42, %land.lhs.true4.i, %land.lhs.true.i34, %land.lhs.true3.i, %land.lhs.true.i, %for.body, %test_select_s.exit, %test_binary_op_s.exit99.thread, %land.lhs.true4.i95, %land.lhs.true.i90
-  %ret.1 = phi i32 [ %ret.0139, %land.lhs.true.i90 ], [ %ret.0139, %land.lhs.true4.i95 ], [ 0, %test_binary_op_s.exit99.thread ], [ 0, %test_select_s.exit ], [ 0, %for.body ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true3.i ], [ 0, %land.lhs.true.i34 ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true.i42 ], [ 0, %land.lhs.true4.i47 ], [ 0, %land.lhs.true.i54 ], [ 0, %land.lhs.true4.i59 ], [ 0, %land.lhs.true.i66 ], [ 0, %land.lhs.true4.i71 ], [ 0, %land.lhs.true.i78 ], [ 0, %land.lhs.true4.i83 ]
+  %ret.1 = phi i32 [ %ret.0138, %land.lhs.true.i90 ], [ %ret.0138, %land.lhs.true4.i95 ], [ 0, %test_binary_op_s.exit99.thread ], [ 0, %test_select_s.exit ], [ 0, %for.body ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true3.i ], [ 0, %land.lhs.true.i34 ], [ 0, %land.lhs.true4.i ], [ 0, %land.lhs.true.i42 ], [ 0, %land.lhs.true4.i47 ], [ 0, %land.lhs.true.i54 ], [ 0, %land.lhs.true4.i59 ], [ 0, %land.lhs.true.i66 ], [ 0, %land.lhs.true4.i71 ], [ 0, %land.lhs.true.i78 ], [ 0, %land.lhs.true4.i83 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
@@ -638,7 +638,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %ret.022 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
+  %ret.021 = phi i32 [ 1, %entry ], [ %ret.1, %for.inc ]
   %arrayidx3 = getelementptr inbounds [13 x i32], ptr @signed_test_values, i64 0, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx3, align 4
   %and2.i.i.i = and i32 %2, %3
@@ -687,7 +687,7 @@ test_eq_int_8.exit.thread:                        ; preds = %land.lhs.true.i12, 
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true3.i, %land.lhs.true.i, %for.body, %test_select_int.exit, %test_eq_int_8.exit.thread, %land.lhs.true4.i, %land.lhs.true.i12
-  %ret.1 = phi i32 [ %ret.022, %land.lhs.true.i12 ], [ %ret.022, %land.lhs.true4.i ], [ 0, %test_eq_int_8.exit.thread ], [ 0, %test_select_int.exit ], [ 0, %for.body ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true3.i ]
+  %ret.1 = phi i32 [ %ret.021, %land.lhs.true.i12 ], [ %ret.021, %land.lhs.true4.i ], [ 0, %test_eq_int_8.exit.thread ], [ 0, %test_select_int.exit ], [ 0, %for.body ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true3.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
@@ -710,7 +710,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %ret.07 = phi i32 [ 1, %entry ], [ %6, %for.cond ]
+  %ret.06 = phi i32 [ 1, %entry ], [ %6, %for.cond ]
   %arrayidx3 = getelementptr inbounds [9 x i8], ptr @test_values_8, i64 0, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx3, align 1
   %conv2.i.i = zext i8 %3 to i32
@@ -735,7 +735,7 @@ test_select_8.exit.thread:                        ; preds = %for.body, %test_sel
   br label %for.cond
 
 for.cond:                                         ; preds = %test_select_8.exit, %test_select_8.exit.thread
-  %6 = phi i32 [ 0, %test_select_8.exit.thread ], [ %ret.07, %test_select_8.exit ]
+  %6 = phi i32 [ 0, %test_select_8.exit.thread ], [ %ret.06, %test_select_8.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
@@ -757,9 +757,9 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
-  %ret.07 = phi i32 [ 1, %entry ], [ %4, %for.cond ]
-  %j.06 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
-  %arrayidx1 = getelementptr inbounds [9 x i32], ptr @test_values_32, i64 0, i64 %j.06
+  %j.07 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
+  %ret.06 = phi i32 [ 1, %entry ], [ %4, %for.cond ]
+  %arrayidx1 = getelementptr inbounds [9 x i32], ptr @test_values_32, i64 0, i64 %j.07
   %3 = load i32, ptr %arrayidx1, align 4
   %and2.i.i = and i32 %2, %3
   %or.i.i = or i32 %and2.i.i, %and.i.i
@@ -783,8 +783,8 @@ test_select_32.exit.thread:                       ; preds = %for.body, %test_sel
   br label %for.cond
 
 for.cond:                                         ; preds = %test_select_32.exit, %test_select_32.exit.thread
-  %4 = phi i32 [ 0, %test_select_32.exit.thread ], [ %ret.07, %test_select_32.exit ]
-  %inc = add nuw nsw i64 %j.06, 1
+  %4 = phi i32 [ 0, %test_select_32.exit.thread ], [ %ret.06, %test_select_32.exit ]
+  %inc = add nuw nsw i64 %j.07, 1
   %exitcond.not = icmp eq i64 %inc, 9
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 

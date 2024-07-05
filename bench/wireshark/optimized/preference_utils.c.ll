@@ -173,9 +173,9 @@ define hidden range(i32 0, 2) i32 @prefs_store_ext_multiple(ptr noundef %0, ptr 
   br i1 %.not25, label %17, label %.preheader
 
 .preheader:                                       ; preds = %4, %12
-  %.030 = phi ptr [ %14, %12 ], [ %5, %4 ]
-  %.02029 = phi i32 [ %.1, %12 ], [ 0, %4 ]
-  %6 = load ptr, ptr %.030, align 8
+  %.02030 = phi i32 [ %.1, %12 ], [ 0, %4 ]
+  %.02129 = phi ptr [ %14, %12 ], [ %5, %4 ]
+  %6 = load ptr, ptr %.02129, align 8
   %7 = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %6) #6
   %8 = icmp ne ptr %6, null
   %9 = icmp ne ptr %7, null
@@ -185,12 +185,12 @@ define hidden range(i32 0, 2) i32 @prefs_store_ext_multiple(ptr noundef %0, ptr 
 10:                                               ; preds = %.preheader
   %11 = tail call fastcc i32 @prefs_store_ext_helper(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not28 = icmp eq i32 %11, 0
-  %spec.select = select i1 %.not28, i32 %.02029, i32 1
+  %spec.select = select i1 %.not28, i32 %.02030, i32 1
   br label %12
 
 12:                                               ; preds = %10, %.preheader
-  %.1 = phi i32 [ %.02029, %.preheader ], [ %spec.select, %10 ]
-  %13 = getelementptr inbounds i8, ptr %.030, i64 8
+  %.1 = phi i32 [ %.02030, %.preheader ], [ %spec.select, %10 ]
+  %13 = getelementptr inbounds i8, ptr %.02129, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not26 = icmp eq ptr %14, null
   br i1 %.not26, label %15, label %.preheader, !llvm.loop !4
@@ -206,8 +206,8 @@ define hidden range(i32 0, 2) i32 @prefs_store_ext_multiple(ptr noundef %0, ptr 
   br label %17
 
 17:                                               ; preds = %15, %16, %4, %2
-  %.021 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 1, %16 ], [ 1, %15 ]
-  ret i32 %.021
+  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 1, %16 ], [ 1, %15 ]
+  ret i32 %.0
 }
 
 declare i32 @prefs_is_registered_protocol(ptr noundef) local_unnamed_addr #2

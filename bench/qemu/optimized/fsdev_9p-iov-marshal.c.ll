@@ -31,8 +31,8 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %addr.addr.036.i = phi ptr [ %addr.addr.1.i, %for.inc.i ], [ %src, %for.body.lr.ph.i ]
   %offset.addr.035.i = phi i64 [ %offset.addr.1.i, %for.inc.i ], [ %offset, %for.body.lr.ph.i ]
-  %copied.034.i = phi i64 [ %copied.1.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
-  %size.addr.032.i = phi i64 [ %size.addr.1.i, %for.inc.i ], [ %size, %for.body.lr.ph.i ]
+  %size.addr.034.i = phi i64 [ %size.addr.1.i, %for.inc.i ], [ %size, %for.body.lr.ph.i ]
+  %copied.032.i = phi i64 [ %copied.1.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %arrayidx.i = getelementptr %struct.iovec, ptr %in_sg, i64 %indvars.iv.i
   %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %2 = load i64, ptr %iov_len.i, align 8
@@ -45,20 +45,20 @@ if.then.i:                                        ; preds = %for.body.i
 
 if.else.i:                                        ; preds = %for.body.i
   %sub8.i = sub i64 %2, %offset.addr.035.i
-  %cond.i = tail call i64 @llvm.umin.i64(i64 %sub8.i, i64 %size.addr.032.i)
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %sub8.i, i64 %size.addr.034.i)
   %3 = load ptr, ptr %arrayidx.i, align 8
   %add.ptr.i = getelementptr i8, ptr %3, i64 %offset.addr.035.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %addr.addr.036.i, i64 %cond.i, i1 false)
-  %sub19.i = sub i64 %size.addr.032.i, %cond.i
-  %add.i = add i64 %cond.i, %copied.034.i
+  %sub19.i = sub i64 %size.addr.034.i, %cond.i
+  %add.i = add i64 %cond.i, %copied.032.i
   %add.ptr20.i = getelementptr i8, ptr %addr.addr.036.i, i64 %cond.i
   %tobool21.not.i = icmp eq i64 %sub19.i, 0
   %spec.select29.i = select i1 %tobool21.not.i, i64 %offset.addr.035.i, i64 0
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then.i
-  %size.addr.1.i = phi i64 [ %size.addr.032.i, %if.then.i ], [ %sub19.i, %if.else.i ]
-  %copied.1.i = phi i64 [ %copied.034.i, %if.then.i ], [ %add.i, %if.else.i ]
+  %copied.1.i = phi i64 [ %copied.032.i, %if.then.i ], [ %add.i, %if.else.i ]
+  %size.addr.1.i = phi i64 [ %size.addr.034.i, %if.then.i ], [ %sub19.i, %if.else.i ]
   %offset.addr.1.i = phi i64 [ %sub.i, %if.then.i ], [ %spec.select29.i, %if.else.i ]
   %addr.addr.1.i = phi ptr [ %addr.addr.036.i, %if.then.i ], [ %add.ptr20.i, %if.else.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -135,8 +135,8 @@ for.body.us.i.i:                                  ; preds = %for.inc.us.i.i, %fo
   %indvars.iv39.i.i = phi i64 [ %indvars.iv.next40.i.i, %for.inc.us.i.i ], [ 0, %for.body.lr.ph.i.i ]
   %addr.addr.036.us.i.i = phi ptr [ %addr.addr.1.us.i.i, %for.inc.us.i.i ], [ %6, %for.body.lr.ph.i.i ]
   %offset.addr.035.us.i.i = phi i64 [ %offset.addr.1.us.i.i, %for.inc.us.i.i ], [ %offset.addr.0, %for.body.lr.ph.i.i ]
-  %copied.034.us.i.i = phi i64 [ %copied.1.us.i.i.fr, %for.inc.us.i.i ], [ 0, %for.body.lr.ph.i.i ]
-  %size.addr.032.us.i.i = phi i64 [ %size.addr.1.us.i.i, %for.inc.us.i.i ], [ 1, %for.body.lr.ph.i.i ]
+  %size.addr.034.us.i.i = phi i64 [ %size.addr.1.us.i.i, %for.inc.us.i.i ], [ 1, %for.body.lr.ph.i.i ]
+  %copied.032.us.i.i = phi i64 [ %copied.1.us.i.i.fr, %for.inc.us.i.i ], [ 0, %for.body.lr.ph.i.i ]
   %arrayidx.us.i.i = getelementptr %struct.iovec, ptr %out_sg, i64 %indvars.iv39.i.i
   %iov_len.us.i.i = getelementptr inbounds i8, ptr %arrayidx.us.i.i, i64 8
   %7 = load i64, ptr %iov_len.us.i.i, align 8
@@ -149,20 +149,20 @@ if.then.us.i.i:                                   ; preds = %for.body.us.i.i
 
 if.else.us.i.i:                                   ; preds = %for.body.us.i.i
   %sub8.us.i.i = sub i64 %7, %offset.addr.035.us.i.i
-  %cond.us.i.i = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i, i64 %size.addr.032.us.i.i)
+  %cond.us.i.i = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i, i64 %size.addr.034.us.i.i)
   %8 = load ptr, ptr %arrayidx.us.i.i, align 8
   %add.ptr18.us.i.i = getelementptr i8, ptr %8, i64 %offset.addr.035.us.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %addr.addr.036.us.i.i, ptr align 1 %add.ptr18.us.i.i, i64 %cond.us.i.i, i1 false)
-  %sub19.us.i.i = sub i64 %size.addr.032.us.i.i, %cond.us.i.i
-  %add.us.i.i = add i64 %cond.us.i.i, %copied.034.us.i.i
+  %sub19.us.i.i = sub i64 %size.addr.034.us.i.i, %cond.us.i.i
+  %add.us.i.i = add i64 %cond.us.i.i, %copied.032.us.i.i
   %add.ptr20.us.i.i = getelementptr i8, ptr %addr.addr.036.us.i.i, i64 %cond.us.i.i
   %tobool21.not.us.i.i = icmp eq i64 %sub19.us.i.i, 0
   %spec.select29.us.i.i = select i1 %tobool21.not.us.i.i, i64 %offset.addr.035.us.i.i, i64 0
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.else.us.i.i, %if.then.us.i.i
-  %size.addr.1.us.i.i = phi i64 [ %size.addr.032.us.i.i, %if.then.us.i.i ], [ %sub19.us.i.i, %if.else.us.i.i ]
-  %copied.1.us.i.i = phi i64 [ %copied.034.us.i.i, %if.then.us.i.i ], [ %add.us.i.i, %if.else.us.i.i ]
+  %copied.1.us.i.i = phi i64 [ %copied.032.us.i.i, %if.then.us.i.i ], [ %add.us.i.i, %if.else.us.i.i ]
+  %size.addr.1.us.i.i = phi i64 [ %size.addr.034.us.i.i, %if.then.us.i.i ], [ %sub19.us.i.i, %if.else.us.i.i ]
   %offset.addr.1.us.i.i = phi i64 [ %sub.us.i.i, %if.then.us.i.i ], [ %spec.select29.us.i.i, %if.else.us.i.i ]
   %addr.addr.1.us.i.i = phi ptr [ %addr.addr.036.us.i.i, %if.then.us.i.i ], [ %add.ptr20.us.i.i, %if.else.us.i.i ]
   %copied.1.us.i.i.fr = freeze i64 %copied.1.us.i.i
@@ -204,8 +204,8 @@ for.body.us.i.i90:                                ; preds = %vaarg.end14, %for.i
   %indvars.iv39.i.i91 = phi i64 [ %indvars.iv.next40.i.i106, %for.inc.us.i.i101 ], [ 0, %vaarg.end14 ]
   %addr.addr.036.us.i.i92 = phi ptr [ %addr.addr.1.us.i.i105, %for.inc.us.i.i101 ], [ %val, %vaarg.end14 ]
   %offset.addr.035.us.i.i93 = phi i64 [ %offset.addr.1.us.i.i104, %for.inc.us.i.i101 ], [ %offset.addr.0, %vaarg.end14 ]
-  %copied.034.us.i.i94 = phi i64 [ %copied.1.us.i.i103.fr, %for.inc.us.i.i101 ], [ 0, %vaarg.end14 ]
-  %size.addr.032.us.i.i95 = phi i64 [ %size.addr.1.us.i.i102, %for.inc.us.i.i101 ], [ 2, %vaarg.end14 ]
+  %size.addr.034.us.i.i94 = phi i64 [ %size.addr.1.us.i.i103, %for.inc.us.i.i101 ], [ 2, %vaarg.end14 ]
+  %copied.032.us.i.i95 = phi i64 [ %copied.1.us.i.i102.fr, %for.inc.us.i.i101 ], [ 0, %vaarg.end14 ]
   %arrayidx.us.i.i96 = getelementptr %struct.iovec, ptr %out_sg, i64 %indvars.iv39.i.i91
   %iov_len.us.i.i97 = getelementptr inbounds i8, ptr %arrayidx.us.i.i96, i64 8
   %14 = load i64, ptr %iov_len.us.i.i97, align 8
@@ -218,38 +218,38 @@ if.then.us.i.i99:                                 ; preds = %for.body.us.i.i90
 
 if.else.us.i.i109:                                ; preds = %for.body.us.i.i90
   %sub8.us.i.i110 = sub i64 %14, %offset.addr.035.us.i.i93
-  %cond.us.i.i111 = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i110, i64 %size.addr.032.us.i.i95)
+  %cond.us.i.i111 = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i110, i64 %size.addr.034.us.i.i94)
   %15 = load ptr, ptr %arrayidx.us.i.i96, align 8
   %add.ptr18.us.i.i112 = getelementptr i8, ptr %15, i64 %offset.addr.035.us.i.i93
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %addr.addr.036.us.i.i92, ptr align 1 %add.ptr18.us.i.i112, i64 %cond.us.i.i111, i1 false)
-  %sub19.us.i.i113 = sub i64 %size.addr.032.us.i.i95, %cond.us.i.i111
-  %add.us.i.i114 = add i64 %cond.us.i.i111, %copied.034.us.i.i94
+  %sub19.us.i.i113 = sub i64 %size.addr.034.us.i.i94, %cond.us.i.i111
+  %add.us.i.i114 = add i64 %cond.us.i.i111, %copied.032.us.i.i95
   %add.ptr20.us.i.i115 = getelementptr i8, ptr %addr.addr.036.us.i.i92, i64 %cond.us.i.i111
   %tobool21.not.us.i.i116 = icmp eq i64 %sub19.us.i.i113, 0
   %spec.select29.us.i.i117 = select i1 %tobool21.not.us.i.i116, i64 %offset.addr.035.us.i.i93, i64 0
   br label %for.inc.us.i.i101
 
 for.inc.us.i.i101:                                ; preds = %if.else.us.i.i109, %if.then.us.i.i99
-  %size.addr.1.us.i.i102 = phi i64 [ %size.addr.032.us.i.i95, %if.then.us.i.i99 ], [ %sub19.us.i.i113, %if.else.us.i.i109 ]
-  %copied.1.us.i.i103 = phi i64 [ %copied.034.us.i.i94, %if.then.us.i.i99 ], [ %add.us.i.i114, %if.else.us.i.i109 ]
+  %copied.1.us.i.i102 = phi i64 [ %copied.032.us.i.i95, %if.then.us.i.i99 ], [ %add.us.i.i114, %if.else.us.i.i109 ]
+  %size.addr.1.us.i.i103 = phi i64 [ %size.addr.034.us.i.i94, %if.then.us.i.i99 ], [ %sub19.us.i.i113, %if.else.us.i.i109 ]
   %offset.addr.1.us.i.i104 = phi i64 [ %sub.us.i.i100, %if.then.us.i.i99 ], [ %spec.select29.us.i.i117, %if.else.us.i.i109 ]
   %addr.addr.1.us.i.i105 = phi ptr [ %addr.addr.036.us.i.i92, %if.then.us.i.i99 ], [ %add.ptr20.us.i.i115, %if.else.us.i.i109 ]
-  %copied.1.us.i.i103.fr = freeze i64 %copied.1.us.i.i103
+  %copied.1.us.i.i102.fr = freeze i64 %copied.1.us.i.i102
   %indvars.iv.next40.i.i106 = add nuw nsw i64 %indvars.iv39.i.i91, 1
-  %tobool.us.i.i107 = icmp ne i64 %size.addr.1.us.i.i102, 0
+  %tobool.us.i.i107 = icmp ne i64 %size.addr.1.us.i.i103, 0
   %cmp.us.i.i108 = icmp ult i64 %indvars.iv.next40.i.i106, %1
   %16 = select i1 %tobool.us.i.i107, i1 %cmp.us.i.i108, i1 false
   br i1 %16, label %for.body.us.i.i90, label %v9fs_unpack.exit118, !llvm.loop !5
 
 v9fs_unpack.exit118:                              ; preds = %for.inc.us.i.i101
-  %cmp25.i.i87 = icmp ult i64 %copied.1.us.i.i103.fr, 2
+  %cmp25.i.i87 = icmp ult i64 %copied.1.us.i.i102.fr, 2
   br i1 %cmp25.i.i87, label %v9fs_unpack.exit118.thread, label %17
 
 v9fs_unpack.exit118.thread:                       ; preds = %vaarg.end14, %v9fs_unpack.exit118
   br label %17
 
 17:                                               ; preds = %v9fs_unpack.exit118, %v9fs_unpack.exit118.thread
-  %18 = phi i64 [ -105, %v9fs_unpack.exit118.thread ], [ %copied.1.us.i.i103.fr, %v9fs_unpack.exit118 ]
+  %18 = phi i64 [ -105, %v9fs_unpack.exit118.thread ], [ %copied.1.us.i.i102.fr, %v9fs_unpack.exit118 ]
   %19 = load i16, ptr %val, align 2
   store i16 %19, ptr %13, align 2
   br label %sw.epilog
@@ -282,8 +282,8 @@ for.body.us.i.i124:                               ; preds = %vaarg.end31, %for.i
   %indvars.iv39.i.i125 = phi i64 [ %indvars.iv.next40.i.i140, %for.inc.us.i.i135 ], [ 0, %vaarg.end31 ]
   %addr.addr.036.us.i.i126 = phi ptr [ %addr.addr.1.us.i.i139, %for.inc.us.i.i135 ], [ %val20, %vaarg.end31 ]
   %offset.addr.035.us.i.i127 = phi i64 [ %offset.addr.1.us.i.i138, %for.inc.us.i.i135 ], [ %offset.addr.0, %vaarg.end31 ]
-  %copied.034.us.i.i128 = phi i64 [ %copied.1.us.i.i137.fr, %for.inc.us.i.i135 ], [ 0, %vaarg.end31 ]
-  %size.addr.032.us.i.i129 = phi i64 [ %size.addr.1.us.i.i136, %for.inc.us.i.i135 ], [ 4, %vaarg.end31 ]
+  %size.addr.034.us.i.i128 = phi i64 [ %size.addr.1.us.i.i137, %for.inc.us.i.i135 ], [ 4, %vaarg.end31 ]
+  %copied.032.us.i.i129 = phi i64 [ %copied.1.us.i.i136.fr, %for.inc.us.i.i135 ], [ 0, %vaarg.end31 ]
   %arrayidx.us.i.i130 = getelementptr %struct.iovec, ptr %out_sg, i64 %indvars.iv39.i.i125
   %iov_len.us.i.i131 = getelementptr inbounds i8, ptr %arrayidx.us.i.i130, i64 8
   %24 = load i64, ptr %iov_len.us.i.i131, align 8
@@ -296,38 +296,38 @@ if.then.us.i.i133:                                ; preds = %for.body.us.i.i124
 
 if.else.us.i.i143:                                ; preds = %for.body.us.i.i124
   %sub8.us.i.i144 = sub i64 %24, %offset.addr.035.us.i.i127
-  %cond.us.i.i145 = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i144, i64 %size.addr.032.us.i.i129)
+  %cond.us.i.i145 = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i144, i64 %size.addr.034.us.i.i128)
   %25 = load ptr, ptr %arrayidx.us.i.i130, align 8
   %add.ptr18.us.i.i146 = getelementptr i8, ptr %25, i64 %offset.addr.035.us.i.i127
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %addr.addr.036.us.i.i126, ptr align 1 %add.ptr18.us.i.i146, i64 %cond.us.i.i145, i1 false)
-  %sub19.us.i.i147 = sub i64 %size.addr.032.us.i.i129, %cond.us.i.i145
-  %add.us.i.i148 = add i64 %cond.us.i.i145, %copied.034.us.i.i128
+  %sub19.us.i.i147 = sub i64 %size.addr.034.us.i.i128, %cond.us.i.i145
+  %add.us.i.i148 = add i64 %cond.us.i.i145, %copied.032.us.i.i129
   %add.ptr20.us.i.i149 = getelementptr i8, ptr %addr.addr.036.us.i.i126, i64 %cond.us.i.i145
   %tobool21.not.us.i.i150 = icmp eq i64 %sub19.us.i.i147, 0
   %spec.select29.us.i.i151 = select i1 %tobool21.not.us.i.i150, i64 %offset.addr.035.us.i.i127, i64 0
   br label %for.inc.us.i.i135
 
 for.inc.us.i.i135:                                ; preds = %if.else.us.i.i143, %if.then.us.i.i133
-  %size.addr.1.us.i.i136 = phi i64 [ %size.addr.032.us.i.i129, %if.then.us.i.i133 ], [ %sub19.us.i.i147, %if.else.us.i.i143 ]
-  %copied.1.us.i.i137 = phi i64 [ %copied.034.us.i.i128, %if.then.us.i.i133 ], [ %add.us.i.i148, %if.else.us.i.i143 ]
+  %copied.1.us.i.i136 = phi i64 [ %copied.032.us.i.i129, %if.then.us.i.i133 ], [ %add.us.i.i148, %if.else.us.i.i143 ]
+  %size.addr.1.us.i.i137 = phi i64 [ %size.addr.034.us.i.i128, %if.then.us.i.i133 ], [ %sub19.us.i.i147, %if.else.us.i.i143 ]
   %offset.addr.1.us.i.i138 = phi i64 [ %sub.us.i.i134, %if.then.us.i.i133 ], [ %spec.select29.us.i.i151, %if.else.us.i.i143 ]
   %addr.addr.1.us.i.i139 = phi ptr [ %addr.addr.036.us.i.i126, %if.then.us.i.i133 ], [ %add.ptr20.us.i.i149, %if.else.us.i.i143 ]
-  %copied.1.us.i.i137.fr = freeze i64 %copied.1.us.i.i137
+  %copied.1.us.i.i136.fr = freeze i64 %copied.1.us.i.i136
   %indvars.iv.next40.i.i140 = add nuw nsw i64 %indvars.iv39.i.i125, 1
-  %tobool.us.i.i141 = icmp ne i64 %size.addr.1.us.i.i136, 0
+  %tobool.us.i.i141 = icmp ne i64 %size.addr.1.us.i.i137, 0
   %cmp.us.i.i142 = icmp ult i64 %indvars.iv.next40.i.i140, %1
   %26 = select i1 %tobool.us.i.i141, i1 %cmp.us.i.i142, i1 false
   br i1 %26, label %for.body.us.i.i124, label %v9fs_unpack.exit152, !llvm.loop !5
 
 v9fs_unpack.exit152:                              ; preds = %for.inc.us.i.i135
-  %cmp25.i.i121 = icmp ult i64 %copied.1.us.i.i137.fr, 4
+  %cmp25.i.i121 = icmp ult i64 %copied.1.us.i.i136.fr, 4
   br i1 %cmp25.i.i121, label %v9fs_unpack.exit152.thread, label %27
 
 v9fs_unpack.exit152.thread:                       ; preds = %vaarg.end31, %v9fs_unpack.exit152
   br label %27
 
 27:                                               ; preds = %v9fs_unpack.exit152, %v9fs_unpack.exit152.thread
-  %28 = phi i64 [ -105, %v9fs_unpack.exit152.thread ], [ %copied.1.us.i.i137.fr, %v9fs_unpack.exit152 ]
+  %28 = phi i64 [ -105, %v9fs_unpack.exit152.thread ], [ %copied.1.us.i.i136.fr, %v9fs_unpack.exit152 ]
   %29 = load i32, ptr %val20, align 4
   store i32 %29, ptr %23, align 4
   br label %sw.epilog
@@ -360,8 +360,8 @@ for.body.us.i.i158:                               ; preds = %vaarg.end51, %for.i
   %indvars.iv39.i.i159 = phi i64 [ %indvars.iv.next40.i.i174, %for.inc.us.i.i169 ], [ 0, %vaarg.end51 ]
   %addr.addr.036.us.i.i160 = phi ptr [ %addr.addr.1.us.i.i173, %for.inc.us.i.i169 ], [ %val40, %vaarg.end51 ]
   %offset.addr.035.us.i.i161 = phi i64 [ %offset.addr.1.us.i.i172, %for.inc.us.i.i169 ], [ %offset.addr.0, %vaarg.end51 ]
-  %copied.034.us.i.i162 = phi i64 [ %copied.1.us.i.i171.fr, %for.inc.us.i.i169 ], [ 0, %vaarg.end51 ]
-  %size.addr.032.us.i.i163 = phi i64 [ %size.addr.1.us.i.i170, %for.inc.us.i.i169 ], [ 8, %vaarg.end51 ]
+  %size.addr.034.us.i.i162 = phi i64 [ %size.addr.1.us.i.i171, %for.inc.us.i.i169 ], [ 8, %vaarg.end51 ]
+  %copied.032.us.i.i163 = phi i64 [ %copied.1.us.i.i170.fr, %for.inc.us.i.i169 ], [ 0, %vaarg.end51 ]
   %arrayidx.us.i.i164 = getelementptr %struct.iovec, ptr %out_sg, i64 %indvars.iv39.i.i159
   %iov_len.us.i.i165 = getelementptr inbounds i8, ptr %arrayidx.us.i.i164, i64 8
   %34 = load i64, ptr %iov_len.us.i.i165, align 8
@@ -374,38 +374,38 @@ if.then.us.i.i167:                                ; preds = %for.body.us.i.i158
 
 if.else.us.i.i177:                                ; preds = %for.body.us.i.i158
   %sub8.us.i.i178 = sub i64 %34, %offset.addr.035.us.i.i161
-  %cond.us.i.i179 = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i178, i64 %size.addr.032.us.i.i163)
+  %cond.us.i.i179 = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i178, i64 %size.addr.034.us.i.i162)
   %35 = load ptr, ptr %arrayidx.us.i.i164, align 8
   %add.ptr18.us.i.i180 = getelementptr i8, ptr %35, i64 %offset.addr.035.us.i.i161
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %addr.addr.036.us.i.i160, ptr align 1 %add.ptr18.us.i.i180, i64 %cond.us.i.i179, i1 false)
-  %sub19.us.i.i181 = sub i64 %size.addr.032.us.i.i163, %cond.us.i.i179
-  %add.us.i.i182 = add i64 %cond.us.i.i179, %copied.034.us.i.i162
+  %sub19.us.i.i181 = sub i64 %size.addr.034.us.i.i162, %cond.us.i.i179
+  %add.us.i.i182 = add i64 %cond.us.i.i179, %copied.032.us.i.i163
   %add.ptr20.us.i.i183 = getelementptr i8, ptr %addr.addr.036.us.i.i160, i64 %cond.us.i.i179
   %tobool21.not.us.i.i184 = icmp eq i64 %sub19.us.i.i181, 0
   %spec.select29.us.i.i185 = select i1 %tobool21.not.us.i.i184, i64 %offset.addr.035.us.i.i161, i64 0
   br label %for.inc.us.i.i169
 
 for.inc.us.i.i169:                                ; preds = %if.else.us.i.i177, %if.then.us.i.i167
-  %size.addr.1.us.i.i170 = phi i64 [ %size.addr.032.us.i.i163, %if.then.us.i.i167 ], [ %sub19.us.i.i181, %if.else.us.i.i177 ]
-  %copied.1.us.i.i171 = phi i64 [ %copied.034.us.i.i162, %if.then.us.i.i167 ], [ %add.us.i.i182, %if.else.us.i.i177 ]
+  %copied.1.us.i.i170 = phi i64 [ %copied.032.us.i.i163, %if.then.us.i.i167 ], [ %add.us.i.i182, %if.else.us.i.i177 ]
+  %size.addr.1.us.i.i171 = phi i64 [ %size.addr.034.us.i.i162, %if.then.us.i.i167 ], [ %sub19.us.i.i181, %if.else.us.i.i177 ]
   %offset.addr.1.us.i.i172 = phi i64 [ %sub.us.i.i168, %if.then.us.i.i167 ], [ %spec.select29.us.i.i185, %if.else.us.i.i177 ]
   %addr.addr.1.us.i.i173 = phi ptr [ %addr.addr.036.us.i.i160, %if.then.us.i.i167 ], [ %add.ptr20.us.i.i183, %if.else.us.i.i177 ]
-  %copied.1.us.i.i171.fr = freeze i64 %copied.1.us.i.i171
+  %copied.1.us.i.i170.fr = freeze i64 %copied.1.us.i.i170
   %indvars.iv.next40.i.i174 = add nuw nsw i64 %indvars.iv39.i.i159, 1
-  %tobool.us.i.i175 = icmp ne i64 %size.addr.1.us.i.i170, 0
+  %tobool.us.i.i175 = icmp ne i64 %size.addr.1.us.i.i171, 0
   %cmp.us.i.i176 = icmp ult i64 %indvars.iv.next40.i.i174, %1
   %36 = select i1 %tobool.us.i.i175, i1 %cmp.us.i.i176, i1 false
   br i1 %36, label %for.body.us.i.i158, label %v9fs_unpack.exit186, !llvm.loop !5
 
 v9fs_unpack.exit186:                              ; preds = %for.inc.us.i.i169
-  %cmp25.i.i155 = icmp ult i64 %copied.1.us.i.i171.fr, 8
+  %cmp25.i.i155 = icmp ult i64 %copied.1.us.i.i170.fr, 8
   br i1 %cmp25.i.i155, label %v9fs_unpack.exit186.thread, label %37
 
 v9fs_unpack.exit186.thread:                       ; preds = %vaarg.end51, %v9fs_unpack.exit186
   br label %37
 
 37:                                               ; preds = %v9fs_unpack.exit186, %v9fs_unpack.exit186.thread
-  %38 = phi i64 [ -105, %v9fs_unpack.exit186.thread ], [ %copied.1.us.i.i171.fr, %v9fs_unpack.exit186 ]
+  %38 = phi i64 [ -105, %v9fs_unpack.exit186.thread ], [ %copied.1.us.i.i170.fr, %v9fs_unpack.exit186 ]
   %39 = load i64, ptr %val40, align 8
   store i64 %39, ptr %33, align 8
   br label %sw.epilog
@@ -454,8 +454,8 @@ for.body.us.i.i192:                               ; preds = %if.then73, %for.inc
   %indvars.iv39.i.i193 = phi i64 [ %indvars.iv.next40.i.i208, %for.inc.us.i.i203 ], [ 0, %if.then73 ]
   %addr.addr.036.us.i.i194 = phi ptr [ %addr.addr.1.us.i.i207, %for.inc.us.i.i203 ], [ %call78, %if.then73 ]
   %offset.addr.035.us.i.i195 = phi i64 [ %offset.addr.1.us.i.i206, %for.inc.us.i.i203 ], [ %add, %if.then73 ]
-  %copied.034.us.i.i196 = phi i64 [ %copied.1.us.i.i205, %for.inc.us.i.i203 ], [ 0, %if.then73 ]
-  %size.addr.032.us.i.i197 = phi i64 [ %size.addr.1.us.i.i204, %for.inc.us.i.i203 ], [ %conv81, %if.then73 ]
+  %size.addr.034.us.i.i196 = phi i64 [ %size.addr.1.us.i.i205, %for.inc.us.i.i203 ], [ %conv81, %if.then73 ]
+  %copied.032.us.i.i197 = phi i64 [ %copied.1.us.i.i204, %for.inc.us.i.i203 ], [ 0, %if.then73 ]
   %arrayidx.us.i.i198 = getelementptr %struct.iovec, ptr %out_sg, i64 %indvars.iv39.i.i193
   %iov_len.us.i.i199 = getelementptr inbounds i8, ptr %arrayidx.us.i.i198, i64 8
   %47 = load i64, ptr %iov_len.us.i.i199, align 8
@@ -468,30 +468,30 @@ if.then.us.i.i201:                                ; preds = %for.body.us.i.i192
 
 if.else.us.i.i211:                                ; preds = %for.body.us.i.i192
   %sub8.us.i.i212 = sub i64 %47, %offset.addr.035.us.i.i195
-  %cond.us.i.i213 = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i212, i64 %size.addr.032.us.i.i197)
+  %cond.us.i.i213 = tail call i64 @llvm.umin.i64(i64 %sub8.us.i.i212, i64 %size.addr.034.us.i.i196)
   %48 = load ptr, ptr %arrayidx.us.i.i198, align 8
   %add.ptr18.us.i.i214 = getelementptr i8, ptr %48, i64 %offset.addr.035.us.i.i195
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %addr.addr.036.us.i.i194, ptr align 1 %add.ptr18.us.i.i214, i64 %cond.us.i.i213, i1 false)
-  %sub19.us.i.i215 = sub i64 %size.addr.032.us.i.i197, %cond.us.i.i213
-  %add.us.i.i216 = add i64 %cond.us.i.i213, %copied.034.us.i.i196
+  %sub19.us.i.i215 = sub i64 %size.addr.034.us.i.i196, %cond.us.i.i213
+  %add.us.i.i216 = add i64 %cond.us.i.i213, %copied.032.us.i.i197
   %add.ptr20.us.i.i217 = getelementptr i8, ptr %addr.addr.036.us.i.i194, i64 %cond.us.i.i213
   %tobool21.not.us.i.i218 = icmp eq i64 %sub19.us.i.i215, 0
   %spec.select29.us.i.i219 = select i1 %tobool21.not.us.i.i218, i64 %offset.addr.035.us.i.i195, i64 0
   br label %for.inc.us.i.i203
 
 for.inc.us.i.i203:                                ; preds = %if.else.us.i.i211, %if.then.us.i.i201
-  %size.addr.1.us.i.i204 = phi i64 [ %size.addr.032.us.i.i197, %if.then.us.i.i201 ], [ %sub19.us.i.i215, %if.else.us.i.i211 ]
-  %copied.1.us.i.i205 = phi i64 [ %copied.034.us.i.i196, %if.then.us.i.i201 ], [ %add.us.i.i216, %if.else.us.i.i211 ]
+  %copied.1.us.i.i204 = phi i64 [ %copied.032.us.i.i197, %if.then.us.i.i201 ], [ %add.us.i.i216, %if.else.us.i.i211 ]
+  %size.addr.1.us.i.i205 = phi i64 [ %size.addr.034.us.i.i196, %if.then.us.i.i201 ], [ %sub19.us.i.i215, %if.else.us.i.i211 ]
   %offset.addr.1.us.i.i206 = phi i64 [ %sub.us.i.i202, %if.then.us.i.i201 ], [ %spec.select29.us.i.i219, %if.else.us.i.i211 ]
   %addr.addr.1.us.i.i207 = phi ptr [ %addr.addr.036.us.i.i194, %if.then.us.i.i201 ], [ %add.ptr20.us.i.i217, %if.else.us.i.i211 ]
   %indvars.iv.next40.i.i208 = add nuw nsw i64 %indvars.iv39.i.i193, 1
-  %tobool.us.i.i209 = icmp ne i64 %size.addr.1.us.i.i204, 0
+  %tobool.us.i.i209 = icmp ne i64 %size.addr.1.us.i.i205, 0
   %cmp.us.i.i210 = icmp ult i64 %indvars.iv.next40.i.i208, %1
   %49 = select i1 %tobool.us.i.i209, i1 %cmp.us.i.i210, i1 false
   br i1 %49, label %for.body.us.i.i192, label %v9fs_unpack.exit220, !llvm.loop !5
 
 v9fs_unpack.exit220:                              ; preds = %for.inc.us.i.i203, %if.then73
-  %copied.0.lcssa.i.i188 = phi i64 [ 0, %if.then73 ], [ %copied.1.us.i.i205, %for.inc.us.i.i203 ]
+  %copied.0.lcssa.i.i188 = phi i64 [ 0, %if.then73 ], [ %copied.1.us.i.i204, %for.inc.us.i.i203 ]
   %cmp25.i.i189 = icmp ult i64 %copied.0.lcssa.i.i188, %conv81
   %.copied.0.i.i190 = select i1 %cmp25.i.i189, i64 -105, i64 %copied.0.lcssa.i.i188
   %cmp83 = icmp sgt i64 %.copied.0.i.i190, -1
@@ -713,8 +713,8 @@ for.body.i.i:                                     ; preds = %vaarg.end, %for.inc
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %vaarg.end ]
   %addr.addr.036.i.i = phi ptr [ %addr.addr.1.i.i, %for.inc.i.i ], [ %val, %vaarg.end ]
   %offset.addr.035.i.i = phi i64 [ %offset.addr.1.i.i, %for.inc.i.i ], [ %offset.addr.0, %vaarg.end ]
-  %copied.034.i.i = phi i64 [ %copied.1.i.i.fr, %for.inc.i.i ], [ 0, %vaarg.end ]
-  %size.addr.032.i.i = phi i64 [ %size.addr.1.i.i, %for.inc.i.i ], [ 1, %vaarg.end ]
+  %size.addr.034.i.i = phi i64 [ %size.addr.1.i.i, %for.inc.i.i ], [ 1, %vaarg.end ]
+  %copied.032.i.i = phi i64 [ %copied.1.i.i.fr, %for.inc.i.i ], [ 0, %vaarg.end ]
   %arrayidx.i.i = getelementptr %struct.iovec, ptr %in_sg, i64 %indvars.iv.i.i
   %iov_len.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %7 = load i64, ptr %iov_len.i.i, align 8
@@ -727,20 +727,20 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
   %sub8.i.i = sub i64 %7, %offset.addr.035.i.i
-  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %sub8.i.i, i64 %size.addr.032.i.i)
+  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %sub8.i.i, i64 %size.addr.034.i.i)
   %8 = load ptr, ptr %arrayidx.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %8, i64 %offset.addr.035.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %addr.addr.036.i.i, i64 %cond.i.i, i1 false)
-  %sub19.i.i = sub i64 %size.addr.032.i.i, %cond.i.i
-  %add.i.i = add i64 %cond.i.i, %copied.034.i.i
+  %sub19.i.i = sub i64 %size.addr.034.i.i, %cond.i.i
+  %add.i.i = add i64 %cond.i.i, %copied.032.i.i
   %add.ptr20.i.i = getelementptr i8, ptr %addr.addr.036.i.i, i64 %cond.i.i
   %tobool21.not.i.i = icmp eq i64 %sub19.i.i, 0
   %spec.select29.i.i = select i1 %tobool21.not.i.i, i64 %offset.addr.035.i.i, i64 0
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then.i.i
-  %size.addr.1.i.i = phi i64 [ %size.addr.032.i.i, %if.then.i.i ], [ %sub19.i.i, %if.else.i.i ]
-  %copied.1.i.i = phi i64 [ %copied.034.i.i, %if.then.i.i ], [ %add.i.i, %if.else.i.i ]
+  %copied.1.i.i = phi i64 [ %copied.032.i.i, %if.then.i.i ], [ %add.i.i, %if.else.i.i ]
+  %size.addr.1.i.i = phi i64 [ %size.addr.034.i.i, %if.then.i.i ], [ %sub19.i.i, %if.else.i.i ]
   %offset.addr.1.i.i = phi i64 [ %sub.i.i, %if.then.i.i ], [ %spec.select29.i.i, %if.else.i.i ]
   %addr.addr.1.i.i = phi ptr [ %addr.addr.036.i.i, %if.then.i.i ], [ %add.ptr20.i.i, %if.else.i.i ]
   %copied.1.i.i.fr = freeze i64 %copied.1.i.i
@@ -784,8 +784,8 @@ for.body.i.i92:                                   ; preds = %vaarg.end15, %for.i
   %indvars.iv.i.i93 = phi i64 [ %indvars.iv.next.i.i108, %for.inc.i.i103 ], [ 0, %vaarg.end15 ]
   %addr.addr.036.i.i94 = phi ptr [ %addr.addr.1.i.i107, %for.inc.i.i103 ], [ %val5, %vaarg.end15 ]
   %offset.addr.035.i.i95 = phi i64 [ %offset.addr.1.i.i106, %for.inc.i.i103 ], [ %offset.addr.0, %vaarg.end15 ]
-  %copied.034.i.i96 = phi i64 [ %copied.1.i.i105.fr, %for.inc.i.i103 ], [ 0, %vaarg.end15 ]
-  %size.addr.032.i.i97 = phi i64 [ %size.addr.1.i.i104, %for.inc.i.i103 ], [ 2, %vaarg.end15 ]
+  %size.addr.034.i.i96 = phi i64 [ %size.addr.1.i.i105, %for.inc.i.i103 ], [ 2, %vaarg.end15 ]
+  %copied.032.i.i97 = phi i64 [ %copied.1.i.i104.fr, %for.inc.i.i103 ], [ 0, %vaarg.end15 ]
   %arrayidx.i.i98 = getelementptr %struct.iovec, ptr %in_sg, i64 %indvars.iv.i.i93
   %iov_len.i.i99 = getelementptr inbounds i8, ptr %arrayidx.i.i98, i64 8
   %14 = load i64, ptr %iov_len.i.i99, align 8
@@ -798,31 +798,31 @@ if.then.i.i101:                                   ; preds = %for.body.i.i92
 
 if.else.i.i111:                                   ; preds = %for.body.i.i92
   %sub8.i.i112 = sub i64 %14, %offset.addr.035.i.i95
-  %cond.i.i113 = tail call i64 @llvm.umin.i64(i64 %sub8.i.i112, i64 %size.addr.032.i.i97)
+  %cond.i.i113 = tail call i64 @llvm.umin.i64(i64 %sub8.i.i112, i64 %size.addr.034.i.i96)
   %15 = load ptr, ptr %arrayidx.i.i98, align 8
   %add.ptr.i.i114 = getelementptr i8, ptr %15, i64 %offset.addr.035.i.i95
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i114, ptr align 1 %addr.addr.036.i.i94, i64 %cond.i.i113, i1 false)
-  %sub19.i.i115 = sub i64 %size.addr.032.i.i97, %cond.i.i113
-  %add.i.i116 = add i64 %cond.i.i113, %copied.034.i.i96
+  %sub19.i.i115 = sub i64 %size.addr.034.i.i96, %cond.i.i113
+  %add.i.i116 = add i64 %cond.i.i113, %copied.032.i.i97
   %add.ptr20.i.i117 = getelementptr i8, ptr %addr.addr.036.i.i94, i64 %cond.i.i113
   %tobool21.not.i.i118 = icmp eq i64 %sub19.i.i115, 0
   %spec.select29.i.i119 = select i1 %tobool21.not.i.i118, i64 %offset.addr.035.i.i95, i64 0
   br label %for.inc.i.i103
 
 for.inc.i.i103:                                   ; preds = %if.else.i.i111, %if.then.i.i101
-  %size.addr.1.i.i104 = phi i64 [ %size.addr.032.i.i97, %if.then.i.i101 ], [ %sub19.i.i115, %if.else.i.i111 ]
-  %copied.1.i.i105 = phi i64 [ %copied.034.i.i96, %if.then.i.i101 ], [ %add.i.i116, %if.else.i.i111 ]
+  %copied.1.i.i104 = phi i64 [ %copied.032.i.i97, %if.then.i.i101 ], [ %add.i.i116, %if.else.i.i111 ]
+  %size.addr.1.i.i105 = phi i64 [ %size.addr.034.i.i96, %if.then.i.i101 ], [ %sub19.i.i115, %if.else.i.i111 ]
   %offset.addr.1.i.i106 = phi i64 [ %sub.i.i102, %if.then.i.i101 ], [ %spec.select29.i.i119, %if.else.i.i111 ]
   %addr.addr.1.i.i107 = phi ptr [ %addr.addr.036.i.i94, %if.then.i.i101 ], [ %add.ptr20.i.i117, %if.else.i.i111 ]
-  %copied.1.i.i105.fr = freeze i64 %copied.1.i.i105
+  %copied.1.i.i104.fr = freeze i64 %copied.1.i.i104
   %indvars.iv.next.i.i108 = add nuw nsw i64 %indvars.iv.i.i93, 1
-  %tobool.i.i109 = icmp ne i64 %size.addr.1.i.i104, 0
+  %tobool.i.i109 = icmp ne i64 %size.addr.1.i.i105, 0
   %cmp.i.i110 = icmp ult i64 %indvars.iv.next.i.i108, %1
   %16 = select i1 %tobool.i.i109, i1 %cmp.i.i110, i1 false
   br i1 %16, label %for.body.i.i92, label %v9fs_pack.exit120, !llvm.loop !5
 
 v9fs_pack.exit120:                                ; preds = %for.inc.i.i103
-  %cmp25.i.i89 = icmp ult i64 %copied.1.i.i105.fr, 2
+  %cmp25.i.i89 = icmp ult i64 %copied.1.i.i104.fr, 2
   br i1 %cmp25.i.i89, label %return, label %sw.epilog
 
 sw.bb21:                                          ; preds = %for.cond
@@ -854,8 +854,8 @@ for.body.i.i126:                                  ; preds = %vaarg.end32, %for.i
   %indvars.iv.i.i127 = phi i64 [ %indvars.iv.next.i.i142, %for.inc.i.i137 ], [ 0, %vaarg.end32 ]
   %addr.addr.036.i.i128 = phi ptr [ %addr.addr.1.i.i141, %for.inc.i.i137 ], [ %val22, %vaarg.end32 ]
   %offset.addr.035.i.i129 = phi i64 [ %offset.addr.1.i.i140, %for.inc.i.i137 ], [ %offset.addr.0, %vaarg.end32 ]
-  %copied.034.i.i130 = phi i64 [ %copied.1.i.i139.fr, %for.inc.i.i137 ], [ 0, %vaarg.end32 ]
-  %size.addr.032.i.i131 = phi i64 [ %size.addr.1.i.i138, %for.inc.i.i137 ], [ 4, %vaarg.end32 ]
+  %size.addr.034.i.i130 = phi i64 [ %size.addr.1.i.i139, %for.inc.i.i137 ], [ 4, %vaarg.end32 ]
+  %copied.032.i.i131 = phi i64 [ %copied.1.i.i138.fr, %for.inc.i.i137 ], [ 0, %vaarg.end32 ]
   %arrayidx.i.i132 = getelementptr %struct.iovec, ptr %in_sg, i64 %indvars.iv.i.i127
   %iov_len.i.i133 = getelementptr inbounds i8, ptr %arrayidx.i.i132, i64 8
   %21 = load i64, ptr %iov_len.i.i133, align 8
@@ -868,31 +868,31 @@ if.then.i.i135:                                   ; preds = %for.body.i.i126
 
 if.else.i.i145:                                   ; preds = %for.body.i.i126
   %sub8.i.i146 = sub i64 %21, %offset.addr.035.i.i129
-  %cond.i.i147 = tail call i64 @llvm.umin.i64(i64 %sub8.i.i146, i64 %size.addr.032.i.i131)
+  %cond.i.i147 = tail call i64 @llvm.umin.i64(i64 %sub8.i.i146, i64 %size.addr.034.i.i130)
   %22 = load ptr, ptr %arrayidx.i.i132, align 8
   %add.ptr.i.i148 = getelementptr i8, ptr %22, i64 %offset.addr.035.i.i129
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i148, ptr align 1 %addr.addr.036.i.i128, i64 %cond.i.i147, i1 false)
-  %sub19.i.i149 = sub i64 %size.addr.032.i.i131, %cond.i.i147
-  %add.i.i150 = add i64 %cond.i.i147, %copied.034.i.i130
+  %sub19.i.i149 = sub i64 %size.addr.034.i.i130, %cond.i.i147
+  %add.i.i150 = add i64 %cond.i.i147, %copied.032.i.i131
   %add.ptr20.i.i151 = getelementptr i8, ptr %addr.addr.036.i.i128, i64 %cond.i.i147
   %tobool21.not.i.i152 = icmp eq i64 %sub19.i.i149, 0
   %spec.select29.i.i153 = select i1 %tobool21.not.i.i152, i64 %offset.addr.035.i.i129, i64 0
   br label %for.inc.i.i137
 
 for.inc.i.i137:                                   ; preds = %if.else.i.i145, %if.then.i.i135
-  %size.addr.1.i.i138 = phi i64 [ %size.addr.032.i.i131, %if.then.i.i135 ], [ %sub19.i.i149, %if.else.i.i145 ]
-  %copied.1.i.i139 = phi i64 [ %copied.034.i.i130, %if.then.i.i135 ], [ %add.i.i150, %if.else.i.i145 ]
+  %copied.1.i.i138 = phi i64 [ %copied.032.i.i131, %if.then.i.i135 ], [ %add.i.i150, %if.else.i.i145 ]
+  %size.addr.1.i.i139 = phi i64 [ %size.addr.034.i.i130, %if.then.i.i135 ], [ %sub19.i.i149, %if.else.i.i145 ]
   %offset.addr.1.i.i140 = phi i64 [ %sub.i.i136, %if.then.i.i135 ], [ %spec.select29.i.i153, %if.else.i.i145 ]
   %addr.addr.1.i.i141 = phi ptr [ %addr.addr.036.i.i128, %if.then.i.i135 ], [ %add.ptr20.i.i151, %if.else.i.i145 ]
-  %copied.1.i.i139.fr = freeze i64 %copied.1.i.i139
+  %copied.1.i.i138.fr = freeze i64 %copied.1.i.i138
   %indvars.iv.next.i.i142 = add nuw nsw i64 %indvars.iv.i.i127, 1
-  %tobool.i.i143 = icmp ne i64 %size.addr.1.i.i138, 0
+  %tobool.i.i143 = icmp ne i64 %size.addr.1.i.i139, 0
   %cmp.i.i144 = icmp ult i64 %indvars.iv.next.i.i142, %1
   %23 = select i1 %tobool.i.i143, i1 %cmp.i.i144, i1 false
   br i1 %23, label %for.body.i.i126, label %v9fs_pack.exit154, !llvm.loop !5
 
 v9fs_pack.exit154:                                ; preds = %for.inc.i.i137
-  %cmp25.i.i123 = icmp ult i64 %copied.1.i.i139.fr, 4
+  %cmp25.i.i123 = icmp ult i64 %copied.1.i.i138.fr, 4
   br i1 %cmp25.i.i123, label %return, label %sw.epilog
 
 sw.bb39:                                          ; preds = %for.cond
@@ -924,8 +924,8 @@ for.body.i.i160:                                  ; preds = %vaarg.end50, %for.i
   %indvars.iv.i.i161 = phi i64 [ %indvars.iv.next.i.i176, %for.inc.i.i171 ], [ 0, %vaarg.end50 ]
   %addr.addr.036.i.i162 = phi ptr [ %addr.addr.1.i.i175, %for.inc.i.i171 ], [ %val40, %vaarg.end50 ]
   %offset.addr.035.i.i163 = phi i64 [ %offset.addr.1.i.i174, %for.inc.i.i171 ], [ %offset.addr.0, %vaarg.end50 ]
-  %copied.034.i.i164 = phi i64 [ %copied.1.i.i173.fr, %for.inc.i.i171 ], [ 0, %vaarg.end50 ]
-  %size.addr.032.i.i165 = phi i64 [ %size.addr.1.i.i172, %for.inc.i.i171 ], [ 8, %vaarg.end50 ]
+  %size.addr.034.i.i164 = phi i64 [ %size.addr.1.i.i173, %for.inc.i.i171 ], [ 8, %vaarg.end50 ]
+  %copied.032.i.i165 = phi i64 [ %copied.1.i.i172.fr, %for.inc.i.i171 ], [ 0, %vaarg.end50 ]
   %arrayidx.i.i166 = getelementptr %struct.iovec, ptr %in_sg, i64 %indvars.iv.i.i161
   %iov_len.i.i167 = getelementptr inbounds i8, ptr %arrayidx.i.i166, i64 8
   %28 = load i64, ptr %iov_len.i.i167, align 8
@@ -938,31 +938,31 @@ if.then.i.i169:                                   ; preds = %for.body.i.i160
 
 if.else.i.i179:                                   ; preds = %for.body.i.i160
   %sub8.i.i180 = sub i64 %28, %offset.addr.035.i.i163
-  %cond.i.i181 = tail call i64 @llvm.umin.i64(i64 %sub8.i.i180, i64 %size.addr.032.i.i165)
+  %cond.i.i181 = tail call i64 @llvm.umin.i64(i64 %sub8.i.i180, i64 %size.addr.034.i.i164)
   %29 = load ptr, ptr %arrayidx.i.i166, align 8
   %add.ptr.i.i182 = getelementptr i8, ptr %29, i64 %offset.addr.035.i.i163
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i182, ptr align 1 %addr.addr.036.i.i162, i64 %cond.i.i181, i1 false)
-  %sub19.i.i183 = sub i64 %size.addr.032.i.i165, %cond.i.i181
-  %add.i.i184 = add i64 %cond.i.i181, %copied.034.i.i164
+  %sub19.i.i183 = sub i64 %size.addr.034.i.i164, %cond.i.i181
+  %add.i.i184 = add i64 %cond.i.i181, %copied.032.i.i165
   %add.ptr20.i.i185 = getelementptr i8, ptr %addr.addr.036.i.i162, i64 %cond.i.i181
   %tobool21.not.i.i186 = icmp eq i64 %sub19.i.i183, 0
   %spec.select29.i.i187 = select i1 %tobool21.not.i.i186, i64 %offset.addr.035.i.i163, i64 0
   br label %for.inc.i.i171
 
 for.inc.i.i171:                                   ; preds = %if.else.i.i179, %if.then.i.i169
-  %size.addr.1.i.i172 = phi i64 [ %size.addr.032.i.i165, %if.then.i.i169 ], [ %sub19.i.i183, %if.else.i.i179 ]
-  %copied.1.i.i173 = phi i64 [ %copied.034.i.i164, %if.then.i.i169 ], [ %add.i.i184, %if.else.i.i179 ]
+  %copied.1.i.i172 = phi i64 [ %copied.032.i.i165, %if.then.i.i169 ], [ %add.i.i184, %if.else.i.i179 ]
+  %size.addr.1.i.i173 = phi i64 [ %size.addr.034.i.i164, %if.then.i.i169 ], [ %sub19.i.i183, %if.else.i.i179 ]
   %offset.addr.1.i.i174 = phi i64 [ %sub.i.i170, %if.then.i.i169 ], [ %spec.select29.i.i187, %if.else.i.i179 ]
   %addr.addr.1.i.i175 = phi ptr [ %addr.addr.036.i.i162, %if.then.i.i169 ], [ %add.ptr20.i.i185, %if.else.i.i179 ]
-  %copied.1.i.i173.fr = freeze i64 %copied.1.i.i173
+  %copied.1.i.i172.fr = freeze i64 %copied.1.i.i172
   %indvars.iv.next.i.i176 = add nuw nsw i64 %indvars.iv.i.i161, 1
-  %tobool.i.i177 = icmp ne i64 %size.addr.1.i.i172, 0
+  %tobool.i.i177 = icmp ne i64 %size.addr.1.i.i173, 0
   %cmp.i.i178 = icmp ult i64 %indvars.iv.next.i.i176, %1
   %30 = select i1 %tobool.i.i177, i1 %cmp.i.i178, i1 false
   br i1 %30, label %for.body.i.i160, label %v9fs_pack.exit188, !llvm.loop !5
 
 v9fs_pack.exit188:                                ; preds = %for.inc.i.i171
-  %cmp25.i.i157 = icmp ult i64 %copied.1.i.i173.fr, 8
+  %cmp25.i.i157 = icmp ult i64 %copied.1.i.i172.fr, 8
   br i1 %cmp25.i.i157, label %return, label %sw.epilog
 
 sw.bb57:                                          ; preds = %for.cond
@@ -1010,8 +1010,8 @@ for.body.i.i194:                                  ; preds = %for.inc.i.i205, %fo
   %indvars.iv.i.i195 = phi i64 [ %indvars.iv.next.i.i210, %for.inc.i.i205 ], [ 0, %for.body.lr.ph.i.i193 ]
   %addr.addr.036.i.i196 = phi ptr [ %addr.addr.1.i.i209, %for.inc.i.i205 ], [ %38, %for.body.lr.ph.i.i193 ]
   %offset.addr.035.i.i197 = phi i64 [ %offset.addr.1.i.i208, %for.inc.i.i205 ], [ %add, %for.body.lr.ph.i.i193 ]
-  %copied.034.i.i198 = phi i64 [ %copied.1.i.i207, %for.inc.i.i205 ], [ 0, %for.body.lr.ph.i.i193 ]
-  %size.addr.032.i.i199 = phi i64 [ %size.addr.1.i.i206, %for.inc.i.i205 ], [ %conv74, %for.body.lr.ph.i.i193 ]
+  %size.addr.034.i.i198 = phi i64 [ %size.addr.1.i.i207, %for.inc.i.i205 ], [ %conv74, %for.body.lr.ph.i.i193 ]
+  %copied.032.i.i199 = phi i64 [ %copied.1.i.i206, %for.inc.i.i205 ], [ 0, %for.body.lr.ph.i.i193 ]
   %arrayidx.i.i200 = getelementptr %struct.iovec, ptr %in_sg, i64 %indvars.iv.i.i195
   %iov_len.i.i201 = getelementptr inbounds i8, ptr %arrayidx.i.i200, i64 8
   %39 = load i64, ptr %iov_len.i.i201, align 8
@@ -1024,30 +1024,30 @@ if.then.i.i203:                                   ; preds = %for.body.i.i194
 
 if.else.i.i213:                                   ; preds = %for.body.i.i194
   %sub8.i.i214 = sub i64 %39, %offset.addr.035.i.i197
-  %cond.i.i215 = tail call i64 @llvm.umin.i64(i64 %sub8.i.i214, i64 %size.addr.032.i.i199)
+  %cond.i.i215 = tail call i64 @llvm.umin.i64(i64 %sub8.i.i214, i64 %size.addr.034.i.i198)
   %40 = load ptr, ptr %arrayidx.i.i200, align 8
   %add.ptr.i.i216 = getelementptr i8, ptr %40, i64 %offset.addr.035.i.i197
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i216, ptr align 1 %addr.addr.036.i.i196, i64 %cond.i.i215, i1 false)
-  %sub19.i.i217 = sub i64 %size.addr.032.i.i199, %cond.i.i215
-  %add.i.i218 = add i64 %cond.i.i215, %copied.034.i.i198
+  %sub19.i.i217 = sub i64 %size.addr.034.i.i198, %cond.i.i215
+  %add.i.i218 = add i64 %cond.i.i215, %copied.032.i.i199
   %add.ptr20.i.i219 = getelementptr i8, ptr %addr.addr.036.i.i196, i64 %cond.i.i215
   %tobool21.not.i.i220 = icmp eq i64 %sub19.i.i217, 0
   %spec.select29.i.i221 = select i1 %tobool21.not.i.i220, i64 %offset.addr.035.i.i197, i64 0
   br label %for.inc.i.i205
 
 for.inc.i.i205:                                   ; preds = %if.else.i.i213, %if.then.i.i203
-  %size.addr.1.i.i206 = phi i64 [ %size.addr.032.i.i199, %if.then.i.i203 ], [ %sub19.i.i217, %if.else.i.i213 ]
-  %copied.1.i.i207 = phi i64 [ %copied.034.i.i198, %if.then.i.i203 ], [ %add.i.i218, %if.else.i.i213 ]
+  %copied.1.i.i206 = phi i64 [ %copied.032.i.i199, %if.then.i.i203 ], [ %add.i.i218, %if.else.i.i213 ]
+  %size.addr.1.i.i207 = phi i64 [ %size.addr.034.i.i198, %if.then.i.i203 ], [ %sub19.i.i217, %if.else.i.i213 ]
   %offset.addr.1.i.i208 = phi i64 [ %sub.i.i204, %if.then.i.i203 ], [ %spec.select29.i.i221, %if.else.i.i213 ]
   %addr.addr.1.i.i209 = phi ptr [ %addr.addr.036.i.i196, %if.then.i.i203 ], [ %add.ptr20.i.i219, %if.else.i.i213 ]
   %indvars.iv.next.i.i210 = add nuw nsw i64 %indvars.iv.i.i195, 1
-  %tobool.i.i211 = icmp ne i64 %size.addr.1.i.i206, 0
+  %tobool.i.i211 = icmp ne i64 %size.addr.1.i.i207, 0
   %cmp.i.i212 = icmp ult i64 %indvars.iv.next.i.i210, %1
   %41 = select i1 %tobool.i.i211, i1 %cmp.i.i212, i1 false
   br i1 %41, label %for.body.i.i194, label %v9fs_pack.exit222, !llvm.loop !5
 
 v9fs_pack.exit222:                                ; preds = %for.inc.i.i205, %if.then72
-  %copied.0.lcssa.i.i190 = phi i64 [ 0, %if.then72 ], [ %copied.1.i.i207, %for.inc.i.i205 ]
+  %copied.0.lcssa.i.i190 = phi i64 [ 0, %if.then72 ], [ %copied.1.i.i206, %for.inc.i.i205 ]
   %cmp25.i.i191 = icmp ult i64 %copied.0.lcssa.i.i190, %conv74
   br i1 %cmp25.i.i191, label %return, label %sw.epilog
 
@@ -1202,7 +1202,7 @@ do.body:                                          ; preds = %for.cond
   unreachable
 
 sw.epilog:                                        ; preds = %v9fs_pack.exit222, %v9fs_pack.exit188, %v9fs_pack.exit154, %v9fs_pack.exit120, %v9fs_pack.exit, %vaarg.end67, %vaarg.end119, %vaarg.end101, %vaarg.end87
-  %copied.0 = phi i64 [ %call122, %vaarg.end119 ], [ %call107, %vaarg.end101 ], [ %call90, %vaarg.end87 ], [ %copied.0.lcssa.i.i190, %v9fs_pack.exit222 ], [ %call70, %vaarg.end67 ], [ %copied.1.i.i.fr, %v9fs_pack.exit ], [ %copied.1.i.i105.fr, %v9fs_pack.exit120 ], [ %copied.1.i.i139.fr, %v9fs_pack.exit154 ], [ %copied.1.i.i173.fr, %v9fs_pack.exit188 ]
+  %copied.0 = phi i64 [ %call122, %vaarg.end119 ], [ %call107, %vaarg.end101 ], [ %call90, %vaarg.end87 ], [ %copied.0.lcssa.i.i190, %v9fs_pack.exit222 ], [ %call70, %vaarg.end67 ], [ %copied.1.i.i.fr, %v9fs_pack.exit ], [ %copied.1.i.i104.fr, %v9fs_pack.exit120 ], [ %copied.1.i.i138.fr, %v9fs_pack.exit154 ], [ %copied.1.i.i172.fr, %v9fs_pack.exit188 ]
   %offset.addr.1 = phi i64 [ %offset.addr.0, %vaarg.end119 ], [ %offset.addr.0, %vaarg.end101 ], [ %offset.addr.0, %vaarg.end87 ], [ %add, %v9fs_pack.exit222 ], [ %offset.addr.0, %vaarg.end67 ], [ %offset.addr.0, %v9fs_pack.exit ], [ %offset.addr.0, %v9fs_pack.exit120 ], [ %offset.addr.0, %v9fs_pack.exit154 ], [ %offset.addr.0, %v9fs_pack.exit188 ]
   %cmp123 = icmp slt i64 %copied.0, 0
   br i1 %cmp123, label %return, label %if.end126

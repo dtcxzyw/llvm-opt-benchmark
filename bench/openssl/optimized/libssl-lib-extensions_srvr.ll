@@ -1319,8 +1319,8 @@ if.then18:                                        ; preds = %if.end9
   br label %return
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.preheader
-  %key_share_list.sroa.7.1 = phi i64 [ %or.i.i.i, %while.cond.preheader ], [ %sub.i.i7.i, %while.cond.backedge ]
   %key_share_list.sroa.0.1 = phi ptr [ %add.ptr.i2.i.i, %while.cond.preheader ], [ %add.ptr.i.i6.i45, %while.cond.backedge ]
+  %key_share_list.sroa.7.1 = phi i64 [ %or.i.i.i, %while.cond.preheader ], [ %sub.i.i7.i, %while.cond.backedge ]
   %tobool33.not = phi i1 [ true, %while.cond.preheader ], [ %tobool33.not.be, %while.cond.backedge ]
   switch i64 %key_share_list.sroa.7.1, label %lor.lhs.false [
     i64 0, label %return
@@ -3028,10 +3028,10 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp621.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end5, %for.inc
-  %first.023 = phi i64 [ %first.2, %for.inc ], [ 1, %if.end5 ]
-  %i.022 = phi i64 [ %inc, %for.inc ], [ 0, %if.end5 ]
+  %i.023 = phi i64 [ %inc, %for.inc ], [ 0, %if.end5 ]
+  %first.022 = phi i64 [ %first.2, %for.inc ], [ 1, %if.end5 ]
   %3 = load ptr, ptr %groups, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %3, i64 %i.022
+  %arrayidx = getelementptr inbounds i16, ptr %3, i64 %i.023
   %4 = load i16, ptr %arrayidx, align 2
   %call8 = call i32 @tls_valid_group(ptr noundef %s, i16 noundef zeroext %4, i32 noundef %call, i32 noundef %call, i32 noundef 0, ptr noundef null) #10
   %tobool.not = icmp eq i32 %call8, 0
@@ -3043,7 +3043,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %tobool10.not, label %for.inc, label %if.then11
 
 if.then11:                                        ; preds = %land.lhs.true
-  %tobool12.not = icmp eq i64 %first.023, 0
+  %tobool12.not = icmp eq i64 %first.022, 0
   br i1 %tobool12.not, label %if.end31, label %if.then13
 
 if.then13:                                        ; preds = %if.then11
@@ -3085,8 +3085,8 @@ if.then35:                                        ; preds = %if.end31
   br label %return
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.end31
-  %first.2 = phi i64 [ 0, %if.end31 ], [ %first.023, %land.lhs.true ], [ %first.023, %for.body ]
-  %inc = add nuw i64 %i.022, 1
+  %first.2 = phi i64 [ 0, %if.end31 ], [ %first.022, %land.lhs.true ], [ %first.022, %for.body ]
+  %inc = add nuw i64 %i.023, 1
   %6 = load i64, ptr %numgroups, align 8
   %cmp6 = icmp ult i64 %inc, %6
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !13

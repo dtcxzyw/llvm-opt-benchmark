@@ -146,8 +146,8 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack3new17hb265b6db89da91a8E
   %12 = extractvalue { ptr, i32, i32 } %11, 0
   %.not.i.i.i = icmp sgt ptr %12, inttoptr (i64 -4096 to ptr)
   %13 = icmp slt ptr %12, null
-  %.0.i.i.i = and i1 %.not.i.i.i, %13
-  br i1 %.0.i.i.i, label %19, label %14
+  %.014.i.i.i = and i1 %.not.i.i.i, %13
+  br i1 %.014.i.i.i, label %19, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %12, i64 %3

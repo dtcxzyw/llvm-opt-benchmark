@@ -345,7 +345,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %dsp_count.07 = phi i32 [ 0, %entry ], [ %dsp_count.1, %for.inc ]
+  %dsp_count.08 = phi i32 [ 0, %entry ], [ %dsp_count.1, %for.inc ]
   %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -368,11 +368,11 @@ if.end:                                           ; preds = %lor.lhs.false3
   %call5 = tail call ptr @object_dynamic_cast(ptr noundef nonnull %0, ptr noundef nonnull @.str) #9
   %tobool6.not = icmp ne ptr %call5, null
   %inc = zext i1 %tobool6.not to i32
-  %spec.select = add i32 %dsp_count.07, %inc
+  %spec.select = add i32 %dsp_count.08, %inc
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %for.body, %lor.lhs.false, %lor.lhs.false3
-  %dsp_count.1 = phi i32 [ %dsp_count.07, %lor.lhs.false3 ], [ %dsp_count.07, %lor.lhs.false ], [ %dsp_count.07, %for.body ], [ %spec.select, %if.end ]
+  %dsp_count.1 = phi i32 [ %dsp_count.08, %lor.lhs.false3 ], [ %dsp_count.08, %lor.lhs.false ], [ %dsp_count.08, %for.body ], [ %spec.select, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10

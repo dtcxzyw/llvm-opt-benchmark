@@ -343,53 +343,53 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end14.us
   %buf.029.us = phi ptr [ %add.ptr.us, %if.end14.us ], [ %ptr, %while.body.lr.ph ]
-  %len.addr.028.us = phi i64 [ %sub24.us, %if.end14.us ], [ %len, %while.body.lr.ph ]
-  %addr.addr.027.us = phi i64 [ %add25.us, %if.end14.us ], [ %addr, %while.body.lr.ph ]
-  %and.us = and i64 %addr.addr.027.us, -4096
-  %reass.sub39 = sub i64 %and.us, %addr.addr.027.us
+  %addr.addr.028.us = phi i64 [ %add25.us, %if.end14.us ], [ %addr, %while.body.lr.ph ]
+  %len.addr.027.us = phi i64 [ %sub24.us, %if.end14.us ], [ %len, %while.body.lr.ph ]
+  %and.us = and i64 %addr.addr.028.us, -4096
+  %reass.sub39 = sub i64 %and.us, %addr.addr.028.us
   %sub.us = add i64 %reass.sub39, 4096
-  %spec.select.us = tail call i64 @llvm.umin.i64(i64 %sub.us, i64 %len.addr.028.us)
+  %spec.select.us = tail call i64 @llvm.umin.i64(i64 %sub.us, i64 %len.addr.027.us)
   %call.us = tail call i32 @page_get_flags(i64 noundef %and.us) #16
   %0 = and i32 %call.us, 10
   %or.cond.not = icmp eq i32 %0, 10
   br i1 %or.cond.not, label %if.end10.us, label %return
 
 if.end10.us:                                      ; preds = %while.body.us
-  %call11.us = tail call ptr @lock_user(i32 noundef 3, i64 noundef %addr.addr.027.us, i64 noundef %spec.select.us, i1 noundef zeroext false) #16
+  %call11.us = tail call ptr @lock_user(i32 noundef 3, i64 noundef %addr.addr.028.us, i64 noundef %spec.select.us, i1 noundef zeroext false) #16
   %tobool12.not.us = icmp eq ptr %call11.us, null
   br i1 %tobool12.not.us, label %return, label %if.end14.us
 
 if.end14.us:                                      ; preds = %if.end10.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call11.us, ptr align 1 %buf.029.us, i64 %spec.select.us, i1 false)
-  %sub24.us = sub i64 %len.addr.028.us, %spec.select.us
+  %sub24.us = sub i64 %len.addr.027.us, %spec.select.us
   %add.ptr.us = getelementptr i8, ptr %buf.029.us, i64 %spec.select.us
-  %add25.us = add i64 %spec.select.us, %addr.addr.027.us
+  %add25.us = add i64 %spec.select.us, %addr.addr.028.us
   %cmp.not.us = icmp eq i64 %sub24.us, 0
   br i1 %cmp.not.us, label %return, label %while.body.us, !llvm.loop !5
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end22
   %buf.029 = phi ptr [ %add.ptr, %if.end22 ], [ %ptr, %while.body.lr.ph ]
-  %len.addr.028 = phi i64 [ %sub24, %if.end22 ], [ %len, %while.body.lr.ph ]
-  %addr.addr.027 = phi i64 [ %add25, %if.end22 ], [ %addr, %while.body.lr.ph ]
-  %and = and i64 %addr.addr.027, -4096
-  %reass.sub = sub i64 %and, %addr.addr.027
+  %addr.addr.028 = phi i64 [ %add25, %if.end22 ], [ %addr, %while.body.lr.ph ]
+  %len.addr.027 = phi i64 [ %sub24, %if.end22 ], [ %len, %while.body.lr.ph ]
+  %and = and i64 %addr.addr.028, -4096
+  %reass.sub = sub i64 %and, %addr.addr.028
   %sub = add i64 %reass.sub, 4096
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %sub, i64 %len.addr.028)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %sub, i64 %len.addr.027)
   %call = tail call i32 @page_get_flags(i64 noundef %and) #16
   %1 = and i32 %call, 9
   %or.cond38.not = icmp eq i32 %1, 9
   br i1 %or.cond38.not, label %if.end18, label %return
 
 if.end18:                                         ; preds = %while.body
-  %call19 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %addr.addr.027, i64 noundef %spec.select, i1 noundef zeroext true) #16
+  %call19 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %addr.addr.028, i64 noundef %spec.select, i1 noundef zeroext true) #16
   %tobool20.not = icmp eq ptr %call19, null
   br i1 %tobool20.not, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.029, ptr nonnull align 1 %call19, i64 %spec.select, i1 false)
-  %sub24 = sub i64 %len.addr.028, %spec.select
+  %sub24 = sub i64 %len.addr.027, %spec.select
   %add.ptr = getelementptr i8, ptr %buf.029, i64 %spec.select
-  %add25 = add i64 %spec.select, %addr.addr.027
+  %add25 = add i64 %spec.select, %addr.addr.028
   %cmp.not = icmp eq i64 %sub24, 0
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !5
 

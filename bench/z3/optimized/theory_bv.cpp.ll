@@ -21024,8 +21024,8 @@ if.then7:                                         ; preds = %if.end
 if.end8:                                          ; preds = %if.then7, %if.end
   %idxprom.i14.pre-phi = phi i64 [ %idxprom.i.i, %if.then7 ], [ %idxprom.i.i4, %if.end ]
   %idxprom.i10.pre-phi = phi i64 [ %idxprom.i.i4, %if.then7 ], [ %idxprom.i.i, %if.end ]
-  %r1.0 = phi i32 [ %v.addr.0.i3, %if.then7 ], [ %v.addr.0.i, %if.end ]
   %r2.0 = phi i32 [ %v.addr.0.i, %if.then7 ], [ %v.addr.0.i3, %if.end ]
+  %r1.0 = phi i32 [ %v.addr.0.i3, %if.then7 ], [ %v.addr.0.i, %if.end ]
   %v2.addr.0 = phi i32 [ %v1, %if.then7 ], [ %v2, %if.end ]
   %v1.addr.0 = phi i32 [ %v2, %if.then7 ], [ %v1, %if.end ]
   %6 = load ptr, ptr %this, align 8
@@ -30552,17 +30552,17 @@ _ZN10chashtableISt4pairIPN3smt5enodeES3_EN12obj_pair_setIS2_S2_E9hash_procENS6_7
   br i1 %cmp.not29.i, label %_ZN10chashtableISt4pairIPN3smt5enodeES3_EN12obj_pair_setIS2_S2_E9hash_procENS6_7eq_procEE10copy_tableEPNS9_4cellEjjSB_jjRj.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN10chashtableISt4pairIPN3smt5enodeES3_EN12obj_pair_setIS2_S2_E9hash_procENS6_7eq_procEE11alloc_tableEj.exit, %for.inc.i
-  %source_it.031.i = phi ptr [ %incdec.ptr25.i, %for.inc.i ], [ %2, %_ZN10chashtableISt4pairIPN3smt5enodeES3_EN12obj_pair_setIS2_S2_E9hash_procENS6_7eq_procEE11alloc_tableEj.exit ]
-  %target_cellar.030.i = phi ptr [ %target_cellar.3.i, %for.inc.i ], [ %add.ptr3.i, %_ZN10chashtableISt4pairIPN3smt5enodeES3_EN12obj_pair_setIS2_S2_E9hash_procENS6_7eq_procEE11alloc_tableEj.exit ]
-  %4 = load ptr, ptr %source_it.031.i, align 8
+  %target_cellar.031.i = phi ptr [ %target_cellar.3.i, %for.inc.i ], [ %add.ptr3.i, %_ZN10chashtableISt4pairIPN3smt5enodeES3_EN12obj_pair_setIS2_S2_E9hash_procENS6_7eq_procEE11alloc_tableEj.exit ]
+  %source_it.030.i = phi ptr [ %incdec.ptr25.i, %for.inc.i ], [ %2, %_ZN10chashtableISt4pairIPN3smt5enodeES3_EN12obj_pair_setIS2_S2_E9hash_procENS6_7eq_procEE11alloc_tableEj.exit ]
+  %4 = load ptr, ptr %source_it.030.i, align 8
   %5 = ptrtoint ptr %4 to i64
   %and.i.i = and i64 %5, 7
   %cmp.i.i = icmp eq i64 %and.i.i, 1
   br i1 %cmp.i.i, label %for.inc.i, label %do.body.i
 
 do.body.i:                                        ; preds = %for.body.i, %if.end21.i
-  %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end21.i ], [ %target_cellar.030.i, %for.body.i ]
-  %list_it.0.i = phi ptr [ %20, %if.end21.i ], [ %source_it.031.i, %for.body.i ]
+  %list_it.0.i = phi ptr [ %20, %if.end21.i ], [ %source_it.030.i, %for.body.i ]
+  %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end21.i ], [ %target_cellar.031.i, %for.body.i ]
   %m_data.i = getelementptr inbounds i8, ptr %list_it.0.i, i64 8
   %6 = load ptr, ptr %m_data.i, align 8
   %7 = load ptr, ptr %6, align 8
@@ -30632,8 +30632,8 @@ if.end21.i:                                       ; preds = %if.end.i, %if.then1
   br i1 %cmp23.not.i, label %for.inc.i, label %do.body.i, !llvm.loop !90
 
 for.inc.i:                                        ; preds = %if.end21.i, %for.body.i
-  %target_cellar.3.i = phi ptr [ %target_cellar.030.i, %for.body.i ], [ %target_cellar.2.i, %if.end21.i ]
-  %incdec.ptr25.i = getelementptr inbounds i8, ptr %source_it.031.i, i64 24
+  %target_cellar.3.i = phi ptr [ %target_cellar.031.i, %for.body.i ], [ %target_cellar.2.i, %if.end21.i ]
+  %incdec.ptr25.i = getelementptr inbounds i8, ptr %source_it.030.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr25.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN10chashtableISt4pairIPN3smt5enodeES3_EN12obj_pair_setIS2_S2_E9hash_procENS6_7eq_procEE10copy_tableEPNS9_4cellEjjSB_jjRj.exit, label %for.body.i, !llvm.loop !91
 
@@ -34376,9 +34376,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not13, label %if.end18, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %curr.015 = phi ptr [ %incdec.ptr, %for.inc ], [ %2, %if.end ]
-  %overhead.014 = phi i32 [ %overhead.1, %for.inc ], [ 0, %if.end ]
-  %m_state.i = getelementptr inbounds i8, ptr %curr.015, i64 4
+  %overhead.015 = phi i32 [ %overhead.1, %for.inc ], [ 0, %if.end ]
+  %curr.014 = phi ptr [ %incdec.ptr, %for.inc ], [ %2, %if.end ]
+  %m_state.i = getelementptr inbounds i8, ptr %curr.014, i64 4
   %4 = load i32, ptr %m_state.i, align 4
   %cmp.i = icmp eq i32 %4, 0
   br i1 %cmp.i, label %if.else, label %if.then5
@@ -34388,12 +34388,12 @@ if.then5:                                         ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %inc = add i32 %overhead.014, 1
+  %inc = add i32 %overhead.015, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then5, %if.else
-  %overhead.1 = phi i32 [ %inc, %if.else ], [ %overhead.014, %if.then5 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %curr.015, i64 56
+  %overhead.1 = phi i32 [ %inc, %if.else ], [ %overhead.015, %if.then5 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %curr.014, i64 56
   %cmp4.not = icmp eq ptr %incdec.ptr, %add.ptr
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !108
 

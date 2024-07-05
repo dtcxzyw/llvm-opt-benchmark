@@ -18,67 +18,67 @@ define i64 @wcsnrtombs(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2,
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
-  %.053 = phi i64 [ %30, %27 ], [ 0, %.lr.ph.preheader ]
-  %.02851 = phi ptr [ %28, %27 ], [ %7, %.lr.ph.preheader ]
-  %.03050 = phi ptr [ %.131, %27 ], [ %0, %.lr.ph.preheader ]
-  %.13349 = phi i64 [ %.2, %27 ], [ %spec.select, %.lr.ph.preheader ]
-  %.03448 = phi i64 [ %29, %27 ], [ %2, %.lr.ph.preheader ]
-  %12 = load i32, ptr %.02851, align 4
+  %.054 = phi ptr [ %.1, %27 ], [ %0, %.lr.ph.preheader ]
+  %.02852 = phi i64 [ %30, %27 ], [ 0, %.lr.ph.preheader ]
+  %.03050 = phi ptr [ %28, %27 ], [ %7, %.lr.ph.preheader ]
+  %.03249 = phi i64 [ %29, %27 ], [ %2, %.lr.ph.preheader ]
+  %.13448 = phi i64 [ %.2, %27 ], [ %spec.select, %.lr.ph.preheader ]
+  %12 = load i32, ptr %.03050, align 4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %._crit_edge, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = icmp ult i64 %.13349, 4
-  %16 = select i1 %15, ptr %6, ptr %.03050
+  %15 = icmp ult i64 %.13448, 4
+  %16 = select i1 %15, ptr %6, ptr %.054
   %17 = call i64 @wcrtomb(ptr noundef %16, i32 noundef %12, ptr noundef %4) #3
   %18 = icmp slt i64 %17, 0
   br i1 %18, label %._crit_edge, label %19
 
 19:                                               ; preds = %14
-  %.not = icmp eq ptr %.03050, null
+  %.not = icmp eq ptr %.054, null
   br i1 %.not, label %27, label %20
 
 20:                                               ; preds = %19
   br i1 %15, label %21, label %24
 
 21:                                               ; preds = %20
-  %22 = icmp ugt i64 %17, %.13349
+  %22 = icmp ugt i64 %17, %.13448
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %21
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.03050, ptr nonnull align 1 %6, i64 %17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.054, ptr nonnull align 1 %6, i64 %17, i1 false)
   br label %24
 
 24:                                               ; preds = %23, %20
-  %25 = getelementptr inbounds i8, ptr %.03050, i64 %17
-  %26 = sub i64 %.13349, %17
+  %25 = getelementptr inbounds i8, ptr %.054, i64 %17
+  %26 = sub i64 %.13448, %17
   br label %27
 
 27:                                               ; preds = %24, %19
-  %.2 = phi i64 [ %26, %24 ], [ %.13349, %19 ]
-  %.131 = phi ptr [ %25, %24 ], [ null, %19 ]
-  %28 = getelementptr inbounds i8, ptr %.02851, i64 4
-  %29 = add i64 %.03448, -1
-  %30 = add i64 %17, %.053
+  %.2 = phi i64 [ %26, %24 ], [ %.13448, %19 ]
+  %.1 = phi ptr [ %25, %24 ], [ null, %19 ]
+  %28 = getelementptr inbounds i8, ptr %.03050, i64 4
+  %29 = add i64 %.03249, -1
+  %30 = add i64 %17, %.02852
   %.not65 = icmp eq i64 %29, 0
   br i1 %.not65, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %27, %.lr.ph, %14, %5
-  %.030.lcssa = phi ptr [ %0, %5 ], [ %.03050, %14 ], [ %.03050, %.lr.ph ], [ %.131, %27 ]
-  %.129 = phi ptr [ %7, %5 ], [ %.02851, %14 ], [ null, %.lr.ph ], [ %28, %27 ]
-  %.1 = phi i64 [ 0, %5 ], [ %17, %14 ], [ %.053, %.lr.ph ], [ %30, %27 ]
-  %.not38 = icmp eq ptr %.030.lcssa, null
+  %.0.lcssa = phi ptr [ %0, %5 ], [ %.054, %14 ], [ %.054, %.lr.ph ], [ %.1, %27 ]
+  %.131 = phi ptr [ %7, %5 ], [ %.03050, %14 ], [ null, %.lr.ph ], [ %28, %27 ]
+  %.129 = phi i64 [ 0, %5 ], [ %17, %14 ], [ %.02852, %.lr.ph ], [ %30, %27 ]
+  %.not38 = icmp eq ptr %.0.lcssa, null
   br i1 %.not38, label %31, label %.thread
 
 .thread:                                          ; preds = %21, %._crit_edge
-  %.143 = phi i64 [ %.1, %._crit_edge ], [ %.053, %21 ]
-  %.12942 = phi ptr [ %.129, %._crit_edge ], [ %.02851, %21 ]
-  store ptr %.12942, ptr %1, align 8
+  %.12943 = phi i64 [ %.129, %._crit_edge ], [ %.02852, %21 ]
+  %.13142 = phi ptr [ %.131, %._crit_edge ], [ %.03050, %21 ]
+  store ptr %.13142, ptr %1, align 8
   br label %31
 
 31:                                               ; preds = %.thread, %._crit_edge
-  %.144 = phi i64 [ %.143, %.thread ], [ %.1, %._crit_edge ]
-  ret i64 %.144
+  %.12944 = phi i64 [ %.12943, %.thread ], [ %.129, %._crit_edge ]
+  ret i64 %.12944
 }
 
 declare i64 @wcrtomb(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

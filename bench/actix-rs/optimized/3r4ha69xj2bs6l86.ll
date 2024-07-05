@@ -9078,8 +9078,8 @@ default.unreachable:                              ; preds = %150
   br label %"_ZN58_$LT$http..method..Inner$u20$as$u20$core..clone..Clone$GT$5clone17hdd2e5f4f9a112acfE.exit"
 
 "_ZN58_$LT$http..method..Inner$u20$as$u20$core..clone..Clone$GT$5clone17hdd2e5f4f9a112acfE.exit": ; preds = %150, %150, %150, %150, %150, %150, %150, %150, %.noexc166, %152, %150
-  %.sroa.16192.0 = phi i64 [ %167, %.noexc166 ], [ %.sroa.16192.16.insert.ext, %152 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ]
   %.sroa.15.0 = phi ptr [ %166, %.noexc166 ], [ %.sroa.15.1.copyload, %152 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ]
+  %.sroa.16192.0 = phi i64 [ %167, %.noexc166 ], [ %.sroa.16192.16.insert.ext, %152 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ], [ undef, %150 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.039.sroa.5, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14191, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.14191)
   %169 = getelementptr inbounds i8, ptr %18, i64 120

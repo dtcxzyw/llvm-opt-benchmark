@@ -2087,18 +2087,18 @@ Vec_IntAlloc.exit.i.i:                            ; preds = %25
   br label %236
 
 Aig_ManPartitionMonolithic.exit:                  ; preds = %36, %Vec_IntAlloc.exit.i.i, %Vec_IntAlloc.exit.thread.i.i, %43, %41, %39
-  %.085 = phi ptr [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %28, %Vec_IntAlloc.exit.thread.i.i ], [ %28, %Vec_IntAlloc.exit.i.i ], [ %28, %36 ]
+  %.086 = phi ptr [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %28, %Vec_IntAlloc.exit.thread.i.i ], [ %28, %Vec_IntAlloc.exit.i.i ], [ %28, %36 ]
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %71, label %46
 
 46:                                               ; preds = %Aig_ManPartitionMonolithic.exit
-  %47 = getelementptr inbounds i8, ptr %.085, i64 4
+  %47 = getelementptr inbounds i8, ptr %.086, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %Vec_IntFindMax.exit, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %.085, i64 8
+  %51 = getelementptr inbounds i8, ptr %.086, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %52, align 4
   %54 = icmp sgt i32 %48, 1
@@ -2147,8 +2147,8 @@ Abc_Clock.exit105:                                ; preds = %Vec_IntFindMax.exit
   br label %71
 
 71:                                               ; preds = %Abc_Clock.exit105, %Aig_ManPartitionMonolithic.exit
-  %72 = call ptr @Aig_ManPartSplit(ptr noundef %0, ptr noundef %.085, ptr noundef nonnull %14, ptr noundef nonnull %15)
-  %73 = getelementptr inbounds i8, ptr %.085, i64 8
+  %72 = call ptr @Aig_ManPartSplit(ptr noundef %0, ptr noundef %.086, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  %73 = getelementptr inbounds i8, ptr %.086, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not.i = icmp eq ptr %74, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %75
@@ -2158,7 +2158,7 @@ Abc_Clock.exit105:                                ; preds = %Vec_IntFindMax.exit
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %71, %75
-  call void @free(ptr noundef nonnull %.085) #17
+  call void @free(ptr noundef nonnull %.086) #17
   br i1 %.not, label %90, label %76
 
 76:                                               ; preds = %Vec_IntFree.exit
@@ -2285,8 +2285,8 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 126:                                              ; preds = %.lr.ph156, %125
   %indvars.iv162 = phi i64 [ 0, %.lr.ph156 ], [ %indvars.iv.next163, %125 ]
-  %.082154 = phi i32 [ 0, %.lr.ph156 ], [ %.183, %125 ]
-  %.084153 = phi i32 [ %4, %.lr.ph156 ], [ %191, %125 ]
+  %.083154 = phi i32 [ 0, %.lr.ph156 ], [ %.184, %125 ]
+  %.085153 = phi i32 [ %4, %.lr.ph156 ], [ %191, %125 ]
   %127 = getelementptr inbounds ptr, ptr %.val97, i64 %indvars.iv162
   %128 = load ptr, ptr %127, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
@@ -2361,7 +2361,7 @@ Aig_ManPartResetNodePolarity.exit:                ; preds = %151, %137, %134
   br i1 %.not91, label %161, label %.critedge2.thread
 
 161:                                              ; preds = %Aig_ManPartResetNodePolarity.exit
-  %162 = sext i32 %.084153 to i64
+  %162 = sext i32 %.085153 to i64
   %163 = call i32 @sat_solver_solve(ptr noundef %98, ptr noundef null, ptr noundef null, i64 noundef %162, i64 noundef 0, i64 noundef 0, i64 noundef 0) #17
   br i1 %.not, label %185, label %164
 
@@ -2370,7 +2370,7 @@ Aig_ManPartResetNodePolarity.exit:                ; preds = %151, %137, %134
   %.val102 = load i32, ptr %165, align 4
   %166 = getelementptr i8, ptr %128, i64 152
   %.val103 = load i32, ptr %166, align 8
-  %167 = add i32 %.val102, %.082154
+  %167 = add i32 %.val102, %.083154
   %168 = add i32 %167, %.val103
   %169 = call i32 @sat_solver_nvars(ptr noundef %98) #17
   %170 = load i32, ptr %121, align 4
@@ -2401,7 +2401,7 @@ Abc_Clock.exit117:                                ; preds = %164, %176
   br label %185
 
 185:                                              ; preds = %Abc_Clock.exit117, %161
-  %.183 = phi i32 [ %168, %Abc_Clock.exit117 ], [ %.082154, %161 ]
+  %.184 = phi i32 [ %168, %Abc_Clock.exit117 ], [ %.083154, %161 ]
   switch i32 %163, label %186 [
     i32 -1, label %.critedge2.thread
     i32 1, label %187
@@ -2414,7 +2414,7 @@ Abc_Clock.exit117:                                ; preds = %164, %176
   %188 = phi i1 [ false, %186 ], [ true, %185 ]
   %189 = load i64, ptr %124, align 8
   %190 = trunc i64 %189 to i32
-  %191 = sub i32 %.084153, %190
+  %191 = sub i32 %.085153, %190
   %192 = icmp slt i32 %191, 1
   br i1 %192, label %193, label %125
 
@@ -2583,8 +2583,8 @@ Vec_IntFree.exit141:                              ; preds = %Vec_VecFree.exit139
   br label %236
 
 236:                                              ; preds = %Vec_IntFree.exit141, %45
-  %.086 = phi i32 [ -1, %45 ], [ %.2143175180, %Vec_IntFree.exit141 ]
-  ret i32 %.086
+  %.079 = phi i32 [ -1, %45 ], [ %.2143175180, %Vec_IntFree.exit141 ]
+  ret i32 %.079
 }
 
 ; Function Attrs: nounwind uwtable

@@ -254,8 +254,8 @@ define i64 @PPC_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2
   br i1 %.not42, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %6, %49
-  %.03943.us = phi i64 [ %50, %49 ], [ 0, %6 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 %.03943.us
+  %.04043.us = phi i64 [ %50, %49 ], [ 0, %6 ]
+  %8 = getelementptr inbounds i8, ptr %0, i64 %.04043.us
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %.mask.us = and i32 %10, 252
@@ -263,7 +263,7 @@ define i64 @PPC_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2
   br i1 %11, label %12, label %49
 
 12:                                               ; preds = %.split.us
-  %13 = or disjoint i64 %.03943.us, 3
+  %13 = or disjoint i64 %.04043.us, 3
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
@@ -274,18 +274,18 @@ define i64 @PPC_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2
 19:                                               ; preds = %12
   %20 = shl nuw nsw i32 %10, 24
   %21 = and i32 %20, 50331648
-  %22 = or disjoint i64 %.03943.us, 1
+  %22 = or disjoint i64 %.04043.us, 1
   %23 = getelementptr inbounds i8, ptr %0, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = shl nuw nsw i32 %25, 16
-  %27 = or disjoint i64 %.03943.us, 2
+  %27 = or disjoint i64 %.04043.us, 2
   %28 = getelementptr inbounds i8, ptr %0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = shl nuw nsw i32 %30, 8
   %32 = and i32 %16, 252
-  %33 = trunc i64 %.03943.us to i32
+  %33 = trunc i64 %.04043.us to i32
   %34 = add i32 %33, %2
   %35 = sub i32 %21, %34
   %36 = add i32 %35, %32
@@ -309,13 +309,13 @@ define i64 @PPC_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2
   br label %49
 
 49:                                               ; preds = %19, %12, %.split.us
-  %50 = add nuw i64 %.03943.us, 4
+  %50 = add nuw i64 %.04043.us, 4
   %.not.us = icmp ugt i64 %50, %7
   br i1 %.not.us, label %.loopexit, label %.split.us
 
 .split:                                           ; preds = %6, %92
-  %.03943 = phi i64 [ %93, %92 ], [ 0, %6 ]
-  %51 = getelementptr inbounds i8, ptr %0, i64 %.03943
+  %.04043 = phi i64 [ %93, %92 ], [ 0, %6 ]
+  %51 = getelementptr inbounds i8, ptr %0, i64 %.04043
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %.mask = and i32 %53, 252
@@ -323,7 +323,7 @@ define i64 @PPC_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2
   br i1 %54, label %55, label %92
 
 55:                                               ; preds = %.split
-  %56 = or disjoint i64 %.03943, 3
+  %56 = or disjoint i64 %.04043, 3
   %57 = getelementptr inbounds i8, ptr %0, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
@@ -334,18 +334,18 @@ define i64 @PPC_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2
 62:                                               ; preds = %55
   %63 = shl nuw nsw i32 %53, 24
   %64 = and i32 %63, 50331648
-  %65 = or disjoint i64 %.03943, 1
+  %65 = or disjoint i64 %.04043, 1
   %66 = getelementptr inbounds i8, ptr %0, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
   %69 = shl nuw nsw i32 %68, 16
-  %70 = or disjoint i64 %.03943, 2
+  %70 = or disjoint i64 %.04043, 2
   %71 = getelementptr inbounds i8, ptr %0, i64 %70
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i32
   %74 = shl nuw nsw i32 %73, 8
   %75 = and i32 %59, 252
-  %76 = trunc i64 %.03943 to i32
+  %76 = trunc i64 %.04043 to i32
   %77 = add i32 %76, %2
   %78 = add i32 %64, %77
   %79 = add i32 %78, %75
@@ -369,13 +369,13 @@ define i64 @PPC_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2
   br label %92
 
 92:                                               ; preds = %.split, %55, %62
-  %93 = add nuw i64 %.03943, 4
+  %93 = add nuw i64 %.04043, 4
   %.not = icmp ugt i64 %93, %7
   br i1 %.not, label %.loopexit, label %.split
 
 .loopexit:                                        ; preds = %92, %49, %4
-  %.040 = phi i64 [ 0, %4 ], [ %50, %49 ], [ %93, %92 ]
-  ret i64 %.040
+  %.039 = phi i64 [ 0, %4 ], [ %50, %49 ], [ %93, %92 ]
+  ret i64 %.039
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

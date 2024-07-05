@@ -107,8 +107,8 @@ if.end:                                           ; preds = %entry
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %if.end
-  %fmt.addr.0.ph = phi ptr [ %fmt, %if.end ], [ %fmt.addr.0.ph.be, %while.cond.outer.backedge ]
   %p.0.ph = phi ptr [ getelementptr inbounds (i8, ptr @gdbserver_syscall_state, i64 1), %if.end ], [ %p.0.ph.be, %while.cond.outer.backedge ]
+  %fmt.addr.0.ph = phi ptr [ %fmt, %if.end ], [ %fmt.addr.0.ph.be, %while.cond.outer.backedge ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer, %bad_format
@@ -242,8 +242,8 @@ vaarg.end57:                                      ; preds = %vaarg.in_mem53, %va
   br label %while.cond.outer.backedge
 
 while.cond.outer.backedge:                        ; preds = %vaarg.end57, %vaarg.end26, %vaarg.end, %if.else
-  %fmt.addr.0.ph.be = phi ptr [ %incdec.ptr66, %if.else ], [ %incdec.ptr4, %vaarg.end ], [ %incdec.ptr10, %vaarg.end26 ], [ %incdec.ptr4, %vaarg.end57 ]
   %p.0.ph.be = phi ptr [ %incdec.ptr67, %if.else ], [ %add.ptr8, %vaarg.end ], [ %add.ptr33, %vaarg.end26 ], [ %add.ptr64, %vaarg.end57 ]
+  %fmt.addr.0.ph.be = phi ptr [ %incdec.ptr66, %if.else ], [ %incdec.ptr4, %vaarg.end ], [ %incdec.ptr10, %vaarg.end26 ], [ %incdec.ptr4, %vaarg.end57 ]
   br label %while.cond.outer, !llvm.loop !5
 
 bad_format:                                       ; preds = %if.then2, %sw.bb9

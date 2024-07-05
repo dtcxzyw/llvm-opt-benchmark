@@ -855,10 +855,10 @@ define range(i32 -1, 1) i32 @cgroup_write_conf(i32 noundef %0) local_unnamed_add
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.backedge, %6
-  %.032.ph66 = phi ptr [ %2, %6 ], [ %25, %.lr.ph.split.us.backedge ]
-  %.033.ph64 = phi i32 [ 4, %6 ], [ %26, %.lr.ph.split.us.backedge ]
-  %10 = zext nneg i32 %.033.ph64 to i64
-  %11 = call i64 @write(i32 noundef %0, ptr noundef %.032.ph66, i64 noundef %10) #12
+  %.030.ph66 = phi i32 [ 4, %6 ], [ %26, %.lr.ph.split.us.backedge ]
+  %.031.ph64 = phi ptr [ %2, %6 ], [ %25, %.lr.ph.split.us.backedge ]
+  %10 = zext nneg i32 %.030.ph66 to i64
+  %11 = call i64 @write(i32 noundef %0, ptr noundef %.031.ph64, i64 noundef %10) #12
   %12 = trunc i64 %11 to i32
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %.lr.ph62, label %.split.us
@@ -875,7 +875,7 @@ define range(i32 -1, 1) i32 @cgroup_write_conf(i32 noundef %0) local_unnamed_add
   ]
 
 17:                                               ; preds = %15, %15
-  %18 = call i64 @write(i32 noundef %0, ptr noundef %.032.ph66, i64 noundef %10) #12
+  %18 = call i64 @write(i32 noundef %0, ptr noundef %.031.ph64, i64 noundef %10) #12
   %19 = trunc i64 %18 to i32
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %15, label %.split.us
@@ -886,15 +886,15 @@ define range(i32 -1, 1) i32 @cgroup_write_conf(i32 noundef %0) local_unnamed_add
   br i1 %22, label %23, label %58
 
 23:                                               ; preds = %.split57.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.14, i32 noundef 660, ptr noundef nonnull @__func__.cgroup_write_conf, i32 noundef %.033.ph64, i32 noundef 4) #12
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.14, i32 noundef 660, ptr noundef nonnull @__func__.cgroup_write_conf, i32 noundef %.030.ph66, i32 noundef 4) #12
   br label %58
 
 .split.us:                                        ; preds = %17, %.lr.ph.split.us
   %.us-phi = phi i64 [ %11, %.lr.ph.split.us ], [ %18, %17 ]
   %.us-phi55 = phi i32 [ %12, %.lr.ph.split.us ], [ %19, %17 ]
   %24 = and i64 %.us-phi, 2147483647
-  %25 = getelementptr inbounds i8, ptr %.032.ph66, i64 %24
-  %26 = sub nsw i32 %.033.ph64, %.us-phi55
+  %25 = getelementptr inbounds i8, ptr %.031.ph64, i64 %24
+  %26 = sub nsw i32 %.030.ph66, %.us-phi55
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %28, label %.outer45._crit_edge
 
@@ -921,10 +921,10 @@ define range(i32 -1, 1) i32 @cgroup_write_conf(i32 noundef %0) local_unnamed_add
   br label %.lr.ph68.split.us
 
 .lr.ph68.split.us:                                ; preds = %.lr.ph68.split.us.backedge, %.lr.ph68.split.us.preheader
-  %.030.ph85 = phi ptr [ %.pre97, %.lr.ph68.split.us.preheader ], [ %48, %.lr.ph68.split.us.backedge ]
-  %.031.ph83 = phi i32 [ %9, %.lr.ph68.split.us.preheader ], [ %49, %.lr.ph68.split.us.backedge ]
-  %33 = zext nneg i32 %.031.ph83 to i64
-  %34 = tail call i64 @write(i32 noundef %0, ptr noundef %.030.ph85, i64 noundef %33) #12
+  %.032.ph85 = phi ptr [ %.pre97, %.lr.ph68.split.us.preheader ], [ %48, %.lr.ph68.split.us.backedge ]
+  %.033.ph83 = phi i32 [ %9, %.lr.ph68.split.us.preheader ], [ %49, %.lr.ph68.split.us.backedge ]
+  %33 = zext nneg i32 %.033.ph83 to i64
+  %34 = tail call i64 @write(i32 noundef %0, ptr noundef %.032.ph85, i64 noundef %33) #12
   %35 = trunc i64 %34 to i32
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %.lr.ph80, label %.split71.us
@@ -941,7 +941,7 @@ define range(i32 -1, 1) i32 @cgroup_write_conf(i32 noundef %0) local_unnamed_add
   ]
 
 40:                                               ; preds = %38, %38
-  %41 = tail call i64 @write(i32 noundef %0, ptr noundef %.030.ph85, i64 noundef %33) #12
+  %41 = tail call i64 @write(i32 noundef %0, ptr noundef %.032.ph85, i64 noundef %33) #12
   %42 = trunc i64 %41 to i32
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %38, label %.split71.us
@@ -952,15 +952,15 @@ define range(i32 -1, 1) i32 @cgroup_write_conf(i32 noundef %0) local_unnamed_add
   br i1 %45, label %46, label %58
 
 46:                                               ; preds = %.split75.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.14, i32 noundef 661, ptr noundef nonnull @__func__.cgroup_write_conf, i32 noundef %.031.ph83, i32 noundef %9) #12
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.14, i32 noundef 661, ptr noundef nonnull @__func__.cgroup_write_conf, i32 noundef %.033.ph83, i32 noundef %9) #12
   br label %58
 
 .split71.us:                                      ; preds = %40, %.lr.ph68.split.us
   %.us-phi72 = phi i64 [ %34, %.lr.ph68.split.us ], [ %41, %40 ]
   %.us-phi73 = phi i32 [ %35, %.lr.ph68.split.us ], [ %42, %40 ]
   %47 = and i64 %.us-phi72, 2147483647
-  %48 = getelementptr inbounds i8, ptr %.030.ph85, i64 %47
-  %49 = sub nsw i32 %.031.ph83, %.us-phi73
+  %48 = getelementptr inbounds i8, ptr %.032.ph85, i64 %47
+  %49 = sub nsw i32 %.033.ph83, %.us-phi73
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %51, label %.outer._crit_edge
 
@@ -1036,25 +1036,25 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
   br i1 %12, label %13, label %134
 
 13:                                               ; preds = %.split.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.14, i32 noundef 677, ptr noundef nonnull @__func__.cgroup_read_conf, i32 noundef %.051.ph134, i32 noundef 4) #12
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.14, i32 noundef 677, ptr noundef nonnull @__func__.cgroup_read_conf, i32 noundef %.048.ph136, i32 noundef 4) #12
   br label %134
 
 .split95:                                         ; preds = %.lr.ph352, %.lr.ph354
-  %.051.ph134251 = phi i32 [ 4, %.lr.ph354 ], [ %.051.ph134, %.lr.ph352 ]
+  %.048.ph136251 = phi i32 [ 4, %.lr.ph354 ], [ %.048.ph136, %.lr.ph352 ]
   %14 = tail call i32 @get_log_level() #12
   %15 = icmp sgt i32 %14, 4
   br i1 %15, label %16, label %134
 
 16:                                               ; preds = %.split95
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.14, i32 noundef 677, ptr noundef nonnull @__func__.cgroup_read_conf, i32 noundef %.051.ph134251, i32 noundef 4) #12
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.14, i32 noundef 677, ptr noundef nonnull @__func__.cgroup_read_conf, i32 noundef %.048.ph136251, i32 noundef 4) #12
   br label %134
 
 .split91:                                         ; preds = %.lr.ph132, %.lr.ph116.preheader, %.lr.ph132.preheader, %.lr.ph116.preheader.preheader
   %.us-phi92 = phi i64 [ %27, %.lr.ph116.preheader.preheader ], [ %27, %.lr.ph132.preheader ], [ %43, %.lr.ph116.preheader ], [ %35, %.lr.ph132 ]
   %.us-phi93 = phi i32 [ %28, %.lr.ph116.preheader.preheader ], [ %28, %.lr.ph132.preheader ], [ %44, %.lr.ph116.preheader ], [ %36, %.lr.ph132 ]
   %17 = and i64 %.us-phi92, 2147483647
-  %18 = getelementptr inbounds i8, ptr %.050.ph136, i64 %17
-  %19 = sub i32 %.051.ph134, %.us-phi93
+  %18 = getelementptr inbounds i8, ptr %.051.ph134, i64 %17
+  %19 = sub i32 %.048.ph136, %.us-phi93
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %21, label %.outer69._crit_edge
 
@@ -1071,11 +1071,11 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
   br label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %1, %.lr.ph.backedge
-  %.050.ph136 = phi ptr [ %18, %.lr.ph.backedge ], [ %4, %1 ]
-  %.051.ph134 = phi i32 [ %19, %.lr.ph.backedge ], [ 4, %1 ]
-  %25 = zext nneg i32 %.051.ph134 to i64
-  %26 = icmp eq i32 %.051.ph134, 4
-  %27 = call i64 @read(i32 noundef %0, ptr noundef %.050.ph136, i64 noundef %25) #12
+  %.048.ph136 = phi i32 [ %19, %.lr.ph.backedge ], [ 4, %1 ]
+  %.051.ph134 = phi ptr [ %18, %.lr.ph.backedge ], [ %4, %1 ]
+  %25 = zext nneg i32 %.048.ph136 to i64
+  %26 = icmp eq i32 %.048.ph136, 4
+  %27 = call i64 @read(i32 noundef %0, ptr noundef %.051.ph134, i64 noundef %25) #12
   %28 = trunc i64 %27 to i32
   %29 = icmp eq i32 %28, 0
   br i1 %26, label %.lr.ph.split.split.us, label %.lr.ph.split.us.split.us
@@ -1103,7 +1103,7 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
   ]
 
 34:                                               ; preds = %.lr.ph352, %.lr.ph352
-  %35 = call i64 @read(i32 noundef %0, ptr noundef %.050.ph136, i64 noundef %25) #12
+  %35 = call i64 @read(i32 noundef %0, ptr noundef %.051.ph134, i64 noundef %25) #12
   %36 = trunc i64 %35 to i32
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %.split.us, label %.lr.ph132
@@ -1131,7 +1131,7 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
   ]
 
 42:                                               ; preds = %.lr.ph354, %.lr.ph354
-  %43 = call i64 @read(i32 noundef %0, ptr noundef %.050.ph136, i64 noundef %25) #12
+  %43 = call i64 @read(i32 noundef %0, ptr noundef %.051.ph134, i64 noundef %25) #12
   %44 = trunc i64 %43 to i32
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.split98, label %.lr.ph116.preheader
@@ -1148,11 +1148,11 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
   br label %.lr.ph138
 
 .lr.ph138:                                        ; preds = %.lr.ph138.backedge, %.lr.ph138.preheader
-  %.047.ph191 = phi ptr [ %49, %.lr.ph138.preheader ], [ %81, %.lr.ph138.backedge ]
-  %.048.ph189 = phi i32 [ %.pre, %.lr.ph138.preheader ], [ %82, %.lr.ph138.backedge ]
-  %50 = zext nneg i32 %.048.ph189 to i64
-  %51 = icmp eq i32 %.048.ph189, %.pre
-  %52 = tail call i64 @read(i32 noundef %0, ptr noundef %.047.ph191, i64 noundef %50) #12
+  %.049.ph191 = phi ptr [ %49, %.lr.ph138.preheader ], [ %81, %.lr.ph138.backedge ]
+  %.050.ph189 = phi i32 [ %.pre, %.lr.ph138.preheader ], [ %82, %.lr.ph138.backedge ]
+  %50 = zext nneg i32 %.050.ph189 to i64
+  %51 = icmp eq i32 %.050.ph189, %.pre
+  %52 = tail call i64 @read(i32 noundef %0, ptr noundef %.049.ph191, i64 noundef %50) #12
   %53 = trunc i64 %52 to i32
   %54 = icmp eq i32 %53, 0
   br i1 %51, label %.lr.ph138.split.split.us, label %.lr.ph138.split.us.split.us
@@ -1180,7 +1180,7 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
   ]
 
 59:                                               ; preds = %.lr.ph357, %.lr.ph357
-  %60 = tail call i64 @read(i32 noundef %0, ptr noundef %.047.ph191, i64 noundef %50) #12
+  %60 = tail call i64 @read(i32 noundef %0, ptr noundef %.049.ph191, i64 noundef %50) #12
   %61 = trunc i64 %60 to i32
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %.split141.us, label %.lr.ph186
@@ -1208,7 +1208,7 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
   ]
 
 67:                                               ; preds = %.lr.ph360, %.lr.ph360
-  %68 = tail call i64 @read(i32 noundef %0, ptr noundef %.047.ph191, i64 noundef %50) #12
+  %68 = tail call i64 @read(i32 noundef %0, ptr noundef %.049.ph191, i64 noundef %50) #12
   %69 = trunc i64 %68 to i32
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %.split152.us, label %.lr.ph170.preheader
@@ -1228,25 +1228,25 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
   br i1 %75, label %76, label %134
 
 76:                                               ; preds = %.split141.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.14, i32 noundef 679, ptr noundef nonnull @__func__.cgroup_read_conf, i32 noundef %.048.ph189, i32 noundef %.pre) #12
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.14, i32 noundef 679, ptr noundef nonnull @__func__.cgroup_read_conf, i32 noundef %.050.ph189, i32 noundef %.pre) #12
   br label %134
 
 .split148.us:                                     ; preds = %.lr.ph357, %.lr.ph360
-  %.048.ph189226 = phi i32 [ %.pre, %.lr.ph360 ], [ %.048.ph189, %.lr.ph357 ]
+  %.050.ph189226 = phi i32 [ %.pre, %.lr.ph360 ], [ %.050.ph189, %.lr.ph357 ]
   %77 = tail call i32 @get_log_level() #12
   %78 = icmp sgt i32 %77, 4
   br i1 %78, label %79, label %134
 
 79:                                               ; preds = %.split148.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.14, i32 noundef 679, ptr noundef nonnull @__func__.cgroup_read_conf, i32 noundef %.048.ph189226, i32 noundef %.pre) #12
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.14, i32 noundef 679, ptr noundef nonnull @__func__.cgroup_read_conf, i32 noundef %.050.ph189226, i32 noundef %.pre) #12
   br label %134
 
 .split144.us:                                     ; preds = %.lr.ph186, %.lr.ph170.preheader, %.lr.ph186.preheader, %.lr.ph170.preheader.preheader
   %.us-phi145 = phi i64 [ %52, %.lr.ph170.preheader.preheader ], [ %52, %.lr.ph186.preheader ], [ %68, %.lr.ph170.preheader ], [ %60, %.lr.ph186 ]
   %.us-phi146 = phi i32 [ %53, %.lr.ph170.preheader.preheader ], [ %53, %.lr.ph186.preheader ], [ %69, %.lr.ph170.preheader ], [ %61, %.lr.ph186 ]
   %80 = and i64 %.us-phi145, 2147483647
-  %81 = getelementptr inbounds i8, ptr %.047.ph191, i64 %80
-  %82 = sub i32 %.048.ph189, %.us-phi146
+  %81 = getelementptr inbounds i8, ptr %.049.ph191, i64 %80
+  %82 = sub i32 %.050.ph189, %.us-phi146
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %84, label %.outer._crit_edge
 
@@ -1402,7 +1402,7 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
   unreachable
 
 134:                                              ; preds = %10, %.split98, %13, %.split.us, %16, %.split95, %73, %.split152.us, %76, %.split141.us, %79, %.split148.us
-  %.049 = phi ptr [ null, %10 ], [ null, %.split98 ], [ null, %13 ], [ null, %.split.us ], [ null, %16 ], [ null, %.split95 ], [ %46, %73 ], [ %46, %.split152.us ], [ %46, %76 ], [ %46, %.split141.us ], [ %46, %79 ], [ %46, %.split148.us ]
+  %.047 = phi ptr [ null, %10 ], [ null, %.split98 ], [ null, %13 ], [ null, %.split.us ], [ null, %16 ], [ null, %.split95 ], [ %46, %73 ], [ %46, %.split152.us ], [ %46, %76 ], [ %46, %.split141.us ], [ %46, %79 ], [ %46, %.split148.us ]
   %135 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @cg_conf_lock) #12
   %.not64 = icmp eq i32 %135, 0
   br i1 %.not64, label %138, label %136
@@ -1414,11 +1414,11 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
   unreachable
 
 138:                                              ; preds = %134
-  %.not65 = icmp eq ptr %.049, null
+  %.not65 = icmp eq ptr %.047, null
   br i1 %.not65, label %140, label %139
 
 139:                                              ; preds = %138
-  tail call void @free_buf(ptr noundef nonnull %.049) #12
+  tail call void @free_buf(ptr noundef nonnull %.047) #12
   br label %140
 
 140:                                              ; preds = %138, %139, %130
@@ -1526,18 +1526,18 @@ define range(i32 -1, 1) i32 @cgroup_g_init() local_unnamed_addr #0 {
   br i1 %.not17, label %24, label %20
 
 20:                                               ; preds = %18, %15
-  %.0 = phi ptr [ %16, %15 ], [ %19, %18 ]
-  %21 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str.45, ptr noundef %.0, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 160) #12
+  %.09 = phi ptr [ %16, %15 ], [ %19, %18 ]
+  %21 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str.45, ptr noundef %.09, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 160) #12
   store ptr %21, ptr @g_context, align 8
   %.not18 = icmp eq ptr %21, null
   br i1 %.not18, label %22, label %24
 
 22:                                               ; preds = %20
-  %23 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.45, ptr noundef %.0) #12
+  %23 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.45, ptr noundef %.09) #12
   br label %24
 
 24:                                               ; preds = %18, %22, %4, %20
-  %.09 = phi i32 [ 0, %4 ], [ 0, %20 ], [ -1, %22 ], [ -1, %18 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %20 ], [ -1, %22 ], [ -1, %18 ]
   %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #12
   %.not19 = icmp eq i32 %25, 0
   br i1 %.not19, label %28, label %26
@@ -1549,7 +1549,7 @@ define range(i32 -1, 1) i32 @cgroup_g_init() local_unnamed_addr #0 {
   unreachable
 
 28:                                               ; preds = %24
-  ret i32 %.09
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind

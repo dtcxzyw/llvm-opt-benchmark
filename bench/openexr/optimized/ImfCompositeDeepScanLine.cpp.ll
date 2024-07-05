@@ -3759,8 +3759,8 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont6.i
   %_outputFrameBuffer.i = getelementptr inbounds i8, ptr %2, i64 48
   %_bufferMap.i = getelementptr inbounds i8, ptr %2, i64 200
   %conv105.i = sext i32 %0 to i64
-  %14 = sext i32 %12 to i64
-  %15 = sext i32 %mul.i to i64
+  %14 = sext i32 %mul.i to i64
+  %15 = sext i32 %12 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.end126.i, %for.body.lr.ph.i
@@ -3790,7 +3790,7 @@ for.body22.i:                                     ; preds = %for.body22.i, %for.
   %20 = load ptr, ptr %19, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.std::vector.51", ptr %20, i64 %channel.0150.i
   %21 = load ptr, ptr %add.ptr.i.i, align 8
-  %add.ptr.i67.i = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv156.i
+  %add.ptr.i67.i = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.i
   %22 = load ptr, ptr %add.ptr.i67.i, align 8
   %add.ptr.i68.i = getelementptr inbounds ptr, ptr %inputs.sroa.0.0.i, i64 %channel.0150.i
   store ptr %22, ptr %add.ptr.i68.i, align 8
@@ -3812,12 +3812,12 @@ if.else.i:                                        ; preds = %for.body.i
   %25 = load ptr, ptr %4, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
-  %add.ptr.i71.i = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv156.i
+  %add.ptr.i71.i = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.i
   %28 = load ptr, ptr %add.ptr.i71.i, align 8
   store ptr %28, ptr %inputs.sroa.0.0.i, align 8
   %29 = load ptr, ptr %25, align 8
   %30 = load ptr, ptr %29, align 8
-  %add.ptr.i75.i = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv156.i
+  %add.ptr.i75.i = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv.i
   %31 = load ptr, ptr %add.ptr.i75.i, align 8
   store ptr %31, ptr %add.ptr.i76.i, align 8
   %32 = load ptr, ptr %_M_finish.i.i, align 8
@@ -3834,7 +3834,7 @@ for.body41.i:                                     ; preds = %if.else.i, %for.bod
   %34 = load ptr, ptr %25, align 8
   %add.ptr.i83.i = getelementptr inbounds %"class.std::vector.51", ptr %34, i64 %channel37.0148.i
   %35 = load ptr, ptr %add.ptr.i83.i, align 8
-  %add.ptr.i84.i = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv156.i
+  %add.ptr.i84.i = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv.i
   %36 = load ptr, ptr %add.ptr.i84.i, align 8
   %add.ptr.i85.i = getelementptr inbounds ptr, ptr %inputs.sroa.0.0.i, i64 %channel37.0148.i
   store ptr %36, ptr %add.ptr.i85.i, align 8
@@ -3848,10 +3848,10 @@ if.end.i:                                         ; preds = %for.body41.i, %for.
   %sub.ptr.div.i93.i = lshr exact i64 %sub.ptr.sub.i92.pre-phi.i, 3
   %conv54.i = trunc i64 %sub.ptr.div.i93.i to i32
   %38 = load ptr, ptr %5, align 8
-  %add.ptr.i94.i = getelementptr inbounds i32, ptr %38, i64 %indvars.iv156.i
+  %add.ptr.i94.i = getelementptr inbounds i32, ptr %38, i64 %indvars.iv.i
   %39 = load i32, ptr %add.ptr.i94.i, align 4
   %40 = load ptr, ptr %6, align 8
-  %add.ptr.i95.i = getelementptr inbounds i32, ptr %40, i64 %indvars.iv156.i
+  %add.ptr.i95.i = getelementptr inbounds i32, ptr %40, i64 %indvars.iv.i
   %41 = load i32, ptr %add.ptr.i95.i, align 4
   %vtable.i = load ptr, ptr %spec.select.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
@@ -3897,7 +3897,7 @@ if.then87.i:                                      ; preds = %for.body77.i
   %add92.i = add i64 %mul91.i, %47
   %xStride.i = getelementptr inbounds i8, ptr %it.sroa.0.0.i, i64 304
   %50 = load i64, ptr %xStride.i, align 8
-  %mul96.i = mul i64 %50, %indvars.iv.i
+  %mul96.i = mul i64 %50, %indvars.iv156.i
   %add97.i = add i64 %add92.i, %mul96.i
   %51 = inttoptr i64 %add97.i to ptr
   store float %45, ptr %51, align 4
@@ -3925,7 +3925,7 @@ if.then103.i:                                     ; preds = %for.body77.i
   %add110.i = add i64 %mul109.i, %47
   %xStride114.i = getelementptr inbounds i8, ptr %it.sroa.0.0.i, i64 304
   %53 = load i64, ptr %xStride114.i, align 8
-  %mul115.i = mul i64 %53, %indvars.iv.i
+  %mul115.i = mul i64 %53, %indvars.iv156.i
   %add116.i = add i64 %add110.i, %mul115.i
   %54 = inttoptr i64 %add116.i to ptr
   %55 = bitcast float %45 to i32
@@ -4015,11 +4015,11 @@ if.end119.i:                                      ; preds = %_ZN9Imath_3_24halfC
   br label %for.cond64.i, !llvm.loop !42
 
 for.end126.i:                                     ; preds = %invoke.cont75.i
-  %indvars.iv.next157.i = add nsw i64 %indvars.iv156.i, 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
+  %indvars.iv.next157.i = add nsw i64 %indvars.iv156.i, 1
   %61 = load i32, ptr %max.i, align 8
   %62 = sext i32 %61 to i64
-  %cmp.not.not.i = icmp slt i64 %indvars.iv.i, %62
+  %cmp.not.not.i = icmp slt i64 %indvars.iv156.i, %62
   br i1 %cmp.not.not.i, label %for.body.i, label %for.end130.i, !llvm.loop !43
 
 for.end130.i:                                     ; preds = %for.end126.i, %invoke.cont6.i

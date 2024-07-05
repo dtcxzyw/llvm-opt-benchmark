@@ -746,9 +746,9 @@ for.body.lr.ph.i:                                 ; preds = %if.then69
 
 for.body.i:                                       ; preds = %for.inc29.i, %for.body.lr.ph.i
   %max_irq.034.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %max_irq.3.i, %for.inc29.i ]
-  %num_irq_in_word.033.i = phi i32 [ 32, %for.body.lr.ph.i ], [ %num_irq_in_word.2.i, %for.inc29.i ]
+  %max_prio.033.i = phi i32 [ %23, %for.body.lr.ph.i ], [ %max_prio.3.i, %for.inc29.i ]
   %i.031.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc30.i, %for.inc29.i ]
-  %max_prio.030.i = phi i32 [ %23, %for.body.lr.ph.i ], [ %max_prio.3.i, %for.inc29.i ]
+  %num_irq_in_word.030.i = phi i32 [ 32, %for.body.lr.ph.i ], [ %num_irq_in_word.2.i, %for.inc29.i ]
   %idxprom1.i = sext i32 %i.031.i to i64
   %arrayidx2.i = getelementptr i32, ptr %24, i64 %idxprom1.i
   %27 = load i32, ptr %arrayidx2.i, align 4
@@ -766,7 +766,7 @@ for.body.i:                                       ; preds = %for.inc29.i, %for.b
 
 if.end.i:                                         ; preds = %for.body.i
   %cmp10.i = icmp eq i32 %i.031.i, %sub.i53
-  %spec.select = select i1 %cmp10.i, i32 %sub14.i, i32 %num_irq_in_word.033.i
+  %spec.select = select i1 %cmp10.i, i32 %sub14.i, i32 %num_irq_in_word.030.i
   %cmp1724.i = icmp sgt i32 %spec.select, 0
   br i1 %cmp1724.i, label %for.body18.lr.ph.i, label %for.inc29.i
 
@@ -779,7 +779,7 @@ for.body18.lr.ph.i:                               ; preds = %if.end.i
 for.body18.i:                                     ; preds = %for.body18.i, %for.body18.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body18.lr.ph.i ], [ %indvars.iv.next.i, %for.body18.i ]
   %max_irq.127.i = phi i32 [ %max_irq.034.i, %for.body18.lr.ph.i ], [ %max_irq.2.i, %for.body18.i ]
-  %max_prio.125.i = phi i32 [ %max_prio.030.i, %for.body18.lr.ph.i ], [ %max_prio.2.i, %for.body18.i ]
+  %max_prio.126.i = phi i32 [ %max_prio.033.i, %for.body18.lr.ph.i ], [ %max_prio.2.i, %for.body18.i ]
   %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add20.i = add i32 %shl19.i, %31
   %idxprom21.i = sext i32 %add20.i to i64
@@ -788,17 +788,17 @@ for.body18.i:                                     ; preds = %for.body18.i, %for.
   %shl23.i = shl nuw i32 1, %31
   %and24.i = and i32 %shl23.i, %and8.i
   %tobool25.not.i = icmp ne i32 %and24.i, 0
-  %cmp26.i = icmp ugt i32 %32, %max_prio.125.i
+  %cmp26.i = icmp ugt i32 %32, %max_prio.126.i
   %or.cond.i = select i1 %tobool25.not.i, i1 %cmp26.i, i1 false
-  %max_prio.2.i = select i1 %or.cond.i, i32 %32, i32 %max_prio.125.i
+  %max_prio.2.i = select i1 %or.cond.i, i32 %32, i32 %max_prio.126.i
   %max_irq.2.i = select i1 %or.cond.i, i32 %add20.i, i32 %max_irq.127.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.inc29.i, label %for.body18.i, !llvm.loop !12
 
 for.inc29.i:                                      ; preds = %for.body18.i, %if.end.i, %for.body.i
-  %max_prio.3.i = phi i32 [ %max_prio.030.i, %for.body.i ], [ %max_prio.030.i, %if.end.i ], [ %max_prio.2.i, %for.body18.i ]
-  %num_irq_in_word.2.i = phi i32 [ %num_irq_in_word.033.i, %for.body.i ], [ %spec.select, %if.end.i ], [ %spec.select, %for.body18.i ]
+  %num_irq_in_word.2.i = phi i32 [ %num_irq_in_word.030.i, %for.body.i ], [ %spec.select, %if.end.i ], [ %spec.select, %for.body18.i ]
+  %max_prio.3.i = phi i32 [ %max_prio.033.i, %for.body.i ], [ %max_prio.033.i, %if.end.i ], [ %max_prio.2.i, %for.body18.i ]
   %max_irq.3.i = phi i32 [ %max_irq.034.i, %for.body.i ], [ %max_irq.034.i, %if.end.i ], [ %max_irq.2.i, %for.body18.i ]
   %inc30.i = add nuw i32 %i.031.i, 1
   %exitcond37.not.i = icmp eq i32 %inc30.i, %21
@@ -1149,9 +1149,9 @@ for.body.lr.ph.i:                                 ; preds = %for.body
 
 for.body.i:                                       ; preds = %for.inc29.i, %for.body.lr.ph.i
   %max_irq.034.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %max_irq.3.i, %for.inc29.i ]
-  %num_irq_in_word.033.i = phi i32 [ 32, %for.body.lr.ph.i ], [ %num_irq_in_word.2.i, %for.inc29.i ]
+  %max_prio.033.i = phi i32 [ %6, %for.body.lr.ph.i ], [ %max_prio.3.i, %for.inc29.i ]
   %i.031.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc30.i, %for.inc29.i ]
-  %max_prio.030.i = phi i32 [ %6, %for.body.lr.ph.i ], [ %max_prio.3.i, %for.inc29.i ]
+  %num_irq_in_word.030.i = phi i32 [ 32, %for.body.lr.ph.i ], [ %num_irq_in_word.2.i, %for.inc29.i ]
   %idxprom1.i = sext i32 %i.031.i to i64
   %arrayidx2.i = getelementptr i32, ptr %7, i64 %idxprom1.i
   %10 = load i32, ptr %arrayidx2.i, align 4
@@ -1177,7 +1177,7 @@ if.then11.i:                                      ; preds = %if.end.i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then11.i, %if.end.i
-  %num_irq_in_word.1.i = phi i32 [ %sub14.i, %if.then11.i ], [ %num_irq_in_word.033.i, %if.end.i ]
+  %num_irq_in_word.1.i = phi i32 [ %sub14.i, %if.then11.i ], [ %num_irq_in_word.030.i, %if.end.i ]
   %cmp1724.i = icmp sgt i32 %num_irq_in_word.1.i, 0
   br i1 %cmp1724.i, label %for.body18.lr.ph.i, label %for.inc29.i
 
@@ -1190,7 +1190,7 @@ for.body18.lr.ph.i:                               ; preds = %if.end15.i
 for.body18.i:                                     ; preds = %for.body18.i, %for.body18.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body18.lr.ph.i ], [ %indvars.iv.next.i, %for.body18.i ]
   %max_irq.127.i = phi i32 [ %max_irq.034.i, %for.body18.lr.ph.i ], [ %max_irq.2.i, %for.body18.i ]
-  %max_prio.125.i = phi i32 [ %max_prio.030.i, %for.body18.lr.ph.i ], [ %max_prio.2.i, %for.body18.i ]
+  %max_prio.126.i = phi i32 [ %max_prio.033.i, %for.body18.lr.ph.i ], [ %max_prio.2.i, %for.body18.i ]
   %15 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add20.i = add i32 %shl19.i, %15
   %idxprom21.i = sext i32 %add20.i to i64
@@ -1199,17 +1199,17 @@ for.body18.i:                                     ; preds = %for.body18.i, %for.
   %shl23.i = shl nuw i32 1, %15
   %and24.i = and i32 %shl23.i, %and8.i
   %tobool25.not.i = icmp ne i32 %and24.i, 0
-  %cmp26.i = icmp ugt i32 %16, %max_prio.125.i
+  %cmp26.i = icmp ugt i32 %16, %max_prio.126.i
   %or.cond.i = select i1 %tobool25.not.i, i1 %cmp26.i, i1 false
-  %max_prio.2.i = select i1 %or.cond.i, i32 %16, i32 %max_prio.125.i
+  %max_prio.2.i = select i1 %or.cond.i, i32 %16, i32 %max_prio.126.i
   %max_irq.2.i = select i1 %or.cond.i, i32 %add20.i, i32 %max_irq.127.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.inc29.i, label %for.body18.i, !llvm.loop !12
 
 for.inc29.i:                                      ; preds = %for.body18.i, %if.end15.i, %for.body.i
-  %max_prio.3.i = phi i32 [ %max_prio.030.i, %for.body.i ], [ %max_prio.030.i, %if.end15.i ], [ %max_prio.2.i, %for.body18.i ]
-  %num_irq_in_word.2.i = phi i32 [ %num_irq_in_word.033.i, %for.body.i ], [ %num_irq_in_word.1.i, %if.end15.i ], [ %num_irq_in_word.1.i, %for.body18.i ]
+  %num_irq_in_word.2.i = phi i32 [ %num_irq_in_word.030.i, %for.body.i ], [ %num_irq_in_word.1.i, %if.end15.i ], [ %num_irq_in_word.1.i, %for.body18.i ]
+  %max_prio.3.i = phi i32 [ %max_prio.033.i, %for.body.i ], [ %max_prio.033.i, %if.end15.i ], [ %max_prio.2.i, %for.body18.i ]
   %max_irq.3.i = phi i32 [ %max_irq.034.i, %for.body.i ], [ %max_irq.034.i, %if.end15.i ], [ %max_irq.2.i, %for.body18.i ]
   %inc30.i = add nuw i32 %i.031.i, 1
   %exitcond37.not.i = icmp eq i32 %inc30.i, %4

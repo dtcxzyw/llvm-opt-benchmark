@@ -153,7 +153,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
 
 for.body12.us:                                    ; preds = %for.body.us, %for.inc.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %for.inc.us ]
-  %data_out.addr.056.us = phi ptr [ %add.ptr.us, %for.body.us ], [ %add.ptr86.us, %for.inc.us ]
+  %data_out.addr.057.us = phi ptr [ %add.ptr.us, %for.body.us ], [ %add.ptr86.us, %for.inc.us ]
   %arrayidx14.us = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx14.us, align 4
   %conv15.us = sitofp i32 %6 to double
@@ -442,20 +442,20 @@ if.then53.us:                                     ; preds = %dither_output_.exit
 sw.bb.us:                                         ; preds = %if.then53.us
   %shr54.us = lshr i32 %spec.select53.us, 16
   %conv55.us = trunc i32 %shr54.us to i8
-  %arrayidx56.us = getelementptr inbounds i8, ptr %data_out.addr.056.us, i64 2
+  %arrayidx56.us = getelementptr inbounds i8, ptr %data_out.addr.057.us, i64 2
   store i8 %conv55.us, ptr %arrayidx56.us, align 1
   br label %sw.bb57.us
 
 sw.bb57.us:                                       ; preds = %sw.bb.us, %if.then53.us
   %shr58.us = lshr i32 %spec.select53.us, 8
   %conv59.us = trunc i32 %shr58.us to i8
-  %arrayidx60.us = getelementptr inbounds i8, ptr %data_out.addr.056.us, i64 1
+  %arrayidx60.us = getelementptr inbounds i8, ptr %data_out.addr.057.us, i64 1
   store i8 %conv59.us, ptr %arrayidx60.us, align 1
   br label %sw.bb61.us
 
 sw.bb61.us:                                       ; preds = %sw.bb57.us, %if.then53.us
   %conv62.us = trunc i32 %spec.select53.us to i8
-  store i8 %conv62.us, ptr %data_out.addr.056.us, align 1
+  store i8 %conv62.us, ptr %data_out.addr.057.us, align 1
   br label %for.inc.us
 
 if.else64.us:                                     ; preds = %dither_output_.exit.us
@@ -467,34 +467,34 @@ if.else64.us:                                     ; preds = %dither_output_.exit
 
 sw.bb80.us:                                       ; preds = %if.else64.us
   %conv81.us = trunc i32 %spec.select53.us to i8
-  store i8 %conv81.us, ptr %data_out.addr.056.us, align 1
+  store i8 %conv81.us, ptr %data_out.addr.057.us, align 1
   br label %for.inc.us
 
 sw.bb74.us:                                       ; preds = %if.else64.us
   %shr75.us = lshr i32 %spec.select53.us, 8
   %conv76.us = trunc i32 %shr75.us to i8
-  store i8 %conv76.us, ptr %data_out.addr.056.us, align 1
+  store i8 %conv76.us, ptr %data_out.addr.057.us, align 1
   %conv78.us = trunc i32 %spec.select53.us to i8
-  %arrayidx79.us = getelementptr inbounds i8, ptr %data_out.addr.056.us, i64 1
+  %arrayidx79.us = getelementptr inbounds i8, ptr %data_out.addr.057.us, i64 1
   store i8 %conv78.us, ptr %arrayidx79.us, align 1
   br label %for.inc.us
 
 sw.bb65.us:                                       ; preds = %if.else64.us
   %shr66.us = lshr i32 %spec.select53.us, 16
   %conv67.us = trunc i32 %shr66.us to i8
-  store i8 %conv67.us, ptr %data_out.addr.056.us, align 1
+  store i8 %conv67.us, ptr %data_out.addr.057.us, align 1
   %shr69.us = lshr i32 %spec.select53.us, 8
   %conv70.us = trunc i32 %shr69.us to i8
-  %arrayidx71.us = getelementptr inbounds i8, ptr %data_out.addr.056.us, i64 1
+  %arrayidx71.us = getelementptr inbounds i8, ptr %data_out.addr.057.us, i64 1
   store i8 %conv70.us, ptr %arrayidx71.us, align 1
   %conv72.us = trunc i32 %spec.select53.us to i8
-  %arrayidx73.us = getelementptr inbounds i8, ptr %data_out.addr.056.us, i64 2
+  %arrayidx73.us = getelementptr inbounds i8, ptr %data_out.addr.057.us, i64 2
   store i8 %conv72.us, ptr %arrayidx73.us, align 1
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %sw.bb65.us, %sw.bb74.us, %sw.bb80.us, %if.else64.us, %sw.bb61.us, %if.then53.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr86.us = getelementptr inbounds i8, ptr %data_out.addr.056.us, i64 %idx.ext85
+  %add.ptr86.us = getelementptr inbounds i8, ptr %data_out.addr.057.us, i64 %idx.ext85
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond9.for.inc87_crit_edge.us, label %for.body12.us, !llvm.loop !5
 

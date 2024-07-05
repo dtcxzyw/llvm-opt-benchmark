@@ -366,13 +366,13 @@ if.end6:                                          ; preds = %sw.bb3.i
   br i1 %cmp732, label %while.body, label %out1
 
 while.body:                                       ; preds = %if.end6, %if.end29
-  %bytes_done.035 = phi i64 [ %add32, %if.end29 ], [ 0, %if.end6 ]
-  %sector_num.addr.034 = phi i64 [ %add, %if.end29 ], [ %sector_num, %if.end6 ]
-  %remaining_sectors.addr.033 = phi i32 [ %conv31, %if.end29 ], [ %remaining_sectors, %if.end6 ]
+  %sector_num.addr.035 = phi i64 [ %add, %if.end29 ], [ %sector_num, %if.end6 ]
+  %remaining_sectors.addr.034 = phi i32 [ %conv31, %if.end29 ], [ %remaining_sectors, %if.end6 ]
+  %bytes_done.033 = phi i64 [ %add32, %if.end29 ], [ 0, %if.end6 ]
   %9 = load ptr, ptr %1, align 8
   %10 = load ptr, ptr %2, align 8
-  %mul11 = shl i64 %sector_num.addr.034, 9
-  %conv12 = zext nneg i32 %remaining_sectors.addr.033 to i64
+  %mul11 = shl i64 %sector_num.addr.035, 9
+  %conv12 = zext nneg i32 %remaining_sectors.addr.034 to i64
   %mul13 = shl nuw nsw i64 %conv12, 9
   %call14 = call i32 @bdrv_co_is_allocated_above(ptr noundef %9, ptr noundef %10, i1 noundef zeroext false, i64 noundef %mul11, i64 noundef %mul13, ptr noundef nonnull %count) #7
   %cmp15 = icmp slt i32 %call14, 0
@@ -391,7 +391,7 @@ if.else:                                          ; preds = %if.end18
 if.end22:                                         ; preds = %if.end18
   call void @qemu_iovec_reset(ptr noundef nonnull %hd_qiov) #7
   %12 = load i64, ptr %count, align 8
-  call void @qemu_iovec_concat(ptr noundef nonnull %hd_qiov, ptr noundef %qiov, i64 noundef %bytes_done.035, i64 noundef %12) #7
+  call void @qemu_iovec_concat(ptr noundef nonnull %hd_qiov, ptr noundef %qiov, i64 noundef %bytes_done.033, i64 noundef %12) #7
   %tobool.not = icmp eq i32 %call14, 0
   %cond = select i1 %tobool.not, ptr %2, ptr %1
   %call25 = call i32 @bdrv_co_pwritev(ptr noundef nonnull %cond, i64 noundef %mul11, i64 noundef %11, ptr noundef nonnull %hd_qiov, i32 noundef 0) #7
@@ -401,10 +401,10 @@ if.end22:                                         ; preds = %if.end18
 if.end29:                                         ; preds = %if.end22
   %shr = ashr exact i64 %11, 9
   %13 = trunc i64 %shr to i32
-  %conv31 = sub i32 %remaining_sectors.addr.033, %13
-  %add = add i64 %shr, %sector_num.addr.034
+  %conv31 = sub i32 %remaining_sectors.addr.034, %13
+  %add = add i64 %shr, %sector_num.addr.035
   %14 = load i64, ptr %count, align 8
-  %add32 = add i64 %14, %bytes_done.035
+  %add32 = add i64 %14, %bytes_done.033
   %cmp7 = icmp sgt i32 %conv31, 0
   br i1 %cmp7, label %while.body, label %out1, !llvm.loop !5
 

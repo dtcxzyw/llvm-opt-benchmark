@@ -4161,9 +4161,9 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyE
 
 133:                                              ; preds = %139, %124
   %.pn.i.i.i = phi i64 [ %131, %124 ], [ %141, %139 ]
-  %.023.i.i.i = phi i64 [ 0, %124 ], [ %140, %139 ]
-  %.01524.i.i.i = and i64 %.pn.i.i.i, %127
-  %134 = getelementptr inbounds ptr, ptr %132, i64 %.01524.i.i.i
+  %.01523.i.i.i = phi i64 [ 0, %124 ], [ %140, %139 ]
+  %.01624.i.i.i = and i64 %.pn.i.i.i, %127
+  %134 = getelementptr inbounds ptr, ptr %132, i64 %.01624.i.i.i
   %135 = load ptr, ptr %134, align 8
   %136 = icmp eq ptr %135, %81
   br i1 %136, label %.loopexit63.i, label %137
@@ -4173,17 +4173,17 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyE
   br i1 %138, label %.loopexit63.i, label %139
 
 139:                                              ; preds = %137
-  %140 = add i64 %.023.i.i.i, 1
-  %141 = add i64 %140, %.01524.i.i.i
+  %140 = add i64 %.01523.i.i.i, 1
+  %141 = add i64 %140, %.01624.i.i.i
   %.not.i.i33.i = icmp ugt i64 %140, %127
   br i1 %.not.i.i33.i, label %.loopexit63.i, label %133, !llvm.loop !22
 
 .loopexit63.i:                                    ; preds = %139, %137, %133, %120, %115
-  %.016.i.i.i = phi i64 [ 0, %115 ], [ 0, %120 ], [ 1, %133 ], [ 0, %137 ], [ 0, %139 ]
+  %.0.i.i.i = phi i64 [ 0, %115 ], [ 0, %120 ], [ 1, %133 ], [ 0, %137 ], [ 0, %139 ]
   %142 = load i32, ptr %15, align 4
   %.sroa.22.0.insert.ext.i34.i = zext i32 %142 to i64
   %.sroa.22.0.insert.shift.i35.i = shl nuw i64 %.sroa.22.0.insert.ext.i34.i, 32
-  %.sroa.0.0.insert.insert.i37.i = or disjoint i64 %.sroa.22.0.insert.shift.i35.i, %.016.i.i.i
+  %.sroa.0.0.insert.insert.i37.i = or disjoint i64 %.sroa.22.0.insert.shift.i35.i, %.0.i.i.i
   store i64 %.sroa.0.0.insert.insert.i37.i, ptr %14, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %13, ptr noundef nonnull align 4 dereferenceable(8) %14)
           to label %143 unwind label %159
@@ -4336,9 +4336,9 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyE
 
 200:                                              ; preds = %206, %191
   %.pn.i.i38.i = phi i64 [ %198, %191 ], [ %208, %206 ]
-  %.023.i.i39.i = phi i64 [ 0, %191 ], [ %207, %206 ]
-  %.01524.i.i40.i = and i64 %.pn.i.i38.i, %194
-  %201 = getelementptr inbounds ptr, ptr %199, i64 %.01524.i.i40.i
+  %.01523.i.i39.i = phi i64 [ 0, %191 ], [ %207, %206 ]
+  %.01624.i.i40.i = and i64 %.pn.i.i38.i, %194
+  %201 = getelementptr inbounds ptr, ptr %199, i64 %.01624.i.i40.i
   %202 = load ptr, ptr %201, align 8
   %203 = icmp eq ptr %202, %188
   br i1 %203, label %.loopexit62.i, label %204
@@ -4348,17 +4348,17 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyE
   br i1 %205, label %.loopexit62.i, label %206
 
 206:                                              ; preds = %204
-  %207 = add i64 %.023.i.i39.i, 1
-  %208 = add i64 %207, %.01524.i.i40.i
+  %207 = add i64 %.01523.i.i39.i, 1
+  %208 = add i64 %207, %.01624.i.i40.i
   %.not.i.i41.i = icmp ugt i64 %207, %194
   br i1 %.not.i.i41.i, label %.loopexit62.i, label %200, !llvm.loop !22
 
 .loopexit62.i:                                    ; preds = %206, %204, %200, %186, %181
-  %.016.i.i42.i = phi i64 [ 0, %181 ], [ 0, %186 ], [ 1, %200 ], [ 0, %204 ], [ 0, %206 ]
+  %.0.i.i42.i = phi i64 [ 0, %181 ], [ 0, %186 ], [ 1, %200 ], [ 0, %204 ], [ 0, %206 ]
   %209 = load i32, ptr %20, align 4
   %.sroa.22.0.insert.ext.i44.i = zext i32 %209 to i64
   %.sroa.22.0.insert.shift.i45.i = shl nuw i64 %.sroa.22.0.insert.ext.i44.i, 32
-  %.sroa.0.0.insert.insert.i47.i = or disjoint i64 %.sroa.22.0.insert.shift.i45.i, %.016.i.i42.i
+  %.sroa.0.0.insert.insert.i47.i = or disjoint i64 %.sroa.22.0.insert.shift.i45.i, %.0.i.i42.i
   store i64 %.sroa.0.0.insert.insert.i47.i, ptr %19, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %18, ptr noundef nonnull align 4 dereferenceable(8) %19)
           to label %210 unwind label %216
@@ -4478,9 +4478,9 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyE
 
 257:                                              ; preds = %263, %248
   %.pn.i.i48.i = phi i64 [ %255, %248 ], [ %265, %263 ]
-  %.023.i.i49.i = phi i64 [ 0, %248 ], [ %264, %263 ]
-  %.01524.i.i50.i = and i64 %.pn.i.i48.i, %251
-  %258 = getelementptr inbounds ptr, ptr %256, i64 %.01524.i.i50.i
+  %.01523.i.i49.i = phi i64 [ 0, %248 ], [ %264, %263 ]
+  %.01624.i.i50.i = and i64 %.pn.i.i48.i, %251
+  %258 = getelementptr inbounds ptr, ptr %256, i64 %.01624.i.i50.i
   %259 = load ptr, ptr %258, align 8
   %260 = icmp eq ptr %259, %245
   br i1 %260, label %.loopexit.i, label %261
@@ -4490,17 +4490,17 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyE
   br i1 %262, label %.loopexit.i, label %263
 
 263:                                              ; preds = %261
-  %264 = add i64 %.023.i.i49.i, 1
-  %265 = add i64 %264, %.01524.i.i50.i
+  %264 = add i64 %.01523.i.i49.i, 1
+  %265 = add i64 %264, %.01624.i.i50.i
   %.not.i.i51.i = icmp ugt i64 %264, %251
   br i1 %.not.i.i51.i, label %.loopexit.i, label %257, !llvm.loop !22
 
 .loopexit.i:                                      ; preds = %263, %261, %257, %243, %238
-  %.016.i.i52.i = phi i64 [ 0, %238 ], [ 0, %243 ], [ 1, %257 ], [ 0, %261 ], [ 0, %263 ]
+  %.0.i.i52.i = phi i64 [ 0, %238 ], [ 0, %243 ], [ 1, %257 ], [ 0, %261 ], [ 0, %263 ]
   %266 = load i32, ptr %25, align 4
   %.sroa.22.0.insert.ext.i54.i = zext i32 %266 to i64
   %.sroa.22.0.insert.shift.i55.i = shl nuw i64 %.sroa.22.0.insert.ext.i54.i, 32
-  %.sroa.0.0.insert.insert.i57.i = or disjoint i64 %.sroa.22.0.insert.shift.i55.i, %.016.i.i52.i
+  %.sroa.0.0.insert.insert.i57.i = or disjoint i64 %.sroa.22.0.insert.shift.i55.i, %.0.i.i52.i
   store i64 %.sroa.0.0.insert.insert.i57.i, ptr %24, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %23, ptr noundef nonnull align 4 dereferenceable(8) %24)
           to label %267 unwind label %273
@@ -4977,9 +4977,9 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyE
 
 151:                                              ; preds = %157, %142
   %.pn.i.i.i = phi i64 [ %149, %142 ], [ %159, %157 ]
-  %.023.i.i.i = phi i64 [ 0, %142 ], [ %158, %157 ]
-  %.01524.i.i.i = and i64 %.pn.i.i.i, %145
-  %152 = getelementptr inbounds ptr, ptr %150, i64 %.01524.i.i.i
+  %.01523.i.i.i = phi i64 [ 0, %142 ], [ %158, %157 ]
+  %.01624.i.i.i = and i64 %.pn.i.i.i, %145
+  %152 = getelementptr inbounds ptr, ptr %150, i64 %.01624.i.i.i
   %153 = load ptr, ptr %152, align 8
   %154 = icmp eq ptr %153, %139
   br i1 %154, label %.loopexit119.i, label %155
@@ -4989,17 +4989,17 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyE
   br i1 %156, label %.loopexit119.i, label %157
 
 157:                                              ; preds = %155
-  %158 = add i64 %.023.i.i.i, 1
-  %159 = add i64 %158, %.01524.i.i.i
+  %158 = add i64 %.01523.i.i.i, 1
+  %159 = add i64 %158, %.01624.i.i.i
   %.not.i.i54.i = icmp ugt i64 %158, %145
   br i1 %.not.i.i54.i, label %.loopexit119.i, label %151, !llvm.loop !22
 
 .loopexit119.i:                                   ; preds = %157, %155, %151, %137, %132
-  %.016.i.i.i = phi i64 [ 0, %132 ], [ 0, %137 ], [ 1, %151 ], [ 0, %155 ], [ 0, %157 ]
+  %.0.i.i.i = phi i64 [ 0, %132 ], [ 0, %137 ], [ 1, %151 ], [ 0, %155 ], [ 0, %157 ]
   %160 = load i32, ptr %16, align 4
   %.sroa.22.0.insert.ext.i.i = zext i32 %160 to i64
   %.sroa.22.0.insert.shift.i.i = shl nuw i64 %.sroa.22.0.insert.ext.i.i, 32
-  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.22.0.insert.shift.i.i, %.016.i.i.i
+  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.22.0.insert.shift.i.i, %.0.i.i.i
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %15, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %14, ptr noundef nonnull align 4 dereferenceable(8) %15)
           to label %161 unwind label %201
@@ -5202,9 +5202,9 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit55.i: ; preds = %177, %173, 
 
 242:                                              ; preds = %248, %233
   %.pn.i.i58.i = phi i64 [ %240, %233 ], [ %250, %248 ]
-  %.023.i.i59.i = phi i64 [ 0, %233 ], [ %249, %248 ]
-  %.01524.i.i60.i = and i64 %.pn.i.i58.i, %236
-  %243 = getelementptr inbounds ptr, ptr %241, i64 %.01524.i.i60.i
+  %.01523.i.i59.i = phi i64 [ 0, %233 ], [ %249, %248 ]
+  %.01624.i.i60.i = and i64 %.pn.i.i58.i, %236
+  %243 = getelementptr inbounds ptr, ptr %241, i64 %.01624.i.i60.i
   %244 = load ptr, ptr %243, align 8
   %245 = icmp eq ptr %244, %230
   br i1 %245, label %.loopexit118.i, label %246
@@ -5214,17 +5214,17 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit55.i: ; preds = %177, %173, 
   br i1 %247, label %.loopexit118.i, label %248
 
 248:                                              ; preds = %246
-  %249 = add i64 %.023.i.i59.i, 1
-  %250 = add i64 %249, %.01524.i.i60.i
+  %249 = add i64 %.01523.i.i59.i, 1
+  %250 = add i64 %249, %.01624.i.i60.i
   %.not.i.i61.i = icmp ugt i64 %249, %236
   br i1 %.not.i.i61.i, label %.loopexit118.i, label %242, !llvm.loop !22
 
 .loopexit118.i:                                   ; preds = %248, %246, %242, %228, %223
-  %.016.i.i62.i = phi i64 [ 0, %223 ], [ 0, %228 ], [ 1, %242 ], [ 0, %246 ], [ 0, %248 ]
+  %.0.i.i62.i = phi i64 [ 0, %223 ], [ 0, %228 ], [ 1, %242 ], [ 0, %246 ], [ 0, %248 ]
   %251 = load i32, ptr %21, align 4
   %.sroa.22.0.insert.ext.i64.i = zext i32 %251 to i64
   %.sroa.22.0.insert.shift.i65.i = shl nuw i64 %.sroa.22.0.insert.ext.i64.i, 32
-  %.sroa.0.0.insert.insert.i67.i = or disjoint i64 %.sroa.22.0.insert.shift.i65.i, %.016.i.i62.i
+  %.sroa.0.0.insert.insert.i67.i = or disjoint i64 %.sroa.22.0.insert.shift.i65.i, %.0.i.i62.i
   store i64 %.sroa.0.0.insert.insert.i67.i, ptr %20, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %19, ptr noundef nonnull align 4 dereferenceable(8) %20)
           to label %252 unwind label %258
@@ -5344,9 +5344,9 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit55.i: ; preds = %177, %173, 
 
 299:                                              ; preds = %305, %290
   %.pn.i.i68.i = phi i64 [ %297, %290 ], [ %307, %305 ]
-  %.023.i.i69.i = phi i64 [ 0, %290 ], [ %306, %305 ]
-  %.01524.i.i70.i = and i64 %.pn.i.i68.i, %293
-  %300 = getelementptr inbounds ptr, ptr %298, i64 %.01524.i.i70.i
+  %.01523.i.i69.i = phi i64 [ 0, %290 ], [ %306, %305 ]
+  %.01624.i.i70.i = and i64 %.pn.i.i68.i, %293
+  %300 = getelementptr inbounds ptr, ptr %298, i64 %.01624.i.i70.i
   %301 = load ptr, ptr %300, align 8
   %302 = icmp eq ptr %301, %287
   br i1 %302, label %.loopexit117.i, label %303
@@ -5356,17 +5356,17 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit55.i: ; preds = %177, %173, 
   br i1 %304, label %.loopexit117.i, label %305
 
 305:                                              ; preds = %303
-  %306 = add i64 %.023.i.i69.i, 1
-  %307 = add i64 %306, %.01524.i.i70.i
+  %306 = add i64 %.01523.i.i69.i, 1
+  %307 = add i64 %306, %.01624.i.i70.i
   %.not.i.i71.i = icmp ugt i64 %306, %293
   br i1 %.not.i.i71.i, label %.loopexit117.i, label %299, !llvm.loop !22
 
 .loopexit117.i:                                   ; preds = %305, %303, %299, %285, %280
-  %.016.i.i72.i = phi i64 [ 0, %280 ], [ 0, %285 ], [ 1, %299 ], [ 0, %303 ], [ 0, %305 ]
+  %.0.i.i72.i = phi i64 [ 0, %280 ], [ 0, %285 ], [ 1, %299 ], [ 0, %303 ], [ 0, %305 ]
   %308 = load i32, ptr %26, align 4
   %.sroa.22.0.insert.ext.i74.i = zext i32 %308 to i64
   %.sroa.22.0.insert.shift.i75.i = shl nuw i64 %.sroa.22.0.insert.ext.i74.i, 32
-  %.sroa.0.0.insert.insert.i77.i = or disjoint i64 %.sroa.22.0.insert.shift.i75.i, %.016.i.i72.i
+  %.sroa.0.0.insert.insert.i77.i = or disjoint i64 %.sroa.22.0.insert.shift.i75.i, %.0.i.i72.i
   store i64 %.sroa.0.0.insert.insert.i77.i, ptr %25, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %24, ptr noundef nonnull align 4 dereferenceable(8) %25)
           to label %309 unwind label %315
@@ -5486,9 +5486,9 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit55.i: ; preds = %177, %173, 
 
 356:                                              ; preds = %362, %347
   %.pn.i.i78.i = phi i64 [ %354, %347 ], [ %364, %362 ]
-  %.023.i.i79.i = phi i64 [ 0, %347 ], [ %363, %362 ]
-  %.01524.i.i80.i = and i64 %.pn.i.i78.i, %350
-  %357 = getelementptr inbounds ptr, ptr %355, i64 %.01524.i.i80.i
+  %.01523.i.i79.i = phi i64 [ 0, %347 ], [ %363, %362 ]
+  %.01624.i.i80.i = and i64 %.pn.i.i78.i, %350
+  %357 = getelementptr inbounds ptr, ptr %355, i64 %.01624.i.i80.i
   %358 = load ptr, ptr %357, align 8
   %359 = icmp eq ptr %358, %344
   br i1 %359, label %.loopexit116.i, label %360
@@ -5498,17 +5498,17 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit55.i: ; preds = %177, %173, 
   br i1 %361, label %.loopexit116.i, label %362
 
 362:                                              ; preds = %360
-  %363 = add i64 %.023.i.i79.i, 1
-  %364 = add i64 %363, %.01524.i.i80.i
+  %363 = add i64 %.01523.i.i79.i, 1
+  %364 = add i64 %363, %.01624.i.i80.i
   %.not.i.i81.i = icmp ugt i64 %363, %350
   br i1 %.not.i.i81.i, label %.loopexit116.i, label %356, !llvm.loop !22
 
 .loopexit116.i:                                   ; preds = %362, %360, %356, %342, %337
-  %.016.i.i82.i = phi i64 [ 0, %337 ], [ 0, %342 ], [ 1, %356 ], [ 0, %360 ], [ 0, %362 ]
+  %.0.i.i82.i = phi i64 [ 0, %337 ], [ 0, %342 ], [ 1, %356 ], [ 0, %360 ], [ 0, %362 ]
   %365 = load i32, ptr %31, align 4
   %.sroa.22.0.insert.ext.i84.i = zext i32 %365 to i64
   %.sroa.22.0.insert.shift.i85.i = shl nuw i64 %.sroa.22.0.insert.ext.i84.i, 32
-  %.sroa.0.0.insert.insert.i87.i = or disjoint i64 %.sroa.22.0.insert.shift.i85.i, %.016.i.i82.i
+  %.sroa.0.0.insert.insert.i87.i = or disjoint i64 %.sroa.22.0.insert.shift.i85.i, %.0.i.i82.i
   store i64 %.sroa.0.0.insert.insert.i87.i, ptr %30, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %29, ptr noundef nonnull align 4 dereferenceable(8) %30)
           to label %366 unwind label %372
@@ -5628,9 +5628,9 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit55.i: ; preds = %177, %173, 
 
 413:                                              ; preds = %419, %404
   %.pn.i.i88.i = phi i64 [ %411, %404 ], [ %421, %419 ]
-  %.023.i.i89.i = phi i64 [ 0, %404 ], [ %420, %419 ]
-  %.01524.i.i90.i = and i64 %.pn.i.i88.i, %407
-  %414 = getelementptr inbounds ptr, ptr %412, i64 %.01524.i.i90.i
+  %.01523.i.i89.i = phi i64 [ 0, %404 ], [ %420, %419 ]
+  %.01624.i.i90.i = and i64 %.pn.i.i88.i, %407
+  %414 = getelementptr inbounds ptr, ptr %412, i64 %.01624.i.i90.i
   %415 = load ptr, ptr %414, align 8
   %416 = icmp eq ptr %415, %401
   br i1 %416, label %.loopexit115.i, label %417
@@ -5640,8 +5640,8 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit55.i: ; preds = %177, %173, 
   br i1 %418, label %.loopexit115.i, label %419
 
 419:                                              ; preds = %417
-  %420 = add i64 %.023.i.i89.i, 1
-  %421 = add i64 %420, %.01524.i.i90.i
+  %420 = add i64 %.01523.i.i89.i, 1
+  %421 = add i64 %420, %.01624.i.i90.i
   %.not.i.i91.i = icmp ugt i64 %420, %407
   br i1 %.not.i.i91.i, label %.loopexit115.i, label %413, !llvm.loop !22
 
@@ -5769,9 +5769,9 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit55.i: ; preds = %177, %173, 
 
 469:                                              ; preds = %475, %460
   %.pn.i.i98.i = phi i64 [ %467, %460 ], [ %477, %475 ]
-  %.023.i.i99.i = phi i64 [ 0, %460 ], [ %476, %475 ]
-  %.01524.i.i100.i = and i64 %.pn.i.i98.i, %463
-  %470 = getelementptr inbounds ptr, ptr %468, i64 %.01524.i.i100.i
+  %.01523.i.i99.i = phi i64 [ 0, %460 ], [ %476, %475 ]
+  %.01624.i.i100.i = and i64 %.pn.i.i98.i, %463
+  %470 = getelementptr inbounds ptr, ptr %468, i64 %.01624.i.i100.i
   %471 = load ptr, ptr %470, align 8
   %472 = icmp eq ptr %471, %98
   br i1 %472, label %.loopexit.i, label %473
@@ -5781,8 +5781,8 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit55.i: ; preds = %177, %173, 
   br i1 %474, label %.loopexit.i, label %475
 
 475:                                              ; preds = %473
-  %476 = add i64 %.023.i.i99.i, 1
-  %477 = add i64 %476, %.01524.i.i100.i
+  %476 = add i64 %.01523.i.i99.i, 1
+  %477 = add i64 %476, %.01624.i.i100.i
   %.not.i.i101.i = icmp ugt i64 %476, %463
   br i1 %.not.i.i101.i, label %.loopexit.i, label %469, !llvm.loop !22
 
@@ -6232,9 +6232,9 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyE
 
 122:                                              ; preds = %128, %113
   %.pn.i.i.i = phi i64 [ %120, %113 ], [ %130, %128 ]
-  %.023.i.i.i = phi i64 [ 0, %113 ], [ %129, %128 ]
-  %.01524.i.i.i = and i64 %.pn.i.i.i, %116
-  %123 = getelementptr inbounds ptr, ptr %121, i64 %.01524.i.i.i
+  %.01523.i.i.i = phi i64 [ 0, %113 ], [ %129, %128 ]
+  %.01624.i.i.i = and i64 %.pn.i.i.i, %116
+  %123 = getelementptr inbounds ptr, ptr %121, i64 %.01624.i.i.i
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %124, %110
   br i1 %125, label %.loopexit61.i, label %126
@@ -6244,17 +6244,17 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyE
   br i1 %127, label %.loopexit61.i, label %128
 
 128:                                              ; preds = %126
-  %129 = add i64 %.023.i.i.i, 1
-  %130 = add i64 %129, %.01524.i.i.i
+  %129 = add i64 %.01523.i.i.i, 1
+  %130 = add i64 %129, %.01624.i.i.i
   %.not.i.i33.i = icmp ugt i64 %129, %116
   br i1 %.not.i.i33.i, label %.loopexit61.i, label %122, !llvm.loop !22
 
 .loopexit61.i:                                    ; preds = %128, %126, %122, %108, %103
-  %.016.i.i.i = phi i64 [ 0, %103 ], [ 0, %108 ], [ 1, %122 ], [ 0, %126 ], [ 0, %128 ]
+  %.0.i.i.i = phi i64 [ 0, %103 ], [ 0, %108 ], [ 1, %122 ], [ 0, %126 ], [ 0, %128 ]
   %131 = load i32, ptr %15, align 4
   %.sroa.22.0.insert.ext.i.i = zext i32 %131 to i64
   %.sroa.22.0.insert.shift.i.i = shl nuw i64 %.sroa.22.0.insert.ext.i.i, 32
-  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.22.0.insert.shift.i.i, %.016.i.i.i
+  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.22.0.insert.shift.i.i, %.0.i.i.i
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %14, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %13, ptr noundef nonnull align 4 dereferenceable(8) %14)
           to label %132 unwind label %156
@@ -6420,9 +6420,9 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit34.loopexit63.i: ; preds = %
 
 196:                                              ; preds = %202, %187
   %.pn.i.i35.i = phi i64 [ %194, %187 ], [ %204, %202 ]
-  %.023.i.i36.i = phi i64 [ 0, %187 ], [ %203, %202 ]
-  %.01524.i.i37.i = and i64 %.pn.i.i35.i, %190
-  %197 = getelementptr inbounds ptr, ptr %195, i64 %.01524.i.i37.i
+  %.01523.i.i36.i = phi i64 [ 0, %187 ], [ %203, %202 ]
+  %.01624.i.i37.i = and i64 %.pn.i.i35.i, %190
+  %197 = getelementptr inbounds ptr, ptr %195, i64 %.01624.i.i37.i
   %198 = load ptr, ptr %197, align 8
   %199 = icmp eq ptr %198, %30
   br i1 %199, label %.loopexit60.i, label %200
@@ -6432,17 +6432,17 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit34.loopexit63.i: ; preds = %
   br i1 %201, label %.loopexit60.i, label %202
 
 202:                                              ; preds = %200
-  %203 = add i64 %.023.i.i36.i, 1
-  %204 = add i64 %203, %.01524.i.i37.i
+  %203 = add i64 %.01523.i.i36.i, 1
+  %204 = add i64 %203, %.01624.i.i37.i
   %.not.i.i38.i = icmp ugt i64 %203, %190
   br i1 %.not.i.i38.i, label %.loopexit60.i, label %196, !llvm.loop !22
 
 .loopexit60.i:                                    ; preds = %202, %200, %196, %183, %178
-  %.016.i.i39.i = phi i64 [ 0, %178 ], [ 0, %183 ], [ 1, %196 ], [ 0, %200 ], [ 0, %202 ]
+  %.0.i.i39.i = phi i64 [ 0, %178 ], [ 0, %183 ], [ 1, %196 ], [ 0, %200 ], [ 0, %202 ]
   %205 = load i32, ptr %20, align 4
   %.sroa.22.0.insert.ext.i41.i = zext i32 %205 to i64
   %.sroa.22.0.insert.shift.i42.i = shl nuw i64 %.sroa.22.0.insert.ext.i41.i, 32
-  %.sroa.0.0.insert.insert.i44.i = or disjoint i64 %.sroa.22.0.insert.shift.i42.i, %.016.i.i39.i
+  %.sroa.0.0.insert.insert.i44.i = or disjoint i64 %.sroa.22.0.insert.shift.i42.i, %.0.i.i39.i
   store i64 %.sroa.0.0.insert.insert.i44.i, ptr %19, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %18, ptr noundef nonnull align 4 dereferenceable(8) %19)
           to label %206 unwind label %212
@@ -6562,9 +6562,9 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit34.loopexit63.i: ; preds = %
 
 253:                                              ; preds = %259, %244
   %.pn.i.i45.i = phi i64 [ %251, %244 ], [ %261, %259 ]
-  %.023.i.i46.i = phi i64 [ 0, %244 ], [ %260, %259 ]
-  %.01524.i.i47.i = and i64 %.pn.i.i45.i, %247
-  %254 = getelementptr inbounds ptr, ptr %252, i64 %.01524.i.i47.i
+  %.01523.i.i46.i = phi i64 [ 0, %244 ], [ %260, %259 ]
+  %.01624.i.i47.i = and i64 %.pn.i.i45.i, %247
+  %254 = getelementptr inbounds ptr, ptr %252, i64 %.01624.i.i47.i
   %255 = load ptr, ptr %254, align 8
   %256 = icmp eq ptr %255, %241
   br i1 %256, label %.loopexit.i, label %257
@@ -6574,17 +6574,17 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit34.loopexit63.i: ; preds = %
   br i1 %258, label %.loopexit.i, label %259
 
 259:                                              ; preds = %257
-  %260 = add i64 %.023.i.i46.i, 1
-  %261 = add i64 %260, %.01524.i.i47.i
+  %260 = add i64 %.01523.i.i46.i, 1
+  %261 = add i64 %260, %.01624.i.i47.i
   %.not.i.i48.i = icmp ugt i64 %260, %247
   br i1 %.not.i.i48.i, label %.loopexit.i, label %253, !llvm.loop !22
 
 .loopexit.i:                                      ; preds = %259, %257, %253, %239, %234
-  %.016.i.i49.i = phi i64 [ 0, %234 ], [ 0, %239 ], [ 1, %253 ], [ 0, %257 ], [ 0, %259 ]
+  %.0.i.i49.i = phi i64 [ 0, %234 ], [ 0, %239 ], [ 1, %253 ], [ 0, %257 ], [ 0, %259 ]
   %262 = load i32, ptr %25, align 4
   %.sroa.22.0.insert.ext.i51.i = zext i32 %262 to i64
   %.sroa.22.0.insert.shift.i52.i = shl nuw i64 %.sroa.22.0.insert.ext.i51.i, 32
-  %.sroa.0.0.insert.insert.i54.i = or disjoint i64 %.sroa.22.0.insert.shift.i52.i, %.016.i.i49.i
+  %.sroa.0.0.insert.insert.i54.i = or disjoint i64 %.sroa.22.0.insert.shift.i52.i, %.0.i.i49.i
   store i64 %.sroa.0.0.insert.insert.i54.i, ptr %24, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %23, ptr noundef nonnull align 4 dereferenceable(8) %24)
           to label %263 unwind label %269

@@ -5804,8 +5804,8 @@ if.end27.i:                                       ; preds = %lor.lhs.false.i, %l
   %cmp1.not.i5459 = phi i1 [ %cmp1.not.i126, %if.then23.i ], [ %cmp1.not.i126, %land.lhs.true20.i ], [ %cmp1.not.i126, %if.then17.i ], [ false, %15 ], [ true, %lor.lhs.false6.i ], [ true, %if.end ], [ false, %lor.rhs.i ], [ false, %lor.lhs.false6.i.thread ], [ true, %lor.lhs.false.i ]
   %long_step.034 = phi ptr [ %long_step.03352107115117, %if.then23.i ], [ %long_step.03352107115117, %land.lhs.true20.i ], [ %long_step.03352107115117, %if.then17.i ], [ %4, %15 ], [ null, %lor.lhs.false6.i ], [ null, %if.end ], [ %5, %lor.rhs.i ], [ %4, %lor.lhs.false6.i.thread ], [ null, %lor.lhs.false.i ]
   %long_cnt.addr.0.i = phi ptr [ %3, %if.then23.i ], [ %3, %land.lhs.true20.i ], [ %3, %if.then17.i ], [ %3, %15 ], [ %3, %lor.lhs.false6.i ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %if.end ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %lor.rhs.i ], [ %3, %lor.lhs.false6.i.thread ], [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), %lor.lhs.false.i ]
-  %fast_mode.0.shrunk.i = phi i1 [ false, %if.then23.i ], [ true, %land.lhs.true20.i ], [ true, %if.then17.i ], [ false, %15 ], [ false, %lor.lhs.false6.i ], [ true, %if.end ], [ %cmp.i39.i, %lor.rhs.i ], [ false, %lor.lhs.false6.i.thread ], [ true, %lor.lhs.false.i ]
   %cnt.0.i = phi i64 [ -1, %if.then23.i ], [ -1, %land.lhs.true20.i ], [ %call18.i, %if.then17.i ], [ 0, %15 ], [ 0, %lor.lhs.false6.i ], [ 0, %if.end ], [ 0, %lor.rhs.i ], [ 0, %lor.lhs.false6.i.thread ], [ 0, %lor.lhs.false.i ]
+  %fast_mode.0.shrunk.i = phi i1 [ false, %if.then23.i ], [ true, %land.lhs.true20.i ], [ true, %if.then17.i ], [ false, %15 ], [ false, %lor.lhs.false6.i ], [ true, %if.end ], [ %cmp.i39.i, %lor.rhs.i ], [ false, %lor.lhs.false6.i.thread ], [ true, %lor.lhs.false.i ]
   %18 = load i32, ptr %long_cnt.addr.0.i, align 8
   %add.i81.i = add i32 %18, 1
   %cmp.i82.i = icmp eq i32 %add.i81.i, 0
@@ -9286,11 +9286,11 @@ if.end43:                                         ; preds = %if.then42, %if.then
   br label %return
 
 if.end46:                                         ; preds = %if.end34, %if.then36, %if.then13, %if.then15
-  %start.1 = phi i64 [ 0, %if.then15 ], [ 0, %if.then13 ], [ %start.033, %if.then36 ], [ %start.033, %if.end34 ]
   %stop.0 = phi i64 [ %call16, %if.then15 ], [ -1, %if.then13 ], [ %call37, %if.then36 ], [ -1, %if.end34 ]
+  %start.1 = phi i64 [ 0, %if.then15 ], [ 0, %if.then13 ], [ %start.033, %if.then36 ], [ %start.033, %if.end34 ]
   %cmp47 = icmp slt i64 %start.1, 0
   %cmp49 = icmp slt i64 %stop.0, -1
-  %or.cond2 = or i1 %cmp47, %cmp49
+  %or.cond2 = or i1 %cmp49, %cmp47
   br i1 %or.cond2, label %if.then50, label %if.end51
 
 if.then50:                                        ; preds = %if.end46
@@ -9701,8 +9701,8 @@ if.end.i87:                                       ; preds = %if.then24
   br i1 %cmp.i89, label %return.sink.split, label %return
 
 if.end28:                                         ; preds = %if.end15, %if.end
-  %it.0 = phi ptr [ %7, %if.end15 ], [ %0, %if.end ]
   %old.0 = phi ptr [ %call5, %if.end15 ], [ %1, %if.end ]
+  %it.0 = phi ptr [ %7, %if.end15 ], [ %0, %if.end ]
   %13 = load i32, ptr %old.0, align 8
   %add.i = add i32 %13, 1
   %cmp.i125 = icmp eq i32 %add.i, 0

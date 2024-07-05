@@ -6879,7 +6879,7 @@ _ZL10clearRVecsN3gmx8ArrayRefINS_11BasicVectorIfEEEEb.exit39: ; preds = %_ZL37gm
 
 87:                                               ; preds = %.thread, %_ZL10clearRVecsN3gmx8ArrayRefINS_11BasicVectorIfEEEEb.exit39
   %.sroa.0.020 = phi ptr [ %71, %_ZL10clearRVecsN3gmx8ArrayRefINS_11BasicVectorIfEEEEb.exit39 ], [ %67, %.thread ]
-  %.sroa.3.018 = phi ptr [ %77, %_ZL10clearRVecsN3gmx8ArrayRefINS_11BasicVectorIfEEEEb.exit39 ], [ %68, %.thread ]
+  %.sroa.3.017 = phi ptr [ %77, %_ZL10clearRVecsN3gmx8ArrayRefINS_11BasicVectorIfEEEEb.exit39 ], [ %68, %.thread ]
   %88 = and i8 %.pre, 1
   %89 = and i8 %8, 1
   %90 = load i8, ptr %1, align 8
@@ -6900,7 +6900,7 @@ _ZL10clearRVecsN3gmx8ArrayRefINS_11BasicVectorIfEEEEb.exit39: ; preds = %_ZL37gm
   %95 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sroa.0.020, ptr %95, align 8
   %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %.sroa.3.018, ptr %.sroa.33.0..sroa_idx, align 8
+  store ptr %.sroa.3.017, ptr %.sroa.33.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
   store i8 %88, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 81

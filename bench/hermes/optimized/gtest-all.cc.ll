@@ -8649,11 +8649,11 @@ lpad19:                                           ; preds = %lpad19.loopexit.spl
   br label %ehcleanup
 
 for.body24:                                       ; preds = %for.cond21.preheader, %if.end74
-  %n_suffix.0176 = phi i64 [ %cond, %if.end74 ], [ 0, %for.cond21.preheader ]
-  %r_i.2175 = phi i64 [ %add79, %if.end74 ], [ %r_i.1.lcssa, %for.cond21.preheader ]
+  %r_i.2176 = phi i64 [ %add79, %if.end74 ], [ %r_i.1.lcssa, %for.cond21.preheader ]
+  %n_suffix.0175 = phi i64 [ %cond, %if.end74 ], [ 0, %for.cond21.preheader ]
   %edit_i.2174 = phi i64 [ %inc81, %if.end74 ], [ %edit_i.1.lcssa, %for.cond21.preheader ]
   %l_i.2173 = phi i64 [ %add76, %if.end74 ], [ %l_i.1.lcssa, %for.cond21.preheader ]
-  %cmp25.not = icmp ult i64 %n_suffix.0176, %context
+  %cmp25.not = icmp ult i64 %n_suffix.0175, %context
   br i1 %cmp25.not, label %if.end52, label %if.then
 
 if.then:                                          ; preds = %for.body24
@@ -8688,7 +8688,7 @@ if.end52:                                         ; preds = %lor.rhs, %for.body2
   %add.ptr.i54 = getelementptr inbounds i32, ptr %1, i64 %edit_i.2174
   %19 = load i32, ptr %add.ptr.i54, align 4
   %cmp54 = icmp eq i32 %19, 0
-  %add55 = add i64 %n_suffix.0176, 1
+  %add55 = add i64 %n_suffix.0175, 1
   %cond = select i1 %cmp54, i64 %add55, i64 0
   switch i32 %19, label %if.end66 [
     i32 3, label %if.then60
@@ -8764,7 +8764,7 @@ if.end66:                                         ; preds = %call5.i.i.i.i.i.i9.
 
 if.then70:                                        ; preds = %if.end66
   %31 = load ptr, ptr %right, align 8
-  %add.ptr.i82 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %31, i64 %r_i.2175
+  %add.ptr.i82 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %31, i64 %r_i.2176
   %call72 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i82) #47
   %32 = load i64, ptr %adds_.i, align 8
   %inc9.i85 = add i64 %32, 1
@@ -8789,7 +8789,7 @@ if.end74:                                         ; preds = %_ZN7testing8interna
   %add76 = add i64 %l_i.2173, %conv
   %cmp77 = icmp ne i32 %19, 2
   %conv78 = zext i1 %cmp77 to i64
-  %add79 = add i64 %r_i.2175, %conv78
+  %add79 = add i64 %r_i.2176, %conv78
   %inc81 = add nuw i64 %edit_i.2174, 1
   %exitcond186.not = icmp eq i64 %inc81, %sub.ptr.div.i
   br i1 %exitcond186.not, label %for.end82, label %for.body24, !llvm.loop !63
@@ -8797,7 +8797,7 @@ if.end74:                                         ; preds = %_ZN7testing8interna
 for.end82:                                        ; preds = %if.then, %if.end74, %lor.rhs, %while.end40, %while.body38, %for.cond21.preheader
   %l_i.2.lcssa = phi i64 [ %l_i.1.lcssa, %for.cond21.preheader ], [ %l_i.2173, %while.body38 ], [ %l_i.2173, %if.then ], [ %l_i.2173, %while.end40 ], [ %l_i.2173, %lor.rhs ], [ %add76, %if.end74 ]
   %edit_i.2.lcssa = phi i64 [ %edit_i.1.lcssa, %for.cond21.preheader ], [ %edit_i.2174, %while.body38 ], [ %edit_i.2174, %if.then ], [ %edit_i.2174, %while.end40 ], [ %edit_i.2174, %lor.rhs ], [ %sub.ptr.div.i, %if.end74 ]
-  %r_i.2.lcssa = phi i64 [ %r_i.1.lcssa, %for.cond21.preheader ], [ %r_i.2175, %while.body38 ], [ %r_i.2175, %if.then ], [ %r_i.2175, %while.end40 ], [ %r_i.2175, %lor.rhs ], [ %add79, %if.end74 ]
+  %r_i.2.lcssa = phi i64 [ %r_i.1.lcssa, %for.cond21.preheader ], [ %r_i.2176, %while.body38 ], [ %r_i.2176, %if.then ], [ %r_i.2176, %while.end40 ], [ %r_i.2176, %lor.rhs ], [ %add79, %if.end74 ]
   %hunk.val = load i64, ptr %adds_.i, align 8
   %hunk.val32 = load i64, ptr %removes_.i, align 8
   %tobool.not.i = icmp ne i64 %hunk.val, 0
@@ -46951,11 +46951,11 @@ entry:
   br i1 %cmp8.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN7testing8internalL22PrintAsStringLiteralToEcPSo.exit
-  %index.010 = phi i64 [ %inc, %_ZN7testing8internalL22PrintAsStringLiteralToEcPSo.exit ], [ 0, %entry ]
-  %is_previous_hex.09 = phi i1 [ %cmp5, %_ZN7testing8internalL22PrintAsStringLiteralToEcPSo.exit ], [ false, %entry ]
-  %arrayidx = getelementptr inbounds i8, ptr %begin, i64 %index.010
+  %is_previous_hex.010 = phi i1 [ %cmp5, %_ZN7testing8internalL22PrintAsStringLiteralToEcPSo.exit ], [ false, %entry ]
+  %index.09 = phi i64 [ %inc, %_ZN7testing8internalL22PrintAsStringLiteralToEcPSo.exit ], [ 0, %entry ]
+  %arrayidx = getelementptr inbounds i8, ptr %begin, i64 %index.09
   %0 = load i8, ptr %arrayidx, align 1
-  br i1 %is_previous_hex.09, label %land.lhs.true, label %if.end
+  br i1 %is_previous_hex.010, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %for.body
   %conv.i = zext i8 %0 to i32
@@ -46990,7 +46990,7 @@ sw.default.i.i:                                   ; preds = %if.end
 _ZN7testing8internalL22PrintAsStringLiteralToEcPSo.exit: ; preds = %sw.bb.i.i, %sw.bb1.i.i, %sw.default.i.i
   %retval.0.i.i = phi i32 [ %call3.i.i, %sw.default.i.i ], [ 2, %sw.bb1.i.i ], [ 0, %sw.bb.i.i ]
   %cmp5 = icmp eq i32 %retval.0.i.i, 1
-  %inc = add nuw i64 %index.010, 1
+  %inc = add nuw i64 %index.09, 1
   %exitcond.not = icmp eq i64 %inc, %len
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !752
 
@@ -47028,12 +47028,12 @@ entry:
   br i1 %cmp8.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN7testing8internalL22PrintAsStringLiteralToEwPSo.exit
-  %index.010 = phi i64 [ %inc, %_ZN7testing8internalL22PrintAsStringLiteralToEwPSo.exit ], [ 0, %entry ]
-  %is_previous_hex.09 = phi i1 [ %cmp5, %_ZN7testing8internalL22PrintAsStringLiteralToEwPSo.exit ], [ false, %entry ]
-  %arrayidx = getelementptr inbounds i32, ptr %begin, i64 %index.010
+  %is_previous_hex.010 = phi i1 [ %cmp5, %_ZN7testing8internalL22PrintAsStringLiteralToEwPSo.exit ], [ false, %entry ]
+  %index.09 = phi i64 [ %inc, %_ZN7testing8internalL22PrintAsStringLiteralToEwPSo.exit ], [ 0, %entry ]
+  %arrayidx = getelementptr inbounds i32, ptr %begin, i64 %index.09
   %0 = load i32, ptr %arrayidx, align 4
   %cmp.i = icmp ult i32 %0, 256
-  %or.cond = select i1 %is_previous_hex.09, i1 %cmp.i, i1 false
+  %or.cond = select i1 %is_previous_hex.010, i1 %cmp.i, i1 false
   br i1 %or.cond, label %_ZN7testing8internal8IsXDigitEw.exit, label %if.end
 
 _ZN7testing8internal8IsXDigitEw.exit:             ; preds = %for.body
@@ -47067,7 +47067,7 @@ sw.default.i:                                     ; preds = %if.end
 _ZN7testing8internalL22PrintAsStringLiteralToEwPSo.exit: ; preds = %sw.bb.i, %sw.bb1.i, %sw.default.i
   %retval.0.i = phi i32 [ %call3.i, %sw.default.i ], [ 2, %sw.bb1.i ], [ 0, %sw.bb.i ]
   %cmp5 = icmp eq i32 %retval.0.i, 1
-  %inc = add nuw i64 %index.010, 1
+  %inc = add nuw i64 %index.09, 1
   %exitcond.not = icmp eq i64 %inc, %len
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !753
 

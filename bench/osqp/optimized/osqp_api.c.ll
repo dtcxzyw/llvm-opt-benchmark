@@ -950,11 +950,11 @@ define i64 @osqp_solve(ptr noundef %0) local_unnamed_addr #0 {
   br label %54
 
 54:                                               ; preds = %.lr.ph, %158
-  %.0138208 = phi i64 [ 0, %.lr.ph ], [ %85, %158 ]
-  %.0140205 = phi i64 [ 1, %.lr.ph ], [ %159, %158 ]
+  %.0139208 = phi i64 [ 0, %.lr.ph ], [ %85, %158 ]
+  %.0143205 = phi i64 [ 1, %.lr.ph ], [ %159, %158 ]
   tail call void @swap_vectors(ptr noundef nonnull %47, ptr noundef nonnull %48) #15
   tail call void @swap_vectors(ptr noundef nonnull %49, ptr noundef nonnull %50) #15
-  tail call void @update_xz_tilde(ptr noundef nonnull %0, i64 noundef %.0140205) #15
+  tail call void @update_xz_tilde(ptr noundef nonnull %0, i64 noundef %.0143205) #15
   tail call void @update_x(ptr noundef nonnull %0) #15
   tail call void @update_z(ptr noundef nonnull %0) #15
   tail call void @update_y(ptr noundef nonnull %0) #15
@@ -1006,7 +1006,7 @@ define i64 @osqp_solve(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not160, label %83, label %80
 
 80:                                               ; preds = %77
-  %81 = srem i64 %.0140205, %79
+  %81 = srem i64 %.0143205, %79
   %82 = icmp eq i64 %81, 0
   br label %83
 
@@ -1019,21 +1019,21 @@ define i64 @osqp_solve(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not161, label %93, label %88
 
 88:                                               ; preds = %83
-  %89 = urem i64 %.0140205, 200
+  %89 = urem i64 %.0143205, 200
   %90 = icmp eq i64 %89, 0
-  %91 = icmp eq i64 %.0140205, 1
+  %91 = icmp eq i64 %.0143205, 1
   %92 = or i1 %91, %90
   br label %93
 
 93:                                               ; preds = %88, %83
   %94 = phi i1 [ false, %83 ], [ %92, %88 ]
   %or.cond = or i1 %84, %94
-  %95 = icmp eq i64 %.0140205, 1
+  %95 = icmp eq i64 %.0143205, 1
   %or.cond3 = or i1 %95, %or.cond
   br i1 %or.cond3, label %96, label %101
 
 96:                                               ; preds = %93
-  tail call void @update_info(ptr noundef nonnull %0, i64 noundef %.0140205, i64 noundef %19, i64 noundef 0) #15
+  tail call void @update_info(ptr noundef nonnull %0, i64 noundef %.0143205, i64 noundef %19, i64 noundef 0) #15
   br i1 %94, label %97, label %98
 
 97:                                               ; preds = %96
@@ -1078,7 +1078,7 @@ define i64 @osqp_solve(ptr noundef %0) local_unnamed_addr #0 {
   %120 = getelementptr inbounds i8, ptr %111, i64 208
   %121 = load i64, ptr %120, align 8
   %.not165 = icmp eq i64 %121, 0
-  %122 = uitofp nneg i64 %.0140205 to double
+  %122 = uitofp nneg i64 %.0143205 to double
   br i1 %.not165, label %128, label %123
 
 123:                                              ; preds = %119
@@ -1124,7 +1124,7 @@ define i64 @osqp_solve(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not167, label %158, label %148
 
 148:                                              ; preds = %145
-  %149 = srem i64 %.0140205, %147
+  %149 = srem i64 %.0143205, %147
   %150 = icmp eq i64 %149, 0
   br i1 %150, label %151, label %158
 
@@ -1132,7 +1132,7 @@ define i64 @osqp_solve(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %153, label %152
 
 152:                                              ; preds = %151
-  tail call void @update_info(ptr noundef nonnull %0, i64 noundef %.0140205, i64 noundef %19, i64 noundef 0) #15
+  tail call void @update_info(ptr noundef nonnull %0, i64 noundef %.0143205, i64 noundef %19, i64 noundef 0) #15
   br label %153
 
 153:                                              ; preds = %152, %151
@@ -1147,8 +1147,8 @@ define i64 @osqp_solve(ptr noundef %0) local_unnamed_addr #0 {
   br label %257
 
 158:                                              ; preds = %141, %145, %148, %153
-  %159 = add nuw i64 %.0140205, 1
-  %exitcond.not = icmp eq i64 %.0140205, %46
+  %159 = add nuw i64 %.0143205, 1
+  %exitcond.not = icmp eq i64 %.0143205, %46
   br i1 %exitcond.not, label %..loopexit_crit_edge, label %54, !llvm.loop !4
 
 ..loopexit_crit_edge:                             ; preds = %158
@@ -1156,20 +1156,20 @@ define i64 @osqp_solve(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %..loopexit_crit_edge, %71, %76
-  %.0140203 = phi i64 [ %.0140205, %76 ], [ %.0140205, %71 ], [ %53, %..loopexit_crit_edge ]
-  %.0138198 = phi i64 [ %.0138208, %76 ], [ %.0138208, %71 ], [ %85, %..loopexit_crit_edge ]
+  %.0143203 = phi i64 [ %.0143205, %76 ], [ %.0143205, %71 ], [ %53, %..loopexit_crit_edge ]
+  %.0139198 = phi i64 [ %.0139208, %76 ], [ %.0139208, %71 ], [ %85, %..loopexit_crit_edge ]
   %.1 = phi i64 [ 0, %76 ], [ 0, %71 ], [ %160, %..loopexit_crit_edge ]
-  %.not170 = icmp eq i64 %.0138198, 0
+  %.not170 = icmp eq i64 %.0139198, 0
   br i1 %.not170, label %.loopexit.thread, label %.thread
 
 .loopexit.thread:                                 ; preds = %43, %.loopexit
   %.1233 = phi i64 [ %.1, %.loopexit ], [ %19, %43 ]
-  %.0140203232 = phi i64 [ %.0140203, %.loopexit ], [ 1, %43 ]
+  %.0143203232 = phi i64 [ %.0143203, %.loopexit ], [ 1, %43 ]
   %.not171 = icmp eq i64 %.1233, 0
   br i1 %.not171, label %161, label %163
 
 161:                                              ; preds = %.loopexit.thread
-  %162 = add nsw i64 %.0140203232, -1
+  %162 = add nsw i64 %.0143203232, -1
   tail call void @update_info(ptr noundef nonnull %0, i64 noundef %162, i64 noundef %19, i64 noundef 0) #15
   br label %163
 
@@ -1354,8 +1354,8 @@ define i64 @osqp_solve(ptr noundef %0) local_unnamed_addr #0 {
   br label %258
 
 258:                                              ; preds = %257, %5
-  %.0143 = phi i64 [ %.1142, %257 ], [ %6, %5 ]
-  ret i64 %.0143
+  %.0138 = phi i64 [ %.1142, %257 ], [ %6, %5 ]
+  ret i64 %.0138
 }
 
 declare void @print_header() local_unnamed_addr #1
@@ -1870,22 +1870,22 @@ define i64 @osqp_update_data_vec(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 49:                                               ; preds = %47
   %50 = tail call i64 @OSQPVectorf_all_leq(ptr noundef %25, ptr noundef %27) #15
-  %.0.in = icmp eq i64 %50, 0
-  br i1 %.0.in, label %57, label %.thread82
+  %.060.in = icmp eq i64 %50, 0
+  br i1 %.060.in, label %57, label %.thread82
 
 .thread79:                                        ; preds = %.thread
   %51 = getelementptr inbounds i8, ptr %48, i64 48
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i64 @OSQPVectorf_all_leq(ptr noundef %25, ptr noundef %52) #15
-  %.0.in81 = icmp eq i64 %53, 0
-  br i1 %.0.in81, label %57, label %.thread82
+  %.060.in81 = icmp eq i64 %53, 0
+  br i1 %.060.in81, label %57, label %.thread82
 
 .thread75:                                        ; preds = %.thread
   %54 = getelementptr inbounds i8, ptr %48, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i64 @OSQPVectorf_all_leq(ptr noundef %55, ptr noundef %27) #15
-  %.0.in77 = icmp eq i64 %56, 0
-  br i1 %.0.in77, label %57, label %.thread78
+  %.060.in77 = icmp eq i64 %56, 0
+  br i1 %.060.in77, label %57, label %.thread78
 
 57:                                               ; preds = %.thread79, %.thread75, %49
   %58 = tail call i64 @_osqp_error(i32 noundef 1, ptr noundef nonnull @__func__.osqp_update_data_vec) #15
@@ -1964,8 +1964,8 @@ define i64 @osqp_update_data_vec(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %100
 
 100:                                              ; preds = %91, %57, %8
-  %.060 = phi i64 [ %58, %57 ], [ %.1, %91 ], [ %9, %8 ]
-  ret i64 %.060
+  %.0 = phi i64 [ %58, %57 ], [ %.1, %91 ], [ %9, %8 ]
+  ret i64 %.0
 }
 
 declare void @OSQPVectorf_from_raw(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -2267,11 +2267,11 @@ define i64 @osqp_update_data_mat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %103
 
 103:                                              ; preds = %.thread, %82
-  %.0 = phi i64 [ %92, %82 ], [ %102, %.thread ]
+  %.068 = phi i64 [ %92, %82 ], [ %102, %.thread ]
   %104 = getelementptr inbounds i8, ptr %0, i64 16
   %105 = load ptr, ptr %104, align 8
   tail call void @reset_info(ptr noundef %105) #15
-  %.not85 = icmp eq i64 %.0, 0
+  %.not85 = icmp eq i64 %.068, 0
   br i1 %.not85, label %109, label %106
 
 106:                                              ; preds = %103
@@ -2291,8 +2291,8 @@ define i64 @osqp_update_data_mat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %116
 
 116:                                              ; preds = %109, %56, %48, %42, %34, %11
-  %.068 = phi i64 [ 1, %34 ], [ 1, %42 ], [ 2, %48 ], [ 2, %56 ], [ %.0, %109 ], [ %12, %11 ]
-  ret i64 %.068
+  %.0 = phi i64 [ 1, %34 ], [ 1, %42 ], [ 2, %48 ], [ 2, %56 ], [ %.068, %109 ], [ %12, %11 ]
+  ret i64 %.0
 }
 
 declare i64 @OSQPMatrix_get_nz(ptr noundef) local_unnamed_addr #1

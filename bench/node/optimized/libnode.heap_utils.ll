@@ -664,8 +664,8 @@ if.end382:                                        ; preds = %lor.rhs377
   br i1 %cmp.i61.not88, label %for.cond352.loopexit, label %for.body393
 
 for.body393:                                      ; preds = %if.end382, %for.inc502
-  %j.091 = phi i64 [ %j.1, %for.inc502 ], [ 0, %if.end382 ]
-  %i383.090 = phi i32 [ %inc484, %for.inc502 ], [ 0, %if.end382 ]
+  %i383.091 = phi i32 [ %inc484, %for.inc502 ], [ 0, %if.end382 ]
+  %j.090 = phi i64 [ %j.1, %for.inc502 ], [ 0, %if.end382 ]
   %__begin3385.sroa.0.089 = phi ptr [ %call.i63, %for.inc502 ], [ %50, %if.end382 ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin3385.sroa.0.089, i64 32
   %second395 = getelementptr inbounds i8, ptr %__begin3385.sroa.0.089, i64 40
@@ -684,14 +684,14 @@ if.then404:                                       ; preds = %for.body393
   br i1 %cmp.i.i804, label %cleanup520, label %if.end429
 
 if.else416:                                       ; preds = %for.body393
-  %inc420 = add i64 %j.091, 1
-  %conv421 = uitofp i64 %j.091 to double
+  %inc420 = add i64 %j.090, 1
+  %conv421 = uitofp i64 %j.090 to double
   %call422 = call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %53, double noundef %conv421) #22
   br label %if.end429
 
 if.end429:                                        ; preds = %if.then404, %if.else416
   %edge_name_value.sroa.0.0 = phi ptr [ %call407, %if.then404 ], [ %call422, %if.else416 ]
-  %j.1 = phi i64 [ %j.091, %if.then404 ], [ %inc420, %if.else416 ]
+  %j.1 = phi i64 [ %j.090, %if.then404 ], [ %inc420, %if.else416 ]
   %call448 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call398, ptr %call, ptr %17, ptr %edge_name_value.sroa.0.0) #22
   %tobool.i663 = trunc i16 %call448 to i1
   br i1 %tobool.i663, label %lor.lhs.false450, label %cleanup520
@@ -702,12 +702,12 @@ lor.lhs.false450:                                 ; preds = %if.end429
   br i1 %tobool.i659, label %lor.rhs475, label %cleanup520
 
 lor.rhs475:                                       ; preds = %lor.lhs.false450
-  %call497 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEEjNS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call371, ptr %call, i32 noundef %i383.090, ptr nonnull %call398) #22
+  %call497 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEEjNS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call371, ptr %call, i32 noundef %i383.091, ptr nonnull %call398) #22
   %tobool.i = trunc i16 %call497 to i1
   br i1 %tobool.i, label %for.inc502, label %cleanup520
 
 for.inc502:                                       ; preds = %lor.rhs475
-  %inc484 = add i32 %i383.090, 1
+  %inc484 = add i32 %i383.091, 1
   %call.i63 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3385.sroa.0.089) #23
   %cmp.i61.not = icmp eq ptr %call.i63, %add.ptr.i.i
   br i1 %cmp.i61.not, label %for.cond352.loopexit, label %for.body393

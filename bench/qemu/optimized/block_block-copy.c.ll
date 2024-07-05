@@ -1471,16 +1471,16 @@ if.end92:                                         ; preds = %if.then90, %trace_b
   br i1 %or.cond1, label %land.lhs.true.outer, label %out, !llvm.loop !7
 
 land.lhs.true.outer:                              ; preds = %land.lhs.true.preheader.lr.ph, %if.end92
-  %found_dirty.1.ph = phi i8 [ 0, %land.lhs.true.preheader.lr.ph ], [ 1, %if.end92 ]
   %aio.1.ph = phi ptr [ null, %land.lhs.true.preheader.lr.ph ], [ %aio.2, %if.end92 ]
+  %found_dirty.1.ph = phi i8 [ 0, %land.lhs.true.preheader.lr.ph ], [ 1, %if.end92 ]
   %ret.1.ph = phi i32 [ 0, %land.lhs.true.preheader.lr.ph ], [ %call93, %if.end92 ]
   %bytes.1.ph = phi i64 [ %2, %land.lhs.true.preheader.lr.ph ], [ %sub86, %if.end92 ]
   %offset.1.ph = phi i64 [ %1, %land.lhs.true.preheader.lr.ph ], [ %add.i162, %if.end92 ]
   br label %land.lhs.true
 
 out:                                              ; preds = %while.cond.backedge, %while.end, %land.lhs.true, %if.end92, %trace_block_copy_skip_range.exit
-  %found_dirty.2 = phi i8 [ %found_dirty.1, %trace_block_copy_skip_range.exit ], [ %found_dirty.1, %while.end ], [ %found_dirty.1, %land.lhs.true ], [ 1, %while.cond.backedge ], [ 1, %if.end92 ]
   %aio.3 = phi ptr [ %aio.1.ph, %trace_block_copy_skip_range.exit ], [ %aio.1.ph, %while.cond.backedge ], [ %aio.1.ph, %while.end ], [ %aio.1.ph, %land.lhs.true ], [ %aio.2, %if.end92 ]
+  %found_dirty.2 = phi i8 [ %found_dirty.1, %trace_block_copy_skip_range.exit ], [ %found_dirty.1, %while.end ], [ %found_dirty.1, %land.lhs.true ], [ 1, %while.cond.backedge ], [ 1, %if.end92 ]
   %ret.2 = phi i32 [ %ret.1, %trace_block_copy_skip_range.exit ], [ %ret.1, %while.end ], [ %ret.1, %land.lhs.true ], [ %ret.0.i, %while.cond.backedge ], [ %call93, %if.end92 ]
   %tobool98.not = icmp eq ptr %aio.3, null
   br i1 %tobool98.not, label %if.end107, label %if.then99

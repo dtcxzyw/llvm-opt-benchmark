@@ -969,14 +969,14 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge: ; preds = %70, %122
   br label %185
 
 185:                                              ; preds = %177, %171
-  %.099 = phi float [ %184, %177 ], [ %173, %171 ]
-  %.0 = phi float [ %178, %177 ], [ %169, %171 ]
+  %.099 = phi float [ %178, %177 ], [ %169, %171 ]
+  %.0 = phi float [ %184, %177 ], [ %173, %171 ]
   %186 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull @.str.2) #11
   %.not148 = icmp eq i32 %186, 0
   %187 = load i32, ptr %42, align 4
   %188 = sitofp i32 %187 to float
-  %189 = call float @llvm.fmuladd.f32(float %188, float 0x3FC3333340000000, float %.099)
-  %.1 = select i1 %.not148, float %.099, float %189
+  %189 = call float @llvm.fmuladd.f32(float %188, float 0x3FC3333340000000, float %.0)
+  %.1 = select i1 %.not148, float %.0, float %189
   invoke void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.017.0, <2 x float> %.sroa.4.0)
           to label %190 unwind label %174
 
@@ -1036,12 +1036,12 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge: ; preds = %70, %122
           to label %229 unwind label %174
 
 221:                                              ; preds = %214
-  %222 = fmul float %.0, 5.000000e-01
+  %222 = fmul float %.099, 5.000000e-01
   %223 = fsub float %145, %222
   %224 = load i8, ptr %153, align 1
   %225 = trunc i8 %224 to i1
   %226 = select i1 %225, float 5.000000e-01, float 2.500000e-01
-  invoke void @nvgImagePattern(ptr dead_on_unwind nonnull writable sret(%struct.NVGpaint) align 4 %7, ptr noundef %1, float noundef %.sroa.0.0, float noundef %223, float noundef %.1, float noundef %.0, float noundef 0.000000e+00, i32 noundef %215, float noundef %226)
+  invoke void @nvgImagePattern(ptr dead_on_unwind nonnull writable sret(%struct.NVGpaint) align 4 %7, ptr noundef %1, float noundef %.sroa.0.0, float noundef %223, float noundef %.1, float noundef %.099, float noundef 0.000000e+00, i32 noundef %215, float noundef %226)
           to label %227 unwind label %174
 
 227:                                              ; preds = %221

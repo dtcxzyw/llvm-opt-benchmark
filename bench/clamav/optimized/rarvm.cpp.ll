@@ -134,10 +134,10 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
 
 15:                                               ; preds = %.lr.ph336, %36
   %.0214334 = phi ptr [ %13, %.lr.ph336 ], [ %.1215, %36 ]
-  %.0231333 = phi i32 [ 0, %.lr.ph336 ], [ %.1232, %36 ]
+  %.0216333 = phi i32 [ 0, %.lr.ph336 ], [ %.1217, %36 ]
   %16 = getelementptr inbounds i8, ptr %.0214334, i64 1
   %17 = load i8, ptr %.0214334, align 1
-  %18 = add nuw nsw i32 %.0231333, 1
+  %18 = add nuw nsw i32 %.0216333, 1
   %19 = icmp eq i8 %17, -24
   %20 = zext i8 %17 to i32
   %21 = icmp eq i32 %14, %20
@@ -174,13 +174,13 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
 
 33:                                               ; preds = %.sink.split, %30, %25
   %34 = getelementptr inbounds i8, ptr %.0214334, i64 5
-  %35 = add nuw nsw i32 %.0231333, 5
+  %35 = add nuw nsw i32 %.0216333, 5
   br label %36
 
 36:                                               ; preds = %15, %33
-  %.1232 = phi i32 [ %35, %33 ], [ %18, %15 ]
+  %.1217 = phi i32 [ %35, %33 ], [ %18, %15 ]
   %.1215 = phi ptr [ %34, %33 ], [ %16, %15 ]
-  %37 = icmp ult i32 %.1232, %11
+  %37 = icmp ult i32 %.1217, %11
   br i1 %37, label %15, label %.loopexit, !llvm.loop !4
 
 38:                                               ; preds = %2
@@ -203,10 +203,10 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   br label %.lr.ph332
 
 .lr.ph332:                                        ; preds = %.lr.ph332.preheader, %.loopexit282
-  %.0245330 = phi ptr [ %96, %.loopexit282 ], [ %47, %.lr.ph332.preheader ]
-  %.0247329 = phi i32 [ %97, %.loopexit282 ], [ 0, %.lr.ph332.preheader ]
-  %.0248328 = phi i32 [ %98, %.loopexit282 ], [ %46, %.lr.ph332.preheader ]
-  %48 = load i8, ptr %.0245330, align 1
+  %.0226330 = phi ptr [ %96, %.loopexit282 ], [ %47, %.lr.ph332.preheader ]
+  %.0232329 = phi i32 [ %98, %.loopexit282 ], [ %46, %.lr.ph332.preheader ]
+  %.0235328 = phi i32 [ %97, %.loopexit282 ], [ 0, %.lr.ph332.preheader ]
+  %48 = load i8, ptr %.0226330, align 1
   %49 = and i8 %48, 31
   %50 = icmp ugt i8 %49, 15
   br i1 %50, label %51, label %.loopexit282
@@ -224,19 +224,19 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   br i1 %.not267.not, label %.preheader, label %.loopexit282
 
 .preheader:                                       ; preds = %51, %_ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit
-  %.0246327 = phi i32 [ %95, %_ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit ], [ 0, %51 ]
-  %60 = shl nuw nsw i32 1, %.0246327
+  %.0236327 = phi i32 [ %95, %_ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit ], [ 0, %51 ]
+  %60 = shl nuw nsw i32 1, %.0236327
   %61 = and i32 %60, %57
   %.not268 = icmp eq i32 %61, 0
   br i1 %.not268, label %_ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit, label %62
 
 62:                                               ; preds = %.preheader
-  %63 = mul nuw nsw i32 %.0246327, 41
+  %63 = mul nuw nsw i32 %.0236327, 41
   %64 = add nuw nsw i32 %63, 42
   %65 = lshr i32 %64, 3
   %66 = and i32 %64, 7
   %67 = zext nneg i32 %65 to i64
-  %68 = getelementptr inbounds i8, ptr %.0245330, i64 %67
+  %68 = getelementptr inbounds i8, ptr %.0226330, i64 %67
   %69 = load i32, ptr %68, align 1
   %70 = lshr i32 %69, %66
   %71 = and i32 %70, 15
@@ -248,10 +248,10 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   %75 = lshr i32 %74, 3
   %76 = and i32 %74, 7
   %77 = zext nneg i32 %75 to i64
-  %78 = getelementptr inbounds i8, ptr %.0245330, i64 %77
+  %78 = getelementptr inbounds i8, ptr %.0226330, i64 %77
   %79 = load i32, ptr %78, align 1
   %80 = lshr i32 %79, %76
-  %81 = sub i32 %80, %.0248328
+  %81 = sub i32 %80, %.0232329
   %82 = and i32 %81, 1048575
   %83 = shl nuw nsw i32 1048575, %76
   %84 = xor i32 %83, -1
@@ -277,14 +277,14 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   br i1 %exitcond.not.i, label %_ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit, label %86, !llvm.loop !6
 
 _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %.preheader, %62
-  %95 = add nuw nsw i32 %.0246327, 1
+  %95 = add nuw nsw i32 %.0236327, 1
   %exitcond366.not = icmp eq i32 %95, 3
   br i1 %exitcond366.not, label %.loopexit282, label %.preheader, !llvm.loop !7
 
 .loopexit282:                                     ; preds = %_ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit, %51, %.lr.ph332
-  %96 = getelementptr inbounds i8, ptr %.0245330, i64 16
-  %97 = add nuw nsw i32 %.0247329, 16
-  %98 = add nuw nsw i32 %.0248328, 1
+  %96 = getelementptr inbounds i8, ptr %.0226330, i64 16
+  %97 = add nuw nsw i32 %.0235328, 16
+  %98 = add nuw nsw i32 %.0232329, 1
   %99 = icmp ult i32 %97, %43
   br i1 %99, label %.lr.ph332, label %.loopexit, !llvm.loop !8
 
@@ -301,32 +301,32 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %.preheader, %6
   br i1 %or.cond7, label %.loopexit, label %.lr.ph326
 
 .lr.ph326:                                        ; preds = %100, %._crit_edge322
-  %.0242325 = phi i32 [ %121, %._crit_edge322 ], [ 0, %100 ]
-  %.0243324 = phi i32 [ %.1244.lcssa, %._crit_edge322 ], [ 0, %100 ]
-  %109 = add nuw nsw i32 %.0242325, %103
+  %.0237325 = phi i32 [ %.1238.lcssa, %._crit_edge322 ], [ 0, %100 ]
+  %.0239324 = phi i32 [ %121, %._crit_edge322 ], [ 0, %100 ]
+  %109 = add nuw nsw i32 %.0239324, %103
   %110 = icmp ult i32 %109, %105
   br i1 %110, label %.lr.ph321, label %._crit_edge322
 
 .lr.ph321:                                        ; preds = %.lr.ph326, %.lr.ph321
-  %.0240319 = phi i32 [ %119, %.lr.ph321 ], [ %109, %.lr.ph326 ]
+  %.1238319 = phi i32 [ %112, %.lr.ph321 ], [ %.0237325, %.lr.ph326 ]
   %.0241318 = phi i8 [ %116, %.lr.ph321 ], [ 0, %.lr.ph326 ]
-  %.1244317 = phi i32 [ %112, %.lr.ph321 ], [ %.0243324, %.lr.ph326 ]
+  %.0242317 = phi i32 [ %119, %.lr.ph321 ], [ %109, %.lr.ph326 ]
   %111 = load ptr, ptr %0, align 8
-  %112 = add i32 %.1244317, 1
-  %113 = zext i32 %.1244317 to i64
+  %112 = add i32 %.1238319, 1
+  %113 = zext i32 %.1238319 to i64
   %114 = getelementptr inbounds i8, ptr %111, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = sub i8 %.0241318, %115
-  %117 = zext i32 %.0240319 to i64
+  %117 = zext i32 %.0242317 to i64
   %118 = getelementptr inbounds i8, ptr %111, i64 %117
   store i8 %116, ptr %118, align 1
-  %119 = add i32 %.0240319, %104
+  %119 = add i32 %.0242317, %104
   %120 = icmp ult i32 %119, %105
   br i1 %120, label %.lr.ph321, label %._crit_edge322, !llvm.loop !9
 
 ._crit_edge322:                                   ; preds = %.lr.ph321, %.lr.ph326
-  %.1244.lcssa = phi i32 [ %.0243324, %.lr.ph326 ], [ %112, %.lr.ph321 ]
-  %121 = add nuw nsw i32 %.0242325, 1
+  %.1238.lcssa = phi i32 [ %.0237325, %.lr.ph326 ], [ %112, %.lr.ph321 ]
+  %121 = add nuw nsw i32 %.0239324, 1
   %exitcond365.not = icmp eq i32 %121, %104
   br i1 %exitcond365.not, label %.loopexit, label %.lr.ph326, !llvm.loop !10
 
@@ -360,15 +360,15 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %.preheader, %6
 
 .preheader287:                                    ; preds = %134, %._crit_edge310
   %indvars.iv355 = phi i64 [ 0, %134 ], [ %indvars.iv.next356, %._crit_edge310 ]
-  %.0238312 = phi ptr [ %135, %134 ], [ %.1239.lcssa, %._crit_edge310 ]
+  %.0243313 = phi ptr [ %135, %134 ], [ %.1244.lcssa, %._crit_edge310 ]
   %indvars360 = trunc i64 %indvars.iv355 to i32
   %141 = icmp ugt i32 %125, %indvars360
   br i1 %141, label %.lr.ph309, label %._crit_edge310
 
 .lr.ph309:                                        ; preds = %.preheader287, %157
   %indvars.iv357 = phi i64 [ %indvars.iv.next358, %157 ], [ %indvars.iv355, %.preheader287 ]
-  %.0236307 = phi i32 [ %162, %157 ], [ 0, %.preheader287 ]
-  %.1239306 = phi ptr [ %158, %157 ], [ %.0238312, %.preheader287 ]
+  %.1244308 = phi ptr [ %158, %157 ], [ %.0243313, %.preheader287 ]
+  %.0246307 = phi i32 [ %162, %157 ], [ 0, %.preheader287 ]
   %.not = icmp ult i64 %indvars.iv357, %140
   br i1 %.not, label %157, label %142
 
@@ -379,9 +379,9 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %.preheader, %6
   %145 = getelementptr inbounds i8, ptr %gep, i64 -3
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
-  %148 = add nuw nsw i32 %.0236307, %144
+  %148 = add nuw nsw i32 %.0246307, %144
   %149 = sub nsw i32 %148, %147
-  %150 = sub nsw i32 %149, %.0236307
+  %150 = sub nsw i32 %149, %.0246307
   %151 = tail call i32 @llvm.abs.i32(i32 %150, i1 true)
   %152 = sub nsw i32 %149, %144
   %153 = tail call i32 @llvm.abs.i32(i32 %152, i1 true)
@@ -398,10 +398,10 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %.preheader, %6
   br label %157
 
 157:                                              ; preds = %.lr.ph309, %156, %142
-  %.0234 = phi i32 [ %.0236307, %142 ], [ %., %156 ], [ %.0236307, %.lr.ph309 ]
-  %158 = getelementptr inbounds i8, ptr %.1239306, i64 1
-  %159 = load i8, ptr %.1239306, align 1
-  %160 = trunc nuw i32 %.0234 to i8
+  %.0248 = phi i32 [ %.0246307, %142 ], [ %., %156 ], [ %.0246307, %.lr.ph309 ]
+  %158 = getelementptr inbounds i8, ptr %.1244308, i64 1
+  %159 = load i8, ptr %.1244308, align 1
+  %160 = trunc nuw i32 %.0248 to i8
   %161 = sub i8 %160, %159
   %162 = zext i8 %161 to i32
   %163 = getelementptr inbounds i8, ptr %137, i64 %indvars.iv357
@@ -411,7 +411,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %.preheader, %6
   br i1 %164, label %.lr.ph309, label %._crit_edge310, !llvm.loop !11
 
 ._crit_edge310:                                   ; preds = %157, %.preheader287
-  %.1239.lcssa = phi ptr [ %.0238312, %.preheader287 ], [ %158, %157 ]
+  %.1244.lcssa = phi ptr [ %.0243313, %.preheader287 ], [ %158, %157 ]
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next356, 3
   br i1 %exitcond361.not, label %165, label %.preheader287, !llvm.loop !12
@@ -464,7 +464,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %.preheader, %6
 
 193:                                              ; preds = %.lr.ph305, %._crit_edge
   %indvars.iv348 = phi i64 [ 0, %.lr.ph305 ], [ %indvars.iv.next349, %._crit_edge ]
-  %.0229303 = phi ptr [ %184, %.lr.ph305 ], [ %.1230.lcssa, %._crit_edge ]
+  %.0233303 = phi ptr [ %184, %.lr.ph305 ], [ %.1234.lcssa, %._crit_edge ]
   %indvars353 = trunc i64 %indvars.iv348 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %3, i8 0, i64 28, i1 false)
   %194 = icmp ugt i32 %182, %indvars353
@@ -472,34 +472,34 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %.preheader, %6
 
 .lr.ph:                                           ; preds = %193, %263
   %indvars.iv350 = phi i64 [ %indvars.iv.next351, %263 ], [ %indvars.iv348, %193 ]
-  %.0216302 = phi i32 [ %265, %263 ], [ 0, %193 ]
-  %.0218300 = phi i32 [ %.1219, %263 ], [ 0, %193 ]
-  %.0220299 = phi i32 [ %.1221, %263 ], [ 0, %193 ]
-  %.0222298 = phi i32 [ %.1223, %263 ], [ 0, %193 ]
-  %.0224297 = phi i32 [ %196, %263 ], [ 0, %193 ]
-  %.0225296 = phi i32 [ %.0226295, %263 ], [ 0, %193 ]
-  %.0226295 = phi i32 [ %213, %263 ], [ 0, %193 ]
-  %.0227294 = phi i32 [ %209, %263 ], [ 0, %193 ]
-  %.1230293 = phi ptr [ %206, %263 ], [ %.0229303, %193 ]
+  %.0218302 = phi i32 [ %265, %263 ], [ 0, %193 ]
+  %.0220300 = phi i32 [ %.1221, %263 ], [ 0, %193 ]
+  %.0222299 = phi i32 [ %.1223, %263 ], [ 0, %193 ]
+  %.0224298 = phi i32 [ %.1225, %263 ], [ 0, %193 ]
+  %.0227297 = phi i32 [ %196, %263 ], [ 0, %193 ]
+  %.0228296 = phi i32 [ %.0229295, %263 ], [ 0, %193 ]
+  %.0229295 = phi i32 [ %213, %263 ], [ 0, %193 ]
+  %.0230294 = phi i32 [ %209, %263 ], [ 0, %193 ]
+  %.1234293 = phi ptr [ %206, %263 ], [ %.0233303, %193 ]
   %195 = phi i32 [ %264, %263 ], [ 0, %193 ]
-  %196 = sub nsw i32 %.0226295, %.0225296
-  %197 = shl nsw i32 %.0227294, 3
-  %198 = mul nsw i32 %.0222298, %.0226295
+  %196 = sub nsw i32 %.0229295, %.0228296
+  %197 = shl nsw i32 %.0230294, 3
+  %198 = mul nsw i32 %.0224298, %.0229295
   %199 = add i32 %198, %197
-  %200 = mul nsw i32 %.0220299, %196
+  %200 = mul nsw i32 %.0222299, %196
   %201 = add i32 %199, %200
-  %202 = mul nsw i32 %.0218300, %.0224297
+  %202 = mul nsw i32 %.0220300, %.0227297
   %203 = add i32 %201, %202
   %204 = lshr i32 %203, 3
   %205 = and i32 %204, 255
-  %206 = getelementptr inbounds i8, ptr %.1230293, i64 1
-  %207 = load i8, ptr %.1230293, align 1
+  %206 = getelementptr inbounds i8, ptr %.1234293, i64 1
+  %207 = load i8, ptr %.1234293, align 1
   %208 = zext i8 %207 to i32
   %209 = sub nsw i32 %205, %208
   %210 = trunc i32 %209 to i8
   %211 = getelementptr inbounds i8, ptr %186, i64 %indvars.iv350
   store i8 %210, ptr %211, align 1
-  %212 = sub nsw i32 %209, %.0227294
+  %212 = sub nsw i32 %209, %.0230294
   %sext = shl i32 %212, 24
   %213 = ashr exact i32 %sext, 24
   %214 = sext i8 %207 to i32
@@ -509,7 +509,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %.preheader, %6
   store i32 %217, ptr %3, align 16
   %218 = insertelement <4 x i32> poison, i32 %215, i64 0
   %219 = shufflevector <4 x i32> %218, <4 x i32> poison, <4 x i32> zeroinitializer
-  %220 = insertelement <4 x i32> poison, i32 %.0226295, i64 0
+  %220 = insertelement <4 x i32> poison, i32 %.0229295, i64 0
   %221 = insertelement <4 x i32> %220, i32 %196, i64 1
   %222 = shufflevector <4 x i32> %221, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %223 = sub nsw <4 x i32> %219, %222
@@ -519,15 +519,15 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %.preheader, %6
   %227 = load <4 x i32>, ptr %190, align 4
   %228 = add <4 x i32> %227, %226
   store <4 x i32> %228, ptr %190, align 4
-  %229 = sub nsw i32 %215, %.0224297
-  %230 = add nsw i32 %215, %.0224297
+  %229 = sub nsw i32 %215, %.0227297
+  %230 = add nsw i32 %215, %.0227297
   %231 = insertelement <2 x i32> poison, i32 %229, i64 0
   %232 = insertelement <2 x i32> %231, i32 %230, i64 1
   %233 = tail call <2 x i32> @llvm.abs.v2i32(<2 x i32> %232, i1 true)
   %234 = load <2 x i32>, ptr %191, align 4
   %235 = add <2 x i32> %234, %233
   store <2 x i32> %235, ptr %191, align 4
-  %236 = and i32 %.0216302, 31
+  %236 = and i32 %.0218302, 31
   %237 = icmp eq i32 %236, 0
   br i1 %237, label %238, label %263
 
@@ -561,53 +561,53 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %.preheader, %6
   ]
 
 245:                                              ; preds = %244
-  %246 = icmp sgt i32 %.0222298, -17
+  %246 = icmp sgt i32 %.0224298, -17
   %247 = sext i1 %246 to i32
-  %spec.select276 = add nsw i32 %.0222298, %247
+  %spec.select276 = add nsw i32 %.0224298, %247
   br label %263
 
 248:                                              ; preds = %244
-  %249 = icmp slt i32 %.0222298, 16
+  %249 = icmp slt i32 %.0224298, 16
   %250 = zext i1 %249 to i32
-  %spec.select277 = add nsw i32 %.0222298, %250
+  %spec.select277 = add nsw i32 %.0224298, %250
   br label %263
 
 251:                                              ; preds = %244
-  %252 = icmp sgt i32 %.0220299, -17
+  %252 = icmp sgt i32 %.0222299, -17
   %253 = sext i1 %252 to i32
-  %spec.select278 = add nsw i32 %.0220299, %253
+  %spec.select278 = add nsw i32 %.0222299, %253
   br label %263
 
 254:                                              ; preds = %244
-  %255 = icmp slt i32 %.0220299, 16
+  %255 = icmp slt i32 %.0222299, 16
   %256 = zext i1 %255 to i32
-  %spec.select279 = add nsw i32 %.0220299, %256
+  %spec.select279 = add nsw i32 %.0222299, %256
   br label %263
 
 257:                                              ; preds = %244
-  %258 = icmp sgt i32 %.0218300, -17
+  %258 = icmp sgt i32 %.0220300, -17
   %259 = sext i1 %258 to i32
-  %spec.select280 = add nsw i32 %.0218300, %259
+  %spec.select280 = add nsw i32 %.0220300, %259
   br label %263
 
 260:                                              ; preds = %244
-  %261 = icmp slt i32 %.0218300, 16
+  %261 = icmp slt i32 %.0220300, 16
   %262 = zext i1 %261 to i32
-  %spec.select281 = add nsw i32 %.0218300, %262
+  %spec.select281 = add nsw i32 %.0220300, %262
   br label %263
 
 263:                                              ; preds = %260, %257, %254, %251, %248, %245, %.lr.ph, %244
   %264 = phi i32 [ 0, %244 ], [ %217, %.lr.ph ], [ 0, %245 ], [ 0, %248 ], [ 0, %251 ], [ 0, %254 ], [ 0, %257 ], [ 0, %260 ]
-  %.1223 = phi i32 [ %.0222298, %244 ], [ %.0222298, %.lr.ph ], [ %spec.select276, %245 ], [ %spec.select277, %248 ], [ %.0222298, %251 ], [ %.0222298, %254 ], [ %.0222298, %257 ], [ %.0222298, %260 ]
-  %.1221 = phi i32 [ %.0220299, %244 ], [ %.0220299, %.lr.ph ], [ %.0220299, %245 ], [ %.0220299, %248 ], [ %spec.select278, %251 ], [ %spec.select279, %254 ], [ %.0220299, %257 ], [ %.0220299, %260 ]
-  %.1219 = phi i32 [ %.0218300, %244 ], [ %.0218300, %.lr.ph ], [ %.0218300, %245 ], [ %.0218300, %248 ], [ %.0218300, %251 ], [ %.0218300, %254 ], [ %spec.select280, %257 ], [ %spec.select281, %260 ]
+  %.1225 = phi i32 [ %.0224298, %244 ], [ %.0224298, %.lr.ph ], [ %spec.select276, %245 ], [ %spec.select277, %248 ], [ %.0224298, %251 ], [ %.0224298, %254 ], [ %.0224298, %257 ], [ %.0224298, %260 ]
+  %.1223 = phi i32 [ %.0222299, %244 ], [ %.0222299, %.lr.ph ], [ %.0222299, %245 ], [ %.0222299, %248 ], [ %spec.select278, %251 ], [ %spec.select279, %254 ], [ %.0222299, %257 ], [ %.0222299, %260 ]
+  %.1221 = phi i32 [ %.0220300, %244 ], [ %.0220300, %.lr.ph ], [ %.0220300, %245 ], [ %.0220300, %248 ], [ %.0220300, %251 ], [ %.0220300, %254 ], [ %spec.select280, %257 ], [ %spec.select281, %260 ]
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, %192
-  %265 = add i32 %.0216302, 1
+  %265 = add i32 %.0218302, 1
   %266 = icmp ult i64 %indvars.iv.next351, %185
   br i1 %266, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %263, %193
-  %.1230.lcssa = phi ptr [ %.0229303, %193 ], [ %206, %263 ]
+  %.1234.lcssa = phi ptr [ %.0233303, %193 ], [ %206, %263 ]
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
   %exitcond354.not = icmp eq i64 %indvars.iv.next349, %192
   br i1 %exitcond354.not, label %.loopexit, label %193, !llvm.loop !16

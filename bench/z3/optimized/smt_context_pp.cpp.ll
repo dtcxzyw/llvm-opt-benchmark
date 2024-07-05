@@ -418,10 +418,10 @@ for.body.preheader:                               ; preds = %_ZNK6vectorIPN3smt6
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end
-  %__begin3.017 = phi ptr [ %incdec.ptr, %if.end ], [ %1, %for.body.preheader ]
-  %first.016 = phi i1 [ false, %if.end ], [ true, %for.body.preheader ]
-  %4 = load ptr, ptr %__begin3.017, align 8
-  br i1 %first.016, label %if.end, label %if.else
+  %first.017 = phi i1 [ false, %if.end ], [ true, %for.body.preheader ]
+  %__begin3.016 = phi ptr [ %incdec.ptr, %if.end ], [ %1, %for.body.preheader ]
+  %4 = load ptr, ptr %__begin3.016, align 8
+  br i1 %first.017, label %if.end, label %if.else
 
 if.else:                                          ; preds = %for.body
   %call18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.12)
@@ -433,7 +433,7 @@ if.end:                                           ; preds = %for.body, %if.else
   %5 = load ptr, ptr %vfn, align 8
   %call19 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(53) %4)
   %call20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %call19)
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.017, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.016, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %return, label %for.body
 

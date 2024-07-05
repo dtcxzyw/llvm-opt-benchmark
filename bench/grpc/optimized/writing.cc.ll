@@ -3466,22 +3466,22 @@ land.lhs.true.i.i.i.i:                            ; preds = %.noexc
   br i1 %cmp3.i.i.i.i, label %invoke.cont2, label %for.body.i
 
 for.body.i:                                       ; preds = %land.lhs.true.i.i.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i
-  %__begin3.sroa.0.010.i = phi ptr [ %__begin3.sroa.0.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ], [ %1, %land.lhs.true.i.i.i.i ]
-  %__begin3.sroa.5.09.i = phi i64 [ %__begin3.sroa.5.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ], [ 0, %land.lhs.true.i.i.i.i ]
-  %data.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.010.i, i64 16
-  %arrayidx.i.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor.337"], ptr %data.i.i, i64 0, i64 %__begin3.sroa.5.09.i
+  %__begin3.sroa.5.010.i = phi i64 [ %__begin3.sroa.5.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ], [ 0, %land.lhs.true.i.i.i.i ]
+  %__begin3.sroa.0.09.i = phi ptr [ %__begin3.sroa.0.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ], [ %1, %land.lhs.true.i.i.i.i ]
+  %data.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.09.i, i64 16
+  %arrayidx.i.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor.337"], ptr %data.i.i, i64 0, i64 %__begin3.sroa.5.010.i
   %second.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
   invoke void @_ZN9grpc_core20hpack_encoder_detail7Encoder6EncodeERKNS_5SliceES4_(ptr noundef nonnull align 8 dereferenceable(24) %encoder, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i)
           to label %.noexc2 unwind label %lpad.loopexit
 
 .noexc2:                                          ; preds = %for.body.i
-  %inc.i.i = add i64 %__begin3.sroa.5.09.i, 1
-  %cmp.not1.i.i = icmp eq ptr %__begin3.sroa.0.010.i, null
+  %inc.i.i = add i64 %__begin3.sroa.5.010.i, 1
+  %cmp.not1.i.i = icmp eq ptr %__begin3.sroa.0.09.i, null
   br i1 %cmp.not1.i.i, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %.noexc2, %while.body.i.i
+  %__begin3.sroa.0.1.i = phi ptr [ %4, %while.body.i.i ], [ %__begin3.sroa.0.09.i, %.noexc2 ]
   %__begin3.sroa.5.1.i = phi i64 [ 0, %while.body.i.i ], [ %inc.i.i, %.noexc2 ]
-  %__begin3.sroa.0.1.i = phi ptr [ %4, %while.body.i.i ], [ %__begin3.sroa.0.010.i, %.noexc2 ]
   %count.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.1.i, i64 8
   %3 = load i64, ptr %count.i.i, align 8
   %cmp4.i.i = icmp eq i64 %__begin3.sroa.5.1.i, %3
@@ -3493,11 +3493,11 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %cmp.not.i.i, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i, label %land.rhs.i.i, !llvm.loop !44
 
 _ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i: ; preds = %while.body.i.i, %land.rhs.i.i, %.noexc2
-  %__begin3.sroa.5.2.i = phi i64 [ %inc.i.i, %.noexc2 ], [ 0, %while.body.i.i ], [ %__begin3.sroa.5.1.i, %land.rhs.i.i ]
   %__begin3.sroa.0.2.i = phi ptr [ null, %.noexc2 ], [ null, %while.body.i.i ], [ %__begin3.sroa.0.1.i, %land.rhs.i.i ]
+  %__begin3.sroa.5.2.i = phi i64 [ %inc.i.i, %.noexc2 ], [ 0, %while.body.i.i ], [ %__begin3.sroa.5.1.i, %land.rhs.i.i ]
   %cmp.i.i.i = icmp ne ptr %__begin3.sroa.0.2.i, null
   %cmp4.i.i.i = icmp ne i64 %__begin3.sroa.5.2.i, 0
-  %.not.i.i = or i1 %cmp4.i.i.i, %cmp.i.i.i
+  %.not.i.i = or i1 %cmp.i.i.i, %cmp4.i.i.i
   br i1 %.not.i.i, label %for.body.i, label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i, %land.lhs.true.i.i.i.i, %.noexc

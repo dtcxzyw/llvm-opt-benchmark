@@ -38,9 +38,9 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) lo
 .lr.ph60.split.us:                                ; preds = %.lr.ph60, %.loopexit.us
   %19 = phi i32 [ %26, %.loopexit.us ], [ %.pre76, %.lr.ph60 ]
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.loopexit.us ], [ 0, %.lr.ph60 ]
-  %.059.us = phi i32 [ %.1.lcssa.us, %.loopexit.us ], [ 0, %.lr.ph60 ]
+  %.04458.us = phi i32 [ %.1.lcssa.us, %.loopexit.us ], [ 0, %.lr.ph60 ]
   %20 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv71
-  store i32 %.059.us, ptr %20, align 4
+  store i32 %.04458.us, ptr %20, align 4
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %21 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next72
   %22 = load i32, ptr %21, align 4
@@ -54,13 +54,13 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) lo
 
 .loopexit.us:                                     ; preds = %35, %.lr.ph60.split.us
   %26 = phi i32 [ %22, %.lr.ph60.split.us ], [ %36, %35 ]
-  %.1.lcssa.us = phi i32 [ %.059.us, %.lr.ph60.split.us ], [ %.2.us.us, %35 ]
+  %.1.lcssa.us = phi i32 [ %.04458.us, %.lr.ph60.split.us ], [ %.2.us.us, %35 ]
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
   br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph60.split.us, !llvm.loop !4
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %35
   %indvars.iv68 = phi i64 [ %24, %.lr.ph.us.preheader ], [ %indvars.iv.next69, %35 ]
-  %.155.us.us = phi i32 [ %.059.us, %.lr.ph.us.preheader ], [ %.2.us.us, %35 ]
+  %.154.us.us = phi i32 [ %.04458.us, %.lr.ph.us.preheader ], [ %.2.us.us, %35 ]
   %27 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv68
   %28 = load i32, ptr %27, align 4
   %29 = tail call i32 %1(i32 noundef %28, i32 noundef %25, double noundef 1.000000e+00, ptr noundef %2) #2
@@ -69,14 +69,14 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) lo
 
 30:                                               ; preds = %.lr.ph.us
   %31 = load i32, ptr %27, align 4
-  %32 = add nsw i32 %.155.us.us, 1
-  %33 = sext i32 %.155.us.us to i64
+  %32 = add nsw i32 %.154.us.us, 1
+  %33 = sext i32 %.154.us.us to i64
   %34 = getelementptr inbounds i32, ptr %15, i64 %33
   store i32 %31, ptr %34, align 4
   br label %35
 
 35:                                               ; preds = %30, %.lr.ph.us
-  %.2.us.us = phi i32 [ %32, %30 ], [ %.155.us.us, %.lr.ph.us ]
+  %.2.us.us = phi i32 [ %32, %30 ], [ %.154.us.us, %.lr.ph.us ]
   %indvars.iv.next69 = add nsw i64 %indvars.iv68, 1
   %36 = load i32, ptr %21, align 4
   %37 = sext i32 %36 to i64
@@ -85,16 +85,16 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) lo
 
 .loopexit:                                        ; preds = %59, %.lr.ph60.split
   %39 = phi i32 [ %43, %.lr.ph60.split ], [ %60, %59 ]
-  %.1.lcssa = phi i32 [ %.059, %.lr.ph60.split ], [ %.2, %59 ]
+  %.1.lcssa = phi i32 [ %.04458, %.lr.ph60.split ], [ %.2, %59 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count74
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph60.split, !llvm.loop !4
 
 .lr.ph60.split:                                   ; preds = %.lr.ph60, %.loopexit
   %40 = phi i32 [ %39, %.loopexit ], [ %.pre76, %.lr.ph60 ]
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.loopexit ], [ 0, %.lr.ph60 ]
-  %.059 = phi i32 [ %.1.lcssa, %.loopexit ], [ 0, %.lr.ph60 ]
+  %.04458 = phi i32 [ %.1.lcssa, %.loopexit ], [ 0, %.lr.ph60 ]
   %41 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv65
-  store i32 %.059, ptr %41, align 4
+  store i32 %.04458, ptr %41, align 4
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %42 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next66
   %43 = load i32, ptr %42, align 4
@@ -108,7 +108,7 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) lo
 
 .thread:                                          ; preds = %.thread.preheader, %59
   %indvars.iv = phi i64 [ %45, %.thread.preheader ], [ %indvars.iv.next, %59 ]
-  %.155 = phi i32 [ %.059, %.thread.preheader ], [ %.2, %59 ]
+  %.154 = phi i32 [ %.04458, %.thread.preheader ], [ %.2, %59 ]
   %47 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds double, ptr %.fr, i64 %indvars.iv
@@ -119,17 +119,17 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) lo
 
 52:                                               ; preds = %.thread
   %53 = load double, ptr %49, align 8
-  %54 = sext i32 %.155 to i64
+  %54 = sext i32 %.154 to i64
   %55 = getelementptr inbounds double, ptr %.fr, i64 %54
   store double %53, ptr %55, align 8
   %56 = load i32, ptr %47, align 4
-  %57 = add nsw i32 %.155, 1
+  %57 = add nsw i32 %.154, 1
   %58 = getelementptr inbounds i32, ptr %15, i64 %54
   store i32 %56, ptr %58, align 4
   br label %59
 
 59:                                               ; preds = %.thread, %52
-  %.2 = phi i32 [ %57, %52 ], [ %.155, %.thread ]
+  %.2 = phi i32 [ %57, %52 ], [ %.154, %.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %42, align 4
   %61 = sext i32 %60 to i64
@@ -137,16 +137,16 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) lo
   br i1 %62, label %.thread, label %.loopexit, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %9
-  %.0.lcssa = phi i32 [ 0, %9 ], [ %.1.lcssa.us, %.loopexit.us ], [ %.1.lcssa, %.loopexit ]
+  %.044.lcssa = phi i32 [ 0, %9 ], [ %.1.lcssa.us, %.loopexit.us ], [ %.1.lcssa, %.loopexit ]
   %63 = sext i32 %11 to i64
   %64 = getelementptr inbounds i32, ptr %13, i64 %63
-  store i32 %.0.lcssa, ptr %64, align 4
+  store i32 %.044.lcssa, ptr %64, align 4
   %65 = tail call i32 @cs_sprealloc(ptr noundef nonnull %0, i32 noundef 0) #2
   br label %66
 
 66:                                               ; preds = %3, %4, %._crit_edge
-  %.044 = phi i32 [ %.0.lcssa, %._crit_edge ], [ -1, %4 ], [ -1, %3 ]
-  ret i32 %.044
+  %.0 = phi i32 [ %.044.lcssa, %._crit_edge ], [ -1, %4 ], [ -1, %3 ]
+  ret i32 %.0
 }
 
 declare i32 @cs_sprealloc(ptr noundef, i32 noundef) local_unnamed_addr #1

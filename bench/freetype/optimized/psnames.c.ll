@@ -53,10 +53,10 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   br label %14
 
 14:                                               ; preds = %12, %23
-  %.05796 = phi ptr [ %13, %12 ], [ %27, %23 ]
-  %.05895 = phi i32 [ 0, %12 ], [ %25, %23 ]
-  %.05994 = phi i32 [ 4, %12 ], [ %26, %23 ]
-  %15 = load i8, ptr %.05796, align 1
+  %.05896 = phi i32 [ 4, %12 ], [ %26, %23 ]
+  %.05995 = phi ptr [ %13, %12 ], [ %27, %23 ]
+  %.06094 = phi i32 [ 0, %12 ], [ %25, %23 ]
+  %15 = load i8, ptr %.05995, align 1
   %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -48
   %18 = icmp ugt i32 %17, 9
@@ -64,16 +64,16 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   %20 = icmp ult i32 %19, -6
   %21 = add nsw i32 %16, -55
   %spec.select70 = select i1 %20, i32 16, i32 %21
-  %.056 = select i1 %18, i32 %spec.select70, i32 %17
-  %22 = icmp ugt i32 %.056, 15
+  %.057 = select i1 %18, i32 %spec.select70, i32 %17
+  %22 = icmp ugt i32 %.057, 15
   br i1 %22, label %.preheader76, label %23
 
 23:                                               ; preds = %14
-  %24 = shl i32 %.05895, 4
-  %25 = or disjoint i32 %.056, %24
-  %26 = add nsw i32 %.05994, -1
-  %27 = getelementptr inbounds i8, ptr %.05796, i64 1
-  %28 = icmp ugt i32 %.05994, 1
+  %24 = shl i32 %.06094, 4
+  %25 = or disjoint i32 %.057, %24
+  %26 = add nsw i32 %.05896, -1
+  %27 = getelementptr inbounds i8, ptr %.05995, i64 1
+  %28 = icmp ugt i32 %.05896, 1
   br i1 %28, label %14, label %29, !llvm.loop !4
 
 29:                                               ; preds = %23
@@ -92,10 +92,10 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   br label %33
 
 33:                                               ; preds = %.preheader76, %42
-  %.053100 = phi ptr [ %5, %.preheader76 ], [ %.053, %42 ]
-  %.05499 = phi i32 [ 0, %.preheader76 ], [ %44, %42 ]
-  %.05598 = phi i32 [ 6, %.preheader76 ], [ %45, %42 ]
-  %34 = load i8, ptr %.053100, align 1
+  %.054100 = phi ptr [ %5, %.preheader76 ], [ %.054, %42 ]
+  %.05599 = phi i32 [ 0, %.preheader76 ], [ %44, %42 ]
+  %.05698 = phi i32 [ 6, %.preheader76 ], [ %45, %42 ]
+  %34 = load i8, ptr %.054100, align 1
   %35 = zext i8 %34 to i32
   %36 = add nsw i32 %35, -48
   %37 = icmp ugt i32 %36, 9
@@ -108,31 +108,31 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   br i1 %41, label %47, label %42
 
 42:                                               ; preds = %33
-  %43 = shl i32 %.05499, 4
+  %43 = shl i32 %.05599, 4
   %44 = or disjoint i32 %.052, %43
-  %45 = add nsw i32 %.05598, -1
-  %.053 = getelementptr inbounds i8, ptr %.053100, i64 1
-  %46 = icmp ugt i32 %.05598, 1
+  %45 = add nsw i32 %.05698, -1
+  %.054 = getelementptr inbounds i8, ptr %.054100, i64 1
+  %46 = icmp ugt i32 %.05698, 1
   br i1 %46, label %33, label %.thread73, !llvm.loop !6
 
 47:                                               ; preds = %33
-  %48 = icmp ult i32 %.05598, 3
+  %48 = icmp ult i32 %.05698, 3
   br i1 %48, label %.thread73, label %.thread72.preheader
 
 .thread72.preheader:                              ; preds = %1, %.thread73, %47
   br label %.thread72
 
 .thread73:                                        ; preds = %42, %47
-  %.05489 = phi i32 [ %.05499, %47 ], [ %44, %42 ]
-  %.05387 = phi ptr [ %.053100, %47 ], [ %scevgep122, %42 ]
-  %49 = load i8, ptr %.05387, align 1
+  %.05589 = phi i32 [ %.05599, %47 ], [ %44, %42 ]
+  %.05487 = phi ptr [ %.054100, %47 ], [ %scevgep122, %42 ]
+  %49 = load i8, ptr %.05487, align 1
   switch i8 %49, label %.thread72.preheader [
     i8 0, label %118
     i8 46, label %50
   ]
 
 50:                                               ; preds = %.thread73
-  %51 = or i32 %.05489, -2147483648
+  %51 = or i32 %.05589, -2147483648
   br label %118
 
 .thread72:                                        ; preds = %.thread72.preheader, %53
@@ -155,9 +155,9 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   br i1 %.not, label %118, label %.preheader
 
 .preheader:                                       ; preds = %.critedge, %70
-  %.04972.i = phi i32 [ %.150.i, %70 ], [ 52, %.critedge ]
-  %.05171.i = phi i32 [ %.152.i, %70 ], [ 0, %.critedge ]
-  %54 = add nsw i32 %.05171.i, %.04972.i
+  %.05172.i = phi i32 [ %.152.i, %70 ], [ 52, %.critedge ]
+  %.05371.i = phi i32 [ %.154.i, %70 ], [ 0, %.critedge ]
+  %54 = add nsw i32 %.05371.i, %.05172.i
   %55 = and i32 %54, -2
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @ft_adobe_glyph_list, i64 2), i64 %56
@@ -180,36 +180,36 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   br i1 %.not5978.i.not, label %._crit_edge.i, label %.lr.ph81.i.preheader
 
 .lr.ph81.i.preheader:                             ; preds = %.preheader.i
-  %.05477.i = getelementptr inbounds i8, ptr %0, i64 1
+  %.04877.i = getelementptr inbounds i8, ptr %0, i64 1
   br label %.lr.ph81.i
 
 70:                                               ; preds = %.preheader
   %71 = ashr i32 %54, 1
   %72 = icmp slt i8 %67, %2
   %73 = add nsw i32 %71, 1
-  %.152.i = select i1 %72, i32 %73, i32 %.05171.i
-  %.150.i = select i1 %72, i32 %.04972.i, i32 %71
-  %74 = icmp slt i32 %.152.i, %.150.i
+  %.154.i = select i1 %72, i32 %73, i32 %.05371.i
+  %.152.i = select i1 %72, i32 %.05172.i, i32 %71
+  %74 = icmp slt i32 %.154.i, %.152.i
   br i1 %74, label %.preheader, label %ft_get_adobe_glyph_index.exit, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %.preheader.i
   %75 = phi i8 [ %66, %.preheader.i ], [ %96, %.backedge.i ]
-  %.048.lcssa.i = phi ptr [ %69, %.preheader.i ], [ %.048.be.i, %.backedge.i ]
+  %.050.lcssa.i = phi ptr [ %69, %.preheader.i ], [ %.050.be.i, %.backedge.i ]
   %76 = icmp sgt i8 %75, -1
   br i1 %76, label %77, label %ft_get_adobe_glyph_index.exit
 
 77:                                               ; preds = %._crit_edge.i
-  %78 = getelementptr inbounds i8, ptr %.048.lcssa.i, i64 1
+  %78 = getelementptr inbounds i8, ptr %.050.lcssa.i, i64 1
   %79 = load i8, ptr %78, align 1
   %.not63.i = icmp sgt i8 %79, -1
   br i1 %.not63.i, label %ft_get_adobe_glyph_index.exit, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %.048.lcssa.i, i64 2
+  %81 = getelementptr inbounds i8, ptr %.050.lcssa.i, i64 2
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
   %84 = shl nuw nsw i32 %83, 8
-  %85 = getelementptr inbounds i8, ptr %.048.lcssa.i, i64 3
+  %85 = getelementptr inbounds i8, ptr %.050.lcssa.i, i64 3
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
   %88 = or disjoint i32 %84, %87
@@ -217,11 +217,11 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
 
 .lr.ph81.i:                                       ; preds = %.lr.ph81.i.preheader, %.backedge.i
   %89 = phi i8 [ %96, %.backedge.i ], [ %66, %.lr.ph81.i.preheader ]
-  %.05480.i = phi ptr [ %.054.i, %.backedge.i ], [ %.05477.i, %.lr.ph81.i.preheader ]
-  %.04879.i = phi ptr [ %.048.be.i, %.backedge.i ], [ %69, %.lr.ph81.i.preheader ]
-  %90 = load i8, ptr %.05480.i, align 1
+  %.04880.i = phi ptr [ %.048.i, %.backedge.i ], [ %.04877.i, %.lr.ph81.i.preheader ]
+  %.05079.i = phi ptr [ %.050.be.i, %.backedge.i ], [ %69, %.lr.ph81.i.preheader ]
+  %90 = load i8, ptr %.04880.i, align 1
   %.not60.i = icmp sgt i8 %89, -1
-  %91 = getelementptr inbounds i8, ptr %.04879.i, i64 1
+  %91 = getelementptr inbounds i8, ptr %.05079.i, i64 1
   %92 = load i8, ptr %91, align 1
   %93 = and i8 %92, 127
   br i1 %.not60.i, label %97, label %94
@@ -236,9 +236,9 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
 
 .backedge.i:                                      ; preds = %.backedge.i.loopexit, %94
   %96 = phi i8 [ %92, %94 ], [ %109, %.backedge.i.loopexit ]
-  %.048.be.i = phi ptr [ %91, %94 ], [ %95, %.backedge.i.loopexit ]
-  %.054.i = getelementptr inbounds i8, ptr %.05480.i, i64 1
-  %exitcond.not.i = icmp eq ptr %.054.i, %.0.ptr.le
+  %.050.be.i = phi ptr [ %91, %94 ], [ %95, %.backedge.i.loopexit ]
+  %.048.i = getelementptr inbounds i8, ptr %.04880.i, i64 1
+  %exitcond.not.i = icmp eq ptr %.048.i, %.0.ptr.le
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph81.i
 
 97:                                               ; preds = %.lr.ph81.i
@@ -248,18 +248,18 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
 .lr.ph.preheader.i:                               ; preds = %97
   %.not61.i = icmp sgt i8 %92, -1
   %spec.select.i = select i1 %.not61.i, i64 1, i64 3
-  %98 = getelementptr inbounds i8, ptr %.04879.i, i64 %spec.select.i
+  %98 = getelementptr inbounds i8, ptr %.05079.i, i64 %spec.select.i
   %99 = getelementptr inbounds i8, ptr %98, i64 1
   %100 = zext nneg i8 %93 to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %112, %.lr.ph.preheader.i
-  %.275.i = phi ptr [ %114, %112 ], [ %99, %.lr.ph.preheader.i ]
-  %.05374.i = phi i32 [ %113, %112 ], [ %100, %.lr.ph.preheader.i ]
-  %101 = load i8, ptr %.275.i, align 1
+  %.04975.i = phi i32 [ %113, %112 ], [ %100, %.lr.ph.preheader.i ]
+  %.274.i = phi ptr [ %114, %112 ], [ %99, %.lr.ph.preheader.i ]
+  %101 = load i8, ptr %.274.i, align 1
   %102 = zext i8 %101 to i64
   %103 = shl nuw nsw i64 %102, 8
-  %104 = getelementptr inbounds i8, ptr %.275.i, i64 1
+  %104 = getelementptr inbounds i8, ptr %.274.i, i64 1
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i64
   %107 = or disjoint i64 %103, %106
@@ -270,9 +270,9 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   br i1 %111, label %.backedge.i.loopexit, label %112
 
 112:                                              ; preds = %.lr.ph.i
-  %113 = add nsw i32 %.05374.i, -1
-  %114 = getelementptr inbounds i8, ptr %.275.i, i64 2
-  %115 = icmp sgt i32 %.05374.i, 1
+  %113 = add nsw i32 %.04975.i, -1
+  %114 = getelementptr inbounds i8, ptr %.274.i, i64 2
+  %115 = icmp sgt i32 %.04975.i, 1
   br i1 %115, label %.lr.ph.i, label %ft_get_adobe_glyph_index.exit, !llvm.loop !9
 
 ft_get_adobe_glyph_index.exit:                    ; preds = %70, %94, %97, %112, %._crit_edge.i, %77, %80
@@ -283,8 +283,8 @@ ft_get_adobe_glyph_index.exit:                    ; preds = %70, %94, %97, %112,
   br label %118
 
 118:                                              ; preds = %ft_get_adobe_glyph_index.exit, %.critedge, %.thread73, %29, %50, %31
-  %.060 = phi i32 [ %32, %31 ], [ %51, %50 ], [ %25, %29 ], [ %.05489, %.thread73 ], [ 0, %.critedge ], [ %spec.select, %ft_get_adobe_glyph_index.exit ]
-  ret i32 %.060
+  %.053 = phi i32 [ %32, %31 ], [ %51, %50 ], [ %25, %29 ], [ %.05589, %.thread73 ], [ 0, %.critedge ], [ %spec.select, %ft_get_adobe_glyph_index.exit ]
+  ret i32 %.053
 }
 
 ; Function Attrs: nounwind uwtable
@@ -313,9 +313,9 @@ define internal i32 @ps_unicodes_init(ptr noundef %0, ptr nocapture noundef %1, 
   br label %16
 
 16:                                               ; preds = %.lr.ph, %45
-  %.072 = phi ptr [ %13, %.lr.ph ], [ %.2, %45 ]
-  %.05170 = phi i32 [ 0, %.lr.ph ], [ %46, %45 ]
-  %17 = call ptr %3(ptr noundef %5, i32 noundef %.05170) #9
+  %.071 = phi i32 [ 0, %.lr.ph ], [ %46, %45 ]
+  %.05170 = phi ptr [ %13, %.lr.ph ], [ %.2, %45 ]
+  %17 = call ptr %3(ptr noundef %5, i32 noundef %.071) #9
   %.not58 = icmp eq ptr %17, null
   br i1 %.not58, label %45, label %18
 
@@ -348,7 +348,7 @@ define internal i32 @ps_unicodes_init(ptr noundef %0, ptr nocapture noundef %1, 
 31:                                               ; preds = %27
   store i32 1, ptr %28, align 4
   %32 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.i
-  store i32 %.05170, ptr %32, align 4
+  store i32 %.071, ptr %32, align 4
   br label %ps_check_extra_glyph_name.exit
 
 ps_check_extra_glyph_name.exit:                   ; preds = %20, %27, %31
@@ -375,14 +375,14 @@ ps_check_extra_glyph_name.exit:                   ; preds = %20, %27, %31
   br label %ps_check_extra_glyph_unicode.exit
 
 ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
-  store i32 %33, ptr %.072, align 4
-  %41 = getelementptr inbounds i8, ptr %.072, i64 4
-  store i32 %.05170, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %.072, i64 8
+  store i32 %33, ptr %.05170, align 4
+  %41 = getelementptr inbounds i8, ptr %.05170, i64 4
+  store i32 %.071, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %.05170, i64 8
   br label %43
 
 43:                                               ; preds = %ps_check_extra_glyph_unicode.exit, %ps_check_extra_glyph_name.exit
-  %.1 = phi ptr [ %42, %ps_check_extra_glyph_unicode.exit ], [ %.072, %ps_check_extra_glyph_name.exit ]
+  %.152 = phi ptr [ %42, %ps_check_extra_glyph_unicode.exit ], [ %.05170, %ps_check_extra_glyph_name.exit ]
   br i1 %.not61, label %45, label %44
 
 44:                                               ; preds = %43
@@ -390,18 +390,18 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
   br label %45
 
 45:                                               ; preds = %16, %18, %44, %43
-  %.2 = phi ptr [ %.1, %44 ], [ %.1, %43 ], [ %.072, %18 ], [ %.072, %16 ]
-  %46 = add nuw i32 %.05170, 1
+  %.2 = phi ptr [ %.152, %44 ], [ %.152, %43 ], [ %.05170, %18 ], [ %.05170, %16 ]
+  %46 = add nuw i32 %.071, 1
   %exitcond.not = icmp eq i32 %46, %2
   br i1 %exitcond.not, label %.preheader.preheader, label %16, !llvm.loop !12
 
 .preheader.preheader:                             ; preds = %45, %.preheader67
-  %.374.ph = phi ptr [ %13, %.preheader67 ], [ %.2, %45 ]
+  %.373.ph = phi ptr [ %13, %.preheader67 ], [ %.2, %45 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %57
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %.preheader.preheader ]
-  %.374 = phi ptr [ %.4, %57 ], [ %.374.ph, %.preheader.preheader ]
+  %.373 = phi ptr [ %.4, %57 ], [ %.373.ph, %.preheader.preheader ]
   %47 = getelementptr inbounds [10 x i32], ptr %8, i64 0, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 1
@@ -410,16 +410,16 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
 50:                                               ; preds = %.preheader
   %51 = getelementptr inbounds [10 x i32], ptr @ft_extra_glyph_unicodes, i64 0, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4
-  store i32 %52, ptr %.374, align 4
+  store i32 %52, ptr %.373, align 4
   %53 = getelementptr inbounds [10 x i32], ptr %9, i64 0, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %.374, i64 4
+  %55 = getelementptr inbounds i8, ptr %.373, i64 4
   store i32 %54, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %.374, i64 8
+  %56 = getelementptr inbounds i8, ptr %.373, i64 8
   br label %57
 
 57:                                               ; preds = %.preheader, %50
-  %.4 = phi ptr [ %56, %50 ], [ %.374, %.preheader ]
+  %.4 = phi ptr [ %56, %50 ], [ %.373, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond79.not, label %58, label %.preheader, !llvm.loop !13
@@ -487,35 +487,35 @@ define internal i32 @ps_unicodes_char_index(ptr nocapture noundef readonly %0, i
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
-  %.050 = phi ptr [ %.1, %13 ], [ %9, %.lr.ph.preheader ]
-  %.03149 = phi ptr [ %.132, %13 ], [ %10, %.lr.ph.preheader ]
-  %.03348 = phi ptr [ %.134, %13 ], [ %6, %.lr.ph.preheader ]
-  %.03547 = phi ptr [ %spec.select, %13 ], [ null, %.lr.ph.preheader ]
-  %11 = load i32, ptr %.050, align 4
+  %.03150 = phi ptr [ %.1, %13 ], [ %9, %.lr.ph.preheader ]
+  %.03249 = phi ptr [ %.133, %13 ], [ %10, %.lr.ph.preheader ]
+  %.03448 = phi ptr [ %.135, %13 ], [ %6, %.lr.ph.preheader ]
+  %.03647 = phi ptr [ %spec.select, %13 ], [ null, %.lr.ph.preheader ]
+  %11 = load i32, ptr %.03150, align 4
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = and i32 %11, 2147483647
   %15 = icmp eq i32 %14, %1
-  %spec.select = select i1 %15, ptr %.050, ptr %.03547
+  %spec.select = select i1 %15, ptr %.03150, ptr %.03647
   %16 = icmp ult i32 %14, %1
-  %17 = getelementptr inbounds i8, ptr %.050, i64 8
-  %.134 = select i1 %16, ptr %17, ptr %.03348
-  %.132 = select i1 %16, ptr %.03149, ptr %.050
+  %17 = getelementptr inbounds i8, ptr %.03150, i64 8
+  %.135 = select i1 %16, ptr %17, ptr %.03448
+  %.133 = select i1 %16, ptr %.03249, ptr %.03150
   %18 = sub i32 %1, %14
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.PS_UniMap_, ptr %.050, i64 %19
-  %.not = icmp uge ptr %20, %.132
-  %21 = icmp ult ptr %20, %.134
+  %20 = getelementptr inbounds %struct.PS_UniMap_, ptr %.03150, i64 %19
+  %.not = icmp uge ptr %20, %.133
+  %21 = icmp ult ptr %20, %.135
   %or.cond = or i1 %.not, %21
-  %22 = ptrtoint ptr %.132 to i64
-  %23 = ptrtoint ptr %.134 to i64
+  %22 = ptrtoint ptr %.133 to i64
+  %23 = ptrtoint ptr %.135 to i64
   %24 = sub i64 %22, %23
   %25 = ashr i64 %24, 4
-  %26 = getelementptr inbounds %struct.PS_UniMap_, ptr %.134, i64 %25
+  %26 = getelementptr inbounds %struct.PS_UniMap_, ptr %.135, i64 %25
   %.1 = select i1 %or.cond, ptr %26, ptr %20
-  %27 = icmp ult ptr %.134, %.132
+  %27 = icmp ult ptr %.135, %.133
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %13
@@ -523,14 +523,14 @@ define internal i32 @ps_unicodes_char_index(ptr nocapture noundef readonly %0, i
   br i1 %.not41, label %._crit_edge.thread, label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge
-  %.244 = phi ptr [ %spec.select, %._crit_edge ], [ %.050, %.lr.ph ]
+  %.244 = phi ptr [ %spec.select, %._crit_edge ], [ %.03150, %.lr.ph ]
   %28 = getelementptr inbounds i8, ptr %.244, i64 4
   %29 = load i32, ptr %28, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge, %.thread
-  %.037 = phi i32 [ %29, %.thread ], [ 0, %._crit_edge ], [ 0, %2 ]
-  ret i32 %.037
+  %.0 = phi i32 [ %29, %.thread ], [ 0, %._crit_edge ], [ 0, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -549,11 +549,11 @@ define internal i32 @ps_unicodes_char_next(ptr nocapture noundef readonly %0, pt
   br label %10
 
 10:                                               ; preds = %.lr.ph, %24
-  %.056 = phi i32 [ %7, %.lr.ph ], [ %.1, %24 ]
-  %.03955 = phi i32 [ %6, %.lr.ph ], [ %.140, %24 ]
-  %.04154 = phi i32 [ 0, %.lr.ph ], [ %.142, %24 ]
-  %.04453 = phi i32 [ 0, %.lr.ph ], [ %.145, %24 ]
-  %11 = zext i32 %.056 to i64
+  %.056 = phi i32 [ 0, %.lr.ph ], [ %.1, %24 ]
+  %.03955 = phi i32 [ %7, %.lr.ph ], [ %.140, %24 ]
+  %.04154 = phi i32 [ %6, %.lr.ph ], [ %.142, %24 ]
+  %.04353 = phi i32 [ 0, %.lr.ph ], [ %.144, %24 ]
+  %11 = zext i32 %.03955 to i64
   %12 = getelementptr inbounds %struct.PS_UniMap_, ptr %9, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %4
@@ -575,36 +575,36 @@ define internal i32 @ps_unicodes_char_next(ptr nocapture noundef readonly %0, pt
   br label %24
 
 24:                                               ; preds = %21, %18
-  %.145 = phi i32 [ %23, %21 ], [ %.04453, %18 ]
+  %.1 = phi i32 [ %23, %21 ], [ %.056, %18 ]
   %25 = icmp ult i32 %19, %4
-  %26 = add i32 %.056, 1
-  %.142 = select i1 %25, i32 %26, i32 %.04154
-  %.140 = select i1 %25, i32 %.03955, i32 %.056
+  %26 = add i32 %.03955, 1
+  %.144 = select i1 %25, i32 %26, i32 %.04353
+  %.142 = select i1 %25, i32 %.04154, i32 %.03955
   %27 = sub i32 %4, %19
-  %28 = add i32 %27, %.056
-  %.not50 = icmp uge i32 %28, %.140
-  %29 = icmp ult i32 %28, %.142
+  %28 = add i32 %27, %.03955
+  %.not50 = icmp uge i32 %28, %.142
+  %29 = icmp ult i32 %28, %.144
   %or.cond = or i1 %.not50, %29
-  %30 = sub i32 %.140, %.142
+  %30 = sub i32 %.142, %.144
   %31 = lshr i32 %30, 1
-  %32 = add i32 %31, %.142
-  %.1 = select i1 %or.cond, i32 %32, i32 %28
-  %33 = icmp ult i32 %.142, %.140
+  %32 = add i32 %31, %.144
+  %.140 = select i1 %or.cond, i32 %32, i32 %28
+  %33 = icmp ult i32 %.144, %.142
   br i1 %33, label %10, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %24
-  %.not = icmp eq i32 %.145, 0
+  %.not = icmp eq i32 %.1, 0
   br i1 %.not, label %._crit_edge.thread, label %44
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.041.lcssa63 = phi i32 [ %.142, %._crit_edge ], [ 0, %2 ]
-  %34 = icmp ult i32 %.041.lcssa63, %6
+  %.043.lcssa63 = phi i32 [ %.144, %._crit_edge ], [ 0, %2 ]
+  %34 = icmp ult i32 %.043.lcssa63, %6
   br i1 %34, label %35, label %44
 
 35:                                               ; preds = %._crit_edge.thread
   %36 = getelementptr inbounds i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
-  %38 = zext i32 %.041.lcssa63 to i64
+  %38 = zext i32 %.043.lcssa63 to i64
   %39 = getelementptr inbounds %struct.PS_UniMap_, ptr %37, i64 %38
   %40 = getelementptr inbounds i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
@@ -613,9 +613,9 @@ define internal i32 @ps_unicodes_char_next(ptr nocapture noundef readonly %0, pt
   br label %44
 
 44:                                               ; preds = %._crit_edge.thread, %35, %._crit_edge, %15
-  %.2 = phi i32 [ %17, %15 ], [ %.145, %._crit_edge ], [ %41, %35 ], [ 0, %._crit_edge.thread ]
-  %.043 = phi i32 [ %4, %15 ], [ %4, %._crit_edge ], [ %43, %35 ], [ 0, %._crit_edge.thread ]
-  store i32 %.043, ptr %1, align 4
+  %.045 = phi i32 [ %4, %15 ], [ %4, %._crit_edge ], [ %43, %35 ], [ 0, %._crit_edge.thread ]
+  %.2 = phi i32 [ %17, %15 ], [ %.1, %._crit_edge ], [ %41, %35 ], [ 0, %._crit_edge.thread ]
+  store i32 %.045, ptr %1, align 4
   ret i32 %.2
 }
 

@@ -202,8 +202,8 @@ lzma2_bound.exit:                                 ; preds = %44
   br label %74
 
 74:                                               ; preds = %lzma2_bound.exit.thread, %._crit_edge, %65, %.thread, %54, %33, %31, %22, %27, %19, %8, %16, %11
-  %.069 = phi i32 [ 11, %11 ], [ 11, %16 ], [ 11, %8 ], [ 8, %19 ], [ 11, %27 ], [ 11, %22 ], [ 3, %31 ], [ 10, %33 ], [ %55, %54 ], [ %56, %.thread ], [ 0, %65 ], [ 0, %._crit_edge ], [ 9, %lzma2_bound.exit.thread ]
-  ret i32 %.069
+  %.068 = phi i32 [ 11, %11 ], [ 11, %16 ], [ 11, %8 ], [ 8, %19 ], [ 11, %27 ], [ 11, %22 ], [ 3, %31 ], [ 10, %33 ], [ %55, %54 ], [ %56, %.thread ], [ 0, %65 ], [ 0, %._crit_edge ], [ 9, %lzma2_bound.exit.thread ]
+  ret i32 %.068
 }
 
 ; Function Attrs: nounwind uwtable
@@ -290,8 +290,8 @@ select.unfold48:                                  ; preds = %34
   br label %44
 
 44:                                               ; preds = %35, %43, %11, %7
-  %.040 = phi i32 [ %10, %7 ], [ 10, %11 ], [ %.1.ph, %43 ], [ 0, %35 ]
-  ret i32 %.040
+  %.039 = phi i32 [ %10, %7 ], [ 10, %11 ], [ %.1.ph, %43 ], [ 0, %35 ]
+  ret i32 %.039
 }
 
 ; Function Attrs: nounwind uwtable

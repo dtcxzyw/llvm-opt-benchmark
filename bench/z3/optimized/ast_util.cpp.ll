@@ -3971,7 +3971,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br label %cleanup
 
 for.inc140:                                       ; preds = %if.else119.thread670, %land.rhs.i.i.i502, %lor.lhs.false122, %_ZNK11ast_manager6is_notEPK4expr.exit.i506, %land.lhs.true.i510, %invoke.cont37, %invoke.cont82, %invoke.cont117, %land.lhs.true125, %invoke.cont98, %invoke.cont47, %invoke.cont12
-  %i.1 = phi i32 [ %dec, %invoke.cont12 ], [ %dec38, %invoke.cont37 ], [ %dec49, %invoke.cont47 ], [ %dec83, %invoke.cont82 ], [ %dec100, %invoke.cont98 ], [ %dec118, %invoke.cont117 ], [ %i.0, %land.lhs.true125 ], [ %i.0, %lor.lhs.false122 ], [ %i.0, %_ZNK11ast_manager6is_notEPK4expr.exit.i506 ], [ %i.0, %land.lhs.true.i510 ], [ %i.0, %land.rhs.i.i.i502 ], [ %i.0, %if.else119.thread670 ]
+  %i.1 = phi i32 [ %dec, %invoke.cont12 ], [ %dec38, %invoke.cont37 ], [ %dec49, %invoke.cont47 ], [ %dec83, %invoke.cont82 ], [ %dec100, %invoke.cont98 ], [ %dec118, %invoke.cont117 ], [ %i.0, %land.lhs.true125 ], [ %i.0, %land.lhs.true.i510 ], [ %i.0, %_ZNK11ast_manager6is_notEPK4expr.exit.i506 ], [ %i.0, %lor.lhs.false122 ], [ %i.0, %land.rhs.i.i.i502 ], [ %i.0, %if.else119.thread670 ]
   %inc = add i32 %i.1, 1
   br label %for.cond, !llvm.loop !28
 
@@ -5636,7 +5636,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br label %cleanup
 
 for.inc137:                                       ; preds = %if.else116.thread643, %land.rhs.i.i.i482, %lor.lhs.false119, %_ZNK11ast_manager6is_notEPK4expr.exit.i486, %land.lhs.true.i490, %invoke.cont37, %invoke.cont82, %invoke.cont114, %land.lhs.true122, %invoke.cont95, %invoke.cont47, %invoke.cont12
-  %i.1 = phi i32 [ %dec, %invoke.cont12 ], [ %dec38, %invoke.cont37 ], [ %dec49, %invoke.cont47 ], [ %dec83, %invoke.cont82 ], [ %dec97, %invoke.cont95 ], [ %dec115, %invoke.cont114 ], [ %i.0, %land.lhs.true122 ], [ %i.0, %lor.lhs.false119 ], [ %i.0, %_ZNK11ast_manager6is_notEPK4expr.exit.i486 ], [ %i.0, %land.lhs.true.i490 ], [ %i.0, %land.rhs.i.i.i482 ], [ %i.0, %if.else116.thread643 ]
+  %i.1 = phi i32 [ %dec, %invoke.cont12 ], [ %dec38, %invoke.cont37 ], [ %dec49, %invoke.cont47 ], [ %dec83, %invoke.cont82 ], [ %dec97, %invoke.cont95 ], [ %dec115, %invoke.cont114 ], [ %i.0, %land.lhs.true122 ], [ %i.0, %land.lhs.true.i490 ], [ %i.0, %_ZNK11ast_manager6is_notEPK4expr.exit.i486 ], [ %i.0, %lor.lhs.false119 ], [ %i.0, %land.rhs.i.i.i482 ], [ %i.0, %if.else116.thread643 ]
   %inc = add i32 %i.1, 1
   br label %for.cond, !llvm.loop !32
 

@@ -61,17 +61,17 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
 
 .preheader:                                       ; preds = %68, %3
   %13 = phi ptr [ %9, %3 ], [ %69, %68 ]
-  %.058.lcssa = phi i32 [ 0, %3 ], [ %.260, %68 ]
-  %.056.lcssa = phi i32 [ 0, %3 ], [ %.157, %68 ]
-  %.051.lcssa = phi i32 [ 0, %3 ], [ %.354, %68 ]
-  %.0.lcssa = phi i1 [ true, %3 ], [ %.1, %68 ]
+  %.062.lcssa = phi i32 [ 0, %3 ], [ %.163, %68 ]
+  %.056.lcssa = phi i32 [ 0, %3 ], [ %.359, %68 ]
+  %.052.lcssa = phi i1 [ true, %3 ], [ %.153, %68 ]
+  %.051.lcssa = phi i32 [ 0, %3 ], [ %.2, %68 ]
   %14 = load i32, ptr %0, align 8
-  %15 = icmp slt i32 %.051.lcssa, %14
+  %15 = icmp slt i32 %.056.lcssa, %14
   br i1 %15, label %.lr.ph92, label %._crit_edge
 
 .lr.ph92:                                         ; preds = %.preheader
   %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = sext i32 %.051.lcssa to i64
+  %17 = sext i32 %.056.lcssa to i64
   %wide.trip.count109 = sext i32 %14 to i64
   br label %71
 
@@ -79,10 +79,10 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
   %19 = phi ptr [ %9, %.lr.ph84 ], [ %69, %68 ]
   %20 = phi ptr [ %9, %.lr.ph84 ], [ %70, %68 ]
   %indvars.iv104 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next105, %68 ]
-  %.083 = phi i1 [ true, %.lr.ph84 ], [ %.1, %68 ]
-  %.05182 = phi i32 [ 0, %.lr.ph84 ], [ %.354, %68 ]
-  %.05680 = phi i32 [ 0, %.lr.ph84 ], [ %.157, %68 ]
-  %.05879 = phi i32 [ 0, %.lr.ph84 ], [ %.260, %68 ]
+  %.05183 = phi i32 [ 0, %.lr.ph84 ], [ %.2, %68 ]
+  %.05282 = phi i1 [ true, %.lr.ph84 ], [ %.153, %68 ]
+  %.05681 = phi i32 [ 0, %.lr.ph84 ], [ %.359, %68 ]
+  %.06279 = phi i32 [ 0, %.lr.ph84 ], [ %.163, %68 ]
   %21 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %11, i64 0, i64 %indvars.iv104
   %22 = getelementptr inbounds i8, ptr %21, i64 95
   %23 = load i8, ptr %22, align 1
@@ -90,17 +90,17 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
   br i1 %24, label %68, label %25
 
 25:                                               ; preds = %18
-  %26 = add i32 %.05680, 1
+  %26 = add i32 %.06279, 1
   %27 = getelementptr inbounds i8, ptr %21, i64 68
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds i8, ptr %21, i64 80
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %0, align 8
-  %32 = icmp slt i32 %.05182, %31
+  %32 = icmp slt i32 %.05681, %31
   br i1 %32, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %25
-  %33 = sext i32 %.05182 to i64
+  %33 = sext i32 %.05681 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %63
@@ -113,7 +113,7 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
 
 38:                                               ; preds = %.lr.ph
   %39 = trunc nsw i64 %indvars.iv to i32
-  %40 = add i32 %.05879, 1
+  %40 = add i32 %.05183, 1
   %41 = getelementptr inbounds i8, ptr %34, i64 68
   %42 = load i32, ptr %41, align 4
   %.not = icmp eq i32 %28, %42
@@ -158,51 +158,51 @@ define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %
 
 .loopexit:                                        ; preds = %63, %25, %59
   %64 = phi ptr [ %.pre, %59 ], [ %19, %25 ], [ %19, %63 ]
-  %.159 = phi i32 [ %40, %59 ], [ %.05879, %25 ], [ %.05879, %63 ]
-  %.253 = phi i32 [ %60, %59 ], [ %.05182, %25 ], [ %31, %63 ]
+  %.258 = phi i32 [ %60, %59 ], [ %.05681, %25 ], [ %31, %63 ]
+  %.1 = phi i32 [ %40, %59 ], [ %.05183, %25 ], [ %.05183, %63 ]
   %65 = getelementptr i16, ptr %64, i64 %indvars.iv104
   %66 = load i16, ptr %65, align 2
   %67 = icmp ne i16 %66, 0
-  %spec.select = select i1 %67, i1 %.083, i1 false
+  %spec.select = select i1 %67, i1 %.05282, i1 false
   br label %68
 
 68:                                               ; preds = %.loopexit, %18
   %69 = phi ptr [ %19, %18 ], [ %64, %.loopexit ]
   %70 = phi ptr [ %20, %18 ], [ %64, %.loopexit ]
-  %.260 = phi i32 [ %.05879, %18 ], [ %.159, %.loopexit ]
-  %.157 = phi i32 [ %.05680, %18 ], [ %26, %.loopexit ]
-  %.354 = phi i32 [ %.05182, %18 ], [ %.253, %.loopexit ]
-  %.1 = phi i1 [ %.083, %18 ], [ %spec.select, %.loopexit ]
+  %.163 = phi i32 [ %.06279, %18 ], [ %26, %.loopexit ]
+  %.359 = phi i32 [ %.05681, %18 ], [ %.258, %.loopexit ]
+  %.153 = phi i1 [ %.05282, %18 ], [ %spec.select, %.loopexit ]
+  %.2 = phi i32 [ %.05183, %18 ], [ %.1, %.loopexit ]
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count
   br i1 %exitcond106.not, label %.preheader, label %18, !llvm.loop !7
 
 71:                                               ; preds = %.lr.ph92, %71
   %indvars.iv107 = phi i64 [ %17, %.lr.ph92 ], [ %indvars.iv.next108, %71 ]
-  %.291 = phi i1 [ %.0.lcssa, %.lr.ph92 ], [ %spec.select65, %71 ]
-  %.36189 = phi i32 [ %.058.lcssa, %.lr.ph92 ], [ %spec.select64, %71 ]
+  %.391 = phi i32 [ %.051.lcssa, %.lr.ph92 ], [ %spec.select65, %71 ]
+  %.25490 = phi i1 [ %.052.lcssa, %.lr.ph92 ], [ %spec.select64, %71 ]
   %72 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %16, i64 0, i64 %indvars.iv107, i32 17
   %73 = load i8, ptr %72, align 1
   %74 = trunc i8 %73 to i1
+  %spec.select64 = select i1 %74, i1 %.25490, i1 false
   %not. = xor i1 %74, true
   %75 = zext i1 %not. to i32
-  %spec.select64 = add i32 %.36189, %75
-  %spec.select65 = select i1 %74, i1 %.291, i1 false
+  %spec.select65 = add i32 %.391, %75
   %indvars.iv.next108 = add nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count109
   br i1 %exitcond110.not, label %._crit_edge, label %71, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %71, %.preheader
-  %.361.lcssa = phi i32 [ %.058.lcssa, %.preheader ], [ %spec.select64, %71 ]
-  %.2.lcssa = phi i1 [ %.0.lcssa, %.preheader ], [ %spec.select65, %71 ]
-  br i1 %.2.lcssa, label %81, label %76
+  %.254.lcssa = phi i1 [ %.052.lcssa, %.preheader ], [ %spec.select64, %71 ]
+  %.3.lcssa = phi i32 [ %.051.lcssa, %.preheader ], [ %spec.select65, %71 ]
+  br i1 %.254.lcssa, label %81, label %76
 
 76:                                               ; preds = %._crit_edge
   %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %77)
   %78 = tail call i32 @errcode(i32 noundef 67141764) #5
   %79 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %2) #5
-  %80 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3, i32 noundef %.361.lcssa, i32 noundef %.056.lcssa) #5
+  %80 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3, i32 noundef %.3.lcssa, i32 noundef %.062.lcssa) #5
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 152, ptr noundef nonnull @__func__.build_attrmap_by_position) #5
   unreachable
 
@@ -276,8 +276,8 @@ check_attrmap_match.exit:                         ; preds = %117, %.preheader.i
   br label %check_attrmap_match.exit.thread
 
 check_attrmap_match.exit.thread:                  ; preds = %99, %101, %105, %111, %87, %81, %check_attrmap_match.exit
-  %.063 = phi ptr [ null, %check_attrmap_match.exit ], [ %5, %81 ], [ %5, %87 ], [ %5, %111 ], [ %5, %105 ], [ %5, %101 ], [ %5, %99 ]
-  ret ptr %.063
+  %.0 = phi ptr [ null, %check_attrmap_match.exit ], [ %5, %81 ], [ %5, %87 ], [ %5, %111 ], [ %5, %105 ], [ %5, %101 ], [ %5, %99 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: cold
@@ -320,7 +320,7 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
 
 .lr.ph52.split.us.split.us:                       ; preds = %.lr.ph52.split.us, %..loopexit_crit_edge.us.us
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %..loopexit_crit_edge.us.us ], [ 0, %.lr.ph52.split.us ]
-  %.03951.us.us = phi i32 [ %.3.us.us, %..loopexit_crit_edge.us.us ], [ -1, %.lr.ph52.split.us ]
+  %.04050.us.us = phi i32 [ %.3.us.us, %..loopexit_crit_edge.us.us ], [ -1, %.lr.ph52.split.us ]
   %15 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %12, i64 0, i64 %indvars.iv84
   %16 = getelementptr inbounds i8, ptr %15, i64 95
   %17 = load i8, ptr %16, align 1
@@ -336,8 +336,8 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   br label %24
 
 24:                                               ; preds = %46, %.lr.ph.us.us
-  %.049.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %47, %46 ]
-  %.148.us.us = phi i32 [ %.03951.us.us, %.lr.ph.us.us ], [ %spec.store.select.us.us, %46 ]
+  %.03949.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %47, %46 ]
+  %.148.us.us = phi i32 [ %.04050.us.us, %.lr.ph.us.us ], [ %spec.store.select.us.us, %46 ]
   %25 = add i32 %.148.us.us, 1
   %.not.us.us = icmp slt i32 %25, %.fr59
   %spec.store.select.us.us = select i1 %.not.us.us, i32 %25, i32 0
@@ -375,12 +375,12 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   br label %..loopexit_crit_edge.us.us
 
 46:                                               ; preds = %31, %24
-  %47 = add nuw nsw i32 %.049.us.us, 1
+  %47 = add nuw nsw i32 %.03949.us.us, 1
   %exitcond83.not = icmp eq i32 %47, %.fr59
   br i1 %exitcond83.not, label %..loopexit_crit_edge.us.us, label %24, !llvm.loop !10
 
 ..loopexit_crit_edge.us.us:                       ; preds = %46, %41, %.lr.ph52.split.us.split.us
-  %.3.us.us = phi i32 [ %.03951.us.us, %.lr.ph52.split.us.split.us ], [ %spec.store.select.us.us, %41 ], [ %spec.store.select.us.us, %46 ]
+  %.3.us.us = phi i32 [ %.04050.us.us, %.lr.ph52.split.us.split.us ], [ %spec.store.select.us.us, %41 ], [ %spec.store.select.us.us, %46 ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
   br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph52.split.us.split.us, !llvm.loop !11
@@ -389,7 +389,7 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   %48 = phi ptr [ %86, %85 ], [ %10, %.lr.ph52.split.us ]
   %49 = phi ptr [ %87, %85 ], [ %10, %.lr.ph52.split.us ]
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %85 ], [ 0, %.lr.ph52.split.us ]
-  %.03951.us = phi i32 [ %.3.us, %85 ], [ -1, %.lr.ph52.split.us ]
+  %.04050.us = phi i32 [ %.3.us, %85 ], [ -1, %.lr.ph52.split.us ]
   %50 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %12, i64 0, i64 %indvars.iv78
   %51 = getelementptr inbounds i8, ptr %50, i64 95
   %52 = load i8, ptr %51, align 1
@@ -405,8 +405,8 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   br label %59
 
 59:                                               ; preds = %.lr.ph.us, %83
-  %.049.us = phi i32 [ 0, %.lr.ph.us ], [ %84, %83 ]
-  %.148.us = phi i32 [ %.03951.us, %.lr.ph.us ], [ %spec.store.select.us, %83 ]
+  %.03949.us = phi i32 [ 0, %.lr.ph.us ], [ %84, %83 ]
+  %.148.us = phi i32 [ %.04050.us, %.lr.ph.us ], [ %spec.store.select.us, %83 ]
   %60 = add i32 %.148.us, 1
   %.not.us = icmp slt i32 %60, %.fr59
   %spec.store.select.us = select i1 %.not.us, i32 %60, i32 0
@@ -451,14 +451,14 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
   br i1 %.not60, label %.split54.us, label %85
 
 83:                                               ; preds = %66, %59
-  %84 = add nuw nsw i32 %.049.us, 1
+  %84 = add nuw nsw i32 %.03949.us, 1
   %exitcond77.not = icmp eq i32 %84, %.fr59
   br i1 %exitcond77.not, label %..loopexit_crit_edge.us, label %59, !llvm.loop !10
 
 85:                                               ; preds = %..loopexit_crit_edge.us, %.lr.ph52.split.us.split
   %86 = phi ptr [ %48, %.lr.ph52.split.us.split ], [ %80, %..loopexit_crit_edge.us ]
   %87 = phi ptr [ %49, %.lr.ph52.split.us.split ], [ %80, %..loopexit_crit_edge.us ]
-  %.3.us = phi i32 [ %.03951.us, %.lr.ph52.split.us.split ], [ %spec.store.select.us, %..loopexit_crit_edge.us ]
+  %.3.us = phi i32 [ %.04050.us, %.lr.ph52.split.us.split ], [ %spec.store.select.us, %..loopexit_crit_edge.us ]
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count87
   br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph52.split.us.split, !llvm.loop !11

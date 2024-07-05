@@ -255,8 +255,8 @@ define dso_local noundef zeroext i1 @pgstat_slru_flush(i1 noundef zeroext %0) lo
   br label %34
 
 34:                                               ; preds = %9, %1, %.preheader.preheader
-  %.039 = phi i1 [ false, %.preheader.preheader ], [ false, %1 ], [ true, %9 ]
-  ret i1 %.039
+  %.0 = phi i1 [ false, %.preheader.preheader ], [ false, %1 ], [ true, %9 ]
+  ret i1 %.0
 }
 
 declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1

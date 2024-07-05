@@ -66,8 +66,8 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
   br label %.lr.ph63.us.i
 
 .lr.ph63.us.i:                                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph63.us.preheader.i
-  %.05565.us.i = phi i32 [ %.2.us.i, %..loopexit_crit_edge.us.i ], [ %27, %.lr.ph63.us.preheader.i ]
-  %41 = sext i32 %.05565.us.i to i64
+  %.05365.us.i = phi i32 [ %.2.us.i, %..loopexit_crit_edge.us.i ], [ %27, %.lr.ph63.us.preheader.i ]
+  %41 = sext i32 %.05365.us.i to i64
   %42 = getelementptr inbounds double, ptr %36, i64 %41
   %43 = load double, ptr %42, align 8
   %44 = fneg double %43
@@ -78,7 +78,7 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
 
 46:                                               ; preds = %68, %.lr.ph63.us.i
   %indvars.iv73.i = phi i64 [ 0, %.lr.ph63.us.i ], [ %indvars.iv.next74.i, %68 ]
-  %.160.us.i = phi i32 [ -1, %.lr.ph63.us.i ], [ %.2.us.i, %68 ]
+  %.161.us.i = phi i32 [ -1, %.lr.ph63.us.i ], [ %.2.us.i, %68 ]
   %47 = getelementptr inbounds double, ptr %36, i64 %indvars.iv73.i
   %48 = load double, ptr %47, align 8
   %49 = fcmp olt double %48, 0.000000e+00
@@ -102,12 +102,12 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
 58:                                               ; preds = %50
   store double %55, ptr %47, align 8
   %59 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv73.i
-  store i32 %.05565.us.i, ptr %59, align 4
+  store i32 %.05365.us.i, ptr %59, align 4
   br label %60
 
 60:                                               ; preds = %58, %50
   %61 = phi double [ %55, %58 ], [ %48, %50 ]
-  %62 = sext i32 %.160.us.i to i64
+  %62 = sext i32 %.161.us.i to i64
   %63 = getelementptr inbounds double, ptr %36, i64 %62
   %64 = load double, ptr %63, align 8
   %65 = fcmp ogt double %61, %64
@@ -118,7 +118,7 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
   br label %68
 
 68:                                               ; preds = %66, %60, %46
-  %.2.us.i = phi i32 [ %67, %66 ], [ %.160.us.i, %60 ], [ %.160.us.i, %46 ]
+  %.2.us.i = phi i32 [ %67, %66 ], [ %.161.us.i, %60 ], [ %.161.us.i, %46 ]
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
   %exitcond77.not.i = icmp eq i64 %indvars.iv.next74.i, %38
   br i1 %exitcond77.not.i, label %..loopexit_crit_edge.us.i, label %46
@@ -132,8 +132,8 @@ define noalias noundef ptr @makePath(double %0, double %1, i32 noundef %2, ptr n
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i, %.loopexit.preheader.i
-  %.05565.i = phi i64 [ -1, %.loopexit.i ], [ %28, %.loopexit.preheader.i ]
-  %69 = getelementptr inbounds double, ptr %36, i64 %.05565.i
+  %.05365.i = phi i64 [ -1, %.loopexit.i ], [ %28, %.loopexit.preheader.i ]
+  %69 = getelementptr inbounds double, ptr %36, i64 %.05365.i
   %70 = load double, ptr %69, align 8
   %71 = fneg double %70
   %72 = fcmp oeq double %70, 0xC1DFFFFFFFC00000

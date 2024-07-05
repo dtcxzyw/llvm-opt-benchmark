@@ -550,28 +550,28 @@ while.body.lr.ph:                                 ; preds = %_ZN9grpc_core26Appl
   br i1 %.not.i.i, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %_ZN4absl12lts_202308026StatusD2Ev.exit15.us
-  %c.027.us = phi ptr [ %8, %_ZN4absl12lts_202308026StatusD2Ev.exit15.us ], [ %list.coerce0, %while.body.lr.ph ]
-  %n.026.us = phi i64 [ %inc.us, %_ZN4absl12lts_202308026StatusD2Ev.exit15.us ], [ 0, %while.body.lr.ph ]
-  %8 = load ptr, ptr %c.027.us, align 8
+  %n.027.us = phi i64 [ %inc.us, %_ZN4absl12lts_202308026StatusD2Ev.exit15.us ], [ 0, %while.body.lr.ph ]
+  %c.026.us = phi ptr [ %8, %_ZN4absl12lts_202308026StatusD2Ev.exit15.us ], [ %list.coerce0, %while.body.lr.ph ]
+  %8 = load ptr, ptr %c.026.us, align 8
   %9 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core14executor_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i.us = trunc i8 %9 to i1
   br i1 %tobool.i.i.i.us, label %if.then.us, label %do.end.us
 
 if.then.us:                                       ; preds = %while.body.us
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 122, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %executor_name, ptr noundef nonnull %c.027.us)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 122, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %executor_name, ptr noundef nonnull %c.026.us)
           to label %do.end.us unwind label %lpad.split.us
 
 do.end.us:                                        ; preds = %if.then.us, %while.body.us
-  %error_data.us = getelementptr inbounds i8, ptr %c.027.us, i64 24
+  %error_data.us = getelementptr inbounds i8, ptr %c.026.us, i64 24
   %10 = load i64, ptr %error_data.us, align 8
   invoke void @_ZN9grpc_core8internal21StatusMoveFromHeapPtrEm(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %error, i64 noundef %10)
           to label %invoke.cont2.us unwind label %lpad.split.us
 
 invoke.cont2.us:                                  ; preds = %do.end.us
   store i64 0, ptr %error_data.us, align 8
-  %cb.us = getelementptr inbounds i8, ptr %c.027.us, i64 8
+  %cb.us = getelementptr inbounds i8, ptr %c.026.us, i64 8
   %11 = load ptr, ptr %cb.us, align 8
-  %cb_arg.us = getelementptr inbounds i8, ptr %c.027.us, i64 16
+  %cb_arg.us = getelementptr inbounds i8, ptr %c.026.us, i64 16
   %12 = load ptr, ptr %cb_arg.us, align 8
   %13 = load i64, ptr %error, align 8
   store i64 %13, ptr %agg.tmp, align 8
@@ -590,7 +590,7 @@ if.then.i.i10.us:                                 ; preds = %invoke.cont5.us
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit.us unwind label %terminate.lpad.i.split.us
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.us:        ; preds = %if.then.i.i10.us, %invoke.cont5.us
-  %inc.us = add i64 %n.026.us, 1
+  %inc.us = add i64 %n.027.us, 1
   %15 = load ptr, ptr %7, align 8
   %call10.us = invoke noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull align 8 dereferenceable(88) %15)
           to label %invoke.cont9.us unwind label %lpad6.split.us
@@ -635,15 +635,15 @@ terminate.lpad.i14.split.us:                      ; preds = %if.then.i.i13.us
   br label %terminate.lpad.i14
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4absl12lts_202308026StatusD2Ev.exit15
-  %c.027 = phi ptr [ %22, %_ZN4absl12lts_202308026StatusD2Ev.exit15 ], [ %list.coerce0, %while.body.lr.ph ]
-  %n.026 = phi i64 [ %inc, %_ZN4absl12lts_202308026StatusD2Ev.exit15 ], [ 0, %while.body.lr.ph ]
-  %22 = load ptr, ptr %c.027, align 8
+  %n.027 = phi i64 [ %inc, %_ZN4absl12lts_202308026StatusD2Ev.exit15 ], [ 0, %while.body.lr.ph ]
+  %c.026 = phi ptr [ %22, %_ZN4absl12lts_202308026StatusD2Ev.exit15 ], [ %list.coerce0, %while.body.lr.ph ]
+  %22 = load ptr, ptr %c.026, align 8
   %23 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core14executor_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %23 to i1
   br i1 %tobool.i.i.i, label %if.then, label %do.end
 
 if.then:                                          ; preds = %while.body
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 122, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %executor_name, ptr noundef nonnull %c.027)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 122, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %executor_name, ptr noundef nonnull %c.026)
           to label %do.end unwind label %lpad.split
 
 lpad.split:                                       ; preds = %do.end, %if.then
@@ -652,16 +652,16 @@ lpad.split:                                       ; preds = %do.end, %if.then
   br label %ehcleanup11
 
 do.end:                                           ; preds = %if.then, %while.body
-  %error_data = getelementptr inbounds i8, ptr %c.027, i64 24
+  %error_data = getelementptr inbounds i8, ptr %c.026, i64 24
   %25 = load i64, ptr %error_data, align 8
   invoke void @_ZN9grpc_core8internal21StatusMoveFromHeapPtrEm(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %error, i64 noundef %25)
           to label %invoke.cont2 unwind label %lpad.split
 
 invoke.cont2:                                     ; preds = %do.end
   store i64 0, ptr %error_data, align 8
-  %cb = getelementptr inbounds i8, ptr %c.027, i64 8
+  %cb = getelementptr inbounds i8, ptr %c.026, i64 8
   %26 = load ptr, ptr %cb, align 8
-  %cb_arg = getelementptr inbounds i8, ptr %c.027, i64 16
+  %cb_arg = getelementptr inbounds i8, ptr %c.026, i64 16
   %27 = load ptr, ptr %cb_arg, align 8
   %28 = load i64, ptr %error, align 8
   store i64 %28, ptr %agg.tmp, align 8
@@ -691,7 +691,7 @@ terminate.lpad.i:                                 ; preds = %terminate.lpad.i.sp
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont5, %if.then.i.i10
-  %inc = add i64 %n.026, 1
+  %inc = add i64 %n.027, 1
   invoke void @_ZTHN9grpc_core7ExecCtx9exec_ctx_E()
           to label %invoke.cont7 unwind label %lpad6.split
 

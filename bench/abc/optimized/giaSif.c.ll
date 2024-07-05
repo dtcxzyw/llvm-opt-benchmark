@@ -1137,7 +1137,7 @@ Gia_ManSifDupNode.exit:                           ; preds = %Gia_ObjUpdateTravId
 85:                                               ; preds = %.lr.ph99, %.critedge2
   %.val73106 = phi i32 [ %.val7395, %.lr.ph99 ], [ %.val73, %.critedge2 ]
   %.297 = phi i32 [ 0, %.lr.ph99 ], [ %108, %.critedge2 ]
-  %.05796 = phi i32 [ 1, %.lr.ph99 ], [ %.158, %.critedge2 ]
+  %.05696 = phi i32 [ 1, %.lr.ph99 ], [ %.157, %.critedge2 ]
   %.val76 = load ptr, ptr %45, align 8
   %.not = icmp eq ptr %.val76, null
   br i1 %.not, label %.critedge4, label %86
@@ -1170,20 +1170,20 @@ Gia_ManSifDupNode.exit:                           ; preds = %Gia_ObjUpdateTravId
   %.lobit = and i32 %104, 1
   %105 = xor i32 %101, %.lobit
   %106 = xor i32 %105, 1
-  %107 = tail call fastcc i32 @Gia_ManAppendAnd2(ptr noundef nonnull %3, i32 noundef %.05796, i32 noundef %106)
+  %107 = tail call fastcc i32 @Gia_ManAppendAnd2(ptr noundef nonnull %3, i32 noundef %.05696, i32 noundef %106)
   %.val73.pre = load i32, ptr %46, align 8
   br label %.critedge2
 
 .critedge2:                                       ; preds = %86, %103
   %.val73 = phi i32 [ %.val73106, %86 ], [ %.val73.pre, %103 ]
-  %.158 = phi i32 [ %.05796, %86 ], [ %107, %103 ]
+  %.157 = phi i32 [ %.05696, %86 ], [ %107, %103 ]
   %108 = add nuw nsw i32 %.297, 1
   %109 = icmp slt i32 %108, %.val73
   br i1 %109, label %85, label %.critedge4, !llvm.loop !12
 
 .critedge4:                                       ; preds = %85, %.critedge2, %.critedge2.preheader
-  %.057.lcssa = phi i32 [ 1, %.critedge2.preheader ], [ %.158, %.critedge2 ], [ %.05796, %85 ]
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %3, i32 noundef %.057.lcssa)
+  %.056.lcssa = phi i32 [ 1, %.critedge2.preheader ], [ %.157, %.critedge2 ], [ %.05696, %85 ]
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %3, i32 noundef %.056.lcssa)
   %110 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %3) #22
   tail call void @Gia_ManStop(ptr noundef nonnull %3) #22
   %111 = tail call ptr @Abc_NtkSolveGiaMiter(ptr noundef %110) #22
@@ -3810,8 +3810,8 @@ define i32 @Gia_ManSifArea_rec(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %.not21.not, label %.lr.ph, label %Gia_ObjUpdateTravIdCurrent.exit, !llvm.loop !49
 
 Gia_ObjUpdateTravIdCurrent.exit:                  ; preds = %.lr.ph, %21, %4, %17
-  %.019 = phi i32 [ 0, %17 ], [ 0, %4 ], [ 1, %21 ], [ %37, %.lr.ph ]
-  ret i32 %.019
+  %.018 = phi i32 [ 0, %17 ], [ 0, %4 ], [ 1, %21 ], [ %37, %.lr.ph ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3955,8 +3955,8 @@ define i32 @Gia_ManSifDelay_rec(ptr nocapture noundef readonly %0, ptr noundef %
   br label %Gia_ObjUpdateTravIdCurrent.exit
 
 Gia_ObjUpdateTravIdCurrent.exit:                  ; preds = %5, %18, %._crit_edge
-  %.030 = phi i32 [ %52, %._crit_edge ], [ 0, %18 ], [ 0, %5 ]
-  ret i32 %.030
+  %.029 = phi i32 [ %52, %._crit_edge ], [ 0, %18 ], [ 0, %5 ]
+  ret i32 %.029
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4507,9 +4507,9 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
   br label %56
 
 .preheader53.i:                                   ; preds = %71, %40
-  %.047.lcssa.i = phi ptr [ %41, %40 ], [ %.148.i, %71 ]
+  %.047.lcssa.i = phi ptr [ %.ptr74.i, %40 ], [ %.148.i, %71 ]
   %.044.lcssa.i = phi ptr [ %.ptr.i, %40 ], [ %.145.i, %71 ]
-  %.0.lcssa.i = phi ptr [ %.ptr74.i, %40 ], [ %.1.i, %71 ]
+  %.0.lcssa.i = phi ptr [ %41, %40 ], [ %.1.i, %71 ]
   %53 = icmp ult ptr %.044.lcssa.i, %.ptr72.i
   br i1 %53, label %.lr.ph66.i, label %.preheader.i
 
@@ -4519,22 +4519,22 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
   br label %78
 
 56:                                               ; preds = %71, %.lr.ph.i
-  %.061.i = phi ptr [ %.ptr74.i, %.lr.ph.i ], [ %.1.i, %71 ]
+  %.061.i = phi ptr [ %41, %.lr.ph.i ], [ %.1.i, %71 ]
   %.04460.i = phi ptr [ %.ptr.i, %.lr.ph.i ], [ %.145.i, %71 ]
-  %.04759.i = phi ptr [ %41, %.lr.ph.i ], [ %.148.i, %71 ]
-  %57 = icmp eq ptr %.04759.i, %52
+  %.04759.i = phi ptr [ %.ptr74.i, %.lr.ph.i ], [ %.148.i, %71 ]
+  %57 = icmp eq ptr %.061.i, %52
   br i1 %57, label %Gia_ManSifCutMerge.exit, label %58
 
 58:                                               ; preds = %56
   %59 = load i32, ptr %.04460.i, align 4
-  %60 = load i32, ptr %.061.i, align 4
+  %60 = load i32, ptr %.04759.i, align 4
   %61 = icmp eq i32 %59, %60
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds i8, ptr %.04460.i, i64 4
-  store i32 %59, ptr %.04759.i, align 4
-  %64 = getelementptr inbounds i8, ptr %.061.i, i64 4
+  store i32 %59, ptr %.061.i, align 4
+  %64 = getelementptr inbounds i8, ptr %.04759.i, i64 4
   br label %71
 
 65:                                               ; preds = %58
@@ -4543,26 +4543,26 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
 
 67:                                               ; preds = %65
   %68 = getelementptr inbounds i8, ptr %.04460.i, i64 4
-  store i32 %59, ptr %.04759.i, align 4
+  store i32 %59, ptr %.061.i, align 4
   br label %71
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %.061.i, i64 4
-  store i32 %60, ptr %.04759.i, align 4
+  %70 = getelementptr inbounds i8, ptr %.04759.i, i64 4
+  store i32 %60, ptr %.061.i, align 4
   br label %71
 
 71:                                               ; preds = %69, %67, %62
+  %.148.i = phi ptr [ %64, %62 ], [ %.04759.i, %67 ], [ %70, %69 ]
   %.145.i = phi ptr [ %63, %62 ], [ %68, %67 ], [ %.04460.i, %69 ]
-  %.1.i = phi ptr [ %64, %62 ], [ %.061.i, %67 ], [ %70, %69 ]
-  %.148.i = getelementptr inbounds i8, ptr %.04759.i, i64 4
+  %.1.i = getelementptr inbounds i8, ptr %.061.i, i64 4
   %72 = icmp ult ptr %.145.i, %.ptr72.i
-  %73 = icmp ult ptr %.1.i, %.ptr75.i
+  %73 = icmp ult ptr %.148.i, %.ptr75.i
   %74 = select i1 %72, i1 %73, i1 false
   br i1 %74, label %56, label %.preheader53.i, !llvm.loop !58
 
 .preheader.i:                                     ; preds = %80, %.preheader53.i
-  %.249.lcssa.i = phi ptr [ %.047.lcssa.i, %.preheader53.i ], [ %83, %80 ]
-  %75 = icmp ult ptr %.0.lcssa.i, %.ptr75.i
+  %.2.lcssa.i = phi ptr [ %.0.lcssa.i, %.preheader53.i ], [ %83, %80 ]
+  %75 = icmp ult ptr %.047.lcssa.i, %.ptr75.i
   br i1 %75, label %.lr.ph70.i, label %._crit_edge.i
 
 .lr.ph70.i:                                       ; preds = %.preheader.i
@@ -4571,35 +4571,35 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
   br label %85
 
 78:                                               ; preds = %80, %.lr.ph66.i
-  %.24665.i = phi ptr [ %.044.lcssa.i, %.lr.ph66.i ], [ %81, %80 ]
-  %.24964.i = phi ptr [ %.047.lcssa.i, %.lr.ph66.i ], [ %83, %80 ]
-  %79 = icmp eq ptr %.24964.i, %55
+  %.265.i = phi ptr [ %.0.lcssa.i, %.lr.ph66.i ], [ %83, %80 ]
+  %.24664.i = phi ptr [ %.044.lcssa.i, %.lr.ph66.i ], [ %81, %80 ]
+  %79 = icmp eq ptr %.265.i, %55
   br i1 %79, label %Gia_ManSifCutMerge.exit, label %80
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %.24665.i, i64 4
-  %82 = load i32, ptr %.24665.i, align 4
-  %83 = getelementptr inbounds i8, ptr %.24964.i, i64 4
-  store i32 %82, ptr %.24964.i, align 4
-  %84 = icmp ult ptr %.24665.i, %44
+  %81 = getelementptr inbounds i8, ptr %.24664.i, i64 4
+  %82 = load i32, ptr %.24664.i, align 4
+  %83 = getelementptr inbounds i8, ptr %.265.i, i64 4
+  store i32 %82, ptr %.265.i, align 4
+  %84 = icmp ult ptr %.24664.i, %44
   br i1 %84, label %78, label %.preheader.i, !llvm.loop !59
 
 85:                                               ; preds = %87, %.lr.ph70.i
-  %.269.i = phi ptr [ %.0.lcssa.i, %.lr.ph70.i ], [ %88, %87 ]
-  %.368.i = phi ptr [ %.249.lcssa.i, %.lr.ph70.i ], [ %90, %87 ]
-  %86 = icmp eq ptr %.368.i, %77
+  %.369.i = phi ptr [ %.2.lcssa.i, %.lr.ph70.i ], [ %90, %87 ]
+  %.24968.i = phi ptr [ %.047.lcssa.i, %.lr.ph70.i ], [ %88, %87 ]
+  %86 = icmp eq ptr %.369.i, %77
   br i1 %86, label %Gia_ManSifCutMerge.exit, label %87
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %.269.i, i64 4
-  %89 = load i32, ptr %.269.i, align 4
-  %90 = getelementptr inbounds i8, ptr %.368.i, i64 4
-  store i32 %89, ptr %.368.i, align 4
-  %91 = icmp ult ptr %.269.i, %47
+  %88 = getelementptr inbounds i8, ptr %.24968.i, i64 4
+  %89 = load i32, ptr %.24968.i, align 4
+  %90 = getelementptr inbounds i8, ptr %.369.i, i64 4
+  store i32 %89, ptr %.369.i, align 4
+  %91 = icmp ult ptr %.24968.i, %47
   br i1 %91, label %85, label %._crit_edge.i, !llvm.loop !60
 
 ._crit_edge.i:                                    ; preds = %87, %.preheader.i
-  %.3.lcssa.i = phi ptr [ %.249.lcssa.i, %.preheader.i ], [ %90, %87 ]
+  %.3.lcssa.i = phi ptr [ %.2.lcssa.i, %.preheader.i ], [ %90, %87 ]
   %92 = ptrtoint ptr %.3.lcssa.i to i64
   %93 = ptrtoint ptr %41 to i64
   %94 = sub i64 %92, %93
@@ -4628,9 +4628,9 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
   br label %110
 
 .preheader53.i89:                                 ; preds = %123, %100
-  %.047.lcssa.i90 = phi ptr [ %99, %100 ], [ %.148.i110, %123 ]
-  %.044.lcssa.i91 = phi ptr [ %.ptr.i83, %100 ], [ %.145.i108, %123 ]
-  %.0.lcssa.i92.idx = phi i64 [ 4, %100 ], [ %.1.i109.idx, %123 ]
+  %.047.lcssa.i90.idx = phi i64 [ 4, %100 ], [ %.148.i108.idx, %123 ]
+  %.044.lcssa.i91 = phi ptr [ %.ptr.i83, %100 ], [ %.145.i109, %123 ]
+  %.0.lcssa.i92 = phi ptr [ %99, %100 ], [ %.1.i110, %123 ]
   %107 = icmp ult ptr %.044.lcssa.i91, %.ptr72.i86
   br i1 %107, label %.lr.ph66.i101, label %.preheader.i93
 
@@ -4640,23 +4640,23 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
   br label %130
 
 110:                                              ; preds = %123, %.lr.ph.i104
-  %.061.i105.idx = phi i64 [ 4, %.lr.ph.i104 ], [ %.1.i109.idx, %123 ]
-  %.04460.i106 = phi ptr [ %.ptr.i83, %.lr.ph.i104 ], [ %.145.i108, %123 ]
-  %.04759.i107 = phi ptr [ %99, %.lr.ph.i104 ], [ %.148.i110, %123 ]
-  %111 = icmp eq ptr %.04759.i107, %106
+  %.061.i105 = phi ptr [ %99, %.lr.ph.i104 ], [ %.1.i110, %123 ]
+  %.04460.i106 = phi ptr [ %.ptr.i83, %.lr.ph.i104 ], [ %.145.i109, %123 ]
+  %.04759.i107.idx = phi i64 [ 4, %.lr.ph.i104 ], [ %.148.i108.idx, %123 ]
+  %111 = icmp eq ptr %.061.i105, %106
   br i1 %111, label %Gia_ManSifCutMerge.exit, label %112
 
 112:                                              ; preds = %110
-  %.061.i105.ptr = getelementptr inbounds i8, ptr %7, i64 %.061.i105.idx
+  %.04759.i107.ptr = getelementptr inbounds i8, ptr %7, i64 %.04759.i107.idx
   %113 = load i32, ptr %.04460.i106, align 4
-  %114 = load i32, ptr %.061.i105.ptr, align 4
+  %114 = load i32, ptr %.04759.i107.ptr, align 4
   %115 = icmp eq i32 %113, %114
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %112
   %117 = getelementptr inbounds i8, ptr %.04460.i106, i64 4
-  store i32 %113, ptr %.04759.i107, align 4
-  %.061.i105.add149 = add nsw i64 %.061.i105.idx, 4
+  store i32 %113, ptr %.061.i105, align 4
+  %.04759.i107.add149 = add nsw i64 %.04759.i107.idx, 4
   br label %123
 
 118:                                              ; preds = %112
@@ -4665,26 +4665,26 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
 
 120:                                              ; preds = %118
   %121 = getelementptr inbounds i8, ptr %.04460.i106, i64 4
-  store i32 %113, ptr %.04759.i107, align 4
+  store i32 %113, ptr %.061.i105, align 4
   br label %123
 
 122:                                              ; preds = %118
-  %.061.i105.add = add nsw i64 %.061.i105.idx, 4
-  store i32 %114, ptr %.04759.i107, align 4
+  %.04759.i107.add = add nsw i64 %.04759.i107.idx, 4
+  store i32 %114, ptr %.061.i105, align 4
   br label %123
 
 123:                                              ; preds = %122, %120, %116
-  %.145.i108 = phi ptr [ %117, %116 ], [ %121, %120 ], [ %.04460.i106, %122 ]
-  %.1.i109.idx = phi i64 [ %.061.i105.add149, %116 ], [ %.061.i105.idx, %120 ], [ %.061.i105.add, %122 ]
-  %.148.i110 = getelementptr inbounds i8, ptr %.04759.i107, i64 4
-  %124 = icmp ult ptr %.145.i108, %.ptr72.i86
-  %125 = icmp slt i64 %.1.i109.idx, 8
+  %.148.i108.idx = phi i64 [ %.04759.i107.add149, %116 ], [ %.04759.i107.idx, %120 ], [ %.04759.i107.add, %122 ]
+  %.145.i109 = phi ptr [ %117, %116 ], [ %121, %120 ], [ %.04460.i106, %122 ]
+  %.1.i110 = getelementptr inbounds i8, ptr %.061.i105, i64 4
+  %124 = icmp ult ptr %.145.i109, %.ptr72.i86
+  %125 = icmp slt i64 %.148.i108.idx, 8
   %126 = select i1 %124, i1 %125, i1 false
   br i1 %126, label %110, label %.preheader53.i89, !llvm.loop !58
 
 .preheader.i93:                                   ; preds = %132, %.preheader53.i89
-  %.249.lcssa.i94 = phi ptr [ %.047.lcssa.i90, %.preheader53.i89 ], [ %135, %132 ]
-  %127 = icmp slt i64 %.0.lcssa.i92.idx, 8
+  %.2.lcssa.i94 = phi ptr [ %.0.lcssa.i92, %.preheader53.i89 ], [ %135, %132 ]
+  %127 = icmp slt i64 %.047.lcssa.i90.idx, 8
   br i1 %127, label %.lr.ph70.i98, label %._crit_edge.i95
 
 .lr.ph70.i98:                                     ; preds = %.preheader.i93
@@ -4693,36 +4693,36 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
   br label %137
 
 130:                                              ; preds = %132, %.lr.ph66.i101
-  %.24665.i102 = phi ptr [ %.044.lcssa.i91, %.lr.ph66.i101 ], [ %133, %132 ]
-  %.24964.i103 = phi ptr [ %.047.lcssa.i90, %.lr.ph66.i101 ], [ %135, %132 ]
-  %131 = icmp eq ptr %.24964.i103, %109
+  %.265.i102 = phi ptr [ %.0.lcssa.i92, %.lr.ph66.i101 ], [ %135, %132 ]
+  %.24664.i103 = phi ptr [ %.044.lcssa.i91, %.lr.ph66.i101 ], [ %133, %132 ]
+  %131 = icmp eq ptr %.265.i102, %109
   br i1 %131, label %Gia_ManSifCutMerge.exit, label %132
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds i8, ptr %.24665.i102, i64 4
-  %134 = load i32, ptr %.24665.i102, align 4
-  %135 = getelementptr inbounds i8, ptr %.24964.i103, i64 4
-  store i32 %134, ptr %.24964.i103, align 4
-  %136 = icmp ult ptr %.24665.i102, %103
+  %133 = getelementptr inbounds i8, ptr %.24664.i103, i64 4
+  %134 = load i32, ptr %.24664.i103, align 4
+  %135 = getelementptr inbounds i8, ptr %.265.i102, i64 4
+  store i32 %134, ptr %.265.i102, align 4
+  %136 = icmp ult ptr %.24664.i103, %103
   br i1 %136, label %130, label %.preheader.i93, !llvm.loop !59
 
 137:                                              ; preds = %139, %.lr.ph70.i98
-  %.269.i99.idx = phi i64 [ %.0.lcssa.i92.idx, %.lr.ph70.i98 ], [ %.269.i99.add, %139 ]
-  %.368.i100 = phi ptr [ %.249.lcssa.i94, %.lr.ph70.i98 ], [ %141, %139 ]
-  %138 = icmp eq ptr %.368.i100, %129
+  %.369.i99 = phi ptr [ %.2.lcssa.i94, %.lr.ph70.i98 ], [ %141, %139 ]
+  %.24968.i100.idx = phi i64 [ %.047.lcssa.i90.idx, %.lr.ph70.i98 ], [ %.24968.i100.add, %139 ]
+  %138 = icmp eq ptr %.369.i99, %129
   br i1 %138, label %Gia_ManSifCutMerge.exit, label %139
 
 139:                                              ; preds = %137
-  %.269.i99.ptr = getelementptr inbounds i8, ptr %7, i64 %.269.i99.idx
-  %.269.i99.add = add nsw i64 %.269.i99.idx, 4
-  %140 = load i32, ptr %.269.i99.ptr, align 4
-  %141 = getelementptr inbounds i8, ptr %.368.i100, i64 4
-  store i32 %140, ptr %.368.i100, align 4
-  %142 = icmp slt i64 %.269.i99.idx, 4
+  %.24968.i100.ptr = getelementptr inbounds i8, ptr %7, i64 %.24968.i100.idx
+  %.24968.i100.add = add nsw i64 %.24968.i100.idx, 4
+  %140 = load i32, ptr %.24968.i100.ptr, align 4
+  %141 = getelementptr inbounds i8, ptr %.369.i99, i64 4
+  store i32 %140, ptr %.369.i99, align 4
+  %142 = icmp slt i64 %.24968.i100.idx, 4
   br i1 %142, label %137, label %._crit_edge.i95, !llvm.loop !60
 
 ._crit_edge.i95:                                  ; preds = %139, %.preheader.i93
-  %.3.lcssa.i96 = phi ptr [ %.249.lcssa.i94, %.preheader.i93 ], [ %141, %139 ]
+  %.3.lcssa.i96 = phi ptr [ %.2.lcssa.i94, %.preheader.i93 ], [ %141, %139 ]
   %143 = ptrtoint ptr %.3.lcssa.i96 to i64
   %144 = ptrtoint ptr %99 to i64
   %145 = sub i64 %143, %144
@@ -4746,9 +4746,9 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
   br label %158
 
 .preheader53.i118:                                ; preds = %171, %148
-  %.047.lcssa.i119 = phi ptr [ %99, %148 ], [ %.148.i139, %171 ]
-  %.044.lcssa.i120 = phi ptr [ %.ptr.i112, %148 ], [ %.145.i137, %171 ]
-  %.0.lcssa.i121.idx = phi i64 [ 4, %148 ], [ %.1.i138.idx, %171 ]
+  %.047.lcssa.i119.idx = phi i64 [ 4, %148 ], [ %.148.i137.idx, %171 ]
+  %.044.lcssa.i120 = phi ptr [ %.ptr.i112, %148 ], [ %.145.i138, %171 ]
+  %.0.lcssa.i121 = phi ptr [ %99, %148 ], [ %.1.i139, %171 ]
   %155 = icmp ult ptr %.044.lcssa.i120, %.ptr72.i115
   br i1 %155, label %.lr.ph66.i130, label %.preheader.i122
 
@@ -4758,23 +4758,23 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
   br label %178
 
 158:                                              ; preds = %171, %.lr.ph.i133
-  %.061.i134.idx = phi i64 [ 4, %.lr.ph.i133 ], [ %.1.i138.idx, %171 ]
-  %.04460.i135 = phi ptr [ %.ptr.i112, %.lr.ph.i133 ], [ %.145.i137, %171 ]
-  %.04759.i136 = phi ptr [ %99, %.lr.ph.i133 ], [ %.148.i139, %171 ]
-  %159 = icmp eq ptr %.04759.i136, %154
+  %.061.i134 = phi ptr [ %99, %.lr.ph.i133 ], [ %.1.i139, %171 ]
+  %.04460.i135 = phi ptr [ %.ptr.i112, %.lr.ph.i133 ], [ %.145.i138, %171 ]
+  %.04759.i136.idx = phi i64 [ 4, %.lr.ph.i133 ], [ %.148.i137.idx, %171 ]
+  %159 = icmp eq ptr %.061.i134, %154
   br i1 %159, label %Gia_ManSifCutMerge.exit, label %160
 
 160:                                              ; preds = %158
-  %.061.i134.ptr = getelementptr inbounds i8, ptr %6, i64 %.061.i134.idx
+  %.04759.i136.ptr = getelementptr inbounds i8, ptr %6, i64 %.04759.i136.idx
   %161 = load i32, ptr %.04460.i135, align 4
-  %162 = load i32, ptr %.061.i134.ptr, align 4
+  %162 = load i32, ptr %.04759.i136.ptr, align 4
   %163 = icmp eq i32 %161, %162
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %160
   %165 = getelementptr inbounds i8, ptr %.04460.i135, i64 4
-  store i32 %161, ptr %.04759.i136, align 4
-  %.061.i134.add146 = add nsw i64 %.061.i134.idx, 4
+  store i32 %161, ptr %.061.i134, align 4
+  %.04759.i136.add146 = add nsw i64 %.04759.i136.idx, 4
   br label %171
 
 166:                                              ; preds = %160
@@ -4783,26 +4783,26 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
 
 168:                                              ; preds = %166
   %169 = getelementptr inbounds i8, ptr %.04460.i135, i64 4
-  store i32 %161, ptr %.04759.i136, align 4
+  store i32 %161, ptr %.061.i134, align 4
   br label %171
 
 170:                                              ; preds = %166
-  %.061.i134.add = add nsw i64 %.061.i134.idx, 4
-  store i32 %162, ptr %.04759.i136, align 4
+  %.04759.i136.add = add nsw i64 %.04759.i136.idx, 4
+  store i32 %162, ptr %.061.i134, align 4
   br label %171
 
 171:                                              ; preds = %170, %168, %164
-  %.145.i137 = phi ptr [ %165, %164 ], [ %169, %168 ], [ %.04460.i135, %170 ]
-  %.1.i138.idx = phi i64 [ %.061.i134.add146, %164 ], [ %.061.i134.idx, %168 ], [ %.061.i134.add, %170 ]
-  %.148.i139 = getelementptr inbounds i8, ptr %.04759.i136, i64 4
-  %172 = icmp ult ptr %.145.i137, %.ptr72.i115
-  %173 = icmp slt i64 %.1.i138.idx, 8
+  %.148.i137.idx = phi i64 [ %.04759.i136.add146, %164 ], [ %.04759.i136.idx, %168 ], [ %.04759.i136.add, %170 ]
+  %.145.i138 = phi ptr [ %165, %164 ], [ %169, %168 ], [ %.04460.i135, %170 ]
+  %.1.i139 = getelementptr inbounds i8, ptr %.061.i134, i64 4
+  %172 = icmp ult ptr %.145.i138, %.ptr72.i115
+  %173 = icmp slt i64 %.148.i137.idx, 8
   %174 = select i1 %172, i1 %173, i1 false
   br i1 %174, label %158, label %.preheader53.i118, !llvm.loop !58
 
 .preheader.i122:                                  ; preds = %180, %.preheader53.i118
-  %.249.lcssa.i123 = phi ptr [ %.047.lcssa.i119, %.preheader53.i118 ], [ %183, %180 ]
-  %175 = icmp slt i64 %.0.lcssa.i121.idx, 8
+  %.2.lcssa.i123 = phi ptr [ %.0.lcssa.i121, %.preheader53.i118 ], [ %183, %180 ]
+  %175 = icmp slt i64 %.047.lcssa.i119.idx, 8
   br i1 %175, label %.lr.ph70.i127, label %._crit_edge.i124
 
 .lr.ph70.i127:                                    ; preds = %.preheader.i122
@@ -4811,36 +4811,36 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManSifCutOne(ptr nocapture nound
   br label %185
 
 178:                                              ; preds = %180, %.lr.ph66.i130
-  %.24665.i131 = phi ptr [ %.044.lcssa.i120, %.lr.ph66.i130 ], [ %181, %180 ]
-  %.24964.i132 = phi ptr [ %.047.lcssa.i119, %.lr.ph66.i130 ], [ %183, %180 ]
-  %179 = icmp eq ptr %.24964.i132, %157
+  %.265.i131 = phi ptr [ %.0.lcssa.i121, %.lr.ph66.i130 ], [ %183, %180 ]
+  %.24664.i132 = phi ptr [ %.044.lcssa.i120, %.lr.ph66.i130 ], [ %181, %180 ]
+  %179 = icmp eq ptr %.265.i131, %157
   br i1 %179, label %Gia_ManSifCutMerge.exit, label %180
 
 180:                                              ; preds = %178
-  %181 = getelementptr inbounds i8, ptr %.24665.i131, i64 4
-  %182 = load i32, ptr %.24665.i131, align 4
-  %183 = getelementptr inbounds i8, ptr %.24964.i132, i64 4
-  store i32 %182, ptr %.24964.i132, align 4
-  %184 = icmp ult ptr %.24665.i131, %151
+  %181 = getelementptr inbounds i8, ptr %.24664.i132, i64 4
+  %182 = load i32, ptr %.24664.i132, align 4
+  %183 = getelementptr inbounds i8, ptr %.265.i131, i64 4
+  store i32 %182, ptr %.265.i131, align 4
+  %184 = icmp ult ptr %.24664.i132, %151
   br i1 %184, label %178, label %.preheader.i122, !llvm.loop !59
 
 185:                                              ; preds = %187, %.lr.ph70.i127
-  %.269.i128.idx = phi i64 [ %.0.lcssa.i121.idx, %.lr.ph70.i127 ], [ %.269.i128.add, %187 ]
-  %.368.i129 = phi ptr [ %.249.lcssa.i123, %.lr.ph70.i127 ], [ %189, %187 ]
-  %186 = icmp eq ptr %.368.i129, %177
+  %.369.i128 = phi ptr [ %.2.lcssa.i123, %.lr.ph70.i127 ], [ %189, %187 ]
+  %.24968.i129.idx = phi i64 [ %.047.lcssa.i119.idx, %.lr.ph70.i127 ], [ %.24968.i129.add, %187 ]
+  %186 = icmp eq ptr %.369.i128, %177
   br i1 %186, label %Gia_ManSifCutMerge.exit, label %187
 
 187:                                              ; preds = %185
-  %.269.i128.ptr = getelementptr inbounds i8, ptr %6, i64 %.269.i128.idx
-  %.269.i128.add = add nsw i64 %.269.i128.idx, 4
-  %188 = load i32, ptr %.269.i128.ptr, align 4
-  %189 = getelementptr inbounds i8, ptr %.368.i129, i64 4
-  store i32 %188, ptr %.368.i129, align 4
-  %190 = icmp slt i64 %.269.i128.idx, 4
+  %.24968.i129.ptr = getelementptr inbounds i8, ptr %6, i64 %.24968.i129.idx
+  %.24968.i129.add = add nsw i64 %.24968.i129.idx, 4
+  %188 = load i32, ptr %.24968.i129.ptr, align 4
+  %189 = getelementptr inbounds i8, ptr %.369.i128, i64 4
+  store i32 %188, ptr %.369.i128, align 4
+  %190 = icmp slt i64 %.24968.i129.idx, 4
   br i1 %190, label %185, label %._crit_edge.i124, !llvm.loop !60
 
 ._crit_edge.i124:                                 ; preds = %187, %.preheader.i122
-  %.3.lcssa.i125 = phi ptr [ %.249.lcssa.i123, %.preheader.i122 ], [ %189, %187 ]
+  %.3.lcssa.i125 = phi ptr [ %.2.lcssa.i123, %.preheader.i122 ], [ %189, %187 ]
   %191 = ptrtoint ptr %.3.lcssa.i125 to i64
   %192 = ptrtoint ptr %99 to i64
   %193 = sub i64 %191, %192
@@ -5292,8 +5292,8 @@ Vec_IntFill.exit:                                 ; preds = %61, %Vec_IntGrow.ex
   br i1 %135, label %100, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %.critedge12, %100, %107, %117, %128
-  %.089 = phi i32 [ 0, %128 ], [ 0, %117 ], [ 0, %107 ], [ 0, %.critedge12 ], [ 1, %100 ]
-  ret i32 %.089
+  %.0 = phi i32 [ 0, %128 ], [ 0, %117 ], [ 0, %107 ], [ 0, %.critedge12 ], [ 1, %100 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6154,53 +6154,53 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit, 
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.0115.us = phi i32 [ %.0..us, %.lr.ph.split.us ], [ %38, %.lr.ph.split.us.preheader ]
-  %.079114.us = phi i32 [ %..079.us, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
-  %53 = add nsw i32 %.0115.us, %.079114.us
+  %.080115.us = phi i32 [ %..080.us, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
+  %.081114.us = phi i32 [ %.081..us, %.lr.ph.split.us ], [ %38, %.lr.ph.split.us.preheader ]
+  %53 = add nsw i32 %.080115.us, %.081114.us
   %54 = sdiv i32 %53, 2
   %55 = call i32 @Gia_ManSifCheckPeriod(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %29, i32 noundef %1, i32 noundef %54, ptr noundef nonnull %7)
   %.not88.us = icmp eq i32 %55, 0
-  %..079.us = select i1 %.not88.us, i32 %54, i32 %.079114.us
-  %.0..us = select i1 %.not88.us, i32 %.0115.us, i32 %54
+  %.081..us = select i1 %.not88.us, i32 %.081114.us, i32 %54
+  %..080.us = select i1 %.not88.us, i32 %54, i32 %.080115.us
   %.val95.us = load i32, ptr %52, align 8
   %56 = icmp sgt i32 %.val95.us, 0
-  %57 = sub nsw i32 %.0..us, %..079.us
+  %57 = sub nsw i32 %.081..us, %..080.us
   %58 = icmp sgt i32 %57, 1
   %59 = select i1 %56, i1 %58, i1 false
   br i1 %59, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !82
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.0115 = phi i32 [ %.0., %.lr.ph.split ], [ %38, %.lr.ph ]
-  %.079114 = phi i32 [ %..079, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %60 = add nsw i32 %.0115, %.079114
+  %.080115 = phi i32 [ %..080, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.081114 = phi i32 [ %.081., %.lr.ph.split ], [ %38, %.lr.ph ]
+  %60 = add nsw i32 %.080115, %.081114
   %61 = sdiv i32 %60, 2
   %62 = call i32 @Gia_ManSifCheckPeriod(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %29, i32 noundef %1, i32 noundef %61, ptr noundef nonnull %7)
   %.not88 = icmp eq i32 %62, 0
-  %..079 = select i1 %.not88, i32 %61, i32 %.079114
-  %.0. = select i1 %.not88, i32 %.0115, i32 %61
+  %.081. = select i1 %.not88, i32 %.081114, i32 %61
+  %..080 = select i1 %.not88, i32 %61, i32 %.080115
   %63 = select i1 %.not88, ptr @.str.12, ptr @.str.13
   %64 = load i32, ptr %7, align 4
   %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %61, ptr noundef nonnull %63, i32 noundef %64)
   %.val95 = load i32, ptr %45, align 8
   %66 = icmp sgt i32 %.val95, 0
-  %67 = sub nsw i32 %.0., %..079
+  %67 = sub nsw i32 %.081., %..080
   %68 = icmp sgt i32 %67, 1
   %69 = select i1 %66, i1 %68, i1 false
   br i1 %69, label %.lr.ph.split, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.critedge
-  %.0.lcssa = phi i32 [ %38, %.critedge ], [ %.0..us, %.lr.ph.split.us ], [ %.0., %.lr.ph.split ]
+  %.081.lcssa = phi i32 [ %38, %.critedge ], [ %.081..us, %.lr.ph.split.us ], [ %.081., %.lr.ph.split ]
   br i1 %.not, label %.critedge92, label %.critedge90
 
 .critedge90:                                      ; preds = %._crit_edge
-  %70 = sub nsw i32 %38, %.0.lcssa
+  %70 = sub nsw i32 %38, %.081.lcssa
   %71 = sitofp i32 %70 to double
   %72 = fmul double %71, 1.000000e+02
   %73 = sitofp i32 %38 to double
   %74 = fdiv double %72, %73
   %75 = fptrunc double %74 to float
   %76 = fpext float %75 to double
-  %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %.0.lcssa, double noundef %76)
+  %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %.081.lcssa, double noundef %76)
   %78 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %1)
   %79 = add nsw i32 %1, 4
   %80 = sitofp i32 %79 to double
@@ -6235,7 +6235,7 @@ Abc_Clock.exit100:                                ; preds = %.critedge90, %88
   br label %.critedge92
 
 .critedge92:                                      ; preds = %._crit_edge, %Abc_Clock.exit100
-  %98 = icmp eq i32 %.0.lcssa, %38
+  %98 = icmp eq i32 %.081.lcssa, %38
   br i1 %98, label %.critedge92.thread, label %104
 
 .critedge92.thread:                               ; preds = %.critedge.thread, %.critedge92
@@ -6263,13 +6263,13 @@ Vec_IntFree.exit103:                              ; preds = %Vec_IntFree.exit, %
   br label %144
 
 104:                                              ; preds = %.critedge92
-  %105 = call i32 @Gia_ManSifCheckPeriod(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %29, i32 noundef %1, i32 noundef %.0.lcssa, ptr noundef nonnull %7)
+  %105 = call i32 @Gia_ManSifCheckPeriod(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %29, i32 noundef %1, i32 noundef %.081.lcssa, ptr noundef nonnull %7)
   %106 = call i32 @Gia_ManSifDeriveMapping(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr nonnull poison, i32 noundef %1, i32 poison, i32 poison)
   %.not87 = icmp eq i32 %2, 0
   br i1 %.not87, label %138, label %107
 
 107:                                              ; preds = %104
-  %108 = sub nsw i32 %38, %.0.lcssa
+  %108 = sub nsw i32 %38, %.081.lcssa
   %109 = sitofp i32 %108 to double
   %110 = fmul double %109, 1.000000e+02
   %111 = sitofp i32 %38 to double
@@ -6316,16 +6316,16 @@ Vec_IntFree.exit103:                              ; preds = %Vec_IntFree.exit, %
 
 Gia_ManSifArea.exit:                              ; preds = %.lr.ph.i, %121, %107
   %.0.lcssa.i = phi i32 [ 0, %107 ], [ %.017.i, %.lr.ph.i ], [ %132, %121 ]
-  %137 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %.0.lcssa, double noundef %114, i32 noundef %38, i32 noundef %1, i32 noundef %.0.lcssa.i)
+  %137 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %.081.lcssa, double noundef %114, i32 noundef %38, i32 noundef %1, i32 noundef %.0.lcssa.i)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   br label %140
 
 138:                                              ; preds = %104
-  %139 = call ptr @Gia_ManSifTransform(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %29, i32 noundef %1, i32 noundef %.0.lcssa, i32 noundef %3)
+  %139 = call ptr @Gia_ManSifTransform(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %29, i32 noundef %1, i32 noundef %.081.lcssa, i32 noundef %3)
   br label %140
 
 140:                                              ; preds = %138, %Gia_ManSifArea.exit
-  %.082 = phi ptr [ null, %Gia_ManSifArea.exit ], [ %139, %138 ]
+  %.079 = phi ptr [ null, %Gia_ManSifArea.exit ], [ %139, %138 ]
   %.not.i105 = icmp eq ptr %28, null
   br i1 %.not.i105, label %Vec_IntFree.exit106, label %141
 
@@ -6348,8 +6348,8 @@ Vec_IntFree.exit108:                              ; preds = %Vec_IntFree.exit106
   br label %144
 
 144:                                              ; preds = %Vec_IntFree.exit108, %Vec_IntFree.exit103
-  %.081 = phi ptr [ %103, %Vec_IntFree.exit103 ], [ %.082, %Vec_IntFree.exit108 ]
-  ret ptr %.081
+  %.0 = phi ptr [ %103, %Vec_IntFree.exit103 ], [ %.079, %Vec_IntFree.exit108 ]
+  ret ptr %.0
 }
 
 declare ptr @Gia_ManDup(ptr noundef) local_unnamed_addr #1

@@ -550,12 +550,12 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
   br label %57
 
 57:                                               ; preds = %54, %45
-  %.0.i = phi i32 [ 5, %54 ], [ 1, %45 ]
+  %.088.i = phi i32 [ 5, %54 ], [ 1, %45 ]
   %.not98.i = icmp eq ptr %49, null
   br i1 %.not98.i, label %60, label %58
 
 58:                                               ; preds = %57
-  %59 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0.i) #3
+  %59 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.088.i) #3
   tail call fastcc void @raknet_dissect_ACK(ptr noundef %59, ptr noundef nonnull %1, ptr noundef nonnull %49, i32 1)
   br label %raknet_dissect_connected_message.exit
 
@@ -748,7 +748,7 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
   br label %173
 
 173:                                              ; preds = %171, %165, %160
-  %.0201.i.i = phi ptr [ %154, %160 ], [ null, %165 ], [ %172, %171 ]
+  %.0202.i.i = phi ptr [ %154, %160 ], [ null, %165 ], [ %172, %171 ]
   %174 = phi i1 [ false, %160 ], [ undef, %165 ], [ true, %171 ]
   %.3.i.i = phi i32 [ %145, %160 ], [ %145, %165 ], [ %.2.i.i, %171 ]
   %175 = load i32, ptr %12, align 4
@@ -764,7 +764,7 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
 
 180:                                              ; preds = %176, %173
   %181 = add nuw nsw i32 %.3.i.i, %110
-  %.not215.i.i = icmp eq ptr %.0201.i.i, null
+  %.not215.i.i = icmp eq ptr %.0202.i.i, null
   br i1 %.not215.i.i, label %182, label %183
 
 182:                                              ; preds = %180
@@ -773,7 +773,7 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
   br i1 %.not216.i.i, label %248, label %.sink.split.i
 
 183:                                              ; preds = %180
-  %184 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0201.i.i, i32 noundef 0) #3
+  %184 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0202.i.i, i32 noundef 0) #3
   %185 = load ptr, ptr @raknet_system_message_dissectors, align 8
   %186 = zext i8 %184 to i32
   %187 = call ptr @dissector_get_uint_handle(ptr noundef %185, i32 noundef %186) #3
@@ -782,7 +782,7 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
 
 188:                                              ; preds = %183
   %189 = load i32, ptr @hf_raknet_system_message, align 4
-  %190 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %189, ptr noundef nonnull %.0201.i.i, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %190 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %189, ptr noundef nonnull %.0202.i.i, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   %191 = load i32, ptr @ett_raknet_system_message, align 4
   %192 = call ptr @proto_item_add_subtree(ptr noundef %190, i32 noundef %191) #3
   %193 = call ptr @val_to_str(i32 noundef %186, ptr noundef nonnull @raknet_system_message_names, ptr noundef nonnull @.str.183) #3
@@ -793,8 +793,8 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
   %196 = call ptr @val_to_str(i32 noundef %186, ptr noundef nonnull @raknet_system_message_names, ptr noundef nonnull @.str.186) #3
   call void @col_add_str(ptr noundef %195, i32 noundef 25, ptr noundef %196) #3
   %197 = load i32, ptr @hf_raknet_system_message_id, align 4
-  %198 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %197, ptr noundef nonnull %.0201.i.i, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %199 = call i32 @call_dissector_only(ptr noundef nonnull %187, ptr noundef nonnull %.0201.i.i, ptr noundef nonnull %1, ptr noundef %192, ptr noundef nonnull %12) #3
+  %198 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %197, ptr noundef nonnull %.0202.i.i, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
+  %199 = call i32 @call_dissector_only(ptr noundef nonnull %187, ptr noundef nonnull %.0202.i.i, ptr noundef nonnull %1, ptr noundef %192, ptr noundef nonnull %12) #3
   call void @proto_item_set_len(ptr noundef %97, i32 noundef %181) #3
   %.not224.i.i = icmp eq ptr %95, null
   br i1 %.not224.i.i, label %203, label %200
@@ -840,12 +840,12 @@ raknet_get_session_state.exit.i.i:                ; preds = %210, %205
   br label %220
 
 220:                                              ; preds = %218, %raknet_get_session_state.exit.i.i
-  %.0202.i.i = phi ptr [ %219, %218 ], [ %99, %raknet_get_session_state.exit.i.i ]
+  %.0200.i.i = phi ptr [ %219, %218 ], [ %99, %raknet_get_session_state.exit.i.i ]
   %.not219.i.i = icmp eq ptr %216, null
   br i1 %.not219.i.i, label %226, label %221
 
 221:                                              ; preds = %220
-  %222 = call i32 @call_dissector_only(ptr noundef nonnull %216, ptr noundef nonnull %.0201.i.i, ptr noundef nonnull %1, ptr noundef %.0202.i.i, ptr noundef nonnull %12) #3
+  %222 = call i32 @call_dissector_only(ptr noundef nonnull %216, ptr noundef nonnull %.0202.i.i, ptr noundef nonnull %1, ptr noundef %.0200.i.i, ptr noundef nonnull %12) #3
   %223 = icmp sgt i32 %222, 0
   br i1 %223, label %241, label %224
 
@@ -861,7 +861,7 @@ raknet_get_session_state.exit.i.i:                ; preds = %210, %205
   br i1 %.not220.i.i, label %235, label %230
 
 230:                                              ; preds = %226
-  %231 = call i32 @call_dissector_only(ptr noundef nonnull %229, ptr noundef nonnull %.0201.i.i, ptr noundef nonnull %1, ptr noundef %.0202.i.i, ptr noundef nonnull %12) #3
+  %231 = call i32 @call_dissector_only(ptr noundef nonnull %229, ptr noundef nonnull %.0202.i.i, ptr noundef nonnull %1, ptr noundef %.0200.i.i, ptr noundef nonnull %12) #3
   %232 = icmp sgt i32 %231, 0
   br i1 %232, label %241, label %233
 
@@ -871,14 +871,14 @@ raknet_get_session_state.exit.i.i:                ; preds = %210, %205
 
 235:                                              ; preds = %233, %226
   %236 = load ptr, ptr @raknet_heur_subdissectors, align 8
-  %237 = call i32 @dissector_try_heuristic(ptr noundef %236, ptr noundef nonnull %.0201.i.i, ptr noundef nonnull %1, ptr noundef %.0202.i.i, ptr noundef nonnull %7, ptr noundef nonnull %12) #3
+  %237 = call i32 @dissector_try_heuristic(ptr noundef %236, ptr noundef nonnull %.0202.i.i, ptr noundef nonnull %1, ptr noundef %.0200.i.i, ptr noundef nonnull %7, ptr noundef nonnull %12) #3
   %.not221.i.i = icmp eq i32 %237, 0
   br i1 %.not221.i.i, label %238, label %241
 
 238:                                              ; preds = %235
   %239 = load ptr, ptr %13, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %239, i32 noundef 25, ptr noundef nonnull @.str.188, i32 noundef %186) #3
-  %240 = call ptr @proto_tree_add_expert(ptr noundef %99, ptr noundef nonnull %1, ptr noundef nonnull @ei_raknet_unknown_message_id, ptr noundef nonnull %.0201.i.i, i32 noundef 0, i32 noundef 1) #3
+  %240 = call ptr @proto_tree_add_expert(ptr noundef %99, ptr noundef nonnull %1, ptr noundef nonnull @ei_raknet_unknown_message_id, ptr noundef nonnull %.0202.i.i, i32 noundef 0, i32 noundef 1) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %240, ptr noundef nonnull @.str.163, i32 noundef %186) #3
   br label %241
 

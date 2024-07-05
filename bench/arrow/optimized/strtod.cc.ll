@@ -645,8 +645,8 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %_ZN14arrow_vendored17double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i, label %for.body.i.i, !llvm.loop !10
 
 _ZN14arrow_vendored17double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i: ; preds = %for.inc.i.i, %if.then.i.i, %entry
-  %retval.sroa.3.0.i.i = phi i32 [ %sub.i.i.i, %if.then.i.i ], [ 0, %entry ], [ 0, %for.inc.i.i ]
   %retval.sroa.0.0.i.i = phi ptr [ %arrayidx.i.i.i.le, %if.then.i.i ], [ %buffer.coerce0, %entry ], [ %buffer.coerce0, %for.inc.i.i ]
+  %retval.sroa.3.0.i.i = phi i32 [ %sub.i.i.i, %if.then.i.i ], [ 0, %entry ], [ 0, %for.inc.i.i ]
   %2 = zext i32 %retval.sroa.3.0.i.i to i64
   br label %for.cond.i.i
 
@@ -797,8 +797,8 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %_ZN14arrow_vendored17double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i, label %for.body.i.i, !llvm.loop !10
 
 _ZN14arrow_vendored17double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i: ; preds = %for.inc.i.i, %if.then.i.i, %entry
-  %retval.sroa.3.0.i.i = phi i32 [ %sub.i.i.i, %if.then.i.i ], [ 0, %entry ], [ 0, %for.inc.i.i ]
   %retval.sroa.0.0.i.i = phi ptr [ %arrayidx.i.i.i.le, %if.then.i.i ], [ %buffer.coerce0, %entry ], [ %buffer.coerce0, %for.inc.i.i ]
+  %retval.sroa.3.0.i.i = phi i32 [ %sub.i.i.i, %if.then.i.i ], [ 0, %entry ], [ 0, %for.inc.i.i ]
   %2 = zext i32 %retval.sroa.3.0.i.i to i64
   br label %for.cond.i.i
 

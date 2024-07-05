@@ -1167,8 +1167,8 @@ define linkonce_odr hidden void @_ZN6spdlog7details14log_msg_bufferC2ERKNS0_7log
 
 15:                                               ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i, %.lr.ph.i
   %16 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %32, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i ]
-  %.01419.i = phi ptr [ %9, %.lr.ph.i ], [ %33, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i ]
-  %17 = ptrtoint ptr %.01419.i to i64
+  %.019.i = phi ptr [ %9, %.lr.ph.i ], [ %33, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i ]
+  %17 = ptrtoint ptr %.019.i to i64
   %18 = sub i64 %13, %17
   %19 = add i64 %18, %16
   %20 = load i64, ptr %6, align 8
@@ -1197,7 +1197,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i: ; preds = %.noexc, %15
 28:                                               ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i
   %29 = load ptr, ptr %5, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 %25
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %30, ptr align 1 %.01419.i, i64 %spec.select.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %30, ptr align 1 %.019.i, i64 %spec.select.i, i1 false)
   %.pre22.i = load i64, ptr %14, align 8
   br label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i
 
@@ -1205,7 +1205,7 @@ _ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i: ; preds = %28, %_ZN3fmt2v9
   %31 = phi i64 [ %25, %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i ], [ %.pre22.i, %28 ]
   %32 = add i64 %31, %spec.select.i
   store i64 %32, ptr %14, align 8
-  %33 = getelementptr inbounds i8, ptr %.01419.i, i64 %spec.select.i
+  %33 = getelementptr inbounds i8, ptr %.019.i, i64 %spec.select.i
   %.not.i = icmp eq ptr %33, %12
   br i1 %.not.i, label %_ZN3fmt2v96detail6bufferIcE6appendIcEEvPKT_S7_.exit, label %15, !llvm.loop !16
 
@@ -1226,8 +1226,8 @@ _ZN3fmt2v96detail6bufferIcE6appendIcEEvPKT_S7_.exit: ; preds = %_ZSt20uninitiali
 
 41:                                               ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i11, %.lr.ph.i4
   %42 = phi i64 [ %.pre.i5, %.lr.ph.i4 ], [ %58, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i11 ]
-  %.01419.i6 = phi ptr [ %35, %.lr.ph.i4 ], [ %59, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i11 ]
-  %43 = ptrtoint ptr %.01419.i6 to i64
+  %.019.i6 = phi ptr [ %35, %.lr.ph.i4 ], [ %59, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i11 ]
+  %43 = ptrtoint ptr %.019.i6 to i64
   %44 = sub i64 %39, %43
   %45 = add i64 %44, %42
   %46 = load i64, ptr %6, align 8
@@ -1256,7 +1256,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i7: ; preds = %.noexc15, %41
 54:                                               ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i7
   %55 = load ptr, ptr %5, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 %51
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %56, ptr align 1 %.01419.i6, i64 %spec.select.i8, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %56, ptr align 1 %.019.i6, i64 %spec.select.i8, i1 false)
   %.pre22.i10 = load i64, ptr %40, align 8
   br label %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i11
 
@@ -1264,7 +1264,7 @@ _ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i11: ; preds = %54, %_ZN3fmt2
   %57 = phi i64 [ %51, %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i7 ], [ %.pre22.i10, %54 ]
   %58 = add i64 %57, %spec.select.i8
   store i64 %58, ptr %40, align 8
-  %59 = getelementptr inbounds i8, ptr %.01419.i6, i64 %spec.select.i8
+  %59 = getelementptr inbounds i8, ptr %.019.i6, i64 %spec.select.i8
   %.not.i12 = icmp eq ptr %59, %38
   br i1 %.not.i12, label %_ZN3fmt2v96detail6bufferIcE6appendIcEEvPKT_S7_.exit16, label %41, !llvm.loop !16
 

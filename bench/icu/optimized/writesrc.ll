@@ -1517,9 +1517,9 @@ for.body.preheader:                               ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.preheader, %if.end24
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end24 ]
-  %prev.029 = phi i32 [ -1, %for.body.preheader ], [ %conv2, %if.end24 ]
-  %prev2.028 = phi i32 [ -1, %for.body.preheader ], [ %prev.029, %if.end24 ]
-  %col.027 = phi i32 [ 0, %for.body.preheader ], [ %inc27, %if.end24 ]
+  %prev.028 = phi i32 [ -1, %for.body.preheader ], [ %conv2, %if.end24 ]
+  %prev2.027 = phi i32 [ -1, %for.body.preheader ], [ %prev.028, %if.end24 ]
+  %col.026 = phi i32 [ 0, %for.body.preheader ], [ %inc27, %if.end24 ]
   %arrayidx = getelementptr inbounds i8, ptr %p, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %conv2 = zext i8 %0 to i32
@@ -1527,23 +1527,23 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp3.not, label %if.end24, label %if.then4
 
 if.then4:                                         ; preds = %for.body
-  %cmp5 = icmp sgt i32 %col.027, 31
+  %cmp5 = icmp sgt i32 %col.026, 31
   br i1 %cmp5, label %if.then20, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then4
-  %cmp6 = icmp sgt i32 %col.027, 23
-  %cmp7 = icmp sgt i32 %prev2.028, 31
+  %cmp6 = icmp sgt i32 %col.026, 23
+  %cmp7 = icmp sgt i32 %prev2.027, 31
   %or.cond = select i1 %cmp6, i1 %cmp7, i1 false
-  %cmp9 = icmp eq i32 %prev.029, 0
+  %cmp9 = icmp eq i32 %prev.028, 0
   %or.cond1 = select i1 %or.cond, i1 %cmp9, i1 false
   br i1 %or.cond1, label %if.then20, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false
-  %cmp11 = icmp sgt i32 %col.027, 15
+  %cmp11 = icmp sgt i32 %col.026, 15
   br i1 %cmp11, label %land.lhs.true12, label %if.else
 
 land.lhs.true12:                                  ; preds = %lor.lhs.false10
-  %cmp15 = icmp sgt i32 %prev.029, 31
+  %cmp15 = icmp sgt i32 %prev.028, 31
   %or.cond2 = or i1 %cmp9, %cmp15
   %1 = add i8 %0, -1
   %2 = icmp ult i8 %1, 31
@@ -1559,7 +1559,7 @@ if.else:                                          ; preds = %land.lhs.true12, %l
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then20, %if.else, %for.body
-  %col.1 = phi i32 [ 0, %if.then20 ], [ %col.027, %if.else ], [ %col.027, %for.body ]
+  %col.1 = phi i32 [ 0, %if.then20 ], [ %col.026, %if.else ], [ %col.026, %for.body ]
   %cmp25 = icmp ult i8 %0, 32
   %cond = select i1 %cmp25, ptr @.str.36, ptr @.str.37
   %call26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull %cond, i32 noundef %conv2)

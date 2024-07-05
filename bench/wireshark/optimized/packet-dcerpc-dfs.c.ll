@@ -682,23 +682,23 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info1(ptr noundef %0, i32 noundef %
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_Info1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_Info1_path, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info1_path_, i32 noundef 2, ptr noundef nonnull @.str.260, i32 noundef %32) #4
-  %34 = sub i32 %33, %.032
-  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info1_path_, i32 noundef 2, ptr noundef nonnull @.str.260, i32 noundef %32) #4
+  %34 = sub i32 %33, %.0
+  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -810,29 +810,29 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info2(ptr noundef %0, i32 noundef %
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.050 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_Info2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.049 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.050 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.049 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_Info2_path, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info2_path_, i32 noundef 2, ptr noundef nonnull @.str.260, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info2_path_, i32 noundef 2, ptr noundef nonnull @.str.260, i32 noundef %32) #4
   %34 = load i32, ptr @hf_netdfs_dfs_Info2_comment, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info2_comment_, i32 noundef 2, ptr noundef nonnull @.str.262, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info2_comment_, i32 noundef 2, ptr noundef nonnull @.str.262, i32 noundef %34) #4
   %36 = load i32, ptr @hf_netdfs_dfs_Info2_state, align 4
-  %37 = tail call i32 @netdfs_dissect_bitmap_dfs_VolumeState(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %37 = tail call i32 @netdfs_dissect_bitmap_dfs_VolumeState(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
   %38 = load i32, ptr @hf_netdfs_dfs_Info2_num_stores, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
-  %40 = sub i32 %39, %.050
-  tail call void @proto_item_set_len(ptr noundef %.049, i32 noundef %40) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %40 = sub i32 %39, %.0
+  tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #4
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
@@ -938,27 +938,27 @@ define hidden i32 @netdfs_dissect_struct_dfs_StorageInfo(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_StorageInfo, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_StorageInfo_state, align 4
-  %33 = tail call i32 @netdfs_dissect_bitmap_dfs_StorageState(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @netdfs_dissect_bitmap_dfs_StorageState(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_netdfs_dfs_StorageInfo_server, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_StorageInfo_server_, i32 noundef 2, ptr noundef nonnull @.str.263, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_StorageInfo_server_, i32 noundef 2, ptr noundef nonnull @.str.263, i32 noundef %34) #4
   %36 = load i32, ptr @hf_netdfs_dfs_StorageInfo_share, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_StorageInfo_share_, i32 noundef 2, ptr noundef nonnull @.str.264, i32 noundef %36) #4
-  %38 = sub i32 %37, %.044
-  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #4
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_StorageInfo_share_, i32 noundef 2, ptr noundef nonnull @.str.264, i32 noundef %36) #4
+  %38 = sub i32 %37, %.0
+  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -1021,31 +1021,31 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info3(ptr noundef %0, i32 noundef %
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.056 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_Info3, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.055 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.056 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.055 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_Info3_path, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info3_path_, i32 noundef 2, ptr noundef nonnull @.str.260, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info3_path_, i32 noundef 2, ptr noundef nonnull @.str.260, i32 noundef %32) #4
   %34 = load i32, ptr @hf_netdfs_dfs_Info3_comment, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info3_comment_, i32 noundef 2, ptr noundef nonnull @.str.262, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info3_comment_, i32 noundef 2, ptr noundef nonnull @.str.262, i32 noundef %34) #4
   %36 = load i32, ptr @hf_netdfs_dfs_Info3_state, align 4
-  %37 = tail call i32 @netdfs_dissect_bitmap_dfs_VolumeState(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %37 = tail call i32 @netdfs_dissect_bitmap_dfs_VolumeState(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
   %38 = load i32, ptr @hf_netdfs_dfs_Info3_num_stores, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_netdfs_dfs_Info3_stores, align 4
-  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info3_stores_, i32 noundef 2, ptr noundef nonnull @.str.265, i32 noundef %40) #4
-  %42 = sub i32 %41, %.056
-  tail call void @proto_item_set_len(ptr noundef %.055, i32 noundef %42) #4
+  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info3_stores_, i32 noundef 2, ptr noundef nonnull @.str.265, i32 noundef %40) #4
+  %42 = sub i32 %41, %.0
+  tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #4
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -1108,35 +1108,35 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info4(ptr noundef %0, i32 noundef %
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.068 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not74 = icmp eq ptr %3, null
   br i1 %.not74, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.068, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_Info4, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.067 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.068 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.067 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_Info4_path, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.068, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info4_path_, i32 noundef 2, ptr noundef nonnull @.str.260, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info4_path_, i32 noundef 2, ptr noundef nonnull @.str.260, i32 noundef %32) #4
   %34 = load i32, ptr @hf_netdfs_dfs_Info4_comment, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info4_comment_, i32 noundef 2, ptr noundef nonnull @.str.262, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info4_comment_, i32 noundef 2, ptr noundef nonnull @.str.262, i32 noundef %34) #4
   %36 = load i32, ptr @hf_netdfs_dfs_Info4_state, align 4
-  %37 = tail call i32 @netdfs_dissect_bitmap_dfs_VolumeState(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %37 = tail call i32 @netdfs_dissect_bitmap_dfs_VolumeState(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
   %38 = load i32, ptr @hf_netdfs_dfs_Info4_timeout, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_netdfs_dfs_Info4_guid, align 4
-  %41 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, ptr noundef null) #4
+  %41 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, ptr noundef null) #4
   %42 = load i32, ptr @hf_netdfs_dfs_Info4_num_stores, align 4
-  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
+  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
   %44 = load i32, ptr @hf_netdfs_dfs_Info4_stores, align 4
-  %45 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info4_stores_, i32 noundef 2, ptr noundef nonnull @.str.265, i32 noundef %44) #4
-  %46 = sub i32 %45, %.068
-  tail call void @proto_item_set_len(ptr noundef %.067, i32 noundef %46) #4
+  %45 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info4_stores_, i32 noundef 2, ptr noundef nonnull @.str.265, i32 noundef %44) #4
+  %46 = sub i32 %45, %.0
+  tail call void @proto_item_set_len(ptr noundef %.068, i32 noundef %46) #4
   %47 = load ptr, ptr %9, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 96
   %49 = load i32, ptr %48, align 8
@@ -1242,37 +1242,37 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info5(ptr noundef %0, i32 noundef %
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.074 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not80 = icmp eq ptr %3, null
   br i1 %.not80, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.074, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_Info5, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.073 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.074 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.073 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_Info5_path, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.074, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info5_path_, i32 noundef 2, ptr noundef nonnull @.str.260, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info5_path_, i32 noundef 2, ptr noundef nonnull @.str.260, i32 noundef %32) #4
   %34 = load i32, ptr @hf_netdfs_dfs_Info5_comment, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info5_comment_, i32 noundef 2, ptr noundef nonnull @.str.262, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info5_comment_, i32 noundef 2, ptr noundef nonnull @.str.262, i32 noundef %34) #4
   %36 = load i32, ptr @hf_netdfs_dfs_Info5_state, align 4
-  %37 = tail call i32 @netdfs_dissect_bitmap_dfs_VolumeState(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %37 = tail call i32 @netdfs_dissect_bitmap_dfs_VolumeState(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
   %38 = load i32, ptr @hf_netdfs_dfs_Info5_timeout, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_netdfs_dfs_Info5_guid, align 4
-  %41 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, ptr noundef null) #4
+  %41 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, ptr noundef null) #4
   %42 = load i32, ptr @hf_netdfs_dfs_Info5_flags, align 4
-  %43 = tail call i32 @netdfs_dissect_bitmap_dfs_PropertyFlags(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 poison)
+  %43 = tail call i32 @netdfs_dissect_bitmap_dfs_PropertyFlags(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 poison)
   %44 = load i32, ptr @hf_netdfs_dfs_Info5_pktsize, align 4
-  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
+  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
   %46 = load i32, ptr @hf_netdfs_dfs_Info5_num_stores, align 4
-  %47 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
-  %48 = sub i32 %47, %.074
-  tail call void @proto_item_set_len(ptr noundef %.073, i32 noundef %48) #4
+  %47 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
+  %48 = sub i32 %47, %.0
+  tail call void @proto_item_set_len(ptr noundef %.074, i32 noundef %48) #4
   %49 = load ptr, ptr %9, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 96
   %51 = load i32, ptr %50, align 8
@@ -1334,30 +1334,30 @@ define hidden i32 @netdfs_dissect_struct_dfs_Target_Priority(ptr noundef %0, i32
   %or.cond = or i1 %.not38, %.not
   %13 = and i32 %1, -4
   %14 = add i32 %13, 4
-  %.036 = select i1 %or.cond, i32 %1, i32 %14
+  %.0 = select i1 %or.cond, i32 %1, i32 %14
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %17 = load i32, ptr @ett_netdfs_dfs_Target_Priority, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #4
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.035 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.036 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.035 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_netdfs_dfs_Target_Priority_target_priority_class, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #4
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %22 = load i32, ptr @hf_netdfs_dfs_Target_Priority_target_priority_rank, align 4
-  %23 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #4
+  %23 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #4
   %24 = load i32, ptr @hf_netdfs_dfs_Target_Priority_reserved, align 4
-  %25 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 noundef 0) #4
-  %26 = sub i32 %25, %.036
-  call void @proto_item_set_len(ptr noundef %.035, i32 noundef %26) #4
+  %25 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 noundef 0) #4
+  %26 = sub i32 %25, %.0
+  call void @proto_item_set_len(ptr noundef %.036, i32 noundef %26) #4
   %27 = getelementptr inbounds i8, ptr %4, i64 72
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 96
@@ -1420,25 +1420,25 @@ define hidden i32 @netdfs_dissect_struct_dfs_StorageInfo2(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_StorageInfo2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_StorageInfo2_info, align 4
-  %33 = tail call i32 @netdfs_dissect_struct_dfs_StorageInfo(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @netdfs_dissect_struct_dfs_StorageInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_netdfs_dfs_StorageInfo2_target_priority, align 4
-  %35 = tail call i32 @netdfs_dissect_struct_dfs_Target_Priority(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
-  %36 = sub i32 %35, %.038
-  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
+  %35 = tail call i32 @netdfs_dissect_struct_dfs_Target_Priority(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %36 = sub i32 %35, %.0
+  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -1501,39 +1501,39 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info6(ptr noundef %0, i32 noundef %
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.080 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not86 = icmp eq ptr %3, null
   br i1 %.not86, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.080, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_Info6, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.079 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.080 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.079 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_Info6_entry_path, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.080, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info6_entry_path_, i32 noundef 2, ptr noundef nonnull @.str.266, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info6_entry_path_, i32 noundef 2, ptr noundef nonnull @.str.266, i32 noundef %32) #4
   %34 = load i32, ptr @hf_netdfs_dfs_Info6_comment, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info6_comment_, i32 noundef 2, ptr noundef nonnull @.str.262, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info6_comment_, i32 noundef 2, ptr noundef nonnull @.str.262, i32 noundef %34) #4
   %36 = load i32, ptr @hf_netdfs_dfs_Info6_state, align 4
-  %37 = tail call i32 @netdfs_dissect_bitmap_dfs_VolumeState(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %37 = tail call i32 @netdfs_dissect_bitmap_dfs_VolumeState(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
   %38 = load i32, ptr @hf_netdfs_dfs_Info6_timeout, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_netdfs_dfs_Info6_guid, align 4
-  %41 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, ptr noundef null) #4
+  %41 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, ptr noundef null) #4
   %42 = load i32, ptr @hf_netdfs_dfs_Info6_flags, align 4
-  %43 = tail call i32 @netdfs_dissect_bitmap_dfs_PropertyFlags(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 poison)
+  %43 = tail call i32 @netdfs_dissect_bitmap_dfs_PropertyFlags(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 poison)
   %44 = load i32, ptr @hf_netdfs_dfs_Info6_pktsize, align 4
-  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
+  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
   %46 = load i32, ptr @hf_netdfs_dfs_Info6_num_stores, align 4
-  %47 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
+  %47 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
   %48 = load i32, ptr @hf_netdfs_dfs_Info6_stores, align 4
-  %49 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info6_stores_, i32 noundef 2, ptr noundef nonnull @.str.267, i32 noundef %48) #4
-  %50 = sub i32 %49, %.080
-  tail call void @proto_item_set_len(ptr noundef %.079, i32 noundef %50) #4
+  %49 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info6_stores_, i32 noundef 2, ptr noundef nonnull @.str.267, i32 noundef %48) #4
+  %50 = sub i32 %49, %.0
+  tail call void @proto_item_set_len(ptr noundef %.080, i32 noundef %50) #4
   %51 = load ptr, ptr %9, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 96
   %53 = load i32, ptr %52, align 8
@@ -1570,23 +1570,23 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info7(ptr noundef %0, i32 noundef %
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.024 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_netdfs_dfs_Info7, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_netdfs_dfs_Info7_generation_guid, align 4
-  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
-  %21 = sub i32 %20, %.024
-  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
+  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #4
+  %21 = sub i32 %20, %.0
+  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -1649,23 +1649,23 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info100(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_Info100, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_Info100_comment, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info100_comment_, i32 noundef 2, ptr noundef nonnull @.str.262, i32 noundef %32) #4
-  %34 = sub i32 %33, %.032
-  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info100_comment_, i32 noundef 2, ptr noundef nonnull @.str.262, i32 noundef %32) #4
+  %34 = sub i32 %33, %.0
+  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -1702,23 +1702,23 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info101(ptr noundef %0, i32 noundef
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.024 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_netdfs_dfs_Info101, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_netdfs_dfs_Info101_state, align 4
-  %20 = tail call i32 @netdfs_dissect_bitmap_dfs_StorageState(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
-  %21 = sub i32 %20, %.024
-  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
+  %20 = tail call i32 @netdfs_dissect_bitmap_dfs_StorageState(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %21 = sub i32 %20, %.0
+  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -1755,23 +1755,23 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info102(ptr noundef %0, i32 noundef
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.024 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_netdfs_dfs_Info102, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_netdfs_dfs_Info102_timeout, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.024
-  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.0
+  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -1808,23 +1808,23 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info103(ptr noundef %0, i32 noundef
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.024 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_netdfs_dfs_Info103, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_netdfs_dfs_Info103_flags, align 4
-  %20 = tail call i32 @netdfs_dissect_bitmap_dfs_PropertyFlags(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
-  %21 = sub i32 %20, %.024
-  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
+  %20 = tail call i32 @netdfs_dissect_bitmap_dfs_PropertyFlags(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %21 = sub i32 %20, %.0
+  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -1861,23 +1861,23 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info104(ptr noundef %0, i32 noundef
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.024 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_netdfs_dfs_Info104, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_netdfs_dfs_Info104_priority, align 4
-  %20 = tail call i32 @netdfs_dissect_struct_dfs_Target_Priority(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
-  %21 = sub i32 %20, %.024
-  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
+  %20 = tail call i32 @netdfs_dissect_struct_dfs_Target_Priority(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %21 = sub i32 %20, %.0
+  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -1940,31 +1940,31 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info105(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.056 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_Info105, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.055 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.056 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.055 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_Info105_comment, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info105_comment_, i32 noundef 2, ptr noundef nonnull @.str.262, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info105_comment_, i32 noundef 2, ptr noundef nonnull @.str.262, i32 noundef %32) #4
   %34 = load i32, ptr @hf_netdfs_dfs_Info105_state, align 4
-  %35 = tail call i32 @netdfs_dissect_bitmap_dfs_VolumeState(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = tail call i32 @netdfs_dissect_bitmap_dfs_VolumeState(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = load i32, ptr @hf_netdfs_dfs_Info105_timeout, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @hf_netdfs_dfs_Info105_property_flag_mask, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_netdfs_dfs_Info105_property_flags, align 4
-  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
-  %42 = sub i32 %41, %.056
-  tail call void @proto_item_set_len(ptr noundef %.055, i32 noundef %42) #4
+  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
+  %42 = sub i32 %41, %.0
+  tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #4
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -2001,25 +2001,25 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info106(ptr noundef %0, i32 noundef
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.030 = select i1 %or.cond, i32 %1, i32 %13
+  %.0 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_netdfs_dfs_Info106, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_netdfs_dfs_Info106_state, align 4
-  %20 = tail call i32 @netdfs_dissect_bitmap_dfs_StorageState(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @netdfs_dissect_bitmap_dfs_StorageState(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_netdfs_dfs_Info106_priority, align 4
-  %22 = tail call i32 @netdfs_dissect_struct_dfs_Target_Priority(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
-  %23 = sub i32 %22, %.030
-  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #4
+  %22 = tail call i32 @netdfs_dissect_struct_dfs_Target_Priority(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
+  %23 = sub i32 %22, %.0
+  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -2082,23 +2082,23 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info200(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_Info200, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_Info200_dom_root, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info200_dom_root_, i32 noundef 2, ptr noundef nonnull @.str.268, i32 noundef %32) #4
-  %34 = sub i32 %33, %.032
-  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info200_dom_root_, i32 noundef 2, ptr noundef nonnull @.str.268, i32 noundef %32) #4
+  %34 = sub i32 %33, %.0
+  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -2188,28 +2188,28 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info300(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.038 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %30 = load i32, ptr @ett_netdfs_dfs_Info300, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #4
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.037 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.038 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.037 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_netdfs_dfs_Info300_flavor, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #4
+  %34 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %35 = load i32, ptr @hf_netdfs_dfs_Info300_dom_root, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info300_dom_root_, i32 noundef 2, ptr noundef nonnull @.str.268, i32 noundef %35) #4
-  %37 = sub i32 %36, %.038
-  call void @proto_item_set_len(ptr noundef %.037, i32 noundef %37) #4
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info300_dom_root_, i32 noundef 2, ptr noundef nonnull @.str.268, i32 noundef %35) #4
+  %37 = sub i32 %36, %.0
+  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %37) #4
   %38 = load ptr, ptr %10, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 96
   %40 = load i32, ptr %39, align 8
@@ -2272,25 +2272,25 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray1(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_EnumArray1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_EnumArray1_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_netdfs_dfs_EnumArray1_s, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumArray1_s_, i32 noundef 2, ptr noundef nonnull @.str.269, i32 noundef %34) #4
-  %36 = sub i32 %35, %.038
-  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumArray1_s_, i32 noundef 2, ptr noundef nonnull @.str.269, i32 noundef %34) #4
+  %36 = sub i32 %35, %.0
+  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -2353,25 +2353,25 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray2(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_EnumArray2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_EnumArray2_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_netdfs_dfs_EnumArray2_s, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumArray2_s_, i32 noundef 2, ptr noundef nonnull @.str.270, i32 noundef %34) #4
-  %36 = sub i32 %35, %.038
-  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumArray2_s_, i32 noundef 2, ptr noundef nonnull @.str.270, i32 noundef %34) #4
+  %36 = sub i32 %35, %.0
+  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -2434,25 +2434,25 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray3(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_EnumArray3, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_EnumArray3_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_netdfs_dfs_EnumArray3_s, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumArray3_s_, i32 noundef 2, ptr noundef nonnull @.str.271, i32 noundef %34) #4
-  %36 = sub i32 %35, %.038
-  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumArray3_s_, i32 noundef 2, ptr noundef nonnull @.str.271, i32 noundef %34) #4
+  %36 = sub i32 %35, %.0
+  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -2515,25 +2515,25 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray4(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_EnumArray4, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_EnumArray4_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_netdfs_dfs_EnumArray4_s, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumArray4_s_, i32 noundef 2, ptr noundef nonnull @.str.272, i32 noundef %34) #4
-  %36 = sub i32 %35, %.038
-  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumArray4_s_, i32 noundef 2, ptr noundef nonnull @.str.272, i32 noundef %34) #4
+  %36 = sub i32 %35, %.0
+  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -2596,25 +2596,25 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray200(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_EnumArray200, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_EnumArray200_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_netdfs_dfs_EnumArray200_s, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumArray200_s_, i32 noundef 2, ptr noundef nonnull @.str.273, i32 noundef %34) #4
-  %36 = sub i32 %35, %.038
-  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumArray200_s_, i32 noundef 2, ptr noundef nonnull @.str.273, i32 noundef %34) #4
+  %36 = sub i32 %35, %.0
+  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -2677,25 +2677,25 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray300(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_EnumArray300, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_EnumArray300_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_netdfs_dfs_EnumArray300_s, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumArray300_s_, i32 noundef 2, ptr noundef nonnull @.str.274, i32 noundef %34) #4
-  %36 = sub i32 %35, %.038
-  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumArray300_s_, i32 noundef 2, ptr noundef nonnull @.str.274, i32 noundef %34) #4
+  %36 = sub i32 %35, %.0
+  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -2760,36 +2760,36 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumStruct(ptr noundef %0, i32 noun
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.038 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %31 = load i32, ptr @ett_netdfs_dfs_EnumStruct, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #4
   br label %33
 
 33:                                               ; preds = %29, %28
-  %.037 = phi ptr [ %30, %29 ], [ null, %28 ]
-  %.0 = phi ptr [ %32, %29 ], [ null, %28 ]
+  %.038 = phi ptr [ %30, %29 ], [ null, %28 ]
+  %.037 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_netdfs_dfs_EnumStruct_level, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_netdfs_dfs_EnumStruct_e, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.0, null
+  %.not.i.i = icmp eq ptr %.037, null
   br i1 %.not.i.i, label %40, label %37
 
 37:                                               ; preds = %33
   %38 = load i32, ptr @ett_netdfs_dfs_EnumInfo, align 4
-  %39 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull @.str.275) #4
+  %39 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.037, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull @.str.275) #4
   br label %40
 
 40:                                               ; preds = %37, %33
-  %.0.i.i = phi ptr [ %39, %37 ], [ null, %33 ]
-  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
+  %.057.i.i = phi ptr [ %39, %37 ], [ null, %33 ]
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.057.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
   %42 = load ptr, ptr %11, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
@@ -2823,7 +2823,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumStruct(ptr noundef %0, i32 noun
   br label %58
 
 58:                                               ; preds = %55, %53, %50, %48
-  %.057.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
+  %.0.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
   %59 = load i32, ptr %10, align 4
   switch i32 %59, label %netdfs_dissect_element_dfs_EnumStruct_e.exit [
     i32 1, label %60
@@ -2836,43 +2836,43 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumStruct(ptr noundef %0, i32 noun
 
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_netdfs_dfs_EnumInfo_info1, align 4
-  %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.057.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info1_, i32 noundef 2, ptr noundef nonnull @.str.276, i32 noundef %61) #4
+  %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.057.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info1_, i32 noundef 2, ptr noundef nonnull @.str.276, i32 noundef %61) #4
   br label %netdfs_dissect_element_dfs_EnumStruct_e.exit
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @hf_netdfs_dfs_EnumInfo_info2, align 4
-  %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.057.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info2_, i32 noundef 2, ptr noundef nonnull @.str.277, i32 noundef %64) #4
+  %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.057.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info2_, i32 noundef 2, ptr noundef nonnull @.str.277, i32 noundef %64) #4
   br label %netdfs_dissect_element_dfs_EnumStruct_e.exit
 
 66:                                               ; preds = %58
   %67 = load i32, ptr @hf_netdfs_dfs_EnumInfo_info3, align 4
-  %68 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.057.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info3_, i32 noundef 2, ptr noundef nonnull @.str.278, i32 noundef %67) #4
+  %68 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.057.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info3_, i32 noundef 2, ptr noundef nonnull @.str.278, i32 noundef %67) #4
   br label %netdfs_dissect_element_dfs_EnumStruct_e.exit
 
 69:                                               ; preds = %58
   %70 = load i32, ptr @hf_netdfs_dfs_EnumInfo_info4, align 4
-  %71 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.057.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info4_, i32 noundef 2, ptr noundef nonnull @.str.279, i32 noundef %70) #4
+  %71 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.057.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info4_, i32 noundef 2, ptr noundef nonnull @.str.279, i32 noundef %70) #4
   br label %netdfs_dissect_element_dfs_EnumStruct_e.exit
 
 72:                                               ; preds = %58
   %73 = load i32, ptr @hf_netdfs_dfs_EnumInfo_info200, align 4
-  %74 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.057.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info200_, i32 noundef 2, ptr noundef nonnull @.str.280, i32 noundef %73) #4
+  %74 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.057.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info200_, i32 noundef 2, ptr noundef nonnull @.str.280, i32 noundef %73) #4
   br label %netdfs_dissect_element_dfs_EnumStruct_e.exit
 
 75:                                               ; preds = %58
   %76 = load i32, ptr @hf_netdfs_dfs_EnumInfo_info300, align 4
-  %77 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.057.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info300_, i32 noundef 2, ptr noundef nonnull @.str.281, i32 noundef %76) #4
+  %77 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.057.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_EnumInfo_info300_, i32 noundef 2, ptr noundef nonnull @.str.281, i32 noundef %76) #4
   br label %netdfs_dissect_element_dfs_EnumStruct_e.exit
 
 netdfs_dissect_element_dfs_EnumStruct_e.exit:     ; preds = %58, %60, %63, %66, %69, %72, %75
-  %.1.i.i = phi i32 [ %.057.i.i, %58 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %58 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ]
   %78 = load ptr, ptr %9, align 8
   %79 = sub i32 %.1.i.i, %35
   call void @proto_item_set_len(ptr noundef %78, i32 noundef %79) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %80 = sub i32 %.1.i.i, %.038
-  call void @proto_item_set_len(ptr noundef %.037, i32 noundef %80) #4
+  %80 = sub i32 %.1.i.i, %.0
+  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %80) #4
   %81 = load ptr, ptr %11, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 96
   %83 = load i32, ptr %82, align 8
@@ -2934,25 +2934,25 @@ define hidden i32 @netdfs_dissect_struct_dfs_UnknownStruct(ptr noundef %0, i32 n
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_netdfs_dfs_UnknownStruct, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_netdfs_dfs_UnknownStruct_unknown1, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_netdfs_dfs_UnknownStruct_unknown2, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_UnknownStruct_unknown2_, i32 noundef 2, ptr noundef nonnull @.str.282, i32 noundef %34) #4
-  %36 = sub i32 %35, %.038
-  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_UnknownStruct_unknown2_, i32 noundef 2, ptr noundef nonnull @.str.282, i32 noundef %34) #4
+  %36 = sub i32 %35, %.0
+  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4452,8 +4452,8 @@ define internal fastcc i32 @netdfs_dissect_dfs_Info(ptr noundef %0, i32 noundef 
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.0 = phi ptr [ %12, %10 ], [ null, %7 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #4
+  %.0111 = phi ptr [ %12, %10 ], [ null, %7 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0111, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #4
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -4488,7 +4488,7 @@ define internal fastcc i32 @netdfs_dissect_dfs_Info(ptr noundef %0, i32 noundef 
   br label %32
 
 32:                                               ; preds = %27, %29, %22, %24
-  %.0111 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.0 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %9, align 4
   switch i32 %33, label %79 [
     i32 0, label %34
@@ -4510,81 +4510,81 @@ define internal fastcc i32 @netdfs_dissect_dfs_Info(ptr noundef %0, i32 noundef 
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_netdfs_dfs_Info_info0, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info0_, i32 noundef 2, ptr noundef nonnull @.str.342, i32 noundef %35) #4
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info0_, i32 noundef 2, ptr noundef nonnull @.str.342, i32 noundef %35) #4
   br label %79
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_netdfs_dfs_Info_info1, align 4
-  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info1_, i32 noundef 2, ptr noundef nonnull @.str.343, i32 noundef %38) #4
+  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info1_, i32 noundef 2, ptr noundef nonnull @.str.343, i32 noundef %38) #4
   br label %79
 
 40:                                               ; preds = %32
   %41 = load i32, ptr @hf_netdfs_dfs_Info_info2, align 4
-  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info2_, i32 noundef 2, ptr noundef nonnull @.str.344, i32 noundef %41) #4
+  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info2_, i32 noundef 2, ptr noundef nonnull @.str.344, i32 noundef %41) #4
   br label %79
 
 43:                                               ; preds = %32
   %44 = load i32, ptr @hf_netdfs_dfs_Info_info3, align 4
-  %45 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info3_, i32 noundef 2, ptr noundef nonnull @.str.345, i32 noundef %44) #4
+  %45 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info3_, i32 noundef 2, ptr noundef nonnull @.str.345, i32 noundef %44) #4
   br label %79
 
 46:                                               ; preds = %32
   %47 = load i32, ptr @hf_netdfs_dfs_Info_info4, align 4
-  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info4_, i32 noundef 2, ptr noundef nonnull @.str.346, i32 noundef %47) #4
+  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info4_, i32 noundef 2, ptr noundef nonnull @.str.346, i32 noundef %47) #4
   br label %79
 
 49:                                               ; preds = %32
   %50 = load i32, ptr @hf_netdfs_dfs_Info_info5, align 4
-  %51 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info5_, i32 noundef 2, ptr noundef nonnull @.str.347, i32 noundef %50) #4
+  %51 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info5_, i32 noundef 2, ptr noundef nonnull @.str.347, i32 noundef %50) #4
   br label %79
 
 52:                                               ; preds = %32
   %53 = load i32, ptr @hf_netdfs_dfs_Info_info6, align 4
-  %54 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info6_, i32 noundef 2, ptr noundef nonnull @.str.348, i32 noundef %53) #4
+  %54 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info6_, i32 noundef 2, ptr noundef nonnull @.str.348, i32 noundef %53) #4
   br label %79
 
 55:                                               ; preds = %32
   %56 = load i32, ptr @hf_netdfs_dfs_Info_info7, align 4
-  %57 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info7_, i32 noundef 2, ptr noundef nonnull @.str.349, i32 noundef %56) #4
+  %57 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info7_, i32 noundef 2, ptr noundef nonnull @.str.349, i32 noundef %56) #4
   br label %79
 
 58:                                               ; preds = %32
   %59 = load i32, ptr @hf_netdfs_dfs_Info_info100, align 4
-  %60 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info100_, i32 noundef 2, ptr noundef nonnull @.str.350, i32 noundef %59) #4
+  %60 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info100_, i32 noundef 2, ptr noundef nonnull @.str.350, i32 noundef %59) #4
   br label %79
 
 61:                                               ; preds = %32
   %62 = load i32, ptr @hf_netdfs_dfs_Info_info101, align 4
-  %63 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info101_, i32 noundef 2, ptr noundef nonnull @.str.351, i32 noundef %62) #4
+  %63 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info101_, i32 noundef 2, ptr noundef nonnull @.str.351, i32 noundef %62) #4
   br label %79
 
 64:                                               ; preds = %32
   %65 = load i32, ptr @hf_netdfs_dfs_Info_info102, align 4
-  %66 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info102_, i32 noundef 2, ptr noundef nonnull @.str.352, i32 noundef %65) #4
+  %66 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info102_, i32 noundef 2, ptr noundef nonnull @.str.352, i32 noundef %65) #4
   br label %79
 
 67:                                               ; preds = %32
   %68 = load i32, ptr @hf_netdfs_dfs_Info_info103, align 4
-  %69 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info103_, i32 noundef 2, ptr noundef nonnull @.str.353, i32 noundef %68) #4
+  %69 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info103_, i32 noundef 2, ptr noundef nonnull @.str.353, i32 noundef %68) #4
   br label %79
 
 70:                                               ; preds = %32
   %71 = load i32, ptr @hf_netdfs_dfs_Info_info104, align 4
-  %72 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info104_, i32 noundef 2, ptr noundef nonnull @.str.354, i32 noundef %71) #4
+  %72 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info104_, i32 noundef 2, ptr noundef nonnull @.str.354, i32 noundef %71) #4
   br label %79
 
 73:                                               ; preds = %32
   %74 = load i32, ptr @hf_netdfs_dfs_Info_info105, align 4
-  %75 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info105_, i32 noundef 2, ptr noundef nonnull @.str.355, i32 noundef %74) #4
+  %75 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info105_, i32 noundef 2, ptr noundef nonnull @.str.355, i32 noundef %74) #4
   br label %79
 
 76:                                               ; preds = %32
   %77 = load i32, ptr @hf_netdfs_dfs_Info_info106, align 4
-  %78 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info106_, i32 noundef 2, ptr noundef nonnull @.str.356, i32 noundef %77) #4
+  %78 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netdfs_dissect_element_dfs_Info_info106_, i32 noundef 2, ptr noundef nonnull @.str.356, i32 noundef %77) #4
   br label %79
 
 79:                                               ; preds = %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %32
-  %.1 = phi i32 [ %.0111, %32 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.1 = phi i32 [ %.0, %32 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
   %80 = load ptr, ptr %8, align 8
   %81 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %80, i32 noundef %81) #4

@@ -71,20 +71,20 @@ define noalias noundef ptr @Extra_UnateInfoCreateFromZdd(ptr noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %.04653 = phi ptr [ %26, %.lr.ph ], [ %2, %3 ]
-  %15 = load i32, ptr %.04653, align 8
+  %.054 = phi ptr [ %26, %.lr.ph ], [ %2, %3 ]
+  %15 = load i32, ptr %.054, align 8
   %16 = getelementptr inbounds %struct.Extra_UnateVar_t_, ptr %calloc7.i, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %15, 1073741823
   %19 = and i32 %17, -1073741824
   %20 = or disjoint i32 %19, %18
   store i32 %20, ptr %16, align 4
-  %21 = load i32, ptr %.04653, align 8
+  %21 = load i32, ptr %.054, align 8
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds i32, ptr %calloc, i64 %22
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %24, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %.04653, i64 16
+  %25 = getelementptr inbounds i8, ptr %.054, i64 16
   %26 = load ptr, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq ptr %26, %14
@@ -193,8 +193,8 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
-  %.0135172 = phi ptr [ %32, %.lr.ph ], [ %2, %19 ]
-  %31 = getelementptr inbounds i8, ptr %.0135172, i64 16
+  %.0136172 = phi ptr [ %32, %.lr.ph ], [ %2, %19 ]
+  %31 = getelementptr inbounds i8, ptr %.0136172, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 8
   %34 = zext i32 %33 to i64
@@ -204,7 +204,7 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
-  %.0135.lcssa = phi ptr [ %2, %19 ], [ %32, %.lr.ph ]
+  %.0136.lcssa = phi ptr [ %2, %19 ], [ %32, %.lr.ph ]
   %.not154 = icmp eq ptr %6, %1
   %38 = getelementptr inbounds i8, ptr %6, i64 16
   %39 = getelementptr inbounds i8, ptr %6, i64 24
@@ -226,11 +226,11 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %51
 
 51:                                               ; preds = %49, %41
-  %.0137 = phi ptr [ %44, %41 ], [ %40, %49 ]
-  %.0136 = phi ptr [ %48, %41 ], [ %50, %49 ]
-  %52 = getelementptr inbounds i8, ptr %.0135.lcssa, i64 16
+  %.0138 = phi ptr [ %44, %41 ], [ %40, %49 ]
+  %.0137 = phi ptr [ %48, %41 ], [ %50, %49 ]
+  %52 = getelementptr inbounds i8, ptr %.0136.lcssa, i64 16
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %.0137, ptr noundef %53)
+  %54 = tail call ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %.0138, ptr noundef %53)
   %55 = icmp eq ptr %54, null
   br i1 %55, label %187, label %56
 
@@ -249,7 +249,7 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 
 66:                                               ; preds = %56
   %67 = load ptr, ptr %52, align 8
-  %68 = tail call ptr @extraZddUnateInfoCompute(ptr noundef nonnull %0, ptr noundef %.0136, ptr noundef %67)
+  %68 = tail call ptr @extraZddUnateInfoCompute(ptr noundef nonnull %0, ptr noundef %.0137, ptr noundef %67)
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %71
 
@@ -287,13 +287,13 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %88
 
 88:                                               ; preds = %56, %81
-  %.0138 = phi ptr [ %78, %81 ], [ %54, %56 ]
-  %89 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0137, ptr noundef %.0136) #9
+  %.0139 = phi ptr [ %78, %81 ], [ %54, %56 ]
+  %89 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0138, ptr noundef %.0137) #9
   %.not155 = icmp eq i32 %89, 0
   br i1 %.not155, label %90, label %.thread
 
 90:                                               ; preds = %88
-  %91 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0136, ptr noundef %.0137) #9
+  %91 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0137, ptr noundef %.0138) #9
   %.not156.not = icmp eq i32 %91, 0
   br i1 %.not156.not, label %118, label %.thread
 
@@ -310,7 +310,7 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %99, label %100, label %101
 
 100:                                              ; preds = %.thread
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0138) #9
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0139) #9
   br label %187
 
 101:                                              ; preds = %.thread
@@ -321,12 +321,12 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %106 = load i32, ptr %105, align 4
   %107 = add i32 %106, 1
   store i32 %107, ptr %105, align 4
-  %108 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef nonnull %.0138, ptr noundef nonnull %98) #9
+  %108 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef nonnull %.0139, ptr noundef nonnull %98) #9
   %109 = icmp eq ptr %108, null
   br i1 %109, label %110, label %111
 
 110:                                              ; preds = %101
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0138) #9
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0139) #9
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %98) #9
   br label %187
 
@@ -338,12 +338,12 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %116 = load i32, ptr %115, align 4
   %117 = add i32 %116, 1
   store i32 %117, ptr %115, align 4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0138) #9
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0139) #9
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %98) #9
   br label %118
 
 118:                                              ; preds = %111, %90
-  %.1139 = phi ptr [ %108, %111 ], [ %.0138, %90 ]
+  %.1140 = phi ptr [ %108, %111 ], [ %.0139, %90 ]
   %119 = load ptr, ptr %20, align 8
   %120 = load i32, ptr %2, align 8
   %121 = zext i32 %120 to i64
@@ -353,7 +353,7 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %124, label %.lr.ph176, label %.._crit_edge177_crit_edge
 
 .._crit_edge177_crit_edge:                        ; preds = %118
-  %.pre = ptrtoint ptr %.1139 to i64
+  %.pre = ptrtoint ptr %.1140 to i64
   %.pre196 = and i64 %.pre, -2
   %.pre198 = inttoptr i64 %.pre196 to ptr
   br label %._crit_edge177
@@ -365,7 +365,7 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 126:                                              ; preds = %.lr.ph176, %169
   %127 = phi i32 [ %120, %.lr.ph176 ], [ %179, %169 ]
   %.1174 = phi ptr [ %2, %.lr.ph176 ], [ %177, %169 ]
-  %.2173 = phi ptr [ %.1139, %.lr.ph176 ], [ %166, %169 ]
+  %.2173 = phi ptr [ %.1140, %.lr.ph176 ], [ %166, %169 ]
   %128 = shl i32 %127, 1
   %129 = or disjoint i32 %128, 1
   %130 = load ptr, ptr %125, align 8
@@ -456,7 +456,7 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ._crit_edge177:                                   ; preds = %169, %.._crit_edge177_crit_edge
   %.pre-phi199 = phi ptr [ %.pre198, %.._crit_edge177_crit_edge ], [ %172, %169 ]
-  %.2.lcssa = phi ptr [ %.1139, %.._crit_edge177_crit_edge ], [ %166, %169 ]
+  %.2.lcssa = phi ptr [ %.1140, %.._crit_edge177_crit_edge ], [ %166, %169 ]
   %184 = getelementptr inbounds i8, ptr %.pre-phi199, i64 4
   %185 = load i32, ptr %184, align 4
   %186 = add i32 %185, -1
@@ -465,8 +465,8 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %187
 
 187:                                              ; preds = %51, %17, %._crit_edge177, %168, %158, %144, %134, %110, %100, %80, %70, %15, %12
-  %.0140 = phi ptr [ %14, %12 ], [ %16, %15 ], [ null, %100 ], [ null, %110 ], [ null, %134 ], [ null, %144 ], [ null, %158 ], [ null, %168 ], [ %.2.lcssa, %._crit_edge177 ], [ null, %70 ], [ null, %80 ], [ %18, %17 ], [ null, %51 ]
-  ret ptr %.0140
+  %.0134 = phi ptr [ %14, %12 ], [ %16, %15 ], [ null, %100 ], [ null, %110 ], [ null, %134 ], [ null, %144 ], [ null, %158 ], [ null, %168 ], [ %.2.lcssa, %._crit_edge177 ], [ null, %70 ], [ null, %80 ], [ %18, %17 ], [ null, %51 ]
+  ret ptr %.0134
 }
 
 ; Function Attrs: nounwind uwtable
@@ -717,10 +717,10 @@ define noalias noundef ptr @Extra_UnateComputeSlow(ptr noundef %0, ptr noundef %
 14:                                               ; preds = %.lr.ph, %26
   %15 = phi i32 [ 0, %.lr.ph ], [ %29, %26 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.02932 = phi ptr [ %3, %.lr.ph ], [ %31, %26 ]
-  %16 = load i32, ptr %.02932, align 8
+  %.033 = phi ptr [ %3, %.lr.ph ], [ %31, %26 ]
+  %16 = load i32, ptr %.033, align 8
   %17 = tail call i32 @Extra_bddCheckUnateNaive(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %16)
-  %18 = load i32, ptr %.02932, align 8
+  %18 = load i32, ptr %.033, align 8
   %19 = getelementptr inbounds %struct.Extra_UnateVar_t_, ptr %calloc7.i, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %18, 1073741823
@@ -746,7 +746,7 @@ define noalias noundef ptr @Extra_UnateComputeSlow(ptr noundef %0, ptr noundef %
   %28 = zext i1 %27 to i32
   %29 = add nuw nsw i32 %15, %28
   store i32 %29, ptr %13, align 8
-  %30 = getelementptr inbounds i8, ptr %.02932, i64 16
+  %30 = getelementptr inbounds i8, ptr %.033, i64 16
   %31 = load ptr, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load ptr, ptr %11, align 8

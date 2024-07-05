@@ -1401,8 +1401,8 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1906cfb87626518dE
   resume { ptr, i32 } %15
 
 "_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E.exit": ; preds = %5, %16
-  %.sroa.5.sroa.0.0.i = phi ptr [ %18, %16 ], [ undef, %5 ]
   %.sroa.02.0.i = phi i64 [ %17, %16 ], [ -9223372036854775808, %5 ]
+  %.sroa.5.sroa.0.0.i = phi ptr [ %18, %16 ], [ undef, %5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.05.i, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !234
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !234
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.05.i, i64 24, i1 false), !noalias !238

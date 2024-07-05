@@ -42,57 +42,57 @@ define noundef ptr @realpath(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %79
 
 19:                                               ; preds = %14, %12
-  %.055 = phi ptr [ %15, %14 ], [ %1, %12 ]
-  %.053 = phi ptr [ %15, %14 ], [ null, %12 ]
+  %.056 = phi ptr [ %15, %14 ], [ %1, %12 ]
+  %.054 = phi ptr [ %15, %14 ], [ null, %12 ]
   %.not = icmp eq i8 %8, 47
   br i1 %.not, label %26, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call ptr @getcwd(ptr noundef nonnull %.055, i64 noundef 256) #7
+  %21 = tail call ptr @getcwd(ptr noundef nonnull %.056, i64 noundef 256) #7
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit71, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.055) #7
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.056) #7
   %25 = icmp ugt i64 %24, 1
   %spec.select.idx = select i1 %25, i64 %24, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %.055, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds i8, ptr %.056, i64 %spec.select.idx
   br label %26
 
 26:                                               ; preds = %23, %19
-  %.0 = phi ptr [ %.055, %19 ], [ %spec.select, %23 ]
-  %27 = ptrtoint ptr %.055 to i64
+  %.053 = phi ptr [ %.056, %19 ], [ %spec.select, %23 ]
+  %27 = ptrtoint ptr %.056 to i64
   %28 = getelementptr inbounds i8, ptr %3, i64 8
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %.outer.outer.backedge, %26
-  %.056.ph.ph = phi ptr [ %0, %26 ], [ %38, %.outer.outer.backedge ]
-  %.1.ph.ph = phi ptr [ %.0, %26 ], [ %.1.ph.ph.be, %.outer.outer.backedge ]
-  %.not68 = icmp eq ptr %.1.ph.ph, %.055
+  %.057.ph.ph = phi ptr [ %0, %26 ], [ %38, %.outer.outer.backedge ]
+  %.1.ph.ph = phi ptr [ %.053, %26 ], [ %.1.ph.ph.be, %.outer.outer.backedge ]
+  %.not68 = icmp eq ptr %.1.ph.ph, %.056
   br label %.outer
 
 .outer:                                           ; preds = %.outer.outer, %51
-  %.056.ph = phi ptr [ %38, %51 ], [ %.056.ph.ph, %.outer.outer ]
+  %.057.ph = phi ptr [ %38, %51 ], [ %.057.ph.ph, %.outer.outer ]
   br label %29
 
 29:                                               ; preds = %.backedge, %.outer
-  %.157 = phi ptr [ %.056.ph, %.outer ], [ %.157.be, %.backedge ]
-  %30 = load i8, ptr %.157, align 1
+  %.158 = phi ptr [ %.057.ph, %.outer ], [ %.158.be, %.backedge ]
+  %30 = load i8, ptr %.158, align 1
   switch i8 %30, label %.preheader70 [
     i8 47, label %31
     i8 0, label %33
   ]
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %.157, i64 1
+  %32 = getelementptr inbounds i8, ptr %.158, i64 1
   br label %.backedge
 
 .backedge:                                        ; preds = %31, %41
-  %.157.be = phi ptr [ %32, %31 ], [ %38, %41 ]
+  %.158.be = phi ptr [ %32, %31 ], [ %38, %41 ]
   br label %29, !llvm.loop !6
 
 33:                                               ; preds = %29
-  %34 = icmp eq ptr %.1.ph.ph, %.055
+  %34 = icmp eq ptr %.1.ph.ph, %.056
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
@@ -106,8 +106,8 @@ define noundef ptr @realpath(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %79
 
 .preheader70:                                     ; preds = %29, %.preheader70
-  %.054 = phi ptr [ %38, %.preheader70 ], [ %.157, %29 ]
-  %38 = getelementptr inbounds i8, ptr %.054, i64 1
+  %.055 = phi ptr [ %38, %.preheader70 ], [ %.158, %29 ]
+  %38 = getelementptr inbounds i8, ptr %.055, i64 1
   %39 = load i8, ptr %38, align 1
   switch i8 %39, label %.preheader70 [
     i8 47, label %.critedge
@@ -120,13 +120,13 @@ define noundef ptr @realpath(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 41:                                               ; preds = %.critedge
   %42 = ptrtoint ptr %38 to i64
-  %43 = ptrtoint ptr %.157 to i64
+  %43 = ptrtoint ptr %.158 to i64
   %44 = sub i64 %42, %43
   %45 = icmp eq i64 %44, 1
   br i1 %45, label %.backedge, label %46
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %.157, i64 1
+  %47 = getelementptr inbounds i8, ptr %.158, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 46
   %50 = icmp eq i64 %44, 2
@@ -144,7 +144,7 @@ define noundef ptr @realpath(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not69, label %.outer.outer.backedge, label %.preheader, !llvm.loop !8
 
 .loopexit72.loopexit:                             ; preds = %.critedge
-  %.pre = ptrtoint ptr %.157 to i64
+  %.pre = ptrtoint ptr %.158 to i64
   br label %.loopexit72
 
 .loopexit72:                                      ; preds = %46, %.loopexit72.loopexit
@@ -163,13 +163,13 @@ define noundef ptr @realpath(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %62 = getelementptr inbounds i8, ptr %.1.ph.ph, i64 1
   %63 = ptrtoint ptr %38 to i64
   %64 = sub i64 %63, %.pre-phi
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %.157, i64 %64, i1 false)
-  %65 = getelementptr inbounds i8, ptr %.054, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %.158, i64 %64, i1 false)
+  %65 = getelementptr inbounds i8, ptr %.055, i64 2
   %66 = ptrtoint ptr %65 to i64
   %67 = sub i64 %66, %.pre-phi
   %68 = getelementptr inbounds i8, ptr %.1.ph.ph, i64 %67
   store i8 0, ptr %68, align 1
-  %69 = call i32 @lstat(ptr noundef nonnull %.055, ptr noundef nonnull %3)
+  %69 = call i32 @lstat(ptr noundef nonnull %.056, ptr noundef nonnull %3)
   %70 = icmp eq i32 %69, -1
   br i1 %70, label %.loopexit71, label %71
 
@@ -195,12 +195,12 @@ define noundef ptr @realpath(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %.loopexit71
 
 .loopexit71:                                      ; preds = %61, %.loopexit71.sink.split, %20
-  tail call void @free(ptr noundef %.053)
+  tail call void @free(ptr noundef %.054)
   br label %79
 
 79:                                               ; preds = %.loopexit71, %37, %17, %10, %5
-  %.058 = phi ptr [ null, %5 ], [ null, %10 ], [ null, %17 ], [ null, %.loopexit71 ], [ %.055, %37 ]
-  ret ptr %.058
+  %.0 = phi ptr [ null, %5 ], [ null, %10 ], [ null, %17 ], [ null, %.loopexit71 ], [ %.056, %37 ]
+  ret ptr %.0
 }
 
 declare ptr @__errno() local_unnamed_addr #1

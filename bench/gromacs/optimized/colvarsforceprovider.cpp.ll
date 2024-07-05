@@ -454,20 +454,20 @@ define void @_ZN3gmx20ColvarsForceProvider15calculateForcesERKNS_18ForceProvider
   br i1 %70, label %.lr.ph, label %.preheader, !llvm.loop !5
 
 71:                                               ; preds = %.lr.ph80, %71
-  %.05379 = phi i64 [ 0, %.lr.ph80 ], [ %81, %71 ]
+  %.05279 = phi i64 [ 0, %.lr.ph80 ], [ %81, %71 ]
   %72 = load ptr, ptr %16, align 8
-  %73 = getelementptr inbounds [3 x float], ptr %72, i64 %.05379
+  %73 = getelementptr inbounds [3 x float], ptr %72, i64 %.05279
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   %75 = load float, ptr %74, align 4
   %76 = fpext float %75 to double
   %77 = load ptr, ptr %56, align 8
-  %78 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %77, i64 %.05379
+  %78 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %77, i64 %.05279
   %79 = load <2 x float>, ptr %73, align 4
   %80 = fpext <2 x float> %79 to <2 x double>
   store <2 x double> %80, ptr %78, align 8
   %.sroa.370.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 16
   store double %76, ptr %.sroa.370.0..sroa_idx, align 8
-  %81 = add nuw i64 %.05379, 1
+  %81 = add nuw i64 %.05279, 1
   %82 = load ptr, ptr %53, align 8
   %83 = load ptr, ptr %52, align 8
   %84 = ptrtoint ptr %82 to i64
@@ -652,10 +652,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 184:                                              ; preds = %.lr.ph90, %_ZN3gmx20ColvarsForceProvider13addVirialTermEPA3_fRA3_KfRKNS_11BasicVectorIfEE.exit
   %185 = phi ptr [ %.pre, %.lr.ph90 ], [ %204, %_ZN3gmx20ColvarsForceProvider13addVirialTermEPA3_fRA3_KfRKNS_11BasicVectorIfEE.exit ]
-  %.05288 = phi i64 [ 0, %.lr.ph90 ], [ %224, %_ZN3gmx20ColvarsForceProvider13addVirialTermEPA3_fRA3_KfRKNS_11BasicVectorIfEE.exit ]
-  %186 = getelementptr inbounds i32, ptr %172, i64 %.05288
+  %.05388 = phi i64 [ 0, %.lr.ph90 ], [ %224, %_ZN3gmx20ColvarsForceProvider13addVirialTermEPA3_fRA3_KfRKNS_11BasicVectorIfEE.exit ]
+  %186 = getelementptr inbounds i32, ptr %172, i64 %.05388
   %187 = load i32, ptr %186, align 4
-  %188 = getelementptr inbounds i32, ptr %176, i64 %.05288
+  %188 = getelementptr inbounds i32, ptr %176, i64 %.05388
   %189 = load i32, ptr %188, align 4
   %190 = sext i32 %187 to i64
   %191 = load i64, ptr %169, align 8
@@ -712,7 +712,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %exitcond17.not.i, label %_ZN3gmx20ColvarsForceProvider13addVirialTermEPA3_fRA3_KfRKNS_11BasicVectorIfEE.exit, label %.preheader.i, !llvm.loop !11
 
 _ZN3gmx20ColvarsForceProvider13addVirialTermEPA3_fRA3_KfRKNS_11BasicVectorIfEE.exit: ; preds = %223
-  %224 = add nuw nsw i64 %.05288, 1
+  %224 = add nuw nsw i64 %.05388, 1
   %exitcond.not = icmp eq i64 %224, %180
   br i1 %exitcond.not, label %._crit_edge91, label %184, !llvm.loop !12
 
@@ -3119,9 +3119,9 @@ _ZNK3gmx3Any6isTypeINS_17KeyValueTreeArrayEEEbv.exit.i.i.i54: ; preds = %138
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %171
-  %.sroa.075.098 = phi ptr [ %176, %171 ], [ %149, %.lr.ph.preheader ]
-  %.sroa.078.097 = phi ptr [ %175, %171 ], [ %152, %.lr.ph.preheader ]
-  %153 = load ptr, ptr %.sroa.075.098, align 8
+  %.sroa.078.098 = phi ptr [ %175, %171 ], [ %152, %.lr.ph.preheader ]
+  %.sroa.075.097 = phi ptr [ %176, %171 ], [ %149, %.lr.ph.preheader ]
+  %153 = load ptr, ptr %.sroa.075.097, align 8
   %.not.i.i.i.i.i.i58 = icmp eq ptr %153, null
   br i1 %.not.i.i.i.i.i.i58, label %170, label %154
 
@@ -3161,12 +3161,12 @@ _ZNK3gmx3Any6isTypeIhEEbv.exit.i.i.i:             ; preds = %163
   unreachable
 
 171:                                              ; preds = %_ZNK3gmx3Any6isTypeIhEEbv.exit.i.i.i, %.noexc61
-  %172 = load ptr, ptr %.sroa.075.098, align 8
+  %172 = load ptr, ptr %.sroa.075.097, align 8
   %173 = getelementptr inbounds i8, ptr %172, i64 8
   %174 = load i8, ptr %173, align 1
-  store i8 %174, ptr %.sroa.078.097, align 1
-  %175 = getelementptr inbounds i8, ptr %.sroa.078.097, i64 1
-  %176 = getelementptr inbounds i8, ptr %.sroa.075.098, i64 8
+  store i8 %174, ptr %.sroa.078.098, align 1
+  %175 = getelementptr inbounds i8, ptr %.sroa.078.098, i64 1
+  %176 = getelementptr inbounds i8, ptr %.sroa.075.097, i64 8
   %.not88 = icmp eq ptr %176, %151
   br i1 %.not88, label %._crit_edge100, label %.lr.ph
 

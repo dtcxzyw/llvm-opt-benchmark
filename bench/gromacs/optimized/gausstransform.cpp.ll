@@ -325,13 +325,13 @@ define void @_ZN3gmx19GaussianOn1DLattice4Impl6spreadEdf(ptr nocapture noundef n
 
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %.02225 = phi double [ %25, %.lr.ph ], [ %51, %30 ]
+  %.026 = phi double [ %25, %.lr.ph ], [ %51, %30 ]
   %31 = load ptr, ptr %29, align 8
   %32 = getelementptr inbounds float, ptr %31, i64 %indvars.iv
   %33 = load float, ptr %32, align 4
   %34 = fpext float %33 to double
   %35 = fmul double %15, %34
-  %36 = fmul double %.02225, %35
+  %36 = fmul double %.026, %35
   %37 = fptrunc double %36 to float
   %38 = load i32, ptr %0, align 8
   %39 = trunc nuw nsw i64 %indvars.iv to i32
@@ -340,7 +340,7 @@ define void @_ZN3gmx19GaussianOn1DLattice4Impl6spreadEdf(ptr nocapture noundef n
   %42 = load ptr, ptr %17, align 8
   %43 = getelementptr inbounds float, ptr %42, i64 %41
   store float %37, ptr %43, align 4
-  %44 = fdiv double %35, %.02225
+  %44 = fdiv double %35, %.026
   %45 = fptrunc double %44 to float
   %46 = load i32, ptr %0, align 8
   %47 = sub nsw i32 %46, %39
@@ -348,7 +348,7 @@ define void @_ZN3gmx19GaussianOn1DLattice4Impl6spreadEdf(ptr nocapture noundef n
   %49 = load ptr, ptr %17, align 8
   %50 = getelementptr inbounds float, ptr %49, i64 %48
   store float %45, ptr %50, align 4
-  %51 = fmul double %25, %.02225
+  %51 = fmul double %25, %.026
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %26, align 4
   %53 = sext i32 %52 to i64
@@ -357,9 +357,9 @@ define void @_ZN3gmx19GaussianOn1DLattice4Impl6spreadEdf(ptr nocapture noundef n
 
 ._crit_edge:                                      ; preds = %30, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %53, %30 ]
-  %.022.lcssa = phi double [ %25, %.._crit_edge_crit_edge ], [ %51, %30 ]
+  %.0.lcssa = phi double [ %25, %.._crit_edge_crit_edge ], [ %51, %30 ]
   %.lcssa = phi i32 [ %27, %.._crit_edge_crit_edge ], [ %52, %30 ]
-  %55 = fdiv double %15, %.022.lcssa
+  %55 = fdiv double %15, %.0.lcssa
   %56 = getelementptr inbounds i8, ptr %0, i64 40
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds float, ptr %57, i64 %.pre-phi
@@ -373,7 +373,7 @@ define void @_ZN3gmx19GaussianOn1DLattice4Impl6spreadEdf(ptr nocapture noundef n
   %66 = load ptr, ptr %17, align 8
   %67 = getelementptr inbounds float, ptr %66, i64 %65
   store float %62, ptr %67, align 4
-  %68 = fmul double %15, %.022.lcssa
+  %68 = fmul double %15, %.0.lcssa
   %69 = load i32, ptr %26, align 4
   %70 = sext i32 %69 to i64
   %71 = load ptr, ptr %56, align 8

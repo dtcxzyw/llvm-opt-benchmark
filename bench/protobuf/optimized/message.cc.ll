@@ -3189,8 +3189,8 @@ call38.i.i.noexc:                                 ; preds = %if.then.i
 
 invoke.cont:                                      ; preds = %for.body.i.i, %call38.i.i.noexc
   %15 = phi ptr [ %.pre20.i, %call38.i.i.noexc ], [ %7, %for.body.i.i ]
-  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i6, %call38.i.i.noexc ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
+  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i6, %call38.i.i.noexc ], [ %and.i.i.i, %for.body.i.i ]
+  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
   store ptr %call6, ptr %second.i.i, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_)
           to label %if.end unwind label %terminate.lpad.i

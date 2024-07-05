@@ -511,14 +511,14 @@ define i32 @Abc_ResCheckNonStrict(ptr nocapture noundef readonly %0, i32 noundef
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %.065.us = phi i32 [ %spec.select.us, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.03364.us = phi i32 [ %35, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %8 = shl nuw i32 1, %.03364.us
+  %.02864.us = phi i32 [ %35, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %8 = shl nuw i32 1, %.02864.us
   br label %9
 
 9:                                                ; preds = %.preheader.us, %Abc_ResCheckUnique.exit.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %Abc_ResCheckUnique.exit.us ]
-  %.02856.us = phi i32 [ 0, %.preheader.us ], [ %.129.us, %Abc_ResCheckUnique.exit.us ]
-  %.03055.us = phi i32 [ 0, %.preheader.us ], [ %.131.us, %Abc_ResCheckUnique.exit.us ]
+  %.02956.us = phi i32 [ 0, %.preheader.us ], [ %.130.us, %Abc_ResCheckUnique.exit.us ]
+  %.03155.us = phi i32 [ 0, %.preheader.us ], [ %.132.us, %Abc_ResCheckUnique.exit.us ]
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = and i32 %8, %10
   %12 = icmp eq i32 %11, 0
@@ -527,11 +527,11 @@ define i32 @Abc_ResCheckNonStrict(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %12, label %24, label %15
 
 15:                                               ; preds = %9
-  %16 = icmp sgt i32 %.02856.us, 0
+  %16 = icmp sgt i32 %.02956.us, 0
   br i1 %16, label %.lr.ph.preheader.i41.us, label %.loopexit53.us
 
 .lr.ph.preheader.i41.us:                          ; preds = %15
-  %wide.trip.count.i42.us = zext nneg i32 %.02856.us to i64
+  %wide.trip.count.i42.us = zext nneg i32 %.02956.us to i64
   br label %.lr.ph.i43.us
 
 .lr.ph.i43.us:                                    ; preds = %20, %.lr.ph.preheader.i41.us
@@ -547,19 +547,19 @@ define i32 @Abc_ResCheckNonStrict(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %exitcond.not.i46.us, label %.loopexit53.us, label %.lr.ph.i43.us, !llvm.loop !13
 
 .loopexit53.us:                                   ; preds = %20, %15
-  %21 = add nsw i32 %.02856.us, 1
-  %22 = sext i32 %.02856.us to i64
+  %21 = add nsw i32 %.02956.us, 1
+  %22 = sext i32 %.02956.us to i64
   %23 = getelementptr inbounds [256 x i8], ptr @Abc_ResCheckNonStrict.Pat1, i64 0, i64 %22
   store i8 %14, ptr %23, align 1
-  %.not37.us = icmp slt i32 %.02856.us, %5
+  %.not37.us = icmp slt i32 %.02956.us, %5
   br i1 %.not37.us, label %Abc_ResCheckUnique.exit.us, label %._crit_edge.us
 
 24:                                               ; preds = %9
-  %25 = icmp sgt i32 %.03055.us, 0
+  %25 = icmp sgt i32 %.03155.us, 0
   br i1 %25, label %.lr.ph.preheader.i.us, label %.loopexit.us
 
 .lr.ph.preheader.i.us:                            ; preds = %24
-  %wide.trip.count.i.us = zext nneg i32 %.03055.us to i64
+  %wide.trip.count.i.us = zext nneg i32 %.03155.us to i64
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %29, %.lr.ph.preheader.i.us
@@ -575,25 +575,25 @@ define i32 @Abc_ResCheckNonStrict(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %exitcond.not.i.us, label %.loopexit.us, label %.lr.ph.i.us, !llvm.loop !13
 
 .loopexit.us:                                     ; preds = %29, %24
-  %30 = add nsw i32 %.03055.us, 1
-  %31 = sext i32 %.03055.us to i64
+  %30 = add nsw i32 %.03155.us, 1
+  %31 = sext i32 %.03155.us to i64
   %32 = getelementptr inbounds [256 x i8], ptr @Abc_ResCheckNonStrict.Pat0, i64 0, i64 %31
   store i8 %14, ptr %32, align 1
-  %.not39.us = icmp slt i32 %.03055.us, %5
+  %.not39.us = icmp slt i32 %.03155.us, %5
   br i1 %.not39.us, label %Abc_ResCheckUnique.exit.us, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %Abc_ResCheckUnique.exit.us, %.loopexit.us, %.loopexit53.us
-  %.032.lcssa.us = phi i32 [ %10, %.loopexit53.us ], [ %10, %.loopexit.us ], [ %smax, %Abc_ResCheckUnique.exit.us ]
-  %33 = icmp eq i32 %.032.lcssa.us, %7
+  %.033.lcssa.us = phi i32 [ %10, %.loopexit53.us ], [ %10, %.loopexit.us ], [ %smax, %Abc_ResCheckUnique.exit.us ]
+  %33 = icmp eq i32 %.033.lcssa.us, %7
   %34 = zext i1 %33 to i32
   %spec.select.us = add nuw nsw i32 %.065.us, %34
-  %35 = add nuw nsw i32 %.03364.us, 1
+  %35 = add nuw nsw i32 %.02864.us, 1
   %exitcond71.not = icmp eq i32 %35, %1
   br i1 %exitcond71.not, label %._crit_edge66, label %.preheader.us, !llvm.loop !14
 
 Abc_ResCheckUnique.exit.us:                       ; preds = %.lr.ph.i43.us, %.lr.ph.i.us, %.loopexit.us, %.loopexit53.us
-  %.131.us = phi i32 [ %30, %.loopexit.us ], [ %.03055.us, %.loopexit53.us ], [ %.03055.us, %.lr.ph.i.us ], [ %.03055.us, %.lr.ph.i43.us ]
-  %.129.us = phi i32 [ %.02856.us, %.loopexit.us ], [ %21, %.loopexit53.us ], [ %.02856.us, %.lr.ph.i.us ], [ %.02856.us, %.lr.ph.i43.us ]
+  %.132.us = phi i32 [ %30, %.loopexit.us ], [ %.03155.us, %.loopexit53.us ], [ %.03155.us, %.lr.ph.i.us ], [ %.03155.us, %.lr.ph.i43.us ]
+  %.130.us = phi i32 [ %.02956.us, %.loopexit.us ], [ %21, %.loopexit53.us ], [ %.02956.us, %.lr.ph.i.us ], [ %.02956.us, %.lr.ph.i43.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !15
@@ -826,14 +826,14 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %69
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %.065.us.i = phi i32 [ %spec.select.us.i, %._crit_edge.us.i ], [ 0, %.preheader.us.preheader.i ]
-  %.03364.us.i = phi i32 [ %104, %._crit_edge.us.i ], [ 0, %.preheader.us.preheader.i ]
-  %77 = shl nuw i32 1, %.03364.us.i
+  %.02864.us.i = phi i32 [ %104, %._crit_edge.us.i ], [ 0, %.preheader.us.preheader.i ]
+  %77 = shl nuw i32 1, %.02864.us.i
   br label %78
 
 78:                                               ; preds = %Abc_ResCheckUnique.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %Abc_ResCheckUnique.exit.us.i ]
-  %.02856.us.i = phi i32 [ 0, %.preheader.us.i ], [ %.129.us.i, %Abc_ResCheckUnique.exit.us.i ]
-  %.03055.us.i = phi i32 [ 0, %.preheader.us.i ], [ %.131.us.i, %Abc_ResCheckUnique.exit.us.i ]
+  %.02956.us.i = phi i32 [ 0, %.preheader.us.i ], [ %.130.us.i, %Abc_ResCheckUnique.exit.us.i ]
+  %.03155.us.i = phi i32 [ 0, %.preheader.us.i ], [ %.132.us.i, %Abc_ResCheckUnique.exit.us.i ]
   %79 = trunc nuw nsw i64 %indvars.iv.i to i32
   %80 = and i32 %77, %79
   %81 = icmp eq i32 %80, 0
@@ -842,11 +842,11 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %69
   br i1 %81, label %93, label %84
 
 84:                                               ; preds = %78
-  %85 = icmp sgt i32 %.02856.us.i, 0
+  %85 = icmp sgt i32 %.02956.us.i, 0
   br i1 %85, label %.lr.ph.preheader.i41.us.i, label %.loopexit53.us.i
 
 .lr.ph.preheader.i41.us.i:                        ; preds = %84
-  %wide.trip.count.i42.us.i = zext nneg i32 %.02856.us.i to i64
+  %wide.trip.count.i42.us.i = zext nneg i32 %.02956.us.i to i64
   br label %.lr.ph.i43.us.i
 
 .lr.ph.i43.us.i:                                  ; preds = %89, %.lr.ph.preheader.i41.us.i
@@ -862,19 +862,19 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %69
   br i1 %exitcond.not.i46.us.i, label %.loopexit53.us.i, label %.lr.ph.i43.us.i, !llvm.loop !13
 
 .loopexit53.us.i:                                 ; preds = %89, %84
-  %90 = add nsw i32 %.02856.us.i, 1
-  %91 = sext i32 %.02856.us.i to i64
+  %90 = add nsw i32 %.02956.us.i, 1
+  %91 = sext i32 %.02956.us.i to i64
   %92 = getelementptr inbounds [256 x i8], ptr @Abc_ResCheckNonStrict.Pat1, i64 0, i64 %91
   store i8 %83, ptr %92, align 1
-  %.not37.us.i = icmp slt i32 %.02856.us.i, %75
+  %.not37.us.i = icmp slt i32 %.02956.us.i, %75
   br i1 %.not37.us.i, label %Abc_ResCheckUnique.exit.us.i, label %._crit_edge.us.i
 
 93:                                               ; preds = %78
-  %94 = icmp sgt i32 %.03055.us.i, 0
+  %94 = icmp sgt i32 %.03155.us.i, 0
   br i1 %94, label %.lr.ph.preheader.i.us.i, label %.loopexit.us.i
 
 .lr.ph.preheader.i.us.i:                          ; preds = %93
-  %wide.trip.count.i.us.i = zext nneg i32 %.03055.us.i to i64
+  %wide.trip.count.i.us.i = zext nneg i32 %.03155.us.i to i64
   br label %.lr.ph.i.us.i
 
 .lr.ph.i.us.i:                                    ; preds = %98, %.lr.ph.preheader.i.us.i
@@ -890,25 +890,25 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %69
   br i1 %exitcond.not.i.us.i, label %.loopexit.us.i, label %.lr.ph.i.us.i, !llvm.loop !13
 
 .loopexit.us.i:                                   ; preds = %98, %93
-  %99 = add nsw i32 %.03055.us.i, 1
-  %100 = sext i32 %.03055.us.i to i64
+  %99 = add nsw i32 %.03155.us.i, 1
+  %100 = sext i32 %.03155.us.i to i64
   %101 = getelementptr inbounds [256 x i8], ptr @Abc_ResCheckNonStrict.Pat0, i64 0, i64 %100
   store i8 %83, ptr %101, align 1
-  %.not39.us.i = icmp slt i32 %.03055.us.i, %75
+  %.not39.us.i = icmp slt i32 %.03155.us.i, %75
   br i1 %.not39.us.i, label %Abc_ResCheckUnique.exit.us.i, label %._crit_edge.us.i
 
 ._crit_edge.us.i:                                 ; preds = %Abc_ResCheckUnique.exit.us.i, %.loopexit.us.i, %.loopexit53.us.i
-  %.032.lcssa.us.i = phi i32 [ %79, %.loopexit53.us.i ], [ %79, %.loopexit.us.i ], [ %smax.i, %Abc_ResCheckUnique.exit.us.i ]
-  %102 = icmp eq i32 %.032.lcssa.us.i, %24
+  %.033.lcssa.us.i = phi i32 [ %79, %.loopexit53.us.i ], [ %79, %.loopexit.us.i ], [ %smax.i, %Abc_ResCheckUnique.exit.us.i ]
+  %102 = icmp eq i32 %.033.lcssa.us.i, %24
   %103 = zext i1 %102 to i32
   %spec.select.us.i = add nuw nsw i32 %.065.us.i, %103
-  %104 = add nuw nsw i32 %.03364.us.i, 1
+  %104 = add nuw nsw i32 %.02864.us.i, 1
   %exitcond71.not.i = icmp eq i32 %104, %.1
   br i1 %exitcond71.not.i, label %Abc_ResCheckNonStrict.exit, label %.preheader.us.i, !llvm.loop !14
 
 Abc_ResCheckUnique.exit.us.i:                     ; preds = %.lr.ph.i43.us.i, %.lr.ph.i.us.i, %.loopexit.us.i, %.loopexit53.us.i
-  %.131.us.i = phi i32 [ %99, %.loopexit.us.i ], [ %.03055.us.i, %.loopexit53.us.i ], [ %.03055.us.i, %.lr.ph.i.us.i ], [ %.03055.us.i, %.lr.ph.i43.us.i ]
-  %.129.us.i = phi i32 [ %.02856.us.i, %.loopexit.us.i ], [ %90, %.loopexit53.us.i ], [ %.02856.us.i, %.lr.ph.i.us.i ], [ %.02856.us.i, %.lr.ph.i43.us.i ]
+  %.132.us.i = phi i32 [ %99, %.loopexit.us.i ], [ %.03155.us.i, %.loopexit53.us.i ], [ %.03155.us.i, %.lr.ph.i.us.i ], [ %.03155.us.i, %.lr.ph.i43.us.i ]
+  %.130.us.i = phi i32 [ %.02956.us.i, %.loopexit.us.i ], [ %90, %.loopexit53.us.i ], [ %.02956.us.i, %.lr.ph.i.us.i ], [ %.02956.us.i, %.lr.ph.i43.us.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %78, !llvm.loop !15
@@ -1025,11 +1025,11 @@ Abc_ResCost.exit72:                               ; preds = %.lr.ph.i.i66, %Abc_
 
 .lr.ph105.split.us:                               ; preds = %Abc_ResCost.exit72, %..loopexit_crit_edge.us
   %.0104.us = phi i32 [ %.4.us, %..loopexit_crit_edge.us ], [ 0, %Abc_ResCost.exit72 ]
-  %.062102.us = phi i32 [ %76, %..loopexit_crit_edge.us ], [ 0, %Abc_ResCost.exit72 ]
-  %.sroa.0.0101.us = phi i32 [ %.sroa.0.4.us, %..loopexit_crit_edge.us ], [ %9, %Abc_ResCost.exit72 ]
-  %.sroa.3.0100.us = phi i32 [ %.sroa.3.4.us, %..loopexit_crit_edge.us ], [ %12, %Abc_ResCost.exit72 ]
+  %.sroa.3.0103.us = phi i32 [ %.sroa.3.4.us, %..loopexit_crit_edge.us ], [ %12, %Abc_ResCost.exit72 ]
+  %.062101.us = phi i32 [ %76, %..loopexit_crit_edge.us ], [ 0, %Abc_ResCost.exit72 ]
+  %.sroa.0.0100.us = phi i32 [ %.sroa.0.4.us, %..loopexit_crit_edge.us ], [ %9, %Abc_ResCost.exit72 ]
   %33 = load i32, ptr %8, align 4
-  %34 = shl nuw i32 1, %.062102.us
+  %34 = shl nuw i32 1, %.062101.us
   %35 = and i32 %33, %34
   %.not.us = icmp eq i32 %35, 0
   br i1 %.not.us, label %..loopexit_crit_edge.us, label %.preheader.us.preheader
@@ -1041,13 +1041,13 @@ Abc_ResCost.exit72:                               ; preds = %.lr.ph.i.i66, %Abc_
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %73
   %36 = phi i32 [ %74, %73 ], [ %.pre, %.preheader.us.preheader ]
   %.197.us = phi i32 [ %.3.us, %73 ], [ %.0104.us, %.preheader.us.preheader ]
-  %.06196.us = phi i32 [ %75, %73 ], [ 0, %.preheader.us.preheader ]
-  %.sroa.0.195.us = phi i32 [ %.sroa.0.3.us, %73 ], [ %.sroa.0.0101.us, %.preheader.us.preheader ]
-  %.sroa.3.194.us = phi i32 [ %.sroa.3.3.us, %73 ], [ %.sroa.3.0100.us, %.preheader.us.preheader ]
-  %37 = shl nuw i32 1, %.06196.us
+  %.sroa.3.196.us = phi i32 [ %.sroa.3.3.us, %73 ], [ %.sroa.3.0103.us, %.preheader.us.preheader ]
+  %.06195.us = phi i32 [ %75, %73 ], [ 0, %.preheader.us.preheader ]
+  %.sroa.0.194.us = phi i32 [ %.sroa.0.3.us, %73 ], [ %.sroa.0.0100.us, %.preheader.us.preheader ]
+  %37 = shl nuw i32 1, %.06195.us
   %38 = and i32 %36, %37
   %.not64.us = icmp eq i32 %38, 0
-  %39 = icmp eq i32 %.062102.us, %.06196.us
+  %39 = icmp eq i32 %.062101.us, %.06195.us
   %or.cond.us = or i1 %39, %.not64.us
   br i1 %or.cond.us, label %73, label %40
 
@@ -1118,8 +1118,8 @@ Abc_ResCost.exit88.us:                            ; preds = %.lr.ph.i.i82.us, %A
   br label %69
 
 69:                                               ; preds = %67, %Abc_ResCost.exit88.us
-  %.sroa.3.2.us = phi i32 [ %68, %67 ], [ %.sroa.3.194.us, %Abc_ResCost.exit88.us ]
-  %.sroa.0.2.us = phi i32 [ %.pre115, %67 ], [ %.sroa.0.195.us, %Abc_ResCost.exit88.us ]
+  %.sroa.0.2.us = phi i32 [ %.pre115, %67 ], [ %.sroa.0.194.us, %Abc_ResCost.exit88.us ]
+  %.sroa.3.2.us = phi i32 [ %68, %67 ], [ %.sroa.3.196.us, %Abc_ResCost.exit88.us ]
   %.2.us = phi i32 [ 1, %67 ], [ %.197.us, %Abc_ResCost.exit88.us ]
   %70 = xor i32 %.pre115, %41
   store i32 %70, ptr %8, align 4
@@ -1130,24 +1130,24 @@ Abc_ResCost.exit88.us:                            ; preds = %.lr.ph.i.i82.us, %A
 
 73:                                               ; preds = %69, %.preheader.us
   %74 = phi i32 [ %72, %69 ], [ %36, %.preheader.us ]
-  %.sroa.3.3.us = phi i32 [ %.sroa.3.2.us, %69 ], [ %.sroa.3.194.us, %.preheader.us ]
-  %.sroa.0.3.us = phi i32 [ %.sroa.0.2.us, %69 ], [ %.sroa.0.195.us, %.preheader.us ]
+  %.sroa.0.3.us = phi i32 [ %.sroa.0.2.us, %69 ], [ %.sroa.0.194.us, %.preheader.us ]
+  %.sroa.3.3.us = phi i32 [ %.sroa.3.2.us, %69 ], [ %.sroa.3.196.us, %.preheader.us ]
   %.3.us = phi i32 [ %.2.us, %69 ], [ %.197.us, %.preheader.us ]
-  %75 = add nuw nsw i32 %.06196.us, 1
+  %75 = add nuw nsw i32 %.06195.us, 1
   %exitcond.not = icmp eq i32 %75, %2
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !21
 
 ..loopexit_crit_edge.us:                          ; preds = %73, %.lr.ph105.split.us
-  %.sroa.3.4.us = phi i32 [ %.sroa.3.0100.us, %.lr.ph105.split.us ], [ %.sroa.3.3.us, %73 ]
-  %.sroa.0.4.us = phi i32 [ %.sroa.0.0101.us, %.lr.ph105.split.us ], [ %.sroa.0.3.us, %73 ]
+  %.sroa.0.4.us = phi i32 [ %.sroa.0.0100.us, %.lr.ph105.split.us ], [ %.sroa.0.3.us, %73 ]
+  %.sroa.3.4.us = phi i32 [ %.sroa.3.0103.us, %.lr.ph105.split.us ], [ %.sroa.3.3.us, %73 ]
   %.4.us = phi i32 [ %.0104.us, %.lr.ph105.split.us ], [ %.3.us, %73 ]
-  %76 = add nuw nsw i32 %.062102.us, 1
+  %76 = add nuw nsw i32 %.062101.us, 1
   %exitcond114.not = icmp eq i32 %76, %2
   br i1 %exitcond114.not, label %._crit_edge, label %.lr.ph105.split.us, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %Abc_ResCost.exit72
-  %.sroa.3.0.lcssa = phi i32 [ %12, %Abc_ResCost.exit72 ], [ %.sroa.3.4.us, %..loopexit_crit_edge.us ]
   %.sroa.0.0.lcssa = phi i32 [ %9, %Abc_ResCost.exit72 ], [ %.sroa.0.4.us, %..loopexit_crit_edge.us ]
+  %.sroa.3.0.lcssa = phi i32 [ %12, %Abc_ResCost.exit72 ], [ %.sroa.3.4.us, %..loopexit_crit_edge.us ]
   %.0.lcssa = phi i32 [ 0, %Abc_ResCost.exit72 ], [ %.4.us, %..loopexit_crit_edge.us ]
   store i32 %.sroa.0.0.lcssa, ptr %8, align 4
   store i32 %.sroa.3.0.lcssa, ptr %11, align 4
@@ -1217,15 +1217,15 @@ Abc_Base2Log.exit.us:                             ; preds = %.lr.ph.i.us, %._cri
   br i1 %exitcond38.not, label %._crit_edge25, label %.lr.ph24.split.us, !llvm.loop !23
 
 26:                                               ; preds = %Abc_ResCost.exit.us, %26
-  %.01720.us = phi i32 [ 0, %Abc_ResCost.exit.us ], [ %32, %26 ]
+  %.01820.us = phi i32 [ 0, %Abc_ResCost.exit.us ], [ %32, %26 ]
   %27 = load i32, ptr %9, align 4
-  %28 = shl nuw i32 1, %.01720.us
+  %28 = shl nuw i32 1, %.01820.us
   %29 = and i32 %27, %28
   %.not.us = icmp eq i32 %29, 0
-  %30 = add nuw nsw i32 %.01720.us, 97
+  %30 = add nuw nsw i32 %.01820.us, 97
   %31 = select i1 %.not.us, i32 45, i32 %30
   %putchar.us = call i32 @putchar(i32 %31)
-  %32 = add nuw nsw i32 %.01720.us, 1
+  %32 = add nuw nsw i32 %.01820.us, 1
   %exitcond33.not = icmp eq i32 %32, %2
   br i1 %exitcond33.not, label %._crit_edge.us, label %26, !llvm.loop !24
 
@@ -2246,9 +2246,9 @@ define void @Abc_NtkExploreCofs(ptr noundef %0, ptr noundef %1, ptr nocapture re
   br label %19
 
 19:                                               ; preds = %.lr.ph57, %62
-  %.04055 = phi i32 [ 0, %.lr.ph57 ], [ %63, %62 ]
-  %20 = and i32 %.04055, 1431655765
-  %21 = lshr i32 %.04055, 1
+  %.055 = phi i32 [ 0, %.lr.ph57 ], [ %63, %62 ]
+  %20 = and i32 %.055, 1431655765
+  %21 = lshr i32 %.055, 1
   %22 = and i32 %21, 357913941
   %23 = add nuw nsw i32 %22, %20
   %24 = and i32 %23, 858993459
@@ -2278,10 +2278,10 @@ define void @Abc_NtkExploreCofs(ptr noundef %0, ptr noundef %1, ptr nocapture re
 
 .lr.ph:                                           ; preds = %.preheader49, %50
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %.preheader49 ]
-  %.051 = phi i32 [ %.1, %50 ], [ 0, %.preheader49 ]
+  %.03950 = phi i32 [ %.140, %50 ], [ 0, %.preheader49 ]
   %39 = trunc nuw nsw i64 %indvars.iv to i32
   %40 = shl nuw i32 1, %39
-  %41 = and i32 %40, %.04055
+  %41 = and i32 %40, %.055
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %50, label %43
 
@@ -2289,20 +2289,20 @@ define void @Abc_NtkExploreCofs(ptr noundef %0, ptr noundef %1, ptr nocapture re
   %44 = load ptr, ptr %18, align 8
   %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8
-  %47 = add nsw i32 %.051, 1
-  %48 = sext i32 %.051 to i64
+  %47 = add nsw i32 %.03950, 1
+  %48 = sext i32 %.03950 to i64
   %49 = getelementptr inbounds [32 x ptr], ptr %6, i64 0, i64 %48
   store ptr %46, ptr %49, align 8
   br label %50
 
 50:                                               ; preds = %.lr.ph, %43
-  %.1 = phi i32 [ %.051, %.lr.ph ], [ %47, %43 ]
+  %.140 = phi i32 [ %.03950, %.lr.ph ], [ %47, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %50
-  %51 = call i32 @Abc_NtkBddCofCount(ptr noundef %9, ptr noundef %13, ptr noundef nonnull %6, i32 noundef %.1)
+  %51 = call i32 @Abc_NtkBddCofCount(ptr noundef %9, ptr noundef %13, ptr noundef nonnull %6, i32 noundef %.140)
   %52 = icmp sgt i32 %51, 8
   br i1 %52, label %62, label %.preheader
 
@@ -2315,14 +2315,14 @@ define void @Abc_NtkExploreCofs(ptr noundef %0, ptr noundef %1, ptr nocapture re
   br i1 %17, label %.lr.ph53, label %._crit_edge54
 
 .lr.ph53:                                         ; preds = %.preheader, %.lr.ph53
-  %.13952 = phi i32 [ %59, %.lr.ph53 ], [ 0, %.preheader ]
-  %55 = shl nuw i32 1, %.13952
-  %56 = and i32 %55, %.04055
+  %.152 = phi i32 [ %59, %.lr.ph53 ], [ 0, %.preheader ]
+  %55 = shl nuw i32 1, %.152
+  %56 = and i32 %55, %.055
   %57 = icmp eq i32 %56, 0
-  %58 = add nuw nsw i32 %.13952, 97
+  %58 = add nuw nsw i32 %.152, 97
   %.sink = select i1 %57, i32 45, i32 %58
   %putchar = call i32 @putchar(i32 %.sink)
-  %59 = add nuw nsw i32 %.13952, 1
+  %59 = add nuw nsw i32 %.152, 1
   %exitcond61.not = icmp eq i32 %59, %3
   br i1 %exitcond61.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !42
 
@@ -2332,7 +2332,7 @@ define void @Abc_NtkExploreCofs(ptr noundef %0, ptr noundef %1, ptr nocapture re
   br label %62
 
 62:                                               ; preds = %._crit_edge.thread, %19, %._crit_edge, %._crit_edge54
-  %63 = add nuw nsw i32 %.04055, 1
+  %63 = add nuw nsw i32 %.055, 1
   %exitcond62.not = icmp eq i32 %63, %14
   br i1 %exitcond62.not, label %._crit_edge58, label %19, !llvm.loop !43
 
@@ -2355,8 +2355,8 @@ define ptr @Abc_NtkBddFindAddConst(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 .lr.ph:                                           ; preds = %3, %27
   %.024 = phi ptr [ %.1, %27 ], [ %1, %3 ]
-  %.01923 = phi i32 [ %.120, %27 ], [ 0, %3 ]
-  %.02122 = phi i32 [ %31, %27 ], [ 0, %3 ]
+  %.01723 = phi i32 [ %31, %27 ], [ 0, %3 ]
+  %.02022 = phi i32 [ %.121, %27 ], [ 0, %3 ]
   %7 = ptrtoint ptr %.024 to i64
   %8 = and i64 %7, 1
   %.not = icmp eq i64 %8, 0
@@ -2385,24 +2385,24 @@ define ptr @Abc_NtkBddFindAddConst(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %27
 
 27:                                               ; preds = %22, %9
-  %.018 = phi ptr [ %17, %9 ], [ %25, %22 ]
-  %.017 = phi ptr [ %21, %9 ], [ %26, %22 ]
-  %28 = icmp eq ptr %.018, %4
-  %29 = shl nuw i32 1, %.02122
+  %.019 = phi ptr [ %17, %9 ], [ %25, %22 ]
+  %.018 = phi ptr [ %21, %9 ], [ %26, %22 ]
+  %28 = icmp eq ptr %.019, %4
+  %29 = shl nuw i32 1, %.01723
   %30 = select i1 %28, i32 %29, i32 0
-  %.120 = xor i32 %30, %.01923
-  %.1 = select i1 %28, ptr %.017, ptr %.018
-  %31 = add nuw nsw i32 %.02122, 1
+  %.121 = xor i32 %30, %.02022
+  %.1 = select i1 %28, ptr %.018, ptr %.019
+  %31 = add nuw nsw i32 %.01723, 1
   %exitcond.not = icmp eq i32 %31, %2
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge.loopexit:                             ; preds = %27
-  %32 = sitofp i32 %.120 to double
+  %32 = sitofp i32 %.121 to double
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.019.lcssa = phi double [ 0.000000e+00, %3 ], [ %32, %._crit_edge.loopexit ]
-  %33 = tail call ptr @Cudd_addConst(ptr noundef %0, double noundef %.019.lcssa) #17
+  %.020.lcssa = phi double [ 0.000000e+00, %3 ], [ %32, %._crit_edge.loopexit ]
+  %33 = tail call ptr @Cudd_addConst(ptr noundef %0, double noundef %.020.lcssa) #17
   ret ptr %33
 }
 
@@ -2444,8 +2444,8 @@ define ptr @Abc_NtkBddToAdd_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %43
   %.024.i = phi ptr [ %.1.i, %43 ], [ %22, %.lr.ph.i.preheader ]
-  %.01923.i = phi i32 [ %.120.i, %43 ], [ 0, %.lr.ph.i.preheader ]
-  %.02122.i = phi i32 [ %47, %43 ], [ 0, %.lr.ph.i.preheader ]
+  %.01723.i = phi i32 [ %47, %43 ], [ 0, %.lr.ph.i.preheader ]
+  %.02022.i = phi i32 [ %.121.i, %43 ], [ 0, %.lr.ph.i.preheader ]
   %23 = ptrtoint ptr %.024.i to i64
   %24 = and i64 %23, 1
   %.not.i = icmp eq i64 %24, 0
@@ -2474,24 +2474,24 @@ define ptr @Abc_NtkBddToAdd_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %43
 
 43:                                               ; preds = %38, %25
-  %.018.i = phi ptr [ %33, %25 ], [ %41, %38 ]
-  %.017.i = phi ptr [ %37, %25 ], [ %42, %38 ]
-  %44 = icmp eq ptr %.018.i, %16
-  %45 = shl nuw i32 1, %.02122.i
+  %.019.i = phi ptr [ %33, %25 ], [ %41, %38 ]
+  %.018.i = phi ptr [ %37, %25 ], [ %42, %38 ]
+  %44 = icmp eq ptr %.019.i, %16
+  %45 = shl nuw i32 1, %.01723.i
   %46 = select i1 %44, i32 %45, i32 0
-  %.120.i = xor i32 %46, %.01923.i
-  %.1.i = select i1 %44, ptr %.017.i, ptr %.018.i
-  %47 = add nuw nsw i32 %.02122.i, 1
+  %.121.i = xor i32 %46, %.02022.i
+  %.1.i = select i1 %44, ptr %.018.i, ptr %.019.i
+  %47 = add nuw nsw i32 %.01723.i, 1
   %exitcond.not.i = icmp eq i32 %47, %2
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !44
 
 ._crit_edge.loopexit.i:                           ; preds = %43
-  %48 = sitofp i32 %.120.i to double
+  %48 = sitofp i32 %.121.i to double
   br label %Abc_NtkBddFindAddConst.exit
 
 Abc_NtkBddFindAddConst.exit:                      ; preds = %15, %._crit_edge.loopexit.i
-  %.019.lcssa.i = phi double [ 0.000000e+00, %15 ], [ %48, %._crit_edge.loopexit.i ]
-  %49 = call ptr @Cudd_addConst(ptr noundef %0, double noundef %.019.lcssa.i) #17
+  %.020.lcssa.i = phi double [ 0.000000e+00, %15 ], [ %48, %._crit_edge.loopexit.i ]
+  %49 = call ptr @Cudd_addConst(ptr noundef %0, double noundef %.020.lcssa.i) #17
   br label %66
 
 50:                                               ; preds = %11

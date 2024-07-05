@@ -2715,9 +2715,9 @@ for.body121.lr.ph:                                ; preds = %_ZNK13bound_manager
   br label %for.body121
 
 for.body121:                                      ; preds = %for.body121.lr.ph, %for.inc237
-  %__begin2.0848 = phi ptr [ %115, %for.body121.lr.ph ], [ %incdec.ptr, %for.inc237 ]
-  %num_converted.0847 = phi i32 [ 0, %for.body121.lr.ph ], [ %num_converted.1, %for.inc237 ]
-  %118 = load ptr, ptr %__begin2.0848, align 8
+  %num_converted.0848 = phi i32 [ 0, %for.body121.lr.ph ], [ %num_converted.1, %for.inc237 ]
+  %__begin2.0847 = phi ptr [ %115, %for.body121.lr.ph ], [ %incdec.ptr, %for.inc237 ]
+  %118 = load ptr, ptr %__begin2.0847, align 8
   %call123 = invoke noundef zeroext i1 @_ZN13lia2pb_tactic3imp14is_target_coreEP4exprR8rational(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef %118, ptr noundef nonnull align 8 dereferenceable(32) %u)
           to label %invoke.cont122 unwind label %lpad114.loopexit
 
@@ -2807,7 +2807,7 @@ cleanup.done131:                                  ; preds = %.noexc.i282
   br i1 %.ph, label %if.then136, label %for.inc237
 
 if.then136:                                       ; preds = %cleanup.done131
-  %inc137 = add i32 %num_converted.0847, 1
+  %inc137 = add i32 %num_converted.0848, 1
   store i32 0, ptr %m_pos.i.i258, align 8
   %bf.load.i.i.i286 = load i8, ptr %m_kind.i.i.i285, align 4
   %bf.clear3.i.i.i287 = and i8 %bf.load.i.i.i286, -4
@@ -3519,8 +3519,8 @@ ehcleanup235:                                     ; preds = %lpad140.loopexit, %
   br label %ehcleanup323
 
 for.inc237:                                       ; preds = %invoke.cont122, %.noexc.i479, %cleanup.done131
-  %num_converted.1 = phi i32 [ %num_converted.0847, %cleanup.done131 ], [ %inc137, %.noexc.i479 ], [ %num_converted.0847, %invoke.cont122 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0848, i64 8
+  %num_converted.1 = phi i32 [ %num_converted.0848, %cleanup.done131 ], [ %inc137, %.noexc.i479 ], [ %num_converted.0848, %invoke.cont122 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0847, i64 8
   %cmp120.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i261
   br i1 %cmp120.not, label %for.end238, label %for.body121
 

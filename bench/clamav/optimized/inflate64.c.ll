@@ -2034,20 +2034,20 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr n
   br label %15
 
 15:                                               ; preds = %._crit_edge, %19
-  %.0210259 = phi i32 [ 15, %._crit_edge ], [ %20, %19 ]
-  %16 = zext i32 %.0210259 to i64
+  %.0211259 = phi i32 [ 15, %._crit_edge ], [ %20, %19 ]
+  %16 = zext i32 %.0211259 to i64
   %17 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
   %.not228 = icmp eq i16 %18, 0
   br i1 %.not228, label %19, label %21
 
 19:                                               ; preds = %15
-  %20 = add nsw i32 %.0210259, -1
+  %20 = add nsw i32 %.0211259, -1
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %22, label %15
 
 21:                                               ; preds = %15
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %14, i32 %.0210259)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %14, i32 %.0211259)
   br label %27
 
 22:                                               ; preds = %19
@@ -2086,8 +2086,8 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr n
   br label %.split.loop.exit334
 
 .split.loop.exit334:                              ; preds = %30, %.split.loop.exit
-  %.0211.lcssa = phi i32 [ %31, %.split.loop.exit ], [ 16, %30 ]
-  %spec.select240 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %.0211.lcssa)
+  %.0212.lcssa = phi i32 [ %31, %.split.loop.exit ], [ 16, %30 ]
+  %spec.select240 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %.0212.lcssa)
   br label %33
 
 32:                                               ; preds = %33
@@ -2097,8 +2097,8 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr n
 
 33:                                               ; preds = %.split.loop.exit334, %32
   %indvars.iv300 = phi i64 [ 1, %.split.loop.exit334 ], [ %indvars.iv.next301, %32 ]
-  %.0199262 = phi i32 [ 1, %.split.loop.exit334 ], [ %38, %32 ]
-  %34 = shl i32 %.0199262, 1
+  %.0200262 = phi i32 [ 1, %.split.loop.exit334 ], [ %38, %32 ]
+  %34 = shl i32 %.0200262, 1
   %35 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv300
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
@@ -2112,7 +2112,7 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr n
 
 41:                                               ; preds = %40
   %42 = icmp eq i32 %0, 0
-  %43 = icmp ne i32 %.0210259, 1
+  %43 = icmp ne i32 %.0211259, 1
   %or.cond = or i1 %42, %43
   br i1 %or.cond, label %.loopexit, label %44
 
@@ -2189,24 +2189,24 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr n
   br label %.outer
 
 .outer:                                           ; preds = %148, %.preheader
-  %.3218.ph = phi i32 [ %.4219, %148 ], [ %.0211.lcssa, %.preheader ]
-  %.2214.ph = phi i32 [ %106, %148 ], [ 0, %.preheader ]
-  %.0205.ph = phi i32 [ %.1206.lcssa, %148 ], [ %spec.select240, %.preheader ]
-  %.0201.ph = phi i32 [ %spec.select241, %148 ], [ 0, %.preheader ]
-  %.0197.ph = phi i32 [ %146, %148 ], [ %67, %.preheader ]
-  %.0193.ph = phi i32 [ %.1194, %148 ], [ 0, %.preheader ]
-  %.0188.ph = phi i32 [ %125, %148 ], [ -1, %.preheader ]
+  %.3219.ph = phi i32 [ %.4220, %148 ], [ %.0212.lcssa, %.preheader ]
+  %.2215.ph = phi i32 [ %106, %148 ], [ 0, %.preheader ]
+  %.0206.ph = phi i32 [ %.1207.lcssa, %148 ], [ %spec.select240, %.preheader ]
+  %.0202.ph = phi i32 [ %spec.select241, %148 ], [ 0, %.preheader ]
+  %.0198.ph = phi i32 [ %146, %148 ], [ %67, %.preheader ]
+  %.0194.ph = phi i32 [ %.1195, %148 ], [ 0, %.preheader ]
+  %.0189.ph = phi i32 [ %125, %148 ], [ -1, %.preheader ]
   %.0187.ph = phi ptr [ %129, %148 ], [ %69, %.preheader ]
-  %71 = shl nuw i32 1, %.0205.ph
+  %71 = shl nuw i32 1, %.0206.ph
   br label %72
 
 72:                                               ; preds = %.backedge, %.outer
-  %.3218 = phi i32 [ %.3218.ph, %.outer ], [ %.4219, %.backedge ]
-  %.2214 = phi i32 [ %.2214.ph, %.outer ], [ %106, %.backedge ]
-  %.0193 = phi i32 [ %.0193.ph, %.outer ], [ %.1194, %.backedge ]
-  %73 = sub i32 %.3218, %.0201.ph
+  %.3219 = phi i32 [ %.3219.ph, %.outer ], [ %.4220, %.backedge ]
+  %.2215 = phi i32 [ %.2215.ph, %.outer ], [ %106, %.backedge ]
+  %.0194 = phi i32 [ %.0194.ph, %.outer ], [ %.1195, %.backedge ]
+  %73 = sub i32 %.3219, %.0202.ph
   %74 = trunc i32 %73 to i8
-  %75 = zext i32 %.2214 to i64
+  %75 = zext i32 %.2215 to i64
   %76 = getelementptr inbounds i16, ptr %5, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = zext i16 %77 to i32
@@ -2230,12 +2230,12 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr n
   %.sroa.13.0 = phi i16 [ %88, %82 ], [ %77, %72 ], [ 0, %80 ]
   %.sroa.0.0 = phi i8 [ %86, %82 ], [ 0, %72 ], [ 96, %80 ]
   %.neg = shl nsw i32 -1, %73
-  %90 = lshr i32 %.0193, %.0201.ph
+  %90 = lshr i32 %.0194, %.0202.ph
   br label %91
 
 91:                                               ; preds = %91, %89
-  %.0190 = phi i32 [ %71, %89 ], [ %92, %91 ]
-  %92 = add i32 %.0190, %.neg
+  %.0191 = phi i32 [ %71, %89 ], [ %92, %91 ]
+  %92 = add i32 %.0191, %.neg
   %93 = add i32 %92, %90
   %94 = zext i32 %93 to i64
   %95 = getelementptr inbounds %struct.code, ptr %.0187.ph, i64 %94
@@ -2248,25 +2248,25 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr n
   br i1 %.not230, label %96, label %91
 
 96:                                               ; preds = %91
-  %97 = add i32 %.3218, -1
+  %97 = add i32 %.3219, -1
   %98 = shl nuw i32 1, %97
   br label %99
 
 99:                                               ; preds = %99, %96
-  %.0191 = phi i32 [ %98, %96 ], [ %101, %99 ]
-  %100 = and i32 %.0191, %.0193
+  %.0192 = phi i32 [ %98, %96 ], [ %101, %99 ]
+  %100 = and i32 %.0192, %.0194
   %.not231 = icmp eq i32 %100, 0
-  %101 = lshr i32 %.0191, 1
+  %101 = lshr i32 %.0192, 1
   br i1 %.not231, label %102, label %99
 
 102:                                              ; preds = %99
-  %.not232 = icmp eq i32 %.0191, 0
-  %103 = add i32 %.0191, -1
-  %104 = and i32 %103, %.0193
-  %105 = add i32 %104, %.0191
-  %.1194 = select i1 %.not232, i32 0, i32 %105
-  %106 = add i32 %.2214, 1
-  %107 = zext i32 %.3218 to i64
+  %.not232 = icmp eq i32 %.0192, 0
+  %103 = add i32 %.0192, -1
+  %104 = and i32 %103, %.0194
+  %105 = add i32 %104, %.0192
+  %.1195 = select i1 %.not232, i32 0, i32 %105
+  %106 = add i32 %.2215, 1
+  %107 = zext i32 %.3219 to i64
   %108 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %107
   %109 = load i16, ptr %108, align 2
   %110 = add i16 %109, -1
@@ -2275,11 +2275,11 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr n
   br i1 %111, label %112, label %122
 
 112:                                              ; preds = %102
-  %113 = icmp eq i32 %.3218, %.0210259
+  %113 = icmp eq i32 %.3219, %.0211259
   br i1 %113, label %select.unfold.preheader, label %114
 
 select.unfold.preheader:                          ; preds = %112
-  %.not234274 = icmp eq i32 %.1194, 0
+  %.not234274 = icmp eq i32 %.1195, 0
   br i1 %.not234274, label %select.unfold._crit_edge, label %.lr.ph280
 
 114:                                              ; preds = %112
@@ -2293,66 +2293,66 @@ select.unfold.preheader:                          ; preds = %112
   br label %122
 
 122:                                              ; preds = %114, %102
-  %.4219 = phi i32 [ %121, %114 ], [ %.3218, %102 ]
-  %123 = icmp ugt i32 %.4219, %spec.select240
+  %.4220 = phi i32 [ %121, %114 ], [ %.3219, %102 ]
+  %123 = icmp ugt i32 %.4220, %spec.select240
   br i1 %123, label %124, label %.backedge
 
 124:                                              ; preds = %122
-  %125 = and i32 %.1194, %68
-  %.not233 = icmp eq i32 %125, %.0188.ph
+  %125 = and i32 %.1195, %68
+  %.not233 = icmp eq i32 %125, %.0189.ph
   br i1 %.not233, label %.backedge, label %126
 
 .backedge:                                        ; preds = %124, %122
   br label %72
 
 126:                                              ; preds = %124
-  %127 = icmp eq i32 %.0201.ph, 0
-  %spec.select241 = select i1 %127, i32 %spec.select240, i32 %.0201.ph
+  %127 = icmp eq i32 %.0202.ph, 0
+  %spec.select241 = select i1 %127, i32 %spec.select240, i32 %.0202.ph
   %128 = zext i32 %71 to i64
   %129 = getelementptr inbounds %struct.code, ptr %.0187.ph, i64 %128
-  %130 = sub i32 %.4219, %spec.select241
+  %130 = sub i32 %.4220, %spec.select241
   %131 = shl nuw i32 1, %130
-  %132 = icmp ult i32 %.4219, %.0210259
+  %132 = icmp ult i32 %.4220, %.0211259
   br i1 %132, label %.lr.ph270.preheader, label %._crit_edge271
 
 .lr.ph270.preheader:                              ; preds = %126
-  %133 = sub i32 %.0210259, %spec.select241
+  %133 = sub i32 %.0211259, %spec.select241
   br label %.lr.ph270
 
 .lr.ph270:                                        ; preds = %.lr.ph270.preheader, %141
-  %134 = phi i32 [ %144, %141 ], [ %.4219, %.lr.ph270.preheader ]
-  %.1200268 = phi i32 [ %143, %141 ], [ %131, %.lr.ph270.preheader ]
-  %.1206267 = phi i32 [ %142, %141 ], [ %130, %.lr.ph270.preheader ]
+  %134 = phi i32 [ %144, %141 ], [ %.4220, %.lr.ph270.preheader ]
+  %.1201268 = phi i32 [ %143, %141 ], [ %131, %.lr.ph270.preheader ]
+  %.1207267 = phi i32 [ %142, %141 ], [ %130, %.lr.ph270.preheader ]
   %135 = zext i32 %134 to i64
   %136 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %135
   %137 = load i16, ptr %136, align 2
   %138 = zext i16 %137 to i32
-  %139 = sub nsw i32 %.1200268, %138
+  %139 = sub nsw i32 %.1201268, %138
   %140 = icmp slt i32 %139, 1
   br i1 %140, label %._crit_edge271.loopexit, label %141
 
 141:                                              ; preds = %.lr.ph270
-  %142 = add i32 %.1206267, 1
+  %142 = add i32 %.1207267, 1
   %143 = shl nuw i32 %139, 1
   %144 = add i32 %142, %spec.select241
-  %145 = icmp ult i32 %144, %.0210259
+  %145 = icmp ult i32 %144, %.0211259
   br i1 %145, label %.lr.ph270, label %._crit_edge271.loopexit
 
 ._crit_edge271.loopexit:                          ; preds = %.lr.ph270, %141
-  %.1206.lcssa.ph = phi i32 [ %133, %141 ], [ %.1206267, %.lr.ph270 ]
-  %.pre = shl nuw i32 1, %.1206.lcssa.ph
+  %.1207.lcssa.ph = phi i32 [ %133, %141 ], [ %.1207267, %.lr.ph270 ]
+  %.pre = shl nuw i32 1, %.1207.lcssa.ph
   br label %._crit_edge271
 
 ._crit_edge271:                                   ; preds = %._crit_edge271.loopexit, %126
   %.pre-phi = phi i32 [ %.pre, %._crit_edge271.loopexit ], [ %131, %126 ]
-  %.1206.lcssa = phi i32 [ %.1206.lcssa.ph, %._crit_edge271.loopexit ], [ %130, %126 ]
-  %146 = add i32 %.pre-phi, %.0197.ph
+  %.1207.lcssa = phi i32 [ %.1207.lcssa.ph, %._crit_edge271.loopexit ], [ %130, %126 ]
+  %146 = add i32 %.pre-phi, %.0198.ph
   %147 = icmp ugt i32 %146, 1455
   %or.cond5 = select i1 %66, i1 %147, i1 false
   br i1 %or.cond5, label %.loopexit, label %148
 
 148:                                              ; preds = %._crit_edge271
-  %149 = trunc i32 %.1206.lcssa to i8
+  %149 = trunc i32 %.1207.lcssa to i8
   %150 = load ptr, ptr %3, align 8
   %151 = zext i32 %125 to i64
   %152 = getelementptr inbounds %struct.code, ptr %150, i64 %151
@@ -2373,15 +2373,15 @@ select.unfold.preheader:                          ; preds = %112
 .lr.ph280:                                        ; preds = %select.unfold.preheader, %select.unfold
   %.2279 = phi ptr [ %.3, %select.unfold ], [ %.0187.ph, %select.unfold.preheader ]
   %.sroa.9.0278 = phi i8 [ %.sroa.9.1, %select.unfold ], [ %74, %select.unfold.preheader ]
-  %.2195277 = phi i32 [ %177, %select.unfold ], [ %105, %select.unfold.preheader ]
-  %.3204276 = phi i32 [ %.4, %select.unfold ], [ %.0201.ph, %select.unfold.preheader ]
-  %.5275 = phi i32 [ %.6, %select.unfold ], [ %.0210259, %select.unfold.preheader ]
-  %.not235 = icmp eq i32 %.3204276, 0
+  %.2196277 = phi i32 [ %177, %select.unfold ], [ %105, %select.unfold.preheader ]
+  %.3205276 = phi i32 [ %.4, %select.unfold ], [ %.0202.ph, %select.unfold.preheader ]
+  %.5275 = phi i32 [ %.6, %select.unfold ], [ %.0211259, %select.unfold.preheader ]
+  %.not235 = icmp eq i32 %.3205276, 0
   br i1 %.not235, label %166, label %162
 
 162:                                              ; preds = %.lr.ph280
-  %163 = and i32 %.2195277, %68
-  %.not236 = icmp eq i32 %163, %.0188.ph
+  %163 = and i32 %.2196277, %68
+  %.not236 = icmp eq i32 %163, %.0189.ph
   br i1 %.not236, label %166, label %164
 
 164:                                              ; preds = %162
@@ -2390,10 +2390,10 @@ select.unfold.preheader:                          ; preds = %112
 
 166:                                              ; preds = %164, %162, %.lr.ph280
   %.6 = phi i32 [ %spec.select240, %164 ], [ %.5275, %162 ], [ %.5275, %.lr.ph280 ]
-  %.4 = phi i32 [ 0, %164 ], [ %.3204276, %162 ], [ 0, %.lr.ph280 ]
+  %.4 = phi i32 [ 0, %164 ], [ %.3205276, %162 ], [ 0, %.lr.ph280 ]
   %.sroa.9.1 = phi i8 [ %70, %164 ], [ %.sroa.9.0278, %162 ], [ %.sroa.9.0278, %.lr.ph280 ]
   %.3 = phi ptr [ %165, %164 ], [ %.2279, %162 ], [ %.2279, %.lr.ph280 ]
-  %167 = lshr i32 %.2195277, %.4
+  %167 = lshr i32 %.2196277, %.4
   %168 = zext i32 %167 to i64
   %169 = getelementptr inbounds %struct.code, ptr %.3, i64 %168
   store i8 64, ptr %169, align 2
@@ -2406,24 +2406,24 @@ select.unfold.preheader:                          ; preds = %112
   br label %172
 
 172:                                              ; preds = %172, %166
-  %.1192 = phi i32 [ %171, %166 ], [ %174, %172 ]
-  %173 = and i32 %.1192, %.2195277
+  %.1193 = phi i32 [ %171, %166 ], [ %174, %172 ]
+  %173 = and i32 %.1193, %.2196277
   %.not237 = icmp eq i32 %173, 0
-  %174 = lshr i32 %.1192, 1
+  %174 = lshr i32 %.1193, 1
   br i1 %.not237, label %select.unfold, label %172
 
 select.unfold:                                    ; preds = %172
-  %.not238 = icmp eq i32 %.1192, 0
-  %175 = add i32 %.1192, -1
-  %176 = and i32 %175, %.2195277
-  %177 = add i32 %176, %.1192
+  %.not238 = icmp eq i32 %.1193, 0
+  %175 = add i32 %.1193, -1
+  %176 = and i32 %175, %.2196277
+  %177 = add i32 %176, %.1193
   %.not234336 = icmp eq i32 %177, 0
   %.not234 = select i1 %.not238, i1 true, i1 %.not234336
   br i1 %.not234, label %select.unfold._crit_edge, label %.lr.ph280
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %select.unfold.preheader
   %178 = load ptr, ptr %3, align 8
-  %179 = zext i32 %.0197.ph to i64
+  %179 = zext i32 %.0198.ph to i64
   %180 = getelementptr inbounds %struct.code, ptr %178, i64 %179
   store ptr %180, ptr %3, align 8
   br label %.loopexit.sink.split
@@ -2434,8 +2434,8 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %sel
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %._crit_edge271, %.loopexit.sink.split, %64, %41
-  %.0220 = phi i32 [ -1, %41 ], [ 1, %64 ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge271 ], [ -1, %33 ]
-  ret i32 %.0220
+  %.0188 = phi i32 [ -1, %41 ], [ 1, %64 ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge271 ], [ -1, %33 ]
+  ret i32 %.0188
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable

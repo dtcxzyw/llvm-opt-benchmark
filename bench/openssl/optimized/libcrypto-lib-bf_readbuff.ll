@@ -230,8 +230,8 @@ if.then19:                                        ; preds = %for.end
 
 if.end21:                                         ; preds = %if.end.if.end21_crit_edge, %for.end
   %14 = phi i32 [ %add16, %for.end ], [ %.pre74, %if.end.if.end21_crit_edge ]
-  %buf.addr.2 = phi ptr [ %buf.addr.1, %for.end ], [ %buf, %if.end.if.end21_crit_edge ]
   %size.addr.0 = phi i32 [ %sub, %for.end ], [ %dec, %if.end.if.end21_crit_edge ]
+  %buf.addr.2 = phi ptr [ %buf.addr.1, %for.end ], [ %buf, %if.end.if.end21_crit_edge ]
   %num.0 = phi i32 [ %num_chars.1, %for.end ], [ 0, %if.end.if.end21_crit_edge ]
   %ibuf_off.i = getelementptr inbounds i8, ptr %0, i64 20
   %sub.i = add i32 %size.addr.0, 4096

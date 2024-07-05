@@ -552,8 +552,8 @@ define internal fastcc range(i32 0, 2) i32 @collate(ptr noundef %0, ptr noundef 
   br i1 %.not113, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %66, %.preheader
-  %.0.lcssa = phi i32 [ %53, %.preheader ], [ %63, %66 ]
-  %70 = call fastcc i32 @process_data(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %40, i32 noundef %.0.lcssa, ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef %7)
+  %.096.lcssa = phi i32 [ %53, %.preheader ], [ %63, %66 ]
+  %70 = call fastcc i32 @process_data(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %40, i32 noundef %.096.lcssa, ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef %7)
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %.loopexit117, label %72
 
@@ -687,8 +687,8 @@ define internal fastcc range(i32 0, 2) i32 @collate(ptr noundef %0, ptr noundef 
   br label %.loopexit117
 
 .loopexit117:                                     ; preds = %122, %94, %75, %._crit_edge, %.loopexit, %144, %142, %15, %138, %73, %21
-  %.096 = phi i32 [ 1, %21 ], [ 0, %138 ], [ 1, %73 ], [ 0, %15 ], [ 0, %142 ], [ 0, %144 ], [ 0, %.loopexit ], [ 0, %._crit_edge ], [ 0, %75 ], [ 0, %94 ], [ 0, %122 ]
-  ret i32 %.096
+  %.0 = phi i32 [ 1, %21 ], [ 0, %138 ], [ 1, %73 ], [ 0, %15 ], [ 0, %142 ], [ 0, %144 ], [ 0, %.loopexit ], [ 0, %._crit_edge ], [ 0, %75 ], [ 0, %94 ], [ 0, %122 ]
+  ret i32 %.0
 }
 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
@@ -708,7 +708,7 @@ define internal fastcc range(i32 -1, 8193) i32 @process_data(ptr nocapture nound
   br label %14
 
 14:                                               ; preds = %.lr.ph, %70
-  %.071 = phi i32 [ %3, %.lr.ph ], [ %71, %70 ]
+  %.05571 = phi i32 [ %3, %.lr.ph ], [ %71, %70 ]
   %15 = tail call i32 @file_getc(ptr noundef %1) #6
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %17, label %20
@@ -765,8 +765,8 @@ define internal fastcc range(i32 -1, 8193) i32 @process_data(ptr nocapture nound
   br label %40
 
 40:                                               ; preds = %32, %30
-  %41 = add nsw i32 %.071, -1
-  %.not62 = icmp eq i32 %.071, 1
+  %41 = add nsw i32 %.05571, -1
+  %.not62 = icmp eq i32 %.05571, 1
   br i1 %.not62, label %47, label %42
 
 42:                                               ; preds = %40
@@ -812,7 +812,7 @@ define internal fastcc range(i32 -1, 8193) i32 @process_data(ptr nocapture nound
   br label %58
 
 58:                                               ; preds = %.thread, %56
-  %.055 = phi i32 [ %57, %.thread ], [ %15, %56 ]
+  %.056 = phi i32 [ %57, %.thread ], [ %15, %56 ]
   %59 = load i32, ptr %12, align 4
   %60 = icmp sgt i32 %59, 8191
   br i1 %60, label %61, label %65
@@ -826,7 +826,7 @@ define internal fastcc range(i32 -1, 8193) i32 @process_data(ptr nocapture nound
   br label %.loopexit
 
 65:                                               ; preds = %58
-  %66 = trunc i32 %.055 to i8
+  %66 = trunc i32 %.056 to i8
   %67 = add nsw i32 %59, 1
   store i32 %67, ptr %12, align 4
   %68 = sext i32 %59 to i64
@@ -835,13 +835,13 @@ define internal fastcc range(i32 -1, 8193) i32 @process_data(ptr nocapture nound
   br label %70
 
 70:                                               ; preds = %55, %65, %23
-  %71 = add nsw i32 %.071, -1
-  %72 = icmp sgt i32 %.071, 1
+  %71 = add nsw i32 %.05571, -1
+  %72 = icmp sgt i32 %.05571, 1
   br i1 %72, label %14, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %70, %8, %61, %49, %28, %17
-  %.056 = phi i32 [ -1, %17 ], [ -1, %61 ], [ -1, %28 ], [ %24, %49 ], [ 0, %8 ], [ 0, %70 ]
-  ret i32 %.056
+  %.0 = phi i32 [ -1, %17 ], [ -1, %61 ], [ -1, %28 ], [ %24, %49 ], [ 0, %8 ], [ 0, %70 ]
+  ret i32 %.0
 }
 
 declare i32 @file_getc(ptr noundef) local_unnamed_addr #1

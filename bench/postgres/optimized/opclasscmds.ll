@@ -390,7 +390,7 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
   br label %84
 
 84:                                               ; preds = %68, %76, %60
-  %.0170 = phi i32 [ %61, %60 ], [ %75, %68 ], [ %.sroa.1.0.extract.trunc, %76 ]
+  %.0169 = phi i32 [ %61, %60 ], [ %75, %68 ], [ %.sroa.1.0.extract.trunc, %76 ]
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 40
@@ -455,7 +455,7 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
   br label %117
 
 117:                                              ; preds = %113, %111
-  %.0171 = phi i32 [ %112, %111 ], [ %116, %113 ]
+  %.0173 = phi i32 [ %112, %111 ], [ %116, %113 ]
   %118 = getelementptr inbounds i8, ptr %93, i64 24
   %119 = load ptr, ptr %118, align 8
   %.not205 = icmp eq ptr %119, null
@@ -466,16 +466,16 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
   br label %122
 
 122:                                              ; preds = %117, %120
-  %.0169 = phi i32 [ %121, %120 ], [ 0, %117 ]
+  %.0174 = phi i32 [ %121, %120 ], [ 0, %117 ]
   %123 = call ptr @palloc0(i64 noundef 32) #6
   store i8 0, ptr %123, align 4
   %124 = getelementptr inbounds i8, ptr %123, i64 4
-  store i32 %.0171, ptr %124, align 4
+  store i32 %.0173, ptr %124, align 4
   %125 = load i32, ptr %97, align 8
   %126 = getelementptr inbounds i8, ptr %123, i64 8
   store i32 %125, ptr %126, align 4
   %127 = getelementptr inbounds i8, ptr %123, i64 20
-  store i32 %.0169, ptr %127, align 4
+  store i32 %.0174, ptr %127, align 4
   call fastcc void @assignOperTypes(ptr noundef nonnull %123, i32 noundef %35)
   call fastcc void @addFamilyMember(ptr noundef nonnull %4, ptr noundef nonnull %123)
   br label %166
@@ -671,7 +671,7 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
   %230 = zext i32 %229 to i64
   %231 = getelementptr inbounds i8, ptr %6, i64 32
   store i64 %230, ptr %231, align 16
-  %232 = zext i32 %.0170 to i64
+  %232 = zext i32 %.0169 to i64
   %233 = getelementptr inbounds i8, ptr %6, i64 40
   store i64 %232, ptr %233, align 8
   %234 = zext i32 %57 to i64
@@ -754,14 +754,14 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
   br i1 %.not199, label %276, label %275
 
 275:                                              ; preds = %._crit_edge246
-  call void %274(i32 noundef %.0170, i32 noundef %222, ptr noundef %245, ptr noundef %259) #6
+  call void %274(i32 noundef %.0169, i32 noundef %222, ptr noundef %245, ptr noundef %259) #6
   br label %276
 
 276:                                              ; preds = %275, %._crit_edge246
   %277 = load ptr, ptr %58, align 8
-  call fastcc void @storeOperators(ptr noundef %277, i32 noundef %35, i32 noundef %.0170, ptr noundef %245, i1 noundef zeroext false)
+  call fastcc void @storeOperators(ptr noundef %277, i32 noundef %35, i32 noundef %.0169, ptr noundef %245, i1 noundef zeroext false)
   %278 = load ptr, ptr %58, align 8
-  call fastcc void @storeProcedures(ptr noundef %278, i32 noundef %.0170, ptr noundef %259, i1 noundef zeroext false)
+  call fastcc void @storeProcedures(ptr noundef %278, i32 noundef %.0169, ptr noundef %259, i1 noundef zeroext false)
   call void @EventTriggerCollectCreateOpClass(ptr noundef %0, i32 noundef %222, ptr noundef %245, ptr noundef %259) #6
   store i32 2616, ptr %2, align 8
   %279 = getelementptr inbounds i8, ptr %2, i64 4
@@ -775,7 +775,7 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
   store i32 0, ptr %282, align 4
   call void @recordDependencyOn(ptr noundef nonnull %2, ptr noundef nonnull %9, i32 noundef 110) #6
   store i32 2753, ptr %9, align 4
-  store i32 %.0170, ptr %281, align 4
+  store i32 %.0169, ptr %281, align 4
   store i32 0, ptr %282, align 4
   call void @recordDependencyOn(ptr noundef nonnull %2, ptr noundef nonnull %9, i32 noundef 97) #6
   store i32 1247, ptr %9, align 4

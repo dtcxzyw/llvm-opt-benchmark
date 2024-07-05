@@ -3343,7 +3343,7 @@ invoke.cont79.preheader:                          ; preds = %_ZNK15ref_vector_co
 invoke.cont79:                                    ; preds = %invoke.cont79.preheader, %for.inc126
   %143 = phi ptr [ %call66, %invoke.cont79.preheader ], [ %177, %for.inc126 ]
   %indvars.iv431 = phi i64 [ 0, %invoke.cont79.preheader ], [ %indvars.iv.next432, %for.inc126 ]
-  %dirty.0381 = phi i1 [ false, %invoke.cont79.preheader ], [ %dirty.4, %for.inc126 ]
+  %dirty.0382 = phi i1 [ false, %invoke.cont79.preheader ], [ %dirty.4, %for.inc126 ]
   %144 = load ptr, ptr %m_nodes.i.i97, align 8
   %arrayidx.i.i136 = getelementptr inbounds ptr, ptr %144, i64 %indvars.iv431
   %145 = load ptr, ptr %arrayidx.i.i136, align 8
@@ -3430,7 +3430,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
 
 for.body102:                                      ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %_ZN6solver11scoped_pushD2Ev.exit186
   %__begin2.0377 = phi ptr [ %incdec.ptr, %_ZN6solver11scoped_pushD2Ev.exit186 ], [ %157, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
-  %dirty.1376 = phi i1 [ %dirty.2, %_ZN6solver11scoped_pushD2Ev.exit186 ], [ %dirty.0381, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
+  %dirty.1376 = phi i1 [ %dirty.2, %_ZN6solver11scoped_pushD2Ev.exit186 ], [ %dirty.0382, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
   %160 = load ptr, ptr %__begin2.0377, align 8
   %vtable.i157 = load ptr, ptr %154, align 8
   %vfn.i158 = getelementptr inbounds i8, ptr %vtable.i157, i64 192
@@ -3537,7 +3537,7 @@ _ZN6solver11scoped_pushD2Ev.exit186:              ; preds = %if.then.i181
   br i1 %or.cond384, label %if.then.i189, label %for.body102
 
 if.then.i189:                                     ; preds = %_ZN6solver11scoped_pushD2Ev.exit186, %invoke.cont96, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit
-  %dirty.3 = phi i1 [ %dirty.0381, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ %dirty.0381, %invoke.cont96 ], [ %dirty.2, %_ZN6solver11scoped_pushD2Ev.exit186 ]
+  %dirty.3 = phi i1 [ %dirty.0382, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ %dirty.0382, %invoke.cont96 ], [ %dirty.2, %_ZN6solver11scoped_pushD2Ev.exit186 ]
   %vtable.i190 = load ptr, ptr %143, align 8
   %vfn.i191 = getelementptr inbounds i8, ptr %vtable.i190, i64 200
   %174 = load ptr, ptr %vfn.i191, align 8
@@ -3553,7 +3553,7 @@ terminate.lpad.i192:                              ; preds = %if.then.i189
 
 for.inc126:                                       ; preds = %if.then.i189, %invoke.cont83
   %177 = phi ptr [ %143, %invoke.cont83 ], [ %154, %if.then.i189 ]
-  %dirty.4 = phi i1 [ %dirty.0381, %invoke.cont83 ], [ %dirty.3, %if.then.i189 ]
+  %dirty.4 = phi i1 [ %dirty.0382, %invoke.cont83 ], [ %dirty.3, %if.then.i189 ]
   %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
   %exitcond434.not = icmp eq i64 %indvars.iv.next432, %wide.trip.count433
   br i1 %exitcond434.not, label %for.end128, label %invoke.cont79, !llvm.loop !22

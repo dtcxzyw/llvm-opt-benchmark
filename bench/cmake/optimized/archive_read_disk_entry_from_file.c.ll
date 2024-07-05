@@ -124,7 +124,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_fil
   br label %16
 
 16:                                               ; preds = %14, %11
-  %.089 = phi ptr [ %15, %14 ], [ %12, %11 ]
+  %.087 = phi ptr [ %15, %14 ], [ %12, %11 ]
   %17 = getelementptr inbounds i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
@@ -156,25 +156,25 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_fil
   br i1 %.not, label %32, label %37
 
 32:                                               ; preds = %29
-  %33 = call i32 @lstat(ptr noundef %.089, ptr noundef nonnull %7) #12
+  %33 = call i32 @lstat(ptr noundef %.087, ptr noundef nonnull %7) #12
   %.not105 = icmp eq i32 %33, 0
   br i1 %.not105, label %42, label %34
 
 34:                                               ; preds = %32
   %35 = tail call ptr @__errno_location() #13
   %36 = load i32, ptr %35, align 4
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %36, ptr noundef nonnull @.str.3, ptr noundef %.089) #12
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %36, ptr noundef nonnull @.str.3, ptr noundef %.087) #12
   br label %279
 
 37:                                               ; preds = %29
-  %38 = call i32 @stat(ptr noundef %.089, ptr noundef nonnull %7) #12
+  %38 = call i32 @stat(ptr noundef %.087, ptr noundef nonnull %7) #12
   %.not106 = icmp eq i32 %38, 0
   br i1 %.not106, label %42, label %39
 
 39:                                               ; preds = %37
   %40 = tail call ptr @__errno_location() #13
   %41 = load i32, ptr %40, align 4
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %41, ptr noundef nonnull @.str.4, ptr noundef %.089) #12
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %41, ptr noundef nonnull @.str.4, ptr noundef %.087) #12
   br label %279
 
 42:                                               ; preds = %24, %37, %32, %20
@@ -233,11 +233,11 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_fil
 65:                                               ; preds = %63
   %66 = getelementptr inbounds i8, ptr %0, i64 168
   %67 = load ptr, ptr %66, align 8
-  %68 = call i32 %67(ptr noundef nonnull %64, ptr noundef %.089, i32 noundef 526336) #12
+  %68 = call i32 %67(ptr noundef nonnull %64, ptr noundef %.087, i32 noundef 526336) #12
   br label %71
 
 69:                                               ; preds = %63
-  %70 = call i32 (ptr, i32, ...) @open(ptr noundef %.089, i32 noundef 526336) #12
+  %70 = call i32 (ptr, i32, ...) @open(ptr noundef %.087, i32 noundef 526336) #12
   br label %71
 
 71:                                               ; preds = %65, %69
@@ -290,11 +290,11 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_fil
   %95 = getelementptr inbounds i8, ptr %0, i64 176
   %96 = load ptr, ptr %95, align 8
   %97 = call i32 %96(ptr noundef nonnull %93) #12
-  %98 = call i64 @readlinkat(i32 noundef %97, ptr noundef %.089, ptr noundef nonnull %89, i64 noundef %87) #12
+  %98 = call i64 @readlinkat(i32 noundef %97, ptr noundef %.087, ptr noundef nonnull %89, i64 noundef %87) #12
   br label %101
 
 99:                                               ; preds = %92
-  %100 = call i64 @readlink(ptr noundef %.089, ptr noundef nonnull %89, i64 noundef %87) #12
+  %100 = call i64 @readlink(ptr noundef %.087, ptr noundef nonnull %89, i64 noundef %87) #12
   br label %101
 
 101:                                              ; preds = %99, %94
@@ -489,13 +489,13 @@ archive_read_disk_entry_setup_path.exit.i.i:      ; preds = %163
   br label %188
 
 188:                                              ; preds = %._crit_edge.thread.i.i, %.lr.ph90.i.i
-  %.06388.i.i = phi i32 [ 0, %.lr.ph90.i.i ], [ %225, %._crit_edge.thread.i.i ]
+  %.06488.i.i = phi i32 [ 0, %.lr.ph90.i.i ], [ %225, %._crit_edge.thread.i.i ]
   %189 = load i32, ptr %186, align 4
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %191, label %194
 
 191:                                              ; preds = %188
-  %192 = icmp eq i32 %.06388.i.i, 0
+  %192 = icmp eq i32 %.06488.i.i, 0
   br i1 %192, label %193, label %setup_sparse_fiemap.exit.i
 
 193:                                              ; preds = %191
@@ -564,7 +564,7 @@ archive_read_disk_entry_setup_path.exit.i.i:      ; preds = %163
   %223 = load i64, ptr %222, align 8
   %224 = add i64 %223, %221
   store i64 %224, ptr %5, align 16
-  %225 = add nuw nsw i32 %.06388.i.i, 1
+  %225 = add nuw nsw i32 %.06488.i.i, 1
   %226 = load i32, ptr %6, align 4
   %227 = call i32 (i32, i64, ...) @ioctl(i32 noundef %226, i64 noundef 3223348747, ptr noundef nonnull %5) #12
   %228 = icmp slt i32 %227, 0

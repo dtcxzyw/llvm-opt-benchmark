@@ -23,8 +23,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc54.us
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %for.inc54.us ], [ 0, %for.body.lr.ph ]
+  %x.addr.030.us = phi float [ %add.us, %for.inc54.us ], [ %x, %for.body.lr.ph ]
   %offset.addr.029.us = phi i32 [ %offset.addr.2.us, %for.inc54.us ], [ %offset, %for.body.lr.ph ]
-  %x.addr.028.us = phi float [ %add.us, %for.inc54.us ], [ %x, %for.body.lr.ph ]
   %arrayidx.us = getelementptr inbounds i8, ptr %segs, i64 %indvars.iv41
   %0 = load i8, ptr %arrayidx.us, align 1
   %conv.us = zext i8 %0 to i32
@@ -32,7 +32,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %shr.us = lshr i32 %conv.us, 3
   %and4.us = and i32 %shr.us, 1
   %conv5.us = uitofp nneg i32 %and4.us to float
-  %add.us = fadd float %x.addr.028.us, %conv5.us
+  %add.us = fadd float %x.addr.030.us, %conv5.us
   %tobool.not.us = icmp eq i32 %and.us, 0
   %add6.us = add nsw i32 %offset.addr.029.us, 64
   %cmp7.not.us = icmp sgt i32 %add6.us, %vbuf_size
@@ -50,13 +50,13 @@ if.then.us:                                       ; preds = %for.body.us
 
 for.body18.us:                                    ; preds = %if.then.us, %for.body18.us
   %indvars.iv37 = phi i64 [ %1, %if.then.us ], [ %indvars.iv.next38, %for.body18.us ]
-  %j.026.us = phi i32 [ 0, %if.then.us ], [ %inc.us, %for.body18.us ]
-  %4 = add nsw i32 %j.026.us, -1
+  %j.025.us = phi i32 [ 0, %if.then.us ], [ %inc.us, %for.body18.us ]
+  %4 = add nsw i32 %j.025.us, -1
   %or.cond.us = icmp ult i32 %4, 2
   %cond27.us = select i1 %or.cond.us, i32 %and.us, i32 0
   %conv28.us = uitofp nneg i32 %cond27.us to float
   %add.ptr.us = getelementptr inbounds i8, ptr %vbuf, i64 %indvars.iv37
-  %cmp31.us = icmp ugt i32 %j.026.us, 1
+  %cmp31.us = icmp ugt i32 %j.025.us, 1
   %conv42.us = uitofp i1 %cmp31.us to float
   %5 = insertelement <2 x float> poison, float %conv28.us, i64 0
   %6 = insertelement <2 x float> %5, float %conv42.us, i64 1
@@ -67,7 +67,7 @@ for.body18.us:                                    ; preds = %if.then.us, %for.bo
   %add.ptr52.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 12
   store i32 %c.coerce, ptr %add.ptr52.us, align 1
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, 16
-  %inc.us = add nuw nsw i32 %j.026.us, 1
+  %inc.us = add nuw nsw i32 %j.025.us, 1
   %exitcond40.not = icmp eq i32 %inc.us, 4
   br i1 %exitcond40.not, label %for.inc54.us.loopexit, label %for.body18.us, !llvm.loop !4
 
@@ -83,8 +83,8 @@ for.inc54.us:                                     ; preds = %for.inc54.us.loopex
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc54
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %for.inc54 ], [ 0, %for.body.lr.ph ]
+  %x.addr.030 = phi float [ %add, %for.inc54 ], [ %x, %for.body.lr.ph ]
   %offset.addr.029 = phi i32 [ %offset.addr.2, %for.inc54 ], [ %offset, %for.body.lr.ph ]
-  %x.addr.028 = phi float [ %add, %for.inc54 ], [ %x, %for.body.lr.ph ]
   %arrayidx = getelementptr inbounds i8, ptr %segs, i64 %indvars.iv33
   %9 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %9 to i32
@@ -92,7 +92,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %shr = lshr i32 %conv, 3
   %and4 = and i32 %shr, 1
   %conv5 = uitofp nneg i32 %and4 to float
-  %add = fadd float %x.addr.028, %conv5
+  %add = fadd float %x.addr.030, %conv5
   %tobool.not = icmp eq i32 %and, 0
   %add6 = add nsw i32 %offset.addr.029, 64
   %cmp7.not = icmp sgt i32 %add6, %vbuf_size
@@ -110,12 +110,12 @@ if.then:                                          ; preds = %for.body
 
 for.body18:                                       ; preds = %if.then, %for.body18
   %indvars.iv = phi i64 [ %10, %if.then ], [ %indvars.iv.next, %for.body18 ]
-  %j.026 = phi i32 [ 0, %if.then ], [ %inc, %for.body18 ]
-  %13 = add nsw i32 %j.026, -1
+  %j.025 = phi i32 [ 0, %if.then ], [ %inc, %for.body18 ]
+  %13 = add nsw i32 %j.025, -1
   %or.cond = icmp ult i32 %13, 2
   %conv28 = uitofp i1 %or.cond to float
   %add.ptr = getelementptr inbounds i8, ptr %vbuf, i64 %indvars.iv
-  %cmp31 = icmp ugt i32 %j.026, 1
+  %cmp31 = icmp ugt i32 %j.025, 1
   %cond41 = select i1 %cmp31, i32 %and, i32 0
   %conv42 = uitofp nneg i32 %cond41 to float
   %14 = insertelement <2 x float> poison, float %conv28, i64 0
@@ -127,7 +127,7 @@ for.body18:                                       ; preds = %if.then, %for.body1
   %add.ptr52 = getelementptr inbounds i8, ptr %add.ptr, i64 12
   store i32 %c.coerce, ptr %add.ptr52, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 16
-  %inc = add nuw nsw i32 %j.026, 1
+  %inc = add nuw nsw i32 %j.025, 1
   %exitcond.not = icmp eq i32 %inc, 4
   br i1 %exitcond.not, label %for.inc54.loopexit, label %for.body18, !llvm.loop !4
 
@@ -177,9 +177,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %c.sroa.5.0 = phi i32 [ %7, %if.then ], [ 16711680, %entry ]
   %c.sroa.4.0 = phi i32 [ %9, %if.then ], [ 65280, %entry ]
   %c.sroa.0.0 = phi i32 [ %10, %if.then ], [ 255, %entry ]
+  %c.sroa.5.0 = phi i32 [ %7, %if.then ], [ 16711680, %entry ]
   %c.sroa.6.0 = phi i32 [ %5, %if.then ], [ -16777216, %entry ]
   %11 = load i8, ptr %text, align 1
   %tobool1254 = icmp ne i8 %11, 0
@@ -188,8 +188,8 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %12, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %c.sroa.5.0.insert.insert = or i32 %c.sroa.4.0, %c.sroa.5.0
-  %c.sroa.4.0.insert.insert = or disjoint i32 %c.sroa.5.0.insert.insert, %c.sroa.0.0
+  %c.sroa.5.0.insert.insert = or disjoint i32 %c.sroa.0.0, %c.sroa.4.0
+  %c.sroa.4.0.insert.insert = or i32 %c.sroa.5.0.insert.insert, %c.sroa.5.0
   %c.sroa.0.0.insert.insert = or i32 %c.sroa.4.0.insert.insert, %c.sroa.6.0
   br label %while.body
 
@@ -245,8 +245,8 @@ for.body.lr.ph.i:                                 ; preds = %if.else
 
 for.body.us.i:                                    ; preds = %for.inc54.us.i, %for.body.lr.ph.i
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %for.inc54.us.i ], [ 0, %for.body.lr.ph.i ]
+  %x.addr.030.us.i = phi float [ %add.us.i, %for.inc54.us.i ], [ %x.addr.059, %for.body.lr.ph.i ]
   %offset.addr.029.us.i = phi i32 [ %offset.addr.2.us.i, %for.inc54.us.i ], [ %offset.056, %for.body.lr.ph.i ]
-  %x.addr.028.us.i = phi float [ %add.us.i, %for.inc54.us.i ], [ %x.addr.059, %for.body.lr.ph.i ]
   %arrayidx.us.i = getelementptr inbounds i8, ptr %arrayidx53, i64 %indvars.iv41.i
   %19 = load i8, ptr %arrayidx.us.i, align 1
   %conv.us.i = zext i8 %19 to i32
@@ -254,7 +254,7 @@ for.body.us.i:                                    ; preds = %for.inc54.us.i, %fo
   %shr.us.i = lshr i32 %conv.us.i, 3
   %and4.us.i = and i32 %shr.us.i, 1
   %conv5.us.i = uitofp nneg i32 %and4.us.i to float
-  %add.us.i = fadd float %x.addr.028.us.i, %conv5.us.i
+  %add.us.i = fadd float %x.addr.030.us.i, %conv5.us.i
   %tobool.not.us.i = icmp eq i32 %and.us.i, 0
   %add6.us.i = add nsw i32 %offset.addr.029.us.i, 64
   %cmp7.not.us.i = icmp sgt i32 %add6.us.i, %vbuf_size
@@ -272,13 +272,13 @@ if.then.us.i:                                     ; preds = %for.body.us.i
 
 for.body18.us.i:                                  ; preds = %for.body18.us.i, %if.then.us.i
   %indvars.iv37.i = phi i64 [ %20, %if.then.us.i ], [ %indvars.iv.next38.i, %for.body18.us.i ]
-  %j.026.us.i = phi i32 [ 0, %if.then.us.i ], [ %inc.us.i, %for.body18.us.i ]
-  %23 = add nsw i32 %j.026.us.i, -1
+  %j.025.us.i = phi i32 [ 0, %if.then.us.i ], [ %inc.us.i, %for.body18.us.i ]
+  %23 = add nsw i32 %j.025.us.i, -1
   %or.cond.us.i = icmp ult i32 %23, 2
   %cond27.us.i = select i1 %or.cond.us.i, i32 %and.us.i, i32 0
   %conv28.us.i = uitofp nneg i32 %cond27.us.i to float
   %add.ptr.us.i = getelementptr inbounds i8, ptr %vertex_buffer, i64 %indvars.iv37.i
-  %cmp31.us.i = icmp ugt i32 %j.026.us.i, 1
+  %cmp31.us.i = icmp ugt i32 %j.025.us.i, 1
   %conv42.us.i = uitofp i1 %cmp31.us.i to float
   %24 = insertelement <2 x float> poison, float %conv28.us.i, i64 0
   %25 = insertelement <2 x float> %24, float %conv42.us.i, i64 1
@@ -289,7 +289,7 @@ for.body18.us.i:                                  ; preds = %for.body18.us.i, %i
   %add.ptr52.us.i = getelementptr inbounds i8, ptr %add.ptr.us.i, i64 12
   store i32 %c.sroa.0.0.insert.insert, ptr %add.ptr52.us.i, align 1
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, 16
-  %inc.us.i = add nuw nsw i32 %j.026.us.i, 1
+  %inc.us.i = add nuw nsw i32 %j.025.us.i, 1
   %exitcond40.not.i = icmp eq i32 %inc.us.i, 4
   br i1 %exitcond40.not.i, label %for.inc54.us.loopexit.i, label %for.body18.us.i, !llvm.loop !4
 
@@ -316,8 +316,8 @@ for.body.lr.ph.i50:                               ; preds = %stb_easy_font_draw_
 
 for.body.i:                                       ; preds = %for.inc54.i, %for.body.lr.ph.i50
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %for.inc54.i ], [ 0, %for.body.lr.ph.i50 ]
+  %x.addr.030.i = phi float [ %add.i, %for.inc54.i ], [ %x.addr.059, %for.body.lr.ph.i50 ]
   %offset.addr.029.i = phi i32 [ %offset.addr.2.i, %for.inc54.i ], [ %offset.addr.0.lcssa.i, %for.body.lr.ph.i50 ]
-  %x.addr.028.i = phi float [ %add.i, %for.inc54.i ], [ %x.addr.059, %for.body.lr.ph.i50 ]
   %arrayidx.i = getelementptr inbounds i8, ptr %arrayidx55, i64 %indvars.iv33.i
   %28 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %28 to i32
@@ -325,7 +325,7 @@ for.body.i:                                       ; preds = %for.inc54.i, %for.b
   %shr.i = lshr i32 %conv.i, 3
   %and4.i = and i32 %shr.i, 1
   %conv5.i = uitofp nneg i32 %and4.i to float
-  %add.i = fadd float %x.addr.028.i, %conv5.i
+  %add.i = fadd float %x.addr.030.i, %conv5.i
   %tobool.not.i = icmp eq i32 %and.i, 0
   %add6.i = add nsw i32 %offset.addr.029.i, 64
   %cmp7.not.i = icmp sgt i32 %add6.i, %vbuf_size
@@ -343,12 +343,12 @@ if.then.i:                                        ; preds = %for.body.i
 
 for.body18.i:                                     ; preds = %for.body18.i, %if.then.i
   %indvars.iv.i = phi i64 [ %29, %if.then.i ], [ %indvars.iv.next.i, %for.body18.i ]
-  %j.026.i = phi i32 [ 0, %if.then.i ], [ %inc.i, %for.body18.i ]
-  %32 = add nsw i32 %j.026.i, -1
+  %j.025.i = phi i32 [ 0, %if.then.i ], [ %inc.i, %for.body18.i ]
+  %32 = add nsw i32 %j.025.i, -1
   %or.cond.i = icmp ult i32 %32, 2
   %conv28.i = uitofp i1 %or.cond.i to float
   %add.ptr.i = getelementptr inbounds i8, ptr %vertex_buffer, i64 %indvars.iv.i
-  %cmp31.i = icmp ugt i32 %j.026.i, 1
+  %cmp31.i = icmp ugt i32 %j.025.i, 1
   %cond41.i = select i1 %cmp31.i, i32 %and.i, i32 0
   %conv42.i = uitofp nneg i32 %cond41.i to float
   %33 = insertelement <2 x float> poison, float %conv28.i, i64 0
@@ -360,7 +360,7 @@ for.body18.i:                                     ; preds = %for.body18.i, %if.t
   %add.ptr52.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
   store i32 %c.sroa.0.0.insert.insert, ptr %add.ptr52.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 16
-  %inc.i = add nuw nsw i32 %j.026.i, 1
+  %inc.i = add nuw nsw i32 %j.025.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 4
   br i1 %exitcond.not.i, label %for.inc54.loopexit.i, label %for.body18.i, !llvm.loop !4
 

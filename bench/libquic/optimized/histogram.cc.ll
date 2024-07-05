@@ -804,16 +804,16 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %inconsistencies.032 = phi i32 [ %spec.select, %for.body ], [ 0, %entry ]
-  %index.031 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
-  %previous_range.030 = phi i32 [ %call4, %for.body ], [ -1, %entry ]
+  %previous_range.031 = phi i32 [ %call4, %for.body ], [ -1, %entry ]
+  %index.030 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
   %vtable2 = load ptr, ptr %this, align 8
   %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 144
   %1 = load ptr, ptr %vfn3, align 8
-  %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(81) %this, i32 noundef %index.031)
-  %cmp5.not = icmp slt i32 %previous_range.030, %call4
+  %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(81) %this, i32 noundef %index.030)
+  %cmp5.not = icmp slt i32 %previous_range.031, %call4
   %or = or i32 %inconsistencies.032, 2
   %spec.select = select i1 %cmp5.not, i32 %inconsistencies.032, i32 %or
-  %inc = add nuw i32 %index.031, 1
+  %inc = add nuw i32 %index.030, 1
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %2 = load ptr, ptr %vfn, align 8

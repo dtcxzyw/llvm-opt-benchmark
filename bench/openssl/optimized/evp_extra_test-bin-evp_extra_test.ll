@@ -6714,11 +6714,11 @@ if.then57:                                        ; preds = %entry, %if.end5, %i
   br label %if.end58
 
 if.end58:                                         ; preds = %if.end46, %if.then3, %if.then57
-  %type.019 = phi ptr [ %type.0.ph, %if.then57 ], [ null, %if.then3 ], [ %call2, %if.end46 ]
-  %testresult.017 = phi i32 [ 0, %if.then57 ], [ 1, %if.then3 ], [ 1, %if.end46 ]
+  %testresult.019 = phi i32 [ 0, %if.then57 ], [ 1, %if.then3 ], [ 1, %if.end46 ]
+  %type.017 = phi ptr [ %type.0.ph, %if.then57 ], [ null, %if.then3 ], [ %call2, %if.end46 ]
   call void @EVP_CIPHER_CTX_free(ptr noundef %call) #8
-  call void @EVP_CIPHER_free(ptr noundef %type.019) #8
-  ret i32 %testresult.017
+  call void @EVP_CIPHER_free(ptr noundef %type.017) #8
+  ret i32 %testresult.019
 }
 
 ; Function Attrs: nounwind uwtable

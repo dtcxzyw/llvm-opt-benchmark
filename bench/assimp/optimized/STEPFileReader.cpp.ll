@@ -3852,8 +3852,8 @@ if.then97:                                        ; preds = %if.end94
           to label %invoke.cont100 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont100:                                   ; preds = %if.then97, %for.inc
-  %n1.0 = phi i64 [ %n1.1.ph, %for.inc ], [ -1, %if.then97 ]
   %ok.0 = phi i1 [ %ok.1.ph, %for.inc ], [ false, %if.then97 ]
+  %n1.0 = phi i64 [ %n1.1.ph, %for.inc ], [ -1, %if.then97 ]
   %28 = load ptr, ptr %mStream.i, align 8
   %mEnd.i.i110 = getelementptr inbounds i8, ptr %28, i64 32
   %29 = load ptr, ptr %mEnd.i.i110, align 8
@@ -3931,8 +3931,8 @@ cleanup:                                          ; preds = %for.body.i
   br label %for.end
 
 for.inc:                                          ; preds = %invoke.cont111, %invoke.cont103
-  %n1.1.ph = phi i64 [ %n1.0, %invoke.cont103 ], [ %call113, %invoke.cont111 ]
   %ok.1.ph = phi i1 [ %ok.0, %invoke.cont103 ], [ %cmp114, %invoke.cont111 ]
+  %n1.1.ph = phi i64 [ %n1.0, %invoke.cont103 ], [ %call113, %invoke.cont111 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp102) #18
   %call118 = invoke noundef nonnull align 8 dereferenceable(51) ptr @_ZN6Assimp12LineSplitterppEv(ptr noundef nonnull align 8 dereferenceable(51) %splitter.i)
           to label %invoke.cont100 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !48
@@ -8923,16 +8923,16 @@ invoke.cont:                                      ; preds = %cond.true
   br i1 %cmp.i.not5.i.i, label %cleanup.action, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %.noexc, %for.body.i.i
-  %__result.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
-  %__first.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
-  %0 = load i8, ptr %__first.sroa.0.06.i.i, align 1
+  %__first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
+  %__result.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
+  %0 = load i8, ptr %__first.sroa.0.07.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %call.i.i.i = call i32 @isprint(i32 noundef %conv.i.i.i) #23
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i8 %placeholder, i8 %0
-  store i8 %cond.i.i.i, ptr %__result.sroa.0.07.i.i, align 1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i, i64 1
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.07.i.i, i64 1
+  store i8 %cond.i.i.i, ptr %__result.sroa.0.06.i.i, align 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 1
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call2.i
   br i1 %cmp.i.not.i.i, label %cleanup.action, label %for.body.i.i, !llvm.loop !86
 

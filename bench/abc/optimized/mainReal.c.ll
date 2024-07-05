@@ -55,11 +55,11 @@ define range(i32 0, 2) i32 @Abc_RealMain(i32 noundef %0, ptr noundef %1) local_u
   br label %17
 
 17:                                               ; preds = %.backedge, %2
-  %.080 = phi ptr [ null, %2 ], [ %.080.be, %.backedge ]
-  %.078 = phi i32 [ 1, %2 ], [ %.078.be, %.backedge ]
-  %.075 = phi i32 [ 0, %2 ], [ %.075.be, %.backedge ]
+  %.080 = phi i32 [ 1, %2 ], [ %.080.be, %.backedge ]
+  %.077 = phi i32 [ 0, %2 ], [ %.077.be, %.backedge ]
+  %.074 = phi i32 [ 0, %2 ], [ %.074.be, %.backedge ]
   %.072 = phi i32 [ 0, %2 ], [ %.072.be, %.backedge ]
-  %.071 = phi i32 [ 0, %2 ], [ %.071.be, %.backedge ]
+  %.071 = phi ptr [ null, %2 ], [ %.071.be, %.backedge ]
   %18 = call i32 @Extra_UtilGetopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.2) #12
   switch i32 %18, label %.loopexit148 [
     i32 -1, label %108
@@ -271,11 +271,11 @@ define range(i32 0, 2) i32 @Abc_RealMain(i32 noundef %0, ptr noundef %1) local_u
   br label %.backedge
 
 .backedge:                                        ; preds = %104, %102, %87, %85, %17, %107, %106, %70, %68, %63, %58, %53, %48, %43, %38, %29, %22, %19
-  %.080.be = phi ptr [ %.080, %106 ], [ %71, %70 ], [ %.080, %107 ], [ %.080, %68 ], [ %.080, %63 ], [ %.080, %58 ], [ %.080, %53 ], [ %.080, %48 ], [ %.080, %43 ], [ %.080, %38 ], [ %.080, %29 ], [ %.080, %22 ], [ %.080, %19 ], [ %.080, %17 ], [ %.080, %85 ], [ %.080, %87 ], [ %.080, %102 ], [ %.080, %104 ]
-  %.078.be = phi i32 [ %.078, %106 ], [ %.078, %70 ], [ %.078, %107 ], [ %.078, %68 ], [ %.078, %63 ], [ %.078, %58 ], [ %.078, %53 ], [ %.078, %48 ], [ %.078, %43 ], [ %.078, %38 ], [ %.078, %29 ], [ %.078, %22 ], [ %.078, %19 ], [ 0, %17 ], [ %.078, %85 ], [ %.078, %87 ], [ %.078, %102 ], [ %.078, %104 ]
-  %.075.be = phi i32 [ 0, %106 ], [ %.075, %70 ], [ %.075, %107 ], [ %.075, %68 ], [ %.075, %63 ], [ %.075, %58 ], [ %.075, %53 ], [ %.075, %48 ], [ %.075, %43 ], [ %.075, %38 ], [ %.075, %29 ], [ %.075, %22 ], [ %.075, %19 ], [ %.075, %17 ], [ %.075, %85 ], [ 1, %87 ], [ %.075, %102 ], [ %.075, %104 ]
-  %.072.be = phi i32 [ 0, %106 ], [ 1, %70 ], [ %.072, %107 ], [ %.072, %68 ], [ %.072, %63 ], [ %.072, %58 ], [ %.072, %53 ], [ %.072, %48 ], [ %.072, %43 ], [ %.072, %38 ], [ %.072, %29 ], [ %.072, %22 ], [ %.072, %19 ], [ %.072, %17 ], [ %.072, %85 ], [ %.072, %87 ], [ %.072, %102 ], [ 1, %104 ]
-  %.071.be = phi i32 [ 1, %106 ], [ %.071, %70 ], [ %.071, %107 ], [ 1, %68 ], [ 1, %63 ], [ 5, %58 ], [ 2, %53 ], [ 4, %48 ], [ 3, %43 ], [ 1, %38 ], [ %.071, %29 ], [ %.071, %22 ], [ %.071, %19 ], [ %.071, %17 ], [ 1, %85 ], [ 1, %87 ], [ 1, %102 ], [ 1, %104 ]
+  %.080.be = phi i32 [ %.080, %106 ], [ %.080, %70 ], [ %.080, %107 ], [ %.080, %68 ], [ %.080, %63 ], [ %.080, %58 ], [ %.080, %53 ], [ %.080, %48 ], [ %.080, %43 ], [ %.080, %38 ], [ %.080, %29 ], [ %.080, %22 ], [ %.080, %19 ], [ 0, %17 ], [ %.080, %85 ], [ %.080, %87 ], [ %.080, %102 ], [ %.080, %104 ]
+  %.077.be = phi i32 [ 0, %106 ], [ %.077, %70 ], [ %.077, %107 ], [ %.077, %68 ], [ %.077, %63 ], [ %.077, %58 ], [ %.077, %53 ], [ %.077, %48 ], [ %.077, %43 ], [ %.077, %38 ], [ %.077, %29 ], [ %.077, %22 ], [ %.077, %19 ], [ %.077, %17 ], [ %.077, %85 ], [ 1, %87 ], [ %.077, %102 ], [ %.077, %104 ]
+  %.074.be = phi i32 [ 0, %106 ], [ 1, %70 ], [ %.074, %107 ], [ %.074, %68 ], [ %.074, %63 ], [ %.074, %58 ], [ %.074, %53 ], [ %.074, %48 ], [ %.074, %43 ], [ %.074, %38 ], [ %.074, %29 ], [ %.074, %22 ], [ %.074, %19 ], [ %.074, %17 ], [ %.074, %85 ], [ %.074, %87 ], [ %.074, %102 ], [ 1, %104 ]
+  %.072.be = phi i32 [ 1, %106 ], [ %.072, %70 ], [ %.072, %107 ], [ 1, %68 ], [ 1, %63 ], [ 5, %58 ], [ 2, %53 ], [ 4, %48 ], [ 3, %43 ], [ 1, %38 ], [ %.072, %29 ], [ %.072, %22 ], [ %.072, %19 ], [ %.072, %17 ], [ 1, %85 ], [ 1, %87 ], [ 1, %102 ], [ 1, %104 ]
+  %.071.be = phi ptr [ %.071, %106 ], [ %71, %70 ], [ %.071, %107 ], [ %.071, %68 ], [ %.071, %63 ], [ %.071, %58 ], [ %.071, %53 ], [ %.071, %48 ], [ %.071, %43 ], [ %.071, %38 ], [ %.071, %29 ], [ %.071, %22 ], [ %.071, %19 ], [ %.071, %17 ], [ %.071, %85 ], [ %.071, %87 ], [ %.071, %102 ], [ %.071, %104 ]
   br label %17, !llvm.loop !4
 
 106:                                              ; preds = %17
@@ -346,7 +346,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %133 = sext i32 %109 to i64
   %134 = getelementptr inbounds i8, ptr %131, i64 %133
   store i8 0, ptr %134, align 1
-  %135 = icmp eq i32 %.071, 5
+  %135 = icmp eq i32 %.072, 5
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %Vec_StrPush.exit
@@ -368,7 +368,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   br label %148
 
 144:                                              ; preds = %138
-  switch i32 %.071, label %145 [
+  switch i32 %.072, label %145 [
     i32 0, label %.critedge96
     i32 3, label %149
     i32 4, label %149
@@ -385,7 +385,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   br label %148
 
 148:                                              ; preds = %145, %147, %140
-  %.not87 = icmp eq i32 %.071, 0
+  %.not87 = icmp eq i32 %.072, 0
   br i1 %.not87, label %.critedge96, label %149
 
 149:                                              ; preds = %144, %144, %148
@@ -412,9 +412,9 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   br label %162
 
 162:                                              ; preds = %149, %156, %160
-  %.083 = phi ptr [ %159, %156 ], [ null, %160 ], [ null, %149 ]
-  %.3 = phi i32 [ 1, %156 ], [ %.075, %160 ], [ %.075, %149 ]
-  %.not88 = icmp eq i32 %.078, 0
+  %.082 = phi ptr [ %159, %156 ], [ null, %160 ], [ null, %149 ]
+  %.3 = phi i32 [ 1, %156 ], [ %.077, %160 ], [ %.077, %149 ]
+  %.not88 = icmp eq i32 %.080, 0
   br i1 %.not88, label %164, label %163
 
 163:                                              ; preds = %162
@@ -423,12 +423,12 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 
 164:                                              ; preds = %163, %162
   %165 = icmp ne i32 %.3, 0
-  %166 = icmp ne ptr %.083, null
+  %166 = icmp ne ptr %.082, null
   %or.cond5 = select i1 %165, i1 %166, i1 false
   br i1 %or.cond5, label %167, label %.critedge
 
 167:                                              ; preds = %164
-  %168 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull %4, ptr noundef nonnull %.083) #12
+  %168 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull %4, ptr noundef nonnull %.082) #12
   %169 = call i32 @Cmd_CommandExecute(ptr noundef nonnull %12, ptr noundef nonnull %3) #12
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %.critedge, label %178
@@ -438,19 +438,19 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %171 = call i32 @Cmd_CommandExecute(ptr noundef nonnull %12, ptr noundef %.val106) #12
   %172 = add i32 %171, 1
   %or.cond7 = icmp ult i32 %172, 2
-  %173 = icmp ne i32 %.072, 0
+  %173 = icmp ne i32 %.074, 0
   %or.cond9 = select i1 %or.cond7, i1 %173, i1 false
-  %174 = icmp ne ptr %.080, null
+  %174 = icmp ne ptr %.071, null
   %or.cond11 = select i1 %or.cond9, i1 %174, i1 false
   br i1 %or.cond11, label %175, label %178
 
 175:                                              ; preds = %.critedge
-  %176 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull %5, ptr noundef nonnull %.080) #12
+  %176 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull %5, ptr noundef nonnull %.071) #12
   %177 = call i32 @Cmd_CommandExecute(ptr noundef nonnull %12, ptr noundef nonnull %3) #12
   br label %178
 
 178:                                              ; preds = %175, %.critedge, %167
-  switch i32 %.071, label %180 [
+  switch i32 %.072, label %180 [
     i32 4, label %179
     i32 2, label %179
   ]
@@ -485,7 +485,7 @@ Vec_StrFreeP.exit114:                             ; preds = %.critedge96, %184
   call void @free(ptr noundef nonnull %8) #12
   call void @Abc_UtilsPrintHello(ptr noundef %12) #12
   call void @Cmd_HistoryPrint(ptr noundef %12, i32 noundef 10) #12
-  %.not89 = icmp eq i32 %.078, 0
+  %.not89 = icmp eq i32 %.080, 0
   br i1 %.not89, label %.preheader, label %185
 
 185:                                              ; preds = %Vec_StrFreeP.exit114

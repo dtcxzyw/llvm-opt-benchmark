@@ -184,14 +184,14 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64: ; preds
   %49 = mul nuw nsw i32 %48, %47
   %50 = icmp ugt i8 %46, 1
   %51 = xor i8 %46, 2
-  %.040 = select i1 %50, i8 %51, i8 %46
   %52 = zext i1 %50 to i8
-  %.038 = add i8 %45, %52
+  %.040 = add i8 %45, %52
+  %.037 = select i1 %50, i8 %51, i8 %46
   %53 = icmp ult i32 %49, 536870912
   br i1 %53, label %55, label %62
 
 .sink.split:                                      ; preds = %4, %78
-  %.sink = phi i128 [ %.037, %78 ], [ -170141183460469231731687303715884105728, %4 ]
+  %.sink = phi i128 [ %.039, %78 ], [ -170141183460469231731687303715884105728, %4 ]
   store i128 %.sink, ptr %0, align 16
   br label %54
 
@@ -199,22 +199,22 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64: ; preds
   ret void
 
 55:                                               ; preds = %62, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64
-  %.141 = phi i8 [ %.040, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64 ], [ %65, %62 ]
-  %.139 = phi i8 [ %.038, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64 ], [ %spec.select49, %62 ]
+  %.141 = phi i8 [ %.040, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64 ], [ %spec.select49, %62 ]
+  %.138 = phi i8 [ %.037, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64 ], [ %65, %62 ]
   %.035 = phi i32 [ %49, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64 ], [ %66, %62 ]
-  %56 = sext i8 %.139 to i16
+  %56 = sext i8 %.141 to i16
   %57 = shl nsw i16 %56, 1
-  %58 = zext nneg i8 %.141 to i16
-  %59 = add nuw nsw i16 %58, 28
-  %60 = add nsw i16 %59, %57
+  %58 = add nsw i16 %57, 28
+  %59 = zext nneg i8 %.138 to i16
+  %60 = add nsw i16 %58, %59
   %61 = icmp sgt i16 %60, 0
   br i1 %61, label %73, label %67
 
 62:                                               ; preds = %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64
-  %63 = icmp ne i8 %.040, 0
+  %63 = icmp ne i8 %.037, 0
   %64 = zext i1 %63 to i8
-  %spec.select49 = add i8 %.038, %64
-  %65 = xor i8 %.040, 1
+  %spec.select49 = add i8 %.040, %64
+  %65 = xor i8 %.037, 1
   %66 = lshr exact i32 %49, 1
   br label %55
 
@@ -241,7 +241,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64: ; preds
   %spec.select50 = select i1 %80, i128 %.036, i128 %81
   %82 = add i128 %spec.select50, %5
   %83 = icmp eq i128 %82, -170141183460469231731687303715884105728
-  %.037 = select i1 %83, i128 0, i128 %82
+  %.039 = select i1 %83, i128 0, i128 %82
   br label %.sink.split
 }
 
@@ -298,7 +298,7 @@ define void @_ZN9softposit7quire163ops7fdp_one17hdf0004494d585a1dE(ptr noalias n
   br i1 %24, label %.loopexit, label %.lr.ph.i
 
 .sink.split:                                      ; preds = %3, %46
-  %.sink = phi i128 [ %.025, %46 ], [ -170141183460469231731687303715884105728, %3 ]
+  %.sink = phi i128 [ %.027, %46 ], [ -170141183460469231731687303715884105728, %3 ]
   store i128 %.sink, ptr %0, align 16
   br label %25
 
@@ -341,7 +341,7 @@ define void @_ZN9softposit7quire163ops7fdp_one17hdf0004494d585a1dE(ptr noalias n
   %spec.select37 = select i1 %47, i128 %.024, i128 %48
   %49 = add i128 %spec.select37, %4
   %50 = icmp eq i128 %49, -170141183460469231731687303715884105728
-  %.025 = select i1 %50, i128 0, i128 %49
+  %.027 = select i1 %50, i128 0, i128 %49
   br label %.sink.split
 }
 

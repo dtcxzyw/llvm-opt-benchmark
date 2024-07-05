@@ -566,19 +566,19 @@ proto_item_set_generated.exit205:                 ; preds = %proto_item_set_gene
   br label %191
 
 191:                                              ; preds = %186, %181, %178, %159, %145, %140, %132, %128, %124, %120, %116, %104, %100
-  %.0 = phi i32 [ 0, %100 ], [ %158, %145 ], [ %144, %140 ], [ %177, %159 ], [ %139, %132 ], [ 4, %178 ], [ 6, %181 ], [ %131, %128 ], [ %127, %124 ], [ %123, %120 ], [ %119, %116 ], [ 6, %186 ], [ %115, %104 ]
-  %192 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0) #3
+  %.0195 = phi i32 [ 0, %100 ], [ %158, %145 ], [ %144, %140 ], [ %177, %159 ], [ %139, %132 ], [ 4, %178 ], [ 6, %181 ], [ %131, %128 ], [ %127, %124 ], [ %123, %120 ], [ %119, %116 ], [ 6, %186 ], [ %115, %104 ]
+  %192 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0195) #3
   %193 = icmp sgt i32 %192, 0
   br i1 %193, label %194, label %198
 
 194:                                              ; preds = %191
-  %195 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0) #3
-  %196 = call ptr @proto_tree_add_expert(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull @ei_unknown_data, ptr noundef %0, i32 noundef %.0, i32 noundef %195) #3
+  %195 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0195) #3
+  %196 = call ptr @proto_tree_add_expert(ptr noundef %35, ptr noundef nonnull %1, ptr noundef nonnull @ei_unknown_data, ptr noundef %0, i32 noundef %.0195, i32 noundef %195) #3
   %197 = call i32 @tvb_reported_length(ptr noundef %0) #3
   br label %198
 
 198:                                              ; preds = %194, %191
-  %.1 = phi i32 [ %197, %194 ], [ %.0, %191 ]
+  %.1 = phi i32 [ %197, %194 ], [ %.0195, %191 ]
   %..1 = select i1 %22, i32 1, i32 %.1
   ret i32 %..1
 }

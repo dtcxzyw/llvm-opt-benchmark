@@ -684,9 +684,9 @@ for.body.lr.ph:                                   ; preds = %trace_pci_nvme_dif_
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %bufp.057 = phi ptr [ %buf, %for.body.lr.ph ], [ %add.ptr48, %for.inc ]
-  %mbuf.addr.052 = phi ptr [ %mbuf, %for.body.lr.ph ], [ %add.ptr53, %for.inc ]
-  %add.ptr11 = getelementptr i8, ptr %mbuf.addr.052, i64 %conv7
+  %mbuf.addr.055 = phi ptr [ %mbuf, %for.body.lr.ph ], [ %add.ptr53, %for.inc ]
+  %bufp.052 = phi ptr [ %buf, %for.body.lr.ph ], [ %add.ptr48, %for.inc ]
+  %add.ptr11 = getelementptr i8, ptr %mbuf.addr.055, i64 %conv7
   %15 = load i64, ptr %reftag, align 8
   %16 = load i8, ptr %pif.i, align 8
   switch i8 %16, label %sw.epilog.i [
@@ -771,7 +771,7 @@ for.body.i.i.i:                                   ; preds = %if.then17.i.i, %for
   %crc.addr.06.i.i.i = phi i16 [ %xor8.i.i.i, %for.body.i.i.i ], [ 0, %if.then17.i.i ]
   %shl.i.i.i = shl i16 %crc.addr.06.i.i.i, 8
   %31 = lshr i16 %crc.addr.06.i.i.i, 8
-  %arrayidx.i.i.i = getelementptr i8, ptr %bufp.057, i64 %conv8.i.i.i
+  %arrayidx.i.i.i = getelementptr i8, ptr %bufp.052, i64 %conv8.i.i.i
   %32 = load i8, ptr %arrayidx.i.i.i, align 1
   %33 = zext i8 %32 to i16
   %34 = xor i16 %31, %33
@@ -794,7 +794,7 @@ for.body.i23.i.i:                                 ; preds = %crc16_t10dif.exit.i
   %crc.addr.06.i26.i.i = phi i16 [ %xor8.i31.i.i, %for.body.i23.i.i ], [ %crc.addr.0.lcssa.i.i.i, %crc16_t10dif.exit.i.i ]
   %shl.i27.i.i = shl i16 %crc.addr.06.i26.i.i, 8
   %36 = lshr i16 %crc.addr.06.i26.i.i, 8
-  %arrayidx.i28.i.i = getelementptr i8, ptr %mbuf.addr.052, i64 %conv8.i24.i.i
+  %arrayidx.i28.i.i = getelementptr i8, ptr %mbuf.addr.055, i64 %conv8.i24.i.i
   %37 = load i8, ptr %arrayidx.i28.i.i, align 1
   %38 = zext i8 %37 to i16
   %39 = xor i16 %36, %38
@@ -1050,7 +1050,7 @@ for.body.i.i17.i:                                 ; preds = %if.then38.i.i, %for
   %crc.addr.06.i.i19.i = phi i64 [ %xor2.i.i.i, %for.body.i.i17.i ], [ -1, %if.then38.i.i ]
   %shr.i.i.i = lshr i64 %crc.addr.06.i.i19.i, 8
   %and.i.i.i38 = and i64 %crc.addr.06.i.i19.i, 255
-  %arrayidx.i.i20.i = getelementptr i8, ptr %bufp.057, i64 %i.07.i.i18.i
+  %arrayidx.i.i20.i = getelementptr i8, ptr %bufp.052, i64 %i.07.i.i18.i
   %91 = load i8, ptr %arrayidx.i.i20.i, align 1
   %conv.i.i21.i = zext i8 %91 to i64
   %xor.i.i.i = xor i64 %and.i.i.i38, %conv.i.i21.i
@@ -1070,7 +1070,7 @@ for.body.i34.i.i:                                 ; preds = %crc64_nvme.exit.i.i
   %crc.addr.06.i36.i.i = phi i64 [ %xor2.i43.i.i, %for.body.i34.i.i ], [ %crc.addr.0.lcssa.i.i23.i, %crc64_nvme.exit.i.i ]
   %shr.i37.i.i = lshr i64 %crc.addr.06.i36.i.i, 8
   %and.i38.i.i = and i64 %crc.addr.06.i36.i.i, 255
-  %arrayidx.i39.i.i = getelementptr i8, ptr %mbuf.addr.052, i64 %i.07.i35.i.i
+  %arrayidx.i39.i.i = getelementptr i8, ptr %mbuf.addr.055, i64 %i.07.i35.i.i
   %93 = load i8, ptr %arrayidx.i39.i.i, align 1
   %conv.i40.i.i = zext i8 %93 to i64
   %xor.i41.i.i = xor i64 %and.i38.i.i, %conv.i40.i.i
@@ -1218,7 +1218,7 @@ sw.epilog.i:                                      ; preds = %for.body
   unreachable
 
 if.then15:                                        ; preds = %trace_pci_nvme_dif_prchk_guard_crc16.exit.i.i, %trace_pci_nvme_dif_prchk_guard_crc64.exit.i.i
-  %cmp22 = icmp eq ptr %bufp.057, %buf
+  %cmp22 = icmp eq ptr %bufp.052, %buf
   %or.cond33 = and i1 %cmp19, %cmp22
   br i1 %or.cond33, label %if.then24, label %return
 
@@ -1226,7 +1226,7 @@ if.then24:                                        ; preds = %if.then15
   %123 = load i64, ptr %lbasz, align 8
   %call26 = tail call noalias ptr @g_malloc0(i64 noundef %123) #13
   %124 = load i64, ptr %lbasz, align 8
-  %bcmp = tail call i32 @bcmp(ptr %bufp.057, ptr %call26, i64 %124)
+  %bcmp = tail call i32 @bcmp(ptr %bufp.052, ptr %call26, i64 %124)
   %cmp29 = icmp eq i32 %bcmp, 0
   br i1 %cmp29, label %if.then31, label %if.end36
 
@@ -1255,10 +1255,10 @@ if.then45:                                        ; preds = %if.end38
 
 for.inc:                                          ; preds = %if.end38, %if.then45
   %128 = load i64, ptr %lbasz, align 8
-  %add.ptr48 = getelementptr i8, ptr %bufp.057, i64 %128
+  %add.ptr48 = getelementptr i8, ptr %bufp.052, i64 %128
   %129 = load i16, ptr %lbaf49, align 8
   %idx.ext52 = zext i16 %129 to i64
-  %add.ptr53 = getelementptr i8, ptr %mbuf.addr.052, i64 %idx.ext52
+  %add.ptr53 = getelementptr i8, ptr %mbuf.addr.055, i64 %idx.ext52
   %cmp = icmp ult ptr %add.ptr48, %add.ptr
   br i1 %cmp, label %for.body, label %return, !llvm.loop !10
 
@@ -1316,8 +1316,8 @@ if.end:                                           ; preds = %if.then, %entry
 
 do.body:                                          ; preds = %if.end41, %if.end
   %8 = phi i64 [ 0, %if.end ], [ %.pre, %if.end41 ]
-  %moffset.0 = phi i64 [ 0, %if.end ], [ %add, %if.end41 ]
   %offset.0 = phi i64 [ %shl.i, %if.end ], [ %add51, %if.end41 ]
+  %moffset.0 = phi i64 [ 0, %if.end ], [ %add, %if.end41 ]
   %bytes.0 = phi i64 [ %shl, %if.end ], [ %sub11, %if.end41 ]
   %sub11 = sub i64 %bytes.0, %8
   %call12 = call i32 @bdrv_block_status(ptr noundef %call, i64 noundef %offset.0, i64 noundef %sub11, ptr noundef nonnull %pnum, ptr noundef null, ptr noundef null) #11

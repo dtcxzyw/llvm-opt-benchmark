@@ -163,12 +163,12 @@ define void @_Z14dd_collect_vecP12gmx_domdec_tiiN3gmx8ArrayRefIKiEENS2_IKNS1_11B
 55:                                               ; preds = %38, %27
   %.pre-phi149.i = phi i32 [ %42, %38 ], [ %.pre148.i, %27 ]
   %.sroa.0110.0.i = phi ptr [ %3, %38 ], [ %29, %27 ]
-  %.069.i = phi i32 [ %42, %38 ], [ %35, %27 ]
+  %.0.i = phi i32 [ %42, %38 ], [ %35, %27 ]
   %56 = getelementptr inbounds i8, ptr %0, i64 200
   %57 = load ptr, ptr %56, align 8
   store i32 %.pre-phi149.i, ptr %14, align 4
   %58 = getelementptr inbounds i8, ptr %14, i64 4
-  store i32 %.069.i, ptr %58, align 4
+  store i32 %.0.i, ptr %58, align 4
   %59 = getelementptr i8, ptr %0, i64 28
   %.val.i = load i32, ptr %59, align 4
   %60 = getelementptr i8, ptr %0, i64 44
@@ -201,7 +201,7 @@ define void @_Z14dd_collect_vecP12gmx_domdec_tiiN3gmx8ArrayRefIKiEENS2_IKNS1_11B
 
 72:                                               ; preds = %72, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %72 ]
-  %.074123.i = phi i32 [ 0, %.lr.ph.i ], [ %89, %72 ]
+  %.073124.i = phi i32 [ 0, %.lr.ph.i ], [ %89, %72 ]
   %73 = load ptr, ptr %57, align 8
   %74 = getelementptr inbounds %"struct.AtomDistribution::DomainAtomGroups", ptr %73, i64 %indvars.iv.i
   %75 = shl nuw nsw i64 %indvars.iv.i, 1
@@ -209,7 +209,7 @@ define void @_Z14dd_collect_vecP12gmx_domdec_tiiN3gmx8ArrayRefIKiEENS2_IKNS1_11B
   %77 = getelementptr inbounds i32, ptr %76, i64 %75
   %78 = load i32, ptr %77, align 4
   %79 = load ptr, ptr %71, align 8
-  %80 = sext i32 %.074123.i to i64
+  %80 = sext i32 %.073124.i to i64
   %81 = getelementptr inbounds i32, ptr %79, i64 %80
   %82 = sext i32 %78 to i64
   %.not.i89.i = icmp eq ptr %79, null
@@ -224,7 +224,7 @@ define void @_Z14dd_collect_vecP12gmx_domdec_tiiN3gmx8ArrayRefIKiEENS2_IKNS1_11B
   %87 = load i32, ptr %86, align 4
   %88 = getelementptr inbounds i8, ptr %74, i64 16
   store i32 %87, ptr %88, align 8
-  %89 = add nsw i32 %78, %.074123.i
+  %89 = add nsw i32 %78, %.073124.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %90 = load i32, ptr %0, align 8
   %91 = sext i32 %90 to i64
@@ -279,7 +279,7 @@ define void @_Z14dd_collect_vecP12gmx_domdec_tiiN3gmx8ArrayRefIKiEENS2_IKNS1_11B
 
 117:                                              ; preds = %117, %.lr.ph132.i
   %indvars.iv137.i = phi i64 [ 0, %.lr.ph132.i ], [ %indvars.iv.next138.i, %117 ]
-  %.067129.i = phi i32 [ 0, %.lr.ph132.i ], [ %135, %117 ]
+  %.068129.i = phi i32 [ 0, %.lr.ph132.i ], [ %135, %117 ]
   %118 = load ptr, ptr %57, align 8
   %119 = getelementptr inbounds %"struct.AtomDistribution::DomainAtomGroups", ptr %118, i64 %indvars.iv137.i
   %120 = getelementptr inbounds i8, ptr %119, i64 8
@@ -299,8 +299,8 @@ define void @_Z14dd_collect_vecP12gmx_domdec_tiiN3gmx8ArrayRefIKiEENS2_IKNS1_11B
   %132 = sext i32 %131 to i64
   %133 = load ptr, ptr %116, align 8
   %134 = getelementptr inbounds i32, ptr %133, i64 %132
-  store i32 %.067129.i, ptr %134, align 4
-  %135 = add nsw i32 %.067129.i, %126
+  store i32 %.068129.i, ptr %134, align 4
+  %135 = add nsw i32 %.068129.i, %126
   %indvars.iv.next138.i = add nuw nsw i64 %indvars.iv137.i, 1
   %136 = load i32, ptr %0, align 8
   %137 = sext i32 %136 to i64

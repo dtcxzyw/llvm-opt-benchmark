@@ -288,8 +288,8 @@ rb_check_frozen_inline.exit:                      ; preds = %7
 
 17:                                               ; preds = %15
   %18 = tail call ptr @EVP_CIPHER_CTX_new() #9
-  %.not20 = icmp eq ptr %18, null
-  br i1 %.not20, label %19, label %21
+  %.not19 = icmp eq ptr %18, null
+  br i1 %.not19, label %19, label %21
 
 19:                                               ; preds = %17
   %20 = load i64, ptr @rb_eRuntimeError, align 8
@@ -302,10 +302,10 @@ rb_check_frozen_inline.exit:                      ; preds = %7
   br label %23
 
 23:                                               ; preds = %21, %15
-  %.0 = phi ptr [ %16, %15 ], [ %18, %21 ]
+  %.014 = phi ptr [ %16, %15 ], [ %18, %21 ]
   %24 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_cipher_type) #9
-  %.not21 = icmp eq ptr %24, null
-  br i1 %.not21, label %25, label %27
+  %.not20 = icmp eq ptr %24, null
+  br i1 %.not20, label %25, label %27
 
 25:                                               ; preds = %23
   %26 = load i64, ptr @rb_eRuntimeError, align 8
@@ -313,9 +313,9 @@ rb_check_frozen_inline.exit:                      ; preds = %7
   unreachable
 
 27:                                               ; preds = %23
-  %28 = tail call i32 @EVP_CIPHER_CTX_copy(ptr noundef nonnull %.0, ptr noundef nonnull %24) #9
-  %.not22 = icmp eq i32 %28, 1
-  br i1 %.not22, label %31, label %29
+  %28 = tail call i32 @EVP_CIPHER_CTX_copy(ptr noundef nonnull %.014, ptr noundef nonnull %24) #9
+  %.not21 = icmp eq i32 %28, 1
+  br i1 %.not21, label %31, label %29
 
 29:                                               ; preds = %27
   %30 = load i64, ptr @eCipherError, align 8
@@ -662,46 +662,46 @@ RSTRING_PTR.exit15:                               ; preds = %42
   br label %.split.i
 
 .split.us.i:                                      ; preds = %RSTRING_PTR.exit15, %51
-  %.020.us.i = phi ptr [ %56, %51 ], [ %.sroa.2.0.i, %RSTRING_PTR.exit15 ]
-  %.019.us.i = phi i64 [ %57, %51 ], [ %22, %RSTRING_PTR.exit15 ]
-  %.0.us.i = phi i64 [ %54, %51 ], [ 0, %RSTRING_PTR.exit15 ]
-  %48 = call i64 @llvm.smin.i64(i64 %.019.us.i, i64 1073741824)
+  %.020.us.i = phi i64 [ %57, %51 ], [ %22, %RSTRING_PTR.exit15 ]
+  %.019.us.i = phi ptr [ %56, %51 ], [ %.sroa.2.0.i, %RSTRING_PTR.exit15 ]
+  %.018.us.i = phi i64 [ %54, %51 ], [ 0, %RSTRING_PTR.exit15 ]
+  %48 = call i64 @llvm.smin.i64(i64 %.020.us.i, i64 1073741824)
   %49 = trunc i64 %48 to i32
-  %50 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull %4, ptr noundef %.020.us.i, i32 noundef %49) #9
+  %50 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull %4, ptr noundef %.019.us.i, i32 noundef %49) #9
   %.not23.us.i = icmp eq i32 %50, 0
   br i1 %.not23.us.i, label %.loopexit, label %51
 
 51:                                               ; preds = %.split.us.i
   %52 = load i32, ptr %4, align 4
   %53 = sext i32 %52 to i64
-  %54 = add nsw i64 %.0.us.i, %53
+  %54 = add nsw i64 %.018.us.i, %53
   %sext.us.i = shl i64 %48, 32
   %55 = ashr exact i64 %sext.us.i, 32
-  %56 = getelementptr inbounds i8, ptr %.020.us.i, i64 %55
-  %57 = add nsw i64 %.019.us.i, -1073741824
-  %58 = icmp sgt i64 %.019.us.i, 1073741824
+  %56 = getelementptr inbounds i8, ptr %.019.us.i, i64 %55
+  %57 = add nsw i64 %.020.us.i, -1073741824
+  %58 = icmp sgt i64 %.020.us.i, 1073741824
   br i1 %58, label %.split.us.i, label %.loopexit21, !llvm.loop !22
 
 .split.i:                                         ; preds = %.split.i.preheader, %63
-  %.020.i = phi ptr [ %68, %63 ], [ %.sroa.2.0.i, %.split.i.preheader ]
-  %.019.i = phi i64 [ %69, %63 ], [ %22, %.split.i.preheader ]
-  %.0.i = phi i64 [ %66, %63 ], [ 0, %.split.i.preheader ]
-  %59 = call i64 @llvm.smin.i64(i64 %.019.i, i64 1073741824)
+  %.020.i = phi i64 [ %69, %63 ], [ %22, %.split.i.preheader ]
+  %.019.i = phi ptr [ %68, %63 ], [ %.sroa.2.0.i, %.split.i.preheader ]
+  %.018.i = phi i64 [ %66, %63 ], [ 0, %.split.i.preheader ]
+  %59 = call i64 @llvm.smin.i64(i64 %.020.i, i64 1073741824)
   %60 = trunc i64 %59 to i32
-  %61 = getelementptr inbounds i8, ptr %.sroa.2.0.i1430, i64 %.0.i
-  %62 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %23, ptr noundef nonnull %61, ptr noundef nonnull %4, ptr noundef %.020.i, i32 noundef %60) #9
+  %61 = getelementptr inbounds i8, ptr %.sroa.2.0.i1430, i64 %.018.i
+  %62 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %23, ptr noundef nonnull %61, ptr noundef nonnull %4, ptr noundef %.019.i, i32 noundef %60) #9
   %.not23.i = icmp eq i32 %62, 0
   br i1 %.not23.i, label %.loopexit, label %63
 
 63:                                               ; preds = %.split.i
   %64 = load i32, ptr %4, align 4
   %65 = sext i32 %64 to i64
-  %66 = add nsw i64 %.0.i, %65
+  %66 = add nsw i64 %.018.i, %65
   %sext.i = shl i64 %59, 32
   %67 = ashr exact i64 %sext.i, 32
-  %68 = getelementptr inbounds i8, ptr %.020.i, i64 %67
-  %69 = add nsw i64 %.019.i, -1073741824
-  %70 = icmp sgt i64 %.019.i, 1073741824
+  %68 = getelementptr inbounds i8, ptr %.019.i, i64 %67
+  %69 = add nsw i64 %.020.i, -1073741824
+  %70 = icmp sgt i64 %.020.i, 1073741824
   br i1 %70, label %.split.i, label %.loopexit21, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.split.us.i, %.split.i
@@ -888,20 +888,20 @@ RSTRING_PTR.exit:                                 ; preds = %2, %11
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %27, %23
-  %.020.us.i = phi ptr [ %29, %27 ], [ %.sroa.2.0.i, %23 ]
-  %.019.us.i = phi i64 [ %30, %27 ], [ %13, %23 ]
-  %24 = call i64 @llvm.smin.i64(i64 %.019.us.i, i64 1073741824)
+  %.020.us.i = phi i64 [ %30, %27 ], [ %13, %23 ]
+  %.019.us.i = phi ptr [ %29, %27 ], [ %.sroa.2.0.i, %23 ]
+  %24 = call i64 @llvm.smin.i64(i64 %.020.us.i, i64 1073741824)
   %25 = trunc i64 %24 to i32
-  %26 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %14, ptr noundef null, ptr noundef nonnull %3, ptr noundef %.020.us.i, i32 noundef %25) #9
+  %26 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %14, ptr noundef null, ptr noundef nonnull %3, ptr noundef %.019.us.i, i32 noundef %25) #9
   %.not23.us.i = icmp eq i32 %26, 0
   br i1 %.not23.us.i, label %32, label %27
 
 27:                                               ; preds = %.split.us.i
   %sext.us.i = shl i64 %24, 32
   %28 = ashr exact i64 %sext.us.i, 32
-  %29 = getelementptr inbounds i8, ptr %.020.us.i, i64 %28
-  %30 = add nsw i64 %.019.us.i, -1073741824
-  %31 = icmp sgt i64 %.019.us.i, 1073741824
+  %29 = getelementptr inbounds i8, ptr %.019.us.i, i64 %28
+  %30 = add nsw i64 %.020.us.i, -1073741824
+  %31 = icmp sgt i64 %.020.us.i, 1073741824
   br i1 %31, label %.split.us.i, label %34, !llvm.loop !22
 
 32:                                               ; preds = %.split.us.i

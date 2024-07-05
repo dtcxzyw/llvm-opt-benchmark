@@ -240,10 +240,10 @@ for.body168:                                      ; preds = %for.cond166.prehead
   %r_is_one.0158 = phi i32 [ %r_is_one.2, %for.inc251 ], [ 1, %for.cond166.preheader ]
   %wvalue2.0157 = phi i32 [ %wvalue2.4, %for.inc251 ], [ 0, %for.cond166.preheader ]
   %wvalue1.0156 = phi i32 [ %wvalue1.4, %for.inc251 ], [ 0, %for.cond166.preheader ]
-  %wpos2.0155 = phi i32 [ %wpos2.1, %for.inc251 ], [ 0, %for.cond166.preheader ]
-  %wpos1.0154 = phi i32 [ %wpos1.1, %for.inc251 ], [ 0, %for.cond166.preheader ]
-  %b.0.in153 = phi i32 [ %b.0159, %for.inc251 ], [ %cond, %for.cond166.preheader ]
-  %b.0159 = add nsw i32 %b.0.in153, -1
+  %b.0.in155 = phi i32 [ %b.0159, %for.inc251 ], [ %cond, %for.cond166.preheader ]
+  %wpos2.0154 = phi i32 [ %wpos2.1, %for.inc251 ], [ 0, %for.cond166.preheader ]
+  %wpos1.0153 = phi i32 [ %wpos1.1, %for.inc251 ], [ 0, %for.cond166.preheader ]
+  %b.0159 = add nsw i32 %b.0.in155, -1
   %tobool169.not = icmp eq i32 %r_is_one.0158, 0
   br i1 %tobool169.not, label %if.then170, label %if.end175
 
@@ -273,24 +273,24 @@ while.cond:                                       ; preds = %while.cond, %if.the
   br i1 %tobool183.not, label %while.cond, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
-  %sub185 = add nsw i32 %b.0.in153, -2
+  %sub185 = add nsw i32 %b.0.in155, -2
   %cmp187.not.not144 = icmp sgt i32 %sub185, %i.2.in
   br i1 %cmp187.not.not144, label %for.body188, label %if.end198
 
 for.body188:                                      ; preds = %while.end, %for.body188
-  %wvalue1.1146 = phi i32 [ %spec.select, %for.body188 ], [ 1, %while.end ]
-  %i.3145 = phi i32 [ %dec, %for.body188 ], [ %sub185, %while.end ]
-  %shl189 = shl i32 %wvalue1.1146, 1
-  %call190 = tail call i32 @BN_is_bit_set(ptr noundef %p1, i32 noundef %i.3145) #3
+  %i.3146 = phi i32 [ %dec, %for.body188 ], [ %sub185, %while.end ]
+  %wvalue1.1145 = phi i32 [ %spec.select, %for.body188 ], [ 1, %while.end ]
+  %shl189 = shl i32 %wvalue1.1145, 1
+  %call190 = tail call i32 @BN_is_bit_set(ptr noundef %p1, i32 noundef %i.3146) #3
   %tobool191.not = icmp ne i32 %call190, 0
   %inc193 = zext i1 %tobool191.not to i32
   %spec.select = or disjoint i32 %shl189, %inc193
-  %dec = add nsw i32 %i.3145, -1
+  %dec = add nsw i32 %i.3146, -1
   %cmp187.not.not = icmp sgt i32 %dec, %i.2.in
   br i1 %cmp187.not.not, label %for.body188, label %if.end198, !llvm.loop !8
 
 if.end198:                                        ; preds = %for.body188, %while.end, %if.then177, %if.end175
-  %wpos1.1 = phi i32 [ %wpos1.0154, %if.end175 ], [ %wpos1.0154, %if.then177 ], [ %i.2, %while.end ], [ %i.2, %for.body188 ]
+  %wpos1.1 = phi i32 [ %wpos1.0153, %if.end175 ], [ %wpos1.0153, %if.then177 ], [ %i.2, %while.end ], [ %i.2, %for.body188 ]
   %wvalue1.3 = phi i32 [ %wvalue1.0156, %if.end175 ], [ 0, %if.then177 ], [ 1, %while.end ], [ %spec.select, %for.body188 ]
   %tobool199.not = icmp eq i32 %wvalue2.0157, 0
   br i1 %tobool199.not, label %if.then200, label %if.end227
@@ -312,24 +312,24 @@ while.cond206:                                    ; preds = %while.cond206, %if.
   br i1 %tobool208.not, label %while.cond206, label %while.end212, !llvm.loop !9
 
 while.end212:                                     ; preds = %while.cond206
-  %sub213 = add nsw i32 %b.0.in153, -2
+  %sub213 = add nsw i32 %b.0.in155, -2
   %cmp215.not.not147 = icmp sgt i32 %sub213, %i.4.in
   br i1 %cmp215.not.not147, label %for.body216, label %if.end227
 
 for.body216:                                      ; preds = %while.end212, %for.body216
-  %wvalue2.1149 = phi i32 [ %spec.select128, %for.body216 ], [ 1, %while.end212 ]
-  %i.5148 = phi i32 [ %dec224, %for.body216 ], [ %sub213, %while.end212 ]
-  %shl217 = shl i32 %wvalue2.1149, 1
-  %call218 = tail call i32 @BN_is_bit_set(ptr noundef %p2, i32 noundef %i.5148) #3
+  %i.5149 = phi i32 [ %dec224, %for.body216 ], [ %sub213, %while.end212 ]
+  %wvalue2.1148 = phi i32 [ %spec.select128, %for.body216 ], [ 1, %while.end212 ]
+  %shl217 = shl i32 %wvalue2.1148, 1
+  %call218 = tail call i32 @BN_is_bit_set(ptr noundef %p2, i32 noundef %i.5149) #3
   %tobool219.not = icmp ne i32 %call218, 0
   %inc221 = zext i1 %tobool219.not to i32
   %spec.select128 = or disjoint i32 %shl217, %inc221
-  %dec224 = add nsw i32 %i.5148, -1
+  %dec224 = add nsw i32 %i.5149, -1
   %cmp215.not.not = icmp sgt i32 %dec224, %i.4.in
   br i1 %cmp215.not.not, label %for.body216, label %if.end227, !llvm.loop !10
 
 if.end227:                                        ; preds = %for.body216, %while.end212, %if.then200, %if.end198
-  %wpos2.1 = phi i32 [ %wpos2.0155, %if.end198 ], [ %wpos2.0155, %if.then200 ], [ %i.4, %while.end212 ], [ %i.4, %for.body216 ]
+  %wpos2.1 = phi i32 [ %wpos2.0154, %if.end198 ], [ %wpos2.0154, %if.then200 ], [ %i.4, %while.end212 ], [ %i.4, %for.body216 ]
   %wvalue2.3 = phi i32 [ %wvalue2.0157, %if.end198 ], [ 0, %if.then200 ], [ 1, %while.end212 ], [ %spec.select128, %for.body216 ]
   %tobool228.not = icmp eq i32 %wvalue1.3, 0
   br i1 %tobool228.not, label %if.end238, label %land.lhs.true229
@@ -369,7 +369,7 @@ if.then242:                                       ; preds = %land.lhs.true240
 for.inc251:                                       ; preds = %if.then242, %if.end238, %land.lhs.true240
   %wvalue2.4 = phi i32 [ %wvalue2.3, %land.lhs.true240 ], [ 0, %if.end238 ], [ 0, %if.then242 ]
   %r_is_one.2 = phi i32 [ %r_is_one.1, %land.lhs.true240 ], [ %r_is_one.1, %if.end238 ], [ 0, %if.then242 ]
-  %cmp167 = icmp sgt i32 %b.0.in153, 1
+  %cmp167 = icmp sgt i32 %b.0.in155, 1
   br i1 %cmp167, label %for.body168, label %for.end253, !llvm.loop !11
 
 for.end253:                                       ; preds = %for.inc251, %for.cond166.preheader

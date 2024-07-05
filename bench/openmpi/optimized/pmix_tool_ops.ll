@@ -188,7 +188,7 @@ pmix_obj_new_tma.exit128:                         ; preds = %.lr.ph.i.i125, %46,
   br i1 %.not, label %123, label %.thread
 
 .thread:                                          ; preds = %66, %68
-  %.0108158 = phi i32 [ %73, %68 ], [ -22, %66 ]
+  %.0109158 = phi i32 [ %73, %68 ], [ -22, %66 ]
   %74 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %42) #10
   %75 = icmp eq i32 %74, 35
   br i1 %75, label %76, label %78
@@ -485,8 +485,8 @@ pmix_obj_run_destructors.exit154:                 ; preds = %.lr.ph.i151, %197
   br label %.critedge
 
 .critedge:                                        ; preds = %150, %.critedge163, %191, %210, %208, %103, %122, %120, %5
-  %.0109 = phi i32 [ -25, %5 ], [ %.0108158, %120 ], [ %.0108158, %122 ], [ %.0108158, %103 ], [ -25, %208 ], [ -25, %210 ], [ -25, %191 ], [ 0, %150 ], [ -47, %.critedge163 ]
-  ret i32 %.0109
+  %.0107 = phi i32 [ -25, %5 ], [ %.0109158, %120 ], [ %.0109158, %122 ], [ %.0109158, %103 ], [ -25, %208 ], [ -25, %210 ], [ -25, %191 ], [ 0, %150 ], [ -47, %.critedge163 ]
+  ret i32 %.0107
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

@@ -645,13 +645,13 @@ ParseChunk.exit.i:                                ; preds = %.split.loop.exit48.
 
 226:                                              ; preds = %ParseChunk.exit.i, %ParseChunk.exit.thread55.i
   %.sroa.0.271.i = phi i64 [ %212, %ParseChunk.exit.thread55.i ], [ %214, %ParseChunk.exit.i ]
-  %.sroa.22.167.i = phi i32 [ 5, %ParseChunk.exit.thread55.i ], [ %213, %ParseChunk.exit.i ]
+  %.sroa.22.165.i = phi i32 [ 5, %ParseChunk.exit.thread55.i ], [ %213, %ParseChunk.exit.i ]
   %227 = load i32, ptr %60, align 4
   %.not.i27.i = icmp eq i32 %227, 0
   br i1 %.not.i27.i, label %228, label %240
 
 228:                                              ; preds = %226
-  %229 = zext i32 %.sroa.22.167.i to i64
+  %229 = zext i32 %.sroa.22.165.i to i64
   %230 = getelementptr inbounds [9 x i32], ptr @kWebPChunkTags, i64 0, i64 %229
   %231 = load i32, ptr %230, align 4
   %sext.i.i = shl i32 %231, 24
@@ -666,7 +666,7 @@ ParseChunk.exit.i:                                ; preds = %.split.loop.exit48.
   br label %240
 
 240:                                              ; preds = %228, %226
-  switch i32 %.sroa.22.167.i, label %ProcessVP8XChunk.exit.i.i [
+  switch i32 %.sroa.22.165.i, label %ProcessVP8XChunk.exit.i.i [
     i32 0, label %241
     i32 1, label %241
     i32 2, label %374
@@ -717,13 +717,13 @@ ParseChunk.exit.i:                                ; preds = %.split.loop.exit48.
   br i1 %.not59.i.i.i, label %294, label %262
 
 262:                                              ; preds = %260
-  %263 = icmp ne i32 %.sroa.22.167.i, 0
+  %263 = icmp ne i32 %.sroa.22.165.i, 0
   %264 = zext i1 %263 to i64
   %265 = getelementptr inbounds [3 x i32], ptr %88, i64 0, i64 %264
   %266 = load i32, ptr %265, align 4
   %267 = add nsw i32 %266, 1
   store i32 %267, ptr %265, align 4
-  %268 = icmp ne i32 %.sroa.22.167.i, 1
+  %268 = icmp ne i32 %.sroa.22.165.i, 1
   %269 = load i32, ptr %73, align 4
   %.not73.i.i.i = icmp eq i32 %269, 0
   %or.cond = select i1 %268, i1 true, i1 %.not73.i.i.i
@@ -799,7 +799,7 @@ ParseChunk.exit.i:                                ; preds = %.split.loop.exit48.
   br label %ProcessImageChunk.exit.i.i
 
 302:                                              ; preds = %294
-  %303 = icmp ne i32 %.sroa.22.167.i, 1
+  %303 = icmp ne i32 %.sroa.22.165.i, 1
   %304 = load i32, ptr %81, align 4
   %.not62.i.i.i = icmp eq i32 %304, 0
   %or.cond77 = select i1 %303, i1 true, i1 %.not62.i.i.i
@@ -900,7 +900,7 @@ ParseChunk.exit.i:                                ; preds = %.split.loop.exit48.
   br label %353
 
 353:                                              ; preds = %350, %334, %326
-  %354 = zext nneg i32 %.sroa.22.167.i to i64
+  %354 = zext nneg i32 %.sroa.22.165.i to i64
   %355 = getelementptr inbounds [9 x i32], ptr %65, i64 0, i64 %354
   %356 = load i32, ptr %355, align 4
   %357 = add nsw i32 %356, 1
@@ -920,7 +920,7 @@ ParseChunk.exit.i:                                ; preds = %.split.loop.exit48.
   br i1 %.not77.i.i.i, label %373, label %365
 
 365:                                              ; preds = %358
-  %366 = icmp eq i32 %.sroa.22.167.i, 0
+  %366 = icmp eq i32 %.sroa.22.165.i, 0
   br i1 %366, label %367, label %369
 
 367:                                              ; preds = %365
@@ -1538,7 +1538,7 @@ ParseAlphaHeader.exit.i.i.i:                      ; preds = %539, %537
   br label %ProcessVP8XChunk.exit.i.i
 
 679:                                              ; preds = %240, %240
-  %680 = zext nneg i32 %.sroa.22.167.i to i64
+  %680 = zext nneg i32 %.sroa.22.165.i to i64
   %681 = getelementptr inbounds [9 x i32], ptr %65, i64 0, i64 %680
   %682 = load i32, ptr %681, align 4
   %683 = add nsw i32 %682, 1
@@ -2050,18 +2050,18 @@ GetBits.exit194:                                  ; preds = %89
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %132
-  %.073 = phi i64 [ %134, %132 ], [ %119, %.lr.ph.preheader ]
-  %.012672 = phi i32 [ %136, %132 ], [ 1, %.lr.ph.preheader ]
-  %.012771 = phi ptr [ %135, %132 ], [ %85, %.lr.ph.preheader ]
-  %120 = load i16, ptr %.012771, align 1
+  %.012673 = phi i64 [ %134, %132 ], [ %119, %.lr.ph.preheader ]
+  %.012772 = phi i32 [ %136, %132 ], [ 1, %.lr.ph.preheader ]
+  %.012871 = phi ptr [ %135, %132 ], [ %85, %.lr.ph.preheader ]
+  %120 = load i16, ptr %.012871, align 1
   %121 = zext i16 %120 to i32
-  %122 = getelementptr inbounds i8, ptr %.012771, i64 2
+  %122 = getelementptr inbounds i8, ptr %.012871, i64 2
   %123 = load i8, ptr %122, align 1
   %124 = zext i8 %123 to i32
   %125 = shl nuw nsw i32 %124, 16
   %126 = or disjoint i32 %125, %121
   %127 = zext nneg i32 %126 to i64
-  %128 = icmp ult i64 %.073, %127
+  %128 = icmp ult i64 %.012673, %127
   br i1 %128, label %129, label %132
 
 129:                                              ; preds = %.lr.ph
@@ -2071,10 +2071,10 @@ GetBits.exit194:                                  ; preds = %89
   br i1 %.not179, label %261, label %.sink.split
 
 132:                                              ; preds = %.lr.ph
-  %133 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, i32 noundef %.012672, i32 noundef %126)
-  %134 = sub i64 %.073, %127
-  %135 = getelementptr inbounds i8, ptr %.012771, i64 3
-  %136 = add nuw nsw i32 %.012672, 1
+  %133 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, i32 noundef %.012772, i32 noundef %126)
+  %134 = sub i64 %.012673, %127
+  %135 = getelementptr inbounds i8, ptr %.012871, i64 3
+  %136 = add nuw nsw i32 %.012772, 1
   %exitcond.not = icmp eq i32 %136, %106
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
@@ -2343,14 +2343,14 @@ GetBits.exit230:                                  ; preds = %.lr.ph.i225
 
 .sink.split:                                      ; preds = %256, %239, %234, %222, %217, %205, %200, %188, %183, %171, %166, %155, %129, %112, %103, %72, %69, %43, %25, %20
   %.str.59.sink = phi ptr [ @.str.50, %20 ], [ @.str.51, %25 ], [ @.str.55, %43 ], [ @.str.57, %69 ], [ @.str.58, %72 ], [ @.str.59, %103 ], [ @.str.59, %112 ], [ @.str.63, %129 ], [ @.str.59, %155 ], [ @.str.59, %166 ], [ @.str.59, %171 ], [ @.str.59, %183 ], [ @.str.59, %188 ], [ @.str.59, %200 ], [ @.str.59, %205 ], [ @.str.59, %217 ], [ @.str.59, %222 ], [ @.str.59, %234 ], [ @.str.59, %239 ], [ @.str.59, %256 ]
-  %.0128.ph = phi i32 [ 4, %20 ], [ 4, %25 ], [ 4, %43 ], [ 4, %69 ], [ 4, %72 ], [ 1, %103 ], [ 1, %112 ], [ 1, %129 ], [ 1, %155 ], [ 1, %166 ], [ 1, %171 ], [ 1, %183 ], [ 1, %188 ], [ 1, %200 ], [ 1, %205 ], [ 1, %217 ], [ 1, %222 ], [ 1, %234 ], [ 1, %239 ], [ 1, %256 ]
+  %.0.ph = phi i32 [ 4, %20 ], [ 4, %25 ], [ 4, %43 ], [ 4, %69 ], [ 4, %72 ], [ 1, %103 ], [ 1, %112 ], [ 1, %129 ], [ 1, %155 ], [ 1, %166 ], [ 1, %171 ], [ 1, %183 ], [ 1, %188 ], [ 1, %200 ], [ 1, %205 ], [ 1, %217 ], [ 1, %222 ], [ 1, %234 ], [ 1, %239 ], [ 1, %256 ]
   %259 = load ptr, ptr @stderr, align 8
   %260 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %259, ptr noundef nonnull @.str.16, ptr noundef nonnull %.str.59.sink) #13
   br label %261
 
 261:                                              ; preds = %.sink.split, %242, %256, %239, %234, %222, %217, %205, %200, %188, %183, %171, %166, %155, %129, %112, %103, %82, %GetBits.exit188, %72, %69, %43, %25, %20
-  %.0128 = phi i32 [ 4, %20 ], [ 4, %25 ], [ 4, %43 ], [ 4, %69 ], [ 4, %72 ], [ 1, %GetBits.exit188 ], [ 1, %82 ], [ 1, %103 ], [ 1, %112 ], [ 1, %129 ], [ 1, %155 ], [ 1, %166 ], [ 1, %171 ], [ 1, %183 ], [ 1, %188 ], [ 1, %200 ], [ 1, %205 ], [ 1, %217 ], [ 1, %222 ], [ 1, %234 ], [ 1, %239 ], [ 1, %256 ], [ 0, %242 ], [ %.0128.ph, %.sink.split ]
-  ret i32 %.0128
+  %.0 = phi i32 [ 4, %20 ], [ 4, %25 ], [ 4, %43 ], [ 4, %69 ], [ 4, %72 ], [ 1, %GetBits.exit188 ], [ 1, %82 ], [ 1, %103 ], [ 1, %112 ], [ 1, %129 ], [ 1, %155 ], [ 1, %166 ], [ 1, %171 ], [ 1, %183 ], [ 1, %188 ], [ 1, %200 ], [ 1, %205 ], [ 1, %217 ], [ 1, %222 ], [ 1, %234 ], [ 1, %239 ], [ 1, %256 ], [ 0, %242 ], [ %.0.ph, %.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind uwtable

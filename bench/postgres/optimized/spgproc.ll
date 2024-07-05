@@ -19,24 +19,24 @@ define dso_local ptr @spg_key_orderbys_distances(i64 noundef %0, i1 noundef zero
   br i1 %1, label %point_box_distance.exit.us, label %.lr.ph.split
 
 point_box_distance.exit.us:                       ; preds = %.lr.ph, %point_box_distance.exit.us
-  %.018.us = phi ptr [ %18, %point_box_distance.exit.us ], [ %7, %.lr.ph ]
-  %.01417.us = phi i32 [ %16, %point_box_distance.exit.us ], [ 0, %.lr.ph ]
-  %.01516.us = phi ptr [ %17, %point_box_distance.exit.us ], [ %2, %.lr.ph ]
-  %13 = getelementptr inbounds i8, ptr %.01516.us, i64 64
+  %.018.us = phi ptr [ %17, %point_box_distance.exit.us ], [ %2, %.lr.ph ]
+  %.01417.us = phi ptr [ %18, %point_box_distance.exit.us ], [ %7, %.lr.ph ]
+  %.01516.us = phi i32 [ %16, %point_box_distance.exit.us ], [ 0, %.lr.ph ]
+  %13 = getelementptr inbounds i8, ptr %.018.us, i64 64
   %14 = load i64, ptr %13, align 8
   %15 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %14, i64 noundef %0) #3
-  store i64 %15, ptr %.018.us, align 8
-  %16 = add nuw nsw i32 %.01417.us, 1
-  %17 = getelementptr i8, ptr %.01516.us, i64 72
-  %18 = getelementptr i8, ptr %.018.us, i64 8
+  store i64 %15, ptr %.01417.us, align 8
+  %16 = add nuw nsw i32 %.01516.us, 1
+  %17 = getelementptr i8, ptr %.018.us, i64 72
+  %18 = getelementptr i8, ptr %.01417.us, i64 8
   %exitcond20.not = icmp eq i32 %16, %3
   br i1 %exitcond20.not, label %._crit_edge, label %point_box_distance.exit.us, !llvm.loop !5
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %point_box_distance.exit
-  %.018 = phi ptr [ %57, %point_box_distance.exit ], [ %7, %.lr.ph ]
-  %.01417 = phi i32 [ %55, %point_box_distance.exit ], [ 0, %.lr.ph ]
-  %.01516 = phi ptr [ %56, %point_box_distance.exit ], [ %2, %.lr.ph ]
-  %19 = getelementptr inbounds i8, ptr %.01516, i64 64
+  %.018 = phi ptr [ %56, %point_box_distance.exit ], [ %2, %.lr.ph ]
+  %.01417 = phi ptr [ %57, %point_box_distance.exit ], [ %7, %.lr.ph ]
+  %.01516 = phi i32 [ %55, %point_box_distance.exit ], [ 0, %.lr.ph ]
+  %19 = getelementptr inbounds i8, ptr %.018, i64 64
   %20 = load i64, ptr %19, align 8
   %21 = inttoptr i64 %20 to ptr
   %22 = load double, ptr %21, align 8
@@ -101,10 +101,10 @@ point_box_distance.exit.us:                       ; preds = %.lr.ph, %point_box_
 
 point_box_distance.exit:                          ; preds = %52, %31, %27, %24, %.lr.ph.split
   %54 = phi double [ %53, %52 ], [ 0x7FF8000000000000, %31 ], [ 0x7FF8000000000000, %27 ], [ 0x7FF8000000000000, %24 ], [ 0x7FF8000000000000, %.lr.ph.split ]
-  store double %54, ptr %.018, align 8
-  %55 = add nuw nsw i32 %.01417, 1
-  %56 = getelementptr i8, ptr %.01516, i64 72
-  %57 = getelementptr i8, ptr %.018, i64 8
+  store double %54, ptr %.01417, align 8
+  %55 = add nuw nsw i32 %.01516, 1
+  %56 = getelementptr i8, ptr %.018, i64 72
+  %57 = getelementptr i8, ptr %.01417, i64 8
   %exitcond.not = icmp eq i32 %55, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
 

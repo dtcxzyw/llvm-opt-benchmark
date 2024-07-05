@@ -1122,7 +1122,7 @@ _ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit63: ; preds = %.
   br label %191
 
 123:                                              ; preds = %55, %106
-  %.040 = phi i8 [ 1, %106 ], [ 0, %55 ]
+  %.039 = phi i8 [ 1, %106 ], [ 0, %55 ]
   %124 = icmp eq ptr %.sroa.0.3.ph, %17
   br i1 %124, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit77, label %125
 
@@ -1269,7 +1269,7 @@ _ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit80: ; preds = %.
   %186 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %186, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
-  store i8 %.040, ptr %.sroa.5.0..sroa_idx, align 1
+  store i8 %.039, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.611.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %184, ptr %.sroa.611.0..sroa_idx, align 8
   br label %191

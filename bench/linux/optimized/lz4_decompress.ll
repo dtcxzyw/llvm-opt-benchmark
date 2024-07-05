@@ -1233,9 +1233,9 @@ define dso_local i32 @LZ4_decompress_safe_continue(ptr nocapture noundef %0, ptr
 
 .lr.ph525:                                        ; preds = %.preheader, %.lr.ph525
   %.3430524 = phi ptr [ %167, %.lr.ph525 ], [ %160, %.preheader ]
-  %.0436523 = phi ptr [ %165, %.lr.ph525 ], [ %33, %.preheader ]
-  %165 = getelementptr i8, ptr %.0436523, i64 1
-  %166 = load i8, ptr %.0436523, align 1
+  %.0438523 = phi ptr [ %165, %.lr.ph525 ], [ %33, %.preheader ]
+  %165 = getelementptr i8, ptr %.0438523, i64 1
+  %166 = load i8, ptr %.0438523, align 1
   %167 = getelementptr i8, ptr %.3430524, i64 1
   store i8 %166, ptr %.3430524, align 1
   %168 = icmp ult ptr %167, %147
@@ -2475,7 +2475,7 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
   br i1 %44, label %.thread481, label %.thread
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader495
-  %.0418 = phi ptr [ %2, %.preheader495 ], [ %.0418.be, %.backedge.backedge ]
+  %.0417 = phi ptr [ %2, %.preheader495 ], [ %.0417.be, %.backedge.backedge ]
   %.0415 = phi ptr [ %1, %.preheader495 ], [ %.0415.be, %.backedge.backedge ]
   %45 = getelementptr i8, ptr %.0415, i64 1
   %46 = load i8, ptr %.0415, align 1
@@ -2483,14 +2483,14 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
   %48 = lshr i32 %47, 4
   %49 = zext nneg i32 %48 to i64
   %50 = icmp ugt i8 %46, -113
-  %.not = icmp ugt ptr %.0418, %35
+  %.not = icmp ugt ptr %.0417, %35
   %or.cond = select i1 %50, i1 true, i1 %.not
   br i1 %or.cond, label %73, label %51
 
 51:                                               ; preds = %.backedge
   %52 = load i64, ptr %45, align 1
-  store i64 %52, ptr %.0418, align 1
-  %53 = getelementptr i8, ptr %.0418, i64 %49
+  store i64 %52, ptr %.0417, align 1
+  %53 = getelementptr i8, ptr %.0417, i64 %49
   %54 = getelementptr i8, ptr %45, i64 %49
   %55 = and i32 %47, 15
   %56 = zext nneg i32 %55 to i64
@@ -2538,7 +2538,7 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
 .loopexit494:                                     ; preds = %.preheader493, %73
   %.1436 = phi i64 [ %49, %73 ], [ %78, %.preheader493 ]
   %.2 = phi ptr [ %45, %73 ], [ %75, %.preheader493 ]
-  %80 = getelementptr i8, ptr %.0418, i64 %.1436
+  %80 = getelementptr i8, ptr %.0417, i64 %.1436
   %81 = icmp ugt ptr %80, %34
   br i1 %81, label %82, label %.preheader492
 
@@ -2547,7 +2547,7 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
   br i1 %.not475, label %83, label %.loopexit496
 
 83:                                               ; preds = %82
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.0418, ptr align 1 %.2, i64 %.1436, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.0417, ptr align 1 %.2, i64 %.1436, i1 false)
   %84 = getelementptr i8, ptr %.2, i64 %.1436
   %85 = ptrtoint ptr %84 to i64
   %86 = ptrtoint ptr %1 to i64
@@ -2557,7 +2557,7 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
 
 .preheader492:                                    ; preds = %.loopexit494, %.preheader492
   %.0408 = phi ptr [ %91, %.preheader492 ], [ %.2, %.loopexit494 ]
-  %.0407 = phi ptr [ %90, %.preheader492 ], [ %.0418, %.loopexit494 ]
+  %.0407 = phi ptr [ %90, %.preheader492 ], [ %.0417, %.loopexit494 ]
   %89 = load i64, ptr %.0408, align 1
   store i64 %89, ptr %.0407, align 1
   %90 = getelementptr i8, ptr %.0407, i64 8
@@ -2580,10 +2580,10 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
   %.4439 = phi i64 [ %56, %51 ], [ %100, %93 ]
   %.0430 = phi ptr [ %60, %51 ], [ %98, %93 ]
   %.0429 = phi i64 [ %57, %51 ], [ %95, %93 ]
-  %.2420 = phi ptr [ %53, %51 ], [ %80, %93 ]
+  %.2419 = phi ptr [ %53, %51 ], [ %80, %93 ]
   %.4 = phi ptr [ %58, %51 ], [ %96, %93 ]
   %102 = trunc nuw nsw i64 %.0429 to i32
-  store i32 %102, ptr %.2420, align 1
+  store i32 %102, ptr %.2419, align 1
   %103 = icmp eq i64 %.4439, 15
   br i1 %103, label %.preheader490, label %.loopexit491
 
@@ -2602,7 +2602,7 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
   %.6 = phi ptr [ %.4, %101 ], [ %104, %.preheader490 ]
   %109 = add i64 %.6441, 4
   %110 = icmp ult ptr %.0430, %30
-  %111 = getelementptr i8, ptr %.2420, i64 %109
+  %111 = getelementptr i8, ptr %.2419, i64 %109
   br i1 %110, label %112, label %134
 
 112:                                              ; preds = %.loopexit491
@@ -2618,15 +2618,15 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
 117:                                              ; preds = %114
   %118 = sub i64 0, %116
   %119 = getelementptr i8, ptr %33, i64 %118
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.2420, ptr align 1 %119, i64 %109, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.2419, ptr align 1 %119, i64 %109, i1 false)
   br label %.backedge.backedge
 
 120:                                              ; preds = %114
   %121 = sub i64 %109, %116
   %122 = sub i64 0, %116
   %123 = getelementptr i8, ptr %33, i64 %122
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2420, ptr align 1 %123, i64 %116, i1 false)
-  %124 = getelementptr i8, ptr %.2420, i64 %116
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2419, ptr align 1 %123, i64 %116, i1 false)
+  %124 = getelementptr i8, ptr %.2419, i64 %116
   %125 = ptrtoint ptr %124 to i64
   %126 = sub i64 %125, %41
   %127 = icmp ugt i64 %121, %126
@@ -2637,12 +2637,12 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
   br i1 %128, label %.lr.ph506, label %.backedge.backedge
 
 .lr.ph506:                                        ; preds = %.preheader, %.lr.ph506
-  %.0417505 = phi ptr [ %129, %.lr.ph506 ], [ %30, %.preheader ]
-  %.3421504 = phi ptr [ %131, %.lr.ph506 ], [ %124, %.preheader ]
-  %129 = getelementptr i8, ptr %.0417505, i64 1
-  %130 = load i8, ptr %.0417505, align 1
-  %131 = getelementptr i8, ptr %.3421504, i64 1
-  store i8 %130, ptr %.3421504, align 1
+  %.3420505 = phi ptr [ %131, %.lr.ph506 ], [ %124, %.preheader ]
+  %.0426504 = phi ptr [ %129, %.lr.ph506 ], [ %30, %.preheader ]
+  %129 = getelementptr i8, ptr %.0426504, i64 1
+  %130 = load i8, ptr %.0426504, align 1
+  %131 = getelementptr i8, ptr %.3420505, i64 1
+  store i8 %130, ptr %.3420505, align 1
   %132 = icmp ult ptr %131, %111
   br i1 %132, label %.lr.ph506, label %.backedge.backedge, !llvm.loop !11
 
@@ -2656,24 +2656,24 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
 
 136:                                              ; preds = %134
   %137 = load i8, ptr %.0430, align 1
-  store i8 %137, ptr %.2420, align 1
+  store i8 %137, ptr %.2419, align 1
   %138 = getelementptr i8, ptr %.0430, i64 1
   %139 = load i8, ptr %138, align 1
-  %140 = getelementptr i8, ptr %.2420, i64 1
+  %140 = getelementptr i8, ptr %.2419, i64 1
   store i8 %139, ptr %140, align 1
   %141 = getelementptr i8, ptr %.0430, i64 2
   %142 = load i8, ptr %141, align 1
-  %143 = getelementptr i8, ptr %.2420, i64 2
+  %143 = getelementptr i8, ptr %.2419, i64 2
   store i8 %142, ptr %143, align 1
   %144 = getelementptr i8, ptr %.0430, i64 3
   %145 = load i8, ptr %144, align 1
-  %146 = getelementptr i8, ptr %.2420, i64 3
+  %146 = getelementptr i8, ptr %.2419, i64 3
   store i8 %145, ptr %146, align 1
   %147 = getelementptr [8 x i32], ptr @LZ4_decompress_generic.inc32table, i64 0, i64 %.0429
   %148 = load i32, ptr %147, align 4
   %149 = zext i32 %148 to i64
   %150 = getelementptr i8, ptr %.0430, i64 %149
-  %151 = getelementptr i8, ptr %.2420, i64 4
+  %151 = getelementptr i8, ptr %.2419, i64 4
   %152 = load i32, ptr %150, align 1
   store i32 %152, ptr %151, align 1
   %153 = getelementptr [8 x i32], ptr @LZ4_decompress_generic.dec64table, i64 0, i64 %.0429
@@ -2685,13 +2685,13 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
 
 158:                                              ; preds = %134
   %159 = load i64, ptr %.0430, align 1
-  store i64 %159, ptr %.2420, align 1
+  store i64 %159, ptr %.2419, align 1
   %160 = getelementptr i8, ptr %.0430, i64 8
   br label %161
 
 161:                                              ; preds = %158, %136
   %.2432 = phi ptr [ %157, %136 ], [ %160, %158 ]
-  %162 = getelementptr i8, ptr %.2420, i64 8
+  %162 = getelementptr i8, ptr %.2419, i64 8
   %163 = icmp ugt ptr %111, %37
   br i1 %163, label %164, label %182
 
@@ -2721,17 +2721,17 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
 
 176:                                              ; preds = %172, %166
   %.3433 = phi ptr [ %175, %172 ], [ %.2432, %166 ]
-  %.6424 = phi ptr [ %38, %172 ], [ %162, %166 ]
-  %177 = icmp ult ptr %.6424, %111
+  %.6423 = phi ptr [ %38, %172 ], [ %162, %166 ]
+  %177 = icmp ult ptr %.6423, %111
   br i1 %177, label %.lr.ph, label %.backedge.backedge
 
 .lr.ph:                                           ; preds = %176, %.lr.ph
-  %.7425503 = phi ptr [ %180, %.lr.ph ], [ %.6424, %176 ]
+  %.7424503 = phi ptr [ %180, %.lr.ph ], [ %.6423, %176 ]
   %.4434502 = phi ptr [ %178, %.lr.ph ], [ %.3433, %176 ]
   %178 = getelementptr i8, ptr %.4434502, i64 1
   %179 = load i8, ptr %.4434502, align 1
-  %180 = getelementptr i8, ptr %.7425503, i64 1
-  store i8 %179, ptr %.7425503, align 1
+  %180 = getelementptr i8, ptr %.7424503, i64 1
+  store i8 %179, ptr %.7424503, align 1
   %181 = icmp ult ptr %180, %111
   br i1 %181, label %.lr.ph, label %.backedge.backedge, !llvm.loop !9
 
@@ -2742,12 +2742,12 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
   br i1 %184, label %185, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %187, %.lr.ph, %.lr.ph506, %182, %176, %117, %133, %.preheader, %63
-  %.0418.be = phi ptr [ %72, %63 ], [ %111, %117 ], [ %111, %133 ], [ %124, %.preheader ], [ %111, %176 ], [ %111, %182 ], [ %131, %.lr.ph506 ], [ %111, %.lr.ph ], [ %111, %187 ]
+  %.0417.be = phi ptr [ %72, %63 ], [ %111, %117 ], [ %111, %133 ], [ %124, %.preheader ], [ %111, %176 ], [ %111, %182 ], [ %131, %.lr.ph506 ], [ %111, %.lr.ph ], [ %111, %187 ]
   %.0415.be = phi ptr [ %58, %63 ], [ %.6, %117 ], [ %.6, %133 ], [ %.6, %.preheader ], [ %.6, %176 ], [ %.6, %182 ], [ %.6, %.lr.ph506 ], [ %.6, %.lr.ph ], [ %.6, %187 ]
   br label %.backedge
 
 185:                                              ; preds = %182
-  %186 = getelementptr i8, ptr %.2420, i64 16
+  %186 = getelementptr i8, ptr %.2419, i64 16
   br label %187
 
 187:                                              ; preds = %187, %185

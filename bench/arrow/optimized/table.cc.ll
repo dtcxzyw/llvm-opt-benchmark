@@ -4046,9 +4046,9 @@ for.body.i.preheader:                             ; preds = %invoke.cont22
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i
-  %__result.sroa.0.017.i = phi ptr [ %incdec.ptr.i10.i, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i ], [ %28, %for.body.i.preheader ]
-  %__first.sroa.0.016.i = phi ptr [ %incdec.ptr.i.i, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i ], [ %29, %for.body.i.preheader ]
-  %call4.val.i = load ptr, ptr %__first.sroa.0.016.i, align 8
+  %__first.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i ], [ %29, %for.body.i.preheader ]
+  %__result.sroa.0.016.i = phi ptr [ %incdec.ptr.i10.i, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i ], [ %28, %for.body.i.preheader ]
+  %call4.val.i = load ptr, ptr %__first.sroa.0.017.i, align 8
   %call2.i.i38 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow11StructArray5fieldEi(ptr noundef nonnull align 8 dereferenceable(56) %call4.val.i, i32 noundef %31)
           to label %call2.i.i.noexc unwind label %lpad35.loopexit
 
@@ -4075,9 +4075,9 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i35
   br label %"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.exit.i"
 
 "_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.exit.i": ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i36, %call2.i.i.noexc
-  %_M_refcount3.i.i.i1.i = getelementptr inbounds i8, ptr %__result.sroa.0.017.i, i64 8
+  %_M_refcount3.i.i.i1.i = getelementptr inbounds i8, ptr %__result.sroa.0.016.i, i64 8
   %37 = load ptr, ptr %_M_refcount3.i.i.i1.i, align 8
-  store <2 x ptr> %32, ptr %__result.sroa.0.017.i, align 8
+  store <2 x ptr> %32, ptr %__result.sroa.0.016.i, align 8
   %cmp.not.i.i.i.i2.i = icmp eq ptr %37, null
   br i1 %cmp.not.i.i.i.i2.i, label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i, label %if.then.i.i.i.i3.i
 
@@ -4150,8 +4150,8 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i
 
 _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit.i:     ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %"_ZZN5arrow5Table22FromChunkedStructArrayERKSt10shared_ptrINS_12ChunkedArrayEEENK3$_0clERKS1_INS_5ArrayEE.exit.i"
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.016.i, i64 16
-  %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %__result.sroa.0.017.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.017.i, i64 16
+  %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %__result.sroa.0.016.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %30
   br i1 %cmp.i.not.i, label %invoke.cont36, label %for.body.i, !llvm.loop !50
 
@@ -28240,73 +28240,73 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end16
   %__trip_count.0162 = phi i64 [ %shr, %for.body.lr.ph ], [ %dec, %if.end16 ]
-  %__first.sroa.0.0161 = phi ptr [ %__first.coerce0, %for.body.lr.ph ], [ %spec.select150, %if.end16 ]
-  %__first.sroa.31.0160 = phi i32 [ %__first.coerce1, %for.body.lr.ph ], [ %spec.select149, %if.end16 ]
-  %sh_prom.i.i = zext nneg i32 %__first.sroa.31.0160 to i64
+  %__first.sroa.31.0161 = phi i32 [ %__first.coerce1, %for.body.lr.ph ], [ %spec.select150, %if.end16 ]
+  %__first.sroa.0.0160 = phi ptr [ %__first.coerce0, %for.body.lr.ph ], [ %spec.select149, %if.end16 ]
+  %sh_prom.i.i = zext nneg i32 %__first.sroa.31.0161 to i64
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
-  %2 = load i64, ptr %__first.sroa.0.0161, align 8
+  %2 = load i64, ptr %__first.sroa.0.0160, align 8
   %and.i.i = and i64 %2, %shl.i.i
   %3 = icmp eq i64 %and.i.i, 0
   %cmp.i = xor i1 %3, %1
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %inc.i.i = add i32 %__first.sroa.31.0160, 1
-  %cmp.i.i = icmp eq i32 %__first.sroa.31.0160, 63
-  %spec.select = select i1 %cmp.i.i, i32 0, i32 %inc.i.i
-  %spec.select144.idx = select i1 %cmp.i.i, i64 8, i64 0
-  %spec.select144 = getelementptr inbounds i8, ptr %__first.sroa.0.0161, i64 %spec.select144.idx
-  %sh_prom.i.i35 = zext nneg i32 %spec.select to i64
+  %inc.i.i = add i32 %__first.sroa.31.0161, 1
+  %cmp.i.i = icmp eq i32 %__first.sroa.31.0161, 63
+  %spec.select.idx = select i1 %cmp.i.i, i64 8, i64 0
+  %spec.select = getelementptr inbounds i8, ptr %__first.sroa.0.0160, i64 %spec.select.idx
+  %spec.select144 = select i1 %cmp.i.i, i32 0, i32 %inc.i.i
+  %sh_prom.i.i35 = zext nneg i32 %spec.select144 to i64
   %shl.i.i36 = shl nuw i64 1, %sh_prom.i.i35
-  %4 = load i64, ptr %spec.select144, align 8
+  %4 = load i64, ptr %spec.select, align 8
   %and.i.i37 = and i64 %4, %shl.i.i36
   %5 = icmp eq i64 %and.i.i37, 0
   %cmp.i38 = xor i1 %5, %1
   br i1 %cmp.i38, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %inc.i.i40 = add i32 %spec.select, 1
-  %cmp.i.i41 = icmp eq i32 %spec.select, 63
-  %spec.select145 = select i1 %cmp.i.i41, i32 0, i32 %inc.i.i40
-  %spec.select146.idx = select i1 %cmp.i.i41, i64 8, i64 0
-  %spec.select146 = getelementptr inbounds i8, ptr %spec.select144, i64 %spec.select146.idx
-  %sh_prom.i.i45 = zext nneg i32 %spec.select145 to i64
+  %inc.i.i40 = add i32 %spec.select144, 1
+  %cmp.i.i41 = icmp eq i32 %spec.select144, 63
+  %spec.select145.idx = select i1 %cmp.i.i41, i64 8, i64 0
+  %spec.select145 = getelementptr inbounds i8, ptr %spec.select, i64 %spec.select145.idx
+  %spec.select146 = select i1 %cmp.i.i41, i32 0, i32 %inc.i.i40
+  %sh_prom.i.i45 = zext nneg i32 %spec.select146 to i64
   %shl.i.i46 = shl nuw i64 1, %sh_prom.i.i45
-  %6 = load i64, ptr %spec.select146, align 8
+  %6 = load i64, ptr %spec.select145, align 8
   %and.i.i47 = and i64 %6, %shl.i.i46
   %7 = icmp eq i64 %and.i.i47, 0
   %cmp.i48 = xor i1 %7, %1
   br i1 %cmp.i48, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end6
-  %inc.i.i50 = add i32 %spec.select145, 1
-  %cmp.i.i51 = icmp eq i32 %spec.select145, 63
-  %spec.select147 = select i1 %cmp.i.i51, i32 0, i32 %inc.i.i50
-  %spec.select148.idx = select i1 %cmp.i.i51, i64 8, i64 0
-  %spec.select148 = getelementptr inbounds i8, ptr %spec.select146, i64 %spec.select148.idx
-  %sh_prom.i.i55 = zext nneg i32 %spec.select147 to i64
+  %inc.i.i50 = add i32 %spec.select146, 1
+  %cmp.i.i51 = icmp eq i32 %spec.select146, 63
+  %spec.select147.idx = select i1 %cmp.i.i51, i64 8, i64 0
+  %spec.select147 = getelementptr inbounds i8, ptr %spec.select145, i64 %spec.select147.idx
+  %spec.select148 = select i1 %cmp.i.i51, i32 0, i32 %inc.i.i50
+  %sh_prom.i.i55 = zext nneg i32 %spec.select148 to i64
   %shl.i.i56 = shl nuw i64 1, %sh_prom.i.i55
-  %8 = load i64, ptr %spec.select148, align 8
+  %8 = load i64, ptr %spec.select147, align 8
   %and.i.i57 = and i64 %8, %shl.i.i56
   %9 = icmp eq i64 %and.i.i57, 0
   %cmp.i58 = xor i1 %9, %1
   br i1 %cmp.i58, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
-  %inc.i.i60 = add i32 %spec.select147, 1
-  %cmp.i.i61 = icmp eq i32 %spec.select147, 63
-  %spec.select149 = select i1 %cmp.i.i61, i32 0, i32 %inc.i.i60
-  %spec.select150.idx = select i1 %cmp.i.i61, i64 8, i64 0
-  %spec.select150 = getelementptr inbounds i8, ptr %spec.select148, i64 %spec.select150.idx
+  %inc.i.i60 = add i32 %spec.select148, 1
+  %cmp.i.i61 = icmp eq i32 %spec.select148, 63
+  %spec.select149.idx = select i1 %cmp.i.i61, i64 8, i64 0
+  %spec.select149 = getelementptr inbounds i8, ptr %spec.select147, i64 %spec.select149.idx
+  %spec.select150 = select i1 %cmp.i.i61, i32 0, i32 %inc.i.i60
   %dec = add nsw i64 %__trip_count.0162, -1
   %cmp = icmp sgt i64 %__trip_count.0162, 1
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !473
 
 for.end.loopexit:                                 ; preds = %if.end16
-  %.pre165 = ptrtoint ptr %spec.select150 to i64
+  %.pre165 = ptrtoint ptr %spec.select149 to i64
   %.pre166 = sub i64 %sub.ptr.lhs.cast.i, %.pre165
   %.pre167 = shl nsw i64 %.pre166, 3
-  %.pre168 = zext i32 %spec.select149 to i64
+  %.pre168 = zext i32 %spec.select150 to i64
   %.pre169 = sub nsw i64 %conv.i, %.pre168
   br label %for.end
 
@@ -28314,8 +28314,8 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %add.i71.pre-phi = phi i64 [ %.pre169, %for.end.loopexit ], [ %add.i, %entry ]
   %conv3.i73.pre-phi = phi i64 [ %.pre168, %for.end.loopexit ], [ %conv3.i, %entry ]
   %mul.i68.pre-phi = phi i64 [ %.pre167, %for.end.loopexit ], [ %mul.i, %entry ]
-  %__first.sroa.31.0.lcssa = phi i32 [ %spec.select149, %for.end.loopexit ], [ %__first.coerce1, %entry ]
-  %__first.sroa.0.0.lcssa = phi ptr [ %spec.select150, %for.end.loopexit ], [ %__first.coerce0, %entry ]
+  %__first.sroa.0.0.lcssa = phi ptr [ %spec.select149, %for.end.loopexit ], [ %__first.coerce0, %entry ]
+  %__first.sroa.31.0.lcssa = phi i32 [ %spec.select150, %for.end.loopexit ], [ %__first.coerce1, %entry ]
   %sub.i74 = add i64 %add.i71.pre-phi, %mul.i68.pre-phi
   switch i64 %sub.i74, label %return [
     i64 3, label %sw.bb
@@ -28346,20 +28346,20 @@ sw.bb:                                            ; preds = %for.end
 if.end22:                                         ; preds = %sw.bb
   %inc.i.i80 = add i32 %__first.sroa.31.0.lcssa, 1
   %cmp.i.i81 = icmp eq i32 %__first.sroa.31.0.lcssa, 63
-  %spec.select151 = select i1 %cmp.i.i81, i32 0, i32 %inc.i.i80
-  %spec.select152.idx = select i1 %cmp.i.i81, i64 8, i64 0
-  %spec.select152 = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa, i64 %spec.select152.idx
-  %.pre170 = zext nneg i32 %spec.select151 to i64
+  %spec.select151.idx = select i1 %cmp.i.i81, i64 8, i64 0
+  %spec.select151 = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa, i64 %spec.select151.idx
+  %spec.select152 = select i1 %cmp.i.i81, i32 0, i32 %inc.i.i80
+  %.pre170 = zext nneg i32 %spec.select152 to i64
   br label %sw.bb24
 
 sw.bb24:                                          ; preds = %for.end.sw.bb24_crit_edge, %if.end22
   %.pre-phi = phi i1 [ %.pre171, %for.end.sw.bb24_crit_edge ], [ %12, %if.end22 ]
   %sh_prom.i.i85.pre-phi = phi i64 [ %conv3.i73.pre-phi, %for.end.sw.bb24_crit_edge ], [ %.pre170, %if.end22 ]
-  %__first.sroa.31.6 = phi i32 [ %__first.sroa.31.0.lcssa, %for.end.sw.bb24_crit_edge ], [ %spec.select151, %if.end22 ]
-  %__first.sroa.0.6 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end.sw.bb24_crit_edge ], [ %spec.select152, %if.end22 ]
+  %__first.sroa.0.6 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end.sw.bb24_crit_edge ], [ %spec.select151, %if.end22 ]
+  %__first.sroa.31.6 = phi i32 [ %__first.sroa.31.0.lcssa, %for.end.sw.bb24_crit_edge ], [ %spec.select152, %if.end22 ]
   %shl.i.i86 = shl nuw i64 1, %sh_prom.i.i85.pre-phi
   %14 = load i64, ptr %__first.sroa.0.6, align 8
-  %and.i.i87 = and i64 %14, %shl.i.i86
+  %and.i.i87 = and i64 %shl.i.i86, %14
   %15 = icmp eq i64 %and.i.i87, 0
   %cmp.i88 = xor i1 %15, %.pre-phi
   br i1 %cmp.i88, label %return, label %if.end28
@@ -28367,20 +28367,20 @@ sw.bb24:                                          ; preds = %for.end.sw.bb24_cri
 if.end28:                                         ; preds = %sw.bb24
   %inc.i.i90 = add i32 %__first.sroa.31.6, 1
   %cmp.i.i91 = icmp eq i32 %__first.sroa.31.6, 63
-  %spec.select153 = select i1 %cmp.i.i91, i32 0, i32 %inc.i.i90
-  %spec.select154.idx = select i1 %cmp.i.i91, i64 8, i64 0
-  %spec.select154 = getelementptr inbounds i8, ptr %__first.sroa.0.6, i64 %spec.select154.idx
-  %.pre172 = zext nneg i32 %spec.select153 to i64
+  %spec.select153.idx = select i1 %cmp.i.i91, i64 8, i64 0
+  %spec.select153 = getelementptr inbounds i8, ptr %__first.sroa.0.6, i64 %spec.select153.idx
+  %spec.select154 = select i1 %cmp.i.i91, i32 0, i32 %inc.i.i90
+  %.pre172 = zext nneg i32 %spec.select154 to i64
   br label %sw.bb30
 
 sw.bb30:                                          ; preds = %for.end.sw.bb30_crit_edge, %if.end28
   %.pre-phi174 = phi i1 [ %.pre173, %for.end.sw.bb30_crit_edge ], [ %.pre-phi, %if.end28 ]
   %sh_prom.i.i95.pre-phi = phi i64 [ %conv3.i73.pre-phi, %for.end.sw.bb30_crit_edge ], [ %.pre172, %if.end28 ]
-  %__first.sroa.31.8 = phi i32 [ %__first.sroa.31.0.lcssa, %for.end.sw.bb30_crit_edge ], [ %spec.select153, %if.end28 ]
-  %__first.sroa.0.8 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end.sw.bb30_crit_edge ], [ %spec.select154, %if.end28 ]
+  %__first.sroa.0.8 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end.sw.bb30_crit_edge ], [ %spec.select153, %if.end28 ]
+  %__first.sroa.31.8 = phi i32 [ %__first.sroa.31.0.lcssa, %for.end.sw.bb30_crit_edge ], [ %spec.select154, %if.end28 ]
   %shl.i.i96 = shl nuw i64 1, %sh_prom.i.i95.pre-phi
   %16 = load i64, ptr %__first.sroa.0.8, align 8
-  %and.i.i97 = and i64 %16, %shl.i.i96
+  %and.i.i97 = and i64 %shl.i.i96, %16
   %17 = icmp eq i64 %and.i.i97, 0
   %cmp.i98 = xor i1 %17, %.pre-phi174
   %spec.select155 = select i1 %cmp.i98, ptr %__first.sroa.0.8, ptr %__last.coerce0
@@ -28388,8 +28388,8 @@ sw.bb30:                                          ; preds = %for.end.sw.bb30_cri
   br label %return
 
 return:                                           ; preds = %if.end11, %if.end6, %if.end, %for.body, %sw.bb30, %for.end, %sw.bb24, %sw.bb
-  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %sw.bb ], [ %__first.sroa.0.6, %sw.bb24 ], [ %__last.coerce0, %for.end ], [ %spec.select155, %sw.bb30 ], [ %spec.select148, %if.end11 ], [ %spec.select146, %if.end6 ], [ %spec.select144, %if.end ], [ %__first.sroa.0.0161, %for.body ]
-  %retval.sroa.9.0 = phi i32 [ %__first.sroa.31.0.lcssa, %sw.bb ], [ %__first.sroa.31.6, %sw.bb24 ], [ %__last.coerce1, %for.end ], [ %spec.select156, %sw.bb30 ], [ %spec.select147, %if.end11 ], [ %spec.select145, %if.end6 ], [ %spec.select, %if.end ], [ %__first.sroa.31.0160, %for.body ]
+  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %sw.bb ], [ %__first.sroa.0.6, %sw.bb24 ], [ %__last.coerce0, %for.end ], [ %spec.select155, %sw.bb30 ], [ %spec.select147, %if.end11 ], [ %spec.select145, %if.end6 ], [ %spec.select, %if.end ], [ %__first.sroa.0.0160, %for.body ]
+  %retval.sroa.9.0 = phi i32 [ %__first.sroa.31.0.lcssa, %sw.bb ], [ %__first.sroa.31.6, %sw.bb24 ], [ %__last.coerce1, %for.end ], [ %spec.select156, %sw.bb30 ], [ %spec.select148, %if.end11 ], [ %spec.select146, %if.end6 ], [ %spec.select144, %if.end ], [ %__first.sroa.31.0161, %for.body ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.9.0, 1
   ret { ptr, i32 } %.fca.1.insert

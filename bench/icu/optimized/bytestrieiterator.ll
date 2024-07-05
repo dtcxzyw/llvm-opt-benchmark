@@ -991,8 +991,8 @@ if.then64:                                        ; preds = %if.then62
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then64, %if.then62
-  %pos.2 = phi ptr [ %incdec.ptr65, %if.then64 ], [ %incdec.ptr3180, %if.then62 ]
   %node.0 = phi i32 [ %conv66, %if.then64 ], [ %conv81, %if.then62 ]
+  %pos.2 = phi ptr [ %incdec.ptr65, %if.then64 ], [ %incdec.ptr3180, %if.then62 ]
   %add = add nuw nsw i32 %node.0, 1
   %call68 = tail call noundef ptr @_ZN6icu_759BytesTrie8Iterator10branchNextEPKhiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %pos.2, i32 noundef %add, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %cmp69 = icmp eq ptr %call68, null

@@ -679,14 +679,14 @@ _Z14decode_vm_infoibmm.exit:                      ; preds = %2, %27, %31
 
 76:                                               ; preds = %114, %.lr.ph
   %indvars.iv = phi i64 [ %74, %.lr.ph ], [ %indvars.iv.next, %114 ]
-  %.0120208 = phi i64 [ %71, %.lr.ph ], [ %116, %114 ]
+  %.0119208 = phi i64 [ %71, %.lr.ph ], [ %116, %114 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %77 = mul nsw i64 %indvars.iv.next, %75
   %78 = add nsw i64 %77, 12
   %79 = lshr i64 %5, %78
   %80 = and i64 %79, %73
   %81 = mul nuw nsw i64 %80, %.sroa.24.0.ph
-  %82 = add nsw i64 %81, %.0120208
+  %82 = add nsw i64 %81, %.0119208
   %83 = tail call noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %5, i64 noundef %82, i32 noundef 0, i32 noundef %4, i1 noundef zeroext %8, i1 noundef zeroext false, i1 noundef zeroext true)
   br i1 %or.cond3.i, label %84, label %86
 
@@ -2364,19 +2364,19 @@ _ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %57, %_ZN5mmu_t21is_
   br i1 %89, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %88, %.lr.ph
-  %.02568 = phi ptr [ %92, %.lr.ph ], [ %3, %88 ]
-  %.067 = phi i64 [ %91, %.lr.ph ], [ %2, %88 ]
-  %90 = load i64, ptr %.02568, align 1
+  %.069 = phi ptr [ %92, %.lr.ph ], [ %3, %88 ]
+  %.06668 = phi i64 [ %91, %.lr.ph ], [ %2, %88 ]
+  %90 = load i64, ptr %.069, align 1
   tail call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 2, i64 noundef %1, i1 noundef zeroext %52, i64 %90, i8 1)
-  %91 = add i64 %.067, -8
-  %92 = getelementptr inbounds i8, ptr %.02568, i64 8
+  %91 = add i64 %.06668, -8
+  %92 = getelementptr inbounds i8, ptr %.069, i64 8
   %93 = icmp ugt i64 %91, 8
   br i1 %93, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %88
-  %.0.lcssa = phi i64 [ %2, %88 ], [ %91, %.lr.ph ]
-  %.025.lcssa = phi ptr [ %3, %88 ], [ %92, %.lr.ph ]
-  switch i64 %.0.lcssa, label %105 [
+  %.066.lcssa = phi i64 [ %2, %88 ], [ %91, %.lr.ph ]
+  %.0.lcssa = phi ptr [ %3, %88 ], [ %92, %.lr.ph ]
+  switch i64 %.066.lcssa, label %105 [
     i64 1, label %94
     i64 2, label %97
     i64 4, label %100
@@ -2384,22 +2384,22 @@ _ZN5mmu_t21is_misaligned_enabledEv.exit.thread:   ; preds = %57, %_ZN5mmu_t21is_
   ]
 
 94:                                               ; preds = %._crit_edge
-  %95 = load i8, ptr %.025.lcssa, align 1
+  %95 = load i8, ptr %.0.lcssa, align 1
   %96 = zext i8 %95 to i64
   br label %_Z14reg_from_bytesmPKh.exit
 
 97:                                               ; preds = %._crit_edge
-  %98 = load i16, ptr %.025.lcssa, align 1
+  %98 = load i16, ptr %.0.lcssa, align 1
   %99 = zext i16 %98 to i64
   br label %_Z14reg_from_bytesmPKh.exit
 
 100:                                              ; preds = %._crit_edge
-  %101 = load i32, ptr %.025.lcssa, align 1
+  %101 = load i32, ptr %.0.lcssa, align 1
   %102 = zext i32 %101 to i64
   br label %_Z14reg_from_bytesmPKh.exit
 
 103:                                              ; preds = %._crit_edge
-  %104 = load i64, ptr %.025.lcssa, align 1
+  %104 = load i64, ptr %.0.lcssa, align 1
   br label %_Z14reg_from_bytesmPKh.exit
 
 105:                                              ; preds = %._crit_edge
@@ -2715,19 +2715,19 @@ _ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit: ; preds = %_
   br i1 %54, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.03372 = phi ptr [ %58, %.lr.ph ], [ %3, %.preheader ]
-  %.03471 = phi i64 [ %57, %.lr.ph ], [ %2, %.preheader ]
-  %56 = load i64, ptr %.03372, align 1
+  %.072 = phi i64 [ %57, %.lr.ph ], [ %2, %.preheader ]
+  %.03471 = phi ptr [ %58, %.lr.ph ], [ %3, %.preheader ]
+  %56 = load i64, ptr %.03471, align 1
   tail call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 1, i64 noundef %1, i1 noundef zeroext %55, i64 %56, i8 1)
-  %57 = add i64 %.03471, -8
-  %58 = getelementptr inbounds i8, ptr %.03372, i64 8
+  %57 = add i64 %.072, -8
+  %58 = getelementptr inbounds i8, ptr %.03471, i64 8
   %59 = icmp ugt i64 %57, 8
   br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.034.lcssa = phi i64 [ %2, %.preheader ], [ %57, %.lr.ph ]
-  %.033.lcssa = phi ptr [ %3, %.preheader ], [ %58, %.lr.ph ]
-  switch i64 %.034.lcssa, label %71 [
+  %.034.lcssa = phi ptr [ %3, %.preheader ], [ %58, %.lr.ph ]
+  %.0.lcssa = phi i64 [ %2, %.preheader ], [ %57, %.lr.ph ]
+  switch i64 %.0.lcssa, label %71 [
     i64 1, label %60
     i64 2, label %63
     i64 4, label %66
@@ -2735,22 +2735,22 @@ _ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit: ; preds = %_
   ]
 
 60:                                               ; preds = %._crit_edge
-  %61 = load i8, ptr %.033.lcssa, align 1
+  %61 = load i8, ptr %.034.lcssa, align 1
   %62 = zext i8 %61 to i64
   br label %_Z14reg_from_bytesmPKh.exit
 
 63:                                               ; preds = %._crit_edge
-  %64 = load i16, ptr %.033.lcssa, align 1
+  %64 = load i16, ptr %.034.lcssa, align 1
   %65 = zext i16 %64 to i64
   br label %_Z14reg_from_bytesmPKh.exit
 
 66:                                               ; preds = %._crit_edge
-  %67 = load i32, ptr %.033.lcssa, align 1
+  %67 = load i32, ptr %.034.lcssa, align 1
   %68 = zext i32 %67 to i64
   br label %_Z14reg_from_bytesmPKh.exit
 
 69:                                               ; preds = %._crit_edge
-  %70 = load i64, ptr %.033.lcssa, align 1
+  %70 = load i64, ptr %.034.lcssa, align 1
   br label %_Z14reg_from_bytesmPKh.exit
 
 71:                                               ; preds = %._crit_edge

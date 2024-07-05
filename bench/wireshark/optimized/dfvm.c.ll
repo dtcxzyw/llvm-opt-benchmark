@@ -1350,8 +1350,8 @@ define hidden noundef ptr @dfvm_get_raw_fvalue(ptr nocapture noundef readonly %0
   br label %17
 
 17:                                               ; preds = %1, %8
-  %.015 = phi ptr [ %16, %8 ], [ null, %1 ]
-  ret ptr %.015
+  %.0 = phi ptr [ %16, %8 ], [ null, %1 ]
+  ret ptr %.0
 }
 
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -1393,16 +1393,16 @@ define hidden zeroext i1 @dfvm_apply_full(ptr nocapture noundef %0, ptr noundef 
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %stack_pop.exit
-  %.0940 = phi i8 [ 1, %.preheader.lr.ph ], [ %.1, %stack_pop.exit ]
-  %.0159939 = phi i32 [ 0, %.preheader.lr.ph ], [ %1492, %stack_pop.exit ]
+  %.0940 = phi i32 [ 0, %.preheader.lr.ph ], [ %1492, %stack_pop.exit ]
+  %.0159939 = phi i8 [ 1, %.preheader.lr.ph ], [ %.1160, %stack_pop.exit ]
   %22 = load ptr, ptr %0, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = trunc i8 %.0940 to i1
+  %24 = trunc i8 %.0159939 to i1
   br label %25
 
 25:                                               ; preds = %.backedge, %.preheader
-  %.1160 = phi i32 [ %.0159939, %.preheader ], [ %.1160.be, %.backedge ]
-  %26 = sext i32 %.1160 to i64
+  %.1 = phi i32 [ %.0940, %.preheader ], [ %.1.be, %.backedge ]
+  %26 = sext i32 %.1 to i64
   %27 = getelementptr ptr, ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
@@ -4470,7 +4470,7 @@ mk_minus.exit:                                    ; preds = %1461, %1445
   br label %stack_pop.exit
 
 1466:                                             ; preds = %25
-  %1467 = xor i8 %.0940, 1
+  %1467 = xor i8 %.0159939, 1
   br label %stack_pop.exit
 
 1468:                                             ; preds = %25
@@ -4519,8 +4519,8 @@ free_register_overhead.exit:                      ; preds = %.lr.ph.i329, %1481
   br i1 %24, label %.backedge, label %stack_pop.exit
 
 .backedge:                                        ; preds = %1490, %1489
-  %.1160.be.in = getelementptr inbounds i8, ptr %30, i64 8
-  %.1160.be = load i32, ptr %.1160.be.in, align 8
+  %.1.be.in = getelementptr inbounds i8, ptr %30, i64 8
+  %.1.be = load i32, ptr %.1.be.in, align 8
   br label %25
 
 1490:                                             ; preds = %25
@@ -4531,8 +4531,8 @@ free_register_overhead.exit:                      ; preds = %.lr.ph.i329, %1481
   unreachable
 
 stack_pop.exit:                                   ; preds = %25, %1489, %1490, %.lr.ph.i315, %1361, %.lr.ph.i312, %1346, %._crit_edge.split.us.split.us34.us.i.i548, %._crit_edge.split.split.us.i.i532, %._crit_edge.split.us.split.us34.us.i.i514, %._crit_edge.split.split.us.i.i498, %._crit_edge.split.us.split.us34.us.i.i480, %._crit_edge.split.split.us.i.i464, %._crit_edge.split.us.split.us34.us.i.i446, %._crit_edge.split.split.us.i.i430, %._crit_edge.split.us.split.us34.us.i.i412, %._crit_edge.split.split.us.i.i396, %._crit_edge.split.us.split.us34.us.i.i378, %._crit_edge.split.split.us.i.i362, %._crit_edge.split.us.split.us34.us.i.i, %._crit_edge.split.split.us.i.i, %152, %check_exists_finfos.exit.thread.i, %check_exists_finfos.exit.i, %check_exists_finfos.exit.thread.us.i204, %56, %check_exists_finfos.exit.thread.us.i, %38, %.lr.ph.us.us.i.i544, %.lr.ph.i.i527, %.lr.ph.us.us.i.i510, %.lr.ph.i.i493, %.lr.ph.us.us.i.i476, %.lr.ph.i.i459, %.lr.ph.us.us.i.i442, %.lr.ph.i.i425, %.lr.ph.us.us.i.i408, %.lr.ph.i.i391, %.lr.ph.us.us.i.i374, %.lr.ph.i.i357, %.lr.ph.us.us.i.i, %.lr.ph.i.i336, %1352, %1336, %1313, %1266, %807, %760, %713, %666, %619, %572, %525, %478, %431, %384, %337, %290, %.thread.i, %48, %33, %146, %72, %79, %88, %95, %104, %114, %stack_push.exit, %mk_slice.exit, %mk_length.exit, %mk_value_string.exit, %mk_binary.exit, %mk_binary.exit237, %mk_binary.exit255, %mk_binary.exit273, %mk_binary.exit291, %mk_binary.exit309, %all_test_unary.exit, %set_push.exit, %set_push.exit321, %1412, %1416, %1420, %1425, %1430, %mk_minus.exit, %1466
-  %.1 = phi i8 [ %1467, %1466 ], [ %.0940, %mk_minus.exit ], [ %.0940, %1430 ], [ %1429, %1425 ], [ %1424, %1420 ], [ %1419, %1416 ], [ %1415, %1412 ], [ %.0940, %set_push.exit321 ], [ %.0940, %set_push.exit ], [ %1241, %all_test_unary.exit ], [ %.0940, %mk_binary.exit309 ], [ %.0940, %mk_binary.exit291 ], [ %.0940, %mk_binary.exit273 ], [ %.0940, %mk_binary.exit255 ], [ %.0940, %mk_binary.exit237 ], [ %.0940, %mk_binary.exit ], [ %265, %mk_value_string.exit ], [ %.0940, %mk_length.exit ], [ %.0940, %mk_slice.exit ], [ %.0940, %stack_push.exit ], [ %129, %114 ], [ %.0940, %104 ], [ %103, %95 ], [ %94, %88 ], [ %87, %79 ], [ %78, %72 ], [ %.0940, %146 ], [ 0, %33 ], [ 0, %48 ], [ 0, %.thread.i ], [ 1, %290 ], [ 0, %337 ], [ 1, %384 ], [ 0, %431 ], [ 1, %478 ], [ 0, %525 ], [ 1, %572 ], [ 0, %619 ], [ 1, %666 ], [ 0, %713 ], [ 1, %760 ], [ 0, %807 ], [ 1, %1266 ], [ 0, %1313 ], [ 1, %1336 ], [ 0, %1352 ], [ 0, %.lr.ph.i.i336 ], [ 1, %.lr.ph.us.us.i.i ], [ 0, %.lr.ph.i.i357 ], [ 1, %.lr.ph.us.us.i.i374 ], [ 0, %.lr.ph.i.i391 ], [ 1, %.lr.ph.us.us.i.i408 ], [ 0, %.lr.ph.i.i425 ], [ 1, %.lr.ph.us.us.i.i442 ], [ 0, %.lr.ph.i.i459 ], [ 1, %.lr.ph.us.us.i.i476 ], [ 0, %.lr.ph.i.i493 ], [ 1, %.lr.ph.us.us.i.i510 ], [ 0, %.lr.ph.i.i527 ], [ 1, %.lr.ph.us.us.i.i544 ], [ 0, %check_exists_finfos.exit.thread.us.i ], [ 1, %38 ], [ 0, %check_exists_finfos.exit.thread.us.i204 ], [ 1, %56 ], [ 1, %check_exists_finfos.exit.i ], [ 0, %check_exists_finfos.exit.thread.i ], [ %.0940, %152 ], [ 1, %._crit_edge.split.split.us.i.i ], [ 0, %._crit_edge.split.us.split.us34.us.i.i ], [ 1, %._crit_edge.split.split.us.i.i362 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i378 ], [ 1, %._crit_edge.split.split.us.i.i396 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i412 ], [ 1, %._crit_edge.split.split.us.i.i430 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i446 ], [ 1, %._crit_edge.split.split.us.i.i464 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i480 ], [ 1, %._crit_edge.split.split.us.i.i498 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i514 ], [ 1, %._crit_edge.split.split.us.i.i532 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i548 ], [ 1, %1346 ], [ 0, %.lr.ph.i312 ], [ 0, %1361 ], [ 1, %.lr.ph.i315 ], [ %.0940, %1490 ], [ %.0940, %1489 ], [ %.0940, %25 ]
-  %1492 = add i32 %.1160, 1
+  %.1160 = phi i8 [ %1467, %1466 ], [ %.0159939, %mk_minus.exit ], [ %.0159939, %1430 ], [ %1429, %1425 ], [ %1424, %1420 ], [ %1419, %1416 ], [ %1415, %1412 ], [ %.0159939, %set_push.exit321 ], [ %.0159939, %set_push.exit ], [ %1241, %all_test_unary.exit ], [ %.0159939, %mk_binary.exit309 ], [ %.0159939, %mk_binary.exit291 ], [ %.0159939, %mk_binary.exit273 ], [ %.0159939, %mk_binary.exit255 ], [ %.0159939, %mk_binary.exit237 ], [ %.0159939, %mk_binary.exit ], [ %265, %mk_value_string.exit ], [ %.0159939, %mk_length.exit ], [ %.0159939, %mk_slice.exit ], [ %.0159939, %stack_push.exit ], [ %129, %114 ], [ %.0159939, %104 ], [ %103, %95 ], [ %94, %88 ], [ %87, %79 ], [ %78, %72 ], [ %.0159939, %146 ], [ 0, %33 ], [ 0, %48 ], [ 0, %.thread.i ], [ 1, %290 ], [ 0, %337 ], [ 1, %384 ], [ 0, %431 ], [ 1, %478 ], [ 0, %525 ], [ 1, %572 ], [ 0, %619 ], [ 1, %666 ], [ 0, %713 ], [ 1, %760 ], [ 0, %807 ], [ 1, %1266 ], [ 0, %1313 ], [ 1, %1336 ], [ 0, %1352 ], [ 0, %.lr.ph.i.i336 ], [ 1, %.lr.ph.us.us.i.i ], [ 0, %.lr.ph.i.i357 ], [ 1, %.lr.ph.us.us.i.i374 ], [ 0, %.lr.ph.i.i391 ], [ 1, %.lr.ph.us.us.i.i408 ], [ 0, %.lr.ph.i.i425 ], [ 1, %.lr.ph.us.us.i.i442 ], [ 0, %.lr.ph.i.i459 ], [ 1, %.lr.ph.us.us.i.i476 ], [ 0, %.lr.ph.i.i493 ], [ 1, %.lr.ph.us.us.i.i510 ], [ 0, %.lr.ph.i.i527 ], [ 1, %.lr.ph.us.us.i.i544 ], [ 0, %check_exists_finfos.exit.thread.us.i ], [ 1, %38 ], [ 0, %check_exists_finfos.exit.thread.us.i204 ], [ 1, %56 ], [ 1, %check_exists_finfos.exit.i ], [ 0, %check_exists_finfos.exit.thread.i ], [ %.0159939, %152 ], [ 1, %._crit_edge.split.split.us.i.i ], [ 0, %._crit_edge.split.us.split.us34.us.i.i ], [ 1, %._crit_edge.split.split.us.i.i362 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i378 ], [ 1, %._crit_edge.split.split.us.i.i396 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i412 ], [ 1, %._crit_edge.split.split.us.i.i430 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i446 ], [ 1, %._crit_edge.split.split.us.i.i464 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i480 ], [ 1, %._crit_edge.split.split.us.i.i498 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i514 ], [ 1, %._crit_edge.split.split.us.i.i532 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i548 ], [ 1, %1346 ], [ 0, %.lr.ph.i312 ], [ 0, %1361 ], [ 1, %.lr.ph.i315 ], [ %.0159939, %1490 ], [ %.0159939, %1489 ], [ %.0159939, %25 ]
+  %1492 = add i32 %.1, 1
   %1493 = icmp slt i32 %1492, %18
   br i1 %1493, label %.preheader, label %._crit_edge, !llvm.loop !24
 
@@ -4542,8 +4542,8 @@ stack_pop.exit:                                   ; preds = %25, %1489, %1490, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @read_tree(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %.0.val1, ptr readonly %.8.val, i32 %.8.val2, ptr noundef readonly %2) unnamed_addr #2 {
-  %4 = icmp eq i32 %.0.val1, 3
+define internal fastcc zeroext i1 @read_tree(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %.0.val, ptr readonly %.8.val, i32 %.8.val1, ptr noundef readonly %2) unnamed_addr #2 {
+  %4 = icmp eq i32 %.0.val, 3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %5
 
@@ -4554,31 +4554,31 @@ define internal fastcc zeroext i1 @read_tree(ptr nocapture noundef readonly %0, 
   br label %9
 
 9:                                                ; preds = %5, %3
-  %.020 = phi ptr [ %8, %5 ], [ null, %3 ]
+  %.021 = phi ptr [ %8, %5 ], [ null, %3 ]
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = sext i32 %.8.val2 to i64
+  %12 = sext i32 %.8.val1 to i64
   %13 = getelementptr %struct.df_cell_t, ptr %11, i64 %12
   %14 = tail call zeroext i1 @df_cell_is_null(ptr noundef %13) #11
   br i1 %14, label %15, label %._crit_edge
 
 15:                                               ; preds = %9
   tail call void @df_cell_init(ptr noundef %13, i1 noundef zeroext %4) #11
-  %.not235 = icmp eq ptr %.8.val, null
-  br i1 %.not235, label %._crit_edge, label %.lr.ph
+  %.not234 = icmp eq ptr %.8.val, null
+  br i1 %.not234, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %.not.i = icmp eq ptr %.020, null
+  %.not.i = icmp eq ptr %.021, null
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %4, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %read_tree_finfos.exit.us.us
-  %.06.us.us = phi ptr [ %45, %read_tree_finfos.exit.us.us ], [ %.8.val, %.lr.ph.split.us ]
-  %16 = getelementptr i8, ptr %.06.us.us, i64 48
-  %.0.val.us.us = load i32, ptr %16, align 8
-  %17 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %1, i32 noundef %.0.val.us.us) #11
+  %.0205.us.us = phi ptr [ %45, %read_tree_finfos.exit.us.us ], [ %.8.val, %.lr.ph.split.us ]
+  %16 = getelementptr i8, ptr %.0205.us.us, i64 48
+  %.020.val.us.us = load i32, ptr %16, align 8
+  %17 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %1, i32 noundef %.020.val.us.us) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %read_tree_finfos.exit.us.us, label %19
 
@@ -4624,16 +4624,16 @@ dfvm_get_raw_fvalue.exit.us.i.us.us:              ; preds = %32, %.lr.ph.split.u
   br i1 %43, label %.lr.ph.split.us.i.us.us, label %read_tree_finfos.exit.us.us, !llvm.loop !25
 
 read_tree_finfos.exit.us.us:                      ; preds = %dfvm_get_raw_fvalue.exit.us.i.us.us, %19, %.lr.ph.split.us.split.us
-  %44 = getelementptr inbounds i8, ptr %.06.us.us, i64 64
+  %44 = getelementptr inbounds i8, ptr %.0205.us.us, i64 64
   %45 = load ptr, ptr %44, align 8
   %.not23.us.us = icmp eq ptr %45, null
   br i1 %.not23.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !26
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %read_tree_finfos.exit.us
-  %.06.us = phi ptr [ %62, %read_tree_finfos.exit.us ], [ %.8.val, %.lr.ph.split.us ]
-  %46 = getelementptr i8, ptr %.06.us, i64 48
-  %.0.val.us = load i32, ptr %46, align 8
-  %47 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %1, i32 noundef %.0.val.us) #11
+  %.0205.us = phi ptr [ %62, %read_tree_finfos.exit.us ], [ %.8.val, %.lr.ph.split.us ]
+  %46 = getelementptr i8, ptr %.0205.us, i64 48
+  %.020.val.us = load i32, ptr %46, align 8
+  %47 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %1, i32 noundef %.020.val.us) #11
   %48 = icmp eq ptr %47, null
   br i1 %48, label %read_tree_finfos.exit.us, label %49
 
@@ -4658,16 +4658,16 @@ dfvm_get_raw_fvalue.exit.i.us:                    ; preds = %49, %dfvm_get_raw_f
   br i1 %60, label %dfvm_get_raw_fvalue.exit.i.us, label %read_tree_finfos.exit.us, !llvm.loop !25
 
 read_tree_finfos.exit.us:                         ; preds = %dfvm_get_raw_fvalue.exit.i.us, %49, %.lr.ph.split.us.split
-  %61 = getelementptr inbounds i8, ptr %.06.us, i64 64
+  %61 = getelementptr inbounds i8, ptr %.0205.us, i64 64
   %62 = load ptr, ptr %61, align 8
   %.not23.us = icmp eq ptr %62, null
   br i1 %.not23.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %read_tree_finfos.exit
-  %.06 = phi ptr [ %73, %read_tree_finfos.exit ], [ %.8.val, %.lr.ph ]
-  %63 = getelementptr i8, ptr %.06, i64 48
-  %.0.val = load i32, ptr %63, align 8
-  %64 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %1, i32 noundef %.0.val) #11
+  %.0205 = phi ptr [ %73, %read_tree_finfos.exit ], [ %.8.val, %.lr.ph ]
+  %63 = getelementptr i8, ptr %.0205, i64 48
+  %.020.val = load i32, ptr %63, align 8
+  %64 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %1, i32 noundef %.020.val) #11
   %65 = icmp eq ptr %64, null
   br i1 %65, label %read_tree_finfos.exit, label %66
 
@@ -4678,19 +4678,19 @@ read_tree_finfos.exit.us:                         ; preds = %dfvm_get_raw_fvalue
   br i1 %69, label %read_tree_finfos.exit, label %70
 
 70:                                               ; preds = %66
-  %71 = tail call fastcc i64 @filter_finfo_fvalues(ptr noundef %13, ptr noundef nonnull %64, ptr noundef nonnull readonly %.020, i1 noundef zeroext %4)
+  %71 = tail call fastcc i64 @filter_finfo_fvalues(ptr noundef %13, ptr noundef nonnull %64, ptr noundef nonnull readonly %.021, i1 noundef zeroext %4)
   br label %read_tree_finfos.exit
 
 read_tree_finfos.exit:                            ; preds = %.lr.ph.split, %66, %70
-  %72 = getelementptr inbounds i8, ptr %.06, i64 64
+  %72 = getelementptr inbounds i8, ptr %.0205, i64 64
   %73 = load ptr, ptr %72, align 8
   %.not23 = icmp eq ptr %73, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %read_tree_finfos.exit, %read_tree_finfos.exit.us, %read_tree_finfos.exit.us.us, %15, %9
   %74 = tail call zeroext i1 @df_cell_is_empty(ptr noundef %13) #11
-  %.021 = xor i1 %74, true
-  ret i1 %.021
+  %.0 = xor i1 %74, true
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4705,7 +4705,7 @@ define internal fastcc zeroext i1 @read_reference(ptr nocapture noundef readonly
   br label %7
 
 7:                                                ; preds = %4, %2
-  %.0 = phi ptr [ %6, %4 ], [ null, %2 ]
+  %.019 = phi ptr [ %6, %4 ], [ null, %2 ]
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %.8.val1 to i64
@@ -4746,7 +4746,7 @@ define internal fastcc zeroext i1 @read_reference(ptr nocapture noundef readonly
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i32, ptr %32, align 8
-  %34 = icmp eq ptr %.0, null
+  %34 = icmp eq ptr %.019, null
   %35 = add i32 %33, 1
   br i1 %34, label %drange_contains_layer.exit.thread.us.i, label %.lr.ph.split.i
 
@@ -4767,21 +4767,21 @@ drange_contains_layer.exit.thread.us.i:           ; preds = %.lr.ph.i, %drange_c
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %drange_contains_layer.exit.thread.i
   %44 = phi i32 [ %73, %drange_contains_layer.exit.thread.i ], [ %25, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %drange_contains_layer.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.02534.i = phi i1 [ %.1.i, %drange_contains_layer.exit.thread.i ], [ false, %.lr.ph.i ]
-  %.02633.i = phi i32 [ %.127.i, %drange_contains_layer.exit.thread.i ], [ -1, %.lr.ph.i ]
+  %.035.i = phi i32 [ %.1.i, %drange_contains_layer.exit.thread.i ], [ -1, %.lr.ph.i ]
+  %.02633.i = phi i1 [ %.127.i, %drange_contains_layer.exit.thread.i ], [ false, %.lr.ph.i ]
   %45 = load ptr, ptr %18, align 8
   %46 = getelementptr ptr, ptr %45, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 16
   %49 = load i32, ptr %48, align 8
-  %50 = icmp eq i32 %.02633.i, %49
+  %50 = icmp eq i32 %.035.i, %49
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %.lr.ph.split.i
-  br i1 %.02534.i, label %drange_contains_layer.exit.thread.sink.split.i, label %drange_contains_layer.exit.thread.i
+  br i1 %.02633.i, label %drange_contains_layer.exit.thread.sink.split.i, label %drange_contains_layer.exit.thread.i
 
 52:                                               ; preds = %.lr.ph.split.i
-  %.02028.i.i = load ptr, ptr %.0, align 8
+  %.02028.i.i = load ptr, ptr %.019, align 8
   %.not29.not.i.i = icmp eq ptr %.02028.i.i, null
   br i1 %.not29.not.i.i, label %drange_contains_layer.exit.thread.i, label %.lr.ph.i.i
 
@@ -4830,7 +4830,7 @@ drange_contains_layer.exit.thread.us.i:           ; preds = %.lr.ph.i, %drange_c
   br i1 %or.cond.not.i.i, label %drange_contains_layer.exit.thread.sink.split.i, label %53
 
 drange_contains_layer.exit.thread.sink.split.i:   ; preds = %70, %51
-  %.127.ph.i = phi i32 [ %.02633.i, %51 ], [ %49, %70 ]
+  %.1.ph.i = phi i32 [ %.035.i, %51 ], [ %49, %70 ]
   %71 = getelementptr inbounds i8, ptr %47, i64 8
   %72 = load ptr, ptr %71, align 8
   tail call void @df_cell_append(ptr noundef %11, ptr noundef %72) #11
@@ -4839,16 +4839,16 @@ drange_contains_layer.exit.thread.sink.split.i:   ; preds = %70, %51
 
 drange_contains_layer.exit.thread.i:              ; preds = %53, %drange_contains_layer.exit.thread.sink.split.i, %52, %51
   %73 = phi i32 [ %44, %51 ], [ %44, %52 ], [ %.pre, %drange_contains_layer.exit.thread.sink.split.i ], [ %44, %53 ]
-  %.127.i = phi i32 [ %.02633.i, %51 ], [ %49, %52 ], [ %.127.ph.i, %drange_contains_layer.exit.thread.sink.split.i ], [ %49, %53 ]
-  %.1.i = phi i1 [ false, %51 ], [ false, %52 ], [ true, %drange_contains_layer.exit.thread.sink.split.i ], [ false, %53 ]
+  %.127.i = phi i1 [ false, %51 ], [ false, %52 ], [ true, %drange_contains_layer.exit.thread.sink.split.i ], [ false, %53 ]
+  %.1.i = phi i32 [ %.035.i, %51 ], [ %49, %52 ], [ %.1.ph.i, %drange_contains_layer.exit.thread.sink.split.i ], [ %49, %53 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %74 = zext i32 %73 to i64
   %75 = icmp ult i64 %indvars.iv.next.i, %74
   br i1 %75, label %.lr.ph.split.i, label %filter_refs_fvalues.exit, !llvm.loop !27
 
 filter_refs_fvalues.exit:                         ; preds = %drange_contains_layer.exit.thread.i, %drange_contains_layer.exit.thread.us.i, %24, %16, %20, %13
-  %.019 = phi i1 [ %15, %13 ], [ false, %20 ], [ false, %16 ], [ true, %24 ], [ true, %drange_contains_layer.exit.thread.us.i ], [ true, %drange_contains_layer.exit.thread.i ]
-  ret i1 %.019
+  %.0 = phi i1 [ %15, %13 ], [ false, %20 ], [ false, %16 ], [ true, %24 ], [ true, %drange_contains_layer.exit.thread.us.i ], [ true, %drange_contains_layer.exit.thread.i ]
+  ret i1 %.0
 }
 
 declare zeroext i1 @fvalue_eq(ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -5330,8 +5330,8 @@ define internal fastcc i64 @filter_finfo_fvalues(ptr noundef %0, ptr noundef %1,
   tail call void @g_ptr_array_sort(ptr noundef %1, ptr noundef nonnull @compare_finfo_layer) #11
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
-  %.not52 = icmp eq i32 %6, 0
-  br i1 %.not52, label %._crit_edge, label %.lr.ph
+  %.not53 = icmp eq i32 %6, 0
+  br i1 %.not53, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %7 = load ptr, ptr %1, align 8
@@ -5347,19 +5347,19 @@ define internal fastcc i64 @filter_finfo_fvalues(ptr noundef %0, ptr noundef %1,
 
 15:                                               ; preds = %.lr.ph, %drange_contains_layer.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %drange_contains_layer.exit.thread ]
-  %.03250 = phi i64 [ 0, %.lr.ph ], [ %.1, %drange_contains_layer.exit.thread ]
-  %.03349 = phi i1 [ false, %.lr.ph ], [ %.134, %drange_contains_layer.exit.thread ]
-  %.03548 = phi i32 [ -1, %.lr.ph ], [ %.136, %drange_contains_layer.exit.thread ]
+  %.03251 = phi i64 [ 0, %.lr.ph ], [ %.1, %drange_contains_layer.exit.thread ]
+  %.03550 = phi i1 [ false, %.lr.ph ], [ %.136, %drange_contains_layer.exit.thread ]
+  %.03749 = phi i32 [ -1, %.lr.ph ], [ %.138, %drange_contains_layer.exit.thread ]
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 60
   %20 = load i32, ptr %19, align 4
-  %21 = icmp eq i32 %.03548, %20
+  %21 = icmp eq i32 %.03749, %20
   br i1 %21, label %22, label %46
 
 22:                                               ; preds = %15
-  br i1 %.03349, label %23, label %drange_contains_layer.exit.thread
+  br i1 %.03550, label %23, label %drange_contains_layer.exit.thread
 
 23:                                               ; preds = %22
   br i1 %.not, label %44, label %24
@@ -5395,12 +5395,12 @@ define internal fastcc i64 @filter_finfo_fvalues(ptr noundef %0, ptr noundef %1,
   br label %dfvm_get_raw_fvalue.exit
 
 dfvm_get_raw_fvalue.exit:                         ; preds = %32, %25, %41
-  %.037 = phi ptr [ %43, %41 ], [ %40, %32 ], [ null, %25 ]
-  tail call void @df_cell_append(ptr noundef nonnull %0, ptr noundef %.037) #11
+  %.033 = phi ptr [ %43, %41 ], [ %40, %32 ], [ null, %25 ]
+  tail call void @df_cell_append(ptr noundef nonnull %0, ptr noundef %.033) #11
   br label %44
 
 44:                                               ; preds = %dfvm_get_raw_fvalue.exit, %23
-  %45 = add i64 %.03250, 1
+  %45 = add i64 %.03251, 1
   br label %drange_contains_layer.exit.thread
 
 46:                                               ; preds = %15
@@ -5446,9 +5446,9 @@ dfvm_get_raw_fvalue.exit:                         ; preds = %32, %25, %41
   unreachable
 
 64:                                               ; preds = %60, %55, %.lr.ph.i
-  %.0.i = phi i32 [ %59, %55 ], [ %62, %60 ], [ 2147483647, %.lr.ph.i ]
+  %.0.i43 = phi i32 [ %59, %55 ], [ %62, %60 ], [ 2147483647, %.lr.ph.i ]
   %.not25.i = icmp sle i32 %.019.i, %20
-  %.not26.i = icmp sge i32 %.0.i, %20
+  %.not26.i = icmp sge i32 %.0.i43, %20
   %or.cond.not.i = select i1 %.not25.i, i1 %.not26.i, i1 false
   br i1 %or.cond.not.i, label %65, label %47
 
@@ -5465,39 +5465,39 @@ dfvm_get_raw_fvalue.exit:                         ; preds = %32, %25, %41
   %71 = load i32, ptr %70, align 8
   %72 = tail call i32 @tvb_captured_length_remaining(ptr noundef %69, i32 noundef %71) #11
   %73 = icmp slt i32 %72, 0
-  br i1 %73, label %dfvm_get_raw_fvalue.exit45, label %74
+  br i1 %73, label %dfvm_get_raw_fvalue.exit46, label %74
 
 74:                                               ; preds = %67
   %75 = getelementptr inbounds i8, ptr %18, i64 12
   %76 = load i32, ptr %75, align 4
-  %spec.select.i43 = tail call i32 @llvm.smin.i32(i32 %76, i32 %72)
+  %spec.select.i44 = tail call i32 @llvm.smin.i32(i32 %76, i32 %72)
   %77 = tail call ptr @g_byte_array_new() #11
   %78 = load ptr, ptr %68, align 8
   %79 = load i32, ptr %70, align 8
-  %80 = tail call ptr @tvb_get_ptr(ptr noundef %78, i32 noundef %79, i32 noundef %spec.select.i43) #11
-  %81 = tail call ptr @g_byte_array_append(ptr noundef %77, ptr noundef %80, i32 noundef %spec.select.i43) #11
+  %80 = tail call ptr @tvb_get_ptr(ptr noundef %78, i32 noundef %79, i32 noundef %spec.select.i44) #11
+  %81 = tail call ptr @g_byte_array_append(ptr noundef %77, ptr noundef %80, i32 noundef %spec.select.i44) #11
   %82 = tail call ptr @fvalue_new(i32 noundef 30) #11
   tail call void @fvalue_set_byte_array(ptr noundef %82, ptr noundef %77) #11
-  br label %dfvm_get_raw_fvalue.exit45
+  br label %dfvm_get_raw_fvalue.exit46
 
 83:                                               ; preds = %66
   %84 = getelementptr inbounds i8, ptr %18, i64 48
   %85 = load ptr, ptr %84, align 8
-  br label %dfvm_get_raw_fvalue.exit45
+  br label %dfvm_get_raw_fvalue.exit46
 
-dfvm_get_raw_fvalue.exit45:                       ; preds = %74, %67, %83
-  %.138 = phi ptr [ %85, %83 ], [ %82, %74 ], [ null, %67 ]
-  tail call void @df_cell_append(ptr noundef nonnull %0, ptr noundef %.138) #11
+dfvm_get_raw_fvalue.exit46:                       ; preds = %74, %67, %83
+  %.134 = phi ptr [ %85, %83 ], [ %82, %74 ], [ null, %67 ]
+  tail call void @df_cell_append(ptr noundef nonnull %0, ptr noundef %.134) #11
   br label %86
 
-86:                                               ; preds = %dfvm_get_raw_fvalue.exit45, %65
-  %87 = add i64 %.03250, 1
+86:                                               ; preds = %dfvm_get_raw_fvalue.exit46, %65
+  %87 = add i64 %.03251, 1
   br label %drange_contains_layer.exit.thread
 
 drange_contains_layer.exit.thread:                ; preds = %47, %46, %44, %22, %86
-  %.136 = phi i32 [ %.03548, %44 ], [ %.03548, %22 ], [ %20, %86 ], [ %20, %46 ], [ %20, %47 ]
-  %.134 = phi i1 [ true, %44 ], [ false, %22 ], [ true, %86 ], [ false, %46 ], [ false, %47 ]
-  %.1 = phi i64 [ %45, %44 ], [ %.03250, %22 ], [ %87, %86 ], [ %.03250, %46 ], [ %.03250, %47 ]
+  %.138 = phi i32 [ %.03749, %44 ], [ %.03749, %22 ], [ %20, %86 ], [ %20, %46 ], [ %20, %47 ]
+  %.136 = phi i1 [ true, %44 ], [ false, %22 ], [ true, %86 ], [ false, %46 ], [ false, %47 ]
+  %.1 = phi i64 [ %45, %44 ], [ %.03251, %22 ], [ %87, %86 ], [ %.03251, %46 ], [ %.03251, %47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = load i32, ptr %5, align 8
   %89 = zext i32 %88 to i64

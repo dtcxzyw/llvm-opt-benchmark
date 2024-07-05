@@ -4474,8 +4474,8 @@ ehcleanup292.i:                                   ; preds = %lpad288.i, %lpad263
   br label %ehcleanup388
 
 if.end293.i:                                      ; preds = %if.then.i252.i, %envoy_config_cluster_v3_Cluster_ring_hash_lb_config.exit.i, %if.then231.i
-  %min_ring_size.1.i = phi i64 [ 1024, %envoy_config_cluster_v3_Cluster_ring_hash_lb_config.exit.i ], [ %min_ring_size.0.i, %if.then.i252.i ], [ 1024, %if.then231.i ]
   %max_ring_size.1.i = phi i64 [ 8388608, %envoy_config_cluster_v3_Cluster_ring_hash_lb_config.exit.i ], [ %max_ring_size.0.i, %if.then.i252.i ], [ 8388608, %if.then231.i ]
+  %min_ring_size.1.i = phi i64 [ 1024, %envoy_config_cluster_v3_Cluster_ring_hash_lb_config.exit.i ], [ %min_ring_size.0.i, %if.then.i252.i ], [ 1024, %if.then231.i ]
   invoke void @_ZN9grpc_core12experimental4Json10FromNumberEm(ptr nonnull sret(%"class.grpc_core::experimental::Json") align 8 %ref.tmp309.i, i64 noundef %min_ring_size.1.i)
           to label %.noexc251 unwind label %lpad
 

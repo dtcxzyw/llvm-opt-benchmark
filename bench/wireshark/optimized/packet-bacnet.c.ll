@@ -693,18 +693,18 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   br label %62
 
 62:                                               ; preds = %33, %44, %60, %54, %37, %4
-  %.0567 = phi i32 [ %36, %33 ], [ %43, %37 ], [ %50, %44 ], [ %59, %54 ], [ %30, %60 ], [ %24, %4 ]
+  %.0566 = phi i32 [ %36, %33 ], [ %43, %37 ], [ %50, %44 ], [ %59, %54 ], [ %30, %60 ], [ %24, %4 ]
   %63 = and i32 %25, 8
   %.not583 = icmp eq i32 %63, 0
   br i1 %.not583, label %96, label %64
 
 64:                                               ; preds = %62
   %65 = load i32, ptr @hf_bacnet_snet, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %65, ptr noundef %0, i32 noundef %.0567, i32 noundef 2, i32 noundef 0) #2
-  %67 = add i32 %.0567, 2
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %65, ptr noundef %0, i32 noundef %.0566, i32 noundef 2, i32 noundef 0) #2
+  %67 = add i32 %.0566, 2
   %68 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %67) #2
   %69 = zext i8 %68 to i32
-  %70 = add i32 %.0567, 3
+  %70 = add i32 %.0566, 3
   switch i8 %68, label %86 [
     i8 0, label %71
     i8 6, label %74
@@ -721,7 +721,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   %76 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %75, ptr noundef %0, i32 noundef %67, i32 noundef 1, i32 noundef 0) #2
   %77 = load i32, ptr @hf_bacnet_sadr_eth, align 4
   %78 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %77, ptr noundef %0, i32 noundef %70, i32 noundef 6, i32 noundef 0) #2
-  %79 = add i32 %.0567, 9
+  %79 = add i32 %.0566, 9
   br label %96
 
 80:                                               ; preds = %64
@@ -729,7 +729,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   %82 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %81, ptr noundef %0, i32 noundef %67, i32 noundef 1, i32 noundef 0) #2
   %83 = load i32, ptr @hf_bacnet_sadr_mstp, align 4
   %84 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %83, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef 0) #2
-  %85 = add i32 %.0567, 4
+  %85 = add i32 %.0566, 4
   br label %96
 
 86:                                               ; preds = %64
@@ -749,7 +749,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   br label %96
 
 96:                                               ; preds = %71, %80, %94, %89, %74, %62
-  %.1 = phi i32 [ %70, %71 ], [ %79, %74 ], [ %85, %80 ], [ %93, %89 ], [ %70, %94 ], [ %.0567, %62 ]
+  %.1 = phi i32 [ %70, %71 ], [ %79, %74 ], [ %85, %80 ], [ %93, %89 ], [ %70, %94 ], [ %.0566, %62 ]
   br i1 %.not, label %101, label %97
 
 97:                                               ; preds = %96
@@ -999,15 +999,15 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   br i1 %248, label %.lr.ph609, label %.loopexit
 
 .lr.ph609:                                        ; preds = %242, %.lr.ph609
-  %.0565608 = phi i8 [ %255, %.lr.ph609 ], [ %243, %242 ]
-  %.5607 = phi i32 [ %254, %.lr.ph609 ], [ %244, %242 ]
+  %.5608 = phi i32 [ %254, %.lr.ph609 ], [ %244, %242 ]
+  %.0567607 = phi i8 [ %255, %.lr.ph609 ], [ %243, %242 ]
   %249 = load i32, ptr @hf_bacnet_security_response_key_algo, align 4
-  %250 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %249, ptr noundef %0, i32 noundef %.5607, i32 noundef 1, i32 noundef 0) #2
-  %251 = add i32 %.5607, 1
+  %250 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %249, ptr noundef %0, i32 noundef %.5608, i32 noundef 1, i32 noundef 0) #2
+  %251 = add i32 %.5608, 1
   %252 = load i32, ptr @hf_bacnet_security_response_key_id, align 4
   %253 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %252, ptr noundef %0, i32 noundef %251, i32 noundef 1, i32 noundef 0) #2
-  %254 = add i32 %.5607, 2
-  %255 = add i8 %.0565608, -1
+  %254 = add i32 %.5608, 2
+  %255 = add i8 %.0567607, -1
   %256 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %254) #2
   %257 = icmp sgt i32 %256, 1
   %258 = icmp ne i8 %255, 0
@@ -1319,8 +1319,8 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   br label %471
 
 471:                                              ; preds = %469, %433, %414, %392, %306, %278, %217, %209, %207, %197, %181
-  %.0566 = phi i32 [ %470, %469 ], [ %435, %433 ], [ %416, %414 ], [ %394, %392 ], [ %308, %306 ], [ %280, %278 ], [ %219, %217 ], [ %199, %197 ], [ %208, %207 ], [ %213, %209 ], [ %183, %181 ]
-  ret i32 %.0566
+  %.0565 = phi i32 [ %470, %469 ], [ %435, %433 ], [ %416, %414 ], [ %394, %392 ], [ %308, %306 ], [ %280, %278 ], [ %219, %217 ], [ %199, %197 ], [ %208, %207 ], [ %213, %209 ], [ %183, %181 ]
+  ret i32 %.0565
 }
 
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

@@ -778,13 +778,13 @@ define range(i32 0, 7007) i32 @slurm_pack_list(ptr noundef %0, ptr nocapture nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %18
-  %.0 = phi i32 [ 7006, %18 ], [ 0, %13 ]
+  %.020 = phi i32 [ 7006, %18 ], [ 0, %13 ]
   tail call void @list_iterator_destroy(ptr noundef %11) #8
   br label %20
 
 20:                                               ; preds = %6, %.loopexit, %5
-  %.020 = phi i32 [ 0, %5 ], [ %.0, %.loopexit ], [ 0, %6 ]
-  ret i32 %.020
+  %.0 = phi i32 [ 0, %5 ], [ %.020, %.loopexit ], [ 0, %6 ]
+  ret i32 %.0
 }
 
 declare i32 @list_count(ptr noundef) local_unnamed_addr #1
@@ -814,7 +814,7 @@ define range(i32 0, 7007) i32 @slurm_pack_list_until(ptr noundef %0, ptr nocaptu
 
 11:                                               ; preds = %7
   %12 = tail call ptr @list_iterator_create(ptr noundef nonnull %0) #8
-  %.02736 = load i32, ptr %8, align 4
+  %.02836 = load i32, ptr %8, align 4
   %13 = tail call ptr @list_next(ptr noundef %12) #8
   %.not3337 = icmp eq ptr %13, null
   br i1 %.not3337, label %.loopexit, label %.lr.ph
@@ -827,35 +827,35 @@ define range(i32 0, 7007) i32 @slurm_pack_list_until(ptr noundef %0, ptr nocaptu
   br i1 %16, label %._crit_edge, label %.lr.ph47
 
 17:                                               ; preds = %.lr.ph47
-  %18 = add i32 %.0283846, 1
+  %18 = add i32 %.0293846, 1
   tail call void %1(ptr noundef nonnull %21, i16 noundef zeroext %4, ptr noundef nonnull %2) #8
   %19 = load i32, ptr %14, align 8
   %20 = icmp ugt i32 %19, %3
   br i1 %20, label %._crit_edge, label %.lr.ph47, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %17, %.lr.ph
-  %.02739.lcssa = phi i32 [ %.02736, %.lr.ph ], [ %.027, %17 ]
-  %.02838.lcssa = phi i32 [ 0, %.lr.ph ], [ %18, %17 ]
+  %.02839.lcssa = phi i32 [ %.02836, %.lr.ph ], [ %.028, %17 ]
+  %.02938.lcssa = phi i32 [ 0, %.lr.ph ], [ %18, %17 ]
   store i32 %9, ptr %8, align 4
-  tail call void @pack32(i32 noundef %.02838.lcssa, ptr noundef nonnull %2) #8
-  store i32 %.02739.lcssa, ptr %8, align 4
+  tail call void @pack32(i32 noundef %.02938.lcssa, ptr noundef nonnull %2) #8
+  store i32 %.02839.lcssa, ptr %8, align 4
   br label %.loopexit
 
 .lr.ph47:                                         ; preds = %.lr.ph, %17
-  %.0283846 = phi i32 [ %18, %17 ], [ 0, %.lr.ph ]
-  %.027 = load i32, ptr %8, align 4
+  %.0293846 = phi i32 [ %18, %17 ], [ 0, %.lr.ph ]
+  %.028 = load i32, ptr %8, align 4
   %21 = tail call ptr @list_next(ptr noundef %12) #8
   %.not33 = icmp eq ptr %21, null
   br i1 %.not33, label %.loopexit, label %17, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph47, %11, %._crit_edge
-  %.0 = phi i32 [ 7006, %._crit_edge ], [ 0, %11 ], [ 0, %.lr.ph47 ]
+  %.027 = phi i32 [ 7006, %._crit_edge ], [ 0, %11 ], [ 0, %.lr.ph47 ]
   tail call void @list_iterator_destroy(ptr noundef %12) #8
   br label %22
 
 22:                                               ; preds = %7, %.loopexit, %6
-  %.029 = phi i32 [ 0, %6 ], [ %.0, %.loopexit ], [ 0, %7 ]
-  ret i32 %.029
+  %.0 = phi i32 [ 0, %6 ], [ %.027, %.loopexit ], [ 0, %7 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2615,8 +2615,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %15
 
 15:                                               ; preds = %11, %5
-  %.01779 = phi i32 [ %14, %11 ], [ 0, %5 ]
-  tail call void @packmem(ptr noundef %10, i32 noundef %.01779, ptr noundef %1) #8
+  %.01774 = phi i32 [ %14, %11 ], [ 0, %5 ]
+  tail call void @packmem(ptr noundef %10, i32 noundef %.01774, ptr noundef %1) #8
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not2122 = icmp eq ptr %17, null
@@ -2629,8 +2629,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %22
 
 22:                                               ; preds = %18, %15
-  %.01778 = phi i32 [ %21, %18 ], [ 0, %15 ]
-  tail call void @packmem(ptr noundef %17, i32 noundef %.01778, ptr noundef %1) #8
+  %.01780 = phi i32 [ %21, %18 ], [ 0, %15 ]
+  tail call void @packmem(ptr noundef %17, i32 noundef %.01780, ptr noundef %1) #8
   %23 = getelementptr inbounds i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not2123 = icmp eq ptr %24, null
@@ -2643,8 +2643,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %29
 
 29:                                               ; preds = %25, %22
-  %.01777 = phi i32 [ %28, %25 ], [ 0, %22 ]
-  tail call void @packmem(ptr noundef %24, i32 noundef %.01777, ptr noundef %1) #8
+  %.01779 = phi i32 [ %28, %25 ], [ 0, %22 ]
+  tail call void @packmem(ptr noundef %24, i32 noundef %.01779, ptr noundef %1) #8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
   %31 = load ptr, ptr %30, align 8
   %.not2124 = icmp eq ptr %31, null
@@ -2657,8 +2657,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %36
 
 36:                                               ; preds = %32, %29
-  %.01776 = phi i32 [ %35, %32 ], [ 0, %29 ]
-  tail call void @packmem(ptr noundef %31, i32 noundef %.01776, ptr noundef %1) #8
+  %.01778 = phi i32 [ %35, %32 ], [ 0, %29 ]
+  tail call void @packmem(ptr noundef %31, i32 noundef %.01778, ptr noundef %1) #8
   %37 = getelementptr inbounds i8, ptr %0, i64 64
   %38 = load i16, ptr %37, align 8
   tail call void @pack16(i16 noundef zeroext %38, ptr noundef %1) #8
@@ -2674,8 +2674,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %45
 
 45:                                               ; preds = %41, %36
-  %.01775 = phi i32 [ %44, %41 ], [ 0, %36 ]
-  tail call void @packmem(ptr noundef %40, i32 noundef %.01775, ptr noundef %1) #8
+  %.01777 = phi i32 [ %44, %41 ], [ 0, %36 ]
+  tail call void @packmem(ptr noundef %40, i32 noundef %.01777, ptr noundef %1) #8
   %46 = getelementptr inbounds i8, ptr %0, i64 72
   %47 = load ptr, ptr %46, align 8
   %.not2126 = icmp eq ptr %47, null
@@ -2688,8 +2688,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %52
 
 52:                                               ; preds = %48, %45
-  %.01774 = phi i32 [ %51, %48 ], [ 0, %45 ]
-  tail call void @packmem(ptr noundef %47, i32 noundef %.01774, ptr noundef %1) #8
+  %.01776 = phi i32 [ %51, %48 ], [ 0, %45 ]
+  tail call void @packmem(ptr noundef %47, i32 noundef %.01776, ptr noundef %1) #8
   %53 = getelementptr inbounds i8, ptr %0, i64 80
   %54 = load ptr, ptr %53, align 8
   %.not2127 = icmp eq ptr %54, null
@@ -2702,8 +2702,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %59
 
 59:                                               ; preds = %55, %52
-  %.01773 = phi i32 [ %58, %55 ], [ 0, %52 ]
-  tail call void @packmem(ptr noundef %54, i32 noundef %.01773, ptr noundef %1) #8
+  %.01775 = phi i32 [ %58, %55 ], [ 0, %52 ]
+  tail call void @packmem(ptr noundef %54, i32 noundef %.01775, ptr noundef %1) #8
   %60 = getelementptr inbounds i8, ptr %0, i64 88
   %61 = load ptr, ptr %60, align 8
   %.not2128 = icmp eq ptr %61, null
@@ -2716,11 +2716,11 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
 
 64:                                               ; preds = %59, %62
   %65 = phi ptr [ %.pre2250, %62 ], [ null, %59 ]
-  %.01780 = phi i32 [ %63, %62 ], [ -2, %59 ]
+  %.01663 = phi i32 [ %63, %62 ], [ -2, %59 ]
   %66 = tail call ptr @list_find_first(ptr noundef %65, ptr noundef nonnull @_list_find_conf_entry, ptr noundef nonnull @.str.9) #8
   %.not2129 = icmp ne ptr %66, null
   %67 = sext i1 %.not2129 to i32
-  %spec.select = add i32 %.01780, %67
+  %spec.select = add i32 %.01663, %67
   %68 = load ptr, ptr %60, align 8
   %69 = tail call ptr @list_find_first(ptr noundef %68, ptr noundef nonnull @_list_find_conf_entry, ptr noundef nonnull @.str.10) #8
   %.not2130 = icmp ne ptr %69, null
@@ -2778,8 +2778,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %91
 
 91:                                               ; preds = %87, %84
-  %.01772 = phi i32 [ %90, %87 ], [ 0, %84 ]
-  tail call void @packmem(ptr noundef %86, i32 noundef %.01772, ptr noundef %1) #8
+  %.01773 = phi i32 [ %90, %87 ], [ 0, %84 ]
+  tail call void @packmem(ptr noundef %86, i32 noundef %.01773, ptr noundef %1) #8
   %92 = getelementptr inbounds i8, ptr %0, i64 120
   %93 = load ptr, ptr %92, align 8
   %.not2133 = icmp eq ptr %93, null
@@ -2792,8 +2792,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %98
 
 98:                                               ; preds = %94, %91
-  %.01771 = phi i32 [ %97, %94 ], [ 0, %91 ]
-  tail call void @packmem(ptr noundef %93, i32 noundef %.01771, ptr noundef %1) #8
+  %.01772 = phi i32 [ %97, %94 ], [ 0, %91 ]
+  tail call void @packmem(ptr noundef %93, i32 noundef %.01772, ptr noundef %1) #8
   %99 = getelementptr inbounds i8, ptr %0, i64 112
   %100 = load ptr, ptr %99, align 8
   %.not2134 = icmp eq ptr %100, null
@@ -2806,8 +2806,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %105
 
 105:                                              ; preds = %101, %98
-  %.01770 = phi i32 [ %104, %101 ], [ 0, %98 ]
-  tail call void @packmem(ptr noundef %100, i32 noundef %.01770, ptr noundef %1) #8
+  %.01771 = phi i32 [ %104, %101 ], [ 0, %98 ]
+  tail call void @packmem(ptr noundef %100, i32 noundef %.01771, ptr noundef %1) #8
   %106 = getelementptr inbounds i8, ptr %0, i64 128
   %107 = load i16, ptr %106, align 8
   tail call void @pack16(i16 noundef zeroext %107, ptr noundef %1) #8
@@ -2823,8 +2823,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %114
 
 114:                                              ; preds = %110, %105
-  %.01769 = phi i32 [ %113, %110 ], [ 0, %105 ]
-  tail call void @packmem(ptr noundef %109, i32 noundef %.01769, ptr noundef %1) #8
+  %.01770 = phi i32 [ %113, %110 ], [ 0, %105 ]
+  tail call void @packmem(ptr noundef %109, i32 noundef %.01770, ptr noundef %1) #8
   %115 = getelementptr inbounds i8, ptr %0, i64 136
   %116 = load ptr, ptr %115, align 8
   %.not2136 = icmp eq ptr %116, null
@@ -2837,8 +2837,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %121
 
 121:                                              ; preds = %117, %114
-  %.01768 = phi i32 [ %120, %117 ], [ 0, %114 ]
-  tail call void @packmem(ptr noundef %116, i32 noundef %.01768, ptr noundef %1) #8
+  %.01769 = phi i32 [ %120, %117 ], [ 0, %114 ]
+  tail call void @packmem(ptr noundef %116, i32 noundef %.01769, ptr noundef %1) #8
   %122 = getelementptr inbounds i8, ptr %0, i64 152
   %123 = load ptr, ptr %122, align 8
   %.not2137 = icmp eq ptr %123, null
@@ -2851,8 +2851,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %128
 
 128:                                              ; preds = %124, %121
-  %.01767 = phi i32 [ %127, %124 ], [ 0, %121 ]
-  tail call void @packmem(ptr noundef %123, i32 noundef %.01767, ptr noundef %1) #8
+  %.01768 = phi i32 [ %127, %124 ], [ 0, %121 ]
+  tail call void @packmem(ptr noundef %123, i32 noundef %.01768, ptr noundef %1) #8
   %129 = getelementptr inbounds i8, ptr %0, i64 144
   %130 = load ptr, ptr %129, align 8
   %.not2138 = icmp eq ptr %130, null
@@ -2865,8 +2865,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %135
 
 135:                                              ; preds = %131, %128
-  %.01766 = phi i32 [ %134, %131 ], [ 0, %128 ]
-  tail call void @packmem(ptr noundef %130, i32 noundef %.01766, ptr noundef %1) #8
+  %.01767 = phi i32 [ %134, %131 ], [ 0, %128 ]
+  tail call void @packmem(ptr noundef %130, i32 noundef %.01767, ptr noundef %1) #8
   %136 = getelementptr inbounds i8, ptr %0, i64 160
   %137 = load ptr, ptr %136, align 8
   %.not2139 = icmp eq ptr %137, null
@@ -2879,8 +2879,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %142
 
 142:                                              ; preds = %138, %135
-  %.01765 = phi i32 [ %141, %138 ], [ 0, %135 ]
-  tail call void @packmem(ptr noundef %137, i32 noundef %.01765, ptr noundef %1) #8
+  %.01766 = phi i32 [ %141, %138 ], [ 0, %135 ]
+  tail call void @packmem(ptr noundef %137, i32 noundef %.01766, ptr noundef %1) #8
   %143 = getelementptr inbounds i8, ptr %0, i64 168
   %144 = load i16, ptr %143, align 8
   tail call void @pack16(i16 noundef zeroext %144, ptr noundef %1) #8
@@ -2899,8 +2899,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %153
 
 153:                                              ; preds = %149, %142
-  %.01764 = phi i32 [ %152, %149 ], [ 0, %142 ]
-  tail call void @packmem(ptr noundef %148, i32 noundef %.01764, ptr noundef %1) #8
+  %.01765 = phi i32 [ %152, %149 ], [ 0, %142 ]
+  tail call void @packmem(ptr noundef %148, i32 noundef %.01765, ptr noundef %1) #8
   %154 = getelementptr inbounds i8, ptr %0, i64 184
   %155 = load ptr, ptr %154, align 8
   %.not2141 = icmp eq ptr %155, null
@@ -2913,8 +2913,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %160
 
 160:                                              ; preds = %156, %153
-  %.01763 = phi i32 [ %159, %156 ], [ 0, %153 ]
-  tail call void @packmem(ptr noundef %155, i32 noundef %.01763, ptr noundef %1) #8
+  %.01764 = phi i32 [ %159, %156 ], [ 0, %153 ]
+  tail call void @packmem(ptr noundef %155, i32 noundef %.01764, ptr noundef %1) #8
   %161 = getelementptr inbounds i8, ptr %0, i64 192
   %162 = load ptr, ptr %161, align 8
   %.not2142 = icmp eq ptr %162, null
@@ -2927,8 +2927,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %167
 
 167:                                              ; preds = %163, %160
-  %.01762 = phi i32 [ %166, %163 ], [ 0, %160 ]
-  tail call void @packmem(ptr noundef %162, i32 noundef %.01762, ptr noundef %1) #8
+  %.01763 = phi i32 [ %166, %163 ], [ 0, %160 ]
+  tail call void @packmem(ptr noundef %162, i32 noundef %.01763, ptr noundef %1) #8
   %168 = getelementptr inbounds i8, ptr %0, i64 208
   %169 = load ptr, ptr %168, align 8
   tail call void @pack_key_pair_list(ptr noundef %169, i16 noundef zeroext %2, ptr noundef %1) #8
@@ -2944,8 +2944,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %176
 
 176:                                              ; preds = %172, %167
-  %.01761 = phi i32 [ %175, %172 ], [ 0, %167 ]
-  tail call void @packmem(ptr noundef %171, i32 noundef %.01761, ptr noundef %1) #8
+  %.01762 = phi i32 [ %175, %172 ], [ 0, %167 ]
+  tail call void @packmem(ptr noundef %171, i32 noundef %.01762, ptr noundef %1) #8
   %177 = getelementptr inbounds i8, ptr %0, i64 224
   %178 = load ptr, ptr %177, align 8
   %.not2144 = icmp eq ptr %178, null
@@ -2958,8 +2958,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %183
 
 183:                                              ; preds = %179, %176
-  %.01760 = phi i32 [ %182, %179 ], [ 0, %176 ]
-  tail call void @packmem(ptr noundef %178, i32 noundef %.01760, ptr noundef %1) #8
+  %.01761 = phi i32 [ %182, %179 ], [ 0, %176 ]
+  tail call void @packmem(ptr noundef %178, i32 noundef %.01761, ptr noundef %1) #8
   %184 = getelementptr inbounds i8, ptr %0, i64 232
   %185 = load ptr, ptr %184, align 8
   %.not2145 = icmp eq ptr %185, null
@@ -2972,8 +2972,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %190
 
 190:                                              ; preds = %186, %183
-  %.01759 = phi i32 [ %189, %186 ], [ 0, %183 ]
-  tail call void @packmem(ptr noundef %185, i32 noundef %.01759, ptr noundef %1) #8
+  %.01760 = phi i32 [ %189, %186 ], [ 0, %183 ]
+  tail call void @packmem(ptr noundef %185, i32 noundef %.01760, ptr noundef %1) #8
   %191 = getelementptr inbounds i8, ptr %0, i64 240
   %192 = load i16, ptr %191, align 8
   tail call void @pack16(i16 noundef zeroext %192, ptr noundef %1) #8
@@ -3008,8 +3008,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %212
 
 212:                                              ; preds = %208, %190
-  %.01758 = phi i32 [ %211, %208 ], [ 0, %190 ]
-  tail call void @packmem(ptr noundef %207, i32 noundef %.01758, ptr noundef %1) #8
+  %.01759 = phi i32 [ %211, %208 ], [ 0, %190 ]
+  tail call void @packmem(ptr noundef %207, i32 noundef %.01759, ptr noundef %1) #8
   %213 = getelementptr inbounds i8, ptr %0, i64 296
   %214 = load i64, ptr %213, align 8
   tail call void @pack64(i64 noundef %214, ptr noundef %1) #8
@@ -3028,8 +3028,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %223
 
 223:                                              ; preds = %219, %212
-  %.01757 = phi i32 [ %222, %219 ], [ 0, %212 ]
-  tail call void @packmem(ptr noundef %218, i32 noundef %.01757, ptr noundef %1) #8
+  %.01758 = phi i32 [ %222, %219 ], [ 0, %212 ]
+  tail call void @packmem(ptr noundef %218, i32 noundef %.01758, ptr noundef %1) #8
   %224 = getelementptr inbounds i8, ptr %0, i64 312
   %225 = load i16, ptr %224, align 8
   tail call void @pack16(i16 noundef zeroext %225, ptr noundef %1) #8
@@ -3048,8 +3048,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %234
 
 234:                                              ; preds = %230, %223
-  %.01756 = phi i32 [ %233, %230 ], [ 0, %223 ]
-  tail call void @packmem(ptr noundef %229, i32 noundef %.01756, ptr noundef %1) #8
+  %.01757 = phi i32 [ %233, %230 ], [ 0, %223 ]
+  tail call void @packmem(ptr noundef %229, i32 noundef %.01757, ptr noundef %1) #8
   %235 = getelementptr inbounds i8, ptr %0, i64 328
   %236 = load i32, ptr %235, align 8
   tail call void @pack32(i32 noundef %236, ptr noundef %1) #8
@@ -3065,8 +3065,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %243
 
 243:                                              ; preds = %239, %234
-  %.01755 = phi i32 [ %242, %239 ], [ 0, %234 ]
-  tail call void @packmem(ptr noundef %238, i32 noundef %.01755, ptr noundef %1) #8
+  %.01756 = phi i32 [ %242, %239 ], [ 0, %234 ]
+  tail call void @packmem(ptr noundef %238, i32 noundef %.01756, ptr noundef %1) #8
   %244 = getelementptr inbounds i8, ptr %0, i64 360
   %245 = load ptr, ptr %244, align 8
   tail call void @pack_key_pair_list(ptr noundef %245, i16 noundef zeroext %2, ptr noundef %1) #8
@@ -3082,8 +3082,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %252
 
 252:                                              ; preds = %248, %243
-  %.01754 = phi i32 [ %251, %248 ], [ 0, %243 ]
-  tail call void @packmem(ptr noundef %247, i32 noundef %.01754, ptr noundef %1) #8
+  %.01755 = phi i32 [ %251, %248 ], [ 0, %243 ]
+  tail call void @packmem(ptr noundef %247, i32 noundef %.01755, ptr noundef %1) #8
   %253 = getelementptr inbounds i8, ptr %0, i64 352
   %254 = load i16, ptr %253, align 8
   tail call void @pack16(i16 noundef zeroext %254, ptr noundef %1) #8
@@ -3099,8 +3099,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %261
 
 261:                                              ; preds = %257, %252
-  %.01753 = phi i32 [ %260, %257 ], [ 0, %252 ]
-  tail call void @packmem(ptr noundef %256, i32 noundef %.01753, ptr noundef %1) #8
+  %.01754 = phi i32 [ %260, %257 ], [ 0, %252 ]
+  tail call void @packmem(ptr noundef %256, i32 noundef %.01754, ptr noundef %1) #8
   %262 = getelementptr inbounds i8, ptr %0, i64 376
   %263 = load i32, ptr %262, align 8
   tail call void @pack32(i32 noundef %263, ptr noundef %1) #8
@@ -3122,8 +3122,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %274
 
 274:                                              ; preds = %270, %261
-  %.01752 = phi i32 [ %273, %270 ], [ 0, %261 ]
-  tail call void @packmem(ptr noundef %269, i32 noundef %.01752, ptr noundef %1) #8
+  %.01753 = phi i32 [ %273, %270 ], [ 0, %261 ]
+  tail call void @packmem(ptr noundef %269, i32 noundef %.01753, ptr noundef %1) #8
   %275 = getelementptr inbounds i8, ptr %0, i64 400
   %276 = load i16, ptr %275, align 8
   tail call void @pack16(i16 noundef zeroext %276, ptr noundef %1) #8
@@ -3142,8 +3142,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %285
 
 285:                                              ; preds = %281, %274
-  %.01751 = phi i32 [ %284, %281 ], [ 0, %274 ]
-  tail call void @packmem(ptr noundef %280, i32 noundef %.01751, ptr noundef %1) #8
+  %.01752 = phi i32 [ %284, %281 ], [ 0, %274 ]
+  tail call void @packmem(ptr noundef %280, i32 noundef %.01752, ptr noundef %1) #8
   %286 = getelementptr inbounds i8, ptr %0, i64 416
   %287 = load i32, ptr %286, align 8
   tail call void @pack32(i32 noundef %287, ptr noundef %1) #8
@@ -3165,8 +3165,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %298
 
 298:                                              ; preds = %294, %285
-  %.01750 = phi i32 [ %297, %294 ], [ 0, %285 ]
-  tail call void @packmem(ptr noundef %293, i32 noundef %.01750, ptr noundef %1) #8
+  %.01751 = phi i32 [ %297, %294 ], [ 0, %285 ]
+  tail call void @packmem(ptr noundef %293, i32 noundef %.01751, ptr noundef %1) #8
   %299 = getelementptr inbounds i8, ptr %0, i64 432
   %300 = load i16, ptr %299, align 8
   tail call void @pack16(i16 noundef zeroext %300, ptr noundef %1) #8
@@ -3182,8 +3182,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %307
 
 307:                                              ; preds = %303, %298
-  %.01749 = phi i32 [ %306, %303 ], [ 0, %298 ]
-  tail call void @packmem(ptr noundef %302, i32 noundef %.01749, ptr noundef %1) #8
+  %.01750 = phi i32 [ %306, %303 ], [ 0, %298 ]
+  tail call void @packmem(ptr noundef %302, i32 noundef %.01750, ptr noundef %1) #8
   %308 = getelementptr inbounds i8, ptr %0, i64 448
   %309 = load ptr, ptr %308, align 8
   %.not2156 = icmp eq ptr %309, null
@@ -3196,8 +3196,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %314
 
 314:                                              ; preds = %310, %307
-  %.01748 = phi i32 [ %313, %310 ], [ 0, %307 ]
-  tail call void @packmem(ptr noundef %309, i32 noundef %.01748, ptr noundef %1) #8
+  %.01749 = phi i32 [ %313, %310 ], [ 0, %307 ]
+  tail call void @packmem(ptr noundef %309, i32 noundef %.01749, ptr noundef %1) #8
   %315 = getelementptr inbounds i8, ptr %0, i64 456
   %316 = load ptr, ptr %315, align 8
   %.not2157 = icmp eq ptr %316, null
@@ -3210,8 +3210,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %321
 
 321:                                              ; preds = %317, %314
-  %.01747 = phi i32 [ %320, %317 ], [ 0, %314 ]
-  tail call void @packmem(ptr noundef %316, i32 noundef %.01747, ptr noundef %1) #8
+  %.01748 = phi i32 [ %320, %317 ], [ 0, %314 ]
+  tail call void @packmem(ptr noundef %316, i32 noundef %.01748, ptr noundef %1) #8
   %322 = getelementptr inbounds i8, ptr %0, i64 464
   %323 = load ptr, ptr %322, align 8
   %.not2158 = icmp eq ptr %323, null
@@ -3224,8 +3224,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %328
 
 328:                                              ; preds = %324, %321
-  %.01746 = phi i32 [ %327, %324 ], [ 0, %321 ]
-  tail call void @packmem(ptr noundef %323, i32 noundef %.01746, ptr noundef %1) #8
+  %.01747 = phi i32 [ %327, %324 ], [ 0, %321 ]
+  tail call void @packmem(ptr noundef %323, i32 noundef %.01747, ptr noundef %1) #8
   %329 = getelementptr inbounds i8, ptr %0, i64 480
   %330 = load ptr, ptr %329, align 8
   %.not2159 = icmp eq ptr %330, null
@@ -3238,8 +3238,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %335
 
 335:                                              ; preds = %331, %328
-  %.01745 = phi i32 [ %334, %331 ], [ 0, %328 ]
-  tail call void @packmem(ptr noundef %330, i32 noundef %.01745, ptr noundef %1) #8
+  %.01746 = phi i32 [ %334, %331 ], [ 0, %328 ]
+  tail call void @packmem(ptr noundef %330, i32 noundef %.01746, ptr noundef %1) #8
   %336 = getelementptr inbounds i8, ptr %0, i64 488
   %337 = load ptr, ptr %336, align 8
   %.not2160 = icmp eq ptr %337, null
@@ -3252,8 +3252,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %342
 
 342:                                              ; preds = %338, %335
-  %.01744 = phi i32 [ %341, %338 ], [ 0, %335 ]
-  tail call void @packmem(ptr noundef %337, i32 noundef %.01744, ptr noundef %1) #8
+  %.01745 = phi i32 [ %341, %338 ], [ 0, %335 ]
+  tail call void @packmem(ptr noundef %337, i32 noundef %.01745, ptr noundef %1) #8
   %343 = getelementptr inbounds i8, ptr %0, i64 496
   %344 = load ptr, ptr %343, align 8
   %.not2161 = icmp eq ptr %344, null
@@ -3266,8 +3266,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %349
 
 349:                                              ; preds = %345, %342
-  %.01743 = phi i32 [ %348, %345 ], [ 0, %342 ]
-  tail call void @packmem(ptr noundef %344, i32 noundef %.01743, ptr noundef %1) #8
+  %.01744 = phi i32 [ %348, %345 ], [ 0, %342 ]
+  tail call void @packmem(ptr noundef %344, i32 noundef %.01744, ptr noundef %1) #8
   %350 = getelementptr inbounds i8, ptr %0, i64 512
   %351 = load i32, ptr %350, align 8
   tail call void @pack32(i32 noundef %351, ptr noundef %1) #8
@@ -3283,8 +3283,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %358
 
 358:                                              ; preds = %354, %349
-  %.01742 = phi i32 [ %357, %354 ], [ 0, %349 ]
-  tail call void @packmem(ptr noundef %353, i32 noundef %.01742, ptr noundef %1) #8
+  %.01743 = phi i32 [ %357, %354 ], [ 0, %349 ]
+  tail call void @packmem(ptr noundef %353, i32 noundef %.01743, ptr noundef %1) #8
   %359 = getelementptr inbounds i8, ptr %0, i64 528
   %360 = load ptr, ptr %359, align 8
   %.not2163 = icmp eq ptr %360, null
@@ -3297,8 +3297,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %365
 
 365:                                              ; preds = %361, %358
-  %.01741 = phi i32 [ %364, %361 ], [ 0, %358 ]
-  tail call void @packmem(ptr noundef %360, i32 noundef %.01741, ptr noundef %1) #8
+  %.01742 = phi i32 [ %364, %361 ], [ 0, %358 ]
+  tail call void @packmem(ptr noundef %360, i32 noundef %.01742, ptr noundef %1) #8
   %366 = getelementptr inbounds i8, ptr %0, i64 536
   %367 = load ptr, ptr %366, align 8
   %.not2164 = icmp eq ptr %367, null
@@ -3311,8 +3311,8 @@ define internal fastcc void @_pack_slurm_ctl_conf_msg(ptr noundef readonly %0, p
   br label %372
 
 372:                                              ; preds = %368, %365
-  %.01740 = phi i32 [ %371, %368 ], [ 0, %365 ]
-  tail call void @packmem(ptr noundef %367, i32 noundef %.01740, ptr noundef %1) #8
+  %.01741 = phi i32 [ %371, %368 ], [ 0, %365 ]
+  tail call void @packmem(ptr noundef %367, i32 noundef %.01741, ptr noundef %1) #8
   %373 = getelementptr inbounds i8, ptr %0, i64 544
   %374 = load ptr, ptr %373, align 8
   %.not.i = icmp eq ptr %374, null
@@ -3375,8 +3375,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %400
 
 400:                                              ; preds = %396, %slurm_pack_list.exit
-  %.01739 = phi i32 [ %399, %396 ], [ 0, %slurm_pack_list.exit ]
-  tail call void @packmem(ptr noundef %395, i32 noundef %.01739, ptr noundef %1) #8
+  %.01740 = phi i32 [ %399, %396 ], [ 0, %slurm_pack_list.exit ]
+  tail call void @packmem(ptr noundef %395, i32 noundef %.01740, ptr noundef %1) #8
   %401 = getelementptr inbounds i8, ptr %0, i64 580
   %402 = load i16, ptr %401, align 4
   tail call void @pack16(i16 noundef zeroext %402, ptr noundef %1) #8
@@ -3395,8 +3395,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %411
 
 411:                                              ; preds = %407, %400
-  %.01738 = phi i32 [ %410, %407 ], [ 0, %400 ]
-  tail call void @packmem(ptr noundef %406, i32 noundef %.01738, ptr noundef %1) #8
+  %.01739 = phi i32 [ %410, %407 ], [ 0, %400 ]
+  tail call void @packmem(ptr noundef %406, i32 noundef %.01739, ptr noundef %1) #8
   %412 = getelementptr inbounds i8, ptr %0, i64 592
   %413 = load ptr, ptr %412, align 8
   %.not2167 = icmp eq ptr %413, null
@@ -3409,8 +3409,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %418
 
 418:                                              ; preds = %414, %411
-  %.01737 = phi i32 [ %417, %414 ], [ 0, %411 ]
-  tail call void @packmem(ptr noundef %413, i32 noundef %.01737, ptr noundef %1) #8
+  %.01738 = phi i32 [ %417, %414 ], [ 0, %411 ]
+  tail call void @packmem(ptr noundef %413, i32 noundef %.01738, ptr noundef %1) #8
   %419 = getelementptr inbounds i8, ptr %0, i64 600
   %420 = load i16, ptr %419, align 8
   tail call void @pack16(i16 noundef zeroext %420, ptr noundef %1) #8
@@ -3435,8 +3435,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %433
 
 433:                                              ; preds = %429, %418
-  %.01736 = phi i32 [ %432, %429 ], [ 0, %418 ]
-  tail call void @packmem(ptr noundef %428, i32 noundef %.01736, ptr noundef %1) #8
+  %.01737 = phi i32 [ %432, %429 ], [ 0, %418 ]
+  tail call void @packmem(ptr noundef %428, i32 noundef %.01737, ptr noundef %1) #8
   %434 = getelementptr inbounds i8, ptr %0, i64 616
   %435 = load ptr, ptr %434, align 8
   %.not2169 = icmp eq ptr %435, null
@@ -3449,8 +3449,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %440
 
 440:                                              ; preds = %436, %433
-  %.01735 = phi i32 [ %439, %436 ], [ 0, %433 ]
-  tail call void @packmem(ptr noundef %435, i32 noundef %.01735, ptr noundef %1) #8
+  %.01736 = phi i32 [ %439, %436 ], [ 0, %433 ]
+  tail call void @packmem(ptr noundef %435, i32 noundef %.01736, ptr noundef %1) #8
   %441 = getelementptr inbounds i8, ptr %0, i64 636
   %442 = load i32, ptr %441, align 4
   tail call void @pack32(i32 noundef %442, ptr noundef %1) #8
@@ -3481,8 +3481,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %459
 
 459:                                              ; preds = %455, %440
-  %.01734 = phi i32 [ %458, %455 ], [ 0, %440 ]
-  tail call void @packmem(ptr noundef %454, i32 noundef %.01734, ptr noundef %1) #8
+  %.01735 = phi i32 [ %458, %455 ], [ 0, %440 ]
+  tail call void @packmem(ptr noundef %454, i32 noundef %.01735, ptr noundef %1) #8
   %460 = getelementptr inbounds i8, ptr %0, i64 680
   %461 = load ptr, ptr %460, align 8
   %.not2171 = icmp eq ptr %461, null
@@ -3495,8 +3495,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %466
 
 466:                                              ; preds = %462, %459
-  %.01733 = phi i32 [ %465, %462 ], [ 0, %459 ]
-  tail call void @packmem(ptr noundef %461, i32 noundef %.01733, ptr noundef %1) #8
+  %.01734 = phi i32 [ %465, %462 ], [ 0, %459 ]
+  tail call void @packmem(ptr noundef %461, i32 noundef %.01734, ptr noundef %1) #8
   %467 = getelementptr inbounds i8, ptr %0, i64 688
   %468 = load i32, ptr %467, align 8
   tail call void @pack32(i32 noundef %468, ptr noundef %1) #8
@@ -3515,8 +3515,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %477
 
 477:                                              ; preds = %473, %466
-  %.01732 = phi i32 [ %476, %473 ], [ 0, %466 ]
-  tail call void @packmem(ptr noundef %472, i32 noundef %.01732, ptr noundef %1) #8
+  %.01733 = phi i32 [ %476, %473 ], [ 0, %466 ]
+  tail call void @packmem(ptr noundef %472, i32 noundef %.01733, ptr noundef %1) #8
   %478 = getelementptr inbounds i8, ptr %0, i64 712
   %479 = load ptr, ptr %478, align 8
   %.not2173 = icmp eq ptr %479, null
@@ -3529,8 +3529,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %484
 
 484:                                              ; preds = %480, %477
-  %.01731 = phi i32 [ %483, %480 ], [ 0, %477 ]
-  tail call void @packmem(ptr noundef %479, i32 noundef %.01731, ptr noundef %1) #8
+  %.01732 = phi i32 [ %483, %480 ], [ 0, %477 ]
+  tail call void @packmem(ptr noundef %479, i32 noundef %.01732, ptr noundef %1) #8
   %485 = getelementptr inbounds i8, ptr %0, i64 720
   %486 = load i16, ptr %485, align 8
   tail call void @pack16(i16 noundef zeroext %486, ptr noundef %1) #8
@@ -3552,8 +3552,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %497
 
 497:                                              ; preds = %493, %484
-  %.01730 = phi i32 [ %496, %493 ], [ 0, %484 ]
-  tail call void @packmem(ptr noundef %492, i32 noundef %.01730, ptr noundef %1) #8
+  %.01731 = phi i32 [ %496, %493 ], [ 0, %484 ]
+  tail call void @packmem(ptr noundef %492, i32 noundef %.01731, ptr noundef %1) #8
   %498 = getelementptr inbounds i8, ptr %0, i64 744
   %499 = load ptr, ptr %498, align 8
   %.not2175 = icmp eq ptr %499, null
@@ -3566,8 +3566,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %504
 
 504:                                              ; preds = %500, %497
-  %.01729 = phi i32 [ %503, %500 ], [ 0, %497 ]
-  tail call void @packmem(ptr noundef %499, i32 noundef %.01729, ptr noundef %1) #8
+  %.01730 = phi i32 [ %503, %500 ], [ 0, %497 ]
+  tail call void @packmem(ptr noundef %499, i32 noundef %.01730, ptr noundef %1) #8
   %505 = getelementptr inbounds i8, ptr %0, i64 752
   %506 = load i16, ptr %505, align 8
   tail call void @pack16(i16 noundef zeroext %506, ptr noundef %1) #8
@@ -3583,8 +3583,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %513
 
 513:                                              ; preds = %509, %504
-  %.01728 = phi i32 [ %512, %509 ], [ 0, %504 ]
-  tail call void @packmem(ptr noundef %508, i32 noundef %.01728, ptr noundef %1) #8
+  %.01729 = phi i32 [ %512, %509 ], [ 0, %504 ]
+  tail call void @packmem(ptr noundef %508, i32 noundef %.01729, ptr noundef %1) #8
   %514 = getelementptr inbounds i8, ptr %0, i64 768
   %515 = load ptr, ptr %514, align 8
   %.not2177 = icmp eq ptr %515, null
@@ -3597,8 +3597,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %520
 
 520:                                              ; preds = %516, %513
-  %.01727 = phi i32 [ %519, %516 ], [ 0, %513 ]
-  tail call void @packmem(ptr noundef %515, i32 noundef %.01727, ptr noundef %1) #8
+  %.01728 = phi i32 [ %519, %516 ], [ 0, %513 ]
+  tail call void @packmem(ptr noundef %515, i32 noundef %.01728, ptr noundef %1) #8
   %521 = getelementptr inbounds i8, ptr %0, i64 776
   %522 = load ptr, ptr %521, align 8
   %.not2178 = icmp eq ptr %522, null
@@ -3611,8 +3611,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %527
 
 527:                                              ; preds = %523, %520
-  %.01726 = phi i32 [ %526, %523 ], [ 0, %520 ]
-  tail call void @packmem(ptr noundef %522, i32 noundef %.01726, ptr noundef %1) #8
+  %.01727 = phi i32 [ %526, %523 ], [ 0, %520 ]
+  tail call void @packmem(ptr noundef %522, i32 noundef %.01727, ptr noundef %1) #8
   %528 = getelementptr inbounds i8, ptr %0, i64 784
   %529 = load ptr, ptr %528, align 8
   %.not2179 = icmp eq ptr %529, null
@@ -3625,8 +3625,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %534
 
 534:                                              ; preds = %530, %527
-  %.01725 = phi i32 [ %533, %530 ], [ 0, %527 ]
-  tail call void @packmem(ptr noundef %529, i32 noundef %.01725, ptr noundef %1) #8
+  %.01726 = phi i32 [ %533, %530 ], [ 0, %527 ]
+  tail call void @packmem(ptr noundef %529, i32 noundef %.01726, ptr noundef %1) #8
   %535 = getelementptr inbounds i8, ptr %0, i64 796
   %536 = load i16, ptr %535, align 4
   tail call void @pack16(i16 noundef zeroext %536, ptr noundef %1) #8
@@ -3642,8 +3642,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %543
 
 543:                                              ; preds = %539, %534
-  %.01724 = phi i32 [ %542, %539 ], [ 0, %534 ]
-  tail call void @packmem(ptr noundef %538, i32 noundef %.01724, ptr noundef %1) #8
+  %.01725 = phi i32 [ %542, %539 ], [ 0, %534 ]
+  tail call void @packmem(ptr noundef %538, i32 noundef %.01725, ptr noundef %1) #8
   %544 = getelementptr inbounds i8, ptr %0, i64 808
   %545 = load ptr, ptr %544, align 8
   %.not2181 = icmp eq ptr %545, null
@@ -3656,8 +3656,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %550
 
 550:                                              ; preds = %546, %543
-  %.01723 = phi i32 [ %549, %546 ], [ 0, %543 ]
-  tail call void @packmem(ptr noundef %545, i32 noundef %.01723, ptr noundef %1) #8
+  %.01724 = phi i32 [ %549, %546 ], [ 0, %543 ]
+  tail call void @packmem(ptr noundef %545, i32 noundef %.01724, ptr noundef %1) #8
   %551 = getelementptr inbounds i8, ptr %0, i64 792
   %552 = load i32, ptr %551, align 8
   tail call void @pack32(i32 noundef %552, ptr noundef %1) #8
@@ -3673,8 +3673,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %559
 
 559:                                              ; preds = %555, %550
-  %.01722 = phi i32 [ %558, %555 ], [ 0, %550 ]
-  tail call void @packmem(ptr noundef %554, i32 noundef %.01722, ptr noundef %1) #8
+  %.01723 = phi i32 [ %558, %555 ], [ 0, %550 ]
+  tail call void @packmem(ptr noundef %554, i32 noundef %.01723, ptr noundef %1) #8
   %560 = getelementptr inbounds i8, ptr %0, i64 824
   %561 = load ptr, ptr %560, align 8
   %.not2183 = icmp eq ptr %561, null
@@ -3687,8 +3687,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %566
 
 566:                                              ; preds = %562, %559
-  %.01721 = phi i32 [ %565, %562 ], [ 0, %559 ]
-  tail call void @packmem(ptr noundef %561, i32 noundef %.01721, ptr noundef %1) #8
+  %.01722 = phi i32 [ %565, %562 ], [ 0, %559 ]
+  tail call void @packmem(ptr noundef %561, i32 noundef %.01722, ptr noundef %1) #8
   %567 = getelementptr inbounds i8, ptr %0, i64 832
   %568 = load i32, ptr %567, align 8
   tail call void @pack32(i32 noundef %568, ptr noundef %1) #8
@@ -3716,8 +3716,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %583
 
 583:                                              ; preds = %579, %566
-  %.01720 = phi i32 [ %582, %579 ], [ 0, %566 ]
-  tail call void @packmem(ptr noundef %578, i32 noundef %.01720, ptr noundef %1) #8
+  %.01721 = phi i32 [ %582, %579 ], [ 0, %566 ]
+  tail call void @packmem(ptr noundef %578, i32 noundef %.01721, ptr noundef %1) #8
   %584 = getelementptr inbounds i8, ptr %0, i64 856
   %585 = load i16, ptr %584, align 8
   tail call void @pack16(i16 noundef zeroext %585, ptr noundef %1) #8
@@ -3733,8 +3733,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %592
 
 592:                                              ; preds = %588, %583
-  %.01719 = phi i32 [ %591, %588 ], [ 0, %583 ]
-  tail call void @packmem(ptr noundef %587, i32 noundef %.01719, ptr noundef %1) #8
+  %.01720 = phi i32 [ %591, %588 ], [ 0, %583 ]
+  tail call void @packmem(ptr noundef %587, i32 noundef %.01720, ptr noundef %1) #8
   %593 = getelementptr inbounds i8, ptr %0, i64 872
   %594 = load i32, ptr %593, align 8
   tail call void @pack32(i32 noundef %594, ptr noundef %1) #8
@@ -3765,8 +3765,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %611
 
 611:                                              ; preds = %607, %592
-  %.01718 = phi i32 [ %610, %607 ], [ 0, %592 ]
-  tail call void @packmem(ptr noundef %606, i32 noundef %.01718, ptr noundef %1) #8
+  %.01719 = phi i32 [ %610, %607 ], [ 0, %592 ]
+  tail call void @packmem(ptr noundef %606, i32 noundef %.01719, ptr noundef %1) #8
   %612 = getelementptr inbounds i8, ptr %0, i64 904
   %613 = load i16, ptr %612, align 8
   tail call void @pack16(i16 noundef zeroext %613, ptr noundef %1) #8
@@ -3782,8 +3782,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %620
 
 620:                                              ; preds = %616, %611
-  %.01717 = phi i32 [ %619, %616 ], [ 0, %611 ]
-  tail call void @packmem(ptr noundef %615, i32 noundef %.01717, ptr noundef %1) #8
+  %.01718 = phi i32 [ %619, %616 ], [ 0, %611 ]
+  tail call void @packmem(ptr noundef %615, i32 noundef %.01718, ptr noundef %1) #8
   %621 = getelementptr inbounds i8, ptr %0, i64 920
   %622 = load ptr, ptr %621, align 8
   %.not2188 = icmp eq ptr %622, null
@@ -3796,8 +3796,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %627
 
 627:                                              ; preds = %623, %620
-  %.01716 = phi i32 [ %626, %623 ], [ 0, %620 ]
-  tail call void @packmem(ptr noundef %622, i32 noundef %.01716, ptr noundef %1) #8
+  %.01717 = phi i32 [ %626, %623 ], [ 0, %620 ]
+  tail call void @packmem(ptr noundef %622, i32 noundef %.01717, ptr noundef %1) #8
   %628 = getelementptr inbounds i8, ptr %0, i64 928
   %629 = load i16, ptr %628, align 8
   tail call void @pack16(i16 noundef zeroext %629, ptr noundef %1) #8
@@ -3813,8 +3813,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %636
 
 636:                                              ; preds = %632, %627
-  %.01715 = phi i32 [ %635, %632 ], [ 0, %627 ]
-  tail call void @packmem(ptr noundef %631, i32 noundef %.01715, ptr noundef %1) #8
+  %.01716 = phi i32 [ %635, %632 ], [ 0, %627 ]
+  tail call void @packmem(ptr noundef %631, i32 noundef %.01716, ptr noundef %1) #8
   %637 = getelementptr inbounds i8, ptr %0, i64 946
   %638 = load i16, ptr %637, align 2
   tail call void @pack16(i16 noundef zeroext %638, ptr noundef %1) #8
@@ -3833,8 +3833,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %647
 
 647:                                              ; preds = %643, %636
-  %.01714 = phi i32 [ %646, %643 ], [ 0, %636 ]
-  tail call void @packmem(ptr noundef %642, i32 noundef %.01714, ptr noundef %1) #8
+  %.01715 = phi i32 [ %646, %643 ], [ 0, %636 ]
+  tail call void @packmem(ptr noundef %642, i32 noundef %.01715, ptr noundef %1) #8
   %648 = getelementptr inbounds i8, ptr %0, i64 960
   %649 = load ptr, ptr %648, align 8
   %.not2191 = icmp eq ptr %649, null
@@ -3847,8 +3847,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %654
 
 654:                                              ; preds = %650, %647
-  %.01713 = phi i32 [ %653, %650 ], [ 0, %647 ]
-  tail call void @packmem(ptr noundef %649, i32 noundef %.01713, ptr noundef %1) #8
+  %.01714 = phi i32 [ %653, %650 ], [ 0, %647 ]
+  tail call void @packmem(ptr noundef %649, i32 noundef %.01714, ptr noundef %1) #8
   %655 = getelementptr inbounds i8, ptr %0, i64 968
   %656 = load ptr, ptr %655, align 8
   %.not2192 = icmp eq ptr %656, null
@@ -3861,8 +3861,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %661
 
 661:                                              ; preds = %657, %654
-  %.01712 = phi i32 [ %660, %657 ], [ 0, %654 ]
-  tail call void @packmem(ptr noundef %656, i32 noundef %.01712, ptr noundef %1) #8
+  %.01713 = phi i32 [ %660, %657 ], [ 0, %654 ]
+  tail call void @packmem(ptr noundef %656, i32 noundef %.01713, ptr noundef %1) #8
   %662 = getelementptr inbounds i8, ptr %0, i64 976
   %663 = load i16, ptr %662, align 8
   tail call void @pack16(i16 noundef zeroext %663, ptr noundef %1) #8
@@ -3878,8 +3878,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %670
 
 670:                                              ; preds = %666, %661
-  %.01711 = phi i32 [ %669, %666 ], [ 0, %661 ]
-  tail call void @packmem(ptr noundef %665, i32 noundef %.01711, ptr noundef %1) #8
+  %.01712 = phi i32 [ %669, %666 ], [ 0, %661 ]
+  tail call void @packmem(ptr noundef %665, i32 noundef %.01712, ptr noundef %1) #8
   %671 = getelementptr inbounds i8, ptr %0, i64 992
   %672 = load ptr, ptr %671, align 8
   %.not2194 = icmp eq ptr %672, null
@@ -3892,8 +3892,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %677
 
 677:                                              ; preds = %673, %670
-  %.01710 = phi i32 [ %676, %673 ], [ 0, %670 ]
-  tail call void @packmem(ptr noundef %672, i32 noundef %.01710, ptr noundef %1) #8
+  %.01711 = phi i32 [ %676, %673 ], [ 0, %670 ]
+  tail call void @packmem(ptr noundef %672, i32 noundef %.01711, ptr noundef %1) #8
   %678 = getelementptr inbounds i8, ptr %0, i64 1000
   %679 = load ptr, ptr %678, align 8
   %.not2195 = icmp eq ptr %679, null
@@ -3906,8 +3906,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %684
 
 684:                                              ; preds = %680, %677
-  %.01709 = phi i32 [ %683, %680 ], [ 0, %677 ]
-  tail call void @packmem(ptr noundef %679, i32 noundef %.01709, ptr noundef %1) #8
+  %.01710 = phi i32 [ %683, %680 ], [ 0, %677 ]
+  tail call void @packmem(ptr noundef %679, i32 noundef %.01710, ptr noundef %1) #8
   %685 = getelementptr inbounds i8, ptr %0, i64 1008
   %686 = load ptr, ptr %685, align 8
   %.not2196 = icmp eq ptr %686, null
@@ -3920,8 +3920,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %691
 
 691:                                              ; preds = %687, %684
-  %.01708 = phi i32 [ %690, %687 ], [ 0, %684 ]
-  tail call void @packmem(ptr noundef %686, i32 noundef %.01708, ptr noundef %1) #8
+  %.01709 = phi i32 [ %690, %687 ], [ 0, %684 ]
+  tail call void @packmem(ptr noundef %686, i32 noundef %.01709, ptr noundef %1) #8
   %692 = getelementptr inbounds i8, ptr %0, i64 1016
   %693 = load i16, ptr %692, align 8
   tail call void @pack16(i16 noundef zeroext %693, ptr noundef %1) #8
@@ -3940,8 +3940,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %702
 
 702:                                              ; preds = %698, %691
-  %.01707 = phi i32 [ %701, %698 ], [ 0, %691 ]
-  tail call void @packmem(ptr noundef %697, i32 noundef %.01707, ptr noundef %1) #8
+  %.01708 = phi i32 [ %701, %698 ], [ 0, %691 ]
+  tail call void @packmem(ptr noundef %697, i32 noundef %.01708, ptr noundef %1) #8
   %703 = getelementptr inbounds i8, ptr %0, i64 1032
   %704 = load i16, ptr %703, align 8
   tail call void @pack16(i16 noundef zeroext %704, ptr noundef %1) #8
@@ -3957,8 +3957,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %711
 
 711:                                              ; preds = %707, %702
-  %.01706 = phi i32 [ %710, %707 ], [ 0, %702 ]
-  tail call void @packmem(ptr noundef %706, i32 noundef %.01706, ptr noundef %1) #8
+  %.01707 = phi i32 [ %710, %707 ], [ 0, %702 ]
+  tail call void @packmem(ptr noundef %706, i32 noundef %.01707, ptr noundef %1) #8
   %712 = getelementptr inbounds i8, ptr %0, i64 1048
   %713 = load i16, ptr %712, align 8
   tail call void @pack16(i16 noundef zeroext %713, ptr noundef %1) #8
@@ -3974,8 +3974,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %720
 
 720:                                              ; preds = %716, %711
-  %.01705 = phi i32 [ %719, %716 ], [ 0, %711 ]
-  tail call void @packmem(ptr noundef %715, i32 noundef %.01705, ptr noundef %1) #8
+  %.01706 = phi i32 [ %719, %716 ], [ 0, %711 ]
+  tail call void @packmem(ptr noundef %715, i32 noundef %.01706, ptr noundef %1) #8
   %721 = getelementptr inbounds i8, ptr %0, i64 1056
   %722 = load ptr, ptr %721, align 8
   %.not2200 = icmp eq ptr %722, null
@@ -3988,8 +3988,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %727
 
 727:                                              ; preds = %723, %720
-  %.01704 = phi i32 [ %726, %723 ], [ 0, %720 ]
-  tail call void @packmem(ptr noundef %722, i32 noundef %.01704, ptr noundef %1) #8
+  %.01705 = phi i32 [ %726, %723 ], [ 0, %720 ]
+  tail call void @packmem(ptr noundef %722, i32 noundef %.01705, ptr noundef %1) #8
   %728 = getelementptr inbounds i8, ptr %0, i64 1064
   %729 = load i16, ptr %728, align 8
   tail call void @pack16(i16 noundef zeroext %729, ptr noundef %1) #8
@@ -4008,8 +4008,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %738
 
 738:                                              ; preds = %734, %727
-  %.01703 = phi i32 [ %737, %734 ], [ 0, %727 ]
-  tail call void @packmem(ptr noundef %733, i32 noundef %.01703, ptr noundef %1) #8
+  %.01704 = phi i32 [ %737, %734 ], [ 0, %727 ]
+  tail call void @packmem(ptr noundef %733, i32 noundef %.01704, ptr noundef %1) #8
   %739 = getelementptr inbounds i8, ptr %0, i64 1096
   %740 = load ptr, ptr %739, align 8
   %.not2202 = icmp eq ptr %740, null
@@ -4022,8 +4022,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %745
 
 745:                                              ; preds = %741, %738
-  %.01702 = phi i32 [ %744, %741 ], [ 0, %738 ]
-  tail call void @packmem(ptr noundef %740, i32 noundef %.01702, ptr noundef %1) #8
+  %.01703 = phi i32 [ %744, %741 ], [ 0, %738 ]
+  tail call void @packmem(ptr noundef %740, i32 noundef %.01703, ptr noundef %1) #8
   %746 = getelementptr inbounds i8, ptr %0, i64 1104
   %747 = load ptr, ptr %746, align 8
   %.not2203 = icmp eq ptr %747, null
@@ -4036,8 +4036,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %752
 
 752:                                              ; preds = %748, %745
-  %.01701 = phi i32 [ %751, %748 ], [ 0, %745 ]
-  tail call void @packmem(ptr noundef %747, i32 noundef %.01701, ptr noundef %1) #8
+  %.01702 = phi i32 [ %751, %748 ], [ 0, %745 ]
+  tail call void @packmem(ptr noundef %747, i32 noundef %.01702, ptr noundef %1) #8
   %753 = getelementptr inbounds i8, ptr %0, i64 1112
   %754 = load ptr, ptr %753, align 8
   tail call void @pack_key_pair_list(ptr noundef %754, i16 noundef zeroext %2, ptr noundef %1) #8
@@ -4056,8 +4056,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %763
 
 763:                                              ; preds = %759, %752
-  %.01700 = phi i32 [ %762, %759 ], [ 0, %752 ]
-  tail call void @packmem(ptr noundef %758, i32 noundef %.01700, ptr noundef %1) #8
+  %.01701 = phi i32 [ %762, %759 ], [ 0, %752 ]
+  tail call void @packmem(ptr noundef %758, i32 noundef %.01701, ptr noundef %1) #8
   %764 = getelementptr inbounds i8, ptr %0, i64 1152
   %765 = load i32, ptr %764, align 8
   tail call void @pack32(i32 noundef %765, ptr noundef %1) #8
@@ -4073,8 +4073,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %772
 
 772:                                              ; preds = %768, %763
-  %.01699 = phi i32 [ %771, %768 ], [ 0, %763 ]
-  tail call void @packmem(ptr noundef %767, i32 noundef %.01699, ptr noundef %1) #8
+  %.01700 = phi i32 [ %771, %768 ], [ 0, %763 ]
+  tail call void @packmem(ptr noundef %767, i32 noundef %.01700, ptr noundef %1) #8
   %773 = getelementptr inbounds i8, ptr %0, i64 1168
   %774 = load i32, ptr %773, align 8
   tail call void @pack32(i32 noundef %774, ptr noundef %1) #8
@@ -4090,8 +4090,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %781
 
 781:                                              ; preds = %777, %772
-  %.01698 = phi i32 [ %780, %777 ], [ 0, %772 ]
-  tail call void @packmem(ptr noundef %776, i32 noundef %.01698, ptr noundef %1) #8
+  %.01699 = phi i32 [ %780, %777 ], [ 0, %772 ]
+  tail call void @packmem(ptr noundef %776, i32 noundef %.01699, ptr noundef %1) #8
   %782 = getelementptr inbounds i8, ptr %0, i64 1184
   %783 = load ptr, ptr %782, align 8
   %.not2207 = icmp eq ptr %783, null
@@ -4104,8 +4104,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %788
 
 788:                                              ; preds = %784, %781
-  %.01697 = phi i32 [ %787, %784 ], [ 0, %781 ]
-  tail call void @packmem(ptr noundef %783, i32 noundef %.01697, ptr noundef %1) #8
+  %.01698 = phi i32 [ %787, %784 ], [ 0, %781 ]
+  tail call void @packmem(ptr noundef %783, i32 noundef %.01698, ptr noundef %1) #8
   %789 = getelementptr inbounds i8, ptr %0, i64 1192
   %790 = load i16, ptr %789, align 8
   tail call void @pack16(i16 noundef zeroext %790, ptr noundef %1) #8
@@ -4121,8 +4121,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %797
 
 797:                                              ; preds = %793, %788
-  %.01696 = phi i32 [ %796, %793 ], [ 0, %788 ]
-  tail call void @packmem(ptr noundef %792, i32 noundef %.01696, ptr noundef %1) #8
+  %.01697 = phi i32 [ %796, %793 ], [ 0, %788 ]
+  tail call void @packmem(ptr noundef %792, i32 noundef %.01697, ptr noundef %1) #8
   %798 = getelementptr inbounds i8, ptr %0, i64 1248
   %799 = load ptr, ptr %798, align 8
   %.not2209 = icmp eq ptr %799, null
@@ -4135,8 +4135,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %804
 
 804:                                              ; preds = %800, %797
-  %.01695 = phi i32 [ %803, %800 ], [ 0, %797 ]
-  tail call void @packmem(ptr noundef %799, i32 noundef %.01695, ptr noundef %1) #8
+  %.01696 = phi i32 [ %803, %800 ], [ 0, %797 ]
+  tail call void @packmem(ptr noundef %799, i32 noundef %.01696, ptr noundef %1) #8
   %805 = getelementptr inbounds i8, ptr %0, i64 1208
   %806 = load ptr, ptr %805, align 8
   %.not2210 = icmp eq ptr %806, null
@@ -4149,8 +4149,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %811
 
 811:                                              ; preds = %807, %804
-  %.01694 = phi i32 [ %810, %807 ], [ 0, %804 ]
-  tail call void @packmem(ptr noundef %806, i32 noundef %.01694, ptr noundef %1) #8
+  %.01695 = phi i32 [ %810, %807 ], [ 0, %804 ]
+  tail call void @packmem(ptr noundef %806, i32 noundef %.01695, ptr noundef %1) #8
   %812 = getelementptr inbounds i8, ptr %0, i64 1216
   %813 = load i32, ptr %812, align 8
   tail call void @pack32(i32 noundef %813, ptr noundef %1) #8
@@ -4169,8 +4169,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %822
 
 822:                                              ; preds = %818, %811
-  %.01693 = phi i32 [ %821, %818 ], [ 0, %811 ]
-  tail call void @packmem(ptr noundef %817, i32 noundef %.01693, ptr noundef %1) #8
+  %.01694 = phi i32 [ %821, %818 ], [ 0, %811 ]
+  tail call void @packmem(ptr noundef %817, i32 noundef %.01694, ptr noundef %1) #8
   %823 = getelementptr inbounds i8, ptr %0, i64 1232
   %824 = load ptr, ptr %823, align 8
   %.not2212 = icmp eq ptr %824, null
@@ -4183,8 +4183,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %829
 
 829:                                              ; preds = %825, %822
-  %.01692 = phi i32 [ %828, %825 ], [ 0, %822 ]
-  tail call void @packmem(ptr noundef %824, i32 noundef %.01692, ptr noundef %1) #8
+  %.01693 = phi i32 [ %828, %825 ], [ 0, %822 ]
+  tail call void @packmem(ptr noundef %824, i32 noundef %.01693, ptr noundef %1) #8
   %830 = getelementptr inbounds i8, ptr %0, i64 1240
   %831 = load i16, ptr %830, align 8
   tail call void @pack16(i16 noundef zeroext %831, ptr noundef %1) #8
@@ -4206,8 +4206,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %842
 
 842:                                              ; preds = %838, %829
-  %.01691 = phi i32 [ %841, %838 ], [ 0, %829 ]
-  tail call void @packmem(ptr noundef %837, i32 noundef %.01691, ptr noundef %1) #8
+  %.01692 = phi i32 [ %841, %838 ], [ 0, %829 ]
+  tail call void @packmem(ptr noundef %837, i32 noundef %.01692, ptr noundef %1) #8
   %843 = getelementptr inbounds i8, ptr %0, i64 1272
   %844 = load ptr, ptr %843, align 8
   %.not2214 = icmp eq ptr %844, null
@@ -4220,8 +4220,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %849
 
 849:                                              ; preds = %845, %842
-  %.01690 = phi i32 [ %848, %845 ], [ 0, %842 ]
-  tail call void @packmem(ptr noundef %844, i32 noundef %.01690, ptr noundef %1) #8
+  %.01691 = phi i32 [ %848, %845 ], [ 0, %842 ]
+  tail call void @packmem(ptr noundef %844, i32 noundef %.01691, ptr noundef %1) #8
   %850 = getelementptr inbounds i8, ptr %0, i64 1280
   %851 = load ptr, ptr %850, align 8
   %.not2215 = icmp eq ptr %851, null
@@ -4234,8 +4234,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %856
 
 856:                                              ; preds = %852, %849
-  %.01689 = phi i32 [ %855, %852 ], [ 0, %849 ]
-  tail call void @packmem(ptr noundef %851, i32 noundef %.01689, ptr noundef %1) #8
+  %.01690 = phi i32 [ %855, %852 ], [ 0, %849 ]
+  tail call void @packmem(ptr noundef %851, i32 noundef %.01690, ptr noundef %1) #8
   %857 = getelementptr inbounds i8, ptr %0, i64 1288
   %858 = load i32, ptr %857, align 8
   tail call void @pack32(i32 noundef %858, ptr noundef %1) #8
@@ -4251,8 +4251,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %865
 
 865:                                              ; preds = %861, %856
-  %.01688 = phi i32 [ %864, %861 ], [ 0, %856 ]
-  tail call void @packmem(ptr noundef %860, i32 noundef %.01688, ptr noundef %1) #8
+  %.01689 = phi i32 [ %864, %861 ], [ 0, %856 ]
+  tail call void @packmem(ptr noundef %860, i32 noundef %.01689, ptr noundef %1) #8
   %866 = getelementptr inbounds i8, ptr %0, i64 1304
   %867 = load i16, ptr %866, align 8
   tail call void @pack16(i16 noundef zeroext %867, ptr noundef %1) #8
@@ -4271,8 +4271,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %876
 
 876:                                              ; preds = %872, %865
-  %.01687 = phi i32 [ %875, %872 ], [ 0, %865 ]
-  tail call void @packmem(ptr noundef %871, i32 noundef %.01687, ptr noundef %1) #8
+  %.01688 = phi i32 [ %875, %872 ], [ 0, %865 ]
+  tail call void @packmem(ptr noundef %871, i32 noundef %.01688, ptr noundef %1) #8
   %877 = getelementptr inbounds i8, ptr %0, i64 1320
   %878 = load ptr, ptr %877, align 8
   %879 = load i16, ptr %878, align 2
@@ -4293,8 +4293,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %889
 
 889:                                              ; preds = %885, %876
-  %.01686 = phi i32 [ %888, %885 ], [ 0, %876 ]
-  tail call void @packmem(ptr noundef %884, i32 noundef %.01686, ptr noundef %1) #8
+  %.01687 = phi i32 [ %888, %885 ], [ 0, %876 ]
+  tail call void @packmem(ptr noundef %884, i32 noundef %.01687, ptr noundef %1) #8
   %890 = getelementptr inbounds i8, ptr %0, i64 1336
   %891 = load ptr, ptr %890, align 8
   %.not2219 = icmp eq ptr %891, null
@@ -4307,8 +4307,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %896
 
 896:                                              ; preds = %892, %889
-  %.01685 = phi i32 [ %895, %892 ], [ 0, %889 ]
-  tail call void @packmem(ptr noundef %891, i32 noundef %.01685, ptr noundef %1) #8
+  %.01686 = phi i32 [ %895, %892 ], [ 0, %889 ]
+  tail call void @packmem(ptr noundef %891, i32 noundef %.01686, ptr noundef %1) #8
   %897 = getelementptr inbounds i8, ptr %0, i64 1344
   %898 = load ptr, ptr %897, align 8
   %.not2220 = icmp eq ptr %898, null
@@ -4321,8 +4321,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %903
 
 903:                                              ; preds = %899, %896
-  %.01684 = phi i32 [ %902, %899 ], [ 0, %896 ]
-  tail call void @packmem(ptr noundef %898, i32 noundef %.01684, ptr noundef %1) #8
+  %.01685 = phi i32 [ %902, %899 ], [ 0, %896 ]
+  tail call void @packmem(ptr noundef %898, i32 noundef %.01685, ptr noundef %1) #8
   %904 = getelementptr inbounds i8, ptr %0, i64 1352
   %905 = load ptr, ptr %904, align 8
   %.not2221 = icmp eq ptr %905, null
@@ -4335,8 +4335,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %910
 
 910:                                              ; preds = %906, %903
-  %.01683 = phi i32 [ %909, %906 ], [ 0, %903 ]
-  tail call void @packmem(ptr noundef %905, i32 noundef %.01683, ptr noundef %1) #8
+  %.01684 = phi i32 [ %909, %906 ], [ 0, %903 ]
+  tail call void @packmem(ptr noundef %905, i32 noundef %.01684, ptr noundef %1) #8
   %911 = getelementptr inbounds i8, ptr %0, i64 1360
   %912 = load ptr, ptr %911, align 8
   %.not2222 = icmp eq ptr %912, null
@@ -4349,8 +4349,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %917
 
 917:                                              ; preds = %913, %910
-  %.01682 = phi i32 [ %916, %913 ], [ 0, %910 ]
-  tail call void @packmem(ptr noundef %912, i32 noundef %.01682, ptr noundef %1) #8
+  %.01683 = phi i32 [ %916, %913 ], [ 0, %910 ]
+  tail call void @packmem(ptr noundef %912, i32 noundef %.01683, ptr noundef %1) #8
   %918 = getelementptr inbounds i8, ptr %0, i64 1368
   %919 = load ptr, ptr %918, align 8
   %.not2223 = icmp eq ptr %919, null
@@ -4363,8 +4363,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %924
 
 924:                                              ; preds = %920, %917
-  %.01681 = phi i32 [ %923, %920 ], [ 0, %917 ]
-  tail call void @packmem(ptr noundef %919, i32 noundef %.01681, ptr noundef %1) #8
+  %.01682 = phi i32 [ %923, %920 ], [ 0, %917 ]
+  tail call void @packmem(ptr noundef %919, i32 noundef %.01682, ptr noundef %1) #8
   %925 = getelementptr inbounds i8, ptr %0, i64 1376
   %926 = load i16, ptr %925, align 8
   tail call void @pack16(i16 noundef zeroext %926, ptr noundef %1) #8
@@ -4386,8 +4386,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %937
 
 937:                                              ; preds = %933, %924
-  %.01680 = phi i32 [ %936, %933 ], [ 0, %924 ]
-  tail call void @packmem(ptr noundef %932, i32 noundef %.01680, ptr noundef %1) #8
+  %.01681 = phi i32 [ %936, %933 ], [ 0, %924 ]
+  tail call void @packmem(ptr noundef %932, i32 noundef %.01681, ptr noundef %1) #8
   %938 = getelementptr inbounds i8, ptr %0, i64 1392
   %939 = load ptr, ptr %938, align 8
   %.not2225 = icmp eq ptr %939, null
@@ -4400,8 +4400,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %944
 
 944:                                              ; preds = %940, %937
-  %.01679 = phi i32 [ %943, %940 ], [ 0, %937 ]
-  tail call void @packmem(ptr noundef %939, i32 noundef %.01679, ptr noundef %1) #8
+  %.01680 = phi i32 [ %943, %940 ], [ 0, %937 ]
+  tail call void @packmem(ptr noundef %939, i32 noundef %.01680, ptr noundef %1) #8
   %945 = getelementptr inbounds i8, ptr %0, i64 1408
   %946 = load ptr, ptr %945, align 8
   %.not2226 = icmp eq ptr %946, null
@@ -4414,8 +4414,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %951
 
 951:                                              ; preds = %947, %944
-  %.01678 = phi i32 [ %950, %947 ], [ 0, %944 ]
-  tail call void @packmem(ptr noundef %946, i32 noundef %.01678, ptr noundef %1) #8
+  %.01679 = phi i32 [ %950, %947 ], [ 0, %944 ]
+  tail call void @packmem(ptr noundef %946, i32 noundef %.01679, ptr noundef %1) #8
   %952 = getelementptr inbounds i8, ptr %0, i64 1432
   %953 = load ptr, ptr %952, align 8
   %.not2227 = icmp eq ptr %953, null
@@ -4428,8 +4428,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %958
 
 958:                                              ; preds = %954, %951
-  %.01677 = phi i32 [ %957, %954 ], [ 0, %951 ]
-  tail call void @packmem(ptr noundef %953, i32 noundef %.01677, ptr noundef %1) #8
+  %.01678 = phi i32 [ %957, %954 ], [ 0, %951 ]
+  tail call void @packmem(ptr noundef %953, i32 noundef %.01678, ptr noundef %1) #8
   %959 = getelementptr inbounds i8, ptr %0, i64 1416
   %960 = load ptr, ptr %959, align 8
   %.not2228 = icmp eq ptr %960, null
@@ -4442,8 +4442,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %965
 
 965:                                              ; preds = %961, %958
-  %.01676 = phi i32 [ %964, %961 ], [ 0, %958 ]
-  tail call void @packmem(ptr noundef %960, i32 noundef %.01676, ptr noundef %1) #8
+  %.01677 = phi i32 [ %964, %961 ], [ 0, %958 ]
+  tail call void @packmem(ptr noundef %960, i32 noundef %.01677, ptr noundef %1) #8
   %966 = getelementptr inbounds i8, ptr %0, i64 1424
   %967 = load i32, ptr %966, align 8
   tail call void @pack32(i32 noundef %967, ptr noundef %1) #8
@@ -4462,8 +4462,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %976
 
 976:                                              ; preds = %972, %965
-  %.01675 = phi i32 [ %975, %972 ], [ 0, %965 ]
-  tail call void @packmem(ptr noundef %971, i32 noundef %.01675, ptr noundef %1) #8
+  %.01676 = phi i32 [ %975, %972 ], [ 0, %965 ]
+  tail call void @packmem(ptr noundef %971, i32 noundef %.01676, ptr noundef %1) #8
   %977 = getelementptr inbounds i8, ptr %0, i64 1456
   %978 = load ptr, ptr %977, align 8
   %.not2230 = icmp eq ptr %978, null
@@ -4476,8 +4476,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %983
 
 983:                                              ; preds = %979, %976
-  %.01674 = phi i32 [ %982, %979 ], [ 0, %976 ]
-  tail call void @packmem(ptr noundef %978, i32 noundef %.01674, ptr noundef %1) #8
+  %.01675 = phi i32 [ %982, %979 ], [ 0, %976 ]
+  tail call void @packmem(ptr noundef %978, i32 noundef %.01675, ptr noundef %1) #8
   %984 = getelementptr inbounds i8, ptr %0, i64 1464
   %985 = load ptr, ptr %984, align 8
   %.not2231 = icmp eq ptr %985, null
@@ -4490,8 +4490,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %990
 
 990:                                              ; preds = %986, %983
-  %.01673 = phi i32 [ %989, %986 ], [ 0, %983 ]
-  tail call void @packmem(ptr noundef %985, i32 noundef %.01673, ptr noundef %1) #8
+  %.01674 = phi i32 [ %989, %986 ], [ 0, %983 ]
+  tail call void @packmem(ptr noundef %985, i32 noundef %.01674, ptr noundef %1) #8
   %991 = getelementptr inbounds i8, ptr %0, i64 1472
   %992 = load i16, ptr %991, align 8
   tail call void @pack16(i16 noundef zeroext %992, ptr noundef %1) #8
@@ -4507,8 +4507,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %999
 
 999:                                              ; preds = %995, %990
-  %.01672 = phi i32 [ %998, %995 ], [ 0, %990 ]
-  tail call void @packmem(ptr noundef %994, i32 noundef %.01672, ptr noundef %1) #8
+  %.01673 = phi i32 [ %998, %995 ], [ 0, %990 ]
+  tail call void @packmem(ptr noundef %994, i32 noundef %.01673, ptr noundef %1) #8
   %1000 = getelementptr inbounds i8, ptr %0, i64 1488
   %1001 = load i16, ptr %1000, align 8
   tail call void @pack16(i16 noundef zeroext %1001, ptr noundef %1) #8
@@ -4524,8 +4524,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %1008
 
 1008:                                             ; preds = %1004, %999
-  %.01671 = phi i32 [ %1007, %1004 ], [ 0, %999 ]
-  tail call void @packmem(ptr noundef %1003, i32 noundef %.01671, ptr noundef %1) #8
+  %.01672 = phi i32 [ %1007, %1004 ], [ 0, %999 ]
+  tail call void @packmem(ptr noundef %1003, i32 noundef %.01672, ptr noundef %1) #8
   %1009 = getelementptr inbounds i8, ptr %0, i64 1504
   %1010 = load i16, ptr %1009, align 8
   tail call void @pack16(i16 noundef zeroext %1010, ptr noundef %1) #8
@@ -4544,8 +4544,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %1019
 
 1019:                                             ; preds = %1015, %1008
-  %.01670 = phi i32 [ %1018, %1015 ], [ 0, %1008 ]
-  tail call void @packmem(ptr noundef %1014, i32 noundef %.01670, ptr noundef %1) #8
+  %.01671 = phi i32 [ %1018, %1015 ], [ 0, %1008 ]
+  tail call void @packmem(ptr noundef %1014, i32 noundef %.01671, ptr noundef %1) #8
   br label %2037
 
 1020:                                             ; preds = %3
@@ -4570,8 +4570,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %1032
 
 1032:                                             ; preds = %1028, %1022
-  %.01669 = phi i32 [ %1031, %1028 ], [ 0, %1022 ]
-  tail call void @packmem(ptr noundef %1027, i32 noundef %.01669, ptr noundef %1) #8
+  %.01670 = phi i32 [ %1031, %1028 ], [ 0, %1022 ]
+  tail call void @packmem(ptr noundef %1027, i32 noundef %.01670, ptr noundef %1) #8
   %1033 = getelementptr inbounds i8, ptr %0, i64 40
   %1034 = load ptr, ptr %1033, align 8
   %.not2006 = icmp eq ptr %1034, null
@@ -4584,8 +4584,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %1039
 
 1039:                                             ; preds = %1035, %1032
-  %.01668 = phi i32 [ %1038, %1035 ], [ 0, %1032 ]
-  tail call void @packmem(ptr noundef %1034, i32 noundef %.01668, ptr noundef %1) #8
+  %.01669 = phi i32 [ %1038, %1035 ], [ 0, %1032 ]
+  tail call void @packmem(ptr noundef %1034, i32 noundef %.01669, ptr noundef %1) #8
   %1040 = getelementptr inbounds i8, ptr %0, i64 32
   %1041 = load ptr, ptr %1040, align 8
   %.not2007 = icmp eq ptr %1041, null
@@ -4598,8 +4598,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %1046
 
 1046:                                             ; preds = %1042, %1039
-  %.01667 = phi i32 [ %1045, %1042 ], [ 0, %1039 ]
-  tail call void @packmem(ptr noundef %1041, i32 noundef %.01667, ptr noundef %1) #8
+  %.01668 = phi i32 [ %1045, %1042 ], [ 0, %1039 ]
+  tail call void @packmem(ptr noundef %1041, i32 noundef %.01668, ptr noundef %1) #8
   %1047 = getelementptr inbounds i8, ptr %0, i64 48
   %1048 = load ptr, ptr %1047, align 8
   %.not2008 = icmp eq ptr %1048, null
@@ -4612,8 +4612,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %1053
 
 1053:                                             ; preds = %1049, %1046
-  %.01666 = phi i32 [ %1052, %1049 ], [ 0, %1046 ]
-  tail call void @packmem(ptr noundef %1048, i32 noundef %.01666, ptr noundef %1) #8
+  %.01667 = phi i32 [ %1052, %1049 ], [ 0, %1046 ]
+  tail call void @packmem(ptr noundef %1048, i32 noundef %.01667, ptr noundef %1) #8
   %1054 = getelementptr inbounds i8, ptr %0, i64 64
   %1055 = load i16, ptr %1054, align 8
   tail call void @pack16(i16 noundef zeroext %1055, ptr noundef %1) #8
@@ -4629,8 +4629,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %1062
 
 1062:                                             ; preds = %1058, %1053
-  %.01665 = phi i32 [ %1061, %1058 ], [ 0, %1053 ]
-  tail call void @packmem(ptr noundef %1057, i32 noundef %.01665, ptr noundef %1) #8
+  %.01666 = phi i32 [ %1061, %1058 ], [ 0, %1053 ]
+  tail call void @packmem(ptr noundef %1057, i32 noundef %.01666, ptr noundef %1) #8
   %1063 = getelementptr inbounds i8, ptr %0, i64 72
   %1064 = load ptr, ptr %1063, align 8
   %.not2010 = icmp eq ptr %1064, null
@@ -4643,8 +4643,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %1069
 
 1069:                                             ; preds = %1065, %1062
-  %.01664 = phi i32 [ %1068, %1065 ], [ 0, %1062 ]
-  tail call void @packmem(ptr noundef %1064, i32 noundef %.01664, ptr noundef %1) #8
+  %.01665 = phi i32 [ %1068, %1065 ], [ 0, %1062 ]
+  tail call void @packmem(ptr noundef %1064, i32 noundef %.01665, ptr noundef %1) #8
   %1070 = getelementptr inbounds i8, ptr %0, i64 80
   %1071 = load ptr, ptr %1070, align 8
   %.not2011 = icmp eq ptr %1071, null
@@ -4657,8 +4657,8 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %1076
 
 1076:                                             ; preds = %1072, %1069
-  %.01663 = phi i32 [ %1075, %1072 ], [ 0, %1069 ]
-  tail call void @packmem(ptr noundef %1071, i32 noundef %.01663, ptr noundef %1) #8
+  %.01664 = phi i32 [ %1075, %1072 ], [ 0, %1069 ]
+  tail call void @packmem(ptr noundef %1071, i32 noundef %.01664, ptr noundef %1) #8
   %1077 = getelementptr inbounds i8, ptr %0, i64 88
   %1078 = load ptr, ptr %1077, align 8
   %.not2012 = icmp eq ptr %1078, null
@@ -9283,8 +9283,8 @@ define internal fastcc void @_pack_will_run_response_msg(ptr nocapture noundef r
   br label %13
 
 13:                                               ; preds = %9, %5
-  %.036 = phi i32 [ %12, %9 ], [ 0, %5 ]
-  tail call void @packmem(ptr noundef %8, i32 noundef %.036, ptr noundef %1) #8
+  %.037 = phi i32 [ %12, %9 ], [ 0, %5 ]
+  tail call void @packmem(ptr noundef %8, i32 noundef %.037, ptr noundef %1) #8
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not43 = icmp eq ptr %15, null
@@ -9297,8 +9297,8 @@ define internal fastcc void @_pack_will_run_response_msg(ptr nocapture noundef r
   br label %20
 
 20:                                               ; preds = %16, %13
-  %.035 = phi i32 [ %19, %16 ], [ 0, %13 ]
-  tail call void @packmem(ptr noundef %15, i32 noundef %.035, ptr noundef %1) #8
+  %.036 = phi i32 [ %19, %16 ], [ 0, %13 ]
+  tail call void @packmem(ptr noundef %15, i32 noundef %.036, ptr noundef %1) #8
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not44 = icmp eq ptr %22, null
@@ -9311,8 +9311,8 @@ define internal fastcc void @_pack_will_run_response_msg(ptr nocapture noundef r
   br label %27
 
 27:                                               ; preds = %23, %20
-  %.0 = phi i32 [ %26, %23 ], [ 0, %20 ]
-  tail call void @packmem(ptr noundef %22, i32 noundef %.0, ptr noundef %1) #8
+  %.035 = phi i32 [ %26, %23 ], [ 0, %20 ]
+  tail call void @packmem(ptr noundef %22, i32 noundef %.035, ptr noundef %1) #8
   %28 = getelementptr inbounds i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not45 = icmp eq ptr %29, null
@@ -20241,8 +20241,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_info_msg(ptr nocapture 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %44, %16, %23, %.loopexit47
-  %.035 = phi i32 [ -1, %.loopexit47 ], [ 0, %23 ], [ 0, %16 ], [ 0, %44 ]
-  ret i32 %.035
+  %.0 = phi i32 [ -1, %.loopexit47 ], [ 0, %23 ], [ 0, %16 ], [ 0, %44 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -28059,7 +28059,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_info_request_msg(ptr no
   br i1 %.not23, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %25
-  %.022 = phi i32 [ %27, %25 ], [ 0, %19 ]
+  %.01622 = phi i32 [ %27, %25 ], [ 0, %19 ]
   %23 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 7003, ptr noundef nonnull @__func__._unpack_job_info_request_msg) #8
   store ptr %23, ptr %5, align 8
   %24 = call i32 @unpack32(ptr noundef %23, ptr noundef %1) #8
@@ -28070,7 +28070,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_info_request_msg(ptr no
   %26 = load ptr, ptr %21, align 8
   call void @list_append(ptr noundef %26, ptr noundef %23) #8
   store ptr null, ptr %5, align 8
-  %27 = add nuw nsw i32 %.022, 1
+  %27 = add nuw nsw i32 %.01622, 1
   %28 = load i32, ptr %4, align 4
   %29 = icmp ult i32 %27, %28
   br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !77
@@ -28082,8 +28082,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_info_request_msg(ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %19, %3, %18, %.loopexit21
-  %.016 = phi i32 [ -1, %.loopexit21 ], [ 0, %18 ], [ 0, %3 ], [ 0, %19 ], [ 0, %25 ]
-  ret i32 %.016
+  %.0 = phi i32 [ -1, %.loopexit21 ], [ 0, %18 ], [ 0, %3 ], [ 0, %19 ], [ 0, %25 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -28311,8 +28311,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_state_response_msg(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %16, %21, %2, %.loopexit54
-  %.037 = phi i32 [ -1, %.loopexit54 ], [ 0, %2 ], [ 0, %21 ], [ 0, %16 ], [ 0, %24 ]
-  ret i32 %.037
+  %.0 = phi i32 [ -1, %.loopexit54 ], [ 0, %2 ], [ 0, %21 ], [ 0, %16 ], [ 0, %24 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -34172,7 +34172,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_accounting_update_msg(ptr n
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %18
-  %.015 = phi i32 [ %21, %18 ], [ 0, %13 ]
+  %.01315 = phi i32 [ %21, %18 ], [ 0, %13 ]
   %16 = call i32 @slurmdb_unpack_update_object(ptr noundef nonnull %5, i16 noundef zeroext %2, ptr noundef %1) #8
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %.loopexit14, label %18
@@ -34181,7 +34181,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_accounting_update_msg(ptr n
   %19 = load ptr, ptr %6, align 8
   %20 = load ptr, ptr %5, align 8
   call void @list_append(ptr noundef %19, ptr noundef %20) #8
-  %21 = add nuw nsw i32 %.015, 1
+  %21 = add nuw nsw i32 %.01315, 1
   %22 = load i32, ptr %4, align 4
   %23 = icmp ult i32 %21, %22
   br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !95
@@ -34192,8 +34192,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_accounting_update_msg(ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %13, %3, %.loopexit14
-  %.013 = phi i32 [ -1, %.loopexit14 ], [ 0, %3 ], [ 0, %13 ], [ 0, %18 ]
-  ret i32 %.013
+  %.0 = phi i32 [ -1, %.loopexit14 ], [ 0, %3 ], [ 0, %13 ], [ 0, %18 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -34406,9 +34406,9 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_front_end_info_msg(ptr noca
 
 26:                                               ; preds = %._crit_edge, %19
   %27 = phi ptr [ %.pre, %._crit_edge ], [ %20, %19 ]
-  %.023 = phi ptr [ %25, %._crit_edge ], [ null, %19 ]
+  %.024 = phi ptr [ %25, %._crit_edge ], [ null, %19 ]
   %28 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %.023, ptr %28, align 8
+  store ptr %.024, ptr %28, align 8
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8
@@ -34417,7 +34417,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_front_end_info_msg(ptr noca
 
 .lr.ph:                                           ; preds = %26, %67
   %indvars.iv = phi i64 [ %indvars.iv.next, %67 ], [ 0, %26 ]
-  %32 = getelementptr inbounds %struct.front_end_info, ptr %.023, i64 %indvars.iv
+  %32 = getelementptr inbounds %struct.front_end_info, ptr %.024, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)

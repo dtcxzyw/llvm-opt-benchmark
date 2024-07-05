@@ -6112,8 +6112,8 @@ invoke.cont3:                                     ; preds = %land.rhs.i.i.i18
   %13 = load i32, ptr %m_kind.i.i.i.i.i.i23, align 4
   %cmp2.i.i.i.i.i.i24 = icmp eq i32 %13, 0
   %14 = select i1 %cmp.i.i.i.i.i.i22, i1 %cmp2.i.i.i.i.i.i24, i1 false
-  %spec.select = select i1 %14, ptr %9, ptr %8
-  %spec.select260 = select i1 %14, ptr %8, ptr %9
+  %spec.select = select i1 %14, ptr %8, ptr %9
+  %spec.select260 = select i1 %14, ptr %9, ptr %8
   br label %if.end
 
 lpad:                                             ; preds = %land.rhs.i102, %if.then2.i.i.i96, %land.rhs.i49, %land.rhs.i30, %land.rhs.i, %cond.false
@@ -6122,8 +6122,8 @@ lpad:                                             ; preds = %land.rhs.i102, %if.
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont3, %land.rhs.i.i.i18, %call.i.i.noexc, %if.then
-  %lhs.1 = phi ptr [ %8, %if.then ], [ %8, %call.i.i.noexc ], [ %8, %land.rhs.i.i.i18 ], [ %spec.select, %invoke.cont3 ]
-  %rhs.1 = phi ptr [ %9, %if.then ], [ %9, %call.i.i.noexc ], [ %9, %land.rhs.i.i.i18 ], [ %spec.select260, %invoke.cont3 ]
+  %rhs.1 = phi ptr [ %9, %if.then ], [ %9, %call.i.i.noexc ], [ %9, %land.rhs.i.i.i18 ], [ %spec.select, %invoke.cont3 ]
+  %lhs.1 = phi ptr [ %8, %if.then ], [ %8, %call.i.i.noexc ], [ %8, %land.rhs.i.i.i18 ], [ %spec.select260, %invoke.cont3 ]
   %m_kind.i.i.i26 = getelementptr inbounds i8, ptr %lhs.1, i64 4
   %bf.load.i.i.i27 = load i32, ptr %m_kind.i.i.i26, align 4
   %bf.clear.i.i.i28 = and i32 %bf.load.i.i.i27, 65535

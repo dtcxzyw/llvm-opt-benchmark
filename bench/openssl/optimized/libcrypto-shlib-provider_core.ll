@@ -901,17 +901,17 @@ if.end20:                                         ; preds = %if.then15
   br i1 %cmp8.i, label %for.body.i, label %if.end27
 
 for.body.i:                                       ; preds = %if.end20, %for.body.i
-  %i.010.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end20 ]
-  %ret.09.i = phi i32 [ %and.i, %for.body.i ], [ 1, %if.end20 ]
+  %ret.010.i = phi i32 [ %and.i, %for.body.i ], [ 1, %if.end20 ]
+  %i.09.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end20 ]
   %6 = load ptr, ptr %child_cbs.i, align 8
-  %call.i7.i = call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %i.010.i) #11
+  %call.i7.i = call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %i.09.i) #11
   %create_cb.i = getelementptr inbounds i8, ptr %call.i7.i, i64 8
   %7 = load ptr, ptr %create_cb.i, align 8
   %cbdata.i = getelementptr inbounds i8, ptr %call.i7.i, i64 32
   %8 = load ptr, ptr %cbdata.i, align 8
   %call4.i = call i32 %7(ptr noundef %prov, ptr noundef %8) #11
-  %and.i = and i32 %call4.i, %ret.09.i
-  %inc.i = add nuw nsw i32 %i.010.i, 1
+  %and.i = and i32 %call4.i, %ret.010.i
+  %inc.i = add nuw nsw i32 %i.09.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %call.i.i
   br i1 %exitcond.not.i, label %create_provider_children.exit, label %for.body.i, !llvm.loop !9
 
@@ -1754,17 +1754,17 @@ if.then54:                                        ; preds = %if.then48
   br i1 %cmp8.i, label %for.body.i, label %if.end57
 
 for.body.i:                                       ; preds = %if.then54, %for.body.i
-  %i.010.i = phi i32 [ %inc.i27, %for.body.i ], [ 0, %if.then54 ]
-  %ret.09.i = phi i32 [ %and.i, %for.body.i ], [ 1, %if.then54 ]
+  %ret.010.i = phi i32 [ %and.i, %for.body.i ], [ 1, %if.then54 ]
+  %i.09.i = phi i32 [ %inc.i27, %for.body.i ], [ 0, %if.then54 ]
   %53 = load ptr, ptr %child_cbs.i, align 8
-  %call.i7.i = call ptr @OPENSSL_sk_value(ptr noundef %53, i32 noundef %i.010.i) #11
+  %call.i7.i = call ptr @OPENSSL_sk_value(ptr noundef %53, i32 noundef %i.09.i) #11
   %create_cb.i = getelementptr inbounds i8, ptr %call.i7.i, i64 8
   %54 = load ptr, ptr %create_cb.i, align 8
   %cbdata.i = getelementptr inbounds i8, ptr %call.i7.i, i64 32
   %55 = load ptr, ptr %cbdata.i, align 8
   %call4.i = call i32 %54(ptr noundef %prov, ptr noundef %55) #11
-  %and.i = and i32 %call4.i, %ret.09.i
-  %inc.i27 = add nuw nsw i32 %i.010.i, 1
+  %and.i = and i32 %call4.i, %ret.010.i
+  %inc.i27 = add nuw nsw i32 %i.09.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i27, %call.i.i26
   br i1 %exitcond.not.i, label %create_provider_children.exit.loopexit, label %for.body.i, !llvm.loop !9
 
@@ -2061,9 +2061,9 @@ if.end18:                                         ; preds = %if.end12
   br i1 %cmp2061, label %for.body, label %finish.sink.split
 
 for.body:                                         ; preds = %if.end18, %if.end43
-  %max.063 = phi i32 [ %max.1, %if.end43 ], [ %call.i41, %if.end18 ]
-  %curr.0.in62 = phi i32 [ %curr.064, %if.end43 ], [ %call.i41, %if.end18 ]
-  %curr.064 = add nsw i32 %curr.0.in62, -1
+  %curr.0.in63 = phi i32 [ %curr.064, %if.end43 ], [ %call.i41, %if.end18 ]
+  %max.062 = phi i32 [ %max.1, %if.end43 ], [ %call.i41, %if.end18 ]
+  %curr.064 = add nsw i32 %curr.0.in63, -1
   %call.i42 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i40, i32 noundef %curr.064) #11
   %flag_lock = getelementptr inbounds i8, ptr %call.i42, i64 8
   %3 = load ptr, ptr %flag_lock, align 8
@@ -2107,14 +2107,14 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.then36, %if.then
 
 if.else:                                          ; preds = %if.end25
   %call.i45 = call ptr @OPENSSL_sk_delete(ptr noundef nonnull %call.i40, i32 noundef %curr.064) #11
-  %dec = add nsw i32 %max.063, -1
+  %dec = add nsw i32 %max.062, -1
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then27, %if.else
-  %max.1 = phi i32 [ %max.063, %if.then27 ], [ %dec, %if.else ]
+  %max.1 = phi i32 [ %max.062, %if.then27 ], [ %dec, %if.else ]
   %9 = load ptr, ptr %flag_lock, align 8
   %call45 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %9) #11
-  %cmp20 = icmp ugt i32 %curr.0.in62, 1
+  %cmp20 = icmp ugt i32 %curr.0.in63, 1
   br i1 %cmp20, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %if.end43
@@ -2136,24 +2136,24 @@ for.body51:                                       ; preds = %for.end, %for.cond4
   br i1 %tobool55.not, label %finish, label %for.cond49
 
 finish.sink.split:                                ; preds = %for.body, %CRYPTO_DOWN_REF.exit, %if.end18
-  %max.054.ph = phi i32 [ %call.i41, %if.end18 ], [ %max.063, %CRYPTO_DOWN_REF.exit ], [ %max.063, %for.body ]
+  %max.057.ph = phi i32 [ %call.i41, %if.end18 ], [ %max.062, %CRYPTO_DOWN_REF.exit ], [ %max.062, %for.body ]
+  %curr.2.ph = phi i32 [ 0, %if.end18 ], [ %curr.0.in63, %CRYPTO_DOWN_REF.exit ], [ %curr.0.in63, %for.body ]
   %ret.0.ph = phi i32 [ 1, %if.end18 ], [ 0, %CRYPTO_DOWN_REF.exit ], [ 0, %for.body ]
-  %curr.2.ph = phi i32 [ 0, %if.end18 ], [ %curr.0.in62, %CRYPTO_DOWN_REF.exit ], [ %curr.0.in62, %for.body ]
   %11 = load ptr, ptr %lock, align 8
   %call4883 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %11) #11
   br label %finish
 
 finish:                                           ; preds = %for.body51, %for.cond49, %finish.sink.split, %for.end
-  %max.054 = phi i32 [ %max.1, %for.end ], [ %max.054.ph, %finish.sink.split ], [ %max.1, %for.cond49 ], [ %max.1, %for.body51 ]
-  %ret.0 = phi i32 [ 1, %for.end ], [ %ret.0.ph, %finish.sink.split ], [ 0, %for.body51 ], [ 1, %for.cond49 ]
+  %max.057 = phi i32 [ %max.1, %for.end ], [ %max.057.ph, %finish.sink.split ], [ %max.1, %for.cond49 ], [ %max.1, %for.body51 ]
   %curr.2 = phi i32 [ 0, %for.end ], [ %curr.2.ph, %finish.sink.split ], [ 0, %for.cond49 ], [ 0, %for.body51 ]
-  %cmp6469 = icmp slt i32 %curr.2, %max.054
+  %ret.0 = phi i32 [ 1, %for.end ], [ %ret.0.ph, %finish.sink.split ], [ 0, %for.body51 ], [ 1, %for.cond49 ]
+  %cmp6469 = icmp slt i32 %curr.2, %max.057
   br i1 %cmp6469, label %for.body65, label %for.end92
 
 for.body65:                                       ; preds = %finish, %for.inc90
-  %curr.371 = phi i32 [ %inc91, %for.inc90 ], [ %curr.2, %finish ]
-  %ret.170 = phi i32 [ %ret.3, %for.inc90 ], [ %ret.0, %finish ]
-  %call.i47 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i40, i32 noundef %curr.371) #11
+  %ret.171 = phi i32 [ %ret.3, %for.inc90 ], [ %ret.0, %finish ]
+  %curr.370 = phi i32 [ %inc91, %for.inc90 ], [ %curr.2, %finish ]
+  %call.i47 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i40, i32 noundef %curr.370) #11
   %activatecnt68 = getelementptr inbounds i8, ptr %call.i47, i64 32
   %activatecnt_lock69 = getelementptr inbounds i8, ptr %call.i47, i64 24
   %12 = load ptr, ptr %activatecnt_lock69, align 8
@@ -2177,7 +2177,7 @@ if.then80:                                        ; preds = %if.then75
   br label %if.end84
 
 if.end84:                                         ; preds = %if.then75, %if.then80, %if.end73
-  %ret.2 = phi i32 [ %ret.170, %if.then80 ], [ %ret.170, %if.end73 ], [ 0, %if.then75 ]
+  %ret.2 = phi i32 [ %ret.171, %if.then80 ], [ %ret.171, %if.end73 ], [ 0, %if.then75 ]
   %refcnt85 = getelementptr inbounds i8, ptr %call.i47, i64 16
   %15 = atomicrmw sub ptr %refcnt85, i32 1 monotonic, align 4
   %sub.i48 = add nsw i32 %15, -1
@@ -2191,8 +2191,8 @@ if.then.i50:                                      ; preds = %if.end84
 
 for.inc90:                                        ; preds = %if.then.i50, %if.end84, %for.body65
   %ret.3 = phi i32 [ 0, %for.body65 ], [ %ret.2, %if.end84 ], [ %ret.2, %if.then.i50 ]
-  %inc91 = add i32 %curr.371, 1
-  %exitcond81.not = icmp eq i32 %inc91, %max.054
+  %inc91 = add i32 %curr.370, 1
+  %exitcond81.not = icmp eq i32 %inc91, %max.057
   br i1 %exitcond81.not, label %for.end92, label %for.body65, !llvm.loop !16
 
 for.end92:                                        ; preds = %for.inc90, %finish

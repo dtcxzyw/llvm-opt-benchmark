@@ -1055,8 +1055,8 @@ if.then.i31:                                      ; preds = %sw.bb7
 
 for.body.i.i32:                                   ; preds = %if.then.i31, %for.inc.i.i35
   %34 = phi ptr [ %38, %for.inc.i.i35 ], [ %33, %if.then.i31 ]
-  %i.020.i.i = phi i32 [ %inc.i.i, %for.inc.i.i35 ], [ 0, %if.then.i31 ]
-  %p.addr.019.i.i = phi ptr [ %p.addr.1.i.i, %for.inc.i.i35 ], [ %28, %if.then.i31 ]
+  %p.addr.020.i.i = phi ptr [ %p.addr.1.i.i, %for.inc.i.i35 ], [ %28, %if.then.i31 ]
+  %i.019.i.i = phi i32 [ %inc.i.i, %for.inc.i.i35 ], [ 0, %if.then.i31 ]
   %marked8.i.i = getelementptr inbounds i8, ptr %34, i64 9
   %35 = load i8, ptr %marked8.i.i, align 1
   %and1015.i.i = and i8 %35, %32
@@ -1065,7 +1065,7 @@ for.body.i.i32:                                   ; preds = %if.then.i31, %for.i
 
 if.then.i.i34:                                    ; preds = %for.body.i.i32
   %36 = load ptr, ptr %34, align 8
-  store ptr %36, ptr %p.addr.019.i.i, align 8
+  store ptr %36, ptr %p.addr.020.i.i, align 8
   tail call fastcc void @freeobj(ptr noundef %L, ptr noundef nonnull %34)
   br label %for.inc.i.i35
 
@@ -1076,11 +1076,11 @@ if.else.i.i:                                      ; preds = %for.body.i.i32
   br label %for.inc.i.i35
 
 for.inc.i.i35:                                    ; preds = %if.else.i.i, %if.then.i.i34
-  %p.addr.1.i.i = phi ptr [ %p.addr.019.i.i, %if.then.i.i34 ], [ %34, %if.else.i.i ]
-  %inc.i.i = add nuw nsw i32 %i.020.i.i, 1
+  %p.addr.1.i.i = phi ptr [ %p.addr.020.i.i, %if.then.i.i34 ], [ %34, %if.else.i.i ]
+  %inc.i.i = add nuw nsw i32 %i.019.i.i, 1
   %38 = load ptr, ptr %p.addr.1.i.i, align 8
   %cmp.i.i36 = icmp ne ptr %38, null
-  %cmp6.i.i = icmp ult i32 %i.020.i.i, 99
+  %cmp6.i.i = icmp ult i32 %i.019.i.i, 99
   %39 = select i1 %cmp.i.i36, i1 %cmp6.i.i, i1 false
   br i1 %39, label %for.body.i.i32, label %sweeplist.exit.loopexit.i, !llvm.loop !7
 
@@ -1129,8 +1129,8 @@ if.then.i40:                                      ; preds = %sw.bb10
 
 for.body.i.i46:                                   ; preds = %if.then.i40, %for.inc.i.i53
   %51 = phi ptr [ %55, %for.inc.i.i53 ], [ %50, %if.then.i40 ]
-  %i.020.i.i47 = phi i32 [ %inc.i.i55, %for.inc.i.i53 ], [ 0, %if.then.i40 ]
-  %p.addr.019.i.i48 = phi ptr [ %p.addr.1.i.i54, %for.inc.i.i53 ], [ %45, %if.then.i40 ]
+  %p.addr.020.i.i47 = phi ptr [ %p.addr.1.i.i54, %for.inc.i.i53 ], [ %45, %if.then.i40 ]
+  %i.019.i.i48 = phi i32 [ %inc.i.i55, %for.inc.i.i53 ], [ 0, %if.then.i40 ]
   %marked8.i.i49 = getelementptr inbounds i8, ptr %51, i64 9
   %52 = load i8, ptr %marked8.i.i49, align 1
   %and1015.i.i50 = and i8 %52, %49
@@ -1139,7 +1139,7 @@ for.body.i.i46:                                   ; preds = %if.then.i40, %for.i
 
 if.then.i.i52:                                    ; preds = %for.body.i.i46
   %53 = load ptr, ptr %51, align 8
-  store ptr %53, ptr %p.addr.019.i.i48, align 8
+  store ptr %53, ptr %p.addr.020.i.i47, align 8
   tail call fastcc void @freeobj(ptr noundef %L, ptr noundef nonnull %51)
   br label %for.inc.i.i53
 
@@ -1150,11 +1150,11 @@ if.else.i.i67:                                    ; preds = %for.body.i.i46
   br label %for.inc.i.i53
 
 for.inc.i.i53:                                    ; preds = %if.else.i.i67, %if.then.i.i52
-  %p.addr.1.i.i54 = phi ptr [ %p.addr.019.i.i48, %if.then.i.i52 ], [ %51, %if.else.i.i67 ]
-  %inc.i.i55 = add nuw nsw i32 %i.020.i.i47, 1
+  %p.addr.1.i.i54 = phi ptr [ %p.addr.020.i.i47, %if.then.i.i52 ], [ %51, %if.else.i.i67 ]
+  %inc.i.i55 = add nuw nsw i32 %i.019.i.i48, 1
   %55 = load ptr, ptr %p.addr.1.i.i54, align 8
   %cmp.i.i56 = icmp ne ptr %55, null
-  %cmp6.i.i57 = icmp ult i32 %i.020.i.i47, 99
+  %cmp6.i.i57 = icmp ult i32 %i.019.i.i48, 99
   %56 = select i1 %cmp.i.i56, i1 %cmp6.i.i57, i1 false
   br i1 %56, label %for.body.i.i46, label %sweeplist.exit.loopexit.i58, !llvm.loop !7
 
@@ -1203,8 +1203,8 @@ if.then.i74:                                      ; preds = %sw.bb13
 
 for.body.i.i80:                                   ; preds = %if.then.i74, %for.inc.i.i87
   %68 = phi ptr [ %72, %for.inc.i.i87 ], [ %67, %if.then.i74 ]
-  %i.020.i.i81 = phi i32 [ %inc.i.i89, %for.inc.i.i87 ], [ 0, %if.then.i74 ]
-  %p.addr.019.i.i82 = phi ptr [ %p.addr.1.i.i88, %for.inc.i.i87 ], [ %62, %if.then.i74 ]
+  %p.addr.020.i.i81 = phi ptr [ %p.addr.1.i.i88, %for.inc.i.i87 ], [ %62, %if.then.i74 ]
+  %i.019.i.i82 = phi i32 [ %inc.i.i89, %for.inc.i.i87 ], [ 0, %if.then.i74 ]
   %marked8.i.i83 = getelementptr inbounds i8, ptr %68, i64 9
   %69 = load i8, ptr %marked8.i.i83, align 1
   %and1015.i.i84 = and i8 %69, %66
@@ -1213,7 +1213,7 @@ for.body.i.i80:                                   ; preds = %if.then.i74, %for.i
 
 if.then.i.i86:                                    ; preds = %for.body.i.i80
   %70 = load ptr, ptr %68, align 8
-  store ptr %70, ptr %p.addr.019.i.i82, align 8
+  store ptr %70, ptr %p.addr.020.i.i81, align 8
   tail call fastcc void @freeobj(ptr noundef %L, ptr noundef nonnull %68)
   br label %for.inc.i.i87
 
@@ -1224,11 +1224,11 @@ if.else.i.i101:                                   ; preds = %for.body.i.i80
   br label %for.inc.i.i87
 
 for.inc.i.i87:                                    ; preds = %if.else.i.i101, %if.then.i.i86
-  %p.addr.1.i.i88 = phi ptr [ %p.addr.019.i.i82, %if.then.i.i86 ], [ %68, %if.else.i.i101 ]
-  %inc.i.i89 = add nuw nsw i32 %i.020.i.i81, 1
+  %p.addr.1.i.i88 = phi ptr [ %p.addr.020.i.i81, %if.then.i.i86 ], [ %68, %if.else.i.i101 ]
+  %inc.i.i89 = add nuw nsw i32 %i.019.i.i82, 1
   %72 = load ptr, ptr %p.addr.1.i.i88, align 8
   %cmp.i.i90 = icmp ne ptr %72, null
-  %cmp6.i.i91 = icmp ult i32 %i.020.i.i81, 99
+  %cmp6.i.i91 = icmp ult i32 %i.019.i.i82, 99
   %73 = select i1 %cmp.i.i90, i1 %cmp6.i.i91, i1 false
   br i1 %73, label %for.body.i.i80, label %sweeplist.exit.loopexit.i92, !llvm.loop !7
 
@@ -4578,7 +4578,7 @@ for.cond14.preheader:                             ; preds = %for.inc, %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %marked.049 = phi i32 [ 0, %for.body.lr.ph ], [ %marked.1, %for.inc ]
+  %marked.050 = phi i32 [ 0, %for.body.lr.ph ], [ %marked.1, %for.inc ]
   %1 = load ptr, ptr %array, align 8
   %arrayidx = getelementptr inbounds %struct.TValue, ptr %1, i64 %indvars.iv
   %tt_ = getelementptr inbounds i8, ptr %arrayidx, i64 8
@@ -4600,16 +4600,16 @@ if.then:                                          ; preds = %land.lhs.true
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then
-  %marked.1 = phi i32 [ 1, %if.then ], [ %marked.049, %land.lhs.true ], [ %marked.049, %for.body ]
+  %marked.1 = phi i32 [ 1, %if.then ], [ %marked.050, %land.lhs.true ], [ %marked.050, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond14.preheader, label %for.body, !llvm.loop !45
 
 for.body17:                                       ; preds = %for.cond14.preheader, %for.inc69
   %indvars.iv56 = phi i64 [ 0, %for.cond14.preheader ], [ %indvars.iv.next57, %for.inc69 ]
-  %hasww.053 = phi i32 [ 0, %for.cond14.preheader ], [ %hasww.1, %for.inc69 ]
-  %hasclears.052 = phi i32 [ 0, %for.cond14.preheader ], [ %hasclears.1, %for.inc69 ]
-  %marked.251 = phi i32 [ %marked.0.lcssa, %for.cond14.preheader ], [ %marked.3, %for.inc69 ]
+  %marked.254 = phi i32 [ %marked.0.lcssa, %for.cond14.preheader ], [ %marked.3, %for.inc69 ]
+  %hasclears.053 = phi i32 [ 0, %for.cond14.preheader ], [ %hasclears.1, %for.inc69 ]
+  %hasww.052 = phi i32 [ 0, %for.cond14.preheader ], [ %hasww.1, %for.inc69 ]
   %7 = load ptr, ptr %node, align 8
   %8 = trunc nuw i64 %indvars.iv56 to i32
   %9 = xor i32 %8, -1
@@ -4675,7 +4675,7 @@ land.lhs.true45:                                  ; preds = %if.then40
   %23 = load i8, ptr %marked47, align 1
   %24 = and i8 %23, 24
   %tobool50.not = icmp eq i8 %24, 0
-  %spec.select = select i1 %tobool50.not, i32 %hasww.053, i32 1
+  %spec.select = select i1 %tobool50.not, i32 %hasww.052, i32 1
   br label %for.inc69
 
 if.else53:                                        ; preds = %if.else, %if.then3.i, %if.then6.i, %cond.end36, %iscleared.exit
@@ -4697,9 +4697,9 @@ if.then64:                                        ; preds = %land.lhs.true58
   br label %for.inc69
 
 for.inc69:                                        ; preds = %if.then.i, %if.then30, %land.lhs.true45, %if.else53, %land.lhs.true58, %if.then64, %if.then40
-  %marked.3 = phi i32 [ %marked.251, %if.then40 ], [ 1, %if.then64 ], [ %marked.251, %land.lhs.true58 ], [ %marked.251, %if.else53 ], [ %marked.251, %land.lhs.true45 ], [ %marked.251, %if.then30 ], [ %marked.251, %if.then.i ]
-  %hasclears.1 = phi i32 [ 1, %if.then40 ], [ %hasclears.052, %if.then64 ], [ %hasclears.052, %land.lhs.true58 ], [ %hasclears.052, %if.else53 ], [ 1, %land.lhs.true45 ], [ %hasclears.052, %if.then30 ], [ %hasclears.052, %if.then.i ]
-  %hasww.1 = phi i32 [ %hasww.053, %if.then40 ], [ %hasww.053, %if.then64 ], [ %hasww.053, %land.lhs.true58 ], [ %hasww.053, %if.else53 ], [ %spec.select, %land.lhs.true45 ], [ %hasww.053, %if.then30 ], [ %hasww.053, %if.then.i ]
+  %hasww.1 = phi i32 [ %hasww.052, %if.then40 ], [ %hasww.052, %if.then64 ], [ %hasww.052, %land.lhs.true58 ], [ %hasww.052, %if.else53 ], [ %spec.select, %land.lhs.true45 ], [ %hasww.052, %if.then30 ], [ %hasww.052, %if.then.i ]
+  %hasclears.1 = phi i32 [ 1, %if.then40 ], [ %hasclears.053, %if.then64 ], [ %hasclears.053, %land.lhs.true58 ], [ %hasclears.053, %if.else53 ], [ 1, %land.lhs.true45 ], [ %hasclears.053, %if.then30 ], [ %hasclears.053, %if.then.i ]
+  %marked.3 = phi i32 [ %marked.254, %if.then40 ], [ 1, %if.then64 ], [ %marked.254, %land.lhs.true58 ], [ %marked.254, %if.else53 ], [ %marked.254, %land.lhs.true45 ], [ %marked.254, %if.then30 ], [ %marked.254, %if.then.i ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
   br i1 %exitcond60.not, label %for.end71, label %for.body17, !llvm.loop !46

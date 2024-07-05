@@ -584,12 +584,12 @@ define noundef i64 @_Z20logged_rv64i_ukmar64P11processor_t6insn_tm(ptr noundef %
   br label %35
 
 35:                                               ; preds = %20, %53
+  %.03447 = phi i64 [ %33, %20 ], [ %50, %53 ]
   %36 = phi i1 [ true, %20 ], [ false, %53 ]
-  %.03447 = phi i64 [ 0, %20 ], [ 32, %53 ]
-  %.03546 = phi i64 [ %33, %20 ], [ %50, %53 ]
-  %37 = shl nuw i64 4294967295, %.03447
+  %.03546 = phi i64 [ 0, %20 ], [ 32, %53 ]
+  %37 = shl nuw i64 4294967295, %.03546
   %38 = and i64 %37, %25
-  %39 = shl i64 8589934590, %.03447
+  %39 = shl i64 8589934590, %.03546
   %40 = xor i64 %39, -1
   %41 = and i64 %37, %40
   %42 = udiv i64 %38, %41
@@ -598,8 +598,8 @@ define noundef i64 @_Z20logged_rv64i_ukmar64P11processor_t6insn_tm(ptr noundef %
   %45 = udiv i64 %44, %41
   %46 = and i64 %45, 4294967295
   %47 = mul nuw i64 %46, %43
-  %48 = add i64 %47, %.03546
-  %49 = icmp ult i64 %48, %.03546
+  %48 = add i64 %47, %.03447
+  %49 = icmp ult i64 %48, %.03447
   %50 = select i1 %49, i64 -1, i64 %48
   br i1 %49, label %51, label %53
 
@@ -945,12 +945,12 @@ define noundef i64 @_Z18fast_rv64e_ukmar64P11processor_t6insn_tm(ptr nocapture n
   br label %56
 
 56:                                               ; preds = %52, %74
+  %.03957 = phi i64 [ %54, %52 ], [ %71, %74 ]
   %57 = phi i1 [ true, %52 ], [ false, %74 ]
-  %.03857 = phi i64 [ 0, %52 ], [ 32, %74 ]
-  %.03956 = phi i64 [ %54, %52 ], [ %71, %74 ]
-  %58 = shl nuw i64 4294967295, %.03857
+  %.04056 = phi i64 [ 0, %52 ], [ 32, %74 ]
+  %58 = shl nuw i64 4294967295, %.04056
   %59 = and i64 %58, %32
-  %60 = shl i64 8589934590, %.03857
+  %60 = shl i64 8589934590, %.04056
   %61 = xor i64 %60, -1
   %62 = and i64 %58, %61
   %63 = udiv i64 %59, %62
@@ -959,8 +959,8 @@ define noundef i64 @_Z18fast_rv64e_ukmar64P11processor_t6insn_tm(ptr nocapture n
   %66 = udiv i64 %65, %62
   %67 = and i64 %66, 4294967295
   %68 = mul nuw i64 %67, %64
-  %69 = add i64 %68, %.03956
-  %70 = icmp ult i64 %69, %.03956
+  %69 = add i64 %68, %.03957
+  %70 = icmp ult i64 %69, %.03957
   %71 = select i1 %70, i64 -1, i64 %69
   br i1 %70, label %72, label %74
 
@@ -1388,12 +1388,12 @@ define noundef i64 @_Z20logged_rv64e_ukmar64P11processor_t6insn_tm(ptr noundef %
   br label %56
 
 56:                                               ; preds = %52, %74
+  %.04263 = phi i64 [ %54, %52 ], [ %71, %74 ]
   %57 = phi i1 [ true, %52 ], [ false, %74 ]
-  %.04263 = phi i64 [ 0, %52 ], [ 32, %74 ]
-  %.04362 = phi i64 [ %54, %52 ], [ %71, %74 ]
-  %58 = shl nuw i64 4294967295, %.04263
+  %.04362 = phi i64 [ 0, %52 ], [ 32, %74 ]
+  %58 = shl nuw i64 4294967295, %.04362
   %59 = and i64 %58, %32
-  %60 = shl i64 8589934590, %.04263
+  %60 = shl i64 8589934590, %.04362
   %61 = xor i64 %60, -1
   %62 = and i64 %58, %61
   %63 = udiv i64 %59, %62
@@ -1402,8 +1402,8 @@ define noundef i64 @_Z20logged_rv64e_ukmar64P11processor_t6insn_tm(ptr noundef %
   %66 = udiv i64 %65, %62
   %67 = and i64 %66, 4294967295
   %68 = mul nuw i64 %67, %64
-  %69 = add i64 %68, %.04362
-  %70 = icmp ult i64 %69, %.04362
+  %69 = add i64 %68, %.04263
+  %70 = icmp ult i64 %69, %.04263
   %71 = select i1 %70, i64 -1, i64 %69
   br i1 %70, label %72, label %74
 

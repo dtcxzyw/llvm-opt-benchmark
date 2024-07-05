@@ -189,21 +189,21 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp29, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end4
-  %datalen.addr.011 = phi i64 [ %sub, %if.end4 ], [ %datalen, %while.cond.preheader ]
-  %data.addr.010 = phi ptr [ %add.ptr, %if.end4 ], [ %data, %while.cond.preheader ]
-  %call = call i32 @EVP_EncryptUpdate(ptr noundef %0, ptr noundef null, ptr noundef nonnull %outlen, ptr noundef %data.addr.010, i32 noundef 2147483647) #5
+  %data.addr.011 = phi ptr [ %add.ptr, %if.end4 ], [ %data, %while.cond.preheader ]
+  %datalen.addr.010 = phi i64 [ %sub, %if.end4 ], [ %datalen, %while.cond.preheader ]
+  %call = call i32 @EVP_EncryptUpdate(ptr noundef %0, ptr noundef null, ptr noundef nonnull %outlen, ptr noundef %data.addr.011, i32 noundef 2147483647) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %while.body
-  %add.ptr = getelementptr inbounds i8, ptr %data.addr.010, i64 2147483647
-  %sub = add i64 %datalen.addr.011, -2147483647
+  %add.ptr = getelementptr inbounds i8, ptr %data.addr.011, i64 2147483647
+  %sub = add i64 %datalen.addr.010, -2147483647
   %cmp2 = icmp ugt i64 %sub, 2147483647
   br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end4, %while.cond.preheader
-  %data.addr.0.lcssa = phi ptr [ %data, %while.cond.preheader ], [ %add.ptr, %if.end4 ]
   %datalen.addr.0.lcssa = phi i64 [ %datalen, %while.cond.preheader ], [ %sub, %if.end4 ]
+  %data.addr.0.lcssa = phi ptr [ %data, %while.cond.preheader ], [ %add.ptr, %if.end4 ]
   %conv = trunc nuw nsw i64 %datalen.addr.0.lcssa to i32
   %call5 = call i32 @EVP_EncryptUpdate(ptr noundef %0, ptr noundef null, ptr noundef nonnull %outlen, ptr noundef %data.addr.0.lcssa, i32 noundef %conv) #5
   br label %return

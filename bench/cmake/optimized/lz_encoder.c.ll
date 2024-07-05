@@ -175,12 +175,12 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr nocapture noun
   br label %88
 
 88:                                               ; preds = %85, %67, %70
-  %.0 = phi i32 [ %83, %70 ], [ 65535, %67 ], [ %spec.select112, %85 ]
+  %.098 = phi i32 [ %83, %70 ], [ 65535, %67 ], [ %spec.select112, %85 ]
   %89 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 %.0, ptr %89, align 8
+  store i32 %.098, ptr %89, align 8
   %90 = icmp ugt i32 %65, 2
   %spec.select111.v = select i1 %90, i32 1025, i32 1
-  %spec.select111 = add nuw nsw i32 %.0, %spec.select111.v
+  %spec.select111 = add nuw nsw i32 %.098, %spec.select111.v
   %91 = icmp ugt i32 %65, 3
   %92 = add nuw nsw i32 %spec.select111, 65536
   %.2 = select i1 %91, i32 %92, i32 %spec.select111
@@ -226,8 +226,8 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr nocapture noun
   br label %111
 
 111:                                              ; preds = %.sink.split, %103, %61, %44, %3, %7
-  %.098 = phi i1 [ true, %7 ], [ true, %3 ], [ true, %44 ], [ true, %61 ], [ false, %103 ], [ false, %.sink.split ]
-  ret i1 %.098
+  %.0 = phi i1 [ true, %7 ], [ true, %3 ], [ true, %44 ], [ true, %61 ], [ false, %103 ], [ false, %.sink.split ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable

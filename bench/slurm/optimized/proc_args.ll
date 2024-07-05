@@ -1175,11 +1175,11 @@ define noundef zeroext i1 @verify_node_count(ptr noundef %0, ptr nocapture nound
   br i1 %.not5584, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %29
-  %.086 = phi i64 [ %spec.select, %29 ], [ 0, %19 ]
-  %.04285 = phi ptr [ %30, %29 ], [ %21, %19 ]
-  %22 = call i64 @strtol(ptr noundef nonnull %.04285, ptr noundef nonnull %13, i32 noundef 10) #20
+  %.04286 = phi i64 [ %spec.select, %29 ], [ 0, %19 ]
+  %.04385 = phi ptr [ %30, %29 ], [ %21, %19 ]
+  %22 = call i64 @strtol(ptr noundef nonnull %.04385, ptr noundef nonnull %13, i32 noundef 10) #20
   %23 = load ptr, ptr %13, align 8
-  %24 = icmp eq ptr %23, %.04285
+  %24 = icmp eq ptr %23, %.04385
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %.lr.ph
@@ -1192,12 +1192,12 @@ define noundef zeroext i1 @verify_node_count(ptr noundef %0, ptr nocapture nound
   ]
 
 27:                                               ; preds = %25, %.lr.ph
-  %28 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.42, ptr noundef nonnull %.04285) #20
+  %28 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.42, ptr noundef nonnull %.04385) #20
   call void @slurm_xfree(ptr noundef nonnull %11) #20
   br label %145
 
 29:                                               ; preds = %25, %25, %25, %25
-  %spec.select = call i64 @llvm.smax.i64(i64 %22, i64 %.086)
+  %spec.select = call i64 @llvm.smax.i64(i64 %22, i64 %.04286)
   %30 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.41, ptr noundef nonnull %12) #20
   %.not55 = icmp eq ptr %30, null
   br i1 %.not55, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
@@ -1207,11 +1207,11 @@ define noundef zeroext i1 @verify_node_count(ptr noundef %0, ptr nocapture nound
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
-  %.0.lcssa = phi i64 [ 1, %19 ], [ %31, %._crit_edge.loopexit ]
+  %.042.lcssa = phi i64 [ 1, %19 ], [ %31, %._crit_edge.loopexit ]
   call void @slurm_xfree(ptr noundef nonnull %11) #20
   %32 = call ptr @xstrdup(ptr noundef %0) #20
   store ptr %32, ptr %11, align 8
-  %33 = call ptr @bit_alloc(i64 noundef %.0.lcssa) #20
+  %33 = call ptr @bit_alloc(i64 noundef %.042.lcssa) #20
   store ptr %33, ptr %10, align 8
   %34 = load ptr, ptr %11, align 8
   %35 = call i32 @bit_unfmt(ptr noundef %33, ptr noundef %34) #20
@@ -1484,8 +1484,8 @@ str_to_nodes.exit77:                              ; preds = %112, %127
   br label %145
 
 145:                                              ; preds = %138, %140, %143, %136, %131, %109, %79, %40, %27
-  %.043 = phi i1 [ false, %27 ], [ false, %40 ], [ false, %143 ], [ false, %109 ], [ false, %79 ], [ false, %136 ], [ false, %131 ], [ true, %140 ], [ true, %138 ]
-  ret i1 %.043
+  %.0 = phi i1 [ false, %27 ], [ false, %40 ], [ false, %143 ], [ false, %109 ], [ false, %79 ], [ false, %136 ], [ false, %131 ], [ true, %140 ], [ true, %138 ]
+  ret i1 %.0
 }
 
 declare ptr @xstrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -3053,8 +3053,8 @@ define i32 @sig_name2num(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %exitcond, label %.loopexit, label %20
 
 .loopexit:                                        ; preds = %33, %7, %29
-  %.011 = phi i32 [ %32, %29 ], [ %spec.select, %7 ], [ 0, %33 ]
-  ret i32 %.011
+  %.0 = phi i32 [ %32, %29 ], [ %spec.select, %7 ], [ 0, %33 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

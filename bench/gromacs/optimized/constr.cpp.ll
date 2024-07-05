@@ -2269,8 +2269,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %25, %28
 
 61:                                               ; preds = %70, %52
   %.1 = phi i32 [ %.06, %52 ], [ %73, %70 ]
-  %.026.i.i = phi i32 [ -1, %52 ], [ %.127.i.i, %70 ]
-  %.0.i.i = phi i32 [ %59, %52 ], [ %.1.i.i, %70 ]
+  %.026.i.i = phi i32 [ %59, %52 ], [ %.127.i.i, %70 ]
+  %.0.i.i = phi i32 [ -1, %52 ], [ %.1.i.i, %70 ]
   %62 = sext i32 %.1 to i64
   %63 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %60, i64 %62
   %64 = getelementptr inbounds i8, ptr %63, i64 4
@@ -2285,9 +2285,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %25, %28
   br i1 %.not.i.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i, label %70
 
 70:                                               ; preds = %67, %61
-  %.127.i.i = phi i32 [ %.026.i.i, %61 ], [ %.1, %67 ]
-  %.1.i.i = phi i32 [ %.1, %61 ], [ %.0.i.i, %67 ]
-  %71 = add nsw i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.1, %61 ], [ %.026.i.i, %67 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %61 ], [ %.1, %67 ]
+  %71 = add i32 %.127.i.i, 1
   %72 = add i32 %71, %.1.i.i
   %73 = ashr i32 %72, 1
   br label %61, !llvm.loop !21
@@ -2736,7 +2736,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i77: ; preds = %_ZNSt6vectorIiS
 
 .split.us:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i77, %._crit_edge120.split.us.us
   %indvars.iv169 = phi i64 [ %indvars.iv.next170, %._crit_edge120.split.us.us ], [ 62, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i77 ]
-  %.054121.us = phi i32 [ %.155.lcssa.us, %._crit_edge120.split.us.us ], [ 0, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i77 ]
+  %.055121.us = phi i32 [ %.156.lcssa.us, %._crit_edge120.split.us.us ], [ 0, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i77 ]
   %101 = getelementptr inbounds %struct.InteractionList, ptr %2, i64 %indvars.iv169
   %102 = getelementptr inbounds i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
@@ -2762,14 +2762,14 @@ _ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit81.thread.us.us.p
   br label %_ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit81.thread.us.us
 
 ._crit_edge120.split.us.us:                       ; preds = %.loopexit.us.us, %.split.us
-  %.155.lcssa.us = phi i32 [ %.054121.us, %.split.us ], [ %130, %.loopexit.us.us ]
+  %.156.lcssa.us = phi i32 [ %.055121.us, %.split.us ], [ %130, %.loopexit.us.us ]
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 64
   br i1 %exitcond172.not, label %.split124.us, label %.split.us, !llvm.loop !27
 
 _ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit81.thread.us.us: ; preds = %_ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit81.thread.us.us.preheader, %.loopexit.us.us
   %indvars.iv166 = phi i64 [ 0, %_ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit81.thread.us.us.preheader ], [ %indvars.iv.next167, %.loopexit.us.us ]
-  %.155116.us.us = phi i32 [ %.054121.us, %_ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit81.thread.us.us.preheader ], [ %130, %.loopexit.us.us ]
+  %.156116.us.us = phi i32 [ %.055121.us, %_ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit81.thread.us.us.preheader ], [ %130, %.loopexit.us.us ]
   %invariant.gep188 = getelementptr i32, ptr %115, i64 %indvars.iv166
   br label %119
 
@@ -2787,20 +2787,20 @@ _ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit81.thread.us.us: 
   %127 = add nsw i32 %125, %123
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds i32, ptr %99, i64 %128
-  store i32 %.155116.us.us, ptr %129, align 4
+  store i32 %.156116.us.us, ptr %129, align 4
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next163, 3
   br i1 %exitcond165.not, label %.loopexit.us.us, label %119, !llvm.loop !28
 
 .loopexit.us.us:                                  ; preds = %119
-  %130 = add nsw i32 %.155116.us.us, 1
+  %130 = add nsw i32 %.156116.us.us, 1
   %indvars.iv.next167 = add nsw i64 %indvars.iv166, %114
   %131 = icmp slt i64 %indvars.iv.next167, %118
   br i1 %131, label %_ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit81.thread.us.us, label %._crit_edge120.split.us.us, !llvm.loop !29
 
 .split:                                           ; preds = %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i77, %._crit_edge120.split
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %._crit_edge120.split ], [ 62, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i77 ]
-  %.054121 = phi i32 [ %.155.lcssa, %._crit_edge120.split ], [ 0, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i77 ]
+  %.055121 = phi i32 [ %.156.lcssa, %._crit_edge120.split ], [ 0, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i77 ]
   %132 = getelementptr inbounds %struct.InteractionList, ptr %2, i64 %indvars.iv158
   %133 = getelementptr inbounds i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
@@ -2825,7 +2825,7 @@ _ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit81.thread.us.us: 
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %.loopexit
   %indvars.iv155 = phi i64 [ 0, %.lr.ph119.preheader ], [ %indvars.iv.next156, %.loopexit ]
-  %.155116 = phi i32 [ %.054121, %.lr.ph119.preheader ], [ %172, %.loopexit ]
+  %.156116 = phi i32 [ %.055121, %.lr.ph119.preheader ], [ %172, %.loopexit ]
   %146 = getelementptr inbounds i32, ptr %135, i64 %indvars.iv155
   %147 = load i32, ptr %146, align 4
   %148 = sext i32 %147 to i64
@@ -2858,7 +2858,7 @@ _ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit81.thread: ; pred
   %163 = add nsw i32 %161, %159
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds i32, ptr %99, i64 %164
-  store i32 %.155116, ptr %165, align 4
+  store i32 %.156116, ptr %165, align 4
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next152, 3
   br i1 %exitcond154.not, label %.loopexit, label %155, !llvm.loop !28
@@ -2881,7 +2881,7 @@ _ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit81.thread: ; pred
 
 .loopexit:                                        ; preds = %155, %_ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit81
   %.pre-phi178 = phi i64 [ %.pre175, %_ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit81 ], [ %139, %155 ]
-  %172 = add nsw i32 %.155116, 1
+  %172 = add nsw i32 %.156116, 1
   %indvars.iv.next156 = add nsw i64 %indvars.iv155, %145
   %sext = shl i64 %.pre-phi178, 32
   %173 = ashr exact i64 %sext, 32
@@ -2889,7 +2889,7 @@ _ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit81.thread: ; pred
   br i1 %174, label %.lr.ph119, label %._crit_edge120.split, !llvm.loop !29
 
 ._crit_edge120.split:                             ; preds = %.loopexit, %.split
-  %.155.lcssa = phi i32 [ %.054121, %.split ], [ %172, %.loopexit ]
+  %.156.lcssa = phi i32 [ %.055121, %.split ], [ %172, %.loopexit ]
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, 64
   br i1 %exitcond161.not, label %.split124.us, label %.split, !llvm.loop !27
@@ -3415,7 +3415,7 @@ define noundef i32 @_ZN3gmx24countFlexibleConstraintsENS_8ArrayRefIK15Interactio
 
 .preheader:                                       ; preds = %4, %._crit_edge
   %indvars.iv22 = phi i64 [ 62, %4 ], [ %indvars.iv.next23, %._crit_edge ]
-  %.01120 = phi i32 [ 0, %4 ], [ %.1.lcssa, %._crit_edge ]
+  %.020 = phi i32 [ 0, %4 ], [ %.1.lcssa, %._crit_edge ]
   %5 = getelementptr inbounds %struct.InteractionList, ptr %0, i64 %indvars.iv22
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -3434,7 +3434,7 @@ define noundef i32 @_ZN3gmx24countFlexibleConstraintsENS_8ArrayRefIK15Interactio
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %.117 = phi i32 [ %.01120, %.lr.ph.preheader ], [ %.2, %28 ]
+  %.118 = phi i32 [ %.020, %.lr.ph.preheader ], [ %.2, %28 ]
   %16 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
@@ -3450,17 +3450,17 @@ define noundef i32 @_ZN3gmx24countFlexibleConstraintsENS_8ArrayRefIK15Interactio
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %22
-  %27 = add nsw i32 %.117, 1
+  %27 = add nsw i32 %.118, 1
   br label %28
 
 28:                                               ; preds = %.lr.ph, %22, %26
-  %.2 = phi i32 [ %27, %26 ], [ %.117, %22 ], [ %.117, %.lr.ph ]
+  %.2 = phi i32 [ %27, %26 ], [ %.118, %22 ], [ %.118, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %29 = icmp ult i64 %indvars.iv.next, %15
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %28, %.preheader
-  %.1.lcssa = phi i32 [ %.01120, %.preheader ], [ %.2, %28 ]
+  %.1.lcssa = phi i32 [ %.020, %.preheader ], [ %.2, %28 ]
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next23, 64
   br i1 %exitcond.not, label %30, label %.preheader, !llvm.loop !32
@@ -4042,7 +4042,7 @@ _ZNSt6vectorIN3gmx11ListOfListsIiEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %141
   %indvars.iv22.i = phi i64 [ 62, %141 ], [ %indvars.iv.next23.i, %._crit_edge.i ]
-  %.01120.i = phi i32 [ 0, %141 ], [ %.1.lcssa.i, %._crit_edge.i ]
+  %.020.i = phi i32 [ 0, %141 ], [ %.1.lcssa.i, %._crit_edge.i ]
   %148 = getelementptr inbounds %struct.InteractionList, ptr %146, i64 %indvars.iv22.i
   %149 = getelementptr inbounds i8, ptr %148, i64 8
   %150 = load ptr, ptr %149, align 8
@@ -4061,7 +4061,7 @@ _ZNSt6vectorIN3gmx11ListOfListsIiEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
 
 .lr.ph.i48:                                       ; preds = %171, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %171 ]
-  %.117.i = phi i32 [ %.01120.i, %.lr.ph.preheader.i ], [ %.2.i, %171 ]
+  %.118.i = phi i32 [ %.020.i, %.lr.ph.preheader.i ], [ %.2.i, %171 ]
   %159 = getelementptr inbounds i32, ptr %151, i64 %indvars.iv.i
   %160 = load i32, ptr %159, align 4
   %161 = sext i32 %160 to i64
@@ -4077,17 +4077,17 @@ _ZNSt6vectorIN3gmx11ListOfListsIiEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
   br i1 %168, label %169, label %171
 
 169:                                              ; preds = %165
-  %170 = add nsw i32 %.117.i, 1
+  %170 = add nsw i32 %.118.i, 1
   br label %171
 
 171:                                              ; preds = %169, %165, %.lr.ph.i48
-  %.2.i = phi i32 [ %170, %169 ], [ %.117.i, %165 ], [ %.117.i, %.lr.ph.i48 ]
+  %.2.i = phi i32 [ %170, %169 ], [ %.118.i, %165 ], [ %.118.i, %.lr.ph.i48 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
   %172 = icmp ult i64 %indvars.iv.next.i, %158
   br i1 %172, label %.lr.ph.i48, label %._crit_edge.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %171, %.preheader.i
-  %.1.lcssa.i = phi i32 [ %.01120.i, %.preheader.i ], [ %.2.i, %171 ]
+  %.1.lcssa.i = phi i32 [ %.020.i, %.preheader.i ], [ %.2.i, %171 ]
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 64
   br i1 %exitcond.not.i, label %_ZN3gmx24countFlexibleConstraintsENS_8ArrayRefIK15InteractionListEENS0_IK9t_iparamsEE.exit, label %.preheader.i, !llvm.loop !32

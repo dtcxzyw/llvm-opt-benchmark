@@ -557,11 +557,11 @@ index_file_size.exit:                             ; preds = %.thread
   br label %113
 
 113:                                              ; preds = %113, %110
-  %.038.i = phi ptr [ %84, %110 ], [ %115, %113 ]
-  %.0.i73 = phi i32 [ %112, %110 ], [ %116, %113 ]
-  %114 = getelementptr inbounds i8, ptr %.038.i, i64 16
+  %.038.i = phi i32 [ %112, %110 ], [ %116, %113 ]
+  %.0.i73 = phi ptr [ %84, %110 ], [ %115, %113 ]
+  %114 = getelementptr inbounds i8, ptr %.0.i73, i64 16
   %115 = load ptr, ptr %114, align 8
-  %116 = add nsw i32 %.0.i73, -1
+  %116 = add nsw i32 %.038.i, -1
   %.not41.i = icmp eq i32 %116, 0
   br i1 %.not41.i, label %117, label %113, !llvm.loop !5
 
@@ -596,9 +596,9 @@ index_file_size.exit:                             ; preds = %.thread
 
 index_tree_append.exit:                           ; preds = %130, %104, %102, %78
   %131 = phi i64 [ %74, %78 ], [ 0, %102 ], [ 0, %104 ], [ %.pre, %130 ]
-  %.0 = phi ptr [ %14, %78 ], [ %84, %102 ], [ %84, %104 ], [ %84, %130 ]
+  %.066 = phi ptr [ %14, %78 ], [ %84, %102 ], [ %84, %104 ], [ %84, %130 ]
   %132 = add i64 %27, %3
-  %133 = getelementptr inbounds i8, ptr %.0, i64 64
+  %133 = getelementptr inbounds i8, ptr %.066, i64 64
   %134 = getelementptr inbounds [0 x %struct.index_record], ptr %133, i64 0, i64 %131
   store i64 %132, ptr %134, align 8
   %135 = getelementptr inbounds [0 x %struct.index_record], ptr %133, i64 0, i64 %131, i32 1
@@ -624,8 +624,8 @@ index_tree_append.exit:                           ; preds = %130, %104, %102, %7
   br label %index_file_size.exit.thread
 
 index_file_size.exit.thread:                      ; preds = %.thread, %79, %57, %index_file_size.exit, %4, %index_tree_append.exit
-  %.066 = phi i32 [ 0, %index_tree_append.exit ], [ 11, %4 ], [ 9, %index_file_size.exit ], [ 9, %57 ], [ 5, %79 ], [ 9, %.thread ]
-  ret i32 %.066
+  %.0 = phi i32 [ 0, %index_tree_append.exit ], [ 11, %4 ], [ 9, %index_file_size.exit ], [ 9, %57 ], [ 5, %79 ], [ 9, %.thread ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -961,11 +961,11 @@ tailrecurse:                                      ; preds = %index_tree_append.e
   br label %49
 
 49:                                               ; preds = %49, %46
-  %.038.i = phi ptr [ %.tr20, %46 ], [ %51, %49 ]
-  %.0.i = phi i32 [ %48, %46 ], [ %52, %49 ]
-  %50 = getelementptr inbounds i8, ptr %.038.i, i64 16
+  %.038.i = phi i32 [ %48, %46 ], [ %52, %49 ]
+  %.0.i = phi ptr [ %.tr20, %46 ], [ %51, %49 ]
+  %50 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = add nsw i32 %.0.i, -1
+  %52 = add nsw i32 %.038.i, -1
   %.not41.i = icmp eq i32 %52, 0
   br i1 %.not41.i, label %53, label %49, !llvm.loop !5
 
@@ -1042,11 +1042,11 @@ define dso_local ptr @lzma_index_dup(ptr nocapture noundef readonly %0, ptr noun
   %22 = phi i32 [ 0, %.lr.ph ], [ %90, %index_tree_next.exit ]
   %23 = phi ptr [ null, %.lr.ph ], [ %30, %index_tree_next.exit ]
   %24 = phi ptr [ %15, %.lr.ph ], [ %130, %index_tree_next.exit ]
-  %.042 = phi ptr [ %14, %.lr.ph ], [ %.011.i, %index_tree_next.exit ]
-  %25 = load <2 x i64>, ptr %.042, align 8
-  %26 = getelementptr inbounds i8, ptr %.042, i64 40
+  %.02242 = phi ptr [ %14, %.lr.ph ], [ %.011.i, %index_tree_next.exit ]
+  %25 = load <2 x i64>, ptr %.02242, align 8
+  %26 = getelementptr inbounds i8, ptr %.02242, i64 40
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %.042, i64 48
+  %28 = getelementptr inbounds i8, ptr %.02242, i64 48
   %29 = load i64, ptr %28, align 8
   %30 = tail call noalias ptr @lzma_alloc(i64 noundef 168, ptr noundef %1) #16
   %31 = icmp eq ptr %30, null
@@ -1067,16 +1067,16 @@ define dso_local ptr @lzma_index_dup(ptr nocapture noundef readonly %0, ptr noun
   %39 = getelementptr inbounds i8, ptr %30, i64 160
   %40 = load i64, ptr %24, align 8
   store i64 %40, ptr %37, align 8
-  %41 = getelementptr inbounds i8, ptr %.042, i64 96
+  %41 = getelementptr inbounds i8, ptr %.02242, i64 96
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %30, i64 96
   store i64 %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %.042, i64 104
+  %44 = getelementptr inbounds i8, ptr %.02242, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull readonly align 8 dereferenceable(56) %44, i64 56, i1 false)
-  %45 = getelementptr inbounds i8, ptr %.042, i64 160
+  %45 = getelementptr inbounds i8, ptr %.02242, i64 160
   %46 = load i64, ptr %45, align 8
   store i64 %46, ptr %39, align 8
-  %47 = getelementptr inbounds i8, ptr %.042, i64 64
+  %47 = getelementptr inbounds i8, ptr %.02242, i64 64
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %index_dup_stream.exit, label %50
@@ -1205,11 +1205,11 @@ index_dup_stream.exit:                            ; preds = %83, %32
   br label %102
 
 102:                                              ; preds = %102, %99
-  %.038.i = phi ptr [ %30, %99 ], [ %104, %102 ]
-  %.0.i29 = phi i32 [ %101, %99 ], [ %105, %102 ]
-  %103 = getelementptr inbounds i8, ptr %.038.i, i64 16
+  %.038.i = phi i32 [ %101, %99 ], [ %105, %102 ]
+  %.0.i29 = phi ptr [ %30, %99 ], [ %104, %102 ]
+  %103 = getelementptr inbounds i8, ptr %.0.i29, i64 16
   %104 = load ptr, ptr %103, align 8
-  %105 = add nsw i32 %.0.i29, -1
+  %105 = add nsw i32 %.038.i, -1
   %.not41.i = icmp eq i32 %105, 0
   br i1 %.not41.i, label %106, label %102, !llvm.loop !5
 
@@ -1242,7 +1242,7 @@ index_dup_stream.exit:                            ; preds = %83, %32
   br label %index_tree_append.exit
 
 index_tree_append.exit:                           ; preds = %93, %94, %119
-  %120 = getelementptr inbounds i8, ptr %.042, i64 32
+  %120 = getelementptr inbounds i8, ptr %.02242, i64 32
   %121 = load ptr, ptr %120, align 8
   %.not.i30 = icmp eq ptr %121, null
   br i1 %.not.i30, label %.preheader.i, label %.preheader17.i
@@ -1255,7 +1255,7 @@ index_tree_append.exit:                           ; preds = %93, %94, %119
   br i1 %.not16.i, label %index_tree_next.exit, label %.preheader17.i, !llvm.loop !7
 
 .preheader.i:                                     ; preds = %index_tree_append.exit, %126
-  %.1.i = phi ptr [ %125, %126 ], [ %.042, %index_tree_append.exit ]
+  %.1.i = phi ptr [ %125, %126 ], [ %.02242, %index_tree_append.exit ]
   %124 = getelementptr inbounds i8, ptr %.1.i, i64 16
   %125 = load ptr, ptr %124, align 8
   %.not15.i = icmp eq ptr %125, null
@@ -1275,8 +1275,8 @@ index_tree_next.exit:                             ; preds = %.preheader17.i, %12
   br i1 %132, label %.loopexit, label %21, !llvm.loop !10
 
 index_init_plain.exit.thread:                     ; preds = %.preheader.i, %2, %lzma_index_end.exit
-  %.022 = phi ptr [ null, %lzma_index_end.exit ], [ null, %2 ], [ %3, %.preheader.i ]
-  ret ptr %.022
+  %.0 = phi ptr [ null, %lzma_index_end.exit ], [ null, %2 ], [ %3, %.preheader.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -1827,34 +1827,34 @@ index_tree_locate.exit43:                         ; preds = %.lr.ph.i34, %index_
   br label %18
 
 18:                                               ; preds = %.lr.ph, %18
-  %.045 = phi i64 [ %16, %.lr.ph ], [ %.1, %18 ]
-  %.02744 = phi i64 [ 0, %.lr.ph ], [ %.128, %18 ]
-  %19 = sub i64 %.045, %.02744
+  %.02745 = phi i64 [ %16, %.lr.ph ], [ %.1, %18 ]
+  %.02844 = phi i64 [ 0, %.lr.ph ], [ %.129, %18 ]
+  %19 = sub i64 %.02745, %.02844
   %20 = lshr i64 %19, 1
-  %21 = add i64 %20, %.02744
+  %21 = add i64 %20, %.02844
   %22 = getelementptr inbounds [0 x %struct.index_record], ptr %17, i64 0, i64 %21
   %23 = load i64, ptr %22, align 8
   %.not31 = icmp ugt i64 %23, %11
   %24 = add i64 %21, 1
-  %.128 = select i1 %.not31, i64 %.02744, i64 %24
-  %.1 = select i1 %.not31, i64 %21, i64 %.045
-  %25 = icmp ult i64 %.128, %.1
+  %.129 = select i1 %.not31, i64 %.02844, i64 %24
+  %.1 = select i1 %.not31, i64 %21, i64 %.02745
+  %25 = icmp ult i64 %.129, %.1
   br i1 %25, label %18, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %18, %index_tree_locate.exit43
-  %.027.lcssa = phi i64 [ 0, %index_tree_locate.exit43 ], [ %.128, %18 ]
+  %.028.lcssa = phi i64 [ 0, %index_tree_locate.exit43 ], [ %.129, %18 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %.07.lcssa.i, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 272
   store ptr %.07.lcssa.i42, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 280
-  store i64 %.027.lcssa, ptr %28, align 8
+  store i64 %.028.lcssa, ptr %28, align 8
   tail call fastcc void @iter_set_info(ptr noundef %0)
   br label %29
 
 29:                                               ; preds = %2, %._crit_edge
-  %.029 = phi i8 [ 0, %._crit_edge ], [ 1, %2 ]
-  ret i8 %.029
+  %.0 = phi i8 [ 0, %._crit_edge ], [ 1, %2 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

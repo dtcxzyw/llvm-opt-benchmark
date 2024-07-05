@@ -453,9 +453,9 @@ define internal fastcc void @output_distances(ptr nocapture noundef readonly %0)
 
 76:                                               ; preds = %105, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %105 ]
-  %.pn.i = phi ptr [ %67, %.lr.ph.i ], [ %.085109.i, %105 ]
-  %.0108.i = phi i64 [ 5, %.lr.ph.i ], [ %spec.select.i, %105 ]
-  %.085109.i = getelementptr inbounds i8, ptr %.pn.i, i64 17
+  %.pn.i = phi ptr [ %67, %.lr.ph.i ], [ %.091109.i, %105 ]
+  %.086107.i = phi i64 [ 5, %.lr.ph.i ], [ %spec.select.i, %105 ]
+  %.091109.i = getelementptr inbounds i8, ptr %.pn.i, i64 17
   %77 = getelementptr inbounds ptr, ptr %59, i64 %indvars.iv.i
   %78 = load ptr, ptr %77, align 8
   %.in.i = getelementptr inbounds i8, ptr %78, i64 %.in.v.i
@@ -501,23 +501,23 @@ define internal fastcc void @output_distances(ptr nocapture noundef readonly %0)
   br label %105
 
 105:                                              ; preds = %103, %100, %85, %81
-  %.084.in.i = phi i32 [ %84, %81 ], [ %98, %85 ], [ %102, %100 ], [ %104, %103 ]
-  %.084.i = sext i32 %.084.in.i to i64
-  %spec.select.i = call i64 @llvm.umax.i64(i64 %.0108.i, i64 %.084.i)
-  %106 = sub nsw i64 16, %.084.i
-  %107 = getelementptr inbounds i8, ptr %.085109.i, i64 %106
-  %108 = add nsw i64 %.084.i, 1
+  %.090.in.i = phi i32 [ %84, %81 ], [ %98, %85 ], [ %102, %100 ], [ %104, %103 ]
+  %.090.i = sext i32 %.090.in.i to i64
+  %spec.select.i = call i64 @llvm.umax.i64(i64 %.086107.i, i64 %.090.i)
+  %106 = sub nsw i64 16, %.090.i
+  %107 = getelementptr inbounds i8, ptr %.091109.i, i64 %106
+  %108 = add nsw i64 %.090.i, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull align 16 %2, i64 %108, i1 false)
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %.085109.i, i8 32, i64 %106, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %.091109.i, i8 32, i64 %106, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.preheader104.i, label %76, !llvm.loop !7
 
 .preheader104.i:                                  ; preds = %105, %123
-  %.2115.i = phi i64 [ %spec.select103.i, %123 ], [ %spec.select.i, %105 ]
-  %.186114.i = phi ptr [ %122, %123 ], [ %71, %105 ]
-  %.189113.i = phi i32 [ %124, %123 ], [ 0, %105 ]
-  %109 = mul i32 %.189113.i, %57
+  %.1115.i = phi i32 [ %124, %123 ], [ 0, %105 ]
+  %.288114.i = phi i64 [ %spec.select103.i, %123 ], [ %spec.select.i, %105 ]
+  %.192113.i = phi ptr [ %122, %123 ], [ %71, %105 ]
+  %109 = mul i32 %.1115.i, %57
   br label %111
 
 .preheader.i:                                     ; preds = %123
@@ -530,9 +530,9 @@ define internal fastcc void @output_distances(ptr nocapture noundef readonly %0)
   br label %.lr.ph133.i
 
 .lr.ph118.i:                                      ; preds = %.preheader.i, %74
-  %.2.lcssa167.i = phi i64 [ %spec.select103.i, %.preheader.i ], [ 5, %74 ]
+  %.288.lcssa167.i = phi i64 [ %spec.select103.i, %.preheader.i ], [ 5, %74 ]
   %invariant.gep.i = getelementptr inbounds i8, ptr %67, i64 17
-  %110 = sub nsw i64 0, %.2.lcssa167.i
+  %110 = sub nsw i64 0, %.288.lcssa167.i
   %invariant.gep119.i = getelementptr i8, ptr %invariant.gep.i, i64 %110
   %invariant.gep121.i = getelementptr i8, ptr %invariant.gep119.i, i64 -1
   %wide.trip.count152.i = zext i32 %64 to i64
@@ -540,8 +540,8 @@ define internal fastcc void @output_distances(ptr nocapture noundef readonly %0)
 
 111:                                              ; preds = %111, %.preheader104.i
   %indvars.iv143.i = phi i64 [ 0, %.preheader104.i ], [ %indvars.iv.next144.i, %111 ]
-  %.3112.i = phi i64 [ %.2115.i, %.preheader104.i ], [ %spec.select103.i, %111 ]
-  %.287111.i = phi ptr [ %.186114.i, %.preheader104.i ], [ %122, %111 ]
+  %.389111.i = phi i64 [ %.288114.i, %.preheader104.i ], [ %spec.select103.i, %111 ]
+  %.293110.i = phi ptr [ %.192113.i, %.preheader104.i ], [ %122, %111 ]
   %112 = trunc nuw i64 %indvars.iv143.i to i32
   %113 = add i32 %109, %112
   %114 = zext i32 %113 to i64
@@ -549,19 +549,19 @@ define internal fastcc void @output_distances(ptr nocapture noundef readonly %0)
   %116 = load i64, ptr %115, align 8
   %117 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 17, ptr noundef nonnull @.str.31, i64 noundef %116) #14
   %118 = sext i32 %117 to i64
-  %spec.select103.i = call i64 @llvm.umax.i64(i64 %.3112.i, i64 %118)
+  %spec.select103.i = call i64 @llvm.umax.i64(i64 %.389111.i, i64 %118)
   %119 = sub nsw i64 16, %118
-  %120 = getelementptr inbounds i8, ptr %.287111.i, i64 %119
+  %120 = getelementptr inbounds i8, ptr %.293110.i, i64 %119
   %121 = add nsw i64 %118, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %120, ptr nonnull align 16 %3, i64 %121, i1 false)
-  call void @llvm.memset.p0.i64(ptr align 1 %.287111.i, i8 32, i64 %119, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %.293110.i, i8 32, i64 %119, i1 false)
   %indvars.iv.next144.i = add nuw nsw i64 %indvars.iv143.i, 1
-  %122 = getelementptr inbounds i8, ptr %.287111.i, i64 17
+  %122 = getelementptr inbounds i8, ptr %.293110.i, i64 17
   %exitcond147.not.i = icmp eq i64 %indvars.iv.next144.i, %wide.trip.count.i
   br i1 %exitcond147.not.i, label %123, label %111, !llvm.loop !8
 
 123:                                              ; preds = %111
-  %124 = add nuw i32 %.189113.i, 1
+  %124 = add nuw i32 %.1115.i, 1
   %exitcond148.not.i = icmp eq i32 %124, %57
   br i1 %exitcond148.not.i, label %.preheader.i, label %.preheader104.i, !llvm.loop !9
 
@@ -677,8 +677,8 @@ define internal fastcc void @output_cpukinds(ptr %.0.val) unnamed_addr #0 {
   br i1 %.not4, label %._crit_edge, label %.lr.ph3
 
 .lr.ph3:                                          ; preds = %0, %.loopexit
-  %.0152 = phi i32 [ %28, %.loopexit ], [ 0, %0 ]
-  %6 = call i32 @hwloc_cpukinds_get_info(ptr noundef %.0.val, i32 noundef %.0152, ptr noundef %4, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef 0) #14
+  %.02 = phi i32 [ %28, %.loopexit ], [ 0, %0 ]
+  %6 = call i32 @hwloc_cpukinds_get_info(ptr noundef %.0.val, i32 noundef %.02, ptr noundef %4, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef 0) #14
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %.loopexit
 
@@ -686,7 +686,7 @@ define internal fastcc void @output_cpukinds(ptr %.0.val) unnamed_addr #0 {
   %8 = call i32 @hwloc_bitmap_asprintf(ptr noundef nonnull %3, ptr noundef %4) #14
   %9 = load i32, ptr %1, align 4
   %10 = load ptr, ptr %3, align 8
-  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %.0152, i32 noundef %9, ptr noundef %10)
+  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %.02, i32 noundef %9, ptr noundef %10)
   %12 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %12) #14
   %13 = load ptr, ptr %2, align 8
@@ -713,7 +713,7 @@ define internal fastcc void @output_cpukinds(ptr %.0.val) unnamed_addr #0 {
   br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %.lr.ph3
-  %28 = add nuw i32 %.0152, 1
+  %28 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %28, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph3, !llvm.loop !15
 
@@ -1084,7 +1084,7 @@ define internal fastcc void @output_topology(ptr noundef %0, ptr noundef %1, ptr
   br label %55
 
 55:                                               ; preds = %51, %48
-  %.066 = phi i32 [ %54, %51 ], [ %3, %48 ]
+  %.0 = phi i32 [ %54, %51 ], [ %3, %48 ]
   %56 = icmp sgt i32 %25, 1
   br i1 %56, label %57, label %.critedge
 
@@ -1100,8 +1100,8 @@ define internal fastcc void @output_topology(ptr noundef %0, ptr noundef %1, ptr
 
 60:                                               ; preds = %.critedge, %57
   %61 = getelementptr inbounds i8, ptr %1, i64 144
-  %.088 = load ptr, ptr %61, align 8
-  %.not7889 = icmp eq ptr %.088, null
+  %.06688 = load ptr, ptr %61, align 8
+  %.not7889 = icmp eq ptr %.06688, null
   br i1 %.not7889, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %60
@@ -1109,8 +1109,8 @@ define internal fastcc void @output_topology(ptr noundef %0, ptr noundef %1, ptr
   br label %63
 
 63:                                               ; preds = %.lr.ph, %68
-  %.090 = phi ptr [ %.088, %.lr.ph ], [ %.0, %68 ]
-  %64 = load i32, ptr %.090, align 8
+  %.06690 = phi ptr [ %.06688, %.lr.ph ], [ %.066, %68 ]
+  %64 = load i32, ptr %.06690, align 8
   %.not84 = icmp eq i32 %64, 3
   br i1 %.not84, label %65, label %67
 
@@ -1120,13 +1120,13 @@ define internal fastcc void @output_topology(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not85, label %67, label %68
 
 67:                                               ; preds = %65, %63
-  tail call fastcc void @output_topology(ptr noundef %0, ptr noundef nonnull %.090, ptr noundef nonnull %1, i32 noundef %.066)
+  tail call fastcc void @output_topology(ptr noundef %0, ptr noundef nonnull %.06690, ptr noundef nonnull %1, i32 noundef %.0)
   br label %68
 
 68:                                               ; preds = %65, %67
-  %69 = getelementptr inbounds i8, ptr %.090, i64 88
-  %.0 = load ptr, ptr %69, align 8
-  %.not78 = icmp eq ptr %.0, null
+  %69 = getelementptr inbounds i8, ptr %.06690, i64 88
+  %.066 = load ptr, ptr %69, align 8
+  %.not78 = icmp eq ptr %.066, null
   br i1 %.not78, label %._crit_edge, label %63, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %68, %60
@@ -1151,7 +1151,7 @@ define internal fastcc void @output_topology(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not83, label %76, label %77
 
 76:                                               ; preds = %74, %72
-  tail call fastcc void @output_topology(ptr noundef %0, ptr noundef nonnull %.193, ptr noundef nonnull %1, i32 noundef %.066)
+  tail call fastcc void @output_topology(ptr noundef %0, ptr noundef nonnull %.193, ptr noundef nonnull %1, i32 noundef %.0)
   br label %77
 
 77:                                               ; preds = %74, %76
@@ -1168,7 +1168,7 @@ define internal fastcc void @output_topology(ptr noundef %0, ptr noundef %1, ptr
 
 .lr.ph101:                                        ; preds = %._crit_edge96, %.lr.ph101
   %.299 = phi ptr [ %.2, %.lr.ph101 ], [ %.297, %._crit_edge96 ]
-  tail call fastcc void @output_topology(ptr noundef %0, ptr noundef nonnull %.299, ptr noundef nonnull %1, i32 noundef %.066)
+  tail call fastcc void @output_topology(ptr noundef %0, ptr noundef nonnull %.299, ptr noundef nonnull %1, i32 noundef %.0)
   %80 = getelementptr inbounds i8, ptr %.299, i64 88
   %.2 = load ptr, ptr %80, align 8
   %.not80 = icmp eq ptr %.2, null
@@ -1182,7 +1182,7 @@ define internal fastcc void @output_topology(ptr noundef %0, ptr noundef %1, ptr
 
 .lr.ph107:                                        ; preds = %._crit_edge102, %.lr.ph107
   %.3105 = phi ptr [ %.3, %.lr.ph107 ], [ %.3103, %._crit_edge102 ]
-  tail call fastcc void @output_topology(ptr noundef %0, ptr noundef nonnull %.3105, ptr noundef nonnull %1, i32 noundef %.066)
+  tail call fastcc void @output_topology(ptr noundef %0, ptr noundef nonnull %.3105, ptr noundef nonnull %1, i32 noundef %.0)
   %82 = getelementptr inbounds i8, ptr %.3105, i64 88
   %.3 = load ptr, ptr %82, align 8
   %.not81 = icmp eq ptr %.3, null
@@ -1202,9 +1202,9 @@ define internal fastcc void @hwloc_lstopo_show_summary(ptr nocapture noundef %0,
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.02941 = phi i32 [ %7, %.lr.ph ], [ 0, %2 ]
-  tail call fastcc void @hwloc_lstopo_show_summary_depth(ptr noundef %0, i64 noundef %spec.select, ptr noundef %1, i32 noundef %.02941)
-  %7 = add nuw nsw i32 %.02941, 1
+  %.041 = phi i32 [ %7, %.lr.ph ], [ 0, %2 ]
+  tail call fastcc void @hwloc_lstopo_show_summary_depth(ptr noundef %0, i64 noundef %spec.select, ptr noundef %1, i32 noundef %.041)
+  %7 = add nuw nsw i32 %.041, 1
   %exitcond.not = icmp eq i32 %7, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
@@ -1461,7 +1461,7 @@ hwloc_get_nbobjs_by_type.exit54.thread:           ; preds = %hwloc_get_nbobjs_by
   br i1 %56, label %74, label %57
 
 57:                                               ; preds = %53, %47
-  %.0 = phi ptr [ %52, %53 ], [ null, %47 ]
+  %.039 = phi ptr [ %52, %53 ], [ null, %47 ]
   %58 = getelementptr inbounds i8, ptr %0, i64 32
   %59 = load i32, ptr %58, align 8
   %60 = call noalias ptr @open_output(ptr noundef %1, i32 noundef %59) #14
@@ -1477,8 +1477,8 @@ hwloc_get_nbobjs_by_type.exit54.thread:           ; preds = %hwloc_get_nbobjs_by
   br label %74
 
 67:                                               ; preds = %57
-  %.not47 = icmp eq ptr %.0, null
-  %68 = select i1 %.not47, ptr %3, ptr %.0
+  %.not47 = icmp eq ptr %.039, null
+  %68 = select i1 %.not47, ptr %3, ptr %.039
   %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %60, ptr noundef nonnull @.str.17, ptr noundef nonnull %68) #14
   %70 = load ptr, ptr @stdout, align 8
   %.not48 = icmp eq ptr %60, %70
@@ -1489,17 +1489,17 @@ hwloc_get_nbobjs_by_type.exit54.thread:           ; preds = %hwloc_get_nbobjs_by
   br label %73
 
 73:                                               ; preds = %71, %67
-  call void @free(ptr noundef %.0) #14
+  call void @free(ptr noundef %.039) #14
   br label %75
 
 74:                                               ; preds = %53, %61
-  %.1 = phi ptr [ %52, %53 ], [ %.0, %61 ]
+  %.1 = phi ptr [ %52, %53 ], [ %.039, %61 ]
   call void @free(ptr noundef %.1) #14
   br label %75
 
 75:                                               ; preds = %8, %41, %74, %49, %73
-  %.039 = phi i32 [ 0, %73 ], [ -1, %49 ], [ -1, %74 ], [ -1, %41 ], [ -1, %8 ]
-  ret i32 %.039
+  %.0 = phi i32 [ 0, %73 ], [ -1, %49 ], [ -1, %74 ], [ -1, %41 ], [ -1, %8 ]
+  ret i32 %.0
 }
 
 declare i32 @hwloc_topology_export_synthetic(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -1758,7 +1758,7 @@ output_memattr_obj.exit77:                        ; preds = %96, %99
 
 .lr.ph.i.preheader.us.i.i:                        ; preds = %.lr.ph.split.us.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i
   %.01.i.us26.i.i = phi ptr [ %.01.i.us.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i ], [ %.01.i.us23.i.i, %.lr.ph.split.us.i.i ]
-  %.020.us25.i.i = phi ptr [ %.03.i.us.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i ], [ %117, %.lr.ph.split.us.i.i ]
+  %.01120.us25.i.i = phi ptr [ %.03.i.us.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i ], [ %117, %.lr.ph.split.us.i.i ]
   br label %.lr.ph.i.us.i.i
 
 hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i: ; preds = %124
@@ -1768,24 +1768,24 @@ hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i: ; preds = %124
   br i1 %.not112.i.us.i.i, label %hwloc_get_obj_covering_cpuset.exit.thread36.i, label %.lr.ph.i.preheader.us.i.i
 
 hwloc_get_obj_covering_cpuset.exit.i:             ; preds = %126
-  %.not.i78 = icmp eq ptr %.020.us25.i.i, null
+  %.not.i78 = icmp eq ptr %.01120.us25.i.i, null
   br i1 %.not.i78, label %output_memattr_initiator.exit, label %hwloc_get_obj_covering_cpuset.exit.hwloc_get_obj_covering_cpuset.exit.thread36_crit_edge.i
 
 hwloc_get_obj_covering_cpuset.exit.hwloc_get_obj_covering_cpuset.exit.thread36_crit_edge.i: ; preds = %hwloc_get_obj_covering_cpuset.exit.i
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.020.us25.i.i, i64 184
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.01120.us25.i.i, i64 184
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %hwloc_get_obj_covering_cpuset.exit.thread36.i
 
 hwloc_get_obj_covering_cpuset.exit.thread36.i:    ; preds = %hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i, %hwloc_get_obj_covering_cpuset.exit.hwloc_get_obj_covering_cpuset.exit.thread36_crit_edge.i, %.lr.ph.split.us.i.i
   %129 = phi ptr [ %.pre.i, %hwloc_get_obj_covering_cpuset.exit.hwloc_get_obj_covering_cpuset.exit.thread36_crit_edge.i ], [ %119, %.lr.ph.split.us.i.i ], [ %123, %hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i ]
-  %.011.i39.i = phi ptr [ %.020.us25.i.i, %hwloc_get_obj_covering_cpuset.exit.hwloc_get_obj_covering_cpuset.exit.thread36_crit_edge.i ], [ %117, %.lr.ph.split.us.i.i ], [ %.03.i.us.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i ]
+  %.0.i39.i = phi ptr [ %.01120.us25.i.i, %hwloc_get_obj_covering_cpuset.exit.hwloc_get_obj_covering_cpuset.exit.thread36_crit_edge.i ], [ %117, %.lr.ph.split.us.i.i ], [ %.03.i.us.i.i, %hwloc_get_child_covering_cpuset.exit.loopexit.us.i.i ]
   %130 = call i32 @hwloc_bitmap_isequal(ptr noundef %129, ptr noundef %114) #17
   %.not23.i = icmp eq i32 %130, 0
   br i1 %.not23.i, label %output_memattr_initiator.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %hwloc_get_obj_covering_cpuset.exit.thread36.i, %134
   %131 = phi ptr [ %136, %134 ], [ %129, %hwloc_get_obj_covering_cpuset.exit.thread36.i ]
-  %.1.i = phi ptr [ %133, %134 ], [ %.011.i39.i, %hwloc_get_obj_covering_cpuset.exit.thread36.i ]
+  %.1.i = phi ptr [ %133, %134 ], [ %.0.i39.i, %hwloc_get_obj_covering_cpuset.exit.thread36.i ]
   %132 = getelementptr inbounds i8, ptr %.1.i, i64 72
   %133 = load ptr, ptr %132, align 8
   %.not25.i = icmp eq ptr %133, null

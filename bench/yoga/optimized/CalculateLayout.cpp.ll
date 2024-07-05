@@ -4517,14 +4517,14 @@ sw.epilog.i.thread:                               ; preds = %sw.bb593.i
   br label %for.cond607.i.preheader.lr.ph
 
 sw.epilog.i:                                      ; preds = %sw.bb593.i, %if.else589.i, %if.then581.i, %if.else575.i, %if.then568.i, %if.then562.i, %sw.bb560.i, %sw.bb557.i, %sw.bb.i249, %cond.end549.i
-  %leadPerLine.0.i = phi float [ 0.000000e+00, %cond.end549.i ], [ 0.000000e+00, %sw.bb593.i ], [ %div584.i, %if.then581.i ], [ 0.000000e+00, %if.else589.i ], [ %div574.i, %if.then568.i ], [ 0.000000e+00, %if.else575.i ], [ %div564.i, %if.then562.i ], [ 0.000000e+00, %sw.bb560.i ], [ 0.000000e+00, %sw.bb557.i ], [ 0.000000e+00, %sw.bb.i249 ]
   %currentLead.0.i = phi float [ %call67.i, %cond.end549.i ], [ %call67.i, %sw.bb593.i ], [ %add585.i, %if.then581.i ], [ %add591.i, %if.else589.i ], [ %add572.i, %if.then568.i ], [ %add577.i, %if.else575.i ], [ %call67.i, %if.then562.i ], [ %call67.i, %sw.bb560.i ], [ %add559.i, %sw.bb557.i ], [ %add556.i, %sw.bb.i249 ]
+  %leadPerLine.0.i = phi float [ 0.000000e+00, %cond.end549.i ], [ 0.000000e+00, %sw.bb593.i ], [ %div584.i, %if.then581.i ], [ 0.000000e+00, %if.else589.i ], [ %div574.i, %if.then568.i ], [ 0.000000e+00, %if.else575.i ], [ %div564.i, %if.then562.i ], [ 0.000000e+00, %sw.bb560.i ], [ 0.000000e+00, %sw.bb557.i ], [ 0.000000e+00, %sw.bb.i249 ]
   %cmp605.i2301.not = icmp eq i64 %inc524.i, 0
   br i1 %cmp605.i2301.not, label %if.end756.i, label %for.cond607.i.preheader.lr.ph
 
 for.cond607.i.preheader.lr.ph:                    ; preds = %sw.epilog.i.thread, %sw.epilog.i
-  %currentLead.0.i2454 = phi float [ %call67.i, %sw.epilog.i.thread ], [ %currentLead.0.i, %sw.epilog.i ]
-  %leadPerLine.0.i2453 = phi float [ %div600.i, %sw.epilog.i.thread ], [ %leadPerLine.0.i, %sw.epilog.i ]
+  %leadPerLine.0.i2454 = phi float [ %div600.i, %sw.epilog.i.thread ], [ %leadPerLine.0.i, %sw.epilog.i ]
+  %currentLead.0.i2453 = phi float [ %call67.i, %sw.epilog.i.thread ], [ %currentLead.0.i, %sw.epilog.i ]
   %switch2050 = icmp eq i8 %173, 0
   %spec.select2051 = select i1 %switch2050, i8 1, i8 3
   %406 = zext nneg i8 %173 to i64
@@ -4540,9 +4540,9 @@ for.cond607.i.preheader.lr.ph:                    ; preds = %sw.epilog.i.thread,
   br label %for.cond607.i.preheader
 
 for.cond607.i.preheader:                          ; preds = %for.cond607.i.preheader.lr.ph, %if.end750.i
-  %i603.0.i2304 = phi i64 [ 0, %for.cond607.i.preheader.lr.ph ], [ %inc754.i, %if.end750.i ]
+  %currentLead.1.i2304 = phi float [ %currentLead.0.i2453, %for.cond607.i.preheader.lr.ph ], [ %add752.i, %if.end750.i ]
   %endIndex.0.i2303 = phi i64 [ 0, %for.cond607.i.preheader.lr.ph ], [ %ii.0.i.lcssa, %if.end750.i ]
-  %currentLead.1.i2302 = phi float [ %currentLead.0.i2454, %for.cond607.i.preheader.lr.ph ], [ %add752.i, %if.end750.i ]
+  %i603.0.i2302 = phi i64 [ 0, %for.cond607.i.preheader.lr.ph ], [ %inc754.i, %if.end750.i ]
   %cmp608.i2288 = icmp ult i64 %endIndex.0.i2303, %sub.ptr.div.i.i1223
   br i1 %cmp608.i2288, label %for.body609.i, label %for.end653.i
 
@@ -4579,7 +4579,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit635:       ; preds = %for.body609.i
 if.then620.i:                                     ; preds = %_ZNK8facebook4yoga4Node8getChildEm.exit635
   %lineIndex_.i = getelementptr inbounds i8, ptr %411, i64 576
   %414 = load i64, ptr %lineIndex_.i, align 8
-  %cmp622.not.i = icmp eq i64 %414, %i603.0.i2304
+  %cmp622.not.i = icmp eq i64 %414, %i603.0.i2302
   br i1 %cmp622.not.i, label %if.end624.i, label %for.end653.i
 
 if.end624.i:                                      ; preds = %if.then620.i
@@ -4665,14 +4665,14 @@ for.end653.i:                                     ; preds = %for.inc651.i, %if.t
   %ii.0.i.lcssa = phi i64 [ %endIndex.0.i2303, %for.cond607.i.preheader ], [ %ii.0.i2289, %if.then620.i ], [ %sub.ptr.div.i.i1223, %for.inc651.i ]
   %lineHeight.0.i.lcssa = phi float [ 0.000000e+00, %for.cond607.i.preheader ], [ %lineHeight.0.i2290, %if.then620.i ], [ %lineHeight.2.i, %for.inc651.i ]
   %maxAscentForCurrentLine.0.i.lcssa = phi float [ 0.000000e+00, %for.cond607.i.preheader ], [ %maxAscentForCurrentLine.0.i2291, %if.then620.i ], [ %maxAscentForCurrentLine.1.i, %for.inc651.i ]
-  %cmp654.not.i = icmp eq i64 %i603.0.i2304, 0
+  %cmp654.not.i = icmp eq i64 %i603.0.i2302, 0
   %cond658.i = select i1 %cmp654.not.i, float 0.000000e+00, float %call120.i
-  %add659.i = fadd float %currentLead.1.i2302, %cond658.i
+  %add659.i = fadd float %currentLead.1.i2304, %cond658.i
   %cmp663.i2299 = icmp ult i64 %endIndex.0.i2303, %ii.0.i.lcssa
   br i1 %cmp663.i2299, label %for.body664.i.lr.ph, label %if.end750.i
 
 for.body664.i.lr.ph:                              ; preds = %for.end653.i
-  %add713.i = fadd float %leadPerLine.0.i2453, %lineHeight.0.i.lcssa
+  %add713.i = fadd float %leadPerLine.0.i2454, %lineHeight.0.i.lcssa
   %add682.i = fadd float %add659.i, %lineHeight.0.i.lcssa
   %add739.i = fadd float %add659.i, %maxAscentForCurrentLine.0.i.lcssa
   br label %for.body664.i
@@ -4869,10 +4869,10 @@ for.inc747.i:                                     ; preds = %if.end.i468, %cond.
   br i1 %exitcond2396.not, label %if.end750.i, label %for.body664.i, !llvm.loop !12
 
 if.end750.i:                                      ; preds = %for.inc747.i, %for.end653.i
-  %add751.i = fadd float %leadPerLine.0.i2453, %add659.i
+  %add751.i = fadd float %leadPerLine.0.i2454, %add659.i
   %add752.i = fadd float %add751.i, %lineHeight.0.i.lcssa
-  %inc754.i = add nuw i64 %i603.0.i2304, 1
-  %exitcond2397.not = icmp eq i64 %i603.0.i2304, %lineCount.0.i2281
+  %inc754.i = add nuw i64 %i603.0.i2302, 1
+  %exitcond2397.not = icmp eq i64 %i603.0.i2302, %lineCount.0.i2281
   br i1 %exitcond2397.not, label %if.end756.i, label %for.cond607.i.preheader, !llvm.loop !13
 
 if.end756.i:                                      ; preds = %if.end750.i, %sw.epilog.i, %lor.lhs.false529.i, %for.end525.i

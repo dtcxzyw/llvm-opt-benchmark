@@ -127,8 +127,8 @@ up_irq_restore.exit:                              ; preds = %55, %47, %43, %41
   br label %62
 
 62:                                               ; preds = %60, %58
-  %.081 = phi ptr [ %59, %58 ], [ %56, %60 ]
-  %63 = icmp eq ptr %.081, null
+  %.082 = phi ptr [ %59, %58 ], [ %56, %60 ]
+  %63 = icmp eq ptr %.082, null
   %.not97 = icmp eq ptr %20, null
   br i1 %63, label %64, label %87
 
@@ -158,14 +158,14 @@ up_irq_restore.exit:                              ; preds = %55, %47, %43, %41
   br label %.loopexit
 
 .preheader:                                       ; preds = %68, %80
-  %.0103 = phi ptr [ %81, %80 ], [ %67, %68 ]
-  %76 = load ptr, ptr %.0103, align 8
+  %.080103 = phi ptr [ %81, %80 ], [ %67, %68 ]
+  %76 = load ptr, ptr %.080103, align 8
   %77 = icmp eq ptr %76, %20
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %.preheader
-  %79 = call ptr @sq_remafter(ptr noundef nonnull %.0103, ptr noundef nonnull %66) #4
-  %.pre = load ptr, ptr %.0103, align 8
+  %79 = call ptr @sq_remafter(ptr noundef nonnull %.080103, ptr noundef nonnull %66) #4
+  %.pre = load ptr, ptr %.080103, align 8
   br label %80
 
 80:                                               ; preds = %.preheader, %78
@@ -232,27 +232,27 @@ up_irq_restore.exit.i:                            ; preds = %92, %88
 
 96:                                               ; preds = %102, %94
   %97 = phi ptr [ %.pre14.i.i, %94 ], [ %103, %102 ]
-  %.013.i.i = phi i32 [ 0, %94 ], [ %104, %102 ]
-  %.0912.i.i = phi ptr [ %93, %94 ], [ %98, %102 ]
-  %98 = getelementptr inbounds i8, ptr %.0912.i.i, i64 48
-  store ptr null, ptr %.0912.i.i, align 8
+  %.013.i.i = phi ptr [ %93, %94 ], [ %98, %102 ]
+  %.0912.i.i = phi i32 [ 0, %94 ], [ %104, %102 ]
+  %98 = getelementptr inbounds i8, ptr %.013.i.i, i64 48
+  store ptr null, ptr %.013.i.i, align 8
   %.not11.i.i = icmp eq ptr %97, null
   br i1 %.not11.i.i, label %99, label %100
 
 99:                                               ; preds = %96
-  store ptr %.0912.i.i, ptr @g_sigfreeaction, align 8
+  store ptr %.013.i.i, ptr @g_sigfreeaction, align 8
   br label %102
 
 100:                                              ; preds = %96
   %101 = load ptr, ptr getelementptr inbounds (i8, ptr @g_sigfreeaction, i64 8), align 8
-  store ptr %.0912.i.i, ptr %101, align 8
+  store ptr %.013.i.i, ptr %101, align 8
   %.pre.i.i = load ptr, ptr @g_sigfreeaction, align 8
   br label %102
 
 102:                                              ; preds = %100, %99
-  %103 = phi ptr [ %.pre.i.i, %100 ], [ %.0912.i.i, %99 ]
-  store ptr %.0912.i.i, ptr getelementptr inbounds (i8, ptr @g_sigfreeaction, i64 8), align 8
-  %104 = add nuw nsw i32 %.013.i.i, 1
+  %103 = phi ptr [ %.pre.i.i, %100 ], [ %.013.i.i, %99 ]
+  store ptr %.013.i.i, ptr getelementptr inbounds (i8, ptr @g_sigfreeaction, i64 8), align 8
+  %104 = add nuw nsw i32 %.0912.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %104, 4
   br i1 %exitcond.not.i.i, label %105, label %96, !llvm.loop !11
 
@@ -312,26 +312,26 @@ nxsig_alloc_action.exit:                          ; preds = %up_irq_restore.exit
   br label %121
 
 121:                                              ; preds = %.sink.split, %87
-  %.082 = phi ptr [ %20, %87 ], [ %.0.lcssa.i, %.sink.split ]
-  %122 = getelementptr inbounds i8, ptr %.082, i64 8
-  store ptr %.081, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %.082, i64 16
+  %.081 = phi ptr [ %20, %87 ], [ %.0.lcssa.i, %.sink.split ]
+  %122 = getelementptr inbounds i8, ptr %.081, i64 8
+  store ptr %.082, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %.081, i64 16
   %124 = getelementptr inbounds i8, ptr %1, i64 8
   %125 = load i64, ptr %124, align 8
   store i64 %125, ptr %123, align 8
   %126 = getelementptr inbounds i8, ptr %1, i64 16
   %127 = load i32, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %.082, i64 24
+  %128 = getelementptr inbounds i8, ptr %.081, i64 24
   store i32 %127, ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %1, i64 24
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %.082, i64 32
+  %131 = getelementptr inbounds i8, ptr %.081, i64 32
   store ptr %130, ptr %131, align 8
   br label %nxsig_release_action.exit
 
 nxsig_release_action.exit:                        ; preds = %86, %.loopexit, %121, %64, %40, %17, %4
-  %.080 = phi i32 [ -22, %4 ], [ -22, %17 ], [ 0, %40 ], [ 0, %64 ], [ 0, %121 ], [ 0, %.loopexit ], [ 0, %86 ]
-  ret i32 %.080
+  %.0 = phi i32 [ -22, %4 ], [ -22, %17 ], [ 0, %40 ], [ 0, %64 ], [ 0, %121 ], [ 0, %.loopexit ], [ 0, %86 ]
+  ret i32 %.0
 }
 
 declare zeroext i1 @nxsig_iscatchable(i32 noundef) local_unnamed_addr #1

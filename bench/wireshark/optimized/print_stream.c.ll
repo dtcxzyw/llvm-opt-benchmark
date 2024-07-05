@@ -583,9 +583,9 @@ define internal range(i32 0, 2) i32 @print_preamble_ps(ptr nocapture noundef rea
   br label %ps_clean_string.exit
 
 .preheader.i:                                     ; preds = %3, %25
-  %.022.i = phi i32 [ %27, %25 ], [ 0, %3 ]
-  %.01721.i = phi i32 [ %26, %25 ], [ 0, %3 ]
-  %13 = sext i32 %.01721.i to i64
+  %.022.i = phi i32 [ %26, %25 ], [ 0, %3 ]
+  %.01721.i = phi i32 [ %27, %25 ], [ 0, %3 ]
+  %13 = sext i32 %.022.i to i64
   %14 = getelementptr i8, ptr %1, i64 %13
   %15 = load i8, ptr %14, align 1
   switch i8 %15, label %21 [
@@ -595,25 +595,25 @@ define internal range(i32 0, 2) i32 @print_preamble_ps(ptr nocapture noundef rea
   ]
 
 .thread.i:                                        ; preds = %.preheader.i, %.preheader.i, %.preheader.i
-  %16 = sext i32 %.022.i to i64
+  %16 = sext i32 %.01721.i to i64
   %17 = getelementptr i8, ptr %4, i64 %16
   store i8 92, ptr %17, align 1
-  %18 = add nsw i32 %.022.i, 1
+  %18 = add nsw i32 %.01721.i, 1
   %19 = sext i32 %18 to i64
   %20 = getelementptr i8, ptr %4, i64 %19
   store i8 %15, ptr %20, align 1
   br label %25
 
 21:                                               ; preds = %.preheader.i
-  %22 = sext i32 %.022.i to i64
+  %22 = sext i32 %.01721.i to i64
   %23 = getelementptr i8, ptr %4, i64 %22
   store i8 %15, ptr %23, align 1
   %24 = icmp eq i8 %15, 0
   br i1 %24, label %ps_clean_string.exit, label %25
 
 25:                                               ; preds = %21, %.thread.i
-  %.120.i = phi i32 [ %18, %.thread.i ], [ %.022.i, %21 ]
-  %26 = add i32 %.01721.i, 1
+  %.120.i = phi i32 [ %18, %.thread.i ], [ %.01721.i, %21 ]
+  %26 = add i32 %.022.i, 1
   %27 = add nsw i32 %.120.i, 1
   %28 = icmp slt i32 %.120.i, 255
   br i1 %28, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !4
@@ -643,9 +643,9 @@ define internal range(i32 0, 2) i32 @print_line_ps(ptr nocapture noundef readonl
   br label %ps_clean_string.exit
 
 .preheader.i:                                     ; preds = %3, %21
-  %.022.i = phi i32 [ %23, %21 ], [ 0, %3 ]
-  %.01721.i = phi i32 [ %22, %21 ], [ 0, %3 ]
-  %9 = sext i32 %.01721.i to i64
+  %.022.i = phi i32 [ %22, %21 ], [ 0, %3 ]
+  %.01721.i = phi i32 [ %23, %21 ], [ 0, %3 ]
+  %9 = sext i32 %.022.i to i64
   %10 = getelementptr i8, ptr %2, i64 %9
   %11 = load i8, ptr %10, align 1
   switch i8 %11, label %17 [
@@ -655,25 +655,25 @@ define internal range(i32 0, 2) i32 @print_line_ps(ptr nocapture noundef readonl
   ]
 
 .thread.i:                                        ; preds = %.preheader.i, %.preheader.i, %.preheader.i
-  %12 = sext i32 %.022.i to i64
+  %12 = sext i32 %.01721.i to i64
   %13 = getelementptr i8, ptr %4, i64 %12
   store i8 92, ptr %13, align 1
-  %14 = add nsw i32 %.022.i, 1
+  %14 = add nsw i32 %.01721.i, 1
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %4, i64 %15
   store i8 %11, ptr %16, align 1
   br label %21
 
 17:                                               ; preds = %.preheader.i
-  %18 = sext i32 %.022.i to i64
+  %18 = sext i32 %.01721.i to i64
   %19 = getelementptr i8, ptr %4, i64 %18
   store i8 %11, ptr %19, align 1
   %20 = icmp eq i8 %11, 0
   br i1 %20, label %ps_clean_string.exit, label %21
 
 21:                                               ; preds = %17, %.thread.i
-  %.120.i = phi i32 [ %14, %.thread.i ], [ %.022.i, %17 ]
-  %22 = add i32 %.01721.i, 1
+  %.120.i = phi i32 [ %14, %.thread.i ], [ %.01721.i, %17 ]
+  %22 = add i32 %.022.i, 1
   %23 = add nsw i32 %.120.i, 1
   %24 = icmp slt i32 %.120.i, 255
   br i1 %24, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !4
@@ -702,9 +702,9 @@ define internal range(i32 0, 2) i32 @print_bookmark_ps(ptr nocapture noundef rea
   br label %ps_clean_string.exit
 
 .preheader.i:                                     ; preds = %3, %21
-  %.022.i = phi i32 [ %23, %21 ], [ 0, %3 ]
-  %.01721.i = phi i32 [ %22, %21 ], [ 0, %3 ]
-  %9 = sext i32 %.01721.i to i64
+  %.022.i = phi i32 [ %22, %21 ], [ 0, %3 ]
+  %.01721.i = phi i32 [ %23, %21 ], [ 0, %3 ]
+  %9 = sext i32 %.022.i to i64
   %10 = getelementptr i8, ptr %2, i64 %9
   %11 = load i8, ptr %10, align 1
   switch i8 %11, label %17 [
@@ -714,25 +714,25 @@ define internal range(i32 0, 2) i32 @print_bookmark_ps(ptr nocapture noundef rea
   ]
 
 .thread.i:                                        ; preds = %.preheader.i, %.preheader.i, %.preheader.i
-  %12 = sext i32 %.022.i to i64
+  %12 = sext i32 %.01721.i to i64
   %13 = getelementptr i8, ptr %4, i64 %12
   store i8 92, ptr %13, align 1
-  %14 = add nsw i32 %.022.i, 1
+  %14 = add nsw i32 %.01721.i, 1
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %4, i64 %15
   store i8 %11, ptr %16, align 1
   br label %21
 
 17:                                               ; preds = %.preheader.i
-  %18 = sext i32 %.022.i to i64
+  %18 = sext i32 %.01721.i to i64
   %19 = getelementptr i8, ptr %4, i64 %18
   store i8 %11, ptr %19, align 1
   %20 = icmp eq i8 %11, 0
   br i1 %20, label %ps_clean_string.exit, label %21
 
 21:                                               ; preds = %17, %.thread.i
-  %.120.i = phi i32 [ %14, %.thread.i ], [ %.022.i, %17 ]
-  %22 = add i32 %.01721.i, 1
+  %.120.i = phi i32 [ %14, %.thread.i ], [ %.01721.i, %17 ]
+  %22 = add i32 %.022.i, 1
   %23 = add nsw i32 %.120.i, 1
   %24 = icmp slt i32 %.120.i, 255
   br i1 %24, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !4

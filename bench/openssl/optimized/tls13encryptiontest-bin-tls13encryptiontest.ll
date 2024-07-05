@@ -322,17 +322,17 @@ entry:
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %inc = add nuw nsw i64 %outer.026, 1
+  %inc = add nuw nsw i64 %outer.027, 1
   %exitcond.not = icmp eq i64 %inc, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.body:                                         ; preds = %entry, %for.cond
-  %totlen.027 = phi i64 [ 0, %entry ], [ %add, %for.cond ]
-  %outer.026 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
-  %arrayidx = getelementptr inbounds ptr, ptr %str, i64 %outer.026
+  %outer.027 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
+  %totlen.026 = phi i64 [ 0, %entry ], [ %add, %for.cond ]
+  %arrayidx = getelementptr inbounds ptr, ptr %str, i64 %outer.027
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
-  %add = add i64 %call, %totlen.027
+  %add = add i64 %call, %totlen.026
   %and = and i64 %add, 1
   %cmp1.not = icmp eq i64 %and, 0
   br i1 %cmp1.not, label %for.cond, label %return
@@ -344,9 +344,9 @@ for.end:                                          ; preds = %for.cond
   br i1 %cmp3, label %return, label %for.cond9.preheader
 
 for.cond9.preheader:                              ; preds = %for.end, %for.inc34
-  %curr.032 = phi i64 [ %curr.1.lcssa, %for.inc34 ], [ 0, %for.end ]
-  %outer.131 = phi i64 [ %inc35, %for.inc34 ], [ 0, %for.end ]
-  %arrayidx10 = getelementptr inbounds ptr, ptr %str, i64 %outer.131
+  %outer.132 = phi i64 [ %inc35, %for.inc34 ], [ 0, %for.end ]
+  %curr.031 = phi i64 [ %curr.1.lcssa, %for.inc34 ], [ 0, %for.end ]
+  %arrayidx10 = getelementptr inbounds ptr, ptr %str, i64 %outer.132
   %1 = load ptr, ptr %arrayidx10, align 8
   %2 = load i8, ptr %1, align 1
   %cmp12.not28 = icmp eq i8 %2, 0
@@ -354,11 +354,11 @@ for.cond9.preheader:                              ; preds = %for.end, %for.inc34
 
 for.body14:                                       ; preds = %for.cond9.preheader, %if.end27
   %3 = phi i8 [ %7, %if.end27 ], [ %2, %for.cond9.preheader ]
-  %curr.130 = phi i64 [ %inc29, %if.end27 ], [ %curr.032, %for.cond9.preheader ]
-  %inner.029 = phi i64 [ %add32, %if.end27 ], [ 0, %for.cond9.preheader ]
+  %inner.030 = phi i64 [ %add32, %if.end27 ], [ 0, %for.cond9.preheader ]
+  %curr.129 = phi i64 [ %inc29, %if.end27 ], [ %curr.031, %for.cond9.preheader ]
   %call17 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %3) #5
   %4 = load ptr, ptr %arrayidx10, align 8
-  %add19 = or disjoint i64 %inner.029, 1
+  %add19 = or disjoint i64 %inner.030, 1
   %arrayidx20 = getelementptr inbounds i8, ptr %4, i64 %add19
   %5 = load i8, ptr %arrayidx20, align 1
   %call21 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %5) #5
@@ -375,10 +375,10 @@ if.end27:                                         ; preds = %for.body14
   %shl = shl i32 %call17, 4
   %or = or i32 %call21, %shl
   %conv28 = trunc i32 %or to i8
-  %inc29 = add i64 %curr.130, 1
-  %arrayidx30 = getelementptr inbounds i8, ptr %call2, i64 %curr.130
+  %inc29 = add i64 %curr.129, 1
+  %arrayidx30 = getelementptr inbounds i8, ptr %call2, i64 %curr.129
   store i8 %conv28, ptr %arrayidx30, align 1
-  %add32 = add i64 %inner.029, 2
+  %add32 = add i64 %inner.030, 2
   %6 = load ptr, ptr %arrayidx10, align 8
   %arrayidx11 = getelementptr inbounds i8, ptr %6, i64 %add32
   %7 = load i8, ptr %arrayidx11, align 1
@@ -386,8 +386,8 @@ if.end27:                                         ; preds = %for.body14
   br i1 %cmp12.not, label %for.inc34, label %for.body14, !llvm.loop !8
 
 for.inc34:                                        ; preds = %if.end27, %for.cond9.preheader
-  %curr.1.lcssa = phi i64 [ %curr.032, %for.cond9.preheader ], [ %inc29, %if.end27 ]
-  %inc35 = add nuw nsw i64 %outer.131, 1
+  %curr.1.lcssa = phi i64 [ %curr.031, %for.cond9.preheader ], [ %inc29, %if.end27 ]
+  %inc35 = add nuw nsw i64 %outer.132, 1
   %exitcond34.not = icmp eq i64 %inc35, 3
   br i1 %exitcond34.not, label %for.end36, label %for.cond9.preheader, !llvm.loop !9
 

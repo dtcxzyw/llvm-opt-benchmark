@@ -880,8 +880,8 @@ define hidden i32 @mbedtls_md_hmac_starts(ptr noundef %0, ptr noundef %1, i64 no
 29:                                               ; preds = %24, %13
   %.pre-phi = phi i64 [ %.pre55, %24 ], [ %16, %13 ]
   %30 = phi ptr [ %.pre, %24 ], [ %11, %13 ]
-  %.040 = phi ptr [ %4, %24 ], [ %1, %13 ]
-  %.039 = phi i64 [ %28, %24 ], [ %2, %13 ]
+  %.041 = phi i64 [ %28, %24 ], [ %2, %13 ]
+  %.039 = phi ptr [ %4, %24 ], [ %1, %13 ]
   %31 = getelementptr inbounds i8, ptr %30, i64 %.pre-phi
   call void @llvm.memset.p0.i64(ptr align 1 %30, i8 54, i64 %.pre-phi, i1 false)
   %32 = load ptr, ptr %0, align 8
@@ -889,14 +889,14 @@ define hidden i32 @mbedtls_md_hmac_starts(ptr noundef %0, ptr noundef %1, i64 no
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %31, i8 92, i64 %35, i1 false)
-  %.not53 = icmp eq i64 %.039, 0
+  %.not53 = icmp eq i64 %.041, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29, %.lr.ph
   %.052 = phi i64 [ %45, %.lr.ph ], [ 0, %29 ]
   %36 = getelementptr inbounds i8, ptr %30, i64 %.052
   %37 = load i8, ptr %36, align 1
-  %38 = getelementptr inbounds i8, ptr %.040, i64 %.052
+  %38 = getelementptr inbounds i8, ptr %.039, i64 %.052
   %39 = load i8, ptr %38, align 1
   %40 = xor i8 %39, %37
   store i8 %40, ptr %36, align 1
@@ -906,7 +906,7 @@ define hidden i32 @mbedtls_md_hmac_starts(ptr noundef %0, ptr noundef %1, i64 no
   %44 = xor i8 %43, %42
   store i8 %44, ptr %41, align 1
   %45 = add nuw nsw i64 %.052, 1
-  %exitcond.not = icmp eq i64 %45, %.039
+  %exitcond.not = icmp eq i64 %45, %.041
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %29
@@ -923,13 +923,13 @@ define hidden i32 @mbedtls_md_hmac_starts(ptr noundef %0, ptr noundef %1, i64 no
   br label %53
 
 53:                                               ; preds = %47, %._crit_edge, %22, %20, %18
-  %.038 = phi i32 [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %46, %._crit_edge ], [ %52, %47 ]
+  %.040 = phi i32 [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %46, %._crit_edge ], [ %52, %47 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #13
   br label %54
 
 54:                                               ; preds = %3, %6, %9, %53
-  %.041 = phi i32 [ %.038, %53 ], [ -20736, %9 ], [ -20736, %6 ], [ -20736, %3 ]
-  ret i32 %.041
+  %.038 = phi i32 [ %.040, %53 ], [ -20736, %9 ], [ -20736, %6 ], [ -20736, %3 ]
+  ret i32 %.038
 }
 
 ; Function Attrs: nounwind uwtable

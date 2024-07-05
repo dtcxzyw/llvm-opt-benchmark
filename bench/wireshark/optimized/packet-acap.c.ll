@@ -157,20 +157,20 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_hidd
   br label %65
 
 65:                                               ; preds = %53, %proto_item_set_hidden.exit
-  %.073 = phi i32 [ %63, %53 ], [ 0, %proto_item_set_hidden.exit ]
-  %.072 = phi ptr [ %59, %53 ], [ %17, %proto_item_set_hidden.exit ]
-  %.0 = phi i32 [ %64, %53 ], [ %16, %proto_item_set_hidden.exit ]
-  %.not82 = icmp eq i32 %.0, 0
+  %.074 = phi i32 [ %63, %53 ], [ 0, %proto_item_set_hidden.exit ]
+  %.073 = phi ptr [ %59, %53 ], [ %17, %proto_item_set_hidden.exit ]
+  %.072 = phi i32 [ %64, %53 ], [ %16, %proto_item_set_hidden.exit ]
+  %.not82 = icmp eq i32 %.072, 0
   br i1 %.not82, label %71, label %.sink.split
 
 .sink.split:                                      ; preds = %65
   %66 = load ptr, ptr %23, align 8
-  %67 = sext i32 %.0 to i64
+  %67 = sext i32 %.072 to i64
   %hf_acap_request_data.val = load i32, ptr @hf_acap_request_data, align 4
   %hf_acap_response_data.val = load i32, ptr @hf_acap_response_data, align 4
   %68 = select i1 %.not79, i32 %hf_acap_request_data.val, i32 %hf_acap_response_data.val
-  %69 = call ptr @format_text(ptr noundef %66, ptr noundef %.072, i64 noundef %67) #2
-  %70 = call ptr @proto_tree_add_string(ptr noundef %50, i32 noundef %68, ptr noundef %0, i32 noundef %.073, i32 noundef %.0, ptr noundef %69) #2
+  %69 = call ptr @format_text(ptr noundef %66, ptr noundef %.073, i64 noundef %67) #2
+  %70 = call ptr @proto_tree_add_string(ptr noundef %50, i32 noundef %68, ptr noundef %0, i32 noundef %.074, i32 noundef %.072, ptr noundef %69) #2
   br label %71
 
 71:                                               ; preds = %.sink.split, %65, %13
@@ -178,8 +178,8 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_hidd
   br label %73
 
 73:                                               ; preds = %4, %71
-  %.075 = phi i32 [ %72, %71 ], [ 0, %4 ]
-  ret i32 %.075
+  %.0 = phi i32 [ %72, %71 ], [ 0, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

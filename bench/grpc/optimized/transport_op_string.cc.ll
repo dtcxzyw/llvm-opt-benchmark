@@ -258,10 +258,10 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %.noexc
 
 for.body.i.i:                                     ; preds = %land.lhs.true.i.i.i.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i
   %conv5.i11.i.i = phi i32 [ %conv5.i.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i ], [ %.pre1.i, %land.lhs.true.i.i.i.i.i ]
-  %__begin3.sroa.0.010.i.i = phi ptr [ %__begin3.sroa.0.2.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i ], [ %4, %land.lhs.true.i.i.i.i.i ]
-  %__begin3.sroa.5.09.i.i = phi i64 [ %__begin3.sroa.5.2.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i ], [ 0, %land.lhs.true.i.i.i.i.i ]
-  %data.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.010.i.i, i64 16
-  %arrayidx.i.i.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor.98"], ptr %data.i.i.i, i64 0, i64 %__begin3.sroa.5.09.i.i
+  %__begin3.sroa.5.010.i.i = phi i64 [ %__begin3.sroa.5.2.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i ], [ 0, %land.lhs.true.i.i.i.i.i ]
+  %__begin3.sroa.0.09.i.i = phi ptr [ %__begin3.sroa.0.2.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i ], [ %4, %land.lhs.true.i.i.i.i.i ]
+  %data.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.09.i.i, i64 16
+  %arrayidx.i.i.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor.98"], ptr %data.i.i.i, i64 0, i64 %__begin3.sroa.5.010.i.i
   %second.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 32
   %6 = load ptr, ptr %arrayidx.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %6, null
@@ -279,12 +279,12 @@ for.body.i.i:                                     ; preds = %land.lhs.true.i.i.i
   %10 = trunc i64 %add.i.i.i to i32
   %11 = add i32 %conv5.i11.i.i, 32
   %conv5.i.i.i = add i32 %11, %10
-  %inc.i.i.i = add i64 %__begin3.sroa.5.09.i.i, 1
+  %inc.i.i.i = add i64 %__begin3.sroa.5.010.i.i, 1
   br label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %for.body.i.i
+  %__begin3.sroa.0.1.i.i = phi ptr [ %__begin3.sroa.0.09.i.i, %for.body.i.i ], [ %13, %while.body.i.i.i ]
   %__begin3.sroa.5.1.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i ], [ 0, %while.body.i.i.i ]
-  %__begin3.sroa.0.1.i.i = phi ptr [ %__begin3.sroa.0.010.i.i, %for.body.i.i ], [ %13, %while.body.i.i.i ]
   %count.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.1.i.i, i64 8
   %12 = load i64, ptr %count.i.i.i, align 8
   %cmp4.i.i.i = icmp eq i64 %__begin3.sroa.5.1.i.i, %12
@@ -296,11 +296,11 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i, label %land.rhs.i.i.i, !llvm.loop !4
 
 _ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i: ; preds = %while.body.i.i.i, %land.rhs.i.i.i
-  %__begin3.sroa.5.2.i.i = phi i64 [ 0, %while.body.i.i.i ], [ %__begin3.sroa.5.1.i.i, %land.rhs.i.i.i ]
   %__begin3.sroa.0.2.i.i = phi ptr [ null, %while.body.i.i.i ], [ %__begin3.sroa.0.1.i.i, %land.rhs.i.i.i ]
+  %__begin3.sroa.5.2.i.i = phi i64 [ 0, %while.body.i.i.i ], [ %__begin3.sroa.5.1.i.i, %land.rhs.i.i.i ]
   %cmp.i.i.i.i = icmp ne ptr %__begin3.sroa.0.2.i.i, null
   %cmp4.i.i.i.i = icmp ne i64 %__begin3.sroa.5.2.i.i, 0
-  %.not.i.i.i = or i1 %cmp4.i.i.i.i, %cmp.i.i.i.i
+  %.not.i.i.i = or i1 %cmp.i.i.i.i, %cmp4.i.i.i.i
   br i1 %.not.i.i.i, label %for.body.i.i, label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i, %land.lhs.true.i.i.i.i.i, %entry._ZNK9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE6EncodeINS_15metadata_detail20TransportSizeEncoderEEEvPT_.exit_crit_edge.i
@@ -456,10 +456,10 @@ land.lhs.true.i.i.i.i.i27:                        ; preds = %.noexc65
 
 for.body.i.i31:                                   ; preds = %land.lhs.true.i.i.i.i.i27, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i54
   %conv5.i11.i.i32 = phi i32 [ %conv5.i.i.i47, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i54 ], [ %.pre1.i30, %land.lhs.true.i.i.i.i.i27 ]
-  %__begin3.sroa.0.010.i.i33 = phi ptr [ %__begin3.sroa.0.2.i.i56, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i54 ], [ %35, %land.lhs.true.i.i.i.i.i27 ]
-  %__begin3.sroa.5.09.i.i34 = phi i64 [ %__begin3.sroa.5.2.i.i55, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i54 ], [ 0, %land.lhs.true.i.i.i.i.i27 ]
-  %data.i.i.i35 = getelementptr inbounds i8, ptr %__begin3.sroa.0.010.i.i33, i64 16
-  %arrayidx.i.i.i36 = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor.98"], ptr %data.i.i.i35, i64 0, i64 %__begin3.sroa.5.09.i.i34
+  %__begin3.sroa.5.010.i.i33 = phi i64 [ %__begin3.sroa.5.2.i.i56, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i54 ], [ 0, %land.lhs.true.i.i.i.i.i27 ]
+  %__begin3.sroa.0.09.i.i34 = phi ptr [ %__begin3.sroa.0.2.i.i55, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i54 ], [ %35, %land.lhs.true.i.i.i.i.i27 ]
+  %data.i.i.i35 = getelementptr inbounds i8, ptr %__begin3.sroa.0.09.i.i34, i64 16
+  %arrayidx.i.i.i36 = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor.98"], ptr %data.i.i.i35, i64 0, i64 %__begin3.sroa.5.010.i.i33
   %second.i.i37 = getelementptr inbounds i8, ptr %arrayidx.i.i.i36, i64 32
   %37 = load ptr, ptr %arrayidx.i.i.i36, align 8
   %tobool.not.i.i.i.i.i38 = icmp eq ptr %37, null
@@ -477,28 +477,28 @@ for.body.i.i31:                                   ; preds = %land.lhs.true.i.i.i
   %41 = trunc i64 %add.i.i.i46 to i32
   %42 = add i32 %conv5.i11.i.i32, 32
   %conv5.i.i.i47 = add i32 %42, %41
-  %inc.i.i.i48 = add i64 %__begin3.sroa.5.09.i.i34, 1
+  %inc.i.i.i48 = add i64 %__begin3.sroa.5.010.i.i33, 1
   br label %land.rhs.i.i.i49
 
 land.rhs.i.i.i49:                                 ; preds = %while.body.i.i.i61, %for.body.i.i31
-  %__begin3.sroa.5.1.i.i50 = phi i64 [ %inc.i.i.i48, %for.body.i.i31 ], [ 0, %while.body.i.i.i61 ]
-  %__begin3.sroa.0.1.i.i51 = phi ptr [ %__begin3.sroa.0.010.i.i33, %for.body.i.i31 ], [ %44, %while.body.i.i.i61 ]
-  %count.i.i.i52 = getelementptr inbounds i8, ptr %__begin3.sroa.0.1.i.i51, i64 8
+  %__begin3.sroa.0.1.i.i50 = phi ptr [ %__begin3.sroa.0.09.i.i34, %for.body.i.i31 ], [ %44, %while.body.i.i.i61 ]
+  %__begin3.sroa.5.1.i.i51 = phi i64 [ %inc.i.i.i48, %for.body.i.i31 ], [ 0, %while.body.i.i.i61 ]
+  %count.i.i.i52 = getelementptr inbounds i8, ptr %__begin3.sroa.0.1.i.i50, i64 8
   %43 = load i64, ptr %count.i.i.i52, align 8
-  %cmp4.i.i.i53 = icmp eq i64 %__begin3.sroa.5.1.i.i50, %43
+  %cmp4.i.i.i53 = icmp eq i64 %__begin3.sroa.5.1.i.i51, %43
   br i1 %cmp4.i.i.i53, label %while.body.i.i.i61, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i54
 
 while.body.i.i.i61:                               ; preds = %land.rhs.i.i.i49
-  %44 = load ptr, ptr %__begin3.sroa.0.1.i.i51, align 8
+  %44 = load ptr, ptr %__begin3.sroa.0.1.i.i50, align 8
   %cmp.not.i.i.i62 = icmp eq ptr %44, null
   br i1 %cmp.not.i.i.i62, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i54, label %land.rhs.i.i.i49, !llvm.loop !4
 
 _ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i54: ; preds = %while.body.i.i.i61, %land.rhs.i.i.i49
-  %__begin3.sroa.5.2.i.i55 = phi i64 [ 0, %while.body.i.i.i61 ], [ %__begin3.sroa.5.1.i.i50, %land.rhs.i.i.i49 ]
-  %__begin3.sroa.0.2.i.i56 = phi ptr [ null, %while.body.i.i.i61 ], [ %__begin3.sroa.0.1.i.i51, %land.rhs.i.i.i49 ]
-  %cmp.i.i.i.i57 = icmp ne ptr %__begin3.sroa.0.2.i.i56, null
-  %cmp4.i.i.i.i58 = icmp ne i64 %__begin3.sroa.5.2.i.i55, 0
-  %.not.i.i.i59 = or i1 %cmp4.i.i.i.i58, %cmp.i.i.i.i57
+  %__begin3.sroa.0.2.i.i55 = phi ptr [ null, %while.body.i.i.i61 ], [ %__begin3.sroa.0.1.i.i50, %land.rhs.i.i.i49 ]
+  %__begin3.sroa.5.2.i.i56 = phi i64 [ 0, %while.body.i.i.i61 ], [ %__begin3.sroa.5.1.i.i51, %land.rhs.i.i.i49 ]
+  %cmp.i.i.i.i57 = icmp ne ptr %__begin3.sroa.0.2.i.i55, null
+  %cmp4.i.i.i.i58 = icmp ne i64 %__begin3.sroa.5.2.i.i56, 0
+  %.not.i.i.i59 = or i1 %cmp.i.i.i.i57, %cmp4.i.i.i.i58
   br i1 %.not.i.i.i59, label %for.body.i.i31, label %invoke.cont66
 
 invoke.cont66:                                    ; preds = %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i54, %land.lhs.true.i.i.i.i.i27, %entry._ZNK9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE6EncodeINS_15metadata_detail20TransportSizeEncoderEEEvPT_.exit_crit_edge.i63
@@ -686,10 +686,10 @@ land.lhs.true.i.i.i.i:                            ; preds = %.noexc
   br i1 %cmp3.i.i.i.i, label %invoke.cont2, label %for.body.i
 
 for.body.i:                                       ; preds = %land.lhs.true.i.i.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i
-  %__begin2.sroa.0.018.i = phi ptr [ %__begin2.sroa.0.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ], [ %0, %land.lhs.true.i.i.i.i ]
-  %__begin2.sroa.5.017.i = phi i64 [ %__begin2.sroa.5.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ], [ 0, %land.lhs.true.i.i.i.i ]
-  %data.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.018.i, i64 16
-  %arrayidx.i.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor.98"], ptr %data.i.i, i64 0, i64 %__begin2.sroa.5.017.i
+  %__begin2.sroa.5.018.i = phi i64 [ %__begin2.sroa.5.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ], [ 0, %land.lhs.true.i.i.i.i ]
+  %__begin2.sroa.0.017.i = phi ptr [ %__begin2.sroa.0.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ], [ %0, %land.lhs.true.i.i.i.i ]
+  %data.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.017.i, i64 16
+  %arrayidx.i.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor.98"], ptr %data.i.i, i64 0, i64 %__begin2.sroa.5.018.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
   %bytes.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
@@ -716,12 +716,12 @@ for.body.i:                                       ; preds = %land.lhs.true.i.i.i
           to label %.noexc1 unwind label %lpad.loopexit
 
 .noexc1:                                          ; preds = %for.body.i
-  %inc.i.i = add i64 %__begin2.sroa.5.017.i, 1
+  %inc.i.i = add i64 %__begin2.sroa.5.018.i, 1
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i, %.noexc1
+  %__begin2.sroa.0.1.i = phi ptr [ %__begin2.sroa.0.017.i, %.noexc1 ], [ %10, %while.body.i.i ]
   %__begin2.sroa.5.1.i = phi i64 [ %inc.i.i, %.noexc1 ], [ 0, %while.body.i.i ]
-  %__begin2.sroa.0.1.i = phi ptr [ %__begin2.sroa.0.018.i, %.noexc1 ], [ %10, %while.body.i.i ]
   %count.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.1.i, i64 8
   %9 = load i64, ptr %count.i.i, align 8
   %cmp4.i.i = icmp eq i64 %__begin2.sroa.5.1.i, %9
@@ -733,11 +733,11 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %cmp.not.i.i, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i, label %land.rhs.i.i, !llvm.loop !4
 
 _ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i: ; preds = %while.body.i.i, %land.rhs.i.i
-  %__begin2.sroa.5.2.i = phi i64 [ 0, %while.body.i.i ], [ %__begin2.sroa.5.1.i, %land.rhs.i.i ]
   %__begin2.sroa.0.2.i = phi ptr [ null, %while.body.i.i ], [ %__begin2.sroa.0.1.i, %land.rhs.i.i ]
+  %__begin2.sroa.5.2.i = phi i64 [ 0, %while.body.i.i ], [ %__begin2.sroa.5.1.i, %land.rhs.i.i ]
   %cmp.i.i.i = icmp ne ptr %__begin2.sroa.0.2.i, null
   %cmp4.i.i.i = icmp ne i64 %__begin2.sroa.5.2.i, 0
-  %.not.i.i = or i1 %cmp4.i.i.i, %cmp.i.i.i
+  %.not.i.i = or i1 %cmp.i.i.i, %cmp4.i.i.i
   br i1 %.not.i.i, label %for.body.i, label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i, %land.lhs.true.i.i.i.i, %.noexc
@@ -3717,35 +3717,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %cond, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %cond, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.021.i, 2
+  %add11.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.021.i, 3
+  %add15.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
+  %div.i = udiv i64 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !160
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
@@ -4109,35 +4109,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.021.i, 2
+  %add8.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.021.i, 3
+  %add13.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
+  %0 = udiv i32 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !165
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
@@ -4252,35 +4252,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.021.i, 2
+  %add8.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.021.i, 3
+  %add13.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
+  %0 = udiv i32 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !165
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i

@@ -600,9 +600,9 @@ for.cond10.preheader:                             ; preds = %for.inc, %entry, %b
   br i1 %2, label %for.body13, label %do.end34
 
 for.body:                                         ; preds = %bev_group_random_element_.exit, %for.inc
-  %bev.037 = phi ptr [ %8, %for.inc ], [ %retval.0.i, %bev_group_random_element_.exit ]
-  %again.036 = phi i8 [ %again.1, %for.inc ], [ 0, %bev_group_random_element_.exit ]
-  %lock = getelementptr inbounds i8, ptr %bev.037, i64 448
+  %again.037 = phi i8 [ %again.1, %for.inc ], [ 0, %bev_group_random_element_.exit ]
+  %bev.036 = phi ptr [ %8, %for.inc ], [ %retval.0.i, %bev_group_random_element_.exit ]
+  %lock = getelementptr inbounds i8, ptr %bev.036, i64 448
   %3 = load ptr, ptr %lock, align 8
   %tobool.not.i18 = icmp eq ptr %3, null
   br i1 %tobool.not.i18, label %if.then, label %land.lhs.true.i
@@ -618,7 +618,7 @@ EVLOCK_TRY_LOCK_.exit:                            ; preds = %land.lhs.true.i
   br i1 %tobool2.not.i20.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body, %land.lhs.true.i, %EVLOCK_TRY_LOCK_.exit
-  tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %bev.037, i16 noundef zeroext 4) #9
+  tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %bev.036, i16 noundef zeroext 4) #9
   %5 = load ptr, ptr %lock, align 8
   %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %for.inc, label %if.then6
@@ -629,8 +629,8 @@ if.then6:                                         ; preds = %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %EVLOCK_TRY_LOCK_.exit, %if.then, %if.then6
-  %again.1 = phi i8 [ %again.036, %if.then6 ], [ %again.036, %if.then ], [ 1, %EVLOCK_TRY_LOCK_.exit ]
-  %rate_limiting = getelementptr inbounds i8, ptr %bev.037, i64 472
+  %again.1 = phi i8 [ %again.037, %if.then6 ], [ %again.037, %if.then ], [ 1, %EVLOCK_TRY_LOCK_.exit ]
+  %rate_limiting = getelementptr inbounds i8, ptr %bev.036, i64 472
   %7 = load ptr, ptr %rate_limiting, align 8
   %8 = load ptr, ptr %7, align 8
   %cmp.not = icmp eq ptr %8, null
@@ -909,9 +909,9 @@ for.cond10.preheader:                             ; preds = %for.inc, %entry, %b
   br i1 %2, label %for.body13, label %do.end34
 
 for.body:                                         ; preds = %bev_group_random_element_.exit, %for.inc
-  %bev.037 = phi ptr [ %8, %for.inc ], [ %retval.0.i, %bev_group_random_element_.exit ]
-  %again.036 = phi i8 [ %again.1, %for.inc ], [ 0, %bev_group_random_element_.exit ]
-  %lock = getelementptr inbounds i8, ptr %bev.037, i64 448
+  %again.037 = phi i8 [ %again.1, %for.inc ], [ 0, %bev_group_random_element_.exit ]
+  %bev.036 = phi ptr [ %8, %for.inc ], [ %retval.0.i, %bev_group_random_element_.exit ]
+  %lock = getelementptr inbounds i8, ptr %bev.036, i64 448
   %3 = load ptr, ptr %lock, align 8
   %tobool.not.i18 = icmp eq ptr %3, null
   br i1 %tobool.not.i18, label %if.then, label %land.lhs.true.i
@@ -927,7 +927,7 @@ EVLOCK_TRY_LOCK_.exit:                            ; preds = %land.lhs.true.i
   br i1 %tobool2.not.i20.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body, %land.lhs.true.i, %EVLOCK_TRY_LOCK_.exit
-  tail call void @bufferevent_unsuspend_write_(ptr noundef nonnull %bev.037, i16 noundef zeroext 4) #9
+  tail call void @bufferevent_unsuspend_write_(ptr noundef nonnull %bev.036, i16 noundef zeroext 4) #9
   %5 = load ptr, ptr %lock, align 8
   %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %for.inc, label %if.then6
@@ -938,8 +938,8 @@ if.then6:                                         ; preds = %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %EVLOCK_TRY_LOCK_.exit, %if.then, %if.then6
-  %again.1 = phi i8 [ %again.036, %if.then6 ], [ %again.036, %if.then ], [ 1, %EVLOCK_TRY_LOCK_.exit ]
-  %rate_limiting = getelementptr inbounds i8, ptr %bev.037, i64 472
+  %again.1 = phi i8 [ %again.037, %if.then6 ], [ %again.037, %if.then ], [ 1, %EVLOCK_TRY_LOCK_.exit ]
+  %rate_limiting = getelementptr inbounds i8, ptr %bev.036, i64 472
   %7 = load ptr, ptr %rate_limiting, align 8
   %8 = load ptr, ptr %7, align 8
   %cmp.not = icmp eq ptr %8, null

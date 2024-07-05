@@ -72,16 +72,16 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
-  %verbose.0 = phi i32 [ 0, %entry ], [ %verbose.0.be, %while.cond.backedge ]
-  %Verbose.0 = phi i32 [ 0, %entry ], [ %Verbose.0.be, %while.cond.backedge ]
-  %use_supported.0 = phi i32 [ 0, %entry ], [ %use_supported.0.be, %while.cond.backedge ]
-  %stdname.0 = phi i32 [ 0, %entry ], [ %stdname.0.be, %while.cond.backedge ]
-  %psk.0 = phi i32 [ 0, %entry ], [ %psk.0.be, %while.cond.backedge ]
   %srp.0 = phi i32 [ 0, %entry ], [ %srp.0.be, %while.cond.backedge ]
+  %psk.0 = phi i32 [ 0, %entry ], [ %psk.0.be, %while.cond.backedge ]
+  %stdname.0 = phi i32 [ 0, %entry ], [ %stdname.0.be, %while.cond.backedge ]
   %convert.0 = phi ptr [ null, %entry ], [ %convert.0.be, %while.cond.backedge ]
   %ciphersuites.0 = phi ptr [ null, %entry ], [ %ciphersuites.0.be, %while.cond.backedge ]
+  %use_supported.0 = phi i32 [ 0, %entry ], [ %use_supported.0.be, %while.cond.backedge ]
   %min_version.0 = phi i32 [ 0, %entry ], [ %min_version.0.be, %while.cond.backedge ]
   %max_version.0 = phi i32 [ 0, %entry ], [ %max_version.0.be, %while.cond.backedge ]
+  %Verbose.0 = phi i32 [ 0, %entry ], [ %Verbose.0.be, %while.cond.backedge ]
+  %verbose.0 = phi i32 [ 0, %entry ], [ %verbose.0.be, %while.cond.backedge ]
   %call2 = tail call i32 @opt_next() #3
   switch i32 %call2, label %while.cond.backedge [
     i32 0, label %while.end
@@ -106,16 +106,16 @@ while.cond:                                       ; preds = %while.cond.backedge
   ]
 
 while.cond.backedge:                              ; preds = %while.cond, %sw.bb21, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5
-  %verbose.0.be = phi i32 [ %verbose.0, %sw.bb21 ], [ %verbose.0, %sw.bb18 ], [ %verbose.0, %sw.bb17 ], [ %verbose.0, %sw.bb16 ], [ %verbose.0, %sw.bb15 ], [ %verbose.0, %sw.bb14 ], [ %verbose.0, %sw.bb13 ], [ %verbose.0, %sw.bb12 ], [ %verbose.0, %sw.bb11 ], [ %verbose.0, %sw.bb9 ], [ 1, %sw.bb8 ], [ %verbose.0, %sw.bb7 ], [ 1, %sw.bb6 ], [ 1, %sw.bb5 ], [ %verbose.0, %while.cond ]
-  %Verbose.0.be = phi i32 [ %Verbose.0, %sw.bb21 ], [ %Verbose.0, %sw.bb18 ], [ %Verbose.0, %sw.bb17 ], [ %Verbose.0, %sw.bb16 ], [ %Verbose.0, %sw.bb15 ], [ %Verbose.0, %sw.bb14 ], [ %Verbose.0, %sw.bb13 ], [ %Verbose.0, %sw.bb12 ], [ %Verbose.0, %sw.bb11 ], [ %Verbose.0, %sw.bb9 ], [ %Verbose.0, %sw.bb8 ], [ %Verbose.0, %sw.bb7 ], [ 1, %sw.bb6 ], [ %Verbose.0, %sw.bb5 ], [ %Verbose.0, %while.cond ]
-  %use_supported.0.be = phi i32 [ %use_supported.0, %sw.bb21 ], [ %use_supported.0, %sw.bb18 ], [ %use_supported.0, %sw.bb17 ], [ %use_supported.0, %sw.bb16 ], [ %use_supported.0, %sw.bb15 ], [ %use_supported.0, %sw.bb14 ], [ %use_supported.0, %sw.bb13 ], [ %use_supported.0, %sw.bb12 ], [ %use_supported.0, %sw.bb11 ], [ %use_supported.0, %sw.bb9 ], [ %use_supported.0, %sw.bb8 ], [ 1, %sw.bb7 ], [ %use_supported.0, %sw.bb6 ], [ %use_supported.0, %sw.bb5 ], [ %use_supported.0, %while.cond ]
-  %stdname.0.be = phi i32 [ %stdname.0, %sw.bb21 ], [ %stdname.0, %sw.bb18 ], [ %stdname.0, %sw.bb17 ], [ %stdname.0, %sw.bb16 ], [ %stdname.0, %sw.bb15 ], [ %stdname.0, %sw.bb14 ], [ %stdname.0, %sw.bb13 ], [ %stdname.0, %sw.bb12 ], [ %stdname.0, %sw.bb11 ], [ %stdname.0, %sw.bb9 ], [ 1, %sw.bb8 ], [ %stdname.0, %sw.bb7 ], [ %stdname.0, %sw.bb6 ], [ %stdname.0, %sw.bb5 ], [ %stdname.0, %while.cond ]
-  %psk.0.be = phi i32 [ %psk.0, %sw.bb21 ], [ %psk.0, %sw.bb18 ], [ %psk.0, %sw.bb17 ], [ 1, %sw.bb16 ], [ %psk.0, %sw.bb15 ], [ %psk.0, %sw.bb14 ], [ %psk.0, %sw.bb13 ], [ %psk.0, %sw.bb12 ], [ %psk.0, %sw.bb11 ], [ %psk.0, %sw.bb9 ], [ %psk.0, %sw.bb8 ], [ %psk.0, %sw.bb7 ], [ %psk.0, %sw.bb6 ], [ %psk.0, %sw.bb5 ], [ %psk.0, %while.cond ]
   %srp.0.be = phi i32 [ %srp.0, %sw.bb21 ], [ %srp.0, %sw.bb18 ], [ 1, %sw.bb17 ], [ %srp.0, %sw.bb16 ], [ %srp.0, %sw.bb15 ], [ %srp.0, %sw.bb14 ], [ %srp.0, %sw.bb13 ], [ %srp.0, %sw.bb12 ], [ %srp.0, %sw.bb11 ], [ %srp.0, %sw.bb9 ], [ %srp.0, %sw.bb8 ], [ %srp.0, %sw.bb7 ], [ %srp.0, %sw.bb6 ], [ %srp.0, %sw.bb5 ], [ %srp.0, %while.cond ]
+  %psk.0.be = phi i32 [ %psk.0, %sw.bb21 ], [ %psk.0, %sw.bb18 ], [ %psk.0, %sw.bb17 ], [ 1, %sw.bb16 ], [ %psk.0, %sw.bb15 ], [ %psk.0, %sw.bb14 ], [ %psk.0, %sw.bb13 ], [ %psk.0, %sw.bb12 ], [ %psk.0, %sw.bb11 ], [ %psk.0, %sw.bb9 ], [ %psk.0, %sw.bb8 ], [ %psk.0, %sw.bb7 ], [ %psk.0, %sw.bb6 ], [ %psk.0, %sw.bb5 ], [ %psk.0, %while.cond ]
+  %stdname.0.be = phi i32 [ %stdname.0, %sw.bb21 ], [ %stdname.0, %sw.bb18 ], [ %stdname.0, %sw.bb17 ], [ %stdname.0, %sw.bb16 ], [ %stdname.0, %sw.bb15 ], [ %stdname.0, %sw.bb14 ], [ %stdname.0, %sw.bb13 ], [ %stdname.0, %sw.bb12 ], [ %stdname.0, %sw.bb11 ], [ %stdname.0, %sw.bb9 ], [ 1, %sw.bb8 ], [ %stdname.0, %sw.bb7 ], [ %stdname.0, %sw.bb6 ], [ %stdname.0, %sw.bb5 ], [ %stdname.0, %while.cond ]
   %convert.0.be = phi ptr [ %convert.0, %sw.bb21 ], [ %convert.0, %sw.bb18 ], [ %convert.0, %sw.bb17 ], [ %convert.0, %sw.bb16 ], [ %convert.0, %sw.bb15 ], [ %convert.0, %sw.bb14 ], [ %convert.0, %sw.bb13 ], [ %convert.0, %sw.bb12 ], [ %convert.0, %sw.bb11 ], [ %call10, %sw.bb9 ], [ %convert.0, %sw.bb8 ], [ %convert.0, %sw.bb7 ], [ %convert.0, %sw.bb6 ], [ %convert.0, %sw.bb5 ], [ %convert.0, %while.cond ]
   %ciphersuites.0.be = phi ptr [ %ciphersuites.0, %sw.bb21 ], [ %call19, %sw.bb18 ], [ %ciphersuites.0, %sw.bb17 ], [ %ciphersuites.0, %sw.bb16 ], [ %ciphersuites.0, %sw.bb15 ], [ %ciphersuites.0, %sw.bb14 ], [ %ciphersuites.0, %sw.bb13 ], [ %ciphersuites.0, %sw.bb12 ], [ %ciphersuites.0, %sw.bb11 ], [ %ciphersuites.0, %sw.bb9 ], [ %ciphersuites.0, %sw.bb8 ], [ %ciphersuites.0, %sw.bb7 ], [ %ciphersuites.0, %sw.bb6 ], [ %ciphersuites.0, %sw.bb5 ], [ %ciphersuites.0, %while.cond ]
+  %use_supported.0.be = phi i32 [ %use_supported.0, %sw.bb21 ], [ %use_supported.0, %sw.bb18 ], [ %use_supported.0, %sw.bb17 ], [ %use_supported.0, %sw.bb16 ], [ %use_supported.0, %sw.bb15 ], [ %use_supported.0, %sw.bb14 ], [ %use_supported.0, %sw.bb13 ], [ %use_supported.0, %sw.bb12 ], [ %use_supported.0, %sw.bb11 ], [ %use_supported.0, %sw.bb9 ], [ %use_supported.0, %sw.bb8 ], [ 1, %sw.bb7 ], [ %use_supported.0, %sw.bb6 ], [ %use_supported.0, %sw.bb5 ], [ %use_supported.0, %while.cond ]
   %min_version.0.be = phi i32 [ %min_version.0, %sw.bb21 ], [ %min_version.0, %sw.bb18 ], [ %min_version.0, %sw.bb17 ], [ %min_version.0, %sw.bb16 ], [ 772, %sw.bb15 ], [ 771, %sw.bb14 ], [ 770, %sw.bb13 ], [ 769, %sw.bb12 ], [ 768, %sw.bb11 ], [ %min_version.0, %sw.bb9 ], [ %min_version.0, %sw.bb8 ], [ %min_version.0, %sw.bb7 ], [ %min_version.0, %sw.bb6 ], [ %min_version.0, %sw.bb5 ], [ %min_version.0, %while.cond ]
   %max_version.0.be = phi i32 [ %max_version.0, %sw.bb21 ], [ %max_version.0, %sw.bb18 ], [ %max_version.0, %sw.bb17 ], [ %max_version.0, %sw.bb16 ], [ 772, %sw.bb15 ], [ 771, %sw.bb14 ], [ 770, %sw.bb13 ], [ 769, %sw.bb12 ], [ 768, %sw.bb11 ], [ %max_version.0, %sw.bb9 ], [ %max_version.0, %sw.bb8 ], [ %max_version.0, %sw.bb7 ], [ %max_version.0, %sw.bb6 ], [ %max_version.0, %sw.bb5 ], [ %max_version.0, %while.cond ]
+  %Verbose.0.be = phi i32 [ %Verbose.0, %sw.bb21 ], [ %Verbose.0, %sw.bb18 ], [ %Verbose.0, %sw.bb17 ], [ %Verbose.0, %sw.bb16 ], [ %Verbose.0, %sw.bb15 ], [ %Verbose.0, %sw.bb14 ], [ %Verbose.0, %sw.bb13 ], [ %Verbose.0, %sw.bb12 ], [ %Verbose.0, %sw.bb11 ], [ %Verbose.0, %sw.bb9 ], [ %Verbose.0, %sw.bb8 ], [ %Verbose.0, %sw.bb7 ], [ 1, %sw.bb6 ], [ %Verbose.0, %sw.bb5 ], [ %Verbose.0, %while.cond ]
+  %verbose.0.be = phi i32 [ %verbose.0, %sw.bb21 ], [ %verbose.0, %sw.bb18 ], [ %verbose.0, %sw.bb17 ], [ %verbose.0, %sw.bb16 ], [ %verbose.0, %sw.bb15 ], [ %verbose.0, %sw.bb14 ], [ %verbose.0, %sw.bb13 ], [ %verbose.0, %sw.bb12 ], [ %verbose.0, %sw.bb11 ], [ %verbose.0, %sw.bb9 ], [ 1, %sw.bb8 ], [ %verbose.0, %sw.bb7 ], [ 1, %sw.bb6 ], [ 1, %sw.bb5 ], [ %verbose.0, %while.cond ]
   br label %while.cond, !llvm.loop !5
 
 opthelp:                                          ; preds = %while.cond, %if.else
@@ -432,8 +432,8 @@ err:                                              ; preds = %err.sink.split, %if
   br label %end
 
 end:                                              ; preds = %sw.bb21, %for.inc170, %for.inc170.us, %for.inc170.us.us, %for.cond117.preheader, %for.end, %err, %if.then33, %sw.bb4, %opthelp
-  %sk.1 = phi ptr [ null, %sw.bb4 ], [ null, %opthelp ], [ null, %if.then33 ], [ null, %err ], [ %sk.0, %for.end ], [ %sk.0, %for.cond117.preheader ], [ %sk.0, %for.inc170.us.us ], [ %sk.0, %for.inc170.us ], [ %sk.0, %for.inc170 ], [ null, %sw.bb21 ]
   %ret.0 = phi i32 [ 0, %sw.bb4 ], [ 1, %opthelp ], [ 0, %if.then33 ], [ 1, %err ], [ 0, %for.end ], [ 0, %for.cond117.preheader ], [ 0, %for.inc170.us.us ], [ 0, %for.inc170.us ], [ 0, %for.inc170 ], [ 1, %sw.bb21 ]
+  %sk.1 = phi ptr [ null, %sw.bb4 ], [ null, %opthelp ], [ null, %if.then33 ], [ null, %err ], [ %sk.0, %for.end ], [ %sk.0, %for.cond117.preheader ], [ %sk.0, %for.inc170.us.us ], [ %sk.0, %for.inc170.us ], [ %sk.0, %for.inc170 ], [ null, %sw.bb21 ]
   %ssl.1 = phi ptr [ null, %sw.bb4 ], [ null, %opthelp ], [ null, %if.then33 ], [ null, %err ], [ %call76, %for.end ], [ %call76, %for.cond117.preheader ], [ %call76, %for.inc170.us.us ], [ %call76, %for.inc170.us ], [ %call76, %for.inc170 ], [ null, %sw.bb21 ]
   %ctx.0 = phi ptr [ null, %sw.bb4 ], [ null, %opthelp ], [ null, %if.then33 ], [ %call39, %err ], [ %call39, %for.end ], [ %call39, %for.cond117.preheader ], [ %call39, %for.inc170.us.us ], [ %call39, %for.inc170.us ], [ %call39, %for.inc170 ], [ null, %sw.bb21 ]
   %tobool174.not = icmp eq i32 %use_supported.0, 0

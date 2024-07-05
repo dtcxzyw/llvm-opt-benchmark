@@ -90,18 +90,18 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
 .lr.ph210.i.us:                                   ; preds = %.preheader200.i.us, %.loopexit198.i.us
   %indvars.iv262.i.us = phi i64 [ %indvars.iv.next263.i.us, %.loopexit198.i.us ], [ 0, %.preheader200.i.us ]
   %indvars.iv255.i.us = phi i64 [ %indvars.iv.next256.i.us, %.loopexit198.i.us ], [ 1, %.preheader200.i.us ]
-  %.0179211.i.us = phi double [ %26, %.loopexit198.i.us ], [ 0.000000e+00, %.preheader200.i.us ]
+  %.0180211.i.us = phi double [ %26, %.loopexit198.i.us ], [ 0.000000e+00, %.preheader200.i.us ]
   %20 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv262.i.us
   %21 = load ptr, ptr %20, align 8
   br label %22
 
 22:                                               ; preds = %22, %.lr.ph210.i.us
   %indvars.iv257.i.us = phi i64 [ %indvars.iv255.i.us, %.lr.ph210.i.us ], [ %indvars.iv.next258.i.us, %22 ]
-  %.1180208.i.us = phi double [ %.0179211.i.us, %.lr.ph210.i.us ], [ %26, %22 ]
+  %.1181208.i.us = phi double [ %.0180211.i.us, %.lr.ph210.i.us ], [ %26, %22 ]
   %23 = getelementptr inbounds double, ptr %21, i64 %indvars.iv257.i.us
   %24 = load double, ptr %23, align 8
   %25 = tail call noundef double @llvm.fabs.f64(double %24)
-  %26 = fadd double %.1180208.i.us, %25
+  %26 = fadd double %.1181208.i.us, %25
   %indvars.iv.next258.i.us = add nuw nsw i64 %indvars.iv257.i.us, 1
   %exitcond261.not.i.us = icmp eq i64 %indvars.iv.next258.i.us, %wide.trip.count248.i
   br i1 %exitcond261.not.i.us, label %.loopexit198.i.us, label %22, !llvm.loop !8
@@ -120,7 +120,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   %28 = icmp ult i32 %.0167242.i.us, 4
   %29 = fmul double %26, 2.000000e-01
   %30 = fdiv double %29, %19
-  %.0182.i.us = select i1 %28, double %30, double 0.000000e+00
+  %.0179.i.us = select i1 %28, double %30, double 0.000000e+00
   %31 = icmp ugt i32 %.0167242.i.us, 4
   br label %.lr.ph231.i.us
 
@@ -163,7 +163,7 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %51, label %159, label %52
 
 52:                                               ; preds = %46, %41, %35
-  %53 = fcmp ogt double %39, %.0182.i.us
+  %53 = fcmp ogt double %39, %.0179.i.us
   br i1 %53, label %54, label %160
 
 54:                                               ; preds = %52
@@ -196,14 +196,14 @@ define void @_Z6jacobiPPdiS_S0_Pi(ptr nocapture noundef readonly %0, i32 noundef
   br label %74
 
 74:                                               ; preds = %72, %70, %62
-  %.0181.i.us = phi double [ %73, %72 ], [ %71, %70 ], [ %68, %62 ]
-  %75 = tail call double @llvm.fmuladd.f64(double %.0181.i.us, double %.0181.i.us, double 1.000000e+00)
+  %.0182.i.us = phi double [ %73, %72 ], [ %71, %70 ], [ %68, %62 ]
+  %75 = tail call double @llvm.fmuladd.f64(double %.0182.i.us, double %.0182.i.us, double 1.000000e+00)
   %sqrt195.i.us = tail call double @llvm.sqrt.f64(double %75)
   %76 = fdiv double 1.000000e+00, %sqrt195.i.us
-  %77 = fmul double %.0181.i.us, %76
+  %77 = fmul double %.0182.i.us, %76
   %78 = fadd double %76, 1.000000e+00
   %79 = fdiv double %77, %78
-  %80 = fmul double %38, %.0181.i.us
+  %80 = fmul double %38, %.0182.i.us
   %81 = load double, ptr %34, align 8
   %82 = fsub double %81, %80
   store double %82, ptr %34, align 8
@@ -638,17 +638,17 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
 .lr.ph.i:                                         ; preds = %.loopexit203.i, %.preheader205.i
   %indvars.iv271.i = phi i64 [ 0, %.preheader205.i ], [ 1, %.loopexit203.i ]
   %indvars.iv265.i = phi i64 [ 1, %.preheader205.i ], [ %indvars.iv.next266.i, %.loopexit203.i ]
-  %.0164215.i = phi double [ 0.000000e+00, %.preheader205.i ], [ %44, %.loopexit203.i ]
+  %.0165215.i = phi double [ 0.000000e+00, %.preheader205.i ], [ %44, %.loopexit203.i ]
   %39 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv271.i
   br label %40
 
 40:                                               ; preds = %40, %.lr.ph.i
   %indvars.iv267.i = phi i64 [ %indvars.iv265.i, %.lr.ph.i ], [ %indvars.iv.next268.i, %40 ]
-  %.1165213.i = phi double [ %.0164215.i, %.lr.ph.i ], [ %44, %40 ]
+  %.1166213.i = phi double [ %.0165215.i, %.lr.ph.i ], [ %44, %40 ]
   %41 = getelementptr inbounds [3 x double], ptr %39, i64 0, i64 %indvars.iv267.i
   %42 = load double, ptr %41, align 8
   %43 = tail call noundef double @llvm.fabs.f64(double %42)
-  %44 = fadd double %.1165213.i, %43
+  %44 = fadd double %.1166213.i, %43
   %indvars.iv.next268.i = add nuw nsw i64 %indvars.iv267.i, 1
   %exitcond270.not.i = icmp eq i64 %indvars.iv.next268.i, 3
   br i1 %exitcond270.not.i, label %.loopexit203.i, label %40, !llvm.loop !22
@@ -661,7 +661,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   %47 = icmp ult i32 %.0152252.i, 4
   %48 = fmul double %44, 2.000000e-01
   %49 = fdiv double %48, 9.000000e+00
-  %.0167.i = select i1 %47, double %49, double 0.000000e+00
+  %.0164.i = select i1 %47, double %49, double 0.000000e+00
   %50 = icmp ugt i32 %.0152252.i, 4
   br label %.lr.ph245.i
 
@@ -712,7 +712,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   br label %153
 
 74:                                               ; preds = %67, %62, %57
-  %75 = fcmp ogt double %60, %.0167.i
+  %75 = fcmp ogt double %60, %.0164.i
   br i1 %75, label %76, label %153
 
 76:                                               ; preds = %74
@@ -745,14 +745,14 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   br label %96
 
 96:                                               ; preds = %94, %86, %84
-  %.0166.i = phi double [ %85, %84 ], [ %95, %94 ], [ %92, %86 ]
-  %97 = tail call double @llvm.fmuladd.f64(double %.0166.i, double %.0166.i, double 1.000000e+00)
+  %.0167.i = phi double [ %85, %84 ], [ %95, %94 ], [ %92, %86 ]
+  %97 = tail call double @llvm.fmuladd.f64(double %.0167.i, double %.0167.i, double 1.000000e+00)
   %sqrt201.i = tail call double @llvm.sqrt.f64(double %97)
   %98 = fdiv double 1.000000e+00, %sqrt201.i
-  %99 = fmul double %.0166.i, %98
+  %99 = fmul double %.0167.i, %98
   %100 = fadd double %98, 1.000000e+00
   %101 = fdiv double %99, %100
-  %102 = fmul double %59, %.0166.i
+  %102 = fmul double %59, %.0167.i
   %103 = load double, ptr %54, align 8
   %104 = fsub double %103, %102
   store double %104, ptr %54, align 8

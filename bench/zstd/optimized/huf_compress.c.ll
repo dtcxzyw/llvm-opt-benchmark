@@ -281,14 +281,14 @@ for.body22.lr.ph:                                 ; preds = %for.cond19.preheade
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %nextRankStart.032 = phi i32 [ 0, %for.body.preheader ], [ %add15, %for.body ]
+  %nextRankStart.031 = phi i32 [ 0, %for.body.preheader ], [ %add15, %for.body ]
   %arrayidx13 = getelementptr inbounds [13 x i32], ptr %rankVal, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx13, align 4
   %7 = trunc i64 %indvars.iv to i32
   %8 = add i32 %7, -1
   %shl = shl i32 %6, %8
-  %add15 = add i32 %shl, %nextRankStart.032
-  store i32 %nextRankStart.032, ptr %arrayidx13, align 4
+  %add15 = add i32 %shl, %nextRankStart.031
+  store i32 %nextRankStart.031, ptr %arrayidx13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %for.cond19.preheader, label %for.body, !llvm.loop !8
@@ -601,34 +601,34 @@ while.body30.preheader.i:                         ; preds = %for.body.i19
 
 while.body30.i:                                   ; preds = %while.body30.i, %while.body30.preheader.i
   %indvars.iv78.i = phi i64 [ 257, %while.body30.preheader.i ], [ %indvars.iv.next79.i, %while.body30.i ]
+  %lowS.069.i = phi i32 [ %sub18.i, %while.body30.preheader.i ], [ %lowS.2.i, %while.body30.i ]
   %lowN.068.i = phi i32 [ 256, %while.body30.preheader.i ], [ %lowN.2.i, %while.body30.i ]
-  %lowS.067.i = phi i32 [ %sub18.i, %while.body30.preheader.i ], [ %lowS.2.i, %while.body30.i ]
-  %idxprom31.i = sext i32 %lowS.067.i to i64
+  %idxprom31.i = sext i32 %lowS.069.i to i64
   %arrayidx32.i = getelementptr inbounds %struct.nodeElt_s, ptr %add.ptr, i64 %idxprom31.i
   %21 = load i32, ptr %arrayidx32.i, align 4
   %idxprom34.i = sext i32 %lowN.068.i to i64
   %arrayidx35.i = getelementptr inbounds %struct.nodeElt_s, ptr %add.ptr, i64 %idxprom34.i
   %22 = load i32, ptr %arrayidx35.i, align 4
-  %cmp37.i = icmp ult i32 %21, %22
-  %dec39.i = sext i1 %cmp37.i to i32
-  %lowS.1.i = add nsw i32 %lowS.067.i, %dec39.i
-  %not.cmp37.i = xor i1 %cmp37.i, true
-  %inc40.i = zext i1 %not.cmp37.i to i32
+  %cmp37.i = icmp uge i32 %21, %22
+  %inc40.i = zext i1 %cmp37.i to i32
   %lowN.1.i = add nsw i32 %lowN.068.i, %inc40.i
-  %cond.i = select i1 %cmp37.i, i32 %lowS.067.i, i32 %lowN.068.i
+  %not.cmp37.i = xor i1 %cmp37.i, true
+  %dec39.i = sext i1 %not.cmp37.i to i32
+  %lowS.1.i = add nsw i32 %lowS.069.i, %dec39.i
+  %cond.i = select i1 %cmp37.i, i32 %lowN.068.i, i32 %lowS.069.i
   %idxprom41.i = sext i32 %lowS.1.i to i64
   %arrayidx42.i = getelementptr inbounds %struct.nodeElt_s, ptr %add.ptr, i64 %idxprom41.i
   %23 = load i32, ptr %arrayidx42.i, align 4
   %idxprom44.i = sext i32 %lowN.1.i to i64
   %arrayidx45.i = getelementptr inbounds %struct.nodeElt_s, ptr %add.ptr, i64 %idxprom44.i
   %24 = load i32, ptr %arrayidx45.i, align 4
-  %cmp47.i = icmp ult i32 %23, %24
-  %dec50.i = sext i1 %cmp47.i to i32
-  %lowS.2.i = add nsw i32 %lowS.1.i, %dec50.i
-  %not.cmp47.i = xor i1 %cmp47.i, true
-  %inc52.i = zext i1 %not.cmp47.i to i32
+  %cmp47.i = icmp uge i32 %23, %24
+  %inc52.i = zext i1 %cmp47.i to i32
   %lowN.2.i = add nsw i32 %lowN.1.i, %inc52.i
-  %cond54.i = select i1 %cmp47.i, i32 %lowS.1.i, i32 %lowN.1.i
+  %not.cmp47.i = xor i1 %cmp47.i, true
+  %dec50.i = sext i1 %not.cmp47.i to i32
+  %lowS.2.i = add nsw i32 %lowS.1.i, %dec50.i
+  %cond54.i = select i1 %cmp47.i, i32 %lowN.1.i, i32 %lowS.1.i
   %idxprom55.i = sext i32 %cond.i to i64
   %arrayidx56.i = getelementptr inbounds %struct.nodeElt_s, ptr %add.ptr, i64 %idxprom55.i
   %25 = load i32, ptr %arrayidx56.i, align 4
@@ -773,11 +773,11 @@ while.cond48.preheader.i:                         ; preds = %for.inc.i, %while.e
 
 for.body.i31:                                     ; preds = %for.inc.i, %for.body.preheader.i30
   %indvars.iv114.i = phi i64 [ %39, %for.body.preheader.i30 ], [ %indvars.iv.next115.i, %for.inc.i ]
-  %currentNbBits.085.i = phi i32 [ %spec.store.select, %for.body.preheader.i30 ], [ %currentNbBits.1.i, %for.inc.i ]
+  %currentNbBits.086.i = phi i32 [ %spec.store.select, %for.body.preheader.i30 ], [ %currentNbBits.1.i, %for.inc.i ]
   %nbBits34.i = getelementptr inbounds %struct.nodeElt_s, ptr %add.ptr, i64 %indvars.iv114.i, i32 3
   %40 = load i8, ptr %nbBits34.i, align 1
   %conv35.i = zext i8 %40 to i32
-  %cmp36.not.i = icmp ugt i32 %currentNbBits.085.i, %conv35.i
+  %cmp36.not.i = icmp ugt i32 %currentNbBits.086.i, %conv35.i
   br i1 %cmp36.not.i, label %if.end39.i, label %for.body.for.inc_crit_edge.i
 
 for.body.for.inc_crit_edge.i:                     ; preds = %for.body.i31
@@ -794,7 +794,7 @@ if.end39.i:                                       ; preds = %for.body.i31
 
 for.inc.i:                                        ; preds = %if.end39.i, %for.body.for.inc_crit_edge.i
   %.pre-phi130.i = phi i32 [ %.pre129.i, %for.body.for.inc_crit_edge.i ], [ %41, %if.end39.i ]
-  %currentNbBits.1.i = phi i32 [ %currentNbBits.085.i, %for.body.for.inc_crit_edge.i ], [ %conv35.i, %if.end39.i ]
+  %currentNbBits.1.i = phi i32 [ %currentNbBits.086.i, %for.body.for.inc_crit_edge.i ], [ %conv35.i, %if.end39.i ]
   %indvars.iv.next115.i = add nsw i64 %indvars.iv114.i, -1
   %cmp30.i = icmp sgt i32 %.pre-phi130.i, 0
   br i1 %cmp30.i, label %for.body.i31, label %while.cond48.preheader.i, !llvm.loop !24
@@ -1435,7 +1435,7 @@ for.body.i313.preheader.i:                        ; preds = %sw.bb25.i.i
 
 for.body.i313.i:                                  ; preds = %for.body.i313.i, %for.body.i313.preheader.i
   %indvars.iv2387.i = phi i64 [ %23, %for.body.i313.preheader.i ], [ %indvars.iv.next2388.i, %for.body.i313.i ]
-  %rem.i250.02230.i = phi i32 [ %rem1.i254.i, %for.body.i313.preheader.i ], [ %dec6.i318.i, %for.body.i313.i ]
+  %rem.i250.02229.i = phi i32 [ %rem1.i254.i, %for.body.i313.preheader.i ], [ %dec6.i318.i, %for.body.i313.i ]
   %bitC.i.sroa.0.62228.i = phi i64 [ 0, %for.body.i313.preheader.i ], [ %or.i3106.i, %for.body.i313.i ]
   %bitC.i.sroa.262.62227.i = phi i64 [ 0, %for.body.i313.preheader.i ], [ %add.i3111.i, %for.body.i313.i ]
   %indvars.iv.next2388.i = add nsw i64 %indvars.iv2387.i, -1
@@ -1449,8 +1449,8 @@ for.body.i313.i:                                  ; preds = %for.body.i313.i, %f
   %and.i1608.i = and i64 %25, -256
   %or.i3106.i = or i64 %shr.i3099.i, %and.i1608.i
   %add.i3111.i = add i64 %25, %bitC.i.sroa.262.62227.i
-  %dec6.i318.i = add nsw i32 %rem.i250.02230.i, -1
-  %cmp3.i311.i = icmp ugt i32 %rem.i250.02230.i, 1
+  %dec6.i318.i = add nsw i32 %rem.i250.02229.i, -1
+  %cmp3.i311.i = icmp ugt i32 %rem.i250.02229.i, 1
   br i1 %cmp3.i311.i, label %for.body.i313.i, label %for.end.i312.i, !llvm.loop !36
 
 for.end.i312.i:                                   ; preds = %for.body.i313.i
@@ -1632,7 +1632,7 @@ for.body.i391.preheader.i:                        ; preds = %sw.bb26.i.i
 
 for.body.i391.i:                                  ; preds = %for.body.i391.i, %for.body.i391.preheader.i
   %indvars.iv2365.i = phi i64 [ %45, %for.body.i391.preheader.i ], [ %indvars.iv.next2366.i, %for.body.i391.i ]
-  %rem.i328.02207.i = phi i32 [ %rem1.i332.i, %for.body.i391.preheader.i ], [ %dec6.i396.i, %for.body.i391.i ]
+  %rem.i328.02206.i = phi i32 [ %rem1.i332.i, %for.body.i391.preheader.i ], [ %dec6.i396.i, %for.body.i391.i ]
   %bitC.i.sroa.0.122205.i = phi i64 [ 0, %for.body.i391.preheader.i ], [ %or.i3267.i, %for.body.i391.i ]
   %bitC.i.sroa.262.122204.i = phi i64 [ 0, %for.body.i391.preheader.i ], [ %add.i3272.i, %for.body.i391.i ]
   %indvars.iv.next2366.i = add nsw i64 %indvars.iv2365.i, -1
@@ -1646,8 +1646,8 @@ for.body.i391.i:                                  ; preds = %for.body.i391.i, %f
   %and.i1620.i = and i64 %47, -256
   %or.i3267.i = or i64 %shr.i3260.i, %and.i1620.i
   %add.i3272.i = add i64 %47, %bitC.i.sroa.262.122204.i
-  %dec6.i396.i = add nsw i32 %rem.i328.02207.i, -1
-  %cmp3.i389.i = icmp ugt i32 %rem.i328.02207.i, 1
+  %dec6.i396.i = add nsw i32 %rem.i328.02206.i, -1
+  %cmp3.i389.i = icmp ugt i32 %rem.i328.02206.i, 1
   br i1 %cmp3.i389.i, label %for.body.i391.i, label %for.end.i390.i, !llvm.loop !36
 
 for.end.i390.i:                                   ; preds = %for.body.i391.i
@@ -1826,7 +1826,7 @@ for.body.i469.preheader.i:                        ; preds = %sw.bb27.i.i
 
 for.body.i469.i:                                  ; preds = %for.body.i469.i, %for.body.i469.preheader.i
   %indvars.iv2343.i = phi i64 [ %68, %for.body.i469.preheader.i ], [ %indvars.iv.next2344.i, %for.body.i469.i ]
-  %rem.i406.02184.i = phi i32 [ %rem1.i410.i, %for.body.i469.preheader.i ], [ %dec6.i474.i, %for.body.i469.i ]
+  %rem.i406.02183.i = phi i32 [ %rem1.i410.i, %for.body.i469.preheader.i ], [ %dec6.i474.i, %for.body.i469.i ]
   %bitC.i.sroa.0.182182.i = phi i64 [ 0, %for.body.i469.preheader.i ], [ %or.i3428.i, %for.body.i469.i ]
   %bitC.i.sroa.262.182181.i = phi i64 [ 0, %for.body.i469.preheader.i ], [ %add.i3433.i, %for.body.i469.i ]
   %indvars.iv.next2344.i = add nsw i64 %indvars.iv2343.i, -1
@@ -1840,8 +1840,8 @@ for.body.i469.i:                                  ; preds = %for.body.i469.i, %f
   %and.i1628.i = and i64 %70, -256
   %or.i3428.i = or i64 %shr.i3421.i, %and.i1628.i
   %add.i3433.i = add i64 %70, %bitC.i.sroa.262.182181.i
-  %dec6.i474.i = add nsw i32 %rem.i406.02184.i, -1
-  %cmp3.i467.i = icmp ugt i32 %rem.i406.02184.i, 1
+  %dec6.i474.i = add nsw i32 %rem.i406.02183.i, -1
+  %cmp3.i467.i = icmp ugt i32 %rem.i406.02183.i, 1
   br i1 %cmp3.i467.i, label %for.body.i469.i, label %for.end.i468.i, !llvm.loop !36
 
 for.end.i468.i:                                   ; preds = %for.body.i469.i
@@ -2023,7 +2023,7 @@ for.body.i547.preheader.i:                        ; preds = %sw.bb28.i.i
 
 for.body.i547.i:                                  ; preds = %for.body.i547.i, %for.body.i547.preheader.i
   %indvars.iv2321.i = phi i64 [ %90, %for.body.i547.preheader.i ], [ %indvars.iv.next2322.i, %for.body.i547.i ]
-  %rem.i484.02161.i = phi i32 [ %rem1.i488.i, %for.body.i547.preheader.i ], [ %dec6.i552.i, %for.body.i547.i ]
+  %rem.i484.02160.i = phi i32 [ %rem1.i488.i, %for.body.i547.preheader.i ], [ %dec6.i552.i, %for.body.i547.i ]
   %bitC.i.sroa.0.242159.i = phi i64 [ 0, %for.body.i547.preheader.i ], [ %or.i3589.i, %for.body.i547.i ]
   %bitC.i.sroa.262.242158.i = phi i64 [ 0, %for.body.i547.preheader.i ], [ %add.i3594.i, %for.body.i547.i ]
   %indvars.iv.next2322.i = add nsw i64 %indvars.iv2321.i, -1
@@ -2037,8 +2037,8 @@ for.body.i547.i:                                  ; preds = %for.body.i547.i, %f
   %and.i1640.i = and i64 %92, -256
   %or.i3589.i = or i64 %shr.i3582.i, %and.i1640.i
   %add.i3594.i = add i64 %92, %bitC.i.sroa.262.242158.i
-  %dec6.i552.i = add nsw i32 %rem.i484.02161.i, -1
-  %cmp3.i545.i = icmp ugt i32 %rem.i484.02161.i, 1
+  %dec6.i552.i = add nsw i32 %rem.i484.02160.i, -1
+  %cmp3.i545.i = icmp ugt i32 %rem.i484.02160.i, 1
   br i1 %cmp3.i545.i, label %for.body.i547.i, label %for.end.i546.i, !llvm.loop !36
 
 for.end.i546.i:                                   ; preds = %for.body.i547.i
@@ -2220,7 +2220,7 @@ for.body.i625.preheader.i:                        ; preds = %sw.bb29.i.i
 
 for.body.i625.i:                                  ; preds = %for.body.i625.i, %for.body.i625.preheader.i
   %indvars.iv.i = phi i64 [ %112, %for.body.i625.preheader.i ], [ %indvars.iv.next.i, %for.body.i625.i ]
-  %rem.i562.02141.i = phi i32 [ %rem1.i566.i, %for.body.i625.preheader.i ], [ %dec6.i630.i, %for.body.i625.i ]
+  %rem.i562.02140.i = phi i32 [ %rem1.i566.i, %for.body.i625.preheader.i ], [ %dec6.i630.i, %for.body.i625.i ]
   %bitC.i.sroa.0.302139.i = phi i64 [ 0, %for.body.i625.preheader.i ], [ %or.i3750.i, %for.body.i625.i ]
   %bitC.i.sroa.262.302138.i = phi i64 [ 0, %for.body.i625.preheader.i ], [ %add.i3755.i, %for.body.i625.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -2234,8 +2234,8 @@ for.body.i625.i:                                  ; preds = %for.body.i625.i, %f
   %and.i1651.i = and i64 %114, -256
   %or.i3750.i = or i64 %shr.i3743.i, %and.i1651.i
   %add.i3755.i = add i64 %114, %bitC.i.sroa.262.302138.i
-  %dec6.i630.i = add nsw i32 %rem.i562.02141.i, -1
-  %cmp3.i623.i = icmp ugt i32 %rem.i562.02141.i, 1
+  %dec6.i630.i = add nsw i32 %rem.i562.02140.i, -1
+  %cmp3.i623.i = icmp ugt i32 %rem.i562.02140.i, 1
   br i1 %cmp3.i623.i, label %for.body.i625.i, label %for.end.i624.i, !llvm.loop !36
 
 for.end.i624.i:                                   ; preds = %for.body.i625.i
@@ -2417,7 +2417,7 @@ for.body.i703.preheader.i:                        ; preds = %sw.default31.i.i
 
 for.body.i703.i:                                  ; preds = %for.body.i703.i, %for.body.i703.preheader.i
   %indvars.iv2409.i = phi i64 [ %135, %for.body.i703.preheader.i ], [ %indvars.iv.next2410.i, %for.body.i703.i ]
-  %rem.i640.02253.i = phi i32 [ %rem1.i644.i, %for.body.i703.preheader.i ], [ %dec6.i708.i, %for.body.i703.i ]
+  %rem.i640.02252.i = phi i32 [ %rem1.i644.i, %for.body.i703.preheader.i ], [ %dec6.i708.i, %for.body.i703.i ]
   %bitC.i.sroa.0.362251.i = phi i64 [ 0, %for.body.i703.preheader.i ], [ %or.i3911.i, %for.body.i703.i ]
   %bitC.i.sroa.262.362250.i = phi i64 [ 0, %for.body.i703.preheader.i ], [ %add.i3916.i, %for.body.i703.i ]
   %indvars.iv.next2410.i = add nsw i64 %indvars.iv2409.i, -1
@@ -2431,8 +2431,8 @@ for.body.i703.i:                                  ; preds = %for.body.i703.i, %f
   %and.i1663.i = and i64 %137, -256
   %or.i3911.i = or i64 %shr.i3904.i, %and.i1663.i
   %add.i3916.i = add i64 %137, %bitC.i.sroa.262.362250.i
-  %dec6.i708.i = add nsw i32 %rem.i640.02253.i, -1
-  %cmp3.i701.i = icmp ugt i32 %rem.i640.02253.i, 1
+  %dec6.i708.i = add nsw i32 %rem.i640.02252.i, -1
+  %cmp3.i701.i = icmp ugt i32 %rem.i640.02252.i, 1
   br i1 %cmp3.i701.i, label %for.body.i703.i, label %for.end.i702.i, !llvm.loop !36
 
 for.end.i702.i:                                   ; preds = %for.body.i703.i
@@ -3570,7 +3570,7 @@ for.body.i313.preheader:                          ; preds = %sw.bb25.i
 
 for.body.i313:                                    ; preds = %for.body.i313.preheader, %for.body.i313
   %indvars.iv2387 = phi i64 [ %23, %for.body.i313.preheader ], [ %indvars.iv.next2388, %for.body.i313 ]
-  %rem.i250.02230 = phi i32 [ %rem1.i254, %for.body.i313.preheader ], [ %dec6.i318, %for.body.i313 ]
+  %rem.i250.02229 = phi i32 [ %rem1.i254, %for.body.i313.preheader ], [ %dec6.i318, %for.body.i313 ]
   %bitC.i.sroa.0.62228 = phi i64 [ 0, %for.body.i313.preheader ], [ %or.i3106, %for.body.i313 ]
   %bitC.i.sroa.262.62227 = phi i64 [ 0, %for.body.i313.preheader ], [ %add.i3111, %for.body.i313 ]
   %indvars.iv.next2388 = add nsw i64 %indvars.iv2387, -1
@@ -3584,8 +3584,8 @@ for.body.i313:                                    ; preds = %for.body.i313.prehe
   %and.i1608 = and i64 %25, -256
   %or.i3106 = or i64 %shr.i3099, %and.i1608
   %add.i3111 = add i64 %25, %bitC.i.sroa.262.62227
-  %dec6.i318 = add nsw i32 %rem.i250.02230, -1
-  %cmp3.i311 = icmp ugt i32 %rem.i250.02230, 1
+  %dec6.i318 = add nsw i32 %rem.i250.02229, -1
+  %cmp3.i311 = icmp ugt i32 %rem.i250.02229, 1
   br i1 %cmp3.i311, label %for.body.i313, label %for.end.i312, !llvm.loop !36
 
 for.end.i312:                                     ; preds = %for.body.i313
@@ -3767,7 +3767,7 @@ for.body.i391.preheader:                          ; preds = %sw.bb26.i
 
 for.body.i391:                                    ; preds = %for.body.i391.preheader, %for.body.i391
   %indvars.iv2365 = phi i64 [ %45, %for.body.i391.preheader ], [ %indvars.iv.next2366, %for.body.i391 ]
-  %rem.i328.02207 = phi i32 [ %rem1.i332, %for.body.i391.preheader ], [ %dec6.i396, %for.body.i391 ]
+  %rem.i328.02206 = phi i32 [ %rem1.i332, %for.body.i391.preheader ], [ %dec6.i396, %for.body.i391 ]
   %bitC.i.sroa.0.122205 = phi i64 [ 0, %for.body.i391.preheader ], [ %or.i3267, %for.body.i391 ]
   %bitC.i.sroa.262.122204 = phi i64 [ 0, %for.body.i391.preheader ], [ %add.i3272, %for.body.i391 ]
   %indvars.iv.next2366 = add nsw i64 %indvars.iv2365, -1
@@ -3781,8 +3781,8 @@ for.body.i391:                                    ; preds = %for.body.i391.prehe
   %and.i1620 = and i64 %47, -256
   %or.i3267 = or i64 %shr.i3260, %and.i1620
   %add.i3272 = add i64 %47, %bitC.i.sroa.262.122204
-  %dec6.i396 = add nsw i32 %rem.i328.02207, -1
-  %cmp3.i389 = icmp ugt i32 %rem.i328.02207, 1
+  %dec6.i396 = add nsw i32 %rem.i328.02206, -1
+  %cmp3.i389 = icmp ugt i32 %rem.i328.02206, 1
   br i1 %cmp3.i389, label %for.body.i391, label %for.end.i390, !llvm.loop !36
 
 for.end.i390:                                     ; preds = %for.body.i391
@@ -3961,7 +3961,7 @@ for.body.i469.preheader:                          ; preds = %sw.bb27.i
 
 for.body.i469:                                    ; preds = %for.body.i469.preheader, %for.body.i469
   %indvars.iv2343 = phi i64 [ %68, %for.body.i469.preheader ], [ %indvars.iv.next2344, %for.body.i469 ]
-  %rem.i406.02184 = phi i32 [ %rem1.i410, %for.body.i469.preheader ], [ %dec6.i474, %for.body.i469 ]
+  %rem.i406.02183 = phi i32 [ %rem1.i410, %for.body.i469.preheader ], [ %dec6.i474, %for.body.i469 ]
   %bitC.i.sroa.0.182182 = phi i64 [ 0, %for.body.i469.preheader ], [ %or.i3428, %for.body.i469 ]
   %bitC.i.sroa.262.182181 = phi i64 [ 0, %for.body.i469.preheader ], [ %add.i3433, %for.body.i469 ]
   %indvars.iv.next2344 = add nsw i64 %indvars.iv2343, -1
@@ -3975,8 +3975,8 @@ for.body.i469:                                    ; preds = %for.body.i469.prehe
   %and.i1628 = and i64 %70, -256
   %or.i3428 = or i64 %shr.i3421, %and.i1628
   %add.i3433 = add i64 %70, %bitC.i.sroa.262.182181
-  %dec6.i474 = add nsw i32 %rem.i406.02184, -1
-  %cmp3.i467 = icmp ugt i32 %rem.i406.02184, 1
+  %dec6.i474 = add nsw i32 %rem.i406.02183, -1
+  %cmp3.i467 = icmp ugt i32 %rem.i406.02183, 1
   br i1 %cmp3.i467, label %for.body.i469, label %for.end.i468, !llvm.loop !36
 
 for.end.i468:                                     ; preds = %for.body.i469
@@ -4158,7 +4158,7 @@ for.body.i547.preheader:                          ; preds = %sw.bb28.i
 
 for.body.i547:                                    ; preds = %for.body.i547.preheader, %for.body.i547
   %indvars.iv2321 = phi i64 [ %90, %for.body.i547.preheader ], [ %indvars.iv.next2322, %for.body.i547 ]
-  %rem.i484.02161 = phi i32 [ %rem1.i488, %for.body.i547.preheader ], [ %dec6.i552, %for.body.i547 ]
+  %rem.i484.02160 = phi i32 [ %rem1.i488, %for.body.i547.preheader ], [ %dec6.i552, %for.body.i547 ]
   %bitC.i.sroa.0.242159 = phi i64 [ 0, %for.body.i547.preheader ], [ %or.i3589, %for.body.i547 ]
   %bitC.i.sroa.262.242158 = phi i64 [ 0, %for.body.i547.preheader ], [ %add.i3594, %for.body.i547 ]
   %indvars.iv.next2322 = add nsw i64 %indvars.iv2321, -1
@@ -4172,8 +4172,8 @@ for.body.i547:                                    ; preds = %for.body.i547.prehe
   %and.i1640 = and i64 %92, -256
   %or.i3589 = or i64 %shr.i3582, %and.i1640
   %add.i3594 = add i64 %92, %bitC.i.sroa.262.242158
-  %dec6.i552 = add nsw i32 %rem.i484.02161, -1
-  %cmp3.i545 = icmp ugt i32 %rem.i484.02161, 1
+  %dec6.i552 = add nsw i32 %rem.i484.02160, -1
+  %cmp3.i545 = icmp ugt i32 %rem.i484.02160, 1
   br i1 %cmp3.i545, label %for.body.i547, label %for.end.i546, !llvm.loop !36
 
 for.end.i546:                                     ; preds = %for.body.i547
@@ -4355,7 +4355,7 @@ for.body.i625.preheader:                          ; preds = %sw.bb29.i
 
 for.body.i625:                                    ; preds = %for.body.i625.preheader, %for.body.i625
   %indvars.iv = phi i64 [ %112, %for.body.i625.preheader ], [ %indvars.iv.next, %for.body.i625 ]
-  %rem.i562.02141 = phi i32 [ %rem1.i566, %for.body.i625.preheader ], [ %dec6.i630, %for.body.i625 ]
+  %rem.i562.02140 = phi i32 [ %rem1.i566, %for.body.i625.preheader ], [ %dec6.i630, %for.body.i625 ]
   %bitC.i.sroa.0.302139 = phi i64 [ 0, %for.body.i625.preheader ], [ %or.i3750, %for.body.i625 ]
   %bitC.i.sroa.262.302138 = phi i64 [ 0, %for.body.i625.preheader ], [ %add.i3755, %for.body.i625 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -4369,8 +4369,8 @@ for.body.i625:                                    ; preds = %for.body.i625.prehe
   %and.i1651 = and i64 %114, -256
   %or.i3750 = or i64 %shr.i3743, %and.i1651
   %add.i3755 = add i64 %114, %bitC.i.sroa.262.302138
-  %dec6.i630 = add nsw i32 %rem.i562.02141, -1
-  %cmp3.i623 = icmp ugt i32 %rem.i562.02141, 1
+  %dec6.i630 = add nsw i32 %rem.i562.02140, -1
+  %cmp3.i623 = icmp ugt i32 %rem.i562.02140, 1
   br i1 %cmp3.i623, label %for.body.i625, label %for.end.i624, !llvm.loop !36
 
 for.end.i624:                                     ; preds = %for.body.i625
@@ -4552,7 +4552,7 @@ for.body.i703.preheader:                          ; preds = %sw.default31.i
 
 for.body.i703:                                    ; preds = %for.body.i703.preheader, %for.body.i703
   %indvars.iv2409 = phi i64 [ %135, %for.body.i703.preheader ], [ %indvars.iv.next2410, %for.body.i703 ]
-  %rem.i640.02253 = phi i32 [ %rem1.i644, %for.body.i703.preheader ], [ %dec6.i708, %for.body.i703 ]
+  %rem.i640.02252 = phi i32 [ %rem1.i644, %for.body.i703.preheader ], [ %dec6.i708, %for.body.i703 ]
   %bitC.i.sroa.0.362251 = phi i64 [ 0, %for.body.i703.preheader ], [ %or.i3911, %for.body.i703 ]
   %bitC.i.sroa.262.362250 = phi i64 [ 0, %for.body.i703.preheader ], [ %add.i3916, %for.body.i703 ]
   %indvars.iv.next2410 = add nsw i64 %indvars.iv2409, -1
@@ -4566,8 +4566,8 @@ for.body.i703:                                    ; preds = %for.body.i703.prehe
   %and.i1663 = and i64 %137, -256
   %or.i3911 = or i64 %shr.i3904, %and.i1663
   %add.i3916 = add i64 %137, %bitC.i.sroa.262.362250
-  %dec6.i708 = add nsw i32 %rem.i640.02253, -1
-  %cmp3.i701 = icmp ugt i32 %rem.i640.02253, 1
+  %dec6.i708 = add nsw i32 %rem.i640.02252, -1
+  %cmp3.i701 = icmp ugt i32 %rem.i640.02252, 1
   br i1 %cmp3.i701, label %for.body.i703, label %for.end.i702, !llvm.loop !36
 
 for.end.i702:                                     ; preds = %for.body.i703

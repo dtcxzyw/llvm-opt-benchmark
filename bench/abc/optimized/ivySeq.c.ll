@@ -260,7 +260,7 @@ Abc_Clock.exit158.i:                              ; preds = %128, %Abc_Clock.exi
 .lr.ph225.i:                                      ; preds = %Abc_Clock.exit158.i, %.critedge4.i
   %indvars.iv242.i = phi i64 [ %indvars.iv.next243.i, %.critedge4.i ], [ 1, %Abc_Clock.exit158.i ]
   %.0224.i = phi i32 [ %.1.i, %.critedge4.i ], [ -1, %Abc_Clock.exit158.i ]
-  %.0136221.i = phi i32 [ %.1137.i, %.critedge4.i ], [ 0, %Abc_Clock.exit158.i ]
+  %.0137221.i = phi i32 [ %.1138.i, %.critedge4.i ], [ 0, %Abc_Clock.exit158.i ]
   %.0186220.i = phi i32 [ %.2188.i, %.critedge4.i ], [ -1, %Abc_Clock.exit158.i ]
   %137 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (i8, ptr @Ivy_CutComputeForNode.CutStore, i64 16), i64 %indvars.iv242.i
   %138 = getelementptr inbounds i8, ptr %137, i64 4
@@ -1057,7 +1057,7 @@ Vec_PtrPush.exit.i:                               ; preds = %539, %Vec_PtrGrow.e
 
 .critedge4.i:                                     ; preds = %Vec_PtrPush.exit.i, %503, %Abc_Clock.exit174.i, %153, %.lr.ph225.i
   %.2188.i = phi i32 [ %.1187.i, %Abc_Clock.exit174.i ], [ %.0186220.i, %153 ], [ %.0186220.i, %.lr.ph225.i ], [ %.1187.i, %503 ], [ %.1187.i, %Vec_PtrPush.exit.i ]
-  %.1137.i = phi i32 [ %.0136221.i, %Abc_Clock.exit174.i ], [ %.0136221.i, %153 ], [ %.0136221.i, %.lr.ph225.i ], [ %167, %503 ], [ %167, %Vec_PtrPush.exit.i ]
+  %.1138.i = phi i32 [ %.0137221.i, %Abc_Clock.exit174.i ], [ %.0137221.i, %153 ], [ %.0137221.i, %.lr.ph225.i ], [ %167, %503 ], [ %167, %Vec_PtrPush.exit.i ]
   %.1.i = phi i32 [ %.0224.i, %Abc_Clock.exit174.i ], [ %.0224.i, %153 ], [ %.0224.i, %.lr.ph225.i ], [ %.1187.i, %503 ], [ %.1187.i, %Vec_PtrPush.exit.i ]
   %indvars.iv.next243.i = add nuw nsw i64 %indvars.iv242.i, 1
   %550 = load i32, ptr @Ivy_CutComputeForNode.CutStore, align 4
@@ -1067,12 +1067,12 @@ Vec_PtrPush.exit.i:                               ; preds = %539, %Vec_PtrGrow.e
 
 ._crit_edge226.loopexit.i:                        ; preds = %.critedge4.i
   %.pre.i = load ptr, ptr %134, align 8
-  %553 = zext nneg i32 %.1137.i to i64
+  %553 = zext nneg i32 %.1138.i to i64
   br label %._crit_edge226.i
 
 ._crit_edge226.i:                                 ; preds = %._crit_edge226.loopexit.i, %Abc_Clock.exit158.i
   %554 = phi ptr [ %133, %Abc_Clock.exit158.i ], [ %.pre.i, %._crit_edge226.loopexit.i ]
-  %.0136.lcssa.i = phi i64 [ 0, %Abc_Clock.exit158.i ], [ %553, %._crit_edge226.loopexit.i ]
+  %.0137.lcssa.i = phi i64 [ 0, %Abc_Clock.exit158.i ], [ %553, %._crit_edge226.loopexit.i ]
   %.0.lcssa.i = phi i32 [ -1, %Abc_Clock.exit158.i ], [ %.1.i, %._crit_edge226.loopexit.i ]
   %.not.i.i = icmp eq ptr %554, null
   br i1 %.not.i.i, label %Vec_PtrFree.exit.i, label %555
@@ -1210,7 +1210,7 @@ Abc_Clock.exit178.i:                              ; preds = %558, %Vec_PtrFree.e
 
 Ivy_GraphPrepare.exit:                            ; preds = %.critedge.i77, %.critedge.preheader.i
   %640 = load ptr, ptr %73, align 8
-  %641 = getelementptr inbounds i8, ptr %640, i64 %.0136.lcssa.i
+  %641 = getelementptr inbounds i8, ptr %640, i64 %.0137.lcssa.i
   %642 = load i8, ptr %641, align 1
   %643 = zext i8 %642 to i64
   %644 = getelementptr inbounds [222 x i32], ptr %89, i64 0, i64 %643
@@ -1340,8 +1340,8 @@ Abc_Clock.exit75:                                 ; preds = %.critedge2, %683
   br label %695
 
 695:                                              ; preds = %692, %694, %.critedge
-  %.053 = phi i32 [ 0, %.critedge ], [ 1, %694 ], [ 1, %692 ]
-  ret i32 %.053
+  %.0 = phi i32 [ 0, %.critedge ], [ 1, %694 ], [ 1, %692 ]
+  ret i32 %.0
 }
 
 declare ptr @Rwt_ManStart(i32 noundef) local_unnamed_addr #1
@@ -2068,10 +2068,10 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 .lr.ph:                                           ; preds = %14, %40
   %23 = phi ptr [ %41, %40 ], [ %20, %14 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %14 ]
-  %.050 = phi i32 [ %.1, %40 ], [ 0, %14 ]
-  %.02549 = phi i32 [ %.126, %40 ], [ 0, %14 ]
-  %.02748 = phi i32 [ %.128, %40 ], [ %18, %14 ]
-  %.02947 = phi i32 [ %.130, %40 ], [ %18, %14 ]
+  %.02549 = phi i32 [ %.1, %40 ], [ 0, %14 ]
+  %.02648 = phi i32 [ %.127, %40 ], [ 0, %14 ]
+  %.02847 = phi i32 [ %.129, %40 ], [ %18, %14 ]
+  %.03046 = phi i32 [ %.131, %40 ], [ %18, %14 ]
   %24 = getelementptr i8, ptr %23, i64 8
   %.val34 = load ptr, ptr %24, align 8
   %25 = getelementptr inbounds ptr, ptr %.val34, i64 %indvars.iv
@@ -2090,21 +2090,21 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 32:                                               ; preds = %28
   call fastcc void @Ivy_CutComputeForNode(ptr noundef nonnull %0, ptr noundef nonnull %26, i32 noundef %1)
   %33 = load i32, ptr @Ivy_CutComputeForNode.CutStore, align 4
-  %34 = add nsw i32 %33, %.02947
+  %34 = add nsw i32 %33, %.03046
   %35 = load i32, ptr getelementptr inbounds (i8, ptr @Ivy_CutComputeForNode.CutStore, i64 4), align 4
-  %36 = add nsw i32 %35, %.02748
+  %36 = add nsw i32 %35, %.02847
   %37 = load i32, ptr getelementptr inbounds (i8, ptr @Ivy_CutComputeForNode.CutStore, i64 12), align 4
-  %38 = add nsw i32 %37, %.050
-  %39 = add nsw i32 %.02549, 1
+  %38 = add nsw i32 %37, %.02549
+  %39 = add nsw i32 %.02648, 1
   %.pre = load ptr, ptr %19, align 8
   br label %40
 
 40:                                               ; preds = %32, %.lr.ph, %28
   %41 = phi ptr [ %23, %.lr.ph ], [ %.pre, %32 ], [ %23, %28 ]
-  %.130 = phi i32 [ %.02947, %.lr.ph ], [ %34, %32 ], [ %.02947, %28 ]
-  %.128 = phi i32 [ %.02748, %.lr.ph ], [ %36, %32 ], [ %.02748, %28 ]
-  %.126 = phi i32 [ %.02549, %.lr.ph ], [ %39, %32 ], [ %.02549, %28 ]
-  %.1 = phi i32 [ %.050, %.lr.ph ], [ %38, %32 ], [ %.050, %28 ]
+  %.131 = phi i32 [ %.03046, %.lr.ph ], [ %34, %32 ], [ %.03046, %28 ]
+  %.129 = phi i32 [ %.02847, %.lr.ph ], [ %36, %32 ], [ %.02847, %28 ]
+  %.127 = phi i32 [ %.02648, %.lr.ph ], [ %39, %32 ], [ %.02648, %28 ]
+  %.1 = phi i32 [ %.02549, %.lr.ph ], [ %38, %32 ], [ %.02549, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = getelementptr i8, ptr %41, i64 4
   %.val = load i32, ptr %42, align 4
@@ -2120,15 +2120,15 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 .critedge:                                        ; preds = %.critedge.loopexit, %14
   %.val39 = phi i32 [ %.val37, %14 ], [ %.val39.pre, %.critedge.loopexit ]
   %.val38 = phi i32 [ %.val36, %14 ], [ %.val38.pre, %.critedge.loopexit ]
-  %.029.lcssa = phi i32 [ %18, %14 ], [ %.130, %.critedge.loopexit ]
-  %.027.lcssa = phi i32 [ %18, %14 ], [ %.128, %.critedge.loopexit ]
-  %.025.lcssa = phi i32 [ 0, %14 ], [ %.126, %.critedge.loopexit ]
-  %.0.lcssa = phi i32 [ 0, %14 ], [ %.1, %.critedge.loopexit ]
+  %.030.lcssa = phi i32 [ %18, %14 ], [ %.131, %.critedge.loopexit ]
+  %.028.lcssa = phi i32 [ %18, %14 ], [ %.129, %.critedge.loopexit ]
+  %.026.lcssa = phi i32 [ 0, %14 ], [ %.127, %.critedge.loopexit ]
+  %.025.lcssa = phi i32 [ 0, %14 ], [ %.1, %.critedge.loopexit ]
   %45 = getelementptr i8, ptr %0, i64 124
   %.val40 = load i32, ptr %45, align 4
   %46 = add i32 %.val38, %.val40
   %47 = add i32 %46, %.val39
-  %48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.029.lcssa, i32 noundef %.027.lcssa, i32 noundef %47, i32 noundef %.025.lcssa, i32 noundef %.0.lcssa)
+  %48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.030.lcssa, i32 noundef %.028.lcssa, i32 noundef %47, i32 noundef %.026.lcssa, i32 noundef %.025.lcssa)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %49 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #18

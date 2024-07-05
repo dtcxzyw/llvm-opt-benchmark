@@ -2287,8 +2287,8 @@ define hidden noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17h568
   br i1 %switch.not.not, label %10, label %12
 
 9:                                                ; preds = %10, %12, %2
-  %.0 = phi i1 [ false, %2 ], [ %13, %12 ], [ %11, %10 ]
-  ret i1 %.0
+  %.016 = phi i1 [ false, %2 ], [ %13, %12 ], [ %11, %10 ]
+  ret i1 %.016
 
 10:                                               ; preds = %5
   %11 = icmp ule i64 %4, %8
@@ -7703,10 +7703,10 @@ define void @_ZN13mini_lsm_mvcc5table5bloom5Bloom21build_from_key_hashes17hc643a
   br label %79
 
 _ZN5bytes9bytes_mut8BytesMut6freeze17h6a0ba5143776ed0fE.exit: ; preds = %65, %39
-  %.sroa.7.0 = phi ptr [ %.sroa.8.0.copyload, %39 ], [ %.sroa.7.0.copyload29, %65 ]
   %.sroa.6.0 = phi i64 [ %.sroa.532.0.copyload, %39 ], [ %66, %65 ]
   %.sroa.523.0 = phi ptr [ %.sroa.030.0.copyload, %39 ], [ %69, %65 ]
   %.sroa.021.0 = phi ptr [ @_ZN5bytes9bytes_mut13SHARED_VTABLE17hcad67e3b5ebba104E, %39 ], [ %.sroa.021.0.copyload22, %65 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.8.0.copyload, %39 ], [ %.sroa.7.0.copyload29, %65 ]
   %.0.sroa.speculated.i17 = tail call noundef i32 @llvm.umax.i32(i32 %.0.sroa.speculated.i, i32 1)
   %77 = trunc nuw nsw i32 %.0.sroa.speculated.i17 to i8
   store ptr %.sroa.021.0, ptr %0, align 8

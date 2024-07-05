@@ -165,8 +165,8 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   br label %68
 
 68:                                               ; preds = %66, %27
-  %.037 = phi i32 [ %29, %27 ], [ %.1, %66 ]
-  ret i32 %.037
+  %.0 = phi i32 [ %29, %27 ], [ %.1, %66 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

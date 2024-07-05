@@ -125,13 +125,13 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
   br label %2
 
 2:                                                ; preds = %3, %1
-  %.059.in = phi ptr [ @opal_convertor_master_list, %1 ], [ %.059, %3 ]
-  %.059 = load ptr, ptr %.059.in, align 8
-  %.not = icmp eq ptr %.059, null
+  %.060.in = phi ptr [ @opal_convertor_master_list, %1 ], [ %.060, %3 ]
+  %.060 = load ptr, ptr %.060.in, align 8
+  %.not = icmp eq ptr %.060, null
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %.059, i64 8
+  %4 = getelementptr inbounds i8, ptr %.060, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %.loopexit, label %2, !llvm.loop !6
@@ -276,8 +276,8 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
   br i1 %exitcond84.not, label %.loopexit, label %62, !llvm.loop !9
 
 .loopexit:                                        ; preds = %3, %62, %16
-  %.060 = phi ptr [ %8, %16 ], [ %8, %62 ], [ %.059, %3 ]
-  ret ptr %.060
+  %.057 = phi ptr [ %8, %16 ], [ %8, %62 ], [ %.060, %3 ]
+  ret ptr %.057
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

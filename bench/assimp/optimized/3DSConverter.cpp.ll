@@ -1467,8 +1467,8 @@ for.body.lr.ph:                                   ; preds = %_ZNSt12_Vector_base
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10unique_ptrIA_St6vectorIjSaIjEESt14default_deleteIS3_EED2Ev.exit
   %3 = phi ptr [ %0, %for.body.lr.ph ], [ %92, %_ZNSt10unique_ptrIA_St6vectorIjSaIjEESt14default_deleteIS3_EED2Ev.exit ]
-  %num.0255 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZNSt10unique_ptrIA_St6vectorIjSaIjEESt14default_deleteIS3_EED2Ev.exit ]
-  %iFaceCnt.0254 = phi i32 [ 0, %for.body.lr.ph ], [ %iFaceCnt.1.lcssa, %_ZNSt10unique_ptrIA_St6vectorIjSaIjEESt14default_deleteIS3_EED2Ev.exit ]
+  %iFaceCnt.0255 = phi i32 [ 0, %for.body.lr.ph ], [ %iFaceCnt.1.lcssa, %_ZNSt10unique_ptrIA_St6vectorIjSaIjEESt14default_deleteIS3_EED2Ev.exit ]
+  %num.0254 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZNSt10unique_ptrIA_St6vectorIjSaIjEESt14default_deleteIS3_EED2Ev.exit ]
   %avOutMeshes.sroa.0.1253 = phi ptr [ %call5.i.i.i.i30, %for.body.lr.ph ], [ %avOutMeshes.sroa.0.4.lcssa, %_ZNSt10unique_ptrIA_St6vectorIjSaIjEESt14default_deleteIS3_EED2Ev.exit ]
   %avOutMeshes.sroa.9.1252 = phi ptr [ %call5.i.i.i.i30, %for.body.lr.ph ], [ %avOutMeshes.sroa.9.2.lcssa, %_ZNSt10unique_ptrIA_St6vectorIjSaIjEESt14default_deleteIS3_EED2Ev.exit ]
   %avOutMeshes.sroa.16.1251 = phi ptr [ %add.ptr21.i, %for.body.lr.ph ], [ %avOutMeshes.sroa.16.2.lcssa, %_ZNSt10unique_ptrIA_St6vectorIjSaIjEESt14default_deleteIS3_EED2Ev.exit ]
@@ -1509,55 +1509,55 @@ new.ctorloop:                                     ; preds = %invoke.cont12
 
 arrayctor.cont:                                   ; preds = %new.ctorloop, %invoke.cont12
   store ptr %14, ptr %aiSplit, align 8
-  %inc = add i32 %num.0255, 1
-  %cmp.i.i = icmp slt i32 %num.0255, 0
+  %inc = add i32 %num.0254, 1
+  %cmp.i.i = icmp slt i32 %num.0254, 0
   br i1 %cmp.i.i, label %if.then.i.i38, label %while.body.i.i.preheader
 
 if.then.i.i38:                                    ; preds = %arrayctor.cont
   store i8 45, ptr %data.i, align 4
-  %sub.i.i = sub nsw i32 0, %num.0255
+  %sub.i.i = sub nsw i32 0, %num.0254
   br label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %if.then.i.i38, %arrayctor.cont
-  %written.121.i.i.ph = phi i32 [ 1, %arrayctor.cont ], [ 2, %if.then.i.i38 ]
-  %number.addr.120.i.i.ph = phi i32 [ %num.0255, %arrayctor.cont ], [ %sub.i.i, %if.then.i.i38 ]
-  %out.addr.119.i.i.ph = phi ptr [ %data.i, %arrayctor.cont ], [ %incdec.ptr.i.i, %if.then.i.i38 ]
+  %out.addr.123.i.i.ph = phi ptr [ %data.i, %arrayctor.cont ], [ %incdec.ptr.i.i, %if.then.i.i38 ]
+  %written.120.i.i.ph = phi i32 [ 1, %arrayctor.cont ], [ 2, %if.then.i.i38 ]
+  %number.addr.119.i.i.ph = phi i32 [ %num.0254, %arrayctor.cont ], [ %sub.i.i, %if.then.i.i38 ]
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end15.i.i
-  %mustPrint.023.i.i = phi i1 [ %or.cond1.i.i, %if.end15.i.i ], [ false, %while.body.i.i.preheader ]
-  %cur.022.i.i = phi i32 [ %div16.i.i, %if.end15.i.i ], [ 1000000000, %while.body.i.i.preheader ]
-  %written.121.i.i = phi i32 [ %written.2.i.i, %if.end15.i.i ], [ %written.121.i.i.ph, %while.body.i.i.preheader ]
-  %number.addr.120.i.i = phi i32 [ %number.addr.2.i.i, %if.end15.i.i ], [ %number.addr.120.i.i.ph, %while.body.i.i.preheader ]
-  %out.addr.119.i.i = phi ptr [ %out.addr.2.i.i, %if.end15.i.i ], [ %out.addr.119.i.i.ph, %while.body.i.i.preheader ]
-  %div.i.i = sdiv i32 %number.addr.120.i.i, %cur.022.i.i
-  %sub11.i.i.recomposed = srem i32 %number.addr.120.i.i, %cur.022.i.i
+  %out.addr.123.i.i = phi ptr [ %out.addr.2.i.i, %if.end15.i.i ], [ %out.addr.123.i.i.ph, %while.body.i.i.preheader ]
+  %mustPrint.022.i.i = phi i1 [ %or.cond1.i.i, %if.end15.i.i ], [ false, %while.body.i.i.preheader ]
+  %cur.021.i.i = phi i32 [ %div16.i.i, %if.end15.i.i ], [ 1000000000, %while.body.i.i.preheader ]
+  %written.120.i.i = phi i32 [ %written.2.i.i, %if.end15.i.i ], [ %written.120.i.i.ph, %while.body.i.i.preheader ]
+  %number.addr.119.i.i = phi i32 [ %number.addr.2.i.i, %if.end15.i.i ], [ %number.addr.119.i.i.ph, %while.body.i.i.preheader ]
+  %div.i.i = sdiv i32 %number.addr.119.i.i, %cur.021.i.i
+  %sub11.i.i.recomposed = srem i32 %number.addr.119.i.i, %cur.021.i.i
   %cmp3.i.i = icmp ne i32 %div.i.i, 0
-  %cmp5.i.i = icmp eq i32 %cur.022.i.i, 1
+  %cmp5.i.i = icmp eq i32 %cur.021.i.i, 1
   %20 = or i1 %cmp5.i.i, %cmp3.i.i
-  %or.cond1.i.i = select i1 %mustPrint.023.i.i, i1 true, i1 %20
+  %or.cond1.i.i = select i1 %mustPrint.022.i.i, i1 true, i1 %20
   br i1 %or.cond1.i.i, label %if.then6.i.i, label %if.end15.i.i
 
 if.then6.i.i:                                     ; preds = %while.body.i.i
   %21 = trunc i32 %div.i.i to i8
   %conv8.i.i = add i8 %21, 48
-  %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %out.addr.119.i.i, i64 1
-  store i8 %conv8.i.i, ptr %out.addr.119.i.i, align 1
-  %inc10.i.i = add nuw nsw i32 %written.121.i.i, 1
-  %mul.i.i = mul i32 %div.i.i, %cur.022.i.i
+  %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %out.addr.123.i.i, i64 1
+  store i8 %conv8.i.i, ptr %out.addr.123.i.i, align 1
+  %inc10.i.i = add nuw nsw i32 %written.120.i.i, 1
+  %mul.i.i = mul i32 %div.i.i, %cur.021.i.i
   br i1 %cmp5.i.i, label %invoke.cont15, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then6.i.i, %while.body.i.i
-  %out.addr.2.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.119.i.i, %while.body.i.i ]
-  %number.addr.2.i.i = phi i32 [ %sub11.i.i.recomposed, %if.then6.i.i ], [ %number.addr.120.i.i, %while.body.i.i ]
-  %written.2.i.i = phi i32 [ %inc10.i.i, %if.then6.i.i ], [ %written.121.i.i, %while.body.i.i ]
-  %div16.i.i = sdiv i32 %cur.022.i.i, 10
+  %number.addr.2.i.i = phi i32 [ %sub11.i.i.recomposed, %if.then6.i.i ], [ %number.addr.119.i.i, %while.body.i.i ]
+  %written.2.i.i = phi i32 [ %inc10.i.i, %if.then6.i.i ], [ %written.120.i.i, %while.body.i.i ]
+  %out.addr.2.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.123.i.i, %while.body.i.i ]
+  %div16.i.i = sdiv i32 %cur.021.i.i, 10
   %cmp2.i.i = icmp ult i32 %written.2.i.i, 1024
   br i1 %cmp2.i.i, label %while.body.i.i, label %invoke.cont15, !llvm.loop !13
 
 invoke.cont15:                                    ; preds = %if.end15.i.i, %if.then6.i.i
-  %out.addr.3.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.2.i.i, %if.end15.i.i ]
   %written.3.i.i = phi i32 [ %inc10.i.i, %if.then6.i.i ], [ %written.2.i.i, %if.end15.i.i ]
+  %out.addr.3.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.2.i.i, %if.end15.i.i ]
   store i8 0, ptr %out.addr.3.i.i, align 1
   %sub18.i.i = add i32 %written.3.i.i, -1
   store i32 %sub18.i.i, ptr %name, align 4
@@ -1713,8 +1713,8 @@ for.body40:                                       ; preds = %for.body40.lr.ph, %
   %35 = phi ptr [ %.pre276.pre, %for.body40.lr.ph ], [ %82, %for.inc177 ]
   %36 = phi ptr [ %.pre276.pre, %for.body40.lr.ph ], [ %83, %for.inc177 ]
   %conv36244 = phi i64 [ 0, %for.body40.lr.ph ], [ %conv36, %for.inc177 ]
-  %p.0243 = phi i32 [ 0, %for.body40.lr.ph ], [ %inc178, %for.inc177 ]
-  %iFaceCnt.1242 = phi i32 [ %iFaceCnt.0254, %for.body40.lr.ph ], [ %iFaceCnt.2, %for.inc177 ]
+  %iFaceCnt.1243 = phi i32 [ %iFaceCnt.0255, %for.body40.lr.ph ], [ %iFaceCnt.2, %for.inc177 ]
+  %p.0242 = phi i32 [ 0, %for.body40.lr.ph ], [ %inc178, %for.inc177 ]
   %avOutMeshes.sroa.0.4241 = phi ptr [ %avOutMeshes.sroa.0.1253, %for.body40.lr.ph ], [ %avOutMeshes.sroa.0.6, %for.inc177 ]
   %avOutMeshes.sroa.9.2240 = phi ptr [ %avOutMeshes.sroa.9.1252, %for.body40.lr.ph ], [ %avOutMeshes.sroa.9.4, %for.inc177 ]
   %avOutMeshes.sroa.16.2239 = phi ptr [ %avOutMeshes.sroa.16.1251, %for.body40.lr.ph ], [ %avOutMeshes.sroa.16.4, %for.inc177 ]
@@ -1755,7 +1755,7 @@ invoke.cont45:                                    ; preds = %if.end
   store i8 0, ptr %arrayidx.i59, align 1
   store i32 4, ptr %call46, align 8
   %mMaterialIndex = getelementptr inbounds i8, ptr %call46, i64 232
-  store i32 %p.0243, ptr %mMaterialIndex, align 8
+  store i32 %p.0242, ptr %mMaterialIndex, align 8
   %mColors = getelementptr inbounds i8, ptr %call46, i64 48
   store ptr %i.sroa.0.0250, ptr %mColors, align 8
   %cmp.not.i62 = icmp eq ptr %avOutMeshes.sroa.9.2240, %avOutMeshes.sroa.16.2239
@@ -1867,7 +1867,7 @@ arrayctor.loop65:                                 ; preds = %arrayctor.loop65, %
 arrayctor.cont69:                                 ; preds = %arrayctor.loop65, %invoke.cont60
   %mFaces = getelementptr inbounds i8, ptr %call46, i64 208
   store ptr %48, ptr %mFaces, align 8
-  %add = add i32 %iFaceCnt.1242, %conv55
+  %add = add i32 %iFaceCnt.1243, %conv55
   %conv72 = zext i32 %mul57 to i64
   %49 = mul nuw nsw i64 %conv72, 12
   %call74 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %49) #24
@@ -2021,8 +2021,8 @@ for.inc177:                                       ; preds = %for.inc174, %if.end
   %avOutMeshes.sroa.16.4 = phi ptr [ %avOutMeshes.sroa.16.2239, %for.body40 ], [ %avOutMeshes.sroa.16.3, %if.end111 ], [ %avOutMeshes.sroa.16.3, %for.inc174 ]
   %avOutMeshes.sroa.9.4 = phi ptr [ %avOutMeshes.sroa.9.2240, %for.body40 ], [ %avOutMeshes.sroa.9.3, %if.end111 ], [ %avOutMeshes.sroa.9.3, %for.inc174 ]
   %avOutMeshes.sroa.0.6 = phi ptr [ %avOutMeshes.sroa.0.4241, %for.body40 ], [ %avOutMeshes.sroa.0.5, %if.end111 ], [ %avOutMeshes.sroa.0.5, %for.inc174 ]
-  %iFaceCnt.2 = phi i32 [ %iFaceCnt.1242, %for.body40 ], [ %add, %if.end111 ], [ %add, %for.inc174 ]
-  %inc178 = add i32 %p.0243, 1
+  %iFaceCnt.2 = phi i32 [ %iFaceCnt.1243, %for.body40 ], [ %add, %if.end111 ], [ %add, %for.inc174 ]
+  %inc178 = add i32 %p.0242, 1
   %conv36 = zext i32 %inc178 to i64
   %84 = load ptr, ptr %mScene, align 8
   %_M_finish.i48 = getelementptr inbounds i8, ptr %84, i64 8
@@ -2041,7 +2041,7 @@ for.end179:                                       ; preds = %for.inc177, %for.co
   %avOutMeshes.sroa.16.2.lcssa = phi ptr [ %avOutMeshes.sroa.16.1251, %for.cond35.preheader ], [ %avOutMeshes.sroa.16.4, %for.inc177 ]
   %avOutMeshes.sroa.9.2.lcssa = phi ptr [ %avOutMeshes.sroa.9.1252, %for.cond35.preheader ], [ %avOutMeshes.sroa.9.4, %for.inc177 ]
   %avOutMeshes.sroa.0.4.lcssa = phi ptr [ %avOutMeshes.sroa.0.1253, %for.cond35.preheader ], [ %avOutMeshes.sroa.0.6, %for.inc177 ]
-  %iFaceCnt.1.lcssa = phi i32 [ %iFaceCnt.0254, %for.cond35.preheader ], [ %iFaceCnt.2, %for.inc177 ]
+  %iFaceCnt.1.lcssa = phi i32 [ %iFaceCnt.0255, %for.cond35.preheader ], [ %iFaceCnt.2, %for.inc177 ]
   %cmp.not.i124 = icmp eq ptr %88, null
   br i1 %cmp.not.i124, label %_ZNSt10unique_ptrIA_St6vectorIjSaIjEESt14default_deleteIS3_EED2Ev.exit, label %delete.notnull.i.i
 
@@ -2652,33 +2652,33 @@ if.end97:                                         ; preds = %if.end90, %invoke.c
   br i1 %cmp98, label %while.body.i.i, label %if.else110
 
 while.body.i.i:                                   ; preds = %if.end97, %if.end15.i.i
-  %mustPrint.023.i.i = phi i1 [ %or.cond1.i.i, %if.end15.i.i ], [ false, %if.end97 ]
-  %cur.022.i.i = phi i32 [ %div16.i.i, %if.end15.i.i ], [ 1000000000, %if.end97 ]
-  %written.121.i.i = phi i32 [ %written.2.i.i, %if.end15.i.i ], [ 1, %if.end97 ]
-  %number.addr.120.i.i = phi i32 [ %number.addr.2.i.i, %if.end15.i.i ], [ %90, %if.end97 ]
-  %out.addr.119.i.i = phi ptr [ %out.addr.2.i.i, %if.end15.i.i ], [ %tmp, %if.end97 ]
-  %div.i.i = sdiv i32 %number.addr.120.i.i, %cur.022.i.i
-  %sub11.i.i.recomposed = srem i32 %number.addr.120.i.i, %cur.022.i.i
+  %out.addr.123.i.i = phi ptr [ %out.addr.2.i.i, %if.end15.i.i ], [ %tmp, %if.end97 ]
+  %mustPrint.022.i.i = phi i1 [ %or.cond1.i.i, %if.end15.i.i ], [ false, %if.end97 ]
+  %cur.021.i.i = phi i32 [ %div16.i.i, %if.end15.i.i ], [ 1000000000, %if.end97 ]
+  %written.120.i.i = phi i32 [ %written.2.i.i, %if.end15.i.i ], [ 1, %if.end97 ]
+  %number.addr.119.i.i = phi i32 [ %number.addr.2.i.i, %if.end15.i.i ], [ %90, %if.end97 ]
+  %div.i.i = sdiv i32 %number.addr.119.i.i, %cur.021.i.i
+  %sub11.i.i.recomposed = srem i32 %number.addr.119.i.i, %cur.021.i.i
   %cmp3.i.i = icmp ne i32 %div.i.i, 0
-  %cmp5.i.i = icmp eq i32 %cur.022.i.i, 1
+  %cmp5.i.i = icmp eq i32 %cur.021.i.i, 1
   %91 = or i1 %cmp5.i.i, %cmp3.i.i
-  %or.cond1.i.i = select i1 %mustPrint.023.i.i, i1 true, i1 %91
+  %or.cond1.i.i = select i1 %mustPrint.022.i.i, i1 true, i1 %91
   br i1 %or.cond1.i.i, label %if.then6.i.i, label %if.end15.i.i
 
 if.then6.i.i:                                     ; preds = %while.body.i.i
   %92 = trunc i32 %div.i.i to i8
   %conv8.i.i = add i8 %92, 48
-  %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %out.addr.119.i.i, i64 1
-  store i8 %conv8.i.i, ptr %out.addr.119.i.i, align 1
-  %inc10.i.i = add nuw nsw i32 %written.121.i.i, 1
-  %mul.i.i = mul i32 %div.i.i, %cur.022.i.i
+  %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %out.addr.123.i.i, i64 1
+  store i8 %conv8.i.i, ptr %out.addr.123.i.i, align 1
+  %inc10.i.i = add nuw nsw i32 %written.120.i.i, 1
+  %mul.i.i = mul i32 %div.i.i, %cur.021.i.i
   br i1 %cmp5.i.i, label %_ZN6Assimp13ASSIMP_itoa10ILm12EEEjRAT__ci.exit, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then6.i.i, %while.body.i.i
-  %out.addr.2.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.119.i.i, %while.body.i.i ]
-  %number.addr.2.i.i = phi i32 [ %sub11.i.i.recomposed, %if.then6.i.i ], [ %number.addr.120.i.i, %while.body.i.i ]
-  %written.2.i.i = phi i32 [ %inc10.i.i, %if.then6.i.i ], [ %written.121.i.i, %while.body.i.i ]
-  %div16.i.i = sdiv i32 %cur.022.i.i, 10
+  %number.addr.2.i.i = phi i32 [ %sub11.i.i.recomposed, %if.then6.i.i ], [ %number.addr.119.i.i, %while.body.i.i ]
+  %written.2.i.i = phi i32 [ %inc10.i.i, %if.then6.i.i ], [ %written.120.i.i, %while.body.i.i ]
+  %out.addr.2.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.123.i.i, %while.body.i.i ]
+  %div16.i.i = sdiv i32 %cur.021.i.i, 10
   %cmp2.i.i = icmp ult i32 %written.2.i.i, 12
   br i1 %cmp2.i.i, label %while.body.i.i, label %_ZN6Assimp13ASSIMP_itoa10ILm12EEEjRAT__ci.exit, !llvm.loop !13
 

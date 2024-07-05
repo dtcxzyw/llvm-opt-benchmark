@@ -1460,22 +1460,22 @@ if.then9:                                         ; preds = %if.else
 
 for.body:                                         ; preds = %if.else, %for.inc
   %conv88 = phi i64 [ %conv, %for.inc ], [ 0, %if.else ]
-  %weight_sum.087 = phi double [ %add, %for.inc ], [ 0.000000e+00, %if.else ]
-  %ci.086 = phi i32 [ %inc, %for.inc ], [ 0, %if.else ]
+  %ci.087 = phi i32 [ %inc, %for.inc ], [ 0, %if.else ]
+  %weight_sum.086 = phi double [ %add, %for.inc ], [ 0.000000e+00, %if.else ]
   %weight = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %arrayidx.val, i64 %conv88, i32 1
   %5 = load double, ptr %weight, align 8
-  %add = fadd double %weight_sum.087, %5
+  %add = fadd double %weight_sum.086, %5
   %cmp16 = fcmp ugt double %mul, %add
   br i1 %cmp16, label %for.inc, label %while.end25
 
 for.inc:                                          ; preds = %for.body
-  %inc = add i32 %ci.086, 1
+  %inc = add i32 %ci.087, 1
   %conv = zext i32 %inc to i64
   %cmp13 = icmp ugt i64 %sub.ptr.div.i, %conv
   br i1 %cmp13, label %for.body, label %while.end25, !llvm.loop !15
 
 while.end25:                                      ; preds = %for.inc, %for.body
-  %ci.0.lcssa.ph = phi i32 [ %inc, %for.inc ], [ %ci.086, %for.body ]
+  %ci.0.lcssa.ph = phi i32 [ %inc, %for.inc ], [ %ci.087, %for.body ]
   %conv.lcssa.ph = phi i64 [ %conv, %for.inc ], [ %conv88, %for.body ]
   %add.ptr.i67 = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %arrayidx.val, i64 %conv.lcssa.ph
   %weight28 = getelementptr inbounds i8, ptr %add.ptr.i67, i64 8
@@ -1878,9 +1878,9 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %if.end
   %tdigest.val27 = phi ptr [ %tdigest.val12, %if.end ], [ %tdigest.val17, %for.body.preheader ]
   %q_prev.026 = phi double [ %add, %if.end ], [ 0.000000e+00, %for.body.preheader ]
-  %i.025 = phi i64 [ %inc, %if.end ], [ 0, %for.body.preheader ]
-  %k_prev.024 = phi double [ %mul.i15, %if.end ], [ %mul.i, %for.body.preheader ]
-  %weight = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %tdigest.val27, i64 %i.025, i32 1
+  %k_prev.025 = phi double [ %mul.i15, %if.end ], [ %mul.i, %for.body.preheader ]
+  %i.024 = phi i64 [ %inc, %if.end ], [ 0, %for.body.preheader ]
+  %weight = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %tdigest.val27, i64 %i.024, i32 1
   %1 = load double, ptr %weight, align 8
   %div = fdiv double %1, %total_weight
   %add = fadd double %q_prev.026, %div
@@ -1889,10 +1889,10 @@ for.body:                                         ; preds = %for.body.preheader,
   %call.i14 = tail call double @asin(double noundef %2) #20
   %mul.i15 = fmul double %this.val13, %call.i14
   %tdigest.val12 = load ptr, ptr %tdigest, align 8
-  %weight6 = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %tdigest.val12, i64 %i.025, i32 1
+  %weight6 = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %tdigest.val12, i64 %i.024, i32 1
   %3 = load double, ptr %weight6, align 8
   %cmp7 = fcmp une double %3, 1.000000e+00
-  %sub = fsub double %mul.i15, %k_prev.024
+  %sub = fsub double %mul.i15, %k_prev.025
   %cmp8 = fcmp ogt double %sub, 1.001000e+00
   %or.cond = select i1 %cmp7, i1 %cmp8, i1 false
   br i1 %or.cond, label %if.then, label %if.end
@@ -1903,7 +1903,7 @@ if.then:                                          ; preds = %for.body
   br label %return
 
 if.end:                                           ; preds = %for.body
-  %inc = add nuw i64 %i.025, 1
+  %inc = add nuw i64 %i.024, 1
   %tdigest.val10 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %tdigest.val10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %tdigest.val12 to i64

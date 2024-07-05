@@ -718,7 +718,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
   br label %_load_fed_steps.exit
 
 _load_fed_steps.exit:                             ; preds = %146, %147
-  %.062.i = phi i32 [ -1, %147 ], [ 0, %146 ]
+  %.060.i = phi i32 [ -1, %147 ], [ 0, %146 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -726,7 +726,7 @@ _load_fed_steps.exit:                             ; preds = %146, %147
   br label %148
 
 148:                                              ; preds = %_load_fed_steps.exit, %_load_cluster_steps.exit
-  %.013 = phi i32 [ %.08.i, %_load_cluster_steps.exit ], [ %.062.i, %_load_fed_steps.exit ]
+  %.013 = phi i32 [ %.08.i, %_load_cluster_steps.exit ], [ %.060.i, %_load_fed_steps.exit ]
   %149 = load ptr, ptr %13, align 8
   %.not17 = icmp eq ptr %149, null
   br i1 %.not17, label %151, label %150
@@ -919,8 +919,8 @@ define i32 @slurm_job_step_stat(ptr noundef %0, ptr noundef %1, i16 noundef zero
   br label %22
 
 22:                                               ; preds = %15, %4
-  %.054 = phi ptr [ %1, %4 ], [ %17, %15 ]
-  %.053 = phi i16 [ %2, %4 ], [ %spec.select, %15 ]
+  %.054 = phi i16 [ %2, %4 ], [ %spec.select, %15 ]
+  %.053 = phi ptr [ %1, %4 ], [ %17, %15 ]
   %.050 = phi ptr [ null, %4 ], [ %9, %15 ]
   %23 = load ptr, ptr %3, align 8
   %.not66 = icmp eq ptr %23, null
@@ -938,7 +938,7 @@ define i32 @slurm_job_step_stat(ptr noundef %0, ptr noundef %1, i16 noundef zero
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %26
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.slurm_job_step_stat, ptr noundef %0, ptr noundef %.054) #11
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.slurm_job_step_stat, ptr noundef %0, ptr noundef %.053) #11
   br label %30
 
 30:                                               ; preds = %29, %26
@@ -948,12 +948,12 @@ define i32 @slurm_job_step_stat(ptr noundef %0, ptr noundef %1, i16 noundef zero
   %31 = getelementptr inbounds i8, ptr %.049, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   %32 = getelementptr inbounds i8, ptr %6, i64 206
-  store i16 %.053, ptr %32, align 2
+  store i16 %.054, ptr %32, align 2
   %33 = getelementptr inbounds i8, ptr %6, i64 204
   store i16 5019, ptr %33, align 4
   %34 = getelementptr inbounds i8, ptr %6, i64 192
   store ptr %7, ptr %34, align 8
-  %35 = call ptr @slurm_send_recv_msgs(ptr noundef %.054, ptr noundef nonnull %6, i32 noundef 0) #11
+  %35 = call ptr @slurm_send_recv_msgs(ptr noundef %.053, ptr noundef nonnull %6, i32 noundef 0) #11
   %.not67 = icmp eq ptr %35, null
   br i1 %.not67, label %36, label %41
 
@@ -1271,7 +1271,7 @@ slurm_job_step_pids_response_msg_free.exit:       ; preds = %34, %36
 
 .lr.ph:                                           ; preds = %37, %65
   %40 = phi ptr [ %66, %65 ], [ %39, %37 ]
-  %.04461 = phi i32 [ %.1, %65 ], [ 0, %37 ]
+  %.04561 = phi i32 [ %.1, %65 ], [ 0, %37 ]
   %41 = load i16, ptr %40, align 8
   switch i16 %41, label %56 [
     i16 5028, label %42
@@ -1316,13 +1316,13 @@ slurm_job_step_pids_response_msg_free.exit:       ; preds = %34, %36
   br label %65
 
 65:                                               ; preds = %56, %50, %46
-  %.1 = phi i32 [ %60, %56 ], [ %53, %50 ], [ %.04461, %46 ]
+  %.1 = phi i32 [ %60, %56 ], [ %53, %50 ], [ %.04561, %46 ]
   %66 = call ptr @list_next(ptr noundef %38) #11
   %.not57 = icmp eq ptr %66, null
   br i1 %.not57, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %65, %37
-  %.044.lcssa = phi i32 [ 0, %37 ], [ %.1, %65 ]
+  %.045.lcssa = phi i32 [ 0, %37 ], [ %.1, %65 ]
   call void @list_iterator_destroy(ptr noundef %38) #11
   call void @list_destroy(ptr noundef nonnull %31) #11
   %67 = load ptr, ptr %.042, align 8
@@ -1334,13 +1334,13 @@ slurm_job_step_pids_response_msg_free.exit:       ; preds = %34, %36
   br label %69
 
 69:                                               ; preds = %._crit_edge, %68, %32, %slurm_job_step_pids_response_msg_free.exit
-  %.2 = phi i32 [ %.044.lcssa, %68 ], [ %.044.lcssa, %._crit_edge ], [ -1, %slurm_job_step_pids_response_msg_free.exit ], [ -1, %32 ]
+  %.2 = phi i32 [ %.045.lcssa, %68 ], [ %.045.lcssa, %._crit_edge ], [ -1, %slurm_job_step_pids_response_msg_free.exit ], [ -1, %32 ]
   %70 = call i32 @slurm_step_layout_destroy(ptr noundef %.043) #11
   br label %71
 
 71:                                               ; preds = %69, %9
-  %.045 = phi i32 [ %.2, %69 ], [ %11, %9 ]
-  ret i32 %.045
+  %.044 = phi i32 [ %.2, %69 ], [ %11, %9 ]
+  ret i32 %.044
 }
 
 ; Function Attrs: nounwind uwtable

@@ -799,7 +799,7 @@ define internal i32 @dissect_icmp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %44
 
 44:                                               ; preds = %43, %41
-  %.0296 = phi ptr [ %30, %41 ], [ @.str.230, %43 ]
+  %.0293 = phi ptr [ %30, %41 ], [ @.str.230, %43 ]
   %45 = tail call ptr @val_to_str(i32 noundef %42, ptr noundef nonnull @rtradvert_code_str, ptr noundef nonnull @.str.229) #5
   br label %61
 
@@ -829,24 +829,24 @@ define internal i32 @dissect_icmp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %61
 
 61:                                               ; preds = %58, %55, %52, %49, %46, %44, %38, %35, %32
-  %.1297 = phi ptr [ %30, %58 ], [ %30, %55 ], [ %30, %52 ], [ %30, %49 ], [ %30, %46 ], [ %.0296, %44 ], [ %30, %38 ], [ %30, %35 ], [ %30, %32 ]
-  %.0295 = phi ptr [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %44 ], [ %40, %38 ], [ %37, %35 ], [ %34, %32 ]
+  %.0294 = phi ptr [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %44 ], [ %40, %38 ], [ %37, %35 ], [ %34, %32 ]
+  %.1 = phi ptr [ %30, %58 ], [ %30, %55 ], [ %30, %52 ], [ %30, %49 ], [ %30, %46 ], [ %.0293, %44 ], [ %30, %38 ], [ %30, %35 ], [ %30, %32 ]
   %.0 = phi i8 [ %28, %58 ], [ %28, %55 ], [ %28, %52 ], [ %28, %49 ], [ %28, %46 ], [ %28, %44 ], [ 0, %38 ], [ %28, %35 ], [ %28, %32 ]
   %62 = load ptr, ptr %23, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.231, ptr noundef %.1297) #5
-  %.not306 = icmp eq ptr %.0295, null
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.231, ptr noundef %.1) #5
+  %.not306 = icmp eq ptr %.0294, null
   br i1 %.not306, label %65, label %63
 
 63:                                               ; preds = %61
   %64 = load ptr, ptr %23, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.232, ptr noundef nonnull %.0295) #5
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.232, ptr noundef nonnull %.0294) #5
   br label %65
 
 65:                                               ; preds = %.thread, %63, %61
   %.not306381 = phi i1 [ true, %.thread ], [ false, %63 ], [ true, %61 ]
   %.0380 = phi i8 [ %28, %.thread ], [ %.0, %63 ], [ %.0, %61 ]
-  %.0295379 = phi ptr [ null, %.thread ], [ %.0295, %63 ], [ null, %61 ]
-  %.1297378 = phi ptr [ %30, %.thread ], [ %.1297, %63 ], [ %.1297, %61 ]
+  %.1379 = phi ptr [ %30, %.thread ], [ %.1, %63 ], [ %.1, %61 ]
+  %.0294378 = phi ptr [ null, %.thread ], [ %.0294, %63 ], [ null, %61 ]
   %66 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %67 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %68 = load i32, ptr @proto_icmp, align 4
@@ -855,7 +855,7 @@ define internal i32 @dissect_icmp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %71 = tail call ptr @proto_item_add_subtree(ptr noundef %69, i32 noundef %70) #5
   %72 = load i32, ptr @hf_icmp_type, align 4
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %73, ptr noundef nonnull @.str.232, ptr noundef %.1297378) #5
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %73, ptr noundef nonnull @.str.232, ptr noundef %.1379) #5
   switch i8 %26, label %76 [
     i8 4, label %74
     i8 6, label %74
@@ -885,7 +885,7 @@ define internal i32 @dissect_icmp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not306381, label %80, label %79
 
 79:                                               ; preds = %76
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.232, ptr noundef nonnull %.0295379) #5
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.232, ptr noundef nonnull %.0294378) #5
   br label %80
 
 80:                                               ; preds = %79, %76
@@ -1705,7 +1705,7 @@ transaction_start.exit:                           ; preds = %._crit_edge.i, %500
   br label %531
 
 531:                                              ; preds = %388, %transaction_start.exit, %287, %transaction_end.exit
-  %.0293 = phi ptr [ null, %287 ], [ %.0.i, %transaction_end.exit ], [ null, %388 ], [ %.043.i, %transaction_start.exit ]
+  %.0296 = phi ptr [ null, %287 ], [ %.0.i, %transaction_end.exit ], [ null, %388 ], [ %.043.i, %transaction_start.exit ]
   %532 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 8) #5
   %533 = icmp slt i32 %532, 8
   br i1 %533, label %534, label %540
@@ -1788,15 +1788,15 @@ proto_item_set_generated.exit346:                 ; preds = %543, %548, %551
   br i1 %.not388, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0294387 = phi i32 [ %585, %.lr.ph ], [ 0, %.preheader ]
+  %.0295387 = phi i32 [ %585, %.lr.ph ], [ 0, %.preheader ]
   %578 = load i32, ptr @hf_icmp_router_address, align 4
-  %579 = shl i32 %.0294387, 3
+  %579 = shl i32 %.0295387, 3
   %580 = add i32 %579, 8
   %581 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %578, ptr noundef %0, i32 noundef %580, i32 noundef 4, i32 noundef 0) #5
   %582 = load i32, ptr @hf_icmp_pref_level, align 4
   %583 = add i32 %579, 12
   %584 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %582, ptr noundef %0, i32 noundef %583, i32 noundef 4, i32 noundef 0) #5
-  %585 = add nuw i32 %.0294387, 1
+  %585 = add nuw i32 %.0295387, 1
   %586 = load i32, ptr %11, align 4
   %587 = icmp ult i32 %585, %586
   br i1 %587, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4
@@ -1807,13 +1807,13 @@ proto_item_set_generated.exit346:                 ; preds = %543, %548, %551
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.0294.lcssa = phi i32 [ 8, %.preheader ], [ %589, %._crit_edge.loopexit ]
+  %.0295.lcssa = phi i32 [ 8, %.preheader ], [ %589, %._crit_edge.loopexit ]
   %590 = and i8 %27, -17
   %or.cond6 = icmp eq i8 %590, 0
   br i1 %or.cond6, label %591, label %699
 
 591:                                              ; preds = %._crit_edge
-  call fastcc void @dissect_mip_extensions(ptr noundef %0, i32 noundef %.0294.lcssa, ptr noundef %71)
+  call fastcc void @dissect_mip_extensions(ptr noundef %0, i32 noundef %.0295.lcssa, ptr noundef %71)
   br label %699
 
 .thread389:                                       ; preds = %230, %564
@@ -1864,9 +1864,9 @@ proto_item_set_generated.exit346:                 ; preds = %543, %548, %551
   %or.cond11.i = and i1 %621, %620
   %or.cond13.i = and i1 %618, %or.cond11.i
   %622 = add nuw nsw i32 %608, 86400000
-  %.0.i347 = select i1 %or.cond13.i, i32 %622, i32 %608
+  %.050.i = select i1 %or.cond13.i, i32 %622, i32 %608
   %623 = sub nsw i32 %spec.select.i, %604
-  %624 = sub nsw i32 %.0.i347, %604
+  %624 = sub nsw i32 %.050.i, %604
   %625 = icmp ult i32 %623, %624
   %spec.select54.i = select i1 %625, i32 %606, i32 %608
   br label %get_best_guess_mstimeofday.exit
@@ -1879,12 +1879,12 @@ proto_item_set_generated.exit346:                 ; preds = %543, %548, %551
   br label %get_best_guess_mstimeofday.exit
 
 get_best_guess_mstimeofday.exit:                  ; preds = %594, %611, %615, %626
-  %.050.i = phi i32 [ %606, %594 ], [ %608, %611 ], [ %..i, %626 ], [ %spec.select54.i, %615 ]
+  %.0.i347 = phi i32 [ %606, %594 ], [ %608, %611 ], [ %..i, %626 ], [ %spec.select54.i, %615 ]
   %630 = load i32, ptr @hf_icmp_originate_timestamp, align 4
   %631 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %630, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #5
   %632 = getelementptr inbounds i8, ptr %1, i64 408
   %633 = load ptr, ptr %632, align 8
-  %634 = tail call ptr @signed_time_msecs_to_str(ptr noundef %633, i32 noundef %.050.i) #5
+  %634 = tail call ptr @signed_time_msecs_to_str(ptr noundef %633, i32 noundef %.0.i347) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %631, ptr noundef nonnull @.str.238, ptr noundef %634) #5
   %635 = load i32, ptr @hf_icmp_receive_timestamp, align 4
   %636 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %635, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #5
@@ -1921,9 +1921,9 @@ get_best_guess_mstimeofday.exit:                  ; preds = %594, %611, %615, %6
   %or.cond11.i356 = and i1 %653, %654
   %or.cond13.i357 = and i1 %651, %or.cond11.i356
   %655 = add nuw nsw i32 %641, 86400000
-  %.0.i358 = select i1 %or.cond13.i357, i32 %655, i32 %641
+  %.050.i358 = select i1 %or.cond13.i357, i32 %655, i32 %641
   %656 = sub nsw i32 %spec.select.i355, %604
-  %657 = sub nsw i32 %.0.i358, %604
+  %657 = sub nsw i32 %.050.i358, %604
   %658 = icmp ult i32 %656, %657
   %spec.select54.i359 = select i1 %658, i32 %639, i32 %641
   br label %get_best_guess_mstimeofday.exit360
@@ -1936,8 +1936,8 @@ get_best_guess_mstimeofday.exit:                  ; preds = %594, %611, %615, %6
   br label %get_best_guess_mstimeofday.exit360
 
 get_best_guess_mstimeofday.exit360:               ; preds = %get_best_guess_mstimeofday.exit, %644, %648, %659
-  %.050.i352 = phi i32 [ %639, %get_best_guess_mstimeofday.exit ], [ %641, %644 ], [ %..i351, %659 ], [ %spec.select54.i359, %648 ]
-  %663 = tail call ptr @signed_time_msecs_to_str(ptr noundef %637, i32 noundef %.050.i352) #5
+  %.0.i352 = phi i32 [ %639, %get_best_guess_mstimeofday.exit ], [ %641, %644 ], [ %..i351, %659 ], [ %spec.select54.i359, %648 ]
+  %663 = tail call ptr @signed_time_msecs_to_str(ptr noundef %637, i32 noundef %.0.i352) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %636, ptr noundef nonnull @.str.238, ptr noundef %663) #5
   %664 = load i32, ptr @hf_icmp_transmit_timestamp, align 4
   %665 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %664, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #5
@@ -1974,9 +1974,9 @@ get_best_guess_mstimeofday.exit360:               ; preds = %get_best_guess_msti
   %or.cond11.i369 = and i1 %682, %683
   %or.cond13.i370 = and i1 %680, %or.cond11.i369
   %684 = add nuw nsw i32 %670, 86400000
-  %.0.i371 = select i1 %or.cond13.i370, i32 %684, i32 %670
+  %.050.i371 = select i1 %or.cond13.i370, i32 %684, i32 %670
   %685 = sub nsw i32 %spec.select.i368, %604
-  %686 = sub nsw i32 %.0.i371, %604
+  %686 = sub nsw i32 %.050.i371, %604
   %687 = icmp ult i32 %685, %686
   %spec.select54.i372 = select i1 %687, i32 %668, i32 %670
   br label %get_best_guess_mstimeofday.exit373
@@ -1989,8 +1989,8 @@ get_best_guess_mstimeofday.exit360:               ; preds = %get_best_guess_msti
   br label %get_best_guess_mstimeofday.exit373
 
 get_best_guess_mstimeofday.exit373:               ; preds = %get_best_guess_mstimeofday.exit360, %673, %677, %688
-  %.050.i365 = phi i32 [ %668, %get_best_guess_mstimeofday.exit360 ], [ %670, %673 ], [ %..i364, %688 ], [ %spec.select54.i372, %677 ]
-  %692 = tail call ptr @signed_time_msecs_to_str(ptr noundef %666, i32 noundef %.050.i365) #5
+  %.0.i365 = phi i32 [ %668, %get_best_guess_mstimeofday.exit360 ], [ %670, %673 ], [ %..i364, %688 ], [ %spec.select54.i372, %677 ]
+  %692 = tail call ptr @signed_time_msecs_to_str(ptr noundef %666, i32 noundef %.0.i365) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %665, ptr noundef nonnull @.str.238, ptr noundef %692) #5
   br label %699
 
@@ -2005,7 +2005,7 @@ get_best_guess_mstimeofday.exit373:               ; preds = %get_best_guess_msti
   br label %699
 
 699:                                              ; preds = %230, %101, %.thread383, %.thread385, %696, %.thread389, %._crit_edge, %591, %proto_item_set_generated.exit346, %562, %558, %534, %537, %267, %280, %275, %693, %get_best_guess_mstimeofday.exit373
-  %.1 = phi ptr [ null, %230 ], [ null, %696 ], [ null, %.thread385 ], [ null, %693 ], [ null, %get_best_guess_mstimeofday.exit373 ], [ null, %591 ], [ null, %._crit_edge ], [ null, %.thread389 ], [ %.0293, %537 ], [ %.0293, %534 ], [ %.0293, %proto_item_set_generated.exit346 ], [ %.0293, %558 ], [ %.0293, %562 ], [ null, %280 ], [ null, %275 ], [ null, %267 ], [ null, %.thread383 ], [ null, %101 ]
+  %.1297 = phi ptr [ null, %230 ], [ null, %696 ], [ null, %.thread385 ], [ null, %693 ], [ null, %get_best_guess_mstimeofday.exit373 ], [ null, %591 ], [ null, %._crit_edge ], [ null, %.thread389 ], [ %.0296, %537 ], [ %.0296, %534 ], [ %.0296, %proto_item_set_generated.exit346 ], [ %.0296, %558 ], [ %.0296, %562 ], [ null, %280 ], [ null, %275 ], [ null, %267 ], [ null, %.thread383 ], [ null, %101 ]
   %700 = getelementptr inbounds i8, ptr %1, i64 80
   %701 = load ptr, ptr %700, align 8
   %702 = getelementptr inbounds i8, ptr %701, i64 50
@@ -2026,12 +2026,12 @@ get_best_guess_mstimeofday.exit373:               ; preds = %get_best_guess_msti
   br label %711
 
 711:                                              ; preds = %705, %699
-  %.not328 = icmp eq ptr %.1, null
+  %.not328 = icmp eq ptr %.1297, null
   br i1 %.not328, label %714, label %712
 
 712:                                              ; preds = %711
   %713 = load i32, ptr @icmp_tap, align 4
-  call void @tap_queue_packet(i32 noundef %713, ptr noundef nonnull %1, ptr noundef nonnull %.1) #5
+  call void @tap_queue_packet(i32 noundef %713, ptr noundef nonnull %1, ptr noundef nonnull %.1297) #5
   br label %714
 
 714:                                              ; preds = %712, %711
@@ -2669,10 +2669,10 @@ define internal fastcc void @dissect_mip_extensions(ptr noundef %0, i32 noundef 
   br i1 %6, label %.lr.ph79, label %.loopexit
 
 .lr.ph79:                                         ; preds = %.preheader71, %.thread
-  %.06378 = phi i32 [ %.4, %.thread ], [ %1, %.preheader71 ]
-  %7 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.06378) #5
+  %.06278 = phi i32 [ %.4, %.thread ], [ %1, %.preheader71 ]
+  %7 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.06278) #5
   %.not66 = icmp eq i8 %7, 0
-  %.pre = add i32 %.06378, 1
+  %.pre = add i32 %.06278, 1
   br i1 %.not66, label %.lr.ph79._crit_edge, label %8
 
 8:                                                ; preds = %.lr.ph79
@@ -2680,23 +2680,23 @@ define internal fastcc void @dissect_mip_extensions(ptr noundef %0, i32 noundef 
   br label %.lr.ph79._crit_edge
 
 .lr.ph79._crit_edge:                              ; preds = %.lr.ph79, %8
-  %.062 = phi i8 [ %9, %8 ], [ 0, %.lr.ph79 ]
+  %.064 = phi i8 [ %9, %8 ], [ 0, %.lr.ph79 ]
   %10 = load i32, ptr @ett_icmp_mip, align 4
   %11 = zext i8 %7 to i32
   %12 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @mip_extensions, ptr noundef nonnull @.str.317) #5
-  %13 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %.06378, i32 noundef 1, i32 noundef %10, ptr noundef nonnull %4, ptr noundef nonnull @.str.316, ptr noundef %12) #5
+  %13 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %.06278, i32 noundef 1, i32 noundef %10, ptr noundef nonnull %4, ptr noundef nonnull @.str.316, ptr noundef %12) #5
   %14 = load i32, ptr @hf_icmp_mip_type, align 4
-  %15 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef %.06378, i32 noundef 1, i32 noundef 0) #5
+  %15 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef %.06278, i32 noundef 1, i32 noundef 0) #5
   br i1 %.not66, label %.thread, label %16
 
 16:                                               ; preds = %.lr.ph79._crit_edge
   %17 = load ptr, ptr %4, align 8
-  %18 = zext i8 %.062 to i32
+  %18 = zext i8 %.064 to i32
   %19 = add nuw nsw i32 %18, 2
   call void @proto_item_set_len(ptr noundef %17, i32 noundef %19) #5
   %20 = load i32, ptr @hf_icmp_mip_length, align 4
   %21 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %20, ptr noundef %0, i32 noundef %.pre, i32 noundef 1, i32 noundef 0) #5
-  %22 = add i32 %.06378, 2
+  %22 = add i32 %.06278, 2
   switch i8 %7, label %48 [
     i8 24, label %44
     i8 16, label %23
@@ -2704,25 +2704,25 @@ define internal fastcc void @dissect_mip_extensions(ptr noundef %0, i32 noundef 
   ]
 
 .preheader:                                       ; preds = %16
-  %.not80 = icmp eq i8 %.062, 0
+  %.not80 = icmp eq i8 %.064, 0
   br i1 %.not80, label %.thread, label %.lr.ph
 
 23:                                               ; preds = %16
   %24 = load i32, ptr @hf_icmp_mip_seq, align 4
   %25 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %24, ptr noundef %0, i32 noundef %22, i32 noundef 2, i32 noundef 0) #5
-  %26 = add i32 %.06378, 4
+  %26 = add i32 %.06278, 4
   %27 = load i32, ptr @hf_icmp_mip_life, align 4
   %28 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %27, ptr noundef %0, i32 noundef %26, i32 noundef 2, i32 noundef 0) #5
-  %29 = add i32 %.06378, 6
+  %29 = add i32 %.06278, 6
   %30 = load i32, ptr @hf_icmp_mip_flags, align 4
   %31 = load i32, ptr @ett_icmp_mip_flags, align 4
   %32 = call ptr @proto_tree_add_bitmask(ptr noundef %13, ptr noundef %0, i32 noundef %29, i32 noundef %30, i32 noundef %31, ptr noundef nonnull @dissect_mip_extensions.flags, i32 noundef 0) #5
-  %33 = add i32 %.06378, 8
-  %34 = icmp ugt i8 %.062, 9
+  %33 = add i32 %.06278, 8
+  %34 = icmp ugt i8 %.064, 9
   br i1 %34, label %.lr.ph76.preheader, label %.thread
 
 .lr.ph76.preheader:                               ; preds = %23
-  %.lhs.trunc = add i8 %.062, -6
+  %.lhs.trunc = add i8 %.064, -6
   %35 = lshr i8 %.lhs.trunc, 2
   %smax = zext nneg i8 %35 to i32
   br label %.lr.ph76
@@ -2754,7 +2754,7 @@ define internal fastcc void @dissect_mip_extensions(ptr noundef %0, i32 noundef 
   br label %.thread
 
 48:                                               ; preds = %16
-  %.not68 = icmp eq i8 %.062, 0
+  %.not68 = icmp eq i8 %.064, 0
   br i1 %.not68, label %.thread, label %49
 
 49:                                               ; preds = %48

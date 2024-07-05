@@ -49,9 +49,9 @@ define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef rea
 .lr.ph:                                           ; preds = %5, %49
   %9 = phi i8 [ %51, %49 ], [ %8, %5 ]
   %.061 = phi ptr [ %.0, %49 ], [ %.057, %5 ]
-  %.04160 = phi i8 [ %50, %49 ], [ %6, %5 ]
-  %.04259 = phi ptr [ %.2, %49 ], [ %7, %5 ]
-  %10 = getelementptr inbounds i8, ptr %.04259, i64 -1
+  %.04260 = phi i8 [ %50, %49 ], [ %6, %5 ]
+  %.04359 = phi ptr [ %.2, %49 ], [ %7, %5 ]
+  %10 = getelementptr inbounds i8, ptr %.04359, i64 -1
   %11 = load i8, ptr %10, align 1
   switch i8 %9, label %15 [
     i8 45, label %12
@@ -64,19 +64,19 @@ define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef rea
   br i1 %.not53, label %49, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %.04259, i64 1
-  store i8 46, ptr %.04259, align 1
+  %14 = getelementptr inbounds i8, ptr %.04359, i64 1
+  store i8 46, ptr %.04359, align 1
   br label %49
 
 15:                                               ; preds = %.lr.ph
   %16 = tail call ptr @__ctype_b_loc() #8
   %17 = load ptr, ptr %16, align 8
-  %18 = sext i8 %.04160 to i64
+  %18 = sext i8 %.04260 to i64
   %19 = getelementptr inbounds i16, ptr %17, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 2048
   %22 = icmp eq i16 %21, 0
-  %23 = icmp ne i8 %.04160, 46
+  %23 = icmp ne i8 %.04260, 46
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %24, label %29
 
@@ -110,14 +110,14 @@ define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef rea
   br i1 %.not52, label %39, label %37
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %.04259, i64 1
-  store i8 46, ptr %.04259, align 1
+  %38 = getelementptr inbounds i8, ptr %.04359, i64 1
+  store i8 46, ptr %.04359, align 1
   %.pre = load i8, ptr %.061, align 1
   br label %39
 
 39:                                               ; preds = %37, %36
   %40 = phi i8 [ %.pre, %37 ], [ %9, %36 ]
-  %.1 = phi ptr [ %38, %37 ], [ %.04259, %36 ]
+  %.1 = phi ptr [ %38, %37 ], [ %.04359, %36 ]
   %41 = getelementptr inbounds i8, ptr %.1, i64 1
   store i8 %40, ptr %.1, align 1
   br label %49
@@ -133,17 +133,17 @@ define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef rea
   br i1 %.not51, label %49, label %45
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %.04259, i64 1
-  store i8 46, ptr %.04259, align 1
+  %46 = getelementptr inbounds i8, ptr %.04359, i64 1
+  store i8 46, ptr %.04359, align 1
   br label %49
 
 47:                                               ; preds = %.thread
-  %48 = getelementptr inbounds i8, ptr %.04259, i64 1
-  store i8 %9, ptr %.04259, align 1
+  %48 = getelementptr inbounds i8, ptr %.04359, i64 1
+  store i8 %9, ptr %.04359, align 1
   br label %49
 
 49:                                               ; preds = %39, %44, %45, %47, %12, %13
-  %.2 = phi ptr [ %14, %13 ], [ %.04259, %12 ], [ %41, %39 ], [ %48, %47 ], [ %46, %45 ], [ %.04259, %44 ]
+  %.2 = phi ptr [ %14, %13 ], [ %.04359, %12 ], [ %41, %39 ], [ %48, %47 ], [ %46, %45 ], [ %.04359, %44 ]
   %50 = load i8, ptr %.061, align 1
   %.0 = getelementptr inbounds i8, ptr %.061, i64 1
   %51 = load i8, ptr %.0, align 1
@@ -151,8 +151,8 @@ define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef rea
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %49, %5, %1
-  %.042.lcssa.sink = phi ptr [ %3, %1 ], [ %7, %5 ], [ %.2, %49 ]
-  store i8 0, ptr %.042.lcssa.sink, align 1
+  %.043.lcssa.sink = phi ptr [ %3, %1 ], [ %7, %5 ], [ %.2, %49 ]
+  store i8 0, ptr %.043.lcssa.sink, align 1
   ret ptr %3
 }
 
@@ -193,7 +193,7 @@ define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_
   br label %13
 
 13:                                               ; preds = %11, %9
-  %.063 = phi ptr [ %10, %9 ], [ %12, %11 ]
+  %.055 = phi ptr [ %10, %9 ], [ %12, %11 ]
   %14 = load i8, ptr %1, align 1
   %15 = icmp eq i8 %14, 35
   br i1 %15, label %16, label %18
@@ -207,13 +207,13 @@ define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_
   br label %20
 
 20:                                               ; preds = %18, %16
-  %.062 = phi ptr [ %17, %16 ], [ %19, %18 ]
-  %21 = load i8, ptr %.063, align 1
+  %.064 = phi ptr [ %17, %16 ], [ %19, %18 ]
+  %21 = load i8, ptr %.055, align 1
   %.not75139 = icmp eq i8 %21, 0
   br i1 %.not75139, label %.critedge.thread161, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %20
-  %22 = load i8, ptr %.062, align 1
+  %22 = load i8, ptr %.064, align 1
   %.not193 = icmp eq i8 %22, 0
   br i1 %.not193, label %.critedge, label %.lr.ph183.preheader
 
@@ -222,7 +222,7 @@ define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_
   br label %.lr.ph183
 
 .lr.ph:                                           ; preds = %select.unfold
-  %24 = load i8, ptr %.159, align 1
+  %24 = load i8, ptr %.161, align 1
   %25 = icmp ne i8 %24, 0
   %26 = icmp ne ptr %28, null
   %or.cond = and i1 %25, %26
@@ -231,9 +231,9 @@ define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_
   br i1 %or.cond3, label %.lr.ph183, label %.critedge.loopexit
 
 .lr.ph183:                                        ; preds = %.lr.ph183.preheader, %.lr.ph
-  %.060140182 = phi ptr [ %spec.select, %.lr.ph ], [ %.063, %.lr.ph183.preheader ]
-  %.058142181 = phi ptr [ %.159, %.lr.ph ], [ %.062, %.lr.ph183.preheader ]
-  %28 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.060140182, i32 noundef 46) #6
+  %.062140182 = phi ptr [ %spec.select, %.lr.ph ], [ %.055, %.lr.ph183.preheader ]
+  %.060142181 = phi ptr [ %.161, %.lr.ph ], [ %.064, %.lr.ph183.preheader ]
+  %28 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.062140182, i32 noundef 46) #6
   %.not76 = icmp eq ptr %28, null
   br i1 %.not76, label %30, label %29
 
@@ -242,7 +242,7 @@ define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_
   br label %30
 
 30:                                               ; preds = %29, %.lr.ph183
-  %31 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.058142181, i32 noundef 46) #6
+  %31 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.060142181, i32 noundef 46) #6
   %.not77 = icmp eq ptr %31, null
   br i1 %.not77, label %33, label %32
 
@@ -252,13 +252,13 @@ define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_
 
 33:                                               ; preds = %32, %30
   %34 = load ptr, ptr %23, align 8
-  %35 = load i8, ptr %.060140182, align 1
+  %35 = load i8, ptr %.062140182, align 1
   %36 = sext i8 %35 to i64
   %37 = getelementptr inbounds i16, ptr %34, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 2048
   %.not78 = icmp eq i16 %39, 0
-  %40 = load i8, ptr %.058142181, align 1
+  %40 = load i8, ptr %.060142181, align 1
   %41 = sext i8 %40 to i64
   %42 = getelementptr inbounds i16, ptr %34, i64 %41
   %43 = load i16, ptr %42, align 2
@@ -270,8 +270,8 @@ define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not81, label %.preheader120, label %46
 
 46:                                               ; preds = %45
-  %47 = tail call i64 @strtol(ptr nocapture noundef nonnull %.060140182, ptr noundef null, i32 noundef 10) #7
-  %48 = tail call i64 @strtol(ptr nocapture noundef nonnull %.058142181, ptr noundef null, i32 noundef 10) #7
+  %47 = tail call i64 @strtol(ptr nocapture noundef nonnull %.062140182, ptr noundef null, i32 noundef 10) #7
+  %48 = tail call i64 @strtol(ptr nocapture noundef nonnull %.060142181, ptr noundef null, i32 noundef 10) #7
   %.not83 = icmp eq i64 %47, %48
   br i1 %.not83, label %select.unfold, label %.critedge.thread.loopexit.split.loop.exit
 
@@ -282,7 +282,7 @@ define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_
   %50 = phi ptr [ %59, %57 ], [ @.str.16, %49 ]
   %.028.i = phi ptr [ %58, %57 ], [ @__const.compare_special_version_forms.special_forms, %49 ]
   %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #6
-  %52 = tail call i32 @strncmp(ptr noundef nonnull readonly %.060140182, ptr noundef nonnull %50, i64 noundef %51) #6
+  %52 = tail call i32 @strncmp(ptr noundef nonnull readonly %.062140182, ptr noundef nonnull %50, i64 noundef %51) #6
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %57
 
@@ -305,7 +305,7 @@ define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_
   %61 = phi ptr [ @.str.16, %.critedge.i ], [ %70, %68 ]
   %.129.i = phi ptr [ @__const.compare_special_version_forms.special_forms, %.critedge.i ], [ %69, %68 ]
   %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #6
-  %63 = tail call i32 @strncmp(ptr noundef nonnull readonly %.058142181, ptr noundef nonnull %61, i64 noundef %62) #6
+  %63 = tail call i32 @strncmp(ptr noundef nonnull readonly %.060142181, ptr noundef nonnull %61, i64 noundef %62) #6
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %68
 
@@ -352,7 +352,7 @@ compare_special_version_forms.exit:               ; preds = %68, %65
   %82 = phi ptr [ @.str.16, %.critedge.i91 ], [ %91, %89 ]
   %.129.i93 = phi ptr [ @__const.compare_special_version_forms.special_forms, %.critedge.i91 ], [ %90, %89 ]
   %83 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #6
-  %84 = tail call i32 @strncmp(ptr noundef nonnull readonly %.058142181, ptr noundef nonnull %82, i64 noundef %83) #6
+  %84 = tail call i32 @strncmp(ptr noundef nonnull readonly %.060142181, ptr noundef nonnull %82, i64 noundef %83) #6
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %89
 
@@ -376,7 +376,7 @@ compare_special_version_forms.exit97:             ; preds = %89, %86
   %92 = phi ptr [ %101, %99 ], [ @.str.16, %49 ]
   %.028.i98 = phi ptr [ %100, %99 ], [ @__const.compare_special_version_forms.special_forms, %49 ]
   %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #6
-  %94 = tail call i32 @strncmp(ptr noundef nonnull readonly %.060140182, ptr noundef nonnull %92, i64 noundef %93) #6
+  %94 = tail call i32 @strncmp(ptr noundef nonnull readonly %.062140182, ptr noundef nonnull %92, i64 noundef %93) #6
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %99
 
@@ -421,9 +421,9 @@ compare_special_version_forms.exit106:            ; preds = %110, %107
 
 select.unfold:                                    ; preds = %compare_special_version_forms.exit, %compare_special_version_forms.exit106, %compare_special_version_forms.exit97, %46
   %113 = getelementptr inbounds i8, ptr %28, i64 1
-  %spec.select = select i1 %.not76, ptr %.060140182, ptr %113
+  %spec.select = select i1 %.not76, ptr %.062140182, ptr %113
   %114 = getelementptr inbounds i8, ptr %31, i64 1
-  %.159 = select i1 %.not77, ptr %.058142181, ptr %114
+  %.161 = select i1 %.not77, ptr %.060142181, ptr %114
   %115 = load i8, ptr %spec.select, align 1
   %.not75 = icmp eq i8 %115, 0
   br i1 %.not75, label %.critedge.loopexit, label %.lr.ph
@@ -436,15 +436,15 @@ select.unfold:                                    ; preds = %compare_special_ver
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader
   %118 = phi i8 [ %21, %.lr.ph.preheader ], [ %.ph, %.critedge.loopexit ]
-  %.060.lcssa.ph = phi ptr [ %.063, %.lr.ph.preheader ], [ %spec.select, %.critedge.loopexit ]
-  %.058.lcssa.ph = phi ptr [ %.062, %.lr.ph.preheader ], [ %.159, %.critedge.loopexit ]
-  %.056.lcssa.ph = phi i1 [ false, %.lr.ph.preheader ], [ %116, %.critedge.loopexit ]
-  %.054.lcssa.ph = phi i1 [ false, %.lr.ph.preheader ], [ %117, %.critedge.loopexit ]
+  %.062.lcssa.ph = phi ptr [ %.055, %.lr.ph.preheader ], [ %spec.select, %.critedge.loopexit ]
+  %.060.lcssa.ph = phi ptr [ %.064, %.lr.ph.preheader ], [ %.161, %.critedge.loopexit ]
+  %.058.lcssa.ph = phi i1 [ false, %.lr.ph.preheader ], [ %116, %.critedge.loopexit ]
+  %.056.lcssa.ph = phi i1 [ false, %.lr.ph.preheader ], [ %117, %.critedge.loopexit ]
   %119 = sext i8 %118 to i64
-  br i1 %.056.lcssa.ph, label %128, label %.critedge.thread161
+  br i1 %.058.lcssa.ph, label %128, label %.critedge.thread161
 
 .critedge.thread161:                              ; preds = %20, %.critedge
-  %.060.lcssa166 = phi ptr [ %.060.lcssa.ph, %.critedge ], [ %.063, %20 ]
+  %.062.lcssa166 = phi ptr [ %.062.lcssa.ph, %.critedge ], [ %.055, %20 ]
   %120 = phi i64 [ %119, %.critedge ], [ 0, %20 ]
   %121 = tail call ptr @__ctype_b_loc() #8
   %122 = load ptr, ptr %121, align 8
@@ -455,16 +455,16 @@ select.unfold:                                    ; preds = %compare_special_ver
   br i1 %.not88, label %126, label %.critedge.thread
 
 126:                                              ; preds = %.critedge.thread161
-  %127 = tail call i32 @php_version_compare(ptr noundef nonnull %.060.lcssa166, ptr noundef nonnull @.str)
+  %127 = tail call i32 @php_version_compare(ptr noundef nonnull %.062.lcssa166, ptr noundef nonnull @.str)
   br label %.critedge.thread
 
 128:                                              ; preds = %.critedge
-  br i1 %.054.lcssa.ph, label %.critedge.thread, label %129
+  br i1 %.056.lcssa.ph, label %.critedge.thread, label %129
 
 129:                                              ; preds = %128
   %130 = tail call ptr @__ctype_b_loc() #8
   %131 = load ptr, ptr %130, align 8
-  %132 = load i8, ptr %.058.lcssa.ph, align 1
+  %132 = load i8, ptr %.060.lcssa.ph, align 1
   %133 = sext i8 %132 to i64
   %134 = getelementptr inbounds i16, ptr %131, i64 %133
   %135 = load i16, ptr %134, align 2
@@ -473,7 +473,7 @@ select.unfold:                                    ; preds = %compare_special_ver
   br i1 %.not87, label %137, label %.critedge.thread
 
 137:                                              ; preds = %129
-  %138 = tail call i32 @php_version_compare(ptr noundef nonnull @.str, ptr noundef nonnull %.058.lcssa.ph)
+  %138 = tail call i32 @php_version_compare(ptr noundef nonnull @.str, ptr noundef nonnull %.060.lcssa.ph)
   br label %.critedge.thread
 
 .critedge.thread.loopexit.split.loop.exit:        ; preds = %46
@@ -498,13 +498,13 @@ select.unfold:                                    ; preds = %compare_special_ver
 
 .critedge.thread:                                 ; preds = %.critedge.thread.loopexit.split.loop.exit, %.critedge.thread.loopexit.split.loop.exit131, %.critedge.thread.loopexit.split.loop.exit133, %.critedge.thread.loopexit.split.loop.exit135, %129, %.critedge.thread161, %126, %137, %128
   %.3 = phi i32 [ %127, %126 ], [ %138, %137 ], [ 0, %128 ], [ 1, %.critedge.thread161 ], [ -1, %129 ], [ %140, %.critedge.thread.loopexit.split.loop.exit ], [ %142, %.critedge.thread.loopexit.split.loop.exit131 ], [ %144, %.critedge.thread.loopexit.split.loop.exit133 ], [ %146, %.critedge.thread.loopexit.split.loop.exit135 ]
-  tail call void @_efree(ptr noundef nonnull %.063) #7
-  tail call void @_efree(ptr noundef %.062) #7
+  tail call void @_efree(ptr noundef nonnull %.055) #7
+  tail call void @_efree(ptr noundef %.064) #7
   br label %147
 
 147:                                              ; preds = %6, %5, %.critedge.thread
-  %.064 = phi i32 [ %.3, %.critedge.thread ], [ 1, %5 ], [ %spec.select118, %6 ]
-  ret i32 %.064
+  %.054 = phi i32 [ %.3, %.critedge.thread ], [ 1, %5 ], [ %spec.select118, %6 ]
+  ret i32 %.054
 }
 
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #2
@@ -600,10 +600,10 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
 
 .thread321:                                       ; preds = %38, %26, %16, %9
   %.0248332 = phi i32 [ 9, %26 ], [ 9, %16 ], [ 1, %9 ], [ 9, %38 ]
-  %.0249331 = phi i32 [ 4, %26 ], [ 4, %16 ], [ 0, %9 ], [ 5, %38 ]
-  %.0250330 = phi ptr [ %21, %26 ], [ %11, %16 ], [ null, %9 ], [ %33, %38 ]
-  %.0251329 = phi i32 [ 2, %26 ], [ 1, %16 ], [ 0, %9 ], [ 3, %38 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0248332, i32 noundef %.0251329, ptr noundef null, i32 noundef %.0249331, ptr noundef %.0250330) #7
+  %.0251331 = phi i32 [ 4, %26 ], [ 4, %16 ], [ 0, %9 ], [ 5, %38 ]
+  %.0252330 = phi ptr [ %21, %26 ], [ %11, %16 ], [ null, %9 ], [ %33, %38 ]
+  %.0253329 = phi i32 [ 2, %26 ], [ 1, %16 ], [ 0, %9 ], [ 3, %38 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0248332, i32 noundef %.0253329, ptr noundef null, i32 noundef %.0251331, ptr noundef %.0252330) #7
   br label %78
 
 .thread333:                                       ; preds = %38, %.thread350, %29

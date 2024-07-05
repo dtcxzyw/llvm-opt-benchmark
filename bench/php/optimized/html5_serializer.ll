@@ -293,17 +293,17 @@ dom_html5_serialize_comment.exit.i:               ; preds = %99
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds i8, ptr %.02778.i, i64 96
-  %.078115.i.i = load ptr, ptr %115, align 8
-  %.not82116.i.i = icmp eq ptr %.078115.i.i, null
+  %.077115.i.i = load ptr, ptr %115, align 8
+  %.not82116.i.i = icmp eq ptr %.077115.i.i, null
   br i1 %.not82116.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %114, %145
-  %.078117.i.i = phi ptr [ %.078.i.i, %145 ], [ %.078115.i.i, %114 ]
-  %116 = tail call zeroext i1 @dom_ns_is_also_an_attribute(ptr noundef nonnull %.078117.i.i) #4
+  %.077117.i.i = phi ptr [ %.077.i.i, %145 ], [ %.077115.i.i, %114 ]
+  %116 = tail call zeroext i1 @dom_ns_is_also_an_attribute(ptr noundef nonnull %.077117.i.i) #4
   br i1 %116, label %117, label %145
 
 117:                                              ; preds = %.lr.ph.i.i
-  %118 = getelementptr inbounds i8, ptr %.078117.i.i, i64 24
+  %118 = getelementptr inbounds i8, ptr %.077117.i.i, i64 24
   %119 = load ptr, ptr %118, align 8
   %.not101.i.i = icmp eq ptr %119, null
   %120 = load ptr, ptr %14, align 8
@@ -338,7 +338,7 @@ dom_html5_serialize_comment.exit.i:               ; preds = %99
 135:                                              ; preds = %133, %129
   %136 = load ptr, ptr %0, align 8
   %137 = load ptr, ptr %15, align 8
-  %138 = getelementptr inbounds i8, ptr %.078117.i.i, i64 16
+  %138 = getelementptr inbounds i8, ptr %.077117.i.i, i64 16
   %139 = load ptr, ptr %138, align 8
   %140 = tail call i32 %136(ptr noundef %137, ptr noundef %139) #4
   %.not106.i.i = icmp eq i32 %140, 0
@@ -352,24 +352,24 @@ dom_html5_serialize_comment.exit.i:               ; preds = %99
   br i1 %.not107.i.i, label %145, label %dom_html5_serialize_node.exit
 
 145:                                              ; preds = %141, %.lr.ph.i.i
-  %.078.i.i = load ptr, ptr %.078117.i.i, align 8
-  %.not82.i.i = icmp eq ptr %.078.i.i, null
+  %.077.i.i = load ptr, ptr %.077117.i.i, align 8
+  %.not82.i.i = icmp eq ptr %.077.i.i, null
   br i1 %.not82.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %145, %114
   %146 = getelementptr inbounds i8, ptr %.02778.i, i64 88
-  %.077118.i.i = load ptr, ptr %146, align 8
-  %.not83119.i.i = icmp eq ptr %.077118.i.i, null
+  %.078118.i.i = load ptr, ptr %146, align 8
+  %.not83119.i.i = icmp eq ptr %.078118.i.i, null
   br i1 %.not83119.i.i, label %dom_html5_serialize_element_start.exit.i, label %.lr.ph122.i.i
 
 147:                                              ; preds = %237
-  %148 = getelementptr inbounds i8, ptr %.077120.i.i, i64 48
-  %.077.i.i = load ptr, ptr %148, align 8
-  %.not83.i.i = icmp eq ptr %.077.i.i, null
+  %148 = getelementptr inbounds i8, ptr %.078120.i.i, i64 48
+  %.078.i.i = load ptr, ptr %148, align 8
+  %.not83.i.i = icmp eq ptr %.078.i.i, null
   br i1 %.not83.i.i, label %dom_html5_serialize_element_start.exit.i, label %.lr.ph122.i.i
 
 .lr.ph122.i.i:                                    ; preds = %._crit_edge.i.i, %147
-  %.077120.i.i = phi ptr [ %.077.i.i, %147 ], [ %.077118.i.i, %._crit_edge.i.i ]
+  %.078120.i.i = phi ptr [ %.078.i.i, %147 ], [ %.078118.i.i, %._crit_edge.i.i ]
   %149 = load ptr, ptr %14, align 8
   %150 = load ptr, ptr %15, align 8
   %151 = tail call i32 %149(ptr noundef %150, ptr noundef nonnull @.str.36, i64 noundef 1) #4
@@ -377,7 +377,7 @@ dom_html5_serialize_comment.exit.i:               ; preds = %99
   br i1 %.not84.i.i, label %152, label %dom_html5_serialize_node.exit
 
 152:                                              ; preds = %.lr.ph122.i.i
-  %153 = getelementptr inbounds i8, ptr %.077120.i.i, i64 72
+  %153 = getelementptr inbounds i8, ptr %.078120.i.i, i64 72
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %dom_is_ns.exit.i.i
@@ -385,7 +385,7 @@ dom_html5_serialize_comment.exit.i:               ; preds = %99
 156:                                              ; preds = %152
   %157 = load ptr, ptr %0, align 8
   %158 = load ptr, ptr %15, align 8
-  %159 = getelementptr inbounds i8, ptr %.077120.i.i, i64 16
+  %159 = getelementptr inbounds i8, ptr %.078120.i.i, i64 16
   %160 = load ptr, ptr %159, align 8
   %161 = tail call i32 %157(ptr noundef %158, ptr noundef %160) #4
   %.not96.i.i = icmp eq i32 %161, 0
@@ -408,7 +408,7 @@ dom_is_ns.exit.i.i:                               ; preds = %152
 170:                                              ; preds = %166
   %171 = load ptr, ptr %0, align 8
   %172 = load ptr, ptr %15, align 8
-  %173 = getelementptr inbounds i8, ptr %.077120.i.i, i64 16
+  %173 = getelementptr inbounds i8, ptr %.078120.i.i, i64 16
   %174 = load ptr, ptr %173, align 8
   %175 = tail call i32 %171(ptr noundef %172, ptr noundef %174) #4
   %.not95.i.i = icmp eq i32 %175, 0
@@ -420,7 +420,7 @@ dom_is_ns.exit111.i.i:                            ; preds = %dom_is_ns.exit.i.i
   br i1 %177, label %178, label %dom_is_ns.exit113.i.i
 
 178:                                              ; preds = %dom_is_ns.exit111.i.i
-  %179 = getelementptr inbounds i8, ptr %.077120.i.i, i64 16
+  %179 = getelementptr inbounds i8, ptr %.078120.i.i, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(6) @.str.47) #5
   %182 = icmp eq i32 %181, 0
@@ -461,7 +461,7 @@ dom_is_ns.exit113.i.i:                            ; preds = %dom_is_ns.exit111.i
 200:                                              ; preds = %196
   %201 = load ptr, ptr %0, align 8
   %202 = load ptr, ptr %15, align 8
-  %203 = getelementptr inbounds i8, ptr %.077120.i.i, i64 16
+  %203 = getelementptr inbounds i8, ptr %.078120.i.i, i64 16
   %204 = load ptr, ptr %203, align 8
   %205 = tail call i32 %201(ptr noundef %202, ptr noundef %204) #4
   %.not90.i.i = icmp eq i32 %205, 0
@@ -476,7 +476,7 @@ dom_is_ns.exit113.i.i:                            ; preds = %dom_is_ns.exit111.i
   br i1 %209, label %212, label %216
 
 212:                                              ; preds = %206
-  %213 = getelementptr inbounds i8, ptr %.077120.i.i, i64 16
+  %213 = getelementptr inbounds i8, ptr %.078120.i.i, i64 16
   %214 = load ptr, ptr %213, align 8
   %215 = tail call i32 %210(ptr noundef %211, ptr noundef %214) #4
   %.not88.i.i = icmp eq i32 %215, 0
@@ -497,7 +497,7 @@ dom_is_ns.exit113.i.i:                            ; preds = %dom_is_ns.exit111.i
 222:                                              ; preds = %218
   %223 = load ptr, ptr %0, align 8
   %224 = load ptr, ptr %15, align 8
-  %225 = getelementptr inbounds i8, ptr %.077120.i.i, i64 16
+  %225 = getelementptr inbounds i8, ptr %.078120.i.i, i64 16
   %226 = load ptr, ptr %225, align 8
   %227 = tail call i32 %223(ptr noundef %224, ptr noundef %226) #4
   %.not87.i.i = icmp eq i32 %227, 0
@@ -511,7 +511,7 @@ dom_is_ns.exit113.i.i:                            ; preds = %dom_is_ns.exit111.i
   br i1 %.not97.i.i, label %232, label %dom_html5_serialize_node.exit
 
 232:                                              ; preds = %228
-  %233 = tail call ptr @xmlNodeGetContent(ptr noundef nonnull %.077120.i.i) #4
+  %233 = tail call ptr @xmlNodeGetContent(ptr noundef nonnull %.078120.i.i) #4
   %.not98.i.i = icmp eq ptr %233, null
   br i1 %.not98.i.i, label %237, label %234
 
@@ -787,10 +787,10 @@ define internal fastcc i32 @dom_html5_escape_string(ptr nocapture noundef readon
   br label %7
 
 7:                                                ; preds = %80, %3
-  %.057 = phi ptr [ %1, %3 ], [ %81, %80 ]
-  %.056 = phi ptr [ %1, %3 ], [ %.1, %80 ]
-  %8 = tail call i64 @strcspn(ptr noundef %.057, ptr noundef nonnull %4) #5
-  %9 = getelementptr inbounds i8, ptr %.057, i64 %8
+  %.057 = phi ptr [ %1, %3 ], [ %.158, %80 ]
+  %.056 = phi ptr [ %1, %3 ], [ %81, %80 ]
+  %8 = tail call i64 @strcspn(ptr noundef %.056, ptr noundef nonnull %4) #5
+  %9 = getelementptr inbounds i8, ptr %.056, i64 %8
   %10 = load i8, ptr %9, align 1
   switch i8 %10, label %80 [
     i8 0, label %82
@@ -805,9 +805,9 @@ define internal fastcc i32 @dom_html5_escape_string(ptr nocapture noundef readon
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = ptrtoint ptr %9 to i64
-  %15 = ptrtoint ptr %.056 to i64
+  %15 = ptrtoint ptr %.057 to i64
   %16 = sub i64 %14, %15
-  %17 = tail call i32 %12(ptr noundef %13, ptr noundef %.056, i64 noundef %16) #4
+  %17 = tail call i32 %12(ptr noundef %13, ptr noundef %.057, i64 noundef %16) #4
   %.not67 = icmp eq i32 %17, 0
   br i1 %.not67, label %18, label %.loopexit
 
@@ -832,9 +832,9 @@ define internal fastcc i32 @dom_html5_escape_string(ptr nocapture noundef readon
   %29 = load ptr, ptr %5, align 8
   %30 = load ptr, ptr %6, align 8
   %31 = ptrtoint ptr %9 to i64
-  %32 = ptrtoint ptr %.056 to i64
+  %32 = ptrtoint ptr %.057 to i64
   %33 = sub i64 %31, %32
-  %34 = tail call i32 %29(ptr noundef %30, ptr noundef %.056, i64 noundef %33) #4
+  %34 = tail call i32 %29(ptr noundef %30, ptr noundef %.057, i64 noundef %33) #4
   %.not65 = icmp eq i32 %34, 0
   br i1 %.not65, label %35, label %.loopexit
 
@@ -853,9 +853,9 @@ define internal fastcc i32 @dom_html5_escape_string(ptr nocapture noundef readon
   %42 = load ptr, ptr %5, align 8
   %43 = load ptr, ptr %6, align 8
   %44 = ptrtoint ptr %9 to i64
-  %45 = ptrtoint ptr %.056 to i64
+  %45 = ptrtoint ptr %.057 to i64
   %46 = sub i64 %44, %45
-  %47 = tail call i32 %42(ptr noundef %43, ptr noundef %.056, i64 noundef %46) #4
+  %47 = tail call i32 %42(ptr noundef %43, ptr noundef %.057, i64 noundef %46) #4
   %.not63 = icmp eq i32 %47, 0
   br i1 %.not63, label %48, label %.loopexit
 
@@ -874,9 +874,9 @@ define internal fastcc i32 @dom_html5_escape_string(ptr nocapture noundef readon
   %55 = load ptr, ptr %5, align 8
   %56 = load ptr, ptr %6, align 8
   %57 = ptrtoint ptr %9 to i64
-  %58 = ptrtoint ptr %.056 to i64
+  %58 = ptrtoint ptr %.057 to i64
   %59 = sub i64 %57, %58
-  %60 = tail call i32 %55(ptr noundef %56, ptr noundef %.056, i64 noundef %59) #4
+  %60 = tail call i32 %55(ptr noundef %56, ptr noundef %.057, i64 noundef %59) #4
   %.not61 = icmp eq i32 %60, 0
   br i1 %.not61, label %61, label %.loopexit
 
@@ -895,9 +895,9 @@ define internal fastcc i32 @dom_html5_escape_string(ptr nocapture noundef readon
   %68 = load ptr, ptr %5, align 8
   %69 = load ptr, ptr %6, align 8
   %70 = ptrtoint ptr %9 to i64
-  %71 = ptrtoint ptr %.056 to i64
+  %71 = ptrtoint ptr %.057 to i64
   %72 = sub i64 %70, %71
-  %73 = tail call i32 %68(ptr noundef %69, ptr noundef %.056, i64 noundef %72) #4
+  %73 = tail call i32 %68(ptr noundef %69, ptr noundef %.057, i64 noundef %72) #4
   %.not = icmp eq i32 %73, 0
   br i1 %.not, label %74, label %.loopexit
 
@@ -913,18 +913,18 @@ define internal fastcc i32 @dom_html5_escape_string(ptr nocapture noundef readon
   br label %80
 
 80:                                               ; preds = %7, %24, %39, %78, %65, %52, %22
-  %.158 = phi ptr [ %9, %78 ], [ %9, %65 ], [ %9, %52 ], [ %25, %39 ], [ %9, %24 ], [ %9, %22 ], [ %9, %7 ]
-  %.1 = phi ptr [ %79, %78 ], [ %66, %65 ], [ %53, %52 ], [ %40, %39 ], [ %.056, %24 ], [ %23, %22 ], [ %.056, %7 ]
-  %81 = getelementptr inbounds i8, ptr %.158, i64 1
+  %.158 = phi ptr [ %79, %78 ], [ %66, %65 ], [ %53, %52 ], [ %40, %39 ], [ %.057, %24 ], [ %23, %22 ], [ %.057, %7 ]
+  %.1 = phi ptr [ %9, %78 ], [ %9, %65 ], [ %9, %52 ], [ %25, %39 ], [ %9, %24 ], [ %9, %22 ], [ %9, %7 ]
+  %81 = getelementptr inbounds i8, ptr %.1, i64 1
   br label %7
 
 82:                                               ; preds = %7
   %83 = load ptr, ptr %5, align 8
   %84 = load ptr, ptr %6, align 8
   %85 = ptrtoint ptr %9 to i64
-  %86 = ptrtoint ptr %.056 to i64
+  %86 = ptrtoint ptr %.057 to i64
   %87 = sub i64 %85, %86
-  %88 = tail call i32 %83(ptr noundef %84, ptr noundef %.056, i64 noundef %87) #4
+  %88 = tail call i32 %83(ptr noundef %84, ptr noundef %.057, i64 noundef %87) #4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %74, %67, %61, %54, %48, %41, %35, %28, %18, %11, %82

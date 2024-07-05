@@ -2947,14 +2947,14 @@ _ZN7QStringD2Ev.exit624:                          ; preds = %_ZN7QStringD2Ev.exi
 
 843:                                              ; preds = %828, %843
   %indvars.iv = phi i64 [ 0, %828 ], [ %indvars.iv.next, %843 ]
-  %.0551365 = phi i32 [ 0, %828 ], [ %849, %843 ]
-  %.0561364 = phi i32 [ 0, %828 ], [ %846, %843 ]
+  %.01161365 = phi i32 [ 0, %828 ], [ %849, %843 ]
+  %.01171364 = phi i32 [ 0, %828 ], [ %846, %843 ]
   %844 = getelementptr [256 x i32], ptr @gsm_map_stat, i64 0, i64 %indvars.iv
   %845 = load i32, ptr %844, align 4
-  %846 = add i32 %845, %.0561364
+  %846 = add i32 %845, %.01171364
   %847 = getelementptr [256 x i32], ptr getelementptr inbounds (i8, ptr @gsm_map_stat, i64 1024), i64 0, i64 %indvars.iv
   %848 = load i32, ptr %847, align 4
-  %849 = add i32 %848, %.0551365
+  %849 = add i32 %848, %.01161365
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %.preheader, label %843, !llvm.loop !10
@@ -3020,14 +3020,14 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i639:   ; preds = %_ZN7QStringD2Ev.exi
 
 .preheader:                                       ; preds = %843, %.preheader
   %indvars.iv1374 = phi i64 [ %indvars.iv.next1375, %.preheader ], [ 0, %843 ]
-  %.0531368 = phi i32 [ %873, %.preheader ], [ 0, %843 ]
-  %.0541367 = phi i32 [ %870, %.preheader ], [ 0, %843 ]
+  %.01141368 = phi i32 [ %873, %.preheader ], [ 0, %843 ]
+  %.01151367 = phi i32 [ %870, %.preheader ], [ 0, %843 ]
   %868 = getelementptr [256 x i32], ptr getelementptr inbounds (i8, ptr @gsm_map_stat, i64 2048), i64 0, i64 %indvars.iv1374
   %869 = load i32, ptr %868, align 4
-  %870 = add i32 %869, %.0541367
+  %870 = add i32 %869, %.01151367
   %871 = getelementptr [256 x i32], ptr getelementptr inbounds (i8, ptr @gsm_map_stat, i64 3072), i64 0, i64 %indvars.iv1374
   %872 = load i32, ptr %871, align 4
-  %873 = add i32 %872, %.0531368
+  %873 = add i32 %872, %.01141368
   %indvars.iv.next1375 = add nuw nsw i64 %indvars.iv1374, 1
   %exitcond1377.not = icmp eq i64 %indvars.iv.next1375, 256
   br i1 %exitcond1377.not, label %874, label %.preheader, !llvm.loop !12

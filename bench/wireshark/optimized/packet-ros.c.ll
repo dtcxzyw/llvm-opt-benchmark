@@ -996,20 +996,20 @@ define internal fastcc void @ros_match_call_response(ptr noundef %0, ptr noundef
   br label %39
 
 39:                                               ; preds = %34, %.critedge
-  %.0 = phi ptr [ %33, %34 ], [ %38, %.critedge ]
-  %40 = getelementptr inbounds i8, ptr %.0, i64 28
+  %.058 = phi ptr [ %33, %34 ], [ %38, %.critedge ]
+  %40 = getelementptr inbounds i8, ptr %.058, i64 28
   store i32 %3, ptr %40, align 4
   %41 = load i32, ptr %24, align 4
-  %42 = getelementptr inbounds i8, ptr %.0, i64 4
+  %42 = getelementptr inbounds i8, ptr %.058, i64 4
   store i32 %41, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %.0, i64 8
+  %43 = getelementptr inbounds i8, ptr %.058, i64 8
   %44 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false)
-  %45 = getelementptr inbounds i8, ptr %.0, i64 24
+  %45 = getelementptr inbounds i8, ptr %.058, i64 24
   store i32 0, ptr %45, align 8
-  store i32 1, ptr %.0, align 8
+  store i32 1, ptr %.058, align 8
   %46 = load ptr, ptr %12, align 8
-  %47 = call ptr @wmem_map_insert(ptr noundef %46, ptr noundef nonnull %.0, ptr noundef nonnull %.0) #5
+  %47 = call ptr @wmem_map_insert(ptr noundef %46, ptr noundef nonnull %.058, ptr noundef nonnull %.058) #5
   br label %proto_item_set_generated.exit
 
 48:                                               ; preds = %18

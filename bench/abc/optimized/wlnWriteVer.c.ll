@@ -407,8 +407,8 @@ define void @Wln_WriteVerIntVec(ptr nocapture noundef %0, ptr noundef %1, ptr no
 
 8:                                                ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %.02027 = phi i32 [ 0, %.lr.ph ], [ %27, %20 ]
-  %.02126 = phi i32 [ %3, %.lr.ph ], [ %26, %20 ]
+  %.028 = phi i32 [ %3, %.lr.ph ], [ %26, %20 ]
+  %.02126 = phi i32 [ 0, %.lr.ph ], [ %27, %20 ]
   %.val24 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i32, ptr %.val24, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
@@ -416,11 +416,11 @@ define void @Wln_WriteVerIntVec(ptr nocapture noundef %0, ptr noundef %1, ptr no
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #13
   %13 = trunc i64 %12 to i32
   %14 = add i32 %13, 2
-  %.not = icmp eq i32 %.02027, 0
+  %.not = icmp eq i32 %.02126, 0
   br i1 %.not, label %20, label %15
 
 15:                                               ; preds = %8
-  %16 = add nsw i32 %14, %.02126
+  %16 = add nsw i32 %14, %.028
   %17 = icmp sgt i32 %16, 67
   br i1 %17, label %18, label %20
 
@@ -429,16 +429,16 @@ define void @Wln_WriteVerIntVec(ptr nocapture noundef %0, ptr noundef %1, ptr no
   br label %20
 
 20:                                               ; preds = %18, %15, %8
-  %.122 = phi i32 [ %3, %18 ], [ %.02126, %15 ], [ %.02126, %8 ]
-  %.1 = phi i32 [ 0, %18 ], [ %.02027, %15 ], [ 0, %8 ]
+  %.122 = phi i32 [ 0, %18 ], [ %.02126, %15 ], [ 0, %8 ]
+  %.1 = phi i32 [ %3, %18 ], [ %.028, %15 ], [ %.028, %8 ]
   %.val23 = load i32, ptr %5, align 4
   %21 = add nsw i32 %.val23, -1
   %22 = zext i32 %21 to i64
   %23 = icmp eq i64 %indvars.iv, %22
   %24 = select i1 %23, ptr @.str.14, ptr @.str.15
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %11, ptr noundef nonnull %24) #11
-  %26 = add nsw i32 %.122, %14
-  %27 = add nsw i32 %.1, 1
+  %26 = add nsw i32 %.1, %14
+  %27 = add nsw i32 %.122, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %5, align 4
   %28 = sext i32 %.val to i64
@@ -471,8 +471,8 @@ define void @Wln_WriteVerInt(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 10:                                               ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
-  %.02027.i = phi i32 [ 0, %.lr.ph.i ], [ %29, %22 ]
-  %.02126.i = phi i32 [ 3, %.lr.ph.i ], [ %28, %22 ]
+  %.028.i = phi i32 [ 3, %.lr.ph.i ], [ %28, %22 ]
+  %.02126.i = phi i32 [ 0, %.lr.ph.i ], [ %29, %22 ]
   %.val24.i = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i32, ptr %.val24.i, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4
@@ -480,11 +480,11 @@ define void @Wln_WriteVerInt(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #13
   %15 = trunc i64 %14 to i32
   %16 = add i32 %15, 2
-  %.not.i = icmp eq i32 %.02027.i, 0
+  %.not.i = icmp eq i32 %.02126.i, 0
   br i1 %.not.i, label %22, label %17
 
 17:                                               ; preds = %10
-  %18 = add nsw i32 %16, %.02126.i
+  %18 = add nsw i32 %16, %.028.i
   %19 = icmp sgt i32 %18, 67
   br i1 %19, label %20, label %22
 
@@ -493,16 +493,16 @@ define void @Wln_WriteVerInt(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br label %22
 
 22:                                               ; preds = %20, %17, %10
-  %.122.i = phi i32 [ 3, %20 ], [ %.02126.i, %17 ], [ %.02126.i, %10 ]
-  %.1.i = phi i32 [ 0, %20 ], [ %.02027.i, %17 ], [ 0, %10 ]
+  %.122.i = phi i32 [ 0, %20 ], [ %.02126.i, %17 ], [ 0, %10 ]
+  %.1.i = phi i32 [ 3, %20 ], [ %.028.i, %17 ], [ %.028.i, %10 ]
   %.val23.i = load i32, ptr %7, align 4
   %23 = add nsw i32 %.val23.i, -1
   %24 = zext i32 %23 to i64
   %25 = icmp eq i64 %indvars.iv.i, %24
   %26 = select i1 %25, ptr @.str.14, ptr @.str.15
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %13, ptr noundef nonnull %26) #11
-  %28 = add nsw i32 %.122.i, %16
-  %29 = add nsw i32 %.1.i, 1
+  %28 = add nsw i32 %.1.i, %16
+  %29 = add nsw i32 %.122.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i = load i32, ptr %7, align 4
   %30 = sext i32 %.val.i to i64
@@ -525,8 +525,8 @@ Wln_WriteVerIntVec.exit:                          ; preds = %22
 
 37:                                               ; preds = %49, %.lr.ph.i894
   %indvars.iv.i895 = phi i64 [ 0, %.lr.ph.i894 ], [ %indvars.iv.next.i903, %49 ]
-  %.02027.i896 = phi i32 [ 0, %.lr.ph.i894 ], [ %56, %49 ]
-  %.02126.i897 = phi i32 [ 3, %.lr.ph.i894 ], [ %55, %49 ]
+  %.028.i896 = phi i32 [ 3, %.lr.ph.i894 ], [ %55, %49 ]
+  %.02126.i897 = phi i32 [ 0, %.lr.ph.i894 ], [ %56, %49 ]
   %.val24.i898 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i32, ptr %.val24.i898, i64 %indvars.iv.i895
   %39 = load i32, ptr %38, align 4
@@ -534,11 +534,11 @@ Wln_WriteVerIntVec.exit:                          ; preds = %22
   %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #13
   %42 = trunc i64 %41 to i32
   %43 = add i32 %42, 2
-  %.not.i899 = icmp eq i32 %.02027.i896, 0
+  %.not.i899 = icmp eq i32 %.02126.i897, 0
   br i1 %.not.i899, label %49, label %44
 
 44:                                               ; preds = %37
-  %45 = add nsw i32 %43, %.02126.i897
+  %45 = add nsw i32 %43, %.028.i896
   %46 = icmp sgt i32 %45, 67
   br i1 %46, label %47, label %49
 
@@ -547,16 +547,16 @@ Wln_WriteVerIntVec.exit:                          ; preds = %22
   br label %49
 
 49:                                               ; preds = %47, %44, %37
-  %.122.i900 = phi i32 [ 3, %47 ], [ %.02126.i897, %44 ], [ %.02126.i897, %37 ]
-  %.1.i901 = phi i32 [ 0, %47 ], [ %.02027.i896, %44 ], [ 0, %37 ]
+  %.122.i900 = phi i32 [ 0, %47 ], [ %.02126.i897, %44 ], [ 0, %37 ]
+  %.1.i901 = phi i32 [ 3, %47 ], [ %.028.i896, %44 ], [ %.028.i896, %37 ]
   %.val23.i902 = load i32, ptr %34, align 4
   %50 = add nsw i32 %.val23.i902, -1
   %51 = zext i32 %50 to i64
   %52 = icmp eq i64 %indvars.iv.i895, %51
   %53 = select i1 %52, ptr @.str.14, ptr @.str.15
   %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %40, ptr noundef nonnull %53) #11
-  %55 = add nsw i32 %.122.i900, %43
-  %56 = add nsw i32 %.1.i901, 1
+  %55 = add nsw i32 %.1.i901, %43
+  %56 = add nsw i32 %.122.i900, 1
   %indvars.iv.next.i903 = add nuw nsw i64 %indvars.iv.i895, 1
   %.val.i904 = load i32, ptr %34, align 4
   %57 = sext i32 %.val.i904 to i64
@@ -1297,10 +1297,10 @@ Wln_ObjFanin.exit951:                             ; preds = %399, %402
   br label %443
 
 443:                                              ; preds = %.critedge6, %443
-  %.1.in1104 = phi i32 [ %442, %.critedge6 ], [ %.1, %443 ]
-  %.1 = add nsw i32 %.1.in1104, -1
+  %.1679.in1104 = phi i32 [ %442, %.critedge6 ], [ %.1679, %443 ]
+  %.1679 = add nsw i32 %.1679.in1104, -1
   %444 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef 0) #11
-  %445 = icmp ugt i32 %.1.in1104, 1
+  %445 = icmp ugt i32 %.1679.in1104, 1
   br i1 %445, label %443, label %446, !llvm.loop !17
 
 446:                                              ; preds = %443
@@ -1357,7 +1357,7 @@ Wln_ObjFanin0.exit955:                            ; preds = %452, %457
   br label %478
 
 478:                                              ; preds = %Wln_ObjFanin0.exit955, %507
-  %.56841088 = phi i32 [ 0, %Wln_ObjFanin0.exit955 ], [ %509, %507 ]
+  %.51088 = phi i32 [ 0, %Wln_ObjFanin0.exit955 ], [ %509, %507 ]
   %479 = call i64 @fwrite(ptr nonnull @.str.41, i64 9, i64 1, ptr %0)
   %480 = call i64 @fwrite(ptr nonnull @.str.59, i64 5, i64 1, ptr %0)
   %481 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %473) #11
@@ -1365,13 +1365,13 @@ Wln_ObjFanin0.exit955:                            ; preds = %452, %457
   br label %483
 
 483:                                              ; preds = %478, %483
-  %.21081 = phi i32 [ 0, %478 ], [ %488, %483 ]
-  %484 = sub nsw i32 %472, %.21081
-  %485 = lshr i32 %.56841088, %484
+  %.26801081 = phi i32 [ 0, %478 ], [ %488, %483 ]
+  %484 = sub nsw i32 %472, %.26801081
+  %485 = lshr i32 %.51088, %484
   %486 = and i32 %485, 1
   %487 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef %486) #11
-  %488 = add nuw i32 %.21081, 1
-  %exitcond.not = icmp eq i32 %.21081, %smax
+  %488 = add nuw i32 %.26801081, 1
+  %exitcond.not = icmp eq i32 %.26801081, %smax
   br i1 %exitcond.not, label %489, label %483, !llvm.loop !18
 
 489:                                              ; preds = %483
@@ -1379,12 +1379,12 @@ Wln_ObjFanin0.exit955:                            ; preds = %452, %457
   br label %491
 
 491:                                              ; preds = %489, %Wln_ObjFanin.exit959
-  %.31082 = phi i32 [ 0, %489 ], [ %506, %Wln_ObjFanin.exit959 ]
-  %.not712 = icmp eq i32 %.31082, 0
+  %.36811082 = phi i32 [ 0, %489 ], [ %506, %Wln_ObjFanin.exit959 ]
+  %.not712 = icmp eq i32 %.36811082, 0
   %492 = select i1 %.not712, ptr @.str.14, ptr @.str.63
-  %493 = sub nsw i32 %472, %.31082
+  %493 = sub nsw i32 %472, %.36811082
   %494 = shl nuw i32 1, %493
-  %495 = and i32 %494, %.56841088
+  %495 = and i32 %494, %.51088
   %.not713 = icmp eq i32 %495, 0
   %496 = select i1 %.not713, ptr @.str.65, ptr @.str.64
   %.val805 = load ptr, ptr %67, align 8
@@ -1403,13 +1403,13 @@ Wln_ObjFanin.exit959:                             ; preds = %491, %501
   %503 = load i32, ptr %.in.i958, align 4
   %504 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %503) #11
   %505 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.62, ptr noundef nonnull %492, ptr noundef nonnull %496, ptr noundef %504, i32 noundef %493) #11
-  %506 = add nuw i32 %.31082, 1
-  %exitcond1147.not = icmp eq i32 %.31082, %smax
+  %506 = add nuw i32 %.36811082, 1
+  %exitcond1147.not = icmp eq i32 %.36811082, %smax
   br i1 %exitcond1147.not, label %507, label %491, !llvm.loop !19
 
 507:                                              ; preds = %Wln_ObjFanin.exit959
   %508 = call i64 @fwrite(ptr nonnull @.str.58, i64 3, i64 1, ptr %0)
-  %509 = add nuw nsw i32 %.56841088, 1
+  %509 = add nuw nsw i32 %.51088, 1
   %.val869 = load ptr, ptr %62, align 8
   %.val870 = load ptr, ptr %63, align 8
   %510 = getelementptr i8, ptr %.val870, i64 8
@@ -1428,7 +1428,7 @@ Wln_ObjFanin.exit959:                             ; preds = %491, %501
   %519 = load i32, ptr %518, align 4
   %520 = sub nsw i32 %517, %519
   %521 = call i32 @llvm.abs.i32(i32 %520, i1 true)
-  %.not1064.not = icmp ult i32 %.56841088, %521
+  %.not1064.not = icmp ult i32 %.51088, %521
   br i1 %.not1064.not, label %478, label %522, !llvm.loop !20
 
 522:                                              ; preds = %507
@@ -1489,13 +1489,13 @@ Wln_ObjFanin.exit959:                             ; preds = %491, %501
   br label %556
 
 556:                                              ; preds = %540, %556
-  %.41089 = phi i32 [ 0, %540 ], [ %561, %556 ]
-  %557 = sub nsw i32 %472, %.41089
+  %.46821089 = phi i32 [ 0, %540 ], [ %561, %556 ]
+  %557 = sub nsw i32 %472, %.46821089
   %558 = lshr i32 %.61091, %557
   %559 = and i32 %558, 1
   %560 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef %559) #11
-  %561 = add nuw i32 %.41089, 1
-  %exitcond1149.not = icmp eq i32 %.41089, %smax
+  %561 = add nuw i32 %.46821089, 1
+  %exitcond1149.not = icmp eq i32 %.46821089, %smax
   br i1 %exitcond1149.not, label %.loopexit, label %556, !llvm.loop !22
 
 562:                                              ; preds = %.loopexit

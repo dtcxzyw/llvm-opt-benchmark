@@ -199,28 +199,28 @@ find_cachedpow10.exit.i:                          ; preds = %if.end.i.i
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %if.end.i83.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %divp.07.i.i, i64 8
-  %cmp.i86.i = icmp ugt i32 %kappa.06.i.i, 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %divp.06.i.i, i64 8
+  %cmp.i86.i = icmp ugt i32 %kappa.05.i.i, 1
   br i1 %cmp.i86.i, label %for.body.i.i, label %while.body.i87.i, !llvm.loop !5
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %find_cachedpow10.exit.i
-  %divp.07.i.i = phi ptr [ getelementptr inbounds (i8, ptr @tens, i64 80), %find_cachedpow10.exit.i ], [ %incdec.ptr.i.i, %for.cond.i.i ]
-  %kappa.06.i.i = phi i32 [ 10, %find_cachedpow10.exit.i ], [ %dec.i.i, %for.cond.i.i ]
-  %idx.05.i.i = phi i32 [ 0, %find_cachedpow10.exit.i ], [ %idx.1.i.i, %for.cond.i.i ]
-  %part1.04.i.i = phi i64 [ %shr.i81.i, %find_cachedpow10.exit.i ], [ %sub20.i85.i, %for.cond.i.i ]
-  %10 = load i64, ptr %divp.07.i.i, align 8
-  %div16.i.i = udiv i64 %part1.04.i.i, %10
+  %part1.07.i.i = phi i64 [ %shr.i81.i, %find_cachedpow10.exit.i ], [ %sub20.i85.i, %for.cond.i.i ]
+  %divp.06.i.i = phi ptr [ getelementptr inbounds (i8, ptr @tens, i64 80), %find_cachedpow10.exit.i ], [ %incdec.ptr.i.i, %for.cond.i.i ]
+  %kappa.05.i.i = phi i32 [ 10, %find_cachedpow10.exit.i ], [ %dec.i.i, %for.cond.i.i ]
+  %idx.04.i.i = phi i32 [ 0, %find_cachedpow10.exit.i ], [ %idx.1.i.i, %for.cond.i.i ]
+  %10 = load i64, ptr %divp.06.i.i, align 8
+  %div16.i.i = udiv i64 %part1.07.i.i, %10
   %11 = and i64 %div16.i.i, 4294967295
   %tobool.i.i = icmp ne i64 %11, 0
-  %tobool17.i.i = icmp ne i32 %idx.05.i.i, 0
+  %tobool17.i.i = icmp ne i32 %idx.04.i.i, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 true, i1 %tobool17.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end.i83.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %12 = trunc i64 %div16.i.i to i8
   %conv18.i.i = add i8 %12, 48
-  %inc.i88.i = add nsw i32 %idx.05.i.i, 1
-  %idxprom.i89.i = sext i32 %idx.05.i.i to i64
+  %inc.i88.i = add nsw i32 %idx.04.i.i, 1
+  %idxprom.i89.i = sext i32 %idx.04.i.i to i64
   %arrayidx.i90.i = getelementptr inbounds i8, ptr %digits, i64 %idxprom.i89.i
   store i8 %conv18.i.i, ptr %arrayidx.i90.i, align 1
   br label %if.end.i83.i
@@ -228,8 +228,8 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 if.end.i83.i:                                     ; preds = %if.then.i.i, %for.body.i.i
   %idx.1.i.i = phi i32 [ %inc.i88.i, %if.then.i.i ], [ 0, %for.body.i.i ]
   %mul.i84.i = mul i64 %11, %10
-  %sub20.i85.i = sub i64 %part1.04.i.i, %mul.i84.i
-  %dec.i.i = add nsw i32 %kappa.06.i.i, -1
+  %sub20.i85.i = sub i64 %part1.07.i.i, %mul.i84.i
+  %dec.i.i = add nsw i32 %kappa.05.i.i, -1
   %shl24.i.i = shl i64 %sub20.i85.i, %sh_prom.i.i
   %add25.i.i = add i64 %shl24.i.i, %and.i82.i
   %cmp26.not.i.i = icmp ugt i64 %add25.i.i, %sub4.i.i
@@ -272,10 +272,10 @@ while.body.i.i.i:                                 ; preds = %lor.rhs.i.i.i, %lan
   br i1 %or.cond.i.i.i, label %grisu2.exit, label %land.rhs.i.i.i, !llvm.loop !7
 
 while.body.i87.i:                                 ; preds = %for.cond.i.i, %if.end53.i.i
-  %delta.0.i.i = phi i64 [ %mul36.i.i, %if.end53.i.i ], [ %sub4.i.i, %for.cond.i.i ]
-  %part2.0.i.i = phi i64 [ %and56.i.i, %if.end53.i.i ], [ %and.i82.i, %for.cond.i.i ]
   %idx.2.i.i = phi i32 [ %idx.3.i.i, %if.end53.i.i ], [ %idx.1.i.i, %for.cond.i.i ]
   %kappa.1.i.i = phi i32 [ %dec37.i.i, %if.end53.i.i ], [ 0, %for.cond.i.i ]
+  %part2.0.i.i = phi i64 [ %and56.i.i, %if.end53.i.i ], [ %and.i82.i, %for.cond.i.i ]
+  %delta.0.i.i = phi i64 [ %mul36.i.i, %if.end53.i.i ], [ %sub4.i.i, %for.cond.i.i ]
   %unit.0.i.i = phi ptr [ %incdec.ptr64.i.i, %if.end53.i.i ], [ getelementptr inbounds (i8, ptr @tens, i64 144), %for.cond.i.i ]
   %mul35.i.i = mul i64 %part2.0.i.i, 10
   %mul36.i.i = mul i64 %delta.0.i.i, 10

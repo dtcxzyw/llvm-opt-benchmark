@@ -76,14 +76,14 @@ define internal { double, double } @_ZL19patterson_s_inverse5PJ_XYP8PJconsts(dou
   br label %13
 
 11:                                               ; preds = %13
-  %12 = add nsw i32 %.031, -1
+  %12 = add nsw i32 %.02430, -1
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %32, label %13, !llvm.loop !4
 
 13:                                               ; preds = %8, %11
-  %.031 = phi i32 [ 100, %8 ], [ %12, %11 ]
-  %.02430 = phi double [ %1, %8 ], [ %29, %11 ]
-  %14 = fmul double %.02430, %.02430
+  %.031 = phi double [ %1, %8 ], [ %29, %11 ]
+  %.02430 = phi i32 [ 100, %8 ], [ %12, %11 ]
+  %14 = fmul double %.031, %.031
   %15 = fmul double %14, %14
   %16 = tail call double @llvm.fmuladd.f64(double %14, double 2.406000e-02, double -1.449900e-01)
   %17 = insertelement <2 x double> poison, double %14, i64 0
@@ -92,13 +92,13 @@ define internal { double, double } @_ZL19patterson_s_inverse5PJ_XYP8PJconsts(dou
   %20 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %19, <2 x double> <double 2.318500e-01, double -1.014930e+00>)
   %21 = insertelement <2 x double> %18, double %15, i64 0
   %22 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %21, <2 x double> %20, <2 x double> <double 1.014800e+00, double 0x3FF28C49BA5E3540>)
-  %23 = insertelement <2 x double> poison, double %.02430, i64 0
+  %23 = insertelement <2 x double> poison, double %.031, i64 0
   %24 = insertelement <2 x double> %23, double %15, i64 1
   %25 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %24, <2 x double> %22, <2 x double> %10)
   %26 = extractelement <2 x double> %25, i64 0
   %27 = extractelement <2 x double> %25, i64 1
   %28 = fdiv double %26, %27
-  %29 = fsub double %.02430, %28
+  %29 = fsub double %.031, %28
   %30 = tail call double @llvm.fabs.f64(double %28)
   %31 = fcmp olt double %30, 0x3DA5FD7FE1796495
   br i1 %31, label %.loopexit, label %11

@@ -1645,11 +1645,11 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %572
 
 571:                                              ; preds = %"_ZN106_$LT$$RF$mut$u20$moka..common..deque..Deque$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h572d5e3b28d9da6eE.exit.i"
-  %.not23.i70 = icmp eq i64 %.045.i, 0
+  %.not23.i70 = icmp eq i64 %.01945.i, 0
   br i1 %.not23.i70, label %.critedge.i71, label %.thread38.i
 
 572:                                              ; preds = %587, %.noexc74
-  %.045.i = phi i64 [ 0, %.noexc74 ], [ %.1.i, %587 ]
+  %.01945.i = phi i64 [ 0, %.noexc74 ], [ %.120.i, %587 ]
   %573 = load i64, ptr %152, align 8, !range !229, !alias.scope !276, !noalias !279, !noundef !9
   %.not.i.i = icmp eq i64 %573, 0
   br i1 %.not.i.i, label %574, label %..thread.i_crit_edge.i
@@ -1705,8 +1705,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %589 unwind label %.body.thread35.loopexit.i
 
 587:                                              ; preds = %676, %589, %582
-  %.1.i = phi i64 [ %.045.i, %582 ], [ %682, %676 ], [ %.045.i, %589 ]
-  %588 = icmp ult i64 %.1.i, 500
+  %.120.i = phi i64 [ %.01945.i, %582 ], [ %682, %676 ], [ %.01945.i, %589 ]
+  %588 = icmp ult i64 %.120.i, 500
   br i1 %588, label %572, label %683
 
 589:                                              ; preds = %583
@@ -1859,11 +1859,11 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   %681 = add i64 %680, 1
   store i64 %681, ptr %565, align 8, !alias.scope !321, !noalias !324
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %57), !noalias !276
-  %682 = add nuw nsw i64 %.045.i, 1
+  %682 = add nuw nsw i64 %.01945.i, 1
   br label %587
 
 683:                                              ; preds = %587
-  %684 = icmp eq i64 %.1.i, 500
+  %684 = icmp eq i64 %.120.i, 500
   br i1 %684, label %685, label %.thread38.i
 
 685:                                              ; preds = %683
@@ -1892,10 +1892,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %.thread38.i unwind label %.body.thread35.loopexit.split-lp.i
 
 .thread38.i:                                      ; preds = %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17h15671cc709d0a7cbE.exit.i.i", %683, %571
-  %.019.i = phi i1 [ false, %683 ], [ false, %571 ], [ %.0.i.i.i.i67, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17h15671cc709d0a7cbE.exit.i.i" ]
+  %.022.i = phi i1 [ false, %683 ], [ false, %571 ], [ %.0.i.i.i.i67, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17h15671cc709d0a7cbE.exit.i.i" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %56), !noalias !276
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %58, i64 24, i1 false), !noalias !276
-  invoke void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$GT$11submit_task17h970bbb1fc97d3d8fE"(ptr noundef nonnull align 8 %477, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %56, i1 noundef zeroext %.019.i)
+  invoke void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$GT$11submit_task17h970bbb1fc97d3d8fE"(ptr noundef nonnull align 8 %477, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %56, i1 noundef zeroext %.022.i)
           to label %.noexc75 unwind label %486
 
 .noexc75:                                         ; preds = %.thread38.i
@@ -5787,8 +5787,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h1f7dbff8cf7e00e4E.llvm.885679253126787145.exit"
 
 "_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h1f7dbff8cf7e00e4E.llvm.885679253126787145.exit": ; preds = %3, %5
-  %.sroa.3.0.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i, %3 ]
   %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
+  %.sroa.3.0.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i, %3 ]
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i, ptr %.sroa.4.0..sroa_idx, align 8
@@ -5871,8 +5871,8 @@ define hidden { i64, i64 } @"_ZN3std4hash6random11RandomState3new4KEYS7__getit28
   br label %8
 
 8:                                                ; preds = %2, %4
-  %.sroa.3.0 = phi i64 [ %7, %4 ], [ %.sroa.6.0.copyload, %2 ]
   %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %2 ]
+  %.sroa.3.0 = phi i64 [ %7, %4 ], [ %.sroa.6.0.copyload, %2 ]
   %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
   ret { i64, i64 } %10

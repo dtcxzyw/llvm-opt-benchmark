@@ -6489,7 +6489,7 @@ _ZNK5Ipopt17RegisteredOptions30RegisteredCategoriesByPriorityERSt3setINS_8SmartP
 
 .lr.ph87:                                         ; preds = %72, %123
   %.sroa.056.085 = phi ptr [ %.sroa.056.0, %123 ], [ %.sroa.056.082, %72 ]
-  %.084 = phi i1 [ %.2, %123 ], [ true, %72 ]
+  %.01784 = phi i1 [ %.219, %123 ], [ true, %72 ]
   %74 = load i8, ptr %10, align 1
   %75 = trunc i8 %74 to i1
   br i1 %75, label %84, label %76
@@ -6507,7 +6507,7 @@ _ZNK5Ipopt17RegisteredOptions30RegisteredCategoriesByPriorityERSt3setINS_8SmartP
   br i1 %82, label %123, label %84
 
 84:                                               ; preds = %83, %.lr.ph87
-  br i1 %.084, label %85, label %117
+  br i1 %.01784, label %85, label %117
 
 85:                                               ; preds = %84
   %86 = load ptr, ptr %55, align 8
@@ -6595,7 +6595,7 @@ _ZNK5Ipopt17RegisteredOptions30RegisteredCategoriesByPriorityERSt3setINS_8SmartP
           to label %123 unwind label %.loopexit
 
 123:                                              ; preds = %117, %85, %.thread.invoke, %83
-  %.2 = phi i1 [ false, %117 ], [ %.084, %83 ], [ false, %.thread.invoke ], [ false, %85 ]
+  %.219 = phi i1 [ false, %117 ], [ %.01784, %83 ], [ false, %.thread.invoke ], [ false, %85 ]
   %.sroa.056.0 = load ptr, ptr %.sroa.056.085, align 8
   %124 = load ptr, ptr %55, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 56

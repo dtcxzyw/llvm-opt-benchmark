@@ -217,15 +217,15 @@ Kit_TruthIsOpposite.exit:                         ; preds = %select.unfold.i58
   br label %59
 
 59:                                               ; preds = %56, %Kit_TruthIsOpposite.exit
+  %.043 = phi ptr [ %55, %Kit_TruthIsOpposite.exit ], [ %58, %56 ]
   %.042 = phi ptr [ %52, %Kit_TruthIsOpposite.exit ], [ %57, %56 ]
-  %.0 = phi ptr [ %55, %Kit_TruthIsOpposite.exit ], [ %58, %56 ]
   %60 = sub nsw i32 %3, %.tr7178
-  %61 = tail call ptr @Cloud_MakeNode(ptr noundef %0, i32 noundef %60, ptr noundef %.0, ptr noundef %.042) #8
+  %61 = tail call ptr @Cloud_MakeNode(ptr noundef %0, i32 noundef %60, ptr noundef %.043, ptr noundef %.042) #8
   br label %62
 
 62:                                               ; preds = %59, %Kit_TruthIsConst1.exit, %Kit_TruthIsConst0.exit, %tailrecurse._crit_edge
-  %.043 = phi ptr [ %8, %tailrecurse._crit_edge ], [ %19, %Kit_TruthIsConst0.exit ], [ %27, %Kit_TruthIsConst1.exit ], [ %61, %59 ]
-  ret ptr %.043
+  %.0 = phi ptr [ %8, %tailrecurse._crit_edge ], [ %19, %Kit_TruthIsConst0.exit ], [ %27, %Kit_TruthIsConst1.exit ], [ %61, %59 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -858,8 +858,8 @@ Vec_IntGrow.exit:                                 ; preds = %22, %11, %5
   br i1 %97, label %.lr.ph126.split, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %.lr.ph126.split, %._crit_edge.us, %Vec_IntGrow.exit
-  %.0107.lcssa = phi ptr [ null, %Vec_IntGrow.exit ], [ %47, %._crit_edge.us ], [ %85, %.lr.ph126.split ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr align 4 %.0107.lcssa, i64 %26, i1 false)
+  %.0.lcssa = phi ptr [ null, %Vec_IntGrow.exit ], [ %47, %._crit_edge.us ], [ %85, %.lr.ph126.split ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr align 4 %.0.lcssa, i64 %26, i1 false)
   %.val111 = load i32, ptr %7, align 4
   %98 = getelementptr i8, ptr %1, i64 4
   %.val110 = load i32, ptr %98, align 4
@@ -912,7 +912,7 @@ Vec_IntGrow.exit122:                              ; preds = %.critedge.Vec_IntGr
   br label %116
 
 .critedge2.preheader:                             ; preds = %._crit_edge, %Vec_IntGrow.exit122
-  %.1108.lcssa = phi ptr [ %.0107.lcssa, %Vec_IntGrow.exit122 ], [ %131, %._crit_edge ]
+  %.1.lcssa = phi ptr [ %.0.lcssa, %Vec_IntGrow.exit122 ], [ %131, %._crit_edge ]
   %115 = icmp sgt i32 %2, 0
   br i1 %115, label %.critedge2.preheader134, label %.critedge2._crit_edge
 
@@ -987,7 +987,7 @@ Vec_IntGrow.exit122:                              ; preds = %.critedge.Vec_IntGr
   %157 = shl nsw i32 -1, %156
   %158 = xor i32 %157, -1
   %159 = and i32 %154, %158
-  %160 = getelementptr inbounds i32, ptr %.1108.lcssa, i64 %indvars.iv154
+  %160 = getelementptr inbounds i32, ptr %.1.lcssa, i64 %indvars.iv154
   %161 = load i32, ptr %160, align 4
   %162 = and i32 %161, %157
   %163 = or i32 %162, %159

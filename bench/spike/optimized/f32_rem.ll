@@ -48,8 +48,8 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %16, %19
-  %.092 = phi i64 [ %21, %19 ], [ %9, %16 ]
-  %.090 = phi i64 [ %22, %19 ], [ %10, %16 ]
+  %.085 = phi i64 [ %22, %19 ], [ %10, %16 ]
+  %.084 = phi i64 [ %21, %19 ], [ %9, %16 ]
   %.not103 = icmp eq i64 %5, 0
   br i1 %.not103, label %24, label %29
 
@@ -64,12 +64,12 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
   br label %29
 
 29:                                               ; preds = %25, %23
-  %.085 = phi i64 [ %6, %23 ], [ %28, %25 ]
+  %.083 = phi i64 [ %6, %23 ], [ %28, %25 ]
   %.0 = phi i64 [ %5, %23 ], [ %27, %25 ]
-  %30 = trunc i64 %.085 to i32
+  %30 = trunc i64 %.083 to i32
   %31 = or i32 %30, 8388608
-  %32 = or i64 %.090, 8388608
-  %33 = sub nsw i64 %.0, %.092
+  %32 = or i64 %.085, 8388608
+  %33 = sub nsw i64 %.0, %.084
   %34 = icmp slt i64 %33, 1
   br i1 %34, label %35, label %47
 
@@ -79,7 +79,7 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
 
 37:                                               ; preds = %35
   %38 = shl i64 %32, 6
-  %.not105 = icmp eq i64 %.0, %.092
+  %.not105 = icmp eq i64 %.0, %.084
   br i1 %.not105, label %41, label %39
 
 39:                                               ; preds = %37
@@ -114,22 +114,22 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %47, %.lr.ph
   %59 = phi i32 [ %66, %.lr.ph ], [ %57, %47 ]
-  %.087115 = phi i64 [ %62, %.lr.ph ], [ %52, %47 ]
+  %.092115 = phi i64 [ %62, %.lr.ph ], [ %52, %47 ]
   %60 = mul i32 %59, %.pre
   %61 = sub i32 0, %60
-  %62 = add nsw i64 %.087115, -29
+  %62 = add nsw i64 %.092115, -29
   %63 = zext i32 %61 to i64
   %64 = mul nuw i64 %50, %63
   %65 = lshr i64 %64, 32
   %66 = trunc nuw i64 %65 to i32
-  %67 = icmp ult i64 %.087115, 29
+  %67 = icmp ult i64 %.092115, 29
   br i1 %67, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %47
+  %.092.lcssa = phi i64 [ %52, %47 ], [ %62, %.lr.ph ]
   %.088.lcssa = phi i32 [ %51, %47 ], [ %61, %.lr.ph ]
-  %.087.lcssa = phi i64 [ %52, %47 ], [ %62, %.lr.ph ]
   %.lcssa114 = phi i32 [ %57, %47 ], [ %66, %.lr.ph ]
-  %68 = trunc i64 %.087.lcssa to i32
+  %68 = trunc i64 %.092.lcssa to i32
   %69 = and i32 %68, 31
   %70 = xor i32 %69, 31
   %71 = lshr i32 %.lcssa114, %70
@@ -140,16 +140,16 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
   br label %76
 
 76:                                               ; preds = %39, %44, %41, %._crit_edge
-  %.191 = phi i64 [ %38, %39 ], [ %38, %44 ], [ %38, %41 ], [ %53, %._crit_edge ]
+  %.090 = phi i32 [ 0, %39 ], [ 1, %44 ], [ 0, %41 ], [ %71, %._crit_edge ]
   %.189 = phi i32 [ %40, %39 ], [ %46, %44 ], [ %42, %41 ], [ %75, %._crit_edge ]
-  %.086 = phi i32 [ 0, %39 ], [ 1, %44 ], [ 0, %41 ], [ %71, %._crit_edge ]
-  %77 = trunc i64 %.191 to i32
+  %.1 = phi i64 [ %38, %39 ], [ %38, %44 ], [ %38, %41 ], [ %53, %._crit_edge ]
+  %77 = trunc i64 %.1 to i32
   br label %78
 
 78:                                               ; preds = %78, %76
+  %.191 = phi i32 [ %.090, %76 ], [ %79, %78 ]
   %.2 = phi i32 [ %.189, %76 ], [ %80, %78 ]
-  %.1 = phi i32 [ %.086, %76 ], [ %79, %78 ]
-  %79 = add i32 %.1, 1
+  %79 = add i32 %.191, 1
   %80 = sub i32 %.2, %77
   %.not106 = icmp sgt i32 %80, -1
   br i1 %.not106, label %78, label %81, !llvm.loop !4
@@ -161,7 +161,7 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
 
 83:                                               ; preds = %81
   %.not108 = icmp eq i32 %82, 0
-  %84 = and i32 %.1, 1
+  %84 = and i32 %.191, 1
   %.not109.not = icmp eq i32 %84, 0
   %or.cond112 = select i1 %.not108, i1 %.not109.not, i1 false
   br i1 %or.cond112, label %85, label %86
@@ -175,7 +175,7 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
   %87 = xor i32 %.3, %0
   %spec.select113 = icmp slt i32 %87, 0
   %88 = zext i32 %spec.select to i64
-  %89 = tail call i32 @softfloat_normRoundPackToF32(i1 noundef zeroext %spec.select113, i64 noundef %.092, i64 noundef %88) #3
+  %89 = tail call i32 @softfloat_normRoundPackToF32(i1 noundef zeroext %spec.select113, i64 noundef %.084, i64 noundef %88) #3
   br label %94
 
 90:                                               ; preds = %17, %12, %13

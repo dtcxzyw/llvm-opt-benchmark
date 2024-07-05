@@ -1255,20 +1255,20 @@ define internal i32 @dissect_smc_tcp_pdu(ptr noundef %0, ptr nocapture noundef r
 
 20:                                               ; preds = %18, %.thread
   %.str.300.sink = phi ptr [ @.str.342, %.thread ], [ %spec.select125, %18 ]
-  %.087113 = phi i8 [ %15, %.thread ], [ %spec.select, %18 ]
-  %.088111 = phi i8 [ %17, %.thread ], [ %spec.select, %18 ]
+  %.087113 = phi i8 [ %17, %.thread ], [ %spec.select, %18 ]
+  %.088111 = phi i8 [ %15, %.thread ], [ %spec.select, %18 ]
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @col_set_str(ptr noundef %22, i32 noundef 34, ptr noundef nonnull %.str.300.sink) #3
   br i1 %11, label %23, label %42
 
 23:                                               ; preds = %20
-  %24 = icmp ne i8 %.088111, 2
+  %24 = icmp ne i8 %.087113, 2
   %or.cond4 = select i1 %10, i1 %24, i1 false
   br i1 %or.cond4, label %25, label %37
 
 25:                                               ; preds = %23
-  switch i8 %.087113, label %27 [
+  switch i8 %.088111, label %27 [
     i8 3, label %get_mixed_type.exit
     i8 2, label %26
   ]
@@ -1277,20 +1277,20 @@ define internal i32 @dissect_smc_tcp_pdu(ptr noundef %0, ptr nocapture noundef r
   br label %get_mixed_type.exit
 
 27:                                               ; preds = %25
-  %28 = icmp eq i8 %.088111, 1
-  %29 = icmp eq i8 %.087113, 0
-  %or.cond.i = and i1 %29, %28
+  %28 = icmp eq i8 %.087113, 1
+  %29 = icmp eq i8 %.088111, 0
+  %or.cond.i = and i1 %28, %29
   br i1 %or.cond.i, label %get_mixed_type.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = icmp eq i8 %.088111, 0
-  %32 = icmp eq i8 %.087113, 1
-  %or.cond5.i = and i1 %32, %31
-  %spec.select.i = select i1 %or.cond5.i, i8 3, i8 %.088111
+  %31 = icmp eq i8 %.087113, 0
+  %32 = icmp eq i8 %.088111, 1
+  %or.cond5.i = and i1 %31, %32
+  %spec.select.i = select i1 %or.cond5.i, i8 3, i8 %.087113
   br label %get_mixed_type.exit
 
 get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
-  %.0.i = phi i8 [ %.088111, %26 ], [ %.087113, %25 ], [ 3, %27 ], [ %spec.select.i, %30 ]
+  %.0.i = phi i8 [ %.087113, %26 ], [ %.088111, %25 ], [ 3, %27 ], [ %spec.select.i, %30 ]
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = zext nneg i8 %.0.i to i32
@@ -1301,13 +1301,13 @@ get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
 37:                                               ; preds = %23
   %38 = getelementptr inbounds i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = zext nneg i8 %.087113 to i32
+  %40 = zext nneg i8 %.088111 to i32
   %41 = tail call ptr @val_to_str_const(i32 noundef %40, ptr noundef nonnull @smc_clc_col_info_message_txt, ptr noundef nonnull @.str.344) #3
   tail call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %39, i32 noundef 25, ptr noundef nonnull @.str.343, ptr noundef %41) #3
   br label %63
 
 42:                                               ; preds = %20
-  %43 = icmp eq i8 %.088111, 0
+  %43 = icmp eq i8 %.087113, 0
   %44 = and i8 %6, -2
   %or.cond6 = icmp eq i8 %44, 2
   %or.cond93 = select i1 %43, i1 %or.cond6, i1 false
@@ -1326,7 +1326,7 @@ get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
   br label %63
 
 52:                                               ; preds = %42
-  %53 = icmp eq i8 %.088111, 1
+  %53 = icmp eq i8 %.087113, 1
   %or.cond94 = select i1 %53, i1 %or.cond6, i1 false
   %54 = getelementptr inbounds i8, ptr %1, i64 8
   %55 = load ptr, ptr %54, align 8
@@ -1404,7 +1404,7 @@ get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
 
 95:                                               ; preds = %85, %72
   %.0236.i = phi i1 [ %92, %85 ], [ false, %72 ]
-  %.0216234.i = phi i1 [ %90, %85 ], [ false, %72 ]
+  %.0217234.i = phi i1 [ %90, %85 ], [ false, %72 ]
   %96 = load i32, ptr @hf_proposal_smc_type, align 4
   %97 = tail call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %96, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #3
   switch i8 %84, label %98 [
@@ -1457,13 +1457,13 @@ get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
   ]
 
 118:                                              ; preds = %113, %.thread238.i
-  %.0220243.i = phi i1 [ true, %.thread238.i ], [ %117, %113 ]
-  br i1 %.0216234.i, label %.critedge230.i, label %.critedge.i
+  %.0218243.i = phi i1 [ true, %.thread238.i ], [ %117, %113 ]
+  br i1 %.0217234.i, label %.critedge230.i, label %.critedge.i
 
 119:                                              ; preds = %113, %113
   %120 = load i32, ptr @hf_smc_proposal_ism_gid, align 4
   %121 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %120, ptr noundef %0, i32 noundef 40, i32 noundef 8, i32 noundef 0) #3
-  %spec.select261.i = select i1 %.0216234.i, ptr @hf_smc_proposal_smc_chid, ptr @hf_smc_reserved
+  %spec.select261.i = select i1 %.0217234.i, ptr @hf_smc_proposal_smc_chid, ptr @hf_smc_reserved
   br label %.critedge.i
 
 .critedge230.i:                                   ; preds = %118
@@ -1473,7 +1473,7 @@ get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
 
 .critedge.i:                                      ; preds = %.critedge230.i, %119, %118
   %hf_smc_reserved.sink260.i = phi ptr [ @hf_smc_proposal_smc_chid, %.critedge230.i ], [ @hf_smc_reserved, %118 ], [ %spec.select261.i, %119 ]
-  %.0220240.i = phi i1 [ %.0220243.i, %.critedge230.i ], [ %.0220243.i, %118 ], [ %117, %119 ]
+  %.0218240.i = phi i1 [ %.0218243.i, %.critedge230.i ], [ %.0218243.i, %118 ], [ %117, %119 ]
   %124 = load i32, ptr %hf_smc_reserved.sink260.i, align 4
   %125 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %124, ptr noundef %0, i32 noundef 48, i32 noundef 2, i32 noundef 0) #3
   br i1 %83, label %126, label %132
@@ -1492,10 +1492,10 @@ get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
   br label %135
 
 135:                                              ; preds = %132, %126
-  %.0221.i = phi i32 [ %131, %126 ], [ 0, %132 ]
+  %.0219.i = phi i32 [ %131, %126 ], [ 0, %132 ]
   %136 = load i32, ptr @hf_smc_reserved, align 4
   %137 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %136, ptr noundef %0, i32 noundef 52, i32 noundef 28, i32 noundef 0) #3
-  br i1 %.0220240.i, label %.loopexit244.i, label %138
+  br i1 %.0218240.i, label %.loopexit244.i, label %138
 
 138:                                              ; preds = %135
   %139 = load i32, ptr @hf_smc_proposal_outgoing_interface_subnet_mask, align 4
@@ -1525,21 +1525,21 @@ get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
 
 .loopexit244.i:                                   ; preds = %.lr.ph.i, %138, %135
   %.3.i = phi i32 [ 80, %135 ], [ 88, %138 ], [ %153, %.lr.ph.i ]
-  %.not225.i = icmp ult i32 %.0221.i, %.3.i
+  %.not225.i = icmp ult i32 %.0219.i, %.3.i
   br i1 %.not225.i, label %disect_smc_proposal.exit, label %155
 
 155:                                              ; preds = %.loopexit244.i
-  %156 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0221.i) #3
+  %156 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0219.i) #3
   %157 = load i32, ptr @hf_smc_proposal_eid_count, align 4
-  %158 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %157, ptr noundef %0, i32 noundef %.0221.i, i32 noundef 1, i32 noundef 0) #3
-  %159 = add nuw nsw i32 %.0221.i, 1
+  %158 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %157, ptr noundef %0, i32 noundef %.0219.i, i32 noundef 1, i32 noundef 0) #3
+  %159 = add nuw nsw i32 %.0219.i, 1
   %160 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %159) #3
   %161 = load i32, ptr @hf_smc_proposal_ism_gid_count, align 4
   %162 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %161, ptr noundef %0, i32 noundef %159, i32 noundef 1, i32 noundef 0) #3
-  %163 = add nuw nsw i32 %.0221.i, 2
+  %163 = add nuw nsw i32 %.0219.i, 2
   %164 = load i32, ptr @hf_smc_reserved, align 4
   %165 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %164, ptr noundef %0, i32 noundef %163, i32 noundef 1, i32 noundef 0) #3
-  %166 = add nuw nsw i32 %.0221.i, 3
+  %166 = add nuw nsw i32 %.0219.i, 3
   %167 = load i32, ptr @hf_smc_proposal_ext_flags, align 4
   %168 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %167, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
   %169 = load i32, ptr @ett_proposal_ext_flag2, align 4
@@ -1548,14 +1548,14 @@ get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
   %172 = tail call ptr @proto_tree_add_item(ptr noundef %170, i32 noundef %171, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
   %173 = load i32, ptr @hf_proposal_smc_version_seid, align 4
   %174 = tail call ptr @proto_tree_add_item(ptr noundef %170, i32 noundef %173, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0) #3
-  %175 = add nuw nsw i32 %.0221.i, 4
+  %175 = add nuw nsw i32 %.0219.i, 4
   %176 = load i32, ptr @hf_smc_reserved, align 4
   %177 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %176, ptr noundef %0, i32 noundef %175, i32 noundef 2, i32 noundef 0) #3
-  %178 = add nuw nsw i32 %.0221.i, 6
+  %178 = add nuw nsw i32 %.0219.i, 6
   %179 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %178) #3
   %180 = load i32, ptr @hf_smc_proposal_smcdv2_ext_offset, align 4
   %181 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %180, ptr noundef %0, i32 noundef %178, i32 noundef 2, i32 noundef 0) #3
-  %182 = add nuw nsw i32 %.0221.i, 8
+  %182 = add nuw nsw i32 %.0219.i, 8
   %183 = trunc i32 %182 to i16
   %184 = add i16 %179, %183
   br i1 %.0236.i, label %185, label %195
@@ -1571,26 +1571,26 @@ get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
 189:                                              ; preds = %185
   %190 = load i32, ptr @hf_smc_reserved, align 4
   %191 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %190, ptr noundef %0, i32 noundef %182, i32 noundef 12, i32 noundef 0) #3
-  %192 = add nuw nsw i32 %.0221.i, 20
+  %192 = add nuw nsw i32 %.0219.i, 20
   %193 = load i32, ptr @hf_smc_proposal_rocev2_gid_ipv4_addr, align 4
   %194 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %193, ptr noundef %0, i32 noundef %192, i32 noundef 4, i32 noundef 0) #3
   br label %195
 
 195:                                              ; preds = %189, %186, %155
-  %.4.i = add nuw nsw i32 %.0221.i, 24
+  %.4.i = add nuw nsw i32 %.0219.i, 24
   %196 = load i32, ptr @hf_smc_reserved, align 4
   %197 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %196, ptr noundef %0, i32 noundef %.4.i, i32 noundef 16, i32 noundef 0) #3
-  %198 = add nuw nsw i32 %.0221.i, 40
+  %198 = add nuw nsw i32 %.0219.i, 40
   %.not226248.i = icmp eq i8 %156, 0
   br i1 %.not226248.i, label %._crit_edge.i, label %.lr.ph251.i
 
 .lr.ph251.i:                                      ; preds = %195, %.lr.ph251.i
   %.5250.i = phi i32 [ %201, %.lr.ph251.i ], [ %198, %195 ]
-  %.0218249.i = phi i8 [ %202, %.lr.ph251.i ], [ %156, %195 ]
+  %.0220249.i = phi i8 [ %202, %.lr.ph251.i ], [ %156, %195 ]
   %199 = load i32, ptr @hf_smc_proposal_eid, align 4
   %200 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %199, ptr noundef %0, i32 noundef %.5250.i, i32 noundef 32, i32 noundef 0) #3
   %201 = add nuw nsw i32 %.5250.i, 32
-  %202 = add i8 %.0218249.i, -1
+  %202 = add i8 %.0220249.i, -1
   %.not226.i = icmp eq i8 %202, 0
   br i1 %.not226.i, label %._crit_edge.i, label %.lr.ph251.i, !llvm.loop !11
 
@@ -1615,14 +1615,14 @@ get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
 
 .lr.ph257.i:                                      ; preds = %.lr.ph257.i, %.lr.ph257.preheader.i
   %.6255.i = phi i32 [ %216, %.lr.ph257.i ], [ %210, %.lr.ph257.preheader.i ]
-  %.0219254.i = phi i8 [ %217, %.lr.ph257.i ], [ %160, %.lr.ph257.preheader.i ]
+  %.0221254.i = phi i8 [ %217, %.lr.ph257.i ], [ %160, %.lr.ph257.preheader.i ]
   %211 = load i32, ptr @hf_smc_proposal_ism_gid, align 4
   %212 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %211, ptr noundef %0, i32 noundef %.6255.i, i32 noundef 8, i32 noundef 0) #3
   %213 = add nuw nsw i32 %.6255.i, 8
   %214 = load i32, ptr @hf_smc_proposal_smc_chid, align 4
   %215 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %214, ptr noundef %0, i32 noundef %213, i32 noundef 2, i32 noundef 0) #3
   %216 = add nuw nsw i32 %.6255.i, 10
-  %217 = add i8 %.0219254.i, -1
+  %217 = add i8 %.0221254.i, -1
   %.not228.i = icmp eq i8 %217, 0
   br i1 %.not228.i, label %disect_smc_proposal.exit, label %.lr.ph257.i, !llvm.loop !12
 

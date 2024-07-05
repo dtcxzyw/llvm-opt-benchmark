@@ -705,7 +705,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
 
 44:                                               ; preds = %.lr.ph1993, %2682
   %.01991 = phi ptr [ %12, %.lr.ph1993 ], [ %.2, %2682 ]
-  %.07421990 = phi i32 [ %17, %.lr.ph1993 ], [ %.2744, %2682 ]
+  %.07401990 = phi i32 [ %17, %.lr.ph1993 ], [ %.2742, %2682 ]
   %45 = load i16, ptr %.01991, align 2
   %46 = load i32, ptr %18, align 4
   %.not765 = icmp eq i32 %46, 0
@@ -721,7 +721,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   %putchar = call i32 @putchar(i32 9)
   %51 = zext i16 %45 to i32
   %52 = call ptr @opcode_describe(i32 noundef %51) #12
-  %.not766 = icmp eq i32 %.07421990, 0
+  %.not766 = icmp eq i32 %.07401990, 0
   br i1 %.not766, label %53, label %100
 
 53:                                               ; preds = %47
@@ -743,7 +743,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %63, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %61, %71
-  %.07461976 = phi i32 [ %.1747, %71 ], [ %62, %61 ]
+  %.07441976 = phi i32 [ %.1745, %71 ], [ %62, %61 ]
   %.07501975 = phi i32 [ %80, %71 ], [ 0, %61 ]
   %.not767 = icmp eq i32 %.07501975, 0
   br i1 %.not767, label %70, label %64
@@ -751,20 +751,20 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
 64:                                               ; preds = %.lr.ph
   %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
   %.val803 = load ptr, ptr %19, align 8
-  %66 = sext i32 %.07461976 to i64
+  %66 = sext i32 %.07441976 to i64
   %67 = getelementptr inbounds i8, ptr %.val803, i64 %66
   %68 = getelementptr inbounds i8, ptr %67, i64 -4
   %69 = load i32, ptr %68, align 4
   br label %70
 
 70:                                               ; preds = %64, %.lr.ph
-  %.1747 = phi i32 [ %69, %64 ], [ %.07461976, %.lr.ph ]
-  %.not768 = icmp eq i32 %.1747, 0
+  %.1745 = phi i32 [ %69, %64 ], [ %.07441976, %.lr.ph ]
+  %.not768 = icmp eq i32 %.1745, 0
   br i1 %.not768, label %._crit_edge, label %71
 
 71:                                               ; preds = %70
   %.val802 = load ptr, ptr %19, align 8
-  %72 = sext i32 %.1747 to i64
+  %72 = sext i32 %.1745 to i64
   %73 = getelementptr inbounds i8, ptr %.val802, i64 %72
   %74 = load i64, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %73, i64 8
@@ -778,7 +778,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %71, %70, %61
-  %.2748 = phi i32 [ %62, %61 ], [ 0, %70 ], [ %.1747, %71 ]
+  %.2746 = phi i32 [ %62, %61 ], [ 0, %70 ], [ %.1745, %71 ]
   %81 = load i32, ptr %18, align 4
   %82 = and i32 %81, 2
   %.not769 = icmp eq i32 %82, 0
@@ -786,7 +786,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %._crit_edge
   %.val8041979 = load ptr, ptr %19, align 8
-  %83 = sext i32 %.2748 to i64
+  %83 = sext i32 %.2746 to i64
   %84 = getelementptr inbounds i8, ptr %.val8041979, i64 %83
   %85 = getelementptr inbounds i8, ptr %84, i64 -4
   %86 = load i32, ptr %85, align 4
@@ -822,7 +822,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   br label %102
 
 102:                                              ; preds = %.loopexit, %44
-  %.not772 = icmp eq i32 %.07421990, 0
+  %.not772 = icmp eq i32 %.07401990, 0
   br i1 %.not772, label %110, label %103
 
 103:                                              ; preds = %102
@@ -835,10 +835,10 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   br label %110
 
 110:                                              ; preds = %103, %102
-  %.0745 = phi i16 [ %104, %103 ], [ %45, %102 ]
+  %.0743 = phi i16 [ %104, %103 ], [ %45, %102 ]
   %.0739 = phi i32 [ %109, %103 ], [ 0, %102 ]
   %111 = getelementptr inbounds i8, ptr %.01991, i64 2
-  switch i16 %.0745, label %2682 [
+  switch i16 %.0743, label %2682 [
     i16 72, label %2166
     i16 42, label %112
     i16 0, label %133
@@ -4162,7 +4162,7 @@ stack_push.exit1558:                              ; preds = %1757, %1766
 
 1787:                                             ; preds = %1749
   call void @jv_free(i64 %.sroa.08.017.i1543, ptr %.sroa.4.019.i1542) #12
-  %1788 = icmp eq i16 %.0745, 10
+  %1788 = icmp eq i16 %.0743, 10
   br i1 %1788, label %1789, label %1792
 
 1789:                                             ; preds = %1787
@@ -4564,17 +4564,17 @@ stack_pop.exit1653:                               ; preds = %1975, %1983
   br i1 %1989, label %1990, label %2000
 
 1990:                                             ; preds = %stack_pop.exit1653
-  %1991 = and i16 %.0745, -2
+  %1991 = and i16 %.0743, -2
   %or.cond4 = icmp eq i16 %1991, 12
   %1992 = add nsw i32 %1969, 1
-  %.0752 = select i1 %or.cond4, i32 0, i32 %1992
+  %.0751 = select i1 %or.cond4, i32 0, i32 %1992
   %1993 = call { i64, ptr } @jv_copy(i64 %.sroa.08.017.i1647, ptr %.sroa.4.019.i1646) #12
   %1994 = extractvalue { i64, ptr } %1993, 0
   %1995 = extractvalue { i64, ptr } %1993, 1
   %1996 = call i32 @jv_array_length(i64 %1994, ptr %1995) #12
-  %1997 = icmp slt i32 %.0752, %1996
+  %1997 = icmp slt i32 %.0751, %1996
   %1998 = add nsw i32 %1996, -1
-  %1999 = icmp eq i32 %.0752, %1998
+  %1999 = icmp eq i32 %.0751, %1998
   br i1 %1997, label %2028, label %2048
 
 2000:                                             ; preds = %stack_pop.exit1653
@@ -4583,7 +4583,7 @@ stack_pop.exit1653:                               ; preds = %1975, %1983
   br i1 %2002, label %2003, label %2011
 
 2003:                                             ; preds = %2000
-  %2004 = and i16 %.0745, -2
+  %2004 = and i16 %.0743, -2
   %or.cond7 = icmp eq i16 %2004, 12
   br i1 %or.cond7, label %2005, label %2007
 
@@ -4596,13 +4596,13 @@ stack_pop.exit1653:                               ; preds = %1975, %1983
   br label %2009
 
 2009:                                             ; preds = %2007, %2005
-  %.1753 = phi i32 [ %2006, %2005 ], [ %2008, %2007 ]
-  %2010 = call i32 @jv_object_iter_valid(i64 %.sroa.08.017.i1647, ptr %.sroa.4.019.i1646, i32 noundef %.1753) #12
+  %.1752 = phi i32 [ %2006, %2005 ], [ %2008, %2007 ]
+  %2010 = call i32 @jv_object_iter_valid(i64 %.sroa.08.017.i1647, ptr %.sroa.4.019.i1646, i32 noundef %.1752) #12
   %.not785 = icmp eq i32 %2010, 0
   br i1 %.not785, label %2048, label %.thread1929
 
 2011:                                             ; preds = %2000
-  %2012 = icmp eq i16 %.0745, 12
+  %2012 = icmp eq i16 %.0743, 12
   br i1 %2012, label %2013, label %2048
 
 2013:                                             ; preds = %2011
@@ -4626,24 +4626,24 @@ stack_pop.exit1653:                               ; preds = %1975, %1983
   br label %2048
 
 2028:                                             ; preds = %1990
-  %2029 = sitofp i32 %.0752 to double
+  %2029 = sitofp i32 %.0751 to double
   %2030 = call { i64, ptr } @jv_number(double noundef %2029) #12
   %2031 = extractvalue { i64, ptr } %2030, 0
   %2032 = extractvalue { i64, ptr } %2030, 1
   %2033 = call { i64, ptr } @jv_copy(i64 %.sroa.08.017.i1647, ptr %.sroa.4.019.i1646) #12
   %2034 = extractvalue { i64, ptr } %2033, 0
   %2035 = extractvalue { i64, ptr } %2033, 1
-  %2036 = call { i64, ptr } @jv_array_get(i64 %2034, ptr %2035, i32 noundef %.0752) #12
+  %2036 = call { i64, ptr } @jv_array_get(i64 %2034, ptr %2035, i32 noundef %.0751) #12
   %2037 = extractvalue { i64, ptr } %2036, 0
   %2038 = extractvalue { i64, ptr } %2036, 1
   %2039 = icmp eq i32 %.0739, 0
   br i1 %2039, label %2049, label %2047
 
 .thread1929:                                      ; preds = %2009
-  %2040 = call { i64, ptr } @jv_object_iter_key(i64 %.sroa.08.017.i1647, ptr %.sroa.4.019.i1646, i32 noundef %.1753) #12
+  %2040 = call { i64, ptr } @jv_object_iter_key(i64 %.sroa.08.017.i1647, ptr %.sroa.4.019.i1646, i32 noundef %.1752) #12
   %2041 = extractvalue { i64, ptr } %2040, 0
   %2042 = extractvalue { i64, ptr } %2040, 1
-  %2043 = call { i64, ptr } @jv_object_iter_value(i64 %.sroa.08.017.i1647, ptr %.sroa.4.019.i1646, i32 noundef %.1753) #12
+  %2043 = call { i64, ptr } @jv_object_iter_value(i64 %.sroa.08.017.i1647, ptr %.sroa.4.019.i1646, i32 noundef %.1752) #12
   %2044 = extractvalue { i64, ptr } %2043, 0
   %2045 = extractvalue { i64, ptr } %2043, 1
   %2046 = icmp eq i32 %.0739, 0
@@ -4720,7 +4720,7 @@ stack_push.exit1660:                              ; preds = %2050, %2059
   %.sroa.7.119401958 = phi ptr [ %2038, %2049 ], [ %2045, %.thread1929 ]
   %.sroa.0147.119421957 = phi i64 [ %2031, %2049 ], [ %2041, %.thread1929 ]
   %.sroa.4.119441956 = phi ptr [ %2032, %2049 ], [ %2042, %.thread1929 ]
-  %.275419471955 = phi i32 [ %.0752, %2049 ], [ %.1753, %.thread1929 ]
+  %.275319471955 = phi i32 [ %.0751, %2049 ], [ %.1752, %.thread1929 ]
   %2080 = load i32, ptr %21, align 4
   %2081 = load i32, ptr %20, align 8
   %.sroa.2.0.insert.ext.i1661 = zext i32 %2081 to i64
@@ -4771,7 +4771,7 @@ stack_push.exit1671:                              ; preds = %.thread1948, %2086
   store i64 %.sroa.08.017.i1647, ptr %2106, align 8
   %.sroa.2.0..0..sroa_idx.i1668 = getelementptr inbounds i8, ptr %2106, i64 8
   store ptr %.sroa.4.019.i1646, ptr %.sroa.2.0..0..sroa_idx.i1668, align 8
-  %2107 = sitofp i32 %.275419471955 to double
+  %2107 = sitofp i32 %.275319471955 to double
   %2108 = call { i64, ptr } @jv_number(double noundef %2107) #12
   %2109 = extractvalue { i64, ptr } %2108, 0
   %2110 = extractvalue { i64, ptr } %2108, 1
@@ -5415,8 +5415,8 @@ stack_pop.exit1794:                               ; preds = %2365, %2373
 
 2430:                                             ; preds = %2416, %2409, %2402, %2395, %2390
   %.pn = phi { i64, ptr } [ %2422, %2416 ], [ %2415, %2409 ], [ %2408, %2402 ], [ %2401, %2395 ], [ %2394, %2390 ]
-  %.sroa.064.0 = extractvalue { i64, ptr } %.pn, 0
   %.sroa.11.0 = extractvalue { i64, ptr } %.pn, 1
+  %.sroa.064.0 = extractvalue { i64, ptr } %.pn, 0
   %2431 = call i32 @jv_get_kind(i64 %.sroa.064.0, ptr %.sroa.11.0) #12
   %.not1960 = icmp eq i32 %2431, 0
   br i1 %.not1960, label %2459, label %2432
@@ -5592,7 +5592,7 @@ make_closure.exit:                                ; preds = %2502, %2509
   %.sroa.0.0.in.i = phi ptr [ %2508, %2502 ], [ %2512, %2509 ]
   %.sroa.3.0.i = phi i32 [ %.0.lcssa.i.i1829, %2502 ], [ %.sroa.3.0.copyload.i, %2509 ]
   %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8
-  %2513 = icmp eq i16 %.0745, 30
+  %2513 = icmp eq i16 %.0743, 30
   br i1 %2513, label %2514, label %2559
 
 2514:                                             ; preds = %make_closure.exit
@@ -5684,13 +5684,13 @@ frame_pop.exit:                                   ; preds = %.loopexit.i, %2547
   br label %2559
 
 2559:                                             ; preds = %frame_pop.exit, %make_closure.exit
-  %.0741 = phi ptr [ %2518, %frame_pop.exit ], [ %2492, %make_closure.exit ]
-  %.0740 = phi i32 [ %2520, %frame_pop.exit ], [ %2485, %make_closure.exit ]
+  %.0748 = phi ptr [ %2518, %frame_pop.exit ], [ %2492, %make_closure.exit ]
+  %.0747 = phi i32 [ %2520, %frame_pop.exit ], [ %2485, %make_closure.exit ]
   %2560 = call fastcc ptr @frame_push(ptr noundef nonnull %0, ptr %.sroa.0.0.i, i32 %.sroa.3.0.i, ptr noundef nonnull %2488, i32 noundef %2489)
   %2561 = getelementptr inbounds i8, ptr %2560, i64 12
-  store i32 %.0740, ptr %2561, align 4
+  store i32 %.0747, ptr %2561, align 4
   %2562 = getelementptr inbounds i8, ptr %2560, i64 16
-  store ptr %.0741, ptr %2562, align 8
+  store ptr %.0748, ptr %2562, align 8
   %2563 = load ptr, ptr %2560, align 8
   %2564 = load ptr, ptr %2563, align 8
   %2565 = load i32, ptr %21, align 4
@@ -5935,7 +5935,7 @@ stack_push.exit1891:                              ; preds = %frame_pop.exit1884,
   br label %2684
 
 2682:                                             ; preds = %2166, %stack_push.exit1685, %stack_push.exit1660, %110, %stack_push.exit1891, %stack_push.exit1845, %stack_push.exit1801, %2332, %2321, %2294, %stack_push.exit1736, %2184, %2180, %stack_push.exit1583, %1793, %stack_push.exit1558, %stack_push.exit1495, %stack_push.exit1405, %1364, %1293, %frame_local_var.exit1300, %stack_push.exit1257, %stack_push.exit1221, %stack_push.exit1178, %frame_local_var.exit, %stack_pop.exit1074, %stack_push.exit1056, %stack_push.exit1024, %stack_push.exit974, %stack_push.exit942, %stack_push.exit885, %stack_push.exit864, %stack_push.exit832, %stack_push.exit
-  %.2744 = phi i32 [ 0, %110 ], [ 0, %stack_push.exit1891 ], [ 0, %stack_push.exit1845 ], [ 0, %stack_push.exit1801 ], [ 0, %2332 ], [ 0, %2321 ], [ 0, %2294 ], [ 0, %stack_push.exit1736 ], [ 0, %2184 ], [ 0, %2180 ], [ 0, %stack_push.exit1660 ], [ 0, %stack_push.exit1685 ], [ 0, %stack_push.exit1583 ], [ 0, %1793 ], [ 0, %stack_push.exit1558 ], [ 0, %stack_push.exit1495 ], [ 0, %stack_push.exit1405 ], [ 0, %1364 ], [ 0, %1293 ], [ 0, %frame_local_var.exit1300 ], [ 0, %stack_push.exit1257 ], [ 0, %stack_push.exit1221 ], [ 0, %stack_push.exit1178 ], [ 0, %frame_local_var.exit ], [ 0, %stack_pop.exit1074 ], [ 0, %stack_push.exit1056 ], [ 0, %stack_push.exit1024 ], [ 0, %stack_push.exit974 ], [ 0, %stack_push.exit942 ], [ 0, %stack_push.exit885 ], [ 0, %stack_push.exit864 ], [ 0, %stack_push.exit832 ], [ 0, %stack_push.exit ], [ 1, %2166 ]
+  %.2742 = phi i32 [ 0, %110 ], [ 0, %stack_push.exit1891 ], [ 0, %stack_push.exit1845 ], [ 0, %stack_push.exit1801 ], [ 0, %2332 ], [ 0, %2321 ], [ 0, %2294 ], [ 0, %stack_push.exit1736 ], [ 0, %2184 ], [ 0, %2180 ], [ 0, %stack_push.exit1660 ], [ 0, %stack_push.exit1685 ], [ 0, %stack_push.exit1583 ], [ 0, %1793 ], [ 0, %stack_push.exit1558 ], [ 0, %stack_push.exit1495 ], [ 0, %stack_push.exit1405 ], [ 0, %1364 ], [ 0, %1293 ], [ 0, %frame_local_var.exit1300 ], [ 0, %stack_push.exit1257 ], [ 0, %stack_push.exit1221 ], [ 0, %stack_push.exit1178 ], [ 0, %frame_local_var.exit ], [ 0, %stack_pop.exit1074 ], [ 0, %stack_push.exit1056 ], [ 0, %stack_push.exit1024 ], [ 0, %stack_push.exit974 ], [ 0, %stack_push.exit942 ], [ 0, %stack_push.exit885 ], [ 0, %stack_push.exit864 ], [ 0, %stack_push.exit832 ], [ 0, %stack_push.exit ], [ 1, %2166 ]
   %.2 = phi ptr [ %111, %110 ], [ %2613, %stack_push.exit1891 ], [ %2564, %stack_push.exit1845 ], [ %2384, %stack_push.exit1801 ], [ %2336, %2332 ], [ %2330, %2321 ], [ %2297, %2294 ], [ %2281, %stack_push.exit1736 ], [ %111, %2184 ], [ %2183, %2180 ], [ %111, %stack_push.exit1660 ], [ %111, %stack_push.exit1685 ], [ %.1, %stack_push.exit1583 ], [ %1797, %1793 ], [ %111, %stack_push.exit1558 ], [ %111, %stack_push.exit1495 ], [ %111, %stack_push.exit1405 ], [ %1340, %1364 ], [ %1251, %1293 ], [ %1157, %frame_local_var.exit1300 ], [ %1078, %stack_push.exit1257 ], [ %958, %stack_push.exit1221 ], [ %111, %stack_push.exit1178 ], [ %790, %frame_local_var.exit ], [ %111, %stack_pop.exit1074 ], [ %676, %stack_push.exit1056 ], [ %111, %stack_push.exit1024 ], [ %111, %stack_push.exit974 ], [ %111, %stack_push.exit942 ], [ %111, %stack_push.exit885 ], [ %111, %stack_push.exit864 ], [ %111, %stack_push.exit832 ], [ %144, %stack_push.exit ], [ %2167, %2166 ]
   %2683 = load i32, ptr %15, align 8
   %.not764 = icmp eq i32 %2683, 0
@@ -6124,14 +6124,14 @@ stack_push_block.exit:                            ; preds = %5, %22
   br label %.lr.ph
 
 .preheader:                                       ; preds = %make_closure.exit, %stack_push_block.exit
-  %.026.lcssa = phi ptr [ %46, %stack_push_block.exit ], [ %71, %make_closure.exit ]
+  %.0.lcssa = phi ptr [ %46, %stack_push_block.exit ], [ %71, %make_closure.exit ]
   %48 = load i32, ptr %9, align 4
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.lr.ph37, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %make_closure.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %make_closure.exit ]
-  %.02634 = phi ptr [ %46, %.lr.ph.preheader ], [ %71, %make_closure.exit ]
+  %.034 = phi ptr [ %46, %.lr.ph.preheader ], [ %71, %make_closure.exit ]
   %.idx = shl nsw i64 %indvars.iv, 2
   %50 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.val30 = load i16, ptr %50, align 2
@@ -6187,25 +6187,25 @@ make_closure.exit:                                ; preds = %60, %67
   %.sroa.0.0.in.i = phi ptr [ %66, %60 ], [ %70, %67 ]
   %.sroa.3.0.i = phi i32 [ %.0.lcssa.i.i, %60 ], [ %.sroa.3.0.copyload.i, %67 ]
   %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8
-  store ptr %.sroa.0.0.i, ptr %.02634, align 8
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %.02634, i64 8
+  store ptr %.sroa.0.0.i, ptr %.034, align 8
+  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %.034, i64 8
   store i32 %.sroa.3.0.i, ptr %.sroa.23.0..sroa_idx, align 8
-  %71 = getelementptr inbounds i8, ptr %.02634, i64 16
+  %71 = getelementptr inbounds i8, ptr %.034, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !11
 
 .lr.ph37:                                         ; preds = %.preheader, %.lr.ph37
-  %.036 = phi i32 [ %76, %.lr.ph37 ], [ 0, %.preheader ]
-  %.135 = phi ptr [ %75, %.lr.ph37 ], [ %.026.lcssa, %.preheader ]
+  %.136 = phi ptr [ %75, %.lr.ph37 ], [ %.0.lcssa, %.preheader ]
+  %.02735 = phi i32 [ %76, %.lr.ph37 ], [ 0, %.preheader ]
   %72 = tail call { i64, ptr } @jv_invalid() #12
   %73 = extractvalue { i64, ptr } %72, 0
   %74 = extractvalue { i64, ptr } %72, 1
-  store i64 %73, ptr %.135, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.135, i64 8
+  store i64 %73, ptr %.136, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.136, i64 8
   store ptr %74, ptr %.sroa.2.0..sroa_idx, align 8
-  %75 = getelementptr inbounds i8, ptr %.135, i64 16
-  %76 = add nuw nsw i32 %.036, 1
+  %75 = getelementptr inbounds i8, ptr %.136, i64 16
+  %76 = add nuw nsw i32 %.02735, 1
   %77 = load i32, ptr %9, align 4
   %78 = icmp slt i32 %76, %77
   br i1 %78, label %.lr.ph37, label %._crit_edge, !llvm.loop !12

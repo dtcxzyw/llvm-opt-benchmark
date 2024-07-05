@@ -64,17 +64,17 @@ define noundef i32 @ompi_datatype_set_args(ptr noundef %0, i32 noundef %1, ptr n
   br label %30
 
 30:                                               ; preds = %28, %8
-  %.0 = phi ptr [ %29, %28 ], [ %27, %8 ]
+  %.0168 = phi ptr [ %29, %28 ], [ %27, %8 ]
   %.not170 = icmp eq i32 %5, 0
   br i1 %.not170, label %33, label %31
 
 31:                                               ; preds = %30
-  store ptr %.0, ptr %25, align 8
-  %32 = getelementptr inbounds i8, ptr %.0, i64 %13
+  store ptr %.0168, ptr %25, align 8
+  %32 = getelementptr inbounds i8, ptr %.0168, i64 %13
   br label %33
 
 33:                                               ; preds = %31, %30
-  %.1 = phi ptr [ %32, %31 ], [ %.0, %30 ]
+  %.1 = phi ptr [ %32, %31 ], [ %.0168, %30 ]
   %.not171 = icmp eq i32 %1, 0
   br i1 %.not171, label %35, label %34
 
@@ -545,7 +545,7 @@ define range(i32 0, 18) i32 @ompi_datatype_print_args(ptr nocapture noundef read
 .lr.ph76:                                         ; preds = %48, %76
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %76 ], [ 1, %48 ]
   %.074 = phi ptr [ %.1, %76 ], [ %51, %48 ]
-  %.04873 = phi i32 [ %.149, %76 ], [ 1, %48 ]
+  %.04973 = phi i32 [ %.150, %76 ], [ 1, %48 ]
   %54 = load ptr, ptr %46, align 8
   %55 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv83
   %56 = load ptr, ptr %55, align 8
@@ -553,11 +553,11 @@ define range(i32 0, 18) i32 @ompi_datatype_print_args(ptr nocapture noundef read
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %.lr.ph76
-  %59 = add nsw i32 %.04873, 1
+  %59 = add nsw i32 %.04973, 1
   br label %76
 
 60:                                               ; preds = %.lr.ph76
-  %61 = icmp slt i32 %.04873, 2
+  %61 = icmp slt i32 %.04973, 2
   %62 = getelementptr i8, ptr %.074, i64 16
   %.0.val66 = load i16, ptr %62, align 8
   %63 = and i16 %.0.val66, 512
@@ -581,15 +581,15 @@ define range(i32 0, 18) i32 @ompi_datatype_print_args(ptr nocapture noundef read
 
 71:                                               ; preds = %70
   %72 = getelementptr inbounds i8, ptr %.074, i64 240
-  %73 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.04873, ptr noundef nonnull %72)
+  %73 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.04973, ptr noundef nonnull %72)
   br label %76
 
 74:                                               ; preds = %70
-  %75 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.04873, ptr noundef nonnull %.074)
+  %75 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.04973, ptr noundef nonnull %.074)
   br label %76
 
 76:                                               ; preds = %68, %65, %74, %71, %58
-  %.149 = phi i32 [ %59, %58 ], [ 1, %71 ], [ 1, %74 ], [ 1, %65 ], [ 1, %68 ]
+  %.150 = phi i32 [ %59, %58 ], [ 1, %71 ], [ 1, %74 ], [ 1, %65 ], [ 1, %68 ]
   %.1 = phi ptr [ %.074, %58 ], [ %56, %71 ], [ %56, %74 ], [ %56, %65 ], [ %56, %68 ]
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %77 = load i32, ptr %15, align 8
@@ -598,7 +598,7 @@ define range(i32 0, 18) i32 @ompi_datatype_print_args(ptr nocapture noundef read
   br i1 %79, label %.lr.ph76, label %._crit_edge77, !llvm.loop !8
 
 ._crit_edge77:                                    ; preds = %76
-  %80 = icmp slt i32 %.149, 2
+  %80 = icmp slt i32 %.150, 2
   br i1 %80, label %._crit_edge77.thread, label %88
 
 ._crit_edge77.thread:                             ; preds = %48, %._crit_edge77
@@ -627,11 +627,11 @@ define range(i32 0, 18) i32 @ompi_datatype_print_args(ptr nocapture noundef read
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds i8, ptr %.1, i64 240
-  %93 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.149, ptr noundef nonnull %92)
+  %93 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.150, ptr noundef nonnull %92)
   br label %96
 
 94:                                               ; preds = %88
-  %95 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.149, ptr noundef nonnull %.1)
+  %95 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.150, ptr noundef nonnull %.1)
   br label %96
 
 96:                                               ; preds = %91, %94, %83, %86
@@ -639,8 +639,8 @@ define range(i32 0, 18) i32 @ompi_datatype_print_args(ptr nocapture noundef read
   br label %97
 
 97:                                               ; preds = %45, %96, %6, %1
-  %.052 = phi i32 [ 0, %1 ], [ 17, %6 ], [ 0, %96 ], [ 0, %45 ]
-  ret i32 %.052
+  %.048 = phi i32 [ 0, %1 ], [ 17, %6 ], [ 0, %96 ], [ 0, %45 ]
+  ret i32 %.048
 }
 
 ; Function Attrs: nofree nounwind
@@ -1732,20 +1732,20 @@ ompi_datatype_set_args.exit52.i:                  ; preds = %opal_thread_add_fet
   %321 = call i32 @ompi_datatype_duplicate(ptr noundef %317, ptr noundef nonnull %2) #14
   %322 = load ptr, ptr %2, align 8
   %323 = icmp eq ptr %322, null
-  br i1 %323, label %..lr.ph.i55_crit_edge.i, label %324
+  br i1 %323, label %..lr.ph.i54_crit_edge.i, label %324
 
-..lr.ph.i55_crit_edge.i:                          ; preds = %316
+..lr.ph.i54_crit_edge.i:                          ; preds = %316
   %.pre.i = load ptr, ptr %3, align 8
-  br label %.lr.ph.i55.i
+  br label %.lr.ph.i54.i
 
 324:                                              ; preds = %316
   %325 = call i32 @opal_datatype_resize(ptr noundef nonnull %322, i64 noundef %318, i64 noundef %320) #14
   %326 = load ptr, ptr %2, align 8
   store ptr %326, ptr %3, align 8
-  br label %.lr.ph.i55.i
+  br label %.lr.ph.i54.i
 
-.lr.ph.i55.i:                                     ; preds = %324, %..lr.ph.i55_crit_edge.i
-  %327 = phi ptr [ %.pre.i, %..lr.ph.i55_crit_edge.i ], [ %326, %324 ]
+.lr.ph.i54.i:                                     ; preds = %324, %..lr.ph.i54_crit_edge.i
+  %327 = phi ptr [ %.pre.i, %..lr.ph.i54_crit_edge.i ], [ %326, %324 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %328 = call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #13
   %329 = getelementptr inbounds i8, ptr %328, i64 16
@@ -1770,12 +1770,12 @@ ompi_datatype_set_args.exit52.i:                  ; preds = %opal_thread_add_fet
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %336, ptr noundef nonnull readonly align 8 dereferenceable(16) %29, i64 16, i1 false)
   store ptr %317, ptr %337, align 8
   %339 = getelementptr i8, ptr %317, i64 16
-  %.val.i57.i = load i16, ptr %339, align 8
-  %340 = and i16 %.val.i57.i, 512
-  %.not173.i58.i = icmp eq i16 %340, 0
-  br i1 %.not173.i58.i, label %341, label %ompi_datatype_set_args.exit63.i
+  %.val.i56.i = load i16, ptr %339, align 8
+  %340 = and i16 %.val.i56.i, 512
+  %.not173.i57.i = icmp eq i16 %340, 0
+  br i1 %.not173.i57.i, label %341, label %ompi_datatype_set_args.exit62.i
 
-341:                                              ; preds = %.lr.ph.i55.i
+341:                                              ; preds = %.lr.ph.i54.i
   %342 = getelementptr inbounds i8, ptr %317, i64 8
   %343 = load i8, ptr @opal_uses_threads, align 1
   %344 = trunc i8 %343 to i1
@@ -1783,25 +1783,25 @@ ompi_datatype_set_args.exit52.i:                  ; preds = %opal_thread_add_fet
 
 345:                                              ; preds = %341
   %346 = atomicrmw volatile add ptr %342, i32 1 monotonic, align 4
-  br label %opal_thread_add_fetch_32.exit.i62.i
+  br label %opal_thread_add_fetch_32.exit.i61.i
 
 347:                                              ; preds = %341
   %348 = load volatile i32, ptr %342, align 4
   %349 = add nsw i32 %348, 1
   store volatile i32 %349, ptr %342, align 4
   %350 = load volatile i32, ptr %342, align 4
-  br label %opal_thread_add_fetch_32.exit.i62.i
+  br label %opal_thread_add_fetch_32.exit.i61.i
 
-opal_thread_add_fetch_32.exit.i62.i:              ; preds = %347, %345
+opal_thread_add_fetch_32.exit.i61.i:              ; preds = %347, %345
   %351 = getelementptr inbounds i8, ptr %317, i64 216
   %352 = load ptr, ptr %351, align 8
   %353 = getelementptr inbounds i8, ptr %352, i64 8
   %354 = load i64, ptr %353, align 8
   %355 = add i64 %354, 44
-  br label %ompi_datatype_set_args.exit63.i
+  br label %ompi_datatype_set_args.exit62.i
 
-ompi_datatype_set_args.exit63.i:                  ; preds = %opal_thread_add_fetch_32.exit.i62.i, %.lr.ph.i55.i
-  %356 = phi i64 [ %355, %opal_thread_add_fetch_32.exit.i62.i ], [ 48, %.lr.ph.i55.i ]
+ompi_datatype_set_args.exit62.i:                  ; preds = %opal_thread_add_fetch_32.exit.i61.i, %.lr.ph.i54.i
+  %356 = phi i64 [ %355, %opal_thread_add_fetch_32.exit.i61.i ], [ 48, %.lr.ph.i54.i ]
   store i64 %356, ptr %338, align 8
   %357 = getelementptr inbounds i8, ptr %327, i64 216
   store ptr %328, ptr %357, align 8
@@ -1823,7 +1823,7 @@ ompi_datatype_set_args.exit63.i:                  ; preds = %opal_thread_add_fet
   %368 = call i32 @ompi_datatype_set_args(ptr noundef %366, i32 noundef 2, ptr noundef nonnull %10, i32 noundef %367, ptr noundef nonnull %29, i32 noundef 1, ptr noundef nonnull %28, i32 noundef 18)
   br label %__ompi_datatype_create_from_args.exit
 
-__ompi_datatype_create_from_args.exit:            ; preds = %._crit_edge, %ompi_datatype_set_args.exit.i, %ompi_datatype_set_args.exit42.i, %ompi_datatype_set_args.exit52.i, %179, %197, %207, %220, %229, %265, %ompi_datatype_set_args.exit63.i, %359
+__ompi_datatype_create_from_args.exit:            ; preds = %._crit_edge, %ompi_datatype_set_args.exit.i, %ompi_datatype_set_args.exit42.i, %ompi_datatype_set_args.exit52.i, %179, %197, %207, %220, %229, %265, %ompi_datatype_set_args.exit62.i, %359
   %369 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -1839,12 +1839,12 @@ __ompi_datatype_create_from_args.exit:            ; preds = %._crit_edge, %ompi_
 
 371:                                              ; preds = %__ompi_datatype_create_from_args.exit, %51
   %.056 = phi ptr [ null, %51 ], [ %369, %__ompi_datatype_create_from_args.exit ]
-  %.054 = phi i32 [ %53, %51 ], [ %25, %__ompi_datatype_create_from_args.exit ]
-  %372 = icmp sgt i32 %.054, 0
+  %.055 = phi i32 [ %53, %51 ], [ %25, %__ompi_datatype_create_from_args.exit ]
+  %372 = icmp sgt i32 %.055, 0
   br i1 %372, label %.lr.ph65.preheader, label %._crit_edge66
 
 .lr.ph65.preheader:                               ; preds = %371
-  %wide.trip.count73 = zext nneg i32 %.054 to i64
+  %wide.trip.count73 = zext nneg i32 %.055 to i64
   br label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %399
@@ -1918,8 +1918,8 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %400
 
 400:                                              ; preds = %._crit_edge66, %18
-  %.055 = phi ptr [ %21, %18 ], [ %.056, %._crit_edge66 ]
-  ret ptr %.055
+  %.054 = phi ptr [ %21, %18 ], [ %.056, %._crit_edge66 ]
+  ret ptr %.054
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -1946,7 +1946,7 @@ define ptr @ompi_datatype_get_single_predefined_type_from_args(ptr noundef reado
 
 11:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %.02127 = phi ptr [ null, %.lr.ph ], [ %.1, %25 ]
+  %.02227 = phi ptr [ null, %.lr.ph ], [ %.1, %25 ]
   %12 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 16
@@ -1961,29 +1961,29 @@ define ptr @ompi_datatype_get_single_predefined_type_from_args(ptr noundef reado
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %11, %16
-  %.020 = phi ptr [ %17, %16 ], [ %13, %11 ]
-  %20 = icmp ne ptr %.020, @ompi_mpi_lb
-  %21 = icmp ne ptr %.020, @ompi_mpi_ub
+  %.021 = phi ptr [ %17, %16 ], [ %13, %11 ]
+  %20 = icmp ne ptr %.021, @ompi_mpi_lb
+  %21 = icmp ne ptr %.021, @ompi_mpi_ub
   %or.cond = and i1 %20, %21
   br i1 %or.cond, label %22, label %25
 
 22:                                               ; preds = %19
-  %23 = icmp eq ptr %.02127, null
+  %23 = icmp eq ptr %.02227, null
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %22
-  %.not25 = icmp eq ptr %.02127, %.020
+  %.not25 = icmp eq ptr %.02227, %.021
   br i1 %.not25, label %25, label %.loopexit
 
 25:                                               ; preds = %22, %19, %24
-  %.1 = phi ptr [ %.02127, %24 ], [ %.02127, %19 ], [ %.020, %22 ]
+  %.1 = phi ptr [ %.02227, %24 ], [ %.02227, %19 ], [ %.021, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !15
 
 .loopexit:                                        ; preds = %16, %24, %25, %.preheader, %1
-  %.022 = phi ptr [ %0, %1 ], [ null, %.preheader ], [ null, %16 ], [ null, %24 ], [ %.1, %25 ]
-  ret ptr %.022
+  %.020 = phi ptr [ %0, %1 ], [ null, %.preheader ], [ null, %16 ], [ null, %24 ], [ %.1, %25 ]
+  ret ptr %.020
 }
 
 declare i32 @ompi_datatype_create_contiguous(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9

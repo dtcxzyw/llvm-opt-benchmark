@@ -74,10 +74,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge254
   %indvars.iv286.in = phi i64 [ %30, %.preheader.preheader ], [ %indvars.iv286, %._crit_edge254 ]
-  %.0188258.in = phi i32 [ %20, %.preheader.preheader ], [ %.0188258, %._crit_edge254 ]
+  %.0186258.in = phi i32 [ %20, %.preheader.preheader ], [ %.0186258, %._crit_edge254 ]
   %indvars.iv286 = add nsw i64 %indvars.iv286.in, 1
-  %.0188258 = add nsw i32 %.0188258.in, 1
-  %.not217.not251.not = icmp slt i32 %.0188258.in, %20
+  %.0186258 = add nsw i32 %.0186258.in, 1
+  %.not217.not251.not = icmp slt i32 %.0186258.in, %20
   br i1 %.not217.not251.not, label %._crit_edge254, label %.lr.ph253
 
 .lr.ph253:                                        ; preds = %.preheader, %36
@@ -97,15 +97,15 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not217.not, label %.lr.ph253, label %._crit_edge254, !llvm.loop !4
 
 ._crit_edge254:                                   ; preds = %36, %.lr.ph253, %.preheader
-  %exitcond291.not = icmp eq i32 %.0188258, %24
+  %exitcond291.not = icmp eq i32 %.0186258, %24
   br i1 %exitcond291.not, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .preheader224:                                    ; preds = %.preheader224.preheader, %._crit_edge
   %indvars.iv281.in = phi i64 [ %29, %.preheader224.preheader ], [ %indvars.iv281, %._crit_edge ]
-  %.1189250.in = phi i32 [ %20, %.preheader224.preheader ], [ %.1189250, %._crit_edge ]
+  %.1187250.in = phi i32 [ %20, %.preheader224.preheader ], [ %.1187250, %._crit_edge ]
   %indvars.iv281 = add nsw i64 %indvars.iv281.in, 1
-  %.1189250 = add nsw i32 %.1189250.in, 1
-  %.not215.not245.not = icmp slt i32 %.1189250.in, %20
+  %.1187250 = add nsw i32 %.1187250.in, 1
+  %.not215.not245.not = icmp slt i32 %.1187250.in, %20
   br i1 %.not215.not245.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader224, %42
@@ -125,7 +125,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not215.not, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %42, %.lr.ph, %.preheader224
-  %exitcond.not = icmp eq i32 %.1189250, %24
+  %exitcond.not = icmp eq i32 %.1187250, %24
   br i1 %exitcond.not, label %.loopexit, label %.preheader224, !llvm.loop !8
 
 43:                                               ; preds = %15
@@ -172,9 +172,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %switch.masked, label %.preheader307, label %.preheader308
 
 .preheader307:                                    ; preds = %66, %83
-  %.2190 = phi i32 [ %85, %83 ], [ %67, %66 ]
-  %.2 = phi i32 [ %75, %83 ], [ %68, %66 ]
-  %69 = sext i32 %.2 to i64
+  %.2190 = phi i32 [ %75, %83 ], [ %68, %66 ]
+  %.2 = phi i32 [ %85, %83 ], [ %67, %66 ]
+  %69 = sext i32 %.2190 to i64
   br label %70
 
 70:                                               ; preds = %70, %.preheader307
@@ -188,7 +188,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 .preheader225:                                    ; preds = %70
   %74 = getelementptr inbounds double, ptr %6, i64 %indvars.iv.next276
   %75 = trunc nsw i64 %indvars.iv.next276 to i32
-  %76 = sext i32 %.2190 to i64
+  %76 = sext i32 %.2 to i64
   br label %77
 
 77:                                               ; preds = %.preheader225, %77
@@ -238,9 +238,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.loopexit
 
 .preheader308:                                    ; preds = %66, %115
-  %.4192 = phi i32 [ %117, %115 ], [ %67, %66 ]
-  %.4 = phi i32 [ %107, %115 ], [ %68, %66 ]
-  %101 = sext i32 %.4 to i64
+  %.4192 = phi i32 [ %107, %115 ], [ %68, %66 ]
+  %.4 = phi i32 [ %117, %115 ], [ %67, %66 ]
+  %101 = sext i32 %.4192 to i64
   br label %102
 
 102:                                              ; preds = %102, %.preheader308
@@ -254,7 +254,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 .preheader226:                                    ; preds = %102
   %106 = getelementptr inbounds double, ptr %6, i64 %indvars.iv.next
   %107 = trunc nsw i64 %indvars.iv.next to i32
-  %108 = sext i32 %.4192 to i64
+  %108 = sext i32 %.4 to i64
   br label %109
 
 109:                                              ; preds = %.preheader226, %109

@@ -2581,8 +2581,8 @@ invoke.cont15:                                    ; preds = %invoke.cont9
 
 for.cond22:                                       ; preds = %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit, %invoke.cont15
   %indvars.iv1525 = phi i64 [ %indvars.iv.next1526, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit ], [ 0, %invoke.cont15 ]
-  %rules12.sroa.3.0 = phi ptr [ %rules12.sroa.3.2, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit ], [ null, %invoke.cont15 ]
   %head.sroa.0.0 = phi ptr [ %call91, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit ], [ null, %invoke.cont15 ]
+  %rules12.sroa.3.0 = phi ptr [ %rules12.sroa.3.2, %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit ], [ null, %invoke.cont15 ]
   %8 = load ptr, ptr %6, align 8
   %cmp.i35 = icmp eq ptr %8, null
   br i1 %cmp.i35, label %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit, label %if.end.i
@@ -4442,8 +4442,8 @@ terminate.lpad.i.i356:                            ; preds = %if.then.i.i.i354
   unreachable
 
 ehcleanup137:                                     ; preds = %if.then.i.i.i354, %ehcleanup136, %lpad33.body, %lpad29
-  %rules12.sroa.3.3 = phi ptr [ %rules12.sroa.3.0, %lpad33.body ], [ %rules12.sroa.3.0, %lpad29 ], [ %rules12.sroa.3.2, %ehcleanup136 ], [ %rules12.sroa.3.2, %if.then.i.i.i354 ]
   %head.sroa.0.11 = phi ptr [ %head.sroa.0.0, %lpad33.body ], [ %head.sroa.0.0, %lpad29 ], [ %head.sroa.0.10860, %ehcleanup136 ], [ %head.sroa.0.10860, %if.then.i.i.i354 ]
+  %rules12.sroa.3.3 = phi ptr [ %rules12.sroa.3.0, %lpad33.body ], [ %rules12.sroa.3.0, %lpad29 ], [ %rules12.sroa.3.2, %ehcleanup136 ], [ %rules12.sroa.3.2, %if.then.i.i.i354 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body584, %lpad33.body ], [ %56, %lpad29 ], [ %.pn.pn, %ehcleanup136 ], [ %.pn.pn, %if.then.i.i.i354 ]
   %215 = load ptr, ptr %rule_i, align 8
   %tobool.not.i.i358 = icmp eq ptr %215, null
@@ -4833,8 +4833,8 @@ _ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map
   br i1 %cmp.i.not, label %for.end177, label %invoke.cont9
 
 ehcleanup170:                                     ; preds = %lpad26.loopexit, %lpad26.loopexit.split-lp, %if.then2.i.i.i364, %if.then.i.i.i359, %ehcleanup137
-  %rules12.sroa.3.4 = phi ptr [ %rules12.sroa.3.3, %ehcleanup137 ], [ %rules12.sroa.3.3, %if.then.i.i.i359 ], [ %rules12.sroa.3.3, %if.then2.i.i.i364 ], [ %rules12.sroa.3.0, %lpad26.loopexit ], [ %rules12.sroa.3.0, %lpad26.loopexit.split-lp ]
   %head.sroa.0.12 = phi ptr [ %head.sroa.0.11, %ehcleanup137 ], [ %head.sroa.0.11, %if.then.i.i.i359 ], [ %head.sroa.0.11, %if.then2.i.i.i364 ], [ %head.sroa.0.0, %lpad26.loopexit ], [ %head.sroa.0.1.ph, %lpad26.loopexit.split-lp ]
+  %rules12.sroa.3.4 = phi ptr [ %rules12.sroa.3.3, %ehcleanup137 ], [ %rules12.sroa.3.3, %if.then.i.i.i359 ], [ %rules12.sroa.3.3, %if.then2.i.i.i364 ], [ %rules12.sroa.3.0, %lpad26.loopexit ], [ %rules12.sroa.3.0, %lpad26.loopexit.split-lp ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup137 ], [ %.pn.pn.pn.pn, %if.then.i.i.i359 ], [ %.pn.pn.pn.pn, %if.then2.i.i.i364 ], [ %lpad.loopexit878, %lpad26.loopexit ], [ %lpad.loopexit.split-lp, %lpad26.loopexit.split-lp ]
   %tobool.not.i.i525 = icmp eq ptr %head.sroa.0.12, null
   br i1 %tobool.not.i.i525, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit533, label %if.then.i.i.i526
@@ -10815,8 +10815,8 @@ invoke.cont35:                                    ; preds = %invoke.cont23, %_ZN
 
 for.cond45:                                       ; preds = %invoke.cont233, %invoke.cont35
   %indvars.iv2534 = phi i64 [ %indvars.iv.next2535, %invoke.cont233 ], [ 0, %invoke.cont35 ]
-  %rules.sroa.3.0 = phi ptr [ %rules.sroa.3.2, %invoke.cont233 ], [ null, %invoke.cont35 ]
   %conjs.sroa.4.0 = phi ptr [ %conjs.sroa.4.18, %invoke.cont233 ], [ null, %invoke.cont35 ]
+  %rules.sroa.3.0 = phi ptr [ %rules.sroa.3.2, %invoke.cont233 ], [ null, %invoke.cont35 ]
   %rule_i.sroa.0.0 = phi ptr [ %call.i8586, %invoke.cont233 ], [ null, %invoke.cont35 ]
   %16 = load ptr, ptr %8, align 8
   %cmp.i57 = icmp eq ptr %16, null
@@ -13179,10 +13179,10 @@ ehcleanup251:                                     ; preds = %lpad6.i448, %lpad24
   br label %ehcleanup273
 
 ehcleanup273:                                     ; preds = %lpad48.loopexit, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad48.loopexit.split-lp.loopexit, %cleanup.action.i, %ehcleanup.i, %ehcleanup17.i, %ehcleanup251, %ehcleanup234, %lpad55
-  %rules.sroa.3.6 = phi ptr [ %rules.sroa.3.2, %ehcleanup234 ], [ %rules.sroa.3.0, %lpad55 ], [ %rules.sroa.3.0, %ehcleanup251 ], [ %rules.sroa.3.0, %cleanup.action.i ], [ %rules.sroa.3.0, %ehcleanup.i ], [ %rules.sroa.3.2, %ehcleanup17.i ], [ %rules.sroa.3.0, %lpad48.loopexit ], [ %rules.sroa.3.0, %lpad48.loopexit.split-lp.loopexit ], [ %rules.sroa.3.3.ph.ph.ph, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %rules.sroa.3.0, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %conjs.sroa.4.20 = phi ptr [ %conjs.sroa.4.19, %ehcleanup234 ], [ %conjs.sroa.4.0, %lpad55 ], [ %conjs.sroa.4.0, %ehcleanup251 ], [ %conjs.sroa.4.0, %cleanup.action.i ], [ %conjs.sroa.4.0, %ehcleanup.i ], [ %conjs.sroa.4.0, %ehcleanup17.i ], [ %conjs.sroa.4.0, %lpad48.loopexit ], [ %conjs.sroa.4.0, %lpad48.loopexit.split-lp.loopexit ], [ %conjs.sroa.4.0, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %conjs.sroa.4.0, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %rule_i.sroa.0.4 = phi ptr [ %call.i8586, %ehcleanup234 ], [ %rule_i.sroa.0.0, %lpad55 ], [ %rule_i.sroa.0.0, %ehcleanup251 ], [ %call.i8586, %cleanup.action.i ], [ %call.i8586, %ehcleanup.i ], [ %call.i8586, %ehcleanup17.i ], [ %rule_i.sroa.0.0, %lpad48.loopexit ], [ %rule_i.sroa.0.0, %lpad48.loopexit.split-lp.loopexit ], [ %rule_i.sroa.0.1.ph.ph.ph, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %rule_i.sroa.0.0, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %ehcleanup234 ], [ %85, %lpad55 ], [ %.pn, %ehcleanup251 ], [ %47, %cleanup.action.i ], [ %46, %ehcleanup.i ], [ %.pn.i, %ehcleanup17.i ], [ %lpad.loopexit1054, %lpad48.loopexit ], [ %lpad.loopexit1056, %lpad48.loopexit.split-lp.loopexit ], [ %lpad.loopexit1059, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %conjs.sroa.4.20 = phi ptr [ %conjs.sroa.4.19, %ehcleanup234 ], [ %conjs.sroa.4.0, %lpad55 ], [ %conjs.sroa.4.0, %ehcleanup251 ], [ %conjs.sroa.4.0, %ehcleanup17.i ], [ %conjs.sroa.4.0, %ehcleanup.i ], [ %conjs.sroa.4.0, %cleanup.action.i ], [ %conjs.sroa.4.0, %lpad48.loopexit ], [ %conjs.sroa.4.0, %lpad48.loopexit.split-lp.loopexit ], [ %conjs.sroa.4.0, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %conjs.sroa.4.0, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %rules.sroa.3.6 = phi ptr [ %rules.sroa.3.2, %ehcleanup234 ], [ %rules.sroa.3.0, %lpad55 ], [ %rules.sroa.3.0, %ehcleanup251 ], [ %rules.sroa.3.2, %ehcleanup17.i ], [ %rules.sroa.3.0, %ehcleanup.i ], [ %rules.sroa.3.0, %cleanup.action.i ], [ %rules.sroa.3.0, %lpad48.loopexit ], [ %rules.sroa.3.0, %lpad48.loopexit.split-lp.loopexit ], [ %rules.sroa.3.3.ph.ph.ph, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %rules.sroa.3.0, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %rule_i.sroa.0.4 = phi ptr [ %call.i8586, %ehcleanup234 ], [ %rule_i.sroa.0.0, %lpad55 ], [ %rule_i.sroa.0.0, %ehcleanup251 ], [ %call.i8586, %ehcleanup17.i ], [ %call.i8586, %ehcleanup.i ], [ %call.i8586, %cleanup.action.i ], [ %rule_i.sroa.0.0, %lpad48.loopexit ], [ %rule_i.sroa.0.0, %lpad48.loopexit.split-lp.loopexit ], [ %rule_i.sroa.0.1.ph.ph.ph, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %rule_i.sroa.0.0, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %ehcleanup234 ], [ %85, %lpad55 ], [ %.pn, %ehcleanup251 ], [ %.pn.i, %ehcleanup17.i ], [ %46, %ehcleanup.i ], [ %47, %cleanup.action.i ], [ %lpad.loopexit1054, %lpad48.loopexit ], [ %lpad.loopexit1056, %lpad48.loopexit.split-lp.loopexit ], [ %lpad.loopexit1059, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad48.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i625 = icmp eq ptr %rule_i.sroa.0.4, null
   br i1 %tobool.not.i.i625, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit633, label %if.then.i.i.i626
 

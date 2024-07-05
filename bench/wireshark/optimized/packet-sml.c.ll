@@ -799,9 +799,9 @@ define internal fastcc void @dissect_sml_file(ptr noundef %0, ptr noundef %1, pt
   br label %81
 
 81:                                               ; preds = %.backedge, %79
-  %.0300594 = phi i32 [ 0, %79 ], [ %.2302, %.backedge ]
-  %.0309593 = phi i16 [ 0, %79 ], [ %.3312, %.backedge ]
-  %.0313592 = phi ptr [ null, %79 ], [ %.1314, %.backedge ]
+  %.0595 = phi ptr [ null, %79 ], [ %.1, %.backedge ]
+  %.0302593 = phi i32 [ 0, %79 ], [ %.2304, %.backedge ]
+  %.0311592 = phi i16 [ 0, %79 ], [ %.3314, %.backedge ]
   %82 = load i32, ptr @sml_reassemble, align 4
   %.not325 = icmp eq i32 %82, 0
   br i1 %.not325, label %87, label %83
@@ -813,7 +813,7 @@ define internal fastcc void @dissect_sml_file(ptr noundef %0, ptr noundef %1, pt
   br label %87
 
 87:                                               ; preds = %83, %81
-  %.1314 = phi ptr [ %86, %83 ], [ %.0313592, %81 ]
+  %.1 = phi ptr [ %86, %83 ], [ %.0595, %81 ]
   %88 = load i32, ptr %2, align 4
   %89 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %88) #5
   %90 = icmp eq i32 %89, 454761243
@@ -845,11 +845,11 @@ define internal fastcc void @dissect_sml_file(ptr noundef %0, ptr noundef %1, pt
   br label %.loopexit
 
 108:                                              ; preds = %99, %87
-  %.1301 = phi i32 [ %92, %99 ], [ %.0300594, %87 ]
+  %.1303 = phi i32 [ %92, %99 ], [ %.0302593, %87 ]
   br label %.fold.split
 
 .fold.split:                                      ; preds = %1728, %108
-  %.1310588 = phi i16 [ %.0309593, %108 ], [ %.2311, %1728 ]
+  %.1312588 = phi i16 [ %.0311592, %108 ], [ %.2313, %1728 ]
   %109 = load i32, ptr %2, align 4
   %110 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %109) #5
   %111 = zext i8 %110 to i32
@@ -3853,8 +3853,8 @@ decode_AttentionRes.exit:                         ; preds = %1597, %1637, %1640
   br label %.loopexit
 
 1648:                                             ; preds = %decode_AttentionRes.exit, %decode_GetListRes.exit, %decode_SetProcParameterReq.exit, %decode_GetProcParameterRes.exit, %decode_GetProcParameterReq.exit, %decode_GetProfileListRes.exit, %757, %decode_GetProfilePackRes.exit, %337
-  %.2299 = phi i32 [ %.0.i, %decode_AttentionRes.exit ], [ %.0108.i, %decode_GetListRes.exit ], [ %.047.i, %decode_SetProcParameterReq.exit ], [ %.041.i, %decode_GetProcParameterRes.exit ], [ %.045.i, %decode_GetProcParameterReq.exit ], [ %.0103.i, %decode_GetProfileListRes.exit ], [ %760, %757 ], [ %.0170.i, %decode_GetProfilePackRes.exit ], [ %340, %337 ]
-  %.not332 = icmp eq i32 %.2299, 0
+  %.2301 = phi i32 [ %.0.i, %decode_AttentionRes.exit ], [ %.0108.i, %decode_GetListRes.exit ], [ %.047.i, %decode_SetProcParameterReq.exit ], [ %.041.i, %decode_GetProcParameterRes.exit ], [ %.045.i, %decode_GetProcParameterReq.exit ], [ %.0103.i, %decode_GetProfileListRes.exit ], [ %760, %757 ], [ %.0170.i, %decode_GetProfilePackRes.exit ], [ %340, %337 ]
+  %.not332 = icmp eq i32 %.2301, 0
   br i1 %.not332, label %.thread, label %1649
 
 1649:                                             ; preds = %1648
@@ -3966,7 +3966,7 @@ get_length.exit425:                               ; preds = %1659, %1670, %1675
   br label %1711
 
 1711:                                             ; preds = %1707, %1699
-  %.2311 = phi i16 [ %1701, %1699 ], [ %.1310588, %1707 ]
+  %.2313 = phi i16 [ %1701, %1699 ], [ %.1312588, %1707 ]
   %1712 = load i32, ptr %2, align 4
   %1713 = add i32 %1712, %1679
   store i32 %1713, ptr %2, align 4
@@ -4081,8 +4081,8 @@ get_length.exit425:                               ; preds = %1659, %1670, %1675
   br i1 %or.cond3, label %1774, label %1782
 
 1774:                                             ; preds = %1754
-  %1775 = sub i32 %1769, %.1301
-  %1776 = call zeroext i16 @crc16_ccitt_tvb_offset(ptr noundef %0, i32 noundef %.1301, i32 noundef %1775) #5
+  %1775 = sub i32 %1769, %.1303
+  %1776 = call zeroext i16 @crc16_ccitt_tvb_offset(ptr noundef %0, i32 noundef %.1303, i32 noundef %1775) #5
   %1777 = load i32, ptr %2, align 4
   %1778 = load i32, ptr @hf_sml_crc16, align 4
   %1779 = load i32, ptr @hf_sml_crc16_status, align 4
@@ -4093,13 +4093,13 @@ get_length.exit425:                               ; preds = %1659, %1670, %1675
 1782:                                             ; preds = %1754
   %1783 = load i32, ptr @hf_sml_crc16, align 4
   %1784 = load i32, ptr @hf_sml_crc16_status, align 4
-  %1785 = zext i16 %.2311 to i32
+  %1785 = zext i16 %.2313 to i32
   %1786 = call ptr @proto_tree_add_checksum(ptr noundef %1763, ptr noundef %0, i32 noundef %1769, i32 noundef %1783, i32 noundef %1784, ptr noundef nonnull @ei_sml_crc_error, ptr noundef %1, i32 noundef %1785, i32 noundef -2147483648, i32 noundef 0) #5
   br label %1787
 
 1787:                                             ; preds = %1782, %1774
-  %.3312 = phi i16 [ %1776, %1774 ], [ %.2311, %1782 ]
-  %.2302 = phi i32 [ %1775, %1774 ], [ %.1301, %1782 ]
+  %.3314 = phi i16 [ %1776, %1774 ], [ %.2313, %1782 ]
+  %.2304 = phi i32 [ %1775, %1774 ], [ %.1303, %1782 ]
   %1788 = load i32, ptr %2, align 4
   %1789 = add i32 %1788, 2
   store i32 %1789, ptr %2, align 4
@@ -4114,7 +4114,7 @@ get_length.exit425:                               ; preds = %1659, %1670, %1675
 
 1793:                                             ; preds = %1791
   %1794 = load i32, ptr %2, align 4
-  call void @proto_item_set_end(ptr noundef %.1314, ptr noundef %0, i32 noundef %1794) #5
+  call void @proto_item_set_end(ptr noundef %.1, ptr noundef %0, i32 noundef %1794) #5
   br label %.backedge
 
 .backedge:                                        ; preds = %1793, %1795

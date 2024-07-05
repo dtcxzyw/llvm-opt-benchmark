@@ -285,8 +285,8 @@ _run_spank_job_script.exit:                       ; preds = %23, %37, %75, %77, 
 106:                                              ; preds = %102
   %107 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #8
   %108 = load i64, ptr %4, align 8
-  %.not.i41 = icmp eq i64 %108, 0
-  br i1 %.not.i41, label %_script_list_create.exit, label %.lr.ph.i
+  %.not.i42 = icmp eq i64 %108, 0
+  br i1 %.not.i42, label %_script_list_create.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %106
   %109 = getelementptr inbounds i8, ptr %4, i64 8
@@ -466,16 +466,16 @@ define internal fastcc ptr @_build_env(ptr nocapture noundef %0, ptr noundef %1,
   %70 = icmp eq i32 %69, 0
   %71 = lshr i32 %67, 8
   %72 = and i32 %71, 255
-  %.078 = select i1 %70, i32 %72, i32 0
+  %.079 = select i1 %70, i32 %72, i32 0
   %73 = shl nuw nsw i32 %69, 24
   %sext = add nuw i32 %73, 16777216
   %74 = icmp sgt i32 %sext, 33554431
-  %.0 = select i1 %74, i32 %69, i32 0
+  %.078 = select i1 %74, i32 %69, i32 0
   %75 = load i32, ptr %0, align 8
   %76 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.16, i32 noundef %75) #8
   %77 = load i32, ptr %66, align 4
   %78 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.16, i32 noundef %77) #8
-  %79 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef %.078, i32 noundef %.0) #8
+  %79 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef %.079, i32 noundef %.078) #8
   br label %80
 
 80:                                               ; preds = %62, %68, %64

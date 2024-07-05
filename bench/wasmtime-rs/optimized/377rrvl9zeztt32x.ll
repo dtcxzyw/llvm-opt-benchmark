@@ -3895,11 +3895,11 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %78, label %71
 
 .lr.ph.i:                                         ; preds = %50, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i"
-  %.0.i12.i = phi i16 [ %57, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %53, %50 ]
-  %54 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.i, i1 true)
+  %.022.i12.i = phi i16 [ %57, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %53, %50 ]
+  %54 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.i, i1 true)
   %55 = zext nneg i16 %54 to i64
-  %56 = add i16 %.0.i12.i, -1
-  %57 = and i16 %56, %.0.i12.i
+  %56 = add i16 %.022.i12.i, -1
+  %57 = and i16 %56, %.022.i12.i
   %58 = add i64 %.sroa.0.021.i.i, %55
   %59 = and i64 %58, %.val4.i
   %60 = load ptr, ptr %0, align 8, !alias.scope !1113, !noalias !1130, !nonnull !10, !noundef !10
@@ -4114,11 +4114,11 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br i1 %.not.i.i, label %44, label %37
 
 .lr.ph.i:                                         ; preds = %21, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i"
-  %.0.i12.i = phi i16 [ %28, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %24, %21 ]
-  %25 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.i, i1 true)
+  %.022.i12.i = phi i16 [ %28, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %24, %21 ]
+  %25 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.i, i1 true)
   %26 = zext nneg i16 %25 to i64
-  %27 = add i16 %.0.i12.i, -1
-  %28 = and i16 %27, %.0.i12.i
+  %27 = add i16 %.022.i12.i, -1
+  %28 = and i16 %27, %.022.i12.i
   %29 = add i64 %.sroa.0.021.i.i, %26
   %30 = and i64 %29, %.val4.i
   %31 = sub nsw i64 0, %30
@@ -4306,8 +4306,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i": ; preds = %47, %42
-  %.0.i.i = phi i16 [ %45, %42 ], [ %51, %47 ]
-  %.not.i.not.i.i = icmp eq i16 %.0.i.i, 0
+  %.022.i.i = phi i16 [ %45, %42 ], [ %51, %47 ]
+  %.not.i.not.i.i = icmp eq i16 %.022.i.i, 0
   br i1 %.not.i.not.i.i, label %46, label %47
 
 46:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
@@ -4315,10 +4315,10 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %66, label %59
 
 47:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
-  %48 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %48 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
   %49 = zext nneg i16 %48 to i64
-  %50 = add i16 %.0.i.i, -1
-  %51 = and i16 %50, %.0.i.i
+  %50 = add i16 %.022.i.i, -1
+  %51 = and i16 %50, %.022.i.i
   %52 = add i64 %.sroa.0.021.i.i, %49
   %53 = and i64 %52, %.val4.i
   %54 = load ptr, ptr %0, align 8, !alias.scope !1240, !noalias !1245, !nonnull !10, !noundef !10
@@ -4512,8 +4512,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i": ; preds = %48, %43
-  %.0.i.i = phi i16 [ %46, %43 ], [ %52, %48 ]
-  %.not.i.not.i.i = icmp eq i16 %.0.i.i, 0
+  %.022.i.i = phi i16 [ %46, %43 ], [ %52, %48 ]
+  %.not.i.not.i.i = icmp eq i16 %.022.i.i, 0
   br i1 %.not.i.not.i.i, label %47, label %48
 
 47:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
@@ -4521,10 +4521,10 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %66, label %59
 
 48:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
-  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
   %50 = zext nneg i16 %49 to i64
-  %51 = add i16 %.0.i.i, -1
-  %52 = and i16 %51, %.0.i.i
+  %51 = add i16 %.022.i.i, -1
+  %52 = and i16 %51, %.022.i.i
   %53 = add i64 %.sroa.0.021.i.i, %50
   %54 = and i64 %53, %.val4.i
   %55 = sub nsw i64 0, %54
@@ -4741,11 +4741,11 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %78, label %71
 
 .lr.ph.i:                                         ; preds = %50, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i"
-  %.0.i12.i = phi i16 [ %57, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %53, %50 ]
-  %54 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.i, i1 true)
+  %.022.i12.i = phi i16 [ %57, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %53, %50 ]
+  %54 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.i, i1 true)
   %55 = zext nneg i16 %54 to i64
-  %56 = add i16 %.0.i12.i, -1
-  %57 = and i16 %56, %.0.i12.i
+  %56 = add i16 %.022.i12.i, -1
+  %57 = and i16 %56, %.022.i12.i
   %58 = add i64 %.sroa.0.021.i.i, %55
   %59 = and i64 %58, %.val4.i
   %60 = load ptr, ptr %0, align 8, !alias.scope !1350, !noalias !1367, !nonnull !10, !noundef !10
@@ -5013,8 +5013,8 @@ define hidden { ptr, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i": ; preds = %49, %44
-  %.0.i.i = phi i16 [ %47, %44 ], [ %53, %49 ]
-  %.not.i.not.i.i = icmp eq i16 %.0.i.i, 0
+  %.022.i.i = phi i16 [ %47, %44 ], [ %53, %49 ]
+  %.not.i.not.i.i = icmp eq i16 %.022.i.i, 0
   br i1 %.not.i.not.i.i, label %48, label %49
 
 48:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
@@ -5022,10 +5022,10 @@ define hidden { ptr, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %67, label %60
 
 49:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
-  %50 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %50 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
   %51 = zext nneg i16 %50 to i64
-  %52 = add i16 %.0.i.i, -1
-  %53 = and i16 %52, %.0.i.i
+  %52 = add i16 %.022.i.i, -1
+  %53 = and i16 %52, %.022.i.i
   %54 = add i64 %.sroa.0.021.i.i, %51
   %55 = and i64 %54, %.val4.i
   %56 = sub nsw i64 0, %55
@@ -5226,11 +5226,11 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h46
   br i1 %.not.i.i, label %69, label %62
 
 .lr.ph.i:                                         ; preds = %46, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i"
-  %.0.i12.i = phi i16 [ %53, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %49, %46 ]
-  %50 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.i, i1 true)
+  %.022.i12.i = phi i16 [ %53, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %49, %46 ]
+  %50 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.i, i1 true)
   %51 = zext nneg i16 %50 to i64
-  %52 = add i16 %.0.i12.i, -1
-  %53 = and i16 %52, %.0.i12.i
+  %52 = add i16 %.022.i12.i, -1
+  %53 = and i16 %52, %.022.i12.i
   %54 = add i64 %.sroa.0.021.i.i, %51
   %55 = and i64 %54, %.val4.i
   %56 = sub nsw i64 0, %55
@@ -5432,8 +5432,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i": ; preds = %48, %43
-  %.0.i.i = phi i16 [ %46, %43 ], [ %52, %48 ]
-  %.not.i.not.i.i = icmp eq i16 %.0.i.i, 0
+  %.022.i.i = phi i16 [ %46, %43 ], [ %52, %48 ]
+  %.not.i.not.i.i = icmp eq i16 %.022.i.i, 0
   br i1 %.not.i.not.i.i, label %47, label %48
 
 47:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
@@ -5441,10 +5441,10 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %66, label %59
 
 48:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
-  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
   %50 = zext nneg i16 %49 to i64
-  %51 = add i16 %.0.i.i, -1
-  %52 = and i16 %51, %.0.i.i
+  %51 = add i16 %.022.i.i, -1
+  %52 = and i16 %51, %.022.i.i
   %53 = add i64 %.sroa.0.021.i.i, %50
   %54 = and i64 %53, %.val4.i
   %55 = sub nsw i64 0, %54
@@ -5606,11 +5606,11 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %66, label %59
 
 .lr.ph.i:                                         ; preds = %26, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i"
-  %.0.i12.i = phi i16 [ %33, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %29, %26 ]
-  %30 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.i, i1 true)
+  %.022.i12.i = phi i16 [ %33, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %29, %26 ]
+  %30 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.i, i1 true)
   %31 = zext nneg i16 %30 to i64
-  %32 = add i16 %.0.i12.i, -1
-  %33 = and i16 %32, %.0.i12.i
+  %32 = add i16 %.022.i12.i, -1
+  %33 = and i16 %32, %.022.i12.i
   %34 = add i64 %.sroa.0.021.i.i, %31
   %35 = and i64 %34, %.val4.i
   %36 = load ptr, ptr %0, align 8, !alias.scope !1614, !noalias !1632, !nonnull !10, !noundef !10
@@ -5932,11 +5932,11 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %78, label %71
 
 .lr.ph.i:                                         ; preds = %50, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i"
-  %.0.i12.i = phi i16 [ %57, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %53, %50 ]
-  %54 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.i, i1 true)
+  %.022.i12.i = phi i16 [ %57, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %53, %50 ]
+  %54 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.i, i1 true)
   %55 = zext nneg i16 %54 to i64
-  %56 = add i16 %.0.i12.i, -1
-  %57 = and i16 %56, %.0.i12.i
+  %56 = add i16 %.022.i12.i, -1
+  %57 = and i16 %56, %.022.i12.i
   %58 = add i64 %.sroa.0.021.i.i, %55
   %59 = and i64 %58, %.val4.i
   %60 = load ptr, ptr %0, align 8, !alias.scope !1709, !noalias !1726, !nonnull !10, !noundef !10
@@ -6224,8 +6224,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i": ; preds = %48, %43
-  %.0.i.i = phi i16 [ %46, %43 ], [ %52, %48 ]
-  %.not.i.not.i.i = icmp eq i16 %.0.i.i, 0
+  %.022.i.i = phi i16 [ %46, %43 ], [ %52, %48 ]
+  %.not.i.not.i.i = icmp eq i16 %.022.i.i, 0
   br i1 %.not.i.not.i.i, label %47, label %48
 
 47:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
@@ -6233,10 +6233,10 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %66, label %59
 
 48:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
-  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
   %50 = zext nneg i16 %49 to i64
-  %51 = add i16 %.0.i.i, -1
-  %52 = and i16 %51, %.0.i.i
+  %51 = add i16 %.022.i.i, -1
+  %52 = and i16 %51, %.022.i.i
   %53 = add i64 %.sroa.0.021.i.i, %50
   %54 = and i64 %53, %.val4.i
   %55 = sub nsw i64 0, %54
@@ -6390,11 +6390,11 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %60, label %53
 
 .lr.ph.i:                                         ; preds = %23, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i"
-  %.0.i12.i = phi i16 [ %30, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %26, %23 ]
-  %27 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.i, i1 true)
+  %.022.i12.i = phi i16 [ %30, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %26, %23 ]
+  %27 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.i, i1 true)
   %28 = zext nneg i16 %27 to i64
-  %29 = add i16 %.0.i12.i, -1
-  %30 = and i16 %29, %.0.i12.i
+  %29 = add i16 %.022.i12.i, -1
+  %30 = and i16 %29, %.022.i12.i
   %31 = add i64 %.sroa.0.021.i.i, %28
   %32 = and i64 %31, %.val4.i
   %33 = load ptr, ptr %0, align 8, !alias.scope !1823, !noalias !1841, !nonnull !10, !noundef !10
@@ -6615,8 +6615,8 @@ define hidden { ptr, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i": ; preds = %49, %44
-  %.0.i.i = phi i16 [ %47, %44 ], [ %53, %49 ]
-  %.not.i.not.i.i = icmp eq i16 %.0.i.i, 0
+  %.022.i.i = phi i16 [ %47, %44 ], [ %53, %49 ]
+  %.not.i.not.i.i = icmp eq i16 %.022.i.i, 0
   br i1 %.not.i.not.i.i, label %48, label %49
 
 48:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
@@ -6624,10 +6624,10 @@ define hidden { ptr, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %67, label %60
 
 49:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
-  %50 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %50 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
   %51 = zext nneg i16 %50 to i64
-  %52 = add i16 %.0.i.i, -1
-  %53 = and i16 %52, %.0.i.i
+  %52 = add i16 %.022.i.i, -1
+  %53 = and i16 %52, %.022.i.i
   %54 = add i64 %.sroa.0.021.i.i, %51
   %55 = and i64 %54, %.val4.i
   %56 = sub nsw i64 0, %55
@@ -6821,8 +6821,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i": ; preds = %48, %43
-  %.0.i.i = phi i16 [ %46, %43 ], [ %52, %48 ]
-  %.not.i.not.i.i = icmp eq i16 %.0.i.i, 0
+  %.022.i.i = phi i16 [ %46, %43 ], [ %52, %48 ]
+  %.not.i.not.i.i = icmp eq i16 %.022.i.i, 0
   br i1 %.not.i.not.i.i, label %47, label %48
 
 47:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
@@ -6830,10 +6830,10 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %66, label %59
 
 48:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
-  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
   %50 = zext nneg i16 %49 to i64
-  %51 = add i16 %.0.i.i, -1
-  %52 = and i16 %51, %.0.i.i
+  %51 = add i16 %.022.i.i, -1
+  %52 = and i16 %51, %.022.i.i
   %53 = add i64 %.sroa.0.021.i.i, %50
   %54 = and i64 %53, %.val4.i
   %55 = sub nsw i64 0, %54
@@ -7044,8 +7044,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7f
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i": ; preds = %.noexc9, %50
-  %.0.i.i = phi i16 [ %53, %50 ], [ %66, %.noexc9 ]
-  %.not.i.not.i.i = icmp eq i16 %.0.i.i, 0
+  %.022.i.i = phi i16 [ %53, %50 ], [ %66, %.noexc9 ]
+  %.not.i.not.i.i = icmp eq i16 %.022.i.i, 0
   br i1 %.not.i.not.i.i, label %54, label %55
 
 54:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
@@ -7053,7 +7053,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7f
   br i1 %.not.i.i, label %74, label %67
 
 55:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
-  %56 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %56 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
   %57 = zext nneg i16 %56 to i64
   %58 = add i64 %.sroa.0.021.i.i, %57
   %59 = and i64 %58, %.val4.i
@@ -7066,8 +7066,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7f
           to label %.noexc9 unwind label %.loopexit
 
 .noexc9:                                          ; preds = %55
-  %65 = add i16 %.0.i.i, -1
-  %66 = and i16 %65, %.0.i.i
+  %65 = add i16 %.022.i.i, -1
+  %66 = and i16 %65, %.022.i.i
   br i1 %64, label %92, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 67:                                               ; preds = %54
@@ -7283,8 +7283,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i": ; preds = %50, %45
-  %.0.i.i = phi i16 [ %48, %45 ], [ %54, %50 ]
-  %.not.i.not.i.i = icmp eq i16 %.0.i.i, 0
+  %.022.i.i = phi i16 [ %48, %45 ], [ %54, %50 ]
+  %.not.i.not.i.i = icmp eq i16 %.022.i.i, 0
   br i1 %.not.i.not.i.i, label %49, label %50
 
 49:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
@@ -7292,10 +7292,10 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %70, label %63
 
 50:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
-  %51 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %51 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
   %52 = zext nneg i16 %51 to i64
-  %53 = add i16 %.0.i.i, -1
-  %54 = and i16 %53, %.0.i.i
+  %53 = add i16 %.022.i.i, -1
+  %54 = and i16 %53, %.022.i.i
   %55 = add i64 %.sroa.0.021.i.i, %52
   %56 = and i64 %55, %.val4.i
   %57 = sub nsw i64 0, %56
@@ -7464,11 +7464,11 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %73, label %66
 
 .lr.ph.i:                                         ; preds = %29, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i"
-  %.0.i12.i = phi i16 [ %36, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %32, %29 ]
-  %33 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.i, i1 true)
+  %.022.i12.i = phi i16 [ %36, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %32, %29 ]
+  %33 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.i, i1 true)
   %34 = zext nneg i16 %33 to i64
-  %35 = add i16 %.0.i12.i, -1
-  %36 = and i16 %35, %.0.i12.i
+  %35 = add i16 %.022.i12.i, -1
+  %36 = and i16 %35, %.022.i12.i
   %37 = add i64 %.sroa.0.021.i.i, %34
   %38 = and i64 %37, %.val4.i
   %39 = load ptr, ptr %0, align 8, !alias.scope !2129, !noalias !2146, !nonnull !10, !noundef !10
@@ -7754,11 +7754,11 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %67, label %60
 
 .lr.ph.i:                                         ; preds = %44, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i"
-  %.0.i12.i = phi i16 [ %51, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %47, %44 ]
-  %48 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.i, i1 true)
+  %.022.i12.i = phi i16 [ %51, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %47, %44 ]
+  %48 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.i, i1 true)
   %49 = zext nneg i16 %48 to i64
-  %50 = add i16 %.0.i12.i, -1
-  %51 = and i16 %50, %.0.i12.i
+  %50 = add i16 %.022.i12.i, -1
+  %51 = and i16 %50, %.022.i12.i
   %52 = add i64 %.sroa.0.021.i.i, %49
   %53 = and i64 %52, %.val4.i
   %54 = sub nsw i64 0, %53
@@ -7924,11 +7924,11 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %45, label %38
 
 .lr.ph.i:                                         ; preds = %22, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i"
-  %.0.i12.i = phi i16 [ %29, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %25, %22 ]
-  %26 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.i, i1 true)
+  %.022.i12.i = phi i16 [ %29, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %25, %22 ]
+  %26 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.i, i1 true)
   %27 = zext nneg i16 %26 to i64
-  %28 = add i16 %.0.i12.i, -1
-  %29 = and i16 %28, %.0.i12.i
+  %28 = add i16 %.022.i12.i, -1
+  %29 = and i16 %28, %.022.i12.i
   %30 = add i64 %.sroa.0.021.i.i, %27
   %31 = and i64 %30, %.val4.i
   %32 = sub nsw i64 0, %31
@@ -8153,11 +8153,11 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hab
   br i1 %.not.i.i, label %70, label %63
 
 .lr.ph.i:                                         ; preds = %47, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i"
-  %.0.i12.i = phi i16 [ %54, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %50, %47 ]
-  %51 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.i, i1 true)
+  %.022.i12.i = phi i16 [ %54, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %50, %47 ]
+  %51 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.i, i1 true)
   %52 = zext nneg i16 %51 to i64
-  %53 = add i16 %.0.i12.i, -1
-  %54 = and i16 %53, %.0.i12.i
+  %53 = add i16 %.022.i12.i, -1
+  %54 = and i16 %53, %.022.i12.i
   %55 = add i64 %.sroa.0.021.i.i, %52
   %56 = and i64 %55, %.val4.i
   %57 = sub nsw i64 0, %56
@@ -8385,8 +8385,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i": ; preds = %52, %47
-  %.0.i.i = phi i16 [ %50, %47 ], [ %56, %52 ]
-  %.not.i.not.i.i = icmp eq i16 %.0.i.i, 0
+  %.022.i.i = phi i16 [ %50, %47 ], [ %56, %52 ]
+  %.not.i.not.i.i = icmp eq i16 %.022.i.i, 0
   br i1 %.not.i.not.i.i, label %51, label %52
 
 51:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
@@ -8394,10 +8394,10 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %72, label %65
 
 52:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
-  %53 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %53 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
   %54 = zext nneg i16 %53 to i64
-  %55 = add i16 %.0.i.i, -1
-  %56 = and i16 %55, %.0.i.i
+  %55 = add i16 %.022.i.i, -1
+  %56 = and i16 %55, %.022.i.i
   %57 = add i64 %.sroa.0.021.i.i, %54
   %58 = and i64 %57, %.val4.i
   %59 = sub nsw i64 0, %58
@@ -8596,11 +8596,11 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %68, label %61
 
 .lr.ph.i:                                         ; preds = %45, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i"
-  %.0.i12.i = phi i16 [ %52, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %48, %45 ]
-  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.i, i1 true)
+  %.022.i12.i = phi i16 [ %52, %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.backedge.i" ], [ %48, %45 ]
+  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.i, i1 true)
   %50 = zext nneg i16 %49 to i64
-  %51 = add i16 %.0.i12.i, -1
-  %52 = and i16 %51, %.0.i12.i
+  %51 = add i16 %.022.i12.i, -1
+  %52 = and i16 %51, %.022.i12.i
   %53 = add i64 %.sroa.0.021.i.i, %50
   %54 = and i64 %53, %.val4.i
   %55 = sub nsw i64 0, %54
@@ -8807,8 +8807,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i": ; preds = %48, %43
-  %.0.i.i = phi i16 [ %46, %43 ], [ %52, %48 ]
-  %.not.i.not.i.i = icmp eq i16 %.0.i.i, 0
+  %.022.i.i = phi i16 [ %46, %43 ], [ %52, %48 ]
+  %.not.i.not.i.i = icmp eq i16 %.022.i.i, 0
   br i1 %.not.i.not.i.i, label %47, label %48
 
 47:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
@@ -8816,10 +8816,10 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %66, label %59
 
 48:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
-  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
   %50 = zext nneg i16 %49 to i64
-  %51 = add i16 %.0.i.i, -1
-  %52 = and i16 %51, %.0.i.i
+  %51 = add i16 %.022.i.i, -1
+  %52 = and i16 %51, %.022.i.i
   %53 = add i64 %.sroa.0.021.i.i, %50
   %54 = and i64 %53, %.val4.i
   %55 = sub nsw i64 0, %54
@@ -9017,8 +9017,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i": ; preds = %.noexc9, %43
-  %.0.i.i = phi i16 [ %46, %43 ], [ %59, %.noexc9 ]
-  %.not.i.not.i.i = icmp eq i16 %.0.i.i, 0
+  %.022.i.i = phi i16 [ %46, %43 ], [ %59, %.noexc9 ]
+  %.not.i.not.i.i = icmp eq i16 %.022.i.i, 0
   br i1 %.not.i.not.i.i, label %47, label %48
 
 47:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
@@ -9026,7 +9026,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %67, label %60
 
 48:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
-  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
   %50 = zext nneg i16 %49 to i64
   %51 = add i64 %.sroa.0.021.i.i, %50
   %52 = and i64 %51, %.val4.i
@@ -9038,8 +9038,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
           to label %.noexc9 unwind label %.loopexit
 
 .noexc9:                                          ; preds = %48
-  %58 = add i16 %.0.i.i, -1
-  %59 = and i16 %58, %.0.i.i
+  %58 = add i16 %.022.i.i, -1
+  %59 = and i16 %58, %.022.i.i
   br i1 %57, label %105, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 60:                                               ; preds = %47
@@ -9261,8 +9261,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i": ; preds = %48, %43
-  %.0.i.i = phi i16 [ %46, %43 ], [ %52, %48 ]
-  %.not.i.not.i.i = icmp eq i16 %.0.i.i, 0
+  %.022.i.i = phi i16 [ %46, %43 ], [ %52, %48 ]
+  %.not.i.not.i.i = icmp eq i16 %.022.i.i, 0
   br i1 %.not.i.not.i.i, label %47, label %48
 
 47:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
@@ -9270,10 +9270,10 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %66, label %59
 
 48:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
-  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
   %50 = zext nneg i16 %49 to i64
-  %51 = add i16 %.0.i.i, -1
-  %52 = and i16 %51, %.0.i.i
+  %51 = add i16 %.022.i.i, -1
+  %52 = and i16 %51, %.022.i.i
   %53 = add i64 %.sroa.0.021.i.i, %50
   %54 = and i64 %53, %.val4.i
   %55 = sub nsw i64 0, %54
@@ -9462,8 +9462,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i": ; preds = %50, %45
-  %.0.i.i = phi i16 [ %48, %45 ], [ %54, %50 ]
-  %.not.i.not.i.i = icmp eq i16 %.0.i.i, 0
+  %.022.i.i = phi i16 [ %48, %45 ], [ %54, %50 ]
+  %.not.i.not.i.i = icmp eq i16 %.022.i.i, 0
   br i1 %.not.i.not.i.i, label %49, label %50
 
 49:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
@@ -9471,10 +9471,10 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %.not.i.i, label %69, label %62
 
 50:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.10165051650595261532.exit.i.i"
-  %51 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %51 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
   %52 = zext nneg i16 %51 to i64
-  %53 = add i16 %.0.i.i, -1
-  %54 = and i16 %53, %.0.i.i
+  %53 = add i16 %.022.i.i, -1
+  %54 = and i16 %53, %.022.i.i
   %55 = add i64 %.sroa.0.021.i.i, %52
   %56 = and i64 %55, %.val4.i
   %57 = load ptr, ptr %0, align 8, !alias.scope !2741, !noalias !2746, !nonnull !10, !noundef !10

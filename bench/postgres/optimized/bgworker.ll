@@ -1224,8 +1224,8 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   br label %54
 
 54:                                               ; preds = %.thread33, %47, %50, %5, %2, %21
-  %.027 = phi i1 [ false, %21 ], [ false, %2 ], [ false, %5 ], [ true, %50 ], [ true, %47 ], [ false, %.thread33 ]
-  ret i1 %.027
+  %.0 = phi i1 [ false, %21 ], [ false, %2 ], [ false, %5 ], [ true, %50 ], [ true, %47 ], [ false, %.thread33 ]
+  ret i1 %.0
 }
 
 declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1

@@ -220,7 +220,7 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
 
 78:                                               ; preds = %70, %64
   %.0199.ph = phi i32 [ 1, %64 ], [ 2, %70 ]
-  %.0197.ph = phi i32 [ 0, %64 ], [ %74, %70 ]
+  %.0198.ph = phi i32 [ 0, %64 ], [ %74, %70 ]
   %79 = load i32, ptr @hf_btavctp_pid, align 4
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %79, ptr noundef %0, i32 noundef %.0199.ph, i32 noundef 2, i32 noundef 0) #3
   %81 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0199.ph) #3
@@ -257,20 +257,20 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   br label %103
 
 103:                                              ; preds = %75, %101
-  %.0197232 = phi i32 [ %.0197.ph, %101 ], [ 0, %75 ]
-  %.0201220229 = phi ptr [ %66, %101 ], [ null, %75 ]
-  %.0193221227 = phi i32 [ %69, %101 ], [ 0, %75 ]
+  %.0198232 = phi i32 [ %.0198.ph, %101 ], [ 0, %75 ]
+  %.0194220229 = phi i32 [ %69, %101 ], [ 0, %75 ]
+  %.0193221227 = phi ptr [ %66, %101 ], [ null, %75 ]
+  %.0201 = phi i32 [ %82, %101 ], [ 0, %75 ]
   %.1200 = phi i32 [ %102, %101 ], [ 1, %75 ]
-  %.0198 = phi i32 [ %82, %101 ], [ 0, %75 ]
   %104 = load ptr, ptr %39, align 8
   %105 = call ptr @val_to_str_const(i32 noundef %61, ptr noundef nonnull @cr_vals, ptr noundef nonnull @.str.42) #3
   %106 = call ptr @val_to_str_const(i32 noundef %57, ptr noundef nonnull @packet_type_vals, ptr noundef nonnull @.str.43) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %104, i32 noundef 25, ptr noundef nonnull @.str.41, ptr noundef %105, i32 noundef %53, ptr noundef %106) #3
-  %.not = icmp eq i32 %.0193221227, 0
+  %.not = icmp eq i32 %.0194220229, 0
   br i1 %.not, label %112, label %107
 
 107:                                              ; preds = %103
-  %108 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0201220229, ptr noundef nonnull @ei_btavctp_invalid_profile) #3
+  %108 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0193221227, ptr noundef nonnull @ei_btavctp_invalid_profile) #3
   %109 = load ptr, ptr %39, align 8
   call void @col_append_sep_str(ptr noundef %109, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.36) #3
   %110 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1200) #3
@@ -303,13 +303,13 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
 128:                                              ; preds = %112
   %129 = getelementptr inbounds i8, ptr %10, i64 2
   store i8 2, ptr %129, align 2
-  %130 = trunc nuw i32 %.0198 to i16
+  %130 = trunc nuw i32 %.0201 to i16
   store i16 %130, ptr %10, align 2
-  %131 = lshr i32 %.0198, 8
+  %131 = lshr i32 %.0201, 8
   %132 = trunc nuw i32 %131 to i8
   %133 = getelementptr inbounds i8, ptr %10, i64 3
   store i8 %132, ptr %133, align 1
-  %134 = trunc i32 %.0198 to i8
+  %134 = trunc i32 %.0201 to i8
   %135 = getelementptr inbounds i8, ptr %10, i64 4
   store i8 %134, ptr %135, align 2
   %136 = load ptr, ptr @bluetooth_uuid_table, align 8
@@ -375,9 +375,9 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %171 = call noalias ptr @wmem_alloc(ptr noundef %170, i64 noundef 40) #3
   store ptr %171, ptr @fragments, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 20
-  store i32 %.0197232, ptr %172, align 4
+  store i32 %.0198232, ptr %172, align 4
   %173 = getelementptr inbounds i8, ptr %171, i64 24
-  store i32 %.0198, ptr %173, align 8
+  store i32 %.0201, ptr %173, align 8
   %174 = getelementptr inbounds i8, ptr %171, i64 16
   store i32 1, ptr %174, align 8
   %175 = call ptr @wmem_file_scope() #3
@@ -662,21 +662,21 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
 .lr.ph:                                           ; preds = %.preheader, %348
   %330 = phi ptr [ %350, %348 ], [ %323, %.preheader ]
   %.0237 = phi ptr [ %.1, %348 ], [ null, %.preheader ]
-  %.0194236 = phi i32 [ %349, %348 ], [ 1, %.preheader ]
-  %.0195235 = phi i32 [ %.1196, %348 ], [ 0, %.preheader ]
+  %.0195236 = phi i32 [ %349, %348 ], [ 1, %.preheader ]
+  %.0196235 = phi i32 [ %.1197, %348 ], [ 0, %.preheader ]
   %331 = getelementptr inbounds i8, ptr %330, i64 32
   %332 = load ptr, ptr %331, align 8
-  %333 = call ptr @wmem_tree_lookup32_le(ptr noundef %332, i32 noundef %.0194236) #3
+  %333 = call ptr @wmem_tree_lookup32_le(ptr noundef %332, i32 noundef %.0195236) #3
   %.not213 = icmp eq ptr %333, null
   br i1 %.not213, label %348, label %334
 
 334:                                              ; preds = %.lr.ph
   %335 = load ptr, ptr %113, align 8
   %336 = load i32, ptr %333, align 8
-  %337 = add i32 %336, %.0195235
+  %337 = add i32 %336, %.0196235
   %338 = zext i32 %337 to i64
   %339 = call noalias ptr @wmem_realloc(ptr noundef %335, ptr noundef %.0237, i64 noundef %338) #3
-  %340 = zext i32 %.0195235 to i64
+  %340 = zext i32 %.0196235 to i64
   %341 = getelementptr i8, ptr %339, i64 %340
   %342 = getelementptr inbounds i8, ptr %333, i64 8
   %343 = load ptr, ptr %342, align 8
@@ -684,13 +684,13 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %345 = zext i32 %344 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %341, ptr align 1 %343, i64 %345, i1 false)
   %346 = load i32, ptr %333, align 8
-  %347 = add i32 %346, %.0195235
+  %347 = add i32 %346, %.0196235
   br label %348
 
 348:                                              ; preds = %.lr.ph, %334
-  %.1196 = phi i32 [ %347, %334 ], [ %.0195235, %.lr.ph ]
+  %.1197 = phi i32 [ %347, %334 ], [ %.0196235, %.lr.ph ]
   %.1 = phi ptr [ %339, %334 ], [ %.0237, %.lr.ph ]
-  %349 = add i32 %.0194236, 1
+  %349 = add i32 %.0195236, 1
   %350 = load ptr, ptr @fragments, align 8
   %351 = getelementptr inbounds i8, ptr %350, i64 16
   %352 = load i32, ptr %351, align 8
@@ -698,9 +698,9 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   br i1 %.not211, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %348, %.preheader
-  %.0195.lcssa = phi i32 [ 0, %.preheader ], [ %.1196, %348 ]
+  %.0196.lcssa = phi i32 [ 0, %.preheader ], [ %.1197, %348 ]
   %.0.lcssa = phi ptr [ null, %.preheader ], [ %.1, %348 ]
-  %353 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %.0.lcssa, i32 noundef %.0195.lcssa, i32 noundef %.0195.lcssa) #3
+  %353 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %.0.lcssa, i32 noundef %.0196.lcssa, i32 noundef %.0196.lcssa) #3
   call void @add_new_data_source(ptr noundef %1, ptr noundef %353, ptr noundef nonnull @.str.44) #3
   %354 = getelementptr inbounds i8, ptr %13, i64 2
   store i8 2, ptr %354, align 2

@@ -8368,7 +8368,7 @@ for.body8.lr.ph:                                  ; preds = %for.body
 
 for.body8:                                        ; preds = %for.body8.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body8.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %target.067 = phi i32 [ -1, %for.body8.lr.ph ], [ %target.1, %for.inc ]
+  %target.068 = phi i32 [ -1, %for.body8.lr.ph ], [ %target.1, %for.inc ]
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_domain.i, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx.i, align 8
   %cmp10 = icmp eq ptr %call, %5
@@ -8389,13 +8389,13 @@ _ZNK11ast_manager11is_uninterpEPK4sort.exit:      ; preds = %if.end
   ]
 
 for.inc:                                          ; preds = %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %for.body8
-  %target.1 = phi i32 [ %target.067, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ %6, %for.body8 ]
+  %target.1 = phi i32 [ %target.068, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ %6, %for.body8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body8, !llvm.loop !23
 
 for.end:                                          ; preds = %for.inc, %if.end, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %_ZNK11ast_manager11is_uninterpEPK4sort.exit
-  %target.0.lcssa = phi i32 [ %target.1, %for.inc ], [ %target.067, %if.end ], [ %target.067, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ %target.067, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ]
+  %target.0.lcssa = phi i32 [ %target.1, %for.inc ], [ %target.068, %if.end ], [ %target.068, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ %target.068, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ]
   %cmp14 = icmp eq i32 %target.0.lcssa, -1
   br i1 %cmp14, label %for.cond, label %if.end16
 

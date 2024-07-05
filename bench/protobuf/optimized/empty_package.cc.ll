@@ -60,10 +60,10 @@ if.end:                                           ; preds = %entry
   br i1 %cmp12.i.i.i, label %while.body.i.i.i, label %_ZN4absl12lts_2023080213c_lower_boundINS0_4SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEES6_EEDTcl5beginclsr3stdE7declvalIRT_EEEESA_RKT0_.exit
 
 while.body.i.i.i:                                 ; preds = %if.end, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt17basic_string_viewIcSt11char_traitsIcEES7_EEbT_RT0_.exit.i.i.i
-  %__len.014.i.i.i = phi i64 [ %__len.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt17basic_string_viewIcSt11char_traitsIcEES7_EEbT_RT0_.exit.i.i.i ], [ %2, %if.end ]
-  %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt17basic_string_viewIcSt11char_traitsIcEES7_EEbT_RT0_.exit.i.i.i ], [ %1, %if.end ]
-  %shr.i.i.i = lshr i64 %__len.014.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
+  %__first.addr.014.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt17basic_string_viewIcSt11char_traitsIcEES7_EEbT_RT0_.exit.i.i.i ], [ %1, %if.end ]
+  %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt17basic_string_viewIcSt11char_traitsIcEES7_EEbT_RT0_.exit.i.i.i ], [ %2, %if.end ]
+  %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %__first.addr.014.i.i.i, i64 %shr.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i, i64 %name.coerce0)
   %cmp.i2.i.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
@@ -88,9 +88,9 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt17basic_string_viewIcSt11char_traitsI
   %cmp.i.i8.i.i.i = icmp slt i32 %__ret.0.i.i.i.i.i.i, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 16
   %3 = xor i64 %shr.i.i.i, -1
-  %sub2.i.i.i = add nsw i64 %__len.014.i.i.i, %3
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.013.i.i.i
+  %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %3
   %__len.1.i.i.i = select i1 %cmp.i.i8.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i8.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.014.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN4absl12lts_2023080213c_lower_boundINS0_4SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEES6_EEDTcl5beginclsr3stdE7declvalIRT_EEEESA_RKT0_.exit, !llvm.loop !4
 

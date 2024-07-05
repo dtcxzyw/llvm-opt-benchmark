@@ -85,7 +85,7 @@ gv_calloc.exit78:                                 ; preds = %23
   %34 = tail call double @sqrt(double noundef %33) #14
   %35 = fcmp ogt double %34, 0.000000e+00
   %36 = fdiv double 1.000000e+00, %34
-  %.063 = select i1 %35, double %36, double %34
+  %.064 = select i1 %35, double %36, double %34
   br i1 %.not, label %.preheader79.split.preheader, label %.lr.ph83.preheader
 
 .lr.ph83.preheader:                               ; preds = %._crit_edge
@@ -106,7 +106,7 @@ gv_calloc.exit78:                                 ; preds = %23
   br label %.preheader79.split.us
 
 .preheader79.split.us:                            ; preds = %.preheader79.split.us.preheader, %._crit_edge91.us
-  %.065.us = phi i32 [ %63, %._crit_edge91.us ], [ 0, %.preheader79.split.us.preheader ]
+  %.0.us = phi i32 [ %63, %._crit_edge91.us ], [ 0, %.preheader79.split.us.preheader ]
   call void @SparseMatrix_multiply_vector(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %4) #14
   %37 = load ptr, ptr %4, align 8
   %38 = call double @vector_product(i32 noundef %1, ptr noundef %37, ptr noundef %37) #14
@@ -141,21 +141,21 @@ gv_calloc.exit78:                                 ; preds = %23
   br label %.lr.ph90.us
 
 .lr.ph90.us:                                      ; preds = %51, %45, %._crit_edge86.us
-  %.062.us = phi double [ %52, %51 ], [ %46, %45 ], [ %43, %._crit_edge86.us ]
+  %.063.us = phi double [ %52, %51 ], [ %46, %45 ], [ %43, %._crit_edge86.us ]
   %53 = load ptr, ptr %4, align 8
   br label %54
 
 54:                                               ; preds = %.lr.ph90.us, %54
   %indvars.iv108 = phi i64 [ 0, %.lr.ph90.us ], [ %indvars.iv.next109, %54 ]
-  %.16487.us = phi double [ 0.000000e+00, %.lr.ph90.us ], [ %61, %54 ]
+  %.16587.us = phi double [ 0.000000e+00, %.lr.ph90.us ], [ %61, %54 ]
   %55 = getelementptr inbounds double, ptr %53, i64 %indvars.iv108
   %56 = load double, ptr %55, align 8
-  %57 = fmul double %.062.us, %56
+  %57 = fmul double %.063.us, %56
   %58 = getelementptr inbounds double, ptr %24, i64 %indvars.iv108
   store double %57, ptr %58, align 8
   %59 = getelementptr inbounds double, ptr %30, i64 %indvars.iv108
   %60 = load double, ptr %59, align 8
-  %61 = call double @llvm.fmuladd.f64(double %57, double %60, double %.16487.us)
+  %61 = call double @llvm.fmuladd.f64(double %57, double %60, double %.16587.us)
   store double %57, ptr %59, align 8
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count112
@@ -163,8 +163,8 @@ gv_calloc.exit78:                                 ; preds = %23
 
 ._crit_edge91.us:                                 ; preds = %54
   %62 = fcmp olt double %61, 9.999900e-01
-  %63 = add nuw nsw i32 %.065.us, 1
-  %64 = icmp ult i32 %.065.us, 100
+  %63 = add nuw nsw i32 %.0.us, 1
+  %64 = icmp ult i32 %.0.us, 100
   %or.cond.us = select i1 %62, i1 %64, i1 false
   br i1 %or.cond.us, label %.preheader79.split.us, label %.critedge
 
@@ -172,7 +172,7 @@ gv_calloc.exit78:                                 ; preds = %23
   %indvars.iv97 = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next98, %.lr.ph83 ]
   %65 = getelementptr inbounds double, ptr %24, i64 %indvars.iv97
   %66 = load double, ptr %65, align 8
-  %67 = fmul double %.063, %66
+  %67 = fmul double %.064, %66
   store double %67, ptr %65, align 8
   %68 = getelementptr inbounds double, ptr %30, i64 %indvars.iv97
   store double %67, ptr %68, align 8
@@ -181,7 +181,7 @@ gv_calloc.exit78:                                 ; preds = %23
   br i1 %exitcond101.not, label %.preheader79, label %.lr.ph83
 
 .preheader79.split:                               ; preds = %.preheader79.split.preheader, %75
-  %.065 = phi i32 [ %76, %75 ], [ 0, %.preheader79.split.preheader ]
+  %.0 = phi i32 [ %76, %75 ], [ 0, %.preheader79.split.preheader ]
   call void @SparseMatrix_multiply_vector(ptr noundef %0, ptr noundef %24, ptr noundef nonnull %4) #14
   %69 = load ptr, ptr %4, align 8
   %70 = call double @vector_product(i32 noundef 0, ptr noundef %69, ptr noundef %69) #14
@@ -196,7 +196,7 @@ gv_calloc.exit78:                                 ; preds = %23
   br label %75
 
 75:                                               ; preds = %._crit_edge86, %.preheader79.split
-  %76 = add nuw nsw i32 %.065, 1
+  %76 = add nuw nsw i32 %.0, 1
   %exitcond117.not = icmp eq i32 %76, 101
   br i1 %exitcond117.not, label %.critedge.loopexit, label %.preheader79.split
 

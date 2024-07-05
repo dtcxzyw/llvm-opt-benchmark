@@ -10,11 +10,11 @@ define i32 @SeqInStream_Read2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %11
-  %.01017 = phi i64 [ %13, %11 ], [ %2, %4 ]
-  %.01116 = phi ptr [ %12, %11 ], [ %1, %4 ]
-  store i64 %.01017, ptr %5, align 8
+  %.01017 = phi ptr [ %12, %11 ], [ %1, %4 ]
+  %.01116 = phi i64 [ %13, %11 ], [ %2, %4 ]
+  store i64 %.01116, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = call i32 %6(ptr noundef nonnull %0, ptr noundef %.01116, ptr noundef nonnull %5) #7
+  %7 = call i32 %6(ptr noundef nonnull %0, ptr noundef %.01017, ptr noundef nonnull %5) #7
   %.not14 = icmp eq i32 %7, 0
   br i1 %.not14, label %8, label %._crit_edge
 
@@ -24,8 +24,8 @@ define i32 @SeqInStream_Read2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br i1 %10, label %._crit_edge, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %.01116, i64 %9
-  %13 = sub i64 %.01017, %9
+  %12 = getelementptr inbounds i8, ptr %.01017, i64 %9
+  %13 = sub i64 %.01116, %9
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -42,11 +42,11 @@ define i32 @SeqInStream_Read(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br i1 %.not15.i, label %SeqInStream_Read2.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %10
-  %.01017.i = phi i64 [ %12, %10 ], [ %2, %3 ]
-  %.01116.i = phi ptr [ %11, %10 ], [ %1, %3 ]
-  store i64 %.01017.i, ptr %4, align 8
+  %.01017.i = phi ptr [ %11, %10 ], [ %1, %3 ]
+  %.01116.i = phi i64 [ %12, %10 ], [ %2, %3 ]
+  store i64 %.01116.i, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = call i32 %5(ptr noundef nonnull %0, ptr noundef %.01116.i, ptr noundef nonnull %4) #7
+  %6 = call i32 %5(ptr noundef nonnull %0, ptr noundef %.01017.i, ptr noundef nonnull %4) #7
   %.not14.i = icmp eq i32 %6, 0
   br i1 %.not14.i, label %7, label %SeqInStream_Read2.exit
 
@@ -56,8 +56,8 @@ define i32 @SeqInStream_Read(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br i1 %9, label %SeqInStream_Read2.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %.01116.i, i64 %8
-  %12 = sub i64 %.01017.i, %8
+  %11 = getelementptr inbounds i8, ptr %.01017.i, i64 %8
+  %12 = sub i64 %.01116.i, %8
   %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %SeqInStream_Read2.exit, label %.lr.ph.i
 
@@ -133,11 +133,11 @@ define i32 @LookInStream_Read2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br label %7
 
 7:                                                ; preds = %.lr.ph, %13
-  %.01017 = phi i64 [ %2, %.lr.ph ], [ %15, %13 ]
-  %.01116 = phi ptr [ %1, %.lr.ph ], [ %14, %13 ]
-  store i64 %.01017, ptr %5, align 8
+  %.01017 = phi ptr [ %1, %.lr.ph ], [ %14, %13 ]
+  %.01116 = phi i64 [ %2, %.lr.ph ], [ %15, %13 ]
+  store i64 %.01116, ptr %5, align 8
   %8 = load ptr, ptr %6, align 8
-  %9 = call i32 %8(ptr noundef %0, ptr noundef %.01116, ptr noundef nonnull %5) #7
+  %9 = call i32 %8(ptr noundef %0, ptr noundef %.01017, ptr noundef nonnull %5) #7
   %.not14 = icmp eq i32 %9, 0
   br i1 %.not14, label %10, label %._crit_edge
 
@@ -147,8 +147,8 @@ define i32 @LookInStream_Read2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
   br i1 %12, label %._crit_edge, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %.01116, i64 %11
-  %15 = sub i64 %.01017, %11
+  %14 = getelementptr inbounds i8, ptr %.01017, i64 %11
+  %15 = sub i64 %.01116, %11
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %._crit_edge, label %7
 
@@ -169,11 +169,11 @@ define i32 @LookInStream_Read(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
   br label %6
 
 6:                                                ; preds = %12, %.lr.ph.i
-  %.01017.i = phi i64 [ %2, %.lr.ph.i ], [ %14, %12 ]
-  %.01116.i = phi ptr [ %1, %.lr.ph.i ], [ %13, %12 ]
-  store i64 %.01017.i, ptr %4, align 8
+  %.01017.i = phi ptr [ %1, %.lr.ph.i ], [ %13, %12 ]
+  %.01116.i = phi i64 [ %2, %.lr.ph.i ], [ %14, %12 ]
+  store i64 %.01116.i, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
-  %8 = call i32 %7(ptr noundef %0, ptr noundef %.01116.i, ptr noundef nonnull %4) #7
+  %8 = call i32 %7(ptr noundef %0, ptr noundef %.01017.i, ptr noundef nonnull %4) #7
   %.not14.i = icmp eq i32 %8, 0
   br i1 %.not14.i, label %9, label %LookInStream_Read2.exit
 
@@ -183,8 +183,8 @@ define i32 @LookInStream_Read(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
   br i1 %11, label %LookInStream_Read2.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %.01116.i, i64 %10
-  %14 = sub i64 %.01017.i, %10
+  %13 = getelementptr inbounds i8, ptr %.01017.i, i64 %10
+  %14 = sub i64 %.01116.i, %10
   %.not.i = icmp eq i64 %14, 0
   br i1 %.not.i, label %LookInStream_Read2.exit, label %6
 

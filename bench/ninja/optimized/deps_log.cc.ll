@@ -435,7 +435,7 @@ _ZN7DepsLog5CloseEv.exit42:                       ; preds = %.noexc41, %92
   br i1 %127, label %.invoke, label %_ZN7DepsLog12OpenForWriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_.exit
 
 _ZN7DepsLog12OpenForWriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_.exit: ; preds = %.invoke, %.noexc38, %_ZN7DepsLog5CloseEv.exit42, %123
-  %.028 = phi i1 [ false, %_ZN7DepsLog5CloseEv.exit42 ], [ true, %123 ], [ false, %.noexc38 ], [ false, %.invoke ]
+  %.0 = phi i1 [ false, %_ZN7DepsLog5CloseEv.exit42 ], [ true, %123 ], [ false, %.noexc38 ], [ false, %.invoke ]
   %128 = invoke noundef zeroext i1 @_ZN7DepsLog20OpenForWriteIfNeededEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %.noexc.i unwind label %138
 
@@ -479,7 +479,7 @@ _ZN7DepsLogD2Ev.exit:                             ; preds = %_ZNSt6vectorIPN7Dep
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   call void @_ZN12ScopedMetricD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
-  ret i1 %.028
+  ret i1 %.0
 
 .body:                                            ; preds = %47, %29, %49
   %.pn34 = phi { ptr, i32 } [ %lpad.phi, %49 ], [ %48, %47 ], [ %30, %29 ]
@@ -1155,12 +1155,12 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN7DepsLog4LoadERKNSt7__cxx1112ba
   br label %217
 
 ._crit_edge133.loopexit:                          ; preds = %_ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit
-  %68 = mul nsw i32 %.183, 3
+  %68 = mul nsw i32 %.181, 3
   br label %._crit_edge133
 
 ._crit_edge133:                                   ; preds = %._crit_edge133.loopexit, %.preheader
-  %.082.lcssa = phi i32 [ 0, %.preheader ], [ %68, %._crit_edge133.loopexit ]
-  %.080.lcssa = phi i32 [ 0, %.preheader ], [ %.181, %._crit_edge133.loopexit ]
+  %.082.lcssa = phi i32 [ 0, %.preheader ], [ %.183, %._crit_edge133.loopexit ]
+  %.080.lcssa = phi i32 [ 0, %.preheader ], [ %68, %._crit_edge133.loopexit ]
   %.lcssa116 = phi i64 [ %47, %.preheader ], [ %196, %._crit_edge133.loopexit ]
   %69 = call i32 @feof(ptr noundef nonnull %25) #20
   %.not96 = icmp eq i32 %69, 0
@@ -1235,7 +1235,7 @@ _ZN7DepsLog4DepsC2Eli.exit:                       ; preds = %84
   br label %218
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN7DepsLog4DepsC2Eli.exit
-  %105 = add nsw i32 %.080131156, 1
+  %105 = add nsw i32 %.082130157, 1
   %106 = load ptr, ptr %54, align 8
   %107 = load ptr, ptr %53, align 8
   %108 = ptrtoint ptr %106 to i64
@@ -1302,7 +1302,7 @@ _ZN7DepsLog4DepsD2Ev.exit.i:                      ; preds = %132, %128
   %135 = getelementptr inbounds ptr, ptr %134, i64 %125
   store ptr %83, ptr %135, align 8
   %136 = zext i1 %.not115 to i32
-  %spec.select103 = add nsw i32 %.082130157, %136
+  %spec.select103 = add nsw i32 %.080131156, %136
   br label %_ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit
 
 137:                                              ; preds = %79
@@ -1417,8 +1417,8 @@ _ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_i
   br label %_ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %170, %133
-  %.183 = phi i32 [ %spec.select103, %133 ], [ %.082130157, %170 ], [ %.082130157, %_ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
-  %.181 = phi i32 [ %105, %133 ], [ %.080131156, %170 ], [ %.080131156, %_ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %.183 = phi i32 [ %105, %133 ], [ %.082130157, %170 ], [ %.082130157, %_ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %.181 = phi i32 [ %spec.select103, %133 ], [ %.080131156, %170 ], [ %.080131156, %_ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
   %196 = call i64 @ftell(ptr noundef nonnull %25)
   %197 = call i64 @fread(ptr noundef nonnull %10, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %25)
   %198 = icmp eq i64 %197, 0
@@ -1453,8 +1453,8 @@ _ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP4Node
 
 212:                                              ; preds = %._crit_edge133
   %213 = call i32 @fclose(ptr noundef nonnull %25)
-  %214 = icmp sgt i32 %.080.lcssa, 1000
-  %215 = icmp sgt i32 %.080.lcssa, %.082.lcssa
+  %214 = icmp sgt i32 %.082.lcssa, 1000
+  %215 = icmp sgt i32 %.082.lcssa, %.080.lcssa
   %or.cond108 = select i1 %214, i1 %215, i1 false
   br i1 %or.cond108, label %216, label %217
 
@@ -1659,8 +1659,8 @@ define dso_local noundef ptr @_ZN7DepsLog23GetFirstReverseDepsNodeEP4Node(ptr no
   br label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %.lr.ph20.preheader, %.loopexit
-  %.01218 = phi i64 [ %28, %.loopexit ], [ 0, %.lr.ph20.preheader ]
-  %11 = getelementptr inbounds ptr, ptr %6, i64 %.01218
+  %.01318 = phi i64 [ %28, %.loopexit ], [ 0, %.lr.ph20.preheader ]
+  %11 = getelementptr inbounds ptr, ptr %6, i64 %.01318
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -1692,18 +1692,18 @@ define dso_local noundef ptr @_ZN7DepsLog23GetFirstReverseDepsNodeEP4Node(ptr no
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %.01218
+  %26 = getelementptr inbounds ptr, ptr %25, i64 %.01318
   %27 = load ptr, ptr %26, align 8
   br label %.loopexit15
 
 .loopexit:                                        ; preds = %18, %.preheader, %.lr.ph20
-  %28 = add nuw i64 %.01218, 1
+  %28 = add nuw i64 %.01318, 1
   %exitcond24.not = icmp eq i64 %28, %umax
   br i1 %exitcond24.not, label %.loopexit15, label %.lr.ph20, !llvm.loop !16
 
 .loopexit15:                                      ; preds = %.loopexit, %2, %23
-  %.013 = phi ptr [ %27, %23 ], [ null, %2 ], [ null, %.loopexit ]
-  ret ptr %.013
+  %.012 = phi ptr [ %27, %23 ], [ null, %2 ], [ null, %.loopexit ]
+  ret ptr %.012
 }
 
 ; Function Attrs: mustprogress uwtable

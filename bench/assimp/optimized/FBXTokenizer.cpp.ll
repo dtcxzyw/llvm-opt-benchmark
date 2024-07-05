@@ -101,30 +101,30 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc62, %entry
-  %line.0 = phi i32 [ 1, %entry ], [ %29, %for.inc62 ]
   %column.0 = phi i32 [ 1, %entry ], [ %add, %for.inc62 ]
   %comment.0 = phi i1 [ false, %entry ], [ %comment.2, %for.inc62 ]
   %in_double_quotes.0 = phi i1 [ false, %entry ], [ %in_double_quotes.1, %for.inc62 ]
   %pending_data_token.0 = phi i8 [ 0, %entry ], [ %pending_data_token.1, %for.inc62 ]
   %cur.0 = phi ptr [ %input, %entry ], [ %incdec.ptr65, %for.inc62 ]
+  %line.0 = phi i32 [ 1, %entry ], [ %29, %for.inc62 ]
   %0 = load i8, ptr %cur.0, align 1
   switch i8 %0, label %1 [
     i8 0, label %for.end66
-    i8 13, label %.thread154
-    i8 10, label %.thread154
-    i8 12, label %.thread154
+    i8 13, label %.thread160
+    i8 10, label %.thread160
+    i8 12, label %.thread160
   ]
 
-.thread154:                                       ; preds = %for.cond, %for.cond, %for.cond
+.thread160:                                       ; preds = %for.cond, %for.cond, %for.cond
   %inc151 = add i32 %line.0, 1
   br label %if.end4
 
 1:                                                ; preds = %for.cond
   br i1 %comment.0, label %for.inc62, label %if.end4
 
-if.end4:                                          ; preds = %.thread154, %1
-  %2 = phi i32 [ %inc151, %.thread154 ], [ %line.0, %1 ]
-  %3 = phi i32 [ 0, %.thread154 ], [ %column.0, %1 ]
+if.end4:                                          ; preds = %.thread160, %1
+  %2 = phi i32 [ %inc151, %.thread160 ], [ %line.0, %1 ]
+  %3 = phi i32 [ 0, %.thread160 ], [ %column.0, %1 ]
   br i1 %in_double_quotes.0, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.end4

@@ -1194,13 +1194,13 @@ define internal i64 @etc_nprocessors(i64 %0) #0 {
   br label %9
 
 9:                                                ; preds = %7, %3
-  %.017.i = phi ptr [ %8, %7 ], [ %2, %3 ]
-  %10 = call i32 @sched_getaffinity(i32 noundef 0, i64 noundef %5, ptr noundef nonnull %.017.i) #13
+  %.018.i = phi ptr [ %8, %7 ], [ %2, %3 ]
+  %10 = call i32 @sched_getaffinity(i32 noundef 0, i64 noundef %5, ptr noundef nonnull %.018.i) #13
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9
-  %13 = call i32 @__sched_cpucount(i64 noundef %5, ptr noundef nonnull %.017.i) #13
+  %13 = call i32 @__sched_cpucount(i64 noundef %5, ptr noundef nonnull %.018.i) #13
   br label %14
 
 14:                                               ; preds = %12, %9
@@ -1208,7 +1208,7 @@ define internal i64 @etc_nprocessors(i64 %0) #0 {
   br i1 %6, label %15, label %16
 
 15:                                               ; preds = %14
-  call void @ruby_xfree(ptr noundef nonnull %.017.i) #13
+  call void @ruby_xfree(ptr noundef nonnull %.018.i) #13
   br label %16
 
 16:                                               ; preds = %15, %14

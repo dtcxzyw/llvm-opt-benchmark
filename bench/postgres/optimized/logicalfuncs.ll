@@ -164,16 +164,16 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.06177 = phi i32 [ %97, %.lr.ph ], [ 0, %.preheader ]
-  %.06276 = phi ptr [ %96, %.lr.ph ], [ null, %.preheader ]
+  %.06277 = phi ptr [ %96, %.lr.ph ], [ null, %.preheader ]
+  %.06376 = phi i32 [ %97, %.lr.ph ], [ 0, %.preheader ]
   %81 = load ptr, ptr %5, align 8
-  %82 = sext i32 %.06177 to i64
+  %82 = sext i32 %.06376 to i64
   %83 = getelementptr i64, ptr %81, i64 %82
   %84 = load i64, ptr %83, align 8
   %85 = inttoptr i64 %84 to ptr
   %86 = call ptr @text_to_cstring(ptr noundef %85) #7
   %87 = load ptr, ptr %5, align 8
-  %88 = or disjoint i32 %.06177, 1
+  %88 = or disjoint i32 %.06376, 1
   %89 = sext i32 %88 to i64
   %90 = getelementptr i64, ptr %87, i64 %89
   %91 = load i64, ptr %90, align 8
@@ -181,8 +181,8 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %93 = call ptr @text_to_cstring(ptr noundef %92) #7
   %94 = call ptr @makeString(ptr noundef %93) #7
   %95 = call ptr @makeDefElem(ptr noundef %86, ptr noundef %94, i32 noundef -1) #7
-  %96 = call ptr @lappend(ptr noundef %.06276, ptr noundef %95) #7
-  %97 = add i32 %.06177, 2
+  %96 = call ptr @lappend(ptr noundef %.06277, ptr noundef %95) #7
+  %97 = add i32 %.06376, 2
   %98 = load i32, ptr %4, align 4
   %99 = icmp slt i32 %97, %98
   br i1 %99, label %.lr.ph, label %.loopexit, !llvm.loop !5
@@ -209,7 +209,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br label %110
 
 110:                                              ; preds = %108, %106
-  %.063 = phi i64 [ %109, %108 ], [ %107, %106 ]
+  %.061 = phi i64 [ %109, %108 ], [ %107, %106 ]
   call void @ReplicationSlotAcquire(ptr noundef %23, i1 noundef zeroext true) #7
   %111 = load ptr, ptr @PG_exception_stack, align 8
   %112 = load ptr, ptr @error_context_stack, align 8
@@ -261,7 +261,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %139 = load ptr, ptr %134, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 48
   %141 = load i64, ptr %140, align 8
-  %142 = icmp ult i64 %141, %.063
+  %142 = icmp ult i64 %141, %.061
   br i1 %142, label %.lr.ph78, label %._crit_edge
 
 .lr.ph78:                                         ; preds = %132
@@ -304,7 +304,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %155 = load ptr, ptr %134, align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 48
   %157 = load i64, ptr %156, align 8
-  %158 = icmp ult i64 %157, %.063
+  %158 = icmp ult i64 %157, %.061
   br i1 %158, label %.lr.ph78.split.us.split.us, label %._crit_edge, !llvm.loop !7
 
 .lr.ph78.split.us.split:                          ; preds = %.lr.ph78.split.us, %170
@@ -346,7 +346,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %171 = load ptr, ptr %134, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 48
   %173 = load i64, ptr %172, align 8
-  %174 = icmp ult i64 %173, %.063
+  %174 = icmp ult i64 %173, %.061
   br i1 %174, label %.lr.ph78.split.us.split, label %._crit_edge, !llvm.loop !7
 
 .lr.ph78.split:                                   ; preds = %.lr.ph78
@@ -391,7 +391,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 188:                                              ; preds = %187, %185
   %189 = phi i64 [ %.pre94, %187 ], [ %184, %185 ]
   %190 = phi ptr [ %.pre92, %187 ], [ %182, %185 ]
-  %191 = icmp ult i64 %189, %.063
+  %191 = icmp ult i64 %189, %.061
   br i1 %191, label %.lr.ph78.split.split.us, label %._crit_edge, !llvm.loop !7
 
 .lr.ph78.split.split:                             ; preds = %.lr.ph78.split, %210
@@ -446,7 +446,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 210:                                              ; preds = %207, %209
   %211 = phi i64 [ %204, %207 ], [ %.pre91, %209 ]
   %212 = phi ptr [ %202, %207 ], [ %.pre, %209 ]
-  %213 = icmp ult i64 %211, %.063
+  %213 = icmp ult i64 %211, %.061
   br i1 %213, label %.lr.ph78.split.split, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %210, %201, %205, %188, %181, %170, %154, %.._crit_edge.loopexit86_crit_edge, %132

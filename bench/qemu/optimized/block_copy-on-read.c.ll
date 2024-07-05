@@ -273,12 +273,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end27
-  %qiov_offset.addr.026 = phi i64 [ %qiov_offset, %while.body.lr.ph ], [ %add28, %if.end27 ]
-  %offset.addr.025 = phi i64 [ %offset, %while.body.lr.ph ], [ %add, %if.end27 ]
+  %offset.addr.026 = phi i64 [ %offset, %while.body.lr.ph ], [ %add, %if.end27 ]
+  %qiov_offset.addr.025 = phi i64 [ %qiov_offset, %while.body.lr.ph ], [ %add28, %if.end27 ]
   %bytes.addr.024 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub, %if.end27 ]
   %3 = load ptr, ptr %file2, align 8
   %4 = load ptr, ptr %3, align 8
-  %call4 = call i32 @bdrv_co_is_allocated(ptr noundef %4, i64 noundef %offset.addr.025, i64 noundef %bytes.addr.024, ptr noundef nonnull %n) #4
+  %call4 = call i32 @bdrv_co_is_allocated(ptr noundef %4, i64 noundef %offset.addr.026, i64 noundef %bytes.addr.024, ptr noundef nonnull %n) #4
   %cmp = icmp slt i32 %call4, 1
   br i1 %cmp, label %if.then5, label %while.body.if.end19_crit_edge
 
@@ -292,7 +292,7 @@ if.then5:                                         ; preds = %while.body
   %call8 = call ptr @bdrv_backing_chain_next(ptr noundef %6) #4
   %7 = load ptr, ptr %0, align 8
   %8 = load i64, ptr %n, align 8
-  %call10 = call i32 @bdrv_co_is_allocated_above(ptr noundef %call8, ptr noundef %7, i1 noundef zeroext true, i64 noundef %offset.addr.025, i64 noundef %8, ptr noundef nonnull %n) #4
+  %call10 = call i32 @bdrv_co_is_allocated_above(ptr noundef %call8, ptr noundef %7, i1 noundef zeroext true, i64 noundef %offset.addr.026, i64 noundef %8, ptr noundef nonnull %n) #4
   %or.cond.not = icmp ne i32 %call10, 0
   %or14 = zext i1 %or.cond.not to i32
   %spec.select = or i32 %or14, %flags
@@ -309,7 +309,7 @@ if.end19:                                         ; preds = %while.body.if.end19
 
 if.then21:                                        ; preds = %if.end19
   %10 = load ptr, ptr %file2, align 8
-  %call23 = call i32 @bdrv_co_preadv_part(ptr noundef %10, i64 noundef %offset.addr.025, i64 noundef %.pre29, ptr noundef %qiov, i64 noundef %qiov_offset.addr.026, i32 noundef %local_flags.1) #4
+  %call23 = call i32 @bdrv_co_preadv_part(ptr noundef %10, i64 noundef %offset.addr.026, i64 noundef %.pre29, ptr noundef %qiov, i64 noundef %qiov_offset.addr.025, i32 noundef %local_flags.1) #4
   %cmp24 = icmp slt i32 %call23, 0
   br i1 %cmp24, label %return, label %if.then21.if.end27_crit_edge
 
@@ -319,8 +319,8 @@ if.then21.if.end27_crit_edge:                     ; preds = %if.then21
 
 if.end27:                                         ; preds = %if.then21.if.end27_crit_edge, %if.end19
   %11 = phi i64 [ %.pre, %if.then21.if.end27_crit_edge ], [ %.pre29, %if.end19 ]
-  %add = add i64 %11, %offset.addr.025
-  %add28 = add i64 %11, %qiov_offset.addr.026
+  %add = add i64 %11, %offset.addr.026
+  %add28 = add i64 %11, %qiov_offset.addr.025
   %sub = sub i64 %bytes.addr.024, %11
   %tobool1.not = icmp eq i64 %sub, 0
   br i1 %tobool1.not, label %return, label %while.body, !llvm.loop !5

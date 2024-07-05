@@ -3581,9 +3581,9 @@ if.then4.i:                                       ; preds = %if.then.i155
   br label %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit
 
 _ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit: ; preds = %if.then.i155, %invoke.cont49, %if.then4.i
-  %i44.sroa.24.0 = phi ptr [ %52, %if.then4.i ], [ %22, %invoke.cont49 ], [ %22, %if.then.i155 ]
-  %i44.sroa.17.1 = phi ptr [ %retval.0.i.i163, %if.then4.i ], [ %i44.sroa.17.0, %invoke.cont49 ], [ %i44.sroa.17.0, %if.then.i155 ]
   %i44.sroa.0.0 = phi ptr [ %mData.i.i158, %if.then4.i ], [ %incdec.ptr.i, %invoke.cont49 ], [ null, %if.then.i155 ]
+  %i44.sroa.17.1 = phi ptr [ %retval.0.i.i163, %if.then4.i ], [ %i44.sroa.17.0, %invoke.cont49 ], [ %i44.sroa.17.0, %if.then.i155 ]
+  %i44.sroa.24.0 = phi ptr [ %52, %if.then4.i ], [ %22, %invoke.cont49 ], [ %22, %if.then.i155 ]
   %56 = load i32, ptr %i44.sroa.0.0, align 4
   %cmp55 = icmp eq i32 %56, 1
   %call57 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp55, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 42, ptr noundef nonnull @.str.6)
@@ -3615,9 +3615,9 @@ if.then4.i172:                                    ; preds = %if.then.i167
   br label %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit179
 
 _ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit179: ; preds = %if.then.i167, %invoke.cont56, %if.then4.i172
-  %i44.sroa.24.1 = phi ptr [ %59, %if.then4.i172 ], [ %i44.sroa.24.0, %invoke.cont56 ], [ %i44.sroa.24.0, %if.then.i167 ]
-  %i44.sroa.17.2 = phi ptr [ %retval.0.i.i178, %if.then4.i172 ], [ %i44.sroa.17.1, %invoke.cont56 ], [ %i44.sroa.17.1, %if.then.i167 ]
   %i44.sroa.0.1 = phi ptr [ %mData.i.i173, %if.then4.i172 ], [ %incdec.ptr.i164, %invoke.cont56 ], [ null, %if.then.i167 ]
+  %i44.sroa.17.2 = phi ptr [ %retval.0.i.i178, %if.then4.i172 ], [ %i44.sroa.17.1, %invoke.cont56 ], [ %i44.sroa.17.1, %if.then.i167 ]
+  %i44.sroa.24.1 = phi ptr [ %59, %if.then4.i172 ], [ %i44.sroa.24.0, %invoke.cont56 ], [ %i44.sroa.24.0, %if.then.i167 ]
   %63 = load i32, ptr %i44.sroa.0.1, align 4
   %cmp62 = icmp eq i32 %63, 2
   %call64 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp62, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 43, ptr noundef nonnull @.str.7)

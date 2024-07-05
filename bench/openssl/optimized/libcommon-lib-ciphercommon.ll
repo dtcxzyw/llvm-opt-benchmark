@@ -790,8 +790,8 @@ if.end110:                                        ; preds = %if.end102
   br label %if.end113
 
 if.end113:                                        ; preds = %land.lhs.true82, %if.end110, %if.end78
-  %out.addr.0 = phi ptr [ %add.ptr112, %if.end110 ], [ %out, %if.end78 ], [ %out, %land.lhs.true82 ]
   %outlint.0 = phi i64 [ %0, %if.end110 ], [ 0, %if.end78 ], [ 0, %land.lhs.true82 ]
+  %out.addr.0 = phi ptr [ %add.ptr112, %if.end110 ], [ %out, %if.end78 ], [ %out, %land.lhs.true82 ]
   %cmp114.not = icmp eq i64 %nextblocks.0, 0
   br i1 %cmp114.not, label %if.end161thread-pre-split, label %if.then116
 

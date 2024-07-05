@@ -4927,8 +4927,8 @@ lpad163:                                          ; preds = %if.else162
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad163
   %.pn = phi { ptr, i32 } [ %48, %lpad163 ], [ %lpad.loopexit33, %lpad.loopexit ], [ %lpad.loopexit.split-lp34, %lpad.loopexit.split-lp ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   %49 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %matches = icmp eq i32 %ehselector.slot.0, %49
   %50 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #28

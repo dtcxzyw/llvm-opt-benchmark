@@ -799,10 +799,10 @@ while.body.preheader.i.i.i:                       ; preds = %.noexc.i.i
 
 while.body.i.i.i:                                 ; preds = %while.end.i.i.i, %while.body.preheader.i.i.i
   %indvars.iv26.i.i.i = phi i64 [ 0, %while.body.preheader.i.i.i ], [ %indvars.iv.next27.i.i.i, %while.end.i.i.i ]
-  %iSrc.024.i.i.i = phi i32 [ 0, %while.body.preheader.i.i.i ], [ %28, %while.end.i.i.i ]
-  %idxprom.i.i.i = sext i32 %iSrc.024.i.i.i to i64
+  %iSrc.023.i.i.i = phi i32 [ 0, %while.body.preheader.i.i.i ], [ %28, %while.end.i.i.i ]
+  %idxprom.i.i.i = sext i32 %iSrc.023.i.i.i to i64
   %arrayidx2.i.i.i = getelementptr inbounds %struct.btBatchedConstraintInfo, ptr %20, i64 %indvars.iv26.i.i.i
-  store i32 %iSrc.024.i.i.i, ptr %arrayidx2.i.i.i, align 4
+  store i32 %iSrc.023.i.i.i, ptr %arrayidx2.i.i.i, align 4
   %bodyIds.i.i.i = getelementptr inbounds %struct.btBatchedConstraintInfo, ptr %20, i64 %idxprom.i.i.i, i32 2
   %23 = load i32, ptr %bodyIds.i.i.i, align 4
   %bodyIds4.i.i.i = getelementptr inbounds i8, ptr %arrayidx2.i.i.i, i64 8
@@ -832,9 +832,9 @@ while.body26.i.i.i:                               ; preds = %land.rhs.i.i.i
   br i1 %cmp11.i.i.i, label %land.lhs.true.i.i.i, label %while.end.thread.i.i.i, !llvm.loop !13
 
 while.end.thread.i.i.i:                           ; preds = %while.body26.i.i.i
-  %27 = add nsw i32 %iSrc.024.i.i.i, 1
+  %27 = add nsw i32 %iSrc.023.i.i.i, 1
   %smax.le.i.i.i = call i32 @llvm.smax.i32(i32 %21, i32 %27)
-  %sub30.i.i.i = sub nsw i32 %smax.le.i.i.i, %iSrc.024.i.i.i
+  %sub30.i.i.i = sub nsw i32 %smax.le.i.i.i, %iSrc.023.i.i.i
   %numConstraintRows31.i.i.i = getelementptr inbounds i8, ptr %arrayidx2.i.i.i, i64 4
   store i32 %sub30.i.i.i, ptr %numConstraintRows31.i.i.i, align 4
   %indvars.iv.next2732.i.i.i = add nuw nsw i64 %indvars.iv26.i.i.i, 1
@@ -842,7 +842,7 @@ while.end.thread.i.i.i:                           ; preds = %while.body26.i.i.i
 
 while.end.i.i.i:                                  ; preds = %land.rhs.i.i.i, %land.lhs.true.i.i.i
   %28 = trunc nsw i64 %indvars.iv.i.i158.i to i32
-  %sub.i.i.i = sub nsw i32 %28, %iSrc.024.i.i.i
+  %sub.i.i.i = sub nsw i32 %28, %iSrc.023.i.i.i
   %numConstraintRows.i.i.i = getelementptr inbounds i8, ptr %arrayidx2.i.i.i, i64 4
   store i32 %sub.i.i.i, ptr %numConstraintRows.i.i.i, align 4
   %indvars.iv.next27.i.i.i = add nuw nsw i64 %indvars.iv26.i.i.i, 1
@@ -3269,7 +3269,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 for.body17.i:                                     ; preds = %if.end39.i, %if.then.i
   %indvars.iv.i = phi i64 [ 0, %if.then.i ], [ %indvars.iv.next.i, %if.end39.i ]
-  %iPhase.057.i = phi i32 [ %and.i, %if.then.i ], [ %iPhase.1.i, %if.end39.i ]
+  %iPhase.058.i = phi i32 [ %and.i, %if.then.i ], [ %iPhase.1.i, %if.end39.i ]
   %arrayidx19.i = getelementptr inbounds [3 x i32], ptr %arrayidx11.i, i64 0, i64 %indvars.iv.i
   %arrayidx22.i = getelementptr inbounds [3 x i32], ptr %arrayidx14.i, i64 0, i64 %indvars.iv.i
   %11 = load i32, ptr %arrayidx19.i, align 4
@@ -3287,16 +3287,16 @@ if.then31.i:                                      ; preds = %for.body17.i
 
 if.then34.i:                                      ; preds = %if.then31.i
   %not.i = xor i32 %shl.i, -1
-  %and35.i = and i32 %iPhase.057.i, %not.i
+  %and35.i = and i32 %iPhase.058.i, %not.i
   br label %if.end39.i
 
 if.else.i:                                        ; preds = %if.then31.i
-  %or.i = or i32 %shl.i, %iPhase.057.i
+  %or.i = or i32 %shl.i, %iPhase.058.i
   %and38.i = and i32 %or.i, %4
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.else.i, %if.then34.i, %for.body17.i
-  %iPhase.1.i = phi i32 [ %and35.i, %if.then34.i ], [ %and38.i, %if.else.i ], [ %iPhase.057.i, %for.body17.i ]
+  %iPhase.1.i = phi i32 [ %and35.i, %if.then34.i ], [ %and38.i, %if.else.i ], [ %iPhase.058.i, %for.body17.i ]
   %arrayidx41.i = getelementptr inbounds [3 x i32], ptr %gridCoord.i, i64 0, i64 %indvars.iv.i
   store i32 %13, ptr %arrayidx41.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

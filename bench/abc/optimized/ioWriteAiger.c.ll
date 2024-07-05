@@ -400,7 +400,7 @@ Io_WriteAigerEncode.exit:                         ; preds = %Vec_StrAlloc.exit, 
   %19 = sext i32 %.010.lcssa.i to i64
   %20 = getelementptr inbounds i8, ptr %.promoted, i64 %19
   store i8 %18, ptr %20, align 1
-  %.03051 = add nsw i32 %.010.lcssa.i, 1
+  %.02951 = add nsw i32 %.010.lcssa.i, 1
   %21 = icmp sgt i32 %.val, 1
   br i1 %21, label %.lr.ph, label %.critedge
 
@@ -408,13 +408,13 @@ Io_WriteAigerEncode.exit:                         ; preds = %Vec_StrAlloc.exit, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 1, %Io_WriteAigerEncode.exit ]
   %22 = phi i32 [ %48, %47 ], [ %spec.store.select.i, %Io_WriteAigerEncode.exit ]
   %23 = phi ptr [ %49, %47 ], [ %.promoted, %Io_WriteAigerEncode.exit ]
-  %.03055 = phi i32 [ %.030, %47 ], [ %.03051, %Io_WriteAigerEncode.exit ]
-  %.02953 = phi i32 [ %25, %47 ], [ %12, %Io_WriteAigerEncode.exit ]
+  %.02955 = phi i32 [ %.029, %47 ], [ %.02951, %Io_WriteAigerEncode.exit ]
+  %.03053 = phi i32 [ %25, %47 ], [ %12, %Io_WriteAigerEncode.exit ]
   %.val34 = load ptr, ptr %11, align 8
   %24 = getelementptr inbounds i32, ptr %.val34, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
-  %26 = sub nsw i32 %25, %.02953
-  %27 = icmp slt i32 %25, %.02953
+  %26 = sub nsw i32 %25, %.03053
+  %27 = icmp slt i32 %25, %.03053
   %28 = sub nsw i32 0, %26
   %29 = select i1 %27, i32 %28, i32 %26
   %30 = shl i32 %29, 1
@@ -424,7 +424,7 @@ Io_WriteAigerEncode.exit:                         ; preds = %Vec_StrAlloc.exit, 
   br i1 %.not11.i38, label %Io_WriteAigerEncode.exit48, label %.lr.ph.preheader.i39
 
 .lr.ph.preheader.i39:                             ; preds = %.lr.ph
-  %33 = sext i32 %.03055 to i64
+  %33 = sext i32 %.02955 to i64
   br label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %.lr.ph.i40, %.lr.ph.preheader.i39
@@ -444,7 +444,7 @@ Io_WriteAigerEncode.exit:                         ; preds = %Vec_StrAlloc.exit, 
   br label %Io_WriteAigerEncode.exit48
 
 Io_WriteAigerEncode.exit48:                       ; preds = %.lr.ph, %._crit_edge.loopexit.i45
-  %.010.lcssa.i46 = phi i32 [ %.03055, %.lr.ph ], [ %38, %._crit_edge.loopexit.i45 ]
+  %.010.lcssa.i46 = phi i32 [ %.02955, %.lr.ph ], [ %38, %._crit_edge.loopexit.i45 ]
   %.0.lcssa.i47 = phi i32 [ %32, %.lr.ph ], [ %37, %._crit_edge.loopexit.i45 ]
   %39 = trunc nuw i32 %.0.lcssa.i47 to i8
   %40 = sext i32 %.010.lcssa.i46 to i64
@@ -464,7 +464,7 @@ Vec_StrGrow.exit:                                 ; preds = %Io_WriteAigerEncode
   %48 = phi i32 [ %22, %Io_WriteAigerEncode.exit48 ], [ %44, %Vec_StrGrow.exit ]
   %49 = phi ptr [ %23, %Io_WriteAigerEncode.exit48 ], [ %46, %Vec_StrGrow.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.030 = add nsw i32 %.010.lcssa.i46, 1
+  %.029 = add nsw i32 %.010.lcssa.i46, 1
   %.val32 = load i32, ptr %2, align 4
   %50 = sext i32 %.val32 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
@@ -476,8 +476,8 @@ Vec_StrGrow.exit:                                 ; preds = %Io_WriteAigerEncode
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %Io_WriteAigerEncode.exit
-  %.030.lcssa = phi i32 [ %.030, %..critedge_crit_edge ], [ %.03051, %Io_WriteAigerEncode.exit ]
-  store i32 %.030.lcssa, ptr %6, align 4
+  %.029.lcssa = phi i32 [ %.029, %..critedge_crit_edge ], [ %.02951, %Io_WriteAigerEncode.exit ]
+  store i32 %.029.lcssa, ptr %6, align 4
   ret ptr %4
 }
 
@@ -529,7 +529,7 @@ define void @Io_WriteAiger_old(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !9
 
 .critedge:                                        ; preds = %22, %4, %18
-  %.0187 = phi i32 [ 1, %18 ], [ %.val259, %4 ], [ %.val259, %22 ]
+  %.0188 = phi i32 [ 1, %18 ], [ %.val259, %4 ], [ %.val259, %22 ]
   %23 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.1)
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %28
@@ -551,11 +551,11 @@ define void @Io_WriteAiger_old(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %33, label %.lr.ph326, label %.critedge2.preheader
 
 .critedge2.preheader.loopexit:                    ; preds = %.lr.ph326
-  %34 = trunc nuw i64 %indvars.iv.next365 to i32
+  %34 = trunc nuw i64 %indvars.iv.next367 to i32
   br label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %.critedge2.preheader.loopexit, %28
-  %.0189.lcssa = phi i32 [ 1, %28 ], [ %34, %.critedge2.preheader.loopexit ]
+  %.0191.lcssa = phi i32 [ 1, %28 ], [ %34, %.critedge2.preheader.loopexit ]
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr i8, ptr %36, i64 4
@@ -564,29 +564,29 @@ define void @Io_WriteAiger_old(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %38, label %.lr.ph330, label %.critedge4
 
 .lr.ph326:                                        ; preds = %28, %.lr.ph326
-  %indvars.iv366 = phi i64 [ %indvars.iv.next367, %.lr.ph326 ], [ 0, %28 ]
-  %indvars.iv364 = phi i64 [ %indvars.iv.next365, %.lr.ph326 ], [ 1, %28 ]
+  %indvars.iv366 = phi i64 [ %indvars.iv.next367, %.lr.ph326 ], [ 1, %28 ]
+  %indvars.iv364 = phi i64 [ %indvars.iv.next365, %.lr.ph326 ], [ 0, %28 ]
   %.val266325 = phi ptr [ %.val266, %.lr.ph326 ], [ %.val266321, %28 ]
   %39 = getelementptr i8, ptr %.val266325, i64 8
   %.val267.val = load ptr, ptr %39, align 8
-  %40 = getelementptr inbounds ptr, ptr %.val267.val, i64 %indvars.iv366
+  %40 = getelementptr inbounds ptr, ptr %.val267.val, i64 %indvars.iv364
   %41 = load ptr, ptr %40, align 8
-  %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
-  %42 = inttoptr i64 %indvars.iv364 to ptr
+  %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
+  %42 = inttoptr i64 %indvars.iv366 to ptr
   %43 = getelementptr inbounds i8, ptr %41, i64 64
   store ptr %42, ptr %43, align 8
-  %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
+  %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %.val266 = load ptr, ptr %31, align 8
   %44 = getelementptr i8, ptr %.val266, i64 4
   %.val266.val = load i32, ptr %44, align 4
   %45 = sext i32 %.val266.val to i64
-  %46 = icmp slt i64 %indvars.iv.next367, %45
+  %46 = icmp slt i64 %indvars.iv.next365, %45
   br i1 %46, label %.lr.ph326, label %.critedge2.preheader.loopexit, !llvm.loop !10
 
 .lr.ph330:                                        ; preds = %.critedge2.preheader, %.critedge2
   %47 = phi ptr [ %59, %.critedge2 ], [ %36, %.critedge2.preheader ]
   %indvars.iv371 = phi i64 [ %indvars.iv.next372, %.critedge2 ], [ 0, %.critedge2.preheader ]
-  %.1190329 = phi i32 [ %.2, %.critedge2 ], [ %.0189.lcssa, %.critedge2.preheader ]
+  %.1192328 = phi i32 [ %.2193, %.critedge2 ], [ %.0191.lcssa, %.critedge2.preheader ]
   %48 = getelementptr i8, ptr %47, i64 8
   %.val268.val = load ptr, ptr %48, align 8
   %49 = getelementptr inbounds ptr, ptr %.val268.val, i64 %indvars.iv371
@@ -601,8 +601,8 @@ define void @Io_WriteAiger_old(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %.not313, label %54, label %.critedge2
 
 54:                                               ; preds = %52
-  %55 = add nsw i32 %.1190329, 1
-  %56 = zext i32 %.1190329 to i64
+  %55 = add nsw i32 %.1192328, 1
+  %56 = zext i32 %.1192328 to i64
   %57 = inttoptr i64 %56 to ptr
   %58 = getelementptr inbounds i8, ptr %50, i64 64
   store ptr %57, ptr %58, align 8
@@ -611,7 +611,7 @@ define void @Io_WriteAiger_old(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 
 .critedge2:                                       ; preds = %54, %52, %.lr.ph330
   %59 = phi ptr [ %47, %.lr.ph330 ], [ %.pre, %54 ], [ %47, %52 ]
-  %.2 = phi i32 [ %.1190329, %.lr.ph330 ], [ %55, %54 ], [ %.1190329, %52 ]
+  %.2193 = phi i32 [ %.1192328, %.lr.ph330 ], [ %55, %54 ], [ %.1192328, %52 ]
   %indvars.iv.next372 = add nuw nsw i64 %indvars.iv371, 1
   %60 = getelementptr i8, ptr %59, i64 4
   %.val223 = load i32, ptr %60, align 4
@@ -632,7 +632,7 @@ define void @Io_WriteAiger_old(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %68 = getelementptr i8, ptr %0, i64 124
   %.val278 = load i32, ptr %68, align 4
   %69 = add nsw i32 %67, %.val278
-  %.not207 = icmp eq i32 %.0187, 0
+  %.not207 = icmp eq i32 %.0188, 0
   br i1 %.not207, label %70, label %.critedge219
 
 70:                                               ; preds = %.critedge4
@@ -860,7 +860,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_StrFree.exit, %
 182:                                              ; preds = %.lr.ph343, %250
   %183 = phi ptr [ %178, %.lr.ph343 ], [ %251, %250 ]
   %indvars.iv380 = phi i64 [ 0, %.lr.ph343 ], [ %indvars.iv.next381, %250 ]
-  %.0188342 = phi i32 [ 0, %.lr.ph343 ], [ %.1, %250 ]
+  %.0189340 = phi i32 [ 0, %.lr.ph343 ], [ %.1190, %250 ]
   %184 = getelementptr i8, ptr %183, i64 8
   %.val269.val = load ptr, ptr %184, align 8
   %185 = getelementptr inbounds ptr, ptr %.val269.val, i64 %indvars.iv380
@@ -935,7 +935,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %191, %195
   br i1 %.not11.i, label %Io_WriteAigerEncode.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %Extra_ProgressBarUpdate.exit
-  %227 = sext i32 %.0188342 to i64
+  %227 = sext i32 %.0189340 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -955,7 +955,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %191, %195
   br label %Io_WriteAigerEncode.exit
 
 Io_WriteAigerEncode.exit:                         ; preds = %Extra_ProgressBarUpdate.exit, %._crit_edge.loopexit.i
-  %.010.lcssa.i = phi i32 [ %.0188342, %Extra_ProgressBarUpdate.exit ], [ %232, %._crit_edge.loopexit.i ]
+  %.010.lcssa.i = phi i32 [ %.0189340, %Extra_ProgressBarUpdate.exit ], [ %232, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i32 [ %226, %Extra_ProgressBarUpdate.exit ], [ %231, %._crit_edge.loopexit.i ]
   %233 = trunc nuw i32 %.0.lcssa.i to i8
   %234 = add nsw i32 %.010.lcssa.i, 1
@@ -1008,7 +1008,7 @@ Io_WriteAigerEncode.exit305._crit_edge:           ; preds = %Io_WriteAigerEncode
 
 250:                                              ; preds = %Io_WriteAigerEncode.exit305._crit_edge, %188, %182
   %251 = phi ptr [ %183, %182 ], [ %.pre395, %Io_WriteAigerEncode.exit305._crit_edge ], [ %183, %188 ]
-  %.1 = phi i32 [ %.0188342, %182 ], [ %247, %Io_WriteAigerEncode.exit305._crit_edge ], [ %.0188342, %188 ]
+  %.1190 = phi i32 [ %.0189340, %182 ], [ %247, %Io_WriteAigerEncode.exit305._crit_edge ], [ %.0189340, %188 ]
   %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
   %252 = getelementptr i8, ptr %251, i64 4
   %.val221 = load i32, ptr %252, align 4
@@ -1017,13 +1017,13 @@ Io_WriteAigerEncode.exit305._crit_edge:           ; preds = %Io_WriteAigerEncode
   br i1 %254, label %182, label %.critedge10.loopexit, !llvm.loop !14
 
 .critedge10.loopexit:                             ; preds = %250
-  %255 = sext i32 %.1 to i64
+  %255 = sext i32 %.1190 to i64
   br label %.critedge10
 
 .critedge10:                                      ; preds = %.critedge10.loopexit, %.critedge8
-  %.0188.lcssa = phi i64 [ 0, %.critedge8 ], [ %255, %.critedge10.loopexit ]
+  %.0189.lcssa = phi i64 [ 0, %.critedge8 ], [ %255, %.critedge10.loopexit ]
   tail call void @Extra_ProgressBarStop(ptr noundef %177) #14
-  %256 = tail call i64 @fwrite(ptr noundef %174, i64 noundef 1, i64 noundef %.0188.lcssa, ptr noundef %23)
+  %256 = tail call i64 @fwrite(ptr noundef %174, i64 noundef 1, i64 noundef %.0189.lcssa, ptr noundef %23)
   %.not211 = icmp eq ptr %174, null
   br i1 %.not211, label %258, label %257
 
@@ -1258,11 +1258,11 @@ define void @Io_WriteAigerGz(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   br i1 %15, label %.lr.ph, label %.critedge.preheader
 
 .critedge.preheader.loopexit:                     ; preds = %.lr.ph
-  %16 = trunc nuw i64 %indvars.iv.next to i32
+  %16 = trunc nuw i64 %indvars.iv.next328 to i32
   br label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.critedge.preheader.loopexit, %9
-  %.0169.lcssa = phi i32 [ 1, %9 ], [ %16, %.critedge.preheader.loopexit ]
+  %.0171.lcssa = phi i32 [ 1, %9 ], [ %16, %.critedge.preheader.loopexit ]
   %17 = getelementptr inbounds i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %18, i64 4
@@ -1271,29 +1271,29 @@ define void @Io_WriteAigerGz(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   br i1 %20, label %.lr.ph294, label %.critedge2
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
-  %indvars.iv327 = phi i64 [ %indvars.iv.next328, %.lr.ph ], [ 0, %9 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %9 ]
+  %indvars.iv327 = phi i64 [ %indvars.iv.next328, %.lr.ph ], [ 1, %9 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %9 ]
   %.val237290 = phi ptr [ %.val237, %.lr.ph ], [ %.val237286, %9 ]
   %21 = getelementptr i8, ptr %.val237290, i64 8
   %.val238.val = load ptr, ptr %21, align 8
-  %22 = getelementptr inbounds ptr, ptr %.val238.val, i64 %indvars.iv327
+  %22 = getelementptr inbounds ptr, ptr %.val238.val, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = inttoptr i64 %indvars.iv to ptr
+  %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
+  %24 = inttoptr i64 %indvars.iv327 to ptr
   %25 = getelementptr inbounds i8, ptr %23, i64 64
   store ptr %24, ptr %25, align 8
-  %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val237 = load ptr, ptr %13, align 8
   %26 = getelementptr i8, ptr %.val237, i64 4
   %.val237.val = load i32, ptr %26, align 4
   %27 = sext i32 %.val237.val to i64
-  %28 = icmp slt i64 %indvars.iv.next328, %27
+  %28 = icmp slt i64 %indvars.iv.next, %27
   br i1 %28, label %.lr.ph, label %.critedge.preheader.loopexit, !llvm.loop !18
 
 .lr.ph294:                                        ; preds = %.critedge.preheader, %.critedge
   %29 = phi ptr [ %41, %.critedge ], [ %18, %.critedge.preheader ]
   %indvars.iv332 = phi i64 [ %indvars.iv.next333, %.critedge ], [ 0, %.critedge.preheader ]
-  %.1170293 = phi i32 [ %.2, %.critedge ], [ %.0169.lcssa, %.critedge.preheader ]
+  %.1172292 = phi i32 [ %.2173, %.critedge ], [ %.0171.lcssa, %.critedge.preheader ]
   %30 = getelementptr i8, ptr %29, i64 8
   %.val240.val = load ptr, ptr %30, align 8
   %31 = getelementptr inbounds ptr, ptr %.val240.val, i64 %indvars.iv332
@@ -1308,8 +1308,8 @@ define void @Io_WriteAigerGz(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   br i1 %.not280, label %36, label %.critedge
 
 36:                                               ; preds = %34
-  %37 = add nsw i32 %.1170293, 1
-  %38 = zext i32 %.1170293 to i64
+  %37 = add nsw i32 %.1172292, 1
+  %38 = zext i32 %.1172292 to i64
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds i8, ptr %32, i64 64
   store ptr %39, ptr %40, align 8
@@ -1318,7 +1318,7 @@ define void @Io_WriteAigerGz(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 
 .critedge:                                        ; preds = %36, %34, %.lr.ph294
   %41 = phi ptr [ %29, %.lr.ph294 ], [ %.pre, %36 ], [ %29, %34 ]
-  %.2 = phi i32 [ %.1170293, %.lr.ph294 ], [ %37, %36 ], [ %.1170293, %34 ]
+  %.2173 = phi i32 [ %.1172292, %.lr.ph294 ], [ %37, %36 ], [ %.1172292, %34 ]
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %42 = getelementptr i8, ptr %41, i64 4
   %.val199 = load i32, ptr %42, align 4
@@ -1532,7 +1532,7 @@ define void @Io_WriteAigerGz(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 154:                                              ; preds = %.lr.ph307, %222
   %155 = phi ptr [ %150, %.lr.ph307 ], [ %223, %222 ]
   %indvars.iv341 = phi i64 [ 0, %.lr.ph307 ], [ %indvars.iv.next342, %222 ]
-  %.0168306 = phi i32 [ 0, %.lr.ph307 ], [ %.1, %222 ]
+  %.0169304 = phi i32 [ 0, %.lr.ph307 ], [ %.1170, %222 ]
   %156 = getelementptr i8, ptr %155, i64 8
   %.val239.val = load ptr, ptr %156, align 8
   %157 = getelementptr inbounds ptr, ptr %.val239.val, i64 %indvars.iv341
@@ -1607,7 +1607,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %163, %167
   br i1 %.not11.i, label %Io_WriteAigerEncode.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %Extra_ProgressBarUpdate.exit
-  %199 = sext i32 %.0168306 to i64
+  %199 = sext i32 %.0169304 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1627,7 +1627,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %163, %167
   br label %Io_WriteAigerEncode.exit
 
 Io_WriteAigerEncode.exit:                         ; preds = %Extra_ProgressBarUpdate.exit, %._crit_edge.loopexit.i
-  %.010.lcssa.i = phi i32 [ %.0168306, %Extra_ProgressBarUpdate.exit ], [ %204, %._crit_edge.loopexit.i ]
+  %.010.lcssa.i = phi i32 [ %.0169304, %Extra_ProgressBarUpdate.exit ], [ %204, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i32 [ %198, %Extra_ProgressBarUpdate.exit ], [ %203, %._crit_edge.loopexit.i ]
   %205 = trunc nuw i32 %.0.lcssa.i to i8
   %206 = add nsw i32 %.010.lcssa.i, 1
@@ -1680,7 +1680,7 @@ Io_WriteAigerEncode.exit273._crit_edge:           ; preds = %Io_WriteAigerEncode
 
 222:                                              ; preds = %Io_WriteAigerEncode.exit273._crit_edge, %160, %154
   %223 = phi ptr [ %155, %154 ], [ %.pre356, %Io_WriteAigerEncode.exit273._crit_edge ], [ %155, %160 ]
-  %.1 = phi i32 [ %.0168306, %154 ], [ %219, %Io_WriteAigerEncode.exit273._crit_edge ], [ %.0168306, %160 ]
+  %.1170 = phi i32 [ %.0169304, %154 ], [ %219, %Io_WriteAigerEncode.exit273._crit_edge ], [ %.0169304, %160 ]
   %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
   %224 = getelementptr i8, ptr %223, i64 4
   %.val197 = load i32, ptr %224, align 4
@@ -1689,9 +1689,9 @@ Io_WriteAigerEncode.exit273._crit_edge:           ; preds = %Io_WriteAigerEncode
   br i1 %226, label %154, label %.critedge8, !llvm.loop !22
 
 .critedge8:                                       ; preds = %222, %.critedge6
-  %.0168.lcssa = phi i32 [ 0, %.critedge6 ], [ %.1, %222 ]
+  %.0169.lcssa = phi i32 [ 0, %.critedge6 ], [ %.1170, %222 ]
   tail call void @Extra_ProgressBarStop(ptr noundef %149) #14
-  %227 = tail call i32 @gzwrite(ptr noundef nonnull %4, ptr noundef %146, i32 noundef %.0168.lcssa) #14
+  %227 = tail call i32 @gzwrite(ptr noundef nonnull %4, ptr noundef %146, i32 noundef %.0169.lcssa) #14
   %.not184 = icmp eq ptr %146, null
   br i1 %.not184, label %229, label %228
 
@@ -2034,7 +2034,7 @@ define void @Io_WriteAiger(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
   br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !26
 
 .critedge:                                        ; preds = %25, %5, %21
-  %.0182 = phi i32 [ 1, %21 ], [ %.val286, %5 ], [ %.val286, %25 ]
+  %.0183 = phi i32 [ 1, %21 ], [ %.val286, %5 ], [ %.val286, %25 ]
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %27 = getelementptr inbounds i8, ptr %1, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -3
@@ -2135,7 +2135,7 @@ sub_2:                                            ; preds = %sub_1
   br label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %.critedge2.preheader.loopexit, %67
-  %.0184.lcssa = phi i32 [ 1, %67 ], [ %73, %.critedge2.preheader.loopexit ]
+  %.0185.lcssa = phi i32 [ 1, %67 ], [ %73, %.critedge2.preheader.loopexit ]
   %74 = getelementptr inbounds i8, ptr %0, i64 32
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr i8, ptr %75, i64 4
@@ -2166,7 +2166,7 @@ sub_2:                                            ; preds = %sub_1
 .lr.ph357:                                        ; preds = %.critedge2.preheader, %.critedge2
   %86 = phi ptr [ %98, %.critedge2 ], [ %75, %.critedge2.preheader ]
   %indvars.iv400 = phi i64 [ %indvars.iv.next401, %.critedge2 ], [ 0, %.critedge2.preheader ]
-  %.1185356 = phi i32 [ %.2, %.critedge2 ], [ %.0184.lcssa, %.critedge2.preheader ]
+  %.1186356 = phi i32 [ %.2, %.critedge2 ], [ %.0185.lcssa, %.critedge2.preheader ]
   %87 = getelementptr i8, ptr %86, i64 8
   %.val292.val = load ptr, ptr %87, align 8
   %88 = getelementptr inbounds ptr, ptr %.val292.val, i64 %indvars.iv400
@@ -2181,8 +2181,8 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not340, label %93, label %.critedge2
 
 93:                                               ; preds = %91
-  %94 = add nsw i32 %.1185356, 1
-  %95 = zext i32 %.1185356 to i64
+  %94 = add nsw i32 %.1186356, 1
+  %95 = zext i32 %.1186356 to i64
   %96 = inttoptr i64 %95 to ptr
   %97 = getelementptr inbounds i8, ptr %89, i64 64
   store ptr %96, ptr %97, align 8
@@ -2191,7 +2191,7 @@ sub_2:                                            ; preds = %sub_1
 
 .critedge2:                                       ; preds = %93, %91, %.lr.ph357
   %98 = phi ptr [ %86, %.lr.ph357 ], [ %.pre, %93 ], [ %86, %91 ]
-  %.2 = phi i32 [ %.1185356, %.lr.ph357 ], [ %94, %93 ], [ %.1185356, %91 ]
+  %.2 = phi i32 [ %.1186356, %.lr.ph357 ], [ %94, %93 ], [ %.1186356, %91 ]
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
   %99 = getelementptr i8, ptr %98, i64 4
   %.val245 = load i32, ptr %99, align 4
@@ -2212,7 +2212,7 @@ sub_2:                                            ; preds = %sub_1
   %107 = getelementptr i8, ptr %0, i64 124
   %.val303 = load i32, ptr %107, align 4
   %108 = add nsw i32 %106, %.val303
-  %.not218 = icmp eq i32 %.0182, 0
+  %.not218 = icmp eq i32 %.0183, 0
   br i1 %.not218, label %109, label %.critedge240
 
 109:                                              ; preds = %.critedge4
@@ -2481,7 +2481,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_StrFree.exit317
 239:                                              ; preds = %.lr.ph370, %311
   %240 = phi ptr [ %235, %.lr.ph370 ], [ %312, %311 ]
   %indvars.iv409 = phi i64 [ 0, %.lr.ph370 ], [ %indvars.iv.next410, %311 ]
-  %.0183369 = phi i32 [ 0, %.lr.ph370 ], [ %.1, %311 ]
+  %.0184369 = phi i32 [ 0, %.lr.ph370 ], [ %.1, %311 ]
   %241 = getelementptr i8, ptr %240, i64 8
   %.val291.val = load ptr, ptr %241, align 8
   %242 = getelementptr inbounds ptr, ptr %.val291.val, i64 %indvars.iv409
@@ -2556,7 +2556,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %248, %252
   br i1 %.not11.i, label %Io_WriteAigerEncode.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %Extra_ProgressBarUpdate.exit
-  %284 = sext i32 %.0183369 to i64
+  %284 = sext i32 %.0184369 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -2576,7 +2576,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %248, %252
   br label %Io_WriteAigerEncode.exit
 
 Io_WriteAigerEncode.exit:                         ; preds = %Extra_ProgressBarUpdate.exit, %._crit_edge.loopexit.i
-  %.010.lcssa.i = phi i32 [ %.0183369, %Extra_ProgressBarUpdate.exit ], [ %289, %._crit_edge.loopexit.i ]
+  %.010.lcssa.i = phi i32 [ %.0184369, %Extra_ProgressBarUpdate.exit ], [ %289, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i32 [ %283, %Extra_ProgressBarUpdate.exit ], [ %288, %._crit_edge.loopexit.i ]
   %290 = trunc nuw i32 %.0.lcssa.i to i8
   %291 = add nsw i32 %.010.lcssa.i, 1
@@ -2640,7 +2640,7 @@ Io_WriteAigerEncode.exit331._crit_edge:           ; preds = %Io_WriteAigerEncode
 
 311:                                              ; preds = %Io_WriteAigerEncode.exit331._crit_edge, %245, %239
   %312 = phi ptr [ %240, %239 ], [ %.pre424, %Io_WriteAigerEncode.exit331._crit_edge ], [ %240, %245 ]
-  %.1 = phi i32 [ %.0183369, %239 ], [ %304, %Io_WriteAigerEncode.exit331._crit_edge ], [ %.0183369, %245 ]
+  %.1 = phi i32 [ %.0184369, %239 ], [ %304, %Io_WriteAigerEncode.exit331._crit_edge ], [ %.0184369, %245 ]
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
   %313 = getelementptr i8, ptr %312, i64 4
   %.val243 = load i32, ptr %313, align 4
@@ -2649,7 +2649,7 @@ Io_WriteAigerEncode.exit331._crit_edge:           ; preds = %Io_WriteAigerEncode
   br i1 %315, label %239, label %.critedge10, !llvm.loop !31
 
 .critedge10:                                      ; preds = %311, %.critedge8
-  %.0183.lcssa = phi i32 [ 0, %.critedge8 ], [ %.1, %311 ]
+  %.0184.lcssa = phi i32 [ 0, %.critedge8 ], [ %.1, %311 ]
   call void @Extra_ProgressBarStop(ptr noundef %234) #14
   %316 = getelementptr inbounds i8, ptr %7, i64 8
   %317 = load ptr, ptr %316, align 8
@@ -2657,13 +2657,13 @@ Io_WriteAigerEncode.exit331._crit_edge:           ; preds = %Io_WriteAigerEncode
   br i1 %.not223, label %318, label %322
 
 318:                                              ; preds = %.critedge10
-  %319 = sext i32 %.0183.lcssa to i64
+  %319 = sext i32 %.0184.lcssa to i64
   %320 = load ptr, ptr %7, align 8
   %321 = call i64 @fwrite(ptr noundef %231, i64 noundef 1, i64 noundef %319, ptr noundef %320)
   br label %332
 
 322:                                              ; preds = %.critedge10
-  call void @BZ2_bzWrite(ptr noundef nonnull %6, ptr noundef nonnull %317, ptr noundef %231, i32 noundef %.0183.lcssa) #14
+  call void @BZ2_bzWrite(ptr noundef nonnull %6, ptr noundef nonnull %317, ptr noundef %231, i32 noundef %.0184.lcssa) #14
   %323 = load i32, ptr %6, align 4
   %324 = icmp eq i32 %323, -6
   br i1 %324, label %325, label %332

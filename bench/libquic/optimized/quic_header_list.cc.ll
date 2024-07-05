@@ -3090,10 +3090,10 @@ cond.end.i.i.i539:                                ; preds = %cond.false.i.i.i537
   br label %invoke.cont86
 
 invoke.cont86:                                    ; preds = %cond.end.i.i.i539, %if.then.i19.i.i554
-  %__mid85.sroa.21.2 = phi ptr [ %91, %if.then.i19.i.i554 ], [ %add.ptr11.i.i.i542, %cond.end.i.i.i539 ]
-  %__mid85.sroa.14.2 = phi ptr [ %90, %if.then.i19.i.i554 ], [ %add.ptr.i.i17.i.i543, %cond.end.i.i.i539 ]
-  %__mid85.sroa.7.2 = phi ptr [ %89, %if.then.i19.i.i554 ], [ %92, %cond.end.i.i.i539 ]
-  %__mid85.sroa.0.0 = phi ptr [ %add.ptr.i20.i.i555, %if.then.i19.i.i554 ], [ %add.ptr15.i.i.i547, %cond.end.i.i.i539 ]
+  %__mid85.sroa.0.0 = phi ptr [ %add.ptr15.i.i.i547, %cond.end.i.i.i539 ], [ %add.ptr.i20.i.i555, %if.then.i19.i.i554 ]
+  %__mid85.sroa.7.2 = phi ptr [ %92, %cond.end.i.i.i539 ], [ %89, %if.then.i19.i.i554 ]
+  %__mid85.sroa.14.2 = phi ptr [ %add.ptr.i.i17.i.i543, %cond.end.i.i.i539 ], [ %90, %if.then.i19.i.i554 ]
+  %__mid85.sroa.21.2 = phi ptr [ %add.ptr11.i.i.i542, %cond.end.i.i.i539 ], [ %91, %if.then.i19.i.i554 ]
   %_M_last4.i584 = getelementptr inbounds i8, ptr %__last, i64 16
   %93 = load ptr, ptr %_M_finish.i, align 8
   %94 = load ptr, ptr %_M_node.i.i, align 8

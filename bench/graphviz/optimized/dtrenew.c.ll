@@ -82,14 +82,14 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %43
 
 43:                                               ; preds = %43, %41
-  %.0 = phi ptr [ %42, %41 ], [ %45, %43 ]
-  %44 = getelementptr inbounds i8, ptr %.0, i64 8
+  %.050 = phi ptr [ %42, %41 ], [ %45, %43 ]
+  %44 = getelementptr inbounds i8, ptr %.050, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not65 = icmp eq ptr %45, null
   br i1 %.not65, label %46, label %43
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %.0, i64 8
+  %47 = getelementptr inbounds i8, ptr %.050, i64 8
   store ptr %40, ptr %47, align 8
   br label %76
 
@@ -154,8 +154,8 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %86
 
 86:                                               ; preds = %28, %11, %26, %76
-  %.050 = phi ptr [ %85, %76 ], [ null, %26 ], [ null, %11 ], [ %1, %28 ]
-  ret ptr %.050
+  %.0 = phi ptr [ %85, %76 ], [ null, %26 ], [ null, %11 ], [ %1, %28 ]
+  ret ptr %.0
 }
 
 declare i32 @dtrestore(ptr noundef, ptr noundef) local_unnamed_addr #1

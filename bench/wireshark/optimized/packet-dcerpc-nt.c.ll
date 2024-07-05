@@ -570,15 +570,15 @@ define internal void @cb_byte_array_postprocess(ptr nocapture noundef readonly %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.058 = phi i32 [ %42, %.lr.ph ], [ %37, %.lr.ph.preheader ]
-  %.04157 = phi ptr [ %.041., %.lr.ph ], [ %.., %.lr.ph.preheader ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.04157, ptr noundef nonnull @.str.16, ptr noundef nonnull %21) #7
-  %40 = getelementptr inbounds i8, ptr %.04157, i64 24
+  %.058 = phi ptr [ %.0., %.lr.ph ], [ %.., %.lr.ph.preheader ]
+  %.04157 = phi i32 [ %42, %.lr.ph ], [ %37, %.lr.ph.preheader ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.058, ptr noundef nonnull @.str.16, ptr noundef nonnull %21) #7
+  %40 = getelementptr inbounds i8, ptr %.058, i64 24
   %41 = load ptr, ptr %40, align 8
   %.not56 = icmp eq ptr %41, null
-  %.041. = select i1 %.not56, ptr %.04157, ptr %41
-  %42 = add nsw i32 %.058, -1
-  %43 = icmp ugt i32 %.058, 1
+  %.0. = select i1 %.not56, ptr %.058, ptr %41
+  %42 = add nsw i32 %.04157, -1
+  %43 = icmp ugt i32 %.04157, 1
   br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %34, %32, %8, %30, %26
@@ -1864,7 +1864,7 @@ define hidden i32 @dissect_ndr_nt_SID28(ptr noundef %0, i32 noundef %1, ptr noun
   br label %14
 
 14:                                               ; preds = %7, %12
-  %.0 = phi ptr [ %13, %12 ], [ @.str.14, %7 ]
+  %.023 = phi ptr [ %13, %12 ], [ @.str.14, %7 ]
   %15 = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not = icmp eq i32 %16, 0
@@ -1872,7 +1872,7 @@ define hidden i32 @dissect_ndr_nt_SID28(ptr noundef %0, i32 noundef %1, ptr noun
 
 17:                                               ; preds = %14
   %18 = load i32, ptr @hf_nt_domain_sid, align 4
-  %19 = call i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %.0, ptr noundef nonnull %8, i32 noundef %18) #7
+  %19 = call i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %.023, ptr noundef nonnull %8, i32 noundef %18) #7
   %20 = sub i32 %19, %1
   %21 = icmp sgt i32 %20, 28
   %.not29 = icmp eq ptr %3, null
@@ -1916,8 +1916,8 @@ define hidden i32 @dissect_ndr_nt_SID28(ptr noundef %0, i32 noundef %1, ptr noun
   br label %42
 
 42:                                               ; preds = %35, %37, %14, %26
-  %.023 = phi i32 [ %19, %26 ], [ %1, %14 ], [ %36, %37 ], [ %36, %35 ]
-  ret i32 %.023
+  %.0 = phi i32 [ %19, %26 ], [ %1, %14 ], [ %36, %37 ], [ %36, %35 ]
+  ret i32 %.0
 }
 
 declare i32 @dissect_nt_sid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

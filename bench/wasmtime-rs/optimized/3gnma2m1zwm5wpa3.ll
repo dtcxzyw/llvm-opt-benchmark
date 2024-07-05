@@ -6377,11 +6377,11 @@ default.unreachable189:                           ; preds = %3
   br label %"_ZN4core3ptr55drop_in_place$LT$wasmtime_wasi..stream..StreamError$GT$17h67ce07b4756accd6E.exit87"
 
 .thread:                                          ; preds = %54, %56
-  %.0167 = phi i64 [ %58, %56 ], [ %55, %54 ]
+  %.022167 = phi i64 [ %58, %56 ], [ %55, %54 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %63 = load i64, ptr %43, align 8, !noundef !4
   %64 = getelementptr inbounds i8, ptr %1, i64 160
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %63, i64 %.0167)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %63, i64 %.022167)
   store i64 %.0.sroa.speculated.i.i, ptr %64, align 8
   %65 = icmp eq i64 %.0.sroa.speculated.i.i, 0
   br i1 %65, label %"_ZN4core3ptr55drop_in_place$LT$wasmtime_wasi..stream..StreamError$GT$17h67ce07b4756accd6E.exit87", label %85
@@ -9708,9 +9708,9 @@ common.ret:                                       ; preds = %89, %"_ZN4core6resu
   br label %.body
 
 43:                                               ; preds = %.critedge.i24, %37
-  %.sroa.1356.0.ph = phi i64 [ %39, %37 ], [ undef, %.critedge.i24 ]
   %.sroa.955.0.ph = phi ptr [ %40, %37 ], [ undef, %.critedge.i24 ]
   %.sroa.053.0.ph = phi i64 [ 2, %37 ], [ %spec.select96, %.critedge.i24 ]
+  %.sroa.1356.0.ph = phi i64 [ %39, %37 ], [ undef, %.critedge.i24 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   invoke void @_ZN13wasmtime_wasi8preview19WasiP1Ctx6get_fd17h2ec2ac5d2bc96ea4E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 16 dereferenceable(320) %10, i32 noundef %12)
           to label %46 unwind label %44
@@ -10908,11 +10908,11 @@ _ZN13wasmtime_wasi10filesystem4File15_spawn_blocking17hb13232f2bb2470f7E.exit._c
   br label %.body179
 
 352:                                              ; preds = %312, %345, %.noexc6.i
-  %353 = phi ptr [ %290, %312 ], [ %321, %.noexc6.i ], [ %321, %345 ]
-  %354 = phi ptr [ %291, %312 ], [ %322, %.noexc6.i ], [ %322, %345 ]
-  %.sroa.8320.sroa.6.0.ph = phi i64 [ %.sroa.3.i.sroa.5.0.copyload392, %312 ], [ %.sroa.8.i.sroa.6.0.copyload, %.noexc6.i ], [ %.sroa.8.i.sroa.6.0.copyload, %345 ]
-  %.sroa.8320.sroa.0.0.ph = phi ptr [ %.pre.i, %312 ], [ %.sroa.8.i.sroa.0.0.copyload, %.noexc6.i ], [ %.sroa.8.i.sroa.0.0.copyload, %345 ]
-  %.sroa.0319.0.ph = phi i64 [ %.pr.i, %312 ], [ %.sroa.0.0.copyload10.i, %.noexc6.i ], [ %.sroa.0.0.copyload10.i, %345 ]
+  %353 = phi ptr [ %321, %.noexc6.i ], [ %321, %345 ], [ %290, %312 ]
+  %354 = phi ptr [ %322, %.noexc6.i ], [ %322, %345 ], [ %291, %312 ]
+  %.sroa.0319.0.ph = phi i64 [ %.sroa.0.0.copyload10.i, %.noexc6.i ], [ %.sroa.0.0.copyload10.i, %345 ], [ %.pr.i, %312 ]
+  %.sroa.8320.sroa.0.0.ph = phi ptr [ %.sroa.8.i.sroa.0.0.copyload, %.noexc6.i ], [ %.sroa.8.i.sroa.0.0.copyload, %345 ], [ %.pre.i, %312 ]
+  %.sroa.8320.sroa.6.0.ph = phi i64 [ %.sroa.8.i.sroa.6.0.copyload, %.noexc6.i ], [ %.sroa.8.i.sroa.6.0.copyload, %345 ], [ %.sroa.3.i.sroa.5.0.copyload392, %312 ]
   store i8 1, ptr %353, align 8, !noalias !1601
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
   invoke fastcc void @"_ZN4core3ptr420drop_in_place$LT$wasmtime_wasi..filesystem..File..spawn_blocking$LT$$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_wasi..preview1..wasi_snapshot_preview1..WasiSnapshotPreview1$GT$..fd_read..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$u8$GT$$C$wasmtime_wasi..preview1..types..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3cb81e7f9518e922E"(ptr noundef nonnull align 8 %354)
@@ -13376,8 +13376,8 @@ _ZN13wasmtime_wasi10filesystem4File15_spawn_blocking17h9a446652476fdb96E.exit._c
 303:                                              ; preds = %262, %296, %.noexc6.i
   %304 = phi ptr [ %272, %.noexc6.i ], [ %272, %296 ], [ %240, %262 ]
   %305 = phi ptr [ %273, %.noexc6.i ], [ %273, %296 ], [ %241, %262 ]
-  %.sroa.8220.0.ph = phi i64 [ %.sroa.8.0.copyload11.i, %.noexc6.i ], [ %.sroa.8.0.copyload11.i, %296 ], [ %.sroa.3.0.copyload.i, %262 ]
   %.sroa.0219.0.ph = phi i64 [ %.sroa.0.0.copyload10.i, %.noexc6.i ], [ %.sroa.0.0.copyload10.i, %296 ], [ %.pr.i, %262 ]
+  %.sroa.8220.0.ph = phi i64 [ %.sroa.8.0.copyload11.i, %.noexc6.i ], [ %.sroa.8.0.copyload11.i, %296 ], [ %.sroa.3.0.copyload.i, %262 ]
   store i8 1, ptr %304, align 8, !noalias !1998
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   store i64 %.sroa.0219.0.ph, ptr %23, align 8
@@ -22171,8 +22171,8 @@ common.ret:                                       ; preds = %637, %529, %"_ZN50_
   br label %271
 
 271:                                              ; preds = %261, %270, %477, %353
-  %.sroa.5642.1 = phi i64 [ %.sroa.9640.8.copyload, %477 ], [ %.sroa.9600.8.copyload, %353 ], [ %.sroa.9557.8.copyload, %270 ], [ %.sroa.9569.8.copyload, %261 ]
   %.sroa.0641.1 = phi ptr [ %472, %477 ], [ %348, %353 ], [ %265, %270 ], [ %256, %261 ]
+  %.sroa.5642.1 = phi i64 [ %.sroa.9640.8.copyload, %477 ], [ %.sroa.9600.8.copyload, %353 ], [ %.sroa.9557.8.copyload, %270 ], [ %.sroa.9569.8.copyload, %261 ]
   %272 = load i64, ptr %132, align 8, !alias.scope !3381, !noalias !3384, !noundef !4
   %273 = load i64, ptr %122, align 8, !alias.scope !3381, !noalias !3384, !noundef !4
   %274 = icmp eq i64 %272, %273

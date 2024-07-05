@@ -1638,26 +1638,26 @@ define internal fastcc i32 @dissect_llrp_parameters(ptr noundef %0, ptr noundef 
   br label %25
 
 25:                                               ; preds = %20, %14, %23
-  %.01169 = phi i32 [ %24, %23 ], [ 4, %14 ], [ %18, %20 ]
-  %26 = add i32 %.01169, %.011711185
+  %.01170 = phi i32 [ %24, %23 ], [ 4, %14 ], [ %18, %20 ]
+  %26 = add i32 %.01170, %.011711185
   br i1 %10, label %._crit_edge, label %27
 
 27:                                               ; preds = %25
   %28 = load i32, ptr @hf_llrp_param, align 4
   %29 = zext i16 %15 to i32
   %30 = call ptr @val_to_str_ext(i32 noundef %29, ptr noundef nonnull @tlv_type_ext, ptr noundef nonnull @.str.899) #3
-  %31 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %.011711185, i32 noundef %.01169, ptr noundef nonnull @.str.906, ptr noundef %30) #3
+  %31 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %.011711185, i32 noundef %.01170, ptr noundef nonnull @.str.906, ptr noundef %30) #3
   %32 = load i32, ptr @ett_llrp_param, align 4
   %33 = call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #3
   %34 = load i32, ptr @hf_llrp_tlv_type, align 4
   %35 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %.011711185, i32 noundef 2, i32 noundef 0) #3
   %36 = load i32, ptr @hf_llrp_tlv_len, align 4
   %37 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %36, ptr noundef %0, i32 noundef %16, i32 noundef 2, i32 noundef 0) #3
-  %.not1176 = icmp eq i32 %.01169, %18
+  %.not1176 = icmp eq i32 %.01170, %18
   br i1 %.not1176, label %40, label %38
 
 38:                                               ; preds = %27
-  %39 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %37, ptr noundef nonnull @ei_llrp_invalid_length, ptr noundef nonnull @.str.907, i32 noundef %18, i32 noundef %.01169) #3
+  %39 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %37, ptr noundef nonnull @ei_llrp_invalid_length, ptr noundef nonnull @.str.907, i32 noundef %18, i32 noundef %.01170) #3
   br label %40
 
 40:                                               ; preds = %38, %27
@@ -3285,7 +3285,7 @@ dissect_llrp_impinj_parameter.exit:               ; preds = %1201, %890, %1203, 
 
 1208:                                             ; preds = %dissect_llrp_impinj_parameter.exit
   %1209 = sub i32 %.0, %.011711185
-  %1210 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %33, ptr noundef nonnull @ei_llrp_invalid_length, ptr noundef nonnull @.str.908, i32 noundef %1209, i32 noundef %.01169) #3
+  %1210 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %33, ptr noundef nonnull @ei_llrp_invalid_length, ptr noundef nonnull @.str.908, i32 noundef %1209, i32 noundef %.01170) #3
   br label %1249
 
 1211:                                             ; preds = %12
@@ -3404,8 +3404,8 @@ switch.lookup:                                    ; preds = %1211
   br i1 %1251, label %12, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %25, %1249, %6
-  %.01170 = phi i32 [ %3, %6 ], [ %.11172, %1249 ], [ %26, %25 ]
-  ret i32 %.01170
+  %.01169 = phi i32 [ %3, %6 ], [ %.11172, %1249 ], [ %26, %25 ]
+  ret i32 %.01169
 }
 
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1

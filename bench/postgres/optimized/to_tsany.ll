@@ -271,21 +271,21 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
 
 .lr.ph106:                                        ; preds = %._crit_edge.thread, %204
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %204 ], [ 0, %._crit_edge.thread ]
-  %.0104 = phi i32 [ %.1, %204 ], [ 0, %._crit_edge.thread ]
-  %.083103 = phi ptr [ %205, %204 ], [ %128, %._crit_edge.thread ]
+  %.084103 = phi i32 [ %.185, %204 ], [ 0, %._crit_edge.thread ]
+  %.088102 = phi ptr [ %205, %204 ], [ %128, %._crit_edge.thread ]
   %132 = load ptr, ptr %0, align 8
   %133 = getelementptr %struct.ParsedWord, ptr %132, i64 %indvars.iv115, i32 1
   %134 = load i16, ptr %133, align 2
-  %135 = load i32, ptr %.083103, align 4
+  %135 = load i32, ptr %.088102, align 4
   %136 = shl i16 %134, 1
   %137 = and i32 %135, 1
-  %138 = shl i32 %.0104, 12
+  %138 = shl i32 %.084103, 12
   %139 = and i16 %136, 4094
   %.masked = zext nneg i16 %139 to i32
   %140 = or disjoint i32 %137, %.masked
   %141 = or disjoint i32 %140, %138
-  store i32 %141, ptr %.083103, align 4
-  %142 = sext i32 %.0104 to i64
+  store i32 %141, ptr %.088102, align 4
+  %142 = sext i32 %.084103 to i64
   %143 = getelementptr i8, ptr %130, i64 %142
   %144 = load ptr, ptr %0, align 8
   %145 = getelementptr %struct.ParsedWord, ptr %144, i64 %indvars.iv115
@@ -300,7 +300,7 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
   %153 = getelementptr inbounds i8, ptr %152, i64 2
   %154 = load i16, ptr %153, align 2
   %155 = zext i16 %154 to i32
-  %156 = add i32 %.0104, %155
+  %156 = add i32 %.084103, %155
   %157 = getelementptr inbounds i8, ptr %152, i64 16
   %158 = load ptr, ptr %157, align 8
   tail call void @pfree(ptr noundef %158) #8
@@ -316,9 +316,9 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
   %165 = load ptr, ptr %164, align 8
   %166 = load i16, ptr %165, align 2
   %167 = zext i16 %166 to i32
-  %168 = load i32, ptr %.083103, align 4
+  %168 = load i32, ptr %.088102, align 4
   %169 = or i32 %168, 1
-  store i32 %169, ptr %.083103, align 4
+  store i32 %169, ptr %.088102, align 4
   %170 = add i32 %156, 1
   %171 = and i32 %170, -2
   %172 = sext i32 %171 to i64
@@ -327,7 +327,7 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
   %174 = load i32, ptr %127, align 4
   %175 = sext i32 %174 to i64
   %176 = getelementptr [0 x %struct.WordEntry], ptr %128, i64 0, i64 %175
-  %177 = load i32, ptr %.083103, align 4
+  %177 = load i32, ptr %.088102, align 4
   %178 = lshr i32 %177, 12
   %179 = lshr i32 %177, 1
   %180 = and i32 %179, 2047
@@ -372,14 +372,14 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
   br label %204
 
 201:                                              ; preds = %.lr.ph106
-  %202 = load i32, ptr %.083103, align 4
+  %202 = load i32, ptr %.088102, align 4
   %203 = and i32 %202, -2
-  store i32 %203, ptr %.083103, align 4
+  store i32 %203, ptr %.088102, align 4
   br label %204
 
 204:                                              ; preds = %201, %._crit_edge101
-  %.1 = phi i32 [ %197, %._crit_edge101 ], [ %156, %201 ]
-  %205 = getelementptr i8, ptr %.083103, i64 4
+  %.185 = phi i32 [ %197, %._crit_edge101 ], [ %156, %201 ]
+  %205 = getelementptr i8, ptr %.088102, i64 4
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %206 = load i32, ptr %2, align 4
   %207 = sext i32 %206 to i64
@@ -964,20 +964,20 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 
 17:                                               ; preds = %.lr.ph78, %106
   %18 = phi i32 [ %14, %.lr.ph78 ], [ %107, %106 ]
-  %.04677 = phi i32 [ 0, %.lr.ph78 ], [ %108, %106 ]
-  %.04876 = phi i32 [ 0, %.lr.ph78 ], [ %42, %106 ]
-  %.05075 = phi i32 [ 0, %.lr.ph78 ], [ %.151.lcssa, %106 ]
-  %.not = icmp eq i32 %.04876, 0
+  %.077 = phi i32 [ 0, %.lr.ph78 ], [ %.1.lcssa, %106 ]
+  %.04776 = phi i32 [ 0, %.lr.ph78 ], [ %108, %106 ]
+  %.05175 = phi i32 [ 0, %.lr.ph78 ], [ %42, %106 ]
+  %.not = icmp eq i32 %.05175, 0
   %.pre = load ptr, ptr %7, align 8
   br i1 %.not, label %..loopexit_crit_edge, label %19
 
 ..loopexit_crit_edge:                             ; preds = %17
-  %.pre82 = sext i32 %.05075 to i64
+  %.pre82 = sext i32 %.077 to i64
   br label %.loopexit
 
 19:                                               ; preds = %17
-  %20 = add nuw nsw i32 %.04876, 1
-  %21 = sext i32 %.05075 to i64
+  %20 = add nuw nsw i32 %.05175, 1
+  %21 = sext i32 %.077 to i64
   %22 = getelementptr %struct.ParsedWord, ptr %.pre, i64 %21, i32 4
   %23 = load i16, ptr %22, align 8
   %24 = zext i16 %23 to i32
@@ -986,9 +986,9 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 
 .lr.ph:                                           ; preds = %19, %30
   %26 = phi i32 [ %32, %30 ], [ %20, %19 ]
-  %.160 = phi i32 [ %31, %30 ], [ %.04677, %19 ]
+  %.14860 = phi i32 [ %31, %30 ], [ %.04776, %19 ]
   call void @pushStop(ptr noundef %1) #8
-  %.not58 = icmp eq i32 %.160, 0
+  %.not58 = icmp eq i32 %.14860, 0
   br i1 %.not58, label %30, label %27
 
 27:                                               ; preds = %.lr.ph
@@ -998,7 +998,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   br label %30
 
 30:                                               ; preds = %27, %.lr.ph
-  %31 = add i32 %.160, 1
+  %31 = add i32 %.14860, 1
   %32 = add nuw nsw i32 %26, 1
   %33 = load ptr, ptr %7, align 8
   %34 = getelementptr %struct.ParsedWord, ptr %33, i64 %21, i32 4
@@ -1015,20 +1015,20 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %.pre-phi = phi i64 [ %.pre82, %..loopexit_crit_edge ], [ %21, %.loopexit.loopexit ], [ %21, %19 ]
   %38 = phi i32 [ %18, %..loopexit_crit_edge ], [ %.pre79, %.loopexit.loopexit ], [ %18, %19 ]
   %39 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %33, %.loopexit.loopexit ], [ %.pre, %19 ]
-  %.2 = phi i32 [ %.04677, %..loopexit_crit_edge ], [ %31, %.loopexit.loopexit ], [ %.04677, %19 ]
+  %.249 = phi i32 [ %.04776, %..loopexit_crit_edge ], [ %31, %.loopexit.loopexit ], [ %.04776, %19 ]
   %40 = getelementptr %struct.ParsedWord, ptr %39, i64 %.pre-phi, i32 4
   %41 = load i16, ptr %40, align 8
   %42 = zext i16 %41 to i32
-  %43 = icmp slt i32 %.05075, %38
+  %43 = icmp slt i32 %.077, %38
   br i1 %43, label %.lr.ph71, label %.critedge
 
 .lr.ph71:                                         ; preds = %.loopexit, %97
   %44 = phi i32 [ %98, %97 ], [ %38, %.loopexit ]
   %45 = phi i32 [ %99, %97 ], [ %38, %.loopexit ]
-  %.04770 = phi i32 [ %100, %97 ], [ 0, %.loopexit ]
-  %.15169 = phi i32 [ %.252.lcssa, %97 ], [ %.05075, %.loopexit ]
+  %.170 = phi i32 [ %.2.lcssa, %97 ], [ %.077, %.loopexit ]
+  %.05069 = phi i32 [ %100, %97 ], [ 0, %.loopexit ]
   %46 = load ptr, ptr %7, align 8
-  %47 = sext i32 %.15169 to i64
+  %47 = sext i32 %.170 to i64
   %48 = getelementptr %struct.ParsedWord, ptr %46, i64 %47
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load i16, ptr %49, align 8
@@ -1038,12 +1038,12 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 52:                                               ; preds = %.lr.ph71
   %53 = getelementptr inbounds i8, ptr %48, i64 4
   %54 = load i16, ptr %53, align 4
-  %55 = icmp slt i32 %.15169, %45
+  %55 = icmp slt i32 %.170, %45
   br i1 %55, label %.lr.ph63.preheader, label %.critedge2
 
 .lr.ph63.preheader:                               ; preds = %52
   %56 = load ptr, ptr %7, align 8
-  %57 = sext i32 %.15169 to i64
+  %57 = sext i32 %.170 to i64
   %58 = getelementptr %struct.ParsedWord, ptr %56, i64 %57
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   %60 = load i16, ptr %59, align 8
@@ -1051,7 +1051,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   br i1 %61, label %.lr.ph91, label %.critedge2
 
 .lr.ph63:                                         ; preds = %90
-  %62 = add i32 %.06289, 1
+  %62 = add i32 %.0466190, 1
   %63 = load ptr, ptr %7, align 8
   %64 = sext i32 %91 to i64
   %65 = getelementptr %struct.ParsedWord, ptr %63, i64 %64
@@ -1063,8 +1063,8 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 .lr.ph91:                                         ; preds = %.lr.ph63.preheader, %.lr.ph63
   %69 = phi ptr [ %65, %.lr.ph63 ], [ %58, %.lr.ph63.preheader ]
   %70 = phi i64 [ %64, %.lr.ph63 ], [ %57, %.lr.ph63.preheader ]
-  %.2526190 = phi i32 [ %91, %.lr.ph63 ], [ %.15169, %.lr.ph63.preheader ]
-  %.06289 = phi i32 [ %62, %.lr.ph63 ], [ 0, %.lr.ph63.preheader ]
+  %.0466190 = phi i32 [ %62, %.lr.ph63 ], [ 0, %.lr.ph63.preheader ]
+  %.26289 = phi i32 [ %91, %.lr.ph63 ], [ %.170, %.lr.ph63.preheader ]
   %71 = phi i32 [ %92, %.lr.ph63 ], [ %45, %.lr.ph63.preheader ]
   %72 = phi i32 [ %92, %.lr.ph63 ], [ %44, %.lr.ph63.preheader ]
   %73 = getelementptr inbounds i8, ptr %69, i64 4
@@ -1087,7 +1087,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %87 = getelementptr %struct.ParsedWord, ptr %86, i64 %70, i32 5
   %88 = load ptr, ptr %87, align 8
   call void @pfree(ptr noundef %88) #8
-  %.not57 = icmp eq i32 %.06289, 0
+  %.not57 = icmp eq i32 %.0466190, 0
   br i1 %.not57, label %90, label %89
 
 89:                                               ; preds = %76
@@ -1095,7 +1095,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   br label %90
 
 90:                                               ; preds = %89, %76
-  %91 = add nsw i32 %.2526190, 1
+  %91 = add nsw i32 %.26289, 1
   %92 = load i32, ptr %10, align 4
   %93 = icmp slt i32 %91, %92
   br i1 %93, label %.lr.ph63, label %.critedge2, !llvm.loop !11
@@ -1103,8 +1103,8 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 .critedge2:                                       ; preds = %.lr.ph63, %90, %.lr.ph91, %.lr.ph63.preheader, %52
   %94 = phi i32 [ %44, %52 ], [ %44, %.lr.ph63.preheader ], [ %72, %.lr.ph91 ], [ %92, %90 ], [ %92, %.lr.ph63 ]
   %95 = phi i32 [ %45, %52 ], [ %45, %.lr.ph63.preheader ], [ %71, %.lr.ph91 ], [ %92, %90 ], [ %92, %.lr.ph63 ]
-  %.252.lcssa = phi i32 [ %.15169, %52 ], [ %.15169, %.lr.ph63.preheader ], [ %.2526190, %.lr.ph91 ], [ %91, %90 ], [ %91, %.lr.ph63 ]
-  %.not56 = icmp eq i32 %.04770, 0
+  %.2.lcssa = phi i32 [ %.170, %52 ], [ %.170, %.lr.ph63.preheader ], [ %.26289, %.lr.ph91 ], [ %91, %90 ], [ %91, %.lr.ph63 ]
+  %.not56 = icmp eq i32 %.05069, 0
   br i1 %.not56, label %97, label %96
 
 96:                                               ; preds = %.critedge2
@@ -1115,14 +1115,14 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 97:                                               ; preds = %96, %.critedge2
   %98 = phi i32 [ %.pre80, %96 ], [ %94, %.critedge2 ]
   %99 = phi i32 [ %.pre80, %96 ], [ %95, %.critedge2 ]
-  %100 = add i32 %.04770, 1
-  %101 = icmp slt i32 %.252.lcssa, %99
+  %100 = add i32 %.05069, 1
+  %101 = icmp slt i32 %.2.lcssa, %99
   br i1 %101, label %.lr.ph71, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %.lr.ph71, %97, %.loopexit
   %102 = phi i32 [ %38, %.loopexit ], [ %98, %97 ], [ %44, %.lr.ph71 ]
-  %.151.lcssa = phi i32 [ %.05075, %.loopexit ], [ %.252.lcssa, %97 ], [ %.15169, %.lr.ph71 ]
-  %.not55 = icmp eq i32 %.2, 0
+  %.1.lcssa = phi i32 [ %.077, %.loopexit ], [ %.2.lcssa, %97 ], [ %.170, %.lr.ph71 ]
+  %.not55 = icmp eq i32 %.249, 0
   br i1 %.not55, label %106, label %103
 
 103:                                              ; preds = %.critedge
@@ -1134,8 +1134,8 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 
 106:                                              ; preds = %103, %.critedge
   %107 = phi i32 [ %.pre81, %103 ], [ %102, %.critedge ]
-  %108 = add i32 %.2, 1
-  %109 = icmp slt i32 %.151.lcssa, %107
+  %108 = add i32 %.249, 1
+  %109 = icmp slt i32 %.1.lcssa, %107
   br i1 %109, label %17, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %106

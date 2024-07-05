@@ -108,21 +108,21 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32i_fsriP11pro
   %21 = getelementptr inbounds [32 x i64], ptr %15, i64 0, i64 %20
   %22 = icmp ugt i32 %14, 31
   %23 = add nsw i32 %14, -32
-  %.023 = select i1 %22, i32 %23, i32 %14
   %.022.in = select i1 %22, ptr %21, ptr %18
+  %.0 = select i1 %22, i32 %23, i32 %14
   %.022 = load i64, ptr %.022.in, align 8
-  %.not = icmp eq i32 %.023, 0
+  %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %33, label %24
 
 24:                                               ; preds = %11
-  %.0.in = select i1 %22, ptr %18, ptr %21
-  %25 = sub nsw i32 0, %.023
+  %.023.in = select i1 %22, ptr %18, ptr %21
+  %25 = sub nsw i32 0, %.0
   %26 = and i32 %25, 31
-  %.0 = load i64, ptr %.0.in, align 8
+  %.023 = load i64, ptr %.023.in, align 8
   %27 = zext nneg i32 %26 to i64
-  %28 = shl i64 %.0, %27
+  %28 = shl i64 %.023, %27
   %29 = and i64 %.022, 4294967295
-  %30 = zext nneg i32 %.023 to i64
+  %30 = zext nneg i32 %.0 to i64
   %31 = lshr i64 %29, %30
   %32 = or i64 %28, %31
   br label %33
@@ -209,21 +209,21 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32i_fsriP11p
   %21 = getelementptr inbounds [32 x i64], ptr %15, i64 0, i64 %20
   %22 = icmp ugt i32 %14, 31
   %23 = add nsw i32 %14, -32
-  %.026 = select i1 %22, i32 %23, i32 %14
   %.025.in = select i1 %22, ptr %21, ptr %18
+  %.0 = select i1 %22, i32 %23, i32 %14
   %.025 = load i64, ptr %.025.in, align 8
-  %.not = icmp eq i32 %.026, 0
+  %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %33, label %24
 
 24:                                               ; preds = %11
-  %.0.in = select i1 %22, ptr %18, ptr %21
-  %25 = sub nsw i32 0, %.026
+  %.026.in = select i1 %22, ptr %18, ptr %21
+  %25 = sub nsw i32 0, %.0
   %26 = and i32 %25, 31
-  %.0 = load i64, ptr %.0.in, align 8
+  %.026 = load i64, ptr %.026.in, align 8
   %27 = zext nneg i32 %26 to i64
-  %28 = shl i64 %.0, %27
+  %28 = shl i64 %.026, %27
   %29 = and i64 %.025, 4294967295
-  %30 = zext nneg i32 %.026 to i64
+  %30 = zext nneg i32 %.0 to i64
   %31 = lshr i64 %29, %30
   %32 = or i64 %28, %31
   br label %33
@@ -385,27 +385,27 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32e_fsriP11pro
   %35 = getelementptr inbounds [32 x i64], ptr %24, i64 0, i64 %26
   %36 = icmp ugt i32 %14, 31
   %37 = add nsw i32 %14, -32
+  %.034.in = select i1 %36, ptr %35, ptr %34
   %.033 = select i1 %36, i32 %37, i32 %14
-  %.032.in = select i1 %36, ptr %35, ptr %34
-  %.032 = load i64, ptr %.032.in, align 8
+  %.034 = load i64, ptr %.034.in, align 8
   %.not = icmp eq i32 %.033, 0
   br i1 %.not, label %47, label %38
 
 38:                                               ; preds = %33
-  %.0.in = select i1 %36, ptr %34, ptr %35
+  %.035.in = select i1 %36, ptr %34, ptr %35
   %39 = sub nsw i32 0, %.033
   %40 = and i32 %39, 31
-  %.0 = load i64, ptr %.0.in, align 8
+  %.035 = load i64, ptr %.035.in, align 8
   %41 = zext nneg i32 %40 to i64
-  %42 = shl i64 %.0, %41
-  %43 = and i64 %.032, 4294967295
+  %42 = shl i64 %.035, %41
+  %43 = and i64 %.034, 4294967295
   %44 = zext nneg i32 %.033 to i64
   %45 = lshr i64 %43, %44
   %46 = or i64 %42, %45
   br label %47
 
 47:                                               ; preds = %33, %38
-  %48 = phi i64 [ %46, %38 ], [ %.032, %33 ]
+  %48 = phi i64 [ %46, %38 ], [ %.034, %33 ]
   %49 = lshr i64 %1, 7
   %50 = and i64 %49, 31
   %51 = icmp ugt i64 %50, 15
@@ -520,27 +520,27 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32e_fsriP11p
   %35 = getelementptr inbounds [32 x i64], ptr %24, i64 0, i64 %26
   %36 = icmp ugt i32 %14, 31
   %37 = add nsw i32 %14, -32
-  %.037 = select i1 %36, i32 %37, i32 %14
-  %.036.in = select i1 %36, ptr %35, ptr %34
-  %.036 = load i64, ptr %.036.in, align 8
-  %.not = icmp eq i32 %.037, 0
+  %.037.in = select i1 %36, ptr %35, ptr %34
+  %.036 = select i1 %36, i32 %37, i32 %14
+  %.037 = load i64, ptr %.037.in, align 8
+  %.not = icmp eq i32 %.036, 0
   br i1 %.not, label %47, label %38
 
 38:                                               ; preds = %33
-  %.035.in = select i1 %36, ptr %34, ptr %35
-  %39 = sub nsw i32 0, %.037
+  %.038.in = select i1 %36, ptr %34, ptr %35
+  %39 = sub nsw i32 0, %.036
   %40 = and i32 %39, 31
-  %.035 = load i64, ptr %.035.in, align 8
+  %.038 = load i64, ptr %.038.in, align 8
   %41 = zext nneg i32 %40 to i64
-  %42 = shl i64 %.035, %41
-  %43 = and i64 %.036, 4294967295
-  %44 = zext nneg i32 %.037 to i64
+  %42 = shl i64 %.038, %41
+  %43 = and i64 %.037, 4294967295
+  %44 = zext nneg i32 %.036 to i64
   %45 = lshr i64 %43, %44
   %46 = or i64 %42, %45
   br label %47
 
 47:                                               ; preds = %33, %38
-  %48 = phi i64 [ %46, %38 ], [ %.036, %33 ]
+  %48 = phi i64 [ %46, %38 ], [ %.037, %33 ]
   %49 = shl i64 %48, 32
   %50 = ashr exact i64 %49, 32
   %51 = getelementptr inbounds i8, ptr %0, i64 3672

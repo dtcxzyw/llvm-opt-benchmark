@@ -42,13 +42,13 @@ define noundef i32 @prte_rtc_base_select() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   store i1 true, ptr @selected, align 1
-  %.03154 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 320), align 8
-  %.not55 = icmp eq ptr %.03154, getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 200)
+  %.03254 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 320), align 8
+  %.not55 = icmp eq ptr %.03254, getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 200)
   br i1 %.not55, label %._crit_edge, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %3, %104
-  %.03156 = phi ptr [ %.031, %104 ], [ %.03154, %3 ]
-  %4 = getelementptr inbounds i8, ptr %.03156, i64 144
+  %.03256 = phi ptr [ %.032, %104 ], [ %.03254, %3 ]
+  %4 = getelementptr inbounds i8, ptr %.03256, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 76), align 4
   %or.cond45 = icmp ult i32 %6, 64
@@ -253,9 +253,9 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %69, %7
   br label %104
 
 104:                                              ; preds = %88, %.critedge, %54, %56, %61, %41, %43, %48, %19, %20, %25
-  %105 = getelementptr inbounds i8, ptr %.03156, i64 120
-  %.031 = load ptr, ptr %105, align 8
-  %.not = icmp eq ptr %.031, getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 200)
+  %105 = getelementptr inbounds i8, ptr %.03256, i64 120
+  %.032 = load ptr, ptr %105, align 8
+  %.not = icmp eq ptr %.032, getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 200)
   br i1 %.not, label %._crit_edge, label %.lr.ph57, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %104, %3

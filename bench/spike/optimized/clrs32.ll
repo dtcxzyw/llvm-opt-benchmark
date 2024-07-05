@@ -127,12 +127,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_clrs32P11p
   %30 = zext i1 %29 to i32
   %spec.select56 = select i1 %21, i32 16, i32 0
   %31 = or disjoint i32 %spec.select56, 8
-  %.148 = select i1 %23, i32 %31, i32 %spec.select56
-  %32 = or disjoint i32 %.148, 4
-  %.249 = select i1 %25, i32 %32, i32 %.148
-  %33 = or disjoint i32 %.249, 2
-  %.350 = select i1 %27, i32 %33, i32 %.249
-  %spec.select58 = add nuw nsw i32 %.350, %30
+  %.149 = select i1 %23, i32 %31, i32 %spec.select56
+  %32 = or disjoint i32 %.149, 4
+  %.250 = select i1 %25, i32 %32, i32 %.149
+  %33 = or disjoint i32 %.250, 2
+  %.351 = select i1 %27, i32 %33, i32 %.250
+  %spec.select58 = add nuw nsw i32 %.351, %30
   %34 = add nsw i32 %spec.select58, -1
   %35 = sext i32 %34 to i64
   br label %.split.us
@@ -200,9 +200,9 @@ define noundef i64 @_Z17fast_rv64i_clrs32P11processor_t6insn_tm(ptr nocapture no
   br label %21
 
 21:                                               ; preds = %11, %45
-  %.05265 = phi i64 [ 1, %11 ], [ %53, %45 ]
-  %.05364 = phi i64 [ %16, %11 ], [ %52, %45 ]
-  %22 = shl i64 %.05265, 5
+  %.065 = phi i64 [ %16, %11 ], [ %52, %45 ]
+  %.05364 = phi i64 [ 1, %11 ], [ %53, %45 ]
+  %22 = shl i64 %.05364, 5
   %23 = and i64 %22, 4294967264
   %24 = shl nuw i64 4294967295, %23
   %25 = and i64 %24, %20
@@ -224,34 +224,34 @@ define noundef i64 @_Z17fast_rv64i_clrs32P11processor_t6insn_tm(ptr nocapture no
   %34 = icmp ult i32 %spec.select58, 16777216
   %35 = or disjoint i32 %spec.select57, 8
   %36 = shl nuw i32 %spec.select58, 8
-  %.148 = select i1 %34, i32 %35, i32 %spec.select57
+  %.149 = select i1 %34, i32 %35, i32 %spec.select57
   %.2 = select i1 %34, i32 %36, i32 %spec.select58
   %37 = icmp ult i32 %.2, 268435456
-  %38 = or disjoint i32 %.148, 4
+  %38 = or disjoint i32 %.149, 4
   %39 = shl nuw i32 %.2, 4
-  %.249 = select i1 %37, i32 %38, i32 %.148
+  %.250 = select i1 %37, i32 %38, i32 %.149
   %.3 = select i1 %37, i32 %39, i32 %.2
   %40 = icmp ult i32 %.3, 1073741824
-  %41 = or disjoint i32 %.249, 2
+  %41 = or disjoint i32 %.250, 2
   %42 = shl nuw i32 %.3, 2
-  %.350 = select i1 %40, i32 %41, i32 %.249
+  %.351 = select i1 %40, i32 %41, i32 %.250
   %.4 = select i1 %40, i32 %42, i32 %.3
   %43 = icmp sgt i32 %.4, -1
   %44 = zext i1 %43 to i32
-  %spec.select59 = add nuw nsw i32 %.350, %44
+  %spec.select59 = add nuw nsw i32 %.351, %44
   br label %45
 
 45:                                               ; preds = %31, %21
-  %.451 = phi i32 [ 32, %21 ], [ %spec.select59, %31 ]
-  %46 = add nsw i32 %.451, -1
+  %.452 = phi i32 [ 32, %21 ], [ %spec.select59, %31 ]
+  %46 = add nsw i32 %.452, -1
   %47 = xor i64 %24, -1
-  %48 = and i64 %.05364, %47
+  %48 = and i64 %.065, %47
   %49 = sext i32 %46 to i64
   %50 = mul i64 %28, %49
   %51 = and i64 %50, %24
   %52 = or i64 %51, %48
-  %53 = add nsw i64 %.05265, -1
-  %.not66 = icmp eq i64 %.05265, 0
+  %53 = add nsw i64 %.05364, -1
+  %.not66 = icmp eq i64 %.05364, 0
   br i1 %.not66, label %54, label %21, !llvm.loop !4
 
 54:                                               ; preds = %45
@@ -305,26 +305,26 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_clrs32P1
   %spec.select = xor i32 %.lobit, %20
   %21 = icmp ult i32 %spec.select, 65536
   %22 = shl nuw i32 %spec.select, 16
-  %spec.select60 = select i1 %21, i32 %22, i32 %spec.select
-  %23 = icmp ult i32 %spec.select60, 16777216
-  %24 = shl nuw i32 %spec.select60, 8
-  %.2 = select i1 %23, i32 %24, i32 %spec.select60
-  %25 = icmp ult i32 %.2, 268435456
-  %26 = shl nuw i32 %.2, 4
-  %.3 = select i1 %25, i32 %26, i32 %.2
-  %27 = icmp ult i32 %.3, 1073741824
-  %28 = shl nuw i32 %.3, 2
-  %.4 = select i1 %27, i32 %28, i32 %.3
-  %29 = icmp sgt i32 %.4, -1
+  %spec.select59 = select i1 %21, i32 %22, i32 %spec.select
+  %23 = icmp ult i32 %spec.select59, 16777216
+  %24 = shl nuw i32 %spec.select59, 8
+  %.254 = select i1 %23, i32 %24, i32 %spec.select59
+  %25 = icmp ult i32 %.254, 268435456
+  %26 = shl nuw i32 %.254, 4
+  %.355 = select i1 %25, i32 %26, i32 %.254
+  %27 = icmp ult i32 %.355, 1073741824
+  %28 = shl nuw i32 %.355, 2
+  %.456 = select i1 %27, i32 %28, i32 %.355
+  %29 = icmp sgt i32 %.456, -1
   %30 = zext i1 %29 to i32
-  %spec.select59 = select i1 %21, i32 16, i32 0
-  %31 = or disjoint i32 %spec.select59, 8
-  %.151 = select i1 %23, i32 %31, i32 %spec.select59
-  %32 = or disjoint i32 %.151, 4
-  %.252 = select i1 %25, i32 %32, i32 %.151
-  %33 = or disjoint i32 %.252, 2
-  %.353 = select i1 %27, i32 %33, i32 %.252
-  %spec.select61 = add nuw nsw i32 %.353, %30
+  %spec.select60 = select i1 %21, i32 16, i32 0
+  %31 = or disjoint i32 %spec.select60, 8
+  %.1 = select i1 %23, i32 %31, i32 %spec.select60
+  %32 = or disjoint i32 %.1, 4
+  %.2 = select i1 %25, i32 %32, i32 %.1
+  %33 = or disjoint i32 %.2, 2
+  %.3 = select i1 %27, i32 %33, i32 %.2
+  %spec.select61 = add nuw nsw i32 %.3, %30
   %34 = add nsw i32 %spec.select61, -1
   %35 = sext i32 %34 to i64
   br label %.split.us
@@ -435,9 +435,9 @@ define noundef i64 @_Z19logged_rv64i_clrs32P11processor_t6insn_tm(ptr noundef %0
   br label %21
 
 21:                                               ; preds = %11, %45
-  %.05570 = phi i64 [ 1, %11 ], [ %53, %45 ]
-  %.05669 = phi i64 [ %16, %11 ], [ %52, %45 ]
-  %22 = shl i64 %.05570, 5
+  %.070 = phi i64 [ %16, %11 ], [ %52, %45 ]
+  %.05069 = phi i64 [ 1, %11 ], [ %53, %45 ]
+  %22 = shl i64 %.05069, 5
   %23 = and i64 %22, 4294967264
   %24 = shl nuw i64 4294967295, %23
   %25 = and i64 %24, %20
@@ -454,39 +454,39 @@ define noundef i64 @_Z19logged_rv64i_clrs32P11processor_t6insn_tm(ptr noundef %0
   %spec.select = xor i32 %.lobit, %30
   %32 = icmp ult i32 %spec.select, 65536
   %33 = shl nuw i32 %spec.select, 16
-  %spec.select60 = select i1 %32, i32 16, i32 0
-  %spec.select61 = select i1 %32, i32 %33, i32 %spec.select
-  %34 = icmp ult i32 %spec.select61, 16777216
-  %35 = or disjoint i32 %spec.select60, 8
-  %36 = shl nuw i32 %spec.select61, 8
-  %.151 = select i1 %34, i32 %35, i32 %spec.select60
-  %.2 = select i1 %34, i32 %36, i32 %spec.select61
-  %37 = icmp ult i32 %.2, 268435456
-  %38 = or disjoint i32 %.151, 4
-  %39 = shl nuw i32 %.2, 4
-  %.252 = select i1 %37, i32 %38, i32 %.151
-  %.3 = select i1 %37, i32 %39, i32 %.2
-  %40 = icmp ult i32 %.3, 1073741824
-  %41 = or disjoint i32 %.252, 2
-  %42 = shl nuw i32 %.3, 2
-  %.353 = select i1 %40, i32 %41, i32 %.252
-  %.4 = select i1 %40, i32 %42, i32 %.3
-  %43 = icmp sgt i32 %.4, -1
+  %spec.select60 = select i1 %32, i32 %33, i32 %spec.select
+  %spec.select61 = select i1 %32, i32 16, i32 0
+  %34 = icmp ult i32 %spec.select60, 16777216
+  %35 = or disjoint i32 %spec.select61, 8
+  %36 = shl nuw i32 %spec.select60, 8
+  %.254 = select i1 %34, i32 %36, i32 %spec.select60
+  %.1 = select i1 %34, i32 %35, i32 %spec.select61
+  %37 = icmp ult i32 %.254, 268435456
+  %38 = or disjoint i32 %.1, 4
+  %39 = shl nuw i32 %.254, 4
+  %.355 = select i1 %37, i32 %39, i32 %.254
+  %.2 = select i1 %37, i32 %38, i32 %.1
+  %40 = icmp ult i32 %.355, 1073741824
+  %41 = or disjoint i32 %.2, 2
+  %42 = shl nuw i32 %.355, 2
+  %.456 = select i1 %40, i32 %42, i32 %.355
+  %.3 = select i1 %40, i32 %41, i32 %.2
+  %43 = icmp sgt i32 %.456, -1
   %44 = zext i1 %43 to i32
-  %spec.select62 = add nuw nsw i32 %.353, %44
+  %spec.select62 = add nuw nsw i32 %.3, %44
   br label %45
 
 45:                                               ; preds = %31, %21
-  %.454 = phi i32 [ 32, %21 ], [ %spec.select62, %31 ]
-  %46 = add nsw i32 %.454, -1
+  %.4 = phi i32 [ 32, %21 ], [ %spec.select62, %31 ]
+  %46 = add nsw i32 %.4, -1
   %47 = xor i64 %24, -1
-  %48 = and i64 %.05669, %47
+  %48 = and i64 %.070, %47
   %49 = sext i32 %46 to i64
   %50 = mul i64 %28, %49
   %51 = and i64 %50, %24
   %52 = or i64 %51, %48
-  %53 = add nsw i64 %.05570, -1
-  %.not72 = icmp eq i64 %.05570, 0
+  %53 = add nsw i64 %.05069, -1
+  %.not72 = icmp eq i64 %.05069, 0
   br i1 %.not72, label %54, label %21, !llvm.loop !7
 
 54:                                               ; preds = %45
@@ -643,12 +643,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_clrs32P11p
   %44 = zext i1 %43 to i32
   %spec.select65 = select i1 %35, i32 16, i32 0
   %45 = or disjoint i32 %spec.select65, 8
-  %.154 = select i1 %37, i32 %45, i32 %spec.select65
-  %46 = or disjoint i32 %.154, 4
-  %.255 = select i1 %39, i32 %46, i32 %.154
-  %47 = or disjoint i32 %.255, 2
-  %.356 = select i1 %41, i32 %47, i32 %.255
-  %spec.select67 = add nuw nsw i32 %.356, %44
+  %.156 = select i1 %37, i32 %45, i32 %spec.select65
+  %46 = or disjoint i32 %.156, 4
+  %.257 = select i1 %39, i32 %46, i32 %.156
+  %47 = or disjoint i32 %.257, 2
+  %.358 = select i1 %41, i32 %47, i32 %.257
+  %spec.select67 = add nuw nsw i32 %.358, %44
   %48 = add nsw i32 %spec.select67, -1
   %49 = sext i32 %48 to i64
   br label %.split.us
@@ -734,9 +734,9 @@ define noundef i64 @_Z17fast_rv64e_clrs32P11processor_t6insn_tm(ptr nocapture no
   br label %35
 
 35:                                               ; preds = %31, %59
-  %.05880 = phi i64 [ 1, %31 ], [ %67, %59 ]
-  %.05979 = phi i64 [ %32, %31 ], [ %66, %59 ]
-  %36 = shl i64 %.05880, 5
+  %.06080 = phi i64 [ 1, %31 ], [ %67, %59 ]
+  %.06179 = phi i64 [ %32, %31 ], [ %66, %59 ]
+  %36 = shl i64 %.06080, 5
   %37 = and i64 %36, 4294967264
   %38 = shl nuw i64 4294967295, %37
   %39 = and i64 %38, %34
@@ -758,34 +758,34 @@ define noundef i64 @_Z17fast_rv64e_clrs32P11processor_t6insn_tm(ptr nocapture no
   %48 = icmp ult i32 %spec.select67, 16777216
   %49 = or disjoint i32 %spec.select66, 8
   %50 = shl nuw i32 %spec.select67, 8
-  %.154 = select i1 %48, i32 %49, i32 %spec.select66
+  %.156 = select i1 %48, i32 %49, i32 %spec.select66
   %.2 = select i1 %48, i32 %50, i32 %spec.select67
   %51 = icmp ult i32 %.2, 268435456
-  %52 = or disjoint i32 %.154, 4
+  %52 = or disjoint i32 %.156, 4
   %53 = shl nuw i32 %.2, 4
-  %.255 = select i1 %51, i32 %52, i32 %.154
+  %.257 = select i1 %51, i32 %52, i32 %.156
   %.3 = select i1 %51, i32 %53, i32 %.2
   %54 = icmp ult i32 %.3, 1073741824
-  %55 = or disjoint i32 %.255, 2
+  %55 = or disjoint i32 %.257, 2
   %56 = shl nuw i32 %.3, 2
-  %.356 = select i1 %54, i32 %55, i32 %.255
+  %.358 = select i1 %54, i32 %55, i32 %.257
   %.4 = select i1 %54, i32 %56, i32 %.3
   %57 = icmp sgt i32 %.4, -1
   %58 = zext i1 %57 to i32
-  %spec.select68 = add nuw nsw i32 %.356, %58
+  %spec.select68 = add nuw nsw i32 %.358, %58
   br label %59
 
 59:                                               ; preds = %45, %35
-  %.457 = phi i32 [ 32, %35 ], [ %spec.select68, %45 ]
-  %60 = add nsw i32 %.457, -1
+  %.459 = phi i32 [ 32, %35 ], [ %spec.select68, %45 ]
+  %60 = add nsw i32 %.459, -1
   %61 = xor i64 %38, -1
-  %62 = and i64 %.05979, %61
+  %62 = and i64 %.06179, %61
   %63 = sext i32 %60 to i64
   %64 = mul i64 %42, %63
   %65 = and i64 %64, %38
   %66 = or i64 %65, %62
-  %67 = add nsw i64 %.05880, -1
-  %.not81 = icmp eq i64 %.05880, 0
+  %67 = add nsw i64 %.06080, -1
+  %.not81 = icmp eq i64 %.06080, 0
   br i1 %.not81, label %68, label %35, !llvm.loop !8
 
 68:                                               ; preds = %59
@@ -885,12 +885,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_clrs32P1
   %44 = zext i1 %43 to i32
   %spec.select68 = select i1 %35, i32 16, i32 0
   %45 = or disjoint i32 %spec.select68, 8
-  %.158 = select i1 %37, i32 %45, i32 %spec.select68
-  %46 = or disjoint i32 %.158, 4
-  %.259 = select i1 %39, i32 %46, i32 %.158
-  %47 = or disjoint i32 %.259, 2
-  %.360 = select i1 %41, i32 %47, i32 %.259
-  %spec.select70 = add nuw nsw i32 %.360, %44
+  %.160 = select i1 %37, i32 %45, i32 %spec.select68
+  %46 = or disjoint i32 %.160, 4
+  %.261 = select i1 %39, i32 %46, i32 %.160
+  %47 = or disjoint i32 %.261, 2
+  %.362 = select i1 %41, i32 %47, i32 %.261
+  %spec.select70 = add nuw nsw i32 %.362, %44
   %48 = add nsw i32 %spec.select70, -1
   %49 = sext i32 %48 to i64
   br label %.split.us
@@ -1033,9 +1033,9 @@ define noundef i64 @_Z19logged_rv64e_clrs32P11processor_t6insn_tm(ptr noundef %0
   br label %35
 
 35:                                               ; preds = %31, %59
-  %.06285 = phi i64 [ 1, %31 ], [ %67, %59 ]
-  %.06484 = phi i64 [ %32, %31 ], [ %66, %59 ]
-  %36 = shl i64 %.06285, 5
+  %.05785 = phi i64 [ %32, %31 ], [ %66, %59 ]
+  %.06484 = phi i64 [ 1, %31 ], [ %67, %59 ]
+  %36 = shl i64 %.06484, 5
   %37 = and i64 %36, 4294967264
   %38 = shl nuw i64 4294967295, %37
   %39 = and i64 %38, %34
@@ -1057,34 +1057,34 @@ define noundef i64 @_Z19logged_rv64e_clrs32P11processor_t6insn_tm(ptr noundef %0
   %48 = icmp ult i32 %spec.select70, 16777216
   %49 = or disjoint i32 %spec.select69, 8
   %50 = shl nuw i32 %spec.select70, 8
-  %.158 = select i1 %48, i32 %49, i32 %spec.select69
+  %.160 = select i1 %48, i32 %49, i32 %spec.select69
   %.2 = select i1 %48, i32 %50, i32 %spec.select70
   %51 = icmp ult i32 %.2, 268435456
-  %52 = or disjoint i32 %.158, 4
+  %52 = or disjoint i32 %.160, 4
   %53 = shl nuw i32 %.2, 4
-  %.259 = select i1 %51, i32 %52, i32 %.158
+  %.261 = select i1 %51, i32 %52, i32 %.160
   %.3 = select i1 %51, i32 %53, i32 %.2
   %54 = icmp ult i32 %.3, 1073741824
-  %55 = or disjoint i32 %.259, 2
+  %55 = or disjoint i32 %.261, 2
   %56 = shl nuw i32 %.3, 2
-  %.360 = select i1 %54, i32 %55, i32 %.259
+  %.362 = select i1 %54, i32 %55, i32 %.261
   %.4 = select i1 %54, i32 %56, i32 %.3
   %57 = icmp sgt i32 %.4, -1
   %58 = zext i1 %57 to i32
-  %spec.select71 = add nuw nsw i32 %.360, %58
+  %spec.select71 = add nuw nsw i32 %.362, %58
   br label %59
 
 59:                                               ; preds = %45, %35
-  %.461 = phi i32 [ 32, %35 ], [ %spec.select71, %45 ]
-  %60 = add nsw i32 %.461, -1
+  %.463 = phi i32 [ 32, %35 ], [ %spec.select71, %45 ]
+  %60 = add nsw i32 %.463, -1
   %61 = xor i64 %38, -1
-  %62 = and i64 %.06484, %61
+  %62 = and i64 %.05785, %61
   %63 = sext i32 %60 to i64
   %64 = mul i64 %42, %63
   %65 = and i64 %64, %38
   %66 = or i64 %65, %62
-  %67 = add nsw i64 %.06285, -1
-  %.not87 = icmp eq i64 %.06285, 0
+  %67 = add nsw i64 %.06484, -1
+  %.not87 = icmp eq i64 %.06484, 0
   br i1 %.not87, label %68, label %35, !llvm.loop !9
 
 68:                                               ; preds = %59

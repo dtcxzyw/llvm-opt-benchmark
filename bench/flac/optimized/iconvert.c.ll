@@ -114,27 +114,27 @@ if.end49:                                         ; preds = %if.end45
 
 if.end53:                                         ; preds = %if.end49, %if.end69
   %9 = phi i64 [ %15, %if.end69 ], [ %8, %if.end49 ]
-  %utflen.0111 = phi i64 [ %utflen.1, %if.end69 ], [ 1, %if.end49 ]
-  %utfbuf.0110 = phi ptr [ %utfbuf.1, %if.end69 ], [ %call46, %if.end49 ]
-  %ret.0109 = phi i32 [ %ret.1, %if.end69 ], [ 0, %if.end49 ]
+  %ret.0111 = phi i32 [ %ret.1, %if.end69 ], [ 0, %if.end49 ]
+  %utflen.0110 = phi i64 [ %utflen.1, %if.end69 ], [ 1, %if.end49 ]
+  %utfbuf.0109 = phi ptr [ %utfbuf.1, %if.end69 ], [ %call46, %if.end49 ]
   %10 = load i64, ptr %obl, align 8
   %cmp54 = icmp ult i64 %10, 6
   br i1 %cmp54, label %if.then56, label %if.else
 
 if.then56:                                        ; preds = %if.end53
-  %mul = shl i64 %utflen.0111, 1
-  %cmp57 = icmp slt i64 %utflen.0111, 0
+  %mul = shl i64 %utflen.0110, 1
+  %cmp57 = icmp slt i64 %utflen.0110, 0
   br i1 %cmp57, label %fail, label %if.end60
 
 if.end60:                                         ; preds = %if.then56
   %11 = load ptr, ptr %ob, align 8
-  %call62 = call ptr @realloc(ptr noundef %utfbuf.0110, i64 noundef %mul) #10
+  %call62 = call ptr @realloc(ptr noundef %utfbuf.0109, i64 noundef %mul) #10
   %tobool63.not = icmp eq ptr %call62, null
   br i1 %tobool63.not, label %fail, label %if.end65
 
 if.end65:                                         ; preds = %if.end60
   %sub.ptr.lhs.cast = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %utfbuf.0110 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %utfbuf.0109 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %add.ptr = getelementptr inbounds i8, ptr %call62, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %ob, align 8
@@ -159,17 +159,17 @@ if.else:                                          ; preds = %if.end53
   br label %if.end69
 
 if.end69:                                         ; preds = %if.else, %if.end65
-  %ret.1 = phi i32 [ %ret.0109, %if.end65 ], [ 2, %if.else ]
-  %utfbuf.1 = phi ptr [ %call62, %if.end65 ], [ %utfbuf.0110, %if.else ]
-  %utflen.1 = phi i64 [ %mul, %if.end65 ], [ %utflen.0111, %if.else ]
+  %utfbuf.1 = phi ptr [ %call62, %if.end65 ], [ %utfbuf.0109, %if.else ]
+  %utflen.1 = phi i64 [ %mul, %if.end65 ], [ %utflen.0110, %if.else ]
+  %ret.1 = phi i32 [ %ret.0111, %if.end65 ], [ 2, %if.else ]
   %call50 = call i64 @iconv(ptr noundef %call, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #8
   %15 = load i64, ptr %ibl, align 8
   %tobool51.not = icmp eq i64 %15, 0
   br i1 %tobool51.not, label %for.end, label %if.end53
 
 for.end:                                          ; preds = %if.end69, %if.end49
-  %ret.0.lcssa = phi i32 [ 0, %if.end49 ], [ %ret.1, %if.end69 ]
   %utfbuf.0.lcssa = phi ptr [ %call46, %if.end49 ], [ %utfbuf.1, %if.end69 ]
+  %ret.0.lcssa = phi i32 [ 0, %if.end49 ], [ %ret.1, %if.end69 ]
   %cmp70 = icmp eq ptr %cd2.1, inttoptr (i64 -1 to ptr)
   br i1 %cmp70, label %if.then72, label %if.end95
 
@@ -406,7 +406,7 @@ if.end194:                                        ; preds = %if.end191
   br label %return
 
 fail:                                             ; preds = %if.end60, %if.then56, %while.end, %if.end82, %safe_malloc_add_2op_.exit, %if.end102, %if.end95, %safe_realloc_nofree_add_2op_.exit
-  %utfbuf.2 = phi ptr [ %utfbuf.0.lcssa, %safe_realloc_nofree_add_2op_.exit ], [ %utfbuf.0.lcssa, %if.end95 ], [ %call103, %safe_malloc_add_2op_.exit ], [ %utfbuf.0.lcssa, %if.end102 ], [ %utfbuf.0.lcssa, %if.end82 ], [ %call103, %while.end ], [ %utfbuf.0110, %if.then56 ], [ %utfbuf.0110, %if.end60 ]
+  %utfbuf.2 = phi ptr [ %utfbuf.0.lcssa, %safe_realloc_nofree_add_2op_.exit ], [ %utfbuf.0.lcssa, %if.end95 ], [ %call103, %safe_malloc_add_2op_.exit ], [ %utfbuf.0.lcssa, %if.end102 ], [ %utfbuf.0.lcssa, %if.end82 ], [ %call103, %while.end ], [ %utfbuf.0109, %if.then56 ], [ %utfbuf.0109, %if.end60 ]
   %cmp195.not = icmp eq ptr %utfbuf.2, null
   br i1 %cmp195.not, label %if.end198, label %if.then197
 

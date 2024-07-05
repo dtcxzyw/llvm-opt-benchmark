@@ -8977,8 +8977,8 @@ for.body.lr.ph:                                   ; preds = %if.else87, %land.lh
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.0973 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %sumelelen.0972 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.inc ]
-  %maxelelen.0971 = phi i64 [ 0, %for.body.lr.ph ], [ %spec.select, %for.inc ]
+  %maxelelen.0972 = phi i64 [ 0, %for.body.lr.ph ], [ %spec.select, %for.inc ]
+  %sumelelen.0971 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.inc ]
   %call93 = call ptr @rdbGenericLoadStringObject(ptr noundef %rdb, i32 noundef 4, ptr noundef null)
   %cmp94 = icmp eq ptr %call93, null
   br i1 %cmp94, label %if.then96, label %if.end97
@@ -9030,8 +9030,8 @@ sw.bb13.i539:                                     ; preds = %if.end97
 
 sdslen.exit554:                                   ; preds = %if.end97, %sw.bb.i551, %sw.bb3.i548, %sw.bb5.i545, %sw.bb9.i542, %sw.bb13.i539
   %retval.0.i541 = phi i64 [ %24, %sw.bb13.i539 ], [ %conv12.i544, %sw.bb9.i542 ], [ %conv8.i547, %sw.bb5.i545 ], [ %conv4.i550, %sw.bb3.i548 ], [ %conv2.i553, %sw.bb.i551 ], [ 0, %if.end97 ]
-  %add = add i64 %retval.0.i541, %sumelelen.0972
-  %spec.select = call i64 @llvm.umax.i64(i64 %retval.0.i541, i64 %maxelelen.0971)
+  %add = add i64 %retval.0.i541, %sumelelen.0971
+  %spec.select = call i64 @llvm.umax.i64(i64 %retval.0.i541, i64 %maxelelen.0972)
   %bf.load = load i32, ptr %o.0, align 8
   %25 = and i32 %bf.load, 240
   %cmp103 = icmp eq i32 %25, 96
@@ -9223,9 +9223,9 @@ if.end214:                                        ; preds = %land.lhs.true209, %
   br label %while.cond215
 
 while.cond215:                                    ; preds = %sdslen.exit615, %if.end214
-  %zsetlen.0 = phi i64 [ %40, %if.end214 ], [ %dec216, %sdslen.exit615 ]
-  %maxelelen195.0 = phi i64 [ 0, %if.end214 ], [ %maxelelen195.1861, %sdslen.exit615 ]
   %totelelen.0 = phi i64 [ 0, %if.end214 ], [ %add249, %sdslen.exit615 ]
+  %maxelelen195.0 = phi i64 [ 0, %if.end214 ], [ %maxelelen195.1861, %sdslen.exit615 ]
+  %zsetlen.0 = phi i64 [ %40, %if.end214 ], [ %dec216, %sdslen.exit615 ]
   %dec216 = add i64 %zsetlen.0, -1
   %tobool217.not = icmp eq i64 %zsetlen.0, 0
   br i1 %tobool217.not, label %while.end258, label %while.body218
@@ -10177,10 +10177,10 @@ if.end543:                                        ; preds = %sw.bb
 
 while.body554:                                    ; preds = %if.end543, %if.end579
   %call551991 = phi ptr [ %call551, %if.end579 ], [ %call551987, %if.end543 ]
-  %maxlen.0990 = phi i32 [ %maxlen.2, %if.end579 ], [ 0, %if.end543 ]
-  %lp544.0989 = phi ptr [ %call581, %if.end579 ], [ %call545, %if.end543 ]
+  %lp544.0990 = phi ptr [ %call581, %if.end579 ], [ %call545, %if.end543 ]
+  %maxlen.0989 = phi i32 [ %maxlen.2, %if.end579 ], [ 0, %if.end543 ]
   %130 = load i32, ptr %flen, align 4
-  %spec.select521 = call i32 @llvm.umax.i32(i32 %130, i32 %maxlen.0990)
+  %spec.select521 = call i32 @llvm.umax.i32(i32 %130, i32 %maxlen.0989)
   %131 = load i32, ptr %vlen, align 4
   %maxlen.2 = call i32 @llvm.umax.i32(i32 %131, i32 %spec.select521)
   %132 = load ptr, ptr %fstr, align 8
@@ -10200,7 +10200,7 @@ lor.lhs.false571:                                 ; preds = %lor.lhs.false567
   %134 = load i32, ptr %vlen, align 4
   %conv573 = zext i32 %134 to i64
   %add574 = add nuw nsw i64 %conv573, %conv572
-  %call575 = call i32 @lpSafeToAdd(ptr noundef %lp544.0989, i64 noundef %add574) #21
+  %call575 = call i32 @lpSafeToAdd(ptr noundef %lp544.0990, i64 noundef %add574) #21
   %tobool576.not = icmp eq i32 %call575, 0
   br i1 %tobool576.not, label %if.then577, label %if.end579
 
@@ -10217,7 +10217,7 @@ if.then577:                                       ; preds = %lor.lhs.false571, %
 if.end579:                                        ; preds = %lor.lhs.false571
   %136 = load ptr, ptr %fstr, align 8
   %137 = load i32, ptr %flen, align 4
-  %call580 = call ptr @lpAppend(ptr noundef %lp544.0989, ptr noundef %136, i32 noundef %137) #21
+  %call580 = call ptr @lpAppend(ptr noundef %lp544.0990, ptr noundef %136, i32 noundef %137) #21
   %138 = load ptr, ptr %vstr, align 8
   %139 = load i32, ptr %vlen, align 4
   %call581 = call ptr @lpAppend(ptr noundef %call580, ptr noundef %138, i32 noundef %139) #21
@@ -10230,8 +10230,8 @@ while.end582.loopexit:                            ; preds = %if.end579
   br label %while.end582
 
 while.end582:                                     ; preds = %while.end582.loopexit, %if.end543
-  %lp544.0.lcssa = phi ptr [ %call545, %if.end543 ], [ %call581, %while.end582.loopexit ]
   %maxlen.0.lcssa = phi i64 [ 0, %if.end543 ], [ %140, %while.end582.loopexit ]
+  %lp544.0.lcssa = phi ptr [ %call545, %if.end543 ], [ %call581, %while.end582.loopexit ]
   call void @dictRelease(ptr noundef %call549) #21
   %141 = load ptr, ptr %ptr546, align 8
   call void @zfree(ptr noundef %141) #21

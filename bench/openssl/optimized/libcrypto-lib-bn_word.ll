@@ -88,12 +88,12 @@ for.body.preheader:                               ; preds = %if.end6
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ %2, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %ret.027 = phi i64 [ 0, %for.body.preheader ], [ %sub13, %for.body ]
+  %ret.028 = phi i64 [ 0, %for.body.preheader ], [ %sub13, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %3 = load ptr, ptr %a, align 8
   %arrayidx = getelementptr inbounds i64, ptr %3, i64 %indvars.iv.next
   %4 = load i64, ptr %arrayidx, align 8
-  %call11 = tail call i64 @bn_div_words(i64 noundef %ret.027, i64 noundef %4, i64 noundef %shl) #3
+  %call11 = tail call i64 @bn_div_words(i64 noundef %ret.028, i64 noundef %4, i64 noundef %shl) #3
   %mul = mul i64 %call11, %shl
   %sub13 = sub i64 %4, %mul
   %5 = load ptr, ptr %a, align 8

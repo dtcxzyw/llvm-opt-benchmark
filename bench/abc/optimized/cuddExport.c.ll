@@ -139,11 +139,11 @@ define range(i32 0, 2) i32 @Cudd_DumpBlif(ptr noundef %0, i32 noundef %1, ptr no
 
 .lr.ph99:                                         ; preds = %22, %.lr.ph99
   %30 = phi i32 [ %35, %.lr.ph99 ], [ %29, %22 ]
-  %.07797 = phi ptr [ %34, %.lr.ph99 ], [ %20, %22 ]
+  %.07897 = phi ptr [ %34, %.lr.ph99 ], [ %20, %22 ]
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds i32, ptr %13, i64 %31
   store i32 1, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %.07797, i64 16
+  %33 = getelementptr inbounds i8, ptr %.07897, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %34, align 8
   %.not = icmp eq i32 %35, 2147483647
@@ -281,8 +281,8 @@ define range(i32 0, 2) i32 @Cudd_DumpBlif(ptr noundef %0, i32 noundef %1, ptr no
   br label %81
 
 81:                                               ; preds = %.thread, %.loopexit, %78, %51
-  %.079 = phi i32 [ 0, %51 ], [ 1, %78 ], [ 0, %.loopexit ], [ 0, %.thread ]
-  ret i32 %.079
+  %.076 = phi i32 [ 0, %51 ], [ 1, %78 ], [ 0, %.loopexit ], [ 0, %.thread ]
+  ret i32 %.076
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -637,13 +637,13 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   br label %56
 
 56:                                               ; preds = %56, %._crit_edge302
-  %.2213303 = phi i32 [ 0, %._crit_edge302 ], [ %59, %56 ]
-  %notmask = shl nsw i32 -1, %.2213303
+  %.2214303 = phi i32 [ 0, %._crit_edge302 ], [ %59, %56 ]
+  %notmask = shl nsw i32 -1, %.2214303
   %57 = xor i32 %notmask, -1
   %58 = zext nneg i32 %57 to i64
   %.not246 = icmp sgt i64 %.0208.lcssa, %58
-  %59 = add nuw nsw i32 %.2213303, 4
-  %60 = icmp ult i32 %.2213303, 60
+  %59 = add nuw nsw i32 %.2214303, 4
+  %60 = icmp ult i32 %.2214303, 60
   %or.cond = and i1 %.not246, %60
   br i1 %or.cond, label %56, label %61, !llvm.loop !13
 
@@ -710,8 +710,8 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   br label %94
 
 94:                                               ; preds = %92, %90
-  %.0215 = phi i32 [ %91, %90 ], [ %93, %92 ]
-  %95 = icmp eq i32 %.0215, -1
+  %.0216 = phi i32 [ %91, %90 ], [ %93, %92 ]
+  %95 = icmp eq i32 %.0216, -1
   br i1 %95, label %.thread, label %96
 
 96:                                               ; preds = %78, %94
@@ -770,8 +770,8 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   br label %117
 
 117:                                              ; preds = %113, %110
-  %.1216 = phi i32 [ %112, %110 ], [ %116, %113 ]
-  %118 = icmp eq i32 %.1216, -1
+  %.1217 = phi i32 [ %112, %110 ], [ %116, %113 ]
+  %118 = icmp eq i32 %.1217, -1
   br i1 %118, label %.thread, label %119
 
 119:                                              ; preds = %117
@@ -819,8 +819,8 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   br label %142
 
 142:                                              ; preds = %140, %._crit_edge412
-  %.3218 = phi i32 [ %139, %._crit_edge412 ], [ %141, %140 ]
-  %143 = icmp eq i32 %.3218, -1
+  %.3219 = phi i32 [ %139, %._crit_edge412 ], [ %141, %140 ]
+  %143 = icmp eq i32 %.3219, -1
   br i1 %143, label %.thread, label %144
 
 144:                                              ; preds = %142
@@ -978,8 +978,8 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   br label %200
 
 200:                                              ; preds = %196, %193
-  %.4219 = phi i32 [ %195, %193 ], [ %199, %196 ]
-  %201 = icmp eq i32 %.4219, -1
+  %.4220 = phi i32 [ %195, %193 ], [ %199, %196 ]
+  %201 = icmp eq i32 %.4220, -1
   br i1 %201, label %.thread, label %202
 
 202:                                              ; preds = %200
@@ -1150,8 +1150,8 @@ define range(i32 0, 2) i32 @Cudd_DumpDot(ptr noundef %0, i32 noundef %1, ptr nou
   br label %275
 
 275:                                              ; preds = %.thread.thread, %.thread271, %.thread, %64, %61, %274
-  %.0224 = phi i32 [ 1, %274 ], [ 0, %61 ], [ 0, %64 ], [ 0, %.thread ], [ 0, %.thread271 ], [ 0, %.thread.thread ]
-  ret i32 %.0224
+  %.0209 = phi i32 [ 1, %274 ], [ 0, %61 ], [ 0, %64 ], [ 0, %.thread ], [ 0, %.thread271 ], [ 0, %.thread.thread ]
+  ret i32 %.0209
 }
 
 declare i32 @cuddCollectNodes(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1220,13 +1220,13 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr noundef %0, i32 noundef %1, ptr
   br label %29
 
 29:                                               ; preds = %29, %._crit_edge90
-  %.16291 = phi i32 [ 0, %._crit_edge90 ], [ %32, %29 ]
-  %notmask = shl nsw i32 -1, %.16291
+  %.16491 = phi i32 [ 0, %._crit_edge90 ], [ %32, %29 ]
+  %notmask = shl nsw i32 -1, %.16491
   %30 = xor i32 %notmask, -1
   %31 = zext nneg i32 %30 to i64
   %.not74 = icmp ugt i64 %.060.lcssa, %31
-  %32 = add nuw nsw i32 %.16291, 4
-  %33 = icmp ult i32 %.16291, 60
+  %32 = add nuw nsw i32 %.16491, 4
+  %33 = icmp ult i32 %.16491, 60
   %or.cond = and i1 %.not74, %33
   br i1 %or.cond, label %29, label %34, !llvm.loop !29
 
@@ -1272,8 +1272,8 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr noundef %0, i32 noundef %1, ptr
   br label %52
 
 52:                                               ; preds = %48, %45
-  %.063 = phi i32 [ %47, %45 ], [ %51, %48 ]
-  %53 = icmp eq i32 %.063, -1
+  %.065 = phi i32 [ %47, %45 ], [ %51, %48 ]
+  %53 = icmp eq i32 %.065, -1
   br i1 %53, label %.thread.sink.split, label %54
 
 54:                                               ; preds = %52
@@ -1310,14 +1310,14 @@ define range(i32 0, 2) i32 @Cudd_DumpDaVinci(ptr noundef %0, i32 noundef %1, ptr
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %.lr.ph, %52, %54, %62, %69, %._crit_edge94, %37
-  %.06482.sink = phi ptr [ %35, %37 ], [ %35, %._crit_edge94 ], [ %35, %69 ], [ %35, %62 ], [ %35, %54 ], [ %35, %52 ], [ %8, %.lr.ph ]
-  %.065.ph = phi i32 [ 0, %37 ], [ %spec.select, %._crit_edge94 ], [ 0, %69 ], [ 0, %62 ], [ 0, %54 ], [ 0, %52 ], [ 0, %.lr.ph ]
-  call void @st__free_table(ptr noundef nonnull %.06482.sink) #9
+  %.06282.sink = phi ptr [ %35, %37 ], [ %35, %._crit_edge94 ], [ %35, %69 ], [ %35, %62 ], [ %35, %54 ], [ %35, %52 ], [ %8, %.lr.ph ]
+  %.061.ph = phi i32 [ 0, %37 ], [ %spec.select, %._crit_edge94 ], [ 0, %69 ], [ 0, %62 ], [ 0, %54 ], [ 0, %52 ], [ 0, %.lr.ph ]
+  call void @st__free_table(ptr noundef nonnull %.06282.sink) #9
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %34, %6
-  %.065 = phi i32 [ 0, %6 ], [ 0, %34 ], [ %.065.ph, %.thread.sink.split ]
-  ret i32 %.065
+  %.061 = phi i32 [ 0, %6 ], [ 0, %34 ], [ %.061.ph, %.thread.sink.split ]
+  ret i32 %.061
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1479,13 +1479,13 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
   br label %31
 
 31:                                               ; preds = %31, %._crit_edge176
-  %.1118177 = phi i32 [ 0, %._crit_edge176 ], [ %34, %31 ]
-  %notmask = shl nsw i32 -1, %.1118177
+  %.1120177 = phi i32 [ 0, %._crit_edge176 ], [ %34, %31 ]
+  %notmask = shl nsw i32 -1, %.1120177
   %32 = xor i32 %notmask, -1
   %33 = zext nneg i32 %32 to i64
   %.not141 = icmp ugt i64 %.0116.lcssa, %33
-  %34 = add nuw nsw i32 %.1118177, 4
-  %35 = icmp ult i32 %.1118177, 60
+  %34 = add nuw nsw i32 %.1120177, 4
+  %35 = icmp ult i32 %.1120177, 60
   %or.cond = and i1 %.not141, %35
   br i1 %or.cond, label %31, label %36, !llvm.loop !33
 
@@ -1589,8 +1589,8 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
   br label %83
 
 83:                                               ; preds = %81, %79
-  %.0119 = phi i32 [ %80, %79 ], [ %82, %81 ]
-  %84 = icmp eq i32 %.0119, -1
+  %.0121 = phi i32 [ %80, %79 ], [ %82, %81 ]
+  %84 = icmp eq i32 %.0121, -1
   br i1 %84, label %.thread152, label %85
 
 85:                                               ; preds = %83, %67
@@ -1645,8 +1645,8 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
   br label %110
 
 110:                                              ; preds = %106, %103
-  %.1120 = phi i32 [ %105, %103 ], [ %109, %106 ]
-  %111 = icmp eq i32 %.1120, -1
+  %.1122 = phi i32 [ %105, %103 ], [ %109, %106 ]
+  %111 = icmp eq i32 %.1122, -1
   br i1 %111, label %.loopexit, label %112
 
 112:                                              ; preds = %110
@@ -1729,13 +1729,13 @@ define range(i32 0, 2) i32 @Cudd_DumpDDcal(ptr noundef %0, i32 noundef %1, ptr n
   br label %.thread159
 
 .loopexit:                                        ; preds = %.lr.ph, %112, %110, %94, %.lr.ph194.split, %.lr.ph194.split.us, %._crit_edge192.thread, %._crit_edge195, %._crit_edge192
-  %.0121.ph = phi ptr [ %90, %._crit_edge195 ], [ %90, %._crit_edge192 ], [ %90, %._crit_edge192.thread ], [ %90, %.lr.ph194.split.us ], [ %90, %.lr.ph194.split ], [ %90, %94 ], [ %90, %110 ], [ %90, %112 ], [ %10, %.lr.ph ]
-  call void @st__free_table(ptr noundef nonnull %.0121.ph) #9
+  %.0123.ph = phi ptr [ %90, %._crit_edge195 ], [ %90, %._crit_edge192 ], [ %90, %._crit_edge192.thread ], [ %90, %.lr.ph194.split.us ], [ %90, %.lr.ph194.split ], [ %90, %94 ], [ %90, %110 ], [ %90, %112 ], [ %10, %.lr.ph ]
+  call void @st__free_table(ptr noundef nonnull %.0123.ph) #9
   br label %.thread159
 
 .thread159:                                       ; preds = %6, %44, %._crit_edge189, %.thread152, %.loopexit, %145
-  %.0124 = phi i32 [ 1, %145 ], [ 0, %.loopexit ], [ 0, %.thread152 ], [ 0, %._crit_edge189 ], [ 0, %44 ], [ 0, %6 ]
-  ret i32 %.0124
+  %.0117 = phi i32 [ 1, %145 ], [ 0, %.loopexit ], [ 0, %.thread152 ], [ 0, %._crit_edge189 ], [ 0, %44 ], [ 0, %6 ]
+  ret i32 %.0117
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1837,14 +1837,14 @@ define internal fastcc range(i32 0, 2) i32 @ddDoDumpDDcal(ptr noundef %0, ptr no
   br label %72
 
 72:                                               ; preds = %64, %53
-  %.0 = phi i32 [ %63, %53 ], [ %71, %64 ]
-  %73 = icmp ne i32 %.0, -1
+  %.056 = phi i32 [ %63, %53 ], [ %71, %64 ]
+  %73 = icmp ne i32 %.056, -1
   br label %74
 
 74:                                               ; preds = %72, %38, %34, %28, %25, %14, %12, %6
-  %.056.shrunk = phi i1 [ true, %6 ], [ false, %12 ], [ false, %14 ], [ false, %25 ], [ %33, %28 ], [ false, %34 ], [ false, %38 ], [ %73, %72 ]
-  %.056 = zext i1 %.056.shrunk to i32
-  ret i32 %.056
+  %.0.shrunk = phi i1 [ true, %6 ], [ false, %12 ], [ false, %14 ], [ false, %25 ], [ %33, %28 ], [ false, %34 ], [ false, %38 ], [ %73, %72 ]
+  %.0 = zext i1 %.0.shrunk to i32
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind uwtable

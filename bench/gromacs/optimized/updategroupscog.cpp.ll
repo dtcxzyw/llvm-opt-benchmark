@@ -781,9 +781,9 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %29, %_ZNSt12_Vector
   br label %297
 
 60:                                               ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
-  %.02469 = phi i64 [ %24, %.lr.ph ], [ %296, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
+  %.069 = phi i64 [ %24, %.lr.ph ], [ %296, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %.05868 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
-  %61 = getelementptr inbounds i32, ptr %1, i64 %.02469
+  %61 = getelementptr inbounds i32, ptr %1, i64 %.069
   %62 = load i32, ptr %61, align 4
   %63 = load ptr, ptr %42, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 136
@@ -801,8 +801,8 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %29, %_ZNSt12_Vector
 
 75:                                               ; preds = %84, %60
   %.1 = phi i32 [ %.05868, %60 ], [ %87, %84 ]
-  %.026.i = phi i32 [ -1, %60 ], [ %.127.i, %84 ]
-  %.0.i = phi i32 [ %72, %60 ], [ %.1.i, %84 ]
+  %.026.i = phi i32 [ %72, %60 ], [ %.127.i, %84 ]
+  %.0.i = phi i32 [ -1, %60 ], [ %.1.i, %84 ]
   %76 = sext i32 %.1 to i64
   %77 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %74, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 4
@@ -817,9 +817,9 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %29, %_ZNSt12_Vector
   br i1 %.not.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit, label %84
 
 84:                                               ; preds = %81, %75
-  %.127.i = phi i32 [ %.026.i, %75 ], [ %.1, %81 ]
-  %.1.i = phi i32 [ %.1, %75 ], [ %.0.i, %81 ]
-  %85 = add nsw i32 %.127.i, 1
+  %.127.i = phi i32 [ %.1, %75 ], [ %.026.i, %81 ]
+  %.1.i = phi i32 [ %.0.i, %75 ], [ %.1, %81 ]
+  %85 = add i32 %.127.i, 1
   %86 = add i32 %85, %.1.i
   %87 = ashr i32 %86, 1
   br label %75, !llvm.loop !27
@@ -934,7 +934,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %121, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
-  %149 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %.02469
+  %149 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %.069
   %150 = load i32, ptr %118, align 4
   %151 = sext i32 %150 to i64
   %152 = load ptr, ptr %12, align 8
@@ -1115,7 +1115,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit39
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit39:        ; preds = %214, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i38
-  %240 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %.02469
+  %240 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %.069
   %241 = load ptr, ptr %13, align 8
   %242 = load ptr, ptr %49, align 8
   %.not.i40 = icmp eq ptr %241, %242
@@ -1257,23 +1257,23 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %270, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %296 = add nsw i64 %.02469, 1
+  %296 = add nsw i64 %.069, 1
   %exitcond.not = icmp eq i64 %296, %23
   br i1 %exitcond.not, label %.preheader, label %60, !llvm.loop !36
 
 297:                                              ; preds = %.lr.ph71, %315
   %298 = phi ptr [ %54, %.lr.ph71 ], [ %316, %315 ]
   %299 = phi ptr [ %53, %.lr.ph71 ], [ %317, %315 ]
-  %.070 = phi i64 [ %19, %.lr.ph71 ], [ %318, %315 ]
+  %.02470 = phi i64 [ %19, %.lr.ph71 ], [ %318, %315 ]
   %300 = load ptr, ptr %59, align 8
-  %301 = getelementptr inbounds i32, ptr %300, i64 %.070
+  %301 = getelementptr inbounds i32, ptr %300, i64 %.02470
   %302 = load i32, ptr %301, align 4
   %303 = icmp sgt i32 %302, 1
   br i1 %303, label %304, label %315
 
 304:                                              ; preds = %297
   %305 = uitofp nneg i32 %302 to float
-  %306 = getelementptr inbounds %"class.gmx::BasicVector", ptr %298, i64 %.070
+  %306 = getelementptr inbounds %"class.gmx::BasicVector", ptr %298, i64 %.02470
   %307 = fdiv float 1.000000e+00, %305
   %308 = load <2 x float>, ptr %306, align 4
   %309 = insertelement <2 x float> poison, float %307, i64 0
@@ -1291,7 +1291,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
 315:                                              ; preds = %297, %304
   %316 = phi ptr [ %298, %297 ], [ %.pre78, %304 ]
   %317 = phi ptr [ %299, %297 ], [ %.pre, %304 ]
-  %318 = add nuw i64 %.070, 1
+  %318 = add nuw i64 %.02470, 1
   %319 = ptrtoint ptr %317 to i64
   %320 = ptrtoint ptr %316 to i64
   %321 = sub i64 %319, %320

@@ -7310,8 +7310,8 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
   br label %57
 
 57:                                               ; preds = %.critedge, %53
-  %.045 = phi ptr [ %55, %53 ], [ %56, %.critedge ]
-  %58 = icmp eq ptr %.045, null
+  %.044 = phi ptr [ %55, %53 ], [ %56, %.critedge ]
+  %58 = icmp eq ptr %.044, null
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %57
@@ -7321,7 +7321,7 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
   br label %85
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %.045, i64 8
+  %63 = getelementptr inbounds i8, ptr %.044, i64 8
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, 65280
   %.not49 = icmp eq i32 %65, 0
@@ -7333,7 +7333,7 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
   br i1 %68, label %69, label %.sink.split
 
 69:                                               ; preds = %66
-  %70 = load ptr, ptr %.045, align 8
+  %70 = load ptr, ptr %.044, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   %72 = getelementptr inbounds i8, ptr %70, i64 16
   %73 = load i32, ptr %72, align 8
@@ -7343,7 +7343,7 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
 
 .sink.split:                                      ; preds = %66, %69
   %.sink = phi i32 [ %73, %69 ], [ %64, %66 ]
-  %.sink53 = phi ptr [ %71, %69 ], [ %.045, %66 ]
+  %.sink53 = phi ptr [ %71, %69 ], [ %.044, %66 ]
   %75 = and i32 %.sink, 65280
   %76 = icmp ne i32 %75, 0
   call void @llvm.assume(i1 %76)
@@ -7354,9 +7354,9 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
   br label %80
 
 80:                                               ; preds = %.sink.split, %62, %69
-  %.044 = phi ptr [ %71, %69 ], [ %.045, %62 ], [ %.sink53, %.sink.split ]
-  %81 = load ptr, ptr %.044, align 8
-  %82 = getelementptr inbounds i8, ptr %.044, i64 8
+  %.045 = phi ptr [ %71, %69 ], [ %.044, %62 ], [ %.sink53, %.sink.split ]
+  %81 = load ptr, ptr %.045, align 8
+  %82 = getelementptr inbounds i8, ptr %.045, i64 8
   %83 = load i32, ptr %82, align 8
   store ptr %81, ptr %1, align 8
   %84 = getelementptr inbounds i8, ptr %1, i64 8
@@ -9694,11 +9694,11 @@ define hidden void @zif_iterator_to_array(ptr noundef %0, ptr noundef %1) local_
   br i1 %.fr, label %.thread126, label %.thread135
 
 .thread135:                                       ; preds = %17, %8, %7
-  %.098145 = phi i32 [ 9, %8 ], [ 1, %7 ], [ 9, %17 ]
-  %.099144 = phi i32 [ 10, %8 ], [ 0, %7 ], [ 2, %17 ]
-  %.0100143 = phi ptr [ %9, %8 ], [ null, %7 ], [ %18, %17 ]
-  %.0101142 = phi i32 [ 1, %8 ], [ 0, %7 ], [ 2, %17 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.098145, i32 noundef %.0101142, ptr noundef null, i32 noundef %.099144, ptr noundef %.0100143) #10
+  %.098145 = phi i32 [ 1, %8 ], [ 0, %7 ], [ 2, %17 ]
+  %.099144 = phi ptr [ %9, %8 ], [ null, %7 ], [ %18, %17 ]
+  %.0100143 = phi i32 [ 10, %8 ], [ 0, %7 ], [ 2, %17 ]
+  %.0101142 = phi i32 [ 9, %8 ], [ 1, %7 ], [ 9, %17 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0101142, i32 noundef %.098145, ptr noundef null, i32 noundef %.0100143, ptr noundef %.099144) #10
   br label %43
 
 .thread126:                                       ; preds = %17, %.thread122, %11
@@ -9866,11 +9866,11 @@ define hidden void @zif_iterator_count(ptr noundef %0, ptr nocapture noundef wri
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5, %6
-  %.045.ph = phi ptr [ %7, %6 ], [ null, %5 ]
-  %.044.ph = phi i32 [ 10, %6 ], [ 0, %5 ]
+  %.045.ph = phi i32 [ 10, %6 ], [ 0, %5 ]
+  %.044.ph = phi ptr [ %7, %6 ], [ null, %5 ]
   %.043.ph = phi i32 [ 1, %6 ], [ 0, %5 ]
   %.042.ph = phi i32 [ 9, %6 ], [ 1, %5 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.042.ph, i32 noundef %.043.ph, ptr noundef null, i32 noundef %.044.ph, ptr noundef %.045.ph) #10
+  tail call void @zend_wrong_parameter_error(i32 noundef %.042.ph, i32 noundef %.043.ph, ptr noundef null, i32 noundef %.045.ph, ptr noundef %.044.ph) #10
   br label %spl_iterator_apply.exit.thread
 
 10:                                               ; preds = %6
@@ -11723,8 +11723,8 @@ define internal ptr @spl_recursive_it_get_method(ptr noundef %0, ptr noundef %1,
   br label %35
 
 35:                                               ; preds = %13, %32, %25, %7
-  %.028 = phi ptr [ null, %7 ], [ %18, %13 ], [ %31, %25 ], [ %33, %32 ]
-  ret ptr %.028
+  %.027 = phi ptr [ null, %7 ], [ %18, %13 ], [ %31, %25 ], [ %33, %32 ]
+  ret ptr %.027
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11993,8 +11993,8 @@ define internal ptr @spl_dual_it_get_method(ptr noundef %0, ptr noundef %1, ptr 
   br label %27
 
 27:                                               ; preds = %24, %19, %13, %7, %3
-  %.0 = phi ptr [ %6, %3 ], [ %23, %19 ], [ null, %13 ], [ %25, %24 ], [ null, %7 ]
-  ret ptr %.0
+  %.024 = phi ptr [ %6, %3 ], [ %23, %19 ], [ null, %13 ], [ %25, %24 ], [ null, %7 ]
+  ret ptr %.024
 }
 
 ; Function Attrs: nounwind uwtable

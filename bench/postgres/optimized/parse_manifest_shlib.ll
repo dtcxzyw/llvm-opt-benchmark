@@ -115,23 +115,23 @@ define void @json_parse_manifest(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %.not55.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.i
-  %.052.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %28 ]
-  %.03851.i = phi i64 [ %.139.i, %.lr.ph.i ], [ 0, %28 ]
-  %.04050.i = phi i64 [ %.141.i, %.lr.ph.i ], [ 0, %28 ]
-  %.04249.i = phi i64 [ %34, %.lr.ph.i ], [ 0, %28 ]
-  %30 = getelementptr i8, ptr %1, i64 %.04249.i
+  %.052.i = phi i64 [ %34, %.lr.ph.i ], [ 0, %28 ]
+  %.03851.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %28 ]
+  %.03950.i = phi i64 [ %.140.i, %.lr.ph.i ], [ 0, %28 ]
+  %.04149.i = phi i64 [ %.142.i, %.lr.ph.i ], [ 0, %28 ]
+  %30 = getelementptr i8, ptr %1, i64 %.052.i
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 10
   %33 = zext i1 %32 to i64
-  %.141.i = add i64 %.04050.i, %33
-  %.139.i = select i1 %32, i64 %.04249.i, i64 %.03851.i
-  %.1.i = select i1 %32, i64 %.03851.i, i64 %.052.i
-  %34 = add nuw i64 %.04249.i, 1
+  %.142.i = add i64 %.04149.i, %33
+  %.140.i = select i1 %32, i64 %.052.i, i64 %.03950.i
+  %.1.i = select i1 %32, i64 %.03950.i, i64 %.03851.i
+  %34 = add nuw i64 %.052.i, 1
   %exitcond.not.i = icmp eq i64 %34, %2
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %35 = icmp ult i64 %.141.i, 2
+  %35 = icmp ult i64 %.142.i, 2
   %36 = add i64 %.1.i, 1
   br i1 %35, label %._crit_edge.thread.i, label %39
 
@@ -143,7 +143,7 @@ define void @json_parse_manifest(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 39:                                               ; preds = %._crit_edge.i
   %40 = add i64 %2, -1
-  %.not.i = icmp eq i64 %.139.i, %40
+  %.not.i = icmp eq i64 %.140.i, %40
   br i1 %.not.i, label %44, label %41
 
 41:                                               ; preds = %39
@@ -743,13 +743,13 @@ hexdecode_string.exit104._crit_edge.i:            ; preds = %hexdecode_string.ex
   unreachable
 
 .thread107.i:                                     ; preds = %hexdecode_string.exit104.i, %136, %127, %123
-  %.060.i = phi i32 [ %132, %hexdecode_string.exit104.i ], [ 0, %127 ], [ 0, %123 ], [ %132, %136 ]
-  %.0.i = phi ptr [ %134, %hexdecode_string.exit104.i ], [ null, %127 ], [ null, %123 ], [ %134, %136 ]
+  %.060.i = phi ptr [ %134, %hexdecode_string.exit104.i ], [ null, %127 ], [ null, %123 ], [ %134, %136 ]
+  %.0.i = phi i32 [ %132, %hexdecode_string.exit104.i ], [ 0, %127 ], [ 0, %123 ], [ %132, %136 ]
   %183 = getelementptr inbounds i8, ptr %12, i64 8
   %184 = load ptr, ptr %183, align 8
   %185 = load ptr, ptr %13, align 8
   %186 = load i32, ptr %8, align 4
-  call void %184(ptr noundef %12, ptr noundef %185, i64 noundef %106, i32 noundef %186, i32 noundef %.060.i, ptr noundef %.0.i) #8
+  call void %184(ptr noundef %12, ptr noundef %185, i64 noundef %106, i32 noundef %186, i32 noundef %.0.i, ptr noundef %.060.i) #8
   %187 = load ptr, ptr %28, align 8
   %.not74.i = icmp eq ptr %187, null
   br i1 %.not74.i, label %189, label %188

@@ -351,15 +351,15 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
           to label %148 unwind label %146
 
 135:                                              ; preds = %130, %129
-  %.0 = phi i8 [ 1, %129 ], [ %spec.select, %130 ]
+  %.0152 = phi i8 [ 1, %129 ], [ %spec.select, %130 ]
   %136 = getelementptr inbounds i8, ptr %83, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %136, i64 32, i1 false)
   %137 = getelementptr inbounds i8, ptr %83, i64 48
   %138 = getelementptr inbounds i8, ptr %71, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(32) %137, i64 32, i1 false)
   %139 = getelementptr inbounds i8, ptr %71, i64 32
-  store i8 %.0, ptr %139, align 8
-  %140 = trunc nuw i8 %.0 to i1
+  store i8 %.0152, ptr %139, align 8
+  %140 = trunc nuw i8 %.0152 to i1
   %141 = load i64, ptr %71, align 8, !range !5, !noundef !4
   %142 = icmp eq i64 %141, -9223372036854775807
   %143 = load i64, ptr %138, align 8, !range !10
@@ -741,7 +741,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
   br i1 %281, label %283, label %278
 
 282:                                              ; preds = %273, %283
-  %.0193 = phi ptr [ %285, %283 ], [ %277, %273 ]
+  %.0191 = phi ptr [ %285, %283 ], [ %277, %273 ]
   invoke void @"_ZN13dsl_auto_type9auto_type25expression_type_inference82_$LT$impl$u20$dsl_auto_type..auto_type..local_variables_map..LocalVariablesMap$GT$8inferrer17h94283985a7df7b37E"(ptr nonnull sret({ ptr, { i64, { { { i64, ptr }, i64 } } } }) align 8 %53, ptr nonnull align 8 %60)
           to label %286 unwind label %.loopexit.split-lp
 
@@ -752,7 +752,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
   br i1 %.not210, label %278, label %282
 
 286:                                              ; preds = %282
-  invoke void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer21infer_expression_type17hf6fc9f664900196fE(ptr nonnull sret({ i64, [28 x i64] }) align 8 %52, ptr nonnull align 8 %53, ptr nonnull align 8 %.0193, ptr align 8 null)
+  invoke void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer21infer_expression_type17hf6fc9f664900196fE(ptr nonnull sret({ i64, [28 x i64] }) align 8 %52, ptr nonnull align 8 %53, ptr nonnull align 8 %.0191, ptr align 8 null)
           to label %287 unwind label %295
 
 287:                                              ; preds = %286

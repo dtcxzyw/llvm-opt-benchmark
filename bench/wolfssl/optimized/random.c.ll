@@ -623,11 +623,11 @@ for.body.i.preheader:                             ; preds = %while.body12.i.i, %
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
-  %compareSum.06.i = phi i32 [ %or.i, %for.body.i ], [ 0, %for.body.i.preheader ]
+  %compareSum.05.i = phi i32 [ %or.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %conv2.i = zext i8 %4 to i32
-  %or.i = or i32 %compareSum.06.i, %conv2.i
+  %or.i = or i32 %compareSum.05.i, %conv2.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
   br i1 %exitcond.not.i, label %Hash_DRBG_Uninstantiate.exit, label %for.body.i, !llvm.loop !11
@@ -885,8 +885,8 @@ if.else:                                          ; preds = %if.end
 
 for.body.i:                                       ; preds = %if.else, %for.inc.i
   %i.08.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.else ]
-  %outSz.addr.07.i = phi i32 [ %outSz.addr.1.i, %for.inc.i ], [ %outSz, %if.else ]
-  %out.addr.06.i = phi ptr [ %out.addr.1.i, %for.inc.i ], [ %out, %if.else ]
+  %out.addr.07.i = phi ptr [ %out.addr.1.i, %for.inc.i ], [ %out, %if.else ]
+  %outSz.addr.06.i = phi i32 [ %outSz.addr.1.i, %for.inc.i ], [ %outSz, %if.else ]
   %call.i = call i32 @wc_InitSha256(ptr noundef nonnull %sha.i) #9
   %cmp6.i = icmp eq i32 %call.i, 0
   br i1 %cmp6.i, label %if.end11.i, label %if.end17.thread.i
@@ -907,17 +907,17 @@ if.end17.i:                                       ; preds = %if.end11.i
   br i1 %cmp19.i, label %if.then20.i, label %for.cond.preheader.i.i
 
 if.then20.i:                                      ; preds = %if.end17.i
-  %cmp21.i = icmp ne ptr %out.addr.06.i, null
-  %cmp22.i = icmp ne i32 %outSz.addr.07.i, 0
+  %cmp21.i = icmp ne ptr %out.addr.07.i, null
+  %cmp22.i = icmp ne i32 %outSz.addr.06.i, 0
   %or.cond.i = select i1 %cmp21.i, i1 %cmp22.i, i1 false
   br i1 %or.cond.i, label %if.then23.i, label %for.inc.i
 
 if.then23.i:                                      ; preds = %if.then20.i
-  %cmp24.i = icmp ugt i32 %outSz.addr.07.i, 31
+  %cmp24.i = icmp ugt i32 %outSz.addr.06.i, 31
   br i1 %cmp24.i, label %if.then25.i, label %if.else.i
 
 if.then25.i:                                      ; preds = %if.then23.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %out.addr.06.i, ptr noundef nonnull align 16 dereferenceable(32) %digest.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %out.addr.07.i, ptr noundef nonnull align 16 dereferenceable(32) %digest.i, i64 32, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then25.i
@@ -934,18 +934,18 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %or.cond.i.i, label %for.inc.loopexit.i, label %for.body.i.i, !llvm.loop !12
 
 if.else.i:                                        ; preds = %if.then23.i
-  %conv.i = zext nneg i32 %outSz.addr.07.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %out.addr.06.i, ptr nonnull align 16 %digest.i, i64 %conv.i, i1 false)
+  %conv.i = zext nneg i32 %outSz.addr.06.i to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %out.addr.07.i, ptr nonnull align 16 %digest.i, i64 %conv.i, i1 false)
   br label %for.inc.i
 
 for.inc.loopexit.i:                               ; preds = %for.body.i.i
-  %sub.i = add i32 %outSz.addr.07.i, -32
-  %add.ptr.i = getelementptr inbounds i8, ptr %out.addr.06.i, i64 32
+  %sub.i = add i32 %outSz.addr.06.i, -32
+  %add.ptr.i = getelementptr inbounds i8, ptr %out.addr.07.i, i64 32
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.inc.loopexit.i, %if.else.i, %if.then20.i
-  %out.addr.1.i = phi ptr [ %out.addr.06.i, %if.else.i ], [ %out.addr.06.i, %if.then20.i ], [ %add.ptr.i, %for.inc.loopexit.i ]
-  %outSz.addr.1.i = phi i32 [ 0, %if.else.i ], [ %outSz.addr.07.i, %if.then20.i ], [ %sub.i, %for.inc.loopexit.i ]
+  %outSz.addr.1.i = phi i32 [ 0, %if.else.i ], [ %outSz.addr.06.i, %if.then20.i ], [ %sub.i, %for.inc.loopexit.i ]
+  %out.addr.1.i = phi ptr [ %out.addr.07.i, %if.else.i ], [ %out.addr.07.i, %if.then20.i ], [ %add.ptr.i, %for.inc.loopexit.i ]
   %inc.i = add nuw nsw i32 %i.08.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %add.i
   br i1 %exitcond.not.i, label %for.cond.preheader.i.i, label %for.body.i, !llvm.loop !13
@@ -1384,11 +1384,11 @@ for.body.i.i19:                                   ; preds = %for.body.i.i19, %fo
 
 for.body.i:                                       ; preds = %for.body.i.i19, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.i19 ]
-  %compareSum.06.i = phi i32 [ %or.i, %for.body.i ], [ 0, %for.body.i.i19 ]
+  %compareSum.05.i = phi i32 [ %or.i, %for.body.i ], [ 0, %for.body.i.i19 ]
   %arrayidx.i = getelementptr inbounds i8, ptr %drbg_var, i64 %indvars.iv.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv2.i = zext i8 %0 to i32
-  %or.i = or i32 %compareSum.06.i, %conv2.i
+  %or.i = or i32 %compareSum.05.i, %conv2.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
   br i1 %exitcond.not.i, label %Hash_DRBG_Uninstantiate.exit, label %for.body.i, !llvm.loop !11

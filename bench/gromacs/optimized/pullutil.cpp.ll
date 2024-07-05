@@ -971,10 +971,10 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit: ; preds = %._crit_edg
   br label %517
 
 517:                                              ; preds = %.lr.ph252, %517
-  %.0250 = phi i64 [ 0, %.lr.ph252 ], [ %554, %517 ]
+  %.0155250 = phi i64 [ 0, %.lr.ph252 ], [ %554, %517 ]
   %518 = call { ptr, ptr } @_ZNK3gmx12LocalAtomSet10localIndexEv(ptr noundef nonnull align 8 dereferenceable(8) %514)
   %519 = extractvalue { ptr, ptr } %518, 0
-  %520 = getelementptr inbounds i32, ptr %519, i64 %.0250
+  %520 = getelementptr inbounds i32, ptr %519, i64 %.0155250
   %521 = load i32, ptr %520, align 4
   %522 = load float, ptr %18, align 4
   %523 = sext i32 %521 to i64
@@ -1007,9 +1007,9 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit: ; preds = %._crit_edg
   %550 = call double @llvm.fmuladd.f64(double %512, double %535, double %549)
   %551 = fptrunc double %550 to float
   %552 = load ptr, ptr %516, align 8
-  %553 = getelementptr inbounds float, ptr %552, i64 %.0250
+  %553 = getelementptr inbounds float, ptr %552, i64 %.0155250
   store float %551, ptr %553, align 4
-  %554 = add nuw i64 %.0250, 1
+  %554 = add nuw i64 %.0155250, 1
   %555 = call noundef i64 @_ZNK3gmx12LocalAtomSet13numAtomsLocalEv(ptr noundef nonnull align 8 dereferenceable(8) %514)
   %556 = icmp ult i64 %554, %555
   br i1 %556, label %517, label %._crit_edge253, !llvm.loop !12
@@ -1264,7 +1264,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %692, %690, %688, %6
 
 710:                                              ; preds = %710, %.lr.ph.i
   %indvars.iv56.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next57.i, %710 ]
-  %.015034.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %720, %710 ]
+  %.014934.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %720, %710 ]
   %711 = getelementptr inbounds [3 x float], ptr %13, i64 0, i64 %indvars.iv56.i
   %712 = load float, ptr %711, align 4
   %713 = fpext float %712 to double
@@ -1275,7 +1275,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %692, %690, %688, %6
   %718 = getelementptr inbounds [3 x double], ptr %14, i64 0, i64 %indvars.iv56.i
   store double %717, ptr %718, align 8
   %719 = fmul double %717, %717
-  %720 = fadd double %.015034.i, %719
+  %720 = fadd double %.014934.i, %719
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next57.i, 3
   br i1 %exitcond59.not.i, label %721, label %710, !llvm.loop !15
@@ -1811,7 +1811,7 @@ define internal fastcc void @_ZL12sum_com_partPK17pull_group_work_tiiN3gmx8Array
 23:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv29 = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next30, %.loopexit ]
   %.05713 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %.loopexit ]
-  %.06011 = phi double [ 0.000000e+00, %.lr.ph ], [ %.161, %.loopexit ]
+  %.05912 = phi double [ 0.000000e+00, %.lr.ph ], [ %.160, %.loopexit ]
   %24 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv29
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr %16, align 8
@@ -1834,11 +1834,11 @@ define internal fastcc void @_ZL12sum_com_partPK17pull_group_work_tiiN3gmx8Array
   %39 = fmul float %35, %38
   %40 = fmul float %35, %39
   %41 = fpext float %40 to double
-  %42 = fadd double %.06011, %41
+  %42 = fadd double %.05912, %41
   br label %43
 
 43:                                               ; preds = %33, %29
-  %.161 = phi double [ %.06011, %29 ], [ %42, %33 ]
+  %.160 = phi double [ %.05912, %29 ], [ %42, %33 ]
   %.058 = phi float [ %32, %29 ], [ %39, %33 ]
   %.pn = fpext float %.058 to double
   %.1 = fadd double %.05713, %.pn
@@ -1939,7 +1939,7 @@ define internal fastcc void @_ZL12sum_com_partPK17pull_group_work_tiiN3gmx8Array
   %.phi.trans.insert34 = getelementptr inbounds i8, ptr %9, i64 16
   %.pre35 = load double, ptr %.phi.trans.insert34, align 16
   %91 = insertelement <4 x double> poison, double %.1, i64 0
-  %92 = insertelement <4 x double> %91, double %.161, i64 1
+  %92 = insertelement <4 x double> %91, double %.160, i64 1
   %93 = shufflevector <2 x double> %90, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %94 = shufflevector <4 x double> %92, <4 x double> %93, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   br label %._crit_edge
@@ -2165,7 +2165,7 @@ define internal void @_Z14pull_calc_comsPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEER
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.lr.ph.split.us.i ], [ %61, %.lr.ph.i ]
-  %.0633.us.i = phi double [ %88, %.lr.ph.split.us.i ], [ 0.000000e+00, %.lr.ph.i ]
+  %.0596.us.i = phi double [ %88, %.lr.ph.split.us.i ], [ 0.000000e+00, %.lr.ph.i ]
   %62 = phi <4 x double> [ %84, %.lr.ph.split.us.i ], [ zeroinitializer, %.lr.ph.i ]
   %63 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv38.i
   %64 = load i32, ptr %63, align 4
@@ -2193,14 +2193,14 @@ define internal void @_Z14pull_calc_comsPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEER
   %85 = fmul float %73, %73
   %86 = fmul float %67, %85
   %87 = fpext float %86 to double
-  %88 = fadd double %.0633.us.i, %87
+  %88 = fadd double %.0596.us.i, %87
   %indvars.iv.next39.i = add nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count41.i
   br i1 %exitcond42.not.i, label %_ZL22sum_com_part_cosweightPK17pull_group_work_tiiifN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEEP7ComSums.exit.loopexit, label %.lr.ph.split.us.i, !llvm.loop !28
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ %61, %.lr.ph.i ]
-  %.0605.i = phi double [ %129, %.lr.ph.split.i ], [ 0.000000e+00, %.lr.ph.i ]
+  %.0623.i = phi double [ %129, %.lr.ph.split.i ], [ 0.000000e+00, %.lr.ph.i ]
   %89 = phi <4 x double> [ %112, %.lr.ph.split.i ], [ zeroinitializer, %.lr.ph.i ]
   %90 = phi <2 x double> [ %126, %.lr.ph.split.i ], [ zeroinitializer, %.lr.ph.i ]
   %91 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv.i
@@ -2243,7 +2243,7 @@ define internal void @_Z14pull_calc_comsPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEER
   %126 = fadd <2 x double> %90, %125
   %127 = fmul float %95, %119
   %128 = fpext float %127 to double
-  %129 = fadd double %.0605.i, %128
+  %129 = fadd double %.0623.i, %128
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count41.i
   br i1 %exitcond.not.i, label %_ZL22sum_com_part_cosweightPK17pull_group_work_tiiifN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEEP7ComSums.exit, label %.lr.ph.split.i, !llvm.loop !28
@@ -2253,7 +2253,7 @@ _ZL22sum_com_part_cosweightPK17pull_group_work_tiiifN3gmx8ArrayRefIKNS2_11BasicV
   br label %_ZL22sum_com_part_cosweightPK17pull_group_work_tiiifN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEEP7ComSums.exit
 
 _ZL22sum_com_part_cosweightPK17pull_group_work_tiiifN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEEP7ComSums.exit: ; preds = %.lr.ph.split.i, %_ZL22sum_com_part_cosweightPK17pull_group_work_tiiifN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEEP7ComSums.exit.loopexit, %.noexc
-  %.060.lcssa.i = phi double [ 0.000000e+00, %.noexc ], [ 0.000000e+00, %_ZL22sum_com_part_cosweightPK17pull_group_work_tiiifN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEEP7ComSums.exit.loopexit ], [ %129, %.lr.ph.split.i ]
+  %.062.lcssa.i = phi double [ 0.000000e+00, %.noexc ], [ 0.000000e+00, %_ZL22sum_com_part_cosweightPK17pull_group_work_tiiifN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEEP7ComSums.exit.loopexit ], [ %129, %.lr.ph.split.i ]
   %131 = phi <4 x double> [ zeroinitializer, %.noexc ], [ %84, %_ZL22sum_com_part_cosweightPK17pull_group_work_tiiifN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEEP7ComSums.exit.loopexit ], [ %112, %.lr.ph.split.i ]
   %132 = phi <2 x double> [ zeroinitializer, %.noexc ], [ %130, %_ZL22sum_com_part_cosweightPK17pull_group_work_tiiifN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_NS3_IKfEEP7ComSums.exit.loopexit ], [ %126, %.lr.ph.split.i ]
   %133 = getelementptr inbounds i8, ptr %53, i64 64
@@ -2261,7 +2261,7 @@ _ZL22sum_com_part_cosweightPK17pull_group_work_tiiifN3gmx8ArrayRefIKNS2_11BasicV
   %134 = getelementptr inbounds i8, ptr %53, i64 96
   store <2 x double> %132, ptr %134, align 8
   %135 = getelementptr inbounds i8, ptr %53, i64 112
-  store double %.060.lcssa.i, ptr %135, align 8
+  store double %.062.lcssa.i, ptr %135, align 8
   %136 = load i32, ptr %11, align 4
   %137 = sext i32 %136 to i64
   %.not.not = icmp slt i64 %indvars.iv, %137
@@ -3778,11 +3778,11 @@ define void @_Z23initPullComFromPrevStepPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEER
   br label %34
 
 34:                                               ; preds = %.lr.ph107, %140
-  %.066106 = phi i64 [ 0, %.lr.ph107 ], [ %141, %140 ]
+  %.064106 = phi i64 [ 0, %.lr.ph107 ], [ %141, %140 ]
   %35 = load ptr, ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 104
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct.pull_group_work_t, ptr %37, i64 %.066106
+  %38 = getelementptr inbounds %struct.pull_group_work_t, ptr %37, i64 %.064106
   store ptr %38, ptr %9, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 64
   %40 = load i8, ptr %39, align 8
@@ -3797,7 +3797,7 @@ define void @_Z23initPullComFromPrevStepPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEER
   store <2 x float> zeroinitializer, ptr %10, align 8
   store float 0.000000e+00, ptr %32, align 8
   %46 = load ptr, ptr %29, align 8
-  %47 = getelementptr inbounds %"class.gmx::BasicVector.78", ptr %46, i64 %.066106
+  %47 = getelementptr inbounds %"class.gmx::BasicVector.78", ptr %46, i64 %.064106
   %48 = load float, ptr %47, align 4
   store float %48, ptr %10, align 8
   %49 = getelementptr inbounds i8, ptr %47, i64 4
@@ -3914,7 +3914,7 @@ define void @_Z23initPullComFromPrevStepPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEER
 
 122:                                              ; preds = %119, %.loopexit98
   %123 = load ptr, ptr %33, align 8
-  %.idx68 = mul i64 %.066106, 72
+  %.idx68 = mul i64 %.064106, 72
   %124 = getelementptr inbounds i8, ptr %123, i64 %.idx68
   %125 = getelementptr inbounds i8, ptr %54, i64 16
   %126 = getelementptr inbounds i8, ptr %54, i64 32
@@ -3943,7 +3943,7 @@ define void @_Z23initPullComFromPrevStepPK9t_commrecP6pull_tN3gmx8ArrayRefIKfEER
   br label %140
 
 140:                                              ; preds = %34, %122
-  %141 = add nuw i64 %.066106, 1
+  %141 = add nuw i64 %.064106, 1
   %exitcond113.not = icmp eq i64 %141, %umax
   br i1 %exitcond113.not, label %._crit_edge, label %34, !llvm.loop !58
 
@@ -3986,11 +3986,11 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit: ; preds = %._crit_edg
   br label %.lr.ph110
 
 .lr.ph110:                                        ; preds = %.lr.ph110.preheader, %209
-  %.064109 = phi i64 [ %210, %209 ], [ 0, %.lr.ph110.preheader ]
+  %.066109 = phi i64 [ %210, %209 ], [ 0, %.lr.ph110.preheader ]
   %160 = load ptr, ptr %8, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 104
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds %struct.pull_group_work_t, ptr %162, i64 %.064109
+  %163 = getelementptr inbounds %struct.pull_group_work_t, ptr %162, i64 %.066109
   %164 = getelementptr inbounds i8, ptr %163, i64 64
   %165 = load i8, ptr %164, align 8
   %166 = trunc i8 %165 to i1
@@ -4002,7 +4002,7 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit: ; preds = %._crit_edg
 
 170:                                              ; preds = %.lr.ph110
   %171 = load ptr, ptr %144, align 8
-  %.idx = mul i64 %.064109, 72
+  %.idx = mul i64 %.066109, 72
   %172 = getelementptr inbounds i8, ptr %171, i64 %.idx
   %173 = getelementptr inbounds i8, ptr %172, i64 48
   %174 = load <2 x double>, ptr %173, align 8
@@ -4039,7 +4039,7 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit: ; preds = %._crit_edg
   %196 = getelementptr inbounds [3 x double], ptr %190, i64 0, i64 %indvars.iv114
   store double %195, ptr %196, align 8
   %197 = load ptr, ptr %29, align 8
-  %198 = getelementptr inbounds %"class.gmx::BasicVector.78", ptr %197, i64 %.064109
+  %198 = getelementptr inbounds %"class.gmx::BasicVector.78", ptr %197, i64 %.066109
   %199 = getelementptr inbounds [3 x float], ptr %198, i64 0, i64 %indvars.iv114
   %200 = load float, ptr %199, align 4
   %201 = fpext float %200 to double
@@ -4060,7 +4060,7 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit: ; preds = %._crit_edg
   br label %209
 
 209:                                              ; preds = %.lr.ph110, %203
-  %210 = add nuw i64 %.064109, 1
+  %210 = add nuw i64 %.066109, 1
   %exitcond119.not = icmp eq i64 %210, %umax118
   br i1 %exitcond119.not, label %.loopexit, label %.lr.ph110, !llvm.loop !60
 

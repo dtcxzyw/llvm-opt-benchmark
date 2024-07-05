@@ -488,7 +488,7 @@ while.body33.i:                                   ; preds = %while.body33.lr.ph.
 
 for.body52.i:                                     ; preds = %for.inc71.i, %for.body52.lr.ph.i
   %indvars.iv47.i = phi i64 [ 0, %for.body52.lr.ph.i ], [ %indvars.iv.next48.i, %for.inc71.i ]
-  %j.045.i = phi i32 [ 0, %for.body52.lr.ph.i ], [ %j.1.i, %for.inc71.i ]
+  %j.044.i = phi i32 [ 0, %for.body52.lr.ph.i ], [ %j.1.i, %for.inc71.i ]
   %arrayidx55.i = getelementptr inbounds %struct.merge_parent, ptr %21, i64 %indvars.iv47.i
   %used56.i = getelementptr inbounds i8, ptr %arrayidx55.i, i64 72
   %24 = load i8, ptr %used56.i, align 4
@@ -496,22 +496,22 @@ for.body52.i:                                     ; preds = %for.inc71.i, %for.b
   br i1 %tobool57.not.i, label %for.inc71.i, label %if.then58.i
 
 if.then58.i:                                      ; preds = %for.body52.i
-  %25 = zext i32 %j.045.i to i64
+  %25 = zext i32 %j.044.i to i64
   %cmp59.not.i = icmp eq i64 %indvars.iv47.i, %25
   br i1 %cmp59.not.i, label %if.end68.i, label %if.then61.i
 
 if.then61.i:                                      ; preds = %if.then58.i
-  %idxprom63.i = sext i32 %j.045.i to i64
+  %idxprom63.i = sext i32 %j.044.i to i64
   %arrayidx64.i = getelementptr inbounds %struct.merge_parent, ptr %21, i64 %idxprom63.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %arrayidx64.i, ptr noundef nonnull align 4 dereferenceable(76) %arrayidx55.i, i64 76, i1 false)
   br label %if.end68.i
 
 if.end68.i:                                       ; preds = %if.then61.i, %if.then58.i
-  %inc69.i = add nsw i32 %j.045.i, 1
+  %inc69.i = add nsw i32 %j.044.i, 1
   br label %for.inc71.i
 
 for.inc71.i:                                      ; preds = %if.end68.i, %for.body52.i
-  %j.1.i = phi i32 [ %inc69.i, %if.end68.i ], [ %j.045.i, %for.body52.i ]
+  %j.1.i = phi i32 [ %inc69.i, %if.end68.i ], [ %j.044.i, %for.body52.i ]
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %cmp50.i = icmp ult i64 %indvars.iv.next48.i, %22
   br i1 %cmp50.i, label %for.body52.i, label %find_merge_parents.exit, !llvm.loop !9
@@ -534,8 +534,8 @@ while.body.lr.ph:                                 ; preds = %find_merge_parents.
 
 while.body:                                       ; preds = %while.body.lr.ph, %handle_line.exit
   %conv187 = phi i64 [ 0, %while.body.lr.ph ], [ %conv, %handle_line.exit ]
-  %pos.0186 = phi i32 [ 0, %while.body.lr.ph ], [ %add23, %handle_line.exit ]
-  %i.0185 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %handle_line.exit ]
+  %i.0186 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %handle_line.exit ]
+  %pos.0185 = phi i32 [ 0, %while.body.lr.ph ], [ %add23, %handle_line.exit ]
   %27 = load ptr, ptr %buf, align 8
   %add.ptr16 = getelementptr inbounds i8, ptr %27, i64 %conv187
   %call17 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr16, i32 noundef 10) #13
@@ -556,9 +556,9 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %cond = phi i64 [ %sub.ptr.sub, %cond.true ], [ %call19, %cond.false ]
   %conv20 = trunc i64 %cond to i32
   %lnot.ext = zext i1 %tobool18 to i32
-  %add = add i32 %pos.0186, %lnot.ext
+  %add = add i32 %pos.0185, %lnot.ext
   %add23 = add i32 %add, %conv20
-  %inc = add nuw nsw i32 %i.0185, 1
+  %inc = add nuw nsw i32 %i.0186, 1
   %sext = shl i64 %cond, 32
   %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr16, i64 %idxprom
@@ -922,12 +922,12 @@ if.then30:                                        ; preds = %while.end
 
 for.body.i45:                                     ; preds = %if.then30, %for.inc.i59
   %indvars.iv.i46 = phi i64 [ %indvars.iv.next.i60, %for.inc.i59 ], [ 0, %if.then30 ]
-  %sep.045.i = phi ptr [ @.str.21, %for.inc.i59 ], [ @.str.19, %if.then30 ]
+  %sep.044.i = phi ptr [ @.str.21, %for.inc.i59 ], [ @.str.19, %if.then30 ]
   %69 = load ptr, ptr @srcs, align 8
   %util.i47 = getelementptr inbounds %struct.string_list_item, ptr %69, i64 %indvars.iv.i46, i32 1
   %70 = load ptr, ptr %util.i47, align 8
-  %call.i33.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %sep.045.i) #13
-  call void @strbuf_add(ptr noundef %out, ptr noundef nonnull %sep.045.i, i64 noundef %call.i33.i) #14
+  %call.i33.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %sep.044.i) #13
+  call void @strbuf_add(ptr noundef %out, ptr noundef nonnull %sep.044.i, i64 noundef %call.i33.i) #14
   %head_status.i48 = getelementptr inbounds i8, ptr %70, i64 160
   %71 = load i32, ptr %head_status.i48, align 8
   switch i32 %71, label %if.end10.i49 [
@@ -1124,8 +1124,8 @@ for.body.lr.ph.i70:                               ; preds = %if.end31
 
 for.body.i73:                                     ; preds = %next.i, %for.body.lr.ph.i70
   %indvars.iv.i74 = phi i64 [ 0, %for.body.lr.ph.i70 ], [ %indvars.iv.next.i82, %next.i ]
-  %first_tag.048.i = phi i32 [ 0, %for.body.lr.ph.i70 ], [ %first_tag.2.i, %next.i ]
-  %tag_number.047.i = phi i32 [ 0, %for.body.lr.ph.i70 ], [ %tag_number.1.i, %next.i ]
+  %tag_number.048.i = phi i32 [ 0, %for.body.lr.ph.i70 ], [ %tag_number.1.i, %next.i ]
+  %first_tag.047.i = phi i32 [ 0, %for.body.lr.ph.i70 ], [ %first_tag.2.i, %next.i ]
   %101 = load ptr, ptr @origins, align 8
   %util.i75 = getelementptr inbounds %struct.string_list_item, ptr %101, i64 %indvars.iv.i74, i32 1
   %102 = load ptr, ptr %util.i75, align 8
@@ -1173,8 +1173,8 @@ if.else17.i:                                      ; preds = %if.else.i
 if.end20.i:                                       ; preds = %if.else17.i, %if.then16.i80, %if.end.i79
   %buf.0.i = phi ptr [ %106, %if.else17.i ], [ %106, %if.then16.i80 ], [ %call.i76, %if.end.i79 ]
   %len.0.i = phi i64 [ %107, %if.else17.i ], [ %107, %if.then16.i80 ], [ %104, %if.end.i79 ]
-  %inc.i = add nsw i32 %tag_number.047.i, 1
-  %tobool21.not.i = icmp eq i32 %tag_number.047.i, 0
+  %inc.i = add nsw i32 %tag_number.048.i, 1
+  %tobool21.not.i = icmp eq i32 %tag_number.048.i, 0
   br i1 %tobool21.not.i, label %if.then22.i, label %if.else23.i
 
 if.then22.i:                                      ; preds = %if.end20.i
@@ -1200,7 +1200,7 @@ strbuf_addch.exit.i:                              ; preds = %if.else23.i
   %arrayidx3.i.i89 = getelementptr inbounds i8, ptr %112, i64 %113
   store i8 0, ptr %arrayidx3.i.i89, align 1
   %114 = load ptr, ptr @origins, align 8
-  %idxprom27.i = sext i32 %first_tag.048.i to i64
+  %idxprom27.i = sext i32 %first_tag.047.i to i64
   %arrayidx28.i = getelementptr inbounds %struct.string_list_item, ptr %114, i64 %idxprom27.i
   %115 = load ptr, ptr %arrayidx28.i, align 8
   %call32.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %115) #13
@@ -1250,15 +1250,15 @@ strbuf_addch.exit30.i:                            ; preds = %if.then.i26.i, %str
   br label %if.end43.i
 
 if.end43.i:                                       ; preds = %strbuf_addch.exit30.i, %if.then22.i
-  %first_tag.1.i = phi i32 [ %first_tag.048.i, %strbuf_addch.exit30.i ], [ %111, %if.then22.i ]
+  %first_tag.1.i = phi i32 [ %first_tag.047.i, %strbuf_addch.exit30.i ], [ %111, %if.then22.i ]
   call void @strbuf_release(ptr noundef nonnull %payload.i) #14
   call void @strbuf_release(ptr noundef nonnull %sig.i) #14
   call void @signature_check_clear(ptr noundef nonnull %sigc.i) #14
   br label %next.i
 
 next.i:                                           ; preds = %if.end43.i, %for.body.i73
-  %tag_number.1.i = phi i32 [ %tag_number.047.i, %for.body.i73 ], [ %inc.i, %if.end43.i ]
-  %first_tag.2.i = phi i32 [ %first_tag.048.i, %for.body.i73 ], [ %first_tag.1.i, %if.end43.i ]
+  %first_tag.2.i = phi i32 [ %first_tag.047.i, %for.body.i73 ], [ %first_tag.1.i, %if.end43.i ]
+  %tag_number.1.i = phi i32 [ %tag_number.048.i, %for.body.i73 ], [ %inc.i, %if.end43.i ]
   call void @free(ptr noundef %call.i76) #14
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i74, 1
   %128 = load i64, ptr getelementptr inbounds (i8, ptr @origins, i64 8), align 8

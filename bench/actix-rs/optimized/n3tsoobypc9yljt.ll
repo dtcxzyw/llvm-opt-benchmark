@@ -3111,8 +3111,8 @@ tailrecurse._crit_edge.thread:                    ; preds = %94
           to label %108 unwind label %.body, !noalias !712
 
 102:                                              ; preds = %.noexc11.i, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17ha7cb28d7d7f9ad7fE.exit.i"
-  %.sroa.8.0.i.ph = phi ptr [ @anon.c29a8bfa518d85917f471cda279c2d29.30.llvm.12734530818944442833, %.noexc11.i ], [ @anon.c29a8bfa518d85917f471cda279c2d29.28.llvm.12734530818944442833, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17ha7cb28d7d7f9ad7fE.exit.i" ]
   %.sroa.538.0.i.ph = phi ptr [ %78, %.noexc11.i ], [ %84, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17ha7cb28d7d7f9ad7fE.exit.i" ]
+  %.sroa.8.0.i.ph = phi ptr [ @anon.c29a8bfa518d85917f471cda279c2d29.30.llvm.12734530818944442833, %.noexc11.i ], [ @anon.c29a8bfa518d85917f471cda279c2d29.28.llvm.12734530818944442833, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17ha7cb28d7d7f9ad7fE.exit.i" ]
   store i8 1, ptr %11, align 4, !noalias !672
   store i64 1, ptr %0, align 8
   %.sroa.444.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

@@ -610,8 +610,8 @@ while.body.i:                                     ; preds = %if.end46.i, %while.
   %retval.sroa.0.sroa.0.07.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %retval.sroa.0.sroa.0.1.i, %if.end46.i ]
   %retval.sroa.0.sroa.4.06.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %retval.sroa.0.sroa.4.1.i, %if.end46.i ]
   %retval.sroa.6.05.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %retval.sroa.6.1.i, %if.end46.i ]
-  %activeSegment.sroa.0.04.i = phi i32 [ %conv9, %while.body.lr.ph.i ], [ %activeSegment.sroa.0.1.i, %if.end46.i ]
-  %activeSegment.sroa.16.02.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %activeSegment.sroa.16.3.i, %if.end46.i ]
+  %activeSegment.sroa.16.04.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %activeSegment.sroa.16.3.i, %if.end46.i ]
+  %activeSegment.sroa.0.02.i = phi i32 [ %conv9, %while.body.lr.ph.i ], [ %activeSegment.sroa.0.1.i, %if.end46.i ]
   %7 = load ptr, ptr %ctx, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.i
   %p.val.i.i = load i64, ptr %add.ptr.i, align 1
@@ -625,22 +625,22 @@ while.body.i:                                     ; preds = %if.end46.i, %while.
 if.then.i:                                        ; preds = %while.body.i
   %arrayidx10.i = getelementptr inbounds i32, ptr %freqs, i64 %shr.i.i7.i.i
   %9 = load i32, ptr %arrayidx10.i, align 4
-  %add12.i = add i32 %9, %activeSegment.sroa.16.02.i
+  %add12.i = add i32 %9, %activeSegment.sroa.16.04.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
-  %activeSegment.sroa.16.1.i = phi i32 [ %add12.i, %if.then.i ], [ %activeSegment.sroa.16.02.i, %while.body.i ]
+  %activeSegment.sroa.16.1.i = phi i32 [ %add12.i, %if.then.i ], [ %activeSegment.sroa.16.04.i, %while.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
   %add17.i = add i16 %8, 1
   store i16 %add17.i, ptr %arrayidx.i, align 2
-  %sub21.i = sub i32 %indvars.i, %activeSegment.sroa.0.04.i
+  %sub21.i = sub i32 %indvars.i, %activeSegment.sroa.0.02.i
   %cmp23.i = icmp eq i32 %sub21.i, %add22.i
   br i1 %cmp23.i, label %if.then25.i, label %if.end46.i
 
 if.then25.i:                                      ; preds = %if.end.i
   %10 = load ptr, ptr %ctx, align 8
-  %idx.ext28.i = zext i32 %activeSegment.sroa.0.04.i to i64
+  %idx.ext28.i = zext i32 %activeSegment.sroa.0.02.i to i64
   %add.ptr29.i = getelementptr inbounds i8, ptr %10, i64 %idx.ext28.i
   %p.val.i40.i = load i64, ptr %add.ptr29.i, align 1
   %mul.i.i4.i44.i = mul i64 %p.val.i40.i, %..i.i
@@ -660,12 +660,12 @@ if.then39.i:                                      ; preds = %if.then25.i
 
 if.end43.i:                                       ; preds = %if.then39.i, %if.then25.i
   %activeSegment.sroa.16.2.i = phi i32 [ %sub42.i, %if.then39.i ], [ %activeSegment.sroa.16.1.i, %if.then25.i ]
-  %add45.i = add i32 %activeSegment.sroa.0.04.i, 1
+  %add45.i = add i32 %activeSegment.sroa.0.02.i, 1
   br label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.end43.i, %if.end.i
+  %activeSegment.sroa.0.1.i = phi i32 [ %add45.i, %if.end43.i ], [ %activeSegment.sroa.0.02.i, %if.end.i ]
   %activeSegment.sroa.16.3.i = phi i32 [ %activeSegment.sroa.16.2.i, %if.end43.i ], [ %activeSegment.sroa.16.1.i, %if.end.i ]
-  %activeSegment.sroa.0.1.i = phi i32 [ %add45.i, %if.end43.i ], [ %activeSegment.sroa.0.04.i, %if.end.i ]
   %cmp49.i = icmp ugt i32 %activeSegment.sroa.16.3.i, %retval.sroa.6.05.i
   %retval.sroa.6.1.i = tail call i32 @llvm.umax.i32(i32 %activeSegment.sroa.16.3.i, i32 %retval.sroa.6.05.i)
   %retval.sroa.0.sroa.4.1.i = select i1 %cmp49.i, i32 %indvars.i, i32 %retval.sroa.0.sroa.4.06.i
@@ -965,9 +965,9 @@ for.body.preheader:                               ; preds = %if.end124
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond147.for.end_crit_edge
-  %tobool144.not144 = phi i1 [ false, %for.cond147.for.end_crit_edge ], [ true, %for.body.preheader ]
+  %iteration.0144 = phi i32 [ %iteration.2, %for.cond147.for.end_crit_edge ], [ 1, %for.body.preheader ]
   %d62.0143 = phi i32 [ %add220, %for.cond147.for.end_crit_edge ], [ %cond9, %for.body.preheader ]
-  %iteration.0142 = phi i32 [ %iteration.2, %for.cond147.for.end_crit_edge ], [ 1, %for.body.preheader ]
+  %tobool144.not142 = phi i1 [ false, %for.cond147.for.end_crit_edge ], [ true, %for.body.preheader ]
   br i1 %cmp127, label %if.then129, label %if.end132
 
 if.then129:                                       ; preds = %for.body
@@ -999,7 +999,7 @@ if.end142:                                        ; preds = %if.then139, %if.the
   br label %return
 
 if.end143:                                        ; preds = %if.end132
-  br i1 %tobool144.not144, label %if.then145, label %if.end146
+  br i1 %tobool144.not142, label %if.then145, label %if.end146
 
 if.then145:                                       ; preds = %if.end143
   %30 = load i64, ptr %nbDmers, align 8
@@ -1011,14 +1011,14 @@ if.end146:                                        ; preds = %if.then145, %if.end
   br label %for.body150
 
 for.body150:                                      ; preds = %if.end146, %for.inc
-  %k63.0139 = phi i32 [ %cond22, %if.end146 ], [ %add218, %for.inc ]
-  %iteration.1138 = phi i32 [ %iteration.0142, %if.end146 ], [ %iteration.2, %for.inc ]
+  %iteration.1140 = phi i32 [ %iteration.0144, %if.end146 ], [ %iteration.2, %for.inc ]
+  %k63.0138 = phi i32 [ %cond22, %if.end146 ], [ %add218, %for.inc ]
   %call151 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #15
   br i1 %cmp127, label %if.then154, label %if.end157
 
 if.then154:                                       ; preds = %for.body150
   %31 = load ptr, ptr @stderr, align 8
-  %call155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.11, i32 noundef %k63.0139) #12
+  %call155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.11, i32 noundef %k63.0138) #12
   %32 = load ptr, ptr @stderr, align 8
   %call156 = call i32 @fflush(ptr noundef %32)
   br label %if.end157
@@ -1068,7 +1068,7 @@ if.end166:                                        ; preds = %if.end157
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %coverParams.sroa.8.sroa.2.0.coverParams.sroa.8.0.parameters170.sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %coverParams.sroa.8.sroa.2, i64 12, i1 false)
   %coverParams.sroa.9.0.parameters170.sroa_idx = getelementptr inbounds i8, ptr %call151, i64 68
   store i32 0, ptr %coverParams.sroa.9.0.parameters170.sroa_idx, align 4
-  store i32 %k63.0139, ptr %parameters170, align 8
+  store i32 %k63.0138, ptr %parameters170, align 8
   store i32 %d62.0143, ptr %coverParams.sroa.3.0.parameters170.sroa_idx, align 4
   store double %cond, ptr %coverParams.sroa.6.0.parameters170.sroa_idx, align 8
   store i32 %cond35, ptr %coverParams.sroa.4.0.parameters170.sroa_idx, align 8
@@ -1077,7 +1077,7 @@ if.end166:                                        ; preds = %if.end157
   %notificationLevel183 = getelementptr inbounds i8, ptr %call151, i64 60
   store i32 %38, ptr %notificationLevel183, align 4
   %39 = load i32, ptr %f186, align 4
-  %cmp1.i = icmp eq i32 %k63.0139, 0
+  %cmp1.i = icmp eq i32 %k63.0138, 0
   %or.cond.i = or i1 %cmp1.i, %cmp.i110
   br i1 %or.cond.i, label %if.then189, label %if.end.i
 
@@ -1088,9 +1088,9 @@ if.end.i:                                         ; preds = %if.end166
   ]
 
 if.end7.i:                                        ; preds = %if.end.i, %if.end.i
-  %conv.i111 = zext i32 %k63.0139 to i64
+  %conv.i111 = zext i32 %k63.0138 to i64
   %cmp9.i = icmp ugt i64 %conv.i111, %dictBufferCapacity
-  %cmp15.i = icmp ugt i32 %d62.0143, %k63.0139
+  %cmp15.i = icmp ugt i32 %d62.0143, %k63.0138
   %or.cond8.i = or i1 %cmp9.i, %cmp15.i
   %40 = add i32 %39, -32
   %or.cond2.i = icmp ult i32 %40, -31
@@ -1139,7 +1139,7 @@ if.then210:                                       ; preds = %if.then202
   %call211 = call i64 @clock() #13
   store i64 %call211, ptr @g_time, align 8
   %45 = load ptr, ptr @stderr, align 8
-  %mul212 = mul i32 %iteration.1138, 100
+  %mul212 = mul i32 %iteration.1140, 100
   %div213 = udiv i32 %mul212, %mul
   %call214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.13, i32 noundef %div213) #12
   %46 = load ptr, ptr @stderr, align 8
@@ -1147,12 +1147,12 @@ if.then210:                                       ; preds = %if.then202
   br label %if.end217
 
 if.end217:                                        ; preds = %if.then210, %if.then202, %if.end199
-  %inc = add i32 %iteration.1138, 1
+  %inc = add i32 %iteration.1140, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end217, %if.end195
-  %iteration.2 = phi i32 [ %inc, %if.end217 ], [ %iteration.1138, %if.end195 ]
-  %add218 = add i32 %k63.0139, %cond42
+  %iteration.2 = phi i32 [ %inc, %if.end217 ], [ %iteration.1140, %if.end195 ]
+  %add218 = add i32 %k63.0138, %cond42
   %cmp148.not = icmp ugt i32 %add218, %cond29
   br i1 %cmp148.not, label %for.cond147.for.end_crit_edge, label %for.body150, !llvm.loop !12
 

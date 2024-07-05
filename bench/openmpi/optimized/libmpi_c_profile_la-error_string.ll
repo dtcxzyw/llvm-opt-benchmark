@@ -89,18 +89,18 @@ opal_pointer_array_get_item.exit.i:               ; preds = %25, %19
   br label %ompi_errcode_get_mpi_code.exit
 
 ompi_errcode_get_mpi_code.exit:                   ; preds = %9, %5, %.preheader.i, %31
-  %.010.i = phi i32 [ %4, %5 ], [ %33, %31 ], [ 14, %.preheader.i ], [ 14, %9 ]
-  %34 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.010.i, ptr noundef nonnull @FUNC_NAME) #5
+  %.0.i = phi i32 [ %4, %5 ], [ %33, %31 ], [ 14, %.preheader.i ], [ 14, %9 ]
+  %34 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.0.i, ptr noundef nonnull @FUNC_NAME) #5
   br label %71
 
 35:                                               ; preds = %3
   %36 = load i8, ptr @ompi_mpi_param_check, align 1
   %37 = trunc i8 %36 to i1
-  %.pre17 = load i32, ptr @ompi_mpi_errcode_lastpredefined, align 4
+  %.pre18 = load i32, ptr @ompi_mpi_errcode_lastpredefined, align 4
   br i1 %37, label %38, label %46
 
 38:                                               ; preds = %35
-  %39 = icmp eq i32 %.pre17, 0
+  %39 = icmp eq i32 %.pre18, 0
   br i1 %39, label %40, label %ompi_mpi_errcode_is_invalid.exit
 
 40:                                               ; preds = %38
@@ -123,7 +123,7 @@ ompi_mpi_errcode_is_invalid.exit._crit_edge:      ; preds = %ompi_mpi_errcode_is
   br label %71
 
 46:                                               ; preds = %ompi_mpi_errcode_is_invalid.exit._crit_edge, %35
-  %47 = phi i32 [ %.pre, %ompi_mpi_errcode_is_invalid.exit._crit_edge ], [ %.pre17, %35 ]
+  %47 = phi i32 [ %.pre, %ompi_mpi_errcode_is_invalid.exit._crit_edge ], [ %.pre18, %35 ]
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %51
 
@@ -145,11 +145,11 @@ ompi_mpi_errcode_is_invalid.exit._crit_edge:      ; preds = %ompi_mpi_errcode_is
 
 57:                                               ; preds = %54
   %58 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 32)) #5
-  %.pre.i.i14 = load i8, ptr @opal_uses_threads, align 1
+  %.pre.i.i15 = load i8, ptr @opal_uses_threads, align 1
   br label %59
 
 59:                                               ; preds = %57, %54
-  %60 = phi i8 [ %55, %54 ], [ %.pre.i.i14, %57 ]
+  %60 = phi i8 [ %55, %54 ], [ %.pre.i.i15, %57 ]
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 112), align 8
   %62 = zext nneg i32 %0 to i64
   %63 = getelementptr inbounds ptr, ptr %61, i64 %62
@@ -162,10 +162,10 @@ ompi_mpi_errcode_is_invalid.exit._crit_edge:      ; preds = %ompi_mpi_errcode_is
   br label %ompi_mpi_errnum_get_string.exit
 
 ompi_mpi_errnum_get_string.exit:                  ; preds = %51, %59, %66
-  %.0.i = phi ptr [ null, %51 ], [ %64, %59 ], [ %64, %66 ]
-  %.not.i13 = icmp eq ptr %.0.i, null
-  %68 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  %.04.i = select i1 %.not.i13, ptr @.str, ptr %68
+  %.0.i13 = phi ptr [ null, %51 ], [ %64, %59 ], [ %64, %66 ]
+  %.not.i14 = icmp eq ptr %.0.i13, null
+  %68 = getelementptr inbounds i8, ptr %.0.i13, i64 24
+  %.04.i = select i1 %.not.i14, ptr @.str, ptr %68
   tail call void @opal_string_copy(ptr noundef %1, ptr noundef nonnull %.04.i, i64 noundef 256) #5
   %69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
   %70 = trunc i64 %69 to i32

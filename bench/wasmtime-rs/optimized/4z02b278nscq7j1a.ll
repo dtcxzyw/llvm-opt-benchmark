@@ -2305,7 +2305,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8dfc52433e9f18d8E.exit.i: ; preds = %21
   unreachable
 
 .noexc66.i:                                       ; preds = %62, %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h18ef84faf0d5e41dE.exit77.i"
-  br i1 %.140.i, label %.thread10.i, label %44
+  br i1 %.139.i, label %.thread10.i, label %44
 
 55:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haf6a6cbc7e0cef9bE.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !274
@@ -2321,7 +2321,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8dfc52433e9f18d8E.exit.i: ; preds = %21
   unreachable
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h18ef84faf0d5e41dE.exit77.i": ; preds = %128, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17hb2c9e06c3a091e70E.exit75.thread.i", %115, %.body.i, %93
-  %.140.i = phi i1 [ true, %128 ], [ true, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17hb2c9e06c3a091e70E.exit75.thread.i" ], [ false, %115 ], [ false, %.body.i ], [ false, %93 ]
+  %.139.i = phi i1 [ true, %128 ], [ true, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17hb2c9e06c3a091e70E.exit75.thread.i" ], [ false, %115 ], [ false, %.body.i ], [ false, %93 ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn18.i, %128 ], [ %.pn.pn18.i, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17hb2c9e06c3a091e70E.exit75.thread.i" ], [ %116, %115 ], [ %97, %.body.i ], [ %94, %93 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !284)
   call void @llvm.experimental.noalias.scope.decl(metadata !287)
@@ -2763,7 +2763,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br label %67
 
 .thread.i:                                        ; preds = %22, %13, %11, %1
-  %.117.i = phi i1 [ false, %13 ], [ true, %11 ], [ true, %1 ], [ false, %22 ]
+  %.1.i = phi i1 [ false, %13 ], [ true, %11 ], [ true, %1 ], [ false, %22 ]
   %8 = landingpad { ptr, i32 }
           cleanup
   br label %67
@@ -2915,11 +2915,11 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br label %"_ZN3std6thread7Builder16spawn_unchecked_28_$u7b$$u7b$closure$u7d$$u7d$17haa4ac6d6d23c455bE.exit"
 
 66:                                               ; preds = %67
-  br i1 %.01632.i, label %70, label %.thread65.i
+  br i1 %.034.i, label %70, label %.thread65.i
 
 67:                                               ; preds = %.thread.i, %7
-  %.01632.i = phi i1 [ %.117.i, %.thread.i ], [ false, %7 ]
-  %.pn30.i = phi { ptr, i32 } [ %8, %.thread.i ], [ %lpad.thr_comm.split-lp.i, %7 ]
+  %.pn36.i = phi { ptr, i32 } [ %8, %.thread.i ], [ %lpad.thr_comm.split-lp.i, %7 ]
+  %.034.i = phi i1 [ %.1.i, %.thread.i ], [ false, %7 ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h01018e152982dd8cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) #43
           to label %66 unwind label %68
 
@@ -2947,10 +2947,10 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           to label %.thread65.i unwind label %68
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h18ef84faf0d5e41dE.exit23.i": ; preds = %82, %.thread65.i
-  resume { ptr, i32 } %.pn29556069.i
+  resume { ptr, i32 } %.pn35536169.i
 
 .thread65.i:                                      ; preds = %77, %74, %70, %66, %.thread70.i, %.thread73.i
-  %.pn29556069.i = phi { ptr, i32 } [ %48, %.thread70.i ], [ %lpad.thr_comm75.i, %.thread73.i ], [ %.pn30.i, %66 ], [ %.pn30.i, %77 ], [ %.pn30.i, %70 ], [ %.pn30.i, %74 ]
+  %.pn35536169.i = phi { ptr, i32 } [ %48, %.thread70.i ], [ %lpad.thr_comm75.i, %.thread73.i ], [ %.pn36.i, %66 ], [ %.pn36.i, %77 ], [ %.pn36.i, %70 ], [ %.pn36.i, %74 ]
   %78 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !392)
   call void @llvm.experimental.noalias.scope.decl(metadata !395)

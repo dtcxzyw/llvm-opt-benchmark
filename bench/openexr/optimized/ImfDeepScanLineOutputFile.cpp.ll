@@ -616,8 +616,8 @@ lpad12:                                           ; preds = %invoke.cont10
 
 catch.dispatch:                                   ; preds = %lpad12, %lpad8
   %.pn = phi { ptr, i32 } [ %22, %lpad8 ], [ %23, %lpad12 ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   %24 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7Iex_3_27BaseExcE) #20
   %matches = icmp eq i32 %ehselector.slot.0, %24
   %25 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #20
@@ -1646,8 +1646,8 @@ lpad7:                                            ; preds = %invoke.cont5
 
 catch.dispatch:                                   ; preds = %lpad7, %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %0, %lpad ], [ %1, %lpad3 ], [ %12, %lpad7 ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7Iex_3_27BaseExcE) #20
   %matches = icmp eq i32 %ehselector.slot.0, %13
   %14 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #20
@@ -2841,17 +2841,17 @@ for.end93:                                        ; preds = %for.inc91
   br label %if.end96
 
 if.end96:                                         ; preds = %for.end93, %for.end
-  %nextCompressBuffer.0 = phi i32 [ %add47, %for.end ], [ %sub94, %for.end93 ]
-  %stop.0 = phi i32 [ %add48, %for.end ], [ %sub95, %for.end93 ]
-  %step.0 = phi i32 [ 1, %for.end ], [ -1, %for.end93 ]
-  %scanLineMin.0 = phi i32 [ %12, %for.end ], [ %add65, %for.end93 ]
   %scanLineMax.0 = phi i32 [ %add, %for.end ], [ %12, %for.end93 ]
+  %scanLineMin.0 = phi i32 [ %12, %for.end ], [ %add65, %for.end93 ]
+  %step.0 = phi i32 [ 1, %for.end ], [ -1, %for.end93 ]
+  %stop.0 = phi i32 [ %add48, %for.end ], [ %sub95, %for.end93 ]
+  %nextCompressBuffer.0 = phi i32 [ %add47, %for.end ], [ %sub94, %for.end93 ]
   %24 = sext i32 %step.0 to i64
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %invoke.cont146, %if.end96
-  %nextWriteBuffer.0.ph = phi i32 [ %48, %invoke.cont146 ], [ %div, %if.end96 ]
   %nextCompressBuffer.1.ph = phi i32 [ %add147, %invoke.cont146 ], [ %nextCompressBuffer.0, %if.end96 ]
+  %nextWriteBuffer.0.ph = phi i32 [ %48, %invoke.cont146 ], [ %div, %if.end96 ]
   %cmp138 = icmp eq i32 %nextCompressBuffer.1.ph, %stop.0
   %25 = sext i32 %nextWriteBuffer.0.ph to i64
   br label %while.cond
@@ -5185,8 +5185,8 @@ if.end:                                           ; preds = %if.else, %if.then
   %yStart.0 = phi i32 [ %.pre, %if.then ], [ %.pre178, %if.else ]
   %5 = phi i32 [ %3, %if.then ], [ %.pre178, %if.else ]
   %6 = phi i32 [ %.pre, %if.then ], [ %4, %if.else ]
-  %yStop.0 = phi i32 [ %add, %if.then ], [ %sub, %if.else ]
   %dy.0 = phi i32 [ 1, %if.then ], [ -1, %if.else ]
+  %yStop.0 = phi i32 [ %add, %if.then ], [ %sub, %if.else ]
   %_lineBuffer8 = getelementptr inbounds i8, ptr %this, i64 24
   %sampleCountSliceBase = getelementptr inbounds i8, ptr %0, i64 328
   %7 = load ptr, ptr %sampleCountSliceBase, align 8

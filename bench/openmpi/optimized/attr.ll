@@ -1145,21 +1145,21 @@ define ptr @prte_fetch_attribute(ptr noundef readonly %0, ptr noundef readonly %
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 240
-  %.02431 = load ptr, ptr %7, align 8
-  %.not2832 = icmp eq ptr %.02431, %5
+  %.02531 = load ptr, ptr %7, align 8
+  %.not2832 = icmp eq ptr %.02531, %5
   br i1 %.not2832, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %11
-  %.02433 = phi ptr [ %.024, %11 ], [ %.02431, %6 ]
-  %8 = getelementptr inbounds i8, ptr %.02433, i64 144
+  %.02533 = phi ptr [ %.025, %11 ], [ %.02531, %6 ]
+  %8 = getelementptr inbounds i8, ptr %.02533, i64 144
   %9 = load i16, ptr %8, align 8
   %10 = icmp eq i16 %9, %2
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %.02433, i64 120
-  %.024 = load ptr, ptr %12, align 8
-  %.not28 = icmp eq ptr %.024, %5
+  %12 = getelementptr inbounds i8, ptr %.02533, i64 120
+  %.025 = load ptr, ptr %12, align 8
+  %.not28 = icmp eq ptr %.025, %5
   br i1 %.not28, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 13:                                               ; preds = %3
@@ -1188,8 +1188,8 @@ define ptr @prte_fetch_attribute(ptr noundef readonly %0, ptr noundef readonly %
   br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %20, %.lr.ph, %11, %6, %13, %15
-  %.025 = phi ptr [ null, %15 ], [ null, %13 ], [ null, %6 ], [ %.02433, %.lr.ph ], [ null, %11 ], [ null, %.preheader ], [ %.0, %20 ]
-  ret ptr %.025
+  %.024 = phi ptr [ null, %15 ], [ null, %13 ], [ null, %6 ], [ %.02533, %.lr.ph ], [ null, %11 ], [ null, %.preheader ], [ %.0, %20 ]
+  ret ptr %.024
 }
 
 ; Function Attrs: nounwind uwtable

@@ -414,14 +414,14 @@ free_field.exit:                                  ; preds = %70, %_nc_Free_Type.
   br label %.thread
 
 .thread:                                          ; preds = %6, %14, %free_field.exit
-  %.05469 = phi i32 [ -1, %free_field.exit ], [ -2, %6 ], [ -1, %14 ]
+  %.05569 = phi i32 [ -1, %free_field.exit ], [ -2, %6 ], [ -1, %14 ]
   %93 = tail call ptr @__errno_location() #9
-  store i32 %.05469, ptr %93, align 4
+  store i32 %.05569, ptr %93, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %56, %.thread
-  %.056 = phi ptr [ null, %.thread ], [ %15, %56 ], [ %15, %.lr.ph ]
-  ret ptr %.056
+  %.054 = phi ptr [ null, %.thread ], [ %15, %56 ], [ %15, %.lr.ph ]
+  ret ptr %.054
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

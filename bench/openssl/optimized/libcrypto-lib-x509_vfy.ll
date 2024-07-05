@@ -228,8 +228,8 @@ for.body.lr.ph.i.i:                               ; preds = %if.end.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %i.04.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.inc.i.i ]
-  %cmpbuf.03.i.i = phi ptr [ %.pre38, %for.body.lr.ph.i.i ], [ %cmpbuf.2.i.i, %for.inc.i.i ]
-  %mtype.02.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %mtype.2.i.i, %for.inc.i.i ]
+  %mtype.03.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %mtype.2.i.i, %for.inc.i.i ]
+  %cmpbuf.02.i.i = phi ptr [ %.pre38, %for.body.lr.ph.i.i ], [ %cmpbuf.2.i.i, %for.inc.i.i ]
   %13 = load ptr, ptr %trecs.i.i, align 8
   %call.i16.i.i = call ptr @OPENSSL_sk_value(ptr noundef %13, i32 noundef %i.04.i.i) #10
   %14 = load i8, ptr %call.i16.i.i, align 8
@@ -246,7 +246,7 @@ if.end12.i.i:                                     ; preds = %lor.lhs.false.i.i
   %mtype13.i.i = getelementptr inbounds i8, ptr %call.i16.i.i, i64 2
   %16 = load i8, ptr %mtype13.i.i, align 2
   %conv14.i.i = zext i8 %16 to i32
-  %cmp15.not.i.i = icmp eq i32 %mtype.02.i.i, %conv14.i.i
+  %cmp15.not.i.i = icmp eq i32 %mtype.03.i.i, %conv14.i.i
   br i1 %cmp15.not.i.i, label %if.end28.i.i, label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %if.end12.i.i
@@ -266,8 +266,8 @@ if.then22.i.i:                                    ; preds = %if.then17.i.i
   br i1 %tobool.not.i.i, label %dane_match_rpk.exit.i, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.then22.i.i, %if.then17.i.i, %if.end12.i.i
-  %mtype.1.i.i = phi i32 [ %conv14.i.i, %if.then22.i.i ], [ %conv14.i.i, %if.then17.i.i ], [ %mtype.02.i.i, %if.end12.i.i ]
-  %cmpbuf.1.i.i = phi ptr [ %mdbuf.i.i, %if.then22.i.i ], [ %20, %if.then17.i.i ], [ %cmpbuf.03.i.i, %if.end12.i.i ]
+  %cmpbuf.1.i.i = phi ptr [ %mdbuf.i.i, %if.then22.i.i ], [ %20, %if.then17.i.i ], [ %cmpbuf.02.i.i, %if.end12.i.i ]
+  %mtype.1.i.i = phi i32 [ %conv14.i.i, %if.then22.i.i ], [ %conv14.i.i, %if.then17.i.i ], [ %mtype.03.i.i, %if.end12.i.i ]
   %21 = load i32, ptr %cmplen.i.i, align 4
   %conv29.i.i = zext i32 %21 to i64
   %dlen.i.i = getelementptr inbounds i8, ptr %call.i16.i.i, i64 16
@@ -283,8 +283,8 @@ land.lhs.true.i.i:                                ; preds = %if.end28.i.i
   br i1 %cmp34.i.i, label %if.then3.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end28.i.i, %lor.lhs.false.i.i, %for.body.i.i
-  %mtype.2.i.i = phi i32 [ %mtype.02.i.i, %for.body.i.i ], [ %mtype.02.i.i, %lor.lhs.false.i.i ], [ %mtype.1.i.i, %land.lhs.true.i.i ], [ %mtype.1.i.i, %if.end28.i.i ]
-  %cmpbuf.2.i.i = phi ptr [ %cmpbuf.03.i.i, %for.body.i.i ], [ %cmpbuf.03.i.i, %lor.lhs.false.i.i ], [ %cmpbuf.1.i.i, %land.lhs.true.i.i ], [ %cmpbuf.1.i.i, %if.end28.i.i ]
+  %cmpbuf.2.i.i = phi ptr [ %cmpbuf.02.i.i, %for.body.i.i ], [ %cmpbuf.02.i.i, %lor.lhs.false.i.i ], [ %cmpbuf.1.i.i, %land.lhs.true.i.i ], [ %cmpbuf.1.i.i, %if.end28.i.i ]
+  %mtype.2.i.i = phi i32 [ %mtype.03.i.i, %for.body.i.i ], [ %mtype.03.i.i, %lor.lhs.false.i.i ], [ %mtype.1.i.i, %land.lhs.true.i.i ], [ %mtype.1.i.i, %if.end28.i.i ]
   %inc.i.i = add nuw nsw i32 %i.04.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %call.i.i.i
   br i1 %exitcond.not.i.i, label %if.else.i.loopexit, label %for.body.i.i, !llvm.loop !4
@@ -2588,9 +2588,9 @@ if.end32:                                         ; preds = %if.end3, %if.else, 
   br i1 %cmp33108, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %if.end32.thread, %if.end32
-  %xs.0125 = phi ptr [ %call23, %if.end32.thread ], [ %call8, %if.end32 ]
+  %n.0125 = phi i32 [ %dec, %if.end32.thread ], [ %sub, %if.end32 ]
   %xi.0124 = phi ptr [ %call8, %if.end32.thread ], [ %xi.0, %if.end32 ]
-  %n.0123 = phi i32 [ %dec, %if.end32.thread ], [ %sub, %if.end32 ]
+  %xs.0123 = phi ptr [ %call23, %if.end32.thread ], [ %call8, %if.end32 ]
   %current_issuer126 = getelementptr inbounds i8, ptr %ctx, i64 192
   %param40 = getelementptr inbounds i8, ptr %ctx, i64 32
   %current_cert.i62 = getelementptr inbounds i8, ptr %ctx, i64 184
@@ -2599,14 +2599,14 @@ while.body.lr.ph:                                 ; preds = %if.end32.thread, %i
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end107
-  %xs.1112 = phi ptr [ %xs.0125, %while.body.lr.ph ], [ %call106, %if.end107 ]
-  %xi.1111 = phi ptr [ %xi.0124, %while.body.lr.ph ], [ %xs.1112, %if.end107 ]
-  %n.1109 = phi i32 [ %n.0123, %while.body.lr.ph ], [ %dec100, %if.end107 ]
-  %cmp35.not = icmp eq ptr %xi.1111, null
+  %n.1111 = phi i32 [ %n.0125, %while.body.lr.ph ], [ %dec100, %if.end107 ]
+  %xi.1110 = phi ptr [ %xi.0124, %while.body.lr.ph ], [ %xs.1109, %if.end107 ]
+  %xs.1109 = phi ptr [ %xs.0123, %while.body.lr.ph ], [ %call106, %if.end107 ]
+  %cmp35.not = icmp eq ptr %xi.1110, null
   br i1 %cmp35.not, label %if.end89, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %while.body
-  %cmp38.not = icmp eq ptr %xs.1112, %xi.1111
+  %cmp38.not = icmp eq ptr %xs.1109, %xi.1110
   br i1 %cmp38.not, label %lor.lhs.false, label %if.then49
 
 lor.lhs.false:                                    ; preds = %land.lhs.true37
@@ -2618,33 +2618,33 @@ lor.lhs.false:                                    ; preds = %land.lhs.true37
   br i1 %cmp43.not, label %if.end89, label %land.lhs.true45
 
 land.lhs.true45:                                  ; preds = %lor.lhs.false
-  %ex_flags = getelementptr inbounds i8, ptr %xi.1111, i64 232
+  %ex_flags = getelementptr inbounds i8, ptr %xi.1110, i64 232
   %13 = load i32, ptr %ex_flags, align 8
   %and46 = and i32 %13, 8192
   %cmp47.not = icmp eq i32 %and46, 0
   br i1 %cmp47.not, label %if.end89, label %if.then49
 
 if.then49:                                        ; preds = %land.lhs.true45, %land.lhs.true37
-  %cmp50 = icmp ne ptr %xs.1112, %xi.1111
+  %cmp50 = icmp ne ptr %xs.1109, %xi.1110
   %cond = zext i1 %cmp50 to i32
-  %add = add nuw nsw i32 %n.1109, %cond
+  %add = add nuw nsw i32 %n.1111, %cond
   br i1 %cmp50, label %cond.end, label %land.lhs.true54
 
 land.lhs.true54:                                  ; preds = %if.then49
-  %ex_flags55 = getelementptr inbounds i8, ptr %xi.1111, i64 232
+  %ex_flags55 = getelementptr inbounds i8, ptr %xi.1110, i64 232
   %14 = load i32, ptr %ex_flags55, align 8
   %and56 = and i32 %14, 16
   %cmp57 = icmp eq i32 %and56, 0
   br i1 %cmp57, label %if.end68, label %cond.end
 
 cond.end:                                         ; preds = %if.then49, %land.lhs.true54
-  %call59 = tail call i32 @ossl_x509_signing_allowed(ptr noundef nonnull %xi.1111, ptr noundef %xs.1112) #10
+  %call59 = tail call i32 @ossl_x509_signing_allowed(ptr noundef nonnull %xi.1110, ptr noundef %xs.1109) #10
   %cmp61.not = icmp eq i32 %call59, 0
   br i1 %cmp61.not, label %if.end68, label %verify_cb_cert.exit69
 
 verify_cb_cert.exit69:                            ; preds = %cond.end
   store i32 %add, ptr %error_depth, align 4
-  store ptr %xi.1111, ptr %current_cert.i62, align 8
+  store ptr %xi.1110, ptr %current_cert.i62, align 8
   store i32 %call59, ptr %error.i63, align 8
   %15 = load ptr, ptr %verify_cb.i64, align 8
   %call7.i65 = tail call i32 %15(i32 noundef 0, ptr noundef nonnull %ctx) #10
@@ -2652,13 +2652,13 @@ verify_cb_cert.exit69:                            ; preds = %cond.end
   br i1 %cmp65, label %return, label %if.end68
 
 if.end68:                                         ; preds = %land.lhs.true54, %verify_cb_cert.exit69, %cond.end
-  %call69 = tail call ptr @X509_get0_pubkey(ptr noundef nonnull %xi.1111) #10
+  %call69 = tail call ptr @X509_get0_pubkey(ptr noundef nonnull %xi.1110) #10
   %cmp70 = icmp eq ptr %call69, null
   br i1 %cmp70, label %verify_cb_cert.exit87, label %if.else78
 
 verify_cb_cert.exit87:                            ; preds = %if.end68
   store i32 %add, ptr %error_depth, align 4
-  store ptr %xi.1111, ptr %current_cert.i62, align 8
+  store ptr %xi.1110, ptr %current_cert.i62, align 8
   store i32 6, ptr %error.i63, align 8
   %16 = load ptr, ptr %verify_cb.i64, align 8
   %call7.i82 = tail call i32 %16(i32 noundef 0, ptr noundef nonnull %ctx) #10
@@ -2666,22 +2666,22 @@ verify_cb_cert.exit87:                            ; preds = %if.end68
   br i1 %cmp74, label %return, label %if.end89
 
 if.else78:                                        ; preds = %if.end68
-  %call79 = tail call i32 @X509_verify(ptr noundef %xs.1112, ptr noundef nonnull %call69) #10
+  %call79 = tail call i32 @X509_verify(ptr noundef %xs.1109, ptr noundef nonnull %call69) #10
   %cmp80 = icmp slt i32 %call79, 1
   br i1 %cmp80, label %if.else.i90, label %if.end89
 
 if.else.i90:                                      ; preds = %if.else78
-  store i32 %n.1109, ptr %error_depth, align 4
-  %cmp2.not.i93 = icmp eq ptr %xs.1112, null
+  store i32 %n.1111, ptr %error_depth, align 4
+  %cmp2.not.i93 = icmp eq ptr %xs.1109, null
   br i1 %cmp2.not.i93, label %cond.false.i101, label %verify_cb_cert.exit105
 
 cond.false.i101:                                  ; preds = %if.else.i90
   %17 = load ptr, ptr %chain, align 8
-  %call3.i103 = tail call ptr @OPENSSL_sk_value(ptr noundef %17, i32 noundef %n.1109) #10
+  %call3.i103 = tail call ptr @OPENSSL_sk_value(ptr noundef %17, i32 noundef %n.1111) #10
   br label %verify_cb_cert.exit105
 
 verify_cb_cert.exit105:                           ; preds = %if.else.i90, %cond.false.i101
-  %cond.i95 = phi ptr [ %call3.i103, %cond.false.i101 ], [ %xs.1112, %if.else.i90 ]
+  %cond.i95 = phi ptr [ %call3.i103, %cond.false.i101 ], [ %xs.1109, %if.else.i90 ]
   store ptr %cond.i95, ptr %current_cert.i62, align 8
   store i32 7, ptr %error.i63, align 8
   %18 = load ptr, ptr %verify_cb.i64, align 8
@@ -2690,28 +2690,28 @@ verify_cb_cert.exit105:                           ; preds = %if.else.i90, %cond.
   br i1 %cmp84, label %return, label %if.end89
 
 if.end89:                                         ; preds = %verify_cb_cert.exit87, %verify_cb_cert.exit105, %if.else78, %land.lhs.true45, %lor.lhs.false, %while.body
-  %call90 = tail call i32 @ossl_x509_check_cert_time(ptr noundef nonnull %ctx, ptr noundef %xs.1112, i32 noundef %n.1109)
+  %call90 = tail call i32 @ossl_x509_check_cert_time(ptr noundef nonnull %ctx, ptr noundef %xs.1109, i32 noundef %n.1111)
   %tobool91.not = icmp eq i32 %call90, 0
   br i1 %tobool91.not, label %return, label %if.end93
 
 if.end93:                                         ; preds = %if.end89
-  store ptr %xi.1111, ptr %current_issuer126, align 8
-  store ptr %xs.1112, ptr %current_cert.i62, align 8
-  store i32 %n.1109, ptr %error_depth, align 4
+  store ptr %xi.1110, ptr %current_issuer126, align 8
+  store ptr %xs.1109, ptr %current_cert.i62, align 8
+  store i32 %n.1111, ptr %error_depth, align 4
   %19 = load ptr, ptr %verify_cb.i64, align 8
   %call96 = tail call i32 %19(i32 noundef 1, ptr noundef nonnull %ctx) #10
   %tobool97.not = icmp eq i32 %call96, 0
   br i1 %tobool97.not, label %return, label %if.end99
 
 if.end99:                                         ; preds = %if.end93
-  %cmp101.not = icmp eq i32 %n.1109, 0
+  %cmp101.not = icmp eq i32 %n.1111, 0
   br i1 %cmp101.not, label %return, label %if.end107
 
 if.end107:                                        ; preds = %if.end99
-  %dec100 = add nsw i32 %n.1109, -1
+  %dec100 = add nsw i32 %n.1111, -1
   %20 = load ptr, ptr %chain, align 8
   %call106 = tail call ptr @OPENSSL_sk_value(ptr noundef %20, i32 noundef %dec100) #10
-  %cmp33 = icmp sgt i32 %n.1109, 0
+  %cmp33 = icmp sgt i32 %n.1111, 0
   br i1 %cmp33, label %while.body, label %return, !llvm.loop !11
 
 return:                                           ; preds = %if.end99, %verify_cb_cert.exit69, %verify_cb_cert.exit87, %verify_cb_cert.exit105, %if.end89, %if.end93, %if.end107, %if.end32, %verify_cb_cert.exit, %if.then
@@ -4672,11 +4672,11 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %proxy_path_length.0474.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %proxy_path_length.2.i, %for.inc.i ]
-  %plen.0473.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %plen.1.i, %for.inc.i ]
-  %must_be_ca.0472.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %must_be_ca.1.i, %for.inc.i ]
-  %i.0469.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc390.i, %for.inc.i ]
+  %i.0471.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc390.i, %for.inc.i ]
+  %plen.0470.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %plen.1.i, %for.inc.i ]
+  %must_be_ca.0469.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %must_be_ca.1.i, %for.inc.i ]
   %7 = load ptr, ptr %chain.i, align 8
-  %call9.i = call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %i.0469.i) #10
+  %call9.i = call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %i.0471.i) #10
   %8 = load ptr, ptr %param10.i, align 8
   %flags11.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load i64, ptr %flags11.i, align 8
@@ -4692,7 +4692,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %cmp16.not.i, label %if.end23.i, label %verify_cb_cert.exit.i
 
 verify_cb_cert.exit.i:                            ; preds = %land.lhs.true.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 34, ptr %error.i.i, align 8
   %11 = load ptr, ptr %verify_cb.i.i, align 8
@@ -4711,7 +4711,7 @@ land.lhs.true24.i:                                ; preds = %if.end23.i
   br i1 %cmp27.not.i, label %if.end34.i, label %verify_cb_cert.exit165.i
 
 verify_cb_cert.exit165.i:                         ; preds = %land.lhs.true24.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 40, ptr %error.i.i, align 8
   %13 = load ptr, ptr %verify_cb.i.i, align 8
@@ -4721,7 +4721,7 @@ verify_cb_cert.exit165.i:                         ; preds = %land.lhs.true24.i
 
 if.end34.i:                                       ; preds = %verify_cb_cert.exit165.i, %land.lhs.true24.i, %if.end23.i
   %call35.i = call i32 @X509_check_ca(ptr noundef %call9.i) #10
-  switch i32 %must_be_ca.0472.i, label %sw.default.i [
+  switch i32 %must_be_ca.0469.i, label %sw.default.i [
     i32 -1, label %sw.bb.i
     i32 0, label %sw.bb53.i
   ]
@@ -4737,13 +4737,13 @@ sw.bb.i:                                          ; preds = %if.end34.i
   br i1 %or.cond1.i, label %land.lhs.true47.i, label %sw.epilog.i
 
 land.lhs.true47.i:                                ; preds = %sw.bb.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   %cmp2.not.i167.i = icmp eq ptr %call9.i, null
   br i1 %cmp2.not.i167.i, label %cond.false.i173.i, label %verify_cb_cert.exit176.i
 
 cond.false.i173.i:                                ; preds = %land.lhs.true47.i
   %17 = load ptr, ptr %chain.i, align 8
-  %call3.i175.i = call ptr @OPENSSL_sk_value(ptr noundef %17, i32 noundef %i.0469.i) #10
+  %call3.i175.i = call ptr @OPENSSL_sk_value(ptr noundef %17, i32 noundef %i.0471.i) #10
   br label %verify_cb_cert.exit176.i
 
 verify_cb_cert.exit176.i:                         ; preds = %cond.false.i173.i, %land.lhs.true47.i
@@ -4760,13 +4760,13 @@ sw.bb53.i:                                        ; preds = %if.end34.i
   br i1 %cmp54.not.i, label %sw.epilog.i, label %land.lhs.true56.i
 
 land.lhs.true56.i:                                ; preds = %sw.bb53.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   %cmp2.not.i178.i = icmp eq ptr %call9.i, null
   br i1 %cmp2.not.i178.i, label %cond.false.i184.i, label %verify_cb_cert.exit187.i
 
 cond.false.i184.i:                                ; preds = %land.lhs.true56.i
   %19 = load ptr, ptr %chain.i, align 8
-  %call3.i186.i = call ptr @OPENSSL_sk_value(ptr noundef %19, i32 noundef %i.0469.i) #10
+  %call3.i186.i = call ptr @OPENSSL_sk_value(ptr noundef %19, i32 noundef %i.0471.i) #10
   br label %verify_cb_cert.exit187.i
 
 verify_cb_cert.exit187.i:                         ; preds = %cond.false.i184.i, %land.lhs.true56.i
@@ -4783,7 +4783,7 @@ sw.default.i:                                     ; preds = %if.end34.i
   br i1 %cmp62.i, label %land.lhs.true75.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %sw.default.i
-  %add.i = add nuw nsw i32 %i.0469.i, 1
+  %add.i = add nuw nsw i32 %i.0471.i, 1
   %cmp64.i = icmp slt i32 %add.i, %call1.i
   br i1 %cmp64.i, label %land.lhs.true72.i, label %lor.lhs.false66.i
 
@@ -4802,13 +4802,13 @@ land.lhs.true72.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp73.old.not.i, label %sw.epilog.i, label %land.lhs.true75.i
 
 land.lhs.true75.i:                                ; preds = %land.lhs.true72.i, %lor.lhs.false66.i, %sw.default.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   %cmp2.not.i189.i = icmp eq ptr %call9.i, null
   br i1 %cmp2.not.i189.i, label %cond.false.i195.i, label %verify_cb_cert.exit198.i
 
 cond.false.i195.i:                                ; preds = %land.lhs.true75.i
   %23 = load ptr, ptr %chain.i, align 8
-  %call3.i197.i = call ptr @OPENSSL_sk_value(ptr noundef %23, i32 noundef %i.0469.i) #10
+  %call3.i197.i = call ptr @OPENSSL_sk_value(ptr noundef %23, i32 noundef %i.0471.i) #10
   br label %verify_cb_cert.exit198.i
 
 verify_cb_cert.exit198.i:                         ; preds = %cond.false.i195.i, %land.lhs.true75.i
@@ -4845,13 +4845,13 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 
 land.lhs.true87.i:                                ; preds = %if.end4.i.i, %if.then83.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i)
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   %cmp2.not.i204.i = icmp eq ptr %call9.i, null
   br i1 %cmp2.not.i204.i, label %cond.false.i210.i, label %verify_cb_cert.exit213.i
 
 cond.false.i210.i:                                ; preds = %land.lhs.true87.i
   %25 = load ptr, ptr %chain.i, align 8
-  %call3.i212.i = call ptr @OPENSSL_sk_value(ptr noundef %25, i32 noundef %i.0469.i) #10
+  %call3.i212.i = call ptr @OPENSSL_sk_value(ptr noundef %25, i32 noundef %i.0471.i) #10
   br label %verify_cb_cert.exit213.i
 
 verify_cb_cert.exit213.i:                         ; preds = %cond.false.i210.i, %land.lhs.true87.i
@@ -4870,13 +4870,13 @@ if.end92.i:                                       ; preds = %if.end4.i.i
   br i1 %tobool.not.i.not.i, label %if.end101.i, label %land.lhs.true95.i
 
 land.lhs.true95.i:                                ; preds = %if.end92.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   %cmp2.not.i217.i = icmp eq ptr %call9.i, null
   br i1 %cmp2.not.i217.i, label %cond.false.i223.i, label %verify_cb_cert.exit226.i
 
 cond.false.i223.i:                                ; preds = %land.lhs.true95.i
   %28 = load ptr, ptr %chain.i, align 8
-  %call3.i225.i = call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %i.0469.i) #10
+  %call3.i225.i = call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %i.0471.i) #10
   br label %verify_cb_cert.exit226.i
 
 verify_cb_cert.exit226.i:                         ; preds = %cond.false.i223.i, %land.lhs.true95.i
@@ -4910,7 +4910,7 @@ if.then113.i:                                     ; preds = %if.then110.i
   br i1 %cmp116.i, label %verify_cb_cert.exit239.i, label %if.end123.i
 
 verify_cb_cert.exit239.i:                         ; preds = %if.then113.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 80, ptr %error.i.i, align 8
   %34 = load ptr, ptr %verify_cb.i.i, align 8
@@ -4926,7 +4926,7 @@ if.end123.i:                                      ; preds = %verify_cb_cert.exit
   br i1 %cmp125.i, label %verify_cb_cert.exit252.i, label %if.end133.i
 
 verify_cb_cert.exit252.i:                         ; preds = %if.end123.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 81, ptr %error.i.i, align 8
   %36 = load ptr, ptr %verify_cb.i.i, align 8
@@ -4942,7 +4942,7 @@ if.end133.i:                                      ; preds = %verify_cb_cert.exit
   br i1 %or.cond154.i, label %verify_cb_cert.exit265.i, label %if.end153.i
 
 verify_cb_cert.exit265.i:                         ; preds = %if.end133.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 89, ptr %error.i.i, align 8
   %39 = load ptr, ptr %verify_cb.i.i, align 8
@@ -4966,7 +4966,7 @@ if.then158.i:                                     ; preds = %if.end153.i
   br i1 %cmp161.i, label %verify_cb_cert.exit278.i, label %if.end180.i
 
 verify_cb_cert.exit278.i:                         ; preds = %if.then158.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 92, ptr %error.i.i, align 8
   %41 = load ptr, ptr %verify_cb.i.i, align 8
@@ -4982,7 +4982,7 @@ if.else169.i:                                     ; preds = %if.end153.i
   br i1 %cmp172.not.i, label %if.end180.i, label %verify_cb_cert.exit291.i
 
 verify_cb_cert.exit291.i:                         ; preds = %if.else169.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 82, ptr %error.i.i, align 8
   %43 = load ptr, ptr %verify_cb.i.i, align 8
@@ -4997,7 +4997,7 @@ if.end180.i:                                      ; preds = %verify_cb_cert.exit
   br i1 %cmp183.i, label %verify_cb_cert.exit304.i, label %if.end190.i
 
 verify_cb_cert.exit304.i:                         ; preds = %if.end180.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 83, ptr %error.i.i, align 8
   %44 = load ptr, ptr %verify_cb.i.i, align 8
@@ -5031,7 +5031,7 @@ land.lhs.true203.i:                               ; preds = %lor.lhs.false200.i,
   br i1 %cmp206.i, label %verify_cb_cert.exit317.i, label %if.end213.i
 
 verify_cb_cert.exit317.i:                         ; preds = %land.lhs.true203.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 84, ptr %error.i.i, align 8
   %48 = load ptr, ptr %verify_cb.i.i, align 8
@@ -5058,7 +5058,7 @@ land.lhs.true222.i:                               ; preds = %land.lhs.true218.i
   br i1 %cmp225.i, label %verify_cb_cert.exit330.i, label %if.end232.i
 
 verify_cb_cert.exit330.i:                         ; preds = %land.lhs.true222.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 88, ptr %error.i.i, align 8
   %51 = load ptr, ptr %verify_cb.i.i, align 8
@@ -5078,7 +5078,7 @@ land.lhs.true236.i:                               ; preds = %if.end232.i
   br i1 %cmp240.i, label %verify_cb_cert.exit343.i, label %if.end247.i
 
 verify_cb_cert.exit343.i:                         ; preds = %land.lhs.true236.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 87, ptr %error.i.i, align 8
   %53 = load ptr, ptr %verify_cb.i.i, align 8
@@ -5094,7 +5094,7 @@ if.end247.i:                                      ; preds = %verify_cb_cert.exit
   br i1 %cmp249.not.i, label %if.end256.i, label %verify_cb_cert.exit356.i
 
 verify_cb_cert.exit356.i:                         ; preds = %if.end247.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 78, ptr %error.i.i, align 8
   %54 = load ptr, ptr %verify_cb.i.i, align 8
@@ -5115,7 +5115,7 @@ land.lhs.true259.i:                               ; preds = %if.end256.i
   br i1 %cmp262.not.i, label %if.end269.i, label %verify_cb_cert.exit369.i
 
 verify_cb_cert.exit369.i:                         ; preds = %land.lhs.true259.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 90, ptr %error.i.i, align 8
   %57 = load ptr, ptr %verify_cb.i.i, align 8
@@ -5136,7 +5136,7 @@ land.lhs.true272.i:                               ; preds = %if.end269.i
   br i1 %cmp275.not.i, label %if.end282.i, label %verify_cb_cert.exit382.i
 
 verify_cb_cert.exit382.i:                         ; preds = %land.lhs.true272.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 91, ptr %error.i.i, align 8
   %60 = load ptr, ptr %verify_cb.i.i, align 8
@@ -5150,7 +5150,7 @@ if.end282.i:                                      ; preds = %verify_cb_cert.exit
   br i1 %cmp284.i, label %if.then286.i, label %if.else318.i
 
 if.then286.i:                                     ; preds = %if.end282.i
-  %add287.i = add nuw nsw i32 %i.0469.i, 1
+  %add287.i = add nuw nsw i32 %i.0471.i, 1
   %cmp288.i = icmp slt i32 %add287.i, %call1.i
   br i1 %cmp288.i, label %land.lhs.true290.i, label %if.end303.i
 
@@ -5165,7 +5165,7 @@ lor.lhs.false294.i:                               ; preds = %land.lhs.true290.i
   br i1 %cmp296.i, label %verify_cb_cert.exit395.i, label %if.end303.i
 
 verify_cb_cert.exit395.i:                         ; preds = %lor.lhs.false294.i, %land.lhs.true290.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 85, ptr %error.i.i, align 8
   %63 = load ptr, ptr %verify_cb.i.i, align 8
@@ -5185,7 +5185,7 @@ land.lhs.true308.i:                               ; preds = %if.end303.i
   br i1 %cmp310.i, label %verify_cb_cert.exit408.i, label %if.end331.i
 
 verify_cb_cert.exit408.i:                         ; preds = %land.lhs.true308.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 86, ptr %error.i.i, align 8
   %66 = load ptr, ptr %verify_cb.i.i, align 8
@@ -5200,7 +5200,7 @@ if.else318.i:                                     ; preds = %if.end282.i
   br i1 %cmp322.i, label %verify_cb_cert.exit421.i, label %if.end331.i
 
 verify_cb_cert.exit421.i:                         ; preds = %if.else318.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 93, ptr %error.i.i, align 8
   %67 = load ptr, ptr %verify_cb.i.i, align 8
@@ -5213,7 +5213,7 @@ if.end331.i:                                      ; preds = %verify_cb_cert.exit
 
 land.lhs.true334.i:                               ; preds = %if.end331.i
   %68 = load i32, ptr %num_untrusted.i.i, align 4
-  %cmp.not.i.i = icmp sgt i32 %68, %i.0469.i
+  %cmp.not.i.i = icmp sgt i32 %68, %i.0471.i
   br i1 %cmp.not.i.i, label %sw.default.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %land.lhs.true334.i
@@ -5233,7 +5233,7 @@ if.end.i423.i:                                    ; preds = %land.lhs.true.i.i
   ]
 
 sw.default.i.i:                                   ; preds = %if.end.i423.i, %land.lhs.true.i.i, %land.lhs.true334.i
-  %cmp5.i.i = icmp sgt i32 %must_be_ca.0472.i, 0
+  %cmp5.i.i = icmp sgt i32 %must_be_ca.0469.i, 0
   %conv.i.i = zext i1 %cmp5.i.i to i32
   %call6.i.i = call i32 @X509_check_purpose(ptr noundef %call9.i, i32 noundef %purpose.0.i, i32 noundef %conv.i.i) #10
   switch i32 %call6.i.i, label %sw.default9.i.i [
@@ -5250,13 +5250,13 @@ sw.default9.i.i:                                  ; preds = %sw.default.i.i
   br i1 %cmp11.i.i, label %if.end338.i, label %sw.epilog15.i.i
 
 sw.epilog15.i.i:                                  ; preds = %sw.default9.i.i, %sw.default.i.i, %if.end.i423.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   %cmp2.not.i.i.i = icmp eq ptr %call9.i, null
   br i1 %cmp2.not.i.i.i, label %cond.false.i.i.i, label %check_purpose.exit.i
 
 cond.false.i.i.i:                                 ; preds = %sw.epilog15.i.i
   %74 = load ptr, ptr %chain.i, align 8
-  %call3.i.i.i = call ptr @OPENSSL_sk_value(ptr noundef %74, i32 noundef %i.0469.i) #10
+  %call3.i.i.i = call ptr @OPENSSL_sk_value(ptr noundef %74, i32 noundef %i.0471.i) #10
   br label %check_purpose.exit.i
 
 check_purpose.exit.i:                             ; preds = %cond.false.i.i.i, %sw.epilog15.i.i
@@ -5269,7 +5269,7 @@ check_purpose.exit.i:                             ; preds = %cond.false.i.i.i, %
   br i1 %tobool336.not.i, label %return, label %if.end338.i
 
 if.end338.i:                                      ; preds = %check_purpose.exit.i, %sw.default9.i.i, %sw.default.i.i, %if.end.i423.i, %if.end331.i
-  %cmp339.i = icmp ugt i32 %i.0469.i, 1
+  %cmp339.i = icmp ugt i32 %i.0471.i, 1
   br i1 %cmp339.i, label %land.lhs.true341.i, label %if.end357.i
 
 land.lhs.true341.i:                               ; preds = %if.end338.i
@@ -5279,14 +5279,14 @@ land.lhs.true341.i:                               ; preds = %if.end338.i
   br i1 %cmp343.not.i, label %land.lhs.true360.i, label %land.lhs.true345.i
 
 land.lhs.true345.i:                               ; preds = %land.lhs.true341.i
-  %conv346.i = sext i32 %plen.0473.i to i64
+  %conv346.i = sext i32 %plen.0470.i to i64
   %conv348.i = sext i32 %proxy_path_length.0474.i to i64
   %add349.i = add nsw i64 %76, %conv348.i
   %cmp350.i = icmp slt i64 %add349.i, %conv346.i
   br i1 %cmp350.i, label %verify_cb_cert.exit437.i, label %land.lhs.true360.i
 
 verify_cb_cert.exit437.i:                         ; preds = %land.lhs.true345.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 25, ptr %error.i.i, align 8
   %77 = load ptr, ptr %verify_cb.i.i, align 8
@@ -5295,7 +5295,7 @@ verify_cb_cert.exit437.i:                         ; preds = %land.lhs.true345.i
   br i1 %cmp354.i, label %return, label %land.lhs.true360.i
 
 if.end357.i:                                      ; preds = %if.end338.i
-  %cmp358.not.i = icmp eq i32 %i.0469.i, 0
+  %cmp358.not.i = icmp eq i32 %i.0471.i, 0
   br i1 %cmp358.not.i, label %if.end357.if.end366_crit_edge.i, label %land.lhs.true360.i
 
 if.end357.if.end366_crit_edge.i:                  ; preds = %if.end357.i
@@ -5309,12 +5309,12 @@ land.lhs.true360.i:                               ; preds = %if.end357.i, %verif
   %and362.i = lshr i32 %78, 5
   %79 = and i32 %and362.i, 1
   %80 = xor i32 %79, 1
-  %spec.select.i = add i32 %80, %plen.0473.i
+  %spec.select.i = add i32 %80, %plen.0470.i
   br label %if.end366.i
 
 if.end366.i:                                      ; preds = %land.lhs.true360.i, %if.end357.if.end366_crit_edge.i
   %81 = phi i32 [ %.pre500.i, %if.end357.if.end366_crit_edge.i ], [ %78, %land.lhs.true360.i ]
-  %plen.1.i = phi i32 [ %plen.0473.i, %if.end357.if.end366_crit_edge.i ], [ %spec.select.i, %land.lhs.true360.i ]
+  %plen.1.i = phi i32 [ %plen.0470.i, %if.end357.if.end366_crit_edge.i ], [ %spec.select.i, %land.lhs.true360.i ]
   %and368.i = and i32 %81, 1024
   %tobool369.not.i = icmp eq i32 %and368.i, 0
   br i1 %tobool369.not.i, label %for.inc.i, label %if.then370.i
@@ -5331,7 +5331,7 @@ if.then373.i:                                     ; preds = %if.then370.i
   br i1 %cmp376.i, label %verify_cb_cert.exit450.i, label %if.end383.i
 
 verify_cb_cert.exit450.i:                         ; preds = %if.then373.i
-  store i32 %i.0469.i, ptr %error_depth.i.i, align 4
+  store i32 %i.0471.i, ptr %error_depth.i.i, align 4
   store ptr %call9.i, ptr %current_cert.i.i, align 8
   store i32 38, ptr %error.i.i, align 8
   %83 = load ptr, ptr %verify_cb.i.i, align 8
@@ -5356,7 +5356,7 @@ if.end386.i:                                      ; preds = %if.end383.i, %if.th
 for.inc.i:                                        ; preds = %if.end386.i, %if.end366.i
   %must_be_ca.1.i = phi i32 [ 0, %if.end386.i ], [ 1, %if.end366.i ]
   %proxy_path_length.2.i = phi i32 [ %inc387.i, %if.end386.i ], [ %proxy_path_length.0474.i, %if.end366.i ]
-  %inc390.i = add nuw nsw i32 %i.0469.i, 1
+  %inc390.i = add nuw nsw i32 %i.0471.i, 1
   %exitcond.not.i = icmp eq i32 %inc390.i, %call1.i
   br i1 %exitcond.not.i, label %lor.lhs.false3, label %for.body.i, !llvm.loop !18
 
@@ -5804,16 +5804,16 @@ for.body.lr.ph:                                   ; preds = %cond.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.035 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %cmpbuf.034 = phi ptr [ null, %for.body.lr.ph ], [ %cmpbuf.2, %for.inc ]
-  %i2dbuf.033 = phi ptr [ null, %for.body.lr.ph ], [ %i2dbuf.2, %for.inc ]
-  %mtype.032 = phi i32 [ 256, %for.body.lr.ph ], [ %mtype.4, %for.inc ]
-  %ordinal.031 = phi i32 [ 256, %for.body.lr.ph ], [ %ordinal.3, %for.inc ]
-  %selector.030 = phi i32 [ 256, %for.body.lr.ph ], [ %selector.2, %for.inc ]
-  %usage.029 = phi i32 [ 256, %for.body.lr.ph ], [ %usage.2, %for.inc ]
+  %usage.035 = phi i32 [ 256, %for.body.lr.ph ], [ %usage.2, %for.inc ]
+  %i.034 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %cmpbuf.033 = phi ptr [ null, %for.body.lr.ph ], [ %cmpbuf.2, %for.inc ]
+  %i2dbuf.032 = phi ptr [ null, %for.body.lr.ph ], [ %i2dbuf.2, %for.inc ]
+  %mtype.031 = phi i32 [ 256, %for.body.lr.ph ], [ %mtype.4, %for.inc ]
+  %ordinal.030 = phi i32 [ 256, %for.body.lr.ph ], [ %ordinal.3, %for.inc ]
+  %selector.029 = phi i32 [ 256, %for.body.lr.ph ], [ %selector.2, %for.inc ]
   %i2dlen.028 = phi i32 [ 0, %for.body.lr.ph ], [ %i2dlen.3, %for.inc ]
   %3 = load ptr, ptr %trecs12, align 8
-  %call.i47 = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %i.035) #10
+  %call.i47 = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %i.034) #10
   %4 = load i8, ptr %call.i47, align 8
   %conv = zext i8 %4 to i32
   %shl = shl nuw i32 1, %conv
@@ -5822,7 +5822,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp16, label %for.inc, label %if.end19
 
 if.end19:                                         ; preds = %for.body
-  %cmp22.not = icmp eq i32 %usage.029, %conv
+  %cmp22.not = icmp eq i32 %usage.035, %conv
   br i1 %cmp22.not, label %if.end29, label %if.then24
 
 if.then24:                                        ; preds = %if.end19
@@ -5838,17 +5838,17 @@ if.then24:                                        ; preds = %if.end19
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then24, %if.end19
-  %usage.1 = phi i32 [ %conv, %if.then24 ], [ %usage.029, %if.end19 ]
-  %ordinal.1 = phi i32 [ %conv28, %if.then24 ], [ %ordinal.031, %if.end19 ]
-  %mtype.1 = phi i32 [ 256, %if.then24 ], [ %mtype.032, %if.end19 ]
+  %ordinal.1 = phi i32 [ %conv28, %if.then24 ], [ %ordinal.030, %if.end19 ]
+  %mtype.1 = phi i32 [ 256, %if.then24 ], [ %mtype.031, %if.end19 ]
+  %usage.1 = phi i32 [ %conv, %if.then24 ], [ %usage.035, %if.end19 ]
   %selector30 = getelementptr inbounds i8, ptr %call.i47, i64 1
   %9 = load i8, ptr %selector30, align 1
   %conv31 = zext i8 %9 to i32
-  %cmp32.not = icmp eq i32 %selector.030, %conv31
+  %cmp32.not = icmp eq i32 %selector.029, %conv31
   br i1 %cmp32.not, label %if.else, label %if.then34
 
 if.then34:                                        ; preds = %if.end29
-  call void @CRYPTO_free(ptr noundef %i2dbuf.033, ptr noundef nonnull @.str, i32 noundef 2887) #10
+  call void @CRYPTO_free(ptr noundef %i2dbuf.032, ptr noundef nonnull @.str, i32 noundef 2887) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i)
   store ptr null, ptr %buf.i, align 8
   switch i8 %9, label %dane_i2d.exit.thread [
@@ -5927,9 +5927,9 @@ if.then70:                                        ; preds = %if.end65.if.then70_
   %idxprom74.pre-phi = phi i64 [ %.pre44, %if.end65.if.then70_crit_edge ], [ %idxprom46, %if.end65.thread ]
   %19 = phi ptr [ %.pre, %if.end65.if.then70_crit_edge ], [ %11, %if.end65.thread ]
   %conv6721 = phi i32 [ %conv67, %if.end65.if.then70_crit_edge ], [ %conv6711, %if.end65.thread ]
-  %i2dbuf.119 = phi ptr [ %i2dbuf.033, %if.end65.if.then70_crit_edge ], [ %10, %if.end65.thread ]
+  %i2dbuf.119 = phi ptr [ %i2dbuf.032, %if.end65.if.then70_crit_edge ], [ %10, %if.end65.thread ]
   %ordinal.217 = phi i32 [ %ordinal.1, %if.end65.if.then70_crit_edge ], [ %conv48, %if.end65.thread ]
-  %selector.115 = phi i32 [ %selector.030, %if.end65.if.then70_crit_edge ], [ %conv31, %if.end65.thread ]
+  %selector.115 = phi i32 [ %selector.029, %if.end65.if.then70_crit_edge ], [ %conv31, %if.end65.thread ]
   %i2dlen.213 = phi i32 [ %i2dlen.028, %if.end65.if.then70_crit_edge ], [ %len.0.i, %if.end65.thread ]
   %20 = load ptr, ptr %19, align 8
   %arrayidx75 = getelementptr inbounds ptr, ptr %20, i64 %idxprom74.pre-phi
@@ -5945,12 +5945,12 @@ if.then78:                                        ; preds = %if.then70
   br i1 %tobool.not, label %for.end, label %if.end84
 
 if.end84:                                         ; preds = %if.then70, %if.then78, %if.end65
-  %i2dbuf.120 = phi ptr [ %i2dbuf.119, %if.then78 ], [ %i2dbuf.119, %if.then70 ], [ %i2dbuf.033, %if.end65 ]
+  %i2dbuf.120 = phi ptr [ %i2dbuf.119, %if.then78 ], [ %i2dbuf.119, %if.then70 ], [ %i2dbuf.032, %if.end65 ]
   %ordinal.218 = phi i32 [ %ordinal.217, %if.then78 ], [ %ordinal.217, %if.then70 ], [ %ordinal.1, %if.end65 ]
-  %selector.116 = phi i32 [ %selector.115, %if.then78 ], [ %selector.115, %if.then70 ], [ %selector.030, %if.end65 ]
+  %selector.116 = phi i32 [ %selector.115, %if.then78 ], [ %selector.115, %if.then70 ], [ %selector.029, %if.end65 ]
   %i2dlen.214 = phi i32 [ %i2dlen.213, %if.then78 ], [ %i2dlen.213, %if.then70 ], [ %i2dlen.028, %if.end65 ]
   %mtype.3 = phi i32 [ %conv6721, %if.then78 ], [ %conv6721, %if.then70 ], [ %mtype.1, %if.end65 ]
-  %cmpbuf.1 = phi ptr [ %mdbuf, %if.then78 ], [ %i2dbuf.119, %if.then70 ], [ %cmpbuf.034, %if.end65 ]
+  %cmpbuf.1 = phi ptr [ %mdbuf, %if.then78 ], [ %i2dbuf.119, %if.then70 ], [ %cmpbuf.033, %if.end65 ]
   %22 = load i32, ptr %cmplen, align 4
   %conv85 = zext i32 %22 to i64
   %dlen = getelementptr inbounds i8, ptr %call.i47, i64 16
@@ -5990,13 +5990,13 @@ if.then102:                                       ; preds = %lor.lhs.false, %if.
 
 for.inc:                                          ; preds = %if.end84, %land.lhs.true, %if.then53, %for.body
   %i2dlen.3 = phi i32 [ %i2dlen.028, %for.body ], [ %i2dlen.214, %land.lhs.true ], [ %i2dlen.214, %if.end84 ], [ %i2dlen.028, %if.then53 ]
-  %usage.2 = phi i32 [ %usage.029, %for.body ], [ %usage.1, %land.lhs.true ], [ %usage.1, %if.end84 ], [ %usage.1, %if.then53 ]
-  %selector.2 = phi i32 [ %selector.030, %for.body ], [ %selector.116, %land.lhs.true ], [ %selector.116, %if.end84 ], [ %selector.030, %if.then53 ]
-  %ordinal.3 = phi i32 [ %ordinal.031, %for.body ], [ %ordinal.218, %land.lhs.true ], [ %ordinal.218, %if.end84 ], [ %ordinal.1, %if.then53 ]
-  %mtype.4 = phi i32 [ %mtype.032, %for.body ], [ %mtype.3, %land.lhs.true ], [ %mtype.3, %if.end84 ], [ %mtype.1, %if.then53 ]
-  %i2dbuf.2 = phi ptr [ %i2dbuf.033, %for.body ], [ %i2dbuf.120, %land.lhs.true ], [ %i2dbuf.120, %if.end84 ], [ %i2dbuf.033, %if.then53 ]
-  %cmpbuf.2 = phi ptr [ %cmpbuf.034, %for.body ], [ %cmpbuf.1, %land.lhs.true ], [ %cmpbuf.1, %if.end84 ], [ %cmpbuf.034, %if.then53 ]
-  %inc = add nuw nsw i32 %i.035, 1
+  %selector.2 = phi i32 [ %selector.029, %for.body ], [ %selector.116, %land.lhs.true ], [ %selector.116, %if.end84 ], [ %selector.029, %if.then53 ]
+  %ordinal.3 = phi i32 [ %ordinal.030, %for.body ], [ %ordinal.218, %land.lhs.true ], [ %ordinal.218, %if.end84 ], [ %ordinal.1, %if.then53 ]
+  %mtype.4 = phi i32 [ %mtype.031, %for.body ], [ %mtype.3, %land.lhs.true ], [ %mtype.3, %if.end84 ], [ %mtype.1, %if.then53 ]
+  %i2dbuf.2 = phi ptr [ %i2dbuf.032, %for.body ], [ %i2dbuf.120, %land.lhs.true ], [ %i2dbuf.120, %if.end84 ], [ %i2dbuf.032, %if.then53 ]
+  %cmpbuf.2 = phi ptr [ %cmpbuf.033, %for.body ], [ %cmpbuf.1, %land.lhs.true ], [ %cmpbuf.1, %if.end84 ], [ %cmpbuf.033, %if.then53 ]
+  %usage.2 = phi i32 [ %usage.035, %for.body ], [ %usage.1, %land.lhs.true ], [ %usage.1, %if.end84 ], [ %usage.1, %if.then53 ]
+  %inc = add nuw nsw i32 %i.034, 1
   %exitcond.not = icmp eq i32 %inc, %call.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
 
@@ -6272,11 +6272,11 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %best_crl_issuer.065 = phi ptr [ null, %for.body.lr.ph ], [ %best_crl_issuer.1, %for.inc ]
   %best_crl.064 = phi ptr [ null, %for.body.lr.ph ], [ %best_crl.1, %for.inc ]
-  %best_reasons.063 = phi i32 [ 0, %for.body.lr.ph ], [ %best_reasons.1, %for.inc ]
-  %best_score.062 = phi i32 [ %0, %for.body.lr.ph ], [ %best_score.1, %for.inc ]
-  %i.061 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.063 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %best_reasons.062 = phi i32 [ 0, %for.body.lr.ph ], [ %best_reasons.1, %for.inc ]
+  %best_score.061 = phi i32 [ %0, %for.body.lr.ph ], [ %best_score.1, %for.inc ]
   %crl_issuer.060 = phi ptr [ null, %for.body.lr.ph ], [ %crl_issuer.246, %for.inc ]
-  %call3 = call ptr @OPENSSL_sk_value(ptr noundef %crls, i32 noundef %i.061) #10
+  %call3 = call ptr @OPENSSL_sk_value(ptr noundef %crls, i32 noundef %i.063) #10
   %2 = load i32, ptr %preasons, align 4
   %idp_flags.i = getelementptr inbounds i8, ptr %call3, i64 152
   %3 = load i32, ptr %idp_flags.i, align 8
@@ -6689,13 +6689,13 @@ if.end55.i:                                       ; preds = %if.then50.i
 get_crl_score.exit:                               ; preds = %if.end47.i, %if.then3.i.i, %if.else.i.i, %lor.lhs.false33.i.i, %crl_crldp_check.exit.i, %if.end55.i
   %reasons.0 = phi i32 [ %2, %crl_crldp_check.exit.i ], [ %or56.i, %if.end55.i ], [ %2, %if.end47.i ], [ %2, %if.then3.i.i ], [ %2, %if.else.i.i ], [ %2, %lor.lhs.false33.i.i ]
   %retval.0.i = phi i32 [ %crl_score.3.i, %crl_crldp_check.exit.i ], [ %or57.i, %if.end55.i ], [ %crl_score.3.i, %if.end47.i ], [ %crl_score.3.i, %if.then3.i.i ], [ %crl_score.3.i, %if.else.i.i ], [ %crl_score.3.i, %lor.lhs.false33.i.i ]
-  %cmp5 = icmp slt i32 %retval.0.i, %best_score.062
+  %cmp5 = icmp slt i32 %retval.0.i, %best_score.061
   %cmp6 = icmp eq i32 %retval.0.i, 0
   %or.cond = or i1 %cmp5, %cmp6
   br i1 %or.cond, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %get_crl_score.exit
-  %cmp7 = icmp eq i32 %retval.0.i, %best_score.062
+  %cmp7 = icmp eq i32 %retval.0.i, %best_score.061
   %cmp8 = icmp ne ptr %best_crl.064, null
   %or.cond1 = select i1 %cmp7, i1 %cmp8, i1 false
   br i1 %or.cond1, label %if.then9, label %if.end21
@@ -6720,11 +6720,11 @@ if.end21:                                         ; preds = %if.end15, %if.end
 
 for.inc:                                          ; preds = %if.then50.i, %crl_akid_check.exit.i, %if.then25.i, %if.else16.i, %if.then11.i, %if.then3.i, %for.body, %if.end15, %if.then9, %get_crl_score.exit, %if.end21
   %crl_issuer.246 = phi ptr [ %crl_issuer.1, %get_crl_score.exit ], [ %crl_issuer.1, %if.then9 ], [ %crl_issuer.1, %if.end15 ], [ %crl_issuer.1, %if.end21 ], [ %crl_issuer.060, %for.body ], [ %crl_issuer.060, %if.then11.i ], [ %crl_issuer.060, %if.else16.i ], [ %crl_issuer.060, %if.then3.i ], [ %crl_issuer.060, %if.then25.i ], [ %crl_issuer.1, %if.then50.i ], [ %crl_issuer.1, %crl_akid_check.exit.i ]
-  %best_score.1 = phi i32 [ %best_score.062, %get_crl_score.exit ], [ %best_score.062, %if.then9 ], [ %best_score.062, %if.end15 ], [ %retval.0.i, %if.end21 ], [ %best_score.062, %for.body ], [ %best_score.062, %if.then11.i ], [ %best_score.062, %if.else16.i ], [ %best_score.062, %if.then3.i ], [ %best_score.062, %if.then25.i ], [ %best_score.062, %if.then50.i ], [ %best_score.062, %crl_akid_check.exit.i ]
-  %best_reasons.1 = phi i32 [ %best_reasons.063, %get_crl_score.exit ], [ %best_reasons.063, %if.then9 ], [ %best_reasons.063, %if.end15 ], [ %reasons.0, %if.end21 ], [ %best_reasons.063, %for.body ], [ %best_reasons.063, %if.then11.i ], [ %best_reasons.063, %if.else16.i ], [ %best_reasons.063, %if.then3.i ], [ %best_reasons.063, %if.then25.i ], [ %best_reasons.063, %if.then50.i ], [ %best_reasons.063, %crl_akid_check.exit.i ]
+  %best_score.1 = phi i32 [ %best_score.061, %get_crl_score.exit ], [ %best_score.061, %if.then9 ], [ %best_score.061, %if.end15 ], [ %retval.0.i, %if.end21 ], [ %best_score.061, %for.body ], [ %best_score.061, %if.then11.i ], [ %best_score.061, %if.else16.i ], [ %best_score.061, %if.then3.i ], [ %best_score.061, %if.then25.i ], [ %best_score.061, %if.then50.i ], [ %best_score.061, %crl_akid_check.exit.i ]
+  %best_reasons.1 = phi i32 [ %best_reasons.062, %get_crl_score.exit ], [ %best_reasons.062, %if.then9 ], [ %best_reasons.062, %if.end15 ], [ %reasons.0, %if.end21 ], [ %best_reasons.062, %for.body ], [ %best_reasons.062, %if.then11.i ], [ %best_reasons.062, %if.else16.i ], [ %best_reasons.062, %if.then3.i ], [ %best_reasons.062, %if.then25.i ], [ %best_reasons.062, %if.then50.i ], [ %best_reasons.062, %crl_akid_check.exit.i ]
   %best_crl.1 = phi ptr [ %best_crl.064, %get_crl_score.exit ], [ %best_crl.064, %if.then9 ], [ %best_crl.064, %if.end15 ], [ %call3, %if.end21 ], [ %best_crl.064, %for.body ], [ %best_crl.064, %if.then11.i ], [ %best_crl.064, %if.else16.i ], [ %best_crl.064, %if.then3.i ], [ %best_crl.064, %if.then25.i ], [ %best_crl.064, %if.then50.i ], [ %best_crl.064, %crl_akid_check.exit.i ]
   %best_crl_issuer.1 = phi ptr [ %best_crl_issuer.065, %get_crl_score.exit ], [ %best_crl_issuer.065, %if.then9 ], [ %best_crl_issuer.065, %if.end15 ], [ %crl_issuer.1, %if.end21 ], [ %best_crl_issuer.065, %for.body ], [ %best_crl_issuer.065, %if.then11.i ], [ %best_crl_issuer.065, %if.else16.i ], [ %best_crl_issuer.065, %if.then3.i ], [ %best_crl_issuer.065, %if.then25.i ], [ %best_crl_issuer.065, %if.then50.i ], [ %best_crl_issuer.065, %crl_akid_check.exit.i ]
-  %inc = add nuw nsw i32 %i.061, 1
+  %inc = add nuw nsw i32 %i.063, 1
   %call1 = call i32 @OPENSSL_sk_num(ptr noundef %crls) #10
   %cmp = icmp slt i32 %inc, %call1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !32
@@ -7272,15 +7272,15 @@ if.then.i:                                        ; preds = %rejected
 
 if.else.i46:                                      ; preds = %rejected.thread, %rejected
   %error_depth.i74 = phi ptr [ %error_depth.i70, %rejected.thread ], [ %error_depth.i, %rejected ]
-  %x.073 = phi ptr [ %call40, %rejected.thread ], [ %call14, %rejected ]
-  %i.171 = phi i32 [ 0, %rejected.thread ], [ %i.080, %rejected ]
-  store i32 %i.171, ptr %error_depth.i74, align 4
+  %i.173 = phi i32 [ 0, %rejected.thread ], [ %i.080, %rejected ]
+  %x.072 = phi ptr [ %call40, %rejected.thread ], [ %call14, %rejected ]
+  store i32 %i.173, ptr %error_depth.i74, align 4
   br label %if.end.i47
 
 if.end.i47:                                       ; preds = %if.else.i46, %if.then.i
-  %x.072 = phi ptr [ %call14, %if.then.i ], [ %x.073, %if.else.i46 ]
-  %depth.addr.0.i = phi i32 [ %19, %if.then.i ], [ %i.171, %if.else.i46 ]
-  %cmp2.not.i = icmp eq ptr %x.072, null
+  %x.071 = phi ptr [ %call14, %if.then.i ], [ %x.072, %if.else.i46 ]
+  %depth.addr.0.i = phi i32 [ %19, %if.then.i ], [ %i.173, %if.else.i46 ]
+  %cmp2.not.i = icmp eq ptr %x.071, null
   br i1 %cmp2.not.i, label %cond.false.i, label %verify_cb_cert.exit
 
 cond.false.i:                                     ; preds = %if.end.i47
@@ -7289,7 +7289,7 @@ cond.false.i:                                     ; preds = %if.end.i47
   br label %verify_cb_cert.exit
 
 verify_cb_cert.exit:                              ; preds = %if.end.i47, %cond.false.i
-  %cond.i = phi ptr [ %call3.i49, %cond.false.i ], [ %x.072, %if.end.i47 ]
+  %cond.i = phi ptr [ %call3.i49, %cond.false.i ], [ %x.071, %if.end.i47 ]
   %current_cert.i = getelementptr inbounds i8, ptr %ctx, i64 184
   store ptr %cond.i, ptr %current_cert.i, align 8
   %error.i = getelementptr inbounds i8, ptr %ctx, i64 176

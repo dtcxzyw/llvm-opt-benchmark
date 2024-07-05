@@ -125,7 +125,7 @@ define internal i32 @dissect_alc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %16
 
 16:                                               ; preds = %4, %8, %9
-  %.081 = phi i32 [ 0, %8 ], [ %15, %9 ], [ 1, %4 ]
+  %.082 = phi i32 [ 0, %8 ], [ %15, %9 ], [ 1, %4 ]
   %17 = getelementptr inbounds i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.13) #2
@@ -141,7 +141,7 @@ define internal i32 @dissect_alc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %27 = zext nneg i8 %21 to i32
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %27) #2
   %29 = load i32, ptr @hf_atsc3, align 4
-  %30 = zext nneg i32 %.081 to i64
+  %30 = zext nneg i32 %.082 to i64
   %31 = tail call ptr @proto_tree_add_boolean(ptr noundef %25, i32 noundef %29, ptr noundef null, i32 noundef 0, i32 noundef 0, i64 noundef %30) #2
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %32
@@ -181,7 +181,7 @@ proto_item_set_generated.exit:                    ; preds = %16, %32, %35
   %48 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 0, ptr %48, align 4
   %49 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %.081, ptr %49, align 4
+  store i32 %.082, ptr %49, align 4
   %50 = getelementptr inbounds i8, ptr %5, i64 20
   store i32 0, ptr %50, align 4
   %51 = load ptr, ptr @rmt_lct_handle, align 8
@@ -216,27 +216,27 @@ proto_item_set_generated.exit:                    ; preds = %16, %32, %35
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %59, %68
-  %.080.ph = phi i32 [ %52, %59 ], [ %69, %68 ]
+  %.081.ph = phi i32 [ %52, %59 ], [ %69, %68 ]
   %.pr = load i32, ptr %50, align 4
   br label %70
 
 70:                                               ; preds = %thread-pre-split, %54
   %71 = phi i32 [ %.pr, %thread-pre-split ], [ %55, %54 ]
-  %.080 = phi i32 [ %.080.ph, %thread-pre-split ], [ %52, %54 ]
+  %.081 = phi i32 [ %.081.ph, %thread-pre-split ], [ %52, %54 ]
   %.not88 = icmp eq i32 %71, 0
   br i1 %.not88, label %78, label %72
 
 72:                                               ; preds = %70
-  %73 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.080, i32 noundef 4) #2
+  %73 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.081, i32 noundef 4) #2
   %74 = load i32, ptr @hf_object_start_offset, align 4
-  %75 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %74, ptr noundef %0, i32 noundef %.080, i32 noundef 4, i32 noundef 0) #2
-  %76 = add i32 %.080, 4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %74, ptr noundef %0, i32 noundef %.081, i32 noundef 4, i32 noundef 0) #2
+  %76 = add i32 %.081, 4
   %77 = icmp eq i32 %73, 0
   br label %78
 
 78:                                               ; preds = %72, %70
-  %.1 = phi i32 [ %76, %72 ], [ %.080, %70 ]
-  %.0 = phi i1 [ %77, %72 ], [ false, %70 ]
+  %.1 = phi i32 [ %76, %72 ], [ %.081, %70 ]
+  %.080 = phi i1 [ %77, %72 ], [ false, %70 ]
   %79 = call i32 @tvb_reported_length(ptr noundef %0) #2
   %80 = icmp ugt i32 %79, %.1
   br i1 %80, label %81, label %.critedge
@@ -255,7 +255,7 @@ thread-pre-split:                                 ; preds = %59, %68
 87:                                               ; preds = %81
   %88 = load i32, ptr @hf_payload, align 4
   %89 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %88, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef 0) #2
-  br i1 %.0, label %90, label %.critedge
+  br i1 %.080, label %90, label %.critedge
 
 90:                                               ; preds = %87
   %91 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #2
@@ -299,8 +299,8 @@ thread-pre-split:                                 ; preds = %59, %68
   br label %108
 
 108:                                              ; preds = %62, %42, %106, %39
-  %.082 = phi i32 [ 0, %39 ], [ %107, %106 ], [ 0, %42 ], [ %52, %62 ]
-  ret i32 %.082
+  %.0 = phi i32 [ 0, %39 ], [ %107, %106 ], [ 0, %42 ], [ %52, %62 ]
+  ret i32 %.0
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

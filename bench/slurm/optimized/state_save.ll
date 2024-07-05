@@ -360,7 +360,7 @@ define dso_local noalias noundef ptr @slurmctld_state_save(ptr nocapture noundef
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %122
-  %.046146 = phi i64 [ %22, %122 ], [ 0, %.preheader.preheader ]
+  %.0146 = phi i64 [ %22, %122 ], [ 0, %.preheader.preheader ]
   br label %11
 
 ._crit_edge:                                      ; preds = %122, %7
@@ -387,7 +387,7 @@ define dso_local noalias noundef ptr @slurmctld_state_save(ptr nocapture noundef
   br i1 %.not64, label %thread-pre-split, label %24
 
 24:                                               ; preds = %11
-  %25 = call double @difftime(i64 noundef %22, i64 noundef %.046146) #6
+  %25 = call double @difftime(i64 noundef %22, i64 noundef %.0146) #6
   %.b62 = load i1, ptr @run_save_thread, align 1
   %26 = fcmp oge double %25, 5.000000e+00
   %or.cond = select i1 %.b62, i1 true, i1 %26

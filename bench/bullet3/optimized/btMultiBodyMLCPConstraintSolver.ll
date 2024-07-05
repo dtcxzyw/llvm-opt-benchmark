@@ -786,7 +786,7 @@ for.body96:                                       ; preds = %for.body96.lr.ph, %
   %indvars.iv1389 = phi i64 [ 0, %for.body96.lr.ph ], [ %indvars.iv.next1390, %if.end309 ]
   %cur.01340 = phi i32 [ 0, %for.body96.lr.ph ], [ %cur.4, %if.end309 ]
   %rowOffset.01339 = phi i32 [ 0, %for.body96.lr.ph ], [ %add310, %if.end309 ]
-  %i89.01336 = phi i32 [ 0, %for.body96.lr.ph ], [ %add312, %if.end309 ]
+  %i89.01335 = phi i32 [ 0, %for.body96.lr.ph ], [ %add312, %if.end309 ]
   %jointNodeArray.sroa.0.01334 = phi i32 [ 0, %for.body96.lr.ph ], [ %jointNodeArray.sroa.0.2, %if.end309 ]
   %jointNodeArray.sroa.14.11333 = phi i32 [ %jointNodeArray.sroa.14.0, %for.body96.lr.ph ], [ %jointNodeArray.sroa.14.5, %if.end309 ]
   %jointNodeArray.sroa.23.11332 = phi ptr [ %jointNodeArray.sroa.23.0, %for.body96.lr.ph ], [ %jointNodeArray.sroa.23.7, %if.end309 ]
@@ -794,7 +794,7 @@ for.body96:                                       ; preds = %for.body96.lr.ph, %
   %arrayidx.i501 = getelementptr inbounds i32, ptr %82, i64 %indvars.iv1389
   store i32 %rowOffset.01339, ptr %arrayidx.i501, align 4
   %83 = load ptr, ptr %m_data.i502, align 8
-  %idxprom.i503 = sext i32 %i89.01336 to i64
+  %idxprom.i503 = sext i32 %i89.01335 to i64
   %arrayidx.i504 = getelementptr inbounds ptr, ptr %83, i64 %idxprom.i503
   %84 = load ptr, ptr %arrayidx.i504, align 8
   %m_solverBodyIdA = getelementptr inbounds i8, ptr %84, i64 152
@@ -809,7 +809,7 @@ for.body96:                                       ; preds = %for.body96.lr.ph, %
   %m_originalBody111 = getelementptr inbounds %struct.btSolverBody, ptr %87, i64 %idxprom.i512, i32 12
   %89 = load ptr, ptr %m_originalBody111, align 8
   %90 = load i32, ptr %m_size.i514, align 4
-  %cmp114 = icmp slt i32 %i89.01336, %90
+  %cmp114 = icmp slt i32 %i89.01335, %90
   br i1 %cmp114, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %for.body96
@@ -886,7 +886,7 @@ invoke.cont123:                                   ; preds = %if.then.i526, %if.t
   %94 = trunc nuw nsw i64 %indvars.iv1389 to i32
   store i32 %94, ptr %arrayidx.i525, align 4
   %constraintRowIndex = getelementptr inbounds i8, ptr %arrayidx.i525, i64 12
-  store i32 %i89.01336, ptr %constraintRowIndex, align 4
+  store i32 %i89.01335, ptr %constraintRowIndex, align 4
   %tobool135.not = icmp eq ptr %89, null
   %cond139 = select i1 %tobool135.not, i32 -1, i32 %86
   %otherBodyIndex = getelementptr inbounds i8, ptr %arrayidx.i525, i64 4
@@ -1182,7 +1182,7 @@ invoke.cont213:                                   ; preds = %if.then.i664, %if.t
   %otherBodyIndex233 = getelementptr inbounds i8, ptr %arrayidx.i662, i64 4
   store i32 %cond230, ptr %otherBodyIndex233, align 4
   %constraintRowIndex236 = getelementptr inbounds i8, ptr %arrayidx.i662, i64 12
-  store i32 %i89.01336, ptr %constraintRowIndex236, align 4
+  store i32 %i89.01335, ptr %constraintRowIndex236, align 4
   %cmp2391327 = icmp sgt i32 %cond117, 0
   br i1 %cmp2391327, label %invoke.cont257.lr.ph, label %if.end309
 
@@ -1366,7 +1366,7 @@ if.end309:                                        ; preds = %for.inc303, %invoke
   %jointNodeArray.sroa.0.2 = phi i32 [ %jointNodeArray.sroa.0.1, %if.else307 ], [ %inc.i659, %invoke.cont213 ], [ %inc.i659, %for.inc303 ]
   %cur.4 = phi i32 [ %add308, %if.else307 ], [ %cur.2, %invoke.cont213 ], [ %inc305, %for.inc303 ]
   %add310 = add nsw i32 %cond117, %rowOffset.01339
-  %add312 = add nsw i32 %cond117, %i89.01336
+  %add312 = add nsw i32 %cond117, %i89.01335
   %indvars.iv.next1390 = add nuw nsw i64 %indvars.iv1389, 1
   %248 = load i32, ptr %m_size.i, align 4
   %cmp95 = icmp slt i32 %add312, %248
@@ -1441,12 +1441,12 @@ for.body339.lr.ph:                                ; preds = %for.cond333.prehead
 
 for.body339:                                      ; preds = %for.body339.lr.ph, %for.inc469
   %indvars.iv1392 = phi i64 [ 0, %for.body339.lr.ph ], [ %indvars.iv.next1393, %for.inc469 ]
-  %i332.01350 = phi i32 [ 0, %for.body339.lr.ph ], [ %add470, %for.inc469 ]
+  %i332.01349 = phi i32 [ 0, %for.body339.lr.ph ], [ %add470, %for.inc469 ]
   %257 = load ptr, ptr %m_data.i842, align 8
   %arrayidx.i844 = getelementptr inbounds i32, ptr %257, i64 %indvars.iv1392
   %258 = load i32, ptr %arrayidx.i844, align 4
   %259 = load ptr, ptr %m_data.i845, align 8
-  %idxprom.i846 = sext i32 %i332.01350 to i64
+  %idxprom.i846 = sext i32 %i332.01349 to i64
   %arrayidx.i847 = getelementptr inbounds ptr, ptr %259, i64 %idxprom.i846
   %260 = load ptr, ptr %arrayidx.i847, align 8
   %m_solverBodyIdA346 = getelementptr inbounds i8, ptr %260, i64 152
@@ -1454,7 +1454,7 @@ for.body339:                                      ; preds = %for.body339.lr.ph, 
   %m_solverBodyIdB351 = getelementptr inbounds i8, ptr %260, i64 156
   %262 = load i32, ptr %m_solverBodyIdB351, align 4
   %263 = load i32, ptr %m_size.i851, align 4
-  %cmp355 = icmp slt i32 %i332.01350, %263
+  %cmp355 = icmp slt i32 %i332.01349, %263
   br i1 %cmp355, label %cond.true356, label %cond.end362
 
 cond.true356:                                     ; preds = %for.body339
@@ -1771,7 +1771,7 @@ if.end464:                                        ; preds = %for.cond2.for.end_c
   br i1 %cmp416, label %while.body417, label %for.inc469, !llvm.loop !21
 
 for.inc469:                                       ; preds = %if.end464, %while.end
-  %add470 = add nsw i32 %cond363, %i332.01350
+  %add470 = add nsw i32 %cond363, %i332.01349
   %indvars.iv.next1393 = add nuw nsw i64 %indvars.iv1392, 1
   %333 = load i32, ptr %m_size.i, align 4
   %cmp338 = icmp slt i32 %add470, %333

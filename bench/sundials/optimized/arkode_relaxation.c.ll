@@ -100,15 +100,15 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load double, ptr %40, align 8
   %42 = fmul double %41, 1.100000e+00
-  %.0129181.i = fmul double %41, 9.000000e-01
+  %.0133181.i = fmul double %41, 9.000000e-01
   %43 = getelementptr inbounds i8, ptr %0, i64 312
   %44 = getelementptr inbounds i8, ptr %39, i64 144
   br label %45
 
 45:                                               ; preds = %78, %37
-  %.0129184.i = phi double [ %.0129181.i, %37 ], [ %.0129.i, %78 ]
-  %.0126183.i = phi double [ %42, %37 ], [ %.0129184.i, %78 ]
-  %.0133182.i = phi i32 [ 0, %37 ], [ %79, %78 ]
+  %.0133184.i = phi double [ %.0133181.i, %37 ], [ %.0133.i, %78 ]
+  %.0116183.i = phi i32 [ 0, %37 ], [ %79, %78 ]
+  %.0130182.i = phi double [ %42, %37 ], [ %.0133184.i, %78 ]
   %46 = load ptr, ptr %38, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 64
   %48 = load double, ptr %47, align 8
@@ -118,7 +118,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %52 = load ptr, ptr %43, align 8
   %53 = load ptr, ptr %23, align 8
   %54 = load ptr, ptr %16, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %54, double noundef %.0129184.i, ptr noundef %51, ptr noundef %52) #8
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %54, double noundef %.0133184.i, ptr noundef %51, ptr noundef %52) #8
   %55 = load ptr, ptr %38, align 8
   %56 = load ptr, ptr %55, align 8
   %57 = call i32 %56(ptr noundef %52, ptr noundef nonnull %4, ptr noundef %53) #8
@@ -137,7 +137,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 64:                                               ; preds = %63
   %65 = load double, ptr %4, align 8
   %66 = fsub double %65, %48
-  %67 = fneg double %.0129184.i
+  %67 = fneg double %.0133184.i
   %68 = call double @llvm.fmuladd.f64(double %67, double %50, double %66)
   store double %68, ptr %4, align 8
   %69 = load ptr, ptr %38, align 8
@@ -156,21 +156,21 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 
 78:                                               ; preds = %76
   store double %68, ptr %5, align 8
-  %79 = add nuw nsw i32 %.0133182.i, 1
-  %.0129.i = fmul double %.0129184.i, 9.000000e-01
+  %79 = add nuw nsw i32 %.0116183.i, 1
+  %.0133.i = fmul double %.0133184.i, 9.000000e-01
   %exitcond.not.i = icmp eq i32 %79, 10
   br i1 %exitcond.not.i, label %80, label %45
 
 80:                                               ; preds = %78, %76
-  %.0126.lcssa.i = phi double [ %.0126183.i, %76 ], [ %.0129184.i, %78 ]
-  %.0129.lcssa.i = phi double [ %.0129184.i, %76 ], [ %.0129.i, %78 ]
+  %.0130.lcssa.i = phi double [ %.0130182.i, %76 ], [ %.0133184.i, %78 ]
+  %.0133.lcssa.i = phi double [ %.0133184.i, %76 ], [ %.0133.i, %78 ]
   %81 = fcmp ogt double %68, 0.000000e+00
   br i1 %81, label %arkRelaxNewtonSolve.exit.thread52, label %.preheader.i
 
 .preheader.i:                                     ; preds = %80, %114
-  %.1127187.i = phi double [ %115, %114 ], [ %.0126.lcssa.i, %80 ]
-  %.1130186.i = phi double [ %.1127187.i, %114 ], [ %.0129.lcssa.i, %80 ]
-  %.1134185.i = phi i32 [ %116, %114 ], [ 0, %80 ]
+  %.1117187.i = phi i32 [ %116, %114 ], [ 0, %80 ]
+  %.1131186.i = phi double [ %115, %114 ], [ %.0130.lcssa.i, %80 ]
+  %.1134185.i = phi double [ %.1131186.i, %114 ], [ %.0133.lcssa.i, %80 ]
   %82 = load ptr, ptr %38, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 64
   %84 = load double, ptr %83, align 8
@@ -180,7 +180,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %88 = load ptr, ptr %43, align 8
   %89 = load ptr, ptr %23, align 8
   %90 = load ptr, ptr %16, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %90, double noundef %.1127187.i, ptr noundef %87, ptr noundef %88) #8
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %90, double noundef %.1131186.i, ptr noundef %87, ptr noundef %88) #8
   %91 = load ptr, ptr %38, align 8
   %92 = load ptr, ptr %91, align 8
   %93 = call i32 %92(ptr noundef %88, ptr noundef nonnull %5, ptr noundef %89) #8
@@ -199,7 +199,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 100:                                              ; preds = %99
   %101 = load double, ptr %5, align 8
   %102 = fsub double %101, %84
-  %103 = fneg double %.1127187.i
+  %103 = fneg double %.1131186.i
   %104 = call double @llvm.fmuladd.f64(double %103, double %86, double %102)
   store double %104, ptr %5, align 8
   %105 = load ptr, ptr %38, align 8
@@ -218,14 +218,14 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 
 114:                                              ; preds = %112
   store double %104, ptr %4, align 8
-  %115 = fmul double %.1127187.i, 1.100000e+00
-  %116 = add nuw nsw i32 %.1134185.i, 1
+  %115 = fmul double %.1131186.i, 1.100000e+00
+  %116 = add nuw nsw i32 %.1117187.i, 1
   %exitcond207.not.i = icmp eq i32 %116, 10
   br i1 %exitcond207.not.i, label %117, label %.preheader.i
 
 117:                                              ; preds = %114, %112
-  %.1130.lcssa.i = phi double [ %.1130186.i, %112 ], [ %.1127187.i, %114 ]
-  %.1127.lcssa.i = phi double [ %.1127187.i, %112 ], [ %115, %114 ]
+  %.1134.lcssa.i = phi double [ %.1134185.i, %112 ], [ %.1131186.i, %114 ]
+  %.1131.lcssa.i = phi double [ %.1131186.i, %112 ], [ %115, %114 ]
   %118 = fcmp olt double %104, 0.000000e+00
   br i1 %118, label %arkRelaxNewtonSolve.exit.thread52, label %119
 
@@ -245,56 +245,56 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 127:                                              ; preds = %239, %.lr.ph.i
   %128 = phi double [ %104, %.lr.ph.i ], [ %243, %239 ]
   %129 = phi ptr [ %120, %.lr.ph.i ], [ %249, %239 ]
-  %.0115194.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.2.i, %239 ]
-  %.0117193.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.2119.i, %239 ]
-  %.0120192.i = phi double [ %124, %.lr.ph.i ], [ %.2122.i, %239 ]
-  %.0123191.i = phi double [ %.1130.lcssa.i, %.lr.ph.i ], [ %.2125.i, %239 ]
-  %.2128190.i = phi double [ %.1127.lcssa.i, %.lr.ph.i ], [ %.4.i, %239 ]
-  %.2131189.i = phi double [ %.1130.lcssa.i, %.lr.ph.i ], [ %.3.i, %239 ]
-  %.2135188.i = phi i32 [ 0, %.lr.ph.i ], [ %248, %239 ]
-  %130 = fcmp ogt double %.0120192.i, 0.000000e+00
+  %.2194.i = phi i32 [ 0, %.lr.ph.i ], [ %248, %239 ]
+  %.0118193.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.2120.i, %239 ]
+  %.0121192.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.2123.i, %239 ]
+  %.0124191.i = phi double [ %124, %.lr.ph.i ], [ %.2126.i, %239 ]
+  %.0127190.i = phi double [ %.1134.lcssa.i, %.lr.ph.i ], [ %.2129.i, %239 ]
+  %.2132189.i = phi double [ %.1131.lcssa.i, %.lr.ph.i ], [ %.4.i, %239 ]
+  %.2135188.i = phi double [ %.1134.lcssa.i, %.lr.ph.i ], [ %.3.i, %239 ]
+  %130 = fcmp ogt double %.0124191.i, 0.000000e+00
   %131 = fcmp ogt double %128, 0.000000e+00
   %or.cond.i = select i1 %130, i1 %131, i1 false
   br i1 %or.cond.i, label %135, label %132
 
 132:                                              ; preds = %127
-  %133 = fcmp olt double %.0120192.i, 0.000000e+00
+  %133 = fcmp olt double %.0124191.i, 0.000000e+00
   %134 = fcmp olt double %128, 0.000000e+00
   %or.cond3.i = select i1 %133, i1 %134, i1 false
   br i1 %or.cond3.i, label %135, label %138
 
 135:                                              ; preds = %132, %127
   %136 = load double, ptr %4, align 8
-  %137 = fsub double %.2128190.i, %.2131189.i
+  %137 = fsub double %.2132189.i, %.2135188.i
   br label %138
 
 138:                                              ; preds = %135, %132
-  %.1124.i = phi double [ %.2131189.i, %135 ], [ %.0123191.i, %132 ]
-  %.1121.i = phi double [ %136, %135 ], [ %.0120192.i, %132 ]
-  %.1118.i = phi double [ %137, %135 ], [ %.0117193.i, %132 ]
-  %.1116.i = phi double [ %137, %135 ], [ %.0115194.i, %132 ]
+  %.1128.i = phi double [ %.2135188.i, %135 ], [ %.0127190.i, %132 ]
+  %.1125.i = phi double [ %136, %135 ], [ %.0124191.i, %132 ]
+  %.1122.i = phi double [ %137, %135 ], [ %.0121192.i, %132 ]
+  %.1119.i = phi double [ %137, %135 ], [ %.0118193.i, %132 ]
   %139 = call double @llvm.fabs.f64(double %128)
-  %140 = call double @llvm.fabs.f64(double %.1121.i)
+  %140 = call double @llvm.fabs.f64(double %.1125.i)
   %141 = fcmp ogt double %139, %140
   br i1 %141, label %142, label %143
 
 142:                                              ; preds = %138
   store double %128, ptr %4, align 8
-  store double %.1121.i, ptr %5, align 8
+  store double %.1125.i, ptr %5, align 8
   br label %143
 
 143:                                              ; preds = %142, %138
-  %144 = phi double [ %.1121.i, %142 ], [ %128, %138 ]
-  %.3132.i = phi double [ %.2128190.i, %142 ], [ %.2131189.i, %138 ]
-  %.3.i = phi double [ %.1124.i, %142 ], [ %.2128190.i, %138 ]
-  %.2125.i = phi double [ %.2128190.i, %142 ], [ %.1124.i, %138 ]
-  %.2122.i = phi double [ %128, %142 ], [ %.1121.i, %138 ]
+  %144 = phi double [ %.1125.i, %142 ], [ %128, %138 ]
+  %.3136.i = phi double [ %.2132189.i, %142 ], [ %.2135188.i, %138 ]
+  %.3.i = phi double [ %.1128.i, %142 ], [ %.2132189.i, %138 ]
+  %.2129.i = phi double [ %.2132189.i, %142 ], [ %.1128.i, %138 ]
+  %.2126.i = phi double [ %128, %142 ], [ %.1125.i, %138 ]
   %145 = load double, ptr %125, align 8
   %146 = call double @llvm.fabs.f64(double %.3.i)
   %147 = load double, ptr %126, align 8
   %148 = fmul double %147, 5.000000e-01
   %149 = call double @llvm.fmuladd.f64(double %145, double %146, double %148)
-  %150 = fsub double %.2125.i, %.3.i
+  %150 = fsub double %.2129.i, %.3.i
   %151 = fmul double %150, 5.000000e-01
   %152 = call double @llvm.fabs.f64(double %151)
   %153 = fcmp olt double %152, %149
@@ -307,7 +307,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   br i1 %157, label %arkRelaxNewtonSolve.exit, label %158
 
 158:                                              ; preds = %154
-  %159 = call double @llvm.fabs.f64(double %.1118.i)
+  %159 = call double @llvm.fabs.f64(double %.1122.i)
   %160 = fcmp ult double %159, %149
   br i1 %160, label %211, label %161
 
@@ -319,7 +319,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 
 165:                                              ; preds = %161
   %166 = fdiv double %144, %162
-  %167 = fcmp oeq double %.3132.i, %.2125.i
+  %167 = fcmp oeq double %.3136.i, %.2129.i
   br i1 %167, label %168, label %172
 
 168:                                              ; preds = %165
@@ -331,7 +331,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 172:                                              ; preds = %165
   %173 = insertelement <2 x double> poison, double %162, i64 0
   %174 = insertelement <2 x double> %173, double %144, i64 1
-  %175 = insertelement <2 x double> poison, double %.2122.i, i64 0
+  %175 = insertelement <2 x double> poison, double %.2126.i, i64 0
   %176 = shufflevector <2 x double> %175, <2 x double> poison, <2 x i32> zeroinitializer
   %177 = fdiv <2 x double> %174, %176
   %178 = fmul double %151, 2.000000e+00
@@ -340,7 +340,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %shift = shufflevector <2 x double> %177, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %181 = fsub <2 x double> %177, %shift
   %182 = extractelement <2 x double> %181, i64 0
-  %183 = fsub double %.3.i, %.3132.i
+  %183 = fsub double %.3.i, %.3136.i
   %184 = fneg double %183
   %185 = fadd <2 x double> %177, <double -1.000000e+00, double -1.000000e+00>
   %186 = extractelement <2 x double> %185, i64 1
@@ -354,41 +354,41 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   br label %194
 
 194:                                              ; preds = %172, %168
-  %.0113.i = phi double [ %170, %168 ], [ %189, %172 ]
-  %.0.i = phi double [ %171, %168 ], [ %193, %172 ]
-  %195 = fcmp ogt double %.0113.i, 0.000000e+00
-  %196 = fneg double %.0.i
-  %197 = fneg double %.0113.i
-  %.1114.i = select i1 %195, double %.0113.i, double %197
-  %.1.i = select i1 %195, double %196, double %.0.i
+  %.0114.i = phi double [ %170, %168 ], [ %189, %172 ]
+  %.0113.i = phi double [ %171, %168 ], [ %193, %172 ]
+  %195 = fcmp ogt double %.0114.i, 0.000000e+00
+  %196 = fneg double %.0113.i
+  %197 = fneg double %.0114.i
+  %.1115.i = select i1 %195, double %.0114.i, double %197
+  %.1.i = select i1 %195, double %196, double %.0113.i
   %198 = fmul double %151, 3.000000e+00
   %199 = fmul double %149, %.1.i
   %200 = call double @llvm.fabs.f64(double %199)
   %201 = fneg double %200
   %202 = call double @llvm.fmuladd.f64(double %198, double %.1.i, double %201)
-  %203 = fmul double %.1118.i, %.1.i
+  %203 = fmul double %.1122.i, %.1.i
   %204 = call double @llvm.fabs.f64(double %203)
-  %205 = fmul double %.1114.i, 2.000000e+00
+  %205 = fmul double %.1115.i, 2.000000e+00
   %206 = fcmp olt double %202, %204
   %207 = select i1 %206, double %202, double %204
   %208 = fcmp olt double %205, %207
   br i1 %208, label %209, label %211
 
 209:                                              ; preds = %194
-  %210 = fdiv double %.1114.i, %.1.i
+  %210 = fdiv double %.1115.i, %.1.i
   %.pre.i = call double @llvm.fabs.f64(double %210)
   br label %211
 
 211:                                              ; preds = %209, %194, %161, %158
   %.pre-phi.i = phi double [ %152, %158 ], [ %152, %161 ], [ %152, %194 ], [ %.pre.i, %209 ]
-  %.2119.i = phi double [ %151, %158 ], [ %151, %161 ], [ %151, %194 ], [ %.1116.i, %209 ]
-  %.2.i = phi double [ %151, %158 ], [ %151, %161 ], [ %151, %194 ], [ %210, %209 ]
+  %.2123.i = phi double [ %151, %158 ], [ %151, %161 ], [ %151, %194 ], [ %.1119.i, %209 ]
+  %.2120.i = phi double [ %151, %158 ], [ %151, %161 ], [ %151, %194 ], [ %210, %209 ]
   store double %144, ptr %4, align 8
   %212 = fcmp ogt double %.pre-phi.i, %149
   br i1 %212, label %213, label %215
 
 213:                                              ; preds = %211
-  %214 = fadd double %.3.i, %.2.i
+  %214 = fadd double %.3.i, %.2120.i
   br label %221
 
 215:                                              ; preds = %211
@@ -440,7 +440,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %246 = load i64, ptr %245, align 8
   %247 = add nsw i64 %246, 1
   store i64 %247, ptr %245, align 8
-  %248 = add nuw nsw i32 %.2135188.i, 1
+  %248 = add nuw nsw i32 %.2194.i, 1
   %249 = load ptr, ptr %38, align 8
   %250 = getelementptr inbounds i8, ptr %249, i64 168
   %251 = load i32, ptr %250, align 8
@@ -563,7 +563,7 @@ define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   br i1 %336, label %arkRelaxNewtonSolve.exit.thread48, label %268
 
 arkRelaxNewtonSolve.exit.thread52.sink.split:     ; preds = %63, %45, %99, %.preheader.i, %238, %221
-  %.0136.i.ph.ph = phi i32 [ -45, %221 ], [ 1, %238 ], [ -45, %.preheader.i ], [ 1, %99 ], [ -45, %45 ], [ 1, %63 ]
+  %.0.i.ph.ph = phi i32 [ -45, %221 ], [ 1, %238 ], [ -45, %.preheader.i ], [ 1, %99 ], [ -45, %45 ], [ 1, %63 ]
   %337 = load ptr, ptr %38, align 8
   %338 = getelementptr inbounds i8, ptr %337, i64 40
   %339 = load i64, ptr %338, align 8
@@ -572,14 +572,14 @@ arkRelaxNewtonSolve.exit.thread52.sink.split:     ; preds = %63, %45, %99, %.pre
   br label %arkRelaxNewtonSolve.exit.thread52
 
 arkRelaxNewtonSolve.exit.thread52:                ; preds = %239, %arkRelaxNewtonSolve.exit.thread52.sink.split, %80, %117, %119
-  %.0136.i.ph = phi i32 [ 3, %119 ], [ 3, %117 ], [ 3, %80 ], [ %.0136.i.ph.ph, %arkRelaxNewtonSolve.exit.thread52.sink.split ], [ 3, %239 ]
+  %.0.i.ph = phi i32 [ 3, %119 ], [ 3, %117 ], [ 3, %80 ], [ %.0.i.ph.ph, %arkRelaxNewtonSolve.exit.thread52.sink.split ], [ 3, %239 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %arkRelaxNewtonSolve.exit.thread
 
 arkRelaxNewtonSolve.exit:                         ; preds = %64, %100, %143, %154
   %.lcssa.sink = phi double [ %144, %154 ], [ %144, %143 ], [ %104, %100 ], [ %68, %64 ]
-  %.3.i.lcssa.sink = phi double [ %.3.i, %154 ], [ %.3.i, %143 ], [ %.1127187.i, %100 ], [ %.0129184.i, %64 ]
+  %.3.i.lcssa.sink = phi double [ %.3.i, %154 ], [ %.3.i, %143 ], [ %.1131186.i, %100 ], [ %.0133184.i, %64 ]
   %341 = getelementptr inbounds i8, ptr %39, i64 80
   store double %.lcssa.sink, ptr %341, align 8
   store double %.3.i.lcssa.sink, ptr %40, align 8
@@ -588,7 +588,7 @@ arkRelaxNewtonSolve.exit:                         ; preds = %64, %100, %143, %15
   br label %arkRelaxNewtonSolve.exit.thread48
 
 arkRelaxNewtonSolve.exit.thread:                  ; preds = %268, %274, %293, %302, %321, %253, %arkRelaxNewtonSolve.exit.thread52
-  %.046 = phi i32 [ %.0136.i.ph, %arkRelaxNewtonSolve.exit.thread52 ], [ 3, %253 ], [ 2, %321 ], [ -46, %302 ], [ 1, %293 ], [ -45, %274 ], [ 3, %268 ]
+  %.046 = phi i32 [ %.0.i.ph, %arkRelaxNewtonSolve.exit.thread52 ], [ 3, %253 ], [ 2, %321 ], [ -46, %302 ], [ 1, %293 ], [ -45, %274 ], [ 3, %268 ]
   %342 = getelementptr inbounds i8, ptr %1, i64 184
   %343 = load i64, ptr %342, align 8
   %344 = add nsw i64 %343, 1

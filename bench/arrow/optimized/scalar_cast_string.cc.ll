@@ -44328,35 +44328,35 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.els
   br i1 %cmp19.i.i.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end8.i, %if.end14.i.i.i
-  %__n.021.i.i.i = phi i32 [ %add17.i.i.i, %if.end14.i.i.i ], [ 1, %if.end8.i ]
-  %__value.addr.020.i.i.i = phi i32 [ %1, %if.end14.i.i.i ], [ %__unsigned_val.0.i, %if.end8.i ]
-  %cmp3.i.i.i = icmp ult i32 %__value.addr.020.i.i.i, 100
+  %__value.addr.021.i.i.i = phi i32 [ %1, %if.end14.i.i.i ], [ %__unsigned_val.0.i, %if.end8.i ]
+  %__n.020.i.i.i = phi i32 [ %add17.i.i.i, %if.end14.i.i.i ], [ 1, %if.end8.i ]
+  %cmp3.i.i.i = icmp ult i32 %__value.addr.021.i.i.i, 100
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.end5.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
-  %add.i.i.i = add i32 %__n.021.i.i.i, 1
+  %add.i.i.i = add i32 %__n.020.i.i.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
-  %cmp6.i.i.i = icmp ult i32 %__value.addr.020.i.i.i, 1000
+  %cmp6.i.i.i = icmp ult i32 %__value.addr.021.i.i.i, 1000
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %if.end9.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end5.i.i.i
-  %add8.i.i.i = add i32 %__n.021.i.i.i, 2
+  %add8.i.i.i = add i32 %__n.020.i.i.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.end5.i.i.i
-  %cmp11.i.i.i = icmp ult i32 %__value.addr.020.i.i.i, 10000
+  %cmp11.i.i.i = icmp ult i32 %__value.addr.021.i.i.i, 10000
   br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.end14.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
-  %add13.i.i.i = add i32 %__n.021.i.i.i, 3
+  %add13.i.i.i = add i32 %__n.020.i.i.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end9.i.i.i
-  %1 = udiv i32 %__value.addr.020.i.i.i, 10000
-  %add17.i.i.i = add i32 %__n.021.i.i.i, 4
-  %cmp.i.i.i = icmp ult i32 %__value.addr.020.i.i.i, 100000
+  %1 = udiv i32 %__value.addr.021.i.i.i, 10000
+  %add17.i.i.i = add i32 %__n.020.i.i.i, 4
+  %cmp.i.i.i = icmp ult i32 %__value.addr.021.i.i.i, 100000
   br i1 %cmp.i.i.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %if.end.i.i.i, !llvm.loop !1975
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %if.end14.i.i.i, %if.then12.i.i.i, %if.then7.i.i.i, %if.then4.i.i.i, %if.end8.i
@@ -44482,35 +44482,35 @@ if.end8.i11:                                      ; preds = %if.then6.i81, %if.e
   br i1 %cmp19.i.i.i14, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i26, label %if.end.i.i.i15
 
 if.end.i.i.i15:                                   ; preds = %if.end8.i11, %if.end14.i.i.i23
-  %__n.021.i.i.i16 = phi i32 [ %add17.i.i.i24, %if.end14.i.i.i23 ], [ 1, %if.end8.i11 ]
-  %__value.addr.020.i.i.i17 = phi i32 [ %7, %if.end14.i.i.i23 ], [ %__unsigned_val.0.i13, %if.end8.i11 ]
-  %cmp3.i.i.i18 = icmp ult i32 %__value.addr.020.i.i.i17, 100
+  %__value.addr.021.i.i.i16 = phi i32 [ %7, %if.end14.i.i.i23 ], [ %__unsigned_val.0.i13, %if.end8.i11 ]
+  %__n.020.i.i.i17 = phi i32 [ %add17.i.i.i24, %if.end14.i.i.i23 ], [ 1, %if.end8.i11 ]
+  %cmp3.i.i.i18 = icmp ult i32 %__value.addr.021.i.i.i16, 100
   br i1 %cmp3.i.i.i18, label %if.then4.i.i.i79, label %if.end5.i.i.i19
 
 if.then4.i.i.i79:                                 ; preds = %if.end.i.i.i15
-  %add.i.i.i80 = add i32 %__n.021.i.i.i16, 1
+  %add.i.i.i80 = add i32 %__n.020.i.i.i17, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i26
 
 if.end5.i.i.i19:                                  ; preds = %if.end.i.i.i15
-  %cmp6.i.i.i20 = icmp ult i32 %__value.addr.020.i.i.i17, 1000
+  %cmp6.i.i.i20 = icmp ult i32 %__value.addr.021.i.i.i16, 1000
   br i1 %cmp6.i.i.i20, label %if.then7.i.i.i77, label %if.end9.i.i.i21
 
 if.then7.i.i.i77:                                 ; preds = %if.end5.i.i.i19
-  %add8.i.i.i78 = add i32 %__n.021.i.i.i16, 2
+  %add8.i.i.i78 = add i32 %__n.020.i.i.i17, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i26
 
 if.end9.i.i.i21:                                  ; preds = %if.end5.i.i.i19
-  %cmp11.i.i.i22 = icmp ult i32 %__value.addr.020.i.i.i17, 10000
+  %cmp11.i.i.i22 = icmp ult i32 %__value.addr.021.i.i.i16, 10000
   br i1 %cmp11.i.i.i22, label %if.then12.i.i.i75, label %if.end14.i.i.i23
 
 if.then12.i.i.i75:                                ; preds = %if.end9.i.i.i21
-  %add13.i.i.i76 = add i32 %__n.021.i.i.i16, 3
+  %add13.i.i.i76 = add i32 %__n.020.i.i.i17, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i26
 
 if.end14.i.i.i23:                                 ; preds = %if.end9.i.i.i21
-  %7 = udiv i32 %__value.addr.020.i.i.i17, 10000
-  %add17.i.i.i24 = add i32 %__n.021.i.i.i16, 4
-  %cmp.i.i.i25 = icmp ult i32 %__value.addr.020.i.i.i17, 100000
+  %7 = udiv i32 %__value.addr.021.i.i.i16, 10000
+  %add17.i.i.i24 = add i32 %__n.020.i.i.i17, 4
+  %cmp.i.i.i25 = icmp ult i32 %__value.addr.021.i.i.i16, 100000
   br i1 %cmp.i.i.i25, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i26, label %if.end.i.i.i15, !llvm.loop !1975
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i26: ; preds = %if.end14.i.i.i23, %if.then12.i.i.i75, %if.then7.i.i.i77, %if.then4.i.i.i79, %if.end8.i11
@@ -44906,35 +44906,35 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.els
   br i1 %cmp19.i.i.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end8.i, %if.end16.i.i.i
-  %__n.021.i.i.i = phi i32 [ %add17.i.i.i, %if.end16.i.i.i ], [ 1, %if.end8.i ]
-  %__value.addr.020.i.i.i = phi i64 [ %div.i.i.i, %if.end16.i.i.i ], [ %__unsigned_val.0.i, %if.end8.i ]
-  %cmp5.i.i.i = icmp ult i64 %__value.addr.020.i.i.i, 100
+  %__value.addr.021.i.i.i = phi i64 [ %div.i.i.i, %if.end16.i.i.i ], [ %__unsigned_val.0.i, %if.end8.i ]
+  %__n.020.i.i.i = phi i32 [ %add17.i.i.i, %if.end16.i.i.i ], [ 1, %if.end8.i ]
+  %cmp5.i.i.i = icmp ult i64 %__value.addr.021.i.i.i, 100
   br i1 %cmp5.i.i.i, label %if.then6.i.i.i, label %if.end7.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
-  %add.i.i.i = add i32 %__n.021.i.i.i, 1
+  %add.i.i.i = add i32 %__n.020.i.i.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.end.i.i.i
-  %cmp9.i.i.i = icmp ult i64 %__value.addr.020.i.i.i, 1000
+  %cmp9.i.i.i = icmp ult i64 %__value.addr.021.i.i.i, 1000
   br i1 %cmp9.i.i.i, label %if.then10.i.i.i, label %if.end12.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.end7.i.i.i
-  %add11.i.i.i = add i32 %__n.021.i.i.i, 2
+  %add11.i.i.i = add i32 %__n.020.i.i.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end7.i.i.i
-  %cmp13.i.i.i = icmp ult i64 %__value.addr.020.i.i.i, 10000
+  %cmp13.i.i.i = icmp ult i64 %__value.addr.021.i.i.i, 10000
   br i1 %cmp13.i.i.i, label %if.then14.i.i.i, label %if.end16.i.i.i
 
 if.then14.i.i.i:                                  ; preds = %if.end12.i.i.i
-  %add15.i.i.i = add i32 %__n.021.i.i.i, 3
+  %add15.i.i.i = add i32 %__n.020.i.i.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i
 
 if.end16.i.i.i:                                   ; preds = %if.end12.i.i.i
-  %div.i.i.i = udiv i64 %__value.addr.020.i.i.i, 10000
-  %add17.i.i.i = add i32 %__n.021.i.i.i, 4
-  %cmp.i.i.i = icmp ult i64 %__value.addr.020.i.i.i, 100000
+  %div.i.i.i = udiv i64 %__value.addr.021.i.i.i, 10000
+  %add17.i.i.i = add i32 %__n.020.i.i.i, 4
+  %cmp.i.i.i = icmp ult i64 %__value.addr.021.i.i.i, 100000
   br i1 %cmp.i.i.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i, label %if.end.i.i.i, !llvm.loop !1988
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %if.end16.i.i.i, %if.then14.i.i.i, %if.then10.i.i.i, %if.then6.i.i.i, %if.end8.i
@@ -45056,35 +45056,35 @@ if.end8.i11:                                      ; preds = %if.then6.i78, %if.e
   br i1 %cmp19.i.i.i14, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i27, label %if.end.i.i.i15
 
 if.end.i.i.i15:                                   ; preds = %if.end8.i11, %if.end16.i.i.i23
-  %__n.021.i.i.i16 = phi i32 [ %add17.i.i.i25, %if.end16.i.i.i23 ], [ 1, %if.end8.i11 ]
-  %__value.addr.020.i.i.i17 = phi i64 [ %div.i.i.i24, %if.end16.i.i.i23 ], [ %__unsigned_val.0.i13, %if.end8.i11 ]
-  %cmp5.i.i.i18 = icmp ult i64 %__value.addr.020.i.i.i17, 100
+  %__value.addr.021.i.i.i16 = phi i64 [ %div.i.i.i24, %if.end16.i.i.i23 ], [ %__unsigned_val.0.i13, %if.end8.i11 ]
+  %__n.020.i.i.i17 = phi i32 [ %add17.i.i.i25, %if.end16.i.i.i23 ], [ 1, %if.end8.i11 ]
+  %cmp5.i.i.i18 = icmp ult i64 %__value.addr.021.i.i.i16, 100
   br i1 %cmp5.i.i.i18, label %if.then6.i.i.i76, label %if.end7.i.i.i19
 
 if.then6.i.i.i76:                                 ; preds = %if.end.i.i.i15
-  %add.i.i.i77 = add i32 %__n.021.i.i.i16, 1
+  %add.i.i.i77 = add i32 %__n.020.i.i.i17, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i27
 
 if.end7.i.i.i19:                                  ; preds = %if.end.i.i.i15
-  %cmp9.i.i.i20 = icmp ult i64 %__value.addr.020.i.i.i17, 1000
+  %cmp9.i.i.i20 = icmp ult i64 %__value.addr.021.i.i.i16, 1000
   br i1 %cmp9.i.i.i20, label %if.then10.i.i.i74, label %if.end12.i.i.i21
 
 if.then10.i.i.i74:                                ; preds = %if.end7.i.i.i19
-  %add11.i.i.i75 = add i32 %__n.021.i.i.i16, 2
+  %add11.i.i.i75 = add i32 %__n.020.i.i.i17, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i27
 
 if.end12.i.i.i21:                                 ; preds = %if.end7.i.i.i19
-  %cmp13.i.i.i22 = icmp ult i64 %__value.addr.020.i.i.i17, 10000
+  %cmp13.i.i.i22 = icmp ult i64 %__value.addr.021.i.i.i16, 10000
   br i1 %cmp13.i.i.i22, label %if.then14.i.i.i72, label %if.end16.i.i.i23
 
 if.then14.i.i.i72:                                ; preds = %if.end12.i.i.i21
-  %add15.i.i.i73 = add i32 %__n.021.i.i.i16, 3
+  %add15.i.i.i73 = add i32 %__n.020.i.i.i17, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i27
 
 if.end16.i.i.i23:                                 ; preds = %if.end12.i.i.i21
-  %div.i.i.i24 = udiv i64 %__value.addr.020.i.i.i17, 10000
-  %add17.i.i.i25 = add i32 %__n.021.i.i.i16, 4
-  %cmp.i.i.i26 = icmp ult i64 %__value.addr.020.i.i.i17, 100000
+  %div.i.i.i24 = udiv i64 %__value.addr.021.i.i.i16, 10000
+  %add17.i.i.i25 = add i32 %__n.020.i.i.i17, 4
+  %cmp.i.i.i26 = icmp ult i64 %__value.addr.021.i.i.i16, 100000
   br i1 %cmp.i.i.i26, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i27, label %if.end.i.i.i15, !llvm.loop !1988
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i27: ; preds = %if.end16.i.i.i23, %if.then14.i.i.i72, %if.then10.i.i.i74, %if.then6.i.i.i76, %if.end8.i11
@@ -68225,8 +68225,8 @@ while.body.i.preheader.i:                         ; preds = %if.end.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end104.i.i, %while.body.i.preheader.i
-  %cur_offset.0.i = phi i32 [ %cur_offset.4.i, %if.end104.i.i ], [ %4, %while.body.i.preheader.i ]
   %offsets.0.i = phi ptr [ %offsets.5.i, %if.end104.i.i ], [ %incdec.ptr.i, %while.body.i.preheader.i ]
+  %cur_offset.0.i = phi i32 [ %cur_offset.4.i, %if.end104.i.i ], [ %4, %while.body.i.preheader.i ]
   %position.0310.i.i = phi i64 [ %position.4.i.i, %if.end104.i.i ], [ 0, %while.body.i.preheader.i ]
   %call.i.i = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i), !noalias !2116
   %block.sroa.0.0.extract.trunc.i.i = trunc i32 %call.i.i to i16
@@ -68245,8 +68245,8 @@ _ZN5arrow6StatusD2Ev.exit.preheader.i.i:          ; preds = %for.cond.preheader.
   br label %_ZN5arrow6StatusD2Ev.exit.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %for.inc.i.i, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i
-  %cur_offset.1.i = phi i32 [ %cur_offset.0.i, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i ], [ %7, %for.inc.i.i ]
   %offsets.1.i = phi ptr [ %offsets.0.i, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i ], [ %incdec.ptr.i.i.i, %for.inc.i.i ]
+  %cur_offset.1.i = phi i32 [ %cur_offset.0.i, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i ], [ %7, %for.inc.i.i ]
   %i.0307.i.i = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i ], [ %inc.i.i, %for.inc.i.i ]
   %idx.ext.i.i.i = sext i32 %cur_offset.1.i to i64
   %add.ptr.i.i8.i = getelementptr inbounds i8, ptr %storemerge.i, i64 %idx.ext.i.i.i
@@ -68294,8 +68294,8 @@ _ZN5arrow6StatusD2Ev.exit96.i.preheader.i:        ; preds = %for.cond16.preheade
   br label %if.end104.i.i
 
 for.body52.i.i:                                   ; preds = %for.inc99.i.i, %for.body52.preheader.i.i
-  %cur_offset.2.i = phi i32 [ %cur_offset.0.i, %for.body52.preheader.i.i ], [ %cur_offset.3.i, %for.inc99.i.i ]
   %offsets.3.i = phi ptr [ %offsets.0.i, %for.body52.preheader.i.i ], [ %offsets.4.i, %for.inc99.i.i ]
+  %cur_offset.2.i = phi i32 [ %cur_offset.0.i, %for.body52.preheader.i.i ], [ %cur_offset.3.i, %for.inc99.i.i ]
   %i47.0300.i.i = phi i64 [ 0, %for.body52.preheader.i.i ], [ %inc100.i.i, %for.inc99.i.i ]
   %position.3299.i.i = phi i64 [ %position.0310.i.i, %for.body52.preheader.i.i ], [ %inc101.i.i, %for.inc99.i.i ]
   %add.i.i = add nsw i64 %position.3299.i.i, %1
@@ -68338,8 +68338,8 @@ for.inc99.i.i:                                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i.i, label %if.end104.i.i, label %for.body52.i.i, !llvm.loop !2144
 
 if.end104.i.i:                                    ; preds = %for.inc99.i.i, %for.inc.i.i, %_ZN5arrow6StatusD2Ev.exit96.i.preheader.i, %for.cond16.preheader.i.i, %for.cond48.preheader.i.i, %for.cond.preheader.i.i
-  %cur_offset.4.i = phi i32 [ %cur_offset.0.i, %for.cond.preheader.i.i ], [ %11, %_ZN5arrow6StatusD2Ev.exit96.i.preheader.i ], [ %cur_offset.0.i, %for.cond16.preheader.i.i ], [ %cur_offset.0.i, %for.cond48.preheader.i.i ], [ %7, %for.inc.i.i ], [ %cur_offset.3.i, %for.inc99.i.i ]
   %offsets.5.i = phi ptr [ %offsets.0.i, %for.cond.preheader.i.i ], [ %scevgep29.i, %_ZN5arrow6StatusD2Ev.exit96.i.preheader.i ], [ %offsets.0.i, %for.cond16.preheader.i.i ], [ %offsets.0.i, %for.cond48.preheader.i.i ], [ %incdec.ptr.i.i.i, %for.inc.i.i ], [ %offsets.4.i, %for.inc99.i.i ]
+  %cur_offset.4.i = phi i32 [ %cur_offset.0.i, %for.cond.preheader.i.i ], [ %11, %_ZN5arrow6StatusD2Ev.exit96.i.preheader.i ], [ %cur_offset.0.i, %for.cond16.preheader.i.i ], [ %cur_offset.0.i, %for.cond48.preheader.i.i ], [ %7, %for.inc.i.i ], [ %cur_offset.3.i, %for.inc99.i.i ]
   %position.4.i.i = phi i64 [ %position.0310.i.i, %for.cond.preheader.i.i ], [ %12, %_ZN5arrow6StatusD2Ev.exit96.i.preheader.i ], [ %position.0310.i.i, %for.cond16.preheader.i.i ], [ %position.0310.i.i, %for.cond48.preheader.i.i ], [ %6, %for.inc.i.i ], [ %9, %for.inc99.i.i ]
   %cmp.i.i = icmp slt i64 %position.4.i.i, %0
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !2145
@@ -68798,8 +68798,8 @@ while.body.i.preheader.i:                         ; preds = %if.end.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end104.i.i, %while.body.i.preheader.i
-  %cur_offset.0.i = phi i64 [ %cur_offset.4.i, %if.end104.i.i ], [ %4, %while.body.i.preheader.i ]
   %offsets.0.i = phi ptr [ %offsets.5.i, %if.end104.i.i ], [ %incdec.ptr.i, %while.body.i.preheader.i ]
+  %cur_offset.0.i = phi i64 [ %cur_offset.4.i, %if.end104.i.i ], [ %4, %while.body.i.preheader.i ]
   %position.0307.i.i = phi i64 [ %position.4.i.i, %if.end104.i.i ], [ 0, %while.body.i.preheader.i ]
   %call.i.i = call i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i), !noalias !2174
   %block.sroa.0.0.extract.trunc.i.i = trunc i32 %call.i.i to i16
@@ -68818,8 +68818,8 @@ _ZN5arrow6StatusD2Ev.exit.preheader.i.i:          ; preds = %for.cond.preheader.
   br label %_ZN5arrow6StatusD2Ev.exit.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %for.inc.i.i, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i
-  %cur_offset.1.i = phi i64 [ %cur_offset.0.i, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i ], [ %7, %for.inc.i.i ]
   %offsets.1.i = phi ptr [ %offsets.0.i, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i ], [ %incdec.ptr.i.i.i, %for.inc.i.i ]
+  %cur_offset.1.i = phi i64 [ %cur_offset.0.i, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i ], [ %7, %for.inc.i.i ]
   %i.0304.i.i = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i ], [ %inc.i.i, %for.inc.i.i ]
   %add.ptr.i.i8.i = getelementptr inbounds i8, ptr %storemerge.i, i64 %cur_offset.1.i
   %7 = load i64, ptr %offsets.1.i, align 8, !noalias !2175
@@ -68865,8 +68865,8 @@ _ZN5arrow6StatusD2Ev.exit96.i.preheader.i:        ; preds = %for.cond16.preheade
   br label %if.end104.i.i
 
 for.body52.i.i:                                   ; preds = %for.inc99.i.i, %for.body52.preheader.i.i
-  %cur_offset.2.i = phi i64 [ %cur_offset.0.i, %for.body52.preheader.i.i ], [ %cur_offset.3.i, %for.inc99.i.i ]
   %offsets.3.i = phi ptr [ %offsets.0.i, %for.body52.preheader.i.i ], [ %offsets.4.i, %for.inc99.i.i ]
+  %cur_offset.2.i = phi i64 [ %cur_offset.0.i, %for.body52.preheader.i.i ], [ %cur_offset.3.i, %for.inc99.i.i ]
   %i47.0297.i.i = phi i64 [ 0, %for.body52.preheader.i.i ], [ %inc100.i.i, %for.inc99.i.i ]
   %position.3296.i.i = phi i64 [ %position.0307.i.i, %for.body52.preheader.i.i ], [ %inc101.i.i, %for.inc99.i.i ]
   %add.i.i = add nsw i64 %position.3296.i.i, %1
@@ -68907,8 +68907,8 @@ for.inc99.i.i:                                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i.i, label %if.end104.i.i, label %for.body52.i.i, !llvm.loop !2202
 
 if.end104.i.i:                                    ; preds = %for.inc99.i.i, %for.inc.i.i, %_ZN5arrow6StatusD2Ev.exit96.i.preheader.i, %for.cond16.preheader.i.i, %for.cond48.preheader.i.i, %for.cond.preheader.i.i
-  %cur_offset.4.i = phi i64 [ %cur_offset.0.i, %for.cond.preheader.i.i ], [ %11, %_ZN5arrow6StatusD2Ev.exit96.i.preheader.i ], [ %cur_offset.0.i, %for.cond16.preheader.i.i ], [ %cur_offset.0.i, %for.cond48.preheader.i.i ], [ %7, %for.inc.i.i ], [ %cur_offset.3.i, %for.inc99.i.i ]
   %offsets.5.i = phi ptr [ %offsets.0.i, %for.cond.preheader.i.i ], [ %scevgep29.i, %_ZN5arrow6StatusD2Ev.exit96.i.preheader.i ], [ %offsets.0.i, %for.cond16.preheader.i.i ], [ %offsets.0.i, %for.cond48.preheader.i.i ], [ %incdec.ptr.i.i.i, %for.inc.i.i ], [ %offsets.4.i, %for.inc99.i.i ]
+  %cur_offset.4.i = phi i64 [ %cur_offset.0.i, %for.cond.preheader.i.i ], [ %11, %_ZN5arrow6StatusD2Ev.exit96.i.preheader.i ], [ %cur_offset.0.i, %for.cond16.preheader.i.i ], [ %cur_offset.0.i, %for.cond48.preheader.i.i ], [ %7, %for.inc.i.i ], [ %cur_offset.3.i, %for.inc99.i.i ]
   %position.4.i.i = phi i64 [ %position.0307.i.i, %for.cond.preheader.i.i ], [ %12, %_ZN5arrow6StatusD2Ev.exit96.i.preheader.i ], [ %position.0307.i.i, %for.cond16.preheader.i.i ], [ %position.0307.i.i, %for.cond48.preheader.i.i ], [ %6, %for.inc.i.i ], [ %9, %for.inc99.i.i ]
   %cmp.i.i = icmp slt i64 %position.4.i.i, %0
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !2203

@@ -157,12 +157,12 @@ _ZL10div_nstepsii.exit105:                        ; preds = %_ZL10div_nstepsii.e
 
 94:                                               ; preds = %90, %94
   %indvars.iv130 = phi i64 [ 0, %90 ], [ %indvars.iv.next131, %94 ]
-  %.090126 = phi i32 [ 0, %90 ], [ %spec.select, %94 ]
+  %.088126 = phi i32 [ 0, %90 ], [ %spec.select, %94 ]
   %95 = getelementptr inbounds [7 x i8], ptr %93, i64 0, i64 %indvars.iv130
   %96 = load i8, ptr %95, align 1
   %97 = and i8 %96, 1
   %98 = zext nneg i8 %97 to i32
-  %spec.select = add nuw nsw i32 %.090126, %98
+  %spec.select = add nuw nsw i32 %.088126, %98
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %.not120 = icmp eq i64 %indvars.iv.next131, 7
   br i1 %.not120, label %99, label %94
@@ -189,10 +189,10 @@ _ZL10div_nstepsii.exit107:                        ; preds = %99
   %114 = load i32, ptr %113, align 8
   %.not93 = icmp eq i32 %114, 0
   %115 = add nsw i32 %spec.select94, 12
-  %.189 = select i1 %.not93, i32 %spec.select94, i32 %115
+  %.191 = select i1 %.not93, i32 %spec.select94, i32 %115
   %116 = add i32 %88, %8
   %117 = sdiv i32 %116, %88
-  %118 = mul nsw i32 %.189, %117
+  %118 = mul nsw i32 %.191, %117
   %119 = sitofp i32 %118 to double
   %120 = fadd double %78, %119
   br label %154

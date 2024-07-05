@@ -2401,9 +2401,9 @@ _ZN14colvarproxy_io19input_stream_existsERKNSt7__cxx1112basic_stringIcSt11char_t
   br label %92
 
 92:                                               ; preds = %90, %20
-  %.020.in = phi ptr [ %91, %90 ], [ %21, %20 ]
-  %.020 = load ptr, ptr %.020.in, align 8
-  ret ptr %.020
+  %.0.in = phi ptr [ %91, %90 ], [ %21, %20 ]
+  %.0 = load ptr, ptr %.0.in, align 8
+  ret ptr %.0
 
 93:                                               ; preds = %89, %60, %.body
   %.pn24.pn.pn.pn = phi { ptr, i32 } [ %.pn24.pn.pn, %89 ], [ %61, %60 ], [ %.pn, %.body ]
@@ -3205,9 +3205,9 @@ _ZN14colvarproxy_io19input_stream_existsERKNSt7__cxx1112basic_stringIcSt11char_t
   br label %67
 
 66:                                               ; preds = %60, %16
-  %.016.in = phi ptr [ %63, %60 ], [ %17, %16 ]
-  %.016 = load ptr, ptr %.016.in, align 8
-  ret ptr %.016
+  %.0.in = phi ptr [ %63, %60 ], [ %17, %16 ]
+  %.0 = load ptr, ptr %.0.in, align 8
+  ret ptr %.0
 
 67:                                               ; preds = %64, %.body
   %.pn23 = phi { ptr, i32 } [ %65, %64 ], [ %.pn, %.body ]

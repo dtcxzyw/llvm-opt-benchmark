@@ -43,8 +43,8 @@ define void @SharpYuvComputeConversionMatrix(ptr nocapture noundef readonly %0, 
   br label %26
 
 26:                                               ; preds = %12, %2
-  %.056 = phi float [ %17, %12 ], [ 1.000000e+00, %2 ]
-  %.055 = phi float [ %25, %12 ], [ 0.000000e+00, %2 ]
+  %.056 = phi float [ %25, %12 ], [ 0.000000e+00, %2 ]
+  %.0 = phi float [ %17, %12 ], [ 1.000000e+00, %2 ]
   %27 = phi <2 x float> [ %23, %12 ], [ %5, %2 ]
   %28 = shl i32 128, %8
   %29 = sitofp i32 %28 to float
@@ -53,13 +53,13 @@ define void @SharpYuvComputeConversionMatrix(ptr nocapture noundef readonly %0, 
   %32 = fsub float %30, %31
   %33 = extractelement <2 x float> %3, i64 0
   %34 = insertelement <2 x float> %3, float %32, i64 1
-  %35 = insertelement <2 x float> poison, float %.056, i64 0
+  %35 = insertelement <2 x float> poison, float %.0, i64 0
   %36 = shufflevector <2 x float> %35, <2 x float> poison, <2 x i32> zeroinitializer
   %37 = fmul <2 x float> %34, %36
-  %38 = fmul float %31, %.056
+  %38 = fmul float %31, %.0
   %39 = shufflevector <2 x float> %37, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %40 = insertelement <4 x float> %39, float %38, i64 2
-  %41 = insertelement <4 x float> %40, float %.055, i64 3
+  %41 = insertelement <4 x float> %40, float %.056, i64 3
   %42 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %41, <4 x float> <float 6.553600e+04, float 6.553600e+04, float 6.553600e+04, float 6.553600e+04>, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
   %43 = tail call <4 x float> @llvm.floor.v4f32(<4 x float> %42)
   %44 = fptosi <4 x float> %43 to <4 x i32>

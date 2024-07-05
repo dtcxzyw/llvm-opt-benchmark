@@ -1171,25 +1171,25 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
   %25 = phi i1 [ false, %37 ], [ true, %14 ]
   %indvars.iv263 = phi i64 [ 1, %37 ], [ 0, %14 ]
   %.1246 = phi i32 [ %38, %37 ], [ %17, %14 ]
-  %.1195244 = phi i32 [ %39, %37 ], [ %18, %14 ]
+  %.1177245 = phi i32 [ %39, %37 ], [ %18, %14 ]
   br i1 %.not216, label %29, label %26
 
 26:                                               ; preds = %.preheader
-  %27 = tail call i32 @tvb_find_guint8(ptr noundef %1, i32 noundef %.1246, i32 noundef %.1195244, i8 noundef zeroext -2) #3
+  %27 = tail call i32 @tvb_find_guint8(ptr noundef %1, i32 noundef %.1246, i32 noundef %.1177245, i8 noundef zeroext -2) #3
   %reass.sub249 = sub i32 %27, %.1246
   %28 = add i32 %reass.sub249, 1
   br label %29
 
 29:                                               ; preds = %.preheader, %26
-  %.0189 = phi i32 [ %28, %26 ], [ %.1195244, %.preheader ]
-  %.not217 = icmp eq i32 %.0189, 0
+  %.0192 = phi i32 [ %28, %26 ], [ %.1177245, %.preheader ]
+  %.not217 = icmp eq i32 %.0192, 0
   %30 = getelementptr [2 x ptr], ptr @icqv5_decode_msgType.url_field_descr, i64 0, i64 %indvars.iv263
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 4
   br i1 %.not217, label %35, label %33
 
 33:                                               ; preds = %29
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %32, ptr noundef %1, i32 noundef %.1246, i32 noundef %.0189, i32 noundef 0) #3
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %32, ptr noundef %1, i32 noundef %.1246, i32 noundef %.0192, i32 noundef 0) #3
   br label %37
 
 35:                                               ; preds = %29
@@ -1197,33 +1197,33 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
   br label %37
 
 37:                                               ; preds = %35, %33
-  %38 = add i32 %.0189, %.1246
-  %39 = sub i32 %.1195244, %.0189
+  %38 = add i32 %.0192, %.1246
+  %39 = sub i32 %.1177245, %.0192
   br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .preheader221:                                    ; preds = %14, %51
   %indvars.iv259 = phi i64 [ %indvars.iv.next260, %51 ], [ 0, %14 ]
   %.2243 = phi i32 [ %52, %51 ], [ %17, %14 ]
-  %.2196241 = phi i32 [ %53, %51 ], [ %18, %14 ]
+  %.2178242 = phi i32 [ %53, %51 ], [ %18, %14 ]
   %.not214 = icmp eq i64 %indvars.iv259, 5
   br i1 %.not214, label %43, label %40
 
 40:                                               ; preds = %.preheader221
-  %41 = tail call i32 @tvb_find_guint8(ptr noundef %1, i32 noundef %.2243, i32 noundef %.2196241, i8 noundef zeroext -2) #3
+  %41 = tail call i32 @tvb_find_guint8(ptr noundef %1, i32 noundef %.2243, i32 noundef %.2178242, i8 noundef zeroext -2) #3
   %reass.sub248 = sub i32 %41, %.2243
   %42 = add i32 %reass.sub248, 1
   br label %43
 
 43:                                               ; preds = %.preheader221, %40
-  %.1190 = phi i32 [ %42, %40 ], [ %.2196241, %.preheader221 ]
-  %.not215 = icmp eq i32 %.1190, 0
+  %.1193 = phi i32 [ %42, %40 ], [ %.2178242, %.preheader221 ]
+  %.not215 = icmp eq i32 %.1193, 0
   %44 = getelementptr [6 x ptr], ptr @icqv5_decode_msgType.email_field_descr, i64 0, i64 %indvars.iv259
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %45, align 4
   br i1 %.not215, label %49, label %47
 
 47:                                               ; preds = %43
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %46, ptr noundef %1, i32 noundef %.2243, i32 noundef %.1190, i32 noundef 0) #3
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %46, ptr noundef %1, i32 noundef %.2243, i32 noundef %.1193, i32 noundef 0) #3
   br label %51
 
 49:                                               ; preds = %43
@@ -1231,8 +1231,8 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
   br label %51
 
 51:                                               ; preds = %49, %47
-  %52 = add i32 %.1190, %.2243
-  %53 = sub i32 %.2196241, %.1190
+  %52 = add i32 %.1193, %.2243
+  %53 = sub i32 %.2178242, %.1193
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %exitcond262.not = icmp eq i64 %indvars.iv.next260, 6
   br i1 %exitcond262.not, label %.loopexit, label %.preheader221, !llvm.loop !9
@@ -1252,26 +1252,26 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
 .preheader225:                                    ; preds = %14, %74
   %indvars.iv255 = phi i64 [ %indvars.iv.next256, %74 ], [ 0, %14 ]
   %.3234 = phi i32 [ %75, %74 ], [ %17, %14 ]
-  %.3197232 = phi i32 [ %76, %74 ], [ %18, %14 ]
+  %.3179233 = phi i32 [ %76, %74 ], [ %18, %14 ]
   %.not212 = icmp eq i64 %indvars.iv255, 5
   br i1 %.not212, label %66, label %63
 
 63:                                               ; preds = %.preheader225
-  %64 = tail call i32 @tvb_find_guint8(ptr noundef %1, i32 noundef %.3234, i32 noundef %.3197232, i8 noundef zeroext -2) #3
+  %64 = tail call i32 @tvb_find_guint8(ptr noundef %1, i32 noundef %.3234, i32 noundef %.3179233, i8 noundef zeroext -2) #3
   %reass.sub247 = sub i32 %64, %.3234
   %65 = add i32 %reass.sub247, 1
   br label %66
 
 66:                                               ; preds = %.preheader225, %63
-  %.2191 = phi i32 [ %65, %63 ], [ %.3197232, %.preheader225 ]
-  %.not213 = icmp eq i32 %.2191, 0
+  %.2194 = phi i32 [ %65, %63 ], [ %.3179233, %.preheader225 ]
+  %.not213 = icmp eq i32 %.2194, 0
   %67 = getelementptr [6 x ptr], ptr @icqv5_decode_msgType.auth_req_field_descr, i64 0, i64 %indvars.iv255
   %68 = load ptr, ptr %67, align 8
   %69 = load i32, ptr %68, align 4
   br i1 %.not213, label %72, label %70
 
 70:                                               ; preds = %66
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %69, ptr noundef %1, i32 noundef %.3234, i32 noundef %.2191, i32 noundef 0) #3
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %69, ptr noundef %1, i32 noundef %.3234, i32 noundef %.2194, i32 noundef 0) #3
   br label %74
 
 72:                                               ; preds = %66
@@ -1279,8 +1279,8 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
   br label %74
 
 74:                                               ; preds = %72, %70
-  %75 = add i32 %.2191, %.3234
-  %76 = sub i32 %.3197232, %.2191
+  %75 = add i32 %.2194, %.3234
+  %76 = sub i32 %.3179233, %.2194
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %exitcond258.not = icmp eq i64 %indvars.iv.next256, 6
   br i1 %exitcond258.not, label %.loopexit, label %.preheader225, !llvm.loop !10
@@ -1288,26 +1288,26 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
 .preheader227:                                    ; preds = %14, %88
   %indvars.iv = phi i64 [ %indvars.iv.next, %88 ], [ 0, %14 ]
   %.4231 = phi i32 [ %89, %88 ], [ %17, %14 ]
-  %.4198229 = phi i32 [ %90, %88 ], [ %18, %14 ]
+  %.4180230 = phi i32 [ %90, %88 ], [ %18, %14 ]
   %.not210 = icmp eq i64 %indvars.iv, 3
   br i1 %.not210, label %80, label %77
 
 77:                                               ; preds = %.preheader227
-  %78 = tail call i32 @tvb_find_guint8(ptr noundef %1, i32 noundef %.4231, i32 noundef %.4198229, i8 noundef zeroext -2) #3
+  %78 = tail call i32 @tvb_find_guint8(ptr noundef %1, i32 noundef %.4231, i32 noundef %.4180230, i8 noundef zeroext -2) #3
   %reass.sub = sub i32 %78, %.4231
   %79 = add i32 %reass.sub, 1
   br label %80
 
 80:                                               ; preds = %.preheader227, %77
-  %.3192 = phi i32 [ %79, %77 ], [ %.4198229, %.preheader227 ]
-  %.not211 = icmp eq i32 %.3192, 0
+  %.3195 = phi i32 [ %79, %77 ], [ %.4180230, %.preheader227 ]
+  %.not211 = icmp eq i32 %.3195, 0
   %81 = getelementptr [4 x ptr], ptr @icqv5_decode_msgType.user_added_field_descr, i64 0, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8
   %83 = load i32, ptr %82, align 4
   br i1 %.not211, label %86, label %84
 
 84:                                               ; preds = %80
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %83, ptr noundef %1, i32 noundef %.4231, i32 noundef %.3192, i32 noundef 0) #3
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %83, ptr noundef %1, i32 noundef %.4231, i32 noundef %.3195, i32 noundef 0) #3
   br label %88
 
 86:                                               ; preds = %80
@@ -1315,8 +1315,8 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
   br label %88
 
 88:                                               ; preds = %86, %84
-  %89 = add i32 %.3192, %.4231
-  %90 = sub i32 %.4198229, %.3192
+  %89 = add i32 %.3195, %.4231
+  %90 = sub i32 %.4180230, %.3195
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit, label %.preheader227, !llvm.loop !11
@@ -1324,49 +1324,49 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
 91:                                               ; preds = %.backedge, %.preheader223
   %.5.neg240 = phi i32 [ %.5.neg235, %.preheader223 ], [ %.5.neg240.be, %.backedge ]
   %.5239 = phi i32 [ %17, %.preheader223 ], [ %.5239.be, %.backedge ]
-  %.0180237 = phi i32 [ 0, %.preheader223 ], [ %.0180237.be, %.backedge ]
-  %.5199236 = phi i32 [ %18, %.preheader223 ], [ %.5199236.be, %.backedge ]
-  %92 = tail call i32 @tvb_find_guint8(ptr noundef %1, i32 noundef %.5239, i32 noundef %.5199236, i8 noundef zeroext -2) #3
+  %.5181238 = phi i32 [ %18, %.preheader223 ], [ %.5181238.be, %.backedge ]
+  %.0186236 = phi i32 [ 0, %.preheader223 ], [ %.0186236.be, %.backedge ]
+  %92 = tail call i32 @tvb_find_guint8(ptr noundef %1, i32 noundef %.5239, i32 noundef %.5181238, i8 noundef zeroext -2) #3
   %.not207 = icmp eq i32 %92, -1
   %93 = add i32 %.5.neg240, 1
   %94 = add i32 %93, %92
-  %95 = icmp eq i32 %.0180237, 0
+  %95 = icmp eq i32 %.0186236, 0
   br i1 %95, label %96, label %100
 
 96:                                               ; preds = %91
-  %.0182 = select i1 %.not207, i32 %.5199236, i32 %94
+  %.0188 = select i1 %.not207, i32 %.5181238, i32 %94
   %97 = load i32, ptr @hf_icq_num_uin_pairs, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %97, ptr noundef %1, i32 noundef %.5239, i32 noundef %.0182, i32 noundef 0) #3
-  %.neg274 = xor i32 %.0182, -1
-  %99 = add i32 %.5199236, %.neg274
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %97, ptr noundef %1, i32 noundef %.5239, i32 noundef %.0188, i32 noundef 0) #3
+  %.neg274 = xor i32 %.0188, -1
+  %99 = add i32 %.5181238, %.neg274
   br i1 %.not207, label %.loopexit, label %.backedge
 
 100:                                              ; preds = %91
   br i1 %.not207, label %.loopexit, label %101
 
 101:                                              ; preds = %100
-  %102 = sub i32 %.5199236, %94
+  %102 = sub i32 %.5181238, %94
   %103 = tail call i32 @tvb_find_guint8(ptr noundef %1, i32 noundef %92, i32 noundef %102, i8 noundef zeroext -2) #3
   %.not209 = icmp eq i32 %103, -1
   %104 = add i32 %93, %103
-  %.1183 = select i1 %.not209, i32 %102, i32 %104
+  %.1189 = select i1 %.not209, i32 %102, i32 %104
   %105 = load ptr, ptr %19, align 8
   %106 = add nuw i32 %92, 1
-  %107 = tail call ptr @tvb_get_string_enc(ptr noundef %105, ptr noundef %1, i32 noundef %106, i32 noundef %.1183, i32 noundef 0) #3
+  %107 = tail call ptr @tvb_get_string_enc(ptr noundef %105, ptr noundef %1, i32 noundef %106, i32 noundef %.1189, i32 noundef 0) #3
   %108 = load i32, ptr @hf_icq_msg_contact, align 4
-  %109 = add i32 %.1183, %94
+  %109 = add i32 %.1189, %94
   %110 = load ptr, ptr %19, align 8
   %111 = tail call ptr @tvb_get_string_enc(ptr noundef %110, ptr noundef %1, i32 noundef %.5239, i32 noundef %94, i32 noundef 0) #3
   %112 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %10, i32 noundef %108, ptr noundef %1, i32 noundef %.5239, i32 noundef %109, ptr noundef %107, ptr noundef nonnull @.str.231, ptr noundef %111, ptr noundef %107) #3
-  %113 = add i32 %.0180237, 2
-  %.neg = xor i32 %.1183, -1
+  %113 = add i32 %.0186236, 2
+  %.neg = xor i32 %.1189, -1
   %114 = add i32 %102, %.neg
   br i1 %.not209, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %101, %96
   %.5.neg240.be.in = phi i32 [ %103, %101 ], [ %92, %96 ]
-  %.0180237.be = phi i32 [ %113, %101 ], [ 1, %96 ]
-  %.5199236.be = phi i32 [ %114, %101 ], [ %99, %96 ]
+  %.5181238.be = phi i32 [ %114, %101 ], [ %99, %96 ]
+  %.0186236.be = phi i32 [ %113, %101 ], [ 1, %96 ]
   %.5239.be = add nuw i32 %.5.neg240.be.in, 1
   %.5.neg240.be = xor i32 %.5.neg240.be.in, -1
   br label %91, !llvm.loop !12

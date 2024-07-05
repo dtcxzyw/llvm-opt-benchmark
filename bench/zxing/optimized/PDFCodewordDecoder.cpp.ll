@@ -121,33 +121,33 @@ _ZN5ZXing6Pdf417L11GetBitValueERKSt5arrayIiLm8EE.exit.i: ; preds = %._crit_edge.
   br label %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i
 
 _ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i:           ; preds = %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i, %38
-  %.017.i.i.i.i = phi i64 [ 2787, %38 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i ]
-  %.01116.i.i.i.i = phi ptr [ @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, %38 ], [ %.112.i.i.i.i, %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i ]
-  %40 = lshr i64 %.017.i.i.i.i, 1
-  %41 = getelementptr inbounds i16, ptr %.01116.i.i.i.i, i64 %40
+  %.017.i.i.i.i = phi ptr [ @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, %38 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i ]
+  %.01116.i.i.i.i = phi i64 [ 2787, %38 ], [ %.112.i.i.i.i, %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i ]
+  %40 = lshr i64 %.01116.i.i.i.i, 1
+  %41 = getelementptr inbounds i16, ptr %.017.i.i.i.i, i64 %40
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
   %44 = icmp ugt i32 %39, %43
   %45 = getelementptr inbounds i8, ptr %41, i64 2
   %46 = xor i64 %40, -1
-  %47 = add nsw i64 %.017.i.i.i.i, %46
-  %.112.i.i.i.i = select i1 %44, ptr %45, ptr %.01116.i.i.i.i
-  %.1.i.i.i.i = select i1 %44, i64 %47, i64 %40
-  %48 = icmp sgt i64 %.1.i.i.i.i, 0
+  %47 = add nsw i64 %.01116.i.i.i.i, %46
+  %.112.i.i.i.i = select i1 %44, i64 %47, i64 %40
+  %.1.i.i.i.i = select i1 %44, ptr %45, ptr %.017.i.i.i.i
+  %48 = icmp sgt i64 %.112.i.i.i.i, 0
   br i1 %48, label %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i, label %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i, !llvm.loop !12
 
 _ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i:    ; preds = %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i.i.i
-  %.not4.i.i = icmp eq ptr %.112.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 5574)
+  %.not4.i.i = icmp eq ptr %.1.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 5574)
   br i1 %.not4.i.i, label %_ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit.thread, label %49
 
 49:                                               ; preds = %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i
-  %50 = load i16, ptr %.112.i.i.i.i, align 2
+  %50 = load i16, ptr %.1.i.i.i.i, align 2
   %51 = trunc i32 %.1.lcssa.i.i to i16
   %52 = icmp eq i16 %50, %51
   br i1 %52, label %_ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi.exit.i, label %_ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit.thread
 
 _ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi.exit.i: ; preds = %49
-  %53 = ptrtoint ptr %.112.i.i.i.i to i64
+  %53 = ptrtoint ptr %.1.i.i.i.i to i64
   %54 = sub i64 %53, ptrtoint (ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE to i64)
   %55 = ashr exact i64 %54, 1
   %56 = getelementptr inbounds [2787 x i16], ptr @_ZN5ZXing6Pdf417L14CODEWORD_TABLEE, i64 0, i64 %55
@@ -298,33 +298,33 @@ define noundef range(i32 -1, 929) i32 @_ZN5ZXing6Pdf41715CodewordDecoder11GetCod
   br label %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i
 
 _ZSt7advanceIPKtlEvRT_T0_.exit.i.i:               ; preds = %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i, %3
-  %.017.i.i = phi i64 [ 2787, %3 ], [ %.1.i.i, %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i ]
-  %.01116.i.i = phi ptr [ @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, %3 ], [ %.112.i.i, %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i ]
-  %5 = lshr i64 %.017.i.i, 1
-  %6 = getelementptr inbounds i16, ptr %.01116.i.i, i64 %5
+  %.017.i.i = phi ptr [ @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, %3 ], [ %.1.i.i, %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i ]
+  %.01116.i.i = phi i64 [ 2787, %3 ], [ %.112.i.i, %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i ]
+  %5 = lshr i64 %.01116.i.i, 1
+  %6 = getelementptr inbounds i16, ptr %.017.i.i, i64 %5
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
   %9 = icmp ugt i32 %4, %8
   %10 = getelementptr inbounds i8, ptr %6, i64 2
   %11 = xor i64 %5, -1
-  %12 = add nsw i64 %.017.i.i, %11
-  %.112.i.i = select i1 %9, ptr %10, ptr %.01116.i.i
-  %.1.i.i = select i1 %9, i64 %12, i64 %5
-  %13 = icmp sgt i64 %.1.i.i, 0
+  %12 = add nsw i64 %.01116.i.i, %11
+  %.112.i.i = select i1 %9, i64 %12, i64 %5
+  %.1.i.i = select i1 %9, ptr %10, ptr %.017.i.i
+  %13 = icmp sgt i64 %.112.i.i, 0
   br i1 %13, label %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit, !llvm.loop !12
 
 _ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit:        ; preds = %_ZSt7advanceIPKtlEvRT_T0_.exit.i.i
-  %.not4 = icmp eq ptr %.112.i.i, getelementptr inbounds (i8, ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 5574)
+  %.not4 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE, i64 5574)
   br i1 %.not4, label %27, label %14
 
 14:                                               ; preds = %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit
-  %15 = load i16, ptr %.112.i.i, align 2
+  %15 = load i16, ptr %.1.i.i, align 2
   %16 = trunc i32 %0 to i16
   %17 = icmp eq i16 %15, %16
   br i1 %17, label %18, label %27
 
 18:                                               ; preds = %14
-  %19 = ptrtoint ptr %.112.i.i to i64
+  %19 = ptrtoint ptr %.1.i.i to i64
   %20 = sub i64 %19, ptrtoint (ptr @_ZN5ZXing6Pdf417L12SYMBOL_TABLEE to i64)
   %21 = ashr exact i64 %20, 1
   %22 = getelementptr inbounds [2787 x i16], ptr @_ZN5ZXing6Pdf417L14CODEWORD_TABLEE, i64 0, i64 %21

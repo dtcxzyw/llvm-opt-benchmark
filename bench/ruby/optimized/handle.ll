@@ -276,9 +276,9 @@ rb_num2int_inline.exit:                           ; preds = %21, %23
   unreachable
 
 27:                                               ; preds = %10, %7, %3, %rb_num2int_inline.exit
-  %.016 = phi ptr [ %18, %rb_num2int_inline.exit ], [ null, %3 ], [ %11, %10 ], [ null, %7 ]
-  %.0 = phi i32 [ %25, %rb_num2int_inline.exit ], [ 257, %3 ], [ 257, %10 ], [ 257, %7 ]
-  %28 = call ptr @dlopen(ptr noundef %.016, i32 noundef %.0) #11
+  %.016 = phi i32 [ %25, %rb_num2int_inline.exit ], [ 257, %3 ], [ 257, %7 ], [ 257, %10 ]
+  %.0 = phi ptr [ %18, %rb_num2int_inline.exit ], [ null, %3 ], [ null, %7 ], [ %11, %10 ]
+  %28 = call ptr @dlopen(ptr noundef %.0, i32 noundef %.016) #11
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %29, label %33
 

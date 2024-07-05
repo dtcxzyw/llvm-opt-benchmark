@@ -431,8 +431,8 @@ define noundef ptr @Abc_NtkComputeReachable(ptr noundef %0, ptr nocapture nounde
   br label %50
 
 50:                                               ; preds = %48, %46
-  %.0131 = phi ptr [ %47, %46 ], [ null, %48 ]
-  %.0130 = phi ptr [ null, %46 ], [ %49, %48 ]
+  %.0126 = phi ptr [ null, %46 ], [ %49, %48 ]
+  %.0123 = phi ptr [ %47, %46 ], [ null, %48 ]
   %.not134 = icmp eq ptr %15, null
   br i1 %.not134, label %52, label %51
 
@@ -457,27 +457,27 @@ define noundef ptr @Abc_NtkComputeReachable(ptr noundef %0, ptr nocapture nounde
 
 57:                                               ; preds = %.lr.ph169, %.critedge142
   %.not135168 = phi i1 [ false, %.lr.ph169 ], [ %.not135, %.critedge142 ]
-  %.0122167 = phi i32 [ 1, %.lr.ph169 ], [ %82, %.critedge142 ]
-  %.0127166 = phi ptr [ %3, %.lr.ph169 ], [ %76, %.critedge142 ]
-  %.0128165 = phi ptr [ %3, %.lr.ph169 ], [ %77, %.critedge142 ]
+  %.0124167 = phi i32 [ 1, %.lr.ph169 ], [ %82, %.critedge142 ]
+  %.0129166 = phi ptr [ %3, %.lr.ph169 ], [ %76, %.critedge142 ]
+  %.0130165 = phi ptr [ %3, %.lr.ph169 ], [ %77, %.critedge142 ]
   br i1 %.not, label %60, label %58
 
 58:                                               ; preds = %57
-  %59 = tail call ptr @Extra_bddImageCompute(ptr noundef %.0131, ptr noundef %.0127166) #14
+  %59 = tail call ptr @Extra_bddImageCompute(ptr noundef %.0123, ptr noundef %.0129166) #14
   br label %62
 
 60:                                               ; preds = %57
-  %61 = tail call ptr @Extra_bddImageCompute2(ptr noundef %.0130, ptr noundef %.0127166) #14
+  %61 = tail call ptr @Extra_bddImageCompute2(ptr noundef %.0126, ptr noundef %.0129166) #14
   br label %62
 
 62:                                               ; preds = %60, %58
-  %.1126 = phi ptr [ %59, %58 ], [ %61, %60 ]
-  tail call void @Cudd_Ref(ptr noundef %.1126) #14
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0127166) #14
-  %63 = tail call ptr @Cudd_bddVarMap(ptr noundef %0, ptr noundef %.1126) #14
+  %.1128 = phi ptr [ %59, %58 ], [ %61, %60 ]
+  tail call void @Cudd_Ref(ptr noundef %.1128) #14
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0129166) #14
+  %63 = tail call ptr @Cudd_bddVarMap(ptr noundef %0, ptr noundef %.1128) #14
   tail call void @Cudd_Ref(ptr noundef %63) #14
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1126) #14
-  %64 = tail call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %63, ptr noundef %.0128165) #14
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1128) #14
+  %64 = tail call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %63, ptr noundef %.0130165) #14
   %.not136 = icmp eq i32 %64, 0
   br i1 %.not136, label %65, label %.loopexit
 
@@ -492,53 +492,53 @@ define noundef ptr @Abc_NtkComputeReachable(ptr noundef %0, ptr nocapture nounde
   br i1 %.not137, label %70, label %72
 
 70:                                               ; preds = %68
-  %71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0122167)
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0128165) #14
+  %71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0124167)
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0130165) #14
   br label %.loopexit
 
 72:                                               ; preds = %68
-  %73 = ptrtoint ptr %.0128165 to i64
+  %73 = ptrtoint ptr %.0130165 to i64
   %74 = xor i64 %73, 1
   %75 = inttoptr i64 %74 to ptr
   %76 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %63, ptr noundef %75) #14
   tail call void @Cudd_Ref(ptr noundef %76) #14
-  %77 = tail call ptr @Cudd_bddOr(ptr noundef %0, ptr noundef %.0128165, ptr noundef %63) #14
+  %77 = tail call ptr @Cudd_bddOr(ptr noundef %0, ptr noundef %.0130165, ptr noundef %63) #14
   tail call void @Cudd_Ref(ptr noundef %77) #14
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0128165) #14
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0130165) #14
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %63) #14
   br i1 %.not138, label %.critedge142, label %78
 
 78:                                               ; preds = %72
   %79 = load ptr, ptr @stdout, align 8
-  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.3, i32 noundef %.0122167, i32 noundef %66) #14
+  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.3, i32 noundef %.0124167, i32 noundef %66) #14
   %81 = load ptr, ptr @stdout, align 8
   %fputc = tail call i32 @fputc(i32 13, ptr %81)
   br label %.critedge142
 
 .critedge142:                                     ; preds = %72, %78
-  %82 = add nuw i32 %.0122167, 1
-  %.not135 = icmp sge i32 %.0122167, %6
-  %exitcond = icmp eq i32 %.0122167, %6
+  %82 = add nuw i32 %.0124167, 1
+  %.not135 = icmp sge i32 %.0124167, %6
+  %exitcond = icmp eq i32 %.0124167, %6
   br i1 %exitcond, label %.loopexit, label %57, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.critedge142, %62, %65, %52, %70
-  %.0122158 = phi i32 [ %.0122167, %70 ], [ 1, %52 ], [ %56, %.critedge142 ], [ %.0122167, %62 ], [ %.0122167, %65 ]
+  %.0124158 = phi i32 [ %.0124167, %70 ], [ 1, %52 ], [ %56, %.critedge142 ], [ %.0124167, %62 ], [ %.0124167, %65 ]
   %.not135156 = phi i1 [ %.not135168, %70 ], [ true, %52 ], [ %.not135, %.critedge142 ], [ %.not135168, %62 ], [ %.not135168, %65 ]
-  %.1129 = phi ptr [ null, %70 ], [ %3, %52 ], [ %77, %.critedge142 ], [ %.0128165, %62 ], [ %.0128165, %65 ]
+  %.1131 = phi ptr [ null, %70 ], [ %3, %52 ], [ %77, %.critedge142 ], [ %.0130165, %62 ], [ %.0130165, %65 ]
   %.2 = phi ptr [ %63, %70 ], [ null, %52 ], [ %63, %65 ], [ %63, %62 ], [ %63, %.critedge142 ]
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.2) #14
   br i1 %.not, label %84, label %83
 
 83:                                               ; preds = %.loopexit
-  tail call void @Extra_bddImageTreeDelete(ptr noundef %.0131) #14
+  tail call void @Extra_bddImageTreeDelete(ptr noundef %.0123) #14
   br label %85
 
 84:                                               ; preds = %.loopexit
-  tail call void @Extra_bddImageTreeDelete2(ptr noundef %.0130) #14
+  tail call void @Extra_bddImageTreeDelete2(ptr noundef %.0126) #14
   br label %85
 
 85:                                               ; preds = %84, %83
-  %86 = icmp eq ptr %.1129, null
+  %86 = icmp eq ptr %.1131, null
   br i1 %86, label %111, label %87
 
 87:                                               ; preds = %85
@@ -548,11 +548,11 @@ define noundef ptr @Abc_NtkComputeReachable(ptr noundef %0, ptr nocapture nounde
 88:                                               ; preds = %87
   %89 = getelementptr i8, ptr %1, i64 128
   %.val149 = load i32, ptr %89, align 8
-  %90 = tail call double @Cudd_CountMinterm(ptr noundef %0, ptr noundef nonnull %.1129, i32 noundef %.val149) #14
+  %90 = tail call double @Cudd_CountMinterm(ptr noundef %0, ptr noundef nonnull %.1131, i32 noundef %.val149) #14
   br i1 %.not135156, label %94, label %91
 
 91:                                               ; preds = %88
-  %92 = tail call i32 @Cudd_DagSize(ptr noundef nonnull %.1129) #14
+  %92 = tail call i32 @Cudd_DagSize(ptr noundef nonnull %.1131) #14
   %93 = icmp sgt i32 %92, %5
   %spec.select = select i1 %93, ptr @.str.7, ptr @.str.8
   br label %94
@@ -560,7 +560,7 @@ define noundef ptr @Abc_NtkComputeReachable(ptr noundef %0, ptr nocapture nounde
 94:                                               ; preds = %91, %88
   %.str.8.sink = phi ptr [ @.str.7, %88 ], [ %spec.select, %91 ]
   %95 = load ptr, ptr @stdout, align 8
-  %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull %.str.8.sink, i32 noundef %.0122158) #14
+  %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull %.str.8.sink, i32 noundef %.0124158) #14
   %97 = load ptr, ptr @stdout, align 8
   %98 = fmul double %90, 1.000000e+02
   %.val148 = load i32, ptr %89, align 8
@@ -572,24 +572,24 @@ define noundef ptr @Abc_NtkComputeReachable(ptr noundef %0, ptr nocapture nounde
   br label %103
 
 103:                                              ; preds = %94, %87
-  tail call void @Cudd_Deref(ptr noundef nonnull %.1129) #14
+  tail call void @Cudd_Deref(ptr noundef nonnull %.1131) #14
   br i1 %.not135156, label %107, label %104
 
 104:                                              ; preds = %103
-  %105 = tail call i32 @Cudd_DagSize(ptr noundef nonnull %.1129) #14
+  %105 = tail call i32 @Cudd_DagSize(ptr noundef nonnull %.1131) #14
   %106 = icmp sgt i32 %105, %5
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %104, %103
-  %108 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.0122158)
+  %108 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.0124158)
   br label %109
 
 109:                                              ; preds = %107, %104
-  %110 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.0122158)
+  %110 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.0124158)
   br label %111
 
 111:                                              ; preds = %85, %109
-  ret ptr %.1129
+  ret ptr %.1131
 }
 
 declare ptr @Extra_bddComputeRangeCube(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2

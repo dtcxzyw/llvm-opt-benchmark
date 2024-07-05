@@ -622,8 +622,8 @@ define internal fastcc i32 @iso_parse_dir(ptr noundef %0, i32 noundef %1, i32 no
   br label %needblock.exit.thread
 
 18:                                               ; preds = %.preheader, %209
+  %.094138 = phi i32 [ %1, %.preheader ], [ %210, %209 ]
   %.096137 = phi i32 [ %2, %.preheader ], [ %212, %209 ]
-  %.099136 = phi i32 [ %1, %.preheader ], [ %210, %209 ]
   %19 = load i32, ptr %9, align 8
   %20 = icmp ugt i32 %19, 1024
   br i1 %20, label %21, label %22
@@ -633,11 +633,11 @@ define internal fastcc i32 @iso_parse_dir(ptr noundef %0, i32 noundef %1, i32 no
   br label %needblock.exit.thread
 
 22:                                               ; preds = %18
-  %23 = call zeroext i1 @cli_hashset_contains(ptr noundef nonnull %8, i32 noundef %.099136) #9
+  %23 = call zeroext i1 @cli_hashset_contains(ptr noundef nonnull %8, i32 noundef %.094138) #9
   br i1 %23, label %209, label %24
 
 24:                                               ; preds = %22
-  %25 = call i32 @cli_hashset_addkey(ptr noundef nonnull %8, i32 noundef %.099136) #9
+  %25 = call i32 @cli_hashset_addkey(ptr noundef nonnull %8, i32 noundef %.094138) #9
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %26, label %needblock.exit.thread
 
@@ -645,7 +645,7 @@ define internal fastcc i32 @iso_parse_dir(ptr noundef %0, i32 noundef %1, i32 no
   %27 = load ptr, ptr %0, align 8
   %28 = load i32, ptr %10, align 8
   %29 = udiv i32 2048, %28
-  %30 = zext i32 %.099136 to i64
+  %30 = zext i32 %.094138 to i64
   %31 = getelementptr inbounds i8, ptr %27, i64 96
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 88
@@ -661,10 +661,10 @@ define internal fastcc i32 @iso_parse_dir(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %42, label %needblock.exit.thread, label %needblock.exit
 
 needblock.exit:                                   ; preds = %26
-  %43 = udiv i32 %.099136, %29
+  %43 = udiv i32 %.094138, %29
   %44 = mul i32 %43, %37
   %45 = zext i32 %44 to i64
-  %46 = urem i32 %.099136, %29
+  %46 = urem i32 %.094138, %29
   %47 = mul i32 %46, %28
   %48 = zext i32 %47 to i64
   %49 = add i64 %35, %45
@@ -682,19 +682,19 @@ needblock.exit:                                   ; preds = %26
   %57 = load i8, ptr %54, align 1
   %58 = icmp ne i32 %..096, 0
   %59 = icmp ne i8 %57, 0
-  %or.cond129 = select i1 %58, i1 %59, i1 false
-  br i1 %or.cond129, label %.lr.ph, label %.loopexit
+  %or.cond130 = select i1 %58, i1 %59, i1 false
+  br i1 %or.cond130, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %55, %.backedge
   %60 = phi i8 [ %68, %.backedge ], [ %57, %55 ]
-  %.093131 = phi i32 [ %.093.be, %.backedge ], [ %..096, %55 ]
-  %.094130 = phi ptr [ %67, %.backedge ], [ %54, %55 ]
+  %.095132 = phi i32 [ %.095.be, %.backedge ], [ %..096, %55 ]
+  %.097131 = phi ptr [ %67, %.backedge ], [ %54, %55 ]
   %61 = zext i8 %60 to i32
-  %62 = icmp ult i32 %.093131, %61
+  %62 = icmp ult i32 %.095132, %61
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %.lr.ph
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28, i32 noundef %61, i32 noundef %.093131) #9
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28, i32 noundef %61, i32 noundef %.095132) #9
   br label %.loopexit
 
 64:                                               ; preds = %.lr.ph
@@ -708,46 +708,46 @@ needblock.exit:                                   ; preds = %26
 
 .backedge:                                        ; preds = %.backedge.sink.split, %197, %76
   %66 = zext i8 %60 to i64
-  %67 = getelementptr inbounds i8, ptr %.094130, i64 %66
-  %.093.be = sub i32 %.093131, %61
+  %67 = getelementptr inbounds i8, ptr %.097131, i64 %66
+  %.095.be = sub i32 %.095132, %61
   %68 = load i8, ptr %67, align 1
-  %69 = icmp ne i32 %.093.be, 0
+  %69 = icmp ne i32 %.095.be, 0
   %70 = icmp ne i8 %68, 0
   %or.cond = select i1 %69, i1 %70, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 71:                                               ; preds = %64
-  %72 = getelementptr inbounds i8, ptr %.094130, i64 32
+  %72 = getelementptr inbounds i8, ptr %.097131, i64 32
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %75 = icmp eq i8 %73, 1
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %.094130, i64 33
+  %77 = getelementptr inbounds i8, ptr %.097131, i64 33
   %78 = load i8, ptr %77, align 1
   %switch = icmp ult i8 %78, 2
   br i1 %switch, label %.backedge, label %79
 
 79:                                               ; preds = %76, %71
   %80 = add nuw nsw i32 %74, 33
-  %81 = icmp ugt i32 %80, %.093131
+  %81 = icmp ugt i32 %80, %.095132
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %79
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.30) #9
-  %83 = add nsw i32 %.093131, -33
+  %83 = add nsw i32 %.095132, -33
   br label %84
 
 84:                                               ; preds = %82, %79
-  %.0 = phi i32 [ %83, %82 ], [ %74, %79 ]
-  %85 = getelementptr inbounds i8, ptr %.094130, i64 33
+  %.093 = phi i32 [ %83, %82 ], [ %74, %79 ]
+  %85 = getelementptr inbounds i8, ptr %.097131, i64 33
   %86 = load i32, ptr %13, align 4
   %.not.i = icmp eq i32 %86, 0
   br i1 %.not.i, label %96, label %87
 
 87:                                               ; preds = %84
-  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %.0, i32 258)
+  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %.093, i32 258)
   %88 = zext nneg i32 %spec.store.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull readonly align 1 %85, i64 %88, i1 false)
   %89 = getelementptr inbounds [260 x i8], ptr %14, i64 0, i64 %88
@@ -762,11 +762,11 @@ needblock.exit:                                   ; preds = %26
   %95 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 260) #9
   store i8 0, ptr %15, align 1
   call void @free(ptr noundef %93) #9
-  %.pre = zext i32 %.0 to i64
+  %.pre = zext i32 %.093 to i64
   br label %iso_string.exit
 
 96:                                               ; preds = %84
-  %97 = zext i32 %.0 to i64
+  %97 = zext i32 %.093 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull readonly align 1 %85, i64 %97, i1 false)
   %98 = getelementptr inbounds [260 x i8], ptr %14, i64 0, i64 %97
   store i8 0, ptr %98, align 1
@@ -779,27 +779,27 @@ iso_string.exit:                                  ; preds = %87, %96
   %100 = getelementptr inbounds [260 x i8], ptr %14, i64 0, i64 %.pre-phi
   %.sink = select i1 %.not113, ptr %100, ptr %99
   store i8 0, ptr %.sink, align 1
-  %101 = getelementptr inbounds i8, ptr %.094130, i64 2
+  %101 = getelementptr inbounds i8, ptr %.097131, i64 2
   %102 = load i32, ptr %101, align 1
-  %103 = getelementptr inbounds i8, ptr %.094130, i64 1
+  %103 = getelementptr inbounds i8, ptr %.097131, i64 1
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i32
   %106 = add i32 %102, %105
-  %107 = getelementptr inbounds i8, ptr %.094130, i64 10
+  %107 = getelementptr inbounds i8, ptr %.097131, i64 10
   %108 = load i32, ptr %107, align 1
-  %109 = getelementptr inbounds i8, ptr %.094130, i64 25
+  %109 = getelementptr inbounds i8, ptr %.097131, i64 25
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i32
   %112 = and i32 %111, 2
   %.not114 = icmp eq i32 %112, 0
   %113 = select i1 %.not114, ptr @.str.33, ptr @.str.32
-  %114 = getelementptr inbounds i8, ptr %.094130, i64 26
+  %114 = getelementptr inbounds i8, ptr %.097131, i64 26
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
-  %117 = getelementptr inbounds i8, ptr %.094130, i64 27
+  %117 = getelementptr inbounds i8, ptr %.097131, i64 27
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
-  %120 = getelementptr inbounds i8, ptr %.094130, i64 28
+  %120 = getelementptr inbounds i8, ptr %.097131, i64 28
   %121 = load i32, ptr %120, align 1
   %122 = and i32 %121, 65535
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %113, ptr noundef nonnull %14, i32 noundef %106, i32 noundef %108, i32 noundef %111, i32 noundef %116, i32 noundef %119, i32 noundef %122) #9
@@ -851,12 +851,12 @@ iso_string.exit:                                  ; preds = %87, %96
   br i1 %.not2534.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %141, %178
-  %.02036.i = phi i32 [ %179, %178 ], [ %108, %141 ]
-  %.02135.i = phi i32 [ %180, %178 ], [ %106, %141 ]
+  %.02036.i = phi i32 [ %180, %178 ], [ %106, %141 ]
+  %.02235.i = phi i32 [ %179, %178 ], [ %108, %141 ]
   %143 = load ptr, ptr %0, align 8
   %144 = load i32, ptr %10, align 8
   %145 = udiv i32 2048, %144
-  %146 = zext i32 %.02135.i to i64
+  %146 = zext i32 %.02036.i to i64
   %147 = getelementptr inbounds i8, ptr %143, i64 96
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 88
@@ -872,10 +872,10 @@ iso_string.exit:                                  ; preds = %87, %96
   br i1 %158, label %needblock.exit.thread.i, label %needblock.exit.i
 
 needblock.exit.i:                                 ; preds = %.lr.ph.i
-  %159 = udiv i32 %.02135.i, %145
+  %159 = udiv i32 %.02036.i, %145
   %160 = mul i32 %159, %153
   %161 = zext i32 %160 to i64
-  %162 = urem i32 %.02135.i, %145
+  %162 = urem i32 %.02036.i, %145
   %163 = mul i32 %162, %144
   %164 = zext i32 %163 to i64
   %165 = add i64 %151, %161
@@ -885,7 +885,7 @@ needblock.exit.i:                                 ; preds = %.lr.ph.i
   %169 = load ptr, ptr %168, align 8
   %170 = call ptr %169(ptr noundef nonnull %148, i64 noundef %166, i64 noundef %167, i32 noundef 0) #9
   %171 = load i32, ptr %10, align 8
-  %.020..i = call i32 @llvm.umin.i32(i32 %.02036.i, i32 %171)
+  %.022..i = call i32 @llvm.umin.i32(i32 %.02235.i, i32 %171)
   %.not26.i = icmp eq ptr %170, null
   br i1 %.not26.i, label %needblock.exit.thread.i, label %172
 
@@ -895,7 +895,7 @@ needblock.exit.thread.i:                          ; preds = %needblock.exit.i, %
 
 172:                                              ; preds = %needblock.exit.i
   %173 = load i32, ptr %5, align 4
-  %174 = zext i32 %.020..i to i64
+  %174 = zext i32 %.022..i to i64
   %175 = call i64 @cli_writen(i32 noundef %173, ptr noundef nonnull %170, i64 noundef %174) #9
   %.not27.i = icmp eq i64 %175, %174
   br i1 %.not27.i, label %178, label %176
@@ -906,8 +906,8 @@ needblock.exit.thread.i:                          ; preds = %needblock.exit.i, %
   br label %.thread.i
 
 178:                                              ; preds = %172
-  %179 = sub i32 %.02036.i, %.020..i
-  %180 = add i32 %.02135.i, 1
+  %179 = sub i32 %.02235.i, %.022..i
+  %180 = add i32 %.02036.i, 1
   %.not25.i = icmp eq i32 %179, 0
   br i1 %.not25.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -944,19 +944,19 @@ needblock.exit.thread.i:                          ; preds = %needblock.exit.i, %
   br label %iso_scan_file.exit
 
 iso_scan_file.exit:                               ; preds = %136, %195
-  %.022.i = phi i32 [ %.2.i, %195 ], [ 17, %136 ]
+  %.0.i122 = phi i32 [ %.2.i, %195 ], [ 17, %136 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %197
 
 197:                                              ; preds = %iso_scan_file.exit, %132
-  %.2 = phi i32 [ %133, %132 ], [ %.022.i, %iso_scan_file.exit ]
-  %.not120 = icmp eq i32 %.2, 0
+  %.2100 = phi i32 [ %133, %132 ], [ %.0.i122, %iso_scan_file.exit ]
+  %.not120 = icmp eq i32 %.2100, 0
   br i1 %.not120, label %.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %iso_string.exit, %197, %55, %63
-  %.197 = phi i32 [ 0, %63 ], [ %.096137, %55 ], [ %.096137, %197 ], [ %.096137, %iso_string.exit ], [ %.096137, %.backedge ]
-  %.4 = phi i32 [ 0, %63 ], [ 0, %55 ], [ 0, %.backedge ], [ %124, %iso_string.exit ], [ %.2, %197 ]
+  %.4 = phi i32 [ 0, %63 ], [ 0, %55 ], [ 0, %.backedge ], [ %124, %iso_string.exit ], [ %.2100, %197 ]
+  %.1 = phi i32 [ 0, %63 ], [ %.096137, %55 ], [ %.096137, %197 ], [ %.096137, %iso_string.exit ], [ %.096137, %.backedge ]
   %198 = load ptr, ptr %16, align 8
   %199 = load i32, ptr %10, align 8
   %200 = zext i32 %199 to i64
@@ -974,19 +974,19 @@ iso_scan_file.exit:                               ; preds = %136, %195
   br label %209
 
 209:                                              ; preds = %22, %.loopexit
-  %.298 = phi i32 [ %.096137, %22 ], [ %.197, %.loopexit ]
   %.5 = phi i32 [ 0, %22 ], [ %.4, %.loopexit ]
-  %210 = add i32 %.099136, 1
+  %.2 = phi i32 [ %.096137, %22 ], [ %.1, %.loopexit ]
+  %210 = add i32 %.094138, 1
   %211 = load i32, ptr %10, align 8
-  %212 = call i32 @llvm.usub.sat.i32(i32 %.298, i32 %211)
-  %213 = icmp ugt i32 %.298, %211
+  %212 = call i32 @llvm.usub.sat.i32(i32 %.2, i32 %211)
+  %213 = icmp ugt i32 %.2, %211
   %214 = icmp eq i32 %.5, 0
-  %215 = and i1 %213, %214
+  %215 = and i1 %214, %213
   br i1 %215, label %18, label %needblock.exit.thread
 
 needblock.exit.thread:                            ; preds = %26, %209, %needblock.exit, %24, %21, %17
-  %.0100 = phi i32 [ 0, %17 ], [ 22, %21 ], [ 0, %26 ], [ %.5, %209 ], [ 0, %needblock.exit ], [ %25, %24 ]
-  ret i32 %.0100
+  %.0 = phi i32 [ 0, %17 ], [ 22, %21 ], [ 0, %26 ], [ %.5, %209 ], [ 0, %needblock.exit ], [ %25, %24 ]
+  ret i32 %.0
 }
 
 declare void @cli_hashset_destroy(ptr noundef) local_unnamed_addr #1

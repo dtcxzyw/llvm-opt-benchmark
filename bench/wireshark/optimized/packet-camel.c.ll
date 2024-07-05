@@ -3947,7 +3947,7 @@ define internal fastcc i32 @dissect_camel_all(i32 noundef %0, ptr noundef %1, pt
   br label %16
 
 16:                                               ; preds = %11, %7
-  %.022 = phi ptr [ %15, %11 ], [ null, %7 ]
+  %.0 = phi ptr [ %15, %11 ], [ null, %7 ]
   %17 = load i32, ptr @camelsrt_global_current, align 4
   %18 = add i32 %17, 1
   %19 = icmp eq i32 %18, 10
@@ -3996,7 +3996,7 @@ dissect_camel_camelPDU.exit:                      ; preds = %16, %23, %27
   call void @col_append_str(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.1385) #8
   store i32 0, ptr @is_ExtensionField, align 4
   %43 = load i32, ptr @ett_camel_ROS, align 4
-  %44 = call i32 @dissect_ber_choice(ptr noundef nonnull %8, ptr noundef %.022, ptr noundef %3, i32 noundef 0, ptr noundef nonnull @ROS_choice, i32 noundef -1, i32 noundef %43, ptr noundef null) #8
+  %44 = call i32 @dissect_ber_choice(ptr noundef nonnull %8, ptr noundef %.0, ptr noundef %3, i32 noundef 0, ptr noundef nonnull @ROS_choice, i32 noundef -1, i32 noundef %43, ptr noundef null) #8
   %45 = load ptr, ptr @gp_camelsrt_info, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
@@ -4006,20 +4006,20 @@ dissect_camel_camelPDU.exit:                      ; preds = %16, %23, %27
 48:                                               ; preds = %dissect_camel_camelPDU.exit
   %49 = load i32, ptr @gcamel_DisplaySRT, align 4
   %50 = icmp ne i32 %49, 0
-  %51 = icmp ne ptr %.022, null
+  %51 = icmp ne ptr %.0, null
   %or.cond = select i1 %50, i1 %51, i1 false
   br i1 %or.cond, label %52, label %55
 
 52:                                               ; preds = %48
   %53 = load i32, ptr @ett_camel_stat, align 4
-  %54 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.022, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef %53, ptr noundef null, ptr noundef nonnull @.str.1383) #8
+  %54 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef %53, ptr noundef null, ptr noundef nonnull @.str.1383) #8
   %.pre = load ptr, ptr @gp_camelsrt_info, align 8
   br label %55
 
 55:                                               ; preds = %52, %48
   %56 = phi ptr [ %.pre, %52 ], [ %45, %48 ]
-  %.0 = phi ptr [ %54, %52 ], [ null, %48 ]
-  call void @camelsrt_call_matching(ptr noundef %3, ptr noundef nonnull %4, ptr noundef %.0, ptr noundef %56)
+  %.022 = phi ptr [ %54, %52 ], [ null, %48 ]
+  call void @camelsrt_call_matching(ptr noundef %3, ptr noundef nonnull %4, ptr noundef %.022, ptr noundef %56)
   %57 = load i32, ptr @camel_tap, align 4
   %58 = load ptr, ptr @gp_camelsrt_info, align 8
   call void @tap_queue_packet(i32 noundef %57, ptr noundef nonnull %4, ptr noundef %58) #8

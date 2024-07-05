@@ -288,7 +288,7 @@ list_length.exit.i:                               ; preds = %14, %6
   br label %66
 
 66:                                               ; preds = %63, %60
-  %.041.i = phi i32 [ %62, %60 ], [ %65, %63 ]
+  %.0.i = phi i32 [ %62, %60 ], [ %65, %63 ]
   %67 = getelementptr inbounds i8, ptr %0, i64 256
   store i8 1, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 257
@@ -306,7 +306,7 @@ list_length.exit.i:                               ; preds = %14, %6
 
 list_length.exit48.i:                             ; preds = %72, %66
   %75 = phi i32 [ %74, %72 ], [ 0, %66 ]
-  call void %70(ptr noundef nonnull %0, ptr noundef %20, i32 noundef %75, i32 noundef %.041.i) #6
+  call void %70(ptr noundef nonnull %0, ptr noundef %20, i32 noundef %75, i32 noundef %.0.i) #6
   %76 = getelementptr inbounds i8, ptr %8, i64 48
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
@@ -448,8 +448,8 @@ table_scan_sample_next_tuple.exit.i:              ; preds = %140
   br label %tablesample_getnext.exit
 
 tablesample_getnext.exit:                         ; preds = %110, %138, %154
-  %.0.i = phi ptr [ %114, %154 ], [ null, %138 ], [ null, %110 ]
-  ret ptr %.0.i
+  %.0.i3 = phi ptr [ %114, %154 ], [ null, %138 ], [ null, %110 ]
+  ret ptr %.0.i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

@@ -2086,8 +2086,8 @@ if.end91.i:                                       ; preds = %if.end84.i
   br label %cms_SignerInfo_content_sign.exit
 
 cms_SignerInfo_content_sign.exit:                 ; preds = %if.then3.i, %if.end4.i, %land.lhs.true.i, %if.then18.i, %if.end24.i, %if.end28.i, %if.end32.i, %if.then43.i, %if.end50.i, %lor.lhs.false.i, %if.then64.i, %if.end65.i, %if.then72.i, %if.end73.i, %lor.lhs.false78.i, %if.then90.i, %if.end91.i
-  %r.0.i = phi i32 [ 0, %if.then3.i ], [ 0, %if.end28.i ], [ 0, %if.end24.i ], [ 0, %if.then18.i ], [ 0, %if.end50.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.then64.i ], [ 0, %if.then43.i ], [ 0, %if.then72.i ], [ 0, %if.end73.i ], [ 0, %lor.lhs.false78.i ], [ 0, %if.then90.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end4.i ], [ 1, %if.end65.i ], [ 1, %if.end91.i ], [ %call33.i, %if.end32.i ]
   %pctx.1.i = phi ptr [ null, %if.then3.i ], [ null, %if.end28.i ], [ null, %if.end24.i ], [ null, %if.then18.i ], [ %9, %if.end50.i ], [ %9, %lor.lhs.false.i ], [ %9, %if.then64.i ], [ %9, %if.then43.i ], [ null, %if.then72.i ], [ null, %if.end73.i ], [ null, %lor.lhs.false78.i ], [ null, %if.then90.i ], [ null, %land.lhs.true.i ], [ null, %if.end4.i ], [ %9, %if.end65.i ], [ null, %if.end91.i ], [ null, %if.end32.i ]
+  %r.0.i = phi i32 [ 0, %if.then3.i ], [ 0, %if.end28.i ], [ 0, %if.end24.i ], [ 0, %if.then18.i ], [ 0, %if.end50.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.then64.i ], [ 0, %if.then43.i ], [ 0, %if.then72.i ], [ 0, %if.end73.i ], [ 0, %lor.lhs.false78.i ], [ 0, %if.then90.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end4.i ], [ 1, %if.end65.i ], [ 1, %if.end91.i ], [ %call33.i, %if.end32.i ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %call.i) #7
   call void @EVP_PKEY_CTX_free(ptr noundef %pctx.1.i) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mdlen.addr.i)
@@ -2245,16 +2245,16 @@ if.end50:                                         ; preds = %if.end45
 err.sink.split:                                   ; preds = %if.end50, %land.lhs.true
   %.sink29 = phi i32 [ 921, %land.lhs.true ], [ 945, %if.end50 ]
   %.sink = phi i32 [ 524294, %land.lhs.true ], [ 158, %if.end50 ]
-  %mctx.0.ph = phi ptr [ null, %land.lhs.true ], [ %7, %if.end50 ]
   %r.0.ph = phi i32 [ -1, %land.lhs.true ], [ %call53, %if.end50 ]
+  %mctx.0.ph = phi ptr [ null, %land.lhs.true ], [ %7, %if.end50 ]
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink29, ptr noundef nonnull @__func__.CMS_SignerInfo_verify) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #7
   br label %err
 
 err:                                              ; preds = %err.sink.split, %if.end45, %if.end50, %if.end39, %if.end35, %if.end28
-  %mctx.0 = phi ptr [ %7, %if.end28 ], [ %7, %if.end39 ], [ %7, %if.end50 ], [ %7, %if.end35 ], [ %7, %if.end45 ], [ %mctx.0.ph, %err.sink.split ]
   %r.0 = phi i32 [ -1, %if.end28 ], [ -1, %if.end39 ], [ %call53, %if.end50 ], [ -1, %if.end35 ], [ -1, %if.end45 ], [ %r.0.ph, %err.sink.split ]
+  %mctx.0 = phi ptr [ %7, %if.end28 ], [ %7, %if.end39 ], [ %7, %if.end50 ], [ %7, %if.end35 ], [ %7, %if.end45 ], [ %mctx.0.ph, %err.sink.split ]
   call void @EVP_MD_free(ptr noundef %call8) #7
   %call58 = call i32 @EVP_MD_CTX_reset(ptr noundef %mctx.0) #7
   br label %return
@@ -2467,33 +2467,33 @@ if.end2:                                          ; preds = %if.then87.i, %for.e
   br i1 %cmp518, label %for.body, label %return
 
 for.body:                                         ; preds = %if.end2, %for.inc
-  %chain.020 = phi ptr [ %chain.1, %for.inc ], [ null, %if.end2 ]
-  %i.019 = phi i32 [ %inc, %for.inc ], [ 0, %if.end2 ]
+  %i.020 = phi i32 [ %inc, %for.inc ], [ 0, %if.end2 ]
+  %chain.019 = phi ptr [ %chain.1, %for.inc ], [ null, %if.end2 ]
   %28 = load ptr, ptr %digestAlgorithms, align 8
-  %call8 = tail call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %i.019) #7
+  %call8 = tail call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %i.020) #7
   %call9 = tail call ptr @ossl_cms_get0_cmsctx(ptr noundef nonnull %cms) #7
   %call10 = tail call ptr @ossl_cms_DigestAlgorithm_init_bio(ptr noundef %call8, ptr noundef %call9) #7
   %cmp11 = icmp eq ptr %call10, null
   br i1 %cmp11, label %err, label %if.end13
 
 if.end13:                                         ; preds = %for.body
-  %cmp14.not = icmp eq ptr %chain.020, null
+  %cmp14.not = icmp eq ptr %chain.019, null
   br i1 %cmp14.not, label %for.inc, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
-  %call16 = tail call ptr @BIO_push(ptr noundef nonnull %chain.020, ptr noundef nonnull %call10) #7
+  %call16 = tail call ptr @BIO_push(ptr noundef nonnull %chain.019, ptr noundef nonnull %call10) #7
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end13, %if.then15
-  %chain.1 = phi ptr [ %chain.020, %if.then15 ], [ %call10, %if.end13 ]
-  %inc = add nuw nsw i32 %i.019, 1
+  %chain.1 = phi ptr [ %chain.019, %if.then15 ], [ %call10, %if.end13 ]
+  %inc = add nuw nsw i32 %i.020, 1
   %29 = load ptr, ptr %digestAlgorithms, align 8
   %call4 = tail call i32 @OPENSSL_sk_num(ptr noundef %29) #7
   %cmp5 = icmp slt i32 %inc, %call4
   br i1 %cmp5, label %for.body, label %return, !llvm.loop !16
 
 err:                                              ; preds = %for.body
-  tail call void @BIO_free_all(ptr noundef %chain.020) #7
+  tail call void @BIO_free_all(ptr noundef %chain.019) #7
   br label %return
 
 return:                                           ; preds = %for.inc, %if.end2, %cms_get0_signed.exit.thread, %cms_get0_signed.exit, %err
@@ -2637,8 +2637,8 @@ if.then59:                                        ; preds = %if.end49
   br label %err
 
 err:                                              ; preds = %if.end21, %if.then25, %if.then59, %if.end49, %if.end45, %if.end40, %if.end35, %if.else27, %if.end9, %if.then20, %if.then15, %if.then7, %if.then
-  %pkctx.0 = phi ptr [ null, %if.then ], [ null, %if.then7 ], [ null, %if.then15 ], [ null, %if.then20 ], [ null, %if.then25 ], [ null, %if.else27 ], [ %call31, %if.end35 ], [ %call31, %if.end40 ], [ %call31, %if.then59 ], [ %call31, %if.end49 ], [ %call31, %if.end45 ], [ null, %if.end9 ], [ null, %if.end21 ]
   %r.0 = phi i32 [ -1, %if.then ], [ -1, %if.then7 ], [ -1, %if.then15 ], [ -1, %if.then20 ], [ 0, %if.then25 ], [ -1, %if.else27 ], [ -1, %if.end35 ], [ -1, %if.end40 ], [ 0, %if.then59 ], [ %call56, %if.end49 ], [ -1, %if.end45 ], [ -1, %if.end9 ], [ 1, %if.end21 ]
+  %pkctx.0 = phi ptr [ null, %if.then ], [ null, %if.then7 ], [ null, %if.then15 ], [ null, %if.then20 ], [ null, %if.then25 ], [ null, %if.else27 ], [ %call31, %if.end35 ], [ %call31, %if.end40 ], [ %call31, %if.then59 ], [ %call31, %if.end49 ], [ %call31, %if.end45 ], [ null, %if.end9 ], [ null, %if.end21 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %pkctx.0) #7
   call void @EVP_MD_CTX_free(ptr noundef %call) #7
   ret i32 %r.0

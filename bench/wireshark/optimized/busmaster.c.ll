@@ -165,15 +165,15 @@ define internal range(i32 0, 2) i32 @busmaster_read(ptr nocapture noundef %0, pt
   br i1 %.not17.i, label %busmaster_find_priv_entry.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %27
-  %.018.i = phi ptr [ %29, %27 ], [ %16, %.lr.ph ]
-  %17 = load ptr, ptr %.018.i, align 8
+  %.01318.i = phi ptr [ %29, %27 ], [ %16, %.lr.ph ]
+  %17 = load ptr, ptr %.01318.i, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, -1
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %22 = getelementptr inbounds i8, ptr %.01318.i, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %30, label %25
@@ -186,7 +186,7 @@ define internal range(i32 0, 2) i32 @busmaster_read(ptr nocapture noundef %0, pt
   br i1 %or.cond.i, label %27, label %30
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %28 = getelementptr inbounds i8, ptr %.01318.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %busmaster_find_priv_entry.exit.thread, label %.lr.ph.i, !llvm.loop !6
@@ -286,15 +286,15 @@ busmaster_find_priv_entry.exit.thread:            ; preds = %27, %.lr.ph
   br i1 %.not17.i60, label %busmaster_find_priv_entry.exit68, label %.lr.ph.i61
 
 .lr.ph.i61:                                       ; preds = %67, %80
-  %.018.i62 = phi ptr [ %82, %80 ], [ %68, %67 ]
-  %70 = load ptr, ptr %.018.i62, align 8
+  %.01318.i62 = phi ptr [ %82, %80 ], [ %68, %67 ]
+  %70 = load ptr, ptr %.01318.i62, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   %72 = load i64, ptr %71, align 8
   %73 = icmp eq i64 %72, -1
   br i1 %73, label %74, label %78
 
 74:                                               ; preds = %.lr.ph.i61
-  %75 = getelementptr inbounds i8, ptr %.018.i62, i64 8
+  %75 = getelementptr inbounds i8, ptr %.01318.i62, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %busmaster_find_priv_entry.exit68, label %78
@@ -307,14 +307,14 @@ busmaster_find_priv_entry.exit.thread:            ; preds = %27, %.lr.ph
   br i1 %or.cond.i65, label %80, label %busmaster_find_priv_entry.exit68
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %.018.i62, i64 8
+  %81 = getelementptr inbounds i8, ptr %.01318.i62, i64 8
   %82 = load ptr, ptr %81, align 8
   %.not.i67 = icmp eq ptr %82, null
   br i1 %.not.i67, label %busmaster_find_priv_entry.exit68, label %.lr.ph.i61, !llvm.loop !6
 
 busmaster_find_priv_entry.exit68:                 ; preds = %74, %78, %80, %67
-  %.013.i66 = phi ptr [ null, %67 ], [ %70, %74 ], [ null, %80 ], [ %70, %78 ]
-  %83 = call fastcc i32 @busmaster_gen_packet(ptr noundef %1, ptr noundef %2, ptr noundef %.013.i66, ptr noundef nonnull %10, ptr noundef %3, ptr noundef %4)
+  %.0.i66 = phi ptr [ null, %67 ], [ %70, %74 ], [ null, %80 ], [ %70, %78 ]
+  %83 = call fastcc i32 @busmaster_gen_packet(ptr noundef %1, ptr noundef %2, ptr noundef %.0.i66, ptr noundef nonnull %10, ptr noundef %3, ptr noundef %4)
   br label %.loopexit
 
 84:                                               ; preds = %40, %31, %60
@@ -338,15 +338,15 @@ define internal range(i32 0, 2) i32 @busmaster_seek_read(ptr nocapture noundef r
   br i1 %.not17.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %20
-  %.018.i = phi ptr [ %22, %20 ], [ %9, %6 ]
-  %10 = load ptr, ptr %.018.i, align 8
+  %.01318.i = phi ptr [ %22, %20 ], [ %9, %6 ]
+  %10 = load ptr, ptr %.01318.i, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, -1
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %15 = getelementptr inbounds i8, ptr %.01318.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %busmaster_find_priv_entry.exit, label %18
@@ -359,7 +359,7 @@ define internal range(i32 0, 2) i32 @busmaster_seek_read(ptr nocapture noundef r
   br i1 %or.cond.i, label %20, label %busmaster_find_priv_entry.exit
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %21 = getelementptr inbounds i8, ptr %.01318.i, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
@@ -611,15 +611,15 @@ switch.edge:
   %124 = icmp ugt i32 %123, 999999
   %125 = add i32 %123, -1000000
   %126 = zext i1 %124 to i64
-  %.0104 = add i64 %118, %126
+  %.0103 = add i64 %118, %126
   %.0 = select i1 %124, i32 %125, i32 %123
   %127 = mul i32 %.0, 1000
   br label %128
 
 128:                                              ; preds = %73, %95, %76
-  %.1 = phi i64 [ %91, %76 ], [ %.0104, %95 ], [ 0, %73 ]
-  %.0103 = phi i32 [ %94, %76 ], [ %127, %95 ], [ 0, %73 ]
   %not..not115 = phi i32 [ 1, %76 ], [ 1, %95 ], [ 0, %73 ]
+  %.0104 = phi i32 [ %94, %76 ], [ %127, %95 ], [ 0, %73 ]
+  %.1 = phi i64 [ %91, %76 ], [ %.0103, %95 ], [ 0, %73 ]
   store i32 0, ptr %0, align 8
   %129 = call ptr @wtap_block_create(i32 noundef 5) #8
   %130 = getelementptr inbounds i8, ptr %0, i64 232
@@ -629,7 +629,7 @@ switch.edge:
   %132 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.1, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %.0103, ptr %133, align 8
+  store i32 %.0104, ptr %133, align 8
   %134 = load i64, ptr %21, align 8
   %135 = load i64, ptr %23, align 8
   %136 = sub i64 %134, %135
@@ -645,8 +645,8 @@ switch.edge:
   br label %144
 
 144:                                              ; preds = %128, %16
-  %.0105 = phi i32 [ 1, %128 ], [ 0, %16 ]
-  ret i32 %.0105
+  %.0102 = phi i32 [ 1, %128 ], [ 0, %16 ]
+  ret i32 %.0102
 }
 
 declare void @ws_buffer_remove_start(ptr noundef, i64 noundef) local_unnamed_addr #2

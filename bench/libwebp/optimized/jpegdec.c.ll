@@ -259,8 +259,8 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
   call void @llvm.lifetime.start.p0(i64 6120, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(6120) %3, i8 0, i64 6120, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 400
-  %.064103.i = load ptr, ptr %5, align 8
-  %.not104.i = icmp eq ptr %.064103.i, null
+  %.071103.i = load ptr, ptr %5, align 8
+  %.not104.i = icmp eq ptr %.071103.i, null
   br i1 %.not104.i, label %.loopexit38.thread, label %.lr.ph.i
 
 .loopexit38.thread:                               ; preds = %2
@@ -268,25 +268,25 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
   br label %.loopexit36
 
 .lr.ph.i:                                         ; preds = %2, %51
-  %.064109.i = phi ptr [ %.064.i, %51 ], [ %.064103.i, %2 ]
-  %.065108.i = phi i64 [ %.1.i, %51 ], [ 0, %2 ]
-  %.066107.i = phi i32 [ %.2.i, %51 ], [ 0, %2 ]
-  %.068106.i = phi i32 [ %.169.i, %51 ], [ 0, %2 ]
-  %.070105.i = phi i32 [ %.272.i, %51 ], [ 0, %2 ]
-  %6 = getelementptr inbounds i8, ptr %.064109.i, i64 8
+  %.071109.i = phi ptr [ %.071.i, %51 ], [ %.071103.i, %2 ]
+  %.065108.i = phi i32 [ %.2.i, %51 ], [ 0, %2 ]
+  %.066107.i = phi i32 [ %.167.i, %51 ], [ 0, %2 ]
+  %.068106.i = phi i32 [ %.270.i, %51 ], [ 0, %2 ]
+  %.072105.i = phi i64 [ %.173.i, %51 ], [ 0, %2 ]
+  %6 = getelementptr inbounds i8, ptr %.071109.i, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = icmp eq i8 %7, -30
   br i1 %8, label %9, label %51
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds i8, ptr %.064109.i, i64 16
+  %10 = getelementptr inbounds i8, ptr %.071109.i, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp ugt i32 %11, 14
   br i1 %13, label %14, label %51
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %.064109.i, i64 24
+  %15 = getelementptr inbounds i8, ptr %.071109.i, i64 24
   %16 = load ptr, ptr %15, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %16, ptr noundef nonnull dereferenceable(12) @StoreICCP.kICCPSignature, i64 12)
   %.not80.i = icmp eq i32 %bcmp.i, 0
@@ -312,20 +312,20 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
   br label %StoreICCP.exit.thread
 
 31:                                               ; preds = %17
-  %32 = icmp eq i32 %.070105.i, 0
+  %32 = icmp eq i32 %.065108.i, 0
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %31
-  %.not81.i = icmp eq i32 %.070105.i, %23
+  %.not81.i = icmp eq i32 %.065108.i, %23
   br i1 %.not81.i, label %37, label %34
 
 34:                                               ; preds = %33
   %35 = load ptr, ptr @stderr, align 8
-  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.7, i32 noundef %.070105.i, i32 noundef %23) #23
+  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.7, i32 noundef %.065108.i, i32 noundef %23) #23
   br label %StoreICCP.exit.thread
 
 37:                                               ; preds = %33, %31
-  %.171.i = phi i32 [ %.070105.i, %33 ], [ %23, %31 ]
+  %.1.i = phi i32 [ %.065108.i, %33 ], [ %23, %31 ]
   %38 = zext i8 %19 to i64
   %39 = getelementptr inbounds %struct.ICCPSegment, ptr %3, i64 %38
   %40 = getelementptr inbounds i8, ptr %39, i64 -16
@@ -345,54 +345,54 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
   store i64 %24, ptr %40, align 8
   %48 = getelementptr inbounds i8, ptr %39, i64 -8
   store i32 %20, ptr %48, align 8
-  %49 = add i64 %24, %.065108.i
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.066107.i, i32 %20)
-  %50 = add nsw i32 %.068106.i, 1
+  %49 = add i64 %24, %.072105.i
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.068106.i, i32 %20)
+  %50 = add nsw i32 %.066107.i, 1
   br label %51
 
 51:                                               ; preds = %45, %14, %9, %.lr.ph.i
-  %.272.i = phi i32 [ %.070105.i, %14 ], [ %.171.i, %45 ], [ %.070105.i, %9 ], [ %.070105.i, %.lr.ph.i ]
-  %.169.i = phi i32 [ %.068106.i, %14 ], [ %50, %45 ], [ %.068106.i, %9 ], [ %.068106.i, %.lr.ph.i ]
-  %.2.i = phi i32 [ %.066107.i, %14 ], [ %spec.select.i, %45 ], [ %.066107.i, %9 ], [ %.066107.i, %.lr.ph.i ]
-  %.1.i = phi i64 [ %.065108.i, %14 ], [ %49, %45 ], [ %.065108.i, %9 ], [ %.065108.i, %.lr.ph.i ]
-  %.064.i = load ptr, ptr %.064109.i, align 8
-  %.not.i = icmp eq ptr %.064.i, null
+  %.173.i = phi i64 [ %.072105.i, %14 ], [ %49, %45 ], [ %.072105.i, %9 ], [ %.072105.i, %.lr.ph.i ]
+  %.270.i = phi i32 [ %.068106.i, %14 ], [ %spec.select.i, %45 ], [ %.068106.i, %9 ], [ %.068106.i, %.lr.ph.i ]
+  %.167.i = phi i32 [ %.066107.i, %14 ], [ %50, %45 ], [ %.066107.i, %9 ], [ %.066107.i, %.lr.ph.i ]
+  %.2.i = phi i32 [ %.065108.i, %14 ], [ %.1.i, %45 ], [ %.065108.i, %9 ], [ %.065108.i, %.lr.ph.i ]
+  %.071.i = load ptr, ptr %.071109.i, align 8
+  %.not.i = icmp eq ptr %.071.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %51
-  %52 = icmp eq i32 %.169.i, 0
+  %52 = icmp eq i32 %.167.i, 0
   br i1 %52, label %.loopexit38, label %53
 
 53:                                               ; preds = %._crit_edge.i
-  %.not78.i = icmp eq i32 %.2.i, %.169.i
+  %.not78.i = icmp eq i32 %.270.i, %.167.i
   br i1 %.not78.i, label %57, label %54
 
 54:                                               ; preds = %53
   %55 = load ptr, ptr @stderr, align 8
-  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.9, i32 noundef %.169.i, i32 noundef %.2.i) #23
+  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.9, i32 noundef %.167.i, i32 noundef %.270.i) #23
   br label %StoreICCP.exit.thread
 
 57:                                               ; preds = %53
-  %.not79.i = icmp eq i32 %.272.i, %.169.i
+  %.not79.i = icmp eq i32 %.2.i, %.270.i
   br i1 %.not79.i, label %61, label %58
 
 58:                                               ; preds = %57
   %59 = load ptr, ptr @stderr, align 8
-  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.10, i32 noundef %.169.i, i32 noundef %.272.i) #23
+  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.10, i32 noundef %.270.i, i32 noundef %.2.i) #23
   br label %StoreICCP.exit.thread
 
 61:                                               ; preds = %57
-  %62 = zext nneg i32 %.272.i to i64
+  %62 = zext nneg i32 %.270.i to i64
   call void @qsort(ptr noundef nonnull %3, i64 noundef %62, i64 noundef 24, ptr noundef nonnull @CompareICCPSegments) #18
-  %63 = call noalias ptr @malloc(i64 noundef %.1.i) #20
+  %63 = call noalias ptr @malloc(i64 noundef %.173.i) #20
   store ptr %63, ptr %4, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %StoreICCP.exit.thread, label %65
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds i8, ptr %1, i64 24
-  store i64 %.1.i, ptr %66, align 8
-  %67 = icmp sgt i32 %.272.i, 0
+  store i64 %.173.i, ptr %66, align 8
+  %67 = icmp sgt i32 %.270.i, 0
   br i1 %67, label %.lr.ph116.i, label %.loopexit38
 
 .lr.ph116.i:                                      ; preds = %65, %.lr.ph116.i

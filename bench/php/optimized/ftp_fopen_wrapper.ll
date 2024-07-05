@@ -212,13 +212,13 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   br label %67
 
 67:                                               ; preds = %64, %62, %61
-  %.0133 = phi i1 [ %66, %64 ], [ false, %62 ], [ false, %61 ]
+  %.0134 = phi i1 [ %66, %64 ], [ false, %62 ], [ false, %61 ]
   %68 = add i32 %44, -200
   %or.cond5 = icmp ult i32 %68, 100
   br i1 %or.cond5, label %69, label %80
 
 69:                                               ; preds = %67
-  br i1 %.0133, label %70, label %78
+  br i1 %.0134, label %70, label %78
 
 70:                                               ; preds = %69
   %71 = load ptr, ptr %7, align 8
@@ -238,8 +238,8 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   br label %158
 
 80:                                               ; preds = %59, %70, %67, %50, %52, %56, %58
-  %.0135 = phi i32 [ %44, %58 ], [ %44, %56 ], [ %44, %52 ], [ %44, %50 ], [ %76, %70 ], [ %44, %67 ], [ %44, %59 ]
-  %.0134 = phi i64 [ %55, %58 ], [ %55, %56 ], [ %55, %52 ], [ 0, %50 ], [ 0, %70 ], [ 0, %67 ], [ 0, %59 ]
+  %.0136 = phi i32 [ %44, %58 ], [ %44, %56 ], [ %44, %52 ], [ %44, %50 ], [ %76, %70 ], [ %44, %67 ], [ %44, %59 ]
+  %.0135 = phi i64 [ %55, %58 ], [ %55, %56 ], [ %55, %52 ], [ 0, %50 ], [ 0, %70 ], [ 0, %67 ], [ 0, %59 ]
   %81 = call fastcc zeroext i16 @php_fopen_do_pasv(ptr noundef nonnull %phi.call, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %.not170 = icmp eq i16 %81, 0
   br i1 %.not170, label %158, label %82
@@ -279,7 +279,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   br label %158
 
 99:                                               ; preds = %93, %90, %86, %84, %83
-  %.1136 = phi i32 [ %95, %93 ], [ %.0135, %90 ], [ %.0135, %86 ], [ %.0135, %84 ], [ %.0135, %83 ]
+  %.1137 = phi i32 [ %95, %93 ], [ %.0136, %90 ], [ %.0136, %86 ], [ %.0136, %84 ], [ %.0136, %83 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %8, ptr noundef nonnull align 1 dereferenceable(5) @.str.15, i64 5, i1 false)
   br label %104
 
@@ -296,7 +296,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   br label %104
 
 104:                                              ; preds = %102, %103, %99
-  %.2 = phi i32 [ %.1136, %99 ], [ %.0135, %102 ], [ %.0135, %103 ]
+  %.2 = phi i32 [ %.1137, %99 ], [ %.0136, %102 ], [ %.0136, %103 ]
   %105 = load ptr, ptr %7, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 40
   %107 = load ptr, ptr %106, align 8
@@ -358,7 +358,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   store i64 0, ptr %136, align 8
   %137 = load ptr, ptr %5, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 48
-  store i64 %.0134, ptr %138, align 8
+  store i64 %.0135, ptr %138, align 8
   %139 = load ptr, ptr %5, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 32
   %141 = load i32, ptr %140, align 8
@@ -369,7 +369,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not174, label %145, label %144
 
 144:                                              ; preds = %135
-  call void @php_stream_notification_notify(ptr noundef nonnull %5, i32 noundef 7, i32 noundef 0, ptr noundef null, i32 noundef 0, i64 noundef 0, i64 noundef %.0134, ptr noundef null) #15
+  call void @php_stream_notification_notify(ptr noundef nonnull %5, i32 noundef 7, i32 noundef 0, ptr noundef null, i32 noundef 0, i64 noundef 0, i64 noundef %.0135, ptr noundef null) #15
   br label %145
 
 145:                                              ; preds = %131, %133, %135, %144
@@ -401,7 +401,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   br label %188
 
 158:                                              ; preds = %80, %70, %34, %33, %153, %129, %126, %97, %78, %48
-  %.3 = phi i32 [ %36, %34 ], [ %44, %48 ], [ %95, %97 ], [ %.2, %126 ], [ %128, %129 ], [ %128, %153 ], [ %.0135, %80 ], [ %76, %70 ], [ %44, %78 ], [ 0, %33 ]
+  %.3 = phi i32 [ %36, %34 ], [ %44, %48 ], [ %95, %97 ], [ %.2, %126 ], [ %128, %129 ], [ %128, %153 ], [ %.0136, %80 ], [ %76, %70 ], [ %44, %78 ], [ 0, %33 ]
   %159 = load ptr, ptr %7, align 8
   %.not176 = icmp eq ptr %159, null
   br i1 %.not176, label %161, label %160
@@ -476,8 +476,8 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   br label %188
 
 188:                                              ; preds = %171, %179, %187, %186, %173, %155, %32, %30, %22, %19
-  %.0137 = phi ptr [ null, %19 ], [ %31, %30 ], [ null, %32 ], [ %123, %155 ], [ null, %22 ], [ null, %173 ], [ null, %186 ], [ null, %187 ], [ null, %179 ], [ null, %171 ]
-  ret ptr %.0137
+  %.0 = phi ptr [ null, %19 ], [ %31, %30 ], [ null, %32 ], [ %123, %155 ], [ null, %22 ], [ null, %173 ], [ null, %186 ], [ null, %187 ], [ null, %179 ], [ null, %171 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -614,7 +614,7 @@ define internal fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1
   br label %.thread10
 
 69:                                               ; preds = %65, %62
-  %.0137.ph = phi ptr [ %45, %65 ], [ null, %62 ]
+  %.0136.ph = phi ptr [ %45, %65 ], [ null, %62 ]
   %70 = call i32 @php_stream_xport_crypto_setup(ptr noundef nonnull %45, i32 noundef 57, ptr noundef null) #15
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %75, label %72
@@ -636,14 +636,14 @@ define internal fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1
   %81 = call fastcc i32 @get_ftp_result(ptr noundef nonnull %45, ptr noundef nonnull %9)
   %82 = add i32 %81, -200
   %or.cond5 = icmp ult i32 %82, 100
-  %83 = icmp ne ptr %.0137.ph, null
+  %83 = icmp ne ptr %.0136.ph, null
   %spec.select = select i1 %or.cond5, i1 true, i1 %83
   %84 = zext i1 %spec.select to i32
   br label %85
 
 85:                                               ; preds = %61, %77
-  %.01377 = phi ptr [ %.0137.ph, %77 ], [ null, %61 ]
-  %.0135 = phi i32 [ %84, %77 ], [ 0, %61 ]
+  %.01367 = phi ptr [ %.0136.ph, %77 ], [ null, %61 ]
+  %.0137 = phi i32 [ %84, %77 ], [ 0, %61 ]
   %86 = getelementptr inbounds i8, ptr %11, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not158 = icmp eq ptr %87, null
@@ -672,13 +672,13 @@ define internal fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1
   br label %105
 
 102:                                              ; preds = %105
-  %103 = getelementptr inbounds i8, ptr %.013319, i64 1
+  %103 = getelementptr inbounds i8, ptr %.013519, i64 1
   %104 = icmp ult ptr %103, %.ptr24
   br i1 %104, label %105, label %._crit_edge
 
 105:                                              ; preds = %.lr.ph, %102
-  %.013319 = phi ptr [ %.ptr, %.lr.ph ], [ %103, %102 ]
-  %106 = load i8, ptr %.013319, align 1
+  %.013519 = phi ptr [ %.ptr, %.lr.ph ], [ %103, %102 ]
+  %106 = load i8, ptr %.013519, align 1
   %107 = zext i8 %106 to i64
   %108 = getelementptr inbounds i16, ptr %101, i64 %107
   %109 = load i16, ptr %108, align 2
@@ -745,13 +745,13 @@ define internal fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1
   br label %142
 
 139:                                              ; preds = %142
-  %140 = getelementptr inbounds i8, ptr %.020, i64 1
+  %140 = getelementptr inbounds i8, ptr %.013320, i64 1
   %141 = icmp ult ptr %140, %.ptr26
   br i1 %141, label %142, label %._crit_edge23
 
 142:                                              ; preds = %.lr.ph22, %139
-  %.020 = phi ptr [ %.ptr25, %.lr.ph22 ], [ %140, %139 ]
-  %143 = load i8, ptr %.020, align 1
+  %.013320 = phi ptr [ %.ptr25, %.lr.ph22 ], [ %140, %139 ]
+  %143 = load i8, ptr %.013320, align 1
   %144 = zext i8 %143 to i64
   %145 = getelementptr inbounds i16, ptr %138, i64 %144
   %146 = load i16, ptr %145, align 2
@@ -827,7 +827,7 @@ define internal fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1
   br i1 %.not165, label %171, label %170
 
 170:                                              ; preds = %169
-  store i32 %.0135, ptr %7, align 4
+  store i32 %.0137, ptr %7, align 4
   br label %171
 
 171:                                              ; preds = %170, %169
@@ -835,7 +835,7 @@ define internal fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1
   br i1 %.not166, label %173, label %172
 
 172:                                              ; preds = %171
-  store ptr %.01377, ptr %4, align 8
+  store ptr %.01367, ptr %4, align 8
   br label %173
 
 173:                                              ; preds = %172, %171
@@ -856,8 +856,8 @@ define internal fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %8, %.thread15, %.thread10, %173, %174, %17, %18
-  %.0134 = phi ptr [ null, %18 ], [ null, %17 ], [ %45, %174 ], [ %45, %173 ], [ null, %.thread10 ], [ null, %.thread15 ], [ null, %8 ]
-  ret ptr %.0134
+  %.0 = phi ptr [ null, %18 ], [ null, %17 ], [ %45, %174 ], [ %45, %173 ], [ null, %.thread10 ], [ null, %.thread15 ], [ null, %8 ]
+  ret ptr %.0
 }
 
 declare i64 @_php_stream_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -1197,7 +1197,7 @@ define hidden ptr @php_stream_ftp_opendir(ptr noundef %0, ptr noundef %1, ptr no
   br label %57
 
 57:                                               ; preds = %.sink.split, %29, %19, %15, %6
-  %.0 = phi i32 [ %17, %15 ], [ %17, %29 ], [ %17, %19 ], [ 0, %6 ], [ %39, %.sink.split ]
+  %.046 = phi i32 [ %17, %15 ], [ %17, %29 ], [ %17, %19 ], [ 0, %6 ], [ %39, %.sink.split ]
   %58 = load ptr, ptr %8, align 8
   %.not58 = icmp eq ptr %58, null
   br i1 %.not58, label %60, label %59
@@ -1219,7 +1219,7 @@ define hidden ptr @php_stream_ftp_opendir(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not60, label %65, label %64
 
 64:                                               ; preds = %62
-  call void @php_stream_notification_notify(ptr noundef nonnull %5, i32 noundef 9, i32 noundef 2, ptr noundef nonnull %12, i32 noundef %.0, i64 noundef 0, i64 noundef 0, ptr noundef null) #15
+  call void @php_stream_notification_notify(ptr noundef nonnull %5, i32 noundef 9, i32 noundef 2, ptr noundef nonnull %12, i32 noundef %.046, i64 noundef 0, i64 noundef 0, ptr noundef null) #15
   br label %65
 
 65:                                               ; preds = %61, %62, %64
@@ -1236,8 +1236,8 @@ define hidden ptr @php_stream_ftp_opendir(ptr noundef %0, ptr noundef %1, ptr no
   br label %70
 
 70:                                               ; preds = %67, %69, %50
-  %.046 = phi ptr [ %54, %50 ], [ null, %69 ], [ null, %67 ]
-  ret ptr %.046
+  %.0 = phi ptr [ %54, %50 ], [ null, %69 ], [ null, %67 ]
+  ret ptr %.0
 }
 
 declare ptr @_php_stream_sock_open_host(ptr noundef, i16 noundef zeroext, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1953,7 +1953,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_mkdir(ptr noundef %0, ptr no
 
 .lr.ph:                                           ; preds = %.loopexit77, %58
   %.185 = phi ptr [ %59, %58 ], [ %spec.select, %.loopexit77 ]
-  %.05584 = phi i32 [ %.156, %58 ], [ %44, %.loopexit77 ]
+  %.05684 = phi i32 [ %.157, %58 ], [ %44, %.loopexit77 ]
   %46 = load i8, ptr %.185, align 1
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %48, label %58
@@ -1982,13 +1982,13 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_mkdir(ptr noundef %0, ptr no
   br label %.loopexit
 
 58:                                               ; preds = %51, %48, %.lr.ph
-  %.156 = phi i32 [ %53, %51 ], [ %.05584, %48 ], [ %.05584, %.lr.ph ]
+  %.157 = phi i32 [ %53, %51 ], [ %.05684, %48 ], [ %.05684, %.lr.ph ]
   %59 = getelementptr inbounds i8, ptr %.185, i64 1
   %.not72 = icmp eq ptr %59, %33
   br i1 %.not72, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %58, %57, %55, %.loopexit77
-  %.2 = phi i32 [ %53, %57 ], [ %53, %55 ], [ %44, %.loopexit77 ], [ %.156, %58 ]
+  %.2 = phi i32 [ %53, %57 ], [ %53, %55 ], [ %44, %.loopexit77 ], [ %.157, %58 ]
   call void @_efree(ptr noundef nonnull %27) #15
   br label %60
 
@@ -2024,8 +2024,8 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_mkdir(ptr noundef %0, ptr no
   br label %70
 
 70:                                               ; preds = %67, %68, %60
-  %.057 = phi i32 [ %., %60 ], [ 0, %68 ], [ 0, %67 ]
-  ret i32 %.057
+  %.0 = phi i32 [ %., %60 ], [ 0, %68 ], [ 0, %67 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

@@ -2577,8 +2577,8 @@ entry:
   br i1 %cmp27, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SB_EEbT_T0_.exit"
-  %__secondChild.028 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SB_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__secondChild.028, 1
+  %__holeIndex.addr.028 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SB_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.028, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %mul
   %sub1 = or disjoint i64 %add, 1
@@ -2616,14 +2616,14 @@ if.end.i.i.i.i:                                   ; preds = %_ZN4llvh9StringRef1
   %retval.i.0.i.i.i = phi i1 [ %cmp.i.inv.i.i.i, %if.then.i.i.i.i ], [ %cmp12.i.i.i.i, %if.end.i.i.i.i ]
   %spec.select = select i1 %retval.i.0.i.i.i, i64 %sub1, i64 %mul
   %add.ptr3 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %spec.select
-  %add.ptr4 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__secondChild.028
+  %add.ptr4 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.028
   %4 = load <2 x ptr>, ptr %add.ptr3, align 8
   store <2 x ptr> %4, ptr %add.ptr4, align 8
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !37
 
 while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SB_EEbT_T0_.exit", %entry
-  %__secondChild.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SB_EEbT_T0_.exit" ]
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SB_EEbT_T0_.exit" ]
   %and = and i64 %__len, 1
   %cmp6 = icmp eq i64 %and, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end18
@@ -2631,20 +2631,20 @@ while.end:                                        ; preds = %"_ZN9__gnu_cxx5__op
 land.lhs.true:                                    ; preds = %while.end
   %sub7 = add nsw i64 %__len, -2
   %div8 = ashr exact i64 %sub7, 1
-  %cmp9 = icmp eq i64 %__secondChild.0.lcssa, %div8
+  %cmp9 = icmp eq i64 %__holeIndex.addr.0.lcssa, %div8
   br i1 %cmp9, label %if.then10, label %if.end18
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
+  %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %sub13
-  %add.ptr15 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__secondChild.0.lcssa
+  %add.ptr15 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa
   %5 = load <2 x ptr>, ptr %add.ptr14, align 8
   store <2 x ptr> %5, ptr %add.ptr15, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then10, %land.lhs.true, %while.end
-  %__holeIndex.addr.1 = phi i64 [ %sub13, %if.then10 ], [ %__secondChild.0.lcssa, %land.lhs.true ], [ %__secondChild.0.lcssa, %while.end ]
+  %__holeIndex.addr.1 = phi i64 [ %sub13, %if.then10 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
   %cmp3.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
   br i1 %cmp3.i, label %land.rhs.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPN6hermes6parser10JSONStringEPNS2_9JSONValueEElS7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_11JSONFactory9sortPropsES8_S8_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
 

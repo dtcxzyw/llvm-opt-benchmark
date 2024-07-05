@@ -1658,7 +1658,7 @@ _ZN13WirelessFrame10startTimerEi.exit:            ; preds = %67
   br label %74
 
 74:                                               ; preds = %71, %69
-  %.020 = phi i32 [ 0, %69 ], [ %73, %71 ]
+  %.0 = phi i32 [ 0, %69 ], [ %73, %71 ]
   %75 = load ptr, ptr %16, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 40
   %77 = load ptr, ptr %76, align 8
@@ -1666,17 +1666,17 @@ _ZN13WirelessFrame10startTimerEi.exit:            ; preds = %67
           to label %79 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 79:                                               ; preds = %74
-  %.not24 = icmp eq i32 %.020, %78
+  %.not24 = icmp eq i32 %.0, %78
   br i1 %.not24, label %.preheader80, label %.loopexit85
 
 .preheader80:                                     ; preds = %79
-  %.not89 = icmp eq i32 %.020, 0
+  %.not89 = icmp eq i32 %.0, 0
   br i1 %.not89, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader80
   %80 = getelementptr inbounds i8, ptr %8, i64 16
   %81 = getelementptr inbounds i8, ptr %5, i64 16
-  %wide.trip.count = zext i32 %.020 to i64
+  %wide.trip.count = zext i32 %.0 to i64
   br label %83
 
 82:                                               ; preds = %_ZN7QStringD2Ev.exit34
@@ -1777,7 +1777,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36:    ; preds = %107
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .preheader:                                       ; preds = %.loopexit85
-  %.not90 = icmp eq i32 %.020, 0
+  %.not90 = icmp eq i32 %.0, 0
   br i1 %.not90, label %.critedge, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %.preheader
@@ -1786,7 +1786,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36:    ; preds = %107
   %118 = getelementptr inbounds i8, ptr %10, i64 24
   %119 = getelementptr inbounds i8, ptr %11, i64 16
   %120 = getelementptr inbounds i8, ptr %2, i64 16
-  %wide.trip.count96 = zext i32 %.020 to i64
+  %wide.trip.count96 = zext i32 %.0 to i64
   br label %121
 
 121:                                              ; preds = %.lr.ph88, %166

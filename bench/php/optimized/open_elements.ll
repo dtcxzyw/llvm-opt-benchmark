@@ -392,8 +392,8 @@ define hidden ptr @lxb_html_tree_open_elements_find_reverse(ptr nocapture nounde
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %21
-  %.022 = phi i64 [ %10, %21 ], [ %9, %4 ]
-  %10 = add i64 %.022, -1
+  %.01622 = phi i64 [ %10, %21 ], [ %9, %4 ]
+  %10 = add i64 %.01622, -1
   %11 = getelementptr inbounds ptr, ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
@@ -421,13 +421,13 @@ define hidden ptr @lxb_html_tree_open_elements_find_reverse(ptr nocapture nounde
 
 .sink.split:                                      ; preds = %._crit_edge, %20
   %.sink = phi i64 [ %10, %20 ], [ 0, %._crit_edge ]
-  %.016.ph = phi ptr [ %12, %20 ], [ null, %._crit_edge ]
+  %.0.ph = phi ptr [ %12, %20 ], [ null, %._crit_edge ]
   store i64 %.sink, ptr %3, align 8
   br label %22
 
 22:                                               ; preds = %.sink.split, %._crit_edge, %20
-  %.016 = phi ptr [ %12, %20 ], [ null, %._crit_edge ], [ %.016.ph, %.sink.split ]
-  ret ptr %.016
+  %.0 = phi ptr [ %12, %20 ], [ null, %._crit_edge ], [ %.0.ph, %.sink.split ]
+  ret ptr %.0
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -3798,14 +3798,14 @@ common.resume:                                    ; preds = %13, %24, %113, %33,
 
 45:                                               ; preds = %.lr.ph, %70
   %46 = phi float [ %42, %.lr.ph ], [ %..i, %70 ]
-  %.0113148 = phi i64 [ 0, %.lr.ph ], [ %77, %70 ]
-  %.0114147 = phi double [ 0.000000e+00, %.lr.ph ], [ %57, %70 ]
-  %.0115146 = phi ptr [ %1, %.lr.ph ], [ %51, %70 ]
+  %.0113148 = phi ptr [ %1, %.lr.ph ], [ %51, %70 ]
+  %.0115147 = phi i64 [ 0, %.lr.ph ], [ %77, %70 ]
+  %.0116146 = phi double [ 0.000000e+00, %.lr.ph ], [ %57, %70 ]
   %47 = phi i32 [ -1, %.lr.ph ], [ %76, %70 ]
   %48 = phi i32 [ -1, %.lr.ph ], [ %74, %70 ]
-  %49 = load float, ptr %.0115146, align 4
+  %49 = load float, ptr %.0113148, align 4
   %50 = fpext float %49 to double
-  %51 = getelementptr inbounds i8, ptr %.0115146, i64 4
+  %51 = getelementptr inbounds i8, ptr %.0113148, i64 4
   %52 = load float, ptr %51, align 4
   %53 = fpext float %52 to double
   %54 = fadd contract double %50, %53
@@ -3813,9 +3813,9 @@ common.resume:                                    ; preds = %13, %24, %113, %33,
   %56 = fcmp contract olt float %46, %52
   %..i = select contract i1 %56, float %52, float %46
   store float %..i, ptr %43, align 4
-  %57 = fadd contract double %.0114147, %55
+  %57 = fadd contract double %.0116146, %55
   %58 = fptrunc double %57 to float
-  %59 = getelementptr inbounds float, ptr %32, i64 %.0113148
+  %59 = getelementptr inbounds float, ptr %32, i64 %.0115147
   store float %58, ptr %59, align 4
   %60 = fcmp contract olt float %49, 0.000000e+00
   %61 = fcmp contract olt float %52, 0.000000e+00
@@ -3848,11 +3848,11 @@ common.resume:                                    ; preds = %13, %24, %113, %33,
 70:                                               ; preds = %45
   %71 = fcmp contract ogt double %55, 0.000000e+00
   %72 = icmp eq i32 %47, -1
-  %73 = trunc i64 %.0113148 to i32
+  %73 = trunc i64 %.0115147 to i32
   %74 = select i1 %71, i32 %73, i32 %48
   %75 = select i1 %71, i1 %72, i1 false
   %76 = select i1 %75, i32 %73, i32 %47
-  %77 = add nuw i64 %.0113148, 1
+  %77 = add nuw i64 %.0115147, 1
   %exitcond.not = icmp eq i64 %77, %27
   br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !28
 

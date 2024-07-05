@@ -809,13 +809,13 @@ Ssc_GiaResetPiPattern.exit:                       ; preds = %83, %Vec_WrdGrow.ex
   br i1 %.not43, label %130, label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %.critedge, %Ssc_GiaGetCareMask.exit.thread, %Ssc_SimCountBits.exit
-  %.039.ph = phi i32 [ 0, %Ssc_SimCountBits.exit ], [ 0, %Ssc_GiaGetCareMask.exit.thread ], [ %56, %.critedge ], [ %56, %._crit_edge ]
+  %.0.ph = phi i32 [ 0, %Ssc_SimCountBits.exit ], [ 0, %Ssc_GiaGetCareMask.exit.thread ], [ %56, %.critedge ], [ %56, %._crit_edge ]
   tail call void @free(ptr noundef nonnull %14) #13
   br label %130
 
 130:                                              ; preds = %.sink.split, %.critedge, %Ssc_GiaGetCareMask.exit.thread
-  %.039 = phi i32 [ 0, %Ssc_GiaGetCareMask.exit.thread ], [ %56, %.critedge ], [ %.039.ph, %.sink.split ]
-  ret i32 %.039
+  %.0 = phi i32 [ 0, %Ssc_GiaGetCareMask.exit.thread ], [ %56, %.critedge ], [ %.0.ph, %.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
@@ -1107,23 +1107,23 @@ Ssc_SimConst.exit:                                ; preds = %Ssc_GiaResetSimInfo
   br i1 %.not.us153, label %.critedge, label %.lr.ph18.preheader.i.us
 
 54:                                               ; preds = %Ssc_SimDup.exit.loopexit.us
-  %55 = getelementptr inbounds i64, ptr %.061133.us156, i64 %53
+  %55 = getelementptr inbounds i64, ptr %.063133.us156, i64 %53
   %56 = getelementptr inbounds i64, ptr %.060134.us155, i64 %53
   %.val71.us = load ptr, ptr %51, align 8
   %.not.us = icmp eq ptr %.val71.us, null
   br i1 %.not.us, label %.critedge.loopexit, label %.lr.ph18.preheader.i.us, !llvm.loop !15
 
 .lr.ph18.preheader.i.us:                          ; preds = %.lr.ph.split.us, %54
-  %.061133.us156 = phi ptr [ %55, %54 ], [ %49, %.lr.ph.split.us ]
-  %.060134.us155 = phi ptr [ %56, %54 ], [ %.val.i100, %.lr.ph.split.us ]
+  %.063133.us156 = phi ptr [ %55, %54 ], [ %.val.i100, %.lr.ph.split.us ]
+  %.060134.us155 = phi ptr [ %56, %54 ], [ %49, %.lr.ph.split.us ]
   %.0135.us154 = phi i32 [ %60, %54 ], [ 0, %.lr.ph.split.us ]
   br label %.lr.ph18.i.us
 
 .lr.ph18.i.us:                                    ; preds = %.lr.ph18.i.us, %.lr.ph18.preheader.i.us
   %indvars.iv21.i.us = phi i64 [ 0, %.lr.ph18.preheader.i.us ], [ %indvars.iv.next22.i.us, %.lr.ph18.i.us ]
-  %57 = getelementptr inbounds i64, ptr %.060134.us155, i64 %indvars.iv21.i.us
+  %57 = getelementptr inbounds i64, ptr %.063133.us156, i64 %indvars.iv21.i.us
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i64, ptr %.061133.us156, i64 %indvars.iv21.i.us
+  %59 = getelementptr inbounds i64, ptr %.060134.us155, i64 %indvars.iv21.i.us
   store i64 %58, ptr %59, align 8
   %indvars.iv.next22.i.us = add nuw nsw i64 %indvars.iv21.i.us, 1
   %exitcond25.not.i.us = icmp eq i64 %indvars.iv.next22.i.us, %wide.trip.count24.i
@@ -1168,7 +1168,7 @@ Ssc_SimDup.exit.loopexit.us:                      ; preds = %.lr.ph18.i.us
 77:                                               ; preds = %.lr.ph160, %132
   %78 = phi i32 [ %64, %.lr.ph160 ], [ %133, %132 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph160 ], [ %indvars.iv.next, %132 ]
-  %.162158 = phi ptr [ %75, %.lr.ph160 ], [ %.263, %132 ]
+  %.161158 = phi ptr [ %75, %.lr.ph160 ], [ %.262, %132 ]
   %.val70 = load ptr, ptr %51, align 8
   %.not66 = icmp eq ptr %.val70, null
   br i1 %.not66, label %.critedge2.loopexit, label %79
@@ -1189,14 +1189,14 @@ Ssc_SimDup.exit.loopexit.us:                      ; preds = %.lr.ph18.i.us
   %87 = mul nsw i32 %86, %9
   %88 = sext i32 %87 to i64
   %89 = sub nsw i64 0, %88
-  %90 = getelementptr inbounds i64, ptr %.162158, i64 %89
+  %90 = getelementptr inbounds i64, ptr %.161158, i64 %89
   %91 = lshr i64 %.val80, 32
   %92 = trunc nuw i64 %91 to i32
   %93 = and i32 %92, 536870911
   %94 = mul nsw i32 %93, %9
   %95 = sext i32 %94 to i64
   %96 = sub nsw i64 0, %95
-  %97 = getelementptr inbounds i64, ptr %.162158, i64 %96
+  %97 = getelementptr inbounds i64, ptr %.161158, i64 %96
   %98 = and i32 %85, 536870912
   %99 = icmp ne i32 %98, 0
   %100 = and i64 %.val80, 2305843009213693952
@@ -1215,7 +1215,7 @@ Ssc_SimDup.exit.loopexit.us:                      ; preds = %.lr.ph18.i.us
   %105 = load i64, ptr %104, align 8
   %106 = or i64 %105, %103
   %107 = xor i64 %106, -1
-  %108 = getelementptr inbounds i64, ptr %.162158, i64 %indvars.iv67.i
+  %108 = getelementptr inbounds i64, ptr %.161158, i64 %indvars.iv67.i
   store i64 %107, ptr %108, align 8
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count.i
@@ -1235,7 +1235,7 @@ Ssc_SimDup.exit.loopexit.us:                      ; preds = %.lr.ph18.i.us
   %113 = getelementptr inbounds i64, ptr %97, i64 %indvars.iv62.i
   %114 = load i64, ptr %113, align 8
   %115 = and i64 %114, %112
-  %116 = getelementptr inbounds i64, ptr %.162158, i64 %indvars.iv62.i
+  %116 = getelementptr inbounds i64, ptr %.161158, i64 %indvars.iv62.i
   store i64 %115, ptr %116, align 8
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count.i
@@ -1258,7 +1258,7 @@ Ssc_SimDup.exit.loopexit.us:                      ; preds = %.lr.ph18.i.us
   %121 = load i64, ptr %120, align 8
   %122 = xor i64 %121, -1
   %123 = and i64 %119, %122
-  %124 = getelementptr inbounds i64, ptr %.162158, i64 %indvars.iv57.i
+  %124 = getelementptr inbounds i64, ptr %.161158, i64 %indvars.iv57.i
   store i64 %123, ptr %124, align 8
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count.i
@@ -1271,20 +1271,20 @@ Ssc_SimDup.exit.loopexit.us:                      ; preds = %.lr.ph18.i.us
   %127 = getelementptr inbounds i64, ptr %97, i64 %indvars.iv.i
   %128 = load i64, ptr %127, align 8
   %129 = and i64 %128, %126
-  %130 = getelementptr inbounds i64, ptr %.162158, i64 %indvars.iv.i
+  %130 = getelementptr inbounds i64, ptr %.161158, i64 %indvars.iv.i
   store i64 %129, ptr %130, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Ssc_SimAnd.exit, label %.lr.ph.i, !llvm.loop !10
 
 Ssc_SimAnd.exit:                                  ; preds = %.lr.ph.i, %.lr.ph48.i, %.lr.ph50.i, %.lr.ph52.i, %.preheader.i, %.preheader40.i, %.preheader44.i, %.preheader42.i
-  %131 = getelementptr inbounds i64, ptr %.162158, i64 %76
+  %131 = getelementptr inbounds i64, ptr %.161158, i64 %76
   %.pre = load i32, ptr %17, align 8
   br label %132
 
 132:                                              ; preds = %Ssc_SimAnd.exit, %79
   %133 = phi i32 [ %.pre, %Ssc_SimAnd.exit ], [ %78, %79 ]
-  %.263 = phi ptr [ %131, %Ssc_SimAnd.exit ], [ %.162158, %79 ]
+  %.262 = phi ptr [ %131, %Ssc_SimAnd.exit ], [ %.161158, %79 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %134 = sext i32 %133 to i64
   %135 = icmp slt i64 %indvars.iv.next, %134

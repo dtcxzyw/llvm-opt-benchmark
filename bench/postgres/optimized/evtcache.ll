@@ -303,14 +303,14 @@ heap_getattr.exit.i:                              ; preds = %122, %121, %116, %1
 
 .lr.ph.i.i:                                       ; preds = %140, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %140 ]
-  %.01114.i.i = phi ptr [ %149, %.lr.ph.i.i ], [ null, %140 ]
+  %.015.i.i = phi ptr [ %149, %.lr.ph.i.i ], [ null, %140 ]
   %143 = load ptr, ptr %2, align 8
   %144 = getelementptr i64, ptr %143, i64 %indvars.iv.i.i
   %145 = load i64, ptr %144, align 8
   %146 = inttoptr i64 %145 to ptr
   %147 = call ptr @text_to_cstring(ptr noundef %146) #6
   %148 = call i32 @GetCommandTagEnum(ptr noundef %147) #6
-  %149 = call ptr @bms_add_member(ptr noundef %.01114.i.i, i32 noundef %148) #6
+  %149 = call ptr @bms_add_member(ptr noundef %.015.i.i, i32 noundef %148) #6
   call void @pfree(ptr noundef %147) #6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %150 = load i32, ptr %3, align 4
@@ -319,13 +319,13 @@ heap_getattr.exit.i:                              ; preds = %122, %121, %116, %1
   br i1 %152, label %.lr.ph.i.i, label %DecodeTextArrayToBitmapset.exit.i, !llvm.loop !5
 
 DecodeTextArrayToBitmapset.exit.i:                ; preds = %.lr.ph.i.i, %140
-  %.011.lcssa.i.i = phi ptr [ null, %140 ], [ %149, %.lr.ph.i.i ]
+  %.0.lcssa.i.i = phi ptr [ null, %140 ], [ %149, %.lr.ph.i.i ]
   %153 = load ptr, ptr %2, align 8
   call void @pfree(ptr noundef %153) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %154 = getelementptr inbounds i8, ptr %65, i64 8
-  store ptr %.011.lcssa.i.i, ptr %154, align 8
+  store ptr %.0.lcssa.i.i, ptr %154, align 8
   br label %155
 
 155:                                              ; preds = %DecodeTextArrayToBitmapset.exit.i, %heap_getattr.exit.i

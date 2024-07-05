@@ -38,19 +38,19 @@ entry:
   br i1 %1, label %while.body, label %while.cond2.preheader
 
 while.cond2.preheader:                            ; preds = %while.body, %entry
-  %len.addr.0.lcssa = phi i64 [ %len, %entry ], [ %dec, %while.body ]
-  %crc0.0.lcssa = phi i64 [ %conv, %entry ], [ %2, %while.body ]
   %next.0.lcssa = phi ptr [ %buf, %entry ], [ %incdec.ptr, %while.body ]
+  %crc0.0.lcssa = phi i64 [ %conv, %entry ], [ %2, %while.body ]
+  %len.addr.0.lcssa = phi i64 [ %len, %entry ], [ %dec, %while.body ]
   %cmp3107 = icmp ugt i64 %len.addr.0.lcssa, 24575
   br i1 %cmp3107, label %do.body.preheader, label %while.cond20.preheader
 
 while.body:                                       ; preds = %entry, %while.body
-  %next.0104 = phi ptr [ %incdec.ptr, %while.body ], [ %buf, %entry ]
+  %len.addr.0104 = phi i64 [ %dec, %while.body ], [ %len, %entry ]
   %crc0.0103 = phi i64 [ %2, %while.body ], [ %conv, %entry ]
-  %len.addr.0102 = phi i64 [ %dec, %while.body ], [ %len, %entry ]
-  %2 = tail call i64 asm "crc32b\09($1), $0", "=r,r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr %next.0104, ptr elementtype(i8) %next.0104, i64 %crc0.0103) #11, !srcloc !6
-  %incdec.ptr = getelementptr inbounds i8, ptr %next.0104, i64 1
-  %dec = add i64 %len.addr.0102, -1
+  %next.0102 = phi ptr [ %incdec.ptr, %while.body ], [ %buf, %entry ]
+  %2 = tail call i64 asm "crc32b\09($1), $0", "=r,r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr %next.0102, ptr elementtype(i8) %next.0102, i64 %crc0.0103) #11, !srcloc !6
+  %incdec.ptr = getelementptr inbounds i8, ptr %next.0102, i64 1
+  %dec = add i64 %len.addr.0104, -1
   %tobool = icmp ne i64 %dec, 0
   %3 = ptrtoint ptr %incdec.ptr to i64
   %and = and i64 %3, 7
@@ -59,24 +59,24 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %4, label %while.body, label %while.cond2.preheader, !llvm.loop !7
 
 do.body.preheader:                                ; preds = %while.cond2.preheader, %do.end
-  %next.1110 = phi ptr [ %add.ptr18, %do.end ], [ %next.0.lcssa, %while.cond2.preheader ]
+  %len.addr.1110 = phi i64 [ %sub, %do.end ], [ %len.addr.0.lcssa, %while.cond2.preheader ]
   %crc0.1109 = phi i64 [ %xor17, %do.end ], [ %crc0.0.lcssa, %while.cond2.preheader ]
-  %len.addr.1108 = phi i64 [ %sub, %do.end ], [ %len.addr.0.lcssa, %while.cond2.preheader ]
+  %next.1108 = phi ptr [ %add.ptr18, %do.end ], [ %next.0.lcssa, %while.cond2.preheader ]
   br label %do.body
 
 while.cond20.preheader:                           ; preds = %do.end, %while.cond2.preheader
-  %len.addr.1.lcssa = phi i64 [ %len.addr.0.lcssa, %while.cond2.preheader ], [ %sub, %do.end ]
-  %crc0.1.lcssa = phi i64 [ %crc0.0.lcssa, %while.cond2.preheader ], [ %xor17, %do.end ]
   %next.1.lcssa = phi ptr [ %next.0.lcssa, %while.cond2.preheader ], [ %add.ptr18, %do.end ]
+  %crc0.1.lcssa = phi i64 [ %crc0.0.lcssa, %while.cond2.preheader ], [ %xor17, %do.end ]
+  %len.addr.1.lcssa = phi i64 [ %len.addr.0.lcssa, %while.cond2.preheader ], [ %sub, %do.end ]
   %cmp21114 = icmp ugt i64 %len.addr.1.lcssa, 767
   br i1 %cmp21114, label %do.body28.preheader, label %while.end47
 
 do.body:                                          ; preds = %do.body.preheader, %do.body
-  %crc0.2 = phi i64 [ %asmresult, %do.body ], [ %crc0.1109, %do.body.preheader ]
-  %next.2.idx = phi i64 [ %next.2.add, %do.body ], [ 0, %do.body.preheader ]
   %crc1.0 = phi i64 [ %asmresult6, %do.body ], [ 0, %do.body.preheader ]
   %crc2.0 = phi i64 [ %asmresult7, %do.body ], [ 0, %do.body.preheader ]
-  %next.2.ptr = getelementptr inbounds i8, ptr %next.1110, i64 %next.2.idx
+  %next.2.idx = phi i64 [ %next.2.add, %do.body ], [ 0, %do.body.preheader ]
+  %crc0.2 = phi i64 [ %asmresult, %do.body ], [ %crc0.1109, %do.body.preheader ]
+  %next.2.ptr = getelementptr inbounds i8, ptr %next.1108, i64 %next.2.idx
   %5 = tail call { i64, i64, i64 } asm "crc32q\09($3), $0\0A\09crc32q\098192($3), $1\0A\09crc32q\0916384($3), $2", "=r,=r,=r,r,*m,0,1,2,~{dirflag},~{fpsr},~{flags}"(ptr %next.2.ptr, ptr elementtype(i8) %next.2.ptr, i64 %crc0.2, i64 %crc1.0, i64 %crc2.0) #11, !srcloc !9
   %asmresult = extractvalue { i64, i64, i64 } %5, 0
   %asmresult6 = extractvalue { i64, i64, i64 } %5, 1
@@ -129,23 +129,23 @@ do.end:                                           ; preds = %do.body
   %xor16.i64 = xor i32 %xor11.i60, %14
   %conv16 = zext i32 %xor16.i64 to i64
   %xor17 = xor i64 %asmresult7, %conv16
-  %add.ptr18 = getelementptr inbounds i8, ptr %next.1110, i64 24576
-  %sub = add i64 %len.addr.1108, -24576
+  %add.ptr18 = getelementptr inbounds i8, ptr %next.1108, i64 24576
+  %sub = add i64 %len.addr.1110, -24576
   %cmp3 = icmp ugt i64 %sub, 24575
   br i1 %cmp3, label %do.body.preheader, label %while.cond20.preheader, !llvm.loop !11
 
 do.body28.preheader:                              ; preds = %while.cond20.preheader, %do.end36
-  %next.3117 = phi ptr [ %add.ptr45, %do.end36 ], [ %next.1.lcssa, %while.cond20.preheader ]
+  %len.addr.2117 = phi i64 [ %sub46, %do.end36 ], [ %len.addr.1.lcssa, %while.cond20.preheader ]
   %crc0.3116 = phi i64 [ %xor44, %do.end36 ], [ %crc0.1.lcssa, %while.cond20.preheader ]
-  %len.addr.2115 = phi i64 [ %sub46, %do.end36 ], [ %len.addr.1.lcssa, %while.cond20.preheader ]
+  %next.3115 = phi ptr [ %add.ptr45, %do.end36 ], [ %next.1.lcssa, %while.cond20.preheader ]
   br label %do.body28
 
 do.body28:                                        ; preds = %do.body28.preheader, %do.body28
-  %crc0.4 = phi i64 [ %asmresult29, %do.body28 ], [ %crc0.3116, %do.body28.preheader ]
   %next.4.idx = phi i64 [ %next.4.add, %do.body28 ], [ 0, %do.body28.preheader ]
   %crc124.0 = phi i64 [ %asmresult30, %do.body28 ], [ 0, %do.body28.preheader ]
   %crc225.0 = phi i64 [ %asmresult31, %do.body28 ], [ 0, %do.body28.preheader ]
-  %next.4.ptr = getelementptr inbounds i8, ptr %next.3117, i64 %next.4.idx
+  %crc0.4 = phi i64 [ %asmresult29, %do.body28 ], [ %crc0.3116, %do.body28.preheader ]
+  %next.4.ptr = getelementptr inbounds i8, ptr %next.3115, i64 %next.4.idx
   %15 = tail call { i64, i64, i64 } asm "crc32q\09($3), $0\0A\09crc32q\09256($3), $1\0A\09crc32q\09512($3), $2", "=r,=r,=r,r,*m,0,1,2,~{dirflag},~{fpsr},~{flags}"(ptr %next.4.ptr, ptr elementtype(i8) %next.4.ptr, i64 %crc0.4, i64 %crc124.0, i64 %crc225.0) #11, !srcloc !12
   %asmresult29 = extractvalue { i64, i64, i64 } %15, 0
   %asmresult30 = extractvalue { i64, i64, i64 } %15, 1
@@ -198,15 +198,15 @@ do.end36:                                         ; preds = %do.body28
   %xor16.i98 = xor i32 %xor11.i94, %24
   %conv43 = zext i32 %xor16.i98 to i64
   %xor44 = xor i64 %asmresult31, %conv43
-  %add.ptr45 = getelementptr inbounds i8, ptr %next.3117, i64 768
-  %sub46 = add nsw i64 %len.addr.2115, -768
+  %add.ptr45 = getelementptr inbounds i8, ptr %next.3115, i64 768
+  %sub46 = add nsw i64 %len.addr.2117, -768
   %cmp21 = icmp ugt i64 %sub46, 767
   br i1 %cmp21, label %do.body28.preheader, label %while.end47, !llvm.loop !14
 
 while.end47:                                      ; preds = %do.end36, %while.cond20.preheader
-  %len.addr.2.lcssa = phi i64 [ %len.addr.1.lcssa, %while.cond20.preheader ], [ %sub46, %do.end36 ]
-  %crc0.3.lcssa = phi i64 [ %crc0.1.lcssa, %while.cond20.preheader ], [ %xor44, %do.end36 ]
   %next.3.lcssa = phi ptr [ %next.1.lcssa, %while.cond20.preheader ], [ %add.ptr45, %do.end36 ]
+  %crc0.3.lcssa = phi i64 [ %crc0.1.lcssa, %while.cond20.preheader ], [ %xor44, %do.end36 ]
+  %len.addr.2.lcssa = phi i64 [ %len.addr.1.lcssa, %while.cond20.preheader ], [ %sub46, %do.end36 ]
   %and49 = and i64 %len.addr.2.lcssa, 7
   %sub50 = and i64 %len.addr.2.lcssa, 1016
   %add.ptr51 = getelementptr inbounds i8, ptr %next.3.lcssa, i64 %sub50
@@ -214,26 +214,26 @@ while.end47:                                      ; preds = %do.end36, %while.co
   br i1 %cmp53121.not, label %while.cond59.preheader, label %while.body55
 
 while.cond59.preheader:                           ; preds = %while.body55, %while.end47
-  %crc0.5.lcssa = phi i64 [ %crc0.3.lcssa, %while.end47 ], [ %25, %while.body55 ]
   %next.5.lcssa = phi ptr [ %next.3.lcssa, %while.end47 ], [ %add.ptr56, %while.body55 ]
+  %crc0.5.lcssa = phi i64 [ %crc0.3.lcssa, %while.end47 ], [ %25, %while.body55 ]
   %tobool60.not126 = icmp eq i64 %and49, 0
   br i1 %tobool60.not126, label %while.end64, label %while.body61
 
 while.body55:                                     ; preds = %while.end47, %while.body55
-  %next.5123 = phi ptr [ %add.ptr56, %while.body55 ], [ %next.3.lcssa, %while.end47 ]
-  %crc0.5122 = phi i64 [ %25, %while.body55 ], [ %crc0.3.lcssa, %while.end47 ]
-  %25 = tail call i64 asm "crc32q\09($1), $0", "=r,r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr %next.5123, ptr elementtype(i8) %next.5123, i64 %crc0.5122) #11, !srcloc !15
-  %add.ptr56 = getelementptr inbounds i8, ptr %next.5123, i64 8
+  %crc0.5123 = phi i64 [ %25, %while.body55 ], [ %crc0.3.lcssa, %while.end47 ]
+  %next.5122 = phi ptr [ %add.ptr56, %while.body55 ], [ %next.3.lcssa, %while.end47 ]
+  %25 = tail call i64 asm "crc32q\09($1), $0", "=r,r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr %next.5122, ptr elementtype(i8) %next.5122, i64 %crc0.5123) #11, !srcloc !15
+  %add.ptr56 = getelementptr inbounds i8, ptr %next.5122, i64 8
   %cmp53 = icmp ult ptr %add.ptr56, %add.ptr51
   br i1 %cmp53, label %while.body55, label %while.cond59.preheader, !llvm.loop !16
 
 while.body61:                                     ; preds = %while.cond59.preheader, %while.body61
-  %next.6129 = phi ptr [ %incdec.ptr62, %while.body61 ], [ %next.5.lcssa, %while.cond59.preheader ]
+  %len.addr.3129 = phi i64 [ %dec63, %while.body61 ], [ %and49, %while.cond59.preheader ]
   %crc0.6128 = phi i64 [ %26, %while.body61 ], [ %crc0.5.lcssa, %while.cond59.preheader ]
-  %len.addr.3127 = phi i64 [ %dec63, %while.body61 ], [ %and49, %while.cond59.preheader ]
-  %26 = tail call i64 asm "crc32b\09($1), $0", "=r,r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr %next.6129, ptr elementtype(i8) %next.6129, i64 %crc0.6128) #11, !srcloc !17
-  %incdec.ptr62 = getelementptr inbounds i8, ptr %next.6129, i64 1
-  %dec63 = add nsw i64 %len.addr.3127, -1
+  %next.6127 = phi ptr [ %incdec.ptr62, %while.body61 ], [ %next.5.lcssa, %while.cond59.preheader ]
+  %26 = tail call i64 asm "crc32b\09($1), $0", "=r,r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr %next.6127, ptr elementtype(i8) %next.6127, i64 %crc0.6128) #11, !srcloc !17
+  %incdec.ptr62 = getelementptr inbounds i8, ptr %next.6127, i64 1
+  %dec63 = add nsw i64 %len.addr.3129, -1
   %tobool60.not = icmp eq i64 %dec63, 0
   br i1 %tobool60.not, label %while.end64, label %while.body61, !llvm.loop !18
 

@@ -154,17 +154,17 @@ switch.early.test101:                             ; preds = %5
   br i1 %14, label %.preheader, label %._crit_edge140
 
 .preheader:                                       ; preds = %.preheader103, %46
-  %.060139 = phi ptr [ %48, %46 ], [ %3, %.preheader103 ]
-  %.061138 = phi ptr [ %16, %46 ], [ %1, %.preheader103 ]
+  %.061139 = phi ptr [ %48, %46 ], [ %3, %.preheader103 ]
+  %.062138 = phi ptr [ %16, %46 ], [ %1, %.preheader103 ]
   %.085137 = phi i32 [ %31, %46 ], [ undef, %.preheader103 ]
   br label %15
 
 15:                                               ; preds = %.preheader, %switch.early.test
   %.190 = phi i32 [ %39, %switch.early.test ], [ 0, %.preheader ]
   %.186 = phi i32 [ %31, %switch.early.test ], [ %.085137, %.preheader ]
-  %.162 = phi ptr [ %16, %switch.early.test ], [ %.061138, %.preheader ]
-  %16 = getelementptr inbounds i8, ptr %.162, i64 1
-  %17 = load i8, ptr %.162, align 1
+  %.163 = phi ptr [ %16, %switch.early.test ], [ %.062138, %.preheader ]
+  %16 = getelementptr inbounds i8, ptr %.163, i64 1
+  %17 = load i8, ptr %.163, align 1
   %18 = zext i8 %17 to i64
   %19 = getelementptr inbounds [364 x i8], ptr @zueci_decode_utf8.utf8d, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
@@ -223,19 +223,19 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
 
 .thread:                                          ; preds = %.loopexit.thread
   %44 = trunc nuw i32 %31 to i8
-  %45 = getelementptr inbounds i8, ptr %.060139, i64 1
-  store i8 %44, ptr %.060139, align 1
+  %45 = getelementptr inbounds i8, ptr %.061139, i64 1
+  store i8 %44, ptr %.061139, align 1
   br label %._crit_edge140
 
 46:                                               ; preds = %.loopexit
   %47 = trunc nuw i32 %31 to i8
-  %48 = getelementptr inbounds i8, ptr %.060139, i64 1
-  store i8 %47, ptr %.060139, align 1
+  %48 = getelementptr inbounds i8, ptr %.061139, i64 1
+  store i8 %47, ptr %.061139, align 1
   br i1 %38, label %.preheader, label %._crit_edge140, !llvm.loop !4
 
 ._crit_edge140:                                   ; preds = %46, %.thread, %.preheader103
-  %.060.lcssa = phi ptr [ %3, %.preheader103 ], [ %45, %.thread ], [ %48, %46 ]
-  %49 = ptrtoint ptr %.060.lcssa to i64
+  %.061.lcssa = phi ptr [ %3, %.preheader103 ], [ %45, %.thread ], [ %48, %46 ]
+  %49 = ptrtoint ptr %.061.lcssa to i64
   %50 = ptrtoint ptr %3 to i64
   %51 = sub i64 %49, %50
   %52 = trunc i64 %51 to i32
@@ -250,13 +250,13 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
 
 .preheader110:                                    ; preds = %53, %zueci_decode_utf8.exit.i
   %.011.i = phi i32 [ %66, %zueci_decode_utf8.exit.i ], [ 0, %53 ]
-  %.0.i = phi ptr [ %55, %zueci_decode_utf8.exit.i ], [ %1, %53 ]
-  %54 = icmp ult ptr %.0.i, %7
+  %.06.i = phi ptr [ %55, %zueci_decode_utf8.exit.i ], [ %1, %53 ]
+  %54 = icmp ult ptr %.06.i, %7
   br i1 %54, label %zueci_decode_utf8.exit.i, label %zueci_is_valid_utf8.exit
 
 zueci_decode_utf8.exit.i:                         ; preds = %.preheader110
-  %55 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  %56 = load i8, ptr %.0.i, align 1
+  %55 = getelementptr inbounds i8, ptr %.06.i, i64 1
+  %56 = load i8, ptr %.06.i, align 1
   %57 = zext i8 %56 to i64
   %58 = getelementptr inbounds [364 x i8], ptr @zueci_decode_utf8.utf8d, i64 0, i64 %57
   %59 = load i8, ptr %58, align 1
@@ -288,7 +288,7 @@ zueci_is_valid_utf8.exit:                         ; preds = %.preheader110
   br label %74
 
 74:                                               ; preds = %53, %69, %70
-  %.0 = phi ptr [ @zueci_u_binary, %69 ], [ %73, %70 ], [ @zueci_u_ascii_inv, %53 ]
+  %.060 = phi ptr [ @zueci_u_binary, %69 ], [ %73, %70 ], [ @zueci_u_ascii_inv, %53 ]
   %75 = icmp sgt i32 %2, 0
   br i1 %75, label %.preheader105, label %._crit_edge
 
@@ -347,12 +347,12 @@ switch.early.test72:                              ; preds = %zueci_decode_utf8.e
   br i1 %.not99, label %.loopexit106.thread, label %zueci_is_valid_utf8.exit.thread
 
 .loopexit106:                                     ; preds = %switch.early.test72
-  %101 = tail call i32 %.0(i32 noundef %92, ptr noundef %.1136) #8
+  %101 = tail call i32 %.060(i32 noundef %92, ptr noundef %.1136) #8
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %zueci_is_valid_utf8.exit.thread, label %107
 
 .loopexit106.thread:                              ; preds = %.critedge13
-  %103 = tail call i32 %.0(i32 noundef %92, ptr noundef %.1136) #8
+  %103 = tail call i32 %.060(i32 noundef %92, ptr noundef %.1136) #8
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %zueci_is_valid_utf8.exit.thread, label %.thread169
 
@@ -380,8 +380,8 @@ zueci_is_valid_utf8.exit.thread.sink.split:       ; preds = %._crit_edge140, %68
   br label %zueci_is_valid_utf8.exit.thread
 
 zueci_is_valid_utf8.exit.thread:                  ; preds = %zueci_decode_utf8.exit.i, %.loopexit106, %switch.early.test72, %.loopexit, %switch.early.test, %zueci_is_valid_utf8.exit.thread.sink.split, %.critedge13, %.loopexit106.thread, %.critedge, %.loopexit.thread, %switch.early.test102, %switch.early.test102, %switch.early.test101, %zueci_is_valid_utf8.exit, %8
-  %.063 = phi i32 [ 7, %switch.early.test101 ], [ 8, %8 ], [ 9, %zueci_is_valid_utf8.exit ], [ 7, %switch.early.test102 ], [ 7, %switch.early.test102 ], [ 9, %.critedge ], [ 6, %.loopexit.thread ], [ 9, %.critedge13 ], [ 6, %.loopexit106.thread ], [ 0, %zueci_is_valid_utf8.exit.thread.sink.split ], [ 9, %switch.early.test ], [ 6, %.loopexit ], [ 9, %switch.early.test72 ], [ 6, %.loopexit106 ], [ 9, %zueci_decode_utf8.exit.i ]
-  ret i32 %.063
+  %.0 = phi i32 [ 7, %switch.early.test101 ], [ 8, %8 ], [ 9, %zueci_is_valid_utf8.exit ], [ 7, %switch.early.test102 ], [ 7, %switch.early.test102 ], [ 9, %.critedge ], [ 6, %.loopexit.thread ], [ 9, %.critedge13 ], [ 6, %.loopexit106.thread ], [ 0, %zueci_is_valid_utf8.exit.thread.sink.split ], [ 9, %switch.early.test ], [ 6, %.loopexit ], [ 9, %switch.early.test72 ], [ 6, %.loopexit106 ], [ 9, %zueci_decode_utf8.exit.i ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -394,9 +394,9 @@ define internal range(i32 0, 2) i32 @zueci_u_cp437(i32 noundef %0, ptr nocapture
   br label %.loopexit.sink.split
 
 .preheader:                                       ; preds = %2, %22
-  %.022 = phi i32 [ %.1, %22 ], [ 127, %2 ]
-  %.01521 = phi i32 [ %.116, %22 ], [ 0, %2 ]
-  %6 = add nsw i32 %.022, %.01521
+  %.01522 = phi i32 [ %.1, %22 ], [ 127, %2 ]
+  %.01621 = phi i32 [ %.117, %22 ], [ 0, %2 ]
+  %6 = add nsw i32 %.01522, %.01621
   %7 = ashr i32 %6, 1
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [128 x i16], ptr @zueci_cp437_u_u, i64 0, i64 %8
@@ -423,9 +423,9 @@ define internal range(i32 0, 2) i32 @zueci_u_cp437(i32 noundef %0, ptr nocapture
   br label %.loopexit.sink.split
 
 22:                                               ; preds = %17, %13
-  %.116 = phi i32 [ %14, %13 ], [ %.01521, %17 ]
-  %.1 = phi i32 [ %.022, %13 ], [ %18, %17 ]
-  %.not = icmp sgt i32 %.116, %.1
+  %.117 = phi i32 [ %14, %13 ], [ %.01621, %17 ]
+  %.1 = phi i32 [ %.01522, %13 ], [ %18, %17 ]
+  %.not = icmp sgt i32 %.117, %.1
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit.sink.split:                             ; preds = %4, %19
@@ -434,8 +434,8 @@ define internal range(i32 0, 2) i32 @zueci_u_cp437(i32 noundef %0, ptr nocapture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %.loopexit.sink.split
-  %.017 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %22 ]
-  ret i32 %.017
+  %.0 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %22 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -476,8 +476,8 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_2(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %38
-  %.02634.i = phi i32 [ %.1.i, %38 ], [ 0, %.lr.ph.i.preheader ]
-  %.02733.i = phi i32 [ %.128.i, %38 ], [ 56, %.lr.ph.i.preheader ]
+  %.02634.i = phi i32 [ %.1.i, %38 ], [ 56, %.lr.ph.i.preheader ]
+  %.02733.i = phi i32 [ %.128.i, %38 ], [ 0, %.lr.ph.i.preheader ]
   %22 = add nuw nsw i32 %.02733.i, %.02634.i
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
@@ -505,9 +505,9 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_2(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 38:                                               ; preds = %33, %29
-  %.128.i = phi i32 [ %.02733.i, %29 ], [ %34, %33 ]
-  %.1.i = phi i32 [ %30, %29 ], [ %.02634.i, %33 ]
-  %.not31.i = icmp sgt i32 %.1.i, %.128.i
+  %.128.i = phi i32 [ %30, %29 ], [ %.02733.i, %33 ]
+  %.1.i = phi i32 [ %.02634.i, %29 ], [ %34, %33 ]
+  %.not31.i = icmp sgt i32 %.128.i, %.1.i
   br i1 %.not31.i, label %zueci_u_iso8859.exit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.sink.split.i:                           ; preds = %35, %20, %6
@@ -558,8 +558,8 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_3(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %38
-  %.02634.i = phi i32 [ %.1.i, %38 ], [ 0, %.lr.ph.i.preheader ]
-  %.02733.i = phi i32 [ %.128.i, %38 ], [ 27, %.lr.ph.i.preheader ]
+  %.02634.i = phi i32 [ %.1.i, %38 ], [ 27, %.lr.ph.i.preheader ]
+  %.02733.i = phi i32 [ %.128.i, %38 ], [ 0, %.lr.ph.i.preheader ]
   %22 = add nuw nsw i32 %.02733.i, %.02634.i
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
@@ -587,9 +587,9 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_3(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 38:                                               ; preds = %33, %29
-  %.128.i = phi i32 [ %.02733.i, %29 ], [ %34, %33 ]
-  %.1.i = phi i32 [ %30, %29 ], [ %.02634.i, %33 ]
-  %.not31.i = icmp sgt i32 %.1.i, %.128.i
+  %.128.i = phi i32 [ %30, %29 ], [ %.02733.i, %33 ]
+  %.1.i = phi i32 [ %.02634.i, %29 ], [ %34, %33 ]
+  %.not31.i = icmp sgt i32 %.128.i, %.1.i
   br i1 %.not31.i, label %zueci_u_iso8859.exit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.sink.split.i:                           ; preds = %35, %20, %6
@@ -640,8 +640,8 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_4(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %38
-  %.02634.i = phi i32 [ %.1.i, %38 ], [ 0, %.lr.ph.i.preheader ]
-  %.02733.i = phi i32 [ %.128.i, %38 ], [ 49, %.lr.ph.i.preheader ]
+  %.02634.i = phi i32 [ %.1.i, %38 ], [ 49, %.lr.ph.i.preheader ]
+  %.02733.i = phi i32 [ %.128.i, %38 ], [ 0, %.lr.ph.i.preheader ]
   %22 = add nuw nsw i32 %.02733.i, %.02634.i
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
@@ -669,9 +669,9 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_4(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 38:                                               ; preds = %33, %29
-  %.128.i = phi i32 [ %.02733.i, %29 ], [ %34, %33 ]
-  %.1.i = phi i32 [ %30, %29 ], [ %.02634.i, %33 ]
-  %.not31.i = icmp sgt i32 %.1.i, %.128.i
+  %.128.i = phi i32 [ %30, %29 ], [ %.02733.i, %33 ]
+  %.1.i = phi i32 [ %.02634.i, %29 ], [ %34, %33 ]
+  %.not31.i = icmp sgt i32 %.128.i, %.1.i
   br i1 %.not31.i, label %zueci_u_iso8859.exit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.sink.split.i:                           ; preds = %35, %20, %6
@@ -722,8 +722,8 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_5(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %38
-  %.02634.i = phi i32 [ %.1.i, %38 ], [ 0, %.lr.ph.i.preheader ]
-  %.02733.i = phi i32 [ %.128.i, %38 ], [ 93, %.lr.ph.i.preheader ]
+  %.02634.i = phi i32 [ %.1.i, %38 ], [ 93, %.lr.ph.i.preheader ]
+  %.02733.i = phi i32 [ %.128.i, %38 ], [ 0, %.lr.ph.i.preheader ]
   %22 = add nuw nsw i32 %.02733.i, %.02634.i
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
@@ -751,9 +751,9 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_5(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 38:                                               ; preds = %33, %29
-  %.128.i = phi i32 [ %.02733.i, %29 ], [ %34, %33 ]
-  %.1.i = phi i32 [ %30, %29 ], [ %.02634.i, %33 ]
-  %.not31.i = icmp sgt i32 %.1.i, %.128.i
+  %.128.i = phi i32 [ %30, %29 ], [ %.02733.i, %33 ]
+  %.1.i = phi i32 [ %.02634.i, %29 ], [ %34, %33 ]
+  %.not31.i = icmp sgt i32 %.128.i, %.1.i
   br i1 %.not31.i, label %zueci_u_iso8859.exit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.sink.split.i:                           ; preds = %35, %20, %6
@@ -804,8 +804,8 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_6(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %38
-  %.02634.i = phi i32 [ %.1.i, %38 ], [ 0, %.lr.ph.i.preheader ]
-  %.02733.i = phi i32 [ %.128.i, %38 ], [ 47, %.lr.ph.i.preheader ]
+  %.02634.i = phi i32 [ %.1.i, %38 ], [ 47, %.lr.ph.i.preheader ]
+  %.02733.i = phi i32 [ %.128.i, %38 ], [ 0, %.lr.ph.i.preheader ]
   %22 = add nuw nsw i32 %.02733.i, %.02634.i
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
@@ -833,9 +833,9 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_6(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 38:                                               ; preds = %33, %29
-  %.128.i = phi i32 [ %.02733.i, %29 ], [ %34, %33 ]
-  %.1.i = phi i32 [ %30, %29 ], [ %.02634.i, %33 ]
-  %.not31.i = icmp sgt i32 %.1.i, %.128.i
+  %.128.i = phi i32 [ %30, %29 ], [ %.02733.i, %33 ]
+  %.1.i = phi i32 [ %.02634.i, %29 ], [ %34, %33 ]
+  %.not31.i = icmp sgt i32 %.128.i, %.1.i
   br i1 %.not31.i, label %zueci_u_iso8859.exit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.sink.split.i:                           ; preds = %35, %20, %6
@@ -886,8 +886,8 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_7(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %38
-  %.02634.i = phi i32 [ %.1.i, %38 ], [ 0, %.lr.ph.i.preheader ]
-  %.02733.i = phi i32 [ %.128.i, %38 ], [ 76, %.lr.ph.i.preheader ]
+  %.02634.i = phi i32 [ %.1.i, %38 ], [ 76, %.lr.ph.i.preheader ]
+  %.02733.i = phi i32 [ %.128.i, %38 ], [ 0, %.lr.ph.i.preheader ]
   %22 = add nuw nsw i32 %.02733.i, %.02634.i
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
@@ -915,9 +915,9 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_7(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 38:                                               ; preds = %33, %29
-  %.128.i = phi i32 [ %.02733.i, %29 ], [ %34, %33 ]
-  %.1.i = phi i32 [ %30, %29 ], [ %.02634.i, %33 ]
-  %.not31.i = icmp sgt i32 %.1.i, %.128.i
+  %.128.i = phi i32 [ %30, %29 ], [ %.02733.i, %33 ]
+  %.1.i = phi i32 [ %.02634.i, %29 ], [ %34, %33 ]
+  %.not31.i = icmp sgt i32 %.128.i, %.1.i
   br i1 %.not31.i, label %zueci_u_iso8859.exit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.sink.split.i:                           ; preds = %35, %20, %6
@@ -968,8 +968,8 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_8(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %38
-  %.02634.i = phi i32 [ %.1.i, %38 ], [ 0, %.lr.ph.i.preheader ]
-  %.02733.i = phi i32 [ %.128.i, %38 ], [ 31, %.lr.ph.i.preheader ]
+  %.02634.i = phi i32 [ %.1.i, %38 ], [ 31, %.lr.ph.i.preheader ]
+  %.02733.i = phi i32 [ %.128.i, %38 ], [ 0, %.lr.ph.i.preheader ]
   %22 = add nuw nsw i32 %.02733.i, %.02634.i
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
@@ -997,9 +997,9 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_8(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 38:                                               ; preds = %33, %29
-  %.128.i = phi i32 [ %.02733.i, %29 ], [ %34, %33 ]
-  %.1.i = phi i32 [ %30, %29 ], [ %.02634.i, %33 ]
-  %.not31.i = icmp sgt i32 %.1.i, %.128.i
+  %.128.i = phi i32 [ %30, %29 ], [ %.02733.i, %33 ]
+  %.1.i = phi i32 [ %.02634.i, %29 ], [ %34, %33 ]
+  %.not31.i = icmp sgt i32 %.128.i, %.1.i
   br i1 %.not31.i, label %zueci_u_iso8859.exit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.sink.split.i:                           ; preds = %35, %20, %6
@@ -1050,8 +1050,8 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_9(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %38
-  %.02634.i = phi i32 [ %.1.i, %38 ], [ 0, %.lr.ph.i.preheader ]
-  %.02733.i = phi i32 [ %.128.i, %38 ], [ 5, %.lr.ph.i.preheader ]
+  %.02634.i = phi i32 [ %.1.i, %38 ], [ 5, %.lr.ph.i.preheader ]
+  %.02733.i = phi i32 [ %.128.i, %38 ], [ 0, %.lr.ph.i.preheader ]
   %22 = add nuw nsw i32 %.02733.i, %.02634.i
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
@@ -1079,9 +1079,9 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_9(i32 noundef %0, ptr nocap
   br label %.loopexit.sink.split.i
 
 38:                                               ; preds = %33, %29
-  %.128.i = phi i32 [ %.02733.i, %29 ], [ %34, %33 ]
-  %.1.i = phi i32 [ %30, %29 ], [ %.02634.i, %33 ]
-  %.not31.i = icmp sgt i32 %.1.i, %.128.i
+  %.128.i = phi i32 [ %30, %29 ], [ %.02733.i, %33 ]
+  %.1.i = phi i32 [ %.02634.i, %29 ], [ %34, %33 ]
+  %.not31.i = icmp sgt i32 %.128.i, %.1.i
   br i1 %.not31.i, label %zueci_u_iso8859.exit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.sink.split.i:                           ; preds = %35, %20, %6
@@ -1132,8 +1132,8 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_10(i32 noundef %0, ptr noca
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %38
-  %.02634.i = phi i32 [ %.1.i, %38 ], [ 0, %.lr.ph.i.preheader ]
-  %.02733.i = phi i32 [ %.128.i, %38 ], [ 45, %.lr.ph.i.preheader ]
+  %.02634.i = phi i32 [ %.1.i, %38 ], [ 45, %.lr.ph.i.preheader ]
+  %.02733.i = phi i32 [ %.128.i, %38 ], [ 0, %.lr.ph.i.preheader ]
   %22 = add nuw nsw i32 %.02733.i, %.02634.i
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
@@ -1161,9 +1161,9 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_10(i32 noundef %0, ptr noca
   br label %.loopexit.sink.split.i
 
 38:                                               ; preds = %33, %29
-  %.128.i = phi i32 [ %.02733.i, %29 ], [ %34, %33 ]
-  %.1.i = phi i32 [ %30, %29 ], [ %.02634.i, %33 ]
-  %.not31.i = icmp sgt i32 %.1.i, %.128.i
+  %.128.i = phi i32 [ %30, %29 ], [ %.02733.i, %33 ]
+  %.1.i = phi i32 [ %.02634.i, %29 ], [ %34, %33 ]
+  %.not31.i = icmp sgt i32 %.128.i, %.1.i
   br i1 %.not31.i, label %zueci_u_iso8859.exit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.sink.split.i:                           ; preds = %35, %20, %6
@@ -1214,8 +1214,8 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_11(i32 noundef %0, ptr noca
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %38
-  %.02634.i = phi i32 [ %.1.i, %38 ], [ 0, %.lr.ph.i.preheader ]
-  %.02733.i = phi i32 [ %.128.i, %38 ], [ 86, %.lr.ph.i.preheader ]
+  %.02634.i = phi i32 [ %.1.i, %38 ], [ 86, %.lr.ph.i.preheader ]
+  %.02733.i = phi i32 [ %.128.i, %38 ], [ 0, %.lr.ph.i.preheader ]
   %22 = add nuw nsw i32 %.02733.i, %.02634.i
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
@@ -1243,9 +1243,9 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_11(i32 noundef %0, ptr noca
   br label %.loopexit.sink.split.i
 
 38:                                               ; preds = %33, %29
-  %.128.i = phi i32 [ %.02733.i, %29 ], [ %34, %33 ]
-  %.1.i = phi i32 [ %30, %29 ], [ %.02634.i, %33 ]
-  %.not31.i = icmp sgt i32 %.1.i, %.128.i
+  %.128.i = phi i32 [ %30, %29 ], [ %.02733.i, %33 ]
+  %.1.i = phi i32 [ %.02634.i, %29 ], [ %34, %33 ]
+  %.not31.i = icmp sgt i32 %.128.i, %.1.i
   br i1 %.not31.i, label %zueci_u_iso8859.exit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.sink.split.i:                           ; preds = %35, %20, %6
@@ -1296,8 +1296,8 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_13(i32 noundef %0, ptr noca
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %38
-  %.02634.i = phi i32 [ %.1.i, %38 ], [ 0, %.lr.ph.i.preheader ]
-  %.02733.i = phi i32 [ %.128.i, %38 ], [ 55, %.lr.ph.i.preheader ]
+  %.02634.i = phi i32 [ %.1.i, %38 ], [ 55, %.lr.ph.i.preheader ]
+  %.02733.i = phi i32 [ %.128.i, %38 ], [ 0, %.lr.ph.i.preheader ]
   %22 = add nuw nsw i32 %.02733.i, %.02634.i
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
@@ -1325,9 +1325,9 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_13(i32 noundef %0, ptr noca
   br label %.loopexit.sink.split.i
 
 38:                                               ; preds = %33, %29
-  %.128.i = phi i32 [ %.02733.i, %29 ], [ %34, %33 ]
-  %.1.i = phi i32 [ %30, %29 ], [ %.02634.i, %33 ]
-  %.not31.i = icmp sgt i32 %.1.i, %.128.i
+  %.128.i = phi i32 [ %30, %29 ], [ %.02733.i, %33 ]
+  %.1.i = phi i32 [ %.02634.i, %29 ], [ %34, %33 ]
+  %.not31.i = icmp sgt i32 %.128.i, %.1.i
   br i1 %.not31.i, label %zueci_u_iso8859.exit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.sink.split.i:                           ; preds = %35, %20, %6
@@ -1378,8 +1378,8 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_14(i32 noundef %0, ptr noca
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %38
-  %.02634.i = phi i32 [ %.1.i, %38 ], [ 0, %.lr.ph.i.preheader ]
-  %.02733.i = phi i32 [ %.128.i, %38 ], [ 30, %.lr.ph.i.preheader ]
+  %.02634.i = phi i32 [ %.1.i, %38 ], [ 30, %.lr.ph.i.preheader ]
+  %.02733.i = phi i32 [ %.128.i, %38 ], [ 0, %.lr.ph.i.preheader ]
   %22 = add nuw nsw i32 %.02733.i, %.02634.i
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
@@ -1407,9 +1407,9 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_14(i32 noundef %0, ptr noca
   br label %.loopexit.sink.split.i
 
 38:                                               ; preds = %33, %29
-  %.128.i = phi i32 [ %.02733.i, %29 ], [ %34, %33 ]
-  %.1.i = phi i32 [ %30, %29 ], [ %.02634.i, %33 ]
-  %.not31.i = icmp sgt i32 %.1.i, %.128.i
+  %.128.i = phi i32 [ %30, %29 ], [ %.02733.i, %33 ]
+  %.1.i = phi i32 [ %.02634.i, %29 ], [ %34, %33 ]
+  %.not31.i = icmp sgt i32 %.128.i, %.1.i
   br i1 %.not31.i, label %zueci_u_iso8859.exit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.sink.split.i:                           ; preds = %35, %20, %6
@@ -1460,8 +1460,8 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_15(i32 noundef %0, ptr noca
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %38
-  %.02634.i = phi i32 [ %.1.i, %38 ], [ 0, %.lr.ph.i.preheader ]
-  %.02733.i = phi i32 [ %.128.i, %38 ], [ 7, %.lr.ph.i.preheader ]
+  %.02634.i = phi i32 [ %.1.i, %38 ], [ 7, %.lr.ph.i.preheader ]
+  %.02733.i = phi i32 [ %.128.i, %38 ], [ 0, %.lr.ph.i.preheader ]
   %22 = add nuw nsw i32 %.02733.i, %.02634.i
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
@@ -1489,9 +1489,9 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_15(i32 noundef %0, ptr noca
   br label %.loopexit.sink.split.i
 
 38:                                               ; preds = %33, %29
-  %.128.i = phi i32 [ %.02733.i, %29 ], [ %34, %33 ]
-  %.1.i = phi i32 [ %30, %29 ], [ %.02634.i, %33 ]
-  %.not31.i = icmp sgt i32 %.1.i, %.128.i
+  %.128.i = phi i32 [ %30, %29 ], [ %.02733.i, %33 ]
+  %.1.i = phi i32 [ %.02634.i, %29 ], [ %34, %33 ]
+  %.not31.i = icmp sgt i32 %.128.i, %.1.i
   br i1 %.not31.i, label %zueci_u_iso8859.exit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.sink.split.i:                           ; preds = %35, %20, %6
@@ -1542,8 +1542,8 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_16(i32 noundef %0, ptr noca
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %38
-  %.02634.i = phi i32 [ %.1.i, %38 ], [ 0, %.lr.ph.i.preheader ]
-  %.02733.i = phi i32 [ %.128.i, %38 ], [ 39, %.lr.ph.i.preheader ]
+  %.02634.i = phi i32 [ %.1.i, %38 ], [ 39, %.lr.ph.i.preheader ]
+  %.02733.i = phi i32 [ %.128.i, %38 ], [ 0, %.lr.ph.i.preheader ]
   %22 = add nuw nsw i32 %.02733.i, %.02634.i
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
@@ -1571,9 +1571,9 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_16(i32 noundef %0, ptr noca
   br label %.loopexit.sink.split.i
 
 38:                                               ; preds = %33, %29
-  %.128.i = phi i32 [ %.02733.i, %29 ], [ %34, %33 ]
-  %.1.i = phi i32 [ %30, %29 ], [ %.02634.i, %33 ]
-  %.not31.i = icmp sgt i32 %.1.i, %.128.i
+  %.128.i = phi i32 [ %30, %29 ], [ %.02733.i, %33 ]
+  %.1.i = phi i32 [ %.02634.i, %29 ], [ %34, %33 ]
+  %.not31.i = icmp sgt i32 %.128.i, %.1.i
   br i1 %.not31.i, label %zueci_u_iso8859.exit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.sink.split.i:                           ; preds = %35, %20, %6
@@ -1688,9 +1688,9 @@ switch.early.test:                                ; preds = %2
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %90
-  %.060 = phi i32 [ %.1, %90 ], [ 587, %.preheader.preheader ]
-  %.05059 = phi i32 [ %.151, %90 ], [ 0, %.preheader.preheader ]
-  %63 = add nsw i32 %.060, %.05059
+  %.05060 = phi i32 [ %.1, %90 ], [ 0, %.preheader.preheader ]
+  %.05159 = phi i32 [ %.152, %90 ], [ 587, %.preheader.preheader ]
+  %63 = add nsw i32 %.05060, %.05159
   %64 = ashr i32 %63, 1
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds [588 x i16], ptr @zueci_sjis_u_u, i64 0, i64 %65
@@ -1735,14 +1735,14 @@ switch.early.test:                                ; preds = %2
   br label %zueci_u_lookup_uro.exit
 
 90:                                               ; preds = %74, %70
-  %.151 = phi i32 [ %71, %70 ], [ %.05059, %74 ]
-  %.1 = phi i32 [ %.060, %70 ], [ %75, %74 ]
-  %.not = icmp sgt i32 %.151, %.1
+  %.152 = phi i32 [ %.05159, %70 ], [ %75, %74 ]
+  %.1 = phi i32 [ %71, %70 ], [ %.05060, %74 ]
+  %.not = icmp sgt i32 %.1, %.152
   br i1 %.not, label %zueci_u_lookup_uro.exit, label %.preheader, !llvm.loop !10
 
 zueci_u_lookup_uro.exit:                          ; preds = %90, %20, %10, %.thread57, %8, %88, %83, %48, %4
-  %.052 = phi i32 [ 1, %4 ], [ 2, %48 ], [ 2, %83 ], [ 1, %88 ], [ 0, %8 ], [ 0, %.thread57 ], [ 2, %20 ], [ 0, %10 ], [ 0, %90 ]
-  ret i32 %.052
+  %.0 = phi i32 [ 1, %4 ], [ 2, %48 ], [ 2, %83 ], [ 1, %88 ], [ 0, %8 ], [ 0, %.thread57 ], [ 2, %20 ], [ 0, %10 ], [ 0, %90 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -1779,8 +1779,8 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1250(i32 noundef %0, ptr nocaptur
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %35
-  %.02736.i = phi i32 [ %.1.i, %35 ], [ 0, %.lr.ph.i.preheader ]
-  %.02835.i = phi i32 [ %.129.i, %35 ], [ 73, %.lr.ph.i.preheader ]
+  %.02736.i = phi i32 [ %.1.i, %35 ], [ 73, %.lr.ph.i.preheader ]
+  %.02835.i = phi i32 [ %.129.i, %35 ], [ 0, %.lr.ph.i.preheader ]
   %19 = add nsw i32 %.02835.i, %.02736.i
   %20 = ashr i32 %19, 1
   %21 = sext i32 %20 to i64
@@ -1808,9 +1808,9 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1250(i32 noundef %0, ptr nocaptur
   br label %.loopexit.sink.split.i
 
 35:                                               ; preds = %30, %26
-  %.129.i = phi i32 [ %.02835.i, %26 ], [ %31, %30 ]
-  %.1.i = phi i32 [ %27, %26 ], [ %.02736.i, %30 ]
-  %.not33.i = icmp sgt i32 %.1.i, %.129.i
+  %.129.i = phi i32 [ %27, %26 ], [ %.02835.i, %30 ]
+  %.1.i = phi i32 [ %.02736.i, %26 ], [ %31, %30 ]
+  %.not33.i = icmp sgt i32 %.129.i, %.1.i
   br i1 %.not33.i, label %zueci_u_cp125x.exit, label %.lr.ph.i, !llvm.loop !11
 
 .loopexit.sink.split.i:                           ; preds = %32, %17, %4
@@ -1857,8 +1857,8 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1251(i32 noundef %0, ptr nocaptur
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %35
-  %.02736.i = phi i32 [ %.1.i, %35 ], [ 0, %.lr.ph.i.preheader ]
-  %.02835.i = phi i32 [ %.129.i, %35 ], [ 111, %.lr.ph.i.preheader ]
+  %.02736.i = phi i32 [ %.1.i, %35 ], [ 111, %.lr.ph.i.preheader ]
+  %.02835.i = phi i32 [ %.129.i, %35 ], [ 0, %.lr.ph.i.preheader ]
   %19 = add nsw i32 %.02835.i, %.02736.i
   %20 = ashr i32 %19, 1
   %21 = sext i32 %20 to i64
@@ -1886,9 +1886,9 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1251(i32 noundef %0, ptr nocaptur
   br label %.loopexit.sink.split.i
 
 35:                                               ; preds = %30, %26
-  %.129.i = phi i32 [ %.02835.i, %26 ], [ %31, %30 ]
-  %.1.i = phi i32 [ %27, %26 ], [ %.02736.i, %30 ]
-  %.not33.i = icmp sgt i32 %.1.i, %.129.i
+  %.129.i = phi i32 [ %27, %26 ], [ %.02835.i, %30 ]
+  %.1.i = phi i32 [ %.02736.i, %26 ], [ %31, %30 ]
+  %.not33.i = icmp sgt i32 %.129.i, %.1.i
   br i1 %.not33.i, label %zueci_u_cp125x.exit, label %.lr.ph.i, !llvm.loop !11
 
 .loopexit.sink.split.i:                           ; preds = %32, %17, %4
@@ -1920,8 +1920,8 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1252(i32 noundef %0, ptr nocaptur
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %6, %26
-  %.02736.i = phi i32 [ %.1.i, %26 ], [ 0, %6 ]
-  %.02835.i = phi i32 [ %.129.i, %26 ], [ 26, %6 ]
+  %.02736.i = phi i32 [ %.1.i, %26 ], [ 26, %6 ]
+  %.02835.i = phi i32 [ %.129.i, %26 ], [ 0, %6 ]
   %10 = add nsw i32 %.02835.i, %.02736.i
   %11 = ashr i32 %10, 1
   %12 = sext i32 %11 to i64
@@ -1949,9 +1949,9 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1252(i32 noundef %0, ptr nocaptur
   br label %.loopexit.sink.split.i
 
 26:                                               ; preds = %21, %17
-  %.129.i = phi i32 [ %.02835.i, %17 ], [ %22, %21 ]
-  %.1.i = phi i32 [ %18, %17 ], [ %.02736.i, %21 ]
-  %.not33.i = icmp sgt i32 %.1.i, %.129.i
+  %.129.i = phi i32 [ %18, %17 ], [ %.02835.i, %21 ]
+  %.1.i = phi i32 [ %.02736.i, %17 ], [ %22, %21 ]
+  %.not33.i = icmp sgt i32 %.129.i, %.1.i
   br i1 %.not33.i, label %zueci_u_cp125x.exit, label %.lr.ph.i, !llvm.loop !11
 
 .loopexit.sink.split.i:                           ; preds = %23, %8, %4
@@ -1998,8 +1998,8 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1256(i32 noundef %0, ptr nocaptur
   br label %.loopexit.sink.split.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %35
-  %.02736.i = phi i32 [ %.1.i, %35 ], [ 0, %.lr.ph.i.preheader ]
-  %.02835.i = phi i32 [ %.129.i, %35 ], [ 84, %.lr.ph.i.preheader ]
+  %.02736.i = phi i32 [ %.1.i, %35 ], [ 84, %.lr.ph.i.preheader ]
+  %.02835.i = phi i32 [ %.129.i, %35 ], [ 0, %.lr.ph.i.preheader ]
   %19 = add nsw i32 %.02835.i, %.02736.i
   %20 = ashr i32 %19, 1
   %21 = sext i32 %20 to i64
@@ -2027,9 +2027,9 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1256(i32 noundef %0, ptr nocaptur
   br label %.loopexit.sink.split.i
 
 35:                                               ; preds = %30, %26
-  %.129.i = phi i32 [ %.02835.i, %26 ], [ %31, %30 ]
-  %.1.i = phi i32 [ %27, %26 ], [ %.02736.i, %30 ]
-  %.not33.i = icmp sgt i32 %.1.i, %.129.i
+  %.129.i = phi i32 [ %27, %26 ], [ %.02835.i, %30 ]
+  %.1.i = phi i32 [ %.02736.i, %26 ], [ %31, %30 ]
+  %.not33.i = icmp sgt i32 %.129.i, %.1.i
   br i1 %.not33.i, label %zueci_u_cp125x.exit, label %.lr.ph.i, !llvm.loop !11
 
 .loopexit.sink.split.i:                           ; preds = %32, %17, %4
@@ -2163,8 +2163,8 @@ define internal range(i32 0, 3) i32 @zueci_u_big5(i32 noundef %0, ptr nocapture 
   br i1 %or.cond34, label %.preheader, label %zueci_u_lookup_uro.exit
 
 .preheader:                                       ; preds = %47, %72
-  %.02836 = phi i32 [ %.1, %72 ], [ 641, %47 ]
-  %.02935 = phi i32 [ %.130, %72 ], [ 0, %47 ]
+  %.02836 = phi i32 [ %.1, %72 ], [ 0, %47 ]
+  %.02935 = phi i32 [ %.130, %72 ], [ 641, %47 ]
   %49 = add nsw i32 %.02836, %.02935
   %50 = ashr i32 %49, 1
   %51 = sext i32 %50 to i64
@@ -2201,9 +2201,9 @@ define internal range(i32 0, 3) i32 @zueci_u_big5(i32 noundef %0, ptr nocapture 
   br label %zueci_u_lookup_uro.exit
 
 72:                                               ; preds = %60, %56
-  %.130 = phi i32 [ %57, %56 ], [ %.02935, %60 ]
-  %.1 = phi i32 [ %.02836, %56 ], [ %61, %60 ]
-  %.not = icmp sgt i32 %.130, %.1
+  %.130 = phi i32 [ %.02935, %56 ], [ %61, %60 ]
+  %.1 = phi i32 [ %57, %56 ], [ %.02836, %60 ]
+  %.not = icmp sgt i32 %.1, %.130
   br i1 %.not, label %zueci_u_lookup_uro.exit, label %.preheader, !llvm.loop !12
 
 zueci_u_lookup_uro.exit:                          ; preds = %72, %21, %11, %47, %9, %62, %4
@@ -2289,8 +2289,8 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr nocaptur
   br i1 %.not38, label %zueci_u_lookup_uro.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48, %80
-  %.03140 = phi i32 [ %.1, %80 ], [ %55, %48 ]
-  %.03239 = phi i32 [ %.133, %80 ], [ %53, %48 ]
+  %.03140 = phi i32 [ %.1, %80 ], [ %53, %48 ]
+  %.03239 = phi i32 [ %.133, %80 ], [ %55, %48 ]
   %56 = add nsw i32 %.03140, %.03239
   %57 = ashr i32 %56, 1
   %58 = sext i32 %57 to i64
@@ -2328,9 +2328,9 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr nocaptur
   br label %zueci_u_lookup_uro.exit
 
 80:                                               ; preds = %67, %63
-  %.133 = phi i32 [ %64, %63 ], [ %.03239, %67 ]
-  %.1 = phi i32 [ %.03140, %63 ], [ %68, %67 ]
-  %.not = icmp sgt i32 %.133, %.1
+  %.133 = phi i32 [ %.03239, %63 ], [ %68, %67 ]
+  %.1 = phi i32 [ %64, %63 ], [ %.03140, %67 ]
+  %.not = icmp sgt i32 %.1, %.133
   br i1 %.not, label %zueci_u_lookup_uro.exit, label %.lr.ph, !llvm.loop !13
 
 zueci_u_lookup_uro.exit:                          ; preds = %80, %48, %20, %10, %46, %8, %69, %4
@@ -2417,8 +2417,8 @@ define internal range(i32 0, 3) i32 @zueci_u_ksx1001(i32 noundef %0, ptr nocaptu
   br i1 %.not38, label %zueci_u_lookup_uro.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49, %80
-  %.03140 = phi i32 [ %.1, %80 ], [ %56, %49 ]
-  %.03239 = phi i32 [ %.133, %80 ], [ %54, %49 ]
+  %.03140 = phi i32 [ %.1, %80 ], [ %54, %49 ]
+  %.03239 = phi i32 [ %.133, %80 ], [ %56, %49 ]
   %57 = add nsw i32 %.03140, %.03239
   %58 = ashr i32 %57, 1
   %59 = sext i32 %58 to i64
@@ -2455,9 +2455,9 @@ define internal range(i32 0, 3) i32 @zueci_u_ksx1001(i32 noundef %0, ptr nocaptu
   br label %zueci_u_lookup_uro.exit
 
 80:                                               ; preds = %68, %64
-  %.133 = phi i32 [ %65, %64 ], [ %.03239, %68 ]
-  %.1 = phi i32 [ %.03140, %64 ], [ %69, %68 ]
-  %.not = icmp sgt i32 %.133, %.1
+  %.133 = phi i32 [ %.03239, %64 ], [ %69, %68 ]
+  %.1 = phi i32 [ %65, %64 ], [ %.03140, %68 ]
+  %.not = icmp sgt i32 %.1, %.133
   br i1 %.not, label %zueci_u_lookup_uro.exit, label %.lr.ph, !llvm.loop !14
 
 zueci_u_lookup_uro.exit:                          ; preds = %80, %49, %21, %11, %47, %9, %70, %4
@@ -2512,8 +2512,8 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr nocapture n
   br i1 %or.cond41, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %18, %43
-  %.03443 = phi i32 [ %.1, %43 ], [ 208, %18 ]
-  %.03542 = phi i32 [ %.136, %43 ], [ 0, %18 ]
+  %.03443 = phi i32 [ %.1, %43 ], [ 0, %18 ]
+  %.03542 = phi i32 [ %.136, %43 ], [ 208, %18 ]
   %20 = add nsw i32 %.03443, %.03542
   %21 = ashr i32 %20, 1
   %22 = sext i32 %21 to i64
@@ -2550,9 +2550,9 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr nocapture n
   br label %.loopexit
 
 43:                                               ; preds = %31, %27
-  %.136 = phi i32 [ %28, %27 ], [ %.03542, %31 ]
-  %.1 = phi i32 [ %.03443, %27 ], [ %32, %31 ]
-  %.not40 = icmp sgt i32 %.136, %.1
+  %.136 = phi i32 [ %.03542, %27 ], [ %32, %31 ]
+  %.1 = phi i32 [ %28, %27 ], [ %.03443, %31 ]
+  %.not40 = icmp sgt i32 %.1, %.136
   br i1 %.not40, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %43, %18, %14, %9, %6, %33, %16, %7, %4
@@ -2753,8 +2753,8 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr nocaptu
   br label %126
 
 .preheader:                                       ; preds = %.loopexit, %.preheader
-  %.083102 = phi i32 [ %.184, %.preheader ], [ 205, %.loopexit ]
-  %.085101 = phi i32 [ %.186, %.preheader ], [ 0, %.loopexit ]
+  %.083102 = phi i32 [ %.184, %.preheader ], [ 0, %.loopexit ]
+  %.085101 = phi i32 [ %.186, %.preheader ], [ 205, %.loopexit ]
   %93 = add nsw i32 %.083102, %.085101
   %94 = ashr i32 %93, 1
   %95 = sext i32 %94 to i64
@@ -2763,13 +2763,13 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr nocaptu
   %98 = zext i16 %97 to i32
   %99 = icmp ult i32 %98, %0
   %100 = add nsw i32 %94, 1
-  %.186 = select i1 %99, i32 %100, i32 %.085101
-  %.184 = select i1 %99, i32 %.083102, i32 %94
-  %101 = icmp slt i32 %.186, %.184
+  %.186 = select i1 %99, i32 %.085101, i32 %94
+  %.184 = select i1 %99, i32 %100, i32 %.083102
+  %101 = icmp slt i32 %.184, %.186
   br i1 %101, label %.preheader, label %102, !llvm.loop !17
 
 102:                                              ; preds = %.preheader
-  %103 = sext i32 %.186 to i64
+  %103 = sext i32 %.184 to i64
   %104 = getelementptr inbounds [206 x i16], ptr @zueci_gb18030_4_u_mb_o, i64 0, i64 %103
   %105 = load i16, ptr %104, align 2
   %106 = zext i16 %105 to i32
@@ -3457,13 +3457,13 @@ zueci_encode_utf8.exit166:                        ; preds = %159, %147, %136, %1
 
 .preheader190:                                    ; preds = %93, %zueci_decode_utf8.exit.i
   %.011.i = phi i32 [ %193, %zueci_decode_utf8.exit.i ], [ 0, %93 ]
-  %.0.i167 = phi ptr [ %182, %zueci_decode_utf8.exit.i ], [ %1, %93 ]
-  %181 = icmp ult ptr %.0.i167, %11
+  %.06.i = phi ptr [ %182, %zueci_decode_utf8.exit.i ], [ %1, %93 ]
+  %181 = icmp ult ptr %.06.i, %11
   br i1 %181, label %zueci_decode_utf8.exit.i, label %zueci_is_valid_utf8.exit
 
 zueci_decode_utf8.exit.i:                         ; preds = %.preheader190
-  %182 = getelementptr inbounds i8, ptr %.0.i167, i64 1
-  %183 = load i8, ptr %.0.i167, align 1
+  %182 = getelementptr inbounds i8, ptr %.06.i, i64 1
+  %183 = load i8, ptr %.06.i, align 1
   %184 = zext i8 %183 to i64
   %185 = getelementptr inbounds [364 x i8], ptr @zueci_decode_utf8.utf8d, i64 0, i64 %184
   %186 = load i8, ptr %185, align 1
@@ -5628,9 +5628,9 @@ switch.early.test:                                ; preds = %8
   br i1 %or.cond103, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %29, %50
-  %.0109 = phi i32 [ %.1, %50 ], [ 208, %29 ]
-  %.089108 = phi i32 [ %.190, %50 ], [ 0, %29 ]
-  %33 = add nsw i32 %.0109, %.089108
+  %.089109 = phi i32 [ %.1, %50 ], [ 208, %29 ]
+  %.090108 = phi i32 [ %.191, %50 ], [ 0, %29 ]
+  %33 = add nsw i32 %.089109, %.090108
   %34 = ashr i32 %33, 1
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds [209 x i16], ptr @zueci_gbk_nonuro_mb, i64 0, i64 %35
@@ -5658,9 +5658,9 @@ switch.early.test:                                ; preds = %8
   br label %.sink.split
 
 50:                                               ; preds = %44, %40
-  %.190 = phi i32 [ %41, %40 ], [ %.089108, %44 ]
-  %.1 = phi i32 [ %.0109, %40 ], [ %45, %44 ]
-  %.not100 = icmp sgt i32 %.190, %.1
+  %.191 = phi i32 [ %41, %40 ], [ %.090108, %44 ]
+  %.1 = phi i32 [ %.089109, %40 ], [ %45, %44 ]
+  %.not100 = icmp sgt i32 %.191, %.1
   br i1 %.not100, label %.loopexit, label %.preheader, !llvm.loop !30
 
 .loopexit:                                        ; preds = %50, %29
@@ -5697,13 +5697,13 @@ switch.early.test:                                ; preds = %8
 
 .sink.split:                                      ; preds = %.thread, %24, %4, %46, %66
   %.sink = phi i32 [ %67, %66 ], [ %49, %46 ], [ %6, %4 ], [ 183, %24 ], [ 8212, %.thread ]
-  %.091.ph = phi i32 [ 2, %66 ], [ 2, %46 ], [ 1, %4 ], [ 2, %24 ], [ 2, %.thread ]
+  %.0.ph = phi i32 [ 2, %66 ], [ 2, %46 ], [ 1, %4 ], [ 2, %24 ], [ 2, %.thread ]
   store i32 %.sink, ptr %3, align 4
   br label %68
 
 68:                                               ; preds = %.sink.split, %switch.early.test, %switch.early.test, %8, %54, %62, %51, %.thread.thread, %10
-  %.091 = phi i32 [ 0, %switch.early.test ], [ 0, %10 ], [ 2, %.thread.thread ], [ 0, %51 ], [ 0, %62 ], [ 0, %54 ], [ 0, %8 ], [ 0, %switch.early.test ], [ %.091.ph, %.sink.split ]
-  ret i32 %.091
+  %.0 = phi i32 [ 0, %switch.early.test ], [ 0, %10 ], [ 2, %.thread.thread ], [ 0, %51 ], [ 0, %62 ], [ 0, %54 ], [ 0, %8 ], [ 0, %switch.early.test ], [ %.0.ph, %.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -5788,22 +5788,22 @@ switch.early.test:                                ; preds = %8
   br label %.loopexit.sink.split
 
 .preheader:                                       ; preds = %43, %.preheader
-  %.0169199 = phi i32 [ %.1170, %.preheader ], [ 205, %43 ]
-  %.0171198 = phi i32 [ %.1172, %.preheader ], [ 0, %43 ]
-  %53 = add nsw i32 %.0169199, %.0171198
+  %.0170199 = phi i32 [ %.1171, %.preheader ], [ 0, %43 ]
+  %.0172198 = phi i32 [ %.1173, %.preheader ], [ 205, %43 ]
+  %53 = add nsw i32 %.0170199, %.0172198
   %54 = ashr i32 %53, 1
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds [206 x i32], ptr @zueci_gb18030_4_mb_e, i64 0, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = icmp ult i32 %57, %32
   %59 = add nsw i32 %54, 1
-  %.1172 = select i1 %58, i32 %59, i32 %.0171198
-  %.1170 = select i1 %58, i32 %.0169199, i32 %54
-  %60 = icmp slt i32 %.1172, %.1170
+  %.1173 = select i1 %58, i32 %.0172198, i32 %54
+  %.1171 = select i1 %58, i32 %59, i32 %.0170199
+  %60 = icmp slt i32 %.1171, %.1173
   br i1 %60, label %.preheader, label %61, !llvm.loop !31
 
 61:                                               ; preds = %.preheader
-  %62 = sext i32 %.1172 to i64
+  %62 = sext i32 %.1171 to i64
   %63 = getelementptr inbounds [206 x i16], ptr @zueci_gb18030_4_u_e, i64 0, i64 %62
   %64 = load i16, ptr %63, align 2
   %65 = zext i16 %64 to i32
@@ -5917,9 +5917,9 @@ switch.early.test:                                ; preds = %8
   br i1 %or.cond185, label %.preheader195, label %.loopexit
 
 .preheader195:                                    ; preds = %.thread188, %138
-  %.0197 = phi i32 [ %.1, %138 ], [ 254, %.thread188 ]
-  %.0167196 = phi i32 [ %.1168, %138 ], [ 0, %.thread188 ]
-  %121 = add nsw i32 %.0197, %.0167196
+  %.0167197 = phi i32 [ %.1, %138 ], [ 254, %.thread188 ]
+  %.0168196 = phi i32 [ %.1169, %138 ], [ 0, %.thread188 ]
+  %121 = add nsw i32 %.0167197, %.0168196
   %122 = ashr i32 %121, 1
   %123 = sext i32 %122 to i64
   %124 = getelementptr inbounds [255 x i16], ptr @zueci_gb18030_2_mb_mb, i64 0, i64 %123
@@ -5947,20 +5947,20 @@ switch.early.test:                                ; preds = %8
   br label %.loopexit.sink.split
 
 138:                                              ; preds = %132, %128
-  %.1168 = phi i32 [ %129, %128 ], [ %.0167196, %132 ]
-  %.1 = phi i32 [ %.0197, %128 ], [ %133, %132 ]
-  %.not183 = icmp sgt i32 %.1168, %.1
+  %.1169 = phi i32 [ %129, %128 ], [ %.0168196, %132 ]
+  %.1 = phi i32 [ %.0167197, %128 ], [ %133, %132 ]
+  %.not183 = icmp sgt i32 %.1169, %.1
   br i1 %.not183, label %.loopexit, label %.preheader195, !llvm.loop !32
 
 .loopexit.sink.split:                             ; preds = %112, %45, %61, %41, %4, %92, %101, %113, %114, %115, %116, %117, %134
   %.sink = phi i32 [ %137, %134 ], [ 147966, %117 ], [ 141711, %116 ], [ 136663, %115 ], [ 131276, %114 ], [ 131209, %113 ], [ %107, %101 ], [ %97, %92 ], [ %6, %4 ], [ 59335, %41 ], [ %81, %61 ], [ %52, %45 ], [ 131207, %112 ]
-  %.0173.ph = phi i32 [ 2, %134 ], [ 2, %117 ], [ 2, %116 ], [ 2, %115 ], [ 2, %114 ], [ 2, %113 ], [ 2, %101 ], [ 2, %92 ], [ 1, %4 ], [ 4, %41 ], [ 4, %61 ], [ 4, %45 ], [ 2, %112 ]
+  %.0.ph = phi i32 [ 2, %134 ], [ 2, %117 ], [ 2, %116 ], [ 2, %115 ], [ 2, %114 ], [ 2, %113 ], [ 2, %101 ], [ 2, %92 ], [ 1, %4 ], [ 4, %41 ], [ 4, %61 ], [ 4, %45 ], [ 2, %112 ]
   store i32 %.sink, ptr %3, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %138, %.loopexit.sink.split, %switch.early.test, %switch.early.test, %8, %.thread188, %82, %20, %34, %10
-  %.0173 = phi i32 [ 0, %switch.early.test ], [ %11, %10 ], [ 0, %34 ], [ 0, %20 ], [ 0, %82 ], [ 0, %.thread188 ], [ 0, %8 ], [ 0, %switch.early.test ], [ %.0173.ph, %.loopexit.sink.split ], [ 0, %138 ]
-  ret i32 %.0173
+  %.0 = phi i32 [ 0, %switch.early.test ], [ %11, %10 ], [ 0, %34 ], [ 0, %20 ], [ 0, %82 ], [ 0, %.thread188 ], [ 0, %8 ], [ 0, %switch.early.test ], [ %.0.ph, %.loopexit.sink.split ], [ 0, %138 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

@@ -2450,13 +2450,13 @@ for.body.us.i.i:                                  ; preds = %for.cond9.for.end_c
 
 for.body11.us.i.i:                                ; preds = %for.body11.us.i.i, %for.body.us.i.i
   %indvars.iv28.i.i = phi i64 [ 0, %for.body.us.i.i ], [ %indvars.iv.next29.i.i, %for.body11.us.i.i ]
-  %result_or.020.us.i.i = phi <4 x i64> [ zeroinitializer, %for.body.us.i.i ], [ %or.i48.us.i.i, %for.body11.us.i.i ]
+  %result_or.021.us.i.i = phi <4 x i64> [ zeroinitializer, %for.body.us.i.i ], [ %or.i48.us.i.i, %for.body11.us.i.i ]
   %add.ptr13.us.i.i = getelementptr inbounds <4 x i64>, ptr %add.ptr.us.i.i, i64 %indvars.iv28.i.i
   %9 = load <4 x i64>, ptr %add.ptr13.us.i.i, align 1
   %add.ptr16.us.i.i = getelementptr inbounds <4 x i64>, ptr %add.ptr7.us.i.i, i64 %indvars.iv28.i.i
   %10 = load <4 x i64>, ptr %add.ptr16.us.i.i, align 1
   %xor.i53.us.i.i = xor <4 x i64> %10, %9
-  %or.i48.us.i.i = or <4 x i64> %xor.i53.us.i.i, %result_or.020.us.i.i
+  %or.i48.us.i.i = or <4 x i64> %xor.i53.us.i.i, %result_or.021.us.i.i
   %indvars.iv.next29.i.i = add nuw nsw i64 %indvars.iv28.i.i, 1
   %exitcond31.not.i.i = icmp eq i64 %indvars.iv.next29.i.i, %idx.ext21.us.i.i
   br i1 %exitcond31.not.i.i, label %for.cond9.for.end_crit_edge.us.i.i, label %for.body11.us.i.i, !llvm.loop !42
@@ -2577,13 +2577,13 @@ for.body.us.i.i113:                               ; preds = %for.cond9.for.end_c
 
 for.body11.us.i.i123:                             ; preds = %for.body11.us.i.i123, %for.body.us.i.i113
   %indvars.iv28.i.i124 = phi i64 [ 0, %for.body.us.i.i113 ], [ %indvars.iv.next29.i.i130, %for.body11.us.i.i123 ]
-  %result_or.020.us.i.i125 = phi <4 x i64> [ zeroinitializer, %for.body.us.i.i113 ], [ %or.i48.us.i.i129, %for.body11.us.i.i123 ]
+  %result_or.021.us.i.i125 = phi <4 x i64> [ zeroinitializer, %for.body.us.i.i113 ], [ %or.i48.us.i.i129, %for.body11.us.i.i123 ]
   %add.ptr13.us.i.i126 = getelementptr inbounds <4 x i64>, ptr %add.ptr.us.i.i119, i64 %indvars.iv28.i.i124
   %29 = load <4 x i64>, ptr %add.ptr13.us.i.i126, align 1
   %add.ptr16.us.i.i127 = getelementptr inbounds <4 x i64>, ptr %add.ptr7.us.i.i122, i64 %indvars.iv28.i.i124
   %30 = load <4 x i64>, ptr %add.ptr16.us.i.i127, align 1
   %xor.i53.us.i.i128 = xor <4 x i64> %30, %29
-  %or.i48.us.i.i129 = or <4 x i64> %xor.i53.us.i.i128, %result_or.020.us.i.i125
+  %or.i48.us.i.i129 = or <4 x i64> %xor.i53.us.i.i128, %result_or.021.us.i.i125
   %indvars.iv.next29.i.i130 = add nuw nsw i64 %indvars.iv28.i.i124, 1
   %exitcond31.not.i.i131 = icmp eq i64 %indvars.iv.next29.i.i130, %idx.ext21.us.i.i112
   br i1 %exitcond31.not.i.i131, label %for.cond9.for.end_crit_edge.us.i.i132, label %for.body11.us.i.i123, !llvm.loop !42
@@ -2733,13 +2733,13 @@ for.body.us.i.i:                                  ; preds = %for.cond7.for.end_c
 
 for.body9.us.i.i:                                 ; preds = %for.body9.us.i.i, %for.body.us.i.i
   %indvars.iv28.i.i = phi i64 [ 0, %for.body.us.i.i ], [ %indvars.iv.next29.i.i, %for.body9.us.i.i ]
-  %result_or.020.us.i.i = phi <4 x i64> [ zeroinitializer, %for.body.us.i.i ], [ %or.i44.us.i.i, %for.body9.us.i.i ]
+  %result_or.021.us.i.i = phi <4 x i64> [ zeroinitializer, %for.body.us.i.i ], [ %or.i44.us.i.i, %for.body9.us.i.i ]
   %add.ptr11.us.i.i = getelementptr inbounds <4 x i64>, ptr %add.ptr.us.i.i, i64 %indvars.iv28.i.i
   %11 = load <4 x i64>, ptr %add.ptr11.us.i.i, align 1
   %add.ptr14.us.i.i = getelementptr inbounds <4 x i64>, ptr %add.ptr5.us.i.i, i64 %indvars.iv28.i.i
   %12 = load <4 x i64>, ptr %add.ptr14.us.i.i, align 1
   %xor.i49.us.i.i = xor <4 x i64> %12, %11
-  %or.i44.us.i.i = or <4 x i64> %xor.i49.us.i.i, %result_or.020.us.i.i
+  %or.i44.us.i.i = or <4 x i64> %xor.i49.us.i.i, %result_or.021.us.i.i
   %indvars.iv.next29.i.i = add nuw nsw i64 %indvars.iv28.i.i, 1
   %exitcond31.not.i.i = icmp eq i64 %indvars.iv.next29.i.i, %idx.ext19.us.i.i
   br i1 %exitcond31.not.i.i, label %for.cond7.for.end_crit_edge.us.i.i, label %for.body9.us.i.i, !llvm.loop !46
@@ -2861,13 +2861,13 @@ for.body.us.i.i111:                               ; preds = %for.cond7.for.end_c
 
 for.body9.us.i.i121:                              ; preds = %for.body9.us.i.i121, %for.body.us.i.i111
   %indvars.iv28.i.i122 = phi i64 [ 0, %for.body.us.i.i111 ], [ %indvars.iv.next29.i.i128, %for.body9.us.i.i121 ]
-  %result_or.020.us.i.i123 = phi <4 x i64> [ zeroinitializer, %for.body.us.i.i111 ], [ %or.i44.us.i.i127, %for.body9.us.i.i121 ]
+  %result_or.021.us.i.i123 = phi <4 x i64> [ zeroinitializer, %for.body.us.i.i111 ], [ %or.i44.us.i.i127, %for.body9.us.i.i121 ]
   %add.ptr11.us.i.i124 = getelementptr inbounds <4 x i64>, ptr %add.ptr.us.i.i117, i64 %indvars.iv28.i.i122
   %33 = load <4 x i64>, ptr %add.ptr11.us.i.i124, align 1
   %add.ptr14.us.i.i125 = getelementptr inbounds <4 x i64>, ptr %add.ptr5.us.i.i120, i64 %indvars.iv28.i.i122
   %34 = load <4 x i64>, ptr %add.ptr14.us.i.i125, align 1
   %xor.i49.us.i.i126 = xor <4 x i64> %34, %33
-  %or.i44.us.i.i127 = or <4 x i64> %xor.i49.us.i.i126, %result_or.020.us.i.i123
+  %or.i44.us.i.i127 = or <4 x i64> %xor.i49.us.i.i126, %result_or.021.us.i.i123
   %indvars.iv.next29.i.i128 = add nuw nsw i64 %indvars.iv28.i.i122, 1
   %exitcond31.not.i.i129 = icmp eq i64 %indvars.iv.next29.i.i128, %idx.ext19.us.i.i110
   br i1 %exitcond31.not.i.i129, label %for.cond7.for.end_crit_edge.us.i.i130, label %for.body9.us.i.i121, !llvm.loop !46

@@ -216,12 +216,12 @@ define noundef i64 @_Z18fast_rv64i_smalxdaP11processor_t6insn_tm(ptr nocapture n
   br label %25
 
 25:                                               ; preds = %11, %25
+  %.043 = phi i64 [ %24, %11 ], [ %46, %25 ]
   %26 = phi i1 [ true, %11 ], [ false, %25 ]
-  %.043 = phi i64 [ 0, %11 ], [ 32, %25 ]
-  %.02942 = phi i64 [ %24, %11 ], [ %46, %25 ]
-  %27 = shl nuw i64 4294967295, %.043
+  %.02942 = phi i64 [ 0, %11 ], [ 32, %25 ]
+  %27 = shl nuw i64 4294967295, %.02942
   %28 = and i64 %27, %16
-  %29 = shl i64 8589934590, %.043
+  %29 = shl i64 8589934590, %.02942
   %30 = xor i64 %29, -1
   %31 = and i64 %27, %30
   %32 = udiv i64 %28, %31
@@ -232,7 +232,7 @@ define noundef i64 @_Z18fast_rv64i_smalxdaP11processor_t6insn_tm(ptr nocapture n
   %37 = shl i64 %34, 32
   %38 = ashr i64 %37, 48
   %39 = mul nsw i64 %38, %36
-  %40 = add nsw i64 %39, %.02942
+  %40 = add nsw i64 %39, %.043
   %41 = shl i64 %32, 32
   %42 = ashr i64 %41, 48
   %43 = shl i64 %34, 48
@@ -830,12 +830,12 @@ define noundef i64 @_Z18fast_rv64e_smalxdaP11processor_t6insn_tm(ptr nocapture n
   br label %46
 
 46:                                               ; preds = %43, %46
+  %.03862 = phi i64 [ %45, %43 ], [ %67, %46 ]
   %47 = phi i1 [ true, %43 ], [ false, %46 ]
-  %.03762 = phi i64 [ 0, %43 ], [ 32, %46 ]
-  %.03861 = phi i64 [ %45, %43 ], [ %67, %46 ]
-  %48 = shl nuw i64 4294967295, %.03762
+  %.03961 = phi i64 [ 0, %43 ], [ 32, %46 ]
+  %48 = shl nuw i64 4294967295, %.03961
   %49 = and i64 %48, %23
-  %50 = shl i64 8589934590, %.03762
+  %50 = shl i64 8589934590, %.03961
   %51 = xor i64 %50, -1
   %52 = and i64 %48, %51
   %53 = udiv i64 %49, %52
@@ -846,7 +846,7 @@ define noundef i64 @_Z18fast_rv64e_smalxdaP11processor_t6insn_tm(ptr nocapture n
   %58 = shl i64 %55, 32
   %59 = ashr i64 %58, 48
   %60 = mul nsw i64 %59, %57
-  %61 = add nsw i64 %60, %.03861
+  %61 = add nsw i64 %60, %.03862
   %62 = shl i64 %53, 32
   %63 = ashr i64 %62, 48
   %64 = shl i64 %55, 48

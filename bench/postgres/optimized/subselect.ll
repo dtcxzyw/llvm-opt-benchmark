@@ -713,8 +713,8 @@ list_length.exit56.thread:                        ; preds = %list_length.exit56,
   br label %simplify_EXISTS_query.exit.thread
 
 simplify_EXISTS_query.exit.thread:                ; preds = %57, %49, %11, %15, %18, %22, %25, %29, %33, %37, %40, %43, %._crit_edge, %74, %72, %62, %4, %list_length.exit56.thread
-  %.051 = phi ptr [ %99, %list_length.exit56.thread ], [ null, %4 ], [ null, %62 ], [ null, %72 ], [ null, %74 ], [ null, %._crit_edge ], [ null, %43 ], [ null, %40 ], [ null, %37 ], [ null, %33 ], [ null, %29 ], [ null, %25 ], [ null, %22 ], [ null, %18 ], [ null, %15 ], [ null, %11 ], [ null, %49 ], [ null, %57 ]
-  ret ptr %.051
+  %.050 = phi ptr [ %99, %list_length.exit56.thread ], [ null, %4 ], [ null, %62 ], [ null, %72 ], [ null, %74 ], [ null, %._crit_edge ], [ null, %43 ], [ null, %40 ], [ null, %37 ], [ null, %33 ], [ null, %29 ], [ null, %25 ], [ null, %22 ], [ null, %18 ], [ null, %15 ], [ null, %11 ], [ null, %49 ], [ null, %57 ]
+  ret ptr %.050
 }
 
 declare zeroext i1 @contain_vars_of_level(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1102,8 +1102,8 @@ simplify_EXISTS_query.exit:                       ; preds = %92, %96, %99, %103,
   br i1 %162, label %.lr.ph137, label %make_subplan.exit
 
 .lr.ph137:                                        ; preds = %.lr.ph.i, %204
-  %.0122147.i136 = phi ptr [ %.1123.i, %204 ], [ null, %.lr.ph.i ]
-  %.0120148.i135 = phi ptr [ %.1121.i, %204 ], [ null, %.lr.ph.i ]
+  %.0117148.i136 = phi ptr [ %.1118.i, %204 ], [ null, %.lr.ph.i ]
+  %.0115149.i135 = phi ptr [ %.1116.i, %204 ], [ null, %.lr.ph.i ]
   %.0113150.i134 = phi ptr [ %.1114.i, %204 ], [ null, %.lr.ph.i ]
   %.0111151.i133 = phi ptr [ %.1112.i, %204 ], [ null, %.lr.ph.i ]
   %.0110152.i132 = phi ptr [ %.1.i, %204 ], [ null, %.lr.ph.i ]
@@ -1140,7 +1140,7 @@ simplify_EXISTS_query.exit:                       ; preds = %92, %96, %99, %103,
   %183 = tail call ptr @lappend_oid(ptr noundef %.0113150.i134, i32 noundef %182) #10
   %184 = getelementptr inbounds i8, ptr %165, i64 24
   %185 = load i32, ptr %184, align 8
-  %186 = tail call ptr @lappend_oid(ptr noundef %.0122147.i136, i32 noundef %185) #10
+  %186 = tail call ptr @lappend_oid(ptr noundef %.0115149.i135, i32 noundef %185) #10
   br label %204
 
 187:                                              ; preds = %172
@@ -1166,16 +1166,16 @@ simplify_EXISTS_query.exit:                       ; preds = %92, %96, %99, %103,
   %198 = tail call ptr @lappend_oid(ptr noundef %.0113150.i134, i32 noundef %197) #10
   %199 = getelementptr inbounds i8, ptr %165, i64 24
   %200 = load i32, ptr %199, align 8
-  %201 = tail call ptr @lappend_oid(ptr noundef %.0122147.i136, i32 noundef %200) #10
+  %201 = tail call ptr @lappend_oid(ptr noundef %.0115149.i135, i32 noundef %200) #10
   br label %204
 
 202:                                              ; preds = %187, %168, %.lr.ph137
-  %203 = tail call ptr @lappend(ptr noundef %.0120148.i135, ptr noundef nonnull %165) #10
+  %203 = tail call ptr @lappend(ptr noundef %.0117148.i136, ptr noundef nonnull %165) #10
   br label %204
 
 204:                                              ; preds = %202, %194, %179
-  %.1123.i = phi ptr [ %186, %179 ], [ %201, %194 ], [ %.0122147.i136, %202 ]
-  %.1121.i = phi ptr [ %.0120148.i135, %179 ], [ %.0120148.i135, %194 ], [ %203, %202 ]
+  %.1118.i = phi ptr [ %.0117148.i136, %179 ], [ %.0117148.i136, %194 ], [ %203, %202 ]
+  %.1116.i = phi ptr [ %186, %179 ], [ %201, %194 ], [ %.0115149.i135, %202 ]
   %.1114.i = phi ptr [ %183, %179 ], [ %198, %194 ], [ %.0113150.i134, %202 ]
   %.1112.i = phi ptr [ %181, %179 ], [ %196, %194 ], [ %.0111151.i133, %202 ]
   %.1.i = phi ptr [ %180, %179 ], [ %195, %194 ], [ %.0110152.i132, %202 ]
@@ -1190,7 +1190,7 @@ simplify_EXISTS_query.exit:                       ; preds = %92, %96, %99, %103,
   br i1 %208, label %make_subplan.exit, label %209
 
 209:                                              ; preds = %._crit_edge.i
-  %210 = tail call zeroext i1 @contain_vars_of_level(ptr noundef %.1121.i, i32 noundef 1) #10
+  %210 = tail call zeroext i1 @contain_vars_of_level(ptr noundef %.1118.i, i32 noundef 1) #10
   br i1 %210, label %make_subplan.exit, label %211
 
 211:                                              ; preds = %209
@@ -1206,7 +1206,7 @@ simplify_EXISTS_query.exit:                       ; preds = %92, %96, %99, %103,
   br i1 %218, label %219, label %223
 
 219:                                              ; preds = %213
-  %220 = tail call zeroext i1 @contain_aggs_of_level(ptr noundef %.1121.i, i32 noundef 1) #10
+  %220 = tail call zeroext i1 @contain_aggs_of_level(ptr noundef %.1118.i, i32 noundef 1) #10
   br i1 %220, label %make_subplan.exit, label %221
 
 221:                                              ; preds = %219
@@ -1223,11 +1223,11 @@ simplify_EXISTS_query.exit:                       ; preds = %92, %96, %99, %103,
 
 227:                                              ; preds = %225
   tail call void @IncrementVarSublevelsUp(ptr noundef nonnull %.1.i, i32 noundef -1, i32 noundef 1) #10
-  %.not130.i = icmp eq ptr %.1121.i, null
+  %.not130.i = icmp eq ptr %.1118.i, null
   br i1 %.not130.i, label %232, label %228
 
 228:                                              ; preds = %227
-  %229 = tail call ptr @make_ands_explicit(ptr noundef nonnull %.1121.i) #10
+  %229 = tail call ptr @make_ands_explicit(ptr noundef nonnull %.1118.i) #10
   %230 = load ptr, ptr %148, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 16
   store ptr %229, ptr %231, align 8
@@ -1237,22 +1237,22 @@ simplify_EXISTS_query.exit:                       ; preds = %92, %96, %99, %103,
   %233 = getelementptr inbounds i8, ptr %.1.i, i64 4
   %.not131.i = icmp eq ptr %.1112.i, null
   %.not132.i = icmp eq ptr %.1114.i, null
-  %.not133.i = icmp eq ptr %.1123.i, null
+  %.not133.i = icmp eq ptr %.1116.i, null
   %234 = getelementptr inbounds i8, ptr %.1.i, i64 16
   %235 = getelementptr inbounds i8, ptr %.1112.i, i64 4
   %236 = getelementptr inbounds i8, ptr %.1112.i, i64 16
   %237 = getelementptr inbounds i8, ptr %.1114.i, i64 4
   %238 = getelementptr inbounds i8, ptr %.1114.i, i64 16
-  %239 = getelementptr inbounds i8, ptr %.1123.i, i64 4
-  %240 = getelementptr inbounds i8, ptr %.1123.i, i64 16
+  %239 = getelementptr inbounds i8, ptr %.1116.i, i64 4
+  %240 = getelementptr inbounds i8, ptr %.1116.i, i64 16
   br label %241
 
 241:                                              ; preds = %284, %232
-  %.0119.i = phi ptr [ null, %232 ], [ %295, %284 ]
-  %.0118.i = phi ptr [ null, %232 ], [ %297, %284 ]
-  %.0117.i = phi ptr [ null, %232 ], [ %300, %284 ]
-  %.0115.i = phi i16 [ 1, %232 ], [ %293, %284 ]
+  %.0123.i = phi i16 [ 1, %232 ], [ %293, %284 ]
+  %.0121.i = phi ptr [ null, %232 ], [ %300, %284 ]
   %.sroa.16.0.i = phi i32 [ 0, %232 ], [ %301, %284 ]
+  %.0120.i = phi ptr [ null, %232 ], [ %297, %284 ]
+  %.0119.i = phi ptr [ null, %232 ], [ %295, %284 ]
   %242 = load i32, ptr %233, align 4
   %243 = icmp slt i32 %.sroa.16.0.i, %242
   br i1 %243, label %244, label %248
@@ -1329,21 +1329,21 @@ simplify_EXISTS_query.exit:                       ; preds = %92, %96, %99, %103,
   %290 = tail call i32 @exprTypmod(ptr noundef %286) #10
   %291 = tail call i32 @exprCollation(ptr noundef %286) #10
   %292 = tail call ptr @generate_new_exec_param(ptr noundef %13, i32 noundef %289, i32 noundef %290, i32 noundef %291) #10
-  %293 = add i16 %.0115.i, 1
-  %294 = tail call ptr @makeTargetEntry(ptr noundef %286, i16 noundef signext %.0115.i, ptr noundef null, i1 noundef zeroext false) #10
+  %293 = add i16 %.0123.i, 1
+  %294 = tail call ptr @makeTargetEntry(ptr noundef %286, i16 noundef signext %.0123.i, ptr noundef null, i1 noundef zeroext false) #10
   %295 = tail call ptr @lappend(ptr noundef %.0119.i, ptr noundef %294) #10
   %296 = tail call ptr @make_opclause(i32 noundef %287, i32 noundef 16, i1 noundef zeroext false, ptr noundef %285, ptr noundef %292, i32 noundef 0, i32 noundef %288) #10
-  %297 = tail call ptr @lappend(ptr noundef %.0118.i, ptr noundef %296) #10
+  %297 = tail call ptr @lappend(ptr noundef %.0120.i, ptr noundef %296) #10
   %298 = getelementptr inbounds i8, ptr %292, i64 8
   %299 = load i32, ptr %298, align 4
-  %300 = tail call ptr @lappend_int(ptr noundef %.0117.i, i32 noundef %299) #10
+  %300 = tail call ptr @lappend_int(ptr noundef %.0121.i, i32 noundef %299) #10
   %301 = add i32 %.sroa.16.0.i, 1
   br label %241, !llvm.loop !7
 
 302:                                              ; preds = %275
   %303 = getelementptr inbounds i8, ptr %93, i64 104
   store ptr %.0119.i, ptr %303, align 8
-  %304 = tail call ptr @make_ands_explicit(ptr noundef %.0118.i) #10
+  %304 = tail call ptr @make_ands_explicit(ptr noundef %.0120.i) #10
   %305 = load ptr, ptr %80, align 8
   %306 = tail call ptr @subquery_planner(ptr noundef %305, ptr noundef nonnull %93, ptr noundef %13, i1 noundef zeroext false, double noundef 0.000000e+00) #10
   %307 = load ptr, ptr %83, align 8
@@ -1370,7 +1370,7 @@ simplify_EXISTS_query.exit:                       ; preds = %92, %96, %99, %103,
 
 323:                                              ; preds = %302
   %324 = tail call ptr @create_plan(ptr noundef %306, ptr noundef nonnull %310) #10
-  %325 = tail call fastcc ptr @build_subplan(ptr noundef nonnull %13, ptr noundef %324, ptr noundef %306, ptr noundef %307, i32 noundef 2, i32 noundef 0, ptr noundef %304, ptr noundef %.0117.i, i1 noundef zeroext true)
+  %325 = tail call fastcc ptr @build_subplan(ptr noundef nonnull %13, ptr noundef %324, ptr noundef %306, ptr noundef %307, i32 noundef 2, i32 noundef 0, ptr noundef %304, ptr noundef %.0121.i, i1 noundef zeroext true)
   %326 = tail call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 22, ptr %326, align 4
   %327 = tail call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %88, ptr %325) #10
@@ -1426,7 +1426,7 @@ is_andclause.exit:                                ; preds = %6
 
 .lr.ph129:                                        ; preds = %.lr.ph120, %367
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %367 ], [ 0, %.lr.ph120 ]
-  %.054117128 = phi ptr [ %.155, %367 ], [ null, %.lr.ph120 ]
+  %.052118127 = phi ptr [ %.1, %367 ], [ null, %.lr.ph120 ]
   %352 = load ptr, ptr %349, align 8
   %353 = getelementptr %union.ListCell, ptr %352, i64 %indvars.iv144
   %354 = load ptr, ptr %353, align 8
@@ -1448,15 +1448,15 @@ is_andclause.exit69:                              ; preds = %356
 362:                                              ; preds = %is_andclause.exit69
   %363 = getelementptr inbounds i8, ptr %355, i64 8
   %364 = load ptr, ptr %363, align 8
-  %365 = tail call ptr @list_concat(ptr noundef %.054117128, ptr noundef %364) #10
+  %365 = tail call ptr @list_concat(ptr noundef %.052118127, ptr noundef %364) #10
   br label %367
 
 is_andclause.exit69.thread:                       ; preds = %.lr.ph129, %356, %is_andclause.exit69
-  %366 = tail call ptr @lappend(ptr noundef %.054117128, ptr noundef %355) #10
+  %366 = tail call ptr @lappend(ptr noundef %.052118127, ptr noundef %355) #10
   br label %367
 
 367:                                              ; preds = %362, %is_andclause.exit69.thread
-  %.155 = phi ptr [ %365, %362 ], [ %366, %is_andclause.exit69.thread ]
+  %.1 = phi ptr [ %365, %362 ], [ %366, %is_andclause.exit69.thread ]
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %368 = load i32, ptr %348, align 4
   %369 = sext i32 %368 to i64
@@ -1464,8 +1464,8 @@ is_andclause.exit69.thread:                       ; preds = %.lr.ph129, %356, %i
   br i1 %370, label %.lr.ph129, label %._crit_edge121
 
 ._crit_edge121:                                   ; preds = %367, %.lr.ph120, %341
-  %.054.lcssa = phi ptr [ null, %341 ], [ null, %.lr.ph120 ], [ %.155, %367 ]
-  %371 = tail call ptr @make_andclause(ptr noundef %.054.lcssa) #10
+  %.052.lcssa = phi ptr [ null, %341 ], [ null, %.lr.ph120 ], [ %.1, %367 ]
+  %371 = tail call ptr @make_andclause(ptr noundef %.052.lcssa) #10
   br label %make_subplan.exit
 
 372:                                              ; preds = %is_andclause.exit
@@ -1488,7 +1488,7 @@ is_andclause.exit69.thread:                       ; preds = %.lr.ph129, %356, %i
 
 .lr.ph115:                                        ; preds = %.lr.ph, %398
   %indvars.iv = phi i64 [ %indvars.iv.next, %398 ], [ 0, %.lr.ph ]
-  %.052108114 = phi ptr [ %.1, %398 ], [ null, %.lr.ph ]
+  %.054108114 = phi ptr [ %.155, %398 ], [ null, %.lr.ph ]
   %383 = load ptr, ptr %380, align 8
   %384 = getelementptr %union.ListCell, ptr %383, i64 %indvars.iv
   %385 = load ptr, ptr %384, align 8
@@ -1510,15 +1510,15 @@ is_orclause.exit72:                               ; preds = %387
 393:                                              ; preds = %is_orclause.exit72
   %394 = getelementptr inbounds i8, ptr %386, i64 8
   %395 = load ptr, ptr %394, align 8
-  %396 = tail call ptr @list_concat(ptr noundef %.052108114, ptr noundef %395) #10
+  %396 = tail call ptr @list_concat(ptr noundef %.054108114, ptr noundef %395) #10
   br label %398
 
 is_orclause.exit72.thread:                        ; preds = %.lr.ph115, %387, %is_orclause.exit72
-  %397 = tail call ptr @lappend(ptr noundef %.052108114, ptr noundef %386) #10
+  %397 = tail call ptr @lappend(ptr noundef %.054108114, ptr noundef %386) #10
   br label %398
 
 398:                                              ; preds = %393, %is_orclause.exit72.thread
-  %.1 = phi ptr [ %396, %393 ], [ %397, %is_orclause.exit72.thread ]
+  %.155 = phi ptr [ %396, %393 ], [ %397, %is_orclause.exit72.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %399 = load i32, ptr %379, align 4
   %400 = sext i32 %399 to i64
@@ -1526,8 +1526,8 @@ is_orclause.exit72.thread:                        ; preds = %.lr.ph115, %387, %i
   br i1 %401, label %.lr.ph115, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %398, %.lr.ph, %372
-  %.052.lcssa = phi ptr [ null, %372 ], [ null, %.lr.ph ], [ %.1, %398 ]
-  %402 = tail call ptr @make_orclause(ptr noundef %.052.lcssa) #10
+  %.054.lcssa = phi ptr [ null, %372 ], [ null, %.lr.ph ], [ %.155, %398 ]
+  %402 = tail call ptr @make_orclause(ptr noundef %.054.lcssa) #10
   br label %make_subplan.exit
 
 is_orclause.exit.thread:                          ; preds = %is_andclause.exit, %6, %330, %336, %333
@@ -1537,8 +1537,8 @@ is_orclause.exit.thread:                          ; preds = %is_andclause.exit, 
   br label %make_subplan.exit
 
 make_subplan.exit:                                ; preds = %189, %192, %.lr.ph.i, %155, %225, %223, %219, %221, %209, %211, %._crit_edge.i, %153, %simplify_EXISTS_query.exit, %323, %302, %89, %simplify_EXISTS_query.exit86, %336, %333, %330, %2, %is_orclause.exit.thread, %._crit_edge, %._crit_edge121
-  %.056 = phi ptr [ %371, %._crit_edge121 ], [ %402, %._crit_edge ], [ %404, %is_orclause.exit.thread ], [ null, %2 ], [ %0, %330 ], [ %0, %333 ], [ %0, %336 ], [ %326, %323 ], [ %88, %302 ], [ %88, %89 ], [ %88, %simplify_EXISTS_query.exit86 ], [ %88, %simplify_EXISTS_query.exit ], [ %88, %153 ], [ %88, %._crit_edge.i ], [ %88, %211 ], [ %88, %209 ], [ %88, %221 ], [ %88, %219 ], [ %88, %223 ], [ %88, %225 ], [ %88, %155 ], [ %88, %.lr.ph.i ], [ %88, %192 ], [ %88, %189 ]
-  ret ptr %.056
+  %.0 = phi ptr [ %371, %._crit_edge121 ], [ %402, %._crit_edge ], [ %404, %is_orclause.exit.thread ], [ null, %2 ], [ %0, %330 ], [ %0, %333 ], [ %0, %336 ], [ %326, %323 ], [ %88, %302 ], [ %88, %89 ], [ %88, %simplify_EXISTS_query.exit86 ], [ %88, %simplify_EXISTS_query.exit ], [ %88, %153 ], [ %88, %._crit_edge.i ], [ %88, %211 ], [ %88, %209 ], [ %88, %221 ], [ %88, %219 ], [ %88, %223 ], [ %88, %225 ], [ %88, %155 ], [ %88, %.lr.ph.i ], [ %88, %192 ], [ %88, %189 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1558,7 +1558,7 @@ define dso_local void @SS_identify_outer_params(ptr nocapture noundef %0) local_
 
 .lr.ph102:                                        ; preds = %.preheader, %53
   %.035101 = phi ptr [ %.035, %53 ], [ %.03598, %.preheader ]
-  %.034100 = phi ptr [ %.4, %53 ], [ null, %.preheader ]
+  %.0100 = phi ptr [ %.4, %53 ], [ null, %.preheader ]
   %7 = getelementptr inbounds i8, ptr %.035101, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 4
@@ -1573,7 +1573,7 @@ define dso_local void @SS_identify_outer_params(ptr nocapture noundef %0) local_
 
 .lr.ph65:                                         ; preds = %.lr.ph, %.lr.ph65
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph65 ], [ 0, %.lr.ph ]
-  %.15963 = phi ptr [ %18, %.lr.ph65 ], [ %.034100, %.lr.ph ]
+  %.15963 = phi ptr [ %18, %.lr.ph65 ], [ %.0100, %.lr.ph ]
   %13 = load ptr, ptr %10, align 8
   %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
@@ -1587,7 +1587,7 @@ define dso_local void @SS_identify_outer_params(ptr nocapture noundef %0) local_
   br i1 %21, label %.lr.ph65, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph65, %.lr.ph, %.lr.ph102
-  %.1.lcssa = phi ptr [ %.034100, %.lr.ph102 ], [ %.034100, %.lr.ph ], [ %18, %.lr.ph65 ]
+  %.1.lcssa = phi ptr [ %.0100, %.lr.ph102 ], [ %.0100, %.lr.ph ], [ %18, %.lr.ph65 ]
   %22 = getelementptr inbounds i8, ptr %.035101, i64 144
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 4
@@ -1621,11 +1621,11 @@ define dso_local void @SS_identify_outer_params(ptr nocapture noundef %0) local_
 
 .lr.ph79:                                         ; preds = %.lr.ph70, %.lr.ph79
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %.lr.ph79 ], [ 0, %.lr.ph70 ]
-  %.36778 = phi ptr [ %41, %.lr.ph79 ], [ %.28293, %.lr.ph70 ]
+  %.36877 = phi ptr [ %41, %.lr.ph79 ], [ %.28293, %.lr.ph70 ]
   %38 = load ptr, ptr %35, align 8
   %39 = getelementptr %union.ListCell, ptr %38, i64 %indvars.iv107
   %40 = load i32, ptr %39, align 8
-  %41 = tail call ptr @bms_add_member(ptr noundef %.36778, i32 noundef %40) #10
+  %41 = tail call ptr @bms_add_member(ptr noundef %.36877, i32 noundef %40) #10
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %42 = load i32, ptr %34, align 4
   %43 = sext i32 %42 to i64
@@ -1663,9 +1663,9 @@ define dso_local void @SS_identify_outer_params(ptr nocapture noundef %0) local_
   br i1 %.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !8
 
 ._crit_edge103:                                   ; preds = %53, %.preheader
-  %.034.lcssa = phi ptr [ null, %.preheader ], [ %.4, %53 ]
+  %.0.lcssa = phi ptr [ null, %.preheader ], [ %.4, %53 ]
   %54 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %.034.lcssa, ptr %54, align 8
+  store ptr %.0.lcssa, ptr %54, align 8
   br label %55
 
 55:                                               ; preds = %1, %._crit_edge103
@@ -1933,8 +1933,8 @@ define internal fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %1, i32 no
 
 .lr.ph368:                                        ; preds = %.lr.ph352, %._crit_edge
   %indvars.iv429 = phi i64 [ %indvars.iv.next430, %._crit_edge ], [ 0, %.lr.ph352 ]
-  %.0257349366 = phi ptr [ %.1258.lcssa, %._crit_edge ], [ null, %.lr.ph352 ]
-  %.0255350365 = phi ptr [ %34, %._crit_edge ], [ null, %.lr.ph352 ]
+  %.0254349366 = phi ptr [ %.1255.lcssa, %._crit_edge ], [ null, %.lr.ph352 ]
+  %.0253350365 = phi ptr [ %34, %._crit_edge ], [ null, %.lr.ph352 ]
   %19 = load ptr, ptr %15, align 8
   %20 = getelementptr %union.ListCell, ptr %19, i64 %indvars.iv429
   %21 = load ptr, ptr %20, align 8
@@ -1951,7 +1951,7 @@ define internal fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %1, i32 no
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 88
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call ptr @bms_add_members(ptr noundef %.0255350365, ptr noundef %33) #10
+  %34 = tail call ptr @bms_add_members(ptr noundef %.0253350365, ptr noundef %33) #10
   %35 = getelementptr inbounds i8, ptr %21, i64 56
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 4
@@ -1966,11 +1966,11 @@ define internal fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %1, i32 no
 
 .lr.ph346:                                        ; preds = %.lr.ph, %.lr.ph346
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph346 ], [ 0, %.lr.ph ]
-  %.1258340344 = phi ptr [ %44, %.lr.ph346 ], [ %.0257349366, %.lr.ph ]
+  %.1255340344 = phi ptr [ %44, %.lr.ph346 ], [ %.0254349366, %.lr.ph ]
   %41 = load ptr, ptr %38, align 8
   %42 = getelementptr %union.ListCell, ptr %41, i64 %indvars.iv
   %43 = load i32, ptr %42, align 8
-  %44 = tail call ptr @bms_add_member(ptr noundef %.1258340344, i32 noundef %43) #10
+  %44 = tail call ptr @bms_add_member(ptr noundef %.1255340344, i32 noundef %43) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = load i32, ptr %37, align 4
   %46 = sext i32 %45 to i64
@@ -1978,7 +1978,7 @@ define internal fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %47, label %.lr.ph346, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph346, %.lr.ph, %.lr.ph368
-  %.1258.lcssa = phi ptr [ %.0257349366, %.lr.ph368 ], [ %.0257349366, %.lr.ph ], [ %44, %.lr.ph346 ]
+  %.1255.lcssa = phi ptr [ %.0254349366, %.lr.ph368 ], [ %.0254349366, %.lr.ph ], [ %44, %.lr.ph346 ]
   %indvars.iv.next430 = add nuw nsw i64 %indvars.iv429, 1
   %48 = load i32, ptr %14, align 4
   %49 = sext i32 %48 to i64
@@ -1986,17 +1986,17 @@ define internal fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %50, label %.lr.ph368, label %._crit_edge353
 
 ._crit_edge353:                                   ; preds = %._crit_edge
-  %.not281 = icmp eq ptr %.1258.lcssa, null
+  %.not281 = icmp eq ptr %.1255.lcssa, null
   br i1 %.not281, label %._crit_edge353.thread, label %51
 
 51:                                               ; preds = %._crit_edge353
-  %52 = tail call ptr @bms_union(ptr noundef %3, ptr noundef nonnull %.1258.lcssa) #10
+  %52 = tail call ptr @bms_union(ptr noundef %3, ptr noundef nonnull %.1255.lcssa) #10
   br label %._crit_edge353.thread
 
 ._crit_edge353.thread:                            ; preds = %.lr.ph352, %10, %51, %._crit_edge353
-  %.0255.lcssa461 = phi ptr [ %34, %51 ], [ %34, %._crit_edge353 ], [ null, %10 ], [ null, %.lr.ph352 ]
-  %.0257.lcssa460 = phi ptr [ %.1258.lcssa, %51 ], [ null, %._crit_edge353 ], [ null, %10 ], [ null, %.lr.ph352 ]
-  %.0249 = phi ptr [ %52, %51 ], [ %3, %._crit_edge353 ], [ %3, %10 ], [ %3, %.lr.ph352 ]
+  %.0253.lcssa461 = phi ptr [ %34, %51 ], [ %34, %._crit_edge353 ], [ null, %10 ], [ null, %.lr.ph352 ]
+  %.0254.lcssa460 = phi ptr [ %.1255.lcssa, %51 ], [ null, %._crit_edge353 ], [ null, %10 ], [ null, %.lr.ph352 ]
+  %.0248 = phi ptr [ %52, %51 ], [ %3, %._crit_edge353 ], [ %3, %10 ], [ %3, %.lr.ph352 ]
   %53 = getelementptr inbounds i8, ptr %1, i64 48
   %54 = load ptr, ptr %53, align 8
   %55 = call zeroext i1 @finalize_primnode(ptr noundef %54, ptr noundef nonnull %6)
@@ -2172,10 +2172,10 @@ define internal fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %1, i32 no
 
 140:                                              ; preds = %137, %128
   %141 = phi ptr [ %.pre456, %137 ], [ %133, %128 ]
-  %.0256 = phi ptr [ %139, %137 ], [ %135, %128 ]
+  %.0261 = phi ptr [ %139, %137 ], [ %135, %128 ]
   %142 = getelementptr inbounds i8, ptr %1, i64 112
   %143 = load ptr, ptr %142, align 8
-  %144 = call fastcc ptr @finalize_plan(ptr noundef %141, ptr noundef %143, i32 noundef %2, ptr noundef %.0256, ptr noundef null)
+  %144 = call fastcc ptr @finalize_plan(ptr noundef %141, ptr noundef %143, i32 noundef %2, ptr noundef %.0261, ptr noundef null)
   %145 = load ptr, ptr %11, align 8
   %146 = load ptr, ptr %142, align 8
   %147 = getelementptr inbounds i8, ptr %146, i64 88
@@ -2343,7 +2343,7 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
   %243 = load ptr, ptr %239, align 8
   %244 = getelementptr %union.ListCell, ptr %243, i64 %indvars.iv447
   %245 = load ptr, ptr %244, align 8
-  %246 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %245, i32 noundef %2, ptr noundef %.0249, ptr noundef %4)
+  %246 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %245, i32 noundef %2, ptr noundef %.0248, ptr noundef %4)
   %247 = call ptr @bms_add_members(ptr noundef %242, ptr noundef %246) #10
   store ptr %247, ptr %11, align 8
   %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
@@ -2355,7 +2355,7 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
 251:                                              ; preds = %70
   %252 = getelementptr inbounds i8, ptr %1, i64 184
   %253 = load i32, ptr %252, align 8
-  %254 = call ptr @bms_copy(ptr noundef %.0249) #10
+  %254 = call ptr @bms_copy(ptr noundef %.0248) #10
   %255 = call ptr @bms_add_member(ptr noundef %254, i32 noundef %253) #10
   %256 = call ptr @bms_copy(ptr noundef %4) #10
   %257 = call ptr @bms_add_member(ptr noundef %256, i32 noundef %253) #10
@@ -2393,7 +2393,7 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
   %275 = load ptr, ptr %271, align 8
   %276 = getelementptr %union.ListCell, ptr %275, i64 %indvars.iv444
   %277 = load ptr, ptr %276, align 8
-  %278 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %277, i32 noundef %2, ptr noundef %.0249, ptr noundef %4)
+  %278 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %277, i32 noundef %2, ptr noundef %.0248, ptr noundef %4)
   %279 = call ptr @bms_add_members(ptr noundef %274, ptr noundef %278) #10
   store ptr %279, ptr %11, align 8
   %indvars.iv.next445 = add nuw nsw i64 %indvars.iv444, 1
@@ -2425,7 +2425,7 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
   %291 = load ptr, ptr %287, align 8
   %292 = getelementptr %union.ListCell, ptr %291, i64 %indvars.iv441
   %293 = load ptr, ptr %292, align 8
-  %294 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %293, i32 noundef %2, ptr noundef %.0249, ptr noundef %4)
+  %294 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %293, i32 noundef %2, ptr noundef %.0248, ptr noundef %4)
   %295 = call ptr @bms_add_members(ptr noundef %290, ptr noundef %294) #10
   store ptr %295, ptr %11, align 8
   %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 1
@@ -2457,7 +2457,7 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
   %307 = load ptr, ptr %303, align 8
   %308 = getelementptr %union.ListCell, ptr %307, i64 %indvars.iv438
   %309 = load ptr, ptr %308, align 8
-  %310 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %309, i32 noundef %2, ptr noundef %.0249, ptr noundef %4)
+  %310 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %309, i32 noundef %2, ptr noundef %.0248, ptr noundef %4)
   %311 = call ptr @bms_add_members(ptr noundef %306, ptr noundef %310) #10
   store ptr %311, ptr %11, align 8
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
@@ -2489,7 +2489,7 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
   %323 = load ptr, ptr %319, align 8
   %324 = getelementptr %union.ListCell, ptr %323, i64 %indvars.iv435
   %325 = load ptr, ptr %324, align 8
-  %326 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %325, i32 noundef %2, ptr noundef %.0249, ptr noundef %4)
+  %326 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %325, i32 noundef %2, ptr noundef %.0248, ptr noundef %4)
   %327 = call ptr @bms_add_members(ptr noundef %322, ptr noundef %326) #10
   store ptr %327, ptr %11, align 8
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
@@ -2516,13 +2516,13 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
 
 .lr.ph382:                                        ; preds = %.lr.ph374, %.lr.ph382
   %indvars.iv432 = phi i64 [ %indvars.iv.next433, %.lr.ph382 ], [ 0, %.lr.ph374 ]
-  %.0252371381 = phi ptr [ %346, %.lr.ph382 ], [ null, %.lr.ph374 ]
+  %.0251371381 = phi ptr [ %346, %.lr.ph382 ], [ null, %.lr.ph374 ]
   %341 = load ptr, ptr %338, align 8
   %342 = getelementptr %union.ListCell, ptr %341, i64 %indvars.iv432
   %343 = load ptr, ptr %342, align 8
   %344 = getelementptr inbounds i8, ptr %343, i64 4
   %345 = load i32, ptr %344, align 4
-  %346 = call ptr @bms_add_member(ptr noundef %.0252371381, i32 noundef %345) #10
+  %346 = call ptr @bms_add_member(ptr noundef %.0251371381, i32 noundef %345) #10
   %indvars.iv.next433 = add nuw nsw i64 %indvars.iv432, 1
   %347 = load i32, ptr %337, align 4
   %348 = sext i32 %347 to i64
@@ -2565,14 +2565,14 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
 375:                                              ; preds = %70
   %376 = getelementptr inbounds i8, ptr %1, i64 104
   %377 = load i32, ptr %376, align 8
-  %378 = call ptr @bms_copy(ptr noundef %.0249) #10
+  %378 = call ptr @bms_copy(ptr noundef %.0248) #10
   %379 = call ptr @bms_add_member(ptr noundef %378, i32 noundef %377) #10
   br label %.thread311
 
 380:                                              ; preds = %70
   %381 = getelementptr inbounds i8, ptr %1, i64 112
   %382 = load i32, ptr %381, align 8
-  %383 = call ptr @bms_copy(ptr noundef %.0249) #10
+  %383 = call ptr @bms_copy(ptr noundef %.0248) #10
   %384 = call ptr @bms_add_member(ptr noundef %383, i32 noundef %382) #10
   %385 = call ptr @bms_copy(ptr noundef %4) #10
   %386 = call ptr @bms_add_member(ptr noundef %385, i32 noundef %382) #10
@@ -2613,7 +2613,7 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
   br i1 %409, label %410, label %.thread311
 
 410:                                              ; preds = %406
-  %411 = call ptr @bms_copy(ptr noundef %.0249) #10
+  %411 = call ptr @bms_copy(ptr noundef %.0248) #10
   %412 = call ptr @bms_add_member(ptr noundef %411, i32 noundef %408) #10
   br label %.thread311
 
@@ -2624,7 +2624,7 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
   br i1 %416, label %417, label %.thread311
 
 417:                                              ; preds = %413
-  %418 = call ptr @bms_copy(ptr noundef %.0249) #10
+  %418 = call ptr @bms_copy(ptr noundef %.0248) #10
   %419 = call ptr @bms_add_member(ptr noundef %418, i32 noundef %415) #10
   br label %.thread311
 
@@ -2643,43 +2643,43 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
   unreachable
 
 .thread311:                                       ; preds = %.lr.ph382, %.lr.ph389, %.lr.ph395, %.lr.ph401, %.lr.ph407, %.lr.ph413, %331, %.lr.ph374, %315, %.lr.ph386, %299, %.lr.ph392, %283, %.lr.ph398, %267, %.lr.ph404, %230, %.lr.ph410, %70, %70, %70, %70, %70, %70, %70, %413, %417, %406, %410, %387, %391, %420, %399, %380, %375, %368, %364, %357, %350, %251, %221, %218, %212, %201, %181, %175, %._crit_edge417, %140, %122, %116, %110, %106, %94, %85, %79, %76, %72
-  %.1253 = phi ptr [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %420 ], [ null, %417 ], [ null, %413 ], [ null, %410 ], [ null, %406 ], [ null, %399 ], [ null, %391 ], [ null, %387 ], [ null, %380 ], [ null, %375 ], [ null, %368 ], [ null, %364 ], [ null, %357 ], [ null, %350 ], [ null, %251 ], [ null, %221 ], [ null, %218 ], [ null, %212 ], [ null, %201 ], [ null, %181 ], [ null, %175 ], [ null, %._crit_edge417 ], [ null, %140 ], [ null, %122 ], [ null, %116 ], [ null, %110 ], [ null, %106 ], [ null, %94 ], [ null, %85 ], [ null, %79 ], [ null, %76 ], [ null, %72 ], [ null, %.lr.ph410 ], [ null, %230 ], [ null, %.lr.ph404 ], [ null, %267 ], [ null, %.lr.ph398 ], [ null, %283 ], [ null, %.lr.ph392 ], [ null, %299 ], [ null, %.lr.ph386 ], [ null, %315 ], [ null, %331 ], [ null, %.lr.ph374 ], [ null, %.lr.ph413 ], [ null, %.lr.ph407 ], [ null, %.lr.ph401 ], [ null, %.lr.ph395 ], [ null, %.lr.ph389 ], [ %346, %.lr.ph382 ]
-  %.0251 = phi i32 [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %420 ], [ %415, %417 ], [ %415, %413 ], [ %408, %410 ], [ %408, %406 ], [ -1, %399 ], [ -1, %391 ], [ -1, %387 ], [ %382, %380 ], [ %377, %375 ], [ -1, %368 ], [ -1, %364 ], [ -1, %357 ], [ -1, %350 ], [ %253, %251 ], [ -1, %221 ], [ -1, %218 ], [ -1, %212 ], [ -1, %201 ], [ -1, %181 ], [ -1, %175 ], [ -1, %._crit_edge417 ], [ -1, %140 ], [ -1, %122 ], [ -1, %116 ], [ -1, %110 ], [ -1, %106 ], [ -1, %94 ], [ -1, %85 ], [ -1, %79 ], [ -1, %76 ], [ -1, %72 ], [ -1, %.lr.ph410 ], [ -1, %230 ], [ -1, %.lr.ph404 ], [ -1, %267 ], [ -1, %.lr.ph398 ], [ -1, %283 ], [ -1, %.lr.ph392 ], [ -1, %299 ], [ -1, %.lr.ph386 ], [ -1, %315 ], [ -1, %331 ], [ -1, %.lr.ph374 ], [ -1, %.lr.ph413 ], [ -1, %.lr.ph407 ], [ -1, %.lr.ph401 ], [ -1, %.lr.ph395 ], [ -1, %.lr.ph389 ], [ -1, %.lr.ph382 ]
-  %.0250 = phi ptr [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %420 ], [ %4, %417 ], [ %4, %413 ], [ %4, %410 ], [ %4, %406 ], [ %4, %399 ], [ %4, %391 ], [ %4, %387 ], [ %386, %380 ], [ %4, %375 ], [ %4, %368 ], [ %4, %364 ], [ %4, %357 ], [ %4, %350 ], [ %257, %251 ], [ %4, %221 ], [ %4, %218 ], [ %4, %212 ], [ %4, %201 ], [ %4, %181 ], [ %4, %175 ], [ %4, %._crit_edge417 ], [ %4, %140 ], [ %4, %122 ], [ %4, %116 ], [ %4, %110 ], [ %4, %106 ], [ %4, %94 ], [ %4, %85 ], [ %4, %79 ], [ %4, %76 ], [ %4, %72 ], [ %4, %.lr.ph410 ], [ %4, %230 ], [ %4, %.lr.ph404 ], [ %4, %267 ], [ %4, %.lr.ph398 ], [ %4, %283 ], [ %4, %.lr.ph392 ], [ %4, %299 ], [ %4, %.lr.ph386 ], [ %4, %315 ], [ %4, %331 ], [ %4, %.lr.ph374 ], [ %4, %.lr.ph413 ], [ %4, %.lr.ph407 ], [ %4, %.lr.ph401 ], [ %4, %.lr.ph395 ], [ %4, %.lr.ph389 ], [ %4, %.lr.ph382 ]
-  %.1 = phi ptr [ %.0249, %70 ], [ %.0249, %70 ], [ %.0249, %70 ], [ %.0249, %70 ], [ %.0249, %70 ], [ %.0249, %70 ], [ %.0249, %70 ], [ %.0249, %420 ], [ %419, %417 ], [ %.0249, %413 ], [ %412, %410 ], [ %.0249, %406 ], [ %.0249, %399 ], [ %.0249, %391 ], [ %.0249, %387 ], [ %384, %380 ], [ %379, %375 ], [ %.0249, %368 ], [ %.0249, %364 ], [ %.0249, %357 ], [ %.0249, %350 ], [ %255, %251 ], [ %.0249, %221 ], [ %.0249, %218 ], [ %.0249, %212 ], [ %.0249, %201 ], [ %.0249, %181 ], [ %.0249, %175 ], [ %.0249, %._crit_edge417 ], [ %.0249, %140 ], [ %.0249, %122 ], [ %.0249, %116 ], [ %.0249, %110 ], [ %.0249, %106 ], [ %.0249, %94 ], [ %.0249, %85 ], [ %.0249, %79 ], [ %.0249, %76 ], [ %.0249, %72 ], [ %.0249, %.lr.ph410 ], [ %.0249, %230 ], [ %.0249, %.lr.ph404 ], [ %.0249, %267 ], [ %.0249, %.lr.ph398 ], [ %.0249, %283 ], [ %.0249, %.lr.ph392 ], [ %.0249, %299 ], [ %.0249, %.lr.ph386 ], [ %.0249, %315 ], [ %.0249, %331 ], [ %.0249, %.lr.ph374 ], [ %.0249, %.lr.ph413 ], [ %.0249, %.lr.ph407 ], [ %.0249, %.lr.ph401 ], [ %.0249, %.lr.ph395 ], [ %.0249, %.lr.ph389 ], [ %.0249, %.lr.ph382 ]
+  %.1252 = phi ptr [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %70 ], [ null, %420 ], [ null, %417 ], [ null, %413 ], [ null, %410 ], [ null, %406 ], [ null, %399 ], [ null, %391 ], [ null, %387 ], [ null, %380 ], [ null, %375 ], [ null, %368 ], [ null, %364 ], [ null, %357 ], [ null, %350 ], [ null, %251 ], [ null, %221 ], [ null, %218 ], [ null, %212 ], [ null, %201 ], [ null, %181 ], [ null, %175 ], [ null, %._crit_edge417 ], [ null, %140 ], [ null, %122 ], [ null, %116 ], [ null, %110 ], [ null, %106 ], [ null, %94 ], [ null, %85 ], [ null, %79 ], [ null, %76 ], [ null, %72 ], [ null, %.lr.ph410 ], [ null, %230 ], [ null, %.lr.ph404 ], [ null, %267 ], [ null, %.lr.ph398 ], [ null, %283 ], [ null, %.lr.ph392 ], [ null, %299 ], [ null, %.lr.ph386 ], [ null, %315 ], [ null, %331 ], [ null, %.lr.ph374 ], [ null, %.lr.ph413 ], [ null, %.lr.ph407 ], [ null, %.lr.ph401 ], [ null, %.lr.ph395 ], [ null, %.lr.ph389 ], [ %346, %.lr.ph382 ]
+  %.0250 = phi i32 [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %70 ], [ -1, %420 ], [ %415, %417 ], [ %415, %413 ], [ %408, %410 ], [ %408, %406 ], [ -1, %399 ], [ -1, %391 ], [ -1, %387 ], [ %382, %380 ], [ %377, %375 ], [ -1, %368 ], [ -1, %364 ], [ -1, %357 ], [ -1, %350 ], [ %253, %251 ], [ -1, %221 ], [ -1, %218 ], [ -1, %212 ], [ -1, %201 ], [ -1, %181 ], [ -1, %175 ], [ -1, %._crit_edge417 ], [ -1, %140 ], [ -1, %122 ], [ -1, %116 ], [ -1, %110 ], [ -1, %106 ], [ -1, %94 ], [ -1, %85 ], [ -1, %79 ], [ -1, %76 ], [ -1, %72 ], [ -1, %.lr.ph410 ], [ -1, %230 ], [ -1, %.lr.ph404 ], [ -1, %267 ], [ -1, %.lr.ph398 ], [ -1, %283 ], [ -1, %.lr.ph392 ], [ -1, %299 ], [ -1, %.lr.ph386 ], [ -1, %315 ], [ -1, %331 ], [ -1, %.lr.ph374 ], [ -1, %.lr.ph413 ], [ -1, %.lr.ph407 ], [ -1, %.lr.ph401 ], [ -1, %.lr.ph395 ], [ -1, %.lr.ph389 ], [ -1, %.lr.ph382 ]
+  %.0249 = phi ptr [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %70 ], [ %4, %420 ], [ %4, %417 ], [ %4, %413 ], [ %4, %410 ], [ %4, %406 ], [ %4, %399 ], [ %4, %391 ], [ %4, %387 ], [ %386, %380 ], [ %4, %375 ], [ %4, %368 ], [ %4, %364 ], [ %4, %357 ], [ %4, %350 ], [ %257, %251 ], [ %4, %221 ], [ %4, %218 ], [ %4, %212 ], [ %4, %201 ], [ %4, %181 ], [ %4, %175 ], [ %4, %._crit_edge417 ], [ %4, %140 ], [ %4, %122 ], [ %4, %116 ], [ %4, %110 ], [ %4, %106 ], [ %4, %94 ], [ %4, %85 ], [ %4, %79 ], [ %4, %76 ], [ %4, %72 ], [ %4, %.lr.ph410 ], [ %4, %230 ], [ %4, %.lr.ph404 ], [ %4, %267 ], [ %4, %.lr.ph398 ], [ %4, %283 ], [ %4, %.lr.ph392 ], [ %4, %299 ], [ %4, %.lr.ph386 ], [ %4, %315 ], [ %4, %331 ], [ %4, %.lr.ph374 ], [ %4, %.lr.ph413 ], [ %4, %.lr.ph407 ], [ %4, %.lr.ph401 ], [ %4, %.lr.ph395 ], [ %4, %.lr.ph389 ], [ %4, %.lr.ph382 ]
+  %.1 = phi ptr [ %.0248, %70 ], [ %.0248, %70 ], [ %.0248, %70 ], [ %.0248, %70 ], [ %.0248, %70 ], [ %.0248, %70 ], [ %.0248, %70 ], [ %.0248, %420 ], [ %419, %417 ], [ %.0248, %413 ], [ %412, %410 ], [ %.0248, %406 ], [ %.0248, %399 ], [ %.0248, %391 ], [ %.0248, %387 ], [ %384, %380 ], [ %379, %375 ], [ %.0248, %368 ], [ %.0248, %364 ], [ %.0248, %357 ], [ %.0248, %350 ], [ %255, %251 ], [ %.0248, %221 ], [ %.0248, %218 ], [ %.0248, %212 ], [ %.0248, %201 ], [ %.0248, %181 ], [ %.0248, %175 ], [ %.0248, %._crit_edge417 ], [ %.0248, %140 ], [ %.0248, %122 ], [ %.0248, %116 ], [ %.0248, %110 ], [ %.0248, %106 ], [ %.0248, %94 ], [ %.0248, %85 ], [ %.0248, %79 ], [ %.0248, %76 ], [ %.0248, %72 ], [ %.0248, %.lr.ph410 ], [ %.0248, %230 ], [ %.0248, %.lr.ph404 ], [ %.0248, %267 ], [ %.0248, %.lr.ph398 ], [ %.0248, %283 ], [ %.0248, %.lr.ph392 ], [ %.0248, %299 ], [ %.0248, %.lr.ph386 ], [ %.0248, %315 ], [ %.0248, %331 ], [ %.0248, %.lr.ph374 ], [ %.0248, %.lr.ph413 ], [ %.0248, %.lr.ph407 ], [ %.0248, %.lr.ph401 ], [ %.0248, %.lr.ph395 ], [ %.0248, %.lr.ph389 ], [ %.0248, %.lr.ph382 ]
   %.0247 = phi i32 [ %2, %70 ], [ %2, %70 ], [ %2, %70 ], [ %2, %70 ], [ %2, %70 ], [ %2, %70 ], [ %2, %70 ], [ %2, %420 ], [ %415, %417 ], [ %2, %413 ], [ %408, %410 ], [ %2, %406 ], [ %2, %399 ], [ %2, %391 ], [ %2, %387 ], [ %2, %380 ], [ %2, %375 ], [ %2, %368 ], [ %2, %364 ], [ %2, %357 ], [ %2, %350 ], [ %2, %251 ], [ %2, %221 ], [ %2, %218 ], [ %2, %212 ], [ %2, %201 ], [ %2, %181 ], [ %2, %175 ], [ %2, %._crit_edge417 ], [ %2, %140 ], [ %2, %122 ], [ %2, %116 ], [ %2, %110 ], [ %2, %106 ], [ %2, %94 ], [ %2, %85 ], [ %2, %79 ], [ %2, %76 ], [ %2, %72 ], [ %2, %.lr.ph410 ], [ %2, %230 ], [ %2, %.lr.ph404 ], [ %2, %267 ], [ %2, %.lr.ph398 ], [ %2, %283 ], [ %2, %.lr.ph392 ], [ %2, %299 ], [ %2, %.lr.ph386 ], [ %2, %315 ], [ %2, %331 ], [ %2, %.lr.ph374 ], [ %2, %.lr.ph413 ], [ %2, %.lr.ph407 ], [ %2, %.lr.ph401 ], [ %2, %.lr.ph395 ], [ %2, %.lr.ph389 ], [ %2, %.lr.ph382 ]
   %428 = getelementptr inbounds i8, ptr %1, i64 64
   %429 = load ptr, ptr %428, align 8
-  %430 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %429, i32 noundef %.0247, ptr noundef %.1, ptr noundef %.0250)
+  %430 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %429, i32 noundef %.0247, ptr noundef %.1, ptr noundef %.0249)
   %431 = load ptr, ptr %11, align 8
   %432 = call ptr @bms_add_members(ptr noundef %431, ptr noundef %430) #10
   store ptr %432, ptr %11, align 8
-  %.not296 = icmp eq ptr %.1253, null
+  %.not296 = icmp eq ptr %.1252, null
   %433 = getelementptr inbounds i8, ptr %1, i64 72
   %434 = load ptr, ptr %433, align 8
   br i1 %.not296, label %439, label %435
 
 435:                                              ; preds = %.thread311
-  %436 = call ptr @bms_union(ptr noundef nonnull %.1253, ptr noundef %.1) #10
-  %437 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %434, i32 noundef %.0247, ptr noundef %436, ptr noundef %.0250)
-  %438 = call ptr @bms_difference(ptr noundef %437, ptr noundef nonnull %.1253) #10
-  call void @bms_free(ptr noundef nonnull %.1253) #10
+  %436 = call ptr @bms_union(ptr noundef nonnull %.1252, ptr noundef %.1) #10
+  %437 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %434, i32 noundef %.0247, ptr noundef %436, ptr noundef %.0249)
+  %438 = call ptr @bms_difference(ptr noundef %437, ptr noundef nonnull %.1252) #10
+  call void @bms_free(ptr noundef nonnull %.1252) #10
   br label %441
 
 439:                                              ; preds = %.thread311
-  %440 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %434, i32 noundef %.0247, ptr noundef %.1, ptr noundef %.0250)
+  %440 = call fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %434, i32 noundef %.0247, ptr noundef %.1, ptr noundef %.0249)
   br label %441
 
 441:                                              ; preds = %439, %435
-  %.0260 = phi ptr [ %438, %435 ], [ %440, %439 ]
+  %.0256 = phi ptr [ %438, %435 ], [ %440, %439 ]
   %442 = load ptr, ptr %11, align 8
-  %443 = call ptr @bms_add_members(ptr noundef %442, ptr noundef %.0260) #10
+  %443 = call ptr @bms_add_members(ptr noundef %442, ptr noundef %.0256) #10
   store ptr %443, ptr %11, align 8
-  %444 = icmp sgt i32 %.0251, -1
+  %444 = icmp sgt i32 %.0250, -1
   br i1 %444, label %445, label %447
 
 445:                                              ; preds = %441
-  %446 = call ptr @bms_del_member(ptr noundef %443, i32 noundef %.0251) #10
+  %446 = call ptr @bms_del_member(ptr noundef %443, i32 noundef %.0250) #10
   store ptr %446, ptr %11, align 8
   br label %447
 
@@ -2697,16 +2697,16 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
 
 453:                                              ; preds = %447
   %454 = load ptr, ptr %11, align 8
-  %455 = call ptr @bms_union(ptr noundef %454, ptr noundef %.0255.lcssa461) #10
+  %455 = call ptr @bms_union(ptr noundef %454, ptr noundef %.0253.lcssa461) #10
   %456 = getelementptr inbounds i8, ptr %1, i64 96
   store ptr %455, ptr %456, align 8
-  %457 = call ptr @bms_add_members(ptr noundef %455, ptr noundef %.0257.lcssa460) #10
+  %457 = call ptr @bms_add_members(ptr noundef %455, ptr noundef %.0254.lcssa460) #10
   store ptr %457, ptr %456, align 8
   %458 = load ptr, ptr %11, align 8
-  %459 = call ptr @bms_union(ptr noundef %458, ptr noundef %.0255.lcssa461) #10
+  %459 = call ptr @bms_union(ptr noundef %458, ptr noundef %.0253.lcssa461) #10
   %460 = getelementptr inbounds i8, ptr %1, i64 88
   store ptr %459, ptr %460, align 8
-  %461 = call ptr @bms_del_members(ptr noundef %459, ptr noundef %.0257.lcssa460) #10
+  %461 = call ptr @bms_del_members(ptr noundef %459, ptr noundef %.0254.lcssa460) #10
   store ptr %461, ptr %460, align 8
   %462 = load ptr, ptr %456, align 8
   br label %463
@@ -3542,7 +3542,7 @@ list_length.exit196:                              ; preds = %232, %234
 
 .lr.ph219:                                        ; preds = %.lr.ph219.preheader, %.lr.ph219
   %indvars.iv221 = phi i64 [ 0, %.lr.ph219.preheader ], [ %indvars.iv.next222, %.lr.ph219 ]
-  %.0212218 = phi ptr [ %258, %.lr.ph219.preheader ], [ %272, %.lr.ph219 ]
+  %.0165212218 = phi ptr [ %258, %.lr.ph219.preheader ], [ %272, %.lr.ph219 ]
   %259 = load ptr, ptr %254, align 8
   %260 = getelementptr %union.ListCell, ptr %259, i64 %indvars.iv221
   %261 = load i32, ptr %260, align 8
@@ -3558,9 +3558,9 @@ list_length.exit196:                              ; preds = %232, %234
   %.not183207 = icmp eq ptr %265, null
   %.not183 = or i1 %.not183207, %268
   %269 = select i1 %.not183, ptr @.str.13, ptr @.str.12
-  %270 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0212218, ptr noundef nonnull @.str.11, i32 noundef %261, ptr noundef nonnull %269) #10
+  %270 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0165212218, ptr noundef nonnull @.str.11, i32 noundef %261, ptr noundef nonnull %269) #10
   %271 = sext i32 %270 to i64
-  %272 = getelementptr i8, ptr %.0212218, i64 %271
+  %272 = getelementptr i8, ptr %.0165212218, i64 %271
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %273 = load i32, ptr %253, align 4
   %274 = sext i32 %273 to i64
@@ -3760,8 +3760,8 @@ test_opexpr_is_hashable.exit.thread:              ; preds = %3, %2, %9, %13, %li
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph58, %test_opexpr_is_hashable.exit31, %32, %41, %list_length.exit.i26, %49, %45, %25, %.lr.ph.split, %test_opexpr_is_hashable.exit, %test_opexpr_is_hashable.exit.thread
-  %.015 = phi i1 [ false, %test_opexpr_is_hashable.exit.thread ], [ true, %test_opexpr_is_hashable.exit ], [ true, %25 ], [ true, %.lr.ph.split ], [ false, %.lr.ph58 ], [ false, %test_opexpr_is_hashable.exit31 ], [ true, %32 ], [ false, %41 ], [ false, %list_length.exit.i26 ], [ false, %49 ], [ false, %45 ]
-  ret i1 %.015
+  %.0 = phi i1 [ false, %test_opexpr_is_hashable.exit.thread ], [ true, %test_opexpr_is_hashable.exit ], [ true, %25 ], [ true, %.lr.ph.split ], [ false, %.lr.ph58 ], [ false, %test_opexpr_is_hashable.exit31 ], [ true, %32 ], [ false, %41 ], [ false, %list_length.exit.i26 ], [ false, %49 ], [ false, %45 ]
+  ret i1 %.0
 }
 
 declare zeroext i1 @ExecMaterializesOutput(i32 noundef) local_unnamed_addr #1
@@ -3992,11 +3992,11 @@ define internal zeroext i1 @finalize_primnode(ptr noundef %0, ptr noundef %1) #0
 
 .lr.ph77:                                         ; preds = %.lr.ph70, %.lr.ph77
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.lr.ph77 ], [ 0, %.lr.ph70 ]
-  %.06776 = phi ptr [ %71, %.lr.ph77 ], [ %61, %.lr.ph70 ]
+  %.0476776 = phi ptr [ %71, %.lr.ph77 ], [ %61, %.lr.ph70 ]
   %68 = load ptr, ptr %65, align 8
   %69 = getelementptr %union.ListCell, ptr %68, i64 %indvars.iv80
   %70 = load i32, ptr %69, align 8
-  %71 = tail call ptr @bms_del_member(ptr noundef %.06776, i32 noundef %70) #10
+  %71 = tail call ptr @bms_del_member(ptr noundef %.0476776, i32 noundef %70) #10
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %72 = load i32, ptr %64, align 4
   %73 = sext i32 %72 to i64
@@ -4004,10 +4004,10 @@ define internal zeroext i1 @finalize_primnode(ptr noundef %0, ptr noundef %1) #0
   br i1 %74, label %.lr.ph77, label %._crit_edge71
 
 ._crit_edge71:                                    ; preds = %.lr.ph77, %.lr.ph70, %._crit_edge
-  %.0.lcssa = phi ptr [ %61, %._crit_edge ], [ %61, %.lr.ph70 ], [ %71, %.lr.ph77 ]
+  %.047.lcssa = phi ptr [ %61, %._crit_edge ], [ %61, %.lr.ph70 ], [ %71, %.lr.ph77 ]
   %75 = getelementptr inbounds i8, ptr %1, i64 8
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call ptr @bms_join(ptr noundef %76, ptr noundef %.0.lcssa) #10
+  %77 = tail call ptr @bms_join(ptr noundef %76, ptr noundef %.047.lcssa) #10
   store ptr %77, ptr %75, align 8
   br label %80
 
@@ -4016,8 +4016,8 @@ define internal zeroext i1 @finalize_primnode(ptr noundef %0, ptr noundef %1) #0
   br label %80
 
 80:                                               ; preds = %6, %10, %2, %78, %._crit_edge71
-  %.047 = phi i1 [ %79, %78 ], [ false, %._crit_edge71 ], [ false, %2 ], [ false, %10 ], [ false, %6 ]
-  ret i1 %.047
+  %.0 = phi i1 [ %79, %78 ], [ false, %._crit_edge71 ], [ false, %2 ], [ false, %10 ], [ false, %6 ]
+  ret i1 %.0
 }
 
 declare ptr @find_base_rel(ptr noundef, i32 noundef) local_unnamed_addr #1

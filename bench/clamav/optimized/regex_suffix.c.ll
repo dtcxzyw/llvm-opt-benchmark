@@ -91,15 +91,15 @@ define i32 @cli_regex2suffix(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   br i1 %.not35, label %.thread, label %.thread42
 
 .thread42:                                        ; preds = %25, %28
-  %.047 = phi i32 [ %30, %28 ], [ 12, %25 ]
+  %.02646 = phi i32 [ %30, %28 ], [ 12, %25 ]
   %31 = phi ptr [ %.pre, %28 ], [ %22, %25 ]
   call void @free(ptr noundef nonnull %31) #8
   store ptr null, ptr %5, align 8
   br label %.thread
 
 .thread:                                          ; preds = %24, %10, %.thread42, %28
-  %.041 = phi i32 [ %.047, %.thread42 ], [ %30, %28 ], [ 12, %24 ], [ 16, %10 ]
-  %.02540 = phi ptr [ %27, %.thread42 ], [ %27, %28 ], [ null, %24 ], [ null, %10 ]
+  %.02541 = phi ptr [ %27, %.thread42 ], [ %27, %28 ], [ null, %10 ], [ null, %24 ]
+  %.02640 = phi i32 [ %.02646, %.thread42 ], [ %30, %28 ], [ 16, %10 ], [ 12, %24 ]
   %32 = load ptr, ptr %6, align 8
   %.not36 = icmp eq ptr %32, null
   br i1 %.not36, label %34, label %33
@@ -109,12 +109,12 @@ define i32 @cli_regex2suffix(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   br label %34
 
 34:                                               ; preds = %.thread, %33
-  call fastcc void @destroy_tree(ptr noundef %.02540)
+  call fastcc void @destroy_tree(ptr noundef %.02541)
   br label %35
 
 35:                                               ; preds = %17, %19, %34
-  %.026 = phi i32 [ %.041, %34 ], [ %13, %19 ], [ %13, %17 ]
-  ret i32 %.026
+  %.0 = phi i32 [ %.02640, %34 ], [ %13, %19 ], [ %13, %17 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -140,7 +140,7 @@ define internal fastcc ptr @parse_regex(ptr noundef %0, i64 noundef %1, ptr noun
   br label %make_node.exit106
 
 make_node.exit106:                                ; preds = %make_node.exit106.backedge, %3
-  %.0 = phi ptr [ null, %3 ], [ %.0.be, %make_node.exit106.backedge ]
+  %.064 = phi ptr [ null, %3 ], [ %.064.be, %make_node.exit106.backedge ]
   %5 = load i64, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = load i8, ptr %6, align 1
@@ -171,14 +171,14 @@ make_node.exit106:                                ; preds = %make_node.exit106.b
   %13 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr %.0, ptr %14, align 8
+  store ptr %.064, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %10, ptr %15, align 8
-  %.not23.i = icmp eq ptr %.0, null
+  %.not23.i = icmp eq ptr %.064, null
   br i1 %.not23.i, label %18, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.0, i64 8
+  %17 = getelementptr inbounds i8, ptr %.064, i64 8
   store ptr %11, ptr %17, align 8
   br label %18
 
@@ -187,7 +187,7 @@ make_node.exit106:                                ; preds = %make_node.exit106.b
   br i1 %.not24.i, label %make_node.exit106.backedge, label %19
 
 make_node.exit106.backedge:                       ; preds = %18, %19, %66, %65, %59, %make_node.exit129.thread, %173, %86, %48, %30
-  %.0.be = phi ptr [ %.0.i128156, %make_node.exit129.thread ], [ %.0.i122.ph, %173 ], [ %.0.i112.ph, %86 ], [ %46, %48 ], [ %23, %30 ], [ null, %65 ], [ %57, %59 ], [ %64, %66 ], [ %11, %19 ], [ %11, %18 ]
+  %.064.be = phi ptr [ %.0.i128156, %make_node.exit129.thread ], [ %.0.i122.ph, %173 ], [ %.0.i112.ph, %86 ], [ %46, %48 ], [ %23, %30 ], [ null, %65 ], [ %57, %59 ], [ %64, %66 ], [ %11, %19 ], [ %11, %18 ]
   br label %make_node.exit106
 
 19:                                               ; preds = %18
@@ -210,14 +210,14 @@ make_node.exit106.backedge:                       ; preds = %18, %19, %66, %65, 
   %25 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %23, i64 16
-  store ptr %.0, ptr %26, align 8
+  store ptr %.064, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %23, i64 24
   store ptr null, ptr %27, align 8
-  %.not23.i90 = icmp eq ptr %.0, null
+  %.not23.i90 = icmp eq ptr %.064, null
   br i1 %.not23.i90, label %30, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.0, i64 8
+  %29 = getelementptr inbounds i8, ptr %.064, i64 8
   store ptr %23, ptr %29, align 8
   %.pre247 = load i64, ptr %2, align 8
   br label %30
@@ -242,24 +242,24 @@ make_node.exit92:                                 ; preds = %22
   %36 = getelementptr inbounds i8, ptr %34, i64 8
   store ptr null, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %34, i64 16
-  store ptr %.0, ptr %37, align 8
+  store ptr %.064, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %34, i64 24
   store ptr null, ptr %38, align 8
-  %.not23.i94 = icmp eq ptr %.0, null
+  %.not23.i94 = icmp eq ptr %.064, null
   br i1 %.not23.i94, label %42, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %.0, i64 8
+  %40 = getelementptr inbounds i8, ptr %.064, i64 8
   store ptr %34, ptr %40, align 8
   br label %42
 
 41:                                               ; preds = %33
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #8
-  tail call fastcc void @destroy_tree(ptr noundef %.0)
+  tail call fastcc void @destroy_tree(ptr noundef %.064)
   br label %.critedge
 
 42:                                               ; preds = %39, %35
-  %43 = tail call fastcc ptr @dup_node(ptr noundef %.0)
+  %43 = tail call fastcc ptr @dup_node(ptr noundef %.064)
   %.not84 = icmp eq ptr %43, null
   br i1 %.not84, label %44, label %45
 
@@ -301,14 +301,14 @@ make_node.exit92:                                 ; preds = %22
   br i1 %.not82, label %58, label %59
 
 58:                                               ; preds = %55
-  tail call fastcc void @destroy_tree(ptr noundef %.0)
+  tail call fastcc void @destroy_tree(ptr noundef %.064)
   br label %.critedge
 
 59:                                               ; preds = %55
   %60 = load i64, ptr %2, align 8
   %61 = add i64 %60, 1
   store i64 %61, ptr %2, align 8
-  %62 = icmp eq ptr %.0, null
+  %62 = icmp eq ptr %.064, null
   br i1 %62, label %make_node.exit106.backedge, label %63
 
 63:                                               ; preds = %59
@@ -325,10 +325,10 @@ make_node.exit92:                                 ; preds = %22
   %67 = getelementptr inbounds i8, ptr %64, i64 8
   store ptr null, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %64, i64 16
-  store ptr %.0, ptr %68, align 8
+  store ptr %.064, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %64, i64 24
   store ptr %57, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %.0, i64 8
+  %70 = getelementptr inbounds i8, ptr %.064, i64 8
   store ptr %64, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %57, i64 8
   store ptr %64, ptr %71, align 8
@@ -341,7 +341,7 @@ make_node.exit92:                                 ; preds = %22
 
 74:                                               ; preds = %72
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.7) #8
-  tail call fastcc void @destroy_tree(ptr noundef %.0)
+  tail call fastcc void @destroy_tree(ptr noundef %.064)
   br label %.critedge
 
 75:                                               ; preds = %72
@@ -350,7 +350,7 @@ make_node.exit92:                                 ; preds = %22
   store ptr null, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %73, i64 16
   store ptr @dot_bitmap, ptr %77, align 8
-  %78 = icmp eq ptr %.0, null
+  %78 = icmp eq ptr %.064, null
   br i1 %78, label %86, label %79
 
 79:                                               ; preds = %75
@@ -363,10 +363,10 @@ make_node.exit92:                                 ; preds = %22
   %82 = getelementptr inbounds i8, ptr %80, i64 8
   store ptr null, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %80, i64 16
-  store ptr %.0, ptr %83, align 8
+  store ptr %.064, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %80, i64 24
   store ptr %73, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %.0, i64 8
+  %85 = getelementptr inbounds i8, ptr %.064, i64 8
   store ptr %80, ptr %85, align 8
   store ptr %80, ptr %76, align 8
   %.pre246 = load i64, ptr %2, align 8
@@ -580,7 +580,7 @@ parse_char_class.exit.thread146:                  ; preds = %.loopexit128.i, %.p
   br label %parse_char_class.exit.thread
 
 parse_char_class.exit.thread:                     ; preds = %154, %134, %129, %123, %114, %111, %100, %93, %160
-  tail call fastcc void @destroy_tree(ptr noundef %.0)
+  tail call fastcc void @destroy_tree(ptr noundef %.064)
   br label %.critedge
 
 161:                                              ; preds = %parse_char_class.exit.thread146
@@ -589,7 +589,7 @@ parse_char_class.exit.thread:                     ; preds = %154, %134, %129, %1
   store ptr null, ptr %162, align 8
   %163 = getelementptr inbounds i8, ptr %159, i64 16
   store ptr %.0104.i148, ptr %163, align 8
-  %164 = icmp eq ptr %.0, null
+  %164 = icmp eq ptr %.064, null
   br i1 %164, label %173, label %165
 
 165:                                              ; preds = %161
@@ -602,10 +602,10 @@ parse_char_class.exit.thread:                     ; preds = %154, %134, %129, %1
   %168 = getelementptr inbounds i8, ptr %166, i64 8
   store ptr null, ptr %168, align 8
   %169 = getelementptr inbounds i8, ptr %166, i64 16
-  store ptr %.0, ptr %169, align 8
+  store ptr %.064, ptr %169, align 8
   %170 = getelementptr inbounds i8, ptr %166, i64 24
   store ptr %159, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %.0, i64 8
+  %171 = getelementptr inbounds i8, ptr %.064, i64 8
   store ptr %166, ptr %171, align 8
   store ptr %166, ptr %162, align 8
   %.pre = load i64, ptr %2, align 8
@@ -638,7 +638,7 @@ parse_char_class.exit.thread:                     ; preds = %154, %134, %129, %1
   br i1 %.not.i124, label %make_leaf.exit, label %make_leaf.exit.thread
 
 make_leaf.exit:                                   ; preds = %178
-  %182 = icmp eq ptr %.0, null
+  %182 = icmp eq ptr %.064, null
   br i1 %182, label %.loopexit, label %make_node.exit129.thread
 
 make_leaf.exit.thread:                            ; preds = %178
@@ -647,7 +647,7 @@ make_leaf.exit.thread:                            ; preds = %178
   store ptr null, ptr %183, align 8
   %184 = getelementptr inbounds i8, ptr %181, i64 16
   store i8 %179, ptr %184, align 8
-  %185 = icmp eq ptr %.0, null
+  %185 = icmp eq ptr %.064, null
   br i1 %185, label %make_node.exit129.thread, label %186
 
 186:                                              ; preds = %make_leaf.exit.thread
@@ -664,10 +664,10 @@ make_node.exit129.thread157:                      ; preds = %186
   %189 = getelementptr inbounds i8, ptr %187, i64 8
   store ptr null, ptr %189, align 8
   %190 = getelementptr inbounds i8, ptr %187, i64 16
-  store ptr %.0, ptr %190, align 8
+  store ptr %.064, ptr %190, align 8
   %191 = getelementptr inbounds i8, ptr %187, i64 24
   store ptr %181, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %.0, i64 8
+  %192 = getelementptr inbounds i8, ptr %.064, i64 8
   store ptr %187, ptr %192, align 8
   store ptr %187, ptr %183, align 8
   %.pre249 = load i64, ptr %2, align 8
@@ -679,14 +679,14 @@ make_node.exit129.thread157:                      ; preds = %186
 
 make_node.exit129.thread:                         ; preds = %make_leaf.exit, %make_leaf.exit.thread, %188
   %193 = phi i64 [ %180, %make_leaf.exit.thread ], [ %.pre249, %188 ], [ %180, %make_leaf.exit ]
-  %.0.i128156 = phi ptr [ %181, %make_leaf.exit.thread ], [ %187, %188 ], [ %.0, %make_leaf.exit ]
+  %.0.i128156 = phi ptr [ %181, %make_leaf.exit.thread ], [ %187, %188 ], [ %.064, %make_leaf.exit ]
   %194 = add i64 %193, 1
   store i64 %194, ptr %2, align 8
   br label %make_node.exit106.backedge
 
 .critedge:                                        ; preds = %make_node.exit106, %make_node.exit106, %make_node.exit106, %make_node.exit113, %make_node.exit92, %.loopexit, %172, %parse_char_class.exit.thread, %74, %58, %47, %44, %41, %21
-  %.064 = phi ptr [ null, %.loopexit ], [ null, %172 ], [ null, %parse_char_class.exit.thread ], [ null, %74 ], [ null, %58 ], [ null, %47 ], [ null, %44 ], [ null, %41 ], [ null, %21 ], [ null, %make_node.exit92 ], [ null, %make_node.exit113 ], [ %.0, %make_node.exit106 ], [ %.0, %make_node.exit106 ], [ %.0, %make_node.exit106 ]
-  ret ptr %.064
+  %.0 = phi ptr [ null, %.loopexit ], [ null, %172 ], [ null, %parse_char_class.exit.thread ], [ null, %74 ], [ null, %58 ], [ null, %47 ], [ null, %44 ], [ null, %41 ], [ null, %21 ], [ null, %make_node.exit92 ], [ null, %make_node.exit113 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ], [ %.064, %make_node.exit106 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -933,9 +933,9 @@ define internal fastcc range(i32 0, 21) i32 @build_suffixtree_ascend(ptr noundef
   br label %9
 
 9:                                                ; preds = %.lr.ph, %134
-  %.060115 = phi ptr [ %0, %.lr.ph ], [ %.161, %134 ]
-  %.062114 = phi ptr [ %2, %.lr.ph ], [ %.060115, %134 ]
-  %10 = load i32, ptr %.060115, align 8
+  %.057115 = phi ptr [ %0, %.lr.ph ], [ %.1, %134 ]
+  %.062114 = phi ptr [ %2, %.lr.ph ], [ %.057115, %134 ]
+  %10 = load i32, ptr %.057115, align 8
   switch i32 %10, label %134 [
     i32 0, label %13
     i32 4, label %31
@@ -946,7 +946,7 @@ define internal fastcc range(i32 0, 21) i32 @build_suffixtree_ascend(ptr noundef
   ]
 
 .preheader107:                                    ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %.060115, i64 16
+  %11 = getelementptr inbounds i8, ptr %.057115, i64 16
   %12 = load ptr, ptr %11, align 8
   br label %47
 
@@ -992,7 +992,7 @@ textbuffer_putc.exit:                             ; preds = %18, %23
   br label %.loopexit
 
 31:                                               ; preds = %9
-  %32 = getelementptr inbounds i8, ptr %.060115, i64 16
+  %32 = getelementptr inbounds i8, ptr %.057115, i64 16
   %33 = load i8, ptr %32, align 8
   %34 = load i64, ptr %7, align 8
   %35 = add i64 %34, 1
@@ -1026,20 +1026,20 @@ textbuffer_putc.exit:                             ; preds = %18, %23
   br label %.sink.split
 
 47:                                               ; preds = %.preheader107, %47
-  %.0117 = phi i64 [ 0, %.preheader107 ], [ %spec.select, %47 ]
-  %.057116 = phi i64 [ 0, %.preheader107 ], [ %57, %47 ]
-  %48 = lshr i64 %.057116, 3
+  %.058117 = phi i64 [ 0, %.preheader107 ], [ %spec.select, %47 ]
+  %.060116 = phi i64 [ 0, %.preheader107 ], [ %57, %47 ]
+  %48 = lshr i64 %.060116, 3
   %49 = getelementptr inbounds i8, ptr %12, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
-  %52 = trunc nuw i64 %.057116 to i32
+  %52 = trunc nuw i64 %.060116 to i32
   %53 = and i32 %52, 7
   %54 = shl nuw nsw i32 1, %53
   %55 = and i32 %54, %51
   %.not70 = icmp ne i32 %55, 0
   %56 = zext i1 %.not70 to i64
-  %spec.select = add i64 %.0117, %56
-  %57 = add nuw nsw i64 %.057116, 1
+  %spec.select = add i64 %.058117, %56
+  %57 = add nuw nsw i64 %.060116, 1
   %exitcond.not = icmp eq i64 %57, 255
   br i1 %exitcond.not, label %58, label %47
 
@@ -1048,7 +1048,7 @@ textbuffer_putc.exit:                             ; preds = %18, %23
   br i1 %59, label %61, label %.preheader
 
 .preheader:                                       ; preds = %58
-  %60 = getelementptr inbounds i8, ptr %.060115, i64 8
+  %60 = getelementptr inbounds i8, ptr %.057115, i64 8
   br label %79
 
 61:                                               ; preds = %58
@@ -1093,13 +1093,13 @@ textbuffer_putc.exit90:                           ; preds = %66, %71
   br label %.loopexit
 
 79:                                               ; preds = %.preheader, %107
-  %.158118 = phi i64 [ 0, %.preheader ], [ %108, %107 ]
+  %.161118 = phi i64 [ 0, %.preheader ], [ %108, %107 ]
   %80 = load ptr, ptr %11, align 8
-  %81 = lshr i64 %.158118, 3
+  %81 = lshr i64 %.161118, 3
   %82 = getelementptr inbounds i8, ptr %80, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
-  %85 = trunc nuw i64 %.158118 to i32
+  %85 = trunc nuw i64 %.161118 to i32
   %86 = and i32 %85, 7
   %87 = shl nuw nsw i32 1, %86
   %88 = and i32 %87, %84
@@ -1108,7 +1108,7 @@ textbuffer_putc.exit90:                           ; preds = %66, %71
 
 89:                                               ; preds = %79
   %90 = load i64, ptr %7, align 8
-  %91 = trunc nuw i64 %.158118 to i8
+  %91 = trunc nuw i64 %.161118 to i8
   %92 = add i64 %90, 1
   %93 = load i64, ptr %8, align 8
   %94 = icmp ugt i64 %92, %93
@@ -1141,7 +1141,7 @@ textbuffer_putc.exit90:                           ; preds = %66, %71
 
 textbuffer_putc.exit98:                           ; preds = %95, %100
   %104 = load ptr, ptr %60, align 8
-  %105 = tail call fastcc i32 @build_suffixtree_ascend(ptr noundef %104, ptr noundef nonnull %1, ptr noundef nonnull %.060115, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %105 = tail call fastcc i32 @build_suffixtree_ascend(ptr noundef %104, ptr noundef nonnull %1, ptr noundef nonnull %.057115, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not68 = icmp eq i32 %105, 0
   br i1 %.not68, label %106, label %.loopexit
 
@@ -1150,12 +1150,12 @@ textbuffer_putc.exit98:                           ; preds = %95, %100
   br label %107
 
 107:                                              ; preds = %79, %106
-  %108 = add nuw nsw i64 %.158118, 1
+  %108 = add nuw nsw i64 %.161118, 1
   %exitcond124.not = icmp eq i64 %108, 255
   br i1 %exitcond124.not, label %.loopexit, label %79
 
 109:                                              ; preds = %9
-  %110 = getelementptr inbounds i8, ptr %.060115, i64 16
+  %110 = getelementptr inbounds i8, ptr %.057115, i64 16
   %111 = load ptr, ptr %110, align 8
   %.not65 = icmp eq ptr %.062114, %111
   br i1 %.not65, label %.sink.split, label %112
@@ -1208,18 +1208,18 @@ textbuffer_putc.exit106:                          ; preds = %119, %124
   br label %.loopexit
 
 .sink.split:                                      ; preds = %9, %109, %43, %38
-  %132 = getelementptr inbounds i8, ptr %.060115, i64 8
+  %132 = getelementptr inbounds i8, ptr %.057115, i64 8
   %133 = load ptr, ptr %132, align 8
   br label %134
 
 134:                                              ; preds = %.sink.split, %9
-  %.161 = phi ptr [ %.060115, %9 ], [ %133, %.sink.split ]
-  %.not = icmp eq ptr %.161, null
+  %.1 = phi ptr [ %.057115, %9 ], [ %133, %.sink.split ]
+  %.not = icmp eq ptr %.1, null
   br i1 %.not, label %.loopexit, label %9
 
 .loopexit:                                        ; preds = %134, %107, %textbuffer_putc.exit98, %6, %textbuffer_putc.exit106, %112, %textbuffer_putc.exit90, %textbuffer_putc.exit
-  %.059 = phi i32 [ %., %textbuffer_putc.exit ], [ %.72, %textbuffer_putc.exit90 ], [ %.73, %112 ], [ %.74, %textbuffer_putc.exit106 ], [ 0, %6 ], [ 0, %107 ], [ 20, %textbuffer_putc.exit98 ], [ 0, %134 ]
-  ret i32 %.059
+  %.0 = phi i32 [ %., %textbuffer_putc.exit ], [ %.72, %textbuffer_putc.exit90 ], [ %.73, %112 ], [ %.74, %textbuffer_putc.exit106 ], [ 0, %6 ], [ 0, %107 ], [ 20, %textbuffer_putc.exit98 ], [ 0, %134 ]
+  ret i32 %.0
 }
 
 declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2

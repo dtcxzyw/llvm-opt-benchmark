@@ -73,10 +73,10 @@ if.then17:                                        ; preds = %if.end13
 
 if.end18:                                         ; preds = %if.end13
   %cmp19 = icmp eq i32 %and, 0
-  %EM.addr.0.idx = zext i1 %cmp19 to i64
-  %EM.addr.0 = getelementptr inbounds i8, ptr %EM, i64 %EM.addr.0.idx
   %dec = sext i1 %cmp19 to i32
   %emLen.0 = add nsw i32 %call15, %dec
+  %EM.addr.0.idx = zext i1 %cmp19 to i64
+  %EM.addr.0 = getelementptr inbounds i8, ptr %EM, i64 %EM.addr.0.idx
   %add = add nuw nsw i32 %call4, 2
   %cmp23 = icmp slt i32 %emLen.0, %add
   br i1 %cmp23, label %if.then25, label %if.end26
@@ -346,8 +346,8 @@ if.then22:                                        ; preds = %if.end18
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then22, %if.end18
-  %EM.addr.0 = phi ptr [ %incdec.ptr, %if.then22 ], [ %EM, %if.end18 ]
   %emLen.0 = phi i32 [ %dec, %if.then22 ], [ %call20, %if.end18 ]
+  %EM.addr.0 = phi ptr [ %incdec.ptr, %if.then22 ], [ %EM, %if.end18 ]
   %add = add nuw nsw i32 %call, 2
   %cmp24 = icmp slt i32 %emLen.0, %add
   br i1 %cmp24, label %if.then25, label %if.end26
@@ -492,8 +492,8 @@ if.end116:                                        ; preds = %if.then110, %if.end
   br label %err
 
 err:                                              ; preds = %if.end83, %if.end79, %land.lhs.true74, %if.end62, %lor.lhs.false64, %lor.lhs.false67, %if.end55, %if.end48, %if.then43, %entry, %if.end116, %if.then39, %if.then25, %if.then14
-  %sLen.addr.2 = phi i32 [ %sLen, %entry ], [ %sLen.addr.0, %if.then25 ], [ %sLen.addr.1, %if.then43 ], [ %sLen.addr.1, %if.end48 ], [ %sLen.addr.1, %if.end55 ], [ %sLen.addr.1, %if.end83 ], [ %sLen.addr.1, %if.end116 ], [ %sLen.addr.1, %if.end79 ], [ %sLen.addr.1, %land.lhs.true74 ], [ %sLen.addr.1, %lor.lhs.false67 ], [ %sLen.addr.1, %lor.lhs.false64 ], [ %sLen.addr.1, %if.end62 ], [ %sLen.addr.0, %if.then39 ], [ %sLen, %if.then14 ]
   %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.then25 ], [ 0, %if.then43 ], [ 0, %if.end48 ], [ 0, %if.end55 ], [ 0, %if.end83 ], [ 1, %if.end116 ], [ 0, %if.end79 ], [ 0, %land.lhs.true74 ], [ 0, %lor.lhs.false67 ], [ 0, %lor.lhs.false64 ], [ 0, %if.end62 ], [ 0, %if.then39 ], [ 0, %if.then14 ]
+  %sLen.addr.2 = phi i32 [ %sLen, %entry ], [ %sLen.addr.0, %if.then25 ], [ %sLen.addr.1, %if.then43 ], [ %sLen.addr.1, %if.end48 ], [ %sLen.addr.1, %if.end55 ], [ %sLen.addr.1, %if.end83 ], [ %sLen.addr.1, %if.end116 ], [ %sLen.addr.1, %if.end79 ], [ %sLen.addr.1, %land.lhs.true74 ], [ %sLen.addr.1, %lor.lhs.false67 ], [ %sLen.addr.1, %lor.lhs.false64 ], [ %sLen.addr.1, %if.end62 ], [ %sLen.addr.0, %if.then39 ], [ %sLen, %if.then14 ]
   %salt.1 = phi ptr [ null, %entry ], [ null, %if.then25 ], [ null, %if.then43 ], [ %call44, %if.end48 ], [ %salt.0, %if.end55 ], [ %salt.0, %if.end83 ], [ %salt.0, %if.end116 ], [ %salt.0, %if.end79 ], [ %salt.0, %land.lhs.true74 ], [ %salt.0, %lor.lhs.false67 ], [ %salt.0, %lor.lhs.false64 ], [ %salt.0, %if.end62 ], [ null, %if.then39 ], [ null, %if.then14 ]
   %ctx.0 = phi ptr [ null, %entry ], [ null, %if.then25 ], [ null, %if.then43 ], [ null, %if.end48 ], [ null, %if.end55 ], [ %call58, %if.end83 ], [ %call58, %if.end116 ], [ %call58, %if.end79 ], [ %call58, %land.lhs.true74 ], [ %call58, %lor.lhs.false67 ], [ %call58, %lor.lhs.false64 ], [ %call58, %if.end62 ], [ null, %if.then39 ], [ null, %if.then14 ]
   tail call void @EVP_MD_CTX_free(ptr noundef %ctx.0) #9

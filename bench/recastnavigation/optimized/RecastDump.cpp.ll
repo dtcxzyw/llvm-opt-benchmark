@@ -213,8 +213,8 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge55.us, %.loopexit.sink.split, %.lr.ph59, %._crit_edge
-  %.046 = phi i1 [ true, %._crit_edge ], [ true, %.lr.ph59 ], [ false, %.loopexit.sink.split ], [ true, %._crit_edge55.us ]
-  ret i1 %.046
+  %.045 = phi i1 [ true, %._crit_edge ], [ true, %.lr.ph59 ], [ false, %.loopexit.sink.split ], [ true, %._crit_edge55.us ]
+  ret i1 %.045
 }
 
 ; Function Attrs: nofree nounwind
@@ -681,8 +681,8 @@ define noundef zeroext i1 @_Z16duReadContourSetR12rcContourSetP8duFileIO(ptr nou
   br i1 %136, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %117, %39, %114, %105, %37, %25, %22, %11, %5
-  %.053 = phi i1 [ false, %22 ], [ false, %25 ], [ false, %114 ], [ false, %105 ], [ false, %37 ], [ false, %11 ], [ false, %5 ], [ true, %39 ], [ true, %117 ]
-  ret i1 %.053
+  %.0 = phi i1 [ false, %22 ], [ false, %25 ], [ false, %114 ], [ false, %105 ], [ false, %37 ], [ false, %11 ], [ false, %5 ], [ true, %39 ], [ true, %117 ]
+  ret i1 %.0
 }
 
 declare noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef, i32 noundef) local_unnamed_addr #6

@@ -2942,15 +2942,15 @@ if.else213.i:                                     ; preds = %if.end185.i
   br label %if.end215.i
 
 if.end215.i:                                      ; preds = %if.else213.i, %if.then207.i
-  %or.i173223.i = phi i64 [ %or.i173.i, %if.else213.i ], [ %or.i173216.i, %if.then207.i ]
-  %size.0205221.i = phi i64 [ %size, %if.else213.i ], [ %spec.store.select.i, %if.then207.i ]
-  %rxdw1.0207219.i = phi i32 [ %and184.i, %if.else213.i ], [ %or179.i, %if.then207.i ]
+  %or.i173224.i = phi i64 [ %or.i173.i, %if.else213.i ], [ %or.i173216.i, %if.then207.i ]
+  %rxdw1.0205221.i = phi i32 [ %and184.i, %if.else213.i ], [ %or179.i, %if.then207.i ]
+  %size.0207219.i = phi i64 [ %size, %if.else213.i ], [ %spec.store.select.i, %if.then207.i ]
   %add186208217.i = phi i64 [ %add186.i, %if.else213.i ], [ %add186202.i, %if.then207.i ]
   %conv222.i = trunc i64 %size to i32
   %call223.i = call i64 @crc32(i64 noundef 0, ptr noundef %buf, i32 noundef %conv222.i) #12
   %conv224.i = trunc i64 %call223.i to i32
   store i32 %conv224.i, ptr %val.i, align 4
-  %add226.i = add i64 %size.0205221.i, %or.i173223.i
+  %add226.i = add i64 %size.0207219.i, %or.i173224.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i181.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add226.i, i32 1, ptr noundef nonnull %val.i, i64 noundef 4, i1 noundef zeroext true) #12
@@ -2970,7 +2970,7 @@ if.end215.i:                                      ; preds = %if.else213.i, %if.t
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i183.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add.i, i32 1, ptr noundef nonnull %val.i, i64 noundef 4, i1 noundef zeroext true) #12
-  store i32 %rxdw1.0207219.i, ptr %val.i, align 4
+  store i32 %rxdw1.0205221.i, ptr %val.i, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i185.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add136.i, i32 1, ptr noundef nonnull %val.i, i64 noundef 4, i1 noundef zeroext true) #12

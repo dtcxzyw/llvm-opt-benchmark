@@ -43,10 +43,10 @@ entry:
   br i1 %cmp11.i.i, label %while.body.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit
 
 while.body.i.i:                                   ; preds = %entry, %_ZN6google8protobuf8internal12_GLOBAL__N_117EnumCompareByNameERKNS1_9EnumEntryES5_.exit
-  %__len.013.i.i = phi i64 [ %__len.1.i.i, %_ZN6google8protobuf8internal12_GLOBAL__N_117EnumCompareByNameERKNS1_9EnumEntryES5_.exit ], [ %size, %entry ]
-  %__first.addr.012.i.i = phi ptr [ %__first.addr.1.i.i, %_ZN6google8protobuf8internal12_GLOBAL__N_117EnumCompareByNameERKNS1_9EnumEntryES5_.exit ], [ %enums, %entry ]
-  %shr.i.i = lshr i64 %__len.013.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %__first.addr.012.i.i, i64 %shr.i.i
+  %__first.addr.013.i.i = phi ptr [ %__first.addr.1.i.i, %_ZN6google8protobuf8internal12_GLOBAL__N_117EnumCompareByNameERKNS1_9EnumEntryES5_.exit ], [ %enums, %entry ]
+  %__len.012.i.i = phi i64 [ %__len.1.i.i, %_ZN6google8protobuf8internal12_GLOBAL__N_117EnumCompareByNameERKNS1_9EnumEntryES5_.exit ], [ %size, %entry ]
+  %shr.i.i = lshr i64 %__len.012.i.i, 1
+  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %__first.addr.013.i.i, i64 %shr.i.i
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %add.ptr.i.i.i.i, align 8
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload.i, i64 %name.coerce0)
   %cmp.i2.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i, 0
@@ -71,9 +71,9 @@ _ZN6google8protobuf8internal12_GLOBAL__N_117EnumCompareByNameERKNS1_9EnumEntryES
   %cmp.i.i7 = icmp slt i32 %__ret.0.i.i.i, 0
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 24
   %0 = xor i64 %shr.i.i, -1
-  %sub2.i.i = add nsw i64 %__len.013.i.i, %0
-  %__first.addr.1.i.i = select i1 %cmp.i.i7, ptr %incdec.ptr.i.i, ptr %__first.addr.012.i.i
+  %sub2.i.i = add nsw i64 %__len.012.i.i, %0
   %__len.1.i.i = select i1 %cmp.i.i7, i64 %sub2.i.i, i64 %shr.i.i
+  %__first.addr.1.i.i = select i1 %cmp.i.i7, ptr %incdec.ptr.i.i, ptr %__first.addr.013.i.i
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit, !llvm.loop !4
 
@@ -118,10 +118,10 @@ entry:
   br i1 %cmp4.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit"
 
 while.body.i.i:                                   ; preds = %entry, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i"
-  %__len.06.i.i = phi i64 [ %__len.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ], [ %size, %entry ]
-  %__first.addr.05.i.i = phi ptr [ %__first.addr.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ], [ %sorted_indices, %entry ]
-  %shr.i.i = lshr i64 %__len.06.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.05.i.i, i64 %shr.i.i
+  %__first.addr.06.i.i = phi ptr [ %__first.addr.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ], [ %sorted_indices, %entry ]
+  %__len.05.i.i = phi i64 [ %__len.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ], [ %size, %entry ]
+  %shr.i.i = lshr i64 %__len.05.i.i, 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.06.i.i, i64 %shr.i.i
   %.val.i.i = load i32, ptr %add.ptr.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %.val.i.i, -1
   br i1 %cmp.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i", label %if.else.i.i.i.i.i
@@ -137,9 +137,9 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i
   %cmp.i.i9.i.i = icmp slt i32 %retval.0.i.i.i.i.i, %value
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 4
   %1 = xor i64 %shr.i.i, -1
-  %sub2.i.i = add nsw i64 %__len.06.i.i, %1
-  %__first.addr.1.i.i = select i1 %cmp.i.i9.i.i, ptr %incdec.ptr.i.i, ptr %__first.addr.05.i.i
+  %sub2.i.i = add nsw i64 %__len.05.i.i, %1
   %__len.1.i.i = select i1 %cmp.i.i9.i.i, i64 %sub2.i.i, i64 %shr.i.i
+  %__first.addr.1.i.i = select i1 %cmp.i.i9.i.i, ptr %incdec.ptr.i.i, ptr %__first.addr.06.i.i
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
   br i1 %cmp.i.i, label %while.body.i.i, label %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit", !llvm.loop !6
 
@@ -301,8 +301,8 @@ for.body:                                         ; preds = %entry, %for.inc56
   %fallback_values_too_large.sroa.10.0415 = phi ptr [ %fallback_values_too_large.sroa.10.2, %for.inc56 ], [ null, %entry ]
   %fallback_values_too_large.sroa.18.0414 = phi ptr [ %fallback_values_too_large.sroa.18.2, %for.inc56 ], [ null, %entry ]
   %fallback_values_after_bitmap.sroa.0.0413 = phi ptr [ %fallback_values_after_bitmap.sroa.0.2, %for.inc56 ], [ null, %entry ]
-  %fallback_values_after_bitmap.sroa.25.0412 = phi ptr [ %fallback_values_after_bitmap.sroa.25.2, %for.inc56 ], [ null, %entry ]
-  %fallback_values_after_bitmap.sroa.13.0411 = phi ptr [ %fallback_values_after_bitmap.sroa.13.3, %for.inc56 ], [ null, %entry ]
+  %fallback_values_after_bitmap.sroa.13.0412 = phi ptr [ %fallback_values_after_bitmap.sroa.13.3, %for.inc56 ], [ null, %entry ]
+  %fallback_values_after_bitmap.sroa.25.0411 = phi ptr [ %fallback_values_after_bitmap.sroa.25.2, %for.inc56 ], [ null, %entry ]
   %sequence_length.0410 = phi i32 [ %sequence_length.1, %for.inc56 ], [ 0, %entry ]
   %start_sequence.sroa.0.0409 = phi i16 [ %start_sequence.sroa.0.1, %for.inc56 ], [ undef, %entry ]
   %start_sequence.sroa.5.0408 = phi i8 [ %start_sequence.sroa.5.2, %for.inc56 ], [ 0, %entry ]
@@ -431,7 +431,7 @@ while.end:                                        ; preds = %invoke.cont14
   br label %for.inc56
 
 if.end23:                                         ; preds = %invoke.cont14
-  %sub.ptr.lhs.cast.i35 = ptrtoint ptr %fallback_values_after_bitmap.sroa.13.0411 to i64
+  %sub.ptr.lhs.cast.i35 = ptrtoint ptr %fallback_values_after_bitmap.sroa.13.0412 to i64
   %sub.ptr.rhs.cast.i36 = ptrtoint ptr %fallback_values_after_bitmap.sroa.0.0413 to i64
   %sub.ptr.sub.i37 = sub i64 %sub.ptr.lhs.cast.i35, %sub.ptr.rhs.cast.i36
   %sub.ptr.div.i38 = ashr exact i64 %sub.ptr.sub.i37, 2
@@ -527,7 +527,7 @@ invoke.cont41:                                    ; preds = %if.else.i39, %_ZNSt
   %bitmap_values.sroa.0.2 = phi ptr [ %call5.i.i.i.i222, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i ], [ %bitmap_values.sroa.0.0405, %if.end.i.i.i.i.i.i ], [ %bitmap_values.sroa.0.0405, %if.then.i.i.i.i ], [ %bitmap_values.sroa.0.0405, %if.else.i39 ]
   %bitmap_values.sroa.14.2 = phi ptr [ %add.ptr37.i, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %spec.select, %if.else.i39 ]
   %bitmap_values.sroa.24.2 = phi ptr [ %add.ptr40.i, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i ], [ %bitmap_values.sroa.24.0407, %if.end.i.i.i.i.i.i ], [ %bitmap_values.sroa.24.0407, %if.then.i.i.i.i ], [ %bitmap_values.sroa.24.0407, %if.else.i39 ]
-  %cmp.i44.not402 = icmp eq ptr %fallback_values_after_bitmap.sroa.0.0413, %fallback_values_after_bitmap.sroa.13.0411
+  %cmp.i44.not402 = icmp eq ptr %fallback_values_after_bitmap.sroa.0.0413, %fallback_values_after_bitmap.sroa.13.0412
   br i1 %cmp.i44.not402, label %for.end, label %invoke.cont49
 
 invoke.cont49:                                    ; preds = %invoke.cont41, %invoke.cont49
@@ -543,7 +543,7 @@ invoke.cont49:                                    ; preds = %invoke.cont41, %inv
   %or.i51 = or i32 %shl.i48, %12
   store i32 %or.i51, ptr %add.ptr.i.i50, align 4
   %incdec.ptr.i52 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0403, i64 4
-  %cmp.i44.not = icmp eq ptr %incdec.ptr.i52, %fallback_values_after_bitmap.sroa.13.0411
+  %cmp.i44.not = icmp eq ptr %incdec.ptr.i52, %fallback_values_after_bitmap.sroa.13.0412
   br i1 %cmp.i44.not, label %for.end, label %invoke.cont49
 
 for.end:                                          ; preds = %invoke.cont49, %invoke.cont41
@@ -558,12 +558,12 @@ for.end:                                          ; preds = %invoke.cont49, %inv
   br label %for.inc56
 
 if.else:                                          ; preds = %if.end23
-  %cmp.not.i63 = icmp eq ptr %fallback_values_after_bitmap.sroa.13.0411, %fallback_values_after_bitmap.sroa.25.0412
+  %cmp.not.i63 = icmp eq ptr %fallback_values_after_bitmap.sroa.13.0412, %fallback_values_after_bitmap.sroa.25.0411
   br i1 %cmp.not.i63, label %if.else.i66, label %if.then.i64
 
 if.then.i64:                                      ; preds = %if.else
-  store i32 %0, ptr %fallback_values_after_bitmap.sroa.13.0411, align 4
-  %incdec.ptr.i65 = getelementptr inbounds i8, ptr %fallback_values_after_bitmap.sroa.13.0411, i64 4
+  store i32 %0, ptr %fallback_values_after_bitmap.sroa.13.0412, align 4
+  %incdec.ptr.i65 = getelementptr inbounds i8, ptr %fallback_values_after_bitmap.sroa.13.0412, i64 4
   br label %for.inc56
 
 if.else.i66:                                      ; preds = %if.else
@@ -616,8 +616,8 @@ for.inc56:                                        ; preds = %_ZNSt6vectorIiSaIiE
   %start_sequence.sroa.5.2 = phi i8 [ %start_sequence.sroa.5.0408, %if.then12 ], [ %start_sequence.sroa.5.0408, %while.end ], [ %start_sequence.sroa.5.0408, %for.end ], [ 1, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %start_sequence.sroa.5.0408, %if.then.i ], [ %start_sequence.sroa.5.0408, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %start_sequence.sroa.5.0408, %if.then.i64 ], [ %start_sequence.sroa.5.0408, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
   %start_sequence.sroa.0.1 = phi i16 [ %start_sequence.sroa.0.0409, %if.then12 ], [ %start_sequence.sroa.0.0409, %while.end ], [ %start_sequence.sroa.0.0409, %for.end ], [ %conv.i.i.i.sink.i, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %start_sequence.sroa.0.0409, %if.then.i ], [ %start_sequence.sroa.0.0409, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %start_sequence.sroa.0.0409, %if.then.i64 ], [ %start_sequence.sroa.0.0409, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
   %sequence_length.1 = phi i32 [ %inc, %if.then12 ], [ %sequence_length.0410, %while.end ], [ %sequence_length.0410, %for.end ], [ 1, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %sequence_length.0410, %if.then.i ], [ %sequence_length.0410, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %sequence_length.0410, %if.then.i64 ], [ %sequence_length.0410, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
-  %fallback_values_after_bitmap.sroa.13.3 = phi ptr [ %fallback_values_after_bitmap.sroa.13.0411, %if.then12 ], [ %fallback_values_after_bitmap.sroa.13.0411, %while.end ], [ %fallback_values_after_bitmap.sroa.0.0413, %for.end ], [ %fallback_values_after_bitmap.sroa.13.0411, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_after_bitmap.sroa.13.0411, %if.then.i ], [ %fallback_values_after_bitmap.sroa.13.0411, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %incdec.ptr.i65, %if.then.i64 ], [ %incdec.ptr.i.i86, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
-  %fallback_values_after_bitmap.sroa.25.2 = phi ptr [ %fallback_values_after_bitmap.sroa.25.0412, %if.then12 ], [ %fallback_values_after_bitmap.sroa.25.0412, %while.end ], [ %fallback_values_after_bitmap.sroa.25.0412, %for.end ], [ %fallback_values_after_bitmap.sroa.25.0412, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_after_bitmap.sroa.25.0412, %if.then.i ], [ %fallback_values_after_bitmap.sroa.25.0412, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_after_bitmap.sroa.25.0412, %if.then.i64 ], [ %add.ptr19.i.i90, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
+  %fallback_values_after_bitmap.sroa.25.2 = phi ptr [ %fallback_values_after_bitmap.sroa.25.0411, %if.then12 ], [ %fallback_values_after_bitmap.sroa.25.0411, %while.end ], [ %fallback_values_after_bitmap.sroa.25.0411, %for.end ], [ %fallback_values_after_bitmap.sroa.25.0411, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_after_bitmap.sroa.25.0411, %if.then.i ], [ %fallback_values_after_bitmap.sroa.25.0411, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_after_bitmap.sroa.25.0411, %if.then.i64 ], [ %add.ptr19.i.i90, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
+  %fallback_values_after_bitmap.sroa.13.3 = phi ptr [ %fallback_values_after_bitmap.sroa.13.0412, %if.then12 ], [ %fallback_values_after_bitmap.sroa.13.0412, %while.end ], [ %fallback_values_after_bitmap.sroa.0.0413, %for.end ], [ %fallback_values_after_bitmap.sroa.13.0412, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_after_bitmap.sroa.13.0412, %if.then.i ], [ %fallback_values_after_bitmap.sroa.13.0412, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %incdec.ptr.i65, %if.then.i64 ], [ %incdec.ptr.i.i86, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
   %fallback_values_after_bitmap.sroa.0.2 = phi ptr [ %fallback_values_after_bitmap.sroa.0.0413, %if.then12 ], [ %fallback_values_after_bitmap.sroa.0.0413, %while.end ], [ %fallback_values_after_bitmap.sroa.0.0413, %for.end ], [ %fallback_values_after_bitmap.sroa.0.0413, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_after_bitmap.sroa.0.0413, %if.then.i ], [ %fallback_values_after_bitmap.sroa.0.0413, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_after_bitmap.sroa.0.0413, %if.then.i64 ], [ %cond.i10.i.i81, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
   %fallback_values_too_large.sroa.18.2 = phi ptr [ %fallback_values_too_large.sroa.18.0414, %if.then12 ], [ %fallback_values_too_large.sroa.18.0414, %while.end ], [ %fallback_values_too_large.sroa.18.0414, %for.end ], [ %fallback_values_too_large.sroa.18.0414, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %fallback_values_too_large.sroa.18.0414, %if.then.i ], [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_too_large.sroa.18.0414, %if.then.i64 ], [ %fallback_values_too_large.sroa.18.0414, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
   %fallback_values_too_large.sroa.10.2 = phi ptr [ %fallback_values_too_large.sroa.10.0415, %if.then12 ], [ %fallback_values_too_large.sroa.10.0415, %while.end ], [ %fallback_values_too_large.sroa.10.0415, %for.end ], [ %fallback_values_too_large.sroa.10.0415, %_ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit ], [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %fallback_values_too_large.sroa.10.0415, %if.then.i64 ], [ %fallback_values_too_large.sroa.10.0415, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i89 ]
@@ -685,16 +685,16 @@ while.body.i.i.preheader:                         ; preds = %if.else65, %.noexc1
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %while.body.i.i
   %__result.addr.023.i.i = phi ptr [ %incdec.ptr.i.i136, %while.body.i.i ], [ %fallback_values.sroa.0.1, %while.body.i.i.preheader ]
-  %__first2.sroa.0.022.i.i = phi ptr [ %__first2.sroa.0.1.i.i, %while.body.i.i ], [ %fallback_values_after_bitmap.sroa.0.2, %while.body.i.i.preheader ]
-  %__first1.sroa.0.021.i.i = phi ptr [ %__first1.sroa.0.1.i.i, %while.body.i.i ], [ %fallback_values_too_large.sroa.0.2, %while.body.i.i.preheader ]
-  %17 = load i32, ptr %__first2.sroa.0.022.i.i, align 4
-  %18 = load i32, ptr %__first1.sroa.0.021.i.i, align 4
+  %__first1.sroa.0.022.i.i = phi ptr [ %__first1.sroa.0.1.i.i, %while.body.i.i ], [ %fallback_values_too_large.sroa.0.2, %while.body.i.i.preheader ]
+  %__first2.sroa.0.021.i.i = phi ptr [ %__first2.sroa.0.1.i.i, %while.body.i.i ], [ %fallback_values_after_bitmap.sroa.0.2, %while.body.i.i.preheader ]
+  %17 = load i32, ptr %__first2.sroa.0.021.i.i, align 4
+  %18 = load i32, ptr %__first1.sroa.0.022.i.i, align 4
   %cmp.i5.i.i = icmp slt i32 %17, %18
   %.sink.i.i = tail call i32 @llvm.smin.i32(i32 %17, i32 %18)
-  %__first1.sroa.0.1.idx.i.i = select i1 %cmp.i5.i.i, i64 0, i64 4
-  %__first1.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.021.i.i, i64 %__first1.sroa.0.1.idx.i.i
   %__first2.sroa.0.1.idx.i.i = select i1 %cmp.i5.i.i, i64 4, i64 0
-  %__first2.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.022.i.i, i64 %__first2.sroa.0.1.idx.i.i
+  %__first2.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.021.i.i, i64 %__first2.sroa.0.1.idx.i.i
+  %__first1.sroa.0.1.idx.i.i = select i1 %cmp.i5.i.i, i64 0, i64 4
+  %__first1.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.022.i.i, i64 %__first1.sroa.0.1.idx.i.i
   store i32 %.sink.i.i, ptr %__result.addr.023.i.i, align 4
   %incdec.ptr.i.i136 = getelementptr inbounds i8, ptr %__result.addr.023.i.i, i64 4
   %cmp.i.i.i137 = icmp ne ptr %__first1.sroa.0.1.i.i, %fallback_values_too_large.sroa.10.2

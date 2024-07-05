@@ -142,8 +142,8 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %62, %.loopexit.loopexit, %._crit_edge, %9, %83, %61, %28
-  %.088 = phi i32 [ 1, %61 ], [ 7, %83 ], [ 7, %28 ], [ 1, %9 ], [ 0, %._crit_edge ], [ 1, %.loopexit.loopexit ], [ 7, %62 ]
-  ret i32 %.088
+  %.0 = phi i32 [ 1, %61 ], [ 7, %83 ], [ 7, %28 ], [ 1, %9 ], [ 0, %._crit_edge ], [ 1, %.loopexit.loopexit ], [ 7, %62 ]
+  ret i32 %.0
 }
 
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1

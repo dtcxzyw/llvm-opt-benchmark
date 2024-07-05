@@ -66,10 +66,10 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
-  %e.0 = phi ptr [ null, %entry ], [ %e.0.be, %while.cond.backedge ]
   %ciphername.0 = phi ptr [ null, %entry ], [ %ciphername.0.be, %while.cond.backedge ]
   %outfile.0 = phi ptr [ null, %entry ], [ %outfile.0.be, %while.cond.backedge ]
   %passoutarg.0 = phi ptr [ null, %entry ], [ %passoutarg.0.be, %while.cond.backedge ]
+  %e.0 = phi ptr [ null, %entry ], [ %e.0.be, %while.cond.backedge ]
   %verbose.0 = phi i32 [ 0, %entry ], [ %verbose.0.be, %while.cond.backedge ]
   %call1 = tail call i32 @opt_next() #2
   switch i32 %call1, label %while.cond.backedge [
@@ -90,10 +90,10 @@ while.cond:                                       ; preds = %while.cond.backedge
   ]
 
 while.cond.backedge:                              ; preds = %while.cond, %sw.bb15, %sw.bb12, %sw.bb23, %sw.bb22, %sw.bb20, %sw.bb8, %sw.bb6, %sw.bb4
-  %e.0.be = phi ptr [ %e.0, %sw.bb15 ], [ %e.0, %sw.bb20 ], [ %e.0, %sw.bb12 ], [ %e.0, %sw.bb22 ], [ %e.0, %sw.bb23 ], [ %call10, %sw.bb8 ], [ %e.0, %sw.bb6 ], [ %e.0, %sw.bb4 ], [ %e.0, %while.cond ]
   %ciphername.0.be = phi ptr [ %ciphername.0, %sw.bb15 ], [ %call21, %sw.bb20 ], [ %ciphername.0, %sw.bb12 ], [ %ciphername.0, %sw.bb22 ], [ %ciphername.0, %sw.bb23 ], [ %ciphername.0, %sw.bb8 ], [ %ciphername.0, %sw.bb6 ], [ %ciphername.0, %sw.bb4 ], [ %ciphername.0, %while.cond ]
   %outfile.0.be = phi ptr [ %outfile.0, %sw.bb15 ], [ %outfile.0, %sw.bb20 ], [ %outfile.0, %sw.bb12 ], [ %outfile.0, %sw.bb22 ], [ %outfile.0, %sw.bb23 ], [ %outfile.0, %sw.bb8 ], [ %outfile.0, %sw.bb6 ], [ %call5, %sw.bb4 ], [ %outfile.0, %while.cond ]
   %passoutarg.0.be = phi ptr [ %passoutarg.0, %sw.bb15 ], [ %passoutarg.0, %sw.bb20 ], [ %passoutarg.0, %sw.bb12 ], [ %passoutarg.0, %sw.bb22 ], [ %passoutarg.0, %sw.bb23 ], [ %passoutarg.0, %sw.bb8 ], [ %call7, %sw.bb6 ], [ %passoutarg.0, %sw.bb4 ], [ %passoutarg.0, %while.cond ]
+  %e.0.be = phi ptr [ %e.0, %sw.bb15 ], [ %e.0, %sw.bb20 ], [ %e.0, %sw.bb12 ], [ %e.0, %sw.bb22 ], [ %e.0, %sw.bb23 ], [ %call10, %sw.bb8 ], [ %e.0, %sw.bb6 ], [ %e.0, %sw.bb4 ], [ %e.0, %while.cond ]
   %verbose.0.be = phi i32 [ %verbose.0, %sw.bb15 ], [ %verbose.0, %sw.bb20 ], [ %verbose.0, %sw.bb12 ], [ 1, %sw.bb22 ], [ 0, %sw.bb23 ], [ %verbose.0, %sw.bb8 ], [ %verbose.0, %sw.bb6 ], [ %verbose.0, %sw.bb4 ], [ %verbose.0, %while.cond ]
   br label %while.cond, !llvm.loop !5
 
@@ -224,17 +224,17 @@ if.then71:                                        ; preds = %if.end68
   br label %if.then75
 
 if.then75:                                        ; preds = %sw.bb15, %sw.bb12, %opthelp, %if.then57, %if.then62, %if.end64, %if.then71, %if.then39, %if.end32, %if.end27
-  %out.0.ph = phi ptr [ null, %if.end27 ], [ null, %if.end32 ], [ null, %if.then39 ], [ %call43, %if.then71 ], [ %call43, %if.end64 ], [ %call43, %if.then62 ], [ %call43, %if.then57 ], [ null, %opthelp ], [ null, %sw.bb12 ], [ null, %sw.bb15 ]
   %pkey.0.ph = phi ptr [ null, %if.end27 ], [ null, %if.end32 ], [ null, %if.then39 ], [ %call65, %if.then71 ], [ null, %if.end64 ], [ null, %if.then62 ], [ %call42, %if.then57 ], [ null, %opthelp ], [ null, %sw.bb12 ], [ null, %sw.bb15 ]
   %ctx.0.ph = phi ptr [ null, %if.end27 ], [ null, %if.end32 ], [ null, %if.then39 ], [ %call55, %if.then71 ], [ %call55, %if.end64 ], [ %call55, %if.then62 ], [ null, %if.then57 ], [ null, %opthelp ], [ null, %sw.bb12 ], [ null, %sw.bb15 ]
+  %out.0.ph = phi ptr [ null, %if.end27 ], [ null, %if.end32 ], [ null, %if.then39 ], [ %call43, %if.then71 ], [ %call43, %if.end64 ], [ %call43, %if.then62 ], [ %call43, %if.then57 ], [ null, %opthelp ], [ null, %sw.bb12 ], [ null, %sw.bb15 ]
   %9 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %9) #2
   br label %end2
 
 end2:                                             ; preds = %sw.bb3, %if.end68, %if.then75, %if.end41
-  %out.1 = phi ptr [ %out.0.ph, %if.then75 ], [ null, %if.end41 ], [ null, %sw.bb3 ], [ %call43, %if.end68 ]
   %pkey.1 = phi ptr [ %pkey.0.ph, %if.then75 ], [ %call42, %if.end41 ], [ null, %sw.bb3 ], [ %call65, %if.end68 ]
   %ctx.1 = phi ptr [ %ctx.0.ph, %if.then75 ], [ null, %if.end41 ], [ null, %sw.bb3 ], [ %call55, %if.end68 ]
+  %out.1 = phi ptr [ %out.0.ph, %if.then75 ], [ null, %if.end41 ], [ null, %sw.bb3 ], [ %call43, %if.end68 ]
   %ret.1 = phi i32 [ 1, %if.then75 ], [ 1, %if.end41 ], [ 0, %sw.bb3 ], [ 0, %if.end68 ]
   %call77 = call i32 @BIO_free(ptr noundef null) #2
   call void @BIO_free_all(ptr noundef %out.1) #2

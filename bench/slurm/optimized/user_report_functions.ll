@@ -26,8 +26,8 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
   br label %10
 
 10:                                               ; preds = %8, %3
-  %.0118 = phi ptr [ %1, %3 ], [ %9, %8 ]
-  %11 = getelementptr inbounds i8, ptr %.0118, i64 8
+  %.0114 = phi ptr [ %1, %3 ], [ %9, %8 ]
+  %11 = getelementptr inbounds i8, ptr %.0114, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not136 = icmp eq ptr %12, null
   br i1 %.not136, label %13, label %15
@@ -54,9 +54,9 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
 
 23:                                               ; preds = %19, %15
   %24 = phi ptr [ %.pre, %19 ], [ %16, %15 ]
-  %25 = getelementptr inbounds i8, ptr %.0118, i64 36
+  %25 = getelementptr inbounds i8, ptr %.0114, i64 36
   store i16 1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %.0118, i64 32
+  %26 = getelementptr inbounds i8, ptr %.0114, i64 32
   store i16 1, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %24, i64 96
   store i16 1, ptr %27, align 8
@@ -79,7 +79,7 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
   %40 = load ptr, ptr %11, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 72
   store i64 %39, ptr %41, align 8
-  %42 = call ptr @acct_storage_g_get_users(ptr noundef %0, i32 noundef %7, ptr noundef nonnull %.0118) #5
+  %42 = call ptr @acct_storage_g_get_users(ptr noundef %0, i32 noundef %7, ptr noundef nonnull %.0114) #5
   %.not138 = icmp eq ptr %42, null
   br i1 %.not138, label %43, label %46
 
@@ -385,7 +385,7 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
   br label %184
 
 184:                                              ; preds = %.outer170._crit_edge, %62, %43
-  %.0116 = phi ptr [ %66, %.outer170._crit_edge ], [ null, %62 ], [ null, %43 ]
+  %.0117 = phi ptr [ %66, %.outer170._crit_edge ], [ null, %62 ], [ null, %43 ]
   %.not143 = phi i1 [ true, %.outer170._crit_edge ], [ false, %62 ], [ false, %43 ]
   br i1 %.not137, label %185, label %195
 
@@ -423,7 +423,7 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
   br i1 %.not, label %199, label %200
 
 199:                                              ; preds = %198
-  call void @slurmdb_destroy_user_cond(ptr noundef %.0118) #5
+  call void @slurmdb_destroy_user_cond(ptr noundef %.0114) #5
   br label %200
 
 200:                                              ; preds = %198, %199
@@ -437,16 +437,16 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
   br i1 %.not143, label %205, label %203
 
 203:                                              ; preds = %202
-  %.not144 = icmp eq ptr %.0116, null
+  %.not144 = icmp eq ptr %.0117, null
   br i1 %.not144, label %205, label %204
 
 204:                                              ; preds = %203
-  call void @list_destroy(ptr noundef nonnull %.0116) #5
+  call void @list_destroy(ptr noundef nonnull %.0117) #5
   br label %205
 
 205:                                              ; preds = %203, %204, %202
-  %.1117 = phi ptr [ %.0116, %202 ], [ null, %204 ], [ null, %203 ]
-  ret ptr %.1117
+  %.1118 = phi ptr [ %.0117, %202 ], [ null, %204 ], [ null, %203 ]
+  ret ptr %.1118
 }
 
 ; Function Attrs: nounwind

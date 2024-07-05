@@ -53,10 +53,10 @@ define i16 @f32_to_bf16(i32 %0) local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %21, %22
-  %.025 = phi i64 [ %6, %21 ], [ %25, %22 ]
+  %.024 = phi i64 [ %6, %21 ], [ %25, %22 ]
   %.0 = phi i64 [ %5, %21 ], [ %24, %22 ]
-  %27 = lshr i64 %.025, 9
-  %28 = and i64 %.025, 511
+  %27 = lshr i64 %.024, 9
+  %28 = and i64 %.024, 511
   %29 = icmp ne i64 %28, 0
   %30 = zext i1 %29 to i64
   %31 = add nsw i64 %.0, -1
@@ -66,8 +66,8 @@ define i16 @f32_to_bf16(i32 %0) local_unnamed_addr #0 {
   br label %37
 
 35:                                               ; preds = %9, %11, %12, %18
-  %.024.shrunk = phi i32 [ %15, %12 ], [ %20, %18 ], [ 32704, %11 ], [ 32704, %9 ]
-  %36 = trunc nuw i32 %.024.shrunk to i16
+  %.025.shrunk = phi i32 [ %15, %12 ], [ %20, %18 ], [ 32704, %11 ], [ 32704, %9 ]
+  %36 = trunc nuw i32 %.025.shrunk to i16
   br label %37
 
 37:                                               ; preds = %35, %26

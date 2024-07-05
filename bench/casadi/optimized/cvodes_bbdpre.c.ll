@@ -316,19 +316,19 @@ define internal range(i32 -1, 2) i32 @cvBBDPrecSetup(double noundef %0, ptr noun
 
 70:                                               ; preds = %._crit_edge146.i, %.lr.ph150.i
   %71 = phi i64 [ %60, %.lr.ph150.i ], [ %146, %._crit_edge146.i ]
-  %.0118148.i = phi i64 [ 1, %.lr.ph150.i ], [ %147, %._crit_edge146.i ]
-  %72 = add nsw i64 %.0118148.i, -1
-  %.not154.i = icmp sgt i64 %.0118148.i, %71
+  %.0117148.i = phi i64 [ 1, %.lr.ph150.i ], [ %147, %._crit_edge146.i ]
+  %72 = add nsw i64 %.0117148.i, -1
+  %.not154.i = icmp sgt i64 %.0117148.i, %71
   br i1 %.not154.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %70, %87
-  %.0138.i = phi i64 [ %92, %87 ], [ %72, %70 ]
+  %.0119138.i = phi i64 [ %92, %87 ], [ %72, %70 ]
   %73 = load double, ptr %67, align 8
-  %74 = getelementptr inbounds double, ptr %38, i64 %.0138.i
+  %74 = getelementptr inbounds double, ptr %38, i64 %.0119138.i
   %75 = load double, ptr %74, align 8
   %76 = tail call double @SUNRabs(double noundef %75) #6
   %77 = fmul double %73, %76
-  %78 = getelementptr inbounds double, ptr %42, i64 %.0138.i
+  %78 = getelementptr inbounds double, ptr %42, i64 %.0119138.i
   %79 = load double, ptr %78, align 8
   %80 = fdiv double %61, %79
   %81 = fcmp ogt double %77, %80
@@ -343,11 +343,11 @@ define internal range(i32 -1, 2) i32 @cvBBDPrecSetup(double noundef %0, ptr noun
 
 87:                                               ; preds = %82, %.lr.ph.i
   %88 = phi double [ %86, %82 ], [ %80, %.lr.ph.i ]
-  %89 = getelementptr inbounds double, ptr %43, i64 %.0138.i
+  %89 = getelementptr inbounds double, ptr %43, i64 %.0119138.i
   %90 = load double, ptr %89, align 8
   %91 = fadd double %88, %90
   store double %91, ptr %89, align 8
-  %92 = add nsw i64 %.0138.i, %66
+  %92 = add nsw i64 %.0119138.i, %66
   %93 = load i64, ptr %29, align 8
   %94 = icmp slt i64 %92, %93
   br i1 %94, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
@@ -365,7 +365,7 @@ define internal range(i32 -1, 2) i32 @cvBBDPrecSetup(double noundef %0, ptr noun
 
 .preheader.i:                                     ; preds = %._crit_edge.i
   %100 = load i64, ptr %29, align 8
-  %.not155.i = icmp sgt i64 %.0118148.i, %100
+  %.not155.i = icmp sgt i64 %.0117148.i, %100
   br i1 %.not155.i, label %._crit_edge146.i, label %.lr.ph145.i
 
 .lr.ph145.i:                                      ; preds = %.preheader.i, %._crit_edge143.i
@@ -413,18 +413,18 @@ define internal range(i32 -1, 2) i32 @cvBBDPrecSetup(double noundef %0, ptr noun
   br i1 %.not137139.i, label %._crit_edge143.i, label %.lr.ph142.i
 
 .lr.ph142.i:                                      ; preds = %124, %.lr.ph142.i
-  %.0117140.i = phi i64 [ %142, %.lr.ph142.i ], [ %spec.select.i, %124 ]
-  %134 = getelementptr inbounds double, ptr %44, i64 %.0117140.i
+  %.0118140.i = phi i64 [ %142, %.lr.ph142.i ], [ %spec.select.i, %124 ]
+  %134 = getelementptr inbounds double, ptr %44, i64 %.0118140.i
   %135 = load double, ptr %134, align 8
-  %136 = getelementptr inbounds double, ptr %39, i64 %.0117140.i
+  %136 = getelementptr inbounds double, ptr %39, i64 %.0118140.i
   %137 = load double, ptr %136, align 8
   %138 = fsub double %135, %137
   %139 = fmul double %126, %138
-  %140 = sub nsw i64 %.0117140.i, %.1144.i
+  %140 = sub nsw i64 %.0118140.i, %.1144.i
   %141 = getelementptr inbounds double, ptr %111, i64 %140
   store double %139, ptr %141, align 8
-  %142 = add nuw nsw i64 %.0117140.i, 1
-  %.not137.not.i = icmp slt i64 %.0117140.i, %133
+  %142 = add nuw nsw i64 %.0118140.i, 1
+  %.not137.not.i = icmp slt i64 %.0118140.i, %133
   br i1 %.not137.not.i, label %.lr.ph142.i, label %._crit_edge143.loopexit.i, !llvm.loop !6
 
 ._crit_edge143.loopexit.i:                        ; preds = %.lr.ph142.i
@@ -439,13 +439,13 @@ define internal range(i32 -1, 2) i32 @cvBBDPrecSetup(double noundef %0, ptr noun
 
 ._crit_edge146.i:                                 ; preds = %._crit_edge143.i, %.preheader.i
   %146 = phi i64 [ %100, %.preheader.i ], [ %143, %._crit_edge143.i ]
-  %147 = add nuw i64 %.0118148.i, 1
-  %exitcond.not.i = icmp eq i64 %.0118148.i, %..i
+  %147 = add nuw i64 %.0117148.i, 1
+  %exitcond.not.i = icmp eq i64 %.0117148.i, %..i
   br i1 %exitcond.not.i, label %.loopexit, label %70, !llvm.loop !8
 
 cvBBDDQJac.exit:                                  ; preds = %._crit_edge.i, %20, %26
-  %.0119.i = phi i32 [ %25, %20 ], [ %33, %26 ], [ %97, %._crit_edge.i ]
-  %148 = icmp slt i32 %.0119.i, 0
+  %.0.i = phi i32 [ %25, %20 ], [ %33, %26 ], [ %97, %._crit_edge.i ]
+  %148 = icmp slt i32 %.0.i, 0
   br i1 %148, label %149, label %166
 
 149:                                              ; preds = %cvBBDDQJac.exit

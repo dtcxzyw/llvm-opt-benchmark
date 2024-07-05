@@ -236,8 +236,8 @@ ssl_cookie_hmac.exit.thread:                      ; preds = %17, %15, %13, %11
   br label %47
 
 47:                                               ; preds = %10, %5, %46
-  %.020 = phi i32 [ %.1, %46 ], [ -28928, %5 ], [ -1, %10 ]
-  ret i32 %.020
+  %.0 = phi i32 [ %.1, %46 ], [ -28928, %5 ], [ -1, %10 ]
+  ret i32 %.0
 }
 
 declare i32 @mbedtls_ct_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

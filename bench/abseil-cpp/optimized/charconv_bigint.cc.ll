@@ -1608,11 +1608,11 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %first_pass.034 = phi i1 [ true, %while.body.lr.ph ], [ false, %if.end ]
-  %n.addr.033 = phi i32 [ %n, %while.body.lr.ph ], [ %sub, %if.end ]
-  %div = udiv i32 %n.addr.033, 27
+  %n.addr.034 = phi i32 [ %n, %while.body.lr.ph ], [ %sub, %if.end ]
+  %first_pass.033 = phi i1 [ true, %while.body.lr.ph ], [ false, %if.end ]
+  %div = udiv i32 %n.addr.034, 27
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %div, i32 20)
-  br i1 %first_pass.034, label %if.then, label %if.else
+  br i1 %first_pass.033, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
   %sub.i = add nsw i32 %.sroa.speculated, -1
@@ -1806,7 +1806,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12MultiplyStepEiPKjii.exit: ; preds
 
 if.end:                                           ; preds = %_ZN4absl16strings_internal11BigUnsignedILi4EE12MultiplyStepEiPKjii.exit, %if.else, %if.then
   %mul.neg = mul nsw i32 %.sroa.speculated, -27
-  %sub = add i32 %mul.neg, %n.addr.033
+  %sub = add i32 %mul.neg, %n.addr.034
   %cmp = icmp sgt i32 %sub, 26
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !18
 
@@ -3893,11 +3893,11 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %first_pass.034 = phi i1 [ true, %while.body.lr.ph ], [ false, %if.end ]
-  %n.addr.033 = phi i32 [ %n, %while.body.lr.ph ], [ %sub, %if.end ]
-  %div = udiv i32 %n.addr.033, 27
+  %n.addr.034 = phi i32 [ %n, %while.body.lr.ph ], [ %sub, %if.end ]
+  %first_pass.033 = phi i1 [ true, %while.body.lr.ph ], [ false, %if.end ]
+  %div = udiv i32 %n.addr.034, 27
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %div, i32 20)
-  br i1 %first_pass.034, label %if.then, label %if.else
+  br i1 %first_pass.033, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
   %sub.i = add nsw i32 %.sroa.speculated, -1
@@ -4091,7 +4091,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12MultiplyStepEiPKjii.exit: ; pred
 
 if.end:                                           ; preds = %_ZN4absl16strings_internal11BigUnsignedILi84EE12MultiplyStepEiPKjii.exit, %if.else, %if.then
   %mul.neg = mul nsw i32 %.sroa.speculated, -27
-  %sub = add i32 %mul.neg, %n.addr.033
+  %sub = add i32 %mul.neg, %n.addr.034
   %cmp = icmp sgt i32 %sub, 26
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !33
 

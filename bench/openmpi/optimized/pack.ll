@@ -321,8 +321,8 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_bool(ptr nocapture noundef readn
   br label %27
 
 27:                                               ; preds = %13, %._crit_edge
-  %.017 = phi i32 [ 0, %._crit_edge ], [ -29, %13 ]
-  ret i32 %.017
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -29, %13 ]
+  ret i32 %.0
 }
 
 declare ptr @pmix_bfrop_buffer_extend(ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -669,19 +669,19 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_int64(ptr nocapture readnone %0,
 
 pmix_hton64.exit.us:                              ; preds = %.lr.ph, %pmix_hton64.exit.us
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %pmix_hton64.exit.us ], [ 0, %.lr.ph ]
-  %.022.us = phi ptr [ %23, %pmix_hton64.exit.us ], [ %16, %.lr.ph ]
+  %.01722.us = phi ptr [ %23, %pmix_hton64.exit.us ], [ %16, %.lr.ph ]
   %21 = shl nuw nsw i64 %indvars.iv25, 3
   %22 = getelementptr inbounds i8, ptr %2, i64 %21
   %.0.copyload.us = load i64, ptr %22, align 1
-  store i64 %.0.copyload.us, ptr %.022.us, align 1
-  %23 = getelementptr inbounds i8, ptr %.022.us, i64 8
+  store i64 %.0.copyload.us, ptr %.01722.us, align 1
+  %23 = getelementptr inbounds i8, ptr %.01722.us, i64 8
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count28
   br i1 %exitcond29.not, label %._crit_edge, label %pmix_hton64.exit.us, !llvm.loop !8
 
 pmix_hton64.exit:                                 ; preds = %.lr.ph, %pmix_hton64.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %pmix_hton64.exit ], [ 0, %.lr.ph ]
-  %.022 = phi ptr [ %28, %pmix_hton64.exit ], [ %16, %.lr.ph ]
+  %.01722 = phi ptr [ %28, %pmix_hton64.exit ], [ %16, %.lr.ph ]
   %24 = shl nuw nsw i64 %indvars.iv, 3
   %25 = getelementptr inbounds i8, ptr %2, i64 %24
   %.0.copyload = load i64, ptr %25, align 1
@@ -694,8 +694,8 @@ pmix_hton64.exit:                                 ; preds = %.lr.ph, %pmix_hton6
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %26 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  store i64 %.sroa.0.0.insert.insert.i, ptr %.022, align 1
-  %28 = getelementptr inbounds i8, ptr %.022, i64 8
+  store i64 %.sroa.0.0.insert.insert.i, ptr %.01722, align 1
+  %28 = getelementptr inbounds i8, ptr %.01722, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count28
   br i1 %exitcond.not, label %._crit_edge, label %pmix_hton64.exit, !llvm.loop !8
@@ -712,8 +712,8 @@ pmix_hton64.exit:                                 ; preds = %.lr.ph, %pmix_hton6
   br label %35
 
 35:                                               ; preds = %15, %._crit_edge
-  %.017 = phi i32 [ 0, %._crit_edge ], [ -29, %15 ]
-  ret i32 %.017
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -29, %15 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -832,8 +832,8 @@ pmix20_bfrop_pack_byte.exit.thread:               ; preds = %52
   br i1 %exitcond.not, label %pmix20_bfrop_pack_int32.exit, label %9, !llvm.loop !9
 
 pmix20_bfrop_pack_int32.exit:                     ; preds = %56, %21, %36, %52, %5
-  %.019 = phi i32 [ 0, %5 ], [ -29, %52 ], [ -29, %36 ], [ -29, %21 ], [ 0, %56 ]
-  ret i32 %.019
+  %.0 = phi i32 [ 0, %5 ], [ -29, %52 ], [ -29, %36 ], [ -29, %21 ], [ 0, %56 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -871,8 +871,8 @@ define noundef i32 @pmix20_bfrop_pack_float(ptr nocapture noundef readnone %0, p
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %13, %5
-  %.09 = phi i32 [ 0, %5 ], [ -32, %.lr.ph ], [ 0, %16 ], [ %14, %13 ]
-  ret i32 %.09
+  %.0 = phi i32 [ 0, %5 ], [ -32, %.lr.ph ], [ 0, %16 ], [ %14, %13 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind
@@ -912,8 +912,8 @@ define noundef i32 @pmix20_bfrop_pack_double(ptr nocapture noundef readnone %0, 
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %12, %5
-  %.09 = phi i32 [ 0, %5 ], [ -32, %.lr.ph ], [ 0, %15 ], [ %13, %12 ]
-  ret i32 %.09
+  %.0 = phi i32 [ 0, %5 ], [ -32, %.lr.ph ], [ 0, %15 ], [ %13, %12 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -941,8 +941,8 @@ define i32 @pmix20_bfrop_pack_timeval(ptr nocapture noundef readnone %0, ptr nou
   br i1 %.not, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9, %8, %5
-  %.011 = phi i32 [ 0, %5 ], [ 0, %8 ], [ %12, %9 ]
-  ret i32 %.011
+  %.0 = phi i32 [ 0, %5 ], [ 0, %8 ], [ %12, %9 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -970,8 +970,8 @@ define i32 @pmix20_bfrop_pack_time(ptr nocapture noundef readnone %0, ptr nounde
   br i1 %.not, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8, %5
-  %.09 = phi i32 [ 0, %5 ], [ 0, %8 ], [ %11, %.lr.ph ]
-  ret i32 %.09
+  %.0 = phi i32 [ 0, %5 ], [ 0, %8 ], [ %11, %.lr.ph ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1023,8 +1023,8 @@ define noundef i32 @pmix20_bfrop_pack_status(ptr nocapture noundef readnone %0, 
   br i1 %exitcond.not, label %pmix20_bfrop_pack_int32.exit, label %9, !llvm.loop !14
 
 pmix20_bfrop_pack_int32.exit:                     ; preds = %.lr.ph.i.preheader, %19, %5
-  %.09 = phi i32 [ 0, %5 ], [ -29, %19 ], [ 0, %.lr.ph.i.preheader ]
-  ret i32 %.09
+  %.0 = phi i32 [ 0, %5 ], [ -29, %19 ], [ 0, %.lr.ph.i.preheader ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3831,8 +3831,8 @@ pmix20_bfrop_pack_byte.exit.thread:               ; preds = %48
   br i1 %exitcond.not, label %pmix20_bfrop_pack_byte.exit, label %10, !llvm.loop !25
 
 pmix20_bfrop_pack_byte.exit:                      ; preds = %pmix20_bfrop_pack_sizet.exit, %56, %48, %10, %25, %pmix_pointer_array_get_item.exit.i.i, %27, %5
-  %.018 = phi i32 [ 0, %5 ], [ -21, %27 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %26, %25 ], [ %13, %10 ], [ -29, %48 ], [ 0, %56 ], [ %35, %pmix20_bfrop_pack_sizet.exit ]
-  ret i32 %.018
+  %.0 = phi i32 [ 0, %5 ], [ -21, %27 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %26, %25 ], [ %13, %10 ], [ -29, %48 ], [ 0, %56 ], [ %35, %pmix20_bfrop_pack_sizet.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

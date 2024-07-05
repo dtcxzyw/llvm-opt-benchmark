@@ -476,8 +476,8 @@ define internal fastcc noundef ptr @check_components(ptr noundef %0, ptr nocaptu
   br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !7
 
 opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %11, %12
-  %.0265 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 112), align 8
-  %.not6 = icmp eq ptr %.0265, getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 96)
+  %.0275 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 112), align 8
+  %.not6 = icmp eq ptr %.0275, getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 96)
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %opal_obj_new.exit
@@ -488,8 +488,8 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %11, %1
   br label %23
 
 23:                                               ; preds = %.lr.ph, %check_one_component.exit.thread
-  %.0267 = phi ptr [ %.0265, %.lr.ph ], [ %.026, %check_one_component.exit.thread ]
-  %24 = getelementptr inbounds i8, ptr %.0267, i64 40
+  %.0277 = phi ptr [ %.0275, %.lr.ph ], [ %.027, %check_one_component.exit.thread ]
+  %24 = getelementptr inbounds i8, ptr %.0277, i64 40
   %25 = load ptr, ptr %24, align 8
   br i1 %19, label %.thread, label %.preheader
 
@@ -621,9 +621,9 @@ check_one_component.exit:                         ; preds = %68, %.loopexit.i
   br label %check_one_component.exit.thread
 
 check_one_component.exit.thread:                  ; preds = %query.exit.thread.i, %74, %.preheader, %check_one_component.exit
-  %84 = getelementptr inbounds i8, ptr %.0267, i64 16
-  %.026 = load volatile ptr, ptr %84, align 8
-  %.not = icmp eq ptr %.026, getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 96)
+  %84 = getelementptr inbounds i8, ptr %.0277, i64 16
+  %.027 = load volatile ptr, ptr %84, align 8
+  %.not = icmp eq ptr %.027, getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %23, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %check_one_component.exit.thread, %opal_obj_new.exit
@@ -681,8 +681,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %100
   br label %110
 
 110:                                              ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %108
-  %.028 = phi ptr [ %7, %108 ], [ null, %opal_thread_add_fetch_32.exit ], [ null, %opal_obj_run_destructors.exit ]
-  ret ptr %.028
+  %.0 = phi ptr [ %7, %108 ], [ null, %opal_thread_add_fetch_32.exit ], [ null, %opal_obj_run_destructors.exit ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

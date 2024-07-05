@@ -124,9 +124,9 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
   br label %11
 
 11:                                               ; preds = %4, %10
-  %.036 = phi ptr [ @.str.1, %10 ], [ @.str, %4 ]
-  %.035 = phi ptr [ @_set_pbs_options, %10 ], [ @_set_bsub_options, %4 ]
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.036) #11
+  %.037 = phi ptr [ @.str.1, %10 ], [ @.str, %4 ]
+  %.036 = phi ptr [ @_set_pbs_options, %10 ], [ @_set_bsub_options, %4 ]
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.037) #11
   %13 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 113, ptr noundef nonnull @__func__.xlate_batch_script) #12
   store ptr %13, ptr %5, align 8
   store ptr @.str.3, ptr %13, align 8
@@ -152,7 +152,7 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
 
 18:                                               ; preds = %16
   %19 = add nsw i32 %.031, 1
-  %20 = call i32 @xstrncmp(ptr noundef nonnull %17, ptr noundef nonnull %.036, i64 noundef %14) #12
+  %20 = call i32 @xstrncmp(ptr noundef nonnull %17, ptr noundef nonnull %.037, i64 noundef %14) #12
   %.not39 = icmp eq i32 %20, 0
   %21 = load ptr, ptr %7, align 8
   br i1 %.not39, label %26, label %22
@@ -242,7 +242,7 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %5, align 8
-  call void %.035(i32 noundef %.033.ph, ptr noundef %54) #12, !callees !10
+  call void %.036(i32 noundef %.033.ph, ptr noundef %54) #12, !callees !10
   %.not62 = icmp eq i32 %.033.ph, 1
   br i1 %.not62, label %._crit_edge52, label %.lr.ph51.preheader
 
@@ -264,8 +264,8 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
   br label %57
 
 57:                                               ; preds = %4, %._crit_edge52
-  %.037 = phi i1 [ %.0.ph, %._crit_edge52 ], [ false, %4 ]
-  ret i1 %.037
+  %.035 = phi i1 [ %.0.ph, %._crit_edge52 ], [ false, %4 ]
+  ret i1 %.035
 }
 
 ; Function Attrs: nounwind uwtable

@@ -1311,8 +1311,8 @@ Vec_PtrFree.exit114:                              ; preds = %Vec_PtrFree.exit, %
   br label %143
 
 143:                                              ; preds = %1, %.critedge6
-  %.078 = phi ptr [ %7, %.critedge6 ], [ null, %1 ]
-  ret ptr %.078
+  %.0 = phi ptr [ %7, %.critedge6 ], [ null, %1 ]
+  ret ptr %.0
 }
 
 declare ptr @Abc_NtkAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2

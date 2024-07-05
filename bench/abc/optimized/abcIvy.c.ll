@@ -346,17 +346,17 @@ Abc_NodeStrashAigFactorAig.exit.i:                ; preds = %111, %.critedge.i.i
   br i1 %.not38.i.i.i, label %.lr.ph50.split.us.i.i.i, label %.lr.ph50.split.i.i.i
 
 .lr.ph50.split.us.i.i.i:                          ; preds = %.lr.ph50.i.i.i, %.critedge.us.i.i.i
-  %.03249.us.i.i.i = phi ptr [ %123, %.critedge.us.i.i.i ], [ %.028.i.i, %.lr.ph50.i.i.i ]
-  %.03348.us.i.i.i = phi ptr [ %122, %.critedge.us.i.i.i ], [ %116, %.lr.ph50.i.i.i ]
+  %.03249.us.i.i.i = phi ptr [ %122, %.critedge.us.i.i.i ], [ %116, %.lr.ph50.i.i.i ]
+  %.03548.us.i.i.i = phi ptr [ %123, %.critedge.us.i.i.i ], [ %.028.i.i, %.lr.ph50.i.i.i ]
   %.val.us.i.i.i = load ptr, ptr %23, align 8
   %.val4044.us.i.i.i = load i32, ptr %80, align 4
   %121 = icmp sgt i32 %.val4044.us.i.i.i, 0
   br i1 %121, label %.lr.ph.us.i.i.i, label %.critedge.us.i.i.i
 
 .critedge.us.i.i.i:                               ; preds = %144, %.lr.ph50.split.us.i.i.i
-  %.034.lcssa.us.i.i.i = phi ptr [ %.val.us.i.i.i, %.lr.ph50.split.us.i.i.i ], [ %.135.us.i.i.i, %144 ]
-  %122 = tail call ptr @Ivy_Or(ptr noundef %2, ptr noundef %.03348.us.i.i.i, ptr noundef %.034.lcssa.us.i.i.i) #14
-  %123 = getelementptr inbounds i8, ptr %.03249.us.i.i.i, i64 %120
+  %.0.lcssa.us.i.i.i = phi ptr [ %.val.us.i.i.i, %.lr.ph50.split.us.i.i.i ], [ %.1.us.i.i.i, %144 ]
+  %122 = tail call ptr @Ivy_Or(ptr noundef %2, ptr noundef %.03249.us.i.i.i, ptr noundef %.0.lcssa.us.i.i.i) #14
+  %123 = getelementptr inbounds i8, ptr %.03548.us.i.i.i, i64 %120
   %124 = load i8, ptr %123, align 1
   %.not.us.i.i.i = icmp eq i8 %124, 0
   br i1 %.not.us.i.i.i, label %Abc_NodeStrashAigSopAig.exit.i.i, label %.lr.ph50.split.us.i.i.i, !llvm.loop !7
@@ -364,7 +364,7 @@ Abc_NodeStrashAigFactorAig.exit.i:                ; preds = %111, %.critedge.i.i
 .lr.ph.us.i.i.i:                                  ; preds = %.lr.ph50.split.us.i.i.i, %144
   %.val40.us.i51.i.i = phi i32 [ %.val40.us.i.i.i, %144 ], [ %.val4044.us.i.i.i, %.lr.ph50.split.us.i.i.i ]
   %indvars.iv55.i.i.i = phi i64 [ %indvars.iv.next56.i.i.i, %144 ], [ 0, %.lr.ph50.split.us.i.i.i ]
-  %.03445.us.i.i.i = phi ptr [ %.135.us.i.i.i, %144 ], [ %.val.us.i.i.i, %.lr.ph50.split.us.i.i.i ]
+  %.046.us.i.i.i = phi ptr [ %.1.us.i.i.i, %144 ], [ %.val.us.i.i.i, %.lr.ph50.split.us.i.i.i ]
   %.val42.us.i.i.i = load ptr, ptr %26, align 8
   %.val43.us.i.i.i = load ptr, ptr %118, align 8
   %125 = getelementptr i8, ptr %.val42.us.i.i.i, i64 32
@@ -376,7 +376,7 @@ Abc_NodeStrashAigFactorAig.exit.i:                ; preds = %111, %.critedge.i.i
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds ptr, ptr %.val42.val.val.us.i.i.i, i64 %129
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %.03249.us.i.i.i, i64 %indvars.iv55.i.i.i
+  %132 = getelementptr inbounds i8, ptr %.03548.us.i.i.i, i64 %indvars.iv55.i.i.i
   %133 = load i8, ptr %132, align 1
   switch i8 %133, label %144 [
     i8 49, label %140
@@ -398,21 +398,21 @@ Abc_NodeStrashAigFactorAig.exit.i:                ; preds = %111, %.critedge.i.i
 
 .sink.split.i.i.i:                                ; preds = %140, %134
   %.sink.i.i.i = phi ptr [ %142, %140 ], [ %139, %134 ]
-  %143 = tail call ptr @Ivy_And(ptr noundef %2, ptr noundef %.03445.us.i.i.i, ptr noundef %.sink.i.i.i) #14
+  %143 = tail call ptr @Ivy_And(ptr noundef %2, ptr noundef %.046.us.i.i.i, ptr noundef %.sink.i.i.i) #14
   %.val40.us.i.pre.i.i = load i32, ptr %80, align 4
   br label %144
 
 144:                                              ; preds = %.sink.split.i.i.i, %.lr.ph.us.i.i.i
   %.val40.us.i.i.i = phi i32 [ %.val40.us.i51.i.i, %.lr.ph.us.i.i.i ], [ %.val40.us.i.pre.i.i, %.sink.split.i.i.i ]
-  %.135.us.i.i.i = phi ptr [ %.03445.us.i.i.i, %.lr.ph.us.i.i.i ], [ %143, %.sink.split.i.i.i ]
+  %.1.us.i.i.i = phi ptr [ %.046.us.i.i.i, %.lr.ph.us.i.i.i ], [ %143, %.sink.split.i.i.i ]
   %indvars.iv.next56.i.i.i = add nuw nsw i64 %indvars.iv55.i.i.i, 1
   %145 = sext i32 %.val40.us.i.i.i to i64
   %146 = icmp slt i64 %indvars.iv.next56.i.i.i, %145
   br i1 %146, label %.lr.ph.us.i.i.i, label %.critedge.us.i.i.i, !llvm.loop !8
 
 .lr.ph50.split.i.i.i:                             ; preds = %.lr.ph50.i.i.i, %.critedge.i.i.i
-  %.03249.i.i.i = phi ptr [ %171, %.critedge.i.i.i ], [ %.028.i.i, %.lr.ph50.i.i.i ]
-  %.03348.i.i.i = phi ptr [ %170, %.critedge.i.i.i ], [ %116, %.lr.ph50.i.i.i ]
+  %.03249.i.i.i = phi ptr [ %170, %.critedge.i.i.i ], [ %116, %.lr.ph50.i.i.i ]
+  %.03548.i.i.i = phi ptr [ %171, %.critedge.i.i.i ], [ %.028.i.i, %.lr.ph50.i.i.i ]
   %.val.i.i.i = load ptr, ptr %23, align 8
   %.val4044.i.i.i = load i32, ptr %80, align 4
   %147 = icmp sgt i32 %.val4044.i.i.i, 0
@@ -421,7 +421,7 @@ Abc_NodeStrashAigFactorAig.exit.i:                ; preds = %111, %.critedge.i.i
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph50.split.i.i.i, %167
   %.val40.i49.i.i = phi i32 [ %.val40.i.i.i, %167 ], [ %.val4044.i.i.i, %.lr.ph50.split.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %167 ], [ 0, %.lr.ph50.split.i.i.i ]
-  %.03445.i.i.i = phi ptr [ %.135.i.i.i, %167 ], [ %.val.i.i.i, %.lr.ph50.split.i.i.i ]
+  %.046.i.i.i = phi ptr [ %.1.i.i.i, %167 ], [ %.val.i.i.i, %.lr.ph50.split.i.i.i ]
   %.val42.i.i.i = load ptr, ptr %26, align 8
   %.val43.i.i.i = load ptr, ptr %118, align 8
   %148 = getelementptr i8, ptr %.val42.i.i.i, i64 32
@@ -433,7 +433,7 @@ Abc_NodeStrashAigFactorAig.exit.i:                ; preds = %111, %.critedge.i.i
   %152 = sext i32 %151 to i64
   %153 = getelementptr inbounds ptr, ptr %.val42.val.val.i.i.i, i64 %152
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %.03249.i.i.i, i64 %indvars.iv.i.i.i
+  %155 = getelementptr inbounds i8, ptr %.03548.i.i.i, i64 %indvars.iv.i.i.i
   %156 = load i8, ptr %155, align 1
   switch i8 %156, label %167 [
     i8 49, label %157
@@ -455,34 +455,34 @@ Abc_NodeStrashAigFactorAig.exit.i:                ; preds = %111, %.critedge.i.i
 
 .sink.split60.i.i.i:                              ; preds = %160, %157
   %.sink61.i.i.i = phi ptr [ %159, %157 ], [ %165, %160 ]
-  %166 = tail call ptr @Ivy_And(ptr noundef %2, ptr noundef %.03445.i.i.i, ptr noundef %.sink61.i.i.i) #14
+  %166 = tail call ptr @Ivy_And(ptr noundef %2, ptr noundef %.046.i.i.i, ptr noundef %.sink61.i.i.i) #14
   %.val40.i.pre.i.i = load i32, ptr %80, align 4
   br label %167
 
 167:                                              ; preds = %.sink.split60.i.i.i, %.lr.ph.i.i.i
   %.val40.i.i.i = phi i32 [ %.val40.i49.i.i, %.lr.ph.i.i.i ], [ %.val40.i.pre.i.i, %.sink.split60.i.i.i ]
-  %.135.i.i.i = phi ptr [ %.03445.i.i.i, %.lr.ph.i.i.i ], [ %166, %.sink.split60.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.046.i.i.i, %.lr.ph.i.i.i ], [ %166, %.sink.split60.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %168 = sext i32 %.val40.i.i.i to i64
   %169 = icmp slt i64 %indvars.iv.next.i.i.i, %168
   br i1 %169, label %.lr.ph.i.i.i, label %.critedge.i.i.i, !llvm.loop !8
 
 .critedge.i.i.i:                                  ; preds = %167, %.lr.ph50.split.i.i.i
-  %.034.lcssa.i.i.i = phi ptr [ %.val.i.i.i, %.lr.ph50.split.i.i.i ], [ %.135.i.i.i, %167 ]
-  %170 = tail call ptr @Ivy_Exor(ptr noundef %2, ptr noundef %.03348.i.i.i, ptr noundef %.034.lcssa.i.i.i) #14
-  %171 = getelementptr inbounds i8, ptr %.03249.i.i.i, i64 %120
+  %.0.lcssa.i.i.i = phi ptr [ %.val.i.i.i, %.lr.ph50.split.i.i.i ], [ %.1.i.i.i, %167 ]
+  %170 = tail call ptr @Ivy_Exor(ptr noundef %2, ptr noundef %.03249.i.i.i, ptr noundef %.0.lcssa.i.i.i) #14
+  %171 = getelementptr inbounds i8, ptr %.03548.i.i.i, i64 %120
   %172 = load i8, ptr %171, align 1
   %.not.i.i.i = icmp eq i8 %172, 0
   br i1 %.not.i.i.i, label %Abc_NodeStrashAigSopAig.exit.i.i, label %.lr.ph50.split.i.i.i, !llvm.loop !7
 
 Abc_NodeStrashAigSopAig.exit.i.i:                 ; preds = %.critedge.i.i.i, %.critedge.us.i.i.i, %112
-  %.033.lcssa.i.i.i = phi ptr [ %116, %112 ], [ %122, %.critedge.us.i.i.i ], [ %170, %.critedge.i.i.i ]
+  %.032.lcssa.i.i.i = phi ptr [ %116, %112 ], [ %122, %.critedge.us.i.i.i ], [ %170, %.critedge.i.i.i ]
   %173 = tail call i32 @Abc_SopIsComplement(ptr noundef nonnull %.028.i.i) #14
   %.not37.i.i.i = icmp eq i32 %173, 0
-  %174 = ptrtoint ptr %.033.lcssa.i.i.i to i64
+  %174 = ptrtoint ptr %.032.lcssa.i.i.i to i64
   %175 = xor i64 %174, 1
   %176 = inttoptr i64 %175 to ptr
-  %.2.i.i.i = select i1 %.not37.i.i.i, ptr %.033.lcssa.i.i.i, ptr %176
+  %.2.i.i.i = select i1 %.not37.i.i.i, ptr %.032.lcssa.i.i.i, ptr %176
   br label %Abc_NodeStrashAig.exit.i
 
 Abc_NodeStrashAig.exit.i:                         ; preds = %Abc_NodeStrashAigSopAig.exit.i.i, %Abc_NodeStrashAigFactorAig.exit.i, %73, %36, %35

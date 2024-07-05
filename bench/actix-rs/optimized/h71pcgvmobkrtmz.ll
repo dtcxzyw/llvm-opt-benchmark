@@ -822,8 +822,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 157:                                              ; preds = %156, %129
   %.sink.i.i.i = phi i64 [ 81, %156 ], [ 82, %129 ]
   %158 = getelementptr inbounds i8, ptr %130, i64 %.sink.i.i.i
-  %.053.i.i.i = load i8, ptr %158, align 1, !range !4, !noalias !92, !noundef !5
-  %159 = trunc nuw i8 %.053.i.i.i to i1
+  %.052.i.i.i = load i8, ptr %158, align 1, !range !4, !noalias !92, !noundef !5
+  %159 = trunc nuw i8 %.052.i.i.i to i1
   br i1 %159, label %160, label %_ZN2h25proto7streams6counts6Counts10transition17h7fffe002cb8e8c2fE.exit.i
 
 160:                                              ; preds = %157
@@ -1265,8 +1265,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 157:                                              ; preds = %156, %129
   %.sink.i.i.i = phi i64 [ 81, %156 ], [ 82, %129 ]
   %158 = getelementptr inbounds i8, ptr %130, i64 %.sink.i.i.i
-  %.053.i.i.i = load i8, ptr %158, align 1, !range !4, !noalias !151, !noundef !5
-  %159 = trunc nuw i8 %.053.i.i.i to i1
+  %.052.i.i.i = load i8, ptr %158, align 1, !range !4, !noalias !151, !noundef !5
+  %159 = trunc nuw i8 %.052.i.i.i to i1
   br i1 %159, label %160, label %_ZN2h25proto7streams6counts6Counts10transition17h11bc18d89a555085E.exit.i
 
 160:                                              ; preds = %157

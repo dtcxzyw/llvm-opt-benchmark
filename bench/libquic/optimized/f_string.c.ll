@@ -329,8 +329,8 @@ err_sl:                                           ; preds = %for.end, %if.end22,
   br label %if.end171
 
 if.end171:                                        ; preds = %if.then82, %if.then101, %if.else143, %for.end169, %err_sl
-  %ret.0 = phi i32 [ 1, %for.end169 ], [ 0, %err_sl ], [ 0, %if.then82 ], [ 0, %if.then101 ], [ 0, %if.else143 ]
   %s.3 = phi ptr [ %s.2, %for.end169 ], [ %s.0105, %err_sl ], [ %s.0120, %if.then82 ], [ %s.0120, %if.then101 ], [ %s.1, %if.else143 ]
+  %ret.0 = phi i32 [ 1, %for.end169 ], [ 0, %err_sl ], [ 0, %if.then82 ], [ 0, %if.then101 ], [ 0, %if.else143 ]
   %cmp172.not = icmp eq ptr %s.3, null
   br i1 %cmp172.not, label %if.end175, label %if.then174
 

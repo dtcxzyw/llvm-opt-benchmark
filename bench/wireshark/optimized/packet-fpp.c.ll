@@ -311,8 +311,8 @@ define internal i32 @dissect_fpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %92
 
 92:                                               ; preds = %89, %71
-  %.0322.i = phi i32 [ %91, %89 ], [ 0, %71 ]
-  %93 = shl i32 %.0322.i, 2
+  %.0323.i = phi i32 [ %91, %89 ], [ 0, %71 ]
+  %93 = shl i32 %.0323.i, 2
   %94 = load i32, ptr @hf_fpp_preamble, align 4
   %95 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %94, ptr noundef %0, i32 noundef 0, i32 noundef %72, i32 noundef 0) #3
   %96 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
@@ -461,14 +461,14 @@ frag_cnt_next.exit.i:                             ; preds = %168, %167, %166, %1
   br label %173
 
 173:                                              ; preds = %170, %frag_cnt_next.exit.i, %159, %157
-  %.0321.i = phi i32 [ %172, %170 ], [ 0, %frag_cnt_next.exit.i ], [ 0, %159 ], [ 0, %157 ]
+  %.0324.i = phi i32 [ %172, %170 ], [ 0, %frag_cnt_next.exit.i ], [ 0, %159 ], [ 0, %157 ]
   %174 = tail call ptr @wmem_epan_scope() #3
   %175 = tail call noalias ptr @wmem_alloc(ptr noundef %174, i64 noundef 4) #3
   %176 = tail call ptr @wmem_epan_scope() #3
   %177 = tail call noalias ptr @wmem_alloc(ptr noundef %176, i64 noundef 4) #3
   %178 = load i32, ptr %131, align 4
   store i32 %178, ptr %175, align 4
-  store i32 %.0321.i, ptr %177, align 4
+  store i32 %.0324.i, ptr %177, align 4
   %179 = getelementptr inbounds i8, ptr %150, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = tail call ptr @wmem_map_insert(ptr noundef %180, ptr noundef nonnull %175, ptr noundef nonnull %177) #3
@@ -482,8 +482,8 @@ frag_cnt_next.exit.i:                             ; preds = %168, %167, %166, %1
   br label %187
 
 187:                                              ; preds = %182, %173, %148, %146, %142, %136
-  %.0323.i = phi ptr [ %134, %136 ], [ %144, %142 ], [ %134, %182 ], [ %134, %173 ], [ %134, %148 ], [ %134, %146 ]
-  %.1.i = phi i32 [ 0, %136 ], [ 0, %142 ], [ %186, %182 ], [ %.0321.i, %173 ], [ 0, %148 ], [ 0, %146 ]
+  %.1.i = phi i32 [ 0, %136 ], [ 0, %142 ], [ %186, %182 ], [ %.0324.i, %173 ], [ 0, %148 ], [ 0, %146 ]
+  %.0322.i = phi ptr [ %134, %136 ], [ %144, %142 ], [ %134, %182 ], [ %134, %173 ], [ %134, %148 ], [ %134, %146 ]
   %188 = xor i32 %.1.i, -1
   %189 = tail call i32 @llvm.bswap.i32(i32 %188)
   %190 = tail call i32 @crc32_ccitt_tvb_offset_seed(ptr noundef %0, i32 noundef %72, i32 noundef %82, i32 noundef %189) #3
@@ -511,7 +511,7 @@ frag_cnt_next.exit.i:                             ; preds = %168, %167, %166, %1
   br i1 %135, label %209, label %310
 
 209:                                              ; preds = %187
-  %.not353.i = icmp eq ptr %.0323.i, null
+  %.not353.i = icmp eq ptr %.0322.i, null
   br i1 %.not353.i, label %230, label %210
 
 210:                                              ; preds = %209
@@ -557,7 +557,7 @@ get_cont_by_start.exit.i:                         ; preds = %221, %220, %219, %2
   store ptr %227, ptr %228, align 8
   store i32 %82, ptr %224, align 8
   %229 = load i32, ptr @proto_fpp, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %.0323.i, i32 noundef %229, ptr noundef nonnull %218) #3
+  tail call void @conversation_add_proto_data(ptr noundef nonnull %.0322.i, i32 noundef %229, ptr noundef nonnull %218) #3
   br label %230
 
 230:                                              ; preds = %get_cont_by_start.exit.i, %210, %209
@@ -610,7 +610,7 @@ drop_fragments.exit.i:                            ; preds = %243, %240
 
 250:                                              ; preds = %244
   %251 = load i32, ptr @proto_fpp, align 4
-  %252 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.0323.i, i32 noundef %251) #3
+  %252 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.0322.i, i32 noundef %251) #3
   %.not.i360.i = icmp eq ptr %252, null
   br i1 %.not.i360.i, label %drop_conversation.exit.i, label %253
 
@@ -621,7 +621,7 @@ drop_fragments.exit.i:                            ; preds = %243, %240
 
 drop_conversation.exit.i:                         ; preds = %253, %250
   %255 = load i32, ptr @proto_fpp, align 4
-  tail call void @conversation_delete_proto_data(ptr noundef nonnull %.0323.i, i32 noundef %255) #3
+  tail call void @conversation_delete_proto_data(ptr noundef nonnull %.0322.i, i32 noundef %255) #3
   br label %256
 
 256:                                              ; preds = %drop_conversation.exit.i, %244, %drop_fragments.exit.i
@@ -744,13 +744,13 @@ drop_fragments.exit378.i:                         ; preds = %306, %303
   %316 = load i16, ptr %315, align 2
   %317 = and i16 %316, 8
   %318 = icmp eq i16 %317, 0
-  %319 = icmp ne ptr %.0323.i, null
+  %319 = icmp ne ptr %.0322.i, null
   %or.cond3.i = select i1 %318, i1 %319, i1 false
   br i1 %or.cond3.i, label %320, label %334
 
 320:                                              ; preds = %312
   %321 = load i32, ptr @proto_fpp, align 4
-  %322 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.0323.i, i32 noundef %321) #3
+  %322 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.0322.i, i32 noundef %321) #3
   %.not350.i = icmp eq ptr %322, null
   br i1 %.not350.i, label %334, label %323
 
@@ -826,12 +826,12 @@ drop_fragments.exit378.i:                         ; preds = %306, %303
   br label %dissect_express.exit.thread
 
 361:                                              ; preds = %311
-  %.not344.i = icmp eq ptr %.0323.i, null
+  %.not344.i = icmp eq ptr %.0322.i, null
   br i1 %.not344.i, label %391, label %362
 
 362:                                              ; preds = %361
   %363 = load i32, ptr @proto_fpp, align 4
-  %364 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.0323.i, i32 noundef %363) #3
+  %364 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.0322.i, i32 noundef %363) #3
   %.not345.i = icmp eq ptr %364, null
   br i1 %.not345.i, label %391, label %365
 
@@ -978,13 +978,13 @@ dissect_express.exit.thread50:                    ; preds = %411
   %444 = load i16, ptr %443, align 2
   %445 = and i16 %444, 8
   %446 = icmp eq i16 %445, 0
-  %447 = icmp ne ptr %.0323.i, null
+  %447 = icmp ne ptr %.0322.i, null
   %or.cond5.i = select i1 %446, i1 %447, i1 false
   br i1 %or.cond5.i, label %448, label %462
 
 448:                                              ; preds = %440
   %449 = load i32, ptr @proto_fpp, align 4
-  %450 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.0323.i, i32 noundef %449) #3
+  %450 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.0322.i, i32 noundef %449) #3
   %.not343.i = icmp eq ptr %450, null
   br i1 %.not343.i, label %462, label %451
 

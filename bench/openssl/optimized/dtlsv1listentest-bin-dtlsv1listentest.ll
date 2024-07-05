@@ -144,9 +144,9 @@ if.end51:                                         ; preds = %lor.end, %lor.lhs.f
   br label %err
 
 err:                                              ; preds = %lor.end, %if.then28, %lor.lhs.false31, %if.end20, %if.end15, %if.end, %lor.lhs.false9, %entry, %lor.lhs.false, %if.end51, %if.else49
-  %ssl.0 = phi ptr [ %call6, %if.end51 ], [ %call6, %lor.lhs.false31 ], [ %call6, %if.then28 ], [ %call6, %lor.end ], [ %call6, %if.else49 ], [ %call6, %if.end20 ], [ %call6, %if.end15 ], [ %call6, %lor.lhs.false9 ], [ %call6, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ]
   %inbio.0 = phi ptr [ null, %if.end51 ], [ %call16, %lor.lhs.false31 ], [ %call16, %if.then28 ], [ %call16, %lor.end ], [ %call16, %if.else49 ], [ %call16, %if.end20 ], [ %call16, %if.end15 ], [ null, %lor.lhs.false9 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ]
   %peer.0 = phi ptr [ %call3, %if.end51 ], [ %call3, %lor.lhs.false31 ], [ %call3, %if.then28 ], [ %call3, %lor.end ], [ %call3, %if.else49 ], [ %call3, %if.end20 ], [ %call3, %if.end15 ], [ %call3, %lor.lhs.false9 ], [ %call3, %if.end ], [ %call3, %lor.lhs.false ], [ null, %entry ]
+  %ssl.0 = phi ptr [ %call6, %if.end51 ], [ %call6, %lor.lhs.false31 ], [ %call6, %if.then28 ], [ %call6, %lor.end ], [ %call6, %if.else49 ], [ %call6, %if.end20 ], [ %call6, %if.end15 ], [ %call6, %lor.lhs.false9 ], [ %call6, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ]
   %success.0 = phi i32 [ 1, %if.end51 ], [ 0, %lor.lhs.false31 ], [ 0, %if.then28 ], [ 0, %lor.end ], [ 0, %if.else49 ], [ 0, %if.end20 ], [ 0, %if.end15 ], [ 0, %lor.lhs.false9 ], [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %entry ]
   call void @SSL_free(ptr noundef %ssl.0) #4
   call void @SSL_CTX_free(ptr noundef %call1) #4

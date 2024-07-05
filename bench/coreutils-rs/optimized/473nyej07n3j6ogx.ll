@@ -2194,8 +2194,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %60, %59, %.critedge, %85
-  %.047.neg = phi i64 [ %., %85 ], [ -2, %.critedge ], [ -1, %59 ], [ -1, %60 ]
-  %87 = add i64 %.047.neg, %4
+  %.0.neg = phi i64 [ %., %85 ], [ -2, %.critedge ], [ -1, %59 ], [ -1, %60 ]
+  %87 = add i64 %.0.neg, %4
   %88 = icmp eq i64 %87, 0
   br i1 %88, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17haec29e3895b40ef2E.exit.thread, label %89
 

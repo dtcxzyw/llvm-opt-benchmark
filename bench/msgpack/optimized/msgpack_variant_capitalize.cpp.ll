@@ -13220,20 +13220,20 @@ _ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_8compa
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %78, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.sroa.04.018.i.i.i.i.i.i.i = phi ptr [ %80, %78 ], [ %66, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.sroa.09.017.i.i.i.i.i.i.i = phi ptr [ %79, %78 ], [ %63, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %73 = icmp eq ptr %.sroa.04.018.i.i.i.i.i.i.i, %68
+  %.sroa.09.018.i.i.i.i.i.i.i = phi ptr [ %79, %78 ], [ %63, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.sroa.04.017.i.i.i.i.i.i.i = phi ptr [ %80, %78 ], [ %66, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %73 = icmp eq ptr %.sroa.04.017.i.i.i.i.i.i.i, %68
   br i1 %73, label %_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_8comparerINS_7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcSD_EESt6vectorIcSE_ENS8_7raw_refENS8_3extENS8_7ext_refENS_17recursive_wrapperISI_INS8_13basic_variantISF_SJ_SL_EESaISP_EEEENSN_ISt3mapISP_SP_St4lessISP_ESaISt4pairIKSP_SP_EEEEENSN_ISt8multimapISP_SP_SV_SZ_EEEEEENS1_9less_compEEELb0EEEPKvSJ_NS15_18has_fallback_type_EEENT_11result_typeEiRS1C_T0_PT1_T2_i.exit, label %74
 
 74:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %75 = load i8, ptr %.sroa.09.017.i.i.i.i.i.i.i, align 1
-  %76 = load i8, ptr %.sroa.04.018.i.i.i.i.i.i.i, align 1
+  %75 = load i8, ptr %.sroa.09.018.i.i.i.i.i.i.i, align 1
+  %76 = load i8, ptr %.sroa.04.017.i.i.i.i.i.i.i, align 1
   %77 = icmp eq i8 %75, %76
   br i1 %77, label %78, label %.loopexit.split.loop.exit.i.i.i.i.i.i.i
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %.sroa.09.017.i.i.i.i.i.i.i, i64 1
-  %80 = getelementptr inbounds i8, ptr %.sroa.04.018.i.i.i.i.i.i.i, i64 1
+  %79 = getelementptr inbounds i8, ptr %.sroa.09.018.i.i.i.i.i.i.i, i64 1
+  %80 = getelementptr inbounds i8, ptr %.sroa.04.017.i.i.i.i.i.i.i, i64 1
   %81 = icmp eq ptr %79, %65
   br i1 %81, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !97
 
@@ -13292,20 +13292,20 @@ _ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_8compa
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %120, %.lr.ph.preheader.i.i.i.i.i.i.i.i
-  %.sroa.04.018.i.i.i.i.i.i.i.i = phi ptr [ %122, %120 ], [ %108, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
-  %.sroa.09.017.i.i.i.i.i.i.i.i = phi ptr [ %121, %120 ], [ %105, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
-  %115 = icmp eq ptr %.sroa.04.018.i.i.i.i.i.i.i.i, %110
+  %.sroa.09.018.i.i.i.i.i.i.i.i = phi ptr [ %121, %120 ], [ %105, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
+  %.sroa.04.017.i.i.i.i.i.i.i.i = phi ptr [ %122, %120 ], [ %108, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
+  %115 = icmp eq ptr %.sroa.04.017.i.i.i.i.i.i.i.i, %110
   br i1 %115, label %_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorINS1_8comparerINS_7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcSD_EESt6vectorIcSE_ENS8_7raw_refENS8_3extENS8_7ext_refENS_17recursive_wrapperISI_INS8_13basic_variantISF_SJ_SL_EESaISP_EEEENSN_ISt3mapISP_SP_St4lessISP_ESaISt4pairIKSP_SP_EEEEENSN_ISt8multimapISP_SP_SV_SZ_EEEEEENS1_9less_compEEELb0EEEPKvSJ_NS15_18has_fallback_type_EEENT_11result_typeEiRS1C_T0_PT1_T2_i.exit, label %116
 
 116:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %117 = load i8, ptr %.sroa.09.017.i.i.i.i.i.i.i.i, align 1
-  %118 = load i8, ptr %.sroa.04.018.i.i.i.i.i.i.i.i, align 1
+  %117 = load i8, ptr %.sroa.09.018.i.i.i.i.i.i.i.i, align 1
+  %118 = load i8, ptr %.sroa.04.017.i.i.i.i.i.i.i.i, align 1
   %119 = icmp eq i8 %117, %118
   br i1 %119, label %120, label %.loopexit.split.loop.exit.i.i.i.i.i.i.i.i
 
 120:                                              ; preds = %116
-  %121 = getelementptr inbounds i8, ptr %.sroa.09.017.i.i.i.i.i.i.i.i, i64 1
-  %122 = getelementptr inbounds i8, ptr %.sroa.04.018.i.i.i.i.i.i.i.i, i64 1
+  %121 = getelementptr inbounds i8, ptr %.sroa.09.018.i.i.i.i.i.i.i.i, i64 1
+  %122 = getelementptr inbounds i8, ptr %.sroa.04.017.i.i.i.i.i.i.i.i, i64 1
   %123 = icmp eq ptr %121, %107
   br i1 %123, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !97
 

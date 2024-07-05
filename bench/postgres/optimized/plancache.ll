@@ -1827,7 +1827,7 @@ ReleaseGenericPlan.exit:                          ; preds = %94, %97, %102, %106
   br label %131
 
 131:                                              ; preds = %112, %121, %125
-  %.078 = phi ptr [ %124, %121 ], [ %130, %125 ], [ null, %112 ]
+  %.077 = phi ptr [ %124, %121 ], [ %130, %125 ], [ null, %112 ]
   br i1 %109, label %133, label %132
 
 132:                                              ; preds = %131
@@ -1835,7 +1835,7 @@ ReleaseGenericPlan.exit:                          ; preds = %94, %97, %102, %106
   br label %133
 
 133:                                              ; preds = %132, %131
-  %134 = tail call i32 @ChoosePortalStrategy(ptr noundef %.078) #8
+  %134 = tail call i32 @ChoosePortalStrategy(ptr noundef %.077) #8
   switch i32 %134, label %PlanCacheComputeResultDesc.exit.thread [
     i32 0, label %135
     i32 2, label %135
@@ -1844,7 +1844,7 @@ ReleaseGenericPlan.exit:                          ; preds = %94, %97, %102, %106
   ]
 
 135:                                              ; preds = %133, %133
-  %136 = getelementptr i8, ptr %.078, i64 16
+  %136 = getelementptr i8, ptr %.077, i64 16
   %.val.i = load ptr, ptr %136, align 8
   %137 = load ptr, ptr %.val.i, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 104
@@ -1853,13 +1853,13 @@ ReleaseGenericPlan.exit:                          ; preds = %94, %97, %102, %106
   br label %PlanCacheComputeResultDesc.exit
 
 .lr.ph.i.i:                                       ; preds = %133
-  %.not.i.i = icmp ne ptr %.078, null
+  %.not.i.i = icmp ne ptr %.077, null
   tail call void @llvm.assume(i1 %.not.i.i)
-  %141 = getelementptr inbounds i8, ptr %.078, i64 4
+  %141 = getelementptr inbounds i8, ptr %.077, i64 4
   %142 = load i32, ptr %141, align 4
   %143 = icmp sgt i32 %142, 0
   tail call void @llvm.assume(i1 %143)
-  %144 = getelementptr inbounds i8, ptr %.078, i64 16
+  %144 = getelementptr inbounds i8, ptr %.077, i64 16
   %145 = load ptr, ptr %144, align 8
   %wide.trip.count.i.i = zext nneg i32 %142 to i64
   %146 = load ptr, ptr %145, align 8
@@ -1888,7 +1888,7 @@ QueryListGetPrimaryStmt.exit.i:                   ; preds = %.lr.ph.i104, %.lr.p
   br label %PlanCacheComputeResultDesc.exit
 
 158:                                              ; preds = %133
-  %159 = getelementptr i8, ptr %.078, i64 16
+  %159 = getelementptr i8, ptr %.077, i64 16
   %.val8.i = load ptr, ptr %159, align 8
   %160 = load ptr, ptr %.val8.i, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 32
@@ -1954,7 +1954,7 @@ PlanCacheComputeResultDesc.exit.thread:           ; preds = %133, %PlanCacheComp
 
 192:                                              ; preds = %.thread113, %187
   %193 = phi ptr [ %190, %187 ], [ %182, %.thread113 ]
-  %.077 = phi ptr [ %191, %187 ], [ null, %.thread113 ]
+  %.078 = phi ptr [ %191, %187 ], [ null, %.thread113 ]
   %194 = getelementptr inbounds i8, ptr %0, i64 72
   %195 = load ptr, ptr %194, align 8
   %.not93 = icmp eq ptr %195, null
@@ -1965,7 +1965,7 @@ PlanCacheComputeResultDesc.exit.thread:           ; preds = %133, %PlanCacheComp
   br label %197
 
 197:                                              ; preds = %196, %192
-  store ptr %.077, ptr %194, align 8
+  store ptr %.078, ptr %194, align 8
   store ptr %193, ptr @CurrentMemoryContext, align 8
   br label %198
 
@@ -1974,7 +1974,7 @@ PlanCacheComputeResultDesc.exit.thread:           ; preds = %133, %PlanCacheComp
   %200 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %199, ptr noundef nonnull @.str.1, i64 noundef 0, i64 noundef 1024, i64 noundef 8388608) #8
   %201 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %200, ptr @CurrentMemoryContext, align 8
-  %202 = tail call ptr @copyObjectImpl(ptr noundef %.078) #8
+  %202 = tail call ptr @copyObjectImpl(ptr noundef %.077) #8
   %203 = getelementptr inbounds i8, ptr %0, i64 133
   tail call void @extract_query_dependencies(ptr noundef %202, ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef nonnull %203) #8
   %204 = tail call i32 @GetUserId() #8
@@ -1996,7 +1996,7 @@ PlanCacheComputeResultDesc.exit.thread:           ; preds = %133, %PlanCacheComp
   br label %212
 
 212:                                              ; preds = %AcquirePlannerLocks.exit, %2, %6, %9, %198
-  %.0 = phi ptr [ %.078, %198 ], [ null, %9 ], [ null, %6 ], [ null, %2 ], [ null, %AcquirePlannerLocks.exit ]
+  %.0 = phi ptr [ %.077, %198 ], [ null, %9 ], [ null, %6 ], [ null, %2 ], [ null, %AcquirePlannerLocks.exit ]
   ret ptr %.0
 }
 
@@ -2082,12 +2082,12 @@ define internal fastcc noundef ptr @BuildCachedPlan(ptr noundef %0, ptr noundef 
   br label %52
 
 52:                                               ; preds = %40, %47
-  %.054 = phi ptr [ %51, %47 ], [ %41, %40 ]
-  %.050 = phi ptr [ %48, %47 ], [ %46, %40 ]
+  %.054 = phi ptr [ %48, %47 ], [ %46, %40 ]
+  %.049 = phi ptr [ %51, %47 ], [ %41, %40 ]
   %53 = tail call ptr @palloc(i64 noundef 48) #8
   store i32 953717834, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 8
-  store ptr %.054, ptr %54, align 8
+  store ptr %.049, ptr %54, align 8
   %55 = tail call i32 @GetUserId() #8
   %56 = getelementptr inbounds i8, ptr %53, i64 20
   store i32 %55, ptr %56, align 4
@@ -2096,12 +2096,12 @@ define internal fastcc noundef ptr @BuildCachedPlan(ptr noundef %0, ptr noundef 
   %59 = getelementptr inbounds i8, ptr %53, i64 24
   %60 = and i8 %58, 1
   store i8 %60, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.054, i64 4
-  %.not56 = icmp eq ptr %.054, null
+  %61 = getelementptr inbounds i8, ptr %.049, i64 4
+  %.not56 = icmp eq ptr %.049, null
   br i1 %.not56, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52
-  %62 = getelementptr inbounds i8, ptr %.054, i64 16
+  %62 = getelementptr inbounds i8, ptr %.049, i64 16
   %63 = load i32, ptr %61, align 4
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph70, label %.critedge
@@ -2109,7 +2109,7 @@ define internal fastcc noundef ptr @BuildCachedPlan(ptr noundef %0, ptr noundef 
 .lr.ph70:                                         ; preds = %.lr.ph, %80
   %65 = phi i32 [ %81, %80 ], [ %63, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ 0, %.lr.ph ]
-  %.0516369 = phi i1 [ %.2, %80 ], [ false, %.lr.ph ]
+  %.0526369 = phi i1 [ %.2, %80 ], [ false, %.lr.ph ]
   %66 = load ptr, ptr %62, align 8
   %67 = getelementptr %union.ListCell, ptr %66, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8
@@ -2122,7 +2122,7 @@ define internal fastcc noundef ptr @BuildCachedPlan(ptr noundef %0, ptr noundef 
   %73 = getelementptr inbounds i8, ptr %68, i64 19
   %74 = load i8, ptr %73, align 1
   %75 = trunc i8 %74 to i1
-  %spec.select = select i1 %75, i1 true, i1 %.0516369
+  %spec.select = select i1 %75, i1 true, i1 %.0526369
   %76 = getelementptr inbounds i8, ptr %68, i64 20
   %77 = load i8, ptr %76, align 4
   %78 = trunc i8 %77 to i1
@@ -2135,7 +2135,7 @@ define internal fastcc noundef ptr @BuildCachedPlan(ptr noundef %0, ptr noundef 
 
 80:                                               ; preds = %72, %79, %.lr.ph70
   %81 = phi i32 [ %65, %.lr.ph70 ], [ %.pre, %79 ], [ %65, %72 ]
-  %.2 = phi i1 [ %.0516369, %.lr.ph70 ], [ %spec.select, %79 ], [ %spec.select, %72 ]
+  %.2 = phi i1 [ %.0526369, %.lr.ph70 ], [ %spec.select, %79 ], [ %spec.select, %72 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next, %82
@@ -2153,7 +2153,7 @@ define internal fastcc noundef ptr @BuildCachedPlan(ptr noundef %0, ptr noundef 
   %86 = getelementptr inbounds i8, ptr %53, i64 36
   store i32 0, ptr %86, align 4
   %87 = getelementptr inbounds i8, ptr %53, i64 40
-  store ptr %.050, ptr %87, align 8
+  store ptr %.054, ptr %87, align 8
   %88 = load i8, ptr %43, align 8
   %89 = getelementptr inbounds i8, ptr %53, i64 16
   %90 = and i8 %88, 1
@@ -2694,8 +2694,8 @@ define dso_local ptr @CachedPlanGetTargetList(ptr noundef %0, ptr noundef %1) lo
   br i1 %21, label %QueryListGetPrimaryStmt.exit, label %15
 
 QueryListGetPrimaryStmt.exit:                     ; preds = %15, %16, %6, %.lr.ph.i
-  %.09.i = phi ptr [ null, %6 ], [ null, %.lr.ph.i ], [ %18, %16 ], [ null, %15 ]
-  %22 = tail call ptr @FetchStatementTargetList(ptr noundef %.09.i) #8
+  %.0.i = phi ptr [ null, %6 ], [ null, %.lr.ph.i ], [ %18, %16 ], [ null, %15 ]
+  %22 = tail call ptr @FetchStatementTargetList(ptr noundef %.0.i) #8
   br label %23
 
 23:                                               ; preds = %2, %QueryListGetPrimaryStmt.exit

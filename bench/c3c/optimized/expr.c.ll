@@ -147,13 +147,13 @@ define dso_local zeroext i1 @expr_is_unwrapped_ident(ptr nocapture noundef reado
   br label %28
 
 28:                                               ; preds = %24, %21
-  %.012 = phi i32 [ %27, %24 ], [ %22, %21 ]
-  %29 = icmp eq i32 %.012, 40
+  %.011 = phi i32 [ %27, %24 ], [ %22, %21 ]
+  %29 = icmp eq i32 %.011, 40
   br label %30
 
 30:                                               ; preds = %11, %16, %28, %5, %1
-  %.011 = phi i1 [ false, %1 ], [ false, %5 ], [ false, %11 ], [ %29, %28 ], [ false, %16 ]
-  ret i1 %.011
+  %.012 = phi i1 [ false, %1 ], [ false, %5 ], [ false, %11 ], [ %29, %28 ], [ false, %16 ]
+  ret i1 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -372,8 +372,8 @@ define dso_local zeroext i1 @expr_is_constant_eval(ptr nocapture noundef readonl
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge279, %2
-  %.0 = phi ptr [ %0, %2 ], [ %.0.be, %tailrecurse.backedge279 ]
-  %4 = getelementptr inbounds i8, ptr %.0, i64 16
+  %.066 = phi ptr [ %0, %2 ], [ %.066.be, %tailrecurse.backedge279 ]
+  %4 = getelementptr inbounds i8, ptr %.066, i64 16
   %5 = load i16, ptr %4, align 8
   %trunc = trunc i16 %5 to i8
   switch i8 %trunc, label %154 [
@@ -447,12 +447,12 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 6:                                                ; preds = %tailrecurse
-  %7 = getelementptr inbounds i8, ptr %.0, i64 24
+  %7 = getelementptr inbounds i8, ptr %.066, i64 24
   %8 = load ptr, ptr %7, align 8
   br label %tailrecurse.backedge279
 
 9:                                                ; preds = %tailrecurse
-  %10 = getelementptr inbounds i8, ptr %.0, i64 28
+  %10 = getelementptr inbounds i8, ptr %.066, i64 28
   %11 = load i32, ptr %10, align 4
   %.not82 = icmp eq i32 %11, 0
   br i1 %.not82, label %.critedge, label %12
@@ -465,7 +465,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %16, label %.critedge, label %expr_list_is_constant_eval.exit.loopexit278
 
 .critedge:                                        ; preds = %9, %12
-  %17 = getelementptr inbounds i8, ptr %.0, i64 32
+  %17 = getelementptr inbounds i8, ptr %.066, i64 32
   %18 = load i32, ptr %17, align 8
   %.not84 = icmp eq i32 %18, 0
   br i1 %.not84, label %expr_list_is_constant_eval.exit.loopexit278, label %tailrecurse.backedge
@@ -478,16 +478,16 @@ tailrecurse.backedge:                             ; preds = %.critedge, %29
   br label %tailrecurse.backedge279
 
 tailrecurse.backedge279:                          ; preds = %tailrecurse.backedge, %.thread99, %126, %6, %22, %45, %59, %71, %77, %.thread, %148, %150
-  %.0.be = phi ptr [ %21, %tailrecurse.backedge ], [ %151, %150 ], [ %149, %148 ], [ %109, %.thread ], [ %79, %77 ], [ %76, %71 ], [ %61, %59 ], [ %47, %45 ], [ %24, %22 ], [ %8, %6 ], [ %121, %126 ], [ %121, %.thread99 ]
+  %.066.be = phi ptr [ %21, %tailrecurse.backedge ], [ %151, %150 ], [ %149, %148 ], [ %109, %.thread ], [ %79, %77 ], [ %76, %71 ], [ %61, %59 ], [ %47, %45 ], [ %24, %22 ], [ %8, %6 ], [ %121, %126 ], [ %121, %.thread99 ]
   br label %tailrecurse
 
 22:                                               ; preds = %tailrecurse, %tailrecurse
-  %23 = getelementptr inbounds i8, ptr %.0, i64 24
+  %23 = getelementptr inbounds i8, ptr %.066, i64 24
   %24 = load ptr, ptr %23, align 8
   br label %tailrecurse.backedge279
 
 25:                                               ; preds = %tailrecurse
-  %26 = getelementptr inbounds i8, ptr %.0, i64 24
+  %26 = getelementptr inbounds i8, ptr %.066, i64 24
   %27 = load i8, ptr %26, align 8
   %28 = and i8 %27, -2
   %switch = icmp ne i8 %28, 2
@@ -495,21 +495,21 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
   br i1 %or.cond85, label %29, label %expr_list_is_constant_eval.exit.loopexit278
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.0, i64 28
+  %30 = getelementptr inbounds i8, ptr %.066, i64 28
   %31 = load i32, ptr %30, align 4
   %.not81 = icmp eq i32 %31, 0
   br i1 %.not81, label %expr_list_is_constant_eval.exit.loopexit278, label %tailrecurse.backedge
 
 32:                                               ; preds = %tailrecurse
-  %33 = tail call fastcc zeroext i1 @expr_binary_is_constant_eval(ptr noundef nonnull %.0, i32 noundef %1)
+  %33 = tail call fastcc zeroext i1 @expr_binary_is_constant_eval(ptr noundef nonnull %.066, i32 noundef %1)
   br label %expr_list_is_constant_eval.exit
 
 34:                                               ; preds = %tailrecurse
-  %35 = tail call fastcc zeroext i1 @expr_cast_is_constant_eval(ptr noundef nonnull %.0, i32 noundef %1)
+  %35 = tail call fastcc zeroext i1 @expr_cast_is_constant_eval(ptr noundef nonnull %.066, i32 noundef %1)
   br label %expr_list_is_constant_eval.exit
 
 36:                                               ; preds = %tailrecurse
-  %37 = getelementptr inbounds i8, ptr %.0, i64 24
+  %37 = getelementptr inbounds i8, ptr %.066, i64 24
   %38 = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %38, null
   br i1 %.not.i, label %expr_list_is_constant_eval.exit, label %39
@@ -535,12 +535,12 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
   br i1 %or.cond265.not, label %.lr.ph152, label %expr_list_is_constant_eval.exit, !llvm.loop !9
 
 45:                                               ; preds = %tailrecurse
-  %46 = getelementptr inbounds i8, ptr %.0, i64 32
+  %46 = getelementptr inbounds i8, ptr %.066, i64 32
   %47 = load ptr, ptr %46, align 8
   br label %tailrecurse.backedge279
 
 48:                                               ; preds = %tailrecurse
-  %49 = getelementptr inbounds i8, ptr %.0, i64 24
+  %49 = getelementptr inbounds i8, ptr %.066, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load i64, ptr %51, align 8
@@ -571,7 +571,7 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
   br label %tailrecurse.backedge279
 
 62:                                               ; preds = %tailrecurse
-  %63 = getelementptr inbounds i8, ptr %.0, i64 24
+  %63 = getelementptr inbounds i8, ptr %.066, i64 24
   %64 = load ptr, ptr %63, align 8
   %.not.i86 = icmp eq ptr %64, null
   br i1 %.not.i86, label %expr_list_is_constant_eval.exit, label %65
@@ -597,7 +597,7 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
   br i1 %or.cond267.not, label %.lr.ph146, label %expr_list_is_constant_eval.exit, !llvm.loop !9
 
 71:                                               ; preds = %tailrecurse
-  %72 = getelementptr inbounds i8, ptr %.0, i64 24
+  %72 = getelementptr inbounds i8, ptr %.066, i64 24
   %73 = load i32, ptr %72, align 8
   %74 = load ptr, ptr @expr_arena, align 8
   %75 = zext i32 %73 to i64
@@ -605,12 +605,12 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
   br label %tailrecurse.backedge279
 
 77:                                               ; preds = %tailrecurse, %tailrecurse
-  %78 = getelementptr inbounds i8, ptr %.0, i64 24
+  %78 = getelementptr inbounds i8, ptr %.066, i64 24
   %79 = load ptr, ptr %78, align 8
   br label %tailrecurse.backedge279
 
 80:                                               ; preds = %tailrecurse
-  %81 = getelementptr inbounds i8, ptr %.0, i64 24
+  %81 = getelementptr inbounds i8, ptr %.066, i64 24
   %82 = load ptr, ptr %81, align 8
   %.not.i90 = icmp eq ptr %82, null
   br i1 %.not.i90, label %expr_list_is_constant_eval.exit, label %83
@@ -636,7 +636,7 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
   br i1 %or.cond269.not, label %.lr.ph140, label %expr_list_is_constant_eval.exit, !llvm.loop !9
 
 89:                                               ; preds = %tailrecurse
-  %90 = getelementptr inbounds i8, ptr %.0, i64 24
+  %90 = getelementptr inbounds i8, ptr %.066, i64 24
   %91 = load ptr, ptr %90, align 8
   %.not.i94 = icmp eq ptr %91, null
   br i1 %.not.i94, label %expr_list_is_constant_eval.exit, label %92
@@ -662,8 +662,8 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
   br i1 %or.cond271.not, label %.lr.ph, label %expr_list_is_constant_eval.exit, !llvm.loop !9
 
 98:                                               ; preds = %tailrecurse
-  %99 = getelementptr inbounds i8, ptr %.0, i64 24
-  %100 = getelementptr inbounds i8, ptr %.0, i64 32
+  %99 = getelementptr inbounds i8, ptr %.066, i64 24
+  %100 = getelementptr inbounds i8, ptr %.066, i64 32
   %101 = load i32, ptr %100, align 4
   %.not75 = icmp eq i32 %101, 0
   %.pre199 = load ptr, ptr @expr_arena, align 8
@@ -687,8 +687,8 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
   br label %tailrecurse.backedge279
 
 110:                                              ; preds = %tailrecurse
-  %111 = getelementptr inbounds i8, ptr %.0, i64 24
-  %112 = getelementptr inbounds i8, ptr %.0, i64 32
+  %111 = getelementptr inbounds i8, ptr %.066, i64 24
+  %112 = getelementptr inbounds i8, ptr %.066, i64 32
   %113 = load i32, ptr %112, align 4
   %.not = icmp eq i32 %113, 0
   %.pre197 = load ptr, ptr @expr_arena, align 8
@@ -747,8 +747,8 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
   br label %expr_list_is_constant_eval.exit
 
 141:                                              ; preds = %tailrecurse
-  %142 = getelementptr inbounds i8, ptr %.0, i64 24
-  %143 = getelementptr inbounds i8, ptr %.0, i64 32
+  %142 = getelementptr inbounds i8, ptr %.066, i64 24
+  %143 = getelementptr inbounds i8, ptr %.066, i64 32
   %144 = load i8, ptr %143, align 8
   switch i8 %144, label %152 [
     i8 1, label %expr_list_is_constant_eval.exit.loopexit278
@@ -764,7 +764,7 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
   ]
 
 145:                                              ; preds = %141
-  %146 = tail call fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr noundef nonnull %.0, i32 noundef %1)
+  %146 = tail call fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr noundef nonnull %.066, i32 noundef %1)
   br label %expr_list_is_constant_eval.exit
 
 147:                                              ; preds = %141
@@ -791,12 +791,12 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
   unreachable
 
 expr_list_is_constant_eval.exit.loopexit278:      ; preds = %48, %57, %54, %54, %54, %54, %102, %114, %147, %141, %141, %141, %141, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.critedge, %12, %25, %29
-  %.066.ph = phi i1 [ true, %29 ], [ false, %25 ], [ true, %.critedge ], [ false, %12 ], [ false, %tailrecurse ], [ false, %141 ], [ false, %141 ], [ false, %147 ], [ false, %141 ], [ false, %141 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %114 ], [ false, %102 ], [ false, %tailrecurse ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ false, %57 ], [ true, %48 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ]
+  %.0.ph = phi i1 [ true, %29 ], [ false, %25 ], [ true, %.critedge ], [ false, %12 ], [ false, %tailrecurse ], [ false, %141 ], [ false, %141 ], [ false, %147 ], [ false, %141 ], [ false, %141 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %114 ], [ false, %102 ], [ false, %tailrecurse ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ false, %57 ], [ true, %48 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ]
   br label %expr_list_is_constant_eval.exit
 
 expr_list_is_constant_eval.exit:                  ; preds = %.lr.ph, %.lr.ph140, %.lr.ph146, %.lr.ph152, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %54, %expr_list_is_constant_eval.exit.loopexit278, %89, %80, %62, %36, %92, %83, %65, %39, %133, %136, %145, %139, %138, %34, %32
-  %.066 = phi i1 [ %146, %145 ], [ %140, %139 ], [ true, %138 ], [ %35, %34 ], [ %33, %32 ], [ false, %136 ], [ false, %133 ], [ true, %39 ], [ true, %65 ], [ true, %83 ], [ true, %92 ], [ true, %36 ], [ true, %62 ], [ true, %80 ], [ true, %89 ], [ %.066.ph, %expr_list_is_constant_eval.exit.loopexit278 ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ false, %54 ], [ true, %tailrecurse ], [ %44, %.lr.ph152 ], [ %70, %.lr.ph146 ], [ %88, %.lr.ph140 ], [ %97, %.lr.ph ]
-  ret i1 %.066
+  %.0 = phi i1 [ %146, %145 ], [ %140, %139 ], [ true, %138 ], [ %35, %34 ], [ %33, %32 ], [ false, %136 ], [ false, %133 ], [ true, %39 ], [ true, %65 ], [ true, %83 ], [ true, %92 ], [ true, %36 ], [ true, %62 ], [ true, %80 ], [ true, %89 ], [ %.0.ph, %expr_list_is_constant_eval.exit.loopexit278 ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ false, %54 ], [ true, %tailrecurse ], [ %44, %.lr.ph152 ], [ %70, %.lr.ph146 ], [ %88, %.lr.ph140 ], [ %97, %.lr.ph ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -965,8 +965,8 @@ define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr nocaptur
   br label %17
 
 17:                                               ; preds = %13, %10
-  %.023 = phi i32 [ %16, %13 ], [ %11, %10 ]
-  %18 = icmp eq i32 %.023, 40
+  %.022 = phi i32 [ %16, %13 ], [ %11, %10 ]
+  %18 = icmp eq i32 %.022, 40
   br i1 %18, label %45, label %.critedge
 
 .critedge:                                        ; preds = %8, %17, %4
@@ -1046,8 +1046,8 @@ define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr nocaptur
   br label %45
 
 45:                                               ; preds = %37, %37, %29, %27, %23, %17, %2, %44, %43, %40, %36, %25, %21
-  %.022 = phi i1 [ false, %44 ], [ false, %36 ], [ false, %43 ], [ %42, %40 ], [ %26, %25 ], [ %22, %21 ], [ false, %2 ], [ false, %17 ], [ false, %23 ], [ true, %27 ], [ true, %29 ], [ true, %37 ], [ true, %37 ]
-  ret i1 %.022
+  %.023 = phi i1 [ false, %44 ], [ false, %36 ], [ false, %43 ], [ %42, %40 ], [ %26, %25 ], [ %22, %21 ], [ false, %2 ], [ false, %17 ], [ false, %23 ], [ true, %27 ], [ true, %29 ], [ true, %37 ], [ true, %37 ]
+  ret i1 %.023
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1121,8 +1121,8 @@ define dso_local void @expr_insert_addr(ptr nocapture noundef %0) local_unnamed_
   br label %39
 
 39:                                               ; preds = %31, %.thread, %.thread36, %33, %37
-  %.031 = phi ptr [ %38, %37 ], [ %34, %33 ], [ %32, %31 ], [ %19, %.thread36 ], [ %26, %.thread ]
-  store ptr %.031, ptr %0, align 8
+  %.029 = phi ptr [ %38, %37 ], [ %34, %33 ], [ %32, %31 ], [ %19, %.thread36 ], [ %26, %.thread ]
+  store ptr %.029, ptr %0, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 2, ptr %41, align 8
@@ -1511,21 +1511,21 @@ define dso_local noundef zeroext i1 @expr_rewrite_to_const_initializer_index(ptr
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.039.i = phi i32 [ %12, %10 ], [ 0, %7 ]
+  %.0.i = phi i32 [ %12, %10 ], [ 0, %7 ]
   br i1 %4, label %14, label %18
 
 14:                                               ; preds = %13
   %15 = add i32 %3, -1
-  %or.cond.i = icmp ult i32 %15, %.039.i
+  %or.cond.i = icmp ult i32 %15, %.0.i
   br i1 %or.cond.i, label %16, label %.thread
 
 16:                                               ; preds = %14
-  %17 = sub i32 %.039.i, %3
+  %17 = sub i32 %.0.i, %3
   br label %18
 
 18:                                               ; preds = %16, %13
-  %.040.i = phi i32 [ %17, %16 ], [ %3, %13 ]
-  %19 = zext i32 %.040.i to i64
+  %.042.i = phi i32 [ %17, %16 ], [ %3, %13 ]
+  %19 = zext i32 %.042.i to i64
   %20 = getelementptr inbounds ptr, ptr %9, i64 %19
   br label %initializer_for_index.exit
 
@@ -2527,8 +2527,8 @@ thread-pre-split:                                 ; preds = %22
   br label %41
 
 41:                                               ; preds = %37, %34
-  %.033 = phi i32 [ %40, %37 ], [ %24, %34 ]
-  %42 = icmp eq i32 %.033, 40
+  %.035 = phi i32 [ %40, %37 ], [ %24, %34 ]
+  %42 = icmp eq i32 %.035, 40
   br i1 %42, label %43, label %.critedge
 
 43:                                               ; preds = %41
@@ -2541,8 +2541,8 @@ thread-pre-split:                                 ; preds = %22
   br label %.critedge
 
 .critedge:                                        ; preds = %41, %43, %46
-  %.035 = phi ptr [ %47, %46 ], [ %35, %43 ], [ %35, %41 ]
-  store ptr %.035, ptr %0, align 8
+  %.033 = phi ptr [ %47, %46 ], [ %35, %43 ], [ %35, %41 ]
+  store ptr %.033, ptr %0, align 8
   br label %48
 
 48:                                               ; preds = %.critedge, %13, %10

@@ -884,8 +884,8 @@ define void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 derefe
   br label %64
 
 64:                                               ; preds = %62, %60
-  %.0132 = phi i32 [ %61, %60 ], [ %63, %62 ]
-  %65 = icmp slt i32 %.0132, 0
+  %.0130 = phi i32 [ %61, %60 ], [ %63, %62 ]
+  %65 = icmp slt i32 %.0130, 0
   %66 = load i32, ptr %6, align 4
   %67 = icmp slt i32 %66, 1
   %or.cond.not = select i1 %65, i1 true, i1 %67
@@ -2541,7 +2541,7 @@ _ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread: ; preds = %374, %42
 
 _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread, %444, %461
   %479 = phi float [ %454, %461 ], [ %454, %444 ], [ %443, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ]
-  %.sroa.29.3577 = phi float [ %452, %461 ], [ %452, %444 ], [ 0.000000e+00, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ]
+  %.sroa.29.3575 = phi float [ %452, %461 ], [ %452, %444 ], [ 0.000000e+00, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ]
   %.0.i395 = phi float [ %478, %461 ], [ %454, %444 ], [ %443, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ]
   %480 = phi <2 x float> [ %450, %461 ], [ %450, %444 ], [ zeroinitializer, %_ZL24calcSmoothSteerDirectionPK12dtCrowdAgentPf.exit.thread ]
   %481 = fdiv float %.0.i395, %479
@@ -2553,7 +2553,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   %486 = insertelement <2 x float> poison, float %485, i64 0
   %487 = shufflevector <2 x float> %486, <2 x float> poison, <2 x i32> zeroinitializer
   %488 = fmul <2 x float> %480, %487
-  %489 = fmul float %.sroa.29.3577, %485
+  %489 = fmul float %.sroa.29.3575, %485
   br label %490
 
 490:                                              ; preds = %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit, %356
@@ -2589,7 +2589,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
 
 511:                                              ; preds = %.lr.ph457, %538
   %indvars.iv516 = phi i64 [ 0, %.lr.ph457 ], [ %indvars.iv.next517, %538 ]
-  %.0352455 = phi float [ 0.000000e+00, %.lr.ph457 ], [ %.1353, %538 ]
+  %.0337456 = phi float [ 0.000000e+00, %.lr.ph457 ], [ %.1, %538 ]
   %.sroa.7411.1454 = phi float [ 0.000000e+00, %.lr.ph457 ], [ %.sroa.7411.2, %538 ]
   %512 = phi <2 x float> [ zeroinitializer, %.lr.ph457 ], [ %539, %538 ]
   %513 = getelementptr inbounds [6 x %struct.dtCrowdNeighbour], ptr %505, i64 0, i64 %indvars.iv516
@@ -2620,23 +2620,23 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   %534 = shufflevector <2 x float> %533, <2 x float> poison, <2 x i32> zeroinitializer
   %535 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %532, <2 x float> %534, <2 x float> %512)
   %536 = call float @llvm.fmuladd.f32(float %521, float %531, float %.sroa.7411.1454)
-  %537 = fadd float %.0352455, 1.000000e+00
+  %537 = fadd float %.0337456, 1.000000e+00
   br label %538
 
 538:                                              ; preds = %511, %526
   %.sroa.7411.2 = phi float [ %.sroa.7411.1454, %511 ], [ %536, %526 ]
-  %.1353 = phi float [ %.0352455, %511 ], [ %537, %526 ]
+  %.1 = phi float [ %.0337456, %511 ], [ %537, %526 ]
   %539 = phi <2 x float> [ %512, %511 ], [ %535, %526 ]
   %indvars.iv.next517 = add nuw nsw i64 %indvars.iv516, 1
   %exitcond520.not = icmp eq i64 %indvars.iv.next517, %wide.trip.count519
   br i1 %exitcond520.not, label %._crit_edge, label %511, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %538
-  %540 = fcmp ogt float %.1353, 0x3F1A36E2E0000000
+  %540 = fcmp ogt float %.1, 0x3F1A36E2E0000000
   br i1 %540, label %541, label %._crit_edge.thread
 
 541:                                              ; preds = %._crit_edge
-  %542 = fdiv float 1.000000e+00, %.1353
+  %542 = fdiv float 1.000000e+00, %.1
   %543 = insertelement <2 x float> poison, float %542, i64 0
   %544 = shufflevector <2 x float> %543, <2 x float> poison, <2 x i32> zeroinitializer
   %545 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %539, <2 x float> %544, <2 x float> %493)
@@ -2787,7 +2787,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   br label %632
 
 632:                                              ; preds = %._crit_edge474, %630
-  %.0345 = phi ptr [ %631, %630 ], [ null, %._crit_edge474 ]
+  %.0346 = phi ptr [ %631, %630 ], [ null, %._crit_edge474 ]
   %633 = getelementptr inbounds i8, ptr %568, i64 509
   %634 = load i8, ptr %633, align 1
   %635 = zext i8 %634 to i64
@@ -2800,7 +2800,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   %642 = getelementptr inbounds i8, ptr %568, i64 464
   %643 = getelementptr inbounds i8, ptr %568, i64 440
   %644 = getelementptr inbounds i8, ptr %568, i64 452
-  %645 = call noundef i32 @_ZN24dtObstacleAvoidanceQuery22sampleVelocityAdaptiveEPKfffS1_S1_PfPK25dtObstacleAvoidanceParamsP28dtObstacleAvoidanceDebugData(ptr noundef nonnull align 8 dereferenceable(76) %637, ptr noundef nonnull %638, float noundef %639, float noundef %641, ptr noundef nonnull %642, ptr noundef nonnull %643, ptr noundef nonnull %644, ptr noundef nonnull %636, ptr noundef %.0345)
+  %645 = call noundef i32 @_ZN24dtObstacleAvoidanceQuery22sampleVelocityAdaptiveEPKfffS1_S1_PfPK25dtObstacleAvoidanceParamsP28dtObstacleAvoidanceDebugData(ptr noundef nonnull align 8 dereferenceable(76) %637, ptr noundef nonnull %638, float noundef %639, float noundef %641, ptr noundef nonnull %642, ptr noundef nonnull %643, ptr noundef nonnull %644, ptr noundef nonnull %636, ptr noundef %.0346)
   %646 = load i32, ptr %6, align 4
   %647 = add nsw i32 %646, %645
   store i32 %647, ptr %6, align 4
@@ -2902,7 +2902,7 @@ _ZL9integrateP12dtCrowdAgentf.exit:               ; preds = %704, %697, %.lr.ph4
   br i1 %exitcond541.not, label %.preheader434, label %.lr.ph478, !llvm.loop !31
 
 .preheader433:                                    ; preds = %.preheader433.backedge, %.preheader434
-  %.0341490 = phi i32 [ 0, %.preheader434 ], [ %.0341490.be, %.preheader433.backedge ]
+  %.0353490 = phi i32 [ 0, %.preheader434 ], [ %.0353490.be, %.preheader433.backedge ]
   br i1 %33, label %.lr.ph486, label %._crit_edge489.thread
 
 .preheader431:                                    ; preds = %._crit_edge489
@@ -2958,7 +2958,7 @@ _ZL9integrateP12dtCrowdAgentf.exit:               ; preds = %704, %697, %.lr.ph4
 730:                                              ; preds = %.lr.ph482, %776
   %731 = phi float [ 0.000000e+00, %.lr.ph482 ], [ %777, %776 ]
   %indvars.iv542 = phi i64 [ 0, %.lr.ph482 ], [ %indvars.iv.next543, %776 ]
-  %.0338479 = phi float [ 0.000000e+00, %.lr.ph482 ], [ %.1, %776 ]
+  %.0348479 = phi float [ 0.000000e+00, %.lr.ph482 ], [ %.1349, %776 ]
   %732 = phi <2 x float> [ zeroinitializer, %.lr.ph482 ], [ %778, %776 ]
   %733 = load ptr, ptr %656, align 8
   %734 = getelementptr inbounds [6 x %struct.dtCrowdNeighbour], ptr %723, i64 0, i64 %indvars.iv542
@@ -3012,31 +3012,31 @@ _ZL9integrateP12dtCrowdAgentf.exit:               ; preds = %704, %697, %.lr.ph4
 769:                                              ; preds = %756, %759, %762
   %.sroa.11.0 = phi float [ %758, %756 ], [ %761, %759 ], [ %743, %762 ]
   %.sroa.0.0 = phi float [ %757, %756 ], [ %755, %759 ], [ %740, %762 ]
-  %.0336 = phi float [ 0x3F847AE140000000, %756 ], [ 0x3F847AE140000000, %759 ], [ %768, %762 ]
-  %770 = insertelement <2 x float> poison, float %.0336, i64 0
+  %.0344 = phi float [ 0x3F847AE140000000, %756 ], [ 0x3F847AE140000000, %759 ], [ %768, %762 ]
+  %770 = insertelement <2 x float> poison, float %.0344, i64 0
   %771 = shufflevector <2 x float> %770, <2 x float> poison, <2 x i32> zeroinitializer
   %772 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %.sroa.0.0, i64 0
   %773 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %771, <2 x float> %772, <2 x float> %732)
   store <2 x float> %773, ptr %718, align 4
-  %774 = call float @llvm.fmuladd.f32(float %.sroa.11.0, float %.0336, float %731)
+  %774 = call float @llvm.fmuladd.f32(float %.sroa.11.0, float %.0344, float %731)
   store float %774, ptr %719, align 4
-  %775 = fadd float %.0338479, 1.000000e+00
+  %775 = fadd float %.0348479, 1.000000e+00
   br label %776
 
 776:                                              ; preds = %730, %769
   %777 = phi float [ %731, %730 ], [ %774, %769 ]
-  %.1 = phi float [ %.0338479, %730 ], [ %775, %769 ]
+  %.1349 = phi float [ %.0348479, %730 ], [ %775, %769 ]
   %778 = phi <2 x float> [ %732, %730 ], [ %773, %769 ]
   %indvars.iv.next543 = add nuw nsw i64 %indvars.iv542, 1
   %779 = icmp ult i64 %indvars.iv.next543, %729
   br i1 %779, label %730, label %._crit_edge483, !llvm.loop !32
 
 ._crit_edge483:                                   ; preds = %776
-  %780 = fcmp ogt float %.1, 0x3F1A36E2E0000000
+  %780 = fcmp ogt float %.1349, 0x3F1A36E2E0000000
   br i1 %780, label %781, label %._crit_edge483.thread
 
 781:                                              ; preds = %._crit_edge483
-  %782 = fdiv float 1.000000e+00, %.1
+  %782 = fdiv float 1.000000e+00, %.1349
   %783 = insertelement <2 x float> poison, float %782, i64 0
   %784 = shufflevector <2 x float> %783, <2 x float> poison, <2 x i32> zeroinitializer
   %785 = fmul <2 x float> %784, %778
@@ -3080,16 +3080,16 @@ _ZL9integrateP12dtCrowdAgentf.exit:               ; preds = %704, %697, %.lr.ph4
   br i1 %exitcond554.not, label %._crit_edge489, label %.lr.ph488, !llvm.loop !34
 
 ._crit_edge489:                                   ; preds = %802
-  %803 = add nuw nsw i32 %.0341490, 1
+  %803 = add nuw nsw i32 %.0353490, 1
   %exitcond555.not = icmp eq i32 %803, 4
   br i1 %exitcond555.not, label %.preheader431, label %.preheader433.backedge
 
 .preheader433.backedge:                           ; preds = %._crit_edge489, %._crit_edge489.thread
-  %.0341490.be = phi i32 [ %803, %._crit_edge489 ], [ %804, %._crit_edge489.thread ]
+  %.0353490.be = phi i32 [ %803, %._crit_edge489 ], [ %804, %._crit_edge489.thread ]
   br label %.preheader433, !llvm.loop !35
 
 ._crit_edge489.thread:                            ; preds = %.preheader433, %.preheader432
-  %804 = add nuw nsw i32 %.0341490, 1
+  %804 = add nuw nsw i32 %.0353490, 1
   %exitcond555.not582 = icmp eq i32 %804, 4
   br i1 %exitcond555.not582, label %._crit_edge495, label %.preheader433.backedge
 

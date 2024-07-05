@@ -383,8 +383,8 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$12pus
   br label %11
 
 11:                                               ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31, %4
-  %.039 = phi i32 [ 0, %4 ], [ %.3, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31 ]
-  %.018 = phi i64 [ %6, %4 ], [ %.1, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31 ]
+  %.0 = phi i32 [ 0, %4 ], [ %.3, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31 ]
+  %.018 = phi i64 [ %6, %4 ], [ %.119, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31 ]
   %12 = load i64, ptr %7, align 8, !noundef !4
   %13 = add i64 %12, -1
   %14 = and i64 %13, %.018
@@ -403,7 +403,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$12pus
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %21
-  %26 = icmp ult i32 %.039, 7
+  %26 = icmp ult i32 %.0, 7
   br i1 %26, label %.preheader.i, label %27
 
 27:                                               ; preds = %25
@@ -411,7 +411,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$12pus
           to label %.thread.i unwind label %63
 
 .thread.i:                                        ; preds = %.preheader.i, %27
-  %28 = icmp ult i32 %.039, 11
+  %28 = icmp ult i32 %.0, 11
   %29 = load atomic i64, ptr %5 monotonic, align 128
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31
 
@@ -419,7 +419,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$12pus
   %.sroa.0.06.i = phi i32 [ %30, %.preheader.i ], [ 0, %25 ]
   %30 = add nuw nsw i32 %.sroa.0.06.i, 1
   tail call void @llvm.x86.sse2.pause() #29
-  %.sroa.0.0.highbits.i = lshr i32 %30, %.039
+  %.sroa.0.0.highbits.i = lshr i32 %30, %.0
   %31 = icmp eq i32 %.sroa.0.0.highbits.i, 0
   br i1 %31, label %.preheader.i, label %.thread.i
 
@@ -442,11 +442,11 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$12pus
 
 37:                                               ; preds = %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.6, i64 72, i1 false)
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.039, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.0, i32 6)
   br label %40
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit: ; preds = %40
-  %38 = icmp ult i32 %.039, 7
+  %38 = icmp ult i32 %.0, 7
   %39 = load atomic i64, ptr %5 monotonic, align 128
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31
 
@@ -464,9 +464,9 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit: ; preds = %4
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31: ; preds = %55, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit, %.thread.i
   %.pn.in = phi i1 [ %38, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit ], [ %28, %.thread.i ], [ %56, %55 ]
-  %.1 = phi i64 [ %39, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit ], [ %29, %.thread.i ], [ %53, %55 ]
+  %.119 = phi i64 [ %39, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit ], [ %29, %.thread.i ], [ %53, %55 ]
   %.pn = zext i1 %.pn.in to i32
-  %.3 = add nuw nsw i32 %.039, %.pn
+  %.3 = add nuw nsw i32 %.0, %.pn
   br label %11
 
 44:                                               ; preds = %60, %43
@@ -478,18 +478,18 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31: ; preds = 
   %48 = sub i64 0, %12
   %49 = and i64 %.018, %48
   %50 = add i64 %49, %12
-  %.0 = select i1 %47, i64 %16, i64 %50
-  %51 = cmpxchg weak ptr %5, i64 %.018, i64 %.0 seq_cst monotonic, align 8
+  %.020 = select i1 %47, i64 %16, i64 %50
+  %51 = cmpxchg weak ptr %5, i64 %.018, i64 %.020 seq_cst monotonic, align 8
   %52 = extractvalue { i64, i1 } %51, 1
   %53 = extractvalue { i64, i1 } %51, 0
   br i1 %52, label %60, label %54
 
 54:                                               ; preds = %45
-  %.0.sroa.speculated.i.i28 = tail call noundef i32 @llvm.umin.i32(i32 %.039, i32 6)
+  %.0.sroa.speculated.i.i28 = tail call noundef i32 @llvm.umin.i32(i32 %.0, i32 6)
   br label %57
 
 55:                                               ; preds = %57
-  %56 = icmp ult i32 %.039, 7
+  %56 = icmp ult i32 %.0, 7
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31
 
 57:                                               ; preds = %57, %54
@@ -535,21 +535,21 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$3pop1
 
 9:                                                ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19, %2
   %.025 = phi i32 [ 0, %2 ], [ %.3, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19 ]
-  %.012 = phi i64 [ %4, %2 ], [ %.1, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19 ]
+  %.0 = phi i64 [ %4, %2 ], [ %.1, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19 ]
   %10 = load i64, ptr %5, align 8, !noundef !4
   %11 = add i64 %10, -1
-  %12 = and i64 %11, %.012
+  %12 = and i64 %11, %.0
   %13 = sub i64 0, %10
-  %14 = and i64 %.012, %13
+  %14 = and i64 %.0, %13
   %15 = load ptr, ptr %6, align 16, !nonnull !4, !align !5, !noundef !4
   %16 = getelementptr inbounds { { i64 }, { { [9 x i64] } } }, ptr %15, i64 %12
   %17 = load atomic i64, ptr %16 acquire, align 8
-  %18 = add i64 %.012, 1
+  %18 = add i64 %.0, 1
   %19 = icmp eq i64 %18, %17
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %9
-  %21 = icmp eq i64 %17, %.012
+  %21 = icmp eq i64 %17, %.0
   br i1 %21, label %33, label %26
 
 22:                                               ; preds = %9
@@ -582,7 +582,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$3pop1
 33:                                               ; preds = %20
   fence seq_cst
   %34 = load atomic i64, ptr %7 monotonic, align 128
-  %35 = icmp eq i64 %34, %.012
+  %35 = icmp eq i64 %34, %.0
   br i1 %35, label %42, label %36
 
 36:                                               ; preds = %33
@@ -622,8 +622,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19: ; preds = 
   br label %47
 
 47:                                               ; preds = %22, %44
-  %.0 = phi i64 [ %46, %44 ], [ %17, %22 ]
-  %48 = cmpxchg weak ptr %1, i64 %.012, i64 %.0 seq_cst monotonic, align 8
+  %.012 = phi i64 [ %46, %44 ], [ %17, %22 ]
+  %48 = cmpxchg weak ptr %1, i64 %.0, i64 %.012 seq_cst monotonic, align 8
   %49 = extractvalue { i64, i1 } %48, 1
   %50 = extractvalue { i64, i1 } %48, 0
   br i1 %49, label %57, label %51
@@ -648,7 +648,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19: ; preds = 
   %58 = getelementptr inbounds i8, ptr %16, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %58, i64 72, i1 false)
   %59 = load i64, ptr %5, align 8, !noundef !4
-  %60 = add i64 %59, %.012
+  %60 = add i64 %59, %.0
   store atomic i64 %60, ptr %16 release, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
   br label %43

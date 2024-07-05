@@ -1033,8 +1033,8 @@ define void @_ZNK5faiss14IndexBinaryIVF13reconstruct_nEllPh(ptr noundef nonnull 
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35, %58
-  %.02736 = phi i64 [ %59, %58 ], [ 0, %35 ]
-  %46 = getelementptr inbounds i64, ptr %45, i64 %.02736
+  %.02836 = phi i64 [ %59, %58 ], [ 0, %35 ]
+  %46 = getelementptr inbounds i64, ptr %45, i64 %.02836
   %47 = load i64, ptr %46, align 8
   %.not34 = icmp sge i64 %47, %1
   %48 = icmp slt i64 %47, %33
@@ -1050,11 +1050,11 @@ define void @_ZNK5faiss14IndexBinaryIVF13reconstruct_nEllPh(ptr noundef nonnull 
   %55 = load ptr, ptr %0, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 120
   %57 = load ptr, ptr %56, align 8
-  tail call void %57(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %.02937, i64 noundef %.02736, ptr noundef %54)
+  tail call void %57(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %.02937, i64 noundef %.02836, ptr noundef %54)
   br label %58
 
 58:                                               ; preds = %.lr.ph, %49
-  %59 = add nuw i64 %.02736, 1
+  %59 = add nuw i64 %.02836, 1
   %exitcond.not = icmp eq i64 %59, %40
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
@@ -1253,13 +1253,13 @@ define void @_ZNK5faiss14IndexBinaryIVF22search_and_reconstructElPKhlPiPlPhPKNS_
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.04683.us = phi i64 [ %119, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %94 = mul nuw nsw i64 %.04683.us, %3
+  %.05183.us = phi i64 [ %119, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %94 = mul nuw nsw i64 %.05183.us, %3
   br label %95
 
 95:                                               ; preds = %.preheader.us, %117
-  %.082.us = phi i64 [ 0, %.preheader.us ], [ %118, %117 ]
-  %96 = add nuw nsw i64 %.082.us, %94
+  %.05282.us = phi i64 [ 0, %.preheader.us ], [ %118, %117 ]
+  %96 = add nuw nsw i64 %.05282.us, %94
   %97 = getelementptr inbounds i64, ptr %5, i64 %96
   %98 = load i64, ptr %97, align 8
   %99 = load i32, ptr %93, align 8
@@ -1293,12 +1293,12 @@ define void @_ZNK5faiss14IndexBinaryIVF22search_and_reconstructElPKhlPiPlPhPKNS_
   br label %117
 
 117:                                              ; preds = %116, %112
-  %118 = add nuw nsw i64 %.082.us, 1
+  %118 = add nuw nsw i64 %.05282.us, 1
   %exitcond.not = icmp eq i64 %118, %3
   br i1 %exitcond.not, label %._crit_edge.us, label %95, !llvm.loop !8
 
 ._crit_edge.us:                                   ; preds = %117
-  %119 = add nuw nsw i64 %.04683.us, 1
+  %119 = add nuw nsw i64 %.05183.us, 1
   %exitcond85.not = icmp eq i64 %119, %1
   br i1 %exitcond85.not, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit, label %.preheader.us, !llvm.loop !9
 
@@ -2125,7 +2125,7 @@ _ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 38:                                               ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit, %26
   %.sroa.0.1 = phi ptr [ null, %26 ], [ %31, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit ]
-  %.036 = phi ptr [ %4, %26 ], [ %31, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit ]
+  %.034 = phi ptr [ %4, %26 ], [ %31, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit ]
   %.not62 = icmp eq i64 %1, 0
   br i1 %.not62, label %._crit_edge, label %.lr.ph
 
@@ -2137,10 +2137,10 @@ _ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br i1 %.not42, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %59
-  %.03460.us = phi i64 [ %60, %59 ], [ 0, %.lr.ph ]
+  %.03560.us = phi i64 [ %60, %59 ], [ 0, %.lr.ph ]
   %42 = load i64, ptr %39, align 8
-  %43 = add i64 %42, %.03460.us
-  %44 = getelementptr inbounds i64, ptr %.036, i64 %.03460.us
+  %43 = add i64 %42, %.03560.us
+  %44 = getelementptr inbounds i64, ptr %.034, i64 %.03560.us
   %45 = load i64, ptr %44, align 8
   %46 = icmp slt i64 %45, 0
   br i1 %46, label %.invoke67, label %47
@@ -2148,7 +2148,7 @@ _ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 47:                                               ; preds = %.lr.ph.split.us
   %48 = load i32, ptr %40, align 4
   %49 = sext i32 %48 to i64
-  %50 = mul i64 %.03460.us, %49
+  %50 = mul i64 %.03560.us, %49
   %51 = getelementptr inbounds i8, ptr %2, i64 %50
   %52 = load ptr, ptr %41, align 8
   %53 = load ptr, ptr %52, align 8
@@ -2164,7 +2164,7 @@ _ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
           to label %59 unwind label %.split.us
 
 59:                                               ; preds = %.invoke67
-  %60 = add nuw i64 %.03460.us, 1
+  %60 = add nuw i64 %.03560.us, 1
   %exitcond65.not = icmp eq i64 %60, %1
   br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
 
@@ -2174,10 +2174,10 @@ _ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %36
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %79
-  %.03460 = phi i64 [ %80, %79 ], [ 0, %.lr.ph ]
-  %62 = getelementptr inbounds i64, ptr %3, i64 %.03460
+  %.03560 = phi i64 [ %80, %79 ], [ 0, %.lr.ph ]
+  %62 = getelementptr inbounds i64, ptr %3, i64 %.03560
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i64, ptr %.036, i64 %.03460
+  %64 = getelementptr inbounds i64, ptr %.034, i64 %.03560
   %65 = load i64, ptr %64, align 8
   %66 = icmp slt i64 %65, 0
   br i1 %66, label %.invoke, label %67
@@ -2185,7 +2185,7 @@ _ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 67:                                               ; preds = %.lr.ph.split
   %68 = load i32, ptr %40, align 4
   %69 = sext i32 %68 to i64
-  %70 = mul i64 %.03460, %69
+  %70 = mul i64 %.03560, %69
   %71 = getelementptr inbounds i8, ptr %2, i64 %70
   %72 = load ptr, ptr %41, align 8
   %73 = load ptr, ptr %72, align 8
@@ -2201,7 +2201,7 @@ _ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
           to label %79 unwind label %.split
 
 79:                                               ; preds = %.invoke
-  %80 = add nuw i64 %.03460, 1
+  %80 = add nuw i64 %.03560, 1
   %exitcond.not = icmp eq i64 %80, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
@@ -8817,14 +8817,14 @@ default.unreachable92:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2, %87
-  %.083 = phi i32 [ %6, %2 ], [ %96, %87 ]
+  %.083 = phi i32 [ %5, %2 ], [ %.790, %87 ]
   %.075 = phi i32 [ %6, %2 ], [ %97, %87 ]
-  %.0 = phi i32 [ %5, %2 ], [ %.7, %87 ]
-  %8 = icmp sgt i32 %.0, 7
+  %.0 = phi i32 [ %6, %2 ], [ %96, %87 ]
+  %8 = icmp sgt i32 %.083, 7
   br i1 %8, label %9, label %98
 
 9:                                                ; preds = %7
-  %10 = add nsw i32 %.0, -8
+  %10 = add nsw i32 %.083, -8
   %11 = sext i32 %.075 to i64
   %12 = getelementptr inbounds i64, ptr %3, i64 %11
   %13 = load i64, ptr %12, align 8
@@ -8833,14 +8833,14 @@ default.unreachable92:                            ; preds = %2
   %16 = xor i64 %15, %13
   %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
   %18 = trunc nuw nsw i64 %17 to i32
-  %19 = add nsw i32 %.083, %18
+  %19 = add nsw i32 %.0, %18
   %20 = add nsw i32 %.075, 1
   br label %21
 
 21:                                               ; preds = %2, %9
-  %.184 = phi i32 [ %19, %9 ], [ 0, %2 ]
+  %.184 = phi i32 [ %10, %9 ], [ %5, %2 ]
   %.176 = phi i32 [ %20, %9 ], [ 0, %2 ]
-  %.1 = phi i32 [ %10, %9 ], [ %5, %2 ]
+  %.1 = phi i32 [ %19, %9 ], [ 0, %2 ]
   %22 = sext i32 %.176 to i64
   %23 = getelementptr inbounds i64, ptr %3, i64 %22
   %24 = load i64, ptr %23, align 8
@@ -8849,14 +8849,14 @@ default.unreachable92:                            ; preds = %2
   %27 = xor i64 %26, %24
   %28 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %27)
   %29 = trunc nuw nsw i64 %28 to i32
-  %30 = add nsw i32 %.184, %29
+  %30 = add nsw i32 %.1, %29
   %31 = add nsw i32 %.176, 1
   br label %32
 
 32:                                               ; preds = %2, %21
-  %.285 = phi i32 [ %30, %21 ], [ 0, %2 ]
+  %.285 = phi i32 [ %.184, %21 ], [ %5, %2 ]
   %.277 = phi i32 [ %31, %21 ], [ 0, %2 ]
-  %.2 = phi i32 [ %.1, %21 ], [ %5, %2 ]
+  %.2 = phi i32 [ %30, %21 ], [ 0, %2 ]
   %33 = sext i32 %.277 to i64
   %34 = getelementptr inbounds i64, ptr %3, i64 %33
   %35 = load i64, ptr %34, align 8
@@ -8865,14 +8865,14 @@ default.unreachable92:                            ; preds = %2
   %38 = xor i64 %37, %35
   %39 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
   %40 = trunc nuw nsw i64 %39 to i32
-  %41 = add nsw i32 %.285, %40
+  %41 = add nsw i32 %.2, %40
   %42 = add nsw i32 %.277, 1
   br label %43
 
 43:                                               ; preds = %2, %32
-  %.386 = phi i32 [ %41, %32 ], [ 0, %2 ]
+  %.386 = phi i32 [ %.285, %32 ], [ %5, %2 ]
   %.378 = phi i32 [ %42, %32 ], [ 0, %2 ]
-  %.3 = phi i32 [ %.2, %32 ], [ %5, %2 ]
+  %.3 = phi i32 [ %41, %32 ], [ 0, %2 ]
   %44 = sext i32 %.378 to i64
   %45 = getelementptr inbounds i64, ptr %3, i64 %44
   %46 = load i64, ptr %45, align 8
@@ -8881,14 +8881,14 @@ default.unreachable92:                            ; preds = %2
   %49 = xor i64 %48, %46
   %50 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %49)
   %51 = trunc nuw nsw i64 %50 to i32
-  %52 = add nsw i32 %.386, %51
+  %52 = add nsw i32 %.3, %51
   %53 = add nsw i32 %.378, 1
   br label %54
 
 54:                                               ; preds = %2, %43
-  %.487 = phi i32 [ %52, %43 ], [ 0, %2 ]
+  %.487 = phi i32 [ %.386, %43 ], [ %5, %2 ]
   %.479 = phi i32 [ %53, %43 ], [ 0, %2 ]
-  %.4 = phi i32 [ %.3, %43 ], [ %5, %2 ]
+  %.4 = phi i32 [ %52, %43 ], [ 0, %2 ]
   %55 = sext i32 %.479 to i64
   %56 = getelementptr inbounds i64, ptr %3, i64 %55
   %57 = load i64, ptr %56, align 8
@@ -8897,14 +8897,14 @@ default.unreachable92:                            ; preds = %2
   %60 = xor i64 %59, %57
   %61 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %60)
   %62 = trunc nuw nsw i64 %61 to i32
-  %63 = add nsw i32 %.487, %62
+  %63 = add nsw i32 %.4, %62
   %64 = add nsw i32 %.479, 1
   br label %65
 
 65:                                               ; preds = %2, %54
-  %.588 = phi i32 [ %63, %54 ], [ 0, %2 ]
+  %.588 = phi i32 [ %.487, %54 ], [ %5, %2 ]
   %.580 = phi i32 [ %64, %54 ], [ 0, %2 ]
-  %.5 = phi i32 [ %.4, %54 ], [ %5, %2 ]
+  %.5 = phi i32 [ %63, %54 ], [ 0, %2 ]
   %66 = sext i32 %.580 to i64
   %67 = getelementptr inbounds i64, ptr %3, i64 %66
   %68 = load i64, ptr %67, align 8
@@ -8913,14 +8913,14 @@ default.unreachable92:                            ; preds = %2
   %71 = xor i64 %70, %68
   %72 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %71)
   %73 = trunc nuw nsw i64 %72 to i32
-  %74 = add nsw i32 %.588, %73
+  %74 = add nsw i32 %.5, %73
   %75 = add nsw i32 %.580, 1
   br label %76
 
 76:                                               ; preds = %2, %65
-  %.689 = phi i32 [ %74, %65 ], [ 0, %2 ]
+  %.689 = phi i32 [ %.588, %65 ], [ %5, %2 ]
   %.681 = phi i32 [ %75, %65 ], [ 0, %2 ]
-  %.6 = phi i32 [ %.5, %65 ], [ %5, %2 ]
+  %.6 = phi i32 [ %74, %65 ], [ 0, %2 ]
   %77 = sext i32 %.681 to i64
   %78 = getelementptr inbounds i64, ptr %3, i64 %77
   %79 = load i64, ptr %78, align 8
@@ -8929,14 +8929,14 @@ default.unreachable92:                            ; preds = %2
   %82 = xor i64 %81, %79
   %83 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %82)
   %84 = trunc nuw nsw i64 %83 to i32
-  %85 = add nsw i32 %.689, %84
+  %85 = add nsw i32 %.6, %84
   %86 = add nsw i32 %.681, 1
   br label %87
 
 87:                                               ; preds = %2, %76
-  %.790 = phi i32 [ %85, %76 ], [ 0, %2 ]
+  %.790 = phi i32 [ %.689, %76 ], [ %5, %2 ]
   %.782 = phi i32 [ %86, %76 ], [ 0, %2 ]
-  %.7 = phi i32 [ %.6, %76 ], [ %5, %2 ]
+  %.7 = phi i32 [ %85, %76 ], [ 0, %2 ]
   %88 = sext i32 %.782 to i64
   %89 = getelementptr inbounds i64, ptr %3, i64 %88
   %90 = load i64, ptr %89, align 8
@@ -8945,7 +8945,7 @@ default.unreachable92:                            ; preds = %2
   %93 = xor i64 %92, %90
   %94 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %93)
   %95 = trunc nuw nsw i64 %94 to i32
-  %96 = add nsw i32 %.790, %95
+  %96 = add nsw i32 %.7, %95
   %97 = add nsw i32 %.782, 1
   br label %7, !llvm.loop !221
 
@@ -8980,11 +8980,11 @@ default.unreachable92:                            ; preds = %2
   %113 = getelementptr inbounds [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
-  %116 = add nsw i32 %.083, %115
+  %116 = add nsw i32 %.0, %115
   br label %117
 
 117:                                              ; preds = %106, %101
-  %.8 = phi i32 [ %.083, %101 ], [ %116, %106 ]
+  %.8 = phi i32 [ %.0, %101 ], [ %116, %106 ]
   %118 = getelementptr inbounds i8, ptr %104, i64 5
   %119 = load i8, ptr %118, align 1
   %120 = getelementptr inbounds i8, ptr %105, i64 5
@@ -8998,7 +8998,7 @@ default.unreachable92:                            ; preds = %2
   br label %128
 
 128:                                              ; preds = %117, %101
-  %.9 = phi i32 [ %.083, %101 ], [ %127, %117 ]
+  %.9 = phi i32 [ %.0, %101 ], [ %127, %117 ]
   %129 = getelementptr inbounds i8, ptr %104, i64 4
   %130 = load i8, ptr %129, align 1
   %131 = getelementptr inbounds i8, ptr %105, i64 4
@@ -9012,7 +9012,7 @@ default.unreachable92:                            ; preds = %2
   br label %139
 
 139:                                              ; preds = %128, %101
-  %.10 = phi i32 [ %.083, %101 ], [ %138, %128 ]
+  %.10 = phi i32 [ %.0, %101 ], [ %138, %128 ]
   %140 = getelementptr inbounds i8, ptr %104, i64 3
   %141 = load i8, ptr %140, align 1
   %142 = getelementptr inbounds i8, ptr %105, i64 3
@@ -9026,7 +9026,7 @@ default.unreachable92:                            ; preds = %2
   br label %150
 
 150:                                              ; preds = %139, %101
-  %.11 = phi i32 [ %.083, %101 ], [ %149, %139 ]
+  %.11 = phi i32 [ %.0, %101 ], [ %149, %139 ]
   %151 = getelementptr inbounds i8, ptr %104, i64 2
   %152 = load i8, ptr %151, align 1
   %153 = getelementptr inbounds i8, ptr %105, i64 2
@@ -9040,7 +9040,7 @@ default.unreachable92:                            ; preds = %2
   br label %161
 
 161:                                              ; preds = %150, %101
-  %.12 = phi i32 [ %.083, %101 ], [ %160, %150 ]
+  %.12 = phi i32 [ %.0, %101 ], [ %160, %150 ]
   %162 = getelementptr inbounds i8, ptr %104, i64 1
   %163 = load i8, ptr %162, align 1
   %164 = getelementptr inbounds i8, ptr %105, i64 1
@@ -9054,7 +9054,7 @@ default.unreachable92:                            ; preds = %2
   br label %172
 
 172:                                              ; preds = %161, %101
-  %.13 = phi i32 [ %.083, %101 ], [ %171, %161 ]
+  %.13 = phi i32 [ %.0, %101 ], [ %171, %161 ]
   %173 = load i8, ptr %104, align 1
   %174 = load i8, ptr %105, align 1
   %175 = xor i8 %174, %173
@@ -9066,7 +9066,7 @@ default.unreachable92:                            ; preds = %2
   br label %181
 
 181:                                              ; preds = %172, %101, %98
-  %.14 = phi i32 [ %.083, %101 ], [ %180, %172 ], [ %.083, %98 ]
+  %.14 = phi i32 [ %.0, %101 ], [ %180, %172 ], [ %.0, %98 ]
   ret i32 %.14
 }
 
@@ -9335,9 +9335,9 @@ _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i: ;
   br label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit246.i.i, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i
-  %.0185.i.i = phi i64 [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i ], [ %148, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit246.i.i ]
+  %.0175.i.i = phi i64 [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i ], [ %148, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit246.i.i ]
   %143 = load i64, ptr %56, align 8, !noalias !231
-  %144 = icmp ult i64 %.0185.i.i, %143
+  %144 = icmp ult i64 %.0175.i.i, %143
   br i1 %144, label %145, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i
@@ -9345,9 +9345,9 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i: ; preds = %_ZN5faiss13Invert
   br i1 %.not112.i.i, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i, label %.lr.ph110.i.i
 
 145:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i
-  %146 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i, i64 %.0185.i.i
+  %146 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i, i64 %.0175.i.i
   %147 = load i64, ptr %146, align 8, !noalias !232
-  %148 = add nuw nsw i64 %.0185.i.i, 1
+  %148 = add nuw nsw i64 %.0175.i.i, 1
   %149 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i, i64 %148
   %150 = load i64, ptr %149, align 8, !noalias !232
   %151 = sub nsw i64 %150, %147
@@ -9355,7 +9355,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i: ; preds = %_ZN5faiss13Invert
   %153 = load ptr, ptr %152, align 8, !noalias !232
   %154 = getelementptr inbounds i8, ptr %153, i64 32
   %155 = load ptr, ptr %154, align 8, !noalias !232
-  %156 = invoke noundef ptr %155(ptr noundef nonnull align 8 dereferenceable(25) %152, i64 noundef %.0185.i.i)
+  %156 = invoke noundef ptr %155(ptr noundef nonnull align 8 dereferenceable(25) %152, i64 noundef %.0175.i.i)
           to label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i unwind label %.loopexit.split-lp.loopexit.i.i, !noalias !232
 
 _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i: ; preds = %145
@@ -9363,7 +9363,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i: ; preds = %145
   %158 = load ptr, ptr %157, align 8, !noalias !232
   %159 = getelementptr inbounds i8, ptr %158, i64 40
   %160 = load ptr, ptr %159, align 8, !noalias !232
-  %161 = invoke noundef ptr %160(ptr noundef nonnull align 8 dereferenceable(25) %157, i64 noundef %.0185.i.i)
+  %161 = invoke noundef ptr %160(ptr noundef nonnull align 8 dereferenceable(25) %157, i64 noundef %.0175.i.i)
           to label %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i unwind label %216, !noalias !232
 
 _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i: ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i
@@ -9371,7 +9371,7 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i: ; preds = %_ZN5faiss13Inve
   %163 = load ptr, ptr %162, align 8, !noalias !232
   %164 = getelementptr inbounds i8, ptr %163, i64 16
   %165 = load ptr, ptr %164, align 8, !noalias !232
-  %166 = invoke noundef i64 %165(ptr noundef nonnull align 8 dereferenceable(25) %162, i64 noundef %.0185.i.i)
+  %166 = invoke noundef i64 %165(ptr noundef nonnull align 8 dereferenceable(25) %162, i64 noundef %.0175.i.i)
           to label %167 unwind label %218, !noalias !232
 
 167:                                              ; preds = %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i
@@ -9421,8 +9421,8 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i: ; preds = %_ZN5faiss13Inve
 
 177:                                              ; preds = %.loopexit31.i.i, %.lr.ph83.i.i
   %178 = phi i64 [ 4, %.lr.ph83.i.i ], [ %176, %.loopexit31.i.i ]
-  %.017982.i.i = phi i64 [ 0, %.lr.ph83.i.i ], [ %178, %.loopexit31.i.i ]
-  %179 = getelementptr inbounds i32, ptr %172, i64 %.017982.i.i
+  %.017682.i.i = phi i64 [ 0, %.lr.ph83.i.i ], [ %178, %.loopexit31.i.i ]
+  %179 = getelementptr inbounds i32, ptr %172, i64 %.017682.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
@@ -9455,10 +9455,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi1EEC2EmPKhPKiPi
   br i1 %173, label %.lr.ph80.i.i, label %.loopexit31.i.i
 
 .lr.ph80.i.i:                                     ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi1EE9add_bcodeEPKhl.exit.i.i
-  %.017879.i.i = phi i64 [ %215, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi1EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %195 = mul i64 %.017879.i.i, %125
+  %.018579.i.i = phi i64 [ %215, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi1EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %195 = mul i64 %.018579.i.i, %125
   %196 = getelementptr inbounds i8, ptr %156, i64 %195
-  %197 = getelementptr inbounds i64, ptr %161, i64 %.017879.i.i
+  %197 = getelementptr inbounds i64, ptr %161, i64 %.018579.i.i
   %198 = load i64, ptr %197, align 8, !noalias !232
   br label %199
 
@@ -9491,7 +9491,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi1EEC2EmPKhPKiPi
   br i1 %exitcond.not.i211.i.i, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi1EE9add_bcodeEPKhl.exit.i.i, label %199, !llvm.loop !254
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi1EE9add_bcodeEPKhl.exit.i.i: ; preds = %214
-  %215 = add nuw nsw i64 %.017879.i.i, 1
+  %215 = add nuw nsw i64 %.018579.i.i, 1
   %exitcond151.not.i.i = icmp eq i64 %215, %166
   br i1 %exitcond151.not.i.i, label %.loopexit31.i.i, label %.lr.ph80.i.i, !llvm.loop !255
 
@@ -9521,7 +9521,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi1EE9add_bcodeEP
   %220 = load ptr, ptr %157, align 8, !noalias !232
   %221 = getelementptr inbounds i8, ptr %220, i64 56
   %222 = load ptr, ptr %221, align 8, !noalias !232
-  invoke void %222(ptr noundef nonnull align 8 dereferenceable(25) %157, i64 noundef %.0185.i.i, ptr noundef %161)
+  invoke void %222(ptr noundef nonnull align 8 dereferenceable(25) %157, i64 noundef %.0175.i.i, ptr noundef %161)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i unwind label %223, !noalias !232
 
 223:                                              ; preds = %218
@@ -9538,8 +9538,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi1EE9add_bcodeEP
 
 227:                                              ; preds = %.loopexit32.i.i, %.lr.ph77.i.i
   %228 = phi i64 [ 4, %.lr.ph77.i.i ], [ %226, %.loopexit32.i.i ]
-  %.118076.i.i = phi i64 [ 0, %.lr.ph77.i.i ], [ %228, %.loopexit32.i.i ]
-  %229 = getelementptr inbounds i32, ptr %170, i64 %.118076.i.i
+  %.117776.i.i = phi i64 [ 0, %.lr.ph77.i.i ], [ %228, %.loopexit32.i.i ]
+  %229 = getelementptr inbounds i32, ptr %170, i64 %.117776.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !262)
@@ -9573,10 +9573,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi2EEC2EmPKhPKiPi
   br i1 %171, label %.lr.ph74.i.i, label %.loopexit32.i.i
 
 .lr.ph74.i.i:                                     ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi2EE9add_bcodeEPKhl.exit.i.i
-  %.017773.i.i = phi i64 [ %277, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi2EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %246 = mul i64 %.017773.i.i, %125
+  %.018473.i.i = phi i64 [ %277, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi2EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %246 = mul i64 %.018473.i.i, %125
   %247 = getelementptr inbounds i8, ptr %156, i64 %246
-  %248 = getelementptr inbounds i64, ptr %161, i64 %.017773.i.i
+  %248 = getelementptr inbounds i64, ptr %161, i64 %.018473.i.i
   %249 = load i64, ptr %248, align 8, !noalias !232
   br label %250
 
@@ -9634,7 +9634,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i: 
   br i1 %exitcond.not.i216.i.i, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi2EE9add_bcodeEPKhl.exit.i.i, label %250, !llvm.loop !272
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi2EE9add_bcodeEPKhl.exit.i.i: ; preds = %276
-  %277 = add nuw nsw i64 %.017773.i.i, 1
+  %277 = add nuw nsw i64 %.018473.i.i, 1
   %exitcond150.not.i.i = icmp eq i64 %277, %166
   br i1 %exitcond150.not.i.i, label %.loopexit32.i.i, label %.lr.ph74.i.i, !llvm.loop !273
 
@@ -9645,8 +9645,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi2EE9add_bcodeEP
 
 279:                                              ; preds = %.loopexit33.i.i, %.lr.ph72.i.i
   %280 = phi i64 [ 4, %.lr.ph72.i.i ], [ %278, %.loopexit33.i.i ]
-  %.218171.i.i = phi i64 [ 0, %.lr.ph72.i.i ], [ %280, %.loopexit33.i.i ]
-  %281 = getelementptr inbounds i32, ptr %168, i64 %.218171.i.i
+  %.217871.i.i = phi i64 [ 0, %.lr.ph72.i.i ], [ %280, %.loopexit33.i.i ]
+  %281 = getelementptr inbounds i32, ptr %168, i64 %.217871.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !275)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !278)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
@@ -9680,10 +9680,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi4EEC2EmPKhPKiPi
   br i1 %169, label %.lr.ph69.i.i, label %.loopexit33.i.i
 
 .lr.ph69.i.i:                                     ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi4EE9add_bcodeEPKhl.exit.i.i
-  %.017668.i.i = phi i64 [ %357, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %298 = mul i64 %.017668.i.i, %125
+  %.018368.i.i = phi i64 [ %357, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %298 = mul i64 %.018368.i.i, %125
   %299 = getelementptr inbounds i8, ptr %156, i64 %298
-  %300 = getelementptr inbounds i64, ptr %161, i64 %.017668.i.i
+  %300 = getelementptr inbounds i64, ptr %161, i64 %.018368.i.i
   %301 = load i64, ptr %300, align 8, !noalias !232
   br label %302
 
@@ -9791,7 +9791,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i223.i.
   br i1 %exitcond.not.i221.i.i, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi4EE9add_bcodeEPKhl.exit.i.i, label %302, !llvm.loop !290
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi4EE9add_bcodeEPKhl.exit.i.i: ; preds = %356
-  %357 = add nuw nsw i64 %.017668.i.i, 1
+  %357 = add nuw nsw i64 %.018368.i.i, 1
   %exitcond149.not.i.i = icmp eq i64 %357, %166
   br i1 %exitcond149.not.i.i, label %.loopexit33.i.i, label %.lr.ph69.i.i, !llvm.loop !291
 
@@ -9802,8 +9802,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer4ELi4ELi4EE9add_bcodeEP
 
 359:                                              ; preds = %.loopexit30.i.i, %.lr.ph90.i.i
   %360 = phi i64 [ 4, %.lr.ph90.i.i ], [ %358, %.loopexit30.i.i ]
-  %.318289.i.i = phi i64 [ 0, %.lr.ph90.i.i ], [ %360, %.loopexit30.i.i ]
-  %361 = getelementptr inbounds i32, ptr %174, i64 %.318289.i.i
+  %.317989.i.i = phi i64 [ 0, %.lr.ph90.i.i ], [ %360, %.loopexit30.i.i ]
+  %361 = getelementptr inbounds i32, ptr %174, i64 %.317989.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !293)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
@@ -9840,10 +9840,10 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer4ELi4EEC2EmiPK
   br i1 %141, label %.split.us.us.i.i, label %.split.i.i
 
 .split.us.us.i.i:                                 ; preds = %.lr.ph86.i.i, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer4ELi4EE9add_bcodeEPKhl.exit.split.us.us.i.i
-  %.017585.us.i.i = phi i64 [ %397, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer4ELi4EE9add_bcodeEPKhl.exit.split.us.us.i.i ], [ 0, %.lr.ph86.i.i ]
-  %378 = mul i64 %.017585.us.i.i, %125
+  %.018285.us.i.i = phi i64 [ %397, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer4ELi4EE9add_bcodeEPKhl.exit.split.us.us.i.i ], [ 0, %.lr.ph86.i.i ]
+  %378 = mul i64 %.018285.us.i.i, %125
   %379 = getelementptr inbounds i8, ptr %156, i64 %378
-  %380 = getelementptr inbounds i64, ptr %161, i64 %.017585.us.i.i
+  %380 = getelementptr inbounds i64, ptr %161, i64 %.018285.us.i.i
   %381 = load i64, ptr %380, align 8, !noalias !232
   br label %382
 
@@ -9876,15 +9876,15 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i240.us
   br i1 %exitcond.not.i231.us.us.i.i, label %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer4ELi4EE9add_bcodeEPKhl.exit.split.us.us.i.i, label %382, !llvm.loop !308
 
 _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer4ELi4EE9add_bcodeEPKhl.exit.split.us.us.i.i: ; preds = %396
-  %397 = add nuw nsw i64 %.017585.us.i.i, 1
+  %397 = add nuw nsw i64 %.018285.us.i.i, 1
   %exitcond153.not.i.i = icmp eq i64 %397, %166
   br i1 %exitcond153.not.i.i, label %.loopexit30.i.i, label %.split.us.us.i.i, !llvm.loop !309
 
 .split.i.i:                                       ; preds = %.lr.ph86.i.i, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer4ELi4EE9add_bcodeEPKhl.exit.split.i.i
-  %.017585.i.i = phi i64 [ %456, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer4ELi4EE9add_bcodeEPKhl.exit.split.i.i ], [ 0, %.lr.ph86.i.i ]
-  %398 = mul i64 %.017585.i.i, %125
+  %.018285.i.i = phi i64 [ %456, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer4ELi4EE9add_bcodeEPKhl.exit.split.i.i ], [ 0, %.lr.ph86.i.i ]
+  %398 = mul i64 %.018285.i.i, %125
   %399 = getelementptr inbounds i8, ptr %156, i64 %398
-  %400 = getelementptr inbounds i64, ptr %161, i64 %.017585.i.i
+  %400 = getelementptr inbounds i64, ptr %161, i64 %.018285.i.i
   %401 = load i64, ptr %400, align 8, !noalias !232
   br label %402
 
@@ -9992,13 +9992,13 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i240.lo
   br i1 %exitcond.not.i231.i.i, label %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer4ELi4EE9add_bcodeEPKhl.exit.split.i.i, label %402, !llvm.loop !308
 
 _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer4ELi4EE9add_bcodeEPKhl.exit.split.i.i: ; preds = %455
-  %456 = add nuw nsw i64 %.017585.i.i, 1
+  %456 = add nuw nsw i64 %.018285.i.i, 1
   %exitcond152.not.i.i = icmp eq i64 %456, %166
   br i1 %exitcond152.not.i.i, label %.loopexit30.i.i, label %.split.i.i, !llvm.loop !309
 
 .loopexit35.i.i:                                  ; preds = %.loopexit33.i.i, %.loopexit32.i.i, %.loopexit31.i.i, %.loopexit30.i.i, %.preheader34.i.i, %.preheader36.i.i, %.preheader38.i.i, %.preheader40.i.i
-  %.4183.i.i = phi i64 [ 0, %.preheader34.i.i ], [ 0, %.preheader36.i.i ], [ 0, %.preheader38.i.i ], [ 0, %.preheader40.i.i ], [ %360, %.loopexit30.i.i ], [ %178, %.loopexit31.i.i ], [ %228, %.loopexit32.i.i ], [ %280, %.loopexit33.i.i ]
-  %457 = icmp slt i64 %.4183.i.i, %151
+  %.4180.i.i = phi i64 [ 0, %.preheader34.i.i ], [ 0, %.preheader36.i.i ], [ 0, %.preheader38.i.i ], [ 0, %.preheader40.i.i ], [ %360, %.loopexit30.i.i ], [ %178, %.loopexit31.i.i ], [ %228, %.loopexit32.i.i ], [ %280, %.loopexit33.i.i ]
+  %457 = icmp slt i64 %.4180.i.i, %151
   br i1 %457, label %.lr.ph100.i.i, label %._crit_edge101.i.i
 
 .lr.ph100.i.i:                                    ; preds = %.loopexit35.i.i
@@ -10007,8 +10007,8 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer4ELi4EE9add_bc
   br label %460
 
 460:                                              ; preds = %._crit_edge97.i.i, %.lr.ph100.i.i
-  %.518498.i.i = phi i64 [ %.4183.i.i, %.lr.ph100.i.i ], [ %532, %._crit_edge97.i.i ]
-  %461 = getelementptr i32, ptr %458, i64 %.518498.i.i
+  %.518198.i.i = phi i64 [ %.4180.i.i, %.lr.ph100.i.i ], [ %532, %._crit_edge97.i.i ]
+  %461 = getelementptr i32, ptr %458, i64 %.518198.i.i
   %462 = load i32, ptr %461, align 4, !noalias !232
   %463 = sext i32 %462 to i64
   %464 = mul nsw i64 %463, %125
@@ -10147,7 +10147,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i:        ; preds = %515
   br i1 %exitcond154.not.i.i, label %._crit_edge97.i.i, label %.lr.ph96.split.i.i, !llvm.loop !311
 
 ._crit_edge97.i.i:                                ; preds = %530, %482, %460
-  %532 = add nuw nsw i64 %.518498.i.i, 1
+  %532 = add nuw nsw i64 %.518198.i.i, 1
   %533 = icmp slt i64 %532, %151
   br i1 %533, label %460, label %._crit_edge101.i.i, !llvm.loop !312
 
@@ -10155,7 +10155,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i:        ; preds = %515
   %534 = load ptr, ptr %157, align 8, !noalias !232
   %535 = getelementptr inbounds i8, ptr %534, i64 56
   %536 = load ptr, ptr %535, align 8, !noalias !232
-  invoke void %536(ptr noundef nonnull align 8 dereferenceable(25) %157, i64 noundef %.0185.i.i, ptr noundef %161)
+  invoke void %536(ptr noundef nonnull align 8 dereferenceable(25) %157, i64 noundef %.0175.i.i, ptr noundef %161)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit246.i.i unwind label %537, !noalias !232
 
 537:                                              ; preds = %._crit_edge101.i.i
@@ -10169,7 +10169,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit246.i.i: ; preds = %._crit_edge101.i.
   %540 = load ptr, ptr %152, align 8, !noalias !232
   %541 = getelementptr inbounds i8, ptr %540, i64 48
   %542 = load ptr, ptr %541, align 8, !noalias !232
-  invoke void %542(ptr noundef nonnull align 8 dereferenceable(25) %152, i64 noundef %.0185.i.i, ptr noundef %156)
+  invoke void %542(ptr noundef nonnull align 8 dereferenceable(25) %152, i64 noundef %.0175.i.i, ptr noundef %156)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i unwind label %543, !noalias !232, !llvm.loop !313
 
 543:                                              ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit246.i.i
@@ -10184,7 +10184,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i:  ; preds = %218, %216
   %546 = load ptr, ptr %152, align 8, !noalias !232
   %547 = getelementptr inbounds i8, ptr %546, i64 48
   %548 = load ptr, ptr %547, align 8, !noalias !232
-  invoke void %548(ptr noundef nonnull align 8 dereferenceable(25) %152, i64 noundef %.0185.i.i, ptr noundef %156)
+  invoke void %548(ptr noundef nonnull align 8 dereferenceable(25) %152, i64 noundef %.0175.i.i, ptr noundef %156)
           to label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit250.i.i unwind label %549, !noalias !232
 
 549:                                              ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i
@@ -10449,9 +10449,9 @@ _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i107
   br label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i110
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i110: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit246.i.i138, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i107
-  %.0185.i.i111 = phi i64 [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i107 ], [ %651, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit246.i.i138 ]
+  %.0175.i.i111 = phi i64 [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i107 ], [ %651, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit246.i.i138 ]
   %646 = load i64, ptr %56, align 8, !noalias !324
-  %647 = icmp ult i64 %.0185.i.i111, %646
+  %647 = icmp ult i64 %.0175.i.i111, %646
   br i1 %647, label %648, label %.preheader.i.i112
 
 .preheader.i.i112:                                ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i110
@@ -10459,9 +10459,9 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i110: ; preds = %_ZN5faiss13Inv
   br i1 %.not112.i.i113, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i119, label %.lr.ph110.i.i114
 
 648:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i110
-  %649 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i89, i64 %.0185.i.i111
+  %649 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i89, i64 %.0175.i.i111
   %650 = load i64, ptr %649, align 8, !noalias !325
-  %651 = add nuw nsw i64 %.0185.i.i111, 1
+  %651 = add nuw nsw i64 %.0175.i.i111, 1
   %652 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i89, i64 %651
   %653 = load i64, ptr %652, align 8, !noalias !325
   %654 = sub nsw i64 %653, %650
@@ -10469,7 +10469,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i110: ; preds = %_ZN5faiss13Inv
   %656 = load ptr, ptr %655, align 8, !noalias !325
   %657 = getelementptr inbounds i8, ptr %656, i64 32
   %658 = load ptr, ptr %657, align 8, !noalias !325
-  %659 = invoke noundef ptr %658(ptr noundef nonnull align 8 dereferenceable(25) %655, i64 noundef %.0185.i.i111)
+  %659 = invoke noundef ptr %658(ptr noundef nonnull align 8 dereferenceable(25) %655, i64 noundef %.0175.i.i111)
           to label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i123 unwind label %.loopexit.split-lp.loopexit.i.i121, !noalias !325
 
 _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i123: ; preds = %648
@@ -10477,7 +10477,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i123: ; preds = %648
   %661 = load ptr, ptr %660, align 8, !noalias !325
   %662 = getelementptr inbounds i8, ptr %661, i64 40
   %663 = load ptr, ptr %662, align 8, !noalias !325
-  %664 = invoke noundef ptr %663(ptr noundef nonnull align 8 dereferenceable(25) %660, i64 noundef %.0185.i.i111)
+  %664 = invoke noundef ptr %663(ptr noundef nonnull align 8 dereferenceable(25) %660, i64 noundef %.0175.i.i111)
           to label %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i126 unwind label %720, !noalias !325
 
 _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i126: ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i123
@@ -10485,7 +10485,7 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i126: ; preds = %_ZN5faiss13I
   %666 = load ptr, ptr %665, align 8, !noalias !325
   %667 = getelementptr inbounds i8, ptr %666, i64 16
   %668 = load ptr, ptr %667, align 8, !noalias !325
-  %669 = invoke noundef i64 %668(ptr noundef nonnull align 8 dereferenceable(25) %665, i64 noundef %.0185.i.i111)
+  %669 = invoke noundef i64 %668(ptr noundef nonnull align 8 dereferenceable(25) %665, i64 noundef %.0175.i.i111)
           to label %670 unwind label %722, !noalias !325
 
 670:                                              ; preds = %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i126
@@ -10535,8 +10535,8 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i126: ; preds = %_ZN5faiss13I
 
 680:                                              ; preds = %.loopexit31.i.i211, %.lr.ph83.i.i207
   %681 = phi i64 [ 4, %.lr.ph83.i.i207 ], [ %679, %.loopexit31.i.i211 ]
-  %.017982.i.i208 = phi i64 [ 0, %.lr.ph83.i.i207 ], [ %681, %.loopexit31.i.i211 ]
-  %682 = getelementptr inbounds i32, ptr %675, i64 %.017982.i.i208
+  %.017682.i.i208 = phi i64 [ 0, %.lr.ph83.i.i207 ], [ %681, %.loopexit31.i.i211 ]
+  %682 = getelementptr inbounds i32, ptr %675, i64 %.017682.i.i208
   tail call void @llvm.experimental.noalias.scope.decl(metadata !331)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !334)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !336)
@@ -10569,10 +10569,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi1EEC2EmPKhPKiPi
   br i1 %676, label %.lr.ph80.i.i213, label %.loopexit31.i.i211
 
 .lr.ph80.i.i213:                                  ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi1EE9add_bcodeEPKhl.exit.i.i
-  %.017879.i.i214 = phi i64 [ %719, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi1EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %698 = mul i64 %.017879.i.i214, %628
+  %.018579.i.i214 = phi i64 [ %719, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi1EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %698 = mul i64 %.018579.i.i214, %628
   %699 = getelementptr inbounds i8, ptr %659, i64 %698
-  %700 = getelementptr inbounds i64, ptr %664, i64 %.017879.i.i214
+  %700 = getelementptr inbounds i64, ptr %664, i64 %.018579.i.i214
   %701 = load i64, ptr %700, align 8, !noalias !325
   br label %702
 
@@ -10606,7 +10606,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi1EEC2EmPKhPKiPi
   br i1 %exitcond.not.i211.i.i217, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi1EE9add_bcodeEPKhl.exit.i.i, label %702, !llvm.loop !346
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi1EE9add_bcodeEPKhl.exit.i.i: ; preds = %718
-  %719 = add nuw nsw i64 %.017879.i.i214, 1
+  %719 = add nuw nsw i64 %.018579.i.i214, 1
   %exitcond151.not.i.i218 = icmp eq i64 %719, %669
   br i1 %exitcond151.not.i.i218, label %.loopexit31.i.i211, label %.lr.ph80.i.i213, !llvm.loop !347
 
@@ -10636,7 +10636,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi1EE9add_bcodeEP
   %724 = load ptr, ptr %660, align 8, !noalias !325
   %725 = getelementptr inbounds i8, ptr %724, i64 56
   %726 = load ptr, ptr %725, align 8, !noalias !325
-  invoke void %726(ptr noundef nonnull align 8 dereferenceable(25) %660, i64 noundef %.0185.i.i111, ptr noundef %664)
+  invoke void %726(ptr noundef nonnull align 8 dereferenceable(25) %660, i64 noundef %.0175.i.i111, ptr noundef %664)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i124 unwind label %727, !noalias !325
 
 727:                                              ; preds = %722
@@ -10653,8 +10653,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi1EE9add_bcodeEP
 
 731:                                              ; preds = %.loopexit32.i.i192, %.lr.ph77.i.i188
   %732 = phi i64 [ 4, %.lr.ph77.i.i188 ], [ %730, %.loopexit32.i.i192 ]
-  %.118076.i.i189 = phi i64 [ 0, %.lr.ph77.i.i188 ], [ %732, %.loopexit32.i.i192 ]
-  %733 = getelementptr inbounds i32, ptr %673, i64 %.118076.i.i189
+  %.117776.i.i189 = phi i64 [ 0, %.lr.ph77.i.i188 ], [ %732, %.loopexit32.i.i192 ]
+  %733 = getelementptr inbounds i32, ptr %673, i64 %.117776.i.i189
   tail call void @llvm.experimental.noalias.scope.decl(metadata !349)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !352)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !354)
@@ -10688,10 +10688,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi2EEC2EmPKhPKiPi
   br i1 %674, label %.lr.ph74.i.i194, label %.loopexit32.i.i192
 
 .lr.ph74.i.i194:                                  ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi2EE9add_bcodeEPKhl.exit.i.i
-  %.017773.i.i195 = phi i64 [ %782, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi2EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %750 = mul i64 %.017773.i.i195, %628
+  %.018473.i.i195 = phi i64 [ %782, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi2EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %750 = mul i64 %.018473.i.i195, %628
   %751 = getelementptr inbounds i8, ptr %659, i64 %750
-  %752 = getelementptr inbounds i64, ptr %664, i64 %.017773.i.i195
+  %752 = getelementptr inbounds i64, ptr %664, i64 %.018473.i.i195
   %753 = load i64, ptr %752, align 8, !noalias !325
   br label %754
 
@@ -10750,7 +10750,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i20
   br i1 %exitcond.not.i216.i.i198, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi2EE9add_bcodeEPKhl.exit.i.i, label %754, !llvm.loop !364
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi2EE9add_bcodeEPKhl.exit.i.i: ; preds = %781
-  %782 = add nuw nsw i64 %.017773.i.i195, 1
+  %782 = add nuw nsw i64 %.018473.i.i195, 1
   %exitcond150.not.i.i199 = icmp eq i64 %782, %669
   br i1 %exitcond150.not.i.i199, label %.loopexit32.i.i192, label %.lr.ph74.i.i194, !llvm.loop !365
 
@@ -10761,8 +10761,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi2EE9add_bcodeEP
 
 784:                                              ; preds = %.loopexit33.i.i133, %.lr.ph72.i.i129
   %785 = phi i64 [ 4, %.lr.ph72.i.i129 ], [ %783, %.loopexit33.i.i133 ]
-  %.218171.i.i130 = phi i64 [ 0, %.lr.ph72.i.i129 ], [ %785, %.loopexit33.i.i133 ]
-  %786 = getelementptr inbounds i32, ptr %671, i64 %.218171.i.i130
+  %.217871.i.i130 = phi i64 [ 0, %.lr.ph72.i.i129 ], [ %785, %.loopexit33.i.i133 ]
+  %786 = getelementptr inbounds i32, ptr %671, i64 %.217871.i.i130
   tail call void @llvm.experimental.noalias.scope.decl(metadata !367)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !370)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !372)
@@ -10796,10 +10796,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi4EEC2EmPKhPKiPi
   br i1 %672, label %.lr.ph69.i.i167, label %.loopexit33.i.i133
 
 .lr.ph69.i.i167:                                  ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi4EE9add_bcodeEPKhl.exit.i.i
-  %.017668.i.i168 = phi i64 [ %863, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %803 = mul i64 %.017668.i.i168, %628
+  %.018368.i.i168 = phi i64 [ %863, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %803 = mul i64 %.018368.i.i168, %628
   %804 = getelementptr inbounds i8, ptr %659, i64 %803
-  %805 = getelementptr inbounds i64, ptr %664, i64 %.017668.i.i168
+  %805 = getelementptr inbounds i64, ptr %664, i64 %.018368.i.i168
   %806 = load i64, ptr %805, align 8, !noalias !325
   br label %807
 
@@ -10908,7 +10908,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i223.i.
   br i1 %exitcond.not.i221.i.i171, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi4EE9add_bcodeEPKhl.exit.i.i, label %807, !llvm.loop !382
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi4EE9add_bcodeEPKhl.exit.i.i: ; preds = %862
-  %863 = add nuw nsw i64 %.017668.i.i168, 1
+  %863 = add nuw nsw i64 %.018368.i.i168, 1
   %exitcond149.not.i.i172 = icmp eq i64 %863, %669
   br i1 %exitcond149.not.i.i172, label %.loopexit33.i.i133, label %.lr.ph69.i.i167, !llvm.loop !383
 
@@ -10919,8 +10919,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_16HammingComputer8ELi4ELi4EE9add_bcodeEP
 
 865:                                              ; preds = %.loopexit30.i.i224, %.lr.ph90.i.i220
   %866 = phi i64 [ 4, %.lr.ph90.i.i220 ], [ %864, %.loopexit30.i.i224 ]
-  %.318289.i.i221 = phi i64 [ 0, %.lr.ph90.i.i220 ], [ %866, %.loopexit30.i.i224 ]
-  %867 = getelementptr inbounds i32, ptr %677, i64 %.318289.i.i221
+  %.317989.i.i221 = phi i64 [ 0, %.lr.ph90.i.i220 ], [ %866, %.loopexit30.i.i224 ]
+  %867 = getelementptr inbounds i32, ptr %677, i64 %.317989.i.i221
   tail call void @llvm.experimental.noalias.scope.decl(metadata !385)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !388)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !390)
@@ -10957,10 +10957,10 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer8ELi4EEC2EmiPK
   br i1 %644, label %.split.us.us.i.i248, label %.split.i.i227
 
 .split.us.us.i.i248:                              ; preds = %.lr.ph86.i.i226, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer8ELi4EE9add_bcodeEPKhl.exit.split.us.us.i.i
-  %.017585.us.i.i249 = phi i64 [ %904, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer8ELi4EE9add_bcodeEPKhl.exit.split.us.us.i.i ], [ 0, %.lr.ph86.i.i226 ]
-  %884 = mul i64 %.017585.us.i.i249, %628
+  %.018285.us.i.i249 = phi i64 [ %904, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer8ELi4EE9add_bcodeEPKhl.exit.split.us.us.i.i ], [ 0, %.lr.ph86.i.i226 ]
+  %884 = mul i64 %.018285.us.i.i249, %628
   %885 = getelementptr inbounds i8, ptr %659, i64 %884
-  %886 = getelementptr inbounds i64, ptr %664, i64 %.017585.us.i.i249
+  %886 = getelementptr inbounds i64, ptr %664, i64 %.018285.us.i.i249
   %887 = load i64, ptr %886, align 8, !noalias !325
   br label %888
 
@@ -10994,15 +10994,15 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i240.us
   br i1 %exitcond.not.i231.us.us.i.i252, label %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer8ELi4EE9add_bcodeEPKhl.exit.split.us.us.i.i, label %888, !llvm.loop !400
 
 _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer8ELi4EE9add_bcodeEPKhl.exit.split.us.us.i.i: ; preds = %903
-  %904 = add nuw nsw i64 %.017585.us.i.i249, 1
+  %904 = add nuw nsw i64 %.018285.us.i.i249, 1
   %exitcond153.not.i.i253 = icmp eq i64 %904, %669
   br i1 %exitcond153.not.i.i253, label %.loopexit30.i.i224, label %.split.us.us.i.i248, !llvm.loop !401
 
 .split.i.i227:                                    ; preds = %.lr.ph86.i.i226, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer8ELi4EE9add_bcodeEPKhl.exit.split.i.i
-  %.017585.i.i228 = phi i64 [ %964, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer8ELi4EE9add_bcodeEPKhl.exit.split.i.i ], [ 0, %.lr.ph86.i.i226 ]
-  %905 = mul i64 %.017585.i.i228, %628
+  %.018285.i.i228 = phi i64 [ %964, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer8ELi4EE9add_bcodeEPKhl.exit.split.i.i ], [ 0, %.lr.ph86.i.i226 ]
+  %905 = mul i64 %.018285.i.i228, %628
   %906 = getelementptr inbounds i8, ptr %659, i64 %905
-  %907 = getelementptr inbounds i64, ptr %664, i64 %.017585.i.i228
+  %907 = getelementptr inbounds i64, ptr %664, i64 %.018285.i.i228
   %908 = load i64, ptr %907, align 8, !noalias !325
   br label %909
 
@@ -11111,13 +11111,13 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i240.lo
   br i1 %exitcond.not.i231.i.i231, label %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer8ELi4EE9add_bcodeEPKhl.exit.split.i.i, label %909, !llvm.loop !400
 
 _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer8ELi4EE9add_bcodeEPKhl.exit.split.i.i: ; preds = %963
-  %964 = add nuw nsw i64 %.017585.i.i228, 1
+  %964 = add nuw nsw i64 %.018285.i.i228, 1
   %exitcond152.not.i.i232 = icmp eq i64 %964, %669
   br i1 %exitcond152.not.i.i232, label %.loopexit30.i.i224, label %.split.i.i227, !llvm.loop !401
 
 .loopexit35.i.i135:                               ; preds = %.loopexit33.i.i133, %.loopexit32.i.i192, %.loopexit31.i.i211, %.loopexit30.i.i224, %.preheader34.i.i219, %.preheader36.i.i206, %.preheader38.i.i187, %.preheader40.i.i128
-  %.4183.i.i136 = phi i64 [ 0, %.preheader34.i.i219 ], [ 0, %.preheader36.i.i206 ], [ 0, %.preheader38.i.i187 ], [ 0, %.preheader40.i.i128 ], [ %866, %.loopexit30.i.i224 ], [ %681, %.loopexit31.i.i211 ], [ %732, %.loopexit32.i.i192 ], [ %785, %.loopexit33.i.i133 ]
-  %965 = icmp slt i64 %.4183.i.i136, %654
+  %.4180.i.i136 = phi i64 [ 0, %.preheader34.i.i219 ], [ 0, %.preheader36.i.i206 ], [ 0, %.preheader38.i.i187 ], [ 0, %.preheader40.i.i128 ], [ %866, %.loopexit30.i.i224 ], [ %681, %.loopexit31.i.i211 ], [ %732, %.loopexit32.i.i192 ], [ %785, %.loopexit33.i.i133 ]
+  %965 = icmp slt i64 %.4180.i.i136, %654
   br i1 %965, label %.lr.ph100.i.i139, label %._crit_edge101.i.i137
 
 .lr.ph100.i.i139:                                 ; preds = %.loopexit35.i.i135
@@ -11126,8 +11126,8 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_16HammingComputer8ELi4EE9add_bc
   br label %968
 
 968:                                              ; preds = %._crit_edge97.i.i141, %.lr.ph100.i.i139
-  %.518498.i.i140 = phi i64 [ %.4183.i.i136, %.lr.ph100.i.i139 ], [ %1042, %._crit_edge97.i.i141 ]
-  %969 = getelementptr i32, ptr %966, i64 %.518498.i.i140
+  %.518198.i.i140 = phi i64 [ %.4180.i.i136, %.lr.ph100.i.i139 ], [ %1042, %._crit_edge97.i.i141 ]
+  %969 = getelementptr i32, ptr %966, i64 %.518198.i.i140
   %970 = load i32, ptr %969, align 4, !noalias !325
   %971 = sext i32 %970 to i64
   %972 = mul nsw i64 %971, %628
@@ -11268,7 +11268,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i153:     ; preds = %1025
   br i1 %exitcond154.not.i.i148, label %._crit_edge97.i.i141, label %.lr.ph96.split.i.i144, !llvm.loop !403
 
 ._crit_edge97.i.i141:                             ; preds = %1040, %991, %968
-  %1042 = add nuw nsw i64 %.518498.i.i140, 1
+  %1042 = add nuw nsw i64 %.518198.i.i140, 1
   %1043 = icmp slt i64 %1042, %654
   br i1 %1043, label %968, label %._crit_edge101.i.i137, !llvm.loop !404
 
@@ -11276,7 +11276,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i153:     ; preds = %1025
   %1044 = load ptr, ptr %660, align 8, !noalias !325
   %1045 = getelementptr inbounds i8, ptr %1044, i64 56
   %1046 = load ptr, ptr %1045, align 8, !noalias !325
-  invoke void %1046(ptr noundef nonnull align 8 dereferenceable(25) %660, i64 noundef %.0185.i.i111, ptr noundef %664)
+  invoke void %1046(ptr noundef nonnull align 8 dereferenceable(25) %660, i64 noundef %.0175.i.i111, ptr noundef %664)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit246.i.i138 unwind label %1047, !noalias !325
 
 1047:                                             ; preds = %._crit_edge101.i.i137
@@ -11290,7 +11290,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit246.i.i138: ; preds = %._crit_edge101
   %1050 = load ptr, ptr %655, align 8, !noalias !325
   %1051 = getelementptr inbounds i8, ptr %1050, i64 48
   %1052 = load ptr, ptr %1051, align 8, !noalias !325
-  invoke void %1052(ptr noundef nonnull align 8 dereferenceable(25) %655, i64 noundef %.0185.i.i111, ptr noundef %659)
+  invoke void %1052(ptr noundef nonnull align 8 dereferenceable(25) %655, i64 noundef %.0175.i.i111, ptr noundef %659)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i110 unwind label %1053, !noalias !325, !llvm.loop !405
 
 1053:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit246.i.i138
@@ -11305,7 +11305,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i124: ; preds = %722, %720
   %1056 = load ptr, ptr %655, align 8, !noalias !325
   %1057 = getelementptr inbounds i8, ptr %1056, i64 48
   %1058 = load ptr, ptr %1057, align 8, !noalias !325
-  invoke void %1058(ptr noundef nonnull align 8 dereferenceable(25) %655, i64 noundef %.0185.i.i111, ptr noundef %659)
+  invoke void %1058(ptr noundef nonnull align 8 dereferenceable(25) %655, i64 noundef %.0175.i.i111, ptr noundef %659)
           to label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit250.i.i100 unwind label %1059, !noalias !325
 
 1059:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i124
@@ -11566,9 +11566,9 @@ _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i284
   br label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i287
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i287: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit249.i.i, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i284
-  %.0185.i.i288 = phi i64 [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i284 ], [ %1161, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit249.i.i ]
+  %.0175.i.i288 = phi i64 [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i284 ], [ %1161, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit249.i.i ]
   %1156 = load i64, ptr %56, align 8, !noalias !416
-  %1157 = icmp ult i64 %.0185.i.i288, %1156
+  %1157 = icmp ult i64 %.0175.i.i288, %1156
   br i1 %1157, label %1158, label %.preheader.i.i289
 
 .preheader.i.i289:                                ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i287
@@ -11576,9 +11576,9 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i287: ; preds = %_ZN5faiss13Inv
   br i1 %.not112.i.i290, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i296, label %.lr.ph110.i.i291
 
 1158:                                             ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i287
-  %1159 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i268, i64 %.0185.i.i288
+  %1159 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i268, i64 %.0175.i.i288
   %1160 = load i64, ptr %1159, align 8, !noalias !417
-  %1161 = add nuw nsw i64 %.0185.i.i288, 1
+  %1161 = add nuw nsw i64 %.0175.i.i288, 1
   %1162 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i268, i64 %1161
   %1163 = load i64, ptr %1162, align 8, !noalias !417
   %1164 = sub nsw i64 %1163, %1160
@@ -11586,7 +11586,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i287: ; preds = %_ZN5faiss13Inv
   %1166 = load ptr, ptr %1165, align 8, !noalias !417
   %1167 = getelementptr inbounds i8, ptr %1166, i64 32
   %1168 = load ptr, ptr %1167, align 8, !noalias !417
-  %1169 = invoke noundef ptr %1168(ptr noundef nonnull align 8 dereferenceable(25) %1165, i64 noundef %.0185.i.i288)
+  %1169 = invoke noundef ptr %1168(ptr noundef nonnull align 8 dereferenceable(25) %1165, i64 noundef %.0175.i.i288)
           to label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i300 unwind label %.loopexit.split-lp.loopexit.i.i298, !noalias !417
 
 _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i300: ; preds = %1158
@@ -11594,7 +11594,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i300: ; preds = %1158
   %1171 = load ptr, ptr %1170, align 8, !noalias !417
   %1172 = getelementptr inbounds i8, ptr %1171, i64 40
   %1173 = load ptr, ptr %1172, align 8, !noalias !417
-  %1174 = invoke noundef ptr %1173(ptr noundef nonnull align 8 dereferenceable(25) %1170, i64 noundef %.0185.i.i288)
+  %1174 = invoke noundef ptr %1173(ptr noundef nonnull align 8 dereferenceable(25) %1170, i64 noundef %.0175.i.i288)
           to label %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i303 unwind label %1232, !noalias !417
 
 _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i303: ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i300
@@ -11602,7 +11602,7 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i303: ; preds = %_ZN5faiss13I
   %1176 = load ptr, ptr %1175, align 8, !noalias !417
   %1177 = getelementptr inbounds i8, ptr %1176, i64 16
   %1178 = load ptr, ptr %1177, align 8, !noalias !417
-  %1179 = invoke noundef i64 %1178(ptr noundef nonnull align 8 dereferenceable(25) %1175, i64 noundef %.0185.i.i288)
+  %1179 = invoke noundef i64 %1178(ptr noundef nonnull align 8 dereferenceable(25) %1175, i64 noundef %.0175.i.i288)
           to label %1180 unwind label %1234, !noalias !417
 
 1180:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i303
@@ -11652,8 +11652,8 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i303: ; preds = %_ZN5faiss13I
 
 1190:                                             ; preds = %.loopexit31.i.i362, %.lr.ph83.i.i358
   %1191 = phi i64 [ 4, %.lr.ph83.i.i358 ], [ %1189, %.loopexit31.i.i362 ]
-  %.017982.i.i359 = phi i64 [ 0, %.lr.ph83.i.i358 ], [ %1191, %.loopexit31.i.i362 ]
-  %1192 = getelementptr inbounds i32, ptr %1185, i64 %.017982.i.i359
+  %.017682.i.i359 = phi i64 [ 0, %.lr.ph83.i.i358 ], [ %1191, %.loopexit31.i.i362 ]
+  %1192 = getelementptr inbounds i32, ptr %1185, i64 %.017682.i.i359
   tail call void @llvm.experimental.noalias.scope.decl(metadata !423)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !426)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !428)
@@ -11686,10 +11686,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi1EEC2EmPKhPKiP
   br i1 %1186, label %.lr.ph80.i.i364, label %.loopexit31.i.i362
 
 .lr.ph80.i.i364:                                  ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi1EE9add_bcodeEPKhl.exit.i.i
-  %.017879.i.i365 = phi i64 [ %1231, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi1EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %1208 = mul i64 %.017879.i.i365, %1138
+  %.018579.i.i365 = phi i64 [ %1231, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi1EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %1208 = mul i64 %.018579.i.i365, %1138
   %1209 = getelementptr inbounds i8, ptr %1169, i64 %1208
-  %1210 = getelementptr inbounds i64, ptr %1174, i64 %.017879.i.i365
+  %1210 = getelementptr inbounds i64, ptr %1174, i64 %.018579.i.i365
   %1211 = load i64, ptr %1210, align 8, !noalias !417
   br label %1212
 
@@ -11726,7 +11726,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi1EEC2EmPKhPKiP
   br i1 %exitcond.not.i211.i.i368, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi1EE9add_bcodeEPKhl.exit.i.i, label %1212, !llvm.loop !438
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi1EE9add_bcodeEPKhl.exit.i.i: ; preds = %1230
-  %1231 = add nuw nsw i64 %.017879.i.i365, 1
+  %1231 = add nuw nsw i64 %.018579.i.i365, 1
   %exitcond149.not.i.i369 = icmp eq i64 %1231, %1179
   br i1 %exitcond149.not.i.i369, label %.loopexit31.i.i362, label %.lr.ph80.i.i364, !llvm.loop !439
 
@@ -11756,7 +11756,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi1EE9add_bcodeE
   %1236 = load ptr, ptr %1170, align 8, !noalias !417
   %1237 = getelementptr inbounds i8, ptr %1236, i64 56
   %1238 = load ptr, ptr %1237, align 8, !noalias !417
-  invoke void %1238(ptr noundef nonnull align 8 dereferenceable(25) %1170, i64 noundef %.0185.i.i288, ptr noundef %1174)
+  invoke void %1238(ptr noundef nonnull align 8 dereferenceable(25) %1170, i64 noundef %.0175.i.i288, ptr noundef %1174)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i301 unwind label %1239, !noalias !417
 
 1239:                                             ; preds = %1234
@@ -11773,8 +11773,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi1EE9add_bcodeE
 
 1243:                                             ; preds = %.loopexit32.i.i347, %.lr.ph77.i.i344
   %1244 = phi i64 [ 4, %.lr.ph77.i.i344 ], [ %1242, %.loopexit32.i.i347 ]
-  %.118076.i.i345 = phi i64 [ 0, %.lr.ph77.i.i344 ], [ %1244, %.loopexit32.i.i347 ]
-  %1245 = getelementptr inbounds i32, ptr %1183, i64 %.118076.i.i345
+  %.117776.i.i345 = phi i64 [ 0, %.lr.ph77.i.i344 ], [ %1244, %.loopexit32.i.i347 ]
+  %1245 = getelementptr inbounds i32, ptr %1183, i64 %.117776.i.i345
   tail call void @llvm.experimental.noalias.scope.decl(metadata !441)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !444)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !446)
@@ -11808,10 +11808,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi2EEC2EmPKhPKiP
   br i1 %1184, label %.lr.ph74.i.i349, label %.loopexit32.i.i347
 
 .lr.ph74.i.i349:                                  ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi2EE9add_bcodeEPKhl.exit.i.i
-  %.017773.i.i350 = phi i64 [ %1296, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi2EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %1262 = mul i64 %.017773.i.i350, %1138
+  %.018473.i.i350 = phi i64 [ %1296, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi2EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %1262 = mul i64 %.018473.i.i350, %1138
   %1263 = getelementptr inbounds i8, ptr %1169, i64 %1262
-  %1264 = getelementptr inbounds i64, ptr %1174, i64 %.017773.i.i350
+  %1264 = getelementptr inbounds i64, ptr %1174, i64 %.018473.i.i350
   %1265 = load i64, ptr %1264, align 8, !noalias !417
   br label %1266
 
@@ -11873,7 +11873,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i35
   br i1 %exitcond.not.i217.i.i, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi2EE9add_bcodeEPKhl.exit.i.i, label %1266, !llvm.loop !456
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi2EE9add_bcodeEPKhl.exit.i.i: ; preds = %1295
-  %1296 = add nuw nsw i64 %.017773.i.i350, 1
+  %1296 = add nuw nsw i64 %.018473.i.i350, 1
   %exitcond148.not.i.i = icmp eq i64 %1296, %1179
   br i1 %exitcond148.not.i.i, label %.loopexit32.i.i347, label %.lr.ph74.i.i349, !llvm.loop !457
 
@@ -11884,8 +11884,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi2EE9add_bcodeE
 
 1298:                                             ; preds = %.loopexit33.i.i308, %.lr.ph72.i.i306
   %1299 = phi i64 [ 4, %.lr.ph72.i.i306 ], [ %1297, %.loopexit33.i.i308 ]
-  %.218171.i.i307 = phi i64 [ 0, %.lr.ph72.i.i306 ], [ %1299, %.loopexit33.i.i308 ]
-  %1300 = getelementptr inbounds i32, ptr %1181, i64 %.218171.i.i307
+  %.217871.i.i307 = phi i64 [ 0, %.lr.ph72.i.i306 ], [ %1299, %.loopexit33.i.i308 ]
+  %1300 = getelementptr inbounds i32, ptr %1181, i64 %.217871.i.i307
   tail call void @llvm.experimental.noalias.scope.decl(metadata !459)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !462)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !464)
@@ -11919,10 +11919,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi4EEC2EmPKhPKiP
   br i1 %1182, label %.lr.ph69.i.i333, label %.loopexit33.i.i308
 
 .lr.ph69.i.i333:                                  ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi4EE9add_bcodeEPKhl.exit.i.i
-  %.017668.i.i334 = phi i64 [ %1379, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %1317 = mul i64 %.017668.i.i334, %1138
+  %.018368.i.i334 = phi i64 [ %1379, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %1317 = mul i64 %.018368.i.i334, %1138
   %1318 = getelementptr inbounds i8, ptr %1169, i64 %1317
-  %1319 = getelementptr inbounds i64, ptr %1174, i64 %.017668.i.i334
+  %1319 = getelementptr inbounds i64, ptr %1174, i64 %.018368.i.i334
   %1320 = load i64, ptr %1319, align 8, !noalias !417
   br label %1321
 
@@ -12034,7 +12034,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i225.i.
   br i1 %exitcond.not.i223.i.i, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi4EE9add_bcodeEPKhl.exit.i.i, label %1321, !llvm.loop !474
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi4EE9add_bcodeEPKhl.exit.i.i: ; preds = %1378
-  %1379 = add nuw nsw i64 %.017668.i.i334, 1
+  %1379 = add nuw nsw i64 %.018368.i.i334, 1
   %exitcond147.not.i.i = icmp eq i64 %1379, %1179
   br i1 %exitcond147.not.i.i, label %.loopexit33.i.i308, label %.lr.ph69.i.i333, !llvm.loop !475
 
@@ -12045,8 +12045,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer16ELi4ELi4EE9add_bcodeE
 
 1381:                                             ; preds = %.loopexit30.i.i375, %.lr.ph90.i.i371
   %1382 = phi i64 [ 4, %.lr.ph90.i.i371 ], [ %1380, %.loopexit30.i.i375 ]
-  %.318289.i.i372 = phi i64 [ 0, %.lr.ph90.i.i371 ], [ %1382, %.loopexit30.i.i375 ]
-  %1383 = getelementptr inbounds i32, ptr %1187, i64 %.318289.i.i372
+  %.317989.i.i372 = phi i64 [ 0, %.lr.ph90.i.i371 ], [ %1382, %.loopexit30.i.i375 ]
+  %1383 = getelementptr inbounds i32, ptr %1187, i64 %.317989.i.i372
   tail call void @llvm.experimental.noalias.scope.decl(metadata !477)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !480)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
@@ -12080,10 +12080,10 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer16ELi4EEC2EmiP
   br i1 %1188, label %.lr.ph86.i.i377, label %.loopexit30.i.i375
 
 .lr.ph86.i.i377:                                  ; preds = %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer16ELi4EEC2EmiPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer16ELi4EE9add_bcodeEPKhl.exit.i.i
-  %.017585.i.i378 = phi i64 [ %1462, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer16ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer16ELi4EEC2EmiPKhPKiPiPl.exit.preheader.i.i ]
-  %1400 = mul i64 %.017585.i.i378, %1138
+  %.018285.i.i378 = phi i64 [ %1462, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer16ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer16ELi4EEC2EmiPKhPKiPiPl.exit.preheader.i.i ]
+  %1400 = mul i64 %.018285.i.i378, %1138
   %1401 = getelementptr inbounds i8, ptr %1169, i64 %1400
-  %1402 = getelementptr inbounds i64, ptr %1174, i64 %.017585.i.i378
+  %1402 = getelementptr inbounds i64, ptr %1174, i64 %.018285.i.i378
   %1403 = load i64, ptr %1402, align 8, !noalias !417
   br label %1404
 
@@ -12198,13 +12198,13 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i243.i.
   br i1 %exitcond.not.i234.i.i, label %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer16ELi4EE9add_bcodeEPKhl.exit.i.i, label %1404, !llvm.loop !492
 
 _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer16ELi4EE9add_bcodeEPKhl.exit.i.i: ; preds = %1461
-  %1462 = add nuw nsw i64 %.017585.i.i378, 1
+  %1462 = add nuw nsw i64 %.018285.i.i378, 1
   %exitcond150.not.i.i379 = icmp eq i64 %1462, %1179
   br i1 %exitcond150.not.i.i379, label %.loopexit30.i.i375, label %.lr.ph86.i.i377, !llvm.loop !493
 
 .loopexit35.i.i310:                               ; preds = %.loopexit33.i.i308, %.loopexit32.i.i347, %.loopexit31.i.i362, %.loopexit30.i.i375, %.preheader34.i.i370, %.preheader36.i.i357, %.preheader38.i.i343, %.preheader40.i.i305
-  %.4183.i.i311 = phi i64 [ 0, %.preheader34.i.i370 ], [ 0, %.preheader36.i.i357 ], [ 0, %.preheader38.i.i343 ], [ 0, %.preheader40.i.i305 ], [ %1382, %.loopexit30.i.i375 ], [ %1191, %.loopexit31.i.i362 ], [ %1244, %.loopexit32.i.i347 ], [ %1299, %.loopexit33.i.i308 ]
-  %1463 = icmp slt i64 %.4183.i.i311, %1164
+  %.4180.i.i311 = phi i64 [ 0, %.preheader34.i.i370 ], [ 0, %.preheader36.i.i357 ], [ 0, %.preheader38.i.i343 ], [ 0, %.preheader40.i.i305 ], [ %1382, %.loopexit30.i.i375 ], [ %1191, %.loopexit31.i.i362 ], [ %1244, %.loopexit32.i.i347 ], [ %1299, %.loopexit33.i.i308 ]
+  %1463 = icmp slt i64 %.4180.i.i311, %1164
   br i1 %1463, label %.lr.ph100.i.i313, label %._crit_edge101.i.i312
 
 .lr.ph100.i.i313:                                 ; preds = %.loopexit35.i.i310
@@ -12213,8 +12213,8 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer16ELi4EE9add_b
   br label %1466
 
 1466:                                             ; preds = %._crit_edge97.i.i315, %.lr.ph100.i.i313
-  %.518498.i.i314 = phi i64 [ %.4183.i.i311, %.lr.ph100.i.i313 ], [ %1532, %._crit_edge97.i.i315 ]
-  %1467 = getelementptr i32, ptr %1464, i64 %.518498.i.i314
+  %.518198.i.i314 = phi i64 [ %.4180.i.i311, %.lr.ph100.i.i313 ], [ %1532, %._crit_edge97.i.i315 ]
+  %1467 = getelementptr i32, ptr %1464, i64 %.518198.i.i314
   %1468 = load i32, ptr %1467, align 4, !noalias !417
   %1469 = sext i32 %1468 to i64
   %1470 = mul nsw i64 %1469, %1138
@@ -12333,7 +12333,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i325:     ; preds = %1515
   br i1 %exitcond151.not.i.i321, label %._crit_edge97.i.i315, label %1479, !llvm.loop !495
 
 ._crit_edge97.i.i315:                             ; preds = %1530, %1466
-  %1532 = add nuw nsw i64 %.518498.i.i314, 1
+  %1532 = add nuw nsw i64 %.518198.i.i314, 1
   %1533 = icmp slt i64 %1532, %1164
   br i1 %1533, label %1466, label %._crit_edge101.i.i312, !llvm.loop !496
 
@@ -12341,7 +12341,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i325:     ; preds = %1515
   %1534 = load ptr, ptr %1170, align 8, !noalias !417
   %1535 = getelementptr inbounds i8, ptr %1534, i64 56
   %1536 = load ptr, ptr %1535, align 8, !noalias !417
-  invoke void %1536(ptr noundef nonnull align 8 dereferenceable(25) %1170, i64 noundef %.0185.i.i288, ptr noundef %1174)
+  invoke void %1536(ptr noundef nonnull align 8 dereferenceable(25) %1170, i64 noundef %.0175.i.i288, ptr noundef %1174)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit249.i.i unwind label %1537, !noalias !417
 
 1537:                                             ; preds = %._crit_edge101.i.i312
@@ -12355,7 +12355,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit249.i.i: ; preds = %._crit_edge101.i.
   %1540 = load ptr, ptr %1165, align 8, !noalias !417
   %1541 = getelementptr inbounds i8, ptr %1540, i64 48
   %1542 = load ptr, ptr %1541, align 8, !noalias !417
-  invoke void %1542(ptr noundef nonnull align 8 dereferenceable(25) %1165, i64 noundef %.0185.i.i288, ptr noundef %1169)
+  invoke void %1542(ptr noundef nonnull align 8 dereferenceable(25) %1165, i64 noundef %.0175.i.i288, ptr noundef %1169)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i287 unwind label %1543, !noalias !417, !llvm.loop !497
 
 1543:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit249.i.i
@@ -12370,7 +12370,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i301: ; preds = %1234, %1232
   %1546 = load ptr, ptr %1165, align 8, !noalias !417
   %1547 = getelementptr inbounds i8, ptr %1546, i64 48
   %1548 = load ptr, ptr %1547, align 8, !noalias !417
-  invoke void %1548(ptr noundef nonnull align 8 dereferenceable(25) %1165, i64 noundef %.0185.i.i288, ptr noundef %1169)
+  invoke void %1548(ptr noundef nonnull align 8 dereferenceable(25) %1165, i64 noundef %.0175.i.i288, ptr noundef %1169)
           to label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit253.i.i unwind label %1549, !noalias !417
 
 1549:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i301
@@ -12631,9 +12631,9 @@ _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i410
   br label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i413
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i413: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit252.i.i, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i410
-  %.0185.i.i414 = phi i64 [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i410 ], [ %1651, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit252.i.i ]
+  %.0175.i.i414 = phi i64 [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i410 ], [ %1651, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit252.i.i ]
   %1646 = load i64, ptr %56, align 8, !noalias !508
-  %1647 = icmp ult i64 %.0185.i.i414, %1646
+  %1647 = icmp ult i64 %.0175.i.i414, %1646
   br i1 %1647, label %1648, label %.preheader.i.i415
 
 .preheader.i.i415:                                ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i413
@@ -12641,9 +12641,9 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i413: ; preds = %_ZN5faiss13Inv
   br i1 %.not112.i.i416, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i422, label %.lr.ph110.i.i417
 
 1648:                                             ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i413
-  %1649 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i394, i64 %.0185.i.i414
+  %1649 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i394, i64 %.0175.i.i414
   %1650 = load i64, ptr %1649, align 8, !noalias !509
-  %1651 = add nuw nsw i64 %.0185.i.i414, 1
+  %1651 = add nuw nsw i64 %.0175.i.i414, 1
   %1652 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i394, i64 %1651
   %1653 = load i64, ptr %1652, align 8, !noalias !509
   %1654 = sub nsw i64 %1653, %1650
@@ -12651,7 +12651,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i413: ; preds = %_ZN5faiss13Inv
   %1656 = load ptr, ptr %1655, align 8, !noalias !509
   %1657 = getelementptr inbounds i8, ptr %1656, i64 32
   %1658 = load ptr, ptr %1657, align 8, !noalias !509
-  %1659 = invoke noundef ptr %1658(ptr noundef nonnull align 8 dereferenceable(25) %1655, i64 noundef %.0185.i.i414)
+  %1659 = invoke noundef ptr %1658(ptr noundef nonnull align 8 dereferenceable(25) %1655, i64 noundef %.0175.i.i414)
           to label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i426 unwind label %.loopexit.split-lp.loopexit.i.i424, !noalias !509
 
 _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i426: ; preds = %1648
@@ -12659,7 +12659,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i426: ; preds = %1648
   %1661 = load ptr, ptr %1660, align 8, !noalias !509
   %1662 = getelementptr inbounds i8, ptr %1661, i64 40
   %1663 = load ptr, ptr %1662, align 8, !noalias !509
-  %1664 = invoke noundef ptr %1663(ptr noundef nonnull align 8 dereferenceable(25) %1660, i64 noundef %.0185.i.i414)
+  %1664 = invoke noundef ptr %1663(ptr noundef nonnull align 8 dereferenceable(25) %1660, i64 noundef %.0175.i.i414)
           to label %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i429 unwind label %1732, !noalias !509
 
 _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i429: ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i426
@@ -12667,7 +12667,7 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i429: ; preds = %_ZN5faiss13I
   %1666 = load ptr, ptr %1665, align 8, !noalias !509
   %1667 = getelementptr inbounds i8, ptr %1666, i64 16
   %1668 = load ptr, ptr %1667, align 8, !noalias !509
-  %1669 = invoke noundef i64 %1668(ptr noundef nonnull align 8 dereferenceable(25) %1665, i64 noundef %.0185.i.i414)
+  %1669 = invoke noundef i64 %1668(ptr noundef nonnull align 8 dereferenceable(25) %1665, i64 noundef %.0175.i.i414)
           to label %1670 unwind label %1734, !noalias !509
 
 1670:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i429
@@ -12717,8 +12717,8 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i429: ; preds = %_ZN5faiss13I
 
 1680:                                             ; preds = %.loopexit31.i.i494, %.lr.ph83.i.i489
   %1681 = phi i64 [ 4, %.lr.ph83.i.i489 ], [ %1679, %.loopexit31.i.i494 ]
-  %.017982.i.i490 = phi i64 [ 0, %.lr.ph83.i.i489 ], [ %1681, %.loopexit31.i.i494 ]
-  %1682 = getelementptr inbounds i32, ptr %1675, i64 %.017982.i.i490
+  %.017682.i.i490 = phi i64 [ 0, %.lr.ph83.i.i489 ], [ %1681, %.loopexit31.i.i494 ]
+  %1682 = getelementptr inbounds i32, ptr %1675, i64 %.017682.i.i490
   tail call void @llvm.experimental.noalias.scope.decl(metadata !515)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !518)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !520)
@@ -12756,10 +12756,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EEC2EmPKhPKiP
   br i1 %1676, label %.lr.ph80.i.i496, label %.loopexit31.i.i494
 
 .lr.ph80.i.i496:                                  ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EE9add_bcodeEPKhl.exit.i.i
-  %.017879.i.i497 = phi i64 [ %1731, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %1701 = mul i64 %.017879.i.i497, %1628
+  %.018579.i.i497 = phi i64 [ %1731, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %1701 = mul i64 %.018579.i.i497, %1628
   %1702 = getelementptr inbounds i8, ptr %1659, i64 %1701
-  %1703 = getelementptr inbounds i64, ptr %1664, i64 %.017879.i.i497
+  %1703 = getelementptr inbounds i64, ptr %1664, i64 %.018579.i.i497
   %1704 = load i64, ptr %1703, align 8, !noalias !509
   %1705 = getelementptr inbounds i8, ptr %1702, i64 16
   br label %1706
@@ -12803,7 +12803,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EEC2EmPKhPKiP
   br i1 %exitcond.not.i211.i.i500, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EE9add_bcodeEPKhl.exit.i.i, label %1706, !llvm.loop !530
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EE9add_bcodeEPKhl.exit.i.i: ; preds = %1730
-  %1731 = add nuw nsw i64 %.017879.i.i497, 1
+  %1731 = add nuw nsw i64 %.018579.i.i497, 1
   %exitcond149.not.i.i501 = icmp eq i64 %1731, %1669
   br i1 %exitcond149.not.i.i501, label %.loopexit31.i.i494, label %.lr.ph80.i.i496, !llvm.loop !531
 
@@ -12833,7 +12833,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EE9add_bcodeE
   %1736 = load ptr, ptr %1660, align 8, !noalias !509
   %1737 = getelementptr inbounds i8, ptr %1736, i64 56
   %1738 = load ptr, ptr %1737, align 8, !noalias !509
-  invoke void %1738(ptr noundef nonnull align 8 dereferenceable(25) %1660, i64 noundef %.0185.i.i414, ptr noundef %1664)
+  invoke void %1738(ptr noundef nonnull align 8 dereferenceable(25) %1660, i64 noundef %.0175.i.i414, ptr noundef %1664)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i427 unwind label %1739, !noalias !509
 
 1739:                                             ; preds = %1734
@@ -12850,8 +12850,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi1EE9add_bcodeE
 
 1743:                                             ; preds = %.loopexit32.i.i476, %.lr.ph77.i.i472
   %1744 = phi i64 [ 4, %.lr.ph77.i.i472 ], [ %1742, %.loopexit32.i.i476 ]
-  %.118076.i.i473 = phi i64 [ 0, %.lr.ph77.i.i472 ], [ %1744, %.loopexit32.i.i476 ]
-  %1745 = getelementptr inbounds i32, ptr %1673, i64 %.118076.i.i473
+  %.117776.i.i473 = phi i64 [ 0, %.lr.ph77.i.i472 ], [ %1744, %.loopexit32.i.i476 ]
+  %1745 = getelementptr inbounds i32, ptr %1673, i64 %.117776.i.i473
   tail call void @llvm.experimental.noalias.scope.decl(metadata !533)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !536)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !538)
@@ -12890,10 +12890,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EEC2EmPKhPKiP
   br i1 %1674, label %.lr.ph74.i.i478, label %.loopexit32.i.i476
 
 .lr.ph74.i.i478:                                  ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EE9add_bcodeEPKhl.exit.i.i
-  %.017773.i.i479 = phi i64 [ %1806, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %1765 = mul i64 %.017773.i.i479, %1628
+  %.018473.i.i479 = phi i64 [ %1806, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %1765 = mul i64 %.018473.i.i479, %1628
   %1766 = getelementptr inbounds i8, ptr %1659, i64 %1765
-  %1767 = getelementptr inbounds i64, ptr %1664, i64 %.017773.i.i479
+  %1767 = getelementptr inbounds i64, ptr %1664, i64 %.018473.i.i479
   %1768 = load i64, ptr %1767, align 8, !noalias !509
   %1769 = getelementptr inbounds i8, ptr %1766, i64 16
   br label %1770
@@ -12962,7 +12962,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i48
   br i1 %exitcond.not.i218.i.i480, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EE9add_bcodeEPKhl.exit.i.i, label %1770, !llvm.loop !548
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EE9add_bcodeEPKhl.exit.i.i: ; preds = %1805
-  %1806 = add nuw nsw i64 %.017773.i.i479, 1
+  %1806 = add nuw nsw i64 %.018473.i.i479, 1
   %exitcond148.not.i.i481 = icmp eq i64 %1806, %1669
   br i1 %exitcond148.not.i.i481, label %.loopexit32.i.i476, label %.lr.ph74.i.i478, !llvm.loop !549
 
@@ -12973,8 +12973,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi2EE9add_bcodeE
 
 1808:                                             ; preds = %.loopexit33.i.i434, %.lr.ph72.i.i432
   %1809 = phi i64 [ 4, %.lr.ph72.i.i432 ], [ %1807, %.loopexit33.i.i434 ]
-  %.218171.i.i433 = phi i64 [ 0, %.lr.ph72.i.i432 ], [ %1809, %.loopexit33.i.i434 ]
-  %1810 = getelementptr inbounds i32, ptr %1671, i64 %.218171.i.i433
+  %.217871.i.i433 = phi i64 [ 0, %.lr.ph72.i.i432 ], [ %1809, %.loopexit33.i.i434 ]
+  %1810 = getelementptr inbounds i32, ptr %1671, i64 %.217871.i.i433
   tail call void @llvm.experimental.noalias.scope.decl(metadata !551)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !554)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !556)
@@ -13013,10 +13013,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EEC2EmPKhPKiP
   br i1 %1672, label %.lr.ph69.i.i460, label %.loopexit33.i.i434
 
 .lr.ph69.i.i460:                                  ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EE9add_bcodeEPKhl.exit.i.i
-  %.017668.i.i461 = phi i64 [ %1899, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %1830 = mul i64 %.017668.i.i461, %1628
+  %.018368.i.i461 = phi i64 [ %1899, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %1830 = mul i64 %.018368.i.i461, %1628
   %1831 = getelementptr inbounds i8, ptr %1659, i64 %1830
-  %1832 = getelementptr inbounds i64, ptr %1664, i64 %.017668.i.i461
+  %1832 = getelementptr inbounds i64, ptr %1664, i64 %.018368.i.i461
   %1833 = load i64, ptr %1832, align 8, !noalias !509
   %1834 = getelementptr inbounds i8, ptr %1831, i64 16
   br label %1835
@@ -13135,7 +13135,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i227.i.
   br i1 %exitcond.not.i225.i.i, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EE9add_bcodeEPKhl.exit.i.i, label %1835, !llvm.loop !566
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EE9add_bcodeEPKhl.exit.i.i: ; preds = %1898
-  %1899 = add nuw nsw i64 %.017668.i.i461, 1
+  %1899 = add nuw nsw i64 %.018368.i.i461, 1
   %exitcond147.not.i.i462 = icmp eq i64 %1899, %1669
   br i1 %exitcond147.not.i.i462, label %.loopexit33.i.i434, label %.lr.ph69.i.i460, !llvm.loop !567
 
@@ -13146,8 +13146,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer20ELi4ELi4EE9add_bcodeE
 
 1901:                                             ; preds = %.loopexit30.i.i507, %.lr.ph90.i.i503
   %1902 = phi i64 [ 4, %.lr.ph90.i.i503 ], [ %1900, %.loopexit30.i.i507 ]
-  %.318289.i.i504 = phi i64 [ 0, %.lr.ph90.i.i503 ], [ %1902, %.loopexit30.i.i507 ]
-  %1903 = getelementptr inbounds i32, ptr %1677, i64 %.318289.i.i504
+  %.317989.i.i504 = phi i64 [ 0, %.lr.ph90.i.i503 ], [ %1902, %.loopexit30.i.i507 ]
+  %1903 = getelementptr inbounds i32, ptr %1677, i64 %.317989.i.i504
   tail call void @llvm.experimental.noalias.scope.decl(metadata !569)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !572)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !574)
@@ -13186,10 +13186,10 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer20ELi4EEC2EmiP
   br i1 %1678, label %.lr.ph86.i.i509, label %.loopexit30.i.i507
 
 .lr.ph86.i.i509:                                  ; preds = %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer20ELi4EEC2EmiPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer20ELi4EE9add_bcodeEPKhl.exit.i.i
-  %.017585.i.i510 = phi i64 [ %1992, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer20ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer20ELi4EEC2EmiPKhPKiPiPl.exit.preheader.i.i ]
-  %1923 = mul i64 %.017585.i.i510, %1628
+  %.018285.i.i510 = phi i64 [ %1992, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer20ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer20ELi4EEC2EmiPKhPKiPiPl.exit.preheader.i.i ]
+  %1923 = mul i64 %.018285.i.i510, %1628
   %1924 = getelementptr inbounds i8, ptr %1659, i64 %1923
-  %1925 = getelementptr inbounds i64, ptr %1664, i64 %.017585.i.i510
+  %1925 = getelementptr inbounds i64, ptr %1664, i64 %.018285.i.i510
   %1926 = load i64, ptr %1925, align 8, !noalias !509
   %1927 = getelementptr inbounds i8, ptr %1924, i64 16
   br label %1928
@@ -13311,13 +13311,13 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i246.i.
   br i1 %exitcond.not.i237.i.i, label %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer20ELi4EE9add_bcodeEPKhl.exit.i.i, label %1928, !llvm.loop !584
 
 _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer20ELi4EE9add_bcodeEPKhl.exit.i.i: ; preds = %1991
-  %1992 = add nuw nsw i64 %.017585.i.i510, 1
+  %1992 = add nuw nsw i64 %.018285.i.i510, 1
   %exitcond150.not.i.i511 = icmp eq i64 %1992, %1669
   br i1 %exitcond150.not.i.i511, label %.loopexit30.i.i507, label %.lr.ph86.i.i509, !llvm.loop !585
 
 .loopexit35.i.i436:                               ; preds = %.loopexit33.i.i434, %.loopexit32.i.i476, %.loopexit31.i.i494, %.loopexit30.i.i507, %.preheader34.i.i502, %.preheader36.i.i488, %.preheader38.i.i471, %.preheader40.i.i431
-  %.4183.i.i437 = phi i64 [ 0, %.preheader34.i.i502 ], [ 0, %.preheader36.i.i488 ], [ 0, %.preheader38.i.i471 ], [ 0, %.preheader40.i.i431 ], [ %1902, %.loopexit30.i.i507 ], [ %1681, %.loopexit31.i.i494 ], [ %1744, %.loopexit32.i.i476 ], [ %1809, %.loopexit33.i.i434 ]
-  %1993 = icmp slt i64 %.4183.i.i437, %1654
+  %.4180.i.i437 = phi i64 [ 0, %.preheader34.i.i502 ], [ 0, %.preheader36.i.i488 ], [ 0, %.preheader38.i.i471 ], [ 0, %.preheader40.i.i431 ], [ %1902, %.loopexit30.i.i507 ], [ %1681, %.loopexit31.i.i494 ], [ %1744, %.loopexit32.i.i476 ], [ %1809, %.loopexit33.i.i434 ]
+  %1993 = icmp slt i64 %.4180.i.i437, %1654
   br i1 %1993, label %.lr.ph100.i.i439, label %._crit_edge101.i.i438
 
 .lr.ph100.i.i439:                                 ; preds = %.loopexit35.i.i436
@@ -13326,8 +13326,8 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer20ELi4EE9add_b
   br label %1996
 
 1996:                                             ; preds = %._crit_edge97.i.i441, %.lr.ph100.i.i439
-  %.518498.i.i440 = phi i64 [ %.4183.i.i437, %.lr.ph100.i.i439 ], [ %2070, %._crit_edge97.i.i441 ]
-  %1997 = getelementptr i32, ptr %1994, i64 %.518498.i.i440
+  %.518198.i.i440 = phi i64 [ %.4180.i.i437, %.lr.ph100.i.i439 ], [ %2070, %._crit_edge97.i.i441 ]
+  %1997 = getelementptr i32, ptr %1994, i64 %.518198.i.i440
   %1998 = load i32, ptr %1997, align 4, !noalias !509
   %1999 = sext i32 %1998 to i64
   %2000 = mul nsw i64 %1999, %1628
@@ -13454,7 +13454,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i451:     ; preds = %2053
   br i1 %exitcond151.not.i.i447, label %._crit_edge97.i.i441, label %2012, !llvm.loop !587
 
 ._crit_edge97.i.i441:                             ; preds = %2068, %1996
-  %2070 = add nuw nsw i64 %.518498.i.i440, 1
+  %2070 = add nuw nsw i64 %.518198.i.i440, 1
   %2071 = icmp slt i64 %2070, %1654
   br i1 %2071, label %1996, label %._crit_edge101.i.i438, !llvm.loop !588
 
@@ -13462,7 +13462,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i451:     ; preds = %2053
   %2072 = load ptr, ptr %1660, align 8, !noalias !509
   %2073 = getelementptr inbounds i8, ptr %2072, i64 56
   %2074 = load ptr, ptr %2073, align 8, !noalias !509
-  invoke void %2074(ptr noundef nonnull align 8 dereferenceable(25) %1660, i64 noundef %.0185.i.i414, ptr noundef %1664)
+  invoke void %2074(ptr noundef nonnull align 8 dereferenceable(25) %1660, i64 noundef %.0175.i.i414, ptr noundef %1664)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit252.i.i unwind label %2075, !noalias !509
 
 2075:                                             ; preds = %._crit_edge101.i.i438
@@ -13476,7 +13476,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit252.i.i: ; preds = %._crit_edge101.i.
   %2078 = load ptr, ptr %1655, align 8, !noalias !509
   %2079 = getelementptr inbounds i8, ptr %2078, i64 48
   %2080 = load ptr, ptr %2079, align 8, !noalias !509
-  invoke void %2080(ptr noundef nonnull align 8 dereferenceable(25) %1655, i64 noundef %.0185.i.i414, ptr noundef %1659)
+  invoke void %2080(ptr noundef nonnull align 8 dereferenceable(25) %1655, i64 noundef %.0175.i.i414, ptr noundef %1659)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i413 unwind label %2081, !noalias !509, !llvm.loop !589
 
 2081:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit252.i.i
@@ -13491,7 +13491,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i427: ; preds = %1734, %1732
   %2084 = load ptr, ptr %1655, align 8, !noalias !509
   %2085 = getelementptr inbounds i8, ptr %2084, i64 48
   %2086 = load ptr, ptr %2085, align 8, !noalias !509
-  invoke void %2086(ptr noundef nonnull align 8 dereferenceable(25) %1655, i64 noundef %.0185.i.i414, ptr noundef %1659)
+  invoke void %2086(ptr noundef nonnull align 8 dereferenceable(25) %1655, i64 noundef %.0175.i.i414, ptr noundef %1659)
           to label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit256.i.i unwind label %2087, !noalias !509
 
 2087:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i427
@@ -13752,9 +13752,9 @@ _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i542
   br label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i545
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i545: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit255.i.i, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i542
-  %.0185.i.i546 = phi i64 [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i542 ], [ %2189, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit255.i.i ]
+  %.0175.i.i546 = phi i64 [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i542 ], [ %2189, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit255.i.i ]
   %2184 = load i64, ptr %56, align 8, !noalias !600
-  %2185 = icmp ult i64 %.0185.i.i546, %2184
+  %2185 = icmp ult i64 %.0175.i.i546, %2184
   br i1 %2185, label %2186, label %.preheader.i.i547
 
 .preheader.i.i547:                                ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i545
@@ -13762,9 +13762,9 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i545: ; preds = %_ZN5faiss13Inv
   br i1 %.not112.i.i548, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i554, label %.lr.ph110.i.i549
 
 2186:                                             ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i545
-  %2187 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i526, i64 %.0185.i.i546
+  %2187 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i526, i64 %.0175.i.i546
   %2188 = load i64, ptr %2187, align 8, !noalias !601
-  %2189 = add nuw nsw i64 %.0185.i.i546, 1
+  %2189 = add nuw nsw i64 %.0175.i.i546, 1
   %2190 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i526, i64 %2189
   %2191 = load i64, ptr %2190, align 8, !noalias !601
   %2192 = sub nsw i64 %2191, %2188
@@ -13772,7 +13772,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i545: ; preds = %_ZN5faiss13Inv
   %2194 = load ptr, ptr %2193, align 8, !noalias !601
   %2195 = getelementptr inbounds i8, ptr %2194, i64 32
   %2196 = load ptr, ptr %2195, align 8, !noalias !601
-  %2197 = invoke noundef ptr %2196(ptr noundef nonnull align 8 dereferenceable(25) %2193, i64 noundef %.0185.i.i546)
+  %2197 = invoke noundef ptr %2196(ptr noundef nonnull align 8 dereferenceable(25) %2193, i64 noundef %.0175.i.i546)
           to label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i558 unwind label %.loopexit.split-lp.loopexit.i.i556, !noalias !601
 
 _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i558: ; preds = %2186
@@ -13780,7 +13780,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i558: ; preds = %2186
   %2199 = load ptr, ptr %2198, align 8, !noalias !601
   %2200 = getelementptr inbounds i8, ptr %2199, i64 40
   %2201 = load ptr, ptr %2200, align 8, !noalias !601
-  %2202 = invoke noundef ptr %2201(ptr noundef nonnull align 8 dereferenceable(25) %2198, i64 noundef %.0185.i.i546)
+  %2202 = invoke noundef ptr %2201(ptr noundef nonnull align 8 dereferenceable(25) %2198, i64 noundef %.0175.i.i546)
           to label %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i561 unwind label %2261, !noalias !601
 
 _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i561: ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i558
@@ -13788,7 +13788,7 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i561: ; preds = %_ZN5faiss13I
   %2204 = load ptr, ptr %2203, align 8, !noalias !601
   %2205 = getelementptr inbounds i8, ptr %2204, i64 16
   %2206 = load ptr, ptr %2205, align 8, !noalias !601
-  %2207 = invoke noundef i64 %2206(ptr noundef nonnull align 8 dereferenceable(25) %2203, i64 noundef %.0185.i.i546)
+  %2207 = invoke noundef i64 %2206(ptr noundef nonnull align 8 dereferenceable(25) %2203, i64 noundef %.0175.i.i546)
           to label %2208 unwind label %2263, !noalias !601
 
 2208:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i561
@@ -13838,8 +13838,8 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i561: ; preds = %_ZN5faiss13I
 
 2218:                                             ; preds = %.loopexit31.i.i628, %.lr.ph83.i.i622
   %2219 = phi i64 [ 4, %.lr.ph83.i.i622 ], [ %2217, %.loopexit31.i.i628 ]
-  %.017982.i.i623 = phi i64 [ 0, %.lr.ph83.i.i622 ], [ %2219, %.loopexit31.i.i628 ]
-  %2220 = getelementptr inbounds i32, ptr %2213, i64 %.017982.i.i623
+  %.017682.i.i623 = phi i64 [ 0, %.lr.ph83.i.i622 ], [ %2219, %.loopexit31.i.i628 ]
+  %2220 = getelementptr inbounds i32, ptr %2213, i64 %.017682.i.i623
   tail call void @llvm.experimental.noalias.scope.decl(metadata !607)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !610)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !612)
@@ -13876,10 +13876,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EEC2EmPKhPKiP
   br i1 %2214, label %.lr.ph80.i.i630, label %.loopexit31.i.i628
 
 .lr.ph80.i.i630:                                  ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EE9add_bcodeEPKhl.exit.i.i
-  %.017879.i.i631 = phi i64 [ %2260, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %2238 = mul i64 %.017879.i.i631, %2166
+  %.018579.i.i631 = phi i64 [ %2260, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %2238 = mul i64 %.018579.i.i631, %2166
   %2239 = getelementptr inbounds i8, ptr %2197, i64 %2238
-  %2240 = getelementptr inbounds i64, ptr %2202, i64 %.017879.i.i631
+  %2240 = getelementptr inbounds i64, ptr %2202, i64 %.018579.i.i631
   %2241 = load i64, ptr %2240, align 8, !noalias !601
   br label %2242
 
@@ -13914,7 +13914,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EEC2EmPKhPKiP
   br i1 %exitcond.not.i211.i.i634, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EE9add_bcodeEPKhl.exit.i.i, label %2242, !llvm.loop !622
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EE9add_bcodeEPKhl.exit.i.i: ; preds = %2259
-  %2260 = add nuw nsw i64 %.017879.i.i631, 1
+  %2260 = add nuw nsw i64 %.018579.i.i631, 1
   %exitcond149.not.i.i635 = icmp eq i64 %2260, %2207
   br i1 %exitcond149.not.i.i635, label %.loopexit31.i.i628, label %.lr.ph80.i.i630, !llvm.loop !623
 
@@ -13944,7 +13944,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EE9add_bcodeE
   %2265 = load ptr, ptr %2198, align 8, !noalias !601
   %2266 = getelementptr inbounds i8, ptr %2265, i64 56
   %2267 = load ptr, ptr %2266, align 8, !noalias !601
-  invoke void %2267(ptr noundef nonnull align 8 dereferenceable(25) %2198, i64 noundef %.0185.i.i546, ptr noundef %2202)
+  invoke void %2267(ptr noundef nonnull align 8 dereferenceable(25) %2198, i64 noundef %.0175.i.i546, ptr noundef %2202)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i559 unwind label %2268, !noalias !601
 
 2268:                                             ; preds = %2263
@@ -13961,8 +13961,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi1EE9add_bcodeE
 
 2272:                                             ; preds = %.loopexit32.i.i610, %.lr.ph77.i.i604
   %2273 = phi i64 [ 4, %.lr.ph77.i.i604 ], [ %2271, %.loopexit32.i.i610 ]
-  %.118076.i.i605 = phi i64 [ 0, %.lr.ph77.i.i604 ], [ %2273, %.loopexit32.i.i610 ]
-  %2274 = getelementptr inbounds i32, ptr %2211, i64 %.118076.i.i605
+  %.117776.i.i605 = phi i64 [ 0, %.lr.ph77.i.i604 ], [ %2273, %.loopexit32.i.i610 ]
+  %2274 = getelementptr inbounds i32, ptr %2211, i64 %.117776.i.i605
   tail call void @llvm.experimental.noalias.scope.decl(metadata !625)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !628)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !630)
@@ -14000,10 +14000,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi2EEC2EmPKhPKiP
   br i1 %2212, label %.lr.ph74.i.i612, label %.loopexit32.i.i610
 
 .lr.ph74.i.i612:                                  ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi2EE9add_bcodeEPKhl.exit.i.i
-  %.017773.i.i613 = phi i64 [ %2326, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi2EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %2293 = mul i64 %.017773.i.i613, %2166
+  %.018473.i.i613 = phi i64 [ %2326, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi2EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %2293 = mul i64 %.018473.i.i613, %2166
   %2294 = getelementptr inbounds i8, ptr %2197, i64 %2293
-  %2295 = getelementptr inbounds i64, ptr %2202, i64 %.017773.i.i613
+  %2295 = getelementptr inbounds i64, ptr %2202, i64 %.018473.i.i613
   %2296 = load i64, ptr %2295, align 8, !noalias !601
   br label %2297
 
@@ -14063,7 +14063,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i61
   br i1 %exitcond.not.i219.i.i, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi2EE9add_bcodeEPKhl.exit.i.i, label %2297, !llvm.loop !640
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi2EE9add_bcodeEPKhl.exit.i.i: ; preds = %2325
-  %2326 = add nuw nsw i64 %.017773.i.i613, 1
+  %2326 = add nuw nsw i64 %.018473.i.i613, 1
   %exitcond148.not.i.i614 = icmp eq i64 %2326, %2207
   br i1 %exitcond148.not.i.i614, label %.loopexit32.i.i610, label %.lr.ph74.i.i612, !llvm.loop !641
 
@@ -14074,8 +14074,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi2EE9add_bcodeE
 
 2328:                                             ; preds = %.loopexit33.i.i566, %.lr.ph72.i.i564
   %2329 = phi i64 [ 4, %.lr.ph72.i.i564 ], [ %2327, %.loopexit33.i.i566 ]
-  %.218171.i.i565 = phi i64 [ 0, %.lr.ph72.i.i564 ], [ %2329, %.loopexit33.i.i566 ]
-  %2330 = getelementptr inbounds i32, ptr %2209, i64 %.218171.i.i565
+  %.217871.i.i565 = phi i64 [ 0, %.lr.ph72.i.i564 ], [ %2329, %.loopexit33.i.i566 ]
+  %2330 = getelementptr inbounds i32, ptr %2209, i64 %.217871.i.i565
   tail call void @llvm.experimental.noalias.scope.decl(metadata !643)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !646)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !648)
@@ -14113,10 +14113,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi4EEC2EmPKhPKiP
   br i1 %2210, label %.lr.ph69.i.i592, label %.loopexit33.i.i566
 
 .lr.ph69.i.i592:                                  ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi4EE9add_bcodeEPKhl.exit.i.i
-  %.017668.i.i593 = phi i64 [ %2410, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %2349 = mul i64 %.017668.i.i593, %2166
+  %.018368.i.i593 = phi i64 [ %2410, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %2349 = mul i64 %.018368.i.i593, %2166
   %2350 = getelementptr inbounds i8, ptr %2197, i64 %2349
-  %2351 = getelementptr inbounds i64, ptr %2202, i64 %.017668.i.i593
+  %2351 = getelementptr inbounds i64, ptr %2202, i64 %.018368.i.i593
   %2352 = load i64, ptr %2351, align 8, !noalias !601
   br label %2353
 
@@ -14226,7 +14226,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i229.i.
   br i1 %exitcond.not.i227.i.i, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi4EE9add_bcodeEPKhl.exit.i.i, label %2353, !llvm.loop !658
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi4EE9add_bcodeEPKhl.exit.i.i: ; preds = %2409
-  %2410 = add nuw nsw i64 %.017668.i.i593, 1
+  %2410 = add nuw nsw i64 %.018368.i.i593, 1
   %exitcond147.not.i.i594 = icmp eq i64 %2410, %2207
   br i1 %exitcond147.not.i.i594, label %.loopexit33.i.i566, label %.lr.ph69.i.i592, !llvm.loop !659
 
@@ -14237,8 +14237,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer32ELi4ELi4EE9add_bcodeE
 
 2412:                                             ; preds = %.loopexit30.i.i641, %.lr.ph90.i.i637
   %2413 = phi i64 [ 4, %.lr.ph90.i.i637 ], [ %2411, %.loopexit30.i.i641 ]
-  %.318289.i.i638 = phi i64 [ 0, %.lr.ph90.i.i637 ], [ %2413, %.loopexit30.i.i641 ]
-  %2414 = getelementptr inbounds i32, ptr %2215, i64 %.318289.i.i638
+  %.317989.i.i638 = phi i64 [ 0, %.lr.ph90.i.i637 ], [ %2413, %.loopexit30.i.i641 ]
+  %2414 = getelementptr inbounds i32, ptr %2215, i64 %.317989.i.i638
   tail call void @llvm.experimental.noalias.scope.decl(metadata !661)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !664)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !666)
@@ -14276,10 +14276,10 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer32ELi4EEC2EmiP
   br i1 %2216, label %.lr.ph86.i.i643, label %.loopexit30.i.i641
 
 .lr.ph86.i.i643:                                  ; preds = %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer32ELi4EEC2EmiPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer32ELi4EE9add_bcodeEPKhl.exit.i.i
-  %.017585.i.i644 = phi i64 [ %2494, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer32ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer32ELi4EEC2EmiPKhPKiPiPl.exit.preheader.i.i ]
-  %2433 = mul i64 %.017585.i.i644, %2166
+  %.018285.i.i644 = phi i64 [ %2494, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer32ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer32ELi4EEC2EmiPKhPKiPiPl.exit.preheader.i.i ]
+  %2433 = mul i64 %.018285.i.i644, %2166
   %2434 = getelementptr inbounds i8, ptr %2197, i64 %2433
-  %2435 = getelementptr inbounds i64, ptr %2202, i64 %.017585.i.i644
+  %2435 = getelementptr inbounds i64, ptr %2202, i64 %.018285.i.i644
   %2436 = load i64, ptr %2435, align 8, !noalias !601
   br label %2437
 
@@ -14392,13 +14392,13 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i249.i.
   br i1 %exitcond.not.i240.i.i, label %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer32ELi4EE9add_bcodeEPKhl.exit.i.i, label %2437, !llvm.loop !676
 
 _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer32ELi4EE9add_bcodeEPKhl.exit.i.i: ; preds = %2493
-  %2494 = add nuw nsw i64 %.017585.i.i644, 1
+  %2494 = add nuw nsw i64 %.018285.i.i644, 1
   %exitcond150.not.i.i645 = icmp eq i64 %2494, %2207
   br i1 %exitcond150.not.i.i645, label %.loopexit30.i.i641, label %.lr.ph86.i.i643, !llvm.loop !677
 
 .loopexit35.i.i568:                               ; preds = %.loopexit33.i.i566, %.loopexit32.i.i610, %.loopexit31.i.i628, %.loopexit30.i.i641, %.preheader34.i.i636, %.preheader36.i.i621, %.preheader38.i.i603, %.preheader40.i.i563
-  %.4183.i.i569 = phi i64 [ 0, %.preheader34.i.i636 ], [ 0, %.preheader36.i.i621 ], [ 0, %.preheader38.i.i603 ], [ 0, %.preheader40.i.i563 ], [ %2413, %.loopexit30.i.i641 ], [ %2219, %.loopexit31.i.i628 ], [ %2273, %.loopexit32.i.i610 ], [ %2329, %.loopexit33.i.i566 ]
-  %2495 = icmp slt i64 %.4183.i.i569, %2192
+  %.4180.i.i569 = phi i64 [ 0, %.preheader34.i.i636 ], [ 0, %.preheader36.i.i621 ], [ 0, %.preheader38.i.i603 ], [ 0, %.preheader40.i.i563 ], [ %2413, %.loopexit30.i.i641 ], [ %2219, %.loopexit31.i.i628 ], [ %2273, %.loopexit32.i.i610 ], [ %2329, %.loopexit33.i.i566 ]
+  %2495 = icmp slt i64 %.4180.i.i569, %2192
   br i1 %2495, label %.lr.ph100.i.i571, label %._crit_edge101.i.i570
 
 .lr.ph100.i.i571:                                 ; preds = %.loopexit35.i.i568
@@ -14407,8 +14407,8 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer32ELi4EE9add_b
   br label %2498
 
 2498:                                             ; preds = %._crit_edge97.i.i573, %.lr.ph100.i.i571
-  %.518498.i.i572 = phi i64 [ %.4183.i.i569, %.lr.ph100.i.i571 ], [ %2563, %._crit_edge97.i.i573 ]
-  %2499 = getelementptr i32, ptr %2496, i64 %.518498.i.i572
+  %.518198.i.i572 = phi i64 [ %.4180.i.i569, %.lr.ph100.i.i571 ], [ %2563, %._crit_edge97.i.i573 ]
+  %2499 = getelementptr i32, ptr %2496, i64 %.518198.i.i572
   %2500 = load i32, ptr %2499, align 4, !noalias !601
   %2501 = sext i32 %2500 to i64
   %2502 = mul nsw i64 %2501, %2166
@@ -14525,7 +14525,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i583:     ; preds = %2546
   br i1 %exitcond151.not.i.i579, label %._crit_edge97.i.i573, label %2511, !llvm.loop !679
 
 ._crit_edge97.i.i573:                             ; preds = %2561, %2498
-  %2563 = add nuw nsw i64 %.518498.i.i572, 1
+  %2563 = add nuw nsw i64 %.518198.i.i572, 1
   %2564 = icmp slt i64 %2563, %2192
   br i1 %2564, label %2498, label %._crit_edge101.i.i570, !llvm.loop !680
 
@@ -14533,7 +14533,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i583:     ; preds = %2546
   %2565 = load ptr, ptr %2198, align 8, !noalias !601
   %2566 = getelementptr inbounds i8, ptr %2565, i64 56
   %2567 = load ptr, ptr %2566, align 8, !noalias !601
-  invoke void %2567(ptr noundef nonnull align 8 dereferenceable(25) %2198, i64 noundef %.0185.i.i546, ptr noundef %2202)
+  invoke void %2567(ptr noundef nonnull align 8 dereferenceable(25) %2198, i64 noundef %.0175.i.i546, ptr noundef %2202)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit255.i.i unwind label %2568, !noalias !601
 
 2568:                                             ; preds = %._crit_edge101.i.i570
@@ -14547,7 +14547,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit255.i.i: ; preds = %._crit_edge101.i.
   %2571 = load ptr, ptr %2193, align 8, !noalias !601
   %2572 = getelementptr inbounds i8, ptr %2571, i64 48
   %2573 = load ptr, ptr %2572, align 8, !noalias !601
-  invoke void %2573(ptr noundef nonnull align 8 dereferenceable(25) %2193, i64 noundef %.0185.i.i546, ptr noundef %2197)
+  invoke void %2573(ptr noundef nonnull align 8 dereferenceable(25) %2193, i64 noundef %.0175.i.i546, ptr noundef %2197)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i545 unwind label %2574, !noalias !601, !llvm.loop !681
 
 2574:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit255.i.i
@@ -14562,7 +14562,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i559: ; preds = %2263, %2261
   %2577 = load ptr, ptr %2193, align 8, !noalias !601
   %2578 = getelementptr inbounds i8, ptr %2577, i64 48
   %2579 = load ptr, ptr %2578, align 8, !noalias !601
-  invoke void %2579(ptr noundef nonnull align 8 dereferenceable(25) %2193, i64 noundef %.0185.i.i546, ptr noundef %2197)
+  invoke void %2579(ptr noundef nonnull align 8 dereferenceable(25) %2193, i64 noundef %.0175.i.i546, ptr noundef %2197)
           to label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit259.i.i unwind label %2580, !noalias !601
 
 2580:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i559
@@ -14826,9 +14826,9 @@ _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i671
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i674: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit267.i.i, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i671
   %.lcssa88.i.i1222 = phi i32 [ %.promoted, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i671 ], [ %.lcssa88.i.i1221, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit267.i.i ]
   %.promoted.i.i = phi i32 [ undef, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i671 ], [ %.promoted141.i.i, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit267.i.i ]
-  %.0185.i.i675 = phi i64 [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i671 ], [ %2682, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit267.i.i ]
+  %.0175.i.i675 = phi i64 [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i671 ], [ %2682, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit267.i.i ]
   %2677 = load i64, ptr %56, align 8, !noalias !692
-  %2678 = icmp ult i64 %.0185.i.i675, %2677
+  %2678 = icmp ult i64 %.0175.i.i675, %2677
   br i1 %2678, label %2679, label %.preheader.i.i676
 
 .preheader.i.i676:                                ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i674
@@ -14837,9 +14837,9 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i674: ; preds = %_ZN5faiss13Inv
   br i1 %.not106.i.i, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i679, label %.lr.ph104.i.i
 
 2679:                                             ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i674
-  %2680 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i660, i64 %.0185.i.i675
+  %2680 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i660, i64 %.0175.i.i675
   %2681 = load i64, ptr %2680, align 8, !noalias !693
-  %2682 = add nuw nsw i64 %.0185.i.i675, 1
+  %2682 = add nuw nsw i64 %.0175.i.i675, 1
   %2683 = getelementptr inbounds i64, ptr %.sroa.015.0.i.i660, i64 %2682
   %2684 = load i64, ptr %2683, align 8, !noalias !693
   %2685 = sub nsw i64 %2684, %2681
@@ -14847,7 +14847,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i674: ; preds = %_ZN5faiss13Inv
   %2687 = load ptr, ptr %2686, align 8, !noalias !693
   %2688 = getelementptr inbounds i8, ptr %2687, i64 32
   %2689 = load ptr, ptr %2688, align 8, !noalias !693
-  %2690 = invoke noundef ptr %2689(ptr noundef nonnull align 8 dereferenceable(25) %2686, i64 noundef %.0185.i.i675)
+  %2690 = invoke noundef ptr %2689(ptr noundef nonnull align 8 dereferenceable(25) %2686, i64 noundef %.0175.i.i675)
           to label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i682 unwind label %.loopexit.split-lp.loopexit.i.i681, !noalias !693
 
 _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i682: ; preds = %2679
@@ -14855,7 +14855,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i682: ; preds = %2679
   %2692 = load ptr, ptr %2691, align 8, !noalias !693
   %2693 = getelementptr inbounds i8, ptr %2692, i64 40
   %2694 = load ptr, ptr %2693, align 8, !noalias !693
-  %2695 = invoke noundef ptr %2694(ptr noundef nonnull align 8 dereferenceable(25) %2691, i64 noundef %.0185.i.i675)
+  %2695 = invoke noundef ptr %2694(ptr noundef nonnull align 8 dereferenceable(25) %2691, i64 noundef %.0175.i.i675)
           to label %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i685 unwind label %2758, !noalias !693
 
 _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i685: ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i682
@@ -14863,7 +14863,7 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i685: ; preds = %_ZN5faiss13I
   %2697 = load ptr, ptr %2696, align 8, !noalias !693
   %2698 = getelementptr inbounds i8, ptr %2697, i64 16
   %2699 = load ptr, ptr %2698, align 8, !noalias !693
-  %2700 = invoke noundef i64 %2699(ptr noundef nonnull align 8 dereferenceable(25) %2696, i64 noundef %.0185.i.i675)
+  %2700 = invoke noundef i64 %2699(ptr noundef nonnull align 8 dereferenceable(25) %2696, i64 noundef %.0175.i.i675)
           to label %2701 unwind label %2760, !noalias !693
 
 2701:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i685
@@ -14913,8 +14913,8 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i685: ; preds = %_ZN5faiss13I
 
 2711:                                             ; preds = %.loopexit32.i.i731, %.lr.ph84.i.i
   %2712 = phi i64 [ 4, %.lr.ph84.i.i ], [ %2710, %.loopexit32.i.i731 ]
-  %.017983.i.i = phi i64 [ 0, %.lr.ph84.i.i ], [ %2712, %.loopexit32.i.i731 ]
-  %2713 = getelementptr inbounds i32, ptr %2706, i64 %.017983.i.i
+  %.017683.i.i = phi i64 [ 0, %.lr.ph84.i.i ], [ %2712, %.loopexit32.i.i731 ]
+  %2713 = getelementptr inbounds i32, ptr %2706, i64 %.017683.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !705)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !708)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !710)
@@ -14959,10 +14959,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EEC2EmPKhPKiP
   br i1 %2707, label %.lr.ph81.i.i, label %.loopexit32.i.i731
 
 .lr.ph81.i.i:                                     ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EE9add_bcodeEPKhl.exit.i.i
-  %.017880.i.i = phi i64 [ %2757, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %2735 = mul i64 %.017880.i.i, %2659
+  %.018580.i.i = phi i64 [ %2757, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %2735 = mul i64 %.018580.i.i, %2659
   %2736 = getelementptr inbounds i8, ptr %2690, i64 %2735
-  %2737 = getelementptr inbounds i64, ptr %2695, i64 %.017880.i.i
+  %2737 = getelementptr inbounds i64, ptr %2695, i64 %.018580.i.i
   %2738 = load i64, ptr %2737, align 8, !noalias !693
   br label %2739
 
@@ -14997,7 +14997,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EEC2EmPKhPKiP
   br i1 %exitcond.not.i211.i.i735, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EE9add_bcodeEPKhl.exit.i.i, label %2739, !llvm.loop !720
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EE9add_bcodeEPKhl.exit.i.i: ; preds = %2756
-  %2757 = add nuw nsw i64 %.017880.i.i, 1
+  %2757 = add nuw nsw i64 %.018580.i.i, 1
   %exitcond136.not.i.i = icmp eq i64 %2757, %2700
   br i1 %exitcond136.not.i.i, label %.loopexit32.i.i731, label %.lr.ph81.i.i, !llvm.loop !721
 
@@ -15030,7 +15030,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EE9add_bcodeE
   %2762 = load ptr, ptr %2691, align 8, !noalias !693
   %2763 = getelementptr inbounds i8, ptr %2762, i64 56
   %2764 = load ptr, ptr %2763, align 8, !noalias !693
-  invoke void %2764(ptr noundef nonnull align 8 dereferenceable(25) %2691, i64 noundef %.0185.i.i675, ptr noundef %2695)
+  invoke void %2764(ptr noundef nonnull align 8 dereferenceable(25) %2691, i64 noundef %.0175.i.i675, ptr noundef %2695)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i683 unwind label %2765, !noalias !693
 
 2765:                                             ; preds = %2760
@@ -15047,8 +15047,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi1EE9add_bcodeE
 
 2769:                                             ; preds = %.loopexit33.i.i715, %.lr.ph78.i.i
   %2770 = phi i64 [ 4, %.lr.ph78.i.i ], [ %2768, %.loopexit33.i.i715 ]
-  %.118077.i.i = phi i64 [ 0, %.lr.ph78.i.i ], [ %2770, %.loopexit33.i.i715 ]
-  %2771 = getelementptr inbounds i32, ptr %2704, i64 %.118077.i.i
+  %.117777.i.i = phi i64 [ 0, %.lr.ph78.i.i ], [ %2770, %.loopexit33.i.i715 ]
+  %2771 = getelementptr inbounds i32, ptr %2704, i64 %.117777.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !723)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !726)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !728)
@@ -15094,10 +15094,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi2EEC2EmPKhPKiP
   br i1 %2705, label %.lr.ph75.i.i, label %.loopexit33.i.i715
 
 .lr.ph75.i.i:                                     ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi2EE9add_bcodeEPKhl.exit.i.i
-  %.017774.i.i = phi i64 [ %2827, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi2EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %2794 = mul i64 %.017774.i.i, %2659
+  %.018474.i.i = phi i64 [ %2827, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi2EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %2794 = mul i64 %.018474.i.i, %2659
   %2795 = getelementptr inbounds i8, ptr %2690, i64 %2794
-  %2796 = getelementptr inbounds i64, ptr %2695, i64 %.017774.i.i
+  %2796 = getelementptr inbounds i64, ptr %2695, i64 %.018474.i.i
   %2797 = load i64, ptr %2796, align 8, !noalias !693
   br label %2798
 
@@ -15157,7 +15157,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i72
   br i1 %exitcond.not.i223.i.i719, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi2EE9add_bcodeEPKhl.exit.i.i, label %2798, !llvm.loop !738
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi2EE9add_bcodeEPKhl.exit.i.i: ; preds = %2826
-  %2827 = add nuw nsw i64 %.017774.i.i, 1
+  %2827 = add nuw nsw i64 %.018474.i.i, 1
   %exitcond135.not.i.i = icmp eq i64 %2827, %2700
   br i1 %exitcond135.not.i.i, label %.loopexit33.i.i715, label %.lr.ph75.i.i, !llvm.loop !739
 
@@ -15168,8 +15168,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi2EE9add_bcodeE
 
 2829:                                             ; preds = %.loopexit34.i.i, %.lr.ph73.i.i
   %2830 = phi i64 [ 4, %.lr.ph73.i.i ], [ %2828, %.loopexit34.i.i ]
-  %.218172.i.i = phi i64 [ 0, %.lr.ph73.i.i ], [ %2830, %.loopexit34.i.i ]
-  %2831 = getelementptr inbounds i32, ptr %2702, i64 %.218172.i.i
+  %.217872.i.i = phi i64 [ 0, %.lr.ph73.i.i ], [ %2830, %.loopexit34.i.i ]
+  %2831 = getelementptr inbounds i32, ptr %2702, i64 %.217872.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !741)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !744)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !746)
@@ -15215,10 +15215,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi4EEC2EmPKhPKiP
   br i1 %2703, label %.lr.ph70.i.i, label %.loopexit34.i.i
 
 .lr.ph70.i.i:                                     ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi4EE9add_bcodeEPKhl.exit.i.i
-  %.017669.i.i = phi i64 [ %2915, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %2854 = mul i64 %.017669.i.i, %2659
+  %.018369.i.i = phi i64 [ %2915, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %2854 = mul i64 %.018369.i.i, %2659
   %2855 = getelementptr inbounds i8, ptr %2690, i64 %2854
-  %2856 = getelementptr inbounds i64, ptr %2695, i64 %.017669.i.i
+  %2856 = getelementptr inbounds i64, ptr %2695, i64 %.018369.i.i
   %2857 = load i64, ptr %2856, align 8, !noalias !693
   br label %2858
 
@@ -15328,7 +15328,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i237.i.
   br i1 %exitcond.not.i235.i.i, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi4EE9add_bcodeEPKhl.exit.i.i, label %2858, !llvm.loop !756
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi4EE9add_bcodeEPKhl.exit.i.i: ; preds = %2914
-  %2915 = add nuw nsw i64 %.017669.i.i, 1
+  %2915 = add nuw nsw i64 %.018369.i.i, 1
   %exitcond134.not.i.i = icmp eq i64 %2915, %2700
   br i1 %exitcond134.not.i.i, label %.loopexit34.i.i, label %.lr.ph70.i.i, !llvm.loop !757
 
@@ -15339,8 +15339,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_17HammingComputer64ELi4ELi4EE9add_bcodeE
 
 2917:                                             ; preds = %.loopexit31.i.i737, %.lr.ph91.i.i
   %2918 = phi i64 [ 4, %.lr.ph91.i.i ], [ %2916, %.loopexit31.i.i737 ]
-  %.318290.i.i = phi i64 [ 0, %.lr.ph91.i.i ], [ %2918, %.loopexit31.i.i737 ]
-  %2919 = getelementptr inbounds i32, ptr %2708, i64 %.318290.i.i
+  %.317990.i.i = phi i64 [ 0, %.lr.ph91.i.i ], [ %2918, %.loopexit31.i.i737 ]
+  %2919 = getelementptr inbounds i32, ptr %2708, i64 %.317990.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !759)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !760)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !761)
@@ -15386,10 +15386,10 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer64ELi4EEC2EmiP
   br i1 %2709, label %.lr.ph87.i.i, label %.loopexit31.i.i737
 
 .lr.ph87.i.i:                                     ; preds = %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer64ELi4EEC2EmiPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer64ELi4EE9add_bcodeEPKhl.exit.i.i
-  %.017586.i.i = phi i64 [ %3003, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer64ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer64ELi4EEC2EmiPKhPKiPiPl.exit.preheader.i.i ]
-  %2942 = mul i64 %.017586.i.i, %2659
+  %.018286.i.i = phi i64 [ %3003, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer64ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer64ELi4EEC2EmiPKhPKiPiPl.exit.preheader.i.i ]
+  %2942 = mul i64 %.018286.i.i, %2659
   %2943 = getelementptr inbounds i8, ptr %2690, i64 %2942
-  %2944 = getelementptr inbounds i64, ptr %2695, i64 %.017586.i.i
+  %2944 = getelementptr inbounds i64, ptr %2695, i64 %.018286.i.i
   %2945 = load i64, ptr %2944, align 8, !noalias !693
   br label %2946
 
@@ -15502,15 +15502,15 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i261.i.
   br i1 %exitcond.not.i252.i.i, label %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer64ELi4EE9add_bcodeEPKhl.exit.i.i, label %2946, !llvm.loop !768
 
 _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer64ELi4EE9add_bcodeEPKhl.exit.i.i: ; preds = %3002
-  %3003 = add nuw nsw i64 %.017586.i.i, 1
+  %3003 = add nuw nsw i64 %.018286.i.i, 1
   %exitcond137.not.i.i = icmp eq i64 %3003, %2700
   br i1 %exitcond137.not.i.i, label %.loopexit31.i.i737, label %.lr.ph87.i.i, !llvm.loop !769
 
 .loopexit38.i.i:                                  ; preds = %.loopexit34.i.i, %.loopexit33.i.i715, %.loopexit32.i.i731, %.preheader35.i.i, %.loopexit31.i.i737, %.preheader37.i.i, %.preheader39.i.i, %.preheader41.i.i
   %.lcssa88.i.i1221 = phi i32 [ %.lcssa88.i.i1222, %.preheader37.i.i ], [ %.lcssa88.i.i1222, %.preheader39.i.i ], [ %.lcssa88.i.i1222, %.preheader41.i.i ], [ %.promoted.i.i, %.preheader35.i.i ], [ %2670, %.loopexit31.i.i737 ], [ %.lcssa88.i.i1222, %.loopexit32.i.i731 ], [ %.lcssa88.i.i1222, %.loopexit33.i.i715 ], [ %.lcssa88.i.i1222, %.loopexit34.i.i ]
   %.promoted141.i.i = phi i32 [ %.promoted.i.i, %.preheader37.i.i ], [ %.promoted.i.i, %.preheader39.i.i ], [ %.promoted.i.i, %.preheader41.i.i ], [ %.promoted.i.i, %.preheader35.i.i ], [ %2670, %.loopexit31.i.i737 ], [ %.promoted.i.i, %.loopexit32.i.i731 ], [ %.promoted.i.i, %.loopexit33.i.i715 ], [ %.promoted.i.i, %.loopexit34.i.i ]
-  %.4183.i.i687 = phi i64 [ 0, %.preheader37.i.i ], [ 0, %.preheader39.i.i ], [ 0, %.preheader41.i.i ], [ 0, %.preheader35.i.i ], [ %2918, %.loopexit31.i.i737 ], [ %2712, %.loopexit32.i.i731 ], [ %2770, %.loopexit33.i.i715 ], [ %2830, %.loopexit34.i.i ]
-  %3004 = icmp slt i64 %.4183.i.i687, %2685
+  %.4180.i.i687 = phi i64 [ 0, %.preheader37.i.i ], [ 0, %.preheader39.i.i ], [ 0, %.preheader41.i.i ], [ 0, %.preheader35.i.i ], [ %2918, %.loopexit31.i.i737 ], [ %2712, %.loopexit32.i.i731 ], [ %2770, %.loopexit33.i.i715 ], [ %2830, %.loopexit34.i.i ]
+  %3004 = icmp slt i64 %.4180.i.i687, %2685
   br i1 %3004, label %.lr.ph101.i.i, label %._crit_edge102.i.i
 
 .lr.ph101.i.i:                                    ; preds = %.loopexit38.i.i
@@ -15519,8 +15519,8 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_17HammingComputer64ELi4EE9add_b
   br label %3007
 
 3007:                                             ; preds = %._crit_edge98.i.i, %.lr.ph101.i.i
-  %.518499.i.i = phi i64 [ %.4183.i.i687, %.lr.ph101.i.i ], [ %3072, %._crit_edge98.i.i ]
-  %3008 = getelementptr i32, ptr %3005, i64 %.518499.i.i
+  %.518199.i.i = phi i64 [ %.4180.i.i687, %.lr.ph101.i.i ], [ %3072, %._crit_edge98.i.i ]
+  %3008 = getelementptr i32, ptr %3005, i64 %.518199.i.i
   %3009 = load i32, ptr %3008, align 4, !noalias !693
   %3010 = sext i32 %3009 to i64
   %3011 = mul nsw i64 %3010, %2659
@@ -15637,7 +15637,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i693:     ; preds = %3055
   br i1 %exitcond138.not.i.i, label %._crit_edge98.i.i, label %3020, !llvm.loop !771
 
 ._crit_edge98.i.i:                                ; preds = %3070, %3007
-  %3072 = add nuw nsw i64 %.518499.i.i, 1
+  %3072 = add nuw nsw i64 %.518199.i.i, 1
   %3073 = icmp slt i64 %3072, %2685
   br i1 %3073, label %3007, label %._crit_edge102.i.i, !llvm.loop !772
 
@@ -15645,7 +15645,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i693:     ; preds = %3055
   %3074 = load ptr, ptr %2691, align 8, !noalias !693
   %3075 = getelementptr inbounds i8, ptr %3074, i64 56
   %3076 = load ptr, ptr %3075, align 8, !noalias !693
-  invoke void %3076(ptr noundef nonnull align 8 dereferenceable(25) %2691, i64 noundef %.0185.i.i675, ptr noundef %2695)
+  invoke void %3076(ptr noundef nonnull align 8 dereferenceable(25) %2691, i64 noundef %.0175.i.i675, ptr noundef %2695)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit267.i.i unwind label %3077, !noalias !693
 
 3077:                                             ; preds = %._crit_edge102.i.i
@@ -15660,7 +15660,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit267.i.i: ; preds = %._crit_edge102.i.
   %3080 = load ptr, ptr %2686, align 8, !noalias !693
   %3081 = getelementptr inbounds i8, ptr %3080, i64 48
   %3082 = load ptr, ptr %3081, align 8, !noalias !693
-  invoke void %3082(ptr noundef nonnull align 8 dereferenceable(25) %2686, i64 noundef %.0185.i.i675, ptr noundef %2690)
+  invoke void %3082(ptr noundef nonnull align 8 dereferenceable(25) %2686, i64 noundef %.0175.i.i675, ptr noundef %2690)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i674 unwind label %3083, !noalias !693, !llvm.loop !773
 
 3083:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit267.i.i
@@ -15676,7 +15676,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i683: ; preds = %2760, %2758
   %3086 = load ptr, ptr %2686, align 8, !noalias !693
   %3087 = getelementptr inbounds i8, ptr %3086, i64 48
   %3088 = load ptr, ptr %3087, align 8, !noalias !693
-  invoke void %3088(ptr noundef nonnull align 8 dereferenceable(25) %2686, i64 noundef %.0185.i.i675, ptr noundef %2690)
+  invoke void %3088(ptr noundef nonnull align 8 dereferenceable(25) %2686, i64 noundef %.0175.i.i675, ptr noundef %2690)
           to label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit271.i.i unwind label %3089, !noalias !693
 
 3089:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i683
@@ -15940,9 +15940,9 @@ _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i766
   br label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i769
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i769: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit252.i.i793, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i766
-  %.0185.i.i770 = phi i64 [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i766 ], [ %3194, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit252.i.i793 ]
+  %.0175.i.i770 = phi i64 [ 0, %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i766 ], [ %3194, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit252.i.i793 ]
   %3189 = load i64, ptr %56, align 8, !noalias !782
-  %3190 = icmp ult i64 %.0185.i.i770, %3189
+  %3190 = icmp ult i64 %.0175.i.i770, %3189
   br i1 %3190, label %3191, label %.preheader.i.i771
 
 .preheader.i.i771:                                ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i769
@@ -15950,9 +15950,9 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i769: ; preds = %_ZN5faiss13Inv
   br i1 %.not102.i.i, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.i.i776, label %.lr.ph100.i.i772
 
 3191:                                             ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i769
-  %3192 = getelementptr inbounds i64, ptr %.sroa.014.0.i.i, i64 %.0185.i.i770
+  %3192 = getelementptr inbounds i64, ptr %.sroa.014.0.i.i, i64 %.0175.i.i770
   %3193 = load i64, ptr %3192, align 8, !noalias !775
-  %3194 = add nuw nsw i64 %.0185.i.i770, 1
+  %3194 = add nuw nsw i64 %.0175.i.i770, 1
   %3195 = getelementptr inbounds i64, ptr %.sroa.014.0.i.i, i64 %3194
   %3196 = load i64, ptr %3195, align 8, !noalias !775
   %3197 = sub nsw i64 %3196, %3193
@@ -15960,7 +15960,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i769: ; preds = %_ZN5faiss13Inv
   %3199 = load ptr, ptr %3198, align 8, !noalias !775
   %3200 = getelementptr inbounds i8, ptr %3199, i64 32
   %3201 = load ptr, ptr %3200, align 8, !noalias !775
-  %3202 = invoke noundef ptr %3201(ptr noundef nonnull align 8 dereferenceable(25) %3198, i64 noundef %.0185.i.i770)
+  %3202 = invoke noundef ptr %3201(ptr noundef nonnull align 8 dereferenceable(25) %3198, i64 noundef %.0175.i.i770)
           to label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i779 unwind label %.loopexit.split-lp.loopexit.i.i778, !noalias !775
 
 _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i779: ; preds = %3191
@@ -15968,7 +15968,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i779: ; preds = %3191
   %3204 = load ptr, ptr %3203, align 8, !noalias !775
   %3205 = getelementptr inbounds i8, ptr %3204, i64 40
   %3206 = load ptr, ptr %3205, align 8, !noalias !775
-  %3207 = invoke noundef ptr %3206(ptr noundef nonnull align 8 dereferenceable(25) %3203, i64 noundef %.0185.i.i770)
+  %3207 = invoke noundef ptr %3206(ptr noundef nonnull align 8 dereferenceable(25) %3203, i64 noundef %.0175.i.i770)
           to label %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i782 unwind label %3259, !noalias !775
 
 _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i782: ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.i.i779
@@ -15976,7 +15976,7 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i782: ; preds = %_ZN5faiss13I
   %3209 = load ptr, ptr %3208, align 8, !noalias !775
   %3210 = getelementptr inbounds i8, ptr %3209, i64 16
   %3211 = load ptr, ptr %3210, align 8, !noalias !775
-  %3212 = invoke noundef i64 %3211(ptr noundef nonnull align 8 dereferenceable(25) %3208, i64 noundef %.0185.i.i770)
+  %3212 = invoke noundef i64 %3211(ptr noundef nonnull align 8 dereferenceable(25) %3208, i64 noundef %.0175.i.i770)
           to label %3213 unwind label %3261, !noalias !775
 
 3213:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i782
@@ -16026,8 +16026,8 @@ _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.i.i782: ; preds = %_ZN5faiss13I
 
 3223:                                             ; preds = %.loopexit30.i.i851, %.lr.ph82.i.i
   %3224 = phi i64 [ 4, %.lr.ph82.i.i ], [ %3222, %.loopexit30.i.i851 ]
-  %.017981.i.i = phi i64 [ 0, %.lr.ph82.i.i ], [ %3224, %.loopexit30.i.i851 ]
-  %3225 = getelementptr inbounds i32, ptr %3218, i64 %.017981.i.i
+  %.017681.i.i = phi i64 [ 0, %.lr.ph82.i.i ], [ %3224, %.loopexit30.i.i851 ]
+  %3225 = getelementptr inbounds i32, ptr %3218, i64 %.017681.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !789)
   call void @llvm.experimental.noalias.scope.decl(metadata !792)
   br label %3226
@@ -16062,10 +16062,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi1EEC2EmPK
   br i1 %3219, label %.lr.ph79.i.i, label %.loopexit30.i.i851
 
 .lr.ph79.i.i:                                     ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi1EE9add_bcodeEPKhl.exit.i.i
-  %.017878.i.i = phi i64 [ %3258, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi1EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %3240 = mul i64 %.017878.i.i, %3168
+  %.018578.i.i = phi i64 [ %3258, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi1EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi1EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %3240 = mul i64 %.018578.i.i, %3168
   %3241 = getelementptr inbounds i8, ptr %3202, i64 %3240
-  %3242 = getelementptr inbounds i64, ptr %3207, i64 %.017878.i.i
+  %3242 = getelementptr inbounds i64, ptr %3207, i64 %.018578.i.i
   %3243 = load i64, ptr %3242, align 8, !noalias !775
   br label %3244
 
@@ -16096,7 +16096,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi1EEC2EmPK
   br i1 %exitcond.not.i211.i.i855, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi1EE9add_bcodeEPKhl.exit.i.i, label %3244, !llvm.loop !801
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi1EE9add_bcodeEPKhl.exit.i.i: ; preds = %3257
-  %3258 = add nuw nsw i64 %.017878.i.i, 1
+  %3258 = add nuw nsw i64 %.018578.i.i, 1
   %exitcond134.not.i.i856 = icmp eq i64 %3258, %3212
   br i1 %exitcond134.not.i.i856, label %.loopexit30.i.i851, label %.lr.ph79.i.i, !llvm.loop !802
 
@@ -16126,7 +16126,7 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi1EE9add_b
   %3263 = load ptr, ptr %3203, align 8, !noalias !775
   %3264 = getelementptr inbounds i8, ptr %3263, i64 56
   %3265 = load ptr, ptr %3264, align 8, !noalias !775
-  invoke void %3265(ptr noundef nonnull align 8 dereferenceable(25) %3203, i64 noundef %.0185.i.i770, ptr noundef %3207)
+  invoke void %3265(ptr noundef nonnull align 8 dereferenceable(25) %3203, i64 noundef %.0175.i.i770, ptr noundef %3207)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i780 unwind label %3266, !noalias !775
 
 3266:                                             ; preds = %3261
@@ -16143,8 +16143,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi1EE9add_b
 
 3270:                                             ; preds = %.loopexit31.i.i834, %.lr.ph76.i.i
   %3271 = phi i64 [ 4, %.lr.ph76.i.i ], [ %3269, %.loopexit31.i.i834 ]
-  %.118075.i.i = phi i64 [ 0, %.lr.ph76.i.i ], [ %3271, %.loopexit31.i.i834 ]
-  %3272 = getelementptr inbounds i32, ptr %3216, i64 %.118075.i.i
+  %.117775.i.i = phi i64 [ 0, %.lr.ph76.i.i ], [ %3271, %.loopexit31.i.i834 ]
+  %3272 = getelementptr inbounds i32, ptr %3216, i64 %.117775.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !804)
   call void @llvm.experimental.noalias.scope.decl(metadata !807)
   br label %3273
@@ -16180,10 +16180,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi2EEC2EmPK
   br i1 %3217, label %.lr.ph73.i.i836, label %.loopexit31.i.i834
 
 .lr.ph73.i.i836:                                  ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi2EE9add_bcodeEPKhl.exit.i.i
-  %.017772.i.i = phi i64 [ %3317, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi2EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %3288 = mul i64 %.017772.i.i, %3168
+  %.018472.i.i = phi i64 [ %3317, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi2EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi2EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %3288 = mul i64 %.018472.i.i, %3168
   %3289 = getelementptr inbounds i8, ptr %3202, i64 %3288
-  %3290 = getelementptr inbounds i64, ptr %3207, i64 %.017772.i.i
+  %3290 = getelementptr inbounds i64, ptr %3207, i64 %.018472.i.i
   %3291 = load i64, ptr %3290, align 8, !noalias !775
   br label %3292
 
@@ -16239,7 +16239,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i84
   br i1 %exitcond.not.i218.i.i839, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi2EE9add_bcodeEPKhl.exit.i.i, label %3292, !llvm.loop !816
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi2EE9add_bcodeEPKhl.exit.i.i: ; preds = %3316
-  %3317 = add nuw nsw i64 %.017772.i.i, 1
+  %3317 = add nuw nsw i64 %.018472.i.i, 1
   %exitcond133.not.i.i = icmp eq i64 %3317, %3212
   br i1 %exitcond133.not.i.i, label %.loopexit31.i.i834, label %.lr.ph73.i.i836, !llvm.loop !817
 
@@ -16250,8 +16250,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi2EE9add_b
 
 3319:                                             ; preds = %.loopexit32.i.i788, %.lr.ph71.i.i
   %3320 = phi i64 [ 4, %.lr.ph71.i.i ], [ %3318, %.loopexit32.i.i788 ]
-  %.218170.i.i = phi i64 [ 0, %.lr.ph71.i.i ], [ %3320, %.loopexit32.i.i788 ]
-  %3321 = getelementptr inbounds i32, ptr %3214, i64 %.218170.i.i
+  %.217870.i.i = phi i64 [ 0, %.lr.ph71.i.i ], [ %3320, %.loopexit32.i.i788 ]
+  %3321 = getelementptr inbounds i32, ptr %3214, i64 %.217870.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !819)
   call void @llvm.experimental.noalias.scope.decl(metadata !822)
   br label %3322
@@ -16287,10 +16287,10 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi4EEC2EmPK
   br i1 %3215, label %.lr.ph68.i.i, label %.loopexit32.i.i788
 
 .lr.ph68.i.i:                                     ; preds = %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi4EE9add_bcodeEPKhl.exit.i.i
-  %.017667.i.i = phi i64 [ %3394, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
-  %3337 = mul i64 %.017667.i.i, %3168
+  %.018367.i.i = phi i64 [ %3394, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi4EEC2EmPKhPKiPiPl.exit.preheader.i.i ]
+  %3337 = mul i64 %.018367.i.i, %3168
   %3338 = getelementptr inbounds i8, ptr %3202, i64 %3337
-  %3339 = getelementptr inbounds i64, ptr %3207, i64 %.017667.i.i
+  %3339 = getelementptr inbounds i64, ptr %3207, i64 %.018367.i.i
   %3340 = load i64, ptr %3339, align 8, !noalias !775
   br label %3341
 
@@ -16396,7 +16396,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i227.i.
   br i1 %exitcond.not.i225.i.i814, label %_ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi4EE9add_bcodeEPKhl.exit.i.i, label %3341, !llvm.loop !831
 
 _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi4EE9add_bcodeEPKhl.exit.i.i: ; preds = %3393
-  %3394 = add nuw nsw i64 %.017667.i.i, 1
+  %3394 = add nuw nsw i64 %.018367.i.i, 1
   %exitcond132.not.i.i = icmp eq i64 %3394, %3212
   br i1 %exitcond132.not.i.i, label %.loopexit32.i.i788, label %.lr.ph68.i.i, !llvm.loop !832
 
@@ -16407,8 +16407,8 @@ _ZN5faiss12_GLOBAL__N_111BlockSearchINS_22HammingComputerDefaultELi4ELi4EE9add_b
 
 3396:                                             ; preds = %.loopexit29.i.i861, %.lr.ph88.i.i
   %3397 = phi i64 [ 4, %.lr.ph88.i.i ], [ %3395, %.loopexit29.i.i861 ]
-  %.318287.i.i = phi i64 [ 0, %.lr.ph88.i.i ], [ %3397, %.loopexit29.i.i861 ]
-  %3398 = getelementptr inbounds i32, ptr %3220, i64 %.318287.i.i
+  %.317987.i.i = phi i64 [ 0, %.lr.ph88.i.i ], [ %3397, %.loopexit29.i.i861 ]
+  %3398 = getelementptr inbounds i32, ptr %3220, i64 %.317987.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !834)
   call void @llvm.experimental.noalias.scope.decl(metadata !837)
   store i32 %3181, ptr %16, align 8, !noalias !839
@@ -16445,10 +16445,10 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_22HammingComputerDefaultELi4EEC
   br i1 %3221, label %.lr.ph85.i.i, label %.loopexit29.i.i861
 
 .lr.ph85.i.i:                                     ; preds = %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_22HammingComputerDefaultELi4EEC2EmiPKhPKiPiPl.exit.preheader.i.i, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_22HammingComputerDefaultELi4EE9add_bcodeEPKhl.exit.i.i
-  %.017584.i.i = phi i64 [ %3474, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_22HammingComputerDefaultELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_22HammingComputerDefaultELi4EEC2EmiPKhPKiPiPl.exit.preheader.i.i ]
-  %3414 = mul i64 %.017584.i.i, %3168
+  %.018284.i.i = phi i64 [ %3474, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_22HammingComputerDefaultELi4EE9add_bcodeEPKhl.exit.i.i ], [ 0, %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_22HammingComputerDefaultELi4EEC2EmiPKhPKiPiPl.exit.preheader.i.i ]
+  %3414 = mul i64 %.018284.i.i, %3168
   %3415 = getelementptr inbounds i8, ptr %3202, i64 %3414
-  %3416 = getelementptr inbounds i64, ptr %3207, i64 %.017584.i.i
+  %3416 = getelementptr inbounds i64, ptr %3207, i64 %.018284.i.i
   %3417 = load i64, ptr %3416, align 8, !noalias !775
   br label %3418
 
@@ -16560,13 +16560,13 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i246.i.
   br i1 %exitcond.not.i237.i.i865, label %_ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_22HammingComputerDefaultELi4EE9add_bcodeEPKhl.exit.i.i, label %3418, !llvm.loop !846
 
 _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_22HammingComputerDefaultELi4EE9add_bcodeEPKhl.exit.i.i: ; preds = %3473
-  %3474 = add nuw nsw i64 %.017584.i.i, 1
+  %3474 = add nuw nsw i64 %.018284.i.i, 1
   %exitcond135.not.i.i866 = icmp eq i64 %3474, %3212
   br i1 %exitcond135.not.i.i866, label %.loopexit29.i.i861, label %.lr.ph85.i.i, !llvm.loop !847
 
 .loopexit34.i.i790:                               ; preds = %.loopexit32.i.i788, %.loopexit31.i.i834, %.loopexit30.i.i851, %.loopexit29.i.i861, %.preheader33.i.i, %.preheader35.i.i846, %.preheader37.i.i829, %.preheader39.i.i783
-  %.4183.i.i791 = phi i64 [ 0, %.preheader33.i.i ], [ 0, %.preheader35.i.i846 ], [ 0, %.preheader37.i.i829 ], [ 0, %.preheader39.i.i783 ], [ %3397, %.loopexit29.i.i861 ], [ %3224, %.loopexit30.i.i851 ], [ %3271, %.loopexit31.i.i834 ], [ %3320, %.loopexit32.i.i788 ]
-  %3475 = icmp slt i64 %.4183.i.i791, %3197
+  %.4180.i.i791 = phi i64 [ 0, %.preheader33.i.i ], [ 0, %.preheader35.i.i846 ], [ 0, %.preheader37.i.i829 ], [ 0, %.preheader39.i.i783 ], [ %3397, %.loopexit29.i.i861 ], [ %3224, %.loopexit30.i.i851 ], [ %3271, %.loopexit31.i.i834 ], [ %3320, %.loopexit32.i.i788 ]
+  %3475 = icmp slt i64 %.4180.i.i791, %3197
   br i1 %3475, label %.lr.ph97.i.i794, label %._crit_edge98.i.i792
 
 .lr.ph97.i.i794:                                  ; preds = %.loopexit34.i.i790
@@ -16575,8 +16575,8 @@ _ZN5faiss12_GLOBAL__N_120BlockSearchVariableKINS_22HammingComputerDefaultELi4EE9
   br label %3478
 
 3478:                                             ; preds = %._crit_edge94.i.i, %.lr.ph97.i.i794
-  %.518495.i.i = phi i64 [ %.4183.i.i791, %.lr.ph97.i.i794 ], [ %3545, %._crit_edge94.i.i ]
-  %3479 = getelementptr i32, ptr %3476, i64 %.518495.i.i
+  %.518195.i.i = phi i64 [ %.4180.i.i791, %.lr.ph97.i.i794 ], [ %3545, %._crit_edge94.i.i ]
+  %3479 = getelementptr i32, ptr %3476, i64 %.518195.i.i
   %3480 = load i32, ptr %3479, align 4, !noalias !775
   %3481 = sext i32 %3480 to i64
   %3482 = mul nsw i64 %3481, %3168
@@ -16713,7 +16713,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i802:     ; preds = %3528
   br i1 %exitcond136.not.i.i797, label %._crit_edge94.i.i, label %.lr.ph93.split.i.i, !llvm.loop !848
 
 ._crit_edge94.i.i:                                ; preds = %3543, %3497, %3478
-  %3545 = add nuw nsw i64 %.518495.i.i, 1
+  %3545 = add nuw nsw i64 %.518195.i.i, 1
   %3546 = icmp slt i64 %3545, %3197
   br i1 %3546, label %3478, label %._crit_edge98.i.i792, !llvm.loop !849
 
@@ -16721,7 +16721,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i802:     ; preds = %3528
   %3547 = load ptr, ptr %3203, align 8, !noalias !775
   %3548 = getelementptr inbounds i8, ptr %3547, i64 56
   %3549 = load ptr, ptr %3548, align 8, !noalias !775
-  invoke void %3549(ptr noundef nonnull align 8 dereferenceable(25) %3203, i64 noundef %.0185.i.i770, ptr noundef %3207)
+  invoke void %3549(ptr noundef nonnull align 8 dereferenceable(25) %3203, i64 noundef %.0175.i.i770, ptr noundef %3207)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit252.i.i793 unwind label %3550, !noalias !775
 
 3550:                                             ; preds = %._crit_edge98.i.i792
@@ -16735,7 +16735,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit252.i.i793: ; preds = %._crit_edge98.
   %3553 = load ptr, ptr %3198, align 8, !noalias !775
   %3554 = getelementptr inbounds i8, ptr %3553, i64 48
   %3555 = load ptr, ptr %3554, align 8, !noalias !775
-  invoke void %3555(ptr noundef nonnull align 8 dereferenceable(25) %3198, i64 noundef %.0185.i.i770, ptr noundef %3202)
+  invoke void %3555(ptr noundef nonnull align 8 dereferenceable(25) %3198, i64 noundef %.0175.i.i770, ptr noundef %3202)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.i.i769 unwind label %3556, !noalias !775, !llvm.loop !850
 
 3556:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit252.i.i793
@@ -16750,7 +16750,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i780: ; preds = %3261, %3259
   %3559 = load ptr, ptr %3198, align 8, !noalias !775
   %3560 = getelementptr inbounds i8, ptr %3559, i64 48
   %3561 = load ptr, ptr %3560, align 8, !noalias !775
-  invoke void %3561(ptr noundef nonnull align 8 dereferenceable(25) %3198, i64 noundef %.0185.i.i770, ptr noundef %3202)
+  invoke void %3561(ptr noundef nonnull align 8 dereferenceable(25) %3198, i64 noundef %.0175.i.i770, ptr noundef %3202)
           to label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit256.i.i760 unwind label %3562, !noalias !775
 
 3562:                                             ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.i.i780
@@ -17075,9 +17075,9 @@ _ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %75 = phi i64 [ %175, %174 ], [ %74, %_ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit ]
   %76 = phi i64 [ %176, %174 ], [ %42, %_ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit ]
   %77 = phi i64 [ %177, %174 ], [ %43, %_ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit ]
-  %.059104 = phi i64 [ %178, %174 ], [ 0, %_ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit ]
-  %.060103 = phi i64 [ %.1, %174 ], [ 0, %_ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit ]
-  %78 = getelementptr inbounds i64, ptr %57, i64 %.059104
+  %.059104 = phi i64 [ %.1, %174 ], [ 0, %_ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit ]
+  %.060103 = phi i64 [ %178, %174 ], [ 0, %_ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit ]
+  %78 = getelementptr inbounds i64, ptr %57, i64 %.060103
   %79 = load i64, ptr %78, align 8
   %80 = icmp slt i64 %79, 0
   br i1 %80, label %174, label %81
@@ -17094,7 +17094,7 @@ _ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %87 = load ptr, ptr %2, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 168
   %89 = load i64, ptr %88, align 8
-  %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i64 noundef %79, i64 noundef %.059104, i64 noundef %89) #20
+  %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i64 noundef %79, i64 noundef %.060103, i64 noundef %89) #20
   %91 = add nsw i32 %90, 1
   %92 = sext i32 %91 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %92)
@@ -17109,7 +17109,7 @@ _ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %97 = load ptr, ptr %2, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 168
   %99 = load i64, ptr %98, align 8
-  %100 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %94, i64 noundef %96, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i64 noundef %79, i64 noundef %.059104, i64 noundef %99) #20
+  %100 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %94, i64 noundef %96, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i64 noundef %79, i64 noundef %.060103, i64 noundef %99) #20
   %101 = call ptr @__cxa_allocate_exception(i64 40) #20
   invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %101, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_123search_knn_hamming_heapEPKNS_14IndexBinaryIVFEmPKhlPKlPKiPiPlbPKNS_19SearchParametersIVFE.omp_outlined, ptr noundef nonnull @.str.2, i32 noundef 426)
           to label %102 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -17122,7 +17122,7 @@ _ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %104 = load ptr, ptr %12, align 8
   %105 = mul nsw i64 %75, %.058106
   %106 = getelementptr i32, ptr %104, i64 %105
-  %107 = getelementptr i32, ptr %106, i64 %.059104
+  %107 = getelementptr i32, ptr %106, i64 %.060103
   %108 = load i32, ptr %107, align 4
   %109 = trunc i32 %108 to i8
   %110 = load ptr, ptr %33, align 8
@@ -17199,7 +17199,7 @@ _ZNSt10unique_ptrIN5faiss13InvertedLists9ScopedIdsESt14default_deleteIS2_EED2Ev.
 151:                                              ; preds = %145
   %152 = add i64 %76, %150
   store i64 %152, ptr %20, align 8
-  %153 = add i64 %121, %.060103
+  %153 = add i64 %121, %.059104
   %154 = load i64, ptr %15, align 8
   %155 = add i64 %154, -1
   %or.cond.not = icmp ult i64 %155, %153
@@ -17254,8 +17254,8 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge123: ; preds = %_ZN5fai
   %175 = phi i64 [ %75, %.lr.ph ], [ %.pre, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge123 ]
   %176 = phi i64 [ %76, %.lr.ph ], [ %152, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge123 ]
   %177 = phi i64 [ %77, %.lr.ph ], [ %114, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge123 ]
-  %.1 = phi i64 [ %.060103, %.lr.ph ], [ %153, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge123 ]
-  %178 = add nuw i64 %.059104, 1
+  %.1 = phi i64 [ %.059104, %.lr.ph ], [ %153, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge123 ]
+  %178 = add nuw i64 %.060103, 1
   %179 = icmp ult i64 %178, %175
   br i1 %179, label %.lr.ph, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, !llvm.loop !859
 
@@ -17619,7 +17619,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_16Ham
 44:                                               ; preds = %.lr.ph107, %155
   %45 = phi i64 [ %33, %.lr.ph107 ], [ %156, %155 ]
   %46 = phi i64 [ %31, %.lr.ph107 ], [ %157, %155 ]
-  %.085106 = phi i64 [ 0, %.lr.ph107 ], [ %.186, %155 ]
+  %.084106 = phi i64 [ 0, %.lr.ph107 ], [ %.185, %155 ]
   %.088105 = phi i64 [ 0, %.lr.ph107 ], [ %158, %155 ]
   %47 = getelementptr inbounds i64, ptr %35, i64 %.088105
   %48 = load i64, ptr %47, align 8
@@ -17692,14 +17692,14 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %80
   br label %89
 
 89:                                               ; preds = %.lr.ph, %_ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit
-  %.084104 = phi i64 [ 0, %.lr.ph ], [ %145, %_ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit ]
+  %.087104 = phi i64 [ 0, %.lr.ph ], [ %145, %_ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit ]
   %90 = load ptr, ptr %6, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 12
   %92 = load i32, ptr %91, align 4
   %93 = sext i32 %92 to i64
-  %94 = mul i64 %.084104, %93
+  %94 = mul i64 %.087104, %93
   %95 = getelementptr inbounds i8, ptr %87, i64 %94
-  %96 = or i64 %.084104, %88
+  %96 = or i64 %.087104, %88
   %97 = load i32, ptr %95, align 4
   %98 = load i32, ptr %38, align 4
   %99 = xor i32 %98, %97
@@ -17780,7 +17780,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %80
   br label %_ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit
 
 _ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit: ; preds = %125, %122, %134, %131, %105, %89
-  %145 = add nuw i64 %.084104, 1
+  %145 = add nuw i64 %.087104, 1
   %exitcond.not = icmp eq i64 %145, %79
   br i1 %exitcond.not, label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge, label %89, !llvm.loop !866
 
@@ -17800,7 +17800,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge: ; preds = %_ZN5f
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge
-  %153 = add i64 %79, %.085106
+  %153 = add i64 %79, %.084106
   %154 = add i64 %146, -1
   %or.cond.not = icmp ult i64 %154, %153
   br i1 %or.cond.not, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143
@@ -17812,15 +17812,15 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143: ; preds = %_ZN5fai
 155:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143, %44
   %156 = phi i64 [ %45, %44 ], [ %.pre, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
   %157 = phi i64 [ %46, %44 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
-  %.186 = phi i64 [ %.085106, %44 ], [ %153, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
+  %.185 = phi i64 [ %.084106, %44 ], [ %153, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
   %158 = add nuw i64 %.088105, 1
   %159 = icmp ult i64 %158, %156
   br i1 %159, label %44, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, !llvm.loop !867
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %155, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit, %.lr.ph123
   %160 = phi i64 [ %31, %.lr.ph123 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %157, %155 ]
-  %.287 = phi i64 [ 0, %.lr.ph123 ], [ %153, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.186, %155 ]
-  %161 = add i64 %30, %.287
+  %.286 = phi i64 [ 0, %.lr.ph123 ], [ %153, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.185, %155 ]
+  %161 = add i64 %30, %.286
   store i64 %161, ptr %20, align 8
   %162 = load i32, ptr %10, align 4
   %163 = icmp sgt i32 %162, 0
@@ -18078,7 +18078,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_16Ham
 44:                                               ; preds = %.lr.ph107, %154
   %45 = phi i64 [ %33, %.lr.ph107 ], [ %155, %154 ]
   %46 = phi i64 [ %31, %.lr.ph107 ], [ %156, %154 ]
-  %.085106 = phi i64 [ 0, %.lr.ph107 ], [ %.186, %154 ]
+  %.084106 = phi i64 [ 0, %.lr.ph107 ], [ %.185, %154 ]
   %.088105 = phi i64 [ 0, %.lr.ph107 ], [ %157, %154 ]
   %47 = getelementptr inbounds i64, ptr %35, i64 %.088105
   %48 = load i64, ptr %47, align 8
@@ -18151,14 +18151,14 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %80
   br label %89
 
 89:                                               ; preds = %.lr.ph, %_ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit
-  %.084104 = phi i64 [ 0, %.lr.ph ], [ %144, %_ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit ]
+  %.087104 = phi i64 [ 0, %.lr.ph ], [ %144, %_ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit ]
   %90 = load ptr, ptr %6, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 12
   %92 = load i32, ptr %91, align 4
   %93 = sext i32 %92 to i64
-  %94 = mul i64 %.084104, %93
+  %94 = mul i64 %.087104, %93
   %95 = getelementptr inbounds i8, ptr %87, i64 %94
-  %96 = or i64 %.084104, %88
+  %96 = or i64 %.087104, %88
   %97 = load i64, ptr %95, align 8
   %98 = load i64, ptr %38, align 8
   %99 = xor i64 %98, %97
@@ -18238,7 +18238,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %80
   br label %_ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit
 
 _ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit: ; preds = %122, %125, %89, %106, %131, %134
-  %144 = add nuw i64 %.084104, 1
+  %144 = add nuw i64 %.087104, 1
   %exitcond.not = icmp eq i64 %144, %79
   br i1 %exitcond.not, label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge, label %89, !llvm.loop !872
 
@@ -18258,7 +18258,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge: ; preds = %_ZN5f
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge
-  %152 = add i64 %79, %.085106
+  %152 = add i64 %79, %.084106
   %153 = add i64 %145, -1
   %or.cond.not = icmp ult i64 %153, %152
   br i1 %or.cond.not, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143
@@ -18270,15 +18270,15 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143: ; preds = %_ZN5fai
 154:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143, %44
   %155 = phi i64 [ %45, %44 ], [ %.pre, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
   %156 = phi i64 [ %46, %44 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
-  %.186 = phi i64 [ %.085106, %44 ], [ %152, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
+  %.185 = phi i64 [ %.084106, %44 ], [ %152, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
   %157 = add nuw i64 %.088105, 1
   %158 = icmp ult i64 %157, %155
   br i1 %158, label %44, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, !llvm.loop !873
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %154, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit, %.lr.ph123
   %159 = phi i64 [ %31, %.lr.ph123 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %156, %154 ]
-  %.287 = phi i64 [ 0, %.lr.ph123 ], [ %152, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.186, %154 ]
-  %160 = add i64 %30, %.287
+  %.286 = phi i64 [ 0, %.lr.ph123 ], [ %152, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.185, %154 ]
+  %160 = add i64 %30, %.286
   store i64 %160, ptr %20, align 8
   %161 = load i32, ptr %10, align 4
   %162 = icmp sgt i32 %161, 0
@@ -18536,7 +18536,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17Ham
 44:                                               ; preds = %.lr.ph107, %158
   %45 = phi i64 [ %33, %.lr.ph107 ], [ %159, %158 ]
   %46 = phi i64 [ %31, %.lr.ph107 ], [ %160, %158 ]
-  %.085106 = phi i64 [ 0, %.lr.ph107 ], [ %.186, %158 ]
+  %.084106 = phi i64 [ 0, %.lr.ph107 ], [ %.185, %158 ]
   %.088105 = phi i64 [ 0, %.lr.ph107 ], [ %161, %158 ]
   %47 = getelementptr inbounds i64, ptr %35, i64 %.088105
   %48 = load i64, ptr %47, align 8
@@ -18609,14 +18609,14 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %80
   br label %89
 
 89:                                               ; preds = %.lr.ph, %_ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit
-  %.084104 = phi i64 [ 0, %.lr.ph ], [ %148, %_ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit ]
+  %.087104 = phi i64 [ 0, %.lr.ph ], [ %148, %_ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit ]
   %90 = load ptr, ptr %6, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 12
   %92 = load i32, ptr %91, align 4
   %93 = sext i32 %92 to i64
-  %94 = mul i64 %.084104, %93
+  %94 = mul i64 %.087104, %93
   %95 = getelementptr inbounds i8, ptr %87, i64 %94
-  %96 = or i64 %.084104, %88
+  %96 = or i64 %.087104, %88
   %97 = load <2 x i64>, ptr %95, align 8
   %98 = load <2 x i64>, ptr %38, align 8
   %99 = xor <2 x i64> %98, %97
@@ -18701,7 +18701,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %80
   br label %_ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit
 
 _ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit: ; preds = %125, %128, %89, %108, %134, %137
-  %148 = add nuw i64 %.084104, 1
+  %148 = add nuw i64 %.087104, 1
   %exitcond.not = icmp eq i64 %148, %79
   br i1 %exitcond.not, label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge, label %89, !llvm.loop !878
 
@@ -18721,7 +18721,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge: ; preds = %_ZN5f
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge
-  %156 = add i64 %79, %.085106
+  %156 = add i64 %79, %.084106
   %157 = add i64 %149, -1
   %or.cond.not = icmp ult i64 %157, %156
   br i1 %or.cond.not, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143
@@ -18733,15 +18733,15 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143: ; preds = %_ZN5fai
 158:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143, %44
   %159 = phi i64 [ %45, %44 ], [ %.pre, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
   %160 = phi i64 [ %46, %44 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
-  %.186 = phi i64 [ %.085106, %44 ], [ %156, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
+  %.185 = phi i64 [ %.084106, %44 ], [ %156, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
   %161 = add nuw i64 %.088105, 1
   %162 = icmp ult i64 %161, %159
   br i1 %162, label %44, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, !llvm.loop !879
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %158, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit, %.lr.ph123
   %163 = phi i64 [ %31, %.lr.ph123 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %160, %158 ]
-  %.287 = phi i64 [ 0, %.lr.ph123 ], [ %156, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.186, %158 ]
-  %164 = add i64 %30, %.287
+  %.286 = phi i64 [ 0, %.lr.ph123 ], [ %156, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.185, %158 ]
+  %164 = add i64 %30, %.286
   store i64 %164, ptr %20, align 8
   %165 = load i32, ptr %10, align 4
   %166 = icmp sgt i32 %165, 0
@@ -19000,7 +19000,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17Ham
 45:                                               ; preds = %.lr.ph107, %165
   %46 = phi i64 [ %33, %.lr.ph107 ], [ %166, %165 ]
   %47 = phi i64 [ %31, %.lr.ph107 ], [ %167, %165 ]
-  %.085106 = phi i64 [ 0, %.lr.ph107 ], [ %.186, %165 ]
+  %.084106 = phi i64 [ 0, %.lr.ph107 ], [ %.185, %165 ]
   %.088105 = phi i64 [ 0, %.lr.ph107 ], [ %168, %165 ]
   %48 = getelementptr inbounds i64, ptr %35, i64 %.088105
   %49 = load i64, ptr %48, align 8
@@ -19073,14 +19073,14 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %81
   br label %90
 
 90:                                               ; preds = %.lr.ph, %_ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit
-  %.084104 = phi i64 [ 0, %.lr.ph ], [ %155, %_ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit ]
+  %.087104 = phi i64 [ 0, %.lr.ph ], [ %155, %_ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit ]
   %91 = load ptr, ptr %6, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 12
   %93 = load i32, ptr %92, align 4
   %94 = sext i32 %93 to i64
-  %95 = mul i64 %.084104, %94
+  %95 = mul i64 %.087104, %94
   %96 = getelementptr inbounds i8, ptr %88, i64 %95
-  %97 = or i64 %.084104, %89
+  %97 = or i64 %.087104, %89
   %98 = load <2 x i64>, ptr %96, align 8
   %99 = load <2 x i64>, ptr %38, align 8
   %100 = xor <2 x i64> %99, %98
@@ -19171,7 +19171,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %81
   br label %_ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit
 
 _ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit: ; preds = %132, %135, %90, %115, %141, %144
-  %155 = add nuw i64 %.084104, 1
+  %155 = add nuw i64 %.087104, 1
   %exitcond.not = icmp eq i64 %155, %80
   br i1 %exitcond.not, label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge, label %90, !llvm.loop !884
 
@@ -19191,7 +19191,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge: ; preds = %_ZN5f
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge
-  %163 = add i64 %80, %.085106
+  %163 = add i64 %80, %.084106
   %164 = add i64 %156, -1
   %or.cond.not = icmp ult i64 %164, %163
   br i1 %or.cond.not, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143
@@ -19203,15 +19203,15 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143: ; preds = %_ZN5fai
 165:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143, %45
   %166 = phi i64 [ %46, %45 ], [ %.pre, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
   %167 = phi i64 [ %47, %45 ], [ %74, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
-  %.186 = phi i64 [ %.085106, %45 ], [ %163, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
+  %.185 = phi i64 [ %.084106, %45 ], [ %163, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
   %168 = add nuw i64 %.088105, 1
   %169 = icmp ult i64 %168, %166
   br i1 %169, label %45, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, !llvm.loop !885
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %165, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit, %.lr.ph123
   %170 = phi i64 [ %31, %.lr.ph123 ], [ %74, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %167, %165 ]
-  %.287 = phi i64 [ 0, %.lr.ph123 ], [ %163, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.186, %165 ]
-  %171 = add i64 %30, %.287
+  %.286 = phi i64 [ 0, %.lr.ph123 ], [ %163, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.185, %165 ]
+  %171 = add i64 %30, %.286
   store i64 %171, ptr %20, align 8
   %172 = load i32, ptr %10, align 4
   %173 = icmp sgt i32 %172, 0
@@ -19469,7 +19469,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17Ham
 44:                                               ; preds = %.lr.ph107, %157
   %45 = phi i64 [ %33, %.lr.ph107 ], [ %158, %157 ]
   %46 = phi i64 [ %31, %.lr.ph107 ], [ %159, %157 ]
-  %.085106 = phi i64 [ 0, %.lr.ph107 ], [ %.186, %157 ]
+  %.084106 = phi i64 [ 0, %.lr.ph107 ], [ %.185, %157 ]
   %.088105 = phi i64 [ 0, %.lr.ph107 ], [ %160, %157 ]
   %47 = getelementptr inbounds i64, ptr %35, i64 %.088105
   %48 = load i64, ptr %47, align 8
@@ -19542,14 +19542,14 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %80
   br label %89
 
 89:                                               ; preds = %.lr.ph, %_ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit
-  %.084104 = phi i64 [ 0, %.lr.ph ], [ %147, %_ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit ]
+  %.087104 = phi i64 [ 0, %.lr.ph ], [ %147, %_ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit ]
   %90 = load ptr, ptr %6, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 12
   %92 = load i32, ptr %91, align 4
   %93 = sext i32 %92 to i64
-  %94 = mul i64 %.084104, %93
+  %94 = mul i64 %.087104, %93
   %95 = getelementptr inbounds i8, ptr %87, i64 %94
-  %96 = or i64 %.084104, %88
+  %96 = or i64 %.087104, %88
   %97 = load <4 x i64>, ptr %95, align 8
   %98 = load <4 x i64>, ptr %38, align 8
   %99 = xor <4 x i64> %98, %97
@@ -19632,7 +19632,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %80
   br label %_ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit
 
 _ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit: ; preds = %124, %127, %89, %107, %133, %136
-  %147 = add nuw i64 %.084104, 1
+  %147 = add nuw i64 %.087104, 1
   %exitcond.not = icmp eq i64 %147, %79
   br i1 %exitcond.not, label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge, label %89, !llvm.loop !890
 
@@ -19652,7 +19652,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge: ; preds = %_ZN5f
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge
-  %155 = add i64 %79, %.085106
+  %155 = add i64 %79, %.084106
   %156 = add i64 %148, -1
   %or.cond.not = icmp ult i64 %156, %155
   br i1 %or.cond.not, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143
@@ -19664,15 +19664,15 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143: ; preds = %_ZN5fai
 157:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143, %44
   %158 = phi i64 [ %45, %44 ], [ %.pre, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
   %159 = phi i64 [ %46, %44 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
-  %.186 = phi i64 [ %.085106, %44 ], [ %155, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
+  %.185 = phi i64 [ %.084106, %44 ], [ %155, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
   %160 = add nuw i64 %.088105, 1
   %161 = icmp ult i64 %160, %158
   br i1 %161, label %44, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, !llvm.loop !891
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %157, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit, %.lr.ph123
   %162 = phi i64 [ %31, %.lr.ph123 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %159, %157 ]
-  %.287 = phi i64 [ 0, %.lr.ph123 ], [ %155, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.186, %157 ]
-  %163 = add i64 %30, %.287
+  %.286 = phi i64 [ 0, %.lr.ph123 ], [ %155, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.185, %157 ]
+  %163 = add i64 %30, %.286
   store i64 %163, ptr %20, align 8
   %164 = load i32, ptr %10, align 4
   %165 = icmp sgt i32 %164, 0
@@ -19930,7 +19930,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17Ham
 44:                                               ; preds = %.lr.ph107, %157
   %45 = phi i64 [ %33, %.lr.ph107 ], [ %158, %157 ]
   %46 = phi i64 [ %31, %.lr.ph107 ], [ %159, %157 ]
-  %.085106 = phi i64 [ 0, %.lr.ph107 ], [ %.186, %157 ]
+  %.084106 = phi i64 [ 0, %.lr.ph107 ], [ %.185, %157 ]
   %.088105 = phi i64 [ 0, %.lr.ph107 ], [ %160, %157 ]
   %47 = getelementptr inbounds i64, ptr %35, i64 %.088105
   %48 = load i64, ptr %47, align 8
@@ -20003,14 +20003,14 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %80
   br label %89
 
 89:                                               ; preds = %.lr.ph, %_ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit
-  %.084104 = phi i64 [ 0, %.lr.ph ], [ %147, %_ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit ]
+  %.087104 = phi i64 [ 0, %.lr.ph ], [ %147, %_ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit ]
   %90 = load ptr, ptr %6, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 12
   %92 = load i32, ptr %91, align 4
   %93 = sext i32 %92 to i64
-  %94 = mul i64 %.084104, %93
+  %94 = mul i64 %.087104, %93
   %95 = getelementptr inbounds i8, ptr %87, i64 %94
-  %96 = or i64 %.084104, %88
+  %96 = or i64 %.087104, %88
   %97 = load <8 x i64>, ptr %95, align 8
   %98 = load <8 x i64>, ptr %38, align 8
   %99 = xor <8 x i64> %98, %97
@@ -20093,7 +20093,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %80
   br label %_ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit
 
 _ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit: ; preds = %124, %127, %89, %107, %133, %136
-  %147 = add nuw i64 %.084104, 1
+  %147 = add nuw i64 %.087104, 1
   %exitcond.not = icmp eq i64 %147, %79
   br i1 %exitcond.not, label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge, label %89, !llvm.loop !896
 
@@ -20113,7 +20113,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge: ; preds = %_ZN5f
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge
-  %155 = add i64 %79, %.085106
+  %155 = add i64 %79, %.084106
   %156 = add i64 %148, -1
   %or.cond.not = icmp ult i64 %156, %155
   br i1 %or.cond.not, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143
@@ -20125,15 +20125,15 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143: ; preds = %_ZN5fai
 157:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143, %44
   %158 = phi i64 [ %45, %44 ], [ %.pre, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
   %159 = phi i64 [ %46, %44 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
-  %.186 = phi i64 [ %.085106, %44 ], [ %155, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
+  %.185 = phi i64 [ %.084106, %44 ], [ %155, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
   %160 = add nuw i64 %.088105, 1
   %161 = icmp ult i64 %160, %158
   br i1 %161, label %44, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, !llvm.loop !897
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %157, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit, %.lr.ph123
   %162 = phi i64 [ %31, %.lr.ph123 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %159, %157 ]
-  %.287 = phi i64 [ 0, %.lr.ph123 ], [ %155, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.186, %157 ]
-  %163 = add i64 %30, %.287
+  %.286 = phi i64 [ 0, %.lr.ph123 ], [ %155, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.185, %157 ]
+  %163 = add i64 %30, %.286
   store i64 %163, ptr %20, align 8
   %164 = load i32, ptr %10, align 4
   %165 = icmp sgt i32 %164, 0
@@ -20391,7 +20391,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_22Ham
 44:                                               ; preds = %.lr.ph107, %152
   %45 = phi i64 [ %33, %.lr.ph107 ], [ %153, %152 ]
   %46 = phi i64 [ %31, %.lr.ph107 ], [ %154, %152 ]
-  %.085106 = phi i64 [ 0, %.lr.ph107 ], [ %.186, %152 ]
+  %.084106 = phi i64 [ 0, %.lr.ph107 ], [ %.185, %152 ]
   %.088105 = phi i64 [ 0, %.lr.ph107 ], [ %155, %152 ]
   %47 = getelementptr inbounds i64, ptr %35, i64 %.088105
   %48 = load i64, ptr %47, align 8
@@ -20464,14 +20464,14 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %80
   br label %89
 
 89:                                               ; preds = %.lr.ph, %_ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit
-  %.084104 = phi i64 [ 0, %.lr.ph ], [ %142, %_ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit ]
+  %.087104 = phi i64 [ 0, %.lr.ph ], [ %142, %_ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit ]
   %90 = load ptr, ptr %6, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 12
   %92 = load i32, ptr %91, align 4
   %93 = sext i32 %92 to i64
-  %94 = mul i64 %.084104, %93
+  %94 = mul i64 %.087104, %93
   %95 = getelementptr inbounds i8, ptr %87, i64 %94
-  %96 = or i64 %.084104, %88
+  %96 = or i64 %.087104, %88
   %97 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef %95)
   %98 = load i32, ptr %39, align 8
   %.not.i = icmp sgt i32 %97, %98
@@ -20549,7 +20549,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %80
   br label %_ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit
 
 _ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit: ; preds = %119, %122, %89, %102, %128, %131
-  %142 = add nuw i64 %.084104, 1
+  %142 = add nuw i64 %.087104, 1
   %exitcond.not = icmp eq i64 %142, %79
   br i1 %exitcond.not, label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge, label %89, !llvm.loop !902
 
@@ -20569,7 +20569,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge: ; preds = %_ZN5f
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit._crit_edge
-  %150 = add i64 %79, %.085106
+  %150 = add i64 %79, %.084106
   %151 = add i64 %143, -1
   %or.cond.not = icmp ult i64 %151, %150
   br i1 %or.cond.not, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143
@@ -20581,15 +20581,15 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143: ; preds = %_ZN5fai
 152:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143, %44
   %153 = phi i64 [ %45, %44 ], [ %.pre, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
   %154 = phi i64 [ %46, %44 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
-  %.186 = phi i64 [ %.085106, %44 ], [ %150, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
+  %.185 = phi i64 [ %.084106, %44 ], [ %150, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge143 ]
   %155 = add nuw i64 %.088105, 1
   %156 = icmp ult i64 %155, %153
   br i1 %156, label %44, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, !llvm.loop !903
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %152, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit, %.lr.ph123
   %157 = phi i64 [ %31, %.lr.ph123 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %154, %152 ]
-  %.287 = phi i64 [ 0, %.lr.ph123 ], [ %150, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.186, %152 ]
-  %158 = add i64 %30, %.287
+  %.286 = phi i64 [ 0, %.lr.ph123 ], [ %150, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.185, %152 ]
+  %158 = add i64 %30, %.286
   store i64 %158, ptr %20, align 8
   %159 = load i32, ptr %10, align 4
   %160 = icmp sgt i32 %159, 0
@@ -20847,7 +20847,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_16Ham
 44:                                               ; preds = %.lr.ph112, %169
   %45 = phi i64 [ %33, %.lr.ph112 ], [ %170, %169 ]
   %46 = phi i64 [ %31, %.lr.ph112 ], [ %171, %169 ]
-  %.086110 = phi i64 [ 0, %.lr.ph112 ], [ %.187, %169 ]
+  %.085110 = phi i64 [ 0, %.lr.ph112 ], [ %.186, %169 ]
   %.089109 = phi i64 [ 0, %.lr.ph112 ], [ %172, %169 ]
   %47 = getelementptr inbounds i64, ptr %35, i64 %.089109
   %48 = load i64, ptr %47, align 8
@@ -20926,14 +20926,14 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %80
   br i1 %.not132, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader102, %_ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit
-  %.085108 = phi i64 [ %151, %_ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit ], [ 0, %.preheader102 ]
+  %.088108 = phi i64 [ %151, %_ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit ], [ 0, %.preheader102 ]
   %95 = load ptr, ptr %6, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 12
   %97 = load i32, ptr %96, align 4
   %98 = sext i32 %97 to i64
-  %99 = mul i64 %.085108, %98
+  %99 = mul i64 %.088108, %98
   %100 = getelementptr inbounds i8, ptr %87, i64 %99
-  %101 = getelementptr inbounds i64, ptr %94, i64 %.085108
+  %101 = getelementptr inbounds i64, ptr %94, i64 %.088108
   %102 = load i64, ptr %101, align 8
   %103 = load i32, ptr %100, align 4
   %104 = load i32, ptr %38, align 4
@@ -21015,7 +21015,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %80
   br label %_ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit
 
 _ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit: ; preds = %131, %128, %140, %137, %111, %.lr.ph
-  %151 = add nuw i64 %.085108, 1
+  %151 = add nuw i64 %.088108, 1
   %exitcond.not = icmp eq i64 %151, %79
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !907
 
@@ -21049,7 +21049,7 @@ _ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit: ; pr
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %159
-  %167 = add i64 %79, %.086110
+  %167 = add i64 %79, %.085110
   %168 = add i64 %160, -1
   %or.cond.not = icmp ult i64 %168, %167
   br i1 %or.cond.not, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149
@@ -21061,15 +21061,15 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149: ; preds = %_ZN5fai
 169:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149, %44
   %170 = phi i64 [ %45, %44 ], [ %.pre, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
   %171 = phi i64 [ %46, %44 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
-  %.187 = phi i64 [ %.086110, %44 ], [ %167, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
+  %.186 = phi i64 [ %.085110, %44 ], [ %167, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
   %172 = add nuw i64 %.089109, 1
   %173 = icmp ult i64 %172, %170
   br i1 %173, label %44, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, !llvm.loop !908
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %169, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit, %.lr.ph129
   %174 = phi i64 [ %31, %.lr.ph129 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %171, %169 ]
-  %.288 = phi i64 [ 0, %.lr.ph129 ], [ %167, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.187, %169 ]
-  %175 = add i64 %30, %.288
+  %.287 = phi i64 [ 0, %.lr.ph129 ], [ %167, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.186, %169 ]
+  %175 = add i64 %30, %.287
   store i64 %175, ptr %20, align 8
   %176 = load i32, ptr %10, align 4
   %177 = icmp sgt i32 %176, 0
@@ -21327,7 +21327,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_16Ham
 44:                                               ; preds = %.lr.ph112, %168
   %45 = phi i64 [ %33, %.lr.ph112 ], [ %169, %168 ]
   %46 = phi i64 [ %31, %.lr.ph112 ], [ %170, %168 ]
-  %.086110 = phi i64 [ 0, %.lr.ph112 ], [ %.187, %168 ]
+  %.085110 = phi i64 [ 0, %.lr.ph112 ], [ %.186, %168 ]
   %.089109 = phi i64 [ 0, %.lr.ph112 ], [ %171, %168 ]
   %47 = getelementptr inbounds i64, ptr %35, i64 %.089109
   %48 = load i64, ptr %47, align 8
@@ -21406,14 +21406,14 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %80
   br i1 %.not132, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader102, %_ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit
-  %.085108 = phi i64 [ %150, %_ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit ], [ 0, %.preheader102 ]
+  %.088108 = phi i64 [ %150, %_ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit ], [ 0, %.preheader102 ]
   %95 = load ptr, ptr %6, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 12
   %97 = load i32, ptr %96, align 4
   %98 = sext i32 %97 to i64
-  %99 = mul i64 %.085108, %98
+  %99 = mul i64 %.088108, %98
   %100 = getelementptr inbounds i8, ptr %87, i64 %99
-  %101 = getelementptr inbounds i64, ptr %94, i64 %.085108
+  %101 = getelementptr inbounds i64, ptr %94, i64 %.088108
   %102 = load i64, ptr %101, align 8
   %103 = load i64, ptr %100, align 8
   %104 = load i64, ptr %38, align 8
@@ -21494,7 +21494,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %80
   br label %_ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit
 
 _ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit: ; preds = %128, %131, %.lr.ph, %112, %137, %140
-  %150 = add nuw i64 %.085108, 1
+  %150 = add nuw i64 %.088108, 1
   %exitcond.not = icmp eq i64 %150, %79
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !912
 
@@ -21528,7 +21528,7 @@ _ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit: ; pr
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %158
-  %166 = add i64 %79, %.086110
+  %166 = add i64 %79, %.085110
   %167 = add i64 %159, -1
   %or.cond.not = icmp ult i64 %167, %166
   br i1 %or.cond.not, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149
@@ -21540,15 +21540,15 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149: ; preds = %_ZN5fai
 168:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149, %44
   %169 = phi i64 [ %45, %44 ], [ %.pre, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
   %170 = phi i64 [ %46, %44 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
-  %.187 = phi i64 [ %.086110, %44 ], [ %166, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
+  %.186 = phi i64 [ %.085110, %44 ], [ %166, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
   %171 = add nuw i64 %.089109, 1
   %172 = icmp ult i64 %171, %169
   br i1 %172, label %44, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, !llvm.loop !913
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %168, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit, %.lr.ph129
   %173 = phi i64 [ %31, %.lr.ph129 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %170, %168 ]
-  %.288 = phi i64 [ 0, %.lr.ph129 ], [ %166, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.187, %168 ]
-  %174 = add i64 %30, %.288
+  %.287 = phi i64 [ 0, %.lr.ph129 ], [ %166, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.186, %168 ]
+  %174 = add i64 %30, %.287
   store i64 %174, ptr %20, align 8
   %175 = load i32, ptr %10, align 4
   %176 = icmp sgt i32 %175, 0
@@ -21806,7 +21806,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17Ham
 44:                                               ; preds = %.lr.ph112, %172
   %45 = phi i64 [ %33, %.lr.ph112 ], [ %173, %172 ]
   %46 = phi i64 [ %31, %.lr.ph112 ], [ %174, %172 ]
-  %.086110 = phi i64 [ 0, %.lr.ph112 ], [ %.187, %172 ]
+  %.085110 = phi i64 [ 0, %.lr.ph112 ], [ %.186, %172 ]
   %.089109 = phi i64 [ 0, %.lr.ph112 ], [ %175, %172 ]
   %47 = getelementptr inbounds i64, ptr %35, i64 %.089109
   %48 = load i64, ptr %47, align 8
@@ -21885,14 +21885,14 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %80
   br i1 %.not132, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader102, %_ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit
-  %.085108 = phi i64 [ %154, %_ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit ], [ 0, %.preheader102 ]
+  %.088108 = phi i64 [ %154, %_ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit ], [ 0, %.preheader102 ]
   %95 = load ptr, ptr %6, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 12
   %97 = load i32, ptr %96, align 4
   %98 = sext i32 %97 to i64
-  %99 = mul i64 %.085108, %98
+  %99 = mul i64 %.088108, %98
   %100 = getelementptr inbounds i8, ptr %87, i64 %99
-  %101 = getelementptr inbounds i64, ptr %94, i64 %.085108
+  %101 = getelementptr inbounds i64, ptr %94, i64 %.088108
   %102 = load i64, ptr %101, align 8
   %103 = load <2 x i64>, ptr %100, align 8
   %104 = load <2 x i64>, ptr %38, align 8
@@ -21978,7 +21978,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %80
   br label %_ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit
 
 _ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit: ; preds = %131, %134, %.lr.ph, %114, %140, %143
-  %154 = add nuw i64 %.085108, 1
+  %154 = add nuw i64 %.088108, 1
   %exitcond.not = icmp eq i64 %154, %79
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !917
 
@@ -22012,7 +22012,7 @@ _ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit: ; p
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %162
-  %170 = add i64 %79, %.086110
+  %170 = add i64 %79, %.085110
   %171 = add i64 %163, -1
   %or.cond.not = icmp ult i64 %171, %170
   br i1 %or.cond.not, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149
@@ -22024,15 +22024,15 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149: ; preds = %_ZN5fai
 172:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149, %44
   %173 = phi i64 [ %45, %44 ], [ %.pre, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
   %174 = phi i64 [ %46, %44 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
-  %.187 = phi i64 [ %.086110, %44 ], [ %170, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
+  %.186 = phi i64 [ %.085110, %44 ], [ %170, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
   %175 = add nuw i64 %.089109, 1
   %176 = icmp ult i64 %175, %173
   br i1 %176, label %44, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, !llvm.loop !918
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %172, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit, %.lr.ph129
   %177 = phi i64 [ %31, %.lr.ph129 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %174, %172 ]
-  %.288 = phi i64 [ 0, %.lr.ph129 ], [ %170, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.187, %172 ]
-  %178 = add i64 %30, %.288
+  %.287 = phi i64 [ 0, %.lr.ph129 ], [ %170, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.186, %172 ]
+  %178 = add i64 %30, %.287
   store i64 %178, ptr %20, align 8
   %179 = load i32, ptr %10, align 4
   %180 = icmp sgt i32 %179, 0
@@ -22291,7 +22291,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17Ham
 45:                                               ; preds = %.lr.ph112, %179
   %46 = phi i64 [ %33, %.lr.ph112 ], [ %180, %179 ]
   %47 = phi i64 [ %31, %.lr.ph112 ], [ %181, %179 ]
-  %.086110 = phi i64 [ 0, %.lr.ph112 ], [ %.187, %179 ]
+  %.085110 = phi i64 [ 0, %.lr.ph112 ], [ %.186, %179 ]
   %.089109 = phi i64 [ 0, %.lr.ph112 ], [ %182, %179 ]
   %48 = getelementptr inbounds i64, ptr %35, i64 %.089109
   %49 = load i64, ptr %48, align 8
@@ -22370,14 +22370,14 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %81
   br i1 %.not132, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader102, %_ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit
-  %.085108 = phi i64 [ %161, %_ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit ], [ 0, %.preheader102 ]
+  %.088108 = phi i64 [ %161, %_ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit ], [ 0, %.preheader102 ]
   %96 = load ptr, ptr %6, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 12
   %98 = load i32, ptr %97, align 4
   %99 = sext i32 %98 to i64
-  %100 = mul i64 %.085108, %99
+  %100 = mul i64 %.088108, %99
   %101 = getelementptr inbounds i8, ptr %88, i64 %100
-  %102 = getelementptr inbounds i64, ptr %95, i64 %.085108
+  %102 = getelementptr inbounds i64, ptr %95, i64 %.088108
   %103 = load i64, ptr %102, align 8
   %104 = load <2 x i64>, ptr %101, align 8
   %105 = load <2 x i64>, ptr %38, align 8
@@ -22469,7 +22469,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %81
   br label %_ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit
 
 _ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit: ; preds = %138, %141, %.lr.ph, %121, %147, %150
-  %161 = add nuw i64 %.085108, 1
+  %161 = add nuw i64 %.088108, 1
   %exitcond.not = icmp eq i64 %161, %80
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !922
 
@@ -22503,7 +22503,7 @@ _ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit: ; p
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %169
-  %177 = add i64 %80, %.086110
+  %177 = add i64 %80, %.085110
   %178 = add i64 %170, -1
   %or.cond.not = icmp ult i64 %178, %177
   br i1 %or.cond.not, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149
@@ -22515,15 +22515,15 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149: ; preds = %_ZN5fai
 179:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149, %45
   %180 = phi i64 [ %46, %45 ], [ %.pre, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
   %181 = phi i64 [ %47, %45 ], [ %74, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
-  %.187 = phi i64 [ %.086110, %45 ], [ %177, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
+  %.186 = phi i64 [ %.085110, %45 ], [ %177, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
   %182 = add nuw i64 %.089109, 1
   %183 = icmp ult i64 %182, %180
   br i1 %183, label %45, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, !llvm.loop !923
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %179, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit, %.lr.ph129
   %184 = phi i64 [ %31, %.lr.ph129 ], [ %74, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %181, %179 ]
-  %.288 = phi i64 [ 0, %.lr.ph129 ], [ %177, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.187, %179 ]
-  %185 = add i64 %30, %.288
+  %.287 = phi i64 [ 0, %.lr.ph129 ], [ %177, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.186, %179 ]
+  %185 = add i64 %30, %.287
   store i64 %185, ptr %20, align 8
   %186 = load i32, ptr %10, align 4
   %187 = icmp sgt i32 %186, 0
@@ -22781,7 +22781,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17Ham
 44:                                               ; preds = %.lr.ph112, %171
   %45 = phi i64 [ %33, %.lr.ph112 ], [ %172, %171 ]
   %46 = phi i64 [ %31, %.lr.ph112 ], [ %173, %171 ]
-  %.086110 = phi i64 [ 0, %.lr.ph112 ], [ %.187, %171 ]
+  %.085110 = phi i64 [ 0, %.lr.ph112 ], [ %.186, %171 ]
   %.089109 = phi i64 [ 0, %.lr.ph112 ], [ %174, %171 ]
   %47 = getelementptr inbounds i64, ptr %35, i64 %.089109
   %48 = load i64, ptr %47, align 8
@@ -22860,14 +22860,14 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %80
   br i1 %.not132, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader102, %_ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit
-  %.085108 = phi i64 [ %153, %_ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit ], [ 0, %.preheader102 ]
+  %.088108 = phi i64 [ %153, %_ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit ], [ 0, %.preheader102 ]
   %95 = load ptr, ptr %6, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 12
   %97 = load i32, ptr %96, align 4
   %98 = sext i32 %97 to i64
-  %99 = mul i64 %.085108, %98
+  %99 = mul i64 %.088108, %98
   %100 = getelementptr inbounds i8, ptr %87, i64 %99
-  %101 = getelementptr inbounds i64, ptr %94, i64 %.085108
+  %101 = getelementptr inbounds i64, ptr %94, i64 %.088108
   %102 = load i64, ptr %101, align 8
   %103 = load <4 x i64>, ptr %100, align 8
   %104 = load <4 x i64>, ptr %38, align 8
@@ -22951,7 +22951,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %80
   br label %_ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit
 
 _ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit: ; preds = %130, %133, %.lr.ph, %113, %139, %142
-  %153 = add nuw i64 %.085108, 1
+  %153 = add nuw i64 %.088108, 1
   %exitcond.not = icmp eq i64 %153, %79
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !927
 
@@ -22985,7 +22985,7 @@ _ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit: ; p
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %161
-  %169 = add i64 %79, %.086110
+  %169 = add i64 %79, %.085110
   %170 = add i64 %162, -1
   %or.cond.not = icmp ult i64 %170, %169
   br i1 %or.cond.not, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149
@@ -22997,15 +22997,15 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149: ; preds = %_ZN5fai
 171:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149, %44
   %172 = phi i64 [ %45, %44 ], [ %.pre, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
   %173 = phi i64 [ %46, %44 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
-  %.187 = phi i64 [ %.086110, %44 ], [ %169, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
+  %.186 = phi i64 [ %.085110, %44 ], [ %169, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
   %174 = add nuw i64 %.089109, 1
   %175 = icmp ult i64 %174, %172
   br i1 %175, label %44, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, !llvm.loop !928
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %171, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit, %.lr.ph129
   %176 = phi i64 [ %31, %.lr.ph129 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %173, %171 ]
-  %.288 = phi i64 [ 0, %.lr.ph129 ], [ %169, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.187, %171 ]
-  %177 = add i64 %30, %.288
+  %.287 = phi i64 [ 0, %.lr.ph129 ], [ %169, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.186, %171 ]
+  %177 = add i64 %30, %.287
   store i64 %177, ptr %20, align 8
   %178 = load i32, ptr %10, align 4
   %179 = icmp sgt i32 %178, 0
@@ -23263,7 +23263,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_17Ham
 44:                                               ; preds = %.lr.ph112, %171
   %45 = phi i64 [ %33, %.lr.ph112 ], [ %172, %171 ]
   %46 = phi i64 [ %31, %.lr.ph112 ], [ %173, %171 ]
-  %.086110 = phi i64 [ 0, %.lr.ph112 ], [ %.187, %171 ]
+  %.085110 = phi i64 [ 0, %.lr.ph112 ], [ %.186, %171 ]
   %.089109 = phi i64 [ 0, %.lr.ph112 ], [ %174, %171 ]
   %47 = getelementptr inbounds i64, ptr %35, i64 %.089109
   %48 = load i64, ptr %47, align 8
@@ -23342,14 +23342,14 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %80
   br i1 %.not132, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader102, %_ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit
-  %.085108 = phi i64 [ %153, %_ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit ], [ 0, %.preheader102 ]
+  %.088108 = phi i64 [ %153, %_ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit ], [ 0, %.preheader102 ]
   %95 = load ptr, ptr %6, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 12
   %97 = load i32, ptr %96, align 4
   %98 = sext i32 %97 to i64
-  %99 = mul i64 %.085108, %98
+  %99 = mul i64 %.088108, %98
   %100 = getelementptr inbounds i8, ptr %87, i64 %99
-  %101 = getelementptr inbounds i64, ptr %94, i64 %.085108
+  %101 = getelementptr inbounds i64, ptr %94, i64 %.088108
   %102 = load i64, ptr %101, align 8
   %103 = load <8 x i64>, ptr %100, align 8
   %104 = load <8 x i64>, ptr %38, align 8
@@ -23433,7 +23433,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %80
   br label %_ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit
 
 _ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit: ; preds = %130, %133, %.lr.ph, %113, %139, %142
-  %153 = add nuw i64 %.085108, 1
+  %153 = add nuw i64 %.088108, 1
   %exitcond.not = icmp eq i64 %153, %79
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !932
 
@@ -23467,7 +23467,7 @@ _ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit: ; p
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %161
-  %169 = add i64 %79, %.086110
+  %169 = add i64 %79, %.085110
   %170 = add i64 %162, -1
   %or.cond.not = icmp ult i64 %170, %169
   br i1 %or.cond.not, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149
@@ -23479,15 +23479,15 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149: ; preds = %_ZN5fai
 171:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149, %44
   %172 = phi i64 [ %45, %44 ], [ %.pre, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
   %173 = phi i64 [ %46, %44 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
-  %.187 = phi i64 [ %.086110, %44 ], [ %169, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
+  %.186 = phi i64 [ %.085110, %44 ], [ %169, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
   %174 = add nuw i64 %.089109, 1
   %175 = icmp ult i64 %174, %172
   br i1 %175, label %44, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, !llvm.loop !933
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %171, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit, %.lr.ph129
   %176 = phi i64 [ %31, %.lr.ph129 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %173, %171 ]
-  %.288 = phi i64 [ 0, %.lr.ph129 ], [ %169, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.187, %171 ]
-  %177 = add i64 %30, %.288
+  %.287 = phi i64 [ 0, %.lr.ph129 ], [ %169, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.186, %171 ]
+  %177 = add i64 %30, %.287
   store i64 %177, ptr %20, align 8
   %178 = load i32, ptr %10, align 4
   %179 = icmp sgt i32 %178, 0
@@ -23745,7 +23745,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124search_knn_hamming_countINS_22Ham
 44:                                               ; preds = %.lr.ph112, %166
   %45 = phi i64 [ %33, %.lr.ph112 ], [ %167, %166 ]
   %46 = phi i64 [ %31, %.lr.ph112 ], [ %168, %166 ]
-  %.086110 = phi i64 [ 0, %.lr.ph112 ], [ %.187, %166 ]
+  %.085110 = phi i64 [ 0, %.lr.ph112 ], [ %.186, %166 ]
   %.089109 = phi i64 [ 0, %.lr.ph112 ], [ %169, %166 ]
   %47 = getelementptr inbounds i64, ptr %35, i64 %.089109
   %48 = load i64, ptr %47, align 8
@@ -23824,14 +23824,14 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %80
   br i1 %.not132, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader102, %_ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit
-  %.085108 = phi i64 [ %148, %_ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit ], [ 0, %.preheader102 ]
+  %.088108 = phi i64 [ %148, %_ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit ], [ 0, %.preheader102 ]
   %95 = load ptr, ptr %6, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 12
   %97 = load i32, ptr %96, align 4
   %98 = sext i32 %97 to i64
-  %99 = mul i64 %.085108, %98
+  %99 = mul i64 %.088108, %98
   %100 = getelementptr inbounds i8, ptr %87, i64 %99
-  %101 = getelementptr inbounds i64, ptr %94, i64 %.085108
+  %101 = getelementptr inbounds i64, ptr %94, i64 %.088108
   %102 = load i64, ptr %101, align 8
   %103 = call noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef %100)
   %104 = load i32, ptr %39, align 8
@@ -23910,7 +23910,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %80
   br label %_ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit
 
 _ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit: ; preds = %125, %128, %.lr.ph, %108, %134, %137
-  %148 = add nuw i64 %.085108, 1
+  %148 = add nuw i64 %.088108, 1
   %exitcond.not = icmp eq i64 %148, %79
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !937
 
@@ -23944,7 +23944,7 @@ _ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %156
-  %164 = add i64 %79, %.086110
+  %164 = add i64 %79, %.085110
   %165 = add i64 %157, -1
   %or.cond.not = icmp ult i64 %165, %164
   br i1 %or.cond.not, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149
@@ -23956,15 +23956,15 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149: ; preds = %_ZN5fai
 166:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149, %44
   %167 = phi i64 [ %45, %44 ], [ %.pre, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
   %168 = phi i64 [ %46, %44 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
-  %.187 = phi i64 [ %.086110, %44 ], [ %164, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
+  %.186 = phi i64 [ %.085110, %44 ], [ %164, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge149 ]
   %169 = add nuw i64 %.089109, 1
   %170 = icmp ult i64 %169, %167
   br i1 %170, label %44, label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge, !llvm.loop !938
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit._crit_edge: ; preds = %166, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit, %.lr.ph129
   %171 = phi i64 [ %31, %.lr.ph129 ], [ %73, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %168, %166 ]
-  %.288 = phi i64 [ 0, %.lr.ph129 ], [ %164, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.187, %166 ]
-  %172 = add i64 %30, %.288
+  %.287 = phi i64 [ 0, %.lr.ph129 ], [ %164, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.186, %166 ]
+  %172 = add i64 %30, %.287
   store i64 %172, ptr %20, align 8
   %173 = load i32, ptr %10, align 4
   %174 = icmp sgt i32 %173, 0

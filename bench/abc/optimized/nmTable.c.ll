@@ -516,8 +516,8 @@ define noundef i32 @Nm_ManTableDelete(ptr nocapture noundef %0, i32 noundef %1) 
   br label %25
 
 25:                                               ; preds = %25, %2
-  %.036 = phi ptr [ %24, %2 ], [ %29, %25 ]
-  %26 = load ptr, ptr %.036, align 8
+  %.037 = phi ptr [ %24, %2 ], [ %29, %25 ]
+  %26 = load ptr, ptr %.037, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
   %.not = icmp eq i32 %28, %1
@@ -526,7 +526,7 @@ define noundef i32 @Nm_ManTableDelete(ptr nocapture noundef %0, i32 noundef %1) 
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %29, align 8
-  store ptr %31, ptr %.036, align 8
+  store ptr %31, ptr %.037, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %26, i64 32
@@ -564,14 +564,14 @@ Nm_HashString.exit:                               ; preds = %.lr.ph.i, %30
 53:                                               ; preds = %53, %Nm_HashString.exit
   %.1 = phi ptr [ %52, %Nm_HashString.exit ], [ %55, %53 ]
   %54 = load ptr, ptr %.1, align 8
-  %.not42 = icmp eq ptr %54, null
-  %.not43 = icmp eq ptr %54, %26
-  %or.cond = or i1 %.not42, %.not43
+  %.not41 = icmp eq ptr %54, null
+  %.not42 = icmp eq ptr %54, %26
+  %or.cond = or i1 %.not41, %.not42
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   br i1 %or.cond, label %.critedge, label %53, !llvm.loop !15
 
 .critedge:                                        ; preds = %53
-  br i1 %.not42, label %58, label %56
+  br i1 %.not41, label %58, label %56
 
 56:                                               ; preds = %.critedge
   %57 = load ptr, ptr %55, align 8
@@ -585,24 +585,24 @@ Nm_HashString.exit:                               ; preds = %.lr.ph.i, %30
   br i1 %61, label %70, label %.preheader
 
 .preheader:                                       ; preds = %58, %.preheader
-  %.0 = phi ptr [ %63, %.preheader ], [ %26, %58 ]
-  %62 = getelementptr inbounds i8, ptr %.0, i64 24
+  %.036 = phi ptr [ %63, %.preheader ], [ %26, %58 ]
+  %62 = getelementptr inbounds i8, ptr %.036, i64 24
   %63 = load ptr, ptr %62, align 8
-  %.not45 = icmp eq ptr %63, %26
-  br i1 %.not45, label %64, label %.preheader, !llvm.loop !16
+  %.not44 = icmp eq ptr %63, %26
+  br i1 %.not44, label %64, label %.preheader, !llvm.loop !16
 
 64:                                               ; preds = %.preheader
-  %65 = getelementptr inbounds i8, ptr %.0, i64 24
-  %66 = icmp eq ptr %60, %.0
+  %65 = getelementptr inbounds i8, ptr %.036, i64 24
+  %66 = icmp eq ptr %60, %.036
   %. = select i1 %66, ptr null, ptr %60
   store ptr %., ptr %65, align 8
-  br i1 %.not42, label %70, label %67
+  br i1 %.not41, label %70, label %67
 
 67:                                               ; preds = %64
   %68 = load ptr, ptr %.1, align 8
-  %69 = getelementptr inbounds i8, ptr %.0, i64 16
+  %69 = getelementptr inbounds i8, ptr %.036, i64 16
   store ptr %68, ptr %69, align 8
-  store ptr %.0, ptr %.1, align 8
+  store ptr %.036, ptr %.1, align 8
   br label %70
 
 70:                                               ; preds = %64, %67, %58

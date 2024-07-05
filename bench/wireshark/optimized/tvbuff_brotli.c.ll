@@ -40,8 +40,8 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
-  %.03350 = phi i32 [ %.1, %36 ], [ 0, %.lr.ph.preheader ]
-  %.03649 = phi ptr [ %.137, %36 ], [ null, %.lr.ph.preheader ]
+  %.03350 = phi ptr [ %.1, %36 ], [ null, %.lr.ph.preheader ]
+  %.03449 = phi i32 [ %.135, %36 ], [ 0, %.lr.ph.preheader ]
   store i64 524288, ptr %6, align 8
   store ptr %19, ptr %7, align 8
   %20 = call i32 @BrotliDecoderDecompressStream(ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #4
@@ -61,7 +61,7 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
 
 24:                                               ; preds = %21, %.lr.ph, %23
   %25 = phi i1 [ false, %.lr.ph ], [ true, %23 ], [ false, %21 ]
-  %.1 = phi i32 [ %.03350, %.lr.ph ], [ %.03350, %23 ], [ 1, %21 ]
+  %.135 = phi i32 [ %.03449, %.lr.ph ], [ %.03449, %23 ], [ 1, %21 ]
   %26 = load i64, ptr %8, align 8
   %27 = icmp ugt i64 %26, 2147483647
   br i1 %27, label %.loopexit, label %28
@@ -73,7 +73,7 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
 
 30:                                               ; preds = %28
   %31 = sub i64 524288, %29
-  %32 = call ptr @g_realloc(ptr noundef %.03649, i64 noundef %26) #4
+  %32 = call ptr @g_realloc(ptr noundef %.03350, i64 noundef %26) #4
   %33 = load i64, ptr %8, align 8
   %34 = sub i64 %33, %31
   %35 = getelementptr i8, ptr %32, i64 %34
@@ -81,18 +81,18 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
   br label %36
 
 36:                                               ; preds = %30, %28
-  %.137 = phi ptr [ %32, %30 ], [ %.03649, %28 ]
+  %.1 = phi ptr [ %32, %30 ], [ %.03350, %28 ]
   %37 = load i64, ptr %4, align 8
   %38 = icmp ne i64 %37, 0
   %39 = or i1 %25, %38
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %36
-  %40 = icmp eq ptr %.137, null
+  %40 = icmp eq ptr %.1, null
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %._crit_edge
-  %42 = icmp eq i32 %.1, 0
+  %42 = icmp eq i32 %.135, 0
   br i1 %42, label %.loopexit, label %43
 
 43:                                               ; preds = %41
@@ -100,7 +100,7 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge
-  %.2 = phi ptr [ %44, %43 ], [ %.137, %._crit_edge ]
+  %.2 = phi ptr [ %44, %43 ], [ %.1, %._crit_edge ]
   %46 = load i64, ptr %8, align 8
   %47 = trunc i64 %46 to i32
   %48 = call ptr @tvb_new_real_data(ptr noundef %.2, i32 noundef %47, i32 noundef %47) #4
@@ -111,9 +111,9 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
   br label %49
 
 .loopexit:                                        ; preds = %24, %.lr.ph, %21, %41
-  %.03648 = phi ptr [ null, %41 ], [ %.03649, %21 ], [ %.03649, %.lr.ph ], [ %.03649, %24 ]
+  %.03347 = phi ptr [ null, %41 ], [ %.03350, %21 ], [ %.03350, %.lr.ph ], [ %.03350, %24 ]
   call void @g_free(ptr noundef %19) #4
-  call void @g_free(ptr noundef %.03648) #4
+  call void @g_free(ptr noundef %.03347) #4
   call void @wmem_free(ptr noundef null, ptr noundef nonnull %13) #4
   call void @BrotliDecoderDestroyInstance(ptr noundef nonnull %16) #4
   br label %49

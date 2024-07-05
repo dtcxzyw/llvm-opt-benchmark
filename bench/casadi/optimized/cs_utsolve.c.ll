@@ -86,8 +86,8 @@ define range(i32 0, 2) i32 @cs_utsolve(ptr noundef readonly %0, ptr noundef %1) 
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph39, !llvm.loop !6
 
 .loopexit:                                        ; preds = %._crit_edge, %8, %2, %3
-  %.030 = phi i32 [ 0, %3 ], [ 0, %2 ], [ 1, %8 ], [ 1, %._crit_edge ]
-  ret i32 %.030
+  %.0 = phi i32 [ 0, %3 ], [ 0, %2 ], [ 1, %8 ], [ 1, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

@@ -9499,15 +9499,15 @@ if.end:                                           ; preds = %_ZNK10union_findI22
   %arrayidx.i9 = getelementptr inbounds i32, ptr %3, i64 %idxprom.i.i4
   %5 = load i32, ptr %arrayidx.i9, align 4
   %cmp6 = icmp ugt i32 %4, %5
-  %spec.select = select i1 %cmp6, i32 %v.addr.0.i3, i32 %v.addr.0.i
-  %spec.select40 = select i1 %cmp6, i32 %v.addr.0.i, i32 %v.addr.0.i3
-  %idxprom.i10 = zext i32 %spec.select to i64
+  %spec.select = select i1 %cmp6, i32 %v.addr.0.i, i32 %v.addr.0.i3
+  %spec.select40 = select i1 %cmp6, i32 %v.addr.0.i3, i32 %v.addr.0.i
+  %idxprom.i10 = zext i32 %spec.select40 to i64
   %arrayidx.i11 = getelementptr inbounds i32, ptr %0, i64 %idxprom.i10
-  store i32 %spec.select40, ptr %arrayidx.i11, align 4
+  store i32 %spec.select, ptr %arrayidx.i11, align 4
   %6 = load ptr, ptr %m_size, align 8
   %arrayidx.i13 = getelementptr inbounds i32, ptr %6, i64 %idxprom.i10
   %7 = load i32, ptr %arrayidx.i13, align 4
-  %idxprom.i14 = zext i32 %spec.select40 to i64
+  %idxprom.i14 = zext i32 %spec.select to i64
   %arrayidx.i15 = getelementptr inbounds i32, ptr %6, i64 %idxprom.i14
   %8 = load i32, ptr %arrayidx.i15, align 4
   %add = add i32 %8, %7
@@ -9528,7 +9528,7 @@ if.end:                                           ; preds = %_ZNK10union_findI22
   %m_owner.i.i = getelementptr inbounds i8, ptr %call.i.i21, i64 8
   store ptr %this, ptr %m_owner.i.i, align 8
   %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i21, i64 16
-  store i32 %spec.select, ptr %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx, align 8
+  store i32 %spec.select40, ptr %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx, align 8
   %13 = load ptr, ptr %12, align 8
   %cmp.i.i = icmp eq ptr %13, null
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
@@ -9856,23 +9856,23 @@ if.end.i.i:                                       ; preds = %for.end
   br i1 %cmp4.not5.i.i, label %if.end18.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.inc.i.i
-  %curr.07.i.i = phi ptr [ %incdec.ptr.i.i11, %for.inc.i.i ], [ %7, %if.end.i.i ]
-  %overhead.06.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
-  %9 = load ptr, ptr %curr.07.i.i, align 8
+  %overhead.07.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
+  %curr.06.i.i = phi ptr [ %incdec.ptr.i.i11, %for.inc.i.i ], [ %7, %if.end.i.i ]
+  %9 = load ptr, ptr %curr.06.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %for.body.i.i
-  store ptr null, ptr %curr.07.i.i, align 8
+  store ptr null, ptr %curr.06.i.i, align 8
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add i32 %overhead.06.i.i, 1
+  %inc.i.i = add i32 %overhead.07.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then5.i.i
-  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.06.i.i, %if.then5.i.i ]
-  %incdec.ptr.i.i11 = getelementptr inbounds i8, ptr %curr.07.i.i, i64 16
+  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.07.i.i, %if.then5.i.i ]
+  %incdec.ptr.i.i11 = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
   %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i11, %add.ptr.i.i10
   br i1 %cmp4.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !43
 
@@ -10995,8 +10995,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %cmp.i14 = icmp slt i32 %retval.sroa.0.0.copyload.i, %retval.sroa.0.0.copyload.i13
-  %v.addr.0 = select i1 %cmp.i14, i32 %u, i32 %v
   %val_v.sroa.0.0 = tail call i32 @llvm.smin.i32(i32 %retval.sroa.0.0.copyload.i, i32 %retval.sroa.0.0.copyload.i13)
+  %v.addr.0 = select i1 %cmp.i14, i32 %u, i32 %v
   store ptr null, ptr %todo, align 8
   invoke void @_ZN6vectorIiLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %todo)
           to label %_ZN6vectorIiLb0EjE9push_backERKi.exit unwind label %lpad.loopexit.split-lp
@@ -14923,35 +14923,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.021.i, 2
+  %add8.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.021.i, 3
+  %add13.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
+  %0 = udiv i32 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !57
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i

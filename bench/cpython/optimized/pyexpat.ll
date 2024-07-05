@@ -8852,8 +8852,8 @@ Py_INCREF.exit:                                   ; preds = %if.then19, %if.end.
   br label %do.body
 
 do.body:                                          ; preds = %if.end9.thread, %land.lhs.true, %Py_INCREF.exit
-  %v.addr.0 = phi ptr [ %v, %Py_INCREF.exit ], [ null, %land.lhs.true ], [ null, %if.end9.thread ]
   %c_handler.1 = phi ptr [ %6, %Py_INCREF.exit ], [ %spec.select, %land.lhs.true ], [ null, %if.end9.thread ]
+  %v.addr.0 = phi ptr [ %v, %Py_INCREF.exit ], [ null, %land.lhs.true ], [ null, %if.end9.thread ]
   %handlers = getelementptr inbounds i8, ptr %self, i64 64
   %7 = load ptr, ptr %handlers, align 8
   %sext15 = shl i64 %sub.ptr.sub, 26

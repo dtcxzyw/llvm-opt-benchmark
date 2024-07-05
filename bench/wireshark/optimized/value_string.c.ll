@@ -666,8 +666,8 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
 
 .lr.ph:                                           ; preds = %16, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %16 ]
-  %.05174 = phi i32 [ %.pre, %35 ], [ %17, %16 ]
-  %.05273 = phi i32 [ %.159, %35 ], [ 2, %16 ]
+  %.05174 = phi i32 [ %.159, %35 ], [ 2, %16 ]
+  %.05273 = phi i32 [ %.pre, %35 ], [ %17, %16 ]
   %indvars84 = trunc i64 %indvars.iv to i32
   %19 = getelementptr %struct._value_string, ptr %4, i64 %indvars.iv
   %20 = getelementptr inbounds i8, ptr %19, i64 8
@@ -680,7 +680,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
   unreachable
 
 23:                                               ; preds = %.lr.ph
-  %24 = icmp eq i32 %.05273, 2
+  %24 = icmp eq i32 %.05174, 2
   %.pre = load i32, ptr %19, align 8
   %25 = add i32 %17, %indvars84
   %.not56.not = icmp eq i32 %.pre, %25
@@ -688,13 +688,13 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %or.cond, label %35, label %.thread
 
 .thread:                                          ; preds = %23
-  %26 = icmp ugt i32 %.05174, %.pre
+  %26 = icmp ugt i32 %.05273, %.pre
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %.thread
   %28 = getelementptr inbounds i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 477, ptr noundef nonnull @__func__._try_val_to_str_ext_init, ptr noundef nonnull @.str.13, ptr noundef %29, i32 noundef %indvars84, i32 noundef %.pre, i32 noundef %.pre, i32 noundef %.05174, i32 noundef %.05174) #11
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 477, ptr noundef nonnull @__func__._try_val_to_str_ext_init, ptr noundef nonnull @.str.13, ptr noundef %29, i32 noundef %indvars84, i32 noundef %.pre, i32 noundef %.pre, i32 noundef %.05273, i32 noundef %.05273) #11
   br label %.thread61
 
 30:                                               ; preds = %.thread
@@ -938,9 +938,9 @@ define internal noundef ptr @_try_val_to_str_bsearch(i32 noundef %0, ptr nocaptu
   br label %7
 
 7:                                                ; preds = %.lr.ph, %18
-  %.021 = phi i32 [ %4, %.lr.ph ], [ %.1, %18 ]
-  %.01520 = phi i32 [ 0, %.lr.ph ], [ %.116, %18 ]
-  %8 = add i32 %.021, %.01520
+  %.01521 = phi i32 [ %4, %.lr.ph ], [ %.1, %18 ]
+  %.01620 = phi i32 [ 0, %.lr.ph ], [ %.117, %18 ]
+  %8 = add i32 %.01521, %.01620
   %9 = lshr i32 %8, 1
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr %struct._value_string, ptr %6, i64 %10
@@ -957,14 +957,14 @@ define internal noundef ptr @_try_val_to_str_bsearch(i32 noundef %0, ptr nocaptu
   br label %18
 
 18:                                               ; preds = %7, %16
-  %.116 = phi i32 [ %17, %16 ], [ %.01520, %7 ]
-  %.1 = phi i32 [ %.021, %16 ], [ %9, %7 ]
-  %19 = icmp ult i32 %.116, %.1
+  %.117 = phi i32 [ %17, %16 ], [ %.01620, %7 ]
+  %.1 = phi i32 [ %.01521, %16 ], [ %9, %7 ]
+  %19 = icmp ult i32 %.117, %.1
   br i1 %19, label %7, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %14, %18, %2
-  %.017 = phi ptr [ null, %2 ], [ null, %18 ], [ %11, %14 ]
-  ret ptr %.017
+  %.0 = phi ptr [ null, %2 ], [ null, %18 ], [ %11, %14 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1064,8 +1064,8 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
 
 .lr.ph:                                           ; preds = %16, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %16 ]
-  %.05174 = phi i64 [ %.pre, %37 ], [ %17, %16 ]
-  %.05273 = phi i32 [ %.159, %37 ], [ 2, %16 ]
+  %.05174 = phi i32 [ %.159, %37 ], [ 2, %16 ]
+  %.05273 = phi i64 [ %.pre, %37 ], [ %17, %16 ]
   %19 = getelementptr %struct._val64_string, ptr %4, i64 %indvars.iv
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
@@ -1077,7 +1077,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
   unreachable
 
 23:                                               ; preds = %.lr.ph
-  %24 = icmp eq i32 %.05273, 2
+  %24 = icmp eq i32 %.05174, 2
   %.pre = load i64, ptr %19, align 8
   %25 = add i64 %17, %indvars.iv
   %.not56.not = icmp eq i64 %.pre, %25
@@ -1085,14 +1085,14 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
   br i1 %or.cond, label %37, label %.thread
 
 .thread:                                          ; preds = %23
-  %26 = icmp ugt i64 %.05174, %.pre
+  %26 = icmp ugt i64 %.05273, %.pre
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.thread
   %28 = trunc nuw i64 %indvars.iv to i32
   %29 = getelementptr inbounds i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 762, ptr noundef nonnull @__func__._try_val64_to_str_ext_init, ptr noundef nonnull @.str.16, ptr noundef %30, i32 noundef %28, i64 noundef %.pre, i64 noundef %.pre, i64 noundef %.05174, i64 noundef %.05174) #11
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 762, ptr noundef nonnull @__func__._try_val64_to_str_ext_init, ptr noundef nonnull @.str.16, ptr noundef %30, i32 noundef %28, i64 noundef %.pre, i64 noundef %.pre, i64 noundef %.05273, i64 noundef %.05273) #11
   br label %.thread61
 
 31:                                               ; preds = %.thread
@@ -1333,9 +1333,9 @@ define internal noundef ptr @_try_val64_to_str_bsearch(i64 noundef %0, ptr nocap
   br label %7
 
 7:                                                ; preds = %.lr.ph, %18
-  %.021 = phi i32 [ %4, %.lr.ph ], [ %.1, %18 ]
-  %.01520 = phi i32 [ 0, %.lr.ph ], [ %.116, %18 ]
-  %8 = add i32 %.021, %.01520
+  %.01521 = phi i32 [ %4, %.lr.ph ], [ %.1, %18 ]
+  %.01620 = phi i32 [ 0, %.lr.ph ], [ %.117, %18 ]
+  %8 = add i32 %.01521, %.01620
   %9 = lshr i32 %8, 1
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr %struct._val64_string, ptr %6, i64 %10
@@ -1352,14 +1352,14 @@ define internal noundef ptr @_try_val64_to_str_bsearch(i64 noundef %0, ptr nocap
   br label %18
 
 18:                                               ; preds = %7, %16
-  %.116 = phi i32 [ %17, %16 ], [ %.01520, %7 ]
-  %.1 = phi i32 [ %.021, %16 ], [ %9, %7 ]
-  %19 = icmp ult i32 %.116, %.1
+  %.117 = phi i32 [ %17, %16 ], [ %.01620, %7 ]
+  %.1 = phi i32 [ %.01521, %16 ], [ %9, %7 ]
+  %19 = icmp ult i32 %.117, %.1
   br i1 %19, label %7, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %14, %18, %2
-  %.017 = phi ptr [ null, %2 ], [ null, %18 ], [ %11, %14 ]
-  ret ptr %.017
+  %.0 = phi ptr [ null, %2 ], [ null, %18 ], [ %11, %14 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

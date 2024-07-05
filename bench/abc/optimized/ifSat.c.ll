@@ -263,8 +263,8 @@ define i64 @If_ManSat6Truth(i64 noundef %0, i64 noundef %1, ptr nocapture nounde
 
 .lr.ph28.split.us.i:                              ; preds = %39, %.lr.ph28.split.us.preheader.i
   %.026.us.i = phi i64 [ %.1.us.i, %39 ], [ 0, %.lr.ph28.split.us.preheader.i ]
-  %.02024.us.i = phi i32 [ %40, %39 ], [ 0, %.lr.ph28.split.us.preheader.i ]
-  %29 = shl nuw i32 1, %.02024.us.i
+  %.01924.us.i = phi i32 [ %40, %39 ], [ 0, %.lr.ph28.split.us.preheader.i ]
+  %29 = shl nuw i32 1, %.01924.us.i
   %30 = and i32 %29, %27
   %.not.us.i = icmp eq i32 %30, 0
   br i1 %.not.us.i, label %39, label %.preheader.us.i
@@ -274,7 +274,7 @@ define i64 @If_ManSat6Truth(i64 noundef %0, i64 noundef %1, ptr nocapture nounde
   %.01823.us.i = phi i64 [ %38, %.preheader.us.i ], [ -1, %.lr.ph28.split.us.i ]
   %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   %32 = shl nuw i32 1, %31
-  %33 = and i32 %32, %.02024.us.i
+  %33 = and i32 %32, %.01924.us.i
   %.not21.us.i = icmp eq i32 %33, 0
   %34 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv.i
   %35 = load i64, ptr %34, align 8
@@ -287,7 +287,7 @@ define i64 @If_ManSat6Truth(i64 noundef %0, i64 noundef %1, ptr nocapture nounde
 
 39:                                               ; preds = %._crit_edge.us.i, %.lr.ph28.split.us.i
   %.1.us.i = phi i64 [ %41, %._crit_edge.us.i ], [ %.026.us.i, %.lr.ph28.split.us.i ]
-  %40 = add nuw nsw i32 %.02024.us.i, 1
+  %40 = add nuw nsw i32 %.01924.us.i, 1
   %exitcond36.not.i = icmp eq i32 %40, %28
   br i1 %exitcond36.not.i, label %If_ManSat6ComposeLut4.exit, label %.lr.ph28.split.us.i, !llvm.loop !10
 
@@ -297,12 +297,12 @@ define i64 @If_ManSat6Truth(i64 noundef %0, i64 noundef %1, ptr nocapture nounde
 
 .lr.ph28.split.i:                                 ; preds = %.lr.ph28.i, %.lr.ph28.split.i
   %.026.i = phi i64 [ %spec.select.i, %.lr.ph28.split.i ], [ 0, %.lr.ph28.i ]
-  %.02024.i = phi i32 [ %44, %.lr.ph28.split.i ], [ 0, %.lr.ph28.i ]
-  %42 = shl nuw i32 1, %.02024.i
+  %.01924.i = phi i32 [ %44, %.lr.ph28.split.i ], [ 0, %.lr.ph28.i ]
+  %42 = shl nuw i32 1, %.01924.i
   %43 = and i32 %42, %27
   %.not.i = icmp eq i32 %43, 0
   %spec.select.i = select i1 %.not.i, i64 %.026.i, i64 -1
-  %44 = add nuw nsw i32 %.02024.i, 1
+  %44 = add nuw nsw i32 %.01924.i, 1
   %exitcond.not.i = icmp eq i32 %44, %28
   br i1 %exitcond.not.i, label %If_ManSat6ComposeLut4.exit, label %.lr.ph28.split.i, !llvm.loop !10
 
@@ -377,8 +377,8 @@ If_ManSat6ComposeLut4.exit:                       ; preds = %39, %.lr.ph28.split
 
 .lr.ph28.split.us.i47:                            ; preds = %74, %.lr.ph28.i36
   %.026.us.i48 = phi i64 [ %.1.us.i58, %74 ], [ 0, %.lr.ph28.i36 ]
-  %.02024.us.i49 = phi i32 [ %75, %74 ], [ 0, %.lr.ph28.i36 ]
-  %64 = shl nuw i32 1, %.02024.us.i49
+  %.01924.us.i49 = phi i32 [ %75, %74 ], [ 0, %.lr.ph28.i36 ]
+  %64 = shl nuw i32 1, %.01924.us.i49
   %65 = and i32 %62, %64
   %.not.us.i50 = icmp eq i32 %65, 0
   br i1 %.not.us.i50, label %74, label %.preheader.us.i51
@@ -388,7 +388,7 @@ If_ManSat6ComposeLut4.exit:                       ; preds = %39, %.lr.ph28.split
   %.01823.us.i53 = phi i64 [ %73, %.preheader.us.i51 ], [ -1, %.lr.ph28.split.us.i47 ]
   %66 = trunc nuw nsw i64 %indvars.iv.i52 to i32
   %67 = shl nuw i32 1, %66
-  %68 = and i32 %67, %.02024.us.i49
+  %68 = and i32 %67, %.01924.us.i49
   %.not21.us.i54 = icmp eq i32 %68, 0
   %69 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv.i52
   %70 = load i64, ptr %69, align 8
@@ -401,7 +401,7 @@ If_ManSat6ComposeLut4.exit:                       ; preds = %39, %.lr.ph28.split
 
 74:                                               ; preds = %._crit_edge.us.i57, %.lr.ph28.split.us.i47
   %.1.us.i58 = phi i64 [ %76, %._crit_edge.us.i57 ], [ %.026.us.i48, %.lr.ph28.split.us.i47 ]
-  %75 = add nuw nsw i32 %.02024.us.i49, 1
+  %75 = add nuw nsw i32 %.01924.us.i49, 1
   %exitcond36.not.i59 = icmp eq i32 %75, %63
   br i1 %exitcond36.not.i59, label %If_ManSat6ComposeLut4.exit60, label %.lr.ph28.split.us.i47, !llvm.loop !10
 
@@ -516,19 +516,19 @@ Vec_IntFill.exit:                                 ; preds = %33, %Vec_IntGrow.ex
   br i1 %.not125.us, label %56, label %48
 
 48:                                               ; preds = %45
-  %49 = shl nuw i32 1, %.0114150.us
-  %50 = add nsw i32 %.0114150.us, %1
+  %49 = shl nuw i32 1, %.0112151.us
+  %50 = add nsw i32 %.0112151.us, %1
   %51 = shl nuw i32 1, %50
   %52 = or i32 %51, %49
   %53 = or i32 %52, %.0102155.us
-  %54 = sext i32 %.0114150.us to i64
+  %54 = sext i32 %.0112151.us to i64
   %55 = getelementptr inbounds [15 x i32], ptr %12, i64 0, i64 %54
   store i32 %.0107153.us, ptr %55, align 4
   br label %56
 
 56:                                               ; preds = %48, %45
   %.3.us = phi i32 [ %53, %48 ], [ %.0102155.us, %45 ]
-  %57 = add nsw i32 %.0114150.us, 1
+  %57 = add nsw i32 %.0112151.us, 1
   br label %81
 
 58:                                               ; preds = %41
@@ -558,23 +558,23 @@ Vec_IntFill.exit:                                 ; preds = %33, %Vec_IntGrow.ex
   br i1 %.not127.us, label %79, label %72
 
 72:                                               ; preds = %69
-  %73 = add i32 %.0112151.us, %1
+  %73 = add i32 %.0114150.us, %1
   %74 = add i32 %73, %40
   %75 = shl nuw i32 1, %74
   %76 = or i32 %75, %.0102155.us
-  %77 = sext i32 %.0112151.us to i64
+  %77 = sext i32 %.0114150.us to i64
   %78 = getelementptr inbounds [15 x i32], ptr %14, i64 0, i64 %77
   store i32 %.0107153.us, ptr %78, align 4
   br label %79
 
 79:                                               ; preds = %72, %69
   %.1.us = phi i32 [ %76, %72 ], [ %.0102155.us, %69 ]
-  %80 = add nsw i32 %.0112151.us, 1
+  %80 = add nsw i32 %.0114150.us, 1
   br label %81
 
 81:                                               ; preds = %79, %67, %56, %41
-  %.1115.us = phi i32 [ %.0114150.us, %79 ], [ %.0114150.us, %67 ], [ %57, %56 ], [ %.0114150.us, %41 ]
-  %.1113.us = phi i32 [ %80, %79 ], [ %.0112151.us, %67 ], [ %.0112151.us, %56 ], [ %.0112151.us, %41 ]
+  %.1115.us = phi i32 [ %80, %79 ], [ %.0114150.us, %67 ], [ %.0114150.us, %56 ], [ %.0114150.us, %41 ]
+  %.1113.us = phi i32 [ %.0112151.us, %79 ], [ %.0112151.us, %67 ], [ %57, %56 ], [ %.0112151.us, %41 ]
   %.1111.us = phi i32 [ %.0110152.us, %79 ], [ %68, %67 ], [ %.0110152.us, %56 ], [ %.0110152.us, %41 ]
   %.4.us = phi i32 [ %.1.us, %79 ], [ %.2.us, %67 ], [ %.3.us, %56 ], [ %.0102155.us, %41 ]
   %82 = add nuw nsw i32 %.0107153.us, 1

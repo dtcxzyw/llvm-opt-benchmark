@@ -1904,21 +1904,21 @@ if.end51.thread.i:                                ; preds = %if.end15.i
   br label %if.end56.i
 
 for.cond.i:                                       ; preds = %sw.epilog.i
-  %inc.i = add i32 %i.0171.i, 1
+  %inc.i = add i32 %i.0178.i, 1
   %conv.i70 = zext i32 %inc.i to i64
   %cmp17.i = icmp ugt i64 %call16.i, %conv.i70
   br i1 %cmp17.i, label %for.body.i, label %for.end.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %if.end15.i, %for.cond.i
   %conv179.i = phi i64 [ %conv.i70, %for.cond.i ], [ 0, %if.end15.i ]
-  %binary.0178.i = phi i32 [ %binary.1.i, %for.cond.i ], [ 0, %if.end15.i ]
-  %text.0177.i = phi i32 [ %text.1.i, %for.cond.i ], [ 0, %if.end15.i ]
-  %updating.0176.i = phi i32 [ %updating.1.i, %for.cond.i ], [ 0, %if.end15.i ]
-  %appending.0175.i = phi i32 [ %appending.1.i, %for.cond.i ], [ 0, %if.end15.i ]
-  %writing.0174.i = phi i32 [ %writing.1.i, %for.cond.i ], [ 0, %if.end15.i ]
-  %reading.0173.i = phi i32 [ %reading.1.i, %for.cond.i ], [ 0, %if.end15.i ]
-  %creating.0172.i = phi i32 [ %creating.1.i, %for.cond.i ], [ 0, %if.end15.i ]
-  %i.0171.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %if.end15.i ]
+  %i.0178.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %if.end15.i ]
+  %creating.0177.i = phi i32 [ %creating.1.i, %for.cond.i ], [ 0, %if.end15.i ]
+  %reading.0176.i = phi i32 [ %reading.1.i, %for.cond.i ], [ 0, %if.end15.i ]
+  %writing.0175.i = phi i32 [ %writing.1.i, %for.cond.i ], [ 0, %if.end15.i ]
+  %appending.0174.i = phi i32 [ %appending.1.i, %for.cond.i ], [ 0, %if.end15.i ]
+  %updating.0173.i = phi i32 [ %updating.1.i, %for.cond.i ], [ 0, %if.end15.i ]
+  %text.0172.i = phi i32 [ %text.1.i, %for.cond.i ], [ 0, %if.end15.i ]
+  %binary.0171.i = phi i32 [ %binary.1.i, %for.cond.i ], [ 0, %if.end15.i ]
   %arrayidx.i = getelementptr i8, ptr %mode.1, i64 %conv179.i
   %37 = load i8, ptr %arrayidx.i, align 1
   %conv19.i = sext i8 %37 to i32
@@ -1951,13 +1951,13 @@ sw.bb25.i:                                        ; preds = %for.body.i
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb25.i, %sw.bb24.i, %sw.bb23.i, %sw.bb22.i, %sw.bb21.i, %sw.bb20.i, %for.body.i
-  %creating.1.i = phi i32 [ %creating.0172.i, %sw.bb25.i ], [ %creating.0172.i, %sw.bb24.i ], [ %creating.0172.i, %sw.bb23.i ], [ %creating.0172.i, %sw.bb22.i ], [ %creating.0172.i, %sw.bb21.i ], [ %creating.0172.i, %sw.bb20.i ], [ 1, %for.body.i ]
-  %reading.1.i = phi i32 [ %reading.0173.i, %sw.bb25.i ], [ %reading.0173.i, %sw.bb24.i ], [ %reading.0173.i, %sw.bb23.i ], [ %reading.0173.i, %sw.bb22.i ], [ %reading.0173.i, %sw.bb21.i ], [ 1, %sw.bb20.i ], [ %reading.0173.i, %for.body.i ]
-  %writing.1.i = phi i32 [ %writing.0174.i, %sw.bb25.i ], [ %writing.0174.i, %sw.bb24.i ], [ %writing.0174.i, %sw.bb23.i ], [ %writing.0174.i, %sw.bb22.i ], [ 1, %sw.bb21.i ], [ %writing.0174.i, %sw.bb20.i ], [ %writing.0174.i, %for.body.i ]
-  %appending.1.i = phi i32 [ %appending.0175.i, %sw.bb25.i ], [ %appending.0175.i, %sw.bb24.i ], [ %appending.0175.i, %sw.bb23.i ], [ 1, %sw.bb22.i ], [ %appending.0175.i, %sw.bb21.i ], [ %appending.0175.i, %sw.bb20.i ], [ %appending.0175.i, %for.body.i ]
-  %updating.1.i = phi i32 [ %updating.0176.i, %sw.bb25.i ], [ %updating.0176.i, %sw.bb24.i ], [ 1, %sw.bb23.i ], [ %updating.0176.i, %sw.bb22.i ], [ %updating.0176.i, %sw.bb21.i ], [ %updating.0176.i, %sw.bb20.i ], [ %updating.0176.i, %for.body.i ]
-  %text.1.i = phi i32 [ %text.0177.i, %sw.bb25.i ], [ 1, %sw.bb24.i ], [ %text.0177.i, %sw.bb23.i ], [ %text.0177.i, %sw.bb22.i ], [ %text.0177.i, %sw.bb21.i ], [ %text.0177.i, %sw.bb20.i ], [ %text.0177.i, %for.body.i ]
-  %binary.1.i = phi i32 [ 1, %sw.bb25.i ], [ %binary.0178.i, %sw.bb24.i ], [ %binary.0178.i, %sw.bb23.i ], [ %binary.0178.i, %sw.bb22.i ], [ %binary.0178.i, %sw.bb21.i ], [ %binary.0178.i, %sw.bb20.i ], [ %binary.0178.i, %for.body.i ]
+  %binary.1.i = phi i32 [ 1, %sw.bb25.i ], [ %binary.0171.i, %sw.bb24.i ], [ %binary.0171.i, %sw.bb23.i ], [ %binary.0171.i, %sw.bb22.i ], [ %binary.0171.i, %sw.bb21.i ], [ %binary.0171.i, %sw.bb20.i ], [ %binary.0171.i, %for.body.i ]
+  %text.1.i = phi i32 [ %text.0172.i, %sw.bb25.i ], [ 1, %sw.bb24.i ], [ %text.0172.i, %sw.bb23.i ], [ %text.0172.i, %sw.bb22.i ], [ %text.0172.i, %sw.bb21.i ], [ %text.0172.i, %sw.bb20.i ], [ %text.0172.i, %for.body.i ]
+  %updating.1.i = phi i32 [ %updating.0173.i, %sw.bb25.i ], [ %updating.0173.i, %sw.bb24.i ], [ 1, %sw.bb23.i ], [ %updating.0173.i, %sw.bb22.i ], [ %updating.0173.i, %sw.bb21.i ], [ %updating.0173.i, %sw.bb20.i ], [ %updating.0173.i, %for.body.i ]
+  %appending.1.i = phi i32 [ %appending.0174.i, %sw.bb25.i ], [ %appending.0174.i, %sw.bb24.i ], [ %appending.0174.i, %sw.bb23.i ], [ 1, %sw.bb22.i ], [ %appending.0174.i, %sw.bb21.i ], [ %appending.0174.i, %sw.bb20.i ], [ %appending.0174.i, %for.body.i ]
+  %writing.1.i = phi i32 [ %writing.0175.i, %sw.bb25.i ], [ %writing.0175.i, %sw.bb24.i ], [ %writing.0175.i, %sw.bb23.i ], [ %writing.0175.i, %sw.bb22.i ], [ 1, %sw.bb21.i ], [ %writing.0175.i, %sw.bb20.i ], [ %writing.0175.i, %for.body.i ]
+  %reading.1.i = phi i32 [ %reading.0176.i, %sw.bb25.i ], [ %reading.0176.i, %sw.bb24.i ], [ %reading.0176.i, %sw.bb23.i ], [ %reading.0176.i, %sw.bb22.i ], [ %reading.0176.i, %sw.bb21.i ], [ 1, %sw.bb20.i ], [ %reading.0176.i, %for.body.i ]
+  %creating.1.i = phi i32 [ %creating.0177.i, %sw.bb25.i ], [ %creating.0177.i, %sw.bb24.i ], [ %creating.0177.i, %sw.bb23.i ], [ %creating.0177.i, %sw.bb22.i ], [ %creating.0177.i, %sw.bb21.i ], [ %creating.0177.i, %sw.bb20.i ], [ 1, %for.body.i ]
   %add.ptr26.i = getelementptr i8, ptr %arrayidx.i, i64 1
   %call28.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr26.i, i32 noundef %conv19.i) #6
   %tobool29.not.i = icmp eq ptr %call28.i, null
@@ -2033,14 +2033,14 @@ if.then55.i:                                      ; preds = %if.end51.i
 if.end56.i:                                       ; preds = %if.end51.i, %if.end51.thread.i
   %tobool54290.i = phi i1 [ false, %if.end51.thread.i ], [ %tobool54.i, %if.end51.i ]
   %tobool36.not217228253264289.i = phi i1 [ true, %if.end51.thread.i ], [ %tobool36.not.i, %if.end51.i ]
-  %creating.0.lcssa194216229252265288.i = phi i32 [ 0, %if.end51.thread.i ], [ %creating.1.i, %if.end51.i ]
-  %reading.0.lcssa195215230251266287.i = phi i32 [ 0, %if.end51.thread.i ], [ %reading.1.i, %if.end51.i ]
-  %writing.0.lcssa196214231250267286.i = phi i32 [ 0, %if.end51.thread.i ], [ %writing.1.i, %if.end51.i ]
-  %appending.0.lcssa197213232249268285.i = phi i32 [ 0, %if.end51.thread.i ], [ %appending.1.i, %if.end51.i ]
+  %appending.0.lcssa197213232249267288.i = phi i32 [ 0, %if.end51.thread.i ], [ %appending.1.i, %if.end51.i ]
+  %writing.0.lcssa198212233248268287.i = phi i32 [ 0, %if.end51.thread.i ], [ %writing.1.i, %if.end51.i ]
+  %reading.0.lcssa199211234247269286.i = phi i32 [ 0, %if.end51.thread.i ], [ %reading.1.i, %if.end51.i ]
+  %creating.0.lcssa200210235246270285.i = phi i32 [ 0, %if.end51.thread.i ], [ %creating.1.i, %if.end51.i ]
   %tobool48.not271284.i = phi i1 [ true, %if.end51.thread.i ], [ %tobool48.not.i, %if.end51.i ]
-  %add.i = add nuw nsw i32 %reading.0.lcssa195215230251266287.i, %creating.0.lcssa194216229252265288.i
-  %add57.i = add nuw nsw i32 %add.i, %writing.0.lcssa196214231250267286.i
-  %add58.i = add nuw nsw i32 %add57.i, %appending.0.lcssa197213232249268285.i
+  %add.i = add nuw nsw i32 %writing.0.lcssa198212233248268287.i, %appending.0.lcssa197213232249267288.i
+  %add57.i = add nuw nsw i32 %add.i, %reading.0.lcssa199211234247269286.i
+  %add58.i = add nuw nsw i32 %add57.i, %creating.0.lcssa200210235246270285.i
   %cmp59.i = icmp sgt i32 %add58.i, 1
   br i1 %cmp59.i, label %if.then61.i, label %if.end62.i
 
@@ -2235,8 +2235,8 @@ if.end153.i:                                      ; preds = %if.end146.i
   br i1 %tobool48.not271284.i, label %if.else156.i, label %if.end170.i
 
 if.else156.i:                                     ; preds = %if.end153.i
-  %57 = or i32 %writing.0.lcssa196214231250267286.i, %creating.0.lcssa194216229252265288.i
-  %58 = or i32 %57, %appending.0.lcssa197213232249268285.i
+  %57 = or i32 %writing.0.lcssa198212233248268287.i, %appending.0.lcssa197213232249267288.i
+  %58 = or i32 %57, %creating.0.lcssa200210235246270285.i
   %or.cond7.not.i = icmp eq i32 %58, 0
   %brmerge.not.i = and i1 %tobool36.not217228253264289.i, %or.cond7.not.i
   %.mux.i = select i1 %or.cond7.not.i, i64 64, i64 72

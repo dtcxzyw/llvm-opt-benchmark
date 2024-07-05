@@ -1358,12 +1358,12 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit: ; preds = %15
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit, %155
   %.sroa.0120.1 = phi ptr [ null, %155 ], [ %161, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit ]
   %.sroa.0.1 = phi ptr [ null, %155 ], [ %165, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit ]
-  %.066 = phi ptr [ %5, %155 ], [ %161, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit ]
-  %.065 = phi ptr [ %4, %155 ], [ %165, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit ]
+  %.068 = phi ptr [ %5, %155 ], [ %161, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit ]
+  %.067 = phi ptr [ %4, %155 ], [ %165, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit ]
   %168 = load ptr, ptr %81, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 40
   %170 = load ptr, ptr %169, align 8
-  invoke void %170(ptr noundef nonnull align 8 dereferenceable(36) %81, i64 noundef %1, ptr noundef %2, i64 noundef %62, ptr noundef %.065, ptr noundef %.066, ptr noundef %61)
+  invoke void %170(ptr noundef nonnull align 8 dereferenceable(36) %81, i64 noundef %1, ptr noundef %2, i64 noundef %62, ptr noundef %.067, ptr noundef %.068, ptr noundef %61)
           to label %.preheader unwind label %166
 
 .preheader:                                       ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit
@@ -1416,7 +1416,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %_Z
   br label %205
 
 190:                                              ; preds = %173
-  invoke void @_ZNK5faiss9IndexFlat23compute_distance_subsetElPKflPfPKl(ptr noundef nonnull align 8 dereferenceable(72) %174, i64 noundef %1, ptr noundef %2, i64 noundef %62, ptr noundef %.065, ptr noundef %.066)
+  invoke void @_ZNK5faiss9IndexFlat23compute_distance_subsetElPKflPfPKl(ptr noundef nonnull align 8 dereferenceable(72) %174, i64 noundef %1, ptr noundef %2, i64 noundef %62, ptr noundef %.067, ptr noundef %.068)
           to label %191 unwind label %166
 
 191:                                              ; preds = %190
@@ -1440,8 +1440,8 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %_Z
   store ptr %5, ptr %17, align 8
   store ptr %4, ptr %18, align 8
   store i64 %62, ptr %19, align 8
-  store ptr %.066, ptr %20, align 8
-  store ptr %.065, ptr %21, align 8
+  store ptr %.068, ptr %20, align 8
+  store ptr %.067, ptr %21, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_115reorder_2_heapsINS_4CMaxIflEEEEvllPlPflPKlPKf.omp_outlined, ptr nonnull %15, ptr nonnull %17, ptr nonnull %16, ptr nonnull %18, ptr nonnull %20, ptr nonnull %19, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
@@ -1465,8 +1465,8 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %_Z
   store ptr %5, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i64 %62, ptr %12, align 8
-  store ptr %.066, ptr %13, align 8
-  store ptr %.065, ptr %14, align 8
+  store ptr %.068, ptr %13, align 8
+  store ptr %.067, ptr %14, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_115reorder_2_heapsINS_4CMinIflEEEEvllPlPflPKlPKf.omp_outlined, ptr nonnull %8, ptr nonnull %10, ptr nonnull %9, ptr nonnull %11, ptr nonnull %13, ptr nonnull %12, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -1858,11 +1858,11 @@ define internal void @_ZNK5faiss11IndexRefine6searchElPKflPfPlPKNS_16SearchParam
   br label %28
 
 28:                                               ; preds = %.lr.ph39, %._crit_edge
-  %.02637 = phi i64 [ %26, %.lr.ph39 ], [ %56, %._crit_edge ]
+  %.037 = phi i64 [ %26, %.lr.ph39 ], [ %56, %._crit_edge ]
   %29 = load ptr, ptr %4, align 8
   %30 = load i32, ptr %27, align 8
   %31 = sext i32 %30 to i64
-  %32 = mul nsw i64 %.02637, %31
+  %32 = mul nsw i64 %.037, %31
   %33 = getelementptr inbounds float, ptr %29, i64 %32
   %34 = load ptr, ptr %18, align 8
   %35 = load ptr, ptr %34, align 8
@@ -1875,14 +1875,14 @@ define internal void @_ZNK5faiss11IndexRefine6searchElPKflPfPlPKNS_16SearchParam
   br i1 %38, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %36
-  %39 = mul nsw i64 %37, %.02637
+  %39 = mul nsw i64 %37, %.037
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %49
-  %.034 = phi i64 [ %53, %49 ], [ 0, %.lr.ph.preheader ]
-  %.02533 = phi i64 [ %52, %49 ], [ %39, %.lr.ph.preheader ]
+  %.02534 = phi i64 [ %53, %49 ], [ 0, %.lr.ph.preheader ]
+  %.02633 = phi i64 [ %52, %49 ], [ %39, %.lr.ph.preheader ]
   %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds i64, ptr %40, i64 %.02533
+  %41 = getelementptr inbounds i64, ptr %40, i64 %.02633
   %42 = load i64, ptr %41, align 8
   %43 = icmp slt i64 %42, 0
   br i1 %43, label %._crit_edge, label %44
@@ -1896,18 +1896,18 @@ define internal void @_ZNK5faiss11IndexRefine6searchElPKflPfPlPKNS_16SearchParam
 
 49:                                               ; preds = %44
   %50 = load ptr, ptr %7, align 8
-  %51 = getelementptr inbounds float, ptr %50, i64 %.02533
+  %51 = getelementptr inbounds float, ptr %50, i64 %.02633
   store float %48, ptr %51, align 4
-  %52 = add nsw i64 %.02533, 1
-  %53 = add nuw nsw i64 %.034, 1
+  %52 = add nsw i64 %.02633, 1
+  %53 = add nuw nsw i64 %.02534, 1
   %54 = load i64, ptr %5, align 8
   %55 = icmp slt i64 %53, %54
   br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %49, %.lr.ph, %36
-  %56 = add nsw i64 %.02637, 1
+  %56 = add nsw i64 %.037, 1
   %57 = load i64, ptr %10, align 8
-  %.not.not = icmp slt i64 %.02637, %57
+  %.not.not = icmp slt i64 %.037, %57
   br i1 %.not.not, label %28, label %._crit_edge40
 
 ._crit_edge40:                                    ; preds = %._crit_edge, %22

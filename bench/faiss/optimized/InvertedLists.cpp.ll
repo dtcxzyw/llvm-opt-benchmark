@@ -772,7 +772,7 @@ define noundef ptr @_ZNK5faiss19HStackInvertedLists9get_codesEm(ptr noundef nonn
 .lr.ph:                                           ; preds = %2, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %2 ]
   %15 = phi ptr [ %38, %36 ], [ %14, %2 ]
-  %.01519 = phi ptr [ %.1, %36 ], [ %10, %2 ]
+  %.020 = phi ptr [ %.1, %36 ], [ %10, %2 ]
   %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
@@ -789,7 +789,7 @@ define noundef ptr @_ZNK5faiss19HStackInvertedLists9get_codesEm(ptr noundef nonn
   %26 = getelementptr inbounds i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(25) %17, i64 noundef %1)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01519, ptr align 1 %28, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.020, ptr align 1 %28, i64 %23, i1 false)
   %29 = load ptr, ptr %17, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 48
   %31 = load ptr, ptr %30, align 8
@@ -804,11 +804,11 @@ define noundef ptr @_ZNK5faiss19HStackInvertedLists9get_codesEm(ptr noundef nonn
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit:   ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %.01519, i64 %23
+  %35 = getelementptr inbounds i8, ptr %.020, i64 %23
   br label %36
 
 36:                                               ; preds = %.lr.ph, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit
-  %.1 = phi ptr [ %35, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.01519, %.lr.ph ]
+  %.1 = phi ptr [ %35, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit ], [ %.020, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load ptr, ptr %12, align 8
   %38 = load ptr, ptr %11, align 8
@@ -1863,17 +1863,17 @@ _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPlmlET_
   %89 = phi ptr [ %107, %106 ], [ %39, %.preheader ]
   %90 = phi ptr [ %108, %106 ], [ %40, %.preheader ]
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %106 ], [ 0, %.preheader ]
-  %.039135 = phi i32 [ %93, %106 ], [ 0, %.preheader ]
+  %.040135 = phi i32 [ %93, %106 ], [ 0, %.preheader ]
   %91 = getelementptr inbounds i32, ptr %.sroa.0111.0, i64 %indvars.iv153
   %92 = load i32, ptr %91, align 4
-  %93 = add nsw i32 %92, %.039135
+  %93 = add nsw i32 %92, %.040135
   %94 = icmp sgt i32 %92, 0
   br i1 %94, label %95, label %106
 
 95:                                               ; preds = %.lr.ph137
   %96 = getelementptr inbounds ptr, ptr %89, i64 %indvars.iv153
   %97 = load ptr, ptr %96, align 8
-  %98 = sext i32 %.039135 to i64
+  %98 = sext i32 %.040135 to i64
   %99 = getelementptr inbounds i64, ptr %.sroa.0.0, i64 %98
   %100 = load ptr, ptr %97, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 80
@@ -3349,7 +3349,7 @@ define noundef i64 @_ZNK5faiss13InvertedLists14copy_subset_toERS0_NS0_13subset_t
 
 _ZNK5faiss13InvertedLists14compute_ntotalEv.exit: ; preds = %.lr.ph.i, %66
   %76 = phi i64 [ %10, %66 ], [ %74, %.lr.ph.i ]
-  %.0125 = phi i64 [ 0, %66 ], [ %72, %.lr.ph.i ]
+  %.0130 = phi i64 [ 0, %66 ], [ %72, %.lr.ph.i ]
   %.not = icmp eq i64 %76, 0
   br i1 %.not, label %._crit_edge326, label %.lr.ph325
 
@@ -3361,23 +3361,23 @@ _ZNK5faiss13InvertedLists14compute_ntotalEv.exit: ; preds = %.lr.ph.i, %66
   ]
 
 .preheader.us:                                    ; preds = %.lr.ph325, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us
-  %.0124321.us = phi i64 [ %110, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us ], [ 0, %.lr.ph325 ]
-  %.0126320.us = phi i64 [ %.1127.lcssa.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us ], [ 0, %.lr.ph325 ]
+  %.0124321.us = phi i64 [ %.1125.lcssa.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us ], [ 0, %.lr.ph325 ]
+  %.0131319.us = phi i64 [ %110, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us ], [ 0, %.lr.ph325 ]
   %78 = load ptr, ptr %0, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8
-  %81 = tail call noundef i64 %80(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us)
+  %81 = tail call noundef i64 %80(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us)
   %82 = load ptr, ptr %0, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 40
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef ptr %84(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us)
+  %85 = tail call noundef ptr %84(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us)
   %.not412 = icmp eq i64 %81, 0
   br i1 %.not412, label %.loopexit218.us, label %.lr.ph311.us
 
 .lr.ph311.us:                                     ; preds = %.preheader.us, %108
-  %.0121310.us = phi i64 [ %109, %108 ], [ 0, %.preheader.us ]
-  %.1127309.us = phi i64 [ %.2128.us, %108 ], [ %.0126320.us, %.preheader.us ]
-  %86 = getelementptr inbounds i64, ptr %85, i64 %.0121310.us
+  %.1125310.us = phi i64 [ %.2126.us, %108 ], [ %.0124321.us, %.preheader.us ]
+  %.0133309.us = phi i64 [ %109, %108 ], [ 0, %.preheader.us ]
+  %86 = getelementptr inbounds i64, ptr %85, i64 %.0133309.us
   %87 = load i64, ptr %86, align 8
   %.not145.us = icmp sge i64 %87, %3
   %88 = icmp slt i64 %87, %4
@@ -3388,52 +3388,52 @@ _ZNK5faiss13InvertedLists14compute_ntotalEv.exit: ; preds = %.lr.ph.i, %66
   %90 = load ptr, ptr %0, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 64
   %92 = load ptr, ptr %91, align 8
-  %93 = invoke noundef i64 %92(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us, i64 noundef %.0121310.us)
+  %93 = invoke noundef i64 %92(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us, i64 noundef %.0133309.us)
           to label %94 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
 94:                                               ; preds = %89
   %95 = load ptr, ptr %0, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 72
   %97 = load ptr, ptr %96, align 8
-  %98 = invoke noundef ptr %97(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us, i64 noundef %.0121310.us)
+  %98 = invoke noundef ptr %97(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us, i64 noundef %.0133309.us)
           to label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_mm.exit.us unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
 _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_mm.exit.us: ; preds = %94
   %99 = load ptr, ptr %1, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 88
   %101 = load ptr, ptr %100, align 8
-  %102 = invoke noundef i64 %101(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %.0124321.us, i64 noundef %93, ptr noundef %98, ptr noundef null)
+  %102 = invoke noundef i64 %101(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %.0131319.us, i64 noundef %93, ptr noundef %98, ptr noundef null)
           to label %103 unwind label %.split.us
 
 103:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_mm.exit.us
   %104 = load ptr, ptr %0, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 48
   %106 = load ptr, ptr %105, align 8
-  invoke void %106(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us, ptr noundef %98)
+  invoke void %106(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us, ptr noundef %98)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.us unwind label %.split335.us
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.us: ; preds = %103
-  %107 = add i64 %.1127309.us, 1
+  %107 = add i64 %.1125310.us, 1
   br label %108
 
 108:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.us, %.lr.ph311.us
-  %.2128.us = phi i64 [ %107, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.us ], [ %.1127309.us, %.lr.ph311.us ]
-  %109 = add nuw i64 %.0121310.us, 1
+  %.2126.us = phi i64 [ %107, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit.us ], [ %.1125310.us, %.lr.ph311.us ]
+  %109 = add nuw i64 %.0133309.us, 1
   %exitcond484.not = icmp eq i64 %109, %81
   br i1 %exitcond484.not, label %.loopexit218.us, label %.lr.ph311.us, !llvm.loop !24
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us: ; preds = %.loopexit218.us
-  %110 = add nuw nsw i64 %.0124321.us, 1
+  %110 = add nuw nsw i64 %.0131319.us, 1
   %111 = load i64, ptr %9, align 8
   %112 = icmp ult i64 %110, %111
   br i1 %112, label %.preheader.us, label %._crit_edge326, !llvm.loop !25
 
 .loopexit218.us:                                  ; preds = %108, %.preheader.us
-  %.1127.lcssa.us = phi i64 [ %.0126320.us, %.preheader.us ], [ %.2128.us, %108 ]
+  %.1125.lcssa.us = phi i64 [ %.0124321.us, %.preheader.us ], [ %.2126.us, %108 ]
   %113 = load ptr, ptr %0, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 56
   %115 = load ptr, ptr %114, align 8
-  invoke void %115(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us, ptr noundef %85)
+  invoke void %115(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us, ptr noundef %85)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us unwind label %.split338.us
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %94, %89
@@ -3447,7 +3447,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us: ; preds = %.loopexit218.us
   %117 = load ptr, ptr %0, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 48
   %119 = load ptr, ptr %118, align 8
-  invoke void %119(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us, ptr noundef %98)
+  invoke void %119(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us, ptr noundef %98)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit151 unwind label %266
 
 .split335.us:                                     ; preds = %103
@@ -3463,23 +3463,23 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us: ; preds = %.loopexit218.us
   br label %.split338
 
 .preheader221.us:                                 ; preds = %.lr.ph325, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us351
-  %.0124321.us344 = phi i64 [ %156, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us351 ], [ 0, %.lr.ph325 ]
-  %.0126320.us345 = phi i64 [ %.3129.lcssa.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us351 ], [ 0, %.lr.ph325 ]
+  %.0124321.us345 = phi i64 [ %.3127.lcssa.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us351 ], [ 0, %.lr.ph325 ]
+  %.0131319.us346 = phi i64 [ %156, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us351 ], [ 0, %.lr.ph325 ]
   %123 = load ptr, ptr %0, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 16
   %125 = load ptr, ptr %124, align 8
-  %126 = tail call noundef i64 %125(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us344)
+  %126 = tail call noundef i64 %125(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us346)
   %127 = load ptr, ptr %0, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 40
   %129 = load ptr, ptr %128, align 8
-  %130 = tail call noundef ptr %129(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us344)
+  %130 = tail call noundef ptr %129(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us346)
   %.not411 = icmp eq i64 %126, 0
   br i1 %.not411, label %.loopexit222.us, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.preheader221.us, %154
-  %.0119308.us = phi i64 [ %155, %154 ], [ 0, %.preheader221.us ]
-  %.3129307.us = phi i64 [ %.4130.us, %154 ], [ %.0126320.us345, %.preheader221.us ]
-  %131 = getelementptr inbounds i64, ptr %130, i64 %.0119308.us
+  %.3127308.us = phi i64 [ %.4128.us, %154 ], [ %.0124321.us345, %.preheader221.us ]
+  %.0132307.us = phi i64 [ %155, %154 ], [ 0, %.preheader221.us ]
+  %131 = getelementptr inbounds i64, ptr %130, i64 %.0132307.us
   %132 = load i64, ptr %131, align 8
   %133 = srem i64 %132, %3
   %134 = icmp eq i64 %133, %4
@@ -3489,52 +3489,52 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us: ; preds = %.loopexit218.us
   %136 = load ptr, ptr %0, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 64
   %138 = load ptr, ptr %137, align 8
-  %139 = invoke noundef i64 %138(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us344, i64 noundef %.0119308.us)
+  %139 = invoke noundef i64 %138(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us346, i64 noundef %.0132307.us)
           to label %140 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
 140:                                              ; preds = %135
   %141 = load ptr, ptr %0, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 72
   %143 = load ptr, ptr %142, align 8
-  %144 = invoke noundef ptr %143(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us344, i64 noundef %.0119308.us)
+  %144 = invoke noundef ptr %143(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us346, i64 noundef %.0132307.us)
           to label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_mm.exit152.us unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
 _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_mm.exit152.us: ; preds = %140
   %145 = load ptr, ptr %1, align 8
   %146 = getelementptr inbounds i8, ptr %145, i64 88
   %147 = load ptr, ptr %146, align 8
-  %148 = invoke noundef i64 %147(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %.0124321.us344, i64 noundef %139, ptr noundef %144, ptr noundef null)
+  %148 = invoke noundef i64 %147(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %.0131319.us346, i64 noundef %139, ptr noundef %144, ptr noundef null)
           to label %149 unwind label %.split356.us
 
 149:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_mm.exit152.us
   %150 = load ptr, ptr %0, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 48
   %152 = load ptr, ptr %151, align 8
-  invoke void %152(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us344, ptr noundef %144)
+  invoke void %152(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us346, ptr noundef %144)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit153.us unwind label %.split362.us
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit153.us: ; preds = %149
-  %153 = add i64 %.3129307.us, 1
+  %153 = add i64 %.3127308.us, 1
   br label %154
 
 154:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit153.us, %.lr.ph.us
-  %.4130.us = phi i64 [ %153, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit153.us ], [ %.3129307.us, %.lr.ph.us ]
-  %155 = add nuw i64 %.0119308.us, 1
+  %.4128.us = phi i64 [ %153, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit153.us ], [ %.3127308.us, %.lr.ph.us ]
+  %155 = add nuw i64 %.0132307.us, 1
   %exitcond.not = icmp eq i64 %155, %126
   br i1 %exitcond.not, label %.loopexit222.us, label %.lr.ph.us, !llvm.loop !26
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us351: ; preds = %.loopexit222.us
-  %156 = add nuw nsw i64 %.0124321.us344, 1
+  %156 = add nuw nsw i64 %.0131319.us346, 1
   %157 = load i64, ptr %9, align 8
   %158 = icmp ult i64 %156, %157
   br i1 %158, label %.preheader221.us, label %._crit_edge326, !llvm.loop !25
 
 .loopexit222.us:                                  ; preds = %154, %.preheader221.us
-  %.3129.lcssa.us = phi i64 [ %.0126320.us345, %.preheader221.us ], [ %.4130.us, %154 ]
+  %.3127.lcssa.us = phi i64 [ %.0124321.us345, %.preheader221.us ], [ %.4128.us, %154 ]
   %159 = load ptr, ptr %0, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 56
   %161 = load ptr, ptr %160, align 8
-  invoke void %161(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us344, ptr noundef %130)
+  invoke void %161(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us346, ptr noundef %130)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us351 unwind label %.split338.split.us
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %140, %135
@@ -3548,7 +3548,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us351: ; preds = %.loopexit222.us
   %163 = load ptr, ptr %0, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 48
   %165 = load ptr, ptr %164, align 8
-  invoke void %165(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us344, ptr noundef %144)
+  invoke void %165(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us346, ptr noundef %144)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit151 unwind label %269
 
 .split362.us:                                     ; preds = %149
@@ -3567,24 +3567,24 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us351: ; preds = %.loopexit222.us
   br i1 %67, label %.lr.ph325.split.split.us, label %.lr.ph325.split.split
 
 .lr.ph325.split.split.us:                         ; preds = %.lr.ph325.split, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us375
-  %.0124321.us369 = phi i64 [ %231, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us375 ], [ 0, %.lr.ph325.split ]
-  %.0126320.us370 = phi i64 [ %.5131.us373, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us375 ], [ 0, %.lr.ph325.split ]
+  %.0124321.us370 = phi i64 [ %.5129.us372, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us375 ], [ 0, %.lr.ph325.split ]
+  %.0131319.us371 = phi i64 [ %231, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us375 ], [ 0, %.lr.ph325.split ]
   %169 = load ptr, ptr %0, align 8
   %170 = getelementptr inbounds i8, ptr %169, i64 16
   %171 = load ptr, ptr %170, align 8
-  %172 = tail call noundef i64 %171(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us369)
+  %172 = tail call noundef i64 %171(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us371)
   %173 = load ptr, ptr %0, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 40
   %175 = load ptr, ptr %174, align 8
-  %176 = tail call noundef ptr %175(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us369)
+  %176 = tail call noundef ptr %175(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us371)
   switch i32 %2, label %227 [
     i32 3, label %200
     i32 4, label %177
   ]
 
 177:                                              ; preds = %.lr.ph325.split.split.us
-  %.not.us = icmp sge i64 %.0124321.us369, %3
-  %178 = icmp slt i64 %.0124321.us369, %4
+  %.not.us = icmp sge i64 %.0131319.us371, %3
+  %178 = icmp slt i64 %.0131319.us371, %4
   %or.cond150.us = and i1 %.not.us, %178
   br i1 %or.cond150.us, label %179, label %227
 
@@ -3592,39 +3592,39 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us351: ; preds = %.loopexit222.us
   %180 = load ptr, ptr %0, align 8
   %181 = getelementptr inbounds i8, ptr %180, i64 40
   %182 = load ptr, ptr %181, align 8
-  %183 = invoke noundef ptr %182(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us369)
+  %183 = invoke noundef ptr %182(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us371)
           to label %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.us unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split.us
 
 _ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.us: ; preds = %179
   %184 = load ptr, ptr %0, align 8
   %185 = getelementptr inbounds i8, ptr %184, i64 32
   %186 = load ptr, ptr %185, align 8
-  %187 = invoke noundef ptr %186(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us369)
+  %187 = invoke noundef ptr %186(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us371)
           to label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.us unwind label %.split.us378
 
 _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.us: ; preds = %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit.us
   %188 = load ptr, ptr %1, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 96
   %190 = load ptr, ptr %189, align 8
-  %191 = invoke noundef i64 %190(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %.0124321.us369, i64 noundef %172, ptr noundef %183, ptr noundef %187)
+  %191 = invoke noundef i64 %190(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %.0131319.us371, i64 noundef %172, ptr noundef %183, ptr noundef %187)
           to label %192 unwind label %.split384.us
 
 192:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.us
   %193 = load ptr, ptr %0, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 48
   %195 = load ptr, ptr %194, align 8
-  invoke void %195(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us369, ptr noundef %187)
+  invoke void %195(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us371, ptr noundef %187)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit161.us unwind label %.split391.us
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit161.us: ; preds = %192
   %196 = load ptr, ptr %0, align 8
   %197 = getelementptr inbounds i8, ptr %196, i64 56
   %198 = load ptr, ptr %197, align 8
-  invoke void %198(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us369, ptr noundef %183)
+  invoke void %198(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us371, ptr noundef %183)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.us unwind label %.split394.us
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.us:   ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit161.us
-  %199 = add i64 %172, %.0126320.us370
+  %199 = add i64 %172, %.0124321.us370
   br label %227
 
 200:                                              ; preds = %.lr.ph325.split.split.us
@@ -3636,7 +3636,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.us:   ; preds = %_ZN5faiss13Inverted
   br i1 %205, label %.lr.ph317.us, label %._crit_edge318.us
 
 ._crit_edge318.us:                                ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit159.us, %200
-  %206 = sub i64 %.0126320.us370, %202
+  %206 = sub i64 %.0124321.us370, %202
   %207 = add i64 %206, %204
   br label %227
 
@@ -3645,28 +3645,28 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.us:   ; preds = %_ZN5faiss13Inverted
   %208 = load ptr, ptr %0, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 64
   %210 = load ptr, ptr %209, align 8
-  %211 = invoke noundef i64 %210(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us369, i64 noundef %.0315.us)
+  %211 = invoke noundef i64 %210(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us371, i64 noundef %.0315.us)
           to label %212 unwind label %.loopexit.split.us
 
 212:                                              ; preds = %.lr.ph317.us
   %213 = load ptr, ptr %0, align 8
   %214 = getelementptr inbounds i8, ptr %213, i64 72
   %215 = load ptr, ptr %214, align 8
-  %216 = invoke noundef ptr %215(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us369, i64 noundef %.0315.us)
+  %216 = invoke noundef ptr %215(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us371, i64 noundef %.0315.us)
           to label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_mm.exit158.us unwind label %.loopexit.split.us
 
 _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_mm.exit158.us: ; preds = %212
   %217 = load ptr, ptr %1, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 88
   %219 = load ptr, ptr %218, align 8
-  %220 = invoke noundef i64 %219(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %.0124321.us369, i64 noundef %211, ptr noundef %216, ptr noundef null)
+  %220 = invoke noundef i64 %219(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %.0131319.us371, i64 noundef %211, ptr noundef %216, ptr noundef null)
           to label %221 unwind label %.split400.us
 
 221:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_mm.exit158.us
   %222 = load ptr, ptr %0, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 48
   %224 = load ptr, ptr %223, align 8
-  invoke void %224(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us369, ptr noundef %216)
+  invoke void %224(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us371, ptr noundef %216)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit159.us unwind label %.split406.us
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit159.us: ; preds = %221
@@ -3675,15 +3675,15 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit159.us: ; preds = %221
   br i1 %226, label %.lr.ph317.us, label %._crit_edge318.us, !llvm.loop !27
 
 227:                                              ; preds = %._crit_edge318.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.us, %177, %.lr.ph325.split.split.us
-  %.5131.us373 = phi i64 [ %207, %._crit_edge318.us ], [ %199, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.us ], [ %.0126320.us370, %177 ], [ %.0126320.us370, %.lr.ph325.split.split.us ]
+  %.5129.us372 = phi i64 [ %207, %._crit_edge318.us ], [ %199, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit.us ], [ %.0124321.us370, %177 ], [ %.0124321.us370, %.lr.ph325.split.split.us ]
   %228 = load ptr, ptr %0, align 8
   %229 = getelementptr inbounds i8, ptr %228, i64 56
   %230 = load ptr, ptr %229, align 8
-  invoke void %230(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us369, ptr noundef %176)
+  invoke void %230(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us371, ptr noundef %176)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us375 unwind label %.split338.split.split.us
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us375: ; preds = %227
-  %231 = add nuw nsw i64 %.0124321.us369, 1
+  %231 = add nuw nsw i64 %.0131319.us371, 1
   %232 = load i64, ptr %9, align 8
   %233 = icmp ult i64 %231, %232
   br i1 %233, label %.lr.ph325.split.split.us, label %._crit_edge326, !llvm.loop !25
@@ -3704,7 +3704,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us375: ; preds = %227
   %236 = load ptr, ptr %0, align 8
   %237 = getelementptr inbounds i8, ptr %236, i64 48
   %238 = load ptr, ptr %237, align 8
-  invoke void %238(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us369, ptr noundef %187)
+  invoke void %238(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us371, ptr noundef %187)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit162 unwind label %308
 
 .split391.us:                                     ; preds = %192
@@ -3732,7 +3732,7 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us375: ; preds = %227
   %244 = load ptr, ptr %0, align 8
   %245 = getelementptr inbounds i8, ptr %244, i64 48
   %246 = load ptr, ptr %245, align 8
-  invoke void %246(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us369, ptr noundef %216)
+  invoke void %246(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us371, ptr noundef %216)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit151 unwind label %305
 
 .split406.us:                                     ; preds = %221
@@ -3748,26 +3748,26 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us375: ; preds = %227
   br label %.split338
 
 .lr.ph325.split.split:                            ; preds = %.lr.ph325.split, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164
-  %.0120324 = phi i64 [ %258, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164 ], [ 0, %.lr.ph325.split ]
-  %.0122323 = phi i64 [ %260, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164 ], [ 0, %.lr.ph325.split ]
-  %.0124321 = phi i64 [ %321, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164 ], [ 0, %.lr.ph325.split ]
-  %.0126320 = phi i64 [ %320, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164 ], [ 0, %.lr.ph325.split ]
-  %.0132319 = phi i64 [ %263, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164 ], [ 0, %.lr.ph325.split ]
+  %.0119324 = phi i64 [ %258, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164 ], [ 0, %.lr.ph325.split ]
+  %.0120323 = phi i64 [ %260, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164 ], [ 0, %.lr.ph325.split ]
+  %.0122322 = phi i64 [ %263, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164 ], [ 0, %.lr.ph325.split ]
+  %.0124321 = phi i64 [ %320, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164 ], [ 0, %.lr.ph325.split ]
+  %.0131319 = phi i64 [ %321, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164 ], [ 0, %.lr.ph325.split ]
   %250 = load ptr, ptr %0, align 8
   %251 = getelementptr inbounds i8, ptr %250, i64 16
   %252 = load ptr, ptr %251, align 8
-  %253 = tail call noundef i64 %252(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321)
+  %253 = tail call noundef i64 %252(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319)
   %254 = load ptr, ptr %0, align 8
   %255 = getelementptr inbounds i8, ptr %254, i64 40
   %256 = load ptr, ptr %255, align 8
-  %257 = tail call noundef ptr %256(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321)
-  %258 = add i64 %253, %.0120324
+  %257 = tail call noundef ptr %256(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319)
+  %258 = add i64 %253, %.0119324
   %259 = mul i64 %258, %3
-  %260 = udiv i64 %259, %.0125
-  %261 = sub i64 %260, %.0122323
+  %260 = udiv i64 %259, %.0130
+  %261 = sub i64 %260, %.0120323
   %262 = mul i64 %258, %4
-  %263 = udiv i64 %262, %.0125
-  %264 = sub i64 %263, %.0132319
+  %263 = udiv i64 %262, %.0130
+  %264 = sub i64 %263, %.0122322
   %265 = icmp ult i64 %261, %264
   br i1 %265, label %.lr.ph314, label %._crit_edge
 
@@ -3791,32 +3791,32 @@ _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us375: ; preds = %227
   unreachable
 
 .lr.ph314:                                        ; preds = %.lr.ph325.split.split, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit156
-  %.0111313 = phi i64 [ %292, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit156 ], [ %261, %.lr.ph325.split.split ]
+  %.0118313 = phi i64 [ %292, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit156 ], [ %261, %.lr.ph325.split.split ]
   %272 = load ptr, ptr %0, align 8
   %273 = getelementptr inbounds i8, ptr %272, i64 64
   %274 = load ptr, ptr %273, align 8
-  %275 = invoke noundef i64 %274(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321, i64 noundef %.0111313)
+  %275 = invoke noundef i64 %274(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319, i64 noundef %.0118313)
           to label %276 unwind label %.loopexit.split-lp.loopexit
 
 276:                                              ; preds = %.lr.ph314
   %277 = load ptr, ptr %0, align 8
   %278 = getelementptr inbounds i8, ptr %277, i64 72
   %279 = load ptr, ptr %278, align 8
-  %280 = invoke noundef ptr %279(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321, i64 noundef %.0111313)
+  %280 = invoke noundef ptr %279(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319, i64 noundef %.0118313)
           to label %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_mm.exit155 unwind label %.loopexit.split-lp.loopexit
 
 _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_mm.exit155: ; preds = %276
   %281 = load ptr, ptr %1, align 8
   %282 = getelementptr inbounds i8, ptr %281, i64 88
   %283 = load ptr, ptr %282, align 8
-  %284 = invoke noundef i64 %283(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %.0124321, i64 noundef %275, ptr noundef %280, ptr noundef null)
+  %284 = invoke noundef i64 %283(ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %.0131319, i64 noundef %275, ptr noundef %280, ptr noundef null)
           to label %285 unwind label %294
 
 285:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_mm.exit155
   %286 = load ptr, ptr %0, align 8
   %287 = getelementptr inbounds i8, ptr %286, i64 48
   %288 = load ptr, ptr %287, align 8
-  invoke void %288(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321, ptr noundef %280)
+  invoke void %288(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319, ptr noundef %280)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit156 unwind label %289
 
 289:                                              ; preds = %285
@@ -3827,7 +3827,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_mm.exit155: ; preds = %276
   unreachable
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit156: ; preds = %285
-  %292 = add nuw nsw i64 %.0111313, 1
+  %292 = add nuw nsw i64 %.0118313, 1
   %293 = icmp ult i64 %292, %264
   br i1 %293, label %.lr.ph314, label %._crit_edge, !llvm.loop !28
 
@@ -3837,7 +3837,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit156: ; preds = %285
   %296 = load ptr, ptr %0, align 8
   %297 = getelementptr inbounds i8, ptr %296, i64 48
   %298 = load ptr, ptr %297, align 8
-  invoke void %298(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321, ptr noundef %280)
+  invoke void %298(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319, ptr noundef %280)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit151 unwind label %299
 
 299:                                              ; preds = %294
@@ -3851,7 +3851,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit156: ; preds = %285
   %302 = load ptr, ptr %0, align 8
   %303 = getelementptr inbounds i8, ptr %302, i64 56
   %304 = load ptr, ptr %303, align 8
-  invoke void %304(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321, ptr noundef %257)
+  invoke void %304(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319, ptr noundef %257)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164 unwind label %.split338.split.split
 
 305:                                              ; preds = %.split400.us
@@ -3873,7 +3873,7 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit162: ; preds = %.split384.us, %.sp
   %311 = load ptr, ptr %0, align 8
   %312 = getelementptr inbounds i8, ptr %311, i64 56
   %313 = load ptr, ptr %312, align 8
-  invoke void %313(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124321.us369, ptr noundef %183)
+  invoke void %313(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131319.us371, ptr noundef %183)
           to label %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit151 unwind label %314
 
 314:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit162
@@ -3895,21 +3895,21 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit162: ; preds = %.split384.us, %.sp
   unreachable
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164:   ; preds = %._crit_edge
-  %319 = sub i64 %.0126320, %261
+  %319 = sub i64 %.0124321, %261
   %320 = add i64 %319, %264
-  %321 = add nuw nsw i64 %.0124321, 1
+  %321 = add nuw nsw i64 %.0131319, 1
   %322 = load i64, ptr %9, align 8
   %323 = icmp ult i64 %321, %322
   br i1 %323, label %.lr.ph325.split.split, label %._crit_edge326, !llvm.loop !25
 
 _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit151: ; preds = %.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit162, %.split400.us, %294, %.split356.us, %.split.us
   %324 = phi ptr [ %85, %.split.us ], [ %130, %.split356.us ], [ %257, %294 ], [ %176, %.split400.us ], [ %176, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit162 ], [ %176, %.loopexit.split.us ], [ %257, %.loopexit.split-lp.loopexit ], [ %85, %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %130, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %176, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split.us ]
-  %.0124265 = phi i64 [ %.0124321.us, %.split.us ], [ %.0124321.us344, %.split356.us ], [ %.0124321, %294 ], [ %.0124321.us369, %.split400.us ], [ %.0124321.us369, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit162 ], [ %.0124321.us369, %.loopexit.split.us ], [ %.0124321, %.loopexit.split-lp.loopexit ], [ %.0124321.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %.0124321.us344, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %.0124321.us369, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split.us ]
+  %.0131283 = phi i64 [ %.0131319.us, %.split.us ], [ %.0131319.us346, %.split356.us ], [ %.0131319, %294 ], [ %.0131319.us371, %.split400.us ], [ %.0131319.us371, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit162 ], [ %.0131319.us371, %.loopexit.split.us ], [ %.0131319, %.loopexit.split-lp.loopexit ], [ %.0131319.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %.0131319.us346, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %.0131319.us371, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split.us ]
   %.pn146 = phi { ptr, i32 } [ %116, %.split.us ], [ %162, %.split356.us ], [ %295, %294 ], [ %243, %.split400.us ], [ %.pn143, %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit162 ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit215, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit219.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit223.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit.split-lp224.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split.us ]
   %325 = load ptr, ptr %0, align 8
   %326 = getelementptr inbounds i8, ptr %325, i64 56
   %327 = load ptr, ptr %326, align 8
-  invoke void %327(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0124265, ptr noundef %324)
+  invoke void %327(ptr noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %.0131283, ptr noundef %324)
           to label %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit165 unwind label %328
 
 328:                                              ; preds = %_ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit151
@@ -3920,8 +3920,8 @@ _ZN5faiss13InvertedLists11ScopedCodesD2Ev.exit151: ; preds = %.loopexit.split.us
   unreachable
 
 ._crit_edge326:                                   ; preds = %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us351, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us375, %_ZNK5faiss13InvertedLists14compute_ntotalEv.exit
-  %.0126.lcssa = phi i64 [ 0, %_ZNK5faiss13InvertedLists14compute_ntotalEv.exit ], [ %.5131.us373, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us375 ], [ %320, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164 ], [ %.1127.lcssa.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us ], [ %.3129.lcssa.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us351 ]
-  ret i64 %.0126.lcssa
+  %.0124.lcssa = phi i64 [ 0, %_ZNK5faiss13InvertedLists14compute_ntotalEv.exit ], [ %.5129.us372, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us375 ], [ %320, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164 ], [ %.1125.lcssa.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us ], [ %.3127.lcssa.us, %_ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit164.us351 ]
+  ret i64 %.0124.lcssa
 
 _ZN5faiss13InvertedLists9ScopedIdsD2Ev.exit165.sink.split: ; preds = %62, %64, %46, %48, %25, %27
   %.sink = phi ptr [ %6, %27 ], [ %6, %25 ], [ %7, %48 ], [ %7, %46 ], [ %8, %64 ], [ %8, %62 ]
@@ -4757,8 +4757,8 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %2
 
 25:                                               ; preds = %.lr.ph, %48
   %26 = phi i64 [ %7, %.lr.ph ], [ %74, %48 ]
-  %.01239 = phi i64 [ 0, %.lr.ph ], [ %73, %48 ]
-  %27 = getelementptr inbounds i64, ptr %1, i64 %.01239
+  %.01539 = phi i64 [ 0, %.lr.ph ], [ %73, %48 ]
+  %27 = getelementptr inbounds i64, ptr %1, i64 %.01539
   %28 = load i64, ptr %27, align 8
   %29 = icmp ult i64 %28, %26
   br i1 %29, label %48, label %30
@@ -4809,7 +4809,7 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %2
   br label %107
 
 48:                                               ; preds = %25
-  %49 = getelementptr inbounds %"class.std::vector.20", ptr %10, i64 %.01239
+  %49 = getelementptr inbounds %"class.std::vector.20", ptr %10, i64 %.01539
   %50 = load ptr, ptr %23, align 8
   %51 = getelementptr inbounds %"class.std::vector.20", ptr %50, i64 %28
   %52 = getelementptr inbounds i8, ptr %49, i64 8
@@ -4826,7 +4826,7 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %2
   store ptr %60, ptr %53, align 8
   store <2 x ptr> %58, ptr %51, align 8
   store ptr %54, ptr %57, align 8
-  %61 = getelementptr inbounds %"class.std::vector", ptr %14, i64 %.01239
+  %61 = getelementptr inbounds %"class.std::vector", ptr %14, i64 %.01539
   %62 = load ptr, ptr %24, align 8
   %63 = getelementptr inbounds %"class.std::vector", ptr %62, i64 %28
   %64 = getelementptr inbounds i8, ptr %61, i64 8
@@ -4843,7 +4843,7 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %2
   store ptr %72, ptr %65, align 8
   store <2 x ptr> %70, ptr %63, align 8
   store ptr %66, ptr %69, align 8
-  %73 = add nuw i64 %.01239, 1
+  %73 = add nuw i64 %.01539, 1
   %74 = load i64, ptr %6, align 8
   %75 = icmp ult i64 %73, %74
   br i1 %75, label %25, label %._crit_edge, !llvm.loop !47
@@ -5677,23 +5677,23 @@ define internal fastcc noundef range(i32 0, 1073741824) i32 @_ZN5faiss12_GLOBAL_
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %25, %.lr.ph
-  %.01724 = phi i32 [ %..017, %.lr.ph ], [ %34, %25 ]
-  %.01823 = phi i32 [ %.018., %.lr.ph ], [ 0, %25 ]
-  %38 = add nuw nsw i32 %.01724, %.01823
+  %.01824 = phi i32 [ %..018, %.lr.ph ], [ %34, %25 ]
+  %.01923 = phi i32 [ %.019., %.lr.ph ], [ 0, %25 ]
+  %38 = add nuw nsw i32 %.01824, %.01923
   %39 = lshr i32 %38, 1
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds i64, ptr %36, i64 %40
   %42 = load i64, ptr %41, align 8
   %.not = icmp sgt i64 %42, %1
-  %.018. = select i1 %.not, i32 %.01823, i32 %39
-  %..017 = select i1 %.not, i32 %39, i32 %.01724
-  %43 = add nuw nsw i32 %.018., 1
-  %44 = icmp slt i32 %43, %..017
+  %.019. = select i1 %.not, i32 %.01923, i32 %39
+  %..018 = select i1 %.not, i32 %39, i32 %.01824
+  %43 = add nuw nsw i32 %.019., 1
+  %44 = icmp slt i32 %43, %..018
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
-  %.018.lcssa = phi i32 [ 0, %25 ], [ %.018., %.lr.ph ]
-  ret i32 %.018.lcssa
+  %.019.lcssa = phi i32 [ 0, %25 ], [ %.019., %.lr.ph ]
+  ret i32 %.019.lcssa
 
 45:                                               ; preds = %19
   unreachable

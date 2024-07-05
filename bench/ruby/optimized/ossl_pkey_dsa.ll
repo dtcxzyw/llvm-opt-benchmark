@@ -116,8 +116,8 @@ define internal noundef i64 @ossl_dsa_initialize(i32 noundef %0, ptr noundef %1,
 
 12:                                               ; preds = %9
   %13 = call ptr @DSA_new() #5
-  %.not38 = icmp eq ptr %13, null
-  br i1 %.not38, label %14, label %35
+  %.not37 = icmp eq ptr %13, null
+  br i1 %.not37, label %14, label %35
 
 14:                                               ; preds = %12
   %15 = load i64, ptr @eDSAError, align 8
@@ -133,8 +133,8 @@ define internal noundef i64 @ossl_dsa_initialize(i32 noundef %0, ptr noundef %1,
   store i64 %20, ptr %4, align 8
   %21 = call ptr @ossl_obj2bio(ptr noundef nonnull %4) #5
   %22 = call ptr @PEM_ASN1_read_bio(ptr noundef nonnull @d2i_DSAPublicKey, ptr noundef nonnull @.str.20, ptr noundef %21, ptr noundef null, ptr noundef null, ptr noundef null) #5
-  %.not35 = icmp eq ptr %22, null
-  br i1 %.not35, label %23, label %35
+  %.not34 = icmp eq ptr %22, null
+  br i1 %.not34, label %23, label %35
 
 23:                                               ; preds = %16
   %24 = call i64 @BIO_ctrl(ptr noundef %21, i32 noundef 1, i64 noundef 0, ptr noundef null) #5
@@ -142,8 +142,8 @@ define internal noundef i64 @ossl_dsa_initialize(i32 noundef %0, ptr noundef %1,
   %25 = load i64, ptr %5, align 8
   %26 = call ptr @ossl_pkey_read_generic(ptr noundef %21, i64 noundef %25) #5
   %27 = call i32 @BIO_free(ptr noundef %21) #5
-  %.not36 = icmp eq ptr %26, null
-  br i1 %.not36, label %28, label %30
+  %.not35 = icmp eq ptr %26, null
+  br i1 %.not35, label %28, label %30
 
 28:                                               ; preds = %23
   %29 = load i64, ptr @eDSAError, align 8
@@ -152,8 +152,8 @@ define internal noundef i64 @ossl_dsa_initialize(i32 noundef %0, ptr noundef %1,
 
 30:                                               ; preds = %23
   %31 = call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %26) #5
-  %.not37 = icmp eq i32 %31, 116
-  br i1 %.not37, label %42, label %32
+  %.not36 = icmp eq i32 %31, 116
+  br i1 %.not36, label %42, label %32
 
 32:                                               ; preds = %30
   call void @EVP_PKEY_free(ptr noundef nonnull %26) #5
@@ -163,21 +163,21 @@ define internal noundef i64 @ossl_dsa_initialize(i32 noundef %0, ptr noundef %1,
   unreachable
 
 35:                                               ; preds = %16, %12
-  %.028 = phi ptr [ %13, %12 ], [ %22, %16 ]
-  %.0 = phi ptr [ null, %12 ], [ %21, %16 ]
-  %36 = call i32 @BIO_free(ptr noundef %.0) #5
+  %.029 = phi ptr [ %13, %12 ], [ %22, %16 ]
+  %.028 = phi ptr [ null, %12 ], [ %21, %16 ]
+  %36 = call i32 @BIO_free(ptr noundef %.028) #5
   %37 = call ptr @EVP_PKEY_new() #5
-  %.not39 = icmp eq ptr %37, null
-  br i1 %.not39, label %40, label %38
+  %.not38 = icmp eq ptr %37, null
+  br i1 %.not38, label %40, label %38
 
 38:                                               ; preds = %35
-  %39 = call i32 @EVP_PKEY_assign(ptr noundef nonnull %37, i32 noundef 116, ptr noundef nonnull %.028) #5
-  %.not40 = icmp eq i32 %39, 1
-  br i1 %.not40, label %42, label %40
+  %39 = call i32 @EVP_PKEY_assign(ptr noundef nonnull %37, i32 noundef 116, ptr noundef nonnull %.029) #5
+  %.not39 = icmp eq i32 %39, 1
+  br i1 %.not39, label %42, label %40
 
 40:                                               ; preds = %38, %35
   call void @EVP_PKEY_free(ptr noundef %37) #5
-  call void @DSA_free(ptr noundef nonnull %.028) #5
+  call void @DSA_free(ptr noundef nonnull %.029) #5
   %41 = load i64, ptr @eDSAError, align 8
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %41, ptr noundef nonnull @.str.23) #6
   unreachable

@@ -357,11 +357,11 @@ define hidden range(i32 0, 2) i32 @PBE_decrypt_data(ptr noundef %0, ptr noundef 
   br label %107
 
 23:                                               ; preds = %20, %18, %15
-  %.086 = phi i32 [ 2, %15 ], [ 301, %18 ], [ 307, %20 ]
-  %.085 = phi i32 [ 3, %15 ], [ 0, %18 ], [ 3, %20 ]
+  %.086 = phi i32 [ 3, %15 ], [ 0, %18 ], [ 3, %20 ]
   %.not92 = phi i1 [ false, %15 ], [ true, %18 ], [ false, %20 ]
-  %.084 = phi i32 [ 8, %15 ], [ 0, %18 ], [ 8, %20 ]
-  %.083 = phi i32 [ 24, %15 ], [ 16, %18 ], [ 5, %20 ]
+  %.085 = phi i32 [ 8, %15 ], [ 0, %18 ], [ 8, %20 ]
+  %.084 = phi i32 [ 24, %15 ], [ 16, %18 ], [ 5, %20 ]
+  %.082 = phi i32 [ 2, %15 ], [ 301, %18 ], [ 307, %20 ]
   %24 = load i32, ptr @iteration_count, align 4
   %25 = icmp eq i32 %24, 0
   %26 = load ptr, ptr @salt, align 8
@@ -376,12 +376,12 @@ define hidden range(i32 0, 2) i32 @PBE_decrypt_data(ptr noundef %0, ptr noundef 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds i8, ptr %2, i64 408
   %31 = load ptr, ptr %30, align 8
-  %32 = zext nneg i32 %.083 to i64
+  %32 = zext nneg i32 %.084 to i64
   %33 = tail call noalias ptr @wmem_alloc(ptr noundef %31, i64 noundef %32) #8
   %34 = load ptr, ptr @salt, align 8
   %35 = load i32, ptr @iteration_count, align 4
   %36 = load ptr, ptr @password, align 8
-  %37 = tail call fastcc i32 @generate_key_or_iv(ptr noundef %2, i32 noundef 1, ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %.083, ptr noundef %33)
+  %37 = tail call fastcc i32 @generate_key_or_iv(ptr noundef %2, i32 noundef 1, ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %.084, ptr noundef %33)
   %.not91 = icmp eq i32 %37, 0
   br i1 %.not91, label %107, label %38
 
@@ -390,18 +390,18 @@ define hidden range(i32 0, 2) i32 @PBE_decrypt_data(ptr noundef %0, ptr noundef 
 
 39:                                               ; preds = %38
   %40 = load ptr, ptr %30, align 8
-  %41 = zext nneg i32 %.084 to i64
+  %41 = zext nneg i32 %.085 to i64
   %42 = tail call noalias ptr @wmem_alloc(ptr noundef %40, i64 noundef %41) #8
   %43 = load ptr, ptr @salt, align 8
   %44 = load i32, ptr @iteration_count, align 4
   %45 = load ptr, ptr @password, align 8
-  %46 = tail call fastcc i32 @generate_key_or_iv(ptr noundef nonnull %2, i32 noundef 2, ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef %.084, ptr noundef %42)
+  %46 = tail call fastcc i32 @generate_key_or_iv(ptr noundef nonnull %2, i32 noundef 2, ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef %.085, ptr noundef %42)
   %.not93 = icmp eq i32 %46, 0
   br i1 %.not93, label %107, label %47
 
 47:                                               ; preds = %39, %38
-  %.082 = phi ptr [ %42, %39 ], [ null, %38 ]
-  %48 = call i32 @gcry_cipher_open(ptr noundef nonnull %6, i32 noundef %.086, i32 noundef %.085, i32 noundef 0) #8
+  %.083 = phi ptr [ %42, %39 ], [ null, %38 ]
+  %48 = call i32 @gcry_cipher_open(ptr noundef nonnull %6, i32 noundef %.082, i32 noundef %.086, i32 noundef 0) #8
   %49 = and i32 %48, 65535
   %.not94 = icmp eq i32 %49, 0
   br i1 %.not94, label %50, label %107
@@ -423,8 +423,8 @@ define hidden range(i32 0, 2) i32 @PBE_decrypt_data(ptr noundef %0, ptr noundef 
 
 57:                                               ; preds = %56
   %58 = load ptr, ptr %6, align 8
-  %59 = zext nneg i32 %.084 to i64
-  %60 = call i32 @gcry_cipher_setiv(ptr noundef %58, ptr noundef %.082, i64 noundef %59) #8
+  %59 = zext nneg i32 %.085 to i64
+  %60 = call i32 @gcry_cipher_setiv(ptr noundef %58, ptr noundef %.083, i64 noundef %59) #8
   %61 = and i32 %60, 65535
   %.not96 = icmp eq i32 %61, 0
   br i1 %.not96, label %64, label %62
@@ -553,19 +553,19 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr nocapture nou
   br i1 %24, label %.loopexit64, label %.preheader70.preheader
 
 .preheader70.preheader:                           ; preds = %7, %22
-  %.05499 = phi i64 [ %23, %22 ], [ 0, %7 ]
+  %.05699 = phi i64 [ %23, %22 ], [ 0, %7 ]
   br label %.preheader70
 
 .preheader70:                                     ; preds = %.preheader70.preheader, %.preheader70
-  %.05272 = phi ptr [ %29, %.preheader70 ], [ %12, %.preheader70.preheader ]
-  %.05671 = phi i32 [ %30, %.preheader70 ], [ 0, %.preheader70.preheader ]
-  %25 = urem i32 %.05671, %16
+  %.05272 = phi i32 [ %30, %.preheader70 ], [ 0, %.preheader70.preheader ]
+  %.05471 = phi ptr [ %29, %.preheader70 ], [ %12, %.preheader70.preheader ]
+  %25 = urem i32 %.05272, %16
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr i8, ptr %20, i64 %26
   %28 = load i8, ptr %27, align 1
-  %29 = getelementptr i8, ptr %.05272, i64 1
-  store i8 %28, ptr %.05272, align 1
-  %30 = add nuw nsw i32 %.05671, 1
+  %29 = getelementptr i8, ptr %.05471, i64 1
+  store i8 %28, ptr %.05471, align 1
+  %30 = add nuw nsw i32 %.05272, 1
   %exitcond.not = icmp eq i32 %30, 64
   br i1 %exitcond.not, label %31, label %.preheader70, !llvm.loop !6
 
@@ -573,22 +573,22 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr nocapture nou
   br i1 %21, label %42, label %.preheader68
 
 .preheader68:                                     ; preds = %31, %.preheader68
-  %.15375 = phi ptr [ %36, %.preheader68 ], [ %29, %31 ]
-  %.05574 = phi i32 [ %spec.store.select, %.preheader68 ], [ 0, %31 ]
-  %.15773 = phi i32 [ %40, %.preheader68 ], [ 0, %31 ]
-  %32 = getelementptr i8, ptr %.15375, i64 1
-  store i8 0, ptr %.15375, align 1
-  %33 = zext i32 %.05574 to i64
+  %.15375 = phi i32 [ %40, %.preheader68 ], [ 0, %31 ]
+  %.15574 = phi ptr [ %36, %.preheader68 ], [ %29, %31 ]
+  %.05773 = phi i32 [ %spec.store.select, %.preheader68 ], [ 0, %31 ]
+  %32 = getelementptr i8, ptr %.15574, i64 1
+  store i8 0, ptr %.15574, align 1
+  %33 = zext i32 %.05773 to i64
   %34 = getelementptr i8, ptr %4, i64 %33
   %35 = load i8, ptr %34, align 1
-  %36 = getelementptr i8, ptr %.15375, i64 2
+  %36 = getelementptr i8, ptr %.15574, i64 2
   store i8 %35, ptr %32, align 1
-  %37 = add i32 %.05574, 1
+  %37 = add i32 %.05773, 1
   %38 = zext i32 %37 to i64
-  %39 = icmp ult i64 %.05499, %38
+  %39 = icmp ult i64 %.05699, %38
   %spec.store.select = select i1 %39, i32 0, i32 %37
-  %40 = add nuw nsw i32 %.15773, 2
-  %41 = icmp ult i32 %.15773, 62
+  %40 = add nuw nsw i32 %.15375, 2
+  %41 = icmp ult i32 %.15375, 62
   br i1 %41, label %.preheader68, label %.loopexit69, !llvm.loop !7
 
 42:                                               ; preds = %31

@@ -783,9 +783,9 @@ for.body.lr.ph.i:                                 ; preds = %for.end
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc60.i, %for.body.lr.ph.i
-  %gens.035.i = phi ptr [ null, %for.body.lr.ph.i ], [ %gens.1.i, %for.inc60.i ]
-  %i.034.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc61.i, %for.inc60.i ]
-  %call4.i = call ptr @OPENSSL_sk_value(ptr noundef %call.i77, i32 noundef %i.034.i) #9
+  %i.035.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc61.i, %for.inc60.i ]
+  %gens.034.i = phi ptr [ null, %for.body.lr.ph.i ], [ %gens.1.i, %for.inc60.i ]
+  %call4.i = call ptr @OPENSSL_sk_value(ptr noundef %call.i77, i32 noundef %i.035.i) #9
   %call5.i = call ptr @X509_REVOKED_get_ext_d2i(ptr noundef %call4.i, i32 noundef 771, ptr noundef nonnull %j.i, ptr noundef null) #9
   %cmp6.i = icmp eq ptr %call5.i, null
   %45 = load i32, ptr %j.i, align 4
@@ -814,7 +814,7 @@ if.end18.i:                                       ; preds = %if.then11.i, %if.th
   br i1 %tobool.not.i79, label %crl_set_issuers.exit, label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.end18.i, %if.end.i78
-  %gens.1.i = phi ptr [ %gens.035.i, %if.end.i78 ], [ %call5.i, %if.end18.i ]
+  %gens.1.i = phi ptr [ %gens.034.i, %if.end.i78 ], [ %call5.i, %if.end18.i ]
   %issuer.i = getelementptr inbounds i8, ptr %call4.i, i64 40
   store ptr %gens.1.i, ptr %issuer.i, align 8
   %call26.i = call ptr @X509_REVOKED_get_ext_d2i(ptr noundef %call4.i, i32 noundef 141, ptr noundef nonnull %j.i, ptr noundef null) #9
@@ -876,7 +876,7 @@ for.inc.i:                                        ; preds = %if.then50.i, %for.b
   br i1 %cmp43.i, label %for.body45.i, label %for.inc60.i, !llvm.loop !6
 
 for.inc60.i:                                      ; preds = %for.inc.i, %if.end56.i, %if.end39.i
-  %inc61.i = add nuw nsw i32 %i.034.i, 1
+  %inc61.i = add nuw nsw i32 %i.035.i, 1
   %call2.i = call i32 @OPENSSL_sk_num(ptr noundef %call.i77) #9
   %cmp.i82 = icmp slt i32 %inc61.i, %call2.i
   br i1 %cmp.i82, label %for.body.i, label %if.end105, !llvm.loop !7

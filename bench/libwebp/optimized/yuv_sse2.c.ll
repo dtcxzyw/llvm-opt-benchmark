@@ -2768,8 +2768,8 @@ define internal void @ConvertRGBA32ToUV_SSE2(ptr noundef %0, ptr noundef %1, ptr
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.045 = phi ptr [ %117, %.lr.ph ], [ %0, %4 ]
-  %.02644 = phi ptr [ %116, %.lr.ph ], [ %2, %4 ]
-  %.02743 = phi ptr [ %115, %.lr.ph ], [ %1, %4 ]
+  %.02644 = phi ptr [ %115, %.lr.ph ], [ %1, %4 ]
+  %.02743 = phi ptr [ %116, %.lr.ph ], [ %2, %4 ]
   %10 = load <8 x i16>, ptr %.045, align 1
   %11 = getelementptr inbounds i8, ptr %.045, i64 16
   %12 = load <8 x i16>, ptr %11, align 1
@@ -2874,25 +2874,25 @@ define internal void @ConvertRGBA32ToUV_SSE2(ptr noundef %0, ptr noundef %1, ptr
   %111 = ashr <4 x i32> %109, <i32 18, i32 18, i32 18, i32 18>
   %112 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %110, <4 x i32> %111)
   %113 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %49, <8 x i16> %101)
-  store <16 x i8> %113, ptr %.02743, align 1
+  store <16 x i8> %113, ptr %.02644, align 1
   %114 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %60, <8 x i16> %112)
-  store <16 x i8> %114, ptr %.02644, align 1
-  %115 = getelementptr inbounds i8, ptr %.02743, i64 16
-  %116 = getelementptr inbounds i8, ptr %.02644, i64 16
+  store <16 x i8> %114, ptr %.02743, align 1
+  %115 = getelementptr inbounds i8, ptr %.02644, i64 16
+  %116 = getelementptr inbounds i8, ptr %.02743, i64 16
   %117 = getelementptr inbounds i8, ptr %.045, i64 128
   %118 = icmp ult ptr %117, %8
   br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %.027.lcssa = phi ptr [ %1, %4 ], [ %115, %.lr.ph ]
-  %.026.lcssa = phi ptr [ %2, %4 ], [ %116, %.lr.ph ]
+  %.027.lcssa = phi ptr [ %2, %4 ], [ %116, %.lr.ph ]
+  %.026.lcssa = phi ptr [ %1, %4 ], [ %115, %.lr.ph ]
   %.0.lcssa = phi ptr [ %0, %4 ], [ %117, %.lr.ph ]
   %.not = icmp eq i32 %5, %3
   br i1 %.not, label %121, label %119
 
 119:                                              ; preds = %._crit_edge
   %120 = and i32 %3, 15
-  tail call void @WebPConvertRGBA32ToUV_C(ptr noundef %.0.lcssa, ptr noundef %.027.lcssa, ptr noundef %.026.lcssa, i32 noundef %120) #10
+  tail call void @WebPConvertRGBA32ToUV_C(ptr noundef %.0.lcssa, ptr noundef %.026.lcssa, ptr noundef %.027.lcssa, i32 noundef %120) #10
   br label %121
 
 121:                                              ; preds = %119, %._crit_edge

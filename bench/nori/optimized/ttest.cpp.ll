@@ -1542,10 +1542,10 @@ define linkonce_odr hidden void @_ZN4nori13StudentsTTest8activateEv(ptr noundef 
   %73 = phi ptr [ %69, %.lr.ph140.preheader ], [ %164, %161 ]
   %.1138 = phi i32 [ %.0151, %.lr.ph140.preheader ], [ %91, %161 ]
   %.164137 = phi i32 [ %.063150, %.lr.ph140.preheader ], [ %spec.select, %161 ]
-  %.077135 = phi i64 [ 0, %.lr.ph140.preheader ], [ %162, %161 ]
+  %.076135 = phi i64 [ 0, %.lr.ph140.preheader ], [ %162, %161 ]
   %.sroa.0102.1134 = phi i64 [ %.sroa.0102.0148, %.lr.ph140.preheader ], [ %.sroa.0102.2.lcssa, %161 ]
   %74 = load ptr, ptr %38, align 8
-  %75 = getelementptr inbounds float, ptr %74, i64 %.077135
+  %75 = getelementptr inbounds float, ptr %74, i64 %.076135
   %76 = load float, ptr %75, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %77 = getelementptr inbounds float, ptr %73, i64 %indvars.iv
@@ -1584,9 +1584,9 @@ define linkonce_odr hidden void @_ZN4nori13StudentsTTest8activateEv(ptr noundef 
   br i1 %99, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %90, %.lr.ph
-  %.078130 = phi i32 [ %132, %.lr.ph ], [ 0, %90 ]
+  %.077130 = phi double [ %135, %.lr.ph ], [ 0.000000e+00, %90 ]
   %.079129 = phi double [ %137, %.lr.ph ], [ 0.000000e+00, %90 ]
-  %.080128 = phi double [ %135, %.lr.ph ], [ 0.000000e+00, %90 ]
+  %.080128 = phi i32 [ %132, %.lr.ph ], [ 0, %90 ]
   %.sroa.0102.2127 = phi i64 [ %114, %.lr.ph ], [ %.sroa.0102.1134, %90 ]
   %100 = mul i64 %.sroa.0102.2127, 6364136223846793005
   %101 = add i64 %100, -2720673578348880933
@@ -1622,11 +1622,11 @@ define linkonce_odr hidden void @_ZN4nori13StudentsTTest8activateEv(ptr noundef 
   call void %128(ptr dead_on_unwind nonnull writable sret(%"struct.nori::Color3f") align 4 %6, ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(8) %5)
   %129 = call noundef float @_ZNK4nori7Color3f12getLuminanceEv(ptr noundef nonnull align 4 dereferenceable(12) %6)
   %130 = fpext float %129 to double
-  %131 = fsub double %130, %.080128
-  %132 = add nuw nsw i32 %.078130, 1
+  %131 = fsub double %130, %.077130
+  %132 = add nuw nsw i32 %.080128, 1
   %133 = uitofp nneg i32 %132 to double
   %134 = fdiv double %131, %133
-  %135 = fadd double %.080128, %134
+  %135 = fadd double %.077130, %134
   %136 = fsub double %130, %135
   %137 = call double @llvm.fmuladd.f64(double %131, double %136, double %.079129)
   %138 = load i32, ptr %59, align 4
@@ -1641,8 +1641,8 @@ define linkonce_odr hidden void @_ZN4nori13StudentsTTest8activateEv(ptr noundef 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %90
   %.sroa.0102.2.lcssa = phi i64 [ %.sroa.0102.1134, %90 ], [ %114, %.lr.ph ]
-  %.080.lcssa = phi double [ 0.000000e+00, %90 ], [ %135, %.lr.ph ]
   %.079.lcssa = phi double [ 0.000000e+00, %90 ], [ %137, %.lr.ph ]
+  %.077.lcssa = phi double [ 0.000000e+00, %90 ], [ %135, %.lr.ph ]
   %.lcssa113 = phi i32 [ %98, %90 ], [ %138, %.lr.ph ]
   %142 = add nsw i32 %.lcssa113, -1
   %143 = sitofp i32 %142 to double
@@ -1657,7 +1657,7 @@ define linkonce_odr hidden void @_ZN4nori13StudentsTTest8activateEv(ptr noundef 
   %152 = sub i64 %150, %151
   %153 = lshr exact i64 %152, 2
   %154 = trunc i64 %153 to i32
-  call void @_ZN10hypothesis15students_t_testB5cxx11Edddidi(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %7, double noundef %.080.lcssa, double noundef %144, double noundef %145, i32 noundef %.lcssa113, double noundef %147, i32 noundef %154)
+  call void @_ZN10hypothesis15students_t_testB5cxx11Edddidi(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %7, double noundef %.077.lcssa, double noundef %144, double noundef %145, i32 noundef %.lcssa113, double noundef %147, i32 noundef %154)
   %155 = load i8, ptr %7, align 8
   %156 = and i8 %155, 1
   %157 = zext nneg i8 %156 to i32
@@ -1671,7 +1671,7 @@ define linkonce_odr hidden void @_ZN4nori13StudentsTTest8activateEv(ptr noundef 
 
 161:                                              ; preds = %159
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #19
-  %162 = add nuw i64 %.077135, 1
+  %162 = add nuw i64 %.076135, 1
   %163 = load ptr, ptr %25, align 8
   %164 = load ptr, ptr %24, align 8
   %165 = ptrtoint ptr %163 to i64
@@ -3999,24 +3999,24 @@ define internal fastcc noundef double @_ZN6cephesL7pseriesEddd(double noundef %0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.056 = phi double [ %19, %.lr.ph ], [ 2.000000e+00, %3 ]
-  %.04955 = phi double [ %15, %.lr.ph ], [ %6, %3 ]
-  %.05054 = phi double [ %18, %.lr.ph ], [ 0.000000e+00, %3 ]
-  %12 = fsub double %.056, %1
+  %.056 = phi double [ %18, %.lr.ph ], [ 0.000000e+00, %3 ]
+  %.04855 = phi double [ %15, %.lr.ph ], [ %6, %3 ]
+  %.04954 = phi double [ %19, %.lr.ph ], [ 2.000000e+00, %3 ]
+  %12 = fsub double %.04954, %1
   %13 = fmul double %12, %2
-  %14 = fdiv double %13, %.056
-  %15 = fmul double %.04955, %14
-  %16 = fadd double %.056, %0
+  %14 = fdiv double %13, %.04954
+  %15 = fmul double %.04855, %14
+  %16 = fadd double %.04954, %0
   %17 = fdiv double %15, %16
-  %18 = fadd double %.05054, %17
-  %19 = fadd double %.056, 1.000000e+00
+  %18 = fadd double %.056, %17
+  %19 = fadd double %.04954, 1.000000e+00
   %20 = tail call noundef double @llvm.fabs.f64(double %17)
   %21 = fcmp ogt double %20, %9
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.050.lcssa = phi double [ 0.000000e+00, %3 ], [ %18, %.lr.ph ]
-  %22 = fadd double %8, %.050.lcssa
+  %.0.lcssa = phi double [ 0.000000e+00, %3 ], [ %18, %.lr.ph ]
+  %22 = fadd double %8, %.0.lcssa
   %23 = fadd double %4, %22
   %24 = tail call double @log(double noundef %2) #19
   %25 = fmul double %24, %0

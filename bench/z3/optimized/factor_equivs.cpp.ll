@@ -199,8 +199,8 @@ _ZNK10arith_util7is_zeroEPK4expr.exit:            ; preds = %.noexc.i.i
   %cmp.i.i.i.i.i = icmp eq i32 %14, 0
   %19 = select i1 %call.i1.i, i1 %cmp.i.i.i.i.i, i1 false
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %val.i)
-  %spec.select = select i1 %19, ptr %13, ptr %12
-  %spec.select132 = select i1 %19, ptr %12, ptr %13
+  %spec.select = select i1 %19, ptr %12, ptr %13
+  %spec.select132 = select i1 %19, ptr %13, ptr %12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %val.i20)
   store i32 0, ptr %val.i20, align 8
   store i8 0, ptr %m_kind.i.i.i.i21, align 4
@@ -209,7 +209,7 @@ _ZNK10arith_util7is_zeroEPK4expr.exit:            ; preds = %.noexc.i.i
   store i8 0, ptr %m_kind.i1.i.i.i24, align 4
   store ptr null, ptr %m_ptr.i4.i.i.i25, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i19)
-  %call.i1.i26 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %arith, ptr noundef %spec.select132, ptr noundef nonnull align 8 dereferenceable(32) %val.i20, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i19)
+  %call.i1.i26 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %arith, ptr noundef %spec.select, ptr noundef nonnull align 8 dereferenceable(32) %val.i20, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i19)
           to label %invoke.cont.i28 unwind label %lpad.i27
 
 invoke.cont.i28:                                  ; preds = %_ZNK10arith_util7is_zeroEPK4expr.exit
@@ -242,14 +242,14 @@ _ZNK10arith_util7is_zeroEPK4expr.exit32:          ; preds = %.noexc.i.i30
   br i1 %25, label %land.lhs.true, label %if.end15
 
 land.lhs.true:                                    ; preds = %_ZNK10arith_util7is_zeroEPK4expr.exit32
-  %m_kind.i.i.i.i33 = getelementptr inbounds i8, ptr %spec.select, i64 4
+  %m_kind.i.i.i.i33 = getelementptr inbounds i8, ptr %spec.select132, i64 4
   %bf.load.i.i.i.i34 = load i32, ptr %m_kind.i.i.i.i33, align 4
   %bf.clear.i.i.i.i35 = and i32 %bf.load.i.i.i.i34, 65535
   %cmp.i.i.i36 = icmp eq i32 %bf.clear.i.i.i.i35, 0
   br i1 %cmp.i.i.i36, label %land.rhs.i.i.i38, label %if.end15
 
 land.rhs.i.i.i38:                                 ; preds = %land.lhs.true
-  %m_decl.i.i.i.i39 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %m_decl.i.i.i.i39 = getelementptr inbounds i8, ptr %spec.select132, i64 16
   %26 = load ptr, ptr %m_decl.i.i.i.i39, align 8
   %m_info.i.i.i.i.i40 = getelementptr inbounds i8, ptr %26, i64 24
   %27 = load ptr, ptr %m_info.i.i.i.i.i40, align 8
@@ -266,15 +266,15 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit.i:    ; preds = %land.rhs.i.i.i38
   br i1 %30, label %land.lhs.true.i45, label %if.end15
 
 land.lhs.true.i45:                                ; preds = %_ZNK17arith_recognizers6is_addEPK4expr.exit.i
-  %m_num_args.i.i46 = getelementptr inbounds i8, ptr %spec.select, i64 24
+  %m_num_args.i.i46 = getelementptr inbounds i8, ptr %spec.select132, i64 24
   %31 = load i32, ptr %m_num_args.i.i46, align 8
   %cmp.i47 = icmp eq i32 %31, 2
   br i1 %cmp.i47, label %if.then8, label %if.end15
 
 if.then8:                                         ; preds = %land.lhs.true.i45
-  %m_args.i.i49 = getelementptr inbounds i8, ptr %spec.select, i64 32
+  %m_args.i.i49 = getelementptr inbounds i8, ptr %spec.select132, i64 32
   %32 = load ptr, ptr %m_args.i.i49, align 8
-  %arrayidx.i.i50 = getelementptr inbounds i8, ptr %spec.select, i64 40
+  %arrayidx.i.i50 = getelementptr inbounds i8, ptr %spec.select132, i64 40
   %33 = load ptr, ptr %arrayidx.i.i50, align 8
   %m_kind.i.i.i.i51 = getelementptr inbounds i8, ptr %33, i64 4
   %bf.load.i.i.i.i52 = load i32, ptr %m_kind.i.i.i.i51, align 4
@@ -355,8 +355,8 @@ if.end15.sink.split:                              ; preds = %land.lhs.true4.i85,
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end15.sink.split, %land.rhs.i.i.i74, %if.else, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i78, %land.lhs.true.i82, %land.lhs.true4.i85, %land.rhs.i.i.i38, %land.lhs.true, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i, %land.lhs.true.i45, %_ZNK10arith_util7is_zeroEPK4expr.exit32
-  %e1.3 = phi ptr [ %spec.select, %_ZNK10arith_util7is_zeroEPK4expr.exit32 ], [ %spec.select, %land.lhs.true.i45 ], [ %spec.select, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i ], [ %spec.select, %land.lhs.true ], [ %spec.select, %land.rhs.i.i.i38 ], [ %spec.select, %land.lhs.true4.i85 ], [ %spec.select, %land.lhs.true.i82 ], [ %spec.select, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i78 ], [ %spec.select, %if.else ], [ %spec.select, %land.rhs.i.i.i74 ], [ %e1.3.ph, %if.end15.sink.split ]
-  %e2.3 = phi ptr [ %spec.select132, %_ZNK10arith_util7is_zeroEPK4expr.exit32 ], [ %spec.select132, %land.lhs.true.i45 ], [ %spec.select132, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i ], [ %spec.select132, %land.lhs.true ], [ %spec.select132, %land.rhs.i.i.i38 ], [ %spec.select132, %land.lhs.true4.i85 ], [ %spec.select132, %land.lhs.true.i82 ], [ %spec.select132, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i78 ], [ %spec.select132, %if.else ], [ %spec.select132, %land.rhs.i.i.i74 ], [ %48, %if.end15.sink.split ]
+  %e2.3 = phi ptr [ %spec.select, %_ZNK10arith_util7is_zeroEPK4expr.exit32 ], [ %spec.select, %land.lhs.true.i45 ], [ %spec.select, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i ], [ %spec.select, %land.lhs.true ], [ %spec.select, %land.rhs.i.i.i38 ], [ %spec.select, %land.lhs.true4.i85 ], [ %spec.select, %land.lhs.true.i82 ], [ %spec.select, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i78 ], [ %spec.select, %if.else ], [ %spec.select, %land.rhs.i.i.i74 ], [ %48, %if.end15.sink.split ]
+  %e1.3 = phi ptr [ %spec.select132, %_ZNK10arith_util7is_zeroEPK4expr.exit32 ], [ %spec.select132, %land.lhs.true.i45 ], [ %spec.select132, %_ZNK17arith_recognizers6is_addEPK4expr.exit.i ], [ %spec.select132, %land.lhs.true ], [ %spec.select132, %land.rhs.i.i.i38 ], [ %spec.select132, %land.lhs.true4.i85 ], [ %spec.select132, %land.lhs.true.i82 ], [ %spec.select132, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i78 ], [ %spec.select132, %if.else ], [ %spec.select132, %land.rhs.i.i.i74 ], [ %e1.3.ph, %if.end15.sink.split ]
   %call.i = call noundef i32 @_ZN15obj_equiv_classI4expr11ast_managerE16add_if_not_thereEPS0_(ptr noundef nonnull align 8 dereferenceable(64) %equiv, ptr noundef %e1.3)
   %call2.i = call noundef i32 @_ZN15obj_equiv_classI4expr11ast_managerE16add_if_not_thereEPS0_(ptr noundef nonnull align 8 dereferenceable(64) %equiv, ptr noundef %e2.3)
   %49 = load ptr, ptr %equiv, align 8

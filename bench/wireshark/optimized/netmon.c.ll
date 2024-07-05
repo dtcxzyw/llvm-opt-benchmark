@@ -112,8 +112,8 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br label %357
 
 30:                                               ; preds = %23, %26
-  %.0292.in = phi ptr [ @netmon_2_x_file_type_subtype, %26 ], [ @netmon_1_x_file_type_subtype, %23 ]
-  %.0292 = load i32, ptr %.0292.in, align 4
+  %.0288.in = phi ptr [ @netmon_2_x_file_type_subtype, %26 ], [ @netmon_1_x_file_type_subtype, %23 ]
+  %.0288 = load i32, ptr %.0288.in, align 4
   %31 = getelementptr inbounds i8, ptr %5, i64 2
   %.val = load i8, ptr %31, align 2
   %32 = getelementptr inbounds i8, ptr %5, i64 3
@@ -142,7 +142,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 
 45:                                               ; preds = %38
   %46 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %.0292, ptr %46, align 4
+  store i32 %.0288, ptr %46, align 4
   %47 = call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #14
   %48 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %47, ptr %48, align 8
@@ -227,10 +227,10 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br label %.thread
 
 .thread:                                          ; preds = %88, %90, %92
-  %.0291 = phi i32 [ %94, %92 ], [ 0, %90 ], [ 0, %88 ]
+  %.0292 = phi i32 [ %100, %92 ], [ 0, %90 ], [ 0, %88 ]
+  %.0291 = phi i32 [ %96, %92 ], [ 0, %90 ], [ 0, %88 ]
   %.0290 = phi i32 [ %98, %92 ], [ 0, %90 ], [ 0, %88 ]
-  %.0288 = phi i32 [ %96, %92 ], [ 0, %90 ], [ 0, %88 ]
-  %.0 = phi i32 [ %100, %92 ], [ 0, %90 ], [ 0, %88 ]
+  %.0289 = phi i32 [ %94, %92 ], [ 0, %90 ], [ 0, %88 ]
   %101 = getelementptr inbounds i8, ptr %5, i64 24
   %102 = load i32, ptr %101, align 4
   %103 = lshr i32 %102, 2
@@ -273,53 +273,53 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br i1 %120, label %357, label %121
 
 121:                                              ; preds = %116
-  %.not315 = icmp eq i32 %.0288, 0
+  %.not315 = icmp eq i32 %.0291, 0
   br i1 %.not315, label %135, label %122
 
 122:                                              ; preds = %121
-  %123 = icmp ugt i32 %.0288, 536870912
+  %123 = icmp ugt i32 %.0291, 536870912
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %122
   store i32 -13, ptr %1, align 4
-  %125 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef %.0288) #13
+  %125 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef %.0291) #13
   store ptr %125, ptr %2, align 8
   br label %357
 
 126:                                              ; preds = %122
-  %127 = icmp ult i32 %.0288, 17
+  %127 = icmp ult i32 %.0291, 17
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %126
   store i32 -13, ptr %1, align 4
-  %129 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef %.0288) #13
+  %129 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef %.0291) #13
   store ptr %129, ptr %2, align 8
   br label %357
 
 130:                                              ; preds = %126
-  %131 = zext i32 %.0291 to i64
+  %131 = zext i32 %.0289 to i64
   %132 = icmp slt i64 %13, %131
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %130
   store i32 -13, ptr %1, align 4
-  %134 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef %.0291) #13
+  %134 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef %.0289) #13
   store ptr %134, ptr %2, align 8
   br label %357
 
 135:                                              ; preds = %130, %121
   %136 = icmp ne i32 %.0290, 0
-  %137 = icmp ne i32 %.0, 0
+  %137 = icmp ne i32 %.0292, 0
   %or.cond9 = select i1 %136, i1 %137, i1 false
   br i1 %or.cond9, label %138, label %147
 
 138:                                              ; preds = %135
-  %139 = icmp ugt i32 %.0, 524288
+  %139 = icmp ugt i32 %.0292, 524288
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %138
   store i32 -13, ptr %1, align 4
-  %141 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef %.0) #13
+  %141 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef %.0292) #13
   store ptr %141, ptr %2, align 8
   br label %357
 
@@ -377,7 +377,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 
 166:                                              ; preds = %162
   %167 = load ptr, ptr %0, align 8
-  %168 = add i32 %.0288, %.0291
+  %168 = add i32 %.0289, %.0291
   %169 = zext i32 %168 to i64
   %170 = call i64 @file_seek(ptr noundef %167, i64 noundef %169, i32 noundef 0, ptr noundef %1) #13
   %171 = icmp eq i64 %170, -1
@@ -389,13 +389,13 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 
 173:                                              ; preds = %166
   %174 = load ptr, ptr %0, align 8
-  %175 = zext i32 %.0291 to i64
+  %175 = zext i32 %.0289 to i64
   %176 = call i64 @file_seek(ptr noundef %174, i64 noundef %175, i32 noundef 0, ptr noundef %1) #13
   %177 = icmp eq i64 %176, -1
   br i1 %177, label %181, label %.preheader356
 
 .preheader356:                                    ; preds = %173
-  %178 = icmp ugt i32 %.0288, 16
+  %178 = icmp ugt i32 %.0291, 16
   br i1 %178, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader356
@@ -408,7 +408,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br label %357
 
 182:                                              ; preds = %.lr.ph, %239
-  %.1289403 = phi i32 [ %.0288, %.lr.ph ], [ %.2, %239 ]
+  %.1403 = phi i32 [ %.0291, %.lr.ph ], [ %.2, %239 ]
   %183 = load ptr, ptr %0, align 8
   %184 = call i32 @wtap_read_bytes(ptr noundef %183, ptr noundef nonnull %7, i32 noundef 12, ptr noundef %1, ptr noundef %2) #13
   %.not332 = icmp eq i32 %184, 0
@@ -419,7 +419,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br label %357
 
 186:                                              ; preds = %182
-  %187 = add i32 %.1289403, -12
+  %187 = add i32 %.1403, -12
   %188 = load i32, ptr %179, align 4
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %190, label %192
@@ -568,7 +568,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br label %357
 
 .preheader:                                       ; preds = %252, %342
-  %.1404 = phi i32 [ %343, %342 ], [ %.0, %252 ]
+  %.1293404 = phi i32 [ %343, %342 ], [ %.0292, %252 ]
   %256 = call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #14
   %257 = load ptr, ptr %0, align 8
   %258 = call i32 @wtap_read_bytes(ptr noundef %257, ptr noundef nonnull %10, i32 noundef 4, ptr noundef %1, ptr noundef %2) #13
@@ -768,7 +768,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br label %342
 
 342:                                              ; preds = %325, %339
-  %343 = add i32 %.1404, -1
+  %343 = add i32 %.1293404, -1
   %.not318 = icmp eq i32 %343, 0
   br i1 %.not318, label %344, label %.preheader, !llvm.loop !6
 
@@ -806,8 +806,8 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br label %357
 
 357:                                              ; preds = %346, %349, %356, %355, %243, %147, %116, %20, %19, %16, %338, %332, %329, %324, %314, %310, %305, %301, %296, %287, %283, %275, %270, %263, %259, %255, %251, %235, %226, %219, %214, %208, %194, %190, %185, %181, %172, %165, %158, %154, %145, %140, %133, %128, %124, %114, %110, %106, %42, %27
-  %.0293 = phi i32 [ -1, %27 ], [ -1, %42 ], [ -1, %106 ], [ -1, %110 ], [ -1, %114 ], [ -1, %124 ], [ -1, %128 ], [ -1, %133 ], [ -1, %140 ], [ -1, %145 ], [ -1, %154 ], [ -1, %165 ], [ -1, %172 ], [ -1, %181 ], [ -1, %190 ], [ -1, %194 ], [ -1, %214 ], [ -1, %226 ], [ -1, %235 ], [ -1, %219 ], [ -1, %208 ], [ -1, %185 ], [ -1, %251 ], [ -1, %263 ], [ -1, %283 ], [ -1, %329 ], [ -1, %324 ], [ -1, %338 ], [ -1, %332 ], [ -1, %314 ], [ -1, %310 ], [ -1, %305 ], [ -1, %301 ], [ -1, %296 ], [ -1, %287 ], [ -1, %275 ], [ -1, %270 ], [ -1, %259 ], [ -1, %255 ], [ -1, %158 ], [ %., %16 ], [ 0, %19 ], [ -1, %20 ], [ -1, %116 ], [ -1, %147 ], [ -1, %243 ], [ 1, %355 ], [ 1, %356 ], [ 1, %349 ], [ 1, %346 ]
-  ret i32 %.0293
+  %.0 = phi i32 [ -1, %27 ], [ -1, %42 ], [ -1, %106 ], [ -1, %110 ], [ -1, %114 ], [ -1, %124 ], [ -1, %128 ], [ -1, %133 ], [ -1, %140 ], [ -1, %145 ], [ -1, %154 ], [ -1, %165 ], [ -1, %172 ], [ -1, %181 ], [ -1, %190 ], [ -1, %194 ], [ -1, %214 ], [ -1, %226 ], [ -1, %235 ], [ -1, %219 ], [ -1, %208 ], [ -1, %185 ], [ -1, %251 ], [ -1, %263 ], [ -1, %283 ], [ -1, %329 ], [ -1, %324 ], [ -1, %338 ], [ -1, %332 ], [ -1, %314 ], [ -1, %310 ], [ -1, %305 ], [ -1, %301 ], [ -1, %296 ], [ -1, %287 ], [ -1, %275 ], [ -1, %270 ], [ -1, %259 ], [ -1, %255 ], [ -1, %158 ], [ %., %16 ], [ 0, %19 ], [ -1, %20 ], [ -1, %116 ], [ -1, %147 ], [ -1, %243 ], [ 1, %355 ], [ 1, %356 ], [ 1, %349 ], [ 1, %346 ]
+  ret i32 %.0
 }
 
 declare i64 @wtap_file_size(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -996,9 +996,9 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr nocapture noundef readonly %0, i
   br label %.critedge10
 
 .lr.ph:                                           ; preds = %2, %37
-  %.093 = phi i32 [ %38, %37 ], [ 0, %2 ]
-  %.07292 = phi i64 [ %.173, %37 ], [ 0, %2 ]
-  %5 = zext i32 %.093 to i64
+  %.07293 = phi i32 [ %38, %37 ], [ 0, %2 ]
+  %.07492 = phi i64 [ %.175, %37 ], [ 0, %2 ]
+  %5 = zext i32 %.07293 to i64
   %6 = getelementptr i8, ptr %0, i64 %5
   %.val90 = load i8, ptr %6, align 1
   %7 = getelementptr i8, ptr %6, i64 1
@@ -1019,8 +1019,8 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr nocapture noundef readonly %0, i
   ]
 
 15:                                               ; preds = %13
-  %16 = add i32 %.093, 2
-  %17 = add i32 %.093, 3
+  %16 = add i32 %.07293, 2
+  %17 = add i32 %.07293, 3
   %.not82 = icmp ult i32 %17, %1
   br i1 %.not82, label %18, label %.critedge
 
@@ -1051,30 +1051,30 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr nocapture noundef readonly %0, i
 
 .sink.split:                                      ; preds = %13, %30
   %.sink = phi i32 [ %33, %30 ], [ %12, %13 ]
-  %.1.ph = phi i32 [ %16, %30 ], [ %.093, %13 ]
+  %.173.ph = phi i32 [ %16, %30 ], [ %.07293, %13 ]
   %34 = tail call i32 @g_unichar_to_utf8(i32 noundef %.sink, ptr noundef null) #13
   %35 = sext i32 %34 to i64
-  %36 = add i64 %.07292, %35
+  %36 = add i64 %.07492, %35
   br label %37
 
 37:                                               ; preds = %.sink.split, %13, %28
-  %.173 = phi i64 [ %.07292, %28 ], [ %.07292, %13 ], [ %36, %.sink.split ]
-  %.1 = phi i32 [ %16, %28 ], [ %.093, %13 ], [ %.1.ph, %.sink.split ]
-  %38 = add i32 %.1, 2
-  %39 = add i32 %.1, 3
+  %.175 = phi i64 [ %.07492, %28 ], [ %.07492, %13 ], [ %36, %.sink.split ]
+  %.173 = phi i32 [ %16, %28 ], [ %.07293, %13 ], [ %.173.ph, %.sink.split ]
+  %38 = add i32 %.173, 2
+  %39 = add i32 %.173, 3
   %40 = icmp ult i32 %39, %1
   br i1 %40, label %.lr.ph, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %.lr.ph, %15, %18, %37
-  %.072.lcssa.ph = phi i64 [ %.07292, %.lr.ph ], [ %.07292, %15 ], [ %.07292, %18 ], [ %.173, %37 ]
-  %41 = add i64 %.072.lcssa.ph, 1
+  %.074.lcssa.ph = phi i64 [ %.07492, %.lr.ph ], [ %.07492, %15 ], [ %.07492, %18 ], [ %.175, %37 ]
+  %41 = add i64 %.074.lcssa.ph, 1
   %42 = tail call noalias ptr @g_malloc(i64 noundef %41) #15
   br i1 %3, label %.lr.ph102, label %.critedge10
 
 .lr.ph102:                                        ; preds = %.critedge, %75
-  %.2101 = phi i32 [ %76, %75 ], [ 0, %.critedge ]
-  %.074100 = phi ptr [ %.175, %75 ], [ %42, %.critedge ]
-  %43 = zext i32 %.2101 to i64
+  %.0101 = phi ptr [ %.1, %75 ], [ %42, %.critedge ]
+  %.2100 = phi i32 [ %76, %75 ], [ 0, %.critedge ]
+  %43 = zext i32 %.2100 to i64
   %44 = getelementptr i8, ptr %0, i64 %43
   %.val86 = load i8, ptr %44, align 1
   %45 = getelementptr i8, ptr %44, i64 1
@@ -1095,8 +1095,8 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr nocapture noundef readonly %0, i
   ]
 
 53:                                               ; preds = %51
-  %54 = add i32 %.2101, 2
-  %55 = add i32 %.2101, 3
+  %54 = add i32 %.2100, 2
+  %55 = add i32 %.2100, 3
   %.not84 = icmp ult i32 %55, %1
   br i1 %.not84, label %56, label %.critedge10
 
@@ -1127,15 +1127,15 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr nocapture noundef readonly %0, i
 
 .sink.split112:                                   ; preds = %51, %68
   %.sink115 = phi i32 [ %71, %68 ], [ %50, %51 ]
-  %.3.ph = phi i32 [ %54, %68 ], [ %.2101, %51 ]
-  %72 = tail call i32 @g_unichar_to_utf8(i32 noundef %.sink115, ptr noundef %.074100) #13
+  %.3.ph = phi i32 [ %54, %68 ], [ %.2100, %51 ]
+  %72 = tail call i32 @g_unichar_to_utf8(i32 noundef %.sink115, ptr noundef %.0101) #13
   %73 = sext i32 %72 to i64
-  %74 = getelementptr i8, ptr %.074100, i64 %73
+  %74 = getelementptr i8, ptr %.0101, i64 %73
   br label %75
 
 75:                                               ; preds = %.sink.split112, %51, %66
-  %.175 = phi ptr [ %.074100, %66 ], [ %.074100, %51 ], [ %74, %.sink.split112 ]
-  %.3 = phi i32 [ %54, %66 ], [ %.2101, %51 ], [ %.3.ph, %.sink.split112 ]
+  %.3 = phi i32 [ %54, %66 ], [ %.2100, %51 ], [ %.3.ph, %.sink.split112 ]
+  %.1 = phi ptr [ %.0101, %66 ], [ %.0101, %51 ], [ %74, %.sink.split112 ]
   %76 = add i32 %.3, 2
   %77 = add i32 %.3, 3
   %78 = icmp ult i32 %77, %1
@@ -1143,8 +1143,8 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr nocapture noundef readonly %0, i
 
 .critedge10:                                      ; preds = %.lr.ph102, %53, %56, %75, %.critedge.thread, %.critedge
   %79 = phi ptr [ %42, %.critedge ], [ %4, %.critedge.thread ], [ %42, %75 ], [ %42, %56 ], [ %42, %53 ], [ %42, %.lr.ph102 ]
-  %.074.lcssa = phi ptr [ %42, %.critedge ], [ %4, %.critedge.thread ], [ %.074100, %.lr.ph102 ], [ %.074100, %53 ], [ %.074100, %56 ], [ %.175, %75 ]
-  store i8 0, ptr %.074.lcssa, align 1
+  %.0.lcssa = phi ptr [ %42, %.critedge ], [ %4, %.critedge.thread ], [ %.0101, %.lr.ph102 ], [ %.0101, %53 ], [ %.0101, %56 ], [ %.1, %75 ]
+  store i8 0, ptr %.0.lcssa, align 1
   ret ptr %79
 }
 
@@ -1303,11 +1303,11 @@ netmon_read_atm_pseudoheader.exit.thread:         ; preds = %38
   br label %61
 
 61:                                               ; preds = %58, %54, %52
-  %.0121 = phi i64 [ 0, %52 ], [ %60, %58 ], [ %57, %54 ]
+  %.0122 = phi i64 [ 0, %52 ], [ %60, %58 ], [ %57, %54 ]
   %62 = getelementptr inbounds i8, ptr %11, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = zext i32 %63 to i64
-  %65 = add i64 %.0121, %64
+  %65 = add i64 %.0122, %64
   %66 = icmp slt i64 %65, 0
   br i1 %66, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1320,18 +1320,18 @@ netmon_read_atm_pseudoheader.exit.thread:         ; preds = %38
   %71 = udiv i64 %70, 1000000000
   %72 = add nuw nsw i64 %71, %umin
   %73 = mul i64 %72, 1000000000
-  %74 = add i64 %.0121, %73
+  %74 = add i64 %.0122, %73
   %75 = add i64 %74, %64
   %76 = add i64 %75, 1000000000
   %77 = xor i64 %72, -1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %61
-  %.0120.lcssa = phi i64 [ %65, %61 ], [ %76, %.lr.ph.preheader ]
-  %.0119.lcssa = phi i64 [ 0, %61 ], [ %77, %.lr.ph.preheader ]
-  %78 = udiv i64 %.0120.lcssa, 1000000000
-  %79 = add nsw i64 %.0119.lcssa, %78
-  %80 = urem i64 %.0120.lcssa, 1000000000
+  %.0121.lcssa = phi i64 [ %65, %61 ], [ %76, %.lr.ph.preheader ]
+  %.0120.lcssa = phi i64 [ 0, %61 ], [ %77, %.lr.ph.preheader ]
+  %78 = udiv i64 %.0121.lcssa, 1000000000
+  %79 = add nsw i64 %.0120.lcssa, %78
+  %80 = urem i64 %.0121.lcssa, 1000000000
   %81 = trunc nuw nsw i64 %80 to i32
   %82 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 3, ptr %82, align 4
@@ -2075,8 +2075,8 @@ define internal range(i32 0, 2) i32 @netmon_dump_finish(ptr noundef %0, ptr noun
   %20 = getelementptr inbounds i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %20, i8 0, i64 56, i1 false)
   %21 = load i32, ptr %6, align 8
-  %.not36 = icmp eq i32 %21, 0
-  br i1 %.not36, label %27, label %22
+  %.not37 = icmp eq i32 %21, 0
+  br i1 %.not37, label %27, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2093,8 +2093,8 @@ define internal range(i32 0, 2) i32 @netmon_dump_finish(ptr noundef %0, ptr noun
   store i8 %.sink, ptr %28, align 1
   store i8 %storemerge, ptr %4, align 4
   %29 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %.033, i64 noundef 4, ptr noundef %1) #13
-  %.not37 = icmp eq i32 %29, 0
-  br i1 %.not37, label %87, label %30
+  %.not38 = icmp eq i32 %29, 0
+  br i1 %.not38, label %87, label %30
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2110,13 +2110,13 @@ define internal range(i32 0, 2) i32 @netmon_dump_finish(ptr noundef %0, ptr noun
   br label %39
 
 39:                                               ; preds = %30, %34
-  %.sink40 = phi i16 [ %38, %34 ], [ 1, %30 ]
+  %.sink41 = phi i16 [ %38, %34 ], [ 1, %30 ]
   %40 = getelementptr inbounds i8, ptr %4, i64 2
-  store i16 %.sink40, ptr %40, align 2
+  store i16 %.sink41, ptr %40, align 2
   %41 = getelementptr inbounds i8, ptr %6, i64 8
   %42 = tail call ptr @localtime(ptr noundef nonnull %41) #13
-  %.not38 = icmp eq ptr %42, null
-  br i1 %.not38, label %68, label %43
+  %.not39 = icmp eq ptr %42, null
+  br i1 %.not39, label %68, label %43
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds i8, ptr %4, i64 4
@@ -2160,9 +2160,9 @@ define internal range(i32 0, 2) i32 @netmon_dump_finish(ptr noundef %0, ptr noun
   br label %72
 
 72:                                               ; preds = %68, %43
-  %.sink41 = phi i16 [ 0, %68 ], [ %67, %43 ]
+  %.sink42 = phi i16 [ 0, %68 ], [ %67, %43 ]
   %73 = getelementptr inbounds i8, ptr %4, i64 16
-  store i16 %.sink41, ptr %73, align 4
+  store i16 %.sink42, ptr %73, align 4
   %74 = getelementptr inbounds i8, ptr %6, i64 16
   %75 = load i32, ptr %74, align 8
   %76 = sdiv i32 %75, 1000000
@@ -2178,16 +2178,16 @@ define internal range(i32 0, 2) i32 @netmon_dump_finish(ptr noundef %0, ptr noun
   %84 = getelementptr inbounds i8, ptr %4, i64 24
   store i32 %83, ptr %84, align 4
   %85 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 60, ptr noundef %1) #13
-  %.not39 = icmp eq i32 %85, 0
-  br i1 %.not39, label %87, label %86
+  %.not40 = icmp eq i32 %85, 0
+  br i1 %.not40, label %87, label %86
 
 86:                                               ; preds = %72
   store i64 %19, ptr %18, align 8
   br label %87
 
 87:                                               ; preds = %72, %27, %14, %3, %86
-  %.034 = phi i32 [ 1, %86 ], [ 0, %3 ], [ 0, %14 ], [ 0, %27 ], [ 0, %72 ]
-  ret i32 %.034
+  %.0 = phi i32 [ 1, %86 ], [ 0, %3 ], [ 0, %14 ], [ 0, %27 ], [ 0, %72 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: allocsize(0,1)

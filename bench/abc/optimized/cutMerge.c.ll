@@ -1268,7 +1268,7 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
 
 .preheader248:                                    ; preds = %.preheader248.lr.ph, %70
   %indvars.iv336 = phi i64 [ 0, %.preheader248.lr.ph ], [ %indvars.iv.next337, %70 ]
-  %.0199280 = phi i32 [ 0, %.preheader248.lr.ph ], [ %73, %70 ]
+  %.0200280 = phi i32 [ 0, %.preheader248.lr.ph ], [ %73, %70 ]
   %62 = getelementptr inbounds [0 x i32], ptr %46, i64 0, i64 %indvars.iv336
   br label %63
 
@@ -1288,7 +1288,7 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
 70:                                               ; preds = %65
   %71 = trunc nuw nsw i64 %indvars.iv336 to i32
   %72 = shl nuw nsw i32 1, %71
-  %73 = or i32 %72, %.0199280
+  %73 = or i32 %72, %.0200280
   %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
   %exitcond340.not = icmp eq i64 %indvars.iv.next337, %wide.trip.count339
   br i1 %exitcond340.not, label %._crit_edge282.loopexit, label %.preheader248, !llvm.loop !36
@@ -1299,23 +1299,23 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br label %._crit_edge282
 
 ._crit_edge282:                                   ; preds = %._crit_edge282.loopexit, %.preheader249
-  %.0199.lcssa = phi i32 [ 0, %.preheader249 ], [ %75, %._crit_edge282.loopexit ]
+  %.0200.lcssa = phi i32 [ 0, %.preheader249 ], [ %75, %._crit_edge282.loopexit ]
   %76 = tail call ptr @Cut_CutAlloc(ptr noundef nonnull %0) #2
   %77 = load i32, ptr %76, align 8
   %78 = and i32 %77, -4192257
-  %79 = or disjoint i32 %78, %.0199.lcssa
+  %79 = or disjoint i32 %78, %.0200.lcssa
   store i32 %79, ptr %76, align 8
   br label %80
 
 80:                                               ; preds = %._crit_edge282, %._crit_edge285
-  %.0206 = phi ptr [ %76, %._crit_edge282 ], [ %61, %._crit_edge285 ]
+  %.0207 = phi ptr [ %76, %._crit_edge282 ], [ %61, %._crit_edge285 ]
   %81 = load i32, ptr %1, align 8
   %.not301 = icmp ult i32 %81, 268435456
   br i1 %.not301, label %._crit_edge288, label %.lr.ph
 
 .lr.ph:                                           ; preds = %80
   %82 = getelementptr inbounds i8, ptr %1, i64 24
-  %83 = getelementptr inbounds i8, ptr %.0206, i64 24
+  %83 = getelementptr inbounds i8, ptr %.0207, i64 24
   br label %84
 
 84:                                               ; preds = %.lr.ph, %84
@@ -1333,16 +1333,16 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
 
 ._crit_edge288:                                   ; preds = %84, %80
   %.lcssa259 = phi i32 [ %81, %80 ], [ %88, %84 ]
-  %92 = load i32, ptr %.0206, align 8
+  %92 = load i32, ptr %.0207, align 8
   %93 = and i32 %.lcssa259, -268435456
   %94 = and i32 %92, 268435455
   %95 = or disjoint i32 %94, %93
-  store i32 %95, ptr %.0206, align 8
+  store i32 %95, ptr %.0207, align 8
   br label %.loopexit
 
 .preheader257:                                    ; preds = %.preheader257.lr.ph, %.thread243
   %indvars.iv315 = phi i64 [ 0, %.preheader257.lr.ph ], [ %indvars.iv.next316, %.thread243 ]
-  %.0185271 = phi i32 [ %7, %.preheader257.lr.ph ], [ %.2187, %.thread243 ]
+  %.0186271 = phi i32 [ %7, %.preheader257.lr.ph ], [ %.2188, %.thread243 ]
   %96 = phi i32 [ %Cut_CutMergeTwo5.M.promoted, %.preheader257.lr.ph ], [ %152, %.thread243 ]
   %97 = phi i32 [ %.promoted, %.preheader257.lr.ph ], [ %151, %.thread243 ]
   %98 = phi i32 [ %.promoted268, %.preheader257.lr.ph ], [ %150, %.thread243 ]
@@ -1402,8 +1402,8 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br label %127
 
 127:                                              ; preds = %120, %122, %126, %114
-  %128 = add nsw i32 %.0185271, 1
-  %.not233 = icmp slt i32 %.0185271, %5
+  %128 = add nsw i32 %.0186271, 1
+  %.not233 = icmp slt i32 %.0186271, %5
   br i1 %.not233, label %.thread243, label %.preheader251.preheader
 
 .preheader251.preheader:                          ; preds = %127
@@ -1452,8 +1452,8 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %144 = phi i32 [ 0, %137 ], [ %98, %139 ], [ %142, %141 ], [ %98, %133 ]
   %145 = phi i32 [ %138, %137 ], [ %97, %139 ], [ %97, %141 ], [ 0, %133 ]
   %146 = phi i32 [ %96, %137 ], [ %96, %139 ], [ %96, %141 ], [ %134, %133 ]
-  %147 = add nsw i32 %.0185271, 1
-  %.not234 = icmp slt i32 %.0185271, %5
+  %147 = add nsw i32 %.0186271, 1
+  %.not234 = icmp slt i32 %.0186271, %5
   br i1 %.not234, label %.thread243, label %.preheader253.preheader
 
 .preheader253.preheader:                          ; preds = %143
@@ -1473,13 +1473,13 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %150 = phi i32 [ %144, %143 ], [ %98, %107 ], [ %98, %127 ]
   %151 = phi i32 [ %145, %143 ], [ %97, %107 ], [ %97, %127 ]
   %152 = phi i32 [ %146, %143 ], [ %96, %107 ], [ %96, %127 ]
-  %.2187 = phi i32 [ %147, %143 ], [ %.0185271, %107 ], [ %128, %127 ]
+  %.2188 = phi i32 [ %147, %143 ], [ %.0186271, %107 ], [ %128, %127 ]
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next316, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.preheader257, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.thread243, %.preheader258
-  %.0185.lcssa = phi i32 [ %7, %.preheader258 ], [ %.2187, %.thread243 ]
+  %.0186.lcssa = phi i32 [ %7, %.preheader258 ], [ %.2188, %.thread243 ]
   %153 = tail call ptr @Cut_CutAlloc(ptr noundef nonnull %0) #2
   %154 = load ptr, ptr %0, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 20
@@ -1498,7 +1498,7 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
 
 160:                                              ; preds = %.preheader255, %188
   %indvars.iv331 = phi i64 [ 0, %.preheader255 ], [ %indvars.iv.next332, %188 ]
-  %.0277 = phi i32 [ 0, %.preheader255 ], [ %.3, %188 ]
+  %.0185277 = phi i32 [ 0, %.preheader255 ], [ %.3, %188 ]
   %.not224 = icmp eq i64 %indvars.iv331, 0
   br i1 %.not224, label %168, label %161
 
@@ -1506,14 +1506,14 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %162 = add nsw i64 %indvars.iv331, -1
   %163 = getelementptr inbounds [0 x i32], ptr %159, i64 0, i64 %162
   %164 = load i32, ptr %163, align 4
-  %165 = add nsw i32 %.0277, 1
-  %166 = sext i32 %.0277 to i64
+  %165 = add nsw i32 %.0185277, 1
+  %166 = sext i32 %.0185277 to i64
   %167 = getelementptr inbounds [0 x i32], ptr %157, i64 0, i64 %166
   store i32 %164, ptr %167, align 4
   br label %168
 
 168:                                              ; preds = %161, %160
-  %.1 = phi i32 [ %165, %161 ], [ %.0277, %160 ]
+  %.1 = phi i32 [ %165, %161 ], [ %.0185277, %160 ]
   %169 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo5.M, i64 0, i64 %indvars.iv331
   %170 = load i32, ptr %169, align 4
   %.not225 = icmp eq i32 %170, 0
@@ -1562,7 +1562,7 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
 
 192:                                              ; preds = %188
   %193 = load i32, ptr %153, align 8
-  %194 = shl i32 %.0185.lcssa, 28
+  %194 = shl i32 %.0186.lcssa, 28
   %195 = and i32 %193, 268435455
   %196 = or disjoint i32 %195, %194
   store i32 %196, ptr %153, align 8
@@ -1571,14 +1571,14 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
 197:                                              ; preds = %.preheader256, %233
   %indvars.iv328 = phi i64 [ 0, %.preheader256 ], [ %indvars.iv.next329, %233 ]
   %.4275 = phi i32 [ 0, %.preheader256 ], [ %.7, %233 ]
-  %.2201273 = phi i32 [ 0, %.preheader256 ], [ %.4203, %233 ]
-  %.0204272 = phi i32 [ 0, %.preheader256 ], [ %.1205, %233 ]
+  %.2202273 = phi i32 [ 0, %.preheader256 ], [ %.4204, %233 ]
+  %.0205272 = phi i32 [ 0, %.preheader256 ], [ %.1206, %233 ]
   %.not229 = icmp eq i64 %indvars.iv328, 0
   br i1 %.not229, label %207, label %198
 
 198:                                              ; preds = %197
   %199 = shl nuw i32 1, %.4275
-  %200 = or i32 %199, %.0204272
+  %200 = or i32 %199, %.0205272
   %201 = add nsw i64 %indvars.iv328, -1
   %202 = getelementptr inbounds [0 x i32], ptr %158, i64 0, i64 %201
   %203 = load i32, ptr %202, align 4
@@ -1589,7 +1589,7 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br label %207
 
 207:                                              ; preds = %198, %197
-  %.1205 = phi i32 [ %200, %198 ], [ %.0204272, %197 ]
+  %.1206 = phi i32 [ %200, %198 ], [ %.0205272, %197 ]
   %.5 = phi i32 [ %204, %198 ], [ %.4275, %197 ]
   %208 = getelementptr inbounds [7 x [3 x i32]], ptr @Cut_CutMergeTwo5.M, i64 0, i64 %indvars.iv328
   %209 = load i32, ptr %208, align 4
@@ -1598,7 +1598,7 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
 
 210:                                              ; preds = %207
   %211 = shl nuw i32 1, %.5
-  %212 = or i32 %211, %.2201273
+  %212 = or i32 %211, %.2202273
   %213 = add nsw i32 %.5, 1
   %214 = sext i32 %.5 to i64
   %215 = getelementptr inbounds [0 x i32], ptr %157, i64 0, i64 %214
@@ -1630,13 +1630,13 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br label %232
 
 232:                                              ; preds = %218, %226, %210
-  %.3202 = phi i32 [ %228, %226 ], [ %220, %218 ], [ %212, %210 ]
+  %.3203 = phi i32 [ %228, %226 ], [ %220, %218 ], [ %212, %210 ]
   %.6 = phi i32 [ %229, %226 ], [ %221, %218 ], [ %213, %210 ]
   store i32 0, ptr %208, align 4
   br label %233
 
 233:                                              ; preds = %207, %232
-  %.4203 = phi i32 [ %.3202, %232 ], [ %.2201273, %207 ]
+  %.4204 = phi i32 [ %.3203, %232 ], [ %.2202273, %207 ]
   %.7 = phi i32 [ %.6, %232 ], [ %.5, %207 ]
   %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
   %234 = load i32, ptr %1, align 8
@@ -1647,20 +1647,20 @@ define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, 
 
 237:                                              ; preds = %233
   %238 = load i32, ptr %153, align 8
-  %239 = shl i32 %.0185.lcssa, 28
+  %239 = shl i32 %.0186.lcssa, 28
   %240 = and i32 %238, 264241152
   %241 = or disjoint i32 %240, %239
-  %242 = shl i32 %.4203, 11
+  %242 = shl i32 %.4204, 11
   %243 = and i32 %242, 4192256
   %244 = or disjoint i32 %241, %243
-  %245 = and i32 %.1205, 2047
+  %245 = and i32 %.1206, 2047
   %246 = or disjoint i32 %244, %245
   store i32 %246, ptr %153, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader253, %.preheader251, %63, %54, %21, %237, %192, %._crit_edge288, %._crit_edge296
-  %.0207 = phi ptr [ %26, %._crit_edge296 ], [ %.0206, %._crit_edge288 ], [ %153, %237 ], [ %153, %192 ], [ null, %21 ], [ null, %54 ], [ null, %63 ], [ null, %.preheader251 ], [ null, %.preheader253 ]
-  ret ptr %.0207
+  %.0 = phi ptr [ %26, %._crit_edge296 ], [ %.0207, %._crit_edge288 ], [ %153, %237 ], [ %153, %192 ], [ null, %21 ], [ null, %54 ], [ null, %63 ], [ null, %.preheader251 ], [ null, %.preheader253 ]
+  ret ptr %.0
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

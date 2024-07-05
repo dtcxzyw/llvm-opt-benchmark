@@ -202,10 +202,10 @@ define void @Cnf_DeriveMapping(ptr nocapture noundef readonly %0) local_unnamed_
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %105
-  %.059 = phi i32 [ %106, %105 ], [ 0, %24 ]
-  %.04258 = phi ptr [ %.1, %105 ], [ null, %24 ]
-  %.04356 = phi ptr [ %107, %105 ], [ %.val54, %24 ]
-  %27 = getelementptr inbounds i8, ptr %.04356, i64 4
+  %.058 = phi ptr [ %107, %105 ], [ %.val54, %24 ]
+  %.04157 = phi i32 [ %106, %105 ], [ 0, %24 ]
+  %.04356 = phi ptr [ %.1, %105 ], [ null, %24 ]
+  %27 = getelementptr inbounds i8, ptr %.058, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 268435456
   %30 = icmp eq i32 %29, 0
@@ -214,7 +214,7 @@ define void @Cnf_DeriveMapping(ptr nocapture noundef readonly %0) local_unnamed_
 31:                                               ; preds = %.lr.ph
   %32 = and i32 %28, -134217729
   store i32 %32, ptr %27, align 4
-  %33 = icmp eq i32 %.059, 0
+  %33 = icmp eq i32 %.04157, 0
   br i1 %33, label %105, label %34
 
 34:                                               ; preds = %31
@@ -233,12 +233,12 @@ define void @Cnf_DeriveMapping(ptr nocapture noundef readonly %0) local_unnamed_
   %45 = sext i8 %44 to i32
   %46 = add nsw i32 %45, %40
   %47 = mul nsw i32 %46, 10
-  store i32 %47, ptr %.04356, align 4
+  store i32 %47, ptr %.058, align 4
   %.not.i = icmp ult i32 %28, 536870912
   br i1 %.not.i, label %Cnf_CutAssignAreaFlow.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %34
-  %48 = getelementptr inbounds i8, ptr %.04356, i64 8
+  %48 = getelementptr inbounds i8, ptr %.058, i64 8
   br label %49
 
 49:                                               ; preds = %83, %.lr.ph.i
@@ -291,7 +291,7 @@ Aig_ManObj.exit.i:                                ; preds = %54, %49
   %spec.select.i = select i1 %.not18.i, i32 1, i32 %80
   %81 = sdiv i32 %79, %spec.select.i
   %82 = add i32 %81, %50
-  store i32 %82, ptr %.04356, align 4
+  store i32 %82, ptr %.058, align 4
   br label %83
 
 83:                                               ; preds = %74, %Aig_ManObj.exit.i
@@ -305,11 +305,11 @@ Aig_ManObj.exit.i:                                ; preds = %54, %49
 Cnf_CutAssignAreaFlow.exit:                       ; preds = %83, %34
   %88 = phi i32 [ %35, %34 ], [ %70, %83 ]
   %89 = phi i32 [ %47, %34 ], [ %84, %83 ]
-  %90 = icmp eq ptr %.04258, null
+  %90 = icmp eq ptr %.04356, null
   br i1 %90, label %104, label %91
 
 91:                                               ; preds = %Cnf_CutAssignAreaFlow.exit
-  %92 = load i32, ptr %.04258, align 4
+  %92 = load i32, ptr %.04356, align 4
   %93 = icmp ugt i32 %92, %89
   br i1 %93, label %104, label %94
 
@@ -318,7 +318,7 @@ Cnf_CutAssignAreaFlow.exit:                       ; preds = %83, %34
   br i1 %95, label %96, label %105
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds i8, ptr %.04258, i64 4
+  %97 = getelementptr inbounds i8, ptr %.04356, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = lshr i32 %98, 16
   %100 = and i32 %99, 2047
@@ -331,9 +331,9 @@ Cnf_CutAssignAreaFlow.exit:                       ; preds = %83, %34
   br label %105
 
 105:                                              ; preds = %.lr.ph, %104, %96, %94, %31
-  %.1 = phi ptr [ %.04258, %.lr.ph ], [ %.04258, %31 ], [ %.04356, %104 ], [ %.04258, %96 ], [ %.04258, %94 ]
-  %106 = add nuw nsw i32 %.059, 1
-  %107 = getelementptr inbounds i8, ptr %.04356, i64 24
+  %.1 = phi ptr [ %.04356, %.lr.ph ], [ %.04356, %31 ], [ %.058, %104 ], [ %.04356, %96 ], [ %.04356, %94 ]
+  %106 = add nuw nsw i32 %.04157, 1
+  %107 = getelementptr inbounds i8, ptr %.058, i64 24
   %108 = load i64, ptr %20, align 8
   %109 = lshr i64 %108, 56
   %110 = trunc nuw nsw i64 %109 to i32

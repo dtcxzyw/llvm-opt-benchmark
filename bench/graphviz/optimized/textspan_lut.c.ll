@@ -142,8 +142,8 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
   br label %3
 
 3:                                                ; preds = %1, %font_in_list_permissive.exit.thread12
-  %.030 = phi i64 [ 0, %1 ], [ %63, %font_in_list_permissive.exit.thread12 ]
-  %4 = getelementptr inbounds [11 x %struct.FontFamilyMetrics], ptr @all_font_metrics, i64 0, i64 %.030
+  %.0830 = phi i64 [ 0, %1 ], [ %63, %font_in_list_permissive.exit.thread12 ]
+  %4 = getelementptr inbounds [11 x %struct.FontFamilyMetrics], ptr @all_font_metrics, i64 0, i64 %.0830
   %5 = load ptr, ptr %4, align 16
   %6 = load ptr, ptr %5, align 8
   %.not19.not.i = icmp eq ptr %6, null
@@ -283,7 +283,7 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
   br i1 %.not.not.i, label %font_in_list_permissive.exit.thread12, label %.lr.ph.split.i
 
 font_in_list_permissive.exit.thread12:            ; preds = %.loopexit.i, %.loopexit.us.us.i, %3
-  %63 = add nuw nsw i64 %.030, 1
+  %63 = add nuw nsw i64 %.0830, 1
   %exitcond.not = icmp eq i64 %63, 11
   br i1 %exitcond.not, label %agxbsizeof.exit.i.i, label %3
 
@@ -354,8 +354,8 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   br label %font_in_list_permissive.exit.thread
 
 font_in_list_permissive.exit.thread:              ; preds = %.preheader.i.i, %.preheader33.i.us.us.i, %52, %16, %87
-  %.08 = phi ptr [ %88, %87 ], [ %4, %16 ], [ %4, %52 ], [ %4, %.preheader33.i.us.us.i ], [ %4, %.preheader.i.i ]
-  ret ptr %.08
+  %.0 = phi ptr [ %88, %87 ], [ %4, %16 ], [ %4, %52 ], [ %4, %.preheader33.i.us.us.i ], [ %4, %.preheader.i.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

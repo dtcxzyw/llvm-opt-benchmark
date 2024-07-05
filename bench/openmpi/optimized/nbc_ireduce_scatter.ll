@@ -63,9 +63,9 @@ define internal fastcc i32 @nbc_reduce_scatter_init(ptr noundef %0, ptr noundef 
   br label %17
 
 17:                                               ; preds = %12, %9, %16, %14
-  %.0216 = phi ptr [ %0, %16 ], [ %1, %14 ], [ %1, %9 ], [ %1, %12 ]
   %18 = phi i1 [ true, %16 ], [ false, %14 ], [ true, %9 ], [ true, %12 ]
   %.not248 = phi i1 [ false, %16 ], [ true, %14 ], [ false, %9 ], [ false, %12 ]
+  %.0215 = phi ptr [ %0, %16 ], [ %1, %14 ], [ %1, %9 ], [ %1, %12 ]
   %.0214 = phi ptr [ %0, %16 ], [ %0, %14 ], [ %0, %9 ], [ %1, %12 ]
   %19 = getelementptr i8, ptr %5, i64 220
   %.val = load i32, ptr %19, align 4
@@ -87,11 +87,11 @@ define internal fastcc i32 @nbc_reduce_scatter_init(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0217323 = phi i64 [ 0, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.0220323 = phi i64 [ 0, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %26 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
-  %29 = add i64 %.0217323, %28
+  %29 = add i64 %.0220323, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -119,7 +119,7 @@ define internal fastcc i32 @nbc_reduce_scatter_init(ptr noundef %0, ptr noundef 
 
 34:                                               ; preds = %.thread
   %35 = load i32, ptr %2, align 4
-  %36 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %.0214, i32 noundef %35, ptr noundef %3, ptr noundef %.0216, i32 noundef %35, ptr noundef %3) #8
+  %36 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %.0214, i32 noundef %35, ptr noundef %3, ptr noundef %.0215, i32 noundef %35, ptr noundef %3) #8
   %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %NBC_Copy.exit.thread, label %NBC_Copy.exit
 
@@ -313,8 +313,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %106
   br label %120
 
 120:                                              ; preds = %118, %116
-  %.0218 = phi i32 [ %117, %116 ], [ %119, %118 ]
-  %.not247 = icmp eq i32 %.0218, 0
+  %.0217 = phi i32 [ %117, %116 ], [ %119, %118 ]
+  %.not247 = icmp eq i32 %.0217, 0
   br i1 %.not247, label %168, label %121
 
 121:                                              ; preds = %120
@@ -379,8 +379,8 @@ opal_obj_run_destructors.exit264:                 ; preds = %.lr.ph.i261, %132
   br label %147
 
 147:                                              ; preds = %145, %143
-  %.1219 = phi i32 [ %144, %143 ], [ %146, %145 ]
-  %.not239 = icmp eq i32 %.1219, 0
+  %.1218 = phi i32 [ %144, %143 ], [ %146, %145 ]
+  %.not239 = icmp eq i32 %.1218, 0
   br i1 %.not239, label %.loopexit, label %148
 
 148:                                              ; preds = %147
@@ -575,11 +575,11 @@ opal_obj_run_destructors.exit285:                 ; preds = %.lr.ph.i282, %218
   br i1 %30, label %229, label %231
 
 229:                                              ; preds = %._crit_edge335
-  %230 = tail call i32 @NBC_Sched_copy(ptr noundef %.0214, i8 noundef signext 0, i64 noundef %228, ptr noundef %3, ptr noundef %.0216, i8 noundef signext 0, i64 noundef %228, ptr noundef %3, ptr noundef %69, i1 noundef zeroext false) #8
+  %230 = tail call i32 @NBC_Sched_copy(ptr noundef %.0214, i8 noundef signext 0, i64 noundef %228, ptr noundef %3, ptr noundef %.0215, i8 noundef signext 0, i64 noundef %228, ptr noundef %3, ptr noundef %69, i1 noundef zeroext false) #8
   br label %239
 
 231:                                              ; preds = %._crit_edge335
-  %232 = tail call i32 @NBC_Sched_copy(ptr noundef %.0210320, i8 noundef signext 1, i64 noundef %228, ptr noundef %3, ptr noundef %.0216, i8 noundef signext 0, i64 noundef %228, ptr noundef %3, ptr noundef %69, i1 noundef zeroext false) #8
+  %232 = tail call i32 @NBC_Sched_copy(ptr noundef %.0210320, i8 noundef signext 1, i64 noundef %228, ptr noundef %3, ptr noundef %.0215, i8 noundef signext 0, i64 noundef %228, ptr noundef %3, ptr noundef %69, i1 noundef zeroext false) #8
   br label %239
 
 233:                                              ; preds = %191
@@ -587,12 +587,12 @@ opal_obj_run_destructors.exit285:                 ; preds = %.lr.ph.i282, %218
   %235 = getelementptr inbounds i32, ptr %2, i64 %234
   %236 = load i32, ptr %235, align 4
   %237 = sext i32 %236 to i64
-  %238 = tail call i32 @NBC_Sched_recv(ptr noundef %.0216, i8 noundef signext 0, i64 noundef %237, ptr noundef %3, i32 noundef 0, ptr noundef %69, i1 noundef zeroext false) #8
+  %238 = tail call i32 @NBC_Sched_recv(ptr noundef %.0215, i8 noundef signext 0, i64 noundef %237, ptr noundef %3, i32 noundef 0, ptr noundef %69, i1 noundef zeroext false) #8
   br label %239
 
 239:                                              ; preds = %229, %231, %233
-  %.2220 = phi i32 [ %230, %229 ], [ %232, %231 ], [ %238, %233 ]
-  %.not241 = icmp eq i32 %.2220, 0
+  %.2219 = phi i32 [ %230, %229 ], [ %232, %231 ], [ %238, %233 ]
+  %.not241 = icmp eq i32 %.2219, 0
   br i1 %.not241, label %260, label %240
 
 240:                                              ; preds = %239
@@ -747,7 +747,7 @@ opal_obj_run_destructors.exit306:                 ; preds = %.lr.ph.i303, %295
   br label %nbc_get_noop_request.exit
 
 nbc_get_noop_request.exit:                        ; preds = %39, %37, %NBC_Copy.exit, %282, %opal_datatype_span.exit, %303, %281, %259, %226, %190, %167, %140, %114, %opal_obj_new.exit.thread
-  %.0209 = phi i32 [ -2, %opal_obj_new.exit.thread ], [ %94, %114 ], [ %.0218, %140 ], [ %.1219, %167 ], [ %170, %190 ], [ %206, %226 ], [ %.2220, %259 ], [ %261, %281 ], [ %283, %303 ], [ %36, %NBC_Copy.exit ], [ -2, %opal_datatype_span.exit ], [ 0, %282 ], [ %38, %37 ], [ 0, %39 ]
+  %.0209 = phi i32 [ -2, %opal_obj_new.exit.thread ], [ %94, %114 ], [ %.0217, %140 ], [ %.1218, %167 ], [ %170, %190 ], [ %206, %226 ], [ %.2219, %259 ], [ %261, %281 ], [ %283, %303 ], [ %36, %NBC_Copy.exit ], [ -2, %opal_datatype_span.exit ], [ 0, %282 ], [ %38, %37 ], [ 0, %39 ]
   ret i32 %.0209
 }
 

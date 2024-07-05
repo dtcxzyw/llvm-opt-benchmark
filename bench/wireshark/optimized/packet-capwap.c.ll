@@ -1877,13 +1877,13 @@ dissect_capwap_message_element.exit71:            ; preds = %.lr.ph.i69, %65
   br label %81
 
 81:                                               ; preds = %45, %dissect_capwap_message_element.exit, %dissect_capwap_message_element.exit71
-  %.0 = phi i32 [ %28, %45 ], [ %.0.lcssa.i, %dissect_capwap_message_element.exit ], [ %80, %dissect_capwap_message_element.exit71 ]
+  %.065 = phi i32 [ %28, %45 ], [ %.0.lcssa.i, %dissect_capwap_message_element.exit ], [ %80, %dissect_capwap_message_element.exit71 ]
   store i32 %30, ptr %29, align 8
   br label %82
 
 82:                                               ; preds = %35, %81, %22
-  %.065 = phi i32 [ %19, %22 ], [ %.0, %81 ], [ %28, %35 ]
-  ret i32 %.065
+  %.0 = phi i32 [ %19, %22 ], [ %.065, %81 ], [ %28, %35 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1959,7 +1959,7 @@ define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr nou
   br label %53
 
 53:                                               ; preds = %51, %49
-  %.0 = phi ptr [ %43, %49 ], [ %52, %51 ]
+  %.065 = phi ptr [ %43, %49 ], [ %52, %51 ]
   %54 = load i8, ptr %6, align 1
   switch i8 %54, label %77 [
     i8 0, label %55
@@ -1968,20 +1968,20 @@ define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr nou
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr @ieee8023_handle, align 8
-  %57 = tail call i32 @call_dissector(ptr noundef %56, ptr noundef %.0, ptr noundef nonnull %1, ptr noundef %2) #2
+  %57 = tail call i32 @call_dissector(ptr noundef %56, ptr noundef %.065, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %dissect_capwap_data_keep_alive.exit
 
 58:                                               ; preds = %53
   %59 = load i32, ptr @hf_capwap_data_keep_alive, align 4
-  %60 = tail call i32 @tvb_reported_length(ptr noundef %.0) #2
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %59, ptr noundef %.0, i32 noundef 0, i32 noundef %60, i32 noundef 0) #2
+  %60 = tail call i32 @tvb_reported_length(ptr noundef %.065) #2
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %59, ptr noundef %.065, i32 noundef 0, i32 noundef %60, i32 noundef 0) #2
   %62 = load i32, ptr @ett_capwap_data_keep_alive, align 4
   %63 = tail call ptr @proto_item_add_subtree(ptr noundef %61, i32 noundef %62) #2
   %64 = load i32, ptr @hf_capwap_data_keep_alive_length, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %.0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #2
-  %66 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.0, i32 noundef 0) #2
+  %65 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %.065, i32 noundef 0, i32 noundef 2, i32 noundef 0) #2
+  %66 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.065, i32 noundef 0) #2
   %67 = zext i16 %66 to i32
-  %68 = tail call i32 @tvb_reported_length(ptr noundef %.0) #2
+  %68 = tail call i32 @tvb_reported_length(ptr noundef %.065) #2
   %.not.i = icmp eq i32 %68, %67
   br i1 %.not.i, label %71, label %69
 
@@ -1990,13 +1990,13 @@ define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr nou
   br label %71
 
 71:                                               ; preds = %69, %58
-  %72 = tail call i32 @tvb_reported_length(ptr noundef %.0) #2
+  %72 = tail call i32 @tvb_reported_length(ptr noundef %.065) #2
   %73 = icmp ugt i32 %72, 2
   br i1 %73, label %.lr.ph.i, label %dissect_capwap_data_keep_alive.exit
 
 .lr.ph.i:                                         ; preds = %71, %.lr.ph.i
   %.026.i = phi i32 [ %75, %.lr.ph.i ], [ 2, %71 ]
-  %74 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %.0, ptr noundef %63, i32 noundef %.026.i, ptr noundef %1)
+  %74 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %.065, ptr noundef %63, i32 noundef %.026.i, ptr noundef %1)
   %75 = add i32 %74, %.026.i
   %76 = icmp ult i32 %75, %72
   br i1 %76, label %.lr.ph.i, label %dissect_capwap_data_keep_alive.exit, !llvm.loop !6
@@ -2009,7 +2009,7 @@ define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr nou
   ]
 
 79:                                               ; preds = %77
-  %80 = tail call i32 @call_data_dissector(ptr noundef %.0, ptr noundef nonnull %1, ptr noundef %2) #2
+  %80 = tail call i32 @call_data_dissector(ptr noundef %.065, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %dissect_capwap_data_keep_alive.exit
 
 81:                                               ; preds = %77
@@ -2018,11 +2018,11 @@ define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr nou
   %83 = load ptr, ptr @ieee80211_bsfc_handle, align 8
   %84 = load ptr, ptr @ieee80211_handle, align 8
   %85 = select i1 %.not, ptr %84, ptr %83
-  %86 = tail call i32 @call_dissector(ptr noundef %85, ptr noundef %.0, ptr noundef nonnull %1, ptr noundef %2) #2
+  %86 = tail call i32 @call_dissector(ptr noundef %85, ptr noundef %.065, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %dissect_capwap_data_keep_alive.exit
 
 87:                                               ; preds = %77
-  %88 = tail call i32 @call_data_dissector(ptr noundef %.0, ptr noundef nonnull %1, ptr noundef %2) #2
+  %88 = tail call i32 @call_data_dissector(ptr noundef %.065, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %dissect_capwap_data_keep_alive.exit
 
 dissect_capwap_data_keep_alive.exit:              ; preds = %.lr.ph.i, %71, %87, %81, %79, %55
@@ -2034,8 +2034,8 @@ dissect_capwap_data_keep_alive.exit:              ; preds = %.lr.ph.i, %71, %87,
   br label %90
 
 90:                                               ; preds = %.sink.split, %35
-  %.065 = phi i32 [ %28, %35 ], [ %89, %.sink.split ]
-  ret i32 %.065
+  %.0 = phi i32 [ %28, %35 ], [ %89, %.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3107,9 +3107,9 @@ dissect_capwap_board_data.exit:                   ; preds = %.lr.ph1008, %.sink.
 
 387:                                              ; preds = %382, %._crit_edge
   %.4 = phi i32 [ %381, %._crit_edge ], [ %386, %382 ]
-  %.0917.in = add nsw i32 %9, -4
-  %.0917 = add i32 %.0917.in, %2
-  %388 = icmp ult i32 %.4, %.0917
+  %.0916.in = add nsw i32 %9, -4
+  %.0916 = add i32 %.0916.in, %2
+  %388 = icmp ult i32 %.4, %.0916
   br i1 %388, label %.lr.ph1005, label %.loopexit
 
 .lr.ph1005:                                       ; preds = %387, %dissect_capwap_wtp_descriptor.exit
@@ -3149,7 +3149,7 @@ switch.lookup:                                    ; preds = %.lr.ph1005
 
 dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch.lookup
   %414 = add i32 %396, %.51003
-  %415 = icmp ult i32 %414, %.0917
+  %415 = icmp ult i32 %414, %.0916
   br i1 %415, label %.lr.ph1005, label %.loopexit, !llvm.loop !12
 
 416:                                              ; preds = %4

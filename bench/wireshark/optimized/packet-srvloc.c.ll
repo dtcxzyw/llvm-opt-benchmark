@@ -2577,47 +2577,47 @@ define internal fastcc void @attr_list2(ptr noundef %0, i32 noundef %1, ptr noun
   br label %.outer
 
 .outer:                                           ; preds = %12, %5
-  %.044.in.ph = phi ptr [ %21, %12 ], [ %10, %5 ]
-  %.040.ph = phi i32 [ %13, %12 ], [ 0, %5 ]
+  %.042.ph = phi i32 [ %13, %12 ], [ 0, %5 ]
+  %.040.ph = phi ptr [ %21, %12 ], [ %10, %5 ]
   %.0.ph = phi i32 [ %19, %12 ], [ %3, %5 ]
   br label %11
 
 11:                                               ; preds = %.outer, %22
-  %.044.in = phi ptr [ %25, %22 ], [ %.044.in.ph, %.outer ]
-  %.042 = phi i32 [ %23, %22 ], [ 0, %.outer ]
-  %.044 = load i8, ptr %.044.in, align 1
-  switch i8 %.044, label %22 [
+  %.046.in = phi ptr [ %25, %22 ], [ %.040.ph, %.outer ]
+  %.044 = phi i32 [ %23, %22 ], [ 0, %.outer ]
+  %.046 = load i8, ptr %.046.in, align 1
+  switch i8 %.046, label %22 [
     i8 0, label %26
     i8 44, label %12
   ]
 
 12:                                               ; preds = %11
-  %13 = add i32 %.040.ph, 1
-  %14 = zext i32 %.042 to i64
-  %15 = getelementptr i8, ptr %.044.in.ph, i64 %14
+  %13 = add i32 %.042.ph, 1
+  %14 = zext i32 %.044 to i64
+  %15 = getelementptr i8, ptr %.040.ph, i64 %14
   store i8 0, ptr %15, align 1
   %16 = load i32, ptr @hf_srvloc_item, align 4
-  %17 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %8, i32 noundef %16, ptr noundef %2, i32 noundef %.0.ph, i32 noundef %.042, ptr noundef %.044.in.ph, ptr noundef nonnull @.str.277, i32 noundef %13, ptr noundef %.044.in.ph) #4
-  %18 = add i32 %.042, 1
+  %17 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %8, i32 noundef %16, ptr noundef %2, i32 noundef %.0.ph, i32 noundef %.044, ptr noundef %.040.ph, ptr noundef nonnull @.str.277, i32 noundef %13, ptr noundef %.040.ph) #4
+  %18 = add i32 %.044, 1
   %19 = add i32 %.0.ph, %18
   %20 = zext i32 %18 to i64
-  %21 = getelementptr i8, ptr %.044.in.ph, i64 %20
+  %21 = getelementptr i8, ptr %.040.ph, i64 %20
   br label %.outer, !llvm.loop !16
 
 22:                                               ; preds = %11
-  %23 = add i32 %.042, 1
+  %23 = add i32 %.044, 1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr i8, ptr %.044.in.ph, i64 %24
+  %25 = getelementptr i8, ptr %.040.ph, i64 %24
   br label %11, !llvm.loop !16
 
 26:                                               ; preds = %11
-  %.not48 = icmp eq i32 %.042, 0
+  %.not48 = icmp eq i32 %.044, 0
   br i1 %.not48, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = add i32 %.040.ph, 1
+  %28 = add i32 %.042.ph, 1
   %29 = load i32, ptr @hf_srvloc_item, align 4
-  %30 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %8, i32 noundef %29, ptr noundef %2, i32 noundef %.0.ph, i32 noundef %.042, ptr noundef %.044.in.ph, ptr noundef nonnull @.str.277, i32 noundef %28, ptr noundef %.044.in.ph) #4
+  %30 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %8, i32 noundef %29, ptr noundef %2, i32 noundef %.0.ph, i32 noundef %.044, ptr noundef %.040.ph, ptr noundef nonnull @.str.277, i32 noundef %28, ptr noundef %.040.ph) #4
   br label %31
 
 31:                                               ; preds = %27, %26

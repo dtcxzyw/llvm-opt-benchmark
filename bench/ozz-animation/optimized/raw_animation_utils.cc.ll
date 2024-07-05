@@ -190,43 +190,43 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_122SampleTrac
   br i1 %22, label %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation14TranslationKeyElEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation14TranslationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i
 
 _ZSt7advanceIPKN3ozz9animation7offline12RawAnimation14TranslationKeyElEvRT_T0_.exit.i.i.i: ; preds = %18, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation14TranslationKeyElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation14TranslationKeyElEvRT_T0_.exit.i.i.i ], [ %21, %18 ]
-  %.01116.i.i.i = phi ptr [ %.112.i.i.i, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation14TranslationKeyElEvRT_T0_.exit.i.i.i ], [ %.val, %18 ]
-  %23 = lshr i64 %.017.i.i.i, 1
-  %24 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %.01116.i.i.i, i64 %23
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation14TranslationKeyElEvRT_T0_.exit.i.i.i ], [ %.val, %18 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation14TranslationKeyElEvRT_T0_.exit.i.i.i ], [ %21, %18 ]
+  %23 = lshr i64 %.01116.i.i.i, 1
+  %24 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %.017.i.i.i, i64 %23
   %25 = load float, ptr %24, align 4
   %26 = fcmp olt float %25, %1
   %27 = getelementptr inbounds i8, ptr %24, i64 16
   %28 = xor i64 %23, -1
-  %29 = add nsw i64 %.017.i.i.i, %28
-  %.112.i.i.i = select i1 %26, ptr %27, ptr %.01116.i.i.i
-  %.1.i.i.i = select i1 %26, i64 %29, i64 %23
-  %30 = icmp sgt i64 %.1.i.i.i, 0
+  %29 = add nsw i64 %.01116.i.i.i, %28
+  %.112.i.i.i = select i1 %26, i64 %29, i64 %23
+  %.1.i.i.i = select i1 %26, ptr %27, ptr %.017.i.i.i
+  %30 = icmp sgt i64 %.112.i.i.i, 0
   br i1 %30, label %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation14TranslationKeyElEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation14TranslationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i, !llvm.loop !5
 
 _ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation14TranslationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i: ; preds = %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation14TranslationKeyElEvRT_T0_.exit.i.i.i
-  %.pre.i = load float, ptr %.112.i.i.i, align 4
+  %.pre.i = load float, ptr %.1.i.i.i, align 4
   br label %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation14TranslationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i
 
 _ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation14TranslationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i: ; preds = %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation14TranslationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i, %18
   %31 = phi float [ %8, %18 ], [ %.pre.i, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation14TranslationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i ]
-  %.011.lcssa.i.i.i = phi ptr [ %.val, %18 ], [ %.112.i.i.i, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation14TranslationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i ]
-  %32 = getelementptr inbounds i8, ptr %.011.lcssa.i.i.i, i64 -16
+  %.0.lcssa.i.i.i = phi ptr [ %.val, %18 ], [ %.1.i.i.i, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation14TranslationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i ]
+  %32 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 -16
   %33 = load float, ptr %32, align 4
   %34 = fsub float %1, %33
   %35 = fsub float %31, %33
   %36 = fdiv float %34, %35
-  %37 = getelementptr inbounds i8, ptr %.011.lcssa.i.i.i, i64 -12
-  %38 = getelementptr inbounds i8, ptr %.011.lcssa.i.i.i, i64 4
+  %37 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 -12
+  %38 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 4
   %39 = load <2 x float>, ptr %38, align 4
   %40 = load <2 x float>, ptr %37, align 4
   %41 = fsub <2 x float> %39, %40
   %42 = insertelement <2 x float> poison, float %36, i64 0
   %43 = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> zeroinitializer
   %44 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %41, <2 x float> %43, <2 x float> %40)
-  %45 = getelementptr inbounds i8, ptr %.011.lcssa.i.i.i, i64 12
+  %45 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 12
   %46 = load float, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %.011.lcssa.i.i.i, i64 -4
+  %47 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 -4
   %48 = load float, ptr %47, align 4
   %49 = fsub float %46, %48
   %50 = tail call float @llvm.fmuladd.f32(float %49, float %36, float %48)
@@ -282,34 +282,34 @@ _ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit
   br label %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.preheader.i.i.i
-  %.017.i.i.i32 = phi i64 [ %.1.i.i.i37, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.i.i.i ], [ %70, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.preheader.i.i.i ]
-  %.01116.i.i.i33 = phi ptr [ %.112.i.i.i36, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.i.i.i ], [ %.val20, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.preheader.i.i.i ]
-  %71 = lshr i64 %.017.i.i.i32, 1
-  %72 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %.01116.i.i.i33, i64 %71
+  %.017.i.i.i32 = phi ptr [ %.1.i.i.i37, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.i.i.i ], [ %.val20, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.preheader.i.i.i ]
+  %.01116.i.i.i33 = phi i64 [ %.112.i.i.i36, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.i.i.i ], [ %70, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.preheader.i.i.i ]
+  %71 = lshr i64 %.01116.i.i.i33, 1
+  %72 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %.017.i.i.i32, i64 %71
   %73 = load float, ptr %72, align 4
   %74 = fcmp olt float %73, %1
   %75 = getelementptr inbounds i8, ptr %72, i64 20
   %76 = xor i64 %71, -1
-  %77 = add nsw i64 %.017.i.i.i32, %76
-  %.112.i.i.i36 = select i1 %74, ptr %75, ptr %.01116.i.i.i33
-  %.1.i.i.i37 = select i1 %74, i64 %77, i64 %71
-  %78 = icmp sgt i64 %.1.i.i.i37, 0
+  %77 = add nsw i64 %.01116.i.i.i33, %76
+  %.112.i.i.i36 = select i1 %74, i64 %77, i64 %71
+  %.1.i.i.i37 = select i1 %74, ptr %75, ptr %.017.i.i.i32
+  %78 = icmp sgt i64 %.112.i.i.i36, 0
   br i1 %78, label %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation11RotationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i, !llvm.loop !7
 
 _ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation11RotationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i: ; preds = %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation11RotationKeyElEvRT_T0_.exit.i.i.i
-  %.pre.i38 = load float, ptr %.112.i.i.i36, align 4
+  %.pre.i38 = load float, ptr %.1.i.i.i37, align 4
   br label %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation11RotationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i
 
 _ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation11RotationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i: ; preds = %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation11RotationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i, %66
   %79 = phi float [ %56, %66 ], [ %.pre.i38, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation11RotationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i ]
-  %.011.lcssa.i.i.i29 = phi ptr [ %.val20, %66 ], [ %.112.i.i.i36, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation11RotationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i ]
-  %80 = getelementptr inbounds i8, ptr %.011.lcssa.i.i.i29, i64 -20
+  %.0.lcssa.i.i.i29 = phi ptr [ %.val20, %66 ], [ %.1.i.i.i37, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation11RotationKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i ]
+  %80 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i29, i64 -20
   %81 = load float, ptr %80, align 4
   %82 = fsub float %1, %81
   %83 = fsub float %79, %81
   %84 = fdiv float %82, %83
-  %85 = getelementptr inbounds i8, ptr %.011.lcssa.i.i.i29, i64 -16
-  %86 = getelementptr inbounds i8, ptr %.011.lcssa.i.i.i29, i64 4
+  %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i29, i64 -16
+  %86 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i29, i64 4
   %87 = load <2 x float>, ptr %85, align 4
   %88 = load <2 x float>, ptr %86, align 4
   %89 = fmul <2 x float> %87, %88
@@ -317,8 +317,8 @@ _ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation11RotationKeyES4_PFbRS5
   %91 = extractelement <2 x float> %87, i64 0
   %92 = extractelement <2 x float> %88, i64 0
   %93 = tail call float @llvm.fmuladd.f32(float %91, float %92, float %90)
-  %94 = getelementptr inbounds i8, ptr %.011.lcssa.i.i.i29, i64 -8
-  %95 = getelementptr inbounds i8, ptr %.011.lcssa.i.i.i29, i64 12
+  %94 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i29, i64 -8
+  %95 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i29, i64 12
   %96 = load <2 x float>, ptr %94, align 4
   %97 = extractelement <2 x float> %96, i64 0
   %98 = load <2 x float>, ptr %95, align 4
@@ -413,43 +413,43 @@ _ZN3ozz9animation7offline12_GLOBAL__N_115SampleComponentISt6vectorINS1_12RawAnim
   br i1 %148, label %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation8ScaleKeyElEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i
 
 _ZSt7advanceIPKN3ozz9animation7offline12RawAnimation8ScaleKeyElEvRT_T0_.exit.i.i.i: ; preds = %144, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation8ScaleKeyElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i52 = phi i64 [ %.1.i.i.i57, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation8ScaleKeyElEvRT_T0_.exit.i.i.i ], [ %147, %144 ]
-  %.01116.i.i.i53 = phi ptr [ %.112.i.i.i56, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation8ScaleKeyElEvRT_T0_.exit.i.i.i ], [ %.val22, %144 ]
-  %149 = lshr i64 %.017.i.i.i52, 1
-  %150 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %.01116.i.i.i53, i64 %149
+  %.017.i.i.i52 = phi ptr [ %.1.i.i.i57, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation8ScaleKeyElEvRT_T0_.exit.i.i.i ], [ %.val22, %144 ]
+  %.01116.i.i.i53 = phi i64 [ %.112.i.i.i56, %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation8ScaleKeyElEvRT_T0_.exit.i.i.i ], [ %147, %144 ]
+  %149 = lshr i64 %.01116.i.i.i53, 1
+  %150 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %.017.i.i.i52, i64 %149
   %151 = load float, ptr %150, align 4
   %152 = fcmp olt float %151, %1
   %153 = getelementptr inbounds i8, ptr %150, i64 16
   %154 = xor i64 %149, -1
-  %155 = add nsw i64 %.017.i.i.i52, %154
-  %.112.i.i.i56 = select i1 %152, ptr %153, ptr %.01116.i.i.i53
-  %.1.i.i.i57 = select i1 %152, i64 %155, i64 %149
-  %156 = icmp sgt i64 %.1.i.i.i57, 0
+  %155 = add nsw i64 %.01116.i.i.i53, %154
+  %.112.i.i.i56 = select i1 %152, i64 %155, i64 %149
+  %.1.i.i.i57 = select i1 %152, ptr %153, ptr %.017.i.i.i52
+  %156 = icmp sgt i64 %.112.i.i.i56, 0
   br i1 %156, label %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation8ScaleKeyElEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i, !llvm.loop !8
 
 _ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i: ; preds = %_ZSt7advanceIPKN3ozz9animation7offline12RawAnimation8ScaleKeyElEvRT_T0_.exit.i.i.i
-  %.pre.i58 = load float, ptr %.112.i.i.i56, align 4
+  %.pre.i58 = load float, ptr %.1.i.i.i57, align 4
   br label %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i
 
 _ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.i: ; preds = %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i, %144
   %157 = phi float [ %134, %144 ], [ %.pre.i58, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i ]
-  %.011.lcssa.i.i.i49 = phi ptr [ %.val22, %144 ], [ %.112.i.i.i56, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i ]
-  %158 = getelementptr inbounds i8, ptr %.011.lcssa.i.i.i49, i64 -16
+  %.0.lcssa.i.i.i49 = phi ptr [ %.val22, %144 ], [ %.1.i.i.i57, %_ZSt11lower_boundIPKN3ozz9animation7offline12RawAnimation8ScaleKeyES4_PFbRS5_S7_EET_SA_SA_RKT0_T1_.exit.loopexit.i ]
+  %158 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i49, i64 -16
   %159 = load float, ptr %158, align 4
   %160 = fsub float %1, %159
   %161 = fsub float %157, %159
   %162 = fdiv float %160, %161
-  %163 = getelementptr inbounds i8, ptr %.011.lcssa.i.i.i49, i64 -12
-  %164 = getelementptr inbounds i8, ptr %.011.lcssa.i.i.i49, i64 4
+  %163 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i49, i64 -12
+  %164 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i49, i64 4
   %165 = load <2 x float>, ptr %164, align 4
   %166 = load <2 x float>, ptr %163, align 4
   %167 = fsub <2 x float> %165, %166
   %168 = insertelement <2 x float> poison, float %162, i64 0
   %169 = shufflevector <2 x float> %168, <2 x float> poison, <2 x i32> zeroinitializer
   %170 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %167, <2 x float> %169, <2 x float> %166)
-  %171 = getelementptr inbounds i8, ptr %.011.lcssa.i.i.i49, i64 12
+  %171 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i49, i64 12
   %172 = load float, ptr %171, align 4
-  %173 = getelementptr inbounds i8, ptr %.011.lcssa.i.i.i49, i64 -4
+  %173 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i49, i64 -4
   %174 = load float, ptr %173, align 4
   %175 = fsub float %172, %174
   %176 = tail call float @llvm.fmuladd.f32(float %175, float %162, float %174)

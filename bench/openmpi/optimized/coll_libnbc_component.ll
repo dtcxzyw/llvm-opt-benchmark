@@ -865,8 +865,8 @@ define i32 @ompi_coll_libnbc_progress() #0 {
 9:                                                ; preds = %8
   store i1 true, ptr @libnbc_in_progress, align 1
   %10 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_libnbc_component, i64 672), align 16
-  %.023.in29 = getelementptr inbounds i8, ptr %10, i64 16
-  %.02330 = load volatile ptr, ptr %.023.in29, align 8
+  %.024.in29 = getelementptr inbounds i8, ptr %10, i64 16
+  %.02430 = load volatile ptr, ptr %.024.in29, align 8
   %.not31 = icmp eq ptr %10, getelementptr inbounds (i8, ptr @mca_coll_libnbc_component, i64 656)
   br i1 %.not31, label %._crit_edge, label %.lr.ph.preheader
 
@@ -876,10 +876,10 @@ define i32 @ompi_coll_libnbc_progress() #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %90
   %11 = phi i8 [ %91, %90 ], [ %.pre36, %.lr.ph.preheader ]
-  %.02335 = phi ptr [ %.023, %90 ], [ %.02330, %.lr.ph.preheader ]
-  %.023.in34 = phi ptr [ %.023.in, %90 ], [ %.023.in29, %.lr.ph.preheader ]
+  %.02435 = phi ptr [ %.024, %90 ], [ %.02430, %.lr.ph.preheader ]
+  %.024.in34 = phi ptr [ %.024.in, %90 ], [ %.024.in29, %.lr.ph.preheader ]
   %.033 = phi i32 [ %.1, %90 ], [ 0, %.lr.ph.preheader ]
-  %.02432 = phi ptr [ %.02335, %90 ], [ %10, %.lr.ph.preheader ]
+  %.02532 = phi ptr [ %.02435, %90 ], [ %10, %.lr.ph.preheader ]
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %15
 
@@ -888,7 +888,7 @@ define i32 @ompi_coll_libnbc_progress() #0 {
   br label %15
 
 15:                                               ; preds = %.lr.ph, %13
-  %16 = tail call i32 @NBC_Progress(ptr noundef %.02432) #7
+  %16 = tail call i32 @NBC_Progress(ptr noundef %.02532) #7
   %.not28 = icmp eq i32 %16, 3
   %.pre39 = load i8, ptr @opal_uses_threads, align 1
   br i1 %.not28, label %85, label %17
@@ -904,13 +904,13 @@ define i32 @ompi_coll_libnbc_progress() #0 {
 
 21:                                               ; preds = %17, %19
   %22 = phi i8 [ %.pre39, %17 ], [ %.pre37, %19 ]
-  %23 = load volatile ptr, ptr %.023.in34, align 8
-  %24 = getelementptr inbounds i8, ptr %.02432, i64 24
+  %23 = load volatile ptr, ptr %.024.in34, align 8
+  %24 = getelementptr inbounds i8, ptr %.02532, i64 24
   %25 = load volatile ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   store volatile ptr %23, ptr %26, align 8
   %27 = load volatile ptr, ptr %24, align 8
-  %28 = load volatile ptr, ptr %.023.in34, align 8
+  %28 = load volatile ptr, ptr %.024.in34, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 24
   store volatile ptr %27, ptr %29, align 8
   %30 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_coll_libnbc_component, i64 696), align 8
@@ -925,36 +925,36 @@ define i32 @ompi_coll_libnbc_progress() #0 {
   br label %36
 
 36:                                               ; preds = %34, %21
-  %37 = getelementptr inbounds i8, ptr %.02432, i64 72
+  %37 = getelementptr inbounds i8, ptr %.02532, i64 72
   store i32 %16, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.02432, i64 100
+  %38 = getelementptr inbounds i8, ptr %.02532, i64 100
   %39 = load i8, ptr %38, align 4
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %.02432, i64 264
+  %42 = getelementptr inbounds i8, ptr %.02532, i64 264
   store i64 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %.02432, i64 88
+  %43 = getelementptr inbounds i8, ptr %.02532, i64 88
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, inttoptr (i64 1 to ptr)
   br i1 %45, label %ompi_request_complete.exit, label %46
 
 46:                                               ; preds = %36, %41
-  %47 = getelementptr inbounds i8, ptr %.02432, i64 136
+  %47 = getelementptr inbounds i8, ptr %.02532, i64 136
   %48 = load ptr, ptr %47, align 8
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %.critedge.i, label %49
 
 49:                                               ; preds = %46
   store ptr null, ptr %47, align 8
-  %50 = tail call i32 %48(ptr noundef nonnull %.02432) #7
+  %50 = tail call i32 %48(ptr noundef nonnull %.02532) #7
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %.critedge.i, label %ompi_request_complete.exit
 
 .critedge.i:                                      ; preds = %49, %46
   fence release
-  %52 = getelementptr inbounds i8, ptr %.02432, i64 88
+  %52 = getelementptr inbounds i8, ptr %.02532, i64 88
   %53 = load i8, ptr @opal_uses_threads, align 1
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %57
@@ -1039,9 +1039,9 @@ ompi_request_complete.exit:                       ; preds = %77, %74, %opal_thre
 
 90:                                               ; preds = %88, %85
   %91 = phi i8 [ %.pre, %88 ], [ %86, %85 ]
-  %.023.in = getelementptr inbounds i8, ptr %.02335, i64 16
-  %.023 = load volatile ptr, ptr %.023.in, align 8
-  %.not = icmp eq ptr %.02335, getelementptr inbounds (i8, ptr @mca_coll_libnbc_component, i64 656)
+  %.024.in = getelementptr inbounds i8, ptr %.02435, i64 16
+  %.024 = load volatile ptr, ptr %.024.in, align 8
+  %.not = icmp eq ptr %.02435, getelementptr inbounds (i8, ptr @mca_coll_libnbc_component, i64 656)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %90, %9
@@ -1060,8 +1060,8 @@ ompi_request_complete.exit:                       ; preds = %77, %74, %opal_thre
   br label %97
 
 97:                                               ; preds = %95, %92, %0
-  %.025 = phi i32 [ 0, %0 ], [ %.2, %92 ], [ %.2, %95 ]
-  ret i32 %.025
+  %.023 = phi i32 [ 0, %0 ], [ %.2, %92 ], [ %.2, %95 ]
+  ret i32 %.023
 }
 
 declare i32 @NBC_Progress(ptr noundef) local_unnamed_addr #2

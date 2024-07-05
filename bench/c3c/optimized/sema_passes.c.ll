@@ -1528,14 +1528,14 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
   %.sink = phi i64 [ 72, %44 ], [ 96, %.lr.ph182 ]
   %46 = getelementptr inbounds i8, ptr %38, i64 %.sink
   %.pn = load ptr, ptr %46, align 8
-  %.0134.in = getelementptr inbounds i8, ptr %.pn, i64 8
-  %.0134 = load ptr, ptr %.0134.in, align 8
-  %47 = load i32, ptr %.0134, align 8
+  %.0.in = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.0 = load ptr, ptr %.0.in, align 8
+  %47 = load i32, ptr %.0, align 8
   %.not174 = icmp eq i32 %47, 23
   br i1 %.not174, label %48, label %59
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %.0134, i64 56
+  %49 = getelementptr inbounds i8, ptr %.0, i64 56
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 25
@@ -1797,7 +1797,7 @@ define dso_local void @sema_analysis_pass_lambda(ptr nocapture noundef readonly 
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.thread
   %11 = phi ptr [ %88, %.thread ], [ %9, %.preheader.lr.ph ]
-  %.03555 = phi i32 [ %89, %.thread ], [ 0, %.preheader.lr.ph ]
+  %.03855 = phi i32 [ %89, %.thread ], [ 0, %.preheader.lr.ph ]
   %.not4353 = icmp eq ptr %11, null
   br i1 %.not4353, label %.thread, label %.lr.ph
 
@@ -1939,7 +1939,7 @@ analyse_func_body.exit:                           ; preds = %32, %47
 
 .thread:                                          ; preds = %.lr.ph, %86, %.preheader
   %88 = phi ptr [ null, %.preheader ], [ %12, %.lr.ph ], [ null, %86 ]
-  %89 = add nuw i32 %.03555, 1
+  %89 = add nuw i32 %.03855, 1
   %exitcond.not = icmp eq i32 %89, %7
   br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !42
 
@@ -2497,19 +2497,19 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %indvars.iv120 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next121, %.lr.ph103 ]
-  %.080.in100 = phi i1 [ %26, %.lr.ph103.preheader ], [ %35, %.lr.ph103 ]
+  %.083.in101 = phi i1 [ %26, %.lr.ph103.preheader ], [ %35, %.lr.ph103 ]
   %32 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv120
   %33 = load ptr, ptr %32, align 8
   %34 = call zeroext i1 @sema_analyse_ct_expr(ptr noundef nonnull %3, ptr noundef %33) #11
-  %35 = and i1 %.080.in100, %34
+  %35 = and i1 %.083.in101, %34
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count122
   br i1 %exitcond123.not, label %._crit_edge104, label %.lr.ph103, !llvm.loop !53
 
 ._crit_edge104:                                   ; preds = %.lr.ph103, %29
-  %.080.in.lcssa = phi i1 [ %26, %29 ], [ %35, %.lr.ph103 ]
+  %.083.in.lcssa = phi i1 [ %26, %29 ], [ %35, %.lr.ph103 ]
   call void @sema_context_destroy(ptr noundef nonnull %3) #11
-  br i1 %.080.in.lcssa, label %36, label %134
+  br i1 %.083.in.lcssa, label %36, label %134
 
 36:                                               ; preds = %.thread131, %._crit_edge104
   %37 = getelementptr inbounds i8, ptr %25, i64 16
@@ -2681,7 +2681,7 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
   br label %134
 
 109:                                              ; preds = %101, %._crit_edge108
-  %.0 = phi ptr [ %102, %101 ], [ null, %._crit_edge108 ]
+  %.076 = phi ptr [ %102, %101 ], [ null, %._crit_edge108 ]
   br i1 %51, label %110, label %113
 
 110:                                              ; preds = %109
@@ -2697,13 +2697,13 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
   br label %118
 
 118:                                              ; preds = %113, %110
-  %.076 = phi ptr [ %112, %110 ], [ %117, %113 ]
-  %.not92 = icmp eq ptr %.0, null
+  %.077 = phi ptr [ %112, %110 ], [ %117, %113 ]
+  %.not92 = icmp eq ptr %.076, null
   br i1 %.not92, label %125, label %119
 
 119:                                              ; preds = %118
-  %120 = call zeroext i1 @dir_change(ptr noundef nonnull %.0) #11
-  call void @free(ptr noundef nonnull %.0) #11
+  %120 = call zeroext i1 @dir_change(ptr noundef nonnull %.076) #11
+  call void @free(ptr noundef nonnull %.076) #11
   br i1 %120, label %125, label %121
 
 121:                                              ; preds = %119
@@ -2727,12 +2727,12 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
   br label %134
 
 132:                                              ; preds = %125
-  %133 = call ptr @parse_include_file(ptr noundef %.076, ptr noundef %0) #11
+  %133 = call ptr @parse_include_file(ptr noundef %.077, ptr noundef %0) #11
   br label %134
 
 134:                                              ; preds = %.thread131, %._crit_edge104, %132, %129, %121, %105, %95, %84, %.critedge, %21, %6
-  %.083 = phi ptr [ null, %6 ], [ null, %21 ], [ null, %95 ], [ null, %84 ], [ null, %129 ], [ %133, %132 ], [ null, %121 ], [ null, %105 ], [ null, %.critedge ], [ null, %._crit_edge104 ], [ null, %.thread131 ]
-  ret ptr %.083
+  %.081 = phi ptr [ null, %6 ], [ null, %21 ], [ null, %95 ], [ null, %84 ], [ null, %129 ], [ %133, %132 ], [ null, %121 ], [ null, %105 ], [ null, %.critedge ], [ null, %._crit_edge104 ], [ null, %.thread131 ]
+  ret ptr %.081
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2836,14 +2836,14 @@ define internal fastcc ptr @sema_load_include(ptr noundef %0, ptr nocapture noun
   br label %57
 
 57:                                               ; preds = %54, %46
-  %.041 = phi ptr [ %56, %54 ], [ %48, %46 ]
-  %58 = call ptr @source_file_load(ptr noundef %.041, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
+  %.038 = phi ptr [ %56, %54 ], [ %48, %46 ]
+  %58 = call ptr @source_file_load(ptr noundef %.038, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %.not44 = icmp eq ptr %58, null
   br i1 %.not44, label %59, label %61
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr %4, align 8
-  call void (i64, ptr, ...) @sema_error_at(i64 %34, ptr noundef nonnull @.str.26, ptr noundef %.041, ptr noundef %60) #11
+  call void (i64, ptr, ...) @sema_error_at(i64 %34, ptr noundef nonnull @.str.26, ptr noundef %.038, ptr noundef %60) #11
   br label %.thread
 
 61:                                               ; preds = %57
@@ -2868,8 +2868,8 @@ define internal fastcc ptr @sema_load_include(ptr noundef %0, ptr nocapture noun
   br label %.thread
 
 .thread:                                          ; preds = %61, %.critedge, %59, %._crit_edge, %69, %67, %25, %10
-  %.039 = phi ptr [ null, %10 ], [ null, %25 ], [ null, %67 ], [ %70, %69 ], [ null, %._crit_edge ], [ null, %59 ], [ null, %.critedge ], [ null, %61 ]
-  ret ptr %.039
+  %.041 = phi ptr [ null, %10 ], [ null, %25 ], [ null, %67 ], [ %70, %69 ], [ null, %._crit_edge ], [ null, %59 ], [ null, %.critedge ], [ null, %61 ]
+  ret ptr %.041
 }
 
 declare void @scratch_buffer_clear() local_unnamed_addr #2

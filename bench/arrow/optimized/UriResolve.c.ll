@@ -557,8 +557,8 @@ if.end22:                                         ; preds = %if.end8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end31, %if.end22
-  %sourceWalker.0 = phi ptr [ %10, %if.end22 ], [ %13, %if.end31 ]
   %destPrev.0 = phi ptr [ %11, %if.end22 ], [ %call26, %if.end31 ]
+  %sourceWalker.0 = phi ptr [ %10, %if.end22 ], [ %13, %if.end31 ]
   %12 = load ptr, ptr %memory, align 8
   %call26 = tail call ptr %12(ptr noundef nonnull %memory, i64 noundef 32) #3
   %cmp27 = icmp eq ptr %call26, null
@@ -709,8 +709,8 @@ if.end22:                                         ; preds = %if.end8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end31, %if.end22
-  %sourceWalker.0 = phi ptr [ %10, %if.end22 ], [ %13, %if.end31 ]
   %destPrev.0 = phi ptr [ %11, %if.end22 ], [ %call26, %if.end31 ]
+  %sourceWalker.0 = phi ptr [ %10, %if.end22 ], [ %13, %if.end31 ]
   %12 = load ptr, ptr %memory, align 8
   %call26 = tail call ptr %12(ptr noundef nonnull %memory, i64 noundef 32) #3
   %cmp27 = icmp eq ptr %call26, null

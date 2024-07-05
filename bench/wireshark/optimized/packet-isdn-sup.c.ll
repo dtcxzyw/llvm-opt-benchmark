@@ -1116,8 +1116,8 @@ get_op.exit:                                      ; preds = %21
   br label %get_op.exit.thread
 
 get_op.exit.thread:                               ; preds = %19, %46, %51, %48, %12, %9, %4
-  %.043 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %47, %46 ], [ %53, %51 ], [ 0, %48 ], [ 0, %19 ]
-  ret i32 %.043
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %47, %46 ], [ %53, %51 ], [ 0, %48 ], [ 0, %19 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1213,8 +1213,8 @@ get_op.exit:                                      ; preds = %20
   br label %get_op.exit.thread
 
 get_op.exit.thread:                               ; preds = %18, %45, %50, %47, %12, %9, %4
-  %.043 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %46, %45 ], [ %52, %50 ], [ 0, %47 ], [ 0, %18 ]
-  ret i32 %.043
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %46, %45 ], [ %52, %50 ], [ 0, %47 ], [ 0, %18 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1300,8 +1300,8 @@ get_err.exit:                                     ; preds = %20
   br label %get_err.exit.thread
 
 get_err.exit.thread:                              ; preds = %18, %45, %42, %12, %9, %4
-  %.043 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %47, %45 ], [ 0, %42 ], [ 0, %18 ]
-  ret i32 %.043
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %47, %45 ], [ 0, %42 ], [ 0, %18 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

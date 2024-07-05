@@ -341,28 +341,28 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
   %78 = call i64 @archive_entry_dev(ptr noundef %1) #12
   %79 = call i64 @archive_entry_ino64(ptr noundef %1) #12
   %80 = getelementptr inbounds i8, ptr %7, i64 16
-  %.054.i = load ptr, ptr %80, align 8
-  %.not55.i = icmp eq ptr %.054.i, null
+  %.04554.i = load ptr, ptr %80, align 8
+  %.not55.i = icmp eq ptr %.04554.i, null
   br i1 %.not55.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %77, %110
-  %.056.i = phi ptr [ %.0.i, %110 ], [ %.054.i, %77 ]
-  %81 = getelementptr inbounds i8, ptr %.056.i, i64 24
+  %.04556.i = phi ptr [ %.045.i, %110 ], [ %.04554.i, %77 ]
+  %81 = getelementptr inbounds i8, ptr %.04556.i, i64 24
   %82 = load i64, ptr %81, align 8
   %83 = icmp eq i64 %82, %78
   br i1 %83, label %84, label %110
 
 84:                                               ; preds = %.lr.ph.i
-  %85 = getelementptr inbounds i8, ptr %.056.i, i64 32
+  %85 = getelementptr inbounds i8, ptr %.04556.i, i64 32
   %86 = load i64, ptr %85, align 8
   %87 = icmp eq i64 %86, %79
   br i1 %87, label %88, label %110
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %.056.i, i64 40
+  %89 = getelementptr inbounds i8, ptr %.04556.i, i64 40
   %90 = load ptr, ptr %89, align 8
   call void @archive_entry_copy_hardlink(ptr noundef %1, ptr noundef %90) #12
-  %91 = getelementptr inbounds i8, ptr %.056.i, i64 16
+  %91 = getelementptr inbounds i8, ptr %.04556.i, i64 16
   %92 = load i32, ptr %91, align 8
   %93 = add i32 %92, -1
   store i32 %93, ptr %91, align 8
@@ -370,10 +370,10 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
   br i1 %94, label %95, label %record_hardlink.exit
 
 95:                                               ; preds = %88
-  %96 = getelementptr inbounds i8, ptr %.056.i, i64 8
+  %96 = getelementptr inbounds i8, ptr %.04556.i, i64 8
   %97 = load ptr, ptr %96, align 8
   %.not51.i = icmp eq ptr %97, null
-  %.pre.i = load ptr, ptr %.056.i, align 8
+  %.pre.i = load ptr, ptr %.04556.i, align 8
   br i1 %.not51.i, label %99, label %98
 
 98:                                               ; preds = %95
@@ -392,23 +392,23 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
 
 103:                                              ; preds = %100, %99
   %104 = load ptr, ptr %80, align 8
-  %105 = icmp eq ptr %104, %.056.i
+  %105 = icmp eq ptr %104, %.04556.i
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %103
-  %107 = load ptr, ptr %.056.i, align 8
+  %107 = load ptr, ptr %.04556.i, align 8
   store ptr %107, ptr %80, align 8
   br label %108
 
 108:                                              ; preds = %106, %103
   %109 = load ptr, ptr %89, align 8
   call void @free(ptr noundef %109) #12
-  call void @free(ptr noundef nonnull %.056.i) #12
+  call void @free(ptr noundef nonnull %.04556.i) #12
   br label %record_hardlink.exit
 
 110:                                              ; preds = %84, %.lr.ph.i
-  %.0.i = load ptr, ptr %.056.i, align 8
-  %.not.i = icmp eq ptr %.0.i, null
+  %.045.i = load ptr, ptr %.04556.i, align 8
+  %.not.i = icmp eq ptr %.045.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %110
@@ -426,7 +426,7 @@ define internal i32 @archive_read_format_cpio_read_header(ptr noundef %0, ptr no
   br label %record_hardlink.exit
 
 116:                                              ; preds = %._crit_edge.i
-  %117 = getelementptr inbounds i8, ptr %.054.i, i64 8
+  %117 = getelementptr inbounds i8, ptr %.04554.i, i64 8
   store ptr %111, ptr %117, align 8
   %.pre58.i = load ptr, ptr %80, align 8
   br label %.thread.i
@@ -807,8 +807,8 @@ is_afio_large.exit.thread.i:                      ; preds = %switch.early.test.i
   br label %61
 
 61:                                               ; preds = %is_afio_large.exit93.thread.i, %.lr.ph.i
-  %.038128.i = phi ptr [ %11, %.lr.ph.i ], [ %125, %is_afio_large.exit93.thread.i ]
-  %62 = getelementptr inbounds i8, ptr %.038128.i, i64 5
+  %.039128.i = phi ptr [ %11, %.lr.ph.i ], [ %125, %is_afio_large.exit93.thread.i ]
+  %62 = getelementptr inbounds i8, ptr %.039128.i, i64 5
   %63 = load i8, ptr %62, align 1
   switch i8 %63, label %124 [
     i8 55, label %64
@@ -816,7 +816,7 @@ is_afio_large.exit.thread.i:                      ; preds = %switch.early.test.i
   ]
 
 64:                                               ; preds = %61
-  %bcmp46.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.3, ptr noundef nonnull dereferenceable(6) %.038128.i, i64 6)
+  %bcmp46.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.3, ptr noundef nonnull dereferenceable(6) %.039128.i, i64 6)
   %65 = icmp eq i32 %bcmp46.i, 0
   br i1 %65, label %.preheader.i, label %is_octal.exit56.thread.i
 
@@ -828,47 +828,47 @@ is_afio_large.exit.thread.i:                      ; preds = %switch.early.test.i
 
 .preheader.i:                                     ; preds = %64, %66
   %69 = phi i64 [ %68, %66 ], [ 75, %64 ]
-  %.047.i52.i = phi ptr [ %67, %66 ], [ %.038128.i, %64 ]
+  %.047.i52.i = phi ptr [ %67, %66 ], [ %.039128.i, %64 ]
   %70 = load i8, ptr %.047.i52.i, align 1
   %71 = add i8 %70, -56
   %or.cond.i53.i = icmp ult i8 %71, -8
   br i1 %or.cond.i53.i, label %is_octal.exit56.thread.i, label %66
 
 is_octal.exit56.thread.i:                         ; preds = %.preheader.i, %64
-  %bcmp48.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.4, ptr noundef nonnull dereferenceable(6) %.038128.i, i64 6)
+  %bcmp48.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) @.str.4, ptr noundef nonnull dereferenceable(6) %.039128.i, i64 6)
   %72 = icmp ne i32 %bcmp48.i, 0
-  %73 = ptrtoint ptr %.038128.i to i64
+  %73 = ptrtoint ptr %.039128.i to i64
   %74 = sub i64 %60, %73
   %75 = icmp ult i64 %74, 116
   %or.cond105.i = select i1 %72, i1 true, i1 %75
   br i1 %or.cond105.i, label %is_afio_large.exit93.thread.i, label %76
 
 76:                                               ; preds = %is_octal.exit56.thread.i
-  %77 = getelementptr inbounds i8, ptr %.038128.i, i64 30
+  %77 = getelementptr inbounds i8, ptr %.039128.i, i64 30
   %78 = load i8, ptr %77, align 1
   %.not.i57.i = icmp eq i8 %78, 109
   br i1 %.not.i57.i, label %79, label %is_afio_large.exit93.thread.i
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %.038128.i, i64 85
+  %80 = getelementptr inbounds i8, ptr %.039128.i, i64 85
   %81 = load i8, ptr %80, align 1
   %.not9.i59.i = icmp eq i8 %81, 110
   br i1 %.not9.i59.i, label %82, label %is_afio_large.exit93.thread.i
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %.038128.i, i64 98
+  %83 = getelementptr inbounds i8, ptr %.039128.i, i64 98
   %84 = load i8, ptr %83, align 1
   %.not10.i60.i = icmp eq i8 %84, 115
   br i1 %.not10.i60.i, label %85, label %is_afio_large.exit93.thread.i
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %.038128.i, i64 115
+  %86 = getelementptr inbounds i8, ptr %.039128.i, i64 115
   %87 = load i8, ptr %86, align 1
   %.not11.i61.i = icmp eq i8 %87, 58
   br i1 %.not11.i61.i, label %88, label %is_afio_large.exit93.thread.i
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %.038128.i, i64 6
+  %89 = getelementptr inbounds i8, ptr %.039128.i, i64 6
   br label %.lr.ph.i.i62.i
 
 .lr.ph.i.i62.i:                                   ; preds = %93, %88
@@ -903,7 +903,7 @@ switch.early.test.i.i67.i:                        ; preds = %.lr.ph.i.i62.i
   br i1 %.not.i.i68.i, label %is_hex.exit.i69.i, label %.lr.ph.i.i62.i, !llvm.loop !9
 
 is_hex.exit.i69.i:                                ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %.038128.i, i64 31
+  %95 = getelementptr inbounds i8, ptr %.039128.i, i64 31
   br label %.lr.ph.i16.i70.i
 
 .lr.ph.i16.i70.i:                                 ; preds = %99, %is_hex.exit.i69.i
@@ -938,7 +938,7 @@ switch.early.test.i21.i75.i:                      ; preds = %.lr.ph.i16.i70.i
   br i1 %.not.i22.i76.i, label %is_hex.exit24.i77.i, label %.lr.ph.i16.i70.i, !llvm.loop !9
 
 is_hex.exit24.i77.i:                              ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %.038128.i, i64 86
+  %101 = getelementptr inbounds i8, ptr %.039128.i, i64 86
   br label %.lr.ph.i25.i78.i
 
 .lr.ph.i25.i78.i:                                 ; preds = %105, %is_hex.exit24.i77.i
@@ -973,7 +973,7 @@ switch.early.test.i30.i83.i:                      ; preds = %.lr.ph.i25.i78.i
   br i1 %.not.i31.i84.i, label %is_hex.exit33.i85.i, label %.lr.ph.i25.i78.i, !llvm.loop !9
 
 is_hex.exit33.i85.i:                              ; preds = %105
-  %107 = getelementptr inbounds i8, ptr %.038128.i, i64 99
+  %107 = getelementptr inbounds i8, ptr %.039128.i, i64 99
   br label %.lr.ph.i34.i86.i
 
 .lr.ph.i34.i86.i:                                 ; preds = %111, %is_hex.exit33.i85.i
@@ -1008,7 +1008,7 @@ switch.early.test.i39.i91.i:                      ; preds = %.lr.ph.i34.i86.i
   br i1 %.not.i40.i92.i, label %is_octal.exit56.i, label %.lr.ph.i34.i86.i, !llvm.loop !9
 
 is_octal.exit56.loopexit135.i:                    ; preds = %66
-  %.pre.i = ptrtoint ptr %.038128.i to i64
+  %.pre.i = ptrtoint ptr %.039128.i to i64
   br label %is_octal.exit56.i
 
 is_octal.exit56.i:                                ; preds = %111, %is_octal.exit56.loopexit135.i
@@ -1017,7 +1017,7 @@ is_octal.exit56.i:                                ; preds = %111, %is_octal.exit
   %114 = sub i64 %.pre-phi.i, %113
   %115 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %114) #12
   %116 = add i64 %114, %.0129.i
-  %117 = getelementptr inbounds i8, ptr %.038128.i, i64 4
+  %117 = getelementptr inbounds i8, ptr %.039128.i, i64 4
   %118 = load i8, ptr %117, align 1
   %119 = icmp eq i8 %118, 50
   br i1 %119, label %120, label %121
@@ -1040,14 +1040,14 @@ is_octal.exit56.i:                                ; preds = %111, %is_octal.exit
 
 is_afio_large.exit93.thread.i:                    ; preds = %switch.early.test.i.i67.i, %switch.early.test.i21.i75.i, %switch.early.test.i30.i83.i, %switch.early.test.i39.i91.i, %124, %85, %82, %79, %76, %is_octal.exit56.thread.i, %61
   %.sink.i = phi i64 [ 6, %124 ], [ 2, %76 ], [ 2, %79 ], [ 2, %82 ], [ 2, %85 ], [ 2, %is_octal.exit56.thread.i ], [ 1, %61 ], [ 2, %switch.early.test.i39.i91.i ], [ 2, %switch.early.test.i30.i83.i ], [ 2, %switch.early.test.i21.i75.i ], [ 2, %switch.early.test.i.i67.i ]
-  %125 = getelementptr inbounds i8, ptr %.038128.i, i64 %.sink.i
+  %125 = getelementptr inbounds i8, ptr %.039128.i, i64 %.sink.i
   %126 = getelementptr inbounds i8, ptr %125, i64 76
   %.not45.i = icmp ugt ptr %126, %13
   br i1 %.not45.i, label %._crit_edge.i, label %61, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %is_afio_large.exit93.thread.i, %is_afio_large.exit.thread.i
-  %.038.lcssa.i = phi ptr [ %11, %is_afio_large.exit.thread.i ], [ %125, %is_afio_large.exit93.thread.i ]
-  %127 = ptrtoint ptr %.038.lcssa.i to i64
+  %.039.lcssa.i = phi ptr [ %11, %is_afio_large.exit.thread.i ], [ %125, %is_afio_large.exit93.thread.i ]
+  %127 = ptrtoint ptr %.039.lcssa.i to i64
   %128 = ptrtoint ptr %11 to i64
   %129 = sub i64 %127, %128
   %130 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %129) #12
@@ -1061,14 +1061,14 @@ find_odc_header.exit:                             ; preds = %._crit_edge.i, %5
   br label %header_afiol.exit
 
 .loopexit:                                        ; preds = %15, %122, %121
-  %.039.i.ph.ph = phi i32 [ -20, %122 ], [ 0, %121 ], [ 0, %15 ]
+  %.038.i.ph.ph = phi i32 [ -20, %122 ], [ 0, %121 ], [ 0, %15 ]
   %.pr = load i32, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %134 = icmp eq i32 %.pr, 65542
   br i1 %134, label %135, label %340
 
 135:                                              ; preds = %.thread, %.loopexit
-  %.039.i.ph144 = phi i32 [ 0, %.thread ], [ %.039.i.ph.ph, %.loopexit ]
+  %.038.i.ph144 = phi i32 [ 0, %.thread ], [ %.038.i.ph.ph, %.loopexit ]
   store i32 65542, ptr %7, align 8
   store ptr @.str.9, ptr %8, align 8
   %136 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 116, ptr noundef null) #12
@@ -1814,7 +1814,7 @@ atol8.exit140:                                    ; preds = %.lr.ph.i131, %428
   br label %header_afiol.exit
 
 header_afiol.exit:                                ; preds = %336, %135, %find_odc_header.exit, %340, %atol8.exit140
-  %.0 = phi i32 [ %.039.i.ph.ph, %atol8.exit140 ], [ -30, %find_odc_header.exit ], [ -30, %340 ], [ %.039.i.ph144, %336 ], [ -30, %135 ]
+  %.0 = phi i32 [ %.038.i.ph.ph, %atol8.exit140 ], [ -30, %find_odc_header.exit ], [ -30, %340 ], [ %.038.i.ph144, %336 ], [ -30, %135 ]
   ret i32 %.0
 }
 
@@ -1878,8 +1878,8 @@ is_hex.exit.thread.i:                             ; preds = %switch.early.test.i
   br i1 %.not3659.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %is_hex.exit.thread.i, %is_hex.exit48.thread.i
-  %.03160.i = phi ptr [ %38, %is_hex.exit48.thread.i ], [ %9, %is_hex.exit.thread.i ]
-  %21 = getelementptr inbounds i8, ptr %.03160.i, i64 5
+  %.03260.i = phi ptr [ %38, %is_hex.exit48.thread.i ], [ %9, %is_hex.exit.thread.i ]
+  %21 = getelementptr inbounds i8, ptr %.03260.i, i64 5
   %22 = load i8, ptr %21, align 1
   switch i8 %22, label %37 [
     i8 49, label %23
@@ -1888,13 +1888,13 @@ is_hex.exit.thread.i:                             ; preds = %switch.early.test.i
   ]
 
 23:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %bcmp37.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.13, ptr noundef nonnull dereferenceable(5) %.03160.i, i64 5)
+  %bcmp37.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @.str.13, ptr noundef nonnull dereferenceable(5) %.03260.i, i64 5)
   %24 = icmp eq i32 %bcmp37.i, 0
   br i1 %24, label %.lr.ph.i40.i, label %is_hex.exit48.thread.i
 
 .lr.ph.i40.i:                                     ; preds = %23, %28
   %.in.i41.i = phi i64 [ %25, %28 ], [ 110, %23 ]
-  %.0818.i42.i = phi ptr [ %29, %28 ], [ %.03160.i, %23 ]
+  %.0818.i42.i = phi ptr [ %29, %28 ], [ %.03260.i, %23 ]
   %25 = add nsw i64 %.in.i41.i, -1
   %26 = load i8, ptr %.0818.i42.i, align 1
   %.fr20.i43.i = freeze i8 %26
@@ -1924,7 +1924,7 @@ switch.early.test.i45.i:                          ; preds = %.lr.ph.i40.i
   br i1 %.not.i46.i, label %is_hex.exit48.i, label %.lr.ph.i40.i, !llvm.loop !9
 
 is_hex.exit48.i:                                  ; preds = %28
-  %30 = ptrtoint ptr %.03160.i to i64
+  %30 = ptrtoint ptr %.03260.i to i64
   %31 = ptrtoint ptr %9 to i64
   %32 = sub i64 %30, %31
   %33 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %32) #12
@@ -1942,14 +1942,14 @@ is_hex.exit48.i:                                  ; preds = %28
 
 is_hex.exit48.thread.i:                           ; preds = %switch.early.test.i45.i, %37, %23, %.lr.ph.i
   %.sink.i = phi i64 [ 6, %37 ], [ 2, %23 ], [ 1, %.lr.ph.i ], [ 2, %switch.early.test.i45.i ]
-  %38 = getelementptr inbounds i8, ptr %.03160.i, i64 %.sink.i
+  %38 = getelementptr inbounds i8, ptr %.03260.i, i64 %.sink.i
   %39 = getelementptr inbounds i8, ptr %38, i64 110
   %.not36.i = icmp ugt ptr %39, %11
   br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %is_hex.exit48.thread.i, %is_hex.exit.thread.i
-  %.031.lcssa.i = phi ptr [ %9, %is_hex.exit.thread.i ], [ %38, %is_hex.exit48.thread.i ]
-  %40 = ptrtoint ptr %.031.lcssa.i to i64
+  %.032.lcssa.i = phi ptr [ %9, %is_hex.exit.thread.i ], [ %38, %is_hex.exit48.thread.i ]
+  %40 = ptrtoint ptr %.032.lcssa.i to i64
   %41 = ptrtoint ptr %9 to i64
   %42 = sub i64 %40, %41
   %43 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %42) #12
@@ -1963,7 +1963,7 @@ find_newc_header.exit:                            ; preds = %._crit_edge.i, %5
   br label %319
 
 .loopexit:                                        ; preds = %19, %35, %is_hex.exit48.i
-  %.032.i.ph = phi i32 [ 0, %is_hex.exit48.i ], [ -20, %35 ], [ 0, %19 ]
+  %.031.i.ph = phi i32 [ 0, %is_hex.exit48.i ], [ -20, %35 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %47 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 110, ptr noundef null) #12
   %48 = icmp eq ptr %47, null
@@ -2599,7 +2599,7 @@ atol16.exit183:                                   ; preds = %304, %308
   br label %319
 
 319:                                              ; preds = %find_newc_header.exit, %.loopexit, %atol16.exit183, %290
-  %.0 = phi i32 [ -30, %290 ], [ %.032.i.ph, %atol16.exit183 ], [ -30, %find_newc_header.exit ], [ -30, %.loopexit ]
+  %.0 = phi i32 [ -30, %290 ], [ %.031.i.ph, %atol16.exit183 ], [ -30, %find_newc_header.exit ], [ -30, %.loopexit ]
   ret i32 %.0
 }
 

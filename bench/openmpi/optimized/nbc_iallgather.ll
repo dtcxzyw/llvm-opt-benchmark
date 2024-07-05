@@ -63,8 +63,8 @@ define internal fastcc i32 @nbc_allgather_init(ptr noundef %0, i32 noundef %1, p
 
 17:                                               ; preds = %15, %13, %10
   %.0118 = phi ptr [ %3, %10 ], [ %3, %13 ], [ %spec.select, %15 ]
-  %.0115 = phi ptr [ %0, %10 ], [ %3, %13 ], [ %0, %15 ]
   %18 = phi i1 [ true, %10 ], [ true, %13 ], [ %16, %15 ]
+  %.0112 = phi ptr [ %0, %10 ], [ %3, %13 ], [ %0, %15 ]
   %19 = getelementptr i8, ptr %6, i64 220
   %.val = load i32, ptr %19, align 4
   %20 = getelementptr i8, ptr %6, i64 248
@@ -83,7 +83,7 @@ define internal fastcc i32 @nbc_allgather_init(ptr noundef %0, i32 noundef %1, p
   br label %26
 
 26:                                               ; preds = %17, %23
-  %.0 = phi i1 [ false, %17 ], [ %or.cond3, %23 ]
+  %.0113 = phi i1 [ false, %17 ], [ %or.cond3, %23 ]
   %27 = getelementptr i8, ptr %5, i64 48
   %.val144 = load i64, ptr %27, align 8
   %28 = getelementptr i8, ptr %5, i64 56
@@ -100,7 +100,7 @@ define internal fastcc i32 @nbc_allgather_init(ptr noundef %0, i32 noundef %1, p
   %33 = mul nsw i64 %31, %32
   %34 = mul i64 %33, %29
   %35 = getelementptr inbounds i8, ptr %.0118, i64 %34
-  %36 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %.0115, i32 noundef %1, ptr noundef %2, ptr noundef %35, i32 noundef %4, ptr noundef nonnull %5) #9
+  %36 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %.0112, i32 noundef %1, ptr noundef %2, ptr noundef %35, i32 noundef %4, ptr noundef nonnull %5) #9
   %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %NBC_Copy.exit.thread, label %NBC_Copy.exit
 
@@ -172,7 +172,7 @@ opal_obj_new.exit.thread175:                      ; preds = %.lr.ph.i.i, %49
   %60 = mul i64 %59, %29
   %61 = getelementptr inbounds i8, ptr %.0118, i64 %60
   %62 = sext i32 %.0116 to i64
-  %63 = tail call i32 @NBC_Sched_copy(ptr noundef %.0115, i8 noundef signext 0, i64 noundef %62, ptr noundef %.0117, ptr noundef %61, i8 noundef signext 0, i64 noundef %58, ptr noundef %5, ptr noundef nonnull %44, i1 noundef zeroext true) #9
+  %63 = tail call i32 @NBC_Sched_copy(ptr noundef %.0112, i8 noundef signext 0, i64 noundef %62, ptr noundef %.0117, ptr noundef %61, i8 noundef signext 0, i64 noundef %58, ptr noundef %5, ptr noundef nonnull %44, i1 noundef zeroext true) #9
   %.not135 = icmp eq i32 %63, 0
   br i1 %.not135, label %83, label %64
 
@@ -220,7 +220,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %75
   br label %nbc_get_noop_request.exit
 
 83:                                               ; preds = %56, %opal_obj_new.exit.thread175
-  br i1 %.0, label %104, label %84
+  br i1 %.0113, label %104, label %84
 
 84:                                               ; preds = %83
   %85 = load i64, ptr %27, align 8
@@ -275,19 +275,19 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %75
   br label %114
 
 111:                                              ; preds = %122
-  %112 = shl i32 %.02.i, 1
-  %.1.i = select i1 %123, i32 %.0371.i, i32 %124
+  %112 = shl i32 %.0372.i, 1
+  %.139.i = select i1 %123, i32 %.0381.i, i32 %124
   %113 = icmp slt i32 %112, %.val143.val
   br i1 %113, label %114, label %.loopexit, !llvm.loop !8
 
 114:                                              ; preds = %111, %.lr.ph.i151
-  %.02.i = phi i32 [ 1, %.lr.ph.i151 ], [ %112, %111 ]
-  %.0371.i = phi i32 [ %.val, %.lr.ph.i151 ], [ %.1.i, %111 ]
-  %115 = xor i32 %.02.i, %.val
-  %116 = sext i32 %.0371.i to i64
+  %.0372.i = phi i32 [ 1, %.lr.ph.i151 ], [ %112, %111 ]
+  %.0381.i = phi i32 [ %.val, %.lr.ph.i151 ], [ %.139.i, %111 ]
+  %115 = xor i32 %.0372.i, %.val
+  %116 = sext i32 %.0381.i to i64
   %117 = mul i64 %110, %116
   %118 = getelementptr inbounds i8, ptr %.0118, i64 %117
-  %119 = sext i32 %.02.i to i64
+  %119 = sext i32 %.0372.i to i64
   %120 = mul nsw i64 %119, %109
   %121 = tail call i32 @NBC_Sched_send(ptr noundef %118, i8 noundef signext 0, i64 noundef %120, ptr noundef %5, i32 noundef %115, ptr noundef %44, i1 noundef zeroext false) #9
   %.not.i152 = icmp eq i32 %121, 0
@@ -295,13 +295,13 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %75
 
 122:                                              ; preds = %114
   %123 = icmp sgt i32 %115, %.val
-  %124 = sub nsw i32 %.0371.i, %.02.i
-  %125 = add nsw i32 %.0371.i, %.02.i
+  %124 = sub nsw i32 %.0381.i, %.0372.i
+  %125 = add nsw i32 %.0381.i, %.0372.i
   %.pn47.in.i = select i1 %123, i32 %125, i32 %124
   %.pn47.i = sext i32 %.pn47.in.i to i64
   %.pn.i = mul i64 %110, %.pn47.i
-  %.038.i = getelementptr inbounds i8, ptr %.0118, i64 %.pn.i
-  %126 = tail call i32 @NBC_Sched_recv(ptr noundef %.038.i, i8 noundef signext 0, i64 noundef %120, ptr noundef %5, i32 noundef %115, ptr noundef %44, i1 noundef zeroext true) #9
+  %.040.i = getelementptr inbounds i8, ptr %.0118, i64 %.pn.i
+  %126 = tail call i32 @NBC_Sched_recv(ptr noundef %.040.i, i8 noundef signext 0, i64 noundef %120, ptr noundef %5, i32 noundef %115, ptr noundef %44, i1 noundef zeroext true) #9
   %.not48.i = icmp eq i32 %126, 0
   br i1 %.not48.i, label %111, label %allgather_sched_linear.exit
 
@@ -446,8 +446,8 @@ opal_obj_run_destructors.exit173:                 ; preds = %.lr.ph.i170, %178
   br label %nbc_get_noop_request.exit
 
 nbc_get_noop_request.exit:                        ; preds = %48, %41, %39, %NBC_Copy.exit, %165, %opal_obj_run_destructors.exit173, %opal_thread_add_fetch_32.exit168, %opal_obj_run_destructors.exit166, %opal_thread_add_fetch_32.exit161, %opal_obj_run_destructors.exit159, %opal_thread_add_fetch_32.exit154, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit
-  %.0114 = phi i32 [ %36, %NBC_Copy.exit ], [ %63, %opal_thread_add_fetch_32.exit ], [ %63, %opal_obj_run_destructors.exit ], [ %.2, %opal_thread_add_fetch_32.exit154 ], [ %.2, %opal_obj_run_destructors.exit159 ], [ %145, %opal_thread_add_fetch_32.exit161 ], [ %145, %opal_obj_run_destructors.exit166 ], [ %166, %opal_thread_add_fetch_32.exit168 ], [ %166, %opal_obj_run_destructors.exit173 ], [ 0, %165 ], [ %40, %39 ], [ 0, %41 ], [ -2, %48 ]
-  ret i32 %.0114
+  %.0 = phi i32 [ %36, %NBC_Copy.exit ], [ %63, %opal_thread_add_fetch_32.exit ], [ %63, %opal_obj_run_destructors.exit ], [ %.2, %opal_thread_add_fetch_32.exit154 ], [ %.2, %opal_obj_run_destructors.exit159 ], [ %145, %opal_thread_add_fetch_32.exit161 ], [ %145, %opal_obj_run_destructors.exit166 ], [ %166, %opal_thread_add_fetch_32.exit168 ], [ %166, %opal_obj_run_destructors.exit173 ], [ 0, %165 ], [ %40, %39 ], [ 0, %41 ], [ -2, %48 ]
+  ret i32 %.0
 }
 
 declare i32 @NBC_Start(ptr noundef) local_unnamed_addr #1

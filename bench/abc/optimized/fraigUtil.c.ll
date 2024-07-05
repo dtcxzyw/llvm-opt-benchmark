@@ -449,20 +449,20 @@ define i32 @Fraig_BitStringCountOnes(ptr nocapture noundef readonly %0, i32 noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.010 = phi i32 [ 0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
+  %.089 = phi i32 [ 0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
   %5 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds [256 x i32], ptr @bit_count, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = add nsw i32 %9, %.010
+  %10 = add nsw i32 %9, %.089
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %10, %.lr.ph ]
-  ret i32 %.0.lcssa
+  %.08.lcssa = phi i32 [ 0, %2 ], [ %10, %.lr.ph ]
+  ret i32 %.08.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1070,8 +1070,8 @@ Fraig_GetMaxLevel.exit34:                         ; preds = %39, %Fraig_GetMaxLe
 
 54:                                               ; preds = %.lr.ph41, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next, %.loopexit ]
-  %.01839 = phi i32 [ 0, %.lr.ph41 ], [ %.2, %.loopexit ]
-  %.01938 = phi i32 [ 0, %.lr.ph41 ], [ %.120, %.loopexit ]
+  %.01840 = phi i32 [ 0, %.lr.ph41 ], [ %.1, %.loopexit ]
+  %.02038 = phi i32 [ 0, %.lr.ph41 ], [ %.2, %.loopexit ]
   %55 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 88
@@ -1086,30 +1086,30 @@ Fraig_GetMaxLevel.exit34:                         ; preds = %39, %Fraig_GetMaxLe
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %60
-  %63 = add nsw i32 %.01938, 1
+  %63 = add nsw i32 %.01840, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.137 = phi i32 [ %64, %.lr.ph ], [ %.01839, %.lr.ph.preheader ]
-  %.02136 = phi ptr [ %66, %.lr.ph ], [ %56, %.lr.ph.preheader ]
-  %64 = add nsw i32 %.137, 1
-  %65 = getelementptr inbounds i8, ptr %.02136, i64 80
+  %.037 = phi ptr [ %66, %.lr.ph ], [ %56, %.lr.ph.preheader ]
+  %.12136 = phi i32 [ %64, %.lr.ph ], [ %.02038, %.lr.ph.preheader ]
+  %64 = add nsw i32 %.12136, 1
+  %65 = getelementptr inbounds i8, ptr %.037, i64 80
   %66 = load ptr, ptr %65, align 8
   %.not22 = icmp eq ptr %66, null
   br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %54, %60
-  %.120 = phi i32 [ %.01938, %60 ], [ %.01938, %54 ], [ %63, %.lr.ph ]
-  %.2 = phi i32 [ %.01839, %60 ], [ %.01839, %54 ], [ %64, %.lr.ph ]
+  %.2 = phi i32 [ %.02038, %60 ], [ %.02038, %54 ], [ %64, %.lr.ph ]
+  %.1 = phi i32 [ %.01840, %60 ], [ %.01840, %54 ], [ %63, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %54, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit, %Fraig_GetMaxLevel.exit34
-  %.019.lcssa = phi i32 [ 0, %Fraig_GetMaxLevel.exit34 ], [ %.120, %.loopexit ]
-  %.018.lcssa = phi i32 [ 0, %Fraig_GetMaxLevel.exit34 ], [ %.2, %.loopexit ]
+  %.020.lcssa = phi i32 [ 0, %Fraig_GetMaxLevel.exit34 ], [ %.2, %.loopexit ]
+  %.018.lcssa = phi i32 [ 0, %Fraig_GetMaxLevel.exit34 ], [ %.1, %.loopexit ]
   %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.09.lcssa.i, i32 noundef %.09.lcssa.i26)
-  %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.019.lcssa, i32 noundef %.018.lcssa)
+  %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.018.lcssa, i32 noundef %.020.lcssa)
   ret void
 }
 

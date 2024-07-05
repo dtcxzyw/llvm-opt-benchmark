@@ -1227,10 +1227,10 @@ _ZN17InteractionOfTypeD2Ev.exit:                  ; preds = %23, %25
   br label %54
 
 54:                                               ; preds = %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %42, %42, %42, %42, %42, %42
-  %.071.i = phi i32 [ 0, %53 ], [ 3, %52 ], [ 2, %51 ], [ 0, %50 ], [ 4, %49 ], [ 3, %48 ], [ 2, %47 ], [ %3, %46 ], [ %3, %45 ], [ %3, %44 ], [ %3, %43 ], [ 1, %42 ], [ 1, %42 ], [ 1, %42 ], [ 1, %42 ], [ 1, %42 ], [ 1, %42 ], [ 1, %42 ]
+  %.068.i = phi i32 [ 0, %53 ], [ 3, %52 ], [ 2, %51 ], [ 0, %50 ], [ 4, %49 ], [ 3, %48 ], [ 2, %47 ], [ %3, %46 ], [ %3, %45 ], [ %3, %44 ], [ %3, %43 ], [ 1, %42 ], [ 1, %42 ], [ 1, %42 ], [ 1, %42 ], [ 1, %42 ], [ 1, %42 ], [ 1, %42 ]
   %.not.i = icmp eq i32 %4, 0
   %55 = add nsw i32 %4, -1
-  %spec.select.i = select i1 %.not.i, i32 %.071.i, i32 %55
+  %spec.select.i = select i1 %.not.i, i32 %.068.i, i32 %55
   %56 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %36, i32 2
   %57 = load i32, ptr %56, align 16
   %.fr26.i = freeze i32 %57
@@ -1250,10 +1250,10 @@ _ZN17InteractionOfTypeD2Ev.exit:                  ; preds = %23, %25
   br i1 %67, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.noexc19, %.lr.ph.i
-  %.0708.i = phi i32 [ %70, %.lr.ph.i ], [ 2, %.noexc19 ]
-  %68 = add nuw nsw i32 %.0708.i, 105
+  %.0728.i = phi i32 [ %70, %.lr.ph.i ], [ 2, %.noexc19 ]
+  %68 = add nuw nsw i32 %.0728.i, 105
   %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.37, i32 noundef 97, i32 noundef %68) #20
-  %70 = add nuw nsw i32 %.0708.i, 1
+  %70 = add nuw nsw i32 %.0728.i, 1
   %exitcond.not.i = icmp eq i32 %70, %.fr26.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
@@ -1263,9 +1263,9 @@ _ZN17InteractionOfTypeD2Ev.exit:                  ; preds = %23, %25
   br i1 %72, label %.lr.ph11.i, label %._crit_edge12.i
 
 .lr.ph11.i:                                       ; preds = %._crit_edge.i, %.lr.ph11.i
-  %.0689.i = phi i32 [ %74, %.lr.ph11.i ], [ 0, %._crit_edge.i ]
-  %73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef 99, i32 noundef %.0689.i) #20
-  %74 = add nuw nsw i32 %.0689.i, 1
+  %.0709.i = phi i32 [ %74, %.lr.ph11.i ], [ 0, %._crit_edge.i ]
+  %73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef 99, i32 noundef %.0709.i) #20
+  %74 = add nuw nsw i32 %.0709.i, 1
   %exitcond28.not.i = icmp eq i32 %74, %62
   br i1 %exitcond28.not.i, label %._crit_edge12.i, label %.lr.ph11.i, !llvm.loop !29
 

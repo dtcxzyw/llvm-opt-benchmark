@@ -427,20 +427,20 @@ decompress.exit.thread:                           ; preds = %97, %101, %178, %16
   br label %243
 
 195:                                              ; preds = %decompress.exit, %is_first_frame_in_msg.exit
-  %.088 = phi i32 [ %25, %is_first_frame_in_msg.exit ], [ 0, %decompress.exit ]
-  %.087 = phi ptr [ %0, %is_first_frame_in_msg.exit ], [ %.0.i98, %decompress.exit ]
+  %.088 = phi ptr [ %0, %is_first_frame_in_msg.exit ], [ %.0.i98, %decompress.exit ]
+  %.087 = phi i32 [ %25, %is_first_frame_in_msg.exit ], [ 0, %decompress.exit ]
   %.not94 = icmp eq i32 %.0.i, 0
   br i1 %.not94, label %229, label %196
 
 196:                                              ; preds = %195
-  %197 = call i32 @tvb_get_varint(ptr noundef %.087, i32 noundef %.088, i32 noundef 10, ptr noundef nonnull %8, i32 noundef 2) #6
+  %197 = call i32 @tvb_get_varint(ptr noundef %.088, i32 noundef %.087, i32 noundef 10, ptr noundef nonnull %8, i32 noundef 2) #6
   %198 = load i32, ptr @hf_blip_properties_length, align 4
-  %199 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %198, ptr noundef %.087, i32 noundef %.088, i32 noundef %197, i32 noundef 2) #6
-  %200 = add i32 %197, %.088
+  %199 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %198, ptr noundef %.088, i32 noundef %.087, i32 noundef %197, i32 noundef 2) #6
+  %200 = add i32 %197, %.087
   %201 = load ptr, ptr %29, align 8
   %202 = load i64, ptr %8, align 8
   %203 = trunc i64 %202 to i32
-  %204 = call ptr @tvb_get_string_enc(ptr noundef %201, ptr noundef %.087, i32 noundef %200, i32 noundef %203, i32 noundef 2) #6
+  %204 = call ptr @tvb_get_string_enc(ptr noundef %201, ptr noundef %.088, i32 noundef %200, i32 noundef %203, i32 noundef 2) #6
   %205 = load i64, ptr %8, align 8
   %206 = trunc i64 %205 to i32
   %207 = icmp sgt i32 %206, 0
@@ -486,7 +486,7 @@ decompress.exit.thread:                           ; preds = %97, %101, %178, %16
 
 222:                                              ; preds = %._crit_edge
   %223 = load i32, ptr @hf_blip_properties, align 4
-  %224 = call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %223, ptr noundef %.087, i32 noundef %200, i32 noundef %.lcssa, ptr noundef %204) #6
+  %224 = call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %223, ptr noundef %.088, i32 noundef %200, i32 noundef %.lcssa, ptr noundef %204) #6
   %.pre107 = load i64, ptr %8, align 8
   %225 = trunc i64 %.pre107 to i32
   br label %226
@@ -497,8 +497,8 @@ decompress.exit.thread:                           ; preds = %97, %101, %178, %16
   br label %229
 
 229:                                              ; preds = %226, %195
-  %.1 = phi i32 [ %228, %226 ], [ %.088, %195 ]
-  %230 = call i32 @tvb_reported_length_remaining(ptr noundef %.087, i32 noundef %.1) #6
+  %.1 = phi i32 [ %228, %226 ], [ %.087, %195 ]
+  %230 = call i32 @tvb_reported_length_remaining(ptr noundef %.088, i32 noundef %.1) #6
   %231 = icmp sgt i32 %230, 3
   %or.cond = and i1 %.not92, %231
   %232 = add nsw i32 %230, -4
@@ -508,7 +508,7 @@ decompress.exit.thread:                           ; preds = %97, %101, %178, %16
 
 234:                                              ; preds = %229
   %235 = load i32, ptr @hf_blip_message_body, align 4
-  %236 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %235, ptr noundef %.087, i32 noundef %.1, i32 noundef %spec.select, i32 noundef 2) #6
+  %236 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %235, ptr noundef %.088, i32 noundef %.1, i32 noundef %spec.select, i32 noundef 2) #6
   br label %237
 
 237:                                              ; preds = %234, %229

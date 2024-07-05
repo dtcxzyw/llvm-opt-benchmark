@@ -408,8 +408,8 @@ define ptr @zend_vstrpprintf(i64 noundef %0, ptr noundef %1, ptr noundef %2) loc
   br label %55
 
 55:                                               ; preds = %._crit_edge, %16, %38, %51, %29, %7
-  %.0102 = phi ptr [ %8, %7 ], [ %15, %16 ], [ null, %._crit_edge ], [ %32, %29 ], [ %41, %51 ], [ %41, %38 ]
-  ret ptr %.0102
+  %.0103 = phi ptr [ %8, %7 ], [ %15, %16 ], [ null, %._crit_edge ], [ %32, %29 ], [ %41, %51 ], [ %41, %38 ]
+  ret ptr %.0103
 }
 
 ; Function Attrs: nounwind uwtable
@@ -963,51 +963,51 @@ define internal fastcc void @print_flat_hash(ptr noundef %0, ptr nocapture nound
   br label %12
 
 12:                                               ; preds = %.lr.ph, %122
-  %.0158207 = phi i32 [ %6, %.lr.ph ], [ %123, %122 ]
-  %.0159206 = phi ptr [ %8, %.lr.ph ], [ %.1, %122 ]
-  %.0162205 = phi i32 [ 0, %.lr.ph ], [ %.1163, %122 ]
-  %.0164204 = phi ptr [ null, %.lr.ph ], [ %.1165, %122 ]
-  %.0167203 = phi i32 [ 0, %.lr.ph ], [ %.1168, %122 ]
+  %.0159207 = phi i32 [ %6, %.lr.ph ], [ %123, %122 ]
+  %.0160206 = phi ptr [ %8, %.lr.ph ], [ %.1161, %122 ]
+  %.0164205 = phi i32 [ 0, %.lr.ph ], [ %.1165, %122 ]
+  %.0166204 = phi ptr [ null, %.lr.ph ], [ %.1167, %122 ]
+  %.0171203 = phi i32 [ 0, %.lr.ph ], [ %.1172, %122 ]
   %13 = load i32, ptr %4, align 8
   %14 = and i32 %13, 4
   %.not189 = icmp eq i32 %14, 0
   br i1 %.not189, label %19, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %.0159206, i64 16
-  %17 = zext i32 %.0162205 to i64
-  %18 = add i32 %.0162205, 1
+  %16 = getelementptr inbounds i8, ptr %.0160206, i64 16
+  %17 = zext i32 %.0164205 to i64
+  %18 = add i32 %.0164205, 1
   br label %30
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %.0159206, i64 32
-  %21 = getelementptr inbounds i8, ptr %.0159206, i64 16
+  %20 = getelementptr inbounds i8, ptr %.0160206, i64 32
+  %21 = getelementptr inbounds i8, ptr %.0160206, i64 16
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %.0159206, i64 24
+  %23 = getelementptr inbounds i8, ptr %.0160206, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %.0159206, i64 8
+  %25 = getelementptr inbounds i8, ptr %.0160206, i64 8
   %26 = load i8, ptr %25, align 8
   %27 = icmp eq i8 %26, 12
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %19
-  %29 = load ptr, ptr %.0159206, align 8
+  %29 = load ptr, ptr %.0160206, align 8
   br label %30
 
 30:                                               ; preds = %19, %28, %15
-  %.0166 = phi i64 [ %17, %15 ], [ %22, %28 ], [ %22, %19 ]
-  %.1165 = phi ptr [ %.0164204, %15 ], [ %24, %28 ], [ %24, %19 ]
-  %.1163 = phi i32 [ %18, %15 ], [ %.0162205, %28 ], [ %.0162205, %19 ]
-  %.1 = phi ptr [ %16, %15 ], [ %20, %28 ], [ %20, %19 ]
-  %.0 = phi ptr [ %.0159206, %15 ], [ %29, %28 ], [ %.0159206, %19 ]
-  %31 = getelementptr inbounds i8, ptr %.0, i64 8
+  %.0168 = phi i64 [ %17, %15 ], [ %22, %28 ], [ %22, %19 ]
+  %.1167 = phi ptr [ %.0166204, %15 ], [ %24, %28 ], [ %24, %19 ]
+  %.1165 = phi i32 [ %18, %15 ], [ %.0164205, %28 ], [ %.0164205, %19 ]
+  %.1161 = phi ptr [ %16, %15 ], [ %20, %28 ], [ %20, %19 ]
+  %.0158 = phi ptr [ %.0160206, %15 ], [ %29, %28 ], [ %.0160206, %19 ]
+  %31 = getelementptr inbounds i8, ptr %.0158, i64 8
   %32 = load i8, ptr %31, align 8
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %122, label %34
 
 34:                                               ; preds = %30
-  %35 = add nsw i32 %.0167203, 1
-  %36 = icmp sgt i32 %.0167203, 0
+  %35 = add nsw i32 %.0171203, 1
+  %36 = icmp sgt i32 %.0171203, 0
   br i1 %36, label %37, label %52
 
 37:                                               ; preds = %34
@@ -1024,21 +1024,21 @@ define internal fastcc void @print_flat_hash(ptr noundef %0, ptr nocapture nound
   br i1 %.not191, label %45, label %44
 
 44:                                               ; preds = %37, %39
-  %.0171 = phi i64 [ 1, %37 ], [ %42, %39 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0171) #30
+  %.0169 = phi i64 [ 1, %37 ], [ %42, %39 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0169) #30
   %.pre = load ptr, ptr %0, align 8
   br label %45
 
 45:                                               ; preds = %44, %39
   %46 = phi ptr [ %.pre, %44 ], [ %38, %39 ]
-  %.1172 = phi i64 [ %.0171, %44 ], [ %42, %39 ]
+  %.1170 = phi i64 [ %.0169, %44 ], [ %42, %39 ]
   %47 = getelementptr inbounds i8, ptr %46, i64 24
-  %48 = add i64 %.1172, -1
+  %48 = add i64 %.1170, -1
   %49 = getelementptr inbounds [1 x i8], ptr %47, i64 0, i64 %48
   store i8 44, ptr %49, align 1
   %50 = load ptr, ptr %0, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 16
-  store i64 %.1172, ptr %51, align 8
+  store i64 %.1170, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %45, %34
@@ -1055,27 +1055,27 @@ define internal fastcc void @print_flat_hash(ptr noundef %0, ptr nocapture nound
   br i1 %.not193, label %60, label %59
 
 59:                                               ; preds = %52, %54
-  %.0169 = phi i64 [ 1, %52 ], [ %57, %54 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0169) #30
+  %.0162 = phi i64 [ 1, %52 ], [ %57, %54 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0162) #30
   %.pre208 = load ptr, ptr %0, align 8
   br label %60
 
 60:                                               ; preds = %59, %54
   %61 = phi ptr [ %.pre208, %59 ], [ %53, %54 ]
-  %.1170 = phi i64 [ %.0169, %59 ], [ %57, %54 ]
+  %.1163 = phi i64 [ %.0162, %59 ], [ %57, %54 ]
   %62 = getelementptr inbounds i8, ptr %61, i64 24
-  %63 = add i64 %.1170, -1
+  %63 = add i64 %.1163, -1
   %64 = getelementptr inbounds [1 x i8], ptr %62, i64 0, i64 %63
   store i8 91, ptr %64, align 1
   %65 = load ptr, ptr %0, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 16
-  store i64 %.1170, ptr %66, align 8
-  %.not194 = icmp eq ptr %.1165, null
+  store i64 %.1163, ptr %66, align 8
+  %.not194 = icmp eq ptr %.1167, null
   br i1 %.not194, label %83, label %67
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %.1165, i64 24
-  %69 = getelementptr inbounds i8, ptr %.1165, i64 16
+  %68 = getelementptr inbounds i8, ptr %.1167, i64 24
+  %69 = getelementptr inbounds i8, ptr %.1167, i64 16
   %70 = load i64, ptr %69, align 8
   %71 = load ptr, ptr %0, align 8
   %.not198 = icmp eq ptr %71, null
@@ -1090,8 +1090,8 @@ define internal fastcc void @print_flat_hash(ptr noundef %0, ptr nocapture nound
   br i1 %.not199, label %78, label %77
 
 77:                                               ; preds = %67, %72
-  %.0160 = phi i64 [ %70, %67 ], [ %75, %72 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0160) #30
+  %.0 = phi i64 [ %70, %67 ], [ %75, %72 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0) #30
   %.pre209 = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre209, i64 16
   %.pre210 = load i64, ptr %.phi.trans.insert, align 8
@@ -1100,7 +1100,7 @@ define internal fastcc void @print_flat_hash(ptr noundef %0, ptr nocapture nound
 78:                                               ; preds = %77, %72
   %79 = phi i64 [ %.pre210, %77 ], [ %74, %72 ]
   %80 = phi ptr [ %.pre209, %77 ], [ %71, %72 ]
-  %.1161 = phi i64 [ %.0160, %77 ], [ %75, %72 ]
+  %.1 = phi i64 [ %.0, %77 ], [ %75, %72 ]
   %81 = getelementptr inbounds i8, ptr %80, i64 24
   %82 = getelementptr inbounds i8, ptr %81, i64 %79
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr nonnull align 1 %68, i64 %70, i1 false)
@@ -1111,7 +1111,7 @@ define internal fastcc void @print_flat_hash(ptr noundef %0, ptr nocapture nound
   br label %84
 
 84:                                               ; preds = %84, %83
-  %.0174 = phi i64 [ %.0166, %83 ], [ %89, %84 ]
+  %.0174 = phi i64 [ %.0168, %83 ], [ %89, %84 ]
   %.0173 = phi ptr [ %10, %83 ], [ %88, %84 ]
   %85 = urem i64 %.0174, 10
   %86 = trunc nuw nsw i64 %85 to i8
@@ -1155,7 +1155,7 @@ define internal fastcc void @print_flat_hash(ptr noundef %0, ptr nocapture nound
   br label %105
 
 105:                                              ; preds = %100, %78
-  %.1176.sink = phi i64 [ %.1176, %100 ], [ %.1161, %78 ]
+  %.1176.sink = phi i64 [ %.1176, %100 ], [ %.1, %78 ]
   %106 = load ptr, ptr %0, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 16
   store i64 %.1176.sink, ptr %107, align 8
@@ -1189,12 +1189,12 @@ define internal fastcc void @print_flat_hash(ptr noundef %0, ptr nocapture nound
   %120 = load ptr, ptr %0, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 16
   store i64 %.1178, ptr %121, align 8
-  call void @zend_print_flat_zval_r_to_buf(ptr noundef nonnull %0, ptr noundef %.0)
+  call void @zend_print_flat_zval_r_to_buf(ptr noundef nonnull %0, ptr noundef %.0158)
   br label %122
 
 122:                                              ; preds = %30, %115
-  %.1168 = phi i32 [ %.0167203, %30 ], [ %35, %115 ]
-  %123 = add i32 %.0158207, -1
+  %.1172 = phi i32 [ %.0171203, %30 ], [ %35, %115 ]
+  %123 = add i32 %.0159207, -1
   %.not = icmp eq i32 %123, 0
   br i1 %.not, label %._crit_edge, label %12
 
@@ -4137,7 +4137,7 @@ define internal fastcc void @print_hash(ptr noundef %0, ptr nocapture noundef re
   br label %11
 
 11:                                               ; preds = %.lr.ph, %19
-  %.0430533 = phi i32 [ 0, %.lr.ph ], [ %26, %19 ]
+  %.0432533 = phi i32 [ 0, %.lr.ph ], [ %26, %19 ]
   %12 = load ptr, ptr %0, align 8
   %.not530 = icmp eq ptr %12, null
   br i1 %.not530, label %18, label %13
@@ -4166,7 +4166,7 @@ define internal fastcc void @print_hash(ptr noundef %0, ptr nocapture noundef re
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   store i64 %.1448, ptr %25, align 8
-  %26 = add nuw nsw i32 %.0430533, 1
+  %26 = add nuw nsw i32 %.0432533, 1
   %exitcond.not = icmp eq i32 %26, %2
   br i1 %exitcond.not, label %._crit_edge, label %11
 
@@ -4228,43 +4228,43 @@ define internal fastcc void @print_hash(ptr noundef %0, ptr nocapture noundef re
   br label %267
 
 54:                                               ; preds = %.lr.ph543, %265
-  %.0422541 = phi i32 [ %44, %.lr.ph543 ], [ %266, %265 ]
-  %.0423540 = phi ptr [ %46, %.lr.ph543 ], [ %.1, %265 ]
-  %.0425539 = phi i32 [ 0, %.lr.ph543 ], [ %.1426, %265 ]
-  %.0427538 = phi ptr [ null, %.lr.ph543 ], [ %.1428, %265 ]
+  %.0423541 = phi i32 [ %44, %.lr.ph543 ], [ %266, %265 ]
+  %.0424540 = phi ptr [ %46, %.lr.ph543 ], [ %.1, %265 ]
+  %.0426539 = phi i32 [ 0, %.lr.ph543 ], [ %.1427, %265 ]
+  %.0428538 = phi ptr [ null, %.lr.ph543 ], [ %.1429, %265 ]
   %55 = load i32, ptr %42, align 8
   %56 = and i32 %55, 4
   %.not504 = icmp eq i32 %56, 0
   br i1 %.not504, label %61, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %.0423540, i64 16
-  %59 = zext i32 %.0425539 to i64
-  %60 = add i32 %.0425539, 1
+  %58 = getelementptr inbounds i8, ptr %.0424540, i64 16
+  %59 = zext i32 %.0426539 to i64
+  %60 = add i32 %.0426539, 1
   br label %72
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds i8, ptr %.0423540, i64 32
-  %63 = getelementptr inbounds i8, ptr %.0423540, i64 16
+  %62 = getelementptr inbounds i8, ptr %.0424540, i64 32
+  %63 = getelementptr inbounds i8, ptr %.0424540, i64 16
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.0423540, i64 24
+  %65 = getelementptr inbounds i8, ptr %.0424540, i64 24
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %.0423540, i64 8
+  %67 = getelementptr inbounds i8, ptr %.0424540, i64 8
   %68 = load i8, ptr %67, align 8
   %69 = icmp eq i8 %68, 12
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %61
-  %71 = load ptr, ptr %.0423540, align 8
+  %71 = load ptr, ptr %.0424540, align 8
   br label %72
 
 72:                                               ; preds = %61, %70, %57
-  %.0429 = phi i64 [ %59, %57 ], [ %64, %70 ], [ %64, %61 ]
-  %.1428 = phi ptr [ %.0427538, %57 ], [ %66, %70 ], [ %66, %61 ]
-  %.1426 = phi i32 [ %60, %57 ], [ %.0425539, %70 ], [ %.0425539, %61 ]
+  %.0430 = phi i64 [ %59, %57 ], [ %64, %70 ], [ %64, %61 ]
+  %.1429 = phi ptr [ %.0428538, %57 ], [ %66, %70 ], [ %66, %61 ]
+  %.1427 = phi i32 [ %60, %57 ], [ %.0426539, %70 ], [ %.0426539, %61 ]
   %.1 = phi ptr [ %58, %57 ], [ %62, %70 ], [ %62, %61 ]
-  %.0421 = phi ptr [ %.0423540, %57 ], [ %71, %70 ], [ %.0423540, %61 ]
-  %73 = getelementptr inbounds i8, ptr %.0421, i64 8
+  %.0422 = phi ptr [ %.0424540, %57 ], [ %71, %70 ], [ %.0424540, %61 ]
+  %73 = getelementptr inbounds i8, ptr %.0422, i64 8
   %74 = load i8, ptr %73, align 8
   %75 = icmp eq i8 %74, 0
   br i1 %75, label %265, label %.preheader532
@@ -4273,7 +4273,7 @@ define internal fastcc void @print_hash(ptr noundef %0, ptr nocapture noundef re
   br i1 %47, label %.lr.ph535, label %._crit_edge536
 
 .lr.ph535:                                        ; preds = %.preheader532, %83
-  %.1431534 = phi i32 [ %90, %83 ], [ 0, %.preheader532 ]
+  %.1433534 = phi i32 [ %90, %83 ], [ 0, %.preheader532 ]
   %76 = load ptr, ptr %0, align 8
   %.not528 = icmp eq ptr %76, null
   br i1 %.not528, label %82, label %77
@@ -4302,8 +4302,8 @@ define internal fastcc void @print_hash(ptr noundef %0, ptr nocapture noundef re
   %88 = load ptr, ptr %0, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 16
   store i64 %.1446, ptr %89, align 8
-  %90 = add nuw i32 %.1431534, 1
-  %exitcond547.not = icmp eq i32 %.1431534, %smax
+  %90 = add nuw i32 %.1433534, 1
+  %exitcond547.not = icmp eq i32 %.1433534, %smax
   br i1 %exitcond547.not, label %._crit_edge536, label %.lr.ph535
 
 ._crit_edge536:                                   ; preds = %83, %.preheader532
@@ -4335,14 +4335,14 @@ define internal fastcc void @print_hash(ptr noundef %0, ptr nocapture noundef re
   %103 = load ptr, ptr %0, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 16
   store i64 %.1444, ptr %104, align 8
-  %.not507 = icmp eq ptr %.1428, null
+  %.not507 = icmp eq ptr %.1429, null
   br i1 %.not507, label %201, label %105
 
 105:                                              ; preds = %98
   br i1 %3, label %106, label %185
 
 106:                                              ; preds = %105
-  %107 = call i32 @zend_unmangle_property_name_ex(ptr noundef nonnull %.1428, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8) #30
+  %107 = call i32 @zend_unmangle_property_name_ex(ptr noundef nonnull %.1429, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8) #30
   %108 = load ptr, ptr %6, align 8
   %109 = load i64, ptr %8, align 8
   %110 = load ptr, ptr %0, align 8
@@ -4507,8 +4507,8 @@ define internal fastcc void @print_hash(ptr noundef %0, ptr nocapture noundef re
   br label %.sink.split
 
 185:                                              ; preds = %105
-  %186 = getelementptr inbounds i8, ptr %.1428, i64 24
-  %187 = getelementptr inbounds i8, ptr %.1428, i64 16
+  %186 = getelementptr inbounds i8, ptr %.1429, i64 24
+  %187 = getelementptr inbounds i8, ptr %.1429, i64 16
   %188 = load i64, ptr %187, align 8
   %189 = load ptr, ptr %0, align 8
   %.not512 = icmp eq ptr %189, null
@@ -4540,24 +4540,24 @@ define internal fastcc void @print_hash(ptr noundef %0, ptr nocapture noundef re
   br label %.sink.split
 
 201:                                              ; preds = %98
-  %202 = icmp slt i64 %.0429, 0
+  %202 = icmp slt i64 %.0430, 0
   br i1 %202, label %203, label %213
 
 203:                                              ; preds = %201
-  %204 = sub i64 0, %.0429
+  %204 = sub i64 0, %.0430
   store i8 0, ptr %49, align 1
   br label %205
 
 205:                                              ; preds = %205, %203
-  %.0424 = phi i64 [ %204, %203 ], [ %210, %205 ]
+  %.0421 = phi i64 [ %204, %203 ], [ %210, %205 ]
   %.0 = phi ptr [ %49, %203 ], [ %209, %205 ]
-  %206 = urem i64 %.0424, 10
+  %206 = urem i64 %.0421, 10
   %207 = trunc nuw nsw i64 %206 to i8
   %208 = or disjoint i8 %207, 48
   %209 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %208, ptr %209, align 1
-  %210 = udiv i64 %.0424, 10
-  %.not509 = icmp ult i64 %.0424, 10
+  %210 = udiv i64 %.0421, 10
+  %.not509 = icmp ult i64 %.0421, 10
   br i1 %.not509, label %211, label %205
 
 211:                                              ; preds = %205
@@ -4570,15 +4570,15 @@ define internal fastcc void @print_hash(ptr noundef %0, ptr nocapture noundef re
   br label %214
 
 214:                                              ; preds = %214, %213
-  %.0433 = phi i64 [ %.0429, %213 ], [ %219, %214 ]
-  %.0432 = phi ptr [ %49, %213 ], [ %218, %214 ]
-  %215 = urem i64 %.0433, 10
+  %.0431 = phi i64 [ %.0430, %213 ], [ %219, %214 ]
+  %.0425 = phi ptr [ %49, %213 ], [ %218, %214 ]
+  %215 = urem i64 %.0431, 10
   %216 = trunc nuw nsw i64 %215 to i8
   %217 = or disjoint i8 %216, 48
-  %218 = getelementptr inbounds i8, ptr %.0432, i64 -1
+  %218 = getelementptr inbounds i8, ptr %.0425, i64 -1
   store i8 %217, ptr %218, align 1
-  %219 = udiv i64 %.0433, 10
-  %.not508 = icmp ult i64 %.0433, 10
+  %219 = udiv i64 %.0431, 10
+  %.not508 = icmp ult i64 %.0431, 10
   br i1 %.not508, label %.loopexit, label %214
 
 .loopexit:                                        ; preds = %214, %211
@@ -4652,7 +4652,7 @@ define internal fastcc void @print_hash(ptr noundef %0, ptr nocapture noundef re
   %249 = load ptr, ptr %0, align 8
   %250 = getelementptr inbounds i8, ptr %249, i64 16
   store i64 %.1460, ptr %250, align 8
-  call fastcc void @zend_print_zval_r_to_buf(ptr noundef nonnull %0, ptr noundef %.0421, i32 noundef %51)
+  call fastcc void @zend_print_zval_r_to_buf(ptr noundef nonnull %0, ptr noundef %.0422, i32 noundef %51)
   %251 = load ptr, ptr %0, align 8
   %.not526 = icmp eq ptr %251, null
   br i1 %.not526, label %257, label %252
@@ -4686,7 +4686,7 @@ define internal fastcc void @print_hash(ptr noundef %0, ptr nocapture noundef re
   br label %265
 
 265:                                              ; preds = %72, %258
-  %266 = add i32 %.0422541, -1
+  %266 = add i32 %.0423541, -1
   %.not499 = icmp eq i32 %266, 0
   br i1 %.not499, label %.preheader, label %54
 

@@ -6348,8 +6348,8 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EED2Ev.exit: ; preds = %_ZNSt
 
 255:                                              ; preds = %252, %250
   %.pn.i = phi { ptr, i32 } [ %253, %252 ], [ %251, %250 ]
-  %.06.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %256 = call ptr @__cxa_begin_catch(ptr %.06.i) #18
+  %.0.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %256 = call ptr @__cxa_begin_catch(ptr %.0.i) #18
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %1)
           to label %257 unwind label %262
 

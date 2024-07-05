@@ -1330,18 +1330,18 @@ define internal fastcc noundef i32 @dissect_etf_big_ext(ptr noundef %0, ptr noca
   br label %31
 
 31:                                               ; preds = %29, %27, %25, %23, %20, %17, %14, %11, %10
-  %.0 = phi i64 [ 0, %10 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ]
+  %.059 = phi i64 [ 0, %10 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %20 ], [ %19, %17 ], [ %16, %14 ], [ %13, %11 ]
   %32 = load i32, ptr @hf_erldp_big_ext_int, align 4
   %.not = icmp eq i8 %7, 0
   %33 = select i1 %.not, ptr @.str.238, ptr @.str.237
-  %34 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format_value(ptr noundef %4, i32 noundef %32, ptr noundef %0, i32 noundef %8, i32 noundef %3, i64 noundef %.0, ptr noundef nonnull @.str.236, ptr noundef nonnull %33, i64 noundef %.0) #5
+  %34 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format_value(ptr noundef %4, i32 noundef %32, ptr noundef %0, i32 noundef %8, i32 noundef %3, i64 noundef %.059, ptr noundef nonnull @.str.236, ptr noundef nonnull %33, i64 noundef %.059) #5
   %.not63 = icmp eq ptr %5, null
   br i1 %.not63, label %.thread, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %1, i64 408
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %37, ptr noundef nonnull @.str.236, ptr noundef nonnull %33, i64 noundef %.0) #5
+  %38 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %37, ptr noundef nonnull @.str.236, ptr noundef nonnull %33, i64 noundef %.059) #5
   store ptr %38, ptr %5, align 8
   br label %.thread
 
@@ -1360,13 +1360,13 @@ define internal fastcc noundef i32 @dissect_etf_big_ext(ptr noundef %0, ptr noca
   br i1 %.not66, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %.lr.ph
-  %.059.in65 = phi i32 [ %.059, %.lr.ph ], [ %3, %.thread ]
-  %.059 = add nsw i32 %.059.in65, -1
-  %46 = add i32 %.059.in65, %2
+  %.0.in65 = phi i32 [ %.0, %.lr.ph ], [ %3, %.thread ]
+  %.0 = add nsw i32 %.0.in65, -1
+  %46 = add i32 %.0.in65, %2
   %47 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %46) #5
   %48 = zext i8 %47 to i32
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %45, ptr noundef nonnull @.str.240, i32 noundef %48) #5
-  %49 = icmp ugt i32 %.059.in65, 1
+  %49 = icmp ugt i32 %.0.in65, 1
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread

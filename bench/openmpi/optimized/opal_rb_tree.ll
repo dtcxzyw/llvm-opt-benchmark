@@ -439,7 +439,7 @@ btree_insert.exit:                                ; preds = %._crit_edge.i, %33
   %50 = phi ptr [ %169, %166 ], [ %47, %btree_insert.exit ]
   %51 = phi ptr [ %168, %166 ], [ %46, %btree_insert.exit ]
   %52 = phi ptr [ %167, %166 ], [ %15, %btree_insert.exit ]
-  %.060 = phi ptr [ %.3, %166 ], [ %5, %btree_insert.exit ]
+  %.04360 = phi ptr [ %.3, %166 ], [ %5, %btree_insert.exit ]
   %53 = getelementptr inbounds i8, ptr %51, i64 64
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 72
@@ -471,7 +471,7 @@ btree_insert.exit:                                ; preds = %._crit_edge.i, %33
 72:                                               ; preds = %58
   %73 = getelementptr inbounds i8, ptr %51, i64 80
   %74 = load ptr, ptr %73, align 8
-  %75 = icmp eq ptr %.060, %74
+  %75 = icmp eq ptr %.04360, %74
   br i1 %75, label %76, label %87
 
 76:                                               ; preds = %72
@@ -506,7 +506,7 @@ left_rotate.exit:                                 ; preds = %76, %79
   br label %87
 
 87:                                               ; preds = %left_rotate.exit, %72
-  %.1 = phi ptr [ %51, %left_rotate.exit ], [ %.060, %72 ]
+  %.1 = phi ptr [ %51, %left_rotate.exit ], [ %.04360, %72 ]
   %88 = getelementptr inbounds i8, ptr %.1, i64 64
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 56
@@ -572,7 +572,7 @@ right_rotate.exit:                                ; preds = %87, %102
 125:                                              ; preds = %113
   %126 = getelementptr inbounds i8, ptr %51, i64 72
   %127 = load ptr, ptr %126, align 8
-  %128 = icmp eq ptr %.060, %127
+  %128 = icmp eq ptr %.04360, %127
   br i1 %128, label %129, label %140
 
 129:                                              ; preds = %125
@@ -607,7 +607,7 @@ right_rotate.exit56:                              ; preds = %129, %132
   br label %140
 
 140:                                              ; preds = %right_rotate.exit56, %125
-  %.2 = phi ptr [ %51, %right_rotate.exit56 ], [ %.060, %125 ]
+  %.2 = phi ptr [ %51, %right_rotate.exit56 ], [ %.04360, %125 ]
   %141 = getelementptr inbounds i8, ptr %.2, i64 64
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 56
@@ -669,8 +669,8 @@ left_rotate.exit59:                               ; preds = %140, %155
   br label %176
 
 176:                                              ; preds = %3, %._crit_edge
-  %.043 = phi i32 [ 0, %._crit_edge ], [ -2, %3 ]
-  ret i32 %.043
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -2, %3 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -679,36 +679,36 @@ define ptr @opal_rb_tree_find_with(ptr nocapture noundef readonly %0, ptr nounde
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %.014 = load ptr, ptr %6, align 8
+  %.01114 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %.not15 = icmp eq ptr %.014, %8
+  %.not15 = icmp eq ptr %.01114, %8
   br i1 %.not15, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %16
-  %.016 = phi ptr [ %.0, %16 ], [ %.014, %3 ]
-  %9 = getelementptr inbounds i8, ptr %.016, i64 88
+  %.01116 = phi ptr [ %.011, %16 ], [ %.01114, %3 ]
+  %9 = getelementptr inbounds i8, ptr %.01116, i64 88
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %2(ptr noundef %1, ptr noundef %10) #6
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.016, i64 96
+  %14 = getelementptr inbounds i8, ptr %.01116, i64 96
   %15 = load ptr, ptr %14, align 8
   br label %.loopexit
 
 16:                                               ; preds = %.lr.ph
   %17 = icmp slt i32 %11, 0
   %.in.v = select i1 %17, i64 72, i64 80
-  %.in = getelementptr inbounds i8, ptr %.016, i64 %.in.v
-  %.0 = load ptr, ptr %.in, align 8
+  %.in = getelementptr inbounds i8, ptr %.01116, i64 %.in.v
+  %.011 = load ptr, ptr %.in, align 8
   %18 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %.0, %18
+  %.not = icmp eq ptr %.011, %18
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %16, %3, %13
-  %.011 = phi ptr [ %15, %13 ], [ null, %3 ], [ null, %16 ]
-  ret ptr %.011
+  %.0 = phi ptr [ %15, %13 ], [ null, %3 ], [ null, %16 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -718,15 +718,15 @@ define range(i32 -13, 1) i32 @opal_rb_tree_delete(ptr noundef %0, ptr noundef %1
   %5 = getelementptr inbounds i8, ptr %4, i64 72
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %.013.i = load ptr, ptr %5, align 8
+  %.01113.i = load ptr, ptr %5, align 8
   %8 = load ptr, ptr %7, align 8
-  %.not14.i = icmp eq ptr %.013.i, %8
+  %.not14.i = icmp eq ptr %.01113.i, %8
   br i1 %.not14.i, label %opal_rb_tree_find_node.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %14
-  %.015.i = phi ptr [ %.0.i, %14 ], [ %.013.i, %2 ]
+  %.01115.i = phi ptr [ %.011.i, %14 ], [ %.01113.i, %2 ]
   %9 = load ptr, ptr %6, align 16
-  %10 = getelementptr inbounds i8, ptr %.015.i, i64 88
+  %10 = getelementptr inbounds i8, ptr %.01115.i, i64 88
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %9(ptr noundef %1, ptr noundef %11) #6
   %13 = icmp eq i32 %12, 0
@@ -735,22 +735,22 @@ define range(i32 -13, 1) i32 @opal_rb_tree_delete(ptr noundef %0, ptr noundef %1
 14:                                               ; preds = %.lr.ph.i
   %15 = icmp slt i32 %12, 0
   %.in.v.i = select i1 %15, i64 72, i64 80
-  %.in.i = getelementptr inbounds i8, ptr %.015.i, i64 %.in.v.i
-  %.0.i = load ptr, ptr %.in.i, align 8
+  %.in.i = getelementptr inbounds i8, ptr %.01115.i, i64 %.in.v.i
+  %.011.i = load ptr, ptr %.in.i, align 8
   %16 = load ptr, ptr %7, align 8
-  %.not.i = icmp eq ptr %.0.i, %16
+  %.not.i = icmp eq ptr %.011.i, %16
   br i1 %.not.i, label %opal_rb_tree_find_node.exit.thread, label %.lr.ph.i, !llvm.loop !10
 
 opal_rb_tree_find_node.exit:                      ; preds = %.lr.ph.i
-  %17 = getelementptr inbounds i8, ptr %.015.i, i64 88
-  %18 = getelementptr inbounds i8, ptr %.015.i, i64 72
+  %17 = getelementptr inbounds i8, ptr %.01115.i, i64 88
+  %18 = getelementptr inbounds i8, ptr %.01115.i, i64 72
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %7, align 8
   %21 = icmp eq ptr %19, %20
   br i1 %21, label %btree_successor.exit, label %22
 
 22:                                               ; preds = %opal_rb_tree_find_node.exit
-  %23 = getelementptr inbounds i8, ptr %.015.i, i64 80
+  %23 = getelementptr inbounds i8, ptr %.01115.i, i64 80
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %20
   br i1 %25, label %btree_successor.exit, label %.preheader21.i
@@ -764,7 +764,7 @@ opal_rb_tree_find_node.exit:                      ; preds = %.lr.ph.i
 
 btree_successor.exit:                             ; preds = %.preheader21.i, %opal_rb_tree_find_node.exit, %22
   %28 = phi ptr [ %19, %22 ], [ %19, %opal_rb_tree_find_node.exit ], [ %27, %.preheader21.i ]
-  %.040 = phi ptr [ %.015.i, %22 ], [ %.015.i, %opal_rb_tree_find_node.exit ], [ %.1.i, %.preheader21.i ]
+  %.040 = phi ptr [ %.01115.i, %22 ], [ %.01115.i, %opal_rb_tree_find_node.exit ], [ %.1.i, %.preheader21.i ]
   %29 = icmp eq ptr %28, %20
   br i1 %29, label %30, label %33
 
@@ -798,7 +798,7 @@ btree_successor.exit:                             ; preds = %.preheader21.i, %op
 46:                                               ; preds = %41, %39
   %.sink = phi ptr [ %40, %39 ], [ %spec.select, %41 ]
   store ptr %.039, ptr %.sink, align 8
-  %.not = icmp eq ptr %.040, %.015.i
+  %.not = icmp eq ptr %.040, %.01115.i
   br i1 %.not, label %53, label %47
 
 47:                                               ; preds = %46
@@ -807,7 +807,7 @@ btree_successor.exit:                             ; preds = %.preheader21.i, %op
   store ptr %49, ptr %17, align 8
   %50 = getelementptr inbounds i8, ptr %.040, i64 96
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %.015.i, i64 96
+  %52 = getelementptr inbounds i8, ptr %.01115.i, i64 96
   store ptr %51, ptr %52, align 8
   br label %53
 
@@ -825,18 +825,18 @@ btree_successor.exit:                             ; preds = %.preheader21.i, %op
   br i1 %.not78.i, label %btree_delete_fixup.exit, label %.lr.ph.i47
 
 .lr.ph.i47:                                       ; preds = %57, %246
-  %.05579.i = phi ptr [ %248, %246 ], [ %.039, %57 ]
-  %61 = getelementptr inbounds i8, ptr %.05579.i, i64 56
+  %.079.i = phi ptr [ %248, %246 ], [ %.039, %57 ]
+  %61 = getelementptr inbounds i8, ptr %.079.i, i64 56
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, 1
   br i1 %63, label %64, label %btree_delete_fixup.exit
 
 64:                                               ; preds = %.lr.ph.i47
-  %65 = getelementptr inbounds i8, ptr %.05579.i, i64 64
+  %65 = getelementptr inbounds i8, ptr %.079.i, i64 64
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 72
   %68 = load ptr, ptr %67, align 8
-  %69 = icmp eq ptr %.05579.i, %68
+  %69 = icmp eq ptr %.079.i, %68
   br i1 %69, label %70, label %159
 
 70:                                               ; preds = %64
@@ -889,8 +889,8 @@ left_rotate.exit.i:                               ; preds = %84, %76
 
 98:                                               ; preds = %left_rotate.exit.i, %70
   %99 = phi ptr [ %95, %left_rotate.exit.i ], [ %66, %70 ]
-  %.0.i49 = phi ptr [ %97, %left_rotate.exit.i ], [ %72, %70 ]
-  %100 = getelementptr inbounds i8, ptr %.0.i49, i64 72
+  %.055.i = phi ptr [ %97, %left_rotate.exit.i ], [ %72, %70 ]
+  %100 = getelementptr inbounds i8, ptr %.055.i, i64 72
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 56
   %103 = load i32, ptr %102, align 8
@@ -898,7 +898,7 @@ left_rotate.exit.i:                               ; preds = %84, %76
   br i1 %104, label %105, label %111
 
 105:                                              ; preds = %98
-  %106 = getelementptr inbounds i8, ptr %.0.i49, i64 80
+  %106 = getelementptr inbounds i8, ptr %.055.i, i64 80
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 56
   %109 = load i32, ptr %108, align 8
@@ -906,8 +906,8 @@ left_rotate.exit.i:                               ; preds = %84, %76
   br i1 %110, label %246, label %.thread.i
 
 111:                                              ; preds = %98
-  %112 = getelementptr inbounds i8, ptr %.0.i49, i64 72
-  %.phi.trans.insert85.i = getelementptr inbounds i8, ptr %.0.i49, i64 80
+  %112 = getelementptr inbounds i8, ptr %.055.i, i64 72
+  %.phi.trans.insert85.i = getelementptr inbounds i8, ptr %.055.i, i64 80
   %.pre86.i = load ptr, ptr %.phi.trans.insert85.i, align 8
   %.phi.trans.insert87.i = getelementptr inbounds i8, ptr %.pre86.i, i64 56
   %.pre88.i = load i32, ptr %.phi.trans.insert87.i, align 8
@@ -917,7 +917,7 @@ left_rotate.exit.i:                               ; preds = %84, %76
 114:                                              ; preds = %111
   %115 = getelementptr inbounds i8, ptr %101, i64 56
   store i32 1, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %.0.i49, i64 56
+  %116 = getelementptr inbounds i8, ptr %.055.i, i64 56
   store i32 0, ptr %116, align 8
   %.val63.i = load ptr, ptr %7, align 8
   %117 = load ptr, ptr %112, align 8
@@ -928,15 +928,15 @@ left_rotate.exit.i:                               ; preds = %84, %76
 
 120:                                              ; preds = %114
   %121 = getelementptr inbounds i8, ptr %119, i64 64
-  store ptr %.0.i49, ptr %121, align 8
+  store ptr %.055.i, ptr %121, align 8
   br label %right_rotate.exit.i
 
 right_rotate.exit.i:                              ; preds = %120, %114
-  %122 = getelementptr inbounds i8, ptr %.0.i49, i64 64
+  %122 = getelementptr inbounds i8, ptr %.055.i, i64 64
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 72
   %125 = load ptr, ptr %124, align 8
-  %126 = icmp eq ptr %125, %.0.i49
+  %126 = icmp eq ptr %125, %.055.i
   %127 = getelementptr inbounds i8, ptr %123, i64 80
   %.sink.i65.i = select i1 %126, ptr %124, ptr %127
   store ptr %117, ptr %.sink.i65.i, align 8
@@ -946,7 +946,7 @@ right_rotate.exit.i:                              ; preds = %120, %114
   store ptr %117, ptr %122, align 8
   %130 = load ptr, ptr %118, align 8
   store ptr %130, ptr %112, align 8
-  store ptr %.0.i49, ptr %118, align 8
+  store ptr %.055.i, ptr %118, align 8
   %131 = load ptr, ptr %65, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 80
   %133 = load ptr, ptr %132, align 8
@@ -954,15 +954,15 @@ right_rotate.exit.i:                              ; preds = %120, %114
 
 .thread.i:                                        ; preds = %105, %right_rotate.exit.i, %111
   %134 = phi ptr [ %131, %right_rotate.exit.i ], [ %99, %111 ], [ %99, %105 ]
-  %.1.i50 = phi ptr [ %133, %right_rotate.exit.i ], [ %.0.i49, %111 ], [ %.0.i49, %105 ]
+  %.156.i = phi ptr [ %133, %right_rotate.exit.i ], [ %.055.i, %111 ], [ %.055.i, %105 ]
   %135 = getelementptr inbounds i8, ptr %134, i64 56
   %136 = load i32, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %.1.i50, i64 56
+  %137 = getelementptr inbounds i8, ptr %.156.i, i64 56
   store i32 %136, ptr %137, align 8
   %138 = load ptr, ptr %65, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 56
   store i32 1, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %.1.i50, i64 80
+  %140 = getelementptr inbounds i8, ptr %.156.i, i64 80
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 56
   store i32 1, ptr %142, align 8
@@ -1156,7 +1156,7 @@ right_rotate.exit77.i:                            ; preds = %235, %.thread89.i
   br label %btree_delete_fixup.exit
 
 246:                                              ; preds = %192, %105
-  %.2.sink.i = phi ptr [ %.0.i49, %105 ], [ %.2.i, %192 ]
+  %.2.sink.i = phi ptr [ %.055.i, %105 ], [ %.2.i, %192 ]
   %247 = getelementptr inbounds i8, ptr %.2.sink.i, i64 56
   store i32 0, ptr %247, align 8
   %248 = load ptr, ptr %65, align 8
@@ -1164,8 +1164,8 @@ right_rotate.exit77.i:                            ; preds = %235, %.thread89.i
   br i1 %.not.i48, label %btree_delete_fixup.exit, label %.lr.ph.i47, !llvm.loop !12
 
 btree_delete_fixup.exit:                          ; preds = %.lr.ph.i47, %246, %57, %left_rotate.exit68.i, %right_rotate.exit77.i
-  %.055.lcssa.i = phi ptr [ %.039, %57 ], [ %60, %left_rotate.exit68.i ], [ %60, %right_rotate.exit77.i ], [ %.05579.i, %.lr.ph.i47 ], [ %248, %246 ]
-  %249 = getelementptr inbounds i8, ptr %.055.lcssa.i, i64 56
+  %.0.lcssa.i = phi ptr [ %.039, %57 ], [ %60, %left_rotate.exit68.i ], [ %60, %right_rotate.exit77.i ], [ %.079.i, %.lr.ph.i47 ], [ %248, %246 ]
+  %249 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 56
   store i32 1, ptr %249, align 8
   br label %250
 
@@ -1205,8 +1205,8 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
 266:                                              ; preds = %opal_lifo_push_atomic.exit.i.i
   %267 = getelementptr inbounds i8, ptr %0, i64 152
   %268 = load i64, ptr %267, align 8
-  %.not.i.i51 = icmp eq i64 %268, 0
-  br i1 %.not.i.i51, label %opal_free_list_return.exit, label %269
+  %.not.i.i49 = icmp eq i64 %268, 0
+  br i1 %.not.i.i49, label %opal_free_list_return.exit, label %269
 
 269:                                              ; preds = %266
   %270 = getelementptr inbounds i8, ptr %0, i64 296

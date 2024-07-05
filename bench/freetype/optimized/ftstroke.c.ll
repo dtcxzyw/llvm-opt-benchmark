@@ -249,13 +249,13 @@ define i32 @FT_Stroker_LineTo(ptr noundef %0, ptr noundef readonly %1) local_unn
   br label %38
 
 38:                                               ; preds = %35, %43
-  %.052 = phi i32 [ 1, %35 ], [ %48, %43 ]
-  %.03751 = phi ptr [ %36, %35 ], [ %49, %43 ]
+  %.03752 = phi i32 [ 1, %35 ], [ %48, %43 ]
+  %.03951 = phi ptr [ %36, %35 ], [ %49, %43 ]
   %39 = phi <2 x i64> [ %37, %35 ], [ %45, %43 ]
   %40 = load <2 x i64>, ptr %1, align 8
   %41 = add nsw <2 x i64> %39, %40
   store <2 x i64> %41, ptr %4, align 16
-  %42 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.03751, ptr noundef nonnull %4, i8 noundef zeroext 1)
+  %42 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.03951, ptr noundef nonnull %4, i8 noundef zeroext 1)
   %.not50 = icmp eq i32 %42, 0
   br i1 %.not50, label %43, label %.loopexit
 
@@ -266,9 +266,9 @@ define i32 @FT_Stroker_LineTo(ptr noundef %0, ptr noundef readonly %1) local_unn
   store i64 %46, ptr %3, align 16
   %47 = extractelement <2 x i64> %45, i64 1
   store i64 %47, ptr %17, align 8
-  %48 = add nsw i32 %.052, -1
-  %49 = getelementptr inbounds i8, ptr %.03751, i64 48
-  %.not55 = icmp eq i32 %.052, 0
+  %48 = add nsw i32 %.03752, -1
+  %49 = getelementptr inbounds i8, ptr %.03951, i64 48
+  %.not55 = icmp eq i32 %.03752, 0
   br i1 %.not55, label %50, label %38, !llvm.loop !4
 
 50:                                               ; preds = %43
@@ -279,8 +279,8 @@ define i32 @FT_Stroker_LineTo(ptr noundef %0, ptr noundef readonly %1) local_unn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %50, %7, %30, %32, %2
-  %.039 = phi i32 [ 6, %2 ], [ 0, %7 ], [ %31, %30 ], [ 0, %50 ], [ %34, %32 ], [ %42, %38 ]
-  ret i32 %.039
+  %.0 = phi i32 [ 6, %2 ], [ 0, %7 ], [ %31, %30 ], [ 0, %50 ], [ %34, %32 ], [ %42, %38 ]
+  ret i32 %.0
 }
 
 declare i64 @FT_Vector_Length(ptr noundef) local_unnamed_addr #1
@@ -1099,7 +1099,7 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %86, %ft_conic_is_sm
 144:                                              ; preds = %139, %208
   %145 = phi i1 [ true, %139 ], [ false, %208 ]
   %indvars.iv = phi i64 [ 5898240, %139 ], [ -5898240, %208 ]
-  %.0114173 = phi ptr [ %45, %139 ], [ %209, %208 ]
+  %.0113174 = phi ptr [ %45, %139 ], [ %209, %208 ]
   %146 = add nsw i64 %123, %indvars.iv
   call void @FT_Vector_From_Polar(ptr noundef nonnull %5, i64 noundef %126, i64 noundef %146) #11
   %147 = load <2 x i64>, ptr %140, align 8
@@ -1122,9 +1122,9 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %86, %ft_conic_is_sm
   br i1 %.not137, label %206, label %159
 
 159:                                              ; preds = %144
-  %160 = getelementptr inbounds i8, ptr %.0114173, i64 8
+  %160 = getelementptr inbounds i8, ptr %.0113174, i64 8
   %161 = load ptr, ptr %160, align 8
-  %162 = load i32, ptr %.0114173, align 8
+  %162 = load i32, ptr %.0113174, align 8
   %163 = add i32 %162, -1
   %164 = zext i32 %163 to i64
   %165 = getelementptr inbounds %struct.FT_Vector_, ptr %161, i64 %164
@@ -1166,34 +1166,34 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %86, %ft_conic_is_sm
   %196 = load <2 x i64>, ptr %9, align 16
   %197 = add nsw <2 x i64> %196, %166
   store <2 x i64> %197, ptr %9, align 16
-  %198 = getelementptr inbounds i8, ptr %.0114173, i64 24
+  %198 = getelementptr inbounds i8, ptr %.0113174, i64 24
   store i8 0, ptr %198, align 8
-  %199 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0114173, ptr noundef nonnull %9, i8 noundef zeroext 0)
+  %199 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0113174, ptr noundef nonnull %9, i8 noundef zeroext 0)
   %.not139 = icmp eq i32 %199, 0
   br i1 %.not139, label %200, label %.loopexit
 
 200:                                              ; preds = %175
-  %201 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0114173, ptr noundef nonnull %6, i8 noundef zeroext 0)
+  %201 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0113174, ptr noundef nonnull %6, i8 noundef zeroext 0)
   %.not140 = icmp eq i32 %201, 0
   br i1 %.not140, label %202, label %.loopexit
 
 202:                                              ; preds = %200
-  %203 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef nonnull %.0114173, ptr noundef nonnull %5, ptr noundef nonnull %7)
+  %203 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef nonnull %.0113174, ptr noundef nonnull %5, ptr noundef nonnull %7)
   %.not141 = icmp eq i32 %203, 0
   br i1 %.not141, label %204, label %.loopexit
 
 204:                                              ; preds = %202
-  %205 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0114173, ptr noundef nonnull %6, i8 noundef zeroext 0)
+  %205 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0113174, ptr noundef nonnull %6, i8 noundef zeroext 0)
   %.not142 = icmp eq i32 %205, 0
   br i1 %.not142, label %208, label %.loopexit
 
 206:                                              ; preds = %159, %144
-  %207 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef nonnull %.0114173, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %207 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef nonnull %.0113174, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not138 = icmp eq i32 %207, 0
   br i1 %.not138, label %208, label %.loopexit
 
 208:                                              ; preds = %206, %204
-  %209 = getelementptr inbounds i8, ptr %.0114173, i64 48
+  %209 = getelementptr inbounds i8, ptr %.0113174, i64 48
   br i1 %145, label %144, label %.outer, !llvm.loop !7
 
 .outer:                                           ; preds = %208
@@ -1638,7 +1638,7 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %128, %ft_cubic_is_s
   br label %203
 
 203:                                              ; preds = %192, %.thread
-  %.0133 = phi i64 [ %202, %192 ], [ 0, %.thread ]
+  %.0131 = phi i64 [ %202, %192 ], [ 0, %.thread ]
   %204 = getelementptr inbounds i8, ptr %.0128.ptr211.lcssa, i64 32
   %205 = getelementptr inbounds i8, ptr %.0128.ptr211.lcssa, i64 16
   %206 = getelementptr inbounds i8, ptr %.0128.ptr211.lcssa, i64 8
@@ -1649,7 +1649,7 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %128, %ft_cubic_is_s
 209:                                              ; preds = %203, %277
   %210 = phi i1 [ true, %203 ], [ false, %277 ]
   %indvars.iv = phi i64 [ 5898240, %203 ], [ -5898240, %277 ]
-  %.0132212 = phi ptr [ %61, %203 ], [ %278, %277 ]
+  %.0132213 = phi ptr [ %61, %203 ], [ %278, %277 ]
   %211 = add nsw i64 %181, %indvars.iv
   call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %187, i64 noundef %211) #11
   %212 = load <2 x i64>, ptr %204, align 8
@@ -1678,9 +1678,9 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %128, %ft_cubic_is_s
   br i1 %.not159, label %275, label %228
 
 228:                                              ; preds = %209
-  %229 = getelementptr inbounds i8, ptr %.0132212, i64 8
+  %229 = getelementptr inbounds i8, ptr %.0132213, i64 8
   %230 = load ptr, ptr %229, align 8
-  %231 = load i32, ptr %.0132212, align 8
+  %231 = load i32, ptr %.0132213, align 8
   %232 = add i32 %231, -1
   %233 = zext i32 %232 to i64
   %234 = getelementptr inbounds %struct.FT_Vector_, ptr %230, i64 %233
@@ -1691,7 +1691,7 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %128, %ft_cubic_is_s
   %238 = extractelement <2 x i64> %235, i64 1
   %239 = sub nsw i64 %226, %238
   %240 = call i64 @FT_Atan2(i64 noundef %237, i64 noundef %239) #11
-  %241 = call i64 @FT_Angle_Diff(i64 noundef %.0133, i64 noundef %240) #11
+  %241 = call i64 @FT_Angle_Diff(i64 noundef %.0131, i64 noundef %240) #11
   %242 = call i64 @llvm.abs.i64(i64 %241, i1 true)
   %243 = icmp ugt i64 %242, 5898240
   br i1 %243, label %244, label %275
@@ -1722,34 +1722,34 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %128, %ft_cubic_is_s
   %265 = load <2 x i64>, ptr %11, align 16
   %266 = add nsw <2 x i64> %265, %235
   store <2 x i64> %266, ptr %11, align 16
-  %267 = getelementptr inbounds i8, ptr %.0132212, i64 24
+  %267 = getelementptr inbounds i8, ptr %.0132213, i64 24
   store i8 0, ptr %267, align 8
-  %268 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0132212, ptr noundef nonnull %11, i8 noundef zeroext 0)
+  %268 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0132213, ptr noundef nonnull %11, i8 noundef zeroext 0)
   %.not161 = icmp eq i32 %268, 0
   br i1 %.not161, label %269, label %.loopexit
 
 269:                                              ; preds = %244
-  %270 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0132212, ptr noundef nonnull %8, i8 noundef zeroext 0)
+  %270 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0132213, ptr noundef nonnull %8, i8 noundef zeroext 0)
   %.not162 = icmp eq i32 %270, 0
   br i1 %.not162, label %271, label %.loopexit
 
 271:                                              ; preds = %269
-  %272 = call fastcc i32 @ft_stroke_border_cubicto(ptr noundef nonnull %.0132212, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %9)
+  %272 = call fastcc i32 @ft_stroke_border_cubicto(ptr noundef nonnull %.0132213, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %9)
   %.not163 = icmp eq i32 %272, 0
   br i1 %.not163, label %273, label %.loopexit
 
 273:                                              ; preds = %271
-  %274 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0132212, ptr noundef nonnull %8, i8 noundef zeroext 0)
+  %274 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0132213, ptr noundef nonnull %8, i8 noundef zeroext 0)
   %.not164 = icmp eq i32 %274, 0
   br i1 %.not164, label %277, label %.loopexit
 
 275:                                              ; preds = %228, %209
-  %276 = call fastcc i32 @ft_stroke_border_cubicto(ptr noundef nonnull %.0132212, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %276 = call fastcc i32 @ft_stroke_border_cubicto(ptr noundef nonnull %.0132213, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.not160 = icmp eq i32 %276, 0
   br i1 %.not160, label %277, label %.loopexit
 
 277:                                              ; preds = %275, %273
-  %278 = getelementptr inbounds i8, ptr %.0132212, i64 48
+  %278 = getelementptr inbounds i8, ptr %.0132213, i64 48
   br i1 %210, label %209, label %.outer, !llvm.loop !9
 
 .outer:                                           ; preds = %277
@@ -1999,10 +1999,10 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
   %51 = load ptr, ptr %50, align 8
   %52 = zext i32 %47 to i64
   %53 = getelementptr inbounds %struct.FT_Vector_, ptr %51, i64 %52
-  %.04151.i = getelementptr inbounds i8, ptr %53, i64 -16
+  %.04251.i = getelementptr inbounds i8, ptr %53, i64 -16
   %54 = sext i32 %46 to i64
   %55 = getelementptr inbounds %struct.FT_Vector_, ptr %51, i64 %54
-  %.not4752.i = icmp ult ptr %.04151.i, %55
+  %.not4752.i = icmp ult ptr %.04251.i, %55
   br i1 %.not4752.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %45
@@ -2017,23 +2017,23 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.04156.i = phi ptr [ %.041.i, %.lr.ph.i ], [ %.04151.i, %.lr.ph.preheader.i ]
-  %.pn4855.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %58, %.lr.ph.preheader.i ]
-  %.04254.i = phi ptr [ %67, %.lr.ph.i ], [ %60, %.lr.ph.preheader.i ]
-  %.04353.i = phi ptr [ %66, %.lr.ph.i ], [ %63, %.lr.ph.preheader.i ]
-  %.0.i = getelementptr inbounds i8, ptr %.pn4855.i, i64 -1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.04353.i, ptr noundef nonnull align 8 dereferenceable(16) %.04156.i, i64 16, i1 false)
-  %64 = load i8, ptr %.0.i, align 1
+  %.04256.i = phi ptr [ %.042.i, %.lr.ph.i ], [ %.04251.i, %.lr.ph.preheader.i ]
+  %.pn4855.i = phi ptr [ %.041.i, %.lr.ph.i ], [ %58, %.lr.ph.preheader.i ]
+  %.04354.i = phi ptr [ %67, %.lr.ph.i ], [ %60, %.lr.ph.preheader.i ]
+  %.04453.i = phi ptr [ %66, %.lr.ph.i ], [ %63, %.lr.ph.preheader.i ]
+  %.041.i = getelementptr inbounds i8, ptr %.pn4855.i, i64 -1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.04453.i, ptr noundef nonnull align 8 dereferenceable(16) %.04256.i, i64 16, i1 false)
+  %64 = load i8, ptr %.041.i, align 1
   %65 = and i8 %64, -13
-  store i8 %65, ptr %.04254.i, align 1
-  %66 = getelementptr inbounds i8, ptr %.04353.i, i64 16
-  %67 = getelementptr inbounds i8, ptr %.04254.i, i64 1
-  %.041.i = getelementptr inbounds i8, ptr %.04156.i, i64 -16
+  store i8 %65, ptr %.04354.i, align 1
+  %66 = getelementptr inbounds i8, ptr %.04453.i, i64 16
+  %67 = getelementptr inbounds i8, ptr %.04354.i, i64 1
+  %.042.i = getelementptr inbounds i8, ptr %.04256.i, i64 -16
   %68 = load ptr, ptr %50, align 8
   %69 = load i32, ptr %14, align 4
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds %struct.FT_Vector_, ptr %68, i64 %70
-  %.not47.i = icmp ult ptr %.041.i, %71
+  %.not47.i = icmp ult ptr %.042.i, %71
   br i1 %.not47.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -3048,15 +3048,15 @@ FT_Stroker_Rewind.exit:                           ; preds = %12
   br label %61
 
 61:                                               ; preds = %57, %53
-  %.083 = phi ptr [ %56, %53 ], [ %40, %57 ]
+  %.084 = phi ptr [ %56, %53 ], [ %40, %57 ]
   %62 = getelementptr inbounds i8, ptr %42, i64 -16
   %63 = getelementptr inbounds i8, ptr %45, i64 -1
   br label %64
 
 64:                                               ; preds = %37, %61
-  %.085 = phi ptr [ %62, %61 ], [ %42, %37 ]
-  %.184 = phi ptr [ %.083, %61 ], [ %40, %37 ]
-  %.080 = phi ptr [ %63, %61 ], [ %45, %37 ]
+  %.086 = phi ptr [ %62, %61 ], [ %42, %37 ]
+  %.185 = phi ptr [ %.084, %61 ], [ %40, %37 ]
+  %.081 = phi ptr [ %63, %61 ], [ %45, %37 ]
   store i8 1, ptr %24, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull readonly align 16 dereferenceable(16) %5, i64 16, i1 false)
   store i8 %2, ptr %26, align 1
@@ -3076,14 +3076,14 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %64, %66
   store i8 %69, ptr %29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull readonly align 16 dereferenceable(16) %5, i64 16, i1 false)
   store i64 0, ptr %0, align 8
-  %70 = icmp ult ptr %.085, %.184
+  %70 = icmp ult ptr %.086, %.185
   br i1 %70, label %.lr.ph137, label %.thread
 
 .lr.ph137:                                        ; preds = %FT_Stroker_BeginSubPath.exit, %.backedge
-  %.181136 = phi ptr [ %.181.be, %.backedge ], [ %.080, %FT_Stroker_BeginSubPath.exit ]
-  %.186135 = phi ptr [ %.186.be, %.backedge ], [ %.085, %FT_Stroker_BeginSubPath.exit ]
-  %71 = getelementptr inbounds i8, ptr %.186135, i64 16
-  %72 = getelementptr inbounds i8, ptr %.181136, i64 1
+  %.182136 = phi ptr [ %.182.be, %.backedge ], [ %.081, %FT_Stroker_BeginSubPath.exit ]
+  %.187135 = phi ptr [ %.187.be, %.backedge ], [ %.086, %FT_Stroker_BeginSubPath.exit ]
+  %71 = getelementptr inbounds i8, ptr %.187135, i64 16
+  %72 = getelementptr inbounds i8, ptr %.182136, i64 1
   %73 = load i8, ptr %72, align 1
   %74 = and i8 %73, 3
   switch i8 %74, label %97 [
@@ -3099,22 +3099,22 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %64, %66
   br i1 %.not112, label %.backedge, label %FT_Stroker_BeginSubPath.exit.thread
 
 .backedge:                                        ; preds = %75, %86, %106
-  %.186.be = phi ptr [ %105, %106 ], [ %82, %86 ], [ %71, %75 ]
-  %.181.be = phi ptr [ %107, %106 ], [ %83, %86 ], [ %72, %75 ]
-  %78 = icmp ult ptr %.186.be, %.184
+  %.187.be = phi ptr [ %105, %106 ], [ %82, %86 ], [ %71, %75 ]
+  %.182.be = phi ptr [ %107, %106 ], [ %83, %86 ], [ %72, %75 ]
+  %78 = icmp ult ptr %.187.be, %.185
   br i1 %78, label %.lr.ph137, label %.thread, !llvm.loop !17
 
 79:                                               ; preds = %.lr.ph137
   %80 = load <2 x i64>, ptr %71, align 8
   store <2 x i64> %80, ptr %4, align 16
-  %81 = icmp ult ptr %71, %.184
+  %81 = icmp ult ptr %71, %.185
   br i1 %81, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %79, %94
-  %.282133 = phi ptr [ %83, %94 ], [ %72, %79 ]
-  %.287132 = phi ptr [ %82, %94 ], [ %71, %79 ]
-  %82 = getelementptr inbounds i8, ptr %.287132, i64 16
-  %83 = getelementptr inbounds i8, ptr %.282133, i64 1
+  %.283133 = phi ptr [ %83, %94 ], [ %72, %79 ]
+  %.288132 = phi ptr [ %82, %94 ], [ %71, %79 ]
+  %82 = getelementptr inbounds i8, ptr %.288132, i64 16
+  %83 = getelementptr inbounds i8, ptr %.283133, i64 1
   %84 = load i8, ptr %83, align 1
   %85 = and i8 %84, 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false)
@@ -3140,7 +3140,7 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %64, %66
 
 94:                                               ; preds = %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
-  %95 = icmp ult ptr %82, %.184
+  %95 = icmp ult ptr %82, %.185
   br i1 %95, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %79, %94
@@ -3148,26 +3148,26 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %64, %66
   br label %111
 
 97:                                               ; preds = %.lr.ph137
-  %98 = getelementptr inbounds i8, ptr %.186135, i64 32
-  %99 = icmp ugt ptr %98, %.184
+  %98 = getelementptr inbounds i8, ptr %.187135, i64 32
+  %99 = icmp ugt ptr %98, %.185
   br i1 %99, label %FT_Stroker_BeginSubPath.exit.thread, label %100
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %.181136, i64 2
+  %101 = getelementptr inbounds i8, ptr %.182136, i64 2
   %102 = load i8, ptr %101, align 1
   %103 = and i8 %102, 3
   %.not113 = icmp eq i8 %103, 2
   br i1 %.not113, label %104, label %FT_Stroker_BeginSubPath.exit.thread
 
 104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %.186135, i64 48
+  %105 = getelementptr inbounds i8, ptr %.187135, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false)
-  %.not114 = icmp ugt ptr %105, %.184
+  %.not114 = icmp ugt ptr %105, %.185
   br i1 %.not114, label %109, label %106
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds i8, ptr %.181136, i64 3
+  %107 = getelementptr inbounds i8, ptr %.182136, i64 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %105, i64 16, i1 false)
   %108 = call i32 @FT_Stroker_CubicTo(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %.not118 = icmp eq i32 %108, 0
@@ -3200,8 +3200,8 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %64, %66
   br i1 %118, label %31, label %FT_Stroker_BeginSubPath.exit.thread, !llvm.loop !18
 
 FT_Stroker_BeginSubPath.exit.thread:              ; preds = %115, %113, %111, %37, %100, %97, %75, %86, %106, %.lr.ph, %88, %FT_Stroker_Rewind.exit, %12, %3
-  %.088 = phi i32 [ 20, %3 ], [ 6, %12 ], [ 0, %FT_Stroker_Rewind.exit ], [ 20, %.lr.ph ], [ %93, %88 ], [ 20, %100 ], [ 20, %97 ], [ %77, %75 ], [ %87, %86 ], [ %108, %106 ], [ 0, %115 ], [ %114, %113 ], [ %.1, %111 ], [ 20, %37 ]
-  ret i32 %.088
+  %.078 = phi i32 [ 20, %3 ], [ 6, %12 ], [ 0, %FT_Stroker_Rewind.exit ], [ 20, %.lr.ph ], [ %93, %88 ], [ 20, %100 ], [ 20, %97 ], [ %77, %75 ], [ %87, %86 ], [ %108, %106 ], [ 0, %115 ], [ %114, %113 ], [ %.1, %111 ], [ 20, %37 ]
+  ret i32 %.078
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3410,8 +3410,8 @@ define i32 @FT_Glyph_StrokeBorder(ptr noundef %0, ptr noundef %1, i8 noundef zer
   %16 = call i32 @FT_Outline_Get_Orientation(ptr noundef nonnull %15) #11
   %17 = icmp ne i32 %16, 0
   %.not43 = icmp ne i8 %2, 0
-  %.0.v = xor i1 %.not43, %17
-  %.0 = zext i1 %.0.v to i32
+  %.033.v = xor i1 %.not43, %17
+  %.033 = zext i1 %.033.v to i32
   %18 = call i32 @FT_Stroker_ParseOutline(ptr noundef %1, ptr noundef nonnull %15, i8 noundef zeroext 0)
   %.not44 = icmp eq i32 %18, 0
   br i1 %.not44, label %19, label %46
@@ -3422,7 +3422,7 @@ define i32 @FT_Glyph_StrokeBorder(ptr noundef %0, ptr noundef %1, i8 noundef zer
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %1, i64 112
-  %23 = zext i1 %.0.v to i64
+  %23 = zext i1 %.033.v to i64
   %24 = getelementptr inbounds %struct.FT_StrokeBorderRec_, ptr %22, i64 %23
   %25 = load i32, ptr %24, align 8
   %.not35.i.i = icmp eq i32 %25, 0
@@ -3480,7 +3480,7 @@ FT_Stroker_GetBorderCounts.exit:                  ; preds = %.lr.ph.i.i, %19, %.
   %43 = getelementptr inbounds i8, ptr %14, i64 42
   store i16 0, ptr %43, align 2
   store i16 0, ptr %15, align 8
-  call void @FT_Stroker_ExportBorder(ptr noundef %1, i32 noundef %.0, ptr noundef nonnull %15)
+  call void @FT_Stroker_ExportBorder(ptr noundef %1, i32 noundef %.033, ptr noundef nonnull %15)
   %.not46 = icmp eq i8 %3, 0
   br i1 %.not46, label %.sink.split, label %44
 
@@ -3490,19 +3490,19 @@ FT_Stroker_GetBorderCounts.exit:                  ; preds = %.lr.ph.i.i, %19, %.
   br label %.sink.split
 
 46:                                               ; preds = %FT_Stroker_GetBorderCounts.exit, %13
-  %.033 = phi i32 [ %18, %13 ], [ %41, %FT_Stroker_GetBorderCounts.exit ]
+  %.0 = phi i32 [ %18, %13 ], [ %41, %FT_Stroker_GetBorderCounts.exit ]
   call void @FT_Done_Glyph(ptr noundef %14) #11
   %.not47 = icmp eq i8 %3, 0
   br i1 %.not47, label %.sink.split, label %47
 
 .sink.split:                                      ; preds = %46, %42, %44
   %.sink = phi ptr [ %14, %44 ], [ %14, %42 ], [ null, %46 ]
-  %.1.ph = phi i32 [ 0, %44 ], [ 0, %42 ], [ %.033, %46 ]
+  %.1.ph = phi i32 [ 0, %44 ], [ 0, %42 ], [ %.0, %46 ]
   store ptr %.sink, ptr %0, align 8
   br label %47
 
 47:                                               ; preds = %.sink.split, %46, %11, %6, %8, %4
-  %.1 = phi i32 [ 6, %8 ], [ %12, %11 ], [ %.033, %46 ], [ 6, %6 ], [ 6, %4 ], [ %.1.ph, %.sink.split ]
+  %.1 = phi i32 [ 6, %8 ], [ %12, %11 ], [ %.0, %46 ], [ 6, %6 ], [ 6, %4 ], [ %.1.ph, %.sink.split ]
   ret i32 %.1
 }
 

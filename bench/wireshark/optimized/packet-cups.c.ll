@@ -466,12 +466,12 @@ define internal fastcc ptr @get_quoted_string(ptr noundef %0, ptr noundef %1, i3
   br label %15
 
 15:                                               ; preds = %8, %11, %5
-  %.019 = phi i32 [ %14, %11 ], [ %2, %8 ], [ %2, %5 ]
-  %.018 = phi ptr [ %13, %11 ], [ null, %8 ], [ null, %5 ]
-  %.0 = phi i32 [ %12, %11 ], [ 0, %8 ], [ 0, %5 ]
-  store i32 %.019, ptr %3, align 4
-  store i32 %.0, ptr %4, align 4
-  ret ptr %.018
+  %.019 = phi ptr [ %13, %11 ], [ null, %8 ], [ null, %5 ]
+  %.018 = phi i32 [ %12, %11 ], [ 0, %8 ], [ 0, %5 ]
+  %.0 = phi i32 [ %14, %11 ], [ %2, %8 ], [ %2, %5 ]
+  store i32 %.0, ptr %3, align 4
+  store i32 %.018, ptr %4, align 4
+  ret ptr %.019
 }
 
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1

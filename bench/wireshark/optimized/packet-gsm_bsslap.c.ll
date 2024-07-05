@@ -190,12 +190,12 @@ define internal zeroext i16 @de_cell_id_list(ptr noundef %0, ptr noundef %1, ptr
 
 10:                                               ; preds = %.lr.ph, %29
   %.049 = phi i8 [ 0, %.lr.ph ], [ %11, %29 ]
-  %.04248 = phi i32 [ %3, %.lr.ph ], [ %31, %29 ]
-  %.04347 = phi i32 [ %4, %.lr.ph ], [ %32, %29 ]
+  %.04148 = phi i32 [ %4, %.lr.ph ], [ %32, %29 ]
+  %.04347 = phi i32 [ %3, %.lr.ph ], [ %31, %29 ]
   %11 = add i8 %.049, 1
   %12 = load i32, ptr @ett_bsslap_cell_list, align 4
   %13 = zext i8 %11 to i32
-  %14 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.04248, i32 noundef -1, i32 noundef %12, ptr noundef nonnull %8, ptr noundef nonnull @.str.50, i32 noundef %13) #2
+  %14 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.04347, i32 noundef -1, i32 noundef %12, ptr noundef nonnull %8, ptr noundef nonnull @.str.50, i32 noundef %13) #2
   br i1 %.not45, label %16, label %15
 
 15:                                               ; preds = %10
@@ -204,9 +204,9 @@ define internal zeroext i16 @de_cell_id_list(ptr noundef %0, ptr noundef %1, ptr
 
 16:                                               ; preds = %15, %10
   %17 = load i32, ptr @hf_gsm_bsslap_cell_id_disc, align 4
-  %18 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %17, ptr noundef %0, i32 noundef %.04248, i32 noundef 1, i32 noundef 0) #2
-  %19 = add i32 %.04248, 1
-  %20 = add i32 %.04347, -1
+  %18 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %17, ptr noundef %0, i32 noundef %.04347, i32 noundef 1, i32 noundef 0) #2
+  %19 = add i32 %.04347, 1
+  %20 = add i32 %.04148, -1
   switch i8 %9, label %27 [
     i8 0, label %21
     i8 1, label %24
@@ -227,8 +227,8 @@ define internal zeroext i16 @de_cell_id_list(ptr noundef %0, ptr noundef %1, ptr
   br label %29
 
 29:                                               ; preds = %27, %24, %21
-  %.041 = phi i32 [ %20, %27 ], [ %26, %24 ], [ %23, %21 ]
-  %30 = and i32 %.041, 255
+  %.042 = phi i32 [ %20, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %30 = and i32 %.042, 255
   %31 = add i32 %30, %19
   %32 = sub i32 %20, %30
   %33 = load ptr, ptr %8, align 8
@@ -238,8 +238,8 @@ define internal zeroext i16 @de_cell_id_list(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %29, %7
-  %.042.lcssa = phi i32 [ %3, %7 ], [ %31, %29 ]
-  %35 = sub i32 %.042.lcssa, %3
+  %.043.lcssa = phi i32 [ %3, %7 ], [ %31, %29 ]
+  %35 = sub i32 %.043.lcssa, %3
   %36 = trunc i32 %35 to i16
   ret i16 %36
 }

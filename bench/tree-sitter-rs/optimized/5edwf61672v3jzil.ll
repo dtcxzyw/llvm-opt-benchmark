@@ -1775,8 +1775,8 @@ define hidden void @_ZN5which6finder6Finder4find17h2877b2a63937bdc7E(ptr noalias
   %.sroa.423.sroa.3.0 = phi ptr [ %65, %64 ], [ undef, %34 ]
   %.sroa.321.sroa.3.0 = phi ptr [ %.sroa.494.0.copyload, %64 ], [ %.sroa.497.0.copyload, %34 ]
   %.363.not = phi i1 [ false, %64 ], [ true, %34 ]
-  %.4 = phi i8 [ 0, %64 ], [ 1, %34 ]
   %.sroa.019.0 = phi i64 [ %.sroa.091.0.copyload, %64 ], [ -9223372036854775808, %34 ]
+  %.4 = phi i8 [ 0, %64 ], [ 1, %34 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %.sroa.236.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.019.0, ptr %.sroa.236.0..sroa_idx, align 8

@@ -233,8 +233,8 @@ define internal i64 @archive_write_newc_data(ptr noundef %0, ptr noundef %1, i64
   store i64 %9, ptr %5, align 8
   %10 = sext i32 %7 to i64
   %11 = icmp slt i32 %7, 0
-  %.012 = select i1 %11, i64 %10, i64 %spec.select
-  ret i64 %.012
+  %.0 = select i1 %11, i64 %10, i64 %spec.select
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -342,7 +342,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br label %27
 
 27:                                               ; preds = %24, %get_sconv.exit
-  %.0 = phi i32 [ -20, %24 ], [ 0, %get_sconv.exit ]
+  %.058 = phi i32 [ -20, %24 ], [ 0, %get_sconv.exit ]
   %28 = load i64, ptr %6, align 8
   %29 = trunc i64 %28 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(110) %5, i8 0, i64 110, i1 false)
@@ -364,7 +364,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br label %40
 
 40:                                               ; preds = %39, %27
-  %.1 = phi i32 [ -20, %39 ], [ %.0, %27 ]
+  %.1 = phi i32 [ -20, %39 ], [ %.058, %27 ]
   %41 = and i64 %37, 4294967295
   %42 = getelementptr inbounds i8, ptr %5, i64 6
   %43 = call fastcc i64 @format_hex_recursive(i64 noundef %41, ptr noundef nonnull %42, i32 noundef 8)
@@ -481,8 +481,8 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %110 = getelementptr inbounds i8, ptr %5, i64 54
   %..i121 = call i64 @llvm.umin.i64(i64 %.sink123, i64 4294967295)
   %111 = call fastcc i64 @format_hex_recursive(i64 noundef %..i121, ptr noundef nonnull %110, i32 noundef 8)
-  %.058.in = icmp ult i64 %.sink123, 4294967296
-  br i1 %.058.in, label %113, label %112
+  %.0.in = icmp ult i64 %.sink123, 4294967296
+  br i1 %.0.in, label %113, label %112
 
 112:                                              ; preds = %109
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.14) #10

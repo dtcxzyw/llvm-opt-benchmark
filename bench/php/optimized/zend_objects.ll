@@ -585,16 +585,16 @@ define void @zend_objects_clone_members(ptr noundef %0, ptr noundef %1) local_un
   br label %17
 
 17:                                               ; preds = %73, %10
-  %.0160 = phi ptr [ %11, %10 ], [ %74, %73 ]
-  %.0159 = phi ptr [ %12, %10 ], [ %75, %73 ]
-  %18 = getelementptr inbounds i8, ptr %.0159, i64 8
-  %19 = getelementptr inbounds i8, ptr %.0159, i64 9
+  %.0160 = phi ptr [ %12, %10 ], [ %75, %73 ]
+  %.0159 = phi ptr [ %11, %10 ], [ %74, %73 ]
+  %18 = getelementptr inbounds i8, ptr %.0160, i64 8
+  %19 = getelementptr inbounds i8, ptr %.0160, i64 9
   %20 = load i8, ptr %19, align 1
   %.not173 = icmp eq i8 %20, 0
   br i1 %.not173, label %43, label %21
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr %.0159, align 8
+  %22 = load ptr, ptr %.0160, align 8
   %23 = load i32, ptr %22, align 4
   %24 = icmp ne i32 %23, 0
   tail call void @llvm.assume(i1 %24)
@@ -629,22 +629,22 @@ define void @zend_objects_clone_members(ptr noundef %0, ptr noundef %1) local_un
 
 38:                                               ; preds = %35, %27
   %39 = phi i32 [ %.pre, %35 ], [ %29, %27 ]
-  %.0161 = phi ptr [ %37, %35 ], [ %22, %27 ]
+  %.0158 = phi ptr [ %37, %35 ], [ %22, %27 ]
   %40 = and i32 %39, -1008
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %38
-  tail call void @gc_possible_root(ptr noundef nonnull %.0161) #6
+  tail call void @gc_possible_root(ptr noundef nonnull %.0158) #6
   br label %43
 
 43:                                               ; preds = %17, %38, %42, %31, %26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0159, ptr noundef nonnull align 8 dereferenceable(16) %.0160, i64 16, i1 false)
-  tail call void @zval_add_ref(ptr noundef nonnull %.0159) #6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0160, ptr noundef nonnull align 8 dereferenceable(16) %.0159, i64 16, i1 false)
+  tail call void @zval_add_ref(ptr noundef nonnull %.0160) #6
   br i1 %.not, label %44, label %48
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %.0159, i64 12
+  %45 = getelementptr inbounds i8, ptr %.0160, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = or i32 %46, 2
   store i32 %47, ptr %45, align 4
@@ -656,7 +656,7 @@ define void @zend_objects_clone_members(ptr noundef %0, ptr noundef %1) local_un
   br i1 %50, label %51, label %73
 
 51:                                               ; preds = %48
-  %52 = load ptr, ptr %.0159, align 8
+  %52 = load ptr, ptr %.0160, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 24
   %54 = load ptr, ptr %53, align 8
   %.not176 = icmp eq ptr %54, null
@@ -666,7 +666,7 @@ define void @zend_objects_clone_members(ptr noundef %0, ptr noundef %1) local_un
   %56 = load ptr, ptr %15, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 248
   %58 = load ptr, ptr %57, align 8
-  %59 = ptrtoint ptr %.0159 to i64
+  %59 = ptrtoint ptr %.0160 to i64
   %60 = sub i64 %59, %16
   %61 = ashr exact i64 %60, 4
   %62 = icmp sgt i64 %61, -1
@@ -689,8 +689,8 @@ define void @zend_objects_clone_members(ptr noundef %0, ptr noundef %1) local_un
   br label %73
 
 73:                                               ; preds = %55, %72, %51, %48
-  %74 = getelementptr inbounds i8, ptr %.0160, i64 16
-  %75 = getelementptr inbounds i8, ptr %.0159, i64 16
+  %74 = getelementptr inbounds i8, ptr %.0159, i64 16
+  %75 = getelementptr inbounds i8, ptr %.0160, i64 16
   %.not178 = icmp eq ptr %74, %14
   br i1 %.not178, label %.loopexit190.loopexit, label %17
 
@@ -798,19 +798,19 @@ define void @zend_objects_clone_members(ptr noundef %0, ptr noundef %1) local_un
   br label %131
 
 131:                                              ; preds = %.lr.ph, %203
-  %.0158192 = phi ptr [ %118, %.lr.ph ], [ %204, %203 ]
-  %132 = getelementptr inbounds i8, ptr %.0158192, i64 8
+  %.0161192 = phi ptr [ %118, %.lr.ph ], [ %204, %203 ]
+  %132 = getelementptr inbounds i8, ptr %.0161192, i64 8
   %133 = load i8, ptr %132, align 8
   %134 = icmp eq i8 %133, 0
   br i1 %134, label %203, label %135
 
 135:                                              ; preds = %131
-  %136 = getelementptr inbounds i8, ptr %.0158192, i64 16
+  %136 = getelementptr inbounds i8, ptr %.0161192, i64 16
   %137 = load i64, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %.0158192, i64 24
+  %138 = getelementptr inbounds i8, ptr %.0161192, i64 24
   %139 = load ptr, ptr %138, align 8
   %140 = icmp eq i8 %133, 12
-  %141 = load ptr, ptr %.0158192, align 8
+  %141 = load ptr, ptr %.0161192, align 8
   br i1 %140, label %142, label %146
 
 142:                                              ; preds = %135
@@ -919,7 +919,7 @@ define void @zend_objects_clone_members(ptr noundef %0, ptr noundef %1) local_un
   br label %203
 
 203:                                              ; preds = %182, %201, %131
-  %204 = getelementptr inbounds i8, ptr %.0158192, i64 32
+  %204 = getelementptr inbounds i8, ptr %.0161192, i64 32
   %.not183 = icmp eq ptr %204, %122
   br i1 %.not183, label %.loopexit189, label %131
 

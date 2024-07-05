@@ -556,13 +556,13 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
 
 23:                                               ; preds = %.lr.ph, %_ZL7atomcatP7t_atomsPKS_iiPi.exit
   %24 = phi i32 [ %.pre, %.lr.ph ], [ %216, %_ZL7atomcatP7t_atomsPKS_iiPi.exit ]
-  %.sroa.08.015 = phi ptr [ %4, %.lr.ph ], [ %217, %_ZL7atomcatP7t_atomsPKS_iiPi.exit ]
-  %.014 = phi i32 [ %8, %.lr.ph ], [ %.4, %_ZL7atomcatP7t_atomsPKS_iiPi.exit ]
-  %25 = load i32, ptr %.sroa.08.015, align 8
+  %.015 = phi i32 [ %8, %.lr.ph ], [ %.4, %_ZL7atomcatP7t_atomsPKS_iiPi.exit ]
+  %.sroa.08.014 = phi ptr [ %4, %.lr.ph ], [ %217, %_ZL7atomcatP7t_atomsPKS_iiPi.exit ]
+  %25 = load i32, ptr %.sroa.08.014, align 8
   %26 = sext i32 %25 to i64
   %27 = load ptr, ptr %9, align 8
   %28 = getelementptr inbounds %struct.gmx_moltype_t, ptr %27, i64 %26, i32 1
-  %29 = getelementptr inbounds i8, ptr %.sroa.08.015, i64 4
+  %29 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %10, align 8
   %32 = load i32, ptr %28, align 8
@@ -737,18 +737,18 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
 
 134:                                              ; preds = %134, %.lr.ph.i
   %135 = phi i32 [ %.pre.i, %.lr.ph.i ], [ %143, %134 ]
-  %.0140.i = phi i32 [ %122, %.lr.ph.i ], [ %144, %134 ]
-  %.0125139.i = phi i32 [ 0, %.lr.ph.i ], [ %142, %134 ]
+  %.0125140.i = phi i32 [ 0, %.lr.ph.i ], [ %142, %134 ]
+  %.0126139.i = phi i32 [ %122, %.lr.ph.i ], [ %144, %134 ]
   %136 = load ptr, ptr %22, align 8
-  %137 = sext i32 %.0140.i to i64
+  %137 = sext i32 %.0126139.i to i64
   %138 = getelementptr inbounds %struct.t_resinfo, ptr %136, i64 %137
   %139 = load ptr, ptr %123, align 8
   %140 = sext i32 %135 to i64
   %141 = shl nsw i64 %140, 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %138, ptr align 1 %139, i64 %141, i1 false)
-  %142 = add nuw nsw i32 %.0125139.i, 1
+  %142 = add nuw nsw i32 %.0125140.i, 1
   %143 = load i32, ptr %111, align 8
-  %144 = add nsw i32 %143, %.0140.i
+  %144 = add nsw i32 %143, %.0126139.i
   %exitcond.not.i = icmp eq i32 %142, %30
   br i1 %exitcond.not.i, label %.lr.ph143.i, label %134, !llvm.loop !10
 
@@ -761,39 +761,39 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
   br label %.preheader136.us.i
 
 .preheader136.us.i:                               ; preds = %._crit_edge.us.i, %.preheader136.us.preheader.i
-  %.2148.us.i = phi i32 [ %158, %._crit_edge.us.i ], [ %24, %.preheader136.us.preheader.i ]
-  %.2127147.us.i = phi i32 [ %159, %._crit_edge.us.i ], [ 0, %.preheader136.us.preheader.i ]
-  %146 = sext i32 %.2148.us.i to i64
+  %.2148.us.i = phi i32 [ %159, %._crit_edge.us.i ], [ 0, %.preheader136.us.preheader.i ]
+  %.2128147.us.i = phi i32 [ %158, %._crit_edge.us.i ], [ %24, %.preheader136.us.preheader.i ]
+  %146 = sext i32 %.2128147.us.i to i64
   br label %147
 
 147:                                              ; preds = %147, %.preheader136.us.i
-  %indvars.iv159.i = phi i64 [ 0, %.preheader136.us.i ], [ %indvars.iv.next160.i, %147 ]
-  %indvars.iv157.i = phi i64 [ %146, %.preheader136.us.i ], [ %indvars.iv.next158.i, %147 ]
+  %indvars.iv159.i = phi i64 [ %146, %.preheader136.us.i ], [ %indvars.iv.next160.i, %147 ]
+  %indvars.iv157.i = phi i64 [ 0, %.preheader136.us.i ], [ %indvars.iv.next158.i, %147 ]
   %148 = load i32, ptr %21, align 8
   %149 = load i32, ptr %111, align 8
-  %150 = mul nsw i32 %149, %.2127147.us.i
+  %150 = mul nsw i32 %149, %.2148.us.i
   %151 = add nsw i32 %150, %148
   %152 = load ptr, ptr %124, align 8
-  %153 = getelementptr inbounds %struct.t_atom, ptr %152, i64 %indvars.iv159.i, i32 7
+  %153 = getelementptr inbounds %struct.t_atom, ptr %152, i64 %indvars.iv157.i, i32 7
   %154 = load i32, ptr %153, align 4
   %155 = add nsw i32 %151, %154
   %156 = load ptr, ptr %16, align 8
-  %157 = getelementptr inbounds %struct.t_atom, ptr %156, i64 %indvars.iv157.i, i32 7
+  %157 = getelementptr inbounds %struct.t_atom, ptr %156, i64 %indvars.iv159.i, i32 7
   store i32 %155, ptr %157, align 4
-  %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
-  %indvars.iv.next158.i = add nsw i64 %indvars.iv157.i, 1
-  %exitcond164.not.i = icmp eq i64 %indvars.iv.next160.i, %wide.trip.count.i
+  %indvars.iv.next158.i = add nuw nsw i64 %indvars.iv157.i, 1
+  %indvars.iv.next160.i = add nsw i64 %indvars.iv159.i, 1
+  %exitcond164.not.i = icmp eq i64 %indvars.iv.next158.i, %wide.trip.count.i
   br i1 %exitcond164.not.i, label %._crit_edge.us.i, label %147, !llvm.loop !11
 
 ._crit_edge.us.i:                                 ; preds = %147
-  %158 = trunc nsw i64 %indvars.iv.next158.i to i32
-  %159 = add nuw nsw i32 %.2127147.us.i, 1
+  %158 = trunc nsw i64 %indvars.iv.next160.i to i32
+  %159 = add nuw nsw i32 %.2148.us.i, 1
   %exitcond165.not.i = icmp eq i32 %159, %30
   br i1 %exitcond165.not.i, label %._crit_edge149.i, label %.preheader136.us.i, !llvm.loop !12
 
 160:                                              ; preds = %186, %.lr.ph143.i
   %indvars.iv.i = phi i64 [ %133, %.lr.ph143.i ], [ %indvars.iv.next.i, %186 ]
-  %.1126141.i = phi i32 [ 0, %.lr.ph143.i ], [ %187, %186 ]
+  %.1142.i = phi i32 [ 0, %.lr.ph143.i ], [ %187, %186 ]
   %161 = load ptr, ptr %16, align 8
   %162 = getelementptr inbounds %struct.t_atom, ptr %161, i64 %indvars.iv.i
   %163 = load ptr, ptr %124, align 8
@@ -835,7 +835,7 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
   br label %186
 
 186:                                              ; preds = %182, %179
-  %187 = add nuw nsw i32 %.1126141.i, 1
+  %187 = add nuw nsw i32 %.1142.i, 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, %125
   %exitcond156.not.i = icmp eq i32 %187, %30
   br i1 %exitcond156.not.i, label %.preheader136.lr.ph.i, label %160, !llvm.loop !13
@@ -853,9 +853,9 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
 
 .preheader.i:                                     ; preds = %._crit_edge149.i, %._crit_edge.i
   %191 = phi i32 [ %206, %._crit_edge.i ], [ %189, %._crit_edge149.i ]
-  %.1 = phi i32 [ %.3, %._crit_edge.i ], [ %.014, %._crit_edge149.i ]
+  %.1 = phi i32 [ %.3, %._crit_edge.i ], [ %.015, %._crit_edge149.i ]
   %192 = phi i32 [ %207, %._crit_edge.i ], [ %189, %._crit_edge149.i ]
-  %.3128152.i = phi i32 [ %208, %._crit_edge.i ], [ 0, %._crit_edge149.i ]
+  %.3152.i = phi i32 [ %208, %._crit_edge.i ], [ 0, %._crit_edge149.i ]
   %193 = icmp sgt i32 %192, 0
   br i1 %193, label %.lr.ph151.i, label %._crit_edge.i
 
@@ -866,7 +866,7 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
   %195 = add nsw i32 %.2, 1
   %196 = load ptr, ptr %22, align 8
   %197 = load i32, ptr %21, align 8
-  %198 = mul nsw i32 %194, %.3128152.i
+  %198 = mul nsw i32 %194, %.3152.i
   %199 = add i32 %197, %.4150.i
   %200 = add i32 %199, %198
   %201 = sext i32 %200 to i64
@@ -881,12 +881,12 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
   %206 = phi i32 [ %191, %.preheader.i ], [ %204, %.lr.ph151.i ]
   %.3 = phi i32 [ %.1, %.preheader.i ], [ %195, %.lr.ph151.i ]
   %207 = phi i32 [ %192, %.preheader.i ], [ %204, %.lr.ph151.i ]
-  %208 = add nuw nsw i32 %.3128152.i, 1
+  %208 = add nuw nsw i32 %.3152.i, 1
   %exitcond166.not.i = icmp eq i32 %208, %30
   br i1 %exitcond166.not.i, label %_ZL7atomcatP7t_atomsPKS_iiPi.exit, label %.preheader.i, !llvm.loop !15
 
 _ZL7atomcatP7t_atomsPKS_iiPi.exit:                ; preds = %._crit_edge.i, %._crit_edge149.thread.i, %._crit_edge149.i
-  %.4 = phi i32 [ %.014, %._crit_edge149.i ], [ %.014, %._crit_edge149.thread.i ], [ %.3, %._crit_edge.i ]
+  %.4 = phi i32 [ %.015, %._crit_edge149.i ], [ %.015, %._crit_edge149.thread.i ], [ %.3, %._crit_edge.i ]
   %209 = phi i32 [ %189, %._crit_edge149.i ], [ %188, %._crit_edge149.thread.i ], [ %207, %._crit_edge.i ]
   %210 = mul nsw i32 %209, %30
   %211 = load i32, ptr %21, align 8
@@ -897,7 +897,7 @@ _ZL7atomcatP7t_atomsPKS_iiPi.exit:                ; preds = %._crit_edge.i, %._c
   %215 = load i32, ptr %0, align 8
   %216 = add nsw i32 %215, %214
   store i32 %216, ptr %0, align 8
-  %217 = getelementptr inbounds i8, ptr %.sroa.08.015, i64 56
+  %217 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 56
   %.not = icmp eq ptr %217, %6
   br i1 %.not, label %._crit_edge, label %23
 

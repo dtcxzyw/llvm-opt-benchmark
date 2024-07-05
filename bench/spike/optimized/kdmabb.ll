@@ -728,7 +728,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_kdmabbP11p
   br label %54
 
 54:                                               ; preds = %51, %47
-  %.037 = phi i64 [ %50, %47 ], [ 2147483647, %51 ]
+  %.038 = phi i64 [ %50, %47 ], [ 2147483647, %51 ]
   %55 = lshr i64 %1, 7
   %56 = and i64 %55, 31
   %57 = icmp ugt i64 %56, 15
@@ -751,7 +751,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_kdmabbP11p
   %65 = load i64, ptr %64, align 8
   %sext41 = shl i64 %65, 32
   %66 = ashr exact i64 %sext41, 32
-  %67 = add nsw i64 %66, %.037
+  %67 = add nsw i64 %66, %.038
   %68 = icmp sgt i64 %67, 2147483647
   br i1 %68, label %.sink.split, label %69
 
@@ -882,7 +882,7 @@ define noundef i64 @_Z17fast_rv64e_kdmabbP11processor_t6insn_tm(ptr nocapture no
   br label %54
 
 54:                                               ; preds = %51, %47
-  %.037 = phi i64 [ %50, %47 ], [ 2147483647, %51 ]
+  %.038 = phi i64 [ %50, %47 ], [ 2147483647, %51 ]
   %55 = lshr i64 %1, 7
   %56 = and i64 %55, 31
   %57 = icmp ugt i64 %56, 15
@@ -905,7 +905,7 @@ define noundef i64 @_Z17fast_rv64e_kdmabbP11processor_t6insn_tm(ptr nocapture no
   %65 = load i64, ptr %64, align 8
   %sext41 = shl i64 %65, 32
   %66 = ashr exact i64 %sext41, 32
-  %67 = add nsw i64 %66, %.037
+  %67 = add nsw i64 %66, %.038
   %68 = icmp sgt i64 %67, 2147483647
   br i1 %68, label %.sink.split, label %69
 

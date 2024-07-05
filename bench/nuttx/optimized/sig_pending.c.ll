@@ -27,18 +27,18 @@ define range(i32 -1, 1) i32 @sigpending(ptr noundef writeonly %0) local_unnamed_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
   %10 = getelementptr inbounds i8, ptr %7, i64 880
-  %.08.i = load ptr, ptr %10, align 8
-  %.not9.i = icmp eq ptr %.08.i, null
+  %.068.i = load ptr, ptr %10, align 8
+  %.not9.i = icmp eq ptr %.068.i, null
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
-  %.010.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.08.i, %4 ]
-  %11 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %.0610.i = phi ptr [ %.06.i, %.lr.ph.i ], [ %.068.i, %4 ]
+  %11 = getelementptr inbounds i8, ptr %.0610.i, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = zext i8 %12 to i32
   %14 = call i32 @nxsig_addset(ptr noundef nonnull %3, i32 noundef %13) #3
-  %.0.i = load ptr, ptr %.010.i, align 8
-  %.not.i = icmp eq ptr %.0.i, null
+  %.06.i = load ptr, ptr %.0610.i, align 8
+  %.not.i = icmp eq ptr %.06.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %4
@@ -77,18 +77,18 @@ define i64 @nxsig_pendingset(ptr noundef readonly %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
   %10 = getelementptr inbounds i8, ptr %7, i64 880
-  %.08 = load ptr, ptr %10, align 8
-  %.not9 = icmp eq ptr %.08, null
+  %.068 = load ptr, ptr %10, align 8
+  %.not9 = icmp eq ptr %.068, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.010 = phi ptr [ %.0, %.lr.ph ], [ %.08, %1 ]
-  %11 = getelementptr inbounds i8, ptr %.010, i64 8
+  %.0610 = phi ptr [ %.06, %.lr.ph ], [ %.068, %1 ]
+  %11 = getelementptr inbounds i8, ptr %.0610, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = zext i8 %12 to i32
   %14 = call i32 @nxsig_addset(ptr noundef nonnull %3, i32 noundef %13) #3
-  %.0 = load ptr, ptr %.010, align 8
-  %.not = icmp eq ptr %.0, null
+  %.06 = load ptr, ptr %.0610, align 8
+  %.not = icmp eq ptr %.06, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1

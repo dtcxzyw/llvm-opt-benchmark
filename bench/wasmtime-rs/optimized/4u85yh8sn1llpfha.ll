@@ -1201,8 +1201,8 @@ define hidden noundef ptr @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT
   br label %22
 
 22:                                               ; preds = %2, %19
-  %.0 = phi ptr [ %21, %19 ], [ null, %2 ]
-  ret ptr %.0
+  %.03 = phi ptr [ %21, %19 ], [ null, %2 ]
+  ret ptr %.03
 
 "_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h71429aeca045bca1E.exit": ; preds = %23
   resume { ptr, i32 } %24
@@ -2975,8 +2975,8 @@ common.resume:                                    ; preds = %72, %51, %33
 
 "_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$25perform_next_back_checked17h486a3b36198bb46bE.exit.thread": ; preds = %46, %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17heb86a48917ba8130E.llvm.2708031191408783576.exit.i", %"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$25perform_next_back_checked17h486a3b36198bb46bE.exit", %59
   %.not123.ph = phi i1 [ true, %46 ], [ true, %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17heb86a48917ba8130E.llvm.2708031191408783576.exit.i" ], [ true, %"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$25perform_next_back_checked17h486a3b36198bb46bE.exit" ], [ false, %59 ]
-  %.sroa.520.0.ph = phi i32 [ undef, %46 ], [ undef, %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17heb86a48917ba8130E.llvm.2708031191408783576.exit.i" ], [ undef, %"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$25perform_next_back_checked17h486a3b36198bb46bE.exit" ], [ %62, %59 ]
   %.sroa.319.0.ph = phi i32 [ undef, %46 ], [ undef, %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17heb86a48917ba8130E.llvm.2708031191408783576.exit.i" ], [ undef, %"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$25perform_next_back_checked17h486a3b36198bb46bE.exit" ], [ %61, %59 ]
+  %.sroa.520.0.ph = phi i32 [ undef, %46 ], [ undef, %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17heb86a48917ba8130E.llvm.2708031191408783576.exit.i" ], [ undef, %"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$25perform_next_back_checked17h486a3b36198bb46bE.exit" ], [ %62, %59 ]
   %.pr = load ptr, ptr %40, align 8, !alias.scope !433, !noalias !436
   call void @llvm.experimental.noalias.scope.decl(metadata !433)
   %.not.i32 = icmp eq ptr %.pr, null
@@ -3081,7 +3081,7 @@ common.resume:                                    ; preds = %72, %51, %33
   br i1 %.not31.not150156, label %.thread168, label %.thread202
 
 85:                                               ; preds = %.thread
-  %86 = add i32 %.sroa.520.0.ph, %.sroa.319.0.ph
+  %86 = add i32 %.sroa.319.0.ph, %.sroa.520.0.ph
   %87 = sub i32 %1, %86
   %88 = icmp ult i32 %87, 24
   br i1 %88, label %92, label %.thread161
@@ -3090,7 +3090,7 @@ common.resume:                                    ; preds = %72, %51, %33
   %.not31.not150155167 = phi i1 [ false, %92 ], [ false, %85 ], [ true, %.thread151 ], [ true, %80 ]
   %.sroa.322.0157166 = phi i32 [ %82, %92 ], [ %82, %85 ], [ undef, %.thread151 ], [ undef, %80 ]
   %.sroa.523.0159165 = phi i32 [ %83, %92 ], [ %83, %85 ], [ undef, %.thread151 ], [ undef, %80 ]
-  %89 = add i32 %.sroa.520.0.ph, %.sroa.319.0.ph
+  %89 = add i32 %.sroa.319.0.ph, %.sroa.520.0.ph
   %90 = sub i32 %1, %89
   %91 = icmp ult i32 %90, 24
   br i1 %91, label %108, label %84
@@ -7338,7 +7338,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
   br label %11
 
 11:                                               ; preds = %2, %6
-  %.023 = phi i8 [ %10, %6 ], [ 0, %2 ]
+  %.024 = phi i8 [ %10, %6 ], [ 0, %2 ]
   %.sroa.01.1.vec.extract = extractelement <16 x i8> %4, i64 1
   %12 = icmp sgt i8 %.sroa.01.1.vec.extract, -1
   br i1 %12, label %13, label %18
@@ -7351,7 +7351,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
   br label %18
 
 18:                                               ; preds = %11, %13
-  %.024 = phi i8 [ %17, %13 ], [ 0, %11 ]
+  %.025 = phi i8 [ %17, %13 ], [ 0, %11 ]
   %.sroa.01.2.vec.extract = extractelement <16 x i8> %4, i64 2
   %19 = icmp sgt i8 %.sroa.01.2.vec.extract, -1
   br i1 %19, label %20, label %25
@@ -7364,7 +7364,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
   br label %25
 
 25:                                               ; preds = %18, %20
-  %.025 = phi i8 [ %24, %20 ], [ 0, %18 ]
+  %.026 = phi i8 [ %24, %20 ], [ 0, %18 ]
   %.sroa.01.3.vec.extract = extractelement <16 x i8> %4, i64 3
   %26 = icmp sgt i8 %.sroa.01.3.vec.extract, -1
   br i1 %26, label %27, label %32
@@ -7377,7 +7377,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
   br label %32
 
 32:                                               ; preds = %25, %27
-  %.026 = phi i8 [ %31, %27 ], [ 0, %25 ]
+  %.027 = phi i8 [ %31, %27 ], [ 0, %25 ]
   %.sroa.01.4.vec.extract = extractelement <16 x i8> %4, i64 4
   %33 = icmp sgt i8 %.sroa.01.4.vec.extract, -1
   br i1 %33, label %34, label %39
@@ -7390,7 +7390,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
   br label %39
 
 39:                                               ; preds = %32, %34
-  %.027 = phi i8 [ %38, %34 ], [ 0, %32 ]
+  %.028 = phi i8 [ %38, %34 ], [ 0, %32 ]
   %.sroa.01.5.vec.extract = extractelement <16 x i8> %4, i64 5
   %40 = icmp sgt i8 %.sroa.01.5.vec.extract, -1
   br i1 %40, label %41, label %46
@@ -7403,7 +7403,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
   br label %46
 
 46:                                               ; preds = %39, %41
-  %.028 = phi i8 [ %45, %41 ], [ 0, %39 ]
+  %.029 = phi i8 [ %45, %41 ], [ 0, %39 ]
   %.sroa.01.6.vec.extract = extractelement <16 x i8> %4, i64 6
   %47 = icmp sgt i8 %.sroa.01.6.vec.extract, -1
   br i1 %47, label %48, label %53
@@ -7416,7 +7416,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
   br label %53
 
 53:                                               ; preds = %46, %48
-  %.029 = phi i8 [ %52, %48 ], [ 0, %46 ]
+  %.030 = phi i8 [ %52, %48 ], [ 0, %46 ]
   %.sroa.01.7.vec.extract = extractelement <16 x i8> %4, i64 7
   %54 = icmp sgt i8 %.sroa.01.7.vec.extract, -1
   br i1 %54, label %55, label %60
@@ -7429,7 +7429,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
   br label %60
 
 60:                                               ; preds = %53, %55
-  %.030 = phi i8 [ %59, %55 ], [ 0, %53 ]
+  %.031 = phi i8 [ %59, %55 ], [ 0, %53 ]
   %.sroa.01.8.vec.extract = extractelement <16 x i8> %4, i64 8
   %61 = icmp sgt i8 %.sroa.01.8.vec.extract, -1
   br i1 %61, label %62, label %67
@@ -7442,7 +7442,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
   br label %67
 
 67:                                               ; preds = %60, %62
-  %.031 = phi i8 [ %66, %62 ], [ 0, %60 ]
+  %.032 = phi i8 [ %66, %62 ], [ 0, %60 ]
   %.sroa.01.9.vec.extract = extractelement <16 x i8> %4, i64 9
   %68 = icmp sgt i8 %.sroa.01.9.vec.extract, -1
   br i1 %68, label %69, label %74
@@ -7455,7 +7455,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
   br label %74
 
 74:                                               ; preds = %67, %69
-  %.032 = phi i8 [ %73, %69 ], [ 0, %67 ]
+  %.033 = phi i8 [ %73, %69 ], [ 0, %67 ]
   %.sroa.01.10.vec.extract = extractelement <16 x i8> %4, i64 10
   %75 = icmp sgt i8 %.sroa.01.10.vec.extract, -1
   br i1 %75, label %76, label %81
@@ -7468,7 +7468,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
   br label %81
 
 81:                                               ; preds = %74, %76
-  %.033 = phi i8 [ %80, %76 ], [ 0, %74 ]
+  %.034 = phi i8 [ %80, %76 ], [ 0, %74 ]
   %.sroa.01.11.vec.extract = extractelement <16 x i8> %4, i64 11
   %82 = icmp sgt i8 %.sroa.01.11.vec.extract, -1
   br i1 %82, label %83, label %88
@@ -7481,7 +7481,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
   br label %88
 
 88:                                               ; preds = %81, %83
-  %.034 = phi i8 [ %87, %83 ], [ 0, %81 ]
+  %.035 = phi i8 [ %87, %83 ], [ 0, %81 ]
   %.sroa.01.12.vec.extract = extractelement <16 x i8> %4, i64 12
   %89 = icmp sgt i8 %.sroa.01.12.vec.extract, -1
   br i1 %89, label %90, label %95
@@ -7494,7 +7494,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
   br label %95
 
 95:                                               ; preds = %88, %90
-  %.035 = phi i8 [ %94, %90 ], [ 0, %88 ]
+  %.036 = phi i8 [ %94, %90 ], [ 0, %88 ]
   %.sroa.01.13.vec.extract = extractelement <16 x i8> %4, i64 13
   %96 = icmp sgt i8 %.sroa.01.13.vec.extract, -1
   br i1 %96, label %97, label %102
@@ -7507,7 +7507,7 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
   br label %102
 
 102:                                              ; preds = %95, %97
-  %.036 = phi i8 [ %101, %97 ], [ 0, %95 ]
+  %.023 = phi i8 [ %101, %97 ], [ 0, %95 ]
   %.sroa.01.14.vec.extract = extractelement <16 x i8> %4, i64 14
   %103 = icmp sgt i8 %.sroa.01.14.vec.extract, -1
   br i1 %103, label %104, label %109
@@ -7534,20 +7534,20 @@ define <2 x i64> @_ZN16wasmtime_runtime8libcalls6relocs10x86_pshufb17h3a82531540
 
 116:                                              ; preds = %109, %111
   %.0 = phi i8 [ %115, %111 ], [ 0, %109 ]
-  %.sroa.05.0.vec.insert = insertelement <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef>, i8 %.023, i64 0
-  %.sroa.05.1.vec.insert = insertelement <16 x i8> %.sroa.05.0.vec.insert, i8 %.024, i64 1
-  %.sroa.05.2.vec.insert = insertelement <16 x i8> %.sroa.05.1.vec.insert, i8 %.025, i64 2
-  %.sroa.05.3.vec.insert = insertelement <16 x i8> %.sroa.05.2.vec.insert, i8 %.026, i64 3
-  %.sroa.05.4.vec.insert = insertelement <16 x i8> %.sroa.05.3.vec.insert, i8 %.027, i64 4
-  %.sroa.05.5.vec.insert = insertelement <16 x i8> %.sroa.05.4.vec.insert, i8 %.028, i64 5
-  %.sroa.05.6.vec.insert = insertelement <16 x i8> %.sroa.05.5.vec.insert, i8 %.029, i64 6
-  %.sroa.05.7.vec.insert = insertelement <16 x i8> %.sroa.05.6.vec.insert, i8 %.030, i64 7
-  %.sroa.05.8.vec.insert = insertelement <16 x i8> %.sroa.05.7.vec.insert, i8 %.031, i64 8
-  %.sroa.05.9.vec.insert = insertelement <16 x i8> %.sroa.05.8.vec.insert, i8 %.032, i64 9
-  %.sroa.05.10.vec.insert = insertelement <16 x i8> %.sroa.05.9.vec.insert, i8 %.033, i64 10
-  %.sroa.05.11.vec.insert = insertelement <16 x i8> %.sroa.05.10.vec.insert, i8 %.034, i64 11
-  %.sroa.05.12.vec.insert = insertelement <16 x i8> %.sroa.05.11.vec.insert, i8 %.035, i64 12
-  %.sroa.05.13.vec.insert = insertelement <16 x i8> %.sroa.05.12.vec.insert, i8 %.036, i64 13
+  %.sroa.05.0.vec.insert = insertelement <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef>, i8 %.024, i64 0
+  %.sroa.05.1.vec.insert = insertelement <16 x i8> %.sroa.05.0.vec.insert, i8 %.025, i64 1
+  %.sroa.05.2.vec.insert = insertelement <16 x i8> %.sroa.05.1.vec.insert, i8 %.026, i64 2
+  %.sroa.05.3.vec.insert = insertelement <16 x i8> %.sroa.05.2.vec.insert, i8 %.027, i64 3
+  %.sroa.05.4.vec.insert = insertelement <16 x i8> %.sroa.05.3.vec.insert, i8 %.028, i64 4
+  %.sroa.05.5.vec.insert = insertelement <16 x i8> %.sroa.05.4.vec.insert, i8 %.029, i64 5
+  %.sroa.05.6.vec.insert = insertelement <16 x i8> %.sroa.05.5.vec.insert, i8 %.030, i64 6
+  %.sroa.05.7.vec.insert = insertelement <16 x i8> %.sroa.05.6.vec.insert, i8 %.031, i64 7
+  %.sroa.05.8.vec.insert = insertelement <16 x i8> %.sroa.05.7.vec.insert, i8 %.032, i64 8
+  %.sroa.05.9.vec.insert = insertelement <16 x i8> %.sroa.05.8.vec.insert, i8 %.033, i64 9
+  %.sroa.05.10.vec.insert = insertelement <16 x i8> %.sroa.05.9.vec.insert, i8 %.034, i64 10
+  %.sroa.05.11.vec.insert = insertelement <16 x i8> %.sroa.05.10.vec.insert, i8 %.035, i64 11
+  %.sroa.05.12.vec.insert = insertelement <16 x i8> %.sroa.05.11.vec.insert, i8 %.036, i64 12
+  %.sroa.05.13.vec.insert = insertelement <16 x i8> %.sroa.05.12.vec.insert, i8 %.023, i64 13
   %.sroa.05.14.vec.insert = insertelement <16 x i8> %.sroa.05.13.vec.insert, i8 %.022, i64 14
   %.sroa.05.15.vec.insert = insertelement <16 x i8> %.sroa.05.14.vec.insert, i8 %.0, i64 15
   %117 = bitcast <16 x i8> %.sroa.05.15.vec.insert to <2 x i64>

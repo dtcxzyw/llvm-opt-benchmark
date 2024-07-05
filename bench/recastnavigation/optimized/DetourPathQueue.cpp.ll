@@ -196,8 +196,8 @@ define void @_ZN11dtPathQueue6updateEi(ptr noundef nonnull align 8 dereferenceab
 
 7:                                                ; preds = %2, %58
   %8 = phi i32 [ %.pre, %2 ], [ %59, %58 ]
-  %.029 = phi i32 [ 0, %2 ], [ %60, %58 ]
-  %.02628 = phi i32 [ %1, %2 ], [ %.2, %58 ]
+  %.029 = phi i32 [ %1, %2 ], [ %.2, %58 ]
+  %.02628 = phi i32 [ 0, %2 ], [ %60, %58 ]
   %9 = srem i32 %8, 8
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [8 x %"struct.dtPathQueue::PathQuery"], ptr %0, i64 0, i64 %10
@@ -251,15 +251,15 @@ define void @_ZN11dtPathQueue6updateEi(ptr noundef nonnull align 8 dereferenceab
 39:                                               ; preds = %36
   store i32 0, ptr %3, align 4
   %40 = load ptr, ptr %5, align 8
-  %41 = call noundef i32 @_ZN14dtNavMeshQuery20updateSlicedFindPathEiPi(ptr noundef nonnull align 8 dereferenceable(104) %40, i32 noundef %.02628, ptr noundef nonnull %3)
+  %41 = call noundef i32 @_ZN14dtNavMeshQuery20updateSlicedFindPathEiPi(ptr noundef nonnull align 8 dereferenceable(104) %40, i32 noundef %.029, ptr noundef nonnull %3)
   store i32 %41, ptr %15, align 4
   %42 = load i32, ptr %3, align 4
-  %43 = sub nsw i32 %.02628, %42
+  %43 = sub nsw i32 %.029, %42
   br label %44
 
 44:                                               ; preds = %39, %36
   %45 = phi i32 [ %41, %39 ], [ %37, %36 ]
-  %.1 = phi i32 [ %43, %39 ], [ %.02628, %36 ]
+  %.1 = phi i32 [ %43, %39 ], [ %.029, %36 ]
   %46 = and i32 %45, 1073741824
   %.not27 = icmp eq i32 %46, 0
   br i1 %.not27, label %54, label %47
@@ -284,10 +284,10 @@ define void @_ZN11dtPathQueue6updateEi(ptr noundef nonnull align 8 dereferenceab
 
 58:                                               ; preds = %17, %22, %7, %56
   %.sink30 = phi i32 [ %57, %56 ], [ %8, %7 ], [ %8, %22 ], [ %8, %17 ]
-  %.2 = phi i32 [ %.1, %56 ], [ %.02628, %7 ], [ %.02628, %22 ], [ %.02628, %17 ]
+  %.2 = phi i32 [ %.1, %56 ], [ %.029, %7 ], [ %.029, %22 ], [ %.029, %17 ]
   %59 = add nsw i32 %.sink30, 1
   store i32 %59, ptr %4, align 8
-  %60 = add nuw nsw i32 %.029, 1
+  %60 = add nuw nsw i32 %.02628, 1
   %exitcond.not = icmp eq i32 %60, 8
   br i1 %exitcond.not, label %61, label %7, !llvm.loop !8
 

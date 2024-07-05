@@ -122,8 +122,8 @@ if.end26:                                         ; preds = %if.end
   unreachable
 
 return:                                           ; preds = %_ZNOSt8optionalIN5folly5RangeIPcEEE5valueEv.exit, %if.then22, %if.then
-  %retval.sroa.4.0 = phi ptr [ %add.ptr.i5, %if.then ], [ %add.ptr.i18, %if.then22 ], [ %range.sroa.4.0.copyload, %_ZNOSt8optionalIN5folly5RangeIPcEEE5valueEv.exit ]
   %retval.sroa.0.0 = phi ptr [ %3, %if.then ], [ %range.sroa.0.0.copyload, %if.then22 ], [ %range.sroa.0.0.copyload, %_ZNOSt8optionalIN5folly5RangeIPcEEE5valueEv.exit ]
+  %retval.sroa.4.0 = phi ptr [ %add.ptr.i5, %if.then ], [ %add.ptr.i18, %if.then22 ], [ %range.sroa.4.0.copyload, %_ZNOSt8optionalIN5folly5RangeIPcEEE5valueEv.exit ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

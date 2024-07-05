@@ -345,34 +345,34 @@ define ptr @job_attr_get(ptr noundef %0) local_unnamed_addr #0 {
   br label %ifconfig.exit.i
 
 .preheader.i.i:                                   ; preds = %29, %.preheader.i.i
-  %.031.in.i.i = phi ptr [ %.031.i.i, %.preheader.i.i ], [ %2, %29 ]
-  %.0.i.i = phi i32 [ %34, %.preheader.i.i ], [ 0, %29 ]
-  %.031.i.i = load ptr, ptr %.031.in.i.i, align 8
-  %.not.i.i = icmp eq ptr %.031.i.i, null
-  %34 = add nuw nsw i32 %.0.i.i, 1
+  %.032.in.i.i = phi ptr [ %.032.i.i, %.preheader.i.i ], [ %2, %29 ]
+  %.031.i.i = phi i32 [ %34, %.preheader.i.i ], [ 0, %29 ]
+  %.032.i.i = load ptr, ptr %.032.in.i.i, align 8
+  %.not.i.i = icmp eq ptr %.032.i.i, null
+  %34 = add nuw nsw i32 %.031.i.i, 1
   br i1 %.not.i.i, label %35, label %.preheader.i.i, !llvm.loop !9
 
 35:                                               ; preds = %.preheader.i.i
-  %36 = shl i32 %.0.i.i, 6
+  %36 = shl i32 %.031.i.i, 6
   %37 = add i32 %36, 4096
   %38 = sext i32 %37 to i64
   %39 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %38, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 252, ptr noundef nonnull @__func__.ifconfig) #5
   %40 = call i32 @gethostname(ptr noundef nonnull %4, i64 noundef 64) #5
   %41 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull %4) #5
-  %.13245.i.i = load ptr, ptr %2, align 8
-  %.not3946.i.i = icmp eq ptr %.13245.i.i, null
+  %.13345.i.i = load ptr, ptr %2, align 8
+  %.not3946.i.i = icmp eq ptr %.13345.i.i, null
   br i1 %.not3946.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %35, %75
-  %.13248.i.i = phi ptr [ %.132.i.i, %75 ], [ %.13245.i.i, %35 ]
+  %.13348.i.i = phi ptr [ %.133.i.i, %75 ], [ %.13345.i.i, %35 ]
   %.147.i.i = phi i32 [ %.2.i.i, %75 ], [ %41, %35 ]
-  %42 = getelementptr inbounds i8, ptr %.13248.i.i, i64 24
+  %42 = getelementptr inbounds i8, ptr %.13348.i.i, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %75, label %45
 
 45:                                               ; preds = %.lr.ph.i.i
-  %46 = getelementptr inbounds i8, ptr %.13248.i.i, i64 16
+  %46 = getelementptr inbounds i8, ptr %.13348.i.i, i64 16
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 8
   %.not40.i.i = icmp eq i32 %48, 0
@@ -398,7 +398,7 @@ define ptr @job_attr_get(ptr noundef %0) local_unnamed_addr #0 {
 56:                                               ; preds = %51
   %57 = sext i32 %.147.i.i to i64
   %58 = getelementptr inbounds i8, ptr %39, i64 %57
-  %59 = getelementptr inbounds i8, ptr %.13248.i.i, i64 8
+  %59 = getelementptr inbounds i8, ptr %.13348.i.i, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %60, ptr noundef nonnull @.str.20, ptr noundef nonnull %3) #5
   %62 = add nsw i32 %61, %.147.i.i
@@ -417,7 +417,7 @@ define ptr @job_attr_get(ptr noundef %0) local_unnamed_addr #0 {
 68:                                               ; preds = %63
   %69 = sext i32 %.147.i.i to i64
   %70 = getelementptr inbounds i8, ptr %39, i64 %69
-  %71 = getelementptr inbounds i8, ptr %.13248.i.i, i64 8
+  %71 = getelementptr inbounds i8, ptr %.13348.i.i, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %72, ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #5
   %74 = add nsw i32 %73, %.147.i.i
@@ -425,8 +425,8 @@ define ptr @job_attr_get(ptr noundef %0) local_unnamed_addr #0 {
 
 75:                                               ; preds = %68, %65, %56, %53, %49, %45, %.lr.ph.i.i
   %.2.i.i = phi i32 [ %.147.i.i, %.lr.ph.i.i ], [ %.147.i.i, %45 ], [ %.147.i.i, %53 ], [ %62, %56 ], [ %.147.i.i, %65 ], [ %74, %68 ], [ %.147.i.i, %49 ]
-  %.132.i.i = load ptr, ptr %.13248.i.i, align 8
-  %.not39.i.i = icmp eq ptr %.132.i.i, null
+  %.133.i.i = load ptr, ptr %.13348.i.i, align 8
+  %.not39.i.i = icmp eq ptr %.133.i.i, null
   br i1 %.not39.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %75, %35
@@ -448,12 +448,12 @@ define ptr @job_attr_get(ptr noundef %0) local_unnamed_addr #0 {
   br label %ifconfig.exit.i
 
 ifconfig.exit.i:                                  ; preds = %81, %32
-  %.033.i.i = phi ptr [ null, %32 ], [ %39, %81 ]
+  %.0.i.i = phi ptr [ null, %32 ], [ %39, %81 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  store ptr %.033.i.i, ptr %5, align 8
-  %83 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @job_attr_get.attr, i64 noundef 1024, ptr noundef nonnull @.str.13, ptr noundef %.033.i.i) #5
+  store ptr %.0.i.i, ptr %5, align 8
+  %83 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @job_attr_get.attr, i64 noundef 1024, ptr noundef nonnull @.str.13, ptr noundef %.0.i.i) #5
   call void @slurm_xfree(ptr noundef nonnull %5) #5
   %84 = call i32 @slurm_get_log_level() #5
   %85 = icmp sgt i32 %84, 6

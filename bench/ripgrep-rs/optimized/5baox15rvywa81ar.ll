@@ -774,8 +774,8 @@ _ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit99: ; preds = %"_Z
   br label %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h725839184df14600E.exit279.thread"
 
 "_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h725839184df14600E.exit279.thread": ; preds = %275, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h725839184df14600E.exit279", %_ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit99
-  %.sroa.7.i8.sroa.8.0 = phi i32 [ %.0.i.i247, %_ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit99 ], [ undef, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h725839184df14600E.exit279" ], [ undef, %275 ]
   %.sroa.7.i8.sroa.0.0 = phi i64 [ %340, %_ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit99 ], [ undef, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h725839184df14600E.exit279" ], [ undef, %275 ]
+  %.sroa.7.i8.sroa.8.0 = phi i32 [ %.0.i.i247, %_ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit99 ], [ undef, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h725839184df14600E.exit279" ], [ undef, %275 ]
   %.sroa.020.0.i14 = phi i64 [ 1, %_ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit99 ], [ 0, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h725839184df14600E.exit279" ], [ 0, %275 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17), !noalias !150
   %341 = getelementptr inbounds i8, ptr %2, i64 16
@@ -1198,9 +1198,9 @@ _ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit101: ; preds = %"_
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %_ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit101, %361
-  %.sroa.7.i8.sroa.8.1.ph.ph = phi i32 [ %.0.i.i252, %_ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit101 ], [ %.sroa.7.i8.sroa.8.0, %361 ]
-  %.sroa.7.i8.sroa.6.1.ph.ph = phi i64 [ %479, %_ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit101 ], [ %18, %361 ]
   %.sroa.7.i8.sroa.0.1.ph.ph = phi i64 [ %531, %_ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit101 ], [ %.sroa.7.i8.sroa.0.0, %361 ]
+  %.sroa.7.i8.sroa.6.1.ph.ph = phi i64 [ %479, %_ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit101 ], [ %18, %361 ]
+  %.sroa.7.i8.sroa.8.1.ph.ph = phi i32 [ %.0.i.i252, %_ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit101 ], [ %.sroa.7.i8.sroa.8.0, %361 ]
   %.037.i15.ph.ph = phi i32 [ %.1.i127, %_ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit101 ], [ %277, %361 ]
   %.sroa.020.1.i16.ph.ph = phi i64 [ 1, %_ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit101 ], [ %.sroa.020.0.i14, %361 ]
   %.0.i17.ph.ph = phi i64 [ %479, %_ZN12aho_corasick9automaton9get_match17hc319f7c406e0ec15E.exit101 ], [ %363, %361 ]

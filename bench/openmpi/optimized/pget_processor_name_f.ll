@@ -98,8 +98,8 @@ opal_pointer_array_get_item.exit.i:               ; preds = %31, %25, %.lr.ph.i
   br label %ompi_errcode_get_mpi_code.exit
 
 ompi_errcode_get_mpi_code.exit:                   ; preds = %14, %10, %.preheader.i, %36
-  %.010.i = phi i32 [ %9, %10 ], [ %38, %36 ], [ 14, %.preheader.i ], [ 14, %14 ]
-  %39 = call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.010.i, ptr noundef nonnull @FUNC_NAME) #3
+  %.0.i = phi i32 [ %9, %10 ], [ %38, %36 ], [ 14, %.preheader.i ], [ 14, %14 ]
+  %39 = call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.0.i, ptr noundef nonnull @FUNC_NAME) #3
   br label %40
 
 40:                                               ; preds = %8, %ompi_errcode_get_mpi_code.exit, %4

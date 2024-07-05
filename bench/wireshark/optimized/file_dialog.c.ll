@@ -38,11 +38,11 @@ define hidden range(i32 0, 3) i32 @get_stats_for_preview(ptr noundef %0, ptr noc
   br label %14
 
 14:                                               ; preds = %.lr.ph, %35
-  %.02754 = phi i32 [ 0, %.lr.ph ], [ %.2, %35 ]
-  %.02853 = phi double [ 0.000000e+00, %.lr.ph ], [ %.230, %35 ]
-  %.03252 = phi double [ 0.000000e+00, %.lr.ph ], [ %.335, %35 ]
-  %.03651 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %35 ]
-  %.03950 = phi i32 [ 0, %.lr.ph ], [ %25, %35 ]
+  %.02854 = phi i32 [ 0, %.lr.ph ], [ %.2, %35 ]
+  %.02953 = phi double [ 0.000000e+00, %.lr.ph ], [ %.231, %35 ]
+  %.03352 = phi double [ 0.000000e+00, %.lr.ph ], [ %.336, %35 ]
+  %.03751 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %35 ]
+  %.04050 = phi i32 [ 0, %.lr.ph ], [ %25, %35 ]
   %15 = load i32, ptr %12, align 4
   %16 = and i32 %15, 1
   %.not44 = icmp eq i32 %16, 0
@@ -50,26 +50,26 @@ define hidden range(i32 0, 3) i32 @get_stats_for_preview(ptr noundef %0, ptr noc
 
 17:                                               ; preds = %14
   %18 = call double @nstime_to_sec(ptr noundef nonnull %13) #3
-  %.not45 = icmp eq i32 %.02754, 0
-  %.133 = select i1 %.not45, double %18, double %.03252
-  %.129 = select i1 %.not45, double %18, double %.02853
-  %19 = fcmp olt double %18, %.133
-  %.234 = select i1 %19, double %18, double %.133
-  %20 = fcmp ogt double %18, %.129
+  %.not45 = icmp eq i32 %.02854, 0
+  %.134 = select i1 %.not45, double %18, double %.03352
+  %.130 = select i1 %.not45, double %18, double %.02953
+  %19 = fcmp olt double %18, %.134
+  %.235 = select i1 %19, double %18, double %.134
+  %20 = fcmp ogt double %18, %.130
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
   br label %22
 
 22:                                               ; preds = %17, %21, %14
-  %.335 = phi double [ %.234, %21 ], [ %.234, %17 ], [ %.03252, %14 ]
-  %.230 = phi double [ %18, %21 ], [ %.129, %17 ], [ %.02853, %14 ]
-  %.2 = phi i32 [ 1, %21 ], [ 1, %17 ], [ %.02754, %14 ]
+  %.336 = phi double [ %.235, %21 ], [ %.235, %17 ], [ %.03352, %14 ]
+  %.231 = phi double [ %18, %21 ], [ %.130, %17 ], [ %.02953, %14 ]
+  %.2 = phi i32 [ 1, %21 ], [ 1, %17 ], [ %.02854, %14 ]
   %23 = load i32, ptr %6, align 8
   %switch = icmp ult i32 %23, 5
   %24 = zext i1 %switch to i32
-  %spec.select = add i32 %.03651, %24
-  %25 = add i32 %.03950, 1
+  %spec.select = add i32 %.03751, %24
+  %25 = add i32 %.04050, 1
   %26 = urem i32 %25, 1000
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %35
@@ -92,26 +92,26 @@ define hidden range(i32 0, 3) i32 @get_stats_for_preview(ptr noundef %0, ptr noc
 
 ._crit_edge:                                      ; preds = %35, %28, %4
   %.not.lcssa = phi i32 [ 0, %4 ], [ 1, %28 ], [ 0, %35 ]
-  %.140 = phi i32 [ 0, %4 ], [ %25, %28 ], [ %25, %35 ]
-  %.238 = phi i32 [ 0, %4 ], [ %spec.select, %28 ], [ %spec.select, %35 ]
-  %.4 = phi double [ 0.000000e+00, %4 ], [ %.335, %28 ], [ %.335, %35 ]
-  %.331 = phi double [ 0.000000e+00, %4 ], [ %.230, %28 ], [ %.230, %35 ]
+  %.141 = phi i32 [ 0, %4 ], [ %25, %28 ], [ %25, %35 ]
+  %.239 = phi i32 [ 0, %4 ], [ %spec.select, %28 ], [ %spec.select, %35 ]
+  %.4 = phi double [ 0.000000e+00, %4 ], [ %.336, %28 ], [ %.336, %35 ]
+  %.332 = phi double [ 0.000000e+00, %4 ], [ %.231, %28 ], [ %.231, %35 ]
   %.3 = phi i32 [ 0, %4 ], [ %.2, %28 ], [ %.2, %35 ]
   store i32 %.3, ptr %1, align 8
   %37 = getelementptr inbounds i8, ptr %1, i64 8
   store double %.4, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %1, i64 16
-  store double %.331, ptr %38, align 8
+  store double %.332, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %1, i64 24
-  store i32 %.140, ptr %39, align 8
+  store i32 %.141, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %1, i64 28
-  store i32 %.238, ptr %40, align 4
+  store i32 %.239, ptr %40, align 4
   call void @wtap_rec_cleanup(ptr noundef nonnull %6) #3
   call void @ws_buffer_free(ptr noundef nonnull %7) #3
   %41 = load i32, ptr %2, align 4
   %.not47 = icmp eq i32 %41, 0
-  %.041 = select i1 %.not47, i32 %.not.lcssa, i32 2
-  ret i32 %.041
+  %.0 = select i1 %.not47, i32 %.not.lcssa, i32 2
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind

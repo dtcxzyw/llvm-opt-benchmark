@@ -3177,13 +3177,13 @@ _ZN5faiss19OnDiskInvertedLists15OngoingPrefetch13get_next_listEv.exit: ; preds =
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
-  %.02835 = phi i64 [ %49, %.lr.ph ], [ 0, %26 ]
-  %.02934 = phi i32 [ %48, %.lr.ph ], [ 0, %26 ]
-  %45 = getelementptr inbounds i64, ptr %40, i64 %.02835
+  %.02935 = phi i32 [ %48, %.lr.ph ], [ 0, %26 ]
+  %.03034 = phi i64 [ %49, %.lr.ph ], [ 0, %26 ]
+  %45 = getelementptr inbounds i64, ptr %40, i64 %.03034
   %46 = load i64, ptr %45, align 8
   %47 = trunc i64 %46 to i32
-  %48 = add i32 %.02934, %47
-  %49 = add nuw i64 %.02835, 1
+  %48 = add i32 %.02935, %47
+  %49 = add nuw i64 %.03034, 1
   %exitcond.not = icmp eq i64 %49, %36
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 

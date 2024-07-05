@@ -493,21 +493,21 @@ define internal fastcc ptr @flatten_set_variable_args(ptr noundef %0, ptr nounde
 
 37:                                               ; preds = %32, %29
   %38 = phi i32 [ %.pr, %32 ], [ %30, %29 ]
-  %.037 = phi ptr [ %34, %32 ], [ %27, %29 ]
-  %.036 = phi ptr [ %36, %32 ], [ null, %29 ]
+  %.038 = phi ptr [ %34, %32 ], [ %27, %29 ]
+  %.037 = phi ptr [ %36, %32 ], [ null, %29 ]
   %39 = icmp eq i32 %38, 64
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %37
   %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %41)
-  %42 = load i32, ptr %.037, align 4
+  %42 = load i32, ptr %.038, align 4
   %43 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef %42) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 246, ptr noundef nonnull @__func__.flatten_set_variable_args) #7
   unreachable
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %.037, i64 8
+  %45 = getelementptr inbounds i8, ptr %.038, i64 8
   %46 = load i32, ptr %45, align 8
   switch i32 %46, label %67 [
     i32 448, label %47
@@ -516,25 +516,25 @@ define internal fastcc ptr @flatten_set_variable_args(ptr noundef %0, ptr nounde
   ]
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %.037, i64 12
+  %48 = getelementptr inbounds i8, ptr %.038, i64 12
   %49 = load i32, ptr %48, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, i32 noundef %49) #7
   br label %72
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %.037, i64 16
+  %51 = getelementptr inbounds i8, ptr %.038, i64 16
   %52 = load ptr, ptr %51, align 8
   call void @appendStringInfoString(ptr noundef nonnull %3, ptr noundef %52) #7
   br label %72
 
 53:                                               ; preds = %44
-  %54 = getelementptr inbounds i8, ptr %.037, i64 16
+  %54 = getelementptr inbounds i8, ptr %.038, i64 16
   %55 = load ptr, ptr %54, align 8
-  %.not45 = icmp eq ptr %.036, null
+  %.not45 = icmp eq ptr %.037, null
   br i1 %.not45, label %63, label %56
 
 56:                                               ; preds = %53
-  call void @typenameTypeIdAndMod(ptr noundef null, ptr noundef nonnull %.036, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
+  call void @typenameTypeIdAndMod(ptr noundef null, ptr noundef nonnull %.037, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   %57 = ptrtoint ptr %55 to i64
   %58 = load i32, ptr %5, align 4
   %59 = sext i32 %58 to i64
@@ -557,7 +557,7 @@ define internal fastcc ptr @flatten_set_variable_args(ptr noundef %0, ptr nounde
   br label %72
 
 67:                                               ; preds = %44
-  %68 = getelementptr inbounds i8, ptr %.037, i64 8
+  %68 = getelementptr inbounds i8, ptr %.038, i64 8
   %69 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %69)
   %70 = load i32, ptr %68, align 8

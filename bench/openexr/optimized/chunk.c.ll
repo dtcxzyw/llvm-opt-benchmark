@@ -640,7 +640,7 @@ for.body.lr.ph:                                   ; preds = %if.then
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %compute_sampled_lines.exit.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %compute_sampled_lines.exit.us ], [ 0, %for.body.lr.ph ]
-  %unpacksize.015.us = phi i64 [ %add.us, %compute_sampled_lines.exit.us ], [ 0, %for.body.lr.ph ]
+  %unpacksize.016.us = phi i64 [ %add.us, %compute_sampled_lines.exit.us ], [ 0, %for.body.lr.ph ]
   %add.ptr.us = getelementptr inbounds %struct.exr_attr_chlist_entry_t, ptr %5, i64 %indvars.iv19
   %pixel_type.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 16
   %6 = load i32, ptr %pixel_type.us, align 8
@@ -673,14 +673,14 @@ if.end.i.us:                                      ; preds = %if.end.us
 compute_sampled_lines.exit.us:                    ; preds = %if.end.i.us, %if.end.us
   %retval.0.i.us = phi i64 [ 1, %if.end.us ], [ %cond.i.us, %if.end.i.us ]
   %mul14.us = mul nuw nsw i64 %chansz.0.us, %retval.0.i.us
-  %add.us = add i64 %mul14.us, %unpacksize.015.us
+  %add.us = add i64 %mul14.us, %unpacksize.016.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %if.end15, label %for.body.us, !llvm.loop !6
 
 for.body:                                         ; preds = %for.body.lr.ph, %compute_sampled_lines.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %compute_sampled_lines.exit ], [ 0, %for.body.lr.ph ]
-  %unpacksize.015 = phi i64 [ %add, %compute_sampled_lines.exit ], [ 0, %for.body.lr.ph ]
+  %unpacksize.016 = phi i64 [ %add, %compute_sampled_lines.exit ], [ 0, %for.body.lr.ph ]
   %add.ptr = getelementptr inbounds %struct.exr_attr_chlist_entry_t, ptr %5, i64 %indvars.iv
   %pixel_type = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %10 = load i32, ptr %pixel_type, align 8
@@ -725,7 +725,7 @@ compute_sampled_lines.exit:                       ; preds = %if.end, %if.end.i, 
   %retval.0.i = phi i32 [ %height, %if.end ], [ %add17.i, %if.else15.i ], [ 0, %if.end.i ]
   %conv13 = sext i32 %retval.0.i to i64
   %mul14 = mul i64 %chansz.0, %conv13
-  %add = add i64 %mul14, %unpacksize.015
+  %add = add i64 %mul14, %unpacksize.016
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %if.end15, label %for.body, !llvm.loop !6

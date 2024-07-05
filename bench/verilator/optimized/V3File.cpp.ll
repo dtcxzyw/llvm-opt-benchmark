@@ -6897,8 +6897,8 @@ _ZN11VHashSha2566insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.e
   br label %108
 
 101:                                              ; preds = %_ZNKSt4lessIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS6_S8_.exit.i, %99
-  %.sroa.017.0.i34 = phi ptr [ %48, %99 ], [ %.19.i.i.i.i, %_ZNKSt4lessIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS6_S8_.exit.i ]
-  %102 = getelementptr inbounds i8, ptr %.sroa.017.0.i34, i64 64
+  %.sroa.017.0.i35 = phi ptr [ %48, %99 ], [ %.19.i.i.i.i, %_ZNKSt4lessIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS6_S8_.exit.i ]
+  %102 = getelementptr inbounds i8, ptr %.sroa.017.0.i35, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %102)
           to label %103 unwind label %55
 

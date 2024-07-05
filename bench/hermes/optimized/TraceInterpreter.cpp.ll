@@ -1792,8 +1792,8 @@ lpad.i:                                           ; preds = %if.then.i44
 for.body.i:                                       ; preds = %cond.true, %invoke.cont19.i
   %valueAndStats.sroa.0.032.i = phi ptr [ %valueAndStats.sroa.0.1.i, %invoke.cont19.i ], [ null, %cond.true ]
   %valueAndStats.sroa.9.031.i = phi ptr [ %valueAndStats.sroa.9.1.i, %invoke.cont19.i ], [ null, %cond.true ]
-  %__begin3.sroa.0.030.i = phi ptr [ %incdec.ptr.i16.i, %invoke.cont19.i ], [ %repGCStats.val, %cond.true ]
-  %valueAndStats.sroa.15.029.i = phi ptr [ %valueAndStats.sroa.15.1.i, %invoke.cont19.i ], [ null, %cond.true ]
+  %valueAndStats.sroa.15.030.i = phi ptr [ %valueAndStats.sroa.15.1.i, %invoke.cont19.i ], [ null, %cond.true ]
+  %__begin3.sroa.0.029.i = phi ptr [ %incdec.ptr.i16.i, %invoke.cont19.i ], [ %repGCStats.val, %cond.true ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #29, !noalias !24
   %call.i12.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %target.i)
           to label %call.i.noexc.i unwind label %lpad6.i, !noalias !24
@@ -1835,7 +1835,7 @@ lpad.i76:                                         ; preds = %invoke.cont.i77, %i
 invoke.cont7.i:                                   ; preds = %invoke.cont.i77
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #29, !noalias !24
-  %call8.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.030.i, ptr noundef nonnull align 8 dereferenceable(32) %target.i, i64 noundef 0) #29, !noalias !24
+  %call8.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.029.i, ptr noundef nonnull align 8 dereferenceable(32) %target.i, i64 noundef 0) #29, !noalias !24
   %cmp.i = icmp eq i64 %call8.i, -1
   br i1 %cmp.i, label %if.then9.i, label %if.end14.i
 
@@ -1877,15 +1877,15 @@ lpad13.loopexit.split-lp.i:                       ; preds = %if.then.i.i.i.i, %i
 if.end14.i:                                       ; preds = %invoke.cont7.i
   %call15.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %target.i) #29, !noalias !24
   %add.i = add i64 %call15.i, %call8.i
-  %call16.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.030.i, i64 noundef %add.i) #29, !noalias !24
+  %call16.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.029.i, i64 noundef %add.i) #29, !noalias !24
   %call17.i = call double @atof(ptr noundef nonnull %call16.i) #35, !noalias !24
-  %cmp.not.i.i37 = icmp eq ptr %valueAndStats.sroa.9.031.i, %valueAndStats.sroa.15.029.i
+  %cmp.not.i.i37 = icmp eq ptr %valueAndStats.sroa.9.031.i, %valueAndStats.sroa.15.030.i
   br i1 %cmp.not.i.i37, label %if.else.i.i, label %if.then.i.i38
 
 if.then.i.i38:                                    ; preds = %if.end14.i
   store double %call17.i, ptr %valueAndStats.sroa.9.031.i, align 8, !noalias !24
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %valueAndStats.sroa.9.031.i, i64 8
-  store ptr %__begin3.sroa.0.030.i, ptr %second.i.i.i.i.i, align 8, !noalias !24
+  store ptr %__begin3.sroa.0.029.i, ptr %second.i.i.i.i.i, align 8, !noalias !24
   br label %invoke.cont19.i
 
 if.else.i.i:                                      ; preds = %if.end14.i
@@ -1922,7 +1922,7 @@ invoke.cont.i.i.i:                                ; preds = %cond.true.i.i.i.i, 
   %add.ptr.i.i.i41 = getelementptr inbounds %"struct.std::pair.278", ptr %cond.i17.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store double %call17.i, ptr %add.ptr.i.i.i41, align 8, !noalias !24
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i41, i64 8
-  store ptr %__begin3.sroa.0.030.i, ptr %second.i.i.i.i.i.i, align 8, !noalias !24
+  store ptr %__begin3.sroa.0.029.i, ptr %second.i.i.i.i.i.i, align 8, !noalias !24
   %cmp.not5.i.i.i.i.i.i = icmp eq ptr %valueAndStats.sroa.0.032.i, %valueAndStats.sroa.9.031.i
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit26.i.i.i, label %for.body.i.i.i.i.i.i
 
@@ -1949,12 +1949,12 @@ _ZNSt6vectorISt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaI
   br label %invoke.cont19.i
 
 invoke.cont19.i:                                  ; preds = %_ZNSt6vectorISt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_EE17_M_realloc_insertIJRdS8_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i, %if.then.i.i38
-  %valueAndStats.sroa.15.1.i = phi ptr [ %add.ptr28.i.i.i, %_ZNSt6vectorISt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_EE17_M_realloc_insertIJRdS8_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i ], [ %valueAndStats.sroa.15.029.i, %if.then.i.i38 ]
+  %valueAndStats.sroa.15.1.i = phi ptr [ %add.ptr28.i.i.i, %_ZNSt6vectorISt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_EE17_M_realloc_insertIJRdS8_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i ], [ %valueAndStats.sroa.15.030.i, %if.then.i.i38 ]
   %__cur.0.lcssa.i.i.i.i.i.pn.i = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorISt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_EE17_M_realloc_insertIJRdS8_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i ], [ %valueAndStats.sroa.9.031.i, %if.then.i.i38 ]
   %valueAndStats.sroa.0.1.i = phi ptr [ %cond.i17.i.i.i, %_ZNSt6vectorISt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_EE17_M_realloc_insertIJRdS8_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i ], [ %valueAndStats.sroa.0.032.i, %if.then.i.i38 ]
   %valueAndStats.sroa.9.1.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %target.i) #29, !noalias !24
-  %incdec.ptr.i16.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.030.i, i64 32
+  %incdec.ptr.i16.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.029.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i16.i, %repGCStats.val18
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
@@ -2708,11 +2708,11 @@ if.then124:                                       ; preds = %for.end122
   br i1 %cmp.i.not35.i, label %_ZN8facebook6hermes7tracing12_GLOBAL__N_118verifyBundlesExistERKSt3mapISt5arrayIhLm20EESt10shared_ptrIKNS_3jsi6BufferEESt4lessIS5_ESaISt4pairIKS5_SA_EEERKNS1_10SynthTraceE.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then124, %for.inc.i
-  %__begin3.sroa.0.039.i = phi ptr [ %incdec.ptr.i20.i, %for.inc.i ], [ %trace.val, %if.then124 ]
-  %missingSourceHashes.sroa.13.038.i = phi ptr [ %missingSourceHashes.sroa.13.2.i, %for.inc.i ], [ null, %if.then124 ]
-  %missingSourceHashes.sroa.7.037.i = phi ptr [ %missingSourceHashes.sroa.7.2.i, %for.inc.i ], [ null, %if.then124 ]
-  %missingSourceHashes.sroa.0.036.i = phi ptr [ %missingSourceHashes.sroa.0.2.i, %for.inc.i ], [ null, %if.then124 ]
-  %54 = load ptr, ptr %__begin3.sroa.0.039.i, align 8
+  %missingSourceHashes.sroa.0.039.i = phi ptr [ %missingSourceHashes.sroa.0.2.i, %for.inc.i ], [ null, %if.then124 ]
+  %missingSourceHashes.sroa.7.038.i = phi ptr [ %missingSourceHashes.sroa.7.2.i, %for.inc.i ], [ null, %if.then124 ]
+  %missingSourceHashes.sroa.13.037.i = phi ptr [ %missingSourceHashes.sroa.13.2.i, %for.inc.i ], [ null, %if.then124 ]
+  %__begin3.sroa.0.036.i = phi ptr [ %incdec.ptr.i20.i, %for.inc.i ], [ %trace.val, %if.then124 ]
+  %54 = load ptr, ptr %__begin3.sroa.0.036.i, align 8
   %vtable.i = load ptr, ptr %54, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %55 = load ptr, ptr %vfn.i, align 8
@@ -2724,7 +2724,7 @@ invoke.cont7.i:                                   ; preds = %for.body.i
   br i1 %cmp.i52, label %if.then.i54, label %for.inc.i
 
 if.then.i54:                                      ; preds = %invoke.cont7.i
-  %56 = load ptr, ptr %__begin3.sroa.0.039.i, align 8
+  %56 = load ptr, ptr %__begin3.sroa.0.036.i, align 8
   %57 = call ptr @__dynamic_cast(ptr nonnull %56, ptr nonnull @_ZTIN8facebook6hermes7tracing10SynthTrace6RecordE, ptr nonnull @_ZTIN8facebook6hermes7tracing10SynthTrace17BeginExecJSRecordE, i64 0) #29
   %58 = icmp eq ptr %57, null
   br i1 %58, label %dynamic_cast.bad_cast.i, label %dynamic_cast.end.i
@@ -2783,17 +2783,17 @@ _ZN8facebook6hermes7tracing12_GLOBAL__N_119isAllZeroSourceHashESt5arrayIhLm20EE.
   br i1 %tobool.not.i.i, label %for.inc.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %_ZN8facebook6hermes7tracing12_GLOBAL__N_119isAllZeroSourceHashESt5arrayIhLm20EE.exit.i
-  %cmp.not.i16.i = icmp eq ptr %missingSourceHashes.sroa.7.037.i, %missingSourceHashes.sroa.13.038.i
+  %cmp.not.i16.i = icmp eq ptr %missingSourceHashes.sroa.7.038.i, %missingSourceHashes.sroa.13.037.i
   br i1 %cmp.not.i16.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then20.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %missingSourceHashes.sroa.7.037.i, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash_.i.i, i64 20, i1 false)
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %missingSourceHashes.sroa.7.037.i, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %missingSourceHashes.sroa.7.038.i, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash_.i.i, i64 20, i1 false)
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %missingSourceHashes.sroa.7.038.i, i64 20
   br label %for.inc.i
 
 if.else.i.i:                                      ; preds = %if.then20.i
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %missingSourceHashes.sroa.13.038.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %missingSourceHashes.sroa.0.036.i to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %missingSourceHashes.sroa.7.038.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %missingSourceHashes.sroa.0.039.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i17.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i17.i, label %if.then.i.i.i.i58, label %_ZNKSt6vectorISt5arrayIhLm20EESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -2828,17 +2828,17 @@ _ZNSt12_Vector_baseISt5arrayIhLm20EESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds 
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i57, label %_ZNSt6vectorISt5arrayIhLm20EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i.i
 
 if.then.i.i.i.i.i.i57:                            ; preds = %_ZNSt12_Vector_baseISt5arrayIhLm20EESaIS1_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %cond.i10.i.i.i, ptr align 1 %missingSourceHashes.sroa.0.036.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %cond.i10.i.i.i, ptr align 1 %missingSourceHashes.sroa.0.039.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorISt5arrayIhLm20EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i.i
 
 _ZNSt6vectorISt5arrayIhLm20EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i57, %_ZNSt12_Vector_baseISt5arrayIhLm20EESaIS1_EE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 20
-  %tobool.not.i.i.i.i = icmp eq ptr %missingSourceHashes.sroa.0.036.i, null
+  %tobool.not.i.i.i.i = icmp eq ptr %missingSourceHashes.sroa.0.039.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorISt5arrayIhLm20EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
 if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorISt5arrayIhLm20EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %missingSourceHashes.sroa.0.036.i) #31
+  call void @_ZdlPv(ptr noundef nonnull %missingSourceHashes.sroa.0.039.i) #31
   br label %_ZNSt6vectorISt5arrayIhLm20EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorISt5arrayIhLm20EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorISt5arrayIhLm20EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i.i
@@ -2856,10 +2856,10 @@ lpad.loopexit.split-lp.i:                         ; preds = %if.then.i.i.i.i58, 
   br label %ehcleanup84.i
 
 for.inc.i:                                        ; preds = %_ZNSt6vectorISt5arrayIhLm20EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %if.then.i.i, %_ZN8facebook6hermes7tracing12_GLOBAL__N_119isAllZeroSourceHashESt5arrayIhLm20EE.exit.i, %invoke.cont13.i, %invoke.cont7.i
-  %missingSourceHashes.sroa.0.2.i = phi ptr [ %missingSourceHashes.sroa.0.036.i, %_ZN8facebook6hermes7tracing12_GLOBAL__N_119isAllZeroSourceHashESt5arrayIhLm20EE.exit.i ], [ %missingSourceHashes.sroa.0.036.i, %invoke.cont13.i ], [ %missingSourceHashes.sroa.0.036.i, %invoke.cont7.i ], [ %cond.i10.i.i.i, %_ZNSt6vectorISt5arrayIhLm20EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %missingSourceHashes.sroa.0.036.i, %if.then.i.i ]
-  %missingSourceHashes.sroa.7.2.i = phi ptr [ %missingSourceHashes.sroa.7.037.i, %_ZN8facebook6hermes7tracing12_GLOBAL__N_119isAllZeroSourceHashESt5arrayIhLm20EE.exit.i ], [ %missingSourceHashes.sroa.7.037.i, %invoke.cont13.i ], [ %missingSourceHashes.sroa.7.037.i, %invoke.cont7.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorISt5arrayIhLm20EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
-  %missingSourceHashes.sroa.13.2.i = phi ptr [ %missingSourceHashes.sroa.13.038.i, %_ZN8facebook6hermes7tracing12_GLOBAL__N_119isAllZeroSourceHashESt5arrayIhLm20EE.exit.i ], [ %missingSourceHashes.sroa.13.038.i, %invoke.cont13.i ], [ %missingSourceHashes.sroa.13.038.i, %invoke.cont7.i ], [ %add.ptr19.i.i.i, %_ZNSt6vectorISt5arrayIhLm20EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %missingSourceHashes.sroa.13.038.i, %if.then.i.i ]
-  %incdec.ptr.i20.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.039.i, i64 8
+  %missingSourceHashes.sroa.13.2.i = phi ptr [ %missingSourceHashes.sroa.13.037.i, %_ZN8facebook6hermes7tracing12_GLOBAL__N_119isAllZeroSourceHashESt5arrayIhLm20EE.exit.i ], [ %missingSourceHashes.sroa.13.037.i, %invoke.cont13.i ], [ %missingSourceHashes.sroa.13.037.i, %invoke.cont7.i ], [ %add.ptr19.i.i.i, %_ZNSt6vectorISt5arrayIhLm20EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %missingSourceHashes.sroa.13.037.i, %if.then.i.i ]
+  %missingSourceHashes.sroa.7.2.i = phi ptr [ %missingSourceHashes.sroa.7.038.i, %_ZN8facebook6hermes7tracing12_GLOBAL__N_119isAllZeroSourceHashESt5arrayIhLm20EE.exit.i ], [ %missingSourceHashes.sroa.7.038.i, %invoke.cont13.i ], [ %missingSourceHashes.sroa.7.038.i, %invoke.cont7.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorISt5arrayIhLm20EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
+  %missingSourceHashes.sroa.0.2.i = phi ptr [ %missingSourceHashes.sroa.0.039.i, %_ZN8facebook6hermes7tracing12_GLOBAL__N_119isAllZeroSourceHashESt5arrayIhLm20EE.exit.i ], [ %missingSourceHashes.sroa.0.039.i, %invoke.cont13.i ], [ %missingSourceHashes.sroa.0.039.i, %invoke.cont7.i ], [ %cond.i10.i.i.i, %_ZNSt6vectorISt5arrayIhLm20EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %missingSourceHashes.sroa.0.039.i, %if.then.i.i ]
+  %incdec.ptr.i20.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.036.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i20.i, %trace.val21
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
@@ -2995,7 +2995,7 @@ ehcleanup.i:                                      ; preds = %lpad81.i, %lpad74.i
   br label %ehcleanup84.i
 
 if.end83.i:                                       ; preds = %for.end.i
-  %tobool.not.i.i.i28.i = icmp eq ptr %missingSourceHashes.sroa.0.2.i, null
+  %tobool.not.i.i.i28.i = icmp eq ptr %missingSourceHashes.sroa.7.2.i, null
   br i1 %tobool.not.i.i.i28.i, label %_ZN8facebook6hermes7tracing12_GLOBAL__N_118verifyBundlesExistERKSt3mapISt5arrayIhLm20EESt10shared_ptrIKNS_3jsi6BufferEESt4lessIS5_ESaISt4pairIKS5_SA_EEERKNS1_10SynthTraceE.exit, label %if.then.i.i.i29.i
 
 if.then.i.i.i29.i:                                ; preds = %if.end83.i
@@ -3003,13 +3003,13 @@ if.then.i.i.i29.i:                                ; preds = %if.end83.i
   br label %_ZN8facebook6hermes7tracing12_GLOBAL__N_118verifyBundlesExistERKSt3mapISt5arrayIhLm20EESt10shared_ptrIKNS_3jsi6BufferEESt4lessIS5_ESaISt4pairIKS5_SA_EEERKNS1_10SynthTraceE.exit
 
 ehcleanup84.i:                                    ; preds = %ehcleanup.i, %lpad29.i, %lpad.loopexit.split-lp.i, %lpad.loopexit22.i
-  %missingSourceHashes.sroa.0.032.i = phi ptr [ %missingSourceHashes.sroa.0.2.i, %ehcleanup.i ], [ %missingSourceHashes.sroa.0.2.i, %lpad29.i ], [ %missingSourceHashes.sroa.0.036.i, %lpad.loopexit22.i ], [ %missingSourceHashes.sroa.0.036.i, %lpad.loopexit.split-lp.i ]
+  %missingSourceHashes.sroa.0.029.i = phi ptr [ %missingSourceHashes.sroa.0.2.i, %ehcleanup.i ], [ %missingSourceHashes.sroa.0.2.i, %lpad29.i ], [ %missingSourceHashes.sroa.0.039.i, %lpad.loopexit22.i ], [ %missingSourceHashes.sroa.0.039.i, %lpad.loopexit.split-lp.i ]
   %.pn11.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %62, %lpad29.i ], [ %lpad.loopexit23.i, %lpad.loopexit22.i ], [ %lpad.loopexit.split-lp24.i, %lpad.loopexit.split-lp.i ]
-  %tobool.not.i.i.i30.i = icmp eq ptr %missingSourceHashes.sroa.0.032.i, null
+  %tobool.not.i.i.i30.i = icmp eq ptr %missingSourceHashes.sroa.0.029.i, null
   br i1 %tobool.not.i.i.i30.i, label %ehcleanup127, label %if.then.i.i.i31.i
 
 if.then.i.i.i31.i:                                ; preds = %ehcleanup84.i
-  call void @_ZdlPv(ptr noundef nonnull %missingSourceHashes.sroa.0.032.i) #31
+  call void @_ZdlPv(ptr noundef nonnull %missingSourceHashes.sroa.0.029.i) #31
   br label %ehcleanup127
 
 unreachable.i:                                    ; preds = %invoke.cont82.i
@@ -17712,8 +17712,8 @@ while.body:                                       ; preds = %if.end
 
 if.then:                                          ; preds = %while.body, %while.body.preheader
   %sub.ptr.rhs.cast.i27.lcssa = phi i64 [ %sub.ptr.rhs.cast.i21, %while.body.preheader ], [ %sub.ptr.rhs.cast.i, %while.body ]
-  %__last.sroa.0.025.lcssa = phi ptr [ %__last.coerce, %while.body.preheader ], [ %call21.__last.sroa.0.0, %while.body ]
-  %__first.sroa.0.024.lcssa = phi ptr [ %__first.coerce, %while.body.preheader ], [ %__first.sroa.0.0.call21, %while.body ]
+  %__first.sroa.0.025.lcssa = phi ptr [ %__first.coerce, %while.body.preheader ], [ %__first.sroa.0.0.call21, %while.body ]
+  %__last.sroa.0.024.lcssa = phi ptr [ %__last.coerce, %while.body.preheader ], [ %call21.__last.sroa.0.0, %while.body ]
   %add.ptr.i = getelementptr inbounds i8, ptr %__nth.coerce, i64 16
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i27.lcssa
@@ -17728,27 +17728,27 @@ if.end.i.i:                                       ; preds = %if.then
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %if.end.i.i
   %__parent.0.i.i = phi i64 [ %div1617.i.i, %if.end.i.i ], [ %dec.i.i, %while.body.i.i ]
-  %phi.call.i.i = getelementptr inbounds %"struct.std::pair.278", ptr %__first.sroa.0.024.lcssa, i64 %__parent.0.i.i
+  %phi.call.i.i = getelementptr inbounds %"struct.std::pair.278", ptr %__first.sroa.0.025.lcssa, i64 %__parent.0.i.i
   %__value.sroa.0.0.copyload.i.i = load double, ptr %phi.call.i.i, align 8
   %__value.sroa.2.0.call5.sroa_idx.i.i = getelementptr inbounds i8, ptr %phi.call.i.i, i64 8
   %__value.sroa.2.0.copyload.i.i = load ptr, ptr %__value.sroa.2.0.call5.sroa_idx.i.i, align 8
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEElSB_NS0_5__ops15_Iter_less_iterEEvT_T0_SK_T1_T2_(ptr %__first.sroa.0.024.lcssa, i64 noundef %__parent.0.i.i, i64 noundef %sub.ptr.div.i.i.i, double %__value.sroa.0.0.copyload.i.i, ptr %__value.sroa.2.0.copyload.i.i)
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEElSB_NS0_5__ops15_Iter_less_iterEEvT_T0_SK_T1_T2_(ptr %__first.sroa.0.025.lcssa, i64 noundef %__parent.0.i.i, i64 noundef %sub.ptr.div.i.i.i, double %__value.sroa.0.0.copyload.i.i, ptr %__value.sroa.2.0.copyload.i.i)
   %cmp9.i.i = icmp eq i64 %__parent.0.i.i, 0
   %dec.i.i = add nsw i64 %__parent.0.i.i, -1
   br i1 %cmp9.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_less_iterEEvT_SJ_RT0_.exit.i, label %while.body.i.i, !llvm.loop !327
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_less_iterEEvT_SJ_RT0_.exit.i: ; preds = %while.body.i.i, %if.then
-  %cmp.i111.i = icmp ult ptr %add.ptr.i, %__last.sroa.0.025.lcssa
+  %cmp.i111.i = icmp ult ptr %add.ptr.i, %__last.sroa.0.024.lcssa
   br i1 %cmp.i111.i, label %for.body.lr.ph.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_less_iterEEvT_SJ_SJ_T0_.exit
 
 for.body.lr.ph.i:                                 ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_less_iterEEvT_SJ_RT0_.exit.i
-  %second5.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.024.lcssa, i64 8
+  %second5.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.025.lcssa, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %__i.sroa.0.012.i = phi ptr [ %add.ptr.i, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %for.inc.i ]
   %0 = load double, ptr %__i.sroa.0.012.i, align 8
-  %1 = load double, ptr %__first.sroa.0.024.lcssa, align 8
+  %1 = load double, ptr %__first.sroa.0.025.lcssa, align 8
   %cmp.i.i.i = fcmp olt double %0, %1
   br i1 %cmp.i.i.i, label %for.body.if.then_crit_edge.i, label %lor.rhs.i.i.i
 
@@ -17774,20 +17774,20 @@ if.then.i:                                        ; preds = %_ZNK9__gnu_cxx5__op
   store double %1, ptr %__i.sroa.0.012.i, align 8
   %4 = load ptr, ptr %second5.i.i.i, align 8
   store ptr %4, ptr %__value.sroa.2.0.call.sroa_idx.i.i, align 8
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEElSB_NS0_5__ops15_Iter_less_iterEEvT_T0_SK_T1_T2_(ptr nonnull %__first.sroa.0.024.lcssa, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i, double %0, ptr %__value.sroa.2.0.copyload.i3.i)
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEElSB_NS0_5__ops15_Iter_less_iterEEvT_T0_SK_T1_T2_(ptr nonnull %__first.sroa.0.025.lcssa, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i, double %0, ptr %__value.sroa.2.0.copyload.i3.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.i, %lor.rhs.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.012.i, i64 16
-  %cmp.i1.i = icmp ult ptr %incdec.ptr.i.i, %__last.sroa.0.025.lcssa
+  %cmp.i1.i = icmp ult ptr %incdec.ptr.i.i, %__last.sroa.0.024.lcssa
   br i1 %cmp.i1.i, label %for.body.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_less_iterEEvT_SJ_SJ_T0_.exit, !llvm.loop !328
 
 _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_less_iterEEvT_SJ_SJ_T0_.exit: ; preds = %for.inc.i, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_less_iterEEvT_SJ_RT0_.exit.i
-  %5 = load double, ptr %__first.sroa.0.024.lcssa, align 8
+  %5 = load double, ptr %__first.sroa.0.025.lcssa, align 8
   %6 = load double, ptr %__nth.coerce, align 8
-  store double %6, ptr %__first.sroa.0.024.lcssa, align 8
+  store double %6, ptr %__first.sroa.0.025.lcssa, align 8
   store double %5, ptr %__nth.coerce, align 8
-  %second.i.i.i2 = getelementptr inbounds i8, ptr %__first.sroa.0.024.lcssa, i64 8
+  %second.i.i.i2 = getelementptr inbounds i8, ptr %__first.sroa.0.025.lcssa, i64 8
   %second3.i.i.i = getelementptr inbounds i8, ptr %__nth.coerce, i64 8
   %7 = load ptr, ptr %second.i.i.i2, align 8
   %8 = load ptr, ptr %second3.i.i.i, align 8
@@ -17796,13 +17796,13 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt4pairIdPKNSt7__cxx1112basi
   br label %return
 
 if.end:                                           ; preds = %while.body.preheader, %while.body
-  %__first.sroa.0.02445 = phi ptr [ %__first.sroa.0.0.call21, %while.body ], [ %__first.coerce, %while.body.preheader ]
-  %__last.sroa.0.02544 = phi ptr [ %call21.__last.sroa.0.0, %while.body ], [ %__last.coerce, %while.body.preheader ]
+  %__last.sroa.0.02445 = phi ptr [ %call21.__last.sroa.0.0, %while.body ], [ %__last.coerce, %while.body.preheader ]
+  %__first.sroa.0.02544 = phi ptr [ %__first.sroa.0.0.call21, %while.body ], [ %__first.coerce, %while.body.preheader ]
   %__depth_limit.addr.02643 = phi i64 [ %dec, %while.body ], [ %__depth_limit, %while.body.preheader ]
-  %call21 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_less_iterEET_SJ_SJ_T0_(ptr %__first.sroa.0.02445, ptr %__last.sroa.0.02544)
+  %call21 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIdPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_less_iterEET_SJ_SJ_T0_(ptr %__first.sroa.0.02544, ptr %__last.sroa.0.02445)
   %cmp.i.not = icmp ugt ptr %call21, %__nth.coerce
-  %__first.sroa.0.0.call21 = select i1 %cmp.i.not, ptr %__first.sroa.0.02445, ptr %call21
-  %call21.__last.sroa.0.0 = select i1 %cmp.i.not, ptr %call21, ptr %__last.sroa.0.02544
+  %call21.__last.sroa.0.0 = select i1 %cmp.i.not, ptr %call21, ptr %__last.sroa.0.02445
+  %__first.sroa.0.0.call21 = select i1 %cmp.i.not, ptr %__first.sroa.0.02544, ptr %call21
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call21.__last.sroa.0.0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.sroa.0.0.call21 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -17810,8 +17810,8 @@ if.end:                                           ; preds = %while.body.preheade
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !326
 
 while.end:                                        ; preds = %if.end, %entry
-  %__first.sroa.0.0.lcssa = phi ptr [ %__first.coerce, %entry ], [ %__first.sroa.0.0.call21, %if.end ]
   %__last.sroa.0.0.lcssa = phi ptr [ %__last.coerce, %entry ], [ %call21.__last.sroa.0.0, %if.end ]
+  %__first.sroa.0.0.lcssa = phi ptr [ %__first.coerce, %entry ], [ %__first.sroa.0.0.call21, %if.end ]
   %sub.ptr.rhs.cast.i.lcssa = phi i64 [ %sub.ptr.rhs.cast.i21, %entry ], [ %sub.ptr.rhs.cast.i, %if.end ]
   %cmp.i.i3 = icmp eq ptr %__first.sroa.0.0.lcssa, %__last.sroa.0.0.lcssa
   br i1 %cmp.i.i3, label %return, label %for.cond.preheader.i

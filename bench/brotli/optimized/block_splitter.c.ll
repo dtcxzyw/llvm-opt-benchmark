@@ -582,11 +582,11 @@ for.end95.i.i:                                    ; preds = %for.inc93.i.i
 while.body.i.i:                                   ; preds = %if.end127.i.i, %for.end95.i.i
   %cur_id.0104.i.i = phi i8 [ %cur_id.1.i.i, %if.end127.i.i ], [ %43, %for.end95.i.i ]
   %ix97.0103.i.i = phi i64 [ %sub108.i.i, %if.end127.i.i ], [ %mul98.i.i, %for.end95.i.i ]
-  %byte_ix.1102.i.i = phi i64 [ %dec107.i.i, %if.end127.i.i ], [ %sub96.i.i, %for.end95.i.i ]
-  %num_blocks.0101.i.i = phi i64 [ %num_blocks.1.i.i, %if.end127.i.i ], [ 1, %for.end95.i.i ]
+  %num_blocks.0102.i.i = phi i64 [ %num_blocks.1.i.i, %if.end127.i.i ], [ 1, %for.end95.i.i ]
+  %byte_ix.1101.i.i = phi i64 [ %dec107.i.i, %if.end127.i.i ], [ %sub96.i.i, %for.end95.i.i ]
   %and104.i.i = and i8 %cur_id.0104.i.i, 7
   %shl105.i.i = shl nuw i8 1, %and104.i.i
-  %dec107.i.i = add i64 %byte_ix.1102.i.i, -1
+  %dec107.i.i = add i64 %byte_ix.1101.i.i, -1
   %sub108.i.i = sub i64 %ix97.0103.i.i, %shr.i.i
   %44 = lshr i8 %cur_id.0104.i.i, 3
   %conv111.i.i = zext nneg i8 %44 to i64
@@ -602,11 +602,11 @@ if.then117.i.i:                                   ; preds = %while.body.i.i
   %47 = load i8, ptr %arrayidx119.i.i, align 1
   %cmp121.not.i.i = icmp ne i8 %cur_id.0104.i.i, %47
   %inc125.i.i = zext i1 %cmp121.not.i.i to i64
-  %spec.select.i134.i = add i64 %num_blocks.0101.i.i, %inc125.i.i
+  %spec.select.i134.i = add i64 %num_blocks.0102.i.i, %inc125.i.i
   br label %if.end127.i.i
 
 if.end127.i.i:                                    ; preds = %if.then117.i.i, %while.body.i.i
-  %num_blocks.1.i.i = phi i64 [ %num_blocks.0101.i.i, %while.body.i.i ], [ %spec.select.i134.i, %if.then117.i.i ]
+  %num_blocks.1.i.i = phi i64 [ %num_blocks.0102.i.i, %while.body.i.i ], [ %spec.select.i134.i, %if.then117.i.i ]
   %cur_id.1.i.i = phi i8 [ %cur_id.0104.i.i, %while.body.i.i ], [ %47, %if.then117.i.i ]
   %arrayidx128.i.i = getelementptr inbounds i8, ptr %call97.i, i64 %dec107.i.i
   store i8 %cur_id.1.i.i, ptr %arrayidx128.i.i, align 1
@@ -805,23 +805,23 @@ for.inc.i164.i:                                   ; preds = %if.then.i163.i, %lo
 
 for.body69.lr.ph.i.i:                             ; preds = %for.cond60.preheader.i.i, %for.end193.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.end193.i.i ], [ %retval.0.i.i, %for.cond60.preheader.i.i ]
-  %i.1368.i.i = phi i64 [ %add196.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
-  %pos.0367.i.i = phi i64 [ %pos.2.lcssa.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
-  %num_clusters.0366.i.i = phi i64 [ %add194.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
-  %cluster_size.0365.i.i = phi ptr [ %cluster_size.1.i.i, %for.end193.i.i ], [ %cond24.i.i, %for.cond60.preheader.i.i ]
+  %all_histograms_size.0368.i.i = phi i64 [ %all_histograms_size.1.lcssa.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
+  %all_histograms_capacity.0367.i.i = phi i64 [ %all_histograms_capacity.1.i.i, %for.end193.i.i ], [ %div288312321.i.i, %for.cond60.preheader.i.i ]
+  %all_histograms.0366.i.i = phi ptr [ %all_histograms.1.i.i, %for.end193.i.i ], [ %cond17325.i.i, %for.cond60.preheader.i.i ]
+  %cluster_size_size.0365.i.i = phi i64 [ %cluster_size_size.1.lcssa.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
   %cluster_size_capacity.0364.i.i = phi i64 [ %cluster_size_capacity.1.i.i, %for.end193.i.i ], [ %div288312321.i.i, %for.cond60.preheader.i.i ]
-  %cluster_size_size.0363.i.i = phi i64 [ %cluster_size_size.1.lcssa.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
-  %all_histograms.0362.i.i = phi ptr [ %all_histograms.1.i.i, %for.end193.i.i ], [ %cond17325.i.i, %for.cond60.preheader.i.i ]
-  %all_histograms_capacity.0361.i.i = phi i64 [ %all_histograms_capacity.1.i.i, %for.end193.i.i ], [ %div288312321.i.i, %for.cond60.preheader.i.i ]
-  %all_histograms_size.0360.i.i = phi i64 [ %all_histograms_size.1.lcssa.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
+  %cluster_size.0363.i.i = phi ptr [ %cluster_size.1.i.i, %for.end193.i.i ], [ %cond24.i.i, %for.cond60.preheader.i.i ]
+  %num_clusters.0362.i.i = phi i64 [ %add194.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
+  %pos.0361.i.i = phi i64 [ %pos.2.lcssa.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
+  %i.1360.i.i = phi i64 [ %add196.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
   %umin400.i.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i.i, i64 64)
   %umax401.i.i = tail call i64 @llvm.umax.i64(i64 %umin400.i.i, i64 1)
-  %60 = getelementptr i32, ptr %add.ptr45.i.i, i64 %i.1368.i.i
+  %60 = getelementptr i32, ptr %add.ptr45.i.i, i64 %i.1360.i.i
   br label %for.body69.i.i
 
 for.body69.i.i:                                   ; preds = %for.end84.i.i, %for.body69.lr.ph.i.i
   %j.0349.i.i = phi i64 [ 0, %for.body69.lr.ph.i.i ], [ %inc94.i166.i, %for.end84.i.i ]
-  %pos.1348.i.i = phi i64 [ %pos.0367.i.i, %for.body69.lr.ph.i.i ], [ %pos.2.lcssa.i.i, %for.end84.i.i ]
+  %pos.1348.i.i = phi i64 [ %pos.0361.i.i, %for.body69.lr.ph.i.i ], [ %pos.2.lcssa.i.i, %for.end84.i.i ]
   %arrayidx71.i.i = getelementptr i32, ptr %60, i64 %j.0349.i.i
   %61 = load i32, ptr %arrayidx71.i.i, align 4
   %conv72.i.i = zext i32 %61 to i64
@@ -865,16 +865,16 @@ for.end84.i.i:                                    ; preds = %for.body77.i.i, %fo
   br i1 %exitcond398.not.i.i, label %for.end95.i167.i, label %for.body69.i.i, !llvm.loop !28
 
 for.end95.i167.i:                                 ; preds = %for.end84.i.i
-  %sub64.i.i = sub i64 %retval.0.i.i, %i.1368.i.i
+  %sub64.i.i = sub i64 %retval.0.i.i, %i.1360.i.i
   %cond.i438.i.i = tail call i64 @llvm.umin.i64(i64 %sub64.i.i, i64 64)
   %call96.i.i = tail call i64 @BrotliHistogramCombineLiteral(ptr noundef nonnull %cond33.i.i, ptr noundef %call46.i.i, ptr noundef nonnull %cond8310322.i.i, ptr noundef nonnull %add.ptr43.i.i, ptr noundef nonnull %add.ptr42.i.i, ptr noundef %call38.i.i, i64 noundef %cond.i438.i.i, i64 noundef %cond.i438.i.i, i64 noundef 64, i64 noundef 2048) #7
-  %add97.i.i = add i64 %call96.i.i, %all_histograms_size.0360.i.i
-  %cmp98.i.i = icmp ult i64 %all_histograms_capacity.0361.i.i, %add97.i.i
+  %add97.i.i = add i64 %call96.i.i, %all_histograms_size.0368.i.i
+  %cmp98.i.i = icmp ult i64 %all_histograms_capacity.0367.i.i, %add97.i.i
   br i1 %cmp98.i.i, label %if.then100.i.i, label %if.end125.i.i
 
 if.then100.i.i:                                   ; preds = %for.end95.i167.i
-  %cmp101.i.i = icmp eq i64 %all_histograms_capacity.0361.i.i, 0
-  %cond107.i.i = select i1 %cmp101.i.i, i64 %add97.i.i, i64 %all_histograms_capacity.0361.i.i
+  %cmp101.i.i = icmp eq i64 %all_histograms_capacity.0367.i.i, 0
+  %cond107.i.i = select i1 %cmp101.i.i, i64 %add97.i.i, i64 %all_histograms_capacity.0367.i.i
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %if.then100.i.i
@@ -889,18 +889,18 @@ cond.end118.i.i:                                  ; preds = %while.cond.i.i
   br i1 %cmp101.i.i, label %if.end124.i.i, label %if.then122.i.i
 
 if.then122.i.i:                                   ; preds = %cond.end118.i.i
-  %mul123.i.i = mul i64 %all_histograms_capacity.0361.i.i, 1040
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call116.i.i, ptr align 8 %all_histograms.0362.i.i, i64 %mul123.i.i, i1 false)
+  %mul123.i.i = mul i64 %all_histograms_capacity.0367.i.i, 1040
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call116.i.i, ptr align 8 %all_histograms.0366.i.i, i64 %mul123.i.i, i1 false)
   br label %if.end124.i.i
 
 if.end124.i.i:                                    ; preds = %if.then122.i.i, %cond.end118.i.i
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0362.i.i) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0366.i.i) #7
   br label %if.end125.i.i
 
 if.end125.i.i:                                    ; preds = %if.end124.i.i, %for.end95.i167.i
-  %all_histograms_capacity.1.i.i = phi i64 [ %_new_size.0.i.i, %if.end124.i.i ], [ %all_histograms_capacity.0361.i.i, %for.end95.i167.i ]
-  %all_histograms.1.i.i = phi ptr [ %call116.i.i, %if.end124.i.i ], [ %all_histograms.0362.i.i, %for.end95.i167.i ]
-  %add126.i.i = add i64 %call96.i.i, %cluster_size_size.0363.i.i
+  %all_histograms.1.i.i = phi ptr [ %call116.i.i, %if.end124.i.i ], [ %all_histograms.0366.i.i, %for.end95.i167.i ]
+  %all_histograms_capacity.1.i.i = phi i64 [ %_new_size.0.i.i, %if.end124.i.i ], [ %all_histograms_capacity.0367.i.i, %for.end95.i167.i ]
+  %add126.i.i = add i64 %call96.i.i, %cluster_size_size.0365.i.i
   %cmp127.i.i = icmp ult i64 %cluster_size_capacity.0364.i.i, %add126.i.i
   br i1 %cmp127.i.i, label %if.then129.i.i, label %if.end159.i.i
 
@@ -922,32 +922,32 @@ cond.end152.i.i:                                  ; preds = %while.cond139.i.i
 
 if.then156.i.i:                                   ; preds = %cond.end152.i.i
   %mul157.i.i = shl i64 %cluster_size_capacity.0364.i.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call150.i.i, ptr align 4 %cluster_size.0365.i.i, i64 %mul157.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call150.i.i, ptr align 4 %cluster_size.0363.i.i, i64 %mul157.i.i, i1 false)
   br label %if.end158.i.i
 
 if.end158.i.i:                                    ; preds = %if.then156.i.i, %cond.end152.i.i
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0365.i.i) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0363.i.i) #7
   br label %if.end159.i.i
 
 if.end159.i.i:                                    ; preds = %if.end158.i.i, %if.end125.i.i
+  %cluster_size.1.i.i = phi ptr [ %call150.i.i, %if.end158.i.i ], [ %cluster_size.0363.i.i, %if.end125.i.i ]
   %cluster_size_capacity.1.i.i = phi i64 [ %_new_size130.0.i.i, %if.end158.i.i ], [ %cluster_size_capacity.0364.i.i, %if.end125.i.i ]
-  %cluster_size.1.i.i = phi ptr [ %call150.i.i, %if.end158.i.i ], [ %cluster_size.0365.i.i, %if.end125.i.i ]
   %cmp161351.not.i.i = icmp eq i64 %call96.i.i, 0
   br i1 %cmp161351.not.i.i, label %for.body183.lr.ph.i.i, label %for.body163.i.i
 
 for.body183.lr.ph.i.i:                            ; preds = %for.body163.i.i, %if.end159.i.i
-  %all_histograms_size.1.lcssa.i.i = phi i64 [ %all_histograms_size.0360.i.i, %if.end159.i.i ], [ %inc164.i.i, %for.body163.i.i ]
-  %cluster_size_size.1.lcssa.i.i = phi i64 [ %cluster_size_size.0363.i.i, %if.end159.i.i ], [ %inc171.i.i, %for.body163.i.i ]
-  %conv184.i.i = trunc i64 %num_clusters.0366.i.i to i32
+  %cluster_size_size.1.lcssa.i.i = phi i64 [ %cluster_size_size.0365.i.i, %if.end159.i.i ], [ %inc171.i.i, %for.body163.i.i ]
+  %all_histograms_size.1.lcssa.i.i = phi i64 [ %all_histograms_size.0368.i.i, %if.end159.i.i ], [ %inc164.i.i, %for.body163.i.i ]
+  %conv184.i.i = trunc i64 %num_clusters.0362.i.i to i32
   br label %for.body183.i.i
 
 for.body163.i.i:                                  ; preds = %if.end159.i.i, %for.body163.i.i
-  %j.1354.i.i = phi i64 [ %inc178.i.i, %for.body163.i.i ], [ 0, %if.end159.i.i ]
-  %cluster_size_size.1353.i.i = phi i64 [ %inc171.i.i, %for.body163.i.i ], [ %cluster_size_size.0363.i.i, %if.end159.i.i ]
-  %all_histograms_size.1352.i.i = phi i64 [ %inc164.i.i, %for.body163.i.i ], [ %all_histograms_size.0360.i.i, %if.end159.i.i ]
-  %inc164.i.i = add i64 %all_histograms_size.1352.i.i, 1
-  %arrayidx165.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %all_histograms.1.i.i, i64 %all_histograms_size.1352.i.i
-  %arrayidx166.i.i = getelementptr inbounds i32, ptr %add.ptr42.i.i, i64 %j.1354.i.i
+  %all_histograms_size.1354.i.i = phi i64 [ %inc164.i.i, %for.body163.i.i ], [ %all_histograms_size.0368.i.i, %if.end159.i.i ]
+  %cluster_size_size.1353.i.i = phi i64 [ %inc171.i.i, %for.body163.i.i ], [ %cluster_size_size.0365.i.i, %if.end159.i.i ]
+  %j.1352.i.i = phi i64 [ %inc178.i.i, %for.body163.i.i ], [ 0, %if.end159.i.i ]
+  %inc164.i.i = add i64 %all_histograms_size.1354.i.i, 1
+  %arrayidx165.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %all_histograms.1.i.i, i64 %all_histograms_size.1354.i.i
+  %arrayidx166.i.i = getelementptr inbounds i32, ptr %add.ptr42.i.i, i64 %j.1352.i.i
   %64 = load i32, ptr %arrayidx166.i.i, align 4
   %idxprom.i168.i = zext i32 %64 to i64
   %arrayidx167.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %cond33.i.i, i64 %idxprom.i168.i
@@ -959,12 +959,12 @@ for.body163.i.i:                                  ; preds = %if.end159.i.i, %for
   %inc171.i.i = add i64 %cluster_size_size.1353.i.i, 1
   %arrayidx172.i.i = getelementptr inbounds i32, ptr %cluster_size.1.i.i, i64 %cluster_size_size.1353.i.i
   store i32 %66, ptr %arrayidx172.i.i, align 4
-  %conv173.i.i = trunc i64 %j.1354.i.i to i32
+  %conv173.i.i = trunc i64 %j.1352.i.i to i32
   %67 = load i32, ptr %arrayidx166.i.i, align 4
   %idxprom175.i.i = zext i32 %67 to i64
   %arrayidx176.i.i = getelementptr inbounds i32, ptr %add.ptr44.i.i, i64 %idxprom175.i.i
   store i32 %conv173.i.i, ptr %arrayidx176.i.i, align 4
-  %inc178.i.i = add nuw i64 %j.1354.i.i, 1
+  %inc178.i.i = add nuw i64 %j.1352.i.i, 1
   %exitcond399.not.i.i = icmp eq i64 %inc178.i.i, %call96.i.i
   br i1 %exitcond399.not.i.i, label %for.body183.lr.ph.i.i, label %for.body163.i.i, !llvm.loop !31
 
@@ -976,7 +976,7 @@ for.body183.i.i:                                  ; preds = %for.body183.i.i, %f
   %arrayidx187.i.i = getelementptr inbounds i32, ptr %add.ptr44.i.i, i64 %idxprom186.i.i
   %69 = load i32, ptr %arrayidx187.i.i, align 4
   %add188.i.i = add i32 %69, %conv184.i.i
-  %add189.i.i = add nuw nsw i64 %j.2358.i.i, %i.1368.i.i
+  %add189.i.i = add nuw nsw i64 %j.2358.i.i, %i.1360.i.i
   %arrayidx190.i.i = getelementptr inbounds i32, ptr %cond295308323.i.i, i64 %add189.i.i
   store i32 %add188.i.i, ptr %arrayidx190.i.i, align 4
   %inc192.i.i = add nuw nsw i64 %j.2358.i.i, 1
@@ -984,16 +984,16 @@ for.body183.i.i:                                  ; preds = %for.body183.i.i, %f
   br i1 %exitcond402.not.i.i, label %for.end193.i.i, label %for.body183.i.i, !llvm.loop !32
 
 for.end193.i.i:                                   ; preds = %for.body183.i.i
-  %add194.i.i = add i64 %call96.i.i, %num_clusters.0366.i.i
-  %add196.i.i = add i64 %i.1368.i.i, 64
+  %add194.i.i = add i64 %call96.i.i, %num_clusters.0362.i.i
+  %add196.i.i = add i64 %i.1360.i.i, 64
   %cmp61.i.i = icmp ult i64 %add196.i.i, %retval.0.i.i
   %indvars.iv.next.i.i = add i64 %indvars.iv.i.i, -64
   br i1 %cmp61.i.i, label %for.body69.lr.ph.i.i, label %for.end197.i.i, !llvm.loop !33
 
 for.end197.i.i:                                   ; preds = %for.end193.i.i, %for.cond60.preheader.i.i
-  %all_histograms.0.lcssa.i.i = phi ptr [ %cond17325.i.i, %for.cond60.preheader.i.i ], [ %all_histograms.1.i.i, %for.end193.i.i ]
-  %cluster_size.0.lcssa.i.i = phi ptr [ %cond24.i.i, %for.cond60.preheader.i.i ], [ %cluster_size.1.i.i, %for.end193.i.i ]
   %num_clusters.0.lcssa.i.i = phi i64 [ 0, %for.cond60.preheader.i.i ], [ %add194.i.i, %for.end193.i.i ]
+  %cluster_size.0.lcssa.i.i = phi ptr [ %cond24.i.i, %for.cond60.preheader.i.i ], [ %cluster_size.1.i.i, %for.end193.i.i ]
+  %all_histograms.0.lcssa.i.i = phi ptr [ %cond17325.i.i, %for.cond60.preheader.i.i ], [ %all_histograms.1.i.i, %for.end193.i.i ]
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond33.i.i) #7
   %mul198.i.i = shl i64 %num_clusters.0.lcssa.i.i, 6
   %div199289.i.i = lshr i64 %num_clusters.0.lcssa.i.i, 1
@@ -1054,18 +1054,18 @@ for.body254.lr.ph.i.i:                            ; preds = %for.cond251.prehead
 
 for.body254.i.i:                                  ; preds = %for.inc308.i.i, %for.body254.lr.ph.i.i
   %next_index.0389.i.i = phi i32 [ 0, %for.body254.lr.ph.i.i ], [ %next_index.1.i.i, %for.inc308.i.i ]
-  %i.4388.i.i = phi i64 [ 0, %for.body254.lr.ph.i.i ], [ %inc309.i.i, %for.inc308.i.i ]
-  %pos.3387.i.i = phi i64 [ 0, %for.body254.lr.ph.i.i ], [ %pos.4.lcssa.i.i, %for.inc308.i.i ]
+  %pos.3388.i.i = phi i64 [ 0, %for.body254.lr.ph.i.i ], [ %pos.4.lcssa.i.i, %for.inc308.i.i ]
+  %i.4387.i.i = phi i64 [ 0, %for.body254.lr.ph.i.i ], [ %inc309.i.i, %for.inc308.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %call46.i.i, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i.i171.i, align 8
-  %arrayidx257.i.i = getelementptr inbounds i32, ptr %add.ptr45.i.i, i64 %i.4388.i.i
+  %arrayidx257.i.i = getelementptr inbounds i32, ptr %add.ptr45.i.i, i64 %i.4387.i.i
   %71 = load i32, ptr %arrayidx257.i.i, align 4
   %cmp259377.not.i.i = icmp eq i32 %71, 0
   br i1 %cmp259377.not.i.i, label %for.end267.i.i, label %for.body261.i.i
 
 for.body261.i.i:                                  ; preds = %for.body254.i.i, %for.body261.i.i
   %72 = phi i64 [ %inc1.i.i174.i, %for.body261.i.i ], [ 0, %for.body254.i.i ]
-  %pos.4378.i.i = phi i64 [ %inc262.i.i, %for.body261.i.i ], [ %pos.3387.i.i, %for.body254.i.i ]
+  %pos.4378.i.i = phi i64 [ %inc262.i.i, %for.body261.i.i ], [ %pos.3388.i.i, %for.body254.i.i ]
   %inc262.i.i = add i64 %pos.4378.i.i, 1
   %arrayidx263.i.i = getelementptr inbounds i8, ptr %cond.ph, i64 %pos.4378.i.i
   %73 = load i8, ptr %arrayidx263.i.i, align 1
@@ -1082,8 +1082,8 @@ for.body261.i.i:                                  ; preds = %for.body254.i.i, %f
   br i1 %cmp259.i.i, label %for.body261.i.i, label %for.end267.i.i, !llvm.loop !35
 
 for.end267.i.i:                                   ; preds = %for.body261.i.i, %for.body254.i.i
-  %pos.4.lcssa.i.i = phi i64 [ %pos.3387.i.i, %for.body254.i.i ], [ %inc262.i.i, %for.body261.i.i ]
-  %cond276.in.idx.i.i = tail call i64 @llvm.usub.sat.i64(i64 %i.4388.i.i, i64 1)
+  %pos.4.lcssa.i.i = phi i64 [ %pos.3388.i.i, %for.body254.i.i ], [ %inc262.i.i, %for.body261.i.i ]
+  %cond276.in.idx.i.i = tail call i64 @llvm.usub.sat.i64(i64 %i.4387.i.i, i64 1)
   %cond276.in.i.i = getelementptr inbounds i32, ptr %cond295308323.i.i, i64 %cond276.in.idx.i.i
   %cond276.i.i = load i32, ptr %cond276.in.i.i, align 4
   %idxprom277.i.i = zext i32 %cond276.i.i to i64
@@ -1121,7 +1121,7 @@ for.end297.loopexit.i.i:                          ; preds = %for.inc295.i.i
 for.end297.i.i:                                   ; preds = %for.end297.loopexit.i.i, %for.end267.i.i
   %idxprom299.pre-phi.i.i = phi i64 [ %.pre407.i.i, %for.end297.loopexit.i.i ], [ %idxprom277.i.i, %for.end267.i.i ]
   %best_out.0.lcssa.i.i = phi i32 [ %best_out.1.i.i, %for.end297.loopexit.i.i ], [ %cond276.i.i, %for.end267.i.i ]
-  %arrayidx298.i.i = getelementptr inbounds i32, ptr %cond295308323.i.i, i64 %i.4388.i.i
+  %arrayidx298.i.i = getelementptr inbounds i32, ptr %cond295308323.i.i, i64 %i.4387.i.i
   store i32 %best_out.0.lcssa.i.i, ptr %arrayidx298.i.i, align 4
   %arrayidx300.i.i = getelementptr inbounds i32, ptr %cond242411.i.i, i64 %idxprom299.pre-phi.i.i
   %78 = load i32, ptr %arrayidx300.i.i, align 4
@@ -1135,7 +1135,7 @@ if.then303.i.i:                                   ; preds = %for.end297.i.i
 
 for.inc308.i.i:                                   ; preds = %if.then303.i.i, %for.end297.i.i
   %next_index.1.i.i = phi i32 [ %inc304.i.i, %if.then303.i.i ], [ %next_index.0389.i.i, %for.end297.i.i ]
-  %inc309.i.i = add nuw i64 %i.4388.i.i, 1
+  %inc309.i.i = add nuw i64 %i.4387.i.i, 1
   %exitcond405.not.i.i = icmp eq i64 %inc309.i.i, %retval.0.i.i
   br i1 %exitcond405.not.i.i, label %for.end310.i.i, label %for.body254.i.i, !llvm.loop !37
 
@@ -1777,11 +1777,11 @@ for.end95.i.i255:                                 ; preds = %for.inc93.i.i252
 while.body.i.i257:                                ; preds = %if.end127.i.i275, %for.end95.i.i255
   %cur_id.0104.i.i258 = phi i8 [ %cur_id.1.i.i277, %if.end127.i.i275 ], [ %136, %for.end95.i.i255 ]
   %ix97.0103.i.i259 = phi i64 [ %sub108.i.i265, %if.end127.i.i275 ], [ %mul98.i.i256, %for.end95.i.i255 ]
-  %byte_ix.1102.i.i260 = phi i64 [ %dec107.i.i264, %if.end127.i.i275 ], [ %sub96.i.i166, %for.end95.i.i255 ]
-  %num_blocks.0101.i.i261 = phi i64 [ %num_blocks.1.i.i276, %if.end127.i.i275 ], [ 1, %for.end95.i.i255 ]
+  %num_blocks.0102.i.i260 = phi i64 [ %num_blocks.1.i.i276, %if.end127.i.i275 ], [ 1, %for.end95.i.i255 ]
+  %byte_ix.1101.i.i261 = phi i64 [ %dec107.i.i264, %if.end127.i.i275 ], [ %sub96.i.i166, %for.end95.i.i255 ]
   %and104.i.i262 = and i8 %cur_id.0104.i.i258, 7
   %shl105.i.i263 = shl nuw i8 1, %and104.i.i262
-  %dec107.i.i264 = add i64 %byte_ix.1102.i.i260, -1
+  %dec107.i.i264 = add i64 %byte_ix.1101.i.i261, -1
   %sub108.i.i265 = sub i64 %ix97.0103.i.i259, %shr.i.i172
   %137 = lshr i8 %cur_id.0104.i.i258, 3
   %conv111.i.i266 = zext nneg i8 %137 to i64
@@ -1797,11 +1797,11 @@ if.then117.i.i270:                                ; preds = %while.body.i.i257
   %140 = load i8, ptr %arrayidx119.i.i271, align 1
   %cmp121.not.i.i272 = icmp ne i8 %cur_id.0104.i.i258, %140
   %inc125.i.i273 = zext i1 %cmp121.not.i.i272 to i64
-  %spec.select.i134.i274 = add i64 %num_blocks.0101.i.i261, %inc125.i.i273
+  %spec.select.i134.i274 = add i64 %num_blocks.0102.i.i260, %inc125.i.i273
   br label %if.end127.i.i275
 
 if.end127.i.i275:                                 ; preds = %if.then117.i.i270, %while.body.i.i257
-  %num_blocks.1.i.i276 = phi i64 [ %num_blocks.0101.i.i261, %while.body.i.i257 ], [ %spec.select.i134.i274, %if.then117.i.i270 ]
+  %num_blocks.1.i.i276 = phi i64 [ %num_blocks.0102.i.i260, %while.body.i.i257 ], [ %spec.select.i134.i274, %if.then117.i.i270 ]
   %cur_id.1.i.i277 = phi i8 [ %cur_id.0104.i.i258, %while.body.i.i257 ], [ %140, %if.then117.i.i270 ]
   %arrayidx128.i.i278 = getelementptr inbounds i8, ptr %call97.i148, i64 %dec107.i.i264
   store i8 %cur_id.1.i.i277, ptr %arrayidx128.i.i278, align 1
@@ -2000,23 +2000,23 @@ for.inc.i164.i386:                                ; preds = %if.then.i163.i384, 
 
 for.body69.lr.ph.i.i391:                          ; preds = %for.cond60.preheader.i.i388, %for.end193.i.i452
   %indvars.iv.i.i392 = phi i64 [ %indvars.iv.next.i.i456, %for.end193.i.i452 ], [ %retval.0.i.i280, %for.cond60.preheader.i.i388 ]
-  %i.1367.i.i = phi i64 [ %add196.i.i454, %for.end193.i.i452 ], [ 0, %for.cond60.preheader.i.i388 ]
-  %pos.0366.i.i = phi i64 [ %pos.2.lcssa.i.i405, %for.end193.i.i452 ], [ 0, %for.cond60.preheader.i.i388 ]
-  %num_clusters.0365.i.i = phi i64 [ %add194.i.i453, %for.end193.i.i452 ], [ 0, %for.cond60.preheader.i.i388 ]
-  %cluster_size.0364.i.i = phi ptr [ %cluster_size.1.i.i424, %for.end193.i.i452 ], [ %cond24.i.i362, %for.cond60.preheader.i.i388 ]
-  %cluster_size_capacity.0363.i.i = phi i64 [ %cluster_size_capacity.1.i.i423, %for.end193.i.i452 ], [ %div288312321.i.i361, %for.cond60.preheader.i.i388 ]
-  %cluster_size_size.0362.i.i = phi i64 [ %cluster_size_size.1.lcssa.i.i442, %for.end193.i.i452 ], [ 0, %for.cond60.preheader.i.i388 ]
-  %all_histograms.0361.i.i = phi ptr [ %all_histograms.1.i.i419, %for.end193.i.i452 ], [ %cond17325.i.i357, %for.cond60.preheader.i.i388 ]
-  %all_histograms_capacity.0360.i.i = phi i64 [ %all_histograms_capacity.1.i.i418, %for.end193.i.i452 ], [ %div288312321.i.i361, %for.cond60.preheader.i.i388 ]
-  %all_histograms_size.0359.i.i = phi i64 [ %all_histograms_size.1.lcssa.i.i441, %for.end193.i.i452 ], [ 0, %for.cond60.preheader.i.i388 ]
+  %all_histograms_size.0367.i.i = phi i64 [ %all_histograms_size.1.lcssa.i.i442, %for.end193.i.i452 ], [ 0, %for.cond60.preheader.i.i388 ]
+  %all_histograms_capacity.0366.i.i = phi i64 [ %all_histograms_capacity.1.i.i419, %for.end193.i.i452 ], [ %div288312321.i.i361, %for.cond60.preheader.i.i388 ]
+  %all_histograms.0365.i.i = phi ptr [ %all_histograms.1.i.i418, %for.end193.i.i452 ], [ %cond17325.i.i357, %for.cond60.preheader.i.i388 ]
+  %cluster_size_size.0364.i.i = phi i64 [ %cluster_size_size.1.lcssa.i.i441, %for.end193.i.i452 ], [ 0, %for.cond60.preheader.i.i388 ]
+  %cluster_size_capacity.0363.i.i = phi i64 [ %cluster_size_capacity.1.i.i424, %for.end193.i.i452 ], [ %div288312321.i.i361, %for.cond60.preheader.i.i388 ]
+  %cluster_size.0362.i.i = phi ptr [ %cluster_size.1.i.i423, %for.end193.i.i452 ], [ %cond24.i.i362, %for.cond60.preheader.i.i388 ]
+  %num_clusters.0361.i.i = phi i64 [ %add194.i.i453, %for.end193.i.i452 ], [ 0, %for.cond60.preheader.i.i388 ]
+  %pos.0360.i.i = phi i64 [ %pos.2.lcssa.i.i405, %for.end193.i.i452 ], [ 0, %for.cond60.preheader.i.i388 ]
+  %i.1359.i.i = phi i64 [ %add196.i.i454, %for.end193.i.i452 ], [ 0, %for.cond60.preheader.i.i388 ]
   %umin399.i.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i.i392, i64 64)
   %umax400.i.i = tail call i64 @llvm.umax.i64(i64 %umin399.i.i, i64 1)
-  %153 = getelementptr i32, ptr %add.ptr45.i.i370, i64 %i.1367.i.i
+  %153 = getelementptr i32, ptr %add.ptr45.i.i370, i64 %i.1359.i.i
   br label %for.body69.i.i394
 
 for.body69.i.i394:                                ; preds = %for.end84.i.i404, %for.body69.lr.ph.i.i391
   %j.0348.i.i = phi i64 [ 0, %for.body69.lr.ph.i.i391 ], [ %inc94.i166.i411, %for.end84.i.i404 ]
-  %pos.1347.i.i = phi i64 [ %pos.0366.i.i, %for.body69.lr.ph.i.i391 ], [ %pos.2.lcssa.i.i405, %for.end84.i.i404 ]
+  %pos.1347.i.i = phi i64 [ %pos.0360.i.i, %for.body69.lr.ph.i.i391 ], [ %pos.2.lcssa.i.i405, %for.end84.i.i404 ]
   %arrayidx71.i.i395 = getelementptr i32, ptr %153, i64 %j.0348.i.i
   %154 = load i32, ptr %arrayidx71.i.i395, align 4
   %conv72.i.i396 = zext i32 %154 to i64
@@ -2062,16 +2062,16 @@ for.end84.i.i404:                                 ; preds = %for.body77.i.i399, 
   br i1 %exitcond397.not.i.i412, label %for.end95.i167.i413, label %for.body69.i.i394, !llvm.loop !63
 
 for.end95.i167.i413:                              ; preds = %for.end84.i.i404
-  %sub64.i.i393 = sub i64 %retval.0.i.i280, %i.1367.i.i
+  %sub64.i.i393 = sub i64 %retval.0.i.i280, %i.1359.i.i
   %cond.i427.i.i = tail call i64 @llvm.umin.i64(i64 %sub64.i.i393, i64 64)
   %call96.i.i414 = tail call i64 @BrotliHistogramCombineCommand(ptr noundef nonnull %cond33.i.i367, ptr noundef %call46.i.i371, ptr noundef nonnull %cond8310322.i.i360, ptr noundef nonnull %add.ptr43.i.i369, ptr noundef nonnull %add.ptr42.i.i389, ptr noundef %call38.i.i368, i64 noundef %cond.i427.i.i, i64 noundef %cond.i427.i.i, i64 noundef 64, i64 noundef 2048) #7
-  %add97.i.i415 = add i64 %call96.i.i414, %all_histograms_size.0359.i.i
-  %cmp98.i.i416 = icmp ult i64 %all_histograms_capacity.0360.i.i, %add97.i.i415
+  %add97.i.i415 = add i64 %call96.i.i414, %all_histograms_size.0367.i.i
+  %cmp98.i.i416 = icmp ult i64 %all_histograms_capacity.0366.i.i, %add97.i.i415
   br i1 %cmp98.i.i416, label %if.then100.i.i615, label %if.end125.i.i417
 
 if.then100.i.i615:                                ; preds = %for.end95.i167.i413
-  %cmp101.i.i616 = icmp eq i64 %all_histograms_capacity.0360.i.i, 0
-  %cond107.i.i617 = select i1 %cmp101.i.i616, i64 %add97.i.i415, i64 %all_histograms_capacity.0360.i.i
+  %cmp101.i.i616 = icmp eq i64 %all_histograms_capacity.0366.i.i, 0
+  %cond107.i.i617 = select i1 %cmp101.i.i616, i64 %add97.i.i415, i64 %all_histograms_capacity.0366.i.i
   br label %while.cond.i.i618
 
 while.cond.i.i618:                                ; preds = %while.cond.i.i618, %if.then100.i.i615
@@ -2086,18 +2086,18 @@ cond.end118.i.i622:                               ; preds = %while.cond.i.i618
   br i1 %cmp101.i.i616, label %if.end124.i.i627, label %if.then122.i.i625
 
 if.then122.i.i625:                                ; preds = %cond.end118.i.i622
-  %mul123.i.i626 = mul i64 %all_histograms_capacity.0360.i.i, 2832
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call116.i.i624, ptr align 8 %all_histograms.0361.i.i, i64 %mul123.i.i626, i1 false)
+  %mul123.i.i626 = mul i64 %all_histograms_capacity.0366.i.i, 2832
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call116.i.i624, ptr align 8 %all_histograms.0365.i.i, i64 %mul123.i.i626, i1 false)
   br label %if.end124.i.i627
 
 if.end124.i.i627:                                 ; preds = %if.then122.i.i625, %cond.end118.i.i622
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0361.i.i) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0365.i.i) #7
   br label %if.end125.i.i417
 
 if.end125.i.i417:                                 ; preds = %if.end124.i.i627, %for.end95.i167.i413
-  %all_histograms_capacity.1.i.i418 = phi i64 [ %_new_size.0.i.i619, %if.end124.i.i627 ], [ %all_histograms_capacity.0360.i.i, %for.end95.i167.i413 ]
-  %all_histograms.1.i.i419 = phi ptr [ %call116.i.i624, %if.end124.i.i627 ], [ %all_histograms.0361.i.i, %for.end95.i167.i413 ]
-  %add126.i.i420 = add i64 %call96.i.i414, %cluster_size_size.0362.i.i
+  %all_histograms.1.i.i418 = phi ptr [ %call116.i.i624, %if.end124.i.i627 ], [ %all_histograms.0365.i.i, %for.end95.i167.i413 ]
+  %all_histograms_capacity.1.i.i419 = phi i64 [ %_new_size.0.i.i619, %if.end124.i.i627 ], [ %all_histograms_capacity.0366.i.i, %for.end95.i167.i413 ]
+  %add126.i.i420 = add i64 %call96.i.i414, %cluster_size_size.0364.i.i
   %cmp127.i.i421 = icmp ult i64 %cluster_size_capacity.0363.i.i, %add126.i.i420
   br i1 %cmp127.i.i421, label %if.then129.i.i602, label %if.end159.i.i422
 
@@ -2119,32 +2119,32 @@ cond.end152.i.i609:                               ; preds = %while.cond139.i.i60
 
 if.then156.i.i612:                                ; preds = %cond.end152.i.i609
   %mul157.i.i613 = shl i64 %cluster_size_capacity.0363.i.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call150.i.i611, ptr align 4 %cluster_size.0364.i.i, i64 %mul157.i.i613, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call150.i.i611, ptr align 4 %cluster_size.0362.i.i, i64 %mul157.i.i613, i1 false)
   br label %if.end158.i.i614
 
 if.end158.i.i614:                                 ; preds = %if.then156.i.i612, %cond.end152.i.i609
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0364.i.i) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0362.i.i) #7
   br label %if.end159.i.i422
 
 if.end159.i.i422:                                 ; preds = %if.end158.i.i614, %if.end125.i.i417
-  %cluster_size_capacity.1.i.i423 = phi i64 [ %_new_size130.0.i.i606, %if.end158.i.i614 ], [ %cluster_size_capacity.0363.i.i, %if.end125.i.i417 ]
-  %cluster_size.1.i.i424 = phi ptr [ %call150.i.i611, %if.end158.i.i614 ], [ %cluster_size.0364.i.i, %if.end125.i.i417 ]
+  %cluster_size.1.i.i423 = phi ptr [ %call150.i.i611, %if.end158.i.i614 ], [ %cluster_size.0362.i.i, %if.end125.i.i417 ]
+  %cluster_size_capacity.1.i.i424 = phi i64 [ %_new_size130.0.i.i606, %if.end158.i.i614 ], [ %cluster_size_capacity.0363.i.i, %if.end125.i.i417 ]
   %cmp161350.not.i.i = icmp eq i64 %call96.i.i414, 0
   br i1 %cmp161350.not.i.i, label %for.body183.lr.ph.i.i440, label %for.body163.i.i425
 
 for.body183.lr.ph.i.i440:                         ; preds = %for.body163.i.i425, %if.end159.i.i422
-  %all_histograms_size.1.lcssa.i.i441 = phi i64 [ %all_histograms_size.0359.i.i, %if.end159.i.i422 ], [ %inc164.i.i426, %for.body163.i.i425 ]
-  %cluster_size_size.1.lcssa.i.i442 = phi i64 [ %cluster_size_size.0362.i.i, %if.end159.i.i422 ], [ %inc171.i.i433, %for.body163.i.i425 ]
-  %conv184.i.i443 = trunc i64 %num_clusters.0365.i.i to i32
+  %cluster_size_size.1.lcssa.i.i441 = phi i64 [ %cluster_size_size.0364.i.i, %if.end159.i.i422 ], [ %inc171.i.i433, %for.body163.i.i425 ]
+  %all_histograms_size.1.lcssa.i.i442 = phi i64 [ %all_histograms_size.0367.i.i, %if.end159.i.i422 ], [ %inc164.i.i426, %for.body163.i.i425 ]
+  %conv184.i.i443 = trunc i64 %num_clusters.0361.i.i to i32
   br label %for.body183.i.i444
 
 for.body163.i.i425:                               ; preds = %if.end159.i.i422, %for.body163.i.i425
-  %j.1353.i.i = phi i64 [ %inc178.i.i438, %for.body163.i.i425 ], [ 0, %if.end159.i.i422 ]
-  %cluster_size_size.1352.i.i = phi i64 [ %inc171.i.i433, %for.body163.i.i425 ], [ %cluster_size_size.0362.i.i, %if.end159.i.i422 ]
-  %all_histograms_size.1351.i.i = phi i64 [ %inc164.i.i426, %for.body163.i.i425 ], [ %all_histograms_size.0359.i.i, %if.end159.i.i422 ]
-  %inc164.i.i426 = add i64 %all_histograms_size.1351.i.i, 1
-  %arrayidx165.i.i427 = getelementptr inbounds %struct.HistogramCommand, ptr %all_histograms.1.i.i419, i64 %all_histograms_size.1351.i.i
-  %arrayidx166.i.i428 = getelementptr inbounds i32, ptr %add.ptr42.i.i389, i64 %j.1353.i.i
+  %all_histograms_size.1353.i.i = phi i64 [ %inc164.i.i426, %for.body163.i.i425 ], [ %all_histograms_size.0367.i.i, %if.end159.i.i422 ]
+  %cluster_size_size.1352.i.i = phi i64 [ %inc171.i.i433, %for.body163.i.i425 ], [ %cluster_size_size.0364.i.i, %if.end159.i.i422 ]
+  %j.1351.i.i = phi i64 [ %inc178.i.i438, %for.body163.i.i425 ], [ 0, %if.end159.i.i422 ]
+  %inc164.i.i426 = add i64 %all_histograms_size.1353.i.i, 1
+  %arrayidx165.i.i427 = getelementptr inbounds %struct.HistogramCommand, ptr %all_histograms.1.i.i418, i64 %all_histograms_size.1353.i.i
+  %arrayidx166.i.i428 = getelementptr inbounds i32, ptr %add.ptr42.i.i389, i64 %j.1351.i.i
   %158 = load i32, ptr %arrayidx166.i.i428, align 4
   %idxprom.i168.i429 = zext i32 %158 to i64
   %arrayidx167.i.i430 = getelementptr inbounds %struct.HistogramCommand, ptr %cond33.i.i367, i64 %idxprom.i168.i429
@@ -2154,14 +2154,14 @@ for.body163.i.i425:                               ; preds = %if.end159.i.i422, %
   %arrayidx170.i.i432 = getelementptr inbounds i32, ptr %cond8310322.i.i360, i64 %idxprom169.i.i431
   %160 = load i32, ptr %arrayidx170.i.i432, align 4
   %inc171.i.i433 = add i64 %cluster_size_size.1352.i.i, 1
-  %arrayidx172.i.i434 = getelementptr inbounds i32, ptr %cluster_size.1.i.i424, i64 %cluster_size_size.1352.i.i
+  %arrayidx172.i.i434 = getelementptr inbounds i32, ptr %cluster_size.1.i.i423, i64 %cluster_size_size.1352.i.i
   store i32 %160, ptr %arrayidx172.i.i434, align 4
-  %conv173.i.i435 = trunc i64 %j.1353.i.i to i32
+  %conv173.i.i435 = trunc i64 %j.1351.i.i to i32
   %161 = load i32, ptr %arrayidx166.i.i428, align 4
   %idxprom175.i.i436 = zext i32 %161 to i64
   %arrayidx176.i.i437 = getelementptr inbounds i32, ptr %add.ptr44.i.i390, i64 %idxprom175.i.i436
   store i32 %conv173.i.i435, ptr %arrayidx176.i.i437, align 4
-  %inc178.i.i438 = add nuw i64 %j.1353.i.i, 1
+  %inc178.i.i438 = add nuw i64 %j.1351.i.i, 1
   %exitcond398.not.i.i439 = icmp eq i64 %inc178.i.i438, %call96.i.i414
   br i1 %exitcond398.not.i.i439, label %for.body183.lr.ph.i.i440, label %for.body163.i.i425, !llvm.loop !66
 
@@ -2173,7 +2173,7 @@ for.body183.i.i444:                               ; preds = %for.body183.i.i444,
   %arrayidx187.i.i447 = getelementptr inbounds i32, ptr %add.ptr44.i.i390, i64 %idxprom186.i.i446
   %163 = load i32, ptr %arrayidx187.i.i447, align 4
   %add188.i.i448 = add i32 %163, %conv184.i.i443
-  %add189.i.i449 = add nuw nsw i64 %j.2357.i.i, %i.1367.i.i
+  %add189.i.i449 = add nuw nsw i64 %j.2357.i.i, %i.1359.i.i
   %arrayidx190.i.i450 = getelementptr inbounds i32, ptr %cond295308323.i.i359, i64 %add189.i.i449
   store i32 %add188.i.i448, ptr %arrayidx190.i.i450, align 4
   %inc192.i.i451 = add nuw nsw i64 %j.2357.i.i, 1
@@ -2181,20 +2181,20 @@ for.body183.i.i444:                               ; preds = %for.body183.i.i444,
   br i1 %exitcond401.not.i.i, label %for.end193.i.i452, label %for.body183.i.i444, !llvm.loop !67
 
 for.end193.i.i452:                                ; preds = %for.body183.i.i444
-  %add194.i.i453 = add i64 %call96.i.i414, %num_clusters.0365.i.i
-  %add196.i.i454 = add i64 %i.1367.i.i, 64
+  %add194.i.i453 = add i64 %call96.i.i414, %num_clusters.0361.i.i
+  %add196.i.i454 = add i64 %i.1359.i.i, 64
   %cmp61.i.i455 = icmp ult i64 %add196.i.i454, %retval.0.i.i280
   %indvars.iv.next.i.i456 = add i64 %indvars.iv.i.i392, -64
   br i1 %cmp61.i.i455, label %for.body69.lr.ph.i.i391, label %for.end197.i.i457, !llvm.loop !68
 
 for.end197.i.i457:                                ; preds = %for.end193.i.i452, %for.cond60.preheader.i.i388
-  %all_histograms.0.lcssa.i.i458 = phi ptr [ %cond17325.i.i357, %for.cond60.preheader.i.i388 ], [ %all_histograms.1.i.i419, %for.end193.i.i452 ]
-  %cluster_size.0.lcssa.i.i459 = phi ptr [ %cond24.i.i362, %for.cond60.preheader.i.i388 ], [ %cluster_size.1.i.i424, %for.end193.i.i452 ]
-  %num_clusters.0.lcssa.i.i460 = phi i64 [ 0, %for.cond60.preheader.i.i388 ], [ %add194.i.i453, %for.end193.i.i452 ]
+  %num_clusters.0.lcssa.i.i458 = phi i64 [ 0, %for.cond60.preheader.i.i388 ], [ %add194.i.i453, %for.end193.i.i452 ]
+  %cluster_size.0.lcssa.i.i459 = phi ptr [ %cond24.i.i362, %for.cond60.preheader.i.i388 ], [ %cluster_size.1.i.i423, %for.end193.i.i452 ]
+  %all_histograms.0.lcssa.i.i460 = phi ptr [ %cond17325.i.i357, %for.cond60.preheader.i.i388 ], [ %all_histograms.1.i.i418, %for.end193.i.i452 ]
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond33.i.i367) #7
-  %mul198.i.i461 = shl i64 %num_clusters.0.lcssa.i.i460, 6
-  %div199289.i.i462 = lshr i64 %num_clusters.0.lcssa.i.i460, 1
-  %mul200.i.i463 = mul i64 %div199289.i.i462, %num_clusters.0.lcssa.i.i460
+  %mul198.i.i461 = shl i64 %num_clusters.0.lcssa.i.i458, 6
+  %div199289.i.i462 = lshr i64 %num_clusters.0.lcssa.i.i458, 1
+  %mul200.i.i463 = mul i64 %div199289.i.i462, %num_clusters.0.lcssa.i.i458
   %cond.i.i169.i464 = tail call i64 @llvm.umin.i64(i64 %mul198.i.i461, i64 %mul200.i.i463)
   %cmp203.i.i465 = icmp ugt i64 %cond.i.i169.i464, 2048
   br i1 %cmp203.i.i465, label %if.then205.i.i599, label %if.end216.i.i466
@@ -2208,11 +2208,11 @@ if.then205.i.i599:                                ; preds = %for.end197.i.i457
 
 if.end216.i.i466:                                 ; preds = %if.then205.i.i599, %for.end197.i.i457
   %pairs.0.i.i467 = phi ptr [ %call212.i.i601, %if.then205.i.i599 ], [ %call38.i.i368, %for.end197.i.i457 ]
-  %cmp217.not.i.i468 = icmp eq i64 %num_clusters.0.lcssa.i.i460, 0
+  %cmp217.not.i.i468 = icmp eq i64 %num_clusters.0.lcssa.i.i458, 0
   br i1 %cmp217.not.i.i468, label %for.end233.i.i477, label %for.body228.preheader.i.i469
 
 for.body228.preheader.i.i469:                     ; preds = %if.end216.i.i466
-  %mul220.i.i470 = shl i64 %num_clusters.0.lcssa.i.i460, 2
+  %mul220.i.i470 = shl i64 %num_clusters.0.lcssa.i.i458, 2
   %call221.i.i471 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul220.i.i470) #7
   br label %for.body228.i.i472
 
@@ -2222,18 +2222,18 @@ for.body228.i.i472:                               ; preds = %for.body228.i.i472,
   %arrayidx230.i.i474 = getelementptr inbounds i32, ptr %call221.i.i471, i64 %i.2372.i.i
   store i32 %conv229.i.i473, ptr %arrayidx230.i.i474, align 4
   %inc232.i.i475 = add nuw i64 %i.2372.i.i, 1
-  %exitcond402.not.i.i476 = icmp eq i64 %inc232.i.i475, %num_clusters.0.lcssa.i.i460
+  %exitcond402.not.i.i476 = icmp eq i64 %inc232.i.i475, %num_clusters.0.lcssa.i.i458
   br i1 %exitcond402.not.i.i476, label %for.end233.i.i477, label %for.body228.i.i472, !llvm.loop !69
 
 for.end233.i.i477:                                ; preds = %for.body228.i.i472, %if.end216.i.i466
   %cond224408.i.i = phi ptr [ null, %if.end216.i.i466 ], [ %call221.i.i471, %for.body228.i.i472 ]
-  %call234.i.i478 = tail call i64 @BrotliHistogramCombineCommand(ptr noundef %all_histograms.0.lcssa.i.i458, ptr noundef %call46.i.i371, ptr noundef %cluster_size.0.lcssa.i.i459, ptr noundef %cond295308323.i.i359, ptr noundef %cond224408.i.i, ptr noundef %pairs.0.i.i467, i64 noundef %num_clusters.0.lcssa.i.i460, i64 noundef %retval.0.i.i280, i64 noundef 256, i64 noundef %cond.i.i169.i464) #7
+  %call234.i.i478 = tail call i64 @BrotliHistogramCombineCommand(ptr noundef %all_histograms.0.lcssa.i.i460, ptr noundef %call46.i.i371, ptr noundef %cluster_size.0.lcssa.i.i459, ptr noundef %cond295308323.i.i359, ptr noundef %cond224408.i.i, ptr noundef %pairs.0.i.i467, i64 noundef %num_clusters.0.lcssa.i.i458, i64 noundef %retval.0.i.i280, i64 noundef 256, i64 noundef %cond.i.i169.i464) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %pairs.0.i.i467) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0.lcssa.i.i459) #7
   br i1 %cmp217.not.i.i468, label %for.cond251.preheader.i.i482, label %for.body246.preheader.i.i479
 
 for.body246.preheader.i.i479:                     ; preds = %for.end233.i.i477
-  %mul238.i.i480 = shl i64 %num_clusters.0.lcssa.i.i460, 2
+  %mul238.i.i480 = shl i64 %num_clusters.0.lcssa.i.i458, 2
   %call239.i.i481 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul238.i.i480) #7
   tail call void @llvm.memset.p0.i64(ptr align 4 %call239.i.i481, i8 -1, i64 %mul238.i.i480, i1 false)
   br label %for.cond251.preheader.i.i482
@@ -2251,18 +2251,18 @@ for.body254.lr.ph.i.i483:                         ; preds = %for.cond251.prehead
 
 for.body254.i.i487:                               ; preds = %for.inc308.i.i524, %for.body254.lr.ph.i.i483
   %next_index.0388.i.i = phi i32 [ 0, %for.body254.lr.ph.i.i483 ], [ %next_index.1.i.i525, %for.inc308.i.i524 ]
-  %i.4387.i.i = phi i64 [ 0, %for.body254.lr.ph.i.i483 ], [ %inc309.i.i526, %for.inc308.i.i524 ]
-  %pos.3386.i.i = phi i64 [ 0, %for.body254.lr.ph.i.i483 ], [ %pos.4.lcssa.i.i499, %for.inc308.i.i524 ]
+  %pos.3387.i.i = phi i64 [ 0, %for.body254.lr.ph.i.i483 ], [ %pos.4.lcssa.i.i499, %for.inc308.i.i524 ]
+  %i.4386.i.i = phi i64 [ 0, %for.body254.lr.ph.i.i483 ], [ %inc309.i.i526, %for.inc308.i.i524 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %call46.i.i371, i8 0, i64 2824, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i.i171.i485, align 8
-  %arrayidx257.i.i488 = getelementptr inbounds i32, ptr %add.ptr45.i.i370, i64 %i.4387.i.i
+  %arrayidx257.i.i488 = getelementptr inbounds i32, ptr %add.ptr45.i.i370, i64 %i.4386.i.i
   %165 = load i32, ptr %arrayidx257.i.i488, align 4
   %cmp259376.not.i.i = icmp eq i32 %165, 0
   br i1 %cmp259376.not.i.i, label %for.end267.i.i498, label %for.body261.i.i489
 
 for.body261.i.i489:                               ; preds = %for.body254.i.i487, %for.body261.i.i489
   %j255.0378.i.i = phi i64 [ %inc266.i.i, %for.body261.i.i489 ], [ 0, %for.body254.i.i487 ]
-  %pos.4377.i.i = phi i64 [ %inc262.i.i490, %for.body261.i.i489 ], [ %pos.3386.i.i, %for.body254.i.i487 ]
+  %pos.4377.i.i = phi i64 [ %inc262.i.i490, %for.body261.i.i489 ], [ %pos.3387.i.i, %for.body254.i.i487 ]
   %inc262.i.i490 = add i64 %pos.4377.i.i, 1
   %arrayidx263.i.i491 = getelementptr inbounds i16, ptr %call5, i64 %pos.4377.i.i
   %166 = load i16, ptr %arrayidx263.i.i491, align 2
@@ -2281,12 +2281,12 @@ for.body261.i.i489:                               ; preds = %for.body254.i.i487,
   br i1 %cmp259.i.i497, label %for.body261.i.i489, label %for.end267.i.i498, !llvm.loop !70
 
 for.end267.i.i498:                                ; preds = %for.body261.i.i489, %for.body254.i.i487
-  %pos.4.lcssa.i.i499 = phi i64 [ %pos.3386.i.i, %for.body254.i.i487 ], [ %inc262.i.i490, %for.body261.i.i489 ]
-  %cond276.in.idx.i.i500 = tail call i64 @llvm.usub.sat.i64(i64 %i.4387.i.i, i64 1)
+  %pos.4.lcssa.i.i499 = phi i64 [ %pos.3387.i.i, %for.body254.i.i487 ], [ %inc262.i.i490, %for.body261.i.i489 ]
+  %cond276.in.idx.i.i500 = tail call i64 @llvm.usub.sat.i64(i64 %i.4386.i.i, i64 1)
   %cond276.in.i.i501 = getelementptr inbounds i32, ptr %cond295308323.i.i359, i64 %cond276.in.idx.i.i500
   %cond276.i.i502 = load i32, ptr %cond276.in.i.i501, align 4
   %idxprom277.i.i503 = zext i32 %cond276.i.i502 to i64
-  %arrayidx278.i.i504 = getelementptr inbounds %struct.HistogramCommand, ptr %all_histograms.0.lcssa.i.i458, i64 %idxprom277.i.i503
+  %arrayidx278.i.i504 = getelementptr inbounds %struct.HistogramCommand, ptr %all_histograms.0.lcssa.i.i460, i64 %idxprom277.i.i503
   %call280.i.i505 = tail call double @BrotliHistogramBitCostDistanceCommand(ptr noundef nonnull %call46.i.i371, ptr noundef %arrayidx278.i.i504, ptr noundef nonnull %add.ptr279.i.i486) #7
   br i1 %cmp282380.not.i.i, label %for.end297.i.i518, label %for.body284.i.i506
 
@@ -2297,7 +2297,7 @@ for.body284.i.i506:                               ; preds = %for.end267.i.i498, 
   %arrayidx285.i.i507 = getelementptr inbounds i32, ptr %cond224408.i.i, i64 %j255.1381.i.i
   %170 = load i32, ptr %arrayidx285.i.i507, align 4
   %idxprom286.i.i508 = zext i32 %170 to i64
-  %arrayidx287.i.i509 = getelementptr inbounds %struct.HistogramCommand, ptr %all_histograms.0.lcssa.i.i458, i64 %idxprom286.i.i508
+  %arrayidx287.i.i509 = getelementptr inbounds %struct.HistogramCommand, ptr %all_histograms.0.lcssa.i.i460, i64 %idxprom286.i.i508
   %call289.i.i510 = tail call double @BrotliHistogramBitCostDistanceCommand(ptr noundef %call46.i.i371, ptr noundef %arrayidx287.i.i509, ptr noundef nonnull %add.ptr279.i.i486) #7
   %cmp290.i.i511 = fcmp olt double %call289.i.i510, %best_bits.0383.i.i
   br i1 %cmp290.i.i511, label %if.then292.i.i598, label %for.inc295.i.i512
@@ -2320,7 +2320,7 @@ for.end297.loopexit.i.i517:                       ; preds = %for.inc295.i.i512
 for.end297.i.i518:                                ; preds = %for.end297.loopexit.i.i517, %for.end267.i.i498
   %idxprom299.pre-phi.i.i519 = phi i64 [ %.pre406.i.i, %for.end297.loopexit.i.i517 ], [ %idxprom277.i.i503, %for.end267.i.i498 ]
   %best_out.0.lcssa.i.i520 = phi i32 [ %best_out.1.i.i513, %for.end297.loopexit.i.i517 ], [ %cond276.i.i502, %for.end267.i.i498 ]
-  %arrayidx298.i.i521 = getelementptr inbounds i32, ptr %cond295308323.i.i359, i64 %i.4387.i.i
+  %arrayidx298.i.i521 = getelementptr inbounds i32, ptr %cond295308323.i.i359, i64 %i.4386.i.i
   store i32 %best_out.0.lcssa.i.i520, ptr %arrayidx298.i.i521, align 4
   %arrayidx300.i.i522 = getelementptr inbounds i32, ptr %cond242410.i.i, i64 %idxprom299.pre-phi.i.i519
   %172 = load i32, ptr %arrayidx300.i.i522, align 4
@@ -2334,14 +2334,14 @@ if.then303.i.i596:                                ; preds = %for.end297.i.i518
 
 for.inc308.i.i524:                                ; preds = %if.then303.i.i596, %for.end297.i.i518
   %next_index.1.i.i525 = phi i32 [ %inc304.i.i597, %if.then303.i.i596 ], [ %next_index.0388.i.i, %for.end297.i.i518 ]
-  %inc309.i.i526 = add nuw i64 %i.4387.i.i, 1
+  %inc309.i.i526 = add nuw i64 %i.4386.i.i, 1
   %exitcond404.not.i.i527 = icmp eq i64 %inc309.i.i526, %retval.0.i.i280
   br i1 %exitcond404.not.i.i527, label %for.end310.i.i528, label %for.body254.i.i487, !llvm.loop !72
 
 for.end310.i.i528:                                ; preds = %for.inc308.i.i524, %for.cond251.preheader.i.i482
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %call46.i.i371) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond224408.i.i) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0.lcssa.i.i458) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0.lcssa.i.i460) #7
   %types_alloc_size.i.i529 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 32
   %173 = load i64, ptr %types_alloc_size.i.i529, align 8
   %cmp311.i.i530 = icmp ult i64 %173, %retval.0.i.i280
@@ -2996,11 +2996,11 @@ for.end95.i.i895:                                 ; preds = %for.inc93.i.i892
 while.body.i.i897:                                ; preds = %if.end127.i.i915, %for.end95.i.i895
   %cur_id.0104.i.i898 = phi i8 [ %cur_id.1.i.i917, %if.end127.i.i915 ], [ %233, %for.end95.i.i895 ]
   %ix97.0103.i.i899 = phi i64 [ %sub108.i.i905, %if.end127.i.i915 ], [ %mul98.i.i896, %for.end95.i.i895 ]
-  %byte_ix.1102.i.i900 = phi i64 [ %dec107.i.i904, %if.end127.i.i915 ], [ %sub96.i.i806, %for.end95.i.i895 ]
-  %num_blocks.0101.i.i901 = phi i64 [ %num_blocks.1.i.i916, %if.end127.i.i915 ], [ 1, %for.end95.i.i895 ]
+  %num_blocks.0102.i.i900 = phi i64 [ %num_blocks.1.i.i916, %if.end127.i.i915 ], [ 1, %for.end95.i.i895 ]
+  %byte_ix.1101.i.i901 = phi i64 [ %dec107.i.i904, %if.end127.i.i915 ], [ %sub96.i.i806, %for.end95.i.i895 ]
   %and104.i.i902 = and i8 %cur_id.0104.i.i898, 7
   %shl105.i.i903 = shl nuw i8 1, %and104.i.i902
-  %dec107.i.i904 = add i64 %byte_ix.1102.i.i900, -1
+  %dec107.i.i904 = add i64 %byte_ix.1101.i.i901, -1
   %sub108.i.i905 = sub i64 %ix97.0103.i.i899, %shr.i.i812
   %234 = lshr i8 %cur_id.0104.i.i898, 3
   %conv111.i.i906 = zext nneg i8 %234 to i64
@@ -3016,11 +3016,11 @@ if.then117.i.i910:                                ; preds = %while.body.i.i897
   %237 = load i8, ptr %arrayidx119.i.i911, align 1
   %cmp121.not.i.i912 = icmp ne i8 %cur_id.0104.i.i898, %237
   %inc125.i.i913 = zext i1 %cmp121.not.i.i912 to i64
-  %spec.select.i134.i914 = add i64 %num_blocks.0101.i.i901, %inc125.i.i913
+  %spec.select.i134.i914 = add i64 %num_blocks.0102.i.i900, %inc125.i.i913
   br label %if.end127.i.i915
 
 if.end127.i.i915:                                 ; preds = %if.then117.i.i910, %while.body.i.i897
-  %num_blocks.1.i.i916 = phi i64 [ %num_blocks.0101.i.i901, %while.body.i.i897 ], [ %spec.select.i134.i914, %if.then117.i.i910 ]
+  %num_blocks.1.i.i916 = phi i64 [ %num_blocks.0102.i.i900, %while.body.i.i897 ], [ %spec.select.i134.i914, %if.then117.i.i910 ]
   %cur_id.1.i.i917 = phi i8 [ %cur_id.0104.i.i898, %while.body.i.i897 ], [ %237, %if.then117.i.i910 ]
   %arrayidx128.i.i918 = getelementptr inbounds i8, ptr %call97.i788, i64 %dec107.i.i904
   store i8 %cur_id.1.i.i917, ptr %arrayidx128.i.i918, align 1
@@ -3219,23 +3219,23 @@ for.inc.i164.i1027:                               ; preds = %if.then.i163.i1025,
 
 for.body69.lr.ph.i.i1032:                         ; preds = %for.cond60.preheader.i.i1029, %for.end193.i.i1121
   %indvars.iv.i.i1033 = phi i64 [ %indvars.iv.next.i.i1125, %for.end193.i.i1121 ], [ %retval.0.i.i920, %for.cond60.preheader.i.i1029 ]
-  %i.1367.i.i1034 = phi i64 [ %add196.i.i1123, %for.end193.i.i1121 ], [ 0, %for.cond60.preheader.i.i1029 ]
-  %pos.0366.i.i1035 = phi i64 [ %pos.2.lcssa.i.i1067, %for.end193.i.i1121 ], [ 0, %for.cond60.preheader.i.i1029 ]
-  %num_clusters.0365.i.i1036 = phi i64 [ %add194.i.i1122, %for.end193.i.i1121 ], [ 0, %for.cond60.preheader.i.i1029 ]
-  %cluster_size.0364.i.i1037 = phi ptr [ %cluster_size.1.i.i1087, %for.end193.i.i1121 ], [ %cond24.i.i1002, %for.cond60.preheader.i.i1029 ]
-  %cluster_size_capacity.0363.i.i1038 = phi i64 [ %cluster_size_capacity.1.i.i1086, %for.end193.i.i1121 ], [ %div288312321.i.i1001, %for.cond60.preheader.i.i1029 ]
-  %cluster_size_size.0362.i.i1039 = phi i64 [ %cluster_size_size.1.lcssa.i.i1109, %for.end193.i.i1121 ], [ 0, %for.cond60.preheader.i.i1029 ]
-  %all_histograms.0361.i.i1040 = phi ptr [ %all_histograms.1.i.i1082, %for.end193.i.i1121 ], [ %cond17325.i.i997, %for.cond60.preheader.i.i1029 ]
-  %all_histograms_capacity.0360.i.i1041 = phi i64 [ %all_histograms_capacity.1.i.i1081, %for.end193.i.i1121 ], [ %div288312321.i.i1001, %for.cond60.preheader.i.i1029 ]
-  %all_histograms_size.0359.i.i1042 = phi i64 [ %all_histograms_size.1.lcssa.i.i1108, %for.end193.i.i1121 ], [ 0, %for.cond60.preheader.i.i1029 ]
+  %all_histograms_size.0367.i.i1034 = phi i64 [ %all_histograms_size.1.lcssa.i.i1109, %for.end193.i.i1121 ], [ 0, %for.cond60.preheader.i.i1029 ]
+  %all_histograms_capacity.0366.i.i1035 = phi i64 [ %all_histograms_capacity.1.i.i1082, %for.end193.i.i1121 ], [ %div288312321.i.i1001, %for.cond60.preheader.i.i1029 ]
+  %all_histograms.0365.i.i1036 = phi ptr [ %all_histograms.1.i.i1081, %for.end193.i.i1121 ], [ %cond17325.i.i997, %for.cond60.preheader.i.i1029 ]
+  %cluster_size_size.0364.i.i1037 = phi i64 [ %cluster_size_size.1.lcssa.i.i1108, %for.end193.i.i1121 ], [ 0, %for.cond60.preheader.i.i1029 ]
+  %cluster_size_capacity.0363.i.i1038 = phi i64 [ %cluster_size_capacity.1.i.i1087, %for.end193.i.i1121 ], [ %div288312321.i.i1001, %for.cond60.preheader.i.i1029 ]
+  %cluster_size.0362.i.i1039 = phi ptr [ %cluster_size.1.i.i1086, %for.end193.i.i1121 ], [ %cond24.i.i1002, %for.cond60.preheader.i.i1029 ]
+  %num_clusters.0361.i.i1040 = phi i64 [ %add194.i.i1122, %for.end193.i.i1121 ], [ 0, %for.cond60.preheader.i.i1029 ]
+  %pos.0360.i.i1041 = phi i64 [ %pos.2.lcssa.i.i1067, %for.end193.i.i1121 ], [ 0, %for.cond60.preheader.i.i1029 ]
+  %i.1359.i.i1042 = phi i64 [ %add196.i.i1123, %for.end193.i.i1121 ], [ 0, %for.cond60.preheader.i.i1029 ]
   %umin399.i.i1043 = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i.i1033, i64 64)
   %umax400.i.i1044 = tail call i64 @llvm.umax.i64(i64 %umin399.i.i1043, i64 1)
-  %250 = getelementptr i32, ptr %add.ptr45.i.i1011, i64 %i.1367.i.i1034
+  %250 = getelementptr i32, ptr %add.ptr45.i.i1011, i64 %i.1359.i.i1042
   br label %for.body69.i.i1046
 
 for.body69.i.i1046:                               ; preds = %for.end84.i.i1066, %for.body69.lr.ph.i.i1032
   %j.0348.i.i1047 = phi i64 [ 0, %for.body69.lr.ph.i.i1032 ], [ %inc94.i166.i1073, %for.end84.i.i1066 ]
-  %pos.1347.i.i1048 = phi i64 [ %pos.0366.i.i1035, %for.body69.lr.ph.i.i1032 ], [ %pos.2.lcssa.i.i1067, %for.end84.i.i1066 ]
+  %pos.1347.i.i1048 = phi i64 [ %pos.0360.i.i1041, %for.body69.lr.ph.i.i1032 ], [ %pos.2.lcssa.i.i1067, %for.end84.i.i1066 ]
   %arrayidx71.i.i1049 = getelementptr i32, ptr %250, i64 %j.0348.i.i1047
   %251 = load i32, ptr %arrayidx71.i.i1049, align 4
   %conv72.i.i1050 = zext i32 %251 to i64
@@ -3281,16 +3281,16 @@ for.end84.i.i1066:                                ; preds = %for.body77.i.i1055,
   br i1 %exitcond397.not.i.i1074, label %for.end95.i167.i1075, label %for.body69.i.i1046, !llvm.loop !98
 
 for.end95.i167.i1075:                             ; preds = %for.end84.i.i1066
-  %sub64.i.i1045 = sub i64 %retval.0.i.i920, %i.1367.i.i1034
+  %sub64.i.i1045 = sub i64 %retval.0.i.i920, %i.1359.i.i1042
   %cond.i427.i.i1076 = tail call i64 @llvm.umin.i64(i64 %sub64.i.i1045, i64 64)
   %call96.i.i1077 = tail call i64 @BrotliHistogramCombineDistance(ptr noundef nonnull %cond33.i.i1008, ptr noundef %call46.i.i1012, ptr noundef nonnull %cond8310322.i.i1000, ptr noundef nonnull %add.ptr43.i.i1010, ptr noundef nonnull %add.ptr42.i.i1030, ptr noundef %call38.i.i1009, i64 noundef %cond.i427.i.i1076, i64 noundef %cond.i427.i.i1076, i64 noundef 64, i64 noundef 2048) #7
-  %add97.i.i1078 = add i64 %call96.i.i1077, %all_histograms_size.0359.i.i1042
-  %cmp98.i.i1079 = icmp ult i64 %all_histograms_capacity.0360.i.i1041, %add97.i.i1078
+  %add97.i.i1078 = add i64 %call96.i.i1077, %all_histograms_size.0367.i.i1034
+  %cmp98.i.i1079 = icmp ult i64 %all_histograms_capacity.0366.i.i1035, %add97.i.i1078
   br i1 %cmp98.i.i1079, label %if.then100.i.i1304, label %if.end125.i.i1080
 
 if.then100.i.i1304:                               ; preds = %for.end95.i167.i1075
-  %cmp101.i.i1305 = icmp eq i64 %all_histograms_capacity.0360.i.i1041, 0
-  %cond107.i.i1306 = select i1 %cmp101.i.i1305, i64 %add97.i.i1078, i64 %all_histograms_capacity.0360.i.i1041
+  %cmp101.i.i1305 = icmp eq i64 %all_histograms_capacity.0366.i.i1035, 0
+  %cond107.i.i1306 = select i1 %cmp101.i.i1305, i64 %add97.i.i1078, i64 %all_histograms_capacity.0366.i.i1035
   br label %while.cond.i.i1307
 
 while.cond.i.i1307:                               ; preds = %while.cond.i.i1307, %if.then100.i.i1304
@@ -3305,18 +3305,18 @@ cond.end118.i.i1311:                              ; preds = %while.cond.i.i1307
   br i1 %cmp101.i.i1305, label %if.end124.i.i1316, label %if.then122.i.i1314
 
 if.then122.i.i1314:                               ; preds = %cond.end118.i.i1311
-  %mul123.i.i1315 = mul i64 %all_histograms_capacity.0360.i.i1041, 2192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call116.i.i1313, ptr align 8 %all_histograms.0361.i.i1040, i64 %mul123.i.i1315, i1 false)
+  %mul123.i.i1315 = mul i64 %all_histograms_capacity.0366.i.i1035, 2192
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call116.i.i1313, ptr align 8 %all_histograms.0365.i.i1036, i64 %mul123.i.i1315, i1 false)
   br label %if.end124.i.i1316
 
 if.end124.i.i1316:                                ; preds = %if.then122.i.i1314, %cond.end118.i.i1311
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0361.i.i1040) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0365.i.i1036) #7
   br label %if.end125.i.i1080
 
 if.end125.i.i1080:                                ; preds = %if.end124.i.i1316, %for.end95.i167.i1075
-  %all_histograms_capacity.1.i.i1081 = phi i64 [ %_new_size.0.i.i1308, %if.end124.i.i1316 ], [ %all_histograms_capacity.0360.i.i1041, %for.end95.i167.i1075 ]
-  %all_histograms.1.i.i1082 = phi ptr [ %call116.i.i1313, %if.end124.i.i1316 ], [ %all_histograms.0361.i.i1040, %for.end95.i167.i1075 ]
-  %add126.i.i1083 = add i64 %call96.i.i1077, %cluster_size_size.0362.i.i1039
+  %all_histograms.1.i.i1081 = phi ptr [ %call116.i.i1313, %if.end124.i.i1316 ], [ %all_histograms.0365.i.i1036, %for.end95.i167.i1075 ]
+  %all_histograms_capacity.1.i.i1082 = phi i64 [ %_new_size.0.i.i1308, %if.end124.i.i1316 ], [ %all_histograms_capacity.0366.i.i1035, %for.end95.i167.i1075 ]
+  %add126.i.i1083 = add i64 %call96.i.i1077, %cluster_size_size.0364.i.i1037
   %cmp127.i.i1084 = icmp ult i64 %cluster_size_capacity.0363.i.i1038, %add126.i.i1083
   br i1 %cmp127.i.i1084, label %if.then129.i.i1291, label %if.end159.i.i1085
 
@@ -3338,32 +3338,32 @@ cond.end152.i.i1298:                              ; preds = %while.cond139.i.i12
 
 if.then156.i.i1301:                               ; preds = %cond.end152.i.i1298
   %mul157.i.i1302 = shl i64 %cluster_size_capacity.0363.i.i1038, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call150.i.i1300, ptr align 4 %cluster_size.0364.i.i1037, i64 %mul157.i.i1302, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call150.i.i1300, ptr align 4 %cluster_size.0362.i.i1039, i64 %mul157.i.i1302, i1 false)
   br label %if.end158.i.i1303
 
 if.end158.i.i1303:                                ; preds = %if.then156.i.i1301, %cond.end152.i.i1298
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0364.i.i1037) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0362.i.i1039) #7
   br label %if.end159.i.i1085
 
 if.end159.i.i1085:                                ; preds = %if.end158.i.i1303, %if.end125.i.i1080
-  %cluster_size_capacity.1.i.i1086 = phi i64 [ %_new_size130.0.i.i1295, %if.end158.i.i1303 ], [ %cluster_size_capacity.0363.i.i1038, %if.end125.i.i1080 ]
-  %cluster_size.1.i.i1087 = phi ptr [ %call150.i.i1300, %if.end158.i.i1303 ], [ %cluster_size.0364.i.i1037, %if.end125.i.i1080 ]
+  %cluster_size.1.i.i1086 = phi ptr [ %call150.i.i1300, %if.end158.i.i1303 ], [ %cluster_size.0362.i.i1039, %if.end125.i.i1080 ]
+  %cluster_size_capacity.1.i.i1087 = phi i64 [ %_new_size130.0.i.i1295, %if.end158.i.i1303 ], [ %cluster_size_capacity.0363.i.i1038, %if.end125.i.i1080 ]
   %cmp161350.not.i.i1088 = icmp eq i64 %call96.i.i1077, 0
   br i1 %cmp161350.not.i.i1088, label %for.body183.lr.ph.i.i1107, label %for.body163.i.i1089
 
 for.body183.lr.ph.i.i1107:                        ; preds = %for.body163.i.i1089, %if.end159.i.i1085
-  %all_histograms_size.1.lcssa.i.i1108 = phi i64 [ %all_histograms_size.0359.i.i1042, %if.end159.i.i1085 ], [ %inc164.i.i1093, %for.body163.i.i1089 ]
-  %cluster_size_size.1.lcssa.i.i1109 = phi i64 [ %cluster_size_size.0362.i.i1039, %if.end159.i.i1085 ], [ %inc171.i.i1100, %for.body163.i.i1089 ]
-  %conv184.i.i1110 = trunc i64 %num_clusters.0365.i.i1036 to i32
+  %cluster_size_size.1.lcssa.i.i1108 = phi i64 [ %cluster_size_size.0364.i.i1037, %if.end159.i.i1085 ], [ %inc171.i.i1100, %for.body163.i.i1089 ]
+  %all_histograms_size.1.lcssa.i.i1109 = phi i64 [ %all_histograms_size.0367.i.i1034, %if.end159.i.i1085 ], [ %inc164.i.i1093, %for.body163.i.i1089 ]
+  %conv184.i.i1110 = trunc i64 %num_clusters.0361.i.i1040 to i32
   br label %for.body183.i.i1111
 
 for.body163.i.i1089:                              ; preds = %if.end159.i.i1085, %for.body163.i.i1089
-  %j.1353.i.i1090 = phi i64 [ %inc178.i.i1105, %for.body163.i.i1089 ], [ 0, %if.end159.i.i1085 ]
-  %cluster_size_size.1352.i.i1091 = phi i64 [ %inc171.i.i1100, %for.body163.i.i1089 ], [ %cluster_size_size.0362.i.i1039, %if.end159.i.i1085 ]
-  %all_histograms_size.1351.i.i1092 = phi i64 [ %inc164.i.i1093, %for.body163.i.i1089 ], [ %all_histograms_size.0359.i.i1042, %if.end159.i.i1085 ]
-  %inc164.i.i1093 = add i64 %all_histograms_size.1351.i.i1092, 1
-  %arrayidx165.i.i1094 = getelementptr inbounds %struct.HistogramDistance, ptr %all_histograms.1.i.i1082, i64 %all_histograms_size.1351.i.i1092
-  %arrayidx166.i.i1095 = getelementptr inbounds i32, ptr %add.ptr42.i.i1030, i64 %j.1353.i.i1090
+  %all_histograms_size.1353.i.i1090 = phi i64 [ %inc164.i.i1093, %for.body163.i.i1089 ], [ %all_histograms_size.0367.i.i1034, %if.end159.i.i1085 ]
+  %cluster_size_size.1352.i.i1091 = phi i64 [ %inc171.i.i1100, %for.body163.i.i1089 ], [ %cluster_size_size.0364.i.i1037, %if.end159.i.i1085 ]
+  %j.1351.i.i1092 = phi i64 [ %inc178.i.i1105, %for.body163.i.i1089 ], [ 0, %if.end159.i.i1085 ]
+  %inc164.i.i1093 = add i64 %all_histograms_size.1353.i.i1090, 1
+  %arrayidx165.i.i1094 = getelementptr inbounds %struct.HistogramDistance, ptr %all_histograms.1.i.i1081, i64 %all_histograms_size.1353.i.i1090
+  %arrayidx166.i.i1095 = getelementptr inbounds i32, ptr %add.ptr42.i.i1030, i64 %j.1351.i.i1092
   %255 = load i32, ptr %arrayidx166.i.i1095, align 4
   %idxprom.i168.i1096 = zext i32 %255 to i64
   %arrayidx167.i.i1097 = getelementptr inbounds %struct.HistogramDistance, ptr %cond33.i.i1008, i64 %idxprom.i168.i1096
@@ -3373,14 +3373,14 @@ for.body163.i.i1089:                              ; preds = %if.end159.i.i1085, 
   %arrayidx170.i.i1099 = getelementptr inbounds i32, ptr %cond8310322.i.i1000, i64 %idxprom169.i.i1098
   %257 = load i32, ptr %arrayidx170.i.i1099, align 4
   %inc171.i.i1100 = add i64 %cluster_size_size.1352.i.i1091, 1
-  %arrayidx172.i.i1101 = getelementptr inbounds i32, ptr %cluster_size.1.i.i1087, i64 %cluster_size_size.1352.i.i1091
+  %arrayidx172.i.i1101 = getelementptr inbounds i32, ptr %cluster_size.1.i.i1086, i64 %cluster_size_size.1352.i.i1091
   store i32 %257, ptr %arrayidx172.i.i1101, align 4
-  %conv173.i.i1102 = trunc i64 %j.1353.i.i1090 to i32
+  %conv173.i.i1102 = trunc i64 %j.1351.i.i1092 to i32
   %258 = load i32, ptr %arrayidx166.i.i1095, align 4
   %idxprom175.i.i1103 = zext i32 %258 to i64
   %arrayidx176.i.i1104 = getelementptr inbounds i32, ptr %add.ptr44.i.i1031, i64 %idxprom175.i.i1103
   store i32 %conv173.i.i1102, ptr %arrayidx176.i.i1104, align 4
-  %inc178.i.i1105 = add nuw i64 %j.1353.i.i1090, 1
+  %inc178.i.i1105 = add nuw i64 %j.1351.i.i1092, 1
   %exitcond398.not.i.i1106 = icmp eq i64 %inc178.i.i1105, %call96.i.i1077
   br i1 %exitcond398.not.i.i1106, label %for.body183.lr.ph.i.i1107, label %for.body163.i.i1089, !llvm.loop !101
 
@@ -3392,7 +3392,7 @@ for.body183.i.i1111:                              ; preds = %for.body183.i.i1111
   %arrayidx187.i.i1115 = getelementptr inbounds i32, ptr %add.ptr44.i.i1031, i64 %idxprom186.i.i1114
   %260 = load i32, ptr %arrayidx187.i.i1115, align 4
   %add188.i.i1116 = add i32 %260, %conv184.i.i1110
-  %add189.i.i1117 = add nuw nsw i64 %j.2357.i.i1112, %i.1367.i.i1034
+  %add189.i.i1117 = add nuw nsw i64 %j.2357.i.i1112, %i.1359.i.i1042
   %arrayidx190.i.i1118 = getelementptr inbounds i32, ptr %cond295308323.i.i999, i64 %add189.i.i1117
   store i32 %add188.i.i1116, ptr %arrayidx190.i.i1118, align 4
   %inc192.i.i1119 = add nuw nsw i64 %j.2357.i.i1112, 1
@@ -3400,20 +3400,20 @@ for.body183.i.i1111:                              ; preds = %for.body183.i.i1111
   br i1 %exitcond401.not.i.i1120, label %for.end193.i.i1121, label %for.body183.i.i1111, !llvm.loop !102
 
 for.end193.i.i1121:                               ; preds = %for.body183.i.i1111
-  %add194.i.i1122 = add i64 %call96.i.i1077, %num_clusters.0365.i.i1036
-  %add196.i.i1123 = add i64 %i.1367.i.i1034, 64
+  %add194.i.i1122 = add i64 %call96.i.i1077, %num_clusters.0361.i.i1040
+  %add196.i.i1123 = add i64 %i.1359.i.i1042, 64
   %cmp61.i.i1124 = icmp ult i64 %add196.i.i1123, %retval.0.i.i920
   %indvars.iv.next.i.i1125 = add i64 %indvars.iv.i.i1033, -64
   br i1 %cmp61.i.i1124, label %for.body69.lr.ph.i.i1032, label %for.end197.i.i1126, !llvm.loop !103
 
 for.end197.i.i1126:                               ; preds = %for.end193.i.i1121, %for.cond60.preheader.i.i1029
-  %all_histograms.0.lcssa.i.i1127 = phi ptr [ %cond17325.i.i997, %for.cond60.preheader.i.i1029 ], [ %all_histograms.1.i.i1082, %for.end193.i.i1121 ]
-  %cluster_size.0.lcssa.i.i1128 = phi ptr [ %cond24.i.i1002, %for.cond60.preheader.i.i1029 ], [ %cluster_size.1.i.i1087, %for.end193.i.i1121 ]
-  %num_clusters.0.lcssa.i.i1129 = phi i64 [ 0, %for.cond60.preheader.i.i1029 ], [ %add194.i.i1122, %for.end193.i.i1121 ]
+  %num_clusters.0.lcssa.i.i1127 = phi i64 [ 0, %for.cond60.preheader.i.i1029 ], [ %add194.i.i1122, %for.end193.i.i1121 ]
+  %cluster_size.0.lcssa.i.i1128 = phi ptr [ %cond24.i.i1002, %for.cond60.preheader.i.i1029 ], [ %cluster_size.1.i.i1086, %for.end193.i.i1121 ]
+  %all_histograms.0.lcssa.i.i1129 = phi ptr [ %cond17325.i.i997, %for.cond60.preheader.i.i1029 ], [ %all_histograms.1.i.i1081, %for.end193.i.i1121 ]
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond33.i.i1008) #7
-  %mul198.i.i1130 = shl i64 %num_clusters.0.lcssa.i.i1129, 6
-  %div199289.i.i1131 = lshr i64 %num_clusters.0.lcssa.i.i1129, 1
-  %mul200.i.i1132 = mul i64 %div199289.i.i1131, %num_clusters.0.lcssa.i.i1129
+  %mul198.i.i1130 = shl i64 %num_clusters.0.lcssa.i.i1127, 6
+  %div199289.i.i1131 = lshr i64 %num_clusters.0.lcssa.i.i1127, 1
+  %mul200.i.i1132 = mul i64 %div199289.i.i1131, %num_clusters.0.lcssa.i.i1127
   %cond.i.i169.i1133 = tail call i64 @llvm.umin.i64(i64 %mul198.i.i1130, i64 %mul200.i.i1132)
   %cmp203.i.i1134 = icmp ugt i64 %cond.i.i169.i1133, 2048
   br i1 %cmp203.i.i1134, label %if.then205.i.i1288, label %if.end216.i.i1135
@@ -3427,11 +3427,11 @@ if.then205.i.i1288:                               ; preds = %for.end197.i.i1126
 
 if.end216.i.i1135:                                ; preds = %if.then205.i.i1288, %for.end197.i.i1126
   %pairs.0.i.i1136 = phi ptr [ %call212.i.i1290, %if.then205.i.i1288 ], [ %call38.i.i1009, %for.end197.i.i1126 ]
-  %cmp217.not.i.i1137 = icmp eq i64 %num_clusters.0.lcssa.i.i1129, 0
+  %cmp217.not.i.i1137 = icmp eq i64 %num_clusters.0.lcssa.i.i1127, 0
   br i1 %cmp217.not.i.i1137, label %for.end233.i.i1147, label %for.body228.preheader.i.i1138
 
 for.body228.preheader.i.i1138:                    ; preds = %if.end216.i.i1135
-  %mul220.i.i1139 = shl i64 %num_clusters.0.lcssa.i.i1129, 2
+  %mul220.i.i1139 = shl i64 %num_clusters.0.lcssa.i.i1127, 2
   %call221.i.i1140 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul220.i.i1139) #7
   br label %for.body228.i.i1141
 
@@ -3441,18 +3441,18 @@ for.body228.i.i1141:                              ; preds = %for.body228.i.i1141
   %arrayidx230.i.i1144 = getelementptr inbounds i32, ptr %call221.i.i1140, i64 %i.2372.i.i1142
   store i32 %conv229.i.i1143, ptr %arrayidx230.i.i1144, align 4
   %inc232.i.i1145 = add nuw i64 %i.2372.i.i1142, 1
-  %exitcond402.not.i.i1146 = icmp eq i64 %inc232.i.i1145, %num_clusters.0.lcssa.i.i1129
+  %exitcond402.not.i.i1146 = icmp eq i64 %inc232.i.i1145, %num_clusters.0.lcssa.i.i1127
   br i1 %exitcond402.not.i.i1146, label %for.end233.i.i1147, label %for.body228.i.i1141, !llvm.loop !104
 
 for.end233.i.i1147:                               ; preds = %for.body228.i.i1141, %if.end216.i.i1135
   %cond224408.i.i1148 = phi ptr [ null, %if.end216.i.i1135 ], [ %call221.i.i1140, %for.body228.i.i1141 ]
-  %call234.i.i1149 = tail call i64 @BrotliHistogramCombineDistance(ptr noundef %all_histograms.0.lcssa.i.i1127, ptr noundef %call46.i.i1012, ptr noundef %cluster_size.0.lcssa.i.i1128, ptr noundef %cond295308323.i.i999, ptr noundef %cond224408.i.i1148, ptr noundef %pairs.0.i.i1136, i64 noundef %num_clusters.0.lcssa.i.i1129, i64 noundef %retval.0.i.i920, i64 noundef 256, i64 noundef %cond.i.i169.i1133) #7
+  %call234.i.i1149 = tail call i64 @BrotliHistogramCombineDistance(ptr noundef %all_histograms.0.lcssa.i.i1129, ptr noundef %call46.i.i1012, ptr noundef %cluster_size.0.lcssa.i.i1128, ptr noundef %cond295308323.i.i999, ptr noundef %cond224408.i.i1148, ptr noundef %pairs.0.i.i1136, i64 noundef %num_clusters.0.lcssa.i.i1127, i64 noundef %retval.0.i.i920, i64 noundef 256, i64 noundef %cond.i.i169.i1133) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %pairs.0.i.i1136) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0.lcssa.i.i1128) #7
   br i1 %cmp217.not.i.i1137, label %for.cond251.preheader.i.i1153, label %for.body246.preheader.i.i1150
 
 for.body246.preheader.i.i1150:                    ; preds = %for.end233.i.i1147
-  %mul238.i.i1151 = shl i64 %num_clusters.0.lcssa.i.i1129, 2
+  %mul238.i.i1151 = shl i64 %num_clusters.0.lcssa.i.i1127, 2
   %call239.i.i1152 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul238.i.i1151) #7
   tail call void @llvm.memset.p0.i64(ptr align 4 %call239.i.i1152, i8 -1, i64 %mul238.i.i1151, i1 false)
   br label %for.cond251.preheader.i.i1153
@@ -3470,18 +3470,18 @@ for.body254.lr.ph.i.i1155:                        ; preds = %for.cond251.prehead
 
 for.body254.i.i1160:                              ; preds = %for.inc308.i.i1208, %for.body254.lr.ph.i.i1155
   %next_index.0388.i.i1161 = phi i32 [ 0, %for.body254.lr.ph.i.i1155 ], [ %next_index.1.i.i1209, %for.inc308.i.i1208 ]
-  %i.4387.i.i1162 = phi i64 [ 0, %for.body254.lr.ph.i.i1155 ], [ %inc309.i.i1210, %for.inc308.i.i1208 ]
-  %pos.3386.i.i1163 = phi i64 [ 0, %for.body254.lr.ph.i.i1155 ], [ %pos.4.lcssa.i.i1179, %for.inc308.i.i1208 ]
+  %pos.3387.i.i1162 = phi i64 [ 0, %for.body254.lr.ph.i.i1155 ], [ %pos.4.lcssa.i.i1179, %for.inc308.i.i1208 ]
+  %i.4386.i.i1163 = phi i64 [ 0, %for.body254.lr.ph.i.i1155 ], [ %inc309.i.i1210, %for.inc308.i.i1208 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %call46.i.i1012, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i.i171.i1157, align 8
-  %arrayidx257.i.i1164 = getelementptr inbounds i32, ptr %add.ptr45.i.i1011, i64 %i.4387.i.i1162
+  %arrayidx257.i.i1164 = getelementptr inbounds i32, ptr %add.ptr45.i.i1011, i64 %i.4386.i.i1163
   %262 = load i32, ptr %arrayidx257.i.i1164, align 4
   %cmp259376.not.i.i1165 = icmp eq i32 %262, 0
   br i1 %cmp259376.not.i.i1165, label %for.end267.i.i1178, label %for.body261.i.i1166
 
 for.body261.i.i1166:                              ; preds = %for.body254.i.i1160, %for.body261.i.i1166
   %j255.0378.i.i1167 = phi i64 [ %inc266.i.i1175, %for.body261.i.i1166 ], [ 0, %for.body254.i.i1160 ]
-  %pos.4377.i.i1168 = phi i64 [ %inc262.i.i1169, %for.body261.i.i1166 ], [ %pos.3386.i.i1163, %for.body254.i.i1160 ]
+  %pos.4377.i.i1168 = phi i64 [ %inc262.i.i1169, %for.body261.i.i1166 ], [ %pos.3387.i.i1162, %for.body254.i.i1160 ]
   %inc262.i.i1169 = add i64 %pos.4377.i.i1168, 1
   %arrayidx263.i.i1170 = getelementptr inbounds i16, ptr %call14, i64 %pos.4377.i.i1168
   %263 = load i16, ptr %arrayidx263.i.i1170, align 2
@@ -3500,12 +3500,12 @@ for.body261.i.i1166:                              ; preds = %for.body254.i.i1160
   br i1 %cmp259.i.i1177, label %for.body261.i.i1166, label %for.end267.i.i1178, !llvm.loop !105
 
 for.end267.i.i1178:                               ; preds = %for.body261.i.i1166, %for.body254.i.i1160
-  %pos.4.lcssa.i.i1179 = phi i64 [ %pos.3386.i.i1163, %for.body254.i.i1160 ], [ %inc262.i.i1169, %for.body261.i.i1166 ]
-  %cond276.in.idx.i.i1180 = tail call i64 @llvm.usub.sat.i64(i64 %i.4387.i.i1162, i64 1)
+  %pos.4.lcssa.i.i1179 = phi i64 [ %pos.3387.i.i1162, %for.body254.i.i1160 ], [ %inc262.i.i1169, %for.body261.i.i1166 ]
+  %cond276.in.idx.i.i1180 = tail call i64 @llvm.usub.sat.i64(i64 %i.4386.i.i1163, i64 1)
   %cond276.in.i.i1181 = getelementptr inbounds i32, ptr %cond295308323.i.i999, i64 %cond276.in.idx.i.i1180
   %cond276.i.i1182 = load i32, ptr %cond276.in.i.i1181, align 4
   %idxprom277.i.i1183 = zext i32 %cond276.i.i1182 to i64
-  %arrayidx278.i.i1184 = getelementptr inbounds %struct.HistogramDistance, ptr %all_histograms.0.lcssa.i.i1127, i64 %idxprom277.i.i1183
+  %arrayidx278.i.i1184 = getelementptr inbounds %struct.HistogramDistance, ptr %all_histograms.0.lcssa.i.i1129, i64 %idxprom277.i.i1183
   %call280.i.i1185 = tail call double @BrotliHistogramBitCostDistanceDistance(ptr noundef nonnull %call46.i.i1012, ptr noundef %arrayidx278.i.i1184, ptr noundef nonnull %add.ptr279.i.i1158) #7
   br i1 %cmp282380.not.i.i1159, label %for.end297.i.i1202, label %for.body284.i.i1186
 
@@ -3516,7 +3516,7 @@ for.body284.i.i1186:                              ; preds = %for.end267.i.i1178,
   %arrayidx285.i.i1190 = getelementptr inbounds i32, ptr %cond224408.i.i1148, i64 %j255.1381.i.i1189
   %267 = load i32, ptr %arrayidx285.i.i1190, align 4
   %idxprom286.i.i1191 = zext i32 %267 to i64
-  %arrayidx287.i.i1192 = getelementptr inbounds %struct.HistogramDistance, ptr %all_histograms.0.lcssa.i.i1127, i64 %idxprom286.i.i1191
+  %arrayidx287.i.i1192 = getelementptr inbounds %struct.HistogramDistance, ptr %all_histograms.0.lcssa.i.i1129, i64 %idxprom286.i.i1191
   %call289.i.i1193 = tail call double @BrotliHistogramBitCostDistanceDistance(ptr noundef %call46.i.i1012, ptr noundef %arrayidx287.i.i1192, ptr noundef nonnull %add.ptr279.i.i1158) #7
   %cmp290.i.i1194 = fcmp olt double %call289.i.i1193, %best_bits.0383.i.i1187
   br i1 %cmp290.i.i1194, label %if.then292.i.i1287, label %for.inc295.i.i1195
@@ -3539,7 +3539,7 @@ for.end297.loopexit.i.i1200:                      ; preds = %for.inc295.i.i1195
 for.end297.i.i1202:                               ; preds = %for.end297.loopexit.i.i1200, %for.end267.i.i1178
   %idxprom299.pre-phi.i.i1203 = phi i64 [ %.pre406.i.i1201, %for.end297.loopexit.i.i1200 ], [ %idxprom277.i.i1183, %for.end267.i.i1178 ]
   %best_out.0.lcssa.i.i1204 = phi i32 [ %best_out.1.i.i1196, %for.end297.loopexit.i.i1200 ], [ %cond276.i.i1182, %for.end267.i.i1178 ]
-  %arrayidx298.i.i1205 = getelementptr inbounds i32, ptr %cond295308323.i.i999, i64 %i.4387.i.i1162
+  %arrayidx298.i.i1205 = getelementptr inbounds i32, ptr %cond295308323.i.i999, i64 %i.4386.i.i1163
   store i32 %best_out.0.lcssa.i.i1204, ptr %arrayidx298.i.i1205, align 4
   %arrayidx300.i.i1206 = getelementptr inbounds i32, ptr %cond242410.i.i1154, i64 %idxprom299.pre-phi.i.i1203
   %269 = load i32, ptr %arrayidx300.i.i1206, align 4
@@ -3553,14 +3553,14 @@ if.then303.i.i1285:                               ; preds = %for.end297.i.i1202
 
 for.inc308.i.i1208:                               ; preds = %if.then303.i.i1285, %for.end297.i.i1202
   %next_index.1.i.i1209 = phi i32 [ %inc304.i.i1286, %if.then303.i.i1285 ], [ %next_index.0388.i.i1161, %for.end297.i.i1202 ]
-  %inc309.i.i1210 = add nuw i64 %i.4387.i.i1162, 1
+  %inc309.i.i1210 = add nuw i64 %i.4386.i.i1163, 1
   %exitcond404.not.i.i1211 = icmp eq i64 %inc309.i.i1210, %retval.0.i.i920
   br i1 %exitcond404.not.i.i1211, label %for.end310.i.i1212, label %for.body254.i.i1160, !llvm.loop !107
 
 for.end310.i.i1212:                               ; preds = %for.inc308.i.i1208, %for.cond251.preheader.i.i1153
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %call46.i.i1012) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond224408.i.i1148) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0.lcssa.i.i1127) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0.lcssa.i.i1129) #7
   %types_alloc_size.i.i1213 = getelementptr inbounds i8, ptr %dist_split, i64 32
   %270 = load i64, ptr %types_alloc_size.i.i1213, align 8
   %cmp311.i.i1214 = icmp ult i64 %270, %retval.0.i.i920

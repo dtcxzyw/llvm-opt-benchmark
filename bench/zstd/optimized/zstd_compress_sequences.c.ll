@@ -39,7 +39,7 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %cost.013 = phi i64 [ 0, %for.cond.preheader ], [ %cost.1, %for.inc ]
+  %cost.014 = phi i64 [ 0, %for.cond.preheader ], [ %cost.1, %for.inc ]
   %deltaNbBits.i = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %add.ptr3.i, i64 %indvars.iv, i32 1
   %3 = load i32, ptr %deltaNbBits.i, align 4
   %shr.i = lshr i32 %3, 16
@@ -64,11 +64,11 @@ if.end10:                                         ; preds = %if.end5
   %conv = zext i32 %6 to i64
   %conv13 = zext i32 %sub10.i to i64
   %mul = mul nuw i64 %conv13, %conv
-  %add14 = add i64 %mul, %cost.013
+  %add14 = add i64 %mul, %cost.014
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end10
-  %cost.1 = phi i64 [ %cost.013, %for.body ], [ %add14, %if.end10 ]
+  %cost.1 = phi i64 [ %cost.014, %for.body ], [ %add14, %if.end10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
@@ -234,7 +234,7 @@ for.cond.preheader.i:                             ; preds = %cond.true34
 
 for.body.i34:                                     ; preds = %for.inc.i, %for.cond.preheader.i
   %indvars.iv.i35 = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i38, %for.inc.i ]
-  %cost.013.i = phi i64 [ 0, %for.cond.preheader.i ], [ %cost.1.i, %for.inc.i ]
+  %cost.014.i = phi i64 [ 0, %for.cond.preheader.i ], [ %cost.1.i, %for.inc.i ]
   %deltaNbBits.i.i = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %add.ptr3.i.i, i64 %indvars.iv.i35, i32 1
   %9 = load i32, ptr %deltaNbBits.i.i, align 4
   %shr.i.i = lshr i32 %9, 16
@@ -259,11 +259,11 @@ if.end10.i:                                       ; preds = %if.end5.i
   %conv.i = zext i32 %12 to i64
   %conv13.i = zext i32 %sub10.i.i to i64
   %mul.i37 = mul nuw i64 %conv13.i, %conv.i
-  %add14.i = add i64 %mul.i37, %cost.013.i
+  %add14.i = add i64 %mul.i37, %cost.014.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end10.i, %for.body.i34
-  %cost.1.i = phi i64 [ %cost.013.i, %for.body.i34 ], [ %add14.i, %if.end10.i ]
+  %cost.1.i = phi i64 [ %cost.014.i, %for.body.i34 ], [ %add14.i, %if.end10.i ]
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i33
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i34, !llvm.loop !4

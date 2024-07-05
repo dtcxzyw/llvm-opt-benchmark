@@ -1462,8 +1462,8 @@ define internal void @_ZN12_GLOBAL__N_114EquivMiterPass7executeESt6vectorINSt7__
 
 .lr.ph:                                           ; preds = %81, %118
   %93 = phi ptr [ %121, %118 ], [ %88, %81 ]
-  %.02247 = phi i64 [ %119, %118 ], [ 1, %81 ]
-  %94 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %93, i64 %.02247
+  %.02347 = phi i64 [ %119, %118 ], [ 1, %81 ]
+  %94 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %93, i64 %.02347
   %95 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull @.str.14) #21
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %100
@@ -1479,7 +1479,7 @@ define internal void @_ZN12_GLOBAL__N_114EquivMiterPass7executeESt6vectorINSt7__
 
 100:                                              ; preds = %.lr.ph
   %101 = load ptr, ptr %1, align 8
-  %102 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %101, i64 %.02247
+  %102 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %101, i64 %.02347
   %103 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull @.str.15) #21
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %106
@@ -1490,7 +1490,7 @@ define internal void @_ZN12_GLOBAL__N_114EquivMiterPass7executeESt6vectorINSt7__
 
 106:                                              ; preds = %100
   %107 = load ptr, ptr %1, align 8
-  %108 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %107, i64 %.02247
+  %108 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %107, i64 %.02347
   %109 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull @.str.16) #21
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %112
@@ -1501,7 +1501,7 @@ define internal void @_ZN12_GLOBAL__N_114EquivMiterPass7executeESt6vectorINSt7__
 
 112:                                              ; preds = %106
   %113 = load ptr, ptr %1, align 8
-  %114 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %113, i64 %.02247
+  %114 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %113, i64 %.02347
   %115 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef nonnull @.str.17) #21
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %.._crit_edge.loopexit_crit_edge
@@ -1519,7 +1519,7 @@ define internal void @_ZN12_GLOBAL__N_114EquivMiterPass7executeESt6vectorINSt7__
   br label %118
 
 118:                                              ; preds = %117, %111, %105, %97
-  %119 = add nuw i64 %.02247, 1
+  %119 = add nuw i64 %.02347, 1
   %120 = load ptr, ptr %86, align 8
   %121 = load ptr, ptr %1, align 8
   %122 = ptrtoint ptr %120 to i64
@@ -1532,14 +1532,14 @@ define internal void @_ZN12_GLOBAL__N_114EquivMiterPass7executeESt6vectorINSt7__
 ._crit_edge:                                      ; preds = %118, %.._crit_edge.loopexit_crit_edge, %81
   %.pre-phi74 = phi i64 [ %91, %81 ], [ %.pre77, %.._crit_edge.loopexit_crit_edge ], [ %124, %118 ]
   %127 = phi ptr [ %88, %81 ], [ %.pre66.pre, %.._crit_edge.loopexit_crit_edge ], [ %121, %118 ]
-  %.022.lcssa = phi i64 [ 1, %81 ], [ %.02247, %.._crit_edge.loopexit_crit_edge ], [ %119, %118 ]
+  %.023.lcssa = phi i64 [ 1, %81 ], [ %.02347, %.._crit_edge.loopexit_crit_edge ], [ %119, %118 ]
   %128 = ashr exact i64 %.pre-phi74, 5
-  %.not = icmp ult i64 %.022.lcssa, %128
+  %.not = icmp ult i64 %.023.lcssa, %128
   br i1 %.not, label %129, label %.invoke
 
 129:                                              ; preds = %._crit_edge
-  %130 = add nuw i64 %.022.lcssa, 1
-  %131 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %127, i64 %.022.lcssa
+  %130 = add nuw i64 %.023.lcssa, 1
+  %131 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %127, i64 %.023.lcssa
   %132 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %131) #21, !noalias !8
   %.not.i = icmp eq i64 %132, 0
   br i1 %.not.i, label %140, label %133
@@ -48502,14 +48502,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.073, i64 1
+  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !385
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -48956,8 +48956,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.016
+  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

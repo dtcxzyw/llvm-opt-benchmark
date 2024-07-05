@@ -216,13 +216,13 @@ define dso_local void @GetHugePageSize(ptr noundef writeonly %0, ptr noundef wri
   %.not2334 = icmp eq i32 %.in.in, 0
   %.in = sext i32 %.in.in to i64
   %19 = shl nsw i64 %.in, 10
-  %.018 = select i1 %.not2334, i64 %18, i64 %19
-  %.not25 = icmp eq i64 %.018, %.132
+  %.017 = select i1 %.not2334, i64 %18, i64 %19
+  %.not25 = icmp eq i64 %.017, %.132
   br i1 %.not25, label %27, label %20
 
 20:                                               ; preds = %.thread
-  %21 = icmp ult i64 %.018, 2
-  %22 = add nsw i64 %.018, -1
+  %21 = icmp ult i64 %.017, 2
+  %22 = add nsw i64 %.017, -1
   %23 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %22, i1 true)
   %24 = trunc nuw nsw i64 %23 to i32
   %.neg = mul i32 %24, -67108864
@@ -231,12 +231,12 @@ define dso_local void @GetHugePageSize(ptr noundef writeonly %0, ptr noundef wri
   br label %27
 
 27:                                               ; preds = %20, %.thread
-  %.017 = phi i32 [ %26, %20 ], [ 262144, %.thread ]
+  %.018 = phi i32 [ %26, %20 ], [ 262144, %.thread ]
   %.not26 = icmp eq ptr %1, null
   br i1 %.not26, label %29, label %28
 
 28:                                               ; preds = %27
-  store i32 %.017, ptr %1, align 4
+  store i32 %.018, ptr %1, align 4
   br label %29
 
 29:                                               ; preds = %28, %27
@@ -244,7 +244,7 @@ define dso_local void @GetHugePageSize(ptr noundef writeonly %0, ptr noundef wri
   br i1 %.not27, label %31, label %30
 
 30:                                               ; preds = %29
-  store i64 %.018, ptr %0, align 8
+  store i64 %.017, ptr %0, align 8
   br label %31
 
 31:                                               ; preds = %30, %29
@@ -398,16 +398,16 @@ CreateAnonymousSegment.exit:                      ; preds = %55
 
 66:                                               ; preds = %65, %CreateAnonymousSegment.exit
   %.044 = phi i64 [ %.2.i, %CreateAnonymousSegment.exit ], [ %0, %65 ]
-  %.029 = phi i64 [ 56, %CreateAnonymousSegment.exit ], [ %0, %65 ]
+  %.030 = phi i64 [ 56, %CreateAnonymousSegment.exit ], [ %0, %65 ]
   %67 = getelementptr inbounds i8, ptr %6, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = trunc i64 %68 to i32
   br label %70
 
 70:                                               ; preds = %.backedge, %66
-  %.030 = phi i32 [ %69, %66 ], [ %.1, %.backedge ]
+  %.031 = phi i32 [ %69, %66 ], [ %.1, %.backedge ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  %71 = call i32 @shmget(i32 noundef %.030, i64 noundef %.029, i32 noundef 1920) #11
+  %71 = call i32 @shmget(i32 noundef %.031, i64 noundef %.030, i32 noundef 1920) #11
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %73, label %100
 
@@ -422,7 +422,7 @@ CreateAnonymousSegment.exit:                      ; preds = %55
   ]
 
 76:                                               ; preds = %73
-  %77 = call i32 @shmget(i32 noundef %.030, i64 noundef 0, i32 noundef 1920) #11
+  %77 = call i32 @shmget(i32 noundef %.031, i64 noundef 0, i32 noundef 1920) #11
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %79, label %81
 
@@ -453,16 +453,16 @@ CreateAnonymousSegment.exit:                      ; preds = %55
   %88 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
   call void @llvm.assume(i1 %88)
   %89 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #11
-  %90 = sext i32 %.030 to i64
-  %91 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.19, i64 noundef %90, i64 noundef %.029, i32 noundef 1920) #11
+  %90 = sext i32 %.031 to i64
+  %91 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.19, i64 noundef %90, i64 noundef %.030, i32 noundef 1920) #11
   br label %.sink.split.i
 
 92:                                               ; preds = %73
   %93 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
   call void @llvm.assume(i1 %93)
   %94 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #11
-  %95 = sext i32 %.030 to i64
-  %96 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.19, i64 noundef %95, i64 noundef %.029, i32 noundef 1920) #11
+  %95 = sext i32 %.031 to i64
+  %96 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.19, i64 noundef %95, i64 noundef %.030, i32 noundef 1920) #11
   switch i32 %75, label %99 [
     i32 12, label %.sink.split.i
     i32 28, label %97
@@ -501,7 +501,7 @@ InternalIpcMemoryCreate.exit.thread:              ; preds = %73, %73, %73, %79, 
 InternalIpcMemoryCreate.exit:                     ; preds = %100
   %107 = ptrtoint ptr %102 to i64
   call void @on_shmem_exit(ptr noundef nonnull @IpcMemoryDetach, i64 noundef %107) #11
-  %108 = sext i32 %.030 to i64
+  %108 = sext i32 %.031 to i64
   %109 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.24, i64 noundef %108, i64 noundef %101) #11
   call void @AddToDataDirLockFile(i32 noundef 7, ptr noundef nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
@@ -509,7 +509,7 @@ InternalIpcMemoryCreate.exit:                     ; preds = %100
   br i1 %.not, label %110, label %148
 
 110:                                              ; preds = %InternalIpcMemoryCreate.exit.thread, %InternalIpcMemoryCreate.exit
-  %111 = call i32 @shmget(i32 noundef %.030, i64 noundef 56, i32 noundef 0) #11
+  %111 = call i32 @shmget(i32 noundef %.031, i64 noundef 56, i32 noundef 0) #11
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %.thread, label %113
 
@@ -531,7 +531,7 @@ InternalIpcMemoryCreate.exit:                     ; preds = %100
   %116 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
   call void @llvm.assume(i1 %116)
   %117 = call i32 @errcode(i32 noundef 16777238) #11
-  %118 = sext i32 %.030 to i64
+  %118 = sext i32 %.031 to i64
   %119 = zext nneg i32 %111 to i64
   %120 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i64 noundef %118, i64 noundef %119) #11
   %121 = load ptr, ptr @DataDir, align 8
@@ -544,14 +544,14 @@ InternalIpcMemoryCreate.exit:                     ; preds = %100
   br i1 %124, label %125, label %139
 
 125:                                              ; preds = %123
-  %126 = sext i32 %.030 to i64
+  %126 = sext i32 %.031 to i64
   %127 = zext nneg i32 %111 to i64
   %128 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i64 noundef %126, i64 noundef %127) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 813, ptr noundef nonnull @__func__.PGSharedMemoryCreate) #11
   br label %139
 
 129:                                              ; preds = %.thread, %113
-  %130 = add i32 %.030, 1
+  %130 = add i32 %.031, 1
   br label %139
 
 131:                                              ; preds = %113
@@ -568,14 +568,14 @@ InternalIpcMemoryCreate.exit:                     ; preds = %100
 136:                                              ; preds = %135, %131
   %137 = call i32 @shmctl(i32 noundef %111, i32 noundef 0, ptr noundef null) #11
   %138 = lshr i32 %137, 31
-  %spec.select = add i32 %138, %.030
+  %spec.select = add i32 %138, %.031
   br label %139
 
 default.unreachable98:                            ; preds = %113
   unreachable
 
 139:                                              ; preds = %136, %125, %123, %129
-  %.1 = phi i32 [ %130, %129 ], [ %.030, %125 ], [ %.030, %123 ], [ %spec.select, %136 ]
+  %.1 = phi i32 [ %130, %129 ], [ %.031, %125 ], [ %.031, %123 ], [ %spec.select, %136 ]
   %140 = load ptr, ptr %7, align 8
   %.not38 = icmp eq ptr %140, null
   br i1 %.not38, label %.backedge, label %141
@@ -625,8 +625,8 @@ default.unreachable98:                            ; preds = %113
   br label %160
 
 160:                                              ; preds = %148, %159
-  %.031 = phi ptr [ %157, %159 ], [ %102, %148 ]
-  ret ptr %.031
+  %.029 = phi ptr [ %157, %159 ], [ %102, %148 ]
+  ret ptr %.029
 }
 
 ; Function Attrs: nofree nounwind

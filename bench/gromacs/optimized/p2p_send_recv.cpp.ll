@@ -156,14 +156,14 @@ define noundef i32 @_Z13tMPI_SendrecvPKviP14tmpi_datatype_iiPviS2_iiP10tmpi_comm
   br label %51
 
 34:                                               ; preds = %28, %27
-  %.032 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.033 = phi ptr [ %31, %28 ], [ null, %27 ]
   %35 = tail call noundef ptr @_Z14tMPI_Post_sendP11tmpi_threadP10tmpi_comm_S0_PviP14tmpi_datatype_ii(ptr noundef %15, ptr noundef nonnull %10, ptr noundef nonnull %24, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %4, i32 noundef 0)
   %36 = icmp eq ptr %35, null
   br i1 %36, label %51, label %37
 
 37:                                               ; preds = %34
   call void @_Z13tMPI_Req_initP9tmpi_req_P8envelope(ptr noundef nonnull %13, ptr noundef nonnull %35)
-  %38 = call noundef ptr @_Z20tMPI_Post_match_recvP11tmpi_threadP10tmpi_comm_S0_PviP14tmpi_datatype_ii(ptr noundef %15, ptr noundef nonnull %10, ptr noundef %.032, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %9, i32 noundef 0)
+  %38 = call noundef ptr @_Z20tMPI_Post_match_recvP11tmpi_threadP10tmpi_comm_S0_PviP14tmpi_datatype_ii(ptr noundef %15, ptr noundef nonnull %10, ptr noundef %.033, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %9, i32 noundef 0)
   %39 = icmp eq ptr %38, null
   br i1 %39, label %51, label %40
 
@@ -198,8 +198,8 @@ define noundef i32 @_Z13tMPI_SendrecvPKviP14tmpi_datatype_iiPviS2_iiP10tmpi_comm
   br label %51
 
 51:                                               ; preds = %37, %34, %._crit_edge, %32, %25, %16
-  %.033 = phi i32 [ %spec.select, %._crit_edge ], [ %33, %32 ], [ %26, %25 ], [ %18, %16 ], [ 20, %34 ], [ 20, %37 ]
-  ret i32 %.033
+  %.032 = phi i32 [ %spec.select, %._crit_edge ], [ %33, %32 ], [ %26, %25 ], [ %18, %16 ], [ 20, %34 ], [ 20, %37 ]
+  ret i32 %.032
 }
 
 declare noundef i32 @_Z15tMPI_Test_multiP11tmpi_threadP9tmpi_req_Pi(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

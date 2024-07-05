@@ -1573,8 +1573,8 @@ if.else:                                          ; preds = %entry
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.then, %if.then3
-  %fixedTimeStep.addr.0 = phi float [ %fixedTimeStep, %if.then3 ], [ %fixedTimeStep, %if.then ], [ %timeStep, %if.else ]
   %numSimulationSubSteps.0 = phi i32 [ %conv, %if.then3 ], [ 0, %if.then ], [ %., %if.else ]
+  %fixedTimeStep.addr.0 = phi float [ %fixedTimeStep, %if.then3 ], [ %fixedTimeStep, %if.then ], [ %timeStep, %if.else ]
   %maxSubSteps.addr.0 = phi i32 [ %maxSubSteps, %if.then3 ], [ %maxSubSteps, %if.then ], [ %., %if.else ]
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
@@ -7964,8 +7964,8 @@ tailrecurse:                                      ; preds = %if.end17, %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %tailrecurse
-  %i.0 = phi i32 [ %lo.tr, %tailrecurse ], [ %i.2, %do.cond ]
   %j.0 = phi i32 [ %hi, %tailrecurse ], [ %j.2, %do.cond ]
+  %i.0 = phi i32 [ %lo.tr, %tailrecurse ], [ %i.2, %do.cond ]
   %2 = load ptr, ptr %m_data, align 8
   %3 = load ptr, ptr %m_rbA.i.i.i, align 8
   %m_islandTag1.i.i.i = getelementptr inbounds i8, ptr %3, i64 228
@@ -8115,8 +8115,8 @@ if.then:                                          ; preds = %while.end11
   br label %do.cond
 
 do.cond:                                          ; preds = %while.end11, %if.then
-  %i.2 = phi i32 [ %inc12, %if.then ], [ %.us-phi47, %while.end11 ]
   %j.2 = phi i32 [ %dec13, %if.then ], [ %.us-phi53, %while.end11 ]
+  %i.2 = phi i32 [ %inc12, %if.then ], [ %.us-phi47, %while.end11 ]
   %cmp14.not = icmp sgt i32 %i.2, %j.2
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !94
 

@@ -628,7 +628,7 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %.03139 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %8 ]
+  %.03040 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %8 ]
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
@@ -637,7 +637,7 @@ define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(
   %14 = inttoptr i64 %13 to ptr
   %15 = tail call fastcc i32 @Dsd_TreeCollectDecomposableVars_rec(ptr noundef %14, ptr noundef %1, ptr noundef %2)
   %.not37 = icmp eq i32 %15, 0
-  %spec.select = select i1 %.not37, i32 %.03139, i32 1
+  %spec.select = select i1 %.not37, i32 %.03040, i32 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i16, ptr %4, align 8
   %17 = sext i16 %16 to i64
@@ -1536,8 +1536,8 @@ define void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %50 = sext i32 %49 to i64
   %51 = select i1 %47, i64 1, i64 %50
   %52 = getelementptr inbounds i64, ptr %7, i64 %51
-  %.01522.i = getelementptr inbounds i8, ptr %52, i64 -8
-  %.not23.i = icmp ult ptr %.01522.i, %7
+  %.022.i = getelementptr inbounds i8, ptr %52, i64 -8
+  %.not23.i = icmp ult ptr %.022.i, %7
   br i1 %.not23.i, label %Abc_TtPrintHexRev.exit, label %.lr.ph.us.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %46
@@ -1546,12 +1546,12 @@ define void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %select.unfold..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %.01524.us.i = phi ptr [ %.015.us.i, %select.unfold..loopexit_crit_edge.us.i ], [ %.01522.i, %.lr.ph.us.preheader.i ]
+  %.024.us.i = phi ptr [ %.0.us.i, %select.unfold..loopexit_crit_edge.us.i ], [ %.022.i, %.lr.ph.us.preheader.i ]
   br label %select.unfold.us.i
 
 select.unfold.us.i:                               ; preds = %select.unfold.us.i, %.lr.ph.us.i
   %indvars.iv.i = phi i64 [ %54, %.lr.ph.us.i ], [ %indvars.iv.next.i, %select.unfold.us.i ]
-  %55 = load i64, ptr %.01524.us.i, align 8
+  %55 = load i64, ptr %.024.us.i, align 8
   %56 = shl i64 %indvars.iv.i, 2
   %57 = and i64 %56, 4294967292
   %58 = lshr i64 %55, %57
@@ -1566,8 +1566,8 @@ select.unfold.us.i:                               ; preds = %select.unfold.us.i,
   br i1 %62, label %select.unfold.us.i, label %select.unfold..loopexit_crit_edge.us.i, !llvm.loop !25
 
 select.unfold..loopexit_crit_edge.us.i:           ; preds = %select.unfold.us.i
-  %.015.us.i = getelementptr inbounds i8, ptr %.01524.us.i, i64 -8
-  %.not.us.i = icmp ult ptr %.015.us.i, %7
+  %.0.us.i = getelementptr inbounds i8, ptr %.024.us.i, i64 -8
+  %.not.us.i = icmp ult ptr %.0.us.i, %7
   br i1 %.not.us.i, label %Abc_TtPrintHexRev.exit, label %.lr.ph.us.i, !llvm.loop !26
 
 Abc_TtPrintHexRev.exit:                           ; preds = %select.unfold..loopexit_crit_edge.us.i, %41, %46

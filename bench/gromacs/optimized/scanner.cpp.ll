@@ -244,24 +244,24 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %33, %36, %45
 .backedge:                                        ; preds = %.backedge.backedge, %.loopexit
   %.0228 = phi ptr [ %107, %.loopexit ], [ %.0228.be, %.backedge.backedge ]
   %.0225 = phi ptr [ %107, %.loopexit ], [ %.0225.be, %.backedge.backedge ]
-  %.0223 = phi i32 [ %109, %.loopexit ], [ %.0223.be, %.backedge.backedge ]
+  %.0222 = phi i32 [ %109, %.loopexit ], [ %.0222.be, %.backedge.backedge ]
   br label %110
 
 110:                                              ; preds = %._crit_edge, %.backedge
   %.1226 = phi ptr [ %.0225, %.backedge ], [ %148, %._crit_edge ]
-  %.1224 = phi i32 [ %.0223, %.backedge ], [ %147, %._crit_edge ]
+  %.1 = phi i32 [ %.0222, %.backedge ], [ %147, %._crit_edge ]
   %111 = load i8, ptr %.1226, align 1
   %112 = zext i8 %111 to i64
   %113 = getelementptr inbounds [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1
-  %115 = sext i32 %.1224 to i64
+  %115 = sext i32 %.1 to i64
   %116 = getelementptr inbounds [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %115
   %117 = load i16, ptr %116, align 2
   %.not241 = icmp eq i16 %117, 0
   br i1 %.not241, label %119, label %118
 
 118:                                              ; preds = %110
-  store i32 %.1224, ptr %97, align 8
+  store i32 %.1, ptr %97, align 8
   store ptr %.1226, ptr %98, align 8
   br label %119
 
@@ -274,30 +274,30 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %33, %36, %45
   %125 = getelementptr inbounds [151 x i16], ptr @_ZL6yy_chk, i64 0, i64 %124
   %126 = load i16, ptr %125, align 2
   %127 = sext i16 %126 to i32
-  %.not242396 = icmp eq i32 %.1224, %127
+  %.not242396 = icmp eq i32 %.1, %127
   br i1 %.not242396, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %119, %136
   %128 = phi i64 [ %137, %136 ], [ %115, %119 ]
-  %.0222397 = phi i8 [ %.1, %136 ], [ %114, %119 ]
+  %.0223397 = phi i8 [ %.1224, %136 ], [ %114, %119 ]
   %129 = getelementptr inbounds [80 x i16], ptr @_ZL6yy_def, i64 0, i64 %128
   %130 = load i16, ptr %129, align 2
   %131 = icmp sgt i16 %130, 75
   br i1 %131, label %132, label %136
 
 132:                                              ; preds = %.lr.ph
-  %133 = zext i8 %.0222397 to i64
+  %133 = zext i8 %.0223397 to i64
   %134 = getelementptr inbounds [33 x i8], ptr @_ZL7yy_meta, i64 0, i64 %133
   %135 = load i8, ptr %134, align 1
   br label %136
 
 136:                                              ; preds = %132, %.lr.ph
-  %.1 = phi i8 [ %135, %132 ], [ %.0222397, %.lr.ph ]
+  %.1224 = phi i8 [ %135, %132 ], [ %.0223397, %.lr.ph ]
   %137 = sext i16 %130 to i64
   %138 = getelementptr inbounds [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %137
   %139 = load i16, ptr %138, align 2
   %140 = zext i16 %139 to i64
-  %141 = zext i8 %.1 to i64
+  %141 = zext i8 %.1224 to i64
   %142 = add nuw nsw i64 %140, %141
   %143 = getelementptr inbounds [151 x i16], ptr @_ZL6yy_chk, i64 0, i64 %142
   %144 = load i16, ptr %143, align 2
@@ -639,7 +639,7 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %33, %36, %45
 .backedge.backedge:                               ; preds = %308, %504
   %.0228.be = phi ptr [ %307, %308 ], [ %512, %504 ]
   %.0225.be = phi ptr [ %310, %308 ], [ %511, %504 ]
-  %.0223.be = phi i32 [ %306, %308 ], [ %510, %504 ]
+  %.0222.be = phi i32 [ %306, %308 ], [ %510, %504 ]
   br label %.backedge
 
 311:                                              ; preds = %298
@@ -683,13 +683,13 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %33, %36, %45
 
 .lr.ph.i:                                         ; preds = %327, %.lr.ph.i
   %.0128157.i = phi ptr [ %332, %.lr.ph.i ], [ %295, %327 ]
-  %.0131156.i = phi i64 [ %333, %.lr.ph.i ], [ 0, %327 ]
-  %.0132155.i = phi ptr [ %330, %.lr.ph.i ], [ %314, %327 ]
-  %330 = getelementptr inbounds i8, ptr %.0132155.i, i64 1
-  %331 = load i8, ptr %.0132155.i, align 1
+  %.0129156.i = phi ptr [ %330, %.lr.ph.i ], [ %314, %327 ]
+  %.0130155.i = phi i64 [ %333, %.lr.ph.i ], [ 0, %327 ]
+  %330 = getelementptr inbounds i8, ptr %.0129156.i, i64 1
+  %331 = load i8, ptr %.0129156.i, align 1
   %332 = getelementptr inbounds i8, ptr %.0128157.i, i64 1
   store i8 %331, ptr %.0128157.i, align 1
-  %333 = add nuw i64 %.0131156.i, 1
+  %333 = add nuw i64 %.0130155.i, 1
   %exitcond.not.i = icmp eq i64 %333, %329
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
@@ -718,8 +718,8 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %33, %36, %45
   %343 = sub i64 %323, %322
   %.pn.in158.i = getelementptr inbounds i8, ptr %334, i64 24
   %.pn159.i = load i64, ptr %.pn.in158.i, align 8
-  %.0129160.i = add i64 %.pn159.i, %343
-  %344 = icmp eq i64 %.0129160.i, 0
+  %.0131160.i = add i64 %.pn159.i, %343
+  %344 = icmp eq i64 %.0131160.i, 0
   br i1 %344, label %.lr.ph162.preheader.i, label %._crit_edge163.i
 
 .lr.ph162.preheader.i:                            ; preds = %342
@@ -773,14 +773,14 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %33, %36, %45
   %369 = load ptr, ptr %368, align 8
   %.pn.in.i = getelementptr inbounds i8, ptr %369, i64 24
   %.pn.i = load i64, ptr %.pn.in.i, align 8
-  %.0129.i = add i64 %.pn.i, %343
-  %370 = icmp eq i64 %.0129.i, 0
+  %.0131.i = add i64 %.pn.i, %343
+  %370 = icmp eq i64 %.0131.i, 0
   br i1 %370, label %.lr.ph162.i, label %._crit_edge163.i, !llvm.loop !9
 
 ._crit_edge163.i:                                 ; preds = %363, %342
   %371 = phi ptr [ %334, %342 ], [ %369, %363 ]
-  %.0129.lcssa.i = phi i64 [ %.0129160.i, %342 ], [ %.0129.i, %363 ]
-  %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %.0129.lcssa.i, i64 8192)
+  %.0131.lcssa.i = phi i64 [ %.0131160.i, %342 ], [ %.0131.i, %363 ]
+  %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %.0131.lcssa.i, i64 8192)
   %372 = getelementptr inbounds i8, ptr %371, i64 44
   %373 = load i32, ptr %372, align 4
   %.not.i247 = icmp eq i32 %373, 0
@@ -928,7 +928,7 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %33, %36, %45
   br label %448
 
 448:                                              ; preds = %442, %440, %434
-  %.0130.i = phi i32 [ 1, %440 ], [ 2, %442 ], [ 0, %434 ]
+  %.0132.i = phi i32 [ 1, %440 ], [ 2, %442 ], [ 0, %434 ]
   %449 = load i64, ptr %103, align 8
   %450 = add i64 %449, %329
   %451 = load ptr, ptr %101, align 8
@@ -998,7 +998,7 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %448, %._crit_edge17
   %496 = getelementptr inbounds i8, ptr %495, i64 8
   %497 = load ptr, ptr %496, align 8
   store ptr %497, ptr %99, align 8
-  switch i32 %.0130.i, label %default.unreachable473 [
+  switch i32 %.0132.i, label %default.unreachable473 [
     i32 1, label %_ZL18yy_get_next_bufferPv.exit.thread
     i32 0, label %504
     i32 2, label %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread251_crit_edge
@@ -1223,9 +1223,9 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
   br label %11
 
 11:                                               ; preds = %.lr.ph32, %._crit_edge
-  %.02130 = phi ptr [ %5, %.lr.ph32 ], [ %52, %._crit_edge ]
-  %.02229 = phi i32 [ %3, %.lr.ph32 ], [ %51, %._crit_edge ]
-  %12 = load i8, ptr %.02130, align 1
+  %.02130 = phi i32 [ %3, %.lr.ph32 ], [ %51, %._crit_edge ]
+  %.02329 = phi ptr [ %5, %.lr.ph32 ], [ %52, %._crit_edge ]
+  %12 = load i8, ptr %.02329, align 1
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %17, label %13
 
@@ -1237,15 +1237,15 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
 
 17:                                               ; preds = %11, %13
   %18 = phi i8 [ %16, %13 ], [ 1, %11 ]
-  %19 = sext i32 %.02229 to i64
+  %19 = sext i32 %.02130 to i64
   %20 = getelementptr inbounds [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %19
   %21 = load i16, ptr %20, align 2
   %.not25 = icmp eq i16 %21, 0
   br i1 %.not25, label %23, label %22
 
 22:                                               ; preds = %17
-  store i32 %.02229, ptr %9, align 8
-  store ptr %.02130, ptr %10, align 8
+  store i32 %.02130, ptr %9, align 8
+  store ptr %.02329, ptr %10, align 8
   br label %23
 
 23:                                               ; preds = %22, %17
@@ -1257,7 +1257,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
   %29 = getelementptr inbounds [151 x i16], ptr @_ZL6yy_chk, i64 0, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = sext i16 %30 to i32
-  %.not2627 = icmp eq i32 %.02229, %31
+  %.not2627 = icmp eq i32 %.02130, %31
   br i1 %.not2627, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %40
@@ -1292,13 +1292,13 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
   %49 = getelementptr inbounds [151 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds i8, ptr %.02130, i64 1
+  %52 = getelementptr inbounds i8, ptr %.02329, i64 1
   %exitcond.not = icmp eq ptr %52, %7
   br i1 %exitcond.not, label %._crit_edge33, label %11, !llvm.loop !13
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %1
-  %.022.lcssa = phi i32 [ %3, %1 ], [ %51, %._crit_edge ]
-  ret i32 %.022.lcssa
+  %.021.lcssa = phi i32 [ %3, %1 ], [ %51, %._crit_edge ]
+  ret i32 %.021.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

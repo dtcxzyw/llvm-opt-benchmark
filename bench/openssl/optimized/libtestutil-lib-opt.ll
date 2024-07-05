@@ -2405,8 +2405,8 @@ entry:
   br i1 %tobool.not19, label %if.then26, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %width.021 = phi i32 [ %width.1, %for.inc ], [ 5, %entry ]
-  %o.020 = phi ptr [ %incdec.ptr, %for.inc ], [ %list, %entry ]
+  %o.021 = phi ptr [ %incdec.ptr, %for.inc ], [ %list, %entry ]
+  %width.020 = phi i32 [ %width.1, %for.inc ], [ 5, %entry ]
   %1 = phi ptr [ %.pr, %for.inc ], [ %0, %entry ]
   %cmp3 = icmp eq ptr %1, @OPT_MORE_STR
   br i1 %cmp3, label %for.inc, label %if.end
@@ -2415,7 +2415,7 @@ if.end:                                           ; preds = %for.body
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %conv6 = trunc i64 %call to i32
   %add = add nsw i32 %conv6, 2
-  %valtype = getelementptr inbounds i8, ptr %o.020, i64 12
+  %valtype = getelementptr inbounds i8, ptr %o.021, i64 12
   %2 = load i32, ptr %valtype, align 4
   %cmp7.not = icmp eq i32 %2, 45
   br i1 %cmp7.not, label %if.end16, label %if.then9
@@ -2430,12 +2430,12 @@ if.then9:                                         ; preds = %if.end
 
 if.end16:                                         ; preds = %if.then9, %if.end
   %i.0 = phi i32 [ %conv15, %if.then9 ], [ %add, %if.end ]
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %i.0, i32 %width.021)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %i.0, i32 %width.020)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16, %for.body
-  %width.1 = phi i32 [ %width.021, %for.body ], [ %spec.select, %if.end16 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %o.020, i64 24
+  %width.1 = phi i32 [ %width.020, %for.body ], [ %spec.select, %if.end16 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %o.021, i64 24
   %.pr = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %.pr, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !15
@@ -2477,12 +2477,12 @@ for.body39.lr.ph:                                 ; preds = %if.end35.thread, %i
 
 for.body39:                                       ; preds = %for.body39.lr.ph, %opt_print.exit
   %7 = phi ptr [ %6, %for.body39.lr.ph ], [ %12, %opt_print.exit ]
-  %sawparams.024 = phi i32 [ 0, %for.body39.lr.ph ], [ %spec.select18, %opt_print.exit ]
-  %o.123 = phi ptr [ %list, %for.body39.lr.ph ], [ %incdec.ptr46, %opt_print.exit ]
+  %o.124 = phi ptr [ %list, %for.body39.lr.ph ], [ %incdec.ptr46, %opt_print.exit ]
+  %sawparams.023 = phi i32 [ 0, %for.body39.lr.ph ], [ %spec.select18, %opt_print.exit ]
   %cmp41 = icmp eq ptr %7, @OPT_PARAM_STR
-  %spec.select18 = select i1 %cmp41, i32 1, i32 %sawparams.024
+  %spec.select18 = select i1 %cmp41, i32 1, i32 %sawparams.023
   call void @llvm.lifetime.start.p0(i64 81, ptr nonnull %start.i)
-  %helpstr.i = getelementptr inbounds i8, ptr %o.123, i64 16
+  %helpstr.i = getelementptr inbounds i8, ptr %o.124, i64 16
   %8 = load ptr, ptr %helpstr.i, align 8
   %tobool.not.i = icmp eq ptr %8, null
   %spec.select.i = select i1 %tobool.not.i, ptr @.str.92, ptr %8
@@ -2521,12 +2521,12 @@ if.then19.i:                                      ; preds = %if.end16.i
   br label %opt_print.exit
 
 if.end23.i:                                       ; preds = %if.end16.i
-  %tobool24.not.i = icmp eq i32 %sawparams.024, 0
+  %tobool24.not.i = icmp eq i32 %sawparams.023, 0
   %cond25.i = select i1 %tobool24.not.i, ptr @.str.95, ptr @.str.75
   %call26.i = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull %cond25.i) #21
   %cmp27.i = icmp sgt i32 %call26.i, 0
   %cond31.i = select i1 %cmp27.i, i32 %call26.i, i32 30
-  %9 = load ptr, ptr %o.123, align 8
+  %9 = load ptr, ptr %o.124, align 8
   %10 = load i8, ptr %9, align 1
   %tobool34.not.i = icmp eq i8 %10, 0
   %spec.select28.i = select i1 %tobool34.not.i, ptr @.str.97, ptr %9
@@ -2534,7 +2534,7 @@ if.end23.i:                                       ; preds = %if.end16.i
   %cmp41.i = icmp sgt i32 %call40.i, 0
   %cond46.i = select i1 %cmp41.i, i32 %call40.i, i32 30
   %add47.i = add nsw i32 %cond46.i, %cond31.i
-  %valtype.i = getelementptr inbounds i8, ptr %o.123, i64 12
+  %valtype.i = getelementptr inbounds i8, ptr %o.124, i64 12
   %11 = load i32, ptr %valtype.i, align 4
   %cmp48.not.i = icmp eq i32 %11, 45
   br i1 %cmp48.not.i, label %if.end60.i, label %if.then50.i
@@ -2568,7 +2568,7 @@ if.end68.i:                                       ; preds = %if.then65.i, %if.en
 
 opt_print.exit:                                   ; preds = %if.then3.i, %if.then6.i, %if.then12.i, %if.then19.i, %if.end68.i
   call void @llvm.lifetime.end.p0(i64 81, ptr nonnull %start.i)
-  %incdec.ptr46 = getelementptr inbounds i8, ptr %o.123, i64 24
+  %incdec.ptr46 = getelementptr inbounds i8, ptr %o.124, i64 24
   %12 = load ptr, ptr %incdec.ptr46, align 8
   %tobool38.not = icmp eq ptr %12, null
   br i1 %tobool38.not, label %for.end47, label %for.body39, !llvm.loop !16

@@ -290,9 +290,9 @@ define dso_local i64 @Curl_bufq_write(ptr nocapture noundef %0, ptr nocapture no
   br i1 %.not38, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %chunk_append.exit
-  %.037 = phi i64 [ %23, %chunk_append.exit ], [ 0, %4 ]
-  %.02336 = phi i64 [ %25, %chunk_append.exit ], [ %2, %4 ]
-  %.02435 = phi ptr [ %24, %chunk_append.exit ], [ %1, %4 ]
+  %.02237 = phi i64 [ %23, %chunk_append.exit ], [ 0, %4 ]
+  %.02336 = phi ptr [ %24, %chunk_append.exit ], [ %1, %4 ]
+  %.02435 = phi i64 [ %25, %chunk_append.exit ], [ %2, %4 ]
   %5 = tail call fastcc ptr @get_non_full_tail(ptr noundef %0)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %12
@@ -317,28 +317,28 @@ chunk_append.exit:                                ; preds = %12
   %17 = sub i64 %16, %14
   %18 = getelementptr inbounds i8, ptr %5, i64 32
   %19 = getelementptr inbounds [1 x i8], ptr %18, i64 0, i64 %14
-  %20 = tail call i64 @llvm.umin.i64(i64 %17, i64 %.02336)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr readonly align 1 %.02435, i64 %20, i1 false)
+  %20 = tail call i64 @llvm.umin.i64(i64 %17, i64 %.02435)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr readonly align 1 %.02336, i64 %20, i1 false)
   %21 = load i64, ptr %13, align 8
   %22 = add i64 %21, %20
   store i64 %22, ptr %13, align 8
-  %23 = add i64 %20, %.037
-  %24 = getelementptr inbounds i8, ptr %.02435, i64 %20
-  %25 = sub i64 %.02336, %20
+  %23 = add i64 %20, %.02237
+  %24 = getelementptr inbounds i8, ptr %.02336, i64 %20
+  %25 = sub i64 %.02435, %20
   %.not39 = icmp eq i64 %25, 0
   br i1 %.not39, label %.thread, label %.lr.ph, !llvm.loop !10
 
 chunk_append.exit.thread:                         ; preds = %12, %6
-  %26 = icmp eq i64 %.037, 0
+  %26 = icmp eq i64 %.02237, 0
   %spec.select = select i1 %26, i32 81, i32 0
-  %spec.select46 = select i1 %26, i64 -1, i64 %.037
+  %spec.select46 = select i1 %26, i64 -1, i64 %.02237
   br label %.thread
 
 .thread:                                          ; preds = %chunk_append.exit, %chunk_append.exit.thread, %4, %6
   %.sink = phi i32 [ 27, %6 ], [ 0, %4 ], [ %spec.select, %chunk_append.exit.thread ], [ 0, %chunk_append.exit ]
-  %.022 = phi i64 [ -1, %6 ], [ 0, %4 ], [ %spec.select46, %chunk_append.exit.thread ], [ %23, %chunk_append.exit ]
+  %.0 = phi i64 [ -1, %6 ], [ 0, %4 ], [ %spec.select46, %chunk_append.exit.thread ], [ %23, %chunk_append.exit ]
   store i32 %.sink, ptr %3, align 4
-  ret i64 %.022
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -481,9 +481,9 @@ define dso_local range(i64 1, 0) i64 @Curl_bufq_read(ptr nocapture noundef %0, p
 
 11:                                               ; preds = %.lr.ph, %prune_head.exit
   %12 = phi ptr [ %.pre, %.lr.ph ], [ %68, %prune_head.exit ]
-  %.030 = phi i64 [ 0, %.lr.ph ], [ %26, %prune_head.exit ]
-  %.01829 = phi i64 [ %2, %.lr.ph ], [ %28, %prune_head.exit ]
-  %.02028 = phi ptr [ %1, %.lr.ph ], [ %27, %prune_head.exit ]
+  %.01730 = phi i64 [ 0, %.lr.ph ], [ %26, %prune_head.exit ]
+  %.01829 = phi ptr [ %1, %.lr.ph ], [ %27, %prune_head.exit ]
+  %.02028 = phi i64 [ %2, %.lr.ph ], [ %28, %prune_head.exit ]
   %.not24 = icmp eq ptr %12, null
   br i1 %.not24, label %.critedge, label %13
 
@@ -499,26 +499,26 @@ define dso_local range(i64 1, 0) i64 @Curl_bufq_read(ptr nocapture noundef %0, p
   br i1 %.not.i, label %chunk_read.exit, label %21
 
 21:                                               ; preds = %13
-  %.not21.i = icmp ugt i64 %20, %.01829
+  %.not21.i = icmp ugt i64 %20, %.02028
   br i1 %.not21.i, label %23, label %22
 
 22:                                               ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02028, ptr nonnull align 1 %17, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01829, ptr nonnull align 1 %17, i64 %20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   br label %chunk_read.exit
 
 23:                                               ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02028, ptr nonnull align 1 %17, i64 %.01829, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01829, ptr nonnull align 1 %17, i64 %.02028, i1 false)
   %24 = load i64, ptr %15, align 8
-  %25 = add i64 %24, %.01829
+  %25 = add i64 %24, %.02028
   store i64 %25, ptr %15, align 8
   br label %chunk_read.exit
 
 chunk_read.exit:                                  ; preds = %13, %22, %23
-  %.0.i = phi i64 [ %20, %22 ], [ %.01829, %23 ], [ 0, %13 ]
-  %26 = add i64 %.0.i, %.030
-  %27 = getelementptr inbounds i8, ptr %.02028, i64 %.0.i
-  %28 = sub i64 %.01829, %.0.i
+  %.0.i = phi i64 [ %20, %22 ], [ %.02028, %23 ], [ 0, %13 ]
+  %26 = add i64 %.0.i, %.01730
+  %27 = getelementptr inbounds i8, ptr %.01829, i64 %.0.i
+  %28 = sub i64 %.02028, %.0.i
   %29 = load ptr, ptr %0, align 8
   %.not27.i = icmp eq ptr %29, null
   br i1 %.not27.i, label %prune_head.exit, label %.lr.ph.i
@@ -615,8 +615,8 @@ prune_head.exit:                                  ; preds = %.lr.ph.i, %66, %chu
   br i1 %.not, label %.critedge, label %11, !llvm.loop !12
 
 .critedge:                                        ; preds = %11, %prune_head.exit
-  %.0.lcssa = phi i64 [ %.030, %11 ], [ %26, %prune_head.exit ]
-  %69 = icmp eq i64 %.0.lcssa, 0
+  %.017.lcssa = phi i64 [ %.01730, %11 ], [ %26, %prune_head.exit ]
+  %69 = icmp eq i64 %.017.lcssa, 0
   br i1 %69, label %.critedge.thread, label %70
 
 .critedge.thread:                                 ; preds = %4, %.critedge
@@ -624,8 +624,8 @@ prune_head.exit:                                  ; preds = %.lr.ph.i, %66, %chu
   br label %70
 
 70:                                               ; preds = %.critedge, %.critedge.thread
-  %.017 = phi i64 [ -1, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
-  ret i64 %.017
+  %.0 = phi i64 [ -1, %.critedge.thread ], [ %.017.lcssa, %.critedge ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -768,19 +768,19 @@ prune_head.exit.thread:                           ; preds = %51, %3, %prune_head
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @Curl_bufq_peek_at(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #7 {
-  %.023 = load ptr, ptr %0, align 8
-  %.not24 = icmp eq ptr %.023, null
+  %.01523 = load ptr, ptr %0, align 8
+  %.not24 = icmp eq ptr %.01523, null
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %9
-  %.026 = phi ptr [ %.0, %9 ], [ %.023, %4 ]
+  %.01526 = phi ptr [ %.015, %9 ], [ %.01523, %4 ]
   %.01625 = phi i64 [ %10, %9 ], [ %1, %4 ]
-  %5 = getelementptr i8, ptr %.026, i64 16
-  %.0.val = load i64, ptr %5, align 8
-  %6 = getelementptr i8, ptr %.026, i64 24
-  %.0.val20 = load i64, ptr %6, align 8
-  %7 = sub i64 %.0.val20, %.0.val
-  %.not18 = icmp eq i64 %.0.val20, %.0.val
+  %5 = getelementptr i8, ptr %.01526, i64 16
+  %.015.val = load i64, ptr %5, align 8
+  %6 = getelementptr i8, ptr %.01526, i64 24
+  %.015.val20 = load i64, ptr %6, align 8
+  %7 = sub i64 %.015.val20, %.015.val
+  %.not18 = icmp eq i64 %.015.val20, %.015.val
   br i1 %.not18, label %._crit_edge, label %8
 
 8:                                                ; preds = %.lr.ph
@@ -789,14 +789,14 @@ define dso_local noundef zeroext i1 @Curl_bufq_peek_at(ptr nocapture noundef rea
 
 9:                                                ; preds = %8
   %10 = sub i64 %.01625, %7
-  %.0 = load ptr, ptr %.026, align 8
-  %.not = icmp eq ptr %.0, null
+  %.015 = load ptr, ptr %.01526, align 8
+  %.not = icmp eq ptr %.015, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 11:                                               ; preds = %8
-  %12 = getelementptr i8, ptr %.026, i64 24
-  %13 = add i64 %.0.val, %.01625
-  %14 = getelementptr inbounds i8, ptr %.026, i64 32
+  %12 = getelementptr i8, ptr %.01526, i64 24
+  %13 = add i64 %.015.val, %.01625
+  %14 = getelementptr inbounds i8, ptr %.01526, i64 32
   %15 = getelementptr inbounds [1 x i8], ptr %14, i64 0, i64 %13
   store ptr %15, ptr %2, align 8
   %16 = load i64, ptr %12, align 8
@@ -809,9 +809,9 @@ define dso_local noundef zeroext i1 @Curl_bufq_peek_at(ptr nocapture noundef rea
 
 18:                                               ; preds = %._crit_edge, %11
   %storemerge = phi i64 [ %17, %11 ], [ 0, %._crit_edge ]
-  %.015 = phi i1 [ true, %11 ], [ false, %._crit_edge ]
+  %.0 = phi i1 [ true, %11 ], [ false, %._crit_edge ]
   store i64 %storemerge, ptr %3, align 8
-  ret i1 %.015
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1026,9 +1026,9 @@ define dso_local i64 @Curl_bufq_write_pass(ptr nocapture noundef %0, ptr nocaptu
   br label %16
 
 16:                                               ; preds = %.lr.ph, %109
-  %.069 = phi i64 [ 0, %.lr.ph ], [ %112, %109 ]
-  %.02968 = phi ptr [ %1, %.lr.ph ], [ %110, %109 ]
-  %.03067 = phi i64 [ %2, %.lr.ph ], [ %111, %109 ]
+  %.070 = phi i64 [ 0, %.lr.ph ], [ %112, %109 ]
+  %.02969 = phi ptr [ %1, %.lr.ph ], [ %110, %109 ]
+  %.03068 = phi i64 [ %2, %.lr.ph ], [ %111, %109 ]
   %17 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %.lr.ph.i34.preheader, label %18
@@ -1046,29 +1046,29 @@ define dso_local i64 @Curl_bufq_write_pass(ptr nocapture noundef %0, ptr nocaptu
 
 24:                                               ; preds = %20
   %25 = icmp ugt i64 %21, %22
-  br i1 %25, label %Curl_bufq_is_full.exit.thread41, label %Curl_bufq_is_full.exit
+  br i1 %25, label %Curl_bufq_is_full.exit.thread42, label %Curl_bufq_is_full.exit
 
 Curl_bufq_is_full.exit:                           ; preds = %24
   %26 = getelementptr i8, ptr %17, i64 8
   %.val.i = load i64, ptr %26, align 8
   %27 = getelementptr i8, ptr %17, i64 24
   %.val12.i = load i64, ptr %27, align 8
-  %.not52 = icmp ult i64 %.val12.i, %.val.i
-  br i1 %.not52, label %.lr.ph.i34.preheader, label %Curl_bufq_is_full.exit.thread41
+  %.not53 = icmp ult i64 %.val12.i, %.val.i
+  br i1 %.not53, label %.lr.ph.i34.preheader, label %Curl_bufq_is_full.exit.thread42
 
-Curl_bufq_is_full.exit.thread41:                  ; preds = %24, %Curl_bufq_is_full.exit
+Curl_bufq_is_full.exit.thread42:                  ; preds = %24, %Curl_bufq_is_full.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %28 = call zeroext i1 @Curl_bufq_peek(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  br i1 %28, label %.lr.ph.i, label %Curl_bufq_pass.exit.thread44
+  br i1 %28, label %.lr.ph.i, label %Curl_bufq_pass.exit.thread45
 
-Curl_bufq_pass.exit.thread44:                     ; preds = %Curl_bufq_is_full.exit.thread41
+Curl_bufq_pass.exit.thread45:                     ; preds = %Curl_bufq_is_full.exit.thread42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %.lr.ph.i34.preheader
 
-.lr.ph.i:                                         ; preds = %Curl_bufq_is_full.exit.thread41, %38
-  %.020.i = phi i64 [ %39, %38 ], [ 0, %Curl_bufq_is_full.exit.thread41 ]
+.lr.ph.i:                                         ; preds = %Curl_bufq_is_full.exit.thread42, %38
+  %.020.i = phi i64 [ %39, %38 ], [ 0, %Curl_bufq_is_full.exit.thread42 ]
   %29 = load ptr, ptr %7, align 8
   %30 = load i64, ptr %8, align 8
   %31 = tail call i64 %3(ptr noundef %4, ptr noundef %29, i64 noundef %30, ptr noundef nonnull %5) #11
@@ -1082,9 +1082,9 @@ Curl_bufq_pass.exit.thread44:                     ; preds = %Curl_bufq_is_full.e
   br i1 %.not16.i, label %Curl_bufq_pass.exit.thread, label %35
 
 35:                                               ; preds = %33
-  br i1 %34, label %Curl_bufq_pass.exit, label %Curl_bufq_pass.exit.thread.thread89
+  br i1 %34, label %Curl_bufq_pass.exit, label %Curl_bufq_pass.exit.thread.thread90
 
-Curl_bufq_pass.exit.thread.thread89:              ; preds = %35
+Curl_bufq_pass.exit.thread.thread90:              ; preds = %35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %.critedge
@@ -1118,29 +1118,29 @@ Curl_bufq_pass.exit:                              ; preds = %38, %35, %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %.lr.ph.i34.preheader
 
-.lr.ph.i34.preheader:                             ; preds = %Curl_bufq_pass.exit, %20, %16, %18, %Curl_bufq_pass.exit.thread44, %Curl_bufq_is_full.exit
+.lr.ph.i34.preheader:                             ; preds = %Curl_bufq_pass.exit, %20, %16, %18, %Curl_bufq_pass.exit.thread45, %Curl_bufq_is_full.exit
   br label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34.preheader, %chunk_append.exit.i
-  %.037.i = phi i64 [ %102, %chunk_append.exit.i ], [ 0, %.lr.ph.i34.preheader ]
-  %.02336.i = phi i64 [ %104, %chunk_append.exit.i ], [ %.03067, %.lr.ph.i34.preheader ]
-  %.02435.i = phi ptr [ %103, %chunk_append.exit.i ], [ %.02968, %.lr.ph.i34.preheader ]
+  %.02237.i = phi i64 [ %102, %chunk_append.exit.i ], [ 0, %.lr.ph.i34.preheader ]
+  %.02336.i = phi ptr [ %103, %chunk_append.exit.i ], [ %.02969, %.lr.ph.i34.preheader ]
+  %.02435.i = phi i64 [ %104, %chunk_append.exit.i ], [ %.03068, %.lr.ph.i34.preheader ]
   %41 = load ptr, ptr %9, align 8
-  %.not.i36 = icmp eq ptr %41, null
-  br i1 %.not.i36, label %45, label %42
+  %.not.i37 = icmp eq ptr %41, null
+  br i1 %.not.i37, label %45, label %42
 
 42:                                               ; preds = %.lr.ph.i34
   %43 = getelementptr i8, ptr %41, i64 8
-  %.val.i37 = load i64, ptr %43, align 8
+  %.val.i38 = load i64, ptr %43, align 8
   %44 = getelementptr i8, ptr %41, i64 24
   %.val20.i = load i64, ptr %44, align 8
-  %.not23.i = icmp ult i64 %.val20.i, %.val.i37
+  %.not23.i = icmp ult i64 %.val20.i, %.val.i38
   br i1 %.not23.i, label %get_non_full_tail.exit, label %45
 
 45:                                               ; preds = %42, %.lr.ph.i34
   %46 = load ptr, ptr %10, align 8
-  %.not.i.i38 = icmp eq ptr %46, null
-  br i1 %.not.i.i38, label %50, label %47
+  %.not.i.i39 = icmp eq ptr %46, null
+  br i1 %.not.i.i39, label %50, label %47
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr %46, align 8
@@ -1232,9 +1232,9 @@ get_spare.exit.i:                                 ; preds = %83, %75, %47
   store ptr %.0.i.i, ptr %..i, align 8
   store ptr %.0.i.i, ptr %.25.i, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.0.i.i, i64 24
-  %.pre85 = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert86 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %.pre87 = load i64, ptr %.phi.trans.insert86, align 8
+  %.pre86 = load i64, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert87 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %.pre88 = load i64, ptr %.phi.trans.insert87, align 8
   br label %get_non_full_tail.exit
 
 89:                                               ; preds = %53, %78, %66
@@ -1244,51 +1244,51 @@ get_spare.exit.i:                                 ; preds = %83, %75, %47
   br i1 %92, label %.critedge.critedge, label %chunk_append.exit.thread.i
 
 get_non_full_tail.exit:                           ; preds = %get_spare.exit.i, %42
-  %93 = phi i64 [ %.val.i37, %42 ], [ %.pre87, %get_spare.exit.i ]
-  %94 = phi i64 [ %.val20.i, %42 ], [ %.pre85, %get_spare.exit.i ]
-  %.0.i39 = phi ptr [ %41, %42 ], [ %.0.i.i, %get_spare.exit.i ]
+  %93 = phi i64 [ %.val.i38, %42 ], [ %.pre88, %get_spare.exit.i ]
+  %94 = phi i64 [ %.val20.i, %42 ], [ %.pre86, %get_spare.exit.i ]
+  %.0.i40 = phi ptr [ %41, %42 ], [ %.0.i.i, %get_spare.exit.i ]
   %.not.i.i = icmp eq i64 %93, %94
   br i1 %.not.i.i, label %chunk_append.exit.thread.i, label %chunk_append.exit.i
 
 chunk_append.exit.i:                              ; preds = %get_non_full_tail.exit
-  %95 = getelementptr inbounds i8, ptr %.0.i39, i64 24
+  %95 = getelementptr inbounds i8, ptr %.0.i40, i64 24
   %96 = sub i64 %93, %94
-  %97 = getelementptr inbounds i8, ptr %.0.i39, i64 32
+  %97 = getelementptr inbounds i8, ptr %.0.i40, i64 32
   %98 = getelementptr inbounds [1 x i8], ptr %97, i64 0, i64 %94
-  %99 = tail call i64 @llvm.umin.i64(i64 %96, i64 %.02336.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr readonly align 1 %.02435.i, i64 %99, i1 false)
+  %99 = tail call i64 @llvm.umin.i64(i64 %96, i64 %.02435.i)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr readonly align 1 %.02336.i, i64 %99, i1 false)
   %100 = load i64, ptr %95, align 8
   %101 = add i64 %100, %99
   store i64 %101, ptr %95, align 8
-  %102 = add i64 %99, %.037.i
-  %103 = getelementptr inbounds i8, ptr %.02435.i, i64 %99
-  %104 = sub i64 %.02336.i, %99
+  %102 = add i64 %99, %.02237.i
+  %103 = getelementptr inbounds i8, ptr %.02336.i, i64 %99
+  %104 = sub i64 %.02435.i, %99
   %.not39.i = icmp eq i64 %104, 0
   br i1 %.not39.i, label %Curl_bufq_write.exit, label %.lr.ph.i34, !llvm.loop !10
 
 chunk_append.exit.thread.i:                       ; preds = %get_non_full_tail.exit, %89
-  %105 = icmp eq i64 %.037.i, 0
+  %105 = icmp eq i64 %.02237.i, 0
   br i1 %105, label %.loopexit, label %Curl_bufq_write.exit
 
 Curl_bufq_write.exit:                             ; preds = %chunk_append.exit.i, %chunk_append.exit.thread.i
-  %.022.i = phi i64 [ %.037.i, %chunk_append.exit.thread.i ], [ %102, %chunk_append.exit.i ]
+  %.0.i36 = phi i64 [ %.02237.i, %chunk_append.exit.thread.i ], [ %102, %chunk_append.exit.i ]
   store i32 0, ptr %5, align 4
-  %106 = icmp slt i64 %.022.i, 0
+  %106 = icmp slt i64 %.0.i36, 0
   br i1 %106, label %.critedge, label %107
 
 107:                                              ; preds = %Curl_bufq_write.exit
-  %108 = icmp eq i64 %.022.i, 0
+  %108 = icmp eq i64 %.0.i36, 0
   br i1 %108, label %.loopexit, label %109
 
 109:                                              ; preds = %107
-  %110 = getelementptr inbounds i8, ptr %.02968, i64 %.022.i
-  %111 = sub i64 %.03067, %.022.i
-  %112 = add i64 %.022.i, %.069
-  %.not70 = icmp eq i64 %111, 0
-  br i1 %.not70, label %.thread, label %16, !llvm.loop !16
+  %110 = getelementptr inbounds i8, ptr %.02969, i64 %.0.i36
+  %111 = sub i64 %.03068, %.0.i36
+  %112 = add i64 %.0.i36, %.070
+  %.not71 = icmp eq i64 %111, 0
+  br i1 %.not71, label %.thread, label %16, !llvm.loop !16
 
 .loopexit:                                        ; preds = %107, %chunk_append.exit.thread.i, %Curl_bufq_pass.exit.thread.thread, %Curl_bufq_pass.exit.thread
-  %113 = icmp eq i64 %.069, 0
+  %113 = icmp eq i64 %.070, 0
   br i1 %113, label %114, label %.thread
 
 114:                                              ; preds = %.loopexit
@@ -1296,7 +1296,7 @@ Curl_bufq_write.exit:                             ; preds = %chunk_append.exit.i
   br label %.critedge
 
 .thread:                                          ; preds = %109, %6, %.loopexit
-  %.064 = phi i64 [ %.069, %.loopexit ], [ 0, %6 ], [ %112, %109 ]
+  %.065 = phi i64 [ %.070, %.loopexit ], [ 0, %6 ], [ %112, %109 ]
   store i32 0, ptr %5, align 4
   br label %.critedge
 
@@ -1304,8 +1304,8 @@ Curl_bufq_write.exit:                             ; preds = %chunk_append.exit.i
   store i32 27, ptr %5, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %Curl_bufq_write.exit, %Curl_bufq_pass.exit.thread.thread89, %.critedge.critedge, %Curl_bufq_pass.exit.thread, %.thread, %114
-  %.028 = phi i64 [ -1, %114 ], [ %.064, %.thread ], [ -1, %Curl_bufq_pass.exit.thread ], [ -1, %.critedge.critedge ], [ -1, %Curl_bufq_pass.exit.thread.thread89 ], [ -1, %Curl_bufq_write.exit ]
+.critedge:                                        ; preds = %Curl_bufq_write.exit, %Curl_bufq_pass.exit.thread.thread90, %.critedge.critedge, %Curl_bufq_pass.exit.thread, %.thread, %114
+  %.028 = phi i64 [ -1, %114 ], [ %.065, %.thread ], [ -1, %Curl_bufq_pass.exit.thread ], [ -1, %.critedge.critedge ], [ -1, %Curl_bufq_pass.exit.thread.thread90 ], [ -1, %Curl_bufq_write.exit ]
   ret i64 %.028
 }
 
@@ -1350,8 +1350,8 @@ chunk_slurpn.exit.thread:                         ; preds = %15
   %23 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %17
   %.not23.not.i = icmp eq i64 %1, 0
   %24 = tail call i64 @llvm.umin.i64(i64 %21, i64 %1)
-  %.0.i = select i1 %.not23.not.i, i64 %21, i64 %24
-  %25 = tail call i64 %2(ptr noundef %3, ptr noundef nonnull %23, i64 noundef %.0.i, ptr noundef nonnull %4) #11
+  %.019.i = select i1 %.not23.not.i, i64 %21, i64 %24
+  %25 = tail call i64 %2(ptr noundef %3, ptr noundef nonnull %23, i64 noundef %.019.i, ptr noundef nonnull %4) #11
   %26 = icmp sgt i64 %25, 0
   br i1 %26, label %28, label %chunk_slurpn.exit
 
@@ -1386,7 +1386,7 @@ define dso_local i64 @Curl_bufq_slurp(ptr nocapture noundef %0, ptr nocapture no
   br label %12
 
 ._crit_edge.i:                                    ; preds = %36, %4
-  %.0.lcssa.i = phi i64 [ 0, %4 ], [ %31, %36 ]
+  %.020.lcssa.i = phi i64 [ 0, %4 ], [ %31, %36 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1397,7 +1397,7 @@ define dso_local i64 @Curl_bufq_slurp(ptr nocapture noundef %0, ptr nocapture no
 
 12:                                               ; preds = %36, %.lr.ph.i
   %13 = phi ptr [ %5, %.lr.ph.i ], [ %37, %36 ]
-  %.039.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %36 ]
+  %.02039.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %36 ]
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 8
@@ -1419,13 +1419,13 @@ chunk_slurpn.exit.i.i:                            ; preds = %18
 
 .sink.split.i:                                    ; preds = %12, %._crit_edge.i
   %.sink.i = phi i32 [ %..i, %._crit_edge.i ], [ 81, %12 ]
-  %.035.ph.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %.039.i, %12 ]
+  %.02035.ph.i = phi i64 [ %.020.lcssa.i, %._crit_edge.i ], [ %.02039.i, %12 ]
   store i32 %.sink.i, ptr %3, align 4
   br label %25
 
 25:                                               ; preds = %.sink.split.i, %chunk_slurpn.exit.i.i
-  %.035.i = phi i64 [ %.039.i, %chunk_slurpn.exit.i.i ], [ %.035.ph.i, %.sink.split.i ]
-  %.not25.i = icmp eq i64 %.035.i, 0
+  %.02035.i = phi i64 [ %.02039.i, %chunk_slurpn.exit.i.i ], [ %.02035.ph.i, %.sink.split.i ]
+  %.not25.i = icmp eq i64 %.02035.i, 0
   br i1 %.not25.i, label %bufq_slurpn.exit, label %26
 
 26:                                               ; preds = %25
@@ -1437,7 +1437,7 @@ chunk_slurpn.exit.i.i:                            ; preds = %18
   %29 = load i64, ptr %14, align 8
   %30 = add i64 %29, %22
   store i64 %30, ptr %14, align 8
-  %31 = add i64 %22, %.039.i
+  %31 = add i64 %22, %.02039.i
   %32 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %36, label %33
@@ -1457,13 +1457,13 @@ chunk_slurpn.exit.i.i:                            ; preds = %18
   br i1 %.not.i.i, label %._crit_edge.i, label %12
 
 .loopexit.sink.split.i:                           ; preds = %26, %chunk_slurpn.exit.i.i
-  %.1.ph.i = phi i64 [ %.035.i, %26 ], [ %.039.i, %chunk_slurpn.exit.i.i ]
+  %.121.ph.i = phi i64 [ %.02035.i, %26 ], [ %.02039.i, %chunk_slurpn.exit.i.i ]
   store i32 0, ptr %3, align 4
   br label %bufq_slurpn.exit
 
 bufq_slurpn.exit:                                 ; preds = %33, %25, %26, %.loopexit.sink.split.i
-  %.1.i = phi i64 [ -1, %26 ], [ -1, %25 ], [ %.1.ph.i, %.loopexit.sink.split.i ], [ %31, %33 ]
-  ret i64 %.1.i
+  %.121.i = phi i64 [ -1, %26 ], [ -1, %25 ], [ %.121.ph.i, %.loopexit.sink.split.i ], [ %31, %33 ]
+  ret i64 %.121.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

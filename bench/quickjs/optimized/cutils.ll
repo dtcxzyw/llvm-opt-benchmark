@@ -220,8 +220,8 @@ define dso_local range(i32 -1, 1) i32 @dbuf_realloc(ptr nocapture noundef %0, i6
   br label %20
 
 20:                                               ; preds = %2, %19, %6, %18
-  %.017 = phi i32 [ -1, %18 ], [ -1, %6 ], [ 0, %19 ], [ 0, %2 ]
-  ret i32 %.017
+  %.0 = phi i32 [ -1, %18 ], [ -1, %6 ], [ 0, %19 ], [ 0, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -823,7 +823,7 @@ switch.lookup:                                    ; preds = %9
 
 22:                                               ; preds = %14, %24
   %.034 = phi i32 [ 0, %14 ], [ %30, %24 ]
-  %.02433 = phi i32 [ %20, %14 ], [ %29, %24 ]
+  %.02533 = phi i32 [ %20, %14 ], [ %29, %24 ]
   %.02732 = phi ptr [ %4, %14 ], [ %25, %24 ]
   %23 = load i8, ptr %.02732, align 1
   %or.cond = icmp sgt i8 %23, -65
@@ -831,7 +831,7 @@ switch.lookup:                                    ; preds = %9
 
 24:                                               ; preds = %22
   %25 = getelementptr i8, ptr %.02732, i64 1
-  %26 = shl i32 %.02433, 6
+  %26 = shl i32 %.02533, 6
   %27 = and i8 %23, 63
   %28 = zext nneg i8 %27 to i32
   %29 = or disjoint i32 %26, %28
@@ -847,13 +847,13 @@ switch.lookup:                                    ; preds = %9
 
 .loopexit.sink.split:                             ; preds = %31, %7
   %scevgep.sink = phi ptr [ %4, %7 ], [ %scevgep, %31 ]
-  %.026.ph = phi i32 [ %8, %7 ], [ %29, %31 ]
+  %.024.ph = phi i32 [ %8, %7 ], [ %29, %31 ]
   store ptr %scevgep.sink, ptr %2, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %9, %.loopexit.sink.split, %31, %switch.lookup
-  %.026 = phi i32 [ -1, %9 ], [ -1, %switch.lookup ], [ -1, %31 ], [ %.026.ph, %.loopexit.sink.split ], [ -1, %22 ]
-  ret i32 %.026
+  %.024 = phi i32 [ -1, %9 ], [ -1, %switch.lookup ], [ -1, %31 ], [ %.024.ph, %.loopexit.sink.split ], [ -1, %22 ]
+  ret i32 %.024
 }
 
 ; Function Attrs: nounwind uwtable
@@ -952,34 +952,34 @@ exchange_func.exit215:                            ; preds = %exchange_func.exit.
   br label %35
 
 .loopexit:                                        ; preds = %.critedge5, %heapsortx.exit
-  %34 = icmp ugt ptr %.1178223, %6
+  %34 = icmp ugt ptr %.1167223, %6
   br i1 %34, label %35, label %.loopexit217, !llvm.loop !10
 
 35:                                               ; preds = %24, %.loopexit
-  %.0177266 = phi ptr [ %27, %24 ], [ %.1178223, %.loopexit ]
-  %36 = getelementptr i8, ptr %.0177266, i64 -24
+  %.0166266 = phi ptr [ %27, %24 ], [ %.1167223, %.loopexit ]
+  %36 = getelementptr i8, ptr %.0166266, i64 -24
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr i8, ptr %.0177266, i64 -16
+  %38 = getelementptr i8, ptr %.0166266, i64 -16
   %39 = load i64, ptr %38, align 8
   %40 = icmp ugt i64 %39, 6
   br i1 %40, label %.lr.ph257.preheader, label %heapsortx.exit
 
 .lr.ph257.preheader:                              ; preds = %35
-  %41 = getelementptr i8, ptr %.0177266, i64 -8
+  %41 = getelementptr i8, ptr %.0166266, i64 -8
   %42 = load i32, ptr %41, align 8
   br label %.lr.ph257
 
 .lr.ph257:                                        ; preds = %.lr.ph257.preheader, %172
-  %.0256 = phi i32 [ %43, %172 ], [ %42, %.lr.ph257.preheader ]
-  %.0174255 = phi i64 [ %.1175, %172 ], [ %39, %.lr.ph257.preheader ]
-  %.1178254 = phi ptr [ %.2179, %172 ], [ %36, %.lr.ph257.preheader ]
-  %.0192253 = phi ptr [ %.1193, %172 ], [ %37, %.lr.ph257.preheader ]
-  %43 = add i32 %.0256, 1
+  %.0256 = phi i64 [ %.1, %172 ], [ %39, %.lr.ph257.preheader ]
+  %.1167255 = phi ptr [ %.2168, %172 ], [ %36, %.lr.ph257.preheader ]
+  %.0169254 = phi i32 [ %43, %172 ], [ %42, %.lr.ph257.preheader ]
+  %.0180253 = phi ptr [ %.1181, %172 ], [ %37, %.lr.ph257.preheader ]
+  %43 = add i32 %.0169254, 1
   %44 = icmp sgt i32 %43, 50
   br i1 %44, label %45, label %97
 
 45:                                               ; preds = %.lr.ph257
-  %46 = ptrtoint ptr %.0192253 to i64
+  %46 = ptrtoint ptr %.0180253 to i64
   %47 = or i64 %46, %2
   %48 = and i64 %47, 15
   switch i64 %48, label %52 [
@@ -1007,9 +1007,9 @@ exchange_func.exit215:                            ; preds = %exchange_func.exit.
 
 exchange_func.exit.i:                             ; preds = %45, %52, %51, %50, %49
   %.0.i.i = phi ptr [ %exchange_one_int64.exchange_int64s.i.i, %49 ], [ %exchange_one_int32.exchange_int32s.i.i, %50 ], [ %exchange_one_int16.exchange_int16s.i.i, %51 ], [ %exchange_one_byte.exchange_bytes.i.i, %52 ], [ %exchange_one_int128.exchange_int128s.i.i, %45 ]
-  %53 = lshr i64 %.0174255, 1
+  %53 = lshr i64 %.0256, 1
   %54 = mul i64 %53, %2
-  %55 = mul i64 %.0174255, %2
+  %55 = mul i64 %.0256, %2
   %.not89.i = icmp eq i64 %54, 0
   %.pre.i = sub i64 %55, %2
   br i1 %.not89.i, label %.preheader.i, label %.lr.ph91.i
@@ -1019,8 +1019,8 @@ exchange_func.exit.i:                             ; preds = %45, %52, %51, %50, 
   br i1 %.not8598.i, label %heapsortx.exit, label %.lr.ph100.i
 
 .lr.ph91.i:                                       ; preds = %exchange_func.exit.i, %._crit_edge.i
-  %.07990.i = phi i64 [ %56, %._crit_edge.i ], [ %54, %exchange_func.exit.i ]
-  %56 = sub i64 %.07990.i, %2
+  %.090.i = phi i64 [ %56, %._crit_edge.i ], [ %54, %exchange_func.exit.i ]
+  %56 = sub i64 %.090.i, %2
   %57 = shl i64 %56, 1
   %58 = add i64 %57, %2
   %59 = icmp ult i64 %58, %55
@@ -1028,12 +1028,12 @@ exchange_func.exit.i:                             ; preds = %45, %52, %51, %50, 
 
 .lr.ph.i:                                         ; preds = %.lr.ph91.i, %73
   %60 = phi i64 [ %75, %73 ], [ %58, %.lr.ph91.i ]
-  %.087.i = phi i64 [ %.077.i, %73 ], [ %56, %.lr.ph91.i ]
+  %.07787.i = phi i64 [ %.079.i, %73 ], [ %56, %.lr.ph91.i ]
   %61 = icmp ult i64 %60, %.pre.i
   br i1 %61, label %62, label %68
 
 62:                                               ; preds = %.lr.ph.i
-  %63 = getelementptr i8, ptr %.0192253, i64 %60
+  %63 = getelementptr i8, ptr %.0180253, i64 %60
   %64 = getelementptr i8, ptr %63, i64 %2
   %65 = call i32 %3(ptr noundef %63, ptr noundef %64, ptr noundef %4) #19
   %66 = icmp slt i32 %65, 1
@@ -1042,16 +1042,16 @@ exchange_func.exit.i:                             ; preds = %45, %52, %51, %50, 
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph.i
-  %.077.i = phi i64 [ %60, %.lr.ph.i ], [ %spec.select.i, %62 ]
-  %69 = getelementptr i8, ptr %.0192253, i64 %.087.i
-  %70 = getelementptr i8, ptr %.0192253, i64 %.077.i
+  %.079.i = phi i64 [ %60, %.lr.ph.i ], [ %spec.select.i, %62 ]
+  %69 = getelementptr i8, ptr %.0180253, i64 %.07787.i
+  %70 = getelementptr i8, ptr %.0180253, i64 %.079.i
   %71 = call i32 %3(ptr noundef %69, ptr noundef %70, ptr noundef %4) #19
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %._crit_edge.i, label %73
 
 73:                                               ; preds = %68
   call void %.0.i.i(ptr noundef %69, ptr noundef %70, i64 noundef %2) #19
-  %74 = shl i64 %.077.i, 1
+  %74 = shl i64 %.079.i, 1
   %75 = add i64 %74, %2
   %76 = icmp ult i64 %75, %55
   br i1 %76, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
@@ -1061,21 +1061,21 @@ exchange_func.exit.i:                             ; preds = %45, %52, %51, %50, 
   br i1 %.not.i, label %.preheader.i, label %.lr.ph91.i, !llvm.loop !12
 
 .lr.ph100.i:                                      ; preds = %.preheader.i, %._crit_edge95.i
-  %.18099.i = phi i64 [ %79, %._crit_edge95.i ], [ %.pre.i, %.preheader.i ]
-  %77 = getelementptr i8, ptr %.0192253, i64 %.18099.i
-  call void %.0.i.i(ptr noundef %.0192253, ptr noundef %77, i64 noundef %2) #19
-  %78 = icmp ugt i64 %.18099.i, %2
-  %79 = sub i64 %.18099.i, %2
+  %.199.i = phi i64 [ %79, %._crit_edge95.i ], [ %.pre.i, %.preheader.i ]
+  %77 = getelementptr i8, ptr %.0180253, i64 %.199.i
+  call void %.0.i.i(ptr noundef %.0180253, ptr noundef %77, i64 noundef %2) #19
+  %78 = icmp ugt i64 %.199.i, %2
+  %79 = sub i64 %.199.i, %2
   br i1 %78, label %.lr.ph94.i, label %._crit_edge95.i
 
 .lr.ph94.i:                                       ; preds = %.lr.ph100.i, %93
   %80 = phi i64 [ %95, %93 ], [ %2, %.lr.ph100.i ]
-  %.192.i = phi i64 [ %.178.i, %93 ], [ 0, %.lr.ph100.i ]
+  %.17892.i = phi i64 [ %.180.i, %93 ], [ 0, %.lr.ph100.i ]
   %81 = icmp ult i64 %80, %79
   br i1 %81, label %82, label %88
 
 82:                                               ; preds = %.lr.ph94.i
-  %83 = getelementptr i8, ptr %.0192253, i64 %80
+  %83 = getelementptr i8, ptr %.0180253, i64 %80
   %84 = getelementptr i8, ptr %83, i64 %2
   %85 = call i32 %3(ptr noundef %83, ptr noundef %84, ptr noundef %4) #19
   %86 = icmp slt i32 %85, 1
@@ -1084,18 +1084,18 @@ exchange_func.exit.i:                             ; preds = %45, %52, %51, %50, 
   br label %88
 
 88:                                               ; preds = %82, %.lr.ph94.i
-  %.178.i = phi i64 [ %80, %.lr.ph94.i ], [ %spec.select86.i, %82 ]
-  %89 = getelementptr i8, ptr %.0192253, i64 %.192.i
-  %90 = getelementptr i8, ptr %.0192253, i64 %.178.i
+  %.180.i = phi i64 [ %80, %.lr.ph94.i ], [ %spec.select86.i, %82 ]
+  %89 = getelementptr i8, ptr %.0180253, i64 %.17892.i
+  %90 = getelementptr i8, ptr %.0180253, i64 %.180.i
   %91 = call i32 %3(ptr noundef %89, ptr noundef %90, ptr noundef %4) #19
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %._crit_edge95.i, label %93
 
 93:                                               ; preds = %88
   call void %.0.i.i(ptr noundef %89, ptr noundef %90, i64 noundef %2) #19
-  %94 = shl i64 %.178.i, 1
+  %94 = shl i64 %.180.i, 1
   %95 = add i64 %94, %2
-  %96 = icmp ult i64 %95, %.18099.i
+  %96 = icmp ult i64 %95, %.199.i
   br i1 %96, label %.lr.ph94.i, label %._crit_edge95.i, !llvm.loop !13
 
 ._crit_edge95.i:                                  ; preds = %93, %88, %.lr.ph100.i
@@ -1103,13 +1103,13 @@ exchange_func.exit.i:                             ; preds = %45, %52, %51, %50, 
   br i1 %.not85.i, label %heapsortx.exit, label %.lr.ph100.i, !llvm.loop !14
 
 97:                                               ; preds = %.lr.ph257
-  %98 = lshr i64 %.0174255, 2
+  %98 = lshr i64 %.0256, 2
   %99 = mul i64 %98, %2
-  %100 = getelementptr i8, ptr %.0192253, i64 %99
+  %100 = getelementptr i8, ptr %.0180253, i64 %99
   %101 = shl i64 %99, 1
-  %102 = getelementptr i8, ptr %.0192253, i64 %101
+  %102 = getelementptr i8, ptr %.0180253, i64 %101
   %103 = mul i64 %99, 3
-  %104 = getelementptr i8, ptr %.0192253, i64 %103
+  %104 = getelementptr i8, ptr %.0180253, i64 %103
   %105 = call i32 %3(ptr noundef %100, ptr noundef %102, ptr noundef %4) #19
   %106 = icmp slt i32 %105, 0
   %107 = call i32 %3(ptr noundef %102, ptr noundef %104, ptr noundef %4) #19
@@ -1137,29 +1137,29 @@ exchange_func.exit.i:                             ; preds = %45, %52, %51, %50, 
 
 med3.exit:                                        ; preds = %108, %110, %114, %116
   %120 = phi ptr [ %113, %110 ], [ %119, %116 ], [ %102, %108 ], [ %102, %114 ]
-  call void %.0.i287(ptr noundef %.0192253, ptr noundef %120, i64 noundef %2) #19
-  %121 = getelementptr i8, ptr %.0192253, i64 %2
-  %122 = mul i64 %.0174255, %2
-  %123 = getelementptr i8, ptr %.0192253, i64 %122
+  call void %.0.i287(ptr noundef %.0180253, ptr noundef %120, i64 noundef %2) #19
+  %121 = getelementptr i8, ptr %.0180253, i64 %2
+  %122 = mul i64 %.0256, %2
+  %123 = getelementptr i8, ptr %.0180253, i64 %122
   br label %124
 
 124:                                              ; preds = %150, %med3.exit
-  %.0189 = phi ptr [ %121, %med3.exit ], [ %152, %150 ]
-  %.0186 = phi ptr [ %123, %med3.exit ], [ %139, %150 ]
-  %.0183 = phi ptr [ %121, %med3.exit ], [ %.1184.lcssa, %150 ]
-  %.0180 = phi ptr [ %123, %med3.exit ], [ %.1181238, %150 ]
-  %.0172 = phi i64 [ 1, %med3.exit ], [ %151, %150 ]
-  %.0169 = phi i64 [ 1, %med3.exit ], [ %.1170.lcssa, %150 ]
-  %.0167 = phi i64 [ %.0174255, %med3.exit ], [ %.1168239, %150 ]
-  %125 = icmp ult ptr %.0189, %.0186
+  %.0191 = phi ptr [ %123, %med3.exit ], [ %139, %150 ]
+  %.0188 = phi ptr [ %121, %med3.exit ], [ %.1189.lcssa, %150 ]
+  %.0185 = phi ptr [ %123, %med3.exit ], [ %.1186238, %150 ]
+  %.0182 = phi ptr [ %121, %med3.exit ], [ %152, %150 ]
+  %.0178 = phi i64 [ 1, %med3.exit ], [ %151, %150 ]
+  %.0175 = phi i64 [ 1, %med3.exit ], [ %.1176.lcssa, %150 ]
+  %.0172 = phi i64 [ %.0256, %med3.exit ], [ %.1173239, %150 ]
+  %125 = icmp ult ptr %.0182, %.0191
   br i1 %125, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %124, %133
-  %.1170229 = phi i64 [ %.2171, %133 ], [ %.0169, %124 ]
-  %.1173228 = phi i64 [ %134, %133 ], [ %.0172, %124 ]
-  %.1184227 = phi ptr [ %.2185, %133 ], [ %.0183, %124 ]
-  %.1190226 = phi ptr [ %135, %133 ], [ %.0189, %124 ]
-  %126 = call i32 %3(ptr noundef %.0192253, ptr noundef %.1190226, ptr noundef %4) #19
+  %.1176229 = phi i64 [ %.2177, %133 ], [ %.0175, %124 ]
+  %.1179228 = phi i64 [ %134, %133 ], [ %.0178, %124 ]
+  %.1183227 = phi ptr [ %135, %133 ], [ %.0182, %124 ]
+  %.1189226 = phi ptr [ %.2190, %133 ], [ %.0188, %124 ]
+  %126 = call i32 %3(ptr noundef %.0180253, ptr noundef %.1183227, ptr noundef %4) #19
   %127 = icmp sgt i32 %126, -1
   br i1 %127, label %128, label %.critedge
 
@@ -1168,33 +1168,33 @@ med3.exit:                                        ; preds = %108, %110, %114, %1
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %128
-  call void %.0.i287(ptr noundef %.1184227, ptr noundef %.1190226, i64 noundef %2) #19
-  %131 = add i64 %.1170229, 1
-  %132 = getelementptr i8, ptr %.1184227, i64 %2
+  call void %.0.i287(ptr noundef %.1189226, ptr noundef %.1183227, i64 noundef %2) #19
+  %131 = add i64 %.1176229, 1
+  %132 = getelementptr i8, ptr %.1189226, i64 %2
   br label %133
 
 133:                                              ; preds = %130, %128
-  %.2185 = phi ptr [ %132, %130 ], [ %.1184227, %128 ]
-  %.2171 = phi i64 [ %131, %130 ], [ %.1170229, %128 ]
-  %134 = add i64 %.1173228, 1
-  %135 = getelementptr i8, ptr %.1190226, i64 %2
-  %136 = icmp ult ptr %135, %.0186
+  %.2190 = phi ptr [ %132, %130 ], [ %.1189226, %128 ]
+  %.2177 = phi i64 [ %131, %130 ], [ %.1176229, %128 ]
+  %134 = add i64 %.1179228, 1
+  %135 = getelementptr i8, ptr %.1183227, i64 %2
+  %136 = icmp ult ptr %135, %.0191
   br i1 %136, label %.lr.ph, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %.lr.ph, %133, %124
-  %.1190.lcssa = phi ptr [ %.0189, %124 ], [ %135, %133 ], [ %.1190226, %.lr.ph ]
-  %.1184.lcssa = phi ptr [ %.0183, %124 ], [ %.2185, %133 ], [ %.1184227, %.lr.ph ]
-  %.1173.lcssa = phi i64 [ %.0172, %124 ], [ %134, %133 ], [ %.1173228, %.lr.ph ]
-  %.1170.lcssa = phi i64 [ %.0169, %124 ], [ %.2171, %133 ], [ %.1170229, %.lr.ph ]
-  %137 = getelementptr i8, ptr %.0186, i64 %28
-  %138 = icmp ult ptr %.1190.lcssa, %137
+  %.1189.lcssa = phi ptr [ %.0188, %124 ], [ %.2190, %133 ], [ %.1189226, %.lr.ph ]
+  %.1183.lcssa = phi ptr [ %.0182, %124 ], [ %135, %133 ], [ %.1183227, %.lr.ph ]
+  %.1179.lcssa = phi i64 [ %.0178, %124 ], [ %134, %133 ], [ %.1179228, %.lr.ph ]
+  %.1176.lcssa = phi i64 [ %.0175, %124 ], [ %.2177, %133 ], [ %.1176229, %.lr.ph ]
+  %137 = getelementptr i8, ptr %.0191, i64 %28
+  %138 = icmp ult ptr %.1183.lcssa, %137
   br i1 %138, label %.lr.ph240, label %.critedge3
 
 .lr.ph240:                                        ; preds = %.critedge, %147
   %139 = phi ptr [ %148, %147 ], [ %137, %.critedge ]
-  %.1168239 = phi i64 [ %.2, %147 ], [ %.0167, %.critedge ]
-  %.1181238 = phi ptr [ %.2182, %147 ], [ %.0180, %.critedge ]
-  %140 = call i32 %3(ptr noundef %.0192253, ptr noundef nonnull %139, ptr noundef %4) #19
+  %.1173239 = phi i64 [ %.2174, %147 ], [ %.0172, %.critedge ]
+  %.1186238 = phi ptr [ %.2187, %147 ], [ %.0185, %.critedge ]
+  %140 = call i32 %3(ptr noundef %.0180253, ptr noundef nonnull %139, ptr noundef %4) #19
   %141 = icmp slt i32 %140, 1
   br i1 %141, label %142, label %150
 
@@ -1203,48 +1203,48 @@ med3.exit:                                        ; preds = %108, %110, %114, %1
   br i1 %143, label %144, label %147
 
 144:                                              ; preds = %142
-  %145 = add i64 %.1168239, -1
-  %146 = getelementptr i8, ptr %.1181238, i64 %28
+  %145 = add i64 %.1173239, -1
+  %146 = getelementptr i8, ptr %.1186238, i64 %28
   call void %.0.i287(ptr noundef %146, ptr noundef nonnull %139, i64 noundef %2) #19
   br label %147
 
 147:                                              ; preds = %144, %142
-  %.2182 = phi ptr [ %146, %144 ], [ %.1181238, %142 ]
-  %.2 = phi i64 [ %145, %144 ], [ %.1168239, %142 ]
+  %.2187 = phi ptr [ %146, %144 ], [ %.1186238, %142 ]
+  %.2174 = phi i64 [ %145, %144 ], [ %.1173239, %142 ]
   %148 = getelementptr i8, ptr %139, i64 %28
-  %149 = icmp ult ptr %.1190.lcssa, %148
+  %149 = icmp ult ptr %.1183.lcssa, %148
   br i1 %149, label %.lr.ph240, label %.critedge3, !llvm.loop !16
 
 150:                                              ; preds = %.lr.ph240
-  call void %.0.i287(ptr noundef %.1190.lcssa, ptr noundef nonnull %139, i64 noundef %2) #19
-  %151 = add i64 %.1173.lcssa, 1
-  %152 = getelementptr i8, ptr %.1190.lcssa, i64 %2
+  call void %.0.i287(ptr noundef %.1183.lcssa, ptr noundef nonnull %139, i64 noundef %2) #19
+  %151 = add i64 %.1179.lcssa, 1
+  %152 = getelementptr i8, ptr %.1183.lcssa, i64 %2
   br label %124
 
 .critedge3:                                       ; preds = %.critedge, %147
-  %.1181.lcssa = phi ptr [ %.2182, %147 ], [ %.0180, %.critedge ]
-  %.1168.lcssa = phi i64 [ %.2, %147 ], [ %.0167, %.critedge ]
-  %153 = ptrtoint ptr %.1184.lcssa to i64
-  %154 = ptrtoint ptr %.0192253 to i64
+  %.1186.lcssa = phi ptr [ %.2187, %147 ], [ %.0185, %.critedge ]
+  %.1173.lcssa = phi i64 [ %.2174, %147 ], [ %.0172, %.critedge ]
+  %153 = ptrtoint ptr %.1189.lcssa to i64
+  %154 = ptrtoint ptr %.0180253 to i64
   %155 = sub i64 %153, %154
-  %156 = ptrtoint ptr %.1190.lcssa to i64
+  %156 = ptrtoint ptr %.1183.lcssa to i64
   %157 = sub i64 %156, %153
-  %158 = sub i64 %.1173.lcssa, %.1170.lcssa
+  %158 = sub i64 %.1179.lcssa, %.1176.lcssa
   %spec.select = call i64 @llvm.umin.i64(i64 %155, i64 %157)
   %159 = sub i64 0, %spec.select
-  %160 = getelementptr i8, ptr %.1190.lcssa, i64 %159
-  call void %.0.i210(ptr noundef %.0192253, ptr noundef %160, i64 noundef %spec.select) #19
+  %160 = getelementptr i8, ptr %.1183.lcssa, i64 %159
+  call void %.0.i210(ptr noundef %.0180253, ptr noundef %160, i64 noundef %spec.select) #19
   %161 = ptrtoint ptr %123 to i64
-  %162 = ptrtoint ptr %.1181.lcssa to i64
+  %162 = ptrtoint ptr %.1186.lcssa to i64
   %163 = sub i64 %161, %162
   %164 = sub i64 %162, %156
   %165 = sub i64 0, %164
   %166 = getelementptr i8, ptr %123, i64 %165
-  %167 = sub i64 %.1168.lcssa, %.1173.lcssa
-  %.1 = call i64 @llvm.umin.i64(i64 %163, i64 %164)
-  %168 = sub i64 0, %.1
+  %167 = sub i64 %.1173.lcssa, %.1179.lcssa
+  %.1171 = call i64 @llvm.umin.i64(i64 %163, i64 %164)
+  %168 = sub i64 0, %.1171
   %169 = getelementptr i8, ptr %123, i64 %168
-  call void %.0.i210(ptr noundef %.1190.lcssa, ptr noundef %169, i64 noundef %.1) #19
+  call void %.0.i210(ptr noundef %.1183.lcssa, ptr noundef %169, i64 noundef %.1171) #19
   %170 = icmp ugt i64 %158, %167
   br i1 %170, label %172, label %171
 
@@ -1252,49 +1252,49 @@ med3.exit:                                        ; preds = %108, %110, %114, %1
   br label %172
 
 172:                                              ; preds = %.critedge3, %171
-  %.sink285 = phi ptr [ %166, %171 ], [ %.0192253, %.critedge3 ]
+  %.sink285 = phi ptr [ %166, %171 ], [ %.0180253, %.critedge3 ]
   %.sink = phi i64 [ %167, %171 ], [ %158, %.critedge3 ]
-  %.1193 = phi ptr [ %.0192253, %171 ], [ %166, %.critedge3 ]
-  %.1175 = phi i64 [ %158, %171 ], [ %167, %.critedge3 ]
-  store ptr %.sink285, ptr %.1178254, align 8
-  %173 = getelementptr inbounds i8, ptr %.1178254, i64 8
+  %.1181 = phi ptr [ %.0180253, %171 ], [ %166, %.critedge3 ]
+  %.1 = phi i64 [ %158, %171 ], [ %167, %.critedge3 ]
+  store ptr %.sink285, ptr %.1167255, align 8
+  %173 = getelementptr inbounds i8, ptr %.1167255, i64 8
   store i64 %.sink, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %.1178254, i64 16
+  %174 = getelementptr inbounds i8, ptr %.1167255, i64 16
   store i32 %43, ptr %174, align 8
-  %.2179 = getelementptr i8, ptr %.1178254, i64 24
-  %175 = icmp ugt i64 %.1175, 6
+  %.2168 = getelementptr i8, ptr %.1167255, i64 24
+  %175 = icmp ugt i64 %.1, 6
   br i1 %175, label %.lr.ph257, label %heapsortx.exit, !llvm.loop !17
 
 heapsortx.exit:                                   ; preds = %172, %._crit_edge95.i, %35, %.preheader.i
-  %.0192225 = phi ptr [ %.0192253, %.preheader.i ], [ %37, %35 ], [ %.0192253, %._crit_edge95.i ], [ %.1193, %172 ]
-  %.1178223 = phi ptr [ %.1178254, %.preheader.i ], [ %36, %35 ], [ %.1178254, %._crit_edge95.i ], [ %.2179, %172 ]
-  %.2176 = phi i64 [ 0, %.preheader.i ], [ %39, %35 ], [ 0, %._crit_edge95.i ], [ %.1175, %172 ]
-  %176 = mul i64 %.2176, %2
-  %177 = getelementptr i8, ptr %.0192225, i64 %176
-  %.2191264 = getelementptr i8, ptr %.0192225, i64 %2
-  %178 = icmp ult ptr %.2191264, %177
+  %.0180225 = phi ptr [ %.0180253, %.preheader.i ], [ %37, %35 ], [ %.0180253, %._crit_edge95.i ], [ %.1181, %172 ]
+  %.1167223 = phi ptr [ %.1167255, %.preheader.i ], [ %36, %35 ], [ %.1167255, %._crit_edge95.i ], [ %.2168, %172 ]
+  %.2 = phi i64 [ 0, %.preheader.i ], [ %39, %35 ], [ 0, %._crit_edge95.i ], [ %.1, %172 ]
+  %176 = mul i64 %.2, %2
+  %177 = getelementptr i8, ptr %.0180225, i64 %176
+  %.2184264 = getelementptr i8, ptr %.0180225, i64 %2
+  %178 = icmp ult ptr %.2184264, %177
   br i1 %178, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %heapsortx.exit, %.critedge5
-  %.2191265 = phi ptr [ %.2191, %.critedge5 ], [ %.2191264, %heapsortx.exit ]
-  %179 = icmp ugt ptr %.2191265, %.0192225
+  %.2184265 = phi ptr [ %.2184, %.critedge5 ], [ %.2184264, %heapsortx.exit ]
+  %179 = icmp ugt ptr %.2184265, %.0180225
   br i1 %179, label %.lr.ph262, label %.critedge5
 
 .lr.ph262:                                        ; preds = %.preheader, %183
-  %.2188261 = phi ptr [ %180, %183 ], [ %.2191265, %.preheader ]
-  %180 = getelementptr i8, ptr %.2188261, i64 %28
-  %181 = call i32 %3(ptr noundef %180, ptr noundef nonnull %.2188261, ptr noundef %4) #19
+  %.2193261 = phi ptr [ %180, %183 ], [ %.2184265, %.preheader ]
+  %180 = getelementptr i8, ptr %.2193261, i64 %28
+  %181 = call i32 %3(ptr noundef %180, ptr noundef nonnull %.2193261, ptr noundef %4) #19
   %182 = icmp sgt i32 %181, 0
   br i1 %182, label %183, label %.critedge5
 
 183:                                              ; preds = %.lr.ph262
-  call void %.0.i287(ptr noundef nonnull %.2188261, ptr noundef %180, i64 noundef %2) #19
-  %184 = icmp ugt ptr %180, %.0192225
+  call void %.0.i287(ptr noundef nonnull %.2193261, ptr noundef %180, i64 noundef %2) #19
+  %184 = icmp ugt ptr %180, %.0180225
   br i1 %184, label %.lr.ph262, label %.critedge5, !llvm.loop !18
 
 .critedge5:                                       ; preds = %183, %.lr.ph262, %.preheader
-  %.2191 = getelementptr i8, ptr %.2191265, i64 %2
-  %185 = icmp ult ptr %.2191, %177
+  %.2184 = getelementptr i8, ptr %.2184265, i64 %2
+  %185 = icmp ult ptr %.2184, %177
   br i1 %185, label %.preheader, label %.loopexit, !llvm.loop !19
 
 .loopexit217:                                     ; preds = %.loopexit, %exchange_func.exit215

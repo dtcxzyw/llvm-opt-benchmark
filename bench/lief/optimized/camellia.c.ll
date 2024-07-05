@@ -101,7 +101,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr nocapture n
   br i1 %exitcond.not, label %.loopexit202, label %.preheader201, !llvm.loop !4
 
 .loopexit202:                                     ; preds = %.preheader201, %._crit_edge.thread, %._crit_edge
-  %.0158236 = phi i32 [ 0, %._crit_edge.thread ], [ 1, %._crit_edge ], [ 1, %.preheader201 ]
+  %.0159236 = phi i32 [ 0, %._crit_edge.thread ], [ 1, %._crit_edge ], [ 1, %.preheader201 ]
   br label %21
 
 21:                                               ; preds = %.loopexit202, %21
@@ -716,7 +716,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr nocapture n
   %560 = load i32, ptr %559, align 4
   %561 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 %560, ptr %561, align 4
-  %562 = zext nneg i32 %.0158236 to i64
+  %562 = zext nneg i32 %.0159236 to i64
   %563 = getelementptr inbounds [2 x [4 x [4 x i8]]], ptr @shifts, i64 0, i64 %562
   br label %565
 
@@ -1016,7 +1016,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr nocapture n
   br i1 %exitcond232.not, label %.loopexit194, label %.preheader, !llvm.loop !18
 
 .loopexit194:                                     ; preds = %732, %688
-  %734 = mul nuw nsw i32 %.0158236, 12
+  %734 = mul nuw nsw i32 %.0159236, 12
   %735 = or disjoint i32 %734, 32
   %736 = zext nneg i32 %735 to i64
   %invariant.gep = getelementptr inbounds i32, ptr %8, i64 %736
@@ -1043,8 +1043,8 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr nocapture n
   br i1 %exitcond233.not, label %.loopexit, label %737, !llvm.loop !19
 
 .loopexit:                                        ; preds = %744, %3
-  %.0159 = phi i32 [ -36, %3 ], [ 0, %744 ]
-  ret i32 %.0159
+  %.0 = phi i32 [ -36, %3 ], [ 0, %744 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

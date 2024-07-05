@@ -700,8 +700,8 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %pos.022 = phi i32 [ %add, %for.body.lr.ph ], [ %inc, %for.body ]
-  %rem = urem i32 %pos.022, 3
+  %pos.023 = phi i32 [ %add, %for.body.lr.ph ], [ %inc, %for.body ]
+  %rem = urem i32 %pos.023, 3
   %arrayidx = getelementptr i8, ptr %buf, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx, align 1
   %inc = add nuw nsw i32 %rem, 1

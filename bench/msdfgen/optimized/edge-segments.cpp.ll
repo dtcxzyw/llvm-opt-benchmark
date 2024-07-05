@@ -948,8 +948,8 @@ if.end30:                                         ; preds = %entry.if.end30_crit
   br label %return
 
 return:                                           ; preds = %if.then, %if.end30
-  %retval.sroa.3.0 = phi double [ %47, %if.end30 ], [ 0.000000e+00, %if.then ]
   %retval.sroa.0.0 = phi double [ %mul, %if.end30 ], [ %27, %if.then ]
+  %retval.sroa.3.0 = phi double [ %47, %if.end30 ], [ 0.000000e+00, %if.then ]
   %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.3.0, 1
   ret { double, double } %.fca.1.insert
@@ -3228,10 +3228,10 @@ invoke.cont175:                                   ; preds = %invoke.cont148
   %100 = extractelement <2 x double> %85, i64 0
   %cmp3.i172 = fcmp oeq double %100, %agg.tmp170.sroa.2.0.copyload
   %101 = select i1 %cmp.i171, i1 %cmp3.i172, i1 false
-  %102 = extractelement <2 x double> %94, i64 0
-  %agg.tmp177.sroa.3.0 = select i1 %101, double %agg.tmp170.sroa.2.0.copyload, double %102
-  %103 = extractelement <2 x double> %93, i64 1
-  %agg.tmp177.sroa.0.0 = select i1 %101, double %99, double %103
+  %102 = extractelement <2 x double> %93, i64 1
+  %agg.tmp177.sroa.0.0 = select i1 %101, double %99, double %102
+  %103 = extractelement <2 x double> %94, i64 0
+  %agg.tmp177.sroa.3.0 = select i1 %101, double %agg.tmp170.sroa.2.0.copyload, double %103
   %104 = shufflevector <2 x double> %97, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   store <2 x double> %104, ptr %arrayidx6.i184, align 8
   %arrayidx8.i186 = getelementptr inbounds i8, ptr %call149, i64 48

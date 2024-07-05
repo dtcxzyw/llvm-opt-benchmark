@@ -46,16 +46,16 @@ define noundef ptr @Sbd_ManSatSolver(ptr noundef %0, ptr nocapture noundef reado
   br label %31
 
 31:                                               ; preds = %30, %28
-  %.0179 = phi ptr [ %29, %28 ], [ %0, %30 ]
+  %.0176 = phi ptr [ %29, %28 ], [ %0, %30 ]
   %.val201 = load i32, ptr %17, align 4
   %.val202 = load i32, ptr %18, align 4
   %.val203 = load i32, ptr %25, align 4
   %32 = add i32 %.val201, 100
   %33 = add i32 %32, %.val202
   %34 = add i32 %33, %.val203
-  tail call void @sat_solver_setnvars(ptr noundef %.0179, i32 noundef %34) #12
+  tail call void @sat_solver_setnvars(ptr noundef %.0176, i32 noundef %34) #12
   %35 = getelementptr inbounds i8, ptr %15, i64 4
-  %36 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %15, ptr noundef nonnull %35) #12
+  %36 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %15, ptr noundef nonnull %35) #12
   %.val204265 = load i32, ptr %17, align 4
   %37 = icmp sgt i32 %.val204265, 1
   br i1 %37, label %.lr.ph, label %.critedge.preheader
@@ -169,22 +169,22 @@ define noundef ptr @Sbd_ManSatSolver(ptr noundef %0, ptr nocapture noundef reado
   store i32 %113, ptr %44, align 4
   %114 = or disjoint i32 %105, 1
   store i32 %114, ptr %45, align 4
-  %115 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %14, ptr noundef nonnull %46) #12
+  %115 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %14, ptr noundef nonnull %46) #12
   store i32 %111, ptr %14, align 4
   store i32 %112, ptr %44, align 4
   store i32 %105, ptr %45, align 4
-  %116 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %14, ptr noundef nonnull %46) #12
+  %116 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %14, ptr noundef nonnull %46) #12
   %117 = icmp ne i32 %108, %107
   %118 = zext i1 %117 to i32
   %119 = or disjoint i32 %109, %118
   store i32 %119, ptr %14, align 4
   store i32 %113, ptr %44, align 4
   store i32 %105, ptr %45, align 4
-  %120 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %14, ptr noundef nonnull %46) #12
+  %120 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %14, ptr noundef nonnull %46) #12
   store i32 %119, ptr %14, align 4
   store i32 %112, ptr %44, align 4
   store i32 %114, ptr %45, align 4
-  %121 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %14, ptr noundef nonnull %46) #12
+  %121 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %14, ptr noundef nonnull %46) #12
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
   br label %138
 
@@ -198,13 +198,13 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %64
   %126 = zext i1 %125 to i32
   %127 = or disjoint i32 %124, %126
   store i32 %127, ptr %41, align 4
-  %128 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %13, ptr noundef nonnull %42) #12
+  %128 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %13, ptr noundef nonnull %42) #12
   store i32 %123, ptr %13, align 4
   %129 = icmp ne i32 %98, %101
   %130 = zext i1 %129 to i32
   %131 = or disjoint i32 %105, %130
   store i32 %131, ptr %41, align 4
-  %132 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %13, ptr noundef nonnull %42) #12
+  %132 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %13, ptr noundef nonnull %42) #12
   store i32 %122, ptr %13, align 4
   %.not.i250 = icmp eq i32 %92, %95
   %133 = zext i1 %.not.i250 to i32
@@ -214,7 +214,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %64
   %135 = zext i1 %.not16.i to i32
   %136 = or disjoint i32 %105, %135
   store i32 %136, ptr %42, align 4
-  %137 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %13, ptr noundef nonnull %43) #12
+  %137 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %13, ptr noundef nonnull %43) #12
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
   br label %138
 
@@ -275,11 +275,11 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %64
   %180 = select i1 %179, i32 %26, i32 %175
   %181 = icmp eq i32 %178, %23
   %182 = select i1 %181, i32 %26, i32 %178
-  %.0176 = select i1 %.not193, i32 %175, i32 %180
-  %.0175 = select i1 %.not193, i32 %178, i32 %182
+  %.0179 = select i1 %.not193, i32 %175, i32 %180
+  %.0178 = select i1 %.not193, i32 %178, i32 %182
   %183 = lshr i32 %149, 29
   %184 = and i32 %183, 1
-  %185 = icmp eq i32 %.0176, %23
+  %185 = icmp eq i32 %.0179, %23
   %186 = select i1 %.not193, i1 %185, i1 false
   %187 = zext i1 %186 to i32
   %188 = xor i32 %184, %187
@@ -289,7 +289,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %64
   %192 = lshr i64 %.val235, 61
   %193 = trunc nuw nsw i64 %192 to i32
   %194 = and i32 %193, 1
-  %195 = icmp eq i32 %.0175, %23
+  %195 = icmp eq i32 %.0178, %23
   %196 = select i1 %.not193, i1 %195, i1 false
   %197 = zext i1 %196 to i32
   %198 = xor i32 %194, %197
@@ -303,7 +303,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %64
   %narrow.i.not.i252.not278 = and i1 %.not.i.i251, %204
   %.not262 = icmp ult i32 %150, %157
   %or.cond264 = and i1 %narrow.i.not.i252.not278, %.not262
-  %205 = shl nsw i32 %.0175, 1
+  %205 = shl nsw i32 %.0178, 1
   br i1 %or.cond264, label %206, label %Gia_ObjIsXor.exit253.thread
 
 206:                                              ; preds = %141
@@ -315,27 +315,27 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %64
   %210 = zext i1 %.not.i254 to i32
   %211 = or disjoint i32 %209, %210
   store i32 %211, ptr %12, align 4
-  %212 = shl nsw i32 %.0176, 1
+  %212 = shl nsw i32 %.0179, 1
   %213 = or disjoint i32 %212, 1
   store i32 %213, ptr %54, align 4
   %214 = or disjoint i32 %205, 1
   store i32 %214, ptr %55, align 4
-  %215 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %12, ptr noundef nonnull %56) #12
+  %215 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %12, ptr noundef nonnull %56) #12
   store i32 %211, ptr %12, align 4
   store i32 %212, ptr %54, align 4
   store i32 %205, ptr %55, align 4
-  %216 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %12, ptr noundef nonnull %56) #12
+  %216 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %12, ptr noundef nonnull %56) #12
   %217 = icmp ne i32 %208, %207
   %218 = zext i1 %217 to i32
   %219 = or disjoint i32 %209, %218
   store i32 %219, ptr %12, align 4
   store i32 %213, ptr %54, align 4
   store i32 %205, ptr %55, align 4
-  %220 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %12, ptr noundef nonnull %56) #12
+  %220 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %12, ptr noundef nonnull %56) #12
   store i32 %219, ptr %12, align 4
   store i32 %212, ptr %54, align 4
   store i32 %214, ptr %55, align 4
-  %221 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %12, ptr noundef nonnull %56) #12
+  %221 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %12, ptr noundef nonnull %56) #12
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
   br label %.critedge
 
@@ -344,18 +344,18 @@ Gia_ObjIsXor.exit253.thread:                      ; preds = %141
   %222 = shl nsw i32 %148, 1
   %223 = or disjoint i32 %222, 1
   store i32 %223, ptr %11, align 4
-  %224 = shl nsw i32 %.0176, 1
+  %224 = shl nsw i32 %.0179, 1
   %225 = icmp ne i32 %188, %191
   %226 = zext i1 %225 to i32
   %227 = or disjoint i32 %224, %226
   store i32 %227, ptr %51, align 4
-  %228 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %11, ptr noundef nonnull %52) #12
+  %228 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %11, ptr noundef nonnull %52) #12
   store i32 %223, ptr %11, align 4
   %229 = icmp ne i32 %198, %201
   %230 = zext i1 %229 to i32
   %231 = or disjoint i32 %205, %230
   store i32 %231, ptr %51, align 4
-  %232 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %11, ptr noundef nonnull %52) #12
+  %232 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %11, ptr noundef nonnull %52) #12
   store i32 %222, ptr %11, align 4
   %.not.i255 = icmp eq i32 %188, %191
   %233 = zext i1 %.not.i255 to i32
@@ -365,7 +365,7 @@ Gia_ObjIsXor.exit253.thread:                      ; preds = %141
   %235 = zext i1 %.not16.i256 to i32
   %236 = or disjoint i32 %205, %235
   store i32 %236, ptr %52, align 4
-  %237 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %11, ptr noundef nonnull %53) #12
+  %237 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %11, ptr noundef nonnull %53) #12
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
   br label %.critedge
 
@@ -403,7 +403,7 @@ Gia_ObjIsXor.exit253.thread:                      ; preds = %141
 
 252:                                              ; preds = %.lr.ph274, %Vec_IntPush.exit
   %indvars.iv284 = phi i64 [ 0, %.lr.ph274 ], [ %indvars.iv.next285, %Vec_IntPush.exit ]
-  %.0174273 = phi i32 [ %247, %.lr.ph274 ], [ %287, %Vec_IntPush.exit ]
+  %.0175273 = phi i32 [ %247, %.lr.ph274 ], [ %287, %Vec_IntPush.exit ]
   %.val228 = load ptr, ptr %248, align 8
   %253 = getelementptr inbounds i32, ptr %.val228, i64 %indvars.iv284
   %254 = load i32, ptr %253, align 4
@@ -411,7 +411,7 @@ Gia_ObjIsXor.exit253.thread:                      ; preds = %141
   %255 = sext i32 %254 to i64
   %256 = getelementptr inbounds i32, ptr %.val229, i64 %255
   %257 = load i32, ptr %256, align 4
-  %258 = shl nsw i32 %.0174273, 1
+  %258 = shl nsw i32 %.0175273, 1
   %259 = load i32, ptr %242, align 4
   %260 = load i32, ptr %241, align 8
   %261 = icmp eq i32 %259, %260
@@ -475,7 +475,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %258, ptr %285, align 4
   %.val214 = load i32, ptr %18, align 4
   %286 = add nsw i32 %.val214, %257
-  %287 = add nsw i32 %.0174273, 1
+  %287 = add nsw i32 %.0175273, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
   %288 = shl nsw i32 %257, 1
   %289 = or disjoint i32 %288, 1
@@ -485,19 +485,19 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %291, ptr %249, align 4
   %292 = or disjoint i32 %258, 1
   store i32 %292, ptr %250, align 4
-  %293 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %10, ptr noundef nonnull %251) #12
+  %293 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %10, ptr noundef nonnull %251) #12
   store i32 %289, ptr %10, align 4
   store i32 %290, ptr %249, align 4
   store i32 %258, ptr %250, align 4
-  %294 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %10, ptr noundef nonnull %251) #12
+  %294 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %10, ptr noundef nonnull %251) #12
   store i32 %288, ptr %10, align 4
   store i32 %291, ptr %249, align 4
   store i32 %258, ptr %250, align 4
-  %295 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %10, ptr noundef nonnull %251) #12
+  %295 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %10, ptr noundef nonnull %251) #12
   store i32 %288, ptr %10, align 4
   store i32 %290, ptr %249, align 4
   store i32 %292, ptr %250, align 4
-  %296 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %10, ptr noundef nonnull %251) #12
+  %296 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %10, ptr noundef nonnull %251) #12
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %.val213 = load i32, ptr %25, align 4
@@ -510,7 +510,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val248.pre = load i32, ptr %242, align 4
   %299 = sext i32 %.val248.pre to i64
   %300 = getelementptr inbounds i32, ptr %.val247.pre, i64 %299
-  %301 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef %.val247.pre, ptr noundef %300) #12
+  %301 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef %.val247.pre, ptr noundef %300) #12
   %.not.i258 = icmp eq ptr %.val247.pre, null
   br i1 %.not.i258, label %Vec_IntFree.exit, label %302
 
@@ -534,26 +534,26 @@ Vec_IntFree.exit:                                 ; preds = %.critedge4, %302
   %308 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 %305, ptr %16, align 4
   store i32 %306, ptr %307, align 4
-  %309 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %16, ptr noundef nonnull %308) #12
+  %309 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %16, ptr noundef nonnull %308) #12
   %310 = or disjoint i32 %305, 1
   store i32 %310, ptr %16, align 4
   %311 = or disjoint i32 %306, 1
   store i32 %311, ptr %307, align 4
-  %312 = call i32 @sat_solver_addclause(ptr noundef %.0179, ptr noundef nonnull %16, ptr noundef nonnull %308) #12
+  %312 = call i32 @sat_solver_addclause(ptr noundef %.0176, ptr noundef nonnull %16, ptr noundef nonnull %308) #12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %304, %Vec_IntFree.exit
-  %313 = call i32 @sat_solver_simplify(ptr noundef %.0179) #12
+  %313 = call i32 @sat_solver_simplify(ptr noundef %.0176) #12
   %314 = icmp eq i32 %313, 0
   br i1 %314, label %.sink.split, label %315
 
 .sink.split:                                      ; preds = %.loopexit, %Vec_IntFree.exit
-  call void @sat_solver_delete(ptr noundef %.0179) #12
+  call void @sat_solver_delete(ptr noundef %.0176) #12
   br label %315
 
 315:                                              ; preds = %.sink.split, %.loopexit
-  %.0178 = phi ptr [ %.0179, %.loopexit ], [ null, %.sink.split ]
-  ret ptr %.0178
+  %.0174 = phi ptr [ %.0176, %.loopexit ], [ null, %.sink.split ]
+  ret ptr %.0174
 }
 
 declare ptr @sat_solver_new() local_unnamed_addr #1
@@ -590,7 +590,7 @@ define i64 @Sbd_ManSolve(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   br label %22
 
 22:                                               ; preds = %._crit_edge, %7
-  %.074 = phi i64 [ 0, %7 ], [ %166, %._crit_edge ]
+  %.075 = phi i64 [ 0, %7 ], [ %166, %._crit_edge ]
   %23 = call i32 @sat_solver_solve(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %12, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #12
   switch i32 %23, label %.preheader122 [
     i32 0, label %.loopexit.loopexit173
@@ -808,7 +808,7 @@ Vec_IntPush.exit112:                              ; preds = %95, %Vec_IntGrow.ex
 
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %165
   %indvars.iv150 = phi i64 [ 0, %.lr.ph135.preheader ], [ %indvars.iv.next151, %165 ]
-  %.075133 = phi i64 [ -1, %.lr.ph135.preheader ], [ %.176, %165 ]
+  %.076133 = phi i64 [ -1, %.lr.ph135.preheader ], [ %.177, %165 ]
   %115 = getelementptr inbounds i32, ptr %96, i64 %indvars.iv150
   %116 = load i32, ptr %115, align 4
   %117 = load i32, ptr %8, align 4
@@ -911,18 +911,18 @@ Vec_IntFind.exit:                                 ; preds = %157, %153, %Vec_Int
   %sext166 = add nsw i32 %158, -1
   %162 = sext i32 %sext166 to i64
   %163 = xor i64 %161, %162
-  %164 = and i64 %163, %.075133
+  %164 = and i64 %163, %.076133
   br label %165
 
 165:                                              ; preds = %.lr.ph135, %Vec_IntFind.exit
-  %.176 = phi i64 [ %.075133, %.lr.ph135 ], [ %164, %Vec_IntFind.exit ]
+  %.177 = phi i64 [ %.076133, %.lr.ph135 ], [ %164, %Vec_IntFind.exit ]
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph135, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %165, %Vec_IntPush.exit112
-  %.075.lcssa = phi i64 [ -1, %Vec_IntPush.exit112 ], [ %.176, %165 ]
-  %166 = or i64 %.075.lcssa, %.074
+  %.076.lcssa = phi i64 [ -1, %Vec_IntPush.exit112 ], [ %.177, %165 ]
+  %166 = or i64 %.076.lcssa, %.075
   %.val90 = load ptr, ptr %.phi.trans.insert.i, align 8
   %.val82 = load i32, ptr %17, align 4
   %167 = sext i32 %.val82 to i64
@@ -975,8 +975,8 @@ Vec_IntFind.exit:                                 ; preds = %157, %153, %Vec_Int
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge4, %22, %.loopexit.loopexit173, %.critedge4.preheader
-  %.077 = phi i64 [ -8690466094656961759, %.critedge4.preheader ], [ 1311768465173141112, %.loopexit.loopexit173 ], [ %.074, %22 ], [ -8690466094656961759, %.critedge4 ]
-  ret i64 %.077
+  %.073 = phi i64 [ -8690466094656961759, %.critedge4.preheader ], [ 1311768465173141112, %.loopexit.loopexit173 ], [ %.075, %22 ], [ -8690466094656961759, %.critedge4 ]
+  ret i64 %.073
 }
 
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -1433,8 +1433,8 @@ Vec_IntPush.exit91:                               ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %20, %.loopexit.loopexit
-  %.045 = phi i32 [ 1, %20 ], [ 0, %.critedge ], [ %21, %.loopexit.loopexit ]
-  ret i32 %.045
+  %.044 = phi i32 [ 1, %20 ], [ 0, %.critedge ], [ %21, %.loopexit.loopexit ]
+  ret i32 %.044
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1452,7 +1452,7 @@ define i64 @Sbd_ManSolverSupp(ptr nocapture noundef readonly %0, ptr nocapture n
   %.val26 = phi i32 [ %.val20, %.lr.ph ], [ %.val, %21 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.023 = phi i32 [ 0, %.lr.ph ], [ %.1, %21 ]
-  %.01621 = phi i64 [ 0, %.lr.ph ], [ %.117, %21 ]
+  %.01522 = phi i64 [ 0, %.lr.ph ], [ %.116, %21 ]
   %.val19 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i32, ptr %.val19, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
@@ -1463,7 +1463,7 @@ define i64 @Sbd_ManSolverSupp(ptr nocapture noundef readonly %0, ptr nocapture n
   %12 = ashr i32 %9, 1
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw i64 1, %13
-  %15 = and i64 %14, %.01621
+  %15 = and i64 %14, %.01522
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %16, label %21
 
@@ -1472,13 +1472,13 @@ define i64 @Sbd_ManSolverSupp(ptr nocapture noundef readonly %0, ptr nocapture n
   %18 = sext i32 %12 to i64
   %19 = getelementptr inbounds i32, ptr %1, i64 %18
   store i32 %.023, ptr %19, align 4
-  %20 = or i64 %14, %.01621
+  %20 = or i64 %14, %.01522
   %.val.pre = load i32, ptr %4, align 4
   br label %21
 
 21:                                               ; preds = %11, %7, %16
   %.val = phi i32 [ %.val26, %7 ], [ %.val26, %11 ], [ %.val.pre, %16 ]
-  %.117 = phi i64 [ %.01621, %7 ], [ %.01621, %11 ], [ %20, %16 ]
+  %.116 = phi i64 [ %.01522, %7 ], [ %.01522, %11 ], [ %20, %16 ]
   %.1 = phi i32 [ %.023, %7 ], [ %.023, %11 ], [ %17, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = sext i32 %.val to i64
@@ -1486,10 +1486,10 @@ define i64 @Sbd_ManSolverSupp(ptr nocapture noundef readonly %0, ptr nocapture n
   br i1 %23, label %7, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %21, %3
-  %.016.lcssa = phi i64 [ 0, %3 ], [ %.117, %21 ]
+  %.015.lcssa = phi i64 [ 0, %3 ], [ %.116, %21 ]
   %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %21 ]
   store i32 %.0.lcssa, ptr %2, align 4
-  ret i64 %.016.lcssa
+  ret i64 %.015.lcssa
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -1510,7 +1510,7 @@ define void @Sbd_ManSolverPrint(ptr nocapture noundef readonly %0) local_unnamed
 8:                                                ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
   %.023.i = phi i32 [ 0, %.lr.ph.i ], [ %23, %22 ]
-  %.01621.i = phi i64 [ 0, %.lr.ph.i ], [ %.117.i, %22 ]
+  %.01522.i = phi i64 [ 0, %.lr.ph.i ], [ %.116.i, %22 ]
   %9 = getelementptr inbounds i32, ptr %.val19.i, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, -1
@@ -1520,7 +1520,7 @@ define void @Sbd_ManSolverPrint(ptr nocapture noundef readonly %0) local_unnamed
   %13 = ashr i32 %10, 1
   %14 = zext nneg i32 %13 to i64
   %15 = shl nuw i64 1, %14
-  %16 = and i64 %15, %.01621.i
+  %16 = and i64 %15, %.01522.i
   %.not.i = icmp eq i64 %16, 0
   br i1 %.not.i, label %17, label %22
 
@@ -1529,11 +1529,11 @@ define void @Sbd_ManSolverPrint(ptr nocapture noundef readonly %0) local_unnamed
   %19 = sext i32 %13 to i64
   %20 = getelementptr inbounds i32, ptr %2, i64 %19
   store i32 %.023.i, ptr %20, align 4
-  %21 = or i64 %15, %.01621.i
+  %21 = or i64 %15, %.01522.i
   br label %22
 
 22:                                               ; preds = %17, %12, %8
-  %.117.i = phi i64 [ %.01621.i, %8 ], [ %.01621.i, %12 ], [ %21, %17 ]
+  %.116.i = phi i64 [ %.01522.i, %8 ], [ %.01522.i, %12 ], [ %21, %17 ]
   %.1.i = phi i32 [ %.023.i, %8 ], [ %.023.i, %12 ], [ %18, %17 ]
   %23 = freeze i32 %.1.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1694,7 +1694,7 @@ define void @Sbd_ManSolveSelect(ptr nocapture noundef readonly %0, ptr nocapture
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %47
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %47 ], [ 0, %.lr.ph.i.preheader ]
   %.023.i = phi i32 [ %.1.i, %47 ], [ 0, %.lr.ph.i.preheader ]
-  %.01621.i = phi i64 [ %.117.i, %47 ], [ 0, %.lr.ph.i.preheader ]
+  %.01522.i = phi i64 [ %.116.i, %47 ], [ 0, %.lr.ph.i.preheader ]
   %36 = getelementptr inbounds i32, ptr %.val19.i, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, -1
@@ -1704,17 +1704,17 @@ define void @Sbd_ManSolveSelect(ptr nocapture noundef readonly %0, ptr nocapture
   %40 = ashr i32 %37, 1
   %41 = zext nneg i32 %40 to i64
   %42 = shl nuw i64 1, %41
-  %43 = and i64 %42, %.01621.i
+  %43 = and i64 %42, %.01522.i
   %.not.i = icmp eq i64 %43, 0
   br i1 %.not.i, label %44, label %47
 
 44:                                               ; preds = %39
   %45 = add nsw i32 %.023.i, 1
-  %46 = or i64 %42, %.01621.i
+  %46 = or i64 %42, %.01522.i
   br label %47
 
 47:                                               ; preds = %44, %39, %.lr.ph.i
-  %.117.i = phi i64 [ %.01621.i, %.lr.ph.i ], [ %.01621.i, %39 ], [ %46, %44 ]
+  %.116.i = phi i64 [ %.01522.i, %.lr.ph.i ], [ %.01522.i, %39 ], [ %46, %44 ]
   %.1.i = phi i32 [ %.023.i, %.lr.ph.i ], [ %.023.i, %39 ], [ %45, %44 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %35
@@ -1786,9 +1786,9 @@ define range(i32 -2, 2) i32 @Sbd_ManCollectConstants(ptr noundef %0, ptr nocaptu
   br label %.lr.ph39.split
 
 .lr.ph39.split.us:                                ; preds = %.lr.ph39, %.preheader.us
-  %.02637.us = phi i32 [ %38, %.preheader.us ], [ 0, %.lr.ph39 ]
+  %.02737.us = phi i32 [ %38, %.preheader.us ], [ 0, %.lr.ph39 ]
   %15 = load i32, ptr %1, align 4
-  %16 = icmp slt i32 %.02637.us, %15
+  %16 = icmp slt i32 %.02737.us, %15
   %17 = zext i1 %16 to i32
   %18 = or disjoint i32 %10, %17
   store i32 %18, ptr %6, align 4
@@ -1842,7 +1842,7 @@ sat_solver_random_polarity.exit.us:               ; preds = %.critedge.i.us, %.l
   ]
 
 .preheader.us:                                    ; preds = %sat_solver_random_polarity.exit.us
-  %38 = add nuw nsw i32 %.02637.us, 1
+  %38 = add nuw nsw i32 %.02737.us, 1
   %.val.us = load i32, ptr %7, align 4
   %39 = icmp slt i32 %38, %.val.us
   br i1 %39, label %.lr.ph39.split.us, label %.critedge, !llvm.loop !21
@@ -1954,8 +1954,8 @@ sat_solver_random_polarity.exit:                  ; preds = %.critedge.i, %.lr.p
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %.preheader.us, %sat_solver_random_polarity.exit, %sat_solver_random_polarity.exit.us, %.critedge.loopexit76, %.critedge.loopexit, %5
-  %.027 = phi i32 [ -1, %5 ], [ %17, %sat_solver_random_polarity.exit.us ], [ %45, %sat_solver_random_polarity.exit ], [ -1, %.preheader.us ], [ -2, %.critedge.loopexit ], [ -1, %._crit_edge ], [ -2, %.critedge.loopexit76 ]
-  ret i32 %.027
+  %.026 = phi i32 [ -1, %5 ], [ %17, %sat_solver_random_polarity.exit.us ], [ %45, %sat_solver_random_polarity.exit ], [ -1, %.preheader.us ], [ -2, %.critedge.loopexit ], [ -1, %._crit_edge ], [ -2, %.critedge.loopexit76 ]
+  ret i32 %.026
 }
 
 ; Function Attrs: nounwind uwtable

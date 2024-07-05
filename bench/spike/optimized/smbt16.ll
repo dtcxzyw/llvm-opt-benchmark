@@ -654,9 +654,9 @@ define noundef i64 @_Z17fast_rv64e_smbt16P11processor_t6insn_tm(ptr nocapture no
   br label %46
 
 46:                                               ; preds = %43, %46
-  %.04566 = phi i64 [ 1, %43 ], [ %69, %46 ]
-  %.04665 = phi i64 [ %23, %43 ], [ %68, %46 ]
-  %47 = shl i64 %.04566, 5
+  %.04566 = phi i64 [ %23, %43 ], [ %68, %46 ]
+  %.04665 = phi i64 [ 1, %43 ], [ %69, %46 ]
+  %47 = shl i64 %.04665, 5
   %48 = and i64 %47, 4294967264
   %49 = shl nuw i64 4294967295, %48
   %50 = and i64 %49, %34
@@ -673,13 +673,13 @@ define noundef i64 @_Z17fast_rv64e_smbt16P11processor_t6insn_tm(ptr nocapture no
   %61 = ashr i32 %60, 16
   %62 = mul nsw i32 %59, %61
   %63 = xor i64 %49, -1
-  %64 = and i64 %.04665, %63
+  %64 = and i64 %.04566, %63
   %65 = sext i32 %62 to i64
   %66 = mul i64 %53, %65
   %67 = and i64 %66, %49
   %68 = or i64 %67, %64
-  %69 = add nsw i64 %.04566, -1
-  %.not = icmp eq i64 %.04566, 0
+  %69 = add nsw i64 %.04665, -1
+  %.not = icmp eq i64 %.04665, 0
   br i1 %.not, label %70, label %46, !llvm.loop !8
 
 70:                                               ; preds = %46

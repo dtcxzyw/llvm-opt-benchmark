@@ -220,8 +220,8 @@ for.body85.lr.ph:                                 ; preds = %for.end76
 
 for.body85:                                       ; preds = %for.body85.lr.ph, %sw.epilog
   %indvars.iv235 = phi i64 [ 1, %for.body85.lr.ph ], [ %indvars.iv.next236, %sw.epilog ]
-  %rankStart80.0162 = phi i32 [ 0, %for.body85.lr.ph ], [ %add207, %sw.epilog ]
-  %symbol.0160 = phi i32 [ %26, %for.body85.lr.ph ], [ %add206, %sw.epilog ]
+  %symbol.0161 = phi i32 [ %26, %for.body85.lr.ph ], [ %add206, %sw.epilog ]
+  %rankStart80.0159 = phi i32 [ 0, %for.body85.lr.ph ], [ %add207, %sw.epilog ]
   %arrayidx88 = getelementptr inbounds [13 x i32], ptr %workSpace, i64 0, i64 %indvars.iv235
   %27 = load i32, ptr %arrayidx88, align 4
   %28 = trunc nuw i64 %indvars.iv235 to i32
@@ -243,8 +243,8 @@ for.cond146.preheader:                            ; preds = %for.body85
 for.body149.lr.ph:                                ; preds = %for.cond146.preheader
   %conv91.mask = and i32 %sub90, 255
   %conv1.i116 = zext nneg i32 %conv91.mask to i64
-  %29 = sext i32 %symbol.0160 to i64
-  %30 = sext i32 %rankStart80.0162 to i64
+  %29 = sext i32 %symbol.0161 to i64
+  %30 = sext i32 %rankStart80.0159 to i64
   %wide.trip.count190 = zext nneg i32 %27 to i64
   br label %for.body149
 
@@ -254,8 +254,8 @@ for.cond131.preheader:                            ; preds = %for.body85
 for.body134.lr.ph:                                ; preds = %for.cond131.preheader
   %conv91.mask127 = and i32 %sub90, 255
   %conv1.i = zext nneg i32 %conv91.mask127 to i64
-  %31 = sext i32 %symbol.0160 to i64
-  %32 = sext i32 %rankStart80.0162 to i64
+  %31 = sext i32 %symbol.0161 to i64
+  %32 = sext i32 %rankStart80.0159 to i64
   %wide.trip.count200 = zext nneg i32 %27 to i64
   br label %for.body134
 
@@ -263,8 +263,8 @@ for.cond109.preheader:                            ; preds = %for.body85
   br i1 %cmp166155, label %for.body112.preheader, label %sw.epilog
 
 for.body112.preheader:                            ; preds = %for.cond109.preheader
-  %33 = sext i32 %symbol.0160 to i64
-  %34 = sext i32 %rankStart80.0162 to i64
+  %33 = sext i32 %symbol.0161 to i64
+  %34 = sext i32 %rankStart80.0159 to i64
   %wide.trip.count210 = zext nneg i32 %27 to i64
   br label %for.body112
 
@@ -272,8 +272,8 @@ for.cond93.preheader:                             ; preds = %for.body85
   br i1 %cmp166155, label %for.body96.preheader, label %sw.epilog
 
 for.body96.preheader:                             ; preds = %for.cond93.preheader
-  %35 = sext i32 %symbol.0160 to i64
-  %36 = sext i32 %rankStart80.0162 to i64
+  %35 = sext i32 %symbol.0161 to i64
+  %36 = sext i32 %rankStart80.0159 to i64
   %wide.trip.count220 = zext nneg i32 %27 to i64
   br label %for.body96
 
@@ -285,8 +285,8 @@ for.body168.lr.ph:                                ; preds = %for.cond165.prehead
   %conv1.i121 = zext nneg i32 %conv91.mask128 to i64
   %cmp176153 = icmp sgt i32 %shr, 0
   %37 = sext i32 %shr to i64
-  %38 = sext i32 %symbol.0160 to i64
-  %39 = sext i32 %rankStart80.0162 to i64
+  %38 = sext i32 %symbol.0161 to i64
+  %39 = sext i32 %rankStart80.0159 to i64
   %wide.trip.count233 = zext nneg i32 %27 to i64
   br label %for.body168
 
@@ -397,9 +397,9 @@ for.end201:                                       ; preds = %for.body178, %for.b
   br i1 %exitcond234.not, label %sw.epilog, label %for.body168, !llvm.loop !16
 
 sw.epilog:                                        ; preds = %for.body149, %for.body134, %for.body112, %for.body96, %for.end201, %for.cond146.preheader, %for.cond131.preheader, %for.cond109.preheader, %for.cond93.preheader, %for.cond165.preheader
-  %add206 = add nsw i32 %27, %symbol.0160
+  %add206 = add nsw i32 %27, %symbol.0161
   %mul = mul nsw i32 %27, %shr
-  %add207 = add nsw i32 %mul, %rankStart80.0162
+  %add207 = add nsw i32 %mul, %rankStart80.0159
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count238
   br i1 %exitcond239.not, label %return, label %for.body85, !llvm.loop !17
@@ -482,12 +482,12 @@ for.body35.preheader:                             ; preds = %for.cond32.preheade
 
 for.body35:                                       ; preds = %for.body35.preheader, %for.body35
   %indvars.iv = phi i64 [ 1, %for.body35.preheader ], [ %indvars.iv.next, %for.body35 ]
-  %nextRankStart.076 = phi i32 [ 0, %for.body35.preheader ], [ %add39, %for.body35 ]
+  %nextRankStart.075 = phi i32 [ 0, %for.body35.preheader ], [ %add39, %for.body35 ]
   %arrayidx38 = getelementptr inbounds [13 x i32], ptr %rankStats, i64 0, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx38, align 4
-  %add39 = add i32 %3, %nextRankStart.076
+  %add39 = add i32 %3, %nextRankStart.075
   %arrayidx41 = getelementptr inbounds i32, ptr %add.ptr3, i64 %indvars.iv
-  store i32 %nextRankStart.076, ptr %arrayidx41, align 4
+  store i32 %nextRankStart.075, ptr %arrayidx41, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end43, label %for.body35, !llvm.loop !19
@@ -3066,8 +3066,8 @@ if.end18.i.i.i:                                   ; preds = %if.end7.i.i.i
   %sub.ptr.lhs.cast.i610.i.i = ptrtoint ptr %bitD1.i.sroa.1122329.42579.i to i64
   %sub.ptr.sub.i612.i.i = sub i64 %sub.ptr.lhs.cast.i610.i.i, %sub.ptr.rhs.cast.i611.i.i
   %conv27.i.i.i = trunc i64 %sub.ptr.sub.i612.i.i to i32
-  %nbBytes.i.i.0.i = select i1 %cmp22.i.i.i, i32 %conv27.i.i.i, i32 %shr.i.i.i
   %result.i.i.0.i = zext i1 %cmp22.i.i.i to i32
+  %nbBytes.i.i.0.i = select i1 %cmp22.i.i.i, i32 %conv27.i.i.i, i32 %shr.i.i.i
   %mul.i.i.i = shl i32 %nbBytes.i.i.0.i, 3
   %sub.i.i.i = sub i32 %bitD1.i.sroa.34.42580.i, %mul.i.i.i
   br label %BIT_reloadDStream.exit.i.i
@@ -3190,8 +3190,8 @@ if.end18.i632.i.i:                                ; preds = %if.end7.i628.i.i
   %sub.ptr.lhs.cast.i654.i.i = ptrtoint ptr %bitD1.i.sroa.1122329.62562.i to i64
   %sub.ptr.sub.i656.i.i = sub i64 %sub.ptr.lhs.cast.i654.i.i, %sub.ptr.rhs.cast.i655.i.i
   %conv27.i657.i.i = trunc i64 %sub.ptr.sub.i656.i.i to i32
-  %nbBytes.i617.i.0.i = select i1 %cmp22.i640.i.i, i32 %conv27.i657.i.i, i32 %shr.i634.i.i
   %result.i618.i.0.i = zext i1 %cmp22.i640.i.i to i32
+  %nbBytes.i617.i.0.i = select i1 %cmp22.i640.i.i, i32 %conv27.i657.i.i, i32 %shr.i634.i.i
   %mul.i646.i.i = shl i32 %nbBytes.i617.i.0.i, 3
   %sub.i648.i.i = sub i32 %bitD1.i.sroa.34.62563.i, %mul.i646.i.i
   br label %BIT_reloadDStream.exit668.i.i
@@ -3359,8 +3359,8 @@ if.end18.i686.i.i:                                ; preds = %if.end7.i682.i.i
   %sub.ptr.lhs.cast.i708.i.i = ptrtoint ptr %bitD1.i.sroa.1122329.9.i41 to i64
   %sub.ptr.sub.i710.i.i = sub i64 %sub.ptr.lhs.cast.i708.i.i, %sub.ptr.rhs.cast.i709.i.i
   %conv27.i711.i.i = trunc i64 %sub.ptr.sub.i710.i.i to i32
-  %nbBytes.i671.i.0.i = select i1 %cmp22.i694.i.i, i32 %conv27.i711.i.i, i32 %shr.i688.i.i
   %result.i672.i.0.i = zext i1 %cmp22.i694.i.i to i32
+  %nbBytes.i671.i.0.i = select i1 %cmp22.i694.i.i, i32 %conv27.i711.i.i, i32 %shr.i688.i.i
   %mul.i700.i.i = shl i32 %nbBytes.i671.i.0.i, 3
   %sub.i702.i.i = sub i32 %bitD1.i.sroa.34.9.i42, %mul.i700.i.i
   br label %BIT_reloadDStream.exit722.i.i
@@ -3530,8 +3530,8 @@ if.end18.i794.i.i:                                ; preds = %if.end7.i790.i.i
   %sub.ptr.lhs.cast.i816.i.i = ptrtoint ptr %bitD2.i.sroa.1122185.42620.i to i64
   %sub.ptr.sub.i818.i.i = sub i64 %sub.ptr.lhs.cast.i816.i.i, %sub.ptr.rhs.cast.i817.i.i
   %conv27.i819.i.i = trunc i64 %sub.ptr.sub.i818.i.i to i32
-  %nbBytes.i779.i.0.i = select i1 %cmp22.i802.i.i, i32 %conv27.i819.i.i, i32 %shr.i796.i.i
   %result.i780.i.0.i = zext i1 %cmp22.i802.i.i to i32
+  %nbBytes.i779.i.0.i = select i1 %cmp22.i802.i.i, i32 %conv27.i819.i.i, i32 %shr.i796.i.i
   %mul.i808.i.i = shl i32 %nbBytes.i779.i.0.i, 3
   %sub.i810.i.i = sub i32 %bitD2.i.sroa.34.42619.i, %mul.i808.i.i
   br label %BIT_reloadDStream.exit830.i.i
@@ -3654,8 +3654,8 @@ if.end18.i848.i.i:                                ; preds = %if.end7.i844.i.i
   %sub.ptr.lhs.cast.i870.i.i = ptrtoint ptr %bitD2.i.sroa.1122185.62603.i to i64
   %sub.ptr.sub.i872.i.i = sub i64 %sub.ptr.lhs.cast.i870.i.i, %sub.ptr.rhs.cast.i871.i.i
   %conv27.i873.i.i = trunc i64 %sub.ptr.sub.i872.i.i to i32
-  %nbBytes.i833.i.0.i = select i1 %cmp22.i856.i.i, i32 %conv27.i873.i.i, i32 %shr.i850.i.i
   %result.i834.i.0.i = zext i1 %cmp22.i856.i.i to i32
+  %nbBytes.i833.i.0.i = select i1 %cmp22.i856.i.i, i32 %conv27.i873.i.i, i32 %shr.i850.i.i
   %mul.i862.i.i = shl i32 %nbBytes.i833.i.0.i, 3
   %sub.i864.i.i = sub i32 %bitD2.i.sroa.34.62602.i, %mul.i862.i.i
   br label %BIT_reloadDStream.exit884.i.i
@@ -3823,8 +3823,8 @@ if.end18.i902.i.i:                                ; preds = %if.end7.i898.i.i
   %sub.ptr.lhs.cast.i924.i.i = ptrtoint ptr %bitD2.i.sroa.1122185.9.i59 to i64
   %sub.ptr.sub.i926.i.i = sub i64 %sub.ptr.lhs.cast.i924.i.i, %sub.ptr.rhs.cast.i925.i.i
   %conv27.i927.i.i = trunc i64 %sub.ptr.sub.i926.i.i to i32
-  %nbBytes.i887.i.0.i = select i1 %cmp22.i910.i.i, i32 %conv27.i927.i.i, i32 %shr.i904.i.i
   %result.i888.i.0.i = zext i1 %cmp22.i910.i.i to i32
+  %nbBytes.i887.i.0.i = select i1 %cmp22.i910.i.i, i32 %conv27.i927.i.i, i32 %shr.i904.i.i
   %mul.i916.i.i = shl i32 %nbBytes.i887.i.0.i, 3
   %sub.i918.i.i = sub i32 %bitD2.i.sroa.34.9.i58, %mul.i916.i.i
   br label %BIT_reloadDStream.exit938.i.i
@@ -3993,8 +3993,8 @@ if.end18.i1010.i.i:                               ; preds = %if.end7.i1006.i.i
   %sub.ptr.lhs.cast.i1032.i.i = ptrtoint ptr %bitD3.i.sroa.1122041.42659.i to i64
   %sub.ptr.sub.i1034.i.i = sub i64 %sub.ptr.lhs.cast.i1032.i.i, %sub.ptr.rhs.cast.i1033.i.i
   %conv27.i1035.i.i = trunc i64 %sub.ptr.sub.i1034.i.i to i32
-  %nbBytes.i995.i.0.i = select i1 %cmp22.i1018.i.i, i32 %conv27.i1035.i.i, i32 %shr.i1012.i.i
   %result.i996.i.0.i = zext i1 %cmp22.i1018.i.i to i32
+  %nbBytes.i995.i.0.i = select i1 %cmp22.i1018.i.i, i32 %conv27.i1035.i.i, i32 %shr.i1012.i.i
   %mul.i1024.i.i = shl i32 %nbBytes.i995.i.0.i, 3
   %sub.i1026.i.i = sub i32 %bitD3.i.sroa.34.42658.i, %mul.i1024.i.i
   br label %BIT_reloadDStream.exit1046.i.i
@@ -6138,8 +6138,8 @@ if.end18.i137.i417.i.i:                           ; preds = %if.end7.i133.i413.i
   %sub.ptr.lhs.cast.i159.i469.i.i = ptrtoint ptr %bitD3.i.sroa.671203.41553.i to i64
   %sub.ptr.sub.i161.i471.i.i = sub i64 %sub.ptr.lhs.cast.i159.i469.i.i, %sub.ptr.rhs.cast.i160.i470.i.i
   %conv27.i162.i472.i.i = trunc i64 %sub.ptr.sub.i161.i471.i.i to i32
-  %nbBytes.i122.i257.i.0.i = select i1 %cmp22.i145.i425.i.i, i32 %conv27.i162.i472.i.i, i32 %shr.i139.i419.i.i
   %result.i123.i258.i.0.i = zext i1 %cmp22.i145.i425.i.i to i32
+  %nbBytes.i122.i257.i.0.i = select i1 %cmp22.i145.i425.i.i, i32 %conv27.i162.i472.i.i, i32 %shr.i139.i419.i.i
   %mul.i151.i431.i.i = shl i32 %nbBytes.i122.i257.i.0.i, 3
   %sub.i153.i433.i.i = sub i32 %bitD3.i.sroa.23.41552.i, %mul.i151.i431.i.i
   br label %BIT_reloadDStream.exit173.i436.i.i
@@ -6342,8 +6342,8 @@ if.end18.i137.i.i.i:                              ; preds = %if.end7.i133.i.i.i
   %sub.ptr.rhs.cast.i160.i.i.i = ptrtoint ptr %125 to i64
   %sub.ptr.sub.i161.i.i.i = sub i64 %sub.ptr.lhs.cast.i159.i.i.i, %sub.ptr.rhs.cast.i160.i.i.i
   %conv27.i162.i.i.i = trunc i64 %sub.ptr.sub.i161.i.i.i to i32
-  %nbBytes.i122.i.i.0.i = select i1 %cmp22.i145.i.i.i, i32 %conv27.i162.i.i.i, i32 %shr.i139.i.i.i
   %result.i123.i.i.0.i = zext i1 %cmp22.i145.i.i.i to i32
+  %nbBytes.i122.i.i.0.i = select i1 %cmp22.i145.i.i.i, i32 %conv27.i162.i.i.i, i32 %shr.i139.i.i.i
   %idx.ext30.i148.i.i.i = zext i32 %nbBytes.i122.i.i.0.i to i64
   %idx.neg31.i149.i.i.i = sub nsw i64 0, %idx.ext30.i148.i.i.i
   %add.ptr32.i150.i.i.i = getelementptr inbounds i8, ptr %123, i64 %idx.neg31.i149.i.i.i
@@ -8946,8 +8946,8 @@ if.end18.i.i:                                     ; preds = %if.end7.i.i
   %sub.ptr.lhs.cast.i610.i = ptrtoint ptr %bitD1.i.sroa.1122329.42579 to i64
   %sub.ptr.sub.i612.i = sub i64 %sub.ptr.lhs.cast.i610.i, %sub.ptr.rhs.cast.i611.i
   %conv27.i.i = trunc i64 %sub.ptr.sub.i612.i to i32
-  %nbBytes.i.i.0 = select i1 %cmp22.i.i, i32 %conv27.i.i, i32 %shr.i.i
   %result.i.i.0 = zext i1 %cmp22.i.i to i32
+  %nbBytes.i.i.0 = select i1 %cmp22.i.i, i32 %conv27.i.i, i32 %shr.i.i
   %mul.i.i = shl i32 %nbBytes.i.i.0, 3
   %sub.i.i = sub i32 %bitD1.i.sroa.34.42580, %mul.i.i
   br label %BIT_reloadDStream.exit.i
@@ -9070,8 +9070,8 @@ if.end18.i632.i:                                  ; preds = %if.end7.i628.i
   %sub.ptr.lhs.cast.i654.i = ptrtoint ptr %bitD1.i.sroa.1122329.62562 to i64
   %sub.ptr.sub.i656.i = sub i64 %sub.ptr.lhs.cast.i654.i, %sub.ptr.rhs.cast.i655.i
   %conv27.i657.i = trunc i64 %sub.ptr.sub.i656.i to i32
-  %nbBytes.i617.i.0 = select i1 %cmp22.i640.i, i32 %conv27.i657.i, i32 %shr.i634.i
   %result.i618.i.0 = zext i1 %cmp22.i640.i to i32
+  %nbBytes.i617.i.0 = select i1 %cmp22.i640.i, i32 %conv27.i657.i, i32 %shr.i634.i
   %mul.i646.i = shl i32 %nbBytes.i617.i.0, 3
   %sub.i648.i = sub i32 %bitD1.i.sroa.34.62563, %mul.i646.i
   br label %BIT_reloadDStream.exit668.i
@@ -9239,8 +9239,8 @@ if.end18.i686.i:                                  ; preds = %if.end7.i682.i
   %sub.ptr.lhs.cast.i708.i = ptrtoint ptr %bitD1.i.sroa.1122329.92794 to i64
   %sub.ptr.sub.i710.i = sub i64 %sub.ptr.lhs.cast.i708.i, %sub.ptr.rhs.cast.i709.i
   %conv27.i711.i = trunc i64 %sub.ptr.sub.i710.i to i32
-  %nbBytes.i671.i.0 = select i1 %cmp22.i694.i, i32 %conv27.i711.i, i32 %shr.i688.i
   %result.i672.i.0 = zext i1 %cmp22.i694.i to i32
+  %nbBytes.i671.i.0 = select i1 %cmp22.i694.i, i32 %conv27.i711.i, i32 %shr.i688.i
   %mul.i700.i = shl i32 %nbBytes.i671.i.0, 3
   %sub.i702.i = sub i32 %bitD1.i.sroa.34.92795, %mul.i700.i
   br label %BIT_reloadDStream.exit722.i
@@ -9410,8 +9410,8 @@ if.end18.i794.i:                                  ; preds = %if.end7.i790.i
   %sub.ptr.lhs.cast.i816.i = ptrtoint ptr %bitD2.i.sroa.1122185.42620 to i64
   %sub.ptr.sub.i818.i = sub i64 %sub.ptr.lhs.cast.i816.i, %sub.ptr.rhs.cast.i817.i
   %conv27.i819.i = trunc i64 %sub.ptr.sub.i818.i to i32
-  %nbBytes.i779.i.0 = select i1 %cmp22.i802.i, i32 %conv27.i819.i, i32 %shr.i796.i
   %result.i780.i.0 = zext i1 %cmp22.i802.i to i32
+  %nbBytes.i779.i.0 = select i1 %cmp22.i802.i, i32 %conv27.i819.i, i32 %shr.i796.i
   %mul.i808.i = shl i32 %nbBytes.i779.i.0, 3
   %sub.i810.i = sub i32 %bitD2.i.sroa.34.42619, %mul.i808.i
   br label %BIT_reloadDStream.exit830.i
@@ -9534,8 +9534,8 @@ if.end18.i848.i:                                  ; preds = %if.end7.i844.i
   %sub.ptr.lhs.cast.i870.i = ptrtoint ptr %bitD2.i.sroa.1122185.62603 to i64
   %sub.ptr.sub.i872.i = sub i64 %sub.ptr.lhs.cast.i870.i, %sub.ptr.rhs.cast.i871.i
   %conv27.i873.i = trunc i64 %sub.ptr.sub.i872.i to i32
-  %nbBytes.i833.i.0 = select i1 %cmp22.i856.i, i32 %conv27.i873.i, i32 %shr.i850.i
   %result.i834.i.0 = zext i1 %cmp22.i856.i to i32
+  %nbBytes.i833.i.0 = select i1 %cmp22.i856.i, i32 %conv27.i873.i, i32 %shr.i850.i
   %mul.i862.i = shl i32 %nbBytes.i833.i.0, 3
   %sub.i864.i = sub i32 %bitD2.i.sroa.34.62602, %mul.i862.i
   br label %BIT_reloadDStream.exit884.i
@@ -9703,8 +9703,8 @@ if.end18.i902.i:                                  ; preds = %if.end7.i898.i
   %sub.ptr.lhs.cast.i924.i = ptrtoint ptr %bitD2.i.sroa.1122185.92812 to i64
   %sub.ptr.sub.i926.i = sub i64 %sub.ptr.lhs.cast.i924.i, %sub.ptr.rhs.cast.i925.i
   %conv27.i927.i = trunc i64 %sub.ptr.sub.i926.i to i32
-  %nbBytes.i887.i.0 = select i1 %cmp22.i910.i, i32 %conv27.i927.i, i32 %shr.i904.i
   %result.i888.i.0 = zext i1 %cmp22.i910.i to i32
+  %nbBytes.i887.i.0 = select i1 %cmp22.i910.i, i32 %conv27.i927.i, i32 %shr.i904.i
   %mul.i916.i = shl i32 %nbBytes.i887.i.0, 3
   %sub.i918.i = sub i32 %bitD2.i.sroa.34.92811, %mul.i916.i
   br label %BIT_reloadDStream.exit938.i
@@ -9873,8 +9873,8 @@ if.end18.i1010.i:                                 ; preds = %if.end7.i1006.i
   %sub.ptr.lhs.cast.i1032.i = ptrtoint ptr %bitD3.i.sroa.1122041.42659 to i64
   %sub.ptr.sub.i1034.i = sub i64 %sub.ptr.lhs.cast.i1032.i, %sub.ptr.rhs.cast.i1033.i
   %conv27.i1035.i = trunc i64 %sub.ptr.sub.i1034.i to i32
-  %nbBytes.i995.i.0 = select i1 %cmp22.i1018.i, i32 %conv27.i1035.i, i32 %shr.i1012.i
   %result.i996.i.0 = zext i1 %cmp22.i1018.i to i32
+  %nbBytes.i995.i.0 = select i1 %cmp22.i1018.i, i32 %conv27.i1035.i, i32 %shr.i1012.i
   %mul.i1024.i = shl i32 %nbBytes.i995.i.0, 3
   %sub.i1026.i = sub i32 %bitD3.i.sroa.34.42658, %mul.i1024.i
   br label %BIT_reloadDStream.exit1046.i
@@ -10967,8 +10967,8 @@ if.end18.i:                                       ; preds = %if.end7.i
   %sub.ptr.lhs.cast.i51 = ptrtoint ptr %bit.sroa.58.2384 to i64
   %sub.ptr.sub.i53 = sub i64 %sub.ptr.lhs.cast.i51, %sub.ptr.rhs.cast.i52
   %conv27.i = trunc i64 %sub.ptr.sub.i53 to i32
-  %nbBytes.i.0 = select i1 %cmp22.i, i32 %conv27.i, i32 %shr.i
   %result.i.0 = zext i1 %cmp22.i to i32
+  %nbBytes.i.0 = select i1 %cmp22.i, i32 %conv27.i, i32 %shr.i
   %mul.i = shl i32 %nbBytes.i.0, 3
   %sub.i = sub i32 %bit.sroa.15.2385, %mul.i
   br label %BIT_reloadDStream.exit
@@ -12887,8 +12887,8 @@ if.end18.i137.i417.i:                             ; preds = %if.end7.i133.i413.i
   %sub.ptr.lhs.cast.i159.i469.i = ptrtoint ptr %bitD3.i.sroa.671203.41553 to i64
   %sub.ptr.sub.i161.i471.i = sub i64 %sub.ptr.lhs.cast.i159.i469.i, %sub.ptr.rhs.cast.i160.i470.i
   %conv27.i162.i472.i = trunc i64 %sub.ptr.sub.i161.i471.i to i32
-  %nbBytes.i122.i257.i.0 = select i1 %cmp22.i145.i425.i, i32 %conv27.i162.i472.i, i32 %shr.i139.i419.i
   %result.i123.i258.i.0 = zext i1 %cmp22.i145.i425.i to i32
+  %nbBytes.i122.i257.i.0 = select i1 %cmp22.i145.i425.i, i32 %conv27.i162.i472.i, i32 %shr.i139.i419.i
   %mul.i151.i431.i = shl i32 %nbBytes.i122.i257.i.0, 3
   %sub.i153.i433.i = sub i32 %bitD3.i.sroa.23.41552, %mul.i151.i431.i
   br label %BIT_reloadDStream.exit173.i436.i
@@ -13091,8 +13091,8 @@ if.end18.i137.i.i:                                ; preds = %if.end7.i133.i.i
   %sub.ptr.rhs.cast.i160.i.i = ptrtoint ptr %125 to i64
   %sub.ptr.sub.i161.i.i = sub i64 %sub.ptr.lhs.cast.i159.i.i, %sub.ptr.rhs.cast.i160.i.i
   %conv27.i162.i.i = trunc i64 %sub.ptr.sub.i161.i.i to i32
-  %nbBytes.i122.i.i.0 = select i1 %cmp22.i145.i.i, i32 %conv27.i162.i.i, i32 %shr.i139.i.i
   %result.i123.i.i.0 = zext i1 %cmp22.i145.i.i to i32
+  %nbBytes.i122.i.i.0 = select i1 %cmp22.i145.i.i, i32 %conv27.i162.i.i, i32 %shr.i139.i.i
   %idx.ext30.i148.i.i = zext i32 %nbBytes.i122.i.i.0 to i64
   %idx.neg31.i149.i.i = sub nsw i64 0, %idx.ext30.i148.i.i
   %add.ptr32.i150.i.i = getelementptr inbounds i8, ptr %123, i64 %idx.neg31.i149.i.i

@@ -349,17 +349,17 @@ define internal fastcc ptr @module_name(ptr nocapture noundef readonly %0) unnam
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %16
-  %.026 = phi i64 [ %17, %16 ], [ 0, %1 ]
-  %.02325 = phi i8 [ %.1, %16 ], [ 0, %1 ]
+  %.026 = phi i8 [ %.1, %16 ], [ 0, %1 ]
+  %.02325 = phi i64 [ %17, %16 ], [ 0, %1 ]
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 %.026
+  %6 = getelementptr inbounds i8, ptr %5, i64 %.02325
   %7 = load i8, ptr %6, align 1
   %8 = add i8 %7, -48
   %or.cond = icmp ult i8 %8, 10
   br i1 %or.cond, label %9, label %12
 
 9:                                                ; preds = %.lr.ph
-  %10 = trunc nuw i8 %.02325 to i1
+  %10 = trunc nuw i8 %.026 to i1
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %9
@@ -372,14 +372,14 @@ define internal fastcc ptr @module_name(ptr nocapture noundef readonly %0) unnam
   %or.cond24 = icmp ult i8 %14, 26
   %15 = or i8 %7, 32
   %spec.select = select i1 %or.cond24, i8 %15, i8 95
-  %spec.select28 = select i1 %or.cond24, i8 1, i8 %.02325
+  %spec.select28 = select i1 %or.cond24, i8 1, i8 %.026
   br label %16
 
 16:                                               ; preds = %12, %9, %11
   %.sink = phi i8 [ %7, %11 ], [ %7, %9 ], [ %spec.select, %12 ]
   %.1 = phi i8 [ 1, %11 ], [ 1, %9 ], [ %spec.select28, %12 ]
   tail call void @scratch_buffer_append_char(i8 noundef signext %.sink) #8
-  %17 = add nuw i64 %.026, 1
+  %17 = add nuw i64 %.02325, 1
   %exitcond.not = icmp eq i64 %17, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 

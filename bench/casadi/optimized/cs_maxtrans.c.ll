@@ -39,21 +39,21 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph207
   %19 = phi i32 [ %22, %.lr.ph207 ], [ %36, %.lr.ph ]
-  %.1.lcssa = phi i32 [ %.0159205, %.lr.ph207 ], [ %35, %.lr.ph ]
+  %.1164.lcssa = phi i32 [ %.0163205, %.lr.ph207 ], [ %35, %.lr.ph ]
   %exitcond.not = icmp eq i64 %indvars.iv.next262, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph207, !llvm.loop !4
 
 .lr.ph207:                                        ; preds = %.lr.ph207.preheader, %.loopexit
   %20 = phi i32 [ %.pre, %.lr.ph207.preheader ], [ %19, %.loopexit ]
   %indvars.iv261 = phi i64 [ 0, %.lr.ph207.preheader ], [ %indvars.iv.next262, %.loopexit ]
-  %.0157206 = phi i32 [ 0, %.lr.ph207.preheader ], [ %25, %.loopexit ]
-  %.0159205 = phi i32 [ 0, %.lr.ph207.preheader ], [ %.1.lcssa, %.loopexit ]
+  %.0163205 = phi i32 [ 0, %.lr.ph207.preheader ], [ %.1164.lcssa, %.loopexit ]
+  %.0167204 = phi i32 [ 0, %.lr.ph207.preheader ], [ %25, %.loopexit ]
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %21 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next262
   %22 = load i32, ptr %21, align 4
   %23 = icmp slt i32 %20, %22
   %24 = zext i1 %23 to i32
-  %25 = add nuw nsw i32 %.0157206, %24
+  %25 = add nuw nsw i32 %.0167204, %24
   br i1 %23, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph207
@@ -62,7 +62,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.1202 = phi i32 [ %.0159205, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.1164203 = phi i32 [ %.0163205, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
@@ -72,7 +72,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %32 = zext i32 %31 to i64
   %33 = icmp eq i64 %indvars.iv261, %32
   %34 = zext i1 %33 to i32
-  %35 = add nsw i32 %.1202, %34
+  %35 = add nsw i32 %.1164203, %34
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %36 = load i32, ptr %21, align 4
   %37 = sext i32 %36 to i64
@@ -81,7 +81,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.loopexit
   %39 = tail call i32 @llvm.smin.i32(i32 %11, i32 %9)
-  %40 = icmp eq i32 %.1.lcssa, %39
+  %40 = icmp eq i32 %.1164.lcssa, %39
   br i1 %40, label %44, label %.preheader192
 
 ._crit_edge.thread:                               ; preds = %.preheader193
@@ -90,7 +90,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %42, label %.preheader187, label %.preheader192
 
 .preheader192:                                    ; preds = %._crit_edge.thread, %._crit_edge
-  %.0157.lcssa313 = phi i32 [ 0, %._crit_edge.thread ], [ %25, %._crit_edge ]
+  %.0167.lcssa312 = phi i32 [ 0, %._crit_edge.thread ], [ %25, %._crit_edge ]
   %43 = icmp sgt i32 %11, 0
   br i1 %43, label %.lr.ph212.preheader, label %._crit_edge213
 
@@ -99,27 +99,27 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %.lr.ph212
 
 44:                                               ; preds = %._crit_edge
-  %45 = icmp sgt i32 %.1.lcssa, 0
+  %45 = icmp sgt i32 %.1164.lcssa, 0
   br i1 %45, label %.lr.ph236.preheader, label %.preheader187
 
 .lr.ph236.preheader:                              ; preds = %44
-  %wide.trip.count296 = zext nneg i32 %.1.lcssa to i64
+  %wide.trip.count296 = zext nneg i32 %.1164.lcssa to i64
   br label %.lr.ph236
 
 .preheader187:                                    ; preds = %.lr.ph236, %._crit_edge.thread, %44
   %46 = phi i1 [ false, %44 ], [ false, %._crit_edge.thread ], [ %45, %.lr.ph236 ]
-  %.0159.lcssa312315 = phi i32 [ %.1.lcssa, %44 ], [ 0, %._crit_edge.thread ], [ %.1.lcssa, %.lr.ph236 ]
-  %.0163.lcssa = phi i32 [ 0, %44 ], [ 0, %._crit_edge.thread ], [ %.1.lcssa, %.lr.ph236 ]
+  %.0163.lcssa313315 = phi i32 [ %.1164.lcssa, %44 ], [ 0, %._crit_edge.thread ], [ %.1164.lcssa, %.lr.ph236 ]
+  %.0157.lcssa = phi i32 [ 0, %44 ], [ 0, %._crit_edge.thread ], [ %.1164.lcssa, %.lr.ph236 ]
   %47 = sext i32 %11 to i64
   %48 = getelementptr inbounds i32, ptr %17, i64 %47
-  %49 = icmp slt i32 %.0163.lcssa, %11
+  %49 = icmp slt i32 %.0157.lcssa, %11
   br i1 %49, label %.lr.ph239.preheader, label %.preheader186
 
 .lr.ph239.preheader:                              ; preds = %.preheader187
-  %50 = zext nneg i32 %.0163.lcssa to i64
+  %50 = zext nneg i32 %.0157.lcssa to i64
   %51 = shl nuw nsw i64 %50, 2
   %scevgep = getelementptr i8, ptr %17, i64 %51
-  %52 = xor i32 %.0163.lcssa, -1
+  %52 = xor i32 %.0157.lcssa, -1
   %53 = add i32 %11, %52
   %54 = zext i32 %53 to i64
   %55 = shl nuw nsw i64 %54, 2
@@ -140,20 +140,20 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %46, label %.lr.ph241.preheader, label %.preheader
 
 .lr.ph241.preheader:                              ; preds = %.preheader186
-  %wide.trip.count304 = zext nneg i32 %.0159.lcssa312315 to i64
+  %wide.trip.count304 = zext nneg i32 %.0163.lcssa313315 to i64
   br label %.lr.ph241
 
 .preheader:                                       ; preds = %.lr.ph241, %.preheader186
-  %.1161.lcssa = phi i32 [ 0, %.preheader186 ], [ %.0159.lcssa312315, %.lr.ph241 ]
-  %59 = icmp slt i32 %.1161.lcssa, %9
+  %.1159.lcssa = phi i32 [ 0, %.preheader186 ], [ %.0163.lcssa313315, %.lr.ph241 ]
+  %59 = icmp slt i32 %.1159.lcssa, %9
   br i1 %59, label %.lr.ph244.preheader, label %._crit_edge245
 
 .lr.ph244.preheader:                              ; preds = %.preheader
-  %60 = zext nneg i32 %.1161.lcssa to i64
+  %60 = zext nneg i32 %.1159.lcssa to i64
   %61 = add nsw i64 %47, %60
   %62 = shl nsw i64 %61, 2
   %scevgep306 = getelementptr i8, ptr %17, i64 %62
-  %63 = xor i32 %.1161.lcssa, -1
+  %63 = xor i32 %.1159.lcssa, -1
   %64 = add i32 %9, %63
   %65 = zext i32 %64 to i64
   %66 = shl nuw nsw i64 %65, 2
@@ -176,17 +176,17 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph212:                                        ; preds = %.lr.ph212.preheader, %.lr.ph212
   %indvars.iv264 = phi i64 [ 0, %.lr.ph212.preheader ], [ %indvars.iv.next265, %.lr.ph212 ]
-  %.0211 = phi i32 [ 0, %.lr.ph212.preheader ], [ %73, %.lr.ph212 ]
+  %.0168210 = phi i32 [ 0, %.lr.ph212.preheader ], [ %73, %.lr.ph212 ]
   %71 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv264
   %72 = load i32, ptr %71, align 4
-  %73 = add nsw i32 %72, %.0211
+  %73 = add nsw i32 %72, %.0168210
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %exitcond268.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count267
   br i1 %exitcond268.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !9
 
 ._crit_edge213:                                   ; preds = %.lr.ph212, %.preheader192
-  %.0.lcssa = phi i32 [ 0, %.preheader192 ], [ %73, %.lr.ph212 ]
-  %74 = icmp slt i32 %.0.lcssa, %.0157.lcssa313
+  %.0168.lcssa = phi i32 [ 0, %.preheader192 ], [ %73, %.lr.ph212 ]
+  %74 = icmp slt i32 %.0168.lcssa, %.0167.lcssa312
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %._crit_edge213
@@ -305,8 +305,8 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %126
 
 126:                                              ; preds = %.loopexit.i, %124
-  %.025.i = phi i32 [ 0, %124 ], [ %spec.select.i, %.loopexit.i ]
-  %127 = zext nneg i32 %.025.i to i64
+  %.06925.i = phi i32 [ 0, %124 ], [ %spec.select.i, %.loopexit.i ]
+  %127 = zext nneg i32 %.06925.i to i64
   %128 = getelementptr inbounds i32, ptr %100, i64 %127
   %129 = load i32, ptr %128, align 4
   %130 = sext i32 %129 to i64
@@ -397,7 +397,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %173 = getelementptr inbounds i32, ptr %103, i64 %127
   store i32 %161, ptr %173, align 4
   %174 = load i32, ptr %170, align 4
-  %175 = add nuw nsw i32 %.025.i, 1
+  %175 = add nuw nsw i32 %.06925.i, 1
   %176 = zext nneg i32 %175 to i64
   %177 = getelementptr inbounds i32, ptr %100, i64 %176
   store i32 %174, ptr %177, align 4
@@ -412,11 +412,11 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .loopexit.i:                                      ; preds = %178, %169, %154
   %179 = phi i32 [ %.pre49.i, %169 ], [ %157, %154 ], [ %157, %178 ]
-  %.1736.i = phi i32 [ %171, %169 ], [ %155, %154 ], [ %157, %178 ]
-  %.1.i = phi i32 [ %175, %169 ], [ %.025.i, %154 ], [ %.025.i, %178 ]
-  %180 = icmp eq i32 %.1736.i, %179
+  %.1735.i = phi i32 [ %171, %169 ], [ %155, %154 ], [ %157, %178 ]
+  %.170.i = phi i32 [ %175, %169 ], [ %.06925.i, %154 ], [ %.06925.i, %178 ]
+  %180 = icmp eq i32 %.1735.i, %179
   %181 = sext i1 %180 to i32
-  %spec.select.i = add nsw i32 %.1.i, %181
+  %spec.select.i = add nsw i32 %.170.i, %181
   %182 = icmp slt i32 %spec.select.i, 0
   br i1 %182, label %cs_augment.exit, label %126, !llvm.loop !13
 
@@ -479,8 +479,8 @@ cs_augment.exit:                                  ; preds = %.loopexit.i, %.lr.p
   br label %202
 
 202:                                              ; preds = %7, %2, %3, %._crit_edge233, %94, %80, %._crit_edge245
-  %.0168 = phi ptr [ %70, %._crit_edge245 ], [ %201, %._crit_edge233 ], [ %95, %94 ], [ %81, %80 ], [ null, %3 ], [ null, %2 ], [ null, %7 ]
-  ret ptr %.0168
+  %.0 = phi ptr [ %70, %._crit_edge245 ], [ %201, %._crit_edge233 ], [ %95, %94 ], [ %81, %80 ], [ null, %3 ], [ null, %2 ], [ null, %7 ]
+  ret ptr %.0
 }
 
 declare ptr @cs_calloc(i32 noundef, i64 noundef) local_unnamed_addr #1

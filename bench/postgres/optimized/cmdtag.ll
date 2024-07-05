@@ -266,13 +266,13 @@ define dso_local i32 @GetCommandTagEnum(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %5, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3, %19
-  %.020 = phi ptr [ %.1, %19 ], [ getelementptr inbounds (i8, ptr @tag_behavior, i64 3072), %3 ]
-  %.01419 = phi ptr [ %.115, %19 ], [ @tag_behavior, %3 ]
-  %6 = ptrtoint ptr %.020 to i64
-  %7 = ptrtoint ptr %.01419 to i64
+  %.01420 = phi ptr [ %.1, %19 ], [ @tag_behavior, %3 ]
+  %.01519 = phi ptr [ %.116, %19 ], [ getelementptr inbounds (i8, ptr @tag_behavior, i64 3072), %3 ]
+  %6 = ptrtoint ptr %.01519 to i64
+  %7 = ptrtoint ptr %.01420 to i64
   %8 = sub i64 %6, %7
   %9 = ashr i64 %8, 5
-  %10 = getelementptr %struct.CommandTagBehavior, ptr %.01419, i64 %9
+  %10 = getelementptr %struct.CommandTagBehavior, ptr %.01420, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %0, ptr noundef %11) #5
   %13 = icmp eq i32 %12, 0
@@ -289,14 +289,14 @@ define dso_local i32 @GetCommandTagEnum(ptr noundef %0) local_unnamed_addr #2 {
   %20 = icmp slt i32 %12, 0
   %21 = getelementptr i8, ptr %10, i64 -16
   %22 = getelementptr i8, ptr %10, i64 16
-  %.115 = select i1 %20, ptr %.01419, ptr %22
-  %.1 = select i1 %20, ptr %21, ptr %.020
-  %.not = icmp ult ptr %.1, %.115
+  %.116 = select i1 %20, ptr %21, ptr %.01519
+  %.1 = select i1 %20, ptr %.01420, ptr %22
+  %.not = icmp ult ptr %.116, %.1
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !5
 
 .loopexit:                                        ; preds = %19, %1, %3, %14
-  %.016 = phi i32 [ %18, %14 ], [ 0, %3 ], [ 0, %1 ], [ 0, %19 ]
-  ret i32 %.016
+  %.0 = phi i32 [ %18, %14 ], [ 0, %3 ], [ 0, %1 ], [ 0, %19 ]
+  ret i32 %.0
 }
 
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3

@@ -173,13 +173,13 @@ define hidden i32 @IWbemLevel1Login_dissect_struct_IWbemServices(ptr noundef %0,
   br label %15
 
 15:                                               ; preds = %11, %8
-  %.026 = phi ptr [ %12, %11 ], [ null, %8 ]
-  %.0 = phi ptr [ %14, %11 ], [ null, %8 ]
+  %.026 = phi ptr [ %14, %11 ], [ null, %8 ]
+  %.0 = phi ptr [ %12, %11 ], [ null, %8 ]
   %16 = load i32, ptr @hf_IWbemLevel1Login_IWbemServices_count, align 4
-  %17 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #3
-  %18 = tail call i32 @dissect_ndr_ucarray_block(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @IWbemLevel1Login_dissect_element_IWbemServices_services_) #3
+  %17 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #3
+  %18 = tail call i32 @dissect_ndr_ucarray_block(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @IWbemLevel1Login_dissect_element_IWbemServices_services_) #3
   %19 = sub i32 %18, %1
-  tail call void @proto_item_set_len(ptr noundef %.026, i32 noundef %19) #3
+  tail call void @proto_item_set_len(ptr noundef %.0, i32 noundef %19) #3
   store i32 %10, ptr %9, align 8
   ret i32 %18
 }
@@ -673,13 +673,13 @@ define internal i32 @IWbemLevel1Login_dissect_element_WBEMLogin_ppNamespace__(pt
   br label %IWbemLevel1Login_dissect_struct_IWbemServices.exit
 
 IWbemLevel1Login_dissect_struct_IWbemServices.exit: ; preds = %6, %10
-  %.026.i = phi ptr [ %11, %10 ], [ null, %6 ]
-  %.0.i = phi ptr [ %13, %10 ], [ null, %6 ]
+  %.026.i = phi ptr [ %13, %10 ], [ null, %6 ]
+  %.0.i = phi ptr [ %11, %10 ], [ null, %6 ]
   %14 = load i32, ptr @hf_IWbemLevel1Login_IWbemServices_count, align 4
-  %15 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %14, i32 noundef 0) #3
-  %16 = tail call i32 @dissect_ndr_ucarray_block(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @IWbemLevel1Login_dissect_element_IWbemServices_services_) #3
+  %15 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %14, i32 noundef 0) #3
+  %16 = tail call i32 @dissect_ndr_ucarray_block(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.026.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @IWbemLevel1Login_dissect_element_IWbemServices_services_) #3
   %17 = sub i32 %16, %1
-  tail call void @proto_item_set_len(ptr noundef %.026.i, i32 noundef %17) #3
+  tail call void @proto_item_set_len(ptr noundef %.0.i, i32 noundef %17) #3
   store i32 %9, ptr %8, align 8
   ret i32 %16
 }
@@ -744,13 +744,13 @@ define internal i32 @IWbemLevel1Login_dissect_element_NTLMLogin_ppNamespace__(pt
   br label %IWbemLevel1Login_dissect_struct_IWbemServices.exit
 
 IWbemLevel1Login_dissect_struct_IWbemServices.exit: ; preds = %6, %10
-  %.026.i = phi ptr [ %11, %10 ], [ null, %6 ]
-  %.0.i = phi ptr [ %13, %10 ], [ null, %6 ]
+  %.026.i = phi ptr [ %13, %10 ], [ null, %6 ]
+  %.0.i = phi ptr [ %11, %10 ], [ null, %6 ]
   %14 = load i32, ptr @hf_IWbemLevel1Login_IWbemServices_count, align 4
-  %15 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %14, i32 noundef 0) #3
-  %16 = tail call i32 @dissect_ndr_ucarray_block(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @IWbemLevel1Login_dissect_element_IWbemServices_services_) #3
+  %15 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %14, i32 noundef 0) #3
+  %16 = tail call i32 @dissect_ndr_ucarray_block(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.026.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @IWbemLevel1Login_dissect_element_IWbemServices_services_) #3
   %17 = sub i32 %16, %1
-  tail call void @proto_item_set_len(ptr noundef %.026.i, i32 noundef %17) #3
+  tail call void @proto_item_set_len(ptr noundef %.0.i, i32 noundef %17) #3
   store i32 %9, ptr %8, align 8
   ret i32 %16
 }

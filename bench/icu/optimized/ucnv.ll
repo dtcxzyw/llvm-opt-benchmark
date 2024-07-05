@@ -1733,14 +1733,14 @@ if.end27:                                         ; preds = %if.end10, %if.else1
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.end27
-  %s.0 = phi ptr [ %1, %if.end27 ], [ %35, %for.cond.backedge ]
-  %t.0 = phi ptr [ %2, %if.end27 ], [ %36, %for.cond.backedge ]
-  %offsets.0 = phi ptr [ %3, %if.end27 ], [ %offsets.3, %for.cond.backedge ]
   %sourceIndex.2 = phi i32 [ %sourceIndex.1, %if.end27 ], [ %sourceIndex.2.be, %for.cond.backedge ]
   %realSource.1 = phi ptr [ %realSource.0, %if.end27 ], [ %realSource.1.be, %for.cond.backedge ]
   %realSourceLimit.1 = phi ptr [ %realSourceLimit.0, %if.end27 ], [ %realSourceLimit.3, %for.cond.backedge ]
   %realSourceIndex.1 = phi i32 [ %realSourceIndex.0, %if.end27 ], [ %realSourceIndex.3, %for.cond.backedge ]
   %realFlush.1 = phi i8 [ %realFlush.0, %if.end27 ], [ %realFlush.3, %for.cond.backedge ]
+  %offsets.0 = phi ptr [ %3, %if.end27 ], [ %offsets.3, %for.cond.backedge ]
+  %t.0 = phi ptr [ %2, %if.end27 ], [ %36, %for.cond.backedge ]
+  %s.0 = phi ptr [ %1, %if.end27 ], [ %35, %for.cond.backedge ]
   %12 = load i32, ptr %err, align 4
   %cmp.i = icmp sgt i32 %12, 0
   br i1 %cmp.i, label %if.end40, label %if.then28
@@ -1777,9 +1777,6 @@ if.end40:                                         ; preds = %for.cond, %land.end
   br label %for.cond41
 
 for.cond41:                                       ; preds = %do.end185, %if.end40
-  %s.1 = phi ptr [ %s.0, %if.end40 ], [ %35, %do.end185 ]
-  %t.1 = phi ptr [ %t.0, %if.end40 ], [ %36, %do.end185 ]
-  %offsets.1 = phi ptr [ %offsets.0, %if.end40 ], [ %offsets.3, %do.end185 ]
   %sourceIndex.3 = phi i32 [ %sourceIndex.2, %if.end40 ], [ %sourceIndex.5, %do.end185 ]
   %errorInputLength.0 = phi i32 [ 0, %if.end40 ], [ %errorInputLength.1, %do.end185 ]
   %tobool133.not.not = phi i1 [ false, %if.end40 ], [ true, %do.end185 ]
@@ -1787,6 +1784,9 @@ for.cond41:                                       ; preds = %do.end185, %if.end4
   %realSourceLimit.2 = phi ptr [ %realSourceLimit.1, %if.end40 ], [ %realSourceLimit.3, %do.end185 ]
   %realSourceIndex.2 = phi i32 [ %realSourceIndex.1, %if.end40 ], [ %realSourceIndex.3, %do.end185 ]
   %realFlush.2 = phi i8 [ %realFlush.1, %if.end40 ], [ %realFlush.3, %do.end185 ]
+  %offsets.1 = phi ptr [ %offsets.0, %if.end40 ], [ %offsets.3, %do.end185 ]
+  %t.1 = phi ptr [ %t.0, %if.end40 ], [ %36, %do.end185 ]
+  %s.1 = phi ptr [ %s.0, %if.end40 ], [ %35, %do.end185 ]
   %cmp42.not = icmp eq ptr %offsets.1, null
   br i1 %cmp42.not, label %if.end60, label %if.then43
 
@@ -1861,8 +1861,8 @@ if.then53:                                        ; preds = %if.end51
   br label %if.end60
 
 if.end60:                                         ; preds = %if.end51, %if.then53, %for.cond41
-  %offsets.3 = phi ptr [ %offsets.2, %if.then53 ], [ %offsets.2, %if.end51 ], [ null, %for.cond41 ]
   %sourceIndex.4 = phi i32 [ %add, %if.then53 ], [ %sourceIndex.3, %if.end51 ], [ %sourceIndex.3, %for.cond41 ]
+  %offsets.3 = phi ptr [ %offsets.2, %if.then53 ], [ %offsets.2, %if.end51 ], [ null, %for.cond41 ]
   %29 = load i8, ptr %preFromULength, align 1
   %conv62 = sext i8 %29 to i64
   %cmp63 = icmp slt i8 %29, 0
@@ -1943,8 +1943,8 @@ if.then124:                                       ; preds = %land.lhs.true117
   br i1 %tobool125.not, label %for.cond.backedge, label %if.end127
 
 for.cond.backedge:                                ; preds = %if.then104, %if.then124, %if.then110
-  %sourceIndex.2.be = phi i32 [ %sourceIndex.5, %if.then124 ], [ %realSourceIndex.3, %if.then110 ], [ %sourceIndex.5, %if.then104 ]
-  %realSource.1.be = phi ptr [ null, %if.then124 ], [ null, %if.then110 ], [ %realSource.3, %if.then104 ]
+  %sourceIndex.2.be = phi i32 [ %realSourceIndex.3, %if.then110 ], [ %sourceIndex.5, %if.then124 ], [ %sourceIndex.5, %if.then104 ]
+  %realSource.1.be = phi ptr [ null, %if.then110 ], [ null, %if.then124 ], [ %realSource.3, %if.then104 ]
   br label %for.cond, !llvm.loop !9
 
 if.end127:                                        ; preds = %if.then124
@@ -2316,14 +2316,14 @@ if.end27:                                         ; preds = %if.end10, %if.else1
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.end27
-  %s.0 = phi ptr [ %1, %if.end27 ], [ %35, %for.cond.backedge ]
-  %t.0 = phi ptr [ %2, %if.end27 ], [ %36, %for.cond.backedge ]
   %offsets.0 = phi ptr [ %3, %if.end27 ], [ %offsets.3, %for.cond.backedge ]
   %sourceIndex.2 = phi i32 [ %sourceIndex.1, %if.end27 ], [ %sourceIndex.2.be, %for.cond.backedge ]
   %realSource.1 = phi ptr [ %realSource.0, %if.end27 ], [ %realSource.1.be, %for.cond.backedge ]
   %realSourceLimit.1 = phi ptr [ %realSourceLimit.0, %if.end27 ], [ %realSourceLimit.3, %for.cond.backedge ]
   %realSourceIndex.1 = phi i32 [ %realSourceIndex.0, %if.end27 ], [ %realSourceIndex.3, %for.cond.backedge ]
   %realFlush.1 = phi i8 [ %realFlush.0, %if.end27 ], [ %realFlush.3, %for.cond.backedge ]
+  %t.0 = phi ptr [ %2, %if.end27 ], [ %36, %for.cond.backedge ]
+  %s.0 = phi ptr [ %1, %if.end27 ], [ %35, %for.cond.backedge ]
   %12 = load i32, ptr %err, align 4
   %cmp.i = icmp sgt i32 %12, 0
   br i1 %cmp.i, label %if.end41, label %if.then28
@@ -2360,8 +2360,6 @@ if.end41:                                         ; preds = %for.cond, %land.end
   br label %for.cond42
 
 for.cond42:                                       ; preds = %if.end189, %if.end41
-  %s.1 = phi ptr [ %s.0, %if.end41 ], [ %35, %if.end189 ]
-  %t.1 = phi ptr [ %t.0, %if.end41 ], [ %36, %if.end189 ]
   %offsets.1 = phi ptr [ %offsets.0, %if.end41 ], [ %offsets.3, %if.end189 ]
   %sourceIndex.3 = phi i32 [ %sourceIndex.2, %if.end41 ], [ %sourceIndex.5, %if.end189 ]
   %errorInputLength.0 = phi i32 [ 0, %if.end41 ], [ %conv174, %if.end189 ]
@@ -2370,6 +2368,8 @@ for.cond42:                                       ; preds = %if.end189, %if.end4
   %realSourceLimit.2 = phi ptr [ %realSourceLimit.1, %if.end41 ], [ %realSourceLimit.3, %if.end189 ]
   %realSourceIndex.2 = phi i32 [ %realSourceIndex.1, %if.end41 ], [ %realSourceIndex.3, %if.end189 ]
   %realFlush.2 = phi i8 [ %realFlush.1, %if.end41 ], [ %realFlush.3, %if.end189 ]
+  %t.1 = phi ptr [ %t.0, %if.end41 ], [ %36, %if.end189 ]
+  %s.1 = phi ptr [ %s.0, %if.end41 ], [ %35, %if.end189 ]
   %cmp43.not = icmp eq ptr %offsets.1, null
   br i1 %cmp43.not, label %if.end61, label %if.then44
 
@@ -2885,8 +2885,8 @@ if.then27:                                        ; preds = %land.lhs.true21
   br label %do.end
 
 do.end:                                           ; preds = %if.then14, %if.then27, %land.lhs.true21
-  %c.0 = phi i32 [ %sub, %if.then27 ], [ %conv17, %land.lhs.true21 ], [ %conv17, %if.then14 ]
   %i.0 = phi i32 [ 2, %if.then27 ], [ 1, %land.lhs.true21 ], [ 1, %if.then14 ]
+  %c.0 = phi i32 [ %sub, %if.then27 ], [ %conv17, %land.lhs.true21 ], [ %conv17, %if.then14 ]
   %5 = trunc nuw nsw i32 %i.0 to i8
   %conv33 = sub nsw i8 %2, %5
   store i8 %conv33, ptr %UCharErrorBufferLength, align 1
@@ -2905,7 +2905,7 @@ if.end47:                                         ; preds = %do.body38, %do.end
   %and48 = and i32 %c.0, -1024
   %cmp49 = icmp ne i32 %and48, 55296
   %cmp51 = icmp slt i32 %i.0, %conv
-  %or.cond90 = or i1 %cmp49, %cmp51
+  %or.cond90 = or i1 %cmp51, %cmp49
   br i1 %or.cond90, label %return, label %if.end54
 
 if.end54:                                         ; preds = %if.end47, %if.end12
@@ -3091,17 +3091,17 @@ if.then169:                                       ; preds = %land.lhs.true164
   br label %if.end213
 
 if.end179:                                        ; preds = %if.end97, %if.then114, %if.then120, %do.body129, %if.end152, %if.else143, %if.else104
-  %c.2 = phi i32 [ %sub124, %do.body129 ], [ %sub124, %if.then120 ], [ %conv106, %if.then114 ], [ %conv106, %if.end152 ], [ %conv106, %if.else143 ], [ %conv106, %if.else104 ], [ 65535, %if.end97 ]
   %i.2 = phi i32 [ 1, %do.body129 ], [ 1, %if.then120 ], [ 1, %if.then114 ], [ 1, %if.end152 ], [ 1, %if.else143 ], [ 1, %if.else104 ], [ 0, %if.end97 ]
   %length.1 = phi i32 [ %length.0101104, %do.body129 ], [ %length.0101104, %if.then120 ], [ %length.0101104, %if.then114 ], [ %conv159, %if.end152 ], [ %length.0101104, %if.else143 ], [ %length.0101104, %if.else104 ], [ %conv90, %if.end97 ]
+  %c.2 = phi i32 [ %sub124, %do.body129 ], [ %sub124, %if.then120 ], [ %conv106, %if.then114 ], [ %conv106, %if.end152 ], [ %conv106, %if.else143 ], [ %conv106, %if.else104 ], [ 65535, %if.end97 ]
   %cmp180 = icmp slt i32 %i.2, %length.1
   br i1 %cmp180, label %if.then181, label %if.end213
 
 if.then181:                                       ; preds = %if.end97.thread, %land.lhs.true164, %if.end179
-  %length.1112 = phi i32 [ %length.1, %if.end179 ], [ 1, %if.end97.thread ], [ 2, %land.lhs.true164 ]
-  %i.2111 = phi i32 [ %i.2, %if.end179 ], [ 0, %if.end97.thread ], [ 1, %land.lhs.true164 ]
-  %c.2110 = phi i32 [ %c.2, %if.end179 ], [ 65535, %if.end97.thread ], [ %conv106, %land.lhs.true164 ]
-  %sub182 = sub nuw nsw i32 %length.1112, %i.2111
+  %c.2112 = phi i32 [ %c.2, %if.end179 ], [ 65535, %if.end97.thread ], [ %conv106, %land.lhs.true164 ]
+  %length.1110 = phi i32 [ %length.1, %if.end179 ], [ 1, %if.end97.thread ], [ 2, %land.lhs.true164 ]
+  %i.2109 = phi i32 [ %i.2, %if.end179 ], [ 0, %if.end97.thread ], [ 1, %land.lhs.true164 ]
+  %sub182 = sub nuw nsw i32 %length.1110, %i.2109
   %25 = load i8, ptr %UCharErrorBufferLength, align 1
   %cmp185 = icmp sgt i8 %25, 0
   br i1 %cmp185, label %do.body187, label %if.end197
@@ -3119,7 +3119,7 @@ if.end197:                                        ; preds = %do.body187, %if.the
   %27 = trunc i32 %sub182 to i8
   %conv199 = add i8 %25, %27
   store i8 %conv199, ptr %UCharErrorBufferLength, align 1
-  %idxprom202 = zext nneg i32 %i.2111 to i64
+  %idxprom202 = zext nneg i32 %i.2109 to i64
   %arrayidx203 = getelementptr inbounds [2 x i16], ptr %buffer, i64 0, i64 %idxprom202
   %28 = load i16, ptr %arrayidx203, align 2
   %UCharErrorBuffer204 = getelementptr inbounds i8, ptr %cnv, i64 144
@@ -3128,7 +3128,7 @@ if.end197:                                        ; preds = %do.body187, %if.the
   br i1 %cmp206, label %if.then207, label %if.end213
 
 if.then207:                                       ; preds = %if.end197
-  %inc201 = add nuw nsw i32 %i.2111, 1
+  %inc201 = add nuw nsw i32 %i.2109, 1
   %idxprom208 = zext nneg i32 %inc201 to i64
   %arrayidx209 = getelementptr inbounds [2 x i16], ptr %buffer, i64 0, i64 %idxprom208
   %29 = load i16, ptr %arrayidx209, align 2
@@ -3137,13 +3137,13 @@ if.then207:                                       ; preds = %if.end197
   br label %if.end213
 
 if.end213:                                        ; preds = %if.then169, %if.then103, %if.end197, %if.then207, %if.end179
-  %c.2109 = phi i32 [ %c.2110, %if.end197 ], [ %c.2110, %if.then207 ], [ %c.2, %if.end179 ], [ %sub173, %if.then169 ], [ 65535, %if.then103 ]
+  %c.2111 = phi i32 [ %c.2112, %if.end197 ], [ %c.2112, %if.then207 ], [ %c.2, %if.end179 ], [ %sub173, %if.then169 ], [ 65535, %if.then103 ]
   %30 = load ptr, ptr %source55, align 8
   store ptr %30, ptr %source, align 8
   br label %return
 
 return:                                           ; preds = %if.else, %if.end47, %entry, %lor.lhs.false, %if.end213, %if.then73, %if.then11, %if.then7, %if.then4
-  %retval.0 = phi i32 [ 65535, %if.then4 ], [ 65535, %if.then7 ], [ 65535, %if.then11 ], [ 65535, %if.then73 ], [ %c.2109, %if.end213 ], [ 65535, %lor.lhs.false ], [ 65535, %entry ], [ %c.0, %if.end47 ], [ %call70, %if.else ]
+  %retval.0 = phi i32 [ 65535, %if.then4 ], [ 65535, %if.then7 ], [ 65535, %if.then11 ], [ 65535, %if.then73 ], [ %c.2111, %if.end213 ], [ 65535, %lor.lhs.false ], [ 65535, %entry ], [ %c.0, %if.end47 ], [ %call70, %if.else ]
   ret i32 %retval.0
 }
 

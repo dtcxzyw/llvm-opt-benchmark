@@ -3166,7 +3166,7 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr nocapture noundef readonly %0, pt
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge5._crit_edge
-  %.0114175 = phi i32 [ %32, %.preheader.lr.ph ], [ %181, %.critedge5._crit_edge ]
+  %.0113175 = phi i32 [ %32, %.preheader.lr.ph ], [ %181, %.critedge5._crit_edge ]
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr i8, ptr %41, i64 4
   %.val132154 = load i32, ptr %42, align 4
@@ -3188,7 +3188,7 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr nocapture noundef readonly %0, pt
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val145, i64 %49
   %51 = load i32, ptr %30, align 4
-  %52 = mul nsw i32 %51, %.0114175
+  %52 = mul nsw i32 %51, %.0113175
   %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = add nsw i32 %52, %53
   %55 = ashr i32 %54, 5
@@ -3205,7 +3205,7 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr nocapture noundef readonly %0, pt
   %66 = or disjoint i64 %65, %64
   store i64 %66, ptr %50, align 4
   %67 = load i32, ptr %30, align 4
-  %68 = mul nsw i32 %67, %.0114175
+  %68 = mul nsw i32 %67, %.0113175
   %69 = add nsw i32 %68, %53
   %70 = ashr i32 %69, 5
   %71 = sext i32 %70 to i64
@@ -3382,8 +3382,8 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr nocapture noundef readonly %0, pt
 
 .critedge5:                                       ; preds = %.lr.ph162, %156, %.critedge2
   %179 = load i32, ptr %10, align 4
-  %180 = icmp slt i32 %.0114175, %179
-  %181 = add nsw i32 %.0114175, 1
+  %180 = icmp slt i32 %.0113175, %179
+  %181 = add nsw i32 %.0113175, 1
   br i1 %180, label %182, label %.critedge5._crit_edge
 
 182:                                              ; preds = %.critedge5
@@ -3400,8 +3400,8 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr nocapture noundef readonly %0, pt
 
 .lr.ph169:                                        ; preds = %182, %223
   %.val135183 = phi i32 [ %.val135, %223 ], [ %.val133, %182 ]
-  %.0167 = phi i32 [ %.1, %223 ], [ %38, %182 ]
-  %.0110166 = phi i32 [ %.1111, %223 ], [ 0, %182 ]
+  %.0110167 = phi i32 [ %.1, %223 ], [ %38, %182 ]
+  %.0111166 = phi i32 [ %.1112, %223 ], [ 0, %182 ]
   %.3165 = phi i32 [ %224, %223 ], [ 0, %182 ]
   %.val141 = load ptr, ptr %25, align 8
   %.not127 = icmp eq ptr %.val141, null
@@ -3420,7 +3420,7 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr nocapture noundef readonly %0, pt
   %196 = load i32, ptr %195, align 4
   %197 = sext i32 %196 to i64
   %198 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val141, i64 %197
-  %199 = icmp ne i32 %.0167, 0
+  %199 = icmp ne i32 %.0110167, 0
   %or.cond9 = and i1 %37, %199
   %.pre = load i64, ptr %198, align 4
   br i1 %or.cond9, label %200, label %212
@@ -3441,7 +3441,7 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr nocapture noundef readonly %0, pt
   br label %212
 
 212:                                              ; preds = %200, %189
-  %.1 = phi i32 [ %.0167, %189 ], [ %spec.select, %200 ]
+  %.1 = phi i32 [ %.0110167, %189 ], [ %spec.select, %200 ]
   %213 = and i64 %.pre, 4611686018427387904
   %.not129 = icmp eq i64 %213, 0
   br i1 %.not129, label %214, label %223
@@ -3461,16 +3461,16 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr nocapture noundef readonly %0, pt
 
 223:                                              ; preds = %212, %214
   %.val135 = phi i32 [ %.val135183, %212 ], [ %.val135.pre, %214 ]
-  %.1111 = phi i32 [ %.0110166, %212 ], [ 1, %214 ]
+  %.1112 = phi i32 [ %.0111166, %212 ], [ 1, %214 ]
   %224 = add nuw nsw i32 %.3165, 1
   %225 = icmp slt i32 %224, %.val135
   br i1 %225, label %.lr.ph169, label %.critedge7, !llvm.loop !43
 
 .critedge7:                                       ; preds = %.lr.ph169, %223
-  %.0110.lcssa = phi i32 [ %.0110166, %.lr.ph169 ], [ %.1111, %223 ]
-  %.0.lcssa = phi i32 [ %.0167, %.lr.ph169 ], [ %.1, %223 ]
-  %226 = icmp eq i32 %.0110.lcssa, 0
-  %227 = icmp ne i32 %.0.lcssa, 0
+  %.0111.lcssa = phi i32 [ %.0111166, %.lr.ph169 ], [ %.1112, %223 ]
+  %.0110.lcssa = phi i32 [ %.0110167, %.lr.ph169 ], [ %.1, %223 ]
+  %226 = icmp eq i32 %.0111.lcssa, 0
+  %227 = icmp ne i32 %.0110.lcssa, 0
   %or.cond11 = select i1 %226, i1 true, i1 %227
   br i1 %or.cond11, label %.critedge7.thread, label %.critedge7._crit_edge
 
@@ -3479,11 +3479,11 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr nocapture noundef readonly %0, pt
   br label %.critedge5._crit_edge
 
 .critedge7.thread:                                ; preds = %182, %.critedge7
-  %.0.lcssa190 = phi i32 [ %.0.lcssa, %.critedge7 ], [ %38, %182 ]
+  %.0110.lcssa190 = phi i32 [ %.0110.lcssa, %.critedge7 ], [ %38, %182 ]
   br i1 %.not, label %229, label %228
 
 228:                                              ; preds = %.critedge7.thread
-  store i32 %.0.lcssa190, ptr %4, align 4
+  store i32 %.0110.lcssa190, ptr %4, align 4
   br label %229
 
 229:                                              ; preds = %228, %.critedge7.thread
@@ -3492,12 +3492,12 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr nocapture noundef readonly %0, pt
 
 .critedge5._crit_edge:                            ; preds = %.critedge5, %.critedge7._crit_edge
   %230 = phi i32 [ %.pre185, %.critedge7._crit_edge ], [ %179, %.critedge5 ]
-  %.not123.not = icmp slt i32 %.0114175, %230
+  %.not123.not = icmp slt i32 %.0113175, %230
   br i1 %.not123.not, label %.preheader, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.critedge5._crit_edge, %7, %229
-  %.0115 = phi ptr [ null, %229 ], [ %13, %7 ], [ %13, %.critedge5._crit_edge ]
-  ret ptr %.0115
+  %.0 = phi ptr [ null, %229 ], [ %13, %7 ], [ %13, %.critedge5._crit_edge ]
+  ret ptr %.0
 }
 
 declare ptr @Abc_CexAllocFull(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3

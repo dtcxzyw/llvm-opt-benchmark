@@ -297,7 +297,7 @@ define dso_local ptr @ShmemInitStruct(ptr noundef %0, i64 noundef %1, ptr nounde
 
 18:                                               ; preds = %15, %12
   %storemerge = phi i8 [ 0, %15 ], [ 1, %12 ]
-  %.0 = phi ptr [ %16, %15 ], [ %14, %12 ]
+  %.029 = phi ptr [ %16, %15 ], [ %14, %12 ]
   store i8 %storemerge, ptr %2, align 1
   br label %74
 
@@ -404,11 +404,11 @@ ShmemAllocRaw.exit:                               ; preds = %50, %57
   br label %74
 
 74:                                               ; preds = %39, %70, %18
-  %.029 = phi ptr [ %.0, %18 ], [ %41, %39 ], [ %.0.i, %70 ]
+  %.0 = phi ptr [ %.029, %18 ], [ %41, %39 ], [ %.0.i, %70 ]
   %75 = load ptr, ptr @MainLWLockArray, align 8
   %76 = getelementptr i8, ptr %75, i64 128
   tail call void @LWLockRelease(ptr noundef %76) #9
-  ret ptr %.029
+  ret ptr %.0
 }
 
 declare i64 @hash_get_shared_size(ptr noundef, i32 noundef) local_unnamed_addr #3

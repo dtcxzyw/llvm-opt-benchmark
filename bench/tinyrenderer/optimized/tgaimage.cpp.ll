@@ -308,9 +308,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %48, %.noexc23
           to label %102 unwind label %12
 
 102:                                              ; preds = %.invoke, %100
-  %.013 = phi i1 [ true, %100 ], [ false, %.invoke ]
+  %.0 = phi i1 [ true, %100 ], [ false, %.invoke ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %3) #16
-  ret i1 %.013
+  ret i1 %.0
 
 103:                                              ; preds = %62, %12
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %63, %62 ]
@@ -859,15 +859,15 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   br label %10
 
 10:                                               ; preds = %55, %2
-  %.042 = phi i64 [ 0, %2 ], [ %57, %55 ]
-  %.not85 = icmp uge i64 %.042, %7
+  %.043 = phi i64 [ 0, %2 ], [ %57, %55 ]
+  %.not85 = icmp uge i64 %.043, %7
   br i1 %.not85, label %.loopexit49, label %11
 
 11:                                               ; preds = %10
   %12 = load i8, ptr %8, align 8
   %13 = zext i8 %12 to i64
-  %14 = mul i64 %.042, %13
-  %15 = add nuw i64 %.042, 1
+  %14 = mul i64 %.043, %13
+  %15 = add nuw i64 %.043, 1
   %16 = icmp ult i64 %15, %7
   br i1 %16, label %.preheader.lr.ph, label %.loopexit
 
@@ -894,7 +894,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
 20:                                               ; preds = %19
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %indvars = trunc i64 %indvars.iv.next79 to i8
-  %21 = add i64 %.042, %indvars.iv.next79
+  %21 = add i64 %.043, %indvars.iv.next79
   %22 = icmp ult i64 %21, %7
   %23 = icmp sgt i8 %indvars, -1
   %24 = and i1 %23, %22
@@ -940,7 +940,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
 
 40:                                               ; preds = %.preheader
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %41 = add i64 %.042, %indvars.iv.next82
+  %41 = add i64 %.043, %indvars.iv.next82
   %42 = icmp ult i64 %41, %7
   %43 = trunc nuw i64 %indvars.iv.next82 to i8
   %44 = icmp sgt i8 %43, -1
@@ -967,7 +967,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
 
 55:                                               ; preds = %.loopexit
   %56 = zext i8 %.140 to i64
-  %57 = add i64 %.042, %56
+  %57 = add i64 %.043, %56
   %58 = load ptr, ptr %9, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 %14
   %60 = load i8, ptr %8, align 8

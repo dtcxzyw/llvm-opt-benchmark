@@ -641,8 +641,8 @@ if.else:                                          ; preds = %if.then
   br label %if.end25
 
 if.end25:                                         ; preds = %for.body, %if.then9, %if.else, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit
-  %grn.1 = phi float [ %1, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %18, %if.then9 ], [ %1, %if.else ], [ %1, %for.body ]
   %blu.1 = phi float [ %2, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %2, %if.then9 ], [ %19, %if.else ], [ %2, %for.body ]
+  %grn.1 = phi float [ %1, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %18, %if.then9 ], [ %1, %if.else ], [ %1, %for.body ]
   %red.0 = phi float [ %0, %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit ], [ %17, %if.then9 ], [ %17, %if.else ], [ %0, %for.body ]
   store float %red.0, ptr %out.045, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %out.045, i64 4
@@ -1912,13 +1912,13 @@ entry:
   br i1 %cmp55, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %if.end28
-  %idx.058 = phi i64 [ %inc, %if.end28 ], [ 0, %entry ]
+  %in.058 = phi ptr [ %add.ptr, %if.end28 ], [ %inImg, %entry ]
   %out.057 = phi ptr [ %add.ptr44, %if.end28 ], [ %outImg, %entry ]
-  %in.056 = phi ptr [ %add.ptr, %if.end28 ], [ %inImg, %entry ]
-  %0 = load float, ptr %in.056, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.056, i64 4
+  %idx.056 = phi i64 [ %inc, %if.end28 ], [ 0, %entry ]
+  %0 = load float, ptr %in.058, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.058, i64 4
   %1 = load float, ptr %arrayidx2, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %in.056, i64 8
+  %arrayidx3 = getelementptr inbounds i8, ptr %in.058, i64 8
   %2 = load float, ptr %arrayidx3, align 4
   %cmp.i = fcmp olt float %1, %0
   %.sroa.speculated52 = select i1 %cmp.i, float %1, float %0
@@ -1983,13 +1983,13 @@ if.end28:                                         ; preds = %for.body, %if.end23
   store float %sat.2, ptr %arrayidx40, align 4
   %arrayidx41 = getelementptr inbounds i8, ptr %out.057, i64 8
   store float %val.0, ptr %arrayidx41, align 4
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.056, i64 12
+  %arrayidx42 = getelementptr inbounds i8, ptr %in.058, i64 12
   %3 = load float, ptr %arrayidx42, align 4
   %arrayidx43 = getelementptr inbounds i8, ptr %out.057, i64 12
   store float %3, ptr %arrayidx43, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.056, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.058, i64 16
   %add.ptr44 = getelementptr inbounds i8, ptr %out.057, i64 16
-  %inc = add nuw nsw i64 %idx.058, 1
+  %inc = add nuw nsw i64 %idx.056, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 

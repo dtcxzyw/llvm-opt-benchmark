@@ -1050,14 +1050,14 @@ define internal fastcc ptr @get_digest_base_metadata(i64 noundef %0) unnamed_add
   br i1 %2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %5
-  %.03441 = phi i64 [ %6, %5 ], [ %0, %1 ]
+  %.03541 = phi i64 [ %6, %5 ], [ %0, %1 ]
   %3 = load i64, ptr @id_metadata, align 8
-  %4 = tail call i64 @rb_ivar_defined(i64 noundef %.03441, i64 noundef %3) #9
+  %4 = tail call i64 @rb_ivar_defined(i64 noundef %.03541, i64 noundef %3) #9
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %9
 
 5:                                                ; preds = %.lr.ph
-  %6 = tail call i64 @rb_class_superclass(i64 noundef %.03441) #12
+  %6 = tail call i64 @rb_class_superclass(i64 noundef %.03541) #12
   %7 = icmp eq i64 %6, 4
   br i1 %7, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
@@ -1068,7 +1068,7 @@ define internal fastcc ptr @get_digest_base_metadata(i64 noundef %0) unnamed_add
 
 9:                                                ; preds = %.lr.ph
   %10 = load i64, ptr @id_metadata, align 8
-  %11 = tail call i64 @rb_ivar_get(i64 noundef %.03441, i64 noundef %10) #9
+  %11 = tail call i64 @rb_ivar_get(i64 noundef %.03541, i64 noundef %10) #9
   %12 = and i64 %11, 7
   %13 = icmp ne i64 %12, 0
   %14 = icmp eq i64 %11, 0
@@ -1090,7 +1090,7 @@ define internal fastcc ptr @get_digest_base_metadata(i64 noundef %0) unnamed_add
   br i1 %25, label %.critedge, label %rb_data_object_get.exit
 
 .critedge:                                        ; preds = %9, %rb_data_object_get.exit, %16, %21
-  %26 = icmp eq i64 %.03441, %0
+  %26 = icmp eq i64 %.03541, %0
   %27 = load i64, ptr @rb_eTypeError, align 8
   br i1 %26, label %28, label %29
 
@@ -1099,7 +1099,7 @@ define internal fastcc ptr @get_digest_base_metadata(i64 noundef %0) unnamed_add
   unreachable
 
 29:                                               ; preds = %.critedge
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.34, i64 noundef %0, i64 noundef %.03441) #10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.34, i64 noundef %0, i64 noundef %.03541) #10
   unreachable
 
 rb_data_object_get.exit:                          ; preds = %21

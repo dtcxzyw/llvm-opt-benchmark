@@ -1949,8 +1949,8 @@ i128_neg.exit:                                    ; preds = %10, %9, %4
   br label %i128_neg.exit25
 
 i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.exit
-  %.sroa.5.0 = phi i64 [ %3, %i128_neg.exit ], [ %21, %18 ], [ 0, %17 ]
   %.sroa.07.0 = phi i64 [ %2, %i128_neg.exit ], [ %24, %18 ], [ %2, %17 ]
+  %.sroa.5.0 = phi i64 [ %3, %i128_neg.exit ], [ %21, %18 ], [ 0, %17 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i64 %.sroa.011.0, ptr %5, align 8
@@ -2117,8 +2117,8 @@ i128_neg.exit:                                    ; preds = %10, %9, %4
   br label %i128_neg.exit25
 
 i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.exit
-  %.sroa.5.0 = phi i64 [ %3, %i128_neg.exit ], [ %21, %18 ], [ 0, %17 ]
   %.sroa.07.0 = phi i64 [ %2, %i128_neg.exit ], [ %24, %18 ], [ %2, %17 ]
+  %.sroa.5.0 = phi i64 [ %3, %i128_neg.exit ], [ %21, %18 ], [ 0, %17 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i64 %.sroa.011.0, ptr %5, align 8

@@ -1553,7 +1553,7 @@ define internal fastcc zeroext i1 @clause_is_strict_for(ptr noundef %0, ptr noun
 
 .lr.ph:                                           ; preds = %3, %tailrecurse.backedge
   %.tr94106 = phi i1 [ false, %tailrecurse.backedge ], [ %2, %3 ]
-  %.tr93105 = phi ptr [ %.069, %tailrecurse.backedge ], [ %1, %3 ]
+  %.tr93105 = phi ptr [ %.068, %tailrecurse.backedge ], [ %1, %3 ]
   %.tr104 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %3 ]
   %6 = load i32, ptr %.tr104, align 4
   %7 = icmp eq i32 %6, 25
@@ -1565,7 +1565,7 @@ define internal fastcc zeroext i1 @clause_is_strict_for(ptr noundef %0, ptr noun
   br label %11
 
 11:                                               ; preds = %8, %.lr.ph
-  %.067 = phi ptr [ %10, %8 ], [ %.tr104, %.lr.ph ]
+  %.066 = phi ptr [ %10, %8 ], [ %.tr104, %.lr.ph ]
   %12 = load i32, ptr %.tr93105, align 4
   %13 = icmp eq i32 %12, 25
   br i1 %13, label %14, label %17
@@ -1576,23 +1576,23 @@ define internal fastcc zeroext i1 @clause_is_strict_for(ptr noundef %0, ptr noun
   br label %17
 
 17:                                               ; preds = %14, %11
-  %.069 = phi ptr [ %16, %14 ], [ %.tr93105, %11 ]
-  %18 = tail call zeroext i1 @equal(ptr noundef %.067, ptr noundef %.069) #6
+  %.068 = phi ptr [ %16, %14 ], [ %.tr93105, %11 ]
+  %18 = tail call zeroext i1 @equal(ptr noundef %.066, ptr noundef %.068) #6
   br i1 %18, label %.thread, label %is_opclause.exit
 
 is_opclause.exit:                                 ; preds = %17
-  %.pre153 = load i32, ptr %.067, align 4
+  %.pre153 = load i32, ptr %.066, align 4
   %19 = icmp eq i32 %.pre153, 15
   br i1 %19, label %20, label %is_funcclause.exit
 
 20:                                               ; preds = %is_opclause.exit
-  %21 = getelementptr inbounds i8, ptr %.067, i64 4
+  %21 = getelementptr inbounds i8, ptr %.066, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = tail call zeroext i1 @op_strict(i32 noundef %22) #6
   br i1 %23, label %24, label %is_funcclause.exitthread-pre-split
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %.067, i64 32
+  %25 = getelementptr inbounds i8, ptr %.066, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 4
   %.not79 = icmp eq ptr %26, null
@@ -1616,11 +1616,11 @@ is_opclause.exit:                                 ; preds = %17
   %35 = load ptr, ptr %28, align 8
   %36 = getelementptr %union.ListCell, ptr %35, i64 %indvars.iv150
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call fastcc zeroext i1 @clause_is_strict_for(ptr noundef %37, ptr noundef %.069, i1 noundef zeroext false)
+  %38 = tail call fastcc zeroext i1 @clause_is_strict_for(ptr noundef %37, ptr noundef %.068, i1 noundef zeroext false)
   br i1 %38, label %.thread, label %31
 
 is_funcclause.exitthread-pre-split:               ; preds = %20
-  %.pr = load i32, ptr %.067, align 4
+  %.pr = load i32, ptr %.066, align 4
   br label %is_funcclause.exit
 
 is_funcclause.exit:                               ; preds = %is_funcclause.exitthread-pre-split, %is_opclause.exit
@@ -1629,17 +1629,17 @@ is_funcclause.exit:                               ; preds = %is_funcclause.exitt
   br i1 %40, label %41, label %is_funcclause.exit.thread
 
 41:                                               ; preds = %is_funcclause.exit
-  %42 = getelementptr inbounds i8, ptr %.067, i64 4
+  %42 = getelementptr inbounds i8, ptr %.066, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = tail call zeroext i1 @func_strict(i32 noundef %43) #6
   br i1 %44, label %45, label %.is_funcclause.exit.thread_crit_edge
 
 .is_funcclause.exit.thread_crit_edge:             ; preds = %41
-  %.pre = load i32, ptr %.067, align 4
+  %.pre = load i32, ptr %.066, align 4
   br label %is_funcclause.exit.thread
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %.067, i64 32
+  %46 = getelementptr inbounds i8, ptr %.066, i64 32
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 4
   %.not77 = icmp eq ptr %47, null
@@ -1663,7 +1663,7 @@ is_funcclause.exit:                               ; preds = %is_funcclause.exitt
   %56 = load ptr, ptr %49, align 8
   %57 = getelementptr %union.ListCell, ptr %56, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call fastcc zeroext i1 @clause_is_strict_for(ptr noundef %58, ptr noundef %.069, i1 noundef zeroext false)
+  %59 = tail call fastcc zeroext i1 @clause_is_strict_for(ptr noundef %58, ptr noundef %.068, i1 noundef zeroext false)
   br i1 %59, label %.thread, label %52
 
 is_funcclause.exit.thread:                        ; preds = %.is_funcclause.exit.thread_crit_edge, %is_funcclause.exit
@@ -1678,30 +1678,30 @@ is_funcclause.exit.thread:                        ; preds = %.is_funcclause.exit
   ]
 
 tailrecurse.backedge.sink.split:                  ; preds = %is_funcclause.exit.thread, %is_funcclause.exit.thread, %is_funcclause.exit.thread, %is_funcclause.exit.thread
-  %61 = getelementptr inbounds i8, ptr %.067, i64 8
+  %61 = getelementptr inbounds i8, ptr %.066, i64 8
   %62 = load ptr, ptr %61, align 8
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %tailrecurse.backedge.sink.split, %65, %73, %.critedge, %98, %102, %83
   %.tr.be = phi ptr [ %71, %83 ], [ %71, %102 ], [ %71, %98 ], [ %71, %.critedge ], [ %71, %73 ], [ %71, %65 ], [ %62, %tailrecurse.backedge.sink.split ]
   %63 = icmp eq ptr %.tr.be, null
-  %64 = icmp eq ptr %.069, null
+  %64 = icmp eq ptr %.068, null
   %or.cond = or i1 %63, %64
   br i1 %or.cond, label %.thread, label %.lr.ph
 
 65:                                               ; preds = %is_funcclause.exit.thread
-  %66 = getelementptr inbounds i8, ptr %.067, i64 32
+  %66 = getelementptr inbounds i8, ptr %.066, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr i8, ptr %67, i64 16
   %.val81 = load ptr, ptr %68, align 8
   %69 = load ptr, ptr %.val81, align 8
   %70 = getelementptr i8, ptr %.val81, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call fastcc zeroext i1 @clause_is_strict_for(ptr noundef %69, ptr noundef %.069, i1 noundef zeroext false)
+  %72 = tail call fastcc zeroext i1 @clause_is_strict_for(ptr noundef %69, ptr noundef %.068, i1 noundef zeroext false)
   br i1 %72, label %73, label %tailrecurse.backedge
 
 73:                                               ; preds = %65
-  %74 = getelementptr inbounds i8, ptr %.067, i64 4
+  %74 = getelementptr inbounds i8, ptr %.066, i64 4
   %75 = load i32, ptr %74, align 4
   %76 = tail call zeroext i1 @op_strict(i32 noundef %75) #6
   br i1 %76, label %77, label %tailrecurse.backedge
@@ -1710,7 +1710,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   br i1 %.tr94106, label %78, label %82
 
 78:                                               ; preds = %77
-  %79 = getelementptr inbounds i8, ptr %.067, i64 20
+  %79 = getelementptr inbounds i8, ptr %.066, i64 20
   %80 = load i8, ptr %79, align 4
   %81 = trunc i8 %80 to i1
   br i1 %81, label %.thread, label %82
@@ -1761,12 +1761,12 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   br label %.critedge
 
 .critedge:                                        ; preds = %105, %89
-  %.066 = phi i32 [ %97, %89 ], [ %107, %105 ]
-  %108 = icmp sgt i32 %.066, 0
+  %.067 = phi i32 [ %97, %89 ], [ %107, %105 ]
+  %108 = icmp sgt i32 %.067, 0
   br i1 %108, label %.thread, label %tailrecurse.backedge
 
 109:                                              ; preds = %is_funcclause.exit.thread
-  %110 = getelementptr inbounds i8, ptr %.067, i64 32
+  %110 = getelementptr inbounds i8, ptr %.066, i64 32
   %111 = load i8, ptr %110, align 8
   %112 = trunc i8 %111 to i1
   br label %.thread
@@ -1958,17 +1958,17 @@ list_length.exit136:                              ; preds = %15
   br i1 %.not116, label %is_opclause.exit.thread, label %96
 
 96:                                               ; preds = %49, %64, %94, %83
-  %.098 = phi i32 [ %63, %64 ], [ %27, %83 ], [ %95, %94 ], [ %27, %49 ]
-  %.097 = phi i32 [ %65, %64 ], [ %84, %83 ], [ %29, %94 ], [ %29, %49 ]
-  %.096 = phi ptr [ %31, %64 ], [ %33, %83 ], [ %31, %94 ], [ %33, %49 ]
-  %.095 = phi ptr [ %35, %64 ], [ %35, %83 ], [ %37, %94 ], [ %37, %49 ]
-  %97 = getelementptr inbounds i8, ptr %.095, i64 32
+  %.098 = phi ptr [ %35, %64 ], [ %35, %83 ], [ %37, %94 ], [ %37, %49 ]
+  %.097 = phi ptr [ %31, %64 ], [ %33, %83 ], [ %31, %94 ], [ %33, %49 ]
+  %.096 = phi i32 [ %65, %64 ], [ %84, %83 ], [ %29, %94 ], [ %29, %49 ]
+  %.095 = phi i32 [ %63, %64 ], [ %27, %83 ], [ %95, %94 ], [ %27, %49 ]
+  %97 = getelementptr inbounds i8, ptr %.098, i64 32
   %98 = load i8, ptr %97, align 8
   %99 = trunc i8 %98 to i1
   br i1 %99, label %100, label %110
 
 100:                                              ; preds = %96
-  %101 = tail call zeroext i1 @op_strict(i32 noundef %.097) #6
+  %101 = tail call zeroext i1 @op_strict(i32 noundef %.096) #6
   br i1 %101, label %102, label %is_opclause.exit.thread
 
 102:                                              ; preds = %100
@@ -1977,20 +1977,20 @@ list_length.exit136:                              ; preds = %15
   br i1 %brmerge, label %is_opclause.exit.thread, label %103
 
 103:                                              ; preds = %102
-  %104 = getelementptr inbounds i8, ptr %.096, i64 32
+  %104 = getelementptr inbounds i8, ptr %.097, i64 32
   %105 = load i8, ptr %104, align 8
   %106 = trunc i8 %105 to i1
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %103
-  %108 = tail call zeroext i1 @op_strict(i32 noundef %.098) #6
+  %108 = tail call zeroext i1 @op_strict(i32 noundef %.095) #6
   br i1 %108, label %is_opclause.exit.thread, label %109
 
 109:                                              ; preds = %107, %103
   br label %is_opclause.exit.thread
 
 110:                                              ; preds = %96
-  %111 = getelementptr inbounds i8, ptr %.096, i64 32
+  %111 = getelementptr inbounds i8, ptr %.097, i64 32
   %112 = load i8, ptr %111, align 8
   %113 = trunc i8 %112 to i1
   br i1 %113, label %114, label %118
@@ -1999,14 +1999,14 @@ list_length.exit136:                              ; preds = %15
   br i1 %3, label %115, label %117
 
 115:                                              ; preds = %114
-  %116 = tail call zeroext i1 @op_strict(i32 noundef %.098) #6
+  %116 = tail call zeroext i1 @op_strict(i32 noundef %.095) #6
   br i1 %116, label %is_opclause.exit.thread, label %117
 
 117:                                              ; preds = %115, %114
   br label %is_opclause.exit.thread
 
 118:                                              ; preds = %110
-  %119 = tail call fastcc ptr @lookup_proof_cache(i32 noundef %.098, i32 noundef %.097, i1 noundef zeroext %2)
+  %119 = tail call fastcc ptr @lookup_proof_cache(i32 noundef %.095, i32 noundef %.096, i1 noundef zeroext %2)
   %.0.in.v.i = select i1 %2, i64 16, i64 12
   %.0.in.i = getelementptr inbounds i8, ptr %119, i64 %.0.in.v.i
   %.0.i = load i32, ptr %.0.in.i, align 4
@@ -2019,7 +2019,7 @@ list_length.exit136:                              ; preds = %15
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %123, ptr @CurrentMemoryContext, align 8
-  %125 = tail call ptr @make_opclause(i32 noundef %.0.i, i32 noundef 16, i1 noundef zeroext false, ptr noundef nonnull %.096, ptr noundef nonnull %.095, i32 noundef 0, i32 noundef %22) #6
+  %125 = tail call ptr @make_opclause(i32 noundef %.0.i, i32 noundef 16, i1 noundef zeroext false, ptr noundef nonnull %.097, ptr noundef nonnull %.098, i32 noundef 0, i32 noundef %22) #6
   tail call void @fix_opfuncids(ptr noundef %125) #6
   %126 = tail call ptr @ExecInitExpr(ptr noundef %125, ptr noundef null) #6
   %127 = getelementptr inbounds i8, ptr %121, i64 232
@@ -2187,7 +2187,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br i1 %40, label %.lr.ph.us, label %.thread
 
 .lr.ph.us:                                        ; preds = %.lr.ph141.split.split.us.preheader, %._crit_edge129.split.us.us
-  %.080137.us149201 = phi i8 [ %split130.us.us, %._crit_edge129.split.us.us ], [ 0, %.lr.ph141.split.split.us.preheader ]
+  %.074139.us147201 = phi i8 [ %split131.us.us, %._crit_edge129.split.us.us ], [ 0, %.lr.ph141.split.split.us.preheader ]
   %indvars.iv176200 = phi i64 [ %indvars.iv.next177, %._crit_edge129.split.us.us ], [ 0, %.lr.ph141.split.split.us.preheader ]
   %41 = load ptr, ptr %36, align 8
   %42 = getelementptr %union.ListCell, ptr %41, i64 %indvars.iv176200
@@ -2201,7 +2201,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
 
 .lr.ph161:                                        ; preds = %.lr.ph.us, %.thread114.us.us
   %indvars.iv174 = phi i64 [ %indvars.iv.next175, %.thread114.us.us ], [ 0, %.lr.ph.us ]
-  %.181125.us.us160 = phi i8 [ %.383.us.us, %.thread114.us.us ], [ %.080137.us149201, %.lr.ph.us ]
+  %.1127.us.us158 = phi i8 [ %.3.us.us, %.thread114.us.us ], [ %.074139.us147201, %.lr.ph.us ]
   %49 = load ptr, ptr %38, align 8
   %50 = getelementptr %union.ListCell, ptr %49, i64 %indvars.iv174
   %51 = load ptr, ptr %50, align 8
@@ -2222,7 +2222,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %63 = getelementptr [6 x [6 x i8]], ptr @BT_refutes_table, i64 0, i64 %59, i64 %62
   %64 = getelementptr [6 x [6 x i16]], ptr @BT_refute_table, i64 0, i64 %59, i64 %62
   %.pn109.pn.us.us = load i8, ptr %63, align 1
-  %.282112.in.us.us = or i8 %.pn109.pn.us.us, %.181125.us.us160
+  %.2112.in.us.us = or i8 %.pn109.pn.us.us, %.1127.us.us158
   %.0.us.us = load i16, ptr %64, align 2
   switch i16 %.0.us.us, label %72 [
     i16 0, label %.thread114.us.us
@@ -2249,17 +2249,17 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br label %77
 
 77:                                               ; preds = %72, %70
-  %.279.us.us = phi i32 [ %71, %70 ], [ %76, %72 ]
-  %.not98.us.us = icmp eq i32 %.279.us.us, 0
+  %.277.us.us = phi i32 [ %71, %70 ], [ %76, %72 ]
+  %.not98.us.us = icmp eq i32 %.277.us.us, 0
   br i1 %.not98.us.us, label %.thread114.us.us, label %78
 
 78:                                               ; preds = %77
-  %79 = call signext i8 @op_volatile(i32 noundef %.279.us.us) #6
+  %79 = call signext i8 @op_volatile(i32 noundef %.277.us.us) #6
   %80 = icmp eq i8 %79, 105
   br i1 %80, label %.thread, label %.thread114.us.us
 
 .thread114.us.us:                                 ; preds = %78, %77, %65, %53, %.lr.ph161
-  %.383.us.us = phi i8 [ %.181125.us.us160, %.lr.ph161 ], [ %.282112.in.us.us, %53 ], [ %.282112.in.us.us, %78 ], [ %.282112.in.us.us, %77 ], [ %.282112.in.us.us, %65 ]
+  %.3.us.us = phi i8 [ %.1127.us.us158, %.lr.ph161 ], [ %.2112.in.us.us, %53 ], [ %.2112.in.us.us, %78 ], [ %.2112.in.us.us, %77 ], [ %.2112.in.us.us, %65 ]
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %81 = load i32, ptr %37, align 4
   %82 = sext i32 %81 to i64
@@ -2267,7 +2267,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br i1 %83, label %.lr.ph161, label %._crit_edge129.split.us.us
 
 ._crit_edge129.split.us.us:                       ; preds = %.thread114.us.us, %.lr.ph.us
-  %split130.us.us = phi i8 [ %.080137.us149201, %.lr.ph.us ], [ %.383.us.us, %.thread114.us.us ]
+  %split131.us.us = phi i8 [ %.074139.us147201, %.lr.ph.us ], [ %.3.us.us, %.thread114.us.us ]
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176200, 1
   %84 = load i32, ptr %35, align 4
   %85 = sext i32 %84 to i64
@@ -2275,7 +2275,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br i1 %86, label %.lr.ph.us, label %.thread
 
 .lr.ph:                                           ; preds = %.lr.ph141.split.split.preheader, %._crit_edge129.split
-  %.080137198 = phi i8 [ %.181125.lcssa, %._crit_edge129.split ], [ 0, %.lr.ph141.split.split.preheader ]
+  %.074139198 = phi i8 [ %.1127.lcssa, %._crit_edge129.split ], [ 0, %.lr.ph141.split.split.preheader ]
   %indvars.iv172197 = phi i64 [ %indvars.iv.next173, %._crit_edge129.split ], [ 0, %.lr.ph141.split.split.preheader ]
   %87 = load ptr, ptr %36, align 8
   %88 = getelementptr %union.ListCell, ptr %87, i64 %indvars.iv172197
@@ -2288,7 +2288,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br i1 %94, label %.lr.ph196, label %._crit_edge129.split
 
 .lr.ph196:                                        ; preds = %.lr.ph, %.thread114
-  %.181125195 = phi i8 [ %.383, %.thread114 ], [ %.080137198, %.lr.ph ]
+  %.1127195 = phi i8 [ %.3, %.thread114 ], [ %.074139198, %.lr.ph ]
   %indvars.iv194 = phi i64 [ %indvars.iv.next, %.thread114 ], [ 0, %.lr.ph ]
   %95 = load ptr, ptr %38, align 8
   %96 = getelementptr %union.ListCell, ptr %95, i64 %indvars.iv194
@@ -2310,7 +2310,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %109 = getelementptr [6 x [6 x i8]], ptr @BT_implies_table, i64 0, i64 %105, i64 %108
   %110 = getelementptr [6 x [6 x i16]], ptr @BT_implic_table, i64 0, i64 %105, i64 %108
   %.pn109.pn = load i8, ptr %109, align 1
-  %.282112.in = or i8 %.pn109.pn, %.181125195
+  %.2112.in = or i8 %.pn109.pn, %.1127195
   %.0 = load i16, ptr %110, align 2
   switch i16 %.0, label %118 [
     i16 0, label %.thread114
@@ -2337,17 +2337,17 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br label %123
 
 123:                                              ; preds = %116, %118
-  %.279 = phi i32 [ %117, %116 ], [ %122, %118 ]
-  %.not98 = icmp eq i32 %.279, 0
+  %.277 = phi i32 [ %117, %116 ], [ %122, %118 ]
+  %.not98 = icmp eq i32 %.277, 0
   br i1 %.not98, label %.thread114, label %124
 
 124:                                              ; preds = %123
-  %125 = call signext i8 @op_volatile(i32 noundef %.279) #6
+  %125 = call signext i8 @op_volatile(i32 noundef %.277) #6
   %126 = icmp eq i8 %125, 105
   br i1 %126, label %.thread, label %.thread114
 
 .thread114:                                       ; preds = %111, %99, %124, %123, %.lr.ph196
-  %.383 = phi i8 [ %.181125195, %.lr.ph196 ], [ %.282112.in, %99 ], [ %.282112.in, %124 ], [ %.282112.in, %123 ], [ %.282112.in, %111 ]
+  %.3 = phi i8 [ %.1127195, %.lr.ph196 ], [ %.2112.in, %99 ], [ %.2112.in, %124 ], [ %.2112.in, %123 ], [ %.2112.in, %111 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv194, 1
   %127 = load i32, ptr %37, align 4
   %128 = sext i32 %127 to i64
@@ -2355,7 +2355,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br i1 %129, label %.lr.ph196, label %._crit_edge129.split, !llvm.loop !25
 
 ._crit_edge129.split:                             ; preds = %.thread114, %.lr.ph
-  %.181125.lcssa = phi i8 [ %.080137198, %.lr.ph ], [ %.383, %.thread114 ]
+  %.1127.lcssa = phi i8 [ %.074139198, %.lr.ph ], [ %.3, %.thread114 ]
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172197, 1
   %130 = load i32, ptr %35, align 4
   %131 = sext i32 %130 to i64
@@ -2363,28 +2363,28 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br i1 %132, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %._crit_edge129.split, %124, %._crit_edge129.split.us.us, %78, %.lr.ph141.split.split.preheader, %.lr.ph141.split.split.us.preheader, %31, %33
-  %.075181 = phi ptr [ null, %33 ], [ null, %31 ], [ %34, %.lr.ph141.split.split.us.preheader ], [ %34, %.lr.ph141.split.split.preheader ], [ %34, %78 ], [ %34, %._crit_edge129.split.us.us ], [ %34, %124 ], [ %34, %._crit_edge129.split ]
-  %.585 = phi i8 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph141.split.split.us.preheader ], [ 0, %.lr.ph141.split.split.preheader ], [ %.282112.in.us.us, %78 ], [ %split130.us.us, %._crit_edge129.split.us.us ], [ %.282112.in, %124 ], [ %.181125.lcssa, %._crit_edge129.split ]
-  %.2 = phi i32 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph141.split.split.us.preheader ], [ 0, %.lr.ph141.split.split.preheader ], [ %.279.us.us, %78 ], [ 0, %._crit_edge129.split.us.us ], [ %.279, %124 ], [ 0, %._crit_edge129.split ]
-  call void @list_free_deep(ptr noundef %.075181) #6
+  %.085181 = phi ptr [ null, %33 ], [ null, %31 ], [ %34, %.lr.ph141.split.split.us.preheader ], [ %34, %.lr.ph141.split.split.preheader ], [ %34, %78 ], [ %34, %._crit_edge129.split.us.us ], [ %34, %124 ], [ %34, %._crit_edge129.split ]
+  %.284 = phi i32 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph141.split.split.us.preheader ], [ 0, %.lr.ph141.split.split.preheader ], [ %.277.us.us, %78 ], [ 0, %._crit_edge129.split.us.us ], [ %.277, %124 ], [ 0, %._crit_edge129.split ]
+  %.5 = phi i8 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph141.split.split.us.preheader ], [ 0, %.lr.ph141.split.split.preheader ], [ %.2112.in.us.us, %78 ], [ %split131.us.us, %._crit_edge129.split.us.us ], [ %.2112.in, %124 ], [ %.1127.lcssa, %._crit_edge129.split ]
+  call void @list_free_deep(ptr noundef %.085181) #6
   call void @list_free_deep(ptr noundef %32) #6
-  %133 = trunc i8 %.585 to i1
+  %133 = trunc i8 %.5 to i1
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %.thread
   %135 = call signext i8 @op_volatile(i32 noundef %1) #6
   %.not99 = icmp eq i8 %135, 105
-  %spec.select100 = select i1 %.not99, i8 %.585, i8 0
+  %spec.select100 = select i1 %.not99, i8 %.5, i8 0
   br label %136
 
 136:                                              ; preds = %134, %.thread
-  %.686 = phi i8 [ %.585, %.thread ], [ %spec.select100, %134 ]
-  %137 = and i8 %.686, 1
+  %.6 = phi i8 [ %.5, %.thread ], [ %spec.select100, %134 ]
+  %137 = and i8 %.6, 1
   br i1 %2, label %138, label %142
 
 138:                                              ; preds = %136
   %139 = getelementptr inbounds i8, ptr %16, i64 16
-  store i32 %.2, ptr %139, align 4
+  store i32 %.284, ptr %139, align 4
   %140 = getelementptr inbounds i8, ptr %16, i64 11
   store i8 %137, ptr %140, align 1
   %141 = getelementptr inbounds i8, ptr %16, i64 9
@@ -2393,7 +2393,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
 
 142:                                              ; preds = %136
   %143 = getelementptr inbounds i8, ptr %16, i64 12
-  store i32 %.2, ptr %143, align 4
+  store i32 %.284, ptr %143, align 4
   %144 = getelementptr inbounds i8, ptr %16, i64 10
   store i8 %137, ptr %144, align 2
   %145 = getelementptr inbounds i8, ptr %16, i64 8

@@ -1996,8 +1996,8 @@ for.end.i63:                                      ; preds = %call8.i.noexc, %cal
 
 for.body15.i:                                     ; preds = %for.end.i63, %for.inc94.i
   %nonfinite_pixel_chan.0663.i = phi i32 [ %nonfinite_pixel_chan.1.lcssa.i, %for.inc94.i ], [ -1, %for.end.i63 ]
-  %z11.0661.i = phi i32 [ %inc95.i, %for.inc94.i ], [ %94, %for.end.i63 ]
-  %p.0660.i = phi i64 [ %p.1.lcssa.i, %for.inc94.i ], [ 0, %for.end.i63 ]
+  %p.0662.i = phi i64 [ %p.1.lcssa.i, %for.inc94.i ], [ 0, %for.end.i63 ]
+  %z11.0660.i = phi i32 [ %inc95.i, %for.inc94.i ], [ %94, %for.end.i63 ]
   %totalsamples.0659.i = phi i64 [ %totalsamples.1.lcssa.i, %for.inc94.i ], [ 0, %for.end.i63 ]
   %emptypixels.0658.i = phi i64 [ %emptypixels.1.lcssa.i, %for.inc94.i ], [ 0, %for.end.i63 ]
   %maxsamples.0657.i = phi i64 [ %maxsamples.1.lcssa.i, %for.inc94.i ], [ 0, %for.end.i63 ]
@@ -2027,8 +2027,8 @@ for.body15.i:                                     ; preds = %for.end.i63, %for.i
 
 for.body20.i:                                     ; preds = %for.body15.i, %for.inc91.i
   %nonfinite_pixel_chan.1594.i = phi i32 [ %nonfinite_pixel_chan.2.lcssa.i, %for.inc91.i ], [ %nonfinite_pixel_chan.0663.i, %for.body15.i ]
-  %y16.0593.i = phi i32 [ %inc92.i, %for.inc91.i ], [ %97, %for.body15.i ]
-  %p.1592.i = phi i64 [ %p.2.lcssa.i, %for.inc91.i ], [ %p.0660.i, %for.body15.i ]
+  %p.1593.i = phi i64 [ %p.2.lcssa.i, %for.inc91.i ], [ %p.0662.i, %for.body15.i ]
+  %y16.0592.i = phi i32 [ %inc92.i, %for.inc91.i ], [ %97, %for.body15.i ]
   %totalsamples.1591.i = phi i64 [ %totalsamples.2.lcssa.i, %for.inc91.i ], [ %totalsamples.0659.i, %for.body15.i ]
   %emptypixels.1590.i = phi i64 [ %emptypixels.2.lcssa.i, %for.inc91.i ], [ %emptypixels.0658.i, %for.body15.i ]
   %maxsamples.1589.i = phi i64 [ %maxsamples.2.lcssa.i, %for.inc91.i ], [ %maxsamples.0657.i, %for.body15.i ]
@@ -2054,15 +2054,15 @@ for.body20.i:                                     ; preds = %for.body15.i, %for.
   br i1 %cmp24524.i, label %for.body25.preheader.i, label %for.inc91.i
 
 for.body25.preheader.i:                           ; preds = %for.body20.i
-  %101 = trunc i64 %p.1592.i to i32
+  %101 = trunc i64 %p.1593.i to i32
   %102 = add i32 %add.i, %101
   %103 = sub i32 %102, %100
   br label %for.body25.i
 
 for.body25.i:                                     ; preds = %for.inc87.i, %for.body25.preheader.i
   %nonfinite_pixel_chan.2548.i = phi i32 [ %nonfinite_pixel_chan.3.lcssa.i, %for.inc87.i ], [ %nonfinite_pixel_chan.1594.i, %for.body25.preheader.i ]
-  %x21.0546.i = phi i32 [ %inc88.i, %for.inc87.i ], [ %100, %for.body25.preheader.i ]
-  %p.2545.i = phi i64 [ %inc89.i, %for.inc87.i ], [ %p.1592.i, %for.body25.preheader.i ]
+  %p.2547.i = phi i64 [ %inc89.i, %for.inc87.i ], [ %p.1593.i, %for.body25.preheader.i ]
+  %x21.0545.i = phi i32 [ %inc88.i, %for.inc87.i ], [ %100, %for.body25.preheader.i ]
   %totalsamples.2544.i = phi i64 [ %add28.i, %for.inc87.i ], [ %totalsamples.1591.i, %for.body25.preheader.i ]
   %emptypixels.2543.i = phi i64 [ %emptypixels.3.i, %for.inc87.i ], [ %emptypixels.1590.i, %for.body25.preheader.i ]
   %maxsamples.2542.i = phi i64 [ %maxsamples.3.i, %for.inc87.i ], [ %maxsamples.1589.i, %for.body25.preheader.i ]
@@ -2083,7 +2083,7 @@ for.body25.i:                                     ; preds = %for.inc87.i, %for.b
   %maxsamples_pixel.sroa.3.2527.i = phi i32 [ %maxsamples_pixel.sroa.3.3.i, %for.inc87.i ], [ %maxsamples_pixel.sroa.3.1574.i, %for.body25.preheader.i ]
   %maxdepth.2526.i = phi float [ %maxdepth.3.lcssa.i, %for.inc87.i ], [ %maxdepth.1573.i, %for.body25.preheader.i ]
   %mindepth.2525.i = phi float [ %mindepth.3.lcssa.i, %for.inc87.i ], [ %mindepth.1572.i, %for.body25.preheader.i ]
-  %call26.i = invoke noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf12deep_samplesEiii(ptr noundef nonnull align 8 dereferenceable(16) %input, i32 noundef %x21.0546.i, i32 noundef %y16.0593.i, i32 noundef %z11.0661.i)
+  %call26.i = invoke noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf12deep_samplesEiii(ptr noundef nonnull align 8 dereferenceable(16) %input, i32 noundef %x21.0545.i, i32 noundef %y16.0592.i, i32 noundef %z11.0660.i)
           to label %invoke.cont.i71 unwind label %lpad.loopexit.split-lp.loopexit.i
 
 invoke.cont.i71:                                  ; preds = %for.body25.i
@@ -2127,8 +2127,8 @@ if.then34.i:                                      ; preds = %invoke.cont.i71
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.then34.i, %invoke.cont.i71
-  %maxsamples_pixel.sroa.3.3.i = phi i32 [ %y16.0593.i, %if.then34.i ], [ %maxsamples_pixel.sroa.3.2527.i, %invoke.cont.i71 ]
-  %maxsamples_pixel.sroa.0.3.i = phi i32 [ %x21.0546.i, %if.then34.i ], [ %maxsamples_pixel.sroa.0.2528.i, %invoke.cont.i71 ]
+  %maxsamples_pixel.sroa.3.3.i = phi i32 [ %y16.0592.i, %if.then34.i ], [ %maxsamples_pixel.sroa.3.2527.i, %invoke.cont.i71 ]
+  %maxsamples_pixel.sroa.0.3.i = phi i32 [ %x21.0545.i, %if.then34.i ], [ %maxsamples_pixel.sroa.0.2528.i, %invoke.cont.i71 ]
   %maxsamples_npixels.4.i = phi i64 [ 1, %if.then34.i ], [ %spec.select238.i, %invoke.cont.i71 ]
   %maxsamples.3.i = phi i64 [ %conv27.i, %if.then34.i ], [ %maxsamples.2542.i, %invoke.cont.i71 ]
   %spec.select239.i = call i64 @llvm.umin.i64(i64 %minsamples.2541.i, i64 %conv27.i)
@@ -2265,7 +2265,7 @@ for.body59.us.i:                                  ; preds = %for.inc81.us.i, %fo
   %mindepth_pixel.sroa.3.4467.us.i = phi i32 [ %mindepth_pixel.sroa.3.3491.us.i, %for.cond57.preheader.us.i ], [ %mindepth_pixel.sroa.3.6.us.i, %for.inc81.us.i ]
   %maxdepth.4466.us.i = phi float [ %maxdepth.3490.us.i, %for.cond57.preheader.us.i ], [ %maxdepth.5.us.i, %for.inc81.us.i ]
   %mindepth.4465.us.i = phi float [ %mindepth.3489.us.i, %for.cond57.preheader.us.i ], [ %mindepth.6.us.i, %for.inc81.us.i ]
-  %call61.us.i = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %input, i32 noundef %x21.0546.i, i32 noundef %y16.0593.i, i32 noundef %z11.0661.i, i32 noundef %c56.0475.us.i, i32 noundef %s.0499.us.i)
+  %call61.us.i = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %input, i32 noundef %x21.0545.i, i32 noundef %y16.0592.i, i32 noundef %z11.0660.i, i32 noundef %c56.0475.us.i, i32 noundef %s.0499.us.i)
           to label %invoke.cont60.us.i unwind label %lpad.loopexit.split.us.i
 
 invoke.cont60.us.i:                               ; preds = %for.body59.us.i
@@ -2282,8 +2282,8 @@ if.then66.us.i:                                   ; preds = %if.then63.us.i
   br label %if.end69.us.i
 
 if.end69.us.i:                                    ; preds = %if.then66.us.i, %if.then63.us.i, %invoke.cont60.us.i
-  %nonfinite_pixel.sroa.3.5.us.i = phi i32 [ %nonfinite_pixel.sroa.3.4471.us.i, %invoke.cont60.us.i ], [ %y16.0593.i, %if.then66.us.i ], [ %nonfinite_pixel.sroa.3.4471.us.i, %if.then63.us.i ]
-  %nonfinite_pixel.sroa.0.5.us.i = phi i32 [ %nonfinite_pixel.sroa.0.4472.us.i, %invoke.cont60.us.i ], [ %x21.0546.i, %if.then66.us.i ], [ %nonfinite_pixel.sroa.0.4472.us.i, %if.then63.us.i ]
+  %nonfinite_pixel.sroa.3.5.us.i = phi i32 [ %nonfinite_pixel.sroa.3.4471.us.i, %invoke.cont60.us.i ], [ %y16.0592.i, %if.then66.us.i ], [ %nonfinite_pixel.sroa.3.4471.us.i, %if.then63.us.i ]
+  %nonfinite_pixel.sroa.0.5.us.i = phi i32 [ %nonfinite_pixel.sroa.0.4472.us.i, %invoke.cont60.us.i ], [ %x21.0545.i, %if.then66.us.i ], [ %nonfinite_pixel.sroa.0.4472.us.i, %if.then63.us.i ]
   %nonfinite_pixel_samp.5.us.i = phi i32 [ %nonfinite_pixel_samp.4473.us.i, %invoke.cont60.us.i ], [ %s.0499.us.i, %if.then66.us.i ], [ %nonfinite_pixel_samp.4473.us.i, %if.then63.us.i ]
   %nonfinites.5.us.i = phi i64 [ %nonfinites.4474.us.i, %invoke.cont60.us.i ], [ 1, %if.then66.us.i ], [ %inc64.us.i, %if.then63.us.i ]
   %nonfinite_pixel_chan.5.us.i = phi i32 [ %nonfinite_pixel_chan.4476.us.i, %invoke.cont60.us.i ], [ %c56.0475.us.i, %if.then66.us.i ], [ %nonfinite_pixel_chan.4476.us.i, %if.then63.us.i ]
@@ -2293,8 +2293,8 @@ if.end69.us.i:                                    ; preds = %if.then66.us.i, %if
 if.then71.us.i:                                   ; preds = %if.end69.us.i
   %cmp72.us.i = fcmp olt float %call61.us.i, %mindepth.4465.us.i
   %mindepth.5.us.i = select i1 %cmp72.us.i, float %call61.us.i, float %mindepth.4465.us.i
-  %mindepth_pixel.sroa.3.5.us.i = select i1 %cmp72.us.i, i32 %y16.0593.i, i32 %mindepth_pixel.sroa.3.4467.us.i
-  %mindepth_pixel.sroa.0.5.us.i = select i1 %cmp72.us.i, i32 %x21.0546.i, i32 %mindepth_pixel.sroa.0.4468.us.i
+  %mindepth_pixel.sroa.3.5.us.i = select i1 %cmp72.us.i, i32 %y16.0592.i, i32 %mindepth_pixel.sroa.3.4467.us.i
+  %mindepth_pixel.sroa.0.5.us.i = select i1 %cmp72.us.i, i32 %x21.0545.i, i32 %mindepth_pixel.sroa.0.4468.us.i
   %cmp76.us.i = fcmp ogt float %call61.us.i, %maxdepth.4466.us.i
   br i1 %cmp76.us.i, label %if.then77.us.i, label %for.inc81.us.i
 
@@ -2306,8 +2306,8 @@ for.inc81.us.i:                                   ; preds = %if.then77.us.i, %if
   %maxdepth.5.us.i = phi float [ %call61.us.i, %if.then77.us.i ], [ %maxdepth.4466.us.i, %if.then71.us.i ], [ %maxdepth.4466.us.i, %if.end69.us.i ]
   %mindepth_pixel.sroa.3.6.us.i = phi i32 [ %mindepth_pixel.sroa.3.5.us.i, %if.then77.us.i ], [ %mindepth_pixel.sroa.3.5.us.i, %if.then71.us.i ], [ %mindepth_pixel.sroa.3.4467.us.i, %if.end69.us.i ]
   %mindepth_pixel.sroa.0.6.us.i = phi i32 [ %mindepth_pixel.sroa.0.5.us.i, %if.then77.us.i ], [ %mindepth_pixel.sroa.0.5.us.i, %if.then71.us.i ], [ %mindepth_pixel.sroa.0.4468.us.i, %if.end69.us.i ]
-  %maxdepth_pixel.sroa.3.5.us.i = phi i32 [ %y16.0593.i, %if.then77.us.i ], [ %maxdepth_pixel.sroa.3.4469.us.i, %if.then71.us.i ], [ %maxdepth_pixel.sroa.3.4469.us.i, %if.end69.us.i ]
-  %maxdepth_pixel.sroa.0.5.us.i = phi i32 [ %x21.0546.i, %if.then77.us.i ], [ %maxdepth_pixel.sroa.0.4470.us.i, %if.then71.us.i ], [ %maxdepth_pixel.sroa.0.4470.us.i, %if.end69.us.i ]
+  %maxdepth_pixel.sroa.3.5.us.i = phi i32 [ %y16.0592.i, %if.then77.us.i ], [ %maxdepth_pixel.sroa.3.4469.us.i, %if.then71.us.i ], [ %maxdepth_pixel.sroa.3.4469.us.i, %if.end69.us.i ]
+  %maxdepth_pixel.sroa.0.5.us.i = phi i32 [ %x21.0545.i, %if.then77.us.i ], [ %maxdepth_pixel.sroa.0.4470.us.i, %if.then71.us.i ], [ %maxdepth_pixel.sroa.0.4470.us.i, %if.end69.us.i ]
   %inc82.us.i = add nuw nsw i32 %c56.0475.us.i, 1
   %exitcond737.not.i = icmp eq i32 %inc82.us.i, %call5.i88
   br i1 %exitcond737.not.i, label %for.cond57.for.inc84_crit_edge.us.i, label %for.body59.us.i, !llvm.loop !18
@@ -2335,8 +2335,8 @@ for.inc87.i:                                      ; preds = %for.cond57.for.inc8
   %nonfinite_pixel_samp.3.lcssa.i = phi i32 [ %nonfinite_pixel_samp.2535.i, %if.end49.i ], [ %nonfinite_pixel_samp.2535.i, %for.cond57.preheader.lr.ph.i ], [ %nonfinite_pixel_samp.5.us.i, %for.cond57.for.inc84_crit_edge.us.i ]
   %nonfinites.3.lcssa.i = phi i64 [ %nonfinites.2536.i, %if.end49.i ], [ %nonfinites.2536.i, %for.cond57.preheader.lr.ph.i ], [ %nonfinites.5.us.i, %for.cond57.for.inc84_crit_edge.us.i ]
   %nonfinite_pixel_chan.3.lcssa.i = phi i32 [ %nonfinite_pixel_chan.2548.i, %if.end49.i ], [ %nonfinite_pixel_chan.2548.i, %for.cond57.preheader.lr.ph.i ], [ %nonfinite_pixel_chan.5.us.i, %for.cond57.for.inc84_crit_edge.us.i ]
-  %inc88.i = add nsw i32 %x21.0546.i, 1
-  %inc89.i = add i64 %p.2545.i, 1
+  %inc88.i = add nsw i32 %x21.0545.i, 1
+  %inc89.i = add i64 %p.2547.i, 1
   %lftr.wideiv = trunc i64 %inc89.i to i32
   %exitcond = icmp eq i32 %103, %lftr.wideiv
   br i1 %exitcond, label %for.inc91.i, label %for.body25.i, !llvm.loop !20
@@ -2362,9 +2362,9 @@ for.inc91.i:                                      ; preds = %for.inc87.i, %for.b
   %maxsamples.2.lcssa.i = phi i64 [ %maxsamples.1589.i, %for.body20.i ], [ %maxsamples.3.i, %for.inc87.i ]
   %emptypixels.2.lcssa.i = phi i64 [ %emptypixels.1590.i, %for.body20.i ], [ %emptypixels.3.i, %for.inc87.i ]
   %totalsamples.2.lcssa.i = phi i64 [ %totalsamples.1591.i, %for.body20.i ], [ %add28.i, %for.inc87.i ]
-  %p.2.lcssa.i = phi i64 [ %p.1592.i, %for.body20.i ], [ %inc89.i, %for.inc87.i ]
+  %p.2.lcssa.i = phi i64 [ %p.1593.i, %for.body20.i ], [ %inc89.i, %for.inc87.i ]
   %nonfinite_pixel_chan.2.lcssa.i = phi i32 [ %nonfinite_pixel_chan.1594.i, %for.body20.i ], [ %nonfinite_pixel_chan.3.lcssa.i, %for.inc87.i ]
-  %inc92.i = add i32 %y16.0593.i, 1
+  %inc92.i = add i32 %y16.0592.i, 1
   %exitcond739.not.i = icmp eq i32 %inc92.i, %add9.i
   br i1 %exitcond739.not.i, label %for.inc94.i, label %for.body20.i, !llvm.loop !21
 
@@ -2389,9 +2389,9 @@ for.inc94.i:                                      ; preds = %for.inc91.i, %for.b
   %maxsamples.1.lcssa.i = phi i64 [ %maxsamples.0657.i, %for.body15.i ], [ %maxsamples.2.lcssa.i, %for.inc91.i ]
   %emptypixels.1.lcssa.i = phi i64 [ %emptypixels.0658.i, %for.body15.i ], [ %emptypixels.2.lcssa.i, %for.inc91.i ]
   %totalsamples.1.lcssa.i = phi i64 [ %totalsamples.0659.i, %for.body15.i ], [ %totalsamples.2.lcssa.i, %for.inc91.i ]
-  %p.1.lcssa.i = phi i64 [ %p.0660.i, %for.body15.i ], [ %p.2.lcssa.i, %for.inc91.i ]
+  %p.1.lcssa.i = phi i64 [ %p.0662.i, %for.body15.i ], [ %p.2.lcssa.i, %for.inc91.i ]
   %nonfinite_pixel_chan.1.lcssa.i = phi i32 [ %nonfinite_pixel_chan.0663.i, %for.body15.i ], [ %nonfinite_pixel_chan.2.lcssa.i, %for.inc91.i ]
-  %inc95.i = add nsw i32 %z11.0661.i, 1
+  %inc95.i = add nsw i32 %z11.0660.i, 1
   %cmp14.i = icmp slt i32 %inc95.i, %add10.i
   br i1 %cmp14.i, label %for.body15.i, label %for.end96.i.loopexit, !llvm.loop !23
 
@@ -5752,8 +5752,8 @@ if.then14.i147:                                   ; preds = %if.else.i144
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit157
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit157: ; preds = %if.then.i152, %if.then7.i154, %if.else.i144, %if.then14.i147
-  %data.i36.sroa.5.0 = phi i64 [ %sub.i156, %if.then7.i154 ], [ 0, %if.then.i152 ], [ %conv24.i151, %if.then14.i147 ], [ 0, %if.else.i144 ]
   %data.i36.sroa.0.0 = phi i64 [ %conv4.i155, %if.then7.i154 ], [ %conv.i138, %if.then.i152 ], [ %conv19.i149, %if.then14.i147 ], [ %conv.i138, %if.else.i144 ]
+  %data.i36.sroa.5.0 = phi i64 [ %sub.i156, %if.then7.i154 ], [ 0, %if.then.i152 ], [ %conv24.i151, %if.then14.i147 ], [ 0, %if.else.i144 ]
   store i32 %prefix.i.0, ptr %ref.tmp32.i38, align 8
   %47 = getelementptr inbounds i8, ptr %ref.tmp32.i38, i64 8
   store i64 %data.i36.sroa.0.0, ptr %47, align 8
@@ -5973,8 +5973,8 @@ if.then14.i239:                                   ; preds = %if.else.i236
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit249
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit249: ; preds = %if.then.i244, %if.then7.i246, %if.else.i236, %if.then14.i239
-  %data.i80.sroa.5.0 = phi i64 [ %sub.i248, %if.then7.i246 ], [ 0, %if.then.i244 ], [ %conv24.i243, %if.then14.i239 ], [ 0, %if.else.i236 ]
   %data.i80.sroa.0.0 = phi i64 [ %conv4.i247, %if.then7.i246 ], [ %conv.i230, %if.then.i244 ], [ %conv19.i241, %if.then14.i239 ], [ %conv.i230, %if.else.i236 ]
+  %data.i80.sroa.5.0 = phi i64 [ %sub.i248, %if.then7.i246 ], [ 0, %if.then.i244 ], [ %conv24.i243, %if.then14.i239 ], [ 0, %if.else.i236 ]
   store i32 %prefix.i.1, ptr %ref.tmp32.i82, align 8
   %72 = getelementptr inbounds i8, ptr %ref.tmp32.i82, i64 8
   store i64 %data.i80.sroa.0.0, ptr %72, align 8
@@ -9446,8 +9446,8 @@ if.else:                                          ; preds = %entry
   br i1 %cmp6, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.else, %if.end
-  %significand.0 = phi i32 [ %or, %if.end ], [ %and, %if.else ]
   %exponent.0 = phi i32 [ %add, %if.end ], [ -149, %if.else ]
+  %significand.0 = phi i32 [ %or, %if.end ], [ %and, %if.else ]
   %rem = and i32 %significand.0, 1
   %cmp12 = icmp eq i32 %rem, 0
   %mul.i122 = mul nsw i32 %exponent.0, 1262611
@@ -12942,20 +12942,20 @@ for.body.i.preheader:                             ; preds = %if.then4.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %if.end9.i
-  %s.i.0405 = phi i32 [ %inc.i115, %if.end9.i ], [ 8, %for.body.i.preheader ]
-  %quotient.i.0404 = phi i32 [ %mul6.i, %if.end9.i ], [ %conv.i, %for.body.i.preheader ]
-  %mul6.i = mul i32 %quotient.i.0404, -858993459
+  %quotient.i.0405 = phi i32 [ %mul6.i, %if.end9.i ], [ %conv.i, %for.body.i.preheader ]
+  %s.i.0404 = phi i32 [ %inc.i115, %if.end9.i ], [ 8, %for.body.i.preheader ]
+  %mul6.i = mul i32 %quotient.i.0405, -858993459
   %cmp7.i = icmp ugt i32 %mul6.i, 858993459
   br i1 %cmp7.i, label %for.end.i, label %if.end9.i
 
 if.end9.i:                                        ; preds = %for.body.i
-  %inc.i115 = add nuw nsw i32 %s.i.0405, 1
+  %inc.i115 = add nuw nsw i32 %s.i.0404, 1
   %exitcond.not = icmp eq i32 %inc.i115, %umax
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !66
 
 for.end.i:                                        ; preds = %if.end9.i, %for.body.i, %if.then4.i
-  %quotient.i.0.lcssa = phi i32 [ %conv.i, %if.then4.i ], [ %quotient.i.0404, %for.body.i ], [ %mul6.i, %if.end9.i ]
-  %s.i.0.lcssa = phi i32 [ 8, %if.then4.i ], [ %s.i.0405, %for.body.i ], [ %umax, %if.end9.i ]
+  %s.i.0.lcssa = phi i32 [ 8, %if.then4.i ], [ %s.i.0404, %for.body.i ], [ %umax, %if.end9.i ]
+  %quotient.i.0.lcssa = phi i32 [ %conv.i, %if.then4.i ], [ %quotient.i.0405, %for.body.i ], [ %mul6.i, %if.end9.i ]
   %sub.i114 = add nsw i32 %s.i.0.lcssa, -8
   %shr11.i = lshr i32 %quotient.i.0.lcssa, %sub.i114
   %conv12.i = zext i32 %shr11.i to i64
@@ -18468,11 +18468,11 @@ for.cond.i482:                                    ; preds = %if.end22.i
   br i1 %cmp12.not.not.i484, label %for.body.i480, label %for.end.loopexit.i, !llvm.loop !79
 
 for.body.i480:                                    ; preds = %for.cond.i482, %for.body.lr.ph.i478
-  %i.0.in69.i = phi i32 [ %add.i27.i, %for.body.lr.ph.i478 ], [ %i.070.i, %for.cond.i482 ]
-  %borrow.068.i = phi i64 [ 0, %for.body.lr.ph.i478 ], [ %shl.i483, %for.cond.i482 ]
-  %i.070.i = add nsw i32 %i.0.in69.i, -1
-  %cmp.not.i.i = icmp slt i32 %117, %i.0.in69.i
-  %cmp2.i.i = icmp sge i32 %add.i.i463, %i.0.in69.i
+  %borrow.069.i = phi i64 [ 0, %for.body.lr.ph.i478 ], [ %shl.i483, %for.cond.i482 ]
+  %i.0.in68.i = phi i32 [ %add.i27.i, %for.body.lr.ph.i478 ], [ %i.070.i, %for.cond.i482 ]
+  %i.070.i = add nsw i32 %i.0.in68.i, -1
+  %cmp.not.i.i = icmp slt i32 %117, %i.0.in68.i
+  %cmp2.i.i = icmp sge i32 %add.i.i463, %i.0.in68.i
   %or.cond.i = and i1 %cmp.not.i.i, %cmp2.i.i
   br i1 %or.cond.i, label %cond.true.i.i, label %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit.i
 
@@ -18486,8 +18486,8 @@ cond.true.i.i:                                    ; preds = %for.body.i480
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit.i: ; preds = %cond.true.i.i, %for.body.i480
   %cond.i.i = phi i32 [ %136, %cond.true.i.i ], [ 0, %for.body.i480 ]
   %conv.i481 = zext i32 %cond.i.i to i64
-  %cmp.not.i34.i = icmp slt i32 %128, %i.0.in69.i
-  %cmp2.i39.i = icmp sge i32 %add.i23.i, %i.0.in69.i
+  %cmp.not.i34.i = icmp slt i32 %128, %i.0.in68.i
+  %cmp2.i39.i = icmp sge i32 %add.i23.i, %i.0.in68.i
   %or.cond63.i = and i1 %cmp.not.i34.i, %cmp2.i39.i
   br i1 %or.cond63.i, label %cond.true.i41.i, label %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
 
@@ -18502,8 +18502,8 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i:
   %cond.i40.i = phi i32 [ %137, %cond.true.i41.i ], [ 0, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit.i ]
   %conv15.i = zext i32 %cond.i40.i to i64
   %add16.i = add nuw nsw i64 %conv15.i, %conv.i481
-  %cmp.not.i48.i = icmp slt i32 %130, %i.0.in69.i
-  %cmp2.i53.i = icmp sge i32 %add.i27.i, %i.0.in69.i
+  %cmp.not.i48.i = icmp slt i32 %130, %i.0.in68.i
+  %cmp2.i53.i = icmp sge i32 %add.i27.i, %i.0.in68.i
   %or.cond64.i = and i1 %cmp.not.i48.i, %cmp2.i53.i
   br i1 %or.cond64.i, label %cond.true.i55.i, label %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit60.i
 
@@ -18517,7 +18517,7 @@ cond.true.i55.i:                                  ; preds = %_ZZN3fmt2v86detail1
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit60.i: ; preds = %cond.true.i55.i, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
   %cond.i54.i = phi i32 [ %138, %cond.true.i55.i ], [ 0, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i ]
   %conv18.i = zext i32 %cond.i54.i to i64
-  %add19.i = or disjoint i64 %borrow.068.i, %conv18.i
+  %add19.i = or disjoint i64 %borrow.069.i, %conv18.i
   %cmp20.i = icmp ugt i64 %add16.i, %add19.i
   br i1 %cmp20.i, label %invoke.cont70, label %if.end22.i
 
@@ -18583,11 +18583,11 @@ for.cond.i537:                                    ; preds = %if.end22.i534
   br i1 %cmp12.not.not.i539, label %for.body.i509, label %for.end.loopexit.i540, !llvm.loop !79
 
 for.body.i509:                                    ; preds = %for.cond.i537, %for.body.lr.ph.i505
-  %i.0.in69.i510 = phi i32 [ %add.i27.i497, %for.body.lr.ph.i505 ], [ %i.070.i512, %for.cond.i537 ]
-  %borrow.068.i511 = phi i64 [ 0, %for.body.lr.ph.i505 ], [ %shl.i538, %for.cond.i537 ]
-  %i.070.i512 = add nsw i32 %i.0.in69.i510, -1
-  %cmp.not.i.i513 = icmp slt i32 %144, %i.0.in69.i510
-  %cmp2.i.i514 = icmp sge i32 %add.i.i488, %i.0.in69.i510
+  %borrow.069.i510 = phi i64 [ 0, %for.body.lr.ph.i505 ], [ %shl.i538, %for.cond.i537 ]
+  %i.0.in68.i511 = phi i32 [ %add.i27.i497, %for.body.lr.ph.i505 ], [ %i.070.i512, %for.cond.i537 ]
+  %i.070.i512 = add nsw i32 %i.0.in68.i511, -1
+  %cmp.not.i.i513 = icmp slt i32 %144, %i.0.in68.i511
+  %cmp2.i.i514 = icmp sge i32 %add.i.i488, %i.0.in68.i511
   %or.cond.i515 = and i1 %cmp.not.i.i513, %cmp2.i.i514
   br i1 %or.cond.i515, label %cond.true.i41.i545, label %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i522
 
@@ -18604,8 +18604,8 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i5
   %cond.i40.i523 = phi i32 [ %150, %cond.true.i41.i545 ], [ 0, %for.body.i509 ]
   %conv15.i524 = zext i32 %cond.i40.i523 to i64
   %add16.i525 = add nuw nsw i64 %conv.i518930, %conv15.i524
-  %cmp.not.i48.i526 = icmp slt i32 %146, %i.0.in69.i510
-  %cmp2.i53.i527 = icmp sge i32 %add.i27.i497, %i.0.in69.i510
+  %cmp.not.i48.i526 = icmp slt i32 %146, %i.0.in68.i511
+  %cmp2.i53.i527 = icmp sge i32 %add.i27.i497, %i.0.in68.i511
   %or.cond64.i528 = and i1 %cmp.not.i48.i526, %cmp2.i53.i527
   br i1 %or.cond64.i528, label %cond.true.i55.i541, label %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit60.i529
 
@@ -18619,7 +18619,7 @@ cond.true.i55.i541:                               ; preds = %_ZZN3fmt2v86detail1
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit60.i529: ; preds = %cond.true.i55.i541, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i522
   %cond.i54.i530 = phi i32 [ %151, %cond.true.i55.i541 ], [ 0, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i522 ]
   %conv18.i531 = zext i32 %cond.i54.i530 to i64
-  %add19.i532 = or disjoint i64 %borrow.068.i511, %conv18.i531
+  %add19.i532 = or disjoint i64 %borrow.069.i510, %conv18.i531
   %cmp20.i533 = icmp ugt i64 %add16.i525, %add19.i532
   br i1 %cmp20.i533, label %if.end104.sink.split, label %if.end22.i534
 
@@ -18926,11 +18926,11 @@ for.body.lr.ph.i689:                              ; preds = %if.end7.i686
   br label %for.body.i693
 
 for.body.i693:                                    ; preds = %if.end22.i718, %for.body.lr.ph.i689
-  %i.0.in69.i694 = phi i32 [ %add.i27.i681, %for.body.lr.ph.i689 ], [ %i.070.i696, %if.end22.i718 ]
-  %borrow.068.i695 = phi i64 [ 0, %for.body.lr.ph.i689 ], [ %shl.i722, %if.end22.i718 ]
-  %i.070.i696 = add nsw i32 %i.0.in69.i694, -1
-  %cmp.not.i.i697 = icmp slt i32 %192, %i.0.in69.i694
-  %cmp2.i.i698 = icmp sge i32 %add.i.i672, %i.0.in69.i694
+  %borrow.069.i694 = phi i64 [ 0, %for.body.lr.ph.i689 ], [ %shl.i722, %if.end22.i718 ]
+  %i.0.in68.i695 = phi i32 [ %add.i27.i681, %for.body.lr.ph.i689 ], [ %i.070.i696, %if.end22.i718 ]
+  %i.070.i696 = add nsw i32 %i.0.in68.i695, -1
+  %cmp.not.i.i697 = icmp slt i32 %192, %i.0.in68.i695
+  %cmp2.i.i698 = icmp sge i32 %add.i.i672, %i.0.in68.i695
   %or.cond.i699 = and i1 %cmp.not.i.i697, %cmp2.i.i698
   br i1 %or.cond.i699, label %cond.true.i41.i729, label %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i706
 
@@ -18947,8 +18947,8 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i7
   %cond.i40.i707 = phi i32 [ %197, %cond.true.i41.i729 ], [ 0, %for.body.i693 ]
   %conv15.i708 = zext i32 %cond.i40.i707 to i64
   %add16.i709 = add nuw nsw i64 %conv.i702941, %conv15.i708
-  %cmp.not.i48.i710 = icmp slt i32 %193, %i.0.in69.i694
-  %cmp2.i53.i711 = icmp sge i32 %add.i27.i681, %i.0.in69.i694
+  %cmp.not.i48.i710 = icmp slt i32 %193, %i.0.in68.i695
+  %cmp2.i53.i711 = icmp sge i32 %add.i27.i681, %i.0.in68.i695
   %or.cond64.i712 = and i1 %cmp.not.i48.i710, %cmp2.i53.i711
   br i1 %or.cond64.i712, label %cond.true.i55.i725, label %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit60.i713
 
@@ -18962,7 +18962,7 @@ cond.true.i55.i725:                               ; preds = %_ZZN3fmt2v86detail1
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit60.i713: ; preds = %cond.true.i55.i725, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i706
   %cond.i54.i714 = phi i32 [ %198, %cond.true.i55.i725 ], [ 0, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i706 ]
   %conv18.i715 = zext i32 %cond.i54.i714 to i64
-  %add19.i716 = or disjoint i64 %borrow.068.i695, %conv18.i715
+  %add19.i716 = or disjoint i64 %borrow.069.i694, %conv18.i715
   %cmp20.i717 = icmp ugt i64 %add16.i709, %add19.i716
   br i1 %cmp20.i717, label %invoke.cont128, label %if.end22.i718
 
@@ -19140,11 +19140,11 @@ for.cond.i841:                                    ; preds = %if.end22.i838
   br i1 %cmp12.not.not.i843, label %for.body.i813, label %for.end.loopexit.i844, !llvm.loop !79
 
 for.body.i813:                                    ; preds = %for.cond.i841, %for.body.lr.ph.i809
-  %i.0.in69.i814 = phi i32 [ %add.i27.i801, %for.body.lr.ph.i809 ], [ %i.070.i816, %for.cond.i841 ]
-  %borrow.068.i815 = phi i64 [ 0, %for.body.lr.ph.i809 ], [ %shl.i842, %for.cond.i841 ]
-  %i.070.i816 = add nsw i32 %i.0.in69.i814, -1
-  %cmp.not.i.i817 = icmp slt i32 %219, %i.0.in69.i814
-  %cmp2.i.i818 = icmp sge i32 %add.i.i792, %i.0.in69.i814
+  %borrow.069.i814 = phi i64 [ 0, %for.body.lr.ph.i809 ], [ %shl.i842, %for.cond.i841 ]
+  %i.0.in68.i815 = phi i32 [ %add.i27.i801, %for.body.lr.ph.i809 ], [ %i.070.i816, %for.cond.i841 ]
+  %i.070.i816 = add nsw i32 %i.0.in68.i815, -1
+  %cmp.not.i.i817 = icmp slt i32 %219, %i.0.in68.i815
+  %cmp2.i.i818 = icmp sge i32 %add.i.i792, %i.0.in68.i815
   %or.cond.i819 = and i1 %cmp.not.i.i817, %cmp2.i.i818
   br i1 %or.cond.i819, label %cond.true.i41.i849, label %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i826
 
@@ -19161,8 +19161,8 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i8
   %cond.i40.i827 = phi i32 [ %225, %cond.true.i41.i849 ], [ 0, %for.body.i813 ]
   %conv15.i828 = zext i32 %cond.i40.i827 to i64
   %add16.i829 = add nuw nsw i64 %conv.i822948, %conv15.i828
-  %cmp.not.i48.i830 = icmp slt i32 %221, %i.0.in69.i814
-  %cmp2.i53.i831 = icmp sge i32 %add.i27.i801, %i.0.in69.i814
+  %cmp.not.i48.i830 = icmp slt i32 %221, %i.0.in68.i815
+  %cmp2.i53.i831 = icmp sge i32 %add.i27.i801, %i.0.in68.i815
   %or.cond64.i832 = and i1 %cmp.not.i48.i830, %cmp2.i53.i831
   br i1 %or.cond64.i832, label %cond.true.i55.i845, label %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit60.i833
 
@@ -19176,7 +19176,7 @@ cond.true.i55.i845:                               ; preds = %_ZZN3fmt2v86detail1
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit60.i833: ; preds = %cond.true.i55.i845, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i826
   %cond.i54.i834 = phi i32 [ %226, %cond.true.i55.i845 ], [ 0, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i826 ]
   %conv18.i835 = zext i32 %cond.i54.i834 to i64
-  %add19.i836 = or disjoint i64 %borrow.068.i815, %conv18.i835
+  %add19.i836 = or disjoint i64 %borrow.069.i814, %conv18.i835
   %cmp20.i837 = icmp ugt i64 %add16.i829, %add19.i836
   br i1 %cmp20.i837, label %if.then162, label %if.end22.i838
 
@@ -24622,8 +24622,8 @@ if.then6:                                         ; preds = %if.then
 
 do.body.i:                                        ; preds = %land.lhs.true6.i, %if.then6
   %3 = phi i8 [ %0, %if.then6 ], [ %4, %land.lhs.true6.i ]
-  %value.0.i = phi i32 [ 0, %if.then6 ], [ %add.i, %land.lhs.true6.i ]
   %p.0.i = phi ptr [ %begin, %if.then6 ], [ %incdec.ptr.i, %land.lhs.true6.i ]
+  %value.0.i = phi i32 [ 0, %if.then6 ], [ %add.i, %land.lhs.true6.i ]
   %mul.i = mul i32 %value.0.i, 10
   %conv4.i = zext nneg i8 %3 to i32
   %sub.i = add nsw i32 %conv4.i, -48
@@ -25116,8 +25116,8 @@ if.then:                                          ; preds = %entry
 
 do.body.i:                                        ; preds = %land.lhs.true6.i, %if.then
   %4 = phi i8 [ %0, %if.then ], [ %5, %land.lhs.true6.i ]
-  %value.0.i = phi i32 [ 0, %if.then ], [ %add.i, %land.lhs.true6.i ]
   %p.0.i = phi ptr [ %begin, %if.then ], [ %incdec.ptr.i, %land.lhs.true6.i ]
+  %value.0.i = phi i32 [ 0, %if.then ], [ %add.i, %land.lhs.true6.i ]
   %mul.i = mul i32 %value.0.i, 10
   %conv4.i = zext nneg i8 %4 to i32
   %sub.i = add nsw i32 %conv4.i, -48
@@ -25261,8 +25261,8 @@ if.then:                                          ; preds = %cond.end
 
 do.body.i:                                        ; preds = %land.lhs.true6.i, %if.then
   %5 = phi i8 [ %0, %if.then ], [ %6, %land.lhs.true6.i ]
-  %value.0.i = phi i32 [ 0, %if.then ], [ %add.i, %land.lhs.true6.i ]
   %p.0.i = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr.i, %land.lhs.true6.i ]
+  %value.0.i = phi i32 [ 0, %if.then ], [ %add.i, %land.lhs.true6.i ]
   %mul.i = mul i32 %value.0.i, 10
   %conv4.i = sext i8 %5 to i32
   %sub.i = add nsw i32 %conv4.i, -48
@@ -25465,8 +25465,8 @@ if.then6:                                         ; preds = %if.then
 
 do.body.i:                                        ; preds = %land.lhs.true6.i, %if.then6
   %3 = phi i8 [ %0, %if.then6 ], [ %4, %land.lhs.true6.i ]
-  %value.0.i = phi i32 [ 0, %if.then6 ], [ %add.i, %land.lhs.true6.i ]
   %p.0.i = phi ptr [ %begin, %if.then6 ], [ %incdec.ptr.i, %land.lhs.true6.i ]
+  %value.0.i = phi i32 [ 0, %if.then6 ], [ %add.i, %land.lhs.true6.i ]
   %mul.i = mul i32 %value.0.i, 10
   %conv4.i = zext nneg i8 %3 to i32
   %sub.i = add nsw i32 %conv4.i, -48
@@ -26143,8 +26143,8 @@ if.then6:                                         ; preds = %if.then
 
 do.body.i:                                        ; preds = %land.lhs.true6.i, %if.then6
   %3 = phi i8 [ %0, %if.then6 ], [ %4, %land.lhs.true6.i ]
-  %value.0.i = phi i32 [ 0, %if.then6 ], [ %add.i, %land.lhs.true6.i ]
   %p.0.i = phi ptr [ %begin, %if.then6 ], [ %incdec.ptr.i, %land.lhs.true6.i ]
+  %value.0.i = phi i32 [ 0, %if.then6 ], [ %add.i, %land.lhs.true6.i ]
   %mul.i = mul i32 %value.0.i, 10
   %conv4.i = zext nneg i8 %3 to i32
   %sub.i = add nsw i32 %conv4.i, -48
@@ -26981,8 +26981,8 @@ if.then14.i143:                                   ; preds = %if.else.i140
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit153
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit153: ; preds = %if.then.i148, %if.then7.i150, %if.else.i140, %if.then14.i143
-  %data.i36.sroa.5.0 = phi i64 [ %sub.i152, %if.then7.i150 ], [ 0, %if.then.i148 ], [ %conv24.i147, %if.then14.i143 ], [ 0, %if.else.i140 ]
   %data.i36.sroa.0.0 = phi i64 [ %conv4.i151, %if.then7.i150 ], [ %conv.i134, %if.then.i148 ], [ %conv19.i145, %if.then14.i143 ], [ %conv.i134, %if.else.i140 ]
+  %data.i36.sroa.5.0 = phi i64 [ %sub.i152, %if.then7.i150 ], [ 0, %if.then.i148 ], [ %conv24.i147, %if.then14.i143 ], [ 0, %if.else.i140 ]
   store i32 %prefix.i.0, ptr %ref.tmp32.i38, align 8
   %45 = getelementptr inbounds i8, ptr %ref.tmp32.i38, i64 8
   store i64 %data.i36.sroa.0.0, ptr %45, align 8
@@ -27208,8 +27208,8 @@ if.then14.i245:                                   ; preds = %if.else.i242
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit255
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit255: ; preds = %if.then.i250, %if.then7.i252, %if.else.i242, %if.then14.i245
-  %data.i80.sroa.5.0 = phi i64 [ %sub.i254, %if.then7.i252 ], [ 0, %if.then.i250 ], [ %conv24.i249, %if.then14.i245 ], [ 0, %if.else.i242 ]
   %data.i80.sroa.0.0 = phi i64 [ %conv4.i253, %if.then7.i252 ], [ %conv.i236, %if.then.i250 ], [ %conv19.i247, %if.then14.i245 ], [ %conv.i236, %if.else.i242 ]
+  %data.i80.sroa.5.0 = phi i64 [ %sub.i254, %if.then7.i252 ], [ 0, %if.then.i250 ], [ %conv24.i249, %if.then14.i245 ], [ 0, %if.else.i242 ]
   store i32 %prefix.i.1, ptr %ref.tmp32.i82, align 8
   %67 = getelementptr inbounds i8, ptr %ref.tmp32.i82, i64 8
   store i64 %data.i80.sroa.0.0, ptr %67, align 8
@@ -29701,8 +29701,8 @@ if.then14.i142:                                   ; preds = %if.else.i139
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit152
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit152: ; preds = %if.then.i147, %if.then7.i149, %if.else.i139, %if.then14.i142
-  %data.i38.sroa.5.0 = phi i64 [ %sub.i151, %if.then7.i149 ], [ 0, %if.then.i147 ], [ %conv24.i146, %if.then14.i142 ], [ 0, %if.else.i139 ]
   %data.i38.sroa.0.0 = phi i64 [ %conv4.i150, %if.then7.i149 ], [ %conv.i133, %if.then.i147 ], [ %conv19.i144, %if.then14.i142 ], [ %conv.i133, %if.else.i139 ]
+  %data.i38.sroa.5.0 = phi i64 [ %sub.i151, %if.then7.i149 ], [ 0, %if.then.i147 ], [ %conv24.i146, %if.then14.i142 ], [ 0, %if.else.i139 ]
   store i32 %prefix.i.0, ptr %ref.tmp32.i40, align 16
   %45 = getelementptr inbounds i8, ptr %ref.tmp32.i40, i64 8
   store i64 %data.i38.sroa.0.0, ptr %45, align 8
@@ -29929,8 +29929,8 @@ if.then14.i248:                                   ; preds = %if.else.i245
   br label %_ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit258
 
 _ZN3fmt2v86detail14write_int_dataIcEC2EijRKNS0_18basic_format_specsIcEE.exit258: ; preds = %if.then.i253, %if.then7.i255, %if.else.i245, %if.then14.i248
-  %data.i82.sroa.5.0 = phi i64 [ %sub.i257, %if.then7.i255 ], [ 0, %if.then.i253 ], [ %conv24.i252, %if.then14.i248 ], [ 0, %if.else.i245 ]
   %data.i82.sroa.0.0 = phi i64 [ %conv4.i256, %if.then7.i255 ], [ %conv.i239, %if.then.i253 ], [ %conv19.i250, %if.then14.i248 ], [ %conv.i239, %if.else.i245 ]
+  %data.i82.sroa.5.0 = phi i64 [ %sub.i257, %if.then7.i255 ], [ 0, %if.then.i253 ], [ %conv24.i252, %if.then14.i248 ], [ 0, %if.else.i245 ]
   store i32 %prefix.i.1, ptr %ref.tmp32.i84, align 16
   %67 = getelementptr inbounds i8, ptr %ref.tmp32.i84, i64 8
   store i64 %data.i82.sroa.0.0, ptr %67, align 8
@@ -35238,8 +35238,8 @@ if.then:                                          ; preds = %entry
 
 do.body.i:                                        ; preds = %land.lhs.true6.i, %if.then
   %4 = phi i8 [ %0, %if.then ], [ %5, %land.lhs.true6.i ]
-  %value.0.i = phi i32 [ 0, %if.then ], [ %add.i, %land.lhs.true6.i ]
   %p.0.i = phi ptr [ %begin, %if.then ], [ %incdec.ptr.i, %land.lhs.true6.i ]
+  %value.0.i = phi i32 [ 0, %if.then ], [ %add.i, %land.lhs.true6.i ]
   %mul.i = mul i32 %value.0.i, 10
   %conv4.i = zext nneg i8 %4 to i32
   %sub.i = add nsw i32 %conv4.i, -48
@@ -35406,8 +35406,8 @@ if.then:                                          ; preds = %cond.end
 
 do.body.i:                                        ; preds = %land.lhs.true6.i, %if.then
   %5 = phi i8 [ %0, %if.then ], [ %6, %land.lhs.true6.i ]
-  %value.0.i = phi i32 [ 0, %if.then ], [ %add.i, %land.lhs.true6.i ]
   %p.0.i = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr.i, %land.lhs.true6.i ]
+  %value.0.i = phi i32 [ 0, %if.then ], [ %add.i, %land.lhs.true6.i ]
   %mul.i = mul i32 %value.0.i, 10
   %conv4.i = sext i8 %5 to i32
   %sub.i = add nsw i32 %conv4.i, -48
@@ -35602,8 +35602,8 @@ if.then6:                                         ; preds = %if.then
 
 do.body.i:                                        ; preds = %land.lhs.true6.i, %if.then6
   %3 = phi i8 [ %0, %if.then6 ], [ %4, %land.lhs.true6.i ]
-  %value.0.i = phi i32 [ 0, %if.then6 ], [ %add.i, %land.lhs.true6.i ]
   %p.0.i = phi ptr [ %begin, %if.then6 ], [ %incdec.ptr.i, %land.lhs.true6.i ]
+  %value.0.i = phi i32 [ 0, %if.then6 ], [ %add.i, %land.lhs.true6.i ]
   %mul.i = mul i32 %value.0.i, 10
   %conv4.i = zext nneg i8 %3 to i32
   %sub.i = add nsw i32 %conv4.i, -48
@@ -35784,8 +35784,8 @@ if.then6:                                         ; preds = %if.then
 
 do.body.i:                                        ; preds = %land.lhs.true6.i, %if.then6
   %3 = phi i8 [ %0, %if.then6 ], [ %4, %land.lhs.true6.i ]
-  %value.0.i = phi i32 [ 0, %if.then6 ], [ %add.i, %land.lhs.true6.i ]
   %p.0.i = phi ptr [ %begin, %if.then6 ], [ %incdec.ptr.i, %land.lhs.true6.i ]
+  %value.0.i = phi i32 [ 0, %if.then6 ], [ %add.i, %land.lhs.true6.i ]
   %mul.i = mul i32 %value.0.i, 10
   %conv4.i = zext nneg i8 %3 to i32
   %sub.i = add nsw i32 %conv4.i, -48

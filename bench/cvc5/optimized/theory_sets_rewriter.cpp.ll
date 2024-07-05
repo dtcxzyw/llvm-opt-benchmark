@@ -9568,10 +9568,10 @@ entry:
   br i1 %or.cond19.i, label %while.body.i, label %_ZSt18__set_intersectionISt23_Rb_tree_const_iteratorIN4cvc58internal12NodeTemplateILb1EEEES5_St15insert_iteratorISt3setIS4_St4lessIS4_ESaIS4_EEEN9__gnu_cxx5__ops15_Iter_less_iterEET1_T_SH_T0_SI_SG_T2_.exit
 
 while.body.i:                                     ; preds = %entry, %if.end24.i
-  %__first2.sroa.0.021.i = phi ptr [ %__first2.sroa.0.1.i, %if.end24.i ], [ %__first2.coerce, %entry ]
-  %__first1.sroa.0.020.i = phi ptr [ %__first1.sroa.0.1.i, %if.end24.i ], [ %__first1.coerce, %entry ]
-  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.020.i, i64 32
-  %_M_storage.i.i1.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.021.i, i64 32
+  %__first1.sroa.0.021.i = phi ptr [ %__first1.sroa.0.1.i, %if.end24.i ], [ %__first1.coerce, %entry ]
+  %__first2.sroa.0.020.i = phi ptr [ %__first2.sroa.0.1.i, %if.end24.i ], [ %__first2.coerce, %entry ]
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.021.i, i64 32
+  %_M_storage.i.i1.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.020.i, i64 32
   %1 = load ptr, ptr %_M_storage.i.i.i.i, align 8
   %bf.load.i.i.i = load i64, ptr %1, align 8
   %bf.clear.i.i.i = and i64 %bf.load.i.i.i, 1099511627775
@@ -9582,7 +9582,7 @@ while.body.i:                                     ; preds = %entry, %if.end24.i
   br i1 %cmp.i.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.020.i) #17
+  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.021.i) #17
   br label %if.end24.i
 
 if.else.i:                                        ; preds = %while.body.i
@@ -9590,18 +9590,18 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %cmp.i.i8.i, label %if.then15.i, label %if.else17.i
 
 if.then15.i:                                      ; preds = %if.else.i
-  %call.i9.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.021.i) #17
+  %call.i9.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.020.i) #17
   br label %if.end24.i
 
 if.else17.i:                                      ; preds = %if.else.i
   %call20.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15insert_iteratorISt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS4_ESaIS4_EEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %__result.i, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i)
-  %call.i10.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.020.i) #17
-  %call.i11.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.021.i) #17
+  %call.i10.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.021.i) #17
+  %call.i11.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.020.i) #17
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.else17.i, %if.then15.i, %if.then.i
-  %__first1.sroa.0.1.i = phi ptr [ %call.i.i, %if.then.i ], [ %__first1.sroa.0.020.i, %if.then15.i ], [ %call.i10.i, %if.else17.i ]
-  %__first2.sroa.0.1.i = phi ptr [ %__first2.sroa.0.021.i, %if.then.i ], [ %call.i9.i, %if.then15.i ], [ %call.i11.i, %if.else17.i ]
+  %__first2.sroa.0.1.i = phi ptr [ %__first2.sroa.0.020.i, %if.then.i ], [ %call.i9.i, %if.then15.i ], [ %call.i11.i, %if.else17.i ]
+  %__first1.sroa.0.1.i = phi ptr [ %call.i.i, %if.then.i ], [ %__first1.sroa.0.021.i, %if.then15.i ], [ %call.i10.i, %if.else17.i ]
   %cmp.i.i = icmp ne ptr %__first1.sroa.0.1.i, %__last1.coerce
   %cmp.i1.i = icmp ne ptr %__first2.sroa.0.1.i, %__last2.coerce
   %or.cond.i = select i1 %cmp.i.i, i1 %cmp.i1.i, i1 false
@@ -17068,10 +17068,10 @@ entry:
   br i1 %or.cond19, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %if.end24
-  %__first2.sroa.0.021 = phi ptr [ %__first2.sroa.0.1, %if.end24 ], [ %__first2.coerce, %entry ]
-  %__first1.sroa.0.020 = phi ptr [ %__first1.sroa.0.1, %if.end24 ], [ %__first1.coerce, %entry ]
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.020, i64 32
-  %_M_storage.i.i1.i = getelementptr inbounds i8, ptr %__first2.sroa.0.021, i64 32
+  %__first1.sroa.0.021 = phi ptr [ %__first1.sroa.0.1, %if.end24 ], [ %__first1.coerce, %entry ]
+  %__first2.sroa.0.020 = phi ptr [ %__first2.sroa.0.1, %if.end24 ], [ %__first2.coerce, %entry ]
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.021, i64 32
+  %_M_storage.i.i1.i = getelementptr inbounds i8, ptr %__first2.sroa.0.020, i64 32
   %1 = load ptr, ptr %_M_storage.i.i.i, align 8
   %bf.load.i.i = load i64, ptr %1, align 8
   %bf.clear.i.i = and i64 %bf.load.i.i, 1099511627775
@@ -17083,7 +17083,7 @@ while.body:                                       ; preds = %entry, %if.end24
 
 if.then:                                          ; preds = %while.body
   %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15insert_iteratorISt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS4_ESaIS4_EEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %__result, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i)
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.020) #17
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.021) #17
   br label %if.end24
 
 if.else:                                          ; preds = %while.body
@@ -17091,17 +17091,17 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp.i.i8, label %if.then19, label %if.else21
 
 if.then19:                                        ; preds = %if.else
-  %call.i9 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.021) #17
+  %call.i9 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.020) #17
   br label %if.end24
 
 if.else21:                                        ; preds = %if.else
-  %call.i10 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.020) #17
-  %call.i11 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.021) #17
+  %call.i10 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.021) #17
+  %call.i11 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.020) #17
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then19, %if.else21, %if.then
-  %__first1.sroa.0.1 = phi ptr [ %call.i, %if.then ], [ %__first1.sroa.0.020, %if.then19 ], [ %call.i10, %if.else21 ]
-  %__first2.sroa.0.1 = phi ptr [ %__first2.sroa.0.021, %if.then ], [ %call.i9, %if.then19 ], [ %call.i11, %if.else21 ]
+  %__first2.sroa.0.1 = phi ptr [ %__first2.sroa.0.020, %if.then ], [ %call.i9, %if.then19 ], [ %call.i11, %if.else21 ]
+  %__first1.sroa.0.1 = phi ptr [ %call.i, %if.then ], [ %__first1.sroa.0.021, %if.then19 ], [ %call.i10, %if.else21 ]
   %cmp.i = icmp ne ptr %__first1.sroa.0.1, %__last1.coerce
   %cmp.i1 = icmp ne ptr %__first2.sroa.0.1, %__last2.coerce
   %or.cond = select i1 %cmp.i, i1 %cmp.i1, i1 false
@@ -17272,10 +17272,10 @@ entry:
   br i1 %or.cond39, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %if.end29
-  %__first2.sroa.0.041 = phi ptr [ %__first2.sroa.0.1, %if.end29 ], [ %__first2.coerce, %entry ]
-  %__first1.sroa.0.040 = phi ptr [ %__first1.sroa.0.1, %if.end29 ], [ %__first1.coerce, %entry ]
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.040, i64 32
-  %_M_storage.i.i1.i = getelementptr inbounds i8, ptr %__first2.sroa.0.041, i64 32
+  %__first1.sroa.0.041 = phi ptr [ %__first1.sroa.0.1, %if.end29 ], [ %__first1.coerce, %entry ]
+  %__first2.sroa.0.040 = phi ptr [ %__first2.sroa.0.1, %if.end29 ], [ %__first2.coerce, %entry ]
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.041, i64 32
+  %_M_storage.i.i1.i = getelementptr inbounds i8, ptr %__first2.sroa.0.040, i64 32
   %1 = load ptr, ptr %_M_storage.i.i.i, align 8
   %bf.load.i.i = load i64, ptr %1, align 8
   %bf.clear.i.i = and i64 %bf.load.i.i, 1099511627775
@@ -17287,7 +17287,7 @@ while.body:                                       ; preds = %entry, %if.end29
 
 if.then:                                          ; preds = %while.body
   %call11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15insert_iteratorISt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS4_ESaIS4_EEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %__result, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i)
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.040) #17
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.041) #17
   br label %if.end29
 
 if.else:                                          ; preds = %while.body
@@ -17296,18 +17296,18 @@ if.else:                                          ; preds = %while.body
 
 if.then18:                                        ; preds = %if.else
   %call21 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15insert_iteratorISt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS4_ESaIS4_EEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %__result, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i1.i)
-  %call.i10 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.041) #17
+  %call.i10 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.040) #17
   br label %if.end29
 
 if.else23:                                        ; preds = %if.else
   %call26 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15insert_iteratorISt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS4_ESaIS4_EEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %__result, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i)
-  %call.i12 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.040) #17
-  %call.i13 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.041) #17
+  %call.i12 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.041) #17
+  %call.i13 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.040) #17
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then18, %if.else23, %if.then
-  %__first1.sroa.0.1 = phi ptr [ %call.i, %if.then ], [ %__first1.sroa.0.040, %if.then18 ], [ %call.i12, %if.else23 ]
-  %__first2.sroa.0.1 = phi ptr [ %__first2.sroa.0.041, %if.then ], [ %call.i10, %if.then18 ], [ %call.i13, %if.else23 ]
+  %__first2.sroa.0.1 = phi ptr [ %__first2.sroa.0.040, %if.then ], [ %call.i10, %if.then18 ], [ %call.i13, %if.else23 ]
+  %__first1.sroa.0.1 = phi ptr [ %call.i, %if.then ], [ %__first1.sroa.0.041, %if.then18 ], [ %call.i12, %if.else23 ]
   %cmp.i = icmp ne ptr %__first1.sroa.0.1, %__last1.coerce
   %cmp.i1 = icmp ne ptr %__first2.sroa.0.1, %__last2.coerce
   %or.cond = select i1 %cmp.i, i1 %cmp.i1, i1 false
@@ -17321,8 +17321,8 @@ while.end.loopexit:                               ; preds = %if.end29
 while.end:                                        ; preds = %while.end.loopexit, %entry
   %agg.tmp36.sroa.2.0.copyload = phi ptr [ %__result.coerce1, %entry ], [ %agg.tmp36.sroa.2.0.copyload.pre, %while.end.loopexit ]
   %agg.tmp36.sroa.0.0.copyload = phi ptr [ %__result.coerce0, %entry ], [ %agg.tmp36.sroa.0.0.copyload.pre, %while.end.loopexit ]
-  %__first1.sroa.0.0.lcssa = phi ptr [ %__first1.coerce, %entry ], [ %__first1.sroa.0.1, %while.end.loopexit ]
   %__first2.sroa.0.0.lcssa = phi ptr [ %__first2.coerce, %entry ], [ %__first2.sroa.0.1, %while.end.loopexit ]
+  %__first1.sroa.0.0.lcssa = phi ptr [ %__first1.coerce, %entry ], [ %__first1.sroa.0.1, %while.end.loopexit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__result.i.i.i.i.i)
   store ptr %agg.tmp36.sroa.0.0.copyload, ptr %__result.i.i.i.i.i, align 8
   %3 = getelementptr inbounds i8, ptr %__result.i.i.i.i.i, i64 8

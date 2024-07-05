@@ -443,8 +443,8 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
   br label %13
 
 13:                                               ; preds = %.lr.ph, %20
-  %.0106202 = phi ptr [ %9, %.lr.ph ], [ %15, %20 ]
-  %14 = load i8, ptr %.0106202, align 1
+  %.0107202 = phi ptr [ %9, %.lr.ph ], [ %15, %20 ]
+  %14 = load i8, ptr %.0107202, align 1
   switch i8 %14, label %25 [
     i8 32, label %.critedge2
     i8 9, label %.critedge2
@@ -453,7 +453,7 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
   ]
 
 .critedge2:                                       ; preds = %13, %13, %13, %13
-  %15 = getelementptr i8, ptr %.0106202, i64 1
+  %15 = getelementptr i8, ptr %.0107202, i64 1
   %16 = icmp eq i8 %14, 10
   br i1 %16, label %17, label %20
 
@@ -469,20 +469,20 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %21, label %13, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %20, %1
-  %.0106.lcssa = phi ptr [ %9, %1 ], [ %15, %20 ]
+  %.0107.lcssa = phi ptr [ %9, %1 ], [ %15, %20 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %9, ptr %23, align 8
-  store ptr %.0106.lcssa, ptr %8, align 8
+  store ptr %.0107.lcssa, ptr %8, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 12, ptr %24, align 8
   br label %265
 
 25:                                               ; preds = %13
   %26 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.0106202, ptr %26, align 8
-  %27 = load i8, ptr %.0106202, align 1
+  store ptr %.0107202, ptr %26, align 8
+  %27 = load i8, ptr %.0107202, align 1
   switch i8 %27, label %.preheader [
     i8 123, label %29
     i8 125, label %33
@@ -505,13 +505,13 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
   ]
 
 .preheader:                                       ; preds = %25
-  %28 = icmp ult ptr %.0106202, %7
+  %28 = icmp ult ptr %.0107202, %7
   br i1 %28, label %.lr.ph204, label %.critedge4.thread
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %9, ptr %30, align 8
-  %31 = getelementptr i8, ptr %.0106202, i64 1
+  %31 = getelementptr i8, ptr %.0107202, i64 1
   store ptr %31, ptr %8, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 3, ptr %32, align 8
@@ -520,7 +520,7 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
 33:                                               ; preds = %25
   %34 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %9, ptr %34, align 8
-  %35 = getelementptr i8, ptr %.0106202, i64 1
+  %35 = getelementptr i8, ptr %.0107202, i64 1
   store ptr %35, ptr %8, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 4, ptr %36, align 8
@@ -529,7 +529,7 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
 37:                                               ; preds = %25
   %38 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %9, ptr %38, align 8
-  %39 = getelementptr i8, ptr %.0106202, i64 1
+  %39 = getelementptr i8, ptr %.0107202, i64 1
   store ptr %39, ptr %8, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 5, ptr %40, align 8
@@ -538,7 +538,7 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
 41:                                               ; preds = %25
   %42 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %9, ptr %42, align 8
-  %43 = getelementptr i8, ptr %.0106202, i64 1
+  %43 = getelementptr i8, ptr %.0107202, i64 1
   store ptr %43, ptr %8, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 6, ptr %44, align 8
@@ -547,7 +547,7 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
 45:                                               ; preds = %25
   %46 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %9, ptr %46, align 8
-  %47 = getelementptr i8, ptr %.0106202, i64 1
+  %47 = getelementptr i8, ptr %.0107202, i64 1
   store ptr %47, ptr %8, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 7, ptr %48, align 8
@@ -556,7 +556,7 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
 49:                                               ; preds = %25
   %50 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %9, ptr %50, align 8
-  %51 = getelementptr i8, ptr %.0106202, i64 1
+  %51 = getelementptr i8, ptr %.0107202, i64 1
   store ptr %51, ptr %8, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 8, ptr %52, align 8
@@ -575,7 +575,7 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
   br label %57
 
 57:                                               ; preds = %56, %53
-  %58 = phi ptr [ %.pre, %56 ], [ %.0106202, %53 ]
+  %58 = phi ptr [ %.pre, %56 ], [ %.0107202, %53 ]
   %59 = getelementptr i8, ptr %58, i64 1
   %.not159271.i = icmp ult ptr %59, %7
   br i1 %.not159271.i, label %.lr.ph275.i, label %json_lex_string.exit.thread
@@ -587,7 +587,7 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
 61:                                               ; preds = %.backedge.i, %.lr.ph275.i
   %62 = phi ptr [ %59, %.lr.ph275.i ], [ %219, %.backedge.i ]
   %.0136273.i = phi i32 [ -1, %.lr.ph275.i ], [ %.0136.be.i, %.backedge.i ]
-  %.0139272.i = phi ptr [ %58, %.lr.ph275.i ], [ %.0139.be.i, %.backedge.i ]
+  %.0140272.i = phi ptr [ %58, %.lr.ph275.i ], [ %.0140.be.i, %.backedge.i ]
   %63 = load i8, ptr %62, align 1
   switch i8 %63, label %178 [
     i8 34, label %220
@@ -595,7 +595,7 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
   ]
 
 64:                                               ; preds = %61
-  %65 = getelementptr i8, ptr %.0139272.i, i64 2
+  %65 = getelementptr i8, ptr %.0140272.i, i64 2
   %.not162.i = icmp ult ptr %65, %7
   br i1 %.not162.i, label %66, label %json_lex_string.exit.thread
 
@@ -606,14 +606,14 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %69, label %.preheader192.preheader.i, label %148
 
 .preheader192.preheader.i:                        ; preds = %66
-  %scevgep.i = getelementptr i8, ptr %.0139272.i, i64 6
+  %scevgep.i = getelementptr i8, ptr %.0140272.i, i64 6
   br label %.preheader192.i
 
 .preheader192.i:                                  ; preds = %98, %.preheader192.preheader.i
   %.0133263.i = phi i32 [ %.1134.i, %98 ], [ 0, %.preheader192.preheader.i ]
   %.0135262.i = phi i32 [ %99, %98 ], [ 1, %.preheader192.preheader.i ]
-  %.1140261.i = phi ptr [ %70, %98 ], [ %65, %.preheader192.preheader.i ]
-  %70 = getelementptr i8, ptr %.1140261.i, i64 1
+  %.1141261.i = phi ptr [ %70, %98 ], [ %65, %.preheader192.preheader.i ]
+  %70 = getelementptr i8, ptr %.1141261.i, i64 1
   %.not168.i = icmp ult ptr %70, %7
   br i1 %.not168.i, label %71, label %json_lex_string.exit.thread
 
@@ -849,11 +849,11 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
 
 186:                                              ; preds = %188, %.preheader.i
   %187 = phi i1 [ false, %188 ], [ true, %.preheader.i ]
-  %.0.i.i = phi i64 [ 16, %188 ], [ 0, %.preheader.i ]
+  %.013.i.i = phi i64 [ 16, %188 ], [ 0, %.preheader.i ]
   br i1 %187, label %188, label %pg_lfind8.exit.i
 
 188:                                              ; preds = %186
-  %189 = getelementptr i8, ptr %.0264.i, i64 %.0.i.i
+  %189 = getelementptr i8, ptr %.0264.i, i64 %.013.i.i
   %.val14.i.i = load <16 x i8>, ptr %189, align 1
   %190 = icmp eq <16 x i8> %.val14.i.i, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
   %191 = bitcast <16 x i1> %190 to i16
@@ -862,11 +862,11 @@ define dso_local i32 @json_lex(ptr noundef %0) local_unnamed_addr #4 {
 
 pg_lfind8.exit.i:                                 ; preds = %186, %193
   %192 = phi i1 [ false, %193 ], [ true, %186 ]
-  %.0.i174.i = phi i64 [ 16, %193 ], [ 0, %186 ]
+  %.013.i174.i = phi i64 [ 16, %193 ], [ 0, %186 ]
   br i1 %192, label %193, label %pg_lfind8.exit177.i
 
 193:                                              ; preds = %pg_lfind8.exit.i
-  %194 = getelementptr i8, ptr %.0264.i, i64 %.0.i174.i
+  %194 = getelementptr i8, ptr %.0264.i, i64 %.013.i174.i
   %.val14.i175.i = load <16 x i8>, ptr %194, align 1
   %195 = icmp eq <16 x i8> %.val14.i175.i, <i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34>
   %196 = bitcast <16 x i1> %195 to i16
@@ -875,11 +875,11 @@ pg_lfind8.exit.i:                                 ; preds = %186, %193
 
 pg_lfind8.exit177.i:                              ; preds = %pg_lfind8.exit.i, %198
   %197 = phi i1 [ false, %198 ], [ true, %pg_lfind8.exit.i ]
-  %.0.i178.i = phi i64 [ 16, %198 ], [ 0, %pg_lfind8.exit.i ]
+  %.013.i178.i = phi i64 [ 16, %198 ], [ 0, %pg_lfind8.exit.i ]
   br i1 %197, label %198, label %pg_lfind8_le.exit.i
 
 198:                                              ; preds = %pg_lfind8.exit177.i
-  %199 = getelementptr i8, ptr %.0264.i, i64 %.0.i178.i
+  %199 = getelementptr i8, ptr %.0264.i, i64 %.013.i178.i
   %.val14.i179.i = load <16 x i8>, ptr %199, align 1
   %200 = icmp ult <16 x i8> %.val14.i179.i, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
   %201 = bitcast <16 x i1> %200 to i16
@@ -932,9 +932,9 @@ pg_lfind8_le.exit.i:                              ; preds = %pg_lfind8.exit177.i
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %217, %170, %163, %162, %161, %160, %159, %158, %146, %104, %100
-  %.0139.be.i = phi ptr [ %scevgep.i, %104 ], [ %scevgep.i, %146 ], [ %scevgep.i, %100 ], [ %65, %163 ], [ %65, %162 ], [ %65, %161 ], [ %65, %160 ], [ %65, %159 ], [ %65, %158 ], [ %65, %170 ], [ %218, %217 ]
+  %.0140.be.i = phi ptr [ %scevgep.i, %104 ], [ %scevgep.i, %146 ], [ %scevgep.i, %100 ], [ %65, %163 ], [ %65, %162 ], [ %65, %161 ], [ %65, %160 ], [ %65, %159 ], [ %65, %158 ], [ %65, %170 ], [ %218, %217 ]
   %.0136.be.i = phi i32 [ %.1134.i, %104 ], [ -1, %146 ], [ %.0136273.i, %100 ], [ -1, %163 ], [ -1, %162 ], [ -1, %161 ], [ -1, %160 ], [ -1, %159 ], [ -1, %158 ], [ %.0136273.i, %170 ], [ -1, %217 ]
-  %219 = getelementptr i8, ptr %.0139.be.i, i64 1
+  %219 = getelementptr i8, ptr %.0140.be.i, i64 1
   %.not159.i = icmp ult ptr %219, %7
   br i1 %.not159.i, label %61, label %json_lex_string.exit.thread
 
@@ -943,12 +943,12 @@ pg_lfind8_le.exit.i:                              ; preds = %pg_lfind8.exit177.i
   br i1 %.not171.i, label %223, label %221
 
 221:                                              ; preds = %220
-  %222 = getelementptr i8, ptr %.0139272.i, i64 2
+  %222 = getelementptr i8, ptr %.0140272.i, i64 2
   br label %json_lex_string.exit.thread
 
 json_lex_string.exit.thread:                      ; preds = %64, %.backedge.i, %.preheader192.i, %206, %57, %221, %92, %105, %112, %124, %132, %140, %151, %164, %172, %180
   %.lcssa218.i.sink = phi ptr [ %222, %221 ], [ %97, %92 ], [ %110, %105 ], [ %117, %112 ], [ %129, %124 ], [ %137, %132 ], [ %145, %140 ], [ %156, %151 ], [ %169, %164 ], [ %177, %172 ], [ %185, %180 ], [ %59, %57 ], [ %.1265.i, %206 ], [ %70, %.preheader192.i ], [ %219, %.backedge.i ], [ %65, %64 ]
-  %.0142.i.ph = phi i32 [ 18, %221 ], [ 14, %92 ], [ 17, %105 ], [ 18, %112 ], [ 18, %124 ], [ 13, %132 ], [ 16, %140 ], [ 18, %151 ], [ 1, %164 ], [ 1, %172 ], [ 18, %180 ], [ 12, %57 ], [ 2, %206 ], [ 12, %.preheader192.i ], [ 12, %.backedge.i ], [ 12, %64 ]
+  %.0139.i.ph = phi i32 [ 18, %221 ], [ 14, %92 ], [ 17, %105 ], [ 18, %112 ], [ 18, %124 ], [ 13, %132 ], [ 16, %140 ], [ 18, %151 ], [ 1, %164 ], [ 1, %172 ], [ 18, %180 ], [ 12, %57 ], [ 2, %206 ], [ 12, %.preheader192.i ], [ 12, %.backedge.i ], [ 12, %64 ]
   store ptr %.lcssa218.i.sink, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %2)
   br label %265
@@ -957,7 +957,7 @@ json_lex_string.exit.thread:                      ; preds = %64, %.backedge.i, %
   %224 = load ptr, ptr %8, align 8
   %225 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %224, ptr %225, align 8
-  %226 = getelementptr i8, ptr %.0139272.i, i64 2
+  %226 = getelementptr i8, ptr %.0140272.i, i64 2
   store ptr %226, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %2)
   %227 = getelementptr inbounds i8, ptr %0, i64 40
@@ -965,7 +965,7 @@ json_lex_string.exit.thread:                      ; preds = %64, %.backedge.i, %
   br label %265
 
 228:                                              ; preds = %25
-  %229 = getelementptr i8, ptr %.0106202, i64 1
+  %229 = getelementptr i8, ptr %.0107202, i64 1
   %230 = tail call fastcc i32 @json_lex_number(ptr noundef nonnull %0, ptr noundef %229, ptr noundef null, ptr noundef null)
   %.not118 = icmp eq i32 %230, 0
   br i1 %.not118, label %231, label %265
@@ -976,7 +976,7 @@ json_lex_string.exit.thread:                      ; preds = %64, %.backedge.i, %
   br label %265
 
 233:                                              ; preds = %25, %25, %25, %25, %25, %25, %25, %25, %25, %25
-  %234 = tail call fastcc i32 @json_lex_number(ptr noundef nonnull %0, ptr noundef nonnull %.0106202, ptr noundef null, ptr noundef null)
+  %234 = tail call fastcc i32 @json_lex_number(ptr noundef nonnull %0, ptr noundef nonnull %.0107202, ptr noundef null, ptr noundef null)
   %.not117 = icmp eq i32 %234, 0
   br i1 %.not117, label %235, label %265
 
@@ -986,7 +986,7 @@ json_lex_string.exit.thread:                      ; preds = %64, %.backedge.i, %
   br label %265
 
 .lr.ph204:                                        ; preds = %.preheader, %.critedge6
-  %.0203 = phi ptr [ %243, %.critedge6 ], [ %.0106202, %.preheader ]
+  %.0203 = phi ptr [ %243, %.critedge6 ], [ %.0107202, %.preheader ]
   %237 = load i8, ptr %.0203, align 1
   %238 = and i8 %237, -33
   %239 = add i8 %238, -65
@@ -1009,13 +1009,13 @@ json_lex_string.exit.thread:                      ; preds = %64, %.backedge.i, %
 
 .critedge4:                                       ; preds = %.critedge6, %241
   %.0.lcssa = phi ptr [ %243, %.critedge6 ], [ %.0203, %241 ]
-  %245 = icmp eq ptr %.0.lcssa, %.0106202
+  %245 = icmp eq ptr %.0.lcssa, %.0107202
   br i1 %245, label %.critedge4.thread, label %248
 
 .critedge4.thread:                                ; preds = %.preheader, %.critedge4
   %246 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %9, ptr %246, align 8
-  %247 = getelementptr i8, ptr %.0106202, i64 1
+  %247 = getelementptr i8, ptr %.0107202, i64 1
   store ptr %247, ptr %8, align 8
   br label %265
 
@@ -1024,7 +1024,7 @@ json_lex_string.exit.thread:                      ; preds = %64, %.backedge.i, %
   store ptr %9, ptr %249, align 8
   store ptr %.0.lcssa, ptr %8, align 8
   %250 = ptrtoint ptr %.0.lcssa to i64
-  %251 = ptrtoint ptr %.0106202 to i64
+  %251 = ptrtoint ptr %.0107202 to i64
   %252 = sub i64 %250, %251
   switch i64 %252, label %265 [
     i64 4, label %253
@@ -1032,7 +1032,7 @@ json_lex_string.exit.thread:                      ; preds = %64, %.backedge.i, %
   ]
 
 253:                                              ; preds = %248
-  %bcmp121 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.0106202, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
+  %bcmp121 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.0107202, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
   %254 = icmp eq i32 %bcmp121, 0
   br i1 %254, label %255, label %257
 
@@ -1042,7 +1042,7 @@ json_lex_string.exit.thread:                      ; preds = %64, %.backedge.i, %
   br label %265
 
 257:                                              ; preds = %253
-  %bcmp122 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.0106202, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
+  %bcmp122 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.0107202, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
   %258 = icmp eq i32 %bcmp122, 0
   br i1 %258, label %259, label %265
 
@@ -1052,7 +1052,7 @@ json_lex_string.exit.thread:                      ; preds = %64, %.backedge.i, %
   br label %265
 
 261:                                              ; preds = %248
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.0106202, ptr noundef nonnull dereferenceable(5) @.str.2, i64 5)
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.0107202, ptr noundef nonnull dereferenceable(5) @.str.2, i64 5)
   %262 = icmp eq i32 %bcmp, 0
   br i1 %262, label %263, label %265
 
@@ -1062,8 +1062,8 @@ json_lex_string.exit.thread:                      ; preds = %64, %.backedge.i, %
   br label %265
 
 265:                                              ; preds = %json_lex_string.exit.thread, %._crit_edge, %263, %259, %255, %235, %231, %223, %49, %45, %41, %37, %33, %29, %261, %248, %257, %233, %228, %.critedge4.thread
-  %.0107 = phi i32 [ 12, %.critedge4.thread ], [ %230, %228 ], [ %234, %233 ], [ 12, %257 ], [ 12, %248 ], [ 12, %261 ], [ 0, %29 ], [ 0, %33 ], [ 0, %37 ], [ 0, %41 ], [ 0, %45 ], [ 0, %49 ], [ 0, %223 ], [ 0, %231 ], [ 0, %235 ], [ 0, %255 ], [ 0, %259 ], [ 0, %263 ], [ 0, %._crit_edge ], [ %.0142.i.ph, %json_lex_string.exit.thread ]
-  ret i32 %.0107
+  %.0106 = phi i32 [ 12, %.critedge4.thread ], [ %230, %228 ], [ %234, %233 ], [ 12, %257 ], [ 12, %248 ], [ 12, %261 ], [ 0, %29 ], [ 0, %33 ], [ 0, %37 ], [ 0, %41 ], [ 0, %45 ], [ 0, %49 ], [ 0, %223 ], [ 0, %231 ], [ 0, %235 ], [ 0, %255 ], [ 0, %259 ], [ 0, %263 ], [ 0, %._crit_edge ], [ %.0139.i.ph, %json_lex_string.exit.thread ]
+  ret i32 %.0106
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1420,8 +1420,8 @@ thread-pre-split:                                 ; preds = %37
   br label %31
 
 31:                                               ; preds = %29, %27, %25
-  %.0.i23 = phi i32 [ %30, %29 ], [ %28, %27 ], [ %26, %25 ]
-  %.not31.i = icmp eq i32 %.0.i23, 0
+  %.025.i = phi i32 [ %30, %29 ], [ %28, %27 ], [ %26, %25 ]
+  %.not31.i = icmp eq i32 %.025.i, 0
   br i1 %.not31.i, label %32, label %lex_expect.exit.thread
 
 32:                                               ; preds = %31
@@ -1466,7 +1466,7 @@ lex_expect.exit27:                                ; preds = %parse_array_element
   br label %lex_expect.exit.thread
 
 lex_expect.exit.thread:                           ; preds = %33, %31, %21, %37, %39, %10, %lex_expect.exit27, %lex_expect.exit, %45
-  %.012 = phi i32 [ 0, %45 ], [ %15, %lex_expect.exit ], [ %44, %lex_expect.exit27 ], [ %spec.select, %10 ], [ %spec.select39, %39 ], [ %23, %21 ], [ %.0.i23, %31 ], [ %35, %33 ], [ %38, %37 ]
+  %.012 = phi i32 [ 0, %45 ], [ %15, %lex_expect.exit ], [ %44, %lex_expect.exit27 ], [ %spec.select, %10 ], [ %spec.select39, %39 ], [ %23, %21 ], [ %.025.i, %31 ], [ %35, %33 ], [ %38, %37 ]
   ret i32 %.012
 }
 
@@ -1510,8 +1510,8 @@ define internal fastcc i32 @parse_array_element(ptr noundef %0, ptr nocapture no
   br label %19
 
 19:                                               ; preds = %17, %15, %13
-  %.0 = phi i32 [ %18, %17 ], [ %16, %15 ], [ %14, %13 ]
-  %.not31 = icmp eq i32 %.0, 0
+  %.025 = phi i32 [ %18, %17 ], [ %16, %15 ], [ %14, %13 ]
+  %.not31 = icmp eq i32 %.025, 0
   br i1 %.not31, label %20, label %25
 
 20:                                               ; preds = %19
@@ -1528,8 +1528,8 @@ define internal fastcc i32 @parse_array_element(ptr noundef %0, ptr nocapture no
   br label %25
 
 25:                                               ; preds = %21, %19, %9, %24
-  %.025 = phi i32 [ 0, %24 ], [ %11, %9 ], [ %.0, %19 ], [ %23, %21 ]
-  ret i32 %.025
+  %.0 = phi i32 [ 0, %24 ], [ %11, %9 ], [ %.025, %19 ], [ %23, %21 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1850,7 +1850,7 @@ define internal fastcc i32 @parse_object_field(ptr noundef %0, ptr nocapture nou
   br label %22
 
 22:                                               ; preds = %13, %19, %16
-  %.040 = phi ptr [ %21, %19 ], [ null, %16 ], [ null, %13 ]
+  %.041 = phi ptr [ %21, %19 ], [ null, %16 ], [ null, %13 ]
   %23 = tail call i32 @json_lex(ptr noundef nonnull %0)
   %.not50 = icmp eq i32 %23, 0
   br i1 %.not50, label %24, label %report_parse_error.exit
@@ -1881,7 +1881,7 @@ lex_expect.exit:                                  ; preds = %24
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %1, align 8
-  %36 = tail call i32 %4(ptr noundef %35, ptr noundef %.040, i1 noundef zeroext %33) #11
+  %36 = tail call i32 %4(ptr noundef %35, ptr noundef %.041, i1 noundef zeroext %33) #11
   %.not52 = icmp eq i32 %36, 0
   br i1 %.not52, label %37, label %report_parse_error.exit
 
@@ -1913,7 +1913,7 @@ lex_expect.exit:                                  ; preds = %24
 
 46:                                               ; preds = %45
   %47 = load ptr, ptr %1, align 8
-  %48 = tail call i32 %6(ptr noundef %47, ptr noundef %.040, i1 noundef zeroext %33) #11
+  %48 = tail call i32 %6(ptr noundef %47, ptr noundef %.041, i1 noundef zeroext %33) #11
   %.not54 = icmp eq i32 %48, 0
   br i1 %.not54, label %49, label %report_parse_error.exit
 
@@ -1921,8 +1921,8 @@ lex_expect.exit:                                  ; preds = %24
   br label %report_parse_error.exit
 
 report_parse_error.exit:                          ; preds = %8, %26, %46, %44, %34, %lex_expect.exit, %22, %49
-  %.041 = phi i32 [ 0, %49 ], [ %23, %22 ], [ %31, %lex_expect.exit ], [ %36, %34 ], [ %.0, %44 ], [ %48, %46 ], [ %spec.select, %26 ], [ %spec.select60, %8 ]
-  ret i32 %.041
+  %.040 = phi i32 [ 0, %49 ], [ %23, %22 ], [ %31, %lex_expect.exit ], [ %36, %34 ], [ %.0, %44 ], [ %48, %46 ], [ %spec.select, %26 ], [ %spec.select60, %8 ]
+  ret i32 %.040
 }
 
 declare void @resetStringInfo(ptr noundef) local_unnamed_addr #2

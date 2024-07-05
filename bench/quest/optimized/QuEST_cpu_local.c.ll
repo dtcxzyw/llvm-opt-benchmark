@@ -190,30 +190,30 @@ define double @statevec_calcTotalProb(ptr nocapture noundef readonly byval(%stru
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
-  %.025 = phi i64 [ 0, %.lr.ph ], [ %24, %9 ]
-  %.02124 = phi double [ 0.000000e+00, %.lr.ph ], [ %23, %9 ]
-  %.02223 = phi double [ 0.000000e+00, %.lr.ph ], [ %21, %9 ]
-  %10 = getelementptr inbounds double, ptr %6, i64 %.025
+  %.025 = phi double [ 0.000000e+00, %.lr.ph ], [ %21, %9 ]
+  %.02124 = phi i64 [ 0, %.lr.ph ], [ %24, %9 ]
+  %.02223 = phi double [ 0.000000e+00, %.lr.ph ], [ %23, %9 ]
+  %10 = getelementptr inbounds double, ptr %6, i64 %.02124
   %11 = load double, ptr %10, align 8
-  %12 = fneg double %.02124
+  %12 = fneg double %.02223
   %13 = tail call double @llvm.fmuladd.f64(double %11, double %11, double %12)
-  %14 = fadd double %.02223, %13
-  %15 = fsub double %14, %.02223
+  %14 = fadd double %.025, %13
+  %15 = fsub double %14, %.025
   %16 = fsub double %15, %13
-  %17 = getelementptr inbounds double, ptr %8, i64 %.025
+  %17 = getelementptr inbounds double, ptr %8, i64 %.02124
   %18 = load double, ptr %17, align 8
   %19 = fneg double %16
   %20 = tail call double @llvm.fmuladd.f64(double %18, double %18, double %19)
   %21 = fadd double %14, %20
   %22 = fsub double %21, %14
   %23 = fsub double %22, %20
-  %24 = add nuw nsw i64 %.025, 1
+  %24 = add nuw nsw i64 %.02124, 1
   %exitcond.not = icmp eq i64 %24, %3
   br i1 %exitcond.not, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %9, %1
-  %.022.lcssa = phi double [ 0.000000e+00, %1 ], [ %21, %9 ]
-  ret double %.022.lcssa
+  %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %21, %9 ]
+  ret double %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

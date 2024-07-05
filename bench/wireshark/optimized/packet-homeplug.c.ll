@@ -1740,10 +1740,10 @@ proto_item_set_generated.exit.i:                  ; preds = %525, %522, %511
   br i1 %.not.i.i50, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %615, %.lr.ph.i.i
-  %.025.i.i = phi i8 [ %629, %.lr.ph.i.i ], [ 0, %615 ]
+  %.02325.i.i = phi i8 [ %629, %.lr.ph.i.i ], [ 0, %615 ]
   %627 = load i32, ptr @hf_homeplug_bcn_bp_da, align 4
   %628 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %627, i32 noundef 6, i32 noundef 0) #4
-  %629 = add nuw i8 %.025.i.i, 1
+  %629 = add nuw i8 %.02325.i.i, 1
   %exitcond.not.i.i = icmp eq i8 %629, %624
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
 

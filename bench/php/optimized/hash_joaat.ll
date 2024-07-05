@@ -22,22 +22,22 @@ define void @PHP_JOAATUpdate(ptr nocapture noundef %0, ptr nocapture noundef rea
   br i1 %.not.i, label %joaat_buf.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.013.i = phi i64 [ %12, %.lr.ph.i ], [ 0, %3 ]
-  %.01112.i = phi i32 [ %11, %.lr.ph.i ], [ %4, %3 ]
-  %5 = getelementptr inbounds i8, ptr %1, i64 %.013.i
+  %.013.i = phi i32 [ %11, %.lr.ph.i ], [ %4, %3 ]
+  %.01112.i = phi i64 [ %12, %.lr.ph.i ], [ 0, %3 ]
+  %5 = getelementptr inbounds i8, ptr %1, i64 %.01112.i
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
-  %8 = add i32 %.01112.i, %7
+  %8 = add i32 %.013.i, %7
   %9 = mul i32 %8, 1025
   %10 = lshr i32 %9, 6
   %11 = xor i32 %10, %9
-  %12 = add nuw i64 %.013.i, 1
+  %12 = add nuw i64 %.01112.i, 1
   %exitcond.not.i = icmp eq i64 %12, %2
   br i1 %exitcond.not.i, label %joaat_buf.exit, label %.lr.ph.i
 
 joaat_buf.exit:                                   ; preds = %.lr.ph.i, %3
-  %.011.lcssa.i = phi i32 [ %4, %3 ], [ %11, %.lr.ph.i ]
-  store i32 %.011.lcssa.i, ptr %0, align 4
+  %.0.lcssa.i = phi i32 [ %4, %3 ], [ %11, %.lr.ph.i ]
+  store i32 %.0.lcssa.i, ptr %0, align 4
   ret void
 }
 

@@ -1258,18 +1258,18 @@ define dso_local ptr @htable_set(ptr nocapture noundef readonly %0, ptr noundef 
   br label %30
 
 .preheader:                                       ; preds = %3, %23
-  %.0 = phi ptr [ %25, %23 ], [ %14, %3 ]
-  %18 = load ptr, ptr %.0, align 8
+  %.027 = phi ptr [ %25, %23 ], [ %14, %3 ]
+  %18 = load ptr, ptr %.027, align 8
   %19 = icmp eq ptr %18, %1
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %.0, i64 8
+  %21 = getelementptr inbounds i8, ptr %.027, i64 8
   %22 = load ptr, ptr %21, align 8
   br label %30
 
 23:                                               ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %.0, i64 16
+  %24 = getelementptr inbounds i8, ptr %.027, i64 16
   %25 = load ptr, ptr %24, align 8
   %.not31 = icmp eq ptr %25, null
   br i1 %.not31, label %26, label %.preheader, !llvm.loop !13
@@ -1285,8 +1285,8 @@ define dso_local ptr @htable_set(ptr nocapture noundef readonly %0, ptr noundef 
   br label %30
 
 30:                                               ; preds = %26, %20, %15
-  %.027 = phi ptr [ %22, %20 ], [ null, %26 ], [ null, %15 ]
-  ret ptr %.027
+  %.0 = phi ptr [ %22, %20 ], [ null, %26 ], [ null, %15 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

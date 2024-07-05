@@ -903,12 +903,12 @@ Vec_IntFreeP.exit53:                              ; preds = %24, %.thread.i52
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %.073 = phi i32 [ -1, %.lr.ph ], [ %43, %39 ]
+  %.03873 = phi i32 [ -1, %.lr.ph ], [ %43, %39 ]
   %40 = getelementptr inbounds i32, ptr %.val48, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   %.not45 = icmp eq i32 %41, 0
   %42 = trunc nuw nsw i64 %indvars.iv to i32
-  %43 = select i1 %.not45, i32 %.073, i32 %42
+  %43 = select i1 %.not45, i32 %.03873, i32 %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %39, !llvm.loop !21
@@ -1069,8 +1069,8 @@ Vec_IntFreeP.exit68:                              ; preds = %92, %.thread.i67
   br label %103
 
 103:                                              ; preds = %Vec_IntFreeP.exit68, %Vec_IntFreeP.exit63, %Vec_IntFreeP.exit58, %Vec_IntFreeP.exit53, %Vec_IntFreeP.exit
-  %.039 = phi ptr [ null, %Vec_IntFreeP.exit ], [ null, %Vec_IntFreeP.exit53 ], [ null, %Vec_IntFreeP.exit58 ], [ %102, %Vec_IntFreeP.exit68 ], [ null, %Vec_IntFreeP.exit63 ]
-  ret ptr %.039
+  %.0 = phi ptr [ null, %Vec_IntFreeP.exit ], [ null, %Vec_IntFreeP.exit53 ], [ null, %Vec_IntFreeP.exit58 ], [ %102, %Vec_IntFreeP.exit68 ], [ null, %Vec_IntFreeP.exit63 ]
+  ret ptr %.0
 }
 
 declare i32 @Saig_ManPhasePrefixLength(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

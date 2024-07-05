@@ -230,8 +230,8 @@ define ptr @slurm_sprint_partition_info(ptr nocapture noundef readonly %0, i32 n
 
 32:                                               ; preds = %.thread, %30, %31
   %33 = phi ptr [ @.str.8, %.thread ], [ %23, %30 ], [ %26, %31 ]
-  %.0112 = phi ptr [ @.str.7, %.thread ], [ @.str.7, %30 ], [ @.str.9, %31 ]
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.10, ptr noundef nonnull %.0112, ptr noundef nonnull %33) #11
+  %.0111 = phi ptr [ @.str.7, %.thread ], [ @.str.7, %30 ], [ @.str.9, %31 ]
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.10, ptr noundef nonnull %.0111, ptr noundef nonnull %33) #11
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
   %.not142 = icmp eq ptr %35, null
@@ -814,7 +814,7 @@ define range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr nocapture
 .lr.ph.i:                                         ; preds = %33, %.outer.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.outer.i ], [ 0, %33 ]
   %44 = phi ptr [ %84, %.outer.i ], [ %43, %33 ]
-  %indvars37.i = trunc i64 %indvars.iv.i to i32
+  %indvars35.i = trunc i64 %indvars.iv.i to i32
   br label %45
 
 45:                                               ; preds = %53, %.lr.ph.i
@@ -839,7 +839,7 @@ define range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr nocapture
   store ptr %46, ptr %56, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %57 = getelementptr inbounds i8, ptr %56, i64 8
-  store i32 %indvars37.i, ptr %57, align 8
+  store i32 %indvars35.i, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %56, i64 16
   store ptr %9, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %56, i64 24
@@ -911,13 +911,13 @@ define range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr nocapture
   br label %.outer._crit_edge.i
 
 .outer._crit_edge.i:                              ; preds = %53, %.outer._crit_edge.loopexit24.i
-  %.059.ph.lcssa7.i = phi i32 [ %85, %.outer._crit_edge.loopexit24.i ], [ %indvars37.i, %53 ]
+  %.062.ph.lcssa7.i = phi i32 [ %85, %.outer._crit_edge.loopexit24.i ], [ %indvars35.i, %53 ]
   call void @list_iterator_destroy(ptr noundef %42) #11
-  %86 = icmp sgt i32 %.059.ph.lcssa7.i, 0
+  %86 = icmp sgt i32 %.062.ph.lcssa7.i, 0
   br i1 %86, label %.lr.ph16.preheader.i, label %._crit_edge17.i
 
 .lr.ph16.preheader.i:                             ; preds = %.outer._crit_edge.i
-  %wide.trip.count.i = zext nneg i32 %.059.ph.lcssa7.i to i64
+  %wide.trip.count.i = zext nneg i32 %.062.ph.lcssa7.i to i64
   br label %.lr.ph16.i
 
 .lr.ph16.i:                                       ; preds = %.thread.i, %.lr.ph16.preheader.i
@@ -955,11 +955,11 @@ define range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr nocapture
 
 .lr.ph21.i:                                       ; preds = %._crit_edge17.i, %127
   %96 = phi ptr [ %128, %127 ], [ %95, %._crit_edge17.i ]
-  %.06119.i = phi ptr [ %.1.i, %127 ], [ null, %._crit_edge17.i ]
+  %.06319.i = phi ptr [ %.1.i, %127 ], [ null, %._crit_edge17.i ]
   %97 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8
   store ptr %98, ptr %6, align 8
-  %.not79.i = icmp eq ptr %.06119.i, null
+  %.not79.i = icmp eq ptr %.06319.i, null
   br i1 %.not79.i, label %99, label %100
 
 99:                                               ; preds = %.lr.ph21.i
@@ -967,10 +967,10 @@ define range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr nocapture
   br label %127
 
 100:                                              ; preds = %.lr.ph21.i
-  %101 = load i64, ptr %.06119.i, align 8
+  %101 = load i64, ptr %.06319.i, align 8
   %102 = load i64, ptr %98, align 8
   %..i = call i64 @llvm.smin.i64(i64 %101, i64 %102)
-  store i64 %..i, ptr %.06119.i, align 8
+  store i64 %..i, ptr %.06319.i, align 8
   %103 = load ptr, ptr %6, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 8
   %105 = load i32, ptr %104, align 8
@@ -978,10 +978,10 @@ define range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr nocapture
   br i1 %.not80.i, label %124, label %106
 
 106:                                              ; preds = %100
-  %107 = getelementptr inbounds i8, ptr %.06119.i, i64 8
+  %107 = getelementptr inbounds i8, ptr %.06319.i, i64 8
   %108 = load i32, ptr %107, align 8
   %109 = add i32 %108, %105
-  %110 = getelementptr inbounds i8, ptr %.06119.i, i64 16
+  %110 = getelementptr inbounds i8, ptr %.06319.i, i64 16
   %111 = zext i32 %109 to i64
   %112 = mul nuw nsw i64 %111, 232
   %113 = call ptr @slurm_xrecalloc(ptr noundef nonnull %110, i64 noundef 1, i64 noundef %112, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.89, i32 noundef 579, ptr noundef nonnull @__func__._load_fed_parts) #11
@@ -1009,7 +1009,7 @@ define range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr nocapture
   br label %127
 
 127:                                              ; preds = %124, %99
-  %.1.i = phi ptr [ %.06119.i, %124 ], [ %98, %99 ]
+  %.1.i = phi ptr [ %.06319.i, %124 ], [ %98, %99 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #11
   %128 = call ptr @list_next(ptr noundef %94) #11
   store ptr %128, ptr %5, align 8
@@ -1021,7 +1021,7 @@ define range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr nocapture
   br label %._crit_edge22.i
 
 ._crit_edge22.i:                                  ; preds = %._crit_edge22.loopexit.i, %._crit_edge17.i
-  %.061.lcssa.i = phi i1 [ true, %._crit_edge17.i ], [ %129, %._crit_edge22.loopexit.i ]
+  %.063.lcssa.i = phi i1 [ true, %._crit_edge17.i ], [ %129, %._crit_edge22.loopexit.i ]
   call void @list_iterator_destroy(ptr noundef %94) #11
   %.not77.i = icmp eq ptr %34, null
   br i1 %.not77.i, label %131, label %130
@@ -1031,14 +1031,14 @@ define range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr nocapture
   br label %131
 
 131:                                              ; preds = %130, %._crit_edge22.i
-  br i1 %.061.lcssa.i, label %132, label %_load_fed_parts.exit
+  br i1 %.063.lcssa.i, label %132, label %_load_fed_parts.exit
 
 132:                                              ; preds = %131
   call void @slurm_seterrno(i32 noundef -1) #11
   br label %_load_fed_parts.exit
 
 _load_fed_parts.exit:                             ; preds = %131, %132
-  %.060.i = phi i32 [ -1, %132 ], [ 0, %131 ]
+  %.059.i = phi i32 [ -1, %132 ], [ 0, %131 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -1093,7 +1093,7 @@ _load_cluster_parts.exit:                         ; preds = %133, %147, %148, %1
   br label %150
 
 150:                                              ; preds = %_load_cluster_parts.exit, %_load_fed_parts.exit
-  %.0 = phi i32 [ %.060.i, %_load_fed_parts.exit ], [ %.0.i, %_load_cluster_parts.exit ]
+  %.0 = phi i32 [ %.059.i, %_load_fed_parts.exit ], [ %.0.i, %_load_cluster_parts.exit ]
   %151 = load ptr, ptr %11, align 8
   %.not23 = icmp eq ptr %151, null
   br i1 %.not23, label %153, label %152

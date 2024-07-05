@@ -350,15 +350,15 @@ rbimpl_intern_const.exit64:                       ; preds = %.lr.ph.i62, %87
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %.016.i = phi ptr [ %99, %.preheader.i ], [ %93, %.preheader.i.preheader ]
-  %.0.i66 = phi i32 [ %100, %.preheader.i ], [ %95, %.preheader.i.preheader ]
-  %96 = urem i32 %.0.i66, 10
+  %.017.i = phi ptr [ %99, %.preheader.i ], [ %93, %.preheader.i.preheader ]
+  %.016.i = phi i32 [ %100, %.preheader.i ], [ %95, %.preheader.i.preheader ]
+  %96 = urem i32 %.016.i, 10
   %97 = trunc nuw nsw i32 %96 to i8
   %98 = or disjoint i8 %97, 48
-  %99 = getelementptr inbounds i8, ptr %.016.i, i64 -1
+  %99 = getelementptr inbounds i8, ptr %.017.i, i64 -1
   store i8 %98, ptr %99, align 1
-  %100 = udiv i32 %.0.i66, 10
-  %101 = icmp ugt i32 %.0.i66, 9
+  %100 = udiv i32 %.016.i, 10
+  %101 = icmp ugt i32 %.016.i, 9
   %102 = icmp ugt ptr %99, %.4.ptr.ptr
   %103 = and i1 %101, %102
   br i1 %103, label %.preheader.i, label %104, !llvm.loop !8
@@ -410,15 +410,15 @@ rbimpl_intern_const.exit72:                       ; preds = %.lr.ph.i70, %uint_t
   br label %.preheader.i75
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %.preheader.i75
-  %.016.i76 = phi ptr [ %122, %.preheader.i75 ], [ %116, %.preheader.i75.preheader ]
-  %.0.i77 = phi i32 [ %123, %.preheader.i75 ], [ %118, %.preheader.i75.preheader ]
-  %119 = urem i32 %.0.i77, 10
+  %.017.i76 = phi ptr [ %122, %.preheader.i75 ], [ %116, %.preheader.i75.preheader ]
+  %.016.i77 = phi i32 [ %123, %.preheader.i75 ], [ %118, %.preheader.i75.preheader ]
+  %119 = urem i32 %.016.i77, 10
   %120 = trunc nuw nsw i32 %119 to i8
   %121 = or disjoint i8 %120, 48
-  %122 = getelementptr inbounds i8, ptr %.016.i76, i64 -1
+  %122 = getelementptr inbounds i8, ptr %.017.i76, i64 -1
   store i8 %121, ptr %122, align 1
-  %123 = udiv i32 %.0.i77, 10
-  %124 = icmp ugt i32 %.0.i77, 9
+  %123 = udiv i32 %.016.i77, 10
+  %124 = icmp ugt i32 %.016.i77, 9
   %125 = icmp ugt ptr %122, %.ptr
   %126 = and i1 %124, %125
   br i1 %126, label %.preheader.i75, label %127, !llvm.loop !8

@@ -1963,14 +1963,14 @@ sw.default:                                       ; preds = %while.end
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %virtio_iommu_handle_probe.exit, %virtio_iommu_handle_unmap.exit, %virtio_iommu_handle_map.exit, %virtio_iommu_handle_detach.exit, %virtio_iommu_handle_attach.exit
-  %buf.1 = phi ptr [ null, %sw.default ], [ %call33, %virtio_iommu_handle_probe.exit ], [ null, %virtio_iommu_handle_unmap.exit ], [ null, %virtio_iommu_handle_map.exit ], [ null, %virtio_iommu_handle_detach.exit ], [ null, %virtio_iommu_handle_attach.exit ]
   %output_size.0 = phi i64 [ 4, %sw.default ], [ %add, %virtio_iommu_handle_probe.exit ], [ 4, %virtio_iommu_handle_unmap.exit ], [ 4, %virtio_iommu_handle_map.exit ], [ 4, %virtio_iommu_handle_detach.exit ], [ 4, %virtio_iommu_handle_attach.exit ]
+  %buf.1 = phi ptr [ null, %sw.default ], [ %call33, %virtio_iommu_handle_probe.exit ], [ null, %virtio_iommu_handle_unmap.exit ], [ null, %virtio_iommu_handle_map.exit ], [ null, %virtio_iommu_handle_detach.exit ], [ null, %virtio_iommu_handle_attach.exit ]
   call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.10, i32 noundef 815) #12
   br label %iov_from_buf.exit
 
 iov_from_buf.exit:                                ; preds = %if.then13, %sw.epilog
-  %buf.2 = phi ptr [ null, %if.then13 ], [ %buf.1, %sw.epilog ]
   %output_size.1 = phi i64 [ 4, %if.then13 ], [ %output_size.0, %sw.epilog ]
+  %buf.2 = phi ptr [ null, %if.then13 ], [ %buf.1, %sw.epilog ]
   %tobool43.not = icmp eq ptr %buf.2, null
   %cond = select i1 %tobool43.not, ptr %tail, ptr %buf.2
   %176 = load i32, ptr %in_num, align 8

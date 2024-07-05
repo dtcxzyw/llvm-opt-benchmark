@@ -226,16 +226,16 @@ if.end17.i:                                       ; preds = %if.then14.i, %prepa
 
 while.body.i.i:                                   ; preds = %while.body.i.i.backedge, %if.end17.i
   %already_hashed_to.1.i = phi i64 [ %already_hashed_to.0.i, %if.end17.i ], [ %already_hashed_to.3.i, %while.body.i.i.backedge ]
-  %offset.04.i.i = phi i64 [ 0, %if.end17.i ], [ %offset.1.i.i, %while.body.i.i.backedge ]
-  %size.addr.03.i.i = phi i64 [ %size, %if.end17.i ], [ %size.addr.1.i.i, %while.body.i.i.backedge ]
-  %tobool.i.i = icmp eq i64 %size.addr.03.i.i, 0
+  %size.addr.04.i.i = phi i64 [ %size, %if.end17.i ], [ %size.addr.1.i.i, %while.body.i.i.backedge ]
+  %offset.03.i.i = phi i64 [ 0, %if.end17.i ], [ %offset.1.i.i, %while.body.i.i.backedge ]
+  %tobool.i.i = icmp eq i64 %size.addr.04.i.i, 0
   %15 = load i64, ptr %avail_in.i.i, align 8
   %tobool3.i.i = icmp ne i64 %15, 0
   %or.cond.i43.i = select i1 %tobool.i.i, i1 true, i1 %tobool3.i.i
   br i1 %or.cond.i43.i, label %if.end32.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
-  %cond.i.i = call i64 @llvm.umin.i64(i64 %size.addr.03.i.i, i64 16384)
+  %cond.i.i = call i64 @llvm.umin.i64(i64 %size.addr.04.i.i, i64 16384)
   %call7.i.i = call i64 @read_in_full(i32 noundef %fd, ptr noundef nonnull %ibuf.i.i, i64 noundef %cond.i.i) #13
   %cmp8.i.i = icmp slt i64 %call7.i.i, 0
   br i1 %cmp8.i.i, label %if.then10.i.i, label %if.end.i44.i
@@ -254,7 +254,7 @@ if.then13.i.i:                                    ; preds = %if.end.i44.i
   unreachable
 
 if.end15.i.i:                                     ; preds = %if.end.i44.i
-  %add.i.i = add nuw nsw i64 %cond.i.i, %offset.04.i.i
+  %add.i.i = add nuw nsw i64 %cond.i.i, %offset.03.i.i
   %cmp16.i.i = icmp slt i64 %already_hashed_to.1.i, %add.i.i
   br i1 %cmp16.i.i, label %if.then18.i.i, label %if.end28.i.i
 
@@ -277,13 +277,13 @@ if.end28.i.i:                                     ; preds = %if.then25.i.i, %if.
   %already_hashed_to.2.i = phi i64 [ %already_hashed_to.1.i, %if.end15.i.i ], [ %add.i.i, %if.then25.i.i ], [ %add.i.i, %if.then18.i.i ]
   store ptr %ibuf.i.i, ptr %next_in.i.i, align 8
   store i64 %cond.i.i, ptr %avail_in.i.i, align 8
-  %sub31.i.i = sub i64 %size.addr.03.i.i, %cond.i.i
+  %sub31.i.i = sub i64 %size.addr.04.i.i, %cond.i.i
   br label %if.end32.i.i
 
 if.end32.i.i:                                     ; preds = %if.end28.i.i, %while.body.i.i
   %already_hashed_to.3.i = phi i64 [ %already_hashed_to.1.i, %while.body.i.i ], [ %already_hashed_to.2.i, %if.end28.i.i ]
-  %size.addr.1.i.i = phi i64 [ %size.addr.03.i.i, %while.body.i.i ], [ %sub31.i.i, %if.end28.i.i ]
-  %offset.1.i.i = phi i64 [ %offset.04.i.i, %while.body.i.i ], [ %add.i.i, %if.end28.i.i ]
+  %offset.1.i.i = phi i64 [ %offset.03.i.i, %while.body.i.i ], [ %add.i.i, %if.end28.i.i ]
+  %size.addr.1.i.i = phi i64 [ %size.addr.04.i.i, %while.body.i.i ], [ %sub31.i.i, %if.end28.i.i ]
   %tobool33.not.i.i = icmp eq i64 %size.addr.1.i.i, 0
   %cond34.i.i = select i1 %tobool33.not.i.i, i32 4, i32 0
   %call35.i.i = call i32 @git_deflate(ptr noundef nonnull %s.i.i, i32 noundef %cond34.i.i) #13

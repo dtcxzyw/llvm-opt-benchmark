@@ -247,8 +247,8 @@ Abc_Clock.exit67:                                 ; preds = %52, %57
   br i1 %exitcond99.not, label %.loopexit, label %.lr.ph82, !llvm.loop !9
 
 .loopexit:                                        ; preds = %82, %77, %.thread, %70
-  %.055 = phi i32 [ 0, %70 ], [ 0, %.thread ], [ 1, %77 ], [ 1, %82 ]
-  ret i32 %.055
+  %.0 = phi i32 [ 0, %70 ], [ 0, %.thread ], [ 1, %77 ], [ 1, %82 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
@@ -462,14 +462,14 @@ define noundef ptr @GetSingleOutputFunctionRemapped(ptr noundef %0, ptr nocaptur
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
-  %.042 = phi i32 [ %13, %.lr.ph ], [ 0, %8 ]
-  %.03841 = phi ptr [ %18, %.lr.ph ], [ %11, %8 ]
-  %13 = add nuw nsw i32 %.042, 1
-  %14 = load i32, ptr %.03841, align 8
+  %.042 = phi ptr [ %18, %.lr.ph ], [ %11, %8 ]
+  %.03841 = phi i32 [ %13, %.lr.ph ], [ 0, %8 ]
+  %13 = add nuw nsw i32 %.03841, 1
+  %14 = load i32, ptr %.042, align 8
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds [1024 x i32], ptr @GetSingleOutputFunctionRemapped.Permute, i64 0, i64 %15
-  store i32 %.042, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %.03841, i64 16
+  store i32 %.03841, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %.042, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %18, %19
@@ -544,16 +544,16 @@ define noundef ptr @GetSingleOutputFunctionRemappedNewDD(ptr noundef %0, ptr noc
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
-  %.06975 = phi ptr [ %20, %.lr.ph ], [ %11, %8 ]
+  %.06476 = phi ptr [ %20, %.lr.ph ], [ %11, %8 ]
   %13 = load ptr, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
-  %16 = load i32, ptr %.06975, align 8
+  %16 = load i32, ptr %.06476, align 8
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds [1024 x i32], ptr @GetSingleOutputFunctionRemappedNewDD.Permute, i64 0, i64 %17
   store i32 %15, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %.06975, i64 16
+  %19 = getelementptr inbounds i8, ptr %.06476, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %20, %21
@@ -564,14 +564,14 @@ define noundef ptr @GetSingleOutputFunctionRemappedNewDD(ptr noundef %0, ptr noc
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
-  %.064.lcssa = phi i32 [ 0, %8 ], [ %22, %._crit_edge.loopexit ]
+  %.069.lcssa = phi i32 [ 0, %8 ], [ %22, %._crit_edge.loopexit ]
   %23 = load ptr, ptr %9, align 8
   %24 = tail call ptr @Cudd_bddPermute(ptr noundef nonnull %0, ptr noundef %23, ptr noundef nonnull @GetSingleOutputFunctionRemappedNewDD.Permute) #14
   %25 = getelementptr inbounds [1024 x ptr], ptr @GetSingleOutputFunctionRemappedNewDD.pRemapped, i64 0, i64 %indvars.iv97
   store ptr %24, ptr %25, align 8
   tail call void @Cudd_Ref(ptr noundef %24) #14
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %11) #14
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.078, i32 %.064.lcssa)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.078, i32 %.069.lcssa)
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge81, label %8, !llvm.loop !17
@@ -771,17 +771,17 @@ define void @WriteDDintoBLIFfile(ptr nocapture noundef %0, ptr noundef %1, ptr n
   br i1 %.not74, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.06575 = phi i64 [ %18, %.lr.ph ], [ 0, %5 ]
+  %.06475 = phi i64 [ %18, %.lr.ph ], [ 0, %5 ]
   %15 = load ptr, ptr %6, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = xor i64 %10, %16
-  %18 = or i64 %17, %.06575
+  %18 = or i64 %17, %.06475
   %19 = call i32 @st__gen(ptr noundef %13, ptr noundef nonnull %6, ptr noundef null) #14
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %.065.lcssa = phi i64 [ 0, %5 ], [ %18, %.lr.ph ]
+  %.064.lcssa = phi i64 [ 0, %5 ], [ %18, %.lr.ph ]
   call void @st__free_gen(ptr noundef %13) #14
   br label %20
 
@@ -790,7 +790,7 @@ define void @WriteDDintoBLIFfile(ptr nocapture noundef %0, ptr noundef %1, ptr n
   %notmask = shl nsw i32 -1, %.076
   %21 = xor i32 %notmask, -1
   %22 = zext nneg i32 %21 to i64
-  %.not70 = icmp sgt i64 %.065.lcssa, %22
+  %.not70 = icmp sgt i64 %.064.lcssa, %22
   %23 = add nuw nsw i32 %.076, 4
   %24 = icmp ult i32 %.076, 60
   %or.cond = and i1 %.not70, %24
@@ -945,17 +945,17 @@ Abc_Clock.exit:                                   ; preds = %11, %6
   br i1 %.not77, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit, %.lr.ph
-  %.07078 = phi i64 [ %34, %.lr.ph ], [ 0, %Abc_Clock.exit ]
+  %.06978 = phi i64 [ %34, %.lr.ph ], [ 0, %Abc_Clock.exit ]
   %31 = load ptr, ptr %8, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = xor i64 %26, %32
-  %34 = or i64 %33, %.07078
+  %34 = or i64 %33, %.06978
   %35 = call i32 @st__gen(ptr noundef %29, ptr noundef nonnull %8, ptr noundef null) #14
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Abc_Clock.exit
-  %.070.lcssa = phi i64 [ 0, %Abc_Clock.exit ], [ %34, %.lr.ph ]
+  %.069.lcssa = phi i64 [ 0, %Abc_Clock.exit ], [ %34, %.lr.ph ]
   call void @st__free_gen(ptr noundef %29) #14
   br label %36
 
@@ -964,7 +964,7 @@ Abc_Clock.exit:                                   ; preds = %11, %6
   %notmask = shl nsw i32 -1, %.079
   %37 = xor i32 %notmask, -1
   %38 = zext nneg i32 %37 to i64
-  %.not74 = icmp sgt i64 %.070.lcssa, %38
+  %.not74 = icmp sgt i64 %.069.lcssa, %38
   %39 = add nuw nsw i32 %.079, 4
   %40 = icmp ult i32 %.079, 60
   %or.cond = and i1 %.not74, %40

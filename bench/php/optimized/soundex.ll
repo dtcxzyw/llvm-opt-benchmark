@@ -47,11 +47,11 @@ define hidden void @zif_soundex(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %.not, label %.lr.ph190.preheader, label %.lr.ph
 
 .thread179:                                       ; preds = %13, %.thread167
-  %.0178 = phi i32 [ 1, %.thread167 ], [ 9, %13 ]
-  %.0140177 = phi i32 [ 0, %.thread167 ], [ 4, %13 ]
-  %.0141176 = phi ptr [ null, %.thread167 ], [ %8, %13 ]
-  %.0142175 = phi i32 [ 0, %.thread167 ], [ 1, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0178, i32 noundef %.0142175, ptr noundef null, i32 noundef %.0140177, ptr noundef %.0141176) #4
+  %.0140178 = phi i32 [ 1, %.thread167 ], [ 9, %13 ]
+  %.0143177 = phi i32 [ 0, %.thread167 ], [ 4, %13 ]
+  %.0144176 = phi ptr [ null, %.thread167 ], [ %8, %13 ]
+  %.0145175 = phi i32 [ 0, %.thread167 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0140178, i32 noundef %.0145175, ptr noundef null, i32 noundef %.0143177, ptr noundef %.0144176) #4
   br label %62
 
 .preheader:                                       ; preds = %48
@@ -60,18 +60,18 @@ define hidden void @zif_soundex(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %20, label %.lr.ph190.preheader, label %._crit_edge
 
 .lr.ph190.preheader:                              ; preds = %15, %.preheader
-  %.0144.lcssa197 = phi i64 [ %.2, %.preheader ], [ 0, %15 ]
-  %scevgep = getelementptr i8, ptr %4, i64 %.0144.lcssa197
-  %21 = sub nuw nsw i64 4, %.0144.lcssa197
+  %.0142.lcssa197 = phi i64 [ %.2, %.preheader ], [ 0, %15 ]
+  %scevgep = getelementptr i8, ptr %4, i64 %.0142.lcssa197
+  %21 = sub nuw nsw i64 4, %.0142.lcssa197
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %21, i1 false)
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %15, %48
-  %.0143187 = phi i64 [ %.1, %48 ], [ -1, %15 ]
-  %.0144186 = phi i64 [ %.2, %48 ], [ 0, %15 ]
-  %.0146185 = phi i64 [ %50, %48 ], [ 0, %15 ]
+  %.0141187 = phi i64 [ %50, %48 ], [ 0, %15 ]
+  %.0142186 = phi i64 [ %.2, %48 ], [ 0, %15 ]
+  %.0146185 = phi i64 [ %.1147, %48 ], [ -1, %15 ]
   %22 = phi i8 [ %49, %48 ], [ undef, %15 ]
-  %23 = getelementptr inbounds i8, ptr %19, i64 %.0146185
+  %23 = getelementptr inbounds i8, ptr %19, i64 %.0141187
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = call i32 @toupper(i32 noundef %25) #5
@@ -81,7 +81,7 @@ define hidden void @zif_soundex(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %or.cond, label %29, label %48
 
 29:                                               ; preds = %.lr.ph
-  %30 = icmp eq i64 %.0144186, 0
+  %30 = icmp eq i64 %.0142186, 0
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %29
@@ -97,7 +97,7 @@ define hidden void @zif_soundex(ptr noundef %0, ptr nocapture noundef writeonly 
   %39 = getelementptr inbounds [26 x i8], ptr @zif_soundex.soundex_table, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = sext i8 %40 to i64
-  %.not160 = icmp eq i64 %.0143187, %41
+  %.not160 = icmp eq i64 %.0146185, %41
   br i1 %.not160, label %48, label %42
 
 42:                                               ; preds = %37
@@ -107,16 +107,16 @@ define hidden void @zif_soundex(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %.not161.not, label %45, label %48
 
 45:                                               ; preds = %42
-  %46 = add nuw nsw i64 %.0144186, 1
-  %47 = getelementptr inbounds [5 x i8], ptr %4, i64 0, i64 %.0144186
+  %46 = add nuw nsw i64 %.0142186, 1
+  %47 = getelementptr inbounds [5 x i8], ptr %4, i64 0, i64 %.0142186
   store i8 %40, ptr %47, align 1
   br label %48
 
 48:                                               ; preds = %42, %45, %.lr.ph, %37, %31
   %49 = phi i8 [ %32, %31 ], [ %22, %37 ], [ %22, %.lr.ph ], [ %22, %45 ], [ %22, %42 ]
-  %.2 = phi i64 [ 1, %31 ], [ %.0144186, %37 ], [ %.0144186, %.lr.ph ], [ %46, %45 ], [ %.0144186, %42 ]
-  %.1 = phi i64 [ %36, %31 ], [ %.0143187, %37 ], [ %.0143187, %.lr.ph ], [ %41, %45 ], [ %41, %42 ]
-  %50 = add nuw i64 %.0146185, 1
+  %.1147 = phi i64 [ %36, %31 ], [ %.0146185, %37 ], [ %.0146185, %.lr.ph ], [ %41, %45 ], [ %41, %42 ]
+  %.2 = phi i64 [ 1, %31 ], [ %.0142186, %37 ], [ %.0142186, %.lr.ph ], [ %46, %45 ], [ %.0142186, %42 ]
+  %50 = add nuw i64 %.0141187, 1
   %51 = icmp ult i64 %50, %18
   %52 = icmp ult i64 %.2, 4
   %53 = select i1 %51, i1 %52, i1 false

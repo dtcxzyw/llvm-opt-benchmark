@@ -944,7 +944,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ %4, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %rp.136 = phi ptr [ %add.ptr, %for.body.preheader ], [ %add.ptr14, %for.body ]
   %ap.135 = phi ptr [ %incdec.ptr2, %for.body.preheader ], [ %incdec.ptr9, %for.body ]
-  %i.033 = phi i32 [ %sub6, %for.body.preheader ], [ %dec15, %for.body ]
+  %i.034 = phi i32 [ %sub6, %for.body.preheader ], [ %dec15, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %incdec.ptr9 = getelementptr inbounds i8, ptr %ap.135, i64 8
   %5 = load i64, ptr %ap.135, align 8
@@ -953,8 +953,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx13 = getelementptr inbounds i64, ptr %rp.136, i64 %indvars.iv.next
   store i64 %call11, ptr %arrayidx13, align 8
   %add.ptr14 = getelementptr inbounds i8, ptr %rp.136, i64 16
-  %dec15 = add nsw i32 %i.033, -1
-  %cmp7 = icmp ugt i32 %i.033, 1
+  %dec15 = add nsw i32 %i.034, -1
+  %cmp7 = icmp ugt i32 %i.034, 1
   br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %entry, %if.end

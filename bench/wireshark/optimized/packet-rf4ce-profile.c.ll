@@ -1038,7 +1038,7 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   %12 = sub i32 %10, %11
   %13 = load i32, ptr @ett_rf4ce_profile_attrs, align 4
   %14 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.344) #7
-  %.087112 = load i32, ptr %2, align 4
+  %.089112 = load i32, ptr %2, align 4
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   %16 = load i32, ptr %2, align 4
   %.not113 = icmp eq i32 %15, %16
@@ -1060,11 +1060,11 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   br label %24
 
 24:                                               ; preds = %.lr.ph, %280
-  %.087118 = phi i32 [ %.087112, %.lr.ph ], [ %.087, %280 ]
+  %.089118 = phi i32 [ %.089112, %.lr.ph ], [ %.089, %280 ]
   %.085117 = phi i32 [ 1, %.lr.ph ], [ %26, %280 ]
   %.086116 = phi i8 [ -1, %.lr.ph ], [ %.1, %280 ]
-  %.088115 = phi i8 [ -1, %.lr.ph ], [ %.2, %280 ]
-  %.090114 = phi i8 [ 0, %.lr.ph ], [ %.191, %280 ]
+  %.087115 = phi i8 [ 0, %.lr.ph ], [ %.188, %280 ]
+  %.090114 = phi i8 [ -1, %.lr.ph ], [ %.2, %280 ]
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 14, ptr noundef nonnull @.str.345, i32 noundef %.085117) #7
   %26 = add i32 %.085117, 1
   %27 = load i32, ptr %2, align 4
@@ -1131,8 +1131,8 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   br label %65
 
 65:                                               ; preds = %57, %56
-  %.191 = phi i8 [ %62, %57 ], [ %.090114, %56 ]
-  %66 = icmp ne i8 %.191, 0
+  %.188 = phi i8 [ %62, %57 ], [ %.087115, %56 ]
+  %66 = icmp ne i8 %.188, 0
   %or.cond = or i1 %.not99, %66
   br i1 %or.cond, label %74, label %.thread
 
@@ -1151,9 +1151,9 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   br i1 %66, label %267, label %75
 
 75:                                               ; preds = %.thread, %74
-  %.189109 = phi i8 [ %71, %.thread ], [ %.088115, %74 ]
-  %76 = zext i8 %.189109 to i32
-  %77 = add i8 %.189109, -1
+  %.191109 = phi i8 [ %71, %.thread ], [ %.090114, %74 ]
+  %76 = zext i8 %.191109 to i32
+  %77 = add i8 %.191109, -1
   %78 = icmp ult i8 %77, -2
   %or.cond5 = select i1 %23, i1 %78, i1 false
   br i1 %or.cond5, label %79, label %267
@@ -1170,11 +1170,11 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   ]
 
 81:                                               ; preds = %80
-  %.not108111.i = icmp ult i8 %.189109, 3
+  %.not108111.i = icmp ult i8 %.191109, 3
   br i1 %.not108111.i, label %dissect_rf4ce_profile_zrc20_attrs.exit, label %.lr.ph113.preheader.i
 
 .lr.ph113.preheader.i:                            ; preds = %81
-  %82 = udiv i8 %.189109, 3
+  %82 = udiv i8 %.191109, 3
   %narrow.i104 = add nuw nsw i8 %82, 1
   %83 = zext nneg i8 %narrow.i104 to i32
   br label %.lr.ph113.i
@@ -1466,9 +1466,9 @@ dissect_rf4ce_profile_gdp_attrs.exit:             ; preds = %.lr.ph.i106, %188, 
   br label %267
 
 267:                                              ; preds = %74, %75, %261, %260
-  %.189110 = phi i8 [ %.088115, %74 ], [ %.189109, %75 ], [ %.189109, %261 ], [ %.189109, %260 ]
+  %.191110 = phi i8 [ %.090114, %74 ], [ %.191109, %75 ], [ %.191109, %261 ], [ %.191109, %260 ]
   %268 = load i32, ptr %2, align 4
-  %269 = icmp eq i32 %.087118, %268
+  %269 = icmp eq i32 %.089118, %268
   br i1 %269, label %270, label %280
 
 270:                                              ; preds = %267
@@ -1485,8 +1485,8 @@ dissect_rf4ce_profile_gdp_attrs.exit:             ; preds = %.lr.ph.i106, %188, 
   br label %280
 
 280:                                              ; preds = %270, %267
-  %.087 = phi i32 [ %279, %270 ], [ %268, %267 ]
-  %.2 = phi i8 [ %274, %270 ], [ %.189110, %267 ]
+  %.089 = phi i32 [ %279, %270 ], [ %268, %267 ]
+  %.2 = phi i8 [ %274, %270 ], [ %.191110, %267 ]
   %281 = call i32 @tvb_captured_length(ptr noundef %0) #7
   %282 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %281, %282

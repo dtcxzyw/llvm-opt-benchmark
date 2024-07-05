@@ -75,19 +75,19 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %67
 
 67:                                               ; preds = %42, %17
-  %.0313 = phi float [ %37, %17 ], [ %62, %42 ]
-  %.0312 = phi float [ %41, %17 ], [ %66, %42 ]
-  %.0311 = phi float [ %30, %17 ], [ %56, %42 ]
-  %68 = tail call noundef float @llvm.fabs.f32(float %.0313)
-  %69 = tail call noundef float @llvm.fabs.f32(float %.0312)
+  %.0298 = phi float [ %30, %17 ], [ %56, %42 ]
+  %.0297 = phi float [ %41, %17 ], [ %66, %42 ]
+  %.0296 = phi float [ %37, %17 ], [ %62, %42 ]
+  %68 = tail call noundef float @llvm.fabs.f32(float %.0296)
+  %69 = tail call noundef float @llvm.fabs.f32(float %.0297)
   %70 = fcmp ogt float %68, %69
   %71 = select i1 %70, float %68, float %69
-  %72 = tail call noundef float @llvm.fabs.f32(float %.0311)
+  %72 = tail call noundef float @llvm.fabs.f32(float %.0298)
   %73 = fcmp ogt float %71, %72
   %74 = select i1 %73, float %71, float %72
-  %75 = fdiv float %.0313, %74
-  %76 = fdiv float %.0312, %74
-  %77 = fdiv float %.0311, %74
+  %75 = fdiv float %.0296, %74
+  %76 = fdiv float %.0297, %74
+  %77 = fdiv float %.0298, %74
   %78 = fcmp oeq float %77, 0.000000e+00
   br i1 %78, label %79, label %81
 
@@ -211,9 +211,9 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 151:                                              ; preds = %.loopexit335, %151
   %indvars.iv364 = phi i64 [ 1, %.loopexit335 ], [ %indvars.iv.next365, %151 ]
-  %.0298341 = phi float [ 0.000000e+00, %.loopexit335 ], [ %165, %151 ]
-  %.0301340 = phi float [ 0.000000e+00, %.loopexit335 ], [ %164, %151 ]
-  %.0304339 = phi float [ 0.000000e+00, %.loopexit335 ], [ %163, %151 ]
+  %.0301341 = phi float [ 0.000000e+00, %.loopexit335 ], [ %165, %151 ]
+  %.0304340 = phi float [ 0.000000e+00, %.loopexit335 ], [ %164, %151 ]
+  %.0307339 = phi float [ 0.000000e+00, %.loopexit335 ], [ %163, %151 ]
   %152 = add nsw i64 %indvars.iv364, -1
   %153 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 %152
   %154 = load float, ptr %153, align 4
@@ -225,9 +225,9 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %160 = fmul float %156, %159
   %161 = fmul float %156, %160
   %162 = fdiv float %159, %154
-  %163 = fadd float %.0304339, %162
-  %164 = fadd float %.0301340, %160
-  %165 = fadd float %.0298341, %161
+  %163 = fadd float %.0307339, %162
+  %164 = fadd float %.0304340, %160
+  %165 = fadd float %.0301341, %161
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next365, 4
   br i1 %exitcond367.not, label %166, label %151, !llvm.loop !6
@@ -254,9 +254,9 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 177:                                              ; preds = %.preheader, %175
   %178 = phi float [ %150, %.preheader ], [ %246, %175 ]
   %.0291350 = phi i32 [ 2, %.preheader ], [ %176, %175 ]
-  %.1299349 = phi float [ %165, %.preheader ], [ %263, %175 ]
-  %.1302348 = phi float [ %164, %.preheader ], [ %262, %175 ]
-  %.0310347 = phi float [ %168, %.preheader ], [ %266, %175 ]
+  %.1302349 = phi float [ %165, %.preheader ], [ %263, %175 ]
+  %.1305348 = phi float [ %164, %.preheader ], [ %262, %175 ]
+  %.0313347 = phi float [ %168, %.preheader ], [ %266, %175 ]
   %179 = load i32, ptr %1, align 4
   %.not327 = icmp eq i32 %179, 0
   %.pn = select i1 %.not327, float %174, float %171
@@ -266,12 +266,12 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %180 = fadd float %.0294, %.0293
   %181 = fmul float %.0294, %.0293
   %182 = fneg float %181
-  %183 = fmul float %.1302348, %182
-  %184 = tail call float @llvm.fmuladd.f32(float %180, float %.0310347, float %183)
-  %185 = fmul float %.0310347, %181
+  %183 = fmul float %.1305348, %182
+  %184 = tail call float @llvm.fmuladd.f32(float %180, float %.0313347, float %183)
+  %185 = fmul float %.0313347, %181
   %186 = fneg float %180
-  %187 = tail call float @llvm.fmuladd.f32(float %186, float %.1302348, float %.0310347)
-  %188 = tail call float @llvm.fmuladd.f32(float %181, float %.1299349, float %187)
+  %187 = tail call float @llvm.fmuladd.f32(float %186, float %.1305348, float %.0313347)
+  %188 = tail call float @llvm.fmuladd.f32(float %181, float %.1302349, float %187)
   %189 = tail call noundef float @llvm.fabs.f32(float %184)
   %190 = tail call noundef float @llvm.fabs.f32(float %185)
   %191 = fcmp ogt float %189, %190
@@ -316,14 +316,14 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %220
 
 220:                                              ; preds = %204, %212, %200
-  %.0296 = phi float [ %201, %200 ], [ %211, %204 ], [ %219, %212 ]
-  %221 = fmul float %.0310347, %.0296
+  %.0299 = phi float [ %201, %200 ], [ %211, %204 ], [ %219, %212 ]
+  %221 = fmul float %.0313347, %.0299
   %222 = fcmp ult float %221, 0.000000e+00
-  %223 = fneg float %.0310347
-  %224 = fdiv float %223, %.1302348
-  %.1297 = select i1 %222, float %.0296, float %224
-  %225 = fadd float %178, %.1297
-  %226 = fcmp ule float %.1297, 0.000000e+00
+  %223 = fneg float %.0313347
+  %224 = fdiv float %223, %.1305348
+  %.1300 = select i1 %222, float %.0299, float %224
+  %225 = fadd float %178, %.1300
+  %226 = fcmp ule float %.1300, 0.000000e+00
   br i1 %.not327, label %236, label %227
 
 227:                                              ; preds = %220
@@ -331,7 +331,7 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %or.cond = select i1 %226, i1 true, i1 %228
   %229 = fsub float %173, %178
   %230 = fmul float %229, 5.000000e-01
-  %.2 = select i1 %or.cond, float %.1297, float %230
+  %.2 = select i1 %or.cond, float %.1300, float %230
   %231 = fcmp uge float %.2, 0.000000e+00
   %232 = fcmp ugt float %225, %171
   %or.cond351 = select i1 %231, i1 true, i1 %232
@@ -347,7 +347,7 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %or.cond352 = select i1 %226, i1 true, i1 %237
   %238 = fsub float %171, %178
   %239 = fmul float %238, 5.000000e-01
-  %.3 = select i1 %or.cond352, float %.1297, float %239
+  %.3 = select i1 %or.cond352, float %.1300, float %239
   %240 = fcmp uge float %.3, 0.000000e+00
   %241 = fcmp ugt float %225, %174
   %or.cond353 = select i1 %240, i1 true, i1 %241
@@ -367,9 +367,9 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 247:                                              ; preds = %245, %247
   %indvars.iv368 = phi i64 [ 1, %245 ], [ %indvars.iv.next369, %247 ]
   %.0289346 = phi float [ 0.000000e+00, %245 ], [ %261, %247 ]
-  %.2300345 = phi float [ 0.000000e+00, %245 ], [ %263, %247 ]
-  %.2303344 = phi float [ 0.000000e+00, %245 ], [ %262, %247 ]
-  %.1305343 = phi float [ 0.000000e+00, %245 ], [ %259, %247 ]
+  %.2303345 = phi float [ 0.000000e+00, %245 ], [ %263, %247 ]
+  %.2306344 = phi float [ 0.000000e+00, %245 ], [ %262, %247 ]
+  %.1308343 = phi float [ 0.000000e+00, %245 ], [ %259, %247 ]
   %248 = add nsw i64 %indvars.iv368, -1
   %249 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 %248
   %250 = load float, ptr %249, align 4
@@ -381,11 +381,11 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %256 = fmul float %252, %255
   %257 = fmul float %252, %256
   %258 = fdiv float %255, %250
-  %259 = fadd float %.1305343, %258
+  %259 = fadd float %.1308343, %258
   %260 = tail call noundef float @llvm.fabs.f32(float %258)
   %261 = fadd float %.0289346, %260
-  %262 = fadd float %.2303344, %256
-  %263 = fadd float %.2300345, %257
+  %262 = fadd float %.2306344, %256
+  %263 = fadd float %.2303345, %257
   %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
   %exitcond371.not = icmp eq i64 %indvars.iv.next369, 4
   br i1 %exitcond371.not, label %264, label %247, !llvm.loop !8

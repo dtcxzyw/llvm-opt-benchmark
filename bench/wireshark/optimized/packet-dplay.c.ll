@@ -1483,7 +1483,7 @@ define internal fastcc i32 @dissect_packed_player(ptr noundef %0, ptr noundef %1
   br label %57
 
 57:                                               ; preds = %49, %3
-  %.094 = phi i32 [ %56, %49 ], [ %48, %3 ]
+  %.0 = phi i32 [ %56, %49 ], [ %48, %3 ]
   %.not96 = icmp eq i32 %21, 0
   br i1 %.not96, label %66, label %58
 
@@ -1491,16 +1491,16 @@ define internal fastcc i32 @dissect_packed_player(ptr noundef %0, ptr noundef %1
   %59 = load i32, ptr @hf_dplay_pp_long_name, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %60 = call ptr @wmem_packet_scope() #3
-  %61 = call ptr @tvb_get_stringz_enc(ptr noundef %60, ptr noundef %1, i32 noundef %.094, ptr noundef nonnull %4, i32 noundef -2147483644) #3
+  %61 = call ptr @tvb_get_stringz_enc(ptr noundef %60, ptr noundef %1, i32 noundef %.0, ptr noundef nonnull %4, i32 noundef -2147483644) #3
   %62 = load i32, ptr %4, align 4
-  %63 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %59, ptr noundef %1, i32 noundef %.094, i32 noundef %62, ptr noundef %61) #3
+  %63 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %59, ptr noundef %1, i32 noundef %.0, i32 noundef %62, ptr noundef %61) #3
   %64 = load i32, ptr %4, align 4
-  %65 = add i32 %64, %.094
+  %65 = add i32 %64, %.0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %66
 
 66:                                               ; preds = %58, %57
-  %.1 = phi i32 [ %65, %58 ], [ %.094, %57 ]
+  %.1 = phi i32 [ %65, %58 ], [ %.0, %57 ]
   %67 = load i32, ptr @hf_dplay_pp_sp_data, align 4
   %68 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %67, ptr noundef %1, i32 noundef %.1, i32 noundef %25, i32 noundef 0) #3
   %69 = add i32 %.1, %25
@@ -1519,12 +1519,12 @@ define internal fastcc i32 @dissect_packed_player(ptr noundef %0, ptr noundef %1
   br i1 %.not100, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %74, %.lr.ph
-  %.099 = phi i32 [ %78, %.lr.ph ], [ 0, %74 ]
-  %.398 = phi i32 [ %77, %.lr.ph ], [ %.2, %74 ]
+  %.399 = phi i32 [ %77, %.lr.ph ], [ %.2, %74 ]
+  %.09498 = phi i32 [ %78, %.lr.ph ], [ 0, %74 ]
   %75 = load i32, ptr @hf_dplay_pp_player_id, align 4
-  %76 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %75, ptr noundef %1, i32 noundef %.398, i32 noundef 4, i32 noundef 0) #3
-  %77 = add i32 %.398, 4
-  %78 = add nuw i32 %.099, 1
+  %76 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %75, ptr noundef %1, i32 noundef %.399, i32 noundef 4, i32 noundef 0) #3
+  %77 = add i32 %.399, 4
+  %78 = add nuw i32 %.09498, 1
   %exitcond.not = icmp eq i32 %78, %33
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 

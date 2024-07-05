@@ -2792,8 +2792,8 @@ if.then16:                                        ; preds = %if.then10, %if.end1
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then5, %if.end14, %if.then16, %do.end3
-  %err.1 = phi i32 [ %call12, %if.end14 ], [ %call19, %if.then16 ], [ -1, %do.end3 ], [ %call8, %if.then5 ]
   %old_fd.1 = phi i32 [ %4, %if.end14 ], [ %4, %if.then16 ], [ -1, %do.end3 ], [ -1, %if.then5 ]
+  %err.1 = phi i32 [ %call12, %if.end14 ], [ %call19, %if.then16 ], [ -1, %do.end3 ], [ %call8, %if.then5 ]
   %tobool22 = icmp ne i32 %err.1, 0
   %7 = load i32, ptr @event_debug_logging_mask_, align 4
   %tobool25 = icmp ne i32 %7, 0

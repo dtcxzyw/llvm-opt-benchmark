@@ -168,14 +168,14 @@ activeDefragAlloc.exit:                           ; preds = %if.then5, %if.end.i
   %inc3.i = add nsw i64 %2, 1
   store i64 %inc3.i, ptr %.sink7.i, align 8
   %tobool.not = icmp eq ptr %retval.0.i, null
-  %spec.select = select i1 %tobool.not, ptr %ob, ptr %retval.0.i
-  %bf.load9.pre = load i32, ptr %spec.select, align 8
+  %spec.select17 = select i1 %tobool.not, ptr %ob, ptr %retval.0.i
+  %bf.load9.pre = load i32, ptr %spec.select17, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %activeDefragAlloc.exit, %if.end
   %bf.load9 = phi i32 [ %bf.load, %if.end ], [ %bf.load9.pre, %activeDefragAlloc.exit ]
-  %ob.addr.0 = phi ptr [ %ob, %if.end ], [ %spec.select, %activeDefragAlloc.exit ]
   %ret.0 = phi ptr [ null, %if.end ], [ %retval.0.i, %activeDefragAlloc.exit ]
+  %ob.addr.0 = phi ptr [ %ob, %if.end ], [ %spec.select17, %activeDefragAlloc.exit ]
   %bf.clear10 = and i32 %bf.load9, 15
   %cmp11 = icmp eq i32 %bf.clear10, 0
   br i1 %cmp11, label %if.then12, label %return
@@ -2791,9 +2791,9 @@ entry:
 
 do.body:                                          ; preds = %do.end, %entry
   %tobool.not = phi i1 [ %2, %entry ], [ true, %do.end ]
-  %iterations.0 = phi i32 [ 0, %entry ], [ %iterations.2, %do.end ]
   %prev_defragged.0 = phi i64 [ %0, %entry ], [ %prev_defragged.2, %do.end ]
   %prev_scanned.0 = phi i64 [ %1, %entry ], [ %prev_scanned.2, %do.end ]
+  %iterations.0 = phi i32 [ 0, %entry ], [ %iterations.2, %do.end ]
   %.pre14 = load ptr, ptr @defrag_later_current_key, align 8
   br i1 %tobool.not, label %if.then, label %if.end13
 
@@ -2844,9 +2844,9 @@ if.end13:                                         ; preds = %if.end11, %do.body
   br label %do.body14
 
 do.body14:                                        ; preds = %do.cond, %if.end13
-  %iterations.1 = phi i32 [ %iterations.0, %if.end13 ], [ %iterations.2, %do.cond ]
   %prev_defragged.1 = phi i64 [ %prev_defragged.0, %if.end13 ], [ %prev_defragged.2, %do.cond ]
   %prev_scanned.1 = phi i64 [ %prev_scanned.0, %if.end13 ], [ %prev_scanned.2, %do.cond ]
+  %iterations.1 = phi i32 [ %iterations.0, %if.end13 ], [ %iterations.2, %do.cond ]
   %12 = load i32, ptr %id, align 8
   %call15 = tail call i32 @defragLaterItem(ptr noundef %call, ptr noundef nonnull @defrag_later_cursor, i64 noundef %endtime, i32 noundef %12)
   %tobool16.not = icmp eq i32 %call15, 0
@@ -2890,9 +2890,9 @@ if.end42:                                         ; preds = %lor.lhs.false31
 
 do.cond:                                          ; preds = %lor.lhs.false25, %if.end42
   %19 = phi i64 [ %17, %if.end42 ], [ %13, %lor.lhs.false25 ]
-  %iterations.2 = phi i32 [ 0, %if.end42 ], [ %inc, %lor.lhs.false25 ]
   %prev_defragged.2 = phi i64 [ %17, %if.end42 ], [ %prev_defragged.1, %lor.lhs.false25 ]
   %prev_scanned.2 = phi i64 [ %18, %if.end42 ], [ %prev_scanned.1, %lor.lhs.false25 ]
+  %iterations.2 = phi i32 [ 0, %if.end42 ], [ %inc, %lor.lhs.false25 ]
   %20 = load i64, ptr @defrag_later_cursor, align 8
   %tobool44.not = icmp eq i64 %20, 0
   br i1 %tobool44.not, label %do.end, label %do.body14, !llvm.loop !16

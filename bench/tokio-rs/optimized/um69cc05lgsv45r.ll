@@ -8698,10 +8698,10 @@ _ZN5tokio7runtime6driver6Handle4time17h85722b047daee337E.exit: ; preds = %4
   %.sroa.3.0.i = select i1 %trunc.i, i64 %26, i64 undef
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1520
   %switch.not.not = icmp eq i64 %24, 0
-  %.027 = tail call i64 @llvm.umax.i64(i64 %.sroa.3.0.i, i64 1)
-  %.0 = select i1 %switch.not.not, i64 0, i64 %.027
+  %.025 = tail call i64 @llvm.umax.i64(i64 %.sroa.3.0.i, i64 1)
+  %.028 = select i1 %switch.not.not, i64 0, i64 %.025
   %27 = getelementptr inbounds i8, ptr %21, i64 56
-  store i64 %.0, ptr %27, align 8
+  store i64 %.028, ptr %27, align 8
   %28 = tail call { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h5ccce900420b99d6E.llvm.700930863383756518(ptr noundef nonnull %21, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
   %.fca.0.extract.i.i.i.i = extractvalue { i8, i8 } %28, 0
   %29 = and i8 %.fca.0.extract.i.i.i.i, 1

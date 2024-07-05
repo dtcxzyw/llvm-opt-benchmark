@@ -22847,13 +22847,13 @@ lpad33:                                           ; preds = %for.body
   br label %ehcleanup217
 
 for.body39:                                       ; preds = %for.cond36.preheader, %for.body39
-  %i35.0470 = phi i64 [ %inc44, %for.body39 ], [ 0, %for.cond36.preheader ]
-  %total_length.0469 = phi i32 [ %add41, %for.body39 ], [ 0, %for.cond36.preheader ]
-  %add.ptr.i108 = getelementptr inbounds i32, ptr %offsets_batch.sroa.0.0, i64 %i35.0470
+  %total_length.0470 = phi i32 [ %add41, %for.body39 ], [ 0, %for.cond36.preheader ]
+  %i35.0469 = phi i64 [ %inc44, %for.body39 ], [ 0, %for.cond36.preheader ]
+  %add.ptr.i108 = getelementptr inbounds i32, ptr %offsets_batch.sroa.0.0, i64 %i35.0469
   %42 = load i32, ptr %add.ptr.i108, align 4
-  %add41 = add nsw i32 %42, %total_length.0469
-  store i32 %total_length.0469, ptr %add.ptr.i108, align 4
-  %inc44 = add nuw nsw i64 %i35.0470, 1
+  %add41 = add nsw i32 %42, %total_length.0470
+  store i32 %total_length.0470, ptr %add.ptr.i108, align 4
+  %inc44 = add nuw nsw i64 %i35.0469, 1
   %exitcond.not = icmp eq i64 %inc44, %32
   br i1 %exitcond.not, label %for.end45, label %for.body39, !llvm.loop !484
 

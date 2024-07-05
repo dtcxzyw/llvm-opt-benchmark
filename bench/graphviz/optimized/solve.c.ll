@@ -78,7 +78,7 @@ gv_calloc.exit175.preheader:                      ; preds = %18
 .preheader178:                                    ; preds = %.preheader178.lr.ph, %.loopexit
   %indvars.iv236 = phi i64 [ 1, %.preheader178.lr.ph ], [ %indvars.iv.next237, %.loopexit ]
   %indvars.iv = phi i64 [ 0, %.preheader178.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %.0159201 = phi i32 [ 0, %.preheader178.lr.ph ], [ %.2, %.loopexit ]
+  %.0167200 = phi i32 [ 0, %.preheader178.lr.ph ], [ %.2169, %.loopexit ]
   %indvars243 = trunc i64 %indvars.iv to i32
   %31 = icmp slt i64 %indvars.iv, %14
   br i1 %31, label %.lr.ph187.preheader, label %.loopexit179
@@ -90,14 +90,14 @@ gv_calloc.exit175.preheader:                      ; preds = %18
 .lr.ph187:                                        ; preds = %.lr.ph187.preheader, %.lr.ph187
   %indvars.iv223 = phi i64 [ %indvars.iv, %.lr.ph187.preheader ], [ %indvars.iv.next224, %.lr.ph187 ]
   %.0186 = phi double [ 0.000000e+00, %.lr.ph187.preheader ], [ %.1, %.lr.ph187 ]
-  %.1160185 = phi i32 [ %.0159201, %.lr.ph187.preheader ], [ %.2, %.lr.ph187 ]
+  %.1168184 = phi i32 [ %.0167200, %.lr.ph187.preheader ], [ %.2169, %.lr.ph187 ]
   %32 = mul nuw nsw i64 %indvars.iv223, %30
   %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %32
   %33 = load double, ptr %gep, align 8
   %34 = tail call double @llvm.fabs.f64(double %33)
   %35 = fcmp olt double %34, %.0186
   %36 = trunc nuw nsw i64 %indvars.iv223 to i32
-  %.2 = select i1 %35, i32 %.1160185, i32 %36
+  %.2169 = select i1 %35, i32 %.1168184, i32 %36
   %.1 = select i1 %35, double %.0186, double %34
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next224, %30
@@ -111,7 +111,7 @@ gv_calloc.exit175.preheader:                      ; preds = %18
   br i1 %31, label %.lr.ph191, label %.lr.ph195.us.preheader
 
 .lr.ph191:                                        ; preds = %.preheader177
-  %38 = mul nsw i32 %.2, %3
+  %38 = mul nsw i32 %.2169, %3
   %39 = mul nuw nsw i64 %indvars.iv, %14
   %40 = sext i32 %38 to i64
   %invariant.gep266 = getelementptr double, ptr %0, i64 %40
@@ -131,7 +131,7 @@ gv_calloc.exit175.preheader:                      ; preds = %18
   br i1 %exitcond230.not, label %.lr.ph195.us.preheader, label %41
 
 .lr.ph195.us.preheader:                           ; preds = %41, %.preheader177
-  %44 = sext i32 %.2 to i64
+  %44 = sext i32 %.2169 to i64
   %45 = getelementptr inbounds double, ptr %2, i64 %44
   %46 = load double, ptr %45, align 8
   %47 = getelementptr inbounds double, ptr %2, i64 %indvars.iv

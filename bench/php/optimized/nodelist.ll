@@ -168,8 +168,8 @@ define hidden i32 @php_dom_get_nodelist_length(ptr nocapture noundef readonly %0
 
 .preheader:                                       ; preds = %69, %.preheader
   %storemerge = phi i32 [ %74, %.preheader ], [ 1, %69 ]
-  %.0 = phi ptr [ %73, %.preheader ], [ %71, %69 ]
-  %72 = getelementptr inbounds i8, ptr %.0, i64 48
+  %.068 = phi ptr [ %73, %.preheader ], [ %71, %69 ]
+  %72 = getelementptr inbounds i8, ptr %.068, i64 48
   %73 = load ptr, ptr %72, align 8
   %.not94 = icmp eq ptr %73, null
   %74 = add nuw nsw i32 %storemerge, 1
@@ -193,12 +193,12 @@ define hidden i32 @php_dom_get_nodelist_length(ptr nocapture noundef readonly %0
   br label %83
 
 83:                                               ; preds = %80, %78
-  %.068 = phi ptr [ %79, %78 ], [ %82, %80 ]
+  %.069 = phi ptr [ %79, %78 ], [ %82, %80 ]
   %84 = getelementptr inbounds i8, ptr %3, i64 48
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %3, i64 40
   %87 = load ptr, ptr %86, align 8
-  %88 = call ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef nonnull %30, ptr noundef %.068, ptr noundef %85, ptr noundef %87, ptr noundef nonnull %2, i32 noundef 2147483646) #3
+  %88 = call ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef nonnull %30, ptr noundef %.069, ptr noundef %85, ptr noundef %87, ptr noundef nonnull %2, i32 noundef 2147483646) #3
   %.pre98 = load i32, ptr %2, align 4
   br label %.loopexit
 
@@ -209,8 +209,8 @@ define hidden i32 @php_dom_get_nodelist_length(ptr nocapture noundef readonly %0
   br label %91
 
 91:                                               ; preds = %44, %28, %1, %.loopexit, %24, %7
-  %.069 = phi i32 [ %8, %7 ], [ %27, %24 ], [ %89, %.loopexit ], [ 0, %1 ], [ 0, %28 ], [ %46, %44 ]
-  ret i32 %.069
+  %.070 = phi i32 [ %8, %7 ], [ %27, %24 ], [ %89, %.loopexit ], [ 0, %1 ], [ 0, %28 ], [ %46, %44 ]
+  ret i32 %.070
 }
 
 declare i32 @xmlHashSize(ptr noundef) local_unnamed_addr #1
@@ -450,9 +450,9 @@ define hidden void @php_dom_nodelist_get_item_into_zval(ptr noundef %0, i64 noun
   br label %.thread
 
 .thread:                                          ; preds = %.critedge.thread, %91
-  %.0199204 = phi i32 [ %50, %91 ], [ %89, %.critedge.thread ]
+  %.0141199204 = phi i32 [ %50, %91 ], [ %89, %.critedge.thread ]
   %.1 = phi ptr [ %93, %91 ], [ %71, %.critedge.thread ]
-  %94 = icmp sgt i32 %.0199204, 0
+  %94 = icmp sgt i32 %.0141199204, 0
   %95 = icmp ne ptr %.1, null
   %96 = select i1 %94, i1 %95, i1 false
   br i1 %96, label %.lr.ph, label %.loopexit
@@ -463,7 +463,7 @@ define hidden void @php_dom_nodelist_get_item_into_zval(ptr noundef %0, i64 noun
   %98 = add nuw nsw i32 %97, 1
   %99 = getelementptr inbounds i8, ptr %.2217, i64 48
   %100 = load ptr, ptr %99, align 8
-  %101 = icmp slt i32 %98, %.0199204
+  %101 = icmp slt i32 %98, %.0141199204
   %102 = icmp ne ptr %100, null
   %103 = select i1 %101, i1 %102, i1 false
   br i1 %103, label %.lr.ph, label %.loopexit
@@ -492,18 +492,18 @@ define hidden void @php_dom_nodelist_get_item_into_zval(ptr noundef %0, i64 noun
   br label %112
 
 112:                                              ; preds = %.loopexit, %16, %14
-  %.1144 = phi ptr [ %15, %14 ], [ %17, %16 ], [ %.2.lcssa, %.loopexit ]
-  %.not180 = icmp eq ptr %.1144, null
+  %.1145 = phi ptr [ %15, %14 ], [ %17, %16 ], [ %.2.lcssa, %.loopexit ]
+  %.not180 = icmp eq ptr %.1145, null
   br i1 %.not180, label %.thread211, label %120
 
 .thread221:                                       ; preds = %109, %107, %.critedge.thread
-  %.0200209 = phi i32 [ %50, %107 ], [ %50, %109 ], [ %89, %.critedge.thread ]
+  %.0141200209 = phi i32 [ %50, %107 ], [ %50, %109 ], [ %89, %.critedge.thread ]
   %.3 = phi ptr [ %108, %107 ], [ %111, %109 ], [ %71, %.critedge.thread ]
   %113 = getelementptr inbounds i8, ptr %0, i64 48
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds i8, ptr %0, i64 40
   %116 = load ptr, ptr %115, align 8
-  %117 = call ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef nonnull %48, ptr noundef %.3, ptr noundef %114, ptr noundef %116, ptr noundef nonnull %4, i32 noundef %.0200209) #3
+  %117 = call ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef nonnull %48, ptr noundef %.3, ptr noundef %114, ptr noundef %116, ptr noundef nonnull %4, i32 noundef %.0141200209) #3
   %.not180223 = icmp eq ptr %117, null
   br i1 %.not180223, label %.thread211, label %.thread225
 
@@ -514,18 +514,18 @@ define hidden void @php_dom_nodelist_get_item_into_zval(ptr noundef %0, i64 noun
 
 120:                                              ; preds = %112
   %121 = load ptr, ptr %0, align 8
-  %122 = tail call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.1144, ptr noundef %2, ptr noundef %121) #3
+  %122 = tail call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.1145, ptr noundef %2, ptr noundef %121) #3
   br i1 %.not169, label %123, label %174
 
 123:                                              ; preds = %.thread225, %120
-  %.1144224227 = phi ptr [ %117, %.thread225 ], [ %.1144, %120 ]
+  %.1145224227 = phi ptr [ %117, %.thread225 ], [ %.1145, %120 ]
   %124 = load ptr, ptr %2, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 -24
   %126 = load i32, ptr %124, align 4
   %127 = add i32 %126, 1
   store i32 %127, ptr %124, align 4
   %128 = getelementptr inbounds i8, ptr %0, i64 56
-  %129 = load ptr, ptr %.1144224227, align 8
+  %129 = load ptr, ptr %.1145224227, align 8
   %.not181 = icmp eq ptr %129, null
   br i1 %.not181, label %.critedge189, label %130
 
@@ -669,10 +669,10 @@ define hidden void @zim_DOMNodeList_item(ptr noundef %0, ptr noundef %1) local_u
   br label %15
 
 15:                                               ; preds = %13, %.thread81
-  %.05988 = phi i32 [ 1, %.thread81 ], [ 9, %13 ]
-  %.06187 = phi ptr [ null, %.thread81 ], [ %8, %13 ]
-  %.06286 = phi i32 [ 0, %.thread81 ], [ 1, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05988, i32 noundef %.06286, ptr noundef null, i32 noundef 0, ptr noundef %.06187) #3
+  %.05988 = phi i32 [ 0, %.thread81 ], [ 1, %13 ]
+  %.06087 = phi i32 [ 1, %.thread81 ], [ 9, %13 ]
+  %.06186 = phi ptr [ null, %.thread81 ], [ %8, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.06087, i32 noundef %.05988, ptr noundef null, i32 noundef 0, ptr noundef %.06186) #3
   br label %20
 
 .thread89:                                        ; preds = %..thread89_crit_edge, %.thread71

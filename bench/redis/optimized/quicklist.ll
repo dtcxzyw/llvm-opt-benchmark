@@ -2665,17 +2665,17 @@ _quicklistNodeAllowInsert.exit275.thread:         ; preds = %if.then.i.i259, %if
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then.i.i259, %if.then.i.i231, %land.lhs.true, %_quicklistNodeAllowInsert.exit247, %_quicklistNodeAllowInsert.exit247.thread, %_quicklistNodeAllowInsert.exit275.thread, %_quicklistNodeAllowInsert.exit275, %lor.lhs.false42
-  %tobool225341 = phi i1 [ false, %lor.lhs.false42 ], [ false, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ false, %land.lhs.true ], [ true, %if.then.i.i231 ], [ false, %if.then.i.i259 ]
-  %tobool399340 = phi i1 [ true, %lor.lhs.false42 ], [ true, %_quicklistNodeAllowInsert.exit275 ], [ true, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ true, %land.lhs.true ], [ false, %if.then.i.i231 ], [ true, %if.then.i.i259 ]
-  %tobool223339 = phi i1 [ false, %lor.lhs.false42 ], [ false, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ true, %_quicklistNodeAllowInsert.exit247.thread ], [ false, %land.lhs.true ], [ true, %if.then.i.i231 ], [ false, %if.then.i.i259 ]
-  %tobool311 = phi i1 [ false, %lor.lhs.false42 ], [ true, %_quicklistNodeAllowInsert.exit275 ], [ true, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ false, %land.lhs.true ], [ false, %if.then.i.i231 ], [ true, %if.then.i.i259 ]
-  %tobool405 = phi i1 [ true, %lor.lhs.false42 ], [ false, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ true, %_quicklistNodeAllowInsert.exit247.thread ], [ true, %land.lhs.true ], [ true, %if.then.i.i231 ], [ false, %if.then.i.i259 ]
-  %tobool313 = phi i1 [ false, %lor.lhs.false42 ], [ true, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ false, %land.lhs.true ], [ false, %if.then.i.i231 ], [ true, %if.then.i.i259 ]
+  %tobool399341 = phi i1 [ true, %lor.lhs.false42 ], [ true, %_quicklistNodeAllowInsert.exit275 ], [ true, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ true, %land.lhs.true ], [ false, %if.then.i.i231 ], [ true, %if.then.i.i259 ]
+  %tobool223340 = phi i1 [ false, %lor.lhs.false42 ], [ false, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ true, %_quicklistNodeAllowInsert.exit247.thread ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ false, %land.lhs.true ], [ true, %if.then.i.i231 ], [ false, %if.then.i.i259 ]
+  %tobool225339 = phi i1 [ false, %lor.lhs.false42 ], [ false, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ false, %land.lhs.true ], [ true, %if.then.i.i231 ], [ false, %if.then.i.i259 ]
+  %tobool313 = phi i1 [ false, %lor.lhs.false42 ], [ true, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ false, %land.lhs.true ], [ false, %if.then.i.i231 ], [ true, %if.then.i.i259 ]
+  %tobool311 = phi i1 [ false, %lor.lhs.false42 ], [ true, %_quicklistNodeAllowInsert.exit275 ], [ true, %_quicklistNodeAllowInsert.exit275.thread ], [ false, %_quicklistNodeAllowInsert.exit247.thread ], [ false, %_quicklistNodeAllowInsert.exit247 ], [ false, %land.lhs.true ], [ false, %if.then.i.i231 ], [ true, %if.then.i.i259 ]
+  %tobool405 = phi i1 [ true, %lor.lhs.false42 ], [ false, %_quicklistNodeAllowInsert.exit275 ], [ false, %_quicklistNodeAllowInsert.exit275.thread ], [ true, %_quicklistNodeAllowInsert.exit247.thread ], [ true, %_quicklistNodeAllowInsert.exit247 ], [ true, %land.lhs.true ], [ true, %if.then.i.i231 ], [ false, %if.then.i.i259 ]
   %cmp56.not = icmp ugt i64 %10, %sz
   br i1 %cmp56.not, label %if.end97, label %if.then64
 
 if.then64:                                        ; preds = %if.end55
-  %or.cond = and i1 %tobool22, %tobool223339
+  %or.cond = and i1 %tobool22, %tobool223340
   %or.cond206 = or i1 %or.cond, %cmp.i219
   %or.cond206.not = xor i1 %or.cond206, true
   %or.cond1 = or i1 %tobool22, %tobool405
@@ -2907,8 +2907,8 @@ if.then214:                                       ; preds = %do.end179
   br label %if.end481
 
 if.else220:                                       ; preds = %if.else158
-  %or.cond4 = and i1 %tobool223339, %tobool159
-  %or.cond5 = and i1 %tobool225341, %or.cond4
+  %or.cond4 = and i1 %tobool223340, %tobool159
+  %or.cond5 = and i1 %or.cond4, %tobool225339
   %or.cond6 = and i1 %tobool22, %or.cond5
   br i1 %or.cond6, label %if.then228, label %if.else308
 
@@ -2970,7 +2970,7 @@ if.then302:                                       ; preds = %do.body286
 
 if.else308:                                       ; preds = %if.else220
   %or.cond7 = and i1 %tobool311, %tobool159
-  %or.cond8 = and i1 %or.cond7, %tobool313
+  %or.cond8 = and i1 %tobool313, %or.cond7
   %or.cond8.not = xor i1 %or.cond8, true
   %or.cond9 = or i1 %tobool22, %or.cond8.not
   br i1 %or.cond9, label %if.else396, label %if.then316
@@ -3035,9 +3035,9 @@ if.else396:                                       ; preds = %if.else308
 
 land.lhs.true398:                                 ; preds = %if.else396
   %tobool22.not = xor i1 %tobool22, true
-  %64 = or i1 %tobool399340, %tobool22.not
-  %or.cond11.not = or i1 %tobool225341, %64
-  %or.cond12 = or i1 %tobool405, %tobool313
+  %64 = or i1 %tobool399341, %tobool22.not
+  %or.cond11.not = or i1 %64, %tobool225339
+  %or.cond12 = or i1 %tobool313, %tobool405
   %or.cond13 = or i1 %tobool22, %or.cond12
   %or.cond214 = and i1 %or.cond11.not, %or.cond13
   br i1 %or.cond214, label %land.lhs.true434, label %if.then410

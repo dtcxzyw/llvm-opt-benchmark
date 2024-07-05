@@ -139,10 +139,10 @@ define hidden void @zif_crc32(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 15:                                               ; preds = %13, %.thread81
   %.06492 = phi i32 [ 1, %.thread81 ], [ 9, %13 ]
-  %.06591 = phi i32 [ 0, %.thread81 ], [ 4, %13 ]
-  %.06690 = phi ptr [ null, %.thread81 ], [ %8, %13 ]
-  %.06789 = phi i32 [ 0, %.thread81 ], [ 1, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.06492, i32 noundef %.06789, ptr noundef null, i32 noundef %.06591, ptr noundef %.06690) #4
+  %.06691 = phi i32 [ 0, %.thread81 ], [ 1, %13 ]
+  %.06790 = phi i32 [ 0, %.thread81 ], [ 4, %13 ]
+  %.06889 = phi ptr [ null, %.thread81 ], [ %8, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.06492, i32 noundef %.06691, ptr noundef null, i32 noundef %.06790, ptr noundef %.06889) #4
   br label %37
 
 16:                                               ; preds = %._crit_edge, %.thread

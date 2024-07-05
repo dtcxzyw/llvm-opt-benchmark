@@ -2918,14 +2918,14 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br label %32
 
 32:                                               ; preds = %28, %23, %31, %29
-  %.015 = phi i64 [ 6, %29 ], [ 5, %31 ], [ 4, %23 ], [ %25, %28 ]
+  %.0 = phi i64 [ 6, %29 ], [ 5, %31 ], [ 4, %23 ], [ %25, %28 ]
   %33 = phi i1 [ false, %29 ], [ false, %31 ], [ true, %23 ], [ true, %28 ]
   %.sroa.5.0 = phi i64 [ %30, %29 ], [ 0, %31 ], [ %25, %23 ], [ %25, %28 ]
   store ptr %18, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %13, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %10, i64 16
-  store i64 %.015, ptr %35, align 8
+  store i64 %.0, ptr %35, align 8
   invoke void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17ha040253dfe5be280E"(ptr nonnull sret({ { ptr, i64, {} }, { ptr, i64, {} }, { i64, { { { ptr, [1 x i64] }, i64, { {} }, {} } } } }) align 8 %9, ptr nonnull align 8 %10)
           to label %36 unwind label %52
 

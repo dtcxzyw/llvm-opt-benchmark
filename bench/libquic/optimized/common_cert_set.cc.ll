@@ -342,11 +342,11 @@ if.end15:                                         ; preds = %if.end11
   br label %while.body
 
 while.body:                                       ; preds = %if.end15, %if.end37
-  %max.030 = phi i64 [ %sub, %if.end15 ], [ %max.1, %if.end37 ]
-  %min.029 = phi i64 [ 0, %if.end15 ], [ %min.1, %if.end37 ]
-  %sub19 = sub i64 %max.030, %min.029
+  %min.030 = phi i64 [ 0, %if.end15 ], [ %min.1, %if.end37 ]
+  %max.029 = phi i64 [ %sub, %if.end15 ], [ %max.1, %if.end37 ]
+  %sub19 = sub i64 %max.029, %min.030
   %div2020 = lshr i64 %sub19, 1
-  %add = add i64 %div2020, %min.029
+  %add = add i64 %div2020, %min.030
   %arrayidx22 = getelementptr inbounds ptr, ptr %4, i64 %add
   %6 = load ptr, ptr %arrayidx22, align 8
   %arrayidx24 = getelementptr inbounds i64, ptr %5, i64 %add
@@ -400,8 +400,8 @@ if.else35:                                        ; preds = %if.else
   br label %return
 
 if.end37:                                         ; preds = %if.then33, %if.end30
-  %min.1 = phi i64 [ %min.029, %if.end30 ], [ %add34, %if.then33 ]
-  %max.1 = phi i64 [ %sub31, %if.end30 ], [ %max.030, %if.then33 ]
+  %max.1 = phi i64 [ %sub31, %if.end30 ], [ %max.029, %if.then33 ]
+  %min.1 = phi i64 [ %min.030, %if.end30 ], [ %add34, %if.then33 ]
   %cmp18.not = icmp ult i64 %max.1, %min.1
   br i1 %cmp18.not, label %for.inc, label %while.body, !llvm.loop !7
 

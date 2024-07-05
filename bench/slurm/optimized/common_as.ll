@@ -1783,10 +1783,10 @@ _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.backedge, %.lr.ph.preheader
-  %.035.ph64 = phi ptr [ %69, %.lr.ph.preheader ], [ %86, %.lr.ph.split.us.backedge ]
-  %.036.ph62 = phi i32 [ %66, %.lr.ph.preheader ], [ %87, %.lr.ph.split.us.backedge ]
-  %70 = zext nneg i32 %.036.ph62 to i64
-  %71 = call i64 @write(i32 noundef %60, ptr noundef %.035.ph64, i64 noundef %70) #10
+  %.036.ph64 = phi ptr [ %69, %.lr.ph.preheader ], [ %86, %.lr.ph.split.us.backedge ]
+  %.037.ph62 = phi i32 [ %66, %.lr.ph.preheader ], [ %87, %.lr.ph.split.us.backedge ]
+  %70 = zext nneg i32 %.037.ph62 to i64
+  %71 = call i64 @write(i32 noundef %60, ptr noundef %.036.ph64, i64 noundef %70) #10
   %72 = trunc i64 %71 to i32
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %.lr.ph60, label %.split.us
@@ -1803,7 +1803,7 @@ _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
   ]
 
 77:                                               ; preds = %75, %75
-  %78 = call i64 @write(i32 noundef %60, ptr noundef %.035.ph64, i64 noundef %70) #10
+  %78 = call i64 @write(i32 noundef %60, ptr noundef %.036.ph64, i64 noundef %70) #10
   %79 = trunc i64 %78 to i32
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %75, label %.split.us
@@ -1815,15 +1815,15 @@ _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
 
 83:                                               ; preds = %.split54.us
   %84 = load i32, ptr %65, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.61, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.archive_write_file, ptr noundef nonnull @.str.2, i32 noundef 914, ptr noundef nonnull @__func__.archive_write_file, i32 noundef %.036.ph62, i32 noundef %84) #10
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.61, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.archive_write_file, ptr noundef nonnull @.str.2, i32 noundef 914, ptr noundef nonnull @__func__.archive_write_file, i32 noundef %.037.ph62, i32 noundef %84) #10
   br label %100
 
 .split.us:                                        ; preds = %77, %.lr.ph.split.us
   %.us-phi = phi i64 [ %71, %.lr.ph.split.us ], [ %78, %77 ]
   %.us-phi52 = phi i32 [ %72, %.lr.ph.split.us ], [ %79, %77 ]
   %85 = and i64 %.us-phi, 2147483647
-  %86 = getelementptr inbounds i8, ptr %.035.ph64, i64 %85
-  %87 = sub nsw i32 %.036.ph62, %.us-phi52
+  %86 = getelementptr inbounds i8, ptr %.036.ph64, i64 %85
+  %87 = sub nsw i32 %.037.ph62, %.us-phi52
   %88 = icmp sgt i32 %87, 0
   br i1 %88, label %89, label %.outer._crit_edge
 
@@ -1846,7 +1846,7 @@ _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
   br label %96
 
 96:                                               ; preds = %.outer._crit_edge, %62
-  %.037 = phi i32 [ -1, %62 ], [ 0, %.outer._crit_edge ]
+  %.035 = phi i32 [ -1, %62 ], [ 0, %.outer._crit_edge ]
   call void @slurm_xfree(ptr noundef nonnull %13) #10
   %97 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @archive_write_file.local_file_lock) #10
   %.not46 = icmp eq i32 %97, 0
@@ -1873,7 +1873,7 @@ _make_archive_name.exit:                          ; preds = %.lr.ph.i, %26
   unreachable
 
 106:                                              ; preds = %100, %96
-  %.0 = phi i32 [ %.037, %96 ], [ -1, %100 ]
+  %.0 = phi i32 [ %.035, %96 ], [ -1, %100 ]
   ret i32 %.0
 }
 

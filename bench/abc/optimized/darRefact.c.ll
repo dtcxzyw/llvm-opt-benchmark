@@ -1357,8 +1357,8 @@ Vec_PtrCopy.exit162:                              ; preds = %205, %219
   br label %.critedge
 
 .critedge:                                        ; preds = %230, %.critedge.sink.split, %4
-  %.0107 = load i32, ptr %5, align 8
-  ret i32 %.0107
+  %.0 = load i32, ptr %5, align 8
+  ret i32 %.0
 }
 
 declare void @Aig_ObjCollectCut(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
@@ -1729,7 +1729,7 @@ Dar_ObjCutLevelAchieved.exit:                     ; preds = %148
   br label %167
 
 167:                                              ; preds = %.thread, %135, %138, %160, %162, %Dar_ObjCutLevelAchieved.exit, %131
-  %.0101 = phi i32 [ %134, %131 ], [ %109, %Dar_ObjCutLevelAchieved.exit ], [ %109, %162 ], [ %109, %160 ], [ %109, %138 ], [ %109, %135 ], [ %109, %.thread ]
+  %.0100 = phi i32 [ %134, %131 ], [ %109, %Dar_ObjCutLevelAchieved.exit ], [ %109, %162 ], [ %109, %160 ], [ %109, %138 ], [ %109, %135 ], [ %109, %.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %168 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #20
   %169 = icmp slt i32 %168, 0
@@ -1776,7 +1776,7 @@ Abc_Clock.exit147:                                ; preds = %Abc_Clock.exit145, 
 
 187:                                              ; preds = %Abc_Clock.exit147, %185
   %188 = phi i32 [ %186, %185 ], [ 1000000000, %Abc_Clock.exit147 ]
-  %189 = call i32 @Dar_ManRefactorTryCuts(ptr noundef nonnull %11, ptr noundef nonnull %65, i32 noundef %.0101, i32 noundef %188)
+  %189 = call i32 @Dar_ManRefactorTryCuts(ptr noundef nonnull %11, ptr noundef nonnull %65, i32 noundef %.0100, i32 noundef %188)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %190 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #20
   %191 = icmp slt i32 %190, 0

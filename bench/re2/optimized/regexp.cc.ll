@@ -581,12 +581,12 @@ if.then.i:                                        ; preds = %for.end.i.i
 _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE16try_emplace_implIS6_JEEESC_INS1_12raw_hash_setIS7_SA_SB_SF_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i, %if.then.i
   %15 = phi ptr [ %.pre20.i, %if.then.i ], [ %6, %for.body.i.i ]
   %16 = phi ptr [ %.pre.i, %if.then.i ], [ %2, %for.body.i.i ]
-  %retval.sroa.0.0.i14.i = phi i64 [ %call33.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
+  %retval.sroa.0.0.i15.i = phi i64 [ %call33.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
   %cmp.not.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE16try_emplace_implIS6_JEEESC_INS1_12raw_hash_setIS7_SA_SB_SF_E8iteratorEbEOT_DpOT0_.exit
-  %add.ptr.i4.i = getelementptr inbounds i8, ptr %16, i64 %retval.sroa.0.0.i14.i
+  %add.ptr.i4.i = getelementptr inbounds i8, ptr %16, i64 %retval.sroa.0.0.i15.i
   %17 = load i8, ptr %add.ptr.i4.i, align 1
   %cmp.i.i.i = icmp sgt i8 %17, -1
   br i1 %cmp.i.i.i, label %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE8iteratordeEv.exit, label %cond.false.i.i
@@ -596,7 +596,7 @@ cond.false.i.i:                                   ; preds = %land.lhs.true.i.i, 
   unreachable
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE8iteratordeEv.exit: ; preds = %land.lhs.true.i.i
-  %second.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i14.i, i32 1
+  %second.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15.i, i32 1
   ret ptr %second.i
 }
 
@@ -1017,7 +1017,7 @@ for.body.preheader:                               ; preds = %if.end11
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %stack.138 = phi ptr [ %1, %for.body.preheader ], [ %stack.2, %for.inc ]
+  %stack.139 = phi ptr [ %1, %for.body.preheader ], [ %stack.2, %for.inc ]
   %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx, align 8
   %cmp19 = icmp eq ptr %9, null
@@ -1119,12 +1119,12 @@ call33.i.i.i.noexc:                               ; preds = %if.then.i.i
 _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE16try_emplace_implIS6_JEEESC_INS1_12raw_hash_setIS7_SA_SB_SF_E8iteratorEbEOT_DpOT0_.exit.i: ; preds = %for.body.i.i.i, %call33.i.i.i.noexc
   %24 = phi ptr [ %.pre20.i.i, %call33.i.i.i.noexc ], [ %16, %for.body.i.i.i ]
   %25 = phi ptr [ %.pre.i.i, %call33.i.i.i.noexc ], [ %12, %for.body.i.i.i ]
-  %retval.sroa.0.0.i14.i.i = phi i64 [ %call33.i.i.i44, %call33.i.i.i.noexc ], [ %and.i.i.i.i, %for.body.i.i.i ]
+  %retval.sroa.0.0.i15.i.i = phi i64 [ %call33.i.i.i44, %call33.i.i.i.noexc ], [ %and.i.i.i.i, %for.body.i.i.i ]
   %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %cond.false.i.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE16try_emplace_implIS6_JEEESC_INS1_12raw_hash_setIS7_SA_SB_SF_E8iteratorEbEOT_DpOT0_.exit.i
-  %add.ptr.i4.i.i = getelementptr inbounds i8, ptr %25, i64 %retval.sroa.0.0.i14.i.i
+  %add.ptr.i4.i.i = getelementptr inbounds i8, ptr %25, i64 %retval.sroa.0.0.i15.i.i
   %26 = load i8, ptr %add.ptr.i4.i.i, align 1
   %cmp.i.i.i.i = icmp sgt i8 %26, -1
   br i1 %cmp.i.i.i.i, label %invoke.cont3.i, label %cond.false.i.i.i
@@ -1134,7 +1134,7 @@ cond.false.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
   unreachable
 
 invoke.cont3.i:                                   ; preds = %land.lhs.true.i.i.i
-  %second.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %24, i64 %retval.sroa.0.0.i14.i.i, i32 1
+  %second.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %24, i64 %retval.sroa.0.0.i15.i.i, i32 1
   %27 = load i32, ptr %second.i.i, align 4
   %sub.i = add nsw i32 %27, -1
   %cmp5.i = icmp slt i32 %27, 65536
@@ -1209,11 +1209,11 @@ _ZN3re26Regexp12QuickDestroyEv.exit29.thread:     ; preds = %land.lhs.true
 
 if.then32:                                        ; preds = %land.lhs.true
   %down_33 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %stack.138, ptr %down_33, align 8
+  store ptr %stack.139, ptr %down_33, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN3re26Regexp12QuickDestroyEv.exit29.thread, %if.end27, %if.then32, %for.body
-  %stack.2 = phi ptr [ %stack.138, %for.body ], [ %9, %if.then32 ], [ %stack.138, %if.end27 ], [ %stack.138, %_ZN3re26Regexp12QuickDestroyEv.exit29.thread ]
+  %stack.2 = phi ptr [ %stack.139, %for.body ], [ %9, %if.then32 ], [ %stack.139, %if.end27 ], [ %stack.139, %_ZN3re26Regexp12QuickDestroyEv.exit29.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i16, ptr %nsub_, align 2
   %36 = zext i16 %35 to i64

@@ -6881,8 +6881,8 @@ while.body.i:                                     ; preds = %entry, %_ZSt10__pop
   br i1 %cmp24.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i, %while.body.i.i.i
-  %__secondChild.025.i.i.i = phi i64 [ %spec.select.i.i.i, %while.body.i.i.i ], [ 0, %while.body.i ]
-  %add.i.i.i = shl i64 %__secondChild.025.i.i.i, 1
+  %__holeIndex.addr.025.i.i.i = phi i64 [ %spec.select.i.i.i, %while.body.i.i.i ], [ 0, %while.body.i ]
+  %add.i.i.i = shl i64 %__holeIndex.addr.025.i.i.i, 1
   %mul.i.i.i = add i64 %add.i.i.i, 2
   %add.ptr.i.i.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %mul.i.i.i
   %sub1.i.i.i = or disjoint i64 %add.i.i.i, 1
@@ -6890,14 +6890,14 @@ while.body.i.i.i:                                 ; preds = %while.body.i, %whil
   %call.i.i.i.i = call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %add.ptr2.i.i.i)
   %spec.select.i.i.i = select i1 %call.i.i.i.i, i64 %sub1.i.i.i, i64 %mul.i.i.i
   %add.ptr3.i.i.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %spec.select.i.i.i
-  %add.ptr4.i.i.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__secondChild.025.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__holeIndex.addr.025.i.i.i
   %1 = load i64, ptr %add.ptr3.i.i.i, align 4
   store i64 %1, ptr %add.ptr4.i.i.i, align 4
   %cmp.i.i.i = icmp slt i64 %spec.select.i.i.i, %div.i.i.i
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !128
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %while.body.i
-  %__secondChild.0.lcssa.i.i.i = phi i64 [ 0, %while.body.i ], [ %spec.select.i.i.i, %while.body.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ 0, %while.body.i ], [ %spec.select.i.i.i, %while.body.i.i.i ]
   %2 = and i64 %sub.ptr.sub.i.i, 8
   %cmp5.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp5.i.i.i, label %land.lhs.true.i.i.i, label %if.end16.i.i.i
@@ -6905,20 +6905,20 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
 land.lhs.true.i.i.i:                              ; preds = %while.end.i.i.i
   %sub6.i.i.i = add nsw i64 %sub.ptr.div.i.i, -2
   %div7.i.i.i = ashr exact i64 %sub6.i.i.i, 1
-  %cmp8.i.i.i = icmp eq i64 %__secondChild.0.lcssa.i.i.i, %div7.i.i.i
+  %cmp8.i.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i, %div7.i.i.i
   br i1 %cmp8.i.i.i, label %if.then9.i.i.i, label %if.end16.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
-  %add10.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i, 1
+  %add10.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i, 1
   %sub12.i.i.i = or disjoint i64 %add10.i.i.i, 1
   %add.ptr13.i.i.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %sub12.i.i.i
-  %add.ptr14.i.i.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__secondChild.0.lcssa.i.i.i
+  %add.ptr14.i.i.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i
   %3 = load i64, ptr %add.ptr13.i.i.i, align 4
   store i64 %3, ptr %add.ptr14.i.i.i, align 4
   br label %if.end16.i.i.i
 
 if.end16.i.i.i:                                   ; preds = %if.then9.i.i.i, %land.lhs.true.i.i.i, %while.end.i.i.i
-  %__holeIndex.addr.1.i.i.i = phi i64 [ %sub12.i.i.i, %if.then9.i.i.i ], [ %__secondChild.0.lcssa.i.i.i, %land.lhs.true.i.i.i ], [ %__secondChild.0.lcssa.i.i.i, %while.end.i.i.i ]
+  %__holeIndex.addr.1.i.i.i = phi i64 [ %sub12.i.i.i, %if.then9.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i, %land.lhs.true.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i, %while.end.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__value.i.i.i.i)
   store i64 %__value.sroa.0.0.copyload.i.i, ptr %__value.i.i.i.i, align 8
   %cmp12.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i, 0
@@ -7105,8 +7105,8 @@ if.then.us:                                       ; preds = %for.body.us
   br label %while.body.i.i.us
 
 while.body.i.i.us:                                ; preds = %if.then.us, %while.body.i.i.us
-  %__secondChild.025.i.i.us = phi i64 [ %spec.select.i.i.us, %while.body.i.i.us ], [ 0, %if.then.us ]
-  %add.i.i.us = shl i64 %__secondChild.025.i.i.us, 1
+  %__holeIndex.addr.025.i.i.us = phi i64 [ %spec.select.i.i.us, %while.body.i.i.us ], [ 0, %if.then.us ]
+  %add.i.i.us = shl i64 %__holeIndex.addr.025.i.i.us, 1
   %mul.i.i.us = add i64 %add.i.i.us, 2
   %add.ptr.i.i.us = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %mul.i.i.us
   %sub1.i.i.us = or disjoint i64 %add.i.i.us, 1
@@ -7114,7 +7114,7 @@ while.body.i.i.us:                                ; preds = %if.then.us, %while.
   %call.i.i.i.us = call noundef zeroext i1 %agg.tmp1.sroa.0.0.copyload.i.us(ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i.i.us, ptr noundef nonnull align 4 dereferenceable(8) %add.ptr2.i.i.us)
   %spec.select.i.i.us = select i1 %call.i.i.i.us, i64 %sub1.i.i.us, i64 %mul.i.i.us
   %add.ptr3.i.i.us = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %spec.select.i.i.us
-  %add.ptr4.i.i.us = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__secondChild.025.i.i.us
+  %add.ptr4.i.i.us = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__holeIndex.addr.025.i.i.us
   %3 = load i64, ptr %add.ptr3.i.i.us, align 4
   store i64 %3, ptr %add.ptr4.i.i.us, align 4
   %cmp.i.i.us = icmp slt i64 %spec.select.i.i.us, %div.i.i
@@ -7282,8 +7282,8 @@ if.end.split:                                     ; preds = %entry
   br i1 %cmp24.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
-  %__secondChild.025.i = phi i64 [ %spec.select.i, %while.body.i ], [ %div15, %if.end.split ]
-  %add.i = shl i64 %__secondChild.025.i, 1
+  %__holeIndex.addr.025.i = phi i64 [ %spec.select.i, %while.body.i ], [ %div15, %if.end.split ]
+  %add.i = shl i64 %__holeIndex.addr.025.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -7291,32 +7291,32 @@ while.body.i:                                     ; preds = %if.end.split, %whil
   %call.i.i = tail call noundef zeroext i1 %agg.tmp5.sroa.0.0.copyload11(ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 4 dereferenceable(8) %add.ptr2.i)
   %spec.select.i = select i1 %call.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__secondChild.025.i
+  %add.ptr4.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__holeIndex.addr.025.i
   %0 = load i64, ptr %add.ptr3.i, align 4
   store i64 %0, ptr %add.ptr4.i, align 4
   %cmp.i = icmp slt i64 %spec.select.i, %div.i6365
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !128
 
 while.end.i:                                      ; preds = %while.body.i, %if.end.split
-  %__secondChild.0.lcssa.i = phi i64 [ %div15, %if.end.split ], [ %spec.select.i, %while.body.i ]
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %div15, %if.end.split ], [ %spec.select.i, %while.body.i ]
   %1 = and i64 %sub.ptr.sub, 8
   %cmp5.i = icmp eq i64 %1, 0
   %div7.i = ashr exact i64 %sub, 1
-  %cmp8.i = icmp eq i64 %__secondChild.0.lcssa.i, %div7.i
+  %cmp8.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div7.i
   %or.cond = select i1 %cmp5.i, i1 %cmp8.i, i1 false
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %add10.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
+  %add10.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
   %sub12.i = or disjoint i64 %add10.i, 1
   %add.ptr13.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %sub12.i
-  %add.ptr14.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__secondChild.0.lcssa.i
+  %add.ptr14.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   %2 = load i64, ptr %add.ptr13.i, align 4
   store i64 %2, ptr %add.ptr14.i, align 4
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %while.end.i
-  %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__secondChild.0.lcssa.i, %while.end.i ]
+  %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__value.i.i)
   store i64 %__value.sroa.0.0.copyload10, ptr %__value.i.i, align 8
   %cmp12.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div15
@@ -7374,8 +7374,8 @@ while.end.i20.us.thread:                          ; preds = %if.end8.split.us
   br label %_ZSt13__adjust_heapIPN3re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit62.us
 
 while.body.i50.us:                                ; preds = %if.end8.split.us, %while.body.i50.us
-  %__secondChild.025.i51.us = phi i64 [ %spec.select.i58.us, %while.body.i50.us ], [ %dec.us, %if.end8.split.us ]
-  %add.i52.us = shl i64 %__secondChild.025.i51.us, 1
+  %__holeIndex.addr.025.i51.us = phi i64 [ %spec.select.i58.us, %while.body.i50.us ], [ %dec.us, %if.end8.split.us ]
+  %add.i52.us = shl i64 %__holeIndex.addr.025.i51.us, 1
   %mul.i53.us = add i64 %add.i52.us, 2
   %add.ptr.i54.us = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %mul.i53.us
   %sub1.i55.us = or disjoint i64 %add.i52.us, 1
@@ -7383,7 +7383,7 @@ while.body.i50.us:                                ; preds = %if.end8.split.us, %
   %call.i.i57.us = call noundef zeroext i1 %agg.tmp5.sroa.0.0.copyload14.us(ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i54.us, ptr noundef nonnull align 4 dereferenceable(8) %add.ptr2.i56.us)
   %spec.select.i58.us = select i1 %call.i.i57.us, i64 %sub1.i55.us, i64 %mul.i53.us
   %add.ptr3.i59.us = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %spec.select.i58.us
-  %add.ptr4.i60.us = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__secondChild.025.i51.us
+  %add.ptr4.i60.us = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__holeIndex.addr.025.i51.us
   %5 = load i64, ptr %add.ptr3.i59.us, align 4
   store i64 %5, ptr %add.ptr4.i60.us, align 4
   %cmp.i61.us = icmp slt i64 %spec.select.i58.us, %div.i6365
@@ -7434,8 +7434,8 @@ if.end8.split:                                    ; preds = %if.end8.split.prehe
   br i1 %cmp24.i19.not, label %while.end.i20, label %while.body.i50
 
 while.body.i50:                                   ; preds = %if.end8.split, %while.body.i50
-  %__secondChild.025.i51 = phi i64 [ %spec.select.i58, %while.body.i50 ], [ %dec, %if.end8.split ]
-  %add.i52 = shl i64 %__secondChild.025.i51, 1
+  %__holeIndex.addr.025.i51 = phi i64 [ %spec.select.i58, %while.body.i50 ], [ %dec, %if.end8.split ]
+  %add.i52 = shl i64 %__holeIndex.addr.025.i51, 1
   %mul.i53 = add i64 %add.i52, 2
   %add.ptr.i54 = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %mul.i53
   %sub1.i55 = or disjoint i64 %add.i52, 1
@@ -7443,15 +7443,15 @@ while.body.i50:                                   ; preds = %if.end8.split, %whi
   %call.i.i57 = call noundef zeroext i1 %agg.tmp5.sroa.0.0.copyload14(ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i54, ptr noundef nonnull align 4 dereferenceable(8) %add.ptr2.i56)
   %spec.select.i58 = select i1 %call.i.i57, i64 %sub1.i55, i64 %mul.i53
   %add.ptr3.i59 = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %spec.select.i58
-  %add.ptr4.i60 = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__secondChild.025.i51
+  %add.ptr4.i60 = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %__first, i64 %__holeIndex.addr.025.i51
   %8 = load i64, ptr %add.ptr3.i59, align 4
   store i64 %8, ptr %add.ptr4.i60, align 4
   %cmp.i61 = icmp slt i64 %spec.select.i58, %div.i6365
   br i1 %cmp.i61, label %while.body.i50, label %while.end.i20, !llvm.loop !128
 
 while.end.i20:                                    ; preds = %while.body.i50, %if.end8.split
-  %__secondChild.0.lcssa.i21 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i58, %while.body.i50 ]
-  %cmp8.i44 = icmp eq i64 %__secondChild.0.lcssa.i21, %div7.i
+  %__holeIndex.addr.0.lcssa.i21 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i58, %while.body.i50 ]
+  %cmp8.i44 = icmp eq i64 %__holeIndex.addr.0.lcssa.i21, %div7.i
   br i1 %cmp8.i44, label %if.then9.i45, label %if.end16.i24
 
 if.then9.i45:                                     ; preds = %while.end.i20
@@ -7460,7 +7460,7 @@ if.then9.i45:                                     ; preds = %while.end.i20
   br label %if.end16.i24
 
 if.end16.i24:                                     ; preds = %if.then9.i45, %while.end.i20
-  %__holeIndex.addr.1.i25 = phi i64 [ %sub12.i47, %if.then9.i45 ], [ %__secondChild.0.lcssa.i21, %while.end.i20 ]
+  %__holeIndex.addr.1.i25 = phi i64 [ %sub12.i47, %if.then9.i45 ], [ %__holeIndex.addr.0.lcssa.i21, %while.end.i20 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__value.i.i16)
   store i64 %__value.sroa.0.0.copyload13, ptr %__value.i.i16, align 8
   %cmp12.i.i26.not = icmp slt i64 %__holeIndex.addr.1.i25, %__parent.067

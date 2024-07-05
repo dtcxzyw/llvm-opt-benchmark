@@ -229,8 +229,8 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   br i1 %exitcond122.not, label %.loopexit93, label %.lr.ph108.split, !llvm.loop !7
 
 .loopexit93:                                      ; preds = %.loopexit, %.loopexit.us, %.preheader, %7, %8, %13
-  %.082 = phi i32 [ -1, %13 ], [ -1, %8 ], [ -1, %7 ], [ %34, %.preheader ], [ %34, %.loopexit.us ], [ %34, %.loopexit ]
-  ret i32 %.082
+  %.0 = phi i32 [ -1, %13 ], [ -1, %8 ], [ -1, %7 ], [ %34, %.preheader ], [ %34, %.loopexit.us ], [ %34, %.loopexit ]
+  ret i32 %.0
 }
 
 declare i32 @cs_reach(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

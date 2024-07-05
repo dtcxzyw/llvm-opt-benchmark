@@ -158,7 +158,7 @@ define internal i32 @archive_write_ustar_header(ptr noundef %0, ptr noundef %1) 
   br label %16
 
 16:                                               ; preds = %13, %._crit_edge, %2
-  %.0 = phi ptr [ %8, %2 ], [ %.pre, %._crit_edge ], [ %14, %13 ]
+  %.046 = phi ptr [ %8, %2 ], [ %.pre, %._crit_edge ], [ %14, %13 ]
   %17 = tail call ptr @archive_entry_pathname(ptr noundef %1) #10
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20
@@ -233,7 +233,7 @@ define internal i32 @archive_write_ustar_header(ptr noundef %0, ptr noundef %1) 
   br label %51
 
 51:                                               ; preds = %31, %33, %35, %46, %28
-  %52 = call i32 @__archive_write_format_header_ustar(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %1, i32 noundef -1, i32 noundef 1, ptr noundef %.0)
+  %52 = call i32 @__archive_write_format_header_ustar(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %1, i32 noundef -1, i32 noundef 1, ptr noundef %.046)
   %53 = icmp slt i32 %52, -20
   br i1 %53, label %54, label %55
 
@@ -262,8 +262,8 @@ define internal i32 @archive_write_ustar_header(ptr noundef %0, ptr noundef %1) 
   br label %64
 
 64:                                               ; preds = %59, %58, %54, %45, %19
-  %.045 = phi i32 [ -25, %19 ], [ -30, %45 ], [ %52, %54 ], [ %56, %58 ], [ %spec.select, %59 ]
-  ret i32 %.045
+  %.0 = phi i32 [ -25, %19 ], [ -30, %45 ], [ %52, %54 ], [ %56, %58 ], [ %spec.select, %59 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -278,8 +278,8 @@ define internal i64 @archive_write_ustar_data(ptr noundef %0, ptr noundef %1, i6
   store i64 %9, ptr %5, align 8
   %.not = icmp eq i32 %7, 0
   %10 = sext i32 %7 to i64
-  %.012 = select i1 %.not, i64 %spec.select, i64 %10
-  ret i64 %.012
+  %.0 = select i1 %.not, i64 %spec.select, i64 %10
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable

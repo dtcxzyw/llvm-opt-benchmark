@@ -118,9 +118,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_pbsadaP11p
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %47
 
 26:                                               ; preds = %.preheader, %26
-  %.060 = phi i64 [ 0, %.preheader ], [ %46, %26 ]
-  %.04859 = phi i64 [ %15, %.preheader ], [ %45, %26 ]
-  %27 = shl nuw nsw i64 %.060, 3
+  %.04960 = phi i64 [ %15, %.preheader ], [ %45, %26 ]
+  %.05059 = phi i64 [ 0, %.preheader ], [ %46, %26 ]
+  %27 = shl nuw nsw i64 %.05059, 3
   %28 = shl nuw i64 255, %27
   %29 = and i64 %20, %28
   %30 = shl i64 510, %27
@@ -138,8 +138,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_pbsadaP11p
   %42 = sub nsw i32 %39, %38
   %43 = select i1 %40, i32 %41, i32 %42
   %44 = zext i32 %43 to i64
-  %45 = add i64 %.04859, %44
-  %46 = add nuw nsw i64 %.060, 1
+  %45 = add i64 %.04960, %44
+  %46 = add nuw nsw i64 %.05059, 1
   %exitcond.not = icmp eq i64 %46, 8
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !4
 
@@ -211,9 +211,9 @@ define noundef i64 @_Z17fast_rv64i_pbsadaP11processor_t6insn_tm(ptr nocapture no
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %45
 
 24:                                               ; preds = %.preheader, %24
-  %.060 = phi i64 [ 0, %.preheader ], [ %44, %24 ]
-  %.04859 = phi i64 [ %15, %.preheader ], [ %43, %24 ]
-  %25 = shl nuw nsw i64 %.060, 3
+  %.04960 = phi i64 [ %15, %.preheader ], [ %43, %24 ]
+  %.05059 = phi i64 [ 0, %.preheader ], [ %44, %24 ]
+  %25 = shl nuw nsw i64 %.05059, 3
   %26 = shl nuw i64 255, %25
   %27 = and i64 %26, %19
   %28 = shl i64 510, %25
@@ -231,8 +231,8 @@ define noundef i64 @_Z17fast_rv64i_pbsadaP11processor_t6insn_tm(ptr nocapture no
   %40 = sub nsw i32 %37, %36
   %41 = select i1 %38, i32 %39, i32 %40
   %42 = sext i32 %41 to i64
-  %43 = add i64 %.04859, %42
-  %44 = add nuw nsw i64 %.060, 1
+  %43 = add i64 %.04960, %42
+  %44 = add nuw nsw i64 %.05059, 1
   %exitcond.not = icmp eq i64 %44, 8
   br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !6
 
@@ -298,9 +298,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_pbsadaP1
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %57
 
 36:                                               ; preds = %.preheader, %36
-  %.05165 = phi i64 [ 0, %.preheader ], [ %56, %36 ]
-  %.05264 = phi i64 [ %15, %.preheader ], [ %55, %36 ]
-  %37 = shl nuw nsw i64 %.05165, 3
+  %.05265 = phi i64 [ %15, %.preheader ], [ %55, %36 ]
+  %.05364 = phi i64 [ 0, %.preheader ], [ %56, %36 ]
+  %37 = shl nuw nsw i64 %.05364, 3
   %38 = shl nuw i64 255, %37
   %39 = and i64 %20, %38
   %40 = shl i64 510, %37
@@ -318,8 +318,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_pbsadaP1
   %52 = sub nsw i32 %49, %48
   %53 = select i1 %50, i32 %51, i32 %52
   %54 = zext i32 %53 to i64
-  %55 = add i64 %.05264, %54
-  %56 = add nuw nsw i64 %.05165, 1
+  %55 = add i64 %.05265, %54
+  %56 = add nuw nsw i64 %.05364, 1
   %exitcond.not = icmp eq i64 %56, 8
   br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !7
 
@@ -432,9 +432,9 @@ define noundef i64 @_Z19logged_rv64i_pbsadaP11processor_t6insn_tm(ptr noundef %0
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %53
 
 32:                                               ; preds = %.preheader, %32
-  %.05165 = phi i64 [ 0, %.preheader ], [ %52, %32 ]
-  %.05264 = phi i64 [ %15, %.preheader ], [ %51, %32 ]
-  %33 = shl nuw nsw i64 %.05165, 3
+  %.05265 = phi i64 [ %15, %.preheader ], [ %51, %32 ]
+  %.05364 = phi i64 [ 0, %.preheader ], [ %52, %32 ]
+  %33 = shl nuw nsw i64 %.05364, 3
   %34 = shl nuw i64 255, %33
   %35 = and i64 %34, %19
   %36 = shl i64 510, %33
@@ -452,8 +452,8 @@ define noundef i64 @_Z19logged_rv64i_pbsadaP11processor_t6insn_tm(ptr noundef %0
   %48 = sub nsw i32 %45, %44
   %49 = select i1 %46, i32 %47, i32 %48
   %50 = sext i32 %49 to i64
-  %51 = add i64 %.05264, %50
-  %52 = add nuw nsw i64 %.05165, 1
+  %51 = add i64 %.05265, %50
+  %52 = add nuw nsw i64 %.05364, 1
   %exitcond.not = icmp eq i64 %52, 8
   br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !9
 
@@ -606,9 +606,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_pbsadaP11p
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %68
 
 47:                                               ; preds = %.preheader, %47
-  %.079 = phi i64 [ 0, %.preheader ], [ %67, %47 ]
-  %.05678 = phi i64 [ %23, %.preheader ], [ %66, %47 ]
-  %48 = shl nuw nsw i64 %.079, 3
+  %.05879 = phi i64 [ 0, %.preheader ], [ %67, %47 ]
+  %.05978 = phi i64 [ %23, %.preheader ], [ %66, %47 ]
+  %48 = shl nuw nsw i64 %.05879, 3
   %49 = shl nuw i64 255, %48
   %50 = and i64 %35, %49
   %51 = shl i64 510, %48
@@ -626,8 +626,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_pbsadaP11p
   %63 = sub nsw i32 %60, %59
   %64 = select i1 %61, i32 %62, i32 %63
   %65 = zext i32 %64 to i64
-  %66 = add i64 %.05678, %65
-  %67 = add nuw nsw i64 %.079, 1
+  %66 = add i64 %.05978, %65
+  %67 = add nuw nsw i64 %.05879, 1
   %exitcond.not = icmp eq i64 %67, 8
   br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !10
 
@@ -733,9 +733,9 @@ define noundef i64 @_Z17fast_rv64e_pbsadaP11processor_t6insn_tm(ptr nocapture no
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %66
 
 45:                                               ; preds = %.preheader, %45
-  %.079 = phi i64 [ 0, %.preheader ], [ %65, %45 ]
-  %.05678 = phi i64 [ %23, %.preheader ], [ %64, %45 ]
-  %46 = shl nuw nsw i64 %.079, 3
+  %.05879 = phi i64 [ 0, %.preheader ], [ %65, %45 ]
+  %.05978 = phi i64 [ %23, %.preheader ], [ %64, %45 ]
+  %46 = shl nuw nsw i64 %.05879, 3
   %47 = shl nuw i64 255, %46
   %48 = and i64 %47, %34
   %49 = shl i64 510, %46
@@ -753,8 +753,8 @@ define noundef i64 @_Z17fast_rv64e_pbsadaP11processor_t6insn_tm(ptr nocapture no
   %61 = sub nsw i32 %58, %57
   %62 = select i1 %59, i32 %60, i32 %61
   %63 = sext i32 %62 to i64
-  %64 = add i64 %.05678, %63
-  %65 = add nuw nsw i64 %.079, 1
+  %64 = add i64 %.05978, %63
+  %65 = add nuw nsw i64 %.05879, 1
   %exitcond.not = icmp eq i64 %65, 8
   br i1 %exitcond.not, label %.loopexit, label %45, !llvm.loop !11
 
@@ -868,9 +868,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_pbsadaP1
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %78
 
 57:                                               ; preds = %.preheader, %57
-  %.06085 = phi i64 [ 0, %.preheader ], [ %77, %57 ]
-  %.06184 = phi i64 [ %23, %.preheader ], [ %76, %57 ]
-  %58 = shl nuw nsw i64 %.06085, 3
+  %.06285 = phi i64 [ 0, %.preheader ], [ %77, %57 ]
+  %.06384 = phi i64 [ %23, %.preheader ], [ %76, %57 ]
+  %58 = shl nuw nsw i64 %.06285, 3
   %59 = shl nuw i64 255, %58
   %60 = and i64 %35, %59
   %61 = shl i64 510, %58
@@ -888,8 +888,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_pbsadaP1
   %73 = sub nsw i32 %70, %69
   %74 = select i1 %71, i32 %72, i32 %73
   %75 = zext i32 %74 to i64
-  %76 = add i64 %.06184, %75
-  %77 = add nuw nsw i64 %.06085, 1
+  %76 = add i64 %.06384, %75
+  %77 = add nuw nsw i64 %.06285, 1
   %exitcond.not = icmp eq i64 %77, 8
   br i1 %exitcond.not, label %.loopexit82, label %57, !llvm.loop !12
 
@@ -1050,9 +1050,9 @@ define noundef i64 @_Z19logged_rv64e_pbsadaP11processor_t6insn_tm(ptr noundef %0
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %74
 
 53:                                               ; preds = %.preheader, %53
-  %.06085 = phi i64 [ 0, %.preheader ], [ %73, %53 ]
-  %.06184 = phi i64 [ %23, %.preheader ], [ %72, %53 ]
-  %54 = shl nuw nsw i64 %.06085, 3
+  %.06285 = phi i64 [ 0, %.preheader ], [ %73, %53 ]
+  %.06384 = phi i64 [ %23, %.preheader ], [ %72, %53 ]
+  %54 = shl nuw nsw i64 %.06285, 3
   %55 = shl nuw i64 255, %54
   %56 = and i64 %55, %34
   %57 = shl i64 510, %54
@@ -1070,8 +1070,8 @@ define noundef i64 @_Z19logged_rv64e_pbsadaP11processor_t6insn_tm(ptr noundef %0
   %69 = sub nsw i32 %66, %65
   %70 = select i1 %67, i32 %68, i32 %69
   %71 = sext i32 %70 to i64
-  %72 = add i64 %.06184, %71
-  %73 = add nuw nsw i64 %.06085, 1
+  %72 = add i64 %.06384, %71
+  %73 = add nuw nsw i64 %.06285, 1
   %exitcond.not = icmp eq i64 %73, 8
   br i1 %exitcond.not, label %.loopexit82, label %53, !llvm.loop !13
 

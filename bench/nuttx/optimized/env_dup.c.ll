@@ -10,33 +10,33 @@ define range(i32 -12, 1) i32 @env_dup(ptr nocapture noundef writeonly %0, ptr no
   br i1 %.not, label %35, label %.preheader42
 
 .preheader42:                                     ; preds = %2, %.preheader42
-  %.031 = phi i64 [ %6, %.preheader42 ], [ 0, %2 ]
-  %4 = getelementptr inbounds ptr, ptr %1, i64 %.031
+  %.032 = phi i64 [ %6, %.preheader42 ], [ 0, %2 ]
+  %4 = getelementptr inbounds ptr, ptr %1, i64 %.032
   %5 = load ptr, ptr %4, align 8
   %.not38 = icmp eq ptr %5, null
-  %6 = add i64 %.031, 1
+  %6 = add i64 %.032, 1
   br i1 %.not38, label %7, label %.preheader42, !llvm.loop !6
 
 7:                                                ; preds = %.preheader42
   %8 = getelementptr inbounds i8, ptr %0, i64 912
-  store i64 %.031, ptr %8, align 8
-  %.not39 = icmp eq i64 %.031, 0
+  store i64 %.032, ptr %8, align 8
+  %.not39 = icmp eq i64 %.032, 0
   br i1 %.not39, label %.loopexit, label %9
 
 9:                                                ; preds = %7
-  %10 = shl i64 %.031, 3
+  %10 = shl i64 %.032, 3
   %11 = add i64 %10, 8
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #7
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds ptr, ptr %12, i64 %.031
+  %15 = getelementptr inbounds ptr, ptr %12, i64 %.032
   store ptr null, ptr %15, align 8
   br label %16
 
 16:                                               ; preds = %14, %32
-  %.in = phi i64 [ %.031, %14 ], [ %17, %32 ]
+  %.in = phi i64 [ %.032, %14 ], [ %17, %32 ]
   %17 = add i64 %.in, -1
   %18 = getelementptr inbounds ptr, ptr %1, i64 %17
   %19 = load ptr, ptr %18, align 8
@@ -74,10 +74,10 @@ define range(i32 -12, 1) i32 @env_dup(ptr nocapture noundef writeonly %0, ptr no
   br i1 %.not40, label %.loopexit, label %16, !llvm.loop !9
 
 .loopexit:                                        ; preds = %32, %9, %._crit_edge, %7
-  %.033 = phi ptr [ null, %._crit_edge ], [ null, %7 ], [ null, %9 ], [ %12, %32 ]
+  %.031 = phi ptr [ null, %._crit_edge ], [ null, %7 ], [ null, %9 ], [ %12, %32 ]
   %.0 = phi i32 [ -12, %._crit_edge ], [ 0, %7 ], [ -12, %9 ], [ 0, %32 ]
   %34 = getelementptr inbounds i8, ptr %0, i64 904
-  store ptr %.033, ptr %34, align 8
+  store ptr %.031, ptr %34, align 8
   br label %35
 
 35:                                               ; preds = %.loopexit, %2

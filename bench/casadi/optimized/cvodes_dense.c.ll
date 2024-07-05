@@ -368,14 +368,14 @@ define range(i32 -101, 1) i32 @CVDenseB(ptr noundef %0, i32 noundef %1, i64 noun
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.0 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %19 = load i32, ptr %.0, align 8
+  %.026 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
+  %19 = load i32, ptr %.026, align 8
   %20 = icmp eq i32 %19, %1
-  %21 = getelementptr inbounds i8, ptr %.0, i64 120
+  %21 = getelementptr inbounds i8, ptr %.026, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.0, i64 16
+  %22 = getelementptr inbounds i8, ptr %.026, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #8
   %25 = icmp eq ptr %24, null
@@ -389,9 +389,9 @@ define range(i32 -101, 1) i32 @CVDenseB(ptr noundef %0, i32 noundef %1, i64 noun
   store i32 1, ptr %24, align 8
   %28 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.0, i64 72
+  %29 = getelementptr inbounds i8, ptr %.026, i64 72
   store ptr %24, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %.0, i64 80
+  %30 = getelementptr inbounds i8, ptr %.026, i64 80
   store ptr @cvDenseFreeB, ptr %30, align 8
   %31 = tail call i32 @CVDense(ptr noundef %23, i64 noundef %2)
   %.not31 = icmp eq i32 %31, 0
@@ -402,8 +402,8 @@ define range(i32 -101, 1) i32 @CVDenseB(ptr noundef %0, i32 noundef %1, i64 noun
   br label %33
 
 33:                                               ; preds = %27, %32, %26, %16, %10, %5
-  %.026 = phi i32 [ -1, %5 ], [ -101, %10 ], [ -3, %16 ], [ -4, %26 ], [ %31, %32 ], [ 0, %27 ]
-  ret i32 %.026
+  %.0 = phi i32 [ -1, %5 ], [ -101, %10 ], [ -3, %16 ], [ -4, %26 ], [ %31, %32 ], [ 0, %27 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable

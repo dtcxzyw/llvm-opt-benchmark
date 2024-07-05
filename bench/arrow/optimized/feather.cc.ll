@@ -4318,8 +4318,8 @@ do.end5.i:                                        ; preds = %if.end81.i.i.i
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.inc.i, %do.end5.i
-  %fb_columns.sroa.6.0.i = phi ptr [ null, %do.end5.i ], [ %fb_columns.sroa.6.1.i, %for.inc.i ]
   %fb_columns.sroa.11.0.i = phi ptr [ null, %do.end5.i ], [ %fb_columns.sroa.11.1.i, %for.inc.i ]
+  %fb_columns.sroa.6.0.i = phi ptr [ null, %do.end5.i ], [ %fb_columns.sroa.6.1.i, %for.inc.i ]
   %fb_columns.sroa.0.0.i = phi ptr [ null, %do.end5.i ], [ %fb_columns.sroa.0.1.i, %for.inc.i ]
   %i.0.i = phi i32 [ 0, %do.end5.i ], [ %inc.i, %for.inc.i ]
   %5 = load ptr, ptr %schema_.i.i, align 8, !noalias !73
@@ -4866,7 +4866,7 @@ if.then.i208.i:                                   ; preds = %_ZNSt10shared_ptrIN
   br label %for.inc.i
 
 if.else.i.i:                                      ; preds = %_ZNSt10shared_ptrIN5arrow5FieldEED2Ev.exit.i
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %fb_columns.sroa.6.0.i to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %fb_columns.sroa.11.0.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %fb_columns.sroa.0.0.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i210.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775804
@@ -4898,7 +4898,7 @@ _ZNSt12_Vector_baseIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7fe
   %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i214.i, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.arrow_vendored_private::flatbuffers::Offset", ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store i32 %call59.i, ptr %add.ptr.i.i.i, align 4, !noalias !73
-  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %fb_columns.sroa.0.0.i, %fb_columns.sroa.6.0.i
+  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %fb_columns.sroa.0.0.i, %fb_columns.sroa.11.0.i
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
@@ -4910,7 +4910,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   store i32 %91, ptr %__cur.07.i.i.i.i.i.i, align 4, !alias.scope !118, !noalias !124
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 4
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %fb_columns.sroa.6.0.i
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %fb_columns.sroa.11.0.i
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !125
 
 _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE11_M_allocateEm.exit.i.i.i
@@ -4927,8 +4927,8 @@ _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3f
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, %if.then.i208.i
-  %__cur.0.lcssa.i.i.i.i.i.pn.i = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %fb_columns.sroa.6.0.i, %if.then.i208.i ]
   %fb_columns.sroa.11.1.i = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %fb_columns.sroa.11.0.i, %if.then.i208.i ]
+  %__cur.0.lcssa.i.i.i.i.i.pn.i = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %fb_columns.sroa.6.0.i, %if.then.i208.i ]
   %fb_columns.sroa.0.1.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %fb_columns.sroa.0.0.i, %if.then.i208.i ]
   %fb_columns.sroa.6.1.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn.i, i64 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %timezone.i.i) #22, !noalias !73

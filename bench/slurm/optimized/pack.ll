@@ -1927,29 +1927,29 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc_escaped(ptr nocapture n
 
 37:                                               ; preds = %32, %45
   %.046 = phi i32 [ 0, %32 ], [ %47, %45 ]
-  %.03445 = phi ptr [ %36, %32 ], [ %40, %45 ]
-  %.03544 = phi ptr [ %31, %32 ], [ %46, %45 ]
-  %38 = load i8, ptr %.03445, align 1
+  %.03545 = phi ptr [ %31, %32 ], [ %46, %45 ]
+  %.03644 = phi ptr [ %36, %32 ], [ %40, %45 ]
+  %38 = load i8, ptr %.03644, align 1
   %.not41 = icmp eq i8 %38, 0
   br i1 %.not41, label %.critedge, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %.03445, i64 1
+  %40 = getelementptr inbounds i8, ptr %.03644, i64 1
   switch i8 %38, label %45 [
     i8 92, label %41
     i8 39, label %41
   ]
 
 41:                                               ; preds = %39, %39
-  %42 = getelementptr inbounds i8, ptr %.03544, i64 1
-  store i8 92, ptr %.03544, align 1
+  %42 = getelementptr inbounds i8, ptr %.03545, i64 1
+  store i8 92, ptr %.03545, align 1
   %43 = load i32, ptr %1, align 4
   %44 = add i32 %43, 1
   store i32 %44, ptr %1, align 4
   br label %45
 
 45:                                               ; preds = %39, %41
-  %.1 = phi ptr [ %42, %41 ], [ %.03544, %39 ]
+  %.1 = phi ptr [ %42, %41 ], [ %.03545, %39 ]
   %46 = getelementptr inbounds i8, ptr %.1, i64 1
   store i8 %38, ptr %.1, align 1
   %47 = add nuw i32 %.046, 1
@@ -1967,8 +1967,8 @@ unpack32.exit:                                    ; preds = %3, %27
   br label %50
 
 50:                                               ; preds = %23, %10, %unpack32.exit, %.critedge, %21
-  %.036 = phi i32 [ -1, %unpack32.exit ], [ -1, %21 ], [ 0, %.critedge ], [ 0, %10 ], [ -1, %23 ]
-  ret i32 %.036
+  %.034 = phi i32 [ -1, %unpack32.exit ], [ -1, %21 ], [ 0, %.critedge ], [ 0, %10 ], [ -1, %23 ]
+  ret i32 %.034
 }
 
 ; Function Attrs: nounwind uwtable

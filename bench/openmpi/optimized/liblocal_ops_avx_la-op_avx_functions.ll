@@ -3433,10 +3433,10 @@ define internal void @ompi_op_avx_2buff_prod_int8_t_avx(ptr nocapture noundef re
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %51
-  %.040 = phi ptr [ %57, %51 ], [ %1, %5 ]
-  %.03639 = phi ptr [ %58, %51 ], [ %0, %5 ]
-  %.03738 = phi i32 [ %55, %51 ], [ %6, %5 ]
-  %8 = tail call i32 @llvm.umin.i32(i32 %.03738, i32 8)
+  %.040 = phi i32 [ %55, %51 ], [ %6, %5 ]
+  %.03639 = phi ptr [ %57, %51 ], [ %1, %5 ]
+  %.03738 = phi ptr [ %58, %51 ], [ %0, %5 ]
+  %8 = tail call i32 @llvm.umin.i32(i32 %.040, i32 8)
   switch i32 %8, label %default.unreachable [
     i32 8, label %9
     i32 7, label %15
@@ -3449,77 +3449,77 @@ define internal void @ompi_op_avx_2buff_prod_int8_t_avx(ptr nocapture noundef re
   ]
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.040, i64 7
+  %10 = getelementptr inbounds i8, ptr %.03639, i64 7
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %.03639, i64 7
+  %12 = getelementptr inbounds i8, ptr %.03738, i64 7
   %13 = load i8, ptr %12, align 1
   %14 = mul i8 %13, %11
   store i8 %14, ptr %10, align 1
   br label %15
 
 15:                                               ; preds = %9, %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %.040, i64 6
+  %16 = getelementptr inbounds i8, ptr %.03639, i64 6
   %17 = load i8, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %.03639, i64 6
+  %18 = getelementptr inbounds i8, ptr %.03738, i64 6
   %19 = load i8, ptr %18, align 1
   %20 = mul i8 %19, %17
   store i8 %20, ptr %16, align 1
   br label %21
 
 21:                                               ; preds = %15, %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.040, i64 5
+  %22 = getelementptr inbounds i8, ptr %.03639, i64 5
   %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds i8, ptr %.03639, i64 5
+  %24 = getelementptr inbounds i8, ptr %.03738, i64 5
   %25 = load i8, ptr %24, align 1
   %26 = mul i8 %25, %23
   store i8 %26, ptr %22, align 1
   br label %27
 
 27:                                               ; preds = %21, %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %.040, i64 4
+  %28 = getelementptr inbounds i8, ptr %.03639, i64 4
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %.03639, i64 4
+  %30 = getelementptr inbounds i8, ptr %.03738, i64 4
   %31 = load i8, ptr %30, align 1
   %32 = mul i8 %31, %29
   store i8 %32, ptr %28, align 1
   br label %33
 
 33:                                               ; preds = %27, %.lr.ph
-  %34 = getelementptr inbounds i8, ptr %.040, i64 3
+  %34 = getelementptr inbounds i8, ptr %.03639, i64 3
   %35 = load i8, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %.03639, i64 3
+  %36 = getelementptr inbounds i8, ptr %.03738, i64 3
   %37 = load i8, ptr %36, align 1
   %38 = mul i8 %37, %35
   store i8 %38, ptr %34, align 1
   br label %39
 
 39:                                               ; preds = %33, %.lr.ph
-  %40 = getelementptr inbounds i8, ptr %.040, i64 2
+  %40 = getelementptr inbounds i8, ptr %.03639, i64 2
   %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %.03639, i64 2
+  %42 = getelementptr inbounds i8, ptr %.03738, i64 2
   %43 = load i8, ptr %42, align 1
   %44 = mul i8 %43, %41
   store i8 %44, ptr %40, align 1
   br label %45
 
 45:                                               ; preds = %39, %.lr.ph
-  %46 = getelementptr inbounds i8, ptr %.040, i64 1
+  %46 = getelementptr inbounds i8, ptr %.03639, i64 1
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %.03639, i64 1
+  %48 = getelementptr inbounds i8, ptr %.03738, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = mul i8 %49, %47
   store i8 %50, ptr %46, align 1
   br label %51
 
 51:                                               ; preds = %45, %.lr.ph
-  %52 = load i8, ptr %.040, align 1
-  %53 = load i8, ptr %.03639, align 1
+  %52 = load i8, ptr %.03639, align 1
+  %53 = load i8, ptr %.03738, align 1
   %54 = mul i8 %53, %52
-  store i8 %54, ptr %.040, align 1
-  %55 = sub nsw i32 %.03738, %8
+  store i8 %54, ptr %.03639, align 1
+  %55 = sub nsw i32 %.040, %8
   %56 = zext nneg i32 %8 to i64
-  %57 = getelementptr inbounds i8, ptr %.040, i64 %56
-  %58 = getelementptr inbounds i8, ptr %.03639, i64 %56
+  %57 = getelementptr inbounds i8, ptr %.03639, i64 %56
+  %58 = getelementptr inbounds i8, ptr %.03738, i64 %56
   %59 = icmp sgt i32 %55, 0
   br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 
@@ -3537,10 +3537,10 @@ define internal void @ompi_op_avx_2buff_prod_uint8_t_avx(ptr nocapture noundef r
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %51
-  %.040 = phi ptr [ %57, %51 ], [ %1, %5 ]
-  %.03639 = phi ptr [ %58, %51 ], [ %0, %5 ]
-  %.03738 = phi i32 [ %55, %51 ], [ %6, %5 ]
-  %8 = tail call i32 @llvm.umin.i32(i32 %.03738, i32 8)
+  %.040 = phi i32 [ %55, %51 ], [ %6, %5 ]
+  %.03639 = phi ptr [ %57, %51 ], [ %1, %5 ]
+  %.03738 = phi ptr [ %58, %51 ], [ %0, %5 ]
+  %8 = tail call i32 @llvm.umin.i32(i32 %.040, i32 8)
   switch i32 %8, label %default.unreachable [
     i32 8, label %9
     i32 7, label %15
@@ -3553,77 +3553,77 @@ define internal void @ompi_op_avx_2buff_prod_uint8_t_avx(ptr nocapture noundef r
   ]
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.040, i64 7
+  %10 = getelementptr inbounds i8, ptr %.03639, i64 7
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %.03639, i64 7
+  %12 = getelementptr inbounds i8, ptr %.03738, i64 7
   %13 = load i8, ptr %12, align 1
   %14 = mul i8 %13, %11
   store i8 %14, ptr %10, align 1
   br label %15
 
 15:                                               ; preds = %9, %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %.040, i64 6
+  %16 = getelementptr inbounds i8, ptr %.03639, i64 6
   %17 = load i8, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %.03639, i64 6
+  %18 = getelementptr inbounds i8, ptr %.03738, i64 6
   %19 = load i8, ptr %18, align 1
   %20 = mul i8 %19, %17
   store i8 %20, ptr %16, align 1
   br label %21
 
 21:                                               ; preds = %15, %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.040, i64 5
+  %22 = getelementptr inbounds i8, ptr %.03639, i64 5
   %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds i8, ptr %.03639, i64 5
+  %24 = getelementptr inbounds i8, ptr %.03738, i64 5
   %25 = load i8, ptr %24, align 1
   %26 = mul i8 %25, %23
   store i8 %26, ptr %22, align 1
   br label %27
 
 27:                                               ; preds = %21, %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %.040, i64 4
+  %28 = getelementptr inbounds i8, ptr %.03639, i64 4
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %.03639, i64 4
+  %30 = getelementptr inbounds i8, ptr %.03738, i64 4
   %31 = load i8, ptr %30, align 1
   %32 = mul i8 %31, %29
   store i8 %32, ptr %28, align 1
   br label %33
 
 33:                                               ; preds = %27, %.lr.ph
-  %34 = getelementptr inbounds i8, ptr %.040, i64 3
+  %34 = getelementptr inbounds i8, ptr %.03639, i64 3
   %35 = load i8, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %.03639, i64 3
+  %36 = getelementptr inbounds i8, ptr %.03738, i64 3
   %37 = load i8, ptr %36, align 1
   %38 = mul i8 %37, %35
   store i8 %38, ptr %34, align 1
   br label %39
 
 39:                                               ; preds = %33, %.lr.ph
-  %40 = getelementptr inbounds i8, ptr %.040, i64 2
+  %40 = getelementptr inbounds i8, ptr %.03639, i64 2
   %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %.03639, i64 2
+  %42 = getelementptr inbounds i8, ptr %.03738, i64 2
   %43 = load i8, ptr %42, align 1
   %44 = mul i8 %43, %41
   store i8 %44, ptr %40, align 1
   br label %45
 
 45:                                               ; preds = %39, %.lr.ph
-  %46 = getelementptr inbounds i8, ptr %.040, i64 1
+  %46 = getelementptr inbounds i8, ptr %.03639, i64 1
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %.03639, i64 1
+  %48 = getelementptr inbounds i8, ptr %.03738, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = mul i8 %49, %47
   store i8 %50, ptr %46, align 1
   br label %51
 
 51:                                               ; preds = %45, %.lr.ph
-  %52 = load i8, ptr %.040, align 1
-  %53 = load i8, ptr %.03639, align 1
+  %52 = load i8, ptr %.03639, align 1
+  %53 = load i8, ptr %.03738, align 1
   %54 = mul i8 %53, %52
-  store i8 %54, ptr %.040, align 1
-  %55 = sub nsw i32 %.03738, %8
+  store i8 %54, ptr %.03639, align 1
+  %55 = sub nsw i32 %.040, %8
   %56 = zext nneg i32 %8 to i64
-  %57 = getelementptr inbounds i8, ptr %.040, i64 %56
-  %58 = getelementptr inbounds i8, ptr %.03639, i64 %56
+  %57 = getelementptr inbounds i8, ptr %.03639, i64 %56
+  %58 = getelementptr inbounds i8, ptr %.03738, i64 %56
   %59 = icmp sgt i32 %55, 0
   br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !58
 
@@ -11245,11 +11245,11 @@ define internal void @ompi_op_avx_3buff_prod_int8_t_avx(ptr noalias nocapture no
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6, %59
-  %.045 = phi i32 [ %63, %59 ], [ %7, %6 ]
-  %.03944 = phi ptr [ %65, %59 ], [ %2, %6 ]
-  %.04043 = phi ptr [ %67, %59 ], [ %1, %6 ]
-  %.04142 = phi ptr [ %66, %59 ], [ %0, %6 ]
-  %9 = tail call i32 @llvm.umin.i32(i32 %.045, i32 8)
+  %.045 = phi ptr [ %66, %59 ], [ %0, %6 ]
+  %.03944 = phi i32 [ %63, %59 ], [ %7, %6 ]
+  %.04043 = phi ptr [ %65, %59 ], [ %2, %6 ]
+  %.04142 = phi ptr [ %67, %59 ], [ %1, %6 ]
+  %9 = tail call i32 @llvm.umin.i32(i32 %.03944, i32 8)
   switch i32 %9, label %default.unreachable [
     i32 8, label %10
     i32 7, label %17
@@ -11262,85 +11262,85 @@ define internal void @ompi_op_avx_3buff_prod_int8_t_avx(ptr noalias nocapture no
   ]
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.04142, i64 7
+  %11 = getelementptr inbounds i8, ptr %.045, i64 7
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %.04043, i64 7
+  %13 = getelementptr inbounds i8, ptr %.04142, i64 7
   %14 = load i8, ptr %13, align 1
   %15 = mul i8 %14, %12
-  %16 = getelementptr inbounds i8, ptr %.03944, i64 7
+  %16 = getelementptr inbounds i8, ptr %.04043, i64 7
   store i8 %15, ptr %16, align 1
   br label %17
 
 17:                                               ; preds = %10, %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.04142, i64 6
+  %18 = getelementptr inbounds i8, ptr %.045, i64 6
   %19 = load i8, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %.04043, i64 6
+  %20 = getelementptr inbounds i8, ptr %.04142, i64 6
   %21 = load i8, ptr %20, align 1
   %22 = mul i8 %21, %19
-  %23 = getelementptr inbounds i8, ptr %.03944, i64 6
+  %23 = getelementptr inbounds i8, ptr %.04043, i64 6
   store i8 %22, ptr %23, align 1
   br label %24
 
 24:                                               ; preds = %17, %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %.04142, i64 5
+  %25 = getelementptr inbounds i8, ptr %.045, i64 5
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %.04043, i64 5
+  %27 = getelementptr inbounds i8, ptr %.04142, i64 5
   %28 = load i8, ptr %27, align 1
   %29 = mul i8 %28, %26
-  %30 = getelementptr inbounds i8, ptr %.03944, i64 5
+  %30 = getelementptr inbounds i8, ptr %.04043, i64 5
   store i8 %29, ptr %30, align 1
   br label %31
 
 31:                                               ; preds = %24, %.lr.ph
-  %32 = getelementptr inbounds i8, ptr %.04142, i64 4
+  %32 = getelementptr inbounds i8, ptr %.045, i64 4
   %33 = load i8, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %.04043, i64 4
+  %34 = getelementptr inbounds i8, ptr %.04142, i64 4
   %35 = load i8, ptr %34, align 1
   %36 = mul i8 %35, %33
-  %37 = getelementptr inbounds i8, ptr %.03944, i64 4
+  %37 = getelementptr inbounds i8, ptr %.04043, i64 4
   store i8 %36, ptr %37, align 1
   br label %38
 
 38:                                               ; preds = %31, %.lr.ph
-  %39 = getelementptr inbounds i8, ptr %.04142, i64 3
+  %39 = getelementptr inbounds i8, ptr %.045, i64 3
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %.04043, i64 3
+  %41 = getelementptr inbounds i8, ptr %.04142, i64 3
   %42 = load i8, ptr %41, align 1
   %43 = mul i8 %42, %40
-  %44 = getelementptr inbounds i8, ptr %.03944, i64 3
+  %44 = getelementptr inbounds i8, ptr %.04043, i64 3
   store i8 %43, ptr %44, align 1
   br label %45
 
 45:                                               ; preds = %38, %.lr.ph
-  %46 = getelementptr inbounds i8, ptr %.04142, i64 2
+  %46 = getelementptr inbounds i8, ptr %.045, i64 2
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %.04043, i64 2
+  %48 = getelementptr inbounds i8, ptr %.04142, i64 2
   %49 = load i8, ptr %48, align 1
   %50 = mul i8 %49, %47
-  %51 = getelementptr inbounds i8, ptr %.03944, i64 2
+  %51 = getelementptr inbounds i8, ptr %.04043, i64 2
   store i8 %50, ptr %51, align 1
   br label %52
 
 52:                                               ; preds = %45, %.lr.ph
-  %53 = getelementptr inbounds i8, ptr %.04142, i64 1
+  %53 = getelementptr inbounds i8, ptr %.045, i64 1
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %.04043, i64 1
+  %55 = getelementptr inbounds i8, ptr %.04142, i64 1
   %56 = load i8, ptr %55, align 1
   %57 = mul i8 %56, %54
-  %58 = getelementptr inbounds i8, ptr %.03944, i64 1
+  %58 = getelementptr inbounds i8, ptr %.04043, i64 1
   store i8 %57, ptr %58, align 1
   br label %59
 
 59:                                               ; preds = %52, %.lr.ph
-  %60 = load i8, ptr %.04142, align 1
-  %61 = load i8, ptr %.04043, align 1
+  %60 = load i8, ptr %.045, align 1
+  %61 = load i8, ptr %.04142, align 1
   %62 = mul i8 %61, %60
-  store i8 %62, ptr %.03944, align 1
-  %63 = sub nsw i32 %.045, %9
+  store i8 %62, ptr %.04043, align 1
+  %63 = sub nsw i32 %.03944, %9
   %64 = zext nneg i32 %9 to i64
-  %65 = getelementptr inbounds i8, ptr %.03944, i64 %64
-  %66 = getelementptr inbounds i8, ptr %.04142, i64 %64
-  %67 = getelementptr inbounds i8, ptr %.04043, i64 %64
+  %65 = getelementptr inbounds i8, ptr %.04043, i64 %64
+  %66 = getelementptr inbounds i8, ptr %.045, i64 %64
+  %67 = getelementptr inbounds i8, ptr %.04142, i64 %64
   %68 = icmp sgt i32 %63, 0
   br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !171
 
@@ -11358,11 +11358,11 @@ define internal void @ompi_op_avx_3buff_prod_uint8_t_avx(ptr noalias nocapture n
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6, %59
-  %.045 = phi i32 [ %63, %59 ], [ %7, %6 ]
-  %.03944 = phi ptr [ %65, %59 ], [ %2, %6 ]
-  %.04043 = phi ptr [ %67, %59 ], [ %1, %6 ]
-  %.04142 = phi ptr [ %66, %59 ], [ %0, %6 ]
-  %9 = tail call i32 @llvm.umin.i32(i32 %.045, i32 8)
+  %.045 = phi ptr [ %66, %59 ], [ %0, %6 ]
+  %.03944 = phi i32 [ %63, %59 ], [ %7, %6 ]
+  %.04043 = phi ptr [ %65, %59 ], [ %2, %6 ]
+  %.04142 = phi ptr [ %67, %59 ], [ %1, %6 ]
+  %9 = tail call i32 @llvm.umin.i32(i32 %.03944, i32 8)
   switch i32 %9, label %default.unreachable [
     i32 8, label %10
     i32 7, label %17
@@ -11375,85 +11375,85 @@ define internal void @ompi_op_avx_3buff_prod_uint8_t_avx(ptr noalias nocapture n
   ]
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.04142, i64 7
+  %11 = getelementptr inbounds i8, ptr %.045, i64 7
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %.04043, i64 7
+  %13 = getelementptr inbounds i8, ptr %.04142, i64 7
   %14 = load i8, ptr %13, align 1
   %15 = mul i8 %14, %12
-  %16 = getelementptr inbounds i8, ptr %.03944, i64 7
+  %16 = getelementptr inbounds i8, ptr %.04043, i64 7
   store i8 %15, ptr %16, align 1
   br label %17
 
 17:                                               ; preds = %10, %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.04142, i64 6
+  %18 = getelementptr inbounds i8, ptr %.045, i64 6
   %19 = load i8, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %.04043, i64 6
+  %20 = getelementptr inbounds i8, ptr %.04142, i64 6
   %21 = load i8, ptr %20, align 1
   %22 = mul i8 %21, %19
-  %23 = getelementptr inbounds i8, ptr %.03944, i64 6
+  %23 = getelementptr inbounds i8, ptr %.04043, i64 6
   store i8 %22, ptr %23, align 1
   br label %24
 
 24:                                               ; preds = %17, %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %.04142, i64 5
+  %25 = getelementptr inbounds i8, ptr %.045, i64 5
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %.04043, i64 5
+  %27 = getelementptr inbounds i8, ptr %.04142, i64 5
   %28 = load i8, ptr %27, align 1
   %29 = mul i8 %28, %26
-  %30 = getelementptr inbounds i8, ptr %.03944, i64 5
+  %30 = getelementptr inbounds i8, ptr %.04043, i64 5
   store i8 %29, ptr %30, align 1
   br label %31
 
 31:                                               ; preds = %24, %.lr.ph
-  %32 = getelementptr inbounds i8, ptr %.04142, i64 4
+  %32 = getelementptr inbounds i8, ptr %.045, i64 4
   %33 = load i8, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %.04043, i64 4
+  %34 = getelementptr inbounds i8, ptr %.04142, i64 4
   %35 = load i8, ptr %34, align 1
   %36 = mul i8 %35, %33
-  %37 = getelementptr inbounds i8, ptr %.03944, i64 4
+  %37 = getelementptr inbounds i8, ptr %.04043, i64 4
   store i8 %36, ptr %37, align 1
   br label %38
 
 38:                                               ; preds = %31, %.lr.ph
-  %39 = getelementptr inbounds i8, ptr %.04142, i64 3
+  %39 = getelementptr inbounds i8, ptr %.045, i64 3
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %.04043, i64 3
+  %41 = getelementptr inbounds i8, ptr %.04142, i64 3
   %42 = load i8, ptr %41, align 1
   %43 = mul i8 %42, %40
-  %44 = getelementptr inbounds i8, ptr %.03944, i64 3
+  %44 = getelementptr inbounds i8, ptr %.04043, i64 3
   store i8 %43, ptr %44, align 1
   br label %45
 
 45:                                               ; preds = %38, %.lr.ph
-  %46 = getelementptr inbounds i8, ptr %.04142, i64 2
+  %46 = getelementptr inbounds i8, ptr %.045, i64 2
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %.04043, i64 2
+  %48 = getelementptr inbounds i8, ptr %.04142, i64 2
   %49 = load i8, ptr %48, align 1
   %50 = mul i8 %49, %47
-  %51 = getelementptr inbounds i8, ptr %.03944, i64 2
+  %51 = getelementptr inbounds i8, ptr %.04043, i64 2
   store i8 %50, ptr %51, align 1
   br label %52
 
 52:                                               ; preds = %45, %.lr.ph
-  %53 = getelementptr inbounds i8, ptr %.04142, i64 1
+  %53 = getelementptr inbounds i8, ptr %.045, i64 1
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %.04043, i64 1
+  %55 = getelementptr inbounds i8, ptr %.04142, i64 1
   %56 = load i8, ptr %55, align 1
   %57 = mul i8 %56, %54
-  %58 = getelementptr inbounds i8, ptr %.03944, i64 1
+  %58 = getelementptr inbounds i8, ptr %.04043, i64 1
   store i8 %57, ptr %58, align 1
   br label %59
 
 59:                                               ; preds = %52, %.lr.ph
-  %60 = load i8, ptr %.04142, align 1
-  %61 = load i8, ptr %.04043, align 1
+  %60 = load i8, ptr %.045, align 1
+  %61 = load i8, ptr %.04142, align 1
   %62 = mul i8 %61, %60
-  store i8 %62, ptr %.03944, align 1
-  %63 = sub nsw i32 %.045, %9
+  store i8 %62, ptr %.04043, align 1
+  %63 = sub nsw i32 %.03944, %9
   %64 = zext nneg i32 %9 to i64
-  %65 = getelementptr inbounds i8, ptr %.03944, i64 %64
-  %66 = getelementptr inbounds i8, ptr %.04142, i64 %64
-  %67 = getelementptr inbounds i8, ptr %.04043, i64 %64
+  %65 = getelementptr inbounds i8, ptr %.04043, i64 %64
+  %66 = getelementptr inbounds i8, ptr %.045, i64 %64
+  %67 = getelementptr inbounds i8, ptr %.04142, i64 %64
   %68 = icmp sgt i32 %63, 0
   br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !172
 

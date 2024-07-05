@@ -56,10 +56,10 @@ define internal i32 @mca_osc_monitoring_component_select(ptr noundef %0, ptr nou
   br i1 %.not47, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %23
-  %.03350 = phi i32 [ %.1, %23 ], [ -1, %8 ]
-  %.03449 = phi ptr [ %.135, %23 ], [ null, %8 ]
-  %.03648 = phi ptr [ %24, %23 ], [ %9, %8 ]
-  %10 = getelementptr inbounds i8, ptr %.03648, i64 40
+  %.03450 = phi ptr [ %24, %23 ], [ %9, %8 ]
+  %.03549 = phi i32 [ %.1, %23 ], [ -1, %8 ]
+  %.03648 = phi ptr [ %.137, %23 ], [ null, %8 ]
+  %10 = getelementptr inbounds i8, ptr %.03450, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, @mca_osc_monitoring_component
   br i1 %12, label %19, label %13
@@ -69,20 +69,20 @@ define internal i32 @mca_osc_monitoring_component_select(ptr noundef %0, ptr nou
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #8
   %17 = icmp sgt i32 %16, -1
-  %18 = icmp sgt i32 %16, %.03350
+  %18 = icmp sgt i32 %16, %.03549
   %or.cond = select i1 %17, i1 %18, i1 false
-  %spec.select = select i1 %or.cond, ptr %11, ptr %.03449
-  %spec.select43 = select i1 %or.cond, i32 %16, i32 %.03350
+  %spec.select = select i1 %or.cond, ptr %11, ptr %.03648
+  %spec.select43 = select i1 %or.cond, i32 %16, i32 %.03549
   br label %19
 
 19:                                               ; preds = %13, %.lr.ph
-  %.135 = phi ptr [ %.03449, %.lr.ph ], [ %spec.select, %13 ]
-  %.1 = phi i32 [ %.03350, %.lr.ph ], [ %spec.select43, %13 ]
-  %.not42 = icmp eq ptr %.03648, null
+  %.137 = phi ptr [ %.03648, %.lr.ph ], [ %spec.select, %13 ]
+  %.1 = phi i32 [ %.03549, %.lr.ph ], [ %spec.select43, %13 ]
+  %.not42 = icmp eq ptr %.03450, null
   br i1 %.not42, label %23, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %.03648, i64 16
+  %21 = getelementptr inbounds i8, ptr %.03450, i64 16
   %22 = load volatile ptr, ptr %21, align 8
   br label %23
 
@@ -92,11 +92,11 @@ define internal i32 @mca_osc_monitoring_component_select(ptr noundef %0, ptr nou
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %23
-  %25 = icmp eq ptr %.135, null
+  %25 = icmp eq ptr %.137, null
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %._crit_edge
-  %27 = getelementptr inbounds i8, ptr %.135, i64 280
+  %27 = getelementptr inbounds i8, ptr %.137, i64 280
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #8
   %30 = icmp eq i32 %29, 0
@@ -105,7 +105,7 @@ define internal i32 @mca_osc_monitoring_component_select(ptr noundef %0, ptr nou
 31:                                               ; preds = %26
   %32 = getelementptr inbounds i8, ptr %0, i64 272
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.135, i64 84
+  %34 = getelementptr inbounds i8, ptr %.137, i64 84
   %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str, ptr noundef nonnull readonly dereferenceable(1) %34) #9
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %ompi_mca_osc_monitoring_set_template.exit, label %.lr.ph53
@@ -134,8 +134,8 @@ ompi_mca_osc_monitoring_set_template.exit:        ; preds = %ompi_mca_osc_monito
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph53, %8, %ompi_mca_osc_monitoring_set_template.exit, %26, %._crit_edge
-  %.037 = phi i32 [ -8, %._crit_edge ], [ %29, %26 ], [ 0, %ompi_mca_osc_monitoring_set_template.exit ], [ -8, %8 ], [ 0, %.lr.ph53 ]
-  ret i32 %.037
+  %.0 = phi i32 [ -8, %._crit_edge ], [ %29, %26 ], [ 0, %ompi_mca_osc_monitoring_set_template.exit ], [ -8, %8 ], [ 0, %.lr.ph53 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

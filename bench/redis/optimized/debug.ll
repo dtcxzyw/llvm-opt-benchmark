@@ -4340,8 +4340,8 @@ if.end40.i.i:                                     ; preds = %while.end.i.i.i
 
 for.cond.outer.i.i:                               ; preds = %while.cond.i.i, %if.end40.i.i
   %current_thread_index.1.ph.i.i = phi i32 [ %spec.select.i.i, %if.end40.i.i ], [ %current_thread_index.0.i.i, %while.cond.i.i ]
-  %tids_count.1.ph.i.i = phi i64 [ %inc.i.i, %if.end40.i.i ], [ %tids_count.0.i.i, %while.cond.i.i ]
   %pos.0.ph.i.i = phi i64 [ %add.i.i, %if.end40.i.i ], [ 0, %while.cond.i.i ]
+  %tids_count.1.ph.i.i = phi i64 [ %inc.i.i, %if.end40.i.i ], [ %tids_count.0.i.i, %while.cond.i.i ]
   %cmp1232.i.i = icmp slt i64 %pos.0.ph.i.i, %call6.i.i
   br i1 %cmp1232.i.i, label %for.body.i.i, label %for.end.i.i
 

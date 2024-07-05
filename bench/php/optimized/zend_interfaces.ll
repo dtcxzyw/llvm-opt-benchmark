@@ -1622,9 +1622,9 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
   br label %42
 
 42:                                               ; preds = %36, %40
-  %.0131 = phi ptr [ %41, %40 ], [ null, %36 ]
+  %.0130 = phi ptr [ %41, %40 ], [ null, %36 ]
   %43 = getelementptr inbounds i8, ptr %37, i64 40
-  store ptr %.0131, ptr %43, align 8
+  store ptr %.0130, ptr %43, align 8
   %44 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %38, ptr noundef nonnull @.str.20, i64 noundef 5) #9
   %.not147 = icmp eq ptr %44, null
   br i1 %.not147, label %47, label %45
@@ -1634,9 +1634,9 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
   br label %47
 
 47:                                               ; preds = %42, %45
-  %.0133 = phi ptr [ %46, %45 ], [ null, %42 ]
+  %.0131 = phi ptr [ %46, %45 ], [ null, %42 ]
   %48 = getelementptr inbounds i8, ptr %37, i64 8
-  store ptr %.0133, ptr %48, align 8
+  store ptr %.0131, ptr %48, align 8
   %49 = load ptr, ptr @zend_known_strings, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 168
   %51 = load ptr, ptr %50, align 8
@@ -1661,9 +1661,9 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
   br label %60
 
 60:                                               ; preds = %55, %58
-  %.0135 = phi ptr [ %59, %58 ], [ null, %55 ]
+  %.0133 = phi ptr [ %59, %58 ], [ null, %55 ]
   %61 = getelementptr inbounds i8, ptr %37, i64 16
-  store ptr %.0135, ptr %61, align 8
+  store ptr %.0133, ptr %61, align 8
   %62 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %38, ptr noundef nonnull @.str.18, i64 noundef 4) #9
   %.not150 = icmp eq ptr %62, null
   br i1 %.not150, label %65, label %63
@@ -1900,9 +1900,9 @@ define internal noundef i32 @zend_implement_arrayaccess(ptr nocapture readnone %
   br label %44
 
 44:                                               ; preds = %39, %42
-  %.0103 = phi ptr [ %43, %42 ], [ null, %39 ]
+  %.0102 = phi ptr [ %43, %42 ], [ null, %39 ]
   %45 = getelementptr inbounds i8, ptr %30, i64 16
-  store ptr %.0103, ptr %45, align 8
+  store ptr %.0102, ptr %45, align 8
   %46 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %31, ptr noundef nonnull @.str.37, i64 noundef 11) #9
   %.not114 = icmp eq ptr %46, null
   br i1 %.not114, label %49, label %47
@@ -1912,9 +1912,9 @@ define internal noundef i32 @zend_implement_arrayaccess(ptr nocapture readnone %
   br label %49
 
 49:                                               ; preds = %44, %47
-  %.0104 = phi ptr [ %48, %47 ], [ null, %44 ]
+  %.0103 = phi ptr [ %48, %47 ], [ null, %44 ]
   %50 = getelementptr inbounds i8, ptr %30, i64 24
-  store ptr %.0104, ptr %50, align 8
+  store ptr %.0103, ptr %50, align 8
   ret i32 0
 }
 

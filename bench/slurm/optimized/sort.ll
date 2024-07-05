@@ -469,31 +469,31 @@ define internal i32 @_sort_by_tres_prio(ptr nocapture noundef readonly %0, ptr n
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %.01525 = phi double [ 0.000000e+00, %.lr.ph ], [ %23, %20 ]
+  %.01524 = phi double [ 0.000000e+00, %.lr.ph ], [ %23, %20 ]
   %21 = getelementptr inbounds double, ptr %14, i64 %indvars.iv
   %22 = load double, ptr %21, align 8
-  %23 = fadd double %.01525, %22
+  %23 = fadd double %.01524, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %20, !llvm.loop !9
 
 24:                                               ; preds = %.lr.ph28, %24
   %indvars.iv32 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next33, %24 ]
-  %.027 = phi double [ 0.000000e+00, %.lr.ph28 ], [ %27, %24 ]
+  %.01626 = phi double [ 0.000000e+00, %.lr.ph28 ], [ %27, %24 ]
   %25 = getelementptr inbounds double, ptr %19, i64 %indvars.iv32
   %26 = load double, ptr %25, align 8
-  %27 = fadd double %.027, %26
+  %27 = fadd double %.01626, %26
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
   br i1 %exitcond36.not, label %._crit_edge, label %24, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %24, %2, %.preheader
   %.015.lcssa38 = phi double [ %.015.lcssa, %.preheader ], [ 0.000000e+00, %2 ], [ %.015.lcssa, %24 ]
-  %.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %2 ], [ %27, %24 ]
-  %28 = fsub double %.015.lcssa38, %.0.lcssa
+  %.016.lcssa = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %2 ], [ %27, %24 ]
+  %28 = fsub double %.015.lcssa38, %.016.lcssa
   %29 = tail call double @llvm.fabs.f64(double %28)
   %or.cond.i = fcmp olt double %29, 1.000000e-05
-  %30 = fcmp olt double %.015.lcssa38, %.0.lcssa
+  %30 = fcmp olt double %.015.lcssa38, %.016.lcssa
   %31 = select i1 %30, double -1.000000e+00, double 1.000000e+00
   %.0.i = select i1 %or.cond.i, double 0.000000e+00, double %31
   %32 = fptosi double %.0.i to i32

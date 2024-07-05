@@ -100,17 +100,17 @@ define ptr @dtmethod(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.07092 = phi ptr [ %.070, %.lr.ph ], [ %.07089, %.preheader ]
-  %.07191 = phi ptr [ %.07092, %.lr.ph ], [ %12, %.preheader ]
+  %.07391 = phi ptr [ %.07092, %.lr.ph ], [ %12, %.preheader ]
   %50 = getelementptr inbounds i8, ptr %.07092, i64 8
-  store ptr %.07191, ptr %50, align 8
+  store ptr %.07391, ptr %50, align 8
   %.070 = load ptr, ptr %.07092, align 8
   %.not87 = icmp eq ptr %.070, null
   br i1 %.not87, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.071.lcssa = phi ptr [ %12, %.preheader ], [ %.07092, %.lr.ph ]
+  %.073.lcssa = phi ptr [ %12, %.preheader ], [ %.07092, %.lr.ph ]
   %51 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr %.071.lcssa, ptr %51, align 8
+  store ptr %.073.lcssa, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %._crit_edge, %47

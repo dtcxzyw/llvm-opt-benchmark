@@ -352,7 +352,7 @@ for.body10.preheader:                             ; preds = %for.end
 for.body10:                                       ; preds = %for.body10.preheader, %for.inc35
   %1 = phi i64 [ %.pre38, %for.body10.preheader ], [ %10, %for.inc35 ]
   %indvars.iv = phi i64 [ 1, %for.body10.preheader ], [ %indvars.iv.next, %for.inc35 ]
-  %nmarked.028 = phi i32 [ 0, %for.body10.preheader ], [ %nmarked.1, %for.inc35 ]
+  %nmarked.029 = phi i32 [ 0, %for.body10.preheader ], [ %nmarked.1, %for.inc35 ]
   %rem = urem i64 %indvars.iv, %1
   %arrayidx12 = getelementptr inbounds i8, ptr %vla, i64 %rem
   %2 = load i8, ptr %arrayidx12, align 1
@@ -421,14 +421,14 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   %rem27 = urem i64 %indvars.iv, %9
   %arrayidx28 = getelementptr inbounds i8, ptr %vla, i64 %rem27
   store i8 1, ptr %arrayidx28, align 1
-  %inc29 = add i32 %nmarked.028, 1
+  %inc29 = add i32 %nmarked.029, 1
   %conv30 = zext i32 %inc29 to i64
   %cmp31 = icmp eq i64 %9, %conv30
   br i1 %cmp31, label %for.end37, label %for.inc35
 
 for.inc35:                                        ; preds = %malloc_mutex_lock.exit, %for.body10, %lor.lhs.false
   %10 = phi i64 [ %1, %for.body10 ], [ %.pre, %lor.lhs.false ], [ %9, %malloc_mutex_lock.exit ]
-  %nmarked.1 = phi i32 [ %nmarked.028, %for.body10 ], [ %nmarked.028, %lor.lhs.false ], [ %inc29, %malloc_mutex_lock.exit ]
+  %nmarked.1 = phi i32 [ %nmarked.029, %for.body10 ], [ %nmarked.029, %lor.lhs.false ], [ %inc29, %malloc_mutex_lock.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end37, label %for.body10, !llvm.loop !11

@@ -205,7 +205,7 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %7
 
 7:                                                ; preds = %5, %4
-  %.0145 = phi i32 [ %6, %5 ], [ 0, %4 ]
+  %.0147 = phi i32 [ %6, %5 ], [ 0, %4 ]
   %8 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %9 = icmp ult i32 %8, 2
   br i1 %9, label %195, label %10
@@ -214,7 +214,7 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
   %12 = and i8 %11, -17
   %13 = icmp eq i8 %12, 3
-  %14 = icmp ne i32 %.0145, 0
+  %14 = icmp ne i32 %.0147, 0
   %or.cond = select i1 %14, i1 %13, i1 false
   br i1 %or.cond, label %15, label %19
 
@@ -234,9 +234,9 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %24
 
 24:                                               ; preds = %15, %22
-  %.0151 = phi i8 [ %23, %22 ], [ 0, %15 ]
-  %.0150 = phi i32 [ 3, %22 ], [ 2, %15 ]
   %25 = phi i1 [ false, %22 ], [ true, %15 ]
+  %.0146 = phi i32 [ 3, %22 ], [ 2, %15 ]
+  %.0145 = phi i8 [ %23, %22 ], [ 0, %15 ]
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void @col_set_str(ptr noundef %27, i32 noundef 34, ptr noundef nonnull @.str.76) #4
@@ -261,13 +261,13 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %37
 
 37:                                               ; preds = %24, %35, %33
-  %.0147 = phi i32 [ %34, %33 ], [ %36, %35 ], [ 0, %24 ]
+  %.0149 = phi i32 [ %34, %33 ], [ %36, %35 ], [ 0, %24 ]
   %.not161 = icmp eq ptr %2, null
   br i1 %.not161, label %69, label %38
 
 38:                                               ; preds = %37
   %39 = load i32, ptr @proto_lapdm, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef %.0150, i32 noundef 0) #4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef %.0146, i32 noundef 0) #4
   %41 = load i32, ptr @ett_lapdm, align 4
   %42 = tail call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %41) #4
   %43 = load i32, ptr @hf_lapdm_address, align 4
@@ -284,12 +284,12 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
   %54 = tail call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %53, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %29) #4
   %55 = load i32, ptr @hf_lapdm_control, align 4
   %56 = load i32, ptr @ett_lapdm_control, align 4
-  %57 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %42, i32 noundef %55, i32 noundef %56, ptr noundef nonnull @lapdm_cf_items, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %.0147, i32 noundef 0, i32 noundef 0) #4
+  %57 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %42, i32 noundef %55, i32 noundef %56, ptr noundef nonnull @lapdm_cf_items, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %.0149, i32 noundef 0, i32 noundef 0) #4
   br i1 %25, label %.thread182, label %.thread186
 
 .thread186:                                       ; preds = %38
   %58 = load i32, ptr @hf_lapdm_length, align 4
-  %59 = zext i8 %.0151 to i32
+  %59 = zext i8 %.0145 to i32
   %60 = tail call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %58, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %59) #4
   %61 = load i32, ptr @ett_lapdm_length, align 4
   %62 = tail call ptr @proto_item_add_subtree(ptr noundef %60, i32 noundef %61) #4
@@ -304,14 +304,14 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
 69:                                               ; preds = %37
   %70 = load i32, ptr @hf_lapdm_control, align 4
   %71 = load i32, ptr @ett_lapdm_control, align 4
-  %72 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, ptr noundef null, i32 noundef %70, i32 noundef %71, ptr noundef nonnull @lapdm_cf_items, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %.0147, i32 noundef 0, i32 noundef 0) #4
+  %72 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, ptr noundef null, i32 noundef %70, i32 noundef %71, ptr noundef nonnull @lapdm_cf_items, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %.0149, i32 noundef 0, i32 noundef 0) #4
   br i1 %25, label %.thread182, label %73
 
 73:                                               ; preds = %.thread186, %69
   %.0143181188 = phi ptr [ %42, %.thread186 ], [ null, %69 ]
   %74 = phi i32 [ %57, %.thread186 ], [ %72, %69 ]
-  %75 = lshr i8 %.0151, 2
-  %76 = lshr i8 %.0151, 1
+  %75 = lshr i8 %.0145, 2
+  %76 = lshr i8 %.0145, 1
   %77 = and i8 %76, 1
   %78 = zext nneg i8 %77 to i32
   br label %83
@@ -320,36 +320,36 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0143181185 = phi ptr [ null, %69 ], [ %42, %38 ]
   %79 = phi i32 [ %72, %69 ], [ %57, %38 ]
   %80 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
-  %81 = sub i32 %80, %.0150
+  %81 = sub i32 %80, %.0146
   %82 = trunc i32 %81 to i8
   br label %83
 
 83:                                               ; preds = %.thread182, %73
   %.0143181184 = phi ptr [ %.0143181188, %73 ], [ %.0143181185, %.thread182 ]
   %84 = phi i32 [ %74, %73 ], [ %79, %.thread182 ]
-  %.0149 = phi i8 [ %75, %73 ], [ %82, %.thread182 ]
-  %.0148 = phi i32 [ %78, %73 ], [ 0, %.thread182 ]
+  %.0151 = phi i32 [ %78, %73 ], [ 0, %.thread182 ]
+  %.0150 = phi i8 [ %75, %73 ], [ %82, %.thread182 ]
   %85 = lshr i8 %28, 2
   %86 = and i8 %85, 7
   %87 = lshr i32 %84, 1
   %88 = and i32 %87, 7
   %89 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
-  %90 = sub i32 %89, %.0150
-  %91 = zext i8 %.0149 to i32
+  %90 = sub i32 %89, %.0146
+  %91 = zext i8 %.0150 to i32
   %92 = icmp sgt i32 %90, %91
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %83
-  %.not165 = icmp eq i8 %.0149, 0
+  %.not165 = icmp eq i8 %.0150, 0
   br i1 %.not165, label %195, label %95
 
 94:                                               ; preds = %83
-  %.not164 = icmp eq i32 %89, %.0150
+  %.not164 = icmp eq i32 %89, %.0146
   br i1 %.not164, label %195, label %95
 
 95:                                               ; preds = %94, %93
   %96 = tail call i32 @llvm.smin.i32(i32 %90, i32 %91)
-  %97 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0150, i32 noundef %96, i32 noundef %91) #4
+  %97 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0146, i32 noundef %96, i32 noundef %91) #4
   %98 = and i32 %84, 1
   %99 = icmp eq i32 %98, 0
   %100 = load i32, ptr @reassemble_lapdm, align 4
@@ -367,7 +367,7 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
 106:                                              ; preds = %102
   %107 = getelementptr inbounds i8, ptr %1, i64 272
   %108 = load i32, ptr %107, align 8
-  store i32 %.0148, ptr %107, align 8
+  store i32 %.0151, ptr %107, align 8
   %109 = tail call i32 @conversation_get_id_from_elements(ptr noundef nonnull %1, i32 noundef 26, i32 noundef 8) #4
   %110 = shl i32 %109, 4
   %111 = zext nneg i8 %86 to i32
@@ -402,7 +402,7 @@ define internal i32 @dissect_lapdm(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.critedge
 
 .critedge:                                        ; preds = %106, %130
-  %135 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @lapdm_reassembly_table, ptr noundef %97, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %115, ptr noundef null, i32 noundef %91, i32 noundef %.0148) #4
+  %135 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @lapdm_reassembly_table, ptr noundef %97, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %115, ptr noundef null, i32 noundef %91, i32 noundef %.0151) #4
   %136 = tail call ptr @process_reassembled_data(ptr noundef %97, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @.str.91, ptr noundef %135, ptr noundef nonnull @lapdm_frag_items, ptr noundef null, ptr noundef %.0143181184) #4
   %.not169 = icmp eq ptr %135, null
   br i1 %.not169, label %158, label %137

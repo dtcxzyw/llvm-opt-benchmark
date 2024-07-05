@@ -886,28 +886,28 @@ _Z11PointToNamePKw.exit:                          ; preds = %4, %12
   br label %20
 
 20:                                               ; preds = %20, %17
-  %.pn = phi ptr [ %19, %17 ], [ %.026, %20 ]
-  %.026 = getelementptr inbounds i8, ptr %.pn, i64 -4
-  %21 = load i32, ptr %.026, align 4
+  %.pn = phi ptr [ %19, %17 ], [ %.027, %20 ]
+  %.027 = getelementptr inbounds i8, ptr %.pn, i64 -4
+  %21 = load i32, ptr %.027, align 4
   %22 = tail call noundef zeroext i1 @_Z7IsDigiti(i32 noundef %21)
-  %23 = icmp ule ptr %.026, %.011.i
+  %23 = icmp ule ptr %.027, %.011.i
   %.not32 = or i1 %23, %22
   br i1 %.not32, label %.preheader34, label %20, !llvm.loop !11
 
 .preheader34:                                     ; preds = %20, %.preheader34
-  %.0 = phi ptr [ %28, %.preheader34 ], [ %.026, %20 ]
-  %24 = load i32, ptr %.0, align 4
+  %.026 = phi ptr [ %28, %.preheader34 ], [ %.027, %20 ]
+  %24 = load i32, ptr %.026, align 4
   %25 = tail call noundef zeroext i1 @_Z7IsDigiti(i32 noundef %24)
-  %26 = icmp ugt ptr %.0, %.011.i
+  %26 = icmp ugt ptr %.026, %.011.i
   %27 = and i1 %26, %25
-  %28 = getelementptr inbounds i8, ptr %.0, i64 -4
+  %28 = getelementptr inbounds i8, ptr %.026, i64 -4
   br i1 %27, label %.preheader34, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %.preheader34
   br i1 %26, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %35
-  %.137 = phi ptr [ %36, %35 ], [ %.0, %.preheader ]
+  %.137 = phi ptr [ %36, %35 ], [ %.026, %.preheader ]
   %29 = load i32, ptr %.137, align 4
   %.not = icmp eq i32 %29, 46
   br i1 %.not, label %.critedge, label %30
@@ -921,7 +921,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %4, %12
   %.not33 = icmp ne ptr %33, null
   %34 = icmp ult ptr %33, %.137
   %or.cond = and i1 %.not33, %34
-  %spec.select = select i1 %or.cond, ptr %.137, ptr %.026
+  %spec.select = select i1 %or.cond, ptr %.137, ptr %.027
   br label %.critedge
 
 35:                                               ; preds = %30
@@ -930,8 +930,8 @@ _Z11PointToNamePKw.exit:                          ; preds = %4, %12
   br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %35, %.lr.ph, %.preheader, %32, %_Z11PointToNamePKw.exit
-  %.028 = phi ptr [ %.011.i, %_Z11PointToNamePKw.exit ], [ %spec.select, %32 ], [ %.026, %.preheader ], [ %.026, %.lr.ph ], [ %.026, %35 ]
-  ret ptr %.028
+  %.0 = phi ptr [ %.011.i, %_Z11PointToNamePKw.exit ], [ %spec.select, %32 ], [ %.027, %.preheader ], [ %.027, %.lr.ph ], [ %.027, %35 ]
+  ret ptr %.0
 }
 
 declare noundef zeroext i1 @_Z7IsDigiti(i32 noundef) local_unnamed_addr #4
@@ -1906,10 +1906,10 @@ define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef %0, ptr nounde
   br label %17
 
 17:                                               ; preds = %64, %4
-  %.0123 = phi i32 [ 0, %4 ], [ %65, %64 ]
-  %.0118 = phi i32 [ 0, %4 ], [ %.4122, %64 ]
-  %.0116 = phi i1 [ false, %4 ], [ %.1117, %64 ]
-  %18 = zext i32 %.0123 to i64
+  %.0120 = phi i32 [ 0, %4 ], [ %65, %64 ]
+  %.0114 = phi i32 [ 0, %4 ], [ %.4118, %64 ]
+  %.0109 = phi i1 [ false, %4 ], [ %.1, %64 ]
+  %18 = zext i32 %.0120 to i64
   %19 = getelementptr inbounds [128 x i32], ptr %5, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   switch i32 %20, label %23 [
@@ -1923,24 +1923,24 @@ define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef %0, ptr nounde
   br label %64
 
 23:                                               ; preds = %17
-  br i1 %.0116, label %64, label %24
+  br i1 %.0109, label %64, label %24
 
 24:                                               ; preds = %23
   %25 = call noundef i32 @_Z8toupperwi(i32 noundef %20)
   %26 = icmp eq i32 %25, 72
-  %spec.select138 = select i1 %26, i32 2, i32 %.0118
+  %spec.select138 = select i1 %26, i32 2, i32 %.0114
   %27 = icmp eq i32 %25, 68
   %28 = icmp eq i32 %25, 89
   %or.cond = or i1 %27, %28
-  %.2120 = select i1 %or.cond, i32 0, i32 %spec.select138
-  %29 = icmp ne i32 %.2120, 0
+  %.2116 = select i1 %or.cond, i32 0, i32 %spec.select138
+  %29 = icmp ne i32 %.2116, 0
   %30 = icmp eq i32 %25, 77
   %or.cond3 = and i1 %30, %29
   br i1 %or.cond3, label %.thread, label %32
 
 .thread:                                          ; preds = %24
   store i32 73, ptr %19, align 4
-  %31 = add nsw i32 %.2120, -1
+  %31 = add nsw i32 %.2116, -1
   br label %64
 
 32:                                               ; preds = %24
@@ -1952,24 +1952,24 @@ define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef %0, ptr nounde
   br label %36
 
 36:                                               ; preds = %36, %34
-  %.0115 = phi i32 [ 0, %34 ], [ %43, %36 ]
-  %37 = add i32 %.0115, %.0123
+  %.0124 = phi i32 [ 0, %34 ], [ %43, %36 ]
+  %37 = add i32 %.0124, %.0120
   %38 = zext i32 %37 to i64
   %39 = getelementptr inbounds [128 x i32], ptr %5, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = call noundef i32 @_Z8toupperwi(i32 noundef %40)
   %42 = icmp eq i32 %41, 78
-  %43 = add i32 %.0115, 1
+  %43 = add i32 %.0124, 1
   br i1 %42, label %36, label %44, !llvm.loop !25
 
 44:                                               ; preds = %36
-  %45 = icmp ult i32 %.0115, %35
+  %45 = icmp ult i32 %.0124, %35
   br i1 %45, label %46, label %60
 
 46:                                               ; preds = %44
   %47 = call i64 @wcslen(ptr noundef nonnull %5) #18
   %48 = zext i32 %35 to i64
-  %49 = zext i32 %.0115 to i64
+  %49 = zext i32 %.0124 to i64
   %50 = sub nsw i64 %48, %49
   %51 = add i64 %50, %47
   %52 = icmp ult i64 %51, 128
@@ -1985,17 +1985,17 @@ define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef %0, ptr nounde
   br label %60
 
 60:                                               ; preds = %53, %46, %44
-  %61 = call i32 @llvm.umax.i32(i32 %.0115, i32 %35)
-  %62 = add i32 %.0123, -1
+  %61 = call i32 @llvm.umax.i32(i32 %.0124, i32 %35)
+  %62 = add i32 %.0120, -1
   %63 = add i32 %62, %61
   store i8 1, ptr %3, align 1
   br label %64
 
 64:                                               ; preds = %.thread, %32, %23, %60, %21
-  %.1124 = phi i32 [ %.0123, %21 ], [ %.0123, %23 ], [ %63, %60 ], [ %.0123, %32 ], [ %.0123, %.thread ]
-  %.4122 = phi i32 [ %.0118, %21 ], [ %.0118, %23 ], [ %.2120, %60 ], [ %.2120, %32 ], [ %31, %.thread ]
-  %.1117 = phi i1 [ %22, %21 ], [ true, %23 ], [ false, %60 ], [ false, %32 ], [ false, %.thread ]
-  %65 = add i32 %.1124, 1
+  %.1121 = phi i32 [ %.0120, %21 ], [ %.0120, %23 ], [ %63, %60 ], [ %.0120, %32 ], [ %.0120, %.thread ]
+  %.4118 = phi i32 [ %.0114, %21 ], [ %.0114, %23 ], [ %.2116, %60 ], [ %.2116, %32 ], [ %31, %.thread ]
+  %.1 = phi i1 [ %22, %21 ], [ true, %23 ], [ false, %60 ], [ false, %32 ], [ false, %.thread ]
+  %65 = add i32 %.1121, 1
   br label %17, !llvm.loop !26
 
 66:                                               ; preds = %17
@@ -2100,9 +2100,9 @@ _Z11PointToNamePKw.exit:                          ; preds = %87, %95
   br label %120
 
 120:                                              ; preds = %112, %114, %102
-  %.0113 = phi i32 [ %119, %114 ], [ %110, %102 ], [ 0, %112 ]
-  %121 = sdiv i32 %.0113, 7
-  %122 = srem i32 %.0113, 7
+  %.0123 = phi i32 [ %119, %114 ], [ %110, %102 ], [ 0, %112 ]
+  %121 = sdiv i32 %.0123, 7
+  %122 = srem i32 %.0123, 7
   %123 = icmp sgt i32 %122, 3
   %spec.select139.v = select i1 %123, i32 2, i32 1
   %spec.select139 = add nsw i32 %spec.select139.v, %121
@@ -2143,9 +2143,9 @@ _Z11PointToNamePKw.exit:                          ; preds = %87, %95
   br label %157
 
 157:                                              ; preds = %174, %120
+  %.0119 = phi i32 [ 0, %120 ], [ %175, %174 ]
   %.2 = phi i1 [ false, %120 ], [ %.3, %174 ]
-  %.0110 = phi i32 [ 0, %120 ], [ %175, %174 ]
-  %158 = zext i32 %.0110 to i64
+  %158 = zext i32 %.0119 to i64
   %159 = getelementptr inbounds [128 x i32], ptr %5, i64 0, i64 %158
   %160 = load i32, ptr %159, align 4
   switch i32 %160, label %163 [
@@ -2179,7 +2179,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %87, %95
 
 174:                                              ; preds = %164, %167, %163, %161
   %.3 = phi i1 [ %162, %161 ], [ true, %163 ], [ false, %167 ], [ false, %164 ]
-  %175 = add i32 %.0110, 1
+  %175 = add i32 %.0119, 1
   br label %157, !llvm.loop !27
 
 176:                                              ; preds = %157
@@ -2191,9 +2191,9 @@ _Z11PointToNamePKw.exit:                          ; preds = %87, %95
 .lr.ph:                                           ; preds = %176, %233
   %178 = phi i32 [ %236, %233 ], [ %177, %176 ]
   %179 = phi ptr [ %235, %233 ], [ %5, %176 ]
-  %.0157 = phi i64 [ %.1, %233 ], [ 0, %176 ]
-  %.0108155 = phi i64 [ %234, %233 ], [ 0, %176 ]
-  %.4153 = phi i1 [ %.5, %233 ], [ false, %176 ]
+  %.4156 = phi i1 [ %.5, %233 ], [ false, %176 ]
+  %.0110155 = phi i64 [ %.1111, %233 ], [ 0, %176 ]
+  %.0112153 = phi i64 [ %234, %233 ], [ 0, %176 ]
   switch i32 %178, label %182 [
     i32 123, label %180
     i32 125, label %180
@@ -2207,7 +2207,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %87, %95
   %183 = call noundef i32 @_Z8toupperwi(i32 noundef %178)
   %184 = call ptr @wcschr(ptr noundef nonnull @.str.25, i32 noundef signext %183) #18
   %185 = icmp eq ptr %184, null
-  %brmerge = select i1 %185, i1 true, i1 %.4153
+  %brmerge = select i1 %185, i1 true, i1 %.4156
   br i1 %brmerge, label %186, label %188
 
 186:                                              ; preds = %182
@@ -2232,7 +2232,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %87, %95
   br i1 %or.cond140, label %201, label %220
 
 201:                                              ; preds = %188
-  %202 = add i64 %.0108155, 1
+  %202 = add i64 %.0112153, 1
   %203 = getelementptr inbounds [128 x i32], ptr %5, i64 0, i64 %202
   %204 = load i32, ptr %203, align 4
   %205 = call noundef i32 @_Z8toupperwi(i32 noundef %204)
@@ -2240,7 +2240,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %87, %95
   br i1 %206, label %207, label %220
 
 207:                                              ; preds = %201
-  %208 = add i64 %.0108155, 2
+  %208 = add i64 %.0112153, 2
   %209 = getelementptr inbounds [128 x i32], ptr %5, i64 0, i64 %208
   %210 = load i32, ptr %209, align 4
   %211 = call noundef i32 @_Z8toupperwi(i32 noundef %210)
@@ -2248,11 +2248,11 @@ _Z11PointToNamePKw.exit:                          ; preds = %87, %95
   br i1 %212, label %213, label %220
 
 213:                                              ; preds = %207
-  %214 = getelementptr inbounds i32, ptr %11, i64 %.0157
+  %214 = getelementptr inbounds i32, ptr %11, i64 %.0110155
   %215 = load i32, ptr %127, align 4
   %216 = add i32 %215, -1
   %217 = call noundef ptr @_Z12GetMonthNamei(i32 noundef %216)
-  %218 = sub nuw nsw i64 128, %.0157
+  %218 = sub nuw nsw i64 128, %.0110155
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %214, ptr noundef %217, i64 noundef %218)
   %219 = call i64 @wcslen(ptr noundef nonnull %11) #18
   br label %233
@@ -2274,22 +2274,22 @@ _Z11PointToNamePKw.exit:                          ; preds = %87, %95
 
 229:                                              ; preds = %222, %224, %186
   %.sink = phi i32 [ %223, %222 ], [ %228, %224 ], [ %187, %186 ]
-  %230 = getelementptr inbounds [128 x i32], ptr %11, i64 0, i64 %.0157
+  %230 = getelementptr inbounds [128 x i32], ptr %11, i64 0, i64 %.0110155
   store i32 %.sink, ptr %230, align 4
-  %231 = add nuw nsw i64 %.0157, 1
+  %231 = add nuw nsw i64 %.0110155, 1
   %232 = getelementptr inbounds [128 x i32], ptr %11, i64 0, i64 %231
   store i32 0, ptr %232, align 4
   br label %233
 
 233:                                              ; preds = %229, %213, %180
-  %.5 = phi i1 [ %181, %180 ], [ %.4153, %229 ], [ false, %213 ]
-  %.1109 = phi i64 [ %.0108155, %180 ], [ %.0108155, %229 ], [ %208, %213 ]
-  %.1 = phi i64 [ %.0157, %180 ], [ %231, %229 ], [ %219, %213 ]
-  %234 = add i64 %.1109, 1
+  %.1113 = phi i64 [ %.0112153, %180 ], [ %.0112153, %229 ], [ %208, %213 ]
+  %.1111 = phi i64 [ %.0110155, %180 ], [ %231, %229 ], [ %219, %213 ]
+  %.5 = phi i1 [ %181, %180 ], [ %.4156, %229 ], [ false, %213 ]
+  %234 = add i64 %.1113, 1
   %235 = getelementptr inbounds [128 x i32], ptr %5, i64 0, i64 %234
   %236 = load i32, ptr %235, align 4
   %237 = icmp ne i32 %236, 0
-  %238 = icmp ult i64 %.1, 127
+  %238 = icmp ult i64 %.1111, 127
   %239 = select i1 %237, i1 %238, i1 false
   br i1 %239, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 

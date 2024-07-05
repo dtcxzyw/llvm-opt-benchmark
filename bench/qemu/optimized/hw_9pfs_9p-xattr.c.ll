@@ -137,10 +137,10 @@ if.then10:                                        ; preds = %if.end6
 
 while.body:                                       ; preds = %while.body.lr.ph, %next_entry
   %value.addr.055 = phi ptr [ %value, %while.body.lr.ph ], [ %value.addr.1, %next_entry ]
-  %parsed_len.054 = phi i64 [ 0, %while.body.lr.ph ], [ %add28, %next_entry ]
-  %orig_value.053 = phi ptr [ %call7, %while.body.lr.ph ], [ %add.ptr29, %next_entry ]
-  %size.052 = phi i64 [ 0, %while.body.lr.ph ], [ %size.1, %next_entry ]
-  %vsize.addr.051 = phi i64 [ %vsize, %while.body.lr.ph ], [ %vsize.addr.1, %next_entry ]
+  %vsize.addr.054 = phi i64 [ %vsize, %while.body.lr.ph ], [ %vsize.addr.1, %next_entry ]
+  %size.053 = phi i64 [ 0, %while.body.lr.ph ], [ %size.1, %next_entry ]
+  %parsed_len.052 = phi i64 [ 0, %while.body.lr.ph ], [ %add28, %next_entry ]
+  %orig_value.051 = phi ptr [ %call7, %while.body.lr.ph ], [ %add.ptr29, %next_entry ]
   %2 = load ptr, ptr %xops13, align 8
   br label %for.cond.i
 
@@ -154,7 +154,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %3 = load ptr, ptr %xops.0.i, align 8
   %call.i46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %call3.i = tail call i32 @strncmp(ptr noundef readonly %orig_value.053, ptr noundef %3, i64 noundef %call.i46) #9
+  %call3.i = tail call i32 @strncmp(ptr noundef readonly %orig_value.051, ptr noundef %3, i64 noundef %call.i46) #9
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.end16, label %for.cond.i, !llvm.loop !5
 
@@ -165,28 +165,28 @@ if.end16:                                         ; preds = %for.body.i
   br i1 %tobool17.not, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %if.end16
-  %call19 = tail call i64 %4(ptr noundef %ctx, ptr noundef %path, ptr noundef %orig_value.053, ptr noundef null, i64 noundef %vsize.addr.051) #10
-  %add = add i64 %call19, %size.052
+  %call19 = tail call i64 %4(ptr noundef %ctx, ptr noundef %path, ptr noundef %orig_value.051, ptr noundef null, i64 noundef %vsize.addr.054) #10
+  %add = add i64 %call19, %size.053
   br label %next_entry
 
 if.else:                                          ; preds = %if.end16
-  %call21 = tail call i64 %4(ptr noundef %ctx, ptr noundef %path, ptr noundef %orig_value.053, ptr noundef nonnull %value.addr.055, i64 noundef %vsize.addr.051) #10
+  %call21 = tail call i64 %4(ptr noundef %ctx, ptr noundef %path, ptr noundef %orig_value.051, ptr noundef nonnull %value.addr.055, i64 noundef %vsize.addr.054) #10
   %cmp22 = icmp slt i64 %call21, 0
   br i1 %cmp22, label %err_out, label %if.end24
 
 if.end24:                                         ; preds = %if.else
   %add.ptr = getelementptr i8, ptr %value.addr.055, i64 %call21
-  %sub = sub i64 %vsize.addr.051, %call21
+  %sub = sub i64 %vsize.addr.054, %call21
   br label %next_entry
 
 next_entry:                                       ; preds = %for.cond.i, %if.then18, %if.end24
-  %vsize.addr.1 = phi i64 [ %sub, %if.end24 ], [ %vsize.addr.051, %if.then18 ], [ %vsize.addr.051, %for.cond.i ]
-  %size.1 = phi i64 [ %call21, %if.end24 ], [ %add, %if.then18 ], [ %size.052, %for.cond.i ]
+  %size.1 = phi i64 [ %call21, %if.end24 ], [ %add, %if.then18 ], [ %size.053, %for.cond.i ]
+  %vsize.addr.1 = phi i64 [ %sub, %if.end24 ], [ %vsize.addr.054, %if.then18 ], [ %vsize.addr.054, %for.cond.i ]
   %value.addr.1 = phi ptr [ %add.ptr, %if.end24 ], [ null, %if.then18 ], [ %value.addr.055, %for.cond.i ]
-  %call26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %orig_value.053) #9
+  %call26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %orig_value.051) #9
   %add27 = add i64 %call26, 1
-  %add28 = add i64 %add27, %parsed_len.054
-  %add.ptr29 = getelementptr i8, ptr %orig_value.053, i64 %add27
+  %add28 = add i64 %add27, %parsed_len.052
+  %add.ptr29 = getelementptr i8, ptr %orig_value.051, i64 %add27
   %cmp12 = icmp sgt i64 %call8, %add28
   br i1 %cmp12, label %while.body, label %while.end, !llvm.loop !7
 

@@ -5094,8 +5094,8 @@ _ZN7QStringD2Ev.exit186:                          ; preds = %_ZN7QStringD2Ev.exi
   br i1 %.not101765, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %279, %_ZN7QStringD2Ev.exit247
-  %.066766 = phi ptr [ %298, %_ZN7QStringD2Ev.exit247 ], [ %280, %279 ]
-  %281 = load ptr, ptr %.066766, align 8
+  %.088766 = phi ptr [ %298, %_ZN7QStringD2Ev.exit247 ], [ %280, %279 ]
+  %281 = load ptr, ptr %.088766, align 8
   %282 = load i32, ptr %281, align 8
   %283 = and i32 %282, -2
   %switch = icmp eq i32 %283, 2
@@ -5141,7 +5141,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i249:   ; preds = %293
   br i1 %.not.i.i250, label %_ZN7QStringD2Ev.exit190.sink.split, label %_ZN7QStringD2Ev.exit190
 
 _ZN7QStringD2Ev.exit247:                          ; preds = %291, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i245, %_ZN11QListWidget7addItemERK7QString.exit, %.lr.ph
-  %297 = getelementptr inbounds i8, ptr %.066766, i64 8
+  %297 = getelementptr inbounds i8, ptr %.088766, i64 8
   %298 = load ptr, ptr %297, align 8
   %.not101 = icmp eq ptr %298, null
   br i1 %.not101, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -6322,8 +6322,8 @@ _ZN7QStringD2Ev.exit478:                          ; preds = %_ZN7QStringD2Ev.exi
   br i1 %.not121767, label %._crit_edge771, label %.lr.ph770
 
 .lr.ph770:                                        ; preds = %705, %_ZN7QStringD2Ev.exit497
-  %.0768 = phi ptr [ %724, %_ZN7QStringD2Ev.exit497 ], [ %706, %705 ]
-  %707 = load ptr, ptr %.0768, align 8
+  %.066768 = phi ptr [ %724, %_ZN7QStringD2Ev.exit497 ], [ %706, %705 ]
+  %707 = load ptr, ptr %.066768, align 8
   %708 = load i32, ptr %707, align 8
   %709 = and i32 %708, -2
   %switch147 = icmp eq i32 %709, 2
@@ -6369,7 +6369,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i499:   ; preds = %719
   br i1 %.not.i.i500, label %_ZN7QStringD2Ev.exit190.sink.split, label %_ZN7QStringD2Ev.exit190
 
 _ZN7QStringD2Ev.exit497:                          ; preds = %717, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i495, %_ZN11QListWidget7addItemERK7QString.exit493, %.lr.ph770
-  %723 = getelementptr inbounds i8, ptr %.0768, i64 8
+  %723 = getelementptr inbounds i8, ptr %.066768, i64 8
   %724 = load ptr, ptr %723, align 8
   %.not121 = icmp eq ptr %724, null
   br i1 %.not121, label %._crit_edge771, label %.lr.ph770, !llvm.loop !15
@@ -7535,8 +7535,8 @@ define noundef ptr @_ZN22SCTPAssocAnalyseDialog18findAssocForPacketEP13_capture_
   br i1 %.not33, label %._crit_edge37, label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %12, %._crit_edge
-  %.02334 = phi ptr [ %31, %._crit_edge ], [ %16, %12 ]
-  %17 = load ptr, ptr %.02334, align 8
+  %.02234 = phi ptr [ %31, %._crit_edge ], [ %16, %12 ]
+  %17 = load ptr, ptr %.02234, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 296
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @g_list_first(ptr noundef %19)
@@ -7548,21 +7548,21 @@ define noundef ptr @_ZN22SCTPAssocAnalyseDialog18findAssocForPacketEP13_capture_
   br label %22
 
 22:                                               ; preds = %.lr.ph, %27
-  %.02232 = phi ptr [ %20, %.lr.ph ], [ %29, %27 ]
-  %23 = load ptr, ptr %.02232, align 8
+  %.02332 = phi ptr [ %20, %.lr.ph ], [ %29, %27 ]
+  %23 = load ptr, ptr %.02332, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = trunc i64 %24 to i32
   %26 = icmp eq i32 %21, %25
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %.02232, i64 8
+  %28 = getelementptr inbounds i8, ptr %.02332, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not25 = icmp eq ptr %29, null
   br i1 %.not25, label %._crit_edge, label %22, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %27, %.lr.ph36
-  %30 = getelementptr inbounds i8, ptr %.02334, i64 8
+  %30 = getelementptr inbounds i8, ptr %.02234, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %._crit_edge37, label %.lr.ph36, !llvm.loop !17

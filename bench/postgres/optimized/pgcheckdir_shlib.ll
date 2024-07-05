@@ -73,8 +73,8 @@ sub_2:                                            ; preds = %sub_131
   br i1 %31, label %.outer, label %.loopexit
 
 .outer:                                           ; preds = %.thread, %28
-  %.115 = phi i1 [ true, %28 ], [ %.014.ph48, %.thread ]
-  %.1 = phi i1 [ %.0.ph49, %28 ], [ true, %.thread ]
+  %.116 = phi i1 [ true, %28 ], [ %.015.ph48, %.thread ]
+  %.1 = phi i1 [ %.014.ph49, %28 ], [ true, %.thread ]
   store i32 0, ptr %4, align 4
   %32 = tail call ptr @readdir(ptr noundef nonnull %2) #6
   %.not41 = icmp eq ptr %32, null
@@ -82,13 +82,13 @@ sub_2:                                            ; preds = %sub_131
 
 sub_0.lr.ph:                                      ; preds = %.preheader, %.outer
   %33 = phi ptr [ %32, %.outer ], [ %5, %.preheader ]
-  %.0.ph49 = phi i1 [ %.1, %.outer ], [ false, %.preheader ]
-  %.014.ph48 = phi i1 [ %.115, %.outer ], [ false, %.preheader ]
+  %.014.ph49 = phi i1 [ %.1, %.outer ], [ false, %.preheader ]
+  %.015.ph48 = phi i1 [ %.116, %.outer ], [ false, %.preheader ]
   br label %sub_0
 
 .loopexit:                                        ; preds = %.thread, %.outer, %26, %.preheader
-  %.014.ph40 = phi i1 [ false, %.preheader ], [ %.014.ph48, %26 ], [ %.115, %.outer ], [ %.014.ph48, %.thread ]
-  %.0.ph38 = phi i1 [ false, %.preheader ], [ %.0.ph49, %26 ], [ %.1, %.outer ], [ %.0.ph49, %.thread ]
+  %.015.ph40 = phi i1 [ false, %.preheader ], [ %.015.ph48, %26 ], [ %.116, %.outer ], [ %.015.ph48, %.thread ]
+  %.014.ph38 = phi i1 [ false, %.preheader ], [ %.014.ph49, %26 ], [ %.1, %.outer ], [ %.014.ph49, %.thread ]
   %.017 = phi i32 [ 1, %.preheader ], [ 1, %26 ], [ 1, %.outer ], [ 4, %.thread ]
   %34 = load i32, ptr %4, align 4
   %35 = tail call i32 @closedir(ptr noundef nonnull %2)
@@ -101,16 +101,16 @@ sub_0.lr.ph:                                      ; preds = %.preheader, %.outer
   %spec.select = select i1 %.not20, i32 %.017, i32 -1
   store i32 %.fr, ptr %4, align 4
   %37 = icmp eq i32 %spec.select, 1
-  %spec.select22 = select i1 %.0.ph38, i32 3, i32 1
+  %spec.select22 = select i1 %.014.ph38, i32 3, i32 1
   %spec.select28 = select i1 %37, i32 %spec.select22, i32 %spec.select
   %38 = icmp eq i32 %spec.select28, 1
-  %spec.select23 = select i1 %.014.ph40, i32 2, i32 1
+  %spec.select23 = select i1 %.015.ph40, i32 2, i32 1
   %spec.select33 = select i1 %38, i32 %spec.select23, i32 %spec.select28
   br label %.thread27
 
 .thread27:                                        ; preds = %36, %.loopexit, %6
-  %.016 = phi i32 [ %9, %6 ], [ -1, %.loopexit ], [ %spec.select33, %36 ]
-  ret i32 %.016
+  %.0 = phi i32 [ %9, %6 ], [ -1, %.loopexit ], [ %spec.select33, %36 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind

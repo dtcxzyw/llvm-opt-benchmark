@@ -59,10 +59,10 @@ define i64 @softfloat_roundPackMToI64(i1 noundef zeroext %0, ptr nocapture nound
   br label %37
 
 37:                                               ; preds = %6, %35, %33, %20
-  %.030 = phi i64 [ %32, %33 ], [ %29, %20 ], [ %spec.select, %35 ], [ %19, %6 ]
-  %38 = sub i64 0, %.030
-  %39 = select i1 %0, i64 %38, i64 %.030
-  %.not36 = icmp eq i64 %.030, 0
+  %.031 = phi i64 [ %32, %33 ], [ %29, %20 ], [ %spec.select, %35 ], [ %19, %6 ]
+  %38 = sub i64 0, %.031
+  %39 = select i1 %0, i64 %38, i64 %.031
+  %.not36 = icmp eq i64 %.031, 0
   %40 = icmp sgt i64 %39, -1
   %.not3738 = xor i1 %40, %0
   %or.cond = or i1 %.not36, %.not3738

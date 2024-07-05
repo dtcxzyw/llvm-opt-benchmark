@@ -1850,14 +1850,14 @@ for.cond23.preheader:                             ; preds = %for.cond23.preheade
   %12 = phi ptr [ %46, %for.inc88 ], [ %2, %for.cond23.preheader.lr.ph ]
   %13 = phi ptr [ %47, %for.inc88 ], [ %1, %for.cond23.preheader.lr.ph ]
   %14 = phi i32 [ %48, %for.inc88 ], [ %7, %for.cond23.preheader.lr.ph ]
-  %y.0111 = phi i32 [ %add, %for.inc88 ], [ 0, %for.cond23.preheader.lr.ph ]
-  %tileIndex.0110 = phi i32 [ %tileIndex.1.lcssa, %for.inc88 ], [ 0, %for.cond23.preheader.lr.ph ]
+  %tileIndex.0111 = phi i32 [ %tileIndex.1.lcssa, %for.inc88 ], [ 0, %for.cond23.preheader.lr.ph ]
+  %y.0110 = phi i32 [ %add, %for.inc88 ], [ 0, %for.cond23.preheader.lr.ph ]
   %cmp26106 = icmp sgt i32 %14, 0
-  %add = add nuw nsw i32 %y.0111, 128
+  %add = add nuw nsw i32 %y.0110, 128
   br i1 %cmp26106, label %for.body27.lr.ph, label %for.inc88
 
 for.body27.lr.ph:                                 ; preds = %for.cond23.preheader
-  %15 = sext i32 %tileIndex.0110 to i64
+  %15 = sext i32 %tileIndex.0111 to i64
   br label %for.body27
 
 for.body27:                                       ; preds = %for.body27.lr.ph, %for.inc84
@@ -1865,13 +1865,13 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
   %17 = phi ptr [ %13, %for.body27.lr.ph ], [ %42, %for.inc84 ]
   %indvars.iv126 = phi i64 [ %15, %for.body27.lr.ph ], [ %indvars.iv.next127, %for.inc84 ]
   %18 = phi i32 [ %14, %for.body27.lr.ph ], [ %43, %for.inc84 ]
-  %x.0108 = phi i32 [ 0, %for.body27.lr.ph ], [ %add35, %for.inc84 ]
+  %x.0107 = phi i32 [ 0, %for.body27.lr.ph ], [ %add35, %for.inc84 ]
   %19 = load i32, ptr %y20, align 4
   %.sroa.speculated69 = call i32 @llvm.smin.i32(i32 %19, i32 %add)
-  %sub = sub nsw i32 %.sroa.speculated69, %y.0111
-  %add35 = add nuw nsw i32 %x.0108, 128
+  %sub = sub nsw i32 %.sroa.speculated69, %y.0110
+  %add35 = add nuw nsw i32 %x.0107, 128
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %18, i32 %add35)
-  %sub40 = sub nsw i32 %.sroa.speculated, %x.0108
+  %sub40 = sub nsw i32 %.sroa.speculated, %x.0107
   %cmp4696.not = icmp eq ptr %17, %16
   br i1 %cmp4696.not, label %invoke.cont61, label %for.inc52.lr.ph
 
@@ -1888,9 +1888,9 @@ for.inc52:                                        ; preds = %for.inc52.lr.ph, %f
   %22 = load i32, ptr %tileBoundsOffset.i, align 8
   %idx.ext.i = sext i32 %22 to i64
   %add.ptr.i42 = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i
-  store i32 %x.0108, ptr %add.ptr.i42, align 1
+  store i32 %x.0107, ptr %add.ptr.i42, align 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i42, i64 4
-  store i32 %y.0111, ptr %add.ptr.i.i, align 1
+  store i32 %y.0110, ptr %add.ptr.i.i, align 1
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %add.ptr.i42, i64 8
   store i32 %sub40, ptr %add.ptr.i3.i, align 1
   %add.ptr.i4.i = getelementptr inbounds i8, ptr %add.ptr.i42, i64 12
@@ -1932,14 +1932,14 @@ if.then.i.i.i:                                    ; preds = %lpad31
   br label %eh.resume
 
 invoke.cont61:                                    ; preds = %for.inc52, %for.body27
-  %.sroa.speculated5.i.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated, i32 %x.0108)
-  %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated69, i32 %y.0111)
+  %.sroa.speculated5.i.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated, i32 %x.0107)
+  %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %.sroa.speculated69, i32 %y.0110)
   %retval.sroa.2.0.insert.ext.i.i = zext i32 %.sroa.speculated.i.i to i64
   %retval.sroa.2.0.insert.shift.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i, 32
   %retval.sroa.0.0.insert.ext.i.i = zext i32 %.sroa.speculated5.i.i to i64
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
-  %.sroa.speculated5.i9.i = call i32 @llvm.smax.i32(i32 %x.0108, i32 %.sroa.speculated)
-  %.sroa.speculated.i10.i = call i32 @llvm.smax.i32(i32 %y.0111, i32 %.sroa.speculated69)
+  %.sroa.speculated5.i9.i = call i32 @llvm.smax.i32(i32 %x.0107, i32 %.sroa.speculated)
+  %.sroa.speculated.i10.i = call i32 @llvm.smax.i32(i32 %y.0110, i32 %.sroa.speculated69)
   %retval.sroa.2.0.insert.ext.i11.i = zext nneg i32 %.sroa.speculated.i10.i to i64
   %retval.sroa.2.0.insert.shift.i12.i = shl nuw nsw i64 %retval.sroa.2.0.insert.ext.i11.i, 32
   %retval.sroa.0.0.insert.ext.i13.i = zext nneg i32 %.sroa.speculated5.i9.i to i64
@@ -2084,7 +2084,7 @@ for.inc88:                                        ; preds = %for.cond23.preheade
   %46 = phi ptr [ %41, %for.inc88.loopexit ], [ %12, %for.cond23.preheader ]
   %47 = phi ptr [ %42, %for.inc88.loopexit ], [ %13, %for.cond23.preheader ]
   %48 = phi i32 [ %43, %for.inc88.loopexit ], [ %14, %for.cond23.preheader ]
-  %tileIndex.1.lcssa = phi i32 [ %44, %for.inc88.loopexit ], [ %tileIndex.0110, %for.cond23.preheader ]
+  %tileIndex.1.lcssa = phi i32 [ %44, %for.inc88.loopexit ], [ %tileIndex.0111, %for.cond23.preheader ]
   %cmp21.not = icmp slt i32 %add, %45
   br i1 %cmp21.not, label %for.cond23.preheader, label %cleanup, !llvm.loop !16
 

@@ -513,9 +513,9 @@ entry:
   br i1 %tobool.not25, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %first.027 = phi i1 [ %first.1, %for.inc ], [ true, %entry ]
-  %elt.026 = phi ptr [ %13, %for.inc ], [ %call1, %entry ]
-  %5 = load ptr, ptr %elt.026, align 8
+  %elt.027 = phi ptr [ %13, %for.inc ], [ %call1, %entry ]
+  %first.026 = phi i1 [ %first.1, %for.inc ], [ true, %entry ]
+  %5 = load ptr, ptr %elt.027, align 8
   %call2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %5, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 641, ptr noundef nonnull @__func__.dump_vmstate_json_to_file) #16
   %vmsd = getelementptr inbounds i8, ptr %call2, i64 160
   %6 = load ptr, ptr %vmsd, align 8
@@ -523,7 +523,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool3.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  br i1 %first.027, label %if.end7, label %if.then5
+  br i1 %first.026, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
   %7 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 2, i64 1, ptr %out_file)
@@ -547,8 +547,8 @@ if.end7:                                          ; preds = %if.then5, %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end7
-  %first.1 = phi i1 [ false, %if.end7 ], [ %first.027, %for.body ]
-  %next = getelementptr inbounds i8, ptr %elt.026, i64 8
+  %first.1 = phi i1 [ false, %if.end7 ], [ %first.026, %for.body ]
+  %next = getelementptr inbounds i8, ptr %elt.027, i64 8
   %13 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %13, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5
@@ -2012,21 +2012,21 @@ if.end:                                           ; preds = %trace_qemu_savevm_s
 
 for.body:                                         ; preds = %if.end, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end ]
-  %tmplen.025 = phi i16 [ %add28, %for.body ], [ %inc, %if.end ]
-  %idx.ext = zext i16 %tmplen.025 to i64
+  %tmplen.026 = phi i16 [ %add28, %for.body ], [ %inc, %if.end ]
+  %idx.ext = zext i16 %tmplen.026 to i64
   %add.ptr16 = getelementptr i8, ptr %call4, i64 %idx.ext
   %arrayidx18 = getelementptr i64, ptr %start_list, i64 %indvars.iv
   %8 = load i64, ptr %arrayidx18, align 8
   %9 = tail call i64 @llvm.bswap.i64(i64 %8)
   store i64 %9, ptr %add.ptr16, align 1
-  %add20 = add i16 %tmplen.025, 8
+  %add20 = add i16 %tmplen.026, 8
   %idx.ext23 = zext i16 %add20 to i64
   %add.ptr24 = getelementptr i8, ptr %call4, i64 %idx.ext23
   %arrayidx26 = getelementptr i64, ptr %length_list, i64 %indvars.iv
   %10 = load i64, ptr %arrayidx26, align 8
   %11 = tail call i64 @llvm.bswap.i64(i64 %10)
   store i64 %11, ptr %add.ptr24, align 1
-  %add28 = add i16 %tmplen.025, 16
+  %add28 = add i16 %tmplen.026, 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17

@@ -562,7 +562,7 @@ detect_data_type.exit:                            ; preds = %17, %31, %.preheade
   %.13253.i.i = phi i32 [ %spec.select.i.i, %.lr.ph.i.i ], [ %.233.i.i, %88 ]
   %.03452.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.135.i.i, %88 ]
   %.03651.i.i = phi i32 [ %46, %.lr.ph.i.i ], [ %55, %88 ]
-  %.03750.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.138.i.i, %88 ]
+  %.03849.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.139.i.i, %88 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %53 = getelementptr inbounds %struct.ct_data_s, ptr %37, i64 %indvars.iv.next.i.i, i32 1
   %54 = load i16, ptr %53, align 2
@@ -591,7 +591,7 @@ detect_data_type.exit:                            ; preds = %17, %31, %.preheade
   br i1 %.not44.i.i, label %77, label %68
 
 68:                                               ; preds = %67
-  %.not45.i.i = icmp eq i32 %.03651.i.i, %.03750.i.i
+  %.not45.i.i = icmp eq i32 %.03651.i.i, %.03849.i.i
   br i1 %.not45.i.i, label %74, label %69
 
 69:                                               ; preds = %68
@@ -634,7 +634,7 @@ detect_data_type.exit:                            ; preds = %17, %31, %.preheade
   br label %88
 
 88:                                               ; preds = %87, %85, %52
-  %.138.i.i = phi i32 [ %.03750.i.i, %52 ], [ %.03651.i.i, %85 ], [ %.03651.i.i, %87 ]
+  %.139.i.i = phi i32 [ %.03849.i.i, %52 ], [ %.03651.i.i, %85 ], [ %.03651.i.i, %87 ]
   %.135.i.i = phi i32 [ %56, %52 ], [ 0, %85 ], [ 0, %87 ]
   %.233.i.i = phi i32 [ %.13253.i.i, %52 ], [ 138, %85 ], [ %..i.i, %87 ]
   %.2.i.i = phi i32 [ %.154.i.i, %52 ], [ 3, %85 ], [ %.47.i.i, %87 ]
@@ -673,7 +673,7 @@ scan_tree.exit.i:                                 ; preds = %88, %34
   %.13253.i21.i = phi i32 [ %spec.select.i17.i, %.lr.ph.i15.i ], [ %.233.i33.i, %140 ]
   %.03452.i22.i = phi i32 [ 0, %.lr.ph.i15.i ], [ %.135.i32.i, %140 ]
   %.03651.i23.i = phi i32 [ %98, %.lr.ph.i15.i ], [ %107, %140 ]
-  %.03750.i24.i = phi i32 [ -1, %.lr.ph.i15.i ], [ %.138.i31.i, %140 ]
+  %.03849.i24.i = phi i32 [ -1, %.lr.ph.i15.i ], [ %.139.i31.i, %140 ]
   %indvars.iv.next.i25.i = add nuw nsw i64 %indvars.iv.i19.i, 1
   %105 = getelementptr inbounds %struct.ct_data_s, ptr %89, i64 %indvars.iv.next.i25.i, i32 1
   %106 = load i16, ptr %105, align 2
@@ -702,7 +702,7 @@ scan_tree.exit.i:                                 ; preds = %88, %34
   br i1 %.not44.i27.i, label %129, label %120
 
 120:                                              ; preds = %119
-  %.not45.i28.i = icmp eq i32 %.03651.i23.i, %.03750.i24.i
+  %.not45.i28.i = icmp eq i32 %.03651.i23.i, %.03849.i24.i
   br i1 %.not45.i28.i, label %126, label %121
 
 121:                                              ; preds = %120
@@ -745,7 +745,7 @@ scan_tree.exit.i:                                 ; preds = %88, %34
   br label %140
 
 140:                                              ; preds = %139, %137, %104
-  %.138.i31.i = phi i32 [ %.03750.i24.i, %104 ], [ %.03651.i23.i, %137 ], [ %.03651.i23.i, %139 ]
+  %.139.i31.i = phi i32 [ %.03849.i24.i, %104 ], [ %.03651.i23.i, %137 ], [ %.03651.i23.i, %139 ]
   %.135.i32.i = phi i32 [ %108, %104 ], [ 0, %137 ], [ 0, %139 ]
   %.233.i33.i = phi i32 [ %.13253.i21.i, %104 ], [ 138, %137 ], [ %..i29.i, %139 ]
   %.2.i34.i = phi i32 [ %.154.i20.i, %104 ], [ 3, %137 ], [ %.47.i30.i, %139 ]
@@ -1798,10 +1798,10 @@ pqdownheap.exit122:                               ; preds = %231, %241, %245, %p
   br label %307
 
 307:                                              ; preds = %302, %297
-  %.084.i = phi i32 [ %306, %302 ], [ 0, %297 ]
+  %.087.i = phi i32 [ %306, %302 ], [ 0, %297 ]
   %308 = load i16, ptr %286, align 2
   %309 = zext i16 %308 to i64
-  %310 = add nsw i32 %.084.i, %spec.select.i
+  %310 = add nsw i32 %.087.i, %spec.select.i
   %311 = sext i32 %310 to i64
   %312 = mul nsw i64 %309, %311
   %313 = load i64, ptr %278, align 8
@@ -1813,7 +1813,7 @@ pqdownheap.exit122:                               ; preds = %231, %241, %245, %p
   %316 = getelementptr inbounds %struct.ct_data_s, ptr %262, i64 %285, i32 1
   %317 = load i16, ptr %316, align 2
   %318 = zext i16 %317 to i32
-  %319 = add nsw i32 %.084.i, %318
+  %319 = add nsw i32 %.087.i, %318
   %320 = sext i32 %319 to i64
   %321 = mul nsw i64 %320, %309
   %322 = load i64, ptr %279, align 8
@@ -1871,7 +1871,7 @@ pqdownheap.exit122:                               ; preds = %231, %241, %245, %p
 
 .lr.ph125.i:                                      ; preds = %.preheader.i, %.outer.split.us.i
   %indvars.iv138.i = phi i64 [ %indvars.iv.next139.i, %.outer.split.us.i ], [ %327, %.preheader.i ]
-  %.190123.i = phi i32 [ %.291.ph.lcssa.i, %.outer.split.us.i ], [ 573, %.preheader.i ]
+  %.185124.i = phi i32 [ %.286.ph.lcssa.i, %.outer.split.us.i ], [ 573, %.preheader.i ]
   %345 = getelementptr inbounds [16 x i16], ptr %269, i64 0, i64 %indvars.iv138.i
   %346 = load i16, ptr %345, align 2
   %.not99118.i = icmp eq i16 %346, 0
@@ -1883,15 +1883,15 @@ pqdownheap.exit122:                               ; preds = %231, %241, %245, %p
   br label %.outer.split.i
 
 .outer.split.us.i:                                ; preds = %.outer.i, %.lr.ph125.i
-  %.291.ph.lcssa.i = phi i32 [ %.190123.i, %.lr.ph125.i ], [ %355, %.outer.i ]
+  %.286.ph.lcssa.i = phi i32 [ %.185124.i, %.lr.ph125.i ], [ %355, %.outer.i ]
   %indvars.iv.next139.i = add nsw i64 %indvars.iv138.i, -1
   %.not.i124 = icmp eq i64 %indvars.iv.next139.i, 0
   br i1 %.not.i124, label %gen_bitlen.exit, label %.lr.ph125.i, !llvm.loop !22
 
 .outer.split.i:                                   ; preds = %.outer.i, %.outer.split.lr.ph.i
-  %.088.ph120.i = phi i32 [ %347, %.outer.split.lr.ph.i ], [ %368, %.outer.i ]
-  %.291.ph119.i = phi i32 [ %.190123.i, %.outer.split.lr.ph.i ], [ %355, %.outer.i ]
-  %349 = sext i32 %.291.ph119.i to i64
+  %.286.ph120.i = phi i32 [ %.185124.i, %.outer.split.lr.ph.i ], [ %355, %.outer.i ]
+  %.091.ph119.i = phi i32 [ %347, %.outer.split.lr.ph.i ], [ %368, %.outer.i ]
+  %349 = sext i32 %.286.ph120.i to i64
   br label %350
 
 350:                                              ; preds = %350, %.outer.split.i
@@ -1924,7 +1924,7 @@ pqdownheap.exit122:                               ; preds = %231, %241, %245, %p
   br label %.outer.i
 
 .outer.i:                                         ; preds = %361, %354
-  %368 = add nsw i32 %.088.ph120.i, -1
+  %368 = add nsw i32 %.091.ph119.i, -1
   %.not99.i = icmp eq i32 %368, 0
   br i1 %.not99.i, label %.outer.split.us.i, label %.outer.split.i, !llvm.loop !23
 
@@ -1944,10 +1944,10 @@ gen_bitlen.exit:                                  ; preds = %.outer.split.us.i, 
 
 370:                                              ; preds = %370, %gen_bitlen.exit
   %indvars.iv.i125 = phi i64 [ 1, %gen_bitlen.exit ], [ %indvars.iv.next.i126, %370 ]
-  %.01618.i = phi i16 [ 0, %gen_bitlen.exit ], [ %373, %370 ]
+  %.019.i = phi i16 [ 0, %gen_bitlen.exit ], [ %373, %370 ]
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i125
   %371 = load i16, ptr %gep.i, align 2
-  %372 = add i16 %371, %.01618.i
+  %372 = add i16 %371, %.019.i
   %373 = shl i16 %372, 1
   %374 = getelementptr inbounds [16 x i16], ptr %3, i64 0, i64 %indvars.iv.i125
   store i16 %373, ptr %374, align 2

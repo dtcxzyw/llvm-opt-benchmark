@@ -403,8 +403,8 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %.preheader, %23
   %14 = phi ptr [ %26, %23 ], [ %12, %.preheader ]
-  %.04252 = phi i64 [ %24, %23 ], [ 0, %.preheader ]
-  %15 = getelementptr inbounds ptr, ptr %8, i64 %.04252
+  %.04352 = phi i64 [ %24, %23 ], [ 0, %.preheader ]
+  %15 = getelementptr inbounds ptr, ptr %8, i64 %.04352
   %16 = load ptr, ptr %15, align 8
   %.not48 = icmp eq ptr %16, null
   br i1 %.not48, label %.critedge.loopexit, label %17
@@ -418,7 +418,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %17
-  %24 = add i64 %.04252, 1
+  %24 = add i64 %.04352, 1
   %25 = getelementptr inbounds ptr, ptr %7, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not47 = icmp eq ptr %26, null
@@ -430,7 +430,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   br label %36
 
 .critedge.loopexit:                               ; preds = %23, %.lr.ph
-  %.0.lcssa.ph.in = phi i64 [ %.04252, %.lr.ph ], [ %24, %23 ]
+  %.0.lcssa.ph.in = phi i64 [ %.04352, %.lr.ph ], [ %24, %23 ]
   %.0.lcssa.ph = trunc i64 %.0.lcssa.ph.in to i32
   br label %.critedge
 
@@ -451,8 +451,8 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   br label %36
 
 36:                                               ; preds = %30, %.critedge, %27, %13
-  %.043 = phi i1 [ false, %13 ], [ false, %27 ], [ %29, %.critedge ], [ %35, %30 ]
-  ret i1 %.043
+  %.042 = phi i1 [ false, %13 ], [ false, %27 ], [ %29, %.critedge ], [ %35, %30 ]
+  ret i1 %.042
 }
 
 declare ptr @PMIx_Argv_join(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -478,7 +478,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
 
 .lr.ph114:                                        ; preds = %10, %24
   %14 = phi ptr [ %27, %24 ], [ %13, %10 ]
-  %.066112 = phi i64 [ %25, %24 ], [ 0, %10 ]
+  %.067112 = phi i64 [ %25, %24 ], [ 0, %10 ]
   %15 = load ptr, ptr %2, align 8
   %.not15.not.i = icmp eq ptr %15, null
   br i1 %.not15.not.i, label %.loopexit, label %.lr.ph.i
@@ -504,7 +504,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
   br label %121
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = add i64 %.066112, 1
+  %25 = add i64 %.067112, 1
   %26 = getelementptr inbounds ptr, ptr %12, i64 %25
   %27 = load ptr, ptr %26, align 8
   %.not83 = icmp eq ptr %27, null
@@ -546,7 +546,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
   br i1 %.not77100, label %._crit_edge, label %.lr.ph
 
 44:                                               ; preds = %.lr.ph
-  %45 = add i64 %.067101, 1
+  %45 = add i64 %.068101, 1
   %46 = getelementptr inbounds ptr, ptr %1, i64 %45
   %47 = load ptr, ptr %46, align 8
   %.not77 = icmp eq ptr %47, null
@@ -554,7 +554,7 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %42, %44
   %48 = phi ptr [ %47, %44 ], [ %43, %42 ]
-  %.067101 = phi i64 [ %45, %44 ], [ 0, %42 ]
+  %.068101 = phi i64 [ %45, %44 ], [ 0, %42 ]
   %49 = load ptr, ptr %38, align 8
   %50 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %49, ptr noundef nonnull %48)
   br i1 %50, label %51, label %44
@@ -712,8 +712,8 @@ define noundef zeroext i1 @prte_schizo_base_check_directives(ptr noundef %0, ptr
   br label %121
 
 121:                                              ; preds = %28, %31, %34, %._crit_edge, %118, %._crit_edge110, %.loopexit94, %100, %.critedge, %73, %66, %._crit_edge115, %.loopexit
-  %.068 = phi i1 [ false, %.loopexit ], [ true, %._crit_edge115 ], [ false, %66 ], [ false, %73 ], [ false, %.loopexit94 ], [ true, %._crit_edge110 ], [ true, %100 ], [ false, %.critedge ], [ true, %118 ], [ false, %._crit_edge ], [ true, %34 ], [ true, %31 ], [ true, %28 ]
-  ret i1 %.068
+  %.066 = phi i1 [ false, %.loopexit ], [ true, %._crit_edge115 ], [ false, %66 ], [ false, %73 ], [ false, %.loopexit94 ], [ true, %._crit_edge110 ], [ true, %100 ], [ false, %.critedge ], [ true, %118 ], [ false, %._crit_edge ], [ true, %34 ], [ true, %31 ], [ true, %28 ]
+  ret i1 %.066
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1554,13 +1554,13 @@ define noundef i32 @prte_schizo_base_parse_display(ptr nocapture noundef readonl
   br i1 %.not, label %.loopexit131, label %.lr.ph176, !llvm.loop !24
 
 .loopexit131.sink.split:                          ; preds = %78, %63, %47, %40, %33, %26, %17, %80, %65, %49, %42, %35, %28, %19, %21, %61, %76
-  %.092.ph = phi i32 [ -6, %21 ], [ -6, %76 ], [ -6, %61 ], [ %18, %19 ], [ %27, %28 ], [ %34, %35 ], [ %41, %42 ], [ %48, %49 ], [ %64, %65 ], [ %79, %80 ], [ %18, %17 ], [ %27, %26 ], [ %34, %33 ], [ %41, %40 ], [ %48, %47 ], [ %64, %63 ], [ %79, %78 ]
+  %.090.ph = phi i32 [ -6, %21 ], [ -6, %76 ], [ -6, %61 ], [ %18, %19 ], [ %27, %28 ], [ %34, %35 ], [ %41, %42 ], [ %48, %49 ], [ %64, %65 ], [ %79, %80 ], [ %18, %17 ], [ %27, %26 ], [ %34, %33 ], [ %41, %40 ], [ %48, %47 ], [ %64, %63 ], [ %79, %78 ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %7) #16
   br label %.loopexit131
 
 .loopexit131:                                     ; preds = %._crit_edge, %.loopexit131.sink.split, %2
-  %.092 = phi i32 [ 0, %2 ], [ %.092.ph, %.loopexit131.sink.split ], [ 0, %._crit_edge ]
-  ret i32 %.092
+  %.090 = phi i32 [ 0, %2 ], [ %.090.ph, %.loopexit131.sink.split ], [ 0, %._crit_edge ]
+  ret i32 %.090
 }
 
 declare i32 @PMIx_Info_list_add(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
@@ -1582,8 +1582,8 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
 .lr.ph453:                                        ; preds = %2, %._crit_edge446
   %indvars.iv604 = phi i64 [ %indvars.iv.next605, %._crit_edge446 ], [ 0, %2 ]
   %8 = phi ptr [ %155, %._crit_edge446 ], [ %6, %2 ]
-  %.0156450 = phi ptr [ %.1157.lcssa, %._crit_edge446 ], [ null, %2 ]
-  %.0160449 = phi ptr [ %.1161.lcssa, %._crit_edge446 ], [ null, %2 ]
+  %.0157450 = phi ptr [ %.1158.lcssa, %._crit_edge446 ], [ null, %2 ]
+  %.0161449 = phi ptr [ %.1162.lcssa, %._crit_edge446 ], [ null, %2 ]
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr @PMIx_Argv_split(ptr noundef %9, i32 noundef 44) #16
   %11 = load ptr, ptr %10, align 8
@@ -1593,8 +1593,8 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
 .lr.ph445:                                        ; preds = %.lr.ph453, %152
   %indvars.iv601 = phi i64 [ %indvars.iv.next602, %152 ], [ 0, %.lr.ph453 ]
   %12 = phi ptr [ %154, %152 ], [ %11, %.lr.ph453 ]
-  %.1157442 = phi ptr [ %.3159, %152 ], [ %.0156450, %.lr.ph453 ]
-  %.1161441 = phi ptr [ %.3163, %152 ], [ %.0160449, %.lr.ph453 ]
+  %.1158442 = phi ptr [ %.3160, %152 ], [ %.0157450, %.lr.ph453 ]
+  %.1162441 = phi ptr [ %.3164, %152 ], [ %.0161449, %.lr.ph453 ]
   %13 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv601
   %14 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 58) #20
   %.not195 = icmp eq ptr %14, null
@@ -1707,7 +1707,7 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
 
 49:                                               ; preds = %47, %45
   %50 = phi ptr [ %.pre607, %47 ], [ %43, %45 ]
-  %.0155 = phi ptr [ %48, %47 ], [ null, %45 ]
+  %.0156 = phi ptr [ %48, %47 ], [ null, %45 ]
   %51 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %50, ptr noundef nonnull @.str.44)
   br i1 %51, label %52, label %56
 
@@ -1859,11 +1859,11 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
   br i1 %100, label %101, label %125
 
 101:                                              ; preds = %98
-  %102 = icmp eq ptr %.0155, null
+  %102 = icmp eq ptr %.0156, null
   br i1 %102, label %106, label %103
 
 103:                                              ; preds = %101
-  %104 = load i8, ptr %.0155, align 1
+  %104 = load i8, ptr %.0156, align 1
   %105 = icmp eq i8 %104, 0
   br i1 %105, label %106, label %108
 
@@ -1873,17 +1873,17 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
   br label %.thread612
 
 108:                                              ; preds = %103
-  %.not201 = icmp eq ptr %.1157442, null
+  %.not201 = icmp eq ptr %.1162441, null
   br i1 %.not201, label %111, label %109
 
 109:                                              ; preds = %108
-  %110 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.117, i32 noundef 1, ptr noundef nonnull %.1157442, ptr noundef nonnull %.0155) #16
+  %110 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.117, i32 noundef 1, ptr noundef nonnull %.1162441, ptr noundef nonnull %.0156) #16
   call void @PMIx_Argv_free(ptr noundef nonnull %10) #16
-  call void @free(ptr noundef nonnull %.1157442) #16
+  call void @free(ptr noundef nonnull %.1162441) #16
   br label %.thread612
 
 111:                                              ; preds = %108
-  %112 = call zeroext i1 @pmix_path_is_absolute(ptr noundef nonnull %.0155) #16
+  %112 = call zeroext i1 @pmix_path_is_absolute(ptr noundef nonnull %.0156) #16
   br i1 %112, label %119, label %113
 
 113:                                              ; preds = %111
@@ -1896,16 +1896,16 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
   br label %.thread612
 
 117:                                              ; preds = %113
-  %118 = call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %.0155, ptr noundef null) #16
+  %118 = call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %.0156, ptr noundef null) #16
   br label %121
 
 119:                                              ; preds = %111
-  %120 = call noalias ptr @strdup(ptr noundef nonnull %.0155) #16
+  %120 = call noalias ptr @strdup(ptr noundef nonnull %.0156) #16
   br label %121
 
 121:                                              ; preds = %119, %117
-  %.2162 = phi ptr [ %120, %119 ], [ %118, %117 ]
-  %122 = call i32 @PMIx_Info_list_add(ptr noundef %1, ptr noundef nonnull @.str.118, ptr noundef %.2162, i16 noundef zeroext 3) #16
+  %.2159 = phi ptr [ %120, %119 ], [ %118, %117 ]
+  %122 = call i32 @PMIx_Info_list_add(ptr noundef %1, ptr noundef nonnull @.str.118, ptr noundef %.2159, i16 noundef zeroext 3) #16
   switch i32 %122, label %123 [
     i32 0, label %152
     i32 -2, label %.loopexit228
@@ -1926,11 +1926,11 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
   br i1 %127, label %128, label %152
 
 128:                                              ; preds = %125
-  %129 = icmp eq ptr %.0155, null
+  %129 = icmp eq ptr %.0156, null
   br i1 %129, label %133, label %130
 
 130:                                              ; preds = %128
-  %131 = load i8, ptr %.0155, align 1
+  %131 = load i8, ptr %.0156, align 1
   %132 = icmp eq i8 %131, 0
   br i1 %132, label %133, label %135
 
@@ -1940,16 +1940,16 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
   br label %.thread612
 
 135:                                              ; preds = %130
-  %.not198 = icmp eq ptr %.1161441, null
+  %.not198 = icmp eq ptr %.1158442, null
   br i1 %.not198, label %138, label %136
 
 136:                                              ; preds = %135
-  %137 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.117, i32 noundef 1, ptr noundef nonnull %.0155, ptr noundef nonnull %.1161441) #16
+  %137 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.117, i32 noundef 1, ptr noundef nonnull %.0156, ptr noundef nonnull %.1158442) #16
   call void @PMIx_Argv_free(ptr noundef nonnull %10) #16
   br label %.thread612
 
 138:                                              ; preds = %135
-  %139 = call zeroext i1 @pmix_path_is_absolute(ptr noundef nonnull %.0155) #16
+  %139 = call zeroext i1 @pmix_path_is_absolute(ptr noundef nonnull %.0156) #16
   br i1 %139, label %146, label %140
 
 140:                                              ; preds = %138
@@ -1962,16 +1962,16 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
   br label %.thread612
 
 144:                                              ; preds = %140
-  %145 = call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %.0155, ptr noundef null) #16
+  %145 = call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %.0156, ptr noundef null) #16
   br label %148
 
 146:                                              ; preds = %138
-  %147 = call noalias ptr @strdup(ptr noundef nonnull %.0155) #16
+  %147 = call noalias ptr @strdup(ptr noundef nonnull %.0156) #16
   br label %148
 
 148:                                              ; preds = %146, %144
-  %.2158 = phi ptr [ %147, %146 ], [ %145, %144 ]
-  %149 = call i32 @PMIx_Info_list_add(ptr noundef %1, ptr noundef nonnull @.str.119, ptr noundef %.2158, i16 noundef zeroext 3) #16
+  %.2163 = phi ptr [ %147, %146 ], [ %145, %144 ]
+  %149 = call i32 @PMIx_Info_list_add(ptr noundef %1, ptr noundef nonnull @.str.119, ptr noundef %.2163, i16 noundef zeroext 3) #16
   switch i32 %149, label %150 [
     i32 0, label %152
     i32 -2, label %.loopexit227
@@ -1987,8 +1987,8 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
   br label %.thread612
 
 152:                                              ; preds = %148, %121, %94, %87, %80, %73, %66, %59, %52, %125, %42
-  %.3163 = phi ptr [ %.1161441, %42 ], [ %.1161441, %52 ], [ %.1161441, %59 ], [ %.1161441, %66 ], [ %.1161441, %73 ], [ %.1161441, %80 ], [ %.1161441, %87 ], [ %.1161441, %94 ], [ %.2162, %121 ], [ null, %148 ], [ %.1161441, %125 ]
-  %.3159 = phi ptr [ %.1157442, %42 ], [ %.1157442, %52 ], [ %.1157442, %59 ], [ %.1157442, %66 ], [ %.1157442, %73 ], [ %.1157442, %80 ], [ %.1157442, %87 ], [ %.1157442, %94 ], [ null, %121 ], [ %.2158, %148 ], [ %.1157442, %125 ]
+  %.3164 = phi ptr [ %.1162441, %42 ], [ %.1162441, %52 ], [ %.1162441, %59 ], [ %.1162441, %66 ], [ %.1162441, %73 ], [ %.1162441, %80 ], [ %.1162441, %87 ], [ %.1162441, %94 ], [ null, %121 ], [ %.2163, %148 ], [ %.1162441, %125 ]
+  %.3160 = phi ptr [ %.1158442, %42 ], [ %.1158442, %52 ], [ %.1158442, %59 ], [ %.1158442, %66 ], [ %.1158442, %73 ], [ %.1158442, %80 ], [ %.1158442, %87 ], [ %.1158442, %94 ], [ %.2159, %121 ], [ null, %148 ], [ %.1158442, %125 ]
   %indvars.iv.next602 = add nuw nsw i64 %indvars.iv601, 1
   %153 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.next602
   %154 = load ptr, ptr %153, align 8
@@ -1996,8 +1996,8 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
   br i1 %.not194, label %._crit_edge446, label %.lr.ph445, !llvm.loop !26
 
 ._crit_edge446:                                   ; preds = %152, %.lr.ph453
-  %.1161.lcssa = phi ptr [ %.0160449, %.lr.ph453 ], [ %.3163, %152 ]
-  %.1157.lcssa = phi ptr [ %.0156450, %.lr.ph453 ], [ %.3159, %152 ]
+  %.1162.lcssa = phi ptr [ %.0161449, %.lr.ph453 ], [ %.3164, %152 ]
+  %.1158.lcssa = phi ptr [ %.0157450, %.lr.ph453 ], [ %.3160, %152 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %10) #16
   %indvars.iv.next605 = add nuw nsw i64 %indvars.iv604, 1
   %155 = load ptr, ptr %5, align 8
@@ -2007,24 +2007,24 @@ define noundef i32 @prte_schizo_base_parse_output(ptr nocapture noundef readonly
   br i1 %.not, label %._crit_edge454, label %.lr.ph453, !llvm.loop !27
 
 ._crit_edge454:                                   ; preds = %._crit_edge446
-  %.not192 = icmp eq ptr %.1161.lcssa, null
+  %.not192 = icmp eq ptr %.1158.lcssa, null
   br i1 %.not192, label %159, label %158
 
 158:                                              ; preds = %._crit_edge454
-  call void @free(ptr noundef nonnull %.1161.lcssa) #16
+  call void @free(ptr noundef nonnull %.1158.lcssa) #16
   br label %159
 
 159:                                              ; preds = %158, %._crit_edge454
-  %.not193 = icmp eq ptr %.1157.lcssa, null
+  %.not193 = icmp eq ptr %.1162.lcssa, null
   br i1 %.not193, label %.thread612, label %160
 
 160:                                              ; preds = %159
-  call void @free(ptr noundef nonnull %.1157.lcssa) #16
+  call void @free(ptr noundef nonnull %.1162.lcssa) #16
   br label %.thread612
 
 .thread612:                                       ; preds = %2, %159, %160, %.loopexit227, %143, %136, %133, %.loopexit228, %116, %109, %106, %.loopexit229, %.loopexit230, %.loopexit231, %.loopexit232, %.loopexit233, %.loopexit234, %.loopexit235, %.loopexit, %.loopexit225, %.loopexit226
-  %.0164 = phi i32 [ %23, %.loopexit226 ], [ %37, %.loopexit ], [ %30, %.loopexit225 ], [ %53, %.loopexit235 ], [ %60, %.loopexit234 ], [ %67, %.loopexit233 ], [ %74, %.loopexit232 ], [ %81, %.loopexit231 ], [ %88, %.loopexit230 ], [ %95, %.loopexit229 ], [ -6, %106 ], [ -6, %109 ], [ %122, %.loopexit228 ], [ -6, %116 ], [ -6, %133 ], [ -6, %136 ], [ %149, %.loopexit227 ], [ -6, %143 ], [ 0, %160 ], [ 0, %159 ], [ 0, %2 ]
-  ret i32 %.0164
+  %.0155 = phi i32 [ %23, %.loopexit226 ], [ %37, %.loopexit ], [ %30, %.loopexit225 ], [ %53, %.loopexit235 ], [ %60, %.loopexit234 ], [ %67, %.loopexit233 ], [ %74, %.loopexit232 ], [ %81, %.loopexit231 ], [ %88, %.loopexit230 ], [ %95, %.loopexit229 ], [ -6, %106 ], [ -6, %109 ], [ %122, %.loopexit228 ], [ -6, %116 ], [ -6, %133 ], [ -6, %136 ], [ %149, %.loopexit227 ], [ -6, %143 ], [ 0, %160 ], [ 0, %159 ], [ 0, %2 ]
+  ret i32 %.0155
 }
 
 declare zeroext i1 @pmix_path_is_absolute(ptr noundef) local_unnamed_addr #2

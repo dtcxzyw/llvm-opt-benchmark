@@ -148,15 +148,15 @@ define i32 @Llb_ManModelCheckAig(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %6, align 8
-  %.neg55 = mul i64 %10, -1000000
+  %.neg54 = mul i64 %10, -1000000
   %11 = getelementptr inbounds i8, ptr %6, i64 8
   %12 = load i64, ptr %11, align 8
   %.neg = sdiv i64 %12, -1000
-  %.neg56 = add i64 %.neg, %.neg55
+  %.neg55 = add i64 %.neg, %.neg54
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %4, %9
-  %.0.i.neg = phi i64 [ %.neg56, %9 ], [ 1, %4 ]
+  %.0.i.neg = phi i64 [ %.neg55, %9 ], [ 1, %4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %13 = getelementptr inbounds i8, ptr %1, i64 44
   %14 = load i32, ptr %13, align 4
@@ -168,8 +168,8 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   br label %17
 
 17:                                               ; preds = %15, %Abc_Clock.exit
-  %.054 = phi ptr [ %2, %Abc_Clock.exit ], [ %16, %15 ]
-  %18 = icmp eq ptr %.054, null
+  %.0 = phi ptr [ %2, %Abc_Clock.exit ], [ %16, %15 ]
+  %18 = icmp eq ptr %.0, null
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
@@ -183,20 +183,20 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   br i1 %.not36, label %25, label %24
 
 24:                                               ; preds = %21
-  call void @Llb_ManPrintEntries(ptr noundef %0, ptr noundef nonnull %.054) #11
+  call void @Llb_ManPrintEntries(ptr noundef %0, ptr noundef nonnull %.0) #11
   br label %25
 
 25:                                               ; preds = %24, %21
-  %26 = call ptr @Aig_ManDupSimpleWithHints(ptr noundef %0, ptr noundef nonnull %.054) #11
+  %26 = call ptr @Aig_ManDupSimpleWithHints(ptr noundef %0, ptr noundef nonnull %.0) #11
   br label %27
 
 27:                                               ; preds = %25, %19
-  %.033 = phi ptr [ %20, %19 ], [ %26, %25 ]
+  %.034 = phi ptr [ %20, %19 ], [ %26, %25 ]
   %28 = getelementptr inbounds i8, ptr %1, i64 20
   %29 = load i32, ptr %28, align 4
   %.not37 = icmp eq i32 %29, 0
   call void @llvm.assume(i1 %.not37)
-  %30 = call ptr @Llb_ManStart(ptr noundef %0, ptr noundef %.033, ptr noundef nonnull %1) #11
+  %30 = call ptr @Llb_ManStart(ptr noundef %0, ptr noundef %.034, ptr noundef nonnull %1) #11
   %31 = getelementptr inbounds i8, ptr %1, i64 64
   %32 = load i32, ptr %31, align 8
   %.not38 = icmp eq i32 %32, 0
@@ -282,11 +282,11 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   br i1 %.not46, label %73, label %75
 
 73:                                               ; preds = %69
-  %74 = call i32 @Llb_ManReachability(ptr noundef nonnull %30, ptr noundef %.054, ptr noundef %3) #11
+  %74 = call i32 @Llb_ManReachability(ptr noundef nonnull %30, ptr noundef %.0, ptr noundef %3) #11
   br label %75
 
 75:                                               ; preds = %73, %69
-  %.0 = phi i32 [ -1, %69 ], [ %74, %73 ]
+  %.033 = phi i32 [ -1, %69 ], [ %74, %73 ]
   call void @Llb_ManStop(ptr noundef nonnull %30) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %76 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #11
@@ -316,7 +316,7 @@ Abc_Clock.exit49:                                 ; preds = %75, %78
   br i1 %brmerge, label %Vec_IntFreeP.exit, label %89
 
 89:                                               ; preds = %Abc_Clock.exit49
-  %90 = getelementptr inbounds i8, ptr %.054, i64 8
+  %90 = getelementptr inbounds i8, ptr %.0, i64 8
   %91 = load ptr, ptr %90, align 8
   %.not.i = icmp eq ptr %91, null
   br i1 %.not.i, label %.thread.i, label %92
@@ -326,11 +326,11 @@ Abc_Clock.exit49:                                 ; preds = %75, %78
   br label %.thread.i
 
 .thread.i:                                        ; preds = %92, %89
-  call void @free(ptr noundef nonnull %.054) #11
+  call void @free(ptr noundef nonnull %.0) #11
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %Abc_Clock.exit49, %.thread.i
-  ret i32 %.0
+  ret i32 %.033
 }
 
 declare ptr @Llb_ManDeriveConstraints(ptr noundef) local_unnamed_addr #3

@@ -127,7 +127,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %emit_asm_bytes.exit112
   %indvars.iv125 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next126, %emit_asm_bytes.exit112 ]
-  %rel.0123 = phi i32 [ 0, %for.body.lr.ph ], [ %rel.1.lcssa, %emit_asm_bytes.exit112 ]
+  %rel.0122 = phi i32 [ 0, %for.body.lr.ph ], [ %rel.1.lcssa, %emit_asm_bytes.exit112 ]
   %18 = load ptr, ptr %sym, align 8
   %arrayidx = getelementptr inbounds %struct.BuildSym, ptr %18, i64 %indvars.iv125
   %ofs6 = getelementptr inbounds i8, ptr %arrayidx, i64 8
@@ -165,23 +165,23 @@ sw.bb9.i63:                                       ; preds = %for.body
 
 emit_asm_label.exit73:                            ; preds = %for.body, %sw.bb.i70, %sw.bb1.i66, %sw.bb9.i63
   %28 = load i32, ptr %nreloc, align 4
-  %cmp14115 = icmp slt i32 %rel.0123, %28
+  %cmp14115 = icmp slt i32 %rel.0122, %28
   br i1 %cmp14115, label %land.rhs.preheader, label %while.end
 
 land.rhs.preheader:                               ; preds = %emit_asm_label.exit73
-  %29 = sext i32 %rel.0123 to i64
+  %29 = sext i32 %rel.0122 to i64
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %if.end41
   %indvars.iv = phi i64 [ %29, %land.rhs.preheader ], [ %indvars.iv.next, %if.end41 ]
-  %ofs.0117 = phi i32 [ %19, %land.rhs.preheader ], [ %add43, %if.end41 ]
+  %ofs.0116 = phi i32 [ %19, %land.rhs.preheader ], [ %add43, %if.end41 ]
   %arrayidx16 = getelementptr inbounds [200 x %struct.BuildReloc], ptr %reloc, i64 0, i64 %indvars.iv
   %30 = load i32, ptr %arrayidx16, align 4
   %cmp18.not = icmp sgt i32 %30, %20
   br i1 %cmp18.not, label %while.end.loopexit, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %sub23 = sub nsw i32 %30, %ofs.0117
+  %sub23 = sub nsw i32 %30, %ofs.0116
   %type = getelementptr inbounds i8, ptr %arrayidx16, i64 8
   %31 = load i32, ptr %type, align 4
   %cmp24.not = icmp eq i32 %31, 0
@@ -196,7 +196,7 @@ land.lhs.true:                                    ; preds = %while.body
 
 if.then29:                                        ; preds = %land.lhs.true, %land.lhs.true
   %33 = load ptr, ptr %code, align 8
-  %idx.ext = sext i32 %ofs.0117 to i64
+  %idx.ext = sext i32 %ofs.0116 to i64
   %add.ptr = getelementptr inbounds i8, ptr %33, i64 %idx.ext
   %34 = load ptr, ptr %relocsym, align 8
   %sym30 = getelementptr inbounds i8, ptr %arrayidx16, i64 4
@@ -339,7 +339,7 @@ emit_asm_reloc_text.exit:                         ; preds = %if.then46.i, %if.en
 
 if.else:                                          ; preds = %land.lhs.true, %while.body
   %58 = load ptr, ptr %code, align 8
-  %idx.ext34 = sext i32 %ofs.0117 to i64
+  %idx.ext34 = sext i32 %ofs.0116 to i64
   %add.ptr35 = getelementptr inbounds i8, ptr %58, i64 %idx.ext34
   %cmp12.i = icmp sgt i32 %sub23, 0
   br i1 %cmp12.i, label %for.body.lr.ph.i, label %for.end.i
@@ -444,14 +444,14 @@ if.end41:                                         ; preds = %sw.default.i, %if.e
   br i1 %cmp14, label %land.rhs, label %while.end.loopexit, !llvm.loop !6
 
 while.end.loopexit:                               ; preds = %if.end41, %land.rhs
+  %ofs.0.lcssa.ph = phi i32 [ %ofs.0116, %land.rhs ], [ %add43, %if.end41 ]
   %rel.1.lcssa.ph.in = phi i64 [ %indvars.iv, %land.rhs ], [ %indvars.iv.next, %if.end41 ]
-  %ofs.0.lcssa.ph = phi i32 [ %ofs.0117, %land.rhs ], [ %add43, %if.end41 ]
   %rel.1.lcssa.ph = trunc i64 %rel.1.lcssa.ph.in to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %emit_asm_label.exit73
-  %rel.1.lcssa = phi i32 [ %rel.0123, %emit_asm_label.exit73 ], [ %rel.1.lcssa.ph, %while.end.loopexit ]
   %ofs.0.lcssa = phi i32 [ %19, %emit_asm_label.exit73 ], [ %ofs.0.lcssa.ph, %while.end.loopexit ]
+  %rel.1.lcssa = phi i32 [ %rel.0122, %emit_asm_label.exit73 ], [ %rel.1.lcssa.ph, %while.end.loopexit ]
   %75 = load ptr, ptr %code, align 8
   %idx.ext45 = sext i32 %ofs.0.lcssa to i64
   %add.ptr46 = getelementptr inbounds i8, ptr %75, i64 %idx.ext45

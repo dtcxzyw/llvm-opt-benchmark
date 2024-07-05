@@ -80,18 +80,18 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.02326 = phi ptr [ %33, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.02426 = phi ptr [ %33, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = load ptr, ptr %31, align 8
   %35 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv
-  store ptr %.02326, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.02326, i64 %24
+  store ptr %.02426, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %.02426, i64 %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %22
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %29, %pmix_obj_new_tma.exit
-  %.024 = phi ptr [ null, %pmix_obj_new_tma.exit ], [ %4, %29 ], [ %4, %.lr.ph ]
-  ret ptr %.024
+  %.0 = phi ptr [ null, %pmix_obj_new_tma.exit ], [ %4, %29 ], [ %4, %.lr.ph ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

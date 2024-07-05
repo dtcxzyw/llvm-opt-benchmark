@@ -2370,8 +2370,8 @@ if.then9:                                         ; preds = %if.then2
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then2, %if.then5, %if.then9, %if.end
-  %elem.addr.0 = phi ptr [ %incdec.ptr, %if.then5 ], [ %incdec.ptr10, %if.then9 ], [ %elem, %if.end ], [ %elem, %if.then2 ]
   %len.addr.0 = phi i32 [ %dec, %if.then5 ], [ %dec11, %if.then9 ], [ -1, %if.end ], [ %len, %if.then2 ]
+  %elem.addr.0 = phi ptr [ %incdec.ptr, %if.then5 ], [ %incdec.ptr10, %if.then9 ], [ %elem, %if.end ], [ %elem, %if.then2 ]
   %onoff.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.then9 ], [ 1, %if.end ], [ 1, %if.then2 ]
   %len.addr.0.fr = freeze i32 %len.addr.0
   %tbl15 = getelementptr inbounds i8, ptr %usr, i64 152

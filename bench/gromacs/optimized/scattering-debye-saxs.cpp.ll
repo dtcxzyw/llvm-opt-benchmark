@@ -244,7 +244,7 @@ define void @_ZN3gmx9SaxsDebyeC2ESt6vectorINS_7IsotopeESaIS2_EERKS1_IdSaIdEE(ptr
 
 43:                                               ; preds = %40, %43
   %indvars.iv = phi i64 [ 0, %40 ], [ %indvars.iv.next, %43 ]
-  %.01739 = phi double [ %42, %40 ], [ %52, %43 ]
+  %.01939 = phi double [ %42, %40 ], [ %52, %43 ]
   %44 = getelementptr inbounds [4 x double], ptr %29, i64 0, i64 %indvars.iv
   %45 = load double, ptr %44, align 8
   %46 = getelementptr inbounds [4 x double], ptr %31, i64 0, i64 %indvars.iv
@@ -253,7 +253,7 @@ define void @_ZN3gmx9SaxsDebyeC2ESt6vectorINS_7IsotopeESaIS2_EERKS1_IdSaIdEE(ptr
   %49 = fmul double %37, %48
   %50 = fmul double %37, %49
   %51 = call double @exp(double noundef %50) #15
-  %52 = call double @llvm.fmuladd.f64(double %45, double %51, double %.01739)
+  %52 = call double @llvm.fmuladd.f64(double %45, double %51, double %.01939)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %57, label %43, !llvm.loop !7

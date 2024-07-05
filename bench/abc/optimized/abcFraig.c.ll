@@ -36,8 +36,8 @@ define ptr @Abc_NtkFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   br label %12
 
 12:                                               ; preds = %11, %7, %4
-  %.021 = phi i32 [ 0, %11 ], [ %3, %7 ], [ 0, %4 ]
-  %13 = tail call ptr @Abc_NtkToFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %.021)
+  %.022 = phi i32 [ 0, %11 ], [ %3, %7 ], [ 0, %4 ]
+  %13 = tail call ptr @Abc_NtkToFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %.022)
   %14 = getelementptr inbounds i8, ptr %1, i64 36
   %15 = load i32, ptr %14, align 4
   %.not25 = icmp eq i32 %15, 0
@@ -48,7 +48,7 @@ define ptr @Abc_NtkFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   br label %17
 
 17:                                               ; preds = %16, %12
-  %.not26 = icmp eq i32 %.021, 0
+  %.not26 = icmp eq i32 %.022, 0
   br i1 %.not26, label %178, label %18
 
 18:                                               ; preds = %17
@@ -408,7 +408,7 @@ Abc_NtkFromFraig2.exit:                           ; preds = %.critedge6.i, %177
   br label %180
 
 180:                                              ; preds = %178, %Abc_NtkFromFraig2.exit
-  %.0 = phi ptr [ %120, %Abc_NtkFromFraig2.exit ], [ %179, %178 ]
+  %.021 = phi ptr [ %120, %Abc_NtkFromFraig2.exit ], [ %179, %178 ]
   call void @Fraig_ManFree(ptr noundef %13) #11
   %181 = getelementptr inbounds i8, ptr %0, i64 328
   %182 = load ptr, ptr %181, align 8
@@ -417,23 +417,23 @@ Abc_NtkFromFraig2.exit:                           ; preds = %.critedge6.i, %177
 
 183:                                              ; preds = %180
   %184 = call ptr @Abc_NtkDup(ptr noundef nonnull %182) #11
-  %185 = getelementptr inbounds i8, ptr %.0, i64 328
+  %185 = getelementptr inbounds i8, ptr %.021, i64 328
   store ptr %184, ptr %185, align 8
   br label %186
 
 186:                                              ; preds = %183, %180
-  %187 = call i32 @Abc_NtkCheck(ptr noundef %.0) #11
+  %187 = call i32 @Abc_NtkCheck(ptr noundef %.021) #11
   %.not28 = icmp eq i32 %187, 0
   br i1 %.not28, label %188, label %189
 
 188:                                              ; preds = %186
   %puts29 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  call void @Abc_NtkDelete(ptr noundef %.0) #11
+  call void @Abc_NtkDelete(ptr noundef %.021) #11
   br label %189
 
 189:                                              ; preds = %186, %188
-  %.022 = phi ptr [ null, %188 ], [ %.0, %186 ]
-  ret ptr %.022
+  %.0 = phi ptr [ null, %188 ], [ %.021, %186 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -773,25 +773,25 @@ Vec_PtrStart.exit.i:                              ; preds = %92, %85
   br label %171
 
 .preheader92.i:                                   ; preds = %.critedge4.i, %.preheader92.i
-  %.06299.i = phi ptr [ %spec.select.i, %.preheader92.i ], [ %155, %.critedge4.i ]
-  %.06498.i = phi ptr [ %170, %.preheader92.i ], [ %157, %.critedge4.i ]
-  %162 = getelementptr inbounds i8, ptr %.06299.i, i64 20
+  %.06299.i = phi ptr [ %170, %.preheader92.i ], [ %157, %.critedge4.i ]
+  %.06498.i = phi ptr [ %spec.select.i, %.preheader92.i ], [ %155, %.critedge4.i ]
+  %162 = getelementptr inbounds i8, ptr %.06498.i, i64 20
   %163 = load i32, ptr %162, align 4
   %164 = lshr i32 %163, 12
-  %165 = getelementptr inbounds i8, ptr %.06498.i, i64 20
+  %165 = getelementptr inbounds i8, ptr %.06299.i, i64 20
   %166 = load i32, ptr %165, align 4
   %167 = lshr i32 %166, 12
   %168 = icmp ugt i32 %164, %167
-  %spec.select.i = select i1 %168, ptr %.06498.i, ptr %.06299.i
-  %169 = getelementptr inbounds i8, ptr %.06498.i, i64 8
+  %spec.select.i = select i1 %168, ptr %.06299.i, ptr %.06498.i
+  %169 = getelementptr inbounds i8, ptr %.06299.i, i64 8
   %170 = load ptr, ptr %169, align 8
   %.not72.i = icmp eq ptr %170, null
   br i1 %.not72.i, label %.preheader.i, label %.preheader92.i, !llvm.loop !15
 
 171:                                              ; preds = %171, %.lr.ph103.i
-  %.165102.i = phi ptr [ %155, %.lr.ph103.i ], [ %.165.i, %171 ]
+  %.163102.i = phi ptr [ %155, %.lr.ph103.i ], [ %.163.i, %171 ]
   %172 = load ptr, ptr %160, align 8
-  %173 = getelementptr inbounds i8, ptr %.165102.i, i64 20
+  %173 = getelementptr inbounds i8, ptr %.163102.i, i64 20
   %174 = load i32, ptr %173, align 4
   %175 = load i32, ptr %161, align 4
   %176 = xor i32 %175, %174
@@ -801,11 +801,11 @@ Vec_PtrStart.exit.i:                              ; preds = %92, %85
   %179 = zext nneg i32 %.lobit.i to i64
   %180 = xor i64 %179, %177
   %181 = inttoptr i64 %180 to ptr
-  %182 = getelementptr inbounds i8, ptr %.165102.i, i64 64
+  %182 = getelementptr inbounds i8, ptr %.163102.i, i64 64
   store ptr %181, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %.165102.i, i64 8
-  %.165.i = load ptr, ptr %183, align 8
-  %.not73.i = icmp eq ptr %.165.i, null
+  %183 = getelementptr inbounds i8, ptr %.163102.i, i64 8
+  %.163.i = load ptr, ptr %183, align 8
+  %.not73.i = icmp eq ptr %.163.i, null
   br i1 %.not73.i, label %.backedge.i, label %171, !llvm.loop !16
 
 .lr.ph108.i:                                      ; preds = %._crit_edge.i, %199
@@ -1295,18 +1295,18 @@ define internal fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef %0, ptr noundef %1
   br label %41
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
-  %.04762 = phi ptr [ %37, %.lr.ph ], [ %27, %26 ]
-  %.04961 = phi ptr [ %spec.select, %.lr.ph ], [ %14, %26 ]
-  %29 = tail call fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef %0, ptr noundef nonnull %.04762)
-  %30 = getelementptr inbounds i8, ptr %.04961, i64 20
+  %.04862 = phi ptr [ %37, %.lr.ph ], [ %27, %26 ]
+  %.05061 = phi ptr [ %spec.select, %.lr.ph ], [ %14, %26 ]
+  %29 = tail call fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef %0, ptr noundef nonnull %.04862)
+  %30 = getelementptr inbounds i8, ptr %.05061, i64 20
   %31 = load i32, ptr %30, align 4
   %32 = lshr i32 %31, 12
   %33 = getelementptr inbounds i8, ptr %29, i64 20
   %34 = load i32, ptr %33, align 4
   %35 = lshr i32 %34, 12
   %36 = icmp ugt i32 %32, %35
-  %spec.select = select i1 %36, ptr %29, ptr %.04961
-  %37 = tail call ptr @Fraig_NodeReadNextE(ptr noundef nonnull %.04762) #11
+  %spec.select = select i1 %36, ptr %29, ptr %.05061
+  %37 = tail call ptr @Fraig_NodeReadNextE(ptr noundef nonnull %.04862) #11
   %.not57 = icmp eq ptr %37, null
   br i1 %.not57, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
@@ -1321,7 +1321,7 @@ define internal fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef %0, ptr noundef %1
   br label %41
 
 41:                                               ; preds = %._crit_edge.thread, %39, %._crit_edge
-  %.049.lcssa71 = phi ptr [ %spec.select, %39 ], [ %spec.select, %._crit_edge ], [ %14, %._crit_edge.thread ]
+  %.050.lcssa71 = phi ptr [ %spec.select, %39 ], [ %spec.select, %._crit_edge ], [ %14, %._crit_edge.thread ]
   %.0 = phi ptr [ %40, %39 ], [ %38, %._crit_edge ], [ %28, %._crit_edge.thread ]
   %42 = tail call ptr @Fraig_NodeReadNextE(ptr noundef %5) #11
   %.not5963 = icmp eq ptr %42, null
@@ -1329,9 +1329,9 @@ define internal fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef %0, ptr noundef %1
 
 .lr.ph67:                                         ; preds = %41, %47
   %.165 = phi ptr [ %.2, %47 ], [ %.0, %41 ]
-  %.14864 = phi ptr [ %48, %47 ], [ %42, %41 ]
-  %43 = tail call ptr @Fraig_NodeReadData1(ptr noundef nonnull %.14864) #11
-  %44 = icmp eq ptr %.049.lcssa71, %43
+  %.14964 = phi ptr [ %48, %47 ], [ %42, %41 ]
+  %43 = tail call ptr @Fraig_NodeReadData1(ptr noundef nonnull %.14964) #11
+  %44 = icmp eq ptr %.050.lcssa71, %43
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %.lr.ph67
@@ -1341,16 +1341,16 @@ define internal fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef %0, ptr noundef %1
 
 47:                                               ; preds = %.lr.ph67, %45
   %.2 = phi ptr [ %.165, %.lr.ph67 ], [ %46, %45 ]
-  %48 = tail call ptr @Fraig_NodeReadNextE(ptr noundef nonnull %.14864) #11
+  %48 = tail call ptr @Fraig_NodeReadNextE(ptr noundef nonnull %.14964) #11
   %.not59 = icmp eq ptr %48, null
   br i1 %.not59, label %._crit_edge68, label %.lr.ph67, !llvm.loop !26
 
 ._crit_edge68:                                    ; preds = %47, %41
   %49 = load i32, ptr %16, align 4
-  %50 = getelementptr inbounds i8, ptr %.049.lcssa71, i64 20
+  %50 = getelementptr inbounds i8, ptr %.050.lcssa71, i64 20
   %51 = load i32, ptr %50, align 4
   %52 = xor i32 %51, %49
-  %53 = ptrtoint ptr %.049.lcssa71 to i64
+  %53 = ptrtoint ptr %.050.lcssa71 to i64
   %54 = lshr i32 %52, 7
   %.lobit = and i32 %54, 1
   %55 = zext nneg i32 %.lobit to i64
@@ -1368,8 +1368,8 @@ define internal fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef %0, ptr noundef %1
   %60 = ptrtoint ptr %.052.sink to i64
   %61 = and i64 %3, 1
   %62 = xor i64 %61, %60
-  %.051 = inttoptr i64 %62 to ptr
-  ret ptr %.051
+  %.047 = inttoptr i64 %62 to ptr
+  ret ptr %.047
 }
 
 declare ptr @Fraig_ManReadOutputs(ptr noundef) local_unnamed_addr #2
@@ -1615,7 +1615,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %53, %49
 
 .lr.ph.i.i:                                       ; preds = %152, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %152 ]
-  %.03149.i.i = phi ptr [ %131, %.lr.ph.preheader.i.i ], [ %.1.i.i, %152 ]
+  %.03150.i.i = phi ptr [ %131, %.lr.ph.preheader.i.i ], [ %.1.i.i, %152 ]
   %132 = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %132, label %152, label %133
 
@@ -1633,7 +1633,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %53, %49
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 64
   %142 = load ptr, ptr %141, align 8
-  store ptr %142, ptr %.03149.i.i, align 8
+  store ptr %142, ptr %.03150.i.i, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 56
   %144 = load ptr, ptr %119, align 8
   %145 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -1650,7 +1650,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %53, %49
   br label %152
 
 152:                                              ; preds = %147, %133, %.lr.ph.i.i
-  %.1.i.i = phi ptr [ %.03149.i.i, %.lr.ph.i.i ], [ %143, %147 ], [ %143, %133 ]
+  %.1.i.i = phi ptr [ %.03150.i.i, %.lr.ph.i.i ], [ %143, %147 ], [ %143, %133 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.val.i.i = load i32, ptr %55, align 4
   %153 = sext i32 %.val.i.i to i64
@@ -1658,7 +1658,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %53, %49
   br i1 %154, label %.lr.ph.i.i, label %Abc_NodeFraigTrust.exit.i, !llvm.loop !28
 
 Abc_NodeFraigTrust.exit.i:                        ; preds = %152, %118, %87, %66, %56
-  %.032.i.i = phi ptr [ %65, %56 ], [ %82, %66 ], [ %117, %87 ], [ %129, %118 ], [ %129, %152 ]
+  %.0.i.i = phi ptr [ %65, %56 ], [ %82, %66 ], [ %117, %87 ], [ %129, %118 ], [ %129, %152 ]
   %.val19.i19 = load i32, ptr %0, align 8
   %.not.i20 = icmp eq i32 %.val19.i19, 1
   br i1 %.not.i20, label %155, label %162
@@ -1680,7 +1680,7 @@ Abc_NodeFraigTrust.exit.i:                        ; preds = %152, %118, %87, %66
 162:                                              ; preds = %155, %Abc_NodeFraigTrust.exit.i
   %.017.i = phi ptr [ %161, %155 ], [ %48, %Abc_NodeFraigTrust.exit.i ]
   %163 = getelementptr inbounds i8, ptr %.017.i, i64 64
-  store ptr %.032.i.i, ptr %163, align 8
+  store ptr %.0.i.i, ptr %163, align 8
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i18, 1
   %.val.i22 = load i32, ptr %40, align 4
   %164 = sext i32 %.val.i22 to i64

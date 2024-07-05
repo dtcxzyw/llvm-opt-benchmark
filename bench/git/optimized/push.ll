@@ -1227,26 +1227,26 @@ for.body.lr.ph.i23:                               ; preds = %for.cond.preheader.
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i23, %for.body.us.i
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %for.body.us.i ], [ 0, %for.body.lr.ph.i23 ]
-  %errs.030.us.i = phi i32 [ %spec.select.us.i, %for.body.us.i ], [ 0, %for.body.lr.ph.i23 ]
+  %errs.029.us.i = phi i32 [ %spec.select.us.i, %for.body.us.i ], [ 0, %for.body.lr.ph.i23 ]
   %arrayidx.us.i = getelementptr inbounds ptr, ptr %.sink.i.i, i64 %indvars.iv33.i
   %55 = load ptr, ptr %arrayidx.us.i, align 8
   %call17.us.i = call ptr @transport_get(ptr noundef nonnull %call373, ptr noundef %55) #13
   %call23.us.i = call fastcc i32 @push_with_options(ptr noundef %call17.us.i, ptr noundef nonnull %push_refspec.0.i, i32 noundef %flags.addr.3.fr.i)
-  %spec.select.us.i = add nuw nsw i32 %call23.us.i, %errs.030.us.i
+  %spec.select.us.i = add nuw nsw i32 %call23.us.i, %errs.029.us.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count36.i
   br i1 %exitcond37.not.i, label %do_push.exit, label %for.body.us.i, !llvm.loop !8
 
 for.body.i24:                                     ; preds = %for.body.lr.ph.i23, %for.body.i24
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i24 ], [ 0, %for.body.lr.ph.i23 ]
-  %errs.030.i = phi i32 [ %spec.select.i, %for.body.i24 ], [ 0, %for.body.lr.ph.i23 ]
+  %errs.029.i = phi i32 [ %spec.select.i, %for.body.i24 ], [ 0, %for.body.lr.ph.i23 ]
   %arrayidx.i25 = getelementptr inbounds ptr, ptr %.sink.i.i, i64 %indvars.iv.i
   %56 = load ptr, ptr %arrayidx.i25, align 8
   %call17.i = call ptr @transport_get(ptr noundef nonnull %call373, ptr noundef %56) #13
   %push_options21.i = getelementptr inbounds i8, ptr %call17.i, i64 64
   store ptr %push_options_cmdline.push_options_config, ptr %push_options21.i, align 8
   %call23.i = call fastcc i32 @push_with_options(ptr noundef %call17.i, ptr noundef nonnull %push_refspec.0.i, i32 noundef %flags.addr.3.fr.i)
-  %spec.select.i = add nuw nsw i32 %call23.i, %errs.030.i
+  %spec.select.i = add nuw nsw i32 %call23.i, %errs.029.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count36.i
   br i1 %exitcond.not.i, label %do_push.exit, label %for.body.i24, !llvm.loop !8

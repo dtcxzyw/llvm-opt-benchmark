@@ -5517,13 +5517,13 @@ for.body16.lr.ph:                                 ; preds = %for.cond14.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %seq.addr.0267 = phi i32 [ %inc, %for.body.lr.ph ], [ %call, %for.body ]
+  %seq.addr.0268 = phi i32 [ %inc, %for.body.lr.ph ], [ %call, %for.body ]
   %61 = load ptr, ptr %mChildren, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv
   %62 = load ptr, ptr %arrayidx, align 8
   %cmp11 = icmp eq i64 %indvars.iv, 0
   %cond = select i1 %cmp11, i32 -1, i32 %inc
-  %call = tail call noundef i32 @_ZN6Assimp19Discreet3DSExporter14WriteHierarchyERK6aiNodeii(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(1144) %62, i32 noundef %seq.addr.0267, i32 noundef %cond)
+  %call = tail call noundef i32 @_ZN6Assimp19Discreet3DSExporter14WriteHierarchyERK6aiNodeii(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(1144) %62, i32 noundef %seq.addr.0268, i32 noundef %cond)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i32, ptr %mNumChildren, align 8
   %64 = zext i32 %63 to i64
@@ -5533,7 +5533,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body16:                                       ; preds = %for.body16.lr.ph, %_ZN6Assimp12_GLOBAL__N_111ChunkWriterD2Ev.exit260
   %65 = phi i64 [ %.pre, %for.body16.lr.ph ], [ %add9.i.i214, %_ZN6Assimp12_GLOBAL__N_111ChunkWriterD2Ev.exit260 ]
   %indvars.iv300 = phi i64 [ 0, %for.body16.lr.ph ], [ %indvars.iv.next301, %_ZN6Assimp12_GLOBAL__N_111ChunkWriterD2Ev.exit260 ]
-  %seq.addr.1272 = phi i32 [ %seq.addr.0.lcssa, %for.body16.lr.ph ], [ %inc44, %_ZN6Assimp12_GLOBAL__N_111ChunkWriterD2Ev.exit260 ]
+  %seq.addr.1273 = phi i32 [ %seq.addr.0.lcssa, %for.body16.lr.ph ], [ %inc44, %_ZN6Assimp12_GLOBAL__N_111ChunkWriterD2Ev.exit260 ]
   %66 = load i32, ptr %mNumChildren, align 8
   %67 = trunc nuw i64 %indvars.iv300 to i32
   %68 = or i32 %66, %67
@@ -5681,7 +5681,7 @@ invoke.cont36:                                    ; preds = %.noexc200, %invoke.
   %100 = load i64, ptr %cursor.i.i, align 8
   %add9.i.i199 = add i64 %100, 4
   store i64 %add9.i.i199, ptr %cursor.i.i, align 8
-  %cond41 = select i1 %69, i32 %seq.addr.1272, i32 %inc
+  %cond41 = select i1 %69, i32 %seq.addr.1273, i32 %inc
   %conv42 = trunc i32 %cond41 to i16
   %add.i.i203 = add i64 %100, 6
   %101 = load ptr, ptr %_M_finish.i.i.i.i, align 8
@@ -5708,7 +5708,7 @@ invoke.cont43:                                    ; preds = %.noexc215, %invoke.
   store i16 %conv42, ptr %add.ptr.i.i.i213, align 1
   %105 = load i64, ptr %cursor.i.i, align 8
   %add9.i.i214 = add i64 %105, 2
-  %inc44 = add nsw i32 %seq.addr.1272, 1
+  %inc44 = add nsw i32 %seq.addr.1273, 1
   store i64 %add.i.i.i161, ptr %cursor.i.i, align 8
   %add.i.i.i221 = add i64 %84, 10
   %106 = load ptr, ptr %_M_finish.i.i.i.i, align 8
@@ -6205,39 +6205,39 @@ if.then.i.i:                                      ; preds = %entry
   br label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %if.then.i.i, %entry
-  %written.121.i.i.ph = phi i32 [ 1, %entry ], [ 2, %if.then.i.i ]
-  %number.addr.120.i.i.ph = phi i32 [ %index, %entry ], [ %sub.i.i, %if.then.i.i ]
-  %out.addr.119.i.i.ph = phi ptr [ %postfix, %entry ], [ %incdec.ptr.i.i, %if.then.i.i ]
+  %out.addr.123.i.i.ph = phi ptr [ %postfix, %entry ], [ %incdec.ptr.i.i, %if.then.i.i ]
+  %written.120.i.i.ph = phi i32 [ 1, %entry ], [ 2, %if.then.i.i ]
+  %number.addr.119.i.i.ph = phi i32 [ %index, %entry ], [ %sub.i.i, %if.then.i.i ]
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end15.i.i
-  %mustPrint.023.i.i = phi i1 [ %or.cond1.i.i, %if.end15.i.i ], [ false, %while.body.i.i.preheader ]
-  %cur.022.i.i = phi i32 [ %div16.i.i, %if.end15.i.i ], [ 1000000000, %while.body.i.i.preheader ]
-  %written.121.i.i = phi i32 [ %written.2.i.i, %if.end15.i.i ], [ %written.121.i.i.ph, %while.body.i.i.preheader ]
-  %number.addr.120.i.i = phi i32 [ %number.addr.2.i.i, %if.end15.i.i ], [ %number.addr.120.i.i.ph, %while.body.i.i.preheader ]
-  %out.addr.119.i.i = phi ptr [ %out.addr.2.i.i, %if.end15.i.i ], [ %out.addr.119.i.i.ph, %while.body.i.i.preheader ]
-  %div.i.i = sdiv i32 %number.addr.120.i.i, %cur.022.i.i
-  %sub11.i.i.recomposed = srem i32 %number.addr.120.i.i, %cur.022.i.i
+  %out.addr.123.i.i = phi ptr [ %out.addr.2.i.i, %if.end15.i.i ], [ %out.addr.123.i.i.ph, %while.body.i.i.preheader ]
+  %mustPrint.022.i.i = phi i1 [ %or.cond1.i.i, %if.end15.i.i ], [ false, %while.body.i.i.preheader ]
+  %cur.021.i.i = phi i32 [ %div16.i.i, %if.end15.i.i ], [ 1000000000, %while.body.i.i.preheader ]
+  %written.120.i.i = phi i32 [ %written.2.i.i, %if.end15.i.i ], [ %written.120.i.i.ph, %while.body.i.i.preheader ]
+  %number.addr.119.i.i = phi i32 [ %number.addr.2.i.i, %if.end15.i.i ], [ %number.addr.119.i.i.ph, %while.body.i.i.preheader ]
+  %div.i.i = sdiv i32 %number.addr.119.i.i, %cur.021.i.i
+  %sub11.i.i.recomposed = srem i32 %number.addr.119.i.i, %cur.021.i.i
   %cmp3.i.i = icmp ne i32 %div.i.i, 0
-  %cmp5.i.i = icmp eq i32 %cur.022.i.i, 1
+  %cmp5.i.i = icmp eq i32 %cur.021.i.i, 1
   %0 = or i1 %cmp5.i.i, %cmp3.i.i
-  %or.cond1.i.i = select i1 %mustPrint.023.i.i, i1 true, i1 %0
+  %or.cond1.i.i = select i1 %mustPrint.022.i.i, i1 true, i1 %0
   br i1 %or.cond1.i.i, label %if.then6.i.i, label %if.end15.i.i
 
 if.then6.i.i:                                     ; preds = %while.body.i.i
   %1 = trunc i32 %div.i.i to i8
   %conv8.i.i = add i8 %1, 48
-  %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %out.addr.119.i.i, i64 1
-  store i8 %conv8.i.i, ptr %out.addr.119.i.i, align 1
-  %inc10.i.i = add nuw nsw i32 %written.121.i.i, 1
-  %mul.i.i = mul i32 %div.i.i, %cur.022.i.i
+  %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %out.addr.123.i.i, i64 1
+  store i8 %conv8.i.i, ptr %out.addr.123.i.i, align 1
+  %inc10.i.i = add nuw nsw i32 %written.120.i.i, 1
+  %mul.i.i = mul i32 %div.i.i, %cur.021.i.i
   br i1 %cmp5.i.i, label %_ZN6Assimp13ASSIMP_itoa10ILm10EEEjRAT__ci.exit, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then6.i.i, %while.body.i.i
-  %out.addr.2.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.119.i.i, %while.body.i.i ]
-  %number.addr.2.i.i = phi i32 [ %sub11.i.i.recomposed, %if.then6.i.i ], [ %number.addr.120.i.i, %while.body.i.i ]
-  %written.2.i.i = phi i32 [ %inc10.i.i, %if.then6.i.i ], [ %written.121.i.i, %while.body.i.i ]
-  %div16.i.i = sdiv i32 %cur.022.i.i, 10
+  %number.addr.2.i.i = phi i32 [ %sub11.i.i.recomposed, %if.then6.i.i ], [ %number.addr.119.i.i, %while.body.i.i ]
+  %written.2.i.i = phi i32 [ %inc10.i.i, %if.then6.i.i ], [ %written.120.i.i, %while.body.i.i ]
+  %out.addr.2.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.123.i.i, %while.body.i.i ]
+  %div16.i.i = sdiv i32 %cur.021.i.i, 10
   %cmp2.i.i = icmp ult i32 %written.2.i.i, 10
   br i1 %cmp2.i.i, label %while.body.i.i, label %_ZN6Assimp13ASSIMP_itoa10ILm10EEEjRAT__ci.exit, !llvm.loop !27
 
@@ -6376,39 +6376,39 @@ if.then.i.i:                                      ; preds = %init.end
   br label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %if.then.i.i, %init.end
-  %written.121.i.i.ph = phi i32 [ 1, %init.end ], [ 2, %if.then.i.i ]
-  %number.addr.120.i.i.ph = phi i32 [ %index, %init.end ], [ %sub.i.i, %if.then.i.i ]
-  %out.addr.119.i.i.ph = phi ptr [ %postfix, %init.end ], [ %incdec.ptr.i.i, %if.then.i.i ]
+  %out.addr.123.i.i.ph = phi ptr [ %postfix, %init.end ], [ %incdec.ptr.i.i, %if.then.i.i ]
+  %written.120.i.i.ph = phi i32 [ 1, %init.end ], [ 2, %if.then.i.i ]
+  %number.addr.119.i.i.ph = phi i32 [ %index, %init.end ], [ %sub.i.i, %if.then.i.i ]
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end15.i.i
-  %mustPrint.023.i.i = phi i1 [ %or.cond1.i.i, %if.end15.i.i ], [ false, %while.body.i.i.preheader ]
-  %cur.022.i.i = phi i32 [ %div16.i.i, %if.end15.i.i ], [ 1000000000, %while.body.i.i.preheader ]
-  %written.121.i.i = phi i32 [ %written.2.i.i, %if.end15.i.i ], [ %written.121.i.i.ph, %while.body.i.i.preheader ]
-  %number.addr.120.i.i = phi i32 [ %number.addr.2.i.i, %if.end15.i.i ], [ %number.addr.120.i.i.ph, %while.body.i.i.preheader ]
-  %out.addr.119.i.i = phi ptr [ %out.addr.2.i.i, %if.end15.i.i ], [ %out.addr.119.i.i.ph, %while.body.i.i.preheader ]
-  %div.i.i = sdiv i32 %number.addr.120.i.i, %cur.022.i.i
-  %sub11.i.i.recomposed = srem i32 %number.addr.120.i.i, %cur.022.i.i
+  %out.addr.123.i.i = phi ptr [ %out.addr.2.i.i, %if.end15.i.i ], [ %out.addr.123.i.i.ph, %while.body.i.i.preheader ]
+  %mustPrint.022.i.i = phi i1 [ %or.cond1.i.i, %if.end15.i.i ], [ false, %while.body.i.i.preheader ]
+  %cur.021.i.i = phi i32 [ %div16.i.i, %if.end15.i.i ], [ 1000000000, %while.body.i.i.preheader ]
+  %written.120.i.i = phi i32 [ %written.2.i.i, %if.end15.i.i ], [ %written.120.i.i.ph, %while.body.i.i.preheader ]
+  %number.addr.119.i.i = phi i32 [ %number.addr.2.i.i, %if.end15.i.i ], [ %number.addr.119.i.i.ph, %while.body.i.i.preheader ]
+  %div.i.i = sdiv i32 %number.addr.119.i.i, %cur.021.i.i
+  %sub11.i.i.recomposed = srem i32 %number.addr.119.i.i, %cur.021.i.i
   %cmp3.i.i = icmp ne i32 %div.i.i, 0
-  %cmp5.i.i = icmp eq i32 %cur.022.i.i, 1
+  %cmp5.i.i = icmp eq i32 %cur.021.i.i, 1
   %3 = or i1 %cmp5.i.i, %cmp3.i.i
-  %or.cond1.i.i = select i1 %mustPrint.023.i.i, i1 true, i1 %3
+  %or.cond1.i.i = select i1 %mustPrint.022.i.i, i1 true, i1 %3
   br i1 %or.cond1.i.i, label %if.then6.i.i, label %if.end15.i.i
 
 if.then6.i.i:                                     ; preds = %while.body.i.i
   %4 = trunc i32 %div.i.i to i8
   %conv8.i.i = add i8 %4, 48
-  %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %out.addr.119.i.i, i64 1
-  store i8 %conv8.i.i, ptr %out.addr.119.i.i, align 1
-  %inc10.i.i = add nuw nsw i32 %written.121.i.i, 1
-  %mul.i.i = mul i32 %div.i.i, %cur.022.i.i
+  %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %out.addr.123.i.i, i64 1
+  store i8 %conv8.i.i, ptr %out.addr.123.i.i, align 1
+  %inc10.i.i = add nuw nsw i32 %written.120.i.i, 1
+  %mul.i.i = mul i32 %div.i.i, %cur.021.i.i
   br i1 %cmp5.i.i, label %_ZN6Assimp13ASSIMP_itoa10ILm10EEEjRAT__ci.exit, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then6.i.i, %while.body.i.i
-  %out.addr.2.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.119.i.i, %while.body.i.i ]
-  %number.addr.2.i.i = phi i32 [ %sub11.i.i.recomposed, %if.then6.i.i ], [ %number.addr.120.i.i, %while.body.i.i ]
-  %written.2.i.i = phi i32 [ %inc10.i.i, %if.then6.i.i ], [ %written.121.i.i, %while.body.i.i ]
-  %div16.i.i = sdiv i32 %cur.022.i.i, 10
+  %number.addr.2.i.i = phi i32 [ %sub11.i.i.recomposed, %if.then6.i.i ], [ %number.addr.119.i.i, %while.body.i.i ]
+  %written.2.i.i = phi i32 [ %inc10.i.i, %if.then6.i.i ], [ %written.120.i.i, %while.body.i.i ]
+  %out.addr.2.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then6.i.i ], [ %out.addr.123.i.i, %while.body.i.i ]
+  %div16.i.i = sdiv i32 %cur.021.i.i, 10
   %cmp2.i.i = icmp ult i32 %written.2.i.i, 10
   br i1 %cmp2.i.i, label %while.body.i.i, label %_ZN6Assimp13ASSIMP_itoa10ILm10EEEjRAT__ci.exit, !llvm.loop !27
 

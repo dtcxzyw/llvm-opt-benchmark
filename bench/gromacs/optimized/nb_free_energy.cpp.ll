@@ -2610,8 +2610,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv602 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next603, %._crit_edge.thread ]
-  %.0402570 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1403.lcssa620, %._crit_edge.thread ]
-  %.0408569 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1409.lcssa619, %._crit_edge.thread ]
+  %.0394570 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1395.lcssa620, %._crit_edge.thread ]
+  %.0398569 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1399.lcssa619, %._crit_edge.thread ]
   %87 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv602
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
@@ -2657,12 +2657,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %334
   %indvars.iv600 = phi i64 [ %122, %.lr.ph.preheader ], [ %indvars.iv.next601, %334 ]
-  %.1403560 = phi float [ %.0402570, %.lr.ph.preheader ], [ %.6, %334 ]
-  %.1409559 = phi float [ %.0408569, %.lr.ph.preheader ], [ %.6414, %334 ]
-  %.0421557 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1422, %334 ]
-  %.0427554 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5432, %334 ]
-  %.0433553 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5438, %334 ]
-  %.0440552 = phi i1 [ false, %.lr.ph.preheader ], [ %.1441, %334 ]
+  %.1395560 = phi float [ %.0394570, %.lr.ph.preheader ], [ %.6, %334 ]
+  %.1399559 = phi float [ %.0398569, %.lr.ph.preheader ], [ %.6404, %334 ]
+  %.0409558 = phi i1 [ false, %.lr.ph.preheader ], [ %.1410, %334 ]
+  %.0411557 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5416, %334 ]
+  %.0417556 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5422, %334 ]
+  %.0427553 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1428, %334 ]
   %123 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %335, %334 ]
   %124 = load ptr, ptr %77, align 8
   %125 = load ptr, ptr %78, align 8
@@ -2843,31 +2843,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv591.sroa.phi716.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv591.sroa.phi733.sroa.speculated = phi float [ %36, %.preheader ], [ %63, %.thread ]
   %indvars.iv591.sroa.phi740.sroa.speculated = phi float [ %34, %.preheader ], [ %62, %.thread ]
-  %.0397542 = phi float [ %239, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.2404541 = phi float [ %240, %.preheader ], [ %.1403560, %.thread ]
-  %.2410540 = phi float [ %241, %.preheader ], [ %.1409559, %.thread ]
-  %.1428539 = phi float [ %233, %.preheader ], [ %.0427554, %.thread ]
-  %.1434538 = phi float [ %231, %.preheader ], [ %.0433553, %.thread ]
+  %.2396543 = phi float [ %240, %.preheader ], [ %.1395560, %.thread ]
+  %.2400542 = phi float [ %241, %.preheader ], [ %.1399559, %.thread ]
+  %.1412540 = phi float [ %231, %.preheader ], [ %.0411557, %.thread ]
+  %.1418539 = phi float [ %233, %.preheader ], [ %.0417556, %.thread ]
+  %.0435538 = phi float [ %239, %.preheader ], [ 0.000000e+00, %.thread ]
   %230 = load float, ptr %indvars.iv591.sroa.phi664, align 4
-  %231 = tail call float @llvm.fmuladd.f32(float %indvars.iv591.sroa.phi740.sroa.speculated, float %230, float %.1434538)
+  %231 = tail call float @llvm.fmuladd.f32(float %indvars.iv591.sroa.phi740.sroa.speculated, float %230, float %.1412540)
   %232 = load float, ptr %indvars.iv591.sroa.phi, align 4
-  %233 = tail call float @llvm.fmuladd.f32(float %indvars.iv591.sroa.phi733.sroa.speculated, float %232, float %.1428539)
+  %233 = tail call float @llvm.fmuladd.f32(float %indvars.iv591.sroa.phi733.sroa.speculated, float %232, float %.1418539)
   %234 = load float, ptr %indvars.iv591.sroa.phi676, align 4
   %235 = fmul float %indvars.iv591.sroa.phi740.sroa.speculated, %234
-  %236 = tail call float @llvm.fmuladd.f32(float %235, float %191, float %.0397542)
+  %236 = tail call float @llvm.fmuladd.f32(float %235, float %191, float %.0435538)
   %237 = load float, ptr %indvars.iv591.sroa.phi670, align 4
   %238 = fmul float %indvars.iv591.sroa.phi733.sroa.speculated, %237
   %239 = tail call float @llvm.fmuladd.f32(float %238, float %191, float %236)
-  %240 = tail call float @llvm.fmuladd.f32(float %230, float %indvars.iv591.sroa.phi716.sroa.speculated, float %.2404541)
-  %241 = tail call float @llvm.fmuladd.f32(float %232, float %indvars.iv591.sroa.phi716.sroa.speculated, float %.2410540)
+  %240 = tail call float @llvm.fmuladd.f32(float %230, float %indvars.iv591.sroa.phi716.sroa.speculated, float %.2396543)
+  %241 = tail call float @llvm.fmuladd.f32(float %232, float %indvars.iv591.sroa.phi716.sroa.speculated, float %.2400542)
   br i1 %229, label %.preheader, label %.loopexit533, !llvm.loop !17
 
 .loopexit533:                                     ; preds = %.preheader, %.critedge759
-  %.2435 = phi float [ %.0433553, %.critedge759 ], [ %231, %.preheader ]
-  %.2429 = phi float [ %.0427554, %.critedge759 ], [ %233, %.preheader ]
-  %.3411 = phi float [ %.1409559, %.critedge759 ], [ %241, %.preheader ]
-  %.3405 = phi float [ %.1403560, %.critedge759 ], [ %240, %.preheader ]
-  %.1398 = phi float [ 0.000000e+00, %.critedge759 ], [ %239, %.preheader ]
+  %.1436 = phi float [ 0.000000e+00, %.critedge759 ], [ %239, %.preheader ]
+  %.2419 = phi float [ %.0417556, %.critedge759 ], [ %233, %.preheader ]
+  %.2413 = phi float [ %.0411557, %.critedge759 ], [ %231, %.preheader ]
+  %.3401 = phi float [ %.1399559, %.critedge759 ], [ %241, %.preheader ]
+  %.3 = phi float [ %.1395560, %.critedge759 ], [ %240, %.preheader ]
   %242 = fcmp uge float %190, %42
   %.not527 = select i1 %131, i1 %242, i1 false
   br i1 %.not527, label %.loopexit532, label %243
@@ -2912,24 +2912,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv594.sroa.phi = phi ptr [ %.sroa.0688, %243 ], [ %.sroa.3689, %276 ]
   %indvars.iv594.sroa.phi718.sroa.speculated = phi float [ -1.000000e+00, %243 ], [ 1.000000e+00, %276 ]
   %indvars.iv594.sroa.phi742.sroa.speculated = phi float [ %62, %243 ], [ %34, %276 ]
-  %.2399546 = phi float [ %.1398, %243 ], [ %283, %276 ]
-  %.4406545 = phi float [ %.3405, %243 ], [ %286, %276 ]
-  %.3436544 = phi float [ %.2435, %243 ], [ %281, %276 ]
+  %.4547 = phi float [ %.3, %243 ], [ %286, %276 ]
+  %.3414545 = phi float [ %.2413, %243 ], [ %281, %276 ]
+  %.2437544 = phi float [ %.1436, %243 ], [ %283, %276 ]
   %278 = load float, ptr %indvars.iv594.sroa.phi, align 4
   %279 = fmul float %indvars.iv594.sroa.phi742.sroa.speculated, %278
   %280 = fmul float %275, %279
-  %281 = fsub float %.3436544, %280
+  %281 = fsub float %.3414545, %280
   %282 = fmul float %273, %279
-  %283 = fsub float %.2399546, %282
+  %283 = fsub float %.2437544, %282
   %284 = fmul float %278, %indvars.iv594.sroa.phi718.sroa.speculated
   %285 = fmul float %275, %284
-  %286 = fsub float %.4406545, %285
+  %286 = fsub float %.4547, %285
   br i1 %277, label %276, label %.loopexit532, !llvm.loop !18
 
 .loopexit532:                                     ; preds = %276, %.loopexit533
-  %.4437 = phi float [ %.2435, %.loopexit533 ], [ %281, %276 ]
-  %.5407 = phi float [ %.3405, %.loopexit533 ], [ %286, %276 ]
-  %.3 = phi float [ %.1398, %.loopexit533 ], [ %283, %276 ]
+  %.3438 = phi float [ %.1436, %.loopexit533 ], [ %283, %276 ]
+  %.4415 = phi float [ %.2413, %.loopexit533 ], [ %281, %276 ]
+  %.5 = phi float [ %.3, %.loopexit533 ], [ %286, %276 ]
   %287 = fcmp uge float %190, %46
   %.not529 = select i1 %131, i1 %287, i1 false
   br i1 %.not529, label %.loopexit, label %288
@@ -2962,34 +2962,34 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv597.sroa.phi = phi ptr [ %.sroa.0684, %288 ], [ %.sroa.3, %309 ]
   %indvars.iv597.sroa.phi720.sroa.speculated = phi float [ -1.000000e+00, %288 ], [ 1.000000e+00, %309 ]
   %indvars.iv597.sroa.phi735.sroa.speculated = phi float [ %63, %288 ], [ %36, %309 ]
-  %.4550 = phi float [ %.3, %288 ], [ %316, %309 ]
-  %.4412549 = phi float [ %.3411, %288 ], [ %319, %309 ]
-  %.3430548 = phi float [ %.2429, %288 ], [ %314, %309 ]
+  %.4402550 = phi float [ %.3401, %288 ], [ %319, %309 ]
+  %.3420549 = phi float [ %.2419, %288 ], [ %314, %309 ]
+  %.4439548 = phi float [ %.3438, %288 ], [ %316, %309 ]
   %311 = load float, ptr %indvars.iv597.sroa.phi, align 4
   %312 = fmul float %indvars.iv597.sroa.phi735.sroa.speculated, %311
   %313 = fmul float %308, %312
-  %314 = fadd float %.3430548, %313
+  %314 = fadd float %.3420549, %313
   %315 = fmul float %306, %312
-  %316 = fadd float %.4550, %315
+  %316 = fadd float %.4439548, %315
   %317 = fmul float %311, %indvars.iv597.sroa.phi720.sroa.speculated
   %318 = fmul float %308, %317
-  %319 = fadd float %.4412549, %318
+  %319 = fadd float %.4402550, %318
   br i1 %310, label %309, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %309, %.loopexit532
-  %.4431 = phi float [ %.2429, %.loopexit532 ], [ %314, %309 ]
-  %.5413 = phi float [ %.3411, %.loopexit532 ], [ %319, %309 ]
-  %.5 = phi float [ %.3, %.loopexit532 ], [ %316, %309 ]
-  %320 = fcmp une float %.5, 0.000000e+00
+  %.5440 = phi float [ %.3438, %.loopexit532 ], [ %316, %309 ]
+  %.4421 = phi float [ %.2419, %.loopexit532 ], [ %314, %309 ]
+  %.5403 = phi float [ %.3401, %.loopexit532 ], [ %319, %309 ]
+  %320 = fcmp une float %.5440, 0.000000e+00
   br i1 %320, label %321, label %334
 
 321:                                              ; preds = %.loopexit
-  %322 = insertelement <2 x float> poison, float %.5, i64 0
+  %322 = insertelement <2 x float> poison, float %.5440, i64 0
   %323 = shufflevector <2 x float> %322, <2 x float> poison, <2 x i32> zeroinitializer
   %324 = fmul <2 x float> %145, %323
-  %325 = fmul float %146, %.5
+  %325 = fmul float %146, %.5440
   %326 = fadd <2 x float> %123, %324
-  %327 = fadd float %.0421557, %325
+  %327 = fadd float %.0427553, %325
   %328 = getelementptr inbounds float, ptr %67, i64 %139
   %329 = load <2 x float>, ptr %328, align 4
   %330 = fsub <2 x float> %329, %324
@@ -3001,19 +3001,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %334
 
 334:                                              ; preds = %.loopexit, %321, %.critedge449.critedge
-  %.1441 = phi i1 [ true, %321 ], [ true, %.loopexit ], [ %.0440552, %.critedge449.critedge ]
-  %.5438 = phi float [ %.4437, %321 ], [ %.4437, %.loopexit ], [ %.0433553, %.critedge449.critedge ]
-  %.5432 = phi float [ %.4431, %321 ], [ %.4431, %.loopexit ], [ %.0427554, %.critedge449.critedge ]
-  %.1422 = phi float [ %327, %321 ], [ %.0421557, %.loopexit ], [ %.0421557, %.critedge449.critedge ]
-  %.6414 = phi float [ %.5413, %321 ], [ %.5413, %.loopexit ], [ %.1409559, %.critedge449.critedge ]
-  %.6 = phi float [ %.5407, %321 ], [ %.5407, %.loopexit ], [ %.1403560, %.critedge449.critedge ]
+  %.1428 = phi float [ %327, %321 ], [ %.0427553, %.loopexit ], [ %.0427553, %.critedge449.critedge ]
+  %.5422 = phi float [ %.4421, %321 ], [ %.4421, %.loopexit ], [ %.0417556, %.critedge449.critedge ]
+  %.5416 = phi float [ %.4415, %321 ], [ %.4415, %.loopexit ], [ %.0411557, %.critedge449.critedge ]
+  %.1410 = phi i1 [ true, %321 ], [ true, %.loopexit ], [ %.0409558, %.critedge449.critedge ]
+  %.6404 = phi float [ %.5403, %321 ], [ %.5403, %.loopexit ], [ %.1399559, %.critedge449.critedge ]
+  %.6 = phi float [ %.5, %321 ], [ %.5, %.loopexit ], [ %.1395560, %.critedge449.critedge ]
   %335 = phi <2 x float> [ %326, %321 ], [ %123, %.loopexit ], [ %123, %.critedge449.critedge ]
   %indvars.iv.next601 = add nsw i64 %indvars.iv600, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next601, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %334
-  br i1 %.1441, label %336, label %._crit_edge.thread
+  br i1 %.1410, label %336, label %._crit_edge.thread
 
 336:                                              ; preds = %._crit_edge
   %337 = getelementptr inbounds float, ptr %67, i64 %100
@@ -3022,7 +3022,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %339, ptr %337, align 4
   %340 = getelementptr i8, ptr %337, i64 8
   %341 = load float, ptr %340, align 4
-  %342 = fadd float %.1422, %341
+  %342 = fadd float %.1428, %341
   store float %342, ptr %340, align 4
   br i1 %.not, label %352, label %343
 
@@ -3035,7 +3035,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %348, ptr %346, align 4
   %349 = getelementptr i8, ptr %346, i64 8
   %350 = load float, ptr %349, align 4
-  %351 = fadd float %.1422, %350
+  %351 = fadd float %.1428, %350
   store float %351, ptr %349, align 4
   br label %352
 
@@ -3048,22 +3048,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %356 = sext i32 %355 to i64
   %357 = getelementptr inbounds float, ptr %84, i64 %356
   %358 = load float, ptr %357, align 4
-  %359 = fadd float %.5438, %358
+  %359 = fadd float %.5416, %358
   store float %359, ptr %357, align 4
   %360 = getelementptr inbounds float, ptr %86, i64 %356
   %361 = load float, ptr %360, align 4
-  %362 = fadd float %.5432, %361
+  %362 = fadd float %.5422, %361
   store float %362, ptr %360, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %353, %352
-  %.1403.lcssa620 = phi float [ %.6, %._crit_edge ], [ %.6, %353 ], [ %.6, %352 ], [ %.0402570, %.critedge ]
-  %.1409.lcssa619 = phi float [ %.6414, %._crit_edge ], [ %.6414, %353 ], [ %.6414, %352 ], [ %.0408569, %.critedge ]
+  %.1395.lcssa620 = phi float [ %.6, %._crit_edge ], [ %.6, %353 ], [ %.6, %352 ], [ %.0394570, %.critedge ]
+  %.1399.lcssa619 = phi float [ %.6404, %._crit_edge ], [ %.6404, %353 ], [ %.6404, %352 ], [ %.0398569, %.critedge ]
   %exitcond606.not = icmp eq i64 %indvars.iv.next603, %wide.trip.count605
   br i1 %exitcond606.not, label %._crit_edge571, label %.critedge, !llvm.loop !21
 
 ._crit_edge571:                                   ; preds = %._crit_edge.thread
-  %363 = fcmp une float %.1403.lcssa620, 0.000000e+00
+  %363 = fcmp une float %.1395.lcssa620, 0.000000e+00
   br i1 %363, label %364, label %370
 
 364:                                              ; preds = %._crit_edge571
@@ -3071,12 +3071,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %366 = inttoptr i64 %365 to ptr
   %367 = getelementptr inbounds i8, ptr %366, i64 8
   %368 = load float, ptr %367, align 4
-  %369 = fadd float %.1403.lcssa620, %368
+  %369 = fadd float %.1395.lcssa620, %368
   store float %369, ptr %367, align 4
   br label %370
 
 370:                                              ; preds = %364, %._crit_edge571
-  %371 = fcmp une float %.1409.lcssa619, 0.000000e+00
+  %371 = fcmp une float %.1399.lcssa619, 0.000000e+00
   br i1 %371, label %372, label %.thread624
 
 372:                                              ; preds = %370
@@ -3084,7 +3084,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %374 = inttoptr i64 %373 to ptr
   %375 = getelementptr inbounds i8, ptr %374, i64 12
   %376 = load float, ptr %375, align 4
-  %377 = fadd float %.1409.lcssa619, %376
+  %377 = fadd float %.1399.lcssa619, %376
   store float %377, ptr %375, align 4
   br label %.thread624
 
@@ -3991,8 +3991,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv498 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next499, %._crit_edge.thread ]
-  %.0336469 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1337.lcssa514, %._crit_edge.thread ]
-  %.0339468 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1340.lcssa513, %._crit_edge.thread ]
+  %.0334469 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1335.lcssa514, %._crit_edge.thread ]
+  %.0337468 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1338.lcssa513, %._crit_edge.thread ]
   %85 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv498
   %86 = load i32, ptr %85, align 4
   %87 = sext i32 %86 to i64
@@ -4043,11 +4043,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv496 = phi i64 [ %125, %.lr.ph.preheader ], [ %indvars.iv.next497, %.loopexit ]
-  %.1337462 = phi float [ %.0336469, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1340461 = phi float [ %.0339468, %.lr.ph.preheader ], [ %.5344, %.loopexit ]
-  %.0350460 = phi i1 [ false, %.lr.ph.preheader ], [ %.1351, %.loopexit ]
-  %.0354458 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4358, %.loopexit ]
-  %.0359457 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5364, %.loopexit ]
+  %.1335462 = phi float [ %.0334469, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1338461 = phi float [ %.0337468, %.lr.ph.preheader ], [ %.5342, %.loopexit ]
+  %.0345460 = phi i1 [ false, %.lr.ph.preheader ], [ %.1346, %.loopexit ]
+  %.0347459 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5352, %.loopexit ]
+  %.0353458 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4357, %.loopexit ]
   %126 = load ptr, ptr %75, align 8
   %127 = load ptr, ptr %76, align 8
   %128 = icmp eq ptr %126, %127
@@ -4218,23 +4218,23 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv487.sroa.phi588.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv487.sroa.phi605.sroa.speculated = phi float [ %36, %.preheader ], [ %62, %.thread ]
   %indvars.iv487.sroa.phi612.sroa.speculated = phi float [ %34, %.preheader ], [ %61, %.thread ]
-  %.2338449 = phi float [ %235, %.preheader ], [ %.1337462, %.thread ]
-  %.2341448 = phi float [ %236, %.preheader ], [ %.1340461, %.thread ]
-  %.1355447 = phi float [ %234, %.preheader ], [ %.0354458, %.thread ]
-  %.1360446 = phi float [ %232, %.preheader ], [ %.0359457, %.thread ]
+  %.2336449 = phi float [ %235, %.preheader ], [ %.1335462, %.thread ]
+  %.2339448 = phi float [ %236, %.preheader ], [ %.1338461, %.thread ]
+  %.1348447 = phi float [ %232, %.preheader ], [ %.0347459, %.thread ]
+  %.1354446 = phi float [ %234, %.preheader ], [ %.0353458, %.thread ]
   %231 = load float, ptr %indvars.iv487.sroa.phi548, align 4
-  %232 = tail call float @llvm.fmuladd.f32(float %indvars.iv487.sroa.phi612.sroa.speculated, float %231, float %.1360446)
+  %232 = tail call float @llvm.fmuladd.f32(float %indvars.iv487.sroa.phi612.sroa.speculated, float %231, float %.1348447)
   %233 = load float, ptr %indvars.iv487.sroa.phi, align 4
-  %234 = tail call float @llvm.fmuladd.f32(float %indvars.iv487.sroa.phi605.sroa.speculated, float %233, float %.1355447)
-  %235 = tail call float @llvm.fmuladd.f32(float %231, float %indvars.iv487.sroa.phi588.sroa.speculated, float %.2338449)
-  %236 = tail call float @llvm.fmuladd.f32(float %233, float %indvars.iv487.sroa.phi588.sroa.speculated, float %.2341448)
+  %234 = tail call float @llvm.fmuladd.f32(float %indvars.iv487.sroa.phi605.sroa.speculated, float %233, float %.1354446)
+  %235 = tail call float @llvm.fmuladd.f32(float %231, float %indvars.iv487.sroa.phi588.sroa.speculated, float %.2336449)
+  %236 = tail call float @llvm.fmuladd.f32(float %233, float %indvars.iv487.sroa.phi588.sroa.speculated, float %.2339448)
   br i1 %230, label %.preheader, label %.loopexit441, !llvm.loop !32
 
 .loopexit441:                                     ; preds = %.preheader, %.critedge627
-  %.2361 = phi float [ %.0359457, %.critedge627 ], [ %232, %.preheader ]
-  %.2356 = phi float [ %.0354458, %.critedge627 ], [ %234, %.preheader ]
-  %.3342 = phi float [ %.1340461, %.critedge627 ], [ %236, %.preheader ]
-  %.3 = phi float [ %.1337462, %.critedge627 ], [ %235, %.preheader ]
+  %.2355 = phi float [ %.0353458, %.critedge627 ], [ %234, %.preheader ]
+  %.2349 = phi float [ %.0347459, %.critedge627 ], [ %232, %.preheader ]
+  %.3340 = phi float [ %.1338461, %.critedge627 ], [ %236, %.preheader ]
+  %.3 = phi float [ %.1335462, %.critedge627 ], [ %235, %.preheader ]
   %237 = fcmp uge float %193, %41
   %.not435 = select i1 %133, i1 %237, i1 false
   br i1 %.not435, label %.loopexit440, label %238
@@ -4264,18 +4264,18 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv490.sroa.phi590.sroa.speculated = phi float [ -1.000000e+00, %238 ], [ 1.000000e+00, %255 ]
   %indvars.iv490.sroa.phi614.sroa.speculated = phi float [ %61, %238 ], [ %34, %255 ]
   %.4452 = phi float [ %.3, %238 ], [ %263, %255 ]
-  %.3362451 = phi float [ %.2361, %238 ], [ %260, %255 ]
+  %.3350451 = phi float [ %.2349, %238 ], [ %260, %255 ]
   %257 = load float, ptr %indvars.iv490.sroa.phi, align 4
   %258 = fmul float %indvars.iv490.sroa.phi614.sroa.speculated, %257
   %259 = fmul float %254, %258
-  %260 = fsub float %.3362451, %259
+  %260 = fsub float %.3350451, %259
   %261 = fmul float %257, %indvars.iv490.sroa.phi590.sroa.speculated
   %262 = fmul float %254, %261
   %263 = fsub float %.4452, %262
   br i1 %256, label %255, label %.loopexit440, !llvm.loop !33
 
 .loopexit440:                                     ; preds = %255, %.loopexit441
-  %.4363 = phi float [ %.2361, %.loopexit441 ], [ %260, %255 ]
+  %.4351 = phi float [ %.2349, %.loopexit441 ], [ %260, %255 ]
   %.5 = phi float [ %.3, %.loopexit441 ], [ %263, %255 ]
   %264 = fcmp uge float %193, %45
   %.not437 = select i1 %133, i1 %264, i1 false
@@ -4308,29 +4308,29 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv493.sroa.phi = phi ptr [ %.sroa.0556, %265 ], [ %.sroa.3, %285 ]
   %indvars.iv493.sroa.phi592.sroa.speculated = phi float [ -1.000000e+00, %265 ], [ 1.000000e+00, %285 ]
   %indvars.iv493.sroa.phi607.sroa.speculated = phi float [ %62, %265 ], [ %36, %285 ]
-  %.4343455 = phi float [ %.3342, %265 ], [ %293, %285 ]
-  %.3357454 = phi float [ %.2356, %265 ], [ %290, %285 ]
+  %.4341455 = phi float [ %.3340, %265 ], [ %293, %285 ]
+  %.3356454 = phi float [ %.2355, %265 ], [ %290, %285 ]
   %287 = load float, ptr %indvars.iv493.sroa.phi, align 4
   %288 = fmul float %indvars.iv493.sroa.phi607.sroa.speculated, %287
   %289 = fmul float %284, %288
-  %290 = fadd float %.3357454, %289
+  %290 = fadd float %.3356454, %289
   %291 = fmul float %287, %indvars.iv493.sroa.phi592.sroa.speculated
   %292 = fmul float %284, %291
-  %293 = fadd float %.4343455, %292
+  %293 = fadd float %.4341455, %292
   br i1 %286, label %285, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %285, %.loopexit440, %.critedge371.critedge
-  %.5364 = phi float [ %.4363, %.loopexit440 ], [ %.0359457, %.critedge371.critedge ], [ %.4363, %285 ]
-  %.4358 = phi float [ %.2356, %.loopexit440 ], [ %.0354458, %.critedge371.critedge ], [ %290, %285 ]
-  %.1351 = phi i1 [ true, %.loopexit440 ], [ %.0350460, %.critedge371.critedge ], [ true, %285 ]
-  %.5344 = phi float [ %.3342, %.loopexit440 ], [ %.1340461, %.critedge371.critedge ], [ %293, %285 ]
-  %.6 = phi float [ %.5, %.loopexit440 ], [ %.1337462, %.critedge371.critedge ], [ %.5, %285 ]
+  %.4357 = phi float [ %.2355, %.loopexit440 ], [ %.0353458, %.critedge371.critedge ], [ %290, %285 ]
+  %.5352 = phi float [ %.4351, %.loopexit440 ], [ %.0347459, %.critedge371.critedge ], [ %.4351, %285 ]
+  %.1346 = phi i1 [ true, %.loopexit440 ], [ %.0345460, %.critedge371.critedge ], [ true, %285 ]
+  %.5342 = phi float [ %.3340, %.loopexit440 ], [ %.1338461, %.critedge371.critedge ], [ %293, %285 ]
+  %.6 = phi float [ %.5, %.loopexit440 ], [ %.1335462, %.critedge371.critedge ], [ %.5, %285 ]
   %indvars.iv.next497 = add nsw i64 %indvars.iv496, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next497, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge375.not = and i1 %.not, %.1351
+  %brmerge375.not = and i1 %.not, %.1346
   br i1 %brmerge375.not, label %294, label %._crit_edge.thread
 
 294:                                              ; preds = %._crit_edge
@@ -4339,22 +4339,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %297 = sext i32 %296 to i64
   %298 = getelementptr inbounds float, ptr %82, i64 %297
   %299 = load float, ptr %298, align 4
-  %300 = fadd float %.5364, %299
+  %300 = fadd float %.5352, %299
   store float %300, ptr %298, align 4
   %301 = getelementptr inbounds float, ptr %84, i64 %297
   %302 = load float, ptr %301, align 4
-  %303 = fadd float %.4358, %302
+  %303 = fadd float %.4357, %302
   store float %303, ptr %301, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %294
-  %.1337.lcssa514 = phi float [ %.6, %._crit_edge ], [ %.6, %294 ], [ %.0336469, %.critedge ]
-  %.1340.lcssa513 = phi float [ %.5344, %._crit_edge ], [ %.5344, %294 ], [ %.0339468, %.critedge ]
+  %.1335.lcssa514 = phi float [ %.6, %._crit_edge ], [ %.6, %294 ], [ %.0334469, %.critedge ]
+  %.1338.lcssa513 = phi float [ %.5342, %._crit_edge ], [ %.5342, %294 ], [ %.0337468, %.critedge ]
   %exitcond502.not = icmp eq i64 %indvars.iv.next499, %wide.trip.count501
   br i1 %exitcond502.not, label %._crit_edge470, label %.critedge, !llvm.loop !36
 
 ._crit_edge470:                                   ; preds = %._crit_edge.thread
-  %304 = fcmp une float %.1337.lcssa514, 0.000000e+00
+  %304 = fcmp une float %.1335.lcssa514, 0.000000e+00
   br i1 %304, label %305, label %311
 
 305:                                              ; preds = %._crit_edge470
@@ -4362,12 +4362,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %307 = inttoptr i64 %306 to ptr
   %308 = getelementptr inbounds i8, ptr %307, i64 8
   %309 = load float, ptr %308, align 4
-  %310 = fadd float %.1337.lcssa514, %309
+  %310 = fadd float %.1335.lcssa514, %309
   store float %310, ptr %308, align 4
   br label %311
 
 311:                                              ; preds = %305, %._crit_edge470
-  %312 = fcmp une float %.1340.lcssa513, 0.000000e+00
+  %312 = fcmp une float %.1338.lcssa513, 0.000000e+00
   br i1 %312, label %313, label %.thread518
 
 313:                                              ; preds = %311
@@ -4375,7 +4375,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %315 = inttoptr i64 %314 to ptr
   %316 = getelementptr inbounds i8, ptr %315, i64 12
   %317 = load float, ptr %316, align 4
-  %318 = fadd float %.1340.lcssa513, %317
+  %318 = fadd float %.1338.lcssa513, %317
   store float %318, ptr %316, align 4
   br label %.thread518
 
@@ -5853,9 +5853,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv627 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next628, %._crit_edge.thread ]
-  %.0418594 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1419.lcssa647, %._crit_edge.thread ]
-  %.0426593 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1427.lcssa646, %._crit_edge.thread ]
-  %.0455592 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1456.lcssa645, %._crit_edge.thread ]
+  %.0410594 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1411.lcssa647, %._crit_edge.thread ]
+  %.0413593 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1414.lcssa646, %._crit_edge.thread ]
+  %.0422592 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1423.lcssa645, %._crit_edge.thread ]
   %98 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv627
   %99 = load i32, ptr %98, align 4
   %100 = sext i32 %99 to i64
@@ -5901,13 +5901,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %327
   %indvars.iv625 = phi i64 [ %133, %.lr.ph.preheader ], [ %indvars.iv.next626, %327 ]
-  %.1419582 = phi float [ %.0418594, %.lr.ph.preheader ], [ %.6, %327 ]
-  %.1427581 = phi float [ %.0426593, %.lr.ph.preheader ], [ %.6432, %327 ]
-  %.0437579 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1438, %327 ]
-  %.0443576 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5448, %327 ]
-  %.0449575 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5454, %327 ]
-  %.1456574 = phi i8 [ %.0455592, %.lr.ph.preheader ], [ %.3458, %327 ]
-  %.0460573 = phi i1 [ false, %.lr.ph.preheader ], [ %.1461, %327 ]
+  %.1411582 = phi float [ %.0410594, %.lr.ph.preheader ], [ %.6, %327 ]
+  %.1414581 = phi float [ %.0413593, %.lr.ph.preheader ], [ %.6419, %327 ]
+  %.1423580 = phi i8 [ %.0422592, %.lr.ph.preheader ], [ %.3425, %327 ]
+  %.0428579 = phi i1 [ false, %.lr.ph.preheader ], [ %.1429, %327 ]
+  %.0430578 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5435, %327 ]
+  %.0437577 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5442, %327 ]
+  %.0447574 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1448, %327 ]
   %134 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %328, %327 ]
   %135 = load ptr, ptr %84, align 8
   %136 = load ptr, ptr %85, align 8
@@ -6092,35 +6092,35 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv616.sroa.phi749.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv616.sroa.phi766.sroa.speculated = phi float [ %39, %.preheader ], [ %71, %.thread ]
   %indvars.iv616.sroa.phi773.sroa.speculated = phi float [ %37, %.preheader ], [ %70, %.thread ]
-  %.0413563 = phi float [ %254, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.2420562 = phi float [ %255, %.preheader ], [ %.1419582, %.thread ]
-  %.2428561 = phi float [ %256, %.preheader ], [ %.1427581, %.thread ]
-  %.1444560 = phi float [ %248, %.preheader ], [ %.0443576, %.thread ]
-  %.1450559 = phi float [ %246, %.preheader ], [ %.0449575, %.thread ]
+  %.2412564 = phi float [ %255, %.preheader ], [ %.1411582, %.thread ]
+  %.2415563 = phi float [ %256, %.preheader ], [ %.1414581, %.thread ]
+  %.1431562 = phi float [ %246, %.preheader ], [ %.0430578, %.thread ]
+  %.1438560 = phi float [ %248, %.preheader ], [ %.0437577, %.thread ]
+  %.0455559 = phi float [ %254, %.preheader ], [ 0.000000e+00, %.thread ]
   %245 = load float, ptr %indvars.iv616.sroa.phi697, align 4
-  %246 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi773.sroa.speculated, float %245, float %.1450559)
+  %246 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi773.sroa.speculated, float %245, float %.1431562)
   %247 = load float, ptr %indvars.iv616.sroa.phi, align 4
-  %248 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi766.sroa.speculated, float %247, float %.1444560)
+  %248 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi766.sroa.speculated, float %247, float %.1438560)
   %249 = load float, ptr %indvars.iv616.sroa.phi709, align 4
   %250 = fmul float %indvars.iv616.sroa.phi773.sroa.speculated, %249
-  %251 = tail call float @llvm.fmuladd.f32(float %250, float %202, float %.0413563)
+  %251 = tail call float @llvm.fmuladd.f32(float %250, float %202, float %.0455559)
   %252 = load float, ptr %indvars.iv616.sroa.phi703, align 4
   %253 = fmul float %indvars.iv616.sroa.phi766.sroa.speculated, %252
   %254 = tail call float @llvm.fmuladd.f32(float %253, float %202, float %251)
-  %255 = tail call float @llvm.fmuladd.f32(float %245, float %indvars.iv616.sroa.phi749.sroa.speculated, float %.2420562)
-  %256 = tail call float @llvm.fmuladd.f32(float %247, float %indvars.iv616.sroa.phi749.sroa.speculated, float %.2428561)
+  %255 = tail call float @llvm.fmuladd.f32(float %245, float %indvars.iv616.sroa.phi749.sroa.speculated, float %.2412564)
+  %256 = tail call float @llvm.fmuladd.f32(float %247, float %indvars.iv616.sroa.phi749.sroa.speculated, float %.2415563)
   br i1 %244, label %.preheader, label %.loopexit554, !llvm.loop !47
 
 .loopexit554:                                     ; preds = %.preheader, %.critedge792
-  %.2451 = phi float [ %.0449575, %.critedge792 ], [ %246, %.preheader ]
-  %.2445 = phi float [ %.0443576, %.critedge792 ], [ %248, %.preheader ]
-  %.3429 = phi float [ %.1427581, %.critedge792 ], [ %256, %.preheader ]
-  %.3421 = phi float [ %.1419582, %.critedge792 ], [ %255, %.preheader ]
-  %.1414 = phi float [ 0.000000e+00, %.critedge792 ], [ %254, %.preheader ]
+  %.1456 = phi float [ 0.000000e+00, %.critedge792 ], [ %254, %.preheader ]
+  %.2439 = phi float [ %.0437577, %.critedge792 ], [ %248, %.preheader ]
+  %.2432 = phi float [ %.0430578, %.critedge792 ], [ %246, %.preheader ]
+  %.3416 = phi float [ %.1414581, %.critedge792 ], [ %256, %.preheader ]
+  %.3 = phi float [ %.1411582, %.critedge792 ], [ %255, %.preheader ]
   br i1 %67, label %257, label %.loopexit553
 
 257:                                              ; preds = %.loopexit554
-  %258 = trunc nuw i8 %.1456574 to i1
+  %258 = trunc nuw i8 %.1423580 to i1
   br i1 %258, label %262, label %259
 
 259:                                              ; preds = %257
@@ -6144,25 +6144,25 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv619.sroa.phi = phi ptr [ %.sroa.0721, %265 ], [ %.sroa.3722, %269 ]
   %indvars.iv619.sroa.phi751.sroa.speculated = phi float [ -1.000000e+00, %265 ], [ 1.000000e+00, %269 ]
   %indvars.iv619.sroa.phi775.sroa.speculated = phi float [ %70, %265 ], [ %37, %269 ]
-  %.2415567 = phi float [ %.1414, %265 ], [ %276, %269 ]
-  %.4422566 = phi float [ %.3421, %265 ], [ %279, %269 ]
-  %.3452565 = phi float [ %.2451, %265 ], [ %274, %269 ]
+  %.4568 = phi float [ %.3, %265 ], [ %279, %269 ]
+  %.3433566 = phi float [ %.2432, %265 ], [ %274, %269 ]
+  %.2457565 = phi float [ %.1456, %265 ], [ %276, %269 ]
   %271 = load float, ptr %indvars.iv619.sroa.phi, align 4
   %272 = fmul float %indvars.iv619.sroa.phi775.sroa.speculated, %271
   %273 = fmul float %268, %272
-  %274 = fadd float %.3452565, %273
+  %274 = fadd float %.3433566, %273
   %275 = fmul float %91, %272
-  %276 = fsub float %.2415567, %275
+  %276 = fsub float %.2457565, %275
   %277 = fmul float %271, %indvars.iv619.sroa.phi751.sroa.speculated
   %278 = fmul float %268, %277
-  %279 = fadd float %.4422566, %278
+  %279 = fadd float %.4568, %278
   br i1 %270, label %269, label %.loopexit553, !llvm.loop !48
 
 .loopexit553:                                     ; preds = %269, %262, %.loopexit554
-  %.2457 = phi i8 [ %264, %262 ], [ %.1456574, %.loopexit554 ], [ %264, %269 ]
-  %.4453 = phi float [ %.2451, %262 ], [ %.2451, %.loopexit554 ], [ %274, %269 ]
-  %.5423 = phi float [ %.3421, %262 ], [ %.3421, %.loopexit554 ], [ %279, %269 ]
-  %.3 = phi float [ %.1414, %262 ], [ %.1414, %.loopexit554 ], [ %276, %269 ]
+  %.3458 = phi float [ %.1456, %262 ], [ %.1456, %.loopexit554 ], [ %276, %269 ]
+  %.4434 = phi float [ %.2432, %262 ], [ %.2432, %.loopexit554 ], [ %274, %269 ]
+  %.2424 = phi i8 [ %264, %262 ], [ %.1423580, %.loopexit554 ], [ %264, %269 ]
+  %.5 = phi float [ %.3, %262 ], [ %.3, %.loopexit554 ], [ %279, %269 ]
   %280 = fcmp uge float %201, %53
   %.not550 = select i1 %142, i1 %280, i1 false
   br i1 %.not550, label %.loopexit, label %281
@@ -6195,34 +6195,34 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv622.sroa.phi = phi ptr [ %.sroa.0717, %281 ], [ %.sroa.3, %302 ]
   %indvars.iv622.sroa.phi753.sroa.speculated = phi float [ -1.000000e+00, %281 ], [ 1.000000e+00, %302 ]
   %indvars.iv622.sroa.phi768.sroa.speculated = phi float [ %71, %281 ], [ %39, %302 ]
-  %.4571 = phi float [ %.3, %281 ], [ %309, %302 ]
-  %.4430570 = phi float [ %.3429, %281 ], [ %312, %302 ]
-  %.3446569 = phi float [ %.2445, %281 ], [ %307, %302 ]
+  %.4417572 = phi float [ %.3416, %281 ], [ %312, %302 ]
+  %.3440570 = phi float [ %.2439, %281 ], [ %307, %302 ]
+  %.4459569 = phi float [ %.3458, %281 ], [ %309, %302 ]
   %304 = load float, ptr %indvars.iv622.sroa.phi, align 4
   %305 = fmul float %indvars.iv622.sroa.phi768.sroa.speculated, %304
   %306 = fmul float %301, %305
-  %307 = fadd float %.3446569, %306
+  %307 = fadd float %.3440570, %306
   %308 = fmul float %299, %305
-  %309 = fadd float %.4571, %308
+  %309 = fadd float %.4459569, %308
   %310 = fmul float %304, %indvars.iv622.sroa.phi753.sroa.speculated
   %311 = fmul float %301, %310
-  %312 = fadd float %.4430570, %311
+  %312 = fadd float %.4417572, %311
   br i1 %303, label %302, label %.loopexit, !llvm.loop !49
 
 .loopexit:                                        ; preds = %302, %.loopexit553
-  %.4447 = phi float [ %.2445, %.loopexit553 ], [ %307, %302 ]
-  %.5431 = phi float [ %.3429, %.loopexit553 ], [ %312, %302 ]
-  %.5 = phi float [ %.3, %.loopexit553 ], [ %309, %302 ]
-  %313 = fcmp une float %.5, 0.000000e+00
+  %.5460 = phi float [ %.3458, %.loopexit553 ], [ %309, %302 ]
+  %.4441 = phi float [ %.2439, %.loopexit553 ], [ %307, %302 ]
+  %.5418 = phi float [ %.3416, %.loopexit553 ], [ %312, %302 ]
+  %313 = fcmp une float %.5460, 0.000000e+00
   br i1 %313, label %314, label %327
 
 314:                                              ; preds = %.loopexit
-  %315 = insertelement <2 x float> poison, float %.5, i64 0
+  %315 = insertelement <2 x float> poison, float %.5460, i64 0
   %316 = shufflevector <2 x float> %315, <2 x float> poison, <2 x i32> zeroinitializer
   %317 = fmul <2 x float> %156, %316
-  %318 = fmul float %157, %.5
+  %318 = fmul float %157, %.5460
   %319 = fadd <2 x float> %134, %317
-  %320 = fadd float %.0437579, %318
+  %320 = fadd float %.0447574, %318
   %321 = getelementptr inbounds float, ptr %74, i64 %150
   %322 = load <2 x float>, ptr %321, align 4
   %323 = fsub <2 x float> %322, %317
@@ -6234,20 +6234,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %327
 
 327:                                              ; preds = %.loopexit, %314, %.critedge469.critedge
-  %.1461 = phi i1 [ true, %314 ], [ true, %.loopexit ], [ %.0460573, %.critedge469.critedge ]
-  %.3458 = phi i8 [ %.2457, %314 ], [ %.2457, %.loopexit ], [ %.1456574, %.critedge469.critedge ]
-  %.5454 = phi float [ %.4453, %314 ], [ %.4453, %.loopexit ], [ %.0449575, %.critedge469.critedge ]
-  %.5448 = phi float [ %.4447, %314 ], [ %.4447, %.loopexit ], [ %.0443576, %.critedge469.critedge ]
-  %.1438 = phi float [ %320, %314 ], [ %.0437579, %.loopexit ], [ %.0437579, %.critedge469.critedge ]
-  %.6432 = phi float [ %.5431, %314 ], [ %.5431, %.loopexit ], [ %.1427581, %.critedge469.critedge ]
-  %.6 = phi float [ %.5423, %314 ], [ %.5423, %.loopexit ], [ %.1419582, %.critedge469.critedge ]
+  %.1448 = phi float [ %320, %314 ], [ %.0447574, %.loopexit ], [ %.0447574, %.critedge469.critedge ]
+  %.5442 = phi float [ %.4441, %314 ], [ %.4441, %.loopexit ], [ %.0437577, %.critedge469.critedge ]
+  %.5435 = phi float [ %.4434, %314 ], [ %.4434, %.loopexit ], [ %.0430578, %.critedge469.critedge ]
+  %.1429 = phi i1 [ true, %314 ], [ true, %.loopexit ], [ %.0428579, %.critedge469.critedge ]
+  %.3425 = phi i8 [ %.2424, %314 ], [ %.2424, %.loopexit ], [ %.1423580, %.critedge469.critedge ]
+  %.6419 = phi float [ %.5418, %314 ], [ %.5418, %.loopexit ], [ %.1414581, %.critedge469.critedge ]
+  %.6 = phi float [ %.5, %314 ], [ %.5, %.loopexit ], [ %.1411582, %.critedge469.critedge ]
   %328 = phi <2 x float> [ %319, %314 ], [ %134, %.loopexit ], [ %134, %.critedge469.critedge ]
   %indvars.iv.next626 = add nsw i64 %indvars.iv625, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next626, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %327
-  br i1 %.1461, label %329, label %._crit_edge.thread
+  br i1 %.1429, label %329, label %._crit_edge.thread
 
 329:                                              ; preds = %._crit_edge
   %330 = getelementptr inbounds float, ptr %74, i64 %111
@@ -6256,7 +6256,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %332, ptr %330, align 4
   %333 = getelementptr i8, ptr %330, i64 8
   %334 = load float, ptr %333, align 4
-  %335 = fadd float %.1438, %334
+  %335 = fadd float %.1448, %334
   store float %335, ptr %333, align 4
   br i1 %.not, label %345, label %336
 
@@ -6269,7 +6269,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %341, ptr %339, align 4
   %342 = getelementptr i8, ptr %339, i64 8
   %343 = load float, ptr %342, align 4
-  %344 = fadd float %.1438, %343
+  %344 = fadd float %.1448, %343
   store float %344, ptr %342, align 4
   br label %345
 
@@ -6282,24 +6282,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %349 = sext i32 %348 to i64
   %350 = getelementptr inbounds float, ptr %95, i64 %349
   %351 = load float, ptr %350, align 4
-  %352 = fadd float %.5454, %351
+  %352 = fadd float %.5435, %351
   store float %352, ptr %350, align 4
   %353 = getelementptr inbounds float, ptr %97, i64 %349
   %354 = load float, ptr %353, align 4
-  %355 = fadd float %.5448, %354
+  %355 = fadd float %.5442, %354
   store float %355, ptr %353, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %346, %345
-  %.1419.lcssa647 = phi float [ %.6, %._crit_edge ], [ %.6, %346 ], [ %.6, %345 ], [ %.0418594, %.critedge ]
-  %.1427.lcssa646 = phi float [ %.6432, %._crit_edge ], [ %.6432, %346 ], [ %.6432, %345 ], [ %.0426593, %.critedge ]
-  %.1456.lcssa645 = phi i8 [ %.3458, %._crit_edge ], [ %.3458, %346 ], [ %.3458, %345 ], [ %.0455592, %.critedge ]
+  %.1411.lcssa647 = phi float [ %.6, %._crit_edge ], [ %.6, %346 ], [ %.6, %345 ], [ %.0410594, %.critedge ]
+  %.1414.lcssa646 = phi float [ %.6419, %._crit_edge ], [ %.6419, %346 ], [ %.6419, %345 ], [ %.0413593, %.critedge ]
+  %.1423.lcssa645 = phi i8 [ %.3425, %._crit_edge ], [ %.3425, %346 ], [ %.3425, %345 ], [ %.0422592, %.critedge ]
   %exitcond630.not = icmp eq i64 %indvars.iv.next628, %wide.trip.count629
   br i1 %exitcond630.not, label %._crit_edge595, label %.critedge, !llvm.loop !51
 
 ._crit_edge595:                                   ; preds = %._crit_edge.thread
-  %356 = trunc nuw i8 %.1456.lcssa645 to i1
-  %357 = fcmp une float %.1419.lcssa647, 0.000000e+00
+  %356 = trunc nuw i8 %.1423.lcssa645 to i1
+  %357 = fcmp une float %.1411.lcssa647, 0.000000e+00
   br i1 %357, label %358, label %364
 
 358:                                              ; preds = %._crit_edge595
@@ -6307,12 +6307,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %360 = inttoptr i64 %359 to ptr
   %361 = getelementptr inbounds i8, ptr %360, i64 8
   %362 = load float, ptr %361, align 4
-  %363 = fadd float %.1419.lcssa647, %362
+  %363 = fadd float %.1411.lcssa647, %362
   store float %363, ptr %361, align 4
   br label %364
 
 364:                                              ; preds = %358, %._crit_edge595
-  %365 = fcmp une float %.1427.lcssa646, 0.000000e+00
+  %365 = fcmp une float %.1414.lcssa646, 0.000000e+00
   br i1 %365, label %366, label %.thread653
 
 366:                                              ; preds = %364
@@ -6320,12 +6320,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %368 = inttoptr i64 %367 to ptr
   %369 = getelementptr inbounds i8, ptr %368, i64 12
   %370 = load float, ptr %369, align 4
-  %371 = fadd float %.1427.lcssa646, %370
+  %371 = fadd float %.1414.lcssa646, %370
   store float %371, ptr %369, align 4
   br label %.thread653
 
 .thread653:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %366, %364
-  %.0455.lcssa651656 = phi i1 [ %356, %366 ], [ %356, %364 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0422.lcssa651656 = phi i1 [ %356, %366 ], [ %356, %364 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %372 = load i32, ptr %0, align 8
   %373 = mul nsw i32 %372, 12
   %374 = sext i32 %23 to i64
@@ -6335,7 +6335,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %378 = mul nsw i32 %377, 150
   %379 = add nsw i32 %378, %373
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %379)
-  %380 = select i1 %67, i1 %.0455.lcssa651656, i1 false
+  %380 = select i1 %67, i1 %.0422.lcssa651656, i1 false
   br i1 %380, label %381, label %392
 
 381:                                              ; preds = %.thread653
@@ -7380,9 +7380,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv530 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next531, %._crit_edge.thread ]
-  %.0357500 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1358.lcssa548, %._crit_edge.thread ]
-  %.0360499 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1361.lcssa547, %._crit_edge.thread ]
-  %.0371498 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1372.lcssa546, %._crit_edge.thread ]
+  %.0352500 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1353.lcssa548, %._crit_edge.thread ]
+  %.0356499 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1357.lcssa547, %._crit_edge.thread ]
+  %.0363498 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1364.lcssa546, %._crit_edge.thread ]
   %94 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv530
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
@@ -7433,12 +7433,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv528 = phi i64 [ %134, %.lr.ph.preheader ], [ %indvars.iv.next529, %.loopexit ]
-  %.1358491 = phi float [ %.0357500, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1361490 = phi float [ %.0360499, %.lr.ph.preheader ], [ %.5365, %.loopexit ]
-  %.1372488 = phi i8 [ %.0371498, %.lr.ph.preheader ], [ %.3374, %.loopexit ]
-  %.0377487 = phi i1 [ false, %.lr.ph.preheader ], [ %.1378, %.loopexit ]
-  %.0379486 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4383, %.loopexit ]
-  %.0384485 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5389, %.loopexit ]
+  %.1353491 = phi float [ %.0352500, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1357490 = phi float [ %.0356499, %.lr.ph.preheader ], [ %.5361, %.loopexit ]
+  %.1364489 = phi i8 [ %.0363498, %.lr.ph.preheader ], [ %.3366, %.loopexit ]
+  %.0369488 = phi i1 [ false, %.lr.ph.preheader ], [ %.1370, %.loopexit ]
+  %.0371487 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5376, %.loopexit ]
+  %.0377486 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4381, %.loopexit ]
   %135 = load ptr, ptr %82, align 8
   %136 = load ptr, ptr %83, align 8
   %137 = icmp eq ptr %135, %136
@@ -7611,27 +7611,27 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv519.sroa.phi628.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv519.sroa.phi645.sroa.speculated = phi float [ %39, %.preheader ], [ %70, %.thread ]
   %indvars.iv519.sroa.phi652.sroa.speculated = phi float [ %37, %.preheader ], [ %69, %.thread ]
-  %.2359477 = phi float [ %246, %.preheader ], [ %.1358491, %.thread ]
-  %.2362476 = phi float [ %247, %.preheader ], [ %.1361490, %.thread ]
-  %.1380475 = phi float [ %245, %.preheader ], [ %.0379486, %.thread ]
-  %.1385474 = phi float [ %243, %.preheader ], [ %.0384485, %.thread ]
+  %.2354478 = phi float [ %246, %.preheader ], [ %.1353491, %.thread ]
+  %.2358477 = phi float [ %247, %.preheader ], [ %.1357490, %.thread ]
+  %.1372475 = phi float [ %243, %.preheader ], [ %.0371487, %.thread ]
+  %.1378474 = phi float [ %245, %.preheader ], [ %.0377486, %.thread ]
   %242 = load float, ptr %indvars.iv519.sroa.phi588, align 4
-  %243 = tail call float @llvm.fmuladd.f32(float %indvars.iv519.sroa.phi652.sroa.speculated, float %242, float %.1385474)
+  %243 = tail call float @llvm.fmuladd.f32(float %indvars.iv519.sroa.phi652.sroa.speculated, float %242, float %.1372475)
   %244 = load float, ptr %indvars.iv519.sroa.phi, align 4
-  %245 = tail call float @llvm.fmuladd.f32(float %indvars.iv519.sroa.phi645.sroa.speculated, float %244, float %.1380475)
-  %246 = tail call float @llvm.fmuladd.f32(float %242, float %indvars.iv519.sroa.phi628.sroa.speculated, float %.2359477)
-  %247 = tail call float @llvm.fmuladd.f32(float %244, float %indvars.iv519.sroa.phi628.sroa.speculated, float %.2362476)
+  %245 = tail call float @llvm.fmuladd.f32(float %indvars.iv519.sroa.phi645.sroa.speculated, float %244, float %.1378474)
+  %246 = tail call float @llvm.fmuladd.f32(float %242, float %indvars.iv519.sroa.phi628.sroa.speculated, float %.2354478)
+  %247 = tail call float @llvm.fmuladd.f32(float %244, float %indvars.iv519.sroa.phi628.sroa.speculated, float %.2358477)
   br i1 %241, label %.preheader, label %.loopexit469, !llvm.loop !62
 
 .loopexit469:                                     ; preds = %.preheader, %.critedge667
-  %.2386 = phi float [ %.0384485, %.critedge667 ], [ %243, %.preheader ]
-  %.2381 = phi float [ %.0379486, %.critedge667 ], [ %245, %.preheader ]
-  %.3363 = phi float [ %.1361490, %.critedge667 ], [ %247, %.preheader ]
-  %.3 = phi float [ %.1358491, %.critedge667 ], [ %246, %.preheader ]
+  %.2379 = phi float [ %.0377486, %.critedge667 ], [ %245, %.preheader ]
+  %.2373 = phi float [ %.0371487, %.critedge667 ], [ %243, %.preheader ]
+  %.3359 = phi float [ %.1357490, %.critedge667 ], [ %247, %.preheader ]
+  %.3 = phi float [ %.1353491, %.critedge667 ], [ %246, %.preheader ]
   br i1 %66, label %248, label %.loopexit468
 
 248:                                              ; preds = %.loopexit469
-  %249 = trunc nuw i8 %.1372488 to i1
+  %249 = trunc nuw i8 %.1364489 to i1
   br i1 %249, label %253, label %250
 
 250:                                              ; preds = %248
@@ -7655,20 +7655,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv522.sroa.phi = phi ptr [ %.sroa.0600, %256 ], [ %.sroa.3601, %260 ]
   %indvars.iv522.sroa.phi630.sroa.speculated = phi float [ -1.000000e+00, %256 ], [ 1.000000e+00, %260 ]
   %indvars.iv522.sroa.phi654.sroa.speculated = phi float [ %69, %256 ], [ %37, %260 ]
-  %.4480 = phi float [ %.3, %256 ], [ %268, %260 ]
-  %.3387479 = phi float [ %.2386, %256 ], [ %265, %260 ]
+  %.4481 = phi float [ %.3, %256 ], [ %268, %260 ]
+  %.3374479 = phi float [ %.2373, %256 ], [ %265, %260 ]
   %262 = load float, ptr %indvars.iv522.sroa.phi, align 4
   %263 = fmul float %indvars.iv522.sroa.phi654.sroa.speculated, %262
   %264 = fmul float %259, %263
-  %265 = fadd float %.3387479, %264
+  %265 = fadd float %.3374479, %264
   %266 = fmul float %262, %indvars.iv522.sroa.phi630.sroa.speculated
   %267 = fmul float %259, %266
-  %268 = fadd float %.4480, %267
+  %268 = fadd float %.4481, %267
   br i1 %261, label %260, label %.loopexit468, !llvm.loop !63
 
 .loopexit468:                                     ; preds = %260, %253, %.loopexit469
-  %.4388 = phi float [ %.2386, %253 ], [ %.2386, %.loopexit469 ], [ %265, %260 ]
-  %.2373 = phi i8 [ %255, %253 ], [ %.1372488, %.loopexit469 ], [ %255, %260 ]
+  %.4375 = phi float [ %.2373, %253 ], [ %.2373, %.loopexit469 ], [ %265, %260 ]
+  %.2365 = phi i8 [ %255, %253 ], [ %.1364489, %.loopexit469 ], [ %255, %260 ]
   %.5 = phi float [ %.3, %253 ], [ %.3, %.loopexit469 ], [ %268, %260 ]
   %269 = fcmp uge float %202, %52
   %.not465 = select i1 %142, i1 %269, i1 false
@@ -7701,30 +7701,30 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv525.sroa.phi = phi ptr [ %.sroa.0596, %270 ], [ %.sroa.3, %290 ]
   %indvars.iv525.sroa.phi632.sroa.speculated = phi float [ -1.000000e+00, %270 ], [ 1.000000e+00, %290 ]
   %indvars.iv525.sroa.phi647.sroa.speculated = phi float [ %70, %270 ], [ %39, %290 ]
-  %.4364483 = phi float [ %.3363, %270 ], [ %298, %290 ]
-  %.3382482 = phi float [ %.2381, %270 ], [ %295, %290 ]
+  %.4360483 = phi float [ %.3359, %270 ], [ %298, %290 ]
+  %.3380482 = phi float [ %.2379, %270 ], [ %295, %290 ]
   %292 = load float, ptr %indvars.iv525.sroa.phi, align 4
   %293 = fmul float %indvars.iv525.sroa.phi647.sroa.speculated, %292
   %294 = fmul float %289, %293
-  %295 = fadd float %.3382482, %294
+  %295 = fadd float %.3380482, %294
   %296 = fmul float %292, %indvars.iv525.sroa.phi632.sroa.speculated
   %297 = fmul float %289, %296
-  %298 = fadd float %.4364483, %297
+  %298 = fadd float %.4360483, %297
   br i1 %291, label %290, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %290, %.loopexit468, %.critedge396.critedge
-  %.5389 = phi float [ %.4388, %.loopexit468 ], [ %.0384485, %.critedge396.critedge ], [ %.4388, %290 ]
-  %.4383 = phi float [ %.2381, %.loopexit468 ], [ %.0379486, %.critedge396.critedge ], [ %295, %290 ]
-  %.1378 = phi i1 [ true, %.loopexit468 ], [ %.0377487, %.critedge396.critedge ], [ true, %290 ]
-  %.3374 = phi i8 [ %.2373, %.loopexit468 ], [ %.1372488, %.critedge396.critedge ], [ %.2373, %290 ]
-  %.5365 = phi float [ %.3363, %.loopexit468 ], [ %.1361490, %.critedge396.critedge ], [ %298, %290 ]
-  %.6 = phi float [ %.5, %.loopexit468 ], [ %.1358491, %.critedge396.critedge ], [ %.5, %290 ]
+  %.4381 = phi float [ %.2379, %.loopexit468 ], [ %.0377486, %.critedge396.critedge ], [ %295, %290 ]
+  %.5376 = phi float [ %.4375, %.loopexit468 ], [ %.0371487, %.critedge396.critedge ], [ %.4375, %290 ]
+  %.1370 = phi i1 [ true, %.loopexit468 ], [ %.0369488, %.critedge396.critedge ], [ true, %290 ]
+  %.3366 = phi i8 [ %.2365, %.loopexit468 ], [ %.1364489, %.critedge396.critedge ], [ %.2365, %290 ]
+  %.5361 = phi float [ %.3359, %.loopexit468 ], [ %.1357490, %.critedge396.critedge ], [ %298, %290 ]
+  %.6 = phi float [ %.5, %.loopexit468 ], [ %.1353491, %.critedge396.critedge ], [ %.5, %290 ]
   %indvars.iv.next529 = add nsw i64 %indvars.iv528, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next529, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge400.not = and i1 %.not, %.1378
+  %brmerge400.not = and i1 %.not, %.1370
   br i1 %brmerge400.not, label %299, label %._crit_edge.thread
 
 299:                                              ; preds = %._crit_edge
@@ -7733,24 +7733,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %302 = sext i32 %301 to i64
   %303 = getelementptr inbounds float, ptr %91, i64 %302
   %304 = load float, ptr %303, align 4
-  %305 = fadd float %.5389, %304
+  %305 = fadd float %.5376, %304
   store float %305, ptr %303, align 4
   %306 = getelementptr inbounds float, ptr %93, i64 %302
   %307 = load float, ptr %306, align 4
-  %308 = fadd float %.4383, %307
+  %308 = fadd float %.4381, %307
   store float %308, ptr %306, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %299
-  %.1358.lcssa548 = phi float [ %.6, %._crit_edge ], [ %.6, %299 ], [ %.0357500, %.critedge ]
-  %.1361.lcssa547 = phi float [ %.5365, %._crit_edge ], [ %.5365, %299 ], [ %.0360499, %.critedge ]
-  %.1372.lcssa546 = phi i8 [ %.3374, %._crit_edge ], [ %.3374, %299 ], [ %.0371498, %.critedge ]
+  %.1353.lcssa548 = phi float [ %.6, %._crit_edge ], [ %.6, %299 ], [ %.0352500, %.critedge ]
+  %.1357.lcssa547 = phi float [ %.5361, %._crit_edge ], [ %.5361, %299 ], [ %.0356499, %.critedge ]
+  %.1364.lcssa546 = phi i8 [ %.3366, %._crit_edge ], [ %.3366, %299 ], [ %.0363498, %.critedge ]
   %exitcond533.not = icmp eq i64 %indvars.iv.next531, %wide.trip.count532
   br i1 %exitcond533.not, label %._crit_edge501, label %.critedge, !llvm.loop !66
 
 ._crit_edge501:                                   ; preds = %._crit_edge.thread
-  %309 = trunc nuw i8 %.1372.lcssa546 to i1
-  %310 = fcmp une float %.1358.lcssa548, 0.000000e+00
+  %309 = trunc nuw i8 %.1364.lcssa546 to i1
+  %310 = fcmp une float %.1353.lcssa548, 0.000000e+00
   br i1 %310, label %311, label %317
 
 311:                                              ; preds = %._crit_edge501
@@ -7758,12 +7758,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %313 = inttoptr i64 %312 to ptr
   %314 = getelementptr inbounds i8, ptr %313, i64 8
   %315 = load float, ptr %314, align 4
-  %316 = fadd float %.1358.lcssa548, %315
+  %316 = fadd float %.1353.lcssa548, %315
   store float %316, ptr %314, align 4
   br label %317
 
 317:                                              ; preds = %311, %._crit_edge501
-  %318 = fcmp une float %.1361.lcssa547, 0.000000e+00
+  %318 = fcmp une float %.1357.lcssa547, 0.000000e+00
   br i1 %318, label %319, label %.thread554
 
 319:                                              ; preds = %317
@@ -7771,12 +7771,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %321 = inttoptr i64 %320 to ptr
   %322 = getelementptr inbounds i8, ptr %321, i64 12
   %323 = load float, ptr %322, align 4
-  %324 = fadd float %.1361.lcssa547, %323
+  %324 = fadd float %.1357.lcssa547, %323
   store float %324, ptr %322, align 4
   br label %.thread554
 
 .thread554:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %319, %317
-  %.0371.lcssa552557 = phi i1 [ %309, %319 ], [ %309, %317 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0363.lcssa552557 = phi i1 [ %309, %319 ], [ %309, %317 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %325 = load i32, ptr %0, align 8
   %326 = mul nsw i32 %325, 12
   %327 = sext i32 %23 to i64
@@ -7786,7 +7786,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %331 = mul nsw i32 %330, 150
   %332 = add nsw i32 %331, %326
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %332)
-  %333 = select i1 %66, i1 %.0371.lcssa552557, i1 false
+  %333 = select i1 %66, i1 %.0363.lcssa552557, i1 false
   br i1 %333, label %334, label %345
 
 334:                                              ; preds = %.thread554
@@ -9114,8 +9114,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv600 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next601, %._crit_edge.thread ]
-  %.0427577 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1428.lcssa618, %._crit_edge.thread ]
-  %.0431576 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1432.lcssa617, %._crit_edge.thread ]
+  %.0420577 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1421.lcssa618, %._crit_edge.thread ]
+  %.0423576 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1424.lcssa617, %._crit_edge.thread ]
   %89 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv600
   %90 = load i32, ptr %89, align 4
   %91 = sext i32 %90 to i64
@@ -9161,12 +9161,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %307
   %indvars.iv598 = phi i64 [ %124, %.lr.ph.preheader ], [ %indvars.iv.next599, %307 ]
-  %.1428567 = phi float [ %.0427577, %.lr.ph.preheader ], [ %.6, %307 ]
-  %.1432566 = phi float [ %.0431576, %.lr.ph.preheader ], [ %.4435, %307 ]
-  %.0442564 = phi i1 [ false, %.lr.ph.preheader ], [ %.1443, %307 ]
-  %.0445563 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1446, %307 ]
-  %.0451560 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3454, %307 ]
-  %.0455559 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5460, %307 ]
+  %.1421567 = phi float [ %.0420577, %.lr.ph.preheader ], [ %.6, %307 ]
+  %.1424566 = phi float [ %.0423576, %.lr.ph.preheader ], [ %.4427, %307 ]
+  %.0432565 = phi i1 [ false, %.lr.ph.preheader ], [ %.1433, %307 ]
+  %.0434564 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5439, %307 ]
+  %.0440563 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3443, %307 ]
+  %.0448560 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1449, %307 ]
   %125 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %308, %307 ]
   %126 = load ptr, ptr %82, align 8
   %127 = load ptr, ptr %83, align 8
@@ -9348,31 +9348,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv592.sroa.phi694.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv592.sroa.phi704.sroa.speculated = phi float [ %36, %.preheader ], [ %65, %.thread ]
   %indvars.iv592.sroa.phi708.sroa.speculated = phi float [ %34, %.preheader ], [ %64, %.thread ]
-  %.0423553 = phi float [ %245, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.2429552 = phi float [ %246, %.preheader ], [ %.1428567, %.thread ]
-  %.2433551 = phi float [ %247, %.preheader ], [ %.1432566, %.thread ]
-  %.1452550 = phi float [ %239, %.preheader ], [ %.0451560, %.thread ]
-  %.1456549 = phi float [ %237, %.preheader ], [ %.0455559, %.thread ]
+  %.2422554 = phi float [ %246, %.preheader ], [ %.1421567, %.thread ]
+  %.2425553 = phi float [ %247, %.preheader ], [ %.1424566, %.thread ]
+  %.1435551 = phi float [ %237, %.preheader ], [ %.0434564, %.thread ]
+  %.1441550 = phi float [ %239, %.preheader ], [ %.0440563, %.thread ]
+  %.0456549 = phi float [ %245, %.preheader ], [ 0.000000e+00, %.thread ]
   %236 = load float, ptr %indvars.iv592.sroa.phi652, align 4
-  %237 = tail call float @llvm.fmuladd.f32(float %indvars.iv592.sroa.phi708.sroa.speculated, float %236, float %.1456549)
+  %237 = tail call float @llvm.fmuladd.f32(float %indvars.iv592.sroa.phi708.sroa.speculated, float %236, float %.1435551)
   %238 = load float, ptr %indvars.iv592.sroa.phi, align 4
-  %239 = tail call float @llvm.fmuladd.f32(float %indvars.iv592.sroa.phi704.sroa.speculated, float %238, float %.1452550)
+  %239 = tail call float @llvm.fmuladd.f32(float %indvars.iv592.sroa.phi704.sroa.speculated, float %238, float %.1441550)
   %240 = load float, ptr %indvars.iv592.sroa.phi664, align 4
   %241 = fmul float %indvars.iv592.sroa.phi708.sroa.speculated, %240
-  %242 = tail call float @llvm.fmuladd.f32(float %241, float %185, float %.0423553)
+  %242 = tail call float @llvm.fmuladd.f32(float %241, float %185, float %.0456549)
   %243 = load float, ptr %indvars.iv592.sroa.phi658, align 4
   %244 = fmul float %indvars.iv592.sroa.phi704.sroa.speculated, %243
   %245 = tail call float @llvm.fmuladd.f32(float %244, float %185, float %242)
-  %246 = tail call float @llvm.fmuladd.f32(float %236, float %indvars.iv592.sroa.phi694.sroa.speculated, float %.2429552)
-  %247 = tail call float @llvm.fmuladd.f32(float %238, float %indvars.iv592.sroa.phi694.sroa.speculated, float %.2433551)
+  %246 = tail call float @llvm.fmuladd.f32(float %236, float %indvars.iv592.sroa.phi694.sroa.speculated, float %.2422554)
+  %247 = tail call float @llvm.fmuladd.f32(float %238, float %indvars.iv592.sroa.phi694.sroa.speculated, float %.2425553)
   br i1 %235, label %.preheader, label %.loopexit545, !llvm.loop !76
 
 .loopexit545:                                     ; preds = %.preheader, %.critedge724
-  %.2457 = phi float [ %.0455559, %.critedge724 ], [ %237, %.preheader ]
-  %.2453 = phi float [ %.0451560, %.critedge724 ], [ %239, %.preheader ]
-  %.3434 = phi float [ %.1432566, %.critedge724 ], [ %247, %.preheader ]
-  %.3430 = phi float [ %.1428567, %.critedge724 ], [ %246, %.preheader ]
-  %.1424 = phi float [ 0.000000e+00, %.critedge724 ], [ %245, %.preheader ]
+  %.1457 = phi float [ 0.000000e+00, %.critedge724 ], [ %245, %.preheader ]
+  %.2442 = phi float [ %.0440563, %.critedge724 ], [ %239, %.preheader ]
+  %.2436 = phi float [ %.0434564, %.critedge724 ], [ %237, %.preheader ]
+  %.3426 = phi float [ %.1424566, %.critedge724 ], [ %247, %.preheader ]
+  %.3 = phi float [ %.1421567, %.critedge724 ], [ %246, %.preheader ]
   %248 = fcmp uge float %184, %42
   %.not542 = select i1 %133, i1 %248, i1 false
   br i1 %.not542, label %.loopexit, label %249
@@ -9417,34 +9417,34 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv595.sroa.phi = phi ptr [ %.sroa.0671, %249 ], [ %.sroa.3, %282 ]
   %indvars.iv595.sroa.phi696.sroa.speculated = phi float [ -1.000000e+00, %249 ], [ 1.000000e+00, %282 ]
   %indvars.iv595.sroa.phi710.sroa.speculated = phi float [ %64, %249 ], [ %34, %282 ]
-  %.2425557 = phi float [ %.1424, %249 ], [ %289, %282 ]
-  %.4556 = phi float [ %.3430, %249 ], [ %292, %282 ]
-  %.3458555 = phi float [ %.2457, %249 ], [ %287, %282 ]
+  %.4558 = phi float [ %.3, %249 ], [ %292, %282 ]
+  %.3437556 = phi float [ %.2436, %249 ], [ %287, %282 ]
+  %.2458555 = phi float [ %.1457, %249 ], [ %289, %282 ]
   %284 = load float, ptr %indvars.iv595.sroa.phi, align 4
   %285 = fmul float %indvars.iv595.sroa.phi710.sroa.speculated, %284
   %286 = fmul float %281, %285
-  %287 = fsub float %.3458555, %286
+  %287 = fsub float %.3437556, %286
   %288 = fmul float %279, %285
-  %289 = fsub float %.2425557, %288
+  %289 = fsub float %.2458555, %288
   %290 = fmul float %284, %indvars.iv595.sroa.phi696.sroa.speculated
   %291 = fmul float %281, %290
-  %292 = fsub float %.4556, %291
+  %292 = fsub float %.4558, %291
   br i1 %283, label %282, label %.loopexit, !llvm.loop !77
 
 .loopexit:                                        ; preds = %282, %.loopexit545
-  %.4459 = phi float [ %.2457, %.loopexit545 ], [ %287, %282 ]
-  %.5 = phi float [ %.3430, %.loopexit545 ], [ %292, %282 ]
-  %.3 = phi float [ %.1424, %.loopexit545 ], [ %289, %282 ]
-  %293 = fcmp une float %.3, 0.000000e+00
+  %.3459 = phi float [ %.1457, %.loopexit545 ], [ %289, %282 ]
+  %.4438 = phi float [ %.2436, %.loopexit545 ], [ %287, %282 ]
+  %.5 = phi float [ %.3, %.loopexit545 ], [ %292, %282 ]
+  %293 = fcmp une float %.3459, 0.000000e+00
   br i1 %293, label %294, label %307
 
 294:                                              ; preds = %.loopexit
-  %295 = insertelement <2 x float> poison, float %.3, i64 0
+  %295 = insertelement <2 x float> poison, float %.3459, i64 0
   %296 = shufflevector <2 x float> %295, <2 x float> poison, <2 x i32> zeroinitializer
   %297 = fmul <2 x float> %147, %296
-  %298 = fmul float %148, %.3
+  %298 = fmul float %148, %.3459
   %299 = fadd <2 x float> %125, %297
-  %300 = fadd float %.0445563, %298
+  %300 = fadd float %.0448560, %298
   %301 = getelementptr inbounds float, ptr %72, i64 %141
   %302 = load <2 x float>, ptr %301, align 4
   %303 = fsub <2 x float> %302, %297
@@ -9456,19 +9456,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %307
 
 307:                                              ; preds = %.loopexit, %294, %.critedge468
-  %.5460 = phi float [ %.4459, %294 ], [ %.4459, %.loopexit ], [ %.0455559, %.critedge468 ]
-  %.3454 = phi float [ %.2453, %294 ], [ %.2453, %.loopexit ], [ %.0451560, %.critedge468 ]
-  %.1446 = phi float [ %300, %294 ], [ %.0445563, %.loopexit ], [ %.0445563, %.critedge468 ]
-  %.1443 = phi i1 [ true, %294 ], [ true, %.loopexit ], [ %.0442564, %.critedge468 ]
-  %.4435 = phi float [ %.3434, %294 ], [ %.3434, %.loopexit ], [ %.1432566, %.critedge468 ]
-  %.6 = phi float [ %.5, %294 ], [ %.5, %.loopexit ], [ %.1428567, %.critedge468 ]
+  %.1449 = phi float [ %300, %294 ], [ %.0448560, %.loopexit ], [ %.0448560, %.critedge468 ]
+  %.3443 = phi float [ %.2442, %294 ], [ %.2442, %.loopexit ], [ %.0440563, %.critedge468 ]
+  %.5439 = phi float [ %.4438, %294 ], [ %.4438, %.loopexit ], [ %.0434564, %.critedge468 ]
+  %.1433 = phi i1 [ true, %294 ], [ true, %.loopexit ], [ %.0432565, %.critedge468 ]
+  %.4427 = phi float [ %.3426, %294 ], [ %.3426, %.loopexit ], [ %.1424566, %.critedge468 ]
+  %.6 = phi float [ %.5, %294 ], [ %.5, %.loopexit ], [ %.1421567, %.critedge468 ]
   %308 = phi <2 x float> [ %299, %294 ], [ %125, %.loopexit ], [ %125, %.critedge468 ]
   %indvars.iv.next599 = add nsw i64 %indvars.iv598, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next599, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %307
-  br i1 %.1443, label %309, label %._crit_edge.thread
+  br i1 %.1433, label %309, label %._crit_edge.thread
 
 309:                                              ; preds = %._crit_edge
   %310 = getelementptr inbounds float, ptr %72, i64 %102
@@ -9477,7 +9477,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %312, ptr %310, align 4
   %313 = getelementptr i8, ptr %310, i64 8
   %314 = load float, ptr %313, align 4
-  %315 = fadd float %.1446, %314
+  %315 = fadd float %.1449, %314
   store float %315, ptr %313, align 4
   br i1 %.not, label %325, label %316
 
@@ -9490,7 +9490,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %321, ptr %319, align 4
   %322 = getelementptr i8, ptr %319, i64 8
   %323 = load float, ptr %322, align 4
-  %324 = fadd float %.1446, %323
+  %324 = fadd float %.1449, %323
   store float %324, ptr %322, align 4
   br label %325
 
@@ -9503,22 +9503,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %329 = sext i32 %328 to i64
   %330 = getelementptr inbounds float, ptr %86, i64 %329
   %331 = load float, ptr %330, align 4
-  %332 = fadd float %.5460, %331
+  %332 = fadd float %.5439, %331
   store float %332, ptr %330, align 4
   %333 = getelementptr inbounds float, ptr %88, i64 %329
   %334 = load float, ptr %333, align 4
-  %335 = fadd float %.3454, %334
+  %335 = fadd float %.3443, %334
   store float %335, ptr %333, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %326, %325
-  %.1428.lcssa618 = phi float [ %.6, %._crit_edge ], [ %.6, %326 ], [ %.6, %325 ], [ %.0427577, %.critedge ]
-  %.1432.lcssa617 = phi float [ %.4435, %._crit_edge ], [ %.4435, %326 ], [ %.4435, %325 ], [ %.0431576, %.critedge ]
+  %.1421.lcssa618 = phi float [ %.6, %._crit_edge ], [ %.6, %326 ], [ %.6, %325 ], [ %.0420577, %.critedge ]
+  %.1424.lcssa617 = phi float [ %.4427, %._crit_edge ], [ %.4427, %326 ], [ %.4427, %325 ], [ %.0423576, %.critedge ]
   %exitcond604.not = icmp eq i64 %indvars.iv.next601, %wide.trip.count603
   br i1 %exitcond604.not, label %._crit_edge578, label %.critedge, !llvm.loop !79
 
 ._crit_edge578:                                   ; preds = %._crit_edge.thread
-  %336 = fcmp une float %.1428.lcssa618, 0.000000e+00
+  %336 = fcmp une float %.1421.lcssa618, 0.000000e+00
   br i1 %336, label %337, label %343
 
 337:                                              ; preds = %._crit_edge578
@@ -9526,12 +9526,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %339 = inttoptr i64 %338 to ptr
   %340 = getelementptr inbounds i8, ptr %339, i64 8
   %341 = load float, ptr %340, align 4
-  %342 = fadd float %.1428.lcssa618, %341
+  %342 = fadd float %.1421.lcssa618, %341
   store float %342, ptr %340, align 4
   br label %343
 
 343:                                              ; preds = %337, %._crit_edge578
-  %344 = fcmp une float %.1432.lcssa617, 0.000000e+00
+  %344 = fcmp une float %.1424.lcssa617, 0.000000e+00
   br i1 %344, label %345, label %.thread622
 
 345:                                              ; preds = %343
@@ -9539,7 +9539,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %347 = inttoptr i64 %346 to ptr
   %348 = getelementptr inbounds i8, ptr %347, i64 12
   %349 = load float, ptr %348, align 4
-  %350 = fadd float %.1432.lcssa617, %349
+  %350 = fadd float %.1424.lcssa617, %349
   store float %350, ptr %348, align 4
   br label %.thread622
 
@@ -10346,8 +10346,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv494 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next495, %._crit_edge.thread ]
-  %.0351473 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1352.lcssa510, %._crit_edge.thread ]
-  %.0355472 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1356.lcssa509, %._crit_edge.thread ]
+  %.0350473 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1351.lcssa510, %._crit_edge.thread ]
+  %.0353472 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1354.lcssa509, %._crit_edge.thread ]
   %84 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv494
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
@@ -10401,11 +10401,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 128:                                              ; preds = %.lr.ph, %.loopexit
   %indvars.iv492 = phi i64 [ %127, %.lr.ph ], [ %indvars.iv.next493, %.loopexit ]
-  %.1352466 = phi float [ %.0351473, %.lr.ph ], [ %.6, %.loopexit ]
-  %.1356465 = phi float [ %.0355472, %.lr.ph ], [ %.4359, %.loopexit ]
-  %.0362464 = phi i1 [ false, %.lr.ph ], [ %.1363, %.loopexit ]
-  %.0369462 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3372, %.loopexit ]
-  %.0373461 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5378, %.loopexit ]
+  %.1351466 = phi float [ %.0350473, %.lr.ph ], [ %.6, %.loopexit ]
+  %.1354465 = phi float [ %.0353472, %.lr.ph ], [ %.4357, %.loopexit ]
+  %.0360464 = phi i1 [ false, %.lr.ph ], [ %.1361, %.loopexit ]
+  %.0362463 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5367, %.loopexit ]
+  %.0368462 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3371, %.loopexit ]
   br i1 %126, label %.critedge385, label %129
 
 129:                                              ; preds = %128
@@ -10567,23 +10567,23 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv486.sroa.phi567.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv486.sroa.phi577.sroa.speculated = phi float [ %36, %.preheader ], [ %62, %.thread ]
   %indvars.iv486.sroa.phi581.sroa.speculated = phi float [ %34, %.preheader ], [ %61, %.thread ]
-  %.2353456 = phi float [ %232, %.preheader ], [ %.1352466, %.thread ]
-  %.2357455 = phi float [ %233, %.preheader ], [ %.1356465, %.thread ]
-  %.1370454 = phi float [ %231, %.preheader ], [ %.0369462, %.thread ]
-  %.1374453 = phi float [ %229, %.preheader ], [ %.0373461, %.thread ]
+  %.2352456 = phi float [ %232, %.preheader ], [ %.1351466, %.thread ]
+  %.2355455 = phi float [ %233, %.preheader ], [ %.1354465, %.thread ]
+  %.1363454 = phi float [ %229, %.preheader ], [ %.0362463, %.thread ]
+  %.1369453 = phi float [ %231, %.preheader ], [ %.0368462, %.thread ]
   %228 = load float, ptr %indvars.iv486.sroa.phi537, align 4
-  %229 = tail call float @llvm.fmuladd.f32(float %indvars.iv486.sroa.phi581.sroa.speculated, float %228, float %.1374453)
+  %229 = tail call float @llvm.fmuladd.f32(float %indvars.iv486.sroa.phi581.sroa.speculated, float %228, float %.1363454)
   %230 = load float, ptr %indvars.iv486.sroa.phi, align 4
-  %231 = tail call float @llvm.fmuladd.f32(float %indvars.iv486.sroa.phi577.sroa.speculated, float %230, float %.1370454)
-  %232 = tail call float @llvm.fmuladd.f32(float %228, float %indvars.iv486.sroa.phi567.sroa.speculated, float %.2353456)
-  %233 = tail call float @llvm.fmuladd.f32(float %230, float %indvars.iv486.sroa.phi567.sroa.speculated, float %.2357455)
+  %231 = tail call float @llvm.fmuladd.f32(float %indvars.iv486.sroa.phi577.sroa.speculated, float %230, float %.1369453)
+  %232 = tail call float @llvm.fmuladd.f32(float %228, float %indvars.iv486.sroa.phi567.sroa.speculated, float %.2352456)
+  %233 = tail call float @llvm.fmuladd.f32(float %230, float %indvars.iv486.sroa.phi567.sroa.speculated, float %.2355455)
   br i1 %227, label %.preheader, label %.loopexit449, !llvm.loop !89
 
 .loopexit449:                                     ; preds = %.preheader, %.critedge594
-  %.2375 = phi float [ %.0373461, %.critedge594 ], [ %229, %.preheader ]
-  %.2371 = phi float [ %.0369462, %.critedge594 ], [ %231, %.preheader ]
-  %.3358 = phi float [ %.1356465, %.critedge594 ], [ %233, %.preheader ]
-  %.3 = phi float [ %.1352466, %.critedge594 ], [ %232, %.preheader ]
+  %.2370 = phi float [ %.0368462, %.critedge594 ], [ %231, %.preheader ]
+  %.2364 = phi float [ %.0362463, %.critedge594 ], [ %229, %.preheader ]
+  %.3356 = phi float [ %.1354465, %.critedge594 ], [ %233, %.preheader ]
+  %.3 = phi float [ %.1351466, %.critedge594 ], [ %232, %.preheader ]
   %234 = fcmp uge float %185, %41
   %.not446 = select i1 %133, i1 %234, i1 false
   br i1 %.not446, label %.loopexit, label %235
@@ -10613,28 +10613,28 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv489.sroa.phi569.sroa.speculated = phi float [ -1.000000e+00, %235 ], [ 1.000000e+00, %252 ]
   %indvars.iv489.sroa.phi583.sroa.speculated = phi float [ %61, %235 ], [ %34, %252 ]
   %.4459 = phi float [ %.3, %235 ], [ %260, %252 ]
-  %.3376458 = phi float [ %.2375, %235 ], [ %257, %252 ]
+  %.3365458 = phi float [ %.2364, %235 ], [ %257, %252 ]
   %254 = load float, ptr %indvars.iv489.sroa.phi, align 4
   %255 = fmul float %indvars.iv489.sroa.phi583.sroa.speculated, %254
   %256 = fmul float %251, %255
-  %257 = fsub float %.3376458, %256
+  %257 = fsub float %.3365458, %256
   %258 = fmul float %254, %indvars.iv489.sroa.phi569.sroa.speculated
   %259 = fmul float %251, %258
   %260 = fsub float %.4459, %259
   br i1 %253, label %252, label %.loopexit, !llvm.loop !90
 
 .loopexit:                                        ; preds = %252, %.loopexit449, %.critedge385
-  %.5378 = phi float [ %.0373461, %.critedge385 ], [ %.2375, %.loopexit449 ], [ %257, %252 ]
-  %.3372 = phi float [ %.0369462, %.critedge385 ], [ %.2371, %.loopexit449 ], [ %.2371, %252 ]
-  %.1363 = phi i1 [ %.0362464, %.critedge385 ], [ true, %.loopexit449 ], [ true, %252 ]
-  %.4359 = phi float [ %.1356465, %.critedge385 ], [ %.3358, %.loopexit449 ], [ %.3358, %252 ]
-  %.6 = phi float [ %.1352466, %.critedge385 ], [ %.3, %.loopexit449 ], [ %260, %252 ]
+  %.3371 = phi float [ %.0368462, %.critedge385 ], [ %.2370, %.loopexit449 ], [ %.2370, %252 ]
+  %.5367 = phi float [ %.0362463, %.critedge385 ], [ %.2364, %.loopexit449 ], [ %257, %252 ]
+  %.1361 = phi i1 [ %.0360464, %.critedge385 ], [ true, %.loopexit449 ], [ true, %252 ]
+  %.4357 = phi float [ %.1354465, %.critedge385 ], [ %.3356, %.loopexit449 ], [ %.3356, %252 ]
+  %.6 = phi float [ %.1351466, %.critedge385 ], [ %.3, %.loopexit449 ], [ %260, %252 ]
   %indvars.iv.next493 = add nsw i64 %indvars.iv492, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next493, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %128, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge389.not = and i1 %.not, %.1363
+  %brmerge389.not = and i1 %.not, %.1361
   br i1 %brmerge389.not, label %261, label %._crit_edge.thread
 
 261:                                              ; preds = %._crit_edge
@@ -10643,22 +10643,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %264 = sext i32 %263 to i64
   %265 = getelementptr inbounds float, ptr %81, i64 %264
   %266 = load float, ptr %265, align 4
-  %267 = fadd float %.5378, %266
+  %267 = fadd float %.5367, %266
   store float %267, ptr %265, align 4
   %268 = getelementptr inbounds float, ptr %83, i64 %264
   %269 = load float, ptr %268, align 4
-  %270 = fadd float %.3372, %269
+  %270 = fadd float %.3371, %269
   store float %270, ptr %268, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %261
-  %.1352.lcssa510 = phi float [ %.6, %._crit_edge ], [ %.6, %261 ], [ %.0351473, %.critedge ]
-  %.1356.lcssa509 = phi float [ %.4359, %._crit_edge ], [ %.4359, %261 ], [ %.0355472, %.critedge ]
+  %.1351.lcssa510 = phi float [ %.6, %._crit_edge ], [ %.6, %261 ], [ %.0350473, %.critedge ]
+  %.1354.lcssa509 = phi float [ %.4357, %._crit_edge ], [ %.4357, %261 ], [ %.0353472, %.critedge ]
   %exitcond498.not = icmp eq i64 %indvars.iv.next495, %wide.trip.count497
   br i1 %exitcond498.not, label %._crit_edge474, label %.critedge, !llvm.loop !92
 
 ._crit_edge474:                                   ; preds = %._crit_edge.thread
-  %271 = fcmp une float %.1352.lcssa510, 0.000000e+00
+  %271 = fcmp une float %.1351.lcssa510, 0.000000e+00
   br i1 %271, label %272, label %278
 
 272:                                              ; preds = %._crit_edge474
@@ -10666,12 +10666,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %274 = inttoptr i64 %273 to ptr
   %275 = getelementptr inbounds i8, ptr %274, i64 8
   %276 = load float, ptr %275, align 4
-  %277 = fadd float %.1352.lcssa510, %276
+  %277 = fadd float %.1351.lcssa510, %276
   store float %277, ptr %275, align 4
   br label %278
 
 278:                                              ; preds = %272, %._crit_edge474
-  %279 = fcmp une float %.1356.lcssa509, 0.000000e+00
+  %279 = fcmp une float %.1354.lcssa509, 0.000000e+00
   br i1 %279, label %280, label %.thread514
 
 280:                                              ; preds = %278
@@ -10679,7 +10679,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %282 = inttoptr i64 %281 to ptr
   %283 = getelementptr inbounds i8, ptr %282, i64 12
   %284 = load float, ptr %283, align 4
-  %285 = fadd float %.1356.lcssa509, %284
+  %285 = fadd float %.1354.lcssa509, %284
   store float %285, ptr %283, align 4
   br label %.thread514
 
@@ -11899,8 +11899,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv541 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next542, %._crit_edge.thread ]
-  %.0367518 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1368.lcssa559, %._crit_edge.thread ]
-  %.0372517 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1373.lcssa558, %._crit_edge.thread ]
+  %.0361518 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1362.lcssa559, %._crit_edge.thread ]
+  %.0364517 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1365.lcssa558, %._crit_edge.thread ]
   %76 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv541
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
@@ -11946,12 +11946,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %278
   %indvars.iv539 = phi i64 [ %111, %.lr.ph.preheader ], [ %indvars.iv.next540, %278 ]
-  %.1368508 = phi float [ %.0367518, %.lr.ph.preheader ], [ %.6, %278 ]
-  %.1373507 = phi float [ %.0372517, %.lr.ph.preheader ], [ %.4376, %278 ]
-  %.0382506 = phi i1 [ false, %.lr.ph.preheader ], [ %.1383, %278 ]
-  %.0386504 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1387, %278 ]
-  %.0392501 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3395, %278 ]
-  %.0396500 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5401, %278 ]
+  %.1362508 = phi float [ %.0361518, %.lr.ph.preheader ], [ %.6, %278 ]
+  %.1365507 = phi float [ %.0364517, %.lr.ph.preheader ], [ %.4368, %278 ]
+  %.0373506 = phi i1 [ false, %.lr.ph.preheader ], [ %.1374, %278 ]
+  %.0375505 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5380, %278 ]
+  %.0381504 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3384, %278 ]
+  %.0389501 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1390, %278 ]
   %112 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %279, %278 ]
   %113 = load ptr, ptr %69, align 8
   %114 = load ptr, ptr %70, align 8
@@ -12117,31 +12117,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv533.sroa.phi635.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv533.sroa.phi645.sroa.speculated = phi float [ %36, %.preheader ], [ %56, %.thread ]
   %indvars.iv533.sroa.phi649.sroa.speculated = phi float [ %34, %.preheader ], [ %55, %.thread ]
-  %.0364494 = phi float [ %216, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.2369493 = phi float [ %217, %.preheader ], [ %.1368508, %.thread ]
-  %.2374492 = phi float [ %218, %.preheader ], [ %.1373507, %.thread ]
-  %.1393491 = phi float [ %210, %.preheader ], [ %.0392501, %.thread ]
-  %.1397490 = phi float [ %208, %.preheader ], [ %.0396500, %.thread ]
+  %.2363495 = phi float [ %217, %.preheader ], [ %.1362508, %.thread ]
+  %.2366494 = phi float [ %218, %.preheader ], [ %.1365507, %.thread ]
+  %.1376492 = phi float [ %208, %.preheader ], [ %.0375505, %.thread ]
+  %.1382491 = phi float [ %210, %.preheader ], [ %.0381504, %.thread ]
+  %.0397490 = phi float [ %216, %.preheader ], [ 0.000000e+00, %.thread ]
   %207 = load float, ptr %indvars.iv533.sroa.phi593, align 4
-  %208 = tail call float @llvm.fmuladd.f32(float %indvars.iv533.sroa.phi649.sroa.speculated, float %207, float %.1397490)
+  %208 = tail call float @llvm.fmuladd.f32(float %indvars.iv533.sroa.phi649.sroa.speculated, float %207, float %.1376492)
   %209 = load float, ptr %indvars.iv533.sroa.phi, align 4
-  %210 = tail call float @llvm.fmuladd.f32(float %indvars.iv533.sroa.phi645.sroa.speculated, float %209, float %.1393491)
+  %210 = tail call float @llvm.fmuladd.f32(float %indvars.iv533.sroa.phi645.sroa.speculated, float %209, float %.1382491)
   %211 = load float, ptr %indvars.iv533.sroa.phi605, align 4
   %212 = fmul float %indvars.iv533.sroa.phi649.sroa.speculated, %211
-  %213 = tail call float @llvm.fmuladd.f32(float %212, float %172, float %.0364494)
+  %213 = tail call float @llvm.fmuladd.f32(float %212, float %172, float %.0397490)
   %214 = load float, ptr %indvars.iv533.sroa.phi599, align 4
   %215 = fmul float %indvars.iv533.sroa.phi645.sroa.speculated, %214
   %216 = tail call float @llvm.fmuladd.f32(float %215, float %172, float %213)
-  %217 = tail call float @llvm.fmuladd.f32(float %207, float %indvars.iv533.sroa.phi635.sroa.speculated, float %.2369493)
-  %218 = tail call float @llvm.fmuladd.f32(float %209, float %indvars.iv533.sroa.phi635.sroa.speculated, float %.2374492)
+  %217 = tail call float @llvm.fmuladd.f32(float %207, float %indvars.iv533.sroa.phi635.sroa.speculated, float %.2363495)
+  %218 = tail call float @llvm.fmuladd.f32(float %209, float %indvars.iv533.sroa.phi635.sroa.speculated, float %.2366494)
   br i1 %206, label %.preheader, label %.loopexit486, !llvm.loop !102
 
 .loopexit486:                                     ; preds = %.preheader, %.critedge665
-  %.2398 = phi float [ %.0396500, %.critedge665 ], [ %208, %.preheader ]
-  %.2394 = phi float [ %.0392501, %.critedge665 ], [ %210, %.preheader ]
-  %.3375 = phi float [ %.1373507, %.critedge665 ], [ %218, %.preheader ]
-  %.3370 = phi float [ %.1368508, %.critedge665 ], [ %217, %.preheader ]
-  %.1365 = phi float [ 0.000000e+00, %.critedge665 ], [ %216, %.preheader ]
+  %.1398 = phi float [ 0.000000e+00, %.critedge665 ], [ %216, %.preheader ]
+  %.2383 = phi float [ %.0381504, %.critedge665 ], [ %210, %.preheader ]
+  %.2377 = phi float [ %.0375505, %.critedge665 ], [ %208, %.preheader ]
+  %.3367 = phi float [ %.1365507, %.critedge665 ], [ %218, %.preheader ]
+  %.3 = phi float [ %.1362508, %.critedge665 ], [ %217, %.preheader ]
   %219 = fcmp uge float %171, %42
   %.not483 = select i1 %120, i1 %219, i1 false
   br i1 %.not483, label %.loopexit, label %220
@@ -12186,34 +12186,34 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv536.sroa.phi = phi ptr [ %.sroa.0612, %220 ], [ %.sroa.3, %253 ]
   %indvars.iv536.sroa.phi637.sroa.speculated = phi float [ -1.000000e+00, %220 ], [ 1.000000e+00, %253 ]
   %indvars.iv536.sroa.phi651.sroa.speculated = phi float [ %55, %220 ], [ %34, %253 ]
-  %.2366498 = phi float [ %.1365, %220 ], [ %260, %253 ]
-  %.4497 = phi float [ %.3370, %220 ], [ %263, %253 ]
-  %.3399496 = phi float [ %.2398, %220 ], [ %258, %253 ]
+  %.4499 = phi float [ %.3, %220 ], [ %263, %253 ]
+  %.3378497 = phi float [ %.2377, %220 ], [ %258, %253 ]
+  %.2399496 = phi float [ %.1398, %220 ], [ %260, %253 ]
   %255 = load float, ptr %indvars.iv536.sroa.phi, align 4
   %256 = fmul float %indvars.iv536.sroa.phi651.sroa.speculated, %255
   %257 = fmul float %252, %256
-  %258 = fsub float %.3399496, %257
+  %258 = fsub float %.3378497, %257
   %259 = fmul float %250, %256
-  %260 = fsub float %.2366498, %259
+  %260 = fsub float %.2399496, %259
   %261 = fmul float %255, %indvars.iv536.sroa.phi637.sroa.speculated
   %262 = fmul float %252, %261
-  %263 = fsub float %.4497, %262
+  %263 = fsub float %.4499, %262
   br i1 %254, label %253, label %.loopexit, !llvm.loop !103
 
 .loopexit:                                        ; preds = %253, %.loopexit486
-  %.4400 = phi float [ %.2398, %.loopexit486 ], [ %258, %253 ]
-  %.5 = phi float [ %.3370, %.loopexit486 ], [ %263, %253 ]
-  %.3 = phi float [ %.1365, %.loopexit486 ], [ %260, %253 ]
-  %264 = fcmp une float %.3, 0.000000e+00
+  %.3400 = phi float [ %.1398, %.loopexit486 ], [ %260, %253 ]
+  %.4379 = phi float [ %.2377, %.loopexit486 ], [ %258, %253 ]
+  %.5 = phi float [ %.3, %.loopexit486 ], [ %263, %253 ]
+  %264 = fcmp une float %.3400, 0.000000e+00
   br i1 %264, label %265, label %278
 
 265:                                              ; preds = %.loopexit
-  %266 = insertelement <2 x float> poison, float %.3, i64 0
+  %266 = insertelement <2 x float> poison, float %.3400, i64 0
   %267 = shufflevector <2 x float> %266, <2 x float> poison, <2 x i32> zeroinitializer
   %268 = fmul <2 x float> %134, %267
-  %269 = fmul float %135, %.3
+  %269 = fmul float %135, %.3400
   %270 = fadd <2 x float> %112, %268
-  %271 = fadd float %.0386504, %269
+  %271 = fadd float %.0389501, %269
   %272 = getelementptr inbounds float, ptr %59, i64 %128
   %273 = load <2 x float>, ptr %272, align 4
   %274 = fsub <2 x float> %273, %268
@@ -12225,19 +12225,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %278
 
 278:                                              ; preds = %.loopexit, %265, %.critedge409
-  %.5401 = phi float [ %.4400, %265 ], [ %.4400, %.loopexit ], [ %.0396500, %.critedge409 ]
-  %.3395 = phi float [ %.2394, %265 ], [ %.2394, %.loopexit ], [ %.0392501, %.critedge409 ]
-  %.1387 = phi float [ %271, %265 ], [ %.0386504, %.loopexit ], [ %.0386504, %.critedge409 ]
-  %.1383 = phi i1 [ true, %265 ], [ true, %.loopexit ], [ %.0382506, %.critedge409 ]
-  %.4376 = phi float [ %.3375, %265 ], [ %.3375, %.loopexit ], [ %.1373507, %.critedge409 ]
-  %.6 = phi float [ %.5, %265 ], [ %.5, %.loopexit ], [ %.1368508, %.critedge409 ]
+  %.1390 = phi float [ %271, %265 ], [ %.0389501, %.loopexit ], [ %.0389501, %.critedge409 ]
+  %.3384 = phi float [ %.2383, %265 ], [ %.2383, %.loopexit ], [ %.0381504, %.critedge409 ]
+  %.5380 = phi float [ %.4379, %265 ], [ %.4379, %.loopexit ], [ %.0375505, %.critedge409 ]
+  %.1374 = phi i1 [ true, %265 ], [ true, %.loopexit ], [ %.0373506, %.critedge409 ]
+  %.4368 = phi float [ %.3367, %265 ], [ %.3367, %.loopexit ], [ %.1365507, %.critedge409 ]
+  %.6 = phi float [ %.5, %265 ], [ %.5, %.loopexit ], [ %.1362508, %.critedge409 ]
   %279 = phi <2 x float> [ %270, %265 ], [ %112, %.loopexit ], [ %112, %.critedge409 ]
   %indvars.iv.next540 = add nsw i64 %indvars.iv539, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next540, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %278
-  br i1 %.1383, label %280, label %._crit_edge.thread
+  br i1 %.1374, label %280, label %._crit_edge.thread
 
 280:                                              ; preds = %._crit_edge
   %281 = getelementptr inbounds float, ptr %59, i64 %89
@@ -12246,7 +12246,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %283, ptr %281, align 4
   %284 = getelementptr i8, ptr %281, i64 8
   %285 = load float, ptr %284, align 4
-  %286 = fadd float %.1387, %285
+  %286 = fadd float %.1390, %285
   store float %286, ptr %284, align 4
   br i1 %.not, label %296, label %287
 
@@ -12259,7 +12259,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %292, ptr %290, align 4
   %293 = getelementptr i8, ptr %290, i64 8
   %294 = load float, ptr %293, align 4
-  %295 = fadd float %.1387, %294
+  %295 = fadd float %.1390, %294
   store float %295, ptr %293, align 4
   br label %296
 
@@ -12272,22 +12272,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %300 = sext i32 %299 to i64
   %301 = getelementptr inbounds float, ptr %73, i64 %300
   %302 = load float, ptr %301, align 4
-  %303 = fadd float %.5401, %302
+  %303 = fadd float %.5380, %302
   store float %303, ptr %301, align 4
   %304 = getelementptr inbounds float, ptr %75, i64 %300
   %305 = load float, ptr %304, align 4
-  %306 = fadd float %.3395, %305
+  %306 = fadd float %.3384, %305
   store float %306, ptr %304, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %297, %296
-  %.1368.lcssa559 = phi float [ %.6, %._crit_edge ], [ %.6, %297 ], [ %.6, %296 ], [ %.0367518, %.critedge ]
-  %.1373.lcssa558 = phi float [ %.4376, %._crit_edge ], [ %.4376, %297 ], [ %.4376, %296 ], [ %.0372517, %.critedge ]
+  %.1362.lcssa559 = phi float [ %.6, %._crit_edge ], [ %.6, %297 ], [ %.6, %296 ], [ %.0361518, %.critedge ]
+  %.1365.lcssa558 = phi float [ %.4368, %._crit_edge ], [ %.4368, %297 ], [ %.4368, %296 ], [ %.0364517, %.critedge ]
   %exitcond545.not = icmp eq i64 %indvars.iv.next542, %wide.trip.count544
   br i1 %exitcond545.not, label %._crit_edge519, label %.critedge, !llvm.loop !105
 
 ._crit_edge519:                                   ; preds = %._crit_edge.thread
-  %307 = fcmp une float %.1368.lcssa559, 0.000000e+00
+  %307 = fcmp une float %.1362.lcssa559, 0.000000e+00
   br i1 %307, label %308, label %314
 
 308:                                              ; preds = %._crit_edge519
@@ -12295,12 +12295,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %310 = inttoptr i64 %309 to ptr
   %311 = getelementptr inbounds i8, ptr %310, i64 8
   %312 = load float, ptr %311, align 4
-  %313 = fadd float %.1368.lcssa559, %312
+  %313 = fadd float %.1362.lcssa559, %312
   store float %313, ptr %311, align 4
   br label %314
 
 314:                                              ; preds = %308, %._crit_edge519
-  %315 = fcmp une float %.1373.lcssa558, 0.000000e+00
+  %315 = fcmp une float %.1365.lcssa558, 0.000000e+00
   br i1 %315, label %316, label %.thread563
 
 316:                                              ; preds = %314
@@ -12308,7 +12308,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %318 = inttoptr i64 %317 to ptr
   %319 = getelementptr inbounds i8, ptr %318, i64 12
   %320 = load float, ptr %319, align 4
-  %321 = fadd float %.1373.lcssa558, %320
+  %321 = fadd float %.1365.lcssa558, %320
   store float %321, ptr %319, align 4
   br label %.thread563
 
@@ -13075,8 +13075,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv448 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next449, %._crit_edge.thread ]
-  %.0306427 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1307.lcssa464, %._crit_edge.thread ]
-  %.0309426 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1310.lcssa463, %._crit_edge.thread ]
+  %.0304427 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1305.lcssa464, %._crit_edge.thread ]
+  %.0307426 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1308.lcssa463, %._crit_edge.thread ]
   %74 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv448
   %75 = load i32, ptr %74, align 4
   %76 = sext i32 %75 to i64
@@ -13130,11 +13130,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 118:                                              ; preds = %.lr.ph, %.loopexit
   %indvars.iv446 = phi i64 [ %117, %.lr.ph ], [ %indvars.iv.next447, %.loopexit ]
-  %.1307420 = phi float [ %.0306427, %.lr.ph ], [ %.6, %.loopexit ]
-  %.1310419 = phi float [ %.0309426, %.lr.ph ], [ %.4313, %.loopexit ]
-  %.0316418 = phi i1 [ false, %.lr.ph ], [ %.1317, %.loopexit ]
-  %.0323416 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3326, %.loopexit ]
-  %.0327415 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5332, %.loopexit ]
+  %.1305420 = phi float [ %.0304427, %.lr.ph ], [ %.6, %.loopexit ]
+  %.1308419 = phi float [ %.0307426, %.lr.ph ], [ %.4311, %.loopexit ]
+  %.0314418 = phi i1 [ false, %.lr.ph ], [ %.1315, %.loopexit ]
+  %.0316417 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5321, %.loopexit ]
+  %.0322416 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3325, %.loopexit ]
   br i1 %116, label %.critedge339, label %119
 
 119:                                              ; preds = %118
@@ -13287,23 +13287,23 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv440.sroa.phi521.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv440.sroa.phi531.sroa.speculated = phi float [ %36, %.preheader ], [ %55, %.thread ]
   %indvars.iv440.sroa.phi535.sroa.speculated = phi float [ %34, %.preheader ], [ %54, %.thread ]
-  %.2308410 = phi float [ %213, %.preheader ], [ %.1307420, %.thread ]
-  %.2311409 = phi float [ %214, %.preheader ], [ %.1310419, %.thread ]
-  %.1324408 = phi float [ %212, %.preheader ], [ %.0323416, %.thread ]
-  %.1328407 = phi float [ %210, %.preheader ], [ %.0327415, %.thread ]
+  %.2306410 = phi float [ %213, %.preheader ], [ %.1305420, %.thread ]
+  %.2309409 = phi float [ %214, %.preheader ], [ %.1308419, %.thread ]
+  %.1317408 = phi float [ %210, %.preheader ], [ %.0316417, %.thread ]
+  %.1323407 = phi float [ %212, %.preheader ], [ %.0322416, %.thread ]
   %209 = load float, ptr %indvars.iv440.sroa.phi491, align 4
-  %210 = tail call float @llvm.fmuladd.f32(float %indvars.iv440.sroa.phi535.sroa.speculated, float %209, float %.1328407)
+  %210 = tail call float @llvm.fmuladd.f32(float %indvars.iv440.sroa.phi535.sroa.speculated, float %209, float %.1317408)
   %211 = load float, ptr %indvars.iv440.sroa.phi, align 4
-  %212 = tail call float @llvm.fmuladd.f32(float %indvars.iv440.sroa.phi531.sroa.speculated, float %211, float %.1324408)
-  %213 = tail call float @llvm.fmuladd.f32(float %209, float %indvars.iv440.sroa.phi521.sroa.speculated, float %.2308410)
-  %214 = tail call float @llvm.fmuladd.f32(float %211, float %indvars.iv440.sroa.phi521.sroa.speculated, float %.2311409)
+  %212 = tail call float @llvm.fmuladd.f32(float %indvars.iv440.sroa.phi531.sroa.speculated, float %211, float %.1323407)
+  %213 = tail call float @llvm.fmuladd.f32(float %209, float %indvars.iv440.sroa.phi521.sroa.speculated, float %.2306410)
+  %214 = tail call float @llvm.fmuladd.f32(float %211, float %indvars.iv440.sroa.phi521.sroa.speculated, float %.2309409)
   br i1 %208, label %.preheader, label %.loopexit403, !llvm.loop !115
 
 .loopexit403:                                     ; preds = %.preheader, %.critedge548
-  %.2329 = phi float [ %.0327415, %.critedge548 ], [ %210, %.preheader ]
-  %.2325 = phi float [ %.0323416, %.critedge548 ], [ %212, %.preheader ]
-  %.3312 = phi float [ %.1310419, %.critedge548 ], [ %214, %.preheader ]
-  %.3 = phi float [ %.1307420, %.critedge548 ], [ %213, %.preheader ]
+  %.2324 = phi float [ %.0322416, %.critedge548 ], [ %212, %.preheader ]
+  %.2318 = phi float [ %.0316417, %.critedge548 ], [ %210, %.preheader ]
+  %.3310 = phi float [ %.1308419, %.critedge548 ], [ %214, %.preheader ]
+  %.3 = phi float [ %.1305420, %.critedge548 ], [ %213, %.preheader ]
   %215 = fcmp uge float %175, %41
   %.not400 = select i1 %123, i1 %215, i1 false
   br i1 %.not400, label %.loopexit, label %216
@@ -13333,28 +13333,28 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv443.sroa.phi523.sroa.speculated = phi float [ -1.000000e+00, %216 ], [ 1.000000e+00, %233 ]
   %indvars.iv443.sroa.phi537.sroa.speculated = phi float [ %54, %216 ], [ %34, %233 ]
   %.4413 = phi float [ %.3, %216 ], [ %241, %233 ]
-  %.3330412 = phi float [ %.2329, %216 ], [ %238, %233 ]
+  %.3319412 = phi float [ %.2318, %216 ], [ %238, %233 ]
   %235 = load float, ptr %indvars.iv443.sroa.phi, align 4
   %236 = fmul float %indvars.iv443.sroa.phi537.sroa.speculated, %235
   %237 = fmul float %232, %236
-  %238 = fsub float %.3330412, %237
+  %238 = fsub float %.3319412, %237
   %239 = fmul float %235, %indvars.iv443.sroa.phi523.sroa.speculated
   %240 = fmul float %232, %239
   %241 = fsub float %.4413, %240
   br i1 %234, label %233, label %.loopexit, !llvm.loop !116
 
 .loopexit:                                        ; preds = %233, %.loopexit403, %.critedge339
-  %.5332 = phi float [ %.0327415, %.critedge339 ], [ %.2329, %.loopexit403 ], [ %238, %233 ]
-  %.3326 = phi float [ %.0323416, %.critedge339 ], [ %.2325, %.loopexit403 ], [ %.2325, %233 ]
-  %.1317 = phi i1 [ %.0316418, %.critedge339 ], [ true, %.loopexit403 ], [ true, %233 ]
-  %.4313 = phi float [ %.1310419, %.critedge339 ], [ %.3312, %.loopexit403 ], [ %.3312, %233 ]
-  %.6 = phi float [ %.1307420, %.critedge339 ], [ %.3, %.loopexit403 ], [ %241, %233 ]
+  %.3325 = phi float [ %.0322416, %.critedge339 ], [ %.2324, %.loopexit403 ], [ %.2324, %233 ]
+  %.5321 = phi float [ %.0316417, %.critedge339 ], [ %.2318, %.loopexit403 ], [ %238, %233 ]
+  %.1315 = phi i1 [ %.0314418, %.critedge339 ], [ true, %.loopexit403 ], [ true, %233 ]
+  %.4311 = phi float [ %.1308419, %.critedge339 ], [ %.3310, %.loopexit403 ], [ %.3310, %233 ]
+  %.6 = phi float [ %.1305420, %.critedge339 ], [ %.3, %.loopexit403 ], [ %241, %233 ]
   %indvars.iv.next447 = add nsw i64 %indvars.iv446, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next447, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %118, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge343.not = and i1 %.not, %.1317
+  %brmerge343.not = and i1 %.not, %.1315
   br i1 %brmerge343.not, label %242, label %._crit_edge.thread
 
 242:                                              ; preds = %._crit_edge
@@ -13363,22 +13363,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %245 = sext i32 %244 to i64
   %246 = getelementptr inbounds float, ptr %71, i64 %245
   %247 = load float, ptr %246, align 4
-  %248 = fadd float %.5332, %247
+  %248 = fadd float %.5321, %247
   store float %248, ptr %246, align 4
   %249 = getelementptr inbounds float, ptr %73, i64 %245
   %250 = load float, ptr %249, align 4
-  %251 = fadd float %.3326, %250
+  %251 = fadd float %.3325, %250
   store float %251, ptr %249, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %242
-  %.1307.lcssa464 = phi float [ %.6, %._crit_edge ], [ %.6, %242 ], [ %.0306427, %.critedge ]
-  %.1310.lcssa463 = phi float [ %.4313, %._crit_edge ], [ %.4313, %242 ], [ %.0309426, %.critedge ]
+  %.1305.lcssa464 = phi float [ %.6, %._crit_edge ], [ %.6, %242 ], [ %.0304427, %.critedge ]
+  %.1308.lcssa463 = phi float [ %.4311, %._crit_edge ], [ %.4311, %242 ], [ %.0307426, %.critedge ]
   %exitcond452.not = icmp eq i64 %indvars.iv.next449, %wide.trip.count451
   br i1 %exitcond452.not, label %._crit_edge428, label %.critedge, !llvm.loop !118
 
 ._crit_edge428:                                   ; preds = %._crit_edge.thread
-  %252 = fcmp une float %.1307.lcssa464, 0.000000e+00
+  %252 = fcmp une float %.1305.lcssa464, 0.000000e+00
   br i1 %252, label %253, label %259
 
 253:                                              ; preds = %._crit_edge428
@@ -13386,12 +13386,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %255 = inttoptr i64 %254 to ptr
   %256 = getelementptr inbounds i8, ptr %255, i64 8
   %257 = load float, ptr %256, align 4
-  %258 = fadd float %.1307.lcssa464, %257
+  %258 = fadd float %.1305.lcssa464, %257
   store float %258, ptr %256, align 4
   br label %259
 
 259:                                              ; preds = %253, %._crit_edge428
-  %260 = fcmp une float %.1310.lcssa463, 0.000000e+00
+  %260 = fcmp une float %.1308.lcssa463, 0.000000e+00
   br i1 %260, label %261, label %.thread468
 
 261:                                              ; preds = %259
@@ -13399,7 +13399,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %263 = inttoptr i64 %262 to ptr
   %264 = getelementptr inbounds i8, ptr %263, i64 12
   %265 = load float, ptr %264, align 4
-  %266 = fadd float %.1310.lcssa463, %265
+  %266 = fadd float %.1308.lcssa463, %265
   store float %266, ptr %264, align 4
   br label %.thread468
 
@@ -14761,9 +14761,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv624 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next625, %._crit_edge.thread ]
-  %.0442600 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1443.lcssa644, %._crit_edge.thread ]
-  %.0446599 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1447.lcssa643, %._crit_edge.thread ]
-  %.0456598 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1457.lcssa642, %._crit_edge.thread ]
+  %.0435600 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1436.lcssa644, %._crit_edge.thread ]
+  %.0438599 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1439.lcssa643, %._crit_edge.thread ]
+  %.0444598 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1445.lcssa642, %._crit_edge.thread ]
   %100 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv624
   %101 = load i32, ptr %100, align 4
   %102 = sext i32 %101 to i64
@@ -14809,13 +14809,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %300
   %indvars.iv622 = phi i64 [ %135, %.lr.ph.preheader ], [ %indvars.iv.next623, %300 ]
-  %.1443588 = phi float [ %.0442600, %.lr.ph.preheader ], [ %.6, %300 ]
-  %.1447587 = phi float [ %.0446599, %.lr.ph.preheader ], [ %.4450, %300 ]
-  %.1457585 = phi i8 [ %.0456598, %.lr.ph.preheader ], [ %.3459, %300 ]
-  %.0461584 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1462, %300 ]
-  %.0467581 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3470, %300 ]
-  %.0471580 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5476, %300 ]
-  %.0478579 = phi i1 [ false, %.lr.ph.preheader ], [ %.1479, %300 ]
+  %.1436588 = phi float [ %.0435600, %.lr.ph.preheader ], [ %.6, %300 ]
+  %.1439587 = phi float [ %.0438599, %.lr.ph.preheader ], [ %.4442, %300 ]
+  %.1445586 = phi i8 [ %.0444598, %.lr.ph.preheader ], [ %.3447, %300 ]
+  %.0450585 = phi i1 [ false, %.lr.ph.preheader ], [ %.1451, %300 ]
+  %.0452584 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5457, %300 ]
+  %.0459583 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3462, %300 ]
+  %.0467580 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1468, %300 ]
   %136 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %301, %300 ]
   %137 = load ptr, ptr %89, align 8
   %138 = load ptr, ptr %90, align 8
@@ -15001,35 +15001,35 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv616.sroa.phi726.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv616.sroa.phi736.sroa.speculated = phi float [ %39, %.preheader ], [ %76, %.thread ]
   %indvars.iv616.sroa.phi740.sroa.speculated = phi float [ %37, %.preheader ], [ %75, %.thread ]
-  %.0438573 = phi float [ %260, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.2444572 = phi float [ %261, %.preheader ], [ %.1443588, %.thread ]
-  %.2448571 = phi float [ %262, %.preheader ], [ %.1447587, %.thread ]
-  %.1468570 = phi float [ %254, %.preheader ], [ %.0467581, %.thread ]
-  %.1472569 = phi float [ %252, %.preheader ], [ %.0471580, %.thread ]
+  %.2437574 = phi float [ %261, %.preheader ], [ %.1436588, %.thread ]
+  %.2440573 = phi float [ %262, %.preheader ], [ %.1439587, %.thread ]
+  %.1453572 = phi float [ %252, %.preheader ], [ %.0452584, %.thread ]
+  %.1460570 = phi float [ %254, %.preheader ], [ %.0459583, %.thread ]
+  %.0475569 = phi float [ %260, %.preheader ], [ 0.000000e+00, %.thread ]
   %251 = load float, ptr %indvars.iv616.sroa.phi684, align 4
-  %252 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi740.sroa.speculated, float %251, float %.1472569)
+  %252 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi740.sroa.speculated, float %251, float %.1453572)
   %253 = load float, ptr %indvars.iv616.sroa.phi, align 4
-  %254 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi736.sroa.speculated, float %253, float %.1468570)
+  %254 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi736.sroa.speculated, float %253, float %.1460570)
   %255 = load float, ptr %indvars.iv616.sroa.phi696, align 4
   %256 = fmul float %indvars.iv616.sroa.phi740.sroa.speculated, %255
-  %257 = tail call float @llvm.fmuladd.f32(float %256, float %195, float %.0438573)
+  %257 = tail call float @llvm.fmuladd.f32(float %256, float %195, float %.0475569)
   %258 = load float, ptr %indvars.iv616.sroa.phi690, align 4
   %259 = fmul float %indvars.iv616.sroa.phi736.sroa.speculated, %258
   %260 = tail call float @llvm.fmuladd.f32(float %259, float %195, float %257)
-  %261 = tail call float @llvm.fmuladd.f32(float %251, float %indvars.iv616.sroa.phi726.sroa.speculated, float %.2444572)
-  %262 = tail call float @llvm.fmuladd.f32(float %253, float %indvars.iv616.sroa.phi726.sroa.speculated, float %.2448571)
+  %261 = tail call float @llvm.fmuladd.f32(float %251, float %indvars.iv616.sroa.phi726.sroa.speculated, float %.2437574)
+  %262 = tail call float @llvm.fmuladd.f32(float %253, float %indvars.iv616.sroa.phi726.sroa.speculated, float %.2440573)
   br i1 %250, label %.preheader, label %.loopexit565, !llvm.loop !128
 
 .loopexit565:                                     ; preds = %.preheader, %.critedge756
-  %.2473 = phi float [ %.0471580, %.critedge756 ], [ %252, %.preheader ]
-  %.2469 = phi float [ %.0467581, %.critedge756 ], [ %254, %.preheader ]
-  %.3449 = phi float [ %.1447587, %.critedge756 ], [ %262, %.preheader ]
-  %.3445 = phi float [ %.1443588, %.critedge756 ], [ %261, %.preheader ]
-  %.1439 = phi float [ 0.000000e+00, %.critedge756 ], [ %260, %.preheader ]
+  %.1476 = phi float [ 0.000000e+00, %.critedge756 ], [ %260, %.preheader ]
+  %.2461 = phi float [ %.0459583, %.critedge756 ], [ %254, %.preheader ]
+  %.2454 = phi float [ %.0452584, %.critedge756 ], [ %252, %.preheader ]
+  %.3441 = phi float [ %.1439587, %.critedge756 ], [ %262, %.preheader ]
+  %.3 = phi float [ %.1436588, %.critedge756 ], [ %261, %.preheader ]
   br i1 %72, label %263, label %.loopexit
 
 263:                                              ; preds = %.loopexit565
-  %264 = trunc nuw i8 %.1457585 to i1
+  %264 = trunc nuw i8 %.1445586 to i1
   br i1 %264, label %268, label %265
 
 265:                                              ; preds = %263
@@ -15053,35 +15053,35 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv619.sroa.phi = phi ptr [ %.sroa.0703, %271 ], [ %.sroa.3, %275 ]
   %indvars.iv619.sroa.phi728.sroa.speculated = phi float [ -1.000000e+00, %271 ], [ 1.000000e+00, %275 ]
   %indvars.iv619.sroa.phi742.sroa.speculated = phi float [ %75, %271 ], [ %37, %275 ]
-  %.2440577 = phi float [ %.1439, %271 ], [ %282, %275 ]
-  %.4576 = phi float [ %.3445, %271 ], [ %285, %275 ]
-  %.3474575 = phi float [ %.2473, %271 ], [ %280, %275 ]
+  %.4578 = phi float [ %.3, %271 ], [ %285, %275 ]
+  %.3455576 = phi float [ %.2454, %271 ], [ %280, %275 ]
+  %.2477575 = phi float [ %.1476, %271 ], [ %282, %275 ]
   %277 = load float, ptr %indvars.iv619.sroa.phi, align 4
   %278 = fmul float %indvars.iv619.sroa.phi742.sroa.speculated, %277
   %279 = fmul float %274, %278
-  %280 = fadd float %.3474575, %279
+  %280 = fadd float %.3455576, %279
   %281 = fmul float %94, %278
-  %282 = fsub float %.2440577, %281
+  %282 = fsub float %.2477575, %281
   %283 = fmul float %277, %indvars.iv619.sroa.phi728.sroa.speculated
   %284 = fmul float %274, %283
-  %285 = fadd float %.4576, %284
+  %285 = fadd float %.4578, %284
   br i1 %276, label %275, label %.loopexit, !llvm.loop !129
 
 .loopexit:                                        ; preds = %275, %268, %.loopexit565
-  %.4475 = phi float [ %.2473, %268 ], [ %.2473, %.loopexit565 ], [ %280, %275 ]
-  %.2458 = phi i8 [ %270, %268 ], [ %.1457585, %.loopexit565 ], [ %270, %275 ]
-  %.5 = phi float [ %.3445, %268 ], [ %.3445, %.loopexit565 ], [ %285, %275 ]
-  %.3 = phi float [ %.1439, %268 ], [ %.1439, %.loopexit565 ], [ %282, %275 ]
-  %286 = fcmp une float %.3, 0.000000e+00
+  %.3478 = phi float [ %.1476, %268 ], [ %.1476, %.loopexit565 ], [ %282, %275 ]
+  %.4456 = phi float [ %.2454, %268 ], [ %.2454, %.loopexit565 ], [ %280, %275 ]
+  %.2446 = phi i8 [ %270, %268 ], [ %.1445586, %.loopexit565 ], [ %270, %275 ]
+  %.5 = phi float [ %.3, %268 ], [ %.3, %.loopexit565 ], [ %285, %275 ]
+  %286 = fcmp une float %.3478, 0.000000e+00
   br i1 %286, label %287, label %300
 
 287:                                              ; preds = %.loopexit
-  %288 = insertelement <2 x float> poison, float %.3, i64 0
+  %288 = insertelement <2 x float> poison, float %.3478, i64 0
   %289 = shufflevector <2 x float> %288, <2 x float> poison, <2 x i32> zeroinitializer
   %290 = fmul <2 x float> %158, %289
-  %291 = fmul float %159, %.3
+  %291 = fmul float %159, %.3478
   %292 = fadd <2 x float> %136, %290
-  %293 = fadd float %.0461584, %291
+  %293 = fadd float %.0467580, %291
   %294 = getelementptr inbounds float, ptr %79, i64 %152
   %295 = load <2 x float>, ptr %294, align 4
   %296 = fsub <2 x float> %295, %290
@@ -15093,20 +15093,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %300
 
 300:                                              ; preds = %.loopexit, %287, %.critedge487
-  %.1479 = phi i1 [ true, %287 ], [ true, %.loopexit ], [ %.0478579, %.critedge487 ]
-  %.5476 = phi float [ %.4475, %287 ], [ %.4475, %.loopexit ], [ %.0471580, %.critedge487 ]
-  %.3470 = phi float [ %.2469, %287 ], [ %.2469, %.loopexit ], [ %.0467581, %.critedge487 ]
-  %.1462 = phi float [ %293, %287 ], [ %.0461584, %.loopexit ], [ %.0461584, %.critedge487 ]
-  %.3459 = phi i8 [ %.2458, %287 ], [ %.2458, %.loopexit ], [ %.1457585, %.critedge487 ]
-  %.4450 = phi float [ %.3449, %287 ], [ %.3449, %.loopexit ], [ %.1447587, %.critedge487 ]
-  %.6 = phi float [ %.5, %287 ], [ %.5, %.loopexit ], [ %.1443588, %.critedge487 ]
+  %.1468 = phi float [ %293, %287 ], [ %.0467580, %.loopexit ], [ %.0467580, %.critedge487 ]
+  %.3462 = phi float [ %.2461, %287 ], [ %.2461, %.loopexit ], [ %.0459583, %.critedge487 ]
+  %.5457 = phi float [ %.4456, %287 ], [ %.4456, %.loopexit ], [ %.0452584, %.critedge487 ]
+  %.1451 = phi i1 [ true, %287 ], [ true, %.loopexit ], [ %.0450585, %.critedge487 ]
+  %.3447 = phi i8 [ %.2446, %287 ], [ %.2446, %.loopexit ], [ %.1445586, %.critedge487 ]
+  %.4442 = phi float [ %.3441, %287 ], [ %.3441, %.loopexit ], [ %.1439587, %.critedge487 ]
+  %.6 = phi float [ %.5, %287 ], [ %.5, %.loopexit ], [ %.1436588, %.critedge487 ]
   %301 = phi <2 x float> [ %292, %287 ], [ %136, %.loopexit ], [ %136, %.critedge487 ]
   %indvars.iv.next623 = add nsw i64 %indvars.iv622, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next623, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %300
-  br i1 %.1479, label %302, label %._crit_edge.thread
+  br i1 %.1451, label %302, label %._crit_edge.thread
 
 302:                                              ; preds = %._crit_edge
   %303 = getelementptr inbounds float, ptr %79, i64 %113
@@ -15115,7 +15115,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %305, ptr %303, align 4
   %306 = getelementptr i8, ptr %303, i64 8
   %307 = load float, ptr %306, align 4
-  %308 = fadd float %.1462, %307
+  %308 = fadd float %.1468, %307
   store float %308, ptr %306, align 4
   br i1 %.not, label %318, label %309
 
@@ -15128,7 +15128,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %314, ptr %312, align 4
   %315 = getelementptr i8, ptr %312, i64 8
   %316 = load float, ptr %315, align 4
-  %317 = fadd float %.1462, %316
+  %317 = fadd float %.1468, %316
   store float %317, ptr %315, align 4
   br label %318
 
@@ -15141,24 +15141,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %322 = sext i32 %321 to i64
   %323 = getelementptr inbounds float, ptr %97, i64 %322
   %324 = load float, ptr %323, align 4
-  %325 = fadd float %.5476, %324
+  %325 = fadd float %.5457, %324
   store float %325, ptr %323, align 4
   %326 = getelementptr inbounds float, ptr %99, i64 %322
   %327 = load float, ptr %326, align 4
-  %328 = fadd float %.3470, %327
+  %328 = fadd float %.3462, %327
   store float %328, ptr %326, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %319, %318
-  %.1443.lcssa644 = phi float [ %.6, %._crit_edge ], [ %.6, %319 ], [ %.6, %318 ], [ %.0442600, %.critedge ]
-  %.1447.lcssa643 = phi float [ %.4450, %._crit_edge ], [ %.4450, %319 ], [ %.4450, %318 ], [ %.0446599, %.critedge ]
-  %.1457.lcssa642 = phi i8 [ %.3459, %._crit_edge ], [ %.3459, %319 ], [ %.3459, %318 ], [ %.0456598, %.critedge ]
+  %.1436.lcssa644 = phi float [ %.6, %._crit_edge ], [ %.6, %319 ], [ %.6, %318 ], [ %.0435600, %.critedge ]
+  %.1439.lcssa643 = phi float [ %.4442, %._crit_edge ], [ %.4442, %319 ], [ %.4442, %318 ], [ %.0438599, %.critedge ]
+  %.1445.lcssa642 = phi i8 [ %.3447, %._crit_edge ], [ %.3447, %319 ], [ %.3447, %318 ], [ %.0444598, %.critedge ]
   %exitcond627.not = icmp eq i64 %indvars.iv.next625, %wide.trip.count626
   br i1 %exitcond627.not, label %._crit_edge601, label %.critedge, !llvm.loop !131
 
 ._crit_edge601:                                   ; preds = %._crit_edge.thread
-  %329 = trunc nuw i8 %.1457.lcssa642 to i1
-  %330 = fcmp une float %.1443.lcssa644, 0.000000e+00
+  %329 = trunc nuw i8 %.1445.lcssa642 to i1
+  %330 = fcmp une float %.1436.lcssa644, 0.000000e+00
   br i1 %330, label %331, label %337
 
 331:                                              ; preds = %._crit_edge601
@@ -15166,12 +15166,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %333 = inttoptr i64 %332 to ptr
   %334 = getelementptr inbounds i8, ptr %333, i64 8
   %335 = load float, ptr %334, align 4
-  %336 = fadd float %.1443.lcssa644, %335
+  %336 = fadd float %.1436.lcssa644, %335
   store float %336, ptr %334, align 4
   br label %337
 
 337:                                              ; preds = %331, %._crit_edge601
-  %338 = fcmp une float %.1447.lcssa643, 0.000000e+00
+  %338 = fcmp une float %.1439.lcssa643, 0.000000e+00
   br i1 %338, label %339, label %.thread650
 
 339:                                              ; preds = %337
@@ -15179,12 +15179,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %341 = inttoptr i64 %340 to ptr
   %342 = getelementptr inbounds i8, ptr %341, i64 12
   %343 = load float, ptr %342, align 4
-  %344 = fadd float %.1447.lcssa643, %343
+  %344 = fadd float %.1439.lcssa643, %343
   store float %344, ptr %342, align 4
   br label %.thread650
 
 .thread650:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %339, %337
-  %.0456.lcssa648653 = phi i1 [ %329, %339 ], [ %329, %337 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0444.lcssa648653 = phi i1 [ %329, %339 ], [ %329, %337 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %345 = load i32, ptr %0, align 8
   %346 = mul nsw i32 %345, 12
   %347 = sext i32 %23 to i64
@@ -15194,7 +15194,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %351 = mul nsw i32 %350, 150
   %352 = add nsw i32 %351, %346
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %352)
-  %353 = select i1 %72, i1 %.0456.lcssa648653, i1 false
+  %353 = select i1 %72, i1 %.0444.lcssa648653, i1 false
   br i1 %353, label %354, label %365
 
 354:                                              ; preds = %.thread650
@@ -16136,9 +16136,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv525 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next526, %._crit_edge.thread ]
-  %.0372503 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1373.lcssa543, %._crit_edge.thread ]
-  %.0375502 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1376.lcssa542, %._crit_edge.thread ]
-  %.0381501 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1382.lcssa541, %._crit_edge.thread ]
+  %.0367503 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1368.lcssa543, %._crit_edge.thread ]
+  %.0371502 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1372.lcssa542, %._crit_edge.thread ]
+  %.0377501 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1378.lcssa541, %._crit_edge.thread ]
   %93 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv525
   %94 = load i32, ptr %93, align 4
   %95 = sext i32 %94 to i64
@@ -16192,12 +16192,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 137:                                              ; preds = %.lr.ph, %.loopexit
   %indvars.iv523 = phi i64 [ %136, %.lr.ph ], [ %indvars.iv.next524, %.loopexit ]
-  %.1373494 = phi float [ %.0372503, %.lr.ph ], [ %.6, %.loopexit ]
-  %.1376493 = phi float [ %.0375502, %.lr.ph ], [ %.4379, %.loopexit ]
-  %.1382492 = phi i8 [ %.0381501, %.lr.ph ], [ %.3384, %.loopexit ]
-  %.0388491 = phi i1 [ false, %.lr.ph ], [ %.1389, %.loopexit ]
-  %.0393489 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3396, %.loopexit ]
-  %.0397488 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5402, %.loopexit ]
+  %.1368494 = phi float [ %.0367503, %.lr.ph ], [ %.6, %.loopexit ]
+  %.1372493 = phi float [ %.0371502, %.lr.ph ], [ %.4375, %.loopexit ]
+  %.1378492 = phi i8 [ %.0377501, %.lr.ph ], [ %.3380, %.loopexit ]
+  %.0383491 = phi i1 [ false, %.lr.ph ], [ %.1384, %.loopexit ]
+  %.0385490 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5390, %.loopexit ]
+  %.0391489 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3394, %.loopexit ]
   br i1 %135, label %.critedge409, label %138
 
 138:                                              ; preds = %137
@@ -16361,27 +16361,27 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv517.sroa.phi606.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv517.sroa.phi616.sroa.speculated = phi float [ %39, %.preheader ], [ %72, %.thread ]
   %indvars.iv517.sroa.phi620.sroa.speculated = phi float [ %37, %.preheader ], [ %71, %.thread ]
-  %.2374483 = phi float [ %243, %.preheader ], [ %.1373494, %.thread ]
-  %.2377482 = phi float [ %244, %.preheader ], [ %.1376493, %.thread ]
-  %.1394481 = phi float [ %242, %.preheader ], [ %.0393489, %.thread ]
-  %.1398480 = phi float [ %240, %.preheader ], [ %.0397488, %.thread ]
+  %.2369484 = phi float [ %243, %.preheader ], [ %.1368494, %.thread ]
+  %.2373483 = phi float [ %244, %.preheader ], [ %.1372493, %.thread ]
+  %.1386481 = phi float [ %240, %.preheader ], [ %.0385490, %.thread ]
+  %.1392480 = phi float [ %242, %.preheader ], [ %.0391489, %.thread ]
   %239 = load float, ptr %indvars.iv517.sroa.phi576, align 4
-  %240 = tail call float @llvm.fmuladd.f32(float %indvars.iv517.sroa.phi620.sroa.speculated, float %239, float %.1398480)
+  %240 = tail call float @llvm.fmuladd.f32(float %indvars.iv517.sroa.phi620.sroa.speculated, float %239, float %.1386481)
   %241 = load float, ptr %indvars.iv517.sroa.phi, align 4
-  %242 = tail call float @llvm.fmuladd.f32(float %indvars.iv517.sroa.phi616.sroa.speculated, float %241, float %.1394481)
-  %243 = tail call float @llvm.fmuladd.f32(float %239, float %indvars.iv517.sroa.phi606.sroa.speculated, float %.2374483)
-  %244 = tail call float @llvm.fmuladd.f32(float %241, float %indvars.iv517.sroa.phi606.sroa.speculated, float %.2377482)
+  %242 = tail call float @llvm.fmuladd.f32(float %indvars.iv517.sroa.phi616.sroa.speculated, float %241, float %.1392480)
+  %243 = tail call float @llvm.fmuladd.f32(float %239, float %indvars.iv517.sroa.phi606.sroa.speculated, float %.2369484)
+  %244 = tail call float @llvm.fmuladd.f32(float %241, float %indvars.iv517.sroa.phi606.sroa.speculated, float %.2373483)
   br i1 %238, label %.preheader, label %.loopexit476, !llvm.loop !141
 
 .loopexit476:                                     ; preds = %.preheader, %.critedge633
-  %.2399 = phi float [ %.0397488, %.critedge633 ], [ %240, %.preheader ]
-  %.2395 = phi float [ %.0393489, %.critedge633 ], [ %242, %.preheader ]
-  %.3378 = phi float [ %.1376493, %.critedge633 ], [ %244, %.preheader ]
-  %.3 = phi float [ %.1373494, %.critedge633 ], [ %243, %.preheader ]
+  %.2393 = phi float [ %.0391489, %.critedge633 ], [ %242, %.preheader ]
+  %.2387 = phi float [ %.0385490, %.critedge633 ], [ %240, %.preheader ]
+  %.3374 = phi float [ %.1372493, %.critedge633 ], [ %244, %.preheader ]
+  %.3 = phi float [ %.1368494, %.critedge633 ], [ %243, %.preheader ]
   br i1 %68, label %245, label %.loopexit
 
 245:                                              ; preds = %.loopexit476
-  %246 = trunc nuw i8 %.1382492 to i1
+  %246 = trunc nuw i8 %.1378492 to i1
   br i1 %246, label %250, label %247
 
 247:                                              ; preds = %245
@@ -16405,30 +16405,30 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv520.sroa.phi = phi ptr [ %.sroa.0583, %253 ], [ %.sroa.3, %257 ]
   %indvars.iv520.sroa.phi608.sroa.speculated = phi float [ -1.000000e+00, %253 ], [ 1.000000e+00, %257 ]
   %indvars.iv520.sroa.phi622.sroa.speculated = phi float [ %71, %253 ], [ %37, %257 ]
-  %.4486 = phi float [ %.3, %253 ], [ %265, %257 ]
-  %.3400485 = phi float [ %.2399, %253 ], [ %262, %257 ]
+  %.4487 = phi float [ %.3, %253 ], [ %265, %257 ]
+  %.3388485 = phi float [ %.2387, %253 ], [ %262, %257 ]
   %259 = load float, ptr %indvars.iv520.sroa.phi, align 4
   %260 = fmul float %indvars.iv520.sroa.phi622.sroa.speculated, %259
   %261 = fmul float %256, %260
-  %262 = fadd float %.3400485, %261
+  %262 = fadd float %.3388485, %261
   %263 = fmul float %259, %indvars.iv520.sroa.phi608.sroa.speculated
   %264 = fmul float %256, %263
-  %265 = fadd float %.4486, %264
+  %265 = fadd float %.4487, %264
   br i1 %258, label %257, label %.loopexit, !llvm.loop !142
 
 .loopexit:                                        ; preds = %257, %.loopexit476, %250, %.critedge409
-  %.5402 = phi float [ %.0397488, %.critedge409 ], [ %.2399, %250 ], [ %.2399, %.loopexit476 ], [ %262, %257 ]
-  %.3396 = phi float [ %.0393489, %.critedge409 ], [ %.2395, %250 ], [ %.2395, %.loopexit476 ], [ %.2395, %257 ]
-  %.1389 = phi i1 [ %.0388491, %.critedge409 ], [ true, %250 ], [ true, %.loopexit476 ], [ true, %257 ]
-  %.3384 = phi i8 [ %.1382492, %.critedge409 ], [ %252, %250 ], [ %.1382492, %.loopexit476 ], [ %252, %257 ]
-  %.4379 = phi float [ %.1376493, %.critedge409 ], [ %.3378, %250 ], [ %.3378, %.loopexit476 ], [ %.3378, %257 ]
-  %.6 = phi float [ %.1373494, %.critedge409 ], [ %.3, %250 ], [ %.3, %.loopexit476 ], [ %265, %257 ]
+  %.3394 = phi float [ %.0391489, %.critedge409 ], [ %.2393, %250 ], [ %.2393, %.loopexit476 ], [ %.2393, %257 ]
+  %.5390 = phi float [ %.0385490, %.critedge409 ], [ %.2387, %250 ], [ %.2387, %.loopexit476 ], [ %262, %257 ]
+  %.1384 = phi i1 [ %.0383491, %.critedge409 ], [ true, %250 ], [ true, %.loopexit476 ], [ true, %257 ]
+  %.3380 = phi i8 [ %.1378492, %.critedge409 ], [ %252, %250 ], [ %.1378492, %.loopexit476 ], [ %252, %257 ]
+  %.4375 = phi float [ %.1372493, %.critedge409 ], [ %.3374, %250 ], [ %.3374, %.loopexit476 ], [ %.3374, %257 ]
+  %.6 = phi float [ %.1368494, %.critedge409 ], [ %.3, %250 ], [ %.3, %.loopexit476 ], [ %265, %257 ]
   %indvars.iv.next524 = add nsw i64 %indvars.iv523, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next524, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %137, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge413.not = and i1 %.not, %.1389
+  %brmerge413.not = and i1 %.not, %.1384
   br i1 %brmerge413.not, label %266, label %._crit_edge.thread
 
 266:                                              ; preds = %._crit_edge
@@ -16437,24 +16437,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %269 = sext i32 %268 to i64
   %270 = getelementptr inbounds float, ptr %90, i64 %269
   %271 = load float, ptr %270, align 4
-  %272 = fadd float %.5402, %271
+  %272 = fadd float %.5390, %271
   store float %272, ptr %270, align 4
   %273 = getelementptr inbounds float, ptr %92, i64 %269
   %274 = load float, ptr %273, align 4
-  %275 = fadd float %.3396, %274
+  %275 = fadd float %.3394, %274
   store float %275, ptr %273, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %266
-  %.1373.lcssa543 = phi float [ %.6, %._crit_edge ], [ %.6, %266 ], [ %.0372503, %.critedge ]
-  %.1376.lcssa542 = phi float [ %.4379, %._crit_edge ], [ %.4379, %266 ], [ %.0375502, %.critedge ]
-  %.1382.lcssa541 = phi i8 [ %.3384, %._crit_edge ], [ %.3384, %266 ], [ %.0381501, %.critedge ]
+  %.1368.lcssa543 = phi float [ %.6, %._crit_edge ], [ %.6, %266 ], [ %.0367503, %.critedge ]
+  %.1372.lcssa542 = phi float [ %.4375, %._crit_edge ], [ %.4375, %266 ], [ %.0371502, %.critedge ]
+  %.1378.lcssa541 = phi i8 [ %.3380, %._crit_edge ], [ %.3380, %266 ], [ %.0377501, %.critedge ]
   %exitcond528.not = icmp eq i64 %indvars.iv.next526, %wide.trip.count527
   br i1 %exitcond528.not, label %._crit_edge504, label %.critedge, !llvm.loop !144
 
 ._crit_edge504:                                   ; preds = %._crit_edge.thread
-  %276 = trunc nuw i8 %.1382.lcssa541 to i1
-  %277 = fcmp une float %.1373.lcssa543, 0.000000e+00
+  %276 = trunc nuw i8 %.1378.lcssa541 to i1
+  %277 = fcmp une float %.1368.lcssa543, 0.000000e+00
   br i1 %277, label %278, label %284
 
 278:                                              ; preds = %._crit_edge504
@@ -16462,12 +16462,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %280 = inttoptr i64 %279 to ptr
   %281 = getelementptr inbounds i8, ptr %280, i64 8
   %282 = load float, ptr %281, align 4
-  %283 = fadd float %.1373.lcssa543, %282
+  %283 = fadd float %.1368.lcssa543, %282
   store float %283, ptr %281, align 4
   br label %284
 
 284:                                              ; preds = %278, %._crit_edge504
-  %285 = fcmp une float %.1376.lcssa542, 0.000000e+00
+  %285 = fcmp une float %.1372.lcssa542, 0.000000e+00
   br i1 %285, label %286, label %.thread549
 
 286:                                              ; preds = %284
@@ -16475,12 +16475,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %288 = inttoptr i64 %287 to ptr
   %289 = getelementptr inbounds i8, ptr %288, i64 12
   %290 = load float, ptr %289, align 4
-  %291 = fadd float %.1376.lcssa542, %290
+  %291 = fadd float %.1372.lcssa542, %290
   store float %291, ptr %289, align 4
   br label %.thread549
 
 .thread549:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %286, %284
-  %.0381.lcssa547552 = phi i1 [ %276, %286 ], [ %276, %284 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0377.lcssa547552 = phi i1 [ %276, %286 ], [ %276, %284 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %292 = load i32, ptr %0, align 8
   %293 = mul nsw i32 %292, 12
   %294 = sext i32 %23 to i64
@@ -16490,7 +16490,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %298 = mul nsw i32 %297, 150
   %299 = add nsw i32 %298, %293
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %299)
-  %300 = select i1 %68, i1 %.0381.lcssa547552, i1 false
+  %300 = select i1 %68, i1 %.0377.lcssa547552, i1 false
   br i1 %300, label %301, label %312
 
 301:                                              ; preds = %.thread549
@@ -17838,9 +17838,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv565 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next566, %._crit_edge.thread ]
-  %.0383541 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1384.lcssa585, %._crit_edge.thread ]
-  %.0387540 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1388.lcssa584, %._crit_edge.thread ]
-  %.0396539 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1397.lcssa583, %._crit_edge.thread ]
+  %.0376541 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1377.lcssa585, %._crit_edge.thread ]
+  %.0379540 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1380.lcssa584, %._crit_edge.thread ]
+  %.0385539 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1386.lcssa583, %._crit_edge.thread ]
   %87 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv565
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
@@ -17886,13 +17886,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %271
   %indvars.iv563 = phi i64 [ %122, %.lr.ph.preheader ], [ %indvars.iv.next564, %271 ]
-  %.1384529 = phi float [ %.0383541, %.lr.ph.preheader ], [ %.6, %271 ]
-  %.1388528 = phi float [ %.0387540, %.lr.ph.preheader ], [ %.4391, %271 ]
-  %.1397527 = phi i8 [ %.0396539, %.lr.ph.preheader ], [ %.3399, %271 ]
-  %.0403525 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1404, %271 ]
-  %.0409522 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3412, %271 ]
-  %.0413521 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5418, %271 ]
-  %.0419520 = phi i1 [ false, %.lr.ph.preheader ], [ %.1420, %271 ]
+  %.1377529 = phi float [ %.0376541, %.lr.ph.preheader ], [ %.6, %271 ]
+  %.1380528 = phi float [ %.0379540, %.lr.ph.preheader ], [ %.4383, %271 ]
+  %.1386527 = phi i8 [ %.0385539, %.lr.ph.preheader ], [ %.3388, %271 ]
+  %.0391526 = phi i1 [ false, %.lr.ph.preheader ], [ %.1392, %271 ]
+  %.0393525 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5398, %271 ]
+  %.0400524 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3403, %271 ]
+  %.0408521 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1409, %271 ]
   %123 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %272, %271 ]
   %124 = load ptr, ptr %76, align 8
   %125 = load ptr, ptr %77, align 8
@@ -18062,35 +18062,35 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv557.sroa.phi667.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv557.sroa.phi677.sroa.speculated = phi float [ %39, %.preheader ], [ %63, %.thread ]
   %indvars.iv557.sroa.phi681.sroa.speculated = phi float [ %37, %.preheader ], [ %62, %.thread ]
-  %.0379514 = phi float [ %231, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.2385513 = phi float [ %232, %.preheader ], [ %.1384529, %.thread ]
-  %.2389512 = phi float [ %233, %.preheader ], [ %.1388528, %.thread ]
-  %.1410511 = phi float [ %225, %.preheader ], [ %.0409522, %.thread ]
-  %.1414510 = phi float [ %223, %.preheader ], [ %.0413521, %.thread ]
+  %.2378515 = phi float [ %232, %.preheader ], [ %.1377529, %.thread ]
+  %.2381514 = phi float [ %233, %.preheader ], [ %.1380528, %.thread ]
+  %.1394513 = phi float [ %223, %.preheader ], [ %.0393525, %.thread ]
+  %.1401511 = phi float [ %225, %.preheader ], [ %.0400524, %.thread ]
+  %.0416510 = phi float [ %231, %.preheader ], [ 0.000000e+00, %.thread ]
   %222 = load float, ptr %indvars.iv557.sroa.phi625, align 4
-  %223 = tail call float @llvm.fmuladd.f32(float %indvars.iv557.sroa.phi681.sroa.speculated, float %222, float %.1414510)
+  %223 = tail call float @llvm.fmuladd.f32(float %indvars.iv557.sroa.phi681.sroa.speculated, float %222, float %.1394513)
   %224 = load float, ptr %indvars.iv557.sroa.phi, align 4
-  %225 = tail call float @llvm.fmuladd.f32(float %indvars.iv557.sroa.phi677.sroa.speculated, float %224, float %.1410511)
+  %225 = tail call float @llvm.fmuladd.f32(float %indvars.iv557.sroa.phi677.sroa.speculated, float %224, float %.1401511)
   %226 = load float, ptr %indvars.iv557.sroa.phi637, align 4
   %227 = fmul float %indvars.iv557.sroa.phi681.sroa.speculated, %226
-  %228 = tail call float @llvm.fmuladd.f32(float %227, float %182, float %.0379514)
+  %228 = tail call float @llvm.fmuladd.f32(float %227, float %182, float %.0416510)
   %229 = load float, ptr %indvars.iv557.sroa.phi631, align 4
   %230 = fmul float %indvars.iv557.sroa.phi677.sroa.speculated, %229
   %231 = tail call float @llvm.fmuladd.f32(float %230, float %182, float %228)
-  %232 = tail call float @llvm.fmuladd.f32(float %222, float %indvars.iv557.sroa.phi667.sroa.speculated, float %.2385513)
-  %233 = tail call float @llvm.fmuladd.f32(float %224, float %indvars.iv557.sroa.phi667.sroa.speculated, float %.2389512)
+  %232 = tail call float @llvm.fmuladd.f32(float %222, float %indvars.iv557.sroa.phi667.sroa.speculated, float %.2378515)
+  %233 = tail call float @llvm.fmuladd.f32(float %224, float %indvars.iv557.sroa.phi667.sroa.speculated, float %.2381514)
   br i1 %221, label %.preheader, label %.loopexit506, !llvm.loop !154
 
 .loopexit506:                                     ; preds = %.preheader, %.critedge697
-  %.2415 = phi float [ %.0413521, %.critedge697 ], [ %223, %.preheader ]
-  %.2411 = phi float [ %.0409522, %.critedge697 ], [ %225, %.preheader ]
-  %.3390 = phi float [ %.1388528, %.critedge697 ], [ %233, %.preheader ]
-  %.3386 = phi float [ %.1384529, %.critedge697 ], [ %232, %.preheader ]
-  %.1380 = phi float [ 0.000000e+00, %.critedge697 ], [ %231, %.preheader ]
+  %.1417 = phi float [ 0.000000e+00, %.critedge697 ], [ %231, %.preheader ]
+  %.2402 = phi float [ %.0400524, %.critedge697 ], [ %225, %.preheader ]
+  %.2395 = phi float [ %.0393525, %.critedge697 ], [ %223, %.preheader ]
+  %.3382 = phi float [ %.1380528, %.critedge697 ], [ %233, %.preheader ]
+  %.3 = phi float [ %.1377529, %.critedge697 ], [ %232, %.preheader ]
   br i1 %59, label %234, label %.loopexit
 
 234:                                              ; preds = %.loopexit506
-  %235 = trunc nuw i8 %.1397527 to i1
+  %235 = trunc nuw i8 %.1386527 to i1
   br i1 %235, label %239, label %236
 
 236:                                              ; preds = %234
@@ -18114,35 +18114,35 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv560.sroa.phi = phi ptr [ %.sroa.0644, %242 ], [ %.sroa.3, %246 ]
   %indvars.iv560.sroa.phi669.sroa.speculated = phi float [ -1.000000e+00, %242 ], [ 1.000000e+00, %246 ]
   %indvars.iv560.sroa.phi683.sroa.speculated = phi float [ %62, %242 ], [ %37, %246 ]
-  %.2381518 = phi float [ %.1380, %242 ], [ %253, %246 ]
-  %.4517 = phi float [ %.3386, %242 ], [ %256, %246 ]
-  %.3416516 = phi float [ %.2415, %242 ], [ %251, %246 ]
+  %.4519 = phi float [ %.3, %242 ], [ %256, %246 ]
+  %.3396517 = phi float [ %.2395, %242 ], [ %251, %246 ]
+  %.2418516 = phi float [ %.1417, %242 ], [ %253, %246 ]
   %248 = load float, ptr %indvars.iv560.sroa.phi, align 4
   %249 = fmul float %indvars.iv560.sroa.phi683.sroa.speculated, %248
   %250 = fmul float %245, %249
-  %251 = fadd float %.3416516, %250
+  %251 = fadd float %.3396517, %250
   %252 = fmul float %81, %249
-  %253 = fsub float %.2381518, %252
+  %253 = fsub float %.2418516, %252
   %254 = fmul float %248, %indvars.iv560.sroa.phi669.sroa.speculated
   %255 = fmul float %245, %254
-  %256 = fadd float %.4517, %255
+  %256 = fadd float %.4519, %255
   br i1 %247, label %246, label %.loopexit, !llvm.loop !155
 
 .loopexit:                                        ; preds = %246, %239, %.loopexit506
-  %.4417 = phi float [ %.2415, %239 ], [ %.2415, %.loopexit506 ], [ %251, %246 ]
-  %.2398 = phi i8 [ %241, %239 ], [ %.1397527, %.loopexit506 ], [ %241, %246 ]
-  %.5 = phi float [ %.3386, %239 ], [ %.3386, %.loopexit506 ], [ %256, %246 ]
-  %.3 = phi float [ %.1380, %239 ], [ %.1380, %.loopexit506 ], [ %253, %246 ]
-  %257 = fcmp une float %.3, 0.000000e+00
+  %.3419 = phi float [ %.1417, %239 ], [ %.1417, %.loopexit506 ], [ %253, %246 ]
+  %.4397 = phi float [ %.2395, %239 ], [ %.2395, %.loopexit506 ], [ %251, %246 ]
+  %.2387 = phi i8 [ %241, %239 ], [ %.1386527, %.loopexit506 ], [ %241, %246 ]
+  %.5 = phi float [ %.3, %239 ], [ %.3, %.loopexit506 ], [ %256, %246 ]
+  %257 = fcmp une float %.3419, 0.000000e+00
   br i1 %257, label %258, label %271
 
 258:                                              ; preds = %.loopexit
-  %259 = insertelement <2 x float> poison, float %.3, i64 0
+  %259 = insertelement <2 x float> poison, float %.3419, i64 0
   %260 = shufflevector <2 x float> %259, <2 x float> poison, <2 x i32> zeroinitializer
   %261 = fmul <2 x float> %145, %260
-  %262 = fmul float %146, %.3
+  %262 = fmul float %146, %.3419
   %263 = fadd <2 x float> %123, %261
-  %264 = fadd float %.0403525, %262
+  %264 = fadd float %.0408521, %262
   %265 = getelementptr inbounds float, ptr %66, i64 %139
   %266 = load <2 x float>, ptr %265, align 4
   %267 = fsub <2 x float> %266, %261
@@ -18154,20 +18154,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %271
 
 271:                                              ; preds = %.loopexit, %258, %.critedge428
-  %.1420 = phi i1 [ true, %258 ], [ true, %.loopexit ], [ %.0419520, %.critedge428 ]
-  %.5418 = phi float [ %.4417, %258 ], [ %.4417, %.loopexit ], [ %.0413521, %.critedge428 ]
-  %.3412 = phi float [ %.2411, %258 ], [ %.2411, %.loopexit ], [ %.0409522, %.critedge428 ]
-  %.1404 = phi float [ %264, %258 ], [ %.0403525, %.loopexit ], [ %.0403525, %.critedge428 ]
-  %.3399 = phi i8 [ %.2398, %258 ], [ %.2398, %.loopexit ], [ %.1397527, %.critedge428 ]
-  %.4391 = phi float [ %.3390, %258 ], [ %.3390, %.loopexit ], [ %.1388528, %.critedge428 ]
-  %.6 = phi float [ %.5, %258 ], [ %.5, %.loopexit ], [ %.1384529, %.critedge428 ]
+  %.1409 = phi float [ %264, %258 ], [ %.0408521, %.loopexit ], [ %.0408521, %.critedge428 ]
+  %.3403 = phi float [ %.2402, %258 ], [ %.2402, %.loopexit ], [ %.0400524, %.critedge428 ]
+  %.5398 = phi float [ %.4397, %258 ], [ %.4397, %.loopexit ], [ %.0393525, %.critedge428 ]
+  %.1392 = phi i1 [ true, %258 ], [ true, %.loopexit ], [ %.0391526, %.critedge428 ]
+  %.3388 = phi i8 [ %.2387, %258 ], [ %.2387, %.loopexit ], [ %.1386527, %.critedge428 ]
+  %.4383 = phi float [ %.3382, %258 ], [ %.3382, %.loopexit ], [ %.1380528, %.critedge428 ]
+  %.6 = phi float [ %.5, %258 ], [ %.5, %.loopexit ], [ %.1377529, %.critedge428 ]
   %272 = phi <2 x float> [ %263, %258 ], [ %123, %.loopexit ], [ %123, %.critedge428 ]
   %indvars.iv.next564 = add nsw i64 %indvars.iv563, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next564, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !156
 
 ._crit_edge:                                      ; preds = %271
-  br i1 %.1420, label %273, label %._crit_edge.thread
+  br i1 %.1392, label %273, label %._crit_edge.thread
 
 273:                                              ; preds = %._crit_edge
   %274 = getelementptr inbounds float, ptr %66, i64 %100
@@ -18176,7 +18176,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %276, ptr %274, align 4
   %277 = getelementptr i8, ptr %274, i64 8
   %278 = load float, ptr %277, align 4
-  %279 = fadd float %.1404, %278
+  %279 = fadd float %.1409, %278
   store float %279, ptr %277, align 4
   br i1 %.not, label %289, label %280
 
@@ -18189,7 +18189,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %285, ptr %283, align 4
   %286 = getelementptr i8, ptr %283, i64 8
   %287 = load float, ptr %286, align 4
-  %288 = fadd float %.1404, %287
+  %288 = fadd float %.1409, %287
   store float %288, ptr %286, align 4
   br label %289
 
@@ -18202,24 +18202,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %293 = sext i32 %292 to i64
   %294 = getelementptr inbounds float, ptr %84, i64 %293
   %295 = load float, ptr %294, align 4
-  %296 = fadd float %.5418, %295
+  %296 = fadd float %.5398, %295
   store float %296, ptr %294, align 4
   %297 = getelementptr inbounds float, ptr %86, i64 %293
   %298 = load float, ptr %297, align 4
-  %299 = fadd float %.3412, %298
+  %299 = fadd float %.3403, %298
   store float %299, ptr %297, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %290, %289
-  %.1384.lcssa585 = phi float [ %.6, %._crit_edge ], [ %.6, %290 ], [ %.6, %289 ], [ %.0383541, %.critedge ]
-  %.1388.lcssa584 = phi float [ %.4391, %._crit_edge ], [ %.4391, %290 ], [ %.4391, %289 ], [ %.0387540, %.critedge ]
-  %.1397.lcssa583 = phi i8 [ %.3399, %._crit_edge ], [ %.3399, %290 ], [ %.3399, %289 ], [ %.0396539, %.critedge ]
+  %.1377.lcssa585 = phi float [ %.6, %._crit_edge ], [ %.6, %290 ], [ %.6, %289 ], [ %.0376541, %.critedge ]
+  %.1380.lcssa584 = phi float [ %.4383, %._crit_edge ], [ %.4383, %290 ], [ %.4383, %289 ], [ %.0379540, %.critedge ]
+  %.1386.lcssa583 = phi i8 [ %.3388, %._crit_edge ], [ %.3388, %290 ], [ %.3388, %289 ], [ %.0385539, %.critedge ]
   %exitcond568.not = icmp eq i64 %indvars.iv.next566, %wide.trip.count567
   br i1 %exitcond568.not, label %._crit_edge542, label %.critedge, !llvm.loop !157
 
 ._crit_edge542:                                   ; preds = %._crit_edge.thread
-  %300 = trunc nuw i8 %.1397.lcssa583 to i1
-  %301 = fcmp une float %.1384.lcssa585, 0.000000e+00
+  %300 = trunc nuw i8 %.1386.lcssa583 to i1
+  %301 = fcmp une float %.1377.lcssa585, 0.000000e+00
   br i1 %301, label %302, label %308
 
 302:                                              ; preds = %._crit_edge542
@@ -18227,12 +18227,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %304 = inttoptr i64 %303 to ptr
   %305 = getelementptr inbounds i8, ptr %304, i64 8
   %306 = load float, ptr %305, align 4
-  %307 = fadd float %.1384.lcssa585, %306
+  %307 = fadd float %.1377.lcssa585, %306
   store float %307, ptr %305, align 4
   br label %308
 
 308:                                              ; preds = %302, %._crit_edge542
-  %309 = fcmp une float %.1388.lcssa584, 0.000000e+00
+  %309 = fcmp une float %.1380.lcssa584, 0.000000e+00
   br i1 %309, label %310, label %.thread591
 
 310:                                              ; preds = %308
@@ -18240,12 +18240,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %312 = inttoptr i64 %311 to ptr
   %313 = getelementptr inbounds i8, ptr %312, i64 12
   %314 = load float, ptr %313, align 4
-  %315 = fadd float %.1388.lcssa584, %314
+  %315 = fadd float %.1380.lcssa584, %314
   store float %315, ptr %313, align 4
   br label %.thread591
 
 .thread591:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %310, %308
-  %.0396.lcssa589594 = phi i1 [ %300, %310 ], [ %300, %308 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0385.lcssa589594 = phi i1 [ %300, %310 ], [ %300, %308 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %316 = load i32, ptr %0, align 8
   %317 = mul nsw i32 %316, 12
   %318 = sext i32 %23 to i64
@@ -18255,7 +18255,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %322 = mul nsw i32 %321, 150
   %323 = add nsw i32 %322, %317
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %323)
-  %324 = select i1 %59, i1 %.0396.lcssa589594, i1 false
+  %324 = select i1 %59, i1 %.0385.lcssa589594, i1 false
   br i1 %324, label %325, label %336
 
 325:                                              ; preds = %.thread591
@@ -19157,9 +19157,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv479 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next480, %._crit_edge.thread ]
-  %.0326457 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1327.lcssa497, %._crit_edge.thread ]
-  %.0329456 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1330.lcssa496, %._crit_edge.thread ]
-  %.0335455 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1336.lcssa495, %._crit_edge.thread ]
+  %.0321457 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1322.lcssa497, %._crit_edge.thread ]
+  %.0325456 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1326.lcssa496, %._crit_edge.thread ]
+  %.0331455 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1332.lcssa495, %._crit_edge.thread ]
   %83 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv479
   %84 = load i32, ptr %83, align 4
   %85 = sext i32 %84 to i64
@@ -19213,12 +19213,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 127:                                              ; preds = %.lr.ph, %.loopexit
   %indvars.iv477 = phi i64 [ %126, %.lr.ph ], [ %indvars.iv.next478, %.loopexit ]
-  %.1327448 = phi float [ %.0326457, %.lr.ph ], [ %.6, %.loopexit ]
-  %.1330447 = phi float [ %.0329456, %.lr.ph ], [ %.4333, %.loopexit ]
-  %.1336446 = phi i8 [ %.0335455, %.lr.ph ], [ %.3338, %.loopexit ]
-  %.0343445 = phi i1 [ false, %.lr.ph ], [ %.1344, %.loopexit ]
-  %.0347443 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3350, %.loopexit ]
-  %.0351442 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5356, %.loopexit ]
+  %.1322448 = phi float [ %.0321457, %.lr.ph ], [ %.6, %.loopexit ]
+  %.1326447 = phi float [ %.0325456, %.lr.ph ], [ %.4329, %.loopexit ]
+  %.1332446 = phi i8 [ %.0331455, %.lr.ph ], [ %.3334, %.loopexit ]
+  %.0337445 = phi i1 [ false, %.lr.ph ], [ %.1338, %.loopexit ]
+  %.0339444 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5344, %.loopexit ]
+  %.0345443 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3348, %.loopexit ]
   br i1 %125, label %.critedge363, label %128
 
 128:                                              ; preds = %127
@@ -19373,27 +19373,27 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv471.sroa.phi560.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv471.sroa.phi570.sroa.speculated = phi float [ %39, %.preheader ], [ %62, %.thread ]
   %indvars.iv471.sroa.phi574.sroa.speculated = phi float [ %37, %.preheader ], [ %61, %.thread ]
-  %.2328437 = phi float [ %224, %.preheader ], [ %.1327448, %.thread ]
-  %.2331436 = phi float [ %225, %.preheader ], [ %.1330447, %.thread ]
-  %.1348435 = phi float [ %223, %.preheader ], [ %.0347443, %.thread ]
-  %.1352434 = phi float [ %221, %.preheader ], [ %.0351442, %.thread ]
+  %.2323438 = phi float [ %224, %.preheader ], [ %.1322448, %.thread ]
+  %.2327437 = phi float [ %225, %.preheader ], [ %.1326447, %.thread ]
+  %.1340435 = phi float [ %221, %.preheader ], [ %.0339444, %.thread ]
+  %.1346434 = phi float [ %223, %.preheader ], [ %.0345443, %.thread ]
   %220 = load float, ptr %indvars.iv471.sroa.phi530, align 4
-  %221 = tail call float @llvm.fmuladd.f32(float %indvars.iv471.sroa.phi574.sroa.speculated, float %220, float %.1352434)
+  %221 = tail call float @llvm.fmuladd.f32(float %indvars.iv471.sroa.phi574.sroa.speculated, float %220, float %.1340435)
   %222 = load float, ptr %indvars.iv471.sroa.phi, align 4
-  %223 = tail call float @llvm.fmuladd.f32(float %indvars.iv471.sroa.phi570.sroa.speculated, float %222, float %.1348435)
-  %224 = tail call float @llvm.fmuladd.f32(float %220, float %indvars.iv471.sroa.phi560.sroa.speculated, float %.2328437)
-  %225 = tail call float @llvm.fmuladd.f32(float %222, float %indvars.iv471.sroa.phi560.sroa.speculated, float %.2331436)
+  %223 = tail call float @llvm.fmuladd.f32(float %indvars.iv471.sroa.phi570.sroa.speculated, float %222, float %.1346434)
+  %224 = tail call float @llvm.fmuladd.f32(float %220, float %indvars.iv471.sroa.phi560.sroa.speculated, float %.2323438)
+  %225 = tail call float @llvm.fmuladd.f32(float %222, float %indvars.iv471.sroa.phi560.sroa.speculated, float %.2327437)
   br i1 %219, label %.preheader, label %.loopexit430, !llvm.loop !167
 
 .loopexit430:                                     ; preds = %.preheader, %.critedge587
-  %.2353 = phi float [ %.0351442, %.critedge587 ], [ %221, %.preheader ]
-  %.2349 = phi float [ %.0347443, %.critedge587 ], [ %223, %.preheader ]
-  %.3332 = phi float [ %.1330447, %.critedge587 ], [ %225, %.preheader ]
-  %.3 = phi float [ %.1327448, %.critedge587 ], [ %224, %.preheader ]
+  %.2347 = phi float [ %.0345443, %.critedge587 ], [ %223, %.preheader ]
+  %.2341 = phi float [ %.0339444, %.critedge587 ], [ %221, %.preheader ]
+  %.3328 = phi float [ %.1326447, %.critedge587 ], [ %225, %.preheader ]
+  %.3 = phi float [ %.1322448, %.critedge587 ], [ %224, %.preheader ]
   br i1 %58, label %226, label %.loopexit
 
 226:                                              ; preds = %.loopexit430
-  %227 = trunc nuw i8 %.1336446 to i1
+  %227 = trunc nuw i8 %.1332446 to i1
   br i1 %227, label %231, label %228
 
 228:                                              ; preds = %226
@@ -19417,30 +19417,30 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv474.sroa.phi = phi ptr [ %.sroa.0537, %234 ], [ %.sroa.3, %238 ]
   %indvars.iv474.sroa.phi562.sroa.speculated = phi float [ -1.000000e+00, %234 ], [ 1.000000e+00, %238 ]
   %indvars.iv474.sroa.phi576.sroa.speculated = phi float [ %61, %234 ], [ %37, %238 ]
-  %.4440 = phi float [ %.3, %234 ], [ %246, %238 ]
-  %.3354439 = phi float [ %.2353, %234 ], [ %243, %238 ]
+  %.4441 = phi float [ %.3, %234 ], [ %246, %238 ]
+  %.3342439 = phi float [ %.2341, %234 ], [ %243, %238 ]
   %240 = load float, ptr %indvars.iv474.sroa.phi, align 4
   %241 = fmul float %indvars.iv474.sroa.phi576.sroa.speculated, %240
   %242 = fmul float %237, %241
-  %243 = fadd float %.3354439, %242
+  %243 = fadd float %.3342439, %242
   %244 = fmul float %240, %indvars.iv474.sroa.phi562.sroa.speculated
   %245 = fmul float %237, %244
-  %246 = fadd float %.4440, %245
+  %246 = fadd float %.4441, %245
   br i1 %239, label %238, label %.loopexit, !llvm.loop !168
 
 .loopexit:                                        ; preds = %238, %.loopexit430, %231, %.critedge363
-  %.5356 = phi float [ %.0351442, %.critedge363 ], [ %.2353, %231 ], [ %.2353, %.loopexit430 ], [ %243, %238 ]
-  %.3350 = phi float [ %.0347443, %.critedge363 ], [ %.2349, %231 ], [ %.2349, %.loopexit430 ], [ %.2349, %238 ]
-  %.1344 = phi i1 [ %.0343445, %.critedge363 ], [ true, %231 ], [ true, %.loopexit430 ], [ true, %238 ]
-  %.3338 = phi i8 [ %.1336446, %.critedge363 ], [ %233, %231 ], [ %.1336446, %.loopexit430 ], [ %233, %238 ]
-  %.4333 = phi float [ %.1330447, %.critedge363 ], [ %.3332, %231 ], [ %.3332, %.loopexit430 ], [ %.3332, %238 ]
-  %.6 = phi float [ %.1327448, %.critedge363 ], [ %.3, %231 ], [ %.3, %.loopexit430 ], [ %246, %238 ]
+  %.3348 = phi float [ %.0345443, %.critedge363 ], [ %.2347, %231 ], [ %.2347, %.loopexit430 ], [ %.2347, %238 ]
+  %.5344 = phi float [ %.0339444, %.critedge363 ], [ %.2341, %231 ], [ %.2341, %.loopexit430 ], [ %243, %238 ]
+  %.1338 = phi i1 [ %.0337445, %.critedge363 ], [ true, %231 ], [ true, %.loopexit430 ], [ true, %238 ]
+  %.3334 = phi i8 [ %.1332446, %.critedge363 ], [ %233, %231 ], [ %.1332446, %.loopexit430 ], [ %233, %238 ]
+  %.4329 = phi float [ %.1326447, %.critedge363 ], [ %.3328, %231 ], [ %.3328, %.loopexit430 ], [ %.3328, %238 ]
+  %.6 = phi float [ %.1322448, %.critedge363 ], [ %.3, %231 ], [ %.3, %.loopexit430 ], [ %246, %238 ]
   %indvars.iv.next478 = add nsw i64 %indvars.iv477, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next478, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %127, !llvm.loop !169
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge367.not = and i1 %.not, %.1344
+  %brmerge367.not = and i1 %.not, %.1338
   br i1 %brmerge367.not, label %247, label %._crit_edge.thread
 
 247:                                              ; preds = %._crit_edge
@@ -19449,24 +19449,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %250 = sext i32 %249 to i64
   %251 = getelementptr inbounds float, ptr %80, i64 %250
   %252 = load float, ptr %251, align 4
-  %253 = fadd float %.5356, %252
+  %253 = fadd float %.5344, %252
   store float %253, ptr %251, align 4
   %254 = getelementptr inbounds float, ptr %82, i64 %250
   %255 = load float, ptr %254, align 4
-  %256 = fadd float %.3350, %255
+  %256 = fadd float %.3348, %255
   store float %256, ptr %254, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %247
-  %.1327.lcssa497 = phi float [ %.6, %._crit_edge ], [ %.6, %247 ], [ %.0326457, %.critedge ]
-  %.1330.lcssa496 = phi float [ %.4333, %._crit_edge ], [ %.4333, %247 ], [ %.0329456, %.critedge ]
-  %.1336.lcssa495 = phi i8 [ %.3338, %._crit_edge ], [ %.3338, %247 ], [ %.0335455, %.critedge ]
+  %.1322.lcssa497 = phi float [ %.6, %._crit_edge ], [ %.6, %247 ], [ %.0321457, %.critedge ]
+  %.1326.lcssa496 = phi float [ %.4329, %._crit_edge ], [ %.4329, %247 ], [ %.0325456, %.critedge ]
+  %.1332.lcssa495 = phi i8 [ %.3334, %._crit_edge ], [ %.3334, %247 ], [ %.0331455, %.critedge ]
   %exitcond482.not = icmp eq i64 %indvars.iv.next480, %wide.trip.count481
   br i1 %exitcond482.not, label %._crit_edge458, label %.critedge, !llvm.loop !170
 
 ._crit_edge458:                                   ; preds = %._crit_edge.thread
-  %257 = trunc nuw i8 %.1336.lcssa495 to i1
-  %258 = fcmp une float %.1327.lcssa497, 0.000000e+00
+  %257 = trunc nuw i8 %.1332.lcssa495 to i1
+  %258 = fcmp une float %.1322.lcssa497, 0.000000e+00
   br i1 %258, label %259, label %265
 
 259:                                              ; preds = %._crit_edge458
@@ -19474,12 +19474,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %261 = inttoptr i64 %260 to ptr
   %262 = getelementptr inbounds i8, ptr %261, i64 8
   %263 = load float, ptr %262, align 4
-  %264 = fadd float %.1327.lcssa497, %263
+  %264 = fadd float %.1322.lcssa497, %263
   store float %264, ptr %262, align 4
   br label %265
 
 265:                                              ; preds = %259, %._crit_edge458
-  %266 = fcmp une float %.1330.lcssa496, 0.000000e+00
+  %266 = fcmp une float %.1326.lcssa496, 0.000000e+00
   br i1 %266, label %267, label %.thread503
 
 267:                                              ; preds = %265
@@ -19487,12 +19487,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %269 = inttoptr i64 %268 to ptr
   %270 = getelementptr inbounds i8, ptr %269, i64 12
   %271 = load float, ptr %270, align 4
-  %272 = fadd float %.1330.lcssa496, %271
+  %272 = fadd float %.1326.lcssa496, %271
   store float %272, ptr %270, align 4
   br label %.thread503
 
 .thread503:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %267, %265
-  %.0335.lcssa501506 = phi i1 [ %257, %267 ], [ %257, %265 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0331.lcssa501506 = phi i1 [ %257, %267 ], [ %257, %265 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %273 = load i32, ptr %0, align 8
   %274 = mul nsw i32 %273, 12
   %275 = sext i32 %23 to i64
@@ -19502,7 +19502,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %279 = mul nsw i32 %278, 150
   %280 = add nsw i32 %279, %274
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %280)
-  %281 = select i1 %58, i1 %.0335.lcssa501506, i1 false
+  %281 = select i1 %58, i1 %.0331.lcssa501506, i1 false
   br i1 %281, label %282, label %293
 
 282:                                              ; preds = %.thread503
@@ -20944,8 +20944,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv602 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next603, %._crit_edge.thread ]
-  %.0402570 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1403.lcssa620, %._crit_edge.thread ]
-  %.0408569 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1409.lcssa619, %._crit_edge.thread ]
+  %.0394570 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1395.lcssa620, %._crit_edge.thread ]
+  %.0398569 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1399.lcssa619, %._crit_edge.thread ]
   %87 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv602
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
@@ -20991,12 +20991,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %334
   %indvars.iv600 = phi i64 [ %122, %.lr.ph.preheader ], [ %indvars.iv.next601, %334 ]
-  %.1403560 = phi float [ %.0402570, %.lr.ph.preheader ], [ %.6, %334 ]
-  %.1409559 = phi float [ %.0408569, %.lr.ph.preheader ], [ %.6414, %334 ]
-  %.0421557 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1422, %334 ]
-  %.0427554 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5432, %334 ]
-  %.0433553 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5438, %334 ]
-  %.0440552 = phi i1 [ false, %.lr.ph.preheader ], [ %.1441, %334 ]
+  %.1395560 = phi float [ %.0394570, %.lr.ph.preheader ], [ %.6, %334 ]
+  %.1399559 = phi float [ %.0398569, %.lr.ph.preheader ], [ %.6404, %334 ]
+  %.0409558 = phi i1 [ false, %.lr.ph.preheader ], [ %.1410, %334 ]
+  %.0411557 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5416, %334 ]
+  %.0417556 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5422, %334 ]
+  %.0427553 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1428, %334 ]
   %123 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %335, %334 ]
   %124 = load ptr, ptr %77, align 8
   %125 = load ptr, ptr %78, align 8
@@ -21177,31 +21177,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv591.sroa.phi716.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv591.sroa.phi733.sroa.speculated = phi float [ %36, %.preheader ], [ %63, %.thread ]
   %indvars.iv591.sroa.phi740.sroa.speculated = phi float [ %34, %.preheader ], [ %62, %.thread ]
-  %.0397542 = phi float [ %239, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.2404541 = phi float [ %240, %.preheader ], [ %.1403560, %.thread ]
-  %.2410540 = phi float [ %241, %.preheader ], [ %.1409559, %.thread ]
-  %.1428539 = phi float [ %233, %.preheader ], [ %.0427554, %.thread ]
-  %.1434538 = phi float [ %231, %.preheader ], [ %.0433553, %.thread ]
+  %.2396543 = phi float [ %240, %.preheader ], [ %.1395560, %.thread ]
+  %.2400542 = phi float [ %241, %.preheader ], [ %.1399559, %.thread ]
+  %.1412540 = phi float [ %231, %.preheader ], [ %.0411557, %.thread ]
+  %.1418539 = phi float [ %233, %.preheader ], [ %.0417556, %.thread ]
+  %.0435538 = phi float [ %239, %.preheader ], [ 0.000000e+00, %.thread ]
   %230 = load float, ptr %indvars.iv591.sroa.phi664, align 4
-  %231 = tail call float @llvm.fmuladd.f32(float %indvars.iv591.sroa.phi740.sroa.speculated, float %230, float %.1434538)
+  %231 = tail call float @llvm.fmuladd.f32(float %indvars.iv591.sroa.phi740.sroa.speculated, float %230, float %.1412540)
   %232 = load float, ptr %indvars.iv591.sroa.phi, align 4
-  %233 = tail call float @llvm.fmuladd.f32(float %indvars.iv591.sroa.phi733.sroa.speculated, float %232, float %.1428539)
+  %233 = tail call float @llvm.fmuladd.f32(float %indvars.iv591.sroa.phi733.sroa.speculated, float %232, float %.1418539)
   %234 = load float, ptr %indvars.iv591.sroa.phi676, align 4
   %235 = fmul float %indvars.iv591.sroa.phi740.sroa.speculated, %234
-  %236 = tail call float @llvm.fmuladd.f32(float %235, float %191, float %.0397542)
+  %236 = tail call float @llvm.fmuladd.f32(float %235, float %191, float %.0435538)
   %237 = load float, ptr %indvars.iv591.sroa.phi670, align 4
   %238 = fmul float %indvars.iv591.sroa.phi733.sroa.speculated, %237
   %239 = tail call float @llvm.fmuladd.f32(float %238, float %191, float %236)
-  %240 = tail call float @llvm.fmuladd.f32(float %230, float %indvars.iv591.sroa.phi716.sroa.speculated, float %.2404541)
-  %241 = tail call float @llvm.fmuladd.f32(float %232, float %indvars.iv591.sroa.phi716.sroa.speculated, float %.2410540)
+  %240 = tail call float @llvm.fmuladd.f32(float %230, float %indvars.iv591.sroa.phi716.sroa.speculated, float %.2396543)
+  %241 = tail call float @llvm.fmuladd.f32(float %232, float %indvars.iv591.sroa.phi716.sroa.speculated, float %.2400542)
   br i1 %229, label %.preheader, label %.loopexit533, !llvm.loop !181
 
 .loopexit533:                                     ; preds = %.preheader, %.critedge759
-  %.2435 = phi float [ %.0433553, %.critedge759 ], [ %231, %.preheader ]
-  %.2429 = phi float [ %.0427554, %.critedge759 ], [ %233, %.preheader ]
-  %.3411 = phi float [ %.1409559, %.critedge759 ], [ %241, %.preheader ]
-  %.3405 = phi float [ %.1403560, %.critedge759 ], [ %240, %.preheader ]
-  %.1398 = phi float [ 0.000000e+00, %.critedge759 ], [ %239, %.preheader ]
+  %.1436 = phi float [ 0.000000e+00, %.critedge759 ], [ %239, %.preheader ]
+  %.2419 = phi float [ %.0417556, %.critedge759 ], [ %233, %.preheader ]
+  %.2413 = phi float [ %.0411557, %.critedge759 ], [ %231, %.preheader ]
+  %.3401 = phi float [ %.1399559, %.critedge759 ], [ %241, %.preheader ]
+  %.3 = phi float [ %.1395560, %.critedge759 ], [ %240, %.preheader ]
   %242 = fcmp uge float %190, %42
   %.not527 = select i1 %131, i1 %242, i1 false
   br i1 %.not527, label %.loopexit532, label %243
@@ -21246,24 +21246,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv594.sroa.phi = phi ptr [ %.sroa.0688, %243 ], [ %.sroa.3689, %276 ]
   %indvars.iv594.sroa.phi718.sroa.speculated = phi float [ -1.000000e+00, %243 ], [ 1.000000e+00, %276 ]
   %indvars.iv594.sroa.phi742.sroa.speculated = phi float [ %62, %243 ], [ %34, %276 ]
-  %.2399546 = phi float [ %.1398, %243 ], [ %283, %276 ]
-  %.4406545 = phi float [ %.3405, %243 ], [ %286, %276 ]
-  %.3436544 = phi float [ %.2435, %243 ], [ %281, %276 ]
+  %.4547 = phi float [ %.3, %243 ], [ %286, %276 ]
+  %.3414545 = phi float [ %.2413, %243 ], [ %281, %276 ]
+  %.2437544 = phi float [ %.1436, %243 ], [ %283, %276 ]
   %278 = load float, ptr %indvars.iv594.sroa.phi, align 4
   %279 = fmul float %indvars.iv594.sroa.phi742.sroa.speculated, %278
   %280 = fmul float %275, %279
-  %281 = fsub float %.3436544, %280
+  %281 = fsub float %.3414545, %280
   %282 = fmul float %273, %279
-  %283 = fsub float %.2399546, %282
+  %283 = fsub float %.2437544, %282
   %284 = fmul float %278, %indvars.iv594.sroa.phi718.sroa.speculated
   %285 = fmul float %275, %284
-  %286 = fsub float %.4406545, %285
+  %286 = fsub float %.4547, %285
   br i1 %277, label %276, label %.loopexit532, !llvm.loop !182
 
 .loopexit532:                                     ; preds = %276, %.loopexit533
-  %.4437 = phi float [ %.2435, %.loopexit533 ], [ %281, %276 ]
-  %.5407 = phi float [ %.3405, %.loopexit533 ], [ %286, %276 ]
-  %.3 = phi float [ %.1398, %.loopexit533 ], [ %283, %276 ]
+  %.3438 = phi float [ %.1436, %.loopexit533 ], [ %283, %276 ]
+  %.4415 = phi float [ %.2413, %.loopexit533 ], [ %281, %276 ]
+  %.5 = phi float [ %.3, %.loopexit533 ], [ %286, %276 ]
   %287 = fcmp uge float %190, %46
   %.not529 = select i1 %131, i1 %287, i1 false
   br i1 %.not529, label %.loopexit, label %288
@@ -21296,34 +21296,34 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv597.sroa.phi = phi ptr [ %.sroa.0684, %288 ], [ %.sroa.3, %309 ]
   %indvars.iv597.sroa.phi720.sroa.speculated = phi float [ -1.000000e+00, %288 ], [ 1.000000e+00, %309 ]
   %indvars.iv597.sroa.phi735.sroa.speculated = phi float [ %63, %288 ], [ %36, %309 ]
-  %.4550 = phi float [ %.3, %288 ], [ %316, %309 ]
-  %.4412549 = phi float [ %.3411, %288 ], [ %319, %309 ]
-  %.3430548 = phi float [ %.2429, %288 ], [ %314, %309 ]
+  %.4402550 = phi float [ %.3401, %288 ], [ %319, %309 ]
+  %.3420549 = phi float [ %.2419, %288 ], [ %314, %309 ]
+  %.4439548 = phi float [ %.3438, %288 ], [ %316, %309 ]
   %311 = load float, ptr %indvars.iv597.sroa.phi, align 4
   %312 = fmul float %indvars.iv597.sroa.phi735.sroa.speculated, %311
   %313 = fmul float %308, %312
-  %314 = fadd float %.3430548, %313
+  %314 = fadd float %.3420549, %313
   %315 = fmul float %306, %312
-  %316 = fadd float %.4550, %315
+  %316 = fadd float %.4439548, %315
   %317 = fmul float %311, %indvars.iv597.sroa.phi720.sroa.speculated
   %318 = fmul float %308, %317
-  %319 = fadd float %.4412549, %318
+  %319 = fadd float %.4402550, %318
   br i1 %310, label %309, label %.loopexit, !llvm.loop !183
 
 .loopexit:                                        ; preds = %309, %.loopexit532
-  %.4431 = phi float [ %.2429, %.loopexit532 ], [ %314, %309 ]
-  %.5413 = phi float [ %.3411, %.loopexit532 ], [ %319, %309 ]
-  %.5 = phi float [ %.3, %.loopexit532 ], [ %316, %309 ]
-  %320 = fcmp une float %.5, 0.000000e+00
+  %.5440 = phi float [ %.3438, %.loopexit532 ], [ %316, %309 ]
+  %.4421 = phi float [ %.2419, %.loopexit532 ], [ %314, %309 ]
+  %.5403 = phi float [ %.3401, %.loopexit532 ], [ %319, %309 ]
+  %320 = fcmp une float %.5440, 0.000000e+00
   br i1 %320, label %321, label %334
 
 321:                                              ; preds = %.loopexit
-  %322 = insertelement <2 x float> poison, float %.5, i64 0
+  %322 = insertelement <2 x float> poison, float %.5440, i64 0
   %323 = shufflevector <2 x float> %322, <2 x float> poison, <2 x i32> zeroinitializer
   %324 = fmul <2 x float> %145, %323
-  %325 = fmul float %146, %.5
+  %325 = fmul float %146, %.5440
   %326 = fadd <2 x float> %123, %324
-  %327 = fadd float %.0421557, %325
+  %327 = fadd float %.0427553, %325
   %328 = getelementptr inbounds float, ptr %67, i64 %139
   %329 = load <2 x float>, ptr %328, align 4
   %330 = fsub <2 x float> %329, %324
@@ -21335,19 +21335,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %334
 
 334:                                              ; preds = %.loopexit, %321, %.critedge449.critedge
-  %.1441 = phi i1 [ true, %321 ], [ true, %.loopexit ], [ %.0440552, %.critedge449.critedge ]
-  %.5438 = phi float [ %.4437, %321 ], [ %.4437, %.loopexit ], [ %.0433553, %.critedge449.critedge ]
-  %.5432 = phi float [ %.4431, %321 ], [ %.4431, %.loopexit ], [ %.0427554, %.critedge449.critedge ]
-  %.1422 = phi float [ %327, %321 ], [ %.0421557, %.loopexit ], [ %.0421557, %.critedge449.critedge ]
-  %.6414 = phi float [ %.5413, %321 ], [ %.5413, %.loopexit ], [ %.1409559, %.critedge449.critedge ]
-  %.6 = phi float [ %.5407, %321 ], [ %.5407, %.loopexit ], [ %.1403560, %.critedge449.critedge ]
+  %.1428 = phi float [ %327, %321 ], [ %.0427553, %.loopexit ], [ %.0427553, %.critedge449.critedge ]
+  %.5422 = phi float [ %.4421, %321 ], [ %.4421, %.loopexit ], [ %.0417556, %.critedge449.critedge ]
+  %.5416 = phi float [ %.4415, %321 ], [ %.4415, %.loopexit ], [ %.0411557, %.critedge449.critedge ]
+  %.1410 = phi i1 [ true, %321 ], [ true, %.loopexit ], [ %.0409558, %.critedge449.critedge ]
+  %.6404 = phi float [ %.5403, %321 ], [ %.5403, %.loopexit ], [ %.1399559, %.critedge449.critedge ]
+  %.6 = phi float [ %.5, %321 ], [ %.5, %.loopexit ], [ %.1395560, %.critedge449.critedge ]
   %335 = phi <2 x float> [ %326, %321 ], [ %123, %.loopexit ], [ %123, %.critedge449.critedge ]
   %indvars.iv.next601 = add nsw i64 %indvars.iv600, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next601, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !184
 
 ._crit_edge:                                      ; preds = %334
-  br i1 %.1441, label %336, label %._crit_edge.thread
+  br i1 %.1410, label %336, label %._crit_edge.thread
 
 336:                                              ; preds = %._crit_edge
   %337 = getelementptr inbounds float, ptr %67, i64 %100
@@ -21356,7 +21356,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %339, ptr %337, align 4
   %340 = getelementptr i8, ptr %337, i64 8
   %341 = load float, ptr %340, align 4
-  %342 = fadd float %.1422, %341
+  %342 = fadd float %.1428, %341
   store float %342, ptr %340, align 4
   br i1 %.not, label %352, label %343
 
@@ -21369,7 +21369,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %348, ptr %346, align 4
   %349 = getelementptr i8, ptr %346, i64 8
   %350 = load float, ptr %349, align 4
-  %351 = fadd float %.1422, %350
+  %351 = fadd float %.1428, %350
   store float %351, ptr %349, align 4
   br label %352
 
@@ -21382,22 +21382,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %356 = sext i32 %355 to i64
   %357 = getelementptr inbounds float, ptr %84, i64 %356
   %358 = load float, ptr %357, align 4
-  %359 = fadd float %.5438, %358
+  %359 = fadd float %.5416, %358
   store float %359, ptr %357, align 4
   %360 = getelementptr inbounds float, ptr %86, i64 %356
   %361 = load float, ptr %360, align 4
-  %362 = fadd float %.5432, %361
+  %362 = fadd float %.5422, %361
   store float %362, ptr %360, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %353, %352
-  %.1403.lcssa620 = phi float [ %.6, %._crit_edge ], [ %.6, %353 ], [ %.6, %352 ], [ %.0402570, %.critedge ]
-  %.1409.lcssa619 = phi float [ %.6414, %._crit_edge ], [ %.6414, %353 ], [ %.6414, %352 ], [ %.0408569, %.critedge ]
+  %.1395.lcssa620 = phi float [ %.6, %._crit_edge ], [ %.6, %353 ], [ %.6, %352 ], [ %.0394570, %.critedge ]
+  %.1399.lcssa619 = phi float [ %.6404, %._crit_edge ], [ %.6404, %353 ], [ %.6404, %352 ], [ %.0398569, %.critedge ]
   %exitcond606.not = icmp eq i64 %indvars.iv.next603, %wide.trip.count605
   br i1 %exitcond606.not, label %._crit_edge571, label %.critedge, !llvm.loop !185
 
 ._crit_edge571:                                   ; preds = %._crit_edge.thread
-  %363 = fcmp une float %.1403.lcssa620, 0.000000e+00
+  %363 = fcmp une float %.1395.lcssa620, 0.000000e+00
   br i1 %363, label %364, label %370
 
 364:                                              ; preds = %._crit_edge571
@@ -21405,12 +21405,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %366 = inttoptr i64 %365 to ptr
   %367 = getelementptr inbounds i8, ptr %366, i64 8
   %368 = load float, ptr %367, align 4
-  %369 = fadd float %.1403.lcssa620, %368
+  %369 = fadd float %.1395.lcssa620, %368
   store float %369, ptr %367, align 4
   br label %370
 
 370:                                              ; preds = %364, %._crit_edge571
-  %371 = fcmp une float %.1409.lcssa619, 0.000000e+00
+  %371 = fcmp une float %.1399.lcssa619, 0.000000e+00
   br i1 %371, label %372, label %.thread624
 
 372:                                              ; preds = %370
@@ -21418,7 +21418,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %374 = inttoptr i64 %373 to ptr
   %375 = getelementptr inbounds i8, ptr %374, i64 12
   %376 = load float, ptr %375, align 4
-  %377 = fadd float %.1409.lcssa619, %376
+  %377 = fadd float %.1399.lcssa619, %376
   store float %377, ptr %375, align 4
   br label %.thread624
 
@@ -22325,8 +22325,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv498 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next499, %._crit_edge.thread ]
-  %.0336469 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1337.lcssa514, %._crit_edge.thread ]
-  %.0339468 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1340.lcssa513, %._crit_edge.thread ]
+  %.0334469 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1335.lcssa514, %._crit_edge.thread ]
+  %.0337468 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1338.lcssa513, %._crit_edge.thread ]
   %85 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv498
   %86 = load i32, ptr %85, align 4
   %87 = sext i32 %86 to i64
@@ -22377,11 +22377,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv496 = phi i64 [ %125, %.lr.ph.preheader ], [ %indvars.iv.next497, %.loopexit ]
-  %.1337462 = phi float [ %.0336469, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1340461 = phi float [ %.0339468, %.lr.ph.preheader ], [ %.5344, %.loopexit ]
-  %.0350460 = phi i1 [ false, %.lr.ph.preheader ], [ %.1351, %.loopexit ]
-  %.0354458 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4358, %.loopexit ]
-  %.0359457 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5364, %.loopexit ]
+  %.1335462 = phi float [ %.0334469, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1338461 = phi float [ %.0337468, %.lr.ph.preheader ], [ %.5342, %.loopexit ]
+  %.0345460 = phi i1 [ false, %.lr.ph.preheader ], [ %.1346, %.loopexit ]
+  %.0347459 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5352, %.loopexit ]
+  %.0353458 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4357, %.loopexit ]
   %126 = load ptr, ptr %75, align 8
   %127 = load ptr, ptr %76, align 8
   %128 = icmp eq ptr %126, %127
@@ -22552,23 +22552,23 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv487.sroa.phi588.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv487.sroa.phi605.sroa.speculated = phi float [ %36, %.preheader ], [ %62, %.thread ]
   %indvars.iv487.sroa.phi612.sroa.speculated = phi float [ %34, %.preheader ], [ %61, %.thread ]
-  %.2338449 = phi float [ %235, %.preheader ], [ %.1337462, %.thread ]
-  %.2341448 = phi float [ %236, %.preheader ], [ %.1340461, %.thread ]
-  %.1355447 = phi float [ %234, %.preheader ], [ %.0354458, %.thread ]
-  %.1360446 = phi float [ %232, %.preheader ], [ %.0359457, %.thread ]
+  %.2336449 = phi float [ %235, %.preheader ], [ %.1335462, %.thread ]
+  %.2339448 = phi float [ %236, %.preheader ], [ %.1338461, %.thread ]
+  %.1348447 = phi float [ %232, %.preheader ], [ %.0347459, %.thread ]
+  %.1354446 = phi float [ %234, %.preheader ], [ %.0353458, %.thread ]
   %231 = load float, ptr %indvars.iv487.sroa.phi548, align 4
-  %232 = tail call float @llvm.fmuladd.f32(float %indvars.iv487.sroa.phi612.sroa.speculated, float %231, float %.1360446)
+  %232 = tail call float @llvm.fmuladd.f32(float %indvars.iv487.sroa.phi612.sroa.speculated, float %231, float %.1348447)
   %233 = load float, ptr %indvars.iv487.sroa.phi, align 4
-  %234 = tail call float @llvm.fmuladd.f32(float %indvars.iv487.sroa.phi605.sroa.speculated, float %233, float %.1355447)
-  %235 = tail call float @llvm.fmuladd.f32(float %231, float %indvars.iv487.sroa.phi588.sroa.speculated, float %.2338449)
-  %236 = tail call float @llvm.fmuladd.f32(float %233, float %indvars.iv487.sroa.phi588.sroa.speculated, float %.2341448)
+  %234 = tail call float @llvm.fmuladd.f32(float %indvars.iv487.sroa.phi605.sroa.speculated, float %233, float %.1354446)
+  %235 = tail call float @llvm.fmuladd.f32(float %231, float %indvars.iv487.sroa.phi588.sroa.speculated, float %.2336449)
+  %236 = tail call float @llvm.fmuladd.f32(float %233, float %indvars.iv487.sroa.phi588.sroa.speculated, float %.2339448)
   br i1 %230, label %.preheader, label %.loopexit441, !llvm.loop !196
 
 .loopexit441:                                     ; preds = %.preheader, %.critedge627
-  %.2361 = phi float [ %.0359457, %.critedge627 ], [ %232, %.preheader ]
-  %.2356 = phi float [ %.0354458, %.critedge627 ], [ %234, %.preheader ]
-  %.3342 = phi float [ %.1340461, %.critedge627 ], [ %236, %.preheader ]
-  %.3 = phi float [ %.1337462, %.critedge627 ], [ %235, %.preheader ]
+  %.2355 = phi float [ %.0353458, %.critedge627 ], [ %234, %.preheader ]
+  %.2349 = phi float [ %.0347459, %.critedge627 ], [ %232, %.preheader ]
+  %.3340 = phi float [ %.1338461, %.critedge627 ], [ %236, %.preheader ]
+  %.3 = phi float [ %.1335462, %.critedge627 ], [ %235, %.preheader ]
   %237 = fcmp uge float %193, %41
   %.not435 = select i1 %133, i1 %237, i1 false
   br i1 %.not435, label %.loopexit440, label %238
@@ -22598,18 +22598,18 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv490.sroa.phi590.sroa.speculated = phi float [ -1.000000e+00, %238 ], [ 1.000000e+00, %255 ]
   %indvars.iv490.sroa.phi614.sroa.speculated = phi float [ %61, %238 ], [ %34, %255 ]
   %.4452 = phi float [ %.3, %238 ], [ %263, %255 ]
-  %.3362451 = phi float [ %.2361, %238 ], [ %260, %255 ]
+  %.3350451 = phi float [ %.2349, %238 ], [ %260, %255 ]
   %257 = load float, ptr %indvars.iv490.sroa.phi, align 4
   %258 = fmul float %indvars.iv490.sroa.phi614.sroa.speculated, %257
   %259 = fmul float %254, %258
-  %260 = fsub float %.3362451, %259
+  %260 = fsub float %.3350451, %259
   %261 = fmul float %257, %indvars.iv490.sroa.phi590.sroa.speculated
   %262 = fmul float %254, %261
   %263 = fsub float %.4452, %262
   br i1 %256, label %255, label %.loopexit440, !llvm.loop !197
 
 .loopexit440:                                     ; preds = %255, %.loopexit441
-  %.4363 = phi float [ %.2361, %.loopexit441 ], [ %260, %255 ]
+  %.4351 = phi float [ %.2349, %.loopexit441 ], [ %260, %255 ]
   %.5 = phi float [ %.3, %.loopexit441 ], [ %263, %255 ]
   %264 = fcmp uge float %193, %45
   %.not437 = select i1 %133, i1 %264, i1 false
@@ -22642,29 +22642,29 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv493.sroa.phi = phi ptr [ %.sroa.0556, %265 ], [ %.sroa.3, %285 ]
   %indvars.iv493.sroa.phi592.sroa.speculated = phi float [ -1.000000e+00, %265 ], [ 1.000000e+00, %285 ]
   %indvars.iv493.sroa.phi607.sroa.speculated = phi float [ %62, %265 ], [ %36, %285 ]
-  %.4343455 = phi float [ %.3342, %265 ], [ %293, %285 ]
-  %.3357454 = phi float [ %.2356, %265 ], [ %290, %285 ]
+  %.4341455 = phi float [ %.3340, %265 ], [ %293, %285 ]
+  %.3356454 = phi float [ %.2355, %265 ], [ %290, %285 ]
   %287 = load float, ptr %indvars.iv493.sroa.phi, align 4
   %288 = fmul float %indvars.iv493.sroa.phi607.sroa.speculated, %287
   %289 = fmul float %284, %288
-  %290 = fadd float %.3357454, %289
+  %290 = fadd float %.3356454, %289
   %291 = fmul float %287, %indvars.iv493.sroa.phi592.sroa.speculated
   %292 = fmul float %284, %291
-  %293 = fadd float %.4343455, %292
+  %293 = fadd float %.4341455, %292
   br i1 %286, label %285, label %.loopexit, !llvm.loop !198
 
 .loopexit:                                        ; preds = %285, %.loopexit440, %.critedge371.critedge
-  %.5364 = phi float [ %.4363, %.loopexit440 ], [ %.0359457, %.critedge371.critedge ], [ %.4363, %285 ]
-  %.4358 = phi float [ %.2356, %.loopexit440 ], [ %.0354458, %.critedge371.critedge ], [ %290, %285 ]
-  %.1351 = phi i1 [ true, %.loopexit440 ], [ %.0350460, %.critedge371.critedge ], [ true, %285 ]
-  %.5344 = phi float [ %.3342, %.loopexit440 ], [ %.1340461, %.critedge371.critedge ], [ %293, %285 ]
-  %.6 = phi float [ %.5, %.loopexit440 ], [ %.1337462, %.critedge371.critedge ], [ %.5, %285 ]
+  %.4357 = phi float [ %.2355, %.loopexit440 ], [ %.0353458, %.critedge371.critedge ], [ %290, %285 ]
+  %.5352 = phi float [ %.4351, %.loopexit440 ], [ %.0347459, %.critedge371.critedge ], [ %.4351, %285 ]
+  %.1346 = phi i1 [ true, %.loopexit440 ], [ %.0345460, %.critedge371.critedge ], [ true, %285 ]
+  %.5342 = phi float [ %.3340, %.loopexit440 ], [ %.1338461, %.critedge371.critedge ], [ %293, %285 ]
+  %.6 = phi float [ %.5, %.loopexit440 ], [ %.1335462, %.critedge371.critedge ], [ %.5, %285 ]
   %indvars.iv.next497 = add nsw i64 %indvars.iv496, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next497, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !199
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge375.not = and i1 %.not, %.1351
+  %brmerge375.not = and i1 %.not, %.1346
   br i1 %brmerge375.not, label %294, label %._crit_edge.thread
 
 294:                                              ; preds = %._crit_edge
@@ -22673,22 +22673,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %297 = sext i32 %296 to i64
   %298 = getelementptr inbounds float, ptr %82, i64 %297
   %299 = load float, ptr %298, align 4
-  %300 = fadd float %.5364, %299
+  %300 = fadd float %.5352, %299
   store float %300, ptr %298, align 4
   %301 = getelementptr inbounds float, ptr %84, i64 %297
   %302 = load float, ptr %301, align 4
-  %303 = fadd float %.4358, %302
+  %303 = fadd float %.4357, %302
   store float %303, ptr %301, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %294
-  %.1337.lcssa514 = phi float [ %.6, %._crit_edge ], [ %.6, %294 ], [ %.0336469, %.critedge ]
-  %.1340.lcssa513 = phi float [ %.5344, %._crit_edge ], [ %.5344, %294 ], [ %.0339468, %.critedge ]
+  %.1335.lcssa514 = phi float [ %.6, %._crit_edge ], [ %.6, %294 ], [ %.0334469, %.critedge ]
+  %.1338.lcssa513 = phi float [ %.5342, %._crit_edge ], [ %.5342, %294 ], [ %.0337468, %.critedge ]
   %exitcond502.not = icmp eq i64 %indvars.iv.next499, %wide.trip.count501
   br i1 %exitcond502.not, label %._crit_edge470, label %.critedge, !llvm.loop !200
 
 ._crit_edge470:                                   ; preds = %._crit_edge.thread
-  %304 = fcmp une float %.1337.lcssa514, 0.000000e+00
+  %304 = fcmp une float %.1335.lcssa514, 0.000000e+00
   br i1 %304, label %305, label %311
 
 305:                                              ; preds = %._crit_edge470
@@ -22696,12 +22696,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %307 = inttoptr i64 %306 to ptr
   %308 = getelementptr inbounds i8, ptr %307, i64 8
   %309 = load float, ptr %308, align 4
-  %310 = fadd float %.1337.lcssa514, %309
+  %310 = fadd float %.1335.lcssa514, %309
   store float %310, ptr %308, align 4
   br label %311
 
 311:                                              ; preds = %305, %._crit_edge470
-  %312 = fcmp une float %.1340.lcssa513, 0.000000e+00
+  %312 = fcmp une float %.1338.lcssa513, 0.000000e+00
   br i1 %312, label %313, label %.thread518
 
 313:                                              ; preds = %311
@@ -22709,7 +22709,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %315 = inttoptr i64 %314 to ptr
   %316 = getelementptr inbounds i8, ptr %315, i64 12
   %317 = load float, ptr %316, align 4
-  %318 = fadd float %.1340.lcssa513, %317
+  %318 = fadd float %.1338.lcssa513, %317
   store float %318, ptr %316, align 4
   br label %.thread518
 
@@ -24187,9 +24187,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv627 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next628, %._crit_edge.thread ]
-  %.0418594 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1419.lcssa647, %._crit_edge.thread ]
-  %.0426593 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1427.lcssa646, %._crit_edge.thread ]
-  %.0455592 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1456.lcssa645, %._crit_edge.thread ]
+  %.0410594 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1411.lcssa647, %._crit_edge.thread ]
+  %.0413593 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1414.lcssa646, %._crit_edge.thread ]
+  %.0422592 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1423.lcssa645, %._crit_edge.thread ]
   %98 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv627
   %99 = load i32, ptr %98, align 4
   %100 = sext i32 %99 to i64
@@ -24235,13 +24235,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %327
   %indvars.iv625 = phi i64 [ %133, %.lr.ph.preheader ], [ %indvars.iv.next626, %327 ]
-  %.1419582 = phi float [ %.0418594, %.lr.ph.preheader ], [ %.6, %327 ]
-  %.1427581 = phi float [ %.0426593, %.lr.ph.preheader ], [ %.6432, %327 ]
-  %.0437579 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1438, %327 ]
-  %.0443576 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5448, %327 ]
-  %.0449575 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5454, %327 ]
-  %.1456574 = phi i8 [ %.0455592, %.lr.ph.preheader ], [ %.3458, %327 ]
-  %.0460573 = phi i1 [ false, %.lr.ph.preheader ], [ %.1461, %327 ]
+  %.1411582 = phi float [ %.0410594, %.lr.ph.preheader ], [ %.6, %327 ]
+  %.1414581 = phi float [ %.0413593, %.lr.ph.preheader ], [ %.6419, %327 ]
+  %.1423580 = phi i8 [ %.0422592, %.lr.ph.preheader ], [ %.3425, %327 ]
+  %.0428579 = phi i1 [ false, %.lr.ph.preheader ], [ %.1429, %327 ]
+  %.0430578 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5435, %327 ]
+  %.0437577 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5442, %327 ]
+  %.0447574 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1448, %327 ]
   %134 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %328, %327 ]
   %135 = load ptr, ptr %84, align 8
   %136 = load ptr, ptr %85, align 8
@@ -24426,35 +24426,35 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv616.sroa.phi749.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv616.sroa.phi766.sroa.speculated = phi float [ %39, %.preheader ], [ %71, %.thread ]
   %indvars.iv616.sroa.phi773.sroa.speculated = phi float [ %37, %.preheader ], [ %70, %.thread ]
-  %.0413563 = phi float [ %254, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.2420562 = phi float [ %255, %.preheader ], [ %.1419582, %.thread ]
-  %.2428561 = phi float [ %256, %.preheader ], [ %.1427581, %.thread ]
-  %.1444560 = phi float [ %248, %.preheader ], [ %.0443576, %.thread ]
-  %.1450559 = phi float [ %246, %.preheader ], [ %.0449575, %.thread ]
+  %.2412564 = phi float [ %255, %.preheader ], [ %.1411582, %.thread ]
+  %.2415563 = phi float [ %256, %.preheader ], [ %.1414581, %.thread ]
+  %.1431562 = phi float [ %246, %.preheader ], [ %.0430578, %.thread ]
+  %.1438560 = phi float [ %248, %.preheader ], [ %.0437577, %.thread ]
+  %.0455559 = phi float [ %254, %.preheader ], [ 0.000000e+00, %.thread ]
   %245 = load float, ptr %indvars.iv616.sroa.phi697, align 4
-  %246 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi773.sroa.speculated, float %245, float %.1450559)
+  %246 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi773.sroa.speculated, float %245, float %.1431562)
   %247 = load float, ptr %indvars.iv616.sroa.phi, align 4
-  %248 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi766.sroa.speculated, float %247, float %.1444560)
+  %248 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi766.sroa.speculated, float %247, float %.1438560)
   %249 = load float, ptr %indvars.iv616.sroa.phi709, align 4
   %250 = fmul float %indvars.iv616.sroa.phi773.sroa.speculated, %249
-  %251 = tail call float @llvm.fmuladd.f32(float %250, float %202, float %.0413563)
+  %251 = tail call float @llvm.fmuladd.f32(float %250, float %202, float %.0455559)
   %252 = load float, ptr %indvars.iv616.sroa.phi703, align 4
   %253 = fmul float %indvars.iv616.sroa.phi766.sroa.speculated, %252
   %254 = tail call float @llvm.fmuladd.f32(float %253, float %202, float %251)
-  %255 = tail call float @llvm.fmuladd.f32(float %245, float %indvars.iv616.sroa.phi749.sroa.speculated, float %.2420562)
-  %256 = tail call float @llvm.fmuladd.f32(float %247, float %indvars.iv616.sroa.phi749.sroa.speculated, float %.2428561)
+  %255 = tail call float @llvm.fmuladd.f32(float %245, float %indvars.iv616.sroa.phi749.sroa.speculated, float %.2412564)
+  %256 = tail call float @llvm.fmuladd.f32(float %247, float %indvars.iv616.sroa.phi749.sroa.speculated, float %.2415563)
   br i1 %244, label %.preheader, label %.loopexit554, !llvm.loop !211
 
 .loopexit554:                                     ; preds = %.preheader, %.critedge792
-  %.2451 = phi float [ %.0449575, %.critedge792 ], [ %246, %.preheader ]
-  %.2445 = phi float [ %.0443576, %.critedge792 ], [ %248, %.preheader ]
-  %.3429 = phi float [ %.1427581, %.critedge792 ], [ %256, %.preheader ]
-  %.3421 = phi float [ %.1419582, %.critedge792 ], [ %255, %.preheader ]
-  %.1414 = phi float [ 0.000000e+00, %.critedge792 ], [ %254, %.preheader ]
+  %.1456 = phi float [ 0.000000e+00, %.critedge792 ], [ %254, %.preheader ]
+  %.2439 = phi float [ %.0437577, %.critedge792 ], [ %248, %.preheader ]
+  %.2432 = phi float [ %.0430578, %.critedge792 ], [ %246, %.preheader ]
+  %.3416 = phi float [ %.1414581, %.critedge792 ], [ %256, %.preheader ]
+  %.3 = phi float [ %.1411582, %.critedge792 ], [ %255, %.preheader ]
   br i1 %67, label %257, label %.loopexit553
 
 257:                                              ; preds = %.loopexit554
-  %258 = trunc nuw i8 %.1456574 to i1
+  %258 = trunc nuw i8 %.1423580 to i1
   br i1 %258, label %262, label %259
 
 259:                                              ; preds = %257
@@ -24478,25 +24478,25 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv619.sroa.phi = phi ptr [ %.sroa.0721, %265 ], [ %.sroa.3722, %269 ]
   %indvars.iv619.sroa.phi751.sroa.speculated = phi float [ -1.000000e+00, %265 ], [ 1.000000e+00, %269 ]
   %indvars.iv619.sroa.phi775.sroa.speculated = phi float [ %70, %265 ], [ %37, %269 ]
-  %.2415567 = phi float [ %.1414, %265 ], [ %276, %269 ]
-  %.4422566 = phi float [ %.3421, %265 ], [ %279, %269 ]
-  %.3452565 = phi float [ %.2451, %265 ], [ %274, %269 ]
+  %.4568 = phi float [ %.3, %265 ], [ %279, %269 ]
+  %.3433566 = phi float [ %.2432, %265 ], [ %274, %269 ]
+  %.2457565 = phi float [ %.1456, %265 ], [ %276, %269 ]
   %271 = load float, ptr %indvars.iv619.sroa.phi, align 4
   %272 = fmul float %indvars.iv619.sroa.phi775.sroa.speculated, %271
   %273 = fmul float %268, %272
-  %274 = fadd float %.3452565, %273
+  %274 = fadd float %.3433566, %273
   %275 = fmul float %91, %272
-  %276 = fsub float %.2415567, %275
+  %276 = fsub float %.2457565, %275
   %277 = fmul float %271, %indvars.iv619.sroa.phi751.sroa.speculated
   %278 = fmul float %268, %277
-  %279 = fadd float %.4422566, %278
+  %279 = fadd float %.4568, %278
   br i1 %270, label %269, label %.loopexit553, !llvm.loop !212
 
 .loopexit553:                                     ; preds = %269, %262, %.loopexit554
-  %.2457 = phi i8 [ %264, %262 ], [ %.1456574, %.loopexit554 ], [ %264, %269 ]
-  %.4453 = phi float [ %.2451, %262 ], [ %.2451, %.loopexit554 ], [ %274, %269 ]
-  %.5423 = phi float [ %.3421, %262 ], [ %.3421, %.loopexit554 ], [ %279, %269 ]
-  %.3 = phi float [ %.1414, %262 ], [ %.1414, %.loopexit554 ], [ %276, %269 ]
+  %.3458 = phi float [ %.1456, %262 ], [ %.1456, %.loopexit554 ], [ %276, %269 ]
+  %.4434 = phi float [ %.2432, %262 ], [ %.2432, %.loopexit554 ], [ %274, %269 ]
+  %.2424 = phi i8 [ %264, %262 ], [ %.1423580, %.loopexit554 ], [ %264, %269 ]
+  %.5 = phi float [ %.3, %262 ], [ %.3, %.loopexit554 ], [ %279, %269 ]
   %280 = fcmp uge float %201, %53
   %.not550 = select i1 %142, i1 %280, i1 false
   br i1 %.not550, label %.loopexit, label %281
@@ -24529,34 +24529,34 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv622.sroa.phi = phi ptr [ %.sroa.0717, %281 ], [ %.sroa.3, %302 ]
   %indvars.iv622.sroa.phi753.sroa.speculated = phi float [ -1.000000e+00, %281 ], [ 1.000000e+00, %302 ]
   %indvars.iv622.sroa.phi768.sroa.speculated = phi float [ %71, %281 ], [ %39, %302 ]
-  %.4571 = phi float [ %.3, %281 ], [ %309, %302 ]
-  %.4430570 = phi float [ %.3429, %281 ], [ %312, %302 ]
-  %.3446569 = phi float [ %.2445, %281 ], [ %307, %302 ]
+  %.4417572 = phi float [ %.3416, %281 ], [ %312, %302 ]
+  %.3440570 = phi float [ %.2439, %281 ], [ %307, %302 ]
+  %.4459569 = phi float [ %.3458, %281 ], [ %309, %302 ]
   %304 = load float, ptr %indvars.iv622.sroa.phi, align 4
   %305 = fmul float %indvars.iv622.sroa.phi768.sroa.speculated, %304
   %306 = fmul float %301, %305
-  %307 = fadd float %.3446569, %306
+  %307 = fadd float %.3440570, %306
   %308 = fmul float %299, %305
-  %309 = fadd float %.4571, %308
+  %309 = fadd float %.4459569, %308
   %310 = fmul float %304, %indvars.iv622.sroa.phi753.sroa.speculated
   %311 = fmul float %301, %310
-  %312 = fadd float %.4430570, %311
+  %312 = fadd float %.4417572, %311
   br i1 %303, label %302, label %.loopexit, !llvm.loop !213
 
 .loopexit:                                        ; preds = %302, %.loopexit553
-  %.4447 = phi float [ %.2445, %.loopexit553 ], [ %307, %302 ]
-  %.5431 = phi float [ %.3429, %.loopexit553 ], [ %312, %302 ]
-  %.5 = phi float [ %.3, %.loopexit553 ], [ %309, %302 ]
-  %313 = fcmp une float %.5, 0.000000e+00
+  %.5460 = phi float [ %.3458, %.loopexit553 ], [ %309, %302 ]
+  %.4441 = phi float [ %.2439, %.loopexit553 ], [ %307, %302 ]
+  %.5418 = phi float [ %.3416, %.loopexit553 ], [ %312, %302 ]
+  %313 = fcmp une float %.5460, 0.000000e+00
   br i1 %313, label %314, label %327
 
 314:                                              ; preds = %.loopexit
-  %315 = insertelement <2 x float> poison, float %.5, i64 0
+  %315 = insertelement <2 x float> poison, float %.5460, i64 0
   %316 = shufflevector <2 x float> %315, <2 x float> poison, <2 x i32> zeroinitializer
   %317 = fmul <2 x float> %156, %316
-  %318 = fmul float %157, %.5
+  %318 = fmul float %157, %.5460
   %319 = fadd <2 x float> %134, %317
-  %320 = fadd float %.0437579, %318
+  %320 = fadd float %.0447574, %318
   %321 = getelementptr inbounds float, ptr %74, i64 %150
   %322 = load <2 x float>, ptr %321, align 4
   %323 = fsub <2 x float> %322, %317
@@ -24568,20 +24568,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %327
 
 327:                                              ; preds = %.loopexit, %314, %.critedge469.critedge
-  %.1461 = phi i1 [ true, %314 ], [ true, %.loopexit ], [ %.0460573, %.critedge469.critedge ]
-  %.3458 = phi i8 [ %.2457, %314 ], [ %.2457, %.loopexit ], [ %.1456574, %.critedge469.critedge ]
-  %.5454 = phi float [ %.4453, %314 ], [ %.4453, %.loopexit ], [ %.0449575, %.critedge469.critedge ]
-  %.5448 = phi float [ %.4447, %314 ], [ %.4447, %.loopexit ], [ %.0443576, %.critedge469.critedge ]
-  %.1438 = phi float [ %320, %314 ], [ %.0437579, %.loopexit ], [ %.0437579, %.critedge469.critedge ]
-  %.6432 = phi float [ %.5431, %314 ], [ %.5431, %.loopexit ], [ %.1427581, %.critedge469.critedge ]
-  %.6 = phi float [ %.5423, %314 ], [ %.5423, %.loopexit ], [ %.1419582, %.critedge469.critedge ]
+  %.1448 = phi float [ %320, %314 ], [ %.0447574, %.loopexit ], [ %.0447574, %.critedge469.critedge ]
+  %.5442 = phi float [ %.4441, %314 ], [ %.4441, %.loopexit ], [ %.0437577, %.critedge469.critedge ]
+  %.5435 = phi float [ %.4434, %314 ], [ %.4434, %.loopexit ], [ %.0430578, %.critedge469.critedge ]
+  %.1429 = phi i1 [ true, %314 ], [ true, %.loopexit ], [ %.0428579, %.critedge469.critedge ]
+  %.3425 = phi i8 [ %.2424, %314 ], [ %.2424, %.loopexit ], [ %.1423580, %.critedge469.critedge ]
+  %.6419 = phi float [ %.5418, %314 ], [ %.5418, %.loopexit ], [ %.1414581, %.critedge469.critedge ]
+  %.6 = phi float [ %.5, %314 ], [ %.5, %.loopexit ], [ %.1411582, %.critedge469.critedge ]
   %328 = phi <2 x float> [ %319, %314 ], [ %134, %.loopexit ], [ %134, %.critedge469.critedge ]
   %indvars.iv.next626 = add nsw i64 %indvars.iv625, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next626, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !214
 
 ._crit_edge:                                      ; preds = %327
-  br i1 %.1461, label %329, label %._crit_edge.thread
+  br i1 %.1429, label %329, label %._crit_edge.thread
 
 329:                                              ; preds = %._crit_edge
   %330 = getelementptr inbounds float, ptr %74, i64 %111
@@ -24590,7 +24590,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %332, ptr %330, align 4
   %333 = getelementptr i8, ptr %330, i64 8
   %334 = load float, ptr %333, align 4
-  %335 = fadd float %.1438, %334
+  %335 = fadd float %.1448, %334
   store float %335, ptr %333, align 4
   br i1 %.not, label %345, label %336
 
@@ -24603,7 +24603,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %341, ptr %339, align 4
   %342 = getelementptr i8, ptr %339, i64 8
   %343 = load float, ptr %342, align 4
-  %344 = fadd float %.1438, %343
+  %344 = fadd float %.1448, %343
   store float %344, ptr %342, align 4
   br label %345
 
@@ -24616,24 +24616,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %349 = sext i32 %348 to i64
   %350 = getelementptr inbounds float, ptr %95, i64 %349
   %351 = load float, ptr %350, align 4
-  %352 = fadd float %.5454, %351
+  %352 = fadd float %.5435, %351
   store float %352, ptr %350, align 4
   %353 = getelementptr inbounds float, ptr %97, i64 %349
   %354 = load float, ptr %353, align 4
-  %355 = fadd float %.5448, %354
+  %355 = fadd float %.5442, %354
   store float %355, ptr %353, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %346, %345
-  %.1419.lcssa647 = phi float [ %.6, %._crit_edge ], [ %.6, %346 ], [ %.6, %345 ], [ %.0418594, %.critedge ]
-  %.1427.lcssa646 = phi float [ %.6432, %._crit_edge ], [ %.6432, %346 ], [ %.6432, %345 ], [ %.0426593, %.critedge ]
-  %.1456.lcssa645 = phi i8 [ %.3458, %._crit_edge ], [ %.3458, %346 ], [ %.3458, %345 ], [ %.0455592, %.critedge ]
+  %.1411.lcssa647 = phi float [ %.6, %._crit_edge ], [ %.6, %346 ], [ %.6, %345 ], [ %.0410594, %.critedge ]
+  %.1414.lcssa646 = phi float [ %.6419, %._crit_edge ], [ %.6419, %346 ], [ %.6419, %345 ], [ %.0413593, %.critedge ]
+  %.1423.lcssa645 = phi i8 [ %.3425, %._crit_edge ], [ %.3425, %346 ], [ %.3425, %345 ], [ %.0422592, %.critedge ]
   %exitcond630.not = icmp eq i64 %indvars.iv.next628, %wide.trip.count629
   br i1 %exitcond630.not, label %._crit_edge595, label %.critedge, !llvm.loop !215
 
 ._crit_edge595:                                   ; preds = %._crit_edge.thread
-  %356 = trunc nuw i8 %.1456.lcssa645 to i1
-  %357 = fcmp une float %.1419.lcssa647, 0.000000e+00
+  %356 = trunc nuw i8 %.1423.lcssa645 to i1
+  %357 = fcmp une float %.1411.lcssa647, 0.000000e+00
   br i1 %357, label %358, label %364
 
 358:                                              ; preds = %._crit_edge595
@@ -24641,12 +24641,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %360 = inttoptr i64 %359 to ptr
   %361 = getelementptr inbounds i8, ptr %360, i64 8
   %362 = load float, ptr %361, align 4
-  %363 = fadd float %.1419.lcssa647, %362
+  %363 = fadd float %.1411.lcssa647, %362
   store float %363, ptr %361, align 4
   br label %364
 
 364:                                              ; preds = %358, %._crit_edge595
-  %365 = fcmp une float %.1427.lcssa646, 0.000000e+00
+  %365 = fcmp une float %.1414.lcssa646, 0.000000e+00
   br i1 %365, label %366, label %.thread653
 
 366:                                              ; preds = %364
@@ -24654,12 +24654,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %368 = inttoptr i64 %367 to ptr
   %369 = getelementptr inbounds i8, ptr %368, i64 12
   %370 = load float, ptr %369, align 4
-  %371 = fadd float %.1427.lcssa646, %370
+  %371 = fadd float %.1414.lcssa646, %370
   store float %371, ptr %369, align 4
   br label %.thread653
 
 .thread653:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %366, %364
-  %.0455.lcssa651656 = phi i1 [ %356, %366 ], [ %356, %364 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0422.lcssa651656 = phi i1 [ %356, %366 ], [ %356, %364 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %372 = load i32, ptr %0, align 8
   %373 = mul nsw i32 %372, 12
   %374 = sext i32 %23 to i64
@@ -24669,7 +24669,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %378 = mul nsw i32 %377, 150
   %379 = add nsw i32 %378, %373
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %379)
-  %380 = select i1 %67, i1 %.0455.lcssa651656, i1 false
+  %380 = select i1 %67, i1 %.0422.lcssa651656, i1 false
   br i1 %380, label %381, label %392
 
 381:                                              ; preds = %.thread653
@@ -25714,9 +25714,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv530 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next531, %._crit_edge.thread ]
-  %.0357500 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1358.lcssa548, %._crit_edge.thread ]
-  %.0360499 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1361.lcssa547, %._crit_edge.thread ]
-  %.0371498 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1372.lcssa546, %._crit_edge.thread ]
+  %.0352500 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1353.lcssa548, %._crit_edge.thread ]
+  %.0356499 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1357.lcssa547, %._crit_edge.thread ]
+  %.0363498 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1364.lcssa546, %._crit_edge.thread ]
   %94 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv530
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
@@ -25767,12 +25767,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv528 = phi i64 [ %134, %.lr.ph.preheader ], [ %indvars.iv.next529, %.loopexit ]
-  %.1358491 = phi float [ %.0357500, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1361490 = phi float [ %.0360499, %.lr.ph.preheader ], [ %.5365, %.loopexit ]
-  %.1372488 = phi i8 [ %.0371498, %.lr.ph.preheader ], [ %.3374, %.loopexit ]
-  %.0377487 = phi i1 [ false, %.lr.ph.preheader ], [ %.1378, %.loopexit ]
-  %.0379486 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4383, %.loopexit ]
-  %.0384485 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5389, %.loopexit ]
+  %.1353491 = phi float [ %.0352500, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1357490 = phi float [ %.0356499, %.lr.ph.preheader ], [ %.5361, %.loopexit ]
+  %.1364489 = phi i8 [ %.0363498, %.lr.ph.preheader ], [ %.3366, %.loopexit ]
+  %.0369488 = phi i1 [ false, %.lr.ph.preheader ], [ %.1370, %.loopexit ]
+  %.0371487 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5376, %.loopexit ]
+  %.0377486 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4381, %.loopexit ]
   %135 = load ptr, ptr %82, align 8
   %136 = load ptr, ptr %83, align 8
   %137 = icmp eq ptr %135, %136
@@ -25945,27 +25945,27 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv519.sroa.phi628.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv519.sroa.phi645.sroa.speculated = phi float [ %39, %.preheader ], [ %70, %.thread ]
   %indvars.iv519.sroa.phi652.sroa.speculated = phi float [ %37, %.preheader ], [ %69, %.thread ]
-  %.2359477 = phi float [ %246, %.preheader ], [ %.1358491, %.thread ]
-  %.2362476 = phi float [ %247, %.preheader ], [ %.1361490, %.thread ]
-  %.1380475 = phi float [ %245, %.preheader ], [ %.0379486, %.thread ]
-  %.1385474 = phi float [ %243, %.preheader ], [ %.0384485, %.thread ]
+  %.2354478 = phi float [ %246, %.preheader ], [ %.1353491, %.thread ]
+  %.2358477 = phi float [ %247, %.preheader ], [ %.1357490, %.thread ]
+  %.1372475 = phi float [ %243, %.preheader ], [ %.0371487, %.thread ]
+  %.1378474 = phi float [ %245, %.preheader ], [ %.0377486, %.thread ]
   %242 = load float, ptr %indvars.iv519.sroa.phi588, align 4
-  %243 = tail call float @llvm.fmuladd.f32(float %indvars.iv519.sroa.phi652.sroa.speculated, float %242, float %.1385474)
+  %243 = tail call float @llvm.fmuladd.f32(float %indvars.iv519.sroa.phi652.sroa.speculated, float %242, float %.1372475)
   %244 = load float, ptr %indvars.iv519.sroa.phi, align 4
-  %245 = tail call float @llvm.fmuladd.f32(float %indvars.iv519.sroa.phi645.sroa.speculated, float %244, float %.1380475)
-  %246 = tail call float @llvm.fmuladd.f32(float %242, float %indvars.iv519.sroa.phi628.sroa.speculated, float %.2359477)
-  %247 = tail call float @llvm.fmuladd.f32(float %244, float %indvars.iv519.sroa.phi628.sroa.speculated, float %.2362476)
+  %245 = tail call float @llvm.fmuladd.f32(float %indvars.iv519.sroa.phi645.sroa.speculated, float %244, float %.1378474)
+  %246 = tail call float @llvm.fmuladd.f32(float %242, float %indvars.iv519.sroa.phi628.sroa.speculated, float %.2354478)
+  %247 = tail call float @llvm.fmuladd.f32(float %244, float %indvars.iv519.sroa.phi628.sroa.speculated, float %.2358477)
   br i1 %241, label %.preheader, label %.loopexit469, !llvm.loop !226
 
 .loopexit469:                                     ; preds = %.preheader, %.critedge667
-  %.2386 = phi float [ %.0384485, %.critedge667 ], [ %243, %.preheader ]
-  %.2381 = phi float [ %.0379486, %.critedge667 ], [ %245, %.preheader ]
-  %.3363 = phi float [ %.1361490, %.critedge667 ], [ %247, %.preheader ]
-  %.3 = phi float [ %.1358491, %.critedge667 ], [ %246, %.preheader ]
+  %.2379 = phi float [ %.0377486, %.critedge667 ], [ %245, %.preheader ]
+  %.2373 = phi float [ %.0371487, %.critedge667 ], [ %243, %.preheader ]
+  %.3359 = phi float [ %.1357490, %.critedge667 ], [ %247, %.preheader ]
+  %.3 = phi float [ %.1353491, %.critedge667 ], [ %246, %.preheader ]
   br i1 %66, label %248, label %.loopexit468
 
 248:                                              ; preds = %.loopexit469
-  %249 = trunc nuw i8 %.1372488 to i1
+  %249 = trunc nuw i8 %.1364489 to i1
   br i1 %249, label %253, label %250
 
 250:                                              ; preds = %248
@@ -25989,20 +25989,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv522.sroa.phi = phi ptr [ %.sroa.0600, %256 ], [ %.sroa.3601, %260 ]
   %indvars.iv522.sroa.phi630.sroa.speculated = phi float [ -1.000000e+00, %256 ], [ 1.000000e+00, %260 ]
   %indvars.iv522.sroa.phi654.sroa.speculated = phi float [ %69, %256 ], [ %37, %260 ]
-  %.4480 = phi float [ %.3, %256 ], [ %268, %260 ]
-  %.3387479 = phi float [ %.2386, %256 ], [ %265, %260 ]
+  %.4481 = phi float [ %.3, %256 ], [ %268, %260 ]
+  %.3374479 = phi float [ %.2373, %256 ], [ %265, %260 ]
   %262 = load float, ptr %indvars.iv522.sroa.phi, align 4
   %263 = fmul float %indvars.iv522.sroa.phi654.sroa.speculated, %262
   %264 = fmul float %259, %263
-  %265 = fadd float %.3387479, %264
+  %265 = fadd float %.3374479, %264
   %266 = fmul float %262, %indvars.iv522.sroa.phi630.sroa.speculated
   %267 = fmul float %259, %266
-  %268 = fadd float %.4480, %267
+  %268 = fadd float %.4481, %267
   br i1 %261, label %260, label %.loopexit468, !llvm.loop !227
 
 .loopexit468:                                     ; preds = %260, %253, %.loopexit469
-  %.4388 = phi float [ %.2386, %253 ], [ %.2386, %.loopexit469 ], [ %265, %260 ]
-  %.2373 = phi i8 [ %255, %253 ], [ %.1372488, %.loopexit469 ], [ %255, %260 ]
+  %.4375 = phi float [ %.2373, %253 ], [ %.2373, %.loopexit469 ], [ %265, %260 ]
+  %.2365 = phi i8 [ %255, %253 ], [ %.1364489, %.loopexit469 ], [ %255, %260 ]
   %.5 = phi float [ %.3, %253 ], [ %.3, %.loopexit469 ], [ %268, %260 ]
   %269 = fcmp uge float %202, %52
   %.not465 = select i1 %142, i1 %269, i1 false
@@ -26035,30 +26035,30 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv525.sroa.phi = phi ptr [ %.sroa.0596, %270 ], [ %.sroa.3, %290 ]
   %indvars.iv525.sroa.phi632.sroa.speculated = phi float [ -1.000000e+00, %270 ], [ 1.000000e+00, %290 ]
   %indvars.iv525.sroa.phi647.sroa.speculated = phi float [ %70, %270 ], [ %39, %290 ]
-  %.4364483 = phi float [ %.3363, %270 ], [ %298, %290 ]
-  %.3382482 = phi float [ %.2381, %270 ], [ %295, %290 ]
+  %.4360483 = phi float [ %.3359, %270 ], [ %298, %290 ]
+  %.3380482 = phi float [ %.2379, %270 ], [ %295, %290 ]
   %292 = load float, ptr %indvars.iv525.sroa.phi, align 4
   %293 = fmul float %indvars.iv525.sroa.phi647.sroa.speculated, %292
   %294 = fmul float %289, %293
-  %295 = fadd float %.3382482, %294
+  %295 = fadd float %.3380482, %294
   %296 = fmul float %292, %indvars.iv525.sroa.phi632.sroa.speculated
   %297 = fmul float %289, %296
-  %298 = fadd float %.4364483, %297
+  %298 = fadd float %.4360483, %297
   br i1 %291, label %290, label %.loopexit, !llvm.loop !228
 
 .loopexit:                                        ; preds = %290, %.loopexit468, %.critedge396.critedge
-  %.5389 = phi float [ %.4388, %.loopexit468 ], [ %.0384485, %.critedge396.critedge ], [ %.4388, %290 ]
-  %.4383 = phi float [ %.2381, %.loopexit468 ], [ %.0379486, %.critedge396.critedge ], [ %295, %290 ]
-  %.1378 = phi i1 [ true, %.loopexit468 ], [ %.0377487, %.critedge396.critedge ], [ true, %290 ]
-  %.3374 = phi i8 [ %.2373, %.loopexit468 ], [ %.1372488, %.critedge396.critedge ], [ %.2373, %290 ]
-  %.5365 = phi float [ %.3363, %.loopexit468 ], [ %.1361490, %.critedge396.critedge ], [ %298, %290 ]
-  %.6 = phi float [ %.5, %.loopexit468 ], [ %.1358491, %.critedge396.critedge ], [ %.5, %290 ]
+  %.4381 = phi float [ %.2379, %.loopexit468 ], [ %.0377486, %.critedge396.critedge ], [ %295, %290 ]
+  %.5376 = phi float [ %.4375, %.loopexit468 ], [ %.0371487, %.critedge396.critedge ], [ %.4375, %290 ]
+  %.1370 = phi i1 [ true, %.loopexit468 ], [ %.0369488, %.critedge396.critedge ], [ true, %290 ]
+  %.3366 = phi i8 [ %.2365, %.loopexit468 ], [ %.1364489, %.critedge396.critedge ], [ %.2365, %290 ]
+  %.5361 = phi float [ %.3359, %.loopexit468 ], [ %.1357490, %.critedge396.critedge ], [ %298, %290 ]
+  %.6 = phi float [ %.5, %.loopexit468 ], [ %.1353491, %.critedge396.critedge ], [ %.5, %290 ]
   %indvars.iv.next529 = add nsw i64 %indvars.iv528, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next529, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !229
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge400.not = and i1 %.not, %.1378
+  %brmerge400.not = and i1 %.not, %.1370
   br i1 %brmerge400.not, label %299, label %._crit_edge.thread
 
 299:                                              ; preds = %._crit_edge
@@ -26067,24 +26067,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %302 = sext i32 %301 to i64
   %303 = getelementptr inbounds float, ptr %91, i64 %302
   %304 = load float, ptr %303, align 4
-  %305 = fadd float %.5389, %304
+  %305 = fadd float %.5376, %304
   store float %305, ptr %303, align 4
   %306 = getelementptr inbounds float, ptr %93, i64 %302
   %307 = load float, ptr %306, align 4
-  %308 = fadd float %.4383, %307
+  %308 = fadd float %.4381, %307
   store float %308, ptr %306, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %299
-  %.1358.lcssa548 = phi float [ %.6, %._crit_edge ], [ %.6, %299 ], [ %.0357500, %.critedge ]
-  %.1361.lcssa547 = phi float [ %.5365, %._crit_edge ], [ %.5365, %299 ], [ %.0360499, %.critedge ]
-  %.1372.lcssa546 = phi i8 [ %.3374, %._crit_edge ], [ %.3374, %299 ], [ %.0371498, %.critedge ]
+  %.1353.lcssa548 = phi float [ %.6, %._crit_edge ], [ %.6, %299 ], [ %.0352500, %.critedge ]
+  %.1357.lcssa547 = phi float [ %.5361, %._crit_edge ], [ %.5361, %299 ], [ %.0356499, %.critedge ]
+  %.1364.lcssa546 = phi i8 [ %.3366, %._crit_edge ], [ %.3366, %299 ], [ %.0363498, %.critedge ]
   %exitcond533.not = icmp eq i64 %indvars.iv.next531, %wide.trip.count532
   br i1 %exitcond533.not, label %._crit_edge501, label %.critedge, !llvm.loop !230
 
 ._crit_edge501:                                   ; preds = %._crit_edge.thread
-  %309 = trunc nuw i8 %.1372.lcssa546 to i1
-  %310 = fcmp une float %.1358.lcssa548, 0.000000e+00
+  %309 = trunc nuw i8 %.1364.lcssa546 to i1
+  %310 = fcmp une float %.1353.lcssa548, 0.000000e+00
   br i1 %310, label %311, label %317
 
 311:                                              ; preds = %._crit_edge501
@@ -26092,12 +26092,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %313 = inttoptr i64 %312 to ptr
   %314 = getelementptr inbounds i8, ptr %313, i64 8
   %315 = load float, ptr %314, align 4
-  %316 = fadd float %.1358.lcssa548, %315
+  %316 = fadd float %.1353.lcssa548, %315
   store float %316, ptr %314, align 4
   br label %317
 
 317:                                              ; preds = %311, %._crit_edge501
-  %318 = fcmp une float %.1361.lcssa547, 0.000000e+00
+  %318 = fcmp une float %.1357.lcssa547, 0.000000e+00
   br i1 %318, label %319, label %.thread554
 
 319:                                              ; preds = %317
@@ -26105,12 +26105,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %321 = inttoptr i64 %320 to ptr
   %322 = getelementptr inbounds i8, ptr %321, i64 12
   %323 = load float, ptr %322, align 4
-  %324 = fadd float %.1361.lcssa547, %323
+  %324 = fadd float %.1357.lcssa547, %323
   store float %324, ptr %322, align 4
   br label %.thread554
 
 .thread554:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %319, %317
-  %.0371.lcssa552557 = phi i1 [ %309, %319 ], [ %309, %317 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0363.lcssa552557 = phi i1 [ %309, %319 ], [ %309, %317 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %325 = load i32, ptr %0, align 8
   %326 = mul nsw i32 %325, 12
   %327 = sext i32 %23 to i64
@@ -26120,7 +26120,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %331 = mul nsw i32 %330, 150
   %332 = add nsw i32 %331, %326
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %332)
-  %333 = select i1 %66, i1 %.0371.lcssa552557, i1 false
+  %333 = select i1 %66, i1 %.0363.lcssa552557, i1 false
   br i1 %333, label %334, label %345
 
 334:                                              ; preds = %.thread554
@@ -27448,8 +27448,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv600 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next601, %._crit_edge.thread ]
-  %.0427577 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1428.lcssa618, %._crit_edge.thread ]
-  %.0431576 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1432.lcssa617, %._crit_edge.thread ]
+  %.0420577 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1421.lcssa618, %._crit_edge.thread ]
+  %.0423576 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1424.lcssa617, %._crit_edge.thread ]
   %89 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv600
   %90 = load i32, ptr %89, align 4
   %91 = sext i32 %90 to i64
@@ -27495,12 +27495,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %307
   %indvars.iv598 = phi i64 [ %124, %.lr.ph.preheader ], [ %indvars.iv.next599, %307 ]
-  %.1428567 = phi float [ %.0427577, %.lr.ph.preheader ], [ %.6, %307 ]
-  %.1432566 = phi float [ %.0431576, %.lr.ph.preheader ], [ %.4435, %307 ]
-  %.0442564 = phi i1 [ false, %.lr.ph.preheader ], [ %.1443, %307 ]
-  %.0445563 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1446, %307 ]
-  %.0451560 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3454, %307 ]
-  %.0455559 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5460, %307 ]
+  %.1421567 = phi float [ %.0420577, %.lr.ph.preheader ], [ %.6, %307 ]
+  %.1424566 = phi float [ %.0423576, %.lr.ph.preheader ], [ %.4427, %307 ]
+  %.0432565 = phi i1 [ false, %.lr.ph.preheader ], [ %.1433, %307 ]
+  %.0434564 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5439, %307 ]
+  %.0440563 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3443, %307 ]
+  %.0448560 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1449, %307 ]
   %125 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %308, %307 ]
   %126 = load ptr, ptr %82, align 8
   %127 = load ptr, ptr %83, align 8
@@ -27682,31 +27682,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv592.sroa.phi694.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv592.sroa.phi704.sroa.speculated = phi float [ %36, %.preheader ], [ %65, %.thread ]
   %indvars.iv592.sroa.phi708.sroa.speculated = phi float [ %34, %.preheader ], [ %64, %.thread ]
-  %.0423553 = phi float [ %245, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.2429552 = phi float [ %246, %.preheader ], [ %.1428567, %.thread ]
-  %.2433551 = phi float [ %247, %.preheader ], [ %.1432566, %.thread ]
-  %.1452550 = phi float [ %239, %.preheader ], [ %.0451560, %.thread ]
-  %.1456549 = phi float [ %237, %.preheader ], [ %.0455559, %.thread ]
+  %.2422554 = phi float [ %246, %.preheader ], [ %.1421567, %.thread ]
+  %.2425553 = phi float [ %247, %.preheader ], [ %.1424566, %.thread ]
+  %.1435551 = phi float [ %237, %.preheader ], [ %.0434564, %.thread ]
+  %.1441550 = phi float [ %239, %.preheader ], [ %.0440563, %.thread ]
+  %.0456549 = phi float [ %245, %.preheader ], [ 0.000000e+00, %.thread ]
   %236 = load float, ptr %indvars.iv592.sroa.phi652, align 4
-  %237 = tail call float @llvm.fmuladd.f32(float %indvars.iv592.sroa.phi708.sroa.speculated, float %236, float %.1456549)
+  %237 = tail call float @llvm.fmuladd.f32(float %indvars.iv592.sroa.phi708.sroa.speculated, float %236, float %.1435551)
   %238 = load float, ptr %indvars.iv592.sroa.phi, align 4
-  %239 = tail call float @llvm.fmuladd.f32(float %indvars.iv592.sroa.phi704.sroa.speculated, float %238, float %.1452550)
+  %239 = tail call float @llvm.fmuladd.f32(float %indvars.iv592.sroa.phi704.sroa.speculated, float %238, float %.1441550)
   %240 = load float, ptr %indvars.iv592.sroa.phi664, align 4
   %241 = fmul float %indvars.iv592.sroa.phi708.sroa.speculated, %240
-  %242 = tail call float @llvm.fmuladd.f32(float %241, float %185, float %.0423553)
+  %242 = tail call float @llvm.fmuladd.f32(float %241, float %185, float %.0456549)
   %243 = load float, ptr %indvars.iv592.sroa.phi658, align 4
   %244 = fmul float %indvars.iv592.sroa.phi704.sroa.speculated, %243
   %245 = tail call float @llvm.fmuladd.f32(float %244, float %185, float %242)
-  %246 = tail call float @llvm.fmuladd.f32(float %236, float %indvars.iv592.sroa.phi694.sroa.speculated, float %.2429552)
-  %247 = tail call float @llvm.fmuladd.f32(float %238, float %indvars.iv592.sroa.phi694.sroa.speculated, float %.2433551)
+  %246 = tail call float @llvm.fmuladd.f32(float %236, float %indvars.iv592.sroa.phi694.sroa.speculated, float %.2422554)
+  %247 = tail call float @llvm.fmuladd.f32(float %238, float %indvars.iv592.sroa.phi694.sroa.speculated, float %.2425553)
   br i1 %235, label %.preheader, label %.loopexit545, !llvm.loop !240
 
 .loopexit545:                                     ; preds = %.preheader, %.critedge724
-  %.2457 = phi float [ %.0455559, %.critedge724 ], [ %237, %.preheader ]
-  %.2453 = phi float [ %.0451560, %.critedge724 ], [ %239, %.preheader ]
-  %.3434 = phi float [ %.1432566, %.critedge724 ], [ %247, %.preheader ]
-  %.3430 = phi float [ %.1428567, %.critedge724 ], [ %246, %.preheader ]
-  %.1424 = phi float [ 0.000000e+00, %.critedge724 ], [ %245, %.preheader ]
+  %.1457 = phi float [ 0.000000e+00, %.critedge724 ], [ %245, %.preheader ]
+  %.2442 = phi float [ %.0440563, %.critedge724 ], [ %239, %.preheader ]
+  %.2436 = phi float [ %.0434564, %.critedge724 ], [ %237, %.preheader ]
+  %.3426 = phi float [ %.1424566, %.critedge724 ], [ %247, %.preheader ]
+  %.3 = phi float [ %.1421567, %.critedge724 ], [ %246, %.preheader ]
   %248 = fcmp uge float %184, %42
   %.not542 = select i1 %133, i1 %248, i1 false
   br i1 %.not542, label %.loopexit, label %249
@@ -27751,34 +27751,34 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv595.sroa.phi = phi ptr [ %.sroa.0671, %249 ], [ %.sroa.3, %282 ]
   %indvars.iv595.sroa.phi696.sroa.speculated = phi float [ -1.000000e+00, %249 ], [ 1.000000e+00, %282 ]
   %indvars.iv595.sroa.phi710.sroa.speculated = phi float [ %64, %249 ], [ %34, %282 ]
-  %.2425557 = phi float [ %.1424, %249 ], [ %289, %282 ]
-  %.4556 = phi float [ %.3430, %249 ], [ %292, %282 ]
-  %.3458555 = phi float [ %.2457, %249 ], [ %287, %282 ]
+  %.4558 = phi float [ %.3, %249 ], [ %292, %282 ]
+  %.3437556 = phi float [ %.2436, %249 ], [ %287, %282 ]
+  %.2458555 = phi float [ %.1457, %249 ], [ %289, %282 ]
   %284 = load float, ptr %indvars.iv595.sroa.phi, align 4
   %285 = fmul float %indvars.iv595.sroa.phi710.sroa.speculated, %284
   %286 = fmul float %281, %285
-  %287 = fsub float %.3458555, %286
+  %287 = fsub float %.3437556, %286
   %288 = fmul float %279, %285
-  %289 = fsub float %.2425557, %288
+  %289 = fsub float %.2458555, %288
   %290 = fmul float %284, %indvars.iv595.sroa.phi696.sroa.speculated
   %291 = fmul float %281, %290
-  %292 = fsub float %.4556, %291
+  %292 = fsub float %.4558, %291
   br i1 %283, label %282, label %.loopexit, !llvm.loop !241
 
 .loopexit:                                        ; preds = %282, %.loopexit545
-  %.4459 = phi float [ %.2457, %.loopexit545 ], [ %287, %282 ]
-  %.5 = phi float [ %.3430, %.loopexit545 ], [ %292, %282 ]
-  %.3 = phi float [ %.1424, %.loopexit545 ], [ %289, %282 ]
-  %293 = fcmp une float %.3, 0.000000e+00
+  %.3459 = phi float [ %.1457, %.loopexit545 ], [ %289, %282 ]
+  %.4438 = phi float [ %.2436, %.loopexit545 ], [ %287, %282 ]
+  %.5 = phi float [ %.3, %.loopexit545 ], [ %292, %282 ]
+  %293 = fcmp une float %.3459, 0.000000e+00
   br i1 %293, label %294, label %307
 
 294:                                              ; preds = %.loopexit
-  %295 = insertelement <2 x float> poison, float %.3, i64 0
+  %295 = insertelement <2 x float> poison, float %.3459, i64 0
   %296 = shufflevector <2 x float> %295, <2 x float> poison, <2 x i32> zeroinitializer
   %297 = fmul <2 x float> %147, %296
-  %298 = fmul float %148, %.3
+  %298 = fmul float %148, %.3459
   %299 = fadd <2 x float> %125, %297
-  %300 = fadd float %.0445563, %298
+  %300 = fadd float %.0448560, %298
   %301 = getelementptr inbounds float, ptr %72, i64 %141
   %302 = load <2 x float>, ptr %301, align 4
   %303 = fsub <2 x float> %302, %297
@@ -27790,19 +27790,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %307
 
 307:                                              ; preds = %.loopexit, %294, %.critedge468
-  %.5460 = phi float [ %.4459, %294 ], [ %.4459, %.loopexit ], [ %.0455559, %.critedge468 ]
-  %.3454 = phi float [ %.2453, %294 ], [ %.2453, %.loopexit ], [ %.0451560, %.critedge468 ]
-  %.1446 = phi float [ %300, %294 ], [ %.0445563, %.loopexit ], [ %.0445563, %.critedge468 ]
-  %.1443 = phi i1 [ true, %294 ], [ true, %.loopexit ], [ %.0442564, %.critedge468 ]
-  %.4435 = phi float [ %.3434, %294 ], [ %.3434, %.loopexit ], [ %.1432566, %.critedge468 ]
-  %.6 = phi float [ %.5, %294 ], [ %.5, %.loopexit ], [ %.1428567, %.critedge468 ]
+  %.1449 = phi float [ %300, %294 ], [ %.0448560, %.loopexit ], [ %.0448560, %.critedge468 ]
+  %.3443 = phi float [ %.2442, %294 ], [ %.2442, %.loopexit ], [ %.0440563, %.critedge468 ]
+  %.5439 = phi float [ %.4438, %294 ], [ %.4438, %.loopexit ], [ %.0434564, %.critedge468 ]
+  %.1433 = phi i1 [ true, %294 ], [ true, %.loopexit ], [ %.0432565, %.critedge468 ]
+  %.4427 = phi float [ %.3426, %294 ], [ %.3426, %.loopexit ], [ %.1424566, %.critedge468 ]
+  %.6 = phi float [ %.5, %294 ], [ %.5, %.loopexit ], [ %.1421567, %.critedge468 ]
   %308 = phi <2 x float> [ %299, %294 ], [ %125, %.loopexit ], [ %125, %.critedge468 ]
   %indvars.iv.next599 = add nsw i64 %indvars.iv598, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next599, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !242
 
 ._crit_edge:                                      ; preds = %307
-  br i1 %.1443, label %309, label %._crit_edge.thread
+  br i1 %.1433, label %309, label %._crit_edge.thread
 
 309:                                              ; preds = %._crit_edge
   %310 = getelementptr inbounds float, ptr %72, i64 %102
@@ -27811,7 +27811,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %312, ptr %310, align 4
   %313 = getelementptr i8, ptr %310, i64 8
   %314 = load float, ptr %313, align 4
-  %315 = fadd float %.1446, %314
+  %315 = fadd float %.1449, %314
   store float %315, ptr %313, align 4
   br i1 %.not, label %325, label %316
 
@@ -27824,7 +27824,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %321, ptr %319, align 4
   %322 = getelementptr i8, ptr %319, i64 8
   %323 = load float, ptr %322, align 4
-  %324 = fadd float %.1446, %323
+  %324 = fadd float %.1449, %323
   store float %324, ptr %322, align 4
   br label %325
 
@@ -27837,22 +27837,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %329 = sext i32 %328 to i64
   %330 = getelementptr inbounds float, ptr %86, i64 %329
   %331 = load float, ptr %330, align 4
-  %332 = fadd float %.5460, %331
+  %332 = fadd float %.5439, %331
   store float %332, ptr %330, align 4
   %333 = getelementptr inbounds float, ptr %88, i64 %329
   %334 = load float, ptr %333, align 4
-  %335 = fadd float %.3454, %334
+  %335 = fadd float %.3443, %334
   store float %335, ptr %333, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %326, %325
-  %.1428.lcssa618 = phi float [ %.6, %._crit_edge ], [ %.6, %326 ], [ %.6, %325 ], [ %.0427577, %.critedge ]
-  %.1432.lcssa617 = phi float [ %.4435, %._crit_edge ], [ %.4435, %326 ], [ %.4435, %325 ], [ %.0431576, %.critedge ]
+  %.1421.lcssa618 = phi float [ %.6, %._crit_edge ], [ %.6, %326 ], [ %.6, %325 ], [ %.0420577, %.critedge ]
+  %.1424.lcssa617 = phi float [ %.4427, %._crit_edge ], [ %.4427, %326 ], [ %.4427, %325 ], [ %.0423576, %.critedge ]
   %exitcond604.not = icmp eq i64 %indvars.iv.next601, %wide.trip.count603
   br i1 %exitcond604.not, label %._crit_edge578, label %.critedge, !llvm.loop !243
 
 ._crit_edge578:                                   ; preds = %._crit_edge.thread
-  %336 = fcmp une float %.1428.lcssa618, 0.000000e+00
+  %336 = fcmp une float %.1421.lcssa618, 0.000000e+00
   br i1 %336, label %337, label %343
 
 337:                                              ; preds = %._crit_edge578
@@ -27860,12 +27860,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %339 = inttoptr i64 %338 to ptr
   %340 = getelementptr inbounds i8, ptr %339, i64 8
   %341 = load float, ptr %340, align 4
-  %342 = fadd float %.1428.lcssa618, %341
+  %342 = fadd float %.1421.lcssa618, %341
   store float %342, ptr %340, align 4
   br label %343
 
 343:                                              ; preds = %337, %._crit_edge578
-  %344 = fcmp une float %.1432.lcssa617, 0.000000e+00
+  %344 = fcmp une float %.1424.lcssa617, 0.000000e+00
   br i1 %344, label %345, label %.thread622
 
 345:                                              ; preds = %343
@@ -27873,7 +27873,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %347 = inttoptr i64 %346 to ptr
   %348 = getelementptr inbounds i8, ptr %347, i64 12
   %349 = load float, ptr %348, align 4
-  %350 = fadd float %.1432.lcssa617, %349
+  %350 = fadd float %.1424.lcssa617, %349
   store float %350, ptr %348, align 4
   br label %.thread622
 
@@ -28680,8 +28680,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv494 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next495, %._crit_edge.thread ]
-  %.0351473 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1352.lcssa510, %._crit_edge.thread ]
-  %.0355472 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1356.lcssa509, %._crit_edge.thread ]
+  %.0350473 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1351.lcssa510, %._crit_edge.thread ]
+  %.0353472 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1354.lcssa509, %._crit_edge.thread ]
   %84 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv494
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
@@ -28735,11 +28735,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 128:                                              ; preds = %.lr.ph, %.loopexit
   %indvars.iv492 = phi i64 [ %127, %.lr.ph ], [ %indvars.iv.next493, %.loopexit ]
-  %.1352466 = phi float [ %.0351473, %.lr.ph ], [ %.6, %.loopexit ]
-  %.1356465 = phi float [ %.0355472, %.lr.ph ], [ %.4359, %.loopexit ]
-  %.0362464 = phi i1 [ false, %.lr.ph ], [ %.1363, %.loopexit ]
-  %.0369462 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3372, %.loopexit ]
-  %.0373461 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5378, %.loopexit ]
+  %.1351466 = phi float [ %.0350473, %.lr.ph ], [ %.6, %.loopexit ]
+  %.1354465 = phi float [ %.0353472, %.lr.ph ], [ %.4357, %.loopexit ]
+  %.0360464 = phi i1 [ false, %.lr.ph ], [ %.1361, %.loopexit ]
+  %.0362463 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5367, %.loopexit ]
+  %.0368462 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3371, %.loopexit ]
   br i1 %126, label %.critedge385, label %129
 
 129:                                              ; preds = %128
@@ -28901,23 +28901,23 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv486.sroa.phi567.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv486.sroa.phi577.sroa.speculated = phi float [ %36, %.preheader ], [ %62, %.thread ]
   %indvars.iv486.sroa.phi581.sroa.speculated = phi float [ %34, %.preheader ], [ %61, %.thread ]
-  %.2353456 = phi float [ %232, %.preheader ], [ %.1352466, %.thread ]
-  %.2357455 = phi float [ %233, %.preheader ], [ %.1356465, %.thread ]
-  %.1370454 = phi float [ %231, %.preheader ], [ %.0369462, %.thread ]
-  %.1374453 = phi float [ %229, %.preheader ], [ %.0373461, %.thread ]
+  %.2352456 = phi float [ %232, %.preheader ], [ %.1351466, %.thread ]
+  %.2355455 = phi float [ %233, %.preheader ], [ %.1354465, %.thread ]
+  %.1363454 = phi float [ %229, %.preheader ], [ %.0362463, %.thread ]
+  %.1369453 = phi float [ %231, %.preheader ], [ %.0368462, %.thread ]
   %228 = load float, ptr %indvars.iv486.sroa.phi537, align 4
-  %229 = tail call float @llvm.fmuladd.f32(float %indvars.iv486.sroa.phi581.sroa.speculated, float %228, float %.1374453)
+  %229 = tail call float @llvm.fmuladd.f32(float %indvars.iv486.sroa.phi581.sroa.speculated, float %228, float %.1363454)
   %230 = load float, ptr %indvars.iv486.sroa.phi, align 4
-  %231 = tail call float @llvm.fmuladd.f32(float %indvars.iv486.sroa.phi577.sroa.speculated, float %230, float %.1370454)
-  %232 = tail call float @llvm.fmuladd.f32(float %228, float %indvars.iv486.sroa.phi567.sroa.speculated, float %.2353456)
-  %233 = tail call float @llvm.fmuladd.f32(float %230, float %indvars.iv486.sroa.phi567.sroa.speculated, float %.2357455)
+  %231 = tail call float @llvm.fmuladd.f32(float %indvars.iv486.sroa.phi577.sroa.speculated, float %230, float %.1369453)
+  %232 = tail call float @llvm.fmuladd.f32(float %228, float %indvars.iv486.sroa.phi567.sroa.speculated, float %.2352456)
+  %233 = tail call float @llvm.fmuladd.f32(float %230, float %indvars.iv486.sroa.phi567.sroa.speculated, float %.2355455)
   br i1 %227, label %.preheader, label %.loopexit449, !llvm.loop !253
 
 .loopexit449:                                     ; preds = %.preheader, %.critedge594
-  %.2375 = phi float [ %.0373461, %.critedge594 ], [ %229, %.preheader ]
-  %.2371 = phi float [ %.0369462, %.critedge594 ], [ %231, %.preheader ]
-  %.3358 = phi float [ %.1356465, %.critedge594 ], [ %233, %.preheader ]
-  %.3 = phi float [ %.1352466, %.critedge594 ], [ %232, %.preheader ]
+  %.2370 = phi float [ %.0368462, %.critedge594 ], [ %231, %.preheader ]
+  %.2364 = phi float [ %.0362463, %.critedge594 ], [ %229, %.preheader ]
+  %.3356 = phi float [ %.1354465, %.critedge594 ], [ %233, %.preheader ]
+  %.3 = phi float [ %.1351466, %.critedge594 ], [ %232, %.preheader ]
   %234 = fcmp uge float %185, %41
   %.not446 = select i1 %133, i1 %234, i1 false
   br i1 %.not446, label %.loopexit, label %235
@@ -28947,28 +28947,28 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv489.sroa.phi569.sroa.speculated = phi float [ -1.000000e+00, %235 ], [ 1.000000e+00, %252 ]
   %indvars.iv489.sroa.phi583.sroa.speculated = phi float [ %61, %235 ], [ %34, %252 ]
   %.4459 = phi float [ %.3, %235 ], [ %260, %252 ]
-  %.3376458 = phi float [ %.2375, %235 ], [ %257, %252 ]
+  %.3365458 = phi float [ %.2364, %235 ], [ %257, %252 ]
   %254 = load float, ptr %indvars.iv489.sroa.phi, align 4
   %255 = fmul float %indvars.iv489.sroa.phi583.sroa.speculated, %254
   %256 = fmul float %251, %255
-  %257 = fsub float %.3376458, %256
+  %257 = fsub float %.3365458, %256
   %258 = fmul float %254, %indvars.iv489.sroa.phi569.sroa.speculated
   %259 = fmul float %251, %258
   %260 = fsub float %.4459, %259
   br i1 %253, label %252, label %.loopexit, !llvm.loop !254
 
 .loopexit:                                        ; preds = %252, %.loopexit449, %.critedge385
-  %.5378 = phi float [ %.0373461, %.critedge385 ], [ %.2375, %.loopexit449 ], [ %257, %252 ]
-  %.3372 = phi float [ %.0369462, %.critedge385 ], [ %.2371, %.loopexit449 ], [ %.2371, %252 ]
-  %.1363 = phi i1 [ %.0362464, %.critedge385 ], [ true, %.loopexit449 ], [ true, %252 ]
-  %.4359 = phi float [ %.1356465, %.critedge385 ], [ %.3358, %.loopexit449 ], [ %.3358, %252 ]
-  %.6 = phi float [ %.1352466, %.critedge385 ], [ %.3, %.loopexit449 ], [ %260, %252 ]
+  %.3371 = phi float [ %.0368462, %.critedge385 ], [ %.2370, %.loopexit449 ], [ %.2370, %252 ]
+  %.5367 = phi float [ %.0362463, %.critedge385 ], [ %.2364, %.loopexit449 ], [ %257, %252 ]
+  %.1361 = phi i1 [ %.0360464, %.critedge385 ], [ true, %.loopexit449 ], [ true, %252 ]
+  %.4357 = phi float [ %.1354465, %.critedge385 ], [ %.3356, %.loopexit449 ], [ %.3356, %252 ]
+  %.6 = phi float [ %.1351466, %.critedge385 ], [ %.3, %.loopexit449 ], [ %260, %252 ]
   %indvars.iv.next493 = add nsw i64 %indvars.iv492, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next493, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %128, !llvm.loop !255
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge389.not = and i1 %.not, %.1363
+  %brmerge389.not = and i1 %.not, %.1361
   br i1 %brmerge389.not, label %261, label %._crit_edge.thread
 
 261:                                              ; preds = %._crit_edge
@@ -28977,22 +28977,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %264 = sext i32 %263 to i64
   %265 = getelementptr inbounds float, ptr %81, i64 %264
   %266 = load float, ptr %265, align 4
-  %267 = fadd float %.5378, %266
+  %267 = fadd float %.5367, %266
   store float %267, ptr %265, align 4
   %268 = getelementptr inbounds float, ptr %83, i64 %264
   %269 = load float, ptr %268, align 4
-  %270 = fadd float %.3372, %269
+  %270 = fadd float %.3371, %269
   store float %270, ptr %268, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %261
-  %.1352.lcssa510 = phi float [ %.6, %._crit_edge ], [ %.6, %261 ], [ %.0351473, %.critedge ]
-  %.1356.lcssa509 = phi float [ %.4359, %._crit_edge ], [ %.4359, %261 ], [ %.0355472, %.critedge ]
+  %.1351.lcssa510 = phi float [ %.6, %._crit_edge ], [ %.6, %261 ], [ %.0350473, %.critedge ]
+  %.1354.lcssa509 = phi float [ %.4357, %._crit_edge ], [ %.4357, %261 ], [ %.0353472, %.critedge ]
   %exitcond498.not = icmp eq i64 %indvars.iv.next495, %wide.trip.count497
   br i1 %exitcond498.not, label %._crit_edge474, label %.critedge, !llvm.loop !256
 
 ._crit_edge474:                                   ; preds = %._crit_edge.thread
-  %271 = fcmp une float %.1352.lcssa510, 0.000000e+00
+  %271 = fcmp une float %.1351.lcssa510, 0.000000e+00
   br i1 %271, label %272, label %278
 
 272:                                              ; preds = %._crit_edge474
@@ -29000,12 +29000,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %274 = inttoptr i64 %273 to ptr
   %275 = getelementptr inbounds i8, ptr %274, i64 8
   %276 = load float, ptr %275, align 4
-  %277 = fadd float %.1352.lcssa510, %276
+  %277 = fadd float %.1351.lcssa510, %276
   store float %277, ptr %275, align 4
   br label %278
 
 278:                                              ; preds = %272, %._crit_edge474
-  %279 = fcmp une float %.1356.lcssa509, 0.000000e+00
+  %279 = fcmp une float %.1354.lcssa509, 0.000000e+00
   br i1 %279, label %280, label %.thread514
 
 280:                                              ; preds = %278
@@ -29013,7 +29013,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %282 = inttoptr i64 %281 to ptr
   %283 = getelementptr inbounds i8, ptr %282, i64 12
   %284 = load float, ptr %283, align 4
-  %285 = fadd float %.1356.lcssa509, %284
+  %285 = fadd float %.1354.lcssa509, %284
   store float %285, ptr %283, align 4
   br label %.thread514
 
@@ -30233,8 +30233,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv541 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next542, %._crit_edge.thread ]
-  %.0367518 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1368.lcssa559, %._crit_edge.thread ]
-  %.0372517 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1373.lcssa558, %._crit_edge.thread ]
+  %.0361518 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1362.lcssa559, %._crit_edge.thread ]
+  %.0364517 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1365.lcssa558, %._crit_edge.thread ]
   %76 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv541
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
@@ -30280,12 +30280,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %278
   %indvars.iv539 = phi i64 [ %111, %.lr.ph.preheader ], [ %indvars.iv.next540, %278 ]
-  %.1368508 = phi float [ %.0367518, %.lr.ph.preheader ], [ %.6, %278 ]
-  %.1373507 = phi float [ %.0372517, %.lr.ph.preheader ], [ %.4376, %278 ]
-  %.0382506 = phi i1 [ false, %.lr.ph.preheader ], [ %.1383, %278 ]
-  %.0386504 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1387, %278 ]
-  %.0392501 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3395, %278 ]
-  %.0396500 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5401, %278 ]
+  %.1362508 = phi float [ %.0361518, %.lr.ph.preheader ], [ %.6, %278 ]
+  %.1365507 = phi float [ %.0364517, %.lr.ph.preheader ], [ %.4368, %278 ]
+  %.0373506 = phi i1 [ false, %.lr.ph.preheader ], [ %.1374, %278 ]
+  %.0375505 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5380, %278 ]
+  %.0381504 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3384, %278 ]
+  %.0389501 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1390, %278 ]
   %112 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %279, %278 ]
   %113 = load ptr, ptr %69, align 8
   %114 = load ptr, ptr %70, align 8
@@ -30451,31 +30451,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv533.sroa.phi635.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv533.sroa.phi645.sroa.speculated = phi float [ %36, %.preheader ], [ %56, %.thread ]
   %indvars.iv533.sroa.phi649.sroa.speculated = phi float [ %34, %.preheader ], [ %55, %.thread ]
-  %.0364494 = phi float [ %216, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.2369493 = phi float [ %217, %.preheader ], [ %.1368508, %.thread ]
-  %.2374492 = phi float [ %218, %.preheader ], [ %.1373507, %.thread ]
-  %.1393491 = phi float [ %210, %.preheader ], [ %.0392501, %.thread ]
-  %.1397490 = phi float [ %208, %.preheader ], [ %.0396500, %.thread ]
+  %.2363495 = phi float [ %217, %.preheader ], [ %.1362508, %.thread ]
+  %.2366494 = phi float [ %218, %.preheader ], [ %.1365507, %.thread ]
+  %.1376492 = phi float [ %208, %.preheader ], [ %.0375505, %.thread ]
+  %.1382491 = phi float [ %210, %.preheader ], [ %.0381504, %.thread ]
+  %.0397490 = phi float [ %216, %.preheader ], [ 0.000000e+00, %.thread ]
   %207 = load float, ptr %indvars.iv533.sroa.phi593, align 4
-  %208 = tail call float @llvm.fmuladd.f32(float %indvars.iv533.sroa.phi649.sroa.speculated, float %207, float %.1397490)
+  %208 = tail call float @llvm.fmuladd.f32(float %indvars.iv533.sroa.phi649.sroa.speculated, float %207, float %.1376492)
   %209 = load float, ptr %indvars.iv533.sroa.phi, align 4
-  %210 = tail call float @llvm.fmuladd.f32(float %indvars.iv533.sroa.phi645.sroa.speculated, float %209, float %.1393491)
+  %210 = tail call float @llvm.fmuladd.f32(float %indvars.iv533.sroa.phi645.sroa.speculated, float %209, float %.1382491)
   %211 = load float, ptr %indvars.iv533.sroa.phi605, align 4
   %212 = fmul float %indvars.iv533.sroa.phi649.sroa.speculated, %211
-  %213 = tail call float @llvm.fmuladd.f32(float %212, float %172, float %.0364494)
+  %213 = tail call float @llvm.fmuladd.f32(float %212, float %172, float %.0397490)
   %214 = load float, ptr %indvars.iv533.sroa.phi599, align 4
   %215 = fmul float %indvars.iv533.sroa.phi645.sroa.speculated, %214
   %216 = tail call float @llvm.fmuladd.f32(float %215, float %172, float %213)
-  %217 = tail call float @llvm.fmuladd.f32(float %207, float %indvars.iv533.sroa.phi635.sroa.speculated, float %.2369493)
-  %218 = tail call float @llvm.fmuladd.f32(float %209, float %indvars.iv533.sroa.phi635.sroa.speculated, float %.2374492)
+  %217 = tail call float @llvm.fmuladd.f32(float %207, float %indvars.iv533.sroa.phi635.sroa.speculated, float %.2363495)
+  %218 = tail call float @llvm.fmuladd.f32(float %209, float %indvars.iv533.sroa.phi635.sroa.speculated, float %.2366494)
   br i1 %206, label %.preheader, label %.loopexit486, !llvm.loop !266
 
 .loopexit486:                                     ; preds = %.preheader, %.critedge665
-  %.2398 = phi float [ %.0396500, %.critedge665 ], [ %208, %.preheader ]
-  %.2394 = phi float [ %.0392501, %.critedge665 ], [ %210, %.preheader ]
-  %.3375 = phi float [ %.1373507, %.critedge665 ], [ %218, %.preheader ]
-  %.3370 = phi float [ %.1368508, %.critedge665 ], [ %217, %.preheader ]
-  %.1365 = phi float [ 0.000000e+00, %.critedge665 ], [ %216, %.preheader ]
+  %.1398 = phi float [ 0.000000e+00, %.critedge665 ], [ %216, %.preheader ]
+  %.2383 = phi float [ %.0381504, %.critedge665 ], [ %210, %.preheader ]
+  %.2377 = phi float [ %.0375505, %.critedge665 ], [ %208, %.preheader ]
+  %.3367 = phi float [ %.1365507, %.critedge665 ], [ %218, %.preheader ]
+  %.3 = phi float [ %.1362508, %.critedge665 ], [ %217, %.preheader ]
   %219 = fcmp uge float %171, %42
   %.not483 = select i1 %120, i1 %219, i1 false
   br i1 %.not483, label %.loopexit, label %220
@@ -30520,34 +30520,34 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv536.sroa.phi = phi ptr [ %.sroa.0612, %220 ], [ %.sroa.3, %253 ]
   %indvars.iv536.sroa.phi637.sroa.speculated = phi float [ -1.000000e+00, %220 ], [ 1.000000e+00, %253 ]
   %indvars.iv536.sroa.phi651.sroa.speculated = phi float [ %55, %220 ], [ %34, %253 ]
-  %.2366498 = phi float [ %.1365, %220 ], [ %260, %253 ]
-  %.4497 = phi float [ %.3370, %220 ], [ %263, %253 ]
-  %.3399496 = phi float [ %.2398, %220 ], [ %258, %253 ]
+  %.4499 = phi float [ %.3, %220 ], [ %263, %253 ]
+  %.3378497 = phi float [ %.2377, %220 ], [ %258, %253 ]
+  %.2399496 = phi float [ %.1398, %220 ], [ %260, %253 ]
   %255 = load float, ptr %indvars.iv536.sroa.phi, align 4
   %256 = fmul float %indvars.iv536.sroa.phi651.sroa.speculated, %255
   %257 = fmul float %252, %256
-  %258 = fsub float %.3399496, %257
+  %258 = fsub float %.3378497, %257
   %259 = fmul float %250, %256
-  %260 = fsub float %.2366498, %259
+  %260 = fsub float %.2399496, %259
   %261 = fmul float %255, %indvars.iv536.sroa.phi637.sroa.speculated
   %262 = fmul float %252, %261
-  %263 = fsub float %.4497, %262
+  %263 = fsub float %.4499, %262
   br i1 %254, label %253, label %.loopexit, !llvm.loop !267
 
 .loopexit:                                        ; preds = %253, %.loopexit486
-  %.4400 = phi float [ %.2398, %.loopexit486 ], [ %258, %253 ]
-  %.5 = phi float [ %.3370, %.loopexit486 ], [ %263, %253 ]
-  %.3 = phi float [ %.1365, %.loopexit486 ], [ %260, %253 ]
-  %264 = fcmp une float %.3, 0.000000e+00
+  %.3400 = phi float [ %.1398, %.loopexit486 ], [ %260, %253 ]
+  %.4379 = phi float [ %.2377, %.loopexit486 ], [ %258, %253 ]
+  %.5 = phi float [ %.3, %.loopexit486 ], [ %263, %253 ]
+  %264 = fcmp une float %.3400, 0.000000e+00
   br i1 %264, label %265, label %278
 
 265:                                              ; preds = %.loopexit
-  %266 = insertelement <2 x float> poison, float %.3, i64 0
+  %266 = insertelement <2 x float> poison, float %.3400, i64 0
   %267 = shufflevector <2 x float> %266, <2 x float> poison, <2 x i32> zeroinitializer
   %268 = fmul <2 x float> %134, %267
-  %269 = fmul float %135, %.3
+  %269 = fmul float %135, %.3400
   %270 = fadd <2 x float> %112, %268
-  %271 = fadd float %.0386504, %269
+  %271 = fadd float %.0389501, %269
   %272 = getelementptr inbounds float, ptr %59, i64 %128
   %273 = load <2 x float>, ptr %272, align 4
   %274 = fsub <2 x float> %273, %268
@@ -30559,19 +30559,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %278
 
 278:                                              ; preds = %.loopexit, %265, %.critedge409
-  %.5401 = phi float [ %.4400, %265 ], [ %.4400, %.loopexit ], [ %.0396500, %.critedge409 ]
-  %.3395 = phi float [ %.2394, %265 ], [ %.2394, %.loopexit ], [ %.0392501, %.critedge409 ]
-  %.1387 = phi float [ %271, %265 ], [ %.0386504, %.loopexit ], [ %.0386504, %.critedge409 ]
-  %.1383 = phi i1 [ true, %265 ], [ true, %.loopexit ], [ %.0382506, %.critedge409 ]
-  %.4376 = phi float [ %.3375, %265 ], [ %.3375, %.loopexit ], [ %.1373507, %.critedge409 ]
-  %.6 = phi float [ %.5, %265 ], [ %.5, %.loopexit ], [ %.1368508, %.critedge409 ]
+  %.1390 = phi float [ %271, %265 ], [ %.0389501, %.loopexit ], [ %.0389501, %.critedge409 ]
+  %.3384 = phi float [ %.2383, %265 ], [ %.2383, %.loopexit ], [ %.0381504, %.critedge409 ]
+  %.5380 = phi float [ %.4379, %265 ], [ %.4379, %.loopexit ], [ %.0375505, %.critedge409 ]
+  %.1374 = phi i1 [ true, %265 ], [ true, %.loopexit ], [ %.0373506, %.critedge409 ]
+  %.4368 = phi float [ %.3367, %265 ], [ %.3367, %.loopexit ], [ %.1365507, %.critedge409 ]
+  %.6 = phi float [ %.5, %265 ], [ %.5, %.loopexit ], [ %.1362508, %.critedge409 ]
   %279 = phi <2 x float> [ %270, %265 ], [ %112, %.loopexit ], [ %112, %.critedge409 ]
   %indvars.iv.next540 = add nsw i64 %indvars.iv539, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next540, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !268
 
 ._crit_edge:                                      ; preds = %278
-  br i1 %.1383, label %280, label %._crit_edge.thread
+  br i1 %.1374, label %280, label %._crit_edge.thread
 
 280:                                              ; preds = %._crit_edge
   %281 = getelementptr inbounds float, ptr %59, i64 %89
@@ -30580,7 +30580,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %283, ptr %281, align 4
   %284 = getelementptr i8, ptr %281, i64 8
   %285 = load float, ptr %284, align 4
-  %286 = fadd float %.1387, %285
+  %286 = fadd float %.1390, %285
   store float %286, ptr %284, align 4
   br i1 %.not, label %296, label %287
 
@@ -30593,7 +30593,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %292, ptr %290, align 4
   %293 = getelementptr i8, ptr %290, i64 8
   %294 = load float, ptr %293, align 4
-  %295 = fadd float %.1387, %294
+  %295 = fadd float %.1390, %294
   store float %295, ptr %293, align 4
   br label %296
 
@@ -30606,22 +30606,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %300 = sext i32 %299 to i64
   %301 = getelementptr inbounds float, ptr %73, i64 %300
   %302 = load float, ptr %301, align 4
-  %303 = fadd float %.5401, %302
+  %303 = fadd float %.5380, %302
   store float %303, ptr %301, align 4
   %304 = getelementptr inbounds float, ptr %75, i64 %300
   %305 = load float, ptr %304, align 4
-  %306 = fadd float %.3395, %305
+  %306 = fadd float %.3384, %305
   store float %306, ptr %304, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %297, %296
-  %.1368.lcssa559 = phi float [ %.6, %._crit_edge ], [ %.6, %297 ], [ %.6, %296 ], [ %.0367518, %.critedge ]
-  %.1373.lcssa558 = phi float [ %.4376, %._crit_edge ], [ %.4376, %297 ], [ %.4376, %296 ], [ %.0372517, %.critedge ]
+  %.1362.lcssa559 = phi float [ %.6, %._crit_edge ], [ %.6, %297 ], [ %.6, %296 ], [ %.0361518, %.critedge ]
+  %.1365.lcssa558 = phi float [ %.4368, %._crit_edge ], [ %.4368, %297 ], [ %.4368, %296 ], [ %.0364517, %.critedge ]
   %exitcond545.not = icmp eq i64 %indvars.iv.next542, %wide.trip.count544
   br i1 %exitcond545.not, label %._crit_edge519, label %.critedge, !llvm.loop !269
 
 ._crit_edge519:                                   ; preds = %._crit_edge.thread
-  %307 = fcmp une float %.1368.lcssa559, 0.000000e+00
+  %307 = fcmp une float %.1362.lcssa559, 0.000000e+00
   br i1 %307, label %308, label %314
 
 308:                                              ; preds = %._crit_edge519
@@ -30629,12 +30629,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %310 = inttoptr i64 %309 to ptr
   %311 = getelementptr inbounds i8, ptr %310, i64 8
   %312 = load float, ptr %311, align 4
-  %313 = fadd float %.1368.lcssa559, %312
+  %313 = fadd float %.1362.lcssa559, %312
   store float %313, ptr %311, align 4
   br label %314
 
 314:                                              ; preds = %308, %._crit_edge519
-  %315 = fcmp une float %.1373.lcssa558, 0.000000e+00
+  %315 = fcmp une float %.1365.lcssa558, 0.000000e+00
   br i1 %315, label %316, label %.thread563
 
 316:                                              ; preds = %314
@@ -30642,7 +30642,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %318 = inttoptr i64 %317 to ptr
   %319 = getelementptr inbounds i8, ptr %318, i64 12
   %320 = load float, ptr %319, align 4
-  %321 = fadd float %.1373.lcssa558, %320
+  %321 = fadd float %.1365.lcssa558, %320
   store float %321, ptr %319, align 4
   br label %.thread563
 
@@ -31409,8 +31409,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv448 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next449, %._crit_edge.thread ]
-  %.0306427 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1307.lcssa464, %._crit_edge.thread ]
-  %.0309426 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1310.lcssa463, %._crit_edge.thread ]
+  %.0304427 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1305.lcssa464, %._crit_edge.thread ]
+  %.0307426 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1308.lcssa463, %._crit_edge.thread ]
   %74 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv448
   %75 = load i32, ptr %74, align 4
   %76 = sext i32 %75 to i64
@@ -31464,11 +31464,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 118:                                              ; preds = %.lr.ph, %.loopexit
   %indvars.iv446 = phi i64 [ %117, %.lr.ph ], [ %indvars.iv.next447, %.loopexit ]
-  %.1307420 = phi float [ %.0306427, %.lr.ph ], [ %.6, %.loopexit ]
-  %.1310419 = phi float [ %.0309426, %.lr.ph ], [ %.4313, %.loopexit ]
-  %.0316418 = phi i1 [ false, %.lr.ph ], [ %.1317, %.loopexit ]
-  %.0323416 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3326, %.loopexit ]
-  %.0327415 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5332, %.loopexit ]
+  %.1305420 = phi float [ %.0304427, %.lr.ph ], [ %.6, %.loopexit ]
+  %.1308419 = phi float [ %.0307426, %.lr.ph ], [ %.4311, %.loopexit ]
+  %.0314418 = phi i1 [ false, %.lr.ph ], [ %.1315, %.loopexit ]
+  %.0316417 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5321, %.loopexit ]
+  %.0322416 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3325, %.loopexit ]
   br i1 %116, label %.critedge339, label %119
 
 119:                                              ; preds = %118
@@ -31621,23 +31621,23 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv440.sroa.phi521.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv440.sroa.phi531.sroa.speculated = phi float [ %36, %.preheader ], [ %55, %.thread ]
   %indvars.iv440.sroa.phi535.sroa.speculated = phi float [ %34, %.preheader ], [ %54, %.thread ]
-  %.2308410 = phi float [ %213, %.preheader ], [ %.1307420, %.thread ]
-  %.2311409 = phi float [ %214, %.preheader ], [ %.1310419, %.thread ]
-  %.1324408 = phi float [ %212, %.preheader ], [ %.0323416, %.thread ]
-  %.1328407 = phi float [ %210, %.preheader ], [ %.0327415, %.thread ]
+  %.2306410 = phi float [ %213, %.preheader ], [ %.1305420, %.thread ]
+  %.2309409 = phi float [ %214, %.preheader ], [ %.1308419, %.thread ]
+  %.1317408 = phi float [ %210, %.preheader ], [ %.0316417, %.thread ]
+  %.1323407 = phi float [ %212, %.preheader ], [ %.0322416, %.thread ]
   %209 = load float, ptr %indvars.iv440.sroa.phi491, align 4
-  %210 = tail call float @llvm.fmuladd.f32(float %indvars.iv440.sroa.phi535.sroa.speculated, float %209, float %.1328407)
+  %210 = tail call float @llvm.fmuladd.f32(float %indvars.iv440.sroa.phi535.sroa.speculated, float %209, float %.1317408)
   %211 = load float, ptr %indvars.iv440.sroa.phi, align 4
-  %212 = tail call float @llvm.fmuladd.f32(float %indvars.iv440.sroa.phi531.sroa.speculated, float %211, float %.1324408)
-  %213 = tail call float @llvm.fmuladd.f32(float %209, float %indvars.iv440.sroa.phi521.sroa.speculated, float %.2308410)
-  %214 = tail call float @llvm.fmuladd.f32(float %211, float %indvars.iv440.sroa.phi521.sroa.speculated, float %.2311409)
+  %212 = tail call float @llvm.fmuladd.f32(float %indvars.iv440.sroa.phi531.sroa.speculated, float %211, float %.1323407)
+  %213 = tail call float @llvm.fmuladd.f32(float %209, float %indvars.iv440.sroa.phi521.sroa.speculated, float %.2306410)
+  %214 = tail call float @llvm.fmuladd.f32(float %211, float %indvars.iv440.sroa.phi521.sroa.speculated, float %.2309409)
   br i1 %208, label %.preheader, label %.loopexit403, !llvm.loop !279
 
 .loopexit403:                                     ; preds = %.preheader, %.critedge548
-  %.2329 = phi float [ %.0327415, %.critedge548 ], [ %210, %.preheader ]
-  %.2325 = phi float [ %.0323416, %.critedge548 ], [ %212, %.preheader ]
-  %.3312 = phi float [ %.1310419, %.critedge548 ], [ %214, %.preheader ]
-  %.3 = phi float [ %.1307420, %.critedge548 ], [ %213, %.preheader ]
+  %.2324 = phi float [ %.0322416, %.critedge548 ], [ %212, %.preheader ]
+  %.2318 = phi float [ %.0316417, %.critedge548 ], [ %210, %.preheader ]
+  %.3310 = phi float [ %.1308419, %.critedge548 ], [ %214, %.preheader ]
+  %.3 = phi float [ %.1305420, %.critedge548 ], [ %213, %.preheader ]
   %215 = fcmp uge float %175, %41
   %.not400 = select i1 %123, i1 %215, i1 false
   br i1 %.not400, label %.loopexit, label %216
@@ -31667,28 +31667,28 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv443.sroa.phi523.sroa.speculated = phi float [ -1.000000e+00, %216 ], [ 1.000000e+00, %233 ]
   %indvars.iv443.sroa.phi537.sroa.speculated = phi float [ %54, %216 ], [ %34, %233 ]
   %.4413 = phi float [ %.3, %216 ], [ %241, %233 ]
-  %.3330412 = phi float [ %.2329, %216 ], [ %238, %233 ]
+  %.3319412 = phi float [ %.2318, %216 ], [ %238, %233 ]
   %235 = load float, ptr %indvars.iv443.sroa.phi, align 4
   %236 = fmul float %indvars.iv443.sroa.phi537.sroa.speculated, %235
   %237 = fmul float %232, %236
-  %238 = fsub float %.3330412, %237
+  %238 = fsub float %.3319412, %237
   %239 = fmul float %235, %indvars.iv443.sroa.phi523.sroa.speculated
   %240 = fmul float %232, %239
   %241 = fsub float %.4413, %240
   br i1 %234, label %233, label %.loopexit, !llvm.loop !280
 
 .loopexit:                                        ; preds = %233, %.loopexit403, %.critedge339
-  %.5332 = phi float [ %.0327415, %.critedge339 ], [ %.2329, %.loopexit403 ], [ %238, %233 ]
-  %.3326 = phi float [ %.0323416, %.critedge339 ], [ %.2325, %.loopexit403 ], [ %.2325, %233 ]
-  %.1317 = phi i1 [ %.0316418, %.critedge339 ], [ true, %.loopexit403 ], [ true, %233 ]
-  %.4313 = phi float [ %.1310419, %.critedge339 ], [ %.3312, %.loopexit403 ], [ %.3312, %233 ]
-  %.6 = phi float [ %.1307420, %.critedge339 ], [ %.3, %.loopexit403 ], [ %241, %233 ]
+  %.3325 = phi float [ %.0322416, %.critedge339 ], [ %.2324, %.loopexit403 ], [ %.2324, %233 ]
+  %.5321 = phi float [ %.0316417, %.critedge339 ], [ %.2318, %.loopexit403 ], [ %238, %233 ]
+  %.1315 = phi i1 [ %.0314418, %.critedge339 ], [ true, %.loopexit403 ], [ true, %233 ]
+  %.4311 = phi float [ %.1308419, %.critedge339 ], [ %.3310, %.loopexit403 ], [ %.3310, %233 ]
+  %.6 = phi float [ %.1305420, %.critedge339 ], [ %.3, %.loopexit403 ], [ %241, %233 ]
   %indvars.iv.next447 = add nsw i64 %indvars.iv446, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next447, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %118, !llvm.loop !281
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge343.not = and i1 %.not, %.1317
+  %brmerge343.not = and i1 %.not, %.1315
   br i1 %brmerge343.not, label %242, label %._crit_edge.thread
 
 242:                                              ; preds = %._crit_edge
@@ -31697,22 +31697,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %245 = sext i32 %244 to i64
   %246 = getelementptr inbounds float, ptr %71, i64 %245
   %247 = load float, ptr %246, align 4
-  %248 = fadd float %.5332, %247
+  %248 = fadd float %.5321, %247
   store float %248, ptr %246, align 4
   %249 = getelementptr inbounds float, ptr %73, i64 %245
   %250 = load float, ptr %249, align 4
-  %251 = fadd float %.3326, %250
+  %251 = fadd float %.3325, %250
   store float %251, ptr %249, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %242
-  %.1307.lcssa464 = phi float [ %.6, %._crit_edge ], [ %.6, %242 ], [ %.0306427, %.critedge ]
-  %.1310.lcssa463 = phi float [ %.4313, %._crit_edge ], [ %.4313, %242 ], [ %.0309426, %.critedge ]
+  %.1305.lcssa464 = phi float [ %.6, %._crit_edge ], [ %.6, %242 ], [ %.0304427, %.critedge ]
+  %.1308.lcssa463 = phi float [ %.4311, %._crit_edge ], [ %.4311, %242 ], [ %.0307426, %.critedge ]
   %exitcond452.not = icmp eq i64 %indvars.iv.next449, %wide.trip.count451
   br i1 %exitcond452.not, label %._crit_edge428, label %.critedge, !llvm.loop !282
 
 ._crit_edge428:                                   ; preds = %._crit_edge.thread
-  %252 = fcmp une float %.1307.lcssa464, 0.000000e+00
+  %252 = fcmp une float %.1305.lcssa464, 0.000000e+00
   br i1 %252, label %253, label %259
 
 253:                                              ; preds = %._crit_edge428
@@ -31720,12 +31720,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %255 = inttoptr i64 %254 to ptr
   %256 = getelementptr inbounds i8, ptr %255, i64 8
   %257 = load float, ptr %256, align 4
-  %258 = fadd float %.1307.lcssa464, %257
+  %258 = fadd float %.1305.lcssa464, %257
   store float %258, ptr %256, align 4
   br label %259
 
 259:                                              ; preds = %253, %._crit_edge428
-  %260 = fcmp une float %.1310.lcssa463, 0.000000e+00
+  %260 = fcmp une float %.1308.lcssa463, 0.000000e+00
   br i1 %260, label %261, label %.thread468
 
 261:                                              ; preds = %259
@@ -31733,7 +31733,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %263 = inttoptr i64 %262 to ptr
   %264 = getelementptr inbounds i8, ptr %263, i64 12
   %265 = load float, ptr %264, align 4
-  %266 = fadd float %.1310.lcssa463, %265
+  %266 = fadd float %.1308.lcssa463, %265
   store float %266, ptr %264, align 4
   br label %.thread468
 
@@ -33095,9 +33095,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv624 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next625, %._crit_edge.thread ]
-  %.0442600 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1443.lcssa644, %._crit_edge.thread ]
-  %.0446599 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1447.lcssa643, %._crit_edge.thread ]
-  %.0456598 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1457.lcssa642, %._crit_edge.thread ]
+  %.0435600 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1436.lcssa644, %._crit_edge.thread ]
+  %.0438599 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1439.lcssa643, %._crit_edge.thread ]
+  %.0444598 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1445.lcssa642, %._crit_edge.thread ]
   %100 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv624
   %101 = load i32, ptr %100, align 4
   %102 = sext i32 %101 to i64
@@ -33143,13 +33143,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %300
   %indvars.iv622 = phi i64 [ %135, %.lr.ph.preheader ], [ %indvars.iv.next623, %300 ]
-  %.1443588 = phi float [ %.0442600, %.lr.ph.preheader ], [ %.6, %300 ]
-  %.1447587 = phi float [ %.0446599, %.lr.ph.preheader ], [ %.4450, %300 ]
-  %.1457585 = phi i8 [ %.0456598, %.lr.ph.preheader ], [ %.3459, %300 ]
-  %.0461584 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1462, %300 ]
-  %.0467581 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3470, %300 ]
-  %.0471580 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5476, %300 ]
-  %.0478579 = phi i1 [ false, %.lr.ph.preheader ], [ %.1479, %300 ]
+  %.1436588 = phi float [ %.0435600, %.lr.ph.preheader ], [ %.6, %300 ]
+  %.1439587 = phi float [ %.0438599, %.lr.ph.preheader ], [ %.4442, %300 ]
+  %.1445586 = phi i8 [ %.0444598, %.lr.ph.preheader ], [ %.3447, %300 ]
+  %.0450585 = phi i1 [ false, %.lr.ph.preheader ], [ %.1451, %300 ]
+  %.0452584 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5457, %300 ]
+  %.0459583 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3462, %300 ]
+  %.0467580 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1468, %300 ]
   %136 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %301, %300 ]
   %137 = load ptr, ptr %89, align 8
   %138 = load ptr, ptr %90, align 8
@@ -33335,35 +33335,35 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv616.sroa.phi726.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv616.sroa.phi736.sroa.speculated = phi float [ %39, %.preheader ], [ %76, %.thread ]
   %indvars.iv616.sroa.phi740.sroa.speculated = phi float [ %37, %.preheader ], [ %75, %.thread ]
-  %.0438573 = phi float [ %260, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.2444572 = phi float [ %261, %.preheader ], [ %.1443588, %.thread ]
-  %.2448571 = phi float [ %262, %.preheader ], [ %.1447587, %.thread ]
-  %.1468570 = phi float [ %254, %.preheader ], [ %.0467581, %.thread ]
-  %.1472569 = phi float [ %252, %.preheader ], [ %.0471580, %.thread ]
+  %.2437574 = phi float [ %261, %.preheader ], [ %.1436588, %.thread ]
+  %.2440573 = phi float [ %262, %.preheader ], [ %.1439587, %.thread ]
+  %.1453572 = phi float [ %252, %.preheader ], [ %.0452584, %.thread ]
+  %.1460570 = phi float [ %254, %.preheader ], [ %.0459583, %.thread ]
+  %.0475569 = phi float [ %260, %.preheader ], [ 0.000000e+00, %.thread ]
   %251 = load float, ptr %indvars.iv616.sroa.phi684, align 4
-  %252 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi740.sroa.speculated, float %251, float %.1472569)
+  %252 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi740.sroa.speculated, float %251, float %.1453572)
   %253 = load float, ptr %indvars.iv616.sroa.phi, align 4
-  %254 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi736.sroa.speculated, float %253, float %.1468570)
+  %254 = tail call float @llvm.fmuladd.f32(float %indvars.iv616.sroa.phi736.sroa.speculated, float %253, float %.1460570)
   %255 = load float, ptr %indvars.iv616.sroa.phi696, align 4
   %256 = fmul float %indvars.iv616.sroa.phi740.sroa.speculated, %255
-  %257 = tail call float @llvm.fmuladd.f32(float %256, float %195, float %.0438573)
+  %257 = tail call float @llvm.fmuladd.f32(float %256, float %195, float %.0475569)
   %258 = load float, ptr %indvars.iv616.sroa.phi690, align 4
   %259 = fmul float %indvars.iv616.sroa.phi736.sroa.speculated, %258
   %260 = tail call float @llvm.fmuladd.f32(float %259, float %195, float %257)
-  %261 = tail call float @llvm.fmuladd.f32(float %251, float %indvars.iv616.sroa.phi726.sroa.speculated, float %.2444572)
-  %262 = tail call float @llvm.fmuladd.f32(float %253, float %indvars.iv616.sroa.phi726.sroa.speculated, float %.2448571)
+  %261 = tail call float @llvm.fmuladd.f32(float %251, float %indvars.iv616.sroa.phi726.sroa.speculated, float %.2437574)
+  %262 = tail call float @llvm.fmuladd.f32(float %253, float %indvars.iv616.sroa.phi726.sroa.speculated, float %.2440573)
   br i1 %250, label %.preheader, label %.loopexit565, !llvm.loop !292
 
 .loopexit565:                                     ; preds = %.preheader, %.critedge756
-  %.2473 = phi float [ %.0471580, %.critedge756 ], [ %252, %.preheader ]
-  %.2469 = phi float [ %.0467581, %.critedge756 ], [ %254, %.preheader ]
-  %.3449 = phi float [ %.1447587, %.critedge756 ], [ %262, %.preheader ]
-  %.3445 = phi float [ %.1443588, %.critedge756 ], [ %261, %.preheader ]
-  %.1439 = phi float [ 0.000000e+00, %.critedge756 ], [ %260, %.preheader ]
+  %.1476 = phi float [ 0.000000e+00, %.critedge756 ], [ %260, %.preheader ]
+  %.2461 = phi float [ %.0459583, %.critedge756 ], [ %254, %.preheader ]
+  %.2454 = phi float [ %.0452584, %.critedge756 ], [ %252, %.preheader ]
+  %.3441 = phi float [ %.1439587, %.critedge756 ], [ %262, %.preheader ]
+  %.3 = phi float [ %.1436588, %.critedge756 ], [ %261, %.preheader ]
   br i1 %72, label %263, label %.loopexit
 
 263:                                              ; preds = %.loopexit565
-  %264 = trunc nuw i8 %.1457585 to i1
+  %264 = trunc nuw i8 %.1445586 to i1
   br i1 %264, label %268, label %265
 
 265:                                              ; preds = %263
@@ -33387,35 +33387,35 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv619.sroa.phi = phi ptr [ %.sroa.0703, %271 ], [ %.sroa.3, %275 ]
   %indvars.iv619.sroa.phi728.sroa.speculated = phi float [ -1.000000e+00, %271 ], [ 1.000000e+00, %275 ]
   %indvars.iv619.sroa.phi742.sroa.speculated = phi float [ %75, %271 ], [ %37, %275 ]
-  %.2440577 = phi float [ %.1439, %271 ], [ %282, %275 ]
-  %.4576 = phi float [ %.3445, %271 ], [ %285, %275 ]
-  %.3474575 = phi float [ %.2473, %271 ], [ %280, %275 ]
+  %.4578 = phi float [ %.3, %271 ], [ %285, %275 ]
+  %.3455576 = phi float [ %.2454, %271 ], [ %280, %275 ]
+  %.2477575 = phi float [ %.1476, %271 ], [ %282, %275 ]
   %277 = load float, ptr %indvars.iv619.sroa.phi, align 4
   %278 = fmul float %indvars.iv619.sroa.phi742.sroa.speculated, %277
   %279 = fmul float %274, %278
-  %280 = fadd float %.3474575, %279
+  %280 = fadd float %.3455576, %279
   %281 = fmul float %94, %278
-  %282 = fsub float %.2440577, %281
+  %282 = fsub float %.2477575, %281
   %283 = fmul float %277, %indvars.iv619.sroa.phi728.sroa.speculated
   %284 = fmul float %274, %283
-  %285 = fadd float %.4576, %284
+  %285 = fadd float %.4578, %284
   br i1 %276, label %275, label %.loopexit, !llvm.loop !293
 
 .loopexit:                                        ; preds = %275, %268, %.loopexit565
-  %.4475 = phi float [ %.2473, %268 ], [ %.2473, %.loopexit565 ], [ %280, %275 ]
-  %.2458 = phi i8 [ %270, %268 ], [ %.1457585, %.loopexit565 ], [ %270, %275 ]
-  %.5 = phi float [ %.3445, %268 ], [ %.3445, %.loopexit565 ], [ %285, %275 ]
-  %.3 = phi float [ %.1439, %268 ], [ %.1439, %.loopexit565 ], [ %282, %275 ]
-  %286 = fcmp une float %.3, 0.000000e+00
+  %.3478 = phi float [ %.1476, %268 ], [ %.1476, %.loopexit565 ], [ %282, %275 ]
+  %.4456 = phi float [ %.2454, %268 ], [ %.2454, %.loopexit565 ], [ %280, %275 ]
+  %.2446 = phi i8 [ %270, %268 ], [ %.1445586, %.loopexit565 ], [ %270, %275 ]
+  %.5 = phi float [ %.3, %268 ], [ %.3, %.loopexit565 ], [ %285, %275 ]
+  %286 = fcmp une float %.3478, 0.000000e+00
   br i1 %286, label %287, label %300
 
 287:                                              ; preds = %.loopexit
-  %288 = insertelement <2 x float> poison, float %.3, i64 0
+  %288 = insertelement <2 x float> poison, float %.3478, i64 0
   %289 = shufflevector <2 x float> %288, <2 x float> poison, <2 x i32> zeroinitializer
   %290 = fmul <2 x float> %158, %289
-  %291 = fmul float %159, %.3
+  %291 = fmul float %159, %.3478
   %292 = fadd <2 x float> %136, %290
-  %293 = fadd float %.0461584, %291
+  %293 = fadd float %.0467580, %291
   %294 = getelementptr inbounds float, ptr %79, i64 %152
   %295 = load <2 x float>, ptr %294, align 4
   %296 = fsub <2 x float> %295, %290
@@ -33427,20 +33427,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %300
 
 300:                                              ; preds = %.loopexit, %287, %.critedge487
-  %.1479 = phi i1 [ true, %287 ], [ true, %.loopexit ], [ %.0478579, %.critedge487 ]
-  %.5476 = phi float [ %.4475, %287 ], [ %.4475, %.loopexit ], [ %.0471580, %.critedge487 ]
-  %.3470 = phi float [ %.2469, %287 ], [ %.2469, %.loopexit ], [ %.0467581, %.critedge487 ]
-  %.1462 = phi float [ %293, %287 ], [ %.0461584, %.loopexit ], [ %.0461584, %.critedge487 ]
-  %.3459 = phi i8 [ %.2458, %287 ], [ %.2458, %.loopexit ], [ %.1457585, %.critedge487 ]
-  %.4450 = phi float [ %.3449, %287 ], [ %.3449, %.loopexit ], [ %.1447587, %.critedge487 ]
-  %.6 = phi float [ %.5, %287 ], [ %.5, %.loopexit ], [ %.1443588, %.critedge487 ]
+  %.1468 = phi float [ %293, %287 ], [ %.0467580, %.loopexit ], [ %.0467580, %.critedge487 ]
+  %.3462 = phi float [ %.2461, %287 ], [ %.2461, %.loopexit ], [ %.0459583, %.critedge487 ]
+  %.5457 = phi float [ %.4456, %287 ], [ %.4456, %.loopexit ], [ %.0452584, %.critedge487 ]
+  %.1451 = phi i1 [ true, %287 ], [ true, %.loopexit ], [ %.0450585, %.critedge487 ]
+  %.3447 = phi i8 [ %.2446, %287 ], [ %.2446, %.loopexit ], [ %.1445586, %.critedge487 ]
+  %.4442 = phi float [ %.3441, %287 ], [ %.3441, %.loopexit ], [ %.1439587, %.critedge487 ]
+  %.6 = phi float [ %.5, %287 ], [ %.5, %.loopexit ], [ %.1436588, %.critedge487 ]
   %301 = phi <2 x float> [ %292, %287 ], [ %136, %.loopexit ], [ %136, %.critedge487 ]
   %indvars.iv.next623 = add nsw i64 %indvars.iv622, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next623, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !294
 
 ._crit_edge:                                      ; preds = %300
-  br i1 %.1479, label %302, label %._crit_edge.thread
+  br i1 %.1451, label %302, label %._crit_edge.thread
 
 302:                                              ; preds = %._crit_edge
   %303 = getelementptr inbounds float, ptr %79, i64 %113
@@ -33449,7 +33449,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %305, ptr %303, align 4
   %306 = getelementptr i8, ptr %303, i64 8
   %307 = load float, ptr %306, align 4
-  %308 = fadd float %.1462, %307
+  %308 = fadd float %.1468, %307
   store float %308, ptr %306, align 4
   br i1 %.not, label %318, label %309
 
@@ -33462,7 +33462,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %314, ptr %312, align 4
   %315 = getelementptr i8, ptr %312, i64 8
   %316 = load float, ptr %315, align 4
-  %317 = fadd float %.1462, %316
+  %317 = fadd float %.1468, %316
   store float %317, ptr %315, align 4
   br label %318
 
@@ -33475,24 +33475,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %322 = sext i32 %321 to i64
   %323 = getelementptr inbounds float, ptr %97, i64 %322
   %324 = load float, ptr %323, align 4
-  %325 = fadd float %.5476, %324
+  %325 = fadd float %.5457, %324
   store float %325, ptr %323, align 4
   %326 = getelementptr inbounds float, ptr %99, i64 %322
   %327 = load float, ptr %326, align 4
-  %328 = fadd float %.3470, %327
+  %328 = fadd float %.3462, %327
   store float %328, ptr %326, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %319, %318
-  %.1443.lcssa644 = phi float [ %.6, %._crit_edge ], [ %.6, %319 ], [ %.6, %318 ], [ %.0442600, %.critedge ]
-  %.1447.lcssa643 = phi float [ %.4450, %._crit_edge ], [ %.4450, %319 ], [ %.4450, %318 ], [ %.0446599, %.critedge ]
-  %.1457.lcssa642 = phi i8 [ %.3459, %._crit_edge ], [ %.3459, %319 ], [ %.3459, %318 ], [ %.0456598, %.critedge ]
+  %.1436.lcssa644 = phi float [ %.6, %._crit_edge ], [ %.6, %319 ], [ %.6, %318 ], [ %.0435600, %.critedge ]
+  %.1439.lcssa643 = phi float [ %.4442, %._crit_edge ], [ %.4442, %319 ], [ %.4442, %318 ], [ %.0438599, %.critedge ]
+  %.1445.lcssa642 = phi i8 [ %.3447, %._crit_edge ], [ %.3447, %319 ], [ %.3447, %318 ], [ %.0444598, %.critedge ]
   %exitcond627.not = icmp eq i64 %indvars.iv.next625, %wide.trip.count626
   br i1 %exitcond627.not, label %._crit_edge601, label %.critedge, !llvm.loop !295
 
 ._crit_edge601:                                   ; preds = %._crit_edge.thread
-  %329 = trunc nuw i8 %.1457.lcssa642 to i1
-  %330 = fcmp une float %.1443.lcssa644, 0.000000e+00
+  %329 = trunc nuw i8 %.1445.lcssa642 to i1
+  %330 = fcmp une float %.1436.lcssa644, 0.000000e+00
   br i1 %330, label %331, label %337
 
 331:                                              ; preds = %._crit_edge601
@@ -33500,12 +33500,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %333 = inttoptr i64 %332 to ptr
   %334 = getelementptr inbounds i8, ptr %333, i64 8
   %335 = load float, ptr %334, align 4
-  %336 = fadd float %.1443.lcssa644, %335
+  %336 = fadd float %.1436.lcssa644, %335
   store float %336, ptr %334, align 4
   br label %337
 
 337:                                              ; preds = %331, %._crit_edge601
-  %338 = fcmp une float %.1447.lcssa643, 0.000000e+00
+  %338 = fcmp une float %.1439.lcssa643, 0.000000e+00
   br i1 %338, label %339, label %.thread650
 
 339:                                              ; preds = %337
@@ -33513,12 +33513,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %341 = inttoptr i64 %340 to ptr
   %342 = getelementptr inbounds i8, ptr %341, i64 12
   %343 = load float, ptr %342, align 4
-  %344 = fadd float %.1447.lcssa643, %343
+  %344 = fadd float %.1439.lcssa643, %343
   store float %344, ptr %342, align 4
   br label %.thread650
 
 .thread650:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %339, %337
-  %.0456.lcssa648653 = phi i1 [ %329, %339 ], [ %329, %337 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0444.lcssa648653 = phi i1 [ %329, %339 ], [ %329, %337 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %345 = load i32, ptr %0, align 8
   %346 = mul nsw i32 %345, 12
   %347 = sext i32 %23 to i64
@@ -33528,7 +33528,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %351 = mul nsw i32 %350, 150
   %352 = add nsw i32 %351, %346
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %352)
-  %353 = select i1 %72, i1 %.0456.lcssa648653, i1 false
+  %353 = select i1 %72, i1 %.0444.lcssa648653, i1 false
   br i1 %353, label %354, label %365
 
 354:                                              ; preds = %.thread650
@@ -34470,9 +34470,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv525 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next526, %._crit_edge.thread ]
-  %.0372503 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1373.lcssa543, %._crit_edge.thread ]
-  %.0375502 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1376.lcssa542, %._crit_edge.thread ]
-  %.0381501 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1382.lcssa541, %._crit_edge.thread ]
+  %.0367503 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1368.lcssa543, %._crit_edge.thread ]
+  %.0371502 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1372.lcssa542, %._crit_edge.thread ]
+  %.0377501 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1378.lcssa541, %._crit_edge.thread ]
   %93 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv525
   %94 = load i32, ptr %93, align 4
   %95 = sext i32 %94 to i64
@@ -34526,12 +34526,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 137:                                              ; preds = %.lr.ph, %.loopexit
   %indvars.iv523 = phi i64 [ %136, %.lr.ph ], [ %indvars.iv.next524, %.loopexit ]
-  %.1373494 = phi float [ %.0372503, %.lr.ph ], [ %.6, %.loopexit ]
-  %.1376493 = phi float [ %.0375502, %.lr.ph ], [ %.4379, %.loopexit ]
-  %.1382492 = phi i8 [ %.0381501, %.lr.ph ], [ %.3384, %.loopexit ]
-  %.0388491 = phi i1 [ false, %.lr.ph ], [ %.1389, %.loopexit ]
-  %.0393489 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3396, %.loopexit ]
-  %.0397488 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5402, %.loopexit ]
+  %.1368494 = phi float [ %.0367503, %.lr.ph ], [ %.6, %.loopexit ]
+  %.1372493 = phi float [ %.0371502, %.lr.ph ], [ %.4375, %.loopexit ]
+  %.1378492 = phi i8 [ %.0377501, %.lr.ph ], [ %.3380, %.loopexit ]
+  %.0383491 = phi i1 [ false, %.lr.ph ], [ %.1384, %.loopexit ]
+  %.0385490 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5390, %.loopexit ]
+  %.0391489 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3394, %.loopexit ]
   br i1 %135, label %.critedge409, label %138
 
 138:                                              ; preds = %137
@@ -34695,27 +34695,27 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv517.sroa.phi606.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv517.sroa.phi616.sroa.speculated = phi float [ %39, %.preheader ], [ %72, %.thread ]
   %indvars.iv517.sroa.phi620.sroa.speculated = phi float [ %37, %.preheader ], [ %71, %.thread ]
-  %.2374483 = phi float [ %243, %.preheader ], [ %.1373494, %.thread ]
-  %.2377482 = phi float [ %244, %.preheader ], [ %.1376493, %.thread ]
-  %.1394481 = phi float [ %242, %.preheader ], [ %.0393489, %.thread ]
-  %.1398480 = phi float [ %240, %.preheader ], [ %.0397488, %.thread ]
+  %.2369484 = phi float [ %243, %.preheader ], [ %.1368494, %.thread ]
+  %.2373483 = phi float [ %244, %.preheader ], [ %.1372493, %.thread ]
+  %.1386481 = phi float [ %240, %.preheader ], [ %.0385490, %.thread ]
+  %.1392480 = phi float [ %242, %.preheader ], [ %.0391489, %.thread ]
   %239 = load float, ptr %indvars.iv517.sroa.phi576, align 4
-  %240 = tail call float @llvm.fmuladd.f32(float %indvars.iv517.sroa.phi620.sroa.speculated, float %239, float %.1398480)
+  %240 = tail call float @llvm.fmuladd.f32(float %indvars.iv517.sroa.phi620.sroa.speculated, float %239, float %.1386481)
   %241 = load float, ptr %indvars.iv517.sroa.phi, align 4
-  %242 = tail call float @llvm.fmuladd.f32(float %indvars.iv517.sroa.phi616.sroa.speculated, float %241, float %.1394481)
-  %243 = tail call float @llvm.fmuladd.f32(float %239, float %indvars.iv517.sroa.phi606.sroa.speculated, float %.2374483)
-  %244 = tail call float @llvm.fmuladd.f32(float %241, float %indvars.iv517.sroa.phi606.sroa.speculated, float %.2377482)
+  %242 = tail call float @llvm.fmuladd.f32(float %indvars.iv517.sroa.phi616.sroa.speculated, float %241, float %.1392480)
+  %243 = tail call float @llvm.fmuladd.f32(float %239, float %indvars.iv517.sroa.phi606.sroa.speculated, float %.2369484)
+  %244 = tail call float @llvm.fmuladd.f32(float %241, float %indvars.iv517.sroa.phi606.sroa.speculated, float %.2373483)
   br i1 %238, label %.preheader, label %.loopexit476, !llvm.loop !305
 
 .loopexit476:                                     ; preds = %.preheader, %.critedge633
-  %.2399 = phi float [ %.0397488, %.critedge633 ], [ %240, %.preheader ]
-  %.2395 = phi float [ %.0393489, %.critedge633 ], [ %242, %.preheader ]
-  %.3378 = phi float [ %.1376493, %.critedge633 ], [ %244, %.preheader ]
-  %.3 = phi float [ %.1373494, %.critedge633 ], [ %243, %.preheader ]
+  %.2393 = phi float [ %.0391489, %.critedge633 ], [ %242, %.preheader ]
+  %.2387 = phi float [ %.0385490, %.critedge633 ], [ %240, %.preheader ]
+  %.3374 = phi float [ %.1372493, %.critedge633 ], [ %244, %.preheader ]
+  %.3 = phi float [ %.1368494, %.critedge633 ], [ %243, %.preheader ]
   br i1 %68, label %245, label %.loopexit
 
 245:                                              ; preds = %.loopexit476
-  %246 = trunc nuw i8 %.1382492 to i1
+  %246 = trunc nuw i8 %.1378492 to i1
   br i1 %246, label %250, label %247
 
 247:                                              ; preds = %245
@@ -34739,30 +34739,30 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv520.sroa.phi = phi ptr [ %.sroa.0583, %253 ], [ %.sroa.3, %257 ]
   %indvars.iv520.sroa.phi608.sroa.speculated = phi float [ -1.000000e+00, %253 ], [ 1.000000e+00, %257 ]
   %indvars.iv520.sroa.phi622.sroa.speculated = phi float [ %71, %253 ], [ %37, %257 ]
-  %.4486 = phi float [ %.3, %253 ], [ %265, %257 ]
-  %.3400485 = phi float [ %.2399, %253 ], [ %262, %257 ]
+  %.4487 = phi float [ %.3, %253 ], [ %265, %257 ]
+  %.3388485 = phi float [ %.2387, %253 ], [ %262, %257 ]
   %259 = load float, ptr %indvars.iv520.sroa.phi, align 4
   %260 = fmul float %indvars.iv520.sroa.phi622.sroa.speculated, %259
   %261 = fmul float %256, %260
-  %262 = fadd float %.3400485, %261
+  %262 = fadd float %.3388485, %261
   %263 = fmul float %259, %indvars.iv520.sroa.phi608.sroa.speculated
   %264 = fmul float %256, %263
-  %265 = fadd float %.4486, %264
+  %265 = fadd float %.4487, %264
   br i1 %258, label %257, label %.loopexit, !llvm.loop !306
 
 .loopexit:                                        ; preds = %257, %.loopexit476, %250, %.critedge409
-  %.5402 = phi float [ %.0397488, %.critedge409 ], [ %.2399, %250 ], [ %.2399, %.loopexit476 ], [ %262, %257 ]
-  %.3396 = phi float [ %.0393489, %.critedge409 ], [ %.2395, %250 ], [ %.2395, %.loopexit476 ], [ %.2395, %257 ]
-  %.1389 = phi i1 [ %.0388491, %.critedge409 ], [ true, %250 ], [ true, %.loopexit476 ], [ true, %257 ]
-  %.3384 = phi i8 [ %.1382492, %.critedge409 ], [ %252, %250 ], [ %.1382492, %.loopexit476 ], [ %252, %257 ]
-  %.4379 = phi float [ %.1376493, %.critedge409 ], [ %.3378, %250 ], [ %.3378, %.loopexit476 ], [ %.3378, %257 ]
-  %.6 = phi float [ %.1373494, %.critedge409 ], [ %.3, %250 ], [ %.3, %.loopexit476 ], [ %265, %257 ]
+  %.3394 = phi float [ %.0391489, %.critedge409 ], [ %.2393, %250 ], [ %.2393, %.loopexit476 ], [ %.2393, %257 ]
+  %.5390 = phi float [ %.0385490, %.critedge409 ], [ %.2387, %250 ], [ %.2387, %.loopexit476 ], [ %262, %257 ]
+  %.1384 = phi i1 [ %.0383491, %.critedge409 ], [ true, %250 ], [ true, %.loopexit476 ], [ true, %257 ]
+  %.3380 = phi i8 [ %.1378492, %.critedge409 ], [ %252, %250 ], [ %.1378492, %.loopexit476 ], [ %252, %257 ]
+  %.4375 = phi float [ %.1372493, %.critedge409 ], [ %.3374, %250 ], [ %.3374, %.loopexit476 ], [ %.3374, %257 ]
+  %.6 = phi float [ %.1368494, %.critedge409 ], [ %.3, %250 ], [ %.3, %.loopexit476 ], [ %265, %257 ]
   %indvars.iv.next524 = add nsw i64 %indvars.iv523, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next524, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %137, !llvm.loop !307
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge413.not = and i1 %.not, %.1389
+  %brmerge413.not = and i1 %.not, %.1384
   br i1 %brmerge413.not, label %266, label %._crit_edge.thread
 
 266:                                              ; preds = %._crit_edge
@@ -34771,24 +34771,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %269 = sext i32 %268 to i64
   %270 = getelementptr inbounds float, ptr %90, i64 %269
   %271 = load float, ptr %270, align 4
-  %272 = fadd float %.5402, %271
+  %272 = fadd float %.5390, %271
   store float %272, ptr %270, align 4
   %273 = getelementptr inbounds float, ptr %92, i64 %269
   %274 = load float, ptr %273, align 4
-  %275 = fadd float %.3396, %274
+  %275 = fadd float %.3394, %274
   store float %275, ptr %273, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %266
-  %.1373.lcssa543 = phi float [ %.6, %._crit_edge ], [ %.6, %266 ], [ %.0372503, %.critedge ]
-  %.1376.lcssa542 = phi float [ %.4379, %._crit_edge ], [ %.4379, %266 ], [ %.0375502, %.critedge ]
-  %.1382.lcssa541 = phi i8 [ %.3384, %._crit_edge ], [ %.3384, %266 ], [ %.0381501, %.critedge ]
+  %.1368.lcssa543 = phi float [ %.6, %._crit_edge ], [ %.6, %266 ], [ %.0367503, %.critedge ]
+  %.1372.lcssa542 = phi float [ %.4375, %._crit_edge ], [ %.4375, %266 ], [ %.0371502, %.critedge ]
+  %.1378.lcssa541 = phi i8 [ %.3380, %._crit_edge ], [ %.3380, %266 ], [ %.0377501, %.critedge ]
   %exitcond528.not = icmp eq i64 %indvars.iv.next526, %wide.trip.count527
   br i1 %exitcond528.not, label %._crit_edge504, label %.critedge, !llvm.loop !308
 
 ._crit_edge504:                                   ; preds = %._crit_edge.thread
-  %276 = trunc nuw i8 %.1382.lcssa541 to i1
-  %277 = fcmp une float %.1373.lcssa543, 0.000000e+00
+  %276 = trunc nuw i8 %.1378.lcssa541 to i1
+  %277 = fcmp une float %.1368.lcssa543, 0.000000e+00
   br i1 %277, label %278, label %284
 
 278:                                              ; preds = %._crit_edge504
@@ -34796,12 +34796,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %280 = inttoptr i64 %279 to ptr
   %281 = getelementptr inbounds i8, ptr %280, i64 8
   %282 = load float, ptr %281, align 4
-  %283 = fadd float %.1373.lcssa543, %282
+  %283 = fadd float %.1368.lcssa543, %282
   store float %283, ptr %281, align 4
   br label %284
 
 284:                                              ; preds = %278, %._crit_edge504
-  %285 = fcmp une float %.1376.lcssa542, 0.000000e+00
+  %285 = fcmp une float %.1372.lcssa542, 0.000000e+00
   br i1 %285, label %286, label %.thread549
 
 286:                                              ; preds = %284
@@ -34809,12 +34809,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %288 = inttoptr i64 %287 to ptr
   %289 = getelementptr inbounds i8, ptr %288, i64 12
   %290 = load float, ptr %289, align 4
-  %291 = fadd float %.1376.lcssa542, %290
+  %291 = fadd float %.1372.lcssa542, %290
   store float %291, ptr %289, align 4
   br label %.thread549
 
 .thread549:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %286, %284
-  %.0381.lcssa547552 = phi i1 [ %276, %286 ], [ %276, %284 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0377.lcssa547552 = phi i1 [ %276, %286 ], [ %276, %284 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %292 = load i32, ptr %0, align 8
   %293 = mul nsw i32 %292, 12
   %294 = sext i32 %23 to i64
@@ -34824,7 +34824,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %298 = mul nsw i32 %297, 150
   %299 = add nsw i32 %298, %293
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %299)
-  %300 = select i1 %68, i1 %.0381.lcssa547552, i1 false
+  %300 = select i1 %68, i1 %.0377.lcssa547552, i1 false
   br i1 %300, label %301, label %312
 
 301:                                              ; preds = %.thread549
@@ -36172,9 +36172,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv565 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next566, %._crit_edge.thread ]
-  %.0383541 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1384.lcssa585, %._crit_edge.thread ]
-  %.0387540 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1388.lcssa584, %._crit_edge.thread ]
-  %.0396539 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1397.lcssa583, %._crit_edge.thread ]
+  %.0376541 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1377.lcssa585, %._crit_edge.thread ]
+  %.0379540 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1380.lcssa584, %._crit_edge.thread ]
+  %.0385539 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1386.lcssa583, %._crit_edge.thread ]
   %87 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv565
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
@@ -36220,13 +36220,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %271
   %indvars.iv563 = phi i64 [ %122, %.lr.ph.preheader ], [ %indvars.iv.next564, %271 ]
-  %.1384529 = phi float [ %.0383541, %.lr.ph.preheader ], [ %.6, %271 ]
-  %.1388528 = phi float [ %.0387540, %.lr.ph.preheader ], [ %.4391, %271 ]
-  %.1397527 = phi i8 [ %.0396539, %.lr.ph.preheader ], [ %.3399, %271 ]
-  %.0403525 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1404, %271 ]
-  %.0409522 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3412, %271 ]
-  %.0413521 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5418, %271 ]
-  %.0419520 = phi i1 [ false, %.lr.ph.preheader ], [ %.1420, %271 ]
+  %.1377529 = phi float [ %.0376541, %.lr.ph.preheader ], [ %.6, %271 ]
+  %.1380528 = phi float [ %.0379540, %.lr.ph.preheader ], [ %.4383, %271 ]
+  %.1386527 = phi i8 [ %.0385539, %.lr.ph.preheader ], [ %.3388, %271 ]
+  %.0391526 = phi i1 [ false, %.lr.ph.preheader ], [ %.1392, %271 ]
+  %.0393525 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5398, %271 ]
+  %.0400524 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3403, %271 ]
+  %.0408521 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1409, %271 ]
   %123 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %272, %271 ]
   %124 = load ptr, ptr %76, align 8
   %125 = load ptr, ptr %77, align 8
@@ -36396,35 +36396,35 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv557.sroa.phi667.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv557.sroa.phi677.sroa.speculated = phi float [ %39, %.preheader ], [ %63, %.thread ]
   %indvars.iv557.sroa.phi681.sroa.speculated = phi float [ %37, %.preheader ], [ %62, %.thread ]
-  %.0379514 = phi float [ %231, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.2385513 = phi float [ %232, %.preheader ], [ %.1384529, %.thread ]
-  %.2389512 = phi float [ %233, %.preheader ], [ %.1388528, %.thread ]
-  %.1410511 = phi float [ %225, %.preheader ], [ %.0409522, %.thread ]
-  %.1414510 = phi float [ %223, %.preheader ], [ %.0413521, %.thread ]
+  %.2378515 = phi float [ %232, %.preheader ], [ %.1377529, %.thread ]
+  %.2381514 = phi float [ %233, %.preheader ], [ %.1380528, %.thread ]
+  %.1394513 = phi float [ %223, %.preheader ], [ %.0393525, %.thread ]
+  %.1401511 = phi float [ %225, %.preheader ], [ %.0400524, %.thread ]
+  %.0416510 = phi float [ %231, %.preheader ], [ 0.000000e+00, %.thread ]
   %222 = load float, ptr %indvars.iv557.sroa.phi625, align 4
-  %223 = tail call float @llvm.fmuladd.f32(float %indvars.iv557.sroa.phi681.sroa.speculated, float %222, float %.1414510)
+  %223 = tail call float @llvm.fmuladd.f32(float %indvars.iv557.sroa.phi681.sroa.speculated, float %222, float %.1394513)
   %224 = load float, ptr %indvars.iv557.sroa.phi, align 4
-  %225 = tail call float @llvm.fmuladd.f32(float %indvars.iv557.sroa.phi677.sroa.speculated, float %224, float %.1410511)
+  %225 = tail call float @llvm.fmuladd.f32(float %indvars.iv557.sroa.phi677.sroa.speculated, float %224, float %.1401511)
   %226 = load float, ptr %indvars.iv557.sroa.phi637, align 4
   %227 = fmul float %indvars.iv557.sroa.phi681.sroa.speculated, %226
-  %228 = tail call float @llvm.fmuladd.f32(float %227, float %182, float %.0379514)
+  %228 = tail call float @llvm.fmuladd.f32(float %227, float %182, float %.0416510)
   %229 = load float, ptr %indvars.iv557.sroa.phi631, align 4
   %230 = fmul float %indvars.iv557.sroa.phi677.sroa.speculated, %229
   %231 = tail call float @llvm.fmuladd.f32(float %230, float %182, float %228)
-  %232 = tail call float @llvm.fmuladd.f32(float %222, float %indvars.iv557.sroa.phi667.sroa.speculated, float %.2385513)
-  %233 = tail call float @llvm.fmuladd.f32(float %224, float %indvars.iv557.sroa.phi667.sroa.speculated, float %.2389512)
+  %232 = tail call float @llvm.fmuladd.f32(float %222, float %indvars.iv557.sroa.phi667.sroa.speculated, float %.2378515)
+  %233 = tail call float @llvm.fmuladd.f32(float %224, float %indvars.iv557.sroa.phi667.sroa.speculated, float %.2381514)
   br i1 %221, label %.preheader, label %.loopexit506, !llvm.loop !318
 
 .loopexit506:                                     ; preds = %.preheader, %.critedge697
-  %.2415 = phi float [ %.0413521, %.critedge697 ], [ %223, %.preheader ]
-  %.2411 = phi float [ %.0409522, %.critedge697 ], [ %225, %.preheader ]
-  %.3390 = phi float [ %.1388528, %.critedge697 ], [ %233, %.preheader ]
-  %.3386 = phi float [ %.1384529, %.critedge697 ], [ %232, %.preheader ]
-  %.1380 = phi float [ 0.000000e+00, %.critedge697 ], [ %231, %.preheader ]
+  %.1417 = phi float [ 0.000000e+00, %.critedge697 ], [ %231, %.preheader ]
+  %.2402 = phi float [ %.0400524, %.critedge697 ], [ %225, %.preheader ]
+  %.2395 = phi float [ %.0393525, %.critedge697 ], [ %223, %.preheader ]
+  %.3382 = phi float [ %.1380528, %.critedge697 ], [ %233, %.preheader ]
+  %.3 = phi float [ %.1377529, %.critedge697 ], [ %232, %.preheader ]
   br i1 %59, label %234, label %.loopexit
 
 234:                                              ; preds = %.loopexit506
-  %235 = trunc nuw i8 %.1397527 to i1
+  %235 = trunc nuw i8 %.1386527 to i1
   br i1 %235, label %239, label %236
 
 236:                                              ; preds = %234
@@ -36448,35 +36448,35 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv560.sroa.phi = phi ptr [ %.sroa.0644, %242 ], [ %.sroa.3, %246 ]
   %indvars.iv560.sroa.phi669.sroa.speculated = phi float [ -1.000000e+00, %242 ], [ 1.000000e+00, %246 ]
   %indvars.iv560.sroa.phi683.sroa.speculated = phi float [ %62, %242 ], [ %37, %246 ]
-  %.2381518 = phi float [ %.1380, %242 ], [ %253, %246 ]
-  %.4517 = phi float [ %.3386, %242 ], [ %256, %246 ]
-  %.3416516 = phi float [ %.2415, %242 ], [ %251, %246 ]
+  %.4519 = phi float [ %.3, %242 ], [ %256, %246 ]
+  %.3396517 = phi float [ %.2395, %242 ], [ %251, %246 ]
+  %.2418516 = phi float [ %.1417, %242 ], [ %253, %246 ]
   %248 = load float, ptr %indvars.iv560.sroa.phi, align 4
   %249 = fmul float %indvars.iv560.sroa.phi683.sroa.speculated, %248
   %250 = fmul float %245, %249
-  %251 = fadd float %.3416516, %250
+  %251 = fadd float %.3396517, %250
   %252 = fmul float %81, %249
-  %253 = fsub float %.2381518, %252
+  %253 = fsub float %.2418516, %252
   %254 = fmul float %248, %indvars.iv560.sroa.phi669.sroa.speculated
   %255 = fmul float %245, %254
-  %256 = fadd float %.4517, %255
+  %256 = fadd float %.4519, %255
   br i1 %247, label %246, label %.loopexit, !llvm.loop !319
 
 .loopexit:                                        ; preds = %246, %239, %.loopexit506
-  %.4417 = phi float [ %.2415, %239 ], [ %.2415, %.loopexit506 ], [ %251, %246 ]
-  %.2398 = phi i8 [ %241, %239 ], [ %.1397527, %.loopexit506 ], [ %241, %246 ]
-  %.5 = phi float [ %.3386, %239 ], [ %.3386, %.loopexit506 ], [ %256, %246 ]
-  %.3 = phi float [ %.1380, %239 ], [ %.1380, %.loopexit506 ], [ %253, %246 ]
-  %257 = fcmp une float %.3, 0.000000e+00
+  %.3419 = phi float [ %.1417, %239 ], [ %.1417, %.loopexit506 ], [ %253, %246 ]
+  %.4397 = phi float [ %.2395, %239 ], [ %.2395, %.loopexit506 ], [ %251, %246 ]
+  %.2387 = phi i8 [ %241, %239 ], [ %.1386527, %.loopexit506 ], [ %241, %246 ]
+  %.5 = phi float [ %.3, %239 ], [ %.3, %.loopexit506 ], [ %256, %246 ]
+  %257 = fcmp une float %.3419, 0.000000e+00
   br i1 %257, label %258, label %271
 
 258:                                              ; preds = %.loopexit
-  %259 = insertelement <2 x float> poison, float %.3, i64 0
+  %259 = insertelement <2 x float> poison, float %.3419, i64 0
   %260 = shufflevector <2 x float> %259, <2 x float> poison, <2 x i32> zeroinitializer
   %261 = fmul <2 x float> %145, %260
-  %262 = fmul float %146, %.3
+  %262 = fmul float %146, %.3419
   %263 = fadd <2 x float> %123, %261
-  %264 = fadd float %.0403525, %262
+  %264 = fadd float %.0408521, %262
   %265 = getelementptr inbounds float, ptr %66, i64 %139
   %266 = load <2 x float>, ptr %265, align 4
   %267 = fsub <2 x float> %266, %261
@@ -36488,20 +36488,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %271
 
 271:                                              ; preds = %.loopexit, %258, %.critedge428
-  %.1420 = phi i1 [ true, %258 ], [ true, %.loopexit ], [ %.0419520, %.critedge428 ]
-  %.5418 = phi float [ %.4417, %258 ], [ %.4417, %.loopexit ], [ %.0413521, %.critedge428 ]
-  %.3412 = phi float [ %.2411, %258 ], [ %.2411, %.loopexit ], [ %.0409522, %.critedge428 ]
-  %.1404 = phi float [ %264, %258 ], [ %.0403525, %.loopexit ], [ %.0403525, %.critedge428 ]
-  %.3399 = phi i8 [ %.2398, %258 ], [ %.2398, %.loopexit ], [ %.1397527, %.critedge428 ]
-  %.4391 = phi float [ %.3390, %258 ], [ %.3390, %.loopexit ], [ %.1388528, %.critedge428 ]
-  %.6 = phi float [ %.5, %258 ], [ %.5, %.loopexit ], [ %.1384529, %.critedge428 ]
+  %.1409 = phi float [ %264, %258 ], [ %.0408521, %.loopexit ], [ %.0408521, %.critedge428 ]
+  %.3403 = phi float [ %.2402, %258 ], [ %.2402, %.loopexit ], [ %.0400524, %.critedge428 ]
+  %.5398 = phi float [ %.4397, %258 ], [ %.4397, %.loopexit ], [ %.0393525, %.critedge428 ]
+  %.1392 = phi i1 [ true, %258 ], [ true, %.loopexit ], [ %.0391526, %.critedge428 ]
+  %.3388 = phi i8 [ %.2387, %258 ], [ %.2387, %.loopexit ], [ %.1386527, %.critedge428 ]
+  %.4383 = phi float [ %.3382, %258 ], [ %.3382, %.loopexit ], [ %.1380528, %.critedge428 ]
+  %.6 = phi float [ %.5, %258 ], [ %.5, %.loopexit ], [ %.1377529, %.critedge428 ]
   %272 = phi <2 x float> [ %263, %258 ], [ %123, %.loopexit ], [ %123, %.critedge428 ]
   %indvars.iv.next564 = add nsw i64 %indvars.iv563, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next564, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !320
 
 ._crit_edge:                                      ; preds = %271
-  br i1 %.1420, label %273, label %._crit_edge.thread
+  br i1 %.1392, label %273, label %._crit_edge.thread
 
 273:                                              ; preds = %._crit_edge
   %274 = getelementptr inbounds float, ptr %66, i64 %100
@@ -36510,7 +36510,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %276, ptr %274, align 4
   %277 = getelementptr i8, ptr %274, i64 8
   %278 = load float, ptr %277, align 4
-  %279 = fadd float %.1404, %278
+  %279 = fadd float %.1409, %278
   store float %279, ptr %277, align 4
   br i1 %.not, label %289, label %280
 
@@ -36523,7 +36523,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %285, ptr %283, align 4
   %286 = getelementptr i8, ptr %283, i64 8
   %287 = load float, ptr %286, align 4
-  %288 = fadd float %.1404, %287
+  %288 = fadd float %.1409, %287
   store float %288, ptr %286, align 4
   br label %289
 
@@ -36536,24 +36536,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %293 = sext i32 %292 to i64
   %294 = getelementptr inbounds float, ptr %84, i64 %293
   %295 = load float, ptr %294, align 4
-  %296 = fadd float %.5418, %295
+  %296 = fadd float %.5398, %295
   store float %296, ptr %294, align 4
   %297 = getelementptr inbounds float, ptr %86, i64 %293
   %298 = load float, ptr %297, align 4
-  %299 = fadd float %.3412, %298
+  %299 = fadd float %.3403, %298
   store float %299, ptr %297, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %290, %289
-  %.1384.lcssa585 = phi float [ %.6, %._crit_edge ], [ %.6, %290 ], [ %.6, %289 ], [ %.0383541, %.critedge ]
-  %.1388.lcssa584 = phi float [ %.4391, %._crit_edge ], [ %.4391, %290 ], [ %.4391, %289 ], [ %.0387540, %.critedge ]
-  %.1397.lcssa583 = phi i8 [ %.3399, %._crit_edge ], [ %.3399, %290 ], [ %.3399, %289 ], [ %.0396539, %.critedge ]
+  %.1377.lcssa585 = phi float [ %.6, %._crit_edge ], [ %.6, %290 ], [ %.6, %289 ], [ %.0376541, %.critedge ]
+  %.1380.lcssa584 = phi float [ %.4383, %._crit_edge ], [ %.4383, %290 ], [ %.4383, %289 ], [ %.0379540, %.critedge ]
+  %.1386.lcssa583 = phi i8 [ %.3388, %._crit_edge ], [ %.3388, %290 ], [ %.3388, %289 ], [ %.0385539, %.critedge ]
   %exitcond568.not = icmp eq i64 %indvars.iv.next566, %wide.trip.count567
   br i1 %exitcond568.not, label %._crit_edge542, label %.critedge, !llvm.loop !321
 
 ._crit_edge542:                                   ; preds = %._crit_edge.thread
-  %300 = trunc nuw i8 %.1397.lcssa583 to i1
-  %301 = fcmp une float %.1384.lcssa585, 0.000000e+00
+  %300 = trunc nuw i8 %.1386.lcssa583 to i1
+  %301 = fcmp une float %.1377.lcssa585, 0.000000e+00
   br i1 %301, label %302, label %308
 
 302:                                              ; preds = %._crit_edge542
@@ -36561,12 +36561,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %304 = inttoptr i64 %303 to ptr
   %305 = getelementptr inbounds i8, ptr %304, i64 8
   %306 = load float, ptr %305, align 4
-  %307 = fadd float %.1384.lcssa585, %306
+  %307 = fadd float %.1377.lcssa585, %306
   store float %307, ptr %305, align 4
   br label %308
 
 308:                                              ; preds = %302, %._crit_edge542
-  %309 = fcmp une float %.1388.lcssa584, 0.000000e+00
+  %309 = fcmp une float %.1380.lcssa584, 0.000000e+00
   br i1 %309, label %310, label %.thread591
 
 310:                                              ; preds = %308
@@ -36574,12 +36574,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %312 = inttoptr i64 %311 to ptr
   %313 = getelementptr inbounds i8, ptr %312, i64 12
   %314 = load float, ptr %313, align 4
-  %315 = fadd float %.1388.lcssa584, %314
+  %315 = fadd float %.1380.lcssa584, %314
   store float %315, ptr %313, align 4
   br label %.thread591
 
 .thread591:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %310, %308
-  %.0396.lcssa589594 = phi i1 [ %300, %310 ], [ %300, %308 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0385.lcssa589594 = phi i1 [ %300, %310 ], [ %300, %308 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %316 = load i32, ptr %0, align 8
   %317 = mul nsw i32 %316, 12
   %318 = sext i32 %23 to i64
@@ -36589,7 +36589,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %322 = mul nsw i32 %321, 150
   %323 = add nsw i32 %322, %317
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %323)
-  %324 = select i1 %59, i1 %.0396.lcssa589594, i1 false
+  %324 = select i1 %59, i1 %.0385.lcssa589594, i1 false
   br i1 %324, label %325, label %336
 
 325:                                              ; preds = %.thread591
@@ -37491,9 +37491,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv479 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next480, %._crit_edge.thread ]
-  %.0326457 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1327.lcssa497, %._crit_edge.thread ]
-  %.0329456 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1330.lcssa496, %._crit_edge.thread ]
-  %.0335455 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1336.lcssa495, %._crit_edge.thread ]
+  %.0321457 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1322.lcssa497, %._crit_edge.thread ]
+  %.0325456 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1326.lcssa496, %._crit_edge.thread ]
+  %.0331455 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1332.lcssa495, %._crit_edge.thread ]
   %83 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv479
   %84 = load i32, ptr %83, align 4
   %85 = sext i32 %84 to i64
@@ -37547,12 +37547,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 127:                                              ; preds = %.lr.ph, %.loopexit
   %indvars.iv477 = phi i64 [ %126, %.lr.ph ], [ %indvars.iv.next478, %.loopexit ]
-  %.1327448 = phi float [ %.0326457, %.lr.ph ], [ %.6, %.loopexit ]
-  %.1330447 = phi float [ %.0329456, %.lr.ph ], [ %.4333, %.loopexit ]
-  %.1336446 = phi i8 [ %.0335455, %.lr.ph ], [ %.3338, %.loopexit ]
-  %.0343445 = phi i1 [ false, %.lr.ph ], [ %.1344, %.loopexit ]
-  %.0347443 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3350, %.loopexit ]
-  %.0351442 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5356, %.loopexit ]
+  %.1322448 = phi float [ %.0321457, %.lr.ph ], [ %.6, %.loopexit ]
+  %.1326447 = phi float [ %.0325456, %.lr.ph ], [ %.4329, %.loopexit ]
+  %.1332446 = phi i8 [ %.0331455, %.lr.ph ], [ %.3334, %.loopexit ]
+  %.0337445 = phi i1 [ false, %.lr.ph ], [ %.1338, %.loopexit ]
+  %.0339444 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5344, %.loopexit ]
+  %.0345443 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3348, %.loopexit ]
   br i1 %125, label %.critedge363, label %128
 
 128:                                              ; preds = %127
@@ -37707,27 +37707,27 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv471.sroa.phi560.sroa.speculated = phi float [ 1.000000e+00, %.preheader ], [ -1.000000e+00, %.thread ]
   %indvars.iv471.sroa.phi570.sroa.speculated = phi float [ %39, %.preheader ], [ %62, %.thread ]
   %indvars.iv471.sroa.phi574.sroa.speculated = phi float [ %37, %.preheader ], [ %61, %.thread ]
-  %.2328437 = phi float [ %224, %.preheader ], [ %.1327448, %.thread ]
-  %.2331436 = phi float [ %225, %.preheader ], [ %.1330447, %.thread ]
-  %.1348435 = phi float [ %223, %.preheader ], [ %.0347443, %.thread ]
-  %.1352434 = phi float [ %221, %.preheader ], [ %.0351442, %.thread ]
+  %.2323438 = phi float [ %224, %.preheader ], [ %.1322448, %.thread ]
+  %.2327437 = phi float [ %225, %.preheader ], [ %.1326447, %.thread ]
+  %.1340435 = phi float [ %221, %.preheader ], [ %.0339444, %.thread ]
+  %.1346434 = phi float [ %223, %.preheader ], [ %.0345443, %.thread ]
   %220 = load float, ptr %indvars.iv471.sroa.phi530, align 4
-  %221 = tail call float @llvm.fmuladd.f32(float %indvars.iv471.sroa.phi574.sroa.speculated, float %220, float %.1352434)
+  %221 = tail call float @llvm.fmuladd.f32(float %indvars.iv471.sroa.phi574.sroa.speculated, float %220, float %.1340435)
   %222 = load float, ptr %indvars.iv471.sroa.phi, align 4
-  %223 = tail call float @llvm.fmuladd.f32(float %indvars.iv471.sroa.phi570.sroa.speculated, float %222, float %.1348435)
-  %224 = tail call float @llvm.fmuladd.f32(float %220, float %indvars.iv471.sroa.phi560.sroa.speculated, float %.2328437)
-  %225 = tail call float @llvm.fmuladd.f32(float %222, float %indvars.iv471.sroa.phi560.sroa.speculated, float %.2331436)
+  %223 = tail call float @llvm.fmuladd.f32(float %indvars.iv471.sroa.phi570.sroa.speculated, float %222, float %.1346434)
+  %224 = tail call float @llvm.fmuladd.f32(float %220, float %indvars.iv471.sroa.phi560.sroa.speculated, float %.2323438)
+  %225 = tail call float @llvm.fmuladd.f32(float %222, float %indvars.iv471.sroa.phi560.sroa.speculated, float %.2327437)
   br i1 %219, label %.preheader, label %.loopexit430, !llvm.loop !331
 
 .loopexit430:                                     ; preds = %.preheader, %.critedge587
-  %.2353 = phi float [ %.0351442, %.critedge587 ], [ %221, %.preheader ]
-  %.2349 = phi float [ %.0347443, %.critedge587 ], [ %223, %.preheader ]
-  %.3332 = phi float [ %.1330447, %.critedge587 ], [ %225, %.preheader ]
-  %.3 = phi float [ %.1327448, %.critedge587 ], [ %224, %.preheader ]
+  %.2347 = phi float [ %.0345443, %.critedge587 ], [ %223, %.preheader ]
+  %.2341 = phi float [ %.0339444, %.critedge587 ], [ %221, %.preheader ]
+  %.3328 = phi float [ %.1326447, %.critedge587 ], [ %225, %.preheader ]
+  %.3 = phi float [ %.1322448, %.critedge587 ], [ %224, %.preheader ]
   br i1 %58, label %226, label %.loopexit
 
 226:                                              ; preds = %.loopexit430
-  %227 = trunc nuw i8 %.1336446 to i1
+  %227 = trunc nuw i8 %.1332446 to i1
   br i1 %227, label %231, label %228
 
 228:                                              ; preds = %226
@@ -37751,30 +37751,30 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv474.sroa.phi = phi ptr [ %.sroa.0537, %234 ], [ %.sroa.3, %238 ]
   %indvars.iv474.sroa.phi562.sroa.speculated = phi float [ -1.000000e+00, %234 ], [ 1.000000e+00, %238 ]
   %indvars.iv474.sroa.phi576.sroa.speculated = phi float [ %61, %234 ], [ %37, %238 ]
-  %.4440 = phi float [ %.3, %234 ], [ %246, %238 ]
-  %.3354439 = phi float [ %.2353, %234 ], [ %243, %238 ]
+  %.4441 = phi float [ %.3, %234 ], [ %246, %238 ]
+  %.3342439 = phi float [ %.2341, %234 ], [ %243, %238 ]
   %240 = load float, ptr %indvars.iv474.sroa.phi, align 4
   %241 = fmul float %indvars.iv474.sroa.phi576.sroa.speculated, %240
   %242 = fmul float %237, %241
-  %243 = fadd float %.3354439, %242
+  %243 = fadd float %.3342439, %242
   %244 = fmul float %240, %indvars.iv474.sroa.phi562.sroa.speculated
   %245 = fmul float %237, %244
-  %246 = fadd float %.4440, %245
+  %246 = fadd float %.4441, %245
   br i1 %239, label %238, label %.loopexit, !llvm.loop !332
 
 .loopexit:                                        ; preds = %238, %.loopexit430, %231, %.critedge363
-  %.5356 = phi float [ %.0351442, %.critedge363 ], [ %.2353, %231 ], [ %.2353, %.loopexit430 ], [ %243, %238 ]
-  %.3350 = phi float [ %.0347443, %.critedge363 ], [ %.2349, %231 ], [ %.2349, %.loopexit430 ], [ %.2349, %238 ]
-  %.1344 = phi i1 [ %.0343445, %.critedge363 ], [ true, %231 ], [ true, %.loopexit430 ], [ true, %238 ]
-  %.3338 = phi i8 [ %.1336446, %.critedge363 ], [ %233, %231 ], [ %.1336446, %.loopexit430 ], [ %233, %238 ]
-  %.4333 = phi float [ %.1330447, %.critedge363 ], [ %.3332, %231 ], [ %.3332, %.loopexit430 ], [ %.3332, %238 ]
-  %.6 = phi float [ %.1327448, %.critedge363 ], [ %.3, %231 ], [ %.3, %.loopexit430 ], [ %246, %238 ]
+  %.3348 = phi float [ %.0345443, %.critedge363 ], [ %.2347, %231 ], [ %.2347, %.loopexit430 ], [ %.2347, %238 ]
+  %.5344 = phi float [ %.0339444, %.critedge363 ], [ %.2341, %231 ], [ %.2341, %.loopexit430 ], [ %243, %238 ]
+  %.1338 = phi i1 [ %.0337445, %.critedge363 ], [ true, %231 ], [ true, %.loopexit430 ], [ true, %238 ]
+  %.3334 = phi i8 [ %.1332446, %.critedge363 ], [ %233, %231 ], [ %.1332446, %.loopexit430 ], [ %233, %238 ]
+  %.4329 = phi float [ %.1326447, %.critedge363 ], [ %.3328, %231 ], [ %.3328, %.loopexit430 ], [ %.3328, %238 ]
+  %.6 = phi float [ %.1322448, %.critedge363 ], [ %.3, %231 ], [ %.3, %.loopexit430 ], [ %246, %238 ]
   %indvars.iv.next478 = add nsw i64 %indvars.iv477, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next478, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %127, !llvm.loop !333
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge367.not = and i1 %.not, %.1344
+  %brmerge367.not = and i1 %.not, %.1338
   br i1 %brmerge367.not, label %247, label %._crit_edge.thread
 
 247:                                              ; preds = %._crit_edge
@@ -37783,24 +37783,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %250 = sext i32 %249 to i64
   %251 = getelementptr inbounds float, ptr %80, i64 %250
   %252 = load float, ptr %251, align 4
-  %253 = fadd float %.5356, %252
+  %253 = fadd float %.5344, %252
   store float %253, ptr %251, align 4
   %254 = getelementptr inbounds float, ptr %82, i64 %250
   %255 = load float, ptr %254, align 4
-  %256 = fadd float %.3350, %255
+  %256 = fadd float %.3348, %255
   store float %256, ptr %254, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %247
-  %.1327.lcssa497 = phi float [ %.6, %._crit_edge ], [ %.6, %247 ], [ %.0326457, %.critedge ]
-  %.1330.lcssa496 = phi float [ %.4333, %._crit_edge ], [ %.4333, %247 ], [ %.0329456, %.critedge ]
-  %.1336.lcssa495 = phi i8 [ %.3338, %._crit_edge ], [ %.3338, %247 ], [ %.0335455, %.critedge ]
+  %.1322.lcssa497 = phi float [ %.6, %._crit_edge ], [ %.6, %247 ], [ %.0321457, %.critedge ]
+  %.1326.lcssa496 = phi float [ %.4329, %._crit_edge ], [ %.4329, %247 ], [ %.0325456, %.critedge ]
+  %.1332.lcssa495 = phi i8 [ %.3334, %._crit_edge ], [ %.3334, %247 ], [ %.0331455, %.critedge ]
   %exitcond482.not = icmp eq i64 %indvars.iv.next480, %wide.trip.count481
   br i1 %exitcond482.not, label %._crit_edge458, label %.critedge, !llvm.loop !334
 
 ._crit_edge458:                                   ; preds = %._crit_edge.thread
-  %257 = trunc nuw i8 %.1336.lcssa495 to i1
-  %258 = fcmp une float %.1327.lcssa497, 0.000000e+00
+  %257 = trunc nuw i8 %.1332.lcssa495 to i1
+  %258 = fcmp une float %.1322.lcssa497, 0.000000e+00
   br i1 %258, label %259, label %265
 
 259:                                              ; preds = %._crit_edge458
@@ -37808,12 +37808,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %261 = inttoptr i64 %260 to ptr
   %262 = getelementptr inbounds i8, ptr %261, i64 8
   %263 = load float, ptr %262, align 4
-  %264 = fadd float %.1327.lcssa497, %263
+  %264 = fadd float %.1322.lcssa497, %263
   store float %264, ptr %262, align 4
   br label %265
 
 265:                                              ; preds = %259, %._crit_edge458
-  %266 = fcmp une float %.1330.lcssa496, 0.000000e+00
+  %266 = fcmp une float %.1326.lcssa496, 0.000000e+00
   br i1 %266, label %267, label %.thread503
 
 267:                                              ; preds = %265
@@ -37821,12 +37821,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %269 = inttoptr i64 %268 to ptr
   %270 = getelementptr inbounds i8, ptr %269, i64 12
   %271 = load float, ptr %270, align 4
-  %272 = fadd float %.1330.lcssa496, %271
+  %272 = fadd float %.1326.lcssa496, %271
   store float %272, ptr %270, align 4
   br label %.thread503
 
 .thread503:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %267, %265
-  %.0335.lcssa501506 = phi i1 [ %257, %267 ], [ %257, %265 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0331.lcssa501506 = phi i1 [ %257, %267 ], [ %257, %265 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %273 = load i32, ptr %0, align 8
   %274 = mul nsw i32 %273, 12
   %275 = sext i32 %23 to i64
@@ -37836,7 +37836,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %279 = mul nsw i32 %278, 150
   %280 = add nsw i32 %279, %274
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %280)
-  %281 = select i1 %58, i1 %.0335.lcssa501506, i1 false
+  %281 = select i1 %58, i1 %.0331.lcssa501506, i1 false
   br i1 %281, label %282, label %293
 
 282:                                              ; preds = %.thread503
@@ -39635,8 +39635,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge504:                                     ; preds = %.critedge504.lr.ph, %._crit_edge.thread
   %indvars.iv676 = phi i64 [ 0, %.critedge504.lr.ph ], [ %indvars.iv.next677, %._crit_edge.thread ]
-  %.0455637 = phi float [ 0.000000e+00, %.critedge504.lr.ph ], [ %.1456.lcssa691, %._crit_edge.thread ]
-  %.0462636 = phi float [ 0.000000e+00, %.critedge504.lr.ph ], [ %.1463.lcssa690, %._crit_edge.thread ]
+  %.0446637 = phi float [ 0.000000e+00, %.critedge504.lr.ph ], [ %.1447.lcssa691, %._crit_edge.thread ]
+  %.0450636 = phi float [ 0.000000e+00, %.critedge504.lr.ph ], [ %.1451.lcssa690, %._crit_edge.thread ]
   %124 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv676
   %125 = load i32, ptr %124, align 4
   %126 = sext i32 %125 to i64
@@ -39682,12 +39682,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %433
   %indvars.iv674 = phi i64 [ %159, %.lr.ph.preheader ], [ %indvars.iv.next675, %433 ]
-  %.1456627 = phi float [ %.0455637, %.lr.ph.preheader ], [ %.6, %433 ]
-  %.1463626 = phi float [ %.0462636, %.lr.ph.preheader ], [ %.6468, %433 ]
-  %.0473624 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1474, %433 ]
-  %.0479621 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5484, %433 ]
-  %.0485620 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5490, %433 ]
-  %.0492619 = phi i1 [ false, %.lr.ph.preheader ], [ %.1493, %433 ]
+  %.1447627 = phi float [ %.0446637, %.lr.ph.preheader ], [ %.6, %433 ]
+  %.1451626 = phi float [ %.0450636, %.lr.ph.preheader ], [ %.6456, %433 ]
+  %.0461625 = phi i1 [ false, %.lr.ph.preheader ], [ %.1462, %433 ]
+  %.0463624 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5468, %433 ]
+  %.0469623 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5474, %433 ]
+  %.0479620 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1480, %433 ]
   %160 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %434, %433 ]
   %161 = load ptr, ptr %113, align 8
   %162 = load ptr, ptr %114, align 8
@@ -39957,31 +39957,31 @@ cdce.end:                                         ; preds = %269, %cdce.call
   %indvars.iv665.sroa.phi838 = phi ptr [ %.sroa.0846.4.gep.sroa_idx850, %.preheader ], [ %.sroa.0846, %.thread573 ]
   %indvars.iv665.sroa.phi856 = phi ptr [ %.sroa.5, %.preheader ], [ %.sroa.0862, %.thread573 ]
   %indvars.iv665.sroa.phi865.sroa.speculated = phi float [ %34, %.preheader ], [ %76, %.thread573 ]
-  %.0449609 = phi float [ %322, %.preheader ], [ 0.000000e+00, %.thread573 ]
-  %.2457608 = phi float [ %330, %.preheader ], [ %.1456627, %.thread573 ]
-  %.2464607 = phi float [ %336, %.preheader ], [ %.1463626, %.thread573 ]
-  %.1480606 = phi float [ %316, %.preheader ], [ %.0479621, %.thread573 ]
-  %.1486605 = phi float [ %313, %.preheader ], [ %.0485620, %.thread573 ]
+  %.2448610 = phi float [ %330, %.preheader ], [ %.1447627, %.thread573 ]
+  %.2452609 = phi float [ %336, %.preheader ], [ %.1451626, %.thread573 ]
+  %.1464607 = phi float [ %313, %.preheader ], [ %.0463624, %.thread573 ]
+  %.1470606 = phi float [ %316, %.preheader ], [ %.0469623, %.thread573 ]
+  %.0486605 = phi float [ %322, %.preheader ], [ 0.000000e+00, %.thread573 ]
   %312 = load float, ptr %indvars.iv665.sroa.phi735, align 4
-  %313 = tail call float @llvm.fmuladd.f32(float %indvars.iv665.sroa.phi865.sroa.speculated, float %312, float %.1486605)
+  %313 = tail call float @llvm.fmuladd.f32(float %indvars.iv665.sroa.phi865.sroa.speculated, float %312, float %.1464607)
   %314 = load float, ptr %indvars.iv665.sroa.phi856, align 4
   %315 = load float, ptr %indvars.iv665.sroa.phi, align 4
-  %316 = tail call float @llvm.fmuladd.f32(float %314, float %315, float %.1480606)
+  %316 = tail call float @llvm.fmuladd.f32(float %314, float %315, float %.1470606)
   %317 = load float, ptr %indvars.iv665.sroa.phi747, align 4
   %318 = fmul float %indvars.iv665.sroa.phi865.sroa.speculated, %317
-  %319 = tail call float @llvm.fmuladd.f32(float %318, float %254, float %.0449609)
+  %319 = tail call float @llvm.fmuladd.f32(float %318, float %254, float %.0486605)
   %320 = load float, ptr %indvars.iv665.sroa.phi741, align 4
   %321 = fmul float %314, %320
   %322 = tail call float @llvm.fmuladd.f32(float %321, float %254, float %319)
   %323 = load float, ptr %indvars.iv665.sroa.phi838, align 4
-  %324 = tail call float @llvm.fmuladd.f32(float %312, float %323, float %.2457608)
+  %324 = tail call float @llvm.fmuladd.f32(float %312, float %323, float %.2448610)
   %325 = fmul float %.sroa.0534.0, %indvars.iv665.sroa.phi865.sroa.speculated
   %326 = load float, ptr %indvars.iv665.sroa.phi820, align 4
   %327 = fmul float %325, %326
   %328 = fmul float %317, %327
   %329 = load float, ptr %indvars.iv665.sroa.phi763, align 4
   %330 = tail call float @llvm.fmuladd.f32(float %328, float %329, float %324)
-  %331 = tail call float @llvm.fmuladd.f32(float %315, float %323, float %.2464607)
+  %331 = tail call float @llvm.fmuladd.f32(float %315, float %323, float %.2452609)
   %332 = fmul float %.sroa.0535.0, %314
   %333 = load float, ptr %indvars.iv665.sroa.phi807, align 4
   %334 = fmul float %332, %333
@@ -39990,11 +39990,11 @@ cdce.end:                                         ; preds = %269, %cdce.call
   br i1 %311, label %.preheader, label %.loopexit599, !llvm.loop !350
 
 .loopexit599:                                     ; preds = %.preheader, %.critedge
-  %.2487 = phi float [ %.0485620, %.critedge ], [ %313, %.preheader ]
-  %.2481 = phi float [ %.0479621, %.critedge ], [ %316, %.preheader ]
-  %.3465 = phi float [ %.1463626, %.critedge ], [ %336, %.preheader ]
-  %.3458 = phi float [ %.1456627, %.critedge ], [ %330, %.preheader ]
-  %.1450 = phi float [ 0.000000e+00, %.critedge ], [ %322, %.preheader ]
+  %.1487 = phi float [ 0.000000e+00, %.critedge ], [ %322, %.preheader ]
+  %.2471 = phi float [ %.0469623, %.critedge ], [ %316, %.preheader ]
+  %.2465 = phi float [ %.0463624, %.critedge ], [ %313, %.preheader ]
+  %.3453 = phi float [ %.1451626, %.critedge ], [ %336, %.preheader ]
+  %.3 = phi float [ %.1447627, %.critedge ], [ %330, %.preheader ]
   %337 = fcmp uge float %253, %54
   %.not593 = select i1 %169, i1 %337, i1 false
   br i1 %.not593, label %.loopexit598, label %338
@@ -40039,25 +40039,25 @@ cdce.end:                                         ; preds = %269, %cdce.call
   %indvars.iv668.sroa.phi = phi ptr [ %.sroa.0759, %338 ], [ %.sroa.3760, %371 ]
   %indvars.iv668.sroa.phi840 = phi ptr [ %.sroa.0846, %338 ], [ %.sroa.0846.4.gep841.sroa_idx851, %371 ]
   %indvars.iv668.sroa.phi867.sroa.speculated = phi float [ %76, %338 ], [ %34, %371 ]
-  %.2451613 = phi float [ %.1450, %338 ], [ %378, %371 ]
-  %.4459612 = phi float [ %.3458, %338 ], [ %382, %371 ]
-  %.3488611 = phi float [ %.2487, %338 ], [ %376, %371 ]
+  %.4614 = phi float [ %.3, %338 ], [ %382, %371 ]
+  %.3466612 = phi float [ %.2465, %338 ], [ %376, %371 ]
+  %.2488611 = phi float [ %.1487, %338 ], [ %378, %371 ]
   %373 = load float, ptr %indvars.iv668.sroa.phi, align 4
   %374 = fmul float %indvars.iv668.sroa.phi867.sroa.speculated, %373
   %375 = fmul float %370, %374
-  %376 = fsub float %.3488611, %375
+  %376 = fsub float %.3466612, %375
   %377 = fmul float %368, %374
-  %378 = fsub float %.2451613, %377
+  %378 = fsub float %.2488611, %377
   %379 = load float, ptr %indvars.iv668.sroa.phi840, align 4
   %380 = fmul float %373, %379
   %381 = fmul float %370, %380
-  %382 = fsub float %.4459612, %381
+  %382 = fsub float %.4614, %381
   br i1 %372, label %371, label %.loopexit598, !llvm.loop !351
 
 .loopexit598:                                     ; preds = %371, %.loopexit599
-  %.4489 = phi float [ %.2487, %.loopexit599 ], [ %376, %371 ]
-  %.5460 = phi float [ %.3458, %.loopexit599 ], [ %382, %371 ]
-  %.3 = phi float [ %.1450, %.loopexit599 ], [ %378, %371 ]
+  %.3489 = phi float [ %.1487, %.loopexit599 ], [ %378, %371 ]
+  %.4467 = phi float [ %.2465, %.loopexit599 ], [ %376, %371 ]
+  %.5 = phi float [ %.3, %.loopexit599 ], [ %382, %371 ]
   %383 = fcmp uge float %253, %58
   %.not595 = select i1 %169, i1 %383, i1 false
   br i1 %.not595, label %.loopexit, label %384
@@ -40091,36 +40091,36 @@ cdce.end:                                         ; preds = %269, %cdce.call
   %indvars.iv671.sroa.phi = phi ptr [ %.sroa.0755, %384 ], [ %.sroa.3, %406 ]
   %indvars.iv671.sroa.phi842 = phi ptr [ %.sroa.0846, %384 ], [ %.sroa.0846.4.gep843.sroa_idx852, %406 ]
   %indvars.iv671.sroa.phi858 = phi ptr [ %.sroa.0862, %384 ], [ %.sroa.5, %406 ]
-  %.4617 = phi float [ %.3, %384 ], [ %414, %406 ]
-  %.4466616 = phi float [ %.3465, %384 ], [ %418, %406 ]
-  %.3482615 = phi float [ %.2481, %384 ], [ %412, %406 ]
+  %.4454617 = phi float [ %.3453, %384 ], [ %418, %406 ]
+  %.3472616 = phi float [ %.2471, %384 ], [ %412, %406 ]
+  %.4490615 = phi float [ %.3489, %384 ], [ %414, %406 ]
   %408 = load float, ptr %indvars.iv671.sroa.phi858, align 4
   %409 = load float, ptr %indvars.iv671.sroa.phi, align 4
   %410 = fmul float %408, %409
   %411 = fmul float %405, %410
-  %412 = fadd float %.3482615, %411
+  %412 = fadd float %.3472616, %411
   %413 = fmul float %403, %410
-  %414 = fadd float %.4617, %413
+  %414 = fadd float %.4490615, %413
   %415 = load float, ptr %indvars.iv671.sroa.phi842, align 4
   %416 = fmul float %409, %415
   %417 = fmul float %405, %416
-  %418 = fadd float %.4466616, %417
+  %418 = fadd float %.4454617, %417
   br i1 %407, label %406, label %.loopexit, !llvm.loop !352
 
 .loopexit:                                        ; preds = %406, %.loopexit598
-  %.4483 = phi float [ %.2481, %.loopexit598 ], [ %412, %406 ]
-  %.5467 = phi float [ %.3465, %.loopexit598 ], [ %418, %406 ]
-  %.5 = phi float [ %.3, %.loopexit598 ], [ %414, %406 ]
-  %419 = fcmp une float %.5, 0.000000e+00
+  %.5491 = phi float [ %.3489, %.loopexit598 ], [ %414, %406 ]
+  %.4473 = phi float [ %.2471, %.loopexit598 ], [ %412, %406 ]
+  %.5455 = phi float [ %.3453, %.loopexit598 ], [ %418, %406 ]
+  %419 = fcmp une float %.5491, 0.000000e+00
   br i1 %419, label %420, label %433
 
 420:                                              ; preds = %.loopexit
-  %421 = insertelement <2 x float> poison, float %.5, i64 0
+  %421 = insertelement <2 x float> poison, float %.5491, i64 0
   %422 = shufflevector <2 x float> %421, <2 x float> poison, <2 x i32> zeroinitializer
   %423 = fmul <2 x float> %225, %422
-  %424 = fmul float %226, %.5
+  %424 = fmul float %226, %.5491
   %425 = fadd <2 x float> %160, %423
-  %426 = fadd float %.0473624, %424
+  %426 = fadd float %.0479620, %424
   %427 = getelementptr inbounds float, ptr %103, i64 %219
   %428 = load <2 x float>, ptr %427, align 4
   %429 = fsub <2 x float> %428, %423
@@ -40132,19 +40132,19 @@ cdce.end:                                         ; preds = %269, %cdce.call
   br label %433
 
 433:                                              ; preds = %.loopexit, %420, %.critedge506
-  %.1493 = phi i1 [ true, %420 ], [ true, %.loopexit ], [ %.0492619, %.critedge506 ]
-  %.5490 = phi float [ %.4489, %420 ], [ %.4489, %.loopexit ], [ %.0485620, %.critedge506 ]
-  %.5484 = phi float [ %.4483, %420 ], [ %.4483, %.loopexit ], [ %.0479621, %.critedge506 ]
-  %.1474 = phi float [ %426, %420 ], [ %.0473624, %.loopexit ], [ %.0473624, %.critedge506 ]
-  %.6468 = phi float [ %.5467, %420 ], [ %.5467, %.loopexit ], [ %.1463626, %.critedge506 ]
-  %.6 = phi float [ %.5460, %420 ], [ %.5460, %.loopexit ], [ %.1456627, %.critedge506 ]
+  %.1480 = phi float [ %426, %420 ], [ %.0479620, %.loopexit ], [ %.0479620, %.critedge506 ]
+  %.5474 = phi float [ %.4473, %420 ], [ %.4473, %.loopexit ], [ %.0469623, %.critedge506 ]
+  %.5468 = phi float [ %.4467, %420 ], [ %.4467, %.loopexit ], [ %.0463624, %.critedge506 ]
+  %.1462 = phi i1 [ true, %420 ], [ true, %.loopexit ], [ %.0461625, %.critedge506 ]
+  %.6456 = phi float [ %.5455, %420 ], [ %.5455, %.loopexit ], [ %.1451626, %.critedge506 ]
+  %.6 = phi float [ %.5, %420 ], [ %.5, %.loopexit ], [ %.1447627, %.critedge506 ]
   %434 = phi <2 x float> [ %425, %420 ], [ %160, %.loopexit ], [ %160, %.critedge506 ]
   %indvars.iv.next675 = add nsw i64 %indvars.iv674, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next675, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !353
 
 ._crit_edge:                                      ; preds = %433
-  br i1 %.1493, label %435, label %._crit_edge.thread
+  br i1 %.1462, label %435, label %._crit_edge.thread
 
 435:                                              ; preds = %._crit_edge
   %436 = getelementptr inbounds float, ptr %103, i64 %137
@@ -40153,7 +40153,7 @@ cdce.end:                                         ; preds = %269, %cdce.call
   store <2 x float> %438, ptr %436, align 4
   %439 = getelementptr i8, ptr %436, i64 8
   %440 = load float, ptr %439, align 4
-  %441 = fadd float %.1474, %440
+  %441 = fadd float %.1480, %440
   store float %441, ptr %439, align 4
   br i1 %.not, label %451, label %442
 
@@ -40166,7 +40166,7 @@ cdce.end:                                         ; preds = %269, %cdce.call
   store <2 x float> %447, ptr %445, align 4
   %448 = getelementptr i8, ptr %445, i64 8
   %449 = load float, ptr %448, align 4
-  %450 = fadd float %.1474, %449
+  %450 = fadd float %.1480, %449
   store float %450, ptr %448, align 4
   br label %451
 
@@ -40179,22 +40179,22 @@ cdce.end:                                         ; preds = %269, %cdce.call
   %455 = sext i32 %454 to i64
   %456 = getelementptr inbounds float, ptr %121, i64 %455
   %457 = load float, ptr %456, align 4
-  %458 = fadd float %.5490, %457
+  %458 = fadd float %.5468, %457
   store float %458, ptr %456, align 4
   %459 = getelementptr inbounds float, ptr %123, i64 %455
   %460 = load float, ptr %459, align 4
-  %461 = fadd float %.5484, %460
+  %461 = fadd float %.5474, %460
   store float %461, ptr %459, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge504, %._crit_edge, %452, %451
-  %.1456.lcssa691 = phi float [ %.6, %._crit_edge ], [ %.6, %452 ], [ %.6, %451 ], [ %.0455637, %.critedge504 ]
-  %.1463.lcssa690 = phi float [ %.6468, %._crit_edge ], [ %.6468, %452 ], [ %.6468, %451 ], [ %.0462636, %.critedge504 ]
+  %.1447.lcssa691 = phi float [ %.6, %._crit_edge ], [ %.6, %452 ], [ %.6, %451 ], [ %.0446637, %.critedge504 ]
+  %.1451.lcssa690 = phi float [ %.6456, %._crit_edge ], [ %.6456, %452 ], [ %.6456, %451 ], [ %.0450636, %.critedge504 ]
   %exitcond680.not = icmp eq i64 %indvars.iv.next677, %wide.trip.count679
   br i1 %exitcond680.not, label %._crit_edge638, label %.critedge504, !llvm.loop !354
 
 ._crit_edge638:                                   ; preds = %._crit_edge.thread
-  %462 = fcmp une float %.1456.lcssa691, 0.000000e+00
+  %462 = fcmp une float %.1447.lcssa691, 0.000000e+00
   br i1 %462, label %463, label %469
 
 463:                                              ; preds = %._crit_edge638
@@ -40202,12 +40202,12 @@ cdce.end:                                         ; preds = %269, %cdce.call
   %465 = inttoptr i64 %464 to ptr
   %466 = getelementptr inbounds i8, ptr %465, i64 8
   %467 = load float, ptr %466, align 4
-  %468 = fadd float %.1456.lcssa691, %467
+  %468 = fadd float %.1447.lcssa691, %467
   store float %468, ptr %466, align 4
   br label %469
 
 469:                                              ; preds = %463, %._crit_edge638
-  %470 = fcmp une float %.1463.lcssa690, 0.000000e+00
+  %470 = fcmp une float %.1451.lcssa690, 0.000000e+00
   br i1 %470, label %471, label %.thread
 
 471:                                              ; preds = %469
@@ -40215,7 +40215,7 @@ cdce.end:                                         ; preds = %269, %cdce.call
   %473 = inttoptr i64 %472 to ptr
   %474 = getelementptr inbounds i8, ptr %473, i64 12
   %475 = load float, ptr %474, align 4
-  %476 = fadd float %.1463.lcssa690, %475
+  %476 = fadd float %.1451.lcssa690, %475
   store float %476, ptr %474, align 4
   br label %.thread
 
@@ -41468,8 +41468,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge427:                                     ; preds = %.critedge427.lr.ph, %._crit_edge.thread
   %indvars.iv572 = phi i64 [ 0, %.critedge427.lr.ph ], [ %indvars.iv.next573, %._crit_edge.thread ]
-  %.0389536 = phi float [ 0.000000e+00, %.critedge427.lr.ph ], [ %.1390.lcssa586, %._crit_edge.thread ]
-  %.0393535 = phi float [ 0.000000e+00, %.critedge427.lr.ph ], [ %.1394.lcssa585, %._crit_edge.thread ]
+  %.0387536 = phi float [ 0.000000e+00, %.critedge427.lr.ph ], [ %.1388.lcssa586, %._crit_edge.thread ]
+  %.0390535 = phi float [ 0.000000e+00, %.critedge427.lr.ph ], [ %.1391.lcssa585, %._crit_edge.thread ]
   %122 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv572
   %123 = load i32, ptr %122, align 4
   %124 = sext i32 %123 to i64
@@ -41520,11 +41520,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv570 = phi i64 [ %162, %.lr.ph.preheader ], [ %indvars.iv.next571, %.loopexit ]
-  %.1390529 = phi float [ %.0389536, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1394528 = phi float [ %.0393535, %.lr.ph.preheader ], [ %.5398, %.loopexit ]
-  %.0404526 = phi i1 [ false, %.lr.ph.preheader ], [ %.1405, %.loopexit ]
-  %.0407525 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4411, %.loopexit ]
-  %.0412524 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5417, %.loopexit ]
+  %.1388529 = phi float [ %.0387536, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1391528 = phi float [ %.0390535, %.lr.ph.preheader ], [ %.5395, %.loopexit ]
+  %.0398527 = phi i1 [ false, %.lr.ph.preheader ], [ %.1399, %.loopexit ]
+  %.0400526 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5405, %.loopexit ]
+  %.0406525 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4410, %.loopexit ]
   %163 = load ptr, ptr %111, align 8
   %164 = load ptr, ptr %112, align 8
   %165 = icmp eq ptr %163, %164
@@ -41776,24 +41776,24 @@ cdce.end:                                         ; preds = %272, %cdce.call
   %indvars.iv561.sroa.phi719 = phi ptr [ %.sroa.0727.4.gep.sroa_idx731, %.preheader ], [ %.sroa.0727, %.thread481 ]
   %indvars.iv561.sroa.phi737 = phi ptr [ %.sroa.5, %.preheader ], [ %.sroa.0743, %.thread481 ]
   %indvars.iv561.sroa.phi746.sroa.speculated = phi float [ %34, %.preheader ], [ %75, %.thread481 ]
-  %.2391516 = phi float [ %321, %.preheader ], [ %.1390529, %.thread481 ]
-  %.2395515 = phi float [ %327, %.preheader ], [ %.1394528, %.thread481 ]
-  %.1408514 = phi float [ %313, %.preheader ], [ %.0407525, %.thread481 ]
-  %.1413513 = phi float [ %310, %.preheader ], [ %.0412524, %.thread481 ]
+  %.2389516 = phi float [ %321, %.preheader ], [ %.1388529, %.thread481 ]
+  %.2392515 = phi float [ %327, %.preheader ], [ %.1391528, %.thread481 ]
+  %.1401514 = phi float [ %310, %.preheader ], [ %.0400526, %.thread481 ]
+  %.1407513 = phi float [ %313, %.preheader ], [ %.0406525, %.thread481 ]
   %309 = load float, ptr %indvars.iv561.sroa.phi620, align 4
-  %310 = tail call float @llvm.fmuladd.f32(float %indvars.iv561.sroa.phi746.sroa.speculated, float %309, float %.1413513)
+  %310 = tail call float @llvm.fmuladd.f32(float %indvars.iv561.sroa.phi746.sroa.speculated, float %309, float %.1401514)
   %311 = load float, ptr %indvars.iv561.sroa.phi737, align 4
   %312 = load float, ptr %indvars.iv561.sroa.phi, align 4
-  %313 = tail call float @llvm.fmuladd.f32(float %311, float %312, float %.1408514)
+  %313 = tail call float @llvm.fmuladd.f32(float %311, float %312, float %.1407513)
   %314 = load float, ptr %indvars.iv561.sroa.phi719, align 4
-  %315 = tail call float @llvm.fmuladd.f32(float %309, float %314, float %.2391516)
+  %315 = tail call float @llvm.fmuladd.f32(float %309, float %314, float %.2389516)
   %316 = fmul float %.sroa.0453.0, %indvars.iv561.sroa.phi746.sroa.speculated
   %317 = load float, ptr %indvars.iv561.sroa.phi701, align 4
   %318 = fmul float %316, %317
   %319 = fmul float %318, 0.000000e+00
   %320 = load float, ptr %indvars.iv561.sroa.phi644, align 4
   %321 = tail call float @llvm.fmuladd.f32(float %319, float %320, float %315)
-  %322 = tail call float @llvm.fmuladd.f32(float %312, float %314, float %.2395515)
+  %322 = tail call float @llvm.fmuladd.f32(float %312, float %314, float %.2392515)
   %323 = fmul float %.sroa.0454.0, %311
   %324 = load float, ptr %indvars.iv561.sroa.phi688, align 4
   %325 = fmul float %323, %324
@@ -41802,10 +41802,10 @@ cdce.end:                                         ; preds = %272, %cdce.call
   br i1 %308, label %.preheader, label %.loopexit507, !llvm.loop !369
 
 .loopexit507:                                     ; preds = %.preheader, %.critedge
-  %.2414 = phi float [ %.0412524, %.critedge ], [ %310, %.preheader ]
-  %.2409 = phi float [ %.0407525, %.critedge ], [ %313, %.preheader ]
-  %.3396 = phi float [ %.1394528, %.critedge ], [ %327, %.preheader ]
-  %.3 = phi float [ %.1390529, %.critedge ], [ %321, %.preheader ]
+  %.2408 = phi float [ %.0406525, %.critedge ], [ %313, %.preheader ]
+  %.2402 = phi float [ %.0400526, %.critedge ], [ %310, %.preheader ]
+  %.3393 = phi float [ %.1391528, %.critedge ], [ %327, %.preheader ]
+  %.3 = phi float [ %.1388529, %.critedge ], [ %321, %.preheader ]
   %328 = fcmp uge float %256, %53
   %.not501 = select i1 %171, i1 %328, i1 false
   br i1 %.not501, label %.loopexit506, label %329
@@ -41835,11 +41835,11 @@ cdce.end:                                         ; preds = %272, %cdce.call
   %indvars.iv564.sroa.phi721 = phi ptr [ %.sroa.0727, %329 ], [ %.sroa.0727.4.gep722.sroa_idx732, %346 ]
   %indvars.iv564.sroa.phi748.sroa.speculated = phi float [ %75, %329 ], [ %34, %346 ]
   %.4519 = phi float [ %.3, %329 ], [ %355, %346 ]
-  %.3415518 = phi float [ %.2414, %329 ], [ %351, %346 ]
+  %.3403518 = phi float [ %.2402, %329 ], [ %351, %346 ]
   %348 = load float, ptr %indvars.iv564.sroa.phi, align 4
   %349 = fmul float %indvars.iv564.sroa.phi748.sroa.speculated, %348
   %350 = fmul float %345, %349
-  %351 = fsub float %.3415518, %350
+  %351 = fsub float %.3403518, %350
   %352 = load float, ptr %indvars.iv564.sroa.phi721, align 4
   %353 = fmul float %348, %352
   %354 = fmul float %345, %353
@@ -41847,7 +41847,7 @@ cdce.end:                                         ; preds = %272, %cdce.call
   br i1 %347, label %346, label %.loopexit506, !llvm.loop !370
 
 .loopexit506:                                     ; preds = %346, %.loopexit507
-  %.4416 = phi float [ %.2414, %.loopexit507 ], [ %351, %346 ]
+  %.4404 = phi float [ %.2402, %.loopexit507 ], [ %351, %346 ]
   %.5 = phi float [ %.3, %.loopexit507 ], [ %355, %346 ]
   %356 = fcmp uge float %256, %57
   %.not503 = select i1 %171, i1 %356, i1 false
@@ -41880,31 +41880,31 @@ cdce.end:                                         ; preds = %272, %cdce.call
   %indvars.iv567.sroa.phi = phi ptr [ %.sroa.0636, %357 ], [ %.sroa.3, %377 ]
   %indvars.iv567.sroa.phi723 = phi ptr [ %.sroa.0727, %357 ], [ %.sroa.0727.4.gep724.sroa_idx733, %377 ]
   %indvars.iv567.sroa.phi739 = phi ptr [ %.sroa.0743, %357 ], [ %.sroa.5, %377 ]
-  %.4397522 = phi float [ %.3396, %357 ], [ %387, %377 ]
-  %.3410521 = phi float [ %.2409, %357 ], [ %383, %377 ]
+  %.4394522 = phi float [ %.3393, %357 ], [ %387, %377 ]
+  %.3409521 = phi float [ %.2408, %357 ], [ %383, %377 ]
   %379 = load float, ptr %indvars.iv567.sroa.phi739, align 4
   %380 = load float, ptr %indvars.iv567.sroa.phi, align 4
   %381 = fmul float %379, %380
   %382 = fmul float %376, %381
-  %383 = fadd float %.3410521, %382
+  %383 = fadd float %.3409521, %382
   %384 = load float, ptr %indvars.iv567.sroa.phi723, align 4
   %385 = fmul float %380, %384
   %386 = fmul float %376, %385
-  %387 = fadd float %.4397522, %386
+  %387 = fadd float %.4394522, %386
   br i1 %378, label %377, label %.loopexit, !llvm.loop !371
 
 .loopexit:                                        ; preds = %377, %.loopexit506, %.critedge429
-  %.5417 = phi float [ %.4416, %.loopexit506 ], [ %.0412524, %.critedge429 ], [ %.4416, %377 ]
-  %.4411 = phi float [ %.2409, %.loopexit506 ], [ %.0407525, %.critedge429 ], [ %383, %377 ]
-  %.1405 = phi i1 [ true, %.loopexit506 ], [ %.0404526, %.critedge429 ], [ true, %377 ]
-  %.5398 = phi float [ %.3396, %.loopexit506 ], [ %.1394528, %.critedge429 ], [ %387, %377 ]
-  %.6 = phi float [ %.5, %.loopexit506 ], [ %.1390529, %.critedge429 ], [ %.5, %377 ]
+  %.4410 = phi float [ %.2408, %.loopexit506 ], [ %.0406525, %.critedge429 ], [ %383, %377 ]
+  %.5405 = phi float [ %.4404, %.loopexit506 ], [ %.0400526, %.critedge429 ], [ %.4404, %377 ]
+  %.1399 = phi i1 [ true, %.loopexit506 ], [ %.0398527, %.critedge429 ], [ true, %377 ]
+  %.5395 = phi float [ %.3393, %.loopexit506 ], [ %.1391528, %.critedge429 ], [ %387, %377 ]
+  %.6 = phi float [ %.5, %.loopexit506 ], [ %.1388529, %.critedge429 ], [ %.5, %377 ]
   %indvars.iv.next571 = add nsw i64 %indvars.iv570, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next571, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !372
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge433.not = and i1 %.not, %.1405
+  %brmerge433.not = and i1 %.not, %.1399
   br i1 %brmerge433.not, label %388, label %._crit_edge.thread
 
 388:                                              ; preds = %._crit_edge
@@ -41913,22 +41913,22 @@ cdce.end:                                         ; preds = %272, %cdce.call
   %391 = sext i32 %390 to i64
   %392 = getelementptr inbounds float, ptr %119, i64 %391
   %393 = load float, ptr %392, align 4
-  %394 = fadd float %.5417, %393
+  %394 = fadd float %.5405, %393
   store float %394, ptr %392, align 4
   %395 = getelementptr inbounds float, ptr %121, i64 %391
   %396 = load float, ptr %395, align 4
-  %397 = fadd float %.4411, %396
+  %397 = fadd float %.4410, %396
   store float %397, ptr %395, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge427, %._crit_edge, %388
-  %.1390.lcssa586 = phi float [ %.6, %._crit_edge ], [ %.6, %388 ], [ %.0389536, %.critedge427 ]
-  %.1394.lcssa585 = phi float [ %.5398, %._crit_edge ], [ %.5398, %388 ], [ %.0393535, %.critedge427 ]
+  %.1388.lcssa586 = phi float [ %.6, %._crit_edge ], [ %.6, %388 ], [ %.0387536, %.critedge427 ]
+  %.1391.lcssa585 = phi float [ %.5395, %._crit_edge ], [ %.5395, %388 ], [ %.0390535, %.critedge427 ]
   %exitcond576.not = icmp eq i64 %indvars.iv.next573, %wide.trip.count575
   br i1 %exitcond576.not, label %._crit_edge537, label %.critedge427, !llvm.loop !373
 
 ._crit_edge537:                                   ; preds = %._crit_edge.thread
-  %398 = fcmp une float %.1390.lcssa586, 0.000000e+00
+  %398 = fcmp une float %.1388.lcssa586, 0.000000e+00
   br i1 %398, label %399, label %405
 
 399:                                              ; preds = %._crit_edge537
@@ -41936,12 +41936,12 @@ cdce.end:                                         ; preds = %272, %cdce.call
   %401 = inttoptr i64 %400 to ptr
   %402 = getelementptr inbounds i8, ptr %401, i64 8
   %403 = load float, ptr %402, align 4
-  %404 = fadd float %.1390.lcssa586, %403
+  %404 = fadd float %.1388.lcssa586, %403
   store float %404, ptr %402, align 4
   br label %405
 
 405:                                              ; preds = %399, %._crit_edge537
-  %406 = fcmp une float %.1394.lcssa585, 0.000000e+00
+  %406 = fcmp une float %.1391.lcssa585, 0.000000e+00
   br i1 %406, label %407, label %.thread
 
 407:                                              ; preds = %405
@@ -41949,7 +41949,7 @@ cdce.end:                                         ; preds = %272, %cdce.call
   %409 = inttoptr i64 %408 to ptr
   %410 = getelementptr inbounds i8, ptr %409, i64 12
   %411 = load float, ptr %410, align 4
-  %412 = fadd float %.1394.lcssa585, %411
+  %412 = fadd float %.1391.lcssa585, %411
   store float %412, ptr %410, align 4
   br label %.thread
 
@@ -43781,9 +43781,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge521:                                     ; preds = %.critedge521.lr.ph, %._crit_edge.thread
   %indvars.iv701 = phi i64 [ 0, %.critedge521.lr.ph ], [ %indvars.iv.next702, %._crit_edge.thread ]
-  %.0468661 = phi float [ 0.000000e+00, %.critedge521.lr.ph ], [ %.1469.lcssa718, %._crit_edge.thread ]
-  %.0475660 = phi float [ 0.000000e+00, %.critedge521.lr.ph ], [ %.1476.lcssa717, %._crit_edge.thread ]
-  %.0504659 = phi i8 [ 0, %.critedge521.lr.ph ], [ %.1505.lcssa716, %._crit_edge.thread ]
+  %.0459661 = phi float [ 0.000000e+00, %.critedge521.lr.ph ], [ %.1460.lcssa718, %._crit_edge.thread ]
+  %.0462660 = phi float [ 0.000000e+00, %.critedge521.lr.ph ], [ %.1463.lcssa717, %._crit_edge.thread ]
+  %.0471659 = phi i8 [ 0, %.critedge521.lr.ph ], [ %.1472.lcssa716, %._crit_edge.thread ]
   %135 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv701
   %136 = load i32, ptr %135, align 4
   %137 = sext i32 %136 to i64
@@ -43829,13 +43829,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %426
   %indvars.iv699 = phi i64 [ %170, %.lr.ph.preheader ], [ %indvars.iv.next700, %426 ]
-  %.1469649 = phi float [ %.0468661, %.lr.ph.preheader ], [ %.6, %426 ]
-  %.1476648 = phi float [ %.0475660, %.lr.ph.preheader ], [ %.6481, %426 ]
-  %.0486646 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1487, %426 ]
-  %.0492643 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5497, %426 ]
-  %.0498642 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5503, %426 ]
-  %.1505641 = phi i8 [ %.0504659, %.lr.ph.preheader ], [ %.3507, %426 ]
-  %.0509640 = phi i1 [ false, %.lr.ph.preheader ], [ %.1510, %426 ]
+  %.1460649 = phi float [ %.0459661, %.lr.ph.preheader ], [ %.6, %426 ]
+  %.1463648 = phi float [ %.0462660, %.lr.ph.preheader ], [ %.6468, %426 ]
+  %.1472647 = phi i8 [ %.0471659, %.lr.ph.preheader ], [ %.3474, %426 ]
+  %.0477646 = phi i1 [ false, %.lr.ph.preheader ], [ %.1478, %426 ]
+  %.0479645 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5484, %426 ]
+  %.0486644 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5491, %426 ]
+  %.0496641 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1497, %426 ]
   %171 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %427, %426 ]
   %172 = load ptr, ptr %120, align 8
   %173 = load ptr, ptr %121, align 8
@@ -44109,31 +44109,31 @@ cdce.end:                                         ; preds = %279, %cdce.call
   %indvars.iv690.sroa.phi870 = phi ptr [ %.sroa.0878.4.gep.sroa_idx882, %.preheader ], [ %.sroa.0878, %.thread588 ]
   %indvars.iv690.sroa.phi888 = phi ptr [ %.sroa.5, %.preheader ], [ %.sroa.0894, %.thread588 ]
   %indvars.iv690.sroa.phi897.sroa.speculated = phi float [ %37, %.preheader ], [ %83, %.thread588 ]
-  %.0462630 = phi float [ %337, %.preheader ], [ 0.000000e+00, %.thread588 ]
-  %.2470629 = phi float [ %345, %.preheader ], [ %.1469649, %.thread588 ]
-  %.2477628 = phi float [ %351, %.preheader ], [ %.1476648, %.thread588 ]
-  %.1493627 = phi float [ %331, %.preheader ], [ %.0492643, %.thread588 ]
-  %.1499626 = phi float [ %328, %.preheader ], [ %.0498642, %.thread588 ]
+  %.2461631 = phi float [ %345, %.preheader ], [ %.1460649, %.thread588 ]
+  %.2464630 = phi float [ %351, %.preheader ], [ %.1463648, %.thread588 ]
+  %.1480629 = phi float [ %328, %.preheader ], [ %.0479645, %.thread588 ]
+  %.1487627 = phi float [ %331, %.preheader ], [ %.0486644, %.thread588 ]
+  %.0505626 = phi float [ %337, %.preheader ], [ 0.000000e+00, %.thread588 ]
   %327 = load float, ptr %indvars.iv690.sroa.phi767, align 4
-  %328 = tail call float @llvm.fmuladd.f32(float %indvars.iv690.sroa.phi897.sroa.speculated, float %327, float %.1499626)
+  %328 = tail call float @llvm.fmuladd.f32(float %indvars.iv690.sroa.phi897.sroa.speculated, float %327, float %.1480629)
   %329 = load float, ptr %indvars.iv690.sroa.phi888, align 4
   %330 = load float, ptr %indvars.iv690.sroa.phi, align 4
-  %331 = tail call float @llvm.fmuladd.f32(float %329, float %330, float %.1493627)
+  %331 = tail call float @llvm.fmuladd.f32(float %329, float %330, float %.1487627)
   %332 = load float, ptr %indvars.iv690.sroa.phi779, align 4
   %333 = fmul float %indvars.iv690.sroa.phi897.sroa.speculated, %332
-  %334 = tail call float @llvm.fmuladd.f32(float %333, float %265, float %.0462630)
+  %334 = tail call float @llvm.fmuladd.f32(float %333, float %265, float %.0505626)
   %335 = load float, ptr %indvars.iv690.sroa.phi773, align 4
   %336 = fmul float %329, %335
   %337 = tail call float @llvm.fmuladd.f32(float %336, float %265, float %334)
   %338 = load float, ptr %indvars.iv690.sroa.phi870, align 4
-  %339 = tail call float @llvm.fmuladd.f32(float %327, float %338, float %.2470629)
+  %339 = tail call float @llvm.fmuladd.f32(float %327, float %338, float %.2461631)
   %340 = fmul float %.sroa.0549.0, %indvars.iv690.sroa.phi897.sroa.speculated
   %341 = load float, ptr %indvars.iv690.sroa.phi852, align 4
   %342 = fmul float %340, %341
   %343 = fmul float %332, %342
   %344 = load float, ptr %indvars.iv690.sroa.phi795, align 4
   %345 = tail call float @llvm.fmuladd.f32(float %343, float %344, float %339)
-  %346 = tail call float @llvm.fmuladd.f32(float %330, float %338, float %.2477628)
+  %346 = tail call float @llvm.fmuladd.f32(float %330, float %338, float %.2464630)
   %347 = fmul float %.sroa.0550.0, %329
   %348 = load float, ptr %indvars.iv690.sroa.phi839, align 4
   %349 = fmul float %347, %348
@@ -44142,15 +44142,15 @@ cdce.end:                                         ; preds = %279, %cdce.call
   br i1 %326, label %.preheader, label %.loopexit620, !llvm.loop !388
 
 .loopexit620:                                     ; preds = %.preheader, %.critedge
-  %.2500 = phi float [ %.0498642, %.critedge ], [ %328, %.preheader ]
-  %.2494 = phi float [ %.0492643, %.critedge ], [ %331, %.preheader ]
-  %.3478 = phi float [ %.1476648, %.critedge ], [ %351, %.preheader ]
-  %.3471 = phi float [ %.1469649, %.critedge ], [ %345, %.preheader ]
-  %.1463 = phi float [ 0.000000e+00, %.critedge ], [ %337, %.preheader ]
+  %.1506 = phi float [ 0.000000e+00, %.critedge ], [ %337, %.preheader ]
+  %.2488 = phi float [ %.0486644, %.critedge ], [ %331, %.preheader ]
+  %.2481 = phi float [ %.0479645, %.critedge ], [ %328, %.preheader ]
+  %.3465 = phi float [ %.1463648, %.critedge ], [ %351, %.preheader ]
+  %.3 = phi float [ %.1460649, %.critedge ], [ %345, %.preheader ]
   br i1 %79, label %352, label %.loopexit619
 
 352:                                              ; preds = %.loopexit620
-  %353 = trunc nuw i8 %.1505641 to i1
+  %353 = trunc nuw i8 %.1472647 to i1
   br i1 %353, label %357, label %354
 
 354:                                              ; preds = %352
@@ -44174,26 +44174,26 @@ cdce.end:                                         ; preds = %279, %cdce.call
   %indvars.iv693.sroa.phi = phi ptr [ %.sroa.0791, %360 ], [ %.sroa.3792, %364 ]
   %indvars.iv693.sroa.phi872 = phi ptr [ %.sroa.0878, %360 ], [ %.sroa.0878.4.gep873.sroa_idx883, %364 ]
   %indvars.iv693.sroa.phi899.sroa.speculated = phi float [ %83, %360 ], [ %37, %364 ]
-  %.2464634 = phi float [ %.1463, %360 ], [ %371, %364 ]
-  %.4472633 = phi float [ %.3471, %360 ], [ %375, %364 ]
-  %.3501632 = phi float [ %.2500, %360 ], [ %369, %364 ]
+  %.4635 = phi float [ %.3, %360 ], [ %375, %364 ]
+  %.3482633 = phi float [ %.2481, %360 ], [ %369, %364 ]
+  %.2507632 = phi float [ %.1506, %360 ], [ %371, %364 ]
   %366 = load float, ptr %indvars.iv693.sroa.phi, align 4
   %367 = fmul float %indvars.iv693.sroa.phi899.sroa.speculated, %366
   %368 = fmul float %363, %367
-  %369 = fadd float %.3501632, %368
+  %369 = fadd float %.3482633, %368
   %370 = fmul float %128, %367
-  %371 = fsub float %.2464634, %370
+  %371 = fsub float %.2507632, %370
   %372 = load float, ptr %indvars.iv693.sroa.phi872, align 4
   %373 = fmul float %366, %372
   %374 = fmul float %363, %373
-  %375 = fadd float %.4472633, %374
+  %375 = fadd float %.4635, %374
   br i1 %365, label %364, label %.loopexit619, !llvm.loop !389
 
 .loopexit619:                                     ; preds = %364, %357, %.loopexit620
-  %.2506 = phi i8 [ %359, %357 ], [ %.1505641, %.loopexit620 ], [ %359, %364 ]
-  %.4502 = phi float [ %.2500, %357 ], [ %.2500, %.loopexit620 ], [ %369, %364 ]
-  %.5473 = phi float [ %.3471, %357 ], [ %.3471, %.loopexit620 ], [ %375, %364 ]
-  %.3 = phi float [ %.1463, %357 ], [ %.1463, %.loopexit620 ], [ %371, %364 ]
+  %.3508 = phi float [ %.1506, %357 ], [ %.1506, %.loopexit620 ], [ %371, %364 ]
+  %.4483 = phi float [ %.2481, %357 ], [ %.2481, %.loopexit620 ], [ %369, %364 ]
+  %.2473 = phi i8 [ %359, %357 ], [ %.1472647, %.loopexit620 ], [ %359, %364 ]
+  %.5 = phi float [ %.3, %357 ], [ %.3, %.loopexit620 ], [ %375, %364 ]
   %376 = fcmp uge float %264, %65
   %.not616 = select i1 %180, i1 %376, i1 false
   br i1 %.not616, label %.loopexit, label %377
@@ -44227,36 +44227,36 @@ cdce.end:                                         ; preds = %279, %cdce.call
   %indvars.iv696.sroa.phi = phi ptr [ %.sroa.0787, %377 ], [ %.sroa.3, %399 ]
   %indvars.iv696.sroa.phi874 = phi ptr [ %.sroa.0878, %377 ], [ %.sroa.0878.4.gep875.sroa_idx884, %399 ]
   %indvars.iv696.sroa.phi890 = phi ptr [ %.sroa.0894, %377 ], [ %.sroa.5, %399 ]
-  %.4638 = phi float [ %.3, %377 ], [ %407, %399 ]
-  %.4479637 = phi float [ %.3478, %377 ], [ %411, %399 ]
-  %.3495636 = phi float [ %.2494, %377 ], [ %405, %399 ]
+  %.4466639 = phi float [ %.3465, %377 ], [ %411, %399 ]
+  %.3489637 = phi float [ %.2488, %377 ], [ %405, %399 ]
+  %.4509636 = phi float [ %.3508, %377 ], [ %407, %399 ]
   %401 = load float, ptr %indvars.iv696.sroa.phi890, align 4
   %402 = load float, ptr %indvars.iv696.sroa.phi, align 4
   %403 = fmul float %401, %402
   %404 = fmul float %398, %403
-  %405 = fadd float %.3495636, %404
+  %405 = fadd float %.3489637, %404
   %406 = fmul float %396, %403
-  %407 = fadd float %.4638, %406
+  %407 = fadd float %.4509636, %406
   %408 = load float, ptr %indvars.iv696.sroa.phi874, align 4
   %409 = fmul float %402, %408
   %410 = fmul float %398, %409
-  %411 = fadd float %.4479637, %410
+  %411 = fadd float %.4466639, %410
   br i1 %400, label %399, label %.loopexit, !llvm.loop !390
 
 .loopexit:                                        ; preds = %399, %.loopexit619
-  %.4496 = phi float [ %.2494, %.loopexit619 ], [ %405, %399 ]
-  %.5480 = phi float [ %.3478, %.loopexit619 ], [ %411, %399 ]
-  %.5 = phi float [ %.3, %.loopexit619 ], [ %407, %399 ]
-  %412 = fcmp une float %.5, 0.000000e+00
+  %.5510 = phi float [ %.3508, %.loopexit619 ], [ %407, %399 ]
+  %.4490 = phi float [ %.2488, %.loopexit619 ], [ %405, %399 ]
+  %.5467 = phi float [ %.3465, %.loopexit619 ], [ %411, %399 ]
+  %412 = fcmp une float %.5510, 0.000000e+00
   br i1 %412, label %413, label %426
 
 413:                                              ; preds = %.loopexit
-  %414 = insertelement <2 x float> poison, float %.5, i64 0
+  %414 = insertelement <2 x float> poison, float %.5510, i64 0
   %415 = shufflevector <2 x float> %414, <2 x float> poison, <2 x i32> zeroinitializer
   %416 = fmul <2 x float> %236, %415
-  %417 = fmul float %237, %.5
+  %417 = fmul float %237, %.5510
   %418 = fadd <2 x float> %171, %416
-  %419 = fadd float %.0486646, %417
+  %419 = fadd float %.0496641, %417
   %420 = getelementptr inbounds float, ptr %110, i64 %230
   %421 = load <2 x float>, ptr %420, align 4
   %422 = fsub <2 x float> %421, %416
@@ -44268,20 +44268,20 @@ cdce.end:                                         ; preds = %279, %cdce.call
   br label %426
 
 426:                                              ; preds = %.loopexit, %413, %.critedge523
-  %.1510 = phi i1 [ true, %413 ], [ true, %.loopexit ], [ %.0509640, %.critedge523 ]
-  %.3507 = phi i8 [ %.2506, %413 ], [ %.2506, %.loopexit ], [ %.1505641, %.critedge523 ]
-  %.5503 = phi float [ %.4502, %413 ], [ %.4502, %.loopexit ], [ %.0498642, %.critedge523 ]
-  %.5497 = phi float [ %.4496, %413 ], [ %.4496, %.loopexit ], [ %.0492643, %.critedge523 ]
-  %.1487 = phi float [ %419, %413 ], [ %.0486646, %.loopexit ], [ %.0486646, %.critedge523 ]
-  %.6481 = phi float [ %.5480, %413 ], [ %.5480, %.loopexit ], [ %.1476648, %.critedge523 ]
-  %.6 = phi float [ %.5473, %413 ], [ %.5473, %.loopexit ], [ %.1469649, %.critedge523 ]
+  %.1497 = phi float [ %419, %413 ], [ %.0496641, %.loopexit ], [ %.0496641, %.critedge523 ]
+  %.5491 = phi float [ %.4490, %413 ], [ %.4490, %.loopexit ], [ %.0486644, %.critedge523 ]
+  %.5484 = phi float [ %.4483, %413 ], [ %.4483, %.loopexit ], [ %.0479645, %.critedge523 ]
+  %.1478 = phi i1 [ true, %413 ], [ true, %.loopexit ], [ %.0477646, %.critedge523 ]
+  %.3474 = phi i8 [ %.2473, %413 ], [ %.2473, %.loopexit ], [ %.1472647, %.critedge523 ]
+  %.6468 = phi float [ %.5467, %413 ], [ %.5467, %.loopexit ], [ %.1463648, %.critedge523 ]
+  %.6 = phi float [ %.5, %413 ], [ %.5, %.loopexit ], [ %.1460649, %.critedge523 ]
   %427 = phi <2 x float> [ %418, %413 ], [ %171, %.loopexit ], [ %171, %.critedge523 ]
   %indvars.iv.next700 = add nsw i64 %indvars.iv699, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next700, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !391
 
 ._crit_edge:                                      ; preds = %426
-  br i1 %.1510, label %428, label %._crit_edge.thread
+  br i1 %.1478, label %428, label %._crit_edge.thread
 
 428:                                              ; preds = %._crit_edge
   %429 = getelementptr inbounds float, ptr %110, i64 %148
@@ -44290,7 +44290,7 @@ cdce.end:                                         ; preds = %279, %cdce.call
   store <2 x float> %431, ptr %429, align 4
   %432 = getelementptr i8, ptr %429, i64 8
   %433 = load float, ptr %432, align 4
-  %434 = fadd float %.1487, %433
+  %434 = fadd float %.1497, %433
   store float %434, ptr %432, align 4
   br i1 %.not, label %444, label %435
 
@@ -44303,7 +44303,7 @@ cdce.end:                                         ; preds = %279, %cdce.call
   store <2 x float> %440, ptr %438, align 4
   %441 = getelementptr i8, ptr %438, i64 8
   %442 = load float, ptr %441, align 4
-  %443 = fadd float %.1487, %442
+  %443 = fadd float %.1497, %442
   store float %443, ptr %441, align 4
   br label %444
 
@@ -44316,24 +44316,24 @@ cdce.end:                                         ; preds = %279, %cdce.call
   %448 = sext i32 %447 to i64
   %449 = getelementptr inbounds float, ptr %132, i64 %448
   %450 = load float, ptr %449, align 4
-  %451 = fadd float %.5503, %450
+  %451 = fadd float %.5484, %450
   store float %451, ptr %449, align 4
   %452 = getelementptr inbounds float, ptr %134, i64 %448
   %453 = load float, ptr %452, align 4
-  %454 = fadd float %.5497, %453
+  %454 = fadd float %.5491, %453
   store float %454, ptr %452, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge521, %._crit_edge, %445, %444
-  %.1469.lcssa718 = phi float [ %.6, %._crit_edge ], [ %.6, %445 ], [ %.6, %444 ], [ %.0468661, %.critedge521 ]
-  %.1476.lcssa717 = phi float [ %.6481, %._crit_edge ], [ %.6481, %445 ], [ %.6481, %444 ], [ %.0475660, %.critedge521 ]
-  %.1505.lcssa716 = phi i8 [ %.3507, %._crit_edge ], [ %.3507, %445 ], [ %.3507, %444 ], [ %.0504659, %.critedge521 ]
+  %.1460.lcssa718 = phi float [ %.6, %._crit_edge ], [ %.6, %445 ], [ %.6, %444 ], [ %.0459661, %.critedge521 ]
+  %.1463.lcssa717 = phi float [ %.6468, %._crit_edge ], [ %.6468, %445 ], [ %.6468, %444 ], [ %.0462660, %.critedge521 ]
+  %.1472.lcssa716 = phi i8 [ %.3474, %._crit_edge ], [ %.3474, %445 ], [ %.3474, %444 ], [ %.0471659, %.critedge521 ]
   %exitcond704.not = icmp eq i64 %indvars.iv.next702, %wide.trip.count703
   br i1 %exitcond704.not, label %._crit_edge662, label %.critedge521, !llvm.loop !392
 
 ._crit_edge662:                                   ; preds = %._crit_edge.thread
-  %455 = trunc nuw i8 %.1505.lcssa716 to i1
-  %456 = fcmp une float %.1469.lcssa718, 0.000000e+00
+  %455 = trunc nuw i8 %.1472.lcssa716 to i1
+  %456 = fcmp une float %.1460.lcssa718, 0.000000e+00
   br i1 %456, label %457, label %463
 
 457:                                              ; preds = %._crit_edge662
@@ -44341,12 +44341,12 @@ cdce.end:                                         ; preds = %279, %cdce.call
   %459 = inttoptr i64 %458 to ptr
   %460 = getelementptr inbounds i8, ptr %459, i64 8
   %461 = load float, ptr %460, align 4
-  %462 = fadd float %.1469.lcssa718, %461
+  %462 = fadd float %.1460.lcssa718, %461
   store float %462, ptr %460, align 4
   br label %463
 
 463:                                              ; preds = %457, %._crit_edge662
-  %464 = fcmp une float %.1476.lcssa717, 0.000000e+00
+  %464 = fcmp une float %.1463.lcssa717, 0.000000e+00
   br i1 %464, label %465, label %.thread
 
 465:                                              ; preds = %463
@@ -44354,12 +44354,12 @@ cdce.end:                                         ; preds = %279, %cdce.call
   %467 = inttoptr i64 %466 to ptr
   %468 = getelementptr inbounds i8, ptr %467, i64 12
   %469 = load float, ptr %468, align 4
-  %470 = fadd float %.1476.lcssa717, %469
+  %470 = fadd float %.1463.lcssa717, %469
   store float %470, ptr %468, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.split.us, %465, %463
-  %.0504.lcssa722726 = phi i1 [ %455, %465 ], [ %455, %463 ], [ false, %.split.us ]
+  %.0471.lcssa722726 = phi i1 [ %455, %465 ], [ %455, %463 ], [ false, %.split.us ]
   %471 = load i32, ptr %0, align 8
   %472 = mul nsw i32 %471, 12
   %473 = sext i32 %23 to i64
@@ -44369,7 +44369,7 @@ cdce.end:                                         ; preds = %279, %cdce.call
   %477 = mul nsw i32 %476, 150
   %478 = add nsw i32 %477, %472
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %478)
-  %479 = select i1 %79, i1 %.0504.lcssa722726, i1 false
+  %479 = select i1 %79, i1 %.0471.lcssa722726, i1 false
   br i1 %479, label %480, label %491
 
 480:                                              ; preds = %.thread
@@ -45760,9 +45760,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge450:                                     ; preds = %.critedge450.lr.ph, %._crit_edge.thread
   %indvars.iv604 = phi i64 [ 0, %.critedge450.lr.ph ], [ %indvars.iv.next605, %._crit_edge.thread ]
-  %.0409567 = phi float [ 0.000000e+00, %.critedge450.lr.ph ], [ %.1410.lcssa620, %._crit_edge.thread ]
-  %.0412566 = phi float [ 0.000000e+00, %.critedge450.lr.ph ], [ %.1413.lcssa619, %._crit_edge.thread ]
-  %.0422565 = phi i8 [ 0, %.critedge450.lr.ph ], [ %.1423.lcssa618, %._crit_edge.thread ]
+  %.0403567 = phi float [ 0.000000e+00, %.critedge450.lr.ph ], [ %.1404.lcssa620, %._crit_edge.thread ]
+  %.0407566 = phi float [ 0.000000e+00, %.critedge450.lr.ph ], [ %.1408.lcssa619, %._crit_edge.thread ]
+  %.0414565 = phi i8 [ 0, %.critedge450.lr.ph ], [ %.1415.lcssa618, %._crit_edge.thread ]
   %131 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv604
   %132 = load i32, ptr %131, align 4
   %133 = sext i32 %132 to i64
@@ -45813,12 +45813,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv602 = phi i64 [ %171, %.lr.ph.preheader ], [ %indvars.iv.next603, %.loopexit ]
-  %.1410558 = phi float [ %.0409567, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1413557 = phi float [ %.0412566, %.lr.ph.preheader ], [ %.5417, %.loopexit ]
-  %.1423555 = phi i8 [ %.0422565, %.lr.ph.preheader ], [ %.3425, %.loopexit ]
-  %.0428554 = phi i1 [ false, %.lr.ph.preheader ], [ %.1429, %.loopexit ]
-  %.0430553 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4434, %.loopexit ]
-  %.0435552 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5440, %.loopexit ]
+  %.1404558 = phi float [ %.0403567, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1408557 = phi float [ %.0407566, %.lr.ph.preheader ], [ %.5412, %.loopexit ]
+  %.1415556 = phi i8 [ %.0414565, %.lr.ph.preheader ], [ %.3417, %.loopexit ]
+  %.0420555 = phi i1 [ false, %.lr.ph.preheader ], [ %.1421, %.loopexit ]
+  %.0422554 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5427, %.loopexit ]
+  %.0428553 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4432, %.loopexit ]
   %172 = load ptr, ptr %118, align 8
   %173 = load ptr, ptr %119, align 8
   %174 = icmp eq ptr %172, %173
@@ -46072,24 +46072,24 @@ cdce.end:                                         ; preds = %280, %cdce.call
   %indvars.iv593.sroa.phi758 = phi ptr [ %.sroa.0766.4.gep.sroa_idx770, %.preheader ], [ %.sroa.0766, %.thread503 ]
   %indvars.iv593.sroa.phi776 = phi ptr [ %.sroa.5, %.preheader ], [ %.sroa.0782, %.thread503 ]
   %indvars.iv593.sroa.phi785.sroa.speculated = phi float [ %37, %.preheader ], [ %82, %.thread503 ]
-  %.2411544 = phi float [ %332, %.preheader ], [ %.1410558, %.thread503 ]
-  %.2414543 = phi float [ %338, %.preheader ], [ %.1413557, %.thread503 ]
-  %.1431542 = phi float [ %324, %.preheader ], [ %.0430553, %.thread503 ]
-  %.1436541 = phi float [ %321, %.preheader ], [ %.0435552, %.thread503 ]
+  %.2405545 = phi float [ %332, %.preheader ], [ %.1404558, %.thread503 ]
+  %.2409544 = phi float [ %338, %.preheader ], [ %.1408557, %.thread503 ]
+  %.1423542 = phi float [ %321, %.preheader ], [ %.0422554, %.thread503 ]
+  %.1429541 = phi float [ %324, %.preheader ], [ %.0428553, %.thread503 ]
   %320 = load float, ptr %indvars.iv593.sroa.phi659, align 4
-  %321 = tail call float @llvm.fmuladd.f32(float %indvars.iv593.sroa.phi785.sroa.speculated, float %320, float %.1436541)
+  %321 = tail call float @llvm.fmuladd.f32(float %indvars.iv593.sroa.phi785.sroa.speculated, float %320, float %.1423542)
   %322 = load float, ptr %indvars.iv593.sroa.phi776, align 4
   %323 = load float, ptr %indvars.iv593.sroa.phi, align 4
-  %324 = tail call float @llvm.fmuladd.f32(float %322, float %323, float %.1431542)
+  %324 = tail call float @llvm.fmuladd.f32(float %322, float %323, float %.1429541)
   %325 = load float, ptr %indvars.iv593.sroa.phi758, align 4
-  %326 = tail call float @llvm.fmuladd.f32(float %320, float %325, float %.2411544)
+  %326 = tail call float @llvm.fmuladd.f32(float %320, float %325, float %.2405545)
   %327 = fmul float %.sroa.0475.0, %indvars.iv593.sroa.phi785.sroa.speculated
   %328 = load float, ptr %indvars.iv593.sroa.phi740, align 4
   %329 = fmul float %327, %328
   %330 = fmul float %329, 0.000000e+00
   %331 = load float, ptr %indvars.iv593.sroa.phi683, align 4
   %332 = tail call float @llvm.fmuladd.f32(float %330, float %331, float %326)
-  %333 = tail call float @llvm.fmuladd.f32(float %323, float %325, float %.2414543)
+  %333 = tail call float @llvm.fmuladd.f32(float %323, float %325, float %.2409544)
   %334 = fmul float %.sroa.0476.0, %322
   %335 = load float, ptr %indvars.iv593.sroa.phi727, align 4
   %336 = fmul float %334, %335
@@ -46098,14 +46098,14 @@ cdce.end:                                         ; preds = %280, %cdce.call
   br i1 %319, label %.preheader, label %.loopexit535, !llvm.loop !407
 
 .loopexit535:                                     ; preds = %.preheader, %.critedge
-  %.2437 = phi float [ %.0435552, %.critedge ], [ %321, %.preheader ]
-  %.2432 = phi float [ %.0430553, %.critedge ], [ %324, %.preheader ]
-  %.3415 = phi float [ %.1413557, %.critedge ], [ %338, %.preheader ]
-  %.3 = phi float [ %.1410558, %.critedge ], [ %332, %.preheader ]
+  %.2430 = phi float [ %.0428553, %.critedge ], [ %324, %.preheader ]
+  %.2424 = phi float [ %.0422554, %.critedge ], [ %321, %.preheader ]
+  %.3410 = phi float [ %.1408557, %.critedge ], [ %338, %.preheader ]
+  %.3 = phi float [ %.1404558, %.critedge ], [ %332, %.preheader ]
   br i1 %78, label %339, label %.loopexit534
 
 339:                                              ; preds = %.loopexit535
-  %340 = trunc nuw i8 %.1423555 to i1
+  %340 = trunc nuw i8 %.1415556 to i1
   br i1 %340, label %344, label %341
 
 341:                                              ; preds = %339
@@ -46129,21 +46129,21 @@ cdce.end:                                         ; preds = %280, %cdce.call
   %indvars.iv596.sroa.phi = phi ptr [ %.sroa.0679, %347 ], [ %.sroa.3680, %351 ]
   %indvars.iv596.sroa.phi760 = phi ptr [ %.sroa.0766, %347 ], [ %.sroa.0766.4.gep761.sroa_idx771, %351 ]
   %indvars.iv596.sroa.phi787.sroa.speculated = phi float [ %82, %347 ], [ %37, %351 ]
-  %.4547 = phi float [ %.3, %347 ], [ %360, %351 ]
-  %.3438546 = phi float [ %.2437, %347 ], [ %356, %351 ]
+  %.4548 = phi float [ %.3, %347 ], [ %360, %351 ]
+  %.3425546 = phi float [ %.2424, %347 ], [ %356, %351 ]
   %353 = load float, ptr %indvars.iv596.sroa.phi, align 4
   %354 = fmul float %indvars.iv596.sroa.phi787.sroa.speculated, %353
   %355 = fmul float %350, %354
-  %356 = fadd float %.3438546, %355
+  %356 = fadd float %.3425546, %355
   %357 = load float, ptr %indvars.iv596.sroa.phi760, align 4
   %358 = fmul float %353, %357
   %359 = fmul float %350, %358
-  %360 = fadd float %.4547, %359
+  %360 = fadd float %.4548, %359
   br i1 %352, label %351, label %.loopexit534, !llvm.loop !408
 
 .loopexit534:                                     ; preds = %351, %344, %.loopexit535
-  %.4439 = phi float [ %.2437, %344 ], [ %.2437, %.loopexit535 ], [ %356, %351 ]
-  %.2424 = phi i8 [ %346, %344 ], [ %.1423555, %.loopexit535 ], [ %346, %351 ]
+  %.4426 = phi float [ %.2424, %344 ], [ %.2424, %.loopexit535 ], [ %356, %351 ]
+  %.2416 = phi i8 [ %346, %344 ], [ %.1415556, %.loopexit535 ], [ %346, %351 ]
   %.5 = phi float [ %.3, %344 ], [ %.3, %.loopexit535 ], [ %360, %351 ]
   %361 = fcmp uge float %265, %64
   %.not531 = select i1 %180, i1 %361, i1 false
@@ -46176,32 +46176,32 @@ cdce.end:                                         ; preds = %280, %cdce.call
   %indvars.iv599.sroa.phi = phi ptr [ %.sroa.0675, %362 ], [ %.sroa.3, %382 ]
   %indvars.iv599.sroa.phi762 = phi ptr [ %.sroa.0766, %362 ], [ %.sroa.0766.4.gep763.sroa_idx772, %382 ]
   %indvars.iv599.sroa.phi778 = phi ptr [ %.sroa.0782, %362 ], [ %.sroa.5, %382 ]
-  %.4416550 = phi float [ %.3415, %362 ], [ %392, %382 ]
-  %.3433549 = phi float [ %.2432, %362 ], [ %388, %382 ]
+  %.4411550 = phi float [ %.3410, %362 ], [ %392, %382 ]
+  %.3431549 = phi float [ %.2430, %362 ], [ %388, %382 ]
   %384 = load float, ptr %indvars.iv599.sroa.phi778, align 4
   %385 = load float, ptr %indvars.iv599.sroa.phi, align 4
   %386 = fmul float %384, %385
   %387 = fmul float %381, %386
-  %388 = fadd float %.3433549, %387
+  %388 = fadd float %.3431549, %387
   %389 = load float, ptr %indvars.iv599.sroa.phi762, align 4
   %390 = fmul float %385, %389
   %391 = fmul float %381, %390
-  %392 = fadd float %.4416550, %391
+  %392 = fadd float %.4411550, %391
   br i1 %383, label %382, label %.loopexit, !llvm.loop !409
 
 .loopexit:                                        ; preds = %382, %.loopexit534, %.critedge452
-  %.5440 = phi float [ %.4439, %.loopexit534 ], [ %.0435552, %.critedge452 ], [ %.4439, %382 ]
-  %.4434 = phi float [ %.2432, %.loopexit534 ], [ %.0430553, %.critedge452 ], [ %388, %382 ]
-  %.1429 = phi i1 [ true, %.loopexit534 ], [ %.0428554, %.critedge452 ], [ true, %382 ]
-  %.3425 = phi i8 [ %.2424, %.loopexit534 ], [ %.1423555, %.critedge452 ], [ %.2424, %382 ]
-  %.5417 = phi float [ %.3415, %.loopexit534 ], [ %.1413557, %.critedge452 ], [ %392, %382 ]
-  %.6 = phi float [ %.5, %.loopexit534 ], [ %.1410558, %.critedge452 ], [ %.5, %382 ]
+  %.4432 = phi float [ %.2430, %.loopexit534 ], [ %.0428553, %.critedge452 ], [ %388, %382 ]
+  %.5427 = phi float [ %.4426, %.loopexit534 ], [ %.0422554, %.critedge452 ], [ %.4426, %382 ]
+  %.1421 = phi i1 [ true, %.loopexit534 ], [ %.0420555, %.critedge452 ], [ true, %382 ]
+  %.3417 = phi i8 [ %.2416, %.loopexit534 ], [ %.1415556, %.critedge452 ], [ %.2416, %382 ]
+  %.5412 = phi float [ %.3410, %.loopexit534 ], [ %.1408557, %.critedge452 ], [ %392, %382 ]
+  %.6 = phi float [ %.5, %.loopexit534 ], [ %.1404558, %.critedge452 ], [ %.5, %382 ]
   %indvars.iv.next603 = add nsw i64 %indvars.iv602, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next603, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !410
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge456.not = and i1 %.not, %.1429
+  %brmerge456.not = and i1 %.not, %.1421
   br i1 %brmerge456.not, label %393, label %._crit_edge.thread
 
 393:                                              ; preds = %._crit_edge
@@ -46210,24 +46210,24 @@ cdce.end:                                         ; preds = %280, %cdce.call
   %396 = sext i32 %395 to i64
   %397 = getelementptr inbounds float, ptr %128, i64 %396
   %398 = load float, ptr %397, align 4
-  %399 = fadd float %.5440, %398
+  %399 = fadd float %.5427, %398
   store float %399, ptr %397, align 4
   %400 = getelementptr inbounds float, ptr %130, i64 %396
   %401 = load float, ptr %400, align 4
-  %402 = fadd float %.4434, %401
+  %402 = fadd float %.4432, %401
   store float %402, ptr %400, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge450, %._crit_edge, %393
-  %.1410.lcssa620 = phi float [ %.6, %._crit_edge ], [ %.6, %393 ], [ %.0409567, %.critedge450 ]
-  %.1413.lcssa619 = phi float [ %.5417, %._crit_edge ], [ %.5417, %393 ], [ %.0412566, %.critedge450 ]
-  %.1423.lcssa618 = phi i8 [ %.3425, %._crit_edge ], [ %.3425, %393 ], [ %.0422565, %.critedge450 ]
+  %.1404.lcssa620 = phi float [ %.6, %._crit_edge ], [ %.6, %393 ], [ %.0403567, %.critedge450 ]
+  %.1408.lcssa619 = phi float [ %.5412, %._crit_edge ], [ %.5412, %393 ], [ %.0407566, %.critedge450 ]
+  %.1415.lcssa618 = phi i8 [ %.3417, %._crit_edge ], [ %.3417, %393 ], [ %.0414565, %.critedge450 ]
   %exitcond607.not = icmp eq i64 %indvars.iv.next605, %wide.trip.count606
   br i1 %exitcond607.not, label %._crit_edge568, label %.critedge450, !llvm.loop !411
 
 ._crit_edge568:                                   ; preds = %._crit_edge.thread
-  %403 = trunc nuw i8 %.1423.lcssa618 to i1
-  %404 = fcmp une float %.1410.lcssa620, 0.000000e+00
+  %403 = trunc nuw i8 %.1415.lcssa618 to i1
+  %404 = fcmp une float %.1404.lcssa620, 0.000000e+00
   br i1 %404, label %405, label %411
 
 405:                                              ; preds = %._crit_edge568
@@ -46235,12 +46235,12 @@ cdce.end:                                         ; preds = %280, %cdce.call
   %407 = inttoptr i64 %406 to ptr
   %408 = getelementptr inbounds i8, ptr %407, i64 8
   %409 = load float, ptr %408, align 4
-  %410 = fadd float %.1410.lcssa620, %409
+  %410 = fadd float %.1404.lcssa620, %409
   store float %410, ptr %408, align 4
   br label %411
 
 411:                                              ; preds = %405, %._crit_edge568
-  %412 = fcmp une float %.1413.lcssa619, 0.000000e+00
+  %412 = fcmp une float %.1408.lcssa619, 0.000000e+00
   br i1 %412, label %413, label %.thread
 
 413:                                              ; preds = %411
@@ -46248,12 +46248,12 @@ cdce.end:                                         ; preds = %280, %cdce.call
   %415 = inttoptr i64 %414 to ptr
   %416 = getelementptr inbounds i8, ptr %415, i64 12
   %417 = load float, ptr %416, align 4
-  %418 = fadd float %.1413.lcssa619, %417
+  %418 = fadd float %.1408.lcssa619, %417
   store float %418, ptr %416, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.split.us, %413, %411
-  %.0422.lcssa624628 = phi i1 [ %403, %413 ], [ %403, %411 ], [ false, %.split.us ]
+  %.0414.lcssa624628 = phi i1 [ %403, %413 ], [ %403, %411 ], [ false, %.split.us ]
   %419 = load i32, ptr %0, align 8
   %420 = mul nsw i32 %419, 12
   %421 = sext i32 %23 to i64
@@ -46263,7 +46263,7 @@ cdce.end:                                         ; preds = %280, %cdce.call
   %425 = mul nsw i32 %424, 150
   %426 = add nsw i32 %425, %420
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %426)
-  %427 = select i1 %78, i1 %.0422.lcssa624628, i1 false
+  %427 = select i1 %78, i1 %.0414.lcssa624628, i1 false
   br i1 %427, label %428, label %439
 
 428:                                              ; preds = %.thread
@@ -48002,8 +48002,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge519:                                     ; preds = %.critedge519.lr.ph, %._crit_edge.thread
   %indvars.iv677 = phi i64 [ 0, %.critedge519.lr.ph ], [ %indvars.iv.next678, %._crit_edge.thread ]
-  %.0475644 = phi float [ 0.000000e+00, %.critedge519.lr.ph ], [ %.1476.lcssa692, %._crit_edge.thread ]
-  %.0479643 = phi float [ 0.000000e+00, %.critedge519.lr.ph ], [ %.1480.lcssa691, %._crit_edge.thread ]
+  %.0468644 = phi float [ 0.000000e+00, %.critedge519.lr.ph ], [ %.1469.lcssa692, %._crit_edge.thread ]
+  %.0471643 = phi float [ 0.000000e+00, %.critedge519.lr.ph ], [ %.1472.lcssa691, %._crit_edge.thread ]
   %126 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv677
   %127 = load i32, ptr %126, align 4
   %128 = sext i32 %127 to i64
@@ -48049,12 +48049,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %409
   %indvars.iv675 = phi i64 [ %161, %.lr.ph.preheader ], [ %indvars.iv.next676, %409 ]
-  %.1476634 = phi float [ %.0475644, %.lr.ph.preheader ], [ %.6, %409 ]
-  %.1480633 = phi float [ %.0479643, %.lr.ph.preheader ], [ %.4483, %409 ]
-  %.0490631 = phi i1 [ false, %.lr.ph.preheader ], [ %.1491, %409 ]
-  %.0493630 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1494, %409 ]
-  %.0499627 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3502, %409 ]
-  %.0503626 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5508, %409 ]
+  %.1469634 = phi float [ %.0468644, %.lr.ph.preheader ], [ %.6, %409 ]
+  %.1472633 = phi float [ %.0471643, %.lr.ph.preheader ], [ %.4475, %409 ]
+  %.0480632 = phi i1 [ false, %.lr.ph.preheader ], [ %.1481, %409 ]
+  %.0482631 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5487, %409 ]
+  %.0488630 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3491, %409 ]
+  %.0496627 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1497, %409 ]
   %162 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %410, %409 ]
   %163 = load ptr, ptr %118, align 8
   %164 = load ptr, ptr %119, align 8
@@ -48320,31 +48320,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv669.sroa.phi819 = phi ptr [ %.sroa.0825.4.gep.sroa_idx829, %.preheader ], [ %.sroa.0825, %.thread587 ]
   %indvars.iv669.sroa.phi834 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0838, %.thread587 ]
   %indvars.iv669.sroa.phi841.sroa.speculated = phi float [ %34, %.preheader ], [ %81, %.thread587 ]
-  %.0470620 = phi float [ %334, %.preheader ], [ 0.000000e+00, %.thread587 ]
-  %.2477619 = phi float [ %342, %.preheader ], [ %.1476634, %.thread587 ]
-  %.2481618 = phi float [ %348, %.preheader ], [ %.1480633, %.thread587 ]
-  %.1500617 = phi float [ %328, %.preheader ], [ %.0499627, %.thread587 ]
-  %.1504616 = phi float [ %325, %.preheader ], [ %.0503626, %.thread587 ]
+  %.2470621 = phi float [ %342, %.preheader ], [ %.1469634, %.thread587 ]
+  %.2473620 = phi float [ %348, %.preheader ], [ %.1472633, %.thread587 ]
+  %.1483618 = phi float [ %325, %.preheader ], [ %.0482631, %.thread587 ]
+  %.1489617 = phi float [ %328, %.preheader ], [ %.0488630, %.thread587 ]
+  %.0504616 = phi float [ %334, %.preheader ], [ 0.000000e+00, %.thread587 ]
   %324 = load float, ptr %indvars.iv669.sroa.phi727, align 4
-  %325 = tail call float @llvm.fmuladd.f32(float %indvars.iv669.sroa.phi841.sroa.speculated, float %324, float %.1504616)
+  %325 = tail call float @llvm.fmuladd.f32(float %indvars.iv669.sroa.phi841.sroa.speculated, float %324, float %.1483618)
   %326 = load float, ptr %indvars.iv669.sroa.phi834, align 4
   %327 = load float, ptr %indvars.iv669.sroa.phi, align 4
-  %328 = tail call float @llvm.fmuladd.f32(float %326, float %327, float %.1500617)
+  %328 = tail call float @llvm.fmuladd.f32(float %326, float %327, float %.1489617)
   %329 = load float, ptr %indvars.iv669.sroa.phi739, align 4
   %330 = fmul float %indvars.iv669.sroa.phi841.sroa.speculated, %329
-  %331 = tail call float @llvm.fmuladd.f32(float %330, float %254, float %.0470620)
+  %331 = tail call float @llvm.fmuladd.f32(float %330, float %254, float %.0504616)
   %332 = load float, ptr %indvars.iv669.sroa.phi733, align 4
   %333 = fmul float %326, %332
   %334 = tail call float @llvm.fmuladd.f32(float %333, float %254, float %331)
   %335 = load float, ptr %indvars.iv669.sroa.phi819, align 4
-  %336 = tail call float @llvm.fmuladd.f32(float %324, float %335, float %.2477619)
+  %336 = tail call float @llvm.fmuladd.f32(float %324, float %335, float %.2470621)
   %337 = fmul float %.sroa.0548.0, %indvars.iv669.sroa.phi841.sroa.speculated
   %338 = load float, ptr %indvars.iv669.sroa.phi801, align 4
   %339 = fmul float %337, %338
   %340 = fmul float %329, %339
   %341 = load float, ptr %indvars.iv669.sroa.phi749, align 4
   %342 = tail call float @llvm.fmuladd.f32(float %340, float %341, float %336)
-  %343 = tail call float @llvm.fmuladd.f32(float %327, float %335, float %.2481618)
+  %343 = tail call float @llvm.fmuladd.f32(float %327, float %335, float %.2473620)
   %344 = fmul float %.sroa.0549.0, %326
   %345 = load float, ptr %indvars.iv669.sroa.phi788, align 4
   %346 = fmul float %344, %345
@@ -48353,11 +48353,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %323, label %.preheader, label %.loopexit610, !llvm.loop !425
 
 .loopexit610:                                     ; preds = %.preheader, %.critedge
-  %.2505 = phi float [ %.0503626, %.critedge ], [ %325, %.preheader ]
-  %.2501 = phi float [ %.0499627, %.critedge ], [ %328, %.preheader ]
-  %.3482 = phi float [ %.1480633, %.critedge ], [ %348, %.preheader ]
-  %.3478 = phi float [ %.1476634, %.critedge ], [ %342, %.preheader ]
-  %.1471 = phi float [ 0.000000e+00, %.critedge ], [ %334, %.preheader ]
+  %.1505 = phi float [ 0.000000e+00, %.critedge ], [ %334, %.preheader ]
+  %.2490 = phi float [ %.0488630, %.critedge ], [ %328, %.preheader ]
+  %.2484 = phi float [ %.0482631, %.critedge ], [ %325, %.preheader ]
+  %.3474 = phi float [ %.1472633, %.critedge ], [ %348, %.preheader ]
+  %.3 = phi float [ %.1469634, %.critedge ], [ %342, %.preheader ]
   %349 = fcmp uge float %253, %54
   %.not607 = select i1 %171, i1 %349, i1 false
   br i1 %.not607, label %.loopexit, label %350
@@ -48402,35 +48402,35 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv672.sroa.phi = phi ptr [ %.sroa.0746, %350 ], [ %.sroa.3, %383 ]
   %indvars.iv672.sroa.phi821 = phi ptr [ %.sroa.0825, %350 ], [ %.sroa.0825.4.gep822.sroa_idx830, %383 ]
   %indvars.iv672.sroa.phi843.sroa.speculated = phi float [ %81, %350 ], [ %34, %383 ]
-  %.2472624 = phi float [ %.1471, %350 ], [ %390, %383 ]
-  %.4623 = phi float [ %.3478, %350 ], [ %394, %383 ]
-  %.3506622 = phi float [ %.2505, %350 ], [ %388, %383 ]
+  %.4625 = phi float [ %.3, %350 ], [ %394, %383 ]
+  %.3485623 = phi float [ %.2484, %350 ], [ %388, %383 ]
+  %.2506622 = phi float [ %.1505, %350 ], [ %390, %383 ]
   %385 = load float, ptr %indvars.iv672.sroa.phi, align 4
   %386 = fmul float %indvars.iv672.sroa.phi843.sroa.speculated, %385
   %387 = fmul float %382, %386
-  %388 = fsub float %.3506622, %387
+  %388 = fsub float %.3485623, %387
   %389 = fmul float %380, %386
-  %390 = fsub float %.2472624, %389
+  %390 = fsub float %.2506622, %389
   %391 = load float, ptr %indvars.iv672.sroa.phi821, align 4
   %392 = fmul float %385, %391
   %393 = fmul float %382, %392
-  %394 = fsub float %.4623, %393
+  %394 = fsub float %.4625, %393
   br i1 %384, label %383, label %.loopexit, !llvm.loop !426
 
 .loopexit:                                        ; preds = %383, %.loopexit610
-  %.4507 = phi float [ %.2505, %.loopexit610 ], [ %388, %383 ]
-  %.5 = phi float [ %.3478, %.loopexit610 ], [ %394, %383 ]
-  %.3 = phi float [ %.1471, %.loopexit610 ], [ %390, %383 ]
-  %395 = fcmp une float %.3, 0.000000e+00
+  %.3507 = phi float [ %.1505, %.loopexit610 ], [ %390, %383 ]
+  %.4486 = phi float [ %.2484, %.loopexit610 ], [ %388, %383 ]
+  %.5 = phi float [ %.3, %.loopexit610 ], [ %394, %383 ]
+  %395 = fcmp une float %.3507, 0.000000e+00
   br i1 %395, label %396, label %409
 
 396:                                              ; preds = %.loopexit
-  %397 = insertelement <2 x float> poison, float %.3, i64 0
+  %397 = insertelement <2 x float> poison, float %.3507, i64 0
   %398 = shufflevector <2 x float> %397, <2 x float> poison, <2 x i32> zeroinitializer
   %399 = fmul <2 x float> %225, %398
-  %400 = fmul float %226, %.3
+  %400 = fmul float %226, %.3507
   %401 = fadd <2 x float> %162, %399
-  %402 = fadd float %.0493630, %400
+  %402 = fadd float %.0496627, %400
   %403 = getelementptr inbounds float, ptr %108, i64 %219
   %404 = load <2 x float>, ptr %403, align 4
   %405 = fsub <2 x float> %404, %399
@@ -48442,19 +48442,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br label %409
 
 409:                                              ; preds = %.loopexit, %396, %.critedge521
-  %.5508 = phi float [ %.4507, %396 ], [ %.4507, %.loopexit ], [ %.0503626, %.critedge521 ]
-  %.3502 = phi float [ %.2501, %396 ], [ %.2501, %.loopexit ], [ %.0499627, %.critedge521 ]
-  %.1494 = phi float [ %402, %396 ], [ %.0493630, %.loopexit ], [ %.0493630, %.critedge521 ]
-  %.1491 = phi i1 [ true, %396 ], [ true, %.loopexit ], [ %.0490631, %.critedge521 ]
-  %.4483 = phi float [ %.3482, %396 ], [ %.3482, %.loopexit ], [ %.1480633, %.critedge521 ]
-  %.6 = phi float [ %.5, %396 ], [ %.5, %.loopexit ], [ %.1476634, %.critedge521 ]
+  %.1497 = phi float [ %402, %396 ], [ %.0496627, %.loopexit ], [ %.0496627, %.critedge521 ]
+  %.3491 = phi float [ %.2490, %396 ], [ %.2490, %.loopexit ], [ %.0488630, %.critedge521 ]
+  %.5487 = phi float [ %.4486, %396 ], [ %.4486, %.loopexit ], [ %.0482631, %.critedge521 ]
+  %.1481 = phi i1 [ true, %396 ], [ true, %.loopexit ], [ %.0480632, %.critedge521 ]
+  %.4475 = phi float [ %.3474, %396 ], [ %.3474, %.loopexit ], [ %.1472633, %.critedge521 ]
+  %.6 = phi float [ %.5, %396 ], [ %.5, %.loopexit ], [ %.1469634, %.critedge521 ]
   %410 = phi <2 x float> [ %401, %396 ], [ %162, %.loopexit ], [ %162, %.critedge521 ]
   %indvars.iv.next676 = add nsw i64 %indvars.iv675, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next676, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !427
 
 ._crit_edge:                                      ; preds = %409
-  br i1 %.1491, label %411, label %._crit_edge.thread
+  br i1 %.1481, label %411, label %._crit_edge.thread
 
 411:                                              ; preds = %._crit_edge
   %412 = getelementptr inbounds float, ptr %108, i64 %139
@@ -48463,7 +48463,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %414, ptr %412, align 4
   %415 = getelementptr i8, ptr %412, i64 8
   %416 = load float, ptr %415, align 4
-  %417 = fadd float %.1494, %416
+  %417 = fadd float %.1497, %416
   store float %417, ptr %415, align 4
   br i1 %.not, label %427, label %418
 
@@ -48476,7 +48476,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %423, ptr %421, align 4
   %424 = getelementptr i8, ptr %421, i64 8
   %425 = load float, ptr %424, align 4
-  %426 = fadd float %.1494, %425
+  %426 = fadd float %.1497, %425
   store float %426, ptr %424, align 4
   br label %427
 
@@ -48489,22 +48489,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %431 = sext i32 %430 to i64
   %432 = getelementptr inbounds float, ptr %123, i64 %431
   %433 = load float, ptr %432, align 4
-  %434 = fadd float %.5508, %433
+  %434 = fadd float %.5487, %433
   store float %434, ptr %432, align 4
   %435 = getelementptr inbounds float, ptr %125, i64 %431
   %436 = load float, ptr %435, align 4
-  %437 = fadd float %.3502, %436
+  %437 = fadd float %.3491, %436
   store float %437, ptr %435, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge519, %._crit_edge, %428, %427
-  %.1476.lcssa692 = phi float [ %.6, %._crit_edge ], [ %.6, %428 ], [ %.6, %427 ], [ %.0475644, %.critedge519 ]
-  %.1480.lcssa691 = phi float [ %.4483, %._crit_edge ], [ %.4483, %428 ], [ %.4483, %427 ], [ %.0479643, %.critedge519 ]
+  %.1469.lcssa692 = phi float [ %.6, %._crit_edge ], [ %.6, %428 ], [ %.6, %427 ], [ %.0468644, %.critedge519 ]
+  %.1472.lcssa691 = phi float [ %.4475, %._crit_edge ], [ %.4475, %428 ], [ %.4475, %427 ], [ %.0471643, %.critedge519 ]
   %exitcond681.not = icmp eq i64 %indvars.iv.next678, %wide.trip.count680
   br i1 %exitcond681.not, label %._crit_edge645, label %.critedge519, !llvm.loop !428
 
 ._crit_edge645:                                   ; preds = %._crit_edge.thread
-  %438 = fcmp une float %.1476.lcssa692, 0.000000e+00
+  %438 = fcmp une float %.1469.lcssa692, 0.000000e+00
   br i1 %438, label %439, label %445
 
 439:                                              ; preds = %._crit_edge645
@@ -48512,12 +48512,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %441 = inttoptr i64 %440 to ptr
   %442 = getelementptr inbounds i8, ptr %441, i64 8
   %443 = load float, ptr %442, align 4
-  %444 = fadd float %.1476.lcssa692, %443
+  %444 = fadd float %.1469.lcssa692, %443
   store float %444, ptr %442, align 4
   br label %445
 
 445:                                              ; preds = %439, %._crit_edge645
-  %446 = fcmp une float %.1480.lcssa691, 0.000000e+00
+  %446 = fcmp une float %.1472.lcssa691, 0.000000e+00
   br i1 %446, label %447, label %.thread
 
 447:                                              ; preds = %445
@@ -48525,7 +48525,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %449 = inttoptr i64 %448 to ptr
   %450 = getelementptr inbounds i8, ptr %449, i64 12
   %451 = load float, ptr %450, align 4
-  %452 = fadd float %.1480.lcssa691, %451
+  %452 = fadd float %.1472.lcssa691, %451
   store float %452, ptr %450, align 4
   br label %.thread
 
@@ -49736,8 +49736,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge438:                                     ; preds = %.critedge438.lr.ph, %._crit_edge.thread
   %indvars.iv571 = phi i64 [ 0, %.critedge438.lr.ph ], [ %indvars.iv.next572, %._crit_edge.thread ]
-  %.0402540 = phi float [ 0.000000e+00, %.critedge438.lr.ph ], [ %.1403.lcssa585, %._crit_edge.thread ]
-  %.0405539 = phi float [ 0.000000e+00, %.critedge438.lr.ph ], [ %.1406.lcssa584, %._crit_edge.thread ]
+  %.0400540 = phi float [ 0.000000e+00, %.critedge438.lr.ph ], [ %.1401.lcssa585, %._crit_edge.thread ]
+  %.0403539 = phi float [ 0.000000e+00, %.critedge438.lr.ph ], [ %.1404.lcssa584, %._crit_edge.thread ]
   %121 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv571
   %122 = load i32, ptr %121, align 4
   %123 = sext i32 %122 to i64
@@ -49788,11 +49788,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv569 = phi i64 [ %161, %.lr.ph.preheader ], [ %indvars.iv.next570, %.loopexit ]
-  %.1403533 = phi float [ %.0402540, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1406532 = phi float [ %.0405539, %.lr.ph.preheader ], [ %.4409, %.loopexit ]
-  %.0412531 = phi i1 [ false, %.lr.ph.preheader ], [ %.1413, %.loopexit ]
-  %.0419529 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3422, %.loopexit ]
-  %.0423528 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5428, %.loopexit ]
+  %.1401533 = phi float [ %.0400540, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1404532 = phi float [ %.0403539, %.lr.ph.preheader ], [ %.4407, %.loopexit ]
+  %.0410531 = phi i1 [ false, %.lr.ph.preheader ], [ %.1411, %.loopexit ]
+  %.0412530 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5417, %.loopexit ]
+  %.0418529 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3421, %.loopexit ]
   %162 = load ptr, ptr %113, align 8
   %163 = load ptr, ptr %114, align 8
   %164 = icmp eq ptr %162, %163
@@ -50034,24 +50034,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv563.sroa.phi701 = phi ptr [ %.sroa.0707.4.gep.sroa_idx711, %.preheader ], [ %.sroa.0707, %.thread491 ]
   %indvars.iv563.sroa.phi716 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0720, %.thread491 ]
   %indvars.iv563.sroa.phi723.sroa.speculated = phi float [ %34, %.preheader ], [ %77, %.thread491 ]
-  %.2404523 = phi float [ %323, %.preheader ], [ %.1403533, %.thread491 ]
-  %.2407522 = phi float [ %329, %.preheader ], [ %.1406532, %.thread491 ]
-  %.1420521 = phi float [ %315, %.preheader ], [ %.0419529, %.thread491 ]
-  %.1424520 = phi float [ %312, %.preheader ], [ %.0423528, %.thread491 ]
+  %.2402523 = phi float [ %323, %.preheader ], [ %.1401533, %.thread491 ]
+  %.2405522 = phi float [ %329, %.preheader ], [ %.1404532, %.thread491 ]
+  %.1413521 = phi float [ %312, %.preheader ], [ %.0412530, %.thread491 ]
+  %.1419520 = phi float [ %315, %.preheader ], [ %.0418529, %.thread491 ]
   %311 = load float, ptr %indvars.iv563.sroa.phi613, align 4
-  %312 = tail call float @llvm.fmuladd.f32(float %indvars.iv563.sroa.phi723.sroa.speculated, float %311, float %.1424520)
+  %312 = tail call float @llvm.fmuladd.f32(float %indvars.iv563.sroa.phi723.sroa.speculated, float %311, float %.1413521)
   %313 = load float, ptr %indvars.iv563.sroa.phi716, align 4
   %314 = load float, ptr %indvars.iv563.sroa.phi, align 4
-  %315 = tail call float @llvm.fmuladd.f32(float %313, float %314, float %.1420521)
+  %315 = tail call float @llvm.fmuladd.f32(float %313, float %314, float %.1419520)
   %316 = load float, ptr %indvars.iv563.sroa.phi701, align 4
-  %317 = tail call float @llvm.fmuladd.f32(float %311, float %316, float %.2404523)
+  %317 = tail call float @llvm.fmuladd.f32(float %311, float %316, float %.2402523)
   %318 = fmul float %.sroa.0463.0, %indvars.iv563.sroa.phi723.sroa.speculated
   %319 = load float, ptr %indvars.iv563.sroa.phi683, align 4
   %320 = fmul float %318, %319
   %321 = fmul float %320, 0.000000e+00
   %322 = load float, ptr %indvars.iv563.sroa.phi631, align 4
   %323 = tail call float @llvm.fmuladd.f32(float %321, float %322, float %317)
-  %324 = tail call float @llvm.fmuladd.f32(float %314, float %316, float %.2407522)
+  %324 = tail call float @llvm.fmuladd.f32(float %314, float %316, float %.2405522)
   %325 = fmul float %.sroa.0464.0, %313
   %326 = load float, ptr %indvars.iv563.sroa.phi670, align 4
   %327 = fmul float %325, %326
@@ -50060,10 +50060,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %310, label %.preheader, label %.loopexit514, !llvm.loop !442
 
 .loopexit514:                                     ; preds = %.preheader, %.critedge
-  %.2425 = phi float [ %.0423528, %.critedge ], [ %312, %.preheader ]
-  %.2421 = phi float [ %.0419529, %.critedge ], [ %315, %.preheader ]
-  %.3408 = phi float [ %.1406532, %.critedge ], [ %329, %.preheader ]
-  %.3 = phi float [ %.1403533, %.critedge ], [ %323, %.preheader ]
+  %.2420 = phi float [ %.0418529, %.critedge ], [ %315, %.preheader ]
+  %.2414 = phi float [ %.0412530, %.critedge ], [ %312, %.preheader ]
+  %.3406 = phi float [ %.1404532, %.critedge ], [ %329, %.preheader ]
+  %.3 = phi float [ %.1401533, %.critedge ], [ %323, %.preheader ]
   %330 = fcmp uge float %253, %53
   %.not511 = select i1 %170, i1 %330, i1 false
   br i1 %.not511, label %.loopexit, label %331
@@ -50093,11 +50093,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv566.sroa.phi703 = phi ptr [ %.sroa.0707, %331 ], [ %.sroa.0707.4.gep704.sroa_idx712, %348 ]
   %indvars.iv566.sroa.phi725.sroa.speculated = phi float [ %77, %331 ], [ %34, %348 ]
   %.4526 = phi float [ %.3, %331 ], [ %357, %348 ]
-  %.3426525 = phi float [ %.2425, %331 ], [ %353, %348 ]
+  %.3415525 = phi float [ %.2414, %331 ], [ %353, %348 ]
   %350 = load float, ptr %indvars.iv566.sroa.phi, align 4
   %351 = fmul float %indvars.iv566.sroa.phi725.sroa.speculated, %350
   %352 = fmul float %347, %351
-  %353 = fsub float %.3426525, %352
+  %353 = fsub float %.3415525, %352
   %354 = load float, ptr %indvars.iv566.sroa.phi703, align 4
   %355 = fmul float %350, %354
   %356 = fmul float %347, %355
@@ -50105,17 +50105,17 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %349, label %348, label %.loopexit, !llvm.loop !443
 
 .loopexit:                                        ; preds = %348, %.loopexit514, %.critedge440
-  %.5428 = phi float [ %.0423528, %.critedge440 ], [ %.2425, %.loopexit514 ], [ %353, %348 ]
-  %.3422 = phi float [ %.0419529, %.critedge440 ], [ %.2421, %.loopexit514 ], [ %.2421, %348 ]
-  %.1413 = phi i1 [ %.0412531, %.critedge440 ], [ true, %.loopexit514 ], [ true, %348 ]
-  %.4409 = phi float [ %.1406532, %.critedge440 ], [ %.3408, %.loopexit514 ], [ %.3408, %348 ]
-  %.6 = phi float [ %.1403533, %.critedge440 ], [ %.3, %.loopexit514 ], [ %357, %348 ]
+  %.3421 = phi float [ %.0418529, %.critedge440 ], [ %.2420, %.loopexit514 ], [ %.2420, %348 ]
+  %.5417 = phi float [ %.0412530, %.critedge440 ], [ %.2414, %.loopexit514 ], [ %353, %348 ]
+  %.1411 = phi i1 [ %.0410531, %.critedge440 ], [ true, %.loopexit514 ], [ true, %348 ]
+  %.4407 = phi float [ %.1404532, %.critedge440 ], [ %.3406, %.loopexit514 ], [ %.3406, %348 ]
+  %.6 = phi float [ %.1401533, %.critedge440 ], [ %.3, %.loopexit514 ], [ %357, %348 ]
   %indvars.iv.next570 = add nsw i64 %indvars.iv569, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next570, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !444
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge444.not = and i1 %.not, %.1413
+  %brmerge444.not = and i1 %.not, %.1411
   br i1 %brmerge444.not, label %358, label %._crit_edge.thread
 
 358:                                              ; preds = %._crit_edge
@@ -50124,22 +50124,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %361 = sext i32 %360 to i64
   %362 = getelementptr inbounds float, ptr %118, i64 %361
   %363 = load float, ptr %362, align 4
-  %364 = fadd float %.5428, %363
+  %364 = fadd float %.5417, %363
   store float %364, ptr %362, align 4
   %365 = getelementptr inbounds float, ptr %120, i64 %361
   %366 = load float, ptr %365, align 4
-  %367 = fadd float %.3422, %366
+  %367 = fadd float %.3421, %366
   store float %367, ptr %365, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge438, %._crit_edge, %358
-  %.1403.lcssa585 = phi float [ %.6, %._crit_edge ], [ %.6, %358 ], [ %.0402540, %.critedge438 ]
-  %.1406.lcssa584 = phi float [ %.4409, %._crit_edge ], [ %.4409, %358 ], [ %.0405539, %.critedge438 ]
+  %.1401.lcssa585 = phi float [ %.6, %._crit_edge ], [ %.6, %358 ], [ %.0400540, %.critedge438 ]
+  %.1404.lcssa584 = phi float [ %.4407, %._crit_edge ], [ %.4407, %358 ], [ %.0403539, %.critedge438 ]
   %exitcond575.not = icmp eq i64 %indvars.iv.next572, %wide.trip.count574
   br i1 %exitcond575.not, label %._crit_edge541, label %.critedge438, !llvm.loop !445
 
 ._crit_edge541:                                   ; preds = %._crit_edge.thread
-  %368 = fcmp une float %.1403.lcssa585, 0.000000e+00
+  %368 = fcmp une float %.1401.lcssa585, 0.000000e+00
   br i1 %368, label %369, label %375
 
 369:                                              ; preds = %._crit_edge541
@@ -50147,12 +50147,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %371 = inttoptr i64 %370 to ptr
   %372 = getelementptr inbounds i8, ptr %371, i64 8
   %373 = load float, ptr %372, align 4
-  %374 = fadd float %.1403.lcssa585, %373
+  %374 = fadd float %.1401.lcssa585, %373
   store float %374, ptr %372, align 4
   br label %375
 
 375:                                              ; preds = %369, %._crit_edge541
-  %376 = fcmp une float %.1406.lcssa584, 0.000000e+00
+  %376 = fcmp une float %.1404.lcssa584, 0.000000e+00
   br i1 %376, label %377, label %.thread
 
 377:                                              ; preds = %375
@@ -50160,7 +50160,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %379 = inttoptr i64 %378 to ptr
   %380 = getelementptr inbounds i8, ptr %379, i64 12
   %381 = load float, ptr %380, align 4
-  %382 = fadd float %.1406.lcssa584, %381
+  %382 = fadd float %.1404.lcssa584, %381
   store float %382, ptr %380, align 4
   br label %.thread
 
@@ -51791,8 +51791,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge463:                                     ; preds = %.critedge463.lr.ph, %._crit_edge.thread
   %indvars.iv619 = phi i64 [ 0, %.critedge463.lr.ph ], [ %indvars.iv.next620, %._crit_edge.thread ]
-  %.0419586 = phi float [ 0.000000e+00, %.critedge463.lr.ph ], [ %.1420.lcssa634, %._crit_edge.thread ]
-  %.0423585 = phi float [ 0.000000e+00, %.critedge463.lr.ph ], [ %.1424.lcssa633, %._crit_edge.thread ]
+  %.0412586 = phi float [ 0.000000e+00, %.critedge463.lr.ph ], [ %.1413.lcssa634, %._crit_edge.thread ]
+  %.0415585 = phi float [ 0.000000e+00, %.critedge463.lr.ph ], [ %.1416.lcssa633, %._crit_edge.thread ]
   %113 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv619
   %114 = load i32, ptr %113, align 4
   %115 = sext i32 %114 to i64
@@ -51838,12 +51838,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %380
   %indvars.iv617 = phi i64 [ %148, %.lr.ph.preheader ], [ %indvars.iv.next618, %380 ]
-  %.1420576 = phi float [ %.0419586, %.lr.ph.preheader ], [ %.6, %380 ]
-  %.1424575 = phi float [ %.0423585, %.lr.ph.preheader ], [ %.4427, %380 ]
-  %.0433574 = phi i1 [ false, %.lr.ph.preheader ], [ %.1434, %380 ]
-  %.0437572 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1438, %380 ]
-  %.0443569 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3446, %380 ]
-  %.0447568 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5452, %380 ]
+  %.1413576 = phi float [ %.0412586, %.lr.ph.preheader ], [ %.6, %380 ]
+  %.1416575 = phi float [ %.0415585, %.lr.ph.preheader ], [ %.4419, %380 ]
+  %.0424574 = phi i1 [ false, %.lr.ph.preheader ], [ %.1425, %380 ]
+  %.0426573 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5431, %380 ]
+  %.0432572 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3435, %380 ]
+  %.0440569 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1441, %380 ]
   %149 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %381, %380 ]
   %150 = load ptr, ptr %105, align 8
   %151 = load ptr, ptr %106, align 8
@@ -52093,31 +52093,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv611.sroa.phi761 = phi ptr [ %.sroa.0767.4.gep.sroa_idx771, %.preheader ], [ %.sroa.0767, %.thread529 ]
   %indvars.iv611.sroa.phi776 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0780, %.thread529 ]
   %indvars.iv611.sroa.phi783.sroa.speculated = phi float [ %34, %.preheader ], [ %68, %.thread529 ]
-  %.0414562 = phi float [ %305, %.preheader ], [ 0.000000e+00, %.thread529 ]
-  %.2421561 = phi float [ %313, %.preheader ], [ %.1420576, %.thread529 ]
-  %.2425560 = phi float [ %319, %.preheader ], [ %.1424575, %.thread529 ]
-  %.1444559 = phi float [ %299, %.preheader ], [ %.0443569, %.thread529 ]
-  %.1448558 = phi float [ %296, %.preheader ], [ %.0447568, %.thread529 ]
+  %.2414563 = phi float [ %313, %.preheader ], [ %.1413576, %.thread529 ]
+  %.2417562 = phi float [ %319, %.preheader ], [ %.1416575, %.thread529 ]
+  %.1427560 = phi float [ %296, %.preheader ], [ %.0426573, %.thread529 ]
+  %.1433559 = phi float [ %299, %.preheader ], [ %.0432572, %.thread529 ]
+  %.0447558 = phi float [ %305, %.preheader ], [ 0.000000e+00, %.thread529 ]
   %295 = load float, ptr %indvars.iv611.sroa.phi669, align 4
-  %296 = tail call float @llvm.fmuladd.f32(float %indvars.iv611.sroa.phi783.sroa.speculated, float %295, float %.1448558)
+  %296 = tail call float @llvm.fmuladd.f32(float %indvars.iv611.sroa.phi783.sroa.speculated, float %295, float %.1427560)
   %297 = load float, ptr %indvars.iv611.sroa.phi776, align 4
   %298 = load float, ptr %indvars.iv611.sroa.phi, align 4
-  %299 = tail call float @llvm.fmuladd.f32(float %297, float %298, float %.1444559)
+  %299 = tail call float @llvm.fmuladd.f32(float %297, float %298, float %.1433559)
   %300 = load float, ptr %indvars.iv611.sroa.phi681, align 4
   %301 = fmul float %indvars.iv611.sroa.phi783.sroa.speculated, %300
-  %302 = tail call float @llvm.fmuladd.f32(float %301, float %241, float %.0414562)
+  %302 = tail call float @llvm.fmuladd.f32(float %301, float %241, float %.0447558)
   %303 = load float, ptr %indvars.iv611.sroa.phi675, align 4
   %304 = fmul float %297, %303
   %305 = tail call float @llvm.fmuladd.f32(float %304, float %241, float %302)
   %306 = load float, ptr %indvars.iv611.sroa.phi761, align 4
-  %307 = tail call float @llvm.fmuladd.f32(float %295, float %306, float %.2421561)
+  %307 = tail call float @llvm.fmuladd.f32(float %295, float %306, float %.2414563)
   %308 = fmul float %.sroa.0490.0, %indvars.iv611.sroa.phi783.sroa.speculated
   %309 = load float, ptr %indvars.iv611.sroa.phi743, align 4
   %310 = fmul float %308, %309
   %311 = fmul float %300, %310
   %312 = load float, ptr %indvars.iv611.sroa.phi691, align 4
   %313 = tail call float @llvm.fmuladd.f32(float %311, float %312, float %307)
-  %314 = tail call float @llvm.fmuladd.f32(float %298, float %306, float %.2425560)
+  %314 = tail call float @llvm.fmuladd.f32(float %298, float %306, float %.2417562)
   %315 = fmul float %.sroa.0491.0, %297
   %316 = load float, ptr %indvars.iv611.sroa.phi730, align 4
   %317 = fmul float %315, %316
@@ -52126,11 +52126,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %294, label %.preheader, label %.loopexit552, !llvm.loop !459
 
 .loopexit552:                                     ; preds = %.preheader, %.critedge
-  %.2449 = phi float [ %.0447568, %.critedge ], [ %296, %.preheader ]
-  %.2445 = phi float [ %.0443569, %.critedge ], [ %299, %.preheader ]
-  %.3426 = phi float [ %.1424575, %.critedge ], [ %319, %.preheader ]
-  %.3422 = phi float [ %.1420576, %.critedge ], [ %313, %.preheader ]
-  %.1415 = phi float [ 0.000000e+00, %.critedge ], [ %305, %.preheader ]
+  %.1448 = phi float [ 0.000000e+00, %.critedge ], [ %305, %.preheader ]
+  %.2434 = phi float [ %.0432572, %.critedge ], [ %299, %.preheader ]
+  %.2428 = phi float [ %.0426573, %.critedge ], [ %296, %.preheader ]
+  %.3418 = phi float [ %.1416575, %.critedge ], [ %319, %.preheader ]
+  %.3 = phi float [ %.1413576, %.critedge ], [ %313, %.preheader ]
   %320 = fcmp uge float %240, %54
   %.not549 = select i1 %158, i1 %320, i1 false
   br i1 %.not549, label %.loopexit, label %321
@@ -52175,35 +52175,35 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv614.sroa.phi = phi ptr [ %.sroa.0688, %321 ], [ %.sroa.3, %354 ]
   %indvars.iv614.sroa.phi763 = phi ptr [ %.sroa.0767, %321 ], [ %.sroa.0767.4.gep764.sroa_idx772, %354 ]
   %indvars.iv614.sroa.phi785.sroa.speculated = phi float [ %68, %321 ], [ %34, %354 ]
-  %.2416566 = phi float [ %.1415, %321 ], [ %361, %354 ]
-  %.4565 = phi float [ %.3422, %321 ], [ %365, %354 ]
-  %.3450564 = phi float [ %.2449, %321 ], [ %359, %354 ]
+  %.4567 = phi float [ %.3, %321 ], [ %365, %354 ]
+  %.3429565 = phi float [ %.2428, %321 ], [ %359, %354 ]
+  %.2449564 = phi float [ %.1448, %321 ], [ %361, %354 ]
   %356 = load float, ptr %indvars.iv614.sroa.phi, align 4
   %357 = fmul float %indvars.iv614.sroa.phi785.sroa.speculated, %356
   %358 = fmul float %353, %357
-  %359 = fsub float %.3450564, %358
+  %359 = fsub float %.3429565, %358
   %360 = fmul float %351, %357
-  %361 = fsub float %.2416566, %360
+  %361 = fsub float %.2449564, %360
   %362 = load float, ptr %indvars.iv614.sroa.phi763, align 4
   %363 = fmul float %356, %362
   %364 = fmul float %353, %363
-  %365 = fsub float %.4565, %364
+  %365 = fsub float %.4567, %364
   br i1 %355, label %354, label %.loopexit, !llvm.loop !460
 
 .loopexit:                                        ; preds = %354, %.loopexit552
-  %.4451 = phi float [ %.2449, %.loopexit552 ], [ %359, %354 ]
-  %.5 = phi float [ %.3422, %.loopexit552 ], [ %365, %354 ]
-  %.3 = phi float [ %.1415, %.loopexit552 ], [ %361, %354 ]
-  %366 = fcmp une float %.3, 0.000000e+00
+  %.3450 = phi float [ %.1448, %.loopexit552 ], [ %361, %354 ]
+  %.4430 = phi float [ %.2428, %.loopexit552 ], [ %359, %354 ]
+  %.5 = phi float [ %.3, %.loopexit552 ], [ %365, %354 ]
+  %366 = fcmp une float %.3450, 0.000000e+00
   br i1 %366, label %367, label %380
 
 367:                                              ; preds = %.loopexit
-  %368 = insertelement <2 x float> poison, float %.3, i64 0
+  %368 = insertelement <2 x float> poison, float %.3450, i64 0
   %369 = shufflevector <2 x float> %368, <2 x float> poison, <2 x i32> zeroinitializer
   %370 = fmul <2 x float> %212, %369
-  %371 = fmul float %213, %.3
+  %371 = fmul float %213, %.3450
   %372 = fadd <2 x float> %149, %370
-  %373 = fadd float %.0437572, %371
+  %373 = fadd float %.0440569, %371
   %374 = getelementptr inbounds float, ptr %95, i64 %206
   %375 = load <2 x float>, ptr %374, align 4
   %376 = fsub <2 x float> %375, %370
@@ -52215,19 +52215,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br label %380
 
 380:                                              ; preds = %.loopexit, %367, %.critedge465
-  %.5452 = phi float [ %.4451, %367 ], [ %.4451, %.loopexit ], [ %.0447568, %.critedge465 ]
-  %.3446 = phi float [ %.2445, %367 ], [ %.2445, %.loopexit ], [ %.0443569, %.critedge465 ]
-  %.1438 = phi float [ %373, %367 ], [ %.0437572, %.loopexit ], [ %.0437572, %.critedge465 ]
-  %.1434 = phi i1 [ true, %367 ], [ true, %.loopexit ], [ %.0433574, %.critedge465 ]
-  %.4427 = phi float [ %.3426, %367 ], [ %.3426, %.loopexit ], [ %.1424575, %.critedge465 ]
-  %.6 = phi float [ %.5, %367 ], [ %.5, %.loopexit ], [ %.1420576, %.critedge465 ]
+  %.1441 = phi float [ %373, %367 ], [ %.0440569, %.loopexit ], [ %.0440569, %.critedge465 ]
+  %.3435 = phi float [ %.2434, %367 ], [ %.2434, %.loopexit ], [ %.0432572, %.critedge465 ]
+  %.5431 = phi float [ %.4430, %367 ], [ %.4430, %.loopexit ], [ %.0426573, %.critedge465 ]
+  %.1425 = phi i1 [ true, %367 ], [ true, %.loopexit ], [ %.0424574, %.critedge465 ]
+  %.4419 = phi float [ %.3418, %367 ], [ %.3418, %.loopexit ], [ %.1416575, %.critedge465 ]
+  %.6 = phi float [ %.5, %367 ], [ %.5, %.loopexit ], [ %.1413576, %.critedge465 ]
   %381 = phi <2 x float> [ %372, %367 ], [ %149, %.loopexit ], [ %149, %.critedge465 ]
   %indvars.iv.next618 = add nsw i64 %indvars.iv617, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next618, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !461
 
 ._crit_edge:                                      ; preds = %380
-  br i1 %.1434, label %382, label %._crit_edge.thread
+  br i1 %.1425, label %382, label %._crit_edge.thread
 
 382:                                              ; preds = %._crit_edge
   %383 = getelementptr inbounds float, ptr %95, i64 %126
@@ -52236,7 +52236,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %385, ptr %383, align 4
   %386 = getelementptr i8, ptr %383, i64 8
   %387 = load float, ptr %386, align 4
-  %388 = fadd float %.1438, %387
+  %388 = fadd float %.1441, %387
   store float %388, ptr %386, align 4
   br i1 %.not, label %398, label %389
 
@@ -52249,7 +52249,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %394, ptr %392, align 4
   %395 = getelementptr i8, ptr %392, i64 8
   %396 = load float, ptr %395, align 4
-  %397 = fadd float %.1438, %396
+  %397 = fadd float %.1441, %396
   store float %397, ptr %395, align 4
   br label %398
 
@@ -52262,22 +52262,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %402 = sext i32 %401 to i64
   %403 = getelementptr inbounds float, ptr %110, i64 %402
   %404 = load float, ptr %403, align 4
-  %405 = fadd float %.5452, %404
+  %405 = fadd float %.5431, %404
   store float %405, ptr %403, align 4
   %406 = getelementptr inbounds float, ptr %112, i64 %402
   %407 = load float, ptr %406, align 4
-  %408 = fadd float %.3446, %407
+  %408 = fadd float %.3435, %407
   store float %408, ptr %406, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge463, %._crit_edge, %399, %398
-  %.1420.lcssa634 = phi float [ %.6, %._crit_edge ], [ %.6, %399 ], [ %.6, %398 ], [ %.0419586, %.critedge463 ]
-  %.1424.lcssa633 = phi float [ %.4427, %._crit_edge ], [ %.4427, %399 ], [ %.4427, %398 ], [ %.0423585, %.critedge463 ]
+  %.1413.lcssa634 = phi float [ %.6, %._crit_edge ], [ %.6, %399 ], [ %.6, %398 ], [ %.0412586, %.critedge463 ]
+  %.1416.lcssa633 = phi float [ %.4419, %._crit_edge ], [ %.4419, %399 ], [ %.4419, %398 ], [ %.0415585, %.critedge463 ]
   %exitcond623.not = icmp eq i64 %indvars.iv.next620, %wide.trip.count622
   br i1 %exitcond623.not, label %._crit_edge587, label %.critedge463, !llvm.loop !462
 
 ._crit_edge587:                                   ; preds = %._crit_edge.thread
-  %409 = fcmp une float %.1420.lcssa634, 0.000000e+00
+  %409 = fcmp une float %.1413.lcssa634, 0.000000e+00
   br i1 %409, label %410, label %416
 
 410:                                              ; preds = %._crit_edge587
@@ -52285,12 +52285,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %412 = inttoptr i64 %411 to ptr
   %413 = getelementptr inbounds i8, ptr %412, i64 8
   %414 = load float, ptr %413, align 4
-  %415 = fadd float %.1420.lcssa634, %414
+  %415 = fadd float %.1413.lcssa634, %414
   store float %415, ptr %413, align 4
   br label %416
 
 416:                                              ; preds = %410, %._crit_edge587
-  %417 = fcmp une float %.1424.lcssa633, 0.000000e+00
+  %417 = fcmp une float %.1416.lcssa633, 0.000000e+00
   br i1 %417, label %418, label %.thread
 
 418:                                              ; preds = %416
@@ -52298,7 +52298,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %420 = inttoptr i64 %419 to ptr
   %421 = getelementptr inbounds i8, ptr %420, i64 12
   %422 = load float, ptr %421, align 4
-  %423 = fadd float %.1424.lcssa633, %422
+  %423 = fadd float %.1416.lcssa633, %422
   store float %423, ptr %421, align 4
   br label %.thread
 
@@ -53469,8 +53469,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge394:                                     ; preds = %.critedge394.lr.ph, %._crit_edge.thread
   %indvars.iv526 = phi i64 [ 0, %.critedge394.lr.ph ], [ %indvars.iv.next527, %._crit_edge.thread ]
-  %.0358495 = phi float [ 0.000000e+00, %.critedge394.lr.ph ], [ %.1359.lcssa540, %._crit_edge.thread ]
-  %.0361494 = phi float [ 0.000000e+00, %.critedge394.lr.ph ], [ %.1362.lcssa539, %._crit_edge.thread ]
+  %.0356495 = phi float [ 0.000000e+00, %.critedge394.lr.ph ], [ %.1357.lcssa540, %._crit_edge.thread ]
+  %.0359494 = phi float [ 0.000000e+00, %.critedge394.lr.ph ], [ %.1360.lcssa539, %._crit_edge.thread ]
   %111 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv526
   %112 = load i32, ptr %111, align 4
   %113 = sext i32 %112 to i64
@@ -53521,11 +53521,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv524 = phi i64 [ %151, %.lr.ph.preheader ], [ %indvars.iv.next525, %.loopexit ]
-  %.1359488 = phi float [ %.0358495, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1362487 = phi float [ %.0361494, %.lr.ph.preheader ], [ %.4365, %.loopexit ]
-  %.0369486 = phi i1 [ false, %.lr.ph.preheader ], [ %.1370, %.loopexit ]
-  %.0375484 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3378, %.loopexit ]
-  %.0379483 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5384, %.loopexit ]
+  %.1357488 = phi float [ %.0356495, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1360487 = phi float [ %.0359494, %.lr.ph.preheader ], [ %.4363, %.loopexit ]
+  %.0366486 = phi i1 [ false, %.lr.ph.preheader ], [ %.1367, %.loopexit ]
+  %.0368485 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5373, %.loopexit ]
+  %.0374484 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3377, %.loopexit ]
   %152 = load ptr, ptr %103, align 8
   %153 = load ptr, ptr %104, align 8
   %154 = icmp eq ptr %152, %153
@@ -53758,24 +53758,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv518.sroa.phi656 = phi ptr [ %.sroa.0662.4.gep.sroa_idx666, %.preheader ], [ %.sroa.0662, %.thread446 ]
   %indvars.iv518.sroa.phi671 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0675, %.thread446 ]
   %indvars.iv518.sroa.phi678.sroa.speculated = phi float [ %34, %.preheader ], [ %67, %.thread446 ]
-  %.2360478 = phi float [ %304, %.preheader ], [ %.1359488, %.thread446 ]
-  %.2363477 = phi float [ %310, %.preheader ], [ %.1362487, %.thread446 ]
-  %.1376476 = phi float [ %296, %.preheader ], [ %.0375484, %.thread446 ]
-  %.1380475 = phi float [ %293, %.preheader ], [ %.0379483, %.thread446 ]
+  %.2358478 = phi float [ %304, %.preheader ], [ %.1357488, %.thread446 ]
+  %.2361477 = phi float [ %310, %.preheader ], [ %.1360487, %.thread446 ]
+  %.1369476 = phi float [ %293, %.preheader ], [ %.0368485, %.thread446 ]
+  %.1375475 = phi float [ %296, %.preheader ], [ %.0374484, %.thread446 ]
   %292 = load float, ptr %indvars.iv518.sroa.phi568, align 4
-  %293 = tail call float @llvm.fmuladd.f32(float %indvars.iv518.sroa.phi678.sroa.speculated, float %292, float %.1380475)
+  %293 = tail call float @llvm.fmuladd.f32(float %indvars.iv518.sroa.phi678.sroa.speculated, float %292, float %.1369476)
   %294 = load float, ptr %indvars.iv518.sroa.phi671, align 4
   %295 = load float, ptr %indvars.iv518.sroa.phi, align 4
-  %296 = tail call float @llvm.fmuladd.f32(float %294, float %295, float %.1376476)
+  %296 = tail call float @llvm.fmuladd.f32(float %294, float %295, float %.1375475)
   %297 = load float, ptr %indvars.iv518.sroa.phi656, align 4
-  %298 = tail call float @llvm.fmuladd.f32(float %292, float %297, float %.2360478)
+  %298 = tail call float @llvm.fmuladd.f32(float %292, float %297, float %.2358478)
   %299 = fmul float %.sroa.0418.0, %indvars.iv518.sroa.phi678.sroa.speculated
   %300 = load float, ptr %indvars.iv518.sroa.phi638, align 4
   %301 = fmul float %299, %300
   %302 = fmul float %301, 0.000000e+00
   %303 = load float, ptr %indvars.iv518.sroa.phi586, align 4
   %304 = tail call float @llvm.fmuladd.f32(float %302, float %303, float %298)
-  %305 = tail call float @llvm.fmuladd.f32(float %295, float %297, float %.2363477)
+  %305 = tail call float @llvm.fmuladd.f32(float %295, float %297, float %.2361477)
   %306 = fmul float %.sroa.0419.0, %294
   %307 = load float, ptr %indvars.iv518.sroa.phi625, align 4
   %308 = fmul float %306, %307
@@ -53784,10 +53784,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %291, label %.preheader, label %.loopexit469, !llvm.loop !476
 
 .loopexit469:                                     ; preds = %.preheader, %.critedge
-  %.2381 = phi float [ %.0379483, %.critedge ], [ %293, %.preheader ]
-  %.2377 = phi float [ %.0375484, %.critedge ], [ %296, %.preheader ]
-  %.3364 = phi float [ %.1362487, %.critedge ], [ %310, %.preheader ]
-  %.3 = phi float [ %.1359488, %.critedge ], [ %304, %.preheader ]
+  %.2376 = phi float [ %.0374484, %.critedge ], [ %296, %.preheader ]
+  %.2370 = phi float [ %.0368485, %.critedge ], [ %293, %.preheader ]
+  %.3362 = phi float [ %.1360487, %.critedge ], [ %310, %.preheader ]
+  %.3 = phi float [ %.1357488, %.critedge ], [ %304, %.preheader ]
   %311 = fcmp uge float %243, %53
   %.not466 = select i1 %160, i1 %311, i1 false
   br i1 %.not466, label %.loopexit, label %312
@@ -53817,11 +53817,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv521.sroa.phi658 = phi ptr [ %.sroa.0662, %312 ], [ %.sroa.0662.4.gep659.sroa_idx667, %329 ]
   %indvars.iv521.sroa.phi680.sroa.speculated = phi float [ %67, %312 ], [ %34, %329 ]
   %.4481 = phi float [ %.3, %312 ], [ %338, %329 ]
-  %.3382480 = phi float [ %.2381, %312 ], [ %334, %329 ]
+  %.3371480 = phi float [ %.2370, %312 ], [ %334, %329 ]
   %331 = load float, ptr %indvars.iv521.sroa.phi, align 4
   %332 = fmul float %indvars.iv521.sroa.phi680.sroa.speculated, %331
   %333 = fmul float %328, %332
-  %334 = fsub float %.3382480, %333
+  %334 = fsub float %.3371480, %333
   %335 = load float, ptr %indvars.iv521.sroa.phi658, align 4
   %336 = fmul float %331, %335
   %337 = fmul float %328, %336
@@ -53829,17 +53829,17 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %330, label %329, label %.loopexit, !llvm.loop !477
 
 .loopexit:                                        ; preds = %329, %.loopexit469, %.critedge396
-  %.5384 = phi float [ %.0379483, %.critedge396 ], [ %.2381, %.loopexit469 ], [ %334, %329 ]
-  %.3378 = phi float [ %.0375484, %.critedge396 ], [ %.2377, %.loopexit469 ], [ %.2377, %329 ]
-  %.1370 = phi i1 [ %.0369486, %.critedge396 ], [ true, %.loopexit469 ], [ true, %329 ]
-  %.4365 = phi float [ %.1362487, %.critedge396 ], [ %.3364, %.loopexit469 ], [ %.3364, %329 ]
-  %.6 = phi float [ %.1359488, %.critedge396 ], [ %.3, %.loopexit469 ], [ %338, %329 ]
+  %.3377 = phi float [ %.0374484, %.critedge396 ], [ %.2376, %.loopexit469 ], [ %.2376, %329 ]
+  %.5373 = phi float [ %.0368485, %.critedge396 ], [ %.2370, %.loopexit469 ], [ %334, %329 ]
+  %.1367 = phi i1 [ %.0366486, %.critedge396 ], [ true, %.loopexit469 ], [ true, %329 ]
+  %.4363 = phi float [ %.1360487, %.critedge396 ], [ %.3362, %.loopexit469 ], [ %.3362, %329 ]
+  %.6 = phi float [ %.1357488, %.critedge396 ], [ %.3, %.loopexit469 ], [ %338, %329 ]
   %indvars.iv.next525 = add nsw i64 %indvars.iv524, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next525, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !478
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge400.not = and i1 %.not, %.1370
+  %brmerge400.not = and i1 %.not, %.1367
   br i1 %brmerge400.not, label %339, label %._crit_edge.thread
 
 339:                                              ; preds = %._crit_edge
@@ -53848,22 +53848,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %342 = sext i32 %341 to i64
   %343 = getelementptr inbounds float, ptr %108, i64 %342
   %344 = load float, ptr %343, align 4
-  %345 = fadd float %.5384, %344
+  %345 = fadd float %.5373, %344
   store float %345, ptr %343, align 4
   %346 = getelementptr inbounds float, ptr %110, i64 %342
   %347 = load float, ptr %346, align 4
-  %348 = fadd float %.3378, %347
+  %348 = fadd float %.3377, %347
   store float %348, ptr %346, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge394, %._crit_edge, %339
-  %.1359.lcssa540 = phi float [ %.6, %._crit_edge ], [ %.6, %339 ], [ %.0358495, %.critedge394 ]
-  %.1362.lcssa539 = phi float [ %.4365, %._crit_edge ], [ %.4365, %339 ], [ %.0361494, %.critedge394 ]
+  %.1357.lcssa540 = phi float [ %.6, %._crit_edge ], [ %.6, %339 ], [ %.0356495, %.critedge394 ]
+  %.1360.lcssa539 = phi float [ %.4363, %._crit_edge ], [ %.4363, %339 ], [ %.0359494, %.critedge394 ]
   %exitcond530.not = icmp eq i64 %indvars.iv.next527, %wide.trip.count529
   br i1 %exitcond530.not, label %._crit_edge496, label %.critedge394, !llvm.loop !479
 
 ._crit_edge496:                                   ; preds = %._crit_edge.thread
-  %349 = fcmp une float %.1359.lcssa540, 0.000000e+00
+  %349 = fcmp une float %.1357.lcssa540, 0.000000e+00
   br i1 %349, label %350, label %356
 
 350:                                              ; preds = %._crit_edge496
@@ -53871,12 +53871,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %352 = inttoptr i64 %351 to ptr
   %353 = getelementptr inbounds i8, ptr %352, i64 8
   %354 = load float, ptr %353, align 4
-  %355 = fadd float %.1359.lcssa540, %354
+  %355 = fadd float %.1357.lcssa540, %354
   store float %355, ptr %353, align 4
   br label %356
 
 356:                                              ; preds = %350, %._crit_edge496
-  %357 = fcmp une float %.1362.lcssa539, 0.000000e+00
+  %357 = fcmp une float %.1360.lcssa539, 0.000000e+00
   br i1 %357, label %358, label %.thread
 
 358:                                              ; preds = %356
@@ -53884,7 +53884,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %360 = inttoptr i64 %359 to ptr
   %361 = getelementptr inbounds i8, ptr %360, i64 12
   %362 = load float, ptr %361, align 4
-  %363 = fadd float %.1362.lcssa539, %362
+  %363 = fadd float %.1360.lcssa539, %362
   store float %363, ptr %361, align 4
   br label %.thread
 
@@ -55655,9 +55655,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge535:                                     ; preds = %.critedge535.lr.ph, %._crit_edge.thread
   %indvars.iv701 = phi i64 [ 0, %.critedge535.lr.ph ], [ %indvars.iv.next702, %._crit_edge.thread ]
-  %.0487667 = phi float [ 0.000000e+00, %.critedge535.lr.ph ], [ %.1488.lcssa718, %._crit_edge.thread ]
-  %.0491666 = phi float [ 0.000000e+00, %.critedge535.lr.ph ], [ %.1492.lcssa717, %._crit_edge.thread ]
-  %.0500665 = phi i8 [ 0, %.critedge535.lr.ph ], [ %.1501.lcssa716, %._crit_edge.thread ]
+  %.0480667 = phi float [ 0.000000e+00, %.critedge535.lr.ph ], [ %.1481.lcssa718, %._crit_edge.thread ]
+  %.0483666 = phi float [ 0.000000e+00, %.critedge535.lr.ph ], [ %.1484.lcssa717, %._crit_edge.thread ]
+  %.0489665 = phi i8 [ 0, %.critedge535.lr.ph ], [ %.1490.lcssa716, %._crit_edge.thread ]
   %137 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv701
   %138 = load i32, ptr %137, align 4
   %139 = sext i32 %138 to i64
@@ -55703,13 +55703,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %399
   %indvars.iv699 = phi i64 [ %172, %.lr.ph.preheader ], [ %indvars.iv.next700, %399 ]
-  %.1488655 = phi float [ %.0487667, %.lr.ph.preheader ], [ %.6, %399 ]
-  %.1492654 = phi float [ %.0491666, %.lr.ph.preheader ], [ %.4495, %399 ]
-  %.1501653 = phi i8 [ %.0500665, %.lr.ph.preheader ], [ %.3503, %399 ]
-  %.0507651 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1508, %399 ]
-  %.0513648 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3516, %399 ]
-  %.0517647 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5522, %399 ]
-  %.0523646 = phi i1 [ false, %.lr.ph.preheader ], [ %.1524, %399 ]
+  %.1481655 = phi float [ %.0480667, %.lr.ph.preheader ], [ %.6, %399 ]
+  %.1484654 = phi float [ %.0483666, %.lr.ph.preheader ], [ %.4487, %399 ]
+  %.1490653 = phi i8 [ %.0489665, %.lr.ph.preheader ], [ %.3492, %399 ]
+  %.0495652 = phi i1 [ false, %.lr.ph.preheader ], [ %.1496, %399 ]
+  %.0497651 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5502, %399 ]
+  %.0504650 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3507, %399 ]
+  %.0512647 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1513, %399 ]
   %173 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %400, %399 ]
   %174 = load ptr, ptr %125, align 8
   %175 = load ptr, ptr %126, align 8
@@ -55973,31 +55973,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv693.sroa.phi850 = phi ptr [ %.sroa.0856.4.gep.sroa_idx860, %.preheader ], [ %.sroa.0856, %.thread601 ]
   %indvars.iv693.sroa.phi865 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0869, %.thread601 ]
   %indvars.iv693.sroa.phi872.sroa.speculated = phi float [ %37, %.preheader ], [ %88, %.thread601 ]
-  %.0482640 = phi float [ %346, %.preheader ], [ 0.000000e+00, %.thread601 ]
-  %.2489639 = phi float [ %354, %.preheader ], [ %.1488655, %.thread601 ]
-  %.2493638 = phi float [ %360, %.preheader ], [ %.1492654, %.thread601 ]
-  %.1514637 = phi float [ %340, %.preheader ], [ %.0513648, %.thread601 ]
-  %.1518636 = phi float [ %337, %.preheader ], [ %.0517647, %.thread601 ]
+  %.2482641 = phi float [ %354, %.preheader ], [ %.1481655, %.thread601 ]
+  %.2485640 = phi float [ %360, %.preheader ], [ %.1484654, %.thread601 ]
+  %.1498639 = phi float [ %337, %.preheader ], [ %.0497651, %.thread601 ]
+  %.1505637 = phi float [ %340, %.preheader ], [ %.0504650, %.thread601 ]
+  %.0520636 = phi float [ %346, %.preheader ], [ 0.000000e+00, %.thread601 ]
   %336 = load float, ptr %indvars.iv693.sroa.phi758, align 4
-  %337 = tail call float @llvm.fmuladd.f32(float %indvars.iv693.sroa.phi872.sroa.speculated, float %336, float %.1518636)
+  %337 = tail call float @llvm.fmuladd.f32(float %indvars.iv693.sroa.phi872.sroa.speculated, float %336, float %.1498639)
   %338 = load float, ptr %indvars.iv693.sroa.phi865, align 4
   %339 = load float, ptr %indvars.iv693.sroa.phi, align 4
-  %340 = tail call float @llvm.fmuladd.f32(float %338, float %339, float %.1514637)
+  %340 = tail call float @llvm.fmuladd.f32(float %338, float %339, float %.1505637)
   %341 = load float, ptr %indvars.iv693.sroa.phi770, align 4
   %342 = fmul float %indvars.iv693.sroa.phi872.sroa.speculated, %341
-  %343 = tail call float @llvm.fmuladd.f32(float %342, float %263, float %.0482640)
+  %343 = tail call float @llvm.fmuladd.f32(float %342, float %263, float %.0520636)
   %344 = load float, ptr %indvars.iv693.sroa.phi764, align 4
   %345 = fmul float %338, %344
   %346 = tail call float @llvm.fmuladd.f32(float %345, float %263, float %343)
   %347 = load float, ptr %indvars.iv693.sroa.phi850, align 4
-  %348 = tail call float @llvm.fmuladd.f32(float %336, float %347, float %.2489639)
+  %348 = tail call float @llvm.fmuladd.f32(float %336, float %347, float %.2482641)
   %349 = fmul float %.sroa.0562.0, %indvars.iv693.sroa.phi872.sroa.speculated
   %350 = load float, ptr %indvars.iv693.sroa.phi832, align 4
   %351 = fmul float %349, %350
   %352 = fmul float %341, %351
   %353 = load float, ptr %indvars.iv693.sroa.phi780, align 4
   %354 = tail call float @llvm.fmuladd.f32(float %352, float %353, float %348)
-  %355 = tail call float @llvm.fmuladd.f32(float %339, float %347, float %.2493638)
+  %355 = tail call float @llvm.fmuladd.f32(float %339, float %347, float %.2485640)
   %356 = fmul float %.sroa.0563.0, %338
   %357 = load float, ptr %indvars.iv693.sroa.phi819, align 4
   %358 = fmul float %356, %357
@@ -56006,15 +56006,15 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %335, label %.preheader, label %.loopexit630, !llvm.loop !493
 
 .loopexit630:                                     ; preds = %.preheader, %.critedge
-  %.2519 = phi float [ %.0517647, %.critedge ], [ %337, %.preheader ]
-  %.2515 = phi float [ %.0513648, %.critedge ], [ %340, %.preheader ]
-  %.3494 = phi float [ %.1492654, %.critedge ], [ %360, %.preheader ]
-  %.3490 = phi float [ %.1488655, %.critedge ], [ %354, %.preheader ]
-  %.1483 = phi float [ 0.000000e+00, %.critedge ], [ %346, %.preheader ]
+  %.1521 = phi float [ 0.000000e+00, %.critedge ], [ %346, %.preheader ]
+  %.2506 = phi float [ %.0504650, %.critedge ], [ %340, %.preheader ]
+  %.2499 = phi float [ %.0497651, %.critedge ], [ %337, %.preheader ]
+  %.3486 = phi float [ %.1484654, %.critedge ], [ %360, %.preheader ]
+  %.3 = phi float [ %.1481655, %.critedge ], [ %354, %.preheader ]
   br i1 %84, label %361, label %.loopexit
 
 361:                                              ; preds = %.loopexit630
-  %362 = trunc nuw i8 %.1501653 to i1
+  %362 = trunc nuw i8 %.1490653 to i1
   br i1 %362, label %366, label %363
 
 363:                                              ; preds = %361
@@ -56038,36 +56038,36 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv696.sroa.phi = phi ptr [ %.sroa.0777, %369 ], [ %.sroa.3, %373 ]
   %indvars.iv696.sroa.phi852 = phi ptr [ %.sroa.0856, %369 ], [ %.sroa.0856.4.gep853.sroa_idx861, %373 ]
   %indvars.iv696.sroa.phi874.sroa.speculated = phi float [ %88, %369 ], [ %37, %373 ]
-  %.2484644 = phi float [ %.1483, %369 ], [ %380, %373 ]
-  %.4643 = phi float [ %.3490, %369 ], [ %384, %373 ]
-  %.3520642 = phi float [ %.2519, %369 ], [ %378, %373 ]
+  %.4645 = phi float [ %.3, %369 ], [ %384, %373 ]
+  %.3500643 = phi float [ %.2499, %369 ], [ %378, %373 ]
+  %.2522642 = phi float [ %.1521, %369 ], [ %380, %373 ]
   %375 = load float, ptr %indvars.iv696.sroa.phi, align 4
   %376 = fmul float %indvars.iv696.sroa.phi874.sroa.speculated, %375
   %377 = fmul float %372, %376
-  %378 = fadd float %.3520642, %377
+  %378 = fadd float %.3500643, %377
   %379 = fmul float %131, %376
-  %380 = fsub float %.2484644, %379
+  %380 = fsub float %.2522642, %379
   %381 = load float, ptr %indvars.iv696.sroa.phi852, align 4
   %382 = fmul float %375, %381
   %383 = fmul float %372, %382
-  %384 = fadd float %.4643, %383
+  %384 = fadd float %.4645, %383
   br i1 %374, label %373, label %.loopexit, !llvm.loop !494
 
 .loopexit:                                        ; preds = %373, %366, %.loopexit630
-  %.4521 = phi float [ %.2519, %366 ], [ %.2519, %.loopexit630 ], [ %378, %373 ]
-  %.2502 = phi i8 [ %368, %366 ], [ %.1501653, %.loopexit630 ], [ %368, %373 ]
-  %.5 = phi float [ %.3490, %366 ], [ %.3490, %.loopexit630 ], [ %384, %373 ]
-  %.3 = phi float [ %.1483, %366 ], [ %.1483, %.loopexit630 ], [ %380, %373 ]
-  %385 = fcmp une float %.3, 0.000000e+00
+  %.3523 = phi float [ %.1521, %366 ], [ %.1521, %.loopexit630 ], [ %380, %373 ]
+  %.4501 = phi float [ %.2499, %366 ], [ %.2499, %.loopexit630 ], [ %378, %373 ]
+  %.2491 = phi i8 [ %368, %366 ], [ %.1490653, %.loopexit630 ], [ %368, %373 ]
+  %.5 = phi float [ %.3, %366 ], [ %.3, %.loopexit630 ], [ %384, %373 ]
+  %385 = fcmp une float %.3523, 0.000000e+00
   br i1 %385, label %386, label %399
 
 386:                                              ; preds = %.loopexit
-  %387 = insertelement <2 x float> poison, float %.3, i64 0
+  %387 = insertelement <2 x float> poison, float %.3523, i64 0
   %388 = shufflevector <2 x float> %387, <2 x float> poison, <2 x i32> zeroinitializer
   %389 = fmul <2 x float> %236, %388
-  %390 = fmul float %237, %.3
+  %390 = fmul float %237, %.3523
   %391 = fadd <2 x float> %173, %389
-  %392 = fadd float %.0507651, %390
+  %392 = fadd float %.0512647, %390
   %393 = getelementptr inbounds float, ptr %115, i64 %230
   %394 = load <2 x float>, ptr %393, align 4
   %395 = fsub <2 x float> %394, %389
@@ -56079,20 +56079,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br label %399
 
 399:                                              ; preds = %.loopexit, %386, %.critedge537
-  %.1524 = phi i1 [ true, %386 ], [ true, %.loopexit ], [ %.0523646, %.critedge537 ]
-  %.5522 = phi float [ %.4521, %386 ], [ %.4521, %.loopexit ], [ %.0517647, %.critedge537 ]
-  %.3516 = phi float [ %.2515, %386 ], [ %.2515, %.loopexit ], [ %.0513648, %.critedge537 ]
-  %.1508 = phi float [ %392, %386 ], [ %.0507651, %.loopexit ], [ %.0507651, %.critedge537 ]
-  %.3503 = phi i8 [ %.2502, %386 ], [ %.2502, %.loopexit ], [ %.1501653, %.critedge537 ]
-  %.4495 = phi float [ %.3494, %386 ], [ %.3494, %.loopexit ], [ %.1492654, %.critedge537 ]
-  %.6 = phi float [ %.5, %386 ], [ %.5, %.loopexit ], [ %.1488655, %.critedge537 ]
+  %.1513 = phi float [ %392, %386 ], [ %.0512647, %.loopexit ], [ %.0512647, %.critedge537 ]
+  %.3507 = phi float [ %.2506, %386 ], [ %.2506, %.loopexit ], [ %.0504650, %.critedge537 ]
+  %.5502 = phi float [ %.4501, %386 ], [ %.4501, %.loopexit ], [ %.0497651, %.critedge537 ]
+  %.1496 = phi i1 [ true, %386 ], [ true, %.loopexit ], [ %.0495652, %.critedge537 ]
+  %.3492 = phi i8 [ %.2491, %386 ], [ %.2491, %.loopexit ], [ %.1490653, %.critedge537 ]
+  %.4487 = phi float [ %.3486, %386 ], [ %.3486, %.loopexit ], [ %.1484654, %.critedge537 ]
+  %.6 = phi float [ %.5, %386 ], [ %.5, %.loopexit ], [ %.1481655, %.critedge537 ]
   %400 = phi <2 x float> [ %391, %386 ], [ %173, %.loopexit ], [ %173, %.critedge537 ]
   %indvars.iv.next700 = add nsw i64 %indvars.iv699, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next700, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !495
 
 ._crit_edge:                                      ; preds = %399
-  br i1 %.1524, label %401, label %._crit_edge.thread
+  br i1 %.1496, label %401, label %._crit_edge.thread
 
 401:                                              ; preds = %._crit_edge
   %402 = getelementptr inbounds float, ptr %115, i64 %150
@@ -56101,7 +56101,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %404, ptr %402, align 4
   %405 = getelementptr i8, ptr %402, i64 8
   %406 = load float, ptr %405, align 4
-  %407 = fadd float %.1508, %406
+  %407 = fadd float %.1513, %406
   store float %407, ptr %405, align 4
   br i1 %.not, label %417, label %408
 
@@ -56114,7 +56114,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %413, ptr %411, align 4
   %414 = getelementptr i8, ptr %411, i64 8
   %415 = load float, ptr %414, align 4
-  %416 = fadd float %.1508, %415
+  %416 = fadd float %.1513, %415
   store float %416, ptr %414, align 4
   br label %417
 
@@ -56127,24 +56127,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %421 = sext i32 %420 to i64
   %422 = getelementptr inbounds float, ptr %134, i64 %421
   %423 = load float, ptr %422, align 4
-  %424 = fadd float %.5522, %423
+  %424 = fadd float %.5502, %423
   store float %424, ptr %422, align 4
   %425 = getelementptr inbounds float, ptr %136, i64 %421
   %426 = load float, ptr %425, align 4
-  %427 = fadd float %.3516, %426
+  %427 = fadd float %.3507, %426
   store float %427, ptr %425, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge535, %._crit_edge, %418, %417
-  %.1488.lcssa718 = phi float [ %.6, %._crit_edge ], [ %.6, %418 ], [ %.6, %417 ], [ %.0487667, %.critedge535 ]
-  %.1492.lcssa717 = phi float [ %.4495, %._crit_edge ], [ %.4495, %418 ], [ %.4495, %417 ], [ %.0491666, %.critedge535 ]
-  %.1501.lcssa716 = phi i8 [ %.3503, %._crit_edge ], [ %.3503, %418 ], [ %.3503, %417 ], [ %.0500665, %.critedge535 ]
+  %.1481.lcssa718 = phi float [ %.6, %._crit_edge ], [ %.6, %418 ], [ %.6, %417 ], [ %.0480667, %.critedge535 ]
+  %.1484.lcssa717 = phi float [ %.4487, %._crit_edge ], [ %.4487, %418 ], [ %.4487, %417 ], [ %.0483666, %.critedge535 ]
+  %.1490.lcssa716 = phi i8 [ %.3492, %._crit_edge ], [ %.3492, %418 ], [ %.3492, %417 ], [ %.0489665, %.critedge535 ]
   %exitcond704.not = icmp eq i64 %indvars.iv.next702, %wide.trip.count703
   br i1 %exitcond704.not, label %._crit_edge668, label %.critedge535, !llvm.loop !496
 
 ._crit_edge668:                                   ; preds = %._crit_edge.thread
-  %428 = trunc nuw i8 %.1501.lcssa716 to i1
-  %429 = fcmp une float %.1488.lcssa718, 0.000000e+00
+  %428 = trunc nuw i8 %.1490.lcssa716 to i1
+  %429 = fcmp une float %.1481.lcssa718, 0.000000e+00
   br i1 %429, label %430, label %436
 
 430:                                              ; preds = %._crit_edge668
@@ -56152,12 +56152,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %432 = inttoptr i64 %431 to ptr
   %433 = getelementptr inbounds i8, ptr %432, i64 8
   %434 = load float, ptr %433, align 4
-  %435 = fadd float %.1488.lcssa718, %434
+  %435 = fadd float %.1481.lcssa718, %434
   store float %435, ptr %433, align 4
   br label %436
 
 436:                                              ; preds = %430, %._crit_edge668
-  %437 = fcmp une float %.1492.lcssa717, 0.000000e+00
+  %437 = fcmp une float %.1484.lcssa717, 0.000000e+00
   br i1 %437, label %438, label %.thread
 
 438:                                              ; preds = %436
@@ -56165,12 +56165,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %440 = inttoptr i64 %439 to ptr
   %441 = getelementptr inbounds i8, ptr %440, i64 12
   %442 = load float, ptr %441, align 4
-  %443 = fadd float %.1492.lcssa717, %442
+  %443 = fadd float %.1484.lcssa717, %442
   store float %443, ptr %441, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.split.us, %438, %436
-  %.0500.lcssa722726 = phi i1 [ %428, %438 ], [ %428, %436 ], [ false, %.split.us ]
+  %.0489.lcssa722726 = phi i1 [ %428, %438 ], [ %428, %436 ], [ false, %.split.us ]
   %444 = load i32, ptr %0, align 8
   %445 = mul nsw i32 %444, 12
   %446 = sext i32 %23 to i64
@@ -56180,7 +56180,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %450 = mul nsw i32 %449, 150
   %451 = add nsw i32 %450, %445
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %451)
-  %452 = select i1 %84, i1 %.0500.lcssa722726, i1 false
+  %452 = select i1 %84, i1 %.0489.lcssa722726, i1 false
   br i1 %452, label %453, label %464
 
 453:                                              ; preds = %.thread
@@ -57517,9 +57517,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge460:                                     ; preds = %.critedge460.lr.ph, %._crit_edge.thread
   %indvars.iv602 = phi i64 [ 0, %.critedge460.lr.ph ], [ %indvars.iv.next603, %._crit_edge.thread ]
-  %.0420570 = phi float [ 0.000000e+00, %.critedge460.lr.ph ], [ %.1421.lcssa618, %._crit_edge.thread ]
-  %.0423569 = phi float [ 0.000000e+00, %.critedge460.lr.ph ], [ %.1424.lcssa617, %._crit_edge.thread ]
-  %.0429568 = phi i8 [ 0, %.critedge460.lr.ph ], [ %.1430.lcssa616, %._crit_edge.thread ]
+  %.0415570 = phi float [ 0.000000e+00, %.critedge460.lr.ph ], [ %.1416.lcssa618, %._crit_edge.thread ]
+  %.0419569 = phi float [ 0.000000e+00, %.critedge460.lr.ph ], [ %.1420.lcssa617, %._crit_edge.thread ]
+  %.0425568 = phi i8 [ 0, %.critedge460.lr.ph ], [ %.1426.lcssa616, %._crit_edge.thread ]
   %130 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv602
   %131 = load i32, ptr %130, align 4
   %132 = sext i32 %131 to i64
@@ -57570,12 +57570,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv600 = phi i64 [ %170, %.lr.ph.preheader ], [ %indvars.iv.next601, %.loopexit ]
-  %.1421561 = phi float [ %.0420570, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1424560 = phi float [ %.0423569, %.lr.ph.preheader ], [ %.4427, %.loopexit ]
-  %.1430559 = phi i8 [ %.0429568, %.lr.ph.preheader ], [ %.3432, %.loopexit ]
-  %.0435558 = phi i1 [ false, %.lr.ph.preheader ], [ %.1436, %.loopexit ]
-  %.0441556 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3444, %.loopexit ]
-  %.0445555 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5450, %.loopexit ]
+  %.1416561 = phi float [ %.0415570, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1420560 = phi float [ %.0419569, %.lr.ph.preheader ], [ %.4423, %.loopexit ]
+  %.1426559 = phi i8 [ %.0425568, %.lr.ph.preheader ], [ %.3428, %.loopexit ]
+  %.0431558 = phi i1 [ false, %.lr.ph.preheader ], [ %.1432, %.loopexit ]
+  %.0433557 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5438, %.loopexit ]
+  %.0439556 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3442, %.loopexit ]
   %171 = load ptr, ptr %120, align 8
   %172 = load ptr, ptr %121, align 8
   %173 = icmp eq ptr %171, %172
@@ -57813,24 +57813,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv594.sroa.phi739 = phi ptr [ %.sroa.0745.4.gep.sroa_idx749, %.preheader ], [ %.sroa.0745, %.thread512 ]
   %indvars.iv594.sroa.phi754 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0758, %.thread512 ]
   %indvars.iv594.sroa.phi761.sroa.speculated = phi float [ %37, %.preheader ], [ %84, %.thread512 ]
-  %.2422550 = phi float [ %331, %.preheader ], [ %.1421561, %.thread512 ]
-  %.2425549 = phi float [ %337, %.preheader ], [ %.1424560, %.thread512 ]
-  %.1442548 = phi float [ %323, %.preheader ], [ %.0441556, %.thread512 ]
-  %.1446547 = phi float [ %320, %.preheader ], [ %.0445555, %.thread512 ]
+  %.2417551 = phi float [ %331, %.preheader ], [ %.1416561, %.thread512 ]
+  %.2421550 = phi float [ %337, %.preheader ], [ %.1420560, %.thread512 ]
+  %.1434548 = phi float [ %320, %.preheader ], [ %.0433557, %.thread512 ]
+  %.1440547 = phi float [ %323, %.preheader ], [ %.0439556, %.thread512 ]
   %319 = load float, ptr %indvars.iv594.sroa.phi651, align 4
-  %320 = tail call float @llvm.fmuladd.f32(float %indvars.iv594.sroa.phi761.sroa.speculated, float %319, float %.1446547)
+  %320 = tail call float @llvm.fmuladd.f32(float %indvars.iv594.sroa.phi761.sroa.speculated, float %319, float %.1434548)
   %321 = load float, ptr %indvars.iv594.sroa.phi754, align 4
   %322 = load float, ptr %indvars.iv594.sroa.phi, align 4
-  %323 = tail call float @llvm.fmuladd.f32(float %321, float %322, float %.1442548)
+  %323 = tail call float @llvm.fmuladd.f32(float %321, float %322, float %.1440547)
   %324 = load float, ptr %indvars.iv594.sroa.phi739, align 4
-  %325 = tail call float @llvm.fmuladd.f32(float %319, float %324, float %.2422550)
+  %325 = tail call float @llvm.fmuladd.f32(float %319, float %324, float %.2417551)
   %326 = fmul float %.sroa.0484.0, %indvars.iv594.sroa.phi761.sroa.speculated
   %327 = load float, ptr %indvars.iv594.sroa.phi721, align 4
   %328 = fmul float %326, %327
   %329 = fmul float %328, 0.000000e+00
   %330 = load float, ptr %indvars.iv594.sroa.phi669, align 4
   %331 = tail call float @llvm.fmuladd.f32(float %329, float %330, float %325)
-  %332 = tail call float @llvm.fmuladd.f32(float %322, float %324, float %.2425549)
+  %332 = tail call float @llvm.fmuladd.f32(float %322, float %324, float %.2421550)
   %333 = fmul float %.sroa.0485.0, %321
   %334 = load float, ptr %indvars.iv594.sroa.phi708, align 4
   %335 = fmul float %333, %334
@@ -57839,14 +57839,14 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %318, label %.preheader, label %.loopexit541, !llvm.loop !510
 
 .loopexit541:                                     ; preds = %.preheader, %.critedge
-  %.2447 = phi float [ %.0445555, %.critedge ], [ %320, %.preheader ]
-  %.2443 = phi float [ %.0441556, %.critedge ], [ %323, %.preheader ]
-  %.3426 = phi float [ %.1424560, %.critedge ], [ %337, %.preheader ]
-  %.3 = phi float [ %.1421561, %.critedge ], [ %331, %.preheader ]
+  %.2441 = phi float [ %.0439556, %.critedge ], [ %323, %.preheader ]
+  %.2435 = phi float [ %.0433557, %.critedge ], [ %320, %.preheader ]
+  %.3422 = phi float [ %.1420560, %.critedge ], [ %337, %.preheader ]
+  %.3 = phi float [ %.1416561, %.critedge ], [ %331, %.preheader ]
   br i1 %80, label %338, label %.loopexit
 
 338:                                              ; preds = %.loopexit541
-  %339 = trunc nuw i8 %.1430559 to i1
+  %339 = trunc nuw i8 %.1426559 to i1
   br i1 %339, label %343, label %340
 
 340:                                              ; preds = %338
@@ -57870,31 +57870,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv597.sroa.phi = phi ptr [ %.sroa.0666, %346 ], [ %.sroa.3, %350 ]
   %indvars.iv597.sroa.phi741 = phi ptr [ %.sroa.0745, %346 ], [ %.sroa.0745.4.gep742.sroa_idx750, %350 ]
   %indvars.iv597.sroa.phi763.sroa.speculated = phi float [ %84, %346 ], [ %37, %350 ]
-  %.4553 = phi float [ %.3, %346 ], [ %359, %350 ]
-  %.3448552 = phi float [ %.2447, %346 ], [ %355, %350 ]
+  %.4554 = phi float [ %.3, %346 ], [ %359, %350 ]
+  %.3436552 = phi float [ %.2435, %346 ], [ %355, %350 ]
   %352 = load float, ptr %indvars.iv597.sroa.phi, align 4
   %353 = fmul float %indvars.iv597.sroa.phi763.sroa.speculated, %352
   %354 = fmul float %349, %353
-  %355 = fadd float %.3448552, %354
+  %355 = fadd float %.3436552, %354
   %356 = load float, ptr %indvars.iv597.sroa.phi741, align 4
   %357 = fmul float %352, %356
   %358 = fmul float %349, %357
-  %359 = fadd float %.4553, %358
+  %359 = fadd float %.4554, %358
   br i1 %351, label %350, label %.loopexit, !llvm.loop !511
 
 .loopexit:                                        ; preds = %350, %.loopexit541, %343, %.critedge462
-  %.5450 = phi float [ %.0445555, %.critedge462 ], [ %.2447, %343 ], [ %.2447, %.loopexit541 ], [ %355, %350 ]
-  %.3444 = phi float [ %.0441556, %.critedge462 ], [ %.2443, %343 ], [ %.2443, %.loopexit541 ], [ %.2443, %350 ]
-  %.1436 = phi i1 [ %.0435558, %.critedge462 ], [ true, %343 ], [ true, %.loopexit541 ], [ true, %350 ]
-  %.3432 = phi i8 [ %.1430559, %.critedge462 ], [ %345, %343 ], [ %.1430559, %.loopexit541 ], [ %345, %350 ]
-  %.4427 = phi float [ %.1424560, %.critedge462 ], [ %.3426, %343 ], [ %.3426, %.loopexit541 ], [ %.3426, %350 ]
-  %.6 = phi float [ %.1421561, %.critedge462 ], [ %.3, %343 ], [ %.3, %.loopexit541 ], [ %359, %350 ]
+  %.3442 = phi float [ %.0439556, %.critedge462 ], [ %.2441, %343 ], [ %.2441, %.loopexit541 ], [ %.2441, %350 ]
+  %.5438 = phi float [ %.0433557, %.critedge462 ], [ %.2435, %343 ], [ %.2435, %.loopexit541 ], [ %355, %350 ]
+  %.1432 = phi i1 [ %.0431558, %.critedge462 ], [ true, %343 ], [ true, %.loopexit541 ], [ true, %350 ]
+  %.3428 = phi i8 [ %.1426559, %.critedge462 ], [ %345, %343 ], [ %.1426559, %.loopexit541 ], [ %345, %350 ]
+  %.4423 = phi float [ %.1420560, %.critedge462 ], [ %.3422, %343 ], [ %.3422, %.loopexit541 ], [ %.3422, %350 ]
+  %.6 = phi float [ %.1416561, %.critedge462 ], [ %.3, %343 ], [ %.3, %.loopexit541 ], [ %359, %350 ]
   %indvars.iv.next601 = add nsw i64 %indvars.iv600, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next601, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !512
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge466.not = and i1 %.not, %.1436
+  %brmerge466.not = and i1 %.not, %.1432
   br i1 %brmerge466.not, label %360, label %._crit_edge.thread
 
 360:                                              ; preds = %._crit_edge
@@ -57903,24 +57903,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %363 = sext i32 %362 to i64
   %364 = getelementptr inbounds float, ptr %127, i64 %363
   %365 = load float, ptr %364, align 4
-  %366 = fadd float %.5450, %365
+  %366 = fadd float %.5438, %365
   store float %366, ptr %364, align 4
   %367 = getelementptr inbounds float, ptr %129, i64 %363
   %368 = load float, ptr %367, align 4
-  %369 = fadd float %.3444, %368
+  %369 = fadd float %.3442, %368
   store float %369, ptr %367, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge460, %._crit_edge, %360
-  %.1421.lcssa618 = phi float [ %.6, %._crit_edge ], [ %.6, %360 ], [ %.0420570, %.critedge460 ]
-  %.1424.lcssa617 = phi float [ %.4427, %._crit_edge ], [ %.4427, %360 ], [ %.0423569, %.critedge460 ]
-  %.1430.lcssa616 = phi i8 [ %.3432, %._crit_edge ], [ %.3432, %360 ], [ %.0429568, %.critedge460 ]
+  %.1416.lcssa618 = phi float [ %.6, %._crit_edge ], [ %.6, %360 ], [ %.0415570, %.critedge460 ]
+  %.1420.lcssa617 = phi float [ %.4423, %._crit_edge ], [ %.4423, %360 ], [ %.0419569, %.critedge460 ]
+  %.1426.lcssa616 = phi i8 [ %.3428, %._crit_edge ], [ %.3428, %360 ], [ %.0425568, %.critedge460 ]
   %exitcond605.not = icmp eq i64 %indvars.iv.next603, %wide.trip.count604
   br i1 %exitcond605.not, label %._crit_edge571, label %.critedge460, !llvm.loop !513
 
 ._crit_edge571:                                   ; preds = %._crit_edge.thread
-  %370 = trunc nuw i8 %.1430.lcssa616 to i1
-  %371 = fcmp une float %.1421.lcssa618, 0.000000e+00
+  %370 = trunc nuw i8 %.1426.lcssa616 to i1
+  %371 = fcmp une float %.1416.lcssa618, 0.000000e+00
   br i1 %371, label %372, label %378
 
 372:                                              ; preds = %._crit_edge571
@@ -57928,12 +57928,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %374 = inttoptr i64 %373 to ptr
   %375 = getelementptr inbounds i8, ptr %374, i64 8
   %376 = load float, ptr %375, align 4
-  %377 = fadd float %.1421.lcssa618, %376
+  %377 = fadd float %.1416.lcssa618, %376
   store float %377, ptr %375, align 4
   br label %378
 
 378:                                              ; preds = %372, %._crit_edge571
-  %379 = fcmp une float %.1424.lcssa617, 0.000000e+00
+  %379 = fcmp une float %.1420.lcssa617, 0.000000e+00
   br i1 %379, label %380, label %.thread
 
 380:                                              ; preds = %378
@@ -57941,12 +57941,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %382 = inttoptr i64 %381 to ptr
   %383 = getelementptr inbounds i8, ptr %382, i64 12
   %384 = load float, ptr %383, align 4
-  %385 = fadd float %.1424.lcssa617, %384
+  %385 = fadd float %.1420.lcssa617, %384
   store float %385, ptr %383, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.split.us, %380, %378
-  %.0429.lcssa622626 = phi i1 [ %370, %380 ], [ %370, %378 ], [ false, %.split.us ]
+  %.0425.lcssa622626 = phi i1 [ %370, %380 ], [ %370, %378 ], [ false, %.split.us ]
   %386 = load i32, ptr %0, align 8
   %387 = mul nsw i32 %386, 12
   %388 = sext i32 %23 to i64
@@ -57956,7 +57956,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %392 = mul nsw i32 %391, 150
   %393 = add nsw i32 %392, %387
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %393)
-  %394 = select i1 %80, i1 %.0429.lcssa622626, i1 false
+  %394 = select i1 %80, i1 %.0425.lcssa622626, i1 false
   br i1 %394, label %395, label %406
 
 395:                                              ; preds = %.thread
@@ -59713,9 +59713,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge479:                                     ; preds = %.critedge479.lr.ph, %._crit_edge.thread
   %indvars.iv643 = phi i64 [ 0, %.critedge479.lr.ph ], [ %indvars.iv.next644, %._crit_edge.thread ]
-  %.0431609 = phi float [ 0.000000e+00, %.critedge479.lr.ph ], [ %.1432.lcssa660, %._crit_edge.thread ]
-  %.0435608 = phi float [ 0.000000e+00, %.critedge479.lr.ph ], [ %.1436.lcssa659, %._crit_edge.thread ]
-  %.0443607 = phi i8 [ 0, %.critedge479.lr.ph ], [ %.1444.lcssa658, %._crit_edge.thread ]
+  %.0424609 = phi float [ 0.000000e+00, %.critedge479.lr.ph ], [ %.1425.lcssa660, %._crit_edge.thread ]
+  %.0427608 = phi float [ 0.000000e+00, %.critedge479.lr.ph ], [ %.1428.lcssa659, %._crit_edge.thread ]
+  %.0433607 = phi i8 [ 0, %.critedge479.lr.ph ], [ %.1434.lcssa658, %._crit_edge.thread ]
   %124 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv643
   %125 = load i32, ptr %124, align 4
   %126 = sext i32 %125 to i64
@@ -59761,13 +59761,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %370
   %indvars.iv641 = phi i64 [ %159, %.lr.ph.preheader ], [ %indvars.iv.next642, %370 ]
-  %.1432597 = phi float [ %.0431609, %.lr.ph.preheader ], [ %.6, %370 ]
-  %.1436596 = phi float [ %.0435608, %.lr.ph.preheader ], [ %.4439, %370 ]
-  %.1444595 = phi i8 [ %.0443607, %.lr.ph.preheader ], [ %.3446, %370 ]
-  %.0450593 = phi i1 [ false, %.lr.ph.preheader ], [ %.1451, %370 ]
-  %.0453592 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1454, %370 ]
-  %.0459589 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3462, %370 ]
-  %.0463588 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5468, %370 ]
+  %.1425597 = phi float [ %.0424609, %.lr.ph.preheader ], [ %.6, %370 ]
+  %.1428596 = phi float [ %.0427608, %.lr.ph.preheader ], [ %.4431, %370 ]
+  %.1434595 = phi i8 [ %.0433607, %.lr.ph.preheader ], [ %.3436, %370 ]
+  %.0439594 = phi i1 [ false, %.lr.ph.preheader ], [ %.1440, %370 ]
+  %.0441593 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5446, %370 ]
+  %.0448592 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3451, %370 ]
+  %.0456589 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1457, %370 ]
   %160 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %371, %370 ]
   %161 = load ptr, ptr %112, align 8
   %162 = load ptr, ptr %113, align 8
@@ -60015,31 +60015,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv635.sroa.phi792 = phi ptr [ %.sroa.0798.4.gep.sroa_idx802, %.preheader ], [ %.sroa.0798, %.thread543 ]
   %indvars.iv635.sroa.phi807 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0811, %.thread543 ]
   %indvars.iv635.sroa.phi814.sroa.speculated = phi float [ %37, %.preheader ], [ %75, %.thread543 ]
-  %.0426582 = phi float [ %317, %.preheader ], [ 0.000000e+00, %.thread543 ]
-  %.2433581 = phi float [ %325, %.preheader ], [ %.1432597, %.thread543 ]
-  %.2437580 = phi float [ %331, %.preheader ], [ %.1436596, %.thread543 ]
-  %.1460579 = phi float [ %311, %.preheader ], [ %.0459589, %.thread543 ]
-  %.1464578 = phi float [ %308, %.preheader ], [ %.0463588, %.thread543 ]
+  %.2426583 = phi float [ %325, %.preheader ], [ %.1425597, %.thread543 ]
+  %.2429582 = phi float [ %331, %.preheader ], [ %.1428596, %.thread543 ]
+  %.1442581 = phi float [ %308, %.preheader ], [ %.0441593, %.thread543 ]
+  %.1449579 = phi float [ %311, %.preheader ], [ %.0448592, %.thread543 ]
+  %.0465578 = phi float [ %317, %.preheader ], [ 0.000000e+00, %.thread543 ]
   %307 = load float, ptr %indvars.iv635.sroa.phi700, align 4
-  %308 = tail call float @llvm.fmuladd.f32(float %indvars.iv635.sroa.phi814.sroa.speculated, float %307, float %.1464578)
+  %308 = tail call float @llvm.fmuladd.f32(float %indvars.iv635.sroa.phi814.sroa.speculated, float %307, float %.1442581)
   %309 = load float, ptr %indvars.iv635.sroa.phi807, align 4
   %310 = load float, ptr %indvars.iv635.sroa.phi, align 4
-  %311 = tail call float @llvm.fmuladd.f32(float %309, float %310, float %.1460579)
+  %311 = tail call float @llvm.fmuladd.f32(float %309, float %310, float %.1449579)
   %312 = load float, ptr %indvars.iv635.sroa.phi712, align 4
   %313 = fmul float %indvars.iv635.sroa.phi814.sroa.speculated, %312
-  %314 = tail call float @llvm.fmuladd.f32(float %313, float %250, float %.0426582)
+  %314 = tail call float @llvm.fmuladd.f32(float %313, float %250, float %.0465578)
   %315 = load float, ptr %indvars.iv635.sroa.phi706, align 4
   %316 = fmul float %309, %315
   %317 = tail call float @llvm.fmuladd.f32(float %316, float %250, float %314)
   %318 = load float, ptr %indvars.iv635.sroa.phi792, align 4
-  %319 = tail call float @llvm.fmuladd.f32(float %307, float %318, float %.2433581)
+  %319 = tail call float @llvm.fmuladd.f32(float %307, float %318, float %.2426583)
   %320 = fmul float %.sroa.0504.0, %indvars.iv635.sroa.phi814.sroa.speculated
   %321 = load float, ptr %indvars.iv635.sroa.phi774, align 4
   %322 = fmul float %320, %321
   %323 = fmul float %312, %322
   %324 = load float, ptr %indvars.iv635.sroa.phi722, align 4
   %325 = tail call float @llvm.fmuladd.f32(float %323, float %324, float %319)
-  %326 = tail call float @llvm.fmuladd.f32(float %310, float %318, float %.2437580)
+  %326 = tail call float @llvm.fmuladd.f32(float %310, float %318, float %.2429582)
   %327 = fmul float %.sroa.0505.0, %309
   %328 = load float, ptr %indvars.iv635.sroa.phi761, align 4
   %329 = fmul float %327, %328
@@ -60048,15 +60048,15 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %306, label %.preheader, label %.loopexit572, !llvm.loop !527
 
 .loopexit572:                                     ; preds = %.preheader, %.critedge
-  %.2465 = phi float [ %.0463588, %.critedge ], [ %308, %.preheader ]
-  %.2461 = phi float [ %.0459589, %.critedge ], [ %311, %.preheader ]
-  %.3438 = phi float [ %.1436596, %.critedge ], [ %331, %.preheader ]
-  %.3434 = phi float [ %.1432597, %.critedge ], [ %325, %.preheader ]
-  %.1427 = phi float [ 0.000000e+00, %.critedge ], [ %317, %.preheader ]
+  %.1466 = phi float [ 0.000000e+00, %.critedge ], [ %317, %.preheader ]
+  %.2450 = phi float [ %.0448592, %.critedge ], [ %311, %.preheader ]
+  %.2443 = phi float [ %.0441593, %.critedge ], [ %308, %.preheader ]
+  %.3430 = phi float [ %.1428596, %.critedge ], [ %331, %.preheader ]
+  %.3 = phi float [ %.1425597, %.critedge ], [ %325, %.preheader ]
   br i1 %71, label %332, label %.loopexit
 
 332:                                              ; preds = %.loopexit572
-  %333 = trunc nuw i8 %.1444595 to i1
+  %333 = trunc nuw i8 %.1434595 to i1
   br i1 %333, label %337, label %334
 
 334:                                              ; preds = %332
@@ -60080,36 +60080,36 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv638.sroa.phi = phi ptr [ %.sroa.0719, %340 ], [ %.sroa.3, %344 ]
   %indvars.iv638.sroa.phi794 = phi ptr [ %.sroa.0798, %340 ], [ %.sroa.0798.4.gep795.sroa_idx803, %344 ]
   %indvars.iv638.sroa.phi816.sroa.speculated = phi float [ %75, %340 ], [ %37, %344 ]
-  %.2428586 = phi float [ %.1427, %340 ], [ %351, %344 ]
-  %.4585 = phi float [ %.3434, %340 ], [ %355, %344 ]
-  %.3466584 = phi float [ %.2465, %340 ], [ %349, %344 ]
+  %.4587 = phi float [ %.3, %340 ], [ %355, %344 ]
+  %.3444585 = phi float [ %.2443, %340 ], [ %349, %344 ]
+  %.2467584 = phi float [ %.1466, %340 ], [ %351, %344 ]
   %346 = load float, ptr %indvars.iv638.sroa.phi, align 4
   %347 = fmul float %indvars.iv638.sroa.phi816.sroa.speculated, %346
   %348 = fmul float %343, %347
-  %349 = fadd float %.3466584, %348
+  %349 = fadd float %.3444585, %348
   %350 = fmul float %118, %347
-  %351 = fsub float %.2428586, %350
+  %351 = fsub float %.2467584, %350
   %352 = load float, ptr %indvars.iv638.sroa.phi794, align 4
   %353 = fmul float %346, %352
   %354 = fmul float %343, %353
-  %355 = fadd float %.4585, %354
+  %355 = fadd float %.4587, %354
   br i1 %345, label %344, label %.loopexit, !llvm.loop !528
 
 .loopexit:                                        ; preds = %344, %337, %.loopexit572
-  %.4467 = phi float [ %.2465, %337 ], [ %.2465, %.loopexit572 ], [ %349, %344 ]
-  %.2445 = phi i8 [ %339, %337 ], [ %.1444595, %.loopexit572 ], [ %339, %344 ]
-  %.5 = phi float [ %.3434, %337 ], [ %.3434, %.loopexit572 ], [ %355, %344 ]
-  %.3 = phi float [ %.1427, %337 ], [ %.1427, %.loopexit572 ], [ %351, %344 ]
-  %356 = fcmp une float %.3, 0.000000e+00
+  %.3468 = phi float [ %.1466, %337 ], [ %.1466, %.loopexit572 ], [ %351, %344 ]
+  %.4445 = phi float [ %.2443, %337 ], [ %.2443, %.loopexit572 ], [ %349, %344 ]
+  %.2435 = phi i8 [ %339, %337 ], [ %.1434595, %.loopexit572 ], [ %339, %344 ]
+  %.5 = phi float [ %.3, %337 ], [ %.3, %.loopexit572 ], [ %355, %344 ]
+  %356 = fcmp une float %.3468, 0.000000e+00
   br i1 %356, label %357, label %370
 
 357:                                              ; preds = %.loopexit
-  %358 = insertelement <2 x float> poison, float %.3, i64 0
+  %358 = insertelement <2 x float> poison, float %.3468, i64 0
   %359 = shufflevector <2 x float> %358, <2 x float> poison, <2 x i32> zeroinitializer
   %360 = fmul <2 x float> %223, %359
-  %361 = fmul float %224, %.3
+  %361 = fmul float %224, %.3468
   %362 = fadd <2 x float> %160, %360
-  %363 = fadd float %.0453592, %361
+  %363 = fadd float %.0456589, %361
   %364 = getelementptr inbounds float, ptr %102, i64 %217
   %365 = load <2 x float>, ptr %364, align 4
   %366 = fsub <2 x float> %365, %360
@@ -60121,20 +60121,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br label %370
 
 370:                                              ; preds = %.loopexit, %357, %.critedge481
-  %.5468 = phi float [ %.4467, %357 ], [ %.4467, %.loopexit ], [ %.0463588, %.critedge481 ]
-  %.3462 = phi float [ %.2461, %357 ], [ %.2461, %.loopexit ], [ %.0459589, %.critedge481 ]
-  %.1454 = phi float [ %363, %357 ], [ %.0453592, %.loopexit ], [ %.0453592, %.critedge481 ]
-  %.1451 = phi i1 [ true, %357 ], [ true, %.loopexit ], [ %.0450593, %.critedge481 ]
-  %.3446 = phi i8 [ %.2445, %357 ], [ %.2445, %.loopexit ], [ %.1444595, %.critedge481 ]
-  %.4439 = phi float [ %.3438, %357 ], [ %.3438, %.loopexit ], [ %.1436596, %.critedge481 ]
-  %.6 = phi float [ %.5, %357 ], [ %.5, %.loopexit ], [ %.1432597, %.critedge481 ]
+  %.1457 = phi float [ %363, %357 ], [ %.0456589, %.loopexit ], [ %.0456589, %.critedge481 ]
+  %.3451 = phi float [ %.2450, %357 ], [ %.2450, %.loopexit ], [ %.0448592, %.critedge481 ]
+  %.5446 = phi float [ %.4445, %357 ], [ %.4445, %.loopexit ], [ %.0441593, %.critedge481 ]
+  %.1440 = phi i1 [ true, %357 ], [ true, %.loopexit ], [ %.0439594, %.critedge481 ]
+  %.3436 = phi i8 [ %.2435, %357 ], [ %.2435, %.loopexit ], [ %.1434595, %.critedge481 ]
+  %.4431 = phi float [ %.3430, %357 ], [ %.3430, %.loopexit ], [ %.1428596, %.critedge481 ]
+  %.6 = phi float [ %.5, %357 ], [ %.5, %.loopexit ], [ %.1425597, %.critedge481 ]
   %371 = phi <2 x float> [ %362, %357 ], [ %160, %.loopexit ], [ %160, %.critedge481 ]
   %indvars.iv.next642 = add nsw i64 %indvars.iv641, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next642, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !529
 
 ._crit_edge:                                      ; preds = %370
-  br i1 %.1451, label %372, label %._crit_edge.thread
+  br i1 %.1440, label %372, label %._crit_edge.thread
 
 372:                                              ; preds = %._crit_edge
   %373 = getelementptr inbounds float, ptr %102, i64 %137
@@ -60143,7 +60143,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %375, ptr %373, align 4
   %376 = getelementptr i8, ptr %373, i64 8
   %377 = load float, ptr %376, align 4
-  %378 = fadd float %.1454, %377
+  %378 = fadd float %.1457, %377
   store float %378, ptr %376, align 4
   br i1 %.not, label %388, label %379
 
@@ -60156,7 +60156,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %384, ptr %382, align 4
   %385 = getelementptr i8, ptr %382, i64 8
   %386 = load float, ptr %385, align 4
-  %387 = fadd float %.1454, %386
+  %387 = fadd float %.1457, %386
   store float %387, ptr %385, align 4
   br label %388
 
@@ -60169,24 +60169,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %392 = sext i32 %391 to i64
   %393 = getelementptr inbounds float, ptr %121, i64 %392
   %394 = load float, ptr %393, align 4
-  %395 = fadd float %.5468, %394
+  %395 = fadd float %.5446, %394
   store float %395, ptr %393, align 4
   %396 = getelementptr inbounds float, ptr %123, i64 %392
   %397 = load float, ptr %396, align 4
-  %398 = fadd float %.3462, %397
+  %398 = fadd float %.3451, %397
   store float %398, ptr %396, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge479, %._crit_edge, %389, %388
-  %.1432.lcssa660 = phi float [ %.6, %._crit_edge ], [ %.6, %389 ], [ %.6, %388 ], [ %.0431609, %.critedge479 ]
-  %.1436.lcssa659 = phi float [ %.4439, %._crit_edge ], [ %.4439, %389 ], [ %.4439, %388 ], [ %.0435608, %.critedge479 ]
-  %.1444.lcssa658 = phi i8 [ %.3446, %._crit_edge ], [ %.3446, %389 ], [ %.3446, %388 ], [ %.0443607, %.critedge479 ]
+  %.1425.lcssa660 = phi float [ %.6, %._crit_edge ], [ %.6, %389 ], [ %.6, %388 ], [ %.0424609, %.critedge479 ]
+  %.1428.lcssa659 = phi float [ %.4431, %._crit_edge ], [ %.4431, %389 ], [ %.4431, %388 ], [ %.0427608, %.critedge479 ]
+  %.1434.lcssa658 = phi i8 [ %.3436, %._crit_edge ], [ %.3436, %389 ], [ %.3436, %388 ], [ %.0433607, %.critedge479 ]
   %exitcond646.not = icmp eq i64 %indvars.iv.next644, %wide.trip.count645
   br i1 %exitcond646.not, label %._crit_edge610, label %.critedge479, !llvm.loop !530
 
 ._crit_edge610:                                   ; preds = %._crit_edge.thread
-  %399 = trunc nuw i8 %.1444.lcssa658 to i1
-  %400 = fcmp une float %.1432.lcssa660, 0.000000e+00
+  %399 = trunc nuw i8 %.1434.lcssa658 to i1
+  %400 = fcmp une float %.1425.lcssa660, 0.000000e+00
   br i1 %400, label %401, label %407
 
 401:                                              ; preds = %._crit_edge610
@@ -60194,12 +60194,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %403 = inttoptr i64 %402 to ptr
   %404 = getelementptr inbounds i8, ptr %403, i64 8
   %405 = load float, ptr %404, align 4
-  %406 = fadd float %.1432.lcssa660, %405
+  %406 = fadd float %.1425.lcssa660, %405
   store float %406, ptr %404, align 4
   br label %407
 
 407:                                              ; preds = %401, %._crit_edge610
-  %408 = fcmp une float %.1436.lcssa659, 0.000000e+00
+  %408 = fcmp une float %.1428.lcssa659, 0.000000e+00
   br i1 %408, label %409, label %.thread
 
 409:                                              ; preds = %407
@@ -60207,12 +60207,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %411 = inttoptr i64 %410 to ptr
   %412 = getelementptr inbounds i8, ptr %411, i64 12
   %413 = load float, ptr %412, align 4
-  %414 = fadd float %.1436.lcssa659, %413
+  %414 = fadd float %.1428.lcssa659, %413
   store float %414, ptr %412, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.split.us, %409, %407
-  %.0443.lcssa664668 = phi i1 [ %399, %409 ], [ %399, %407 ], [ false, %.split.us ]
+  %.0433.lcssa664668 = phi i1 [ %399, %409 ], [ %399, %407 ], [ false, %.split.us ]
   %415 = load i32, ptr %0, align 8
   %416 = mul nsw i32 %415, 12
   %417 = sext i32 %23 to i64
@@ -60222,7 +60222,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %421 = mul nsw i32 %420, 150
   %422 = add nsw i32 %421, %416
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %422)
-  %423 = select i1 %71, i1 %.0443.lcssa664668, i1 false
+  %423 = select i1 %71, i1 %.0433.lcssa664668, i1 false
   br i1 %423, label %424, label %435
 
 424:                                              ; preds = %.thread
@@ -61519,9 +61519,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge416:                                     ; preds = %.critedge416.lr.ph, %._crit_edge.thread
   %indvars.iv557 = phi i64 [ 0, %.critedge416.lr.ph ], [ %indvars.iv.next558, %._crit_edge.thread ]
-  %.0376525 = phi float [ 0.000000e+00, %.critedge416.lr.ph ], [ %.1377.lcssa573, %._crit_edge.thread ]
-  %.0379524 = phi float [ 0.000000e+00, %.critedge416.lr.ph ], [ %.1380.lcssa572, %._crit_edge.thread ]
-  %.0386523 = phi i8 [ 0, %.critedge416.lr.ph ], [ %.1387.lcssa571, %._crit_edge.thread ]
+  %.0371525 = phi float [ 0.000000e+00, %.critedge416.lr.ph ], [ %.1372.lcssa573, %._crit_edge.thread ]
+  %.0375524 = phi float [ 0.000000e+00, %.critedge416.lr.ph ], [ %.1376.lcssa572, %._crit_edge.thread ]
+  %.0381523 = phi i8 [ 0, %.critedge416.lr.ph ], [ %.1382.lcssa571, %._crit_edge.thread ]
   %120 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv557
   %121 = load i32, ptr %120, align 4
   %122 = sext i32 %121 to i64
@@ -61572,12 +61572,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv555 = phi i64 [ %160, %.lr.ph.preheader ], [ %indvars.iv.next556, %.loopexit ]
-  %.1377516 = phi float [ %.0376525, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1380515 = phi float [ %.0379524, %.lr.ph.preheader ], [ %.4383, %.loopexit ]
-  %.1387514 = phi i8 [ %.0386523, %.lr.ph.preheader ], [ %.3389, %.loopexit ]
-  %.0392513 = phi i1 [ false, %.lr.ph.preheader ], [ %.1393, %.loopexit ]
-  %.0397511 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3400, %.loopexit ]
-  %.0401510 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5406, %.loopexit ]
+  %.1372516 = phi float [ %.0371525, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1376515 = phi float [ %.0375524, %.lr.ph.preheader ], [ %.4379, %.loopexit ]
+  %.1382514 = phi i8 [ %.0381523, %.lr.ph.preheader ], [ %.3384, %.loopexit ]
+  %.0387513 = phi i1 [ false, %.lr.ph.preheader ], [ %.1388, %.loopexit ]
+  %.0389512 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5394, %.loopexit ]
+  %.0395511 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3398, %.loopexit ]
   %161 = load ptr, ptr %110, align 8
   %162 = load ptr, ptr %111, align 8
   %163 = icmp eq ptr %161, %162
@@ -61806,24 +61806,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv549.sroa.phi694 = phi ptr [ %.sroa.0700.4.gep.sroa_idx704, %.preheader ], [ %.sroa.0700, %.thread467 ]
   %indvars.iv549.sroa.phi709 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0713, %.thread467 ]
   %indvars.iv549.sroa.phi716.sroa.speculated = phi float [ %37, %.preheader ], [ %74, %.thread467 ]
-  %.2378505 = phi float [ %312, %.preheader ], [ %.1377516, %.thread467 ]
-  %.2381504 = phi float [ %318, %.preheader ], [ %.1380515, %.thread467 ]
-  %.1398503 = phi float [ %304, %.preheader ], [ %.0397511, %.thread467 ]
-  %.1402502 = phi float [ %301, %.preheader ], [ %.0401510, %.thread467 ]
+  %.2373506 = phi float [ %312, %.preheader ], [ %.1372516, %.thread467 ]
+  %.2377505 = phi float [ %318, %.preheader ], [ %.1376515, %.thread467 ]
+  %.1390503 = phi float [ %301, %.preheader ], [ %.0389512, %.thread467 ]
+  %.1396502 = phi float [ %304, %.preheader ], [ %.0395511, %.thread467 ]
   %300 = load float, ptr %indvars.iv549.sroa.phi606, align 4
-  %301 = tail call float @llvm.fmuladd.f32(float %indvars.iv549.sroa.phi716.sroa.speculated, float %300, float %.1402502)
+  %301 = tail call float @llvm.fmuladd.f32(float %indvars.iv549.sroa.phi716.sroa.speculated, float %300, float %.1390503)
   %302 = load float, ptr %indvars.iv549.sroa.phi709, align 4
   %303 = load float, ptr %indvars.iv549.sroa.phi, align 4
-  %304 = tail call float @llvm.fmuladd.f32(float %302, float %303, float %.1398503)
+  %304 = tail call float @llvm.fmuladd.f32(float %302, float %303, float %.1396502)
   %305 = load float, ptr %indvars.iv549.sroa.phi694, align 4
-  %306 = tail call float @llvm.fmuladd.f32(float %300, float %305, float %.2378505)
+  %306 = tail call float @llvm.fmuladd.f32(float %300, float %305, float %.2373506)
   %307 = fmul float %.sroa.0439.0, %indvars.iv549.sroa.phi716.sroa.speculated
   %308 = load float, ptr %indvars.iv549.sroa.phi676, align 4
   %309 = fmul float %307, %308
   %310 = fmul float %309, 0.000000e+00
   %311 = load float, ptr %indvars.iv549.sroa.phi624, align 4
   %312 = tail call float @llvm.fmuladd.f32(float %310, float %311, float %306)
-  %313 = tail call float @llvm.fmuladd.f32(float %303, float %305, float %.2381504)
+  %313 = tail call float @llvm.fmuladd.f32(float %303, float %305, float %.2377505)
   %314 = fmul float %.sroa.0440.0, %302
   %315 = load float, ptr %indvars.iv549.sroa.phi663, align 4
   %316 = fmul float %314, %315
@@ -61832,14 +61832,14 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %299, label %.preheader, label %.loopexit496, !llvm.loop !544
 
 .loopexit496:                                     ; preds = %.preheader, %.critedge
-  %.2403 = phi float [ %.0401510, %.critedge ], [ %301, %.preheader ]
-  %.2399 = phi float [ %.0397511, %.critedge ], [ %304, %.preheader ]
-  %.3382 = phi float [ %.1380515, %.critedge ], [ %318, %.preheader ]
-  %.3 = phi float [ %.1377516, %.critedge ], [ %312, %.preheader ]
+  %.2397 = phi float [ %.0395511, %.critedge ], [ %304, %.preheader ]
+  %.2391 = phi float [ %.0389512, %.critedge ], [ %301, %.preheader ]
+  %.3378 = phi float [ %.1376515, %.critedge ], [ %318, %.preheader ]
+  %.3 = phi float [ %.1372516, %.critedge ], [ %312, %.preheader ]
   br i1 %70, label %319, label %.loopexit
 
 319:                                              ; preds = %.loopexit496
-  %320 = trunc nuw i8 %.1387514 to i1
+  %320 = trunc nuw i8 %.1382514 to i1
   br i1 %320, label %324, label %321
 
 321:                                              ; preds = %319
@@ -61863,31 +61863,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv552.sroa.phi = phi ptr [ %.sroa.0621, %327 ], [ %.sroa.3, %331 ]
   %indvars.iv552.sroa.phi696 = phi ptr [ %.sroa.0700, %327 ], [ %.sroa.0700.4.gep697.sroa_idx705, %331 ]
   %indvars.iv552.sroa.phi718.sroa.speculated = phi float [ %74, %327 ], [ %37, %331 ]
-  %.4508 = phi float [ %.3, %327 ], [ %340, %331 ]
-  %.3404507 = phi float [ %.2403, %327 ], [ %336, %331 ]
+  %.4509 = phi float [ %.3, %327 ], [ %340, %331 ]
+  %.3392507 = phi float [ %.2391, %327 ], [ %336, %331 ]
   %333 = load float, ptr %indvars.iv552.sroa.phi, align 4
   %334 = fmul float %indvars.iv552.sroa.phi718.sroa.speculated, %333
   %335 = fmul float %330, %334
-  %336 = fadd float %.3404507, %335
+  %336 = fadd float %.3392507, %335
   %337 = load float, ptr %indvars.iv552.sroa.phi696, align 4
   %338 = fmul float %333, %337
   %339 = fmul float %330, %338
-  %340 = fadd float %.4508, %339
+  %340 = fadd float %.4509, %339
   br i1 %332, label %331, label %.loopexit, !llvm.loop !545
 
 .loopexit:                                        ; preds = %331, %.loopexit496, %324, %.critedge418
-  %.5406 = phi float [ %.0401510, %.critedge418 ], [ %.2403, %324 ], [ %.2403, %.loopexit496 ], [ %336, %331 ]
-  %.3400 = phi float [ %.0397511, %.critedge418 ], [ %.2399, %324 ], [ %.2399, %.loopexit496 ], [ %.2399, %331 ]
-  %.1393 = phi i1 [ %.0392513, %.critedge418 ], [ true, %324 ], [ true, %.loopexit496 ], [ true, %331 ]
-  %.3389 = phi i8 [ %.1387514, %.critedge418 ], [ %326, %324 ], [ %.1387514, %.loopexit496 ], [ %326, %331 ]
-  %.4383 = phi float [ %.1380515, %.critedge418 ], [ %.3382, %324 ], [ %.3382, %.loopexit496 ], [ %.3382, %331 ]
-  %.6 = phi float [ %.1377516, %.critedge418 ], [ %.3, %324 ], [ %.3, %.loopexit496 ], [ %340, %331 ]
+  %.3398 = phi float [ %.0395511, %.critedge418 ], [ %.2397, %324 ], [ %.2397, %.loopexit496 ], [ %.2397, %331 ]
+  %.5394 = phi float [ %.0389512, %.critedge418 ], [ %.2391, %324 ], [ %.2391, %.loopexit496 ], [ %336, %331 ]
+  %.1388 = phi i1 [ %.0387513, %.critedge418 ], [ true, %324 ], [ true, %.loopexit496 ], [ true, %331 ]
+  %.3384 = phi i8 [ %.1382514, %.critedge418 ], [ %326, %324 ], [ %.1382514, %.loopexit496 ], [ %326, %331 ]
+  %.4379 = phi float [ %.1376515, %.critedge418 ], [ %.3378, %324 ], [ %.3378, %.loopexit496 ], [ %.3378, %331 ]
+  %.6 = phi float [ %.1372516, %.critedge418 ], [ %.3, %324 ], [ %.3, %.loopexit496 ], [ %340, %331 ]
   %indvars.iv.next556 = add nsw i64 %indvars.iv555, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next556, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !546
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge422.not = and i1 %.not, %.1393
+  %brmerge422.not = and i1 %.not, %.1388
   br i1 %brmerge422.not, label %341, label %._crit_edge.thread
 
 341:                                              ; preds = %._crit_edge
@@ -61896,24 +61896,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %344 = sext i32 %343 to i64
   %345 = getelementptr inbounds float, ptr %117, i64 %344
   %346 = load float, ptr %345, align 4
-  %347 = fadd float %.5406, %346
+  %347 = fadd float %.5394, %346
   store float %347, ptr %345, align 4
   %348 = getelementptr inbounds float, ptr %119, i64 %344
   %349 = load float, ptr %348, align 4
-  %350 = fadd float %.3400, %349
+  %350 = fadd float %.3398, %349
   store float %350, ptr %348, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge416, %._crit_edge, %341
-  %.1377.lcssa573 = phi float [ %.6, %._crit_edge ], [ %.6, %341 ], [ %.0376525, %.critedge416 ]
-  %.1380.lcssa572 = phi float [ %.4383, %._crit_edge ], [ %.4383, %341 ], [ %.0379524, %.critedge416 ]
-  %.1387.lcssa571 = phi i8 [ %.3389, %._crit_edge ], [ %.3389, %341 ], [ %.0386523, %.critedge416 ]
+  %.1372.lcssa573 = phi float [ %.6, %._crit_edge ], [ %.6, %341 ], [ %.0371525, %.critedge416 ]
+  %.1376.lcssa572 = phi float [ %.4379, %._crit_edge ], [ %.4379, %341 ], [ %.0375524, %.critedge416 ]
+  %.1382.lcssa571 = phi i8 [ %.3384, %._crit_edge ], [ %.3384, %341 ], [ %.0381523, %.critedge416 ]
   %exitcond560.not = icmp eq i64 %indvars.iv.next558, %wide.trip.count559
   br i1 %exitcond560.not, label %._crit_edge526, label %.critedge416, !llvm.loop !547
 
 ._crit_edge526:                                   ; preds = %._crit_edge.thread
-  %351 = trunc nuw i8 %.1387.lcssa571 to i1
-  %352 = fcmp une float %.1377.lcssa573, 0.000000e+00
+  %351 = trunc nuw i8 %.1382.lcssa571 to i1
+  %352 = fcmp une float %.1372.lcssa573, 0.000000e+00
   br i1 %352, label %353, label %359
 
 353:                                              ; preds = %._crit_edge526
@@ -61921,12 +61921,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %355 = inttoptr i64 %354 to ptr
   %356 = getelementptr inbounds i8, ptr %355, i64 8
   %357 = load float, ptr %356, align 4
-  %358 = fadd float %.1377.lcssa573, %357
+  %358 = fadd float %.1372.lcssa573, %357
   store float %358, ptr %356, align 4
   br label %359
 
 359:                                              ; preds = %353, %._crit_edge526
-  %360 = fcmp une float %.1380.lcssa572, 0.000000e+00
+  %360 = fcmp une float %.1376.lcssa572, 0.000000e+00
   br i1 %360, label %361, label %.thread
 
 361:                                              ; preds = %359
@@ -61934,12 +61934,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %363 = inttoptr i64 %362 to ptr
   %364 = getelementptr inbounds i8, ptr %363, i64 12
   %365 = load float, ptr %364, align 4
-  %366 = fadd float %.1380.lcssa572, %365
+  %366 = fadd float %.1376.lcssa572, %365
   store float %366, ptr %364, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.split.us, %361, %359
-  %.0386.lcssa577581 = phi i1 [ %351, %361 ], [ %351, %359 ], [ false, %.split.us ]
+  %.0381.lcssa577581 = phi i1 [ %351, %361 ], [ %351, %359 ], [ false, %.split.us ]
   %367 = load i32, ptr %0, align 8
   %368 = mul nsw i32 %367, 12
   %369 = sext i32 %23 to i64
@@ -61949,7 +61949,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %373 = mul nsw i32 %372, 150
   %374 = add nsw i32 %373, %368
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %374)
-  %375 = select i1 %70, i1 %.0386.lcssa577581, i1 false
+  %375 = select i1 %70, i1 %.0381.lcssa577581, i1 false
   br i1 %375, label %376, label %387
 
 376:                                              ; preds = %.thread
@@ -63712,8 +63712,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv669 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next670, %._crit_edge.thread ]
-  %.0450630 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1451.lcssa684, %._crit_edge.thread ]
-  %.0457629 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1458.lcssa683, %._crit_edge.thread ]
+  %.0441630 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1442.lcssa684, %._crit_edge.thread ]
+  %.0445629 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1446.lcssa683, %._crit_edge.thread ]
   %119 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv669
   %120 = load i32, ptr %119, align 4
   %121 = sext i32 %120 to i64
@@ -63759,12 +63759,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %421
   %indvars.iv667 = phi i64 [ %154, %.lr.ph.preheader ], [ %indvars.iv.next668, %421 ]
-  %.1451620 = phi float [ %.0450630, %.lr.ph.preheader ], [ %.6, %421 ]
-  %.1458619 = phi float [ %.0457629, %.lr.ph.preheader ], [ %.6463, %421 ]
-  %.0468617 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1469, %421 ]
-  %.0474614 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5479, %421 ]
-  %.0480613 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5485, %421 ]
-  %.0487612 = phi i1 [ false, %.lr.ph.preheader ], [ %.1488, %421 ]
+  %.1442620 = phi float [ %.0441630, %.lr.ph.preheader ], [ %.6, %421 ]
+  %.1446619 = phi float [ %.0445629, %.lr.ph.preheader ], [ %.6451, %421 ]
+  %.0456618 = phi i1 [ false, %.lr.ph.preheader ], [ %.1457, %421 ]
+  %.0458617 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5463, %421 ]
+  %.0464616 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5469, %421 ]
+  %.0474613 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1475, %421 ]
   %155 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %422, %421 ]
   %156 = load ptr, ptr %108, align 8
   %157 = load ptr, ptr %109, align 8
@@ -64019,31 +64019,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv658.sroa.phi823 = phi ptr [ %.sroa.0831.4.gep.sroa_idx835, %.preheader ], [ %.sroa.0831, %.thread566 ]
   %indvars.iv658.sroa.phi839 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0845, %.thread566 ]
   %indvars.iv658.sroa.phi848.sroa.speculated = phi float [ %34, %.preheader ], [ %76, %.thread566 ]
-  %.0444602 = phi float [ %310, %.preheader ], [ 0.000000e+00, %.thread566 ]
-  %.2452601 = phi float [ %318, %.preheader ], [ %.1451620, %.thread566 ]
-  %.2459600 = phi float [ %324, %.preheader ], [ %.1458619, %.thread566 ]
-  %.1475599 = phi float [ %304, %.preheader ], [ %.0474614, %.thread566 ]
-  %.1481598 = phi float [ %301, %.preheader ], [ %.0480613, %.thread566 ]
+  %.2443603 = phi float [ %318, %.preheader ], [ %.1442620, %.thread566 ]
+  %.2447602 = phi float [ %324, %.preheader ], [ %.1446619, %.thread566 ]
+  %.1459600 = phi float [ %301, %.preheader ], [ %.0458617, %.thread566 ]
+  %.1465599 = phi float [ %304, %.preheader ], [ %.0464616, %.thread566 ]
+  %.0482598 = phi float [ %310, %.preheader ], [ 0.000000e+00, %.thread566 ]
   %300 = load float, ptr %indvars.iv658.sroa.phi728, align 4
-  %301 = tail call float @llvm.fmuladd.f32(float %indvars.iv658.sroa.phi848.sroa.speculated, float %300, float %.1481598)
+  %301 = tail call float @llvm.fmuladd.f32(float %indvars.iv658.sroa.phi848.sroa.speculated, float %300, float %.1459600)
   %302 = load float, ptr %indvars.iv658.sroa.phi839, align 4
   %303 = load float, ptr %indvars.iv658.sroa.phi, align 4
-  %304 = tail call float @llvm.fmuladd.f32(float %302, float %303, float %.1475599)
+  %304 = tail call float @llvm.fmuladd.f32(float %302, float %303, float %.1465599)
   %305 = load float, ptr %indvars.iv658.sroa.phi740, align 4
   %306 = fmul float %indvars.iv658.sroa.phi848.sroa.speculated, %305
-  %307 = tail call float @llvm.fmuladd.f32(float %306, float %249, float %.0444602)
+  %307 = tail call float @llvm.fmuladd.f32(float %306, float %249, float %.0482598)
   %308 = load float, ptr %indvars.iv658.sroa.phi734, align 4
   %309 = fmul float %302, %308
   %310 = tail call float @llvm.fmuladd.f32(float %309, float %249, float %307)
   %311 = load float, ptr %indvars.iv658.sroa.phi823, align 4
-  %312 = tail call float @llvm.fmuladd.f32(float %300, float %311, float %.2452601)
+  %312 = tail call float @llvm.fmuladd.f32(float %300, float %311, float %.2443603)
   %313 = fmul float %.sroa.0527.0, %indvars.iv658.sroa.phi848.sroa.speculated
   %314 = load float, ptr %indvars.iv658.sroa.phi807, align 4
   %315 = fmul float %313, %314
   %316 = fmul float %305, %315
   %317 = load float, ptr %indvars.iv658.sroa.phi756, align 4
   %318 = tail call float @llvm.fmuladd.f32(float %316, float %317, float %312)
-  %319 = tail call float @llvm.fmuladd.f32(float %303, float %311, float %.2459600)
+  %319 = tail call float @llvm.fmuladd.f32(float %303, float %311, float %.2447602)
   %320 = fmul float %.sroa.0528.0, %302
   %321 = load float, ptr %indvars.iv658.sroa.phi800, align 4
   %322 = fmul float %320, %321
@@ -64052,11 +64052,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %299, label %.preheader, label %.loopexit592, !llvm.loop !562
 
 .loopexit592:                                     ; preds = %.preheader, %.critedge876
-  %.2482 = phi float [ %.0480613, %.critedge876 ], [ %301, %.preheader ]
-  %.2476 = phi float [ %.0474614, %.critedge876 ], [ %304, %.preheader ]
-  %.3460 = phi float [ %.1458619, %.critedge876 ], [ %324, %.preheader ]
-  %.3453 = phi float [ %.1451620, %.critedge876 ], [ %318, %.preheader ]
-  %.1445 = phi float [ 0.000000e+00, %.critedge876 ], [ %310, %.preheader ]
+  %.1483 = phi float [ 0.000000e+00, %.critedge876 ], [ %310, %.preheader ]
+  %.2466 = phi float [ %.0464616, %.critedge876 ], [ %304, %.preheader ]
+  %.2460 = phi float [ %.0458617, %.critedge876 ], [ %301, %.preheader ]
+  %.3448 = phi float [ %.1446619, %.critedge876 ], [ %324, %.preheader ]
+  %.3 = phi float [ %.1442620, %.critedge876 ], [ %318, %.preheader ]
   %325 = fcmp uge float %248, %54
   %.not586 = select i1 %164, i1 %325, i1 false
   br i1 %.not586, label %.loopexit591, label %326
@@ -64101,25 +64101,25 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv661.sroa.phi = phi ptr [ %.sroa.0752, %326 ], [ %.sroa.3753, %359 ]
   %indvars.iv661.sroa.phi825 = phi ptr [ %.sroa.0831, %326 ], [ %.sroa.0831.4.gep826.sroa_idx836, %359 ]
   %indvars.iv661.sroa.phi850.sroa.speculated = phi float [ %76, %326 ], [ %34, %359 ]
-  %.2446606 = phi float [ %.1445, %326 ], [ %366, %359 ]
-  %.4454605 = phi float [ %.3453, %326 ], [ %370, %359 ]
-  %.3483604 = phi float [ %.2482, %326 ], [ %364, %359 ]
+  %.4607 = phi float [ %.3, %326 ], [ %370, %359 ]
+  %.3461605 = phi float [ %.2460, %326 ], [ %364, %359 ]
+  %.2484604 = phi float [ %.1483, %326 ], [ %366, %359 ]
   %361 = load float, ptr %indvars.iv661.sroa.phi, align 4
   %362 = fmul float %indvars.iv661.sroa.phi850.sroa.speculated, %361
   %363 = fmul float %358, %362
-  %364 = fsub float %.3483604, %363
+  %364 = fsub float %.3461605, %363
   %365 = fmul float %356, %362
-  %366 = fsub float %.2446606, %365
+  %366 = fsub float %.2484604, %365
   %367 = load float, ptr %indvars.iv661.sroa.phi825, align 4
   %368 = fmul float %361, %367
   %369 = fmul float %358, %368
-  %370 = fsub float %.4454605, %369
+  %370 = fsub float %.4607, %369
   br i1 %360, label %359, label %.loopexit591, !llvm.loop !563
 
 .loopexit591:                                     ; preds = %359, %.loopexit592
-  %.4484 = phi float [ %.2482, %.loopexit592 ], [ %364, %359 ]
-  %.5455 = phi float [ %.3453, %.loopexit592 ], [ %370, %359 ]
-  %.3 = phi float [ %.1445, %.loopexit592 ], [ %366, %359 ]
+  %.3485 = phi float [ %.1483, %.loopexit592 ], [ %366, %359 ]
+  %.4462 = phi float [ %.2460, %.loopexit592 ], [ %364, %359 ]
+  %.5 = phi float [ %.3, %.loopexit592 ], [ %370, %359 ]
   %371 = fcmp uge float %248, %58
   %.not588 = select i1 %164, i1 %371, i1 false
   br i1 %.not588, label %.loopexit, label %372
@@ -64153,36 +64153,36 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv664.sroa.phi = phi ptr [ %.sroa.0748, %372 ], [ %.sroa.3, %394 ]
   %indvars.iv664.sroa.phi827 = phi ptr [ %.sroa.0831, %372 ], [ %.sroa.0831.4.gep828.sroa_idx837, %394 ]
   %indvars.iv664.sroa.phi841 = phi ptr [ %.sroa.0845, %372 ], [ %.sroa.4, %394 ]
-  %.4610 = phi float [ %.3, %372 ], [ %402, %394 ]
-  %.4461609 = phi float [ %.3460, %372 ], [ %406, %394 ]
-  %.3477608 = phi float [ %.2476, %372 ], [ %400, %394 ]
+  %.4449610 = phi float [ %.3448, %372 ], [ %406, %394 ]
+  %.3467609 = phi float [ %.2466, %372 ], [ %400, %394 ]
+  %.4486608 = phi float [ %.3485, %372 ], [ %402, %394 ]
   %396 = load float, ptr %indvars.iv664.sroa.phi841, align 4
   %397 = load float, ptr %indvars.iv664.sroa.phi, align 4
   %398 = fmul float %396, %397
   %399 = fmul float %393, %398
-  %400 = fadd float %.3477608, %399
+  %400 = fadd float %.3467609, %399
   %401 = fmul float %391, %398
-  %402 = fadd float %.4610, %401
+  %402 = fadd float %.4486608, %401
   %403 = load float, ptr %indvars.iv664.sroa.phi827, align 4
   %404 = fmul float %397, %403
   %405 = fmul float %393, %404
-  %406 = fadd float %.4461609, %405
+  %406 = fadd float %.4449610, %405
   br i1 %395, label %394, label %.loopexit, !llvm.loop !564
 
 .loopexit:                                        ; preds = %394, %.loopexit591
-  %.4478 = phi float [ %.2476, %.loopexit591 ], [ %400, %394 ]
-  %.5462 = phi float [ %.3460, %.loopexit591 ], [ %406, %394 ]
-  %.5 = phi float [ %.3, %.loopexit591 ], [ %402, %394 ]
-  %407 = fcmp une float %.5, 0.000000e+00
+  %.5487 = phi float [ %.3485, %.loopexit591 ], [ %402, %394 ]
+  %.4468 = phi float [ %.2466, %.loopexit591 ], [ %400, %394 ]
+  %.5450 = phi float [ %.3448, %.loopexit591 ], [ %406, %394 ]
+  %407 = fcmp une float %.5487, 0.000000e+00
   br i1 %407, label %408, label %421
 
 408:                                              ; preds = %.loopexit
-  %409 = insertelement <2 x float> poison, float %.5, i64 0
+  %409 = insertelement <2 x float> poison, float %.5487, i64 0
   %410 = shufflevector <2 x float> %409, <2 x float> poison, <2 x i32> zeroinitializer
   %411 = fmul <2 x float> %220, %410
-  %412 = fmul float %221, %.5
+  %412 = fmul float %221, %.5487
   %413 = fadd <2 x float> %155, %411
-  %414 = fadd float %.0468617, %412
+  %414 = fadd float %.0474613, %412
   %415 = getelementptr inbounds float, ptr %98, i64 %214
   %416 = load <2 x float>, ptr %415, align 4
   %417 = fsub <2 x float> %416, %411
@@ -64194,19 +64194,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br label %421
 
 421:                                              ; preds = %.loopexit, %408, %.critedge499
-  %.1488 = phi i1 [ true, %408 ], [ true, %.loopexit ], [ %.0487612, %.critedge499 ]
-  %.5485 = phi float [ %.4484, %408 ], [ %.4484, %.loopexit ], [ %.0480613, %.critedge499 ]
-  %.5479 = phi float [ %.4478, %408 ], [ %.4478, %.loopexit ], [ %.0474614, %.critedge499 ]
-  %.1469 = phi float [ %414, %408 ], [ %.0468617, %.loopexit ], [ %.0468617, %.critedge499 ]
-  %.6463 = phi float [ %.5462, %408 ], [ %.5462, %.loopexit ], [ %.1458619, %.critedge499 ]
-  %.6 = phi float [ %.5455, %408 ], [ %.5455, %.loopexit ], [ %.1451620, %.critedge499 ]
+  %.1475 = phi float [ %414, %408 ], [ %.0474613, %.loopexit ], [ %.0474613, %.critedge499 ]
+  %.5469 = phi float [ %.4468, %408 ], [ %.4468, %.loopexit ], [ %.0464616, %.critedge499 ]
+  %.5463 = phi float [ %.4462, %408 ], [ %.4462, %.loopexit ], [ %.0458617, %.critedge499 ]
+  %.1457 = phi i1 [ true, %408 ], [ true, %.loopexit ], [ %.0456618, %.critedge499 ]
+  %.6451 = phi float [ %.5450, %408 ], [ %.5450, %.loopexit ], [ %.1446619, %.critedge499 ]
+  %.6 = phi float [ %.5, %408 ], [ %.5, %.loopexit ], [ %.1442620, %.critedge499 ]
   %422 = phi <2 x float> [ %413, %408 ], [ %155, %.loopexit ], [ %155, %.critedge499 ]
   %indvars.iv.next668 = add nsw i64 %indvars.iv667, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next668, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !565
 
 ._crit_edge:                                      ; preds = %421
-  br i1 %.1488, label %423, label %._crit_edge.thread
+  br i1 %.1457, label %423, label %._crit_edge.thread
 
 423:                                              ; preds = %._crit_edge
   %424 = getelementptr inbounds float, ptr %98, i64 %132
@@ -64215,7 +64215,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %426, ptr %424, align 4
   %427 = getelementptr i8, ptr %424, i64 8
   %428 = load float, ptr %427, align 4
-  %429 = fadd float %.1469, %428
+  %429 = fadd float %.1475, %428
   store float %429, ptr %427, align 4
   br i1 %.not, label %439, label %430
 
@@ -64228,7 +64228,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %435, ptr %433, align 4
   %436 = getelementptr i8, ptr %433, i64 8
   %437 = load float, ptr %436, align 4
-  %438 = fadd float %.1469, %437
+  %438 = fadd float %.1475, %437
   store float %438, ptr %436, align 4
   br label %439
 
@@ -64241,22 +64241,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %443 = sext i32 %442 to i64
   %444 = getelementptr inbounds float, ptr %116, i64 %443
   %445 = load float, ptr %444, align 4
-  %446 = fadd float %.5485, %445
+  %446 = fadd float %.5463, %445
   store float %446, ptr %444, align 4
   %447 = getelementptr inbounds float, ptr %118, i64 %443
   %448 = load float, ptr %447, align 4
-  %449 = fadd float %.5479, %448
+  %449 = fadd float %.5469, %448
   store float %449, ptr %447, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %440, %439
-  %.1451.lcssa684 = phi float [ %.6, %._crit_edge ], [ %.6, %440 ], [ %.6, %439 ], [ %.0450630, %.critedge ]
-  %.1458.lcssa683 = phi float [ %.6463, %._crit_edge ], [ %.6463, %440 ], [ %.6463, %439 ], [ %.0457629, %.critedge ]
+  %.1442.lcssa684 = phi float [ %.6, %._crit_edge ], [ %.6, %440 ], [ %.6, %439 ], [ %.0441630, %.critedge ]
+  %.1446.lcssa683 = phi float [ %.6451, %._crit_edge ], [ %.6451, %440 ], [ %.6451, %439 ], [ %.0445629, %.critedge ]
   %exitcond673.not = icmp eq i64 %indvars.iv.next670, %wide.trip.count672
   br i1 %exitcond673.not, label %._crit_edge631, label %.critedge, !llvm.loop !566
 
 ._crit_edge631:                                   ; preds = %._crit_edge.thread
-  %450 = fcmp une float %.1451.lcssa684, 0.000000e+00
+  %450 = fcmp une float %.1442.lcssa684, 0.000000e+00
   br i1 %450, label %451, label %457
 
 451:                                              ; preds = %._crit_edge631
@@ -64264,12 +64264,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %453 = inttoptr i64 %452 to ptr
   %454 = getelementptr inbounds i8, ptr %453, i64 8
   %455 = load float, ptr %454, align 4
-  %456 = fadd float %.1451.lcssa684, %455
+  %456 = fadd float %.1442.lcssa684, %455
   store float %456, ptr %454, align 4
   br label %457
 
 457:                                              ; preds = %451, %._crit_edge631
-  %458 = fcmp une float %.1458.lcssa683, 0.000000e+00
+  %458 = fcmp une float %.1446.lcssa683, 0.000000e+00
   br i1 %458, label %459, label %.thread
 
 459:                                              ; preds = %457
@@ -64277,7 +64277,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %461 = inttoptr i64 %460 to ptr
   %462 = getelementptr inbounds i8, ptr %461, i64 12
   %463 = load float, ptr %462, align 4
-  %464 = fadd float %.1458.lcssa683, %463
+  %464 = fadd float %.1446.lcssa683, %463
   store float %464, ptr %462, align 4
   br label %.thread
 
@@ -65497,8 +65497,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv565 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next566, %._crit_edge.thread ]
-  %.0384529 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1385.lcssa579, %._crit_edge.thread ]
-  %.0388528 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1389.lcssa578, %._crit_edge.thread ]
+  %.0382529 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1383.lcssa579, %._crit_edge.thread ]
+  %.0385528 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1386.lcssa578, %._crit_edge.thread ]
   %117 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv565
   %118 = load i32, ptr %117, align 4
   %119 = sext i32 %118 to i64
@@ -65549,11 +65549,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv563 = phi i64 [ %157, %.lr.ph.preheader ], [ %indvars.iv.next564, %.loopexit ]
-  %.1385522 = phi float [ %.0384529, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1389521 = phi float [ %.0388528, %.lr.ph.preheader ], [ %.5393, %.loopexit ]
-  %.0399519 = phi i1 [ false, %.lr.ph.preheader ], [ %.1400, %.loopexit ]
-  %.0402518 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4406, %.loopexit ]
-  %.0407517 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5412, %.loopexit ]
+  %.1383522 = phi float [ %.0382529, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1386521 = phi float [ %.0385528, %.lr.ph.preheader ], [ %.5390, %.loopexit ]
+  %.0393520 = phi i1 [ false, %.lr.ph.preheader ], [ %.1394, %.loopexit ]
+  %.0395519 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5400, %.loopexit ]
+  %.0401518 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4405, %.loopexit ]
   %158 = load ptr, ptr %106, align 8
   %159 = load ptr, ptr %107, align 8
   %160 = icmp eq ptr %158, %159
@@ -65791,24 +65791,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv554.sroa.phi704 = phi ptr [ %.sroa.0712.4.gep.sroa_idx716, %.preheader ], [ %.sroa.0712, %.thread474 ]
   %indvars.iv554.sroa.phi720 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0726, %.thread474 ]
   %indvars.iv554.sroa.phi729.sroa.speculated = phi float [ %34, %.preheader ], [ %75, %.thread474 ]
-  %.2386509 = phi float [ %309, %.preheader ], [ %.1385522, %.thread474 ]
-  %.2390508 = phi float [ %315, %.preheader ], [ %.1389521, %.thread474 ]
-  %.1403507 = phi float [ %301, %.preheader ], [ %.0402518, %.thread474 ]
-  %.1408506 = phi float [ %298, %.preheader ], [ %.0407517, %.thread474 ]
+  %.2384509 = phi float [ %309, %.preheader ], [ %.1383522, %.thread474 ]
+  %.2387508 = phi float [ %315, %.preheader ], [ %.1386521, %.thread474 ]
+  %.1396507 = phi float [ %298, %.preheader ], [ %.0395519, %.thread474 ]
+  %.1402506 = phi float [ %301, %.preheader ], [ %.0401518, %.thread474 ]
   %297 = load float, ptr %indvars.iv554.sroa.phi613, align 4
-  %298 = tail call float @llvm.fmuladd.f32(float %indvars.iv554.sroa.phi729.sroa.speculated, float %297, float %.1408506)
+  %298 = tail call float @llvm.fmuladd.f32(float %indvars.iv554.sroa.phi729.sroa.speculated, float %297, float %.1396507)
   %299 = load float, ptr %indvars.iv554.sroa.phi720, align 4
   %300 = load float, ptr %indvars.iv554.sroa.phi, align 4
-  %301 = tail call float @llvm.fmuladd.f32(float %299, float %300, float %.1403507)
+  %301 = tail call float @llvm.fmuladd.f32(float %299, float %300, float %.1402506)
   %302 = load float, ptr %indvars.iv554.sroa.phi704, align 4
-  %303 = tail call float @llvm.fmuladd.f32(float %297, float %302, float %.2386509)
+  %303 = tail call float @llvm.fmuladd.f32(float %297, float %302, float %.2384509)
   %304 = fmul float %.sroa.0446.0, %indvars.iv554.sroa.phi729.sroa.speculated
   %305 = load float, ptr %indvars.iv554.sroa.phi688, align 4
   %306 = fmul float %304, %305
   %307 = fmul float %306, 0.000000e+00
   %308 = load float, ptr %indvars.iv554.sroa.phi637, align 4
   %309 = tail call float @llvm.fmuladd.f32(float %307, float %308, float %303)
-  %310 = tail call float @llvm.fmuladd.f32(float %300, float %302, float %.2390508)
+  %310 = tail call float @llvm.fmuladd.f32(float %300, float %302, float %.2387508)
   %311 = fmul float %.sroa.0447.0, %299
   %312 = load float, ptr %indvars.iv554.sroa.phi681, align 4
   %313 = fmul float %311, %312
@@ -65817,10 +65817,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %296, label %.preheader, label %.loopexit500, !llvm.loop !581
 
 .loopexit500:                                     ; preds = %.preheader, %.critedge753
-  %.2409 = phi float [ %.0407517, %.critedge753 ], [ %298, %.preheader ]
-  %.2404 = phi float [ %.0402518, %.critedge753 ], [ %301, %.preheader ]
-  %.3391 = phi float [ %.1389521, %.critedge753 ], [ %315, %.preheader ]
-  %.3 = phi float [ %.1385522, %.critedge753 ], [ %309, %.preheader ]
+  %.2403 = phi float [ %.0401518, %.critedge753 ], [ %301, %.preheader ]
+  %.2397 = phi float [ %.0395519, %.critedge753 ], [ %298, %.preheader ]
+  %.3388 = phi float [ %.1386521, %.critedge753 ], [ %315, %.preheader ]
+  %.3 = phi float [ %.1383522, %.critedge753 ], [ %309, %.preheader ]
   %316 = fcmp uge float %251, %53
   %.not494 = select i1 %166, i1 %316, i1 false
   br i1 %.not494, label %.loopexit499, label %317
@@ -65850,11 +65850,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv557.sroa.phi706 = phi ptr [ %.sroa.0712, %317 ], [ %.sroa.0712.4.gep707.sroa_idx717, %334 ]
   %indvars.iv557.sroa.phi731.sroa.speculated = phi float [ %75, %317 ], [ %34, %334 ]
   %.4512 = phi float [ %.3, %317 ], [ %343, %334 ]
-  %.3410511 = phi float [ %.2409, %317 ], [ %339, %334 ]
+  %.3398511 = phi float [ %.2397, %317 ], [ %339, %334 ]
   %336 = load float, ptr %indvars.iv557.sroa.phi, align 4
   %337 = fmul float %indvars.iv557.sroa.phi731.sroa.speculated, %336
   %338 = fmul float %333, %337
-  %339 = fsub float %.3410511, %338
+  %339 = fsub float %.3398511, %338
   %340 = load float, ptr %indvars.iv557.sroa.phi706, align 4
   %341 = fmul float %336, %340
   %342 = fmul float %333, %341
@@ -65862,7 +65862,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %335, label %334, label %.loopexit499, !llvm.loop !582
 
 .loopexit499:                                     ; preds = %334, %.loopexit500
-  %.4411 = phi float [ %.2409, %.loopexit500 ], [ %339, %334 ]
+  %.4399 = phi float [ %.2397, %.loopexit500 ], [ %339, %334 ]
   %.5 = phi float [ %.3, %.loopexit500 ], [ %343, %334 ]
   %344 = fcmp uge float %251, %57
   %.not496 = select i1 %166, i1 %344, i1 false
@@ -65895,31 +65895,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv560.sroa.phi = phi ptr [ %.sroa.0629, %345 ], [ %.sroa.3, %365 ]
   %indvars.iv560.sroa.phi708 = phi ptr [ %.sroa.0712, %345 ], [ %.sroa.0712.4.gep709.sroa_idx718, %365 ]
   %indvars.iv560.sroa.phi722 = phi ptr [ %.sroa.0726, %345 ], [ %.sroa.4, %365 ]
-  %.4392515 = phi float [ %.3391, %345 ], [ %375, %365 ]
-  %.3405514 = phi float [ %.2404, %345 ], [ %371, %365 ]
+  %.4389515 = phi float [ %.3388, %345 ], [ %375, %365 ]
+  %.3404514 = phi float [ %.2403, %345 ], [ %371, %365 ]
   %367 = load float, ptr %indvars.iv560.sroa.phi722, align 4
   %368 = load float, ptr %indvars.iv560.sroa.phi, align 4
   %369 = fmul float %367, %368
   %370 = fmul float %364, %369
-  %371 = fadd float %.3405514, %370
+  %371 = fadd float %.3404514, %370
   %372 = load float, ptr %indvars.iv560.sroa.phi708, align 4
   %373 = fmul float %368, %372
   %374 = fmul float %364, %373
-  %375 = fadd float %.4392515, %374
+  %375 = fadd float %.4389515, %374
   br i1 %366, label %365, label %.loopexit, !llvm.loop !583
 
 .loopexit:                                        ; preds = %365, %.loopexit499, %.critedge422
-  %.5412 = phi float [ %.4411, %.loopexit499 ], [ %.0407517, %.critedge422 ], [ %.4411, %365 ]
-  %.4406 = phi float [ %.2404, %.loopexit499 ], [ %.0402518, %.critedge422 ], [ %371, %365 ]
-  %.1400 = phi i1 [ true, %.loopexit499 ], [ %.0399519, %.critedge422 ], [ true, %365 ]
-  %.5393 = phi float [ %.3391, %.loopexit499 ], [ %.1389521, %.critedge422 ], [ %375, %365 ]
-  %.6 = phi float [ %.5, %.loopexit499 ], [ %.1385522, %.critedge422 ], [ %.5, %365 ]
+  %.4405 = phi float [ %.2403, %.loopexit499 ], [ %.0401518, %.critedge422 ], [ %371, %365 ]
+  %.5400 = phi float [ %.4399, %.loopexit499 ], [ %.0395519, %.critedge422 ], [ %.4399, %365 ]
+  %.1394 = phi i1 [ true, %.loopexit499 ], [ %.0393520, %.critedge422 ], [ true, %365 ]
+  %.5390 = phi float [ %.3388, %.loopexit499 ], [ %.1386521, %.critedge422 ], [ %375, %365 ]
+  %.6 = phi float [ %.5, %.loopexit499 ], [ %.1383522, %.critedge422 ], [ %.5, %365 ]
   %indvars.iv.next564 = add nsw i64 %indvars.iv563, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next564, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !584
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge426.not = and i1 %.not, %.1400
+  %brmerge426.not = and i1 %.not, %.1394
   br i1 %brmerge426.not, label %376, label %._crit_edge.thread
 
 376:                                              ; preds = %._crit_edge
@@ -65928,22 +65928,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %379 = sext i32 %378 to i64
   %380 = getelementptr inbounds float, ptr %114, i64 %379
   %381 = load float, ptr %380, align 4
-  %382 = fadd float %.5412, %381
+  %382 = fadd float %.5400, %381
   store float %382, ptr %380, align 4
   %383 = getelementptr inbounds float, ptr %116, i64 %379
   %384 = load float, ptr %383, align 4
-  %385 = fadd float %.4406, %384
+  %385 = fadd float %.4405, %384
   store float %385, ptr %383, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %376
-  %.1385.lcssa579 = phi float [ %.6, %._crit_edge ], [ %.6, %376 ], [ %.0384529, %.critedge ]
-  %.1389.lcssa578 = phi float [ %.5393, %._crit_edge ], [ %.5393, %376 ], [ %.0388528, %.critedge ]
+  %.1383.lcssa579 = phi float [ %.6, %._crit_edge ], [ %.6, %376 ], [ %.0382529, %.critedge ]
+  %.1386.lcssa578 = phi float [ %.5390, %._crit_edge ], [ %.5390, %376 ], [ %.0385528, %.critedge ]
   %exitcond569.not = icmp eq i64 %indvars.iv.next566, %wide.trip.count568
   br i1 %exitcond569.not, label %._crit_edge530, label %.critedge, !llvm.loop !585
 
 ._crit_edge530:                                   ; preds = %._crit_edge.thread
-  %386 = fcmp une float %.1385.lcssa579, 0.000000e+00
+  %386 = fcmp une float %.1383.lcssa579, 0.000000e+00
   br i1 %386, label %387, label %393
 
 387:                                              ; preds = %._crit_edge530
@@ -65951,12 +65951,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %389 = inttoptr i64 %388 to ptr
   %390 = getelementptr inbounds i8, ptr %389, i64 8
   %391 = load float, ptr %390, align 4
-  %392 = fadd float %.1385.lcssa579, %391
+  %392 = fadd float %.1383.lcssa579, %391
   store float %392, ptr %390, align 4
   br label %393
 
 393:                                              ; preds = %387, %._crit_edge530
-  %394 = fcmp une float %.1389.lcssa578, 0.000000e+00
+  %394 = fcmp une float %.1386.lcssa578, 0.000000e+00
   br i1 %394, label %395, label %.thread
 
 395:                                              ; preds = %393
@@ -65964,7 +65964,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %397 = inttoptr i64 %396 to ptr
   %398 = getelementptr inbounds i8, ptr %397, i64 12
   %399 = load float, ptr %398, align 4
-  %400 = fadd float %.1389.lcssa578, %399
+  %400 = fadd float %.1386.lcssa578, %399
   store float %400, ptr %398, align 4
   br label %.thread
 
@@ -67763,9 +67763,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv694 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next695, %._crit_edge.thread ]
-  %.0463654 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1464.lcssa711, %._crit_edge.thread ]
-  %.0470653 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1471.lcssa710, %._crit_edge.thread ]
-  %.0499652 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1500.lcssa709, %._crit_edge.thread ]
+  %.0454654 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1455.lcssa711, %._crit_edge.thread ]
+  %.0457653 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1458.lcssa710, %._crit_edge.thread ]
+  %.0466652 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1467.lcssa709, %._crit_edge.thread ]
   %130 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv694
   %131 = load i32, ptr %130, align 4
   %132 = sext i32 %131 to i64
@@ -67811,13 +67811,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %414
   %indvars.iv692 = phi i64 [ %165, %.lr.ph.preheader ], [ %indvars.iv.next693, %414 ]
-  %.1464642 = phi float [ %.0463654, %.lr.ph.preheader ], [ %.6, %414 ]
-  %.1471641 = phi float [ %.0470653, %.lr.ph.preheader ], [ %.6476, %414 ]
-  %.0481639 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1482, %414 ]
-  %.0487636 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5492, %414 ]
-  %.0493635 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5498, %414 ]
-  %.1500634 = phi i8 [ %.0499652, %.lr.ph.preheader ], [ %.3502, %414 ]
-  %.0504633 = phi i1 [ false, %.lr.ph.preheader ], [ %.1505, %414 ]
+  %.1455642 = phi float [ %.0454654, %.lr.ph.preheader ], [ %.6, %414 ]
+  %.1458641 = phi float [ %.0457653, %.lr.ph.preheader ], [ %.6463, %414 ]
+  %.1467640 = phi i8 [ %.0466652, %.lr.ph.preheader ], [ %.3469, %414 ]
+  %.0472639 = phi i1 [ false, %.lr.ph.preheader ], [ %.1473, %414 ]
+  %.0474638 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5479, %414 ]
+  %.0481637 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5486, %414 ]
+  %.0491634 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1492, %414 ]
   %166 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %415, %414 ]
   %167 = load ptr, ptr %115, align 8
   %168 = load ptr, ptr %116, align 8
@@ -68076,31 +68076,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv683.sroa.phi855 = phi ptr [ %.sroa.0863.4.gep.sroa_idx867, %.preheader ], [ %.sroa.0863, %.thread581 ]
   %indvars.iv683.sroa.phi871 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0877, %.thread581 ]
   %indvars.iv683.sroa.phi880.sroa.speculated = phi float [ %37, %.preheader ], [ %83, %.thread581 ]
-  %.0457623 = phi float [ %325, %.preheader ], [ 0.000000e+00, %.thread581 ]
-  %.2465622 = phi float [ %333, %.preheader ], [ %.1464642, %.thread581 ]
-  %.2472621 = phi float [ %339, %.preheader ], [ %.1471641, %.thread581 ]
-  %.1488620 = phi float [ %319, %.preheader ], [ %.0487636, %.thread581 ]
-  %.1494619 = phi float [ %316, %.preheader ], [ %.0493635, %.thread581 ]
+  %.2456624 = phi float [ %333, %.preheader ], [ %.1455642, %.thread581 ]
+  %.2459623 = phi float [ %339, %.preheader ], [ %.1458641, %.thread581 ]
+  %.1475622 = phi float [ %316, %.preheader ], [ %.0474638, %.thread581 ]
+  %.1482620 = phi float [ %319, %.preheader ], [ %.0481637, %.thread581 ]
+  %.0499619 = phi float [ %325, %.preheader ], [ 0.000000e+00, %.thread581 ]
   %315 = load float, ptr %indvars.iv683.sroa.phi760, align 4
-  %316 = tail call float @llvm.fmuladd.f32(float %indvars.iv683.sroa.phi880.sroa.speculated, float %315, float %.1494619)
+  %316 = tail call float @llvm.fmuladd.f32(float %indvars.iv683.sroa.phi880.sroa.speculated, float %315, float %.1475622)
   %317 = load float, ptr %indvars.iv683.sroa.phi871, align 4
   %318 = load float, ptr %indvars.iv683.sroa.phi, align 4
-  %319 = tail call float @llvm.fmuladd.f32(float %317, float %318, float %.1488620)
+  %319 = tail call float @llvm.fmuladd.f32(float %317, float %318, float %.1482620)
   %320 = load float, ptr %indvars.iv683.sroa.phi772, align 4
   %321 = fmul float %indvars.iv683.sroa.phi880.sroa.speculated, %320
-  %322 = tail call float @llvm.fmuladd.f32(float %321, float %260, float %.0457623)
+  %322 = tail call float @llvm.fmuladd.f32(float %321, float %260, float %.0499619)
   %323 = load float, ptr %indvars.iv683.sroa.phi766, align 4
   %324 = fmul float %317, %323
   %325 = tail call float @llvm.fmuladd.f32(float %324, float %260, float %322)
   %326 = load float, ptr %indvars.iv683.sroa.phi855, align 4
-  %327 = tail call float @llvm.fmuladd.f32(float %315, float %326, float %.2465622)
+  %327 = tail call float @llvm.fmuladd.f32(float %315, float %326, float %.2456624)
   %328 = fmul float %.sroa.0542.0, %indvars.iv683.sroa.phi880.sroa.speculated
   %329 = load float, ptr %indvars.iv683.sroa.phi839, align 4
   %330 = fmul float %328, %329
   %331 = fmul float %320, %330
   %332 = load float, ptr %indvars.iv683.sroa.phi788, align 4
   %333 = tail call float @llvm.fmuladd.f32(float %331, float %332, float %327)
-  %334 = tail call float @llvm.fmuladd.f32(float %318, float %326, float %.2472621)
+  %334 = tail call float @llvm.fmuladd.f32(float %318, float %326, float %.2459623)
   %335 = fmul float %.sroa.0543.0, %317
   %336 = load float, ptr %indvars.iv683.sroa.phi832, align 4
   %337 = fmul float %335, %336
@@ -68109,15 +68109,15 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %314, label %.preheader, label %.loopexit613, !llvm.loop !600
 
 .loopexit613:                                     ; preds = %.preheader, %.critedge908
-  %.2495 = phi float [ %.0493635, %.critedge908 ], [ %316, %.preheader ]
-  %.2489 = phi float [ %.0487636, %.critedge908 ], [ %319, %.preheader ]
-  %.3473 = phi float [ %.1471641, %.critedge908 ], [ %339, %.preheader ]
-  %.3466 = phi float [ %.1464642, %.critedge908 ], [ %333, %.preheader ]
-  %.1458 = phi float [ 0.000000e+00, %.critedge908 ], [ %325, %.preheader ]
+  %.1500 = phi float [ 0.000000e+00, %.critedge908 ], [ %325, %.preheader ]
+  %.2483 = phi float [ %.0481637, %.critedge908 ], [ %319, %.preheader ]
+  %.2476 = phi float [ %.0474638, %.critedge908 ], [ %316, %.preheader ]
+  %.3460 = phi float [ %.1458641, %.critedge908 ], [ %339, %.preheader ]
+  %.3 = phi float [ %.1455642, %.critedge908 ], [ %333, %.preheader ]
   br i1 %79, label %340, label %.loopexit612
 
 340:                                              ; preds = %.loopexit613
-  %341 = trunc nuw i8 %.1500634 to i1
+  %341 = trunc nuw i8 %.1467640 to i1
   br i1 %341, label %345, label %342
 
 342:                                              ; preds = %340
@@ -68141,26 +68141,26 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv686.sroa.phi = phi ptr [ %.sroa.0784, %348 ], [ %.sroa.3785, %352 ]
   %indvars.iv686.sroa.phi857 = phi ptr [ %.sroa.0863, %348 ], [ %.sroa.0863.4.gep858.sroa_idx868, %352 ]
   %indvars.iv686.sroa.phi882.sroa.speculated = phi float [ %83, %348 ], [ %37, %352 ]
-  %.2459627 = phi float [ %.1458, %348 ], [ %359, %352 ]
-  %.4467626 = phi float [ %.3466, %348 ], [ %363, %352 ]
-  %.3496625 = phi float [ %.2495, %348 ], [ %357, %352 ]
+  %.4628 = phi float [ %.3, %348 ], [ %363, %352 ]
+  %.3477626 = phi float [ %.2476, %348 ], [ %357, %352 ]
+  %.2501625 = phi float [ %.1500, %348 ], [ %359, %352 ]
   %354 = load float, ptr %indvars.iv686.sroa.phi, align 4
   %355 = fmul float %indvars.iv686.sroa.phi882.sroa.speculated, %354
   %356 = fmul float %351, %355
-  %357 = fadd float %.3496625, %356
+  %357 = fadd float %.3477626, %356
   %358 = fmul float %123, %355
-  %359 = fsub float %.2459627, %358
+  %359 = fsub float %.2501625, %358
   %360 = load float, ptr %indvars.iv686.sroa.phi857, align 4
   %361 = fmul float %354, %360
   %362 = fmul float %351, %361
-  %363 = fadd float %.4467626, %362
+  %363 = fadd float %.4628, %362
   br i1 %353, label %352, label %.loopexit612, !llvm.loop !601
 
 .loopexit612:                                     ; preds = %352, %345, %.loopexit613
-  %.2501 = phi i8 [ %347, %345 ], [ %.1500634, %.loopexit613 ], [ %347, %352 ]
-  %.4497 = phi float [ %.2495, %345 ], [ %.2495, %.loopexit613 ], [ %357, %352 ]
-  %.5468 = phi float [ %.3466, %345 ], [ %.3466, %.loopexit613 ], [ %363, %352 ]
-  %.3 = phi float [ %.1458, %345 ], [ %.1458, %.loopexit613 ], [ %359, %352 ]
+  %.3502 = phi float [ %.1500, %345 ], [ %.1500, %.loopexit613 ], [ %359, %352 ]
+  %.4478 = phi float [ %.2476, %345 ], [ %.2476, %.loopexit613 ], [ %357, %352 ]
+  %.2468 = phi i8 [ %347, %345 ], [ %.1467640, %.loopexit613 ], [ %347, %352 ]
+  %.5 = phi float [ %.3, %345 ], [ %.3, %.loopexit613 ], [ %363, %352 ]
   %364 = fcmp uge float %259, %65
   %.not609 = select i1 %175, i1 %364, i1 false
   br i1 %.not609, label %.loopexit, label %365
@@ -68194,36 +68194,36 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv689.sroa.phi = phi ptr [ %.sroa.0780, %365 ], [ %.sroa.3, %387 ]
   %indvars.iv689.sroa.phi859 = phi ptr [ %.sroa.0863, %365 ], [ %.sroa.0863.4.gep860.sroa_idx869, %387 ]
   %indvars.iv689.sroa.phi873 = phi ptr [ %.sroa.0877, %365 ], [ %.sroa.4, %387 ]
-  %.4631 = phi float [ %.3, %365 ], [ %395, %387 ]
-  %.4474630 = phi float [ %.3473, %365 ], [ %399, %387 ]
-  %.3490629 = phi float [ %.2489, %365 ], [ %393, %387 ]
+  %.4461632 = phi float [ %.3460, %365 ], [ %399, %387 ]
+  %.3484630 = phi float [ %.2483, %365 ], [ %393, %387 ]
+  %.4503629 = phi float [ %.3502, %365 ], [ %395, %387 ]
   %389 = load float, ptr %indvars.iv689.sroa.phi873, align 4
   %390 = load float, ptr %indvars.iv689.sroa.phi, align 4
   %391 = fmul float %389, %390
   %392 = fmul float %386, %391
-  %393 = fadd float %.3490629, %392
+  %393 = fadd float %.3484630, %392
   %394 = fmul float %384, %391
-  %395 = fadd float %.4631, %394
+  %395 = fadd float %.4503629, %394
   %396 = load float, ptr %indvars.iv689.sroa.phi859, align 4
   %397 = fmul float %390, %396
   %398 = fmul float %386, %397
-  %399 = fadd float %.4474630, %398
+  %399 = fadd float %.4461632, %398
   br i1 %388, label %387, label %.loopexit, !llvm.loop !602
 
 .loopexit:                                        ; preds = %387, %.loopexit612
-  %.4491 = phi float [ %.2489, %.loopexit612 ], [ %393, %387 ]
-  %.5475 = phi float [ %.3473, %.loopexit612 ], [ %399, %387 ]
-  %.5 = phi float [ %.3, %.loopexit612 ], [ %395, %387 ]
-  %400 = fcmp une float %.5, 0.000000e+00
+  %.5504 = phi float [ %.3502, %.loopexit612 ], [ %395, %387 ]
+  %.4485 = phi float [ %.2483, %.loopexit612 ], [ %393, %387 ]
+  %.5462 = phi float [ %.3460, %.loopexit612 ], [ %399, %387 ]
+  %400 = fcmp une float %.5504, 0.000000e+00
   br i1 %400, label %401, label %414
 
 401:                                              ; preds = %.loopexit
-  %402 = insertelement <2 x float> poison, float %.5, i64 0
+  %402 = insertelement <2 x float> poison, float %.5504, i64 0
   %403 = shufflevector <2 x float> %402, <2 x float> poison, <2 x i32> zeroinitializer
   %404 = fmul <2 x float> %231, %403
-  %405 = fmul float %232, %.5
+  %405 = fmul float %232, %.5504
   %406 = fadd <2 x float> %166, %404
-  %407 = fadd float %.0481639, %405
+  %407 = fadd float %.0491634, %405
   %408 = getelementptr inbounds float, ptr %105, i64 %225
   %409 = load <2 x float>, ptr %408, align 4
   %410 = fsub <2 x float> %409, %404
@@ -68235,20 +68235,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br label %414
 
 414:                                              ; preds = %.loopexit, %401, %.critedge516
-  %.1505 = phi i1 [ true, %401 ], [ true, %.loopexit ], [ %.0504633, %.critedge516 ]
-  %.3502 = phi i8 [ %.2501, %401 ], [ %.2501, %.loopexit ], [ %.1500634, %.critedge516 ]
-  %.5498 = phi float [ %.4497, %401 ], [ %.4497, %.loopexit ], [ %.0493635, %.critedge516 ]
-  %.5492 = phi float [ %.4491, %401 ], [ %.4491, %.loopexit ], [ %.0487636, %.critedge516 ]
-  %.1482 = phi float [ %407, %401 ], [ %.0481639, %.loopexit ], [ %.0481639, %.critedge516 ]
-  %.6476 = phi float [ %.5475, %401 ], [ %.5475, %.loopexit ], [ %.1471641, %.critedge516 ]
-  %.6 = phi float [ %.5468, %401 ], [ %.5468, %.loopexit ], [ %.1464642, %.critedge516 ]
+  %.1492 = phi float [ %407, %401 ], [ %.0491634, %.loopexit ], [ %.0491634, %.critedge516 ]
+  %.5486 = phi float [ %.4485, %401 ], [ %.4485, %.loopexit ], [ %.0481637, %.critedge516 ]
+  %.5479 = phi float [ %.4478, %401 ], [ %.4478, %.loopexit ], [ %.0474638, %.critedge516 ]
+  %.1473 = phi i1 [ true, %401 ], [ true, %.loopexit ], [ %.0472639, %.critedge516 ]
+  %.3469 = phi i8 [ %.2468, %401 ], [ %.2468, %.loopexit ], [ %.1467640, %.critedge516 ]
+  %.6463 = phi float [ %.5462, %401 ], [ %.5462, %.loopexit ], [ %.1458641, %.critedge516 ]
+  %.6 = phi float [ %.5, %401 ], [ %.5, %.loopexit ], [ %.1455642, %.critedge516 ]
   %415 = phi <2 x float> [ %406, %401 ], [ %166, %.loopexit ], [ %166, %.critedge516 ]
   %indvars.iv.next693 = add nsw i64 %indvars.iv692, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next693, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !603
 
 ._crit_edge:                                      ; preds = %414
-  br i1 %.1505, label %416, label %._crit_edge.thread
+  br i1 %.1473, label %416, label %._crit_edge.thread
 
 416:                                              ; preds = %._crit_edge
   %417 = getelementptr inbounds float, ptr %105, i64 %143
@@ -68257,7 +68257,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %419, ptr %417, align 4
   %420 = getelementptr i8, ptr %417, i64 8
   %421 = load float, ptr %420, align 4
-  %422 = fadd float %.1482, %421
+  %422 = fadd float %.1492, %421
   store float %422, ptr %420, align 4
   br i1 %.not, label %432, label %423
 
@@ -68270,7 +68270,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %428, ptr %426, align 4
   %429 = getelementptr i8, ptr %426, i64 8
   %430 = load float, ptr %429, align 4
-  %431 = fadd float %.1482, %430
+  %431 = fadd float %.1492, %430
   store float %431, ptr %429, align 4
   br label %432
 
@@ -68283,24 +68283,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %436 = sext i32 %435 to i64
   %437 = getelementptr inbounds float, ptr %127, i64 %436
   %438 = load float, ptr %437, align 4
-  %439 = fadd float %.5498, %438
+  %439 = fadd float %.5479, %438
   store float %439, ptr %437, align 4
   %440 = getelementptr inbounds float, ptr %129, i64 %436
   %441 = load float, ptr %440, align 4
-  %442 = fadd float %.5492, %441
+  %442 = fadd float %.5486, %441
   store float %442, ptr %440, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %433, %432
-  %.1464.lcssa711 = phi float [ %.6, %._crit_edge ], [ %.6, %433 ], [ %.6, %432 ], [ %.0463654, %.critedge ]
-  %.1471.lcssa710 = phi float [ %.6476, %._crit_edge ], [ %.6476, %433 ], [ %.6476, %432 ], [ %.0470653, %.critedge ]
-  %.1500.lcssa709 = phi i8 [ %.3502, %._crit_edge ], [ %.3502, %433 ], [ %.3502, %432 ], [ %.0499652, %.critedge ]
+  %.1455.lcssa711 = phi float [ %.6, %._crit_edge ], [ %.6, %433 ], [ %.6, %432 ], [ %.0454654, %.critedge ]
+  %.1458.lcssa710 = phi float [ %.6463, %._crit_edge ], [ %.6463, %433 ], [ %.6463, %432 ], [ %.0457653, %.critedge ]
+  %.1467.lcssa709 = phi i8 [ %.3469, %._crit_edge ], [ %.3469, %433 ], [ %.3469, %432 ], [ %.0466652, %.critedge ]
   %exitcond697.not = icmp eq i64 %indvars.iv.next695, %wide.trip.count696
   br i1 %exitcond697.not, label %._crit_edge655, label %.critedge, !llvm.loop !604
 
 ._crit_edge655:                                   ; preds = %._crit_edge.thread
-  %443 = trunc nuw i8 %.1500.lcssa709 to i1
-  %444 = fcmp une float %.1464.lcssa711, 0.000000e+00
+  %443 = trunc nuw i8 %.1467.lcssa709 to i1
+  %444 = fcmp une float %.1455.lcssa711, 0.000000e+00
   br i1 %444, label %445, label %451
 
 445:                                              ; preds = %._crit_edge655
@@ -68308,12 +68308,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %447 = inttoptr i64 %446 to ptr
   %448 = getelementptr inbounds i8, ptr %447, i64 8
   %449 = load float, ptr %448, align 4
-  %450 = fadd float %.1464.lcssa711, %449
+  %450 = fadd float %.1455.lcssa711, %449
   store float %450, ptr %448, align 4
   br label %451
 
 451:                                              ; preds = %445, %._crit_edge655
-  %452 = fcmp une float %.1471.lcssa710, 0.000000e+00
+  %452 = fcmp une float %.1458.lcssa710, 0.000000e+00
   br i1 %452, label %453, label %.thread
 
 453:                                              ; preds = %451
@@ -68321,12 +68321,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %455 = inttoptr i64 %454 to ptr
   %456 = getelementptr inbounds i8, ptr %455, i64 12
   %457 = load float, ptr %456, align 4
-  %458 = fadd float %.1471.lcssa710, %457
+  %458 = fadd float %.1458.lcssa710, %457
   store float %458, ptr %456, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.split.us, %453, %451
-  %.0499.lcssa715719 = phi i1 [ %443, %453 ], [ %443, %451 ], [ false, %.split.us ]
+  %.0466.lcssa715719 = phi i1 [ %443, %453 ], [ %443, %451 ], [ false, %.split.us ]
   %459 = load i32, ptr %0, align 8
   %460 = mul nsw i32 %459, 12
   %461 = sext i32 %23 to i64
@@ -68336,7 +68336,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %465 = mul nsw i32 %464, 150
   %466 = add nsw i32 %465, %460
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %466)
-  %467 = select i1 %79, i1 %.0499.lcssa715719, i1 false
+  %467 = select i1 %79, i1 %.0466.lcssa715719, i1 false
   br i1 %467, label %468, label %479
 
 468:                                              ; preds = %.thread
@@ -69694,9 +69694,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv597 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next598, %._crit_edge.thread ]
-  %.0404560 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1405.lcssa613, %._crit_edge.thread ]
-  %.0407559 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1408.lcssa612, %._crit_edge.thread ]
-  %.0417558 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1418.lcssa611, %._crit_edge.thread ]
+  %.0398560 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1399.lcssa613, %._crit_edge.thread ]
+  %.0402559 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1403.lcssa612, %._crit_edge.thread ]
+  %.0409558 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1410.lcssa611, %._crit_edge.thread ]
   %126 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv597
   %127 = load i32, ptr %126, align 4
   %128 = sext i32 %127 to i64
@@ -69747,12 +69747,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv595 = phi i64 [ %166, %.lr.ph.preheader ], [ %indvars.iv.next596, %.loopexit ]
-  %.1405551 = phi float [ %.0404560, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1408550 = phi float [ %.0407559, %.lr.ph.preheader ], [ %.5412, %.loopexit ]
-  %.1418548 = phi i8 [ %.0417558, %.lr.ph.preheader ], [ %.3420, %.loopexit ]
-  %.0423547 = phi i1 [ false, %.lr.ph.preheader ], [ %.1424, %.loopexit ]
-  %.0425546 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4429, %.loopexit ]
-  %.0430545 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5435, %.loopexit ]
+  %.1399551 = phi float [ %.0398560, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1403550 = phi float [ %.0402559, %.lr.ph.preheader ], [ %.5407, %.loopexit ]
+  %.1410549 = phi i8 [ %.0409558, %.lr.ph.preheader ], [ %.3412, %.loopexit ]
+  %.0415548 = phi i1 [ false, %.lr.ph.preheader ], [ %.1416, %.loopexit ]
+  %.0417547 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5422, %.loopexit ]
+  %.0423546 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4427, %.loopexit ]
   %167 = load ptr, ptr %113, align 8
   %168 = load ptr, ptr %114, align 8
   %169 = icmp eq ptr %167, %168
@@ -69992,24 +69992,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv586.sroa.phi743 = phi ptr [ %.sroa.0751.4.gep.sroa_idx755, %.preheader ], [ %.sroa.0751, %.thread496 ]
   %indvars.iv586.sroa.phi759 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0765, %.thread496 ]
   %indvars.iv586.sroa.phi768.sroa.speculated = phi float [ %37, %.preheader ], [ %82, %.thread496 ]
-  %.2406537 = phi float [ %320, %.preheader ], [ %.1405551, %.thread496 ]
-  %.2409536 = phi float [ %326, %.preheader ], [ %.1408550, %.thread496 ]
-  %.1426535 = phi float [ %312, %.preheader ], [ %.0425546, %.thread496 ]
-  %.1431534 = phi float [ %309, %.preheader ], [ %.0430545, %.thread496 ]
+  %.2400538 = phi float [ %320, %.preheader ], [ %.1399551, %.thread496 ]
+  %.2404537 = phi float [ %326, %.preheader ], [ %.1403550, %.thread496 ]
+  %.1418535 = phi float [ %309, %.preheader ], [ %.0417547, %.thread496 ]
+  %.1424534 = phi float [ %312, %.preheader ], [ %.0423546, %.thread496 ]
   %308 = load float, ptr %indvars.iv586.sroa.phi652, align 4
-  %309 = tail call float @llvm.fmuladd.f32(float %indvars.iv586.sroa.phi768.sroa.speculated, float %308, float %.1431534)
+  %309 = tail call float @llvm.fmuladd.f32(float %indvars.iv586.sroa.phi768.sroa.speculated, float %308, float %.1418535)
   %310 = load float, ptr %indvars.iv586.sroa.phi759, align 4
   %311 = load float, ptr %indvars.iv586.sroa.phi, align 4
-  %312 = tail call float @llvm.fmuladd.f32(float %310, float %311, float %.1426535)
+  %312 = tail call float @llvm.fmuladd.f32(float %310, float %311, float %.1424534)
   %313 = load float, ptr %indvars.iv586.sroa.phi743, align 4
-  %314 = tail call float @llvm.fmuladd.f32(float %308, float %313, float %.2406537)
+  %314 = tail call float @llvm.fmuladd.f32(float %308, float %313, float %.2400538)
   %315 = fmul float %.sroa.0468.0, %indvars.iv586.sroa.phi768.sroa.speculated
   %316 = load float, ptr %indvars.iv586.sroa.phi727, align 4
   %317 = fmul float %315, %316
   %318 = fmul float %317, 0.000000e+00
   %319 = load float, ptr %indvars.iv586.sroa.phi676, align 4
   %320 = tail call float @llvm.fmuladd.f32(float %318, float %319, float %314)
-  %321 = tail call float @llvm.fmuladd.f32(float %311, float %313, float %.2409536)
+  %321 = tail call float @llvm.fmuladd.f32(float %311, float %313, float %.2404537)
   %322 = fmul float %.sroa.0469.0, %310
   %323 = load float, ptr %indvars.iv586.sroa.phi720, align 4
   %324 = fmul float %322, %323
@@ -70018,14 +70018,14 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %307, label %.preheader, label %.loopexit528, !llvm.loop !619
 
 .loopexit528:                                     ; preds = %.preheader, %.critedge792
-  %.2432 = phi float [ %.0430545, %.critedge792 ], [ %309, %.preheader ]
-  %.2427 = phi float [ %.0425546, %.critedge792 ], [ %312, %.preheader ]
-  %.3410 = phi float [ %.1408550, %.critedge792 ], [ %326, %.preheader ]
-  %.3 = phi float [ %.1405551, %.critedge792 ], [ %320, %.preheader ]
+  %.2425 = phi float [ %.0423546, %.critedge792 ], [ %312, %.preheader ]
+  %.2419 = phi float [ %.0417547, %.critedge792 ], [ %309, %.preheader ]
+  %.3405 = phi float [ %.1403550, %.critedge792 ], [ %326, %.preheader ]
+  %.3 = phi float [ %.1399551, %.critedge792 ], [ %320, %.preheader ]
   br i1 %78, label %327, label %.loopexit527
 
 327:                                              ; preds = %.loopexit528
-  %328 = trunc nuw i8 %.1418548 to i1
+  %328 = trunc nuw i8 %.1410549 to i1
   br i1 %328, label %332, label %329
 
 329:                                              ; preds = %327
@@ -70049,21 +70049,21 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv589.sroa.phi = phi ptr [ %.sroa.0672, %335 ], [ %.sroa.3673, %339 ]
   %indvars.iv589.sroa.phi745 = phi ptr [ %.sroa.0751, %335 ], [ %.sroa.0751.4.gep746.sroa_idx756, %339 ]
   %indvars.iv589.sroa.phi770.sroa.speculated = phi float [ %82, %335 ], [ %37, %339 ]
-  %.4540 = phi float [ %.3, %335 ], [ %348, %339 ]
-  %.3433539 = phi float [ %.2432, %335 ], [ %344, %339 ]
+  %.4541 = phi float [ %.3, %335 ], [ %348, %339 ]
+  %.3420539 = phi float [ %.2419, %335 ], [ %344, %339 ]
   %341 = load float, ptr %indvars.iv589.sroa.phi, align 4
   %342 = fmul float %indvars.iv589.sroa.phi770.sroa.speculated, %341
   %343 = fmul float %338, %342
-  %344 = fadd float %.3433539, %343
+  %344 = fadd float %.3420539, %343
   %345 = load float, ptr %indvars.iv589.sroa.phi745, align 4
   %346 = fmul float %341, %345
   %347 = fmul float %338, %346
-  %348 = fadd float %.4540, %347
+  %348 = fadd float %.4541, %347
   br i1 %340, label %339, label %.loopexit527, !llvm.loop !620
 
 .loopexit527:                                     ; preds = %339, %332, %.loopexit528
-  %.4434 = phi float [ %.2432, %332 ], [ %.2432, %.loopexit528 ], [ %344, %339 ]
-  %.2419 = phi i8 [ %334, %332 ], [ %.1418548, %.loopexit528 ], [ %334, %339 ]
+  %.4421 = phi float [ %.2419, %332 ], [ %.2419, %.loopexit528 ], [ %344, %339 ]
+  %.2411 = phi i8 [ %334, %332 ], [ %.1410549, %.loopexit528 ], [ %334, %339 ]
   %.5 = phi float [ %.3, %332 ], [ %.3, %.loopexit528 ], [ %348, %339 ]
   %349 = fcmp uge float %260, %64
   %.not524 = select i1 %175, i1 %349, i1 false
@@ -70096,32 +70096,32 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv592.sroa.phi = phi ptr [ %.sroa.0668, %350 ], [ %.sroa.3, %370 ]
   %indvars.iv592.sroa.phi747 = phi ptr [ %.sroa.0751, %350 ], [ %.sroa.0751.4.gep748.sroa_idx757, %370 ]
   %indvars.iv592.sroa.phi761 = phi ptr [ %.sroa.0765, %350 ], [ %.sroa.4, %370 ]
-  %.4411543 = phi float [ %.3410, %350 ], [ %380, %370 ]
-  %.3428542 = phi float [ %.2427, %350 ], [ %376, %370 ]
+  %.4406543 = phi float [ %.3405, %350 ], [ %380, %370 ]
+  %.3426542 = phi float [ %.2425, %350 ], [ %376, %370 ]
   %372 = load float, ptr %indvars.iv592.sroa.phi761, align 4
   %373 = load float, ptr %indvars.iv592.sroa.phi, align 4
   %374 = fmul float %372, %373
   %375 = fmul float %369, %374
-  %376 = fadd float %.3428542, %375
+  %376 = fadd float %.3426542, %375
   %377 = load float, ptr %indvars.iv592.sroa.phi747, align 4
   %378 = fmul float %373, %377
   %379 = fmul float %369, %378
-  %380 = fadd float %.4411543, %379
+  %380 = fadd float %.4406543, %379
   br i1 %371, label %370, label %.loopexit, !llvm.loop !621
 
 .loopexit:                                        ; preds = %370, %.loopexit527, %.critedge445
-  %.5435 = phi float [ %.4434, %.loopexit527 ], [ %.0430545, %.critedge445 ], [ %.4434, %370 ]
-  %.4429 = phi float [ %.2427, %.loopexit527 ], [ %.0425546, %.critedge445 ], [ %376, %370 ]
-  %.1424 = phi i1 [ true, %.loopexit527 ], [ %.0423547, %.critedge445 ], [ true, %370 ]
-  %.3420 = phi i8 [ %.2419, %.loopexit527 ], [ %.1418548, %.critedge445 ], [ %.2419, %370 ]
-  %.5412 = phi float [ %.3410, %.loopexit527 ], [ %.1408550, %.critedge445 ], [ %380, %370 ]
-  %.6 = phi float [ %.5, %.loopexit527 ], [ %.1405551, %.critedge445 ], [ %.5, %370 ]
+  %.4427 = phi float [ %.2425, %.loopexit527 ], [ %.0423546, %.critedge445 ], [ %376, %370 ]
+  %.5422 = phi float [ %.4421, %.loopexit527 ], [ %.0417547, %.critedge445 ], [ %.4421, %370 ]
+  %.1416 = phi i1 [ true, %.loopexit527 ], [ %.0415548, %.critedge445 ], [ true, %370 ]
+  %.3412 = phi i8 [ %.2411, %.loopexit527 ], [ %.1410549, %.critedge445 ], [ %.2411, %370 ]
+  %.5407 = phi float [ %.3405, %.loopexit527 ], [ %.1403550, %.critedge445 ], [ %380, %370 ]
+  %.6 = phi float [ %.5, %.loopexit527 ], [ %.1399551, %.critedge445 ], [ %.5, %370 ]
   %indvars.iv.next596 = add nsw i64 %indvars.iv595, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next596, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !622
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge449.not = and i1 %.not, %.1424
+  %brmerge449.not = and i1 %.not, %.1416
   br i1 %brmerge449.not, label %381, label %._crit_edge.thread
 
 381:                                              ; preds = %._crit_edge
@@ -70130,24 +70130,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %384 = sext i32 %383 to i64
   %385 = getelementptr inbounds float, ptr %123, i64 %384
   %386 = load float, ptr %385, align 4
-  %387 = fadd float %.5435, %386
+  %387 = fadd float %.5422, %386
   store float %387, ptr %385, align 4
   %388 = getelementptr inbounds float, ptr %125, i64 %384
   %389 = load float, ptr %388, align 4
-  %390 = fadd float %.4429, %389
+  %390 = fadd float %.4427, %389
   store float %390, ptr %388, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %381
-  %.1405.lcssa613 = phi float [ %.6, %._crit_edge ], [ %.6, %381 ], [ %.0404560, %.critedge ]
-  %.1408.lcssa612 = phi float [ %.5412, %._crit_edge ], [ %.5412, %381 ], [ %.0407559, %.critedge ]
-  %.1418.lcssa611 = phi i8 [ %.3420, %._crit_edge ], [ %.3420, %381 ], [ %.0417558, %.critedge ]
+  %.1399.lcssa613 = phi float [ %.6, %._crit_edge ], [ %.6, %381 ], [ %.0398560, %.critedge ]
+  %.1403.lcssa612 = phi float [ %.5407, %._crit_edge ], [ %.5407, %381 ], [ %.0402559, %.critedge ]
+  %.1410.lcssa611 = phi i8 [ %.3412, %._crit_edge ], [ %.3412, %381 ], [ %.0409558, %.critedge ]
   %exitcond600.not = icmp eq i64 %indvars.iv.next598, %wide.trip.count599
   br i1 %exitcond600.not, label %._crit_edge561, label %.critedge, !llvm.loop !623
 
 ._crit_edge561:                                   ; preds = %._crit_edge.thread
-  %391 = trunc nuw i8 %.1418.lcssa611 to i1
-  %392 = fcmp une float %.1405.lcssa613, 0.000000e+00
+  %391 = trunc nuw i8 %.1410.lcssa611 to i1
+  %392 = fcmp une float %.1399.lcssa613, 0.000000e+00
   br i1 %392, label %393, label %399
 
 393:                                              ; preds = %._crit_edge561
@@ -70155,12 +70155,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %395 = inttoptr i64 %394 to ptr
   %396 = getelementptr inbounds i8, ptr %395, i64 8
   %397 = load float, ptr %396, align 4
-  %398 = fadd float %.1405.lcssa613, %397
+  %398 = fadd float %.1399.lcssa613, %397
   store float %398, ptr %396, align 4
   br label %399
 
 399:                                              ; preds = %393, %._crit_edge561
-  %400 = fcmp une float %.1408.lcssa612, 0.000000e+00
+  %400 = fcmp une float %.1403.lcssa612, 0.000000e+00
   br i1 %400, label %401, label %.thread
 
 401:                                              ; preds = %399
@@ -70168,12 +70168,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %403 = inttoptr i64 %402 to ptr
   %404 = getelementptr inbounds i8, ptr %403, i64 12
   %405 = load float, ptr %404, align 4
-  %406 = fadd float %.1408.lcssa612, %405
+  %406 = fadd float %.1403.lcssa612, %405
   store float %406, ptr %404, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.split.us, %401, %399
-  %.0417.lcssa617621 = phi i1 [ %391, %401 ], [ %391, %399 ], [ false, %.split.us ]
+  %.0409.lcssa617621 = phi i1 [ %391, %401 ], [ %391, %399 ], [ false, %.split.us ]
   %407 = load i32, ptr %0, align 8
   %408 = mul nsw i32 %407, 12
   %409 = sext i32 %23 to i64
@@ -70183,7 +70183,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %413 = mul nsw i32 %412, 150
   %414 = add nsw i32 %413, %408
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %414)
-  %415 = select i1 %78, i1 %.0417.lcssa617621, i1 false
+  %415 = select i1 %78, i1 %.0409.lcssa617621, i1 false
   br i1 %415, label %416, label %427
 
 416:                                              ; preds = %.thread
@@ -71837,8 +71837,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv672 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next673, %._crit_edge.thread ]
-  %.0474639 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1475.lcssa687, %._crit_edge.thread ]
-  %.0479638 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1480.lcssa686, %._crit_edge.thread ]
+  %.0467639 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1468.lcssa687, %._crit_edge.thread ]
+  %.0470638 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1471.lcssa686, %._crit_edge.thread ]
   %121 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv672
   %122 = load i32, ptr %121, align 4
   %123 = sext i32 %122 to i64
@@ -71884,12 +71884,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %397
   %indvars.iv670 = phi i64 [ %156, %.lr.ph.preheader ], [ %indvars.iv.next671, %397 ]
-  %.1475629 = phi float [ %.0474639, %.lr.ph.preheader ], [ %.6, %397 ]
-  %.1480628 = phi float [ %.0479638, %.lr.ph.preheader ], [ %.4483, %397 ]
-  %.0490626 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1491, %397 ]
-  %.0496623 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3499, %397 ]
-  %.0500622 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5505, %397 ]
-  %.0506621 = phi i1 [ false, %.lr.ph.preheader ], [ %.1507, %397 ]
+  %.1468629 = phi float [ %.0467639, %.lr.ph.preheader ], [ %.6, %397 ]
+  %.1471628 = phi float [ %.0470638, %.lr.ph.preheader ], [ %.4474, %397 ]
+  %.0479627 = phi i1 [ false, %.lr.ph.preheader ], [ %.1480, %397 ]
+  %.0481626 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5486, %397 ]
+  %.0487625 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3490, %397 ]
+  %.0495622 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1496, %397 ]
   %157 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %398, %397 ]
   %158 = load ptr, ptr %113, align 8
   %159 = load ptr, ptr %114, align 8
@@ -72147,31 +72147,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv664.sroa.phi806 = phi ptr [ %.sroa.0812.4.gep.sroa_idx816, %.preheader ], [ %.sroa.0812, %.thread582 ]
   %indvars.iv664.sroa.phi819 = phi ptr [ %.sroa.3824, %.preheader ], [ %.sroa.0823, %.thread582 ]
   %indvars.iv664.sroa.phi827.sroa.speculated = phi float [ %34, %.preheader ], [ %81, %.thread582 ]
-  %.0469615 = phi float [ %322, %.preheader ], [ 0.000000e+00, %.thread582 ]
-  %.2476614 = phi float [ %330, %.preheader ], [ %.1475629, %.thread582 ]
-  %.2481613 = phi float [ %336, %.preheader ], [ %.1480628, %.thread582 ]
-  %.1497612 = phi float [ %316, %.preheader ], [ %.0496623, %.thread582 ]
-  %.1501611 = phi float [ %313, %.preheader ], [ %.0500622, %.thread582 ]
+  %.2469616 = phi float [ %330, %.preheader ], [ %.1468629, %.thread582 ]
+  %.2472615 = phi float [ %336, %.preheader ], [ %.1471628, %.thread582 ]
+  %.1482613 = phi float [ %313, %.preheader ], [ %.0481626, %.thread582 ]
+  %.1488612 = phi float [ %316, %.preheader ], [ %.0487625, %.thread582 ]
+  %.0503611 = phi float [ %322, %.preheader ], [ 0.000000e+00, %.thread582 ]
   %312 = load float, ptr %indvars.iv664.sroa.phi722, align 4
-  %313 = tail call float @llvm.fmuladd.f32(float %indvars.iv664.sroa.phi827.sroa.speculated, float %312, float %.1501611)
+  %313 = tail call float @llvm.fmuladd.f32(float %indvars.iv664.sroa.phi827.sroa.speculated, float %312, float %.1482613)
   %314 = load float, ptr %indvars.iv664.sroa.phi819, align 4
   %315 = load float, ptr %indvars.iv664.sroa.phi, align 4
-  %316 = tail call float @llvm.fmuladd.f32(float %314, float %315, float %.1497612)
+  %316 = tail call float @llvm.fmuladd.f32(float %314, float %315, float %.1488612)
   %317 = load float, ptr %indvars.iv664.sroa.phi734, align 4
   %318 = fmul float %indvars.iv664.sroa.phi827.sroa.speculated, %317
-  %319 = tail call float @llvm.fmuladd.f32(float %318, float %249, float %.0469615)
+  %319 = tail call float @llvm.fmuladd.f32(float %318, float %249, float %.0503611)
   %320 = load float, ptr %indvars.iv664.sroa.phi728, align 4
   %321 = fmul float %314, %320
   %322 = tail call float @llvm.fmuladd.f32(float %321, float %249, float %319)
   %323 = load float, ptr %indvars.iv664.sroa.phi806, align 4
-  %324 = tail call float @llvm.fmuladd.f32(float %312, float %323, float %.2476614)
+  %324 = tail call float @llvm.fmuladd.f32(float %312, float %323, float %.2469616)
   %325 = fmul float %.sroa.0543.0, %indvars.iv664.sroa.phi827.sroa.speculated
   %326 = load float, ptr %indvars.iv664.sroa.phi790, align 4
   %327 = fmul float %325, %326
   %328 = fmul float %317, %327
   %329 = load float, ptr %indvars.iv664.sroa.phi744, align 4
   %330 = tail call float @llvm.fmuladd.f32(float %328, float %329, float %324)
-  %331 = tail call float @llvm.fmuladd.f32(float %315, float %323, float %.2481613)
+  %331 = tail call float @llvm.fmuladd.f32(float %315, float %323, float %.2472615)
   %332 = fmul float %.sroa.0544.0, %314
   %333 = load float, ptr %indvars.iv664.sroa.phi783, align 4
   %334 = fmul float %332, %333
@@ -72180,11 +72180,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %311, label %.preheader, label %.loopexit605, !llvm.loop !637
 
 .loopexit605:                                     ; preds = %.preheader, %.critedge848
-  %.2502 = phi float [ %.0500622, %.critedge848 ], [ %313, %.preheader ]
-  %.2498 = phi float [ %.0496623, %.critedge848 ], [ %316, %.preheader ]
-  %.3482 = phi float [ %.1480628, %.critedge848 ], [ %336, %.preheader ]
-  %.3477 = phi float [ %.1475629, %.critedge848 ], [ %330, %.preheader ]
-  %.1470 = phi float [ 0.000000e+00, %.critedge848 ], [ %322, %.preheader ]
+  %.1504 = phi float [ 0.000000e+00, %.critedge848 ], [ %322, %.preheader ]
+  %.2489 = phi float [ %.0487625, %.critedge848 ], [ %316, %.preheader ]
+  %.2483 = phi float [ %.0481626, %.critedge848 ], [ %313, %.preheader ]
+  %.3473 = phi float [ %.1471628, %.critedge848 ], [ %336, %.preheader ]
+  %.3 = phi float [ %.1468629, %.critedge848 ], [ %330, %.preheader ]
   %337 = fcmp uge float %248, %54
   %.not602 = select i1 %166, i1 %337, i1 false
   br i1 %.not602, label %.loopexit, label %338
@@ -72229,35 +72229,35 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv667.sroa.phi = phi ptr [ %.sroa.0741, %338 ], [ %.sroa.3, %371 ]
   %indvars.iv667.sroa.phi808 = phi ptr [ %.sroa.0812, %338 ], [ %.sroa.0812.4.gep809.sroa_idx817, %371 ]
   %indvars.iv667.sroa.phi829.sroa.speculated = phi float [ %81, %338 ], [ %34, %371 ]
-  %.2471619 = phi float [ %.1470, %338 ], [ %378, %371 ]
-  %.4618 = phi float [ %.3477, %338 ], [ %382, %371 ]
-  %.3503617 = phi float [ %.2502, %338 ], [ %376, %371 ]
+  %.4620 = phi float [ %.3, %338 ], [ %382, %371 ]
+  %.3484618 = phi float [ %.2483, %338 ], [ %376, %371 ]
+  %.2505617 = phi float [ %.1504, %338 ], [ %378, %371 ]
   %373 = load float, ptr %indvars.iv667.sroa.phi, align 4
   %374 = fmul float %indvars.iv667.sroa.phi829.sroa.speculated, %373
   %375 = fmul float %370, %374
-  %376 = fsub float %.3503617, %375
+  %376 = fsub float %.3484618, %375
   %377 = fmul float %368, %374
-  %378 = fsub float %.2471619, %377
+  %378 = fsub float %.2505617, %377
   %379 = load float, ptr %indvars.iv667.sroa.phi808, align 4
   %380 = fmul float %373, %379
   %381 = fmul float %370, %380
-  %382 = fsub float %.4618, %381
+  %382 = fsub float %.4620, %381
   br i1 %372, label %371, label %.loopexit, !llvm.loop !638
 
 .loopexit:                                        ; preds = %371, %.loopexit605
-  %.4504 = phi float [ %.2502, %.loopexit605 ], [ %376, %371 ]
-  %.5 = phi float [ %.3477, %.loopexit605 ], [ %382, %371 ]
-  %.3 = phi float [ %.1470, %.loopexit605 ], [ %378, %371 ]
-  %383 = fcmp une float %.3, 0.000000e+00
+  %.3506 = phi float [ %.1504, %.loopexit605 ], [ %378, %371 ]
+  %.4485 = phi float [ %.2483, %.loopexit605 ], [ %376, %371 ]
+  %.5 = phi float [ %.3, %.loopexit605 ], [ %382, %371 ]
+  %383 = fcmp une float %.3506, 0.000000e+00
   br i1 %383, label %384, label %397
 
 384:                                              ; preds = %.loopexit
-  %385 = insertelement <2 x float> poison, float %.3, i64 0
+  %385 = insertelement <2 x float> poison, float %.3506, i64 0
   %386 = shufflevector <2 x float> %385, <2 x float> poison, <2 x i32> zeroinitializer
   %387 = fmul <2 x float> %220, %386
-  %388 = fmul float %221, %.3
+  %388 = fmul float %221, %.3506
   %389 = fadd <2 x float> %157, %387
-  %390 = fadd float %.0490626, %388
+  %390 = fadd float %.0495622, %388
   %391 = getelementptr inbounds float, ptr %103, i64 %214
   %392 = load <2 x float>, ptr %391, align 4
   %393 = fsub <2 x float> %392, %387
@@ -72269,19 +72269,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br label %397
 
 397:                                              ; preds = %.loopexit, %384, %.critedge518
-  %.1507 = phi i1 [ true, %384 ], [ true, %.loopexit ], [ %.0506621, %.critedge518 ]
-  %.5505 = phi float [ %.4504, %384 ], [ %.4504, %.loopexit ], [ %.0500622, %.critedge518 ]
-  %.3499 = phi float [ %.2498, %384 ], [ %.2498, %.loopexit ], [ %.0496623, %.critedge518 ]
-  %.1491 = phi float [ %390, %384 ], [ %.0490626, %.loopexit ], [ %.0490626, %.critedge518 ]
-  %.4483 = phi float [ %.3482, %384 ], [ %.3482, %.loopexit ], [ %.1480628, %.critedge518 ]
-  %.6 = phi float [ %.5, %384 ], [ %.5, %.loopexit ], [ %.1475629, %.critedge518 ]
+  %.1496 = phi float [ %390, %384 ], [ %.0495622, %.loopexit ], [ %.0495622, %.critedge518 ]
+  %.3490 = phi float [ %.2489, %384 ], [ %.2489, %.loopexit ], [ %.0487625, %.critedge518 ]
+  %.5486 = phi float [ %.4485, %384 ], [ %.4485, %.loopexit ], [ %.0481626, %.critedge518 ]
+  %.1480 = phi i1 [ true, %384 ], [ true, %.loopexit ], [ %.0479627, %.critedge518 ]
+  %.4474 = phi float [ %.3473, %384 ], [ %.3473, %.loopexit ], [ %.1471628, %.critedge518 ]
+  %.6 = phi float [ %.5, %384 ], [ %.5, %.loopexit ], [ %.1468629, %.critedge518 ]
   %398 = phi <2 x float> [ %389, %384 ], [ %157, %.loopexit ], [ %157, %.critedge518 ]
   %indvars.iv.next671 = add nsw i64 %indvars.iv670, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next671, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !639
 
 ._crit_edge:                                      ; preds = %397
-  br i1 %.1507, label %399, label %._crit_edge.thread
+  br i1 %.1480, label %399, label %._crit_edge.thread
 
 399:                                              ; preds = %._crit_edge
   %400 = getelementptr inbounds float, ptr %103, i64 %134
@@ -72290,7 +72290,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %402, ptr %400, align 4
   %403 = getelementptr i8, ptr %400, i64 8
   %404 = load float, ptr %403, align 4
-  %405 = fadd float %.1491, %404
+  %405 = fadd float %.1496, %404
   store float %405, ptr %403, align 4
   br i1 %.not, label %415, label %406
 
@@ -72303,7 +72303,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %411, ptr %409, align 4
   %412 = getelementptr i8, ptr %409, i64 8
   %413 = load float, ptr %412, align 4
-  %414 = fadd float %.1491, %413
+  %414 = fadd float %.1496, %413
   store float %414, ptr %412, align 4
   br label %415
 
@@ -72316,22 +72316,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %419 = sext i32 %418 to i64
   %420 = getelementptr inbounds float, ptr %118, i64 %419
   %421 = load float, ptr %420, align 4
-  %422 = fadd float %.5505, %421
+  %422 = fadd float %.5486, %421
   store float %422, ptr %420, align 4
   %423 = getelementptr inbounds float, ptr %120, i64 %419
   %424 = load float, ptr %423, align 4
-  %425 = fadd float %.3499, %424
+  %425 = fadd float %.3490, %424
   store float %425, ptr %423, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %416, %415
-  %.1475.lcssa687 = phi float [ %.6, %._crit_edge ], [ %.6, %416 ], [ %.6, %415 ], [ %.0474639, %.critedge ]
-  %.1480.lcssa686 = phi float [ %.4483, %._crit_edge ], [ %.4483, %416 ], [ %.4483, %415 ], [ %.0479638, %.critedge ]
+  %.1468.lcssa687 = phi float [ %.6, %._crit_edge ], [ %.6, %416 ], [ %.6, %415 ], [ %.0467639, %.critedge ]
+  %.1471.lcssa686 = phi float [ %.4474, %._crit_edge ], [ %.4474, %416 ], [ %.4474, %415 ], [ %.0470638, %.critedge ]
   %exitcond676.not = icmp eq i64 %indvars.iv.next673, %wide.trip.count675
   br i1 %exitcond676.not, label %._crit_edge640, label %.critedge, !llvm.loop !640
 
 ._crit_edge640:                                   ; preds = %._crit_edge.thread
-  %426 = fcmp une float %.1475.lcssa687, 0.000000e+00
+  %426 = fcmp une float %.1468.lcssa687, 0.000000e+00
   br i1 %426, label %427, label %433
 
 427:                                              ; preds = %._crit_edge640
@@ -72339,12 +72339,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %429 = inttoptr i64 %428 to ptr
   %430 = getelementptr inbounds i8, ptr %429, i64 8
   %431 = load float, ptr %430, align 4
-  %432 = fadd float %.1475.lcssa687, %431
+  %432 = fadd float %.1468.lcssa687, %431
   store float %432, ptr %430, align 4
   br label %433
 
 433:                                              ; preds = %427, %._crit_edge640
-  %434 = fcmp une float %.1480.lcssa686, 0.000000e+00
+  %434 = fcmp une float %.1471.lcssa686, 0.000000e+00
   br i1 %434, label %435, label %.thread
 
 435:                                              ; preds = %433
@@ -72352,7 +72352,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %437 = inttoptr i64 %436 to ptr
   %438 = getelementptr inbounds i8, ptr %437, i64 12
   %439 = load float, ptr %438, align 4
-  %440 = fadd float %.1480.lcssa686, %439
+  %440 = fadd float %.1471.lcssa686, %439
   store float %440, ptr %438, align 4
   br label %.thread
 
@@ -73478,8 +73478,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv566 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next567, %._crit_edge.thread ]
-  %.0400535 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1401.lcssa580, %._crit_edge.thread ]
-  %.0403534 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1404.lcssa579, %._crit_edge.thread ]
+  %.0398535 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1399.lcssa580, %._crit_edge.thread ]
+  %.0401534 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1402.lcssa579, %._crit_edge.thread ]
   %116 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv566
   %117 = load i32, ptr %116, align 4
   %118 = sext i32 %117 to i64
@@ -73530,11 +73530,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv564 = phi i64 [ %156, %.lr.ph.preheader ], [ %indvars.iv.next565, %.loopexit ]
-  %.1401528 = phi float [ %.0400535, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1404527 = phi float [ %.0403534, %.lr.ph.preheader ], [ %.4407, %.loopexit ]
-  %.0411526 = phi i1 [ false, %.lr.ph.preheader ], [ %.1412, %.loopexit ]
-  %.0417524 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3420, %.loopexit ]
-  %.0421523 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5426, %.loopexit ]
+  %.1399528 = phi float [ %.0398535, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1402527 = phi float [ %.0401534, %.lr.ph.preheader ], [ %.4405, %.loopexit ]
+  %.0408526 = phi i1 [ false, %.lr.ph.preheader ], [ %.1409, %.loopexit ]
+  %.0410525 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5415, %.loopexit ]
+  %.0416524 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3419, %.loopexit ]
   %157 = load ptr, ptr %108, align 8
   %158 = load ptr, ptr %109, align 8
   %159 = icmp eq ptr %157, %158
@@ -73768,24 +73768,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv558.sroa.phi688 = phi ptr [ %.sroa.0694.4.gep.sroa_idx698, %.preheader ], [ %.sroa.0694, %.thread486 ]
   %indvars.iv558.sroa.phi701 = phi ptr [ %.sroa.3706, %.preheader ], [ %.sroa.0705, %.thread486 ]
   %indvars.iv558.sroa.phi709.sroa.speculated = phi float [ %34, %.preheader ], [ %77, %.thread486 ]
-  %.2402518 = phi float [ %311, %.preheader ], [ %.1401528, %.thread486 ]
-  %.2405517 = phi float [ %317, %.preheader ], [ %.1404527, %.thread486 ]
-  %.1418516 = phi float [ %303, %.preheader ], [ %.0417524, %.thread486 ]
-  %.1422515 = phi float [ %300, %.preheader ], [ %.0421523, %.thread486 ]
+  %.2400518 = phi float [ %311, %.preheader ], [ %.1399528, %.thread486 ]
+  %.2403517 = phi float [ %317, %.preheader ], [ %.1402527, %.thread486 ]
+  %.1411516 = phi float [ %300, %.preheader ], [ %.0410525, %.thread486 ]
+  %.1417515 = phi float [ %303, %.preheader ], [ %.0416524, %.thread486 ]
   %299 = load float, ptr %indvars.iv558.sroa.phi608, align 4
-  %300 = tail call float @llvm.fmuladd.f32(float %indvars.iv558.sroa.phi709.sroa.speculated, float %299, float %.1422515)
+  %300 = tail call float @llvm.fmuladd.f32(float %indvars.iv558.sroa.phi709.sroa.speculated, float %299, float %.1411516)
   %301 = load float, ptr %indvars.iv558.sroa.phi701, align 4
   %302 = load float, ptr %indvars.iv558.sroa.phi, align 4
-  %303 = tail call float @llvm.fmuladd.f32(float %301, float %302, float %.1418516)
+  %303 = tail call float @llvm.fmuladd.f32(float %301, float %302, float %.1417515)
   %304 = load float, ptr %indvars.iv558.sroa.phi688, align 4
-  %305 = tail call float @llvm.fmuladd.f32(float %299, float %304, float %.2402518)
+  %305 = tail call float @llvm.fmuladd.f32(float %299, float %304, float %.2400518)
   %306 = fmul float %.sroa.0458.0, %indvars.iv558.sroa.phi709.sroa.speculated
   %307 = load float, ptr %indvars.iv558.sroa.phi672, align 4
   %308 = fmul float %306, %307
   %309 = fmul float %308, 0.000000e+00
   %310 = load float, ptr %indvars.iv558.sroa.phi626, align 4
   %311 = tail call float @llvm.fmuladd.f32(float %309, float %310, float %305)
-  %312 = tail call float @llvm.fmuladd.f32(float %302, float %304, float %.2405517)
+  %312 = tail call float @llvm.fmuladd.f32(float %302, float %304, float %.2403517)
   %313 = fmul float %.sroa.0459.0, %301
   %314 = load float, ptr %indvars.iv558.sroa.phi665, align 4
   %315 = fmul float %313, %314
@@ -73794,10 +73794,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %298, label %.preheader, label %.loopexit509, !llvm.loop !654
 
 .loopexit509:                                     ; preds = %.preheader, %.critedge727
-  %.2423 = phi float [ %.0421523, %.critedge727 ], [ %300, %.preheader ]
-  %.2419 = phi float [ %.0417524, %.critedge727 ], [ %303, %.preheader ]
-  %.3406 = phi float [ %.1404527, %.critedge727 ], [ %317, %.preheader ]
-  %.3 = phi float [ %.1401528, %.critedge727 ], [ %311, %.preheader ]
+  %.2418 = phi float [ %.0416524, %.critedge727 ], [ %303, %.preheader ]
+  %.2412 = phi float [ %.0410525, %.critedge727 ], [ %300, %.preheader ]
+  %.3404 = phi float [ %.1402527, %.critedge727 ], [ %317, %.preheader ]
+  %.3 = phi float [ %.1399528, %.critedge727 ], [ %311, %.preheader ]
   %318 = fcmp uge float %248, %53
   %.not506 = select i1 %165, i1 %318, i1 false
   br i1 %.not506, label %.loopexit, label %319
@@ -73827,11 +73827,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv561.sroa.phi690 = phi ptr [ %.sroa.0694, %319 ], [ %.sroa.0694.4.gep691.sroa_idx699, %336 ]
   %indvars.iv561.sroa.phi711.sroa.speculated = phi float [ %77, %319 ], [ %34, %336 ]
   %.4521 = phi float [ %.3, %319 ], [ %345, %336 ]
-  %.3424520 = phi float [ %.2423, %319 ], [ %341, %336 ]
+  %.3413520 = phi float [ %.2412, %319 ], [ %341, %336 ]
   %338 = load float, ptr %indvars.iv561.sroa.phi, align 4
   %339 = fmul float %indvars.iv561.sroa.phi711.sroa.speculated, %338
   %340 = fmul float %335, %339
-  %341 = fsub float %.3424520, %340
+  %341 = fsub float %.3413520, %340
   %342 = load float, ptr %indvars.iv561.sroa.phi690, align 4
   %343 = fmul float %338, %342
   %344 = fmul float %335, %343
@@ -73839,17 +73839,17 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %337, label %336, label %.loopexit, !llvm.loop !655
 
 .loopexit:                                        ; preds = %336, %.loopexit509, %.critedge436
-  %.5426 = phi float [ %.0421523, %.critedge436 ], [ %.2423, %.loopexit509 ], [ %341, %336 ]
-  %.3420 = phi float [ %.0417524, %.critedge436 ], [ %.2419, %.loopexit509 ], [ %.2419, %336 ]
-  %.1412 = phi i1 [ %.0411526, %.critedge436 ], [ true, %.loopexit509 ], [ true, %336 ]
-  %.4407 = phi float [ %.1404527, %.critedge436 ], [ %.3406, %.loopexit509 ], [ %.3406, %336 ]
-  %.6 = phi float [ %.1401528, %.critedge436 ], [ %.3, %.loopexit509 ], [ %345, %336 ]
+  %.3419 = phi float [ %.0416524, %.critedge436 ], [ %.2418, %.loopexit509 ], [ %.2418, %336 ]
+  %.5415 = phi float [ %.0410525, %.critedge436 ], [ %.2412, %.loopexit509 ], [ %341, %336 ]
+  %.1409 = phi i1 [ %.0408526, %.critedge436 ], [ true, %.loopexit509 ], [ true, %336 ]
+  %.4405 = phi float [ %.1402527, %.critedge436 ], [ %.3404, %.loopexit509 ], [ %.3404, %336 ]
+  %.6 = phi float [ %.1399528, %.critedge436 ], [ %.3, %.loopexit509 ], [ %345, %336 ]
   %indvars.iv.next565 = add nsw i64 %indvars.iv564, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next565, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !656
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge440.not = and i1 %.not, %.1412
+  %brmerge440.not = and i1 %.not, %.1409
   br i1 %brmerge440.not, label %346, label %._crit_edge.thread
 
 346:                                              ; preds = %._crit_edge
@@ -73858,22 +73858,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %349 = sext i32 %348 to i64
   %350 = getelementptr inbounds float, ptr %113, i64 %349
   %351 = load float, ptr %350, align 4
-  %352 = fadd float %.5426, %351
+  %352 = fadd float %.5415, %351
   store float %352, ptr %350, align 4
   %353 = getelementptr inbounds float, ptr %115, i64 %349
   %354 = load float, ptr %353, align 4
-  %355 = fadd float %.3420, %354
+  %355 = fadd float %.3419, %354
   store float %355, ptr %353, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %346
-  %.1401.lcssa580 = phi float [ %.6, %._crit_edge ], [ %.6, %346 ], [ %.0400535, %.critedge ]
-  %.1404.lcssa579 = phi float [ %.4407, %._crit_edge ], [ %.4407, %346 ], [ %.0403534, %.critedge ]
+  %.1399.lcssa580 = phi float [ %.6, %._crit_edge ], [ %.6, %346 ], [ %.0398535, %.critedge ]
+  %.1402.lcssa579 = phi float [ %.4405, %._crit_edge ], [ %.4405, %346 ], [ %.0401534, %.critedge ]
   %exitcond570.not = icmp eq i64 %indvars.iv.next567, %wide.trip.count569
   br i1 %exitcond570.not, label %._crit_edge536, label %.critedge, !llvm.loop !657
 
 ._crit_edge536:                                   ; preds = %._crit_edge.thread
-  %356 = fcmp une float %.1401.lcssa580, 0.000000e+00
+  %356 = fcmp une float %.1399.lcssa580, 0.000000e+00
   br i1 %356, label %357, label %363
 
 357:                                              ; preds = %._crit_edge536
@@ -73881,12 +73881,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %359 = inttoptr i64 %358 to ptr
   %360 = getelementptr inbounds i8, ptr %359, i64 8
   %361 = load float, ptr %360, align 4
-  %362 = fadd float %.1401.lcssa580, %361
+  %362 = fadd float %.1399.lcssa580, %361
   store float %362, ptr %360, align 4
   br label %363
 
 363:                                              ; preds = %357, %._crit_edge536
-  %364 = fcmp une float %.1404.lcssa579, 0.000000e+00
+  %364 = fcmp une float %.1402.lcssa579, 0.000000e+00
   br i1 %364, label %365, label %.thread
 
 365:                                              ; preds = %363
@@ -73894,7 +73894,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %367 = inttoptr i64 %366 to ptr
   %368 = getelementptr inbounds i8, ptr %367, i64 12
   %369 = load float, ptr %368, align 4
-  %370 = fadd float %.1404.lcssa579, %369
+  %370 = fadd float %.1402.lcssa579, %369
   store float %370, ptr %368, align 4
   br label %.thread
 
@@ -75440,8 +75440,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv613 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next614, %._crit_edge.thread ]
-  %.0415580 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1416.lcssa628, %._crit_edge.thread ]
-  %.0419579 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1420.lcssa627, %._crit_edge.thread ]
+  %.0408580 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1409.lcssa628, %._crit_edge.thread ]
+  %.0411579 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1412.lcssa627, %._crit_edge.thread ]
   %108 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv613
   %109 = load i32, ptr %108, align 4
   %110 = sext i32 %109 to i64
@@ -75487,12 +75487,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %368
   %indvars.iv611 = phi i64 [ %143, %.lr.ph.preheader ], [ %indvars.iv.next612, %368 ]
-  %.1416570 = phi float [ %.0415580, %.lr.ph.preheader ], [ %.6, %368 ]
-  %.1420569 = phi float [ %.0419579, %.lr.ph.preheader ], [ %.4423, %368 ]
-  %.0430567 = phi i1 [ false, %.lr.ph.preheader ], [ %.1431, %368 ]
-  %.0433566 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1434, %368 ]
-  %.0439563 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3442, %368 ]
-  %.0443562 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5448, %368 ]
+  %.1409570 = phi float [ %.0408580, %.lr.ph.preheader ], [ %.6, %368 ]
+  %.1412569 = phi float [ %.0411579, %.lr.ph.preheader ], [ %.4415, %368 ]
+  %.0420568 = phi i1 [ false, %.lr.ph.preheader ], [ %.1421, %368 ]
+  %.0422567 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5427, %368 ]
+  %.0428566 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3431, %368 ]
+  %.0436563 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1437, %368 ]
   %144 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %369, %368 ]
   %145 = load ptr, ptr %100, align 8
   %146 = load ptr, ptr %101, align 8
@@ -75734,31 +75734,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv605.sroa.phi747 = phi ptr [ %.sroa.0753.4.gep.sroa_idx757, %.preheader ], [ %.sroa.0753, %.thread523 ]
   %indvars.iv605.sroa.phi760 = phi ptr [ %.sroa.3765, %.preheader ], [ %.sroa.0764, %.thread523 ]
   %indvars.iv605.sroa.phi768.sroa.speculated = phi float [ %34, %.preheader ], [ %68, %.thread523 ]
-  %.0410556 = phi float [ %293, %.preheader ], [ 0.000000e+00, %.thread523 ]
-  %.2417555 = phi float [ %301, %.preheader ], [ %.1416570, %.thread523 ]
-  %.2421554 = phi float [ %307, %.preheader ], [ %.1420569, %.thread523 ]
-  %.1440553 = phi float [ %287, %.preheader ], [ %.0439563, %.thread523 ]
-  %.1444552 = phi float [ %284, %.preheader ], [ %.0443562, %.thread523 ]
+  %.2410557 = phi float [ %301, %.preheader ], [ %.1409570, %.thread523 ]
+  %.2413556 = phi float [ %307, %.preheader ], [ %.1412569, %.thread523 ]
+  %.1423554 = phi float [ %284, %.preheader ], [ %.0422567, %.thread523 ]
+  %.1429553 = phi float [ %287, %.preheader ], [ %.0428566, %.thread523 ]
+  %.0444552 = phi float [ %293, %.preheader ], [ 0.000000e+00, %.thread523 ]
   %283 = load float, ptr %indvars.iv605.sroa.phi663, align 4
-  %284 = tail call float @llvm.fmuladd.f32(float %indvars.iv605.sroa.phi768.sroa.speculated, float %283, float %.1444552)
+  %284 = tail call float @llvm.fmuladd.f32(float %indvars.iv605.sroa.phi768.sroa.speculated, float %283, float %.1423554)
   %285 = load float, ptr %indvars.iv605.sroa.phi760, align 4
   %286 = load float, ptr %indvars.iv605.sroa.phi, align 4
-  %287 = tail call float @llvm.fmuladd.f32(float %285, float %286, float %.1440553)
+  %287 = tail call float @llvm.fmuladd.f32(float %285, float %286, float %.1429553)
   %288 = load float, ptr %indvars.iv605.sroa.phi675, align 4
   %289 = fmul float %indvars.iv605.sroa.phi768.sroa.speculated, %288
-  %290 = tail call float @llvm.fmuladd.f32(float %289, float %236, float %.0410556)
+  %290 = tail call float @llvm.fmuladd.f32(float %289, float %236, float %.0444552)
   %291 = load float, ptr %indvars.iv605.sroa.phi669, align 4
   %292 = fmul float %285, %291
   %293 = tail call float @llvm.fmuladd.f32(float %292, float %236, float %290)
   %294 = load float, ptr %indvars.iv605.sroa.phi747, align 4
-  %295 = tail call float @llvm.fmuladd.f32(float %283, float %294, float %.2417555)
+  %295 = tail call float @llvm.fmuladd.f32(float %283, float %294, float %.2410557)
   %296 = fmul float %.sroa.0484.0, %indvars.iv605.sroa.phi768.sroa.speculated
   %297 = load float, ptr %indvars.iv605.sroa.phi731, align 4
   %298 = fmul float %296, %297
   %299 = fmul float %288, %298
   %300 = load float, ptr %indvars.iv605.sroa.phi685, align 4
   %301 = tail call float @llvm.fmuladd.f32(float %299, float %300, float %295)
-  %302 = tail call float @llvm.fmuladd.f32(float %286, float %294, float %.2421554)
+  %302 = tail call float @llvm.fmuladd.f32(float %286, float %294, float %.2413556)
   %303 = fmul float %.sroa.0485.0, %285
   %304 = load float, ptr %indvars.iv605.sroa.phi724, align 4
   %305 = fmul float %303, %304
@@ -75767,11 +75767,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %282, label %.preheader, label %.loopexit546, !llvm.loop !671
 
 .loopexit546:                                     ; preds = %.preheader, %.critedge789
-  %.2445 = phi float [ %.0443562, %.critedge789 ], [ %284, %.preheader ]
-  %.2441 = phi float [ %.0439563, %.critedge789 ], [ %287, %.preheader ]
-  %.3422 = phi float [ %.1420569, %.critedge789 ], [ %307, %.preheader ]
-  %.3418 = phi float [ %.1416570, %.critedge789 ], [ %301, %.preheader ]
-  %.1411 = phi float [ 0.000000e+00, %.critedge789 ], [ %293, %.preheader ]
+  %.1445 = phi float [ 0.000000e+00, %.critedge789 ], [ %293, %.preheader ]
+  %.2430 = phi float [ %.0428566, %.critedge789 ], [ %287, %.preheader ]
+  %.2424 = phi float [ %.0422567, %.critedge789 ], [ %284, %.preheader ]
+  %.3414 = phi float [ %.1412569, %.critedge789 ], [ %307, %.preheader ]
+  %.3 = phi float [ %.1409570, %.critedge789 ], [ %301, %.preheader ]
   %308 = fcmp uge float %235, %54
   %.not543 = select i1 %153, i1 %308, i1 false
   br i1 %.not543, label %.loopexit, label %309
@@ -75816,35 +75816,35 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv608.sroa.phi = phi ptr [ %.sroa.0682, %309 ], [ %.sroa.3, %342 ]
   %indvars.iv608.sroa.phi749 = phi ptr [ %.sroa.0753, %309 ], [ %.sroa.0753.4.gep750.sroa_idx758, %342 ]
   %indvars.iv608.sroa.phi770.sroa.speculated = phi float [ %68, %309 ], [ %34, %342 ]
-  %.2412560 = phi float [ %.1411, %309 ], [ %349, %342 ]
-  %.4559 = phi float [ %.3418, %309 ], [ %353, %342 ]
-  %.3446558 = phi float [ %.2445, %309 ], [ %347, %342 ]
+  %.4561 = phi float [ %.3, %309 ], [ %353, %342 ]
+  %.3425559 = phi float [ %.2424, %309 ], [ %347, %342 ]
+  %.2446558 = phi float [ %.1445, %309 ], [ %349, %342 ]
   %344 = load float, ptr %indvars.iv608.sroa.phi, align 4
   %345 = fmul float %indvars.iv608.sroa.phi770.sroa.speculated, %344
   %346 = fmul float %341, %345
-  %347 = fsub float %.3446558, %346
+  %347 = fsub float %.3425559, %346
   %348 = fmul float %339, %345
-  %349 = fsub float %.2412560, %348
+  %349 = fsub float %.2446558, %348
   %350 = load float, ptr %indvars.iv608.sroa.phi749, align 4
   %351 = fmul float %344, %350
   %352 = fmul float %341, %351
-  %353 = fsub float %.4559, %352
+  %353 = fsub float %.4561, %352
   br i1 %343, label %342, label %.loopexit, !llvm.loop !672
 
 .loopexit:                                        ; preds = %342, %.loopexit546
-  %.4447 = phi float [ %.2445, %.loopexit546 ], [ %347, %342 ]
-  %.5 = phi float [ %.3418, %.loopexit546 ], [ %353, %342 ]
-  %.3 = phi float [ %.1411, %.loopexit546 ], [ %349, %342 ]
-  %354 = fcmp une float %.3, 0.000000e+00
+  %.3447 = phi float [ %.1445, %.loopexit546 ], [ %349, %342 ]
+  %.4426 = phi float [ %.2424, %.loopexit546 ], [ %347, %342 ]
+  %.5 = phi float [ %.3, %.loopexit546 ], [ %353, %342 ]
+  %354 = fcmp une float %.3447, 0.000000e+00
   br i1 %354, label %355, label %368
 
 355:                                              ; preds = %.loopexit
-  %356 = insertelement <2 x float> poison, float %.3, i64 0
+  %356 = insertelement <2 x float> poison, float %.3447, i64 0
   %357 = shufflevector <2 x float> %356, <2 x float> poison, <2 x i32> zeroinitializer
   %358 = fmul <2 x float> %207, %357
-  %359 = fmul float %208, %.3
+  %359 = fmul float %208, %.3447
   %360 = fadd <2 x float> %144, %358
-  %361 = fadd float %.0433566, %359
+  %361 = fadd float %.0436563, %359
   %362 = getelementptr inbounds float, ptr %90, i64 %201
   %363 = load <2 x float>, ptr %362, align 4
   %364 = fsub <2 x float> %363, %358
@@ -75856,19 +75856,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br label %368
 
 368:                                              ; preds = %.loopexit, %355, %.critedge459
-  %.5448 = phi float [ %.4447, %355 ], [ %.4447, %.loopexit ], [ %.0443562, %.critedge459 ]
-  %.3442 = phi float [ %.2441, %355 ], [ %.2441, %.loopexit ], [ %.0439563, %.critedge459 ]
-  %.1434 = phi float [ %361, %355 ], [ %.0433566, %.loopexit ], [ %.0433566, %.critedge459 ]
-  %.1431 = phi i1 [ true, %355 ], [ true, %.loopexit ], [ %.0430567, %.critedge459 ]
-  %.4423 = phi float [ %.3422, %355 ], [ %.3422, %.loopexit ], [ %.1420569, %.critedge459 ]
-  %.6 = phi float [ %.5, %355 ], [ %.5, %.loopexit ], [ %.1416570, %.critedge459 ]
+  %.1437 = phi float [ %361, %355 ], [ %.0436563, %.loopexit ], [ %.0436563, %.critedge459 ]
+  %.3431 = phi float [ %.2430, %355 ], [ %.2430, %.loopexit ], [ %.0428566, %.critedge459 ]
+  %.5427 = phi float [ %.4426, %355 ], [ %.4426, %.loopexit ], [ %.0422567, %.critedge459 ]
+  %.1421 = phi i1 [ true, %355 ], [ true, %.loopexit ], [ %.0420568, %.critedge459 ]
+  %.4415 = phi float [ %.3414, %355 ], [ %.3414, %.loopexit ], [ %.1412569, %.critedge459 ]
+  %.6 = phi float [ %.5, %355 ], [ %.5, %.loopexit ], [ %.1409570, %.critedge459 ]
   %369 = phi <2 x float> [ %360, %355 ], [ %144, %.loopexit ], [ %144, %.critedge459 ]
   %indvars.iv.next612 = add nsw i64 %indvars.iv611, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next612, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !673
 
 ._crit_edge:                                      ; preds = %368
-  br i1 %.1431, label %370, label %._crit_edge.thread
+  br i1 %.1421, label %370, label %._crit_edge.thread
 
 370:                                              ; preds = %._crit_edge
   %371 = getelementptr inbounds float, ptr %90, i64 %121
@@ -75877,7 +75877,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %373, ptr %371, align 4
   %374 = getelementptr i8, ptr %371, i64 8
   %375 = load float, ptr %374, align 4
-  %376 = fadd float %.1434, %375
+  %376 = fadd float %.1437, %375
   store float %376, ptr %374, align 4
   br i1 %.not, label %386, label %377
 
@@ -75890,7 +75890,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %382, ptr %380, align 4
   %383 = getelementptr i8, ptr %380, i64 8
   %384 = load float, ptr %383, align 4
-  %385 = fadd float %.1434, %384
+  %385 = fadd float %.1437, %384
   store float %385, ptr %383, align 4
   br label %386
 
@@ -75903,22 +75903,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %390 = sext i32 %389 to i64
   %391 = getelementptr inbounds float, ptr %105, i64 %390
   %392 = load float, ptr %391, align 4
-  %393 = fadd float %.5448, %392
+  %393 = fadd float %.5427, %392
   store float %393, ptr %391, align 4
   %394 = getelementptr inbounds float, ptr %107, i64 %390
   %395 = load float, ptr %394, align 4
-  %396 = fadd float %.3442, %395
+  %396 = fadd float %.3431, %395
   store float %396, ptr %394, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %387, %386
-  %.1416.lcssa628 = phi float [ %.6, %._crit_edge ], [ %.6, %387 ], [ %.6, %386 ], [ %.0415580, %.critedge ]
-  %.1420.lcssa627 = phi float [ %.4423, %._crit_edge ], [ %.4423, %387 ], [ %.4423, %386 ], [ %.0419579, %.critedge ]
+  %.1409.lcssa628 = phi float [ %.6, %._crit_edge ], [ %.6, %387 ], [ %.6, %386 ], [ %.0408580, %.critedge ]
+  %.1412.lcssa627 = phi float [ %.4415, %._crit_edge ], [ %.4415, %387 ], [ %.4415, %386 ], [ %.0411579, %.critedge ]
   %exitcond617.not = icmp eq i64 %indvars.iv.next614, %wide.trip.count616
   br i1 %exitcond617.not, label %._crit_edge581, label %.critedge, !llvm.loop !674
 
 ._crit_edge581:                                   ; preds = %._crit_edge.thread
-  %397 = fcmp une float %.1416.lcssa628, 0.000000e+00
+  %397 = fcmp une float %.1409.lcssa628, 0.000000e+00
   br i1 %397, label %398, label %404
 
 398:                                              ; preds = %._crit_edge581
@@ -75926,12 +75926,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %400 = inttoptr i64 %399 to ptr
   %401 = getelementptr inbounds i8, ptr %400, i64 8
   %402 = load float, ptr %401, align 4
-  %403 = fadd float %.1416.lcssa628, %402
+  %403 = fadd float %.1409.lcssa628, %402
   store float %403, ptr %401, align 4
   br label %404
 
 404:                                              ; preds = %398, %._crit_edge581
-  %405 = fcmp une float %.1420.lcssa627, 0.000000e+00
+  %405 = fcmp une float %.1412.lcssa627, 0.000000e+00
   br i1 %405, label %406, label %.thread
 
 406:                                              ; preds = %404
@@ -75939,7 +75939,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %408 = inttoptr i64 %407 to ptr
   %409 = getelementptr inbounds i8, ptr %408, i64 12
   %410 = load float, ptr %409, align 4
-  %411 = fadd float %.1420.lcssa627, %410
+  %411 = fadd float %.1412.lcssa627, %410
   store float %411, ptr %409, align 4
   br label %.thread
 
@@ -77025,8 +77025,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv520 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next521, %._crit_edge.thread ]
-  %.0354489 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1355.lcssa534, %._crit_edge.thread ]
-  %.0357488 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1358.lcssa533, %._crit_edge.thread ]
+  %.0352489 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1353.lcssa534, %._crit_edge.thread ]
+  %.0355488 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1356.lcssa533, %._crit_edge.thread ]
   %106 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv520
   %107 = load i32, ptr %106, align 4
   %108 = sext i32 %107 to i64
@@ -77077,11 +77077,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv518 = phi i64 [ %146, %.lr.ph.preheader ], [ %indvars.iv.next519, %.loopexit ]
-  %.1355482 = phi float [ %.0354489, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1358481 = phi float [ %.0357488, %.lr.ph.preheader ], [ %.4361, %.loopexit ]
-  %.0365480 = phi i1 [ false, %.lr.ph.preheader ], [ %.1366, %.loopexit ]
-  %.0371478 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3374, %.loopexit ]
-  %.0375477 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5380, %.loopexit ]
+  %.1353482 = phi float [ %.0352489, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1356481 = phi float [ %.0355488, %.lr.ph.preheader ], [ %.4359, %.loopexit ]
+  %.0362480 = phi i1 [ false, %.lr.ph.preheader ], [ %.1363, %.loopexit ]
+  %.0364479 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5369, %.loopexit ]
+  %.0370478 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3373, %.loopexit ]
   %147 = load ptr, ptr %98, align 8
   %148 = load ptr, ptr %99, align 8
   %149 = icmp eq ptr %147, %148
@@ -77306,24 +77306,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv512.sroa.phi642 = phi ptr [ %.sroa.0648.4.gep.sroa_idx652, %.preheader ], [ %.sroa.0648, %.thread440 ]
   %indvars.iv512.sroa.phi655 = phi ptr [ %.sroa.3660, %.preheader ], [ %.sroa.0659, %.thread440 ]
   %indvars.iv512.sroa.phi663.sroa.speculated = phi float [ %34, %.preheader ], [ %67, %.thread440 ]
-  %.2356472 = phi float [ %292, %.preheader ], [ %.1355482, %.thread440 ]
-  %.2359471 = phi float [ %298, %.preheader ], [ %.1358481, %.thread440 ]
-  %.1372470 = phi float [ %284, %.preheader ], [ %.0371478, %.thread440 ]
-  %.1376469 = phi float [ %281, %.preheader ], [ %.0375477, %.thread440 ]
+  %.2354472 = phi float [ %292, %.preheader ], [ %.1353482, %.thread440 ]
+  %.2357471 = phi float [ %298, %.preheader ], [ %.1356481, %.thread440 ]
+  %.1365470 = phi float [ %281, %.preheader ], [ %.0364479, %.thread440 ]
+  %.1371469 = phi float [ %284, %.preheader ], [ %.0370478, %.thread440 ]
   %280 = load float, ptr %indvars.iv512.sroa.phi562, align 4
-  %281 = tail call float @llvm.fmuladd.f32(float %indvars.iv512.sroa.phi663.sroa.speculated, float %280, float %.1376469)
+  %281 = tail call float @llvm.fmuladd.f32(float %indvars.iv512.sroa.phi663.sroa.speculated, float %280, float %.1365470)
   %282 = load float, ptr %indvars.iv512.sroa.phi655, align 4
   %283 = load float, ptr %indvars.iv512.sroa.phi, align 4
-  %284 = tail call float @llvm.fmuladd.f32(float %282, float %283, float %.1372470)
+  %284 = tail call float @llvm.fmuladd.f32(float %282, float %283, float %.1371469)
   %285 = load float, ptr %indvars.iv512.sroa.phi642, align 4
-  %286 = tail call float @llvm.fmuladd.f32(float %280, float %285, float %.2356472)
+  %286 = tail call float @llvm.fmuladd.f32(float %280, float %285, float %.2354472)
   %287 = fmul float %.sroa.0412.0, %indvars.iv512.sroa.phi663.sroa.speculated
   %288 = load float, ptr %indvars.iv512.sroa.phi626, align 4
   %289 = fmul float %287, %288
   %290 = fmul float %289, 0.000000e+00
   %291 = load float, ptr %indvars.iv512.sroa.phi580, align 4
   %292 = tail call float @llvm.fmuladd.f32(float %290, float %291, float %286)
-  %293 = tail call float @llvm.fmuladd.f32(float %283, float %285, float %.2359471)
+  %293 = tail call float @llvm.fmuladd.f32(float %283, float %285, float %.2357471)
   %294 = fmul float %.sroa.0413.0, %282
   %295 = load float, ptr %indvars.iv512.sroa.phi619, align 4
   %296 = fmul float %294, %295
@@ -77332,10 +77332,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %279, label %.preheader, label %.loopexit463, !llvm.loop !688
 
 .loopexit463:                                     ; preds = %.preheader, %.critedge681
-  %.2377 = phi float [ %.0375477, %.critedge681 ], [ %281, %.preheader ]
-  %.2373 = phi float [ %.0371478, %.critedge681 ], [ %284, %.preheader ]
-  %.3360 = phi float [ %.1358481, %.critedge681 ], [ %298, %.preheader ]
-  %.3 = phi float [ %.1355482, %.critedge681 ], [ %292, %.preheader ]
+  %.2372 = phi float [ %.0370478, %.critedge681 ], [ %284, %.preheader ]
+  %.2366 = phi float [ %.0364479, %.critedge681 ], [ %281, %.preheader ]
+  %.3358 = phi float [ %.1356481, %.critedge681 ], [ %298, %.preheader ]
+  %.3 = phi float [ %.1353482, %.critedge681 ], [ %292, %.preheader ]
   %299 = fcmp uge float %238, %53
   %.not460 = select i1 %155, i1 %299, i1 false
   br i1 %.not460, label %.loopexit, label %300
@@ -77365,11 +77365,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv515.sroa.phi644 = phi ptr [ %.sroa.0648, %300 ], [ %.sroa.0648.4.gep645.sroa_idx653, %317 ]
   %indvars.iv515.sroa.phi665.sroa.speculated = phi float [ %67, %300 ], [ %34, %317 ]
   %.4475 = phi float [ %.3, %300 ], [ %326, %317 ]
-  %.3378474 = phi float [ %.2377, %300 ], [ %322, %317 ]
+  %.3367474 = phi float [ %.2366, %300 ], [ %322, %317 ]
   %319 = load float, ptr %indvars.iv515.sroa.phi, align 4
   %320 = fmul float %indvars.iv515.sroa.phi665.sroa.speculated, %319
   %321 = fmul float %316, %320
-  %322 = fsub float %.3378474, %321
+  %322 = fsub float %.3367474, %321
   %323 = load float, ptr %indvars.iv515.sroa.phi644, align 4
   %324 = fmul float %319, %323
   %325 = fmul float %316, %324
@@ -77377,17 +77377,17 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %318, label %317, label %.loopexit, !llvm.loop !689
 
 .loopexit:                                        ; preds = %317, %.loopexit463, %.critedge390
-  %.5380 = phi float [ %.0375477, %.critedge390 ], [ %.2377, %.loopexit463 ], [ %322, %317 ]
-  %.3374 = phi float [ %.0371478, %.critedge390 ], [ %.2373, %.loopexit463 ], [ %.2373, %317 ]
-  %.1366 = phi i1 [ %.0365480, %.critedge390 ], [ true, %.loopexit463 ], [ true, %317 ]
-  %.4361 = phi float [ %.1358481, %.critedge390 ], [ %.3360, %.loopexit463 ], [ %.3360, %317 ]
-  %.6 = phi float [ %.1355482, %.critedge390 ], [ %.3, %.loopexit463 ], [ %326, %317 ]
+  %.3373 = phi float [ %.0370478, %.critedge390 ], [ %.2372, %.loopexit463 ], [ %.2372, %317 ]
+  %.5369 = phi float [ %.0364479, %.critedge390 ], [ %.2366, %.loopexit463 ], [ %322, %317 ]
+  %.1363 = phi i1 [ %.0362480, %.critedge390 ], [ true, %.loopexit463 ], [ true, %317 ]
+  %.4359 = phi float [ %.1356481, %.critedge390 ], [ %.3358, %.loopexit463 ], [ %.3358, %317 ]
+  %.6 = phi float [ %.1353482, %.critedge390 ], [ %.3, %.loopexit463 ], [ %326, %317 ]
   %indvars.iv.next519 = add nsw i64 %indvars.iv518, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next519, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !690
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge394.not = and i1 %.not, %.1366
+  %brmerge394.not = and i1 %.not, %.1363
   br i1 %brmerge394.not, label %327, label %._crit_edge.thread
 
 327:                                              ; preds = %._crit_edge
@@ -77396,22 +77396,22 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %330 = sext i32 %329 to i64
   %331 = getelementptr inbounds float, ptr %103, i64 %330
   %332 = load float, ptr %331, align 4
-  %333 = fadd float %.5380, %332
+  %333 = fadd float %.5369, %332
   store float %333, ptr %331, align 4
   %334 = getelementptr inbounds float, ptr %105, i64 %330
   %335 = load float, ptr %334, align 4
-  %336 = fadd float %.3374, %335
+  %336 = fadd float %.3373, %335
   store float %336, ptr %334, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %327
-  %.1355.lcssa534 = phi float [ %.6, %._crit_edge ], [ %.6, %327 ], [ %.0354489, %.critedge ]
-  %.1358.lcssa533 = phi float [ %.4361, %._crit_edge ], [ %.4361, %327 ], [ %.0357488, %.critedge ]
+  %.1353.lcssa534 = phi float [ %.6, %._crit_edge ], [ %.6, %327 ], [ %.0352489, %.critedge ]
+  %.1356.lcssa533 = phi float [ %.4359, %._crit_edge ], [ %.4359, %327 ], [ %.0355488, %.critedge ]
   %exitcond524.not = icmp eq i64 %indvars.iv.next521, %wide.trip.count523
   br i1 %exitcond524.not, label %._crit_edge490, label %.critedge, !llvm.loop !691
 
 ._crit_edge490:                                   ; preds = %._crit_edge.thread
-  %337 = fcmp une float %.1355.lcssa534, 0.000000e+00
+  %337 = fcmp une float %.1353.lcssa534, 0.000000e+00
   br i1 %337, label %338, label %344
 
 338:                                              ; preds = %._crit_edge490
@@ -77419,12 +77419,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %340 = inttoptr i64 %339 to ptr
   %341 = getelementptr inbounds i8, ptr %340, i64 8
   %342 = load float, ptr %341, align 4
-  %343 = fadd float %.1355.lcssa534, %342
+  %343 = fadd float %.1353.lcssa534, %342
   store float %343, ptr %341, align 4
   br label %344
 
 344:                                              ; preds = %338, %._crit_edge490
-  %345 = fcmp une float %.1358.lcssa533, 0.000000e+00
+  %345 = fcmp une float %.1356.lcssa533, 0.000000e+00
   br i1 %345, label %346, label %.thread
 
 346:                                              ; preds = %344
@@ -77432,7 +77432,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %348 = inttoptr i64 %347 to ptr
   %349 = getelementptr inbounds i8, ptr %348, i64 12
   %350 = load float, ptr %349, align 4
-  %351 = fadd float %.1358.lcssa533, %350
+  %351 = fadd float %.1356.lcssa533, %350
   store float %351, ptr %349, align 4
   br label %.thread
 
@@ -79111,9 +79111,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv695 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next696, %._crit_edge.thread ]
-  %.0486661 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1487.lcssa712, %._crit_edge.thread ]
-  %.0491660 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1492.lcssa711, %._crit_edge.thread ]
-  %.0500659 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1501.lcssa710, %._crit_edge.thread ]
+  %.0479661 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1480.lcssa712, %._crit_edge.thread ]
+  %.0482660 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1483.lcssa711, %._crit_edge.thread ]
+  %.0488659 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1489.lcssa710, %._crit_edge.thread ]
   %132 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv695
   %133 = load i32, ptr %132, align 4
   %134 = sext i32 %133 to i64
@@ -79159,13 +79159,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %387
   %indvars.iv693 = phi i64 [ %167, %.lr.ph.preheader ], [ %indvars.iv.next694, %387 ]
-  %.1487649 = phi float [ %.0486661, %.lr.ph.preheader ], [ %.6, %387 ]
-  %.1492648 = phi float [ %.0491660, %.lr.ph.preheader ], [ %.4495, %387 ]
-  %.1501646 = phi i8 [ %.0500659, %.lr.ph.preheader ], [ %.3503, %387 ]
-  %.0505645 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1506, %387 ]
-  %.0511642 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3514, %387 ]
-  %.0515641 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5520, %387 ]
-  %.0522640 = phi i1 [ false, %.lr.ph.preheader ], [ %.1523, %387 ]
+  %.1480649 = phi float [ %.0479661, %.lr.ph.preheader ], [ %.6, %387 ]
+  %.1483648 = phi float [ %.0482660, %.lr.ph.preheader ], [ %.4486, %387 ]
+  %.1489647 = phi i8 [ %.0488659, %.lr.ph.preheader ], [ %.3491, %387 ]
+  %.0494646 = phi i1 [ false, %.lr.ph.preheader ], [ %.1495, %387 ]
+  %.0496645 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5501, %387 ]
+  %.0503644 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3506, %387 ]
+  %.0511641 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1512, %387 ]
   %168 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %388, %387 ]
   %169 = load ptr, ptr %120, align 8
   %170 = load ptr, ptr %121, align 8
@@ -79421,31 +79421,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv687.sroa.phi836 = phi ptr [ %.sroa.0842.4.gep.sroa_idx846, %.preheader ], [ %.sroa.0842, %.thread595 ]
   %indvars.iv687.sroa.phi849 = phi ptr [ %.sroa.3854, %.preheader ], [ %.sroa.0853, %.thread595 ]
   %indvars.iv687.sroa.phi857.sroa.speculated = phi float [ %37, %.preheader ], [ %88, %.thread595 ]
-  %.0481634 = phi float [ %334, %.preheader ], [ 0.000000e+00, %.thread595 ]
-  %.2488633 = phi float [ %342, %.preheader ], [ %.1487649, %.thread595 ]
-  %.2493632 = phi float [ %348, %.preheader ], [ %.1492648, %.thread595 ]
-  %.1512631 = phi float [ %328, %.preheader ], [ %.0511642, %.thread595 ]
-  %.1516630 = phi float [ %325, %.preheader ], [ %.0515641, %.thread595 ]
+  %.2481635 = phi float [ %342, %.preheader ], [ %.1480649, %.thread595 ]
+  %.2484634 = phi float [ %348, %.preheader ], [ %.1483648, %.thread595 ]
+  %.1497633 = phi float [ %325, %.preheader ], [ %.0496645, %.thread595 ]
+  %.1504631 = phi float [ %328, %.preheader ], [ %.0503644, %.thread595 ]
+  %.0519630 = phi float [ %334, %.preheader ], [ 0.000000e+00, %.thread595 ]
   %324 = load float, ptr %indvars.iv687.sroa.phi752, align 4
-  %325 = tail call float @llvm.fmuladd.f32(float %indvars.iv687.sroa.phi857.sroa.speculated, float %324, float %.1516630)
+  %325 = tail call float @llvm.fmuladd.f32(float %indvars.iv687.sroa.phi857.sroa.speculated, float %324, float %.1497633)
   %326 = load float, ptr %indvars.iv687.sroa.phi849, align 4
   %327 = load float, ptr %indvars.iv687.sroa.phi, align 4
-  %328 = tail call float @llvm.fmuladd.f32(float %326, float %327, float %.1512631)
+  %328 = tail call float @llvm.fmuladd.f32(float %326, float %327, float %.1504631)
   %329 = load float, ptr %indvars.iv687.sroa.phi764, align 4
   %330 = fmul float %indvars.iv687.sroa.phi857.sroa.speculated, %329
-  %331 = tail call float @llvm.fmuladd.f32(float %330, float %258, float %.0481634)
+  %331 = tail call float @llvm.fmuladd.f32(float %330, float %258, float %.0519630)
   %332 = load float, ptr %indvars.iv687.sroa.phi758, align 4
   %333 = fmul float %326, %332
   %334 = tail call float @llvm.fmuladd.f32(float %333, float %258, float %331)
   %335 = load float, ptr %indvars.iv687.sroa.phi836, align 4
-  %336 = tail call float @llvm.fmuladd.f32(float %324, float %335, float %.2488633)
+  %336 = tail call float @llvm.fmuladd.f32(float %324, float %335, float %.2481635)
   %337 = fmul float %.sroa.0556.0, %indvars.iv687.sroa.phi857.sroa.speculated
   %338 = load float, ptr %indvars.iv687.sroa.phi820, align 4
   %339 = fmul float %337, %338
   %340 = fmul float %329, %339
   %341 = load float, ptr %indvars.iv687.sroa.phi774, align 4
   %342 = tail call float @llvm.fmuladd.f32(float %340, float %341, float %336)
-  %343 = tail call float @llvm.fmuladd.f32(float %327, float %335, float %.2493632)
+  %343 = tail call float @llvm.fmuladd.f32(float %327, float %335, float %.2484634)
   %344 = fmul float %.sroa.0557.0, %326
   %345 = load float, ptr %indvars.iv687.sroa.phi813, align 4
   %346 = fmul float %344, %345
@@ -79454,15 +79454,15 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %323, label %.preheader, label %.loopexit624, !llvm.loop !705
 
 .loopexit624:                                     ; preds = %.preheader, %.critedge878
-  %.2517 = phi float [ %.0515641, %.critedge878 ], [ %325, %.preheader ]
-  %.2513 = phi float [ %.0511642, %.critedge878 ], [ %328, %.preheader ]
-  %.3494 = phi float [ %.1492648, %.critedge878 ], [ %348, %.preheader ]
-  %.3489 = phi float [ %.1487649, %.critedge878 ], [ %342, %.preheader ]
-  %.1482 = phi float [ 0.000000e+00, %.critedge878 ], [ %334, %.preheader ]
+  %.1520 = phi float [ 0.000000e+00, %.critedge878 ], [ %334, %.preheader ]
+  %.2505 = phi float [ %.0503644, %.critedge878 ], [ %328, %.preheader ]
+  %.2498 = phi float [ %.0496645, %.critedge878 ], [ %325, %.preheader ]
+  %.3485 = phi float [ %.1483648, %.critedge878 ], [ %348, %.preheader ]
+  %.3 = phi float [ %.1480649, %.critedge878 ], [ %342, %.preheader ]
   br i1 %84, label %349, label %.loopexit
 
 349:                                              ; preds = %.loopexit624
-  %350 = trunc nuw i8 %.1501646 to i1
+  %350 = trunc nuw i8 %.1489647 to i1
   br i1 %350, label %354, label %351
 
 351:                                              ; preds = %349
@@ -79486,36 +79486,36 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv690.sroa.phi = phi ptr [ %.sroa.0771, %357 ], [ %.sroa.3, %361 ]
   %indvars.iv690.sroa.phi838 = phi ptr [ %.sroa.0842, %357 ], [ %.sroa.0842.4.gep839.sroa_idx847, %361 ]
   %indvars.iv690.sroa.phi859.sroa.speculated = phi float [ %88, %357 ], [ %37, %361 ]
-  %.2483638 = phi float [ %.1482, %357 ], [ %368, %361 ]
-  %.4637 = phi float [ %.3489, %357 ], [ %372, %361 ]
-  %.3518636 = phi float [ %.2517, %357 ], [ %366, %361 ]
+  %.4639 = phi float [ %.3, %357 ], [ %372, %361 ]
+  %.3499637 = phi float [ %.2498, %357 ], [ %366, %361 ]
+  %.2521636 = phi float [ %.1520, %357 ], [ %368, %361 ]
   %363 = load float, ptr %indvars.iv690.sroa.phi, align 4
   %364 = fmul float %indvars.iv690.sroa.phi859.sroa.speculated, %363
   %365 = fmul float %360, %364
-  %366 = fadd float %.3518636, %365
+  %366 = fadd float %.3499637, %365
   %367 = fmul float %126, %364
-  %368 = fsub float %.2483638, %367
+  %368 = fsub float %.2521636, %367
   %369 = load float, ptr %indvars.iv690.sroa.phi838, align 4
   %370 = fmul float %363, %369
   %371 = fmul float %360, %370
-  %372 = fadd float %.4637, %371
+  %372 = fadd float %.4639, %371
   br i1 %362, label %361, label %.loopexit, !llvm.loop !706
 
 .loopexit:                                        ; preds = %361, %354, %.loopexit624
-  %.4519 = phi float [ %.2517, %354 ], [ %.2517, %.loopexit624 ], [ %366, %361 ]
-  %.2502 = phi i8 [ %356, %354 ], [ %.1501646, %.loopexit624 ], [ %356, %361 ]
-  %.5 = phi float [ %.3489, %354 ], [ %.3489, %.loopexit624 ], [ %372, %361 ]
-  %.3 = phi float [ %.1482, %354 ], [ %.1482, %.loopexit624 ], [ %368, %361 ]
-  %373 = fcmp une float %.3, 0.000000e+00
+  %.3522 = phi float [ %.1520, %354 ], [ %.1520, %.loopexit624 ], [ %368, %361 ]
+  %.4500 = phi float [ %.2498, %354 ], [ %.2498, %.loopexit624 ], [ %366, %361 ]
+  %.2490 = phi i8 [ %356, %354 ], [ %.1489647, %.loopexit624 ], [ %356, %361 ]
+  %.5 = phi float [ %.3, %354 ], [ %.3, %.loopexit624 ], [ %372, %361 ]
+  %373 = fcmp une float %.3522, 0.000000e+00
   br i1 %373, label %374, label %387
 
 374:                                              ; preds = %.loopexit
-  %375 = insertelement <2 x float> poison, float %.3, i64 0
+  %375 = insertelement <2 x float> poison, float %.3522, i64 0
   %376 = shufflevector <2 x float> %375, <2 x float> poison, <2 x i32> zeroinitializer
   %377 = fmul <2 x float> %231, %376
-  %378 = fmul float %232, %.3
+  %378 = fmul float %232, %.3522
   %379 = fadd <2 x float> %168, %377
-  %380 = fadd float %.0505645, %378
+  %380 = fadd float %.0511641, %378
   %381 = getelementptr inbounds float, ptr %110, i64 %225
   %382 = load <2 x float>, ptr %381, align 4
   %383 = fsub <2 x float> %382, %377
@@ -79527,20 +79527,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br label %387
 
 387:                                              ; preds = %.loopexit, %374, %.critedge534
-  %.1523 = phi i1 [ true, %374 ], [ true, %.loopexit ], [ %.0522640, %.critedge534 ]
-  %.5520 = phi float [ %.4519, %374 ], [ %.4519, %.loopexit ], [ %.0515641, %.critedge534 ]
-  %.3514 = phi float [ %.2513, %374 ], [ %.2513, %.loopexit ], [ %.0511642, %.critedge534 ]
-  %.1506 = phi float [ %380, %374 ], [ %.0505645, %.loopexit ], [ %.0505645, %.critedge534 ]
-  %.3503 = phi i8 [ %.2502, %374 ], [ %.2502, %.loopexit ], [ %.1501646, %.critedge534 ]
-  %.4495 = phi float [ %.3494, %374 ], [ %.3494, %.loopexit ], [ %.1492648, %.critedge534 ]
-  %.6 = phi float [ %.5, %374 ], [ %.5, %.loopexit ], [ %.1487649, %.critedge534 ]
+  %.1512 = phi float [ %380, %374 ], [ %.0511641, %.loopexit ], [ %.0511641, %.critedge534 ]
+  %.3506 = phi float [ %.2505, %374 ], [ %.2505, %.loopexit ], [ %.0503644, %.critedge534 ]
+  %.5501 = phi float [ %.4500, %374 ], [ %.4500, %.loopexit ], [ %.0496645, %.critedge534 ]
+  %.1495 = phi i1 [ true, %374 ], [ true, %.loopexit ], [ %.0494646, %.critedge534 ]
+  %.3491 = phi i8 [ %.2490, %374 ], [ %.2490, %.loopexit ], [ %.1489647, %.critedge534 ]
+  %.4486 = phi float [ %.3485, %374 ], [ %.3485, %.loopexit ], [ %.1483648, %.critedge534 ]
+  %.6 = phi float [ %.5, %374 ], [ %.5, %.loopexit ], [ %.1480649, %.critedge534 ]
   %388 = phi <2 x float> [ %379, %374 ], [ %168, %.loopexit ], [ %168, %.critedge534 ]
   %indvars.iv.next694 = add nsw i64 %indvars.iv693, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next694, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !707
 
 ._crit_edge:                                      ; preds = %387
-  br i1 %.1523, label %389, label %._crit_edge.thread
+  br i1 %.1495, label %389, label %._crit_edge.thread
 
 389:                                              ; preds = %._crit_edge
   %390 = getelementptr inbounds float, ptr %110, i64 %145
@@ -79549,7 +79549,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %392, ptr %390, align 4
   %393 = getelementptr i8, ptr %390, i64 8
   %394 = load float, ptr %393, align 4
-  %395 = fadd float %.1506, %394
+  %395 = fadd float %.1512, %394
   store float %395, ptr %393, align 4
   br i1 %.not, label %405, label %396
 
@@ -79562,7 +79562,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %401, ptr %399, align 4
   %402 = getelementptr i8, ptr %399, i64 8
   %403 = load float, ptr %402, align 4
-  %404 = fadd float %.1506, %403
+  %404 = fadd float %.1512, %403
   store float %404, ptr %402, align 4
   br label %405
 
@@ -79575,24 +79575,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %409 = sext i32 %408 to i64
   %410 = getelementptr inbounds float, ptr %129, i64 %409
   %411 = load float, ptr %410, align 4
-  %412 = fadd float %.5520, %411
+  %412 = fadd float %.5501, %411
   store float %412, ptr %410, align 4
   %413 = getelementptr inbounds float, ptr %131, i64 %409
   %414 = load float, ptr %413, align 4
-  %415 = fadd float %.3514, %414
+  %415 = fadd float %.3506, %414
   store float %415, ptr %413, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %406, %405
-  %.1487.lcssa712 = phi float [ %.6, %._crit_edge ], [ %.6, %406 ], [ %.6, %405 ], [ %.0486661, %.critedge ]
-  %.1492.lcssa711 = phi float [ %.4495, %._crit_edge ], [ %.4495, %406 ], [ %.4495, %405 ], [ %.0491660, %.critedge ]
-  %.1501.lcssa710 = phi i8 [ %.3503, %._crit_edge ], [ %.3503, %406 ], [ %.3503, %405 ], [ %.0500659, %.critedge ]
+  %.1480.lcssa712 = phi float [ %.6, %._crit_edge ], [ %.6, %406 ], [ %.6, %405 ], [ %.0479661, %.critedge ]
+  %.1483.lcssa711 = phi float [ %.4486, %._crit_edge ], [ %.4486, %406 ], [ %.4486, %405 ], [ %.0482660, %.critedge ]
+  %.1489.lcssa710 = phi i8 [ %.3491, %._crit_edge ], [ %.3491, %406 ], [ %.3491, %405 ], [ %.0488659, %.critedge ]
   %exitcond698.not = icmp eq i64 %indvars.iv.next696, %wide.trip.count697
   br i1 %exitcond698.not, label %._crit_edge662, label %.critedge, !llvm.loop !708
 
 ._crit_edge662:                                   ; preds = %._crit_edge.thread
-  %416 = trunc nuw i8 %.1501.lcssa710 to i1
-  %417 = fcmp une float %.1487.lcssa712, 0.000000e+00
+  %416 = trunc nuw i8 %.1489.lcssa710 to i1
+  %417 = fcmp une float %.1480.lcssa712, 0.000000e+00
   br i1 %417, label %418, label %424
 
 418:                                              ; preds = %._crit_edge662
@@ -79600,12 +79600,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %420 = inttoptr i64 %419 to ptr
   %421 = getelementptr inbounds i8, ptr %420, i64 8
   %422 = load float, ptr %421, align 4
-  %423 = fadd float %.1487.lcssa712, %422
+  %423 = fadd float %.1480.lcssa712, %422
   store float %423, ptr %421, align 4
   br label %424
 
 424:                                              ; preds = %418, %._crit_edge662
-  %425 = fcmp une float %.1492.lcssa711, 0.000000e+00
+  %425 = fcmp une float %.1483.lcssa711, 0.000000e+00
   br i1 %425, label %426, label %.thread
 
 426:                                              ; preds = %424
@@ -79613,12 +79613,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %428 = inttoptr i64 %427 to ptr
   %429 = getelementptr inbounds i8, ptr %428, i64 12
   %430 = load float, ptr %429, align 4
-  %431 = fadd float %.1492.lcssa711, %430
+  %431 = fadd float %.1483.lcssa711, %430
   store float %431, ptr %429, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.split.us, %426, %424
-  %.0500.lcssa716720 = phi i1 [ %416, %426 ], [ %416, %424 ], [ false, %.split.us ]
+  %.0488.lcssa716720 = phi i1 [ %416, %426 ], [ %416, %424 ], [ false, %.split.us ]
   %432 = load i32, ptr %0, align 8
   %433 = mul nsw i32 %432, 12
   %434 = sext i32 %23 to i64
@@ -79628,7 +79628,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %438 = mul nsw i32 %437, 150
   %439 = add nsw i32 %438, %433
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %439)
-  %440 = select i1 %84, i1 %.0500.lcssa716720, i1 false
+  %440 = select i1 %84, i1 %.0488.lcssa716720, i1 false
   br i1 %440, label %441, label %452
 
 441:                                              ; preds = %.thread
@@ -80880,9 +80880,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv596 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next597, %._crit_edge.thread ]
-  %.0418564 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1419.lcssa612, %._crit_edge.thread ]
-  %.0421563 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1422.lcssa611, %._crit_edge.thread ]
-  %.0428562 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1429.lcssa610, %._crit_edge.thread ]
+  %.0413564 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1414.lcssa612, %._crit_edge.thread ]
+  %.0417563 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1418.lcssa611, %._crit_edge.thread ]
+  %.0423562 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1424.lcssa610, %._crit_edge.thread ]
   %125 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv596
   %126 = load i32, ptr %125, align 4
   %127 = sext i32 %126 to i64
@@ -80933,12 +80933,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv594 = phi i64 [ %165, %.lr.ph.preheader ], [ %indvars.iv.next595, %.loopexit ]
-  %.1419555 = phi float [ %.0418564, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1422554 = phi float [ %.0421563, %.lr.ph.preheader ], [ %.4425, %.loopexit ]
-  %.1429553 = phi i8 [ %.0428562, %.lr.ph.preheader ], [ %.3431, %.loopexit ]
-  %.0434552 = phi i1 [ false, %.lr.ph.preheader ], [ %.1435, %.loopexit ]
-  %.0439550 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3442, %.loopexit ]
-  %.0443549 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5448, %.loopexit ]
+  %.1414555 = phi float [ %.0413564, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1418554 = phi float [ %.0417563, %.lr.ph.preheader ], [ %.4421, %.loopexit ]
+  %.1424553 = phi i8 [ %.0423562, %.lr.ph.preheader ], [ %.3426, %.loopexit ]
+  %.0429552 = phi i1 [ false, %.lr.ph.preheader ], [ %.1430, %.loopexit ]
+  %.0431551 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5436, %.loopexit ]
+  %.0437550 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3440, %.loopexit ]
   %166 = load ptr, ptr %115, align 8
   %167 = load ptr, ptr %116, align 8
   %168 = icmp eq ptr %166, %167
@@ -81168,24 +81168,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv588.sroa.phi725 = phi ptr [ %.sroa.0731.4.gep.sroa_idx735, %.preheader ], [ %.sroa.0731, %.thread506 ]
   %indvars.iv588.sroa.phi738 = phi ptr [ %.sroa.3743, %.preheader ], [ %.sroa.0742, %.thread506 ]
   %indvars.iv588.sroa.phi746.sroa.speculated = phi float [ %37, %.preheader ], [ %84, %.thread506 ]
-  %.2420544 = phi float [ %319, %.preheader ], [ %.1419555, %.thread506 ]
-  %.2423543 = phi float [ %325, %.preheader ], [ %.1422554, %.thread506 ]
-  %.1440542 = phi float [ %311, %.preheader ], [ %.0439550, %.thread506 ]
-  %.1444541 = phi float [ %308, %.preheader ], [ %.0443549, %.thread506 ]
+  %.2415545 = phi float [ %319, %.preheader ], [ %.1414555, %.thread506 ]
+  %.2419544 = phi float [ %325, %.preheader ], [ %.1418554, %.thread506 ]
+  %.1432542 = phi float [ %308, %.preheader ], [ %.0431551, %.thread506 ]
+  %.1438541 = phi float [ %311, %.preheader ], [ %.0437550, %.thread506 ]
   %307 = load float, ptr %indvars.iv588.sroa.phi645, align 4
-  %308 = tail call float @llvm.fmuladd.f32(float %indvars.iv588.sroa.phi746.sroa.speculated, float %307, float %.1444541)
+  %308 = tail call float @llvm.fmuladd.f32(float %indvars.iv588.sroa.phi746.sroa.speculated, float %307, float %.1432542)
   %309 = load float, ptr %indvars.iv588.sroa.phi738, align 4
   %310 = load float, ptr %indvars.iv588.sroa.phi, align 4
-  %311 = tail call float @llvm.fmuladd.f32(float %309, float %310, float %.1440542)
+  %311 = tail call float @llvm.fmuladd.f32(float %309, float %310, float %.1438541)
   %312 = load float, ptr %indvars.iv588.sroa.phi725, align 4
-  %313 = tail call float @llvm.fmuladd.f32(float %307, float %312, float %.2420544)
+  %313 = tail call float @llvm.fmuladd.f32(float %307, float %312, float %.2415545)
   %314 = fmul float %.sroa.0478.0, %indvars.iv588.sroa.phi746.sroa.speculated
   %315 = load float, ptr %indvars.iv588.sroa.phi709, align 4
   %316 = fmul float %314, %315
   %317 = fmul float %316, 0.000000e+00
   %318 = load float, ptr %indvars.iv588.sroa.phi663, align 4
   %319 = tail call float @llvm.fmuladd.f32(float %317, float %318, float %313)
-  %320 = tail call float @llvm.fmuladd.f32(float %310, float %312, float %.2423543)
+  %320 = tail call float @llvm.fmuladd.f32(float %310, float %312, float %.2419544)
   %321 = fmul float %.sroa.0479.0, %309
   %322 = load float, ptr %indvars.iv588.sroa.phi702, align 4
   %323 = fmul float %321, %322
@@ -81194,14 +81194,14 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %306, label %.preheader, label %.loopexit535, !llvm.loop !722
 
 .loopexit535:                                     ; preds = %.preheader, %.critedge764
-  %.2445 = phi float [ %.0443549, %.critedge764 ], [ %308, %.preheader ]
-  %.2441 = phi float [ %.0439550, %.critedge764 ], [ %311, %.preheader ]
-  %.3424 = phi float [ %.1422554, %.critedge764 ], [ %325, %.preheader ]
-  %.3 = phi float [ %.1419555, %.critedge764 ], [ %319, %.preheader ]
+  %.2439 = phi float [ %.0437550, %.critedge764 ], [ %311, %.preheader ]
+  %.2433 = phi float [ %.0431551, %.critedge764 ], [ %308, %.preheader ]
+  %.3420 = phi float [ %.1418554, %.critedge764 ], [ %325, %.preheader ]
+  %.3 = phi float [ %.1414555, %.critedge764 ], [ %319, %.preheader ]
   br i1 %80, label %326, label %.loopexit
 
 326:                                              ; preds = %.loopexit535
-  %327 = trunc nuw i8 %.1429553 to i1
+  %327 = trunc nuw i8 %.1424553 to i1
   br i1 %327, label %331, label %328
 
 328:                                              ; preds = %326
@@ -81225,31 +81225,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv591.sroa.phi = phi ptr [ %.sroa.0660, %334 ], [ %.sroa.3, %338 ]
   %indvars.iv591.sroa.phi727 = phi ptr [ %.sroa.0731, %334 ], [ %.sroa.0731.4.gep728.sroa_idx736, %338 ]
   %indvars.iv591.sroa.phi748.sroa.speculated = phi float [ %84, %334 ], [ %37, %338 ]
-  %.4547 = phi float [ %.3, %334 ], [ %347, %338 ]
-  %.3446546 = phi float [ %.2445, %334 ], [ %343, %338 ]
+  %.4548 = phi float [ %.3, %334 ], [ %347, %338 ]
+  %.3434546 = phi float [ %.2433, %334 ], [ %343, %338 ]
   %340 = load float, ptr %indvars.iv591.sroa.phi, align 4
   %341 = fmul float %indvars.iv591.sroa.phi748.sroa.speculated, %340
   %342 = fmul float %337, %341
-  %343 = fadd float %.3446546, %342
+  %343 = fadd float %.3434546, %342
   %344 = load float, ptr %indvars.iv591.sroa.phi727, align 4
   %345 = fmul float %340, %344
   %346 = fmul float %337, %345
-  %347 = fadd float %.4547, %346
+  %347 = fadd float %.4548, %346
   br i1 %339, label %338, label %.loopexit, !llvm.loop !723
 
 .loopexit:                                        ; preds = %338, %.loopexit535, %331, %.critedge458
-  %.5448 = phi float [ %.0443549, %.critedge458 ], [ %.2445, %331 ], [ %.2445, %.loopexit535 ], [ %343, %338 ]
-  %.3442 = phi float [ %.0439550, %.critedge458 ], [ %.2441, %331 ], [ %.2441, %.loopexit535 ], [ %.2441, %338 ]
-  %.1435 = phi i1 [ %.0434552, %.critedge458 ], [ true, %331 ], [ true, %.loopexit535 ], [ true, %338 ]
-  %.3431 = phi i8 [ %.1429553, %.critedge458 ], [ %333, %331 ], [ %.1429553, %.loopexit535 ], [ %333, %338 ]
-  %.4425 = phi float [ %.1422554, %.critedge458 ], [ %.3424, %331 ], [ %.3424, %.loopexit535 ], [ %.3424, %338 ]
-  %.6 = phi float [ %.1419555, %.critedge458 ], [ %.3, %331 ], [ %.3, %.loopexit535 ], [ %347, %338 ]
+  %.3440 = phi float [ %.0437550, %.critedge458 ], [ %.2439, %331 ], [ %.2439, %.loopexit535 ], [ %.2439, %338 ]
+  %.5436 = phi float [ %.0431551, %.critedge458 ], [ %.2433, %331 ], [ %.2433, %.loopexit535 ], [ %343, %338 ]
+  %.1430 = phi i1 [ %.0429552, %.critedge458 ], [ true, %331 ], [ true, %.loopexit535 ], [ true, %338 ]
+  %.3426 = phi i8 [ %.1424553, %.critedge458 ], [ %333, %331 ], [ %.1424553, %.loopexit535 ], [ %333, %338 ]
+  %.4421 = phi float [ %.1418554, %.critedge458 ], [ %.3420, %331 ], [ %.3420, %.loopexit535 ], [ %.3420, %338 ]
+  %.6 = phi float [ %.1414555, %.critedge458 ], [ %.3, %331 ], [ %.3, %.loopexit535 ], [ %347, %338 ]
   %indvars.iv.next595 = add nsw i64 %indvars.iv594, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next595, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !724
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge462.not = and i1 %.not, %.1435
+  %brmerge462.not = and i1 %.not, %.1430
   br i1 %brmerge462.not, label %348, label %._crit_edge.thread
 
 348:                                              ; preds = %._crit_edge
@@ -81258,24 +81258,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %351 = sext i32 %350 to i64
   %352 = getelementptr inbounds float, ptr %122, i64 %351
   %353 = load float, ptr %352, align 4
-  %354 = fadd float %.5448, %353
+  %354 = fadd float %.5436, %353
   store float %354, ptr %352, align 4
   %355 = getelementptr inbounds float, ptr %124, i64 %351
   %356 = load float, ptr %355, align 4
-  %357 = fadd float %.3442, %356
+  %357 = fadd float %.3440, %356
   store float %357, ptr %355, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %348
-  %.1419.lcssa612 = phi float [ %.6, %._crit_edge ], [ %.6, %348 ], [ %.0418564, %.critedge ]
-  %.1422.lcssa611 = phi float [ %.4425, %._crit_edge ], [ %.4425, %348 ], [ %.0421563, %.critedge ]
-  %.1429.lcssa610 = phi i8 [ %.3431, %._crit_edge ], [ %.3431, %348 ], [ %.0428562, %.critedge ]
+  %.1414.lcssa612 = phi float [ %.6, %._crit_edge ], [ %.6, %348 ], [ %.0413564, %.critedge ]
+  %.1418.lcssa611 = phi float [ %.4421, %._crit_edge ], [ %.4421, %348 ], [ %.0417563, %.critedge ]
+  %.1424.lcssa610 = phi i8 [ %.3426, %._crit_edge ], [ %.3426, %348 ], [ %.0423562, %.critedge ]
   %exitcond599.not = icmp eq i64 %indvars.iv.next597, %wide.trip.count598
   br i1 %exitcond599.not, label %._crit_edge565, label %.critedge, !llvm.loop !725
 
 ._crit_edge565:                                   ; preds = %._crit_edge.thread
-  %358 = trunc nuw i8 %.1429.lcssa610 to i1
-  %359 = fcmp une float %.1419.lcssa612, 0.000000e+00
+  %358 = trunc nuw i8 %.1424.lcssa610 to i1
+  %359 = fcmp une float %.1414.lcssa612, 0.000000e+00
   br i1 %359, label %360, label %366
 
 360:                                              ; preds = %._crit_edge565
@@ -81283,12 +81283,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %362 = inttoptr i64 %361 to ptr
   %363 = getelementptr inbounds i8, ptr %362, i64 8
   %364 = load float, ptr %363, align 4
-  %365 = fadd float %.1419.lcssa612, %364
+  %365 = fadd float %.1414.lcssa612, %364
   store float %365, ptr %363, align 4
   br label %366
 
 366:                                              ; preds = %360, %._crit_edge565
-  %367 = fcmp une float %.1422.lcssa611, 0.000000e+00
+  %367 = fcmp une float %.1418.lcssa611, 0.000000e+00
   br i1 %367, label %368, label %.thread
 
 368:                                              ; preds = %366
@@ -81296,12 +81296,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %370 = inttoptr i64 %369 to ptr
   %371 = getelementptr inbounds i8, ptr %370, i64 12
   %372 = load float, ptr %371, align 4
-  %373 = fadd float %.1422.lcssa611, %372
+  %373 = fadd float %.1418.lcssa611, %372
   store float %373, ptr %371, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.split.us, %368, %366
-  %.0428.lcssa616620 = phi i1 [ %358, %368 ], [ %358, %366 ], [ false, %.split.us ]
+  %.0423.lcssa616620 = phi i1 [ %358, %368 ], [ %358, %366 ], [ false, %.split.us ]
   %374 = load i32, ptr %0, align 8
   %375 = mul nsw i32 %374, 12
   %376 = sext i32 %23 to i64
@@ -81311,7 +81311,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %380 = mul nsw i32 %379, 150
   %381 = add nsw i32 %380, %375
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %381)
-  %382 = select i1 %80, i1 %.0428.lcssa616620, i1 false
+  %382 = select i1 %80, i1 %.0423.lcssa616620, i1 false
   br i1 %382, label %383, label %394
 
 383:                                              ; preds = %.thread
@@ -82976,9 +82976,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv636 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next637, %._crit_edge.thread ]
-  %.0427602 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1428.lcssa653, %._crit_edge.thread ]
-  %.0431601 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1432.lcssa652, %._crit_edge.thread ]
-  %.0440600 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1441.lcssa651, %._crit_edge.thread ]
+  %.0420602 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1421.lcssa653, %._crit_edge.thread ]
+  %.0423601 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1424.lcssa652, %._crit_edge.thread ]
+  %.0429600 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1430.lcssa651, %._crit_edge.thread ]
   %119 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv636
   %120 = load i32, ptr %119, align 4
   %121 = sext i32 %120 to i64
@@ -83024,13 +83024,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %358
   %indvars.iv634 = phi i64 [ %154, %.lr.ph.preheader ], [ %indvars.iv.next635, %358 ]
-  %.1428590 = phi float [ %.0427602, %.lr.ph.preheader ], [ %.6, %358 ]
-  %.1432589 = phi float [ %.0431601, %.lr.ph.preheader ], [ %.4435, %358 ]
-  %.1441588 = phi i8 [ %.0440600, %.lr.ph.preheader ], [ %.3443, %358 ]
-  %.0447586 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1448, %358 ]
-  %.0453583 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3456, %358 ]
-  %.0457582 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5462, %358 ]
-  %.0463581 = phi i1 [ false, %.lr.ph.preheader ], [ %.1464, %358 ]
+  %.1421590 = phi float [ %.0420602, %.lr.ph.preheader ], [ %.6, %358 ]
+  %.1424589 = phi float [ %.0423601, %.lr.ph.preheader ], [ %.4427, %358 ]
+  %.1430588 = phi i8 [ %.0429600, %.lr.ph.preheader ], [ %.3432, %358 ]
+  %.0435587 = phi i1 [ false, %.lr.ph.preheader ], [ %.1436, %358 ]
+  %.0437586 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5442, %358 ]
+  %.0444585 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3447, %358 ]
+  %.0452582 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1453, %358 ]
   %155 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %359, %358 ]
   %156 = load ptr, ptr %107, align 8
   %157 = load ptr, ptr %108, align 8
@@ -83270,31 +83270,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv628.sroa.phi777 = phi ptr [ %.sroa.0783.4.gep.sroa_idx787, %.preheader ], [ %.sroa.0783, %.thread536 ]
   %indvars.iv628.sroa.phi790 = phi ptr [ %.sroa.3795, %.preheader ], [ %.sroa.0794, %.thread536 ]
   %indvars.iv628.sroa.phi798.sroa.speculated = phi float [ %37, %.preheader ], [ %75, %.thread536 ]
-  %.0422575 = phi float [ %305, %.preheader ], [ 0.000000e+00, %.thread536 ]
-  %.2429574 = phi float [ %313, %.preheader ], [ %.1428590, %.thread536 ]
-  %.2433573 = phi float [ %319, %.preheader ], [ %.1432589, %.thread536 ]
-  %.1454572 = phi float [ %299, %.preheader ], [ %.0453583, %.thread536 ]
-  %.1458571 = phi float [ %296, %.preheader ], [ %.0457582, %.thread536 ]
+  %.2422576 = phi float [ %313, %.preheader ], [ %.1421590, %.thread536 ]
+  %.2425575 = phi float [ %319, %.preheader ], [ %.1424589, %.thread536 ]
+  %.1438574 = phi float [ %296, %.preheader ], [ %.0437586, %.thread536 ]
+  %.1445572 = phi float [ %299, %.preheader ], [ %.0444585, %.thread536 ]
+  %.0460571 = phi float [ %305, %.preheader ], [ 0.000000e+00, %.thread536 ]
   %295 = load float, ptr %indvars.iv628.sroa.phi693, align 4
-  %296 = tail call float @llvm.fmuladd.f32(float %indvars.iv628.sroa.phi798.sroa.speculated, float %295, float %.1458571)
+  %296 = tail call float @llvm.fmuladd.f32(float %indvars.iv628.sroa.phi798.sroa.speculated, float %295, float %.1438574)
   %297 = load float, ptr %indvars.iv628.sroa.phi790, align 4
   %298 = load float, ptr %indvars.iv628.sroa.phi, align 4
-  %299 = tail call float @llvm.fmuladd.f32(float %297, float %298, float %.1454572)
+  %299 = tail call float @llvm.fmuladd.f32(float %297, float %298, float %.1445572)
   %300 = load float, ptr %indvars.iv628.sroa.phi705, align 4
   %301 = fmul float %indvars.iv628.sroa.phi798.sroa.speculated, %300
-  %302 = tail call float @llvm.fmuladd.f32(float %301, float %245, float %.0422575)
+  %302 = tail call float @llvm.fmuladd.f32(float %301, float %245, float %.0460571)
   %303 = load float, ptr %indvars.iv628.sroa.phi699, align 4
   %304 = fmul float %297, %303
   %305 = tail call float @llvm.fmuladd.f32(float %304, float %245, float %302)
   %306 = load float, ptr %indvars.iv628.sroa.phi777, align 4
-  %307 = tail call float @llvm.fmuladd.f32(float %295, float %306, float %.2429574)
+  %307 = tail call float @llvm.fmuladd.f32(float %295, float %306, float %.2422576)
   %308 = fmul float %.sroa.0497.0, %indvars.iv628.sroa.phi798.sroa.speculated
   %309 = load float, ptr %indvars.iv628.sroa.phi761, align 4
   %310 = fmul float %308, %309
   %311 = fmul float %300, %310
   %312 = load float, ptr %indvars.iv628.sroa.phi715, align 4
   %313 = tail call float @llvm.fmuladd.f32(float %311, float %312, float %307)
-  %314 = tail call float @llvm.fmuladd.f32(float %298, float %306, float %.2433573)
+  %314 = tail call float @llvm.fmuladd.f32(float %298, float %306, float %.2425575)
   %315 = fmul float %.sroa.0498.0, %297
   %316 = load float, ptr %indvars.iv628.sroa.phi754, align 4
   %317 = fmul float %315, %316
@@ -83303,15 +83303,15 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %294, label %.preheader, label %.loopexit565, !llvm.loop !739
 
 .loopexit565:                                     ; preds = %.preheader, %.critedge819
-  %.2459 = phi float [ %.0457582, %.critedge819 ], [ %296, %.preheader ]
-  %.2455 = phi float [ %.0453583, %.critedge819 ], [ %299, %.preheader ]
-  %.3434 = phi float [ %.1432589, %.critedge819 ], [ %319, %.preheader ]
-  %.3430 = phi float [ %.1428590, %.critedge819 ], [ %313, %.preheader ]
-  %.1423 = phi float [ 0.000000e+00, %.critedge819 ], [ %305, %.preheader ]
+  %.1461 = phi float [ 0.000000e+00, %.critedge819 ], [ %305, %.preheader ]
+  %.2446 = phi float [ %.0444585, %.critedge819 ], [ %299, %.preheader ]
+  %.2439 = phi float [ %.0437586, %.critedge819 ], [ %296, %.preheader ]
+  %.3426 = phi float [ %.1424589, %.critedge819 ], [ %319, %.preheader ]
+  %.3 = phi float [ %.1421590, %.critedge819 ], [ %313, %.preheader ]
   br i1 %71, label %320, label %.loopexit
 
 320:                                              ; preds = %.loopexit565
-  %321 = trunc nuw i8 %.1441588 to i1
+  %321 = trunc nuw i8 %.1430588 to i1
   br i1 %321, label %325, label %322
 
 322:                                              ; preds = %320
@@ -83335,36 +83335,36 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv631.sroa.phi = phi ptr [ %.sroa.0712, %328 ], [ %.sroa.3, %332 ]
   %indvars.iv631.sroa.phi779 = phi ptr [ %.sroa.0783, %328 ], [ %.sroa.0783.4.gep780.sroa_idx788, %332 ]
   %indvars.iv631.sroa.phi800.sroa.speculated = phi float [ %75, %328 ], [ %37, %332 ]
-  %.2424579 = phi float [ %.1423, %328 ], [ %339, %332 ]
-  %.4578 = phi float [ %.3430, %328 ], [ %343, %332 ]
-  %.3460577 = phi float [ %.2459, %328 ], [ %337, %332 ]
+  %.4580 = phi float [ %.3, %328 ], [ %343, %332 ]
+  %.3440578 = phi float [ %.2439, %328 ], [ %337, %332 ]
+  %.2462577 = phi float [ %.1461, %328 ], [ %339, %332 ]
   %334 = load float, ptr %indvars.iv631.sroa.phi, align 4
   %335 = fmul float %indvars.iv631.sroa.phi800.sroa.speculated, %334
   %336 = fmul float %331, %335
-  %337 = fadd float %.3460577, %336
+  %337 = fadd float %.3440578, %336
   %338 = fmul float %113, %335
-  %339 = fsub float %.2424579, %338
+  %339 = fsub float %.2462577, %338
   %340 = load float, ptr %indvars.iv631.sroa.phi779, align 4
   %341 = fmul float %334, %340
   %342 = fmul float %331, %341
-  %343 = fadd float %.4578, %342
+  %343 = fadd float %.4580, %342
   br i1 %333, label %332, label %.loopexit, !llvm.loop !740
 
 .loopexit:                                        ; preds = %332, %325, %.loopexit565
-  %.4461 = phi float [ %.2459, %325 ], [ %.2459, %.loopexit565 ], [ %337, %332 ]
-  %.2442 = phi i8 [ %327, %325 ], [ %.1441588, %.loopexit565 ], [ %327, %332 ]
-  %.5 = phi float [ %.3430, %325 ], [ %.3430, %.loopexit565 ], [ %343, %332 ]
-  %.3 = phi float [ %.1423, %325 ], [ %.1423, %.loopexit565 ], [ %339, %332 ]
-  %344 = fcmp une float %.3, 0.000000e+00
+  %.3463 = phi float [ %.1461, %325 ], [ %.1461, %.loopexit565 ], [ %339, %332 ]
+  %.4441 = phi float [ %.2439, %325 ], [ %.2439, %.loopexit565 ], [ %337, %332 ]
+  %.2431 = phi i8 [ %327, %325 ], [ %.1430588, %.loopexit565 ], [ %327, %332 ]
+  %.5 = phi float [ %.3, %325 ], [ %.3, %.loopexit565 ], [ %343, %332 ]
+  %344 = fcmp une float %.3463, 0.000000e+00
   br i1 %344, label %345, label %358
 
 345:                                              ; preds = %.loopexit
-  %346 = insertelement <2 x float> poison, float %.3, i64 0
+  %346 = insertelement <2 x float> poison, float %.3463, i64 0
   %347 = shufflevector <2 x float> %346, <2 x float> poison, <2 x i32> zeroinitializer
   %348 = fmul <2 x float> %218, %347
-  %349 = fmul float %219, %.3
+  %349 = fmul float %219, %.3463
   %350 = fadd <2 x float> %155, %348
-  %351 = fadd float %.0447586, %349
+  %351 = fadd float %.0452582, %349
   %352 = getelementptr inbounds float, ptr %97, i64 %212
   %353 = load <2 x float>, ptr %352, align 4
   %354 = fsub <2 x float> %353, %348
@@ -83376,20 +83376,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br label %358
 
 358:                                              ; preds = %.loopexit, %345, %.critedge475
-  %.1464 = phi i1 [ true, %345 ], [ true, %.loopexit ], [ %.0463581, %.critedge475 ]
-  %.5462 = phi float [ %.4461, %345 ], [ %.4461, %.loopexit ], [ %.0457582, %.critedge475 ]
-  %.3456 = phi float [ %.2455, %345 ], [ %.2455, %.loopexit ], [ %.0453583, %.critedge475 ]
-  %.1448 = phi float [ %351, %345 ], [ %.0447586, %.loopexit ], [ %.0447586, %.critedge475 ]
-  %.3443 = phi i8 [ %.2442, %345 ], [ %.2442, %.loopexit ], [ %.1441588, %.critedge475 ]
-  %.4435 = phi float [ %.3434, %345 ], [ %.3434, %.loopexit ], [ %.1432589, %.critedge475 ]
-  %.6 = phi float [ %.5, %345 ], [ %.5, %.loopexit ], [ %.1428590, %.critedge475 ]
+  %.1453 = phi float [ %351, %345 ], [ %.0452582, %.loopexit ], [ %.0452582, %.critedge475 ]
+  %.3447 = phi float [ %.2446, %345 ], [ %.2446, %.loopexit ], [ %.0444585, %.critedge475 ]
+  %.5442 = phi float [ %.4441, %345 ], [ %.4441, %.loopexit ], [ %.0437586, %.critedge475 ]
+  %.1436 = phi i1 [ true, %345 ], [ true, %.loopexit ], [ %.0435587, %.critedge475 ]
+  %.3432 = phi i8 [ %.2431, %345 ], [ %.2431, %.loopexit ], [ %.1430588, %.critedge475 ]
+  %.4427 = phi float [ %.3426, %345 ], [ %.3426, %.loopexit ], [ %.1424589, %.critedge475 ]
+  %.6 = phi float [ %.5, %345 ], [ %.5, %.loopexit ], [ %.1421590, %.critedge475 ]
   %359 = phi <2 x float> [ %350, %345 ], [ %155, %.loopexit ], [ %155, %.critedge475 ]
   %indvars.iv.next635 = add nsw i64 %indvars.iv634, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next635, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !741
 
 ._crit_edge:                                      ; preds = %358
-  br i1 %.1464, label %360, label %._crit_edge.thread
+  br i1 %.1436, label %360, label %._crit_edge.thread
 
 360:                                              ; preds = %._crit_edge
   %361 = getelementptr inbounds float, ptr %97, i64 %132
@@ -83398,7 +83398,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %363, ptr %361, align 4
   %364 = getelementptr i8, ptr %361, i64 8
   %365 = load float, ptr %364, align 4
-  %366 = fadd float %.1448, %365
+  %366 = fadd float %.1453, %365
   store float %366, ptr %364, align 4
   br i1 %.not, label %376, label %367
 
@@ -83411,7 +83411,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   store <2 x float> %372, ptr %370, align 4
   %373 = getelementptr i8, ptr %370, i64 8
   %374 = load float, ptr %373, align 4
-  %375 = fadd float %.1448, %374
+  %375 = fadd float %.1453, %374
   store float %375, ptr %373, align 4
   br label %376
 
@@ -83424,24 +83424,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %380 = sext i32 %379 to i64
   %381 = getelementptr inbounds float, ptr %116, i64 %380
   %382 = load float, ptr %381, align 4
-  %383 = fadd float %.5462, %382
+  %383 = fadd float %.5442, %382
   store float %383, ptr %381, align 4
   %384 = getelementptr inbounds float, ptr %118, i64 %380
   %385 = load float, ptr %384, align 4
-  %386 = fadd float %.3456, %385
+  %386 = fadd float %.3447, %385
   store float %386, ptr %384, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %377, %376
-  %.1428.lcssa653 = phi float [ %.6, %._crit_edge ], [ %.6, %377 ], [ %.6, %376 ], [ %.0427602, %.critedge ]
-  %.1432.lcssa652 = phi float [ %.4435, %._crit_edge ], [ %.4435, %377 ], [ %.4435, %376 ], [ %.0431601, %.critedge ]
-  %.1441.lcssa651 = phi i8 [ %.3443, %._crit_edge ], [ %.3443, %377 ], [ %.3443, %376 ], [ %.0440600, %.critedge ]
+  %.1421.lcssa653 = phi float [ %.6, %._crit_edge ], [ %.6, %377 ], [ %.6, %376 ], [ %.0420602, %.critedge ]
+  %.1424.lcssa652 = phi float [ %.4427, %._crit_edge ], [ %.4427, %377 ], [ %.4427, %376 ], [ %.0423601, %.critedge ]
+  %.1430.lcssa651 = phi i8 [ %.3432, %._crit_edge ], [ %.3432, %377 ], [ %.3432, %376 ], [ %.0429600, %.critedge ]
   %exitcond639.not = icmp eq i64 %indvars.iv.next637, %wide.trip.count638
   br i1 %exitcond639.not, label %._crit_edge603, label %.critedge, !llvm.loop !742
 
 ._crit_edge603:                                   ; preds = %._crit_edge.thread
-  %387 = trunc nuw i8 %.1441.lcssa651 to i1
-  %388 = fcmp une float %.1428.lcssa653, 0.000000e+00
+  %387 = trunc nuw i8 %.1430.lcssa651 to i1
+  %388 = fcmp une float %.1421.lcssa653, 0.000000e+00
   br i1 %388, label %389, label %395
 
 389:                                              ; preds = %._crit_edge603
@@ -83449,12 +83449,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %391 = inttoptr i64 %390 to ptr
   %392 = getelementptr inbounds i8, ptr %391, i64 8
   %393 = load float, ptr %392, align 4
-  %394 = fadd float %.1428.lcssa653, %393
+  %394 = fadd float %.1421.lcssa653, %393
   store float %394, ptr %392, align 4
   br label %395
 
 395:                                              ; preds = %389, %._crit_edge603
-  %396 = fcmp une float %.1432.lcssa652, 0.000000e+00
+  %396 = fcmp une float %.1424.lcssa652, 0.000000e+00
   br i1 %396, label %397, label %.thread
 
 397:                                              ; preds = %395
@@ -83462,12 +83462,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %399 = inttoptr i64 %398 to ptr
   %400 = getelementptr inbounds i8, ptr %399, i64 12
   %401 = load float, ptr %400, align 4
-  %402 = fadd float %.1432.lcssa652, %401
+  %402 = fadd float %.1424.lcssa652, %401
   store float %402, ptr %400, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.split.us, %397, %395
-  %.0440.lcssa657661 = phi i1 [ %387, %397 ], [ %387, %395 ], [ false, %.split.us ]
+  %.0429.lcssa657661 = phi i1 [ %387, %397 ], [ %387, %395 ], [ false, %.split.us ]
   %403 = load i32, ptr %0, align 8
   %404 = mul nsw i32 %403, 12
   %405 = sext i32 %23 to i64
@@ -83477,7 +83477,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %409 = mul nsw i32 %408, 150
   %410 = add nsw i32 %409, %404
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %410)
-  %411 = select i1 %71, i1 %.0440.lcssa657661, i1 false
+  %411 = select i1 %71, i1 %.0429.lcssa657661, i1 false
   br i1 %411, label %412, label %423
 
 412:                                              ; preds = %.thread
@@ -84689,9 +84689,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv550 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next551, %._crit_edge.thread ]
-  %.0372518 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1373.lcssa566, %._crit_edge.thread ]
-  %.0375517 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1376.lcssa565, %._crit_edge.thread ]
-  %.0382516 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1383.lcssa564, %._crit_edge.thread ]
+  %.0367518 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1368.lcssa566, %._crit_edge.thread ]
+  %.0371517 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1372.lcssa565, %._crit_edge.thread ]
+  %.0377516 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1378.lcssa564, %._crit_edge.thread ]
   %115 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv550
   %116 = load i32, ptr %115, align 4
   %117 = sext i32 %116 to i64
@@ -84742,12 +84742,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv548 = phi i64 [ %155, %.lr.ph.preheader ], [ %indvars.iv.next549, %.loopexit ]
-  %.1373509 = phi float [ %.0372518, %.lr.ph.preheader ], [ %.6, %.loopexit ]
-  %.1376508 = phi float [ %.0375517, %.lr.ph.preheader ], [ %.4379, %.loopexit ]
-  %.1383507 = phi i8 [ %.0382516, %.lr.ph.preheader ], [ %.3385, %.loopexit ]
-  %.0389506 = phi i1 [ false, %.lr.ph.preheader ], [ %.1390, %.loopexit ]
-  %.0393504 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3396, %.loopexit ]
-  %.0397503 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5402, %.loopexit ]
+  %.1368509 = phi float [ %.0367518, %.lr.ph.preheader ], [ %.6, %.loopexit ]
+  %.1372508 = phi float [ %.0371517, %.lr.ph.preheader ], [ %.4375, %.loopexit ]
+  %.1378507 = phi i8 [ %.0377516, %.lr.ph.preheader ], [ %.3380, %.loopexit ]
+  %.0383506 = phi i1 [ false, %.lr.ph.preheader ], [ %.1384, %.loopexit ]
+  %.0385505 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5390, %.loopexit ]
+  %.0391504 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3394, %.loopexit ]
   %156 = load ptr, ptr %105, align 8
   %157 = load ptr, ptr %106, align 8
   %158 = icmp eq ptr %156, %157
@@ -84968,24 +84968,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv542.sroa.phi679 = phi ptr [ %.sroa.0685.4.gep.sroa_idx689, %.preheader ], [ %.sroa.0685, %.thread460 ]
   %indvars.iv542.sroa.phi692 = phi ptr [ %.sroa.3697, %.preheader ], [ %.sroa.0696, %.thread460 ]
   %indvars.iv542.sroa.phi700.sroa.speculated = phi float [ %37, %.preheader ], [ %74, %.thread460 ]
-  %.2374498 = phi float [ %300, %.preheader ], [ %.1373509, %.thread460 ]
-  %.2377497 = phi float [ %306, %.preheader ], [ %.1376508, %.thread460 ]
-  %.1394496 = phi float [ %292, %.preheader ], [ %.0393504, %.thread460 ]
-  %.1398495 = phi float [ %289, %.preheader ], [ %.0397503, %.thread460 ]
+  %.2369499 = phi float [ %300, %.preheader ], [ %.1368509, %.thread460 ]
+  %.2373498 = phi float [ %306, %.preheader ], [ %.1372508, %.thread460 ]
+  %.1386496 = phi float [ %289, %.preheader ], [ %.0385505, %.thread460 ]
+  %.1392495 = phi float [ %292, %.preheader ], [ %.0391504, %.thread460 ]
   %288 = load float, ptr %indvars.iv542.sroa.phi599, align 4
-  %289 = tail call float @llvm.fmuladd.f32(float %indvars.iv542.sroa.phi700.sroa.speculated, float %288, float %.1398495)
+  %289 = tail call float @llvm.fmuladd.f32(float %indvars.iv542.sroa.phi700.sroa.speculated, float %288, float %.1386496)
   %290 = load float, ptr %indvars.iv542.sroa.phi692, align 4
   %291 = load float, ptr %indvars.iv542.sroa.phi, align 4
-  %292 = tail call float @llvm.fmuladd.f32(float %290, float %291, float %.1394496)
+  %292 = tail call float @llvm.fmuladd.f32(float %290, float %291, float %.1392495)
   %293 = load float, ptr %indvars.iv542.sroa.phi679, align 4
-  %294 = tail call float @llvm.fmuladd.f32(float %288, float %293, float %.2374498)
+  %294 = tail call float @llvm.fmuladd.f32(float %288, float %293, float %.2369499)
   %295 = fmul float %.sroa.0432.0, %indvars.iv542.sroa.phi700.sroa.speculated
   %296 = load float, ptr %indvars.iv542.sroa.phi663, align 4
   %297 = fmul float %295, %296
   %298 = fmul float %297, 0.000000e+00
   %299 = load float, ptr %indvars.iv542.sroa.phi617, align 4
   %300 = tail call float @llvm.fmuladd.f32(float %298, float %299, float %294)
-  %301 = tail call float @llvm.fmuladd.f32(float %291, float %293, float %.2377497)
+  %301 = tail call float @llvm.fmuladd.f32(float %291, float %293, float %.2373498)
   %302 = fmul float %.sroa.0433.0, %290
   %303 = load float, ptr %indvars.iv542.sroa.phi656, align 4
   %304 = fmul float %302, %303
@@ -84994,14 +84994,14 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   br i1 %287, label %.preheader, label %.loopexit489, !llvm.loop !756
 
 .loopexit489:                                     ; preds = %.preheader, %.critedge718
-  %.2399 = phi float [ %.0397503, %.critedge718 ], [ %289, %.preheader ]
-  %.2395 = phi float [ %.0393504, %.critedge718 ], [ %292, %.preheader ]
-  %.3378 = phi float [ %.1376508, %.critedge718 ], [ %306, %.preheader ]
-  %.3 = phi float [ %.1373509, %.critedge718 ], [ %300, %.preheader ]
+  %.2393 = phi float [ %.0391504, %.critedge718 ], [ %292, %.preheader ]
+  %.2387 = phi float [ %.0385505, %.critedge718 ], [ %289, %.preheader ]
+  %.3374 = phi float [ %.1372508, %.critedge718 ], [ %306, %.preheader ]
+  %.3 = phi float [ %.1368509, %.critedge718 ], [ %300, %.preheader ]
   br i1 %70, label %307, label %.loopexit
 
 307:                                              ; preds = %.loopexit489
-  %308 = trunc nuw i8 %.1383507 to i1
+  %308 = trunc nuw i8 %.1378507 to i1
   br i1 %308, label %312, label %309
 
 309:                                              ; preds = %307
@@ -85025,31 +85025,31 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %indvars.iv545.sroa.phi = phi ptr [ %.sroa.0614, %315 ], [ %.sroa.3, %319 ]
   %indvars.iv545.sroa.phi681 = phi ptr [ %.sroa.0685, %315 ], [ %.sroa.0685.4.gep682.sroa_idx690, %319 ]
   %indvars.iv545.sroa.phi702.sroa.speculated = phi float [ %74, %315 ], [ %37, %319 ]
-  %.4501 = phi float [ %.3, %315 ], [ %328, %319 ]
-  %.3400500 = phi float [ %.2399, %315 ], [ %324, %319 ]
+  %.4502 = phi float [ %.3, %315 ], [ %328, %319 ]
+  %.3388500 = phi float [ %.2387, %315 ], [ %324, %319 ]
   %321 = load float, ptr %indvars.iv545.sroa.phi, align 4
   %322 = fmul float %indvars.iv545.sroa.phi702.sroa.speculated, %321
   %323 = fmul float %318, %322
-  %324 = fadd float %.3400500, %323
+  %324 = fadd float %.3388500, %323
   %325 = load float, ptr %indvars.iv545.sroa.phi681, align 4
   %326 = fmul float %321, %325
   %327 = fmul float %318, %326
-  %328 = fadd float %.4501, %327
+  %328 = fadd float %.4502, %327
   br i1 %320, label %319, label %.loopexit, !llvm.loop !757
 
 .loopexit:                                        ; preds = %319, %.loopexit489, %312, %.critedge412
-  %.5402 = phi float [ %.0397503, %.critedge412 ], [ %.2399, %312 ], [ %.2399, %.loopexit489 ], [ %324, %319 ]
-  %.3396 = phi float [ %.0393504, %.critedge412 ], [ %.2395, %312 ], [ %.2395, %.loopexit489 ], [ %.2395, %319 ]
-  %.1390 = phi i1 [ %.0389506, %.critedge412 ], [ true, %312 ], [ true, %.loopexit489 ], [ true, %319 ]
-  %.3385 = phi i8 [ %.1383507, %.critedge412 ], [ %314, %312 ], [ %.1383507, %.loopexit489 ], [ %314, %319 ]
-  %.4379 = phi float [ %.1376508, %.critedge412 ], [ %.3378, %312 ], [ %.3378, %.loopexit489 ], [ %.3378, %319 ]
-  %.6 = phi float [ %.1373509, %.critedge412 ], [ %.3, %312 ], [ %.3, %.loopexit489 ], [ %328, %319 ]
+  %.3394 = phi float [ %.0391504, %.critedge412 ], [ %.2393, %312 ], [ %.2393, %.loopexit489 ], [ %.2393, %319 ]
+  %.5390 = phi float [ %.0385505, %.critedge412 ], [ %.2387, %312 ], [ %.2387, %.loopexit489 ], [ %324, %319 ]
+  %.1384 = phi i1 [ %.0383506, %.critedge412 ], [ true, %312 ], [ true, %.loopexit489 ], [ true, %319 ]
+  %.3380 = phi i8 [ %.1378507, %.critedge412 ], [ %314, %312 ], [ %.1378507, %.loopexit489 ], [ %314, %319 ]
+  %.4375 = phi float [ %.1372508, %.critedge412 ], [ %.3374, %312 ], [ %.3374, %.loopexit489 ], [ %.3374, %319 ]
+  %.6 = phi float [ %.1368509, %.critedge412 ], [ %.3, %312 ], [ %.3, %.loopexit489 ], [ %328, %319 ]
   %indvars.iv.next549 = add nsw i64 %indvars.iv548, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next549, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !758
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge416.not = and i1 %.not, %.1390
+  %brmerge416.not = and i1 %.not, %.1384
   br i1 %brmerge416.not, label %329, label %._crit_edge.thread
 
 329:                                              ; preds = %._crit_edge
@@ -85058,24 +85058,24 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %332 = sext i32 %331 to i64
   %333 = getelementptr inbounds float, ptr %112, i64 %332
   %334 = load float, ptr %333, align 4
-  %335 = fadd float %.5402, %334
+  %335 = fadd float %.5390, %334
   store float %335, ptr %333, align 4
   %336 = getelementptr inbounds float, ptr %114, i64 %332
   %337 = load float, ptr %336, align 4
-  %338 = fadd float %.3396, %337
+  %338 = fadd float %.3394, %337
   store float %338, ptr %336, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %329
-  %.1373.lcssa566 = phi float [ %.6, %._crit_edge ], [ %.6, %329 ], [ %.0372518, %.critedge ]
-  %.1376.lcssa565 = phi float [ %.4379, %._crit_edge ], [ %.4379, %329 ], [ %.0375517, %.critedge ]
-  %.1383.lcssa564 = phi i8 [ %.3385, %._crit_edge ], [ %.3385, %329 ], [ %.0382516, %.critedge ]
+  %.1368.lcssa566 = phi float [ %.6, %._crit_edge ], [ %.6, %329 ], [ %.0367518, %.critedge ]
+  %.1372.lcssa565 = phi float [ %.4375, %._crit_edge ], [ %.4375, %329 ], [ %.0371517, %.critedge ]
+  %.1378.lcssa564 = phi i8 [ %.3380, %._crit_edge ], [ %.3380, %329 ], [ %.0377516, %.critedge ]
   %exitcond553.not = icmp eq i64 %indvars.iv.next551, %wide.trip.count552
   br i1 %exitcond553.not, label %._crit_edge519, label %.critedge, !llvm.loop !759
 
 ._crit_edge519:                                   ; preds = %._crit_edge.thread
-  %339 = trunc nuw i8 %.1383.lcssa564 to i1
-  %340 = fcmp une float %.1373.lcssa566, 0.000000e+00
+  %339 = trunc nuw i8 %.1378.lcssa564 to i1
+  %340 = fcmp une float %.1368.lcssa566, 0.000000e+00
   br i1 %340, label %341, label %347
 
 341:                                              ; preds = %._crit_edge519
@@ -85083,12 +85083,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %343 = inttoptr i64 %342 to ptr
   %344 = getelementptr inbounds i8, ptr %343, i64 8
   %345 = load float, ptr %344, align 4
-  %346 = fadd float %.1373.lcssa566, %345
+  %346 = fadd float %.1368.lcssa566, %345
   store float %346, ptr %344, align 4
   br label %347
 
 347:                                              ; preds = %341, %._crit_edge519
-  %348 = fcmp une float %.1376.lcssa565, 0.000000e+00
+  %348 = fcmp une float %.1372.lcssa565, 0.000000e+00
   br i1 %348, label %349, label %.thread
 
 349:                                              ; preds = %347
@@ -85096,12 +85096,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %351 = inttoptr i64 %350 to ptr
   %352 = getelementptr inbounds i8, ptr %351, i64 12
   %353 = load float, ptr %352, align 4
-  %354 = fadd float %.1376.lcssa565, %353
+  %354 = fadd float %.1372.lcssa565, %353
   store float %354, ptr %352, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.split.us, %349, %347
-  %.0382.lcssa570574 = phi i1 [ %339, %349 ], [ %339, %347 ], [ false, %.split.us ]
+  %.0377.lcssa570574 = phi i1 [ %339, %349 ], [ %339, %347 ], [ false, %.split.us ]
   %355 = load i32, ptr %0, align 8
   %356 = mul nsw i32 %355, 12
   %357 = sext i32 %23 to i64
@@ -85111,7 +85111,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.split: ; preds = %_ZL7usingRFRK22Coul
   %361 = mul nsw i32 %360, 150
   %362 = add nsw i32 %361, %356
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %362)
-  %363 = select i1 %70, i1 %.0382.lcssa570574, i1 false
+  %363 = select i1 %70, i1 %.0377.lcssa570574, i1 false
   br i1 %363, label %364, label %375
 
 364:                                              ; preds = %.thread
@@ -87024,10 +87024,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %476
   %indvars.iv666 = phi i64 [ %132, %.lr.ph.preheader ], [ %indvars.iv.next667, %476 ]
-  %.0453625 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1454, %476 ]
-  %.0459622 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5464, %476 ]
-  %.0465621 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5470, %476 ]
-  %.0471620 = phi i1 [ false, %.lr.ph.preheader ], [ %.1472, %476 ]
+  %.0442626 = phi i1 [ false, %.lr.ph.preheader ], [ %.1443, %476 ]
+  %.0445625 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %476 ]
+  %.0448624 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5453, %476 ]
+  %.0458621 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1459, %476 ]
   %.1557619 = phi float [ %.0556635, %.lr.ph.preheader ], [ %.10, %476 ]
   %.1563618 = phi float [ %.0562634, %.lr.ph.preheader ], [ %.9571, %476 ]
   %133 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %477, %476 ]
@@ -87100,8 +87100,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %184 = fcmp ogt float %178, 0.000000e+00
   %185 = fcmp ogt float %183, 0.000000e+00
   %or.cond3 = select i1 %184, i1 %185, i1 false
-  %.sroa.0509.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %.sroa.0508.0 = select i1 %or.cond3, float 0.000000e+00, float %40
+  %.sroa.0509.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %186 = mul nsw i32 %144, 3
   %187 = sext i32 %186 to i64
   %188 = getelementptr inbounds float, ptr %74, i64 %187
@@ -87380,20 +87380,20 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv657.sroa.phi799 = phi ptr [ %.sroa.0805.4.gep.sroa_idx808, %.preheader ], [ %.sroa.0805, %.thread ]
   %indvars.iv657.sroa.phi813 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0817, %.thread ]
   %indvars.iv657.sroa.phi820 = phi ptr [ %.sroa.4825, %.preheader ], [ %.sroa.0824, %.thread ]
-  %.0441608 = phi float [ %376, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.1460607 = phi float [ %370, %.preheader ], [ %.0459622, %.thread ]
-  %.1466606 = phi float [ %367, %.preheader ], [ %.0465621, %.thread ]
+  %.1446608 = phi float [ %367, %.preheader ], [ %.0445625, %.thread ]
+  %.1449607 = phi float [ %370, %.preheader ], [ %.0448624, %.thread ]
+  %.0466606 = phi float [ %376, %.preheader ], [ 0.000000e+00, %.thread ]
   %.6605 = phi float [ %378, %.preheader ], [ %.5561, %.thread ]
   %.5567604 = phi float [ %379, %.preheader ], [ %.4566, %.thread ]
   %365 = load float, ptr %indvars.iv657.sroa.phi820, align 4
   %366 = load float, ptr %indvars.iv657.sroa.phi728, align 4
-  %367 = tail call float @llvm.fmuladd.f32(float %365, float %366, float %.1466606)
+  %367 = tail call float @llvm.fmuladd.f32(float %365, float %366, float %.1446608)
   %368 = load float, ptr %indvars.iv657.sroa.phi813, align 4
   %369 = load float, ptr %indvars.iv657.sroa.phi, align 4
-  %370 = tail call float @llvm.fmuladd.f32(float %368, float %369, float %.1460607)
+  %370 = tail call float @llvm.fmuladd.f32(float %368, float %369, float %.1449607)
   %371 = load float, ptr %indvars.iv657.sroa.phi740, align 4
   %372 = fmul float %365, %371
-  %373 = tail call float @llvm.fmuladd.f32(float %372, float %222, float %.0441608)
+  %373 = tail call float @llvm.fmuladd.f32(float %372, float %222, float %.0466606)
   %374 = load float, ptr %indvars.iv657.sroa.phi734, align 4
   %375 = fmul float %368, %374
   %376 = tail call float @llvm.fmuladd.f32(float %375, float %222, float %373)
@@ -87405,9 +87405,9 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit597:                                     ; preds = %.preheader, %.critedge846
   %.6568 = phi float [ %.1563618, %.critedge846 ], [ %379, %.preheader ]
   %.7 = phi float [ %.1557619, %.critedge846 ], [ %378, %.preheader ]
-  %.2467 = phi float [ %.0465621, %.critedge846 ], [ %367, %.preheader ]
-  %.2461 = phi float [ %.0459622, %.critedge846 ], [ %370, %.preheader ]
-  %.1442 = phi float [ 0.000000e+00, %.critedge846 ], [ %376, %.preheader ]
+  %.1467 = phi float [ 0.000000e+00, %.critedge846 ], [ %376, %.preheader ]
+  %.2450 = phi float [ %.0448624, %.critedge846 ], [ %370, %.preheader ]
+  %.2447 = phi float [ %.0445625, %.critedge846 ], [ %367, %.preheader ]
   %380 = fcmp uge float %221, %50
   %.not591 = select i1 %142, i1 %380, i1 false
   br i1 %.not591, label %.loopexit596, label %381
@@ -87452,16 +87452,16 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv660.sroa.phi = phi ptr [ %.sroa.0758, %381 ], [ %.sroa.3759, %414 ]
   %indvars.iv660.sroa.phi801 = phi ptr [ %.sroa.0805, %381 ], [ %.sroa.0805.4.gep802.sroa_idx809, %414 ]
   %indvars.iv660.sroa.phi822 = phi ptr [ %.sroa.0824, %381 ], [ %.sroa.4825, %414 ]
-  %.2443612 = phi float [ %.1442, %381 ], [ %422, %414 ]
-  %.3468611 = phi float [ %.2467, %381 ], [ %420, %414 ]
+  %.3612 = phi float [ %.2447, %381 ], [ %420, %414 ]
+  %.2468611 = phi float [ %.1467, %381 ], [ %422, %414 ]
   %.8610 = phi float [ %.7, %381 ], [ %426, %414 ]
   %416 = load float, ptr %indvars.iv660.sroa.phi822, align 4
   %417 = load float, ptr %indvars.iv660.sroa.phi, align 4
   %418 = fmul float %416, %417
   %419 = fmul float %413, %418
-  %420 = fsub float %.3468611, %419
+  %420 = fsub float %.3612, %419
   %421 = fmul float %411, %418
-  %422 = fsub float %.2443612, %421
+  %422 = fsub float %.2468611, %421
   %423 = load float, ptr %indvars.iv660.sroa.phi801, align 4
   %424 = fmul float %417, %423
   %425 = fmul float %413, %424
@@ -87470,8 +87470,8 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit596:                                     ; preds = %414, %.loopexit597
   %.9 = phi float [ %.7, %.loopexit597 ], [ %426, %414 ]
-  %.4469 = phi float [ %.2467, %.loopexit597 ], [ %420, %414 ]
-  %.3 = phi float [ %.1442, %.loopexit597 ], [ %422, %414 ]
+  %.3469 = phi float [ %.1467, %.loopexit597 ], [ %422, %414 ]
+  %.4 = phi float [ %.2447, %.loopexit597 ], [ %420, %414 ]
   %427 = fcmp uge float %221, %54
   %.not593 = select i1 %142, i1 %427, i1 false
   br i1 %.not593, label %.loopexit, label %428
@@ -87504,16 +87504,16 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv663.sroa.phi = phi ptr [ %.sroa.0754, %428 ], [ %.sroa.3, %449 ]
   %indvars.iv663.sroa.phi803 = phi ptr [ %.sroa.0805, %428 ], [ %.sroa.0805.4.gep804.sroa_idx810, %449 ]
   %indvars.iv663.sroa.phi815 = phi ptr [ %.sroa.0817, %428 ], [ %.sroa.4, %449 ]
-  %.4616 = phi float [ %.3, %428 ], [ %457, %449 ]
-  %.3462615 = phi float [ %.2461, %428 ], [ %455, %449 ]
+  %.3451616 = phi float [ %.2450, %428 ], [ %455, %449 ]
+  %.4470615 = phi float [ %.3469, %428 ], [ %457, %449 ]
   %.7569614 = phi float [ %.6568, %428 ], [ %461, %449 ]
   %451 = load float, ptr %indvars.iv663.sroa.phi815, align 4
   %452 = load float, ptr %indvars.iv663.sroa.phi, align 4
   %453 = fmul float %451, %452
   %454 = fmul float %448, %453
-  %455 = fadd float %.3462615, %454
+  %455 = fadd float %.3451616, %454
   %456 = fmul float %446, %453
-  %457 = fadd float %.4616, %456
+  %457 = fadd float %.4470615, %456
   %458 = load float, ptr %indvars.iv663.sroa.phi803, align 4
   %459 = fmul float %452, %458
   %460 = fmul float %448, %459
@@ -87522,18 +87522,18 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit:                                        ; preds = %449, %.loopexit596
   %.8570 = phi float [ %.6568, %.loopexit596 ], [ %461, %449 ]
-  %.4463 = phi float [ %.2461, %.loopexit596 ], [ %455, %449 ]
-  %.5 = phi float [ %.3, %.loopexit596 ], [ %457, %449 ]
-  %462 = fcmp une float %.5, 0.000000e+00
+  %.5471 = phi float [ %.3469, %.loopexit596 ], [ %457, %449 ]
+  %.4452 = phi float [ %.2450, %.loopexit596 ], [ %455, %449 ]
+  %462 = fcmp une float %.5471, 0.000000e+00
   br i1 %462, label %463, label %476
 
 463:                                              ; preds = %.loopexit
-  %464 = insertelement <2 x float> poison, float %.5, i64 0
+  %464 = insertelement <2 x float> poison, float %.5471, i64 0
   %465 = shufflevector <2 x float> %464, <2 x float> poison, <2 x i32> zeroinitializer
   %466 = fmul <2 x float> %193, %465
-  %467 = fmul float %194, %.5
+  %467 = fmul float %194, %.5471
   %468 = fadd <2 x float> %133, %466
-  %469 = fadd float %.0453625, %467
+  %469 = fadd float %.0458621, %467
   %470 = getelementptr inbounds float, ptr %75, i64 %187
   %471 = load <2 x float>, ptr %470, align 4
   %472 = fsub <2 x float> %471, %466
@@ -87547,17 +87547,17 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 476:                                              ; preds = %.loopexit, %463, %.critedge482
   %.9571 = phi float [ %.8570, %463 ], [ %.8570, %.loopexit ], [ %.1563618, %.critedge482 ]
   %.10 = phi float [ %.9, %463 ], [ %.9, %.loopexit ], [ %.1557619, %.critedge482 ]
-  %.1472 = phi i1 [ true, %463 ], [ true, %.loopexit ], [ %.0471620, %.critedge482 ]
-  %.5470 = phi float [ %.4469, %463 ], [ %.4469, %.loopexit ], [ %.0465621, %.critedge482 ]
-  %.5464 = phi float [ %.4463, %463 ], [ %.4463, %.loopexit ], [ %.0459622, %.critedge482 ]
-  %.1454 = phi float [ %469, %463 ], [ %.0453625, %.loopexit ], [ %.0453625, %.critedge482 ]
+  %.1459 = phi float [ %469, %463 ], [ %.0458621, %.loopexit ], [ %.0458621, %.critedge482 ]
+  %.5453 = phi float [ %.4452, %463 ], [ %.4452, %.loopexit ], [ %.0448624, %.critedge482 ]
+  %.5 = phi float [ %.4, %463 ], [ %.4, %.loopexit ], [ %.0445625, %.critedge482 ]
+  %.1443 = phi i1 [ true, %463 ], [ true, %.loopexit ], [ %.0442626, %.critedge482 ]
   %477 = phi <2 x float> [ %468, %463 ], [ %133, %.loopexit ], [ %133, %.critedge482 ]
   %indvars.iv.next667 = add nsw i64 %indvars.iv666, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next667, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !775
 
 ._crit_edge:                                      ; preds = %476
-  br i1 %.1472, label %478, label %._crit_edge.thread
+  br i1 %.1443, label %478, label %._crit_edge.thread
 
 478:                                              ; preds = %._crit_edge
   %479 = getelementptr inbounds float, ptr %75, i64 %110
@@ -87566,7 +87566,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %481, ptr %479, align 4
   %482 = getelementptr i8, ptr %479, i64 8
   %483 = load float, ptr %482, align 4
-  %484 = fadd float %.1454, %483
+  %484 = fadd float %.1459, %483
   store float %484, ptr %482, align 4
   br i1 %.not, label %494, label %485
 
@@ -87579,7 +87579,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %490, ptr %488, align 4
   %491 = getelementptr i8, ptr %488, i64 8
   %492 = load float, ptr %491, align 4
-  %493 = fadd float %.1454, %492
+  %493 = fadd float %.1459, %492
   store float %493, ptr %491, align 4
   br label %494
 
@@ -87592,11 +87592,11 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %498 = sext i32 %497 to i64
   %499 = getelementptr inbounds float, ptr %94, i64 %498
   %500 = load float, ptr %499, align 4
-  %501 = fadd float %.5470, %500
+  %501 = fadd float %.5, %500
   store float %501, ptr %499, align 4
   %502 = getelementptr inbounds float, ptr %96, i64 %498
   %503 = load float, ptr %502, align 4
-  %504 = fadd float %.5464, %503
+  %504 = fadd float %.5453, %503
   store float %504, ptr %502, align 4
   br label %._crit_edge.thread
 
@@ -89000,9 +89000,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv562 = phi i64 [ %135, %.lr.ph.preheader ], [ %indvars.iv.next563, %.loopexit ]
-  %.0384528 = phi i1 [ false, %.lr.ph.preheader ], [ %.1385, %.loopexit ]
-  %.0389526 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4, %.loopexit ]
-  %.0392525 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0380528 = phi i1 [ false, %.lr.ph.preheader ], [ %.1381, %.loopexit ]
+  %.0382527 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0385526 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4389, %.loopexit ]
   %.1466524 = phi float [ %.0465534, %.lr.ph.preheader ], [ %.10, %.loopexit ]
   %.1472523 = phi float [ %.0471533, %.lr.ph.preheader ], [ %.8479, %.loopexit ]
   %136 = load ptr, ptr %83, align 8
@@ -89074,8 +89074,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %186 = fcmp ogt float %180, 0.000000e+00
   %187 = fcmp ogt float %185, 0.000000e+00
   %or.cond3 = select i1 %186, i1 %187, i1 false
-  %.sroa.0429.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %.sroa.0428.0 = select i1 %or.cond3, float 0.000000e+00, float %40
+  %.sroa.0429.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %188 = mul nsw i32 %146, 3
   %189 = sext i32 %188 to i64
   %190 = getelementptr inbounds float, ptr %73, i64 %189
@@ -89340,16 +89340,16 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv553.sroa.phi671 = phi ptr [ %.sroa.0677.4.gep.sroa_idx680, %.preheader ], [ %.sroa.0677, %.thread ]
   %indvars.iv553.sroa.phi685 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0689, %.thread ]
   %indvars.iv553.sroa.phi692 = phi ptr [ %.sroa.4697, %.preheader ], [ %.sroa.0696, %.thread ]
-  %.1390515 = phi float [ %368, %.preheader ], [ %.0389526, %.thread ]
-  %.1393514 = phi float [ %365, %.preheader ], [ %.0392525, %.thread ]
+  %.1383515 = phi float [ %365, %.preheader ], [ %.0382527, %.thread ]
+  %.1386514 = phi float [ %368, %.preheader ], [ %.0385526, %.thread ]
   %.6513 = phi float [ %370, %.preheader ], [ %.5470, %.thread ]
   %.5476512 = phi float [ %371, %.preheader ], [ %.4475, %.thread ]
   %363 = load float, ptr %indvars.iv553.sroa.phi692, align 4
   %364 = load float, ptr %indvars.iv553.sroa.phi612, align 4
-  %365 = tail call float @llvm.fmuladd.f32(float %363, float %364, float %.1393514)
+  %365 = tail call float @llvm.fmuladd.f32(float %363, float %364, float %.1383515)
   %366 = load float, ptr %indvars.iv553.sroa.phi685, align 4
   %367 = load float, ptr %indvars.iv553.sroa.phi, align 4
-  %368 = tail call float @llvm.fmuladd.f32(float %366, float %367, float %.1390515)
+  %368 = tail call float @llvm.fmuladd.f32(float %366, float %367, float %.1386514)
   %369 = load float, ptr %indvars.iv553.sroa.phi671, align 4
   %370 = tail call float @llvm.fmuladd.f32(float %364, float %369, float %.6513)
   %371 = tail call float @llvm.fmuladd.f32(float %367, float %369, float %.5476512)
@@ -89358,8 +89358,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit505:                                     ; preds = %.preheader, %.critedge714
   %.6477 = phi float [ %.1472523, %.critedge714 ], [ %371, %.preheader ]
   %.7 = phi float [ %.1466524, %.critedge714 ], [ %370, %.preheader ]
-  %.2394 = phi float [ %.0392525, %.critedge714 ], [ %365, %.preheader ]
-  %.2391 = phi float [ %.0389526, %.critedge714 ], [ %368, %.preheader ]
+  %.2387 = phi float [ %.0385526, %.critedge714 ], [ %368, %.preheader ]
+  %.2384 = phi float [ %.0382527, %.critedge714 ], [ %365, %.preheader ]
   %372 = fcmp uge float %224, %49
   %.not499 = select i1 %144, i1 %372, i1 false
   br i1 %.not499, label %.loopexit504, label %373
@@ -89388,13 +89388,13 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv556.sroa.phi = phi ptr [ %.sroa.0630, %373 ], [ %.sroa.3631, %390 ]
   %indvars.iv556.sroa.phi673 = phi ptr [ %.sroa.0677, %373 ], [ %.sroa.0677.4.gep674.sroa_idx681, %390 ]
   %indvars.iv556.sroa.phi694 = phi ptr [ %.sroa.0696, %373 ], [ %.sroa.4697, %390 ]
-  %.3395518 = phi float [ %.2394, %373 ], [ %396, %390 ]
+  %.3518 = phi float [ %.2384, %373 ], [ %396, %390 ]
   %.8517 = phi float [ %.7, %373 ], [ %400, %390 ]
   %392 = load float, ptr %indvars.iv556.sroa.phi694, align 4
   %393 = load float, ptr %indvars.iv556.sroa.phi, align 4
   %394 = fmul float %392, %393
   %395 = fmul float %389, %394
-  %396 = fsub float %.3395518, %395
+  %396 = fsub float %.3518, %395
   %397 = load float, ptr %indvars.iv556.sroa.phi673, align 4
   %398 = fmul float %393, %397
   %399 = fmul float %389, %398
@@ -89403,7 +89403,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit504:                                     ; preds = %390, %.loopexit505
   %.9 = phi float [ %.7, %.loopexit505 ], [ %400, %390 ]
-  %.4396 = phi float [ %.2394, %.loopexit505 ], [ %396, %390 ]
+  %.4 = phi float [ %.2384, %.loopexit505 ], [ %396, %390 ]
   %401 = fcmp uge float %224, %53
   %.not501 = select i1 %144, i1 %401, i1 false
   br i1 %.not501, label %.loopexit, label %402
@@ -89435,13 +89435,13 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv559.sroa.phi = phi ptr [ %.sroa.0626, %402 ], [ %.sroa.3, %422 ]
   %indvars.iv559.sroa.phi675 = phi ptr [ %.sroa.0677, %402 ], [ %.sroa.0677.4.gep676.sroa_idx682, %422 ]
   %indvars.iv559.sroa.phi687 = phi ptr [ %.sroa.0689, %402 ], [ %.sroa.4, %422 ]
-  %.3521 = phi float [ %.2391, %402 ], [ %428, %422 ]
+  %.3388521 = phi float [ %.2387, %402 ], [ %428, %422 ]
   %.7478520 = phi float [ %.6477, %402 ], [ %432, %422 ]
   %424 = load float, ptr %indvars.iv559.sroa.phi687, align 4
   %425 = load float, ptr %indvars.iv559.sroa.phi, align 4
   %426 = fmul float %424, %425
   %427 = fmul float %421, %426
-  %428 = fadd float %.3521, %427
+  %428 = fadd float %.3388521, %427
   %429 = load float, ptr %indvars.iv559.sroa.phi675, align 4
   %430 = fmul float %425, %429
   %431 = fmul float %421, %430
@@ -89451,15 +89451,15 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit:                                        ; preds = %422, %.loopexit504, %.critedge405
   %.8479 = phi float [ %.6477, %.loopexit504 ], [ %.1472523, %.critedge405 ], [ %432, %422 ]
   %.10 = phi float [ %.9, %.loopexit504 ], [ %.1466524, %.critedge405 ], [ %.9, %422 ]
-  %.5 = phi float [ %.4396, %.loopexit504 ], [ %.0392525, %.critedge405 ], [ %.4396, %422 ]
-  %.4 = phi float [ %.2391, %.loopexit504 ], [ %.0389526, %.critedge405 ], [ %428, %422 ]
-  %.1385 = phi i1 [ true, %.loopexit504 ], [ %.0384528, %.critedge405 ], [ true, %422 ]
+  %.4389 = phi float [ %.2387, %.loopexit504 ], [ %.0385526, %.critedge405 ], [ %428, %422 ]
+  %.5 = phi float [ %.4, %.loopexit504 ], [ %.0382527, %.critedge405 ], [ %.4, %422 ]
+  %.1381 = phi i1 [ true, %.loopexit504 ], [ %.0380528, %.critedge405 ], [ true, %422 ]
   %indvars.iv.next563 = add nsw i64 %indvars.iv562, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next563, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !792
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge409.not = and i1 %.not, %.1385
+  %brmerge409.not = and i1 %.not, %.1381
   br i1 %brmerge409.not, label %433, label %._crit_edge.thread
 
 433:                                              ; preds = %._crit_edge
@@ -89472,7 +89472,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store float %439, ptr %437, align 4
   %440 = getelementptr inbounds float, ptr %94, i64 %436
   %441 = load float, ptr %440, align 4
-  %442 = fadd float %.4, %441
+  %442 = fadd float %.4389, %441
   store float %442, ptr %440, align 4
   br label %._crit_edge.thread
 
@@ -91409,7 +91409,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv694 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next695, %._crit_edge.thread ]
-  %.0467661 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1468.lcssa714, %._crit_edge.thread ]
+  %.0456661 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1457.lcssa714, %._crit_edge.thread ]
   %.0572659 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1573.lcssa713, %._crit_edge.thread ]
   %.0578658 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1579.lcssa712, %._crit_edge.thread ]
   %108 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv694
@@ -91457,11 +91457,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %473
   %indvars.iv692 = phi i64 [ %143, %.lr.ph.preheader ], [ %indvars.iv.next693, %473 ]
-  %.1468649 = phi i8 [ %.0467661, %.lr.ph.preheader ], [ %.3470, %473 ]
-  %.0474647 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1475, %473 ]
-  %.0480644 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5485, %473 ]
-  %.0486643 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5491, %473 ]
-  %.0492642 = phi i1 [ false, %.lr.ph.preheader ], [ %.1493, %473 ]
+  %.1457649 = phi i8 [ %.0456661, %.lr.ph.preheader ], [ %.3, %473 ]
+  %.0461648 = phi i1 [ false, %.lr.ph.preheader ], [ %.1462, %473 ]
+  %.0464647 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %473 ]
+  %.0468646 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5473, %473 ]
+  %.0479643 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1480, %473 ]
   %.1573641 = phi float [ %.0572659, %.lr.ph.preheader ], [ %.10, %473 ]
   %.1579640 = phi float [ %.0578658, %.lr.ph.preheader ], [ %.9587, %473 ]
   %144 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %474, %473 ]
@@ -91534,8 +91534,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %195 = fcmp ogt float %189, 0.000000e+00
   %196 = fcmp ogt float %194, 0.000000e+00
   %or.cond3 = select i1 %195, i1 %196, i1 false
-  %.sroa.0525.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %.sroa.0524.0 = select i1 %or.cond3, float 0.000000e+00, float %43
+  %.sroa.0525.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %197 = mul nsw i32 %155, 3
   %198 = sext i32 %197 to i64
   %199 = getelementptr inbounds float, ptr %81, i64 %198
@@ -91822,20 +91822,20 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv683.sroa.phi832 = phi ptr [ %.sroa.0838.4.gep.sroa_idx841, %.preheader ], [ %.sroa.0838, %.thread ]
   %indvars.iv683.sroa.phi846 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0850, %.thread ]
   %indvars.iv683.sroa.phi853 = phi ptr [ %.sroa.4858, %.preheader ], [ %.sroa.0857, %.thread ]
-  %.0458630 = phi float [ %395, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.1481629 = phi float [ %389, %.preheader ], [ %.0480644, %.thread ]
-  %.1487628 = phi float [ %386, %.preheader ], [ %.0486643, %.thread ]
+  %.1465631 = phi float [ %386, %.preheader ], [ %.0464647, %.thread ]
+  %.1469630 = phi float [ %389, %.preheader ], [ %.0468646, %.thread ]
+  %.0487628 = phi float [ %395, %.preheader ], [ 0.000000e+00, %.thread ]
   %.6627 = phi float [ %397, %.preheader ], [ %.5577, %.thread ]
   %.5583626 = phi float [ %398, %.preheader ], [ %.4582, %.thread ]
   %384 = load float, ptr %indvars.iv683.sroa.phi853, align 4
   %385 = load float, ptr %indvars.iv683.sroa.phi761, align 4
-  %386 = tail call float @llvm.fmuladd.f32(float %384, float %385, float %.1487628)
+  %386 = tail call float @llvm.fmuladd.f32(float %384, float %385, float %.1465631)
   %387 = load float, ptr %indvars.iv683.sroa.phi846, align 4
   %388 = load float, ptr %indvars.iv683.sroa.phi, align 4
-  %389 = tail call float @llvm.fmuladd.f32(float %387, float %388, float %.1481629)
+  %389 = tail call float @llvm.fmuladd.f32(float %387, float %388, float %.1469630)
   %390 = load float, ptr %indvars.iv683.sroa.phi773, align 4
   %391 = fmul float %384, %390
-  %392 = tail call float @llvm.fmuladd.f32(float %391, float %233, float %.0458630)
+  %392 = tail call float @llvm.fmuladd.f32(float %391, float %233, float %.0487628)
   %393 = load float, ptr %indvars.iv683.sroa.phi767, align 4
   %394 = fmul float %387, %393
   %395 = tail call float @llvm.fmuladd.f32(float %394, float %233, float %392)
@@ -91847,13 +91847,13 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit619:                                     ; preds = %.preheader, %.critedge879
   %.6584 = phi float [ %.1579640, %.critedge879 ], [ %398, %.preheader ]
   %.7 = phi float [ %.1573641, %.critedge879 ], [ %397, %.preheader ]
-  %.2488 = phi float [ %.0486643, %.critedge879 ], [ %386, %.preheader ]
-  %.2482 = phi float [ %.0480644, %.critedge879 ], [ %389, %.preheader ]
-  %.1459 = phi float [ 0.000000e+00, %.critedge879 ], [ %395, %.preheader ]
+  %.1488 = phi float [ 0.000000e+00, %.critedge879 ], [ %395, %.preheader ]
+  %.2470 = phi float [ %.0468646, %.critedge879 ], [ %389, %.preheader ]
+  %.2466 = phi float [ %.0464647, %.critedge879 ], [ %386, %.preheader ]
   br i1 %75, label %399, label %.loopexit618
 
 399:                                              ; preds = %.loopexit619
-  %400 = trunc nuw i8 %.1468649 to i1
+  %400 = trunc nuw i8 %.1457649 to i1
   br i1 %400, label %404, label %401
 
 401:                                              ; preds = %399
@@ -91877,16 +91877,16 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv686.sroa.phi = phi ptr [ %.sroa.0791, %407 ], [ %.sroa.3792, %411 ]
   %indvars.iv686.sroa.phi834 = phi ptr [ %.sroa.0838, %407 ], [ %.sroa.0838.4.gep835.sroa_idx842, %411 ]
   %indvars.iv686.sroa.phi855 = phi ptr [ %.sroa.0857, %407 ], [ %.sroa.4858, %411 ]
-  %.2460634 = phi float [ %.1459, %407 ], [ %419, %411 ]
-  %.3489633 = phi float [ %.2488, %407 ], [ %417, %411 ]
+  %.3467634 = phi float [ %.2466, %407 ], [ %417, %411 ]
+  %.2489633 = phi float [ %.1488, %407 ], [ %419, %411 ]
   %.8632 = phi float [ %.7, %407 ], [ %423, %411 ]
   %413 = load float, ptr %indvars.iv686.sroa.phi855, align 4
   %414 = load float, ptr %indvars.iv686.sroa.phi, align 4
   %415 = fmul float %413, %414
   %416 = fmul float %410, %415
-  %417 = fadd float %.3489633, %416
+  %417 = fadd float %.3467634, %416
   %418 = fmul float %102, %415
-  %419 = fsub float %.2460634, %418
+  %419 = fsub float %.2489633, %418
   %420 = load float, ptr %indvars.iv686.sroa.phi834, align 4
   %421 = fmul float %414, %420
   %422 = fmul float %410, %421
@@ -91895,9 +91895,9 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit618:                                     ; preds = %411, %404, %.loopexit619
   %.9 = phi float [ %.7, %404 ], [ %.7, %.loopexit619 ], [ %423, %411 ]
-  %.4490 = phi float [ %.2488, %404 ], [ %.2488, %.loopexit619 ], [ %417, %411 ]
-  %.2469 = phi i8 [ %406, %404 ], [ %.1468649, %.loopexit619 ], [ %406, %411 ]
-  %.3 = phi float [ %.1459, %404 ], [ %.1459, %.loopexit619 ], [ %419, %411 ]
+  %.3490 = phi float [ %.1488, %404 ], [ %.1488, %.loopexit619 ], [ %419, %411 ]
+  %.4 = phi float [ %.2466, %404 ], [ %.2466, %.loopexit619 ], [ %417, %411 ]
+  %.2458 = phi i8 [ %406, %404 ], [ %.1457649, %.loopexit619 ], [ %406, %411 ]
   %424 = fcmp uge float %232, %61
   %.not615 = select i1 %153, i1 %424, i1 false
   br i1 %.not615, label %.loopexit, label %425
@@ -91930,16 +91930,16 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv689.sroa.phi = phi ptr [ %.sroa.0787, %425 ], [ %.sroa.3, %446 ]
   %indvars.iv689.sroa.phi836 = phi ptr [ %.sroa.0838, %425 ], [ %.sroa.0838.4.gep837.sroa_idx843, %446 ]
   %indvars.iv689.sroa.phi848 = phi ptr [ %.sroa.0850, %425 ], [ %.sroa.4, %446 ]
-  %.4638 = phi float [ %.3, %425 ], [ %454, %446 ]
-  %.3483637 = phi float [ %.2482, %425 ], [ %452, %446 ]
+  %.3471638 = phi float [ %.2470, %425 ], [ %452, %446 ]
+  %.4491637 = phi float [ %.3490, %425 ], [ %454, %446 ]
   %.7585636 = phi float [ %.6584, %425 ], [ %458, %446 ]
   %448 = load float, ptr %indvars.iv689.sroa.phi848, align 4
   %449 = load float, ptr %indvars.iv689.sroa.phi, align 4
   %450 = fmul float %448, %449
   %451 = fmul float %445, %450
-  %452 = fadd float %.3483637, %451
+  %452 = fadd float %.3471638, %451
   %453 = fmul float %443, %450
-  %454 = fadd float %.4638, %453
+  %454 = fadd float %.4491637, %453
   %455 = load float, ptr %indvars.iv689.sroa.phi836, align 4
   %456 = fmul float %449, %455
   %457 = fmul float %445, %456
@@ -91948,18 +91948,18 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit:                                        ; preds = %446, %.loopexit618
   %.8586 = phi float [ %.6584, %.loopexit618 ], [ %458, %446 ]
-  %.4484 = phi float [ %.2482, %.loopexit618 ], [ %452, %446 ]
-  %.5 = phi float [ %.3, %.loopexit618 ], [ %454, %446 ]
-  %459 = fcmp une float %.5, 0.000000e+00
+  %.5492 = phi float [ %.3490, %.loopexit618 ], [ %454, %446 ]
+  %.4472 = phi float [ %.2470, %.loopexit618 ], [ %452, %446 ]
+  %459 = fcmp une float %.5492, 0.000000e+00
   br i1 %459, label %460, label %473
 
 460:                                              ; preds = %.loopexit
-  %461 = insertelement <2 x float> poison, float %.5, i64 0
+  %461 = insertelement <2 x float> poison, float %.5492, i64 0
   %462 = shufflevector <2 x float> %461, <2 x float> poison, <2 x i32> zeroinitializer
   %463 = fmul <2 x float> %204, %462
-  %464 = fmul float %205, %.5
+  %464 = fmul float %205, %.5492
   %465 = fadd <2 x float> %144, %463
-  %466 = fadd float %.0474647, %464
+  %466 = fadd float %.0479643, %464
   %467 = getelementptr inbounds float, ptr %82, i64 %198
   %468 = load <2 x float>, ptr %467, align 4
   %469 = fsub <2 x float> %468, %463
@@ -91973,18 +91973,18 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 473:                                              ; preds = %.loopexit, %460, %.critedge503
   %.9587 = phi float [ %.8586, %460 ], [ %.8586, %.loopexit ], [ %.1579640, %.critedge503 ]
   %.10 = phi float [ %.9, %460 ], [ %.9, %.loopexit ], [ %.1573641, %.critedge503 ]
-  %.1493 = phi i1 [ true, %460 ], [ true, %.loopexit ], [ %.0492642, %.critedge503 ]
-  %.5491 = phi float [ %.4490, %460 ], [ %.4490, %.loopexit ], [ %.0486643, %.critedge503 ]
-  %.5485 = phi float [ %.4484, %460 ], [ %.4484, %.loopexit ], [ %.0480644, %.critedge503 ]
-  %.1475 = phi float [ %466, %460 ], [ %.0474647, %.loopexit ], [ %.0474647, %.critedge503 ]
-  %.3470 = phi i8 [ %.2469, %460 ], [ %.2469, %.loopexit ], [ %.1468649, %.critedge503 ]
+  %.1480 = phi float [ %466, %460 ], [ %.0479643, %.loopexit ], [ %.0479643, %.critedge503 ]
+  %.5473 = phi float [ %.4472, %460 ], [ %.4472, %.loopexit ], [ %.0468646, %.critedge503 ]
+  %.5 = phi float [ %.4, %460 ], [ %.4, %.loopexit ], [ %.0464647, %.critedge503 ]
+  %.1462 = phi i1 [ true, %460 ], [ true, %.loopexit ], [ %.0461648, %.critedge503 ]
+  %.3 = phi i8 [ %.2458, %460 ], [ %.2458, %.loopexit ], [ %.1457649, %.critedge503 ]
   %474 = phi <2 x float> [ %465, %460 ], [ %144, %.loopexit ], [ %144, %.critedge503 ]
   %indvars.iv.next693 = add nsw i64 %indvars.iv692, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next693, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !809
 
 ._crit_edge:                                      ; preds = %473
-  br i1 %.1493, label %475, label %._crit_edge.thread
+  br i1 %.1462, label %475, label %._crit_edge.thread
 
 475:                                              ; preds = %._crit_edge
   %476 = getelementptr inbounds float, ptr %82, i64 %121
@@ -91993,7 +91993,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %478, ptr %476, align 4
   %479 = getelementptr i8, ptr %476, i64 8
   %480 = load float, ptr %479, align 4
-  %481 = fadd float %.1475, %480
+  %481 = fadd float %.1480, %480
   store float %481, ptr %479, align 4
   br i1 %.not, label %491, label %482
 
@@ -92006,7 +92006,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %487, ptr %485, align 4
   %488 = getelementptr i8, ptr %485, i64 8
   %489 = load float, ptr %488, align 4
-  %490 = fadd float %.1475, %489
+  %490 = fadd float %.1480, %489
   store float %490, ptr %488, align 4
   br label %491
 
@@ -92019,23 +92019,23 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %495 = sext i32 %494 to i64
   %496 = getelementptr inbounds float, ptr %105, i64 %495
   %497 = load float, ptr %496, align 4
-  %498 = fadd float %.5491, %497
+  %498 = fadd float %.5, %497
   store float %498, ptr %496, align 4
   %499 = getelementptr inbounds float, ptr %107, i64 %495
   %500 = load float, ptr %499, align 4
-  %501 = fadd float %.5485, %500
+  %501 = fadd float %.5473, %500
   store float %501, ptr %499, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %492, %491
-  %.1468.lcssa714 = phi i8 [ %.3470, %._crit_edge ], [ %.3470, %492 ], [ %.3470, %491 ], [ %.0467661, %.critedge ]
+  %.1457.lcssa714 = phi i8 [ %.3, %._crit_edge ], [ %.3, %492 ], [ %.3, %491 ], [ %.0456661, %.critedge ]
   %.1573.lcssa713 = phi float [ %.10, %._crit_edge ], [ %.10, %492 ], [ %.10, %491 ], [ %.0572659, %.critedge ]
   %.1579.lcssa712 = phi float [ %.9587, %._crit_edge ], [ %.9587, %492 ], [ %.9587, %491 ], [ %.0578658, %.critedge ]
   %exitcond697.not = icmp eq i64 %indvars.iv.next695, %wide.trip.count696
   br i1 %exitcond697.not, label %._crit_edge662, label %.critedge, !llvm.loop !810
 
 ._crit_edge662:                                   ; preds = %._crit_edge.thread
-  %502 = trunc nuw i8 %.1468.lcssa714 to i1
+  %502 = trunc nuw i8 %.1457.lcssa714 to i1
   %503 = fcmp une float %.1573.lcssa713, 0.000000e+00
   br i1 %503, label %504, label %510
 
@@ -92062,7 +92062,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br label %.thread720
 
 .thread720:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %512, %510
-  %.0467.lcssa719723 = phi i1 [ %502, %512 ], [ %502, %510 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0456.lcssa719723 = phi i1 [ %502, %512 ], [ %502, %510 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %518 = load i32, ptr %0, align 8
   %519 = mul nsw i32 %518, 12
   %520 = sext i32 %23 to i64
@@ -92072,7 +92072,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %524 = mul nsw i32 %523, 150
   %525 = add nsw i32 %524, %519
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %525)
-  %526 = select i1 %75, i1 %.0467.lcssa719723, i1 false
+  %526 = select i1 %75, i1 %.0456.lcssa719723, i1 false
   br i1 %526, label %527, label %538
 
 527:                                              ; preds = %.thread720
@@ -93531,7 +93531,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv597 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next598, %._crit_edge.thread ]
-  %.0404567 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1405.lcssa615, %._crit_edge.thread ]
+  %.0399567 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1400.lcssa615, %._crit_edge.thread ]
   %.0488565 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1489.lcssa614, %._crit_edge.thread ]
   %.0494564 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1495.lcssa613, %._crit_edge.thread ]
   %104 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv597
@@ -93584,10 +93584,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv595 = phi i64 [ %144, %.lr.ph.preheader ], [ %indvars.iv.next596, %.loopexit ]
-  %.1405558 = phi i8 [ %.0404567, %.lr.ph.preheader ], [ %.3, %.loopexit ]
-  %.0410557 = phi i1 [ false, %.lr.ph.preheader ], [ %.1411, %.loopexit ]
-  %.0414555 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4, %.loopexit ]
-  %.0418554 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.1400558 = phi i8 [ %.0399567, %.lr.ph.preheader ], [ %.3, %.loopexit ]
+  %.0403557 = phi i1 [ false, %.lr.ph.preheader ], [ %.1404, %.loopexit ]
+  %.0406556 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0410555 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4414, %.loopexit ]
   %.1489553 = phi float [ %.0488565, %.lr.ph.preheader ], [ %.10, %.loopexit ]
   %.1495552 = phi float [ %.0494564, %.lr.ph.preheader ], [ %.8502, %.loopexit ]
   %145 = load ptr, ptr %90, align 8
@@ -93659,8 +93659,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %195 = fcmp ogt float %189, 0.000000e+00
   %196 = fcmp ogt float %194, 0.000000e+00
   %or.cond3 = select i1 %195, i1 %196, i1 false
-  %.sroa.0452.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %.sroa.0451.0 = select i1 %or.cond3, float 0.000000e+00, float %43
+  %.sroa.0452.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %197 = mul nsw i32 %155, 3
   %198 = sext i32 %197 to i64
   %199 = getelementptr inbounds float, ptr %80, i64 %198
@@ -93927,16 +93927,16 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv586.sroa.phi711 = phi ptr [ %.sroa.0717.4.gep.sroa_idx720, %.preheader ], [ %.sroa.0717, %.thread ]
   %indvars.iv586.sroa.phi725 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0729, %.thread ]
   %indvars.iv586.sroa.phi732 = phi ptr [ %.sroa.4737, %.preheader ], [ %.sroa.0736, %.thread ]
-  %.1415544 = phi float [ %379, %.preheader ], [ %.0414555, %.thread ]
-  %.1419543 = phi float [ %376, %.preheader ], [ %.0418554, %.thread ]
+  %.1407544 = phi float [ %376, %.preheader ], [ %.0406556, %.thread ]
+  %.1411543 = phi float [ %379, %.preheader ], [ %.0410555, %.thread ]
   %.6542 = phi float [ %381, %.preheader ], [ %.5493, %.thread ]
   %.5499541 = phi float [ %382, %.preheader ], [ %.4498, %.thread ]
   %374 = load float, ptr %indvars.iv586.sroa.phi732, align 4
   %375 = load float, ptr %indvars.iv586.sroa.phi652, align 4
-  %376 = tail call float @llvm.fmuladd.f32(float %374, float %375, float %.1419543)
+  %376 = tail call float @llvm.fmuladd.f32(float %374, float %375, float %.1407544)
   %377 = load float, ptr %indvars.iv586.sroa.phi725, align 4
   %378 = load float, ptr %indvars.iv586.sroa.phi, align 4
-  %379 = tail call float @llvm.fmuladd.f32(float %377, float %378, float %.1415544)
+  %379 = tail call float @llvm.fmuladd.f32(float %377, float %378, float %.1411543)
   %380 = load float, ptr %indvars.iv586.sroa.phi711, align 4
   %381 = tail call float @llvm.fmuladd.f32(float %375, float %380, float %.6542)
   %382 = tail call float @llvm.fmuladd.f32(float %378, float %380, float %.5499541)
@@ -93945,12 +93945,12 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit534:                                     ; preds = %.preheader, %.critedge754
   %.6500 = phi float [ %.1495552, %.critedge754 ], [ %382, %.preheader ]
   %.7 = phi float [ %.1489553, %.critedge754 ], [ %381, %.preheader ]
-  %.2420 = phi float [ %.0418554, %.critedge754 ], [ %376, %.preheader ]
-  %.2416 = phi float [ %.0414555, %.critedge754 ], [ %379, %.preheader ]
+  %.2412 = phi float [ %.0410555, %.critedge754 ], [ %379, %.preheader ]
+  %.2408 = phi float [ %.0406556, %.critedge754 ], [ %376, %.preheader ]
   br i1 %74, label %383, label %.loopexit533
 
 383:                                              ; preds = %.loopexit534
-  %384 = trunc nuw i8 %.1405558 to i1
+  %384 = trunc nuw i8 %.1400558 to i1
   br i1 %384, label %388, label %385
 
 385:                                              ; preds = %383
@@ -93974,13 +93974,13 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv589.sroa.phi = phi ptr [ %.sroa.0670, %391 ], [ %.sroa.3671, %395 ]
   %indvars.iv589.sroa.phi713 = phi ptr [ %.sroa.0717, %391 ], [ %.sroa.0717.4.gep714.sroa_idx721, %395 ]
   %indvars.iv589.sroa.phi734 = phi ptr [ %.sroa.0736, %391 ], [ %.sroa.4737, %395 ]
-  %.3421547 = phi float [ %.2420, %391 ], [ %401, %395 ]
+  %.3409547 = phi float [ %.2408, %391 ], [ %401, %395 ]
   %.8546 = phi float [ %.7, %391 ], [ %405, %395 ]
   %397 = load float, ptr %indvars.iv589.sroa.phi734, align 4
   %398 = load float, ptr %indvars.iv589.sroa.phi, align 4
   %399 = fmul float %397, %398
   %400 = fmul float %394, %399
-  %401 = fadd float %.3421547, %400
+  %401 = fadd float %.3409547, %400
   %402 = load float, ptr %indvars.iv589.sroa.phi713, align 4
   %403 = fmul float %398, %402
   %404 = fmul float %394, %403
@@ -93989,8 +93989,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit533:                                     ; preds = %395, %388, %.loopexit534
   %.9 = phi float [ %.7, %388 ], [ %.7, %.loopexit534 ], [ %405, %395 ]
-  %.4422 = phi float [ %.2420, %388 ], [ %.2420, %.loopexit534 ], [ %401, %395 ]
-  %.2406 = phi i8 [ %390, %388 ], [ %.1405558, %.loopexit534 ], [ %390, %395 ]
+  %.4 = phi float [ %.2408, %388 ], [ %.2408, %.loopexit534 ], [ %401, %395 ]
+  %.2401 = phi i8 [ %390, %388 ], [ %.1400558, %.loopexit534 ], [ %390, %395 ]
   %406 = fcmp uge float %233, %60
   %.not530 = select i1 %153, i1 %406, i1 false
   br i1 %.not530, label %.loopexit, label %407
@@ -94022,13 +94022,13 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv592.sroa.phi = phi ptr [ %.sroa.0666, %407 ], [ %.sroa.3, %427 ]
   %indvars.iv592.sroa.phi715 = phi ptr [ %.sroa.0717, %407 ], [ %.sroa.0717.4.gep716.sroa_idx722, %427 ]
   %indvars.iv592.sroa.phi727 = phi ptr [ %.sroa.0729, %407 ], [ %.sroa.4, %427 ]
-  %.3417550 = phi float [ %.2416, %407 ], [ %433, %427 ]
+  %.3413550 = phi float [ %.2412, %407 ], [ %433, %427 ]
   %.7501549 = phi float [ %.6500, %407 ], [ %437, %427 ]
   %429 = load float, ptr %indvars.iv592.sroa.phi727, align 4
   %430 = load float, ptr %indvars.iv592.sroa.phi, align 4
   %431 = fmul float %429, %430
   %432 = fmul float %426, %431
-  %433 = fadd float %.3417550, %432
+  %433 = fadd float %.3413550, %432
   %434 = load float, ptr %indvars.iv592.sroa.phi715, align 4
   %435 = fmul float %430, %434
   %436 = fmul float %426, %435
@@ -94038,16 +94038,16 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit:                                        ; preds = %427, %.loopexit533, %.critedge431
   %.8502 = phi float [ %.6500, %.loopexit533 ], [ %.1495552, %.critedge431 ], [ %437, %427 ]
   %.10 = phi float [ %.9, %.loopexit533 ], [ %.1489553, %.critedge431 ], [ %.9, %427 ]
-  %.5 = phi float [ %.4422, %.loopexit533 ], [ %.0418554, %.critedge431 ], [ %.4422, %427 ]
-  %.4 = phi float [ %.2416, %.loopexit533 ], [ %.0414555, %.critedge431 ], [ %433, %427 ]
-  %.1411 = phi i1 [ true, %.loopexit533 ], [ %.0410557, %.critedge431 ], [ true, %427 ]
-  %.3 = phi i8 [ %.2406, %.loopexit533 ], [ %.1405558, %.critedge431 ], [ %.2406, %427 ]
+  %.4414 = phi float [ %.2412, %.loopexit533 ], [ %.0410555, %.critedge431 ], [ %433, %427 ]
+  %.5 = phi float [ %.4, %.loopexit533 ], [ %.0406556, %.critedge431 ], [ %.4, %427 ]
+  %.1404 = phi i1 [ true, %.loopexit533 ], [ %.0403557, %.critedge431 ], [ true, %427 ]
+  %.3 = phi i8 [ %.2401, %.loopexit533 ], [ %.1400558, %.critedge431 ], [ %.2401, %427 ]
   %indvars.iv.next596 = add nsw i64 %indvars.iv595, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next596, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !826
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge435.not = and i1 %.not, %.1411
+  %brmerge435.not = and i1 %.not, %.1404
   br i1 %brmerge435.not, label %438, label %._crit_edge.thread
 
 438:                                              ; preds = %._crit_edge
@@ -94060,19 +94060,19 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store float %444, ptr %442, align 4
   %445 = getelementptr inbounds float, ptr %103, i64 %441
   %446 = load float, ptr %445, align 4
-  %447 = fadd float %.4, %446
+  %447 = fadd float %.4414, %446
   store float %447, ptr %445, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %438
-  %.1405.lcssa615 = phi i8 [ %.3, %._crit_edge ], [ %.3, %438 ], [ %.0404567, %.critedge ]
+  %.1400.lcssa615 = phi i8 [ %.3, %._crit_edge ], [ %.3, %438 ], [ %.0399567, %.critedge ]
   %.1489.lcssa614 = phi float [ %.10, %._crit_edge ], [ %.10, %438 ], [ %.0488565, %.critedge ]
   %.1495.lcssa613 = phi float [ %.8502, %._crit_edge ], [ %.8502, %438 ], [ %.0494564, %.critedge ]
   %exitcond600.not = icmp eq i64 %indvars.iv.next598, %wide.trip.count599
   br i1 %exitcond600.not, label %._crit_edge568, label %.critedge, !llvm.loop !827
 
 ._crit_edge568:                                   ; preds = %._crit_edge.thread
-  %448 = trunc nuw i8 %.1405.lcssa615 to i1
+  %448 = trunc nuw i8 %.1400.lcssa615 to i1
   %449 = fcmp une float %.1489.lcssa614, 0.000000e+00
   br i1 %449, label %450, label %456
 
@@ -94099,7 +94099,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br label %.thread621
 
 .thread621:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %458, %456
-  %.0404.lcssa620624 = phi i1 [ %448, %458 ], [ %448, %456 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0399.lcssa620624 = phi i1 [ %448, %458 ], [ %448, %456 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %464 = load i32, ptr %0, align 8
   %465 = mul nsw i32 %464, 12
   %466 = sext i32 %23 to i64
@@ -94109,7 +94109,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %470 = mul nsw i32 %469, 150
   %471 = add nsw i32 %470, %465
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %471)
-  %472 = select i1 %74, i1 %.0404.lcssa620624, i1 false
+  %472 = select i1 %74, i1 %.0399.lcssa620624, i1 false
   br i1 %472, label %473, label %484
 
 473:                                              ; preds = %.thread621
@@ -95911,10 +95911,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %454
   %indvars.iv668 = phi i64 [ %134, %.lr.ph.preheader ], [ %indvars.iv.next669, %454 ]
-  %.0477634 = phi i1 [ false, %.lr.ph.preheader ], [ %.1478, %454 ]
-  %.0481632 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1482, %454 ]
-  %.0487629 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3490, %454 ]
-  %.0491628 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %454 ]
+  %.0468634 = phi i1 [ false, %.lr.ph.preheader ], [ %.1469, %454 ]
+  %.0471633 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %454 ]
+  %.0474632 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3477, %454 ]
+  %.0482629 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1483, %454 ]
   %.1574627 = phi float [ %.0573643, %.lr.ph.preheader ], [ %.10, %454 ]
   %.1580626 = phi float [ %.0579642, %.lr.ph.preheader ], [ %.7586, %454 ]
   %135 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %455, %454 ]
@@ -95983,8 +95983,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %184 = fcmp ogt float %178, 0.000000e+00
   %185 = fcmp ogt float %183, 0.000000e+00
   %or.cond3 = select i1 %184, i1 %185, i1 false
-  %.sroa.0527.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %.sroa.0526.0 = select i1 %or.cond3, float 0.000000e+00, float %40
+  %.sroa.0527.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %186 = mul nsw i32 %146, 3
   %187 = sext i32 %186 to i64
   %188 = getelementptr inbounds float, ptr %79, i64 %187
@@ -96270,20 +96270,20 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv662.sroa.phi781 = phi ptr [ %.sroa.0785.4.gep.sroa_idx788, %.preheader ], [ %.sroa.0785, %.thread ]
   %indvars.iv662.sroa.phi792 = phi ptr [ %.sroa.3795, %.preheader ], [ %.sroa.0794, %.thread ]
   %indvars.iv662.sroa.phi798 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0802, %.thread ]
-  %.0467620 = phi float [ %389, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.1488619 = phi float [ %383, %.preheader ], [ %.0487629, %.thread ]
-  %.1492618 = phi float [ %380, %.preheader ], [ %.0491628, %.thread ]
+  %.1472620 = phi float [ %380, %.preheader ], [ %.0471633, %.thread ]
+  %.1475619 = phi float [ %383, %.preheader ], [ %.0474632, %.thread ]
+  %.0490618 = phi float [ %389, %.preheader ], [ 0.000000e+00, %.thread ]
   %.6617 = phi float [ %391, %.preheader ], [ %.5578, %.thread ]
   %.5584616 = phi float [ %392, %.preheader ], [ %.4583, %.thread ]
   %378 = load float, ptr %indvars.iv662.sroa.phi798, align 4
   %379 = load float, ptr %indvars.iv662.sroa.phi721, align 4
-  %380 = tail call float @llvm.fmuladd.f32(float %378, float %379, float %.1492618)
+  %380 = tail call float @llvm.fmuladd.f32(float %378, float %379, float %.1472620)
   %381 = load float, ptr %indvars.iv662.sroa.phi792, align 4
   %382 = load float, ptr %indvars.iv662.sroa.phi, align 4
-  %383 = tail call float @llvm.fmuladd.f32(float %381, float %382, float %.1488619)
+  %383 = tail call float @llvm.fmuladd.f32(float %381, float %382, float %.1475619)
   %384 = load float, ptr %indvars.iv662.sroa.phi733, align 4
   %385 = fmul float %378, %384
-  %386 = tail call float @llvm.fmuladd.f32(float %385, float %222, float %.0467620)
+  %386 = tail call float @llvm.fmuladd.f32(float %385, float %222, float %.0490618)
   %387 = load float, ptr %indvars.iv662.sroa.phi727, align 4
   %388 = fmul float %381, %387
   %389 = tail call float @llvm.fmuladd.f32(float %388, float %222, float %386)
@@ -96295,9 +96295,9 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit609:                                     ; preds = %.preheader, %.critedge816
   %.6585 = phi float [ %.1580626, %.critedge816 ], [ %392, %.preheader ]
   %.7 = phi float [ %.1574627, %.critedge816 ], [ %391, %.preheader ]
-  %.2493 = phi float [ %.0491628, %.critedge816 ], [ %380, %.preheader ]
-  %.2489 = phi float [ %.0487629, %.critedge816 ], [ %383, %.preheader ]
-  %.1468 = phi float [ 0.000000e+00, %.critedge816 ], [ %389, %.preheader ]
+  %.1491 = phi float [ 0.000000e+00, %.critedge816 ], [ %389, %.preheader ]
+  %.2476 = phi float [ %.0474632, %.critedge816 ], [ %383, %.preheader ]
+  %.2473 = phi float [ %.0471633, %.critedge816 ], [ %380, %.preheader ]
   %393 = fcmp uge float %221, %50
   %.not606 = select i1 %144, i1 %393, i1 false
   br i1 %.not606, label %.loopexit, label %394
@@ -96342,16 +96342,16 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv665.sroa.phi = phi ptr [ %.sroa.0745, %394 ], [ %.sroa.3, %427 ]
   %indvars.iv665.sroa.phi783 = phi ptr [ %.sroa.0785, %394 ], [ %.sroa.0785.4.gep784.sroa_idx789, %427 ]
   %indvars.iv665.sroa.phi800 = phi ptr [ %.sroa.0802, %394 ], [ %.sroa.4, %427 ]
-  %.2469624 = phi float [ %.1468, %394 ], [ %435, %427 ]
-  %.3494623 = phi float [ %.2493, %394 ], [ %433, %427 ]
+  %.3624 = phi float [ %.2473, %394 ], [ %433, %427 ]
+  %.2492623 = phi float [ %.1491, %394 ], [ %435, %427 ]
   %.8622 = phi float [ %.7, %394 ], [ %439, %427 ]
   %429 = load float, ptr %indvars.iv665.sroa.phi800, align 4
   %430 = load float, ptr %indvars.iv665.sroa.phi, align 4
   %431 = fmul float %429, %430
   %432 = fmul float %426, %431
-  %433 = fsub float %.3494623, %432
+  %433 = fsub float %.3624, %432
   %434 = fmul float %424, %431
-  %435 = fsub float %.2469624, %434
+  %435 = fsub float %.2492623, %434
   %436 = load float, ptr %indvars.iv665.sroa.phi783, align 4
   %437 = fmul float %430, %436
   %438 = fmul float %426, %437
@@ -96360,18 +96360,18 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit:                                        ; preds = %427, %.loopexit609
   %.9 = phi float [ %.7, %.loopexit609 ], [ %439, %427 ]
-  %.4 = phi float [ %.2493, %.loopexit609 ], [ %433, %427 ]
-  %.3 = phi float [ %.1468, %.loopexit609 ], [ %435, %427 ]
-  %440 = fcmp une float %.3, 0.000000e+00
+  %.3493 = phi float [ %.1491, %.loopexit609 ], [ %435, %427 ]
+  %.4 = phi float [ %.2473, %.loopexit609 ], [ %433, %427 ]
+  %440 = fcmp une float %.3493, 0.000000e+00
   br i1 %440, label %441, label %454
 
 441:                                              ; preds = %.loopexit
-  %442 = insertelement <2 x float> poison, float %.3, i64 0
+  %442 = insertelement <2 x float> poison, float %.3493, i64 0
   %443 = shufflevector <2 x float> %442, <2 x float> poison, <2 x i32> zeroinitializer
   %444 = fmul <2 x float> %193, %443
-  %445 = fmul float %194, %.3
+  %445 = fmul float %194, %.3493
   %446 = fadd <2 x float> %135, %444
-  %447 = fadd float %.0481632, %445
+  %447 = fadd float %.0482629, %445
   %448 = getelementptr inbounds float, ptr %80, i64 %187
   %449 = load <2 x float>, ptr %448, align 4
   %450 = fsub <2 x float> %449, %444
@@ -96385,17 +96385,17 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 454:                                              ; preds = %.loopexit, %441, %.critedge504
   %.7586 = phi float [ %.6585, %441 ], [ %.6585, %.loopexit ], [ %.1580626, %.critedge504 ]
   %.10 = phi float [ %.9, %441 ], [ %.9, %.loopexit ], [ %.1574627, %.critedge504 ]
-  %.5 = phi float [ %.4, %441 ], [ %.4, %.loopexit ], [ %.0491628, %.critedge504 ]
-  %.3490 = phi float [ %.2489, %441 ], [ %.2489, %.loopexit ], [ %.0487629, %.critedge504 ]
-  %.1482 = phi float [ %447, %441 ], [ %.0481632, %.loopexit ], [ %.0481632, %.critedge504 ]
-  %.1478 = phi i1 [ true, %441 ], [ true, %.loopexit ], [ %.0477634, %.critedge504 ]
+  %.1483 = phi float [ %447, %441 ], [ %.0482629, %.loopexit ], [ %.0482629, %.critedge504 ]
+  %.3477 = phi float [ %.2476, %441 ], [ %.2476, %.loopexit ], [ %.0474632, %.critedge504 ]
+  %.5 = phi float [ %.4, %441 ], [ %.4, %.loopexit ], [ %.0471633, %.critedge504 ]
+  %.1469 = phi i1 [ true, %441 ], [ true, %.loopexit ], [ %.0468634, %.critedge504 ]
   %455 = phi <2 x float> [ %446, %441 ], [ %135, %.loopexit ], [ %135, %.critedge504 ]
   %indvars.iv.next669 = add nsw i64 %indvars.iv668, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next669, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !841
 
 ._crit_edge:                                      ; preds = %454
-  br i1 %.1478, label %456, label %._crit_edge.thread
+  br i1 %.1469, label %456, label %._crit_edge.thread
 
 456:                                              ; preds = %._crit_edge
   %457 = getelementptr inbounds float, ptr %80, i64 %112
@@ -96404,7 +96404,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %459, ptr %457, align 4
   %460 = getelementptr i8, ptr %457, i64 8
   %461 = load float, ptr %460, align 4
-  %462 = fadd float %.1482, %461
+  %462 = fadd float %.1483, %461
   store float %462, ptr %460, align 4
   br i1 %.not, label %472, label %463
 
@@ -96417,7 +96417,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %468, ptr %466, align 4
   %469 = getelementptr i8, ptr %466, i64 8
   %470 = load float, ptr %469, align 4
-  %471 = fadd float %.1482, %470
+  %471 = fadd float %.1483, %470
   store float %471, ptr %469, align 4
   br label %472
 
@@ -96434,7 +96434,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store float %479, ptr %477, align 4
   %480 = getelementptr inbounds float, ptr %98, i64 %476
   %481 = load float, ptr %480, align 4
-  %482 = fadd float %.3490, %481
+  %482 = fadd float %.3477, %481
   store float %482, ptr %480, align 4
   br label %._crit_edge.thread
 
@@ -97744,9 +97744,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv561 = phi i64 [ %134, %.lr.ph.preheader ], [ %indvars.iv.next562, %.loopexit ]
-  %.0399532 = phi i1 [ false, %.lr.ph.preheader ], [ %.1400, %.loopexit ]
-  %.0406530 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3, %.loopexit ]
-  %.0409529 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0397532 = phi i1 [ false, %.lr.ph.preheader ], [ %.1398, %.loopexit ]
+  %.0399531 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0402530 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3405, %.loopexit ]
   %.1478528 = phi float [ %.0477538, %.lr.ph.preheader ], [ %.9, %.loopexit ]
   %.1483527 = phi float [ %.0482537, %.lr.ph.preheader ], [ %.7489, %.loopexit ]
   %135 = load ptr, ptr %85, align 8
@@ -97814,8 +97814,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %183 = fcmp ogt float %177, 0.000000e+00
   %184 = fcmp ogt float %182, 0.000000e+00
   %or.cond3 = select i1 %183, i1 %184, i1 false
-  %.sroa.0442.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %.sroa.0441.0 = select i1 %or.cond3, float 0.000000e+00, float %40
+  %.sroa.0442.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %185 = mul nsw i32 %145, 3
   %186 = sext i32 %185 to i64
   %187 = getelementptr inbounds float, ptr %75, i64 %186
@@ -98080,16 +98080,16 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv555.sroa.phi653 = phi ptr [ %.sroa.0657.4.gep.sroa_idx660, %.preheader ], [ %.sroa.0657, %.thread ]
   %indvars.iv555.sroa.phi664 = phi ptr [ %.sroa.3667, %.preheader ], [ %.sroa.0666, %.thread ]
   %indvars.iv555.sroa.phi670 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0674, %.thread ]
-  %.1407522 = phi float [ %370, %.preheader ], [ %.0406530, %.thread ]
-  %.1410521 = phi float [ %367, %.preheader ], [ %.0409529, %.thread ]
+  %.1400522 = phi float [ %367, %.preheader ], [ %.0399531, %.thread ]
+  %.1403521 = phi float [ %370, %.preheader ], [ %.0402530, %.thread ]
   %.6520 = phi float [ %372, %.preheader ], [ %.5481, %.thread ]
   %.5487519 = phi float [ %373, %.preheader ], [ %.4486, %.thread ]
   %365 = load float, ptr %indvars.iv555.sroa.phi670, align 4
   %366 = load float, ptr %indvars.iv555.sroa.phi605, align 4
-  %367 = tail call float @llvm.fmuladd.f32(float %365, float %366, float %.1410521)
+  %367 = tail call float @llvm.fmuladd.f32(float %365, float %366, float %.1400522)
   %368 = load float, ptr %indvars.iv555.sroa.phi664, align 4
   %369 = load float, ptr %indvars.iv555.sroa.phi, align 4
-  %370 = tail call float @llvm.fmuladd.f32(float %368, float %369, float %.1407522)
+  %370 = tail call float @llvm.fmuladd.f32(float %368, float %369, float %.1403521)
   %371 = load float, ptr %indvars.iv555.sroa.phi653, align 4
   %372 = tail call float @llvm.fmuladd.f32(float %366, float %371, float %.6520)
   %373 = tail call float @llvm.fmuladd.f32(float %369, float %371, float %.5487519)
@@ -98098,8 +98098,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit512:                                     ; preds = %.preheader, %.critedge685
   %.6488 = phi float [ %.1483527, %.critedge685 ], [ %373, %.preheader ]
   %.7 = phi float [ %.1478528, %.critedge685 ], [ %372, %.preheader ]
-  %.2411 = phi float [ %.0409529, %.critedge685 ], [ %367, %.preheader ]
-  %.2408 = phi float [ %.0406530, %.critedge685 ], [ %370, %.preheader ]
+  %.2404 = phi float [ %.0402530, %.critedge685 ], [ %370, %.preheader ]
+  %.2401 = phi float [ %.0399531, %.critedge685 ], [ %367, %.preheader ]
   %374 = fcmp uge float %221, %49
   %.not509 = select i1 %143, i1 %374, i1 false
   br i1 %.not509, label %.loopexit, label %375
@@ -98128,13 +98128,13 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv558.sroa.phi = phi ptr [ %.sroa.0617, %375 ], [ %.sroa.3, %392 ]
   %indvars.iv558.sroa.phi655 = phi ptr [ %.sroa.0657, %375 ], [ %.sroa.0657.4.gep656.sroa_idx661, %392 ]
   %indvars.iv558.sroa.phi672 = phi ptr [ %.sroa.0674, %375 ], [ %.sroa.4, %392 ]
-  %.3412525 = phi float [ %.2411, %375 ], [ %398, %392 ]
+  %.3525 = phi float [ %.2401, %375 ], [ %398, %392 ]
   %.8524 = phi float [ %.7, %375 ], [ %402, %392 ]
   %394 = load float, ptr %indvars.iv558.sroa.phi672, align 4
   %395 = load float, ptr %indvars.iv558.sroa.phi, align 4
   %396 = fmul float %394, %395
   %397 = fmul float %391, %396
-  %398 = fsub float %.3412525, %397
+  %398 = fsub float %.3525, %397
   %399 = load float, ptr %indvars.iv558.sroa.phi655, align 4
   %400 = fmul float %395, %399
   %401 = fmul float %391, %400
@@ -98144,15 +98144,15 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit:                                        ; preds = %392, %.loopexit512, %.critedge421
   %.7489 = phi float [ %.6488, %.loopexit512 ], [ %.1483527, %.critedge421 ], [ %.6488, %392 ]
   %.9 = phi float [ %.7, %.loopexit512 ], [ %.1478528, %.critedge421 ], [ %402, %392 ]
-  %.5 = phi float [ %.2411, %.loopexit512 ], [ %.0409529, %.critedge421 ], [ %398, %392 ]
-  %.3 = phi float [ %.2408, %.loopexit512 ], [ %.0406530, %.critedge421 ], [ %.2408, %392 ]
-  %.1400 = phi i1 [ true, %.loopexit512 ], [ %.0399532, %.critedge421 ], [ true, %392 ]
+  %.3405 = phi float [ %.2404, %.loopexit512 ], [ %.0402530, %.critedge421 ], [ %.2404, %392 ]
+  %.5 = phi float [ %.2401, %.loopexit512 ], [ %.0399531, %.critedge421 ], [ %398, %392 ]
+  %.1398 = phi i1 [ true, %.loopexit512 ], [ %.0397532, %.critedge421 ], [ true, %392 ]
   %indvars.iv.next562 = add nsw i64 %indvars.iv561, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next562, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !856
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge425.not = and i1 %.not, %.1400
+  %brmerge425.not = and i1 %.not, %.1398
   br i1 %brmerge425.not, label %403, label %._crit_edge.thread
 
 403:                                              ; preds = %._crit_edge
@@ -98165,7 +98165,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store float %409, ptr %407, align 4
   %410 = getelementptr inbounds float, ptr %93, i64 %406
   %411 = load float, ptr %410, align 4
-  %412 = fadd float %.3, %411
+  %412 = fadd float %.3405, %411
   store float %412, ptr %410, align 4
   br label %._crit_edge.thread
 
@@ -99891,10 +99891,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %423
   %indvars.iv609 = phi i64 [ %121, %.lr.ph.preheader ], [ %indvars.iv.next610, %423 ]
-  %.0417575 = phi i1 [ false, %.lr.ph.preheader ], [ %.1418, %423 ]
-  %.0422573 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1423, %423 ]
-  %.0428570 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3431, %423 ]
-  %.0432569 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %423 ]
+  %.0409575 = phi i1 [ false, %.lr.ph.preheader ], [ %.1410, %423 ]
+  %.0412574 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %423 ]
+  %.0415573 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3418, %423 ]
+  %.0423570 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1424, %423 ]
   %.1515568 = phi float [ %.0514584, %.lr.ph.preheader ], [ %.10, %423 ]
   %.1521567 = phi float [ %.0520583, %.lr.ph.preheader ], [ %.7527, %423 ]
   %122 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %424, %423 ]
@@ -99963,8 +99963,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %171 = fcmp ogt float %165, 0.000000e+00
   %172 = fcmp ogt float %170, 0.000000e+00
   %or.cond3 = select i1 %171, i1 %172, i1 false
-  %.sroa.0468.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %.sroa.0467.0 = select i1 %or.cond3, float 0.000000e+00, float %40
+  %.sroa.0468.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %173 = mul nsw i32 %133, 3
   %174 = sext i32 %173 to i64
   %175 = getelementptr inbounds float, ptr %66, i64 %174
@@ -100230,20 +100230,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv603.sroa.phi722 = phi ptr [ %.sroa.0726.4.gep.sroa_idx729, %.preheader ], [ %.sroa.0726, %.thread ]
   %indvars.iv603.sroa.phi733 = phi ptr [ %.sroa.3736, %.preheader ], [ %.sroa.0735, %.thread ]
   %indvars.iv603.sroa.phi739 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0743, %.thread ]
-  %.0408561 = phi float [ %358, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.1429560 = phi float [ %352, %.preheader ], [ %.0428570, %.thread ]
-  %.1433559 = phi float [ %349, %.preheader ], [ %.0432569, %.thread ]
+  %.1413561 = phi float [ %349, %.preheader ], [ %.0412574, %.thread ]
+  %.1416560 = phi float [ %352, %.preheader ], [ %.0415573, %.thread ]
+  %.0431559 = phi float [ %358, %.preheader ], [ 0.000000e+00, %.thread ]
   %.6558 = phi float [ %360, %.preheader ], [ %.5519, %.thread ]
   %.5525557 = phi float [ %361, %.preheader ], [ %.4524, %.thread ]
   %347 = load float, ptr %indvars.iv603.sroa.phi739, align 4
   %348 = load float, ptr %indvars.iv603.sroa.phi662, align 4
-  %349 = tail call float @llvm.fmuladd.f32(float %347, float %348, float %.1433559)
+  %349 = tail call float @llvm.fmuladd.f32(float %347, float %348, float %.1413561)
   %350 = load float, ptr %indvars.iv603.sroa.phi733, align 4
   %351 = load float, ptr %indvars.iv603.sroa.phi, align 4
-  %352 = tail call float @llvm.fmuladd.f32(float %350, float %351, float %.1429560)
+  %352 = tail call float @llvm.fmuladd.f32(float %350, float %351, float %.1416560)
   %353 = load float, ptr %indvars.iv603.sroa.phi674, align 4
   %354 = fmul float %347, %353
-  %355 = tail call float @llvm.fmuladd.f32(float %354, float %209, float %.0408561)
+  %355 = tail call float @llvm.fmuladd.f32(float %354, float %209, float %.0431559)
   %356 = load float, ptr %indvars.iv603.sroa.phi668, align 4
   %357 = fmul float %350, %356
   %358 = tail call float @llvm.fmuladd.f32(float %357, float %209, float %355)
@@ -100255,9 +100255,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .loopexit550:                                     ; preds = %.preheader, %.critedge757
   %.6526 = phi float [ %.1521567, %.critedge757 ], [ %361, %.preheader ]
   %.7 = phi float [ %.1515568, %.critedge757 ], [ %360, %.preheader ]
-  %.2434 = phi float [ %.0432569, %.critedge757 ], [ %349, %.preheader ]
-  %.2430 = phi float [ %.0428570, %.critedge757 ], [ %352, %.preheader ]
-  %.1409 = phi float [ 0.000000e+00, %.critedge757 ], [ %358, %.preheader ]
+  %.1432 = phi float [ 0.000000e+00, %.critedge757 ], [ %358, %.preheader ]
+  %.2417 = phi float [ %.0415573, %.critedge757 ], [ %352, %.preheader ]
+  %.2414 = phi float [ %.0412574, %.critedge757 ], [ %349, %.preheader ]
   %362 = fcmp uge float %208, %50
   %.not547 = select i1 %131, i1 %362, i1 false
   br i1 %.not547, label %.loopexit, label %363
@@ -100302,16 +100302,16 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv606.sroa.phi = phi ptr [ %.sroa.0686, %363 ], [ %.sroa.3, %396 ]
   %indvars.iv606.sroa.phi724 = phi ptr [ %.sroa.0726, %363 ], [ %.sroa.0726.4.gep725.sroa_idx730, %396 ]
   %indvars.iv606.sroa.phi741 = phi ptr [ %.sroa.0743, %363 ], [ %.sroa.4, %396 ]
-  %.2410565 = phi float [ %.1409, %363 ], [ %404, %396 ]
-  %.3435564 = phi float [ %.2434, %363 ], [ %402, %396 ]
+  %.3565 = phi float [ %.2414, %363 ], [ %402, %396 ]
+  %.2433564 = phi float [ %.1432, %363 ], [ %404, %396 ]
   %.8563 = phi float [ %.7, %363 ], [ %408, %396 ]
   %398 = load float, ptr %indvars.iv606.sroa.phi741, align 4
   %399 = load float, ptr %indvars.iv606.sroa.phi, align 4
   %400 = fmul float %398, %399
   %401 = fmul float %395, %400
-  %402 = fsub float %.3435564, %401
+  %402 = fsub float %.3565, %401
   %403 = fmul float %393, %400
-  %404 = fsub float %.2410565, %403
+  %404 = fsub float %.2433564, %403
   %405 = load float, ptr %indvars.iv606.sroa.phi724, align 4
   %406 = fmul float %399, %405
   %407 = fmul float %395, %406
@@ -100320,18 +100320,18 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .loopexit:                                        ; preds = %396, %.loopexit550
   %.9 = phi float [ %.7, %.loopexit550 ], [ %408, %396 ]
-  %.4 = phi float [ %.2434, %.loopexit550 ], [ %402, %396 ]
-  %.3 = phi float [ %.1409, %.loopexit550 ], [ %404, %396 ]
-  %409 = fcmp une float %.3, 0.000000e+00
+  %.3434 = phi float [ %.1432, %.loopexit550 ], [ %404, %396 ]
+  %.4 = phi float [ %.2414, %.loopexit550 ], [ %402, %396 ]
+  %409 = fcmp une float %.3434, 0.000000e+00
   br i1 %409, label %410, label %423
 
 410:                                              ; preds = %.loopexit
-  %411 = insertelement <2 x float> poison, float %.3, i64 0
+  %411 = insertelement <2 x float> poison, float %.3434, i64 0
   %412 = shufflevector <2 x float> %411, <2 x float> poison, <2 x i32> zeroinitializer
   %413 = fmul <2 x float> %180, %412
-  %414 = fmul float %181, %.3
+  %414 = fmul float %181, %.3434
   %415 = fadd <2 x float> %122, %413
-  %416 = fadd float %.0422573, %414
+  %416 = fadd float %.0423570, %414
   %417 = getelementptr inbounds float, ptr %67, i64 %174
   %418 = load <2 x float>, ptr %417, align 4
   %419 = fsub <2 x float> %418, %413
@@ -100345,17 +100345,17 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 423:                                              ; preds = %.loopexit, %410, %.critedge445
   %.7527 = phi float [ %.6526, %410 ], [ %.6526, %.loopexit ], [ %.1521567, %.critedge445 ]
   %.10 = phi float [ %.9, %410 ], [ %.9, %.loopexit ], [ %.1515568, %.critedge445 ]
-  %.5 = phi float [ %.4, %410 ], [ %.4, %.loopexit ], [ %.0432569, %.critedge445 ]
-  %.3431 = phi float [ %.2430, %410 ], [ %.2430, %.loopexit ], [ %.0428570, %.critedge445 ]
-  %.1423 = phi float [ %416, %410 ], [ %.0422573, %.loopexit ], [ %.0422573, %.critedge445 ]
-  %.1418 = phi i1 [ true, %410 ], [ true, %.loopexit ], [ %.0417575, %.critedge445 ]
+  %.1424 = phi float [ %416, %410 ], [ %.0423570, %.loopexit ], [ %.0423570, %.critedge445 ]
+  %.3418 = phi float [ %.2417, %410 ], [ %.2417, %.loopexit ], [ %.0415573, %.critedge445 ]
+  %.5 = phi float [ %.4, %410 ], [ %.4, %.loopexit ], [ %.0412574, %.critedge445 ]
+  %.1410 = phi i1 [ true, %410 ], [ true, %.loopexit ], [ %.0409575, %.critedge445 ]
   %424 = phi <2 x float> [ %415, %410 ], [ %122, %.loopexit ], [ %122, %.critedge445 ]
   %indvars.iv.next610 = add nsw i64 %indvars.iv609, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next610, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !871
 
 ._crit_edge:                                      ; preds = %423
-  br i1 %.1418, label %425, label %._crit_edge.thread
+  br i1 %.1410, label %425, label %._crit_edge.thread
 
 425:                                              ; preds = %._crit_edge
   %426 = getelementptr inbounds float, ptr %67, i64 %99
@@ -100364,7 +100364,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %428, ptr %426, align 4
   %429 = getelementptr i8, ptr %426, i64 8
   %430 = load float, ptr %429, align 4
-  %431 = fadd float %.1423, %430
+  %431 = fadd float %.1424, %430
   store float %431, ptr %429, align 4
   br i1 %.not, label %441, label %432
 
@@ -100377,7 +100377,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %437, ptr %435, align 4
   %438 = getelementptr i8, ptr %435, i64 8
   %439 = load float, ptr %438, align 4
-  %440 = fadd float %.1423, %439
+  %440 = fadd float %.1424, %439
   store float %440, ptr %438, align 4
   br label %441
 
@@ -100394,7 +100394,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store float %448, ptr %446, align 4
   %449 = getelementptr inbounds float, ptr %85, i64 %445
   %450 = load float, ptr %449, align 4
-  %451 = fadd float %.3431, %450
+  %451 = fadd float %.3418, %450
   store float %451, ptr %449, align 4
   br label %._crit_edge.thread
 
@@ -101664,9 +101664,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv515 = phi i64 [ %124, %.lr.ph.preheader ], [ %indvars.iv.next516, %.loopexit ]
-  %.0353486 = phi i1 [ false, %.lr.ph.preheader ], [ %.1354, %.loopexit ]
-  %.0360484 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3, %.loopexit ]
-  %.0363483 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0351486 = phi i1 [ false, %.lr.ph.preheader ], [ %.1352, %.loopexit ]
+  %.0353485 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0356484 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3359, %.loopexit ]
   %.1432482 = phi float [ %.0431492, %.lr.ph.preheader ], [ %.9, %.loopexit ]
   %.1437481 = phi float [ %.0436491, %.lr.ph.preheader ], [ %.7443, %.loopexit ]
   %125 = load ptr, ptr %75, align 8
@@ -101734,8 +101734,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %173 = fcmp ogt float %167, 0.000000e+00
   %174 = fcmp ogt float %172, 0.000000e+00
   %or.cond3 = select i1 %173, i1 %174, i1 false
-  %.sroa.0396.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %.sroa.0395.0 = select i1 %or.cond3, float 0.000000e+00, float %40
+  %.sroa.0396.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %175 = mul nsw i32 %135, 3
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds float, ptr %65, i64 %176
@@ -101987,16 +101987,16 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv509.sroa.phi607 = phi ptr [ %.sroa.0611.4.gep.sroa_idx614, %.preheader ], [ %.sroa.0611, %.thread ]
   %indvars.iv509.sroa.phi618 = phi ptr [ %.sroa.3621, %.preheader ], [ %.sroa.0620, %.thread ]
   %indvars.iv509.sroa.phi624 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0628, %.thread ]
-  %.1361476 = phi float [ %350, %.preheader ], [ %.0360484, %.thread ]
-  %.1364475 = phi float [ %347, %.preheader ], [ %.0363483, %.thread ]
+  %.1354476 = phi float [ %347, %.preheader ], [ %.0353485, %.thread ]
+  %.1357475 = phi float [ %350, %.preheader ], [ %.0356484, %.thread ]
   %.6474 = phi float [ %352, %.preheader ], [ %.5435, %.thread ]
   %.5441473 = phi float [ %353, %.preheader ], [ %.4440, %.thread ]
   %345 = load float, ptr %indvars.iv509.sroa.phi624, align 4
   %346 = load float, ptr %indvars.iv509.sroa.phi559, align 4
-  %347 = tail call float @llvm.fmuladd.f32(float %345, float %346, float %.1364475)
+  %347 = tail call float @llvm.fmuladd.f32(float %345, float %346, float %.1354476)
   %348 = load float, ptr %indvars.iv509.sroa.phi618, align 4
   %349 = load float, ptr %indvars.iv509.sroa.phi, align 4
-  %350 = tail call float @llvm.fmuladd.f32(float %348, float %349, float %.1361476)
+  %350 = tail call float @llvm.fmuladd.f32(float %348, float %349, float %.1357475)
   %351 = load float, ptr %indvars.iv509.sroa.phi607, align 4
   %352 = tail call float @llvm.fmuladd.f32(float %346, float %351, float %.6474)
   %353 = tail call float @llvm.fmuladd.f32(float %349, float %351, float %.5441473)
@@ -102005,8 +102005,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .loopexit466:                                     ; preds = %.preheader, %.critedge639
   %.6442 = phi float [ %.1437481, %.critedge639 ], [ %353, %.preheader ]
   %.7 = phi float [ %.1432482, %.critedge639 ], [ %352, %.preheader ]
-  %.2365 = phi float [ %.0363483, %.critedge639 ], [ %347, %.preheader ]
-  %.2362 = phi float [ %.0360484, %.critedge639 ], [ %350, %.preheader ]
+  %.2358 = phi float [ %.0356484, %.critedge639 ], [ %350, %.preheader ]
+  %.2355 = phi float [ %.0353485, %.critedge639 ], [ %347, %.preheader ]
   %354 = fcmp uge float %211, %49
   %.not463 = select i1 %133, i1 %354, i1 false
   br i1 %.not463, label %.loopexit, label %355
@@ -102035,13 +102035,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv512.sroa.phi = phi ptr [ %.sroa.0571, %355 ], [ %.sroa.3, %372 ]
   %indvars.iv512.sroa.phi609 = phi ptr [ %.sroa.0611, %355 ], [ %.sroa.0611.4.gep610.sroa_idx615, %372 ]
   %indvars.iv512.sroa.phi626 = phi ptr [ %.sroa.0628, %355 ], [ %.sroa.4, %372 ]
-  %.3366479 = phi float [ %.2365, %355 ], [ %378, %372 ]
+  %.3479 = phi float [ %.2355, %355 ], [ %378, %372 ]
   %.8478 = phi float [ %.7, %355 ], [ %382, %372 ]
   %374 = load float, ptr %indvars.iv512.sroa.phi626, align 4
   %375 = load float, ptr %indvars.iv512.sroa.phi, align 4
   %376 = fmul float %374, %375
   %377 = fmul float %371, %376
-  %378 = fsub float %.3366479, %377
+  %378 = fsub float %.3479, %377
   %379 = load float, ptr %indvars.iv512.sroa.phi609, align 4
   %380 = fmul float %375, %379
   %381 = fmul float %371, %380
@@ -102051,15 +102051,15 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .loopexit:                                        ; preds = %372, %.loopexit466, %.critedge375
   %.7443 = phi float [ %.6442, %.loopexit466 ], [ %.1437481, %.critedge375 ], [ %.6442, %372 ]
   %.9 = phi float [ %.7, %.loopexit466 ], [ %.1432482, %.critedge375 ], [ %382, %372 ]
-  %.5 = phi float [ %.2365, %.loopexit466 ], [ %.0363483, %.critedge375 ], [ %378, %372 ]
-  %.3 = phi float [ %.2362, %.loopexit466 ], [ %.0360484, %.critedge375 ], [ %.2362, %372 ]
-  %.1354 = phi i1 [ true, %.loopexit466 ], [ %.0353486, %.critedge375 ], [ true, %372 ]
+  %.3359 = phi float [ %.2358, %.loopexit466 ], [ %.0356484, %.critedge375 ], [ %.2358, %372 ]
+  %.5 = phi float [ %.2355, %.loopexit466 ], [ %.0353485, %.critedge375 ], [ %378, %372 ]
+  %.1352 = phi i1 [ true, %.loopexit466 ], [ %.0351486, %.critedge375 ], [ true, %372 ]
   %indvars.iv.next516 = add nsw i64 %indvars.iv515, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next516, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !886
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge379.not = and i1 %.not, %.1354
+  %brmerge379.not = and i1 %.not, %.1352
   br i1 %brmerge379.not, label %383, label %._crit_edge.thread
 
 383:                                              ; preds = %._crit_edge
@@ -102072,7 +102072,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store float %389, ptr %387, align 4
   %390 = getelementptr inbounds float, ptr %83, i64 %386
   %391 = load float, ptr %390, align 4
-  %392 = fadd float %.3, %391
+  %392 = fadd float %.3359, %391
   store float %392, ptr %390, align 4
   br label %._crit_edge.thread
 
@@ -103899,7 +103899,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv695 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next696, %._crit_edge.thread ]
-  %.0490668 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1491.lcssa715, %._crit_edge.thread ]
+  %.0482668 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1483.lcssa715, %._crit_edge.thread ]
   %.0588666 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1589.lcssa714, %._crit_edge.thread ]
   %.0594665 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1595.lcssa713, %._crit_edge.thread ]
   %110 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv695
@@ -103947,11 +103947,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %451
   %indvars.iv693 = phi i64 [ %145, %.lr.ph.preheader ], [ %indvars.iv.next694, %451 ]
-  %.1491656 = phi i8 [ %.0490668, %.lr.ph.preheader ], [ %.3493, %451 ]
-  %.0497655 = phi i1 [ false, %.lr.ph.preheader ], [ %.1498, %451 ]
-  %.0501653 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1502, %451 ]
-  %.0507650 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3510, %451 ]
-  %.0511649 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %451 ]
+  %.1483656 = phi i8 [ %.0482668, %.lr.ph.preheader ], [ %.3, %451 ]
+  %.0486655 = phi i1 [ false, %.lr.ph.preheader ], [ %.1487, %451 ]
+  %.0489654 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %451 ]
+  %.0493653 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3496, %451 ]
+  %.0502650 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1503, %451 ]
   %.1589648 = phi float [ %.0588666, %.lr.ph.preheader ], [ %.10, %451 ]
   %.1595647 = phi float [ %.0594665, %.lr.ph.preheader ], [ %.7601, %451 ]
   %146 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %452, %451 ]
@@ -104020,8 +104020,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %195 = fcmp ogt float %189, 0.000000e+00
   %196 = fcmp ogt float %194, 0.000000e+00
   %or.cond3 = select i1 %195, i1 %196, i1 false
-  %.sroa.0542.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %.sroa.0541.0 = select i1 %or.cond3, float 0.000000e+00, float %43
+  %.sroa.0542.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %197 = mul nsw i32 %157, 3
   %198 = sext i32 %197 to i64
   %199 = getelementptr inbounds float, ptr %86, i64 %198
@@ -104315,20 +104315,20 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv687.sroa.phi813 = phi ptr [ %.sroa.0817.4.gep.sroa_idx820, %.preheader ], [ %.sroa.0817, %.thread ]
   %indvars.iv687.sroa.phi824 = phi ptr [ %.sroa.3827, %.preheader ], [ %.sroa.0826, %.thread ]
   %indvars.iv687.sroa.phi830 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0834, %.thread ]
-  %.0483641 = phi float [ %408, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.1508640 = phi float [ %402, %.preheader ], [ %.0507650, %.thread ]
-  %.1512639 = phi float [ %399, %.preheader ], [ %.0511649, %.thread ]
+  %.1490642 = phi float [ %399, %.preheader ], [ %.0489654, %.thread ]
+  %.1494641 = phi float [ %402, %.preheader ], [ %.0493653, %.thread ]
+  %.0510639 = phi float [ %408, %.preheader ], [ 0.000000e+00, %.thread ]
   %.6638 = phi float [ %410, %.preheader ], [ %.5593, %.thread ]
   %.5599637 = phi float [ %411, %.preheader ], [ %.4598, %.thread ]
   %397 = load float, ptr %indvars.iv687.sroa.phi830, align 4
   %398 = load float, ptr %indvars.iv687.sroa.phi753, align 4
-  %399 = tail call float @llvm.fmuladd.f32(float %397, float %398, float %.1512639)
+  %399 = tail call float @llvm.fmuladd.f32(float %397, float %398, float %.1490642)
   %400 = load float, ptr %indvars.iv687.sroa.phi824, align 4
   %401 = load float, ptr %indvars.iv687.sroa.phi, align 4
-  %402 = tail call float @llvm.fmuladd.f32(float %400, float %401, float %.1508640)
+  %402 = tail call float @llvm.fmuladd.f32(float %400, float %401, float %.1494641)
   %403 = load float, ptr %indvars.iv687.sroa.phi765, align 4
   %404 = fmul float %397, %403
-  %405 = tail call float @llvm.fmuladd.f32(float %404, float %233, float %.0483641)
+  %405 = tail call float @llvm.fmuladd.f32(float %404, float %233, float %.0510639)
   %406 = load float, ptr %indvars.iv687.sroa.phi759, align 4
   %407 = fmul float %400, %406
   %408 = tail call float @llvm.fmuladd.f32(float %407, float %233, float %405)
@@ -104340,13 +104340,13 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit630:                                     ; preds = %.preheader, %.critedge848
   %.6600 = phi float [ %.1595647, %.critedge848 ], [ %411, %.preheader ]
   %.7 = phi float [ %.1589648, %.critedge848 ], [ %410, %.preheader ]
-  %.2513 = phi float [ %.0511649, %.critedge848 ], [ %399, %.preheader ]
-  %.2509 = phi float [ %.0507650, %.critedge848 ], [ %402, %.preheader ]
-  %.1484 = phi float [ 0.000000e+00, %.critedge848 ], [ %408, %.preheader ]
+  %.1511 = phi float [ 0.000000e+00, %.critedge848 ], [ %408, %.preheader ]
+  %.2495 = phi float [ %.0493653, %.critedge848 ], [ %402, %.preheader ]
+  %.2491 = phi float [ %.0489654, %.critedge848 ], [ %399, %.preheader ]
   br i1 %80, label %412, label %.loopexit
 
 412:                                              ; preds = %.loopexit630
-  %413 = trunc nuw i8 %.1491656 to i1
+  %413 = trunc nuw i8 %.1483656 to i1
   br i1 %413, label %417, label %414
 
 414:                                              ; preds = %412
@@ -104370,16 +104370,16 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv690.sroa.phi = phi ptr [ %.sroa.0777, %420 ], [ %.sroa.3, %424 ]
   %indvars.iv690.sroa.phi815 = phi ptr [ %.sroa.0817, %420 ], [ %.sroa.0817.4.gep816.sroa_idx821, %424 ]
   %indvars.iv690.sroa.phi832 = phi ptr [ %.sroa.0834, %420 ], [ %.sroa.4, %424 ]
-  %.2485645 = phi float [ %.1484, %420 ], [ %432, %424 ]
-  %.3514644 = phi float [ %.2513, %420 ], [ %430, %424 ]
+  %.3492645 = phi float [ %.2491, %420 ], [ %430, %424 ]
+  %.2512644 = phi float [ %.1511, %420 ], [ %432, %424 ]
   %.8643 = phi float [ %.7, %420 ], [ %436, %424 ]
   %426 = load float, ptr %indvars.iv690.sroa.phi832, align 4
   %427 = load float, ptr %indvars.iv690.sroa.phi, align 4
   %428 = fmul float %426, %427
   %429 = fmul float %423, %428
-  %430 = fadd float %.3514644, %429
+  %430 = fadd float %.3492645, %429
   %431 = fmul float %105, %428
-  %432 = fsub float %.2485645, %431
+  %432 = fsub float %.2512644, %431
   %433 = load float, ptr %indvars.iv690.sroa.phi815, align 4
   %434 = fmul float %427, %433
   %435 = fmul float %423, %434
@@ -104388,19 +104388,19 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit:                                        ; preds = %424, %417, %.loopexit630
   %.9 = phi float [ %.7, %417 ], [ %.7, %.loopexit630 ], [ %436, %424 ]
-  %.4 = phi float [ %.2513, %417 ], [ %.2513, %.loopexit630 ], [ %430, %424 ]
-  %.2492 = phi i8 [ %419, %417 ], [ %.1491656, %.loopexit630 ], [ %419, %424 ]
-  %.3 = phi float [ %.1484, %417 ], [ %.1484, %.loopexit630 ], [ %432, %424 ]
-  %437 = fcmp une float %.3, 0.000000e+00
+  %.3513 = phi float [ %.1511, %417 ], [ %.1511, %.loopexit630 ], [ %432, %424 ]
+  %.4 = phi float [ %.2491, %417 ], [ %.2491, %.loopexit630 ], [ %430, %424 ]
+  %.2484 = phi i8 [ %419, %417 ], [ %.1483656, %.loopexit630 ], [ %419, %424 ]
+  %437 = fcmp une float %.3513, 0.000000e+00
   br i1 %437, label %438, label %451
 
 438:                                              ; preds = %.loopexit
-  %439 = insertelement <2 x float> poison, float %.3, i64 0
+  %439 = insertelement <2 x float> poison, float %.3513, i64 0
   %440 = shufflevector <2 x float> %439, <2 x float> poison, <2 x i32> zeroinitializer
   %441 = fmul <2 x float> %204, %440
-  %442 = fmul float %205, %.3
+  %442 = fmul float %205, %.3513
   %443 = fadd <2 x float> %146, %441
-  %444 = fadd float %.0501653, %442
+  %444 = fadd float %.0502650, %442
   %445 = getelementptr inbounds float, ptr %87, i64 %198
   %446 = load <2 x float>, ptr %445, align 4
   %447 = fsub <2 x float> %446, %441
@@ -104414,18 +104414,18 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 451:                                              ; preds = %.loopexit, %438, %.critedge524
   %.7601 = phi float [ %.6600, %438 ], [ %.6600, %.loopexit ], [ %.1595647, %.critedge524 ]
   %.10 = phi float [ %.9, %438 ], [ %.9, %.loopexit ], [ %.1589648, %.critedge524 ]
-  %.5 = phi float [ %.4, %438 ], [ %.4, %.loopexit ], [ %.0511649, %.critedge524 ]
-  %.3510 = phi float [ %.2509, %438 ], [ %.2509, %.loopexit ], [ %.0507650, %.critedge524 ]
-  %.1502 = phi float [ %444, %438 ], [ %.0501653, %.loopexit ], [ %.0501653, %.critedge524 ]
-  %.1498 = phi i1 [ true, %438 ], [ true, %.loopexit ], [ %.0497655, %.critedge524 ]
-  %.3493 = phi i8 [ %.2492, %438 ], [ %.2492, %.loopexit ], [ %.1491656, %.critedge524 ]
+  %.1503 = phi float [ %444, %438 ], [ %.0502650, %.loopexit ], [ %.0502650, %.critedge524 ]
+  %.3496 = phi float [ %.2495, %438 ], [ %.2495, %.loopexit ], [ %.0493653, %.critedge524 ]
+  %.5 = phi float [ %.4, %438 ], [ %.4, %.loopexit ], [ %.0489654, %.critedge524 ]
+  %.1487 = phi i1 [ true, %438 ], [ true, %.loopexit ], [ %.0486655, %.critedge524 ]
+  %.3 = phi i8 [ %.2484, %438 ], [ %.2484, %.loopexit ], [ %.1483656, %.critedge524 ]
   %452 = phi <2 x float> [ %443, %438 ], [ %146, %.loopexit ], [ %146, %.critedge524 ]
   %indvars.iv.next694 = add nsw i64 %indvars.iv693, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next694, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !901
 
 ._crit_edge:                                      ; preds = %451
-  br i1 %.1498, label %453, label %._crit_edge.thread
+  br i1 %.1487, label %453, label %._crit_edge.thread
 
 453:                                              ; preds = %._crit_edge
   %454 = getelementptr inbounds float, ptr %87, i64 %123
@@ -104434,7 +104434,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %456, ptr %454, align 4
   %457 = getelementptr i8, ptr %454, i64 8
   %458 = load float, ptr %457, align 4
-  %459 = fadd float %.1502, %458
+  %459 = fadd float %.1503, %458
   store float %459, ptr %457, align 4
   br i1 %.not, label %469, label %460
 
@@ -104447,7 +104447,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %465, ptr %463, align 4
   %466 = getelementptr i8, ptr %463, i64 8
   %467 = load float, ptr %466, align 4
-  %468 = fadd float %.1502, %467
+  %468 = fadd float %.1503, %467
   store float %468, ptr %466, align 4
   br label %469
 
@@ -104464,19 +104464,19 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store float %476, ptr %474, align 4
   %477 = getelementptr inbounds float, ptr %109, i64 %473
   %478 = load float, ptr %477, align 4
-  %479 = fadd float %.3510, %478
+  %479 = fadd float %.3496, %478
   store float %479, ptr %477, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %470, %469
-  %.1491.lcssa715 = phi i8 [ %.3493, %._crit_edge ], [ %.3493, %470 ], [ %.3493, %469 ], [ %.0490668, %.critedge ]
+  %.1483.lcssa715 = phi i8 [ %.3, %._crit_edge ], [ %.3, %470 ], [ %.3, %469 ], [ %.0482668, %.critedge ]
   %.1589.lcssa714 = phi float [ %.10, %._crit_edge ], [ %.10, %470 ], [ %.10, %469 ], [ %.0588666, %.critedge ]
   %.1595.lcssa713 = phi float [ %.7601, %._crit_edge ], [ %.7601, %470 ], [ %.7601, %469 ], [ %.0594665, %.critedge ]
   %exitcond698.not = icmp eq i64 %indvars.iv.next696, %wide.trip.count697
   br i1 %exitcond698.not, label %._crit_edge669, label %.critedge, !llvm.loop !902
 
 ._crit_edge669:                                   ; preds = %._crit_edge.thread
-  %480 = trunc nuw i8 %.1491.lcssa715 to i1
+  %480 = trunc nuw i8 %.1483.lcssa715 to i1
   %481 = fcmp une float %.1589.lcssa714, 0.000000e+00
   br i1 %481, label %482, label %488
 
@@ -104503,7 +104503,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br label %.thread721
 
 .thread721:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %490, %488
-  %.0490.lcssa720724 = phi i1 [ %480, %490 ], [ %480, %488 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0482.lcssa720724 = phi i1 [ %480, %490 ], [ %480, %488 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %496 = load i32, ptr %0, align 8
   %497 = mul nsw i32 %496, 12
   %498 = sext i32 %23 to i64
@@ -104513,7 +104513,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %502 = mul nsw i32 %501, 150
   %503 = add nsw i32 %502, %497
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %503)
-  %504 = select i1 %80, i1 %.0490.lcssa720724, i1 false
+  %504 = select i1 %80, i1 %.0482.lcssa720724, i1 false
   br i1 %504, label %505, label %516
 
 505:                                              ; preds = %.thread721
@@ -105875,7 +105875,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv595 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next596, %._crit_edge.thread ]
-  %.0419570 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1420.lcssa613, %._crit_edge.thread ]
+  %.0415570 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1416.lcssa613, %._crit_edge.thread ]
   %.0499568 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1500.lcssa612, %._crit_edge.thread ]
   %.0504567 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1505.lcssa611, %._crit_edge.thread ]
   %103 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv595
@@ -105928,10 +105928,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv593 = phi i64 [ %143, %.lr.ph.preheader ], [ %indvars.iv.next594, %.loopexit ]
-  %.1420561 = phi i8 [ %.0419570, %.lr.ph.preheader ], [ %.3, %.loopexit ]
-  %.0423560 = phi i1 [ false, %.lr.ph.preheader ], [ %.1424, %.loopexit ]
-  %.0430558 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3433, %.loopexit ]
-  %.0434557 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.1416561 = phi i8 [ %.0415570, %.lr.ph.preheader ], [ %.3, %.loopexit ]
+  %.0419560 = phi i1 [ false, %.lr.ph.preheader ], [ %.1420, %.loopexit ]
+  %.0422559 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0426558 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3429, %.loopexit ]
   %.1500556 = phi float [ %.0499568, %.lr.ph.preheader ], [ %.9, %.loopexit ]
   %.1505555 = phi float [ %.0504567, %.lr.ph.preheader ], [ %.7511, %.loopexit ]
   %144 = load ptr, ptr %92, align 8
@@ -105999,8 +105999,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %192 = fcmp ogt float %186, 0.000000e+00
   %193 = fcmp ogt float %191, 0.000000e+00
   %or.cond3 = select i1 %192, i1 %193, i1 false
-  %.sroa.0464.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %.sroa.0463.0 = select i1 %or.cond3, float 0.000000e+00, float %43
+  %.sroa.0464.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %194 = mul nsw i32 %154, 3
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds float, ptr %82, i64 %195
@@ -106267,16 +106267,16 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv587.sroa.phi692 = phi ptr [ %.sroa.0696.4.gep.sroa_idx699, %.preheader ], [ %.sroa.0696, %.thread ]
   %indvars.iv587.sroa.phi703 = phi ptr [ %.sroa.3706, %.preheader ], [ %.sroa.0705, %.thread ]
   %indvars.iv587.sroa.phi709 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0713, %.thread ]
-  %.1431550 = phi float [ %381, %.preheader ], [ %.0430558, %.thread ]
-  %.1435549 = phi float [ %378, %.preheader ], [ %.0434557, %.thread ]
+  %.1423550 = phi float [ %378, %.preheader ], [ %.0422559, %.thread ]
+  %.1427549 = phi float [ %381, %.preheader ], [ %.0426558, %.thread ]
   %.6548 = phi float [ %383, %.preheader ], [ %.5503, %.thread ]
   %.5509547 = phi float [ %384, %.preheader ], [ %.4508, %.thread ]
   %376 = load float, ptr %indvars.iv587.sroa.phi709, align 4
   %377 = load float, ptr %indvars.iv587.sroa.phi644, align 4
-  %378 = tail call float @llvm.fmuladd.f32(float %376, float %377, float %.1435549)
+  %378 = tail call float @llvm.fmuladd.f32(float %376, float %377, float %.1423550)
   %379 = load float, ptr %indvars.iv587.sroa.phi703, align 4
   %380 = load float, ptr %indvars.iv587.sroa.phi, align 4
-  %381 = tail call float @llvm.fmuladd.f32(float %379, float %380, float %.1431550)
+  %381 = tail call float @llvm.fmuladd.f32(float %379, float %380, float %.1427549)
   %382 = load float, ptr %indvars.iv587.sroa.phi692, align 4
   %383 = tail call float @llvm.fmuladd.f32(float %377, float %382, float %.6548)
   %384 = tail call float @llvm.fmuladd.f32(float %380, float %382, float %.5509547)
@@ -106285,12 +106285,12 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit540:                                     ; preds = %.preheader, %.critedge724
   %.6510 = phi float [ %.1505555, %.critedge724 ], [ %384, %.preheader ]
   %.7 = phi float [ %.1500556, %.critedge724 ], [ %383, %.preheader ]
-  %.2436 = phi float [ %.0434557, %.critedge724 ], [ %378, %.preheader ]
-  %.2432 = phi float [ %.0430558, %.critedge724 ], [ %381, %.preheader ]
+  %.2428 = phi float [ %.0426558, %.critedge724 ], [ %381, %.preheader ]
+  %.2424 = phi float [ %.0422559, %.critedge724 ], [ %378, %.preheader ]
   br i1 %76, label %385, label %.loopexit
 
 385:                                              ; preds = %.loopexit540
-  %386 = trunc nuw i8 %.1420561 to i1
+  %386 = trunc nuw i8 %.1416561 to i1
   br i1 %386, label %390, label %387
 
 387:                                              ; preds = %385
@@ -106314,13 +106314,13 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv590.sroa.phi = phi ptr [ %.sroa.0656, %393 ], [ %.sroa.3, %397 ]
   %indvars.iv590.sroa.phi694 = phi ptr [ %.sroa.0696, %393 ], [ %.sroa.0696.4.gep695.sroa_idx700, %397 ]
   %indvars.iv590.sroa.phi711 = phi ptr [ %.sroa.0713, %393 ], [ %.sroa.4, %397 ]
-  %.3437553 = phi float [ %.2436, %393 ], [ %403, %397 ]
+  %.3425553 = phi float [ %.2424, %393 ], [ %403, %397 ]
   %.8552 = phi float [ %.7, %393 ], [ %407, %397 ]
   %399 = load float, ptr %indvars.iv590.sroa.phi711, align 4
   %400 = load float, ptr %indvars.iv590.sroa.phi, align 4
   %401 = fmul float %399, %400
   %402 = fmul float %396, %401
-  %403 = fadd float %.3437553, %402
+  %403 = fadd float %.3425553, %402
   %404 = load float, ptr %indvars.iv590.sroa.phi694, align 4
   %405 = fmul float %400, %404
   %406 = fmul float %396, %405
@@ -106330,16 +106330,16 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit:                                        ; preds = %397, %.loopexit540, %390, %.critedge446
   %.7511 = phi float [ %.6510, %390 ], [ %.6510, %.loopexit540 ], [ %.1505555, %.critedge446 ], [ %.6510, %397 ]
   %.9 = phi float [ %.7, %390 ], [ %.7, %.loopexit540 ], [ %.1500556, %.critedge446 ], [ %407, %397 ]
-  %.5 = phi float [ %.2436, %390 ], [ %.2436, %.loopexit540 ], [ %.0434557, %.critedge446 ], [ %403, %397 ]
-  %.3433 = phi float [ %.2432, %390 ], [ %.2432, %.loopexit540 ], [ %.0430558, %.critedge446 ], [ %.2432, %397 ]
-  %.1424 = phi i1 [ true, %390 ], [ true, %.loopexit540 ], [ %.0423560, %.critedge446 ], [ true, %397 ]
-  %.3 = phi i8 [ %392, %390 ], [ %.1420561, %.loopexit540 ], [ %.1420561, %.critedge446 ], [ %392, %397 ]
+  %.3429 = phi float [ %.2428, %390 ], [ %.2428, %.loopexit540 ], [ %.0426558, %.critedge446 ], [ %.2428, %397 ]
+  %.5 = phi float [ %.2424, %390 ], [ %.2424, %.loopexit540 ], [ %.0422559, %.critedge446 ], [ %403, %397 ]
+  %.1420 = phi i1 [ true, %390 ], [ true, %.loopexit540 ], [ %.0419560, %.critedge446 ], [ true, %397 ]
+  %.3 = phi i8 [ %392, %390 ], [ %.1416561, %.loopexit540 ], [ %.1416561, %.critedge446 ], [ %392, %397 ]
   %indvars.iv.next594 = add nsw i64 %indvars.iv593, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next594, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !916
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge450.not = and i1 %.not, %.1424
+  %brmerge450.not = and i1 %.not, %.1420
   br i1 %brmerge450.not, label %408, label %._crit_edge.thread
 
 408:                                              ; preds = %._crit_edge
@@ -106352,19 +106352,19 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store float %414, ptr %412, align 4
   %415 = getelementptr inbounds float, ptr %102, i64 %411
   %416 = load float, ptr %415, align 4
-  %417 = fadd float %.3433, %416
+  %417 = fadd float %.3429, %416
   store float %417, ptr %415, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %408
-  %.1420.lcssa613 = phi i8 [ %.3, %._crit_edge ], [ %.3, %408 ], [ %.0419570, %.critedge ]
+  %.1416.lcssa613 = phi i8 [ %.3, %._crit_edge ], [ %.3, %408 ], [ %.0415570, %.critedge ]
   %.1500.lcssa612 = phi float [ %.9, %._crit_edge ], [ %.9, %408 ], [ %.0499568, %.critedge ]
   %.1505.lcssa611 = phi float [ %.7511, %._crit_edge ], [ %.7511, %408 ], [ %.0504567, %.critedge ]
   %exitcond598.not = icmp eq i64 %indvars.iv.next596, %wide.trip.count597
   br i1 %exitcond598.not, label %._crit_edge571, label %.critedge, !llvm.loop !917
 
 ._crit_edge571:                                   ; preds = %._crit_edge.thread
-  %418 = trunc nuw i8 %.1420.lcssa613 to i1
+  %418 = trunc nuw i8 %.1416.lcssa613 to i1
   %419 = fcmp une float %.1500.lcssa612, 0.000000e+00
   br i1 %419, label %420, label %426
 
@@ -106391,7 +106391,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br label %.thread619
 
 .thread619:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %428, %426
-  %.0419.lcssa618622 = phi i1 [ %418, %428 ], [ %418, %426 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0415.lcssa618622 = phi i1 [ %418, %428 ], [ %418, %426 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %434 = load i32, ptr %0, align 8
   %435 = mul nsw i32 %434, 12
   %436 = sext i32 %23 to i64
@@ -106401,7 +106401,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %440 = mul nsw i32 %439, 150
   %441 = add nsw i32 %440, %435
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %441)
-  %442 = select i1 %76, i1 %.0419.lcssa618622, i1 false
+  %442 = select i1 %76, i1 %.0415.lcssa618622, i1 false
   br i1 %442, label %443, label %454
 
 443:                                              ; preds = %.thread619
@@ -108182,7 +108182,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv636 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next637, %._crit_edge.thread ]
-  %.0431609 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1432.lcssa656, %._crit_edge.thread ]
+  %.0423609 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1424.lcssa656, %._crit_edge.thread ]
   %.0529607 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1530.lcssa655, %._crit_edge.thread ]
   %.0535606 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1536.lcssa654, %._crit_edge.thread ]
   %97 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv636
@@ -108230,11 +108230,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %420
   %indvars.iv634 = phi i64 [ %132, %.lr.ph.preheader ], [ %indvars.iv.next635, %420 ]
-  %.1432597 = phi i8 [ %.0431609, %.lr.ph.preheader ], [ %.3434, %420 ]
-  %.0437596 = phi i1 [ false, %.lr.ph.preheader ], [ %.1438, %420 ]
-  %.0442594 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1443, %420 ]
-  %.0448591 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3451, %420 ]
-  %.0452590 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %420 ]
+  %.1424597 = phi i8 [ %.0423609, %.lr.ph.preheader ], [ %.3, %420 ]
+  %.0427596 = phi i1 [ false, %.lr.ph.preheader ], [ %.1428, %420 ]
+  %.0430595 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %420 ]
+  %.0434594 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3437, %420 ]
+  %.0443591 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1444, %420 ]
   %.1530589 = phi float [ %.0529607, %.lr.ph.preheader ], [ %.10, %420 ]
   %.1536588 = phi float [ %.0535606, %.lr.ph.preheader ], [ %.7542, %420 ]
   %133 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %421, %420 ]
@@ -108303,8 +108303,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %182 = fcmp ogt float %176, 0.000000e+00
   %183 = fcmp ogt float %181, 0.000000e+00
   %or.cond3 = select i1 %182, i1 %183, i1 false
-  %.sroa.0483.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %.sroa.0482.0 = select i1 %or.cond3, float 0.000000e+00, float %43
+  %.sroa.0483.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %184 = mul nsw i32 %144, 3
   %185 = sext i32 %184 to i64
   %186 = getelementptr inbounds float, ptr %73, i64 %185
@@ -108578,20 +108578,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv628.sroa.phi754 = phi ptr [ %.sroa.0758.4.gep.sroa_idx761, %.preheader ], [ %.sroa.0758, %.thread ]
   %indvars.iv628.sroa.phi765 = phi ptr [ %.sroa.3768, %.preheader ], [ %.sroa.0767, %.thread ]
   %indvars.iv628.sroa.phi771 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0775, %.thread ]
-  %.0424582 = phi float [ %377, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.1449581 = phi float [ %371, %.preheader ], [ %.0448591, %.thread ]
-  %.1453580 = phi float [ %368, %.preheader ], [ %.0452590, %.thread ]
+  %.1431583 = phi float [ %368, %.preheader ], [ %.0430595, %.thread ]
+  %.1435582 = phi float [ %371, %.preheader ], [ %.0434594, %.thread ]
+  %.0451580 = phi float [ %377, %.preheader ], [ 0.000000e+00, %.thread ]
   %.6579 = phi float [ %379, %.preheader ], [ %.5534, %.thread ]
   %.5540578 = phi float [ %380, %.preheader ], [ %.4539, %.thread ]
   %366 = load float, ptr %indvars.iv628.sroa.phi771, align 4
   %367 = load float, ptr %indvars.iv628.sroa.phi694, align 4
-  %368 = tail call float @llvm.fmuladd.f32(float %366, float %367, float %.1453580)
+  %368 = tail call float @llvm.fmuladd.f32(float %366, float %367, float %.1431583)
   %369 = load float, ptr %indvars.iv628.sroa.phi765, align 4
   %370 = load float, ptr %indvars.iv628.sroa.phi, align 4
-  %371 = tail call float @llvm.fmuladd.f32(float %369, float %370, float %.1449581)
+  %371 = tail call float @llvm.fmuladd.f32(float %369, float %370, float %.1435582)
   %372 = load float, ptr %indvars.iv628.sroa.phi706, align 4
   %373 = fmul float %366, %372
-  %374 = tail call float @llvm.fmuladd.f32(float %373, float %220, float %.0424582)
+  %374 = tail call float @llvm.fmuladd.f32(float %373, float %220, float %.0451580)
   %375 = load float, ptr %indvars.iv628.sroa.phi700, align 4
   %376 = fmul float %369, %375
   %377 = tail call float @llvm.fmuladd.f32(float %376, float %220, float %374)
@@ -108603,13 +108603,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .loopexit571:                                     ; preds = %.preheader, %.critedge789
   %.6541 = phi float [ %.1536588, %.critedge789 ], [ %380, %.preheader ]
   %.7 = phi float [ %.1530589, %.critedge789 ], [ %379, %.preheader ]
-  %.2454 = phi float [ %.0452590, %.critedge789 ], [ %368, %.preheader ]
-  %.2450 = phi float [ %.0448591, %.critedge789 ], [ %371, %.preheader ]
-  %.1425 = phi float [ 0.000000e+00, %.critedge789 ], [ %377, %.preheader ]
+  %.1452 = phi float [ 0.000000e+00, %.critedge789 ], [ %377, %.preheader ]
+  %.2436 = phi float [ %.0434594, %.critedge789 ], [ %371, %.preheader ]
+  %.2432 = phi float [ %.0430595, %.critedge789 ], [ %368, %.preheader ]
   br i1 %67, label %381, label %.loopexit
 
 381:                                              ; preds = %.loopexit571
-  %382 = trunc nuw i8 %.1432597 to i1
+  %382 = trunc nuw i8 %.1424597 to i1
   br i1 %382, label %386, label %383
 
 383:                                              ; preds = %381
@@ -108633,16 +108633,16 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv631.sroa.phi = phi ptr [ %.sroa.0718, %389 ], [ %.sroa.3, %393 ]
   %indvars.iv631.sroa.phi756 = phi ptr [ %.sroa.0758, %389 ], [ %.sroa.0758.4.gep757.sroa_idx762, %393 ]
   %indvars.iv631.sroa.phi773 = phi ptr [ %.sroa.0775, %389 ], [ %.sroa.4, %393 ]
-  %.2426586 = phi float [ %.1425, %389 ], [ %401, %393 ]
-  %.3455585 = phi float [ %.2454, %389 ], [ %399, %393 ]
+  %.3433586 = phi float [ %.2432, %389 ], [ %399, %393 ]
+  %.2453585 = phi float [ %.1452, %389 ], [ %401, %393 ]
   %.8584 = phi float [ %.7, %389 ], [ %405, %393 ]
   %395 = load float, ptr %indvars.iv631.sroa.phi773, align 4
   %396 = load float, ptr %indvars.iv631.sroa.phi, align 4
   %397 = fmul float %395, %396
   %398 = fmul float %392, %397
-  %399 = fadd float %.3455585, %398
+  %399 = fadd float %.3433586, %398
   %400 = fmul float %92, %397
-  %401 = fsub float %.2426586, %400
+  %401 = fsub float %.2453585, %400
   %402 = load float, ptr %indvars.iv631.sroa.phi756, align 4
   %403 = fmul float %396, %402
   %404 = fmul float %392, %403
@@ -108651,19 +108651,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .loopexit:                                        ; preds = %393, %386, %.loopexit571
   %.9 = phi float [ %.7, %386 ], [ %.7, %.loopexit571 ], [ %405, %393 ]
-  %.4 = phi float [ %.2454, %386 ], [ %.2454, %.loopexit571 ], [ %399, %393 ]
-  %.2433 = phi i8 [ %388, %386 ], [ %.1432597, %.loopexit571 ], [ %388, %393 ]
-  %.3 = phi float [ %.1425, %386 ], [ %.1425, %.loopexit571 ], [ %401, %393 ]
-  %406 = fcmp une float %.3, 0.000000e+00
+  %.3454 = phi float [ %.1452, %386 ], [ %.1452, %.loopexit571 ], [ %401, %393 ]
+  %.4 = phi float [ %.2432, %386 ], [ %.2432, %.loopexit571 ], [ %399, %393 ]
+  %.2425 = phi i8 [ %388, %386 ], [ %.1424597, %.loopexit571 ], [ %388, %393 ]
+  %406 = fcmp une float %.3454, 0.000000e+00
   br i1 %406, label %407, label %420
 
 407:                                              ; preds = %.loopexit
-  %408 = insertelement <2 x float> poison, float %.3, i64 0
+  %408 = insertelement <2 x float> poison, float %.3454, i64 0
   %409 = shufflevector <2 x float> %408, <2 x float> poison, <2 x i32> zeroinitializer
   %410 = fmul <2 x float> %191, %409
-  %411 = fmul float %192, %.3
+  %411 = fmul float %192, %.3454
   %412 = fadd <2 x float> %133, %410
-  %413 = fadd float %.0442594, %411
+  %413 = fadd float %.0443591, %411
   %414 = getelementptr inbounds float, ptr %74, i64 %185
   %415 = load <2 x float>, ptr %414, align 4
   %416 = fsub <2 x float> %415, %410
@@ -108677,18 +108677,18 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 420:                                              ; preds = %.loopexit, %407, %.critedge465
   %.7542 = phi float [ %.6541, %407 ], [ %.6541, %.loopexit ], [ %.1536588, %.critedge465 ]
   %.10 = phi float [ %.9, %407 ], [ %.9, %.loopexit ], [ %.1530589, %.critedge465 ]
-  %.5 = phi float [ %.4, %407 ], [ %.4, %.loopexit ], [ %.0452590, %.critedge465 ]
-  %.3451 = phi float [ %.2450, %407 ], [ %.2450, %.loopexit ], [ %.0448591, %.critedge465 ]
-  %.1443 = phi float [ %413, %407 ], [ %.0442594, %.loopexit ], [ %.0442594, %.critedge465 ]
-  %.1438 = phi i1 [ true, %407 ], [ true, %.loopexit ], [ %.0437596, %.critedge465 ]
-  %.3434 = phi i8 [ %.2433, %407 ], [ %.2433, %.loopexit ], [ %.1432597, %.critedge465 ]
+  %.1444 = phi float [ %413, %407 ], [ %.0443591, %.loopexit ], [ %.0443591, %.critedge465 ]
+  %.3437 = phi float [ %.2436, %407 ], [ %.2436, %.loopexit ], [ %.0434594, %.critedge465 ]
+  %.5 = phi float [ %.4, %407 ], [ %.4, %.loopexit ], [ %.0430595, %.critedge465 ]
+  %.1428 = phi i1 [ true, %407 ], [ true, %.loopexit ], [ %.0427596, %.critedge465 ]
+  %.3 = phi i8 [ %.2425, %407 ], [ %.2425, %.loopexit ], [ %.1424597, %.critedge465 ]
   %421 = phi <2 x float> [ %412, %407 ], [ %133, %.loopexit ], [ %133, %.critedge465 ]
   %indvars.iv.next635 = add nsw i64 %indvars.iv634, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next635, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !931
 
 ._crit_edge:                                      ; preds = %420
-  br i1 %.1438, label %422, label %._crit_edge.thread
+  br i1 %.1428, label %422, label %._crit_edge.thread
 
 422:                                              ; preds = %._crit_edge
   %423 = getelementptr inbounds float, ptr %74, i64 %110
@@ -108697,7 +108697,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %425, ptr %423, align 4
   %426 = getelementptr i8, ptr %423, i64 8
   %427 = load float, ptr %426, align 4
-  %428 = fadd float %.1443, %427
+  %428 = fadd float %.1444, %427
   store float %428, ptr %426, align 4
   br i1 %.not, label %438, label %429
 
@@ -108710,7 +108710,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %434, ptr %432, align 4
   %435 = getelementptr i8, ptr %432, i64 8
   %436 = load float, ptr %435, align 4
-  %437 = fadd float %.1443, %436
+  %437 = fadd float %.1444, %436
   store float %437, ptr %435, align 4
   br label %438
 
@@ -108727,19 +108727,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store float %445, ptr %443, align 4
   %446 = getelementptr inbounds float, ptr %96, i64 %442
   %447 = load float, ptr %446, align 4
-  %448 = fadd float %.3451, %447
+  %448 = fadd float %.3437, %447
   store float %448, ptr %446, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %439, %438
-  %.1432.lcssa656 = phi i8 [ %.3434, %._crit_edge ], [ %.3434, %439 ], [ %.3434, %438 ], [ %.0431609, %.critedge ]
+  %.1424.lcssa656 = phi i8 [ %.3, %._crit_edge ], [ %.3, %439 ], [ %.3, %438 ], [ %.0423609, %.critedge ]
   %.1530.lcssa655 = phi float [ %.10, %._crit_edge ], [ %.10, %439 ], [ %.10, %438 ], [ %.0529607, %.critedge ]
   %.1536.lcssa654 = phi float [ %.7542, %._crit_edge ], [ %.7542, %439 ], [ %.7542, %438 ], [ %.0535606, %.critedge ]
   %exitcond639.not = icmp eq i64 %indvars.iv.next637, %wide.trip.count638
   br i1 %exitcond639.not, label %._crit_edge610, label %.critedge, !llvm.loop !932
 
 ._crit_edge610:                                   ; preds = %._crit_edge.thread
-  %449 = trunc nuw i8 %.1432.lcssa656 to i1
+  %449 = trunc nuw i8 %.1424.lcssa656 to i1
   %450 = fcmp une float %.1530.lcssa655, 0.000000e+00
   br i1 %450, label %451, label %457
 
@@ -108766,7 +108766,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %.thread662
 
 .thread662:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %459, %457
-  %.0431.lcssa661665 = phi i1 [ %449, %459 ], [ %449, %457 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0423.lcssa661665 = phi i1 [ %449, %459 ], [ %449, %457 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %465 = load i32, ptr %0, align 8
   %466 = mul nsw i32 %465, 12
   %467 = sext i32 %23 to i64
@@ -108776,7 +108776,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %471 = mul nsw i32 %470, 150
   %472 = add nsw i32 %471, %466
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %472)
-  %473 = select i1 %67, i1 %.0431.lcssa661665, i1 false
+  %473 = select i1 %67, i1 %.0423.lcssa661665, i1 false
   br i1 %473, label %474, label %485
 
 474:                                              ; preds = %.thread662
@@ -110098,7 +110098,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv549 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next550, %._crit_edge.thread ]
-  %.0373524 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1374.lcssa567, %._crit_edge.thread ]
+  %.0369524 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1370.lcssa567, %._crit_edge.thread ]
   %.0453522 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1454.lcssa566, %._crit_edge.thread ]
   %.0458521 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1459.lcssa565, %._crit_edge.thread ]
   %93 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv549
@@ -110151,10 +110151,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv547 = phi i64 [ %133, %.lr.ph.preheader ], [ %indvars.iv.next548, %.loopexit ]
-  %.1374515 = phi i8 [ %.0373524, %.lr.ph.preheader ], [ %.3, %.loopexit ]
-  %.0378514 = phi i1 [ false, %.lr.ph.preheader ], [ %.1379, %.loopexit ]
-  %.0384512 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3387, %.loopexit ]
-  %.0388511 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.1370515 = phi i8 [ %.0369524, %.lr.ph.preheader ], [ %.3, %.loopexit ]
+  %.0373514 = phi i1 [ false, %.lr.ph.preheader ], [ %.1374, %.loopexit ]
+  %.0376513 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0380512 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3383, %.loopexit ]
   %.1454510 = phi float [ %.0453522, %.lr.ph.preheader ], [ %.9, %.loopexit ]
   %.1459509 = phi float [ %.0458521, %.lr.ph.preheader ], [ %.7465, %.loopexit ]
   %134 = load ptr, ptr %82, align 8
@@ -110222,8 +110222,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %182 = fcmp ogt float %176, 0.000000e+00
   %183 = fcmp ogt float %181, 0.000000e+00
   %or.cond3 = select i1 %182, i1 %183, i1 false
-  %.sroa.0418.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %.sroa.0417.0 = select i1 %or.cond3, float 0.000000e+00, float %43
+  %.sroa.0418.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %184 = mul nsw i32 %144, 3
   %185 = sext i32 %184 to i64
   %186 = getelementptr inbounds float, ptr %72, i64 %185
@@ -110477,16 +110477,16 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv541.sroa.phi646 = phi ptr [ %.sroa.0650.4.gep.sroa_idx653, %.preheader ], [ %.sroa.0650, %.thread ]
   %indvars.iv541.sroa.phi657 = phi ptr [ %.sroa.3660, %.preheader ], [ %.sroa.0659, %.thread ]
   %indvars.iv541.sroa.phi663 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0667, %.thread ]
-  %.1385504 = phi float [ %361, %.preheader ], [ %.0384512, %.thread ]
-  %.1389503 = phi float [ %358, %.preheader ], [ %.0388511, %.thread ]
+  %.1377504 = phi float [ %358, %.preheader ], [ %.0376513, %.thread ]
+  %.1381503 = phi float [ %361, %.preheader ], [ %.0380512, %.thread ]
   %.6502 = phi float [ %363, %.preheader ], [ %.5457, %.thread ]
   %.5463501 = phi float [ %364, %.preheader ], [ %.4462, %.thread ]
   %356 = load float, ptr %indvars.iv541.sroa.phi663, align 4
   %357 = load float, ptr %indvars.iv541.sroa.phi598, align 4
-  %358 = tail call float @llvm.fmuladd.f32(float %356, float %357, float %.1389503)
+  %358 = tail call float @llvm.fmuladd.f32(float %356, float %357, float %.1377504)
   %359 = load float, ptr %indvars.iv541.sroa.phi657, align 4
   %360 = load float, ptr %indvars.iv541.sroa.phi, align 4
-  %361 = tail call float @llvm.fmuladd.f32(float %359, float %360, float %.1385504)
+  %361 = tail call float @llvm.fmuladd.f32(float %359, float %360, float %.1381503)
   %362 = load float, ptr %indvars.iv541.sroa.phi646, align 4
   %363 = tail call float @llvm.fmuladd.f32(float %357, float %362, float %.6502)
   %364 = tail call float @llvm.fmuladd.f32(float %360, float %362, float %.5463501)
@@ -110495,12 +110495,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .loopexit494:                                     ; preds = %.preheader, %.critedge678
   %.6464 = phi float [ %.1459509, %.critedge678 ], [ %364, %.preheader ]
   %.7 = phi float [ %.1454510, %.critedge678 ], [ %363, %.preheader ]
-  %.2390 = phi float [ %.0388511, %.critedge678 ], [ %358, %.preheader ]
-  %.2386 = phi float [ %.0384512, %.critedge678 ], [ %361, %.preheader ]
+  %.2382 = phi float [ %.0380512, %.critedge678 ], [ %361, %.preheader ]
+  %.2378 = phi float [ %.0376513, %.critedge678 ], [ %358, %.preheader ]
   br i1 %66, label %365, label %.loopexit
 
 365:                                              ; preds = %.loopexit494
-  %366 = trunc nuw i8 %.1374515 to i1
+  %366 = trunc nuw i8 %.1370515 to i1
   br i1 %366, label %370, label %367
 
 367:                                              ; preds = %365
@@ -110524,13 +110524,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv544.sroa.phi = phi ptr [ %.sroa.0610, %373 ], [ %.sroa.3, %377 ]
   %indvars.iv544.sroa.phi648 = phi ptr [ %.sroa.0650, %373 ], [ %.sroa.0650.4.gep649.sroa_idx654, %377 ]
   %indvars.iv544.sroa.phi665 = phi ptr [ %.sroa.0667, %373 ], [ %.sroa.4, %377 ]
-  %.3391507 = phi float [ %.2390, %373 ], [ %383, %377 ]
+  %.3379507 = phi float [ %.2378, %373 ], [ %383, %377 ]
   %.8506 = phi float [ %.7, %373 ], [ %387, %377 ]
   %379 = load float, ptr %indvars.iv544.sroa.phi665, align 4
   %380 = load float, ptr %indvars.iv544.sroa.phi, align 4
   %381 = fmul float %379, %380
   %382 = fmul float %376, %381
-  %383 = fadd float %.3391507, %382
+  %383 = fadd float %.3379507, %382
   %384 = load float, ptr %indvars.iv544.sroa.phi648, align 4
   %385 = fmul float %380, %384
   %386 = fmul float %376, %385
@@ -110540,16 +110540,16 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .loopexit:                                        ; preds = %377, %.loopexit494, %370, %.critedge400
   %.7465 = phi float [ %.6464, %370 ], [ %.6464, %.loopexit494 ], [ %.1459509, %.critedge400 ], [ %.6464, %377 ]
   %.9 = phi float [ %.7, %370 ], [ %.7, %.loopexit494 ], [ %.1454510, %.critedge400 ], [ %387, %377 ]
-  %.5 = phi float [ %.2390, %370 ], [ %.2390, %.loopexit494 ], [ %.0388511, %.critedge400 ], [ %383, %377 ]
-  %.3387 = phi float [ %.2386, %370 ], [ %.2386, %.loopexit494 ], [ %.0384512, %.critedge400 ], [ %.2386, %377 ]
-  %.1379 = phi i1 [ true, %370 ], [ true, %.loopexit494 ], [ %.0378514, %.critedge400 ], [ true, %377 ]
-  %.3 = phi i8 [ %372, %370 ], [ %.1374515, %.loopexit494 ], [ %.1374515, %.critedge400 ], [ %372, %377 ]
+  %.3383 = phi float [ %.2382, %370 ], [ %.2382, %.loopexit494 ], [ %.0380512, %.critedge400 ], [ %.2382, %377 ]
+  %.5 = phi float [ %.2378, %370 ], [ %.2378, %.loopexit494 ], [ %.0376513, %.critedge400 ], [ %383, %377 ]
+  %.1374 = phi i1 [ true, %370 ], [ true, %.loopexit494 ], [ %.0373514, %.critedge400 ], [ true, %377 ]
+  %.3 = phi i8 [ %372, %370 ], [ %.1370515, %.loopexit494 ], [ %.1370515, %.critedge400 ], [ %372, %377 ]
   %indvars.iv.next548 = add nsw i64 %indvars.iv547, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next548, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !946
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge404.not = and i1 %.not, %.1379
+  %brmerge404.not = and i1 %.not, %.1374
   br i1 %brmerge404.not, label %388, label %._crit_edge.thread
 
 388:                                              ; preds = %._crit_edge
@@ -110562,19 +110562,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store float %394, ptr %392, align 4
   %395 = getelementptr inbounds float, ptr %92, i64 %391
   %396 = load float, ptr %395, align 4
-  %397 = fadd float %.3387, %396
+  %397 = fadd float %.3383, %396
   store float %397, ptr %395, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %388
-  %.1374.lcssa567 = phi i8 [ %.3, %._crit_edge ], [ %.3, %388 ], [ %.0373524, %.critedge ]
+  %.1370.lcssa567 = phi i8 [ %.3, %._crit_edge ], [ %.3, %388 ], [ %.0369524, %.critedge ]
   %.1454.lcssa566 = phi float [ %.9, %._crit_edge ], [ %.9, %388 ], [ %.0453522, %.critedge ]
   %.1459.lcssa565 = phi float [ %.7465, %._crit_edge ], [ %.7465, %388 ], [ %.0458521, %.critedge ]
   %exitcond552.not = icmp eq i64 %indvars.iv.next550, %wide.trip.count551
   br i1 %exitcond552.not, label %._crit_edge525, label %.critedge, !llvm.loop !947
 
 ._crit_edge525:                                   ; preds = %._crit_edge.thread
-  %398 = trunc nuw i8 %.1374.lcssa567 to i1
+  %398 = trunc nuw i8 %.1370.lcssa567 to i1
   %399 = fcmp une float %.1454.lcssa566, 0.000000e+00
   br i1 %399, label %400, label %406
 
@@ -110601,7 +110601,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %.thread573
 
 .thread573:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %408, %406
-  %.0373.lcssa572576 = phi i1 [ %398, %408 ], [ %398, %406 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0369.lcssa572576 = phi i1 [ %398, %408 ], [ %398, %406 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %414 = load i32, ptr %0, align 8
   %415 = mul nsw i32 %414, 12
   %416 = sext i32 %23 to i64
@@ -110611,7 +110611,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %420 = mul nsw i32 %419, 150
   %421 = add nsw i32 %420, %415
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %421)
-  %422 = select i1 %66, i1 %.0373.lcssa572576, i1 false
+  %422 = select i1 %66, i1 %.0369.lcssa572576, i1 false
   br i1 %422, label %423, label %434
 
 423:                                              ; preds = %.thread573
@@ -112521,10 +112521,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %476
   %indvars.iv666 = phi i64 [ %132, %.lr.ph.preheader ], [ %indvars.iv.next667, %476 ]
-  %.0453625 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1454, %476 ]
-  %.0459622 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5464, %476 ]
-  %.0465621 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5470, %476 ]
-  %.0471620 = phi i1 [ false, %.lr.ph.preheader ], [ %.1472, %476 ]
+  %.0442626 = phi i1 [ false, %.lr.ph.preheader ], [ %.1443, %476 ]
+  %.0445625 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %476 ]
+  %.0448624 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5453, %476 ]
+  %.0458621 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1459, %476 ]
   %.1557619 = phi float [ %.0556635, %.lr.ph.preheader ], [ %.10, %476 ]
   %.1563618 = phi float [ %.0562634, %.lr.ph.preheader ], [ %.9571, %476 ]
   %133 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %477, %476 ]
@@ -112597,8 +112597,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %184 = fcmp ogt float %178, 0.000000e+00
   %185 = fcmp ogt float %183, 0.000000e+00
   %or.cond3 = select i1 %184, i1 %185, i1 false
-  %.sroa.0509.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %.sroa.0508.0 = select i1 %or.cond3, float 0.000000e+00, float %40
+  %.sroa.0509.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %186 = mul nsw i32 %144, 3
   %187 = sext i32 %186 to i64
   %188 = getelementptr inbounds float, ptr %74, i64 %187
@@ -112877,20 +112877,20 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv657.sroa.phi799 = phi ptr [ %.sroa.0805.4.gep.sroa_idx808, %.preheader ], [ %.sroa.0805, %.thread ]
   %indvars.iv657.sroa.phi813 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0817, %.thread ]
   %indvars.iv657.sroa.phi820 = phi ptr [ %.sroa.4825, %.preheader ], [ %.sroa.0824, %.thread ]
-  %.0441608 = phi float [ %376, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.1460607 = phi float [ %370, %.preheader ], [ %.0459622, %.thread ]
-  %.1466606 = phi float [ %367, %.preheader ], [ %.0465621, %.thread ]
+  %.1446608 = phi float [ %367, %.preheader ], [ %.0445625, %.thread ]
+  %.1449607 = phi float [ %370, %.preheader ], [ %.0448624, %.thread ]
+  %.0466606 = phi float [ %376, %.preheader ], [ 0.000000e+00, %.thread ]
   %.6605 = phi float [ %378, %.preheader ], [ %.5561, %.thread ]
   %.5567604 = phi float [ %379, %.preheader ], [ %.4566, %.thread ]
   %365 = load float, ptr %indvars.iv657.sroa.phi820, align 4
   %366 = load float, ptr %indvars.iv657.sroa.phi728, align 4
-  %367 = tail call float @llvm.fmuladd.f32(float %365, float %366, float %.1466606)
+  %367 = tail call float @llvm.fmuladd.f32(float %365, float %366, float %.1446608)
   %368 = load float, ptr %indvars.iv657.sroa.phi813, align 4
   %369 = load float, ptr %indvars.iv657.sroa.phi, align 4
-  %370 = tail call float @llvm.fmuladd.f32(float %368, float %369, float %.1460607)
+  %370 = tail call float @llvm.fmuladd.f32(float %368, float %369, float %.1449607)
   %371 = load float, ptr %indvars.iv657.sroa.phi740, align 4
   %372 = fmul float %365, %371
-  %373 = tail call float @llvm.fmuladd.f32(float %372, float %222, float %.0441608)
+  %373 = tail call float @llvm.fmuladd.f32(float %372, float %222, float %.0466606)
   %374 = load float, ptr %indvars.iv657.sroa.phi734, align 4
   %375 = fmul float %368, %374
   %376 = tail call float @llvm.fmuladd.f32(float %375, float %222, float %373)
@@ -112902,9 +112902,9 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit597:                                     ; preds = %.preheader, %.critedge846
   %.6568 = phi float [ %.1563618, %.critedge846 ], [ %379, %.preheader ]
   %.7 = phi float [ %.1557619, %.critedge846 ], [ %378, %.preheader ]
-  %.2467 = phi float [ %.0465621, %.critedge846 ], [ %367, %.preheader ]
-  %.2461 = phi float [ %.0459622, %.critedge846 ], [ %370, %.preheader ]
-  %.1442 = phi float [ 0.000000e+00, %.critedge846 ], [ %376, %.preheader ]
+  %.1467 = phi float [ 0.000000e+00, %.critedge846 ], [ %376, %.preheader ]
+  %.2450 = phi float [ %.0448624, %.critedge846 ], [ %370, %.preheader ]
+  %.2447 = phi float [ %.0445625, %.critedge846 ], [ %367, %.preheader ]
   %380 = fcmp uge float %221, %50
   %.not591 = select i1 %142, i1 %380, i1 false
   br i1 %.not591, label %.loopexit596, label %381
@@ -112949,16 +112949,16 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv660.sroa.phi = phi ptr [ %.sroa.0758, %381 ], [ %.sroa.3759, %414 ]
   %indvars.iv660.sroa.phi801 = phi ptr [ %.sroa.0805, %381 ], [ %.sroa.0805.4.gep802.sroa_idx809, %414 ]
   %indvars.iv660.sroa.phi822 = phi ptr [ %.sroa.0824, %381 ], [ %.sroa.4825, %414 ]
-  %.2443612 = phi float [ %.1442, %381 ], [ %422, %414 ]
-  %.3468611 = phi float [ %.2467, %381 ], [ %420, %414 ]
+  %.3612 = phi float [ %.2447, %381 ], [ %420, %414 ]
+  %.2468611 = phi float [ %.1467, %381 ], [ %422, %414 ]
   %.8610 = phi float [ %.7, %381 ], [ %426, %414 ]
   %416 = load float, ptr %indvars.iv660.sroa.phi822, align 4
   %417 = load float, ptr %indvars.iv660.sroa.phi, align 4
   %418 = fmul float %416, %417
   %419 = fmul float %413, %418
-  %420 = fsub float %.3468611, %419
+  %420 = fsub float %.3612, %419
   %421 = fmul float %411, %418
-  %422 = fsub float %.2443612, %421
+  %422 = fsub float %.2468611, %421
   %423 = load float, ptr %indvars.iv660.sroa.phi801, align 4
   %424 = fmul float %417, %423
   %425 = fmul float %413, %424
@@ -112967,8 +112967,8 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit596:                                     ; preds = %414, %.loopexit597
   %.9 = phi float [ %.7, %.loopexit597 ], [ %426, %414 ]
-  %.4469 = phi float [ %.2467, %.loopexit597 ], [ %420, %414 ]
-  %.3 = phi float [ %.1442, %.loopexit597 ], [ %422, %414 ]
+  %.3469 = phi float [ %.1467, %.loopexit597 ], [ %422, %414 ]
+  %.4 = phi float [ %.2447, %.loopexit597 ], [ %420, %414 ]
   %427 = fcmp uge float %221, %54
   %.not593 = select i1 %142, i1 %427, i1 false
   br i1 %.not593, label %.loopexit, label %428
@@ -113001,16 +113001,16 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv663.sroa.phi = phi ptr [ %.sroa.0754, %428 ], [ %.sroa.3, %449 ]
   %indvars.iv663.sroa.phi803 = phi ptr [ %.sroa.0805, %428 ], [ %.sroa.0805.4.gep804.sroa_idx810, %449 ]
   %indvars.iv663.sroa.phi815 = phi ptr [ %.sroa.0817, %428 ], [ %.sroa.4, %449 ]
-  %.4616 = phi float [ %.3, %428 ], [ %457, %449 ]
-  %.3462615 = phi float [ %.2461, %428 ], [ %455, %449 ]
+  %.3451616 = phi float [ %.2450, %428 ], [ %455, %449 ]
+  %.4470615 = phi float [ %.3469, %428 ], [ %457, %449 ]
   %.7569614 = phi float [ %.6568, %428 ], [ %461, %449 ]
   %451 = load float, ptr %indvars.iv663.sroa.phi815, align 4
   %452 = load float, ptr %indvars.iv663.sroa.phi, align 4
   %453 = fmul float %451, %452
   %454 = fmul float %448, %453
-  %455 = fadd float %.3462615, %454
+  %455 = fadd float %.3451616, %454
   %456 = fmul float %446, %453
-  %457 = fadd float %.4616, %456
+  %457 = fadd float %.4470615, %456
   %458 = load float, ptr %indvars.iv663.sroa.phi803, align 4
   %459 = fmul float %452, %458
   %460 = fmul float %448, %459
@@ -113019,18 +113019,18 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit:                                        ; preds = %449, %.loopexit596
   %.8570 = phi float [ %.6568, %.loopexit596 ], [ %461, %449 ]
-  %.4463 = phi float [ %.2461, %.loopexit596 ], [ %455, %449 ]
-  %.5 = phi float [ %.3, %.loopexit596 ], [ %457, %449 ]
-  %462 = fcmp une float %.5, 0.000000e+00
+  %.5471 = phi float [ %.3469, %.loopexit596 ], [ %457, %449 ]
+  %.4452 = phi float [ %.2450, %.loopexit596 ], [ %455, %449 ]
+  %462 = fcmp une float %.5471, 0.000000e+00
   br i1 %462, label %463, label %476
 
 463:                                              ; preds = %.loopexit
-  %464 = insertelement <2 x float> poison, float %.5, i64 0
+  %464 = insertelement <2 x float> poison, float %.5471, i64 0
   %465 = shufflevector <2 x float> %464, <2 x float> poison, <2 x i32> zeroinitializer
   %466 = fmul <2 x float> %193, %465
-  %467 = fmul float %194, %.5
+  %467 = fmul float %194, %.5471
   %468 = fadd <2 x float> %133, %466
-  %469 = fadd float %.0453625, %467
+  %469 = fadd float %.0458621, %467
   %470 = getelementptr inbounds float, ptr %75, i64 %187
   %471 = load <2 x float>, ptr %470, align 4
   %472 = fsub <2 x float> %471, %466
@@ -113044,17 +113044,17 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 476:                                              ; preds = %.loopexit, %463, %.critedge482
   %.9571 = phi float [ %.8570, %463 ], [ %.8570, %.loopexit ], [ %.1563618, %.critedge482 ]
   %.10 = phi float [ %.9, %463 ], [ %.9, %.loopexit ], [ %.1557619, %.critedge482 ]
-  %.1472 = phi i1 [ true, %463 ], [ true, %.loopexit ], [ %.0471620, %.critedge482 ]
-  %.5470 = phi float [ %.4469, %463 ], [ %.4469, %.loopexit ], [ %.0465621, %.critedge482 ]
-  %.5464 = phi float [ %.4463, %463 ], [ %.4463, %.loopexit ], [ %.0459622, %.critedge482 ]
-  %.1454 = phi float [ %469, %463 ], [ %.0453625, %.loopexit ], [ %.0453625, %.critedge482 ]
+  %.1459 = phi float [ %469, %463 ], [ %.0458621, %.loopexit ], [ %.0458621, %.critedge482 ]
+  %.5453 = phi float [ %.4452, %463 ], [ %.4452, %.loopexit ], [ %.0448624, %.critedge482 ]
+  %.5 = phi float [ %.4, %463 ], [ %.4, %.loopexit ], [ %.0445625, %.critedge482 ]
+  %.1443 = phi i1 [ true, %463 ], [ true, %.loopexit ], [ %.0442626, %.critedge482 ]
   %477 = phi <2 x float> [ %468, %463 ], [ %133, %.loopexit ], [ %133, %.critedge482 ]
   %indvars.iv.next667 = add nsw i64 %indvars.iv666, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next667, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !963
 
 ._crit_edge:                                      ; preds = %476
-  br i1 %.1472, label %478, label %._crit_edge.thread
+  br i1 %.1443, label %478, label %._crit_edge.thread
 
 478:                                              ; preds = %._crit_edge
   %479 = getelementptr inbounds float, ptr %75, i64 %110
@@ -113063,7 +113063,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %481, ptr %479, align 4
   %482 = getelementptr i8, ptr %479, i64 8
   %483 = load float, ptr %482, align 4
-  %484 = fadd float %.1454, %483
+  %484 = fadd float %.1459, %483
   store float %484, ptr %482, align 4
   br i1 %.not, label %494, label %485
 
@@ -113076,7 +113076,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %490, ptr %488, align 4
   %491 = getelementptr i8, ptr %488, i64 8
   %492 = load float, ptr %491, align 4
-  %493 = fadd float %.1454, %492
+  %493 = fadd float %.1459, %492
   store float %493, ptr %491, align 4
   br label %494
 
@@ -113089,11 +113089,11 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %498 = sext i32 %497 to i64
   %499 = getelementptr inbounds float, ptr %94, i64 %498
   %500 = load float, ptr %499, align 4
-  %501 = fadd float %.5470, %500
+  %501 = fadd float %.5, %500
   store float %501, ptr %499, align 4
   %502 = getelementptr inbounds float, ptr %96, i64 %498
   %503 = load float, ptr %502, align 4
-  %504 = fadd float %.5464, %503
+  %504 = fadd float %.5453, %503
   store float %504, ptr %502, align 4
   br label %._crit_edge.thread
 
@@ -114497,9 +114497,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv562 = phi i64 [ %135, %.lr.ph.preheader ], [ %indvars.iv.next563, %.loopexit ]
-  %.0384528 = phi i1 [ false, %.lr.ph.preheader ], [ %.1385, %.loopexit ]
-  %.0389526 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4, %.loopexit ]
-  %.0392525 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0380528 = phi i1 [ false, %.lr.ph.preheader ], [ %.1381, %.loopexit ]
+  %.0382527 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0385526 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4389, %.loopexit ]
   %.1466524 = phi float [ %.0465534, %.lr.ph.preheader ], [ %.10, %.loopexit ]
   %.1472523 = phi float [ %.0471533, %.lr.ph.preheader ], [ %.8479, %.loopexit ]
   %136 = load ptr, ptr %83, align 8
@@ -114571,8 +114571,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %186 = fcmp ogt float %180, 0.000000e+00
   %187 = fcmp ogt float %185, 0.000000e+00
   %or.cond3 = select i1 %186, i1 %187, i1 false
-  %.sroa.0429.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %.sroa.0428.0 = select i1 %or.cond3, float 0.000000e+00, float %40
+  %.sroa.0429.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %188 = mul nsw i32 %146, 3
   %189 = sext i32 %188 to i64
   %190 = getelementptr inbounds float, ptr %73, i64 %189
@@ -114837,16 +114837,16 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv553.sroa.phi671 = phi ptr [ %.sroa.0677.4.gep.sroa_idx680, %.preheader ], [ %.sroa.0677, %.thread ]
   %indvars.iv553.sroa.phi685 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0689, %.thread ]
   %indvars.iv553.sroa.phi692 = phi ptr [ %.sroa.4697, %.preheader ], [ %.sroa.0696, %.thread ]
-  %.1390515 = phi float [ %368, %.preheader ], [ %.0389526, %.thread ]
-  %.1393514 = phi float [ %365, %.preheader ], [ %.0392525, %.thread ]
+  %.1383515 = phi float [ %365, %.preheader ], [ %.0382527, %.thread ]
+  %.1386514 = phi float [ %368, %.preheader ], [ %.0385526, %.thread ]
   %.6513 = phi float [ %370, %.preheader ], [ %.5470, %.thread ]
   %.5476512 = phi float [ %371, %.preheader ], [ %.4475, %.thread ]
   %363 = load float, ptr %indvars.iv553.sroa.phi692, align 4
   %364 = load float, ptr %indvars.iv553.sroa.phi612, align 4
-  %365 = tail call float @llvm.fmuladd.f32(float %363, float %364, float %.1393514)
+  %365 = tail call float @llvm.fmuladd.f32(float %363, float %364, float %.1383515)
   %366 = load float, ptr %indvars.iv553.sroa.phi685, align 4
   %367 = load float, ptr %indvars.iv553.sroa.phi, align 4
-  %368 = tail call float @llvm.fmuladd.f32(float %366, float %367, float %.1390515)
+  %368 = tail call float @llvm.fmuladd.f32(float %366, float %367, float %.1386514)
   %369 = load float, ptr %indvars.iv553.sroa.phi671, align 4
   %370 = tail call float @llvm.fmuladd.f32(float %364, float %369, float %.6513)
   %371 = tail call float @llvm.fmuladd.f32(float %367, float %369, float %.5476512)
@@ -114855,8 +114855,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit505:                                     ; preds = %.preheader, %.critedge714
   %.6477 = phi float [ %.1472523, %.critedge714 ], [ %371, %.preheader ]
   %.7 = phi float [ %.1466524, %.critedge714 ], [ %370, %.preheader ]
-  %.2394 = phi float [ %.0392525, %.critedge714 ], [ %365, %.preheader ]
-  %.2391 = phi float [ %.0389526, %.critedge714 ], [ %368, %.preheader ]
+  %.2387 = phi float [ %.0385526, %.critedge714 ], [ %368, %.preheader ]
+  %.2384 = phi float [ %.0382527, %.critedge714 ], [ %365, %.preheader ]
   %372 = fcmp uge float %224, %49
   %.not499 = select i1 %144, i1 %372, i1 false
   br i1 %.not499, label %.loopexit504, label %373
@@ -114885,13 +114885,13 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv556.sroa.phi = phi ptr [ %.sroa.0630, %373 ], [ %.sroa.3631, %390 ]
   %indvars.iv556.sroa.phi673 = phi ptr [ %.sroa.0677, %373 ], [ %.sroa.0677.4.gep674.sroa_idx681, %390 ]
   %indvars.iv556.sroa.phi694 = phi ptr [ %.sroa.0696, %373 ], [ %.sroa.4697, %390 ]
-  %.3395518 = phi float [ %.2394, %373 ], [ %396, %390 ]
+  %.3518 = phi float [ %.2384, %373 ], [ %396, %390 ]
   %.8517 = phi float [ %.7, %373 ], [ %400, %390 ]
   %392 = load float, ptr %indvars.iv556.sroa.phi694, align 4
   %393 = load float, ptr %indvars.iv556.sroa.phi, align 4
   %394 = fmul float %392, %393
   %395 = fmul float %389, %394
-  %396 = fsub float %.3395518, %395
+  %396 = fsub float %.3518, %395
   %397 = load float, ptr %indvars.iv556.sroa.phi673, align 4
   %398 = fmul float %393, %397
   %399 = fmul float %389, %398
@@ -114900,7 +114900,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit504:                                     ; preds = %390, %.loopexit505
   %.9 = phi float [ %.7, %.loopexit505 ], [ %400, %390 ]
-  %.4396 = phi float [ %.2394, %.loopexit505 ], [ %396, %390 ]
+  %.4 = phi float [ %.2384, %.loopexit505 ], [ %396, %390 ]
   %401 = fcmp uge float %224, %53
   %.not501 = select i1 %144, i1 %401, i1 false
   br i1 %.not501, label %.loopexit, label %402
@@ -114932,13 +114932,13 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv559.sroa.phi = phi ptr [ %.sroa.0626, %402 ], [ %.sroa.3, %422 ]
   %indvars.iv559.sroa.phi675 = phi ptr [ %.sroa.0677, %402 ], [ %.sroa.0677.4.gep676.sroa_idx682, %422 ]
   %indvars.iv559.sroa.phi687 = phi ptr [ %.sroa.0689, %402 ], [ %.sroa.4, %422 ]
-  %.3521 = phi float [ %.2391, %402 ], [ %428, %422 ]
+  %.3388521 = phi float [ %.2387, %402 ], [ %428, %422 ]
   %.7478520 = phi float [ %.6477, %402 ], [ %432, %422 ]
   %424 = load float, ptr %indvars.iv559.sroa.phi687, align 4
   %425 = load float, ptr %indvars.iv559.sroa.phi, align 4
   %426 = fmul float %424, %425
   %427 = fmul float %421, %426
-  %428 = fadd float %.3521, %427
+  %428 = fadd float %.3388521, %427
   %429 = load float, ptr %indvars.iv559.sroa.phi675, align 4
   %430 = fmul float %425, %429
   %431 = fmul float %421, %430
@@ -114948,15 +114948,15 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit:                                        ; preds = %422, %.loopexit504, %.critedge405
   %.8479 = phi float [ %.6477, %.loopexit504 ], [ %.1472523, %.critedge405 ], [ %432, %422 ]
   %.10 = phi float [ %.9, %.loopexit504 ], [ %.1466524, %.critedge405 ], [ %.9, %422 ]
-  %.5 = phi float [ %.4396, %.loopexit504 ], [ %.0392525, %.critedge405 ], [ %.4396, %422 ]
-  %.4 = phi float [ %.2391, %.loopexit504 ], [ %.0389526, %.critedge405 ], [ %428, %422 ]
-  %.1385 = phi i1 [ true, %.loopexit504 ], [ %.0384528, %.critedge405 ], [ true, %422 ]
+  %.4389 = phi float [ %.2387, %.loopexit504 ], [ %.0385526, %.critedge405 ], [ %428, %422 ]
+  %.5 = phi float [ %.4, %.loopexit504 ], [ %.0382527, %.critedge405 ], [ %.4, %422 ]
+  %.1381 = phi i1 [ true, %.loopexit504 ], [ %.0380528, %.critedge405 ], [ true, %422 ]
   %indvars.iv.next563 = add nsw i64 %indvars.iv562, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next563, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !980
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge409.not = and i1 %.not, %.1385
+  %brmerge409.not = and i1 %.not, %.1381
   br i1 %brmerge409.not, label %433, label %._crit_edge.thread
 
 433:                                              ; preds = %._crit_edge
@@ -114969,7 +114969,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store float %439, ptr %437, align 4
   %440 = getelementptr inbounds float, ptr %94, i64 %436
   %441 = load float, ptr %440, align 4
-  %442 = fadd float %.4, %441
+  %442 = fadd float %.4389, %441
   store float %442, ptr %440, align 4
   br label %._crit_edge.thread
 
@@ -116906,7 +116906,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv694 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next695, %._crit_edge.thread ]
-  %.0467661 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1468.lcssa714, %._crit_edge.thread ]
+  %.0456661 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1457.lcssa714, %._crit_edge.thread ]
   %.0572659 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1573.lcssa713, %._crit_edge.thread ]
   %.0578658 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1579.lcssa712, %._crit_edge.thread ]
   %108 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv694
@@ -116954,11 +116954,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %473
   %indvars.iv692 = phi i64 [ %143, %.lr.ph.preheader ], [ %indvars.iv.next693, %473 ]
-  %.1468649 = phi i8 [ %.0467661, %.lr.ph.preheader ], [ %.3470, %473 ]
-  %.0474647 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1475, %473 ]
-  %.0480644 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5485, %473 ]
-  %.0486643 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5491, %473 ]
-  %.0492642 = phi i1 [ false, %.lr.ph.preheader ], [ %.1493, %473 ]
+  %.1457649 = phi i8 [ %.0456661, %.lr.ph.preheader ], [ %.3, %473 ]
+  %.0461648 = phi i1 [ false, %.lr.ph.preheader ], [ %.1462, %473 ]
+  %.0464647 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %473 ]
+  %.0468646 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5473, %473 ]
+  %.0479643 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1480, %473 ]
   %.1573641 = phi float [ %.0572659, %.lr.ph.preheader ], [ %.10, %473 ]
   %.1579640 = phi float [ %.0578658, %.lr.ph.preheader ], [ %.9587, %473 ]
   %144 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %474, %473 ]
@@ -117031,8 +117031,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %195 = fcmp ogt float %189, 0.000000e+00
   %196 = fcmp ogt float %194, 0.000000e+00
   %or.cond3 = select i1 %195, i1 %196, i1 false
-  %.sroa.0525.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %.sroa.0524.0 = select i1 %or.cond3, float 0.000000e+00, float %43
+  %.sroa.0525.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %197 = mul nsw i32 %155, 3
   %198 = sext i32 %197 to i64
   %199 = getelementptr inbounds float, ptr %81, i64 %198
@@ -117319,20 +117319,20 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv683.sroa.phi832 = phi ptr [ %.sroa.0838.4.gep.sroa_idx841, %.preheader ], [ %.sroa.0838, %.thread ]
   %indvars.iv683.sroa.phi846 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0850, %.thread ]
   %indvars.iv683.sroa.phi853 = phi ptr [ %.sroa.4858, %.preheader ], [ %.sroa.0857, %.thread ]
-  %.0458630 = phi float [ %395, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.1481629 = phi float [ %389, %.preheader ], [ %.0480644, %.thread ]
-  %.1487628 = phi float [ %386, %.preheader ], [ %.0486643, %.thread ]
+  %.1465631 = phi float [ %386, %.preheader ], [ %.0464647, %.thread ]
+  %.1469630 = phi float [ %389, %.preheader ], [ %.0468646, %.thread ]
+  %.0487628 = phi float [ %395, %.preheader ], [ 0.000000e+00, %.thread ]
   %.6627 = phi float [ %397, %.preheader ], [ %.5577, %.thread ]
   %.5583626 = phi float [ %398, %.preheader ], [ %.4582, %.thread ]
   %384 = load float, ptr %indvars.iv683.sroa.phi853, align 4
   %385 = load float, ptr %indvars.iv683.sroa.phi761, align 4
-  %386 = tail call float @llvm.fmuladd.f32(float %384, float %385, float %.1487628)
+  %386 = tail call float @llvm.fmuladd.f32(float %384, float %385, float %.1465631)
   %387 = load float, ptr %indvars.iv683.sroa.phi846, align 4
   %388 = load float, ptr %indvars.iv683.sroa.phi, align 4
-  %389 = tail call float @llvm.fmuladd.f32(float %387, float %388, float %.1481629)
+  %389 = tail call float @llvm.fmuladd.f32(float %387, float %388, float %.1469630)
   %390 = load float, ptr %indvars.iv683.sroa.phi773, align 4
   %391 = fmul float %384, %390
-  %392 = tail call float @llvm.fmuladd.f32(float %391, float %233, float %.0458630)
+  %392 = tail call float @llvm.fmuladd.f32(float %391, float %233, float %.0487628)
   %393 = load float, ptr %indvars.iv683.sroa.phi767, align 4
   %394 = fmul float %387, %393
   %395 = tail call float @llvm.fmuladd.f32(float %394, float %233, float %392)
@@ -117344,13 +117344,13 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit619:                                     ; preds = %.preheader, %.critedge879
   %.6584 = phi float [ %.1579640, %.critedge879 ], [ %398, %.preheader ]
   %.7 = phi float [ %.1573641, %.critedge879 ], [ %397, %.preheader ]
-  %.2488 = phi float [ %.0486643, %.critedge879 ], [ %386, %.preheader ]
-  %.2482 = phi float [ %.0480644, %.critedge879 ], [ %389, %.preheader ]
-  %.1459 = phi float [ 0.000000e+00, %.critedge879 ], [ %395, %.preheader ]
+  %.1488 = phi float [ 0.000000e+00, %.critedge879 ], [ %395, %.preheader ]
+  %.2470 = phi float [ %.0468646, %.critedge879 ], [ %389, %.preheader ]
+  %.2466 = phi float [ %.0464647, %.critedge879 ], [ %386, %.preheader ]
   br i1 %75, label %399, label %.loopexit618
 
 399:                                              ; preds = %.loopexit619
-  %400 = trunc nuw i8 %.1468649 to i1
+  %400 = trunc nuw i8 %.1457649 to i1
   br i1 %400, label %404, label %401
 
 401:                                              ; preds = %399
@@ -117374,16 +117374,16 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv686.sroa.phi = phi ptr [ %.sroa.0791, %407 ], [ %.sroa.3792, %411 ]
   %indvars.iv686.sroa.phi834 = phi ptr [ %.sroa.0838, %407 ], [ %.sroa.0838.4.gep835.sroa_idx842, %411 ]
   %indvars.iv686.sroa.phi855 = phi ptr [ %.sroa.0857, %407 ], [ %.sroa.4858, %411 ]
-  %.2460634 = phi float [ %.1459, %407 ], [ %419, %411 ]
-  %.3489633 = phi float [ %.2488, %407 ], [ %417, %411 ]
+  %.3467634 = phi float [ %.2466, %407 ], [ %417, %411 ]
+  %.2489633 = phi float [ %.1488, %407 ], [ %419, %411 ]
   %.8632 = phi float [ %.7, %407 ], [ %423, %411 ]
   %413 = load float, ptr %indvars.iv686.sroa.phi855, align 4
   %414 = load float, ptr %indvars.iv686.sroa.phi, align 4
   %415 = fmul float %413, %414
   %416 = fmul float %410, %415
-  %417 = fadd float %.3489633, %416
+  %417 = fadd float %.3467634, %416
   %418 = fmul float %102, %415
-  %419 = fsub float %.2460634, %418
+  %419 = fsub float %.2489633, %418
   %420 = load float, ptr %indvars.iv686.sroa.phi834, align 4
   %421 = fmul float %414, %420
   %422 = fmul float %410, %421
@@ -117392,9 +117392,9 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit618:                                     ; preds = %411, %404, %.loopexit619
   %.9 = phi float [ %.7, %404 ], [ %.7, %.loopexit619 ], [ %423, %411 ]
-  %.4490 = phi float [ %.2488, %404 ], [ %.2488, %.loopexit619 ], [ %417, %411 ]
-  %.2469 = phi i8 [ %406, %404 ], [ %.1468649, %.loopexit619 ], [ %406, %411 ]
-  %.3 = phi float [ %.1459, %404 ], [ %.1459, %.loopexit619 ], [ %419, %411 ]
+  %.3490 = phi float [ %.1488, %404 ], [ %.1488, %.loopexit619 ], [ %419, %411 ]
+  %.4 = phi float [ %.2466, %404 ], [ %.2466, %.loopexit619 ], [ %417, %411 ]
+  %.2458 = phi i8 [ %406, %404 ], [ %.1457649, %.loopexit619 ], [ %406, %411 ]
   %424 = fcmp uge float %232, %61
   %.not615 = select i1 %153, i1 %424, i1 false
   br i1 %.not615, label %.loopexit, label %425
@@ -117427,16 +117427,16 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv689.sroa.phi = phi ptr [ %.sroa.0787, %425 ], [ %.sroa.3, %446 ]
   %indvars.iv689.sroa.phi836 = phi ptr [ %.sroa.0838, %425 ], [ %.sroa.0838.4.gep837.sroa_idx843, %446 ]
   %indvars.iv689.sroa.phi848 = phi ptr [ %.sroa.0850, %425 ], [ %.sroa.4, %446 ]
-  %.4638 = phi float [ %.3, %425 ], [ %454, %446 ]
-  %.3483637 = phi float [ %.2482, %425 ], [ %452, %446 ]
+  %.3471638 = phi float [ %.2470, %425 ], [ %452, %446 ]
+  %.4491637 = phi float [ %.3490, %425 ], [ %454, %446 ]
   %.7585636 = phi float [ %.6584, %425 ], [ %458, %446 ]
   %448 = load float, ptr %indvars.iv689.sroa.phi848, align 4
   %449 = load float, ptr %indvars.iv689.sroa.phi, align 4
   %450 = fmul float %448, %449
   %451 = fmul float %445, %450
-  %452 = fadd float %.3483637, %451
+  %452 = fadd float %.3471638, %451
   %453 = fmul float %443, %450
-  %454 = fadd float %.4638, %453
+  %454 = fadd float %.4491637, %453
   %455 = load float, ptr %indvars.iv689.sroa.phi836, align 4
   %456 = fmul float %449, %455
   %457 = fmul float %445, %456
@@ -117445,18 +117445,18 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit:                                        ; preds = %446, %.loopexit618
   %.8586 = phi float [ %.6584, %.loopexit618 ], [ %458, %446 ]
-  %.4484 = phi float [ %.2482, %.loopexit618 ], [ %452, %446 ]
-  %.5 = phi float [ %.3, %.loopexit618 ], [ %454, %446 ]
-  %459 = fcmp une float %.5, 0.000000e+00
+  %.5492 = phi float [ %.3490, %.loopexit618 ], [ %454, %446 ]
+  %.4472 = phi float [ %.2470, %.loopexit618 ], [ %452, %446 ]
+  %459 = fcmp une float %.5492, 0.000000e+00
   br i1 %459, label %460, label %473
 
 460:                                              ; preds = %.loopexit
-  %461 = insertelement <2 x float> poison, float %.5, i64 0
+  %461 = insertelement <2 x float> poison, float %.5492, i64 0
   %462 = shufflevector <2 x float> %461, <2 x float> poison, <2 x i32> zeroinitializer
   %463 = fmul <2 x float> %204, %462
-  %464 = fmul float %205, %.5
+  %464 = fmul float %205, %.5492
   %465 = fadd <2 x float> %144, %463
-  %466 = fadd float %.0474647, %464
+  %466 = fadd float %.0479643, %464
   %467 = getelementptr inbounds float, ptr %82, i64 %198
   %468 = load <2 x float>, ptr %467, align 4
   %469 = fsub <2 x float> %468, %463
@@ -117470,18 +117470,18 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 473:                                              ; preds = %.loopexit, %460, %.critedge503
   %.9587 = phi float [ %.8586, %460 ], [ %.8586, %.loopexit ], [ %.1579640, %.critedge503 ]
   %.10 = phi float [ %.9, %460 ], [ %.9, %.loopexit ], [ %.1573641, %.critedge503 ]
-  %.1493 = phi i1 [ true, %460 ], [ true, %.loopexit ], [ %.0492642, %.critedge503 ]
-  %.5491 = phi float [ %.4490, %460 ], [ %.4490, %.loopexit ], [ %.0486643, %.critedge503 ]
-  %.5485 = phi float [ %.4484, %460 ], [ %.4484, %.loopexit ], [ %.0480644, %.critedge503 ]
-  %.1475 = phi float [ %466, %460 ], [ %.0474647, %.loopexit ], [ %.0474647, %.critedge503 ]
-  %.3470 = phi i8 [ %.2469, %460 ], [ %.2469, %.loopexit ], [ %.1468649, %.critedge503 ]
+  %.1480 = phi float [ %466, %460 ], [ %.0479643, %.loopexit ], [ %.0479643, %.critedge503 ]
+  %.5473 = phi float [ %.4472, %460 ], [ %.4472, %.loopexit ], [ %.0468646, %.critedge503 ]
+  %.5 = phi float [ %.4, %460 ], [ %.4, %.loopexit ], [ %.0464647, %.critedge503 ]
+  %.1462 = phi i1 [ true, %460 ], [ true, %.loopexit ], [ %.0461648, %.critedge503 ]
+  %.3 = phi i8 [ %.2458, %460 ], [ %.2458, %.loopexit ], [ %.1457649, %.critedge503 ]
   %474 = phi <2 x float> [ %465, %460 ], [ %144, %.loopexit ], [ %144, %.critedge503 ]
   %indvars.iv.next693 = add nsw i64 %indvars.iv692, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next693, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !997
 
 ._crit_edge:                                      ; preds = %473
-  br i1 %.1493, label %475, label %._crit_edge.thread
+  br i1 %.1462, label %475, label %._crit_edge.thread
 
 475:                                              ; preds = %._crit_edge
   %476 = getelementptr inbounds float, ptr %82, i64 %121
@@ -117490,7 +117490,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %478, ptr %476, align 4
   %479 = getelementptr i8, ptr %476, i64 8
   %480 = load float, ptr %479, align 4
-  %481 = fadd float %.1475, %480
+  %481 = fadd float %.1480, %480
   store float %481, ptr %479, align 4
   br i1 %.not, label %491, label %482
 
@@ -117503,7 +117503,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %487, ptr %485, align 4
   %488 = getelementptr i8, ptr %485, i64 8
   %489 = load float, ptr %488, align 4
-  %490 = fadd float %.1475, %489
+  %490 = fadd float %.1480, %489
   store float %490, ptr %488, align 4
   br label %491
 
@@ -117516,23 +117516,23 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %495 = sext i32 %494 to i64
   %496 = getelementptr inbounds float, ptr %105, i64 %495
   %497 = load float, ptr %496, align 4
-  %498 = fadd float %.5491, %497
+  %498 = fadd float %.5, %497
   store float %498, ptr %496, align 4
   %499 = getelementptr inbounds float, ptr %107, i64 %495
   %500 = load float, ptr %499, align 4
-  %501 = fadd float %.5485, %500
+  %501 = fadd float %.5473, %500
   store float %501, ptr %499, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %492, %491
-  %.1468.lcssa714 = phi i8 [ %.3470, %._crit_edge ], [ %.3470, %492 ], [ %.3470, %491 ], [ %.0467661, %.critedge ]
+  %.1457.lcssa714 = phi i8 [ %.3, %._crit_edge ], [ %.3, %492 ], [ %.3, %491 ], [ %.0456661, %.critedge ]
   %.1573.lcssa713 = phi float [ %.10, %._crit_edge ], [ %.10, %492 ], [ %.10, %491 ], [ %.0572659, %.critedge ]
   %.1579.lcssa712 = phi float [ %.9587, %._crit_edge ], [ %.9587, %492 ], [ %.9587, %491 ], [ %.0578658, %.critedge ]
   %exitcond697.not = icmp eq i64 %indvars.iv.next695, %wide.trip.count696
   br i1 %exitcond697.not, label %._crit_edge662, label %.critedge, !llvm.loop !998
 
 ._crit_edge662:                                   ; preds = %._crit_edge.thread
-  %502 = trunc nuw i8 %.1468.lcssa714 to i1
+  %502 = trunc nuw i8 %.1457.lcssa714 to i1
   %503 = fcmp une float %.1573.lcssa713, 0.000000e+00
   br i1 %503, label %504, label %510
 
@@ -117559,7 +117559,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br label %.thread720
 
 .thread720:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %512, %510
-  %.0467.lcssa719723 = phi i1 [ %502, %512 ], [ %502, %510 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0456.lcssa719723 = phi i1 [ %502, %512 ], [ %502, %510 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %518 = load i32, ptr %0, align 8
   %519 = mul nsw i32 %518, 12
   %520 = sext i32 %23 to i64
@@ -117569,7 +117569,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %524 = mul nsw i32 %523, 150
   %525 = add nsw i32 %524, %519
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %525)
-  %526 = select i1 %75, i1 %.0467.lcssa719723, i1 false
+  %526 = select i1 %75, i1 %.0456.lcssa719723, i1 false
   br i1 %526, label %527, label %538
 
 527:                                              ; preds = %.thread720
@@ -119028,7 +119028,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv597 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next598, %._crit_edge.thread ]
-  %.0404567 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1405.lcssa615, %._crit_edge.thread ]
+  %.0399567 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1400.lcssa615, %._crit_edge.thread ]
   %.0488565 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1489.lcssa614, %._crit_edge.thread ]
   %.0494564 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1495.lcssa613, %._crit_edge.thread ]
   %104 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv597
@@ -119081,10 +119081,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv595 = phi i64 [ %144, %.lr.ph.preheader ], [ %indvars.iv.next596, %.loopexit ]
-  %.1405558 = phi i8 [ %.0404567, %.lr.ph.preheader ], [ %.3, %.loopexit ]
-  %.0410557 = phi i1 [ false, %.lr.ph.preheader ], [ %.1411, %.loopexit ]
-  %.0414555 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4, %.loopexit ]
-  %.0418554 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.1400558 = phi i8 [ %.0399567, %.lr.ph.preheader ], [ %.3, %.loopexit ]
+  %.0403557 = phi i1 [ false, %.lr.ph.preheader ], [ %.1404, %.loopexit ]
+  %.0406556 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0410555 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.4414, %.loopexit ]
   %.1489553 = phi float [ %.0488565, %.lr.ph.preheader ], [ %.10, %.loopexit ]
   %.1495552 = phi float [ %.0494564, %.lr.ph.preheader ], [ %.8502, %.loopexit ]
   %145 = load ptr, ptr %90, align 8
@@ -119156,8 +119156,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %195 = fcmp ogt float %189, 0.000000e+00
   %196 = fcmp ogt float %194, 0.000000e+00
   %or.cond3 = select i1 %195, i1 %196, i1 false
-  %.sroa.0452.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %.sroa.0451.0 = select i1 %or.cond3, float 0.000000e+00, float %43
+  %.sroa.0452.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %197 = mul nsw i32 %155, 3
   %198 = sext i32 %197 to i64
   %199 = getelementptr inbounds float, ptr %80, i64 %198
@@ -119424,16 +119424,16 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv586.sroa.phi711 = phi ptr [ %.sroa.0717.4.gep.sroa_idx720, %.preheader ], [ %.sroa.0717, %.thread ]
   %indvars.iv586.sroa.phi725 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0729, %.thread ]
   %indvars.iv586.sroa.phi732 = phi ptr [ %.sroa.4737, %.preheader ], [ %.sroa.0736, %.thread ]
-  %.1415544 = phi float [ %379, %.preheader ], [ %.0414555, %.thread ]
-  %.1419543 = phi float [ %376, %.preheader ], [ %.0418554, %.thread ]
+  %.1407544 = phi float [ %376, %.preheader ], [ %.0406556, %.thread ]
+  %.1411543 = phi float [ %379, %.preheader ], [ %.0410555, %.thread ]
   %.6542 = phi float [ %381, %.preheader ], [ %.5493, %.thread ]
   %.5499541 = phi float [ %382, %.preheader ], [ %.4498, %.thread ]
   %374 = load float, ptr %indvars.iv586.sroa.phi732, align 4
   %375 = load float, ptr %indvars.iv586.sroa.phi652, align 4
-  %376 = tail call float @llvm.fmuladd.f32(float %374, float %375, float %.1419543)
+  %376 = tail call float @llvm.fmuladd.f32(float %374, float %375, float %.1407544)
   %377 = load float, ptr %indvars.iv586.sroa.phi725, align 4
   %378 = load float, ptr %indvars.iv586.sroa.phi, align 4
-  %379 = tail call float @llvm.fmuladd.f32(float %377, float %378, float %.1415544)
+  %379 = tail call float @llvm.fmuladd.f32(float %377, float %378, float %.1411543)
   %380 = load float, ptr %indvars.iv586.sroa.phi711, align 4
   %381 = tail call float @llvm.fmuladd.f32(float %375, float %380, float %.6542)
   %382 = tail call float @llvm.fmuladd.f32(float %378, float %380, float %.5499541)
@@ -119442,12 +119442,12 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit534:                                     ; preds = %.preheader, %.critedge754
   %.6500 = phi float [ %.1495552, %.critedge754 ], [ %382, %.preheader ]
   %.7 = phi float [ %.1489553, %.critedge754 ], [ %381, %.preheader ]
-  %.2420 = phi float [ %.0418554, %.critedge754 ], [ %376, %.preheader ]
-  %.2416 = phi float [ %.0414555, %.critedge754 ], [ %379, %.preheader ]
+  %.2412 = phi float [ %.0410555, %.critedge754 ], [ %379, %.preheader ]
+  %.2408 = phi float [ %.0406556, %.critedge754 ], [ %376, %.preheader ]
   br i1 %74, label %383, label %.loopexit533
 
 383:                                              ; preds = %.loopexit534
-  %384 = trunc nuw i8 %.1405558 to i1
+  %384 = trunc nuw i8 %.1400558 to i1
   br i1 %384, label %388, label %385
 
 385:                                              ; preds = %383
@@ -119471,13 +119471,13 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv589.sroa.phi = phi ptr [ %.sroa.0670, %391 ], [ %.sroa.3671, %395 ]
   %indvars.iv589.sroa.phi713 = phi ptr [ %.sroa.0717, %391 ], [ %.sroa.0717.4.gep714.sroa_idx721, %395 ]
   %indvars.iv589.sroa.phi734 = phi ptr [ %.sroa.0736, %391 ], [ %.sroa.4737, %395 ]
-  %.3421547 = phi float [ %.2420, %391 ], [ %401, %395 ]
+  %.3409547 = phi float [ %.2408, %391 ], [ %401, %395 ]
   %.8546 = phi float [ %.7, %391 ], [ %405, %395 ]
   %397 = load float, ptr %indvars.iv589.sroa.phi734, align 4
   %398 = load float, ptr %indvars.iv589.sroa.phi, align 4
   %399 = fmul float %397, %398
   %400 = fmul float %394, %399
-  %401 = fadd float %.3421547, %400
+  %401 = fadd float %.3409547, %400
   %402 = load float, ptr %indvars.iv589.sroa.phi713, align 4
   %403 = fmul float %398, %402
   %404 = fmul float %394, %403
@@ -119486,8 +119486,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit533:                                     ; preds = %395, %388, %.loopexit534
   %.9 = phi float [ %.7, %388 ], [ %.7, %.loopexit534 ], [ %405, %395 ]
-  %.4422 = phi float [ %.2420, %388 ], [ %.2420, %.loopexit534 ], [ %401, %395 ]
-  %.2406 = phi i8 [ %390, %388 ], [ %.1405558, %.loopexit534 ], [ %390, %395 ]
+  %.4 = phi float [ %.2408, %388 ], [ %.2408, %.loopexit534 ], [ %401, %395 ]
+  %.2401 = phi i8 [ %390, %388 ], [ %.1400558, %.loopexit534 ], [ %390, %395 ]
   %406 = fcmp uge float %233, %60
   %.not530 = select i1 %153, i1 %406, i1 false
   br i1 %.not530, label %.loopexit, label %407
@@ -119519,13 +119519,13 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv592.sroa.phi = phi ptr [ %.sroa.0666, %407 ], [ %.sroa.3, %427 ]
   %indvars.iv592.sroa.phi715 = phi ptr [ %.sroa.0717, %407 ], [ %.sroa.0717.4.gep716.sroa_idx722, %427 ]
   %indvars.iv592.sroa.phi727 = phi ptr [ %.sroa.0729, %407 ], [ %.sroa.4, %427 ]
-  %.3417550 = phi float [ %.2416, %407 ], [ %433, %427 ]
+  %.3413550 = phi float [ %.2412, %407 ], [ %433, %427 ]
   %.7501549 = phi float [ %.6500, %407 ], [ %437, %427 ]
   %429 = load float, ptr %indvars.iv592.sroa.phi727, align 4
   %430 = load float, ptr %indvars.iv592.sroa.phi, align 4
   %431 = fmul float %429, %430
   %432 = fmul float %426, %431
-  %433 = fadd float %.3417550, %432
+  %433 = fadd float %.3413550, %432
   %434 = load float, ptr %indvars.iv592.sroa.phi715, align 4
   %435 = fmul float %430, %434
   %436 = fmul float %426, %435
@@ -119535,16 +119535,16 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit:                                        ; preds = %427, %.loopexit533, %.critedge431
   %.8502 = phi float [ %.6500, %.loopexit533 ], [ %.1495552, %.critedge431 ], [ %437, %427 ]
   %.10 = phi float [ %.9, %.loopexit533 ], [ %.1489553, %.critedge431 ], [ %.9, %427 ]
-  %.5 = phi float [ %.4422, %.loopexit533 ], [ %.0418554, %.critedge431 ], [ %.4422, %427 ]
-  %.4 = phi float [ %.2416, %.loopexit533 ], [ %.0414555, %.critedge431 ], [ %433, %427 ]
-  %.1411 = phi i1 [ true, %.loopexit533 ], [ %.0410557, %.critedge431 ], [ true, %427 ]
-  %.3 = phi i8 [ %.2406, %.loopexit533 ], [ %.1405558, %.critedge431 ], [ %.2406, %427 ]
+  %.4414 = phi float [ %.2412, %.loopexit533 ], [ %.0410555, %.critedge431 ], [ %433, %427 ]
+  %.5 = phi float [ %.4, %.loopexit533 ], [ %.0406556, %.critedge431 ], [ %.4, %427 ]
+  %.1404 = phi i1 [ true, %.loopexit533 ], [ %.0403557, %.critedge431 ], [ true, %427 ]
+  %.3 = phi i8 [ %.2401, %.loopexit533 ], [ %.1400558, %.critedge431 ], [ %.2401, %427 ]
   %indvars.iv.next596 = add nsw i64 %indvars.iv595, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next596, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1014
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge435.not = and i1 %.not, %.1411
+  %brmerge435.not = and i1 %.not, %.1404
   br i1 %brmerge435.not, label %438, label %._crit_edge.thread
 
 438:                                              ; preds = %._crit_edge
@@ -119557,19 +119557,19 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store float %444, ptr %442, align 4
   %445 = getelementptr inbounds float, ptr %103, i64 %441
   %446 = load float, ptr %445, align 4
-  %447 = fadd float %.4, %446
+  %447 = fadd float %.4414, %446
   store float %447, ptr %445, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %438
-  %.1405.lcssa615 = phi i8 [ %.3, %._crit_edge ], [ %.3, %438 ], [ %.0404567, %.critedge ]
+  %.1400.lcssa615 = phi i8 [ %.3, %._crit_edge ], [ %.3, %438 ], [ %.0399567, %.critedge ]
   %.1489.lcssa614 = phi float [ %.10, %._crit_edge ], [ %.10, %438 ], [ %.0488565, %.critedge ]
   %.1495.lcssa613 = phi float [ %.8502, %._crit_edge ], [ %.8502, %438 ], [ %.0494564, %.critedge ]
   %exitcond600.not = icmp eq i64 %indvars.iv.next598, %wide.trip.count599
   br i1 %exitcond600.not, label %._crit_edge568, label %.critedge, !llvm.loop !1015
 
 ._crit_edge568:                                   ; preds = %._crit_edge.thread
-  %448 = trunc nuw i8 %.1405.lcssa615 to i1
+  %448 = trunc nuw i8 %.1400.lcssa615 to i1
   %449 = fcmp une float %.1489.lcssa614, 0.000000e+00
   br i1 %449, label %450, label %456
 
@@ -119596,7 +119596,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br label %.thread621
 
 .thread621:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %458, %456
-  %.0404.lcssa620624 = phi i1 [ %448, %458 ], [ %448, %456 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0399.lcssa620624 = phi i1 [ %448, %458 ], [ %448, %456 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %464 = load i32, ptr %0, align 8
   %465 = mul nsw i32 %464, 12
   %466 = sext i32 %23 to i64
@@ -119606,7 +119606,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %470 = mul nsw i32 %469, 150
   %471 = add nsw i32 %470, %465
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %471)
-  %472 = select i1 %74, i1 %.0404.lcssa620624, i1 false
+  %472 = select i1 %74, i1 %.0399.lcssa620624, i1 false
   br i1 %472, label %473, label %484
 
 473:                                              ; preds = %.thread621
@@ -121408,10 +121408,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %454
   %indvars.iv668 = phi i64 [ %134, %.lr.ph.preheader ], [ %indvars.iv.next669, %454 ]
-  %.0477634 = phi i1 [ false, %.lr.ph.preheader ], [ %.1478, %454 ]
-  %.0481632 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1482, %454 ]
-  %.0487629 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3490, %454 ]
-  %.0491628 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %454 ]
+  %.0468634 = phi i1 [ false, %.lr.ph.preheader ], [ %.1469, %454 ]
+  %.0471633 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %454 ]
+  %.0474632 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3477, %454 ]
+  %.0482629 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1483, %454 ]
   %.1574627 = phi float [ %.0573643, %.lr.ph.preheader ], [ %.10, %454 ]
   %.1580626 = phi float [ %.0579642, %.lr.ph.preheader ], [ %.7586, %454 ]
   %135 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %455, %454 ]
@@ -121480,8 +121480,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %184 = fcmp ogt float %178, 0.000000e+00
   %185 = fcmp ogt float %183, 0.000000e+00
   %or.cond3 = select i1 %184, i1 %185, i1 false
-  %.sroa.0527.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %.sroa.0526.0 = select i1 %or.cond3, float 0.000000e+00, float %40
+  %.sroa.0527.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %186 = mul nsw i32 %146, 3
   %187 = sext i32 %186 to i64
   %188 = getelementptr inbounds float, ptr %79, i64 %187
@@ -121767,20 +121767,20 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv662.sroa.phi781 = phi ptr [ %.sroa.0785.4.gep.sroa_idx788, %.preheader ], [ %.sroa.0785, %.thread ]
   %indvars.iv662.sroa.phi792 = phi ptr [ %.sroa.3795, %.preheader ], [ %.sroa.0794, %.thread ]
   %indvars.iv662.sroa.phi798 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0802, %.thread ]
-  %.0467620 = phi float [ %389, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.1488619 = phi float [ %383, %.preheader ], [ %.0487629, %.thread ]
-  %.1492618 = phi float [ %380, %.preheader ], [ %.0491628, %.thread ]
+  %.1472620 = phi float [ %380, %.preheader ], [ %.0471633, %.thread ]
+  %.1475619 = phi float [ %383, %.preheader ], [ %.0474632, %.thread ]
+  %.0490618 = phi float [ %389, %.preheader ], [ 0.000000e+00, %.thread ]
   %.6617 = phi float [ %391, %.preheader ], [ %.5578, %.thread ]
   %.5584616 = phi float [ %392, %.preheader ], [ %.4583, %.thread ]
   %378 = load float, ptr %indvars.iv662.sroa.phi798, align 4
   %379 = load float, ptr %indvars.iv662.sroa.phi721, align 4
-  %380 = tail call float @llvm.fmuladd.f32(float %378, float %379, float %.1492618)
+  %380 = tail call float @llvm.fmuladd.f32(float %378, float %379, float %.1472620)
   %381 = load float, ptr %indvars.iv662.sroa.phi792, align 4
   %382 = load float, ptr %indvars.iv662.sroa.phi, align 4
-  %383 = tail call float @llvm.fmuladd.f32(float %381, float %382, float %.1488619)
+  %383 = tail call float @llvm.fmuladd.f32(float %381, float %382, float %.1475619)
   %384 = load float, ptr %indvars.iv662.sroa.phi733, align 4
   %385 = fmul float %378, %384
-  %386 = tail call float @llvm.fmuladd.f32(float %385, float %222, float %.0467620)
+  %386 = tail call float @llvm.fmuladd.f32(float %385, float %222, float %.0490618)
   %387 = load float, ptr %indvars.iv662.sroa.phi727, align 4
   %388 = fmul float %381, %387
   %389 = tail call float @llvm.fmuladd.f32(float %388, float %222, float %386)
@@ -121792,9 +121792,9 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit609:                                     ; preds = %.preheader, %.critedge816
   %.6585 = phi float [ %.1580626, %.critedge816 ], [ %392, %.preheader ]
   %.7 = phi float [ %.1574627, %.critedge816 ], [ %391, %.preheader ]
-  %.2493 = phi float [ %.0491628, %.critedge816 ], [ %380, %.preheader ]
-  %.2489 = phi float [ %.0487629, %.critedge816 ], [ %383, %.preheader ]
-  %.1468 = phi float [ 0.000000e+00, %.critedge816 ], [ %389, %.preheader ]
+  %.1491 = phi float [ 0.000000e+00, %.critedge816 ], [ %389, %.preheader ]
+  %.2476 = phi float [ %.0474632, %.critedge816 ], [ %383, %.preheader ]
+  %.2473 = phi float [ %.0471633, %.critedge816 ], [ %380, %.preheader ]
   %393 = fcmp uge float %221, %50
   %.not606 = select i1 %144, i1 %393, i1 false
   br i1 %.not606, label %.loopexit, label %394
@@ -121839,16 +121839,16 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv665.sroa.phi = phi ptr [ %.sroa.0745, %394 ], [ %.sroa.3, %427 ]
   %indvars.iv665.sroa.phi783 = phi ptr [ %.sroa.0785, %394 ], [ %.sroa.0785.4.gep784.sroa_idx789, %427 ]
   %indvars.iv665.sroa.phi800 = phi ptr [ %.sroa.0802, %394 ], [ %.sroa.4, %427 ]
-  %.2469624 = phi float [ %.1468, %394 ], [ %435, %427 ]
-  %.3494623 = phi float [ %.2493, %394 ], [ %433, %427 ]
+  %.3624 = phi float [ %.2473, %394 ], [ %433, %427 ]
+  %.2492623 = phi float [ %.1491, %394 ], [ %435, %427 ]
   %.8622 = phi float [ %.7, %394 ], [ %439, %427 ]
   %429 = load float, ptr %indvars.iv665.sroa.phi800, align 4
   %430 = load float, ptr %indvars.iv665.sroa.phi, align 4
   %431 = fmul float %429, %430
   %432 = fmul float %426, %431
-  %433 = fsub float %.3494623, %432
+  %433 = fsub float %.3624, %432
   %434 = fmul float %424, %431
-  %435 = fsub float %.2469624, %434
+  %435 = fsub float %.2492623, %434
   %436 = load float, ptr %indvars.iv665.sroa.phi783, align 4
   %437 = fmul float %430, %436
   %438 = fmul float %426, %437
@@ -121857,18 +121857,18 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit:                                        ; preds = %427, %.loopexit609
   %.9 = phi float [ %.7, %.loopexit609 ], [ %439, %427 ]
-  %.4 = phi float [ %.2493, %.loopexit609 ], [ %433, %427 ]
-  %.3 = phi float [ %.1468, %.loopexit609 ], [ %435, %427 ]
-  %440 = fcmp une float %.3, 0.000000e+00
+  %.3493 = phi float [ %.1491, %.loopexit609 ], [ %435, %427 ]
+  %.4 = phi float [ %.2473, %.loopexit609 ], [ %433, %427 ]
+  %440 = fcmp une float %.3493, 0.000000e+00
   br i1 %440, label %441, label %454
 
 441:                                              ; preds = %.loopexit
-  %442 = insertelement <2 x float> poison, float %.3, i64 0
+  %442 = insertelement <2 x float> poison, float %.3493, i64 0
   %443 = shufflevector <2 x float> %442, <2 x float> poison, <2 x i32> zeroinitializer
   %444 = fmul <2 x float> %193, %443
-  %445 = fmul float %194, %.3
+  %445 = fmul float %194, %.3493
   %446 = fadd <2 x float> %135, %444
-  %447 = fadd float %.0481632, %445
+  %447 = fadd float %.0482629, %445
   %448 = getelementptr inbounds float, ptr %80, i64 %187
   %449 = load <2 x float>, ptr %448, align 4
   %450 = fsub <2 x float> %449, %444
@@ -121882,17 +121882,17 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 454:                                              ; preds = %.loopexit, %441, %.critedge504
   %.7586 = phi float [ %.6585, %441 ], [ %.6585, %.loopexit ], [ %.1580626, %.critedge504 ]
   %.10 = phi float [ %.9, %441 ], [ %.9, %.loopexit ], [ %.1574627, %.critedge504 ]
-  %.5 = phi float [ %.4, %441 ], [ %.4, %.loopexit ], [ %.0491628, %.critedge504 ]
-  %.3490 = phi float [ %.2489, %441 ], [ %.2489, %.loopexit ], [ %.0487629, %.critedge504 ]
-  %.1482 = phi float [ %447, %441 ], [ %.0481632, %.loopexit ], [ %.0481632, %.critedge504 ]
-  %.1478 = phi i1 [ true, %441 ], [ true, %.loopexit ], [ %.0477634, %.critedge504 ]
+  %.1483 = phi float [ %447, %441 ], [ %.0482629, %.loopexit ], [ %.0482629, %.critedge504 ]
+  %.3477 = phi float [ %.2476, %441 ], [ %.2476, %.loopexit ], [ %.0474632, %.critedge504 ]
+  %.5 = phi float [ %.4, %441 ], [ %.4, %.loopexit ], [ %.0471633, %.critedge504 ]
+  %.1469 = phi i1 [ true, %441 ], [ true, %.loopexit ], [ %.0468634, %.critedge504 ]
   %455 = phi <2 x float> [ %446, %441 ], [ %135, %.loopexit ], [ %135, %.critedge504 ]
   %indvars.iv.next669 = add nsw i64 %indvars.iv668, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next669, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1029
 
 ._crit_edge:                                      ; preds = %454
-  br i1 %.1478, label %456, label %._crit_edge.thread
+  br i1 %.1469, label %456, label %._crit_edge.thread
 
 456:                                              ; preds = %._crit_edge
   %457 = getelementptr inbounds float, ptr %80, i64 %112
@@ -121901,7 +121901,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %459, ptr %457, align 4
   %460 = getelementptr i8, ptr %457, i64 8
   %461 = load float, ptr %460, align 4
-  %462 = fadd float %.1482, %461
+  %462 = fadd float %.1483, %461
   store float %462, ptr %460, align 4
   br i1 %.not, label %472, label %463
 
@@ -121914,7 +121914,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %468, ptr %466, align 4
   %469 = getelementptr i8, ptr %466, i64 8
   %470 = load float, ptr %469, align 4
-  %471 = fadd float %.1482, %470
+  %471 = fadd float %.1483, %470
   store float %471, ptr %469, align 4
   br label %472
 
@@ -121931,7 +121931,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store float %479, ptr %477, align 4
   %480 = getelementptr inbounds float, ptr %98, i64 %476
   %481 = load float, ptr %480, align 4
-  %482 = fadd float %.3490, %481
+  %482 = fadd float %.3477, %481
   store float %482, ptr %480, align 4
   br label %._crit_edge.thread
 
@@ -123241,9 +123241,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv561 = phi i64 [ %134, %.lr.ph.preheader ], [ %indvars.iv.next562, %.loopexit ]
-  %.0399532 = phi i1 [ false, %.lr.ph.preheader ], [ %.1400, %.loopexit ]
-  %.0406530 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3, %.loopexit ]
-  %.0409529 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0397532 = phi i1 [ false, %.lr.ph.preheader ], [ %.1398, %.loopexit ]
+  %.0399531 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0402530 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3405, %.loopexit ]
   %.1478528 = phi float [ %.0477538, %.lr.ph.preheader ], [ %.9, %.loopexit ]
   %.1483527 = phi float [ %.0482537, %.lr.ph.preheader ], [ %.7489, %.loopexit ]
   %135 = load ptr, ptr %85, align 8
@@ -123311,8 +123311,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %183 = fcmp ogt float %177, 0.000000e+00
   %184 = fcmp ogt float %182, 0.000000e+00
   %or.cond3 = select i1 %183, i1 %184, i1 false
-  %.sroa.0442.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %.sroa.0441.0 = select i1 %or.cond3, float 0.000000e+00, float %40
+  %.sroa.0442.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %185 = mul nsw i32 %145, 3
   %186 = sext i32 %185 to i64
   %187 = getelementptr inbounds float, ptr %75, i64 %186
@@ -123577,16 +123577,16 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv555.sroa.phi653 = phi ptr [ %.sroa.0657.4.gep.sroa_idx660, %.preheader ], [ %.sroa.0657, %.thread ]
   %indvars.iv555.sroa.phi664 = phi ptr [ %.sroa.3667, %.preheader ], [ %.sroa.0666, %.thread ]
   %indvars.iv555.sroa.phi670 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0674, %.thread ]
-  %.1407522 = phi float [ %370, %.preheader ], [ %.0406530, %.thread ]
-  %.1410521 = phi float [ %367, %.preheader ], [ %.0409529, %.thread ]
+  %.1400522 = phi float [ %367, %.preheader ], [ %.0399531, %.thread ]
+  %.1403521 = phi float [ %370, %.preheader ], [ %.0402530, %.thread ]
   %.6520 = phi float [ %372, %.preheader ], [ %.5481, %.thread ]
   %.5487519 = phi float [ %373, %.preheader ], [ %.4486, %.thread ]
   %365 = load float, ptr %indvars.iv555.sroa.phi670, align 4
   %366 = load float, ptr %indvars.iv555.sroa.phi605, align 4
-  %367 = tail call float @llvm.fmuladd.f32(float %365, float %366, float %.1410521)
+  %367 = tail call float @llvm.fmuladd.f32(float %365, float %366, float %.1400522)
   %368 = load float, ptr %indvars.iv555.sroa.phi664, align 4
   %369 = load float, ptr %indvars.iv555.sroa.phi, align 4
-  %370 = tail call float @llvm.fmuladd.f32(float %368, float %369, float %.1407522)
+  %370 = tail call float @llvm.fmuladd.f32(float %368, float %369, float %.1403521)
   %371 = load float, ptr %indvars.iv555.sroa.phi653, align 4
   %372 = tail call float @llvm.fmuladd.f32(float %366, float %371, float %.6520)
   %373 = tail call float @llvm.fmuladd.f32(float %369, float %371, float %.5487519)
@@ -123595,8 +123595,8 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit512:                                     ; preds = %.preheader, %.critedge685
   %.6488 = phi float [ %.1483527, %.critedge685 ], [ %373, %.preheader ]
   %.7 = phi float [ %.1478528, %.critedge685 ], [ %372, %.preheader ]
-  %.2411 = phi float [ %.0409529, %.critedge685 ], [ %367, %.preheader ]
-  %.2408 = phi float [ %.0406530, %.critedge685 ], [ %370, %.preheader ]
+  %.2404 = phi float [ %.0402530, %.critedge685 ], [ %370, %.preheader ]
+  %.2401 = phi float [ %.0399531, %.critedge685 ], [ %367, %.preheader ]
   %374 = fcmp uge float %221, %49
   %.not509 = select i1 %143, i1 %374, i1 false
   br i1 %.not509, label %.loopexit, label %375
@@ -123625,13 +123625,13 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv558.sroa.phi = phi ptr [ %.sroa.0617, %375 ], [ %.sroa.3, %392 ]
   %indvars.iv558.sroa.phi655 = phi ptr [ %.sroa.0657, %375 ], [ %.sroa.0657.4.gep656.sroa_idx661, %392 ]
   %indvars.iv558.sroa.phi672 = phi ptr [ %.sroa.0674, %375 ], [ %.sroa.4, %392 ]
-  %.3412525 = phi float [ %.2411, %375 ], [ %398, %392 ]
+  %.3525 = phi float [ %.2401, %375 ], [ %398, %392 ]
   %.8524 = phi float [ %.7, %375 ], [ %402, %392 ]
   %394 = load float, ptr %indvars.iv558.sroa.phi672, align 4
   %395 = load float, ptr %indvars.iv558.sroa.phi, align 4
   %396 = fmul float %394, %395
   %397 = fmul float %391, %396
-  %398 = fsub float %.3412525, %397
+  %398 = fsub float %.3525, %397
   %399 = load float, ptr %indvars.iv558.sroa.phi655, align 4
   %400 = fmul float %395, %399
   %401 = fmul float %391, %400
@@ -123641,15 +123641,15 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit:                                        ; preds = %392, %.loopexit512, %.critedge421
   %.7489 = phi float [ %.6488, %.loopexit512 ], [ %.1483527, %.critedge421 ], [ %.6488, %392 ]
   %.9 = phi float [ %.7, %.loopexit512 ], [ %.1478528, %.critedge421 ], [ %402, %392 ]
-  %.5 = phi float [ %.2411, %.loopexit512 ], [ %.0409529, %.critedge421 ], [ %398, %392 ]
-  %.3 = phi float [ %.2408, %.loopexit512 ], [ %.0406530, %.critedge421 ], [ %.2408, %392 ]
-  %.1400 = phi i1 [ true, %.loopexit512 ], [ %.0399532, %.critedge421 ], [ true, %392 ]
+  %.3405 = phi float [ %.2404, %.loopexit512 ], [ %.0402530, %.critedge421 ], [ %.2404, %392 ]
+  %.5 = phi float [ %.2401, %.loopexit512 ], [ %.0399531, %.critedge421 ], [ %398, %392 ]
+  %.1398 = phi i1 [ true, %.loopexit512 ], [ %.0397532, %.critedge421 ], [ true, %392 ]
   %indvars.iv.next562 = add nsw i64 %indvars.iv561, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next562, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1044
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge425.not = and i1 %.not, %.1400
+  %brmerge425.not = and i1 %.not, %.1398
   br i1 %brmerge425.not, label %403, label %._crit_edge.thread
 
 403:                                              ; preds = %._crit_edge
@@ -123662,7 +123662,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store float %409, ptr %407, align 4
   %410 = getelementptr inbounds float, ptr %93, i64 %406
   %411 = load float, ptr %410, align 4
-  %412 = fadd float %.3, %411
+  %412 = fadd float %.3405, %411
   store float %412, ptr %410, align 4
   br label %._crit_edge.thread
 
@@ -125388,10 +125388,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %423
   %indvars.iv609 = phi i64 [ %121, %.lr.ph.preheader ], [ %indvars.iv.next610, %423 ]
-  %.0417575 = phi i1 [ false, %.lr.ph.preheader ], [ %.1418, %423 ]
-  %.0422573 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1423, %423 ]
-  %.0428570 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3431, %423 ]
-  %.0432569 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %423 ]
+  %.0409575 = phi i1 [ false, %.lr.ph.preheader ], [ %.1410, %423 ]
+  %.0412574 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %423 ]
+  %.0415573 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3418, %423 ]
+  %.0423570 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1424, %423 ]
   %.1515568 = phi float [ %.0514584, %.lr.ph.preheader ], [ %.10, %423 ]
   %.1521567 = phi float [ %.0520583, %.lr.ph.preheader ], [ %.7527, %423 ]
   %122 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %424, %423 ]
@@ -125460,8 +125460,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %171 = fcmp ogt float %165, 0.000000e+00
   %172 = fcmp ogt float %170, 0.000000e+00
   %or.cond3 = select i1 %171, i1 %172, i1 false
-  %.sroa.0468.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %.sroa.0467.0 = select i1 %or.cond3, float 0.000000e+00, float %40
+  %.sroa.0468.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %173 = mul nsw i32 %133, 3
   %174 = sext i32 %173 to i64
   %175 = getelementptr inbounds float, ptr %66, i64 %174
@@ -125727,20 +125727,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv603.sroa.phi722 = phi ptr [ %.sroa.0726.4.gep.sroa_idx729, %.preheader ], [ %.sroa.0726, %.thread ]
   %indvars.iv603.sroa.phi733 = phi ptr [ %.sroa.3736, %.preheader ], [ %.sroa.0735, %.thread ]
   %indvars.iv603.sroa.phi739 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0743, %.thread ]
-  %.0408561 = phi float [ %358, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.1429560 = phi float [ %352, %.preheader ], [ %.0428570, %.thread ]
-  %.1433559 = phi float [ %349, %.preheader ], [ %.0432569, %.thread ]
+  %.1413561 = phi float [ %349, %.preheader ], [ %.0412574, %.thread ]
+  %.1416560 = phi float [ %352, %.preheader ], [ %.0415573, %.thread ]
+  %.0431559 = phi float [ %358, %.preheader ], [ 0.000000e+00, %.thread ]
   %.6558 = phi float [ %360, %.preheader ], [ %.5519, %.thread ]
   %.5525557 = phi float [ %361, %.preheader ], [ %.4524, %.thread ]
   %347 = load float, ptr %indvars.iv603.sroa.phi739, align 4
   %348 = load float, ptr %indvars.iv603.sroa.phi662, align 4
-  %349 = tail call float @llvm.fmuladd.f32(float %347, float %348, float %.1433559)
+  %349 = tail call float @llvm.fmuladd.f32(float %347, float %348, float %.1413561)
   %350 = load float, ptr %indvars.iv603.sroa.phi733, align 4
   %351 = load float, ptr %indvars.iv603.sroa.phi, align 4
-  %352 = tail call float @llvm.fmuladd.f32(float %350, float %351, float %.1429560)
+  %352 = tail call float @llvm.fmuladd.f32(float %350, float %351, float %.1416560)
   %353 = load float, ptr %indvars.iv603.sroa.phi674, align 4
   %354 = fmul float %347, %353
-  %355 = tail call float @llvm.fmuladd.f32(float %354, float %209, float %.0408561)
+  %355 = tail call float @llvm.fmuladd.f32(float %354, float %209, float %.0431559)
   %356 = load float, ptr %indvars.iv603.sroa.phi668, align 4
   %357 = fmul float %350, %356
   %358 = tail call float @llvm.fmuladd.f32(float %357, float %209, float %355)
@@ -125752,9 +125752,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .loopexit550:                                     ; preds = %.preheader, %.critedge757
   %.6526 = phi float [ %.1521567, %.critedge757 ], [ %361, %.preheader ]
   %.7 = phi float [ %.1515568, %.critedge757 ], [ %360, %.preheader ]
-  %.2434 = phi float [ %.0432569, %.critedge757 ], [ %349, %.preheader ]
-  %.2430 = phi float [ %.0428570, %.critedge757 ], [ %352, %.preheader ]
-  %.1409 = phi float [ 0.000000e+00, %.critedge757 ], [ %358, %.preheader ]
+  %.1432 = phi float [ 0.000000e+00, %.critedge757 ], [ %358, %.preheader ]
+  %.2417 = phi float [ %.0415573, %.critedge757 ], [ %352, %.preheader ]
+  %.2414 = phi float [ %.0412574, %.critedge757 ], [ %349, %.preheader ]
   %362 = fcmp uge float %208, %50
   %.not547 = select i1 %131, i1 %362, i1 false
   br i1 %.not547, label %.loopexit, label %363
@@ -125799,16 +125799,16 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv606.sroa.phi = phi ptr [ %.sroa.0686, %363 ], [ %.sroa.3, %396 ]
   %indvars.iv606.sroa.phi724 = phi ptr [ %.sroa.0726, %363 ], [ %.sroa.0726.4.gep725.sroa_idx730, %396 ]
   %indvars.iv606.sroa.phi741 = phi ptr [ %.sroa.0743, %363 ], [ %.sroa.4, %396 ]
-  %.2410565 = phi float [ %.1409, %363 ], [ %404, %396 ]
-  %.3435564 = phi float [ %.2434, %363 ], [ %402, %396 ]
+  %.3565 = phi float [ %.2414, %363 ], [ %402, %396 ]
+  %.2433564 = phi float [ %.1432, %363 ], [ %404, %396 ]
   %.8563 = phi float [ %.7, %363 ], [ %408, %396 ]
   %398 = load float, ptr %indvars.iv606.sroa.phi741, align 4
   %399 = load float, ptr %indvars.iv606.sroa.phi, align 4
   %400 = fmul float %398, %399
   %401 = fmul float %395, %400
-  %402 = fsub float %.3435564, %401
+  %402 = fsub float %.3565, %401
   %403 = fmul float %393, %400
-  %404 = fsub float %.2410565, %403
+  %404 = fsub float %.2433564, %403
   %405 = load float, ptr %indvars.iv606.sroa.phi724, align 4
   %406 = fmul float %399, %405
   %407 = fmul float %395, %406
@@ -125817,18 +125817,18 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .loopexit:                                        ; preds = %396, %.loopexit550
   %.9 = phi float [ %.7, %.loopexit550 ], [ %408, %396 ]
-  %.4 = phi float [ %.2434, %.loopexit550 ], [ %402, %396 ]
-  %.3 = phi float [ %.1409, %.loopexit550 ], [ %404, %396 ]
-  %409 = fcmp une float %.3, 0.000000e+00
+  %.3434 = phi float [ %.1432, %.loopexit550 ], [ %404, %396 ]
+  %.4 = phi float [ %.2414, %.loopexit550 ], [ %402, %396 ]
+  %409 = fcmp une float %.3434, 0.000000e+00
   br i1 %409, label %410, label %423
 
 410:                                              ; preds = %.loopexit
-  %411 = insertelement <2 x float> poison, float %.3, i64 0
+  %411 = insertelement <2 x float> poison, float %.3434, i64 0
   %412 = shufflevector <2 x float> %411, <2 x float> poison, <2 x i32> zeroinitializer
   %413 = fmul <2 x float> %180, %412
-  %414 = fmul float %181, %.3
+  %414 = fmul float %181, %.3434
   %415 = fadd <2 x float> %122, %413
-  %416 = fadd float %.0422573, %414
+  %416 = fadd float %.0423570, %414
   %417 = getelementptr inbounds float, ptr %67, i64 %174
   %418 = load <2 x float>, ptr %417, align 4
   %419 = fsub <2 x float> %418, %413
@@ -125842,17 +125842,17 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 423:                                              ; preds = %.loopexit, %410, %.critedge445
   %.7527 = phi float [ %.6526, %410 ], [ %.6526, %.loopexit ], [ %.1521567, %.critedge445 ]
   %.10 = phi float [ %.9, %410 ], [ %.9, %.loopexit ], [ %.1515568, %.critedge445 ]
-  %.5 = phi float [ %.4, %410 ], [ %.4, %.loopexit ], [ %.0432569, %.critedge445 ]
-  %.3431 = phi float [ %.2430, %410 ], [ %.2430, %.loopexit ], [ %.0428570, %.critedge445 ]
-  %.1423 = phi float [ %416, %410 ], [ %.0422573, %.loopexit ], [ %.0422573, %.critedge445 ]
-  %.1418 = phi i1 [ true, %410 ], [ true, %.loopexit ], [ %.0417575, %.critedge445 ]
+  %.1424 = phi float [ %416, %410 ], [ %.0423570, %.loopexit ], [ %.0423570, %.critedge445 ]
+  %.3418 = phi float [ %.2417, %410 ], [ %.2417, %.loopexit ], [ %.0415573, %.critedge445 ]
+  %.5 = phi float [ %.4, %410 ], [ %.4, %.loopexit ], [ %.0412574, %.critedge445 ]
+  %.1410 = phi i1 [ true, %410 ], [ true, %.loopexit ], [ %.0409575, %.critedge445 ]
   %424 = phi <2 x float> [ %415, %410 ], [ %122, %.loopexit ], [ %122, %.critedge445 ]
   %indvars.iv.next610 = add nsw i64 %indvars.iv609, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next610, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1059
 
 ._crit_edge:                                      ; preds = %423
-  br i1 %.1418, label %425, label %._crit_edge.thread
+  br i1 %.1410, label %425, label %._crit_edge.thread
 
 425:                                              ; preds = %._crit_edge
   %426 = getelementptr inbounds float, ptr %67, i64 %99
@@ -125861,7 +125861,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %428, ptr %426, align 4
   %429 = getelementptr i8, ptr %426, i64 8
   %430 = load float, ptr %429, align 4
-  %431 = fadd float %.1423, %430
+  %431 = fadd float %.1424, %430
   store float %431, ptr %429, align 4
   br i1 %.not, label %441, label %432
 
@@ -125874,7 +125874,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %437, ptr %435, align 4
   %438 = getelementptr i8, ptr %435, i64 8
   %439 = load float, ptr %438, align 4
-  %440 = fadd float %.1423, %439
+  %440 = fadd float %.1424, %439
   store float %440, ptr %438, align 4
   br label %441
 
@@ -125891,7 +125891,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store float %448, ptr %446, align 4
   %449 = getelementptr inbounds float, ptr %85, i64 %445
   %450 = load float, ptr %449, align 4
-  %451 = fadd float %.3431, %450
+  %451 = fadd float %.3418, %450
   store float %451, ptr %449, align 4
   br label %._crit_edge.thread
 
@@ -127161,9 +127161,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv515 = phi i64 [ %124, %.lr.ph.preheader ], [ %indvars.iv.next516, %.loopexit ]
-  %.0353486 = phi i1 [ false, %.lr.ph.preheader ], [ %.1354, %.loopexit ]
-  %.0360484 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3, %.loopexit ]
-  %.0363483 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0351486 = phi i1 [ false, %.lr.ph.preheader ], [ %.1352, %.loopexit ]
+  %.0353485 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0356484 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3359, %.loopexit ]
   %.1432482 = phi float [ %.0431492, %.lr.ph.preheader ], [ %.9, %.loopexit ]
   %.1437481 = phi float [ %.0436491, %.lr.ph.preheader ], [ %.7443, %.loopexit ]
   %125 = load ptr, ptr %75, align 8
@@ -127231,8 +127231,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %173 = fcmp ogt float %167, 0.000000e+00
   %174 = fcmp ogt float %172, 0.000000e+00
   %or.cond3 = select i1 %173, i1 %174, i1 false
-  %.sroa.0396.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %.sroa.0395.0 = select i1 %or.cond3, float 0.000000e+00, float %40
+  %.sroa.0396.0 = select i1 %or.cond3, float 0.000000e+00, float %42
   %175 = mul nsw i32 %135, 3
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds float, ptr %65, i64 %176
@@ -127484,16 +127484,16 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv509.sroa.phi607 = phi ptr [ %.sroa.0611.4.gep.sroa_idx614, %.preheader ], [ %.sroa.0611, %.thread ]
   %indvars.iv509.sroa.phi618 = phi ptr [ %.sroa.3621, %.preheader ], [ %.sroa.0620, %.thread ]
   %indvars.iv509.sroa.phi624 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0628, %.thread ]
-  %.1361476 = phi float [ %350, %.preheader ], [ %.0360484, %.thread ]
-  %.1364475 = phi float [ %347, %.preheader ], [ %.0363483, %.thread ]
+  %.1354476 = phi float [ %347, %.preheader ], [ %.0353485, %.thread ]
+  %.1357475 = phi float [ %350, %.preheader ], [ %.0356484, %.thread ]
   %.6474 = phi float [ %352, %.preheader ], [ %.5435, %.thread ]
   %.5441473 = phi float [ %353, %.preheader ], [ %.4440, %.thread ]
   %345 = load float, ptr %indvars.iv509.sroa.phi624, align 4
   %346 = load float, ptr %indvars.iv509.sroa.phi559, align 4
-  %347 = tail call float @llvm.fmuladd.f32(float %345, float %346, float %.1364475)
+  %347 = tail call float @llvm.fmuladd.f32(float %345, float %346, float %.1354476)
   %348 = load float, ptr %indvars.iv509.sroa.phi618, align 4
   %349 = load float, ptr %indvars.iv509.sroa.phi, align 4
-  %350 = tail call float @llvm.fmuladd.f32(float %348, float %349, float %.1361476)
+  %350 = tail call float @llvm.fmuladd.f32(float %348, float %349, float %.1357475)
   %351 = load float, ptr %indvars.iv509.sroa.phi607, align 4
   %352 = tail call float @llvm.fmuladd.f32(float %346, float %351, float %.6474)
   %353 = tail call float @llvm.fmuladd.f32(float %349, float %351, float %.5441473)
@@ -127502,8 +127502,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .loopexit466:                                     ; preds = %.preheader, %.critedge639
   %.6442 = phi float [ %.1437481, %.critedge639 ], [ %353, %.preheader ]
   %.7 = phi float [ %.1432482, %.critedge639 ], [ %352, %.preheader ]
-  %.2365 = phi float [ %.0363483, %.critedge639 ], [ %347, %.preheader ]
-  %.2362 = phi float [ %.0360484, %.critedge639 ], [ %350, %.preheader ]
+  %.2358 = phi float [ %.0356484, %.critedge639 ], [ %350, %.preheader ]
+  %.2355 = phi float [ %.0353485, %.critedge639 ], [ %347, %.preheader ]
   %354 = fcmp uge float %211, %49
   %.not463 = select i1 %133, i1 %354, i1 false
   br i1 %.not463, label %.loopexit, label %355
@@ -127532,13 +127532,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv512.sroa.phi = phi ptr [ %.sroa.0571, %355 ], [ %.sroa.3, %372 ]
   %indvars.iv512.sroa.phi609 = phi ptr [ %.sroa.0611, %355 ], [ %.sroa.0611.4.gep610.sroa_idx615, %372 ]
   %indvars.iv512.sroa.phi626 = phi ptr [ %.sroa.0628, %355 ], [ %.sroa.4, %372 ]
-  %.3366479 = phi float [ %.2365, %355 ], [ %378, %372 ]
+  %.3479 = phi float [ %.2355, %355 ], [ %378, %372 ]
   %.8478 = phi float [ %.7, %355 ], [ %382, %372 ]
   %374 = load float, ptr %indvars.iv512.sroa.phi626, align 4
   %375 = load float, ptr %indvars.iv512.sroa.phi, align 4
   %376 = fmul float %374, %375
   %377 = fmul float %371, %376
-  %378 = fsub float %.3366479, %377
+  %378 = fsub float %.3479, %377
   %379 = load float, ptr %indvars.iv512.sroa.phi609, align 4
   %380 = fmul float %375, %379
   %381 = fmul float %371, %380
@@ -127548,15 +127548,15 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .loopexit:                                        ; preds = %372, %.loopexit466, %.critedge375
   %.7443 = phi float [ %.6442, %.loopexit466 ], [ %.1437481, %.critedge375 ], [ %.6442, %372 ]
   %.9 = phi float [ %.7, %.loopexit466 ], [ %.1432482, %.critedge375 ], [ %382, %372 ]
-  %.5 = phi float [ %.2365, %.loopexit466 ], [ %.0363483, %.critedge375 ], [ %378, %372 ]
-  %.3 = phi float [ %.2362, %.loopexit466 ], [ %.0360484, %.critedge375 ], [ %.2362, %372 ]
-  %.1354 = phi i1 [ true, %.loopexit466 ], [ %.0353486, %.critedge375 ], [ true, %372 ]
+  %.3359 = phi float [ %.2358, %.loopexit466 ], [ %.0356484, %.critedge375 ], [ %.2358, %372 ]
+  %.5 = phi float [ %.2355, %.loopexit466 ], [ %.0353485, %.critedge375 ], [ %378, %372 ]
+  %.1352 = phi i1 [ true, %.loopexit466 ], [ %.0351486, %.critedge375 ], [ true, %372 ]
   %indvars.iv.next516 = add nsw i64 %indvars.iv515, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next516, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1074
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge379.not = and i1 %.not, %.1354
+  %brmerge379.not = and i1 %.not, %.1352
   br i1 %brmerge379.not, label %383, label %._crit_edge.thread
 
 383:                                              ; preds = %._crit_edge
@@ -127569,7 +127569,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store float %389, ptr %387, align 4
   %390 = getelementptr inbounds float, ptr %83, i64 %386
   %391 = load float, ptr %390, align 4
-  %392 = fadd float %.3, %391
+  %392 = fadd float %.3359, %391
   store float %392, ptr %390, align 4
   br label %._crit_edge.thread
 
@@ -129396,7 +129396,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv695 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next696, %._crit_edge.thread ]
-  %.0490668 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1491.lcssa715, %._crit_edge.thread ]
+  %.0482668 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1483.lcssa715, %._crit_edge.thread ]
   %.0588666 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1589.lcssa714, %._crit_edge.thread ]
   %.0594665 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1595.lcssa713, %._crit_edge.thread ]
   %110 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv695
@@ -129444,11 +129444,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %451
   %indvars.iv693 = phi i64 [ %145, %.lr.ph.preheader ], [ %indvars.iv.next694, %451 ]
-  %.1491656 = phi i8 [ %.0490668, %.lr.ph.preheader ], [ %.3493, %451 ]
-  %.0497655 = phi i1 [ false, %.lr.ph.preheader ], [ %.1498, %451 ]
-  %.0501653 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1502, %451 ]
-  %.0507650 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3510, %451 ]
-  %.0511649 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %451 ]
+  %.1483656 = phi i8 [ %.0482668, %.lr.ph.preheader ], [ %.3, %451 ]
+  %.0486655 = phi i1 [ false, %.lr.ph.preheader ], [ %.1487, %451 ]
+  %.0489654 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %451 ]
+  %.0493653 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3496, %451 ]
+  %.0502650 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1503, %451 ]
   %.1589648 = phi float [ %.0588666, %.lr.ph.preheader ], [ %.10, %451 ]
   %.1595647 = phi float [ %.0594665, %.lr.ph.preheader ], [ %.7601, %451 ]
   %146 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %452, %451 ]
@@ -129517,8 +129517,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %195 = fcmp ogt float %189, 0.000000e+00
   %196 = fcmp ogt float %194, 0.000000e+00
   %or.cond3 = select i1 %195, i1 %196, i1 false
-  %.sroa.0542.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %.sroa.0541.0 = select i1 %or.cond3, float 0.000000e+00, float %43
+  %.sroa.0542.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %197 = mul nsw i32 %157, 3
   %198 = sext i32 %197 to i64
   %199 = getelementptr inbounds float, ptr %86, i64 %198
@@ -129812,20 +129812,20 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv687.sroa.phi813 = phi ptr [ %.sroa.0817.4.gep.sroa_idx820, %.preheader ], [ %.sroa.0817, %.thread ]
   %indvars.iv687.sroa.phi824 = phi ptr [ %.sroa.3827, %.preheader ], [ %.sroa.0826, %.thread ]
   %indvars.iv687.sroa.phi830 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0834, %.thread ]
-  %.0483641 = phi float [ %408, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.1508640 = phi float [ %402, %.preheader ], [ %.0507650, %.thread ]
-  %.1512639 = phi float [ %399, %.preheader ], [ %.0511649, %.thread ]
+  %.1490642 = phi float [ %399, %.preheader ], [ %.0489654, %.thread ]
+  %.1494641 = phi float [ %402, %.preheader ], [ %.0493653, %.thread ]
+  %.0510639 = phi float [ %408, %.preheader ], [ 0.000000e+00, %.thread ]
   %.6638 = phi float [ %410, %.preheader ], [ %.5593, %.thread ]
   %.5599637 = phi float [ %411, %.preheader ], [ %.4598, %.thread ]
   %397 = load float, ptr %indvars.iv687.sroa.phi830, align 4
   %398 = load float, ptr %indvars.iv687.sroa.phi753, align 4
-  %399 = tail call float @llvm.fmuladd.f32(float %397, float %398, float %.1512639)
+  %399 = tail call float @llvm.fmuladd.f32(float %397, float %398, float %.1490642)
   %400 = load float, ptr %indvars.iv687.sroa.phi824, align 4
   %401 = load float, ptr %indvars.iv687.sroa.phi, align 4
-  %402 = tail call float @llvm.fmuladd.f32(float %400, float %401, float %.1508640)
+  %402 = tail call float @llvm.fmuladd.f32(float %400, float %401, float %.1494641)
   %403 = load float, ptr %indvars.iv687.sroa.phi765, align 4
   %404 = fmul float %397, %403
-  %405 = tail call float @llvm.fmuladd.f32(float %404, float %233, float %.0483641)
+  %405 = tail call float @llvm.fmuladd.f32(float %404, float %233, float %.0510639)
   %406 = load float, ptr %indvars.iv687.sroa.phi759, align 4
   %407 = fmul float %400, %406
   %408 = tail call float @llvm.fmuladd.f32(float %407, float %233, float %405)
@@ -129837,13 +129837,13 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit630:                                     ; preds = %.preheader, %.critedge848
   %.6600 = phi float [ %.1595647, %.critedge848 ], [ %411, %.preheader ]
   %.7 = phi float [ %.1589648, %.critedge848 ], [ %410, %.preheader ]
-  %.2513 = phi float [ %.0511649, %.critedge848 ], [ %399, %.preheader ]
-  %.2509 = phi float [ %.0507650, %.critedge848 ], [ %402, %.preheader ]
-  %.1484 = phi float [ 0.000000e+00, %.critedge848 ], [ %408, %.preheader ]
+  %.1511 = phi float [ 0.000000e+00, %.critedge848 ], [ %408, %.preheader ]
+  %.2495 = phi float [ %.0493653, %.critedge848 ], [ %402, %.preheader ]
+  %.2491 = phi float [ %.0489654, %.critedge848 ], [ %399, %.preheader ]
   br i1 %80, label %412, label %.loopexit
 
 412:                                              ; preds = %.loopexit630
-  %413 = trunc nuw i8 %.1491656 to i1
+  %413 = trunc nuw i8 %.1483656 to i1
   br i1 %413, label %417, label %414
 
 414:                                              ; preds = %412
@@ -129867,16 +129867,16 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv690.sroa.phi = phi ptr [ %.sroa.0777, %420 ], [ %.sroa.3, %424 ]
   %indvars.iv690.sroa.phi815 = phi ptr [ %.sroa.0817, %420 ], [ %.sroa.0817.4.gep816.sroa_idx821, %424 ]
   %indvars.iv690.sroa.phi832 = phi ptr [ %.sroa.0834, %420 ], [ %.sroa.4, %424 ]
-  %.2485645 = phi float [ %.1484, %420 ], [ %432, %424 ]
-  %.3514644 = phi float [ %.2513, %420 ], [ %430, %424 ]
+  %.3492645 = phi float [ %.2491, %420 ], [ %430, %424 ]
+  %.2512644 = phi float [ %.1511, %420 ], [ %432, %424 ]
   %.8643 = phi float [ %.7, %420 ], [ %436, %424 ]
   %426 = load float, ptr %indvars.iv690.sroa.phi832, align 4
   %427 = load float, ptr %indvars.iv690.sroa.phi, align 4
   %428 = fmul float %426, %427
   %429 = fmul float %423, %428
-  %430 = fadd float %.3514644, %429
+  %430 = fadd float %.3492645, %429
   %431 = fmul float %105, %428
-  %432 = fsub float %.2485645, %431
+  %432 = fsub float %.2512644, %431
   %433 = load float, ptr %indvars.iv690.sroa.phi815, align 4
   %434 = fmul float %427, %433
   %435 = fmul float %423, %434
@@ -129885,19 +129885,19 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 
 .loopexit:                                        ; preds = %424, %417, %.loopexit630
   %.9 = phi float [ %.7, %417 ], [ %.7, %.loopexit630 ], [ %436, %424 ]
-  %.4 = phi float [ %.2513, %417 ], [ %.2513, %.loopexit630 ], [ %430, %424 ]
-  %.2492 = phi i8 [ %419, %417 ], [ %.1491656, %.loopexit630 ], [ %419, %424 ]
-  %.3 = phi float [ %.1484, %417 ], [ %.1484, %.loopexit630 ], [ %432, %424 ]
-  %437 = fcmp une float %.3, 0.000000e+00
+  %.3513 = phi float [ %.1511, %417 ], [ %.1511, %.loopexit630 ], [ %432, %424 ]
+  %.4 = phi float [ %.2491, %417 ], [ %.2491, %.loopexit630 ], [ %430, %424 ]
+  %.2484 = phi i8 [ %419, %417 ], [ %.1483656, %.loopexit630 ], [ %419, %424 ]
+  %437 = fcmp une float %.3513, 0.000000e+00
   br i1 %437, label %438, label %451
 
 438:                                              ; preds = %.loopexit
-  %439 = insertelement <2 x float> poison, float %.3, i64 0
+  %439 = insertelement <2 x float> poison, float %.3513, i64 0
   %440 = shufflevector <2 x float> %439, <2 x float> poison, <2 x i32> zeroinitializer
   %441 = fmul <2 x float> %204, %440
-  %442 = fmul float %205, %.3
+  %442 = fmul float %205, %.3513
   %443 = fadd <2 x float> %146, %441
-  %444 = fadd float %.0501653, %442
+  %444 = fadd float %.0502650, %442
   %445 = getelementptr inbounds float, ptr %87, i64 %198
   %446 = load <2 x float>, ptr %445, align 4
   %447 = fsub <2 x float> %446, %441
@@ -129911,18 +129911,18 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 451:                                              ; preds = %.loopexit, %438, %.critedge524
   %.7601 = phi float [ %.6600, %438 ], [ %.6600, %.loopexit ], [ %.1595647, %.critedge524 ]
   %.10 = phi float [ %.9, %438 ], [ %.9, %.loopexit ], [ %.1589648, %.critedge524 ]
-  %.5 = phi float [ %.4, %438 ], [ %.4, %.loopexit ], [ %.0511649, %.critedge524 ]
-  %.3510 = phi float [ %.2509, %438 ], [ %.2509, %.loopexit ], [ %.0507650, %.critedge524 ]
-  %.1502 = phi float [ %444, %438 ], [ %.0501653, %.loopexit ], [ %.0501653, %.critedge524 ]
-  %.1498 = phi i1 [ true, %438 ], [ true, %.loopexit ], [ %.0497655, %.critedge524 ]
-  %.3493 = phi i8 [ %.2492, %438 ], [ %.2492, %.loopexit ], [ %.1491656, %.critedge524 ]
+  %.1503 = phi float [ %444, %438 ], [ %.0502650, %.loopexit ], [ %.0502650, %.critedge524 ]
+  %.3496 = phi float [ %.2495, %438 ], [ %.2495, %.loopexit ], [ %.0493653, %.critedge524 ]
+  %.5 = phi float [ %.4, %438 ], [ %.4, %.loopexit ], [ %.0489654, %.critedge524 ]
+  %.1487 = phi i1 [ true, %438 ], [ true, %.loopexit ], [ %.0486655, %.critedge524 ]
+  %.3 = phi i8 [ %.2484, %438 ], [ %.2484, %.loopexit ], [ %.1483656, %.critedge524 ]
   %452 = phi <2 x float> [ %443, %438 ], [ %146, %.loopexit ], [ %146, %.critedge524 ]
   %indvars.iv.next694 = add nsw i64 %indvars.iv693, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next694, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1089
 
 ._crit_edge:                                      ; preds = %451
-  br i1 %.1498, label %453, label %._crit_edge.thread
+  br i1 %.1487, label %453, label %._crit_edge.thread
 
 453:                                              ; preds = %._crit_edge
   %454 = getelementptr inbounds float, ptr %87, i64 %123
@@ -129931,7 +129931,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %456, ptr %454, align 4
   %457 = getelementptr i8, ptr %454, i64 8
   %458 = load float, ptr %457, align 4
-  %459 = fadd float %.1502, %458
+  %459 = fadd float %.1503, %458
   store float %459, ptr %457, align 4
   br i1 %.not, label %469, label %460
 
@@ -129944,7 +129944,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store <2 x float> %465, ptr %463, align 4
   %466 = getelementptr i8, ptr %463, i64 8
   %467 = load float, ptr %466, align 4
-  %468 = fadd float %.1502, %467
+  %468 = fadd float %.1503, %467
   store float %468, ptr %466, align 4
   br label %469
 
@@ -129961,19 +129961,19 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store float %476, ptr %474, align 4
   %477 = getelementptr inbounds float, ptr %109, i64 %473
   %478 = load float, ptr %477, align 4
-  %479 = fadd float %.3510, %478
+  %479 = fadd float %.3496, %478
   store float %479, ptr %477, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %470, %469
-  %.1491.lcssa715 = phi i8 [ %.3493, %._crit_edge ], [ %.3493, %470 ], [ %.3493, %469 ], [ %.0490668, %.critedge ]
+  %.1483.lcssa715 = phi i8 [ %.3, %._crit_edge ], [ %.3, %470 ], [ %.3, %469 ], [ %.0482668, %.critedge ]
   %.1589.lcssa714 = phi float [ %.10, %._crit_edge ], [ %.10, %470 ], [ %.10, %469 ], [ %.0588666, %.critedge ]
   %.1595.lcssa713 = phi float [ %.7601, %._crit_edge ], [ %.7601, %470 ], [ %.7601, %469 ], [ %.0594665, %.critedge ]
   %exitcond698.not = icmp eq i64 %indvars.iv.next696, %wide.trip.count697
   br i1 %exitcond698.not, label %._crit_edge669, label %.critedge, !llvm.loop !1090
 
 ._crit_edge669:                                   ; preds = %._crit_edge.thread
-  %480 = trunc nuw i8 %.1491.lcssa715 to i1
+  %480 = trunc nuw i8 %.1483.lcssa715 to i1
   %481 = fcmp une float %.1589.lcssa714, 0.000000e+00
   br i1 %481, label %482, label %488
 
@@ -130000,7 +130000,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br label %.thread721
 
 .thread721:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %490, %488
-  %.0490.lcssa720724 = phi i1 [ %480, %490 ], [ %480, %488 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0482.lcssa720724 = phi i1 [ %480, %490 ], [ %480, %488 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %496 = load i32, ptr %0, align 8
   %497 = mul nsw i32 %496, 12
   %498 = sext i32 %23 to i64
@@ -130010,7 +130010,7 @@ _ZL30lennardJonesQuadraticPotentialILb1EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %502 = mul nsw i32 %501, 150
   %503 = add nsw i32 %502, %497
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %503)
-  %504 = select i1 %80, i1 %.0490.lcssa720724, i1 false
+  %504 = select i1 %80, i1 %.0482.lcssa720724, i1 false
   br i1 %504, label %505, label %516
 
 505:                                              ; preds = %.thread721
@@ -131372,7 +131372,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv595 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next596, %._crit_edge.thread ]
-  %.0419570 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1420.lcssa613, %._crit_edge.thread ]
+  %.0415570 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1416.lcssa613, %._crit_edge.thread ]
   %.0499568 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1500.lcssa612, %._crit_edge.thread ]
   %.0504567 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1505.lcssa611, %._crit_edge.thread ]
   %103 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv595
@@ -131425,10 +131425,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv593 = phi i64 [ %143, %.lr.ph.preheader ], [ %indvars.iv.next594, %.loopexit ]
-  %.1420561 = phi i8 [ %.0419570, %.lr.ph.preheader ], [ %.3, %.loopexit ]
-  %.0423560 = phi i1 [ false, %.lr.ph.preheader ], [ %.1424, %.loopexit ]
-  %.0430558 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3433, %.loopexit ]
-  %.0434557 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.1416561 = phi i8 [ %.0415570, %.lr.ph.preheader ], [ %.3, %.loopexit ]
+  %.0419560 = phi i1 [ false, %.lr.ph.preheader ], [ %.1420, %.loopexit ]
+  %.0422559 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0426558 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3429, %.loopexit ]
   %.1500556 = phi float [ %.0499568, %.lr.ph.preheader ], [ %.9, %.loopexit ]
   %.1505555 = phi float [ %.0504567, %.lr.ph.preheader ], [ %.7511, %.loopexit ]
   %144 = load ptr, ptr %92, align 8
@@ -131496,8 +131496,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %192 = fcmp ogt float %186, 0.000000e+00
   %193 = fcmp ogt float %191, 0.000000e+00
   %or.cond3 = select i1 %192, i1 %193, i1 false
-  %.sroa.0464.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %.sroa.0463.0 = select i1 %or.cond3, float 0.000000e+00, float %43
+  %.sroa.0464.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %194 = mul nsw i32 %154, 3
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds float, ptr %82, i64 %195
@@ -131764,16 +131764,16 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv587.sroa.phi692 = phi ptr [ %.sroa.0696.4.gep.sroa_idx699, %.preheader ], [ %.sroa.0696, %.thread ]
   %indvars.iv587.sroa.phi703 = phi ptr [ %.sroa.3706, %.preheader ], [ %.sroa.0705, %.thread ]
   %indvars.iv587.sroa.phi709 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0713, %.thread ]
-  %.1431550 = phi float [ %381, %.preheader ], [ %.0430558, %.thread ]
-  %.1435549 = phi float [ %378, %.preheader ], [ %.0434557, %.thread ]
+  %.1423550 = phi float [ %378, %.preheader ], [ %.0422559, %.thread ]
+  %.1427549 = phi float [ %381, %.preheader ], [ %.0426558, %.thread ]
   %.6548 = phi float [ %383, %.preheader ], [ %.5503, %.thread ]
   %.5509547 = phi float [ %384, %.preheader ], [ %.4508, %.thread ]
   %376 = load float, ptr %indvars.iv587.sroa.phi709, align 4
   %377 = load float, ptr %indvars.iv587.sroa.phi644, align 4
-  %378 = tail call float @llvm.fmuladd.f32(float %376, float %377, float %.1435549)
+  %378 = tail call float @llvm.fmuladd.f32(float %376, float %377, float %.1423550)
   %379 = load float, ptr %indvars.iv587.sroa.phi703, align 4
   %380 = load float, ptr %indvars.iv587.sroa.phi, align 4
-  %381 = tail call float @llvm.fmuladd.f32(float %379, float %380, float %.1431550)
+  %381 = tail call float @llvm.fmuladd.f32(float %379, float %380, float %.1427549)
   %382 = load float, ptr %indvars.iv587.sroa.phi692, align 4
   %383 = tail call float @llvm.fmuladd.f32(float %377, float %382, float %.6548)
   %384 = tail call float @llvm.fmuladd.f32(float %380, float %382, float %.5509547)
@@ -131782,12 +131782,12 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit540:                                     ; preds = %.preheader, %.critedge724
   %.6510 = phi float [ %.1505555, %.critedge724 ], [ %384, %.preheader ]
   %.7 = phi float [ %.1500556, %.critedge724 ], [ %383, %.preheader ]
-  %.2436 = phi float [ %.0434557, %.critedge724 ], [ %378, %.preheader ]
-  %.2432 = phi float [ %.0430558, %.critedge724 ], [ %381, %.preheader ]
+  %.2428 = phi float [ %.0426558, %.critedge724 ], [ %381, %.preheader ]
+  %.2424 = phi float [ %.0422559, %.critedge724 ], [ %378, %.preheader ]
   br i1 %76, label %385, label %.loopexit
 
 385:                                              ; preds = %.loopexit540
-  %386 = trunc nuw i8 %.1420561 to i1
+  %386 = trunc nuw i8 %.1416561 to i1
   br i1 %386, label %390, label %387
 
 387:                                              ; preds = %385
@@ -131811,13 +131811,13 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %indvars.iv590.sroa.phi = phi ptr [ %.sroa.0656, %393 ], [ %.sroa.3, %397 ]
   %indvars.iv590.sroa.phi694 = phi ptr [ %.sroa.0696, %393 ], [ %.sroa.0696.4.gep695.sroa_idx700, %397 ]
   %indvars.iv590.sroa.phi711 = phi ptr [ %.sroa.0713, %393 ], [ %.sroa.4, %397 ]
-  %.3437553 = phi float [ %.2436, %393 ], [ %403, %397 ]
+  %.3425553 = phi float [ %.2424, %393 ], [ %403, %397 ]
   %.8552 = phi float [ %.7, %393 ], [ %407, %397 ]
   %399 = load float, ptr %indvars.iv590.sroa.phi711, align 4
   %400 = load float, ptr %indvars.iv590.sroa.phi, align 4
   %401 = fmul float %399, %400
   %402 = fmul float %396, %401
-  %403 = fadd float %.3437553, %402
+  %403 = fadd float %.3425553, %402
   %404 = load float, ptr %indvars.iv590.sroa.phi694, align 4
   %405 = fmul float %400, %404
   %406 = fmul float %396, %405
@@ -131827,16 +131827,16 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
 .loopexit:                                        ; preds = %397, %.loopexit540, %390, %.critedge446
   %.7511 = phi float [ %.6510, %390 ], [ %.6510, %.loopexit540 ], [ %.1505555, %.critedge446 ], [ %.6510, %397 ]
   %.9 = phi float [ %.7, %390 ], [ %.7, %.loopexit540 ], [ %.1500556, %.critedge446 ], [ %407, %397 ]
-  %.5 = phi float [ %.2436, %390 ], [ %.2436, %.loopexit540 ], [ %.0434557, %.critedge446 ], [ %403, %397 ]
-  %.3433 = phi float [ %.2432, %390 ], [ %.2432, %.loopexit540 ], [ %.0430558, %.critedge446 ], [ %.2432, %397 ]
-  %.1424 = phi i1 [ true, %390 ], [ true, %.loopexit540 ], [ %.0423560, %.critedge446 ], [ true, %397 ]
-  %.3 = phi i8 [ %392, %390 ], [ %.1420561, %.loopexit540 ], [ %.1420561, %.critedge446 ], [ %392, %397 ]
+  %.3429 = phi float [ %.2428, %390 ], [ %.2428, %.loopexit540 ], [ %.0426558, %.critedge446 ], [ %.2428, %397 ]
+  %.5 = phi float [ %.2424, %390 ], [ %.2424, %.loopexit540 ], [ %.0422559, %.critedge446 ], [ %403, %397 ]
+  %.1420 = phi i1 [ true, %390 ], [ true, %.loopexit540 ], [ %.0419560, %.critedge446 ], [ true, %397 ]
+  %.3 = phi i8 [ %392, %390 ], [ %.1416561, %.loopexit540 ], [ %.1416561, %.critedge446 ], [ %392, %397 ]
   %indvars.iv.next594 = add nsw i64 %indvars.iv593, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next594, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1104
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge450.not = and i1 %.not, %.1424
+  %brmerge450.not = and i1 %.not, %.1420
   br i1 %brmerge450.not, label %408, label %._crit_edge.thread
 
 408:                                              ; preds = %._crit_edge
@@ -131849,19 +131849,19 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   store float %414, ptr %412, align 4
   %415 = getelementptr inbounds float, ptr %102, i64 %411
   %416 = load float, ptr %415, align 4
-  %417 = fadd float %.3433, %416
+  %417 = fadd float %.3429, %416
   store float %417, ptr %415, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %408
-  %.1420.lcssa613 = phi i8 [ %.3, %._crit_edge ], [ %.3, %408 ], [ %.0419570, %.critedge ]
+  %.1416.lcssa613 = phi i8 [ %.3, %._crit_edge ], [ %.3, %408 ], [ %.0415570, %.critedge ]
   %.1500.lcssa612 = phi float [ %.9, %._crit_edge ], [ %.9, %408 ], [ %.0499568, %.critedge ]
   %.1505.lcssa611 = phi float [ %.7511, %._crit_edge ], [ %.7511, %408 ], [ %.0504567, %.critedge ]
   %exitcond598.not = icmp eq i64 %indvars.iv.next596, %wide.trip.count597
   br i1 %exitcond598.not, label %._crit_edge571, label %.critedge, !llvm.loop !1105
 
 ._crit_edge571:                                   ; preds = %._crit_edge.thread
-  %418 = trunc nuw i8 %.1420.lcssa613 to i1
+  %418 = trunc nuw i8 %.1416.lcssa613 to i1
   %419 = fcmp une float %.1500.lcssa612, 0.000000e+00
   br i1 %419, label %420, label %426
 
@@ -131888,7 +131888,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   br label %.thread619
 
 .thread619:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %428, %426
-  %.0419.lcssa618622 = phi i1 [ %418, %428 ], [ %418, %426 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0415.lcssa618622 = phi i1 [ %418, %428 ], [ %418, %426 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %434 = load i32, ptr %0, align 8
   %435 = mul nsw i32 %434, 12
   %436 = sext i32 %23 to i64
@@ -131898,7 +131898,7 @@ _ZL30lennardJonesQuadraticPotentialILb0EfbEvT0_S0_S0_S0_ffS0_S0_ffPS0_S1_S1_T1_.
   %440 = mul nsw i32 %439, 150
   %441 = add nsw i32 %440, %435
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %441)
-  %442 = select i1 %76, i1 %.0419.lcssa618622, i1 false
+  %442 = select i1 %76, i1 %.0415.lcssa618622, i1 false
   br i1 %442, label %443, label %454
 
 443:                                              ; preds = %.thread619
@@ -133679,7 +133679,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv636 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next637, %._crit_edge.thread ]
-  %.0431609 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1432.lcssa656, %._crit_edge.thread ]
+  %.0423609 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1424.lcssa656, %._crit_edge.thread ]
   %.0529607 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1530.lcssa655, %._crit_edge.thread ]
   %.0535606 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1536.lcssa654, %._crit_edge.thread ]
   %97 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv636
@@ -133727,11 +133727,11 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %420
   %indvars.iv634 = phi i64 [ %132, %.lr.ph.preheader ], [ %indvars.iv.next635, %420 ]
-  %.1432597 = phi i8 [ %.0431609, %.lr.ph.preheader ], [ %.3434, %420 ]
-  %.0437596 = phi i1 [ false, %.lr.ph.preheader ], [ %.1438, %420 ]
-  %.0442594 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1443, %420 ]
-  %.0448591 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3451, %420 ]
-  %.0452590 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %420 ]
+  %.1424597 = phi i8 [ %.0423609, %.lr.ph.preheader ], [ %.3, %420 ]
+  %.0427596 = phi i1 [ false, %.lr.ph.preheader ], [ %.1428, %420 ]
+  %.0430595 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %420 ]
+  %.0434594 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3437, %420 ]
+  %.0443591 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1444, %420 ]
   %.1530589 = phi float [ %.0529607, %.lr.ph.preheader ], [ %.10, %420 ]
   %.1536588 = phi float [ %.0535606, %.lr.ph.preheader ], [ %.7542, %420 ]
   %133 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %421, %420 ]
@@ -133800,8 +133800,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %182 = fcmp ogt float %176, 0.000000e+00
   %183 = fcmp ogt float %181, 0.000000e+00
   %or.cond3 = select i1 %182, i1 %183, i1 false
-  %.sroa.0483.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %.sroa.0482.0 = select i1 %or.cond3, float 0.000000e+00, float %43
+  %.sroa.0483.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %184 = mul nsw i32 %144, 3
   %185 = sext i32 %184 to i64
   %186 = getelementptr inbounds float, ptr %73, i64 %185
@@ -134075,20 +134075,20 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv628.sroa.phi754 = phi ptr [ %.sroa.0758.4.gep.sroa_idx761, %.preheader ], [ %.sroa.0758, %.thread ]
   %indvars.iv628.sroa.phi765 = phi ptr [ %.sroa.3768, %.preheader ], [ %.sroa.0767, %.thread ]
   %indvars.iv628.sroa.phi771 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0775, %.thread ]
-  %.0424582 = phi float [ %377, %.preheader ], [ 0.000000e+00, %.thread ]
-  %.1449581 = phi float [ %371, %.preheader ], [ %.0448591, %.thread ]
-  %.1453580 = phi float [ %368, %.preheader ], [ %.0452590, %.thread ]
+  %.1431583 = phi float [ %368, %.preheader ], [ %.0430595, %.thread ]
+  %.1435582 = phi float [ %371, %.preheader ], [ %.0434594, %.thread ]
+  %.0451580 = phi float [ %377, %.preheader ], [ 0.000000e+00, %.thread ]
   %.6579 = phi float [ %379, %.preheader ], [ %.5534, %.thread ]
   %.5540578 = phi float [ %380, %.preheader ], [ %.4539, %.thread ]
   %366 = load float, ptr %indvars.iv628.sroa.phi771, align 4
   %367 = load float, ptr %indvars.iv628.sroa.phi694, align 4
-  %368 = tail call float @llvm.fmuladd.f32(float %366, float %367, float %.1453580)
+  %368 = tail call float @llvm.fmuladd.f32(float %366, float %367, float %.1431583)
   %369 = load float, ptr %indvars.iv628.sroa.phi765, align 4
   %370 = load float, ptr %indvars.iv628.sroa.phi, align 4
-  %371 = tail call float @llvm.fmuladd.f32(float %369, float %370, float %.1449581)
+  %371 = tail call float @llvm.fmuladd.f32(float %369, float %370, float %.1435582)
   %372 = load float, ptr %indvars.iv628.sroa.phi706, align 4
   %373 = fmul float %366, %372
-  %374 = tail call float @llvm.fmuladd.f32(float %373, float %220, float %.0424582)
+  %374 = tail call float @llvm.fmuladd.f32(float %373, float %220, float %.0451580)
   %375 = load float, ptr %indvars.iv628.sroa.phi700, align 4
   %376 = fmul float %369, %375
   %377 = tail call float @llvm.fmuladd.f32(float %376, float %220, float %374)
@@ -134100,13 +134100,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .loopexit571:                                     ; preds = %.preheader, %.critedge789
   %.6541 = phi float [ %.1536588, %.critedge789 ], [ %380, %.preheader ]
   %.7 = phi float [ %.1530589, %.critedge789 ], [ %379, %.preheader ]
-  %.2454 = phi float [ %.0452590, %.critedge789 ], [ %368, %.preheader ]
-  %.2450 = phi float [ %.0448591, %.critedge789 ], [ %371, %.preheader ]
-  %.1425 = phi float [ 0.000000e+00, %.critedge789 ], [ %377, %.preheader ]
+  %.1452 = phi float [ 0.000000e+00, %.critedge789 ], [ %377, %.preheader ]
+  %.2436 = phi float [ %.0434594, %.critedge789 ], [ %371, %.preheader ]
+  %.2432 = phi float [ %.0430595, %.critedge789 ], [ %368, %.preheader ]
   br i1 %67, label %381, label %.loopexit
 
 381:                                              ; preds = %.loopexit571
-  %382 = trunc nuw i8 %.1432597 to i1
+  %382 = trunc nuw i8 %.1424597 to i1
   br i1 %382, label %386, label %383
 
 383:                                              ; preds = %381
@@ -134130,16 +134130,16 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv631.sroa.phi = phi ptr [ %.sroa.0718, %389 ], [ %.sroa.3, %393 ]
   %indvars.iv631.sroa.phi756 = phi ptr [ %.sroa.0758, %389 ], [ %.sroa.0758.4.gep757.sroa_idx762, %393 ]
   %indvars.iv631.sroa.phi773 = phi ptr [ %.sroa.0775, %389 ], [ %.sroa.4, %393 ]
-  %.2426586 = phi float [ %.1425, %389 ], [ %401, %393 ]
-  %.3455585 = phi float [ %.2454, %389 ], [ %399, %393 ]
+  %.3433586 = phi float [ %.2432, %389 ], [ %399, %393 ]
+  %.2453585 = phi float [ %.1452, %389 ], [ %401, %393 ]
   %.8584 = phi float [ %.7, %389 ], [ %405, %393 ]
   %395 = load float, ptr %indvars.iv631.sroa.phi773, align 4
   %396 = load float, ptr %indvars.iv631.sroa.phi, align 4
   %397 = fmul float %395, %396
   %398 = fmul float %392, %397
-  %399 = fadd float %.3455585, %398
+  %399 = fadd float %.3433586, %398
   %400 = fmul float %92, %397
-  %401 = fsub float %.2426586, %400
+  %401 = fsub float %.2453585, %400
   %402 = load float, ptr %indvars.iv631.sroa.phi756, align 4
   %403 = fmul float %396, %402
   %404 = fmul float %392, %403
@@ -134148,19 +134148,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .loopexit:                                        ; preds = %393, %386, %.loopexit571
   %.9 = phi float [ %.7, %386 ], [ %.7, %.loopexit571 ], [ %405, %393 ]
-  %.4 = phi float [ %.2454, %386 ], [ %.2454, %.loopexit571 ], [ %399, %393 ]
-  %.2433 = phi i8 [ %388, %386 ], [ %.1432597, %.loopexit571 ], [ %388, %393 ]
-  %.3 = phi float [ %.1425, %386 ], [ %.1425, %.loopexit571 ], [ %401, %393 ]
-  %406 = fcmp une float %.3, 0.000000e+00
+  %.3454 = phi float [ %.1452, %386 ], [ %.1452, %.loopexit571 ], [ %401, %393 ]
+  %.4 = phi float [ %.2432, %386 ], [ %.2432, %.loopexit571 ], [ %399, %393 ]
+  %.2425 = phi i8 [ %388, %386 ], [ %.1424597, %.loopexit571 ], [ %388, %393 ]
+  %406 = fcmp une float %.3454, 0.000000e+00
   br i1 %406, label %407, label %420
 
 407:                                              ; preds = %.loopexit
-  %408 = insertelement <2 x float> poison, float %.3, i64 0
+  %408 = insertelement <2 x float> poison, float %.3454, i64 0
   %409 = shufflevector <2 x float> %408, <2 x float> poison, <2 x i32> zeroinitializer
   %410 = fmul <2 x float> %191, %409
-  %411 = fmul float %192, %.3
+  %411 = fmul float %192, %.3454
   %412 = fadd <2 x float> %133, %410
-  %413 = fadd float %.0442594, %411
+  %413 = fadd float %.0443591, %411
   %414 = getelementptr inbounds float, ptr %74, i64 %185
   %415 = load <2 x float>, ptr %414, align 4
   %416 = fsub <2 x float> %415, %410
@@ -134174,18 +134174,18 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 420:                                              ; preds = %.loopexit, %407, %.critedge465
   %.7542 = phi float [ %.6541, %407 ], [ %.6541, %.loopexit ], [ %.1536588, %.critedge465 ]
   %.10 = phi float [ %.9, %407 ], [ %.9, %.loopexit ], [ %.1530589, %.critedge465 ]
-  %.5 = phi float [ %.4, %407 ], [ %.4, %.loopexit ], [ %.0452590, %.critedge465 ]
-  %.3451 = phi float [ %.2450, %407 ], [ %.2450, %.loopexit ], [ %.0448591, %.critedge465 ]
-  %.1443 = phi float [ %413, %407 ], [ %.0442594, %.loopexit ], [ %.0442594, %.critedge465 ]
-  %.1438 = phi i1 [ true, %407 ], [ true, %.loopexit ], [ %.0437596, %.critedge465 ]
-  %.3434 = phi i8 [ %.2433, %407 ], [ %.2433, %.loopexit ], [ %.1432597, %.critedge465 ]
+  %.1444 = phi float [ %413, %407 ], [ %.0443591, %.loopexit ], [ %.0443591, %.critedge465 ]
+  %.3437 = phi float [ %.2436, %407 ], [ %.2436, %.loopexit ], [ %.0434594, %.critedge465 ]
+  %.5 = phi float [ %.4, %407 ], [ %.4, %.loopexit ], [ %.0430595, %.critedge465 ]
+  %.1428 = phi i1 [ true, %407 ], [ true, %.loopexit ], [ %.0427596, %.critedge465 ]
+  %.3 = phi i8 [ %.2425, %407 ], [ %.2425, %.loopexit ], [ %.1424597, %.critedge465 ]
   %421 = phi <2 x float> [ %412, %407 ], [ %133, %.loopexit ], [ %133, %.critedge465 ]
   %indvars.iv.next635 = add nsw i64 %indvars.iv634, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next635, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1119
 
 ._crit_edge:                                      ; preds = %420
-  br i1 %.1438, label %422, label %._crit_edge.thread
+  br i1 %.1428, label %422, label %._crit_edge.thread
 
 422:                                              ; preds = %._crit_edge
   %423 = getelementptr inbounds float, ptr %74, i64 %110
@@ -134194,7 +134194,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %425, ptr %423, align 4
   %426 = getelementptr i8, ptr %423, i64 8
   %427 = load float, ptr %426, align 4
-  %428 = fadd float %.1443, %427
+  %428 = fadd float %.1444, %427
   store float %428, ptr %426, align 4
   br i1 %.not, label %438, label %429
 
@@ -134207,7 +134207,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store <2 x float> %434, ptr %432, align 4
   %435 = getelementptr i8, ptr %432, i64 8
   %436 = load float, ptr %435, align 4
-  %437 = fadd float %.1443, %436
+  %437 = fadd float %.1444, %436
   store float %437, ptr %435, align 4
   br label %438
 
@@ -134224,19 +134224,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store float %445, ptr %443, align 4
   %446 = getelementptr inbounds float, ptr %96, i64 %442
   %447 = load float, ptr %446, align 4
-  %448 = fadd float %.3451, %447
+  %448 = fadd float %.3437, %447
   store float %448, ptr %446, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %439, %438
-  %.1432.lcssa656 = phi i8 [ %.3434, %._crit_edge ], [ %.3434, %439 ], [ %.3434, %438 ], [ %.0431609, %.critedge ]
+  %.1424.lcssa656 = phi i8 [ %.3, %._crit_edge ], [ %.3, %439 ], [ %.3, %438 ], [ %.0423609, %.critedge ]
   %.1530.lcssa655 = phi float [ %.10, %._crit_edge ], [ %.10, %439 ], [ %.10, %438 ], [ %.0529607, %.critedge ]
   %.1536.lcssa654 = phi float [ %.7542, %._crit_edge ], [ %.7542, %439 ], [ %.7542, %438 ], [ %.0535606, %.critedge ]
   %exitcond639.not = icmp eq i64 %indvars.iv.next637, %wide.trip.count638
   br i1 %exitcond639.not, label %._crit_edge610, label %.critedge, !llvm.loop !1120
 
 ._crit_edge610:                                   ; preds = %._crit_edge.thread
-  %449 = trunc nuw i8 %.1432.lcssa656 to i1
+  %449 = trunc nuw i8 %.1424.lcssa656 to i1
   %450 = fcmp une float %.1530.lcssa655, 0.000000e+00
   br i1 %450, label %451, label %457
 
@@ -134263,7 +134263,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %.thread662
 
 .thread662:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %459, %457
-  %.0431.lcssa661665 = phi i1 [ %449, %459 ], [ %449, %457 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0423.lcssa661665 = phi i1 [ %449, %459 ], [ %449, %457 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %465 = load i32, ptr %0, align 8
   %466 = mul nsw i32 %465, 12
   %467 = sext i32 %23 to i64
@@ -134273,7 +134273,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %471 = mul nsw i32 %470, 150
   %472 = add nsw i32 %471, %466
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %472)
-  %473 = select i1 %67, i1 %.0431.lcssa661665, i1 false
+  %473 = select i1 %67, i1 %.0423.lcssa661665, i1 false
   br i1 %473, label %474, label %485
 
 474:                                              ; preds = %.thread662
@@ -135595,7 +135595,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %._crit_edge.thread
   %indvars.iv549 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next550, %._crit_edge.thread ]
-  %.0373524 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1374.lcssa567, %._crit_edge.thread ]
+  %.0369524 = phi i8 [ 0, %.critedge.lr.ph ], [ %.1370.lcssa567, %._crit_edge.thread ]
   %.0453522 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1454.lcssa566, %._crit_edge.thread ]
   %.0458521 = phi float [ 0.000000e+00, %.critedge.lr.ph ], [ %.1459.lcssa565, %._crit_edge.thread ]
   %93 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv549
@@ -135648,10 +135648,10 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv547 = phi i64 [ %133, %.lr.ph.preheader ], [ %indvars.iv.next548, %.loopexit ]
-  %.1374515 = phi i8 [ %.0373524, %.lr.ph.preheader ], [ %.3, %.loopexit ]
-  %.0378514 = phi i1 [ false, %.lr.ph.preheader ], [ %.1379, %.loopexit ]
-  %.0384512 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3387, %.loopexit ]
-  %.0388511 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.1370515 = phi i8 [ %.0369524, %.lr.ph.preheader ], [ %.3, %.loopexit ]
+  %.0373514 = phi i1 [ false, %.lr.ph.preheader ], [ %.1374, %.loopexit ]
+  %.0376513 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.5, %.loopexit ]
+  %.0380512 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.3383, %.loopexit ]
   %.1454510 = phi float [ %.0453522, %.lr.ph.preheader ], [ %.9, %.loopexit ]
   %.1459509 = phi float [ %.0458521, %.lr.ph.preheader ], [ %.7465, %.loopexit ]
   %134 = load ptr, ptr %82, align 8
@@ -135719,8 +135719,8 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %182 = fcmp ogt float %176, 0.000000e+00
   %183 = fcmp ogt float %181, 0.000000e+00
   %or.cond3 = select i1 %182, i1 %183, i1 false
-  %.sroa.0418.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %.sroa.0417.0 = select i1 %or.cond3, float 0.000000e+00, float %43
+  %.sroa.0418.0 = select i1 %or.cond3, float 0.000000e+00, float %45
   %184 = mul nsw i32 %144, 3
   %185 = sext i32 %184 to i64
   %186 = getelementptr inbounds float, ptr %72, i64 %185
@@ -135974,16 +135974,16 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv541.sroa.phi646 = phi ptr [ %.sroa.0650.4.gep.sroa_idx653, %.preheader ], [ %.sroa.0650, %.thread ]
   %indvars.iv541.sroa.phi657 = phi ptr [ %.sroa.3660, %.preheader ], [ %.sroa.0659, %.thread ]
   %indvars.iv541.sroa.phi663 = phi ptr [ %.sroa.4, %.preheader ], [ %.sroa.0667, %.thread ]
-  %.1385504 = phi float [ %361, %.preheader ], [ %.0384512, %.thread ]
-  %.1389503 = phi float [ %358, %.preheader ], [ %.0388511, %.thread ]
+  %.1377504 = phi float [ %358, %.preheader ], [ %.0376513, %.thread ]
+  %.1381503 = phi float [ %361, %.preheader ], [ %.0380512, %.thread ]
   %.6502 = phi float [ %363, %.preheader ], [ %.5457, %.thread ]
   %.5463501 = phi float [ %364, %.preheader ], [ %.4462, %.thread ]
   %356 = load float, ptr %indvars.iv541.sroa.phi663, align 4
   %357 = load float, ptr %indvars.iv541.sroa.phi598, align 4
-  %358 = tail call float @llvm.fmuladd.f32(float %356, float %357, float %.1389503)
+  %358 = tail call float @llvm.fmuladd.f32(float %356, float %357, float %.1377504)
   %359 = load float, ptr %indvars.iv541.sroa.phi657, align 4
   %360 = load float, ptr %indvars.iv541.sroa.phi, align 4
-  %361 = tail call float @llvm.fmuladd.f32(float %359, float %360, float %.1385504)
+  %361 = tail call float @llvm.fmuladd.f32(float %359, float %360, float %.1381503)
   %362 = load float, ptr %indvars.iv541.sroa.phi646, align 4
   %363 = tail call float @llvm.fmuladd.f32(float %357, float %362, float %.6502)
   %364 = tail call float @llvm.fmuladd.f32(float %360, float %362, float %.5463501)
@@ -135992,12 +135992,12 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .loopexit494:                                     ; preds = %.preheader, %.critedge678
   %.6464 = phi float [ %.1459509, %.critedge678 ], [ %364, %.preheader ]
   %.7 = phi float [ %.1454510, %.critedge678 ], [ %363, %.preheader ]
-  %.2390 = phi float [ %.0388511, %.critedge678 ], [ %358, %.preheader ]
-  %.2386 = phi float [ %.0384512, %.critedge678 ], [ %361, %.preheader ]
+  %.2382 = phi float [ %.0380512, %.critedge678 ], [ %361, %.preheader ]
+  %.2378 = phi float [ %.0376513, %.critedge678 ], [ %358, %.preheader ]
   br i1 %66, label %365, label %.loopexit
 
 365:                                              ; preds = %.loopexit494
-  %366 = trunc nuw i8 %.1374515 to i1
+  %366 = trunc nuw i8 %.1370515 to i1
   br i1 %366, label %370, label %367
 
 367:                                              ; preds = %365
@@ -136021,13 +136021,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %indvars.iv544.sroa.phi = phi ptr [ %.sroa.0610, %373 ], [ %.sroa.3, %377 ]
   %indvars.iv544.sroa.phi648 = phi ptr [ %.sroa.0650, %373 ], [ %.sroa.0650.4.gep649.sroa_idx654, %377 ]
   %indvars.iv544.sroa.phi665 = phi ptr [ %.sroa.0667, %373 ], [ %.sroa.4, %377 ]
-  %.3391507 = phi float [ %.2390, %373 ], [ %383, %377 ]
+  %.3379507 = phi float [ %.2378, %373 ], [ %383, %377 ]
   %.8506 = phi float [ %.7, %373 ], [ %387, %377 ]
   %379 = load float, ptr %indvars.iv544.sroa.phi665, align 4
   %380 = load float, ptr %indvars.iv544.sroa.phi, align 4
   %381 = fmul float %379, %380
   %382 = fmul float %376, %381
-  %383 = fadd float %.3391507, %382
+  %383 = fadd float %.3379507, %382
   %384 = load float, ptr %indvars.iv544.sroa.phi648, align 4
   %385 = fmul float %380, %384
   %386 = fmul float %376, %385
@@ -136037,16 +136037,16 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
 .loopexit:                                        ; preds = %377, %.loopexit494, %370, %.critedge400
   %.7465 = phi float [ %.6464, %370 ], [ %.6464, %.loopexit494 ], [ %.1459509, %.critedge400 ], [ %.6464, %377 ]
   %.9 = phi float [ %.7, %370 ], [ %.7, %.loopexit494 ], [ %.1454510, %.critedge400 ], [ %387, %377 ]
-  %.5 = phi float [ %.2390, %370 ], [ %.2390, %.loopexit494 ], [ %.0388511, %.critedge400 ], [ %383, %377 ]
-  %.3387 = phi float [ %.2386, %370 ], [ %.2386, %.loopexit494 ], [ %.0384512, %.critedge400 ], [ %.2386, %377 ]
-  %.1379 = phi i1 [ true, %370 ], [ true, %.loopexit494 ], [ %.0378514, %.critedge400 ], [ true, %377 ]
-  %.3 = phi i8 [ %372, %370 ], [ %.1374515, %.loopexit494 ], [ %.1374515, %.critedge400 ], [ %372, %377 ]
+  %.3383 = phi float [ %.2382, %370 ], [ %.2382, %.loopexit494 ], [ %.0380512, %.critedge400 ], [ %.2382, %377 ]
+  %.5 = phi float [ %.2378, %370 ], [ %.2378, %.loopexit494 ], [ %.0376513, %.critedge400 ], [ %383, %377 ]
+  %.1374 = phi i1 [ true, %370 ], [ true, %.loopexit494 ], [ %.0373514, %.critedge400 ], [ true, %377 ]
+  %.3 = phi i8 [ %372, %370 ], [ %.1370515, %.loopexit494 ], [ %.1370515, %.critedge400 ], [ %372, %377 ]
   %indvars.iv.next548 = add nsw i64 %indvars.iv547, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next548, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1134
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %brmerge404.not = and i1 %.not, %.1379
+  %brmerge404.not = and i1 %.not, %.1374
   br i1 %brmerge404.not, label %388, label %._crit_edge.thread
 
 388:                                              ; preds = %._crit_edge
@@ -136059,19 +136059,19 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   store float %394, ptr %392, align 4
   %395 = getelementptr inbounds float, ptr %92, i64 %391
   %396 = load float, ptr %395, align 4
-  %397 = fadd float %.3387, %396
+  %397 = fadd float %.3383, %396
   store float %397, ptr %395, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge, %388
-  %.1374.lcssa567 = phi i8 [ %.3, %._crit_edge ], [ %.3, %388 ], [ %.0373524, %.critedge ]
+  %.1370.lcssa567 = phi i8 [ %.3, %._crit_edge ], [ %.3, %388 ], [ %.0369524, %.critedge ]
   %.1454.lcssa566 = phi float [ %.9, %._crit_edge ], [ %.9, %388 ], [ %.0453522, %.critedge ]
   %.1459.lcssa565 = phi float [ %.7465, %._crit_edge ], [ %.7465, %388 ], [ %.0458521, %.critedge ]
   %exitcond552.not = icmp eq i64 %indvars.iv.next550, %wide.trip.count551
   br i1 %exitcond552.not, label %._crit_edge525, label %.critedge, !llvm.loop !1135
 
 ._crit_edge525:                                   ; preds = %._crit_edge.thread
-  %398 = trunc nuw i8 %.1374.lcssa567 to i1
+  %398 = trunc nuw i8 %.1370.lcssa567 to i1
   %399 = fcmp une float %.1454.lcssa566, 0.000000e+00
   br i1 %399, label %400, label %406
 
@@ -136098,7 +136098,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   br label %.thread573
 
 .thread573:                                       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit, %408, %406
-  %.0373.lcssa572576 = phi i1 [ %398, %408 ], [ %398, %406 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
+  %.0369.lcssa572576 = phi i1 [ %398, %408 ], [ %398, %406 ], [ false, %_ZL7usingRFRK22CoulombInteractionType.exit ]
   %414 = load i32, ptr %0, align 8
   %415 = mul nsw i32 %414, 12
   %416 = sext i32 %23 to i64
@@ -136108,7 +136108,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit:
   %420 = mul nsw i32 %419, 150
   %421 = add nsw i32 %420, %415
   tail call void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef %14, i32 noundef 24, i32 noundef %421)
-  %422 = select i1 %66, i1 %.0373.lcssa572576, i1 false
+  %422 = select i1 %66, i1 %.0369.lcssa572576, i1 false
   br i1 %422, label %423, label %434
 
 423:                                              ; preds = %.thread573

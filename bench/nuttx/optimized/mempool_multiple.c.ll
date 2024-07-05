@@ -25,16 +25,16 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
-  %.0108127 = phi i64 [ %.1109, %.lr.ph ], [ %13, %12 ]
+  %.0110126 = phi i64 [ %.1111, %.lr.ph ], [ %13, %12 ]
   %14 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
-  %.1109 = tail call i64 @llvm.umin.i64(i64 %.0108127, i64 %15)
+  %.1111 = tail call i64 @llvm.umin.i64(i64 %.0110126, i64 %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
-  %.0108.lcssa = phi i64 [ %13, %12 ], [ %.1109, %.lr.ph ]
+  %.0110.lcssa = phi i64 [ %13, %12 ], [ %.1111, %.lr.ph ]
   %16 = tail call ptr %3(ptr noundef %6, i64 noundef 8, i64 noundef 184) #6
   %17 = icmp eq ptr %16, null
   br i1 %17, label %82, label %18
@@ -67,7 +67,7 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
   %32 = getelementptr inbounds i8, ptr %16, i64 8
   store i64 %2, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %16, i64 24
-  store i64 %.0108.lcssa, ptr %33, align 8
+  store i64 %.0110.lcssa, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %16, i64 72
   store i64 0, ptr %34, align 8
   br i1 %.not138, label %._crit_edge132, label %.lr.ph131
@@ -183,8 +183,8 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
   br label %82
 
 82:                                               ; preds = %._crit_edge, %10, %81, %70
-  %.0107 = phi ptr [ null, %81 ], [ %16, %70 ], [ null, %10 ], [ null, %._crit_edge ]
-  ret ptr %.0107
+  %.0 = phi ptr [ null, %81 ], [ %16, %70 ], [ null, %10 ], [ null, %._crit_edge ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -268,15 +268,15 @@ define internal fastcc ptr @mempool_multiple_alloc_chunk(ptr nocapture noundef %
   br label %55
 
 55:                                               ; preds = %54, %23
-  %.0 = phi ptr [ %46, %54 ], [ %25, %23 ]
-  %56 = getelementptr inbounds i8, ptr %.0, i64 16
+  %.052 = phi ptr [ %46, %54 ], [ %25, %23 ]
+  %56 = getelementptr inbounds i8, ptr %.052, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = add i64 %1, -1
   %60 = add i64 %59, %58
   %61 = sub i64 0, %1
   %62 = and i64 %60, %61
-  %63 = getelementptr inbounds i8, ptr %.0, i64 24
+  %63 = getelementptr inbounds i8, ptr %.052, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = ptrtoint ptr %64 to i64
   %66 = sub i64 %65, %62
@@ -290,7 +290,7 @@ define internal fastcc ptr @mempool_multiple_alloc_chunk(ptr nocapture noundef %
 
 68:                                               ; preds = %55
   %69 = inttoptr i64 %62 to ptr
-  %70 = getelementptr inbounds i8, ptr %.0, i64 32
+  %70 = getelementptr inbounds i8, ptr %.052, i64 32
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, 1
   store i64 %72, ptr %70, align 8
@@ -299,8 +299,8 @@ define internal fastcc ptr @mempool_multiple_alloc_chunk(ptr nocapture noundef %
   br label %74
 
 74:                                               ; preds = %27, %9, %15, %68
-  %.052 = phi ptr [ %69, %68 ], [ %14, %15 ], [ null, %9 ], [ null, %27 ]
-  ret ptr %.052
+  %.0 = phi ptr [ %69, %68 ], [ %14, %15 ], [ null, %9 ], [ null, %27 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -583,19 +583,19 @@ mempool_multiple_find.exit.thread15:              ; preds = %10, %mempool_multip
   br label %36
 
 36:                                               ; preds = %38, %mempool_multiple_find.exit.thread15
-  %.0 = phi ptr [ %.030.i17, %mempool_multiple_find.exit.thread15 ], [ %39, %38 ]
-  %37 = tail call ptr @mempool_alloc(ptr noundef nonnull %.0) #6
+  %.010 = phi ptr [ %.030.i17, %mempool_multiple_find.exit.thread15 ], [ %39, %38 ]
+  %37 = tail call ptr @mempool_alloc(ptr noundef nonnull %.010) #6
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %38, label %mempool_multiple_find.exit.thread
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %.0, i64 184
+  %39 = getelementptr inbounds i8, ptr %.010, i64 184
   %40 = icmp ult ptr %39, %35
   br i1 %40, label %36, label %mempool_multiple_find.exit.thread, !llvm.loop !13
 
 mempool_multiple_find.exit.thread:                ; preds = %38, %36, %._crit_edge.i, %2, %13, %mempool_multiple_find.exit
-  %.010 = phi ptr [ null, %mempool_multiple_find.exit ], [ null, %13 ], [ null, %2 ], [ null, %._crit_edge.i ], [ null, %38 ], [ %37, %36 ]
-  ret ptr %.010
+  %.0 = phi ptr [ null, %mempool_multiple_find.exit ], [ null, %13 ], [ null, %2 ], [ null, %._crit_edge.i ], [ null, %38 ], [ %37, %36 ]
+  ret ptr %.0
 }
 
 declare ptr @mempool_alloc(ptr noundef) local_unnamed_addr #1
@@ -677,13 +677,13 @@ mempool_multiple_find.exit.thread15.i:            ; preds = %mempool_multiple_fi
   br label %39
 
 39:                                               ; preds = %41, %mempool_multiple_find.exit.thread15.i
-  %.0.i = phi ptr [ %.030.i17.i, %mempool_multiple_find.exit.thread15.i ], [ %42, %41 ]
-  %40 = tail call ptr @mempool_alloc(ptr noundef nonnull %.0.i) #6
+  %.010.i = phi ptr [ %.030.i17.i, %mempool_multiple_find.exit.thread15.i ], [ %42, %41 ]
+  %40 = tail call ptr @mempool_alloc(ptr noundef nonnull %.010.i) #6
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %41, label %mempool_multiple_alloc.exit
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %.0.i, i64 184
+  %42 = getelementptr inbounds i8, ptr %.010.i, i64 184
   %43 = icmp ult ptr %42, %38
   br i1 %43, label %39, label %mempool_multiple_alloc.exit, !llvm.loop !13
 
@@ -798,13 +798,13 @@ mempool_multiple_find.exit.thread15.i30:          ; preds = %mempool_multiple_fi
   br label %105
 
 105:                                              ; preds = %107, %mempool_multiple_find.exit.thread15.i30
-  %.0.i32 = phi ptr [ %.030.i17.i31, %mempool_multiple_find.exit.thread15.i30 ], [ %108, %107 ]
-  %106 = tail call ptr @mempool_alloc(ptr noundef nonnull %.0.i32) #6
+  %.010.i32 = phi ptr [ %.030.i17.i31, %mempool_multiple_find.exit.thread15.i30 ], [ %108, %107 ]
+  %106 = tail call ptr @mempool_alloc(ptr noundef nonnull %.010.i32) #6
   %.not.i33 = icmp eq ptr %106, null
   br i1 %.not.i33, label %107, label %mempool_multiple_alloc.exit46
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %.0.i32, i64 184
+  %108 = getelementptr inbounds i8, ptr %.010.i32, i64 184
   %109 = icmp ult ptr %108, %104
   br i1 %109, label %105, label %mempool_multiple_alloc.exit, !llvm.loop !13
 
@@ -1068,8 +1068,8 @@ mempool_multiple_find.exit.thread18:              ; preds = %12, %mempool_multip
   br label %38
 
 38:                                               ; preds = %47, %mempool_multiple_find.exit.thread18
-  %.0 = phi ptr [ %.030.i20, %mempool_multiple_find.exit.thread18 ], [ %48, %47 ]
-  %39 = tail call ptr @mempool_alloc(ptr noundef nonnull %.0) #6
+  %.013 = phi ptr [ %.030.i20, %mempool_multiple_find.exit.thread18 ], [ %48, %47 ]
+  %39 = tail call ptr @mempool_alloc(ptr noundef nonnull %.013) #6
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %47, label %40
 
@@ -1083,13 +1083,13 @@ mempool_multiple_find.exit.thread18:              ; preds = %12, %mempool_multip
   br label %mempool_multiple_find.exit.thread
 
 47:                                               ; preds = %38
-  %48 = getelementptr inbounds i8, ptr %.0, i64 184
+  %48 = getelementptr inbounds i8, ptr %.013, i64 184
   %49 = icmp ult ptr %48, %37
   br i1 %49, label %38, label %mempool_multiple_find.exit.thread, !llvm.loop !14
 
 mempool_multiple_find.exit.thread:                ; preds = %47, %._crit_edge.i, %3, %15, %mempool_multiple_find.exit, %40
-  %.013 = phi ptr [ %46, %40 ], [ null, %mempool_multiple_find.exit ], [ null, %15 ], [ null, %3 ], [ null, %._crit_edge.i ], [ null, %47 ]
-  ret ptr %.013
+  %.0 = phi ptr [ %46, %40 ], [ null, %mempool_multiple_find.exit ], [ null, %15 ], [ null, %3 ], [ null, %._crit_edge.i ], [ null, %47 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

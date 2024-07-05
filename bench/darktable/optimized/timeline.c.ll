@@ -4941,11 +4941,11 @@ _time_format_for_collect.exit:                    ; preds = %47, %49, %51, %53, 
   br label %66
 
 66:                                               ; preds = %65, %62
-  %.sroa.848.0 = phi i32 [ %.sroa.879.0.copyload, %65 ], [ %.sroa.848.0.copyload, %62 ]
-  %.sroa.745.0 = phi i32 [ %.sroa.776.0.copyload, %65 ], [ %.sroa.745.0.copyload, %62 ]
-  %.sroa.642.0 = phi i32 [ %.sroa.673.0.copyload, %65 ], [ %.sroa.642.0.copyload, %62 ]
-  %.sroa.539.0 = phi i32 [ %.sroa.570.0.copyload, %65 ], [ %.sroa.539.0.copyload, %62 ]
   %.sroa.037.0 = phi i32 [ %.sroa.068.0.copyload, %65 ], [ %.sroa.037.0.copyload, %62 ]
+  %.sroa.539.0 = phi i32 [ %.sroa.570.0.copyload, %65 ], [ %.sroa.539.0.copyload, %62 ]
+  %.sroa.642.0 = phi i32 [ %.sroa.673.0.copyload, %65 ], [ %.sroa.642.0.copyload, %62 ]
+  %.sroa.745.0 = phi i32 [ %.sroa.776.0.copyload, %65 ], [ %.sroa.745.0.copyload, %62 ]
+  %.sroa.848.0 = phi i32 [ %.sroa.879.0.copyload, %65 ], [ %.sroa.848.0.copyload, %62 ]
   %.sroa.068.0 = phi i32 [ %.sroa.037.0.copyload, %65 ], [ %.sroa.068.0.copyload, %62 ]
   %.sroa.570.0 = phi i32 [ %.sroa.539.0.copyload, %65 ], [ %.sroa.570.0.copyload, %62 ]
   %.sroa.673.0 = phi i32 [ %.sroa.642.0.copyload, %65 ], [ %.sroa.673.0.copyload, %62 ]

@@ -266,11 +266,11 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
-  %__begin0.sroa.0.010.i.idx = phi i64 [ %__begin0.sroa.0.010.i.add, %for.inc.i ], [ 0, %entry ]
-  %cur.sroa.3.09.i = phi ptr [ %cur.sroa.3.1.i, %for.inc.i ], [ null, %entry ]
+  %cur.sroa.3.010.i = phi ptr [ %cur.sroa.3.1.i, %for.inc.i ], [ null, %entry ]
+  %__begin0.sroa.0.09.i.idx = phi i64 [ %__begin0.sroa.0.09.i.add, %for.inc.i ], [ 0, %entry ]
   %cur.sroa.0.08.i = phi i32 [ %cur.sroa.0.1.i, %for.inc.i ], [ 0, %entry ]
-  %__begin0.sroa.0.010.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 %__begin0.sroa.0.010.i.idx
-  %0 = load i32, ptr %__begin0.sroa.0.010.i.ptr, align 8
+  %__begin0.sroa.0.09.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 %__begin0.sroa.0.09.i.idx
+  %0 = load i32, ptr %__begin0.sroa.0.09.i.ptr, align 8
   %cmp.not.i = icmp slt i32 %0, %cur.sroa.0.08.i
   br i1 %cmp.not.i, label %for.inc.i, label %land.lhs.true.i
 
@@ -332,16 +332,16 @@ call3.i.i.noexc:                                  ; preds = %_ZNK5arrow8internal
   br i1 %call3.i.i4, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %call3.i.i.noexc, %call7.i.i.noexc, %call5.i.i.noexc, %init.end.i.i
-  %7 = load i32, ptr %__begin0.sroa.0.010.i.ptr, align 8
-  %second.i5.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.010.i.ptr, i64 8
+  %7 = load i32, ptr %__begin0.sroa.0.09.i.ptr, align 8
+  %second.i5.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.09.i.ptr, i64 8
   %8 = load ptr, ptr %second.i5.i, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %call3.i.i.noexc, %call7.i.i.noexc, %call5.i.i.noexc, %init.end.i.i, %for.body.i
   %cur.sroa.0.1.i = phi i32 [ %cur.sroa.0.08.i, %for.body.i ], [ %7, %if.then.i ], [ %cur.sroa.0.08.i, %call3.i.i.noexc ], [ %cur.sroa.0.08.i, %call7.i.i.noexc ], [ %cur.sroa.0.08.i, %call5.i.i.noexc ], [ %cur.sroa.0.08.i, %init.end.i.i ]
-  %cur.sroa.3.1.i = phi ptr [ %cur.sroa.3.09.i, %for.body.i ], [ %8, %if.then.i ], [ %cur.sroa.3.09.i, %call3.i.i.noexc ], [ %cur.sroa.3.09.i, %call7.i.i.noexc ], [ %cur.sroa.3.09.i, %call5.i.i.noexc ], [ %cur.sroa.3.09.i, %init.end.i.i ]
-  %__begin0.sroa.0.010.i.add = add nuw nsw i64 %__begin0.sroa.0.010.i.idx, 16
-  %cmp.i.not.i = icmp eq i64 %__begin0.sroa.0.010.i.add, 48
+  %cur.sroa.3.1.i = phi ptr [ %cur.sroa.3.010.i, %for.body.i ], [ %8, %if.then.i ], [ %cur.sroa.3.010.i, %call3.i.i.noexc ], [ %cur.sroa.3.010.i, %call7.i.i.noexc ], [ %cur.sroa.3.010.i, %call5.i.i.noexc ], [ %cur.sroa.3.010.i, %init.end.i.i ]
+  %__begin0.sroa.0.09.i.add = add nuw nsw i64 %__begin0.sroa.0.09.i.idx, 16
+  %cmp.i.not.i = icmp eq i64 %__begin0.sroa.0.09.i.add, 48
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i

@@ -43,9 +43,9 @@ if.end16.lr.ph.i:                                 ; preds = %if.end.i
 
 if.end16.us.i:                                    ; preds = %if.end24.us.i, %if.end16.lr.ph.i
   %call33.us.i = phi i32 [ %call.us.i, %if.end24.us.i ], [ %call29.i, %if.end16.lr.ph.i ]
-  %n.032.us.i = phi i32 [ %sub25.us.i, %if.end24.us.i ], [ %sub.i, %if.end16.lr.ph.i ]
-  %tot.031.us.i = phi i32 [ %add26.us.i, %if.end24.us.i ], [ %1, %if.end16.lr.ph.i ]
-  %cmp17.us.i = icmp eq i32 %call33.us.i, %n.032.us.i
+  %tot.032.us.i = phi i32 [ %add26.us.i, %if.end24.us.i ], [ %1, %if.end16.lr.ph.i ]
+  %n.031.us.i = phi i32 [ %sub25.us.i, %if.end24.us.i ], [ %sub.i, %if.end16.lr.ph.i ]
+  %cmp17.us.i = icmp eq i32 %call33.us.i, %n.031.us.i
   br i1 %cmp17.us.i, label %if.then23.i, label %lor.lhs.false19.us.i
 
 lor.lhs.false19.us.i:                             ; preds = %if.end16.us.i
@@ -55,8 +55,8 @@ lor.lhs.false19.us.i:                             ; preds = %if.end16.us.i
   br i1 %tobool.not.us.i, label %if.end24.us.i, label %if.then23.i
 
 if.end24.us.i:                                    ; preds = %lor.lhs.false19.us.i
-  %sub25.us.i = sub i32 %n.032.us.i, %call33.us.i
-  %add26.us.i = add i32 %tot.031.us.i, %call33.us.i
+  %sub25.us.i = sub i32 %n.031.us.i, %call33.us.i
+  %add26.us.i = add i32 %tot.032.us.i, %call33.us.i
   %5 = load i16, ptr %max_send_fragment.i, align 8
   %conv6.us.i = zext i16 %5 to i32
   %conv6.n.0.us.i = tail call i32 @llvm.umin.i32(i32 %sub25.us.i, i32 %conv6.us.i)
@@ -75,7 +75,7 @@ if.then13.i:                                      ; preds = %if.end24.us.i, %if.
   br label %ssl3_write_bytes.exit
 
 if.then23.i:                                      ; preds = %lor.lhs.false19.us.i, %if.end16.us.i
-  %add.i = add i32 %tot.031.us.i, %call33.us.i
+  %add.i = add i32 %tot.032.us.i, %call33.us.i
   br label %ssl3_write_bytes.exit
 
 ssl3_write_bytes.exit:                            ; preds = %if.then.i, %if.then13.i, %if.then23.i
@@ -119,9 +119,9 @@ if.end16.lr.ph:                                   ; preds = %if.end
 
 if.end16.us:                                      ; preds = %if.end16.lr.ph, %if.end24.us
   %call33.us = phi i32 [ %call.us, %if.end24.us ], [ %call29, %if.end16.lr.ph ]
-  %n.032.us = phi i32 [ %sub25.us, %if.end24.us ], [ %sub, %if.end16.lr.ph ]
-  %tot.031.us = phi i32 [ %add26.us, %if.end24.us ], [ %1, %if.end16.lr.ph ]
-  %cmp17.us = icmp eq i32 %call33.us, %n.032.us
+  %tot.032.us = phi i32 [ %add26.us, %if.end24.us ], [ %1, %if.end16.lr.ph ]
+  %n.031.us = phi i32 [ %sub25.us, %if.end24.us ], [ %sub, %if.end16.lr.ph ]
+  %cmp17.us = icmp eq i32 %call33.us, %n.031.us
   br i1 %cmp17.us, label %if.then23, label %lor.lhs.false19.us
 
 lor.lhs.false19.us:                               ; preds = %if.end16.us
@@ -131,8 +131,8 @@ lor.lhs.false19.us:                               ; preds = %if.end16.us
   br i1 %tobool.not.us, label %if.end24.us, label %if.then23
 
 if.end24.us:                                      ; preds = %lor.lhs.false19.us
-  %sub25.us = sub i32 %n.032.us, %call33.us
-  %add26.us = add i32 %call33.us, %tot.031.us
+  %sub25.us = sub i32 %n.031.us, %call33.us
+  %add26.us = add i32 %call33.us, %tot.032.us
   %5 = load i16, ptr %max_send_fragment, align 8
   %conv6.us = zext i16 %5 to i32
   %conv6.n.0.us = tail call i32 @llvm.umin.i32(i32 %sub25.us, i32 %conv6.us)
@@ -152,14 +152,14 @@ if.then13:                                        ; preds = %lor.lhs.false19, %i
 
 if.end16:                                         ; preds = %if.end16.lr.ph, %lor.lhs.false19
   %call33 = phi i32 [ %call, %lor.lhs.false19 ], [ %call29, %if.end16.lr.ph ]
-  %n.032 = phi i32 [ %sub25, %lor.lhs.false19 ], [ %sub, %if.end16.lr.ph ]
-  %tot.031 = phi i32 [ %add26, %lor.lhs.false19 ], [ %1, %if.end16.lr.ph ]
-  %cmp17 = icmp eq i32 %call33, %n.032
+  %tot.032 = phi i32 [ %add26, %lor.lhs.false19 ], [ %1, %if.end16.lr.ph ]
+  %n.031 = phi i32 [ %sub25, %lor.lhs.false19 ], [ %sub, %if.end16.lr.ph ]
+  %cmp17 = icmp eq i32 %call33, %n.031
   br i1 %cmp17, label %if.then23, label %lor.lhs.false19
 
 lor.lhs.false19:                                  ; preds = %if.end16
-  %sub25 = sub i32 %n.032, %call33
-  %add26 = add i32 %call33, %tot.031
+  %sub25 = sub i32 %n.031, %call33
+  %add26 = add i32 %call33, %tot.032
   %7 = load i16, ptr %max_send_fragment, align 8
   %conv6 = zext i16 %7 to i32
   %conv6.n.0 = tail call i32 @llvm.umin.i32(i32 %sub25, i32 %conv6)
@@ -170,7 +170,7 @@ lor.lhs.false19:                                  ; preds = %if.end16
   br i1 %cmp11, label %if.then13, label %if.end16
 
 if.then23:                                        ; preds = %if.end16, %if.end16.us, %lor.lhs.false19.us
-  %.us-phi = phi i32 [ %tot.031.us, %lor.lhs.false19.us ], [ %tot.031.us, %if.end16.us ], [ %tot.031, %if.end16 ]
+  %.us-phi = phi i32 [ %tot.032.us, %lor.lhs.false19.us ], [ %tot.032.us, %if.end16.us ], [ %tot.032, %if.end16 ]
   %.us-phi35 = phi i32 [ %call33.us, %lor.lhs.false19.us ], [ %call33.us, %if.end16.us ], [ %call33, %if.end16 ]
   %add = add i32 %.us-phi35, %.us-phi
   br label %return

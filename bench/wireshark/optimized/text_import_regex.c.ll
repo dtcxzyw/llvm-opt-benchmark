@@ -75,8 +75,8 @@ define hidden i32 @text_import_regex(ptr nocapture noundef readonly %0) local_un
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %.0.ph50 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %43, %.outer ]
-  %43 = add i32 %.0.ph50, 1
+  %.036.ph50 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %43, %.outer ]
+  %43 = add i32 %.036.ph50, 1
   br label %44
 
 44:                                               ; preds = %.lr.ph, %47
@@ -200,17 +200,17 @@ define hidden i32 @text_import_regex(ptr nocapture noundef readonly %0) local_un
   br i1 %.not3847, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.outer, %47, %34, %109
+  %.1 = phi i32 [ %43, %109 ], [ 0, %34 ], [ %.036.ph50, %47 ], [ %43, %.outer ]
   %.035 = phi i32 [ -1, %109 ], [ 1, %34 ], [ 1, %47 ], [ 1, %.outer ]
-  %.1 = phi i32 [ %43, %109 ], [ 0, %34 ], [ %.0.ph50, %47 ], [ %43, %.outer ]
   %112 = load ptr, ptr %3, align 8
   call void @g_match_info_unref(ptr noundef %112) #4
   call void @g_mapped_file_unref(ptr noundef %8) #4
-  %113 = mul i32 %.1, %.035
+  %113 = mul i32 %.035, %.1
   br label %114
 
 114:                                              ; preds = %.loopexit, %31, %14
-  %.036 = phi i32 [ -1, %14 ], [ -1, %31 ], [ %113, %.loopexit ]
-  ret i32 %.036
+  %.0 = phi i32 [ -1, %14 ], [ -1, %31 ], [ %113, %.loopexit ]
+  ret i32 %.0
 }
 
 declare ptr @g_mapped_file_ref(ptr noundef) local_unnamed_addr #1

@@ -250,8 +250,8 @@ define dso_local i32 @curl_easy_perform(ptr noundef %0) local_unnamed_addr #5 {
   br label %20
 
 20:                                               ; preds = %19, %14
-  %.0.i = phi ptr [ %18, %19 ], [ %16, %14 ]
-  %21 = getelementptr inbounds i8, ptr %.0.i, i64 433
+  %.025.i = phi ptr [ %18, %19 ], [ %16, %14 ]
+  %21 = getelementptr inbounds i8, ptr %.025.i, i64 433
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, 4
   %.not35.i = icmp eq i8 %23, 0
@@ -261,13 +261,13 @@ define dso_local i32 @curl_easy_perform(ptr noundef %0) local_unnamed_addr #5 {
   %25 = getelementptr inbounds i8, ptr %0, i64 2636
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
-  %28 = tail call i32 (ptr, i32, ...) @curl_multi_setopt(ptr noundef nonnull %.0.i, i32 noundef 6, i64 noundef %27) #12
-  %29 = tail call i32 @curl_multi_add_handle(ptr noundef nonnull %.0.i, ptr noundef nonnull %0) #12
+  %28 = tail call i32 (ptr, i32, ...) @curl_multi_setopt(ptr noundef nonnull %.025.i, i32 noundef 6, i64 noundef %27) #12
+  %29 = tail call i32 @curl_multi_add_handle(ptr noundef nonnull %.025.i, ptr noundef nonnull %0) #12
   %.not36.i = icmp eq i32 %29, 0
   br i1 %.not36.i, label %33, label %30
 
 30:                                               ; preds = %24
-  %31 = tail call i32 @curl_multi_cleanup(ptr noundef nonnull %.0.i) #12
+  %31 = tail call i32 @curl_multi_cleanup(ptr noundef nonnull %.025.i) #12
   store ptr null, ptr %15, align 8
   %32 = icmp eq i32 %29, 3
   %..i = select i1 %32, i32 27, i32 2
@@ -301,7 +301,7 @@ sigpipe_ignore.exit.i:                            ; preds = %41, %33
 
 44:                                               ; preds = %.thread.i.i, %sigpipe_ignore.exit.i
   store i32 0, ptr %2, align 4
-  %45 = call i32 @curl_multi_poll(ptr noundef nonnull %.0.i, ptr noundef null, i32 noundef 0, i32 noundef 1000, ptr noundef null) #12
+  %45 = call i32 @curl_multi_poll(ptr noundef nonnull %.025.i, ptr noundef null, i32 noundef 0, i32 noundef 1000, ptr noundef null) #12
   %.fr.i = freeze i32 %45
   switch i32 %.fr.i, label %.loopexit [
     i32 0, label %46
@@ -309,7 +309,7 @@ sigpipe_ignore.exit.i:                            ; preds = %41, %33
   ]
 
 46:                                               ; preds = %44
-  %47 = call i32 @curl_multi_perform(ptr noundef nonnull %.0.i, ptr noundef nonnull %2) #12
+  %47 = call i32 @curl_multi_perform(ptr noundef nonnull %.025.i, ptr noundef nonnull %2) #12
   %48 = icmp ne i32 %47, 0
   %49 = load i32, ptr %2, align 4
   %50 = icmp ne i32 %49, 0
@@ -317,7 +317,7 @@ sigpipe_ignore.exit.i:                            ; preds = %41, %33
   br i1 %or.cond.i.i, label %.thread.i.i, label %51
 
 51:                                               ; preds = %46
-  %52 = call ptr @curl_multi_info_read(ptr noundef nonnull %.0.i, ptr noundef nonnull %3) #12
+  %52 = call ptr @curl_multi_info_read(ptr noundef nonnull %.025.i, ptr noundef nonnull %3) #12
   %.not20.i.i = icmp eq ptr %52, null
   br i1 %.not20.i.i, label %.thread.i.i, label %.thread.i
 
@@ -341,7 +341,7 @@ easy_transfer.exit.thread.i:                      ; preds = %.thread.i.i
   %57 = phi i32 [ %54, %.thread.i ], [ %56, %easy_transfer.exit.thread.i ], [ 27, %.loopexit.loopexit ], [ 43, %44 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %58 = call i32 @curl_multi_remove_handle(ptr noundef nonnull %.0.i, ptr noundef nonnull %0) #12
+  %58 = call i32 @curl_multi_remove_handle(ptr noundef nonnull %.025.i, ptr noundef nonnull %0) #12
   %59 = load i8, ptr %36, align 8
   %60 = trunc i8 %59 to i1
   br i1 %60, label %easy_perform.exit, label %61
@@ -351,9 +351,9 @@ easy_transfer.exit.thread.i:                      ; preds = %.thread.i.i
   br label %easy_perform.exit
 
 easy_perform.exit:                                ; preds = %1, %13, %17, %20, %30, %.loopexit, %61
-  %.025.i = phi i32 [ 2, %13 ], [ 43, %1 ], [ 27, %17 ], [ 93, %20 ], [ %..i, %30 ], [ %57, %.loopexit ], [ %57, %61 ]
+  %.0.i = phi i32 [ 2, %13 ], [ 43, %1 ], [ 27, %17 ], [ 93, %20 ], [ %..i, %30 ], [ %57, %.loopexit ], [ %57, %61 ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
-  ret i32 %.025.i
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable

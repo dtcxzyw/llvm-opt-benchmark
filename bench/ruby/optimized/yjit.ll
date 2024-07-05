@@ -189,8 +189,8 @@ define hidden i64 @rb_yjit_exit_locations_dict(ptr nocapture noundef readonly %0
   br i1 %9, label %.lr.ph85, label %._crit_edge86
 
 .lr.ph85:                                         ; preds = %3, %rb_ull2num_inline.exit56
-  %.04983 = phi i32 [ %120, %rb_ull2num_inline.exit56 ], [ 0, %3 ]
-  %10 = sext i32 %.04983 to i64
+  %.083 = phi i32 [ %120, %rb_ull2num_inline.exit56 ], [ 0, %3 ]
+  %10 = sext i32 %.083 to i64
   %11 = getelementptr i64, ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
@@ -219,7 +219,7 @@ rb_ull2num_inline.exit:                           ; preds = %19, %22
   %27 = shl nsw i64 %26, 1
   %28 = or disjoint i64 %27, 1
   %29 = tail call i64 @rb_ary_push(i64 noundef %7, i64 noundef %28) #5
-  %.179 = add nsw i32 %.04983, 1
+  %.179 = add nsw i32 %.083, 1
   %30 = icmp sgt i32 %13, 0
   br i1 %30, label %.lr.ph.preheader, label %._crit_edge
 
@@ -390,7 +390,7 @@ rb_ull2num_inline.exit52:                         ; preds = %75, %78
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %rb_ull2num_inline.exit52, %rb_ull2num_inline.exit
-  %.1.in.lcssa = phi i32 [ %.04983, %rb_ull2num_inline.exit ], [ %.181, %rb_ull2num_inline.exit52 ]
+  %.1.in.lcssa = phi i32 [ %.083, %rb_ull2num_inline.exit ], [ %.181, %rb_ull2num_inline.exit52 ]
   %.1.lcssa = phi i32 [ %.179, %rb_ull2num_inline.exit ], [ %31, %rb_ull2num_inline.exit52 ]
   %87 = sext i32 %.1.lcssa to i64
   %88 = getelementptr i64, ptr %0, i64 %87
@@ -1761,14 +1761,14 @@ rb_array_const_ptr.exit.i:                        ; preds = %10, %6
   br i1 %.not.i, label %22, label %rb_ary_entry_internal.exit
 
 22:                                               ; preds = %21, %18
-  %.0.i = phi i64 [ %19, %18 ], [ %1, %21 ]
-  %23 = getelementptr i64, ptr %.0.i16.i, i64 %.0.i
+  %.011.i = phi i64 [ %19, %18 ], [ %1, %21 ]
+  %23 = getelementptr i64, ptr %.0.i16.i, i64 %.011.i
   %24 = load i64, ptr %23, align 8
   br label %rb_ary_entry_internal.exit
 
 rb_ary_entry_internal.exit:                       ; preds = %rb_array_const_ptr.exit.i, %18, %21, %22
-  %.011.i = phi i64 [ %24, %22 ], [ 4, %rb_array_const_ptr.exit.i ], [ 4, %18 ], [ 4, %21 ]
-  ret i64 %.011.i
+  %.0.i = phi i64 [ %24, %22 ], [ 4, %rb_array_const_ptr.exit.i ], [ 4, %18 ], [ 4, %21 ]
+  ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1939,8 +1939,8 @@ RARRAY_AREF.exit:                                 ; preds = %19, %21
   br label %.critedge
 
 .critedge:                                        ; preds = %31, %rb_array_len.exit.thread, %RARRAY_AREF.exit, %1, %rb_array_len.exit, %6
-  %.043 = phi i64 [ 0, %6 ], [ 0, %rb_array_len.exit ], [ 0, %1 ], [ 0, %RARRAY_AREF.exit ], [ 0, %rb_array_len.exit.thread ], [ %spec.select, %31 ]
-  ret i64 %.043
+  %.044 = phi i64 [ 0, %6 ], [ 0, %rb_array_len.exit ], [ 0, %1 ], [ 0, %RARRAY_AREF.exit ], [ 0, %rb_array_len.exit.thread ], [ %spec.select, %31 ]
+  ret i64 %.044
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
@@ -2185,8 +2185,8 @@ define hidden i64 @rb_FL_TEST(i64 noundef %0, i64 noundef %1) local_unnamed_addr
   br label %RB_FL_TEST.exit
 
 RB_FL_TEST.exit:                                  ; preds = %2, %7
-  %.024.i = phi i64 [ 0, %2 ], [ %spec.select.i, %7 ]
-  ret i64 %.024.i
+  %.025.i = phi i64 [ 0, %2 ], [ %spec.select.i, %7 ]
+  ret i64 %.025.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable

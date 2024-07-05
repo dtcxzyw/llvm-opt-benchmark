@@ -267,8 +267,8 @@ if.then.i.i:                                      ; preds = %if.then21.i.i, %if.
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %found_match_len.015.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %found_match_len.1.i.i, %for.inc.i.i ]
-  %found.014.i.i = phi ptr [ null, %for.body.preheader.i.i ], [ %found.1.i.i, %for.inc.i.i ]
+  %found.016.i.i = phi ptr [ null, %for.body.preheader.i.i ], [ %found.1.i.i, %for.inc.i.i ]
+  %found_match_len.014.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %found_match_len.1.i.i, %for.inc.i.i ]
   %11 = load ptr, ptr @commit_formats, align 8
   %arrayidx.i.i = getelementptr inbounds %struct.cmt_fmt_map, ptr %11, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %arrayidx.i.i, align 8
@@ -281,16 +281,16 @@ if.end6.i.i:                                      ; preds = %for.body.i.i
   %arrayidx8.i.i = getelementptr inbounds %struct.cmt_fmt_map, ptr %13, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %arrayidx8.i.i, align 8
   %call10.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #20
-  %cmp11.i.i = icmp eq ptr %found.014.i.i, null
-  %cmp13.i.i = icmp ugt i64 %found_match_len.015.i.i, %call10.i.i
+  %cmp11.i.i = icmp eq ptr %found.016.i.i, null
+  %cmp13.i.i = icmp ugt i64 %found_match_len.014.i.i, %call10.i.i
   %or.cond.i.i = select i1 %cmp11.i.i, i1 true, i1 %cmp13.i.i
-  %spec.select.i.i = select i1 %or.cond.i.i, ptr %arrayidx8.i.i, ptr %found.014.i.i
-  %spec.select12.i.i = select i1 %or.cond.i.i, i64 %call10.i.i, i64 %found_match_len.015.i.i
+  %spec.select.i.i = select i1 %or.cond.i.i, i64 %call10.i.i, i64 %found_match_len.014.i.i
+  %spec.select12.i.i = select i1 %or.cond.i.i, ptr %arrayidx8.i.i, ptr %found.016.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end6.i.i, %for.body.i.i
-  %found.1.i.i = phi ptr [ %found.014.i.i, %for.body.i.i ], [ %spec.select.i.i, %if.end6.i.i ]
-  %found_match_len.1.i.i = phi i64 [ %found_match_len.015.i.i, %for.body.i.i ], [ %spec.select12.i.i, %if.end6.i.i ]
+  %found_match_len.1.i.i = phi i64 [ %found_match_len.014.i.i, %for.body.i.i ], [ %spec.select.i.i, %if.end6.i.i ]
+  %found.1.i.i = phi ptr [ %found.016.i.i, %for.body.i.i ], [ %spec.select12.i.i, %if.end6.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %15 = load i64, ptr @commit_formats_len, align 8
   %cmp3.i.i = icmp ugt i64 %15, %indvars.iv.next.i.i
@@ -1555,8 +1555,8 @@ for.cond:                                         ; preds = %if.end4, %entry
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end.i, %for.cond
-  %msg.addr.0.i = phi ptr [ %msg.addr.0, %for.cond ], [ %incdec.ptr.i, %if.end.i ]
   %ret.0.i = phi i32 [ 0, %for.cond ], [ %inc.i, %if.end.i ]
+  %msg.addr.0.i = phi ptr [ %msg.addr.0, %for.cond ], [ %incdec.ptr.i, %if.end.i ]
   %0 = load i8, ptr %msg.addr.0.i, align 1
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %get_one_line.exit, label %if.end.i
@@ -1968,8 +1968,8 @@ for.cond.us:                                      ; preds = %land.rhs.i.us, %ent
   br label %for.cond.i.us
 
 for.cond.i.us:                                    ; preds = %if.end.i.us, %for.cond.us
-  %msg.addr.0.i.us = phi ptr [ %msg.addr.0.us, %for.cond.us ], [ %incdec.ptr.i.us, %if.end.i.us ]
   %ret.0.i.us = phi i32 [ 0, %for.cond.us ], [ %inc.i.us, %if.end.i.us ]
+  %msg.addr.0.i.us = phi ptr [ %msg.addr.0.us, %for.cond.us ], [ %incdec.ptr.i.us, %if.end.i.us ]
   %0 = load i8, ptr %msg.addr.0.i.us, align 1
   %tobool.not.i.us = icmp eq i8 %0, 0
   br i1 %tobool.not.i.us, label %get_one_line.exit.us, label %if.end.i.us
@@ -2014,13 +2014,13 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %tobool.not.i8.us, label %for.end, label %land.rhs.i.us, !llvm.loop !18
 
 for.cond.outer.split:                             ; preds = %entry, %if.end8
+  %msg.addr.0.ph32 = phi ptr [ %add.ptr16, %if.end8 ], [ %msg, %entry ]
   %tobool6.not = phi i1 [ true, %if.end8 ], [ false, %entry ]
-  %msg.addr.0.ph31 = phi ptr [ %add.ptr16, %if.end8 ], [ %msg, %entry ]
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end.i, %for.cond.outer.split
-  %msg.addr.0.i = phi ptr [ %msg.addr.0.ph31, %for.cond.outer.split ], [ %incdec.ptr.i, %if.end.i ]
   %ret.0.i = phi i32 [ 0, %for.cond.outer.split ], [ %inc.i, %if.end.i ]
+  %msg.addr.0.i = phi ptr [ %msg.addr.0.ph32, %for.cond.outer.split ], [ %incdec.ptr.i, %if.end.i ]
   %4 = load i8, ptr %msg.addr.0.i, align 1
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %get_one_line.exit, label %if.end.i
@@ -2033,19 +2033,19 @@ if.end.i:                                         ; preds = %for.cond.i
 
 get_one_line.exit.thread:                         ; preds = %if.end.i
   %idx.ext12 = zext nneg i32 %inc.i to i64
-  %add.ptr13 = getelementptr inbounds i8, ptr %msg.addr.0.ph31, i64 %idx.ext12
+  %add.ptr13 = getelementptr inbounds i8, ptr %msg.addr.0.ph32, i64 %idx.ext12
   br label %land.rhs.preheader.i
 
 get_one_line.exit:                                ; preds = %for.cond.i
   %idx.ext = zext nneg i32 %ret.0.i to i64
-  %add.ptr = getelementptr inbounds i8, ptr %msg.addr.0.ph31, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %msg.addr.0.ph32, i64 %idx.ext
   %tobool.not = icmp eq i32 %ret.0.i, 0
   br i1 %tobool.not, label %for.end, label %land.rhs.preheader.i
 
 land.rhs.preheader.i:                             ; preds = %get_one_line.exit, %get_one_line.exit.thread
   %add.ptr16 = phi ptr [ %add.ptr13, %get_one_line.exit.thread ], [ %add.ptr, %get_one_line.exit ]
   %idx.ext15 = phi i64 [ %idx.ext12, %get_one_line.exit.thread ], [ %idx.ext, %get_one_line.exit ]
-  %invariant.gep.i = getelementptr i8, ptr %msg.addr.0.ph31, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %msg.addr.0.ph32, i64 -1
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.preheader.i
@@ -2078,7 +2078,7 @@ if.then7:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.then7, %if.end
   %conv9 = ashr exact i64 %add, 32
-  tail call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef nonnull %msg.addr.0.ph31, i64 noundef %conv9) #19
+  tail call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef nonnull %msg.addr.0.ph32, i64 noundef %conv9) #19
   br label %for.cond.outer.split
 
 for.end:                                          ; preds = %get_one_line.exit, %while.body.i, %get_one_line.exit.us, %while.body.i.us
@@ -3560,13 +3560,13 @@ entry:
   br label %for.cond.outer.split.i
 
 for.cond.outer.split.i:                           ; preds = %entry, %if.end8.i
+  %msg.addr.0.ph32.i = phi ptr [ %add.ptr16.i, %if.end8.i ], [ %0, %entry ]
   %tobool6.not.i = phi i1 [ true, %if.end8.i ], [ false, %entry ]
-  %msg.addr.0.ph31.i = phi ptr [ %add.ptr16.i, %if.end8.i ], [ %0, %entry ]
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end.i.i, %for.cond.outer.split.i
-  %msg.addr.0.i.i = phi ptr [ %msg.addr.0.ph31.i, %for.cond.outer.split.i ], [ %incdec.ptr.i.i, %if.end.i.i ]
   %ret.0.i.i = phi i32 [ 0, %for.cond.outer.split.i ], [ %inc.i.i, %if.end.i.i ]
+  %msg.addr.0.i.i = phi ptr [ %msg.addr.0.ph32.i, %for.cond.outer.split.i ], [ %incdec.ptr.i.i, %if.end.i.i ]
   %2 = load i8, ptr %msg.addr.0.i.i, align 1
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %get_one_line.exit.i, label %if.end.i.i
@@ -3579,19 +3579,19 @@ if.end.i.i:                                       ; preds = %for.cond.i.i
 
 get_one_line.exit.thread.i:                       ; preds = %if.end.i.i
   %idx.ext12.i = zext nneg i32 %inc.i.i to i64
-  %add.ptr13.i = getelementptr inbounds i8, ptr %msg.addr.0.ph31.i, i64 %idx.ext12.i
+  %add.ptr13.i = getelementptr inbounds i8, ptr %msg.addr.0.ph32.i, i64 %idx.ext12.i
   br label %land.rhs.preheader.i.i
 
 get_one_line.exit.i:                              ; preds = %for.cond.i.i
   %idx.ext.i = zext nneg i32 %ret.0.i.i to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %msg.addr.0.ph31.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %msg.addr.0.ph32.i, i64 %idx.ext.i
   %tobool.not.i = icmp eq i32 %ret.0.i.i, 0
   br i1 %tobool.not.i, label %format_subject.exit, label %land.rhs.preheader.i.i
 
 land.rhs.preheader.i.i:                           ; preds = %get_one_line.exit.i, %get_one_line.exit.thread.i
   %add.ptr16.i = phi ptr [ %add.ptr13.i, %get_one_line.exit.thread.i ], [ %add.ptr.i, %get_one_line.exit.i ]
   %idx.ext15.i = phi i64 [ %idx.ext12.i, %get_one_line.exit.thread.i ], [ %idx.ext.i, %get_one_line.exit.i ]
-  %invariant.gep.i.i = getelementptr i8, ptr %msg.addr.0.ph31.i, i64 -1
+  %invariant.gep.i.i = getelementptr i8, ptr %msg.addr.0.ph32.i, i64 -1
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.preheader.i.i
@@ -3623,7 +3623,7 @@ if.then7.i:                                       ; preds = %if.end.i
 
 if.end8.i:                                        ; preds = %if.then7.i, %if.end.i
   %conv9.i = ashr exact i64 %add.i, 32
-  call void @strbuf_add(ptr noundef nonnull %title, ptr noundef nonnull %msg.addr.0.ph31.i, i64 noundef %conv9.i) #19
+  call void @strbuf_add(ptr noundef nonnull %title, ptr noundef nonnull %msg.addr.0.ph32.i, i64 noundef %conv9.i) #19
   br label %for.cond.outer.split.i
 
 format_subject.exit:                              ; preds = %get_one_line.exit.i, %while.body.i.i
@@ -3955,8 +3955,8 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end.i, %for.cond
-  %msg.addr.0.i = phi ptr [ %1, %for.cond ], [ %incdec.ptr.i, %if.end.i ]
   %ret.0.i = phi i32 [ 0, %for.cond ], [ %inc.i, %if.end.i ]
+  %msg.addr.0.i = phi ptr [ %1, %for.cond ], [ %incdec.ptr.i, %if.end.i ]
   %2 = load i8, ptr %msg.addr.0.i, align 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %get_one_line.exit, label %if.end.i
@@ -4308,8 +4308,8 @@ for.cond.i:                                       ; preds = %for.cond.i.backedge
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end.i.i, %for.cond.i
-  %msg.addr.0.i.i = phi ptr [ %add.ptr.i108, %for.cond.i ], [ %incdec.ptr.i.i, %if.end.i.i ]
   %ret.0.i.i = phi i32 [ 0, %for.cond.i ], [ %inc.i.i, %if.end.i.i ]
+  %msg.addr.0.i.i = phi ptr [ %add.ptr.i108, %for.cond.i ], [ %incdec.ptr.i.i, %if.end.i.i ]
   %11 = load i8, ptr %msg.addr.0.i.i, align 1
   %tobool.not.i.i = icmp eq i8 %11, 0
   br i1 %tobool.not.i.i, label %get_one_line.exit.i, label %if.end.i.i
@@ -4592,24 +4592,24 @@ for.cond.i42:                                     ; preds = %for.cond.i42.prehea
   br label %for.cond.i.i43
 
 for.cond.i.i43:                                   ; preds = %if.end.i.i47, %for.cond.i42
-  %msg.addr.0.i.i44 = phi ptr [ %msg.addr.0.i, %for.cond.i42 ], [ %incdec.ptr.i.i48, %if.end.i.i47 ]
-  %ret.0.i.i45 = phi i32 [ 0, %for.cond.i42 ], [ %inc.i.i49, %if.end.i.i47 ]
-  %49 = load i8, ptr %msg.addr.0.i.i44, align 1
+  %ret.0.i.i44 = phi i32 [ 0, %for.cond.i42 ], [ %inc.i.i49, %if.end.i.i47 ]
+  %msg.addr.0.i.i45 = phi ptr [ %msg.addr.0.i, %for.cond.i42 ], [ %incdec.ptr.i.i48, %if.end.i.i47 ]
+  %49 = load i8, ptr %msg.addr.0.i.i45, align 1
   %tobool.not.i.i46 = icmp eq i8 %49, 0
   br i1 %tobool.not.i.i46, label %get_one_line.exit.i53, label %if.end.i.i47
 
 if.end.i.i47:                                     ; preds = %for.cond.i.i43
-  %incdec.ptr.i.i48 = getelementptr inbounds i8, ptr %msg.addr.0.i.i44, i64 1
-  %inc.i.i49 = add nuw nsw i32 %ret.0.i.i45, 1
+  %incdec.ptr.i.i48 = getelementptr inbounds i8, ptr %msg.addr.0.i.i45, i64 1
+  %inc.i.i49 = add nuw nsw i32 %ret.0.i.i44, 1
   %cmp.i.i50 = icmp eq i8 %49, 10
   br i1 %cmp.i.i50, label %land.rhs.preheader.i.i, label %for.cond.i.i43
 
 get_one_line.exit.i53:                            ; preds = %for.cond.i.i43
-  %tobool.not.i54 = icmp eq i32 %ret.0.i.i45, 0
+  %tobool.not.i54 = icmp eq i32 %ret.0.i.i44, 0
   br i1 %tobool.not.i54, label %skip_blank_lines.exit, label %land.rhs.preheader.i.i
 
 land.rhs.preheader.i.i:                           ; preds = %if.end.i.i47, %get_one_line.exit.i53
-  %ret.1.i9.i = phi i32 [ %ret.0.i.i45, %get_one_line.exit.i53 ], [ %inc.i.i49, %if.end.i.i47 ]
+  %ret.1.i9.i = phi i32 [ %ret.0.i.i44, %get_one_line.exit.i53 ], [ %inc.i.i49, %if.end.i.i47 ]
   %invariant.gep.i.i = getelementptr i8, ptr %msg.addr.0.i, i64 -1
   %50 = sext i32 %ret.1.i9.i to i64
   br label %land.rhs.i.i
@@ -7373,8 +7373,8 @@ for.cond.i:                                       ; preds = %if.end4.i, %entry
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end.i.i, %for.cond.i
-  %msg.addr.0.i.i = phi ptr [ %msg.addr.0.i, %for.cond.i ], [ %incdec.ptr.i.i, %if.end.i.i ]
   %ret.0.i.i = phi i32 [ 0, %for.cond.i ], [ %inc.i.i, %if.end.i.i ]
+  %msg.addr.0.i.i = phi ptr [ %msg.addr.0.i, %for.cond.i ], [ %incdec.ptr.i.i, %if.end.i.i ]
   %2 = load i8, ptr %msg.addr.0.i.i, align 1
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %get_one_line.exit.i, label %if.end.i.i
@@ -7428,8 +7428,8 @@ for.cond.us.i:                                    ; preds = %land.rhs.i.us.i, %s
   br label %for.cond.i.us.i
 
 for.cond.i.us.i:                                  ; preds = %if.end.i.us.i, %for.cond.us.i
-  %msg.addr.0.i.us.i = phi ptr [ %msg.addr.0.us.i, %for.cond.us.i ], [ %incdec.ptr.i.us.i, %if.end.i.us.i ]
   %ret.0.i.us.i = phi i32 [ 0, %for.cond.us.i ], [ %inc.i.us.i, %if.end.i.us.i ]
+  %msg.addr.0.i.us.i = phi ptr [ %msg.addr.0.us.i, %for.cond.us.i ], [ %incdec.ptr.i.us.i, %if.end.i.us.i ]
   %7 = load i8, ptr %msg.addr.0.i.us.i, align 1
   %tobool.not.i.us.i = icmp eq i8 %7, 0
   br i1 %tobool.not.i.us.i, label %get_one_line.exit.us.i, label %if.end.i.us.i
@@ -7482,24 +7482,24 @@ for.cond.i11:                                     ; preds = %for.cond.i11.prehea
   br label %for.cond.i.i13
 
 for.cond.i.i13:                                   ; preds = %if.end.i.i17, %for.cond.i11
-  %msg.addr.0.i.i14 = phi ptr [ %msg.addr.0.i12, %for.cond.i11 ], [ %incdec.ptr.i.i18, %if.end.i.i17 ]
-  %ret.0.i.i15 = phi i32 [ 0, %for.cond.i11 ], [ %inc.i.i19, %if.end.i.i17 ]
-  %11 = load i8, ptr %msg.addr.0.i.i14, align 1
+  %ret.0.i.i14 = phi i32 [ 0, %for.cond.i11 ], [ %inc.i.i19, %if.end.i.i17 ]
+  %msg.addr.0.i.i15 = phi ptr [ %msg.addr.0.i12, %for.cond.i11 ], [ %incdec.ptr.i.i18, %if.end.i.i17 ]
+  %11 = load i8, ptr %msg.addr.0.i.i15, align 1
   %tobool.not.i.i16 = icmp eq i8 %11, 0
   br i1 %tobool.not.i.i16, label %get_one_line.exit.i35, label %if.end.i.i17
 
 if.end.i.i17:                                     ; preds = %for.cond.i.i13
-  %incdec.ptr.i.i18 = getelementptr inbounds i8, ptr %msg.addr.0.i.i14, i64 1
-  %inc.i.i19 = add nuw nsw i32 %ret.0.i.i15, 1
+  %incdec.ptr.i.i18 = getelementptr inbounds i8, ptr %msg.addr.0.i.i15, i64 1
+  %inc.i.i19 = add nuw nsw i32 %ret.0.i.i14, 1
   %cmp.i.i20 = icmp eq i8 %11, 10
   br i1 %cmp.i.i20, label %land.rhs.preheader.i.i21, label %for.cond.i.i13
 
 get_one_line.exit.i35:                            ; preds = %for.cond.i.i13
-  %tobool.not.i36 = icmp eq i32 %ret.0.i.i15, 0
+  %tobool.not.i36 = icmp eq i32 %ret.0.i.i14, 0
   br i1 %tobool.not.i36, label %skip_blank_lines.exit37, label %land.rhs.preheader.i.i21
 
 land.rhs.preheader.i.i21:                         ; preds = %if.end.i.i17, %get_one_line.exit.i35
-  %ret.1.i9.i22 = phi i32 [ %ret.0.i.i15, %get_one_line.exit.i35 ], [ %inc.i.i19, %if.end.i.i17 ]
+  %ret.1.i9.i22 = phi i32 [ %ret.0.i.i14, %get_one_line.exit.i35 ], [ %inc.i.i19, %if.end.i.i17 ]
   %invariant.gep.i.i23 = getelementptr i8, ptr %msg.addr.0.i12, i64 -1
   %12 = sext i32 %ret.1.i9.i22 to i64
   br label %land.rhs.i.i24

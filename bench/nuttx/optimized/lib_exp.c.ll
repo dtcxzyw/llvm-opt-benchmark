@@ -13,10 +13,10 @@ define double @exp(double noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = fcmp olt double %0, 0.000000e+00
   %5 = fneg double %0
-  %.021 = select i1 %4, double %5, double %0
-  %6 = fptoui double %.021 to i64
+  %.022 = select i1 %4, double %5, double %0
+  %6 = fptoui double %.022 to i64
   %7 = uitofp i64 %6 to double
-  %8 = fsub double %.021, %7
+  %8 = fsub double %.022, %7
   br label %9
 
 9:                                                ; preds = %3, %9
@@ -41,8 +41,8 @@ define double @exp(double noundef %0) local_unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %15, %1, %18
-  %.022 = phi double [ %19, %18 ], [ 1.000000e+00, %1 ], [ %17, %15 ]
-  ret double %.022
+  %.021 = phi double [ %19, %18 ], [ 1.000000e+00, %1 ], [ %17, %15 ]
+  ret double %.021
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

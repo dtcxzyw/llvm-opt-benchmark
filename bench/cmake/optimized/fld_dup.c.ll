@@ -80,14 +80,14 @@ define dso_local noundef ptr @dup_field(ptr noundef %0, i32 noundef %1, i32 noun
   br label %.thread
 
 .thread:                                          ; preds = %3, %7, %48
-  %.065 = phi i32 [ -1, %48 ], [ -2, %3 ], [ -1, %7 ]
+  %.05365 = phi i32 [ -1, %48 ], [ -2, %3 ], [ -1, %7 ]
   %50 = tail call ptr @__errno_location() #7
-  store i32 %.065, ptr %50, align 4
+  store i32 %.05365, ptr %50, align 4
   br label %51
 
 51:                                               ; preds = %.thread, %45
-  %.054 = phi ptr [ %8, %45 ], [ null, %.thread ]
-  ret ptr %.054
+  %.0 = phi ptr [ %8, %45 ], [ null, %.thread ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

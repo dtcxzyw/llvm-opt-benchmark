@@ -190,9 +190,9 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %33
 
 .lr.ph:                                           ; preds = %.preheader135, %.lr.ph
   %61 = phi ptr [ %65, %.lr.ph ], [ %60, %.preheader135 ]
-  %.068137 = phi i64 [ %62, %.lr.ph ], [ 0, %.preheader135 ]
+  %.070137 = phi i64 [ %62, %.lr.ph ], [ 0, %.preheader135 ]
   call void @pmix_expose_param(ptr noundef nonnull %61) #11
-  %62 = add i64 %.068137, 1
+  %62 = add i64 %.070137, 1
   %63 = load ptr, ptr %58, align 8
   %64 = getelementptr inbounds ptr, ptr %63, i64 %62
   %65 = load ptr, ptr %64, align 8
@@ -251,7 +251,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %33
 pmix_cmd_line_is_taken.exit:                      ; preds = %77, %.lr.ph.i.i100, %83, %72
   %.08.i.i125 = phi i1 [ false, %72 ], [ true, %83 ], [ true, %.lr.ph.i.i100 ], [ false, %77 ]
   %85 = phi i1 [ false, %72 ], [ %82, %83 ], [ %82, %.lr.ph.i.i100 ], [ false, %77 ]
-  %.069 = phi i64 [ 0, %72 ], [ 2, %.lr.ph.i.i100 ], [ 1, %83 ], [ 0, %77 ]
+  %.071 = phi i64 [ 0, %72 ], [ 2, %.lr.ph.i.i100 ], [ 1, %83 ], [ 0, %77 ]
   %86 = getelementptr inbounds i8, ptr %5, i64 392
   %87 = load ptr, ptr %86, align 8
   %88 = call i32 @PMIx_Argv_count(ptr noundef %87) #11
@@ -383,7 +383,7 @@ pmix_obj_run_destructors.exit121:                 ; preds = %.lr.ph.i118, %141
   br i1 %.08.i.i125, label %150, label %170
 
 150:                                              ; preds = %pmix_obj_run_destructors.exit121
-  %151 = call ptr @PMIx_Info_create(i64 noundef %.069) #11
+  %151 = call ptr @PMIx_Info_create(i64 noundef %.071) #11
   %152 = call i32 @PMIx_Info_load(ptr noundef %151, ptr noundef nonnull @.str.16, ptr noundef null, i16 noundef zeroext 1) #11
   br i1 %85, label %153, label %170
 
@@ -422,7 +422,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i122, %153
   br label %170
 
 170:                                              ; preds = %150, %pmix_cmd_line_get_param.exit, %pmix_obj_run_destructors.exit121
-  %.070 = phi ptr [ %151, %pmix_cmd_line_get_param.exit ], [ %151, %150 ], [ null, %pmix_obj_run_destructors.exit121 ]
+  %.069 = phi ptr [ %151, %pmix_cmd_line_get_param.exit ], [ %151, %150 ], [ null, %pmix_obj_run_destructors.exit121 ]
   %171 = call ptr @PMIx_Pdata_create(i64 noundef %95) #11
   %umax = call i64 @llvm.umax.i64(i64 %95, i64 1)
   br label %172
@@ -459,7 +459,7 @@ pmix_strncpy.exit:                                ; preds = %177, %180
   br i1 %exitcond.not, label %185, label %172, !llvm.loop !13
 
 185:                                              ; preds = %pmix_strncpy.exit
-  %186 = call i32 @PMIx_Lookup(ptr noundef %171, i64 noundef %95, ptr noundef %.070, i64 noundef %.069) #11
+  %186 = call i32 @PMIx_Lookup(ptr noundef %171, i64 noundef %95, ptr noundef %.069, i64 noundef %.071) #11
   %.not95 = icmp eq i32 %186, 0
   br i1 %.not95, label %.preheader, label %187
 
@@ -489,12 +489,12 @@ pmix_strncpy.exit:                                ; preds = %177, %180
   br label %201
 
 201:                                              ; preds = %200, %187, %pmix_obj_run_destructors.exit
-  %.071 = phi i32 [ 0, %pmix_obj_run_destructors.exit ], [ %186, %187 ], [ 0, %200 ]
+  %.068 = phi i32 [ 0, %pmix_obj_run_destructors.exit ], [ %186, %187 ], [ 0, %200 ]
   %202 = call i32 @PMIx_tool_finalize() #11
   br label %203
 
 203:                                              ; preds = %2, %201, %69, %26, %21, %15, %10
-  %.0 = phi i32 [ %9, %10 ], [ %14, %15 ], [ -1, %21 ], [ -1, %26 ], [ -1, %69 ], [ %.071, %201 ], [ -1, %2 ]
+  %.0 = phi i32 [ %9, %10 ], [ %14, %15 ], [ -1, %21 ], [ -1, %26 ], [ -1, %69 ], [ %.068, %201 ], [ -1, %2 ]
   ret i32 %.0
 }
 

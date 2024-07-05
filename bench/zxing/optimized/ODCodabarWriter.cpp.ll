@@ -322,9 +322,9 @@ switch.edge149:                                   ; preds = %46, %46, %46, %46, 
 
 .lr.ph:                                           ; preds = %"_ZZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clERw.exit78", %112
   %85 = phi i64 [ %114, %112 ], [ 2, %"_ZZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clERw.exit78" ]
-  %.047156 = phi i64 [ %85, %112 ], [ 1, %"_ZZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clERw.exit78" ]
-  %.048155 = phi i64 [ %113, %112 ], [ 20, %"_ZZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clERw.exit78" ]
-  %86 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %.047156)
+  %.052156 = phi i64 [ %85, %112 ], [ 1, %"_ZZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clERw.exit78" ]
+  %.053155 = phi i64 [ %113, %112 ], [ 20, %"_ZZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clERw.exit78" ]
+  %86 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %.052156)
           to label %87 unwind label %.loopexit150
 
 87:                                               ; preds = %.lr.ph
@@ -399,31 +399,31 @@ select.unfold:                                    ; preds = %switch.early.test, 
   br label %108
 
 106:                                              ; preds = %98, %97
-  %.042 = phi i1 [ false, %98 ], [ true, %97 ]
+  %.047 = phi i1 [ false, %98 ], [ true, %97 ]
   %107 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #10
   br label %108
 
 108:                                              ; preds = %106, %104
+  %.148 = phi i1 [ %.047, %106 ], [ true, %104 ]
   %.pn = phi { ptr, i32 } [ %107, %106 ], [ %105, %104 ]
-  %.143 = phi i1 [ %.042, %106 ], [ true, %104 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #10
   br label %109
 
 109:                                              ; preds = %108, %102
+  %.249 = phi i1 [ %.148, %108 ], [ true, %102 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %108 ], [ %103, %102 ]
-  %.244 = phi i1 [ %.143, %108 ], [ true, %102 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #10
   br label %110
 
 110:                                              ; preds = %100, %109
+  %.350 = phi i1 [ %.249, %109 ], [ true, %100 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %109 ], [ %101, %100 ]
-  %.345 = phi i1 [ %.244, %109 ], [ true, %100 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #10
-  br i1 %.345, label %111, label %.body
+  br i1 %.350, label %111, label %.body
 
 111:                                              ; preds = %.thread128, %110
   %.pn.pn.pn.pn131 = phi { ptr, i32 } [ %99, %.thread128 ], [ %.pn.pn.pn, %110 ]
@@ -432,7 +432,7 @@ select.unfold:                                    ; preds = %switch.early.test, 
 
 112:                                              ; preds = %87, %switch.early.test, %switch.early.test, %select.unfold
   %.sink = phi i64 [ 10, %select.unfold ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %87 ]
-  %113 = add i64 %.048155, %.sink
+  %113 = add i64 %.053155, %.sink
   %114 = add nuw i64 %85, 1
   %115 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
   %116 = icmp ult i64 %114, %115
@@ -443,9 +443,9 @@ select.unfold:                                    ; preds = %switch.early.test, 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %"_ZZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clERw.exit78"
-  %.048.lcssa = phi i64 [ 19, %"_ZZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clERw.exit78" ], [ %117, %._crit_edge.loopexit ]
+  %.053.lcssa = phi i64 [ 19, %"_ZZNK5ZXing4OneD13CodabarWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clERw.exit78" ], [ %117, %._crit_edge.loopexit ]
   %118 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
-  %119 = add i64 %.048.lcssa, %118
+  %119 = add i64 %.053.lcssa, %118
   store ptr null, ptr %17, align 8
   %120 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 0, ptr %120, align 8

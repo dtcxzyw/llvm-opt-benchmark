@@ -1122,12 +1122,12 @@ _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i:     ; preds = %132, %_ZN17QArrayDa
   br label %148
 
 148:                                              ; preds = %.preheader157, %_ZN7QStringD2Ev.exit133
-  %.027 = phi i32 [ %213, %_ZN7QStringD2Ev.exit133 ], [ %140, %.preheader157 ]
-  %.not39 = icmp eq i32 %.027, -1
+  %.034 = phi i32 [ %213, %_ZN7QStringD2Ev.exit133 ], [ %140, %.preheader157 ]
+  %.not39 = icmp eq i32 %.034, -1
   br i1 %.not39, label %218, label %149
 
 149:                                              ; preds = %148
-  %150 = invoke ptr @find_protocol_by_id(i32 noundef %.027)
+  %150 = invoke ptr @find_protocol_by_id(i32 noundef %.034)
           to label %151 unwind label %.loopexit158
 
 151:                                              ; preds = %149
@@ -1149,7 +1149,7 @@ _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i:     ; preds = %132, %_ZN17QArrayDa
   br label %_ZN7QStringD2Ev.exit137
 
 154:                                              ; preds = %153
-  %155 = invoke ptr @proto_get_protocol_filter_name(i32 noundef %.027)
+  %155 = invoke ptr @proto_get_protocol_filter_name(i32 noundef %.034)
           to label %156 unwind label %.loopexit158
 
 156:                                              ; preds = %154
@@ -1193,7 +1193,7 @@ _ZN5QListI7QStringElsERKS0_.exit:                 ; preds = %158
   %.not.i.i107 = icmp eq ptr %167, null
   %spec.select.i.i108 = select i1 %.not.i.i107, ptr @_ZN10QByteArray6_emptyE, ptr %167
   %168 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i.i108) #18
-  %169 = invoke ptr @proto_get_first_protocol_field(i32 noundef %.027, ptr noundef nonnull %19)
+  %169 = invoke ptr @proto_get_first_protocol_field(i32 noundef %.034, ptr noundef nonnull %19)
           to label %.preheader unwind label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %166, %_ZN7QStringD2Ev.exit117
@@ -1295,7 +1295,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i119:   ; preds = %193
   br label %_ZN7QStringD2Ev.exit121
 
 _ZN7QStringD2Ev.exit117:                          ; preds = %191, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i115, %_ZN5QListI7QStringElsEOS0_.exit, %179, %180, %170
-  %199 = invoke ptr @proto_get_next_protocol_field(i32 noundef %.027, ptr noundef nonnull %19)
+  %199 = invoke ptr @proto_get_next_protocol_field(i32 noundef %.034, ptr noundef nonnull %19)
           to label %.preheader unwind label %.loopexit, !llvm.loop !9
 
 200:                                              ; preds = %.preheader

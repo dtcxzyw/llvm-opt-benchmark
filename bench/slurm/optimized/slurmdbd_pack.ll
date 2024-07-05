@@ -2974,7 +2974,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_acct_coord_msg(ptr nocaptur
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %15
-  %.017 = phi i32 [ %18, %15 ], [ 0, %11 ]
+  %.01317 = phi i32 [ %18, %15 ], [ 0, %11 ]
   %14 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef %2) #5
   %.not15 = icmp eq i32 %14, 0
   br i1 %.not15, label %15, label %.loopexit16
@@ -2983,7 +2983,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_acct_coord_msg(ptr nocaptur
   %16 = load ptr, ptr %7, align 8
   %17 = load ptr, ptr %4, align 8
   call void @list_append(ptr noundef %16, ptr noundef %17) #5
-  %18 = add nuw nsw i32 %.017, 1
+  %18 = add nuw nsw i32 %.01317, 1
   %19 = load i32, ptr %5, align 4
   %20 = icmp ult i32 %18, %19
   br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !10
@@ -3000,8 +3000,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_acct_coord_msg(ptr nocaptur
   br label %24
 
 24:                                               ; preds = %.loopexit, %.loopexit16
-  %.013 = phi i32 [ -1, %.loopexit16 ], [ 0, %.loopexit ]
-  ret i32 %.013
+  %.0 = phi i32 [ -1, %.loopexit16 ], [ 0, %.loopexit ]
+  ret i32 %.0
 }
 
 declare i32 @slurmdb_unpack_archive_rec(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1

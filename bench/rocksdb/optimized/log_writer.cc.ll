@@ -538,9 +538,9 @@ if.end:                                           ; preds = %if.then, %entry
 
 do.body:                                          ; preds = %land.rhs94, %if.end
   %.pre107111 = phi i64 [ %1, %if.end ], [ %sub91, %land.rhs94 ]
-  %begin.0 = phi i1 [ true, %if.end ], [ false, %land.rhs94 ]
-  %compress_remaining.0 = phi i32 [ 0, %if.end ], [ %compress_remaining.1, %land.rhs94 ]
   %compress_start.1 = phi i1 [ %tobool3.not, %if.end ], [ %compress_start.2, %land.rhs94 ]
+  %compress_remaining.0 = phi i32 [ 0, %if.end ], [ %compress_remaining.1, %land.rhs94 ]
+  %begin.0 = phi i1 [ true, %if.end ], [ false, %land.rhs94 ]
   %ptr.0 = phi ptr [ %0, %if.end ], [ %add.ptr, %land.rhs94 ]
   %5 = load i64, ptr %block_offset_, align 8
   %sub = sub i64 32768, %5
@@ -707,8 +707,8 @@ if.end54:                                         ; preds = %if.else
 
 if.end57:                                         ; preds = %land.lhs.true, %if.end54, %if.end18
   %26 = phi i64 [ %24, %if.end54 ], [ %.pre107, %land.lhs.true ], [ %.pre107, %if.end18 ]
-  %compress_remaining.1 = phi i32 [ %call37, %if.end54 ], [ %compress_remaining.0, %land.lhs.true ], [ %compress_remaining.0, %if.end18 ]
   %compress_start.2 = phi i1 [ false, %if.end54 ], [ false, %land.lhs.true ], [ %compress_start.1, %if.end18 ]
+  %compress_remaining.1 = phi i32 [ %call37, %if.end54 ], [ %compress_remaining.0, %land.lhs.true ], [ %compress_remaining.0, %if.end18 ]
   %ptr.1 = phi ptr [ %25, %if.end54 ], [ %ptr.0, %land.lhs.true ], [ %ptr.0, %if.end18 ]
   %cond59 = call i64 @llvm.umin.i64(i64 %26, i64 %sub22)
   %cmp60 = icmp ule i64 %26, %sub22

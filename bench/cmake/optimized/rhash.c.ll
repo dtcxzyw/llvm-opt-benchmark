@@ -341,14 +341,14 @@ define dso_local noundef i32 @rhash_final(ptr nocapture noundef %0, ptr noundef 
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %.01417 = phi ptr [ %11, %.lr.ph ], [ %3, %13 ]
+  %.01516 = phi ptr [ %11, %.lr.ph ], [ %3, %13 ]
   %14 = getelementptr inbounds [0 x %struct.rhash_vector_item], ptr %12, i64 0, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %14, i64 8
   %19 = load ptr, ptr %18, align 8
-  call void %17(ptr noundef %19, ptr noundef %.01417) #15
+  call void %17(ptr noundef %19, ptr noundef %.01516) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %9, align 8
   %21 = zext i32 %20 to i64
@@ -513,14 +513,14 @@ rhash_update.exit:                                ; preds = %39, %30, %33
 
 58:                                               ; preds = %58, %.lr.ph.i10
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i13, %58 ]
-  %.01417.i = phi ptr [ %56, %.lr.ph.i10 ], [ %5, %58 ]
+  %.01516.i = phi ptr [ %56, %.lr.ph.i10 ], [ %5, %58 ]
   %59 = getelementptr inbounds [0 x %struct.rhash_vector_item], ptr %57, i64 0, i64 %indvars.iv.i12
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %59, i64 8
   %64 = load ptr, ptr %63, align 8
-  call void %62(ptr noundef %64, ptr noundef %.01417.i) #15
+  call void %62(ptr noundef %64, ptr noundef %.01516.i) #15
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
   %65 = load i32, ptr %54, align 8
   %66 = zext i32 %65 to i64
@@ -786,14 +786,14 @@ rhash_init.exit:                                  ; preds = %17, %29
 
 47:                                               ; preds = %47, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %47 ]
-  %.01417.i = phi ptr [ %45, %.lr.ph.i ], [ %4, %47 ]
+  %.01516.i = phi ptr [ %45, %.lr.ph.i ], [ %4, %47 ]
   %48 = getelementptr inbounds [0 x %struct.rhash_vector_item], ptr %46, i64 0, i64 %indvars.iv.i
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 40
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %48, i64 8
   %53 = load ptr, ptr %52, align 8
-  call void %51(ptr noundef %53, ptr noundef %.01417.i) #15
+  call void %51(ptr noundef %53, ptr noundef %.01516.i) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %54 = load i32, ptr %43, align 8
   %55 = zext i32 %54 to i64

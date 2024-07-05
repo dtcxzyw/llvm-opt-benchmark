@@ -495,8 +495,8 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr noc
   br label %._crit_edge273
 
 ._crit_edge273:                                   ; preds = %124, %110, %159, %145, %186, %249, %._crit_edge273.loopexit336, %._crit_edge257, %15, %248, %237, %223, %206, %96, %83, %59, %46
-  %.0200 = phi i32 [ 0, %46 ], [ 0, %59 ], [ 0, %83 ], [ 0, %96 ], [ 0, %206 ], [ 0, %223 ], [ 0, %237 ], [ 0, %248 ], [ 0, %15 ], [ 1, %._crit_edge257 ], [ 0, %._crit_edge273.loopexit336 ], [ 1, %249 ], [ 1, %186 ], [ 0, %145 ], [ 0, %159 ], [ 0, %110 ], [ 0, %124 ]
-  ret i32 %.0200
+  %.0198 = phi i32 [ 0, %46 ], [ 0, %59 ], [ 0, %83 ], [ 0, %96 ], [ 0, %206 ], [ 0, %223 ], [ 0, %237 ], [ 0, %248 ], [ 0, %15 ], [ 1, %._crit_edge257 ], [ 0, %._crit_edge273.loopexit336 ], [ 1, %249 ], [ 1, %186 ], [ 0, %145 ], [ 0, %159 ], [ 0, %110 ], [ 0, %124 ]
+  ret i32 %.0198
 }
 
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1

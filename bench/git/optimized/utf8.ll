@@ -622,9 +622,9 @@ entry:
 
 retry.preheader:                                  ; preds = %entry
   %cmp1 = icmp slt i32 %indent1, 0
-  %spec.select = tail call i32 @llvm.abs.i32(i32 %indent1, i1 true)
+  %spec.select31 = tail call i32 @llvm.abs.i32(i32 %indent1, i1 true)
   %buf.i46 = getelementptr inbounds i8, ptr %buf, i64 16
-  %spec.select31 = select i1 %cmp1, ptr %text, ptr null
+  %spec.select = select i1 %cmp1, ptr %text, ptr null
   br label %retry
 
 if.then:                                          ; preds = %entry
@@ -660,9 +660,9 @@ retry:                                            ; preds = %retry.backedge, %re
 
 for.cond.outer:                                   ; preds = %if.end61, %retry
   %text.addr.promoted108 = phi ptr [ %storemerge, %if.end61 ], [ %text, %retry ]
-  %w.1.ph = phi i32 [ %w.3, %if.end61 ], [ %spec.select, %retry ]
+  %space.1.ph = phi ptr [ %space.4, %if.end61 ], [ %spec.select, %retry ]
   %bol.0.ph = phi ptr [ %bol.1, %if.end61 ], [ %text, %retry ]
-  %space.1.ph = phi ptr [ %space.4, %if.end61 ], [ %spec.select31, %retry ]
+  %w.1.ph = phi i32 [ %w.3, %if.end61 ], [ %spec.select31, %retry ]
   %indent.0.ph = phi i32 [ %indent.1, %if.end61 ], [ %indent1, %retry ]
   br i1 %tobool63.not, label %for.cond.us, label %for.cond
 
@@ -908,8 +908,8 @@ strbuf_addch.exit54:                              ; preds = %strbuf_avail.exit.i
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end25, %strbuf_addch.exit54, %if.then29
-  %w.2 = phi i32 [ %or, %if.then29 ], [ %w.197, %strbuf_addch.exit54 ], [ %w.197, %if.end25 ]
   %space.2 = phi ptr [ %20, %if.then29 ], [ %incdec.ptr, %strbuf_addch.exit54 ], [ %20, %if.end25 ]
+  %w.2 = phi i32 [ %or, %if.then29 ], [ %w.197, %strbuf_addch.exit54 ], [ %w.197, %if.end25 ]
   %inc = add nsw i32 %w.2, 1
   %incdec.ptr52 = getelementptr inbounds i8, ptr %20, i64 1
   br label %if.end61
@@ -954,9 +954,9 @@ strbuf_addch.exit70:                              ; preds = %strbuf_avail.exit.i
 
 if.end61:                                         ; preds = %strbuf_addch.exit70, %if.end51
   %storemerge = phi ptr [ %incdec.ptr52, %if.end51 ], [ %add.ptr60, %strbuf_addch.exit70 ]
-  %w.3 = phi i32 [ %inc, %if.end51 ], [ %indent2, %strbuf_addch.exit70 ]
-  %bol.1 = phi ptr [ %bol.0.ph, %if.end51 ], [ %add.ptr60, %strbuf_addch.exit70 ]
   %space.4 = phi ptr [ %space.2, %if.end51 ], [ null, %strbuf_addch.exit70 ]
+  %bol.1 = phi ptr [ %bol.0.ph, %if.end51 ], [ %add.ptr60, %strbuf_addch.exit70 ]
+  %w.3 = phi i32 [ %inc, %if.end51 ], [ %indent2, %strbuf_addch.exit70 ]
   %indent.1 = phi i32 [ %indent.0.ph, %if.end51 ], [ %indent2, %strbuf_addch.exit70 ]
   store ptr %storemerge, ptr %text.addr, align 8
   br label %for.cond.outer

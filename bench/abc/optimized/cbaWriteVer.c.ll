@@ -2778,8 +2778,8 @@ Cba_ObjAttrArray.exit:                            ; preds = %Cba_ObjAttrSize.exi
   br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %38, %3, %Cba_ObjAttrArray.exit, %33
-  %.012 = phi i32 [ %37, %33 ], [ 0, %Cba_ObjAttrArray.exit ], [ 0, %3 ], [ 0, %38 ]
-  ret i32 %.012
+  %.0 = phi i32 [ %37, %33 ], [ 0, %Cba_ObjAttrArray.exit ], [ 0, %3 ], [ 0, %38 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2901,7 +2901,7 @@ Vec_BitStart.exit:                                ; preds = %2, %21
 
 66:                                               ; preds = %.lr.ph1212, %73
   %indvars.iv1269 = phi i64 [ 0, %.lr.ph1212 ], [ %indvars.iv.next1270, %73 ]
-  %.07751210 = phi i32 [ %.val, %.lr.ph1212 ], [ %.1776, %73 ]
+  %.07831210 = phi i32 [ %.val, %.lr.ph1212 ], [ %.1784, %73 ]
   %.val953 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i32, ptr %.val953, i64 %indvars.iv1269
   %68 = load i32, ptr %67, align 4
@@ -2909,7 +2909,7 @@ Vec_BitStart.exit:                                ; preds = %2, %21
   %69 = select i1 %.not831, ptr @.str.2, ptr @.str.58
   tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %4, ptr noundef nonnull %69)
   %.val838 = load i32, ptr %62, align 4
-  %70 = add nsw i32 %.07751210, 70
+  %70 = add nsw i32 %.07831210, 70
   %71 = icmp sgt i32 %.val838, %70
   br i1 %71, label %72, label %73
 
@@ -2918,7 +2918,7 @@ Vec_BitStart.exit:                                ; preds = %2, %21
   br label %73
 
 73:                                               ; preds = %72, %66
-  %.1776 = phi i32 [ %.val838, %72 ], [ %.07751210, %66 ]
+  %.1784 = phi i32 [ %.val838, %72 ], [ %.07831210, %66 ]
   %74 = tail call ptr @Cba_ObjGetName(ptr noundef nonnull %0, i32 noundef %68)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %4, ptr noundef %74)
   %indvars.iv.next1270 = add nuw nsw i64 %indvars.iv1269, 1
@@ -3198,12 +3198,12 @@ Cba_ObjNtk.exit:                                  ; preds = %179, %Cba_ObjNtkId.
 
 197:                                              ; preds = %.lr.ph1222, %206
   %.val9591301 = phi ptr [ %.val958, %.lr.ph1222 ], [ %.val959, %206 ]
-  %.07771221 = phi i32 [ %192, %.lr.ph1222 ], [ %207, %206 ]
-  %198 = ashr i32 %.07771221, 5
+  %.07811221 = phi i32 [ %192, %.lr.ph1222 ], [ %207, %206 ]
+  %198 = ashr i32 %.07811221, 5
   %199 = sext i32 %198 to i64
   %200 = getelementptr inbounds i32, ptr %.val977, i64 %199
   %201 = load i32, ptr %200, align 4
-  %202 = and i32 %.07771221, 31
+  %202 = and i32 %.07811221, 31
   %203 = shl nuw i32 1, %202
   %204 = and i32 %201, %203
   %.not828 = icmp eq i32 %204, 0
@@ -3211,15 +3211,15 @@ Cba_ObjNtk.exit:                                  ; preds = %179, %Cba_ObjNtkId.
 
 205:                                              ; preds = %197
   tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.84)
-  tail call void @Cba_ManWriteFonRange(ptr noundef nonnull %0, i32 noundef %.07771221)
-  tail call void @Cba_ManWriteFonName(ptr noundef nonnull %0, i32 noundef %.07771221, i32 noundef 0, i32 noundef 0)
+  tail call void @Cba_ManWriteFonRange(ptr noundef nonnull %0, i32 noundef %.07811221)
+  tail call void @Cba_ManWriteFonName(ptr noundef nonnull %0, i32 noundef %.07811221, i32 noundef 0, i32 noundef 0)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.85)
   %.val959.pre = load ptr, ptr %157, align 8
   br label %206
 
 206:                                              ; preds = %197, %205
   %.val959 = phi ptr [ %.val9591301, %197 ], [ %.val959.pre, %205 ]
-  %207 = add nsw i32 %.07771221, 1
+  %207 = add nsw i32 %.07811221, 1
   %208 = getelementptr inbounds i32, ptr %.val959, i64 %193
   %209 = load i32, ptr %208, align 4
   %210 = icmp slt i32 %207, %209
@@ -3576,7 +3576,7 @@ Vec_StrPush.exit1026:                             ; preds = %.Vec_StrGrow.exit10
 
 363:                                              ; preds = %.lr.ph1232, %Vec_StrPush.exit1050
   %indvars.iv1289 = phi i64 [ 0, %.lr.ph1232 ], [ %indvars.iv.next1290, %Vec_StrPush.exit1050 ]
-  %.17781230 = phi i32 [ %355, %.lr.ph1232 ], [ %458, %Vec_StrPush.exit1050 ]
+  %.17821230 = phi i32 [ %355, %.lr.ph1232 ], [ %458, %Vec_StrPush.exit1050 ]
   %.val988 = load ptr, ptr %158, align 8
   %364 = getelementptr i32, ptr %.val988, i64 %indvars.iv1295
   %365 = getelementptr i8, ptr %364, i64 4
@@ -3740,7 +3740,7 @@ Vec_IntGetEntry.exit1178:                         ; preds = %363, %._crit_edge.i
 Cba_ObjGetName.exit1043:                          ; preds = %424, %Vec_IntGetEntry.exit1178, %405, %415, %.loopexit.i1037
   %.0.i1036 = phi ptr [ %429, %.loopexit.i1037 ], [ null, %Vec_IntGetEntry.exit1178 ], [ %403, %405 ], [ %403, %415 ], [ %403, %424 ]
   %430 = tail call ptr (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef nonnull %4, ptr noundef nonnull @.str.88, ptr noundef nonnull %368, ptr noundef %.0.i1036)
-  tail call void @Cba_ManWriteFonName(ptr noundef nonnull %0, i32 noundef %.17781230, i32 noundef 0, i32 noundef 1)
+  tail call void @Cba_ManWriteFonName(ptr noundef nonnull %0, i32 noundef %.17821230, i32 noundef 0, i32 noundef 1)
   %431 = load i32, ptr %62, align 4
   %432 = load i32, ptr %4, align 8
   %433 = icmp eq i32 %431, %432
@@ -3802,7 +3802,7 @@ Vec_StrPush.exit1050:                             ; preds = %.Vec_StrGrow.exit10
   %456 = sext i32 %454 to i64
   %457 = getelementptr inbounds i8, ptr %453, i64 %456
   store i8 41, ptr %457, align 1
-  %458 = add nsw i32 %.17781230, 1
+  %458 = add nsw i32 %.17821230, 1
   %indvars.iv.next1290 = add nuw nsw i64 %indvars.iv1289, 1
   %.val961 = load ptr, ptr %157, align 8
   %459 = getelementptr inbounds i32, ptr %.val961, i64 %193
@@ -4020,7 +4020,7 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %535
 .lr.ph1244:                                       ; preds = %Abc_Base2Log.exit, %563
   %.val8551304 = phi ptr [ %.val855, %563 ], [ %.val856, %Abc_Base2Log.exit ]
   %.71243 = phi i32 [ %565, %563 ], [ 0, %Abc_Base2Log.exit ]
-  %.27811242 = phi i32 [ %564, %563 ], [ %553, %Abc_Base2Log.exit ]
+  %.27781242 = phi i32 [ %564, %563 ], [ %553, %Abc_Base2Log.exit ]
   %558 = icmp eq i32 %.71243, 0
   br i1 %558, label %563, label %559
 
@@ -4034,7 +4034,7 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %535
 
 563:                                              ; preds = %.lr.ph1244, %559
   %.val855 = phi ptr [ %.val8551304, %.lr.ph1244 ], [ %.val855.pre, %559 ]
-  %564 = add nsw i32 %.27811242, 1
+  %564 = add nsw i32 %.27781242, 1
   %565 = add nuw nsw i32 %.71243, 1
   %566 = getelementptr inbounds i32, ptr %.val855, i64 %554
   %567 = load i32, ptr %566, align 4
@@ -4067,7 +4067,7 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %535
 577:                                              ; preds = %.lr.ph1252, %593
   %.val8531306 = phi ptr [ %.val854, %.lr.ph1252 ], [ %.val853, %593 ]
   %.81250 = phi i32 [ 0, %.lr.ph1252 ], [ %595, %593 ]
-  %.37821249 = phi i32 [ %572, %.lr.ph1252 ], [ %594, %593 ]
+  %.37791249 = phi i32 [ %572, %.lr.ph1252 ], [ %594, %593 ]
   %578 = icmp eq i32 %.81250, 0
   br i1 %578, label %593, label %579
 
@@ -4113,7 +4113,7 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %535
 
 593:                                              ; preds = %577, %.loopexit
   %.val853 = phi ptr [ %.val8531306, %577 ], [ %.val853.pre, %.loopexit ]
-  %594 = add nsw i32 %.37821249, 1
+  %594 = add nsw i32 %.37791249, 1
   %595 = add nuw nsw i32 %.81250, 1
   %596 = getelementptr inbounds i32, ptr %.val853, i64 %554
   %597 = load i32, ptr %596, align 4

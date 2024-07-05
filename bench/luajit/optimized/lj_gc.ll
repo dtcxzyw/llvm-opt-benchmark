@@ -2266,8 +2266,8 @@ if.then17.i:                                      ; preds = %land.lhs.true.i
   br label %while.cond.i.outer
 
 while.cond.i.outer:                               ; preds = %while.cond.i.outer.backedge, %if.then17.i
-  %weak.0.i.ph = phi i32 [ 0, %if.then17.i ], [ %weak.0.i.ph.be, %while.cond.i.outer.backedge ]
   %modestr.0.i.ph = phi ptr [ %add.ptr.i, %if.then17.i ], [ %incdec.ptr.i, %while.cond.i.outer.backedge ]
+  %weak.0.i.ph = phi i32 [ 0, %if.then17.i ], [ %weak.0.i.ph.be, %while.cond.i.outer.backedge ]
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.outer, %while.cond.i
@@ -2284,13 +2284,13 @@ if.then24.i:                                      ; preds = %while.cond.i
   %or.i = or i32 %weak.0.i.ph, 8
   br label %while.cond.i.outer.backedge
 
-while.cond.i.outer.backedge:                      ; preds = %if.then24.i, %if.then27.i
-  %weak.0.i.ph.be = phi i32 [ %or28.i, %if.then27.i ], [ %or.i, %if.then24.i ]
-  br label %while.cond.i.outer, !llvm.loop !22
-
 if.then27.i:                                      ; preds = %while.cond.i
   %or28.i = or i32 %weak.0.i.ph, 16
   br label %while.cond.i.outer.backedge
+
+while.cond.i.outer.backedge:                      ; preds = %if.then27.i, %if.then24.i
+  %weak.0.i.ph.be = phi i32 [ %or.i, %if.then24.i ], [ %or28.i, %if.then27.i ]
+  br label %while.cond.i.outer, !llvm.loop !22
 
 while.end.i:                                      ; preds = %while.cond.i
   %tobool31.not.i = icmp eq i32 %weak.0.i.ph, 0
@@ -2846,9 +2846,9 @@ if.end32.i:                                       ; preds = %if.then29.i, %if.en
   br i1 %cmp1.i.i, label %for.body.i.i, label %gc_traverse_thread.exit
 
 for.body.i.i:                                     ; preds = %if.end32.i, %cond.end.i.i
-  %top.03.i.i = phi ptr [ %spec.select.i.i, %cond.end.i.i ], [ %add.ptr.i.i, %if.end32.i ]
-  %frame.02.i.i = phi ptr [ %cond.i.i, %cond.end.i.i ], [ %add.ptr2.i.i, %if.end32.i ]
-  %add.ptr4.i.i = getelementptr inbounds i8, ptr %frame.02.i.i, i64 -8
+  %frame.03.i.i = phi ptr [ %cond.i.i, %cond.end.i.i ], [ %add.ptr2.i.i, %if.end32.i ]
+  %top.02.i.i = phi ptr [ %spec.select.i.i, %cond.end.i.i ], [ %add.ptr.i.i, %if.end32.i ]
+  %add.ptr4.i.i = getelementptr inbounds i8, ptr %frame.03.i.i, i64 -8
   %138 = load i64, ptr %add.ptr4.i.i, align 8
   %and.i.i = and i64 %138, 140737488355327
   %139 = inttoptr i64 %and.i.i to ptr
@@ -2864,14 +2864,14 @@ if.then.i.i57:                                    ; preds = %for.body.i.i
   %framesize.i.i = getelementptr inbounds i8, ptr %142, i64 -93
   %143 = load i8, ptr %framesize.i.i, align 1
   %idx.ext.i.i = zext i8 %143 to i64
-  %add.ptr10.i.i = getelementptr inbounds %union.TValue, ptr %frame.02.i.i, i64 %idx.ext.i.i
+  %add.ptr10.i.i = getelementptr inbounds %union.TValue, ptr %frame.03.i.i, i64 %idx.ext.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i57, %for.body.i.i
-  %ftop.0.i.i = phi ptr [ %add.ptr10.i.i, %if.then.i.i57 ], [ %frame.02.i.i, %for.body.i.i ]
-  %cmp11.i.i = icmp ugt ptr %ftop.0.i.i, %top.03.i.i
-  %spec.select.i.i = select i1 %cmp11.i.i, ptr %ftop.0.i.i, ptr %top.03.i.i
-  %144 = load i64, ptr %frame.02.i.i, align 8
+  %ftop.0.i.i = phi ptr [ %add.ptr10.i.i, %if.then.i.i57 ], [ %frame.03.i.i, %for.body.i.i ]
+  %cmp11.i.i = icmp ugt ptr %ftop.0.i.i, %top.02.i.i
+  %spec.select.i.i = select i1 %cmp11.i.i, ptr %ftop.0.i.i, ptr %top.02.i.i
+  %144 = load i64, ptr %frame.03.i.i, align 8
   %and15.i.i = and i64 %144, 3
   %cmp16.i.i = icmp eq i64 %and15.i.i, 0
   br i1 %cmp16.i.i, label %cond.true.i.i, label %cond.false.i.i
@@ -2885,13 +2885,13 @@ cond.true.i.i:                                    ; preds = %if.end.i.i
   %add.i.i = add nuw nsw i32 %and18.i.i, 2
   %idx.ext19.i.i = zext nneg i32 %add.i.i to i64
   %idx.neg.i.i = sub nsw i64 0, %idx.ext19.i.i
-  %add.ptr20.i.i = getelementptr inbounds %union.TValue, ptr %frame.02.i.i, i64 %idx.neg.i.i
+  %add.ptr20.i.i = getelementptr inbounds %union.TValue, ptr %frame.03.i.i, i64 %idx.neg.i.i
   br label %cond.end.i.i
 
 cond.false.i.i:                                   ; preds = %if.end.i.i
   %and21.i.i = and i64 %144, -8
   %idx.neg22.i.i = sub i64 0, %and21.i.i
-  %add.ptr23.i.i = getelementptr inbounds i8, ptr %frame.02.i.i, i64 %idx.neg22.i.i
+  %add.ptr23.i.i = getelementptr inbounds i8, ptr %frame.03.i.i, i64 %idx.neg22.i.i
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i

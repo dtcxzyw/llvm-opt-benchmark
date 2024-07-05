@@ -124,10 +124,10 @@ define hidden void @zif_openlog(ptr noundef %0, ptr nocapture noundef writeonly 
 
 .thread173:                                       ; preds = %15, %27, %8, %35
   %.0184 = phi i32 [ 9, %35 ], [ 9, %15 ], [ 9, %27 ], [ 1, %8 ]
-  %.0137183 = phi i32 [ 0, %35 ], [ 4, %15 ], [ 0, %27 ], [ 0, %8 ]
-  %.0138182 = phi ptr [ %30, %35 ], [ %10, %15 ], [ %22, %27 ], [ null, %8 ]
-  %.0139181 = phi i32 [ 3, %35 ], [ 1, %15 ], [ 2, %27 ], [ 0, %8 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0184, i32 noundef %.0139181, ptr noundef null, i32 noundef %.0137183, ptr noundef %.0138182) #4
+  %.0138183 = phi i32 [ 0, %35 ], [ 4, %15 ], [ 0, %27 ], [ 0, %8 ]
+  %.0139182 = phi ptr [ %30, %35 ], [ %10, %15 ], [ %22, %27 ], [ null, %8 ]
+  %.0140181 = phi i32 [ 3, %35 ], [ 1, %15 ], [ 2, %27 ], [ 0, %8 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0184, i32 noundef %.0140181, ptr noundef null, i32 noundef %.0138183, ptr noundef %.0139182) #4
   br label %46
 
 .thread196:                                       ; preds = %35, %.thread169
@@ -248,10 +248,10 @@ define hidden void @zif_syslog(ptr noundef %0, ptr nocapture noundef writeonly %
 
 .thread115:                                       ; preds = %22, %14, %7
   %.0124 = phi i32 [ 9, %14 ], [ 1, %7 ], [ 9, %22 ]
-  %.090123 = phi i32 [ 0, %14 ], [ 0, %7 ], [ 4, %22 ]
-  %.091122 = phi ptr [ %9, %14 ], [ null, %7 ], [ %17, %22 ]
-  %.092121 = phi i32 [ 1, %14 ], [ 0, %7 ], [ 2, %22 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0124, i32 noundef %.092121, ptr noundef null, i32 noundef %.090123, ptr noundef %.091122) #4
+  %.091123 = phi i32 [ 0, %14 ], [ 0, %7 ], [ 4, %22 ]
+  %.092122 = phi ptr [ %9, %14 ], [ null, %7 ], [ %17, %22 ]
+  %.093121 = phi i32 [ 1, %14 ], [ 0, %7 ], [ 2, %22 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0124, i32 noundef %.093121, ptr noundef null, i32 noundef %.091123, ptr noundef %.092122) #4
   br label %28
 
 .thread127:                                       ; preds = %..thread127_crit_edge, %.thread111

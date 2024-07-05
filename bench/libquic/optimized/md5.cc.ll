@@ -69,8 +69,8 @@ if.end15:                                         ; preds = %if.then11
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end15, %entry
-  %buf.0 = phi ptr [ %add.ptr24, %if.end15 ], [ %call, %entry ]
   %len.0 = phi i64 [ %sub26, %if.end15 ], [ %call1, %entry ]
+  %buf.0 = phi ptr [ %add.ptr24, %if.end15 ], [ %call, %entry ]
   %cmp2844 = icmp ugt i64 %len.0, 63
   br i1 %cmp2844, label %while.body.lr.ph, label %while.end
 
@@ -79,18 +79,18 @@ while.body.lr.ph:                                 ; preds = %if.end27
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %len.146 = phi i64 [ %len.0, %while.body.lr.ph ], [ %sub38, %while.body ]
-  %buf.145 = phi ptr [ %buf.0, %while.body.lr.ph ], [ %add.ptr37, %while.body ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %in29, ptr noundef nonnull align 1 dereferenceable(64) %buf.145, i64 64, i1 false)
+  %buf.146 = phi ptr [ %buf.0, %while.body.lr.ph ], [ %add.ptr37, %while.body ]
+  %len.145 = phi i64 [ %len.0, %while.body.lr.ph ], [ %sub38, %while.body ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %in29, ptr noundef nonnull align 1 dereferenceable(64) %buf.146, i64 64, i1 false)
   tail call fastcc void @_ZN12_GLOBAL__N_112MD5TransformEPjPKj(ptr noundef nonnull %context, ptr noundef nonnull %in29)
-  %add.ptr37 = getelementptr inbounds i8, ptr %buf.145, i64 64
-  %sub38 = add i64 %len.146, -64
+  %add.ptr37 = getelementptr inbounds i8, ptr %buf.146, i64 64
+  %sub38 = add i64 %len.145, -64
   %cmp28 = icmp ugt i64 %sub38, 63
   br i1 %cmp28, label %while.body, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body, %if.end27
-  %buf.1.lcssa = phi ptr [ %buf.0, %if.end27 ], [ %add.ptr37, %while.body ]
   %len.1.lcssa = phi i64 [ %len.0, %if.end27 ], [ %sub38, %while.body ]
+  %buf.1.lcssa = phi ptr [ %buf.0, %if.end27 ], [ %add.ptr37, %while.body ]
   %in39 = getelementptr inbounds i8, ptr %context, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %in39, ptr align 1 %buf.1.lcssa, i64 %len.1.lcssa, i1 false)
   br label %return

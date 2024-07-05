@@ -4193,14 +4193,14 @@ entry:
   %mark = alloca %class.ast_mark, align 8
   %0 = load ptr, ptr %contains_x, align 8
   %cmp.not = icmp eq ptr %0, %a
-  %spec.select43 = select i1 %cmp.not, ptr %b, ptr %a
+  %spec.select = select i1 %cmp.not, ptr %b, ptr %a
   %cmp2.not44 = icmp eq ptr %0, %b
   %cmp2.not = or i1 %cmp.not, %cmp2.not44
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %entry
   %m_check.i = getelementptr inbounds i8, ptr %contains_x, i64 32
-  %call.i = tail call noundef zeroext i1 @_ZN10check_predclEP4expr(ptr noundef nonnull align 8 dereferenceable(137) %m_check.i, ptr noundef %spec.select43)
+  %call.i = tail call noundef zeroext i1 @_ZN10check_predclEP4expr(ptr noundef nonnull align 8 dereferenceable(137) %m_check.i, ptr noundef %spec.select)
   br i1 %call.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.end4
@@ -4219,7 +4219,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %if.then.i
   %.pre1.i = load i32, ptr %arrayidx8.phi.trans.insert.i, align 4
   %idx.ext.i = zext i32 %.pre1.i to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %idx.ext.i
-  store ptr %spec.select43, ptr %add.ptr.i, align 8
+  store ptr %spec.select, ptr %add.ptr.i, align 8
   %1 = load ptr, ptr %todo, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx10.i, align 4

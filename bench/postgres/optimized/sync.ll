@@ -100,7 +100,7 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
 
 .lr.ph38:                                         ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.lr.ph ]
-  %.0183237 = phi i32 [ %.1, %37 ], [ 10, %.lr.ph ]
+  %.0173336 = phi i32 [ %.1, %37 ], [ 10, %.lr.ph ]
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr %union.ListCell, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
@@ -143,7 +143,7 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
 
 33:                                               ; preds = %25, %28, %30, %18
   store i8 1, ptr %10, align 2
-  %34 = add i32 %.0183237, -1
+  %34 = add i32 %.0173336, -1
   %35 = icmp slt i32 %34, 1
   br i1 %35, label %36, label %37
 
@@ -152,7 +152,7 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %33, %36, %.lr.ph38
-  %.1 = phi i32 [ %.0183237, %.lr.ph38 ], [ 10, %36 ], [ %34, %33 ]
+  %.1 = phi i32 [ %.0173336, %.lr.ph38 ], [ 10, %36 ], [ %34, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %3, align 4
   %39 = sext i32 %38 to i64

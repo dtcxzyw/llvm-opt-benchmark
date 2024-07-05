@@ -25,21 +25,21 @@ define range(i32 -22, 1) i32 @wd_cancel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not18, label %24, label %.preheader
 
 .preheader:                                       ; preds = %4, %.preheader
-  %.015.in = phi ptr [ %.015, %.preheader ], [ @g_wdactivelist, %4 ]
-  %.014 = phi ptr [ %.015, %.preheader ], [ null, %4 ]
-  %.015 = load ptr, ptr %.015.in, align 8
-  %7 = icmp ne ptr %.015, null
-  %8 = icmp ne ptr %.015, %0
+  %.015 = phi ptr [ %.014, %.preheader ], [ null, %4 ]
+  %.014.in = phi ptr [ %.014, %.preheader ], [ @g_wdactivelist, %4 ]
+  %.014 = load ptr, ptr %.014.in, align 8
+  %7 = icmp ne ptr %.014, null
+  %8 = icmp ne ptr %.014, %0
   %9 = and i1 %7, %8
   br i1 %9, label %.preheader, label %10, !llvm.loop !8
 
 10:                                               ; preds = %.preheader
-  %11 = load ptr, ptr %.015, align 8
+  %11 = load ptr, ptr %.014, align 8
   %.not19 = icmp eq ptr %11, null
   br i1 %.not19, label %18, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %.015, i64 24
+  %13 = getelementptr inbounds i8, ptr %.014, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %11, i64 24
   %16 = load i64, ptr %15, align 8
@@ -48,11 +48,11 @@ define range(i32 -22, 1) i32 @wd_cancel(ptr noundef %0) local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %12, %10
-  %.not20 = icmp eq ptr %.014, null
+  %.not20 = icmp eq ptr %.015, null
   br i1 %.not20, label %21, label %19
 
 19:                                               ; preds = %18
-  %20 = call ptr @sq_remafter(ptr noundef nonnull %.014, ptr noundef nonnull @g_wdactivelist) #3
+  %20 = call ptr @sq_remafter(ptr noundef nonnull %.015, ptr noundef nonnull @g_wdactivelist) #3
   br label %23
 
 21:                                               ; preds = %18

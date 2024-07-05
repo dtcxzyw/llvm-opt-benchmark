@@ -82,7 +82,7 @@ define void @PHP_WHIRLPOOLUpdate(ptr nocapture noundef %0, ptr nocapture noundef
   %indvars.iv101 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next102, %45 ]
   %.07694 = phi i32 [ %11, %.lr.ph ], [ %.1, %45 ]
   %.07793 = phi i32 [ %7, %.lr.ph ], [ %50, %45 ]
-  %.08291 = phi i64 [ %4, %.lr.ph ], [ %51, %45 ]
+  %.08192 = phi i64 [ %4, %.lr.ph ], [ %51, %45 ]
   %33 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv101
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
@@ -111,7 +111,7 @@ define void @PHP_WHIRLPOOLUpdate(ptr nocapture noundef %0, ptr nocapture noundef
   %49 = getelementptr inbounds i8, ptr %9, i64 %48
   store i8 %47, ptr %49, align 1
   %50 = add nsw i32 %.178, %8
-  %51 = add i64 %.08291, -8
+  %51 = add i64 %.08192, -8
   %exitcond.not = icmp eq i64 %indvars.iv101, %30
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %31
 
@@ -121,15 +121,15 @@ define void @PHP_WHIRLPOOLUpdate(ptr nocapture noundef %0, ptr nocapture noundef
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.critedge
-  %.082.lcssa = phi i64 [ %4, %.critedge ], [ %51, %._crit_edge.loopexit ]
-  %.081.lcssa = phi i64 [ 0, %.critedge ], [ %53, %._crit_edge.loopexit ]
+  %.082.lcssa = phi i64 [ 0, %.critedge ], [ %53, %._crit_edge.loopexit ]
+  %.081.lcssa = phi i64 [ %4, %.critedge ], [ %51, %._crit_edge.loopexit ]
   %.077.lcssa = phi i32 [ %7, %.critedge ], [ %50, %._crit_edge.loopexit ]
   %.076.lcssa = phi i32 [ %11, %.critedge ], [ %.1, %._crit_edge.loopexit ]
-  %.not = icmp eq i64 %.082.lcssa, 0
+  %.not = icmp eq i64 %.081.lcssa, 0
   br i1 %.not, label %.thread, label %54
 
 54:                                               ; preds = %._crit_edge
-  %55 = getelementptr inbounds i8, ptr %1, i64 %.081.lcssa
+  %55 = getelementptr inbounds i8, ptr %1, i64 %.082.lcssa
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = lshr i32 %57, %8
@@ -139,11 +139,11 @@ define void @PHP_WHIRLPOOLUpdate(ptr nocapture noundef %0, ptr nocapture noundef
   %62 = trunc nuw i32 %58 to i8
   %63 = or i8 %61, %62
   store i8 %63, ptr %60, align 1
-  %.not85 = icmp eq i64 %.082.lcssa, 8
+  %.not85 = icmp eq i64 %.081.lcssa, 8
   br i1 %.not85, label %66, label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %54
-  %64 = trunc nuw nsw i64 %.082.lcssa to i32
+  %64 = trunc nuw nsw i64 %.081.lcssa to i32
   %65 = add nsw i32 %.077.lcssa, %64
   br label %78
 

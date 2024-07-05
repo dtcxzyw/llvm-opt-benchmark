@@ -60,34 +60,34 @@ define dso_local ptr @find_variable(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %.preheader, label %find_simple.exit58
 
 .preheader:                                       ; preds = %3
-  %.04665 = getelementptr i8, ptr %2, i64 1
+  %.04765 = getelementptr i8, ptr %2, i64 1
   br label %6
 
 6:                                                ; preds = %.preheader, %12
-  %.04667 = phi ptr [ %.04665, %.preheader ], [ %.046, %12 ]
-  %.066 = phi i32 [ 1, %.preheader ], [ %.1, %12 ]
-  %7 = load i8, ptr %.04667, align 1
+  %.04767 = phi ptr [ %.04765, %.preheader ], [ %.047, %12 ]
+  %.04566 = phi i32 [ 1, %.preheader ], [ %.1, %12 ]
+  %7 = load i8, ptr %.04767, align 1
   switch i8 %7, label %12 [
     i8 91, label %8
     i8 93, label %10
   ]
 
 8:                                                ; preds = %6
-  %9 = add i32 %.066, 1
+  %9 = add i32 %.04566, 1
   br label %12
 
 10:                                               ; preds = %6
-  %11 = add i32 %.066, -1
+  %11 = add i32 %.04566, -1
   br label %12
 
 12:                                               ; preds = %8, %10, %6
-  %.1 = phi i32 [ %.066, %6 ], [ %11, %10 ], [ %9, %8 ]
-  %.046 = getelementptr i8, ptr %.04667, i64 1
+  %.1 = phi i32 [ %.04566, %6 ], [ %11, %10 ], [ %9, %8 ]
+  %.047 = getelementptr i8, ptr %.04767, i64 1
   %.not50 = icmp eq i32 %.1, 0
   br i1 %.not50, label %13, label %6, !llvm.loop !5
 
 13:                                               ; preds = %12
-  %14 = load i8, ptr %.046, align 1
+  %14 = load i8, ptr %.047, align 1
   %15 = icmp eq i8 %14, 46
   br i1 %15, label %find_simple.exit58, label %16
 
@@ -181,8 +181,8 @@ find_simple.exit:                                 ; preds = %.lr.ph.i
   br i1 %.not.i56, label %find_simple.exit58.thread, label %.lr.ph.i53, !llvm.loop !7
 
 find_simple.exit58:                               ; preds = %3, %13
-  %.046.lcssa.sink = phi ptr [ %.046, %13 ], [ %2, %3 ]
-  %62 = tail call fastcc ptr @find_struct(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %.046.lcssa.sink)
+  %.047.lcssa.sink = phi ptr [ %.047, %13 ], [ %2, %3 ]
+  %62 = tail call fastcc ptr @find_struct(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %.047.lcssa.sink)
   %63 = icmp eq ptr %62, null
   br i1 %63, label %find_simple.exit58.thread, label %find_simple.exit58.thread61
 
@@ -208,8 +208,8 @@ find_simple.exit58.thread61.sink.split:           ; preds = %27, %42, %50
   br label %find_simple.exit58.thread61
 
 find_simple.exit58.thread61:                      ; preds = %.lr.ph.i53, %find_simple.exit58.thread61.sink.split, %find_simple.exit58
-  %.047 = phi ptr [ %62, %find_simple.exit58 ], [ %66, %find_simple.exit58.thread61.sink.split ], [ %.09.i54, %.lr.ph.i53 ]
-  ret ptr %.047
+  %.0 = phi ptr [ %62, %find_simple.exit58 ], [ %66, %find_simple.exit58.thread61.sink.split ], [ %.09.i54, %.lr.ph.i53 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

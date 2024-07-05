@@ -165,8 +165,8 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
 .lr.ph234:                                        ; preds = %.lr.ph234.preheader, %113
   %indvars.iv = phi i64 [ %93, %.lr.ph234.preheader ], [ %indvars.iv.next, %113 ]
   %.1233 = phi i32 [ %.0245, %.lr.ph234.preheader ], [ %.2, %113 ]
-  %.0194231 = phi i32 [ -1, %.lr.ph234.preheader ], [ %.1195, %113 ]
-  %.0198230 = phi double [ -1.000000e+00, %.lr.ph234.preheader ], [ %.1199, %113 ]
+  %.0193231 = phi double [ -1.000000e+00, %.lr.ph234.preheader ], [ %.1194, %113 ]
+  %.0197230 = phi i32 [ -1, %.lr.ph234.preheader ], [ %.1198, %113 ]
   %94 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
@@ -179,7 +179,7 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
   %101 = getelementptr inbounds double, ptr %18, i64 %96
   %102 = load double, ptr %101, align 8
   %103 = tail call double @llvm.fabs.f64(double %102)
-  %104 = fcmp ogt double %103, %.0198230
+  %104 = fcmp ogt double %103, %.0193231
   br i1 %104, label %105, label %113
 
 105:                                              ; preds = %100
@@ -197,16 +197,16 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
   br label %113
 
 113:                                              ; preds = %106, %105, %100
-  %.1199 = phi double [ %103, %105 ], [ %.0198230, %100 ], [ %.0198230, %106 ]
-  %.1195 = phi i32 [ %95, %105 ], [ %.0194231, %100 ], [ %.0194231, %106 ]
+  %.1198 = phi i32 [ %95, %105 ], [ %.0197230, %100 ], [ %.0197230, %106 ]
+  %.1194 = phi double [ %103, %105 ], [ %.0193231, %100 ], [ %.0193231, %106 ]
   %.2 = phi i32 [ %.1233, %105 ], [ %.1233, %100 ], [ %111, %106 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph234, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %113
-  %114 = icmp eq i32 %.1195, -1
-  %115 = fcmp ole double %.1199, 0.000000e+00
+  %114 = icmp eq i32 %.1198, -1
+  %115 = fcmp ole double %.1194, 0.000000e+00
   %or.cond11 = select i1 %114, i1 true, i1 %115
   br i1 %or.cond11, label %._crit_edge.thread, label %117
 
@@ -225,7 +225,7 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
   %123 = getelementptr inbounds double, ptr %18, i64 %118
   %124 = load double, ptr %123, align 8
   %125 = tail call double @llvm.fabs.f64(double %124)
-  %126 = fmul double %.1199, %2
+  %126 = fmul double %.1194, %2
   %127 = fcmp ult double %125, %126
   br i1 %127, label %129, label %128
 
@@ -233,8 +233,8 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
   br label %129
 
 129:                                              ; preds = %128, %122, %117
-  %.2196 = phi i32 [ %90, %128 ], [ %.1195, %122 ], [ %.1195, %117 ]
-  %130 = sext i32 %.2196 to i64
+  %.2199 = phi i32 [ %90, %128 ], [ %.1198, %122 ], [ %.1198, %117 ]
+  %130 = sext i32 %.2199 to i64
   %131 = getelementptr inbounds double, ptr %18, i64 %130
   %132 = load double, ptr %131, align 8
   %133 = sext i32 %.2 to i64
@@ -247,7 +247,7 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
   store i32 %85, ptr %137, align 4
   %138 = sext i32 %.0184244 to i64
   %139 = getelementptr inbounds i32, ptr %81, i64 %138
-  store i32 %.2196, ptr %139, align 4
+  store i32 %.2199, ptr %139, align 4
   %140 = add nsw i32 %.0184244, 1
   %141 = getelementptr inbounds double, ptr %82, i64 %138
   store double 1.000000e+00, ptr %141, align 8
@@ -336,8 +336,8 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
   br label %176
 
 176:                                              ; preds = %3, %4, %._crit_edge253, %._crit_edge.thread, %78, %38, %25
-  %.0197 = phi ptr [ %116, %._crit_edge.thread ], [ %79, %78 ], [ %175, %._crit_edge253 ], [ %39, %38 ], [ %26, %25 ], [ null, %4 ], [ null, %3 ]
-  ret ptr %.0197
+  %.0187 = phi ptr [ %116, %._crit_edge.thread ], [ %79, %78 ], [ %175, %._crit_edge253 ], [ %39, %38 ], [ %26, %25 ], [ null, %4 ], [ null, %3 ]
+  ret ptr %.0187
 }
 
 declare ptr @cs_malloc(i32 noundef, i64 noundef) local_unnamed_addr #1

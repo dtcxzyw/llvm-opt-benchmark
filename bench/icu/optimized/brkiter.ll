@@ -658,8 +658,8 @@ if.end41:                                         ; preds = %invoke.cont38, %inv
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then21, %if.then17, %if.end23, %if.end41, %invoke.cont5
-  %brkRules.0 = phi ptr [ %call12, %if.end41 ], [ %call12, %if.end23 ], [ %brkRulesStack, %invoke.cont5 ], [ %call12, %if.then17 ], [ %call12, %if.then21 ]
   %brkName.0 = phi ptr [ %call14, %if.end41 ], [ %call14, %if.end23 ], [ %brkNameStack, %invoke.cont5 ], [ %call14, %if.then17 ], [ %call14, %if.then21 ]
+  %brkRules.0 = phi ptr [ %call12, %if.end41 ], [ %call12, %if.end23 ], [ %brkRulesStack, %invoke.cont5 ], [ %call12, %if.then17 ], [ %call12, %if.then21 ]
   invoke void @ures_close_75(ptr noundef %brkRules.0)
           to label %invoke.cont44 unwind label %lpad
 

@@ -119,14 +119,14 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIfE13compute_sizesEPl(ptr nound
   br label %.lr.ph34
 
 13:                                               ; preds = %.lr.ph, %_ZN5faiss12_GLOBAL__N_18count_gtIfEEllPKT_S2_.exit
-  %.02131 = phi i64 [ 0, %.lr.ph ], [ %48, %_ZN5faiss12_GLOBAL__N_18count_gtIfEEllPKT_S2_.exit ]
-  %.02230 = phi i64 [ 0, %.lr.ph ], [ %.1, %_ZN5faiss12_GLOBAL__N_18count_gtIfEEllPKT_S2_.exit ]
+  %.02032 = phi i64 [ 0, %.lr.ph ], [ %.1, %_ZN5faiss12_GLOBAL__N_18count_gtIfEEllPKT_S2_.exit ]
+  %.02230 = phi i64 [ 0, %.lr.ph ], [ %48, %_ZN5faiss12_GLOBAL__N_18count_gtIfEEllPKT_S2_.exit ]
   %14 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %14, i64 %.02131
+  %16 = getelementptr inbounds i8, ptr %14, i64 %.02230
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %40, label %19
@@ -134,7 +134,7 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIfE13compute_sizesEPl(ptr nound
 19:                                               ; preds = %15, %13
   %20 = load ptr, ptr %8, align 8
   %21 = load i64, ptr %9, align 8
-  %22 = mul i64 %21, %.02131
+  %22 = mul i64 %21, %.02230
   %23 = getelementptr inbounds float, ptr %20, i64 %22
   %24 = load i8, ptr %10, align 4
   %25 = trunc i8 %24 to i1
@@ -174,20 +174,20 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIfE13compute_sizesEPl(ptr nound
 
 40:                                               ; preds = %15
   %41 = load ptr, ptr %7, align 8
-  %42 = add nsw i64 %.02230, 1
+  %42 = add nsw i64 %.02032, 1
   %43 = getelementptr inbounds i64, ptr %41, i64 %42
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds i64, ptr %41, i64 %.02230
+  %45 = getelementptr inbounds i64, ptr %41, i64 %.02032
   %46 = load i64, ptr %45, align 8
   %47 = sub nsw i64 %44, %46
   br label %_ZN5faiss12_GLOBAL__N_18count_gtIfEEllPKT_S2_.exit
 
 _ZN5faiss12_GLOBAL__N_18count_gtIfEEllPKT_S2_.exit: ; preds = %38, %.lr.ph.i25, %32, %.lr.ph.i, %34, %28, %40
-  %.1 = phi i64 [ %42, %40 ], [ %.02230, %28 ], [ %.02230, %34 ], [ %.02230, %.lr.ph.i ], [ %.02230, %32 ], [ %.02230, %.lr.ph.i25 ], [ %.02230, %38 ]
-  %.020 = phi i64 [ %47, %40 ], [ %21, %28 ], [ %21, %34 ], [ %21, %32 ], [ %.010.i, %.lr.ph.i ], [ %21, %38 ], [ %.010.i26, %.lr.ph.i25 ]
-  %48 = add nuw nsw i64 %.02131, 1
+  %.021 = phi i64 [ %47, %40 ], [ %21, %28 ], [ %21, %34 ], [ %.010.i, %.lr.ph.i ], [ %21, %32 ], [ %.010.i26, %.lr.ph.i25 ], [ %21, %38 ]
+  %.1 = phi i64 [ %42, %40 ], [ %.02032, %28 ], [ %.02032, %34 ], [ %.02032, %.lr.ph.i ], [ %.02032, %32 ], [ %.02032, %.lr.ph.i25 ], [ %.02032, %38 ]
+  %48 = add nuw nsw i64 %.02230, 1
   %49 = getelementptr inbounds i64, ptr %1, i64 %48
-  store i64 %.020, ptr %49, align 8
+  store i64 %.021, ptr %49, align 8
   %50 = load i64, ptr %0, align 8
   %51 = icmp slt i64 %48, %50
   br i1 %51, label %13, label %.preheader, !llvm.loop !8
@@ -271,13 +271,13 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIfE12write_resultEPfPl(ptr noun
   resume { ptr, i32 } %.pn
 
 32:                                               ; preds = %.lr.ph, %72
-  %.032 = phi i64 [ 0, %.lr.ph ], [ %34, %72 ]
-  %.02531 = phi i64 [ 0, %.lr.ph ], [ %.1, %72 ]
+  %.02632 = phi i64 [ 0, %.lr.ph ], [ %.1, %72 ]
+  %.02731 = phi i64 [ 0, %.lr.ph ], [ %34, %72 ]
   %33 = load ptr, ptr %5, align 8
-  %34 = add nuw nsw i64 %.032, 1
+  %34 = add nuw nsw i64 %.02731, 1
   %35 = getelementptr inbounds i64, ptr %33, i64 %34
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i64, ptr %33, i64 %.032
+  %37 = getelementptr inbounds i64, ptr %33, i64 %.02731
   %38 = load i64, ptr %37, align 8
   %39 = sub nsw i64 %36, %38
   %40 = getelementptr inbounds float, ptr %1, i64 %38
@@ -287,7 +287,7 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIfE12write_resultEPfPl(ptr noun
   br i1 %.not30, label %47, label %43
 
 43:                                               ; preds = %32
-  %44 = getelementptr inbounds i8, ptr %42, i64 %.032
+  %44 = getelementptr inbounds i8, ptr %42, i64 %.02731
   %45 = load i8, ptr %44, align 1
   %46 = trunc i8 %45 to i1
   br i1 %46, label %58, label %47
@@ -295,13 +295,13 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIfE12write_resultEPfPl(ptr noun
 47:                                               ; preds = %43, %32
   %48 = load ptr, ptr %13, align 8
   %49 = load i64, ptr %14, align 8
-  %50 = mul i64 %49, %.032
+  %50 = mul i64 %49, %.02731
   %51 = getelementptr inbounds float, ptr %48, i64 %50
   %52 = shl i64 %39, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %51, i64 %52, i1 false)
   %53 = load ptr, ptr %15, align 8
   %54 = load i64, ptr %14, align 8
-  %55 = mul i64 %54, %.032
+  %55 = mul i64 %54, %.02731
   %56 = getelementptr inbounds i64, ptr %53, i64 %55
   %57 = shl i64 %39, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %56, i64 %57, i1 false)
@@ -310,23 +310,23 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIfE12write_resultEPfPl(ptr noun
 58:                                               ; preds = %43
   %59 = load ptr, ptr %10, align 8
   %60 = load ptr, ptr %11, align 8
-  %61 = getelementptr inbounds i64, ptr %60, i64 %.02531
+  %61 = getelementptr inbounds i64, ptr %60, i64 %.02632
   %62 = load i64, ptr %61, align 8
   %63 = getelementptr inbounds float, ptr %59, i64 %62
   %64 = shl i64 %39, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %63, i64 %64, i1 false)
   %65 = load ptr, ptr %12, align 8
   %66 = load ptr, ptr %11, align 8
-  %67 = getelementptr inbounds i64, ptr %66, i64 %.02531
+  %67 = getelementptr inbounds i64, ptr %66, i64 %.02632
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds i64, ptr %65, i64 %68
   %70 = shl i64 %39, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %69, i64 %70, i1 false)
-  %71 = add nsw i64 %.02531, 1
+  %71 = add nsw i64 %.02632, 1
   br label %72
 
 72:                                               ; preds = %47, %58
-  %.1 = phi i64 [ %71, %58 ], [ %.02531, %47 ]
+  %.1 = phi i64 [ %71, %58 ], [ %.02632, %47 ]
   %73 = load i64, ptr %0, align 8
   %74 = icmp slt i64 %34, %73
   br i1 %74, label %32, label %._crit_edge, !llvm.loop !10
@@ -421,14 +421,14 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIsE13compute_sizesEPl(ptr nound
   br label %.lr.ph34
 
 13:                                               ; preds = %.lr.ph, %_ZN5faiss12_GLOBAL__N_18count_gtIsEEllPKT_S2_.exit
-  %.02131 = phi i64 [ 0, %.lr.ph ], [ %48, %_ZN5faiss12_GLOBAL__N_18count_gtIsEEllPKT_S2_.exit ]
-  %.02230 = phi i64 [ 0, %.lr.ph ], [ %.1, %_ZN5faiss12_GLOBAL__N_18count_gtIsEEllPKT_S2_.exit ]
+  %.02032 = phi i64 [ 0, %.lr.ph ], [ %.1, %_ZN5faiss12_GLOBAL__N_18count_gtIsEEllPKT_S2_.exit ]
+  %.02230 = phi i64 [ 0, %.lr.ph ], [ %48, %_ZN5faiss12_GLOBAL__N_18count_gtIsEEllPKT_S2_.exit ]
   %14 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %14, i64 %.02131
+  %16 = getelementptr inbounds i8, ptr %14, i64 %.02230
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %40, label %19
@@ -436,7 +436,7 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIsE13compute_sizesEPl(ptr nound
 19:                                               ; preds = %15, %13
   %20 = load ptr, ptr %8, align 8
   %21 = load i64, ptr %9, align 8
-  %22 = mul i64 %21, %.02131
+  %22 = mul i64 %21, %.02230
   %23 = getelementptr inbounds i16, ptr %20, i64 %22
   %24 = load i8, ptr %10, align 2
   %25 = trunc i8 %24 to i1
@@ -476,20 +476,20 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIsE13compute_sizesEPl(ptr nound
 
 40:                                               ; preds = %15
   %41 = load ptr, ptr %7, align 8
-  %42 = add nsw i64 %.02230, 1
+  %42 = add nsw i64 %.02032, 1
   %43 = getelementptr inbounds i64, ptr %41, i64 %42
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds i64, ptr %41, i64 %.02230
+  %45 = getelementptr inbounds i64, ptr %41, i64 %.02032
   %46 = load i64, ptr %45, align 8
   %47 = sub nsw i64 %44, %46
   br label %_ZN5faiss12_GLOBAL__N_18count_gtIsEEllPKT_S2_.exit
 
 _ZN5faiss12_GLOBAL__N_18count_gtIsEEllPKT_S2_.exit: ; preds = %38, %.lr.ph.i25, %32, %.lr.ph.i, %34, %28, %40
-  %.1 = phi i64 [ %42, %40 ], [ %.02230, %28 ], [ %.02230, %34 ], [ %.02230, %.lr.ph.i ], [ %.02230, %32 ], [ %.02230, %.lr.ph.i25 ], [ %.02230, %38 ]
-  %.020 = phi i64 [ %47, %40 ], [ %21, %28 ], [ %21, %34 ], [ %21, %32 ], [ %.010.i, %.lr.ph.i ], [ %21, %38 ], [ %.010.i26, %.lr.ph.i25 ]
-  %48 = add nuw nsw i64 %.02131, 1
+  %.021 = phi i64 [ %47, %40 ], [ %21, %28 ], [ %21, %34 ], [ %.010.i, %.lr.ph.i ], [ %21, %32 ], [ %.010.i26, %.lr.ph.i25 ], [ %21, %38 ]
+  %.1 = phi i64 [ %42, %40 ], [ %.02032, %28 ], [ %.02032, %34 ], [ %.02032, %.lr.ph.i ], [ %.02032, %32 ], [ %.02032, %.lr.ph.i25 ], [ %.02032, %38 ]
+  %48 = add nuw nsw i64 %.02230, 1
   %49 = getelementptr inbounds i64, ptr %1, i64 %48
-  store i64 %.020, ptr %49, align 8
+  store i64 %.021, ptr %49, align 8
   %50 = load i64, ptr %0, align 8
   %51 = icmp slt i64 %48, %50
   br i1 %51, label %13, label %.preheader, !llvm.loop !13
@@ -573,13 +573,13 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIsE12write_resultEPsPl(ptr noun
   resume { ptr, i32 } %.pn
 
 32:                                               ; preds = %.lr.ph, %72
-  %.032 = phi i64 [ 0, %.lr.ph ], [ %34, %72 ]
-  %.02531 = phi i64 [ 0, %.lr.ph ], [ %.1, %72 ]
+  %.02632 = phi i64 [ 0, %.lr.ph ], [ %.1, %72 ]
+  %.02731 = phi i64 [ 0, %.lr.ph ], [ %34, %72 ]
   %33 = load ptr, ptr %5, align 8
-  %34 = add nuw nsw i64 %.032, 1
+  %34 = add nuw nsw i64 %.02731, 1
   %35 = getelementptr inbounds i64, ptr %33, i64 %34
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i64, ptr %33, i64 %.032
+  %37 = getelementptr inbounds i64, ptr %33, i64 %.02731
   %38 = load i64, ptr %37, align 8
   %39 = sub nsw i64 %36, %38
   %40 = getelementptr inbounds i16, ptr %1, i64 %38
@@ -589,7 +589,7 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIsE12write_resultEPsPl(ptr noun
   br i1 %.not30, label %47, label %43
 
 43:                                               ; preds = %32
-  %44 = getelementptr inbounds i8, ptr %42, i64 %.032
+  %44 = getelementptr inbounds i8, ptr %42, i64 %.02731
   %45 = load i8, ptr %44, align 1
   %46 = trunc i8 %45 to i1
   br i1 %46, label %58, label %47
@@ -597,13 +597,13 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIsE12write_resultEPsPl(ptr noun
 47:                                               ; preds = %43, %32
   %48 = load ptr, ptr %13, align 8
   %49 = load i64, ptr %14, align 8
-  %50 = mul i64 %49, %.032
+  %50 = mul i64 %49, %.02731
   %51 = getelementptr inbounds i16, ptr %48, i64 %50
   %52 = shl i64 %39, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %40, ptr align 2 %51, i64 %52, i1 false)
   %53 = load ptr, ptr %15, align 8
   %54 = load i64, ptr %14, align 8
-  %55 = mul i64 %54, %.032
+  %55 = mul i64 %54, %.02731
   %56 = getelementptr inbounds i64, ptr %53, i64 %55
   %57 = shl i64 %39, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %56, i64 %57, i1 false)
@@ -612,23 +612,23 @@ define weak_odr void @_ZN5faiss16CombinerRangeKNNIsE12write_resultEPsPl(ptr noun
 58:                                               ; preds = %43
   %59 = load ptr, ptr %10, align 8
   %60 = load ptr, ptr %11, align 8
-  %61 = getelementptr inbounds i64, ptr %60, i64 %.02531
+  %61 = getelementptr inbounds i64, ptr %60, i64 %.02632
   %62 = load i64, ptr %61, align 8
   %63 = getelementptr inbounds i16, ptr %59, i64 %62
   %64 = shl i64 %39, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %40, ptr align 2 %63, i64 %64, i1 false)
   %65 = load ptr, ptr %12, align 8
   %66 = load ptr, ptr %11, align 8
-  %67 = getelementptr inbounds i64, ptr %66, i64 %.02531
+  %67 = getelementptr inbounds i64, ptr %66, i64 %.02632
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds i64, ptr %65, i64 %68
   %70 = shl i64 %39, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %69, i64 %70, i1 false)
-  %71 = add nsw i64 %.02531, 1
+  %71 = add nsw i64 %.02632, 1
   br label %72
 
 72:                                               ; preds = %47, %58
-  %.1 = phi i64 [ %71, %58 ], [ %.02531, %47 ]
+  %.1 = phi i64 [ %71, %58 ], [ %.02632, %47 ]
   %73 = load i64, ptr %0, align 8
   %74 = icmp slt i64 %34, %73
   br i1 %74, label %32, label %._crit_edge, !llvm.loop !15
@@ -798,20 +798,20 @@ define void @_ZN5faiss10reflectionEPKfPfmmm(ptr noalias nocapture noundef readon
   br i1 %or.cond80, label %._crit_edge, label %.preheader40.us.us.us
 
 .preheader40.us.us.us:                            ; preds = %5, %._crit_edge51.split.us.us.us.split.us.us
-  %.03761.us.us.us = phi i64 [ %28, %._crit_edge51.split.us.us.us.split.us.us ], [ 0, %5 ]
-  %.03858.us.us.us = phi ptr [ %27, %._crit_edge51.split.us.us.us.split.us.us ], [ %1, %5 ]
+  %.059.us.us.us = phi ptr [ %27, %._crit_edge51.split.us.us.us.split.us.us ], [ %1, %5 ]
+  %.03858.us.us.us = phi i64 [ %28, %._crit_edge51.split.us.us.us.split.us.us ], [ 0, %5 ]
   br label %.preheader.us.us.us.us.us
 
 .preheader.us.us.us.us.us:                        ; preds = %._crit_edge48.us.us.us.us.us, %.preheader40.us.us.us
-  %.03450.us.us.us.us.us = phi ptr [ %0, %.preheader40.us.us.us ], [ %25, %._crit_edge48.us.us.us.us.us ]
-  %.03549.us.us.us.us.us = phi i64 [ 0, %.preheader40.us.us.us ], [ %26, %._crit_edge48.us.us.us.us.us ]
+  %.03550.us.us.us.us.us = phi ptr [ %0, %.preheader40.us.us.us ], [ %25, %._crit_edge48.us.us.us.us.us ]
+  %.03649.us.us.us.us.us = phi i64 [ 0, %.preheader40.us.us.us ], [ %26, %._crit_edge48.us.us.us.us.us ]
   br label %13
 
 6:                                                ; preds = %._crit_edge.us.us.us.us.us, %6
   %.145.us.us.us.us.us = phi i64 [ 0, %._crit_edge.us.us.us.us.us ], [ %12, %6 ]
-  %7 = getelementptr inbounds float, ptr %.03450.us.us.us.us.us, i64 %.145.us.us.us.us.us
+  %7 = getelementptr inbounds float, ptr %.03550.us.us.us.us.us, i64 %.145.us.us.us.us.us
   %8 = load float, ptr %7, align 4
-  %9 = getelementptr inbounds float, ptr %.03858.us.us.us, i64 %.145.us.us.us.us.us
+  %9 = getelementptr inbounds float, ptr %.059.us.us.us, i64 %.145.us.us.us.us.us
   %10 = load float, ptr %9, align 4
   %11 = tail call float @llvm.fmuladd.f32(float %24, float %8, float %10)
   store float %11, ptr %9, align 4
@@ -820,14 +820,14 @@ define void @_ZN5faiss10reflectionEPKfPfmmm(ptr noalias nocapture noundef readon
   br i1 %exitcond.not, label %._crit_edge48.us.us.us.us.us, label %6, !llvm.loop !18
 
 13:                                               ; preds = %13, %.preheader.us.us.us.us.us
-  %.03641.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us ], [ %20, %13 ]
+  %.03741.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us ], [ %20, %13 ]
   %14 = phi <2 x float> [ zeroinitializer, %.preheader.us.us.us.us.us ], [ %19, %13 ]
-  %15 = getelementptr inbounds float, ptr %.03450.us.us.us.us.us, i64 %.03641.us.us.us.us.us
-  %16 = getelementptr inbounds float, ptr %.03858.us.us.us, i64 %.03641.us.us.us.us.us
+  %15 = getelementptr inbounds float, ptr %.03550.us.us.us.us.us, i64 %.03741.us.us.us.us.us
+  %16 = getelementptr inbounds float, ptr %.059.us.us.us, i64 %.03741.us.us.us.us.us
   %17 = load <2 x float>, ptr %15, align 4
   %18 = load <2 x float>, ptr %16, align 4
   %19 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %17, <2 x float> %18, <2 x float> %14)
-  %20 = add nuw i64 %.03641.us.us.us.us.us, 2
+  %20 = add nuw i64 %.03741.us.us.us.us.us, 2
   %21 = icmp ult i64 %20, %3
   br i1 %21, label %13, label %._crit_edge.us.us.us.us.us, !llvm.loop !19
 
@@ -839,14 +839,14 @@ define void @_ZN5faiss10reflectionEPKfPfmmm(ptr noalias nocapture noundef readon
   br label %6
 
 ._crit_edge48.us.us.us.us.us:                     ; preds = %6
-  %25 = getelementptr inbounds float, ptr %.03450.us.us.us.us.us, i64 %3
-  %26 = add nuw i64 %.03549.us.us.us.us.us, 1
+  %25 = getelementptr inbounds float, ptr %.03550.us.us.us.us.us, i64 %3
+  %26 = add nuw i64 %.03649.us.us.us.us.us, 1
   %exitcond77.not = icmp eq i64 %26, %4
   br i1 %exitcond77.not, label %._crit_edge51.split.us.us.us.split.us.us, label %.preheader.us.us.us.us.us, !llvm.loop !20
 
 ._crit_edge51.split.us.us.us.split.us.us:         ; preds = %._crit_edge48.us.us.us.us.us
-  %27 = getelementptr inbounds float, ptr %.03858.us.us.us, i64 %3
-  %28 = add nuw i64 %.03761.us.us.us, 1
+  %27 = getelementptr inbounds float, ptr %.059.us.us.us, i64 %3
+  %28 = add nuw i64 %.03858.us.us.us, 1
   %exitcond78.not = icmp eq i64 %28, %2
   br i1 %exitcond78.not, label %._crit_edge, label %.preheader40.us.us.us, !llvm.loop !21
 
@@ -2123,30 +2123,30 @@ tailrecurse:                                      ; preds = %tailrecurse, %4
   br i1 %.not8186, label %._crit_edge79, label %.lr.ph78.split
 
 .lr.ph78:                                         ; preds = %.preheader
-  %12 = icmp ugt i64 %.156, 1
+  %12 = icmp ugt i64 %.157, 1
   br i1 %12, label %.lr.ph74.us, label %.lr.ph78.split
 
 .lr.ph74.us:                                      ; preds = %.lr.ph78, %18
-  %.05177.us = phi i64 [ %19, %18 ], [ 0, %.lr.ph78 ]
-  %.05276.us = phi i64 [ %.153.us, %18 ], [ 0, %.lr.ph78 ]
-  %13 = getelementptr inbounds i64, ptr %.tr66, i64 %.05177.us
+  %.05377.us = phi i64 [ %19, %18 ], [ 0, %.lr.ph78 ]
+  %.05476.us = phi i64 [ %.155.us, %18 ], [ 0, %.lr.ph78 ]
+  %13 = getelementptr inbounds i64, ptr %.tr66, i64 %.05377.us
   %14 = load i64, ptr %13, align 8
   br label %20
 
 15:                                               ; preds = %._crit_edge.us
-  %16 = add i64 %.05276.us, 1
+  %16 = add i64 %.05476.us, 1
   %17 = or i64 %14, 1152921504606846976
   store i64 %17, ptr %28, align 8
   br label %18
 
 18:                                               ; preds = %15, %._crit_edge.us
-  %.153.us = phi i64 [ %16, %15 ], [ %.05276.us, %._crit_edge.us ]
-  %19 = add nuw i64 %.05177.us, 1
+  %.155.us = phi i64 [ %16, %15 ], [ %.05476.us, %._crit_edge.us ]
+  %19 = add nuw i64 %.05377.us, 1
   %exitcond84.not = icmp eq i64 %19, %.tr
   br i1 %exitcond84.not, label %._crit_edge79, label %.lr.ph74.us, !llvm.loop !42
 
 20:                                               ; preds = %.lr.ph74.us, %20
-  %.04873.us = phi i64 [ %.156, %.lr.ph74.us ], [ %..048.us, %20 ]
+  %.04873.us = phi i64 [ %.157, %.lr.ph74.us ], [ %..048.us, %20 ]
   %.04972.us = phi i64 [ 0, %.lr.ph74.us ], [ %.049..us, %20 ]
   %21 = add i64 %.04873.us, %.04972.us
   %22 = lshr i64 %21, 1
@@ -2171,53 +2171,53 @@ tailrecurse:                                      ; preds = %tailrecurse, %4
   br label %38
 
 .lr.ph:                                           ; preds = %6, %36
-  %.05471 = phi i64 [ %37, %36 ], [ 0, %6 ]
-  %.05570 = phi i64 [ %.156, %36 ], [ 0, %6 ]
-  %.05769 = phi i64 [ %.158, %36 ], [ -1, %6 ]
-  %31 = getelementptr inbounds i64, ptr %10, i64 %.05471
+  %.05171 = phi i64 [ %.152, %36 ], [ -1, %6 ]
+  %.05670 = phi i64 [ %.157, %36 ], [ 0, %6 ]
+  %.05869 = phi i64 [ %37, %36 ], [ 0, %6 ]
+  %31 = getelementptr inbounds i64, ptr %10, i64 %.05869
   %32 = load i64, ptr %31, align 8
-  %.not65 = icmp eq i64 %32, %.05769
+  %.not65 = icmp eq i64 %32, %.05171
   br i1 %.not65, label %36, label %33
 
 33:                                               ; preds = %.lr.ph
-  %34 = add i64 %.05570, 1
-  %35 = getelementptr inbounds i64, ptr %10, i64 %.05570
+  %34 = add i64 %.05670, 1
+  %35 = getelementptr inbounds i64, ptr %10, i64 %.05670
   store i64 %32, ptr %35, align 8
   br label %36
 
 36:                                               ; preds = %.lr.ph, %33
-  %.158 = phi i64 [ %32, %33 ], [ %.05769, %.lr.ph ]
-  %.156 = phi i64 [ %34, %33 ], [ %.05570, %.lr.ph ]
-  %37 = add nuw i64 %.05471, 1
+  %.157 = phi i64 [ %34, %33 ], [ %.05670, %.lr.ph ]
+  %.152 = phi i64 [ %32, %33 ], [ %.05171, %.lr.ph ]
+  %37 = add nuw i64 %.05869, 1
   %exitcond.not = icmp eq i64 %37, %.tr67
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !44
 
 38:                                               ; preds = %.lr.ph78.split, %46
   %39 = phi i64 [ %.promoted, %.lr.ph78.split ], [ %47, %46 ]
-  %.05177 = phi i64 [ 0, %.lr.ph78.split ], [ %48, %46 ]
-  %.05276 = phi i64 [ 0, %.lr.ph78.split ], [ %.153, %46 ]
-  %40 = getelementptr inbounds i64, ptr %.tr66, i64 %.05177
+  %.05377 = phi i64 [ 0, %.lr.ph78.split ], [ %48, %46 ]
+  %.05476 = phi i64 [ 0, %.lr.ph78.split ], [ %.155, %46 ]
+  %40 = getelementptr inbounds i64, ptr %.tr66, i64 %.05377
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %39, %41
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %38
-  %44 = add i64 %.05276, 1
+  %44 = add i64 %.05476, 1
   %45 = or i64 %39, 1152921504606846976
   store i64 %45, ptr %10, align 8
   br label %46
 
 46:                                               ; preds = %38, %43
   %47 = phi i64 [ %45, %43 ], [ %39, %38 ]
-  %.153 = phi i64 [ %44, %43 ], [ %.05276, %38 ]
-  %48 = add nuw i64 %.05177, 1
+  %.155 = phi i64 [ %44, %43 ], [ %.05476, %38 ]
+  %48 = add nuw i64 %.05377, 1
   %exitcond83.not = icmp eq i64 %48, %.tr
   br i1 %exitcond83.not, label %._crit_edge79, label %38, !llvm.loop !42
 
 ._crit_edge79:                                    ; preds = %18, %46, %.preheader.thread, %.preheader
-  %.052.lcssa = phi i64 [ 0, %.preheader ], [ 0, %.preheader.thread ], [ %.153, %46 ], [ %.153.us, %18 ]
+  %.054.lcssa = phi i64 [ 0, %.preheader ], [ 0, %.preheader.thread ], [ %.155, %46 ], [ %.155.us, %18 ]
   tail call void @_ZdaPv(ptr noundef nonnull %10) #29
-  ret i64 %.052.lcssa
+  ret i64 %.054.lcssa
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -2467,15 +2467,15 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc44, %_ZNSt6ve
   br label %.preheader50.us
 
 .preheader50.us:                                  ; preds = %.preheader50.us.preheader, %._crit_edge.us
-  %.03554.us = phi i64 [ %41, %._crit_edge.us ], [ 0, %.preheader50.us.preheader ]
-  %.03653.us = phi ptr [ %33, %._crit_edge.us ], [ %2, %.preheader50.us.preheader ]
+  %.03854.us = phi i64 [ %41, %._crit_edge.us ], [ 0, %.preheader50.us.preheader ]
+  %.03953.us = phi ptr [ %33, %._crit_edge.us ], [ %2, %.preheader50.us.preheader ]
   br label %32
 
 32:                                               ; preds = %.preheader50.us, %32
   %indvars.iv = phi i64 [ 0, %.preheader50.us ], [ %indvars.iv.next, %32 ]
-  %.151.us = phi ptr [ %.03653.us, %.preheader50.us ], [ %33, %32 ]
-  %33 = getelementptr inbounds i8, ptr %.151.us, i64 1
-  %34 = load i8, ptr %.151.us, align 1
+  %.14051.us = phi ptr [ %.03953.us, %.preheader50.us ], [ %33, %32 ]
+  %33 = getelementptr inbounds i8, ptr %.14051.us, i64 1
+  %34 = load i8, ptr %.14051.us, align 1
   %35 = zext i8 %34 to i64
   %36 = shl i64 %indvars.iv, 8
   %.masked = and i64 %36, 4294967040
@@ -2489,7 +2489,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc44, %_ZNSt6ve
   br i1 %exitcond.not, label %._crit_edge.us, label %32, !llvm.loop !48
 
 ._crit_edge.us:                                   ; preds = %32
-  %41 = add nuw i64 %.03554.us, 1
+  %41 = add nuw i64 %.03854.us, 1
   %exitcond64.not = icmp eq i64 %41, %0
   br i1 %exitcond64.not, label %._crit_edge55, label %.preheader50.us, !llvm.loop !49
 

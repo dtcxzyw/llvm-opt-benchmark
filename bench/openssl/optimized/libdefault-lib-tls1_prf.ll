@@ -560,8 +560,8 @@ if.end12.thread:                                  ; preds = %land.lhs.true
 
 if.end16.us:                                      ; preds = %if.end12, %if.end51.us
   %ctx_Ai.036.us = phi ptr [ %call28.us, %if.end51.us ], [ %call4, %if.end12 ]
-  %olen.addr.035.us = phi i64 [ %sub.us, %if.end51.us ], [ %olen, %if.end12 ]
-  %out.addr.034.us = phi ptr [ %add.ptr.us, %if.end51.us ], [ %out, %if.end12 ]
+  %out.addr.035.us = phi ptr [ %add.ptr.us, %if.end51.us ], [ %out, %if.end12 ]
+  %olen.addr.034.us = phi i64 [ %sub.us, %if.end51.us ], [ %olen, %if.end12 ]
   call void @EVP_MAC_CTX_free(ptr noundef nonnull %ctx_Ai.036.us) #7
   %call17.us = call ptr @EVP_MAC_CTX_dup(ptr noundef %ctx_init) #7
   %cmp18.us = icmp eq ptr %call17.us, null
@@ -574,7 +574,7 @@ if.end20.us:                                      ; preds = %if.end16.us
   br i1 %tobool23.not.us, label %err, label %if.end25.us
 
 if.end25.us:                                      ; preds = %if.end20.us
-  %cmp26.us = icmp ugt i64 %olen.addr.035.us, %call1
+  %cmp26.us = icmp ugt i64 %olen.addr.034.us, %call1
   br i1 %cmp26.us, label %if.then27.us, label %if.then40
 
 if.then27.us:                                     ; preds = %if.end25.us
@@ -583,22 +583,22 @@ if.then27.us:                                     ; preds = %if.end25.us
   br i1 %cmp29.us, label %err, label %if.end47.us
 
 if.end47.us:                                      ; preds = %if.then27.us
-  %call48.us = call i32 @EVP_MAC_final(ptr noundef nonnull %call17.us, ptr noundef %out.addr.034.us, ptr noundef null, i64 noundef %olen.addr.035.us) #7
+  %call48.us = call i32 @EVP_MAC_final(ptr noundef nonnull %call17.us, ptr noundef %out.addr.035.us, ptr noundef null, i64 noundef %olen.addr.034.us) #7
   %tobool49.not.us = icmp eq i32 %call48.us, 0
   br i1 %tobool49.not.us, label %err, label %if.end51.us
 
 if.end51.us:                                      ; preds = %if.end47.us
   call void @EVP_MAC_CTX_free(ptr noundef nonnull %call17.us) #7
-  %add.ptr.us = getelementptr inbounds i8, ptr %out.addr.034.us, i64 %call1
-  %sub.us = sub i64 %olen.addr.035.us, %call1
+  %add.ptr.us = getelementptr inbounds i8, ptr %out.addr.035.us, i64 %call1
+  %sub.us = sub i64 %olen.addr.034.us, %call1
   %call13.us = call i32 @EVP_MAC_final(ptr noundef nonnull %call28.us, ptr noundef nonnull %Ai, ptr noundef nonnull %Ai_len, i64 noundef 64) #7
   %tobool14.not.us = icmp eq i32 %call13.us, 0
   br i1 %tobool14.not.us, label %err, label %if.end16.us
 
 if.end16:                                         ; preds = %if.end12.thread, %if.end51
   %ctx_Ai.036 = phi ptr [ %call28, %if.end51 ], [ %call4, %if.end12.thread ]
-  %olen.addr.035 = phi i64 [ %sub, %if.end51 ], [ %olen, %if.end12.thread ]
-  %out.addr.034 = phi ptr [ %add.ptr, %if.end51 ], [ %out, %if.end12.thread ]
+  %out.addr.035 = phi ptr [ %add.ptr, %if.end51 ], [ %out, %if.end12.thread ]
+  %olen.addr.034 = phi i64 [ %sub, %if.end51 ], [ %olen, %if.end12.thread ]
   call void @EVP_MAC_CTX_free(ptr noundef nonnull %ctx_Ai.036) #7
   %call17 = call ptr @EVP_MAC_CTX_dup(ptr noundef %ctx_init) #7
   %cmp18 = icmp eq ptr %call17, null
@@ -611,7 +611,7 @@ if.end20:                                         ; preds = %if.end16
   br i1 %tobool23.not, label %err, label %if.end25
 
 if.end25:                                         ; preds = %if.end20
-  %cmp26 = icmp ugt i64 %olen.addr.035, %call1
+  %cmp26 = icmp ugt i64 %olen.addr.034, %call1
   br i1 %cmp26, label %if.then27, label %if.end32.thread
 
 if.then27:                                        ; preds = %if.end25
@@ -630,26 +630,26 @@ if.end32.thread:                                  ; preds = %if.end25
   br i1 %tobool36.not77, label %err, label %if.then40
 
 if.then40:                                        ; preds = %if.end25.us, %if.end32.thread
-  %.us-phi53 = phi ptr [ %out.addr.034, %if.end32.thread ], [ %out.addr.034.us, %if.end25.us ]
-  %.us-phi54 = phi i64 [ %olen.addr.035, %if.end32.thread ], [ %olen.addr.035.us, %if.end25.us ]
+  %.us-phi53 = phi i64 [ %olen.addr.034, %if.end32.thread ], [ %olen.addr.034.us, %if.end25.us ]
+  %.us-phi54 = phi ptr [ %out.addr.035, %if.end32.thread ], [ %out.addr.035.us, %if.end25.us ]
   %.us-phi56 = phi ptr [ %call17, %if.end32.thread ], [ %call17.us, %if.end25.us ]
   %call42 = call i32 @EVP_MAC_final(ptr noundef nonnull %.us-phi56, ptr noundef nonnull %Ai, ptr noundef nonnull %Ai_len, i64 noundef 64) #7
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %err, label %if.end45
 
 if.end45:                                         ; preds = %if.then40
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.us-phi53, ptr nonnull align 16 %Ai, i64 %.us-phi54, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.us-phi54, ptr nonnull align 16 %Ai, i64 %.us-phi53, i1 false)
   br label %err
 
 if.end47:                                         ; preds = %if.end32
-  %call48 = call i32 @EVP_MAC_final(ptr noundef nonnull %call17, ptr noundef %out.addr.034, ptr noundef null, i64 noundef %olen.addr.035) #7
+  %call48 = call i32 @EVP_MAC_final(ptr noundef nonnull %call17, ptr noundef %out.addr.035, ptr noundef null, i64 noundef %olen.addr.034) #7
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %err, label %if.end51
 
 if.end51:                                         ; preds = %if.end47
   call void @EVP_MAC_CTX_free(ptr noundef nonnull %call17) #7
-  %add.ptr = getelementptr inbounds i8, ptr %out.addr.034, i64 %call1
-  %sub = sub i64 %olen.addr.035, %call1
+  %add.ptr = getelementptr inbounds i8, ptr %out.addr.035, i64 %call1
+  %sub = sub i64 %olen.addr.034, %call1
   %call13 = call i32 @EVP_MAC_final(ptr noundef nonnull %call28, ptr noundef nonnull %Ai, ptr noundef nonnull %Ai_len, i64 noundef 64) #7
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %err, label %if.end16

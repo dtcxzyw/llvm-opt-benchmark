@@ -195,7 +195,7 @@ define hidden noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$13w
 
 "_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$$LP$parking..Parker$C$event_listener..Task$RP$$GT$$GT$17h754773814dc1cd96E.exit.i.i.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17heb0e31d0d5ca1c29E.exit.i.i"
   %16 = invoke { ptr, ptr } @_ZN7parking4pair17h13a34c527ff98354E()
-          to label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i.i" unwind label %24, !noalias !44
+          to label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i.i" unwind label %23, !noalias !44
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i.i": ; preds = %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$$LP$parking..Parker$C$event_listener..Task$RP$$GT$$GT$17h754773814dc1cd96E.exit.i.i.i"
   %17 = extractvalue { ptr, ptr } %16, 1
@@ -205,44 +205,44 @@ define hidden noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$13w
   store ptr null, ptr %.sroa.56.0..sroa_idx7.i.i.i, align 8, !alias.scope !45, !noalias !44
   %.sroa.6.0..sroa_idx9.i.i.i = getelementptr inbounds i8, ptr %.0.i.i8, i64 24
   store ptr %17, ptr %.sroa.6.0..sroa_idx9.i.i.i, align 8, !alias.scope !45, !noalias !44
-  br label %21
+  br label %20
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.i.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17heb0e31d0d5ca1c29E.exit.i.i"
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.0.i.i8, i64 16
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !noalias !44
   %.pre.fr.i.i = freeze ptr %.pre.i.i
   %19 = icmp eq ptr %.pre.fr.i.i, null
+  %.sroa.01.0.i.i = zext i1 %19 to i64
   %spec.select.i.i = select i1 %19, i64 24, i64 16
-  %20 = zext i1 %19 to i64
-  br label %21
+  br label %20
 
-21:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.i.i", %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i.i"
-  %.sroa.01.0.i.i = phi i64 [ 1, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i.i" ], [ %20, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.i.i" ]
-  %22 = phi i64 [ 24, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i.i" ], [ %spec.select.i.i, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.i.i" ]
-  %.sroa.5.0.i.i = getelementptr inbounds i8, ptr %.0.i.i8, i64 %22
-  %23 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %0, i64 %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13, i64 noundef %.sroa.01.0.i.i, ptr noundef nonnull %.sroa.5.0.i.i)
-          to label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit" unwind label %24, !noalias !44
+20:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.i.i", %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i.i"
+  %.sroa.01.06.i.i = phi i64 [ 1, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i.i" ], [ %.sroa.01.0.i.i, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.i.i" ]
+  %21 = phi i64 [ 24, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i.i" ], [ %spec.select.i.i, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.i.i" ]
+  %.sroa.5.0.i.i = getelementptr inbounds i8, ptr %.0.i.i8, i64 %21
+  %22 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %0, i64 %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13, i64 noundef %.sroa.01.06.i.i, ptr noundef nonnull %.sroa.5.0.i.i)
+          to label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit" unwind label %23, !noalias !44
 
-24:                                               ; preds = %21, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$$LP$parking..Parker$C$event_listener..Task$RP$$GT$$GT$17h754773814dc1cd96E.exit.i.i.i"
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %20, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$$LP$parking..Parker$C$event_listener..Task$RP$$GT$$GT$17h754773814dc1cd96E.exit.i.i.i"
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %26 = load i64, ptr %.0.i.i8, align 8, !noalias !48, !noundef !4
-  %27 = add i64 %26, 1
-  store i64 %27, ptr %.0.i.i8, align 8, !noalias !48
-  resume { ptr, i32 } %25
+  %25 = load i64, ptr %.0.i.i8, align 8, !noalias !48, !noundef !4
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %.0.i.i8, align 8, !noalias !48
+  resume { ptr, i32 } %24
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit": ; preds = %21
-  %28 = load i64, ptr %.0.i.i8, align 8, !noalias !55, !noundef !4
-  %29 = add i64 %28, 1
-  store i64 %29, ptr %.0.i.i8, align 8, !noalias !55
-  br label %31
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit": ; preds = %20
+  %27 = load i64, ptr %.0.i.i8, align 8, !noalias !55, !noundef !4
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %.0.i.i8, align 8, !noalias !55
+  br label %30
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit.thread": ; preds = %"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal6PARKER7__getit17h8b93753d594ffaf4E.llvm.6090777742988092048.exit"
-  %30 = call noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal28_$u7b$$u7b$closure$u7d$$u7d$17h77aaeb167f43dacbE.llvm.6090777742988092048"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
-  br label %31
+  %29 = call noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal28_$u7b$$u7b$closure$u7d$$u7d$17h77aaeb167f43dacbE.llvm.6090777742988092048"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  br label %30
 
-31:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit.thread", %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit"
-  %.0 = phi i1 [ %30, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit.thread" ], [ %23, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit" ]
+30:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit.thread", %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit"
+  %.0 = phi i1 [ %29, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit.thread" ], [ %22, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit" ]
   ret i1 %.0
 }
 
@@ -1646,7 +1646,7 @@ define hidden noundef i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %6 = tail call noundef align 8 ptr %5(ptr noalias noundef align 8 dereferenceable_or_null(40) null)
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %31, label %8
+  br i1 %7, label %30, label %8
 
 8:                                                ; preds = %3
   %.val = load i64, ptr %2, align 8
@@ -1670,7 +1670,7 @@ define hidden noundef i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae
 
 "_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$$LP$parking..Parker$C$event_listener..Task$RP$$GT$$GT$17h754773814dc1cd96E.exit.i.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17heb0e31d0d5ca1c29E.exit.i"
   %16 = invoke { ptr, ptr } @_ZN7parking4pair17h13a34c527ff98354E()
-          to label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i" unwind label %24
+          to label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i" unwind label %23
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i": ; preds = %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$$LP$parking..Parker$C$event_listener..Task$RP$$GT$$GT$17h754773814dc1cd96E.exit.i.i"
   %17 = extractvalue { ptr, ptr } %16, 1
@@ -1680,41 +1680,41 @@ define hidden noundef i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae
   store ptr null, ptr %.sroa.56.0..sroa_idx7.i.i, align 8, !alias.scope !366
   %.sroa.6.0..sroa_idx9.i.i = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %17, ptr %.sroa.6.0..sroa_idx9.i.i, align 8, !alias.scope !366
-  br label %21
+  br label %20
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17heb0e31d0d5ca1c29E.exit.i"
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %6, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %.pre.fr.i = freeze ptr %.pre.i
   %19 = icmp eq ptr %.pre.fr.i, null
+  %.sroa.01.0.i = zext i1 %19 to i64
   %spec.select.i = select i1 %19, i64 24, i64 16
-  %20 = zext i1 %19 to i64
-  br label %21
+  br label %20
 
-21:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.i", %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i"
-  %.sroa.01.0.i = phi i64 [ 1, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i" ], [ %20, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.i" ]
-  %22 = phi i64 [ 24, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i" ], [ %spec.select.i, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.i" ]
-  %.sroa.5.0.i = getelementptr inbounds i8, ptr %6, i64 %22
-  %23 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %1, i64 %.val, i32 noundef %.val10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13, i64 noundef %.sroa.01.0.i, ptr noundef nonnull %.sroa.5.0.i)
-          to label %"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal28_$u7b$$u7b$closure$u7d$$u7d$17h68dc7187a6a1a617E.exit" unwind label %24
+20:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.i", %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i"
+  %.sroa.01.06.i = phi i64 [ 1, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i" ], [ %.sroa.01.0.i, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.i" ]
+  %21 = phi i64 [ 24, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.thread.i" ], [ %spec.select.i, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h90498089c793b0e4E.exit.i" ]
+  %.sroa.5.0.i = getelementptr inbounds i8, ptr %6, i64 %21
+  %22 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %1, i64 %.val, i32 noundef %.val10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13, i64 noundef %.sroa.01.06.i, ptr noundef nonnull %.sroa.5.0.i)
+          to label %"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal28_$u7b$$u7b$closure$u7d$$u7d$17h68dc7187a6a1a617E.exit" unwind label %23
 
-24:                                               ; preds = %21, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$$LP$parking..Parker$C$event_listener..Task$RP$$GT$$GT$17h754773814dc1cd96E.exit.i.i"
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %20, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$$LP$parking..Parker$C$event_listener..Task$RP$$GT$$GT$17h754773814dc1cd96E.exit.i.i"
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %26 = load i64, ptr %6, align 8, !noalias !369, !noundef !4
-  %27 = add i64 %26, 1
-  store i64 %27, ptr %6, align 8, !noalias !369
-  resume { ptr, i32 } %25
+  %25 = load i64, ptr %6, align 8, !noalias !369, !noundef !4
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %6, align 8, !noalias !369
+  resume { ptr, i32 } %24
 
-"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal28_$u7b$$u7b$closure$u7d$$u7d$17h68dc7187a6a1a617E.exit": ; preds = %21
-  %28 = load i64, ptr %6, align 8, !noalias !376, !noundef !4
-  %29 = add i64 %28, 1
-  store i64 %29, ptr %6, align 8, !noalias !376
-  %30 = zext i1 %23 to i8
-  br label %31
+"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal28_$u7b$$u7b$closure$u7d$$u7d$17h68dc7187a6a1a617E.exit": ; preds = %20
+  %27 = load i64, ptr %6, align 8, !noalias !376, !noundef !4
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %6, align 8, !noalias !376
+  %29 = zext i1 %22 to i8
+  br label %30
 
-31:                                               ; preds = %3, %"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal28_$u7b$$u7b$closure$u7d$$u7d$17h68dc7187a6a1a617E.exit"
-  %.0 = phi i8 [ %30, %"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal28_$u7b$$u7b$closure$u7d$$u7d$17h68dc7187a6a1a617E.exit" ], [ 2, %3 ]
+30:                                               ; preds = %3, %"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal28_$u7b$$u7b$closure$u7d$$u7d$17h68dc7187a6a1a617E.exit"
+  %.0 = phi i8 [ %29, %"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal28_$u7b$$u7b$closure$u7d$$u7d$17h68dc7187a6a1a617E.exit" ], [ 2, %3 ]
   ret i8 %.0
 }
 

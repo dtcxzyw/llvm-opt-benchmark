@@ -3491,9 +3491,9 @@ Vec_IntGrow.exit.i109:                            ; preds = %Vec_IntGrow.exit.i1
 124:                                              ; preds = %.lr.ph131, %328
   %125 = phi ptr [ %115, %.lr.ph131 ], [ %329, %328 ]
   %126 = phi ptr [ %116, %.lr.ph131 ], [ %331, %328 ]
-  %.0130 = phi i32 [ 0, %.lr.ph131 ], [ %.2, %328 ]
-  %.072129 = phi i32 [ 0, %.lr.ph131 ], [ %330, %328 ]
-  %.073128 = phi i32 [ -1, %.lr.ph131 ], [ %.174, %328 ]
+  %.072130 = phi i32 [ -1, %.lr.ph131 ], [ %.1, %328 ]
+  %.073129 = phi i32 [ 0, %.lr.ph131 ], [ %.2, %328 ]
+  %.075128 = phi i32 [ 0, %.lr.ph131 ], [ %330, %328 ]
   %127 = getelementptr inbounds i8, ptr %125, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 4
@@ -3689,7 +3689,7 @@ Vec_QuePop.exit:                                  ; preds = %139, %Vec_QueMoveDo
   br i1 %narrow.i.not, label %328, label %243
 
 243:                                              ; preds = %Vec_QuePop.exit
-  %.not79 = icmp eq i32 %.073128, %237
+  %.not79 = icmp eq i32 %.072130, %237
   br i1 %.not79, label %327, label %244
 
 244:                                              ; preds = %243
@@ -3823,7 +3823,7 @@ Vec_BitSetEntry.exit:                             ; preds = %255, %.loopexit.i.i
   br i1 %.not80, label %327, label %314
 
 314:                                              ; preds = %313
-  %315 = add nsw i32 %.0130, 1
+  %315 = add nsw i32 %.073129, 1
   %316 = load ptr, ptr %120, align 8
   %317 = getelementptr i8, ptr %316, i64 8
   %.val85 = load ptr, ptr %317, align 8
@@ -3839,20 +3839,20 @@ Vec_BitSetEntry.exit:                             ; preds = %255, %.loopexit.i.i
   %.val86.val = load i32, ptr %323, align 4
   %324 = load i32, ptr %122, align 8
   %325 = load i32, ptr %123, align 4
-  %326 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.0130, i32 noundef %.072129, i32 noundef %237, i32 noundef %319, i32 noundef %.val87.val, i32 noundef %.val86.val, i32 noundef %324, i32 noundef %325)
+  %326 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.073129, i32 noundef %.075128, i32 noundef %237, i32 noundef %319, i32 noundef %.val87.val, i32 noundef %.val86.val, i32 noundef %324, i32 noundef %325)
   br label %327
 
 327:                                              ; preds = %313, %314, %243
-  %.1 = phi i32 [ %315, %314 ], [ %.0130, %313 ], [ %.0130, %243 ]
+  %.174 = phi i32 [ %315, %314 ], [ %.073129, %313 ], [ %.073129, %243 ]
   call void @Gia_PolynBuildOne(ptr noundef nonnull %29, i32 noundef %130)
   %.pre141 = load ptr, ptr %114, align 8
   br label %328
 
 328:                                              ; preds = %Vec_QuePop.exit, %327
   %329 = phi ptr [ %.pre141, %327 ], [ %125, %Vec_QuePop.exit ]
-  %.174 = phi i32 [ %237, %327 ], [ %.073128, %Vec_QuePop.exit ]
-  %.2 = phi i32 [ %.1, %327 ], [ %.0130, %Vec_QuePop.exit ]
-  %330 = add nuw nsw i32 %.072129, 1
+  %.2 = phi i32 [ %.174, %327 ], [ %.073129, %Vec_QuePop.exit ]
+  %.1 = phi i32 [ %237, %327 ], [ %.072130, %Vec_QuePop.exit ]
+  %330 = add nuw nsw i32 %.075128, 1
   %331 = getelementptr i8, ptr %329, i64 4
   %.val98 = load i32, ptr %331, align 4
   %332 = icmp eq i32 %.val98, 1

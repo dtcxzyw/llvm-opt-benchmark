@@ -7568,8 +7568,8 @@ common.ret:                                       ; preds = %"_ZN19ockam_transpo
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %517, %516
-  %.sroa.660.sroa.6.0.i.i = phi i64 [ 0, %516 ], [ 1, %517 ]
   %.sroa.058.0.i.i = phi ptr [ inttoptr (i64 8 to ptr), %516 ], [ %509, %517 ]
+  %.sroa.660.sroa.6.0.i.i = phi i64 [ 0, %516 ], [ 1, %517 ]
   %.sroa.0.sroa.0.512..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.0.sroa.0.i.i, i64 512
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0.sroa.0.512..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(88) %96, i64 88, i1 false), !alias.scope !1147, !noalias !1151
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.755.i.i, ptr noundef nonnull align 8 dereferenceable(160) %95, i64 160, i1 false), !noalias !1125
@@ -9905,8 +9905,8 @@ common.ret:                                       ; preds = %"_ZN19ockam_transpo
   br label %.thread.i.i.i323
 
 .thread.i.i.i323:                                 ; preds = %1317, %1316
-  %.sroa.659.sroa.6.0.i.i.i = phi i64 [ 0, %1316 ], [ 1, %1317 ]
   %.sroa.057.0.i.i.i = phi ptr [ inttoptr (i64 8 to ptr), %1316 ], [ %1309, %1317 ]
+  %.sroa.659.sroa.6.0.i.i.i = phi i64 [ 0, %1316 ], [ 1, %1317 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1437)
   call void @llvm.experimental.noalias.scope.decl(metadata !1440)
   %.sroa.0.sroa.0.392..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.sroa.0.i.i.i, i64 392

@@ -1264,7 +1264,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_wckey_rec(ptr nocapture noundef writ
   br i1 %.not38, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %20
-  %.037 = phi i32 [ %23, %20 ], [ 0, %15 ]
+  %.02737 = phi i32 [ %23, %20 ], [ 0, %15 ]
   %18 = call i32 @slurmdb_unpack_accounting_rec(ptr noundef nonnull %6, i16 noundef zeroext %1, ptr noundef %2)
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %.loopexit36, label %20
@@ -1273,7 +1273,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_wckey_rec(ptr nocapture noundef writ
   %21 = load ptr, ptr %7, align 8
   %22 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %21, ptr noundef %22) #6
-  %23 = add nuw nsw i32 %.037, 1
+  %23 = add nuw nsw i32 %.02737, 1
   %24 = load i32, ptr %5, align 4
   %25 = icmp ult i32 %23, %24
   br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !10
@@ -1326,8 +1326,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_wckey_rec(ptr nocapture noundef writ
   br label %46
 
 46:                                               ; preds = %3, %43, %.loopexit36
-  %.027 = phi i32 [ -1, %.loopexit36 ], [ 0, %43 ], [ 0, %3 ]
-  ret i32 %.027
+  %.0 = phi i32 [ -1, %.loopexit36 ], [ 0, %43 ], [ 0, %3 ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_destroy_user_rec(ptr noundef) #1
@@ -1578,7 +1578,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_account_rec(ptr nocapture noundef wr
   br i1 %.not49, label %.loopexit44, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %slurmdb_unpack_assoc_rec.exit
-  %.046 = phi i32 [ %19, %slurmdb_unpack_assoc_rec.exit ], [ 0, %13 ]
+  %.02846 = phi i32 [ %19, %slurmdb_unpack_assoc_rec.exit ], [ 0, %13 ]
   %16 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 336, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1639, ptr noundef nonnull @__func__.slurmdb_unpack_assoc_rec) #6
   call void @slurmdb_init_assoc_rec(ptr noundef %16, i1 noundef zeroext false) #6
   %17 = call i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %16, i16 noundef zeroext %1, ptr noundef %2)
@@ -1592,7 +1592,7 @@ slurmdb_unpack_assoc_rec.exit.thread:             ; preds = %.lr.ph
 slurmdb_unpack_assoc_rec.exit:                    ; preds = %.lr.ph
   %18 = load ptr, ptr %7, align 8
   call void @list_append(ptr noundef %18, ptr noundef %16) #6
-  %19 = add nuw nsw i32 %.046, 1
+  %19 = add nuw nsw i32 %.02846, 1
   %20 = load i32, ptr %6, align 4
   %21 = icmp ult i32 %19, %20
   br i1 %21, label %.lr.ph, label %.loopexit44, !llvm.loop !11
@@ -1678,8 +1678,8 @@ slurmdb_unpack_coord_rec.exit.thread:             ; preds = %.lr.ph48, %31
   br label %54
 
 54:                                               ; preds = %47, %53
-  %.028 = phi i32 [ -1, %53 ], [ 0, %47 ]
-  ret i32 %.028
+  %.0 = phi i32 [ -1, %53 ], [ 0, %47 ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_destroy_account_rec(ptr noundef) local_unnamed_addr #1
@@ -2649,7 +2649,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef wr
   br i1 %.not280, label %.loopexit255, label %.lr.ph273
 
 .lr.ph273:                                        ; preds = %20, %25
-  %.0272 = phi i32 [ %28, %25 ], [ 0, %20 ]
+  %.0181272 = phi i32 [ %28, %25 ], [ 0, %20 ]
   %23 = call i32 @slurmdb_unpack_cluster_accounting_rec(ptr noundef nonnull %7, i16 noundef zeroext %1, ptr noundef %2)
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %.loopexit254, label %25
@@ -2658,7 +2658,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef wr
   %26 = load ptr, ptr %11, align 8
   %27 = load ptr, ptr %7, align 8
   call void @list_append(ptr noundef %26, ptr noundef %27) #6
-  %28 = add nuw nsw i32 %.0272, 1
+  %28 = add nuw nsw i32 %.0181272, 1
   %29 = load i32, ptr %6, align 4
   %30 = icmp ult i32 %28, %29
   br i1 %30, label %.lr.ph273, label %.loopexit255, !llvm.loop !13
@@ -3276,8 +3276,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef wr
   br label %327
 
 327:                                              ; preds = %.loopexit254, %324
-  %.0181 = phi i32 [ -1, %.loopexit254 ], [ 0, %324 ]
-  ret i32 %.0181
+  %.0 = phi i32 [ -1, %.loopexit254 ], [ 0, %324 ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_init_cluster_rec(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -5492,7 +5492,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_qos_rec(ptr nocapture noundef writeo
   br i1 %.not138, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %124, %129
-  %.0137 = phi i32 [ %132, %129 ], [ 0, %124 ]
+  %.091137 = phi i32 [ %132, %129 ], [ 0, %124 ]
   %128 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not134 = icmp eq i32 %128, 0
   br i1 %.not134, label %129, label %.loopexit136
@@ -5501,7 +5501,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_qos_rec(ptr nocapture noundef writeo
   %130 = load ptr, ptr %126, align 8
   %131 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %130, ptr noundef %131) #6
-  %132 = add nuw nsw i32 %.0137, 1
+  %132 = add nuw nsw i32 %.091137, 1
   %133 = load i32, ptr %5, align 4
   %134 = icmp ult i32 %132, %133
   br i1 %134, label %.lr.ph, label %.loopexit, !llvm.loop !24
@@ -5553,8 +5553,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_qos_rec(ptr nocapture noundef writeo
   br label %155
 
 155:                                              ; preds = %149, %.loopexit136
-  %.091 = phi i32 [ -1, %.loopexit136 ], [ 0, %149 ]
-  ret i32 %.091
+  %.0 = phi i32 [ -1, %.loopexit136 ], [ 0, %149 ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_init_qos_rec(ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
@@ -6319,7 +6319,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_reservation_rec(ptr nocapture nounde
   br i1 %.not58, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48, %53
-  %.057 = phi i32 [ %56, %53 ], [ 0, %48 ]
+  %.03957 = phi i32 [ %56, %53 ], [ 0, %48 ]
   %52 = call i32 @slurmdb_unpack_tres_rec(ptr noundef nonnull %6, i16 zeroext poison, ptr noundef %2)
   %.not55 = icmp eq i32 %52, 0
   br i1 %.not55, label %53, label %.loopexit56
@@ -6328,7 +6328,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_reservation_rec(ptr nocapture nounde
   %54 = load ptr, ptr %50, align 8
   %55 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %54, ptr noundef %55) #6
-  %56 = add nuw nsw i32 %.057, 1
+  %56 = add nuw nsw i32 %.03957, 1
   %57 = load i32, ptr %5, align 4
   %58 = icmp ult i32 %56, %57
   br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !29
@@ -6350,8 +6350,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_reservation_rec(ptr nocapture nounde
   br label %64
 
 64:                                               ; preds = %.loopexit, %.loopexit56
-  %.039 = phi i32 [ -1, %.loopexit56 ], [ 0, %.loopexit ]
-  ret i32 %.039
+  %.0 = phi i32 [ -1, %.loopexit56 ], [ 0, %.loopexit ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_destroy_tres_rec(ptr noundef) #1
@@ -6567,7 +6567,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_res_rec(ptr nocapture noundef writeo
   br i1 %.not60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %18
-  %.059 = phi i32 [ %21, %18 ], [ 0, %13 ]
+  %.04059 = phi i32 [ %21, %18 ], [ 0, %13 ]
   %17 = call i32 @slurmdb_unpack_clus_res_rec(ptr noundef nonnull %6, i16 noundef zeroext %1, ptr noundef %2)
   %.not57 = icmp eq i32 %17, 0
   br i1 %.not57, label %18, label %.loopexit58
@@ -6576,7 +6576,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_res_rec(ptr nocapture noundef writeo
   %19 = load ptr, ptr %15, align 8
   %20 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %19, ptr noundef %20) #6
-  %21 = add nuw nsw i32 %.059, 1
+  %21 = add nuw nsw i32 %.04059, 1
   %22 = load i32, ptr %5, align 4
   %23 = icmp ult i32 %21, %22
   br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !30
@@ -6673,8 +6673,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_res_rec(ptr nocapture noundef writeo
   br label %65
 
 65:                                               ; preds = %59, %.loopexit58
-  %.040 = phi i32 [ -1, %.loopexit58 ], [ 0, %59 ]
-  ret i32 %.040
+  %.0 = phi i32 [ -1, %.loopexit58 ], [ 0, %59 ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_init_res_rec(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -7103,7 +7103,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_tres_cond(ptr nocapture noundef writ
   br i1 %.not74, label %.loopexit65, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %22
-  %.067 = phi i32 [ %25, %22 ], [ 0, %17 ]
+  %.04367 = phi i32 [ %25, %22 ], [ 0, %17 ]
   %21 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not59 = icmp eq i32 %21, 0
   br i1 %.not59, label %22, label %.loopexit60
@@ -7112,7 +7112,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_tres_cond(ptr nocapture noundef writ
   %23 = load ptr, ptr %19, align 8
   %24 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %23, ptr noundef %24) #6
-  %25 = add nuw nsw i32 %.067, 1
+  %25 = add nuw nsw i32 %.04367, 1
   %26 = load i32, ptr %5, align 4
   %27 = icmp ult i32 %25, %26
   br i1 %27, label %.lr.ph, label %.loopexit65, !llvm.loop !31
@@ -7261,8 +7261,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_tres_cond(ptr nocapture noundef writ
   br label %87
 
 87:                                               ; preds = %.loopexit, %.loopexit60
-  %.043 = phi i32 [ -1, %.loopexit60 ], [ 0, %.loopexit ]
-  ret i32 %.043
+  %.0 = phi i32 [ -1, %.loopexit60 ], [ 0, %.loopexit ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_destroy_tres_cond(ptr noundef) local_unnamed_addr #1
@@ -7676,7 +7676,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_user_cond(ptr nocapture noundef writ
   br i1 %.not52, label %.loopexit47, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26, %29
-  %.049 = phi i32 [ %32, %29 ], [ 0, %26 ]
+  %.03449 = phi i32 [ %32, %29 ], [ 0, %26 ]
   %28 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not45 = icmp eq i32 %28, 0
   br i1 %.not45, label %29, label %.loopexit46
@@ -7685,7 +7685,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_user_cond(ptr nocapture noundef writ
   %30 = load ptr, ptr %22, align 8
   %31 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %30, ptr noundef %31) #6
-  %32 = add nuw nsw i32 %.049, 1
+  %32 = add nuw nsw i32 %.03449, 1
   %33 = load i32, ptr %5, align 4
   %34 = icmp ult i32 %32, %33
   br i1 %34, label %.lr.ph, label %.loopexit47, !llvm.loop !35
@@ -7755,8 +7755,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_user_cond(ptr nocapture noundef writ
   br label %62
 
 62:                                               ; preds = %3, %59, %.loopexit46
-  %.034 = phi i32 [ -1, %.loopexit46 ], [ 0, %59 ], [ 0, %3 ]
-  ret i32 %.034
+  %.0 = phi i32 [ -1, %.loopexit46 ], [ 0, %59 ], [ 0, %3 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7790,7 +7790,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef wri
   br i1 %.not165, label %.loopexit146, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %19
-  %.0148 = phi i32 [ %22, %19 ], [ 0, %15 ]
+  %.095148 = phi i32 [ %22, %19 ], [ 0, %15 ]
   %18 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not130 = icmp eq i32 %18, 0
   br i1 %.not130, label %19, label %.loopexit131
@@ -7799,7 +7799,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef wri
   %20 = load ptr, ptr %7, align 8
   %21 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %20, ptr noundef %21) #6
-  %22 = add nuw nsw i32 %.0148, 1
+  %22 = add nuw nsw i32 %.095148, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
   br i1 %24, label %.lr.ph, label %.loopexit146, !llvm.loop !37
@@ -8149,8 +8149,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef wri
   br label %180
 
 180:                                              ; preds = %174, %.loopexit131
-  %.095 = phi i32 [ -1, %.loopexit131 ], [ 0, %174 ]
-  ret i32 %.095
+  %.0 = phi i32 [ -1, %.loopexit131 ], [ 0, %174 ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_destroy_user_cond(ptr noundef) local_unnamed_addr #1
@@ -8273,7 +8273,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_account_cond(ptr nocapture noundef w
   br i1 %.not41, label %.loopexit36, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %21
-  %.038 = phi i32 [ %24, %21 ], [ 0, %16 ]
+  %.02638 = phi i32 [ %24, %21 ], [ 0, %16 ]
   %20 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not34 = icmp eq i32 %20, 0
   br i1 %.not34, label %21, label %.loopexit35
@@ -8282,7 +8282,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_account_cond(ptr nocapture noundef w
   %22 = load ptr, ptr %18, align 8
   %23 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %22, ptr noundef %23) #6
-  %24 = add nuw nsw i32 %.038, 1
+  %24 = add nuw nsw i32 %.02638, 1
   %25 = load i32, ptr %5, align 4
   %26 = icmp ult i32 %24, %25
   br i1 %26, label %.lr.ph, label %.loopexit36, !llvm.loop !46
@@ -8344,8 +8344,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_account_cond(ptr nocapture noundef w
   br label %49
 
 49:                                               ; preds = %3, %46, %.loopexit35
-  %.026 = phi i32 [ -1, %.loopexit35 ], [ 0, %46 ], [ 0, %3 ]
-  ret i32 %.026
+  %.0 = phi i32 [ -1, %.loopexit35 ], [ 0, %46 ], [ 0, %3 ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_destroy_account_cond(ptr noundef) local_unnamed_addr #1
@@ -8656,7 +8656,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef w
   br i1 %.not188, label %.loopexit154, label %.lr.ph176
 
 .lr.ph176:                                        ; preds = %17, %22
-  %.0175 = phi i32 [ %25, %22 ], [ 0, %17 ]
+  %.0118175 = phi i32 [ %25, %22 ], [ 0, %17 ]
   %21 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not148 = icmp eq i32 %21, 0
   br i1 %.not148, label %22, label %.loopexit149
@@ -8665,7 +8665,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef w
   %23 = load ptr, ptr %19, align 8
   %24 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %23, ptr noundef %24) #6
-  %25 = add nuw nsw i32 %.0175, 1
+  %25 = add nuw nsw i32 %.0118175, 1
   %26 = load i32, ptr %5, align 4
   %27 = icmp ult i32 %25, %26
   br i1 %27, label %.lr.ph176, label %.loopexit154, !llvm.loop !48
@@ -9031,8 +9031,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef w
   br label %183
 
 183:                                              ; preds = %87, %180, %.loopexit149
-  %.0118 = phi i32 [ -1, %.loopexit149 ], [ 0, %180 ], [ 0, %87 ]
-  ret i32 %.0118
+  %.0 = phi i32 [ -1, %.loopexit149 ], [ 0, %180 ], [ 0, %87 ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_init_cluster_cond(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -9167,7 +9167,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_federation_cond(ptr nocapture nounde
   br i1 %.not54, label %.loopexit47, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %19
-  %.049 = phi i32 [ %22, %19 ], [ 0, %15 ]
+  %.03749 = phi i32 [ %22, %19 ], [ 0, %15 ]
   %18 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not43 = icmp eq i32 %18, 0
   br i1 %.not43, label %19, label %.loopexit44
@@ -9176,7 +9176,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_federation_cond(ptr nocapture nounde
   %20 = load ptr, ptr %7, align 8
   %21 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %20, ptr noundef %21) #6
-  %22 = add nuw nsw i32 %.049, 1
+  %22 = add nuw nsw i32 %.03749, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
   br i1 %24, label %.lr.ph, label %.loopexit47, !llvm.loop !57
@@ -9267,8 +9267,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_federation_cond(ptr nocapture nounde
   br label %59
 
 59:                                               ; preds = %.loopexit, %.loopexit44
-  %.037 = phi i32 [ -1, %.loopexit44 ], [ 0, %.loopexit ]
-  ret i32 %.037
+  %.0 = phi i32 [ -1, %.loopexit44 ], [ 0, %.loopexit ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_init_federation_cond(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -9569,7 +9569,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_event_cond(ptr nocapture noundef wri
   br i1 %.not99, label %.loopexit88, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %19
-  %.090 = phi i32 [ %22, %19 ], [ 0, %15 ]
+  %.06090 = phi i32 [ %22, %19 ], [ 0, %15 ]
   %18 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not80 = icmp eq i32 %18, 0
   br i1 %.not80, label %19, label %.loopexit81
@@ -9578,7 +9578,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_event_cond(ptr nocapture noundef wri
   %20 = load ptr, ptr %7, align 8
   %21 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %20, ptr noundef %21) #6
-  %22 = add nuw nsw i32 %.090, 1
+  %22 = add nuw nsw i32 %.06090, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
   br i1 %24, label %.lr.ph, label %.loopexit88, !llvm.loop !60
@@ -9773,8 +9773,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_event_cond(ptr nocapture noundef wri
   br label %.loopexit
 
 .loopexit:                                        ; preds = %104, %99, %98, %.loopexit81
-  %.060 = phi i32 [ -1, %.loopexit81 ], [ 0, %98 ], [ 0, %99 ], [ 0, %104 ]
-  ret i32 %.060
+  %.0 = phi i32 [ -1, %.loopexit81 ], [ 0, %98 ], [ 0, %99 ], [ 0, %104 ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_destroy_event_cond(ptr noundef) local_unnamed_addr #1
@@ -10360,7 +10360,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_job_cond(ptr nocapture noundef write
   br i1 %.not286, label %.loopexit250, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %20
-  %.0252 = phi i32 [ %23, %20 ], [ 0, %16 ]
+  %.0161252 = phi i32 [ %23, %20 ], [ 0, %16 ]
   %19 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not222 = icmp eq i32 %19, 0
   br i1 %.not222, label %20, label %.loopexit223
@@ -10369,7 +10369,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_job_cond(ptr nocapture noundef write
   %21 = load ptr, ptr %8, align 8
   %22 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %21, ptr noundef %22) #6
-  %23 = add nuw nsw i32 %.0252, 1
+  %23 = add nuw nsw i32 %.0161252, 1
   %24 = load i32, ptr %5, align 4
   %25 = icmp ult i32 %23, %24
   br i1 %25, label %.lr.ph, label %.loopexit250, !llvm.loop !65
@@ -11019,8 +11019,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_job_cond(ptr nocapture noundef write
   br label %.loopexit
 
 .loopexit:                                        ; preds = %307, %302, %301, %.loopexit223
-  %.0161 = phi i32 [ -1, %.loopexit223 ], [ 0, %301 ], [ 0, %302 ], [ 0, %307 ]
-  ret i32 %.0161
+  %.0 = phi i32 [ -1, %.loopexit223 ], [ 0, %301 ], [ 0, %302 ], [ 0, %307 ]
+  ret i32 %.0
 }
 
 declare void @slurm_destroy_selected_step(ptr noundef) #1
@@ -13663,7 +13663,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_qos_cond(ptr nocapture noundef write
   br i1 %.not69, label %.loopexit60, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %19
-  %.062 = phi i32 [ %22, %19 ], [ 0, %15 ]
+  %.04262 = phi i32 [ %22, %19 ], [ 0, %15 ]
   %18 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not54 = icmp eq i32 %18, 0
   br i1 %.not54, label %19, label %.loopexit55
@@ -13672,7 +13672,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_qos_cond(ptr nocapture noundef write
   %20 = load ptr, ptr %7, align 8
   %21 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %20, ptr noundef %21) #6
-  %22 = add nuw nsw i32 %.062, 1
+  %22 = add nuw nsw i32 %.04262, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
   br i1 %24, label %.lr.ph, label %.loopexit60, !llvm.loop !85
@@ -13802,8 +13802,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_qos_cond(ptr nocapture noundef write
   br label %78
 
 78:                                               ; preds = %75, %.loopexit55
-  %.042 = phi i32 [ -1, %.loopexit55 ], [ 0, %75 ]
-  ret i32 %.042
+  %.0 = phi i32 [ -1, %.loopexit55 ], [ 0, %75 ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_destroy_qos_cond(ptr noundef) local_unnamed_addr #1
@@ -13983,7 +13983,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_reservation_cond(ptr nocapture nound
   br i1 %.not77, label %.loopexit68, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %19
-  %.070 = phi i32 [ %22, %19 ], [ 0, %15 ]
+  %.04670 = phi i32 [ %22, %19 ], [ 0, %15 ]
   %18 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not62 = icmp eq i32 %18, 0
   br i1 %.not62, label %19, label %.loopexit63
@@ -13992,7 +13992,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_reservation_cond(ptr nocapture nound
   %20 = load ptr, ptr %7, align 8
   %21 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %20, ptr noundef %21) #6
-  %22 = add nuw nsw i32 %.070, 1
+  %22 = add nuw nsw i32 %.04670, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
   br i1 %24, label %.lr.ph, label %.loopexit68, !llvm.loop !89
@@ -14138,8 +14138,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_reservation_cond(ptr nocapture nound
   br label %87
 
 87:                                               ; preds = %84, %.loopexit63
-  %.046 = phi i32 [ -1, %.loopexit63 ], [ 0, %84 ]
-  ret i32 %.046
+  %.0 = phi i32 [ -1, %.loopexit63 ], [ 0, %84 ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_destroy_reservation_cond(ptr noundef) local_unnamed_addr #1
@@ -14552,7 +14552,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_res_cond(ptr nocapture noundef write
   br i1 %.not156, label %.loopexit137, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %20
-  %.0139 = phi i32 [ %23, %20 ], [ 0, %15 ]
+  %.0101139 = phi i32 [ %23, %20 ], [ 0, %15 ]
   %19 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not121 = icmp eq i32 %19, 0
   br i1 %.not121, label %20, label %.loopexit122
@@ -14561,7 +14561,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_res_cond(ptr nocapture noundef write
   %21 = load ptr, ptr %17, align 8
   %22 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %21, ptr noundef %22) #6
-  %23 = add nuw nsw i32 %.0139, 1
+  %23 = add nuw nsw i32 %.0101139, 1
   %24 = load i32, ptr %5, align 4
   %25 = icmp ult i32 %23, %24
   br i1 %25, label %.lr.ph, label %.loopexit137, !llvm.loop !93
@@ -14885,8 +14885,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_res_cond(ptr nocapture noundef write
   br label %161
 
 161:                                              ; preds = %158, %.loopexit122
-  %.0101 = phi i32 [ -1, %.loopexit122 ], [ 0, %158 ]
-  ret i32 %.0101
+  %.0 = phi i32 [ -1, %.loopexit122 ], [ 0, %158 ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_init_res_cond(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -15163,7 +15163,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef write
   br i1 %.not147, label %.loopexit128, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %19
-  %.0130 = phi i32 [ %22, %19 ], [ 0, %15 ]
+  %.084130 = phi i32 [ %22, %19 ], [ 0, %15 ]
   %18 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not112 = icmp eq i32 %18, 0
   br i1 %.not112, label %19, label %.loopexit113
@@ -15172,7 +15172,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef write
   %20 = load ptr, ptr %7, align 8
   %21 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %20, ptr noundef %21) #6
-  %22 = add nuw nsw i32 %.0130, 1
+  %22 = add nuw nsw i32 %.084130, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
   br i1 %24, label %.lr.ph, label %.loopexit128, !llvm.loop !102
@@ -15483,8 +15483,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef write
   br label %161
 
 161:                                              ; preds = %.loopexit, %.loopexit113
-  %.084 = phi i32 [ -1, %.loopexit113 ], [ 0, %.loopexit ]
-  ret i32 %.084
+  %.0 = phi i32 [ -1, %.loopexit113 ], [ 0, %.loopexit ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_destroy_txn_cond(ptr noundef) local_unnamed_addr #1
@@ -15676,7 +15676,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_wckey_cond(ptr nocapture noundef wri
   br i1 %.not93, label %.loopexit82, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %19
-  %.084 = phi i32 [ %22, %19 ], [ 0, %15 ]
+  %.05684 = phi i32 [ %22, %19 ], [ 0, %15 ]
   %18 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %2) #6
   %.not74 = icmp eq i32 %18, 0
   br i1 %.not74, label %19, label %.loopexit75
@@ -15685,7 +15685,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_wckey_cond(ptr nocapture noundef wri
   %20 = load ptr, ptr %7, align 8
   %21 = load ptr, ptr %6, align 8
   call void @list_append(ptr noundef %20, ptr noundef %21) #6
-  %22 = add nuw nsw i32 %.084, 1
+  %22 = add nuw nsw i32 %.05684, 1
   %23 = load i32, ptr %5, align 4
   %24 = icmp ult i32 %22, %23
   br i1 %24, label %.lr.ph, label %.loopexit82, !llvm.loop !111
@@ -15868,8 +15868,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_wckey_cond(ptr nocapture noundef wri
   br label %103
 
 103:                                              ; preds = %100, %.loopexit75
-  %.056 = phi i32 [ -1, %.loopexit75 ], [ 0, %100 ]
-  ret i32 %.056
+  %.0 = phi i32 [ -1, %.loopexit75 ], [ 0, %100 ]
+  ret i32 %.0
 }
 
 declare void @slurmdb_destroy_wckey_cond(ptr noundef) local_unnamed_addr #1
@@ -16262,8 +16262,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_rollup_stats(ptr nocapture noundef w
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %.preheader, %.loopexit35
-  %.026 = phi i32 [ -1, %.loopexit35 ], [ 0, %.preheader ], [ 0, %23 ]
-  ret i32 %.026
+  %.0 = phi i32 [ -1, %.loopexit35 ], [ 0, %.preheader ], [ 0, %23 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -16549,7 +16549,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_update_object(ptr nocapture noundef 
   br i1 %.not25, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %33
-  %.01924 = phi i32 [ %36, %33 ], [ 0, %28 ]
+  %.02024 = phi i32 [ %36, %33 ], [ 0, %28 ]
   %31 = call i32 %.018(ptr noundef nonnull %5, i16 noundef zeroext %1, ptr noundef %2) #6
   %32 = icmp eq i32 %31, -1
   br i1 %32, label %.loopexit23, label %33
@@ -16558,7 +16558,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_update_object(ptr nocapture noundef 
   %34 = load ptr, ptr %6, align 8
   %35 = load ptr, ptr %5, align 8
   call void @list_append(ptr noundef %34, ptr noundef %35) #6
-  %36 = add nuw nsw i32 %.01924, 1
+  %36 = add nuw nsw i32 %.02024, 1
   %37 = load i32, ptr %4, align 4
   %38 = icmp ult i32 %36, %37
   br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !119
@@ -16569,8 +16569,8 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_update_object(ptr nocapture noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %28, %27, %9, %9, %.loopexit23
-  %.020 = phi i32 [ -1, %.loopexit23 ], [ 0, %9 ], [ 0, %9 ], [ 0, %27 ], [ 0, %28 ], [ 0, %33 ]
-  ret i32 %.020
+  %.019 = phi i32 [ -1, %.loopexit23 ], [ 0, %9 ], [ 0, %9 ], [ 0, %27 ], [ 0, %28 ], [ 0, %33 ]
+  ret i32 %.019
 }
 
 declare void @slurmdb_destroy_update_object(ptr noundef) local_unnamed_addr #1

@@ -619,20 +619,20 @@ define void @_xstrsubstitute(ptr noundef %0, ptr noundef readonly %1, ptr nounde
   br label %19
 
 19:                                               ; preds = %12, %16
-  %.035 = phi i32 [ %18, %16 ], [ 0, %12 ]
-  %20 = sub nsw i32 %.035, %14
+  %.0 = phi i32 [ %18, %16 ], [ 0, %12 ]
+  %20 = sub nsw i32 %.0, %14
   %sext = shl i64 %13, 32
   %21 = ashr exact i64 %sext, 32
-  %.not = icmp eq i32 %.035, 0
+  %.not = icmp eq i32 %.0, 0
   %22 = icmp sgt i32 %20, 0
-  %23 = sext i32 %.035 to i64
+  %23 = sext i32 %.0 to i64
   %24 = icmp slt i32 %20, 0
   br label %25
 
 25:                                               ; preds = %62, %19
-  %.0 = phi i32 [ 0, %19 ], [ %.1, %62 ]
+  %.035 = phi i32 [ 0, %19 ], [ %.1, %62 ]
   %26 = load ptr, ptr %0, align 8
-  %27 = sext i32 %.0 to i64
+  %27 = sext i32 %.035 to i64
   %28 = getelementptr inbounds i8, ptr %26, i64 %27
   %29 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %1) #21
   %30 = icmp eq ptr %29, null
@@ -649,7 +649,7 @@ xstrdup.exit:                                     ; preds = %25
   %36 = ptrtoint ptr %28 to i64
   %37 = sub i64 %35, %36
   %38 = trunc i64 %37 to i32
-  %39 = add i32 %.0, %38
+  %39 = add i32 %.035, %38
   br i1 %.not, label %47, label %40
 
 40:                                               ; preds = %xstrdup.exit
@@ -664,7 +664,7 @@ xstrdup.exit:                                     ; preds = %25
   %44 = sext i32 %39 to i64
   %45 = getelementptr inbounds i8, ptr %43, i64 %44
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 1 %2, i64 %23, i1 false)
-  %46 = add nsw i32 %39, %.035
+  %46 = add nsw i32 %39, %.0
   %.pre = load ptr, ptr %5, align 8
   br label %47
 
@@ -778,12 +778,12 @@ define zeroext i1 @xstrtolower(ptr noundef %0) #3 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %3 = phi i8 [ %9, %.lr.ph ], [ %2, %.preheader ]
-  %.01421 = phi i1 [ %spec.select, %.lr.ph ], [ false, %.preheader ]
+  %.01521 = phi i1 [ %spec.select, %.lr.ph ], [ false, %.preheader ]
   %4 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %5 = sext i8 %3 to i32
   %6 = tail call i32 @tolower(i32 noundef %5) #21
   %.not19 = icmp ne i32 %6, %5
-  %spec.select = select i1 %.not19, i1 true, i1 %.01421
+  %spec.select = select i1 %.not19, i1 true, i1 %.01521
   %7 = trunc i32 %6 to i8
   store i8 %7, ptr %4, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -793,8 +793,8 @@ define zeroext i1 @xstrtolower(ptr noundef %0) #3 {
   br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
-  %.015 = phi i1 [ false, %1 ], [ false, %.preheader ], [ %spec.select, %.lr.ph ]
-  ret i1 %.015
+  %.0 = phi i1 [ false, %1 ], [ false, %.preheader ], [ %spec.select, %.lr.ph ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
@@ -946,7 +946,7 @@ define ptr @xstrcasestr(ptr noundef readonly %0, ptr noundef readonly %1) #5 {
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %23
   %.029.us = phi ptr [ %24, %23 ], [ %0, %.preheader.us.preheader ]
-  %.02128.us = phi i32 [ %25, %23 ], [ 0, %.preheader.us.preheader ]
+  %.02228.us = phi i32 [ %25, %23 ], [ 0, %.preheader.us.preheader ]
   br label %12
 
 12:                                               ; preds = %.preheader.us, %26
@@ -969,7 +969,7 @@ define ptr @xstrcasestr(ptr noundef readonly %0, ptr noundef readonly %1) #5 {
 
 23:                                               ; preds = %._crit_edge.us
   %24 = getelementptr inbounds i8, ptr %.029.us, i64 1
-  %25 = add nuw nsw i32 %.02128.us, 1
+  %25 = add nuw nsw i32 %.02228.us, 1
   %exitcond41.not = icmp eq i32 %25, %7
   br i1 %exitcond41.not, label %.loopexit, label %.preheader.us, !llvm.loop !9
 
@@ -984,8 +984,8 @@ define ptr @xstrcasestr(ptr noundef readonly %0, ptr noundef readonly %1) #5 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %23, %26, %.preheader.lr.ph.split, %5, %2
-  %.022 = phi ptr [ null, %2 ], [ null, %5 ], [ %spec.select, %.preheader.lr.ph.split ], [ %.029.us, %26 ], [ %.029.us, %._crit_edge.us ], [ null, %23 ]
-  ret ptr %.022
+  %.020 = phi ptr [ null, %2 ], [ null, %5 ], [ %spec.select, %.preheader.lr.ph.split ], [ %.029.us, %26 ], [ %.029.us, %._crit_edge.us ], [ null, %23 ]
+  ret ptr %.020
 }
 
 ; Function Attrs: nounwind uwtable

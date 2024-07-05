@@ -723,8 +723,8 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %.sroa.10.087 = phi i64 [ %8, %.lr.ph91 ], [ %17, %"_ZN59_$LT$globset..glob..Token$u20$as$u20$core..clone..Clone$GT$5clone17h8b3f122fc8d6d13cE.exit" ]
   %.sroa.11.086 = phi i32 [ undef, %.lr.ph91 ], [ %.sroa.11.1, %"_ZN59_$LT$globset..glob..Token$u20$as$u20$core..clone..Clone$GT$5clone17h8b3f122fc8d6d13cE.exit" ]
   %.sroa.1323.085 = phi i8 [ undef, %.lr.ph91 ], [ %.sroa.1323.1, %"_ZN59_$LT$globset..glob..Token$u20$as$u20$core..clone..Clone$GT$5clone17h8b3f122fc8d6d13cE.exit" ]
-  %.sroa.13.sroa.0.084 = phi i32 [ undef, %.lr.ph91 ], [ %.sroa.13.sroa.0.1, %"_ZN59_$LT$globset..glob..Token$u20$as$u20$core..clone..Clone$GT$5clone17h8b3f122fc8d6d13cE.exit" ]
-  %.sroa.13.sroa.5.083 = phi i64 [ undef, %.lr.ph91 ], [ %.sroa.13.sroa.5.1, %"_ZN59_$LT$globset..glob..Token$u20$as$u20$core..clone..Clone$GT$5clone17h8b3f122fc8d6d13cE.exit" ]
+  %.sroa.13.sroa.5.084 = phi i64 [ undef, %.lr.ph91 ], [ %.sroa.13.sroa.5.1, %"_ZN59_$LT$globset..glob..Token$u20$as$u20$core..clone..Clone$GT$5clone17h8b3f122fc8d6d13cE.exit" ]
+  %.sroa.13.sroa.0.083 = phi i32 [ undef, %.lr.ph91 ], [ %.sroa.13.sroa.0.1, %"_ZN59_$LT$globset..glob..Token$u20$as$u20$core..clone..Clone$GT$5clone17h8b3f122fc8d6d13cE.exit" ]
   %17 = add i64 %.sroa.10.087, -1
   %18 = icmp eq ptr %.sroa.019.090, %12
   br i1 %18, label %.thread, label %19
@@ -879,8 +879,8 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   br label %"_ZN59_$LT$globset..glob..Token$u20$as$u20$core..clone..Clone$GT$5clone17h8b3f122fc8d6d13cE.exit"
 
 "_ZN59_$LT$globset..glob..Token$u20$as$u20$core..clone..Clone$GT$5clone17h8b3f122fc8d6d13cE.exit": ; preds = %.noexc13, %.noexc, %33, %32, %31, %30, %27, %19
-  %.sroa.13.sroa.5.1 = phi i64 [ %.sroa.531.0.copyload, %.noexc13 ], [ %.val1.i, %.noexc ], [ %.sroa.13.sroa.5.083, %33 ], [ %.sroa.13.sroa.5.083, %32 ], [ %.sroa.13.sroa.5.083, %31 ], [ %.sroa.13.sroa.5.083, %30 ], [ %.sroa.13.sroa.5.083, %27 ], [ %.sroa.13.sroa.5.083, %19 ]
-  %.sroa.13.sroa.0.1 = phi i32 [ %.sroa.430.0.copyload, %.noexc13 ], [ %.sroa.425.4.extract.trunc, %.noexc ], [ %.sroa.13.sroa.0.084, %33 ], [ %.sroa.13.sroa.0.084, %32 ], [ %.sroa.13.sroa.0.084, %31 ], [ %.sroa.13.sroa.0.084, %30 ], [ %.sroa.13.sroa.0.084, %27 ], [ %.sroa.13.sroa.0.084, %19 ]
+  %.sroa.13.sroa.0.1 = phi i32 [ %.sroa.430.0.copyload, %.noexc13 ], [ %.sroa.425.4.extract.trunc, %.noexc ], [ %.sroa.13.sroa.0.083, %33 ], [ %.sroa.13.sroa.0.083, %32 ], [ %.sroa.13.sroa.0.083, %31 ], [ %.sroa.13.sroa.0.083, %30 ], [ %.sroa.13.sroa.0.083, %27 ], [ %.sroa.13.sroa.0.083, %19 ]
+  %.sroa.13.sroa.5.1 = phi i64 [ %.sroa.531.0.copyload, %.noexc13 ], [ %.val1.i, %.noexc ], [ %.sroa.13.sroa.5.084, %33 ], [ %.sroa.13.sroa.5.084, %32 ], [ %.sroa.13.sroa.5.084, %31 ], [ %.sroa.13.sroa.5.084, %30 ], [ %.sroa.13.sroa.5.084, %27 ], [ %.sroa.13.sroa.5.084, %19 ]
   %.sroa.1323.1 = phi i8 [ %74, %.noexc13 ], [ %36, %.noexc ], [ %.sroa.1323.085, %33 ], [ %.sroa.1323.085, %32 ], [ %.sroa.1323.085, %31 ], [ %.sroa.1323.085, %30 ], [ %.sroa.1323.085, %27 ], [ %.sroa.1323.085, %19 ]
   %.sroa.11.1 = phi i32 [ %.sroa.029.0.copyload, %.noexc13 ], [ %.sroa.425.0.extract.trunc, %.noexc ], [ %.sroa.11.086, %33 ], [ %.sroa.11.086, %32 ], [ %.sroa.11.086, %31 ], [ %.sroa.11.086, %30 ], [ %29, %27 ], [ %.sroa.11.086, %19 ]
   %.sroa.020.0 = phi i64 [ -9223372036854775801, %.noexc13 ], [ %40, %.noexc ], [ -9223372036854775803, %33 ], [ -9223372036854775804, %32 ], [ -9223372036854775805, %31 ], [ -9223372036854775806, %30 ], [ -9223372036854775808, %27 ], [ -9223372036854775807, %19 ]

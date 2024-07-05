@@ -340,13 +340,13 @@ define void @Fra_SmlSavePattern1(ptr nocapture noundef readonly %0, i32 noundef 
   br label %20
 
 20:                                               ; preds = %.lr.ph, %20
-  %.023 = phi i32 [ 0, %.lr.ph ], [ %24, %20 ]
-  %.01522 = phi i32 [ %14, %.lr.ph ], [ %33, %20 ]
+  %.023 = phi i32 [ %14, %.lr.ph ], [ %33, %20 ]
+  %.01522 = phi i32 [ 0, %.lr.ph ], [ %24, %20 ]
   %21 = load ptr, ptr %3, align 8
   %22 = load i32, ptr %19, align 8
   %23 = mul nsw i32 %22, %14
-  %24 = add nuw nsw i32 %.023, 1
-  %25 = add nsw i32 %23, %.023
+  %24 = add nuw nsw i32 %.01522, 1
+  %25 = add nsw i32 %23, %.01522
   %26 = and i32 %25, 31
   %27 = shl nuw i32 1, %26
   %28 = ashr i32 %25, 5
@@ -355,7 +355,7 @@ define void @Fra_SmlSavePattern1(ptr nocapture noundef readonly %0, i32 noundef 
   %31 = load i32, ptr %30, align 4
   %32 = xor i32 %27, %31
   store i32 %32, ptr %30, align 4
-  %33 = add nsw i32 %.01522, 1
+  %33 = add nsw i32 %.023, 1
   %34 = load ptr, ptr %10, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
@@ -688,26 +688,26 @@ define void @Fra_SmlCheckOutputSavePattern(ptr nocapture noundef readonly %0, pt
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20, %._crit_edge.loopexit.split.loop.exit, %2
-  %.030.lcssa = phi i32 [ 0, %2 ], [ %21, %._crit_edge.loopexit.split.loop.exit ], [ %13, %20 ]
-  %22 = zext nneg i32 %.030.lcssa to i64
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %21, %._crit_edge.loopexit.split.loop.exit ], [ %13, %20 ]
+  %22 = zext nneg i32 %.0.lcssa to i64
   %23 = getelementptr inbounds i32, ptr %16, i64 %22
   %24 = load i32, ptr %23, align 4
   br label %25
 
 25:                                               ; preds = %._crit_edge, %28
-  %.039 = phi i32 [ 0, %._crit_edge ], [ %29, %28 ]
-  %26 = shl nuw i32 1, %.039
+  %.03039 = phi i32 [ 0, %._crit_edge ], [ %29, %28 ]
+  %26 = shl nuw i32 1, %.03039
   %27 = and i32 %24, %26
   %.not31 = icmp eq i32 %27, 0
   br i1 %.not31, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = add nuw nsw i32 %.039, 1
+  %29 = add nuw nsw i32 %.03039, 1
   %exitcond46.not = icmp eq i32 %29, 32
   br i1 %exitcond46.not, label %30, label %25, !llvm.loop !16
 
 30:                                               ; preds = %25, %28
-  %.0.lcssa = phi i32 [ %.039, %25 ], [ 32, %28 ]
+  %.030.lcssa = phi i32 [ %.03039, %25 ], [ 32, %28 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 136
@@ -726,12 +726,12 @@ define void @Fra_SmlCheckOutputSavePattern(ptr nocapture noundef readonly %0, pt
   br i1 %43, label %.lr.ph43, label %.critedge
 
 .lr.ph43:                                         ; preds = %30
-  %44 = lshr i32 %.0.lcssa, 5
-  %45 = add nuw i32 %44, %.030.lcssa
+  %44 = lshr i32 %.030.lcssa, 5
+  %45 = add nuw i32 %44, %.0.lcssa
   %46 = and i32 %45, 134217727
   %47 = zext nneg i32 %46 to i64
   %invariant.gep = getelementptr i32, ptr %11, i64 %47
-  %48 = and i32 %.0.lcssa, 31
+  %48 = and i32 %.030.lcssa, 31
   %.phi.trans.insert = getelementptr i8, ptr %41, i64 8
   %.val34.pre = load ptr, ptr %.phi.trans.insert, align 8
   %49 = zext nneg i32 %.val3340 to i64
@@ -1379,12 +1379,12 @@ Fra_SmlAssignConst.exit83:                        ; preds = %Fra_SmlAssignConst.
   %153 = phi i32 [ %149, %.lr.ph100.split.preheader ], [ %183, %Fra_SmlAssignConst.exit88 ]
   %indvars.iv115 = phi i64 [ %151, %.lr.ph100.split.preheader ], [ %indvars.iv.next116, %Fra_SmlAssignConst.exit88 ]
   %154 = phi ptr [ %143, %.lr.ph100.split.preheader ], [ %185, %Fra_SmlAssignConst.exit88 ]
-  %.098 = phi i32 [ 0, %.lr.ph100.split.preheader ], [ %158, %Fra_SmlAssignConst.exit88 ]
+  %.06598 = phi i32 [ 0, %.lr.ph100.split.preheader ], [ %158, %Fra_SmlAssignConst.exit88 ]
   %155 = getelementptr i8, ptr %154, i64 8
   %.val75 = load ptr, ptr %155, align 8
   %156 = getelementptr inbounds ptr, ptr %.val75, i64 %indvars.iv115
   %157 = load ptr, ptr %156, align 8
-  %158 = add nuw nsw i32 %.098, 1
+  %158 = add nuw nsw i32 %.06598, 1
   %159 = getelementptr inbounds i8, ptr %157, i64 36
   %160 = load i32, ptr %159, align 4
   %161 = load i32, ptr %147, align 4
@@ -1397,7 +1397,7 @@ Fra_SmlAssignConst.exit83:                        ; preds = %Fra_SmlAssignConst.
 .lr.ph.i84:                                       ; preds = %.lr.ph100.split
   %166 = load i32, ptr %3, align 4
   %167 = mul nsw i32 %166, %81
-  %168 = add nsw i32 %167, %.098
+  %168 = add nsw i32 %167, %.06598
   %169 = ashr i32 %168, 5
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds i32, ptr %1, i64 %170
@@ -2783,13 +2783,13 @@ Abc_Clock.exit88:                                 ; preds = %Abc_Clock.exit, %10
   br label %133
 
 133:                                              ; preds = %133, %.lr.ph.i90
-  %.023.i = phi i32 [ 0, %.lr.ph.i90 ], [ %137, %133 ]
-  %.01522.i = phi i32 [ %127, %.lr.ph.i90 ], [ %146, %133 ]
+  %.023.i = phi i32 [ %127, %.lr.ph.i90 ], [ %146, %133 ]
+  %.01522.i = phi i32 [ 0, %.lr.ph.i90 ], [ %137, %133 ]
   %134 = load ptr, ptr %51, align 8
   %135 = load i32, ptr %132, align 8
   %136 = mul nsw i32 %135, %127
-  %137 = add nuw nsw i32 %.023.i, 1
-  %138 = add nsw i32 %136, %.023.i
+  %137 = add nuw nsw i32 %.01522.i, 1
+  %138 = add nsw i32 %136, %.01522.i
   %139 = and i32 %138, 31
   %140 = shl nuw i32 1, %139
   %141 = ashr i32 %138, 5
@@ -2798,7 +2798,7 @@ Abc_Clock.exit88:                                 ; preds = %Abc_Clock.exit, %10
   %144 = load i32, ptr %143, align 4
   %145 = xor i32 %140, %144
   store i32 %145, ptr %143, align 4
-  %146 = add nsw i32 %.01522.i, 1
+  %146 = add nsw i32 %.023.i, 1
   %147 = load ptr, ptr %123, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 16
   %149 = load ptr, ptr %148, align 8

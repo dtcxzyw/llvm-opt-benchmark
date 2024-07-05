@@ -5979,19 +5979,19 @@ for.cond16.preheader:                             ; preds = %_ZNSt6vectorIP10uv_
 for.body:                                         ; preds = %entry, %_ZNSt6vectorIP10uv_timer_sSaIS1_EE9push_backERKS1_.exit
   %__begin2.sroa.0.025 = phi ptr [ %__begin2.sroa.0.0, %_ZNSt6vectorIP10uv_timer_sSaIS1_EE9push_backERKS1_.exit ], [ %__begin2.sroa.0.020, %entry ]
   %timers.sroa.0.024 = phi ptr [ %timers.sroa.0.1, %_ZNSt6vectorIP10uv_timer_sSaIS1_EE9push_backERKS1_.exit ], [ null, %entry ]
-  %timers.sroa.10.023 = phi ptr [ %timers.sroa.10.1, %_ZNSt6vectorIP10uv_timer_sSaIS1_EE9push_backERKS1_.exit ], [ null, %entry ]
-  %timers.sroa.5.022 = phi ptr [ %timers.sroa.5.1, %_ZNSt6vectorIP10uv_timer_sSaIS1_EE9push_backERKS1_.exit ], [ null, %entry ]
+  %timers.sroa.5.023 = phi ptr [ %timers.sroa.5.1, %_ZNSt6vectorIP10uv_timer_sSaIS1_EE9push_backERKS1_.exit ], [ null, %entry ]
+  %timers.sroa.10.022 = phi ptr [ %timers.sroa.10.1, %_ZNSt6vectorIP10uv_timer_sSaIS1_EE9push_backERKS1_.exit ], [ null, %entry ]
   %add.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.025, i64 8
   %2 = load ptr, ptr %add.ptr.i, align 8
-  %cmp.not.i = icmp eq ptr %timers.sroa.5.022, %timers.sroa.10.023
+  %cmp.not.i = icmp eq ptr %timers.sroa.5.023, %timers.sroa.10.022
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  store ptr %2, ptr %timers.sroa.5.022, align 8
+  store ptr %2, ptr %timers.sroa.5.023, align 8
   br label %_ZNSt6vectorIP10uv_timer_sSaIS1_EE9push_backERKS1_.exit
 
 if.else.i:                                        ; preds = %for.body
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %timers.sroa.10.023 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %timers.sroa.5.023 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %timers.sroa.0.024 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
@@ -6041,8 +6041,8 @@ _ZNSt6vectorIP10uv_timer_sSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__n
   br label %_ZNSt6vectorIP10uv_timer_sSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP10uv_timer_sSaIS1_EE9push_backERKS1_.exit: ; preds = %if.then.i, %_ZNSt6vectorIP10uv_timer_sSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIP10uv_timer_sSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %timers.sroa.5.022, %if.then.i ]
-  %timers.sroa.10.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIP10uv_timer_sSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %timers.sroa.10.023, %if.then.i ]
+  %timers.sroa.10.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIP10uv_timer_sSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %timers.sroa.10.022, %if.then.i ]
+  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIP10uv_timer_sSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %timers.sroa.5.023, %if.then.i ]
   %timers.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIP10uv_timer_sSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %timers.sroa.0.024, %if.then.i ]
   %timers.sroa.5.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.025, align 8

@@ -331,7 +331,7 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %.preheader, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader ]
   %7 = phi ptr [ %19, %17 ], [ %6, %.preheader ]
-  %.081102 = phi i32 [ %.182, %17 ], [ 0, %.preheader ]
+  %.083101 = phi i32 [ %.184, %17 ], [ 0, %.preheader ]
   %8 = getelementptr inbounds i8, ptr %7, i64 80
   %9 = load ptr, ptr %8, align 8
   %.not96 = icmp eq ptr %9, null
@@ -348,11 +348,11 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef %0, ptr 
   br i1 %.not97, label %17, label %15
 
 15:                                               ; preds = %12, %10
-  %16 = add nsw i32 %.081102, 1
+  %16 = add nsw i32 %.083101, 1
   br label %17
 
 17:                                               ; preds = %15, %12
-  %.182 = phi i32 [ %16, %15 ], [ %.081102, %12 ]
+  %.184 = phi i32 [ %16, %15 ], [ %.083101, %12 ]
   store ptr %0, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
@@ -361,7 +361,7 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef %0, ptr 
   br i1 %.not92, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %17
-  %20 = sext i32 %.182 to i64
+  %20 = sext i32 %.184 to i64
   %21 = shl nsw i64 %20, 3
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #9
   %.not93 = icmp eq ptr %22, null
@@ -452,7 +452,7 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef %0, ptr 
   %72 = getelementptr inbounds i8, ptr %.1, i64 2
   store i16 %71, ptr %72, align 2
   store i16 %70, ptr %4, align 8
-  %73 = trunc i32 %.182 to i16
+  %73 = trunc i32 %.184 to i16
   store i16 %73, ptr %5, align 2
   %74 = icmp sgt i16 %73, 0
   br i1 %74, label %.lr.ph116, label %._crit_edge.thread

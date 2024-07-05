@@ -1421,9 +1421,9 @@ define dso_local { ptr, ptr } @_ZN4Luau7Compile10getBuiltinEPNS_7AstExprERKNS_12
 
 27:                                               ; preds = %33, %18
   %.pn.i.i = phi i64 [ %25, %18 ], [ %35, %33 ]
-  %.019.i.i = phi i64 [ 0, %18 ], [ %34, %33 ]
-  %.01520.i.i = and i64 %.pn.i.i, %21
-  %28 = getelementptr inbounds %"struct.std::pair.43", ptr %26, i64 %.01520.i.i
+  %.01519.i.i = phi i64 [ 0, %18 ], [ %34, %33 ]
+  %.01620.i.i = and i64 %.pn.i.i, %21
+  %28 = getelementptr inbounds %"struct.std::pair.43", ptr %26, i64 %.01620.i.i
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %15
   br i1 %30, label %36, label %31
@@ -1433,8 +1433,8 @@ define dso_local { ptr, ptr } @_ZN4Luau7Compile10getBuiltinEPNS_7AstExprERKNS_12
   br i1 %32, label %_ZNK4Luau12DenseHashMapIPNS_8AstLocalENS_7Compile8VariableENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %33
 
 33:                                               ; preds = %31
-  %34 = add i64 %.019.i.i, 1
-  %35 = add i64 %34, %.01520.i.i
+  %34 = add i64 %.01519.i.i, 1
+  %35 = add i64 %34, %.01620.i.i
   %.not.i.i = icmp ugt i64 %34, %21
   br i1 %.not.i.i, label %_ZNK4Luau12DenseHashMapIPNS_8AstLocalENS_7Compile8VariableENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %27, !llvm.loop !5
 
@@ -1500,9 +1500,9 @@ define dso_local { ptr, ptr } @_ZN4Luau7Compile10getBuiltinEPNS_7AstExprERKNS_12
 
 75:                                               ; preds = %81, %67
   %.pn.i.i.i = phi i64 [ %73, %67 ], [ %83, %81 ]
-  %.019.i.i.i = phi i64 [ 0, %67 ], [ %82, %81 ]
-  %.01520.i.i.i = and i64 %.pn.i.i.i, %70
-  %76 = getelementptr inbounds %"struct.std::pair", ptr %74, i64 %.01520.i.i.i
+  %.01519.i.i.i = phi i64 [ 0, %67 ], [ %82, %81 ]
+  %.01620.i.i.i = and i64 %.pn.i.i.i, %70
+  %76 = getelementptr inbounds %"struct.std::pair", ptr %74, i64 %.01620.i.i.i
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, %.sroa.03.0.copyload
   br i1 %78, label %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit, label %79
@@ -1512,8 +1512,8 @@ define dso_local { ptr, ptr } @_ZN4Luau7Compile10getBuiltinEPNS_7AstExprERKNS_12
   br i1 %80, label %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit.thread, label %81
 
 81:                                               ; preds = %79
-  %82 = add i64 %.019.i.i.i, 1
-  %83 = add i64 %82, %.01520.i.i.i
+  %82 = add i64 %.01519.i.i.i, 1
+  %83 = add i64 %82, %.01620.i.i.i
   %.not.i.i.i = icmp ugt i64 %82, %70
   br i1 %.not.i.i.i, label %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit.thread, label %75, !llvm.loop !7
 
@@ -1562,9 +1562,9 @@ _ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4
 
 111:                                              ; preds = %117, %103
   %.pn.i.i.i37 = phi i64 [ %109, %103 ], [ %119, %117 ]
-  %.019.i.i.i38 = phi i64 [ 0, %103 ], [ %118, %117 ]
-  %.01520.i.i.i39 = and i64 %.pn.i.i.i37, %106
-  %112 = getelementptr inbounds %"struct.std::pair", ptr %110, i64 %.01520.i.i.i39
+  %.01519.i.i.i38 = phi i64 [ 0, %103 ], [ %118, %117 ]
+  %.01620.i.i.i39 = and i64 %.pn.i.i.i37, %106
+  %112 = getelementptr inbounds %"struct.std::pair", ptr %110, i64 %.01620.i.i.i39
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, %.sroa.0.0.copyload
   br i1 %114, label %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit41, label %115
@@ -1574,8 +1574,8 @@ _ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4
   br i1 %116, label %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit41.thread, label %117
 
 117:                                              ; preds = %115
-  %118 = add i64 %.019.i.i.i38, 1
-  %119 = add i64 %118, %.01520.i.i.i39
+  %118 = add i64 %.01519.i.i.i38, 1
+  %119 = add i64 %118, %.01620.i.i.i39
   %.not.i.i.i40 = icmp ugt i64 %118, %106
   br i1 %.not.i.i.i40, label %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit41.thread, label %111, !llvm.loop !7
 
@@ -2719,9 +2719,9 @@ define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_Z
 
 23:                                               ; preds = %29, %16
   %.pn.i.i = phi i64 [ %21, %16 ], [ %31, %29 ]
-  %.019.i.i = phi i64 [ 0, %16 ], [ %30, %29 ]
-  %.01520.i.i = and i64 %.pn.i.i, %17
-  %24 = getelementptr inbounds %"struct.std::pair.11", ptr %22, i64 %.01520.i.i
+  %.01519.i.i = phi i64 [ 0, %16 ], [ %30, %29 ]
+  %.01620.i.i = and i64 %.pn.i.i, %17
+  %24 = getelementptr inbounds %"struct.std::pair.11", ptr %22, i64 %.01620.i.i
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %13
   br i1 %26, label %_ZN4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EE14rehash_if_fullERS6_.exit, label %27
@@ -2731,8 +2731,8 @@ define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_Z
   br i1 %28, label %.loopexit.i, label %29
 
 29:                                               ; preds = %27
-  %30 = add i64 %.019.i.i, 1
-  %31 = add i64 %30, %.01520.i.i
+  %30 = add i64 %.01519.i.i, 1
+  %31 = add i64 %30, %.01620.i.i
   %.not.i.i = icmp ugt i64 %30, %17
   br i1 %.not.i.i, label %.loopexit.i, label %23, !llvm.loop !8
 
@@ -2752,8 +2752,8 @@ _ZN4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16I
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
-  %.01722.i6 = and i64 %38, %33
-  %42 = getelementptr inbounds %"struct.std::pair.11", ptr %39, i64 %.01722.i6
+  %.01822.i6 = and i64 %38, %33
+  %42 = getelementptr inbounds %"struct.std::pair.11", ptr %39, i64 %.01822.i6
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, %41
   br i1 %44, label %._crit_edge, label %.lr.ph.preheader
@@ -2775,14 +2775,14 @@ _ZN4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16I
   br i1 %48, label %_ZN4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EE13insert_unsafeERS6_.exit, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.021.i719 = phi i64 [ %49, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01722.i818 = phi i64 [ %.01722.i, %.lr.ph ], [ %.01722.i6, %.lr.ph.preheader ]
-  %49 = add i64 %.021.i719, 1
-  %50 = add i64 %49, %.01722.i818
+  %.01721.i719 = phi i64 [ %49, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01822.i818 = phi i64 [ %.01822.i, %.lr.ph ], [ %.01822.i6, %.lr.ph.preheader ]
+  %49 = add i64 %.01721.i719, 1
+  %50 = add i64 %49, %.01822.i818
   %.not.i3 = icmp ule i64 %49, %33
   tail call void @llvm.assume(i1 %.not.i3)
-  %.01722.i = and i64 %50, %33
-  %51 = getelementptr inbounds %"struct.std::pair.11", ptr %39, i64 %.01722.i
+  %.01822.i = and i64 %50, %33
+  %51 = getelementptr inbounds %"struct.std::pair.11", ptr %39, i64 %.01822.i
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, %41
   br i1 %53, label %._crit_edge, label %.lr.ph
@@ -2853,8 +2853,8 @@ _ZN4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16I
   %26 = lshr i64 %25, 4
   %27 = lshr i64 %25, 9
   %28 = xor i64 %26, %27
-  %.01722.i25 = and i64 %28, %16
-  %29 = getelementptr inbounds %"struct.std::pair.11", ptr %.sroa.0.0, i64 %.01722.i25
+  %.01822.i25 = and i64 %28, %16
+  %29 = getelementptr inbounds %"struct.std::pair.11", ptr %.sroa.0.0, i64 %.01822.i25
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, %7
   br i1 %31, label %._crit_edge, label %.lr.ph.preheader
@@ -2873,14 +2873,14 @@ _ZN4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16I
   br i1 %33, label %_ZN4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EE13insert_unsafeERS6_.exit, label %.lr.ph44
 
 .lr.ph44:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.021.i2643 = phi i64 [ %34, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01722.i2742 = phi i64 [ %.01722.i, %.lr.ph ], [ %.01722.i25, %.lr.ph.preheader ]
-  %34 = add i64 %.021.i2643, 1
-  %35 = add i64 %34, %.01722.i2742
+  %.01721.i2643 = phi i64 [ %34, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01822.i2742 = phi i64 [ %.01822.i, %.lr.ph ], [ %.01822.i25, %.lr.ph.preheader ]
+  %34 = add i64 %.01721.i2643, 1
+  %35 = add i64 %34, %.01822.i2742
   %.not.i11 = icmp ule i64 %34, %16
   tail call void @llvm.assume(i1 %.not.i11)
-  %.01722.i = and i64 %35, %16
-  %36 = getelementptr inbounds %"struct.std::pair.11", ptr %.sroa.0.0, i64 %.01722.i
+  %.01822.i = and i64 %35, %16
+  %36 = getelementptr inbounds %"struct.std::pair.11", ptr %.sroa.0.0, i64 %.01822.i
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, %7
   br i1 %38, label %._crit_edge, label %.lr.ph

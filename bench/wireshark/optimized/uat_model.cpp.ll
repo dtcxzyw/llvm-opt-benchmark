@@ -1933,10 +1933,10 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57:    ; preds = %94
   br label %120
 
 120:                                              ; preds = %119, %115
-  %.0 = phi i32 [ 2, %119 ], [ 0, %115 ]
+  %.039 = phi i32 [ 2, %119 ], [ 0, %115 ]
   %121 = load ptr, ptr %11, align 8
   call void @g_free(ptr noundef %121)
-  call void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0)
+  call void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.039)
   br label %_ZN7QStringD2Ev.exit
 
 122:                                              ; preds = %100
@@ -8444,7 +8444,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIP4QMapIi7QStringEEET_S5_S5_S
 22:                                               ; preds = %.backedge, %19
   %.067 = phi i64 [ %11, %19 ], [ %.067.be, %.backedge ]
   %.065 = phi i64 [ %14, %19 ], [ %.065.be, %.backedge ]
-  %.038 = phi ptr [ %0, %19 ], [ %.038.be, %.backedge ]
+  %.039 = phi ptr [ %0, %19 ], [ %.039.be, %.backedge ]
   %23 = sub i64 %.067, %.065
   %24 = icmp slt i64 %.065, %23
   br i1 %24, label %25, label %57
@@ -8454,13 +8454,13 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIP4QMapIi7QStringEEET_S5_S5_S
   br i1 %26, label %.lr.ph81.preheader, label %._crit_edge82
 
 .lr.ph81.preheader:                               ; preds = %25
-  %27 = getelementptr %class.QMap, ptr %.038, i64 %.065
+  %27 = getelementptr %class.QMap, ptr %.039, i64 %.065
   br label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit
   %.03679 = phi i64 [ %52, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit ], [ 0, %.lr.ph81.preheader ]
   %.03778 = phi ptr [ %51, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit ], [ %27, %.lr.ph81.preheader ]
-  %.177 = phi ptr [ %50, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit ], [ %.038, %.lr.ph81.preheader ]
+  %.177 = phi ptr [ %50, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit ], [ %.039, %.lr.ph81.preheader ]
   %28 = load ptr, ptr %.177, align 8
   store ptr null, ptr %.177, align 8
   %29 = load ptr, ptr %.03778, align 8
@@ -8530,7 +8530,7 @@ _ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_lik
   br i1 %exitcond87.not, label %._crit_edge82, label %.lr.ph81, !llvm.loop !45
 
 ._crit_edge82:                                    ; preds = %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit, %25
-  %.1.lcssa = phi ptr [ %.038, %25 ], [ %50, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit ]
+  %.1.lcssa = phi ptr [ %.039, %25 ], [ %50, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit ]
   %53 = srem i64 %.067, %.065
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %_ZSt11swap_rangesIP4QMapIi7QStringES3_ET0_T_S5_S4_.exit, label %55
@@ -8540,7 +8540,7 @@ _ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_lik
   br label %.backedge
 
 57:                                               ; preds = %22
-  %58 = getelementptr %class.QMap, ptr %.038, i64 %.067
+  %58 = getelementptr %class.QMap, ptr %.039, i64 %.067
   %59 = sub i64 0, %23
   %60 = getelementptr %class.QMap, ptr %58, i64 %59
   %61 = icmp sgt i64 %.065, 0
@@ -8619,7 +8619,7 @@ _ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_lik
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit52, %57
-  %.2.lcssa = phi ptr [ %60, %57 ], [ %.038, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit52 ]
+  %.2.lcssa = phi ptr [ %60, %57 ], [ %.039, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit52 ]
   %87 = srem i64 %.067, %23
   %88 = icmp eq i64 %87, 0
   br i1 %88, label %_ZSt11swap_rangesIP4QMapIi7QStringES3_ET0_T_S5_S4_.exit, label %.backedge
@@ -8627,12 +8627,12 @@ _ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_lik
 .backedge:                                        ; preds = %._crit_edge, %55
   %.067.be = phi i64 [ %.065, %55 ], [ %23, %._crit_edge ]
   %.065.be = phi i64 [ %56, %55 ], [ %87, %._crit_edge ]
-  %.038.be = phi ptr [ %.1.lcssa, %55 ], [ %.2.lcssa, %._crit_edge ]
+  %.039.be = phi ptr [ %.1.lcssa, %55 ], [ %.2.lcssa, %._crit_edge ]
   br label %22, !llvm.loop !47
 
 _ZSt11swap_rangesIP4QMapIi7QStringES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge82, %.lr.ph.i, %5, %3
-  %.039 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge82 ], [ %21, %._crit_edge ]
-  ret ptr %.039
+  %.038 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge82 ], [ %21, %._crit_edge ]
+  ret ptr %.038
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8960,9 +8960,9 @@ define linkonce_odr { ptr, ptr } @_ZSt16__remove_copy_ifISt23_Rb_tree_const_iter
   br label %9
 
 9:                                                ; preds = %.lr.ph, %46
-  %.sroa.3.09 = phi ptr [ %3, %.lr.ph ], [ %.sroa.3.1, %46 ]
-  %.sroa.03.07 = phi ptr [ %0, %.lr.ph ], [ %47, %46 ]
-  %10 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 32
+  %.sroa.03.08 = phi ptr [ %0, %.lr.ph ], [ %47, %46 ]
+  %.sroa.3.07 = phi ptr [ %3, %.lr.ph ], [ %.sroa.3.1, %46 ]
+  %10 = getelementptr inbounds i8, ptr %.sroa.03.08, i64 32
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %10, align 4
@@ -8977,7 +8977,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIi7QStringSt4lessIiESaISt4pair
   br label %46
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIi7QStringSt4lessIiESaISt4pairIKiS4_EEEE21copyIfNotEquivalentToERKSB_RS8_EUlRKT_E_EclISt23_Rb_tree_const_iteratorIS9_EEEbSG_.exit: ; preds = %9
-  %17 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKi7QStringESt10_Select1stIS3_ESt4lessIiESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.3.09, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %17 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKi7QStringESt10_Select1stIS3_ESt4lessIiESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.3.07, ptr noundef nonnull align 4 dereferenceable(4) %10)
   %18 = extractvalue { ptr, ptr } %17, 0
   %19 = extractvalue { ptr, ptr } %17, 1
   %.not.i.i.i.i = icmp eq ptr %19, null
@@ -9007,15 +9007,15 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIi7QStringSt4lessIiESaISt4pair
   %31 = getelementptr inbounds i8, ptr %30, i64 32
   store i32 %28, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %30, i64 40
-  %33 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 40
+  %33 = getelementptr inbounds i8, ptr %.sroa.03.08, i64 40
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %32, align 8
   %35 = getelementptr inbounds i8, ptr %30, i64 48
-  %36 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 48
+  %36 = getelementptr inbounds i8, ptr %.sroa.03.08, i64 48
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %30, i64 56
-  %39 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 56
+  %39 = getelementptr inbounds i8, ptr %.sroa.03.08, i64 56
   %40 = load i64, ptr %39, align 8
   store i64 %40, ptr %38, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %34, null
@@ -9038,8 +9038,8 @@ _ZNSt15insert_iteratorISt3mapIi7QStringSt4lessIiESaISt4pairIKiS1_EEEEaSERKS6_.ex
   br label %46
 
 46:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIi7QStringSt4lessIiESaISt4pairIKiS4_EEEE21copyIfNotEquivalentToERKSB_RS8_EUlRKT_E_EclISt23_Rb_tree_const_iteratorIS9_EEEbSG_.exit.thread, %_ZNSt15insert_iteratorISt3mapIi7QStringSt4lessIiESaISt4pairIKiS1_EEEEaSERKS6_.exit
-  %.sroa.3.1 = phi ptr [ %45, %_ZNSt15insert_iteratorISt3mapIi7QStringSt4lessIiESaISt4pairIKiS1_EEEEaSERKS6_.exit ], [ %.sroa.3.09, %_ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIi7QStringSt4lessIiESaISt4pairIKiS4_EEEE21copyIfNotEquivalentToERKSB_RS8_EUlRKT_E_EclISt23_Rb_tree_const_iteratorIS9_EEEbSG_.exit.thread ]
-  %47 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.03.07) #25
+  %.sroa.3.1 = phi ptr [ %45, %_ZNSt15insert_iteratorISt3mapIi7QStringSt4lessIiESaISt4pairIKiS1_EEEEaSERKS6_.exit ], [ %.sroa.3.07, %_ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIi7QStringSt4lessIiESaISt4pairIKiS4_EEEE21copyIfNotEquivalentToERKSB_RS8_EUlRKT_E_EclISt23_Rb_tree_const_iteratorIS9_EEEbSG_.exit.thread ]
+  %47 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.03.08) #25
   %.not = icmp eq ptr %47, %1
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !53
 

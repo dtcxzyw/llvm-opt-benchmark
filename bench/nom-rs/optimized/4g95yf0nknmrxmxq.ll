@@ -26,8 +26,8 @@ define noundef zeroext i1 @"_ZN91_$LT$core..ops..range..Range$LT$usize$GT$$u20$a
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !17
   %6 = icmp ugt i64 %5, %.val
-  %.0.i = select i1 %.not.i, i1 %6, i1 false
-  ret i1 %.0.i
+  %.014.i = select i1 %.not.i, i1 %6, i1 false
+  ret i1 %.014.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -96,8 +96,8 @@ define noundef zeroext i1 @"_ZN100_$LT$core..ops..range..RangeInclusive$LT$usize
   br label %_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit
 
 _ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit: ; preds = %2, %8, %10
-  %.0.i = phi i1 [ false, %2 ], [ %11, %10 ], [ %9, %8 ]
-  ret i1 %.0.i
+  %.014.i = phi i1 [ false, %2 ], [ %11, %10 ], [ %9, %8 ]
+  ret i1 %.014.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -111,8 +111,8 @@ _ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit:
   %3 = load i64, ptr %.sroa.3.0.i.i, align 8, !alias.scope !40, !noalias !4, !noundef !4
   %4 = icmp ule i64 %3, %.val
   %5 = icmp ult i64 %3, %.val
-  %.0.i = select i1 %switch.not.not.i, i1 %5, i1 %4
-  ret i1 %.0.i
+  %.014.i = select i1 %switch.not.not.i, i1 %5, i1 %4
+  ret i1 %.014.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

@@ -40,13 +40,13 @@ define internal fastcc range(i32 -12, 1) i32 @nxthread_setup_scheduler(ptr nound
   br label %18
 
 14:                                               ; preds = %18
-  %15 = add nuw nsw i32 %.030.i, 1
+  %15 = add nuw nsw i32 %.02230.i, 1
   %16 = load volatile i32, ptr @g_npidhash, align 4
   %17 = icmp slt i32 %15, %16
   br i1 %17, label %18, label %._crit_edge.i, !llvm.loop !8
 
 18:                                               ; preds = %14, %.lr.ph.i
-  %.030.i = phi i32 [ 0, %.lr.ph.i ], [ %15, %14 ]
+  %.02230.i = phi i32 [ 0, %.lr.ph.i ], [ %15, %14 ]
   %.023.in29.i = phi i32 [ %10, %.lr.ph.i ], [ %spec.store.select.i, %14 ]
   %19 = call i32 @llvm.smax.i32(i32 %.023.in29.i, i32 0)
   %spec.store.select.i = add nuw nsw i32 %19, 1
@@ -210,8 +210,8 @@ nxtask_save_parent.exit:                          ; preds = %58, %71, %89, %.thr
   br label %nxtask_assign_pid.exit
 
 nxtask_assign_pid.exit:                           ; preds = %39, %37, %nxtask_save_parent.exit
-  %.022.i34 = phi i32 [ 0, %nxtask_save_parent.exit ], [ -12, %37 ], [ -12, %39 ]
-  ret i32 %.022.i34
+  %.0.i34 = phi i32 [ 0, %nxtask_save_parent.exit ], [ -12, %37 ], [ -12, %39 ]
+  ret i32 %.0.i34
 }
 
 ; Function Attrs: nounwind uwtable
@@ -228,28 +228,28 @@ define range(i32 -36, 1) i32 @nxtask_setup_arguments(ptr noundef %0, ptr noundef
   br label %5
 
 5:                                                ; preds = %8, %3
-  %.013.i = phi i32 [ 0, %3 ], [ %14, %8 ]
-  %.0812.i = phi ptr [ %4, %3 ], [ %13, %8 ]
-  %.0911.i = phi ptr [ %spec.store.select, %3 ], [ %10, %8 ]
-  %6 = load i8, ptr %.0911.i, align 1
+  %.013.i = phi ptr [ %spec.store.select, %3 ], [ %10, %8 ]
+  %.0812.i = phi i32 [ 0, %3 ], [ %14, %8 ]
+  %.0911.i = phi ptr [ %4, %3 ], [ %13, %8 ]
+  %6 = load i8, ptr %.013.i, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %nxtask_setup_name.exit, label %8
 
 8:                                                ; preds = %5
   %9 = sext i8 %6 to i32
-  %10 = getelementptr inbounds i8, ptr %.0911.i, i64 1
+  %10 = getelementptr inbounds i8, ptr %.013.i, i64 1
   %11 = tail call i32 @isspace(i32 noundef %9) #11
   %.not.i = icmp eq i32 %11, 0
   %12 = select i1 %.not.i, i8 %6, i8 95
-  %13 = getelementptr inbounds i8, ptr %.0812.i, i64 1
-  store i8 %12, ptr %.0812.i, align 1
-  %14 = add nuw nsw i32 %.013.i, 1
+  %13 = getelementptr inbounds i8, ptr %.0911.i, i64 1
+  store i8 %12, ptr %.0911.i, align 1
+  %14 = add nuw nsw i32 %.0812.i, 1
   %exitcond.not.i = icmp eq i32 %14, 31
   br i1 %exitcond.not.i, label %nxtask_setup_name.exit, label %5, !llvm.loop !12
 
 nxtask_setup_name.exit:                           ; preds = %5, %8
-  %.08.lcssa.i = phi ptr [ %.0812.i, %5 ], [ %13, %8 ]
-  store i8 0, ptr %.08.lcssa.i, align 1
+  %.09.lcssa.i = phi ptr [ %.0911.i, %5 ], [ %13, %8 ]
+  store i8 0, ptr %.09.lcssa.i, align 1
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #9
   %16 = add i64 %15, 1
   %.not.i6 = icmp eq ptr %2, null
@@ -261,7 +261,7 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
 
 18:                                               ; preds = %26, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %26 ]
-  %.048.i = phi i64 [ %16, %.preheader.i ], [ %24, %26 ]
+  %.049.i = phi i64 [ %16, %.preheader.i ], [ %24, %26 ]
   %19 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %.not56.i = icmp eq ptr %20, null
@@ -269,7 +269,7 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
 
 21:                                               ; preds = %18
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #9
-  %23 = add i64 %.048.i, 1
+  %23 = add i64 %.049.i, 1
   %24 = add i64 %23, %22
   %25 = load i64, ptr %17, align 8
   %.not58.i = icmp ult i64 %24, %25
@@ -285,12 +285,12 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %nxtask_setup_name.exit
-  %.149.i = phi i64 [ %16, %nxtask_setup_name.exit ], [ %.048.i, %.loopexit.loopexit.i ]
+  %.150.i = phi i64 [ %16, %nxtask_setup_name.exit ], [ %.049.i, %.loopexit.loopexit.i ]
   %.1.i = phi i32 [ 0, %nxtask_setup_name.exit ], [ %27, %.loopexit.loopexit.i ]
   %28 = add nuw nsw i32 %.1.i, 2
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 3
-  %31 = add i64 %30, %.149.i
+  %31 = add i64 %30, %.150.i
   %32 = tail call ptr @up_stack_frame(ptr noundef %0, i64 noundef %31) #9
   %33 = icmp eq ptr %32, null
   br i1 %33, label %nxtask_setup_stackargs.exit, label %34
@@ -299,7 +299,7 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
   %35 = getelementptr inbounds i8, ptr %32, i64 %30
   store ptr %35, ptr %32, align 8
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #9
-  %37 = tail call i64 @strlcpy(ptr noundef nonnull %35, ptr noundef nonnull dereferenceable(1) %spec.store.select, i64 noundef %.149.i) #9
+  %37 = tail call i64 @strlcpy(ptr noundef nonnull %35, ptr noundef nonnull dereferenceable(1) %spec.store.select, i64 noundef %.150.i) #9
   %.not65.i = icmp eq i32 %.1.i, 0
   br i1 %.not65.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
@@ -307,7 +307,7 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
   %38 = shl i64 %36, 32
   %sext.i = add i64 %38, 4294967296
   %39 = ashr exact i64 %sext.i, 32
-  %40 = sub i64 %.149.i, %39
+  %40 = sub i64 %.150.i, %39
   %41 = getelementptr inbounds i8, ptr %35, i64 %39
   %wide.trip.count.i = zext i32 %.1.i to i64
   br label %.lr.ph.i
@@ -315,18 +315,18 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv69.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next70.i, %.lr.ph.i ]
   %.263.i = phi i64 [ %40, %.lr.ph.preheader.i ], [ %50, %.lr.ph.i ]
-  %.05062.i = phi ptr [ %41, %.lr.ph.preheader.i ], [ %49, %.lr.ph.i ]
+  %.05162.i = phi ptr [ %41, %.lr.ph.preheader.i ], [ %49, %.lr.ph.i ]
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %42 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv.next70.i
-  store ptr %.05062.i, ptr %42, align 8
+  store ptr %.05162.i, ptr %42, align 8
   %43 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv69.i
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #9
-  %46 = tail call i64 @strlcpy(ptr noundef %.05062.i, ptr noundef nonnull dereferenceable(1) %44, i64 noundef %.263.i) #9
+  %46 = tail call i64 @strlcpy(ptr noundef %.05162.i, ptr noundef nonnull dereferenceable(1) %44, i64 noundef %.263.i) #9
   %47 = shl i64 %45, 32
   %sext57.i = add i64 %47, 4294967296
   %48 = ashr exact i64 %sext57.i, 32
-  %49 = getelementptr inbounds i8, ptr %.05062.i, i64 %48
+  %49 = getelementptr inbounds i8, ptr %.05162.i, i64 %48
   %50 = sub i64 %.263.i, %48
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next70.i, %wide.trip.count.i
   br i1 %exitcond72.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
@@ -345,8 +345,8 @@ nxtask_setup_name.exit:                           ; preds = %5, %8
   br label %nxtask_setup_stackargs.exit
 
 nxtask_setup_stackargs.exit:                      ; preds = %21, %26, %.loopexit.i, %._crit_edge.i
-  %.051.i = phi i32 [ 0, %._crit_edge.i ], [ -12, %.loopexit.i ], [ -36, %21 ], [ -7, %26 ]
-  ret i32 %.051.i
+  %.048.i = phi i32 [ 0, %._crit_edge.i ], [ -12, %.loopexit.i ], [ -36, %21 ], [ -7, %26 ]
+  ret i32 %.048.i
 }
 
 declare void @up_initial_state(ptr noundef) local_unnamed_addr #1

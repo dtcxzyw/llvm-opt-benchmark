@@ -199,20 +199,20 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
 
 .sink.split:                                      ; preds = %100, %86
   %.sink = phi ptr [ %79, %86 ], [ %104, %100 ]
-  %.0.ph = phi ptr [ %83, %86 ], [ %97, %100 ]
+  %.087.ph = phi ptr [ %83, %86 ], [ %97, %100 ]
   %107 = load i32, ptr %.sink, align 4
   %108 = add i32 %107, -1
   store i32 %108, ptr %.sink, align 4
   br label %109
 
 109:                                              ; preds = %.sink.split, %36
-  %.0 = phi ptr [ %39, %36 ], [ %.0.ph, %.sink.split ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddSubSet, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.0) #3
+  %.087 = phi ptr [ %39, %36 ], [ %.087.ph, %.sink.split ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddSubSet, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.087) #3
   br label %110
 
 110:                                              ; preds = %89, %49, %36, %22, %10, %5, %3, %109, %99, %85, %74, %61, %Extra_zddEmptyBelongs.exit
-  %.087 = phi ptr [ %21, %Extra_zddEmptyBelongs.exit ], [ %.0, %109 ], [ null, %61 ], [ null, %74 ], [ null, %85 ], [ null, %99 ], [ %1, %3 ], [ %7, %5 ], [ %12, %10 ], [ %23, %22 ], [ null, %36 ], [ null, %49 ], [ null, %89 ]
-  ret ptr %.087
+  %.0 = phi ptr [ %21, %Extra_zddEmptyBelongs.exit ], [ %.087, %109 ], [ null, %61 ], [ null, %74 ], [ null, %85 ], [ null, %99 ], [ %1, %3 ], [ %7, %5 ], [ %12, %10 ], [ %23, %22 ], [ null, %36 ], [ null, %49 ], [ null, %89 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -414,7 +414,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
 .sink.split:                                      ; preds = %95, %50
   %.sink117 = phi ptr [ %43, %50 ], [ %76, %95 ]
   %.sink = phi ptr [ %54, %50 ], [ %99, %95 ]
-  %.0.ph = phi ptr [ %58, %50 ], [ %103, %95 ]
+  %.094.ph = phi ptr [ %58, %50 ], [ %103, %95 ]
   %111 = load i32, ptr %.sink117, align 4
   %112 = add i32 %111, -1
   store i32 %112, ptr %.sink117, align 4
@@ -424,13 +424,13 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   br label %115
 
 115:                                              ; preds = %.sink.split, %106
-  %.0 = phi ptr [ %109, %106 ], [ %.0.ph, %.sink.split ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddSupSet, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.0) #3
+  %.094 = phi ptr [ %109, %106 ], [ %.094.ph, %.sink.split ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddSupSet, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.094) #3
   br label %116
 
 116:                                              ; preds = %106, %63, %33, %19, %16, %Extra_zddEmptyBelongs.exit, %5, %3, %115, %105, %94, %83, %60, %49
-  %.094 = phi ptr [ null, %49 ], [ null, %60 ], [ %.0, %115 ], [ null, %83 ], [ null, %94 ], [ null, %105 ], [ %1, %3 ], [ %7, %5 ], [ %1, %Extra_zddEmptyBelongs.exit ], [ %7, %16 ], [ %20, %19 ], [ null, %33 ], [ null, %63 ], [ null, %106 ]
-  ret ptr %.094
+  %.0 = phi ptr [ null, %49 ], [ null, %60 ], [ %.094, %115 ], [ null, %83 ], [ null, %94 ], [ null, %105 ], [ %1, %3 ], [ %7, %5 ], [ %1, %Extra_zddEmptyBelongs.exit ], [ %7, %16 ], [ %20, %19 ], [ null, %33 ], [ null, %63 ], [ null, %106 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -632,16 +632,16 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
 
 116:                                              ; preds = %37, %95, %109
   %.sink = phi ptr [ %88, %95 ], [ %113, %109 ], [ %42, %37 ]
-  %.0 = phi ptr [ %92, %95 ], [ %106, %109 ], [ %47, %37 ]
+  %.096 = phi ptr [ %92, %95 ], [ %106, %109 ], [ %47, %37 ]
   %117 = load i32, ptr %.sink, align 4
   %118 = add i32 %117, -1
   store i32 %118, ptr %.sink, align 4
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddNotSubSet, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.0) #3
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddNotSubSet, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.096) #3
   br label %119
 
 119:                                              ; preds = %3, %98, %58, %32, %18, %15, %7, %116, %108, %94, %83, %70, %49, %13
-  %.096 = phi ptr [ %14, %13 ], [ null, %49 ], [ %.0, %116 ], [ null, %70 ], [ null, %83 ], [ null, %94 ], [ null, %108 ], [ %1, %7 ], [ %6, %15 ], [ %19, %18 ], [ null, %32 ], [ null, %58 ], [ null, %98 ], [ %6, %3 ]
-  ret ptr %.096
+  %.0 = phi ptr [ %14, %13 ], [ null, %49 ], [ %.096, %116 ], [ null, %70 ], [ null, %83 ], [ null, %94 ], [ null, %108 ], [ %1, %7 ], [ %6, %15 ], [ %19, %18 ], [ null, %32 ], [ null, %58 ], [ null, %98 ], [ %6, %3 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -843,7 +843,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
 .sink.split:                                      ; preds = %96, %51
   %.sink116 = phi ptr [ %44, %51 ], [ %77, %96 ]
   %.sink = phi ptr [ %55, %51 ], [ %100, %96 ]
-  %.0.ph = phi ptr [ %59, %51 ], [ %104, %96 ]
+  %.094.ph = phi ptr [ %59, %51 ], [ %104, %96 ]
   %112 = load i32, ptr %.sink116, align 4
   %113 = add i32 %112, -1
   store i32 %113, ptr %.sink116, align 4
@@ -853,13 +853,13 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   br label %116
 
 116:                                              ; preds = %.sink.split, %107
-  %.0 = phi ptr [ %110, %107 ], [ %.0.ph, %.sink.split ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddNotSupSet, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.0) #3
+  %.094 = phi ptr [ %110, %107 ], [ %.094.ph, %.sink.split ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddNotSupSet, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.094) #3
   br label %117
 
 117:                                              ; preds = %3, %Extra_zddEmptyBelongs.exit, %107, %64, %34, %20, %18, %7, %116, %106, %95, %84, %61, %50
-  %.094 = phi ptr [ null, %50 ], [ null, %61 ], [ %.0, %116 ], [ null, %84 ], [ null, %95 ], [ null, %106 ], [ %1, %7 ], [ %15, %18 ], [ %21, %20 ], [ null, %34 ], [ null, %64 ], [ null, %107 ], [ %6, %Extra_zddEmptyBelongs.exit ], [ %6, %3 ]
-  ret ptr %.094
+  %.0 = phi ptr [ null, %50 ], [ null, %61 ], [ %.094, %116 ], [ null, %84 ], [ null, %95 ], [ null, %106 ], [ %1, %7 ], [ %15, %18 ], [ %21, %20 ], [ null, %34 ], [ null, %64 ], [ null, %107 ], [ %6, %Extra_zddEmptyBelongs.exit ], [ %6, %3 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1101,7 +1101,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
 .sink.split:                                      ; preds = %118, %63
   %.sink141 = phi ptr [ %67, %63 ], [ %122, %118 ]
   %.sink = phi ptr [ %57, %63 ], [ %112, %118 ]
-  %.0.ph = phi ptr [ %71, %63 ], [ %126, %118 ]
+  %.0117.ph = phi ptr [ %71, %63 ], [ %126, %118 ]
   %134 = load i32, ptr %.sink141, align 4
   %135 = add i32 %134, -1
   store i32 %135, ptr %.sink141, align 4
@@ -1111,13 +1111,13 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
   br label %138
 
 138:                                              ; preds = %.sink.split, %129
-  %.0 = phi ptr [ %132, %129 ], [ %.0.ph, %.sink.split ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddMaxNotSupSet, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.0) #3
+  %.0117 = phi ptr [ %132, %129 ], [ %.0117.ph, %.sink.split ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraZddMaxNotSupSet, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.0117) #3
   br label %139
 
 139:                                              ; preds = %3, %Extra_zddEmptyBelongs.exit, %129, %76, %36, %22, %20, %138, %128, %117, %107, %96, %73, %62, %52, %9
-  %.0117 = phi ptr [ %10, %9 ], [ null, %52 ], [ null, %62 ], [ null, %73 ], [ %.0, %138 ], [ null, %96 ], [ null, %107 ], [ null, %117 ], [ null, %128 ], [ %17, %20 ], [ %23, %22 ], [ null, %36 ], [ null, %76 ], [ null, %129 ], [ %6, %Extra_zddEmptyBelongs.exit ], [ %6, %3 ]
-  ret ptr %.0117
+  %.0 = phi ptr [ %10, %9 ], [ null, %52 ], [ null, %62 ], [ null, %73 ], [ %.0117, %138 ], [ null, %96 ], [ null, %107 ], [ null, %117 ], [ null, %128 ], [ %17, %20 ], [ %23, %22 ], [ null, %36 ], [ null, %76 ], [ null, %129 ], [ %6, %Extra_zddEmptyBelongs.exit ], [ %6, %3 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

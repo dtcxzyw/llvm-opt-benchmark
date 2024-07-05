@@ -428,7 +428,7 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
   %8 = phi i32 [ %5, %.preheader118.lr.ph ], [ %43, %._crit_edge ]
   %.084127 = phi i32 [ 0, %.preheader118.lr.ph ], [ %spec.select106, %._crit_edge ]
   %.085126 = phi i32 [ 0, %.preheader118.lr.ph ], [ %spec.select, %._crit_edge ]
-  %.091125 = phi i32 [ 0, %.preheader118.lr.ph ], [ %.192.lcssa, %._crit_edge ]
+  %.090125 = phi i32 [ 0, %.preheader118.lr.ph ], [ %.191.lcssa, %._crit_edge ]
   %9 = icmp slt i32 %.084127, 4
   br i1 %9, label %.preheader117.lr.ph, label %._crit_edge
 
@@ -437,14 +437,14 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
   %11 = shl nuw nsw i64 %10, 4
   %12 = sext i32 %.084127 to i64
   %13 = shl nsw i64 %12, 2
-  %14 = sext i32 %.091125 to i64
+  %14 = sext i32 %.090125 to i64
   %15 = shl nsw i64 %14, 2
   %16 = getelementptr i8, ptr %scevgep159, i64 %11
   %scevgep160 = getelementptr i8, ptr %16, i64 %13
   %scevgep161 = getelementptr i8, ptr %3, i64 %15
-  %17 = add nsw i32 %.091125, 1
+  %17 = add nsw i32 %.090125, 1
   %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 %17)
-  %18 = xor i32 %.091125, -1
+  %18 = xor i32 %.090125, -1
   %19 = add i32 %smax, %18
   %20 = sub i32 3, %.084127
   %21 = tail call i32 @llvm.umin.i32(i32 %19, i32 %20)
@@ -489,13 +489,13 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
 
 ._crit_edge:                                      ; preds = %.preheader117.lr.ph, %.preheader118
   %43 = phi i32 [ %8, %.preheader118 ], [ %.pre, %.preheader117.lr.ph ]
-  %.192.lcssa = phi i32 [ %.091125, %.preheader118 ], [ %25, %.preheader117.lr.ph ]
+  %.191.lcssa = phi i32 [ %.090125, %.preheader118 ], [ %25, %.preheader117.lr.ph ]
   %.1.lcssa = phi i32 [ %.084127, %.preheader118 ], [ %26, %.preheader117.lr.ph ]
   %44 = icmp eq i32 %.1.lcssa, 4
   %45 = zext i1 %44 to i32
   %spec.select = add nuw nsw i32 %.085126, %45
   %spec.select106 = select i1 %44, i32 0, i32 %.1.lcssa
-  %46 = icmp sge i32 %.192.lcssa, %6
+  %46 = icmp sge i32 %.191.lcssa, %6
   %.not = icmp sgt i32 %spec.select, %43
   %or.cond = select i1 %46, i1 true, i1 %.not
   br i1 %or.cond, label %.critedge.preheader, label %.preheader118, !llvm.loop !13
@@ -652,7 +652,7 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
   %125 = phi i32 [ %145, %._crit_edge139 ], [ %49, %.loopexit ]
   %.4146 = phi i32 [ %spec.select109, %._crit_edge139 ], [ %.3152, %.loopexit ]
   %.388145 = phi i32 [ %spec.select108, %._crit_edge139 ], [ %.287151, %.loopexit ]
-  %.596144 = phi i32 [ %.697.lcssa, %._crit_edge139 ], [ 0, %.loopexit ]
+  %.595144 = phi i32 [ %.696.lcssa, %._crit_edge139 ], [ 0, %.loopexit ]
   %126 = icmp slt i32 %.4146, 4
   br i1 %126, label %.preheader.lr.ph, label %._crit_edge139
 
@@ -661,14 +661,14 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
   %128 = shl nsw i64 %127, 4
   %129 = sext i32 %.4146 to i64
   %130 = shl nsw i64 %129, 2
-  %131 = sext i32 %.596144 to i64
+  %131 = sext i32 %.595144 to i64
   %132 = shl nsw i64 %131, 2
   %133 = getelementptr i8, ptr %scevgep189, i64 %128
   %scevgep190 = getelementptr i8, ptr %133, i64 %130
   %scevgep191 = getelementptr i8, ptr %3, i64 %132
-  %134 = add nsw i32 %.596144, 1
+  %134 = add nsw i32 %.595144, 1
   %smax192 = tail call i32 @llvm.smax.i32(i32 %6, i32 %134)
-  %135 = xor i32 %.596144, -1
+  %135 = xor i32 %.595144, -1
   %136 = add i32 %smax192, %135
   %137 = sub i32 3, %.4146
   %138 = tail call i32 @llvm.umin.i32(i32 %136, i32 %137)
@@ -686,13 +686,13 @@ define void @_ZN8Rijndael8keySchedEPA4_h(ptr nocapture noundef nonnull align 4 d
 ._crit_edge139:                                   ; preds = %.preheader.lr.ph, %.preheader110
   %144 = phi i32 [ %124, %.preheader110 ], [ %.pre199, %.preheader.lr.ph ]
   %145 = phi i32 [ %125, %.preheader110 ], [ %.pre199, %.preheader.lr.ph ]
-  %.697.lcssa = phi i32 [ %.596144, %.preheader110 ], [ %142, %.preheader.lr.ph ]
+  %.696.lcssa = phi i32 [ %.595144, %.preheader110 ], [ %142, %.preheader.lr.ph ]
   %.5.lcssa = phi i32 [ %.4146, %.preheader110 ], [ %143, %.preheader.lr.ph ]
   %146 = icmp eq i32 %.5.lcssa, 4
   %147 = zext i1 %146 to i32
   %spec.select108 = add nsw i32 %.388145, %147
   %spec.select109 = select i1 %146, i32 0, i32 %.5.lcssa
-  %148 = icmp sge i32 %.697.lcssa, %6
+  %148 = icmp sge i32 %.696.lcssa, %6
   %.not105 = icmp sgt i32 %spec.select108, %145
   %or.cond107 = select i1 %148, i1 true, i1 %.not105
   br i1 %or.cond107, label %.critedge.loopexit, label %.preheader110, !llvm.loop !21

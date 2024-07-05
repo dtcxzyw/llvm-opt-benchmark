@@ -902,8 +902,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit186:       ; preds = %269, %272
   %298 = fadd float %282, %288
   %299 = fcmp ule float %298, 0.000000e+00
   %. = zext i1 %299 to i32
-  %.0120 = select i1 %297, i32 2, i32 %.
-  %300 = zext nneg i32 %.0120 to i64
+  %.0129 = select i1 %297, i32 2, i32 %.
+  %300 = zext nneg i32 %.0129 to i64
   %301 = getelementptr inbounds [3 x i32], ptr %11, i64 0, i64 %300
   %302 = load i32, ptr %301, align 4
   %303 = icmp eq i32 %302, 0
@@ -951,7 +951,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit186:       ; preds = %269, %272
 324:                                              ; preds = %.sink.split, %318, %304
   %325 = add nsw i32 %302, 1
   store i32 %325, ptr %301, align 4
-  %326 = add nuw nsw i32 %.0120, 1
+  %326 = add nuw nsw i32 %.0129, 1
   %327 = load ptr, ptr %284, align 8
   %328 = getelementptr inbounds i32, ptr %327, i64 %indvars.iv321
   store i32 %326, ptr %328, align 4

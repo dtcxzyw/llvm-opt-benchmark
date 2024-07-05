@@ -901,25 +901,25 @@ define range(i32 0, 14) i32 @mca_io_ompio_file_get_byte_offset(ptr noundef %0, i
 
 35:                                               ; preds = %39, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %31 ]
-  %.031 = phi i32 [ %40, %39 ], [ %32, %31 ]
+  %.032 = phi i32 [ %40, %39 ], [ %32, %31 ]
   %36 = getelementptr inbounds %struct.iovec, ptr %34, i64 %indvars.iv, i32 1
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  %.not = icmp slt i32 %.031, %38
+  %.not = icmp slt i32 %.032, %38
   br i1 %.not, label %42, label %39
 
 39:                                               ; preds = %35
-  %40 = sub nsw i32 %.031, %38
+  %40 = sub nsw i32 %.032, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.loopexit, label %35
 
 42:                                               ; preds = %35
-  %43 = sext i32 %.031 to i64
+  %43 = sext i32 %.032 to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %42
-  %.030 = phi i64 [ %43, %42 ], [ 0, %39 ]
+  %.031 = phi i64 [ %43, %42 ], [ 0, %39 ]
   %.1.in = phi i64 [ %indvars.iv, %42 ], [ %indvars.iv.next, %39 ]
   %44 = getelementptr inbounds i8, ptr %5, i64 192
   %45 = load i64, ptr %44, align 8
@@ -928,7 +928,7 @@ define range(i32 0, 14) i32 @mca_io_ompio_file_get_byte_offset(ptr noundef %0, i
   %47 = getelementptr inbounds i8, ptr %34, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
-  %50 = add i64 %.030, %26
+  %50 = add i64 %.031, %26
   %51 = add i64 %50, %45
   %52 = add i64 %51, %49
   store i64 %52, ptr %2, align 8
@@ -937,14 +937,14 @@ define range(i32 0, 14) i32 @mca_io_ompio_file_get_byte_offset(ptr noundef %0, i
   br i1 %54, label %.sink.split, label %57
 
 .sink.split:                                      ; preds = %.loopexit, %28, %15
-  %.032.ph = phi i32 [ 0, %15 ], [ 13, %28 ], [ 0, %.loopexit ]
+  %.0.ph = phi i32 [ 0, %15 ], [ 13, %28 ], [ 0, %.loopexit ]
   %55 = getelementptr inbounds i8, ptr %0, i64 160
   %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %55) #9
   br label %57
 
 57:                                               ; preds = %.sink.split, %.loopexit, %28, %15
-  %.032 = phi i32 [ 0, %15 ], [ 13, %28 ], [ 0, %.loopexit ], [ %.032.ph, %.sink.split ]
-  ret i32 %.032
+  %.0 = phi i32 [ 0, %15 ], [ 13, %28 ], [ 0, %.loopexit ], [ %.0.ph, %.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

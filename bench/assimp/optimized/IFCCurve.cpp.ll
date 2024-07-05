@@ -2019,14 +2019,14 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %min_point.sroa.10.058 = phi double [ %b, %for.body.lr.ph ], [ %min_point.sroa.10.1, %for.inc ]
   %min_point.sroa.0.057 = phi double [ %a, %for.body.lr.ph ], [ %min_point.sroa.0.1, %for.inc ]
-  %i.056 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %runner.055 = phi double [ %a, %for.body.lr.ph ], [ %add, %for.inc ]
-  %min_diff.sroa.0.054 = phi double [ 0x7FF0000000000000, %for.body.lr.ph ], [ %min_diff.sroa.0.1, %for.inc ]
-  %min_diff.sroa.5.053 = phi double [ 0x7FF0000000000000, %for.body.lr.ph ], [ %min_diff.sroa.5.1, %for.inc ]
+  %min_diff.sroa.5.056 = phi double [ 0x7FF0000000000000, %for.body.lr.ph ], [ %min_diff.sroa.5.1, %for.inc ]
+  %i.055 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %runner.054 = phi double [ %a, %for.body.lr.ph ], [ %add, %for.inc ]
+  %min_diff.sroa.0.053 = phi double [ 0x7FF0000000000000, %for.body.lr.ph ], [ %min_diff.sroa.0.1, %for.inc ]
   %vtable = load ptr, ptr %cv, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
-  call void %0(ptr nonnull sret(%class.aiVector3t) align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %cv, double noundef %runner.055)
+  call void %0(ptr nonnull sret(%class.aiVector3t) align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %cv, double noundef %runner.054)
   %1 = load double, ptr %ref.tmp1, align 8, !noalias !13
   %2 = load double, ptr %val, align 8, !noalias !13
   %sub.i = fsub double %1, %2
@@ -2039,23 +2039,23 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul4.i = fmul double %sub3.i, %sub3.i
   %7 = call double @llvm.fmuladd.f64(double %sub.i, double %sub.i, double %mul4.i)
   %8 = call noundef double @llvm.fmuladd.f64(double %sub5.i, double %sub5.i, double %7)
-  %cmp3 = fcmp olt double %8, %min_diff.sroa.0.054
+  %cmp3 = fcmp olt double %8, %min_diff.sroa.0.053
   br i1 %cmp3, label %for.inc, label %if.else
 
 if.else:                                          ; preds = %for.body
-  %cmp11 = fcmp olt double %8, %min_diff.sroa.5.053
+  %cmp11 = fcmp olt double %8, %min_diff.sroa.5.056
   br i1 %cmp11, label %if.then12, label %for.inc
 
 if.then12:                                        ; preds = %if.else
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then12, %if.else
-  %min_diff.sroa.5.1 = phi double [ %8, %if.then12 ], [ %min_diff.sroa.5.053, %if.else ], [ %min_diff.sroa.0.054, %for.body ]
-  %min_diff.sroa.0.1 = phi double [ %min_diff.sroa.0.054, %if.then12 ], [ %min_diff.sroa.0.054, %if.else ], [ %8, %for.body ]
-  %min_point.sroa.0.1 = phi double [ %min_point.sroa.0.057, %if.then12 ], [ %min_point.sroa.0.057, %if.else ], [ %runner.055, %for.body ]
-  %min_point.sroa.10.1 = phi double [ %runner.055, %if.then12 ], [ %min_point.sroa.10.058, %if.else ], [ %min_point.sroa.0.057, %for.body ]
-  %inc = add nuw i32 %i.056, 1
-  %add = fadd double %div, %runner.055
+  %min_diff.sroa.0.1 = phi double [ %min_diff.sroa.0.053, %if.then12 ], [ %min_diff.sroa.0.053, %if.else ], [ %8, %for.body ]
+  %min_diff.sroa.5.1 = phi double [ %8, %if.then12 ], [ %min_diff.sroa.5.056, %if.else ], [ %min_diff.sroa.0.053, %for.body ]
+  %min_point.sroa.0.1 = phi double [ %min_point.sroa.0.057, %if.then12 ], [ %min_point.sroa.0.057, %if.else ], [ %runner.054, %for.body ]
+  %min_point.sroa.10.1 = phi double [ %runner.054, %if.then12 ], [ %min_point.sroa.10.058, %if.else ], [ %min_point.sroa.0.057, %for.body ]
+  %inc = add nuw i32 %i.055, 1
+  %add = fadd double %div, %runner.054
   %exitcond.not = icmp eq i32 %inc, %samples
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 

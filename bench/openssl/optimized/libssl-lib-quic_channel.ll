@@ -5046,12 +5046,12 @@ for.body.i.i.preheader:                           ; preds = %ch_rx_handle_packet
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.inc.i.i
-  %limit.012.i.i = phi i64 [ %limit.1.i.i, %for.inc.i.i ], [ -1, %for.body.i.i.preheader ]
-  %enc_level.011.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %for.body.i.i.preheader ]
+  %enc_level.012.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %for.body.i.i.preheader ]
+  %limit.011.i.i = phi i64 [ %limit.1.i.i, %for.inc.i.i ], [ -1, %for.body.i.i.preheader ]
   %bf.load.i37.i = load i64, ptr %state.i, align 8
   %101 = trunc i64 %bf.load.i37.i to i32
   %102 = lshr i32 %101, 19
-  %shl.i38.i = shl nuw nsw i32 1, %enc_level.011.i.i
+  %shl.i38.i = shl nuw nsw i32 1, %enc_level.012.i.i
   %and.i39.i = and i32 %102, %shl.i38.i
   %cmp1.not.i.i = icmp eq i32 %and.i39.i, 0
   br i1 %cmp1.not.i.i, label %if.end.i40.i, label %for.inc.i.i
@@ -5059,23 +5059,23 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
 if.end.i40.i:                                     ; preds = %for.body.i.i
   %103 = lshr i32 %101, 16
   %bf.cast5.i.i = and i32 %103, 7
-  %cmp6.i.i = icmp ugt i32 %enc_level.011.i.i, %bf.cast5.i.i
+  %cmp6.i.i = icmp ugt i32 %enc_level.012.i.i, %bf.cast5.i.i
   br i1 %cmp6.i.i, label %for.end.i.i, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end.i40.i
   %104 = load ptr, ptr %qrx.i61, align 8
-  %call.i.i63 = call i64 @ossl_qrx_get_max_forged_pkt_count(ptr noundef %104, i32 noundef %enc_level.011.i.i) #14
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %call.i.i63, i64 %limit.012.i.i)
+  %call.i.i63 = call i64 @ossl_qrx_get_max_forged_pkt_count(ptr noundef %104, i32 noundef %enc_level.012.i.i) #14
+  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %call.i.i63, i64 %limit.011.i.i)
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end8.i.i, %for.body.i.i
-  %limit.1.i.i = phi i64 [ %limit.012.i.i, %for.body.i.i ], [ %spec.select.i.i, %if.end8.i.i ]
-  %inc.i.i = add nuw nsw i32 %enc_level.011.i.i, 1
+  %limit.1.i.i = phi i64 [ %limit.011.i.i, %for.body.i.i ], [ %spec.select.i.i, %if.end8.i.i ]
+  %inc.i.i = add nuw nsw i32 %enc_level.012.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, 4
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !17
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %if.end.i40.i
-  %limit.0.lcssa.i.i = phi i64 [ %limit.012.i.i, %if.end.i40.i ], [ %limit.1.i.i, %for.inc.i.i ]
+  %limit.0.lcssa.i.i = phi i64 [ %limit.011.i.i, %if.end.i40.i ], [ %limit.1.i.i, %for.inc.i.i ]
   %105 = load ptr, ptr %qrx.i61, align 8
   %call13.i.i = call i64 @ossl_qrx_get_cur_forged_pkt_count(ptr noundef %105) #14
   %cmp14.i.i = icmp ult i64 %call13.i.i, %limit.0.lcssa.i.i

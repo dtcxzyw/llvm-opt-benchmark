@@ -676,14 +676,14 @@ define i32 @zend_fetch_list_dtor_id(ptr nocapture noundef readonly %0) local_unn
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %22
-  %.020 = phi ptr [ %23, %22 ], [ %2, %1 ]
-  %9 = getelementptr inbounds i8, ptr %.020, i64 8
+  %.01520 = phi ptr [ %23, %22 ], [ %2, %1 ]
+  %9 = getelementptr inbounds i8, ptr %.01520, i64 8
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %22, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = load ptr, ptr %.020, align 8
+  %13 = load ptr, ptr %.01520, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not18 = icmp eq ptr %15, null
@@ -700,13 +700,13 @@ define i32 @zend_fetch_list_dtor_id(ptr nocapture noundef readonly %0) local_unn
   br label %.loopexit
 
 22:                                               ; preds = %12, %16, %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.020, i64 16
+  %23 = getelementptr inbounds i8, ptr %.01520, i64 16
   %.not = icmp eq ptr %23, %5
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %22, %1, %19
-  %.016 = phi i32 [ %21, %19 ], [ 0, %1 ], [ 0, %22 ]
-  ret i32 %.016
+  %.0 = phi i32 [ %21, %19 ], [ 0, %1 ], [ 0, %22 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

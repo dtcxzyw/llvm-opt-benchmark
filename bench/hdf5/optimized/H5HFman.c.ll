@@ -475,8 +475,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br label %26
 
 26:                                               ; preds = %5, %10, %25
-  %.096 = phi i32 [ 0, %25 ], [ 0, %10 ], [ 128, %5 ]
-  %.091 = phi i32 [ 2, %25 ], [ 2, %10 ], [ 0, %5 ]
+  %.098 = phi i32 [ 0, %25 ], [ 0, %10 ], [ 128, %5 ]
+  %.093 = phi i32 [ 2, %25 ], [ 2, %10 ], [ 0, %5 ]
   %27 = getelementptr i8, ptr %1, i64 1
   %28 = getelementptr inbounds i8, ptr %0, i64 697
   %29 = load i8, ptr %28, align 1
@@ -488,8 +488,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.085116 = phi i64 [ %37, %.lr.ph ], [ 0, %26 ]
   %.087115 = phi ptr [ %33, %.lr.ph ], [ %31, %26 ]
-  %.090114 = phi i64 [ %36, %.lr.ph ], [ 0, %26 ]
-  %32 = shl i64 %.090114, 8
+  %.092114 = phi i64 [ %36, %.lr.ph ], [ 0, %26 ]
+  %32 = shl i64 %.092114, 8
   %33 = getelementptr inbounds i8, ptr %.087115, i64 -1
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
@@ -499,7 +499,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %26
-  %.090.lcssa = phi i64 [ 0, %26 ], [ %36, %.lr.ph ]
+  %.092.lcssa = phi i64 [ 0, %26 ], [ %36, %.lr.ph ]
   %.087.lcssa = phi ptr [ %31, %26 ], [ %27, %.lr.ph ]
   %38 = getelementptr inbounds i8, ptr %0, i64 698
   %39 = load i8, ptr %38, align 2
@@ -515,8 +515,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %.lr.ph122
   %.0120 = phi i64 [ %48, %.lr.ph122 ], [ 0, %.lr.ph122.preheader ]
   %.188119 = phi ptr [ %44, %.lr.ph122 ], [ %42, %.lr.ph122.preheader ]
-  %.089118 = phi i64 [ %47, %.lr.ph122 ], [ 0, %.lr.ph122.preheader ]
-  %43 = shl i64 %.089118, 8
+  %.091118 = phi i64 [ %47, %.lr.ph122 ], [ 0, %.lr.ph122.preheader ]
+  %43 = shl i64 %.091118, 8
   %44 = getelementptr inbounds i8, ptr %.188119, i64 -1
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
@@ -526,8 +526,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br i1 %exitcond129.not, label %._crit_edge123, label %.lr.ph122
 
 ._crit_edge123:                                   ; preds = %.lr.ph122, %._crit_edge
-  %.089.lcssa = phi i64 [ 0, %._crit_edge ], [ %47, %.lr.ph122 ]
-  %49 = icmp eq i64 %.090.lcssa, 0
+  %.091.lcssa = phi i64 [ 0, %._crit_edge ], [ %47, %.lr.ph122 ]
+  %49 = icmp eq i64 %.092.lcssa, 0
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %._crit_edge123
@@ -539,7 +539,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
 54:                                               ; preds = %._crit_edge123
   %55 = getelementptr inbounds i8, ptr %0, i64 504
   %56 = load i64, ptr %55, align 8
-  %57 = icmp ugt i64 %.090.lcssa, %56
+  %57 = icmp ugt i64 %.092.lcssa, %56
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %54
@@ -549,7 +549,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br label %.thread
 
 62:                                               ; preds = %54
-  %63 = icmp eq i64 %.089.lcssa, 0
+  %63 = icmp eq i64 %.091.lcssa, 0
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %62
@@ -562,7 +562,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   %69 = getelementptr inbounds i8, ptr %0, i64 264
   %70 = getelementptr inbounds i8, ptr %0, i64 280
   %71 = load i64, ptr %70, align 8
-  %72 = icmp ugt i64 %.089.lcssa, %71
+  %72 = icmp ugt i64 %.091.lcssa, %71
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %68
@@ -575,7 +575,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   %78 = getelementptr inbounds i8, ptr %0, i64 392
   %79 = load i32, ptr %78, align 8
   %80 = zext i32 %79 to i64
-  %81 = icmp ugt i64 %.089.lcssa, %80
+  %81 = icmp ugt i64 %.091.lcssa, %80
   br i1 %81, label %82, label %86
 
 82:                                               ; preds = %77
@@ -595,7 +595,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   %92 = load i64, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %0, i64 272
   %94 = load i64, ptr %93, align 8
-  %95 = tail call ptr @H5HF__man_dblock_protect(ptr noundef nonnull %0, i64 noundef %92, i64 noundef %94, ptr noundef null, i32 noundef 0, i32 noundef %.096) #4
+  %95 = tail call ptr @H5HF__man_dblock_protect(ptr noundef nonnull %0, i64 noundef %92, i64 noundef %94, ptr noundef null, i32 noundef 0, i32 noundef %.098) #4
   %96 = icmp eq ptr %95, null
   br i1 %96, label %97, label %157
 
@@ -606,7 +606,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br label %.thread
 
 101:                                              ; preds = %86
-  %102 = call i32 @H5HF__man_dblock_locate(ptr noundef nonnull %0, i64 noundef %.090.lcssa, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 128) #4
+  %102 = call i32 @H5HF__man_dblock_locate(ptr noundef nonnull %0, i64 noundef %.092.lcssa, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 128) #4
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %104, label %108
 
@@ -653,7 +653,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br label %.thread
 
 135:                                              ; preds = %108
-  %136 = call ptr @H5HF__man_dblock_protect(ptr noundef nonnull %0, i64 noundef %115, i64 noundef %122, ptr noundef nonnull %109, i32 noundef %112, i32 noundef %.096) #4
+  %136 = call ptr @H5HF__man_dblock_protect(ptr noundef nonnull %0, i64 noundef %115, i64 noundef %122, ptr noundef nonnull %109, i32 noundef %112, i32 noundef %.098) #4
   %137 = icmp eq ptr %136, null
   %138 = load ptr, ptr %6, align 8
   %139 = load i8, ptr %7, align 1
@@ -690,12 +690,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br label %157
 
 157:                                              ; preds = %90, %156
-  %.097 = phi ptr [ %95, %90 ], [ %136, %156 ]
-  %.094 = phi i64 [ %92, %90 ], [ %115, %156 ]
-  %.093 = phi i64 [ %94, %90 ], [ %122, %156 ]
-  %158 = getelementptr inbounds i8, ptr %.097, i64 320
+  %.096 = phi i64 [ %92, %90 ], [ %115, %156 ]
+  %.095 = phi i64 [ %94, %90 ], [ %122, %156 ]
+  %.089 = phi ptr [ %95, %90 ], [ %136, %156 ]
+  %158 = getelementptr inbounds i8, ptr %.089, i64 320
   %159 = load i64, ptr %158, align 8
-  %160 = sub i64 %.090.lcssa, %159
+  %160 = sub i64 %.092.lcssa, %159
   %161 = getelementptr inbounds i8, ptr %0, i64 259
   %162 = load i8, ptr %161, align 1
   %163 = trunc i8 %162 to i1
@@ -717,8 +717,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br label %194
 
 177:                                              ; preds = %157
-  %178 = add i64 %160, %.089.lcssa
-  %179 = icmp ugt i64 %178, %.093
+  %178 = add i64 %160, %.091.lcssa
+  %179 = icmp ugt i64 %178, %.095
   br i1 %179, label %180, label %184
 
 180:                                              ; preds = %177
@@ -728,10 +728,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br label %194
 
 184:                                              ; preds = %177
-  %185 = getelementptr inbounds i8, ptr %.097, i64 296
+  %185 = getelementptr inbounds i8, ptr %.089, i64 296
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds i8, ptr %186, i64 %160
-  %188 = call i32 %2(ptr noundef %187, i64 noundef %.089.lcssa, ptr noundef %3) #4
+  %188 = call i32 %2(ptr noundef %187, i64 noundef %.091.lcssa, ptr noundef %3) #4
   %189 = icmp slt i32 %188, 0
   br i1 %189, label %190, label %194
 
@@ -742,12 +742,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__man_op_real(ptr noundef %0, p
   br label %194
 
 194:                                              ; preds = %152, %173, %180, %190, %184
-  %.198 = phi ptr [ %.097, %173 ], [ %.097, %180 ], [ %.097, %190 ], [ %.097, %184 ], [ %136, %152 ]
-  %.195 = phi i64 [ %.094, %173 ], [ %.094, %180 ], [ %.094, %190 ], [ %.094, %184 ], [ %115, %152 ]
+  %.197 = phi i64 [ %.096, %173 ], [ %.096, %180 ], [ %.096, %190 ], [ %.096, %184 ], [ %115, %152 ]
+  %.190 = phi ptr [ %.089, %173 ], [ %.089, %180 ], [ %.089, %190 ], [ %.089, %184 ], [ %136, %152 ]
   %.086 = phi i32 [ -1, %173 ], [ -1, %180 ], [ -1, %190 ], [ 0, %184 ], [ -1, %152 ]
   %195 = getelementptr inbounds i8, ptr %0, i64 600
   %196 = load ptr, ptr %195, align 8
-  %197 = call i32 @H5AC_unprotect(ptr noundef %196, ptr noundef nonnull @H5AC_FHEAP_DBLOCK, i64 noundef %.195, ptr noundef nonnull %.198, i32 noundef %.091) #4
+  %197 = call i32 @H5AC_unprotect(ptr noundef %196, ptr noundef nonnull @H5AC_FHEAP_DBLOCK, i64 noundef %.197, ptr noundef nonnull %.190, i32 noundef %.093) #4
   %198 = icmp slt i32 %197, 0
   br i1 %198, label %199, label %.thread
 
@@ -845,10 +845,10 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr nocapture noun
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.080102 = phi i64 [ %32, %.lr.ph ], [ 0, %21 ]
-  %.085101 = phi i64 [ %31, %.lr.ph ], [ 0, %21 ]
-  %.087100 = phi ptr [ %28, %.lr.ph ], [ %26, %21 ]
-  %27 = shl i64 %.085101, 8
-  %28 = getelementptr inbounds i8, ptr %.087100, i64 -1
+  %.082101 = phi ptr [ %28, %.lr.ph ], [ %26, %21 ]
+  %.087100 = phi i64 [ %31, %.lr.ph ], [ 0, %21 ]
+  %27 = shl i64 %.087100, 8
+  %28 = getelementptr inbounds i8, ptr %.082101, i64 -1
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
   %31 = or disjoint i64 %27, %30
@@ -857,8 +857,8 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr nocapture noun
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
-  %.087.lcssa = phi ptr [ %26, %21 ], [ %22, %.lr.ph ]
-  %.085.lcssa = phi i64 [ 0, %21 ], [ %31, %.lr.ph ]
+  %.087.lcssa = phi i64 [ 0, %21 ], [ %31, %.lr.ph ]
+  %.082.lcssa = phi ptr [ %26, %21 ], [ %22, %.lr.ph ]
   %33 = getelementptr inbounds i8, ptr %0, i64 698
   %34 = load i8, ptr %33, align 2
   %35 = zext i8 %34 to i64
@@ -866,16 +866,16 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr nocapture noun
   br i1 %.not112, label %._crit_edge109, label %.lr.ph108.preheader
 
 .lr.ph108.preheader:                              ; preds = %._crit_edge
-  %36 = getelementptr inbounds i8, ptr %.087.lcssa, i64 %25
+  %36 = getelementptr inbounds i8, ptr %.082.lcssa, i64 %25
   %37 = getelementptr inbounds i8, ptr %36, i64 %35
   br label %.lr.ph108
 
 .lr.ph108:                                        ; preds = %.lr.ph108.preheader, %.lr.ph108
   %.0106 = phi i64 [ %43, %.lr.ph108 ], [ 0, %.lr.ph108.preheader ]
-  %.084105 = phi i64 [ %42, %.lr.ph108 ], [ 0, %.lr.ph108.preheader ]
-  %.188104 = phi ptr [ %39, %.lr.ph108 ], [ %37, %.lr.ph108.preheader ]
-  %38 = shl i64 %.084105, 8
-  %39 = getelementptr inbounds i8, ptr %.188104, i64 -1
+  %.183105 = phi ptr [ %39, %.lr.ph108 ], [ %37, %.lr.ph108.preheader ]
+  %.086104 = phi i64 [ %42, %.lr.ph108 ], [ 0, %.lr.ph108.preheader ]
+  %38 = shl i64 %.086104, 8
+  %39 = getelementptr inbounds i8, ptr %.183105, i64 -1
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i64
   %42 = or disjoint i64 %38, %41
@@ -884,8 +884,8 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr nocapture noun
   br i1 %exitcond115.not, label %._crit_edge109, label %.lr.ph108
 
 ._crit_edge109:                                   ; preds = %.lr.ph108, %._crit_edge
-  %.084.lcssa = phi i64 [ 0, %._crit_edge ], [ %42, %.lr.ph108 ]
-  %44 = icmp eq i64 %.085.lcssa, 0
+  %.086.lcssa = phi i64 [ 0, %._crit_edge ], [ %42, %.lr.ph108 ]
+  %44 = icmp eq i64 %.087.lcssa, 0
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %._crit_edge109
@@ -897,7 +897,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr nocapture noun
 49:                                               ; preds = %._crit_edge109
   %50 = getelementptr inbounds i8, ptr %0, i64 504
   %51 = load i64, ptr %50, align 8
-  %52 = icmp ugt i64 %.085.lcssa, %51
+  %52 = icmp ugt i64 %.087.lcssa, %51
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %49
@@ -907,7 +907,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr nocapture noun
   br label %.thread
 
 57:                                               ; preds = %49
-  %58 = icmp eq i64 %.084.lcssa, 0
+  %58 = icmp eq i64 %.086.lcssa, 0
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %57
@@ -920,7 +920,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr nocapture noun
   %64 = getelementptr inbounds i8, ptr %0, i64 264
   %65 = getelementptr inbounds i8, ptr %0, i64 280
   %66 = load i64, ptr %65, align 8
-  %67 = icmp ugt i64 %.084.lcssa, %66
+  %67 = icmp ugt i64 %.086.lcssa, %66
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %63
@@ -933,7 +933,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr nocapture noun
   %73 = getelementptr inbounds i8, ptr %0, i64 392
   %74 = load i32, ptr %73, align 8
   %75 = zext i32 %74 to i64
-  %76 = icmp ugt i64 %.084.lcssa, %75
+  %76 = icmp ugt i64 %.086.lcssa, %75
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %72
@@ -955,7 +955,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr nocapture noun
   br label %126
 
 88:                                               ; preds = %81
-  %89 = call i32 @H5HF__man_dblock_locate(ptr noundef nonnull %0, i64 noundef %.085.lcssa, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 0) #4
+  %89 = call i32 @H5HF__man_dblock_locate(ptr noundef nonnull %0, i64 noundef %.087.lcssa, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 0) #4
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %91, label %95
 
@@ -1009,9 +1009,9 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr nocapture noun
   %.pre-phi = phi i64 [ %.pre116, %107 ], [ %25, %85 ]
   %127 = phi i32 [ %99, %107 ], [ 0, %85 ]
   %128 = phi ptr [ %96, %107 ], [ null, %85 ]
-  %.083 = phi i64 [ %114, %107 ], [ %87, %85 ]
-  %.082 = phi i64 [ %125, %107 ], [ 0, %85 ]
-  %129 = sub i64 %.085.lcssa, %.082
+  %.085 = phi i64 [ %114, %107 ], [ %87, %85 ]
+  %.084 = phi i64 [ %125, %107 ], [ 0, %85 ]
+  %129 = sub i64 %.087.lcssa, %.084
   %130 = getelementptr inbounds i8, ptr %0, i64 259
   %131 = load i8, ptr %130, align 1
   %132 = trunc i8 %131 to i1
@@ -1031,8 +1031,8 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr nocapture noun
   br label %.thread
 
 144:                                              ; preds = %126
-  %145 = add i64 %129, %.084.lcssa
-  %146 = icmp ugt i64 %145, %.083
+  %145 = add i64 %129, %.086.lcssa
+  %146 = icmp ugt i64 %145, %.085
   br i1 %146, label %147, label %151
 
 147:                                              ; preds = %144
@@ -1042,7 +1042,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr nocapture noun
   br label %.thread
 
 151:                                              ; preds = %144
-  %152 = call ptr @H5HF__sect_single_new(i64 noundef %.085.lcssa, i64 noundef %.084.lcssa, ptr noundef %128, i32 noundef %127) #4
+  %152 = call ptr @H5HF__sect_single_new(i64 noundef %.087.lcssa, i64 noundef %.086.lcssa, ptr noundef %128, i32 noundef %127) #4
   %153 = icmp eq ptr %152, null
   br i1 %153, label %154, label %158
 
@@ -1075,7 +1075,7 @@ define range(i32 -1, 1) i32 @H5HF__man_remove(ptr noundef %0, ptr nocapture noun
   br label %170
 
 170:                                              ; preds = %169, %158
-  %171 = call i32 @H5HF__hdr_adj_free(ptr noundef nonnull %0, i64 noundef %.084.lcssa) #4
+  %171 = call i32 @H5HF__hdr_adj_free(ptr noundef nonnull %0, i64 noundef %.086.lcssa) #4
   %172 = icmp slt i32 %171, 0
   br i1 %172, label %173, label %177
 

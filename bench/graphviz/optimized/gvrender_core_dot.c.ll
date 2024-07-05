@@ -192,13 +192,13 @@ agxblen.exit.i:                                   ; preds = %5, %agxbstart.exit.
   br label %10
 
 10:                                               ; preds = %12, %agxblen.exit.i
-  %.027.in.i = phi i64 [ %.0.i.i, %agxblen.exit.i ], [ %.027.i, %12 ]
-  %11 = icmp eq i64 %.027.in.i, 0
+  %.0.in.i = phi i64 [ %.0.i.i, %agxblen.exit.i ], [ %.0.i, %12 ]
+  %11 = icmp eq i64 %.0.in.i, 0
   br i1 %11, label %agxbuf_trim_zeros.exit, label %12
 
 12:                                               ; preds = %10
-  %.027.i = add i64 %.027.in.i, -1
-  %13 = getelementptr inbounds i8, ptr %9, i64 %.027.i
+  %.0.i = add i64 %.0.in.i, -1
+  %13 = getelementptr inbounds i8, ptr %9, i64 %.0.i
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 46
   br i1 %15, label %16, label %10
@@ -223,13 +223,13 @@ agxblen.exit36.i:                                 ; preds = %19, %17
 23:                                               ; preds = %35, %agxblen.exit36.i
   %.val.i3749.i = phi i8 [ %.val.i.i, %agxblen.exit36.i ], [ %.val.i37.i, %35 ]
   %.val30.i = phi i8 [ %.val.i.i, %agxblen.exit36.i ], [ %.val3048.i, %35 ]
-  %.0.in.i = phi i64 [ %.0.i35.i, %agxblen.exit36.i ], [ %.0.i, %35 ]
-  %.0.i = add i64 %.0.in.i, -1
-  %24 = icmp eq i64 %.0.in.i, %.027.in.i
+  %.027.in.i = phi i64 [ %.0.i35.i, %agxblen.exit36.i ], [ %.027.i, %35 ]
+  %.027.i = add i64 %.027.in.i, -1
+  %24 = icmp eq i64 %.027.in.i, %.0.in.i
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %9, i64 %.0.i
+  %26 = getelementptr inbounds i8, ptr %9, i64 %.027.i
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 48
   br i1 %28, label %29, label %agxbuf_trim_zeros.exit
@@ -433,8 +433,8 @@ gv_alloc.exit.i:                                  ; preds = %14
 
 .lr.ph.i.i:                                       ; preds = %28, %46
   %30 = phi i8 [ %49, %46 ], [ %29, %28 ]
-  %.019.i.i = phi i64 [ %47, %46 ], [ 0, %28 ]
-  %.01218.i.i = phi i16 [ %.1.i.i, %46 ], [ 0, %28 ]
+  %.019.i.i = phi i16 [ %.1.i.i, %46 ], [ 0, %28 ]
+  %.01218.i.i = phi i64 [ %47, %46 ], [ 0, %28 ]
   %31 = sext i8 %30 to i32
   %32 = add nsw i32 %31, -48
   %33 = icmp ult i32 %32, 10
@@ -445,7 +445,7 @@ gv_alloc.exit.i:                                  ; preds = %14
   %36 = xor i8 %35, -1
   %.lhs.trunc.i.i = sext i8 %36 to i16
   %37 = udiv i16 %.lhs.trunc.i.i, 10
-  %38 = icmp ult i16 %37, %.01218.i.i
+  %38 = icmp ult i16 %37, %.019.i.i
   br i1 %38, label %versionStr2Version.exit.thread.i, label %40
 
 versionStr2Version.exit.thread.i:                 ; preds = %34
@@ -453,16 +453,16 @@ versionStr2Version.exit.thread.i:                 ; preds = %34
   br label %51
 
 40:                                               ; preds = %34
-  %41 = zext nneg i16 %.01218.i.i to i32
-  %42 = mul nuw nsw i32 %41, 10
-  %43 = add nuw nsw i32 %31, 65488
-  %44 = add nuw nsw i32 %43, %42
+  %41 = zext nneg i16 %.019.i.i to i32
+  %42 = add nuw nsw i32 %31, 65488
+  %43 = mul nuw nsw i32 %41, 10
+  %44 = add nuw nsw i32 %42, %43
   %45 = trunc i32 %44 to i16
   br label %46
 
 46:                                               ; preds = %40, %.lr.ph.i.i
-  %.1.i.i = phi i16 [ %45, %40 ], [ %.01218.i.i, %.lr.ph.i.i ]
-  %47 = add i64 %.019.i.i, 1
+  %.1.i.i = phi i16 [ %45, %40 ], [ %.019.i.i, %.lr.ph.i.i ]
+  %47 = add i64 %.01218.i.i, 1
   %48 = getelementptr inbounds i8, ptr %27, i64 %47
   %49 = load i8, ptr %48, align 1
   %.not.i.i = icmp eq i8 %49, 0
@@ -473,14 +473,14 @@ versionStr2Version.exit.i:                        ; preds = %46
   br i1 %50, label %51, label %.lr.ph.i34.i.preheader
 
 51:                                               ; preds = %versionStr2Version.exit.i, %versionStr2Version.exit.thread.i
-  %.01216.i43.i = phi i16 [ %.01218.i.i, %versionStr2Version.exit.thread.i ], [ %.1.i.i, %versionStr2Version.exit.i ]
+  %.016.i43.i = phi i16 [ %.019.i.i, %versionStr2Version.exit.thread.i ], [ %.1.i.i, %versionStr2Version.exit.i ]
   %52 = load ptr, ptr @xd, align 8
   br label %75
 
 .lr.ph.i34.i:                                     ; preds = %.lr.ph.i34.i.preheader, %70
   %53 = phi i8 [ %73, %70 ], [ 49, %.lr.ph.i34.i.preheader ]
-  %.019.i35.i = phi i64 [ %71, %70 ], [ 0, %.lr.ph.i34.i.preheader ]
-  %.01218.i36.i = phi i16 [ %.1.i37.i, %70 ], [ 0, %.lr.ph.i34.i.preheader ]
+  %.019.i35.i = phi i16 [ %.1.i37.i, %70 ], [ 0, %.lr.ph.i34.i.preheader ]
+  %.01218.i36.i = phi i64 [ %71, %70 ], [ 0, %.lr.ph.i34.i.preheader ]
   %54 = sext i8 %53 to i32
   %55 = add nsw i32 %54, -48
   %56 = icmp ult i32 %55, 10
@@ -491,7 +491,7 @@ versionStr2Version.exit.i:                        ; preds = %46
   %59 = xor i8 %58, -1
   %.lhs.trunc.i40.i = sext i8 %59 to i16
   %60 = udiv i16 %.lhs.trunc.i40.i, 10
-  %61 = icmp ult i16 %60, %.01218.i36.i
+  %61 = icmp ult i16 %60, %.019.i35.i
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %57
@@ -499,29 +499,29 @@ versionStr2Version.exit.i:                        ; preds = %46
   br label %versionStr2Version.exit41.i
 
 64:                                               ; preds = %57
-  %65 = zext nneg i16 %.01218.i36.i to i32
-  %66 = mul nuw nsw i32 %65, 10
-  %67 = add nuw nsw i32 %54, 65488
-  %68 = add nuw nsw i32 %67, %66
+  %65 = zext nneg i16 %.019.i35.i to i32
+  %66 = add nuw nsw i32 %54, 65488
+  %67 = mul nuw nsw i32 %65, 10
+  %68 = add nuw nsw i32 %66, %67
   %69 = trunc i32 %68 to i16
   br label %70
 
 70:                                               ; preds = %64, %.lr.ph.i34.i
-  %.1.i37.i = phi i16 [ %69, %64 ], [ %.01218.i36.i, %.lr.ph.i34.i ]
-  %71 = add nuw nsw i64 %.019.i35.i, 1
+  %.1.i37.i = phi i16 [ %69, %64 ], [ %.019.i35.i, %.lr.ph.i34.i ]
+  %71 = add nuw nsw i64 %.01218.i36.i, 1
   %72 = getelementptr inbounds i8, ptr @.str.22, i64 %71
   %73 = load i8, ptr %72, align 1
   %exitcond.i = icmp eq i64 %71, 3
   br i1 %exitcond.i, label %versionStr2Version.exit41.i, label %.lr.ph.i34.i
 
 versionStr2Version.exit41.i:                      ; preds = %70, %62
-  %.01216.i39.i = phi i16 [ %.01218.i36.i, %62 ], [ %.1.i37.i, %70 ]
+  %.016.i39.i = phi i16 [ %.019.i35.i, %62 ], [ %.1.i37.i, %70 ]
   %74 = load ptr, ptr @xd, align 8
   br label %75
 
 75:                                               ; preds = %versionStr2Version.exit41.i, %51, %25, %gv_alloc.exit.i
   %.sink55.i = phi ptr [ %20, %25 ], [ %74, %versionStr2Version.exit41.i ], [ %52, %51 ], [ %20, %gv_alloc.exit.i ]
-  %.sink.i = phi i16 [ 12, %25 ], [ %.01216.i39.i, %versionStr2Version.exit41.i ], [ %.01216.i43.i, %51 ], [ 14, %gv_alloc.exit.i ]
+  %.sink.i = phi i16 [ 12, %25 ], [ %.016.i39.i, %versionStr2Version.exit41.i ], [ %.016.i43.i, %51 ], [ 14, %gv_alloc.exit.i ]
   %.str.20.sink.i = phi ptr [ @.str.20, %25 ], [ @.str.22, %versionStr2Version.exit41.i ], [ %27, %51 ], [ @.str.19, %gv_alloc.exit.i ]
   %76 = getelementptr inbounds i8, ptr %.sink55.i, i64 80
   store i16 %.sink.i, ptr %76, align 8
@@ -1860,7 +1860,7 @@ xdot_pencolor.exit:                               ; preds = %51, %61
   br label %84
 
 84:                                               ; preds = %xdot_pencolor.exit, %80
-  %.027 = phi i32 [ %83, %80 ], [ 0, %xdot_pencolor.exit ]
+  %.0 = phi i32 [ %83, %80 ], [ 0, %xdot_pencolor.exit ]
   %85 = load ptr, ptr @xd, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 80
   %87 = load i16, ptr %86, align 8
@@ -1876,7 +1876,7 @@ xdot_pencolor.exit:                               ; preds = %51, %61
   %94 = and i64 %93, 4294967295
   %95 = getelementptr inbounds [3 x i32], ptr @flag_masks, i64 0, i64 %94
   %96 = load i32, ptr %95, align 4
-  %97 = and i32 %96, %.027
+  %97 = and i32 %96, %.0
   %98 = getelementptr inbounds [12 x i32], ptr @textflags, i64 0, i64 %9
   %99 = load i32, ptr %98, align 4
   %.not31 = icmp eq i32 %99, %97
@@ -3019,13 +3019,13 @@ agxbput.exit:                                     ; preds = %1
   br label %20
 
 20:                                               ; preds = %22, %agxbput.exit
-  %.027.in.i = phi i64 [ %.0.i.i, %agxbput.exit ], [ %.027.i, %22 ]
-  %21 = icmp eq i64 %.027.in.i, 0
+  %.0.in.i = phi i64 [ %.0.i.i, %agxbput.exit ], [ %.0.i, %22 ]
+  %21 = icmp eq i64 %.0.in.i, 0
   br i1 %21, label %agxbuf_trim_zeros.exit, label %22
 
 22:                                               ; preds = %20
-  %.027.i = add i64 %.027.in.i, -1
-  %23 = getelementptr inbounds i8, ptr %19, i64 %.027.i
+  %.0.i = add i64 %.0.in.i, -1
+  %23 = getelementptr inbounds i8, ptr %19, i64 %.0.i
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 46
   br i1 %25, label %agxblen.exit36.i, label %20
@@ -3034,13 +3034,13 @@ agxblen.exit36.i:                                 ; preds = %22, %37
   %26 = phi i64 [ %38, %37 ], [ %18, %22 ]
   %.val.i3749.i = phi i8 [ %.val.i37.i, %37 ], [ %.val.i.i, %22 ]
   %.val30.i = phi i8 [ %.val3048.i, %37 ], [ %.val.i.i, %22 ]
-  %.0.in.i = phi i64 [ %.0.i, %37 ], [ %.0.i.i, %22 ]
-  %.0.i = add i64 %.0.in.i, -1
-  %27 = icmp eq i64 %.0.in.i, %.027.in.i
+  %.027.in.i = phi i64 [ %.027.i, %37 ], [ %.0.i.i, %22 ]
+  %.027.i = add i64 %.027.in.i, -1
+  %27 = icmp eq i64 %.027.in.i, %.0.in.i
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %agxblen.exit36.i
-  %29 = getelementptr inbounds i8, ptr %19, i64 %.0.i
+  %29 = getelementptr inbounds i8, ptr %19, i64 %.027.i
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 48
   br i1 %31, label %32, label %agxbuf_trim_zeros.exit
@@ -3998,13 +3998,13 @@ agxblen.exit.i:                                   ; preds = %7, %agxbstart.exit.
   br label %12
 
 12:                                               ; preds = %14, %agxblen.exit.i
-  %.027.in.i = phi i64 [ %.0.i.i, %agxblen.exit.i ], [ %.027.i, %14 ]
-  %13 = icmp eq i64 %.027.in.i, 0
+  %.0.in.i = phi i64 [ %.0.i.i, %agxblen.exit.i ], [ %.0.i, %14 ]
+  %13 = icmp eq i64 %.0.in.i, 0
   br i1 %13, label %agxbuf_trim_zeros.exit, label %14
 
 14:                                               ; preds = %12
-  %.027.i = add i64 %.027.in.i, -1
-  %15 = getelementptr inbounds i8, ptr %11, i64 %.027.i
+  %.0.i = add i64 %.0.in.i, -1
+  %15 = getelementptr inbounds i8, ptr %11, i64 %.0.i
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 46
   br i1 %17, label %18, label %12
@@ -4029,13 +4029,13 @@ agxblen.exit36.i:                                 ; preds = %21, %19
 25:                                               ; preds = %37, %agxblen.exit36.i
   %.val.i3749.i = phi i8 [ %.val.i.i, %agxblen.exit36.i ], [ %.val.i37.i, %37 ]
   %.val30.i = phi i8 [ %.val.i.i, %agxblen.exit36.i ], [ %.val3048.i, %37 ]
-  %.0.in.i = phi i64 [ %.0.i35.i, %agxblen.exit36.i ], [ %.0.i, %37 ]
-  %.0.i = add i64 %.0.in.i, -1
-  %26 = icmp eq i64 %.0.in.i, %.027.in.i
+  %.027.in.i = phi i64 [ %.0.i35.i, %agxblen.exit36.i ], [ %.027.i, %37 ]
+  %.027.i = add i64 %.027.in.i, -1
+  %26 = icmp eq i64 %.027.in.i, %.0.in.i
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %11, i64 %.0.i
+  %28 = getelementptr inbounds i8, ptr %11, i64 %.027.i
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 48
   br i1 %30, label %31, label %agxbuf_trim_zeros.exit

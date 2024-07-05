@@ -1069,8 +1069,8 @@ define dso_local ptr @cgroup_p_constrain_get(i32 noundef %0, i32 noundef %1) loc
   br label %28
 
 28:                                               ; preds = %25, %2, %24, %2, %2, %27
-  %.019 = phi ptr [ null, %27 ], [ %3, %2 ], [ %3, %2 ], [ %3, %24 ], [ %3, %2 ], [ %3, %25 ]
-  ret ptr %.019
+  %.0 = phi ptr [ null, %27 ], [ %3, %2 ], [ %3, %2 ], [ %3, %24 ], [ %3, %2 ], [ %3, %25 ]
+  ret ptr %.0
 }
 
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1252,8 +1252,8 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   br label %75
 
 75:                                               ; preds = %3, %.thread
-  %.071 = phi i32 [ %.5, %.thread ], [ -1, %3 ]
-  ret i32 %.071
+  %.0 = phi i32 [ %.5, %.thread ], [ -1, %3 ]
+  ret i32 %.0
 }
 
 declare ptr @gres_device_id2str(ptr noundef) local_unnamed_addr #1
@@ -1359,10 +1359,10 @@ define dso_local i32 @cgroup_p_step_start_oom_mgr() local_unnamed_addr #0 {
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.backedge, %.lr.ph.preheader
-  %.040.ph86 = phi ptr [ %37, %.lr.ph.preheader ], [ %61, %.lr.ph.split.us.backedge ]
-  %.041.ph84 = phi i32 [ %41, %.lr.ph.preheader ], [ %62, %.lr.ph.split.us.backedge ]
-  %42 = zext nneg i32 %.041.ph84 to i64
-  %43 = call i64 @write(i32 noundef %26, ptr noundef %.040.ph86, i64 noundef %42) #11
+  %.042.ph86 = phi ptr [ %37, %.lr.ph.preheader ], [ %61, %.lr.ph.split.us.backedge ]
+  %.043.ph84 = phi i32 [ %41, %.lr.ph.preheader ], [ %62, %.lr.ph.split.us.backedge ]
+  %42 = zext nneg i32 %.043.ph84 to i64
+  %43 = call i64 @write(i32 noundef %26, ptr noundef %.042.ph86, i64 noundef %42) #11
   %44 = trunc i64 %43 to i32
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %.lr.ph82, label %.split.us
@@ -1379,7 +1379,7 @@ define dso_local i32 @cgroup_p_step_start_oom_mgr() local_unnamed_addr #0 {
   ]
 
 49:                                               ; preds = %47, %47
-  %50 = call i64 @write(i32 noundef %26, ptr noundef %.040.ph86, i64 noundef %42) #11
+  %50 = call i64 @write(i32 noundef %26, ptr noundef %.042.ph86, i64 noundef %42) #11
   %51 = trunc i64 %50 to i32
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %47, label %.split.us
@@ -1394,15 +1394,15 @@ define dso_local i32 @cgroup_p_step_start_oom_mgr() local_unnamed_addr #0 {
   %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #12
   %58 = trunc i64 %57 to i32
   %59 = add nsw i32 %58, 1
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.41, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_start_oom_mgr, ptr noundef nonnull @.str.24, i32 noundef 1240, ptr noundef nonnull @__func__.cgroup_p_step_start_oom_mgr, i32 noundef %.041.ph84, i32 noundef %59) #11
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.41, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_start_oom_mgr, ptr noundef nonnull @.str.24, i32 noundef 1240, ptr noundef nonnull @__func__.cgroup_p_step_start_oom_mgr, i32 noundef %.043.ph84, i32 noundef %59) #11
   br label %121
 
 .split.us:                                        ; preds = %49, %.lr.ph.split.us
   %.us-phi = phi i64 [ %43, %.lr.ph.split.us ], [ %50, %49 ]
   %.us-phi75 = phi i32 [ %44, %.lr.ph.split.us ], [ %51, %49 ]
   %60 = and i64 %.us-phi, 2147483647
-  %61 = getelementptr inbounds i8, ptr %.040.ph86, i64 %60
-  %62 = sub nsw i32 %.041.ph84, %.us-phi75
+  %61 = getelementptr inbounds i8, ptr %.042.ph86, i64 %60
+  %62 = sub nsw i32 %.043.ph84, %.us-phi75
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %64, label %.outer._crit_edge
 
@@ -1508,18 +1508,18 @@ define dso_local i32 @cgroup_p_step_start_oom_mgr() local_unnamed_addr #0 {
   br label %107
 
 107:                                              ; preds = %121, %106, %74, %34, %28, %20
+  %.044 = phi i32 [ -1, %20 ], [ -1, %28 ], [ %26, %34 ], [ %26, %121 ], [ %26, %74 ], [ %26, %106 ]
+  %.041 = phi i32 [ -1, %20 ], [ -1, %28 ], [ -1, %34 ], [ %32, %121 ], [ %32, %74 ], [ %32, %106 ]
   %.not70 = phi i1 [ false, %20 ], [ false, %28 ], [ false, %34 ], [ false, %121 ], [ false, %74 ], [ true, %106 ]
-  %.044 = phi i32 [ -1, %20 ], [ -1, %28 ], [ -1, %34 ], [ -1, %121 ], [ -1, %74 ], [ 0, %106 ]
-  %.043 = phi i32 [ -1, %20 ], [ -1, %28 ], [ -1, %34 ], [ %32, %121 ], [ %32, %74 ], [ %32, %106 ]
-  %.042 = phi i32 [ -1, %20 ], [ -1, %28 ], [ %26, %34 ], [ %26, %121 ], [ %26, %74 ], [ %26, %106 ]
+  %.040 = phi i32 [ -1, %20 ], [ -1, %28 ], [ -1, %34 ], [ -1, %121 ], [ -1, %74 ], [ 0, %106 ]
   call void @slurm_xfree(ptr noundef nonnull %3) #11
   %108 = load i32, ptr @oom_kill_type, align 4
   %.not69 = icmp eq i32 %108, 2
   br i1 %.not69, label %117, label %109
 
 109:                                              ; preds = %107
-  %110 = call i32 @close(i32 noundef %.043) #11
-  %111 = call i32 @close(i32 noundef %.042) #11
+  %110 = call i32 @close(i32 noundef %.041) #11
+  %111 = call i32 @close(i32 noundef %.044) #11
   %112 = call i32 @close(i32 noundef %18) #11
   %113 = load i32, ptr @oom_pipe, align 4
   %114 = call i32 @close(i32 noundef %113) #11
@@ -1543,7 +1543,7 @@ define dso_local i32 @cgroup_p_step_start_oom_mgr() local_unnamed_addr #0 {
   br label %107
 
 124:                                              ; preds = %117, %118, %14, %7
-  %.0 = phi i32 [ %6, %7 ], [ 0, %14 ], [ %.044, %118 ], [ %.044, %117 ]
+  %.0 = phi i32 [ %6, %7 ], [ 0, %14 ], [ %.040, %118 ], [ %.040, %117 ]
   ret i32 %.0
 }
 
@@ -2097,11 +2097,11 @@ _failcnt.exit63:                                  ; preds = %._crit_edge.i61, %6
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.backedge, %92
-  %.031.ph82 = phi ptr [ %8, %92 ], [ %111, %.lr.ph.split.us.backedge ]
-  %.032.ph80 = phi i32 [ 8, %92 ], [ %112, %.lr.ph.split.us.backedge ]
-  %94 = zext nneg i32 %.032.ph80 to i64
+  %.031.ph82 = phi i32 [ 8, %92 ], [ %112, %.lr.ph.split.us.backedge ]
+  %.033.ph80 = phi ptr [ %8, %92 ], [ %111, %.lr.ph.split.us.backedge ]
+  %94 = zext nneg i32 %.031.ph82 to i64
   %95 = load i32, ptr getelementptr inbounds (i8, ptr @oom_pipe, i64 4), align 4
-  %96 = call i64 @write(i32 noundef %95, ptr noundef %.031.ph82, i64 noundef %94) #11
+  %96 = call i64 @write(i32 noundef %95, ptr noundef %.033.ph80, i64 noundef %94) #11
   %97 = trunc i64 %96 to i32
   %98 = icmp slt i32 %97, 0
   br i1 %98, label %.lr.ph78, label %.split.us
@@ -2119,7 +2119,7 @@ _failcnt.exit63:                                  ; preds = %._crit_edge.i61, %6
 
 102:                                              ; preds = %100, %100
   %103 = load i32, ptr getelementptr inbounds (i8, ptr @oom_pipe, i64 4), align 4
-  %104 = call i64 @write(i32 noundef %103, ptr noundef %.031.ph82, i64 noundef %94) #11
+  %104 = call i64 @write(i32 noundef %103, ptr noundef %.033.ph80, i64 noundef %94) #11
   %105 = trunc i64 %104 to i32
   %106 = icmp slt i32 %105, 0
   br i1 %106, label %100, label %.split.us
@@ -2130,15 +2130,15 @@ _failcnt.exit63:                                  ; preds = %._crit_edge.i61, %6
   br i1 %108, label %109, label %.loopexit
 
 109:                                              ; preds = %.split73.us
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.41, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_stop_oom_mgr, ptr noundef nonnull @.str.24, i32 noundef 1383, ptr noundef nonnull @__func__.cgroup_p_step_stop_oom_mgr, i32 noundef %.032.ph80, i32 noundef 8) #11
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.41, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_stop_oom_mgr, ptr noundef nonnull @.str.24, i32 noundef 1383, ptr noundef nonnull @__func__.cgroup_p_step_stop_oom_mgr, i32 noundef %.031.ph82, i32 noundef 8) #11
   br label %.loopexit
 
 .split.us:                                        ; preds = %102, %.lr.ph.split.us
   %.us-phi = phi i64 [ %96, %.lr.ph.split.us ], [ %104, %102 ]
   %.us-phi71 = phi i32 [ %97, %.lr.ph.split.us ], [ %105, %102 ]
   %110 = and i64 %.us-phi, 2147483647
-  %111 = getelementptr inbounds i8, ptr %.031.ph82, i64 %110
-  %112 = sub nsw i32 %.032.ph80, %.us-phi71
+  %111 = getelementptr inbounds i8, ptr %.033.ph80, i64 %110
+  %112 = sub nsw i32 %.031.ph82, %.us-phi71
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %114, label %.loopexit
 
@@ -2212,7 +2212,7 @@ _failcnt.exit63:                                  ; preds = %._crit_edge.i61, %6
   unreachable
 
 140:                                              ; preds = %134, %17
-  %.033 = phi ptr [ null, %17 ], [ %20, %134 ]
+  %.030 = phi ptr [ null, %17 ], [ %20, %134 ]
   %141 = load i32, ptr getelementptr inbounds (i8, ptr @oom_pipe, i64 4), align 4
   %142 = call i32 @close(i32 noundef %141) #11
   %143 = call i32 @pthread_mutex_destroy(ptr noundef nonnull @oom_mutex) #11
@@ -2226,8 +2226,8 @@ _failcnt.exit63:                                  ; preds = %._crit_edge.i61, %6
   unreachable
 
 146:                                              ; preds = %140, %88, %12
-  %.030 = phi ptr [ null, %12 ], [ %20, %88 ], [ %.033, %140 ]
-  ret ptr %.030
+  %.0 = phi ptr [ null, %12 ], [ %20, %88 ], [ %.030, %140 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2483,11 +2483,11 @@ _free_task_cg_info.exit.i:                        ; preds = %45
   br label %_handle_task_cgroup.exit
 
 _handle_task_cgroup.exit:                         ; preds = %27, %42, %_free_task_cg_info.exit.i, %58
-  %.014.i = phi i32 [ -1, %42 ], [ -1, %_free_task_cg_info.exit.i ], [ %51, %58 ], [ -1, %27 ]
+  %.0.i = phi i32 [ -1, %42 ], [ -1, %_free_task_cg_info.exit.i ], [ %51, %58 ], [ -1, %27 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  ret i32 %.014.i
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable

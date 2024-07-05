@@ -1547,8 +1547,8 @@ _ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit: ; preds =
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit
-  %depth.0 = phi i32 [ 1, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit ], [ %depth.1, %do.cond ]
   %treshold.0 = phi i32 [ 124, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit ], [ %treshold.1, %do.cond ]
+  %depth.0 = phi i32 [ 1, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit ], [ %depth.1, %do.cond ]
   %dec = add nsw i32 %depth.0, -1
   %7 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %dec to i64

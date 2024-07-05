@@ -111,10 +111,10 @@ define ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %.not2980, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %29
-  %.081 = phi ptr [ %31, %29 ], [ %20, %19 ]
+  %.02381 = phi ptr [ %31, %29 ], [ %20, %19 ]
   %21 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 1028, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 176, ptr noundef nonnull @__func__.fetch_config) #13
   %22 = getelementptr inbounds i8, ptr %21, i64 4
-  %23 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %.081, i64 noundef 1024) #13
+  %23 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %.02381, i64 noundef 1024) #13
   %24 = call ptr @xstrchr(ptr noundef nonnull %22, i32 noundef 58) #13
   %.not33 = icmp eq ptr %24, null
   br i1 %.not33, label %29, label %25
@@ -513,8 +513,8 @@ _fetch_parent.exit:                               ; preds = %.outer56._crit_edge
   unreachable
 
 174:                                              ; preds = %_fetch_parent.exit, %50, %45, %34
-  %.023 = phi ptr [ null, %45 ], [ null, %50 ], [ %.0.i, %_fetch_parent.exit ], [ null, %34 ]
-  ret ptr %.023
+  %.0 = phi ptr [ null, %45 ], [ null, %50 ], [ %.0.i, %_fetch_parent.exit ], [ null, %34 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree nounwind memory(read)
@@ -607,11 +607,11 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   br label %.lr.ph102.split.us
 
 .lr.ph102.split.us:                               ; preds = %.lr.ph102.split.us.backedge, %16
-  %.042.ph119 = phi i32 [ 4, %16 ], [ %35, %.lr.ph102.split.us.backedge ]
-  %.043.ph117 = phi ptr [ %5, %16 ], [ %34, %.lr.ph102.split.us.backedge ]
-  %18 = zext nneg i32 %.042.ph119 to i64
+  %.0.ph119 = phi i32 [ 4, %16 ], [ %35, %.lr.ph102.split.us.backedge ]
+  %.041.ph117 = phi ptr [ %5, %16 ], [ %34, %.lr.ph102.split.us.backedge ]
+  %18 = zext nneg i32 %.0.ph119 to i64
   %19 = load i32, ptr getelementptr inbounds (i8, ptr @to_parent, i64 4), align 4
-  %20 = call i64 @write(i32 noundef %19, ptr noundef %.043.ph117, i64 noundef %18) #13
+  %20 = call i64 @write(i32 noundef %19, ptr noundef %.041.ph117, i64 noundef %18) #13
   %21 = trunc i64 %20 to i32
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.lr.ph114, label %.split105.us
@@ -629,7 +629,7 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
 
 26:                                               ; preds = %24, %24
   %27 = load i32, ptr getelementptr inbounds (i8, ptr @to_parent, i64 4), align 4
-  %28 = call i64 @write(i32 noundef %27, ptr noundef %.043.ph117, i64 noundef %18) #13
+  %28 = call i64 @write(i32 noundef %27, ptr noundef %.041.ph117, i64 noundef %18) #13
   %29 = trunc i64 %28 to i32
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %24, label %.split105.us
@@ -643,8 +643,8 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   %.us-phi106 = phi i64 [ %20, %.lr.ph102.split.us ], [ %28, %26 ]
   %.us-phi107 = phi i32 [ %21, %.lr.ph102.split.us ], [ %29, %26 ]
   %33 = and i64 %.us-phi106, 2147483647
-  %34 = getelementptr inbounds i8, ptr %.043.ph117, i64 %33
-  %35 = sub nsw i32 %.042.ph119, %.us-phi107
+  %34 = getelementptr inbounds i8, ptr %.041.ph117, i64 %33
+  %35 = sub nsw i32 %.0.ph119, %.us-phi107
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %37, label %.outer._crit_edge
 
@@ -672,11 +672,11 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.backedge, %41
-  %.040.ph81 = phi ptr [ %5, %41 ], [ %60, %.lr.ph.split.us.backedge ]
-  %.041.ph79 = phi i32 [ 4, %41 ], [ %61, %.lr.ph.split.us.backedge ]
-  %44 = zext nneg i32 %.041.ph79 to i64
+  %.042.ph81 = phi ptr [ %5, %41 ], [ %60, %.lr.ph.split.us.backedge ]
+  %.043.ph79 = phi i32 [ 4, %41 ], [ %61, %.lr.ph.split.us.backedge ]
+  %44 = zext nneg i32 %.043.ph79 to i64
   %45 = load i32, ptr getelementptr inbounds (i8, ptr @to_parent, i64 4), align 4
-  %46 = call i64 @write(i32 noundef %45, ptr noundef %.040.ph81, i64 noundef %44) #13
+  %46 = call i64 @write(i32 noundef %45, ptr noundef %.042.ph81, i64 noundef %44) #13
   %47 = trunc i64 %46 to i32
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %.lr.ph77, label %.split.us
@@ -694,7 +694,7 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
 
 52:                                               ; preds = %50, %50
   %53 = load i32, ptr getelementptr inbounds (i8, ptr @to_parent, i64 4), align 4
-  %54 = call i64 @write(i32 noundef %53, ptr noundef %.040.ph81, i64 noundef %44) #13
+  %54 = call i64 @write(i32 noundef %53, ptr noundef %.042.ph81, i64 noundef %44) #13
   %55 = trunc i64 %54 to i32
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %50, label %.split.us
@@ -708,8 +708,8 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   %.us-phi = phi i64 [ %46, %.lr.ph.split.us ], [ %54, %52 ]
   %.us-phi70 = phi i32 [ %47, %.lr.ph.split.us ], [ %55, %52 ]
   %59 = and i64 %.us-phi, 2147483647
-  %60 = getelementptr inbounds i8, ptr %.040.ph81, i64 %59
-  %61 = sub nsw i32 %.041.ph79, %.us-phi70
+  %60 = getelementptr inbounds i8, ptr %.042.ph81, i64 %59
+  %61 = sub nsw i32 %.043.ph79, %.us-phi70
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %63, label %.outer55._crit_edge
 
@@ -735,11 +735,11 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   br label %.lr.ph83.split.us
 
 .lr.ph83.split.us:                                ; preds = %.lr.ph83.split.us.backedge, %.lr.ph83.split.us.preheader
-  %.0.ph100 = phi ptr [ %.pre, %.lr.ph83.split.us.preheader ], [ %84, %.lr.ph83.split.us.backedge ]
-  %.039.ph98 = phi i32 [ %43, %.lr.ph83.split.us.preheader ], [ %85, %.lr.ph83.split.us.backedge ]
-  %68 = zext nneg i32 %.039.ph98 to i64
+  %.039.ph100 = phi ptr [ %.pre, %.lr.ph83.split.us.preheader ], [ %84, %.lr.ph83.split.us.backedge ]
+  %.040.ph98 = phi i32 [ %43, %.lr.ph83.split.us.preheader ], [ %85, %.lr.ph83.split.us.backedge ]
+  %68 = zext nneg i32 %.040.ph98 to i64
   %69 = load i32, ptr getelementptr inbounds (i8, ptr @to_parent, i64 4), align 4
-  %70 = call i64 @write(i32 noundef %69, ptr noundef %.0.ph100, i64 noundef %68) #13
+  %70 = call i64 @write(i32 noundef %69, ptr noundef %.039.ph100, i64 noundef %68) #13
   %71 = trunc i64 %70 to i32
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %.lr.ph95, label %.split86.us
@@ -757,7 +757,7 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
 
 76:                                               ; preds = %74, %74
   %77 = load i32, ptr getelementptr inbounds (i8, ptr @to_parent, i64 4), align 4
-  %78 = call i64 @write(i32 noundef %77, ptr noundef %.0.ph100, i64 noundef %68) #13
+  %78 = call i64 @write(i32 noundef %77, ptr noundef %.039.ph100, i64 noundef %68) #13
   %79 = trunc i64 %78 to i32
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %74, label %.split86.us
@@ -771,8 +771,8 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
   %.us-phi87 = phi i64 [ %70, %.lr.ph83.split.us ], [ %78, %76 ]
   %.us-phi88 = phi i32 [ %71, %.lr.ph83.split.us ], [ %79, %76 ]
   %83 = and i64 %.us-phi87, 2147483647
-  %84 = getelementptr inbounds i8, ptr %.0.ph100, i64 %83
-  %85 = sub nsw i32 %.039.ph98, %.us-phi88
+  %84 = getelementptr inbounds i8, ptr %.039.ph100, i64 %83
+  %85 = sub nsw i32 %.040.ph98, %.us-phi88
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %87, label %.outer54._crit_edge
 
@@ -794,9 +794,9 @@ _init_minimal_conf_server_config.exit:            ; preds = %2, %10
 
 .sink.split:                                      ; preds = %.split90.us, %.split72.us, %.split109.us
   %.sink146 = phi i32 [ 4, %.split109.us ], [ 4, %.split72.us ], [ %43, %.split90.us ]
-  %.039.ph98.lcssa.sink = phi i32 [ %.042.ph119, %.split109.us ], [ %.041.ph79, %.split72.us ], [ %.039.ph98, %.split90.us ]
+  %.040.ph98.lcssa.sink = phi i32 [ %.0.ph119, %.split109.us ], [ %.043.ph79, %.split72.us ], [ %.040.ph98, %.split90.us ]
   %.sink = phi i32 [ 132, %.split109.us ], [ 139, %.split72.us ], [ 140, %.split90.us ]
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__._fetch_child, i32 noundef %.039.ph98.lcssa.sink, i32 noundef %.sink146) #13
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__._fetch_child, i32 noundef %.040.ph98.lcssa.sink, i32 noundef %.sink146) #13
   br label %91
 
 91:                                               ; preds = %.sink.split, %.split90.us, %.split72.us, %.split109.us
@@ -888,10 +888,10 @@ define range(i32 0, -2147483648) i32 @dump_to_memfd(ptr noundef %0, ptr noundef 
   br i1 %13, label %.lr.ph.split.us, label %.loopexit
 
 .lr.ph.split.us:                                  ; preds = %10, %.lr.ph.split.us.backedge
-  %.0.ph44 = phi ptr [ %31, %.lr.ph.split.us.backedge ], [ %1, %10 ]
-  %.023.ph42 = phi i32 [ %32, %.lr.ph.split.us.backedge ], [ %12, %10 ]
-  %14 = zext nneg i32 %.023.ph42 to i64
-  %15 = tail call i64 @write(i32 noundef %5, ptr noundef %.0.ph44, i64 noundef %14) #13
+  %.0.ph44 = phi i32 [ %32, %.lr.ph.split.us.backedge ], [ %12, %10 ]
+  %.023.ph42 = phi ptr [ %31, %.lr.ph.split.us.backedge ], [ %1, %10 ]
+  %14 = zext nneg i32 %.0.ph44 to i64
+  %15 = tail call i64 @write(i32 noundef %5, ptr noundef %.023.ph42, i64 noundef %14) #13
   %16 = trunc i64 %15 to i32
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %.lr.ph40, label %.split.us
@@ -908,7 +908,7 @@ define range(i32 0, -2147483648) i32 @dump_to_memfd(ptr noundef %0, ptr noundef 
   ]
 
 21:                                               ; preds = %19, %19
-  %22 = tail call i64 @write(i32 noundef %5, ptr noundef %.0.ph44, i64 noundef %14) #13
+  %22 = tail call i64 @write(i32 noundef %5, ptr noundef %.023.ph42, i64 noundef %14) #13
   %23 = trunc i64 %22 to i32
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %19, label %.split.us
@@ -921,15 +921,15 @@ define range(i32 0, -2147483648) i32 @dump_to_memfd(ptr noundef %0, ptr noundef 
 27:                                               ; preds = %.split35.us
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %29 = trunc i64 %28 to i32
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 284, ptr noundef nonnull @__func__.dump_to_memfd, i32 noundef %.023.ph42, i32 noundef %29) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 284, ptr noundef nonnull @__func__.dump_to_memfd, i32 noundef %.0.ph44, i32 noundef %29) #13
   br label %40
 
 .split.us:                                        ; preds = %21, %.lr.ph.split.us
   %.us-phi = phi i64 [ %15, %.lr.ph.split.us ], [ %22, %21 ]
   %.us-phi33 = phi i32 [ %16, %.lr.ph.split.us ], [ %23, %21 ]
   %30 = and i64 %.us-phi, 2147483647
-  %31 = getelementptr inbounds i8, ptr %.0.ph44, i64 %30
-  %32 = sub nsw i32 %.023.ph42, %.us-phi33
+  %31 = getelementptr inbounds i8, ptr %.023.ph42, i64 %30
+  %32 = sub nsw i32 %.0.ph44, %.us-phi33
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %34, label %.loopexit
 

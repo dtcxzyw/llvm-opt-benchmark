@@ -162,13 +162,13 @@ define hidden noundef i32 @phpdbg_do_list_lines(ptr noundef %0) #0 {
   %53 = load ptr, ptr %47, align 8, !nonnull !4, !noundef !4
   %54 = getelementptr inbounds i8, ptr %53, i64 256
   %55 = load i32, ptr %54, align 8
-  %.040.i = call i32 @llvm.umin.i32(i32 %52, i32 %55)
-  %.not143 = icmp eq i32 %.040.i, 0
+  %.043.i = call i32 @llvm.umin.i32(i32 %52, i32 %55)
+  %.not143 = icmp eq i32 %.043.i, 0
   br i1 %.not143, label %phpdbg_list_file.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %51
   %56 = getelementptr inbounds i8, ptr %53, i64 260
-  %wide.trip.count63.i = zext i32 %.040.i to i64
+  %wide.trip.count63.i = zext i32 %.043.i to i64
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %77, %.lr.ph.i
@@ -409,8 +409,8 @@ define hidden void @phpdbg_list_file(ptr noundef %0, i32 noundef %1, i32 noundef
   %12 = add i32 %spec.select54, %spec.select
   %13 = getelementptr inbounds i8, ptr %10, i64 256
   %14 = load i32, ptr %13, align 8
-  %.040 = tail call i32 @llvm.umin.i32(i32 %12, i32 %14)
-  %15 = icmp ult i32 %spec.select, %.040
+  %.043 = tail call i32 @llvm.umin.i32(i32 %12, i32 %14)
+  %15 = icmp ult i32 %spec.select, %.043
   br i1 %15, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %9
@@ -421,11 +421,11 @@ define hidden void @phpdbg_list_file(ptr noundef %0, i32 noundef %1, i32 noundef
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %18 = zext i32 %3 to i64
-  %wide.trip.count = zext i32 %.040 to i64
+  %wide.trip.count = zext i32 %.043 to i64
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %wide.trip.count63 = zext i32 %.040 to i64
+  %wide.trip.count63 = zext i32 %.043 to i64
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %39
@@ -549,10 +549,10 @@ define hidden void @phpdbg_list_function_byname(ptr noundef %0, i64 noundef %1) 
   br label %51
 
 20:                                               ; preds = %15, %8
-  %.026 = phi ptr [ %11, %8 ], [ %16, %15 ]
-  %.024 = phi ptr [ %9, %8 ], [ %0, %15 ]
-  %.0 = phi i64 [ %10, %8 ], [ %1, %15 ]
-  %21 = call ptr @zend_str_tolower_dup(ptr noundef nonnull %.024, i64 noundef %.0) #11
+  %.026 = phi ptr [ %9, %8 ], [ %0, %15 ]
+  %.025 = phi i64 [ %10, %8 ], [ %1, %15 ]
+  %.024 = phi ptr [ %11, %8 ], [ %16, %15 ]
+  %21 = call ptr @zend_str_tolower_dup(ptr noundef nonnull %.026, i64 noundef %.025) #11
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2168), align 8
   store ptr %3, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2168), align 8
   %23 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #14
@@ -560,7 +560,7 @@ define hidden void @phpdbg_list_function_byname(ptr noundef %0, i64 noundef %1) 
   br i1 %24, label %25, label %48
 
 25:                                               ; preds = %20
-  %26 = call ptr @zend_hash_str_find(ptr noundef nonnull %.026, ptr noundef %21, i64 noundef %.0) #11
+  %26 = call ptr @zend_hash_str_find(ptr noundef nonnull %.024, ptr noundef %21, i64 noundef %.025) #11
   %.not31 = icmp eq ptr %26, null
   br i1 %.not31, label %45, label %27
 

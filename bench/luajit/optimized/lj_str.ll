@@ -318,12 +318,12 @@ for.inc:                                          ; preds = %cond.end, %for.body
 
 for.body31:                                       ; preds = %for.body31.preheader, %for.body31
   %indvars.iv159 = phi i64 [ %8, %for.body31.preheader ], [ %indvars.iv.next160, %for.body31 ]
-  %newsecond.0150 = phi i8 [ 0, %for.body31.preheader ], [ %or, %for.body31 ]
+  %newsecond.0149 = phi i8 [ 0, %for.body31.preheader ], [ %or, %for.body31 ]
   %arrayidx33 = getelementptr inbounds %struct.GCRef, ptr %call, i64 %indvars.iv159
   %23 = load i64, ptr %arrayidx33, align 8
   %cmp35 = icmp ugt i64 %23, 32
   %conv36 = zext i1 %cmp35 to i8
-  %or = or i8 %newsecond.0150, %conv36
+  %or = or i8 %newsecond.0149, %conv36
   %conv37 = zext i1 %cmp35 to i64
   store i64 %conv37, ptr %arrayidx33, align 8
   %cmp29.not = icmp eq i64 %indvars.iv159, 0
@@ -395,9 +395,9 @@ if.then.i88:                                      ; preds = %if.then86
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then.i88
-  %h.addr.0.i = phi i32 [ %28, %if.then.i88 ], [ %sub.i95, %do.body.i ]
   %b.0.i92 = phi i32 [ %33, %if.then.i88 ], [ %sub29.i, %do.body.i ]
   %a.0.i93 = phi i32 [ %conv6.i, %if.then.i88 ], [ %sub24.i, %do.body.i ]
+  %h.addr.0.i = phi i32 [ %28, %if.then.i88 ], [ %sub.i95, %do.body.i ]
   %p.0.i = phi ptr [ %add.ptr7.i91, %if.then.i88 ], [ %q.0.i, %do.body.i ]
   %q.0.i = phi ptr [ %add.ptr90, %if.then.i88 ], [ %add.ptr15.i, %do.body.i ]
   %34 = load i32, ptr %p.0.i, align 1
@@ -674,9 +674,9 @@ if.then8:                                         ; preds = %hash_sparse.exit
   br i1 %cmp.i43, label %do.body.i, label %hash_dense.exit
 
 do.body.i:                                        ; preds = %if.then8, %do.body.i
-  %h.addr.0.i = phi i32 [ %sub.i51, %do.body.i ], [ %sub45.i, %if.then8 ]
   %b.0.i48 = phi i32 [ %sub29.i, %do.body.i ], [ %16, %if.then8 ]
   %a.0.i49 = phi i32 [ %sub24.i, %do.body.i ], [ %conv.i, %if.then8 ]
+  %h.addr.0.i = phi i32 [ %sub.i51, %do.body.i ], [ %sub45.i, %if.then8 ]
   %p.0.i = phi ptr [ %q.0.i, %do.body.i ], [ %add.ptr7.i47, %if.then8 ]
   %q.0.i = phi ptr [ %add.ptr15.i, %do.body.i ], [ %str, %if.then8 ]
   %17 = load i32, ptr %p.0.i, align 1
@@ -888,19 +888,19 @@ if.then.i84:                                      ; preds = %if.then30.i
   br label %do.body.i89
 
 do.body.i89:                                      ; preds = %do.body.i89, %if.then.i84
-  %h.addr.0.i90 = phi i32 [ %44, %if.then.i84 ], [ %sub.i103, %do.body.i89 ]
-  %b.0.i91 = phi i32 [ %48, %if.then.i84 ], [ %sub29.i109, %do.body.i89 ]
-  %a.0.i92 = phi i32 [ %conv6.i85, %if.then.i84 ], [ %sub24.i106, %do.body.i89 ]
+  %b.0.i90 = phi i32 [ %48, %if.then.i84 ], [ %sub29.i109, %do.body.i89 ]
+  %a.0.i91 = phi i32 [ %conv6.i85, %if.then.i84 ], [ %sub24.i106, %do.body.i89 ]
+  %h.addr.0.i92 = phi i32 [ %44, %if.then.i84 ], [ %sub.i103, %do.body.i89 ]
   %p.0.i93 = phi ptr [ %add.ptr7.i88, %if.then.i84 ], [ %q.0.i94, %do.body.i89 ]
   %q.0.i94 = phi ptr [ %add.ptr.i56, %if.then.i84 ], [ %add.ptr15.i100, %do.body.i89 ]
   %49 = load i32, ptr %p.0.i93, align 1
-  %add.i95 = add i32 %49, %a.0.i92
+  %add.i95 = add i32 %49, %a.0.i91
   %add.ptr9.i96 = getelementptr inbounds i8, ptr %p.0.i93, i64 4
   %50 = load i32, ptr %add.ptr9.i96, align 1
-  %add11.i97 = add i32 %50, %b.0.i91
+  %add11.i97 = add i32 %50, %b.0.i90
   %add.ptr12.i98 = getelementptr inbounds i8, ptr %p.0.i93, i64 8
   %51 = load i32, ptr %add.ptr12.i98, align 1
-  %add14.i99 = add i32 %51, %h.addr.0.i90
+  %add14.i99 = add i32 %51, %h.addr.0.i92
   %add.ptr15.i100 = getelementptr inbounds i8, ptr %q.0.i94, i64 12
   %xor16.i101 = xor i32 %add14.i99, %add11.i97
   %or19.i102 = tail call i32 @llvm.fshl.i32(i32 %add11.i97, i32 %add11.i97, i32 14)

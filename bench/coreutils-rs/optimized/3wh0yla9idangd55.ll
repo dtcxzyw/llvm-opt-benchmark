@@ -1872,9 +1872,9 @@ define void @"_ZN46_$LT$uu_dd..Input$u20$as$u20$std..io..Read$GT$4read17h9564f20
   br label %.outer
 
 .outer:                                           ; preds = %36, %4
-  %.016.ph = phi i64 [ %35, %36 ], [ 0, %4 ]
-  %12 = sub nuw i64 %3, %.016.ph
-  %13 = getelementptr inbounds i8, ptr %2, i64 %.016.ph
+  %.0.ph = phi i64 [ %35, %36 ], [ 0, %4 ]
+  %12 = sub nuw i64 %3, %.0.ph
+  %13 = getelementptr inbounds i8, ptr %2, i64 %.0.ph
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$4read17h8460fb0b076d3424E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noalias noundef nonnull align 1 %13, i64 noundef %12)
   %14 = load i64, ptr %7, align 8, !range !189, !noundef !5
@@ -1911,11 +1911,11 @@ define void @"_ZN46_$LT$uu_dd..Input$u20$as$u20$std..io..Read$GT$4read17h9564f20
   br i1 %27, label %34, label %32
 
 28:                                               ; preds = %.lr.ph.preheader._crit_edge, %37, %32, %21
-  %.016.ph.lcssa.sink = phi i64 [ %3, %37 ], [ %17, %32 ], [ %.016.ph, %21 ], [ %.016.ph, %.lr.ph.preheader._crit_edge ]
+  %.0.ph.lcssa.sink = phi i64 [ %3, %37 ], [ %17, %32 ], [ %.0.ph, %21 ], [ %.0.ph, %.lr.ph.preheader._crit_edge ]
   %29 = phi ptr [ %38, %37 ], [ %33, %32 ], [ %22, %21 ], [ %.val.lcssa, %.lr.ph.preheader._crit_edge ]
   %30 = phi i64 [ %.lcssa, %37 ], [ %.lcssa, %32 ], [ %.lcssa, %21 ], [ %.lcssa78, %.lr.ph.preheader._crit_edge ]
   %31 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.016.ph.lcssa.sink, ptr %31, align 8
+  store i64 %.0.ph.lcssa.sink, ptr %31, align 8
   store i64 0, ptr %0, align 8
   %.not21 = icmp eq i64 %30, 0
   br i1 %.not21, label %48, label %49
@@ -1925,7 +1925,7 @@ define void @"_ZN46_$LT$uu_dd..Input$u20$as$u20$std..io..Read$GT$4read17h9564f20
   br label %28
 
 34:                                               ; preds = %23
-  %35 = add i64 %17, %.016.ph
+  %35 = add i64 %17, %.0.ph
   %.not20 = icmp ult i64 %35, %3
   br i1 %.not20, label %36, label %37
 
@@ -3591,9 +3591,9 @@ define hidden void @_ZN5uu_dd6Output12write_blocks17h21582c48f16c671dE(ptr noali
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.outer.i, %31
-  %.014.ph42.i = phi i64 [ 0, %31 ], [ %39, %.outer.i ]
-  %34 = sub nuw i64 %.0.sroa.speculated.i.i, %.014.ph42.i
-  %35 = getelementptr inbounds i8, ptr %.sroa.017.041, i64 %.014.ph42.i
+  %.0.ph42.i = phi i64 [ 0, %31 ], [ %39, %.outer.i ]
+  %34 = sub nuw i64 %.0.sroa.speculated.i.i, %.0.ph42.i
+  %35 = getelementptr inbounds i8, ptr %.sroa.017.041, i64 %.0.ph42.i
   call void @"_ZN46_$LT$uu_dd..Dest$u20$as$u20$std..io..Write$GT$5write17hd6d53c5c75a59f69E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %35, i64 noundef %34), !noalias !401
   %36 = load i64, ptr %9, align 8, !range !189, !noalias !396, !noundef !5
   %trunc40.i = trunc nuw i64 %36 to i1
@@ -3605,7 +3605,7 @@ define hidden void @_ZN5uu_dd6Output12write_blocks17h21582c48f16c671dE(ptr noali
 
 .split.us.i:                                      ; preds = %"_ZN46_$LT$uu_dd..Dest$u20$as$u20$std..io..Write$GT$5write17hd6d53c5c75a59f69E.exit", %.lr.ph.split.i
   %38 = load i64, ptr %17, align 8, !noalias !396, !noundef !5
-  %39 = add i64 %38, %.014.ph42.i
+  %39 = add i64 %38, %.0.ph42.i
   %.not17.i = icmp ult i64 %39, %.0.sroa.speculated.i.i
   %.pre = load ptr, ptr %11, align 8
   br i1 %.not17.i, label %42, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17hbfeeba27831307faE.exit"

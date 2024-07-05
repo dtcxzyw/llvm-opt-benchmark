@@ -704,10 +704,10 @@ while.end43:                                      ; preds = %while.body38, %whil
   %firstSplitByteRangeIndex.0.lcssa69 = phi i32 [ %firstSplitByteRangeIndex.1, %while.cond36.preheader ], [ %firstSplitByteRangeIndex.0.lcssa70, %while.body38 ]
   %cmp44 = icmp slt i32 %firstSplitByteRangeIndex.0.lcssa69, 0
   %sub46 = sub nsw i32 %4, %firstSplitByteRangeIndex.0.lcssa69
-  %rangesLength.0 = select i1 %cmp44, i32 0, i32 %sub46
   %narrow = call i32 @llvm.smax.i32(i32 %firstSplitByteRangeIndex.0.lcssa69, i32 0)
   %ranges.0.idx = zext nneg i32 %narrow to i64
   %ranges.0 = getelementptr inbounds i32, ptr %5, i64 %ranges.0.idx
+  %rangesLength.0 = select i1 %cmp44, i32 0, i32 %sub46
   %15 = load i32, ptr %errorCode, align 4
   %cmp.i.i = icmp slt i32 %15, 1
   br i1 %cmp.i.i, label %if.end.i, label %cleanup

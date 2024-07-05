@@ -201,7 +201,7 @@ get_ippusb_conversation_data.exit:                ; preds = %24, %27
   br label %42
 
 42:                                               ; preds = %40, %get_ippusb_conversation_data.exit
-  %.0230 = phi ptr [ %41, %40 ], [ null, %get_ippusb_conversation_data.exit ]
+  %.0227 = phi ptr [ %41, %40 ], [ null, %get_ippusb_conversation_data.exit ]
   %43 = icmp ugt i32 %34, 4
   br i1 %43, label %44, label %is_http_header.exit.thread
 
@@ -402,11 +402,11 @@ is_http_header.exit266:                           ; preds = %100, %98, %93, %87
   br label %156
 
 156:                                              ; preds = %152, %153
-  %.not249 = icmp eq ptr %.0230, null
+  %.not249 = icmp eq ptr %.0227, null
   br i1 %.not249, label %160, label %157
 
 157:                                              ; preds = %156
-  %158 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0230, ptr noundef nonnull dereferenceable(6) @CHUNKED_END, i64 noundef 5) #6
+  %158 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0227, ptr noundef nonnull dereferenceable(6) @CHUNKED_END, i64 noundef 5) #6
   %159 = icmp eq i32 %158, 0
   br i1 %159, label %191, label %160
 
@@ -563,7 +563,7 @@ is_http_header.exit266:                           ; preds = %100, %98, %93, %87
   br label %254
 
 254:                                              ; preds = %245, %233
-  %.0227 = phi ptr [ %242, %233 ], [ %253, %245 ]
+  %.0228 = phi ptr [ %242, %233 ], [ %253, %245 ]
   %255 = load ptr, ptr %80, align 8
   %256 = getelementptr inbounds i8, ptr %255, i64 50
   %257 = load i16, ptr %256, align 2
@@ -579,8 +579,8 @@ is_http_header.exit266:                           ; preds = %100, %98, %93, %87
   br label %263
 
 263:                                              ; preds = %259, %254
-  %.1228 = phi ptr [ %262, %259 ], [ %.0227, %254 ]
-  %264 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @.str.42, ptr noundef %.1228, ptr noundef nonnull @ippusb_frag_items, ptr noundef null, ptr noundef %2) #5
+  %.1229 = phi ptr [ %262, %259 ], [ %.0228, %254 ]
+  %264 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @.str.42, ptr noundef %.1229, ptr noundef nonnull @ippusb_frag_items, ptr noundef null, ptr noundef %2) #5
   %.not257 = icmp eq ptr %264, null
   br i1 %.not257, label %.critedge.thread, label %265
 
@@ -600,11 +600,11 @@ is_http_header.exit266:                           ; preds = %100, %98, %93, %87
   br label %.critedge.thread.sink.split
 
 .critedge:                                        ; preds = %215, %212
-  %.not276 = icmp eq ptr %.0230, null
+  %.not276 = icmp eq ptr %.0227, null
   br i1 %.not276, label %.critedge.thread, label %274
 
 274:                                              ; preds = %.critedge
-  %275 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0230, ptr noundef nonnull dereferenceable(6) @CHUNKED_END, i64 noundef 5) #6
+  %275 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0227, ptr noundef nonnull dereferenceable(6) @CHUNKED_END, i64 noundef 5) #6
   %276 = icmp eq i32 %275, 0
   br i1 %276, label %277, label %.critedge.thread
 

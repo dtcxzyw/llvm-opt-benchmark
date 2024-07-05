@@ -514,9 +514,9 @@ define internal i32 @dissect_dcom_SpecialSystemProperties(ptr noundef %0, i32 no
 
 32:                                               ; preds = %7, %32
   %.095 = phi i32 [ 0, %7 ], [ %35, %32 ]
-  %.09294 = phi i32 [ %29, %7 ], [ %34, %32 ]
+  %.09194 = phi i32 [ %29, %7 ], [ %34, %32 ]
   %33 = load i32, ptr @hf_sysact_res, align 4
-  %34 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.09294, ptr noundef %2, ptr noundef %31, ptr noundef %4, ptr noundef %5, i32 noundef %33, ptr noundef null) #5
+  %34 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.09194, ptr noundef %2, ptr noundef %31, ptr noundef %4, ptr noundef %5, i32 noundef %33, ptr noundef null) #5
   %35 = add nuw nsw i32 %.095, 1
   %exitcond.not = icmp eq i32 %35, 8
   br i1 %exitcond.not, label %36, label %32, !llvm.loop !6
@@ -537,8 +537,8 @@ define internal i32 @dissect_dcom_SpecialSystemProperties(ptr noundef %0, i32 no
   br label %45
 
 45:                                               ; preds = %36, %39, %41
-  %.091 = phi i32 [ %spec.store.select, %41 ], [ %spec.store.select, %39 ], [ %37, %36 ]
-  %46 = add i32 %.091, %1
+  %.092 = phi i32 [ %spec.store.select, %41 ], [ %spec.store.select, %39 ], [ %37, %36 ]
+  %46 = add i32 %.092, %1
   ret i32 %46
 }
 

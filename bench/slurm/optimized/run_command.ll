@@ -918,20 +918,20 @@ define range(i32 -1, -2147483648) i32 @run_command_waitpid_timeout(ptr noundef %
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %45, %7
-  %.046.ph.ph = phi i32 [ %47, %45 ], [ %10, %7 ]
-  %.044.ph.ph = phi i32 [ %., %45 ], [ 10, %7 ]
-  %.142.ph.ph = phi i32 [ %.142.ph, %45 ], [ %spec.select, %7 ]
+  %.046.ph.ph = phi i32 [ %., %45 ], [ 10, %7 ]
+  %.044.ph.ph = phi i32 [ %47, %45 ], [ %10, %7 ]
+  %.143.ph.ph = phi i32 [ %.143.ph, %45 ], [ %spec.select, %7 ]
   %.0.ph.ph = phi i1 [ %.0.ph, %45 ], [ false, %7 ]
-  %13 = icmp slt i32 %.046.ph.ph, 1
+  %13 = icmp slt i32 %.044.ph.ph, 1
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
-  %.142.ph = phi i32 [ %.142.ph.ph, %.outer.outer ], [ 0, %.outer.backedge ]
+  %.143.ph = phi i32 [ %.143.ph.ph, %.outer.outer ], [ 0, %.outer.backedge ]
   %.0.ph = phi i1 [ %.0.ph.ph, %.outer.outer ], [ true, %.outer.backedge ]
   br label %14
 
 14:                                               ; preds = %.outer, %19
-  %15 = tail call i32 @waitpid(i32 noundef %1, ptr noundef %2, i32 noundef %.142.ph) #11
+  %15 = tail call i32 @waitpid(i32 noundef %1, ptr noundef %2, i32 noundef %.143.ph) #11
   %16 = icmp slt i32 %15, 1
   br i1 %16, label %17, label %50
 
@@ -991,9 +991,9 @@ define range(i32 -1, -2147483648) i32 @run_command_waitpid_timeout(ptr noundef %
   br label %.outer.backedge
 
 45:                                               ; preds = %38
-  %46 = tail call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef %.044.ph.ph) #11
-  %47 = sub nsw i32 %.046.ph.ph, %.044.ph.ph
-  %48 = shl nsw i32 %.044.ph.ph, 1
+  %46 = tail call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef %.046.ph.ph) #11
+  %47 = sub nsw i32 %.044.ph.ph, %.046.ph.ph
+  %48 = shl nsw i32 %.046.ph.ph, 1
   %49 = tail call i32 @llvm.smin.i32(i32 %48, i32 %47)
   %. = tail call i32 @llvm.smin.i32(i32 %49, i32 1000)
   br label %.outer.outer, !llvm.loop !6
@@ -1008,8 +1008,8 @@ define range(i32 -1, -2147483648) i32 @run_command_waitpid_timeout(ptr noundef %
   br label %55
 
 55:                                               ; preds = %50, %51, %23
-  %.043 = phi i32 [ -1, %23 ], [ %15, %51 ], [ %15, %50 ]
-  ret i32 %.043
+  %.041 = phi i32 [ -1, %23 ], [ %15, %51 ], [ %15, %50 ]
+  ret i32 %.041
 }
 
 ; Function Attrs: nounwind

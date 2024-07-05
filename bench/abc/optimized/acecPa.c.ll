@@ -345,7 +345,7 @@ Vec_BitWriteEntry.exit:                           ; preds = %22, %20
 
 72:                                               ; preds = %.preheader, %85
   %indvars.iv = phi i64 [ %indvars.iv.next, %85 ], [ 0, %.preheader ]
-  %.065 = phi i32 [ %80, %85 ], [ %58, %.preheader ]
+  %.04664 = phi i32 [ %80, %85 ], [ %58, %.preheader ]
   %.val52 = load ptr, ptr %50, align 8
   %73 = getelementptr i32, ptr %.val52, i64 %indvars.iv
   %74 = getelementptr i32, ptr %73, i64 %51
@@ -354,7 +354,7 @@ Vec_BitWriteEntry.exit:                           ; preds = %22, %20
   %77 = lshr i32 %56, %76
   %78 = and i32 %77, 1
   %79 = xor i32 %78, %4
-  %80 = xor i32 %79, %.065
+  %80 = xor i32 %79, %.04664
   %81 = icmp eq i32 %75, 0
   br i1 %81, label %85, label %82
 
@@ -684,13 +684,13 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 .lr.ph127:                                        ; preds = %.critedge.preheader, %.critedge
   %.val95147 = phi i32 [ %.val95, %.critedge ], [ %.val95125, %.critedge.preheader ]
-  %.072126 = phi i32 [ %142, %.critedge ], [ 0, %.critedge.preheader ]
+  %.071126 = phi i32 [ %142, %.critedge ], [ 0, %.critedge.preheader ]
   %.val85 = load ptr, ptr %20, align 8
-  %103 = lshr i32 %.072126, 5
+  %103 = lshr i32 %.071126, 5
   %104 = zext nneg i32 %103 to i64
   %105 = getelementptr inbounds i32, ptr %.val85, i64 %104
   %106 = load i32, ptr %105, align 4
-  %107 = and i32 %.072126, 31
+  %107 = and i32 %.071126, 31
   %108 = shl nuw i32 1, %107
   %109 = and i32 %106, %108
   %.not = icmp eq i32 %109, 0
@@ -765,13 +765,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %139, ptr %41, align 4
   %140 = sext i32 %115 to i64
   %141 = getelementptr inbounds i32, ptr %138, i64 %140
-  store i32 %.072126, ptr %141, align 4
+  store i32 %.071126, ptr %141, align 4
   %.val95.pre = load i32, ptr %7, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph127, %110, %Vec_IntPush.exit
   %.val95 = phi i32 [ %.val95147, %.lr.ph127 ], [ %.val95147, %110 ], [ %.val95.pre, %Vec_IntPush.exit ]
-  %142 = add nuw nsw i32 %.072126, 1
+  %142 = add nuw nsw i32 %.071126, 1
   %143 = icmp slt i32 %142, %.val95
   br i1 %143, label %.lr.ph127, label %.critedge._crit_edge, !llvm.loop !10
 

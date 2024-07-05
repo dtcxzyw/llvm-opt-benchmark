@@ -669,9 +669,9 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   br label %9
 
 9:                                                ; preds = %.lr.ph, %dissect_channel_list.exit
-  %.0150 = phi i32 [ %6, %.lr.ph ], [ %519, %dissect_channel_list.exit ]
-  %.0121149 = phi i32 [ 0, %.lr.ph ], [ %518, %dissect_channel_list.exit ]
-  %10 = icmp ult i32 %.0150, 3
+  %.0149 = phi i32 [ %6, %.lr.ph ], [ %519, %dissect_channel_list.exit ]
+  %.0121148 = phi i32 [ 0, %.lr.ph ], [ %518, %dissect_channel_list.exit ]
+  %10 = icmp ult i32 %.0149, 3
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
@@ -679,17 +679,17 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 13:                                               ; preds = %9
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0121149) #4
-  %15 = add i32 %.0121149, 1
+  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0121148) #4
+  %15 = add i32 %.0121148, 1
   %16 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %15) #4
   %17 = zext i16 %16 to i32
   %18 = add nuw nsw i32 %17, 3
   %19 = load i32, ptr @ett_p2p_tlv, align 4
   %20 = zext i8 %14 to i32
   %21 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @p2p_attr_types, ptr noundef nonnull @.str.313) #4
-  %22 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.0121149, i32 noundef %18, i32 noundef %19, ptr noundef nonnull %5, ptr noundef %21) #4
+  %22 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.0121148, i32 noundef %18, i32 noundef %19, ptr noundef nonnull %5, ptr noundef %21) #4
   %23 = load i32, ptr @hf_p2p_attr_type, align 4
-  %24 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef %.0121149, i32 noundef 1, i32 noundef 0) #4
+  %24 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef %.0121148, i32 noundef 1, i32 noundef 0) #4
   %25 = load i32, ptr @hf_p2p_attr_len, align 4
   %26 = call ptr @proto_tree_add_uint(ptr noundef %22, i32 noundef %25, ptr noundef %0, i32 noundef %15, i32 noundef 2, i32 noundef %17) #4
   switch i8 %14, label %dissect_channel_list.exit [
@@ -725,7 +725,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 27:                                               ; preds = %13
   %28 = load ptr, ptr %5, align 8
   %29 = load i32, ptr @hf_p2p_attr_capab_device, align 4
-  %30 = add i32 %.0121149, 3
+  %30 = add i32 %.0121148, 3
   %31 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %29, ptr noundef %0, i32 noundef %30, i32 noundef 1, i32 noundef 0) #4
   %32 = load i32, ptr @hf_p2p_attr_capab_device_service_discovery, align 4
   %33 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %32, ptr noundef %0, i32 noundef %30, i32 noundef 1, i32 noundef 0) #4
@@ -740,7 +740,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   %42 = load i32, ptr @hf_p2p_attr_capab_invitation_procedure, align 4
   %43 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %42, ptr noundef %0, i32 noundef %30, i32 noundef 1, i32 noundef 0) #4
   %44 = load i32, ptr @hf_p2p_attr_capab_group, align 4
-  %45 = add i32 %.0121149, 4
+  %45 = add i32 %.0121148, 4
   %46 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %44, ptr noundef %0, i32 noundef %45, i32 noundef 1, i32 noundef 0) #4
   %47 = load i32, ptr @hf_p2p_attr_capab_group_owner, align 4
   %48 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %47, ptr noundef %0, i32 noundef %45, i32 noundef 1, i32 noundef 0) #4
@@ -768,7 +768,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 67:                                               ; preds = %13
   %68 = load ptr, ptr %5, align 8
   %69 = load i32, ptr @hf_p2p_attr_device_id, align 4
-  %70 = add i32 %.0121149, 3
+  %70 = add i32 %.0121148, 3
   %71 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %69, ptr noundef %0, i32 noundef %70, i32 noundef 6, i32 noundef 0) #4
   %72 = call ptr @wmem_packet_scope() #4
   %73 = call ptr @tvb_address_to_str(ptr noundef %72, ptr noundef %0, i32 noundef 1, i32 noundef %70) #4
@@ -778,7 +778,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 74:                                               ; preds = %13
   %75 = load ptr, ptr %5, align 8
   %76 = load i32, ptr @hf_p2p_attr_go_intent, align 4
-  %77 = add i32 %.0121149, 3
+  %77 = add i32 %.0121148, 3
   %78 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %76, ptr noundef %0, i32 noundef %77, i32 noundef 1, i32 noundef 0) #4
   %79 = load i32, ptr @hf_p2p_attr_go_intent_tie_breaker, align 4
   %80 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %79, ptr noundef %0, i32 noundef %77, i32 noundef 1, i32 noundef 0) #4
@@ -794,7 +794,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 87:                                               ; preds = %13
   %88 = load ptr, ptr %5, align 8
   %89 = load i32, ptr @hf_p2p_attr_status, align 4
-  %90 = add i32 %.0121149, 3
+  %90 = add i32 %.0121148, 3
   %91 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %89, ptr noundef %0, i32 noundef %90, i32 noundef 1, i32 noundef 0) #4
   %92 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %90) #4
   %93 = zext i8 %92 to i32
@@ -807,13 +807,13 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 97:                                               ; preds = %13
   %98 = load ptr, ptr %5, align 8
   %99 = load i32, ptr @hf_p2p_attr_listen_channel_country, align 4
-  %100 = add i32 %.0121149, 3
+  %100 = add i32 %.0121148, 3
   %101 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %99, ptr noundef %0, i32 noundef %100, i32 noundef 3, i32 noundef 0) #4
   %102 = load i32, ptr @hf_p2p_attr_listen_channel_oper_class, align 4
-  %103 = add i32 %.0121149, 6
+  %103 = add i32 %.0121148, 6
   %104 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %102, ptr noundef %0, i32 noundef %103, i32 noundef 1, i32 noundef 0) #4
   %105 = load i32, ptr @hf_p2p_attr_listen_channel_number, align 4
-  %106 = add i32 %.0121149, 7
+  %106 = add i32 %.0121148, 7
   %107 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %105, ptr noundef %0, i32 noundef %106, i32 noundef 1, i32 noundef 0) #4
   %108 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %103) #4
   %109 = zext i8 %108 to i32
@@ -825,13 +825,13 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 112:                                              ; preds = %13
   %113 = load ptr, ptr %5, align 8
   %114 = load i32, ptr @hf_p2p_attr_operating_channel_country, align 4
-  %115 = add i32 %.0121149, 3
+  %115 = add i32 %.0121148, 3
   %116 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %114, ptr noundef %0, i32 noundef %115, i32 noundef 3, i32 noundef 0) #4
   %117 = load i32, ptr @hf_p2p_attr_operating_channel_oper_class, align 4
-  %118 = add i32 %.0121149, 6
+  %118 = add i32 %.0121148, 6
   %119 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %117, ptr noundef %0, i32 noundef %118, i32 noundef 1, i32 noundef 0) #4
   %120 = load i32, ptr @hf_p2p_attr_operating_channel_number, align 4
-  %121 = add i32 %.0121149, 7
+  %121 = add i32 %.0121148, 7
   %122 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %120, ptr noundef %0, i32 noundef %121, i32 noundef 1, i32 noundef 0) #4
   %123 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %118) #4
   %124 = zext i8 %123 to i32
@@ -841,10 +841,10 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   br label %dissect_channel_list.exit
 
 127:                                              ; preds = %13
-  %128 = add i32 %.0121149, 3
+  %128 = add i32 %.0121148, 3
   %129 = load i32, ptr @hf_p2p_attr_channel_list_country, align 4
   %130 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %129, ptr noundef %0, i32 noundef %128, i32 noundef 3, i32 noundef 0) #4
-  %131 = add i32 %.0121149, 6
+  %131 = add i32 %.0121148, 6
   %132 = add i32 %128, %17
   %133 = icmp sgt i32 %132, %131
   br i1 %133, label %.lr.ph.i, label %dissect_channel_list.exit
@@ -866,10 +866,10 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %145, label %.lr.ph.i, label %dissect_channel_list.exit, !llvm.loop !6
 
 146:                                              ; preds = %13
-  %147 = add i32 %.0121149, 3
+  %147 = add i32 %.0121148, 3
   %148 = load i32, ptr @hf_p2p_attr_dev_info_p2p_dev_addr, align 4
   %149 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %148, ptr noundef %0, i32 noundef %147, i32 noundef 6, i32 noundef 0) #4
-  %150 = add i32 %.0121149, 9
+  %150 = add i32 %.0121148, 9
   %151 = load i32, ptr @hf_p2p_attr_dev_info_config_methods, align 4
   %152 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %151, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef 0) #4
   %153 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_usba, align 4
@@ -890,22 +890,22 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   %168 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %167, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef 0) #4
   %169 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_keypad, align 4
   %170 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %169, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef 0) #4
-  %171 = add i32 %.0121149, 11
+  %171 = add i32 %.0121148, 11
   %172 = load i32, ptr @hf_p2p_attr_dev_info_pri_dev_type, align 4
   %173 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %172, ptr noundef %0, i32 noundef %171, i32 noundef 8, i32 noundef 0) #4
   %174 = load i32, ptr @hf_p2p_attr_dev_info_pri_dev_type_category, align 4
   %175 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %174, ptr noundef %0, i32 noundef %171, i32 noundef 2, i32 noundef 0) #4
   %176 = load i32, ptr @hf_p2p_attr_dev_info_pri_dev_type_oui, align 4
-  %177 = add i32 %.0121149, 13
+  %177 = add i32 %.0121148, 13
   %178 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %176, ptr noundef %0, i32 noundef %177, i32 noundef 4, i32 noundef 0) #4
   %179 = load i32, ptr @hf_p2p_attr_dev_info_pri_dev_type_subcategory, align 4
-  %180 = add i32 %.0121149, 17
+  %180 = add i32 %.0121148, 17
   %181 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %179, ptr noundef %0, i32 noundef %180, i32 noundef 2, i32 noundef 0) #4
-  %182 = add i32 %.0121149, 19
+  %182 = add i32 %.0121148, 19
   %183 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %182) #4
   %184 = load i32, ptr @hf_p2p_attr_dev_info_num_sec, align 4
   %185 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %184, ptr noundef %0, i32 noundef %182, i32 noundef 1, i32 noundef 0) #4
-  %186 = add i32 %.0121149, 20
+  %186 = add i32 %.0121148, 20
   %.not103.i = icmp eq i8 %183, 0
   br i1 %.not103.i, label %._crit_edge.i, label %.lr.ph.i122
 
@@ -968,10 +968,10 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 215:                                              ; preds = %13
   %216 = load ptr, ptr %5, align 8
   %217 = load i32, ptr @hf_p2p_attr_config_timeout_go, align 4
-  %218 = add i32 %.0121149, 3
+  %218 = add i32 %.0121148, 3
   %219 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %217, ptr noundef %0, i32 noundef %218, i32 noundef 1, i32 noundef 0) #4
   %220 = load i32, ptr @hf_p2p_attr_config_timeout_client, align 4
-  %221 = add i32 %.0121149, 4
+  %221 = add i32 %.0121148, 4
   %222 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %220, ptr noundef %0, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
   %223 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %218) #4
   %224 = zext i8 %223 to i32
@@ -985,7 +985,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 229:                                              ; preds = %13
   %230 = load ptr, ptr %5, align 8
   %231 = load i32, ptr @hf_p2p_attr_intended_interface_addr, align 4
-  %232 = add i32 %.0121149, 3
+  %232 = add i32 %.0121148, 3
   %233 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %231, ptr noundef %0, i32 noundef %232, i32 noundef 6, i32 noundef 0) #4
   %234 = call ptr @wmem_packet_scope() #4
   %235 = call ptr @tvb_address_to_str(ptr noundef %234, ptr noundef %0, i32 noundef 1, i32 noundef %232) #4
@@ -994,9 +994,9 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 
 236:                                              ; preds = %13
   %237 = load ptr, ptr %5, align 8
-  %238 = add i32 %.0121149, 3
+  %238 = add i32 %.0121148, 3
   %239 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %238) #4
-  %240 = add i32 %.0121149, 5
+  %240 = add i32 %.0121148, 5
   %241 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %240) #4
   %242 = load i32, ptr @hf_p2p_attr_extended_listen_timing_period, align 4
   %243 = zext i16 %239 to i32
@@ -1009,13 +1009,13 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 
 248:                                              ; preds = %13
   %249 = load ptr, ptr %5, align 8
-  %250 = add i32 %.0121149, 3
+  %250 = add i32 %.0121148, 3
   %251 = load i32, ptr @hf_p2p_attr_p2p_group_id_dev_addr, align 4
   %252 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %251, ptr noundef %0, i32 noundef %250, i32 noundef 6, i32 noundef 0) #4
   %253 = call ptr @wmem_packet_scope() #4
   %254 = call ptr @tvb_address_to_str(ptr noundef %253, ptr noundef %0, i32 noundef 1, i32 noundef %250) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %249, ptr noundef nonnull @.str.315, ptr noundef %254) #4
-  %255 = add i32 %.0121149, 9
+  %255 = add i32 %.0121148, 9
   %256 = load i32, ptr @hf_p2p_attr_p2p_group_id_ssid, align 4
   %257 = add nsw i32 %17, -6
   %258 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %256, ptr noundef %0, i32 noundef %255, i32 noundef %257, i32 noundef 0) #4
@@ -1031,7 +1031,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   br label %dissect_channel_list.exit
 
 263:                                              ; preds = %259
-  %264 = add i32 %.0121149, 3
+  %264 = add i32 %.0121148, 3
   %265 = load i32, ptr @hf_p2p_attr_p2p_group_bssid, align 4
   %266 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %265, ptr noundef %0, i32 noundef %264, i32 noundef 6, i32 noundef 0) #4
   %267 = load ptr, ptr %8, align 8
@@ -1049,23 +1049,23 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   br label %dissect_channel_list.exit
 
 274:                                              ; preds = %269
-  %275 = add i32 %.0121149, 3
+  %275 = add i32 %.0121148, 3
   %276 = load i32, ptr @hf_p2p_attr_noa_index, align 4
   %277 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %276, ptr noundef %0, i32 noundef %275, i32 noundef 1, i32 noundef 0) #4
   %278 = load i32, ptr @hf_p2p_attr_noa_params, align 4
-  %279 = add i32 %.0121149, 4
+  %279 = add i32 %.0121148, 4
   %280 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %278, ptr noundef %0, i32 noundef %279, i32 noundef 1, i32 noundef 0) #4
   %281 = load i32, ptr @hf_p2p_attr_noa_params_opp_ps, align 4
   %282 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %281, ptr noundef %0, i32 noundef %279, i32 noundef 1, i32 noundef 0) #4
   %283 = load i32, ptr @hf_p2p_attr_noa_params_ctwindow, align 4
   %284 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %283, ptr noundef %0, i32 noundef %279, i32 noundef 1, i32 noundef 0) #4
   %285 = add i32 %275, %17
-  %286 = add i32 %.0121149, 18
+  %286 = add i32 %.0121148, 18
   %.not36.i = icmp slt i32 %285, %286
   br i1 %.not36.i, label %dissect_channel_list.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %274
-  %287 = add i32 %.0121149, 5
+  %287 = add i32 %.0121148, 5
   br label %.lr.ph.i124
 
 .lr.ph.i124:                                      ; preds = %.lr.ph.i124, %.lr.ph.preheader.i
@@ -1088,14 +1088,14 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 
 301:                                              ; preds = %13
   %302 = load ptr, ptr %5, align 8
-  %303 = add i32 %.0121149, 3
+  %303 = add i32 %.0121148, 3
   %304 = add i32 %303, %17
   %305 = icmp sgt i32 %304, %303
   br i1 %305, label %.lr.ph150.i, label %dissect_channel_list.exit
 
 .lr.ph150.i:                                      ; preds = %301, %404
-  %.0133148.i = phi i32 [ %325, %404 ], [ %303, %301 ]
-  %306 = sub i32 %304, %.0133148.i
+  %.0148.i = phi i32 [ %325, %404 ], [ %303, %301 ]
+  %306 = sub i32 %304, %.0148.i
   %307 = icmp slt i32 %306, 25
   br i1 %307, label %308, label %310
 
@@ -1104,15 +1104,15 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   br label %dissect_channel_list.exit
 
 310:                                              ; preds = %.lr.ph150.i
-  %311 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0133148.i) #4
+  %311 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0148.i) #4
   %312 = zext i8 %311 to i32
   %313 = add nuw nsw i32 %312, 1
   %314 = load i32, ptr @ett_p2p_client_descr, align 4
-  %315 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %0, i32 noundef %.0133148.i, i32 noundef %313, i32 noundef %314, ptr noundef null, ptr noundef nonnull @.str.327) #4
+  %315 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %0, i32 noundef %.0148.i, i32 noundef %313, i32 noundef %314, ptr noundef null, ptr noundef nonnull @.str.327) #4
   %316 = load i32, ptr @hf_p2p_attr_gi_length, align 4
-  %317 = call ptr @proto_tree_add_item(ptr noundef %315, i32 noundef %316, ptr noundef %0, i32 noundef %.0133148.i, i32 noundef 1, i32 noundef 0) #4
+  %317 = call ptr @proto_tree_add_item(ptr noundef %315, i32 noundef %316, ptr noundef %0, i32 noundef %.0148.i, i32 noundef 1, i32 noundef 0) #4
   %318 = icmp ult i8 %311, 24
-  %319 = add i32 %.0133148.i, %312
+  %319 = add i32 %.0148.i, %312
   %320 = icmp sgt i32 %319, %304
   %or.cond.i = or i1 %318, %320
   br i1 %or.cond.i, label %321, label %323
@@ -1122,17 +1122,17 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   br label %dissect_channel_list.exit
 
 323:                                              ; preds = %310
-  %324 = add nsw i32 %.0133148.i, 1
+  %324 = add nsw i32 %.0148.i, 1
   %325 = add i32 %324, %312
   %326 = load i32, ptr @hf_p2p_attr_gi_p2p_dev_addr, align 4
   %327 = call ptr @proto_tree_add_item(ptr noundef %315, i32 noundef %326, ptr noundef %0, i32 noundef %324, i32 noundef 6, i32 noundef 0) #4
   %328 = load ptr, ptr %8, align 8
   %329 = call ptr @tvb_address_to_str(ptr noundef %328, ptr noundef %0, i32 noundef 1, i32 noundef %324) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %315, ptr noundef nonnull @.str.315, ptr noundef %329) #4
-  %330 = add i32 %.0133148.i, 7
+  %330 = add i32 %.0148.i, 7
   %331 = load i32, ptr @hf_p2p_attr_gi_p2p_iface_addr, align 4
   %332 = call ptr @proto_tree_add_item(ptr noundef %315, i32 noundef %331, ptr noundef %0, i32 noundef %330, i32 noundef 6, i32 noundef 0) #4
-  %333 = add i32 %.0133148.i, 13
+  %333 = add i32 %.0148.i, 13
   %334 = load i32, ptr @hf_p2p_attr_gi_dev_capab, align 4
   %335 = call ptr @proto_tree_add_item(ptr noundef %315, i32 noundef %334, ptr noundef %0, i32 noundef %333, i32 noundef 1, i32 noundef 0) #4
   %336 = load i32, ptr @hf_p2p_attr_gi_dev_capab_service_discovery, align 4
@@ -1147,26 +1147,26 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   %345 = call ptr @proto_tree_add_item(ptr noundef %315, i32 noundef %344, ptr noundef %0, i32 noundef %333, i32 noundef 1, i32 noundef 0) #4
   %346 = load i32, ptr @hf_p2p_attr_capab_invitation_procedure, align 4
   %347 = call ptr @proto_tree_add_item(ptr noundef %315, i32 noundef %346, ptr noundef %0, i32 noundef %333, i32 noundef 1, i32 noundef 0) #4
-  %348 = add i32 %.0133148.i, 14
+  %348 = add i32 %.0148.i, 14
   %349 = load i32, ptr @hf_p2p_attr_gi_config_methods, align 4
   %350 = call ptr @proto_tree_add_item(ptr noundef %315, i32 noundef %349, ptr noundef %0, i32 noundef %348, i32 noundef 2, i32 noundef 0) #4
-  %351 = add i32 %.0133148.i, 16
+  %351 = add i32 %.0148.i, 16
   %352 = load i32, ptr @hf_p2p_attr_gi_pri_dev_type, align 4
   %353 = call ptr @proto_tree_add_item(ptr noundef %315, i32 noundef %352, ptr noundef %0, i32 noundef %351, i32 noundef 8, i32 noundef 0) #4
   %354 = load i32, ptr @hf_p2p_attr_gi_pri_dev_type_category, align 4
   %355 = call ptr @proto_tree_add_item(ptr noundef %315, i32 noundef %354, ptr noundef %0, i32 noundef %351, i32 noundef 2, i32 noundef 0) #4
   %356 = load i32, ptr @hf_p2p_attr_gi_pri_dev_type_oui, align 4
-  %357 = add i32 %.0133148.i, 18
+  %357 = add i32 %.0148.i, 18
   %358 = call ptr @proto_tree_add_item(ptr noundef %315, i32 noundef %356, ptr noundef %0, i32 noundef %357, i32 noundef 4, i32 noundef 0) #4
   %359 = load i32, ptr @hf_p2p_attr_gi_pri_dev_type_subcategory, align 4
-  %360 = add i32 %.0133148.i, 22
+  %360 = add i32 %.0148.i, 22
   %361 = call ptr @proto_tree_add_item(ptr noundef %315, i32 noundef %359, ptr noundef %0, i32 noundef %360, i32 noundef 2, i32 noundef 0) #4
-  %362 = add i32 %.0133148.i, 24
+  %362 = add i32 %.0148.i, 24
   %363 = load i32, ptr @hf_p2p_attr_gi_num_sec_dev_types, align 4
   %364 = call ptr @proto_tree_add_item(ptr noundef %315, i32 noundef %363, ptr noundef %0, i32 noundef %362, i32 noundef 1, i32 noundef 0) #4
   %365 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %362) #4
   %366 = zext i8 %365 to i32
-  %367 = add i32 %.0133148.i, 25
+  %367 = add i32 %.0148.i, 25
   %368 = sub i32 %304, %367
   %369 = shl nuw nsw i32 %366, 3
   %370 = icmp slt i32 %368, %369
@@ -1229,12 +1229,12 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   br label %401
 
 401:                                              ; preds = %397, %394
-  %.0.i129 = phi ptr [ %400, %397 ], [ %386, %394 ]
+  %.0133.i = phi ptr [ %400, %397 ], [ %386, %394 ]
   %.not139.i = icmp eq i32 %395, %389
   br i1 %.not139.i, label %404, label %402
 
 402:                                              ; preds = %401
-  %403 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0.i129, ptr noundef nonnull @ei_wifi_p2p_attr_len, ptr noundef nonnull @.str.321) #4
+  %403 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0133.i, ptr noundef nonnull @ei_wifi_p2p_attr_len, ptr noundef nonnull @.str.321) #4
   br label %404
 
 404:                                              ; preds = %402, %401
@@ -1244,7 +1244,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 406:                                              ; preds = %13
   %407 = load ptr, ptr %5, align 8
   %408 = load i32, ptr @hf_p2p_attr_invitation_flags, align 4
-  %409 = add i32 %.0121149, 3
+  %409 = add i32 %.0121148, 3
   %410 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %408, ptr noundef %0, i32 noundef %409, i32 noundef 1, i32 noundef 0) #4
   %411 = load i32, ptr @hf_p2p_attr_invitation_flags_type, align 4
   %412 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %411, ptr noundef %0, i32 noundef %409, i32 noundef 1, i32 noundef 0) #4
@@ -1256,7 +1256,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 415:                                              ; preds = %13
   %416 = load ptr, ptr %5, align 8
   %417 = load i32, ptr @hf_p2p_attr_manageability_bitmap, align 4
-  %418 = add i32 %.0121149, 3
+  %418 = add i32 %.0121148, 3
   %419 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %417, ptr noundef %0, i32 noundef %418, i32 noundef 1, i32 noundef 0) #4
   %420 = load i32, ptr @hf_p2p_attr_manageability_bitmap_mgmt, align 4
   %421 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %420, ptr noundef %0, i32 noundef %418, i32 noundef 1, i32 noundef 0) #4
@@ -1272,7 +1272,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 428:                                              ; preds = %13
   %429 = load ptr, ptr %5, align 8
   %430 = load i32, ptr @hf_p2p_attr_minor_reason_code, align 4
-  %431 = add i32 %.0121149, 3
+  %431 = add i32 %.0121148, 3
   %432 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %430, ptr noundef %0, i32 noundef %431, i32 noundef 1, i32 noundef 0) #4
   %433 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %431) #4
   %434 = zext i8 %433 to i32
@@ -1285,13 +1285,13 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 438:                                              ; preds = %13
   %439 = load ptr, ptr %5, align 8
   %440 = load i32, ptr @hf_p2p_attr_oob_group_owner_negotiation_channel_country, align 4
-  %441 = add i32 %.0121149, 3
+  %441 = add i32 %.0121148, 3
   %442 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %440, ptr noundef %0, i32 noundef %441, i32 noundef 3, i32 noundef 0) #4
   %443 = load i32, ptr @hf_p2p_attr_oob_group_owner_negotiation_channel_oper_class, align 4
-  %444 = add i32 %.0121149, 6
+  %444 = add i32 %.0121148, 6
   %445 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %443, ptr noundef %0, i32 noundef %444, i32 noundef 1, i32 noundef 0) #4
   %446 = load i32, ptr @hf_p2p_attr_oob_group_owner_negotiation_channel_number, align 4
-  %447 = add i32 %.0121149, 7
+  %447 = add i32 %.0121148, 7
   %448 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %446, ptr noundef %0, i32 noundef %447, i32 noundef 1, i32 noundef 0) #4
   %449 = load i32, ptr @hf_p2p_attr_oob_group_owner_negotiation_channel_role_indication, align 4
   %450 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %449, ptr noundef %0, i32 noundef %447, i32 noundef 1, i32 noundef 0) #4
@@ -1303,95 +1303,95 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   br label %dissect_channel_list.exit
 
 455:                                              ; preds = %13
-  %456 = add i32 %.0121149, 3
+  %456 = add i32 %.0121148, 3
   %457 = add i32 %456, %17
   %458 = icmp slt i32 %456, %457
-  br i1 %458, label %.lr.ph.i131, label %dissect_channel_list.exit
+  br i1 %458, label %.lr.ph.i130, label %dissect_channel_list.exit
 
-.lr.ph.i131:                                      ; preds = %455, %.lr.ph.i131
-  %.01.i = phi i32 [ %461, %.lr.ph.i131 ], [ %456, %455 ]
+.lr.ph.i130:                                      ; preds = %455, %.lr.ph.i130
+  %.01.i = phi i32 [ %461, %.lr.ph.i130 ], [ %456, %455 ]
   %459 = load i32, ptr @hf_p2p_attr_service_hash, align 4
   %460 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %459, ptr noundef %0, i32 noundef %.01.i, i32 noundef 6, i32 noundef 0) #4
   %461 = add i32 %.01.i, 6
   %462 = icmp slt i32 %461, %457
-  br i1 %462, label %.lr.ph.i131, label %dissect_channel_list.exit, !llvm.loop !11
+  br i1 %462, label %.lr.ph.i130, label %dissect_channel_list.exit, !llvm.loop !11
 
 463:                                              ; preds = %13
   %464 = load i32, ptr @hf_p2p_attr_session_information, align 4
-  %465 = add i32 %.0121149, 3
+  %465 = add i32 %.0121148, 3
   %466 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %464, ptr noundef %0, i32 noundef %465, i32 noundef %17, i32 noundef 0) #4
   br label %dissect_channel_list.exit
 
 467:                                              ; preds = %13
   %468 = load i32, ptr @hf_p2p_attr_connection_capability, align 4
-  %469 = add i32 %.0121149, 3
+  %469 = add i32 %.0121148, 3
   %470 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %468, ptr noundef %0, i32 noundef %469, i32 noundef 1, i32 noundef 0) #4
   br label %dissect_channel_list.exit
 
 471:                                              ; preds = %13
   %472 = load i32, ptr @hf_p2p_attr_advertisement_id, align 4
-  %473 = add i32 %.0121149, 3
+  %473 = add i32 %.0121148, 3
   %474 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %472, ptr noundef %0, i32 noundef %473, i32 noundef 4, i32 noundef 0) #4
   %475 = load i32, ptr @hf_p2p_attr_advertisement_id_service_mac_address, align 4
-  %476 = add i32 %.0121149, 7
+  %476 = add i32 %.0121148, 7
   %477 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %475, ptr noundef %0, i32 noundef %476, i32 noundef 6, i32 noundef 0) #4
   br label %dissect_channel_list.exit
 
 478:                                              ; preds = %13
-  %479 = add i32 %.0121149, 3
+  %479 = add i32 %.0121148, 3
   %480 = load i32, ptr @ett_p2p_advertised_service, align 4
   %481 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %0, i32 noundef %479, i32 noundef %17, i32 noundef %480, ptr noundef null, ptr noundef nonnull @.str.333) #4
   %482 = add i32 %479, %17
   %483 = icmp slt i32 %479, %482
-  br i1 %483, label %.lr.ph.i133, label %dissect_channel_list.exit
+  br i1 %483, label %.lr.ph.i132, label %dissect_channel_list.exit
 
-.lr.ph.i133:                                      ; preds = %478, %.lr.ph.i133
-  %.01.i134 = phi i32 [ %497, %.lr.ph.i133 ], [ %479, %478 ]
+.lr.ph.i132:                                      ; preds = %478, %.lr.ph.i132
+  %.01.i133 = phi i32 [ %497, %.lr.ph.i132 ], [ %479, %478 ]
   %484 = load i32, ptr @hf_p2p_attr_advertised_service_advertisement_id, align 4
-  %485 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %484, ptr noundef %0, i32 noundef %.01.i134, i32 noundef 4, i32 noundef 0) #4
-  %486 = add i32 %.01.i134, 4
+  %485 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %484, ptr noundef %0, i32 noundef %.01.i133, i32 noundef 4, i32 noundef 0) #4
+  %486 = add i32 %.01.i133, 4
   %487 = load i32, ptr @hf_p2p_attr_advertised_service_config_methods, align 4
   %488 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %487, ptr noundef %0, i32 noundef %486, i32 noundef 2, i32 noundef 0) #4
-  %489 = add i32 %.01.i134, 6
+  %489 = add i32 %.01.i133, 6
   %490 = load i32, ptr @hf_p2p_attr_advertised_service_service_name_length, align 4
   %491 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %490, ptr noundef %0, i32 noundef %489, i32 noundef 2, i32 noundef 0) #4
   %492 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %489) #4
   %493 = zext i8 %492 to i32
-  %494 = add i32 %.01.i134, 7
+  %494 = add i32 %.01.i133, 7
   %495 = load i32, ptr @hf_p2p_attr_advertised_service_service_name, align 4
   %496 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %495, ptr noundef %0, i32 noundef %494, i32 noundef %493, i32 noundef 0) #4
   %497 = add i32 %494, %493
   %498 = icmp slt i32 %497, %482
-  br i1 %498, label %.lr.ph.i133, label %dissect_channel_list.exit, !llvm.loop !12
+  br i1 %498, label %.lr.ph.i132, label %dissect_channel_list.exit, !llvm.loop !12
 
 499:                                              ; preds = %13
   %500 = load i32, ptr @hf_p2p_attr_session_id, align 4
-  %501 = add i32 %.0121149, 3
+  %501 = add i32 %.0121148, 3
   %502 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %500, ptr noundef %0, i32 noundef %501, i32 noundef 4, i32 noundef 0) #4
   %503 = load i32, ptr @hf_p2p_attr_session_id_session_mac_address, align 4
-  %504 = add i32 %.0121149, 7
+  %504 = add i32 %.0121148, 7
   %505 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %503, ptr noundef %0, i32 noundef %504, i32 noundef 6, i32 noundef 0) #4
   br label %dissect_channel_list.exit
 
 506:                                              ; preds = %13
   %507 = load i32, ptr @hf_p2p_attr_feature_capability, align 4
-  %508 = add i32 %.0121149, 3
+  %508 = add i32 %.0121148, 3
   %509 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %507, ptr noundef %0, i32 noundef %508, i32 noundef %17, i32 noundef 0) #4
   br label %dissect_channel_list.exit
 
 510:                                              ; preds = %13
   %511 = load i32, ptr @hf_p2p_attr_persistent_group_p2p_device_address, align 4
-  %512 = add i32 %.0121149, 3
+  %512 = add i32 %.0121148, 3
   %513 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %511, ptr noundef %0, i32 noundef %512, i32 noundef 6, i32 noundef 0) #4
   %514 = load i32, ptr @hf_p2p_attr_persistent_group_ssid, align 4
-  %515 = add i32 %.0121149, 9
+  %515 = add i32 %.0121148, 9
   %516 = add nuw nsw i32 %17, 6
   %517 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %514, ptr noundef %0, i32 noundef %515, i32 noundef %516, i32 noundef 0) #4
   br label %dissect_channel_list.exit
 
-dissect_channel_list.exit:                        ; preds = %.lr.ph.i133, %.lr.ph.i131, %404, %.lr.ph.i124, %.lr.ph.i, %478, %455, %392, %371, %321, %308, %301, %274, %271, %263, %261, %213, %212, %206, %127, %510, %506, %499, %471, %467, %463, %438, %428, %415, %406, %248, %236, %229, %215, %112, %97, %87, %74, %67, %27, %13
-  %518 = add i32 %18, %.0121149
-  %519 = sub nsw i32 %.0150, %18
+dissect_channel_list.exit:                        ; preds = %.lr.ph.i132, %.lr.ph.i130, %404, %.lr.ph.i124, %.lr.ph.i, %478, %455, %392, %371, %321, %308, %301, %274, %271, %263, %261, %213, %212, %206, %127, %510, %506, %499, %471, %467, %463, %438, %428, %415, %406, %248, %236, %229, %215, %112, %97, %87, %74, %67, %27, %13
+  %518 = add i32 %18, %.0121148
+  %519 = sub nsw i32 %.0149, %18
   %520 = icmp sgt i32 %519, 0
   br i1 %520, label %9, label %.loopexit, !llvm.loop !13
 

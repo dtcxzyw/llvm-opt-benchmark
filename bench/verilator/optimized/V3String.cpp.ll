@@ -1079,26 +1079,26 @@ define dso_local noundef double @_ZN7VString11parseDoubleERKNSt7__cxx1112basic_s
   br label %11
 
 11:                                               ; preds = %15, %9
-  %.020 = phi ptr [ %6, %9 ], [ %.1, %15 ]
-  %.0 = phi ptr [ %10, %9 ], [ %16, %15 ]
-  %12 = load i8, ptr %.0, align 1
+  %.020 = phi ptr [ %10, %9 ], [ %16, %15 ]
+  %.0 = phi ptr [ %6, %9 ], [ %.1, %15 ]
+  %12 = load i8, ptr %.020, align 1
   switch i8 %12, label %13 [
     i8 0, label %17
     i8 95, label %15
   ]
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %.020, i64 1
-  store i8 %12, ptr %.020, align 1
+  %14 = getelementptr inbounds i8, ptr %.0, i64 1
+  store i8 %12, ptr %.0, align 1
   br label %15
 
 15:                                               ; preds = %11, %13
-  %.1 = phi ptr [ %14, %13 ], [ %.020, %11 ]
-  %16 = getelementptr inbounds i8, ptr %.0, i64 1
+  %.1 = phi ptr [ %14, %13 ], [ %.0, %11 ]
+  %16 = getelementptr inbounds i8, ptr %.020, i64 1
   br label %11, !llvm.loop !11
 
 17:                                               ; preds = %11
-  store i8 0, ptr %.020, align 1
+  store i8 0, ptr %.0, align 1
   store ptr %6, ptr %3, align 8
   %18 = call double @strtod(ptr noundef nonnull %6, ptr noundef nonnull %3) #23
   %19 = load ptr, ptr %3, align 8
@@ -2106,7 +2106,7 @@ _ZN11VHashSha2566insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.e
 
 .preheader196:                                    ; preds = %.preheader197.preheader, %.split.us
   %indvars.iv369 = phi i64 [ 0, %.preheader197.preheader ], [ %indvars.iv.next370, %.split.us ]
-  %.0178260 = phi ptr [ %8, %.preheader197.preheader ], [ %.us-phi, %.split.us ]
+  %.0177260 = phi ptr [ %8, %.preheader197.preheader ], [ %.us-phi, %.split.us ]
   %.lcssa212221258 = phi i32 [ %.promoted220, %.preheader197.preheader ], [ %.lcssa212222, %.split.us ]
   %.lcssa213224257 = phi i32 [ %.promoted223, %.preheader197.preheader ], [ %.lcssa213225, %.split.us ]
   %.lcssa214227256 = phi i32 [ %.promoted226, %.preheader197.preheader ], [ %.lcssa214228, %.split.us ]
@@ -2121,7 +2121,7 @@ _ZN11VHashSha2566insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.e
 
 .preheader196.split.us:                           ; preds = %.preheader196, %.preheader196.split.us
   %indvars.iv365 = phi i64 [ %indvars.iv.next366, %.preheader196.split.us ], [ 0, %.preheader196 ]
-  %.1211.us = phi ptr [ %65, %.preheader196.split.us ], [ %.0178260, %.preheader196 ]
+  %.1211.us = phi ptr [ %65, %.preheader196.split.us ], [ %.0177260, %.preheader196 ]
   %57 = phi i32 [ %92, %.preheader196.split.us ], [ %.lcssa215230255, %.preheader196 ]
   %58 = phi i32 [ %57, %.preheader196.split.us ], [ %.lcssa214227256, %.preheader196 ]
   %59 = phi i32 [ %58, %.preheader196.split.us ], [ %.lcssa213224257, %.preheader196 ]
@@ -2262,7 +2262,7 @@ _ZN11VHashSha2566insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.e
   %.lcssa214228 = phi i32 [ %95, %.split ], [ %57, %.preheader196.split.us ]
   %.lcssa213225 = phi i32 [ %96, %.split ], [ %58, %.preheader196.split.us ]
   %.lcssa212222 = phi i32 [ %97, %.split ], [ %59, %.preheader196.split.us ]
-  %.us-phi = phi ptr [ %.0178260, %.split ], [ %65, %.preheader196.split.us ]
+  %.us-phi = phi ptr [ %.0177260, %.split ], [ %65, %.preheader196.split.us ]
   %indvars.iv.next370 = add nuw nsw i64 %indvars.iv369, 1
   %exitcond372.not = icmp eq i64 %indvars.iv.next370, 4
   br i1 %exitcond372.not, label %.preheader195, label %.preheader196, !llvm.loop !16

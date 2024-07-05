@@ -39,12 +39,12 @@ define hidden ptr @get_args_as_string(i32 noundef %0, ptr nocapture noundef read
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.02226 = phi i32 [ 0, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %.02326 = phi i32 [ 0, %.lr.ph.preheader ], [ %11, %.lr.ph ]
   %6 = getelementptr ptr, ptr %1, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #9
   %9 = trunc i64 %8 to i32
-  %10 = add i32 %.02226, 1
+  %10 = add i32 %.02326, 1
   %11 = add i32 %10, %9
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -82,8 +82,8 @@ define hidden ptr @get_args_as_string(i32 noundef %0, ptr nocapture noundef read
   br i1 %30, label %.loopexit, label %.lr.ph29
 
 .loopexit:                                        ; preds = %.lr.ph29, %14, %._crit_edge.thread
-  %.023 = phi ptr [ %13, %._crit_edge.thread ], [ %16, %14 ], [ %16, %.lr.ph29 ]
-  ret ptr %.023
+  %.0 = phi ptr [ %13, %._crit_edge.thread ], [ %16, %14 ], [ %16, %.lr.ph29 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

@@ -50,10 +50,10 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br label %11
 
 11:                                               ; preds = %9, %7, %5, %2
-  %.052 = phi ptr [ @.str, %2 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.048 = phi ptr [ @.str, %2 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
   store i8 0, ptr @get_prompt.destination, align 16
-  store ptr %.052, ptr %4, align 8
-  %12 = load i8, ptr %.052, align 1
+  store ptr %.048, ptr %4, align 8
+  %12 = load i8, ptr %.048, align 1
   %.not96 = icmp eq i8 %12, 0
   br i1 %.not96, label %.critedge, label %.lr.ph
 
@@ -63,8 +63,8 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br label %14
 
 14:                                               ; preds = %.lr.ph, %171
-  %.05098 = phi i1 [ false, %.lr.ph ], [ %.15195, %171 ]
-  %storemerge97 = phi ptr [ %.052, %.lr.ph ], [ %173, %171 ]
+  %.098 = phi i1 [ false, %.lr.ph ], [ %.195, %171 ]
+  %storemerge97 = phi ptr [ %.048, %.lr.ph ], [ %173, %171 ]
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @get_prompt.destination) #10
   %16 = icmp ult i64 %15, 256
   br i1 %16, label %17, label %.critedge
@@ -72,7 +72,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 17:                                               ; preds = %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(257) %3, i8 0, i64 257, i1 false)
   %18 = load i8, ptr %storemerge97, align 1
-  br i1 %.05098, label %19, label %165
+  br i1 %.098, label %19, label %165
 
 19:                                               ; preds = %17
   switch i8 %18, label %164 [
@@ -461,7 +461,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 171:                                              ; preds = %165, %168
   %172 = phi ptr [ %169, %168 ], [ %storemerge97, %165 ]
-  %.15195 = phi i1 [ false, %168 ], [ true, %165 ]
+  %.195 = phi i1 [ false, %168 ], [ true, %165 ]
   %173 = getelementptr i8, ptr %172, i64 1
   store ptr %173, ptr %4, align 8
   %174 = load i8, ptr %173, align 1
@@ -470,7 +470,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 .critedge:                                        ; preds = %14, %171, %11
   %175 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 424), align 8
-  %176 = icmp eq ptr %.052, %175
+  %176 = icmp eq ptr %.048, %175
   br i1 %176, label %177, label %.loopexit
 
 177:                                              ; preds = %.critedge
@@ -480,9 +480,9 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br label %180
 
 180:                                              ; preds = %.backedge, %177
-  %.048 = phi ptr [ @get_prompt.destination, %177 ], [ %.048.be, %.backedge ]
-  %.0 = phi i1 [ true, %177 ], [ %.0.be, %.backedge ]
-  %181 = load i8, ptr %.048, align 1
+  %.051 = phi ptr [ @get_prompt.destination, %177 ], [ %.051.be, %.backedge ]
+  %.049 = phi i1 [ true, %177 ], [ %.049.be, %.backedge ]
+  %181 = load i8, ptr %.051, align 1
   switch i8 %181, label %186 [
     i8 0, label %.loopexit
     i8 1, label %182
@@ -490,33 +490,33 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   ]
 
 182:                                              ; preds = %180
-  %183 = getelementptr i8, ptr %.048, i64 1
+  %183 = getelementptr i8, ptr %.051, i64 1
   br label %.backedge
 
 184:                                              ; preds = %180
-  %185 = getelementptr i8, ptr %.048, i64 1
+  %185 = getelementptr i8, ptr %.051, i64 1
   br label %.backedge
 
 186:                                              ; preds = %180
   %187 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
-  %188 = call i32 @PQmblen(ptr noundef nonnull %.048, i32 noundef %187) #11
+  %188 = call i32 @PQmblen(ptr noundef nonnull %.051, i32 noundef %187) #11
   %189 = sext i32 %188 to i64
-  %190 = getelementptr i8, ptr %.048, i64 %189
+  %190 = getelementptr i8, ptr %.051, i64 %189
   %191 = icmp ugt ptr %190, %179
   br i1 %191, label %.loopexit, label %192
 
 192:                                              ; preds = %186
-  br i1 %.0, label %193, label %.backedge
+  br i1 %.049, label %193, label %.backedge
 
 .backedge:                                        ; preds = %192, %199, %201, %198, %184, %182
-  %.048.be = phi ptr [ %183, %182 ], [ %185, %184 ], [ %190, %198 ], [ %190, %201 ], [ %190, %199 ], [ %190, %192 ]
-  %.0.be = phi i1 [ false, %182 ], [ true, %184 ], [ true, %198 ], [ true, %201 ], [ true, %199 ], [ false, %192 ]
+  %.051.be = phi ptr [ %183, %182 ], [ %185, %184 ], [ %190, %198 ], [ %190, %201 ], [ %190, %199 ], [ %190, %192 ]
+  %.049.be = phi i1 [ false, %182 ], [ true, %184 ], [ true, %198 ], [ true, %201 ], [ true, %199 ], [ false, %192 ]
   br label %180, !llvm.loop !7
 
 193:                                              ; preds = %192
   %194 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
-  %195 = call i32 @PQdsplen(ptr noundef nonnull %.048, i32 noundef %194) #11
-  %196 = load i8, ptr %.048, align 1
+  %195 = call i32 @PQdsplen(ptr noundef nonnull %.051, i32 noundef %194) #11
+  %196 = load i8, ptr %.051, align 1
   %197 = icmp eq i8 %196, 10
   br i1 %197, label %198, label %199
 

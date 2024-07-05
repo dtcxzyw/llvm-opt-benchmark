@@ -1020,7 +1020,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 .lr.ph:                                           ; preds = %Abc_Clock.exit, %25
   %14 = phi i32 [ %26, %25 ], [ %12, %Abc_Clock.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %Abc_Clock.exit ]
-  %.022 = phi i32 [ %.1, %25 ], [ 0, %Abc_Clock.exit ]
+  %.01221 = phi i32 [ %.1, %25 ], [ 0, %Abc_Clock.exit ]
   %.val = load ptr, ptr %10, align 8
   %15 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
   %.not = icmp eq ptr %.val, null
@@ -1040,20 +1040,20 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %21 = call i32 @Gia_ManSuppSize_rec(ptr noundef nonnull %0, ptr noundef nonnull %15)
   %22 = icmp slt i32 %21, 17
   %23 = zext i1 %22 to i32
-  %24 = add nsw i32 %.022, %23
+  %24 = add nsw i32 %.01221, %23
   %.pre = load i32, ptr %11, align 8
   br label %25
 
 25:                                               ; preds = %16, %20
   %26 = phi i32 [ %.pre, %20 ], [ %14, %16 ]
-  %.1 = phi i32 [ %24, %20 ], [ %.022, %16 ]
+  %.1 = phi i32 [ %24, %20 ], [ %.01221, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
   br i1 %28, label %.lr.ph, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %25, %Abc_Clock.exit
-  %.0.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1, %25 ], [ %.022, %.lr.ph ]
+  %.012.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1, %25 ], [ %.01221, %.lr.ph ]
   %.lcssa = phi i32 [ %12, %Abc_Clock.exit ], [ %26, %25 ], [ %14, %.lr.ph ]
   %29 = getelementptr inbounds i8, ptr %0, i64 64
   %30 = load ptr, ptr %29, align 8
@@ -1066,7 +1066,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %35 = add i32 %.val.i, %.val3.i
   %36 = xor i32 %35, -1
   %37 = add i32 %.lcssa, %36
-  %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.0.lcssa, i32 noundef %37)
+  %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.012.lcssa, i32 noundef %37)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %39 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #16
   %40 = icmp slt i32 %39, 0
@@ -1089,7 +1089,7 @@ Abc_Clock.exit17:                                 ; preds = %.critedge, %41
   %49 = sitofp i64 %48 to double
   %50 = fdiv double %49, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, double noundef %50)
-  ret i32 %.0.lcssa
+  ret i32 %.012.lcssa
 }
 
 ; Function Attrs: nofree nounwind

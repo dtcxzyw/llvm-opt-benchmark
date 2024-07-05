@@ -107,7 +107,7 @@ list_length.exit:                                 ; preds = %2, %3
   br i1 %exitcond110.not, label %.preheader, label %28, !llvm.loop !8
 
 .lr.ph129:                                        ; preds = %.lr.ph95, %88
-  %.07493128 = phi i32 [ %.1, %88 ], [ 0, %.lr.ph95 ]
+  %.07593128 = phi i32 [ %.176, %88 ], [ 0, %.lr.ph95 ]
   %indvars.iv111127 = phi i64 [ %indvars.iv.next112, %88 ], [ 0, %.lr.ph95 ]
   %32 = load ptr, ptr %24, align 8
   %33 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv111127
@@ -129,7 +129,7 @@ list_length.exit:                                 ; preds = %2, %3
   unreachable
 
 45:                                               ; preds = %.lr.ph129
-  %46 = sext i32 %.07493128 to i64
+  %46 = sext i32 %.07593128 to i64
   %47 = getelementptr ptr, ptr %21, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
@@ -176,7 +176,7 @@ list_length.exit:                                 ; preds = %2, %3
   store i64 %78, ptr %82, align 8
   %83 = load ptr, ptr %47, align 8
   %84 = tail call ptr @ExecStoreVirtualTuple(ptr noundef %83) #10
-  %85 = add i32 %.07493128, 1
+  %85 = add i32 %.07593128, 1
   %86 = icmp eq i32 %85, %19
   br i1 %86, label %87, label %88
 
@@ -185,19 +185,19 @@ list_length.exit:                                 ; preds = %2, %3
   br label %88
 
 88:                                               ; preds = %87, %45
-  %.1 = phi i32 [ 0, %87 ], [ %85, %45 ]
+  %.176 = phi i32 [ 0, %87 ], [ %85, %45 ]
   %89 = load i32, ptr %23, align 4
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next112, %90
   br i1 %91, label %.lr.ph129, label %._crit_edge96
 
 ._crit_edge96:                                    ; preds = %88, %.lr.ph95
-  %.07493.lcssa = phi i32 [ 0, %.lr.ph95 ], [ %.1, %88 ]
-  %92 = icmp sgt i32 %.07493.lcssa, 0
+  %.07593.lcssa = phi i32 [ 0, %.lr.ph95 ], [ %.176, %88 ]
+  %92 = icmp sgt i32 %.07593.lcssa, 0
   br i1 %92, label %93, label %._crit_edge96.thread
 
 93:                                               ; preds = %._crit_edge96
-  tail call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %7, ptr noundef %21, i32 noundef %.07493.lcssa, ptr noundef %17) #10
+  tail call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %7, ptr noundef %21, i32 noundef %.07593.lcssa, ptr noundef %17) #10
   br label %._crit_edge96.thread
 
 ._crit_edge96.thread:                             ; preds = %.preheader, %93, %._crit_edge96
@@ -362,7 +362,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 33:                                               ; preds = %19
   %34 = tail call ptr @table_open(i32 noundef 3501, i32 noundef 3) #10
   %35 = icmp eq ptr %2, null
-  %.094.v = select i1 %3, i32 1, i32 -1
+  %.097.v = select i1 %3, i32 1, i32 -1
   %36 = tail call ptr @SearchSysCacheList(i32 noundef 24, i32 noundef 1, i64 noundef %20, i64 noundef 0, i64 noundef 0) #10
   %37 = getelementptr inbounds i8, ptr %36, i64 64
   %38 = load i32, ptr %37, align 8
@@ -493,8 +493,8 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %97 = load i8, ptr %96, align 2
   %98 = zext i8 %97 to i64
   %99 = getelementptr i8, ptr %95, i64 %98
-  %.094 = add i32 %.094.v, %90
-  %100 = icmp slt i32 %.094, 0
+  %.097 = add i32 %.097.v, %90
+  %100 = icmp slt i32 %.097, 0
   br i1 %100, label %101, label %105
 
 101:                                              ; preds = %89
@@ -504,7 +504,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   br label %157
 
 105:                                              ; preds = %89
-  %.not103 = icmp slt i32 %.094, %52
+  %.not103 = icmp slt i32 %.097, %52
   br i1 %.not103, label %110, label %106
 
 106:                                              ; preds = %105
@@ -514,7 +514,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   br label %157
 
 110:                                              ; preds = %105
-  %111 = zext nneg i32 %.094 to i64
+  %111 = zext nneg i32 %.097 to i64
   %112 = getelementptr ptr, ptr %50, i64 %111
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 16
@@ -595,7 +595,7 @@ RenumberEnumType.exit:                            ; preds = %147
   %158 = phi ptr [ %36, %60 ], [ %53, %101 ], [ %53, %106 ], [ %53, %156 ], [ %36, %._crit_edge.us ], [ %36, %._crit_edge.us.thread ]
   %159 = phi i32 [ %38, %60 ], [ %52, %101 ], [ %52, %106 ], [ %52, %156 ], [ %38, %._crit_edge.us ], [ %38, %._crit_edge.us.thread ]
   %160 = phi ptr [ %41, %60 ], [ %50, %101 ], [ %50, %106 ], [ %50, %156 ], [ %41, %._crit_edge.us ], [ %41, %._crit_edge.us.thread ]
-  %.096 = phi float [ %73, %60 ], [ %104, %101 ], [ %109, %106 ], [ %.0..0..0..0.9, %156 ], [ 1.000000e+00, %._crit_edge.us ], [ 1.000000e+00, %._crit_edge.us.thread ]
+  %.0 = phi float [ %73, %60 ], [ %104, %101 ], [ %109, %106 ], [ %.0..0..0..0.9, %156 ], [ 1.000000e+00, %._crit_edge.us ], [ 1.000000e+00, %._crit_edge.us.thread ]
   %.fr = freeze i32 %159
   %161 = load i8, ptr @IsBinaryUpgrade, align 1
   %162 = trunc i8 %161 to i1
@@ -632,7 +632,7 @@ RenumberEnumType.exit:                            ; preds = %147
 175:                                              ; preds = %164
   %176 = getelementptr inbounds i8, ptr %172, i64 8
   %177 = load float, ptr %176, align 4
-  %178 = fcmp olt float %177, %.096
+  %178 = fcmp olt float %177, %.0
   br i1 %178, label %180, label %179
 
 179:                                              ; preds = %175
@@ -709,7 +709,7 @@ RenumberEnumType.exit:                            ; preds = %147
   store i64 %202, ptr %8, align 16
   %203 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %20, ptr %203, align 8
-  %204 = bitcast float %.096 to i32
+  %204 = bitcast float %.0 to i32
   %205 = sext i32 %204 to i64
   %206 = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %205, ptr %206, align 16

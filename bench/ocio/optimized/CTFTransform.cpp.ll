@@ -2706,9 +2706,9 @@ for.body.lr.ph.i:                                 ; preds = %if.else
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.body.lr.ph.i
-  %ref.tmp15.sroa.8.0 = phi i32 [ %13, %for.body.lr.ph.i ], [ %ref.tmp15.sroa.8.1, %if.end.i ]
   %ref.tmp15.sroa.4.0 = phi i32 [ %12, %for.body.lr.ph.i ], [ %ref.tmp15.sroa.4.1, %if.end.i ]
   %ref.tmp15.sroa.0.0 = phi i32 [ %11, %for.body.lr.ph.i ], [ %ref.tmp15.sroa.0.1, %if.end.i ]
+  %ref.tmp15.sroa.8.0 = phi i32 [ %13, %for.body.lr.ph.i ], [ %ref.tmp15.sroa.8.1, %if.end.i ]
   %__begin2.sroa.0.011.i = phi ptr [ %m_transform.val.val, %for.body.lr.ph.i ], [ %incdec.ptr.i.i25, %if.end.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gamma.i.i), !noalias !22
   %.b149 = load i1, ptr @_ZN19OpenColorIO_v2_4devL24CTF_PROCESS_LIST_VERSIONE.0, align 4
@@ -3589,17 +3589,17 @@ _ZN19OpenColorIO_v2_4dev10CTFVersionaSERKS0_.exit.i: ; preds = %if.else13.i.i.i,
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN19OpenColorIO_v2_4dev10CTFVersionaSERKS0_.exit.i, %if.else13.i.i.i, %if.else.i.i.i
-  %ref.tmp15.sroa.8.1 = phi i32 [ %version.sroa.34.5.i, %_ZN19OpenColorIO_v2_4dev10CTFVersionaSERKS0_.exit.i ], [ %ref.tmp15.sroa.8.0, %if.else.i.i.i ], [ %ref.tmp15.sroa.8.0, %if.else13.i.i.i ]
   %ref.tmp15.sroa.4.1 = phi i32 [ %version.sroa.17.7.i, %_ZN19OpenColorIO_v2_4dev10CTFVersionaSERKS0_.exit.i ], [ %ref.tmp15.sroa.4.0, %if.else.i.i.i ], [ %ref.tmp15.sroa.4.0, %if.else13.i.i.i ]
   %ref.tmp15.sroa.0.1 = phi i32 [ %version.sroa.0.7.i, %_ZN19OpenColorIO_v2_4dev10CTFVersionaSERKS0_.exit.i ], [ %ref.tmp15.sroa.0.0, %if.else.i.i.i ], [ %ref.tmp15.sroa.0.0, %if.else13.i.i.i ]
+  %ref.tmp15.sroa.8.1 = phi i32 [ %version.sroa.34.5.i, %_ZN19OpenColorIO_v2_4dev10CTFVersionaSERKS0_.exit.i ], [ %ref.tmp15.sroa.8.0, %if.else.i.i.i ], [ %ref.tmp15.sroa.8.0, %if.else13.i.i.i ]
   %incdec.ptr.i.i25 = getelementptr inbounds i8, ptr %__begin2.sroa.0.011.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i25, %m_transform.val.val21
   br i1 %cmp.i.not.i, label %invoke.cont16, label %for.body.i
 
 invoke.cont16:                                    ; preds = %if.end.i, %if.else
-  %ref.tmp15.sroa.8.2 = phi i32 [ %13, %if.else ], [ %ref.tmp15.sroa.8.1, %if.end.i ]
   %ref.tmp15.sroa.4.2 = phi i32 [ %12, %if.else ], [ %ref.tmp15.sroa.4.1, %if.end.i ]
   %ref.tmp15.sroa.0.2 = phi i32 [ %11, %if.else ], [ %ref.tmp15.sroa.0.1, %if.end.i ]
+  %ref.tmp15.sroa.8.2 = phi i32 [ %13, %if.else ], [ %ref.tmp15.sroa.8.1, %if.end.i ]
   store i32 %ref.tmp15.sroa.0.2, ptr %writeVersion, align 8
   store i32 %ref.tmp15.sroa.4.2, ptr %m_minor.i, align 4
   store i32 %ref.tmp15.sroa.8.2, ptr %m_revision.i, align 8

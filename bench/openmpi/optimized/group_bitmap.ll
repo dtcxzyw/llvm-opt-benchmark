@@ -119,26 +119,26 @@ define noundef i32 @ompi_group_translate_ranks_bmap(ptr nocapture noundef readno
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %.13544.us = phi i32 [ %spec.select.us, %.preheader.split.us ], [ %.03446, %.preheader ]
-  %.03643.us = phi i32 [ %34, %.preheader.split.us ], [ 0, %.preheader ]
-  %32 = lshr i32 %30, %.03643.us
+  %.03743.us = phi i32 [ %34, %.preheader.split.us ], [ 0, %.preheader ]
+  %32 = lshr i32 %30, %.03743.us
   %33 = and i32 %32, 1
   %spec.select.us = add nsw i32 %33, %.13544.us
-  %34 = add nuw nsw i32 %.03643.us, 1
+  %34 = add nuw nsw i32 %.03743.us, 1
   %exitcond.not = icmp eq i32 %34, 8
   br i1 %exitcond.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !6
 
 35:                                               ; preds = %.preheader.split
-  %36 = add nuw nsw i32 %.03643, 1
+  %36 = add nuw nsw i32 %.03743, 1
   %exitcond51.not = icmp eq i32 %36, 8
   br i1 %exitcond51.not, label %.loopexit, label %.preheader.split, !llvm.loop !6
 
 .preheader.split:                                 ; preds = %.preheader, %35
   %.13544 = phi i32 [ %spec.select, %35 ], [ %.03446, %.preheader ]
-  %.03643 = phi i32 [ %36, %35 ], [ 0, %.preheader ]
-  %37 = lshr i32 %30, %.03643
+  %.03743 = phi i32 [ %36, %35 ], [ 0, %.preheader ]
+  %37 = lshr i32 %30, %.03743
   %38 = and i32 %37, 1
   %spec.select = add nsw i32 %38, %.13544
-  %39 = icmp eq i32 %.03643, %15
+  %39 = icmp eq i32 %.03743, %15
   br i1 %39, label %.loopexit.thread, label %35
 
 .loopexit.thread:                                 ; preds = %.preheader.split
@@ -200,7 +200,7 @@ define noundef i32 @ompi_group_translate_ranks_bmap_reverse(ptr nocapture nounde
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %18 = phi i32 [ %13, %.preheader.lr.ph ], [ %36, %.loopexit ]
   %.038 = phi i32 [ 0, %.preheader.lr.ph ], [ %37, %.loopexit ]
-  %.02737 = phi i32 [ 0, %.preheader.lr.ph ], [ %spec.select, %.loopexit ]
+  %.02837 = phi i32 [ 0, %.preheader.lr.ph ], [ %spec.select, %.loopexit ]
   %19 = load ptr, ptr %7, align 8
   %20 = sext i32 %.038 to i64
   %21 = getelementptr inbounds i8, ptr %19, i64 %20
@@ -210,10 +210,10 @@ define noundef i32 @ompi_group_translate_ranks_bmap_reverse(ptr nocapture nounde
 
 24:                                               ; preds = %.preheader, %34
   %.02636 = phi i32 [ 0, %.preheader ], [ %35, %34 ]
-  %.12835 = phi i32 [ %.02737, %.preheader ], [ %spec.select, %34 ]
+  %.12935 = phi i32 [ %.02837, %.preheader ], [ %spec.select, %34 ]
   %25 = lshr i32 %23, %.02636
   %26 = and i32 %25, 1
-  %spec.select = add nsw i32 %26, %.12835
+  %spec.select = add nsw i32 %26, %.12935
   %27 = add nsw i32 %spec.select, -1
   %28 = icmp eq i32 %11, %27
   br i1 %28, label %29, label %34

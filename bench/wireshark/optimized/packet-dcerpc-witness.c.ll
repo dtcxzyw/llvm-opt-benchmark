@@ -256,13 +256,13 @@ define hidden i32 @witness_dissect_struct_notifyResponse(ptr noundef %0, i32 nou
   %or.cond = or i1 %.not51, %.not
   %13 = and i32 %1, -4
   %14 = add i32 %13, 4
-  %.049 = select i1 %or.cond, i32 %1, i32 %14
-  %15 = and i32 %.049, 3
+  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %15 = and i32 %.0, 3
   %.not53 = icmp eq i32 %15, 0
   %or.cond58 = select i1 %.not, i1 true, i1 %.not53
-  %16 = and i32 %.049, -4
+  %16 = and i32 %.0, -4
   %17 = add i32 %16, 4
-  %.1 = select i1 %or.cond58, i32 %.049, i32 %17
+  %.1 = select i1 %or.cond58, i32 %.0, i32 %17
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %22, label %18
 
@@ -273,8 +273,8 @@ define hidden i32 @witness_dissect_struct_notifyResponse(ptr noundef %0, i32 nou
   br label %22
 
 22:                                               ; preds = %18, %8
-  %.048 = phi ptr [ %19, %18 ], [ null, %8 ]
-  %.0 = phi ptr [ %21, %18 ], [ null, %8 ]
+  %.049 = phi ptr [ %19, %18 ], [ null, %8 ]
+  %.048 = phi ptr [ %21, %18 ], [ null, %8 ]
   %23 = getelementptr inbounds i8, ptr %2, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 4) #4
@@ -285,13 +285,13 @@ define hidden i32 @witness_dissect_struct_notifyResponse(ptr noundef %0, i32 nou
   br i1 %.not.i.i, label %.thread.i.i, label %28
 
 .thread.i.i:                                      ; preds = %22
-  %27 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %9) #4
+  %27 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %2, ptr noundef %.048, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %9) #4
   br label %witness_dissect_element_notifyResponse_type.exit
 
 28:                                               ; preds = %22
   %29 = load i32, ptr %25, align 4
   store i32 %29, ptr %9, align 4
-  %30 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %9) #4
+  %30 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %2, ptr noundef %.048, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %9) #4
   %31 = load i32, ptr %9, align 4
   store i32 %31, ptr %25, align 4
   br label %witness_dissect_element_notifyResponse_type.exit
@@ -300,15 +300,15 @@ witness_dissect_element_notifyResponse_type.exit: ; preds = %.thread.i.i, %28
   %32 = phi i32 [ %27, %.thread.i.i ], [ %30, %28 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %33 = load i32, ptr @hf_witness_witness_notifyResponse_length, align 4
-  %34 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef nonnull %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
+  %34 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef nonnull %2, ptr noundef %.048, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
   %35 = load i32, ptr @hf_witness_witness_notifyResponse_num, align 4
-  %36 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef nonnull %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #4
+  %36 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef nonnull %2, ptr noundef %.048, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #4
   %37 = getelementptr inbounds i8, ptr %4, i64 88
   store ptr %25, ptr %37, align 8
   %38 = load i32, ptr @hf_witness_witness_notifyResponse_messages, align 4
-  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef nonnull %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @witness_dissect_element_notifyResponse_messages, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %38) #4
+  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef nonnull %2, ptr noundef %.048, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @witness_dissect_element_notifyResponse_messages, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %38) #4
   %40 = sub i32 %39, %.1
-  call void @proto_item_set_len(ptr noundef %.048, i32 noundef %40) #4
+  call void @proto_item_set_len(ptr noundef %.049, i32 noundef %40) #4
   %41 = getelementptr inbounds i8, ptr %4, i64 72
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
@@ -366,33 +366,33 @@ define hidden i32 @witness_dissect_struct_IPaddrInfoList(ptr noundef %0, i32 nou
   br label %15
 
 15:                                               ; preds = %11, %8
+  %.045 = phi ptr [ %14, %11 ], [ null, %8 ]
   %.044 = phi ptr [ %12, %11 ], [ null, %8 ]
-  %.043 = phi ptr [ %14, %11 ], [ null, %8 ]
   %16 = load i32, ptr @hf_witness_witness_IPaddrInfoList_length, align 4
-  %17 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #4
+  %17 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.045, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #4
   %18 = load i32, ptr @hf_witness_witness_IPaddrInfoList_reserved, align 4
-  %19 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, i32 noundef 0) #4
+  %19 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.045, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, i32 noundef 0) #4
   %20 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %19) #4
   %21 = load i32, ptr @hf_witness_witness_IPaddrInfoList_num, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.045, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %.not49 = icmp eq i32 %20, 0
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
-  %.048 = phi i32 [ %25, %.lr.ph ], [ 0, %15 ]
-  %.04547 = phi i32 [ %24, %.lr.ph ], [ %22, %15 ]
+  %.048 = phi i32 [ %24, %.lr.ph ], [ %22, %15 ]
+  %.04347 = phi i32 [ %25, %.lr.ph ], [ 0, %15 ]
   %23 = load i32, ptr @hf_witness_witness_IPaddrInfoList_addr, align 4
-  %24 = tail call noundef i32 @witness_dissect_struct_IPaddrInfo(ptr noundef %0, i32 noundef %.04547, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 poison)
-  %25 = add nuw i32 %.048, 1
+  %24 = tail call noundef i32 @witness_dissect_struct_IPaddrInfo(ptr noundef %0, i32 noundef %.048, ptr noundef %2, ptr noundef %.045, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 poison)
+  %25 = add nuw i32 %.04347, 1
   %exitcond.not = icmp eq i32 %25, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
-  %.045.lcssa = phi i32 [ %22, %15 ], [ %24, %.lr.ph ]
-  %26 = sub i32 %.045.lcssa, %1
+  %.0.lcssa = phi i32 [ %22, %15 ], [ %24, %.lr.ph ]
+  %26 = sub i32 %.0.lcssa, %1
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %26) #4
   store i32 %10, ptr %9, align 8
-  ret i32 %.045.lcssa
+  ret i32 %.0.lcssa
 }
 
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -509,26 +509,26 @@ define hidden i32 @witness_dissect_struct_interfaceInfo(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not56, %.not
   %15 = and i32 %1, -4
   %16 = add i32 %15, 4
-  %.054 = select i1 %or.cond, i32 %1, i32 %16
+  %.0 = select i1 %or.cond, i32 %1, i32 %16
   %.not57 = icmp eq ptr %3, null
   br i1 %.not57, label %21, label %17
 
 17:                                               ; preds = %8
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.054, i32 noundef -1, i32 noundef 0) #4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %19 = load i32, ptr @ett_witness_witness_interfaceInfo, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #4
   br label %21
 
 21:                                               ; preds = %17, %8
-  %.053 = phi ptr [ %18, %17 ], [ null, %8 ]
-  %.0 = phi ptr [ %20, %17 ], [ null, %8 ]
+  %.054 = phi ptr [ %18, %17 ], [ null, %8 ]
+  %.053 = phi ptr [ %20, %17 ], [ null, %8 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   br label %22
 
 22:                                               ; preds = %27, %21
   %.02.i = phi i32 [ 0, %21 ], [ %23, %27 ]
   %23 = add nuw nsw i32 %.02.i, 2
-  %24 = add i32 %.02.i, %.054
+  %24 = add i32 %.02.i, %.0
   %25 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %24) #4
   %26 = icmp eq i16 %25, 0
   br i1 %26, label %witness_dissect_element_interfaceInfo_group_name.exit, label %27
@@ -543,30 +543,30 @@ witness_dissect_element_interfaceInfo_group_name.exit: ; preds = %22, %27
   %29 = load i32, ptr @hf_witness_witness_interfaceInfo_group_name, align 4
   %30 = getelementptr inbounds i8, ptr %2, i64 408
   %31 = load ptr, ptr %30, align 8
-  %32 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %.0, i32 noundef %29, ptr noundef %0, i32 noundef %.054, i32 noundef %.014.lcssa.i, i32 noundef -2147483644, ptr noundef %31, ptr noundef nonnull %11) #4
+  %32 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %.053, i32 noundef %29, ptr noundef %0, i32 noundef %.0, i32 noundef %.014.lcssa.i, i32 noundef -2147483644, ptr noundef %31, ptr noundef nonnull %11) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.113, i32 noundef %.lcssa.i) #4
   %33 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0, ptr noundef nonnull @.str.114, ptr noundef %33) #4
-  %34 = add i32 %.054, 520
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.053, ptr noundef nonnull @.str.114, ptr noundef %33) #4
+  %34 = add i32 %.0, 520
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %35 = load i32, ptr @hf_witness_witness_interfaceInfo_version, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %10) #4
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.053, ptr noundef %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %10) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %37 = load i32, ptr @hf_witness_witness_interfaceInfo_state, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9)
   store i16 0, ptr %9, align 2
-  %38 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %9) #4
+  %38 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.053, ptr noundef %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
   %39 = load i32, ptr @hf_witness_witness_interfaceInfo_ipv4, align 4
-  %40 = call fastcc noundef i32 @PIDL_dissect_ipv4address(ptr noundef %0, i32 noundef %38, ptr noundef readonly %2, ptr noundef %.0, ptr noundef readonly %4, i32 noundef %39)
+  %40 = call fastcc noundef i32 @PIDL_dissect_ipv4address(ptr noundef %0, i32 noundef %38, ptr noundef readonly %2, ptr noundef %.053, ptr noundef readonly %4, i32 noundef %39)
   %41 = load i32, ptr @hf_witness_witness_interfaceInfo_ipv6, align 4
-  %42 = call fastcc noundef i32 @PIDL_dissect_ipv6address(ptr noundef %0, i32 noundef %40, ptr noundef readonly %2, ptr noundef %.0, ptr noundef readonly %4, i32 noundef %41)
+  %42 = call fastcc noundef i32 @PIDL_dissect_ipv6address(ptr noundef %0, i32 noundef %40, ptr noundef readonly %2, ptr noundef %.053, ptr noundef readonly %4, i32 noundef %41)
   %43 = load i32, ptr @hf_witness_witness_interfaceInfo_flags, align 4
-  %44 = call i32 @witness_dissect_bitmap_interfaceInfo_flags(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %43, i32 poison)
-  %45 = sub i32 %44, %.054
-  call void @proto_item_set_len(ptr noundef %.053, i32 noundef %45) #4
+  %44 = call i32 @witness_dissect_bitmap_interfaceInfo_flags(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.053, ptr noundef %4, ptr noundef %5, i32 noundef %43, i32 poison)
+  %45 = sub i32 %44, %.0
+  call void @proto_item_set_len(ptr noundef %.054, i32 noundef %45) #4
   %46 = getelementptr inbounds i8, ptr %4, i64 72
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 96
@@ -629,25 +629,25 @@ define hidden i32 @witness_dissect_struct_interfaceList(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_witness_witness_interfaceList, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_witness_witness_interfaceList_num_interfaces, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_witness_witness_interfaceList_interfaces, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @witness_dissect_element_interfaceList_interfaces_, i32 noundef 2, ptr noundef nonnull @.str.116, i32 noundef %34) #4
-  %36 = sub i32 %35, %.038
-  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @witness_dissect_element_interfaceList_interfaces_, i32 noundef 2, ptr noundef nonnull @.str.116, i32 noundef %34) #4
+  %36 = sub i32 %35, %.0
+  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -738,19 +738,19 @@ define hidden i32 @witness_dissect_struct_ResourceChange(ptr noundef %0, i32 nou
   br label %16
 
 16:                                               ; preds = %12, %8
-  %.032 = phi ptr [ %13, %12 ], [ null, %8 ]
-  %.0 = phi ptr [ %15, %12 ], [ null, %8 ]
+  %.032 = phi ptr [ %15, %12 ], [ null, %8 ]
+  %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_witness_witness_ResourceChange_length, align 4
-  %18 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, i32 noundef 0) #4
+  %18 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, i32 noundef 0) #4
   %19 = load i32, ptr @hf_witness_witness_ResourceChange_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9) #4
+  %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %21 = load i32, ptr @hf_witness_witness_ResourceChange_name, align 4
-  %22 = call i32 @dissect_null_term_wstring(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %22 = call i32 @dissect_null_term_wstring(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.032, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = sub i32 %22, %1
-  call void @proto_item_set_len(ptr noundef %.032, i32 noundef %23) #4
+  call void @proto_item_set_len(ptr noundef %.0, i32 noundef %23) #4
   store i32 %11, ptr %10, align 8
   ret i32 %22
 }
@@ -813,16 +813,16 @@ define hidden noundef i32 @witness_dissect_struct_IPaddrInfo(ptr noundef %0, i32
   br label %15
 
 15:                                               ; preds = %11, %8
-  %.032 = phi ptr [ %12, %11 ], [ null, %8 ]
-  %.0 = phi ptr [ %14, %11 ], [ null, %8 ]
+  %.032 = phi ptr [ %14, %11 ], [ null, %8 ]
+  %.0 = phi ptr [ %12, %11 ], [ null, %8 ]
   %16 = load i32, ptr @hf_witness_witness_IPaddrInfo_flags, align 4
-  %17 = tail call i32 @witness_dissect_bitmap_IPaddrInfo_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 poison)
+  %17 = tail call i32 @witness_dissect_bitmap_IPaddrInfo_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 poison)
   %18 = load i32, ptr @hf_witness_witness_IPaddrInfo_ipv4, align 4
-  %19 = tail call fastcc noundef i32 @PIDL_dissect_ipv4address(ptr noundef %0, i32 noundef %17, ptr noundef readonly %2, ptr noundef %.0, ptr noundef nonnull readonly %4, i32 noundef %18)
+  %19 = tail call fastcc noundef i32 @PIDL_dissect_ipv4address(ptr noundef %0, i32 noundef %17, ptr noundef readonly %2, ptr noundef %.032, ptr noundef nonnull readonly %4, i32 noundef %18)
   %20 = load i32, ptr @hf_witness_witness_IPaddrInfo_ipv6, align 4
-  %21 = tail call fastcc noundef i32 @PIDL_dissect_ipv6address(ptr noundef %0, i32 noundef %19, ptr noundef readonly %2, ptr noundef %.0, ptr noundef nonnull readonly %4, i32 noundef %20)
+  %21 = tail call fastcc noundef i32 @PIDL_dissect_ipv6address(ptr noundef %0, i32 noundef %19, ptr noundef readonly %2, ptr noundef %.032, ptr noundef nonnull readonly %4, i32 noundef %20)
   %22 = sub i32 %21, %1
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %22) #4
+  tail call void @proto_item_set_len(ptr noundef %.0, i32 noundef %22) #4
   store i32 %10, ptr %9, align 8
   ret i32 %21
 }
@@ -917,7 +917,7 @@ define internal i32 @witness_dissect_notifyResponse_message_(ptr noundef %0, i32
   br label %16
 
 16:                                               ; preds = %13, %7
-  %.0.i = phi ptr [ %15, %13 ], [ null, %7 ]
+  %.039.i = phi ptr [ %15, %13 ], [ null, %7 ]
   switch i32 %12, label %29 [
     i32 1, label %17
     i32 2, label %20
@@ -927,36 +927,36 @@ define internal i32 @witness_dissect_notifyResponse_message_(ptr noundef %0, i32
 
 17:                                               ; preds = %16
   %18 = load i32, ptr @hf_witness_witness_notifyResponse_message_resource_change, align 4
-  %19 = call i32 @witness_dissect_struct_ResourceChange(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %.0.i, ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %18, i32 poison)
+  %19 = call i32 @witness_dissect_struct_ResourceChange(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %.039.i, ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %18, i32 poison)
   br label %witness_dissect_notifyResponse_message.exit
 
 20:                                               ; preds = %16
   %21 = load i32, ptr @hf_witness_witness_notifyResponse_message_client_move, align 4
-  %22 = call i32 @witness_dissect_struct_IPaddrInfoList(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %.0.i, ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %21, i32 poison)
+  %22 = call i32 @witness_dissect_struct_IPaddrInfoList(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %.039.i, ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %21, i32 poison)
   br label %witness_dissect_notifyResponse_message.exit
 
 23:                                               ; preds = %16
   %24 = load i32, ptr @hf_witness_witness_notifyResponse_message_share_move, align 4
-  %25 = call i32 @witness_dissect_struct_IPaddrInfoList(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %.0.i, ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %24, i32 poison)
+  %25 = call i32 @witness_dissect_struct_IPaddrInfoList(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %.039.i, ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %24, i32 poison)
   br label %witness_dissect_notifyResponse_message.exit
 
 26:                                               ; preds = %16
   %27 = load i32, ptr @hf_witness_witness_notifyResponse_message_ip_change, align 4
-  %28 = call i32 @witness_dissect_struct_IPaddrInfoList(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %.0.i, ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %27, i32 poison)
+  %28 = call i32 @witness_dissect_struct_IPaddrInfoList(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %.039.i, ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %27, i32 poison)
   br label %witness_dissect_notifyResponse_message.exit
 
 29:                                               ; preds = %16
   %30 = load i32, ptr @hf_witness_witness_notifyResponse_message_data, align 4
-  %31 = call i32 @dissect_ndr_datablob(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %.0.i, ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %30, i32 noundef 1) #4
+  %31 = call i32 @dissect_ndr_datablob(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %.039.i, ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %30, i32 noundef 1) #4
   br label %witness_dissect_notifyResponse_message.exit
 
 witness_dissect_notifyResponse_message.exit:      ; preds = %17, %20, %23, %26, %29
-  %.039.i = phi i32 [ %31, %29 ], [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %31, %29 ], [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %19, %17 ]
   %32 = load ptr, ptr %8, align 8
-  %33 = sub i32 %.039.i, %1
+  %33 = sub i32 %.0.i, %1
   call void @proto_item_set_len(ptr noundef %32, i32 noundef %33) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  ret i32 %.039.i
+  ret i32 %.0.i
 }
 
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

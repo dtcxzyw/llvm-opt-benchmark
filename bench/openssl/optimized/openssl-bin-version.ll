@@ -49,7 +49,6 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
-  %seed.0 = phi i32 [ 0, %entry ], [ %seed.0.be, %while.cond.backedge ]
   %cflags.0 = phi i32 [ 0, %entry ], [ %cflags.0.be, %while.cond.backedge ]
   %version.0 = phi i32 [ 0, %entry ], [ %version.0.be, %while.cond.backedge ]
   %date.0 = phi i32 [ 0, %entry ], [ %date.0.be, %while.cond.backedge ]
@@ -59,6 +58,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   %engdir.0 = phi i32 [ 0, %entry ], [ %engdir.0.be, %while.cond.backedge ]
   %moddir.0 = phi i32 [ 0, %entry ], [ %moddir.0.be, %while.cond.backedge ]
   %cpuinfo.0 = phi i32 [ 0, %entry ], [ %cpuinfo.0.be, %while.cond.backedge ]
+  %seed.0 = phi i32 [ 0, %entry ], [ %seed.0.be, %while.cond.backedge ]
   %dirty.0 = phi i32 [ 0, %entry ], [ %dirty.0.be, %while.cond.backedge ]
   %call1 = tail call i32 @opt_next() #4
   switch i32 %call1, label %while.cond.backedge [
@@ -79,7 +79,6 @@ while.cond:                                       ; preds = %while.cond.backedge
   ]
 
 while.cond.backedge:                              ; preds = %while.cond, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4
-  %seed.0.be = phi i32 [ 1, %sw.bb14 ], [ %seed.0, %sw.bb13 ], [ %seed.0, %sw.bb12 ], [ 1, %sw.bb11 ], [ %seed.0, %sw.bb10 ], [ %seed.0, %sw.bb9 ], [ %seed.0, %sw.bb8 ], [ %seed.0, %sw.bb7 ], [ %seed.0, %sw.bb6 ], [ %seed.0, %sw.bb5 ], [ %seed.0, %sw.bb4 ], [ %seed.0, %while.cond ]
   %cflags.0.be = phi i32 [ 1, %sw.bb14 ], [ %cflags.0, %sw.bb13 ], [ %cflags.0, %sw.bb12 ], [ %cflags.0, %sw.bb11 ], [ %cflags.0, %sw.bb10 ], [ %cflags.0, %sw.bb9 ], [ 1, %sw.bb8 ], [ %cflags.0, %sw.bb7 ], [ %cflags.0, %sw.bb6 ], [ %cflags.0, %sw.bb5 ], [ %cflags.0, %sw.bb4 ], [ %cflags.0, %while.cond ]
   %version.0.be = phi i32 [ 1, %sw.bb14 ], [ %version.0, %sw.bb13 ], [ 1, %sw.bb12 ], [ %version.0, %sw.bb11 ], [ %version.0, %sw.bb10 ], [ %version.0, %sw.bb9 ], [ %version.0, %sw.bb8 ], [ %version.0, %sw.bb7 ], [ %version.0, %sw.bb6 ], [ %version.0, %sw.bb5 ], [ %version.0, %sw.bb4 ], [ %version.0, %while.cond ]
   %date.0.be = phi i32 [ 1, %sw.bb14 ], [ %date.0, %sw.bb13 ], [ %date.0, %sw.bb12 ], [ %date.0, %sw.bb11 ], [ %date.0, %sw.bb10 ], [ %date.0, %sw.bb9 ], [ %date.0, %sw.bb8 ], [ %date.0, %sw.bb7 ], [ %date.0, %sw.bb6 ], [ %date.0, %sw.bb5 ], [ 1, %sw.bb4 ], [ %date.0, %while.cond ]
@@ -89,6 +88,7 @@ while.cond.backedge:                              ; preds = %while.cond, %sw.bb1
   %engdir.0.be = phi i32 [ 1, %sw.bb14 ], [ %engdir.0, %sw.bb13 ], [ %engdir.0, %sw.bb12 ], [ %engdir.0, %sw.bb11 ], [ %engdir.0, %sw.bb10 ], [ %engdir.0, %sw.bb9 ], [ %engdir.0, %sw.bb8 ], [ %engdir.0, %sw.bb7 ], [ 1, %sw.bb6 ], [ %engdir.0, %sw.bb5 ], [ %engdir.0, %sw.bb4 ], [ %engdir.0, %while.cond ]
   %moddir.0.be = phi i32 [ 1, %sw.bb14 ], [ %moddir.0, %sw.bb13 ], [ %moddir.0, %sw.bb12 ], [ %moddir.0, %sw.bb11 ], [ %moddir.0, %sw.bb10 ], [ %moddir.0, %sw.bb9 ], [ %moddir.0, %sw.bb8 ], [ 1, %sw.bb7 ], [ %moddir.0, %sw.bb6 ], [ %moddir.0, %sw.bb5 ], [ %moddir.0, %sw.bb4 ], [ %moddir.0, %while.cond ]
   %cpuinfo.0.be = phi i32 [ 1, %sw.bb14 ], [ 1, %sw.bb13 ], [ %cpuinfo.0, %sw.bb12 ], [ %cpuinfo.0, %sw.bb11 ], [ %cpuinfo.0, %sw.bb10 ], [ %cpuinfo.0, %sw.bb9 ], [ %cpuinfo.0, %sw.bb8 ], [ %cpuinfo.0, %sw.bb7 ], [ %cpuinfo.0, %sw.bb6 ], [ %cpuinfo.0, %sw.bb5 ], [ %cpuinfo.0, %sw.bb4 ], [ %cpuinfo.0, %while.cond ]
+  %seed.0.be = phi i32 [ 1, %sw.bb14 ], [ %seed.0, %sw.bb13 ], [ %seed.0, %sw.bb12 ], [ 1, %sw.bb11 ], [ %seed.0, %sw.bb10 ], [ %seed.0, %sw.bb9 ], [ %seed.0, %sw.bb8 ], [ %seed.0, %sw.bb7 ], [ %seed.0, %sw.bb6 ], [ %seed.0, %sw.bb5 ], [ %seed.0, %sw.bb4 ], [ %seed.0, %while.cond ]
   %dirty.0.be = phi i32 [ %dirty.0, %sw.bb14 ], [ 1, %sw.bb13 ], [ 1, %sw.bb12 ], [ 1, %sw.bb11 ], [ 1, %sw.bb10 ], [ 1, %sw.bb9 ], [ 1, %sw.bb8 ], [ 1, %sw.bb7 ], [ 1, %sw.bb6 ], [ 1, %sw.bb5 ], [ 1, %sw.bb4 ], [ %dirty.0, %while.cond ]
   br label %while.cond, !llvm.loop !5
 

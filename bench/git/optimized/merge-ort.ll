@@ -1646,8 +1646,8 @@ strmap_get_size.exit.i.i:                         ; preds = %if.then.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.backedge, %strmap_get_size.exit.i.i
   %indvars.iv168.i.i = phi i64 [ 1, %strmap_get_size.exit.i.i ], [ %indvars.iv168.i.i.be, %for.body.i.i.backedge ]
-  %path_count_after.0160.i.i = phi i32 [ 0, %strmap_get_size.exit.i.i ], [ %path_count_after.0160.i.i.be, %for.body.i.i.backedge ]
-  %ret.0159.i.i = phi i32 [ 0, %strmap_get_size.exit.i.i ], [ %ret.1.lcssa.i.i, %for.body.i.i.backedge ]
+  %ret.0160.i.i = phi i32 [ 0, %strmap_get_size.exit.i.i ], [ %ret.1.lcssa.i.i, %for.body.i.i.backedge ]
+  %path_count_after.0159.i.i = phi i32 [ 0, %strmap_get_size.exit.i.i ], [ %path_count_after.0159.i.i.be, %for.body.i.i.backedge ]
   %arrayidx.i.i = getelementptr inbounds [3 x %struct.strintmap], ptr %relevant_sources.i.i, i64 0, i64 %indvars.iv168.i.i
   call void @hashmap_iter_init(ptr noundef nonnull %arrayidx.i.i, ptr noundef nonnull %iter.i.i) #18
   %call.i.i.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i.i) #18
@@ -1737,7 +1737,7 @@ for.body62.lr.ph.i.i:                             ; preds = %for.end.i.i
 
 for.body62.i.i:                                   ; preds = %for.inc189.i.i, %for.body62.lr.ph.i.i
   %entry2.1155.i.i = phi ptr [ %call.i90.i.i, %for.body62.lr.ph.i.i ], [ %call190.i.i, %for.inc189.i.i ]
-  %ret.1154.i.i = phi i32 [ %ret.0159.i.i, %for.body62.lr.ph.i.i ], [ %ret.3.i.i, %for.inc189.i.i ]
+  %ret.1154.i.i = phi i32 [ %ret.0160.i.i, %for.body62.lr.ph.i.i ], [ %ret.3.i.i, %for.inc189.i.i ]
   %key63.i.i = getelementptr inbounds i8, ptr %entry2.1155.i.i, i64 16
   %25 = load ptr, ptr %key63.i.i, align 8
   %value64.i.i = getelementptr inbounds i8, ptr %entry2.1155.i.i, i64 24
@@ -1993,7 +1993,7 @@ for.inc189.i.i:                                   ; preds = %for.end184.i.i, %re
   br i1 %tobool61.not.i.i, label %for.end192.i.i, label %for.body62.i.i, !llvm.loop !27
 
 for.end192.i.i:                                   ; preds = %for.inc189.i.i, %for.end.i.i
-  %ret.1.lcssa.i.i = phi i32 [ %ret.0159.i.i, %for.end.i.i ], [ %ret.3.i.i, %for.inc189.i.i ]
+  %ret.1.lcssa.i.i = phi i32 [ %ret.0160.i.i, %for.end.i.i ], [ %ret.3.i.i, %for.inc189.i.i ]
   call void @strmap_clear(ptr noundef nonnull %copy.i.i, i32 noundef 0) #18
   call void @hashmap_iter_init(ptr noundef nonnull %arrayidx47.i.i, ptr noundef nonnull %iter.i.i) #18
   %call.i94.i.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i.i) #18
@@ -2067,7 +2067,7 @@ resolve_trivial_directory_merge.exit127.i.i:      ; preds = %if.end.i.i.i.i111.i
   br i1 %tobool202.not.i.i, label %for.end213.i.i, label %for.body203.i.i, !llvm.loop !28
 
 for.end213.i.i:                                   ; preds = %resolve_trivial_directory_merge.exit127.i.i, %for.end192.i.i
-  %tobool216.i.i = icmp ne i32 %path_count_after.0160.i.i, 0
+  %tobool216.i.i = icmp ne i32 %path_count_after.0159.i.i, 0
   %or.cond.i.i = select i1 %tobool.not.lcssa.i.i, i1 true, i1 %tobool216.i.i
   br i1 %or.cond.i.i, label %if.then217.i.i, label %for.inc222.thread.i.i
 
@@ -2097,7 +2097,7 @@ for.inc222.thread.i.i:                            ; preds = %for.end213.i.i
 
 for.body.i.i.backedge:                            ; preds = %for.inc222.thread.i.i, %for.inc222.i.i
   %indvars.iv168.i.i.be = phi i64 [ %indvars.iv.next169.i.i, %for.inc222.i.i ], [ %indvars.iv.next169173.i.i, %for.inc222.thread.i.i ]
-  %path_count_after.0160.i.i.be = phi i32 [ %70, %for.inc222.i.i ], [ 0, %for.inc222.thread.i.i ]
+  %path_count_after.0159.i.i.be = phi i32 [ %70, %for.inc222.i.i ], [ 0, %for.inc222.thread.i.i ]
   br label %for.body.i.i, !llvm.loop !29
 
 for.end224.i.i:                                   ; preds = %for.inc222.i.i
@@ -2732,8 +2732,8 @@ if.then8.i.i:                                     ; preds = %if.end.i123.i
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then8.i.i, %if.end.i123.i
-  %newpath.0.in.i.i = phi ptr [ %key9.i.i, %if.then8.i.i ], [ %path6.i.i, %if.end.i123.i ]
   %newinfo.0.i.i = phi ptr [ %155, %if.then8.i.i ], [ null, %if.end.i123.i ]
+  %newpath.0.in.i.i = phi ptr [ %key9.i.i, %if.then8.i.i ], [ %path6.i.i, %if.end.i123.i ]
   %newpath.0.i.i = load ptr, ptr %newpath.0.in.i.i, align 8
   %tobool12.not.i.i48 = icmp eq ptr %oldinfo.0.i.i, null
   br i1 %tobool12.not.i.i48, label %for.inc346.i.i, label %lor.lhs.false.i125.i
@@ -4858,8 +4858,8 @@ if.else11:                                        ; preds = %if.else
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.else11, %if.then4
-  %merged_merge_bases.0 = phi ptr [ %call2, %if.else11 ], [ %call.i, %if.then4 ], [ %call2, %if.else ]
   %ancestor_name.0 = phi ptr [ %7, %if.else11 ], [ @.str.126, %if.then4 ], [ @.str.127, %if.else ]
+  %merged_merge_bases.0 = phi ptr [ %call2, %if.else11 ], [ %call.i, %if.then4 ], [ %call2, %if.else ]
   %call14 = call ptr @pop_commit(ptr noundef nonnull %merge_bases.addr) #18
   %tobool15.not39 = icmp eq ptr %call14, null
   br i1 %tobool15.not39, label %for.end, label %for.body.lr.ph
@@ -6786,24 +6786,24 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool9.not19, label %for.inc35, label %for.body10
 
 for.body10:                                       ; preds = %for.body, %for.body10
-  %best.023 = phi ptr [ %best.1, %for.body10 ], [ null, %for.body ]
-  %bad_max.022 = phi i32 [ %bad_max.1, %for.body10 ], [ 0, %for.body ]
-  %max.021 = phi i32 [ %max.1, %for.body10 ], [ 0, %for.body ]
-  %count_entry.020 = phi ptr [ %call20, %for.body10 ], [ %call.i17, %for.body ]
-  %key11 = getelementptr inbounds i8, ptr %count_entry.020, i64 16
+  %count_entry.023 = phi ptr [ %call20, %for.body10 ], [ %call.i17, %for.body ]
+  %best.022 = phi ptr [ %best.1, %for.body10 ], [ null, %for.body ]
+  %bad_max.021 = phi i32 [ %bad_max.1, %for.body10 ], [ 0, %for.body ]
+  %max.020 = phi i32 [ %max.1, %for.body10 ], [ 0, %for.body ]
+  %key11 = getelementptr inbounds i8, ptr %count_entry.023, i64 16
   %3 = load ptr, ptr %key11, align 8
-  %value12 = getelementptr inbounds i8, ptr %count_entry.020, i64 24
+  %value12 = getelementptr inbounds i8, ptr %count_entry.023, i64 24
   %4 = load ptr, ptr %value12, align 8
   %5 = ptrtoint ptr %4 to i64
-  %conv = sext i32 %max.021 to i64
+  %conv = sext i32 %max.020 to i64
   %cmp = icmp eq i64 %5, %conv
   %cmp15 = icmp sgt i64 %5, %conv
   %conv18 = trunc i64 %5 to i32
-  %spec.select = select i1 %cmp15, i32 %conv18, i32 %max.021
-  %spec.select16 = select i1 %cmp15, ptr %3, ptr %best.023
-  %max.1 = select i1 %cmp, i32 %max.021, i32 %spec.select
-  %bad_max.1 = select i1 %cmp, i32 %max.021, i32 %bad_max.022
-  %best.1 = select i1 %cmp, ptr %best.023, ptr %spec.select16
+  %spec.select = select i1 %cmp15, i32 %conv18, i32 %max.020
+  %spec.select16 = select i1 %cmp15, ptr %3, ptr %best.022
+  %max.1 = select i1 %cmp, i32 %max.020, i32 %spec.select
+  %bad_max.1 = select i1 %cmp, i32 %max.020, i32 %bad_max.021
+  %best.1 = select i1 %cmp, ptr %best.022, ptr %spec.select16
   %call20 = call ptr @hashmap_iter_next(ptr noundef nonnull %count_iter) #18
   %tobool9.not = icmp eq ptr %call20, null
   br i1 %tobool9.not, label %for.end, label %for.body10, !llvm.loop !61
@@ -8168,9 +8168,9 @@ if.else35:                                        ; preds = %land.lhs.true, %if.
   br label %if.end45
 
 if.end45:                                         ; preds = %if.else35, %if.then32
-  %base.0 = phi ptr [ %call, %if.then32 ], [ %call38, %if.else35 ]
   %name1.0 = phi ptr [ %call33, %if.then32 ], [ %call41, %if.else35 ]
   %name2.0 = phi ptr [ %call34, %if.then32 ], [ %call44, %if.else35 ]
+  %base.0 = phi ptr [ %call, %if.then32 ], [ %call38, %if.else35 ]
   call void @read_mmblob(ptr noundef nonnull %orig, ptr noundef %o) #18
   call void @read_mmblob(ptr noundef nonnull %src1, ptr noundef %a) #18
   call void @read_mmblob(ptr noundef nonnull %src2, ptr noundef %b) #18
@@ -8981,21 +8981,21 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %while.body
   %1 = phi i8 [ %3, %while.body ], [ %0, %entry ]
-  %two.addr.014 = phi ptr [ %incdec.ptr4, %while.body ], [ %two, %entry ]
-  %one.addr.013 = phi ptr [ %incdec.ptr, %while.body ], [ %one, %entry ]
-  %2 = load i8, ptr %two.addr.014, align 1
+  %one.addr.014 = phi ptr [ %incdec.ptr, %while.body ], [ %one, %entry ]
+  %two.addr.013 = phi ptr [ %incdec.ptr4, %while.body ], [ %two, %entry ]
+  %2 = load i8, ptr %two.addr.013, align 1
   %cmp = icmp eq i8 %1, %2
   br i1 %cmp, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %incdec.ptr = getelementptr inbounds i8, ptr %one.addr.013, i64 1
-  %incdec.ptr4 = getelementptr inbounds i8, ptr %two.addr.014, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %one.addr.014, i64 1
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %two.addr.013, i64 1
   %3 = load i8, ptr %incdec.ptr, align 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !73
 
 while.end:                                        ; preds = %land.rhs, %while.body, %entry
-  %two.addr.0.lcssa = phi ptr [ %two, %entry ], [ %incdec.ptr4, %while.body ], [ %two.addr.014, %land.rhs ]
+  %two.addr.0.lcssa = phi ptr [ %two, %entry ], [ %incdec.ptr4, %while.body ], [ %two.addr.013, %land.rhs ]
   %cond23 = phi i32 [ -1, %entry ], [ -1, %while.body ], [ 1, %land.rhs ]
   %narrow = phi i8 [ 47, %entry ], [ 47, %while.body ], [ %1, %land.rhs ]
   %spec.select = zext i8 %narrow to i32

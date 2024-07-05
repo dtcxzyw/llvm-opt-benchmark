@@ -62,21 +62,21 @@ define range(i32 -1, 1) i32 @dtrestore(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %33, label %.lr.ph52, label %.loopexit
 
 .lr.ph52:                                         ; preds = %26, %37
-  %.03551 = phi ptr [ %38, %37 ], [ %28, %26 ]
-  %.150 = phi ptr [ %.2, %37 ], [ %.036, %26 ]
-  %34 = load ptr, ptr %.03551, align 8
+  %.151 = phi ptr [ %.2, %37 ], [ %.036, %26 ]
+  %.03750 = phi ptr [ %38, %37 ], [ %28, %26 ]
+  %34 = load ptr, ptr %.03750, align 8
   %.not46 = icmp eq ptr %34, null
   br i1 %.not46, label %37, label %35
 
 35:                                               ; preds = %.lr.ph52
-  store ptr %.150, ptr %.03551, align 8
+  store ptr %.151, ptr %.03750, align 8
   %36 = load ptr, ptr %34, align 8
   store ptr null, ptr %34, align 8
   br label %37
 
 37:                                               ; preds = %.lr.ph52, %35
-  %.2 = phi ptr [ %36, %35 ], [ %.150, %.lr.ph52 ]
-  %38 = getelementptr inbounds i8, ptr %.03551, i64 8
+  %.2 = phi ptr [ %36, %35 ], [ %.151, %.lr.ph52 ]
+  %38 = getelementptr inbounds i8, ptr %.03750, i64 8
   %39 = icmp ult ptr %38, %32
   br i1 %39, label %.lr.ph52, label %.loopexit
 
@@ -117,8 +117,8 @@ define range(i32 -1, 1) i32 @dtrestore(ptr noundef %0, ptr noundef %1) local_unn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %37, %40, %26, %51, %50, %14, %8
-  %.037 = phi i32 [ -1, %8 ], [ -1, %14 ], [ 0, %50 ], [ 0, %51 ], [ 0, %26 ], [ 0, %40 ], [ 0, %37 ], [ 0, %.lr.ph ]
-  ret i32 %.037
+  %.0 = phi i32 [ -1, %8 ], [ -1, %14 ], [ 0, %50 ], [ 0, %51 ], [ 0, %26 ], [ 0, %40 ], [ 0, %37 ], [ 0, %.lr.ph ]
+  ret i32 %.0
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

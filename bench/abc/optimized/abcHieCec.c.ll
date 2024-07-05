@@ -399,10 +399,10 @@ define i32 @Abc_NtkDeriveFlatGiaSop(ptr noundef %0, ptr nocapture noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.03547 = phi i32 [ 0, %.lr.ph.preheader ], [ %12, %.lr.ph ]
+  %.03747 = phi i32 [ 0, %.lr.ph.preheader ], [ %12, %.lr.ph ]
   %10 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
-  %12 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %.03547, i32 noundef %11) #20
+  %12 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %.03747, i32 noundef %11) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
@@ -410,13 +410,13 @@ define i32 @Abc_NtkDeriveFlatGiaSop(ptr noundef %0, ptr nocapture noundef readon
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
   %13 = phi i8 [ %7, %.preheader.lr.ph ], [ %28, %.critedge ]
   %.051 = phi ptr [ %2, %.preheader.lr.ph ], [ %27, %.critedge ]
-  %.13650 = phi i32 [ 1, %.preheader.lr.ph ], [ %26, %.critedge ]
+  %.13850 = phi i32 [ 1, %.preheader.lr.ph ], [ %26, %.critedge ]
   br label %14
 
 14:                                               ; preds = %.preheader, %24
   %15 = phi i8 [ %13, %.preheader ], [ %.pre, %24 ]
   %indvars.iv56 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next57, %24 ]
-  %.037 = phi i32 [ 1, %.preheader ], [ %.138, %24 ]
+  %.034 = phi i32 [ 1, %.preheader ], [ %.1, %24 ]
   switch i8 %15, label %24 [
     i8 32, label %.critedge
     i8 0, label %.critedge
@@ -437,19 +437,19 @@ define i32 @Abc_NtkDeriveFlatGiaSop(ptr noundef %0, ptr nocapture noundef readon
 
 .sink.split:                                      ; preds = %19, %16
   %.sink = phi i32 [ %18, %16 ], [ %22, %19 ]
-  %23 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.037, i32 noundef %.sink) #20
+  %23 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.034, i32 noundef %.sink) #20
   br label %24
 
 24:                                               ; preds = %.sink.split, %14
-  %.138 = phi i32 [ %.037, %14 ], [ %23, %.sink.split ]
+  %.1 = phi i32 [ %.034, %14 ], [ %23, %.sink.split ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.051, i64 %indvars.iv.next57
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %14, !llvm.loop !9
 
 .critedge:                                        ; preds = %14, %14
-  %25 = xor i32 %.037, 1
-  %26 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.13650, i32 noundef %25) #20
+  %25 = xor i32 %.034, 1
+  %26 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.13850, i32 noundef %25) #20
   %27 = getelementptr inbounds i8, ptr %.051, i64 %9
   %28 = load i8, ptr %27, align 1
   %.not40 = icmp eq i8 %28, 0

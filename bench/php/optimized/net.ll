@@ -87,7 +87,7 @@ thread-pre-split:                                 ; preds = %14, %4
   br label %27
 
 27:                                               ; preds = %24, %26
-  %.0 = phi i32 [ 16, %24 ], [ 28, %26 ]
+  %.0166 = phi i32 [ 16, %24 ], [ 28, %26 ]
   %28 = tail call noalias ptr @_emalloc_1280() #6
   store i32 1, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %28, i64 4
@@ -97,7 +97,7 @@ thread-pre-split:                                 ; preds = %14, %4
   %31 = getelementptr inbounds i8, ptr %28, i64 16
   store i64 1025, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %28, i64 24
-  %33 = tail call i32 @getnameinfo(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef nonnull %32, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #6
+  %33 = tail call i32 @getnameinfo(ptr noundef nonnull %0, i32 noundef %.0166, ptr noundef nonnull %32, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #6
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %40
 
@@ -120,8 +120,8 @@ thread-pre-split:                                 ; preds = %14, %4
   br label %41
 
 41:                                               ; preds = %24, %40, %1, %38, %22, %12
-  %.0166 = phi ptr [ %28, %38 ], [ %15, %22 ], [ %5, %12 ], [ null, %1 ], [ null, %40 ], [ null, %24 ]
-  ret ptr %.0166
+  %.0 = phi ptr [ %28, %38 ], [ %15, %22 ], [ %5, %12 ], [ null, %1 ], [ null, %40 ], [ null, %24 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind

@@ -1697,8 +1697,8 @@ if.end35.i154.i:                                  ; preds = %if.then31.i.i, %if.
   br label %imalloc_no_sample.exit
 
 if.end36.i.i:                                     ; preds = %arena_get.exit, %tcache_get_from_ind.exit.i.thread, %arena_get_from_ind.exit.i, %land.rhs.i.i, %if.else.i69.i
-  %arena.i.1822840 = phi ptr [ null, %land.rhs.i.i ], [ null, %if.else.i69.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
-  %call39.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1822840, i64 noundef %size, i32 noundef %retval.i151.i106.0, i1 noundef zeroext %tobool2.i.i341, i1 noundef zeroext %cmp.i161.i198) #19
+  %arena.i.1822841 = phi ptr [ null, %land.rhs.i.i ], [ null, %if.else.i69.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
+  %call39.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1822841, i64 noundef %size, i32 noundef %retval.i151.i106.0, i1 noundef zeroext %tobool2.i.i341, i1 noundef zeroext %cmp.i161.i198) #19
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %sz_s2u.exit.i486, %if.end35.i154.i, %if.then23.i124.i, %if.end50.i.i, %if.end36.i.i
@@ -3264,8 +3264,8 @@ if.then31.i.i:                                    ; preds = %if.then.i216.i, %if
   br label %imalloc_no_sample.exit
 
 if.end36.i.i:                                     ; preds = %arena_get.exit, %tcache_get_from_ind.exit.i.thread, %arena_get_from_ind.exit.i, %land.rhs.i.i, %if.else.i69.i
-  %arena.i.1857874 = phi ptr [ null, %land.rhs.i.i ], [ null, %if.else.i69.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
-  %call39.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1857874, i64 noundef %mul.val, i32 noundef %retval.i151.i108.0, i1 noundef zeroext true, i1 noundef zeroext %cmp.i161.i200) #19
+  %arena.i.1857875 = phi ptr [ null, %land.rhs.i.i ], [ null, %if.else.i69.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
+  %call39.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1857875, i64 noundef %mul.val, i32 noundef %retval.i151.i108.0, i1 noundef zeroext true, i1 noundef zeroext %cmp.i161.i200) #19
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %sz_s2u.exit.i488, %if.then31.i.i, %if.then23.i124.i, %if.then46.i.i, %if.end36.i.i
@@ -6002,6 +6002,7 @@ tcache_get_from_ind.exit.thread:                  ; preds = %mallocx_tcache_get.
   %tobool.i237 = trunc i8 %4 to i1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i = getelementptr inbounds i8, ptr %retval.i196.0, i64 864
   %retval.i210.0 = select i1 %tobool.i237, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i, ptr null
+  %cmp.i.i640395 = icmp eq ptr %retval.i196.0, null
   br label %if.end.i644.split
 
 if.else28.i:                                      ; preds = %mallocx_tcache_get.exit
@@ -6037,6 +6038,7 @@ if.then.i646:                                     ; preds = %tcache_get_from_ind
   br label %tsdn_rtree_ctx.exit647
 
 if.end.i644.split:                                ; preds = %tcache_get_from_ind.exit.thread, %tcache_get_from_ind.exit
+  %cmp.i.i640399 = phi i1 [ %cmp.i.i640395, %tcache_get_from_ind.exit.thread ], [ false, %tcache_get_from_ind.exit ]
   %tcache.i.0397 = phi ptr [ %retval.i210.0, %tcache_get_from_ind.exit.thread ], [ %tcache.i.0, %tcache_get_from_ind.exit ]
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i669 = getelementptr inbounds i8, ptr %retval.i196.0, i64 440
   %8 = ptrtoint ptr %ptr to i64
@@ -6044,7 +6046,7 @@ if.end.i644.split:                                ; preds = %tcache_get_from_ind
   br label %tsdn_rtree_ctx.exit647
 
 tsdn_rtree_ctx.exit647:                           ; preds = %if.end.i644.split, %if.then.i646
-  %cmp.i.i640398 = phi i1 [ true, %if.then.i646 ], [ false, %if.end.i644.split ]
+  %cmp.i.i640398 = phi i1 [ true, %if.then.i646 ], [ %cmp.i.i640399, %if.end.i644.split ]
   %tcache.i.0396 = phi ptr [ %tcache.i.0, %if.then.i646 ], [ %tcache.i.0397, %if.end.i644.split ]
   %9 = phi i64 [ %7, %if.then.i646 ], [ %8, %if.end.i644.split ]
   %phi.call = phi { i64, i32 } [ %call1.i366, %if.then.i646 ], [ %call1.i367, %if.end.i644.split ]
@@ -7304,8 +7306,8 @@ if.end35.i154.i:                                  ; preds = %if.then31.i.i, %if.
   br label %imalloc_no_sample.exit
 
 if.end36.i.i:                                     ; preds = %arena_get.exit, %tcache_get_from_ind.exit.i.thread, %arena_get_from_ind.exit.i, %land.rhs.i.i, %if.else.i69.i
-  %arena.i.1839856 = phi ptr [ null, %land.rhs.i.i ], [ null, %if.else.i69.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
-  %call39.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1839856, i64 noundef %size, i32 noundef %retval.i151.i126.0, i1 noundef zeroext %tobool2.i.i361, i1 noundef zeroext %cmp.i161.i218) #19
+  %arena.i.1839857 = phi ptr [ null, %land.rhs.i.i ], [ null, %if.else.i69.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
+  %call39.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1839857, i64 noundef %size, i32 noundef %retval.i151.i126.0, i1 noundef zeroext %tobool2.i.i361, i1 noundef zeroext %cmp.i161.i218) #19
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %sz_s2u.exit.i506, %if.end35.i154.i, %if.then23.i124.i, %if.end50.i.i, %if.end36.i.i

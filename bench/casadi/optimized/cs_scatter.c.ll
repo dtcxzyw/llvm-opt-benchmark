@@ -49,7 +49,7 @@ define i32 @cs_scatter(ptr noundef readonly %0, i32 noundef %1, double noundef %
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %46
   %35 = phi i32 [ %47, %46 ], [ %32, %.lr.ph ]
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %46 ], [ %34, %.lr.ph ]
-  %.04252.us.us = phi i32 [ %.1.us.us, %46 ], [ %7, %.lr.ph ]
+  %.04253.us.us = phi i32 [ %.1.us.us, %46 ], [ %7, %.lr.ph ]
   %36 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv62
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
@@ -60,8 +60,8 @@ define i32 @cs_scatter(ptr noundef readonly %0, i32 noundef %1, double noundef %
 
 42:                                               ; preds = %.lr.ph.split.us.split.us
   store i32 %5, ptr %39, align 4
-  %43 = add nsw i32 %.04252.us.us, 1
-  %44 = sext i32 %.04252.us.us to i64
+  %43 = add nsw i32 %.04253.us.us, 1
+  %44 = sext i32 %.04253.us.us to i64
   %45 = getelementptr inbounds i32, ptr %27, i64 %44
   store i32 %37, ptr %45, align 4
   %.pre = load i32, ptr %31, align 4
@@ -69,7 +69,7 @@ define i32 @cs_scatter(ptr noundef readonly %0, i32 noundef %1, double noundef %
 
 46:                                               ; preds = %.lr.ph.split.us.split.us, %42
   %47 = phi i32 [ %.pre, %42 ], [ %35, %.lr.ph.split.us.split.us ]
-  %.1.us.us = phi i32 [ %43, %42 ], [ %.04252.us.us, %.lr.ph.split.us.split.us ]
+  %.1.us.us = phi i32 [ %43, %42 ], [ %.04253.us.us, %.lr.ph.split.us.split.us ]
   %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next63, %48
@@ -77,7 +77,7 @@ define i32 @cs_scatter(ptr noundef readonly %0, i32 noundef %1, double noundef %
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ %34, %.lr.ph ]
-  %.04252 = phi i32 [ %.1, %70 ], [ %7, %.lr.ph ]
+  %.04253 = phi i32 [ %.1, %70 ], [ %7, %.lr.ph ]
   %50 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
@@ -88,8 +88,8 @@ define i32 @cs_scatter(ptr noundef readonly %0, i32 noundef %1, double noundef %
 
 56:                                               ; preds = %.lr.ph.split.split
   store i32 %5, ptr %53, align 4
-  %57 = add nsw i32 %.04252, 1
-  %58 = sext i32 %.04252 to i64
+  %57 = add nsw i32 %.04253, 1
+  %58 = sext i32 %.04253 to i64
   %59 = getelementptr inbounds i32, ptr %27, i64 %58
   store i32 %51, ptr %59, align 4
   %60 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
@@ -109,7 +109,7 @@ define i32 @cs_scatter(ptr noundef readonly %0, i32 noundef %1, double noundef %
   br label %70
 
 70:                                               ; preds = %56, %64
-  %.1 = phi i32 [ %57, %56 ], [ %.04252, %64 ]
+  %.1 = phi i32 [ %57, %56 ], [ %.04253, %64 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %71 = load i32, ptr %31, align 4
   %72 = sext i32 %71 to i64
@@ -117,8 +117,8 @@ define i32 @cs_scatter(ptr noundef readonly %0, i32 noundef %1, double noundef %
   br i1 %73, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %70, %46, %19, %8, %9, %15
-  %.043 = phi i32 [ -1, %15 ], [ -1, %9 ], [ -1, %8 ], [ %7, %19 ], [ %.1.us.us, %46 ], [ %.1, %70 ]
-  ret i32 %.043
+  %.0 = phi i32 [ -1, %15 ], [ -1, %9 ], [ -1, %8 ], [ %7, %19 ], [ %.1.us.us, %46 ], [ %.1, %70 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

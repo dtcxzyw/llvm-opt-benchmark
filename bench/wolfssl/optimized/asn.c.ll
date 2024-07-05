@@ -2746,16 +2746,16 @@ if.end:                                           ; preds = %if.end45.i.i.i.i
 
 while.body.i:                                     ; preds = %if.end, %while.body.i
   %add15.i = phi i32 [ %add.i, %while.body.i ], [ 0, %if.end ]
-  %idx.014.i = phi i32 [ %inc.i, %while.body.i ], [ %idx.1.i.i.i.i, %if.end ]
-  %length.addr.013.i = phi i32 [ %dec.i, %while.body.i ], [ %length.1.i.i.i.i, %if.end ]
-  %dec.i = add nsw i32 %length.addr.013.i, -1
-  %idxprom1.i = zext i32 %idx.014.i to i64
+  %length.addr.014.i = phi i32 [ %dec.i, %while.body.i ], [ %length.1.i.i.i.i, %if.end ]
+  %idx.013.i = phi i32 [ %inc.i, %while.body.i ], [ %idx.1.i.i.i.i, %if.end ]
+  %dec.i = add nsw i32 %length.addr.014.i, -1
+  %idxprom1.i = zext i32 %idx.013.i to i64
   %arrayidx2.i = getelementptr inbounds i8, ptr %input, i64 %idxprom1.i
   %4 = load i8, ptr %arrayidx2.i, align 1
   %conv.i = zext i8 %4 to i32
   %add.i = add i32 %add15.i, %conv.i
   store i32 %add.i, ptr %oid, align 4
-  %inc.i = add i32 %idx.014.i, 1
+  %inc.i = add i32 %idx.013.i, 1
   %tobool.not.i = icmp eq i32 %dec.i, 0
   br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !11
 
@@ -20316,8 +20316,8 @@ if.end114:                                        ; preds = %if.end69
   br label %if.end116
 
 if.end116:                                        ; preds = %if.end114, %if.end40
-  %pub.0 = phi ptr [ %call60, %if.end114 ], [ null, %if.end40 ]
   %pubidx.1 = phi i32 [ %add115, %if.end114 ], [ 0, %if.end40 ]
+  %pub.0 = phi ptr [ %call60, %if.end114 ], [ null, %if.end40 ]
   %add119 = add i32 %curveidx.0, 3
   %add120 = add i32 %add119, %add41
   %add121 = add i32 %add120, %pubidx.1

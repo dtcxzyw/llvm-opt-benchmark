@@ -130,7 +130,7 @@ Curl_pp_state_timeout.exit:                       ; preds = %16, %29
 
 43:                                               ; preds = %Curl_pp_state_timeout.exit
   %spec.select = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 1000)
-  %.033 = select i1 %2, i64 %spec.select, i64 0
+  %.034 = select i1 %2, i64 %spec.select, i64 0
   %44 = tail call zeroext i1 @Curl_conn_data_pending(ptr noundef nonnull %0, i32 noundef 0) #8
   br i1 %44, label %58, label %45
 
@@ -161,11 +161,11 @@ Curl_pp_state_timeout.exit:                       ; preds = %16, %29
 .thread48:                                        ; preds = %53, %48
   %55 = phi i32 [ -1, %48 ], [ %spec.select53, %53 ]
   %56 = phi i32 [ %8, %48 ], [ %spec.select54, %53 ]
-  %57 = tail call i32 @Curl_socket_check(i32 noundef %55, i32 noundef -1, i32 noundef %56, i64 noundef %.033) #8
+  %57 = tail call i32 @Curl_socket_check(i32 noundef %55, i32 noundef -1, i32 noundef %56, i64 noundef %.034) #8
   br label %58
 
 58:                                               ; preds = %51, %45, %43, %.thread48
-  %.034 = phi i32 [ %57, %.thread48 ], [ 1, %43 ], [ 1, %45 ], [ 1, %51 ]
+  %.032 = phi i32 [ %57, %.thread48 ], [ 1, %43 ], [ 1, %45 ], [ 1, %51 ]
   br i1 %2, label %59, label %66
 
 59:                                               ; preds = %58
@@ -182,7 +182,7 @@ Curl_pp_state_timeout.exit:                       ; preds = %16, %29
   br i1 %.not39, label %66, label %.thread
 
 66:                                               ; preds = %61, %58
-  switch i32 %.034, label %68 [
+  switch i32 %.032, label %68 [
     i32 -1, label %67
     i32 0, label %.thread
   ]
@@ -199,7 +199,7 @@ Curl_pp_state_timeout.exit:                       ; preds = %16, %29
   br label %.thread
 
 .thread:                                          ; preds = %59, %67, %68, %66, %61, %42
-  %.0 = phi i32 [ 28, %42 ], [ %65, %61 ], [ 27, %67 ], [ %72, %68 ], [ %.034, %66 ], [ 42, %59 ]
+  %.0 = phi i32 [ 28, %42 ], [ %65, %61 ], [ 27, %67 ], [ %72, %68 ], [ %.032, %66 ], [ 42, %59 ]
   ret i32 %.0
 }
 

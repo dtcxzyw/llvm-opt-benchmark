@@ -1969,9 +1969,9 @@ if.else64:                                        ; preds = %if.end40
   br label %if.end71
 
 if.end71:                                         ; preds = %if.else64, %if.else57, %if.end50, %if.then55
-  %read_flags.2 = phi i32 [ %read_flags.1, %if.then55 ], [ %read_flags.1, %if.end50 ], [ %read_flags.1, %if.else57 ], [ %spec.select78, %if.else64 ]
-  %write_flags.0 = phi i32 [ %or56, %if.then55 ], [ %read_flags.1, %if.end50 ], [ %spec.select77, %if.else57 ], [ %or67, %if.else64 ]
   %iotlb.0 = phi i64 [ %add45, %if.then55 ], [ %add45, %if.end50 ], [ %add45, %if.else57 ], [ %add66, %if.else64 ]
+  %write_flags.0 = phi i32 [ %or56, %if.then55 ], [ %read_flags.1, %if.end50 ], [ %spec.select77, %if.else57 ], [ %or67, %if.else64 ]
+  %read_flags.2 = phi i32 [ %read_flags.1, %if.then55 ], [ %read_flags.1, %if.end50 ], [ %read_flags.1, %if.else57 ], [ %spec.select78, %if.else64 ]
   %call72 = call i32 @cpu_watchpoint_address_matches(ptr noundef %cpu, i64 noundef %and, i64 noundef 4096) #18
   %f.i = getelementptr inbounds i8, ptr %cpu, i64 9904
   %arrayidx.i81 = getelementptr [16 x %struct.CPUTLBDescFast], ptr %f.i, i64 0, i64 %idxprom
@@ -2427,18 +2427,18 @@ if.end:                                           ; preds = %if.then13
   br label %if.end22
 
 if.end22:                                         ; preds = %qemu_spin_lock.exit.i, %if.end
-  %index.0 = phi i64 [ %and.i51, %if.end ], [ %and.i, %qemu_spin_lock.exit.i ]
   %entry2.0 = phi ptr [ %arrayidx1.i58, %if.end ], [ %arrayidx1.i, %qemu_spin_lock.exit.i ]
   %flags.0 = phi i64 [ 1792, %if.end ], [ 3840, %qemu_spin_lock.exit.i ]
+  %index.0 = phi i64 [ %and.i51, %if.end ], [ %and.i, %qemu_spin_lock.exit.i ]
   %arrayidx.i60 = getelementptr [4 x i64], ptr %entry2.0, i64 0, i64 %idxprom.i
   %16 = load atomic i64, ptr %arrayidx.i60 monotonic, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end22, %land.end
-  %index.1 = phi i64 [ %and.i, %land.end ], [ %index.0, %if.end22 ]
-  %entry2.1 = phi ptr [ %arrayidx1.i, %land.end ], [ %entry2.0, %if.end22 ]
   %tlb_addr.0 = phi i64 [ %2, %land.end ], [ %16, %if.end22 ]
+  %entry2.1 = phi ptr [ %arrayidx1.i, %land.end ], [ %entry2.0, %if.end22 ]
   %flags.1 = phi i64 [ 3840, %land.end ], [ %flags.0, %if.end22 ]
+  %index.1 = phi i64 [ %and.i, %land.end ], [ %index.0, %if.end22 ]
   %and26 = and i64 %flags.1, %tlb_addr.0
   %conv27 = trunc nuw nsw i64 %and26 to i32
   %d = getelementptr inbounds i8, ptr %cpu, i64 816
@@ -11719,16 +11719,16 @@ tlb_fill.exit:                                    ; preds = %if.then33
   br label %if.end37
 
 if.end37:                                         ; preds = %qemu_spin_lock.exit.i, %tlb_fill.exit
-  %index.0 = phi i64 [ %and.i80, %tlb_fill.exit ], [ %and.i64, %qemu_spin_lock.exit.i ]
   %tlbe.0 = phi ptr [ %arrayidx1.i87, %tlb_fill.exit ], [ %arrayidx1.i, %qemu_spin_lock.exit.i ]
+  %index.0 = phi i64 [ %and.i80, %tlb_fill.exit ], [ %and.i64, %qemu_spin_lock.exit.i ]
   %arrayidx.i.i88 = getelementptr i8, ptr %tlbe.0, i64 8
   %18 = load atomic i64, ptr %arrayidx.i.i88 monotonic, align 8
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end37, %if.end25
-  %index.1 = phi i64 [ %and.i64, %if.end25 ], [ %index.0, %if.end37 ]
   %tlbe.1 = phi ptr [ %arrayidx1.i, %if.end25 ], [ %tlbe.0, %if.end37 ]
   %tlb_addr.0 = phi i64 [ %5, %if.end25 ], [ %18, %if.end37 ]
+  %index.1 = phi i64 [ %and.i64, %if.end25 ], [ %index.0, %if.end37 ]
   %19 = load i64, ptr %tlbe.1, align 8
   %cmp41 = icmp eq i64 %19, -1
   br i1 %cmp41, label %if.then49, label %if.end51
@@ -12617,9 +12617,9 @@ if.end:                                           ; preds = %qemu_spin_lock.exit
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end, %entry
-  %entry2.1 = phi ptr [ %arrayidx1.i, %entry ], [ %entry2.0, %if.end ]
   %tlb_addr.0 = phi i64 [ %3, %entry ], [ %and15, %if.end ]
   %maybe_resized.1 = phi i1 [ false, %entry ], [ %maybe_resized.0, %if.end ]
+  %entry2.1 = phi ptr [ %arrayidx1.i, %entry ], [ %entry2.0, %if.end ]
   %index.1 = phi i64 [ %and.i, %entry ], [ %index.0, %if.end ]
   %d = getelementptr inbounds i8, ptr %cpu, i64 816
   %fulltlb = getelementptr [16 x %struct.CPUTLBDesc], ptr %d, i64 0, i64 %conv, i32 8
@@ -12700,9 +12700,9 @@ io_prepare.exit:                                  ; preds = %entry
 
 do.body.i:                                        ; preds = %if.end10.i, %io_prepare.exit
   %size.addr.0.i = phi i32 [ %size, %io_prepare.exit ], [ %sub.i, %if.end10.i ]
+  %mr_offset.addr.0.i = phi i64 [ %add.i, %io_prepare.exit ], [ %add15.i, %if.end10.i ]
   %addr.addr.0.i = phi i64 [ %addr, %io_prepare.exit ], [ %add.i9, %if.end10.i ]
   %ret_be.addr.0.i = phi i64 [ %ret_be, %io_prepare.exit ], [ %or12.i, %if.end10.i ]
-  %mr_offset.addr.0.i = phi i64 [ %add.i, %io_prepare.exit ], [ %add15.i, %if.end10.i ]
   %conv.i = trunc i64 %addr.addr.0.i to i32
   %or.i = or i32 %size.addr.0.i, %conv.i
   %or1.i = or i32 %or.i, 8
@@ -12918,8 +12918,8 @@ for.body.preheader.i:                             ; preds = %sw.bb20
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %ret_be.addr.02.i = phi i64 [ %ret_be, %for.body.preheader.i ], [ %or.i28, %for.body.i ]
-  %shl.i26 = shl i64 %ret_be.addr.02.i, 8
+  %ret_be.addr.03.i = phi i64 [ %ret_be, %for.body.preheader.i ], [ %or.i28, %for.body.i ]
+  %shl.i26 = shl i64 %ret_be.addr.03.i, 8
   %arrayidx.i = getelementptr i8, ptr %p.val20, i64 %indvars.iv.i
   %22 = load i8, ptr %arrayidx.i, align 1
   %conv.i27 = zext i8 %22 to i64
@@ -13175,9 +13175,9 @@ io_prepare.exit:                                  ; preds = %entry
 
 do.body.i:                                        ; preds = %if.end10.i, %io_prepare.exit
   %size.addr.0.i = phi i32 [ %sub, %io_prepare.exit ], [ %sub.i, %if.end10.i ]
+  %mr_offset.addr.0.i = phi i64 [ %add.i, %io_prepare.exit ], [ %add15.i, %if.end10.i ]
   %addr.addr.0.i = phi i64 [ %addr, %io_prepare.exit ], [ %add.i18, %if.end10.i ]
   %ret_be.addr.0.i = phi i64 [ %ret_be, %io_prepare.exit ], [ %or12.i, %if.end10.i ]
-  %mr_offset.addr.0.i = phi i64 [ %add.i, %io_prepare.exit ], [ %add15.i, %if.end10.i ]
   %conv.i = trunc i64 %addr.addr.0.i to i32
   %or.i = or i32 %size.addr.0.i, %conv.i
   %or1.i = or i32 %or.i, 8
@@ -13245,17 +13245,17 @@ int_ld_mmio_beN.exit:                             ; preds = %if.end10.i, %if.the
 
 do.body.i24:                                      ; preds = %if.end10.i47, %int_ld_mmio_beN.exit
   %size.addr.0.i25 = phi i32 [ 8, %int_ld_mmio_beN.exit ], [ %sub.i55, %if.end10.i47 ]
-  %addr.addr.0.i26 = phi i64 [ %sub5, %int_ld_mmio_beN.exit ], [ %add.i53, %if.end10.i47 ]
-  %ret_be.addr.0.i27 = phi i64 [ %ret_be, %int_ld_mmio_beN.exit ], [ %or12.i51, %if.end10.i47 ]
-  %mr_offset.addr.0.i28 = phi i64 [ %sub8, %int_ld_mmio_beN.exit ], [ %add15.i54, %if.end10.i47 ]
-  %conv.i29 = trunc i64 %addr.addr.0.i26 to i32
+  %mr_offset.addr.0.i26 = phi i64 [ %sub8, %int_ld_mmio_beN.exit ], [ %add15.i54, %if.end10.i47 ]
+  %addr.addr.0.i27 = phi i64 [ %sub5, %int_ld_mmio_beN.exit ], [ %add.i53, %if.end10.i47 ]
+  %ret_be.addr.0.i28 = phi i64 [ %ret_be, %int_ld_mmio_beN.exit ], [ %or12.i51, %if.end10.i47 ]
+  %conv.i29 = trunc i64 %addr.addr.0.i27 to i32
   %or.i30 = or i32 %size.addr.0.i25, %conv.i29
   %or1.i31 = or i32 %or.i30, 8
   %14 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %or1.i31, i1 true)
   %shl.i32 = shl nuw nsw i32 1, %14
   %or2.i33 = or disjoint i32 %14, 16
   %15 = load i32, ptr %attrs2, align 8
-  %call3.i34 = call i32 @memory_region_dispatch_read(ptr noundef %3, i64 noundef %mr_offset.addr.0.i28, ptr noundef nonnull %val.i19, i32 noundef %or2.i33, i32 %15) #18
+  %call3.i34 = call i32 @memory_region_dispatch_read(ptr noundef %3, i64 noundef %mr_offset.addr.0.i26, ptr noundef nonnull %val.i19, i32 noundef %or2.i33, i32 %15) #18
   %cmp.not.i35 = icmp eq i32 %call3.i34, 0
   br i1 %cmp.not.i35, label %if.end.i45, label %if.then.i36
 
@@ -13275,10 +13275,10 @@ land.lhs.true.i.i38:                              ; preds = %if.then.i36
 
 if.then.i.i42:                                    ; preds = %land.lhs.true.i.i38
   %20 = load i64, ptr %phys_addr.i.i, align 8
-  %and.i.i43 = and i64 %addr.addr.0.i26, 4095
+  %and.i.i43 = and i64 %addr.addr.0.i27, 4095
   %or.i.i44 = or i64 %20, %and.i.i43
   %21 = load i32, ptr %attrs2, align 8
-  call void %19(ptr noundef nonnull %cpu, i64 noundef %or.i.i44, i64 noundef %addr.addr.0.i26, i32 noundef %shl.i32, i32 noundef 0, i32 noundef %mmu_idx, i32 %21, i32 noundef %call3.i34, i64 noundef %ra) #18
+  call void %19(ptr noundef nonnull %cpu, i64 noundef %or.i.i44, i64 noundef %addr.addr.0.i27, i32 noundef %shl.i32, i32 noundef 0, i32 noundef %mmu_idx, i32 %21, i32 noundef %call3.i34, i64 noundef %ra) #18
   br label %if.end.i45
 
 if.end.i45:                                       ; preds = %if.then.i.i42, %land.lhs.true.i.i38, %if.then.i36, %do.body.i24
@@ -13292,12 +13292,12 @@ if.then9.i58:                                     ; preds = %if.end.i45
 if.end10.i47:                                     ; preds = %if.end.i45
   %mul.i48 = shl nuw nsw i32 8, %14
   %sh_prom.i49 = zext nneg i32 %mul.i48 to i64
-  %shl11.i50 = shl i64 %ret_be.addr.0.i27, %sh_prom.i49
+  %shl11.i50 = shl i64 %ret_be.addr.0.i28, %sh_prom.i49
   %23 = load i64, ptr %val.i19, align 8
   %or12.i51 = or i64 %23, %shl11.i50
   %conv13.i52 = zext nneg i32 %shl.i32 to i64
-  %add.i53 = add i64 %addr.addr.0.i26, %conv13.i52
-  %add15.i54 = add i64 %mr_offset.addr.0.i28, %conv13.i52
+  %add.i53 = add i64 %addr.addr.0.i27, %conv13.i52
+  %add15.i54 = add i64 %mr_offset.addr.0.i26, %conv13.i52
   %sub.i55 = sub i32 %size.addr.0.i25, %shl.i32
   %tobool16.not.i56 = icmp eq i32 %sub.i55, 0
   br i1 %tobool16.not.i56, label %int_ld_mmio_beN.exit59, label %do.body.i24, !llvm.loop !184
@@ -13528,8 +13528,8 @@ for.body.preheader.i:                             ; preds = %sw.bb13
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %ret_be.addr.02.i = phi i64 [ %a, %for.body.preheader.i ], [ %or.i64, %for.body.i ]
-  %shl.i = shl i64 %ret_be.addr.02.i, 8
+  %ret_be.addr.03.i = phi i64 [ %a, %for.body.preheader.i ], [ %or.i64, %for.body.i ]
+  %shl.i = shl i64 %ret_be.addr.03.i, 8
   %arrayidx.i = getelementptr i8, ptr %p.val33, i64 %indvars.iv.i
   %32 = load i8, ptr %arrayidx.i, align 1
   %conv.i63 = zext i8 %32 to i64
@@ -13597,9 +13597,9 @@ io_prepare.exit:                                  ; preds = %entry
 
 do.body.i:                                        ; preds = %if.end10.i, %io_prepare.exit
   %size.addr.0.i = phi i32 [ %size, %io_prepare.exit ], [ %sub.i, %if.end10.i ]
+  %mr_offset.addr.0.i = phi i64 [ %add.i, %io_prepare.exit ], [ %add13.i, %if.end10.i ]
   %addr.addr.0.i = phi i64 [ %addr, %io_prepare.exit ], [ %add.i9, %if.end10.i ]
   %val_le.addr.0.i = phi i64 [ %val_le, %io_prepare.exit ], [ %shr.i, %if.end10.i ]
-  %mr_offset.addr.0.i = phi i64 [ %add.i, %io_prepare.exit ], [ %add13.i, %if.end10.i ]
   %conv.i = trunc i64 %addr.addr.0.i to i32
   %or.i = or i32 %size.addr.0.i, %conv.i
   %or1.i = or i32 %or.i, 8
@@ -14175,9 +14175,9 @@ io_prepare.exit:                                  ; preds = %entry
 
 do.body.i:                                        ; preds = %if.end10.i, %io_prepare.exit
   %size.addr.0.i = phi i32 [ 8, %io_prepare.exit ], [ %sub.i, %if.end10.i ]
+  %mr_offset.addr.0.i = phi i64 [ %add.i, %io_prepare.exit ], [ %add13.i, %if.end10.i ]
   %addr.addr.0.i = phi i64 [ %addr, %io_prepare.exit ], [ %add.i16, %if.end10.i ]
   %val_le.addr.0.i = phi i64 [ %val_le.coerce0, %io_prepare.exit ], [ %shr.i, %if.end10.i ]
-  %mr_offset.addr.0.i = phi i64 [ %add.i, %io_prepare.exit ], [ %add13.i, %if.end10.i ]
   %conv.i = trunc i64 %addr.addr.0.i to i32
   %or.i = or i32 %size.addr.0.i, %conv.i
   %or1.i = or i32 %or.i, 8
@@ -14233,16 +14233,16 @@ int_st_mmio_leN.exit:                             ; preds = %if.end.i, %if.end10
 
 do.body.i21:                                      ; preds = %if.end10.i43, %int_st_mmio_leN.exit
   %size.addr.0.i22 = phi i32 [ %sub, %int_st_mmio_leN.exit ], [ %sub.i50, %if.end10.i43 ]
-  %addr.addr.0.i23 = phi i64 [ %add, %int_st_mmio_leN.exit ], [ %add.i48, %if.end10.i43 ]
-  %val_le.addr.0.i24 = phi i64 [ %val_le.coerce1, %int_st_mmio_leN.exit ], [ %shr.i46, %if.end10.i43 ]
-  %mr_offset.addr.0.i25 = phi i64 [ %add9, %int_st_mmio_leN.exit ], [ %add13.i49, %if.end10.i43 ]
-  %conv.i26 = trunc i64 %addr.addr.0.i23 to i32
+  %mr_offset.addr.0.i23 = phi i64 [ %add9, %int_st_mmio_leN.exit ], [ %add13.i49, %if.end10.i43 ]
+  %addr.addr.0.i24 = phi i64 [ %add, %int_st_mmio_leN.exit ], [ %add.i48, %if.end10.i43 ]
+  %val_le.addr.0.i25 = phi i64 [ %val_le.coerce1, %int_st_mmio_leN.exit ], [ %shr.i46, %if.end10.i43 ]
+  %conv.i26 = trunc i64 %addr.addr.0.i24 to i32
   %or.i27 = or i32 %size.addr.0.i22, %conv.i26
   %or1.i28 = or i32 %or.i27, 8
   %12 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %or1.i28, i1 true)
   %shl.i29 = shl nuw nsw i32 1, %12
   %13 = load i32, ptr %attrs3, align 8
-  %call3.i30 = tail call i32 @memory_region_dispatch_write(ptr noundef %3, i64 noundef %mr_offset.addr.0.i25, i64 noundef %val_le.addr.0.i24, i32 noundef %12, i32 %13) #18
+  %call3.i30 = tail call i32 @memory_region_dispatch_write(ptr noundef %3, i64 noundef %mr_offset.addr.0.i23, i64 noundef %val_le.addr.0.i25, i32 noundef %12, i32 %13) #18
   %cmp.not.i31 = icmp eq i32 %call3.i30, 0
   br i1 %cmp.not.i31, label %if.end.i41, label %if.then.i32
 
@@ -14262,10 +14262,10 @@ land.lhs.true.i.i34:                              ; preds = %if.then.i32
 
 if.then.i.i38:                                    ; preds = %land.lhs.true.i.i34
   %18 = load i64, ptr %phys_addr.i.i, align 8
-  %and.i.i39 = and i64 %addr.addr.0.i23, 4095
+  %and.i.i39 = and i64 %addr.addr.0.i24, 4095
   %or.i.i40 = or i64 %18, %and.i.i39
   %19 = load i32, ptr %attrs3, align 8
-  tail call void %17(ptr noundef nonnull %cpu, i64 noundef %or.i.i40, i64 noundef %addr.addr.0.i23, i32 noundef %shl.i29, i32 noundef 1, i32 noundef %mmu_idx, i32 %19, i32 noundef %call3.i30, i64 noundef %ra) #18
+  tail call void %17(ptr noundef nonnull %cpu, i64 noundef %or.i.i40, i64 noundef %addr.addr.0.i24, i32 noundef %shl.i29, i32 noundef 1, i32 noundef %mmu_idx, i32 %19, i32 noundef %call3.i30, i64 noundef %ra) #18
   br label %if.end.i41
 
 if.end.i41:                                       ; preds = %if.then.i.i38, %land.lhs.true.i.i34, %if.then.i32, %do.body.i21
@@ -14275,10 +14275,10 @@ if.end.i41:                                       ; preds = %if.then.i.i38, %lan
 if.end10.i43:                                     ; preds = %if.end.i41
   %mul.i44 = shl nuw nsw i32 8, %12
   %sh_prom.i45 = zext nneg i32 %mul.i44 to i64
-  %shr.i46 = lshr i64 %val_le.addr.0.i24, %sh_prom.i45
+  %shr.i46 = lshr i64 %val_le.addr.0.i25, %sh_prom.i45
   %conv11.i47 = zext nneg i32 %shl.i29 to i64
-  %add.i48 = add i64 %addr.addr.0.i23, %conv11.i47
-  %add13.i49 = add i64 %mr_offset.addr.0.i25, %conv11.i47
+  %add.i48 = add i64 %addr.addr.0.i24, %conv11.i47
+  %add13.i49 = add i64 %mr_offset.addr.0.i23, %conv11.i47
   %sub.i50 = sub i32 %size.addr.0.i22, %shl.i29
   %tobool14.not.i51 = icmp eq i32 %sub.i50, 0
   br i1 %tobool14.not.i51, label %int_st_mmio_leN.exit53, label %do.body.i21, !llvm.loop !187

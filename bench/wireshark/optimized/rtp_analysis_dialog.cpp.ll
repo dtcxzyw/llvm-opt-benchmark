@@ -5765,10 +5765,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %3
   br i1 %.not.i.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tED2Ev.exit.i.i.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %24, %.preheader.i.i.i.i
-  %.08.i.i.i.i.i = phi ptr [ %30, %.preheader.i.i.i.i ], [ %28, %24 ]
-  %29 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 8
+  %.067.i.i.i.i.i = phi ptr [ %30, %.preheader.i.i.i.i ], [ %28, %24 ]
+  %29 = getelementptr inbounds i8, ptr %.067.i.i.i.i.i, i64 8
   %30 = load ptr, ptr %29, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.08.i.i.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.067.i.i.i.i.i) #22
   %.not.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tED2Ev.exit.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !25
 
@@ -23477,10 +23477,10 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataINS_9MultiNodeIjP10tab_i
   br i1 %.not.i.i, label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE5eraseEm.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %3, %.preheader.i.i
-  %.08.i.i.i = phi ptr [ %17, %.preheader.i.i ], [ %15, %3 ]
-  %16 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 8
+  %.067.i.i.i = phi ptr [ %17, %.preheader.i.i ], [ %15, %3 ]
+  %16 = getelementptr inbounds i8, ptr %.067.i.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.08.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.067.i.i.i) #22
   %.not.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tED2Ev.exit.loopexit.i, label %.preheader.i.i, !llvm.loop !25
 
@@ -23526,7 +23526,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE5eraseEm.exit: ; preds = %
   %42 = phi i64 [ %29, %.lr.ph56 ], [ %118, %.loopexit ]
   %spec.store.select.i55 = phi i64 [ %spec.store.select.i52, %.lr.ph56 ], [ %spec.store.select.i, %.loopexit ]
   %43 = phi i64 [ %27, %.lr.ph56 ], [ %116, %.loopexit ]
-  %.03654 = phi i64 [ %2, %.lr.ph56 ], [ %.1, %.loopexit ]
+  %.054 = phi i64 [ %2, %.lr.ph56 ], [ %.1, %.loopexit ]
   %44 = getelementptr inbounds i8, ptr %39, i64 128
   %45 = load ptr, ptr %44, align 8
   %46 = zext i8 %37 to i64
@@ -23549,13 +23549,13 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE5eraseEm.exit: ; preds = %
   br i1 %62, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %111
-  %.051 = phi i64 [ %spec.store.select.i43, %111 ], [ %61, %36 ]
-  %63 = icmp eq i64 %.051, %.03654
+  %.03651 = phi i64 [ %spec.store.select.i43, %111 ], [ %61, %36 ]
+  %63 = icmp eq i64 %.03651, %.054
   br i1 %63, label %64, label %111
 
 64:                                               ; preds = %.lr.ph
-  %65 = lshr i64 %.03654, 7
-  %66 = and i64 %.03654, 127
+  %65 = lshr i64 %.054, 7
+  %66 = and i64 %.054, 127
   %67 = icmp eq i64 %42, %65
   br i1 %67, label %68, label %72
 
@@ -23657,14 +23657,14 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE12moveFromSpanERS5_mm.exit
   br label %.loopexit
 
 111:                                              ; preds = %.lr.ph
-  %112 = add i64 %.051, 1
+  %112 = add i64 %.03651, 1
   %113 = icmp eq i64 %112, %43
   %spec.store.select.i43 = select i1 %113, i64 0, i64 %112
   %114 = icmp eq i64 %spec.store.select.i43, %spec.store.select.i55
   br i1 %114, label %.loopexit, label %.lr.ph, !llvm.loop !85
 
 .loopexit:                                        ; preds = %111, %36, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE12moveFromSpanERS5_mm.exit, %68
-  %.1 = phi i64 [ %spec.store.select.i55, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE12moveFromSpanERS5_mm.exit ], [ %spec.store.select.i55, %68 ], [ %.03654, %36 ], [ %.03654, %111 ]
+  %.1 = phi i64 [ %spec.store.select.i55, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE12moveFromSpanERS5_mm.exit ], [ %spec.store.select.i55, %68 ], [ %.054, %36 ], [ %.054, %111 ]
   %115 = add i64 %spec.store.select.i55, 1
   %116 = load i64, ptr %25, align 8
   %117 = icmp eq i64 %115, %116
@@ -23857,10 +23857,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %40
   br i1 %.not.i.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tED2Ev.exit.i.i.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %58, %.preheader.i.i.i.i
-  %.08.i.i.i.i.i = phi ptr [ %64, %.preheader.i.i.i.i ], [ %62, %58 ]
-  %63 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 8
+  %.067.i.i.i.i.i = phi ptr [ %64, %.preheader.i.i.i.i ], [ %62, %58 ]
+  %63 = getelementptr inbounds i8, ptr %.067.i.i.i.i.i, i64 8
   %64 = load ptr, ptr %63, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.08.i.i.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.067.i.i.i.i.i) #22
   %.not.i.i.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tED2Ev.exit.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !25
 
@@ -23997,16 +23997,16 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br label %49
 
 49:                                               ; preds = %.lr.ph, %143
-  %.02337 = phi i64 [ 0, %.lr.ph ], [ %144, %143 ]
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %144, %143 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.02337
+  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.037
   %52 = getelementptr inbounds i8, ptr %51, i64 128
-  %53 = shl nuw i64 %.02337, 7
+  %53 = shl nuw i64 %.037, 7
   br label %54
 
 54:                                               ; preds = %49, %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tEC2ERKS3_.exit
-  %.035 = phi i64 [ 0, %49 ], [ %142, %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tEC2ERKS3_.exit ]
-  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.035
+  %.02335 = phi i64 [ 0, %49 ], [ %142, %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tEC2ERKS3_.exit ]
+  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.02335
   %56 = load i8, ptr %55, align 1
   %.not34 = icmp eq i8 %56, -1
   br i1 %.not34, label %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tEC2ERKS3_.exit, label %57
@@ -24067,7 +24067,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br i1 %100, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !39
 
 101:                                              ; preds = %57
-  %102 = add nuw nsw i64 %.035, %53
+  %102 = add nuw nsw i64 %.02335, %53
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP10tab_info_tEEE4findERKj.exit
 
@@ -24169,12 +24169,12 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE6insertEm.exit: ; preds = 
   br i1 %.not.i28, label %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tEC2ERKS3_.exit, label %.lr.ph.i26, !llvm.loop !88
 
 _ZN12QHashPrivate9MultiNodeIjP10tab_info_tEC2ERKS3_.exit: ; preds = %.lr.ph.i26, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE6insertEm.exit, %54
-  %142 = add nuw nsw i64 %.035, 1
+  %142 = add nuw nsw i64 %.02335, 1
   %exitcond.not = icmp eq i64 %142, 128
   br i1 %exitcond.not, label %143, label %54, !llvm.loop !89
 
 143:                                              ; preds = %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tEC2ERKS3_.exit
-  %144 = add nuw nsw i64 %.02337, 1
+  %144 = add nuw nsw i64 %.037, 1
   %exitcond39.not = icmp eq i64 %144, %47
   br i1 %exitcond39.not, label %._crit_edge, label %49, !llvm.loop !90
 
@@ -24762,14 +24762,14 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE8freeDataEv.exit
-  %.02336 = phi i64 [ 0, %.lr.ph ], [ %142, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE8freeDataEv.exit ]
-  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02336
+  %.02236 = phi i64 [ 0, %.lr.ph ], [ %142, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE8freeDataEv.exit ]
+  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02236
   %42 = getelementptr inbounds i8, ptr %41, i64 128
   br label %43
 
 43:                                               ; preds = %40, %124
-  %.02235 = phi i64 [ 0, %40 ], [ %125, %124 ]
-  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02235
+  %.02335 = phi i64 [ 0, %40 ], [ %125, %124 ]
+  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02335
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, -1
   br i1 %.not, label %124, label %46
@@ -24911,7 +24911,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE6insertEm.exit: ; preds = 
   br label %124
 
 124:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE6insertEm.exit
-  %125 = add nuw nsw i64 %.02235, 1
+  %125 = add nuw nsw i64 %.02335, 1
   %exitcond.not = icmp eq i64 %125, 128
   br i1 %exitcond.not, label %126, label %43, !llvm.loop !91
 
@@ -24935,10 +24935,10 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE6insertEm.exit: ; preds = 
   br i1 %.not.i.i29, label %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tED2Ev.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %129, %.preheader.i.i
-  %.08.i.i.i = phi ptr [ %135, %.preheader.i.i ], [ %133, %129 ]
-  %134 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 8
+  %.067.i.i.i = phi ptr [ %135, %.preheader.i.i ], [ %133, %129 ]
+  %134 = getelementptr inbounds i8, ptr %.067.i.i.i, i64 8
   %135 = load ptr, ptr %134, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.08.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.067.i.i.i) #22
   %.not.i.i.i = icmp eq ptr %135, null
   br i1 %.not.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tED2Ev.exit.i, label %.preheader.i.i, !llvm.loop !25
 
@@ -24961,7 +24961,7 @@ _ZN12QHashPrivate9MultiNodeIjP10tab_info_tED2Ev.exit.i: ; preds = %.preheader.i.
   br label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE8freeDataEv.exit
 
 _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE8freeDataEv.exit: ; preds = %126, %141
-  %142 = add nuw nsw i64 %.02336, 1
+  %142 = add nuw nsw i64 %.02236, 1
   %exitcond38.not = icmp eq i64 %142, %38
   br i1 %exitcond38.not, label %._crit_edge.thread, label %40, !llvm.loop !92
 
@@ -25002,10 +25002,10 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE8freeDataEv.exit: ; preds 
   br i1 %.not.i.i.i32, label %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tED2Ev.exit.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %153, %.preheader.i.i.i
-  %.08.i.i.i.i = phi ptr [ %159, %.preheader.i.i.i ], [ %157, %153 ]
-  %158 = getelementptr inbounds i8, ptr %.08.i.i.i.i, i64 8
+  %.067.i.i.i.i = phi ptr [ %159, %.preheader.i.i.i ], [ %157, %153 ]
+  %158 = getelementptr inbounds i8, ptr %.067.i.i.i.i, i64 8
   %159 = load ptr, ptr %158, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.08.i.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.067.i.i.i.i) #22
   %.not.i.i.i.i = icmp eq ptr %159, null
   br i1 %.not.i.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP10tab_info_tED2Ev.exit.i.i, label %.preheader.i.i.i, !llvm.loop !25
 

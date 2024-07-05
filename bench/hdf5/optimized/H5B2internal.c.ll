@@ -1516,7 +1516,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr nocapture
   br label %91
 
 91:                                               ; preds = %89, %78
-  %.0158 = phi i64 [ %90, %89 ], [ %22, %78 ]
+  %.0160 = phi i64 [ %90, %89 ], [ %22, %78 ]
   %.not175 = icmp eq ptr %2, null
   br i1 %.not175, label %93, label %92
 
@@ -1766,15 +1766,15 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr nocapture
   br label %244
 
 244:                                              ; preds = %234, %._crit_edge
-  %.0166 = phi ptr [ %16, %234 ], [ %3, %._crit_edge ]
-  %.0161 = phi ptr [ %243, %234 ], [ %2, %._crit_edge ]
-  %245 = icmp ne ptr %.0161, null
+  %.0163 = phi ptr [ %16, %234 ], [ %3, %._crit_edge ]
+  %.0158 = phi ptr [ %243, %234 ], [ %2, %._crit_edge ]
+  %245 = icmp ne ptr %.0158, null
   %246 = icmp eq i16 %4, 1
   %or.cond4 = and i1 %246, %245
   br i1 %or.cond4, label %247, label %254
 
 247:                                              ; preds = %244
-  %248 = call i32 @H5B2__swap_leaf(ptr noundef %0, i16 noundef zeroext 1, ptr noundef nonnull %16, ptr noundef nonnull %13, i32 noundef %.lcssa, ptr noundef nonnull %.0161) #3
+  %248 = call i32 @H5B2__swap_leaf(ptr noundef %0, i16 noundef zeroext 1, ptr noundef nonnull %16, ptr noundef nonnull %13, i32 noundef %.lcssa, ptr noundef nonnull %.0158) #3
   %249 = icmp slt i32 %248, 0
   br i1 %249, label %250, label %._crit_edge214
 
@@ -1817,20 +1817,20 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr nocapture
   br label %267
 
 267:                                              ; preds = %263, %261, %254, %77
-  %.1167 = phi ptr [ %3, %77 ], [ %.0166, %254 ], [ %.0166, %261 ], [ %.0166, %263 ]
-  %.0165 = phi ptr [ %5, %77 ], [ %16, %254 ], [ %16, %261 ], [ %16, %263 ]
-  %.0164 = phi ptr [ %6, %77 ], [ %13, %254 ], [ %13, %261 ], [ %13, %263 ]
-  %.0163 = phi ptr [ %8, %77 ], [ %258, %254 ], [ %258, %261 ], [ %258, %263 ]
-  %.1162 = phi ptr [ %2, %77 ], [ %.0161, %254 ], [ %.0161, %261 ], [ %.0161, %263 ]
-  %.0160 = phi i32 [ 0, %77 ], [ 3, %254 ], [ %spec.select, %261 ], [ %spec.select183, %263 ]
-  %.1159 = phi i64 [ %22, %77 ], [ %.0158, %254 ], [ %.0158, %261 ], [ %.0158, %263 ]
+  %.0167 = phi ptr [ %5, %77 ], [ %16, %254 ], [ %16, %261 ], [ %16, %263 ]
+  %.0166 = phi ptr [ %6, %77 ], [ %13, %254 ], [ %13, %261 ], [ %13, %263 ]
+  %.0165 = phi ptr [ %8, %77 ], [ %258, %254 ], [ %258, %261 ], [ %258, %263 ]
+  %.1164 = phi ptr [ %3, %77 ], [ %.0163, %254 ], [ %.0163, %261 ], [ %.0163, %263 ]
+  %.0162 = phi i32 [ 0, %77 ], [ 3, %254 ], [ %spec.select, %261 ], [ %spec.select183, %263 ]
+  %.1161 = phi i64 [ %22, %77 ], [ %.0160, %254 ], [ %.0160, %261 ], [ %.0160, %263 ]
+  %.1159 = phi ptr [ %2, %77 ], [ %.0158, %254 ], [ %.0158, %261 ], [ %.0158, %263 ]
   %.0157 = phi i1 [ true, %77 ], [ false, %254 ], [ false, %261 ], [ false, %263 ]
   %268 = icmp ugt i16 %4, 1
   br i1 %268, label %269, label %277
 
 269:                                              ; preds = %267
   %270 = trunc i32 %26 to i16
-  %271 = call i32 @H5B2__remove_internal(ptr noundef %0, ptr noundef %1, ptr noundef %.1162, ptr noundef %.1167, i16 noundef zeroext %270, ptr noundef %.0165, ptr noundef %.0164, i32 noundef %.0160, ptr noundef %.0163, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  %271 = call i32 @H5B2__remove_internal(ptr noundef %0, ptr noundef %1, ptr noundef %.1159, ptr noundef %.1164, i16 noundef zeroext %270, ptr noundef %.0167, ptr noundef %.0166, i32 noundef %.0162, ptr noundef %.0165, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %272 = icmp slt i32 %271, 0
   br i1 %272, label %273, label %284
 
@@ -1841,7 +1841,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr nocapture
   br label %.thread187
 
 277:                                              ; preds = %267
-  %278 = call i32 @H5B2__remove_leaf(ptr noundef %0, ptr noundef %.0163, i32 noundef %.0160, ptr noundef %.0165, ptr noundef %9, ptr noundef %10, ptr noundef %11) #3
+  %278 = call i32 @H5B2__remove_leaf(ptr noundef %0, ptr noundef %.0165, i32 noundef %.0162, ptr noundef %.0167, ptr noundef %9, ptr noundef %10, ptr noundef %11) #3
   %279 = icmp slt i32 %278, 0
   br i1 %279, label %280, label %284
 
@@ -1855,7 +1855,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr nocapture
   br i1 %.0157, label %288, label %.thread
 
 .thread:                                          ; preds = %284
-  %285 = getelementptr inbounds i8, ptr %.0163, i64 16
+  %285 = getelementptr inbounds i8, ptr %.0165, i64 16
   %286 = load i64, ptr %285, align 8
   %287 = add i64 %286, -1
   store i64 %287, ptr %285, align 8
@@ -1875,7 +1875,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr nocapture
 
 .thread187:                                       ; preds = %139, %146, %49, %73, %85, %104, %164, %170, %192, %199, %213, %250, %273, %280, %292, %288
   %.0156191 = phi i32 [ 0, %288 ], [ -1, %104 ], [ -1, %250 ], [ -1, %199 ], [ -1, %192 ], [ -1, %170 ], [ -1, %164 ], [ -1, %213 ], [ -1, %85 ], [ -1, %280 ], [ 0, %292 ], [ -1, %273 ], [ -1, %73 ], [ -1, %49 ], [ -1, %146 ], [ -1, %139 ]
-  %.2190 = phi i64 [ %.1159, %288 ], [ %.0158, %104 ], [ %.0158, %250 ], [ %.0158, %199 ], [ %.0158, %192 ], [ %.0158, %170 ], [ %.0158, %164 ], [ %.0158, %213 ], [ %22, %85 ], [ %.1159, %280 ], [ %.1159, %292 ], [ %.1159, %273 ], [ %22, %73 ], [ %22, %49 ], [ %.0158, %146 ], [ %.0158, %139 ]
+  %.2190 = phi i64 [ %.1161, %288 ], [ %.0160, %104 ], [ %.0160, %250 ], [ %.0160, %199 ], [ %.0160, %192 ], [ %.0160, %170 ], [ %.0160, %164 ], [ %.0160, %213 ], [ %22, %85 ], [ %.1161, %280 ], [ %.1161, %292 ], [ %.1161, %273 ], [ %22, %73 ], [ %22, %49 ], [ %.0160, %146 ], [ %.0160, %139 ]
   %295 = getelementptr inbounds i8, ptr %0, i64 288
   %296 = load ptr, ptr %295, align 8
   %297 = load i32, ptr %13, align 4
@@ -2023,7 +2023,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
   br label %89
 
 89:                                               ; preds = %87, %76
-  %.0196 = phi i64 [ %88, %87 ], [ %20, %76 ]
+  %.0200 = phi i64 [ %88, %87 ], [ %20, %76 ]
   %.not222 = icmp eq ptr %2, null
   br i1 %.not222, label %.preheader251, label %.loopexit252
 
@@ -2041,15 +2041,15 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
 
 94:                                               ; preds = %.lr.ph, %102
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %102 ]
-  %.0207291 = phi i64 [ %9, %.lr.ph ], [ %103, %102 ]
+  %.0204291 = phi i64 [ %9, %.lr.ph ], [ %103, %102 ]
   %95 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %93, i64 %indvars.iv, i32 2
   %96 = load i64, ptr %95, align 8
-  %.not223 = icmp ult i64 %96, %.0207291
+  %.not223 = icmp ult i64 %96, %.0204291
   br i1 %.not223, label %102, label %97
 
 97:                                               ; preds = %94
   %98 = trunc nuw nsw i64 %indvars.iv to i32
-  %99 = icmp eq i64 %96, %.0207291
+  %99 = icmp eq i64 %96, %.0204291
   br i1 %99, label %100, label %.loopexit252
 
 100:                                              ; preds = %97
@@ -2058,13 +2058,13 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
 
 102:                                              ; preds = %94
   %.neg = xor i64 %96, -1
-  %103 = add i64 %.0207291, %.neg
+  %103 = add i64 %.0204291, %.neg
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit252, label %94
 
 .loopexit252:                                     ; preds = %102, %.preheader251, %89, %100, %97
-  %.1208 = phi i64 [ 0, %100 ], [ %.0207291, %97 ], [ %9, %89 ], [ %9, %.preheader251 ], [ %103, %102 ]
+  %.1205 = phi i64 [ 0, %100 ], [ %.0204291, %97 ], [ %9, %89 ], [ %9, %.preheader251 ], [ %103, %102 ]
   %.1191 = phi i32 [ %101, %100 ], [ %98, %97 ], [ 0, %89 ], [ 0, %.preheader251 ], [ %91, %102 ]
   %.0189 = phi i1 [ true, %100 ], [ false, %97 ], [ false, %89 ], [ false, %.preheader251 ], [ false, %102 ]
   %104 = getelementptr inbounds i8, ptr %14, i64 264
@@ -2081,7 +2081,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
   %.0302 = phi i32 [ %200, %.loopexit ], [ 2, %.loopexit252 ]
   %.1301 = phi i1 [ %.2, %.loopexit ], [ %.0189, %.loopexit252 ]
   %.2192300 = phi i32 [ %.4, %.loopexit ], [ %.1191, %.loopexit252 ]
-  %.2209299 = phi i64 [ %.4211, %.loopexit ], [ %.1208, %.loopexit252 ]
+  %.2206299 = phi i64 [ %.4208, %.loopexit ], [ %.1205, %.loopexit252 ]
   %112 = icmp eq i32 %.2192300, 0
   br i1 %112, label %113, label %133
 
@@ -2222,15 +2222,15 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
 
 189:                                              ; preds = %.lr.ph296, %197
   %indvars.iv324 = phi i64 [ 0, %.lr.ph296 ], [ %indvars.iv.next325, %197 ]
-  %.3210294 = phi i64 [ %9, %.lr.ph296 ], [ %198, %197 ]
+  %.3207294 = phi i64 [ %9, %.lr.ph296 ], [ %198, %197 ]
   %190 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %.pre329, i64 %indvars.iv324, i32 2
   %191 = load i64, ptr %190, align 8
-  %.not228 = icmp ult i64 %191, %.3210294
+  %.not228 = icmp ult i64 %191, %.3207294
   br i1 %.not228, label %197, label %192
 
 192:                                              ; preds = %189
   %193 = trunc nuw nsw i64 %indvars.iv324 to i32
-  %194 = icmp eq i64 %191, %.3210294
+  %194 = icmp eq i64 %191, %.3207294
   br i1 %194, label %195, label %.loopexit
 
 195:                                              ; preds = %192
@@ -2239,14 +2239,14 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
 
 197:                                              ; preds = %189
   %.neg229 = xor i64 %191, -1
-  %198 = add i64 %.3210294, %.neg229
+  %198 = add i64 %.3207294, %.neg229
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
   %exitcond328.not = icmp eq i64 %indvars.iv.next325, %wide.trip.count327
   br i1 %exitcond328.not, label %.loopexit, label %189
 
 .loopexit:                                        ; preds = %197, %..loopexit_crit_edge, %.preheader, %195, %192
   %199 = phi ptr [ %.pre329, %195 ], [ %.pre329, %192 ], [ %.pre, %..loopexit_crit_edge ], [ %.pre329, %.preheader ], [ %.pre329, %197 ]
-  %.4211 = phi i64 [ 0, %195 ], [ %.3210294, %192 ], [ %.2209299, %..loopexit_crit_edge ], [ %9, %.preheader ], [ %198, %197 ]
+  %.4208 = phi i64 [ 0, %195 ], [ %.3207294, %192 ], [ %.2206299, %..loopexit_crit_edge ], [ %9, %.preheader ], [ %198, %197 ]
   %.4 = phi i32 [ %196, %195 ], [ %193, %192 ], [ 0, %..loopexit_crit_edge ], [ 0, %.preheader ], [ %188, %197 ]
   %.2 = phi i1 [ true, %195 ], [ false, %192 ], [ %.1301, %..loopexit_crit_edge ], [ false, %.preheader ], [ false, %197 ]
   %200 = add i32 %.0302, -1
@@ -2259,7 +2259,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit252
   %206 = phi ptr [ %105, %.loopexit252 ], [ %199, %.loopexit ]
-  %.2209.lcssa = phi i64 [ %.1208, %.loopexit252 ], [ %.4211, %.loopexit ]
+  %.2206.lcssa = phi i64 [ %.1205, %.loopexit252 ], [ %.4208, %.loopexit ]
   %.2192.lcssa = phi i32 [ %.1191, %.loopexit252 ], [ %.4, %.loopexit ]
   %.1.lcssa = phi i1 [ %.0189, %.loopexit252 ], [ %.2, %.loopexit ]
   %.lcssa255 = phi i64 [ %106, %.loopexit252 ], [ %201, %.loopexit ]
@@ -2281,15 +2281,15 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
   br label %218
 
 218:                                              ; preds = %208, %._crit_edge
-  %.0205 = phi ptr [ %3, %._crit_edge ], [ %14, %208 ]
-  %.0200 = phi ptr [ %2, %._crit_edge ], [ %217, %208 ]
-  %219 = icmp ne ptr %.0200, null
+  %.0198 = phi ptr [ %3, %._crit_edge ], [ %14, %208 ]
+  %.0193 = phi ptr [ %2, %._crit_edge ], [ %217, %208 ]
+  %219 = icmp ne ptr %.0193, null
   %220 = icmp eq i16 %4, 1
   %or.cond = and i1 %220, %219
   br i1 %or.cond, label %221, label %.thread
 
 221:                                              ; preds = %218
-  %222 = call i32 @H5B2__swap_leaf(ptr noundef %0, i16 noundef zeroext 1, ptr noundef nonnull %14, ptr noundef nonnull %13, i32 noundef %.2192.lcssa, ptr noundef nonnull %.0200) #3
+  %222 = call i32 @H5B2__swap_leaf(ptr noundef %0, i16 noundef zeroext 1, ptr noundef nonnull %14, ptr noundef nonnull %13, i32 noundef %.2192.lcssa, ptr noundef nonnull %.0193) #3
   %223 = icmp slt i32 %222, 0
   br i1 %223, label %224, label %..thread_crit_edge
 
@@ -2305,8 +2305,8 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
 
 .thread:                                          ; preds = %..thread_crit_edge, %207, %218
   %228 = phi ptr [ %.pre330, %..thread_crit_edge ], [ %206, %218 ], [ %206, %207 ]
-  %.0200238 = phi ptr [ %.0200, %..thread_crit_edge ], [ %.0200, %218 ], [ null, %207 ]
-  %.0205237 = phi ptr [ %.0205, %..thread_crit_edge ], [ %.0205, %218 ], [ %3, %207 ]
+  %.0193238 = phi ptr [ %.0193, %..thread_crit_edge ], [ %.0193, %218 ], [ null, %207 ]
+  %.0198237 = phi ptr [ %.0198, %..thread_crit_edge ], [ %.0198, %218 ], [ %3, %207 ]
   %229 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %228, i64 %.lcssa255
   %.not224 = icmp eq i32 %8, 3
   br i1 %.not224, label %238, label %230
@@ -2331,21 +2331,21 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
   br label %238
 
 238:                                              ; preds = %234, %232, %.thread, %75
-  %.5 = phi i64 [ %9, %75 ], [ %.2209.lcssa, %.thread ], [ %.2209.lcssa, %232 ], [ %.2209.lcssa, %234 ]
-  %.1206 = phi ptr [ %3, %75 ], [ %.0205237, %.thread ], [ %.0205237, %232 ], [ %.0205237, %234 ]
-  %.0204 = phi ptr [ %5, %75 ], [ %14, %.thread ], [ %14, %232 ], [ %14, %234 ]
-  %.0203 = phi ptr [ %6, %75 ], [ %13, %.thread ], [ %13, %232 ], [ %13, %234 ]
-  %.0202 = phi ptr [ %7, %75 ], [ %229, %.thread ], [ %229, %232 ], [ %229, %234 ]
-  %.1201 = phi ptr [ %2, %75 ], [ %.0200238, %.thread ], [ %.0200238, %232 ], [ %.0200238, %234 ]
-  %.0199 = phi i32 [ 0, %75 ], [ 3, %.thread ], [ %spec.select, %232 ], [ %spec.select233, %234 ]
-  %.1197 = phi i64 [ %20, %75 ], [ %.0196, %.thread ], [ %.0196, %232 ], [ %.0196, %234 ]
-  %.0195 = phi i1 [ true, %75 ], [ false, %.thread ], [ false, %232 ], [ false, %234 ]
+  %.0211 = phi ptr [ %5, %75 ], [ %14, %.thread ], [ %14, %232 ], [ %14, %234 ]
+  %.0210 = phi ptr [ %6, %75 ], [ %13, %.thread ], [ %13, %232 ], [ %13, %234 ]
+  %.0209 = phi ptr [ %7, %75 ], [ %229, %.thread ], [ %229, %232 ], [ %229, %234 ]
+  %.5 = phi i64 [ %9, %75 ], [ %.2206.lcssa, %.thread ], [ %.2206.lcssa, %232 ], [ %.2206.lcssa, %234 ]
+  %.0203 = phi i32 [ 0, %75 ], [ 3, %.thread ], [ %spec.select, %232 ], [ %spec.select233, %234 ]
+  %.1201 = phi i64 [ %20, %75 ], [ %.0200, %.thread ], [ %.0200, %232 ], [ %.0200, %234 ]
+  %.1199 = phi ptr [ %3, %75 ], [ %.0198237, %.thread ], [ %.0198237, %232 ], [ %.0198237, %234 ]
+  %.0197 = phi i1 [ true, %75 ], [ false, %.thread ], [ false, %232 ], [ false, %234 ]
+  %.1194 = phi ptr [ %2, %75 ], [ %.0193238, %.thread ], [ %.0193238, %232 ], [ %.0193238, %234 ]
   %239 = icmp ugt i16 %4, 1
   br i1 %239, label %240, label %248
 
 240:                                              ; preds = %238
   %241 = trunc i32 %24 to i16
-  %242 = call i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr noundef %1, ptr noundef %.1201, ptr noundef %.1206, i16 noundef zeroext %241, ptr noundef %.0204, ptr noundef %.0203, ptr noundef %.0202, i32 noundef %.0199, i64 noundef %.5, ptr noundef %10, ptr noundef %11)
+  %242 = call i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr noundef %1, ptr noundef %.1194, ptr noundef %.1199, i16 noundef zeroext %241, ptr noundef %.0211, ptr noundef %.0210, ptr noundef %.0209, i32 noundef %.0203, i64 noundef %.5, ptr noundef %10, ptr noundef %11)
   %243 = icmp slt i32 %242, 0
   br i1 %243, label %244, label %256
 
@@ -2357,7 +2357,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
 
 248:                                              ; preds = %238
   %249 = trunc i64 %.5 to i32
-  %250 = call i32 @H5B2__remove_leaf_by_idx(ptr noundef %0, ptr noundef %.0202, i32 noundef %.0199, ptr noundef %.0204, i32 noundef %249, ptr noundef %10, ptr noundef %11) #3
+  %250 = call i32 @H5B2__remove_leaf_by_idx(ptr noundef %0, ptr noundef %.0209, i32 noundef %.0203, ptr noundef %.0211, i32 noundef %249, ptr noundef %10, ptr noundef %11) #3
   %251 = icmp slt i32 %250, 0
   br i1 %251, label %252, label %256
 
@@ -2368,10 +2368,10 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
   br label %.thread243
 
 256:                                              ; preds = %248, %240
-  br i1 %.0195, label %260, label %.thread239
+  br i1 %.0197, label %260, label %.thread239
 
 .thread239:                                       ; preds = %256
-  %257 = getelementptr inbounds i8, ptr %.0202, i64 16
+  %257 = getelementptr inbounds i8, ptr %.0209, i64 16
   %258 = load i64, ptr %257, align 8
   %259 = add i64 %258, -1
   store i64 %259, ptr %257, align 8
@@ -2390,12 +2390,12 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
   br label %.thread243
 
 .thread243:                                       ; preds = %122, %129, %47, %71, %83, %147, %153, %175, %182, %224, %244, %252, %264, %260
-  %.0193247 = phi i32 [ 0, %260 ], [ -1, %224 ], [ -1, %182 ], [ -1, %175 ], [ -1, %153 ], [ -1, %147 ], [ -1, %83 ], [ -1, %252 ], [ 0, %264 ], [ -1, %244 ], [ -1, %71 ], [ -1, %47 ], [ -1, %129 ], [ -1, %122 ]
-  %.2198246 = phi i64 [ %.1197, %260 ], [ %.0196, %224 ], [ %.0196, %182 ], [ %.0196, %175 ], [ %.0196, %153 ], [ %.0196, %147 ], [ %20, %83 ], [ %.1197, %252 ], [ %.1197, %264 ], [ %.1197, %244 ], [ %20, %71 ], [ %20, %47 ], [ %.0196, %129 ], [ %.0196, %122 ]
+  %.0195247 = phi i32 [ 0, %260 ], [ -1, %224 ], [ -1, %182 ], [ -1, %175 ], [ -1, %153 ], [ -1, %147 ], [ -1, %83 ], [ -1, %252 ], [ 0, %264 ], [ -1, %244 ], [ -1, %71 ], [ -1, %47 ], [ -1, %129 ], [ -1, %122 ]
+  %.2202246 = phi i64 [ %.1201, %260 ], [ %.0200, %224 ], [ %.0200, %182 ], [ %.0200, %175 ], [ %.0200, %153 ], [ %.0200, %147 ], [ %20, %83 ], [ %.1201, %252 ], [ %.1201, %264 ], [ %.1201, %244 ], [ %20, %71 ], [ %20, %47 ], [ %.0200, %129 ], [ %.0200, %122 ]
   %267 = getelementptr inbounds i8, ptr %0, i64 288
   %268 = load ptr, ptr %267, align 8
   %269 = load i32, ptr %13, align 4
-  %270 = call i32 @H5AC_unprotect(ptr noundef %268, ptr noundef nonnull @H5AC_BT2_INT, i64 noundef %.2198246, ptr noundef nonnull %14, i32 noundef %269) #3
+  %270 = call i32 @H5AC_unprotect(ptr noundef %268, ptr noundef nonnull @H5AC_BT2_INT, i64 noundef %.2202246, ptr noundef nonnull %14, i32 noundef %269) #3
   %271 = icmp slt i32 %270, 0
   br i1 %271, label %272, label %276
 
@@ -2406,8 +2406,8 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
   br label %276
 
 276:                                              ; preds = %.thread248, %272, %.thread243
-  %.1194 = phi i32 [ -1, %272 ], [ %.0193247, %.thread243 ], [ -1, %.thread248 ]
-  ret i32 %.1194
+  %.1196 = phi i32 [ -1, %272 ], [ %.0195247, %.thread243 ], [ -1, %.thread248 ]
+  ret i32 %.1196
 }
 
 declare i32 @H5B2__remove_leaf_by_idx(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

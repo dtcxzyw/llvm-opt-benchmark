@@ -102,15 +102,15 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %num_ranges.0108 = phi i32 [ 0, %if.end ], [ %num_ranges.1, %for.inc ]
-  %gid.0105 = phi i32 [ 0, %if.end ], [ %inc29, %for.inc ]
-  %_.sroa.0.0104 = phi i32 [ %_.sroa.0.0.copyload, %if.end ], [ %_.sroa.0.1, %for.inc ]
-  %_.sroa.4.0103 = phi i32 [ %_.sroa.4.0.copyload, %if.end ], [ %_.sroa.4.1, %for.inc ]
-  %prev_fd.0102 = phi i32 [ -1, %if.end ], [ %prev_fd.1, %for.inc ]
+  %prev_fd.0107 = phi i32 [ -1, %if.end ], [ %prev_fd.1, %for.inc ]
+  %gid.0104 = phi i32 [ 0, %if.end ], [ %inc29, %for.inc ]
+  %_.sroa.0.0103 = phi i32 [ %_.sroa.0.0.copyload, %if.end ], [ %_.sroa.0.1, %for.inc ]
+  %_.sroa.4.0102 = phi i32 [ %_.sroa.4.0.copyload, %if.end ], [ %_.sroa.4.1, %for.inc ]
   %last_range.sroa.3.0101 = phi i32 [ 0, %if.end ], [ %last_range.sroa.3.1, %for.inc ]
   %last_range.sroa.0.0100 = phi i32 [ 0, %if.end ], [ %last_range.sroa.0.1, %for.inc ]
   %it.sroa.5.098 = phi i32 [ %new_to_old_gid_list.val, %if.end ], [ %it.sroa.5.2, %for.inc ]
   %it.sroa.0.097 = phi ptr [ %new_to_old_gid_list.val38, %if.end ], [ %it.sroa.0.2, %for.inc ]
-  %cmp4 = icmp eq i32 %gid.0105, %_.sroa.0.0104
+  %cmp4 = icmp eq i32 %gid.0104, %_.sroa.0.0103
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %for.body
@@ -128,9 +128,9 @@ if.then5:                                         ; preds = %for.body
 if.end8:                                          ; preds = %for.body, %if.then5
   %it.sroa.0.2 = phi ptr [ %it.sroa.0.1, %if.then5 ], [ %it.sroa.0.097, %for.body ]
   %it.sroa.5.2 = phi i32 [ %it.sroa.5.1, %if.then5 ], [ %it.sroa.5.098, %for.body ]
-  %_.sroa.4.1 = phi i32 [ %_.sroa.4.0.copyload16, %if.then5 ], [ %_.sroa.4.0103, %for.body ]
-  %_.sroa.0.1 = phi i32 [ %_.sroa.0.0.copyload15, %if.then5 ], [ %_.sroa.0.0104, %for.body ]
-  %old_glyph.0 = phi i32 [ %_.sroa.4.0103, %if.then5 ], [ %gid.0105, %for.body ]
+  %_.sroa.4.1 = phi i32 [ %_.sroa.4.0.copyload16, %if.then5 ], [ %_.sroa.4.0102, %for.body ]
+  %_.sroa.0.1 = phi i32 [ %_.sroa.0.0.copyload15, %if.then5 ], [ %_.sroa.0.0103, %for.body ]
+  %old_glyph.0 = phi i32 [ %_.sroa.4.0102, %if.then5 ], [ %gid.0104, %for.body ]
   %cmp10.not = icmp ult i32 %old_glyph.0, %last_range.sroa.3.0101
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
@@ -167,7 +167,7 @@ _ZNK3CFF8FDSelect12get_fd_rangeEj.exit:           ; preds = %if.then11, %if.end.
 if.end13:                                         ; preds = %_ZNK3CFF8FDSelect12get_fd_rangeEj.exit, %if.end8
   %last_range.sroa.0.1 = phi i32 [ %last_range.sroa.0.0100, %if.end8 ], [ %last_range.sroa.0.0.extract.trunc, %_ZNK3CFF8FDSelect12get_fd_rangeEj.exit ]
   %last_range.sroa.3.1 = phi i32 [ %last_range.sroa.3.0101, %if.end8 ], [ %retval.sroa.5.0.i, %_ZNK3CFF8FDSelect12get_fd_rangeEj.exit ]
-  %cmp15.not = icmp eq i32 %last_range.sroa.0.1, %prev_fd.0102
+  %cmp15.not = icmp eq i32 %last_range.sroa.0.1, %prev_fd.0107
   br i1 %cmp15.not, label %for.inc, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -234,7 +234,7 @@ if.end.i45:                                       ; preds = %_ZN11hb_vector_tIN3
   store i32 %inc.i, ptr %length.i, align 4
   %idxprom.i = zext i32 %13 to i64
   %arrayidx.i = getelementptr inbounds %"struct.CFF::code_pair_t", ptr %12, i64 %idxprom.i
-  %ref.tmp17.sroa.2.0.insert.ext = zext i32 %gid.0105 to i64
+  %ref.tmp17.sroa.2.0.insert.ext = zext i32 %gid.0104 to i64
   %ref.tmp17.sroa.2.0.insert.shift = shl nuw i64 %ref.tmp17.sroa.2.0.insert.ext, 32
   %ref.tmp17.sroa.0.0.insert.ext = zext i32 %last_range.sroa.0.1 to i64
   %ref.tmp17.sroa.0.0.insert.insert = or disjoint i64 %ref.tmp17.sroa.2.0.insert.shift, %ref.tmp17.sroa.0.0.insert.ext
@@ -242,7 +242,7 @@ if.end.i45:                                       ; preds = %_ZN11hb_vector_tIN3
   br label %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EE4pushIJS1_EEEPS1_DpOT_.exit
 
 _ZN11hb_vector_tIN3CFF11code_pair_tELb0EE4pushIJS1_EEEPS1_DpOT_.exit: ; preds = %if.then.i, %if.end.i45
-  %cmp19 = icmp eq i32 %gid.0105, %old_glyph.0
+  %cmp19 = icmp eq i32 %gid.0104, %old_glyph.0
   br i1 %cmp19, label %if.then20, label %for.inc
 
 if.then20:                                        ; preds = %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EE4pushIJS1_EEEPS1_DpOT_.exit
@@ -252,8 +252,8 @@ if.then20:                                        ; preds = %_ZN11hb_vector_tIN3
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end13, %if.then20, %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EE4pushIJS1_EEEPS1_DpOT_.exit
-  %prev_fd.1 = phi i32 [ %last_range.sroa.0.1, %if.then20 ], [ %last_range.sroa.0.1, %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EE4pushIJS1_EEEPS1_DpOT_.exit ], [ %prev_fd.0102, %if.end13 ]
-  %gid.1 = phi i32 [ %.sroa.speculated, %if.then20 ], [ %gid.0105, %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EE4pushIJS1_EEEPS1_DpOT_.exit ], [ %gid.0105, %if.end13 ]
+  %gid.1 = phi i32 [ %.sroa.speculated, %if.then20 ], [ %gid.0104, %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EE4pushIJS1_EEEPS1_DpOT_.exit ], [ %gid.0104, %if.end13 ]
+  %prev_fd.1 = phi i32 [ %last_range.sroa.0.1, %if.then20 ], [ %last_range.sroa.0.1, %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EE4pushIJS1_EEEPS1_DpOT_.exit ], [ %prev_fd.0107, %if.end13 ]
   %num_ranges.1 = phi i32 [ %inc, %if.then20 ], [ %inc, %_ZN11hb_vector_tIN3CFF11code_pair_tELb0EE4pushIJS1_EEEPS1_DpOT_.exit ], [ %num_ranges.0108, %if.end13 ]
   %inc29 = add i32 %gid.1, 1
   %cmp3 = icmp ult i32 %inc29, %0

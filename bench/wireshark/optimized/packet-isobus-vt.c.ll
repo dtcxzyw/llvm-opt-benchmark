@@ -2881,7 +2881,7 @@ get_object_id_string.exit2306:                    ; preds = %727, %728
 
 .lr.ph2791:                                       ; preds = %.lr.ph2797, %get_object_id_string.exit2316
   %.12789 = phi i32 [ %795, %get_object_id_string.exit2316 ], [ %761, %.lr.ph2797 ]
-  %.020022788 = phi i32 [ %807, %get_object_id_string.exit2316 ], [ 0, %.lr.ph2797 ]
+  %.020012788 = phi i32 [ %807, %get_object_id_string.exit2316 ], [ 0, %.lr.ph2797 ]
   %770 = load i32, ptr @ett_isobus_vt_preferredassignment_inputunit_preferredfunction, align 4
   %771 = call ptr @proto_tree_add_subtree(ptr noundef %752, ptr noundef %0, i32 noundef %.12789, i32 noundef 4, i32 noundef %770, ptr noundef nonnull %43, ptr noundef nonnull @.str.756) #5
   %772 = load i32, ptr @hf_isobus_vt_preferredassignment_auxinputunit_preferredfunctions_auxfunctionobjectid, align 4
@@ -2952,7 +2952,7 @@ get_object_id_string.exit2314:                    ; preds = %proto_item_set_hidd
 get_object_id_string.exit2316:                    ; preds = %get_object_id_string.exit2314, %805
   %.0.i2315 = phi ptr [ %806, %805 ], [ @.str.1007, %get_object_id_string.exit2314 ]
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %796, ptr noundef nonnull @.str.758, ptr noundef %.0.i2313, ptr noundef %.0.i2315) #5
-  %807 = add nuw i32 %.020022788, 1
+  %807 = add nuw i32 %.020012788, 1
   %808 = load i32, ptr %40, align 4
   %809 = icmp ult i32 %807, %808
   br i1 %809, label %.lr.ph2791, label %._crit_edge2792, !llvm.loop !6
@@ -7164,7 +7164,7 @@ get_object_id_string.exit2613:                    ; preds = %proto_item_set_hidd
 
 .lr.ph2774:                                       ; preds = %2777, %.lr.ph2774
   %.72772 = phi i32 [ %2788, %.lr.ph2774 ], [ 5, %2777 ]
-  %.020092771 = phi i32 [ %2792, %.lr.ph2774 ], [ 0, %2777 ]
+  %.020072771 = phi i32 [ %2792, %.lr.ph2774 ], [ 0, %2777 ]
   %2781 = load i32, ptr @ett_isobus_vt_getsupportedwidechars_range, align 4
   %2782 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.72772, i32 noundef 4, i32 noundef %2781, ptr noundef nonnull %174, ptr noundef nonnull @.str.917) #5
   %2783 = load i32, ptr @hf_isobus_vt_graphicscontext_drawpolygon_point_xoffset, align 4
@@ -7177,7 +7177,7 @@ get_object_id_string.exit2613:                    ; preds = %proto_item_set_hidd
   %2790 = load i32, ptr %175, align 4
   %2791 = load i32, ptr %176, align 4
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %2789, ptr noundef nonnull @.str.918, i32 noundef %2790, i32 noundef %2791) #5
-  %2792 = add nuw i32 %.020092771, 1
+  %2792 = add nuw i32 %.020072771, 1
   %2793 = load i32, ptr %173, align 4
   %2794 = icmp ult i32 %2792, %2793
   br i1 %2794, label %.lr.ph2774, label %._crit_edge2775, !llvm.loop !10
@@ -8178,7 +8178,7 @@ get_object_id_string.exit2674:                    ; preds = %3213, %3214
 
 .lr.ph2769:                                       ; preds = %3258, %.lr.ph2769
   %.82767 = phi i32 [ %3269, %.lr.ph2769 ], [ 8, %3258 ]
-  %.020072766 = phi i32 [ %3273, %.lr.ph2769 ], [ 0, %3258 ]
+  %.020102766 = phi i32 [ %3273, %.lr.ph2769 ], [ 0, %3258 ]
   %3262 = load i32, ptr @ett_isobus_vt_getsupportedwidechars_range, align 4
   %3263 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.82767, i32 noundef 4, i32 noundef %3262, ptr noundef nonnull %213, ptr noundef nonnull @.str.962) #5
   %3264 = load i32, ptr @hf_isobus_vt_getsupportedwidechars_firstavailablewidechar, align 4
@@ -8191,7 +8191,7 @@ get_object_id_string.exit2674:                    ; preds = %3213, %3214
   %3271 = load i32, ptr %211, align 4
   %3272 = load i32, ptr %212, align 4
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %3270, ptr noundef nonnull @.str.963, i32 noundef %3271, i32 noundef %3272) #5
-  %3273 = add nuw i32 %.020072766, 1
+  %3273 = add nuw i32 %.020102766, 1
   %3274 = load i32, ptr %210, align 4
   %3275 = icmp ult i32 %3273, %3274
   br i1 %3275, label %.lr.ph2769, label %._crit_edge2770, !llvm.loop !11
@@ -8373,7 +8373,7 @@ get_object_id_string.exit2674:                    ; preds = %3213, %3214
 
 .lr.ph2763:                                       ; preds = %3398, %3404
   %.92761 = phi i32 [ %3407, %3404 ], [ 2, %3398 ]
-  %.020012760 = phi i32 [ %3408, %3404 ], [ 0, %3398 ]
+  %.020022760 = phi i32 [ %3408, %3404 ], [ 0, %3398 ]
   %3402 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.92761) #5
   %3403 = icmp eq i8 %3402, -1
   br i1 %3403, label %._crit_edge2764, label %3404
@@ -8382,7 +8382,7 @@ get_object_id_string.exit2674:                    ; preds = %3213, %3214
   %3405 = load i32, ptr @hf_isobus_vt_getsupportedobjects_objecttype, align 4
   %3406 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3405, ptr noundef %0, i32 noundef %.92761, i32 noundef 1, i32 noundef -2147483648) #5
   %3407 = add i32 %.92761, 1
-  %3408 = add nuw i32 %.020012760, 1
+  %3408 = add nuw i32 %.020022760, 1
   %3409 = load i32, ptr %219, align 4
   %3410 = icmp ult i32 %3408, %3409
   br i1 %3410, label %.lr.ph2763, label %._crit_edge2764, !llvm.loop !12
@@ -8658,11 +8658,11 @@ get_object_id_string.exit2674:                    ; preds = %3213, %3214
 
 .lr.ph2758:                                       ; preds = %3548, %.lr.ph2758
   %.102756 = phi i32 [ %3554, %.lr.ph2758 ], [ 2, %3548 ]
-  %.019972755 = phi i32 [ %3555, %.lr.ph2758 ], [ 0, %3548 ]
+  %.019982755 = phi i32 [ %3555, %.lr.ph2758 ], [ 0, %3548 ]
   %3552 = load i32, ptr @hf_isobus_vt_extendedgetversions_versionlabel, align 4
   %3553 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3552, ptr noundef %0, i32 noundef %.102756, i32 noundef 32, i32 noundef 0) #5
   %3554 = add i32 %.102756, 32
-  %3555 = add nuw i32 %.019972755, 1
+  %3555 = add nuw i32 %.019982755, 1
   %3556 = load i32, ptr %229, align 4
   %3557 = icmp ult i32 %3555, %3556
   br i1 %3557, label %.lr.ph2758, label %._crit_edge2759, !llvm.loop !13
@@ -8894,11 +8894,11 @@ get_object_id_string.exit2674:                    ; preds = %3213, %3214
 
 .lr.ph:                                           ; preds = %3657, %.lr.ph
   %.112754 = phi i32 [ %3663, %.lr.ph ], [ 2, %3657 ]
-  %.019962753 = phi i32 [ %3664, %.lr.ph ], [ 0, %3657 ]
+  %.019972753 = phi i32 [ %3664, %.lr.ph ], [ 0, %3657 ]
   %3661 = load i32, ptr @hf_isobus_vt_getversions_versionlabel, align 4
   %3662 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3661, ptr noundef %0, i32 noundef %.112754, i32 noundef 7, i32 noundef 0) #5
   %3663 = add i32 %.112754, 7
-  %3664 = add nuw i32 %.019962753, 1
+  %3664 = add nuw i32 %.019972753, 1
   %3665 = load i32, ptr %236, align 4
   %3666 = icmp ult i32 %3664, %3665
   br i1 %3666, label %.lr.ph, label %._crit_edge, !llvm.loop !14

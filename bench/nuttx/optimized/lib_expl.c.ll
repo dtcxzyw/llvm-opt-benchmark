@@ -13,10 +13,10 @@ define x86_fp80 @expl(x86_fp80 noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = fcmp olt x86_fp80 %0, 0xK00000000000000000000
   %5 = fneg x86_fp80 %0
-  %.021 = select i1 %4, x86_fp80 %5, x86_fp80 %0
-  %6 = fptoui x86_fp80 %.021 to i64
+  %.022 = select i1 %4, x86_fp80 %5, x86_fp80 %0
+  %6 = fptoui x86_fp80 %.022 to i64
   %7 = uitofp i64 %6 to x86_fp80
-  %8 = fsub x86_fp80 %.021, %7
+  %8 = fsub x86_fp80 %.022, %7
   br label %9
 
 9:                                                ; preds = %3, %9
@@ -42,8 +42,8 @@ define x86_fp80 @expl(x86_fp80 noundef %0) local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %15, %1, %19
-  %.022 = phi x86_fp80 [ %20, %19 ], [ 0xK3FFF8000000000000000, %1 ], [ %18, %15 ]
-  ret x86_fp80 %.022
+  %.021 = phi x86_fp80 [ %20, %19 ], [ 0xK3FFF8000000000000000, %1 ], [ %18, %15 ]
+  ret x86_fp80 %.021
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

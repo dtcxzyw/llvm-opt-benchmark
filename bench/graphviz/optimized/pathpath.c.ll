@@ -96,26 +96,26 @@ define ptr @pathpath(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %35, label %agxbfree.exit83, label %36
 
 36:                                               ; preds = %33, %25
-  %.045 = phi ptr [ %27, %33 ], [ %18, %25 ]
+  %.046 = phi ptr [ %27, %33 ], [ %18, %25 ]
   %37 = load ptr, ptr @pathpath.cmd, align 8
   %.not68 = icmp eq ptr %37, null
   br i1 %.not68, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = tail call noalias ptr @strdup(ptr noundef nonnull %.045) #16
+  %39 = tail call noalias ptr @strdup(ptr noundef nonnull %.046) #16
   store ptr %39, ptr @pathpath.cmd, align 8
   br label %40
 
 40:                                               ; preds = %38, %36
-  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.045) #17
-  %42 = getelementptr inbounds i8, ptr %.045, i64 %41
-  %43 = ptrtoint ptr %.045 to i64
+  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #17
+  %42 = getelementptr inbounds i8, ptr %.046, i64 %41
+  %43 = ptrtoint ptr %.046 to i64
   %44 = getelementptr inbounds i8, ptr %3, i64 31
   br label %agxbfree.exit84
 
 agxbfree.exit84:                                  ; preds = %agxbfree.exit84.backedge, %40
   %.1 = phi ptr [ %42, %40 ], [ %.1.be, %agxbfree.exit84.backedge ]
-  %.not69 = icmp ugt ptr %.1, %.045
+  %.not69 = icmp ugt ptr %.1, %.046
   br i1 %.not69, label %45, label %agxbfree.exit83
 
 45:                                               ; preds = %agxbfree.exit84
@@ -130,7 +130,7 @@ agxbfree.exit84.backedge:                         ; preds = %45, %67, %69
 
 .preheader:                                       ; preds = %45, %49
   %.2 = phi ptr [ %50, %49 ], [ %46, %45 ]
-  %.not70 = icmp ugt ptr %.2, %.045
+  %.not70 = icmp ugt ptr %.2, %.046
   br i1 %.not70, label %49, label %agxbfree.exit83
 
 49:                                               ; preds = %.preheader
@@ -145,7 +145,7 @@ agxbfree.exit84.backedge:                         ; preds = %45, %67, %69
   %54 = sub i64 %53, %43
   %55 = trunc i64 %54 to i32
   %56 = add i32 %55, 1
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr nonnull poison, i32 noundef %56, ptr noundef nonnull %.045)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %3, ptr nonnull poison, i32 noundef %56, ptr noundef nonnull %.046)
   %57 = call fastcc ptr @agxbuse(ptr noundef nonnull %3)
   %58 = call i32 @access(ptr noundef %57, i32 noundef 1) #16
   %59 = icmp eq i32 %58, 0
@@ -193,18 +193,18 @@ agxbfree.exit83.thread:                           ; preds = %13, %agxbfree.exit8
   br i1 %.not74, label %71, label %73
 
 71:                                               ; preds = %agxbfree.exit83.thread, %agxbfree.exit83
-  %.14892 = phi ptr [ null, %agxbfree.exit83.thread ], [ %0, %agxbfree.exit83 ]
-  %.15089 = phi ptr [ %0, %agxbfree.exit83.thread ], [ @.str.1, %agxbfree.exit83 ]
+  %.14992 = phi ptr [ null, %agxbfree.exit83.thread ], [ %0, %agxbfree.exit83 ]
+  %.15189 = phi ptr [ %0, %agxbfree.exit83.thread ], [ @.str.1, %agxbfree.exit83 ]
   %72 = call ptr @getenv(ptr noundef nonnull @.str.10) #16
   %.not.i = icmp eq ptr %72, null
   %.str..i = select i1 %.not.i, ptr @.str, ptr %72
   br label %73
 
 73:                                               ; preds = %agxbfree.exit83.thread, %71
-  %.14891 = phi ptr [ %.14892, %71 ], [ null, %agxbfree.exit83.thread ]
-  %.15088 = phi ptr [ %.15089, %71 ], [ %0, %agxbfree.exit83.thread ]
+  %.14991 = phi ptr [ %.14992, %71 ], [ null, %agxbfree.exit83.thread ]
+  %.15188 = phi ptr [ %.15189, %71 ], [ %0, %agxbfree.exit83.thread ]
   %74 = phi ptr [ %.str..i, %71 ], [ @.str, %agxbfree.exit83.thread ]
-  %75 = call ptr @pathaccess(ptr noundef nonnull %74, ptr noundef %.15088, ptr noundef %.14891) #16
+  %75 = call ptr @pathaccess(ptr noundef nonnull %74, ptr noundef %.15188, ptr noundef %.14991) #16
   %.not75 = icmp eq ptr %75, null
   br i1 %.not75, label %76, label %agxbfree.exit
 
@@ -219,12 +219,12 @@ agxbfree.exit83.thread:                           ; preds = %13, %agxbfree.exit8
   br i1 %.not77, label %agxbfree.exit, label %80
 
 80:                                               ; preds = %78
-  %81 = call ptr @pathaccess(ptr noundef nonnull %79, ptr noundef %.15088, ptr noundef %.14891) #16
+  %81 = call ptr @pathaccess(ptr noundef nonnull %79, ptr noundef %.15188, ptr noundef %.14991) #16
   br label %agxbfree.exit
 
 agxbfree.exit:                                    ; preds = %64, %63, %73, %76, %78, %80, %11
-  %.051 = phi ptr [ %12, %11 ], [ %75, %73 ], [ null, %76 ], [ %81, %80 ], [ null, %78 ], [ %61, %63 ], [ %61, %64 ]
-  ret ptr %.051
+  %.0 = phi ptr [ %12, %11 ], [ %75, %73 ], [ null, %76 ], [ %81, %80 ], [ null, %78 ], [ %61, %63 ], [ %61, %64 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree nounwind

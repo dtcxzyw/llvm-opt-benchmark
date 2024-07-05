@@ -3596,10 +3596,10 @@ invoke.cont23.lr.ph:                              ; preds = %invoke.cont
   br label %invoke.cont23
 
 invoke.cont23:                                    ; preds = %invoke.cont23.lr.ph, %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98
-  %__begin214.sroa.0.0157 = phi ptr [ %20, %invoke.cont23.lr.ph ], [ %__begin214.sroa.0.1, %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98 ]
-  %__begin214.sroa.8.0156 = phi ptr [ %23, %invoke.cont23.lr.ph ], [ %__begin214.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98 ]
-  %__begin214.sroa.11.0155 = phi ptr [ %22, %invoke.cont23.lr.ph ], [ %__begin214.sroa.11.1, %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98 ]
-  %26 = load i64, ptr %__begin214.sroa.0.0157, align 8
+  %__begin214.sroa.11.0157 = phi ptr [ %22, %invoke.cont23.lr.ph ], [ %__begin214.sroa.11.1, %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98 ]
+  %__begin214.sroa.0.0156 = phi ptr [ %20, %invoke.cont23.lr.ph ], [ %__begin214.sroa.0.1, %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98 ]
+  %__begin214.sroa.8.0155 = phi ptr [ %23, %invoke.cont23.lr.ph ], [ %__begin214.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98 ]
+  %26 = load i64, ptr %__begin214.sroa.0.0156, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false)
   %27 = load ptr, ptr %queue_.i.i36, align 8
   store ptr %27, ptr %queue_.i.i.i, align 8
@@ -3667,7 +3667,7 @@ if.then.i.i.i.i54:                                ; preds = %_ZNK5folly10IOBufQu
   br label %invoke.cont28
 
 invoke.cont28:                                    ; preds = %if.then.i.i.i.i54, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %invoke.cont25
-  %second26 = getelementptr inbounds i8, ptr %__begin214.sroa.0.0157, i64 8
+  %second26 = getelementptr inbounds i8, ptr %__begin214.sroa.0.0156, i64 8
   %41 = load i64, ptr %second26, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp27, i8 0, i64 17, i1 false)
   %42 = load ptr, ptr %queue_.i.i36, align 8
@@ -3736,20 +3736,20 @@ if.then.i.i.i.i83:                                ; preds = %_ZNK5folly10IOBufQu
   br label %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89"
 
 "_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89": ; preds = %invoke.cont31, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i80, %if.then.i.i.i.i83
-  %incdec.ptr.i90 = getelementptr inbounds i8, ptr %__begin214.sroa.0.0157, i64 16
-  %cmp.i92 = icmp eq ptr %incdec.ptr.i90, %__begin214.sroa.8.0156
+  %incdec.ptr.i90 = getelementptr inbounds i8, ptr %__begin214.sroa.0.0156, i64 16
+  %cmp.i92 = icmp eq ptr %incdec.ptr.i90, %__begin214.sroa.8.0155
   br i1 %cmp.i92, label %if.then.i93, label %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98
 
 if.then.i93:                                      ; preds = %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89"
-  %add.ptr.i95 = getelementptr inbounds i8, ptr %__begin214.sroa.11.0155, i64 8
+  %add.ptr.i95 = getelementptr inbounds i8, ptr %__begin214.sroa.11.0157, i64 8
   %56 = load ptr, ptr %add.ptr.i95, align 8
   %add.ptr.i.i97 = getelementptr inbounds i8, ptr %56, i64 512
   br label %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98
 
 _ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98: ; preds = %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89", %if.then.i93
-  %__begin214.sroa.11.1 = phi ptr [ %add.ptr.i95, %if.then.i93 ], [ %__begin214.sroa.11.0155, %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89" ]
-  %__begin214.sroa.8.1 = phi ptr [ %add.ptr.i.i97, %if.then.i93 ], [ %__begin214.sroa.8.0156, %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89" ]
+  %__begin214.sroa.8.1 = phi ptr [ %add.ptr.i.i97, %if.then.i93 ], [ %__begin214.sroa.8.0155, %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89" ]
   %__begin214.sroa.0.1 = phi ptr [ %56, %if.then.i93 ], [ %incdec.ptr.i90, %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89" ]
+  %__begin214.sroa.11.1 = phi ptr [ %add.ptr.i95, %if.then.i93 ], [ %__begin214.sroa.11.0157, %"_ZZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EEEN3$_0D2Ev.exit89" ]
   %cmp.i.i52.not = icmp eq ptr %__begin214.sroa.0.1, %21
   br i1 %cmp.i.i52.not, label %for.end34, label %invoke.cont23
 

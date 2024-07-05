@@ -312,12 +312,12 @@ land.rhs.lr.ph.i:                                 ; preds = %entry
 
 while.cond3.i.preheader:                          ; preds = %land.rhs.lr.ph.i, %if.end33.i
   %3 = phi i8 [ %7, %if.end33.i ], [ %2, %land.rhs.lr.ph.i ]
-  %ptr.029.i21 = phi ptr [ %spec.select.i, %if.end33.i ], [ %1, %land.rhs.lr.ph.i ]
+  %ptr.028.i21 = phi ptr [ %spec.select.i, %if.end33.i ], [ %1, %land.rhs.lr.ph.i ]
   br label %while.cond3.i
 
 while.cond3.i:                                    ; preds = %while.cond3.i.preheader, %while.body10.i
   %4 = phi i8 [ %.pr.i, %while.body10.i ], [ %3, %while.cond3.i.preheader ]
-  %ptr.1.i = phi ptr [ %incdec.ptr.i, %while.body10.i ], [ %ptr.029.i21, %while.cond3.i.preheader ]
+  %ptr.1.i = phi ptr [ %incdec.ptr.i, %while.body10.i ], [ %ptr.028.i21, %while.cond3.i.preheader ]
   switch i8 %4, label %while.body10.i [
     i8 0, label %while.end.i
     i8 61, label %while.end.i
@@ -346,7 +346,7 @@ while.body19.i:                                   ; preds = %while.cond11.i
   br label %while.cond11.i, !llvm.loop !6
 
 while.end21.i:                                    ; preds = %while.cond11.i, %while.cond11.i
-  %call.i = tail call i32 @curl_strnequal(ptr noundef nonnull %ptr.029.i21, ptr noundef nonnull @.str.26, i64 noundef 5) #7
+  %call.i = tail call i32 @curl_strnequal(ptr noundef nonnull %ptr.028.i21, ptr noundef nonnull @.str.26, i64 noundef 5) #7
   %tobool22.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool22.not.i, label %while.end40.i, label %if.then.i
 

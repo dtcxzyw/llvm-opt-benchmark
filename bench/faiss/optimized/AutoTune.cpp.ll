@@ -304,12 +304,12 @@ define noundef double @_ZNK5faiss21OneRecallAtRCriterion8evaluateEPKfPKl(ptr noc
   br i1 %or.cond29, label %.lr.ph.us, label %._crit_edge
 
 .lr.ph.us:                                        ; preds = %.preheader, %..loopexit_crit_edge.us
-  %.01524.us = phi i64 [ %39, %..loopexit_crit_edge.us ], [ 0, %.preheader ]
-  %.01623.us = phi i64 [ %.1.us, %..loopexit_crit_edge.us ], [ 0, %.preheader ]
-  %27 = mul nuw nsw i64 %.01524.us, %14
+  %.01724.us = phi i64 [ %39, %..loopexit_crit_edge.us ], [ 0, %.preheader ]
+  %.01823.us = phi i64 [ %.1.us, %..loopexit_crit_edge.us ], [ 0, %.preheader ]
+  %27 = mul nuw nsw i64 %.01724.us, %14
   %28 = getelementptr inbounds i64, ptr %8, i64 %27
   %29 = load i64, ptr %28, align 8
-  %30 = mul nsw i64 %.01524.us, %22
+  %30 = mul nsw i64 %.01724.us, %22
   %31 = getelementptr inbounds i64, ptr %2, i64 %30
   br label %33
 
@@ -326,12 +326,12 @@ define noundef double @_ZNK5faiss21OneRecallAtRCriterion8evaluateEPKfPKl(ptr noc
   br i1 %36, label %37, label %32
 
 37:                                               ; preds = %33
-  %38 = add nsw i64 %.01623.us, 1
+  %38 = add nsw i64 %.01823.us, 1
   br label %..loopexit_crit_edge.us
 
 ..loopexit_crit_edge.us:                          ; preds = %32, %37
-  %.1.us = phi i64 [ %38, %37 ], [ %.01623.us, %32 ]
-  %39 = add nuw nsw i64 %.01524.us, 1
+  %.1.us = phi i64 [ %38, %37 ], [ %.01823.us, %32 ]
+  %39 = add nuw nsw i64 %.01724.us, 1
   %exitcond28.not = icmp eq i64 %39, %16
   br i1 %exitcond28.not, label %._crit_edge.loopexit, label %.lr.ph.us, !llvm.loop !7
 
@@ -379,9 +379,9 @@ define noundef double @_ZNK5faiss21OneRecallAtRCriterion8evaluateEPKfPKl(ptr noc
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.016.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %56, %._crit_edge.loopexit ]
+  %.018.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %56, %._crit_edge.loopexit ]
   %57 = sitofp i64 %16 to double
-  %58 = fdiv double %.016.lcssa, %57
+  %58 = fdiv double %.018.lcssa, %57
   ret double %58
 
 59:                                               ; preds = %50
@@ -1148,8 +1148,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit143: ;
 
 199:                                              ; preds = %195, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit152
   %200 = phi ptr [ %.pre285, %195 ], [ %230, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit152 ]
-  %.060276 = phi i32 [ 8, %195 ], [ %231, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit152 ]
-  %201 = shl nuw nsw i32 1, %.060276
+  %.072276 = phi i32 [ 8, %195 ], [ %231, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit152 ]
+  %201 = shl nuw nsw i32 1, %.072276
   %202 = uitofp nneg i32 %201 to double
   %203 = load ptr, ptr %198, align 8
   %.not.i.i144 = icmp eq ptr %200, %203
@@ -1219,7 +1219,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS
 
 _ZNSt6vectorIdSaIdEE9push_backEOd.exit152:        ; preds = %204, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i151
   %230 = phi ptr [ %206, %204 ], [ %227, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i151 ]
-  %231 = add nuw nsw i32 %.060276, 1
+  %231 = add nuw nsw i32 %.072276, 1
   %exitcond280.not = icmp eq i32 %231, 20
   br i1 %exitcond280.not, label %236, label %199, !llvm.loop !11
 
@@ -3643,31 +3643,31 @@ define noundef double @_ZNK5faiss15OperatingPoints10t_for_perfEd(ptr nocapture n
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
-  %.020 = phi i32 [ %.0., %.lr.ph ], [ %16, %8 ]
-  %.01519 = phi i32 [ %..015, %.lr.ph ], [ -1, %8 ]
-  %18 = add i32 %.01519, 1
-  %19 = add i32 %18, %.020
+  %.01520 = phi i32 [ %.015., %.lr.ph ], [ %16, %8 ]
+  %.01619 = phi i32 [ %..016, %.lr.ph ], [ -1, %8 ]
+  %18 = add i32 %.01619, 1
+  %19 = add i32 %18, %.01520
   %20 = lshr i32 %19, 1
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds %"struct.faiss::OperatingPoint", ptr %10, i64 %21
   %23 = load double, ptr %22, align 8
   %24 = fcmp olt double %23, %1
-  %..015 = select i1 %24, i32 %20, i32 %.01519
-  %.0. = select i1 %24, i32 %.020, i32 %20
-  %25 = add nsw i32 %..015, 1
-  %26 = icmp slt i32 %25, %.0.
+  %..016 = select i1 %24, i32 %20, i32 %.01619
+  %.015. = select i1 %24, i32 %.01520, i32 %20
+  %25 = add nsw i32 %..016, 1
+  %26 = icmp slt i32 %25, %.015.
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
-  %.0.lcssa = phi i32 [ %16, %8 ], [ %.0., %.lr.ph ]
-  %27 = sext i32 %.0.lcssa to i64
+  %.015.lcssa = phi i32 [ %16, %8 ], [ %.015., %.lr.ph ]
+  %27 = sext i32 %.015.lcssa to i64
   %28 = getelementptr inbounds %"struct.faiss::OperatingPoint", ptr %10, i64 %27, i32 1
   %29 = load double, ptr %28, align 8
   br label %30
 
 30:                                               ; preds = %2, %._crit_edge
-  %.017 = phi double [ %29, %._crit_edge ], [ 1.000000e+50, %2 ]
-  ret double %.017
+  %.0 = phi double [ %29, %._crit_edge ], [ 1.000000e+50, %2 ]
+  ret double %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7307,8 +7307,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK5faiss14Pa
   br label %195
 
 195:                                              ; preds = %.lr.ph284, %_ZNSt6vectorIlSaIlEED2Ev.exit175
-  %.0101282 = phi i64 [ 0, %.lr.ph284 ], [ %408, %_ZNSt6vectorIlSaIlEED2Ev.exit175 ]
-  %196 = getelementptr inbounds i32, ptr %171, i64 %.0101282
+  %.0102282 = phi i64 [ 0, %.lr.ph284 ], [ %408, %_ZNSt6vectorIlSaIlEED2Ev.exit175 ]
+  %196 = getelementptr inbounds i32, ptr %171, i64 %.0102282
   %197 = load i32, ptr %196, align 4
   %198 = sext i32 %197 to i64
   %199 = load i32, ptr %183, align 8
@@ -7321,7 +7321,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK5faiss14Pa
 
 201:                                              ; preds = %200
   %202 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
-  %203 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i64 noundef %.0101282, i32 noundef %spec.select334338, i64 noundef %198, ptr noundef %202)
+  %203 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i64 noundef %.0102282, i32 noundef %spec.select334338, i64 noundef %198, ptr noundef %202)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
   br label %204
 
@@ -7503,42 +7503,42 @@ _ZNK5faiss14ParameterSpace13update_boundsEmRKNS_14OperatingPointEPdS4_.exit: ; p
   br i1 %278, label %.lr.ph.i147, label %._crit_edge.i
 
 .lr.ph.i147:                                      ; preds = %270, %.lr.ph.i147
-  %.020.i = phi i32 [ %.0..i, %.lr.ph.i147 ], [ %277, %270 ]
-  %.01519.i = phi i32 [ %..015.i, %.lr.ph.i147 ], [ -1, %270 ]
-  %279 = add i32 %.020.i, 1
-  %280 = add i32 %279, %.01519.i
+  %.01520.i = phi i32 [ %.015..i, %.lr.ph.i147 ], [ %277, %270 ]
+  %.01619.i = phi i32 [ %..016.i, %.lr.ph.i147 ], [ -1, %270 ]
+  %279 = add i32 %.01520.i, 1
+  %280 = add i32 %279, %.01619.i
   %281 = lshr i32 %280, 1
   %282 = zext nneg i32 %281 to i64
   %283 = getelementptr inbounds %"struct.faiss::OperatingPoint", ptr %271, i64 %282
   %284 = load double, ptr %283, align 8
   %285 = fcmp olt double %284, %.0.lcssa
-  %..015.i = select i1 %285, i32 %281, i32 %.01519.i
-  %.0..i = select i1 %285, i32 %.020.i, i32 %281
-  %286 = add nsw i32 %..015.i, 1
-  %287 = icmp slt i32 %286, %.0..i
+  %..016.i = select i1 %285, i32 %281, i32 %.01619.i
+  %.015..i = select i1 %285, i32 %.01520.i, i32 %281
+  %286 = add nsw i32 %..016.i, 1
+  %287 = icmp slt i32 %286, %.015..i
   br i1 %287, label %.lr.ph.i147, label %._crit_edge.i, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i147, %270
-  %.0.lcssa.i = phi i32 [ %277, %270 ], [ %.0..i, %.lr.ph.i147 ]
-  %288 = sext i32 %.0.lcssa.i to i64
+  %.015.lcssa.i = phi i32 [ %277, %270 ], [ %.015..i, %.lr.ph.i147 ]
+  %288 = sext i32 %.015.lcssa.i to i64
   %289 = getelementptr inbounds %"struct.faiss::OperatingPoint", ptr %271, i64 %288, i32 1
   %290 = load double, ptr %289, align 8
   br label %_ZNK5faiss15OperatingPoints10t_for_perfEd.exit
 
 _ZNK5faiss15OperatingPoints10t_for_perfEd.exit:   ; preds = %._crit_edge, %._crit_edge.i
-  %.017.i = phi double [ %290, %._crit_edge.i ], [ 1.000000e+50, %._crit_edge ]
+  %.0.i = phi double [ %290, %._crit_edge.i ], [ 1.000000e+50, %._crit_edge ]
   %291 = load i32, ptr %183, align 8
   %.not115 = icmp eq i32 %291, 0
   br i1 %.not115, label %296, label %292
 
 292:                                              ; preds = %_ZNK5faiss15OperatingPoints10t_for_perfEd.exit
-  %293 = fcmp ole double %.017.i, %.0214.lcssa
+  %293 = fcmp ole double %.0.i, %.0214.lcssa
   %294 = select i1 %293, ptr @.str.46, ptr @.str.5
   %295 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, double noundef %.0.lcssa, double noundef %.0214.lcssa, ptr noundef nonnull %294)
   br label %296
 
 296:                                              ; preds = %292, %_ZNK5faiss15OperatingPoints10t_for_perfEd.exit
-  %297 = fcmp ugt double %.017.i, %.0214.lcssa
+  %297 = fcmp ugt double %.0.i, %.0214.lcssa
   br i1 %297, label %298, label %_ZNSt6vectorIlSaIlEED2Ev.exit175
 
 298:                                              ; preds = %296
@@ -7802,7 +7802,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit173:                 ; preds = %403, %405
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit175
 
 _ZNSt6vectorIlSaIlEED2Ev.exit175:                 ; preds = %407, %_ZNSt6vectorIfSaIfEED2Ev.exit173, %296
-  %408 = add nuw i64 %.0101282, 1
+  %408 = add nuw i64 %.0102282, 1
   %exitcond307.not = icmp eq i64 %408, %182
   br i1 %exitcond307.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %195, !llvm.loop !98
 

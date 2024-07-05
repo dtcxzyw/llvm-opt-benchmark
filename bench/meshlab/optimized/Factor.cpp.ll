@@ -237,7 +237,7 @@ define noundef i32 @_Z6FactorddddPA2_dd(double noundef %0, double noundef %1, do
   br label %111
 
 111:                                              ; preds = %109, %105
-  %.081 = phi double [ %108, %105 ], [ %110, %109 ]
+  %.082 = phi double [ %108, %105 ], [ %110, %109 ]
   %112 = fsub double %102, %100
   %113 = fcmp olt double %112, 0.000000e+00
   br i1 %113, label %114, label %118
@@ -253,12 +253,12 @@ define noundef i32 @_Z6FactorddddPA2_dd(double noundef %0, double noundef %1, do
   br label %120
 
 120:                                              ; preds = %118, %114
-  %.0 = phi double [ %117, %114 ], [ %119, %118 ]
+  %.081 = phi double [ %117, %114 ], [ %119, %118 ]
   %121 = getelementptr inbounds i8, ptr %4, i64 8
   store double 0.000000e+00, ptr %121, align 8
-  %122 = fadd double %.081, %.0
-  %123 = fmul double %.081, 5.000000e-01
-  %124 = fmul double %.0, 5.000000e-01
+  %122 = fadd double %.082, %.081
+  %123 = fmul double %.082, 5.000000e-01
+  %124 = fmul double %.081, 5.000000e-01
   %125 = fneg double %123
   %126 = fsub double %125, %124
   %127 = fsub double %123, %124
@@ -289,8 +289,8 @@ define noundef i32 @_Z6FactorddddPA2_dd(double noundef %0, double noundef %1, do
   br label %_Z6FactordddPA2_dd.exit
 
 _Z6FactordddPA2_dd.exit:                          ; preds = %36, %26, %15, %12, %134
-  %.082 = phi i32 [ 3, %134 ], [ 2, %36 ], [ 2, %26 ], [ 1, %15 ], [ 0, %12 ]
-  ret i32 %.082
+  %.0 = phi i32 [ 3, %134 ], [ 2, %36 ], [ 2, %26 ], [ 1, %15 ], [ 0, %12 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)

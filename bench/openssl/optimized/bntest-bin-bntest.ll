@@ -6941,12 +6941,12 @@ if.end35.i:                                       ; preds = %lor.lhs.false29.i
 
 for.body41.i:                                     ; preds = %for.cond38.preheader.i, %for.body41.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body41.i ], [ 0, %for.cond38.preheader.i ]
-  %sum.032.i = phi double [ %5, %for.body41.i ], [ 0.000000e+00, %for.cond38.preheader.i ]
+  %sum.033.i = phi double [ %5, %for.body41.i ], [ 0.000000e+00, %for.cond38.preheader.i ]
   %arrayidx43.i = getelementptr inbounds i64, ptr %call.i, i64 %indvars.iv.i
   %4 = load i64, ptr %arrayidx43.i, align 8
   %conv44.i = uitofp i64 %4 to double
   %sub.i = fsub double %conv44.i, %div.i
-  %5 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub.i, double %sum.032.i)
+  %5 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub.i, double %sum.033.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next.i, %conv7.i
   br i1 %exitcond35.not.i, label %for.end48.i, label %for.body41.i, !llvm.loop !37
@@ -6964,8 +6964,8 @@ if.then52.i:                                      ; preds = %for.end48.i
   br label %test_rand_range_single.exit
 
 test_rand_range_single.exit:                      ; preds = %for.body.i, %lor.lhs.false29.i, %for.body, %lor.lhs.false.i, %lor.lhs.false12.i, %lor.lhs.false16.i, %for.end48.i, %if.then52.i
-  %rng.0.i = phi ptr [ %call9.i, %if.then52.i ], [ %call9.i, %lor.lhs.false16.i ], [ %call9.i, %lor.lhs.false12.i ], [ %call9.i, %lor.lhs.false.i ], [ null, %for.body ], [ %call9.i, %for.end48.i ], [ %call9.i, %lor.lhs.false29.i ], [ %call9.i, %for.body.i ]
   %val.0.i = phi ptr [ %call13.i, %if.then52.i ], [ %call13.i, %lor.lhs.false16.i ], [ %call13.i, %lor.lhs.false12.i ], [ null, %lor.lhs.false.i ], [ null, %for.body ], [ %call13.i, %for.end48.i ], [ %call13.i, %lor.lhs.false29.i ], [ %call13.i, %for.body.i ]
+  %rng.0.i = phi ptr [ %call9.i, %if.then52.i ], [ %call9.i, %lor.lhs.false16.i ], [ %call9.i, %lor.lhs.false12.i ], [ %call9.i, %lor.lhs.false.i ], [ null, %for.body ], [ %call9.i, %for.end48.i ], [ %call9.i, %lor.lhs.false29.i ], [ %call9.i, %for.body.i ]
   %res.0.i = phi i32 [ 0, %if.then52.i ], [ 0, %lor.lhs.false16.i ], [ 0, %lor.lhs.false12.i ], [ 0, %lor.lhs.false.i ], [ 0, %for.body ], [ 1, %for.end48.i ], [ 0, %lor.lhs.false29.i ], [ 0, %for.body.i ]
   tail call void @BN_free(ptr noundef %rng.0.i) #7
   tail call void @BN_free(ptr noundef %val.0.i) #7
@@ -8611,12 +8611,12 @@ if.end106:                                        ; preds = %lor.lhs.false101, %
   br label %err
 
 err:                                              ; preds = %equalBN.exit.thread, %if.then80, %land.lhs.true89, %lor.lhs.false95, %lor.lhs.false101, %if.end67, %if.then56, %if.end, %lor.lhs.false31, %lor.lhs.false34, %lor.lhs.false40, %lor.lhs.false46, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false9, %lor.lhs.false13, %lor.lhs.false17, %lor.lhs.false21, %if.end106, %if.then75, %if.then66
-  %b.0 = phi ptr [ %call2, %if.then66 ], [ %call2, %if.then75 ], [ %call2, %if.end106 ], [ %call2, %lor.lhs.false101 ], [ %call2, %lor.lhs.false95 ], [ %call2, %land.lhs.true89 ], [ %call2, %if.then80 ], [ %call2, %if.end67 ], [ %call2, %if.then56 ], [ %call2, %lor.lhs.false46 ], [ %call2, %lor.lhs.false40 ], [ %call2, %lor.lhs.false34 ], [ %call2, %lor.lhs.false31 ], [ %call2, %if.end ], [ %call2, %lor.lhs.false21 ], [ %call2, %lor.lhs.false17 ], [ %call2, %lor.lhs.false13 ], [ %call2, %lor.lhs.false9 ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false ], [ null, %entry ], [ %call2, %equalBN.exit.thread ]
   %quotient.0 = phi ptr [ %call6, %if.then66 ], [ %call6, %if.then75 ], [ %call6, %if.end106 ], [ %call6, %lor.lhs.false101 ], [ %call6, %lor.lhs.false95 ], [ %call6, %land.lhs.true89 ], [ %call6, %if.then80 ], [ %call6, %if.end67 ], [ %call6, %if.then56 ], [ %call6, %lor.lhs.false46 ], [ %call6, %lor.lhs.false40 ], [ %call6, %lor.lhs.false34 ], [ %call6, %lor.lhs.false31 ], [ %call6, %if.end ], [ %call6, %lor.lhs.false21 ], [ %call6, %lor.lhs.false17 ], [ %call6, %lor.lhs.false13 ], [ %call6, %lor.lhs.false9 ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %equalBN.exit.thread ]
   %remainder.0 = phi ptr [ %call10, %if.then66 ], [ %call10, %if.then75 ], [ %call10, %if.end106 ], [ %call10, %lor.lhs.false101 ], [ %call10, %lor.lhs.false95 ], [ %call10, %land.lhs.true89 ], [ %call10, %if.then80 ], [ %call10, %if.end67 ], [ %call10, %if.then56 ], [ %call10, %lor.lhs.false46 ], [ %call10, %lor.lhs.false40 ], [ %call10, %lor.lhs.false34 ], [ %call10, %lor.lhs.false31 ], [ %call10, %if.end ], [ %call10, %lor.lhs.false21 ], [ %call10, %lor.lhs.false17 ], [ %call10, %lor.lhs.false13 ], [ %call10, %lor.lhs.false9 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call10, %equalBN.exit.thread ]
   %ret.0 = phi ptr [ %call14, %if.then66 ], [ %call14, %if.then75 ], [ %call14, %if.end106 ], [ %call14, %lor.lhs.false101 ], [ %call14, %lor.lhs.false95 ], [ %call14, %land.lhs.true89 ], [ %call14, %if.then80 ], [ %call14, %if.end67 ], [ %call14, %if.then56 ], [ %call14, %lor.lhs.false46 ], [ %call14, %lor.lhs.false40 ], [ %call14, %lor.lhs.false34 ], [ %call14, %lor.lhs.false31 ], [ %call14, %if.end ], [ %call14, %lor.lhs.false21 ], [ %call14, %lor.lhs.false17 ], [ %call14, %lor.lhs.false13 ], [ null, %lor.lhs.false9 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call14, %equalBN.exit.thread ]
   %ret2.0 = phi ptr [ %call18, %if.then66 ], [ %call18, %if.then75 ], [ %call18, %if.end106 ], [ %call18, %lor.lhs.false101 ], [ %call18, %lor.lhs.false95 ], [ %call18, %land.lhs.true89 ], [ %call18, %if.then80 ], [ %call18, %if.end67 ], [ %call18, %if.then56 ], [ %call18, %lor.lhs.false46 ], [ %call18, %lor.lhs.false40 ], [ %call18, %lor.lhs.false34 ], [ %call18, %lor.lhs.false31 ], [ %call18, %if.end ], [ %call18, %lor.lhs.false21 ], [ %call18, %lor.lhs.false17 ], [ null, %lor.lhs.false13 ], [ null, %lor.lhs.false9 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call18, %equalBN.exit.thread ]
   %nnmod.0 = phi ptr [ %call22, %if.then66 ], [ %call22, %if.then75 ], [ %call22, %if.end106 ], [ %call22, %lor.lhs.false101 ], [ %call22, %lor.lhs.false95 ], [ %call22, %land.lhs.true89 ], [ %call22, %if.then80 ], [ %call22, %if.end67 ], [ %call22, %if.then56 ], [ %call22, %lor.lhs.false46 ], [ %call22, %lor.lhs.false40 ], [ %call22, %lor.lhs.false34 ], [ %call22, %lor.lhs.false31 ], [ %call22, %if.end ], [ %call22, %lor.lhs.false21 ], [ null, %lor.lhs.false17 ], [ null, %lor.lhs.false13 ], [ null, %lor.lhs.false9 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call22, %equalBN.exit.thread ]
+  %b.0 = phi ptr [ %call2, %if.then66 ], [ %call2, %if.then75 ], [ %call2, %if.end106 ], [ %call2, %lor.lhs.false101 ], [ %call2, %lor.lhs.false95 ], [ %call2, %land.lhs.true89 ], [ %call2, %if.then80 ], [ %call2, %if.end67 ], [ %call2, %if.then56 ], [ %call2, %lor.lhs.false46 ], [ %call2, %lor.lhs.false40 ], [ %call2, %lor.lhs.false34 ], [ %call2, %lor.lhs.false31 ], [ %call2, %if.end ], [ %call2, %lor.lhs.false21 ], [ %call2, %lor.lhs.false17 ], [ %call2, %lor.lhs.false13 ], [ %call2, %lor.lhs.false9 ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false ], [ null, %entry ], [ %call2, %equalBN.exit.thread ]
   %st.0 = phi i32 [ 0, %if.then66 ], [ 0, %if.then75 ], [ 1, %if.end106 ], [ 0, %lor.lhs.false101 ], [ 0, %lor.lhs.false95 ], [ 0, %land.lhs.true89 ], [ 0, %if.then80 ], [ 0, %if.end67 ], [ 0, %if.then56 ], [ 0, %lor.lhs.false46 ], [ 0, %lor.lhs.false40 ], [ 0, %lor.lhs.false34 ], [ 0, %lor.lhs.false31 ], [ 0, %if.end ], [ 0, %lor.lhs.false21 ], [ 0, %lor.lhs.false17 ], [ 0, %lor.lhs.false13 ], [ 0, %lor.lhs.false9 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %equalBN.exit.thread ]
   tail call void @BN_free(ptr noundef %call) #7
   tail call void @BN_free(ptr noundef %b.0) #7
@@ -8776,11 +8776,11 @@ if.end85:                                         ; preds = %if.then27, %lor.lhs
   br label %err
 
 err:                                              ; preds = %equalBN.exit.thread, %if.end24, %if.else, %if.end85, %if.end, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false9, %lor.lhs.false13
-  %b.0 = phi ptr [ %call2, %if.end85 ], [ %call2, %if.end ], [ %call2, %lor.lhs.false13 ], [ %call2, %lor.lhs.false9 ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false ], [ null, %entry ], [ %call2, %if.else ], [ %call2, %if.end24 ], [ %call2, %equalBN.exit.thread ]
-  %m.0 = phi ptr [ %call6, %if.end85 ], [ %call6, %if.end ], [ %call6, %lor.lhs.false13 ], [ %call6, %lor.lhs.false9 ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %if.else ], [ %call6, %if.end24 ], [ %call6, %equalBN.exit.thread ]
   %mod_mul.0 = phi ptr [ %call10, %if.end85 ], [ %call10, %if.end ], [ %call10, %lor.lhs.false13 ], [ %call10, %lor.lhs.false9 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call10, %if.else ], [ %call10, %if.end24 ], [ %call10, %equalBN.exit.thread ]
   %ret.0 = phi ptr [ %call14, %if.end85 ], [ %call14, %if.end ], [ %call14, %lor.lhs.false13 ], [ null, %lor.lhs.false9 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call14, %if.else ], [ %call14, %if.end24 ], [ %call14, %equalBN.exit.thread ]
   %st.1 = phi i32 [ 0, %if.end85 ], [ 0, %if.end ], [ 0, %lor.lhs.false13 ], [ 0, %lor.lhs.false9 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.else ], [ 1, %if.end24 ], [ 0, %equalBN.exit.thread ]
+  %m.0 = phi ptr [ %call6, %if.end85 ], [ %call6, %if.end ], [ %call6, %lor.lhs.false13 ], [ %call6, %lor.lhs.false9 ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %if.else ], [ %call6, %if.end24 ], [ %call6, %equalBN.exit.thread ]
+  %b.0 = phi ptr [ %call2, %if.end85 ], [ %call2, %if.end ], [ %call2, %lor.lhs.false13 ], [ %call2, %lor.lhs.false9 ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false ], [ null, %entry ], [ %call2, %if.else ], [ %call2, %if.end24 ], [ %call2, %equalBN.exit.thread ]
   tail call void @BN_free(ptr noundef %call) #7
   tail call void @BN_free(ptr noundef %b.0) #7
   tail call void @BN_free(ptr noundef %m.0) #7

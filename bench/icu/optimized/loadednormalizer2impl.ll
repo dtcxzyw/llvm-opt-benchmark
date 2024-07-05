@@ -874,8 +874,8 @@ do.body:                                          ; preds = %invoke.cont69
           to label %cleanup unwind label %lpad49
 
 cleanup:                                          ; preds = %do.body, %invoke.cont62, %invoke.cont50, %if.then72
-  %allModes.3 = phi ptr [ null, %if.then72 ], [ null, %invoke.cont50 ], [ %17, %do.body ], [ %call63, %invoke.cont62 ]
-  %cond.not = phi i1 [ true, %if.then72 ], [ true, %invoke.cont50 ], [ false, %do.body ], [ false, %invoke.cont62 ]
+  %cond.not = phi i1 [ true, %if.then72 ], [ true, %invoke.cont50 ], [ false, %invoke.cont62 ], [ false, %do.body ]
+  %allModes.3 = phi ptr [ null, %if.then72 ], [ null, %invoke.cont50 ], [ %call63, %invoke.cont62 ], [ %17, %do.body ]
   invoke void @umtx_unlock_75(ptr noundef null)
           to label %_ZN6icu_755MutexD2Ev.exit49 unwind label %terminate.lpad.i48
 

@@ -243,17 +243,17 @@ define i64 @ossl_x509_sk2ary(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
-  %.015 = phi i32 [ %33, %.lr.ph ], [ 0, %27 ]
-  %30 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.015) #17
+  %.01215 = phi i32 [ %33, %.lr.ph ], [ 0, %27 ]
+  %30 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.01215) #17
   %31 = tail call i64 @ossl_x509_new(ptr noundef %30) #17
   %32 = tail call i64 @rb_ary_push(i64 noundef %29, i64 noundef %31) #17
-  %33 = add nuw nsw i32 %.015, 1
+  %33 = add nuw nsw i32 %.01215, 1
   %exitcond.not = icmp eq i32 %33, %13
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %5, %2, %25
-  %.012 = phi i64 [ %26, %25 ], [ 4, %2 ], [ 4, %5 ], [ %29, %27 ], [ %29, %.lr.ph ]
-  ret i64 %.012
+  %.0 = phi i64 [ %26, %25 ], [ 4, %2 ], [ 4, %5 ], [ %29, %27 ], [ %29, %.lr.ph ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -320,17 +320,17 @@ define i64 @ossl_x509crl_sk2ary(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
-  %.015 = phi i32 [ %33, %.lr.ph ], [ 0, %27 ]
-  %30 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.015) #17
+  %.01215 = phi i32 [ %33, %.lr.ph ], [ 0, %27 ]
+  %30 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.01215) #17
   %31 = tail call i64 @ossl_x509crl_new(ptr noundef %30) #17
   %32 = tail call i64 @rb_ary_push(i64 noundef %29, i64 noundef %31) #17
-  %33 = add nuw nsw i32 %.015, 1
+  %33 = add nuw nsw i32 %.01215, 1
   %exitcond.not = icmp eq i32 %33, %13
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %5, %2, %25
-  %.012 = phi i64 [ %26, %25 ], [ 4, %2 ], [ 4, %5 ], [ %29, %27 ], [ %29, %.lr.ph ]
-  ret i64 %.012
+  %.0 = phi i64 [ %26, %25 ], [ 4, %2 ], [ 4, %5 ], [ %29, %27 ], [ %29, %.lr.ph ]
+  ret i64 %.0
 }
 
 declare i64 @ossl_x509crl_new(ptr noundef) local_unnamed_addr #1
@@ -384,17 +384,17 @@ define i64 @ossl_x509name_sk2ary(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
-  %.015 = phi i32 [ %33, %.lr.ph ], [ 0, %27 ]
-  %30 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.015) #17
+  %.01215 = phi i32 [ %33, %.lr.ph ], [ 0, %27 ]
+  %30 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.01215) #17
   %31 = tail call i64 @ossl_x509name_new(ptr noundef %30) #17
   %32 = tail call i64 @rb_ary_push(i64 noundef %29, i64 noundef %31) #17
-  %33 = add nuw nsw i32 %.015, 1
+  %33 = add nuw nsw i32 %.01215, 1
   %exitcond.not = icmp eq i32 %33, %13
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %5, %2, %25
-  %.012 = phi i64 [ %26, %25 ], [ 4, %2 ], [ 4, %5 ], [ %29, %27 ], [ %29, %.lr.ph ]
-  ret i64 %.012
+  %.0 = phi i64 [ %26, %25 ], [ 4, %2 ], [ 4, %5 ], [ %29, %27 ], [ %29, %.lr.ph ]
+  ret i64 %.0
 }
 
 declare i64 @ossl_x509name_new(ptr noundef) local_unnamed_addr #1

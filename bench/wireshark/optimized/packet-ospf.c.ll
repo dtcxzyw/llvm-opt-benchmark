@@ -2087,11 +2087,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %390
 
 390:                                              ; preds = %387, %switch.lookup, %.thread.i.i
-  %.1.i.i = phi ptr [ %389, %387 ], [ null, %switch.lookup ], [ %383, %.thread.i.i ]
+  %.1111.i.i = phi ptr [ %389, %387 ], [ null, %switch.lookup ], [ %383, %.thread.i.i ]
   %391 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %392 = call ptr @proto_tree_add_item(ptr noundef %.1.i.i, i32 noundef %391, ptr noundef %0, i32 noundef %.040.i, i32 noundef 2, i32 noundef 0) #5
+  %392 = call ptr @proto_tree_add_item(ptr noundef %.1111.i.i, i32 noundef %391, ptr noundef %0, i32 noundef %.040.i, i32 noundef 2, i32 noundef 0) #5
   %393 = load i32, ptr @hf_ospf_tlv_length, align 4
-  %394 = call ptr @proto_tree_add_item(ptr noundef %.1.i.i, i32 noundef %393, ptr noundef %0, i32 noundef %375, i32 noundef 2, i32 noundef 0) #5
+  %394 = call ptr @proto_tree_add_item(ptr noundef %.1111.i.i, i32 noundef %393, ptr noundef %0, i32 noundef %375, i32 noundef 2, i32 noundef 0) #5
   switch i16 %374, label %dissect_ospfv3_lls_tlv.exit.i [
     i16 1, label %398
     i16 3, label %403
@@ -2126,71 +2126,71 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not116137.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph139.preheader.i.i
 
 .lr.ph139.preheader.i.i:                          ; preds = %.preheader.i.i
-  %.0110136.i.i = add nsw i32 %.040.i, 4
+  %.0136.i.i = add nsw i32 %.040.i, 4
   br label %.lr.ph139.i.i
 
 398:                                              ; preds = %390
   %399 = add nsw i32 %.040.i, 4
   %400 = load i32, ptr @hf_ospf_v3_lls_ext_options, align 4
   %401 = load i32, ptr @ett_ospf_v3_lls_ext_options, align 4
-  %402 = call ptr @proto_tree_add_bitmask(ptr noundef %.1.i.i, ptr noundef %0, i32 noundef %399, i32 noundef %400, i32 noundef %401, ptr noundef nonnull @bf_v3_lls_ext_options, i32 noundef 0) #5
+  %402 = call ptr @proto_tree_add_bitmask(ptr noundef %.1111.i.i, ptr noundef %0, i32 noundef %399, i32 noundef %400, i32 noundef %401, ptr noundef nonnull @bf_v3_lls_ext_options, i32 noundef 0) #5
   br label %dissect_ospfv3_lls_tlv.exit.i
 
 403:                                              ; preds = %390
   %404 = load i32, ptr @hf_ospf_v3_lls_state_scs, align 4
   %405 = add nsw i32 %.040.i, 4
-  %406 = call ptr @proto_tree_add_item(ptr noundef %.1.i.i, i32 noundef %404, ptr noundef %0, i32 noundef %405, i32 noundef 2, i32 noundef 0) #5
+  %406 = call ptr @proto_tree_add_item(ptr noundef %.1111.i.i, i32 noundef %404, ptr noundef %0, i32 noundef %405, i32 noundef 2, i32 noundef 0) #5
   %407 = add nsw i32 %.040.i, 6
   %408 = load i32, ptr @hf_ospf_v3_lls_state_options, align 4
   %409 = load i32, ptr @ett_ospf_v3_lls_state_options, align 4
-  %410 = call ptr @proto_tree_add_bitmask(ptr noundef %.1.i.i, ptr noundef %0, i32 noundef %407, i32 noundef %408, i32 noundef %409, ptr noundef nonnull @bf_v3_lls_state_options, i32 noundef 0) #5
+  %410 = call ptr @proto_tree_add_bitmask(ptr noundef %.1111.i.i, ptr noundef %0, i32 noundef %407, i32 noundef %408, i32 noundef %409, ptr noundef nonnull @bf_v3_lls_state_options, i32 noundef 0) #5
   br label %dissect_ospfv3_lls_tlv.exit.i
 
 .lr.ph139.i.i:                                    ; preds = %.lr.ph139.i.i, %.lr.ph139.preheader.i.i
-  %.0110138.i.i = phi i32 [ %.0110.i.i, %.lr.ph139.i.i ], [ %.0110136.i.i, %.lr.ph139.preheader.i.i ]
+  %.0138.i.i = phi i32 [ %.0.i.i, %.lr.ph139.i.i ], [ %.0136.i.i, %.lr.ph139.preheader.i.i ]
   %411 = load i32, ptr @hf_ospf_v3_lls_dropped_neighbor, align 4
-  %412 = call ptr @proto_tree_add_item(ptr noundef %.1.i.i, i32 noundef %411, ptr noundef %0, i32 noundef %.0110138.i.i, i32 noundef 4, i32 noundef 0) #5
-  %.0110.i.i = add nsw i32 %.0110138.i.i, 4
-  %.not116.i.i = icmp slt i32 %397, %.0110.i.i
+  %412 = call ptr @proto_tree_add_item(ptr noundef %.1111.i.i, i32 noundef %411, ptr noundef %0, i32 noundef %.0138.i.i, i32 noundef 4, i32 noundef 0) #5
+  %.0.i.i = add nsw i32 %.0138.i.i, 4
+  %.not116.i.i = icmp slt i32 %397, %.0.i.i
   br i1 %.not116.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph139.i.i, !llvm.loop !12
 
 413:                                              ; preds = %390
   %414 = add nsw i32 %.040.i, 4
   %415 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %414) #5
   %416 = load i32, ptr @hf_ospf_v3_lls_relay_added, align 4
-  %417 = call ptr @proto_tree_add_item(ptr noundef %.1.i.i, i32 noundef %416, ptr noundef %0, i32 noundef %414, i32 noundef 1, i32 noundef 0) #5
+  %417 = call ptr @proto_tree_add_item(ptr noundef %.1111.i.i, i32 noundef %416, ptr noundef %0, i32 noundef %414, i32 noundef 1, i32 noundef 0) #5
   %418 = add nsw i32 %.040.i, 5
   %419 = load i32, ptr @hf_ospf_v3_lls_relay_options, align 4
   %420 = load i32, ptr @ett_ospf_v3_lls_relay_options, align 4
-  %421 = call ptr @proto_tree_add_bitmask(ptr noundef %.1.i.i, ptr noundef %0, i32 noundef %418, i32 noundef %419, i32 noundef %420, ptr noundef nonnull @bf_v3_lls_relay_options, i32 noundef 0) #5
+  %421 = call ptr @proto_tree_add_bitmask(ptr noundef %.1111.i.i, ptr noundef %0, i32 noundef %418, i32 noundef %419, i32 noundef %420, ptr noundef nonnull @bf_v3_lls_relay_options, i32 noundef 0) #5
   %422 = add nsw i32 %.040.i, 8
   %423 = add nsw i32 %.040.i, %377
   %.not114132.i.i = icmp ult i16 %376, 8
   br i1 %.not114132.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph135.i.i
 
 .lr.ph135.i.i:                                    ; preds = %413, %.lr.ph135.i.i
-  %.0134.i.i = phi i8 [ %426, %.lr.ph135.i.i ], [ %415, %413 ]
-  %.1111133.i.i = phi i32 [ %427, %.lr.ph135.i.i ], [ %422, %413 ]
+  %.1134.i.i = phi i32 [ %427, %.lr.ph135.i.i ], [ %422, %413 ]
+  %.0108133.i.i = phi i8 [ %426, %.lr.ph135.i.i ], [ %415, %413 ]
   %424 = load i32, ptr @hf_ospf_v3_lls_neighbor, align 4
-  %425 = call ptr @proto_tree_add_item(ptr noundef %.1.i.i, i32 noundef %424, ptr noundef %0, i32 noundef %.1111133.i.i, i32 noundef 4, i32 noundef 0) #5
-  %.not115.i.i = icmp eq i8 %.0134.i.i, 0
+  %425 = call ptr @proto_tree_add_item(ptr noundef %.1111.i.i, i32 noundef %424, ptr noundef %0, i32 noundef %.1134.i.i, i32 noundef 4, i32 noundef 0) #5
+  %.not115.i.i = icmp eq i8 %.0108133.i.i, 0
   %.str.863..str.862.i.i = select i1 %.not115.i.i, ptr @.str.863, ptr @.str.862
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %425, ptr noundef nonnull %.str.863..str.862.i.i) #5
-  %426 = add i8 %.0134.i.i, -1
-  %427 = add nsw i32 %.1111133.i.i, 4
+  %426 = add i8 %.0108133.i.i, -1
+  %427 = add nsw i32 %.1134.i.i, 4
   %.not114.i.i = icmp slt i32 %423, %427
   br i1 %.not114.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph135.i.i, !llvm.loop !13
 
 428:                                              ; preds = %390
   %429 = load i32, ptr @hf_ospf_v3_lls_willingness, align 4
   %430 = add nsw i32 %.040.i, 4
-  %431 = call ptr @proto_tree_add_item(ptr noundef %.1.i.i, i32 noundef %429, ptr noundef %0, i32 noundef %430, i32 noundef 1, i32 noundef 0) #5
+  %431 = call ptr @proto_tree_add_item(ptr noundef %.1111.i.i, i32 noundef %429, ptr noundef %0, i32 noundef %430, i32 noundef 1, i32 noundef 0) #5
   br label %dissect_ospfv3_lls_tlv.exit.i
 
 .lr.ph131.i.i:                                    ; preds = %.lr.ph131.i.i, %.lr.ph131.preheader.i.i
   %.2130.i.i = phi i32 [ %.2.i.i, %.lr.ph131.i.i ], [ %.2128.i.i, %.lr.ph131.preheader.i.i ]
   %432 = load i32, ptr @hf_ospf_v3_lls_request_from, align 4
-  %433 = call ptr @proto_tree_add_item(ptr noundef %.1.i.i, i32 noundef %432, ptr noundef %0, i32 noundef %.2130.i.i, i32 noundef 4, i32 noundef 0) #5
+  %433 = call ptr @proto_tree_add_item(ptr noundef %.1111.i.i, i32 noundef %432, ptr noundef %0, i32 noundef %.2130.i.i, i32 noundef 4, i32 noundef 0) #5
   %.2.i.i = add nsw i32 %.2130.i.i, 4
   %.not113.i.i = icmp slt i32 %396, %.2.i.i
   br i1 %.not113.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph131.i.i, !llvm.loop !14
@@ -2198,7 +2198,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.3127.i.i = phi i32 [ %.3.i.i, %.lr.ph.i.i ], [ %.3125.i.i, %.lr.ph.preheader.i.i ]
   %434 = load i32, ptr @hf_ospf_v3_lls_full_state_for, align 4
-  %435 = call ptr @proto_tree_add_item(ptr noundef %.1.i.i, i32 noundef %434, ptr noundef %0, i32 noundef %.3127.i.i, i32 noundef 4, i32 noundef 0) #5
+  %435 = call ptr @proto_tree_add_item(ptr noundef %.1111.i.i, i32 noundef %434, ptr noundef %0, i32 noundef %.3127.i.i, i32 noundef 4, i32 noundef 0) #5
   %.3.i.i = add nsw i32 %.3127.i.i, 4
   %.not112.i.i = icmp slt i32 %395, %.3.i.i
   br i1 %.not112.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph.i.i, !llvm.loop !15
@@ -2464,7 +2464,7 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
   br label %76
 
 76:                                               ; preds = %63, %69, %72
-  %.0230 = phi i8 [ 1, %63 ], [ %58, %69 ], [ 0, %72 ]
+  %.0231 = phi i8 [ 1, %63 ], [ %58, %69 ], [ 0, %72 ]
   %77 = load i32, ptr @hf_ospf_adv_router, align 4
   %78 = add i32 %2, 8
   %79 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %77, ptr noundef %0, i32 noundef %78, i32 noundef 4, i32 noundef 0) #5
@@ -2540,11 +2540,11 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
   br label %118
 
 118:                                              ; preds = %.lr.ph270, %._crit_edge
-  %.0233268 = phi i16 [ 0, %.lr.ph270 ], [ %163, %._crit_edge ]
-  %.0234267 = phi i32 [ %115, %.lr.ph270 ], [ %.1.lcssa, %._crit_edge ]
-  %119 = add i32 %.0234267, 8
+  %.0230268 = phi i32 [ %115, %.lr.ph270 ], [ %.1.lcssa, %._crit_edge ]
+  %.0234267 = phi i16 [ 0, %.lr.ph270 ], [ %163, %._crit_edge ]
+  %119 = add i32 %.0230268, 8
   %120 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %119) #5
-  %121 = add i32 %.0234267, 9
+  %121 = add i32 %.0230268, 9
   %122 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %121) #5
   %123 = zext i8 %122 to i32
   %124 = shl nuw nsw i32 %123, 2
@@ -2553,16 +2553,16 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
   %127 = zext i8 %120 to i32
   %128 = call ptr @val_to_str_const(i32 noundef %127, ptr noundef nonnull @ospf_v3_lsa_type_short_vals, ptr noundef nonnull @.str.702) #5
   %129 = load ptr, ptr %117, align 8
-  %130 = call ptr @tvb_address_to_str(ptr noundef %129, ptr noundef %0, i32 noundef 2, i32 noundef %.0234267) #5
+  %130 = call ptr @tvb_address_to_str(ptr noundef %129, ptr noundef %0, i32 noundef 2, i32 noundef %.0230268) #5
   %131 = load ptr, ptr %117, align 8
-  %132 = add i32 %.0234267, 4
+  %132 = add i32 %.0230268, 4
   %133 = call ptr @tvb_address_to_str(ptr noundef %131, ptr noundef %0, i32 noundef 2, i32 noundef %132) #5
-  %134 = add i32 %.0234267, 10
+  %134 = add i32 %.0230268, 10
   %135 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %134) #5
   %136 = zext i16 %135 to i32
-  %137 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %25, ptr noundef %0, i32 noundef %.0234267, i32 noundef %125, i32 noundef %126, ptr noundef null, ptr noundef nonnull @.str.728, ptr noundef %128, ptr noundef %130, ptr noundef %133, i32 noundef %136) #5
+  %137 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %25, ptr noundef %0, i32 noundef %.0230268, i32 noundef %125, i32 noundef %126, ptr noundef null, ptr noundef nonnull @.str.728, ptr noundef %128, ptr noundef %130, ptr noundef %133, i32 noundef %136) #5
   %138 = load i32, ptr @hf_ospf_ls_router_linkid, align 4
-  %139 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %138, ptr noundef %0, i32 noundef %.0234267, i32 noundef 4, i32 noundef 0) #5
+  %139 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %138, ptr noundef %0, i32 noundef %.0230268, i32 noundef 4, i32 noundef 0) #5
   %140 = call ptr @val_to_str_const(i32 noundef %127, ptr noundef nonnull @ospf_v3_lsa_link_id_vals, ptr noundef nonnull @.str.730) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %139, ptr noundef nonnull @.str.729, ptr noundef %140) #5
   %141 = load i32, ptr @hf_ospf_ls_router_linkdata, align 4
@@ -2576,31 +2576,31 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %147, ptr noundef nonnull @.str.729, ptr noundef nonnull %.str.557..str.725) #5
   %148 = load i32, ptr @hf_ospf_ls_router_metric0, align 4
   %149 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %148, ptr noundef %0, i32 noundef %134, i32 noundef 2, i32 noundef 0) #5
-  %150 = add i32 %.0234267, 12
+  %150 = add i32 %.0230268, 12
   %151 = zext i8 %122 to i16
   %.not273 = icmp eq i8 %122, 0
   br i1 %.not273, label %._crit_edge, label %.lr.ph265
 
 .lr.ph265:                                        ; preds = %118, %.lr.ph265
-  %.0232264 = phi i16 [ %162, %.lr.ph265 ], [ 0, %118 ]
-  %.1263 = phi i32 [ %161, %.lr.ph265 ], [ %150, %118 ]
+  %.1264 = phi i32 [ %161, %.lr.ph265 ], [ %150, %118 ]
+  %.0233263 = phi i16 [ %162, %.lr.ph265 ], [ 0, %118 ]
   %152 = load i32, ptr @hf_ospf_ls_metric, align 4
-  %153 = add i32 %.1263, 2
+  %153 = add i32 %.1264, 2
   %154 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %153) #5
   %155 = zext i16 %154 to i32
-  %156 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1263) #5
+  %156 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1264) #5
   %157 = zext i8 %156 to i32
   %158 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %153) #5
   %159 = zext i16 %158 to i32
-  %160 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %137, i32 noundef %152, ptr noundef %0, i32 noundef %.1263, i32 noundef 4, i32 noundef %155, ptr noundef nonnull @.str.732, ptr noundef nonnull %.str.557..str.725, i32 noundef %157, i32 noundef %159) #5
-  %161 = add i32 %.1263, 4
-  %162 = add nuw nsw i16 %.0232264, 1
+  %160 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %137, i32 noundef %152, ptr noundef %0, i32 noundef %.1264, i32 noundef 4, i32 noundef %155, ptr noundef nonnull @.str.732, ptr noundef nonnull %.str.557..str.725, i32 noundef %157, i32 noundef %159) #5
+  %161 = add i32 %.1264, 4
+  %162 = add nuw nsw i16 %.0233263, 1
   %exitcond.not = icmp eq i16 %162, %151
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph265, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph265, %118
   %.1.lcssa = phi i32 [ %150, %118 ], [ %161, %.lr.ph265 ]
-  %163 = add i16 %.0233268, 1
+  %163 = add i16 %.0234267, 1
   %164 = zext i16 %163 to i32
   %165 = load i32, ptr %14, align 4
   %166 = icmp ugt i32 %165, %164
@@ -2695,7 +2695,7 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
 
 224:                                              ; preds = %107, %107, %107
   %225 = zext i16 %106 to i32
-  switch i8 %.0230, label %770 [
+  switch i8 %.0231, label %770 [
     i8 1, label %226
     i8 4, label %227
     i8 3, label %228
@@ -2811,13 +2811,13 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
   br label %283
 
 283:                                              ; preds = %.loopexit.i.i, %.lr.ph197.i.i
-  %.0181196.i.i = phi i32 [ %103, %.lr.ph197.i.i ], [ %453, %.loopexit.i.i ]
-  %284 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0181196.i.i) #5
+  %.0179196.i.i = phi i32 [ %103, %.lr.ph197.i.i ], [ %453, %.loopexit.i.i ]
+  %284 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0179196.i.i) #5
   %285 = zext i16 %284 to i32
-  %286 = add i32 %.0181196.i.i, 2
+  %286 = add i32 %.0179196.i.i, 2
   %287 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %286) #5
   %288 = zext i16 %287 to i32
-  %289 = add i32 %.0181196.i.i, 4
+  %289 = add i32 %.0179196.i.i, 4
   %290 = add i32 %289, %288
   %291 = call ptr @val_to_str_const(i32 noundef %285, ptr noundef nonnull @ext_pfx_tlv_type_vals, ptr noundef nonnull @.str.702) #5
   switch i16 %284, label %376 [
@@ -2828,21 +2828,21 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
 292:                                              ; preds = %283
   %293 = add nuw nsw i32 %288, 4
   %294 = load i32, ptr @ett_ospf_lsa_epfx_tlv, align 4
-  %295 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %280, ptr noundef %0, i32 noundef %.0181196.i.i, i32 noundef %293, i32 noundef %294, ptr noundef nonnull %10, ptr noundef nonnull @.str.835, ptr noundef %291) #5
+  %295 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %280, ptr noundef %0, i32 noundef %.0179196.i.i, i32 noundef %293, i32 noundef %294, ptr noundef nonnull %10, ptr noundef nonnull @.str.835, ptr noundef %291) #5
   %296 = load i32, ptr @hf_ospf_ls_epfx_tlv, align 4
-  %297 = call ptr @proto_tree_add_item(ptr noundef %295, i32 noundef %296, ptr noundef %0, i32 noundef %.0181196.i.i, i32 noundef 2, i32 noundef 0) #5
+  %297 = call ptr @proto_tree_add_item(ptr noundef %295, i32 noundef %296, ptr noundef %0, i32 noundef %.0179196.i.i, i32 noundef 2, i32 noundef 0) #5
   %298 = load i32, ptr @hf_ospf_tlv_length, align 4
   %299 = call ptr @proto_tree_add_item(ptr noundef %295, i32 noundef %298, ptr noundef %0, i32 noundef %286, i32 noundef 2, i32 noundef 0) #5
   %300 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %289) #5
   %301 = load i32, ptr @hf_ospf_ls_epfx_route_type, align 4
   %302 = call ptr @proto_tree_add_item(ptr noundef %295, i32 noundef %301, ptr noundef %0, i32 noundef %289, i32 noundef 1, i32 noundef 0) #5
   %303 = load i32, ptr @hf_ospf_prefix_length, align 4
-  %304 = add i32 %.0181196.i.i, 5
+  %304 = add i32 %.0179196.i.i, 5
   %305 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %295, i32 noundef %303, ptr noundef %0, i32 noundef %304, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11) #5
   %306 = load i32, ptr @hf_ospf_ls_epfx_af, align 4
-  %307 = add i32 %.0181196.i.i, 6
+  %307 = add i32 %.0179196.i.i, 6
   %308 = call ptr @proto_tree_add_item(ptr noundef %295, i32 noundef %306, ptr noundef %0, i32 noundef %307, i32 noundef 1, i32 noundef 0) #5
-  %309 = add i32 %.0181196.i.i, 7
+  %309 = add i32 %.0179196.i.i, 7
   %310 = load i32, ptr @hf_ospf_ls_epfx_flags, align 4
   %311 = load i32, ptr @ett_ospf_lsa_epfx_flags, align 4
   %312 = call ptr @proto_tree_add_bitmask(ptr noundef %295, ptr noundef %0, i32 noundef %309, i32 noundef %310, i32 noundef %311, ptr noundef nonnull @bf_ospf_epfx_flags, i32 noundef 0) #5
@@ -2852,7 +2852,7 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
 
 314:                                              ; preds = %292
   %315 = load i32, ptr @hf_ospf_v3_address_prefix_ipv4, align 4
-  %316 = add i32 %.0181196.i.i, 8
+  %316 = add i32 %.0179196.i.i, 8
   %317 = call ptr @proto_tree_add_item(ptr noundef %295, i32 noundef %315, ptr noundef %0, i32 noundef %316, i32 noundef 4, i32 noundef 0) #5
   br label %318
 
@@ -2865,12 +2865,12 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
   br i1 %323, label %._crit_edge203.i.i, label %324
 
 ._crit_edge203.i.i:                               ; preds = %318
-  %.pre204.i.i = add i32 %.0181196.i.i, 8
+  %.pre204.i.i = add i32 %.0179196.i.i, 8
   br label %328
 
 324:                                              ; preds = %318
   %325 = load ptr, ptr %282, align 8
-  %326 = add i32 %.0181196.i.i, 8
+  %326 = add i32 %.0179196.i.i, 8
   %327 = call ptr @tvb_address_to_str(ptr noundef %325, ptr noundef %0, i32 noundef 2, i32 noundef %326) #5
   %.pre199.i.i = load i32, ptr %11, align 4
   br label %328
@@ -2885,24 +2885,24 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
 331:                                              ; preds = %283
   %332 = add nuw nsw i32 %288, 4
   %333 = load i32, ptr @ett_ospf_lsa_epfx_tlv, align 4
-  %334 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %280, ptr noundef %0, i32 noundef %.0181196.i.i, i32 noundef %332, i32 noundef %333, ptr noundef nonnull %10, ptr noundef nonnull @.str.835, ptr noundef %291) #5
+  %334 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %280, ptr noundef %0, i32 noundef %.0179196.i.i, i32 noundef %332, i32 noundef %333, ptr noundef nonnull %10, ptr noundef nonnull @.str.835, ptr noundef %291) #5
   %335 = load i32, ptr @hf_ospf_ls_epfx_tlv, align 4
-  %336 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %335, ptr noundef %0, i32 noundef %.0181196.i.i, i32 noundef 2, i32 noundef 0) #5
+  %336 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %335, ptr noundef %0, i32 noundef %.0179196.i.i, i32 noundef 2, i32 noundef 0) #5
   %337 = load i32, ptr @hf_ospf_tlv_length, align 4
   %338 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %337, ptr noundef %0, i32 noundef %286, i32 noundef 2, i32 noundef 0) #5
   %339 = load i32, ptr @hf_ospf_prefix_length, align 4
   %340 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %334, i32 noundef %339, ptr noundef %0, i32 noundef %289, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11) #5
   %341 = load i32, ptr @hf_ospf_ls_epfx_af, align 4
-  %342 = add i32 %.0181196.i.i, 5
+  %342 = add i32 %.0179196.i.i, 5
   %343 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %341, ptr noundef %0, i32 noundef %342, i32 noundef 1, i32 noundef 0) #5
   %344 = load i32, ptr @hf_ospf_ls_range_size, align 4
-  %345 = add i32 %.0181196.i.i, 6
+  %345 = add i32 %.0179196.i.i, 6
   %346 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %334, i32 noundef %344, ptr noundef %0, i32 noundef %345, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %12) #5
-  %347 = add i32 %.0181196.i.i, 8
+  %347 = add i32 %.0179196.i.i, 8
   %348 = load i32, ptr @hf_ospf_ls_epfx_range_flags, align 4
   %349 = load i32, ptr @ett_ospf_lsa_epfx_range_flags, align 4
   %350 = call ptr @proto_tree_add_bitmask(ptr noundef %334, ptr noundef %0, i32 noundef %347, i32 noundef %348, i32 noundef %349, ptr noundef nonnull @bf_ospf_epfx_range_flags, i32 noundef 0) #5
-  %351 = add i32 %.0181196.i.i, 9
+  %351 = add i32 %.0179196.i.i, 9
   %352 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %351) #5
   %353 = load i32, ptr @hf_ospf_header_reserved, align 4
   %354 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %353, ptr noundef %0, i32 noundef %351, i32 noundef 3, i32 noundef 0) #5
@@ -2921,12 +2921,12 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
 .thread.i.i:                                      ; preds = %357
   %359 = load ptr, ptr %10, align 8
   %360 = load i32, ptr %12, align 4
-  %.pre201.i.i = add i32 %.0181196.i.i, 12
+  %.pre201.i.i = add i32 %.0179196.i.i, 12
   br label %371
 
 361:                                              ; preds = %357
   %362 = load i32, ptr @hf_ospf_v3_address_prefix_ipv4, align 4
-  %363 = add i32 %.0181196.i.i, 12
+  %363 = add i32 %.0179196.i.i, 12
   %364 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %362, ptr noundef %0, i32 noundef %363, i32 noundef 4, i32 noundef 0) #5
   %.pr.i.i = load i32, ptr %11, align 4
   %365 = load ptr, ptr %10, align 8
@@ -2950,16 +2950,16 @@ proto_item_set_hidden.exit:                       ; preds = %38, %49, %46, %ospf
   br label %388
 
 376:                                              ; preds = %283
-  %377 = sub i32 %278, %.0181196.i.i
+  %377 = sub i32 %278, %.0179196.i.i
   %378 = icmp ult i32 %377, %288
   br i1 %378, label %dissect_ospf_lsa_ext_prefix.exit.i, label %.thread191.i.i
 
 .thread191.i.i:                                   ; preds = %376
   %379 = add nuw nsw i32 %288, 4
   %380 = load i32, ptr @ett_ospf_lsa_epfx_tlv, align 4
-  %381 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %280, ptr noundef %0, i32 noundef %.0181196.i.i, i32 noundef %379, i32 noundef %380, ptr noundef null, ptr noundef nonnull @.str.839, ptr noundef %291, i32 noundef %285) #5
+  %381 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %280, ptr noundef %0, i32 noundef %.0179196.i.i, i32 noundef %379, i32 noundef %380, ptr noundef null, ptr noundef nonnull @.str.839, ptr noundef %291, i32 noundef %285) #5
   %382 = load i32, ptr @hf_ospf_tlv_type_opaque, align 4
-  %383 = call ptr @proto_tree_add_item(ptr noundef %381, i32 noundef %382, ptr noundef %0, i32 noundef %.0181196.i.i, i32 noundef 2, i32 noundef 0) #5
+  %383 = call ptr @proto_tree_add_item(ptr noundef %381, i32 noundef %382, ptr noundef %0, i32 noundef %.0179196.i.i, i32 noundef 2, i32 noundef 0) #5
   %384 = load i32, ptr @hf_ospf_tlv_length, align 4
   %385 = call ptr @proto_tree_add_item(ptr noundef %381, i32 noundef %384, ptr noundef %0, i32 noundef %286, i32 noundef 2, i32 noundef 0) #5
   %386 = load i32, ptr @hf_ospf_unknown_tlv, align 4
@@ -3614,7 +3614,7 @@ dissect_ospf_lsa_ext_link.exit.i:                 ; preds = %.loopexit267.i.i, %
   br label %dissect_ospf_lsa_opaque.exit
 
 770:                                              ; preds = %224
-  %771 = zext i8 %.0230 to i32
+  %771 = zext i8 %.0231 to i32
   %772 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %25, ptr noundef %1, ptr noundef nonnull @ei_ospf_lsa_unknown_type, ptr noundef %0, i32 noundef %103, i32 noundef %225, ptr noundef nonnull @.str.743, i32 noundef %771) #5
   br label %dissect_ospf_lsa_opaque.exit
 
@@ -3747,16 +3747,16 @@ proto_item_set_hidden.exit:                       ; preds = %47, %44, %38, %6
   br label %.lr.ph377
 
 .lr.ph377:                                        ; preds = %.lr.ph377.preheader, %93
-  %.0376 = phi i16 [ %81, %93 ], [ 0, %.lr.ph377.preheader ]
-  %.0328375 = phi i16 [ %107, %93 ], [ %77, %.lr.ph377.preheader ]
-  %.0330374 = phi i32 [ %106, %93 ], [ %76, %.lr.ph377.preheader ]
-  %81 = add i16 %.0376, 1
+  %.0328376 = phi i16 [ %81, %93 ], [ 0, %.lr.ph377.preheader ]
+  %.0329375 = phi i32 [ %106, %93 ], [ %76, %.lr.ph377.preheader ]
+  %.0331374 = phi i16 [ %107, %93 ], [ %77, %.lr.ph377.preheader ]
+  %81 = add i16 %.0328376, 1
   %82 = load i32, ptr @ett_ospf_v3_router_interface_entry, align 4
   %83 = zext i16 %81 to i32
-  %84 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.0330374, i32 noundef 16, i32 noundef %82, ptr noundef null, ptr noundef nonnull @.str.853, i32 noundef %83) #5
+  %84 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %0, i32 noundef %.0329375, i32 noundef 16, i32 noundef %82, ptr noundef null, ptr noundef nonnull @.str.853, i32 noundef %83) #5
   %85 = load i32, ptr @hf_ospf_v3_lsa_type, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %0, i32 noundef %.0330374, i32 noundef 1, i32 noundef 0) #5
-  %87 = add i32 %.0330374, 1
+  %86 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %0, i32 noundef %.0329375, i32 noundef 1, i32 noundef 0) #5
+  %87 = add i32 %.0329375, 1
   %88 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %87) #5
   %89 = load i32, ptr @hf_ospf_header_reserved, align 4
   %90 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %89, ptr noundef %0, i32 noundef %87, i32 noundef 1, i32 noundef 0) #5
@@ -3769,19 +3769,19 @@ proto_item_set_hidden.exit:                       ; preds = %47, %44, %38, %6
 
 93:                                               ; preds = %91, %.lr.ph377
   %94 = load i32, ptr @hf_ospf_metric, align 4
-  %95 = add i32 %.0330374, 2
+  %95 = add i32 %.0329375, 2
   %96 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %94, ptr noundef %0, i32 noundef %95, i32 noundef 2, i32 noundef 0) #5
   %97 = load i32, ptr @hf_ospf_v3_lsa_interface_id, align 4
-  %98 = add i32 %.0330374, 4
+  %98 = add i32 %.0329375, 4
   %99 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %97, ptr noundef %0, i32 noundef %98, i32 noundef 4, i32 noundef 0) #5
   %100 = load i32, ptr @hf_ospf_v3_lsa_neighbor_interface_id, align 4
-  %101 = add i32 %.0330374, 8
+  %101 = add i32 %.0329375, 8
   %102 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %100, ptr noundef %0, i32 noundef %101, i32 noundef 4, i32 noundef 0) #5
   %103 = load i32, ptr @hf_ospf_v3_lsa_neighbor_router_id, align 4
-  %104 = add i32 %.0330374, 12
+  %104 = add i32 %.0329375, 12
   %105 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %103, ptr noundef %0, i32 noundef %104, i32 noundef 4, i32 noundef 0) #5
-  %106 = add i32 %.0330374, 16
-  %107 = add i16 %.0328375, -16
+  %106 = add i32 %.0329375, 16
+  %107 = add i16 %.0331374, -16
   %.not351 = icmp eq i16 %107, 0
   br i1 %.not351, label %.loopexit, label %.lr.ph377, !llvm.loop !28
 
@@ -3807,12 +3807,12 @@ proto_item_set_hidden.exit:                       ; preds = %47, %44, %38, %6
   br i1 %.not349368, label %.loopexit, label %.lr.ph371
 
 .lr.ph371:                                        ; preds = %114, %.lr.ph371
-  %.1370 = phi i16 [ %123, %.lr.ph371 ], [ %120, %114 ]
-  %.1331369 = phi i32 [ %124, %.lr.ph371 ], [ %119, %114 ]
+  %.1370 = phi i32 [ %124, %.lr.ph371 ], [ %119, %114 ]
+  %.1332369 = phi i16 [ %123, %.lr.ph371 ], [ %120, %114 ]
   %121 = load i32, ptr @hf_ospf_v3_lsa_attached_router, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %121, ptr noundef %0, i32 noundef %.1331369, i32 noundef 4, i32 noundef 0) #5
-  %123 = add i16 %.1370, -4
-  %124 = add i32 %.1331369, 4
+  %122 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %121, ptr noundef %0, i32 noundef %.1370, i32 noundef 4, i32 noundef 0) #5
+  %123 = add i16 %.1332369, -4
+  %124 = add i32 %.1370, 4
   %.not349 = icmp eq i16 %123, 0
   br i1 %.not349, label %.loopexit, label %.lr.ph371, !llvm.loop !29
 
@@ -4079,8 +4079,8 @@ proto_item_set_hidden.exit:                       ; preds = %47, %44, %38, %6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %256, %.lr.ph371, %93, %68, %265, %228, %114, %149, %173, %296, %299, %224, %221, %proto_item_set_hidden.exit
-  %.0329 = phi i32 [ %65, %proto_item_set_hidden.exit ], [ %303, %299 ], [ %298, %296 ], [ %227, %224 ], [ %.3, %221 ], [ %180, %173 ], [ %155, %149 ], [ %119, %114 ], [ %242, %228 ], [ %277, %265 ], [ %76, %68 ], [ %106, %93 ], [ %124, %.lr.ph371 ], [ %262, %256 ], [ %293, %.lr.ph ]
-  ret i32 %.0329
+  %.0 = phi i32 [ %65, %proto_item_set_hidden.exit ], [ %303, %299 ], [ %298, %296 ], [ %227, %224 ], [ %.3, %221 ], [ %180, %173 ], [ %155, %149 ], [ %119, %114 ], [ %242, %228 ], [ %277, %265 ], [ %76, %68 ], [ %106, %93 ], [ %124, %.lr.ph371 ], [ %262, %256 ], [ %293, %.lr.ph ]
+  ret i32 %.0
 }
 
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -4132,13 +4132,13 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   br label %19
 
 19:                                               ; preds = %.lr.ph1032, %.loopexit
-  %.09561031 = phi i32 [ %2, %.lr.ph1032 ], [ %736, %.loopexit ]
-  %.09631030 = phi i32 [ %4, %.lr.ph1032 ], [ %737, %.loopexit ]
-  %20 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.09561031) #5
-  %21 = add i32 %.09561031, 2
+  %.01031 = phi i32 [ %2, %.lr.ph1032 ], [ %736, %.loopexit ]
+  %.09571030 = phi i32 [ %4, %.lr.ph1032 ], [ %737, %.loopexit ]
+  %20 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.01031) #5
+  %21 = add i32 %.01031, 2
   %22 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %21) #5
   %23 = zext i16 %22 to i32
-  %24 = add i32 %.09561031, 4
+  %24 = add i32 %.01031, 4
   %25 = add i32 %24, %23
   switch i16 %20, label %723 [
     i16 1, label %26
@@ -4151,9 +4151,9 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   %28 = load i32, ptr @ett_ospf_lsa_mpls_router, align 4
   %29 = load ptr, ptr %18, align 8
   %30 = call ptr @tvb_address_to_str(ptr noundef %29, ptr noundef %0, i32 noundef 2, i32 noundef %24) #5
-  %31 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %8, ptr noundef %0, i32 noundef %.09561031, i32 noundef %27, i32 noundef %28, ptr noundef null, ptr noundef nonnull @.str.753, ptr noundef %30) #5
+  %31 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %8, ptr noundef %0, i32 noundef %.01031, i32 noundef %27, i32 noundef %28, ptr noundef null, ptr noundef nonnull @.str.753, ptr noundef %30) #5
   %32 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %33 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %.09561031, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @.str.754) #5
+  %33 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %.01031, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @.str.754) #5
   %34 = load i32, ptr @hf_ospf_tlv_length, align 4
   %35 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %34, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef 0) #5
   %36 = load i32, ptr @hf_ospf_ls_mpls_routerid, align 4
@@ -4163,19 +4163,19 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 38:                                               ; preds = %19
   %39 = add nuw nsw i32 %23, 4
   %40 = load i32, ptr @ett_ospf_lsa_mpls_link, align 4
-  %41 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.09561031, i32 noundef %39, i32 noundef %40, ptr noundef null, ptr noundef nonnull @.str.755) #5
+  %41 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.01031, i32 noundef %39, i32 noundef %40, ptr noundef null, ptr noundef nonnull @.str.755) #5
   %42 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %43 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %41, i32 noundef %42, ptr noundef %0, i32 noundef %.09561031, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @.str.756) #5
+  %43 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %41, i32 noundef %42, ptr noundef %0, i32 noundef %.01031, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @.str.756) #5
   %44 = load i32, ptr @hf_ospf_tlv_length, align 4
   %45 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %44, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef 0) #5
   %46 = icmp slt i32 %24, %25
   br i1 %46, label %.lr.ph1028, label %.loopexit
 
 .lr.ph1028:                                       ; preds = %38, %dissect_ospf_subtlv_ext_admin_group.exit
-  %.09611026 = phi i32 [ %631, %dissect_ospf_subtlv_ext_admin_group.exit ], [ %24, %38 ]
-  %47 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.09611026) #5
+  %.09621026 = phi i32 [ %631, %dissect_ospf_subtlv_ext_admin_group.exit ], [ %24, %38 ]
+  %47 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.09621026) #5
   %48 = zext i16 %47 to i32
-  %49 = add i32 %.09611026, 2
+  %49 = add i32 %.09621026, 2
   %50 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %49) #5
   %51 = zext i16 %50 to i32
   %52 = call ptr @val_to_str_const(i32 noundef %48, ptr noundef nonnull @mpls_link_stlv_str, ptr noundef nonnull @.str.757) #5
@@ -4206,15 +4206,15 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 53:                                               ; preds = %.lr.ph1028
   %54 = add nuw nsw i32 %51, 4
   %55 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
-  %56 = add i32 %.09611026, 4
+  %56 = add i32 %.09621026, 4
   %57 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %56) #5
   %58 = zext i8 %57 to i32
   %59 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %56) #5
   %60 = zext i8 %59 to i32
   %61 = call ptr @val_to_str_const(i32 noundef %60, ptr noundef nonnull @mpls_link_stlv_ltype_str, ptr noundef nonnull @.str.759) #5
-  %62 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %54, i32 noundef %55, ptr noundef null, ptr noundef nonnull @.str.758, ptr noundef %52, i32 noundef %58, ptr noundef %61) #5
+  %62 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %54, i32 noundef %55, ptr noundef null, ptr noundef nonnull @.str.758, ptr noundef %52, i32 noundef %58, ptr noundef %61) #5
   %63 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %64 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %62, i32 noundef %63, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @.str.760, i32 noundef 1, ptr noundef %52) #5
+  %64 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %62, i32 noundef %63, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @.str.760, i32 noundef 1, ptr noundef %52) #5
   %65 = load i32, ptr @hf_ospf_tlv_length, align 4
   %66 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %65, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %67 = load i32, ptr @hf_ospf_ls_mpls_linktype, align 4
@@ -4225,11 +4225,11 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   %70 = add nuw nsw i32 %51, 4
   %71 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
   %72 = load ptr, ptr %18, align 8
-  %73 = add i32 %.09611026, 4
+  %73 = add i32 %.09621026, 4
   %74 = call ptr @tvb_address_to_str(ptr noundef %72, ptr noundef %0, i32 noundef 2, i32 noundef %73) #5
-  %75 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %70, i32 noundef %71, ptr noundef null, ptr noundef nonnull @.str.761, ptr noundef %52, ptr noundef %74) #5
+  %75 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %70, i32 noundef %71, ptr noundef null, ptr noundef nonnull @.str.761, ptr noundef %52, ptr noundef %74) #5
   %76 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %77 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %75, i32 noundef %76, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @.str.760, i32 noundef 2, ptr noundef %52) #5
+  %77 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %75, i32 noundef %76, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @.str.760, i32 noundef 2, ptr noundef %52) #5
   %78 = load i32, ptr @hf_ospf_tlv_length, align 4
   %79 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %78, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %80 = load i32, ptr @hf_ospf_ls_mpls_linkid, align 4
@@ -4240,11 +4240,11 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   %83 = add nuw nsw i32 %51, 4
   %84 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
   %85 = load ptr, ptr %18, align 8
-  %86 = add i32 %.09611026, 4
+  %86 = add i32 %.09621026, 4
   %87 = call ptr @tvb_address_to_str(ptr noundef %85, ptr noundef %0, i32 noundef 2, i32 noundef %86) #5
-  %88 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %83, i32 noundef %84, ptr noundef null, ptr noundef nonnull @.str.761, ptr noundef %52, ptr noundef %87) #5
+  %88 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %83, i32 noundef %84, ptr noundef null, ptr noundef nonnull @.str.761, ptr noundef %52, ptr noundef %87) #5
   %89 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %90 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %88, i32 noundef %89, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef %48, ptr noundef nonnull @.str.760, i32 noundef %48, ptr noundef %52) #5
+  %90 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %88, i32 noundef %89, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef %48, ptr noundef nonnull @.str.760, i32 noundef %48, ptr noundef %52) #5
   %91 = load i32, ptr @hf_ospf_tlv_length, align 4
   %92 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %91, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %.not1034 = icmp eq i16 %50, 0
@@ -4255,24 +4255,24 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   br label %94
 
 94:                                               ; preds = %.lr.ph1025, %94
-  %.01023 = phi i32 [ 0, %.lr.ph1025 ], [ %100, %94 ]
+  %.09551023 = phi i32 [ 0, %.lr.ph1025 ], [ %100, %94 ]
   %95 = load i32, ptr @hf_ospf_ls_mpls_local_addr, align 4
   %96 = load i32, ptr @hf_ospf_ls_mpls_remote_addr, align 4
   %97 = select i1 %93, i32 %95, i32 %96
-  %98 = add i32 %.01023, %86
+  %98 = add i32 %.09551023, %86
   %99 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %97, ptr noundef %0, i32 noundef %98, i32 noundef 4, i32 noundef 0) #5
-  %100 = add nuw nsw i32 %.01023, 4
+  %100 = add nuw nsw i32 %.09551023, 4
   %101 = icmp ult i32 %100, %51
   br i1 %101, label %94, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !32
 
 102:                                              ; preds = %.lr.ph1028
   %103 = add nuw nsw i32 %51, 4
   %104 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
-  %105 = add i32 %.09611026, 4
+  %105 = add i32 %.09621026, 4
   %106 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %105) #5
-  %107 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %103, i32 noundef %104, ptr noundef null, ptr noundef nonnull @.str.762, ptr noundef %52, i32 noundef %106) #5
+  %107 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %103, i32 noundef %104, ptr noundef null, ptr noundef nonnull @.str.762, ptr noundef %52, i32 noundef %106) #5
   %108 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %109 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %107, i32 noundef %108, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 5, ptr noundef nonnull @.str.760, i32 noundef 5, ptr noundef %52) #5
+  %109 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %107, i32 noundef %108, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 5, ptr noundef nonnull @.str.760, i32 noundef 5, ptr noundef %52) #5
   %110 = load i32, ptr @hf_ospf_tlv_length, align 4
   %111 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %110, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %112 = load i32, ptr @hf_ospf_ls_mpls_te_metric, align 4
@@ -4284,11 +4284,11 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 116:                                              ; preds = %.lr.ph1028
   %117 = add nuw nsw i32 %51, 4
   %118 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
-  %119 = add i32 %.09611026, 4
+  %119 = add i32 %.09621026, 4
   %120 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %119) #5
-  %121 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %117, i32 noundef %118, ptr noundef null, ptr noundef nonnull @.str.763, ptr noundef %52, i32 noundef %120) #5
+  %121 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %117, i32 noundef %118, ptr noundef null, ptr noundef nonnull @.str.763, ptr noundef %52, i32 noundef %120) #5
   %122 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %123 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %121, i32 noundef %122, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 9, ptr noundef nonnull @.str.760, i32 noundef 9, ptr noundef %52) #5
+  %123 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %121, i32 noundef %122, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 9, ptr noundef nonnull @.str.760, i32 noundef 9, ptr noundef %52) #5
   %124 = load i32, ptr @hf_ospf_tlv_length, align 4
   %125 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %124, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %126 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %119) #5
@@ -4301,8 +4301,8 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 
 .preheader:                                       ; preds = %116, %137
   %.11022 = phi i32 [ %139, %137 ], [ 0, %116 ]
-  %.09551021 = phi i32 [ %138, %137 ], [ 1, %116 ]
-  %132 = and i32 %.09551021, %126
+  %.09561021 = phi i32 [ %138, %137 ], [ 1, %116 ]
+  %132 = and i32 %.09561021, %126
   %.not988 = icmp eq i32 %132, 0
   br i1 %.not988, label %137, label %133
 
@@ -4313,7 +4313,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   br label %137
 
 137:                                              ; preds = %133, %.preheader
-  %138 = shl i32 %.09551021, 1
+  %138 = shl i32 %.09561021, 1
   %139 = add nuw nsw i32 %.11022, 1
   %exitcond1051.not = icmp eq i32 %139, 32
   br i1 %exitcond1051.not, label %dissect_ospf_subtlv_ext_admin_group.exit, label %.preheader, !llvm.loop !33
@@ -4321,15 +4321,15 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 140:                                              ; preds = %.lr.ph1028, %.lr.ph1028
   %141 = add nuw nsw i32 %51, 4
   %142 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
-  %143 = add i32 %.09611026, 4
+  %143 = add i32 %.09621026, 4
   %144 = call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %143) #5
   %145 = fpext float %144 to double
   %146 = call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %143) #5
   %147 = fpext float %146 to double
   %148 = fmul double %147, 8.000000e+00
-  %149 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %141, i32 noundef %142, ptr noundef null, ptr noundef nonnull @.str.765, ptr noundef %52, double noundef %145, double noundef %148) #5
+  %149 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %141, i32 noundef %142, ptr noundef null, ptr noundef nonnull @.str.765, ptr noundef %52, double noundef %145, double noundef %148) #5
   %150 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %151 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %149, i32 noundef %150, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef %48, ptr noundef nonnull @.str.760, i32 noundef %48, ptr noundef %52) #5
+  %151 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %149, i32 noundef %150, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef %48, ptr noundef nonnull @.str.760, i32 noundef %48, ptr noundef %52) #5
   %152 = load i32, ptr @hf_ospf_tlv_length, align 4
   %153 = call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %152, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %154 = load i32, ptr @hf_ospf_ls_mpls_link_max_bw, align 4
@@ -4345,12 +4345,12 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 162:                                              ; preds = %.lr.ph1028
   %163 = add nuw nsw i32 %51, 4
   %164 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
-  %165 = call ptr @proto_tree_add_subtree(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %163, i32 noundef %164, ptr noundef null, ptr noundef %52) #5
+  %165 = call ptr @proto_tree_add_subtree(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %163, i32 noundef %164, ptr noundef null, ptr noundef %52) #5
   %166 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %167 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %165, i32 noundef %166, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 8, ptr noundef nonnull @.str.760, i32 noundef 8, ptr noundef %52) #5
+  %167 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %165, i32 noundef %166, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 8, ptr noundef nonnull @.str.760, i32 noundef 8, ptr noundef %52) #5
   %168 = load i32, ptr @hf_ospf_tlv_length, align 4
   %169 = call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %168, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
-  %170 = add i32 %.09611026, 4
+  %170 = add i32 %.09621026, 4
   br label %171
 
 171:                                              ; preds = %162, %171
@@ -4369,15 +4369,15 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 180:                                              ; preds = %.lr.ph1028
   %181 = add nuw nsw i32 %51, 4
   %182 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
-  %183 = call ptr @proto_tree_add_subtree(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %181, i32 noundef %182, ptr noundef null, ptr noundef %52) #5
+  %183 = call ptr @proto_tree_add_subtree(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %181, i32 noundef %182, ptr noundef null, ptr noundef %52) #5
   %184 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %185 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %183, i32 noundef %184, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 17, ptr noundef nonnull @.str.760, i32 noundef 17, ptr noundef %52) #5
+  %185 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %183, i32 noundef %184, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 17, ptr noundef nonnull @.str.760, i32 noundef 17, ptr noundef %52) #5
   %186 = load i32, ptr @hf_ospf_tlv_length, align 4
   %187 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %186, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %188 = load i32, ptr @hf_ospf_ls_mpls_bc_model_id, align 4
-  %189 = add i32 %.09611026, 4
+  %189 = add i32 %.09621026, 4
   %190 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %188, ptr noundef %0, i32 noundef %189, i32 noundef 1, i32 noundef 0) #5
-  %191 = add i32 %.09611026, 5
+  %191 = add i32 %.09621026, 5
   %192 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef %191, ptr noundef nonnull %6, i64 noundef 3) #5
   %193 = icmp eq i32 %192, -1
   br i1 %193, label %194, label %196
@@ -4410,7 +4410,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   br i1 %207, label %210, label %.lr.ph1019
 
 .lr.ph1019:                                       ; preds = %206
-  %208 = add i32 %.09611026, 8
+  %208 = add i32 %.09621026, 8
   %209 = call i32 @llvm.umax.i32(i32 %202, i32 1)
   br label %212
 
@@ -4434,15 +4434,15 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 221:                                              ; preds = %.lr.ph1028
   %222 = add nuw nsw i32 %51, 4
   %223 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
-  %224 = add i32 %.09611026, 4
+  %224 = add i32 %.09621026, 4
   %225 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %224) #5
   %226 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %224) #5
-  %227 = add i32 %.09611026, 8
+  %227 = add i32 %.09621026, 8
   %228 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %227) #5
   %229 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %227) #5
-  %230 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %222, i32 noundef %223, ptr noundef null, ptr noundef nonnull @.str.772, ptr noundef %52, i32 noundef %225, i32 noundef %226, i32 noundef %228, i32 noundef %229) #5
+  %230 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %222, i32 noundef %223, ptr noundef null, ptr noundef nonnull @.str.772, ptr noundef %52, i32 noundef %225, i32 noundef %226, i32 noundef %228, i32 noundef %229) #5
   %231 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %232 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %230, i32 noundef %231, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 11, ptr noundef nonnull @.str.760, i32 noundef 11, ptr noundef %52) #5
+  %232 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %230, i32 noundef %231, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 11, ptr noundef nonnull @.str.760, i32 noundef 11, ptr noundef %52) #5
   %233 = load i32, ptr @hf_ospf_tlv_length, align 4
   %234 = call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %233, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %235 = load i32, ptr @hf_ospf_ls_mpls_local_ifid, align 4
@@ -4454,19 +4454,19 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 239:                                              ; preds = %.lr.ph1028
   %240 = add nuw nsw i32 %51, 4
   %241 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
-  %242 = call ptr @proto_tree_add_subtree(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %240, i32 noundef %241, ptr noundef null, ptr noundef %52) #5
+  %242 = call ptr @proto_tree_add_subtree(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %240, i32 noundef %241, ptr noundef null, ptr noundef %52) #5
   %243 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %244 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %242, i32 noundef %243, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 15, ptr noundef nonnull @.str.760, i32 noundef 15, ptr noundef %52) #5
+  %244 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %242, i32 noundef %243, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 15, ptr noundef nonnull @.str.760, i32 noundef 15, ptr noundef %52) #5
   %245 = load i32, ptr @hf_ospf_tlv_length, align 4
   %246 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %245, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
-  %247 = add i32 %.09611026, 4
+  %247 = add i32 %.09621026, 4
   %248 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %247) #5
   %249 = load i32, ptr @hf_ospf_mpls_switching_type, align 4
   %250 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %249, ptr noundef %0, i32 noundef %247, i32 noundef 1, i32 noundef 0) #5
   %251 = load i32, ptr @hf_ospf_mpls_encoding, align 4
-  %252 = add i32 %.09611026, 5
+  %252 = add i32 %.09621026, 5
   %253 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %251, ptr noundef %0, i32 noundef %252, i32 noundef 1, i32 noundef 0) #5
-  %254 = add i32 %.09611026, 8
+  %254 = add i32 %.09621026, 8
   br label %255
 
 255:                                              ; preds = %239, %255
@@ -4488,14 +4488,14 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   br i1 %or.cond, label %266, label %276
 
 266:                                              ; preds = %264
-  %267 = add i32 %.09611026, 40
+  %267 = add i32 %.09621026, 40
   %268 = call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %267) #5
   %269 = load i32, ptr @hf_ospf_mpls_minimum_lsp_bandwidth, align 4
   %270 = fpext float %268 to double
   %271 = fmul double %270, 8.000000e+00
   %272 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %242, i32 noundef %269, ptr noundef %0, i32 noundef %267, i32 noundef 4, float noundef %268, ptr noundef nonnull @.str.774, double noundef %270, double noundef %271) #5
   %273 = load i32, ptr @hf_ospf_mpls_interface_mtu, align 4
-  %274 = add i32 %.09611026, 44
+  %274 = add i32 %.09621026, 44
   %275 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %273, ptr noundef %0, i32 noundef %274, i32 noundef 2, i32 noundef 0) #5
   br label %276
 
@@ -4508,23 +4508,23 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   ]
 
 ._crit_edge1052:                                  ; preds = %276
-  %.pre1063 = add i32 %.09611026, 40
-  %.pre1065 = add i32 %.09611026, 56
-  %.pre1067 = add i32 %.09611026, 54
-  %.pre1069 = add i32 %.09611026, 42
-  %.pre1071 = add i32 %.09611026, 44
-  %.pre1073 = add i32 %.09611026, 52
+  %.pre1063 = add i32 %.09621026, 40
+  %.pre1065 = add i32 %.09621026, 56
+  %.pre1067 = add i32 %.09621026, 54
+  %.pre1069 = add i32 %.09621026, 42
+  %.pre1071 = add i32 %.09621026, 44
+  %.pre1073 = add i32 %.09621026, 52
   br label %410
 
 277:                                              ; preds = %276
-  %278 = add i32 %.09611026, 40
+  %278 = add i32 %.09621026, 40
   %279 = call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %278) #5
   %280 = load i32, ptr @hf_ospf_mpls_minimum_lsp_bandwidth, align 4
   %281 = fpext float %279 to double
   %282 = fmul double %281, 8.000000e+00
   %283 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %242, i32 noundef %280, ptr noundef %0, i32 noundef %278, i32 noundef 4, float noundef %279, ptr noundef nonnull @.str.774, double noundef %281, double noundef %282) #5
   %284 = load i32, ptr @hf_ospf_mpls_sonet_sdh, align 4
-  %285 = add i32 %.09611026, 44
+  %285 = add i32 %.09621026, 44
   %286 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %284, ptr noundef %0, i32 noundef %285, i32 noundef 1, i32 noundef 0) #5
   br label %dissect_ospf_subtlv_ext_admin_group.exit
 
@@ -4534,10 +4534,10 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   br i1 %289, label %290, label %dissect_ospf_subtlv_ext_admin_group.exit
 
 290:                                              ; preds = %287
-  %291 = add i32 %.09611026, 40
+  %291 = add i32 %.09621026, 40
   %292 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %291) #5
   %293 = zext i16 %292 to i32
-  %294 = add i32 %.09611026, 42
+  %294 = add i32 %.09621026, 42
   %295 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %294) #5
   %296 = zext i16 %295 to i32
   %297 = call ptr @val_to_str_const(i32 noundef %293, ptr noundef nonnull @mpls_bandwidth_sstlv_str, ptr noundef nonnull @.str.757) #5
@@ -4548,16 +4548,16 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   %302 = load i32, ptr @hf_ospf_mpls_length, align 4
   %303 = call ptr @proto_tree_add_item(ptr noundef %299, i32 noundef %302, ptr noundef %0, i32 noundef %294, i32 noundef 2, i32 noundef 0) #5
   %304 = load i32, ptr @hf_ospf_mpls_pri, align 4
-  %305 = add i32 %.09611026, 44
+  %305 = add i32 %.09621026, 44
   %306 = call ptr @proto_tree_add_item(ptr noundef %299, i32 noundef %304, ptr noundef %0, i32 noundef %305, i32 noundef 1, i32 noundef 0) #5
-  %307 = add i32 %.09611026, 48
+  %307 = add i32 %.09621026, 48
   %308 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %307) #5
   %309 = load i32, ptr @hf_ospf_mpls_action, align 4
   %310 = call ptr @proto_tree_add_item(ptr noundef %299, i32 noundef %309, ptr noundef %0, i32 noundef %307, i32 noundef 1, i32 noundef 0) #5
   %311 = load i32, ptr @hf_ospf_mpls_num_labels, align 4
   %312 = call ptr @proto_tree_add_item(ptr noundef %299, i32 noundef %311, ptr noundef %0, i32 noundef %307, i32 noundef 2, i32 noundef 0) #5
   %313 = load i32, ptr @hf_ospf_mpls_length, align 4
-  %314 = add i32 %.09611026, 50
+  %314 = add i32 %.09621026, 50
   %315 = call ptr @proto_tree_add_item(ptr noundef %299, i32 noundef %313, ptr noundef %0, i32 noundef %314, i32 noundef 2, i32 noundef 0) #5
   %316 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %314) #5
   %.mask = and i8 %308, -16
@@ -4566,9 +4566,9 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 
 318:                                              ; preds = %290
   %319 = zext i16 %316 to i32
-  %320 = add i32 %.09611026, 56
+  %320 = add i32 %.09621026, 56
   %321 = add i32 %307, %319
-  %322 = add i32 %.09611026, 52
+  %322 = add i32 %.09621026, 52
   %323 = load i32, ptr @ett_ospf_lsa_mpls_bandwidth_sstlv, align 4
   %324 = call ptr @proto_tree_add_subtree(ptr noundef %299, ptr noundef %0, i32 noundef %322, i32 noundef 4, i32 noundef %323, ptr noundef null, ptr noundef nonnull @.str.775) #5
   %325 = load i32, ptr @hf_ospf_mpls_grid, align 4
@@ -4576,25 +4576,25 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   %327 = load i32, ptr @hf_ospf_mpls_cs2, align 4
   %328 = call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %327, ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0) #5
   %329 = load i32, ptr @hf_ospf_mpls_n, align 4
-  %330 = add i32 %.09611026, 54
+  %330 = add i32 %.09621026, 54
   %331 = call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %329, ptr noundef %0, i32 noundef %330, i32 noundef 2, i32 noundef 0) #5
   %332 = icmp slt i32 %320, %321
   br i1 %332, label %.lr.ph1010, label %dissect_ospf_subtlv_ext_admin_group.exit
 
 .lr.ph1010:                                       ; preds = %318, %.lr.ph1010
-  %.09571009 = phi i32 [ %335, %.lr.ph1010 ], [ %320, %318 ]
+  %.09581009 = phi i32 [ %335, %.lr.ph1010 ], [ %320, %318 ]
   %333 = load i32, ptr @hf_ospf_mpls_bitmap, align 4
-  %334 = call ptr @proto_tree_add_item(ptr noundef %299, i32 noundef %333, ptr noundef %0, i32 noundef %.09571009, i32 noundef 4, i32 noundef 0) #5
-  %335 = add i32 %.09571009, 4
+  %334 = call ptr @proto_tree_add_item(ptr noundef %299, i32 noundef %333, ptr noundef %0, i32 noundef %.09581009, i32 noundef 4, i32 noundef 0) #5
+  %335 = add i32 %.09581009, 4
   %336 = icmp slt i32 %335, %321
   br i1 %336, label %.lr.ph1010, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !37
 
 337:                                              ; preds = %276
-  %.pre = add i32 %.09611026, 40
-  %.pre1055 = add i32 %.09611026, 42
-  %.pre1057 = add i32 %.09611026, 44
-  %.pre1059 = add i32 %.09611026, 48
-  %.pre1061 = add i32 %.09611026, 50
+  %.pre = add i32 %.09621026, 40
+  %.pre1055 = add i32 %.09621026, 42
+  %.pre1057 = add i32 %.09621026, 44
+  %.pre1059 = add i32 %.09621026, 48
+  %.pre1061 = add i32 %.09621026, 50
   %338 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.pre) #5
   %339 = zext i16 %338 to i32
   %340 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.pre1055) #5
@@ -4622,9 +4622,9 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 
 360:                                              ; preds = %337
   %361 = zext i16 %358 to i32
-  %362 = add i32 %.09611026, 56
+  %362 = add i32 %.09621026, 56
   %363 = add i32 %.pre1059, %361
-  %364 = add i32 %.09611026, 52
+  %364 = add i32 %.09621026, 52
   %365 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %364) #5
   %366 = lshr i8 %365, 5
   %367 = load i32, ptr @ett_ospf_lsa_mpls_bandwidth_sstlv, align 4
@@ -4641,7 +4641,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   ]
 
 374:                                              ; preds = %360
-  %375 = add i32 %.09611026, 12
+  %375 = add i32 %.09621026, 12
   %376 = call ptr @proto_tree_add_item(ptr noundef %368, i32 noundef %373, ptr noundef %0, i32 noundef %375, i32 noundef 1, i32 noundef 0) #5
   %377 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %375) #5
   %378 = lshr i8 %377, 1
@@ -4656,7 +4656,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   br label %400
 
 386:                                              ; preds = %360
-  %387 = add i32 %.09611026, 12
+  %387 = add i32 %.09621026, 12
   %388 = call ptr @proto_tree_add_item(ptr noundef %368, i32 noundef %373, ptr noundef %0, i32 noundef %387, i32 noundef 1, i32 noundef 0) #5
   %389 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %387) #5
   %390 = lshr i8 %389, 1
@@ -4676,16 +4676,16 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 
 400:                                              ; preds = %398, %386, %374
   %401 = load i32, ptr @hf_ospf_mpls_n, align 4
-  %402 = add i32 %.09611026, 54
+  %402 = add i32 %.09621026, 54
   %403 = call ptr @proto_tree_add_item(ptr noundef %368, i32 noundef %401, ptr noundef %0, i32 noundef %402, i32 noundef 2, i32 noundef 0) #5
   %404 = icmp slt i32 %362, %363
   br i1 %404, label %.lr.ph1013, label %dissect_ospf_subtlv_ext_admin_group.exit
 
 .lr.ph1013:                                       ; preds = %400, %.lr.ph1013
-  %.19581011 = phi i32 [ %407, %.lr.ph1013 ], [ %362, %400 ]
+  %.19591011 = phi i32 [ %407, %.lr.ph1013 ], [ %362, %400 ]
   %405 = load i32, ptr @hf_ospf_mpls_bitmap, align 4
-  %406 = call ptr @proto_tree_add_item(ptr noundef %344, i32 noundef %405, ptr noundef %0, i32 noundef %.19581011, i32 noundef 4, i32 noundef 0) #5
-  %407 = add i32 %.19581011, 4
+  %406 = call ptr @proto_tree_add_item(ptr noundef %344, i32 noundef %405, ptr noundef %0, i32 noundef %.19591011, i32 noundef 4, i32 noundef 0) #5
+  %407 = add i32 %.19591011, 4
   %408 = icmp slt i32 %407, %363
   br i1 %408, label %.lr.ph1013, label %._crit_edge1014, !llvm.loop !38
 
@@ -4708,8 +4708,8 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   %416 = lshr i32 %413, 3
   %417 = and i32 %416, 508
   %418 = add nuw nsw i32 %417, 4
-  %.0960 = select i1 %415, i32 %416, i32 %418
-  %419 = add i32 %.0960, %.pre-phi1066
+  %.0961 = select i1 %415, i32 %416, i32 %418
+  %419 = add i32 %.0961, %.pre-phi1066
   %420 = load i32, ptr @hf_ospf_mpls_type, align 4
   %421 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %420, ptr noundef %0, i32 noundef %.pre-phi1064, i32 noundef 2, i32 noundef 0) #5
   %422 = load i32, ptr @hf_ospf_mpls_length, align 4
@@ -4734,39 +4734,39 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   br i1 %439, label %.lr.ph1017, label %dissect_ospf_subtlv_ext_admin_group.exit
 
 .lr.ph1017:                                       ; preds = %410, %.lr.ph1017
-  %.29591015 = phi i32 [ %442, %.lr.ph1017 ], [ %.pre-phi1066, %410 ]
+  %.29601015 = phi i32 [ %442, %.lr.ph1017 ], [ %.pre-phi1066, %410 ]
   %440 = load i32, ptr @hf_ospf_mpls_bitmap, align 4
-  %441 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %440, ptr noundef %0, i32 noundef %.29591015, i32 noundef 4, i32 noundef 0) #5
-  %442 = add i32 %.29591015, 4
+  %441 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %440, ptr noundef %0, i32 noundef %.29601015, i32 noundef 4, i32 noundef 0) #5
+  %442 = add i32 %.29601015, 4
   %443 = icmp slt i32 %442, %419
   br i1 %443, label %.lr.ph1017, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !39
 
 444:                                              ; preds = %.lr.ph1028
   %445 = add nuw nsw i32 %51, 4
   %446 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
-  %447 = call ptr @proto_tree_add_subtree(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %445, i32 noundef %446, ptr noundef null, ptr noundef %52) #5
+  %447 = call ptr @proto_tree_add_subtree(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %445, i32 noundef %446, ptr noundef null, ptr noundef %52) #5
   %448 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %449 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %447, i32 noundef %448, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 14, ptr noundef nonnull @.str.760, i32 noundef 14, ptr noundef %52) #5
+  %449 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %447, i32 noundef %448, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 14, ptr noundef nonnull @.str.760, i32 noundef 14, ptr noundef %52) #5
   %450 = load i32, ptr @hf_ospf_tlv_length, align 4
   %451 = call ptr @proto_tree_add_item(ptr noundef %447, i32 noundef %450, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %452 = load i32, ptr @hf_ospf_mpls_protection_capability, align 4
-  %453 = add i32 %.09611026, 4
+  %453 = add i32 %.09621026, 4
   %454 = call ptr @proto_tree_add_item(ptr noundef %447, i32 noundef %452, ptr noundef %0, i32 noundef %453, i32 noundef 1, i32 noundef 0) #5
   br label %dissect_ospf_subtlv_ext_admin_group.exit
 
 455:                                              ; preds = %.lr.ph1028
   %456 = add nuw nsw i32 %51, 4
   %457 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
-  %458 = call ptr @proto_tree_add_subtree(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %456, i32 noundef %457, ptr noundef null, ptr noundef %52) #5
+  %458 = call ptr @proto_tree_add_subtree(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %456, i32 noundef %457, ptr noundef null, ptr noundef %52) #5
   %459 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %460 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %458, i32 noundef %459, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 16, ptr noundef nonnull @.str.760, i32 noundef 16, ptr noundef %52) #5
+  %460 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %458, i32 noundef %459, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 16, ptr noundef nonnull @.str.760, i32 noundef 16, ptr noundef %52) #5
   %461 = load i32, ptr @hf_ospf_tlv_length, align 4
   %462 = call ptr @proto_tree_add_item(ptr noundef %458, i32 noundef %461, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %.not1033 = icmp eq i16 %50, 0
   br i1 %.not1033, label %dissect_ospf_subtlv_ext_admin_group.exit, label %.lr.ph1007
 
 .lr.ph1007:                                       ; preds = %455
-  %463 = add i32 %.09611026, 4
+  %463 = add i32 %.09621026, 4
   br label %464
 
 464:                                              ; preds = %.lr.ph1007, %464
@@ -4781,12 +4781,12 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 470:                                              ; preds = %.lr.ph1028
   %471 = add nuw nsw i32 %51, 4
   %472 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
-  %473 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %471, i32 noundef %472, ptr noundef null, ptr noundef nonnull @.str.778, ptr noundef %52) #5
+  %473 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %471, i32 noundef %472, ptr noundef null, ptr noundef nonnull @.str.778, ptr noundef %52) #5
   %474 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %475 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %473, i32 noundef %474, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 26, ptr noundef nonnull @.str.760, i32 noundef 26, ptr noundef %52) #5
+  %475 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %473, i32 noundef %474, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 26, ptr noundef nonnull @.str.760, i32 noundef 26, ptr noundef %52) #5
   %476 = load i32, ptr @hf_ospf_tlv_length, align 4
   %477 = call ptr @proto_tree_add_item(ptr noundef %473, i32 noundef %476, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
-  %478 = add i32 %.09611026, 4
+  %478 = add i32 %.09621026, 4
   %479 = lshr i32 %51, 2
   %.not.i989 = icmp ult i16 %50, 4
   br i1 %.not.i989, label %dissect_ospf_subtlv_ext_admin_group.exit, label %.lr.ph.i
@@ -4805,18 +4805,18 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 486:                                              ; preds = %.lr.ph1028
   %487 = add nuw nsw i32 %51, 4
   %488 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
-  %489 = add i32 %.09611026, 5
+  %489 = add i32 %.09621026, 5
   %490 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %489, i32 noundef 0) #5
-  %491 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %487, i32 noundef %488, ptr noundef null, ptr noundef nonnull @.str.779, ptr noundef %52, i32 noundef %490) #5
+  %491 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %487, i32 noundef %488, ptr noundef null, ptr noundef nonnull @.str.779, ptr noundef %52, i32 noundef %490) #5
   %492 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %493 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %491, i32 noundef %492, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 27, ptr noundef nonnull @.str.760, i32 noundef 27, ptr noundef %52) #5
+  %493 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %491, i32 noundef %492, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 27, ptr noundef nonnull @.str.760, i32 noundef 27, ptr noundef %52) #5
   %494 = load i32, ptr @hf_ospf_tlv_length, align 4
   %495 = call ptr @proto_tree_add_item(ptr noundef %491, i32 noundef %494, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
-  %496 = add i32 %.09611026, 4
+  %496 = add i32 %.09621026, 4
   %497 = load i32, ptr @hf_ospf_ls_unidir_link_flags, align 4
   %498 = load i32, ptr @ett_ospf_lsa_unidir_link_flags, align 4
   %499 = call ptr @proto_tree_add_bitmask(ptr noundef %491, ptr noundef %0, i32 noundef %496, i32 noundef %497, i32 noundef %498, ptr noundef nonnull @unidir_link_flags, i32 noundef 0) #5
-  %500 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.09611026) #5
+  %500 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.09621026) #5
   %501 = and i8 %500, 127
   %.not985 = icmp eq i8 %501, 0
   br i1 %.not985, label %504, label %502
@@ -4833,20 +4833,20 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 507:                                              ; preds = %.lr.ph1028
   %508 = add nuw nsw i32 %51, 4
   %509 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
-  %510 = add i32 %.09611026, 5
+  %510 = add i32 %.09621026, 5
   %511 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %510, i32 noundef 0) #5
-  %512 = add i32 %.09611026, 9
+  %512 = add i32 %.09621026, 9
   %513 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %512, i32 noundef 0) #5
-  %514 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %508, i32 noundef %509, ptr noundef null, ptr noundef nonnull @.str.781, ptr noundef %52, i32 noundef %511, i32 noundef %513) #5
+  %514 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %508, i32 noundef %509, ptr noundef null, ptr noundef nonnull @.str.781, ptr noundef %52, i32 noundef %511, i32 noundef %513) #5
   %515 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %516 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %514, i32 noundef %515, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 28, ptr noundef nonnull @.str.760, i32 noundef 28, ptr noundef %52) #5
+  %516 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %514, i32 noundef %515, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 28, ptr noundef nonnull @.str.760, i32 noundef 28, ptr noundef %52) #5
   %517 = load i32, ptr @hf_ospf_tlv_length, align 4
   %518 = call ptr @proto_tree_add_item(ptr noundef %514, i32 noundef %517, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
-  %519 = add i32 %.09611026, 4
+  %519 = add i32 %.09621026, 4
   %520 = load i32, ptr @hf_ospf_ls_unidir_link_flags, align 4
   %521 = load i32, ptr @ett_ospf_lsa_unidir_link_flags, align 4
   %522 = call ptr @proto_tree_add_bitmask(ptr noundef %514, ptr noundef %0, i32 noundef %519, i32 noundef %520, i32 noundef %521, ptr noundef nonnull @unidir_link_flags, i32 noundef 0) #5
-  %523 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.09611026) #5
+  %523 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.09621026) #5
   %524 = and i8 %523, 127
   %.not983 = icmp eq i8 %524, 0
   br i1 %.not983, label %527, label %525
@@ -4859,7 +4859,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   %528 = load i32, ptr @hf_ospf_ls_unidir_link_delay_min, align 4
   %529 = call ptr @proto_tree_add_item(ptr noundef %514, i32 noundef %528, ptr noundef %0, i32 noundef %510, i32 noundef 3, i32 noundef 0) #5
   %530 = load i32, ptr @hf_ospf_ls_unidir_link_reserved, align 4
-  %531 = add i32 %.09611026, 8
+  %531 = add i32 %.09621026, 8
   %532 = call ptr @proto_tree_add_item(ptr noundef %514, i32 noundef %530, ptr noundef %0, i32 noundef %531, i32 noundef 1, i32 noundef 0) #5
   %533 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %531) #5
   %.not984 = icmp eq i8 %533, 0
@@ -4877,15 +4877,15 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 539:                                              ; preds = %.lr.ph1028
   %540 = add nuw nsw i32 %51, 4
   %541 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
-  %542 = add i32 %.09611026, 5
+  %542 = add i32 %.09621026, 5
   %543 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %542, i32 noundef 0) #5
-  %544 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %540, i32 noundef %541, ptr noundef null, ptr noundef nonnull @.str.779, ptr noundef %52, i32 noundef %543) #5
+  %544 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %540, i32 noundef %541, ptr noundef null, ptr noundef nonnull @.str.779, ptr noundef %52, i32 noundef %543) #5
   %545 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %546 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %544, i32 noundef %545, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 29, ptr noundef nonnull @.str.760, i32 noundef 29, ptr noundef %52) #5
+  %546 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %544, i32 noundef %545, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 29, ptr noundef nonnull @.str.760, i32 noundef 29, ptr noundef %52) #5
   %547 = load i32, ptr @hf_ospf_tlv_length, align 4
   %548 = call ptr @proto_tree_add_item(ptr noundef %544, i32 noundef %547, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %549 = load i32, ptr @hf_ospf_ls_unidir_link_reserved, align 4
-  %550 = add i32 %.09611026, 4
+  %550 = add i32 %.09621026, 4
   %551 = call ptr @proto_tree_add_item(ptr noundef %544, i32 noundef %549, ptr noundef %0, i32 noundef %550, i32 noundef 1, i32 noundef 0) #5
   %552 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %550) #5
   %.not982 = icmp eq i8 %552, 0
@@ -4904,11 +4904,11 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   %559 = add nuw nsw i32 %51, 4
   %560 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
   %561 = load ptr, ptr %18, align 8
-  %562 = add i32 %.09611026, 4
+  %562 = add i32 %.09621026, 4
   %563 = call ptr @tvb_address_to_str(ptr noundef %561, ptr noundef %0, i32 noundef 2, i32 noundef %562) #5
-  %564 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %559, i32 noundef %560, ptr noundef null, ptr noundef nonnull @.str.761, ptr noundef %52, ptr noundef %563) #5
+  %564 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %559, i32 noundef %560, ptr noundef null, ptr noundef nonnull @.str.761, ptr noundef %52, ptr noundef %563) #5
   %565 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %566 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %564, i32 noundef %565, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 32773, ptr noundef nonnull @.str.760, i32 noundef 32773, ptr noundef %52) #5
+  %566 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %564, i32 noundef %565, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 32773, ptr noundef nonnull @.str.760, i32 noundef 32773, ptr noundef %52) #5
   %567 = load i32, ptr @hf_ospf_tlv_length, align 4
   %568 = call ptr @proto_tree_add_item(ptr noundef %564, i32 noundef %567, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %569 = load i32, ptr @hf_ospf_ls_oif_local_node_id, align 4
@@ -4919,11 +4919,11 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   %572 = add nuw nsw i32 %51, 4
   %573 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
   %574 = load ptr, ptr %18, align 8
-  %575 = add i32 %.09611026, 4
+  %575 = add i32 %.09621026, 4
   %576 = call ptr @tvb_address_to_str(ptr noundef %574, ptr noundef %0, i32 noundef 2, i32 noundef %575) #5
-  %577 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %572, i32 noundef %573, ptr noundef null, ptr noundef nonnull @.str.761, ptr noundef %52, ptr noundef %576) #5
+  %577 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %572, i32 noundef %573, ptr noundef null, ptr noundef nonnull @.str.761, ptr noundef %52, ptr noundef %576) #5
   %578 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %579 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %577, i32 noundef %578, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 32774, ptr noundef nonnull @.str.760, i32 noundef 32774, ptr noundef %52) #5
+  %579 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %577, i32 noundef %578, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 32774, ptr noundef nonnull @.str.760, i32 noundef 32774, ptr noundef %52) #5
   %580 = load i32, ptr @hf_ospf_tlv_length, align 4
   %581 = call ptr @proto_tree_add_item(ptr noundef %577, i32 noundef %580, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %582 = load i32, ptr @hf_ospf_ls_oif_remote_node_id, align 4
@@ -4933,16 +4933,16 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 584:                                              ; preds = %.lr.ph1028
   %585 = add nuw nsw i32 %51, 4
   %586 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
-  %587 = call ptr @proto_tree_add_subtree(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %585, i32 noundef %586, ptr noundef null, ptr noundef %52) #5
+  %587 = call ptr @proto_tree_add_subtree(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %585, i32 noundef %586, ptr noundef null, ptr noundef %52) #5
   %588 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %589 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %587, i32 noundef %588, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef 32775, ptr noundef nonnull @.str.760, i32 noundef 32775, ptr noundef %52) #5
+  %589 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %587, i32 noundef %588, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef 32775, ptr noundef nonnull @.str.760, i32 noundef 32775, ptr noundef %52) #5
   %590 = load i32, ptr @hf_ospf_tlv_length, align 4
   %591 = call ptr @proto_tree_add_item(ptr noundef %587, i32 noundef %590, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %592 = load i32, ptr @hf_ospf_oif_switching_cap, align 4
-  %593 = add i32 %.09611026, 4
+  %593 = add i32 %.09621026, 4
   %594 = call ptr @proto_tree_add_item(ptr noundef %587, i32 noundef %592, ptr noundef %0, i32 noundef %593, i32 noundef 1, i32 noundef 0) #5
   %595 = load i32, ptr @hf_ospf_oif_encoding, align 4
-  %596 = add i32 %.09611026, 5
+  %596 = add i32 %.09621026, 5
   %597 = call ptr @proto_tree_add_item(ptr noundef %587, i32 noundef %595, ptr noundef %0, i32 noundef %596, i32 noundef 1, i32 noundef 0) #5
   %598 = icmp ugt i16 %50, 7
   br i1 %598, label %.lr.ph1005, label %dissect_ospf_subtlv_ext_admin_group.exit
@@ -4950,8 +4950,8 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
 .lr.ph1005:                                       ; preds = %584
   %599 = add nsw i32 %51, -4
   %600 = sdiv i32 %599, 4
-  %601 = add i32 %.09611026, 8
-  %602 = add i32 %.09611026, 9
+  %601 = add i32 %.09621026, 8
+  %602 = add i32 %.09621026, 9
   %smax = call i32 @llvm.smax.i32(i32 %600, i32 1)
   br label %603
 
@@ -4976,40 +4976,40 @@ proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
   %617 = add nuw nsw i32 %51, 4
   %618 = load i32, ptr @ett_ospf_lsa_mpls_link_stlv, align 4
   %619 = call ptr @rval_to_str_const(i32 noundef %48, ptr noundef nonnull @mpls_te_sub_tlv_rvals, ptr noundef nonnull @.str.702) #5
-  %620 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09611026, i32 noundef %617, i32 noundef %618, ptr noundef null, ptr noundef nonnull @.str.784, i32 noundef %48, ptr noundef %619) #5
+  %620 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %0, i32 noundef %.09621026, i32 noundef %617, i32 noundef %618, ptr noundef null, ptr noundef nonnull @.str.784, i32 noundef %48, ptr noundef %619) #5
   %621 = load i32, ptr @hf_ospf_tlv_type, align 4
   %622 = call ptr @rval_to_str_const(i32 noundef %48, ptr noundef nonnull @mpls_te_sub_tlv_rvals, ptr noundef nonnull @.str.702) #5
-  %623 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %620, i32 noundef %621, ptr noundef %0, i32 noundef %.09611026, i32 noundef 2, i32 noundef %48, ptr noundef nonnull @.str.785, i32 noundef %48, ptr noundef %52, ptr noundef %622) #5
+  %623 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %620, i32 noundef %621, ptr noundef %0, i32 noundef %.09621026, i32 noundef 2, i32 noundef %48, ptr noundef nonnull @.str.785, i32 noundef %48, ptr noundef %52, ptr noundef %622) #5
   %624 = load i32, ptr @hf_ospf_tlv_length, align 4
   %625 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %624, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %626 = load i32, ptr @hf_ospf_tlv_value, align 4
-  %627 = add i32 %.09611026, 4
+  %627 = add i32 %.09621026, 4
   %628 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %626, ptr noundef %0, i32 noundef %627, i32 noundef %51, i32 noundef 0) #5
   br label %dissect_ospf_subtlv_ext_admin_group.exit
 
 dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %603, %.lr.ph.i, %464, %.lr.ph1017, %.lr.ph1010, %212, %171, %137, %94, %400, %318, %584, %455, %410, %82, %337, %290, %287, %470, %277, %276, %._crit_edge1014, %616, %571, %558, %555, %536, %504, %444, %221, %210, %204, %198, %140, %102, %69, %53
   %629 = add nuw nsw i32 %51, 7
   %630 = and i32 %629, 131068
-  %631 = add i32 %630, %.09611026
+  %631 = add i32 %630, %.09621026
   %632 = icmp slt i32 %631, %25
   br i1 %632, label %.lr.ph1028, label %.loopexit, !llvm.loop !42
 
 633:                                              ; preds = %19
   %634 = add nuw nsw i32 %23, 4
   %635 = load i32, ptr @ett_ospf_lsa_oif_tna, align 4
-  %636 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.09561031, i32 noundef %634, i32 noundef %635, ptr noundef null, ptr noundef nonnull @.str.786) #5
+  %636 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.01031, i32 noundef %634, i32 noundef %635, ptr noundef null, ptr noundef nonnull @.str.786) #5
   %637 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %638 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %636, i32 noundef %637, ptr noundef %0, i32 noundef %.09561031, i32 noundef 2, i32 noundef 32768, ptr noundef nonnull @.str.787) #5
+  %638 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %636, i32 noundef %637, ptr noundef %0, i32 noundef %.01031, i32 noundef 2, i32 noundef 32768, ptr noundef nonnull @.str.787) #5
   %639 = load i32, ptr @hf_ospf_tlv_length, align 4
   %640 = call ptr @proto_tree_add_item(ptr noundef %636, i32 noundef %639, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef 0) #5
   %641 = icmp slt i32 %24, %25
   br i1 %641, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %633, %718
-  %.19621003 = phi i32 [ %721, %718 ], [ %24, %633 ]
-  %642 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.19621003) #5
+  %.19631003 = phi i32 [ %721, %718 ], [ %24, %633 ]
+  %642 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.19631003) #5
   %643 = zext i16 %642 to i32
-  %644 = add i32 %.19621003, 2
+  %644 = add i32 %.19631003, 2
   %645 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %644) #5
   %646 = zext i16 %645 to i32
   %647 = icmp ult i16 %645, 4
@@ -5032,11 +5032,11 @@ dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %603, %.lr.ph.i, %46
 653:                                              ; preds = %650
   %654 = load i32, ptr @ett_ospf_lsa_oif_tna_stlv, align 4
   %655 = load ptr, ptr %18, align 8
-  %656 = add i32 %.19621003, 4
+  %656 = add i32 %.19631003, 4
   %657 = call ptr @tvb_address_to_str(ptr noundef %655, ptr noundef %0, i32 noundef 2, i32 noundef %656) #5
-  %658 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %636, ptr noundef %0, i32 noundef %.19621003, i32 noundef %652, i32 noundef %654, ptr noundef null, ptr noundef nonnull @.str.761, ptr noundef %651, ptr noundef %657) #5
+  %658 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %636, ptr noundef %0, i32 noundef %.19631003, i32 noundef %652, i32 noundef %654, ptr noundef null, ptr noundef nonnull @.str.761, ptr noundef %651, ptr noundef %657) #5
   %659 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %660 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %658, i32 noundef %659, ptr noundef %0, i32 noundef %.19621003, i32 noundef 2, i32 noundef 32777, ptr noundef nonnull @.str.760, i32 noundef 32777, ptr noundef %651) #5
+  %660 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %658, i32 noundef %659, ptr noundef %0, i32 noundef %.19631003, i32 noundef 2, i32 noundef 32777, ptr noundef nonnull @.str.760, i32 noundef 32777, ptr noundef %651) #5
   %661 = load i32, ptr @hf_ospf_tlv_length, align 4
   %662 = call ptr @proto_tree_add_item(ptr noundef %658, i32 noundef %661, ptr noundef %0, i32 noundef %644, i32 noundef 2, i32 noundef 0) #5
   %663 = load i32, ptr @hf_ospf_oif_node_id, align 4
@@ -5049,15 +5049,15 @@ dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %603, %.lr.ph.i, %46
 668:                                              ; preds = %650
   %669 = load i32, ptr @ett_ospf_lsa_oif_tna_stlv, align 4
   %670 = load ptr, ptr %18, align 8
-  %671 = add i32 %.19621003, 8
+  %671 = add i32 %.19631003, 8
   %672 = call ptr @tvb_address_to_str(ptr noundef %670, ptr noundef %0, i32 noundef 2, i32 noundef %671) #5
-  %673 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %636, ptr noundef %0, i32 noundef %.19621003, i32 noundef %652, i32 noundef %669, ptr noundef null, ptr noundef nonnull @.str.789, ptr noundef %651, ptr noundef %672) #5
+  %673 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %636, ptr noundef %0, i32 noundef %.19631003, i32 noundef %652, i32 noundef %669, ptr noundef null, ptr noundef nonnull @.str.789, ptr noundef %651, ptr noundef %672) #5
   %674 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %675 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %673, i32 noundef %674, ptr noundef %0, i32 noundef %.19621003, i32 noundef 2, i32 noundef 32776, ptr noundef nonnull @.str.790, i32 noundef 32776, ptr noundef %651) #5
+  %675 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %673, i32 noundef %674, ptr noundef %0, i32 noundef %.19631003, i32 noundef 2, i32 noundef 32776, ptr noundef nonnull @.str.790, i32 noundef 32776, ptr noundef %651) #5
   %676 = load i32, ptr @hf_ospf_tlv_length, align 4
   %677 = call ptr @proto_tree_add_item(ptr noundef %673, i32 noundef %676, ptr noundef %0, i32 noundef %644, i32 noundef 2, i32 noundef 0) #5
   %678 = load i32, ptr @hf_ospf_oif_tna_addr_length, align 4
-  %679 = add i32 %.19621003, 4
+  %679 = add i32 %.19631003, 4
   %680 = call ptr @proto_tree_add_item(ptr noundef %673, i32 noundef %678, ptr noundef %0, i32 noundef %679, i32 noundef 1, i32 noundef 0) #5
   %681 = load i32, ptr @hf_ospf_oif_tna_addr_ipv4, align 4
   %682 = add nsw i32 %646, -4
@@ -5067,15 +5067,15 @@ dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %603, %.lr.ph.i, %46
 684:                                              ; preds = %650
   %685 = load i32, ptr @ett_ospf_lsa_oif_tna_stlv, align 4
   %686 = load ptr, ptr %18, align 8
-  %687 = add i32 %.19621003, 8
+  %687 = add i32 %.19631003, 8
   %688 = call ptr @tvb_address_to_str(ptr noundef %686, ptr noundef %0, i32 noundef 3, i32 noundef %687) #5
-  %689 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %636, ptr noundef %0, i32 noundef %.19621003, i32 noundef %652, i32 noundef %685, ptr noundef null, ptr noundef nonnull @.str.791, ptr noundef %651, ptr noundef %688) #5
+  %689 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %636, ptr noundef %0, i32 noundef %.19631003, i32 noundef %652, i32 noundef %685, ptr noundef null, ptr noundef nonnull @.str.791, ptr noundef %651, ptr noundef %688) #5
   %690 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %691 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %689, i32 noundef %690, ptr noundef %0, i32 noundef %.19621003, i32 noundef 2, i32 noundef 32778, ptr noundef nonnull @.str.792, i32 noundef 32778, ptr noundef %651) #5
+  %691 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %689, i32 noundef %690, ptr noundef %0, i32 noundef %.19631003, i32 noundef 2, i32 noundef 32778, ptr noundef nonnull @.str.792, i32 noundef 32778, ptr noundef %651) #5
   %692 = load i32, ptr @hf_ospf_tlv_length, align 4
   %693 = call ptr @proto_tree_add_item(ptr noundef %689, i32 noundef %692, ptr noundef %0, i32 noundef %644, i32 noundef 2, i32 noundef 0) #5
   %694 = load i32, ptr @hf_ospf_oif_tna_addr_length, align 4
-  %695 = add i32 %.19621003, 4
+  %695 = add i32 %.19631003, 4
   %696 = call ptr @proto_tree_add_item(ptr noundef %689, i32 noundef %694, ptr noundef %0, i32 noundef %695, i32 noundef 1, i32 noundef 0) #5
   %697 = load i32, ptr @hf_ospf_tna_addr_ipv6, align 4
   %698 = add nsw i32 %646, -4
@@ -5085,29 +5085,29 @@ dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %603, %.lr.ph.i, %46
 700:                                              ; preds = %650
   %701 = load i32, ptr @ett_ospf_lsa_oif_tna_stlv, align 4
   %702 = load ptr, ptr %18, align 8
-  %703 = add i32 %.19621003, 8
+  %703 = add i32 %.19631003, 8
   %704 = add nsw i32 %646, -4
   %705 = call ptr @tvb_bytes_to_str(ptr noundef %702, ptr noundef %0, i32 noundef %703, i32 noundef %704) #5
-  %706 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %636, ptr noundef %0, i32 noundef %.19621003, i32 noundef %652, i32 noundef %701, ptr noundef null, ptr noundef nonnull @.str.793, ptr noundef %651, ptr noundef %705) #5
+  %706 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %636, ptr noundef %0, i32 noundef %.19631003, i32 noundef %652, i32 noundef %701, ptr noundef null, ptr noundef nonnull @.str.793, ptr noundef %651, ptr noundef %705) #5
   %707 = load i32, ptr @hf_ospf_tlv_type, align 4
-  %708 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %706, i32 noundef %707, ptr noundef %0, i32 noundef %.19621003, i32 noundef 2, i32 noundef 32779, ptr noundef nonnull @.str.794, i32 noundef 32779, ptr noundef %651) #5
+  %708 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %706, i32 noundef %707, ptr noundef %0, i32 noundef %.19631003, i32 noundef 2, i32 noundef 32779, ptr noundef nonnull @.str.794, i32 noundef 32779, ptr noundef %651) #5
   %709 = load i32, ptr @hf_ospf_tlv_length, align 4
   %710 = call ptr @proto_tree_add_item(ptr noundef %706, i32 noundef %709, ptr noundef %0, i32 noundef %644, i32 noundef 2, i32 noundef 0) #5
   %711 = load i32, ptr @hf_ospf_oif_tna_addr_length, align 4
-  %712 = add i32 %.19621003, 4
+  %712 = add i32 %.19631003, 4
   %713 = call ptr @proto_tree_add_item(ptr noundef %706, i32 noundef %711, ptr noundef %0, i32 noundef %712, i32 noundef 1, i32 noundef 0) #5
   %714 = load i32, ptr @hf_ospf_tna_addr, align 4
   %715 = call ptr @proto_tree_add_item(ptr noundef %706, i32 noundef %714, ptr noundef %0, i32 noundef %703, i32 noundef %704, i32 noundef 0) #5
   br label %718
 
 716:                                              ; preds = %650
-  %717 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %636, ptr noundef %1, ptr noundef nonnull @ei_ospf_unknown_link_subtype, ptr noundef %0, i32 noundef %.19621003, i32 noundef %652, ptr noundef nonnull @.str.795, i32 noundef %643) #5
+  %717 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %636, ptr noundef %1, ptr noundef nonnull @ei_ospf_unknown_link_subtype, ptr noundef %0, i32 noundef %.19631003, i32 noundef %652, ptr noundef nonnull @.str.795, i32 noundef %643) #5
   br label %718
 
 718:                                              ; preds = %716, %700, %684, %668, %653
   %719 = add nuw nsw i32 %646, 7
   %720 = and i32 %719, 131068
-  %721 = add i32 %720, %.19621003
+  %721 = add i32 %720, %.19631003
   %722 = icmp slt i32 %721, %25
   br i1 %722, label %.lr.ph, label %.loopexit, !llvm.loop !43
 
@@ -5116,10 +5116,10 @@ dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %603, %.lr.ph.i, %46
   %725 = add nuw nsw i32 %23, 4
   %726 = load i32, ptr @ett_ospf_lsa_mpls_link, align 4
   %727 = call ptr @rval_to_str_const(i32 noundef %724, ptr noundef nonnull @mpls_te_tlv_rvals, ptr noundef nonnull @.str.702) #5
-  %728 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %8, ptr noundef %0, i32 noundef %.09561031, i32 noundef %725, i32 noundef %726, ptr noundef null, ptr noundef nonnull @.str.796, i32 noundef %724, ptr noundef %727) #5
+  %728 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %8, ptr noundef %0, i32 noundef %.01031, i32 noundef %725, i32 noundef %726, ptr noundef null, ptr noundef nonnull @.str.796, i32 noundef %724, ptr noundef %727) #5
   %729 = load i32, ptr @hf_ospf_tlv_type, align 4
   %730 = call ptr @rval_to_str_const(i32 noundef %724, ptr noundef nonnull @mpls_te_tlv_rvals, ptr noundef nonnull @.str.702) #5
-  %731 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %728, i32 noundef %729, ptr noundef %0, i32 noundef %.09561031, i32 noundef 2, i32 noundef %724, ptr noundef nonnull @.str.797, i32 noundef %724, ptr noundef %730) #5
+  %731 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %728, i32 noundef %729, ptr noundef %0, i32 noundef %.01031, i32 noundef 2, i32 noundef %724, ptr noundef nonnull @.str.797, i32 noundef %724, ptr noundef %730) #5
   %732 = load i32, ptr @hf_ospf_tlv_length, align 4
   %733 = call ptr @proto_tree_add_item(ptr noundef %728, i32 noundef %732, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef 0) #5
   %734 = load i32, ptr @hf_ospf_tlv_value, align 4
@@ -5128,8 +5128,8 @@ dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %603, %.lr.ph.i, %46
 
 .loopexit:                                        ; preds = %718, %dissect_ospf_subtlv_ext_admin_group.exit, %633, %38, %648, %723, %26
   %.pre-phi = phi i32 [ %634, %633 ], [ %39, %38 ], [ %634, %648 ], [ %725, %723 ], [ %27, %26 ], [ %39, %dissect_ospf_subtlv_ext_admin_group.exit ], [ %634, %718 ]
-  %736 = add i32 %.pre-phi, %.09561031
-  %737 = sub i32 %.09631030, %.pre-phi
+  %736 = add i32 %.pre-phi, %.01031
+  %737 = sub i32 %.09571030, %.pre-phi
   %.not = icmp eq i32 %737, 0
   br i1 %.not, label %.loopexit999, label %19, !llvm.loop !44
 
@@ -5149,13 +5149,13 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   br i1 %11, label %.lr.ph282, label %._crit_edge
 
 .lr.ph282:                                        ; preds = %5, %.loopexit
-  %.0260281 = phi i32 [ %220, %.loopexit ], [ %2, %5 ]
-  %12 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0260281) #5
+  %.0258281 = phi i32 [ %220, %.loopexit ], [ %2, %5 ]
+  %12 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0258281) #5
   %13 = zext i16 %12 to i32
-  %14 = add i32 %.0260281, 2
+  %14 = add i32 %.0258281, 2
   %15 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %14) #5
   %16 = zext i16 %15 to i32
-  %17 = add i32 %.0260281, 4
+  %17 = add i32 %.0258281, 4
   %18 = add i32 %17, %16
   %19 = call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @ri_tlv_type_vals, ptr noundef nonnull @.str.702) #5
   switch i16 %12, label %204 [
@@ -5173,9 +5173,9 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   %21 = add nuw nsw i32 %16, 4
   %22 = load i32, ptr @ett_ospf_lsa_ri_tlv, align 4
   %23 = call ptr @val_to_str_const(i32 noundef 1, ptr noundef nonnull @ri_tlv_type_vals, ptr noundef nonnull @.str.817) #5
-  %24 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0260281, i32 noundef %21, i32 noundef %22, ptr noundef null, ptr noundef nonnull @.str.778, ptr noundef %23) #5
+  %24 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0258281, i32 noundef %21, i32 noundef %22, ptr noundef null, ptr noundef nonnull @.str.778, ptr noundef %23) #5
   %25 = load i32, ptr @hf_ospf_tlv_type_opaque, align 4
-  %26 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %0, i32 noundef %.0260281, i32 noundef 2, i32 noundef 0) #5
+  %26 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %0, i32 noundef %.0258281, i32 noundef 2, i32 noundef 0) #5
   %27 = load i32, ptr @hf_ospf_tlv_length, align 4
   %28 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %27, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0) #5
   %29 = load i32, ptr @hf_ospf_ri_options, align 4
@@ -5187,9 +5187,9 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   %33 = add nuw nsw i32 %16, 4
   %34 = load i32, ptr @ett_ospf_lsa_dh_tlv, align 4
   %35 = call ptr @val_to_str_const(i32 noundef 7, ptr noundef nonnull @ri_tlv_type_vals, ptr noundef nonnull @.str.817) #5
-  %36 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0260281, i32 noundef %33, i32 noundef %34, ptr noundef null, ptr noundef nonnull @.str.778, ptr noundef %35) #5
+  %36 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0258281, i32 noundef %33, i32 noundef %34, ptr noundef null, ptr noundef nonnull @.str.778, ptr noundef %35) #5
   %37 = load i32, ptr @hf_ospf_tlv_type_opaque, align 4
-  %38 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef %.0260281, i32 noundef 2, i32 noundef 0) #5
+  %38 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef %.0258281, i32 noundef 2, i32 noundef 0) #5
   %39 = load i32, ptr @hf_ospf_tlv_length, align 4
   %40 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %39, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0) #5
   %41 = load i32, ptr @hf_ospf_dyn_hostname, align 4
@@ -5200,9 +5200,9 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   %44 = add nuw nsw i32 %16, 4
   %45 = load i32, ptr @ett_ospf_lsa_sa_tlv, align 4
   %46 = call ptr @val_to_str_const(i32 noundef 8, ptr noundef nonnull @ri_tlv_type_vals, ptr noundef nonnull @.str.817) #5
-  %47 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0260281, i32 noundef %44, i32 noundef %45, ptr noundef null, ptr noundef nonnull @.str.778, ptr noundef %46) #5
+  %47 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0258281, i32 noundef %44, i32 noundef %45, ptr noundef null, ptr noundef nonnull @.str.778, ptr noundef %46) #5
   %48 = load i32, ptr @hf_ospf_tlv_type_opaque, align 4
-  %49 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef %.0260281, i32 noundef 2, i32 noundef 0) #5
+  %49 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef %.0258281, i32 noundef 2, i32 noundef 0) #5
   %50 = load i32, ptr @hf_ospf_tlv_length, align 4
   %51 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %50, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0) #5
   %.not284 = icmp eq i16 %15, 0
@@ -5220,9 +5220,9 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
 56:                                               ; preds = %.lr.ph282, %.lr.ph282
   %57 = add nuw nsw i32 %16, 4
   %58 = load i32, ptr @ett_ospf_lsa_slr_tlv, align 4
-  %59 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0260281, i32 noundef %57, i32 noundef %58, ptr noundef nonnull %6, ptr noundef nonnull @.str.778, ptr noundef %19) #5
+  %59 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0258281, i32 noundef %57, i32 noundef %58, ptr noundef nonnull %6, ptr noundef nonnull @.str.778, ptr noundef %19) #5
   %60 = load i32, ptr @hf_ospf_tlv_type_opaque, align 4
-  %61 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %0, i32 noundef %.0260281, i32 noundef 2, i32 noundef 0) #5
+  %61 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %0, i32 noundef %.0258281, i32 noundef 2, i32 noundef 0) #5
   %62 = load i32, ptr @hf_ospf_tlv_length, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %62, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0) #5
   %64 = load i32, ptr @hf_ospf_ls_range_size, align 4
@@ -5230,7 +5230,7 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   %66 = load ptr, ptr %6, align 8
   %67 = load i32, ptr %7, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %66, ptr noundef nonnull @.str.818, i32 noundef %67) #5
-  %68 = add i32 %.0260281, 7
+  %68 = add i32 %.0258281, 7
   %69 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %68) #5
   %70 = load i32, ptr @hf_ospf_header_reserved, align 4
   %71 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %70, ptr noundef %0, i32 noundef %68, i32 noundef 1, i32 noundef 0) #5
@@ -5242,14 +5242,14 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   br label %74
 
 74:                                               ; preds = %72, %56
-  %75 = add i32 %.0260281, 8
+  %75 = add i32 %.0258281, 8
   %76 = icmp slt i32 %75, %18
   br i1 %76, label %.lr.ph278, label %.loopexit
 
 .lr.ph278:                                        ; preds = %74, %112
-  %.0258277 = phi i32 [ %115, %112 ], [ %75, %74 ]
-  %77 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0258277) #5
-  %78 = add i32 %.0258277, 2
+  %.0259277 = phi i32 [ %115, %112 ], [ %75, %74 ]
+  %77 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0259277) #5
+  %78 = add i32 %.0259277, 2
   %79 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %78) #5
   %80 = zext i16 %77 to i32
   %81 = call ptr @val_to_str_const(i32 noundef %80, ptr noundef nonnull @ext_pfx_stlv_type_vals, ptr noundef nonnull @.str.702) #5
@@ -5260,9 +5260,9 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   br i1 %cond, label %85, label %105
 
 85:                                               ; preds = %.lr.ph278
-  %86 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %59, ptr noundef %0, i32 noundef %.0258277, i32 noundef %83, i32 noundef %84, ptr noundef nonnull %6, ptr noundef nonnull @.str.819, ptr noundef %81) #5
+  %86 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %59, ptr noundef %0, i32 noundef %.0259277, i32 noundef %83, i32 noundef %84, ptr noundef nonnull %6, ptr noundef nonnull @.str.819, ptr noundef %81) #5
   %87 = load i32, ptr @hf_ospf_ls_slr_stlv, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %87, ptr noundef %0, i32 noundef %.0258277, i32 noundef 2, i32 noundef 0) #5
+  %88 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %87, ptr noundef %0, i32 noundef %.0259277, i32 noundef 2, i32 noundef 0) #5
   %89 = load i32, ptr @hf_ospf_tlv_length, align 4
   %90 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %89, ptr noundef %0, i32 noundef %78, i32 noundef 2, i32 noundef 0) #5
   switch i16 %79, label %97 [
@@ -5271,19 +5271,19 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   ]
 
 91:                                               ; preds = %85
-  %92 = add i32 %.0258277, 4
+  %92 = add i32 %.0259277, 4
   %93 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %92) #5
   br label %101
 
 94:                                               ; preds = %85
-  %95 = add i32 %.0258277, 4
+  %95 = add i32 %.0259277, 4
   %96 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %95) #5
   br label %101
 
 97:                                               ; preds = %85
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.820, i32 noundef %82) #5
   %98 = load i32, ptr @hf_ospf_tlv_value, align 4
-  %99 = add i32 %.0258277, 4
+  %99 = add i32 %.0259277, 4
   %100 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %98, ptr noundef %0, i32 noundef %99, i32 noundef %82, i32 noundef 0) #5
   br label %112
 
@@ -5297,11 +5297,11 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   br label %112
 
 105:                                              ; preds = %.lr.ph278
-  %106 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %59, ptr noundef %0, i32 noundef %.0258277, i32 noundef %83, i32 noundef %84, ptr noundef null, ptr noundef nonnull @.str.822, ptr noundef %81, i32 noundef %80) #5
+  %106 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %59, ptr noundef %0, i32 noundef %.0259277, i32 noundef %83, i32 noundef %84, ptr noundef null, ptr noundef nonnull @.str.822, ptr noundef %81, i32 noundef %80) #5
   %107 = load i32, ptr @hf_ospf_tlv_length, align 4
   %108 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %107, ptr noundef %0, i32 noundef %78, i32 noundef 2, i32 noundef 0) #5
   %109 = load i32, ptr @hf_ospf_tlv_value, align 4
-  %110 = add i32 %.0258277, 4
+  %110 = add i32 %.0259277, 4
   %111 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %109, ptr noundef %0, i32 noundef %110, i32 noundef %82, i32 noundef 0) #5
   br label %112
 
@@ -5317,14 +5317,14 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   %118 = add nuw nsw i32 %16, 4
   %119 = load i32, ptr @ett_ospf_lsa_srms_tlv, align 4
   %120 = call ptr @val_to_str_const(i32 noundef 15, ptr noundef nonnull @ri_tlv_type_vals, ptr noundef nonnull @.str.817) #5
-  %121 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0260281, i32 noundef %118, i32 noundef %119, ptr noundef null, ptr noundef nonnull @.str.778, ptr noundef %120) #5
+  %121 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0258281, i32 noundef %118, i32 noundef %119, ptr noundef null, ptr noundef nonnull @.str.778, ptr noundef %120) #5
   %122 = load i32, ptr @hf_ospf_tlv_type_opaque, align 4
-  %123 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %122, ptr noundef %0, i32 noundef %.0260281, i32 noundef 2, i32 noundef 0) #5
+  %123 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %122, ptr noundef %0, i32 noundef %.0258281, i32 noundef 2, i32 noundef 0) #5
   %124 = load i32, ptr @hf_ospf_tlv_length, align 4
   %125 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %124, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0) #5
   %126 = load i32, ptr @hf_ospf_ls_preference, align 4
   %127 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %126, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef 0) #5
-  %128 = add i32 %.0260281, 5
+  %128 = add i32 %.0258281, 5
   %129 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %128) #5
   %130 = load i32, ptr @hf_ospf_header_reserved, align 4
   %131 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %130, ptr noundef %0, i32 noundef %128, i32 noundef 3, i32 noundef 0) #5
@@ -5338,22 +5338,22 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
 134:                                              ; preds = %.lr.ph282
   %135 = add nuw nsw i32 %16, 4
   %136 = load i32, ptr @ett_ospf_lsa_node_msd_tlv, align 4
-  %137 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0260281, i32 noundef %135, i32 noundef %136, ptr noundef nonnull %6, ptr noundef nonnull @.str.778, ptr noundef %19) #5
+  %137 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0258281, i32 noundef %135, i32 noundef %136, ptr noundef nonnull %6, ptr noundef nonnull @.str.778, ptr noundef %19) #5
   %138 = load i32, ptr @hf_ospf_tlv_type_opaque, align 4
-  %139 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %138, ptr noundef %0, i32 noundef %.0260281, i32 noundef 2, i32 noundef 0) #5
+  %139 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %138, ptr noundef %0, i32 noundef %.0258281, i32 noundef 2, i32 noundef 0) #5
   %140 = load i32, ptr @hf_ospf_tlv_length, align 4
   %141 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %140, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0) #5
-  %142 = add i32 %.0260281, 6
+  %142 = add i32 %.0258281, 6
   %.not274 = icmp sgt i32 %142, %18
   br i1 %.not274, label %.loopexit, label %.lr.ph276
 
 .lr.ph276:                                        ; preds = %134, %.lr.ph276
   %143 = phi i32 [ %149, %.lr.ph276 ], [ %142, %134 ]
-  %.0259275 = phi i32 [ %143, %.lr.ph276 ], [ %17, %134 ]
+  %.0260275 = phi i32 [ %143, %.lr.ph276 ], [ %17, %134 ]
   %144 = load i32, ptr @hf_ospf_ls_igp_msd_type, align 4
-  %145 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %144, ptr noundef %0, i32 noundef %.0259275, i32 noundef 1, i32 noundef 0) #5
+  %145 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %144, ptr noundef %0, i32 noundef %.0260275, i32 noundef 1, i32 noundef 0) #5
   %146 = load i32, ptr @hf_ospf_ls_igp_msd_value, align 4
-  %147 = add i32 %.0259275, 1
+  %147 = add i32 %.0260275, 1
   %148 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %146, ptr noundef %0, i32 noundef %147, i32 noundef 1, i32 noundef 0) #5
   %149 = add i32 %143, 2
   %.not = icmp sgt i32 %149, %18
@@ -5362,9 +5362,9 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
 150:                                              ; preds = %.lr.ph282
   %151 = add nuw nsw i32 %16, 4
   %152 = load i32, ptr @ett_ospf_lsa_fad_tlv, align 4
-  %153 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0260281, i32 noundef %151, i32 noundef %152, ptr noundef nonnull %6, ptr noundef nonnull @.str.778, ptr noundef %19) #5
+  %153 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0258281, i32 noundef %151, i32 noundef %152, ptr noundef nonnull %6, ptr noundef nonnull @.str.778, ptr noundef %19) #5
   %154 = load i32, ptr @hf_ospf_tlv_type_opaque, align 4
-  %155 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %154, ptr noundef %0, i32 noundef %.0260281, i32 noundef 2, i32 noundef 0) #5
+  %155 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %154, ptr noundef %0, i32 noundef %.0258281, i32 noundef 2, i32 noundef 0) #5
   %156 = load i32, ptr @hf_ospf_tlv_length, align 4
   %157 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %156, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0) #5
   %158 = load ptr, ptr %6, align 8
@@ -5374,15 +5374,15 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   %161 = load i32, ptr @hf_ospf_ls_fad_flex_algorithm, align 4
   %162 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %161, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef 0) #5
   %163 = load i32, ptr @hf_ospf_ls_fad_metric_type, align 4
-  %164 = add i32 %.0260281, 5
+  %164 = add i32 %.0258281, 5
   %165 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %163, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #5
   %166 = load i32, ptr @hf_ospf_ls_fad_calc_type, align 4
-  %167 = add i32 %.0260281, 6
+  %167 = add i32 %.0258281, 6
   %168 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %166, ptr noundef %0, i32 noundef %167, i32 noundef 1, i32 noundef 0) #5
   %169 = load i32, ptr @hf_ospf_ls_fad_priority, align 4
-  %170 = add i32 %.0260281, 7
+  %170 = add i32 %.0258281, 7
   %171 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %169, ptr noundef %0, i32 noundef %170, i32 noundef 1, i32 noundef 0) #5
-  %172 = add i32 %.0260281, 8
+  %172 = add i32 %.0258281, 8
   %173 = icmp slt i32 %172, %18
   br i1 %173, label %.lr.ph, label %.loopexit
 
@@ -5437,7 +5437,7 @@ dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %.lr.ph.i, %187, %19
   br i1 %203, label %.lr.ph, label %.loopexit, !llvm.loop !48
 
 204:                                              ; preds = %.lr.ph282
-  %205 = sub i32 %8, %.0260281
+  %205 = sub i32 %8, %.0258281
   %206 = icmp ult i32 %205, %16
   br i1 %206, label %._crit_edge, label %207
 
@@ -5445,9 +5445,9 @@ dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %.lr.ph.i, %187, %19
   %208 = add nuw nsw i32 %16, 4
   %209 = load i32, ptr @ett_ospf_lsa_unknown_tlv, align 4
   %210 = call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @ri_tlv_type_vals, ptr noundef nonnull @.str.817) #5
-  %211 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0260281, i32 noundef %208, i32 noundef %209, ptr noundef null, ptr noundef nonnull @.str.824, ptr noundef %210, i32 noundef %13, i32 noundef %16) #5
+  %211 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.0258281, i32 noundef %208, i32 noundef %209, ptr noundef null, ptr noundef nonnull @.str.824, ptr noundef %210, i32 noundef %13, i32 noundef %16) #5
   %212 = load i32, ptr @hf_ospf_tlv_type_opaque, align 4
-  %213 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %212, ptr noundef %0, i32 noundef %.0260281, i32 noundef 2, i32 noundef 0) #5
+  %213 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %212, ptr noundef %0, i32 noundef %.0258281, i32 noundef 2, i32 noundef 0) #5
   %214 = load i32, ptr @hf_ospf_tlv_length, align 4
   %215 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %214, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0) #5
   %216 = load i32, ptr @hf_ospf_unknown_tlv, align 4

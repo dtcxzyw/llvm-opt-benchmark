@@ -163,10 +163,10 @@ define void @part_data_build_row_bitmaps(ptr nocapture noundef %0, ptr noundef r
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0112164 = phi i32 [ 0, %.lr.ph.preheader ], [ %40, %.lr.ph ]
+  %.0114163 = phi i32 [ 0, %.lr.ph.preheader ], [ %40, %.lr.ph ]
   %38 = getelementptr inbounds %struct.part_row_data_t, ptr %10, i64 %indvars.iv, i32 2
   %39 = load i32, ptr %38, align 4
-  %40 = add i32 %39, %.0112164
+  %40 = add i32 %39, %.0114163
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -238,7 +238,7 @@ define void @part_data_build_row_bitmaps(ptr nocapture noundef %0, ptr noundef r
 
 .preheader157:                                    ; preds = %67, %._crit_edge169
   %indvars.iv214 = phi i64 [ %indvars.iv.next215, %._crit_edge169 ], [ 0, %67 ]
-  %.0111174 = phi i32 [ %.1.lcssa, %._crit_edge169 ], [ 0, %67 ]
+  %.0112173 = phi i32 [ %.1113.lcssa, %._crit_edge169 ], [ 0, %67 ]
   %71 = load ptr, ptr %9, align 8
   %72 = getelementptr inbounds %struct.part_row_data_t, ptr %71, i64 %indvars.iv214
   %73 = getelementptr inbounds i8, ptr %72, i64 12
@@ -247,7 +247,7 @@ define void @part_data_build_row_bitmaps(ptr nocapture noundef %0, ptr noundef r
   br i1 %.not193, label %._crit_edge169, label %.lr.ph168.preheader
 
 .lr.ph168.preheader:                              ; preds = %.preheader157
-  %75 = sext i32 %.0111174 to i64
+  %75 = sext i32 %.0112173 to i64
   br label %.lr.ph168
 
 .lr.ph168:                                        ; preds = %.lr.ph168.preheader, %.lr.ph168
@@ -296,7 +296,7 @@ define void @part_data_build_row_bitmaps(ptr nocapture noundef %0, ptr noundef r
 
 ._crit_edge169:                                   ; preds = %._crit_edge169.loopexit, %.preheader157
   %105 = phi ptr [ %71, %.preheader157 ], [ %98, %._crit_edge169.loopexit ]
-  %.1.lcssa = phi i32 [ %.0111174, %.preheader157 ], [ %104, %._crit_edge169.loopexit ]
+  %.1113.lcssa = phi i32 [ %.0112173, %.preheader157 ], [ %104, %._crit_edge169.loopexit ]
   %106 = getelementptr inbounds %struct.part_row_data_t, ptr %105, i64 %indvars.iv214, i32 2
   store i32 0, ptr %106, align 4
   %107 = load ptr, ptr %9, align 8

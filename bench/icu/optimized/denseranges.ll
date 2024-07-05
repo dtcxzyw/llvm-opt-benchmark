@@ -153,10 +153,10 @@ if.end30:                                         ; preds = %if.end30.lr.ph, %fo
   %indvars.iv86 = phi i32 [ 1, %if.end30.lr.ph ], [ %indvars.iv.next87, %for.inc42 ]
   %indvars.iv78 = phi i64 [ 0, %if.end30.lr.ph ], [ %indvars.iv.next79, %for.inc42 ]
   %num.069 = phi i32 [ 2, %if.end30.lr.ph ], [ %inc44, %for.inc42 ]
-  %maxLength.067 = phi i64 [ %add, %if.end30.lr.ph ], [ %sub32, %for.inc42 ]
+  %maxLength.068 = phi i64 [ %add, %if.end30.lr.ph ], [ %sub32, %for.inc42 ]
   %arrayidx.i47 = getelementptr inbounds [15 x i64], ptr %gapLengths.i46, i64 0, i64 %indvars.iv78
   %16 = load i64, ptr %arrayidx.i47, align 8
-  %sub32 = sub nsw i64 %maxLength.067, %16
+  %sub32 = sub nsw i64 %maxLength.068, %16
   %mul33 = shl nuw nsw i32 %num.069, 1
   %cmp34 = icmp slt i32 %mul33, %length
   br i1 %cmp34, label %land.lhs.true, label %for.inc42

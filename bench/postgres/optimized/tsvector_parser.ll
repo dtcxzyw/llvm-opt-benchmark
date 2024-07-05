@@ -75,18 +75,18 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %.outer
 
 .outer:                                           ; preds = %488, %6
-  %.0328.ph = phi i32 [ %.1329, %488 ], [ 0, %6 ]
-  %.0325.ph = phi ptr [ %.7, %488 ], [ %8, %6 ]
-  %.0323.ph = phi i32 [ %.1324, %488 ], [ 1, %6 ]
-  %.0320.ph = phi ptr [ %.2322, %488 ], [ null, %6 ]
-  %.0317.ph = phi i32 [ %.2319, %488 ], [ 0, %6 ]
-  %.0.ph = phi i32 [ %.2, %488 ], [ 0, %6 ]
+  %.0328.ph = phi i32 [ %.2330, %488 ], [ 0, %6 ]
+  %.0325.ph = phi i32 [ %.2327, %488 ], [ 0, %6 ]
+  %.0322.ph = phi ptr [ %.2324, %488 ], [ null, %6 ]
+  %.0320.ph = phi i32 [ %.1321, %488 ], [ 1, %6 ]
+  %.0318.ph = phi ptr [ %.7, %488 ], [ %8, %6 ]
+  %.0317.ph = phi i32 [ %.1, %488 ], [ 0, %6 ]
   br label %13
 
 13:                                               ; preds = %.outer, %324
-  %.0325 = phi ptr [ %.6, %324 ], [ %.0325.ph, %.outer ]
-  %.0323 = phi i32 [ 5, %324 ], [ %.0323.ph, %.outer ]
-  switch i32 %.0323, label %485 [
+  %.0320 = phi i32 [ 5, %324 ], [ %.0320.ph, %.outer ]
+  %.0318 = phi ptr [ %.6, %324 ], [ %.0318.ph, %.outer ]
+  switch i32 %.0320, label %485 [
     i32 1, label %14
     i32 3, label %60
     i32 2, label %96
@@ -175,11 +175,11 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %53 = load ptr, ptr %0, align 8
   %54 = tail call i32 @pg_mblen(ptr noundef %53) #8
   %55 = sext i32 %54 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0325, ptr align 1 %53, i64 %55, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0318, ptr align 1 %53, i64 %55, i1 false)
   %56 = load ptr, ptr %0, align 8
   %57 = tail call i32 @pg_mblen(ptr noundef %56) #8
   %58 = sext i32 %57 to i64
-  %59 = getelementptr i8, ptr %.0325, i64 %58
+  %59 = getelementptr i8, ptr %.0318, i64 %58
   br label %488
 
 60:                                               ; preds = %13
@@ -204,7 +204,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 73:                                               ; preds = %60
   %74 = load ptr, ptr %7, align 8
-  %75 = ptrtoint ptr %.0325 to i64
+  %75 = ptrtoint ptr %.0318 to i64
   %76 = ptrtoint ptr %74 to i64
   %77 = sub i64 %75, %76
   %78 = trunc i64 %77 to i32
@@ -228,14 +228,14 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 88:                                               ; preds = %73, %82
   %89 = phi ptr [ %.pre561, %82 ], [ %61, %73 ]
-  %.1326 = phi ptr [ %87, %82 ], [ %.0325, %73 ]
+  %.1319 = phi ptr [ %87, %82 ], [ %.0318, %73 ]
   %90 = tail call i32 @pg_mblen(ptr noundef %89) #8
   %91 = sext i32 %90 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1326, ptr align 1 %89, i64 %91, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1319, ptr align 1 %89, i64 %91, i1 false)
   %92 = load ptr, ptr %0, align 8
   %93 = tail call i32 @pg_mblen(ptr noundef %92) #8
   %94 = sext i32 %93 to i64
-  %95 = getelementptr i8, ptr %.1326, i64 %94
+  %95 = getelementptr i8, ptr %.1319, i64 %94
   br label %488
 
 96:                                               ; preds = %13
@@ -293,7 +293,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 119:                                              ; preds = %._crit_edge564, %115, %115, %115, %115, %115, %115, %102, %104
   %120 = load ptr, ptr %7, align 8
-  %121 = ptrtoint ptr %.0325 to i64
+  %121 = ptrtoint ptr %.0318 to i64
   %122 = ptrtoint ptr %120 to i64
   %123 = sub i64 %121, %122
   %124 = trunc i64 %123 to i32
@@ -316,8 +316,8 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 134:                                              ; preds = %119, %128
   %135 = phi ptr [ %131, %128 ], [ %120, %119 ]
-  %.2327 = phi ptr [ %133, %128 ], [ %.0325, %119 ]
-  %136 = icmp eq ptr %.2327, %135
+  %.2 = phi ptr [ %133, %128 ], [ %.0318, %119 ]
+  %136 = icmp eq ptr %.2, %135
   br i1 %136, label %137, label %149
 
 137:                                              ; preds = %134
@@ -339,21 +339,21 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %prssyntaxerror.exit
 
 149:                                              ; preds = %134
-  store i8 0, ptr %.2327, align 1
+  store i8 0, ptr %.2, align 1
   %.not399 = icmp eq ptr %3, null
   br i1 %.not399, label %151, label %150
 
 150:                                              ; preds = %149
-  store ptr %.0320.ph, ptr %3, align 8
-  store i32 %.0317.ph, ptr %4, align 4
+  store ptr %.0322.ph, ptr %3, align 8
+  store i32 %.0325.ph, ptr %4, align 4
   br label %153
 
 151:                                              ; preds = %149
-  %.not400 = icmp eq ptr %.0320.ph, null
+  %.not400 = icmp eq ptr %.0322.ph, null
   br i1 %.not400, label %153, label %152
 
 152:                                              ; preds = %151
-  tail call void @pfree(ptr noundef nonnull %.0320.ph) #8
+  tail call void @pfree(ptr noundef nonnull %.0322.ph) #8
   br label %153
 
 153:                                              ; preds = %151, %152, %150
@@ -371,7 +371,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 157:                                              ; preds = %156
   %158 = load ptr, ptr %7, align 8
-  %159 = ptrtoint ptr %.2327 to i64
+  %159 = ptrtoint ptr %.2 to i64
   %160 = ptrtoint ptr %158 to i64
   %161 = sub i64 %159, %160
   %162 = trunc i64 %161 to i32
@@ -393,7 +393,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %167, label %169, label %203
 
 169:                                              ; preds = %166
-  %170 = icmp eq ptr %.0325, %168
+  %170 = icmp eq ptr %.0318, %168
   br i1 %170, label %171, label %183
 
 171:                                              ; preds = %169
@@ -415,7 +415,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %prssyntaxerror.exit
 
 183:                                              ; preds = %169
-  store i8 0, ptr %.0325, align 1
+  store i8 0, ptr %.0318, align 1
   %184 = load i8, ptr %12, align 8
   %185 = trunc i8 %184 to i1
   br i1 %185, label %186, label %488
@@ -425,16 +425,16 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %.not392, label %188, label %187
 
 187:                                              ; preds = %186
-  store ptr %.0320.ph, ptr %3, align 8
-  store i32 %.0317.ph, ptr %4, align 4
+  store ptr %.0322.ph, ptr %3, align 8
+  store i32 %.0325.ph, ptr %4, align 4
   br label %190
 
 188:                                              ; preds = %186
-  %.not393 = icmp eq ptr %.0320.ph, null
+  %.not393 = icmp eq ptr %.0322.ph, null
   br i1 %.not393, label %190, label %189
 
 189:                                              ; preds = %188
-  tail call void @pfree(ptr noundef nonnull %.0320.ph) #8
+  tail call void @pfree(ptr noundef nonnull %.0322.ph) #8
   br label %190
 
 190:                                              ; preds = %188, %189, %187
@@ -452,7 +452,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 194:                                              ; preds = %193
   %195 = load ptr, ptr %7, align 8
-  %196 = ptrtoint ptr %.0325 to i64
+  %196 = ptrtoint ptr %.0318 to i64
   %197 = ptrtoint ptr %195 to i64
   %198 = sub i64 %196, %197
   %199 = trunc i64 %198 to i32
@@ -469,7 +469,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %prssyntaxerror.exit
 
 203:                                              ; preds = %166
-  %204 = ptrtoint ptr %.0325 to i64
+  %204 = ptrtoint ptr %.0318 to i64
   %205 = ptrtoint ptr %168 to i64
   %206 = sub i64 %204, %205
   %207 = trunc i64 %206 to i32
@@ -493,7 +493,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 217:                                              ; preds = %203, %211
   %218 = phi ptr [ %.pre560, %211 ], [ %.pre558, %203 ]
-  %.3 = phi ptr [ %216, %211 ], [ %.0325, %203 ]
+  %.3 = phi ptr [ %216, %211 ], [ %.0318, %203 ]
   %219 = tail call i32 @pg_mblen(ptr noundef %218) #8
   %220 = sext i32 %219 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3, ptr align 1 %218, i64 %220, i1 false)
@@ -541,7 +541,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 242:                                              ; preds = %228, %.thread
   %243 = load ptr, ptr %7, align 8
-  %244 = ptrtoint ptr %.0325 to i64
+  %244 = ptrtoint ptr %.0318 to i64
   %245 = ptrtoint ptr %243 to i64
   %246 = sub i64 %244, %245
   %247 = trunc i64 %246 to i32
@@ -565,7 +565,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 257:                                              ; preds = %242, %251
   %258 = phi ptr [ %.pre556, %251 ], [ %.pre554, %242 ]
-  %.4 = phi ptr [ %256, %251 ], [ %.0325, %242 ]
+  %.4 = phi ptr [ %256, %251 ], [ %.0318, %242 ]
   %259 = tail call i32 @pg_mblen(ptr noundef %258) #8
   %260 = sext i32 %259 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.4, ptr align 1 %258, i64 %260, i1 false)
@@ -592,7 +592,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %271, label %272, label %294
 
 272:                                              ; preds = %268
-  %273 = ptrtoint ptr %.0325 to i64
+  %273 = ptrtoint ptr %.0318 to i64
   %274 = ptrtoint ptr %.pre553 to i64
   %275 = sub i64 %273, %274
   %276 = trunc i64 %275 to i32
@@ -616,7 +616,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 286:                                              ; preds = %272, %280
   %287 = phi ptr [ %.pre, %280 ], [ %269, %272 ]
-  %.5 = phi ptr [ %285, %280 ], [ %.0325, %272 ]
+  %.5 = phi ptr [ %285, %280 ], [ %.0318, %272 ]
   %288 = tail call i32 @pg_mblen(ptr noundef %287) #8
   %289 = sext i32 %288 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.5, ptr align 1 %287, i64 %289, i1 false)
@@ -628,7 +628,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 294:                                              ; preds = %._crit_edge, %268
   %295 = phi ptr [ %.pre552, %._crit_edge ], [ %.pre553, %268 ]
-  %296 = ptrtoint ptr %.0325 to i64
+  %296 = ptrtoint ptr %.0318 to i64
   %297 = ptrtoint ptr %295 to i64
   %298 = sub i64 %296, %297
   %299 = trunc i64 %298 to i32
@@ -650,7 +650,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %309
 
 309:                                              ; preds = %294, %303
-  %.6 = phi ptr [ %308, %303 ], [ %.0325, %294 ]
+  %.6 = phi ptr [ %308, %303 ], [ %.0318, %294 ]
   store i8 0, ptr %.6, align 1
   %310 = load ptr, ptr %7, align 8
   %311 = icmp eq ptr %.6, %310
@@ -684,16 +684,16 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %.not382, label %329, label %328
 
 328:                                              ; preds = %327
-  store ptr %.0320.ph, ptr %3, align 8
-  store i32 %.0317.ph, ptr %4, align 4
+  store ptr %.0322.ph, ptr %3, align 8
+  store i32 %.0325.ph, ptr %4, align 4
   br label %331
 
 329:                                              ; preds = %327
-  %.not383 = icmp eq ptr %.0320.ph, null
+  %.not383 = icmp eq ptr %.0322.ph, null
   br i1 %.not383, label %331, label %330
 
 330:                                              ; preds = %329
-  tail call void @pfree(ptr noundef nonnull %.0320.ph) #8
+  tail call void @pfree(ptr noundef nonnull %.0322.ph) #8
   br label %331
 
 331:                                              ; preds = %329, %330, %328
@@ -738,16 +738,16 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %.not374, label %350, label %349
 
 349:                                              ; preds = %348
-  store ptr %.0320.ph, ptr %3, align 8
-  store i32 %.0317.ph, ptr %4, align 4
+  store ptr %.0322.ph, ptr %3, align 8
+  store i32 %.0325.ph, ptr %4, align 4
   br label %352
 
 350:                                              ; preds = %348
-  %.not375 = icmp eq ptr %.0320.ph, null
+  %.not375 = icmp eq ptr %.0322.ph, null
   br i1 %.not375, label %352, label %351
 
 351:                                              ; preds = %350
-  tail call void @pfree(ptr noundef nonnull %.0320.ph) #8
+  tail call void @pfree(ptr noundef nonnull %.0322.ph) #8
   br label %352
 
 352:                                              ; preds = %350, %351, %349
@@ -765,7 +765,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 356:                                              ; preds = %355
   %357 = load ptr, ptr %7, align 8
-  %358 = ptrtoint ptr %.0325 to i64
+  %358 = ptrtoint ptr %.0318 to i64
   %359 = ptrtoint ptr %357 to i64
   %360 = sub i64 %358, %359
   %361 = trunc i64 %360 to i32
@@ -788,7 +788,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %.not372, label %403, label %368
 
 368:                                              ; preds = %365
-  %369 = icmp eq i32 %.0.ph, 0
+  %369 = icmp eq i32 %.0328.ph, 0
   br i1 %369, label %370, label %372
 
 370:                                              ; preds = %368
@@ -796,23 +796,23 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %379
 
 372:                                              ; preds = %368
-  %373 = add i32 %.0317.ph, 1
-  %.not373 = icmp slt i32 %373, %.0.ph
+  %373 = add i32 %.0325.ph, 1
+  %.not373 = icmp slt i32 %373, %.0328.ph
   br i1 %.not373, label %379, label %374
 
 374:                                              ; preds = %372
-  %375 = shl i32 %.0.ph, 1
+  %375 = shl i32 %.0328.ph, 1
   %376 = sext i32 %375 to i64
   %377 = shl nsw i64 %376, 1
-  %378 = tail call ptr @repalloc(ptr noundef %.0320.ph, i64 noundef %377) #8
+  %378 = tail call ptr @repalloc(ptr noundef %.0322.ph, i64 noundef %377) #8
   br label %379
 
 379:                                              ; preds = %372, %374, %370
-  %.1321 = phi ptr [ %371, %370 ], [ %378, %374 ], [ %.0320.ph, %372 ]
-  %.1318 = phi i32 [ 0, %370 ], [ %.0317.ph, %374 ], [ %.0317.ph, %372 ]
-  %.1 = phi i32 [ 4, %370 ], [ %375, %374 ], [ %.0.ph, %372 ]
-  %380 = sext i32 %.1318 to i64
-  %381 = getelementptr i16, ptr %.1321, i64 %380
+  %.1329 = phi i32 [ 4, %370 ], [ %375, %374 ], [ %.0328.ph, %372 ]
+  %.1326 = phi i32 [ 0, %370 ], [ %.0325.ph, %374 ], [ %.0325.ph, %372 ]
+  %.1323 = phi ptr [ %371, %370 ], [ %378, %374 ], [ %.0322.ph, %372 ]
+  %380 = sext i32 %.1326 to i64
+  %381 = getelementptr i16, ptr %.1323, i64 %380
   %382 = load i16, ptr %381, align 2
   %383 = and i16 %382, -16384
   %384 = load ptr, ptr %0, align 8
@@ -841,7 +841,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %prssyntaxerror.exit
 
 400:                                              ; preds = %379
-  %401 = add i32 %.1318, 1
+  %401 = add i32 %.1326, 1
   %402 = trunc nuw nsw i32 %389 to i16
   store i16 %402, ptr %381, align 2
   br label %488
@@ -881,9 +881,9 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   ]
 
 418:                                              ; preds = %415, %415, %415
-  %419 = add i32 %.0317.ph, -1
+  %419 = add i32 %.0325.ph, -1
   %420 = sext i32 %419 to i64
-  %421 = getelementptr i16, ptr %.0320.ph, i64 %420
+  %421 = getelementptr i16, ptr %.0322.ph, i64 %420
   %422 = load i16, ptr %421, align 2
   %.not371 = icmp ult i16 %422, 16384
   br i1 %.not371, label %435, label %423
@@ -912,9 +912,9 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %488
 
 437:                                              ; preds = %415, %415
-  %438 = add i32 %.0317.ph, -1
+  %438 = add i32 %.0325.ph, -1
   %439 = sext i32 %438 to i64
-  %440 = getelementptr i16, ptr %.0320.ph, i64 %439
+  %440 = getelementptr i16, ptr %.0322.ph, i64 %439
   %441 = load i16, ptr %440, align 2
   %.not370 = icmp ult i16 %441, 16384
   br i1 %.not370, label %443, label %442
@@ -929,9 +929,9 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %488
 
 445:                                              ; preds = %415, %415
-  %446 = add i32 %.0317.ph, -1
+  %446 = add i32 %.0325.ph, -1
   %447 = sext i32 %446 to i64
-  %448 = getelementptr i16, ptr %.0320.ph, i64 %447
+  %448 = getelementptr i16, ptr %.0322.ph, i64 %447
   %449 = load i16, ptr %448, align 2
   %.not369 = icmp ult i16 %449, 16384
   br i1 %.not369, label %451, label %450
@@ -946,9 +946,9 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %488
 
 453:                                              ; preds = %415, %415
-  %454 = add i32 %.0317.ph, -1
+  %454 = add i32 %.0325.ph, -1
   %455 = sext i32 %454 to i64
-  %456 = getelementptr i16, ptr %.0320.ph, i64 %455
+  %456 = getelementptr i16, ptr %.0322.ph, i64 %455
   %457 = load i16, ptr %456, align 2
   %.not368 = icmp ult i16 %457, 16384
   br i1 %.not368, label %488, label %458
@@ -973,16 +973,16 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %.not363, label %467, label %466
 
 466:                                              ; preds = %465
-  store ptr %.0320.ph, ptr %3, align 8
-  store i32 %.0317.ph, ptr %4, align 4
+  store ptr %.0322.ph, ptr %3, align 8
+  store i32 %.0325.ph, ptr %4, align 4
   br label %469
 
 467:                                              ; preds = %465
-  %.not364 = icmp eq ptr %.0320.ph, null
+  %.not364 = icmp eq ptr %.0322.ph, null
   br i1 %.not364, label %469, label %468
 
 468:                                              ; preds = %467
-  tail call void @pfree(ptr noundef nonnull %.0320.ph) #8
+  tail call void @pfree(ptr noundef nonnull %.0322.ph) #8
   br label %469
 
 469:                                              ; preds = %467, %468, %466
@@ -1000,7 +1000,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 473:                                              ; preds = %472
   %474 = load ptr, ptr %7, align 8
-  %475 = ptrtoint ptr %.0325 to i64
+  %475 = ptrtoint ptr %.0318 to i64
   %476 = ptrtoint ptr %474 to i64
   %477 = sub i64 %475, %476
   %478 = trunc i64 %477 to i32
@@ -1028,7 +1028,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 485:                                              ; preds = %13
   %486 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %486)
-  %487 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %.0323) #8
+  %487 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %.0320) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 383, ptr noundef nonnull @__func__.gettoken_tsvector) #8
   unreachable
 
@@ -1036,12 +1036,12 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %488
 
 488:                                              ; preds = %228, %.fold.split, %22, %453, %415, %344, %183, %99, %18, %88, %257, %435, %451, %482, %443, %400, %286, %217, %50, %52
-  %.1329 = phi i32 [ %.0328.ph, %50 ], [ %.0328.ph, %52 ], [ %.0328.ph, %88 ], [ %.0328.ph, %217 ], [ %.0328.ph, %257 ], [ %.0328.ph, %286 ], [ %.0328.ph, %400 ], [ %.0328.ph, %435 ], [ %.0328.ph, %443 ], [ %.0328.ph, %451 ], [ %.0328.ph, %482 ], [ %.0328.ph, %18 ], [ 2, %99 ], [ %.0328.ph, %183 ], [ %.0328.ph, %228 ], [ %.0328.ph, %344 ], [ %.0328.ph, %415 ], [ %.0328.ph, %453 ], [ 2, %22 ], [ 4, %.fold.split ]
-  %.7 = phi ptr [ %.0325, %50 ], [ %59, %52 ], [ %95, %88 ], [ %224, %217 ], [ %264, %257 ], [ %293, %286 ], [ %.0325, %400 ], [ %.0325, %435 ], [ %.0325, %443 ], [ %.0325, %451 ], [ %.0325, %482 ], [ %.0325, %18 ], [ %.0325, %99 ], [ %.0325, %183 ], [ %.0325, %228 ], [ %.0325, %344 ], [ %.0325, %415 ], [ %.0325, %453 ], [ %.0325, %22 ], [ %.0325, %.fold.split ]
-  %.1324 = phi i32 [ 1, %50 ], [ 2, %52 ], [ %.0328.ph, %88 ], [ 2, %217 ], [ 4, %257 ], [ 4, %286 ], [ 7, %400 ], [ 7, %435 ], [ 7, %443 ], [ 7, %451 ], [ 7, %482 ], [ 4, %18 ], [ 3, %99 ], [ 6, %183 ], [ 8, %228 ], [ 6, %344 ], [ 6, %415 ], [ 7, %453 ], [ 3, %22 ], [ 3, %.fold.split ]
-  %.2322 = phi ptr [ %.0320.ph, %50 ], [ %.0320.ph, %52 ], [ %.0320.ph, %88 ], [ %.0320.ph, %217 ], [ %.0320.ph, %257 ], [ %.0320.ph, %286 ], [ %.1321, %400 ], [ %.0320.ph, %435 ], [ %.0320.ph, %443 ], [ %.0320.ph, %451 ], [ %.0320.ph, %482 ], [ %.0320.ph, %18 ], [ %.0320.ph, %99 ], [ %.0320.ph, %183 ], [ %.0320.ph, %228 ], [ %.0320.ph, %344 ], [ %.0320.ph, %415 ], [ %.0320.ph, %453 ], [ %.0320.ph, %22 ], [ %.0320.ph, %.fold.split ]
-  %.2319 = phi i32 [ %.0317.ph, %50 ], [ %.0317.ph, %52 ], [ %.0317.ph, %88 ], [ %.0317.ph, %217 ], [ %.0317.ph, %257 ], [ %.0317.ph, %286 ], [ %401, %400 ], [ %.0317.ph, %435 ], [ %.0317.ph, %443 ], [ %.0317.ph, %451 ], [ %.0317.ph, %482 ], [ %.0317.ph, %18 ], [ %.0317.ph, %99 ], [ %.0317.ph, %183 ], [ %.0317.ph, %228 ], [ %.0317.ph, %344 ], [ %.0317.ph, %415 ], [ %.0317.ph, %453 ], [ %.0317.ph, %22 ], [ %.0317.ph, %.fold.split ]
-  %.2 = phi i32 [ %.0.ph, %50 ], [ %.0.ph, %52 ], [ %.0.ph, %88 ], [ %.0.ph, %217 ], [ %.0.ph, %257 ], [ %.0.ph, %286 ], [ %.1, %400 ], [ %.0.ph, %435 ], [ %.0.ph, %443 ], [ %.0.ph, %451 ], [ %.0.ph, %482 ], [ %.0.ph, %18 ], [ %.0.ph, %99 ], [ %.0.ph, %183 ], [ %.0.ph, %228 ], [ %.0.ph, %344 ], [ %.0.ph, %415 ], [ %.0.ph, %453 ], [ %.0.ph, %22 ], [ %.0.ph, %.fold.split ]
+  %.2330 = phi i32 [ %.0328.ph, %50 ], [ %.0328.ph, %52 ], [ %.0328.ph, %88 ], [ %.0328.ph, %217 ], [ %.0328.ph, %257 ], [ %.0328.ph, %286 ], [ %.1329, %400 ], [ %.0328.ph, %435 ], [ %.0328.ph, %443 ], [ %.0328.ph, %451 ], [ %.0328.ph, %482 ], [ %.0328.ph, %18 ], [ %.0328.ph, %99 ], [ %.0328.ph, %183 ], [ %.0328.ph, %228 ], [ %.0328.ph, %344 ], [ %.0328.ph, %415 ], [ %.0328.ph, %453 ], [ %.0328.ph, %22 ], [ %.0328.ph, %.fold.split ]
+  %.2327 = phi i32 [ %.0325.ph, %50 ], [ %.0325.ph, %52 ], [ %.0325.ph, %88 ], [ %.0325.ph, %217 ], [ %.0325.ph, %257 ], [ %.0325.ph, %286 ], [ %401, %400 ], [ %.0325.ph, %435 ], [ %.0325.ph, %443 ], [ %.0325.ph, %451 ], [ %.0325.ph, %482 ], [ %.0325.ph, %18 ], [ %.0325.ph, %99 ], [ %.0325.ph, %183 ], [ %.0325.ph, %228 ], [ %.0325.ph, %344 ], [ %.0325.ph, %415 ], [ %.0325.ph, %453 ], [ %.0325.ph, %22 ], [ %.0325.ph, %.fold.split ]
+  %.2324 = phi ptr [ %.0322.ph, %50 ], [ %.0322.ph, %52 ], [ %.0322.ph, %88 ], [ %.0322.ph, %217 ], [ %.0322.ph, %257 ], [ %.0322.ph, %286 ], [ %.1323, %400 ], [ %.0322.ph, %435 ], [ %.0322.ph, %443 ], [ %.0322.ph, %451 ], [ %.0322.ph, %482 ], [ %.0322.ph, %18 ], [ %.0322.ph, %99 ], [ %.0322.ph, %183 ], [ %.0322.ph, %228 ], [ %.0322.ph, %344 ], [ %.0322.ph, %415 ], [ %.0322.ph, %453 ], [ %.0322.ph, %22 ], [ %.0322.ph, %.fold.split ]
+  %.1321 = phi i32 [ 1, %50 ], [ 2, %52 ], [ %.0317.ph, %88 ], [ 2, %217 ], [ 4, %257 ], [ 4, %286 ], [ 7, %400 ], [ 7, %435 ], [ 7, %443 ], [ 7, %451 ], [ 7, %482 ], [ 4, %18 ], [ 3, %99 ], [ 6, %183 ], [ 8, %228 ], [ 6, %344 ], [ 6, %415 ], [ 7, %453 ], [ 3, %22 ], [ 3, %.fold.split ]
+  %.7 = phi ptr [ %.0318, %50 ], [ %59, %52 ], [ %95, %88 ], [ %224, %217 ], [ %264, %257 ], [ %293, %286 ], [ %.0318, %400 ], [ %.0318, %435 ], [ %.0318, %443 ], [ %.0318, %451 ], [ %.0318, %482 ], [ %.0318, %18 ], [ %.0318, %99 ], [ %.0318, %183 ], [ %.0318, %228 ], [ %.0318, %344 ], [ %.0318, %415 ], [ %.0318, %453 ], [ %.0318, %22 ], [ %.0318, %.fold.split ]
+  %.1 = phi i32 [ %.0317.ph, %50 ], [ %.0317.ph, %52 ], [ %.0317.ph, %88 ], [ %.0317.ph, %217 ], [ %.0317.ph, %257 ], [ %.0317.ph, %286 ], [ %.0317.ph, %400 ], [ %.0317.ph, %435 ], [ %.0317.ph, %443 ], [ %.0317.ph, %451 ], [ %.0317.ph, %482 ], [ %.0317.ph, %18 ], [ 2, %99 ], [ %.0317.ph, %183 ], [ %.0317.ph, %228 ], [ %.0317.ph, %344 ], [ %.0317.ph, %415 ], [ %.0317.ph, %453 ], [ 2, %22 ], [ 4, %.fold.split ]
   %489 = load ptr, ptr %0, align 8
   %490 = tail call i32 @pg_mblen(ptr noundef %489) #8
   %491 = load ptr, ptr %0, align 8
@@ -1051,8 +1051,8 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %.outer
 
 prssyntaxerror.exit:                              ; preds = %14, %427, %423, %407, %403, %316, %312, %234, %230, %175, %171, %141, %137, %42, %38, %479, %480, %395, %391, %362, %363, %341, %342, %200, %201, %163, %164, %68, %64, %484, %458, %450, %442
-  %.0330 = phi i1 [ false, %442 ], [ false, %450 ], [ false, %458 ], [ false, %484 ], [ false, %64 ], [ false, %68 ], [ true, %164 ], [ true, %163 ], [ true, %201 ], [ true, %200 ], [ true, %342 ], [ true, %341 ], [ true, %363 ], [ true, %362 ], [ false, %391 ], [ false, %395 ], [ true, %480 ], [ true, %479 ], [ false, %38 ], [ false, %42 ], [ false, %137 ], [ false, %141 ], [ false, %171 ], [ false, %175 ], [ false, %230 ], [ false, %234 ], [ false, %312 ], [ false, %316 ], [ false, %403 ], [ false, %407 ], [ false, %423 ], [ false, %427 ], [ false, %14 ]
-  ret i1 %.0330
+  %.0 = phi i1 [ false, %442 ], [ false, %450 ], [ false, %458 ], [ false, %484 ], [ false, %64 ], [ false, %68 ], [ true, %164 ], [ true, %163 ], [ true, %201 ], [ true, %200 ], [ true, %342 ], [ true, %341 ], [ true, %363 ], [ true, %362 ], [ false, %391 ], [ false, %395 ], [ true, %480 ], [ true, %479 ], [ false, %38 ], [ false, %42 ], [ false, %137 ], [ false, %141 ], [ false, %171 ], [ false, %175 ], [ false, %230 ], [ false, %234 ], [ false, %312 ], [ false, %316 ], [ false, %403 ], [ false, %407 ], [ false, %423 ], [ false, %427 ], [ false, %14 ]
+  ret i1 %.0
 }
 
 declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #1

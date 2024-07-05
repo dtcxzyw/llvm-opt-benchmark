@@ -35,34 +35,34 @@ define hidden range(i32 0, 2) i32 @ImgIoUtilReadFromStdin(ptr noundef writeonly 
   br i1 %.not, label %31, label %.preheader
 
 .preheader:                                       ; preds = %5, %16
-  %.031 = phi i64 [ %12, %16 ], [ 0, %5 ]
-  %.029 = phi i64 [ %20, %16 ], [ 0, %5 ]
-  %.028 = phi ptr [ %14, %16 ], [ null, %5 ]
+  %.030 = phi i64 [ %20, %16 ], [ 0, %5 ]
+  %.029 = phi ptr [ %14, %16 ], [ null, %5 ]
+  %.028 = phi i64 [ %12, %16 ], [ 0, %5 ]
   %7 = load ptr, ptr @stdin, align 8
   %8 = tail call i32 @feof(ptr noundef %7) #10
   %.not38 = icmp eq i32 %8, 0
   br i1 %.not38, label %9, label %22
 
 9:                                                ; preds = %.preheader
-  %10 = icmp eq i64 %.031, 0
-  %11 = select i1 %10, i64 16384, i64 %.031
-  %12 = add i64 %11, %.031
+  %10 = icmp eq i64 %.028, 0
+  %11 = select i1 %10, i64 16384, i64 %.028
+  %12 = add i64 %11, %.028
   %13 = add i64 %12, 1
-  %14 = tail call ptr @realloc(ptr noundef %.028, i64 noundef %13) #11
+  %14 = tail call ptr @realloc(ptr noundef %.029, i64 noundef %13) #11
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %14, i64 %.029
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.030
   %18 = load ptr, ptr @stdin, align 8
   %19 = tail call i64 @fread(ptr noundef nonnull %17, i64 noundef 1, i64 noundef %11, ptr noundef %18)
-  %20 = add i64 %19, %.029
+  %20 = add i64 %19, %.030
   %21 = icmp ult i64 %20, %12
   br i1 %21, label %22, label %.preheader, !llvm.loop !5
 
 22:                                               ; preds = %16, %.preheader
-  %.130 = phi i64 [ %20, %16 ], [ %.029, %.preheader ]
-  %.1 = phi ptr [ %14, %16 ], [ %.028, %.preheader ]
+  %.131 = phi i64 [ %20, %16 ], [ %.030, %.preheader ]
+  %.1 = phi ptr [ %14, %16 ], [ %.029, %.preheader ]
   %23 = load ptr, ptr @stdin, align 8
   %24 = tail call i32 @ferror(ptr noundef %23) #10
   %.not39 = icmp eq i32 %24, 0
@@ -73,17 +73,17 @@ define hidden range(i32 0, 2) i32 @ImgIoUtilReadFromStdin(ptr noundef writeonly 
   br i1 %.not40, label %28, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %.1, i64 %.130
+  %27 = getelementptr inbounds i8, ptr %.1, i64 %.131
   store i8 0, ptr %27, align 1
   br label %28
 
 28:                                               ; preds = %26, %25
   store ptr %.1, ptr %0, align 8
-  store i64 %.130, ptr %1, align 8
+  store i64 %.131, ptr %1, align 8
   br label %31
 
 .loopexit:                                        ; preds = %9, %22
-  %.2 = phi ptr [ %.1, %22 ], [ %.028, %9 ]
+  %.2 = phi ptr [ %.1, %22 ], [ %.029, %9 ]
   tail call void @free(ptr noundef %.2) #10
   %29 = load ptr, ptr @stderr, align 8
   %30 = tail call i64 @fwrite(ptr nonnull @.str, i64 26, i64 1, ptr %29) #12

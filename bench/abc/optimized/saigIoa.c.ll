@@ -678,13 +678,13 @@ Abc_UtilStrsav.exit213:                           ; preds = %Abc_UtilStrsav.exit
   br label %166
 
 .lr.ph:                                           ; preds = %.preheader266, %27
-  %.0143286 = phi i32 [ %28, %27 ], [ 0, %.preheader266 ]
+  %.0145286 = phi i32 [ %28, %27 ], [ 0, %.preheader266 ]
   %26 = load i8, ptr @Saig_ManReadToken.Buffer, align 16
   %.not173 = icmp eq i8 %26, 46
   br i1 %.not173, label %.critedge2, label %27
 
 27:                                               ; preds = %.lr.ph
-  %28 = add nuw nsw i32 %.0143286, 1
+  %28 = add nuw nsw i32 %.0145286, 1
   %29 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef nonnull @Saig_ManReadToken.Buffer) #13
   %.not236 = icmp eq i32 %29, 1
   br i1 %.not236, label %.lr.ph, label %.loopexit, !llvm.loop !12
@@ -705,7 +705,7 @@ Abc_UtilStrsav.exit213:                           ; preds = %Abc_UtilStrsav.exit
   br label %166
 
 .lr.ph290:                                        ; preds = %.preheader265, %33
-  %.0142289 = phi i32 [ %34, %33 ], [ 0, %.preheader265 ]
+  %.0144289 = phi i32 [ %34, %33 ], [ 0, %.preheader265 ]
   %31 = load i8, ptr @Saig_ManReadToken.Buffer, align 16
   %.not176 = icmp eq i8 %31, 46
   br i1 %.not176, label %.critedge4.preheader, label %33
@@ -716,7 +716,7 @@ Abc_UtilStrsav.exit213:                           ; preds = %Abc_UtilStrsav.exit
   br i1 %32, label %.lr.ph293, label %.preheader264
 
 33:                                               ; preds = %.lr.ph290
-  %34 = add nuw nsw i32 %.0142289, 1
+  %34 = add nuw nsw i32 %.0144289, 1
   %35 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef nonnull @Saig_ManReadToken.Buffer) #13
   %.not237 = icmp eq i32 %35, 1
   br i1 %.not237, label %.lr.ph290, label %._crit_edge, !llvm.loop !13
@@ -727,13 +727,13 @@ Abc_UtilStrsav.exit213:                           ; preds = %Abc_UtilStrsav.exit
   br label %166
 
 .preheader264:                                    ; preds = %.critedge4, %.critedge4.preheader
-  %.0141.lcssa = phi i32 [ 0, %.critedge4.preheader ], [ %48, %.critedge4 ]
-  %36 = add nuw nsw i32 %.0141.lcssa, %.0143286
+  %.0143.lcssa = phi i32 [ 0, %.critedge4.preheader ], [ %48, %.critedge4 ]
+  %36 = add nuw nsw i32 %.0143.lcssa, %.0145286
   %.not307 = icmp eq i32 %36, 0
   br i1 %.not307, label %._crit_edge296, label %.lr.ph295
 
 .lr.ph293:                                        ; preds = %.critedge4.preheader, %.critedge4
-  %.0141292 = phi i32 [ %48, %.critedge4 ], [ 0, %.critedge4.preheader ]
+  %.0143292 = phi i32 [ %48, %.critedge4 ], [ 0, %.critedge4.preheader ]
   %37 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef nonnull @Saig_ManReadToken.Buffer) #13
   %.not257 = icmp eq i32 %37, 1
   br i1 %.not257, label %39, label %38
@@ -774,31 +774,31 @@ Abc_UtilStrsav.exit213:                           ; preds = %Abc_UtilStrsav.exit
   br label %166
 
 .critedge4:                                       ; preds = %45
-  %48 = add nuw nsw i32 %.0141292, 1
+  %48 = add nuw nsw i32 %.0143292, 1
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @Saig_ManReadToken.Buffer, ptr noundef nonnull dereferenceable(7) @.str.16, i64 7)
   %49 = icmp eq i32 %bcmp, 0
   br i1 %49, label %.lr.ph293, label %.preheader264, !llvm.loop !14
 
 .lr.ph295:                                        ; preds = %.preheader264, %.lr.ph295
-  %.1145294 = phi i32 [ %51, %.lr.ph295 ], [ 0, %.preheader264 ]
+  %.1147294 = phi i32 [ %51, %.lr.ph295 ], [ 0, %.preheader264 ]
   %50 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %11) #13
-  %51 = add nuw i32 %.1145294, 1
+  %51 = add nuw i32 %.1147294, 1
   %exitcond.not = icmp eq i32 %51, %36
   br i1 %exitcond.not, label %._crit_edge296, label %.lr.ph295, !llvm.loop !15
 
 ._crit_edge296:                                   ; preds = %.lr.ph295, %.preheader264
-  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %11, i32 noundef %.0141.lcssa) #13
+  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %11, i32 noundef %.0143.lcssa) #13
   %bcmp238297 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @Saig_ManReadToken.Buffer, ptr noundef nonnull dereferenceable(7) @.str.19, i64 7)
   %52 = icmp eq i32 %bcmp238297, 0
   br i1 %52, label %.lr.ph301, label %._crit_edge302
 
 .lr.ph301:                                        ; preds = %._crit_edge296, %139
   %.0140299 = phi ptr [ %.2, %139 ], [ null, %._crit_edge296 ]
-  %.2146298 = phi i32 [ %140, %139 ], [ 0, %._crit_edge296 ]
+  %.2148298 = phi i32 [ %140, %139 ], [ 0, %._crit_edge296 ]
   %53 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef nonnull @Saig_ManReadToken.Buffer) #13
   %54 = icmp eq i32 %53, 1
   %Saig_ManReadToken.Buffer..i221 = select i1 %54, ptr @Saig_ManReadToken.Buffer, ptr null
-  %55 = icmp eq i32 %.2146298, 0
+  %55 = icmp eq i32 %.2148298, 0
   br i1 %55, label %56, label %65
 
 56:                                               ; preds = %.lr.ph301
@@ -881,8 +881,8 @@ Abc_UtilStrsav.exit213:                           ; preds = %Abc_UtilStrsav.exit
   %87 = ptrtoint ptr %66 to i64
   %88 = xor i64 %87, 1
   %89 = inttoptr i64 %88 to ptr
-  %.0151 = select i1 %86, ptr %89, ptr %66
-  %90 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %11, ptr noundef %.0151) #13
+  %.0141 = select i1 %86, ptr %89, ptr %66
+  %90 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %11, ptr noundef %.0141) #13
   %91 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef nonnull @Saig_ManReadToken.Buffer) #13
   %.not245 = icmp eq i32 %91, 1
   br i1 %.not245, label %139, label %92
@@ -948,13 +948,13 @@ Saig_ManReadNumber.exit:                          ; preds = %.thread, %.sink.spl
   %116 = ptrtoint ptr %66 to i64
   %117 = xor i64 %116, 1
   %118 = inttoptr i64 %117 to ptr
-  %.1152 = select i1 %115, ptr %118, ptr %66
+  %.1142 = select i1 %115, ptr %118, ptr %66
   %119 = load i8, ptr getelementptr inbounds (i8, ptr @Saig_ManReadToken.Buffer, i64 1), align 1
   %120 = icmp eq i8 %119, 48
   %121 = ptrtoint ptr %93 to i64
   %122 = xor i64 %121, 1
   %123 = inttoptr i64 %122 to ptr
-  %.0150 = select i1 %120, ptr %123, ptr %93
+  %.0152 = select i1 %120, ptr %123, ptr %93
   %124 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef nonnull @Saig_ManReadToken.Buffer) #13
   %.not247 = icmp eq i32 %124, 1
   %lhsv248 = load i16, ptr @Saig_ManReadToken.Buffer, align 16
@@ -978,7 +978,7 @@ Saig_ManReadNumber.exit:                          ; preds = %.thread, %.sink.spl
   br label %166
 
 129:                                              ; preds = %126
-  %130 = tail call ptr @Aig_And(ptr noundef nonnull %11, ptr noundef %.1152, ptr noundef %.0150) #13
+  %130 = tail call ptr @Aig_And(ptr noundef nonnull %11, ptr noundef %.1142, ptr noundef %.0152) #13
   %131 = ptrtoint ptr %130 to i64
   %132 = and i64 %131, 1
   %.not183 = icmp eq i64 %132, 0
@@ -999,7 +999,7 @@ Saig_ManReadNumber.exit:                          ; preds = %.thread, %.sink.spl
 
 139:                                              ; preds = %85, %62, %134
   %.2 = phi ptr [ %.0140299, %62 ], [ %.0140299, %85 ], [ %.1, %134 ]
-  %140 = add nuw nsw i32 %.2146298, 1
+  %140 = add nuw nsw i32 %.2148298, 1
   %bcmp238 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @Saig_ManReadToken.Buffer, ptr noundef nonnull dereferenceable(7) @.str.19, i64 7)
   %141 = icmp eq i32 %bcmp238, 0
   br i1 %141, label %.lr.ph301, label %._crit_edge302, !llvm.loop !16
@@ -1016,7 +1016,7 @@ Saig_ManReadNumber.exit:                          ; preds = %.thread, %.sink.spl
   br label %166
 
 143:                                              ; preds = %._crit_edge302
-  %144 = add nuw nsw i32 %.0141.lcssa, %.0142289
+  %144 = add nuw nsw i32 %.0143.lcssa, %.0144289
   %145 = getelementptr i8, ptr %11, i64 140
   %.val209 = load i32, ptr %145, align 4
   %.not178 = icmp eq i32 %144, %.val209
@@ -1058,7 +1058,7 @@ Saig_ManReadNumber.exit:                          ; preds = %.thread, %.sink.spl
 .critedge6:                                       ; preds = %.lr.ph306, %.preheader
   %163 = getelementptr inbounds i8, ptr %11, i64 296
   store ptr %.0140.lcssa, ptr %163, align 8
-  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %11, i32 noundef %.0141.lcssa) #13
+  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %11, i32 noundef %.0143.lcssa) #13
   %164 = tail call i32 @Aig_ManCheck(ptr noundef nonnull %11) #13
   %.not179 = icmp eq i32 %164, 0
   br i1 %.not179, label %165, label %166

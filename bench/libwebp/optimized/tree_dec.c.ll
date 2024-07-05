@@ -593,7 +593,7 @@ VP8GetBit.exit104.i:                              ; preds = %304, %298, %278, %2
 
 314:                                              ; preds = %411, %312
   %indvars.iv155.i = phi i64 [ 0, %312 ], [ %indvars.iv.next156.i, %411 ]
-  %.063151.i = phi ptr [ %313, %312 ], [ %413, %411 ]
+  %.060152.i = phi ptr [ %313, %312 ], [ %413, %411 ]
   %315 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv155.i
   %316 = load i8, ptr %315, align 1
   %317 = zext i8 %316 to i32
@@ -601,11 +601,11 @@ VP8GetBit.exit104.i:                              ; preds = %304, %298, %278, %2
 
 318:                                              ; preds = %._crit_edge.i, %314
   %indvars.iv.i = phi i64 [ 0, %314 ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %.061149.i = phi i32 [ %317, %314 ], [ %409, %._crit_edge.i ]
+  %.062149.i = phi i32 [ %317, %314 ], [ %409, %._crit_edge.i ]
   %319 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv.i
   %320 = load i8, ptr %319, align 1
   %321 = zext i8 %320 to i64
-  %322 = zext nneg i32 %.061149.i to i64
+  %322 = zext nneg i32 %.062149.i to i64
   %323 = getelementptr inbounds [10 x [10 x [9 x i8]]], ptr @kBModesProba, i64 0, i64 %321, i64 %322
   %324 = load i8, ptr %323, align 1
   %325 = zext i8 %324 to i32
@@ -774,8 +774,8 @@ VP8GetBit.exit119.i:                              ; preds = %397, %391
 
 411:                                              ; preds = %._crit_edge.i
   %412 = load i32, ptr %22, align 1
-  store i32 %412, ptr %.063151.i, align 1
-  %413 = getelementptr inbounds i8, ptr %.063151.i, i64 4
+  store i32 %412, ptr %.060152.i, align 1
+  %413 = getelementptr inbounds i8, ptr %.060152.i, i64 4
   store i8 %410, ptr %315, align 1
   %indvars.iv.next156.i = add nuw nsw i64 %indvars.iv155.i, 1
   %exitcond158.not.i = icmp eq i64 %indvars.iv.next156.i, 4

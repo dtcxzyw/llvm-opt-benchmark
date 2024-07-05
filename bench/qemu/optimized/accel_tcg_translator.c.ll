@@ -443,8 +443,8 @@ if.end56.i:                                       ; preds = %if.end31.i, %if.end
   br i1 %7, label %if.end, label %translator_access.exit
 
 translator_access.exit:                           ; preds = %if.else.i, %if.then10.i, %if.end56.i
-  %host.1.i = phi ptr [ %3, %if.then10.i ], [ %6, %if.end56.i ], [ %4, %if.else.i ]
   %base.0.i = phi i64 [ %db.val.i, %if.then10.i ], [ %and.i, %if.end56.i ], [ %and.i, %if.else.i ]
+  %host.1.i = phi ptr [ %3, %if.then10.i ], [ %6, %if.end56.i ], [ %4, %if.else.i ]
   %cmp61.i = icmp ule i64 %base.0.i, %pc
   tail call void @llvm.assume(i1 %cmp61.i)
   %sub65.i = sub i64 %pc, %base.0.i
@@ -610,8 +610,8 @@ if.end56.i:                                       ; preds = %if.end53.i, %if.els
   br i1 %cmp.i32.i, label %if.end, label %translator_access.exit
 
 translator_access.exit:                           ; preds = %if.then10.i, %if.end56.i
-  %host.1.i = phi ptr [ %3, %if.then10.i ], [ %host.0.i, %if.end56.i ]
   %base.0.i = phi i64 [ %db.val.i, %if.then10.i ], [ %and.i, %if.end56.i ]
+  %host.1.i = phi ptr [ %3, %if.then10.i ], [ %host.0.i, %if.end56.i ]
   %cmp61.i = icmp ule i64 %base.0.i, %pc
   tail call void @llvm.assume(i1 %cmp61.i)
   %sub65.i = sub i64 %pc, %base.0.i
@@ -780,8 +780,8 @@ if.end56.i:                                       ; preds = %if.end53.i, %if.els
   br i1 %cmp.i32.i, label %if.end, label %translator_access.exit
 
 translator_access.exit:                           ; preds = %if.then10.i, %if.end56.i
-  %host.1.i = phi ptr [ %3, %if.then10.i ], [ %host.0.i, %if.end56.i ]
   %base.0.i = phi i64 [ %db.val.i, %if.then10.i ], [ %and.i, %if.end56.i ]
+  %host.1.i = phi ptr [ %3, %if.then10.i ], [ %host.0.i, %if.end56.i ]
   %cmp61.i = icmp ule i64 %base.0.i, %pc
   tail call void @llvm.assume(i1 %cmp61.i)
   %sub65.i = sub i64 %pc, %base.0.i
@@ -949,8 +949,8 @@ if.end56.i:                                       ; preds = %if.end53.i, %if.els
   br i1 %cmp.i32.i, label %if.end, label %translator_access.exit
 
 translator_access.exit:                           ; preds = %if.then10.i, %if.end56.i
-  %host.1.i = phi ptr [ %3, %if.then10.i ], [ %host.0.i, %if.end56.i ]
   %base.0.i = phi i64 [ %db.val.i, %if.then10.i ], [ %and.i, %if.end56.i ]
+  %host.1.i = phi ptr [ %3, %if.then10.i ], [ %host.0.i, %if.end56.i ]
   %cmp61.i = icmp ule i64 %base.0.i, %pc
   tail call void @llvm.assume(i1 %cmp61.i)
   %sub65.i = sub i64 %pc, %base.0.i

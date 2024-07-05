@@ -1051,13 +1051,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %.not6485, label %.loopexit, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %108, %.lr.ph89
-  %.sroa.053.087 = phi ptr [ %113, %.lr.ph89 ], [ %109, %108 ]
-  %.06386 = phi i32 [ %.sroa.speculated, %.lr.ph89 ], [ 1, %108 ]
-  %110 = getelementptr inbounds i8, ptr %.sroa.053.087, i64 32
+  %.06387 = phi i32 [ %.sroa.speculated, %.lr.ph89 ], [ 1, %108 ]
+  %.sroa.053.086 = phi ptr [ %113, %.lr.ph89 ], [ %109, %108 ]
+  %110 = getelementptr inbounds i8, ptr %.sroa.053.086, i64 32
   %111 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %110) #16
   %112 = trunc i64 %111 to i32
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.06386, i32 %112)
-  %113 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.053.087) #19
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.06387, i32 %112)
+  %113 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.053.086) #19
   %.not64 = icmp eq ptr %113, getelementptr inbounds (i8, ptr @_ZN5Yosys21loaded_plugin_aliasesB5cxx11E, i64 8)
   br i1 %.not64, label %._crit_edge90, label %.lr.ph89
 

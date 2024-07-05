@@ -837,43 +837,43 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
 
 43:                                               ; preds = %40, %.lr.ph124.i
   %.0123.i = phi i8 [ 0, %.lr.ph124.i ], [ %.1.i, %40 ]
-  %.080122.i = phi ptr [ %31, %.lr.ph124.i ], [ %41, %40 ]
-  %44 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.080122.i, i32 noundef 10) #16
+  %.075122.i = phi ptr [ %31, %.lr.ph124.i ], [ %41, %40 ]
+  %44 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.075122.i, i32 noundef 10) #16
   %.not88.i = icmp eq ptr %44, null
   br i1 %.not88.i, label %45, label %48
 
 45:                                               ; preds = %43
-  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.080122.i) #16
-  %47 = getelementptr inbounds i8, ptr %.080122.i, i64 %46
+  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.075122.i) #16
+  %47 = getelementptr inbounds i8, ptr %.075122.i, i64 %46
   br label %48
 
 48:                                               ; preds = %45, %43
-  %.076.i = phi ptr [ %44, %43 ], [ %47, %45 ]
+  %.078.i = phi ptr [ %44, %43 ], [ %47, %45 ]
   %.1.i = phi i8 [ %.0123.i, %43 ], [ 1, %45 ]
-  %49 = call i32 @xstrncmp(ptr noundef nonnull %.080122.i, ptr noundef nonnull @.str.29, i64 noundef 6) #13
+  %49 = call i32 @xstrncmp(ptr noundef nonnull %.075122.i, ptr noundef nonnull @.str.29, i64 noundef 6) #13
   %.not89.i = icmp eq i32 %49, 0
   br i1 %.not89.i, label %50, label %90
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %.080122.i, i64 6
+  %51 = getelementptr inbounds i8, ptr %.075122.i, i64 6
   %52 = tail call ptr @__ctype_b_loc() #15
   %53 = load ptr, ptr %52, align 8
   br label %54
 
 54:                                               ; preds = %54, %50
-  %.181.i = phi ptr [ %51, %50 ], [ %60, %54 ]
-  %55 = load i8, ptr %.181.i, align 1
+  %.176.i = phi ptr [ %51, %50 ], [ %60, %54 ]
+  %55 = load i8, ptr %.176.i, align 1
   %56 = sext i8 %55 to i64
   %57 = getelementptr inbounds i16, ptr %53, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = and i16 %58, 8192
   %.not90.i = icmp eq i16 %59, 0
-  %60 = getelementptr inbounds i8, ptr %.181.i, i64 1
+  %60 = getelementptr inbounds i8, ptr %.176.i, i64 1
   br i1 %.not90.i, label %61, label %54, !llvm.loop !10
 
 61:                                               ; preds = %54
-  %62 = ptrtoint ptr %.076.i to i64
-  %63 = ptrtoint ptr %.181.i to i64
+  %62 = ptrtoint ptr %.078.i to i64
+  %63 = ptrtoint ptr %.176.i to i64
   %64 = sub i64 %62, %63
   %65 = trunc i64 %64 to i32
   %66 = add i32 %65, 1
@@ -881,7 +881,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   br i1 %67, label %.lr.ph.split.us.i, label %.loopexit.i
 
 .lr.ph.split.us.i:                                ; preds = %61, %.lr.ph.split.us.i.backedge
-  %.073.ph119.i = phi ptr [ %83, %.lr.ph.split.us.i.backedge ], [ %.181.i, %61 ]
+  %.073.ph119.i = phi ptr [ %83, %.lr.ph.split.us.i.backedge ], [ %.176.i, %61 ]
   %.074.ph117.i = phi i32 [ %84, %.lr.ph.split.us.i.backedge ], [ %66, %61 ]
   %68 = zext nneg i32 %.074.ph117.i to i64
   %69 = call i64 @write(i32 noundef 1, ptr noundef %.073.ph119.i, i64 noundef %68) #13
@@ -937,37 +937,37 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   br label %.lr.ph.split.us.i, !llvm.loop !11
 
 90:                                               ; preds = %48
-  %91 = call i32 @xstrncmp(ptr noundef nonnull %.080122.i, ptr noundef nonnull @.str.32, i64 noundef 7) #13
+  %91 = call i32 @xstrncmp(ptr noundef nonnull %.075122.i, ptr noundef nonnull @.str.32, i64 noundef 7) #13
   %.not91.i = icmp eq i32 %91, 0
   br i1 %.not91.i, label %92, label %132
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %.080122.i, i64 7
+  %93 = getelementptr inbounds i8, ptr %.075122.i, i64 7
   %94 = tail call ptr @__ctype_b_loc() #15
   %95 = load ptr, ptr %94, align 8
   br label %96
 
 96:                                               ; preds = %96, %92
-  %.078.i = phi ptr [ %93, %92 ], [ %102, %96 ]
-  %97 = load i8, ptr %.078.i, align 1
+  %.080.i = phi ptr [ %93, %92 ], [ %102, %96 ]
+  %97 = load i8, ptr %.080.i, align 1
   %98 = sext i8 %97 to i64
   %99 = getelementptr inbounds i16, ptr %95, i64 %98
   %100 = load i16, ptr %99, align 2
   %101 = and i16 %100, 8192
   %.not92.i = icmp eq i16 %101, 0
-  %102 = getelementptr inbounds i8, ptr %.078.i, i64 1
+  %102 = getelementptr inbounds i8, ptr %.080.i, i64 1
   br i1 %.not92.i, label %103, label %96, !llvm.loop !12
 
 103:                                              ; preds = %96
-  %104 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.078.i, i32 noundef 61) #16
+  %104 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.080.i, i32 noundef 61) #16
   %.not93.i = icmp eq ptr %104, null
-  %105 = icmp ugt ptr %104, %.076.i
+  %105 = icmp ugt ptr %104, %.078.i
   %or.cond.i = select i1 %.not93.i, i1 true, i1 %105
   br i1 %or.cond.i, label %.loopexit.i, label %.preheader
 
 .preheader:                                       ; preds = %103, %.preheader
-  %.075.i = phi ptr [ %106, %.preheader ], [ %104, %103 ]
-  %106 = getelementptr inbounds i8, ptr %.075.i, i64 -1
+  %.077.i = phi ptr [ %106, %.preheader ], [ %104, %103 ]
+  %106 = getelementptr inbounds i8, ptr %.077.i, i64 -1
   %107 = load i8, ptr %106, align 1
   %108 = sext i8 %107 to i64
   %109 = getelementptr inbounds i16, ptr %95, i64 %108
@@ -978,9 +978,9 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
 
 112:                                              ; preds = %.preheader
   %113 = getelementptr inbounds i8, ptr %104, i64 1
-  store i8 0, ptr %.075.i, align 1
-  store i8 0, ptr %.076.i, align 1
-  %114 = call i32 @xstrcmp(ptr noundef nonnull %.078.i, ptr noundef nonnull @.str.33) #13
+  store i8 0, ptr %.077.i, align 1
+  store i8 0, ptr %.078.i, align 1
+  %114 = call i32 @xstrcmp(ptr noundef nonnull %.080.i, ptr noundef nonnull @.str.33) #13
   %.not95.i = icmp eq i32 %114, 0
   br i1 %.not95.i, label %115, label %120
 
@@ -1004,51 +1004,51 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   br i1 %122, label %123, label %124
 
 123:                                              ; preds = %120
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.35, ptr noundef nonnull %.078.i, ptr noundef nonnull %113) #13
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.35, ptr noundef nonnull %.080.i, ptr noundef nonnull %113) #13
   br label %124
 
 124:                                              ; preds = %123, %120
-  %125 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %21, ptr noundef nonnull %.078.i, ptr noundef nonnull @.str.6, ptr noundef nonnull %113) #13
+  %125 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %21, ptr noundef nonnull %.080.i, ptr noundef nonnull @.str.6, ptr noundef nonnull %113) #13
   %.not97.i = icmp eq i32 %125, 0
   br i1 %.not97.i, label %128, label %126
 
 126:                                              ; preds = %124
-  %127 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull %.080122.i) #13
+  %127 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull %.075122.i) #13
   br label %128
 
 128:                                              ; preds = %126, %124
-  store i8 61, ptr %.075.i, align 1
+  store i8 61, ptr %.077.i, align 1
   %129 = trunc nuw i8 %.1.i to i1
   br i1 %129, label %130, label %131
 
 130:                                              ; preds = %128
-  store i8 0, ptr %.076.i, align 1
+  store i8 0, ptr %.078.i, align 1
   br label %.loopexit.i
 
 131:                                              ; preds = %128
-  store i8 10, ptr %.076.i, align 1
+  store i8 10, ptr %.078.i, align 1
   br label %.loopexit.i
 
 132:                                              ; preds = %90
-  %133 = call i32 @xstrncmp(ptr noundef nonnull %.080122.i, ptr noundef nonnull @.str.37, i64 noundef 6) #13
+  %133 = call i32 @xstrncmp(ptr noundef nonnull %.075122.i, ptr noundef nonnull @.str.37, i64 noundef 6) #13
   %.not98.i = icmp eq i32 %133, 0
   br i1 %.not98.i, label %134, label %.loopexit.i
 
 134:                                              ; preds = %132
-  %135 = getelementptr inbounds i8, ptr %.080122.i, i64 6
+  %135 = getelementptr inbounds i8, ptr %.075122.i, i64 6
   %136 = tail call ptr @__ctype_b_loc() #15
   %137 = load ptr, ptr %136, align 8
   br label %138
 
 138:                                              ; preds = %138, %134
-  %.179.i = phi ptr [ %135, %134 ], [ %144, %138 ]
-  %139 = load i8, ptr %.179.i, align 1
+  %.181.i = phi ptr [ %135, %134 ], [ %144, %138 ]
+  %139 = load i8, ptr %.181.i, align 1
   %140 = sext i8 %139 to i64
   %141 = getelementptr inbounds i16, ptr %137, i64 %140
   %142 = load i16, ptr %141, align 2
   %143 = and i16 %142, 8192
   %.not99.i = icmp eq i16 %143, 0
-  %144 = getelementptr inbounds i8, ptr %.179.i, i64 1
+  %144 = getelementptr inbounds i8, ptr %.181.i, i64 1
   br i1 %.not99.i, label %145, label %138, !llvm.loop !14
 
 145:                                              ; preds = %138
@@ -1058,8 +1058,8 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   ]
 
 .preheader.i:                                     ; preds = %145, %.preheader.i
-  %.177.i = phi ptr [ %146, %.preheader.i ], [ %.076.i, %145 ]
-  %146 = getelementptr inbounds i8, ptr %.177.i, i64 -1
+  %.179.i = phi ptr [ %146, %.preheader.i ], [ %.078.i, %145 ]
+  %146 = getelementptr inbounds i8, ptr %.179.i, i64 -1
   %147 = load i8, ptr %146, align 1
   %148 = sext i8 %147 to i64
   %149 = getelementptr inbounds i16, ptr %137, i64 %148
@@ -1069,31 +1069,31 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   br i1 %.not100.i, label %152, label %.preheader.i, !llvm.loop !15
 
 152:                                              ; preds = %.preheader.i
-  store i8 0, ptr %.177.i, align 1
+  store i8 0, ptr %.179.i, align 1
   %153 = call i32 @get_log_level() #13
   %154 = icmp sgt i32 %153, 4
   br i1 %154, label %155, label %156
 
 155:                                              ; preds = %152
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.38, ptr noundef nonnull %.179.i) #13
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.38, ptr noundef nonnull %.181.i) #13
   br label %156
 
 156:                                              ; preds = %155, %152
   %157 = load ptr, ptr %21, align 8
-  call void @unsetenvp(ptr noundef %157, ptr noundef nonnull %.179.i) #13
+  call void @unsetenvp(ptr noundef %157, ptr noundef nonnull %.181.i) #13
   %158 = trunc nuw i8 %.1.i to i1
   br i1 %158, label %159, label %160
 
 159:                                              ; preds = %156
-  store i8 0, ptr %.177.i, align 1
+  store i8 0, ptr %.179.i, align 1
   br label %.loopexit.i
 
 160:                                              ; preds = %156
-  store i8 10, ptr %.177.i, align 1
+  store i8 10, ptr %.179.i, align 1
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.split.us.i, %160, %159, %145, %145, %132, %131, %130, %103, %81, %.split110.us.i, %61
-  %.2.i = phi ptr [ %.076.i, %132 ], [ %.076.i, %145 ], [ %.177.i, %159 ], [ %.177.i, %160 ], [ %.076.i, %130 ], [ %.076.i, %131 ], [ %.076.i, %103 ], [ %.076.i, %81 ], [ %.076.i, %.split110.us.i ], [ %.076.i, %145 ], [ %.076.i, %61 ], [ %.076.i, %.split.us.i ]
+  %.2.i = phi ptr [ %.078.i, %132 ], [ %.078.i, %145 ], [ %.179.i, %159 ], [ %.179.i, %160 ], [ %.078.i, %130 ], [ %.078.i, %131 ], [ %.078.i, %103 ], [ %.078.i, %81 ], [ %.078.i, %.split110.us.i ], [ %.078.i, %145 ], [ %.078.i, %61 ], [ %.078.i, %.split.us.i ]
   %161 = trunc nuw i8 %.1.i to i1
   br i1 %161, label %_proc_stdout.exit.loopexit, label %40
 

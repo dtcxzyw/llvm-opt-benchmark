@@ -127,12 +127,12 @@ if.end:                                           ; preds = %if.then, %lib_creat
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.end
-  %p.addr.0 = phi ptr [ %incdec.ptr4, %if.end ], [ %p.addr.0.be, %for.cond.backedge ]
-  %cf.addr.0 = phi ptr [ %cf, %if.end ], [ %cf.addr.0.be, %for.cond.backedge ]
-  %env.0 = phi ptr [ %1, %if.end ], [ %env.0.be, %for.cond.backedge ]
-  %ofn.0 = phi ptr [ null, %if.end ], [ %ofn.0.be, %for.cond.backedge ]
-  %ffid.0 = phi i8 [ %2, %if.end ], [ %ffid.0.be, %for.cond.backedge ]
   %bcff.0 = phi ptr [ %arrayidx, %if.end ], [ %bcff.0.be, %for.cond.backedge ]
+  %ffid.0 = phi i8 [ %2, %if.end ], [ %ffid.0.be, %for.cond.backedge ]
+  %ofn.0 = phi ptr [ null, %if.end ], [ %ofn.0.be, %for.cond.backedge ]
+  %env.0 = phi ptr [ %1, %if.end ], [ %env.0.be, %for.cond.backedge ]
+  %cf.addr.0 = phi ptr [ %cf, %if.end ], [ %cf.addr.0.be, %for.cond.backedge ]
+  %p.addr.0 = phi ptr [ %incdec.ptr4, %if.end ], [ %p.addr.0.be, %for.cond.backedge ]
   %incdec.ptr12 = getelementptr inbounds i8, ptr %p.addr.0, i64 1
   %23 = load i8, ptr %p.addr.0, align 1
   %conv13 = zext i8 %23 to i32
@@ -207,12 +207,12 @@ if.end54:                                         ; preds = %if.else51, %if.then
   br i1 %tobool55.not, label %for.cond.backedge, label %if.then56
 
 for.cond.backedge:                                ; preds = %if.end54, %if.then56, %sw.bb, %sw.bb88, %sw.bb93, %sw.bb102, %sw.bb105, %sw.default, %if.else82, %if.then78
-  %p.addr.0.be = phi ptr [ %add.ptr113, %sw.default ], [ %incdec.ptr12, %sw.bb105 ], [ %incdec.ptr12, %sw.bb102 ], [ %incdec.ptr96, %sw.bb93 ], [ %add.ptr92, %sw.bb88 ], [ %incdec.ptr12, %if.then78 ], [ %incdec.ptr12, %if.else82 ], [ %36, %sw.bb ], [ %add.ptr36, %if.then56 ], [ %add.ptr36, %if.end54 ]
-  %cf.addr.0.be = phi ptr [ %cf.addr.0, %sw.default ], [ %cf.addr.0, %sw.bb105 ], [ %cf.addr.0, %sw.bb102 ], [ %cf.addr.0, %sw.bb93 ], [ %cf.addr.0, %sw.bb88 ], [ %cf.addr.0, %if.then78 ], [ %cf.addr.0, %if.else82 ], [ %cf.addr.0, %sw.bb ], [ %cf.addr.1, %if.then56 ], [ %cf.addr.1, %if.end54 ]
-  %env.0.be = phi ptr [ %env.0, %sw.default ], [ %env.0, %sw.bb105 ], [ %env.0, %sw.bb102 ], [ %env.0, %sw.bb93 ], [ %env.0, %sw.bb88 ], [ %42, %if.then78 ], [ %env.0, %if.else82 ], [ %env.0, %sw.bb ], [ %env.0, %if.then56 ], [ %env.0, %if.end54 ]
-  %ofn.0.be = phi ptr [ %ofn.0, %sw.default ], [ %ofn.0, %sw.bb105 ], [ %ofn.0, %sw.bb102 ], [ %ofn.0, %sw.bb93 ], [ %ofn.0, %sw.bb88 ], [ %ofn.0, %if.then78 ], [ %ofn.0, %if.else82 ], [ %ofn.0, %sw.bb ], [ %call25, %if.then56 ], [ %call25, %if.end54 ]
-  %ffid.0.be = phi i8 [ %ffid.0, %sw.default ], [ %inc106, %sw.bb105 ], [ %ffid.0, %sw.bb102 ], [ %ffid.0, %sw.bb93 ], [ %ffid.0, %sw.bb88 ], [ %ffid.0, %if.then78 ], [ %ffid.0, %if.else82 ], [ %ffid.0, %sw.bb ], [ %inc, %if.then56 ], [ %inc, %if.end54 ]
   %bcff.0.be = phi ptr [ %bcff.0, %sw.default ], [ %bcff.0, %sw.bb105 ], [ %bcff.0, %sw.bb102 ], [ %bcff.0, %sw.bb93 ], [ %bcff.0, %sw.bb88 ], [ %bcff.0, %if.then78 ], [ %bcff.0, %if.else82 ], [ %bcff.0, %sw.bb ], [ %bcff.189, %if.then56 ], [ %bcff.189, %if.end54 ]
+  %ffid.0.be = phi i8 [ %ffid.0, %sw.default ], [ %inc106, %sw.bb105 ], [ %ffid.0, %sw.bb102 ], [ %ffid.0, %sw.bb93 ], [ %ffid.0, %sw.bb88 ], [ %ffid.0, %if.then78 ], [ %ffid.0, %if.else82 ], [ %ffid.0, %sw.bb ], [ %inc, %if.then56 ], [ %inc, %if.end54 ]
+  %ofn.0.be = phi ptr [ %ofn.0, %sw.default ], [ %ofn.0, %sw.bb105 ], [ %ofn.0, %sw.bb102 ], [ %ofn.0, %sw.bb93 ], [ %ofn.0, %sw.bb88 ], [ %ofn.0, %if.then78 ], [ %ofn.0, %if.else82 ], [ %ofn.0, %sw.bb ], [ %call25, %if.then56 ], [ %call25, %if.end54 ]
+  %env.0.be = phi ptr [ %env.0, %sw.default ], [ %env.0, %sw.bb105 ], [ %env.0, %sw.bb102 ], [ %env.0, %sw.bb93 ], [ %env.0, %sw.bb88 ], [ %42, %if.then78 ], [ %env.0, %if.else82 ], [ %env.0, %sw.bb ], [ %env.0, %if.then56 ], [ %env.0, %if.end54 ]
+  %cf.addr.0.be = phi ptr [ %cf.addr.0, %sw.default ], [ %cf.addr.0, %sw.bb105 ], [ %cf.addr.0, %sw.bb102 ], [ %cf.addr.0, %sw.bb93 ], [ %cf.addr.0, %sw.bb88 ], [ %cf.addr.0, %if.then78 ], [ %cf.addr.0, %if.else82 ], [ %cf.addr.0, %sw.bb ], [ %cf.addr.1, %if.then56 ], [ %cf.addr.1, %if.end54 ]
+  %p.addr.0.be = phi ptr [ %add.ptr113, %sw.default ], [ %incdec.ptr12, %sw.bb105 ], [ %incdec.ptr12, %sw.bb102 ], [ %incdec.ptr96, %sw.bb93 ], [ %add.ptr92, %sw.bb88 ], [ %incdec.ptr12, %if.then78 ], [ %incdec.ptr12, %if.else82 ], [ %36, %sw.bb ], [ %add.ptr36, %if.then56 ], [ %add.ptr36, %if.end54 ]
   br label %for.cond
 
 if.then56:                                        ; preds = %if.end54

@@ -1713,8 +1713,8 @@ switch.early.test:                                ; preds = %64
   br label %76
 
 76:                                               ; preds = %44, %75, %18
-  %.046 = phi i32 [ %.1, %75 ], [ 0, %18 ], [ %45, %44 ]
-  ret i32 %.046
+  %.0 = phi i32 [ %.1, %75 ], [ 0, %18 ], [ %45, %44 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1810,22 +1810,22 @@ define internal fastcc i32 @output_auth_headers(ptr noundef %0, ptr nocapture no
   br i1 %.not74, label %Curl_checkProxyheaders.exit.thread, label %Curl_checkProxyheaders.exit.thread96
 
 Curl_checkProxyheaders.exit.thread:               ; preds = %38, %29, %42
-  %.021.in.v.i = phi i64 [ 4928, %29 ], [ 4912, %42 ], [ 4928, %38 ]
-  %.022.in.v.i = phi i64 [ 4920, %29 ], [ 4904, %42 ], [ 4920, %38 ]
-  %.023.v.i = phi i64 [ 4824, %29 ], [ 4848, %42 ], [ 4824, %38 ]
+  %.022.in.v.i = phi i64 [ 4928, %29 ], [ 4912, %42 ], [ 4928, %38 ]
+  %.023.in.v.i = phi i64 [ 4920, %29 ], [ 4904, %42 ], [ 4920, %38 ]
+  %.024.v.i = phi i64 [ 4824, %29 ], [ 4848, %42 ], [ 4824, %38 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 0, ptr %7, align 8
   store ptr null, ptr %8, align 8
-  %.023.i = getelementptr inbounds i8, ptr %0, i64 %.023.v.i
+  %.024.i = getelementptr inbounds i8, ptr %0, i64 %.024.v.i
+  %.023.in.i = getelementptr inbounds i8, ptr %0, i64 %.023.in.v.i
   %.022.in.i = getelementptr inbounds i8, ptr %0, i64 %.022.in.v.i
-  %.021.in.i = getelementptr inbounds i8, ptr %0, i64 %.021.in.v.i
-  %.021.i89 = load ptr, ptr %.021.in.i, align 8
   %.022.i = load ptr, ptr %.022.in.i, align 8
-  %.not.i90 = icmp eq ptr %.022.i, null
-  %44 = select i1 %.not.i90, ptr @.str.14, ptr %.022.i
-  %.not27.i = icmp eq ptr %.021.i89, null
-  %45 = select i1 %.not27.i, ptr @.str.14, ptr %.021.i89
+  %.023.i = load ptr, ptr %.023.in.i, align 8
+  %.not.i89 = icmp eq ptr %.023.i, null
+  %44 = select i1 %.not.i89, ptr @.str.14, ptr %.023.i
+  %.not27.i = icmp eq ptr %.022.i, null
+  %45 = select i1 %.not27.i, ptr @.str.14, ptr %.022.i
   %46 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.136, ptr noundef nonnull %44, ptr noundef nonnull %45) #12
   %.not28.i = icmp eq ptr %46, null
   br i1 %.not28.i, label %http_output_basic.exit.thread, label %47
@@ -1848,21 +1848,21 @@ http_output_basic.exit.thread:                    ; preds = %Curl_checkProxyhead
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr @Curl_cfree, align 8
-  %54 = load ptr, ptr %.023.i, align 8
+  %54 = load ptr, ptr %.024.i, align 8
   call void %53(ptr noundef %54) #12
   %55 = select i1 %5, ptr @.str.138, ptr @.str.14
   %56 = load ptr, ptr %8, align 8
   %57 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.137, ptr noundef nonnull %55, ptr noundef %56) #12
-  store ptr %57, ptr %.023.i, align 8
+  store ptr %57, ptr %.024.i, align 8
   %58 = load ptr, ptr @Curl_cfree, align 8
   %59 = load ptr, ptr %8, align 8
   call void %58(ptr noundef %59) #12
-  %60 = load ptr, ptr %.023.i, align 8
+  %60 = load ptr, ptr %.024.i, align 8
   %.not31.i = icmp eq ptr %60, null
   br i1 %.not31.i, label %http_output_basic.exit.thread99, label %http_output_basic.exit
 
 http_output_basic.exit.thread99:                  ; preds = %47, %50, %52
-  %.0.i91.ph = phi i32 [ 9, %50 ], [ %49, %47 ], [ 27, %52 ]
+  %.021.i90.ph = phi i32 [ 9, %50 ], [ %49, %47 ], [ 27, %52 ]
   %61 = load ptr, ptr @Curl_cfree, align 8
   call void %61(ptr noundef nonnull %46) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -1973,7 +1973,7 @@ thread-pre-split:                                 ; preds = %11, %15, %Curl_chec
   br label %107
 
 107:                                              ; preds = %http_output_basic.exit.thread99, %http_output_basic.exit.thread, %95, %103, %75, %15, %13, %11
-  %.057 = phi i32 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ 27, %75 ], [ 0, %103 ], [ 0, %95 ], [ 27, %http_output_basic.exit.thread ], [ %.0.i91.ph, %http_output_basic.exit.thread99 ]
+  %.057 = phi i32 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ 27, %75 ], [ 0, %103 ], [ 0, %95 ], [ 27, %http_output_basic.exit.thread ], [ %.021.i90.ph, %http_output_basic.exit.thread99 ]
   ret i32 %.057
 }
 
@@ -2335,11 +2335,11 @@ define dso_local i32 @Curl_buffer_send(ptr noundef %0, ptr noundef %1, ptr nound
   %or.cond = and i1 %.not109, %32
   %.neg110 = sub i64 %28, %4
   %33 = select i1 %or.cond, i64 %.neg110, i64 0
-  %.093 = add i64 %33, %11
+  %.094 = add i64 %33, %11
   %34 = getelementptr inbounds i8, ptr %1, i64 1680
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.093, i64 %36)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %.094, i64 %36)
   %37 = getelementptr inbounds i8, ptr %1, i64 3160
   %38 = load ptr, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %10, i64 %spec.select, i1 false)
@@ -2366,9 +2366,9 @@ define dso_local i32 @Curl_buffer_send(ptr noundef %0, ptr noundef %1, ptr nound
   br label %49
 
 49:                                               ; preds = %45, %40, %31
-  %.094 = phi ptr [ %39, %31 ], [ %10, %40 ], [ %10, %45 ]
   %.3 = phi i64 [ %spec.select, %31 ], [ %.2, %40 ], [ %spec.select118, %45 ]
-  %50 = call i32 @Curl_nwrite(ptr noundef nonnull %1, i32 noundef %5, ptr noundef %.094, i64 noundef %.3, ptr noundef nonnull %7) #12
+  %.093 = phi ptr [ %39, %31 ], [ %10, %40 ], [ %10, %45 ]
+  %50 = call i32 @Curl_nwrite(ptr noundef nonnull %1, i32 noundef %5, ptr noundef %.093, i64 noundef %.3, ptr noundef nonnull %7) #12
   %.not112 = icmp eq i32 %50, 0
   br i1 %.not112, label %51, label %90
 
@@ -2376,12 +2376,12 @@ define dso_local i32 @Curl_buffer_send(ptr noundef %0, ptr noundef %1, ptr nound
   %52 = load i64, ptr %7, align 8
   %53 = call i64 @llvm.umin.i64(i64 %52, i64 %12)
   %54 = sub i64 %52, %53
-  call void @Curl_debug(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %.094, i64 noundef %53) #12
+  call void @Curl_debug(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %.093, i64 noundef %53) #12
   %.not113.not = icmp ugt i64 %52, %12
   br i1 %.not113.not, label %55, label %57
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %.094, i64 %53
+  %56 = getelementptr inbounds i8, ptr %.093, i64 %53
   call void @Curl_debug(ptr noundef nonnull %1, i32 noundef 4, ptr noundef %56, i64 noundef %54) #12
   br label %57
 
@@ -2782,7 +2782,7 @@ define dso_local i32 @Curl_dynhds_add_custom(ptr noundef %0, i1 noundef zeroext 
   br label %31
 
 31:                                               ; preds = %7, %25, %28, %14, %18
-  %.088 = phi i64 [ 1, %25 ], [ 1, %28 ], [ 2, %18 ], [ 1, %14 ], [ 1, %7 ]
+  %.089 = phi i64 [ 1, %25 ], [ 1, %28 ], [ 2, %18 ], [ 1, %14 ], [ 1, %7 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 4872
   %33 = getelementptr inbounds i8, ptr %0, i64 4938
   %34 = getelementptr inbounds i8, ptr %6, i64 672
@@ -2793,13 +2793,13 @@ define dso_local i32 @Curl_dynhds_add_custom(ptr noundef %0, i1 noundef zeroext 
 37:                                               ; preds = %31, %._crit_edge
   %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %._crit_edge ]
   %38 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %.089165 = load ptr, ptr %38, align 8
-  %.not100166 = icmp eq ptr %.089165, null
+  %.090165 = load ptr, ptr %38, align 8
+  %.not100166 = icmp eq ptr %.090165, null
   br i1 %.not100166, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %.critedge.thread
-  %.089167 = phi ptr [ %.089, %.critedge.thread ], [ %.089165, %37 ]
-  %39 = load ptr, ptr %.089167, align 8
+  %.090167 = phi ptr [ %.090, %.critedge.thread ], [ %.090165, %37 ]
+  %39 = load ptr, ptr %.090167, align 8
   %40 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %39, i32 noundef 58) #13
   %.not101 = icmp eq ptr %40, null
   br i1 %.not101, label %50, label %41
@@ -2811,9 +2811,9 @@ define dso_local i32 @Curl_dynhds_add_custom(ptr noundef %0, i1 noundef zeroext 
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.backedge, %41
-  %.pn111 = phi ptr [ %40, %41 ], [ %.090, %.critedge2.backedge ]
-  %.090 = getelementptr inbounds i8, ptr %.pn111, i64 1
-  %45 = load i8, ptr %.090, align 1
+  %.pn111 = phi ptr [ %40, %41 ], [ %.091, %.critedge2.backedge ]
+  %.091 = getelementptr inbounds i8, ptr %.pn111, i64 1
+  %45 = load i8, ptr %.091, align 1
   switch i8 %45, label %46 [
     i8 0, label %.critedge.thread
     i8 32, label %.critedge2.backedge
@@ -2833,7 +2833,7 @@ define dso_local i32 @Curl_dynhds_add_custom(ptr noundef %0, i1 noundef zeroext 
   br i1 %.not106, label %.critedge.thread, label %48
 
 48:                                               ; preds = %.critedge
-  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.090) #13
+  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.091) #13
   br label %.critedge4.thread
 
 50:                                               ; preds = %.lr.ph
@@ -2870,12 +2870,12 @@ define dso_local i32 @Curl_dynhds_add_custom(ptr noundef %0, i1 noundef zeroext 
   br i1 %.not104, label %.critedge4.thread, label %.critedge.thread
 
 .critedge4.thread:                                ; preds = %.critedge6, %.critedge4, %48
-  %.084 = phi ptr [ %.090, %48 ], [ @.str.14, %.critedge4 ], [ @.str.14, %.critedge6 ]
-  %.083 = phi i64 [ %44, %48 ], [ %55, %.critedge4 ], [ %55, %.critedge6 ]
-  %.0 = phi i64 [ %49, %48 ], [ 0, %.critedge4 ], [ 0, %.critedge6 ]
+  %.085 = phi ptr [ %.091, %48 ], [ @.str.14, %.critedge4 ], [ @.str.14, %.critedge6 ]
+  %.084 = phi i64 [ %44, %48 ], [ %55, %.critedge4 ], [ %55, %.critedge6 ]
+  %.083 = phi i64 [ %49, %48 ], [ 0, %.critedge4 ], [ 0, %.critedge6 ]
   %59 = load ptr, ptr %32, align 8
   %.not107 = icmp ne ptr %59, null
-  %60 = icmp eq i64 %.083, 5
+  %60 = icmp eq i64 %.084, 5
   %or.cond149 = and i1 %60, %.not107
   br i1 %or.cond149, label %hd_name_eq.exit, label %hd_name_eq.exit.thread
 
@@ -2890,7 +2890,7 @@ hd_name_eq.exit.thread:                           ; preds = %.critedge4.thread
   br i1 %63, label %64, label %thread-pre-split
 
 64:                                               ; preds = %hd_name_eq.exit.thread
-  %65 = icmp eq i64 %.083, 13
+  %65 = icmp eq i64 %.084, 13
   br i1 %65, label %hd_name_eq.exit114, label %hd_name_eq.exit116.thread
 
 hd_name_eq.exit114:                               ; preds = %64
@@ -2905,7 +2905,7 @@ hd_name_eq.exit114.thread-pre-split_crit_edge:    ; preds = %hd_name_eq.exit114
 thread-pre-split:                                 ; preds = %hd_name_eq.exit114.thread-pre-split_crit_edge, %hd_name_eq.exit.thread
   %67 = phi i8 [ %62, %hd_name_eq.exit.thread ], [ %.pr.pre, %hd_name_eq.exit114.thread-pre-split_crit_edge ]
   %68 = icmp eq i8 %67, 3
-  %69 = icmp eq i64 %.083, 13
+  %69 = icmp eq i64 %.084, 13
   %or.cond150 = and i1 %69, %68
   br i1 %or.cond150, label %hd_name_eq.exit116, label %hd_name_eq.exit116.thread
 
@@ -2918,7 +2918,7 @@ hd_name_eq.exit116.thread:                        ; preds = %64, %thread-pre-spl
   %71 = load i32, ptr %34, align 8
   %72 = and i32 %71, 65536
   %.not108 = icmp ne i32 %72, 0
-  %73 = icmp eq i64 %.083, 15
+  %73 = icmp eq i64 %.084, 15
   %or.cond151 = and i1 %73, %.not108
   br i1 %or.cond151, label %hd_name_eq.exit118, label %hd_name_eq.exit118.thread
 
@@ -2930,7 +2930,7 @@ hd_name_eq.exit118:                               ; preds = %hd_name_eq.exit116.
 hd_name_eq.exit118.thread:                        ; preds = %hd_name_eq.exit116.thread
   %75 = load ptr, ptr %35, align 8
   %.not109 = icmp ne ptr %75, null
-  %76 = icmp eq i64 %.083, 11
+  %76 = icmp eq i64 %.084, 11
   %or.cond152 = and i1 %76, %.not109
   br i1 %or.cond152, label %hd_name_eq.exit120, label %hd_name_eq.exit120.thread
 
@@ -2942,7 +2942,7 @@ hd_name_eq.exit120:                               ; preds = %hd_name_eq.exit118.
 hd_name_eq.exit120.thread:                        ; preds = %hd_name_eq.exit118.thread
   %78 = load i8, ptr %36, align 8
   %79 = icmp ugt i8 %78, 19
-  %80 = icmp eq i64 %.083, 18
+  %80 = icmp eq i64 %.084, 18
   %or.cond153 = and i1 %80, %79
   br i1 %or.cond153, label %hd_name_eq.exit122, label %hd_name_eq.exit122.thread
 
@@ -2952,7 +2952,7 @@ hd_name_eq.exit122:                               ; preds = %hd_name_eq.exit120.
   br i1 %.not160, label %hd_name_eq.exit126.thread, label %.critedge.thread
 
 hd_name_eq.exit122.thread:                        ; preds = %hd_name_eq.exit120.thread
-  switch i64 %.083, label %hd_name_eq.exit126.thread [
+  switch i64 %.084, label %hd_name_eq.exit126.thread [
     i64 14, label %hd_name_eq.exit124
     i64 7, label %hd_name_eq.exit126
   ]
@@ -2972,24 +2972,24 @@ hd_name_eq.exit126:                               ; preds = %hd_name_eq.exit122.
   br i1 %85, label %hd_name_eq.exit126.thread, label %.critedge.thread
 
 hd_name_eq.exit126.thread:                        ; preds = %hd_name_eq.exit, %hd_name_eq.exit116, %hd_name_eq.exit118, %hd_name_eq.exit120, %hd_name_eq.exit122.thread, %hd_name_eq.exit124, %hd_name_eq.exit122, %84, %hd_name_eq.exit126
-  %86 = tail call i32 @Curl_dynhds_add(ptr noundef %2, ptr noundef %39, i64 noundef %.083, ptr noundef nonnull %.084, i64 noundef %.0) #12
+  %86 = tail call i32 @Curl_dynhds_add(ptr noundef %2, ptr noundef %39, i64 noundef %.084, ptr noundef nonnull %.085, i64 noundef %.083) #12
   %.not110 = icmp eq i32 %86, 0
   br i1 %.not110, label %.critedge.thread, label %.loopexit
 
 .critedge.thread:                                 ; preds = %.critedge2, %hd_name_eq.exit, %hd_name_eq.exit116, %hd_name_eq.exit120, %84, %hd_name_eq.exit126.thread, %hd_name_eq.exit122, %hd_name_eq.exit118, %hd_name_eq.exit114, %.critedge4, %50, %.critedge
-  %87 = getelementptr inbounds i8, ptr %.089167, i64 8
-  %.089 = load ptr, ptr %87, align 8
-  %.not100 = icmp eq ptr %.089, null
+  %87 = getelementptr inbounds i8, ptr %.090167, i64 8
+  %.090 = load ptr, ptr %87, align 8
+  %.not100 = icmp eq ptr %.090, null
   br i1 %.not100, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.critedge.thread, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %.088
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %.089
   br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge, %hd_name_eq.exit126.thread
-  %.091 = phi i32 [ %86, %hd_name_eq.exit126.thread ], [ 0, %._crit_edge ]
-  ret i32 %.091
+  %.0 = phi i32 [ %86, %hd_name_eq.exit126.thread ], [ 0, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -3048,7 +3048,7 @@ define dso_local i32 @Curl_add_custom_headers(ptr noundef %0, i1 noundef zeroext
   br label %31
 
 31:                                               ; preds = %7, %25, %28, %14, %18
-  %.090 = phi i64 [ 1, %25 ], [ 1, %28 ], [ 2, %18 ], [ 1, %14 ], [ 1, %7 ]
+  %.091 = phi i64 [ 1, %25 ], [ 1, %28 ], [ 2, %18 ], [ 1, %14 ], [ 1, %7 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 4872
   %33 = getelementptr inbounds i8, ptr %0, i64 4938
   %34 = getelementptr inbounds i8, ptr %6, i64 672
@@ -3059,13 +3059,13 @@ define dso_local i32 @Curl_add_custom_headers(ptr noundef %0, i1 noundef zeroext
 37:                                               ; preds = %31, %._crit_edge
   %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %._crit_edge ]
   %38 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %.091145 = load ptr, ptr %38, align 8
-  %.not104146 = icmp eq ptr %.091145, null
+  %.092145 = load ptr, ptr %38, align 8
+  %.not104146 = icmp eq ptr %.092145, null
   br i1 %.not104146, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %.thread129
-  %.091147 = phi ptr [ %.091, %.thread129 ], [ %.091145, %37 ]
-  %39 = load ptr, ptr %.091147, align 8
+  %.092147 = phi ptr [ %.092, %.thread129 ], [ %.092145, %37 ]
+  %39 = load ptr, ptr %.092147, align 8
   %40 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %39, i32 noundef 58) #13
   %.not105 = icmp eq ptr %40, null
   br i1 %.not105, label %41, label %.thread134
@@ -3076,9 +3076,9 @@ define dso_local i32 @Curl_add_custom_headers(ptr noundef %0, i1 noundef zeroext
   br i1 %.not106, label %.thread129, label %.preheader140
 
 .preheader140:                                    ; preds = %41, %.preheader140.backedge
-  %.pn = phi ptr [ %.092, %.preheader140.backedge ], [ %42, %41 ]
-  %.092 = getelementptr inbounds i8, ptr %.pn, i64 1
-  %43 = load i8, ptr %.092, align 1
+  %.pn = phi ptr [ %.093, %.preheader140.backedge ], [ %42, %41 ]
+  %.093 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %43 = load i8, ptr %.093, align 1
   switch i8 %43, label %44 [
     i8 0, label %.critedge.thread
     i8 32, label %.preheader140.backedge
@@ -3113,13 +3113,13 @@ define dso_local i32 @Curl_add_custom_headers(ptr noundef %0, i1 noundef zeroext
   br label %.loopexit
 
 52:                                               ; preds = %48
-  %53 = load ptr, ptr %.091147, align 8
+  %53 = load ptr, ptr %.092147, align 8
   %54 = ptrtoint ptr %.pn to i64
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
   %57 = getelementptr inbounds i8, ptr %50, i64 %56
   store i8 58, ptr %57, align 1
-  %58 = load ptr, ptr %.091147, align 8
+  %58 = load ptr, ptr %.092147, align 8
   %59 = ptrtoint ptr %58 to i64
   %60 = sub i64 %54, %59
   %61 = getelementptr inbounds i8, ptr %50, i64 %60
@@ -3128,13 +3128,13 @@ define dso_local i32 @Curl_add_custom_headers(ptr noundef %0, i1 noundef zeroext
 .thread134:                                       ; preds = %.critedge.thread, %52, %.lr.ph
   %62 = phi ptr [ %58, %52 ], [ %39, %.lr.ph ], [ %39, %.critedge.thread ]
   %.1139 = phi ptr [ %50, %52 ], [ null, %.lr.ph ], [ null, %.critedge.thread ]
-  %.193138 = phi ptr [ %61, %52 ], [ %40, %.lr.ph ], [ %42, %.critedge.thread ]
-  %.not111 = icmp eq ptr %.193138, %62
+  %.194138 = phi ptr [ %61, %52 ], [ %40, %.lr.ph ], [ %42, %.critedge.thread ]
+  %.not111 = icmp eq ptr %.194138, %62
   br i1 %.not111, label %.thread129, label %.preheader
 
 .preheader:                                       ; preds = %.thread134, %.preheader.backedge
-  %.193.pn = phi ptr [ %.2, %.preheader.backedge ], [ %.193138, %.thread134 ]
-  %.2 = getelementptr inbounds i8, ptr %.193.pn, i64 1
+  %.194.pn = phi ptr [ %.2, %.preheader.backedge ], [ %.194138, %.thread134 ]
+  %.2 = getelementptr inbounds i8, ptr %.194.pn, i64 1
   %63 = load i8, ptr %.2, align 1
   switch i8 %63, label %64 [
     i8 0, label %.critedge4
@@ -3241,7 +3241,7 @@ thread-pre-split:                                 ; preds = %75
   br label %104
 
 104:                                              ; preds = %75, %85, %94, %100, %102, %89, %80, %70
-  %.0 = phi i32 [ 0, %70 ], [ 0, %75 ], [ 0, %80 ], [ 0, %85 ], [ 0, %89 ], [ 0, %94 ], [ %103, %102 ], [ 0, %100 ]
+  %.086 = phi i32 [ 0, %70 ], [ 0, %75 ], [ 0, %80 ], [ 0, %85 ], [ 0, %89 ], [ 0, %94 ], [ %103, %102 ], [ 0, %100 ]
   br i1 %67, label %105, label %107
 
 105:                                              ; preds = %104
@@ -3250,23 +3250,23 @@ thread-pre-split:                                 ; preds = %75
   br label %107
 
 107:                                              ; preds = %105, %104
-  %.not124 = icmp eq i32 %.0, 0
+  %.not124 = icmp eq i32 %.086, 0
   br i1 %.not124, label %.thread129, label %.loopexit
 
 .thread129:                                       ; preds = %.critedge, %41, %.critedge4, %107, %.thread134
-  %108 = getelementptr inbounds i8, ptr %.091147, i64 8
-  %.091 = load ptr, ptr %108, align 8
-  %.not104 = icmp eq ptr %.091, null
+  %108 = getelementptr inbounds i8, ptr %.092147, i64 8
+  %.092 = load ptr, ptr %108, align 8
+  %.not104 = icmp eq ptr %.092, null
   br i1 %.not104, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.thread129, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %.090
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %.091
   br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !23
 
 .loopexit:                                        ; preds = %._crit_edge, %107, %51
-  %.094 = phi i32 [ 27, %51 ], [ %.0, %107 ], [ 0, %._crit_edge ]
-  ret i32 %.094
+  %.0 = phi i32 [ 27, %51 ], [ %.086, %107 ], [ 0, %._crit_edge ]
+  ret i32 %.0
 }
 
 declare i32 @Curl_dyn_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -3755,8 +3755,8 @@ define dso_local i32 @Curl_http_target(ptr nocapture noundef readonly %0, ptr no
   br label %76
 
 76:                                               ; preds = %39, %.critedge, %51, %48, %74, %73, %64, %64, %64, %60, %57, %71, %41, %15, %38, %35, %29, %26
-  %.056 = phi i32 [ 27, %26 ], [ 27, %29 ], [ 27, %35 ], [ 27, %38 ], [ 27, %15 ], [ %45, %41 ], [ %72, %71 ], [ %75, %74 ], [ 0, %73 ], [ 0, %51 ], [ 0, %48 ], [ 0, %64 ], [ 0, %64 ], [ 0, %64 ], [ 0, %60 ], [ 0, %57 ], [ %70, %.critedge ], [ 27, %39 ]
-  ret i32 %.056
+  %.053 = phi i32 [ 27, %26 ], [ 27, %29 ], [ 27, %35 ], [ 27, %38 ], [ 27, %15 ], [ %45, %41 ], [ %72, %71 ], [ %75, %74 ], [ 0, %73 ], [ 0, %51 ], [ 0, %48 ], [ 0, %64 ], [ 0, %64 ], [ 0, %64 ], [ 0, %60 ], [ 0, %57 ], [ %70, %.critedge ], [ 27, %39 ]
+  ret i32 %.053
 }
 
 declare ptr @curl_url_dup(ptr noundef) local_unnamed_addr #1
@@ -4007,8 +4007,8 @@ Curl_use_http_1_1plus.exit.thread:                ; preds = %97, %101, %Curl_use
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %65, %121, %117, %57, %12, %Curl_use_http_1_1plus.exit.thread, %22
-  %.066 = phi i32 [ 25, %Curl_use_http_1_1plus.exit.thread ], [ %21, %22 ], [ 27, %12 ], [ %59, %57 ], [ 0, %117 ], [ 0, %121 ], [ 0, %65 ], [ %54, %.loopexit ]
-  ret i32 %.066
+  %.064 = phi i32 [ 25, %Curl_use_http_1_1plus.exit.thread ], [ %21, %22 ], [ 27, %12 ], [ %59, %57 ], [ 0, %117 ], [ 0, %121 ], [ 0, %65 ], [ %54, %.loopexit ]
+  ret i32 %.064
 }
 
 declare void @Curl_mime_cleanpart(ptr noundef) local_unnamed_addr #1
@@ -4349,13 +4349,13 @@ define dso_local i32 @Curl_http_bodysend(ptr noundef %0, ptr nocapture noundef r
   br i1 %.not241, label %.thread279, label %.thread291
 
 .thread279:                                       ; preds = %134, %145
-  %.0184283 = phi i64 [ %148, %145 ], [ 0, %134 ]
+  %.0185283 = phi i64 [ %148, %145 ], [ 0, %134 ]
   %149 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull @.str.57, i64 noundef 5) #12
-  %150 = add nsw i64 %.0184283, 5
+  %150 = add nsw i64 %.0185283, 5
   br label %151
 
 151:                                              ; preds = %.thread279, %129
-  %.1185 = phi i64 [ %150, %.thread279 ], [ %133, %129 ]
+  %.1186 = phi i64 [ %150, %.thread279 ], [ %133, %129 ]
   %.2 = phi i32 [ %149, %.thread279 ], [ %132, %129 ]
   %.not242 = icmp eq i32 %.2, 0
   br i1 %.not242, label %152, label %.thread291
@@ -4427,10 +4427,10 @@ define dso_local i32 @Curl_http_bodysend(ptr noundef %0, ptr nocapture noundef r
   br label %182
 
 182:                                              ; preds = %171, %176, %180, %173, %152, %154
-  %.2186 = phi i64 [ 0, %154 ], [ %.1185, %152 ], [ 0, %171 ], [ 0, %176 ], [ 0, %180 ], [ 0, %173 ]
+  %.2187 = phi i64 [ 0, %154 ], [ %.1186, %152 ], [ 0, %171 ], [ 0, %176 ], [ 0, %180 ], [ 0, %173 ]
   %183 = load ptr, ptr %6, align 8
   %184 = getelementptr inbounds i8, ptr %0, i64 4976
-  %185 = call i32 @Curl_buffer_send(ptr noundef %2, ptr noundef nonnull %0, ptr noundef %183, ptr noundef nonnull %184, i64 noundef %.2186, i32 noundef 0)
+  %185 = call i32 @Curl_buffer_send(ptr noundef %2, ptr noundef nonnull %0, ptr noundef %183, ptr noundef nonnull %184, i64 noundef %.2187, i32 noundef 0)
   %.not244 = icmp eq i32 %185, 0
   br i1 %.not244, label %187, label %186
 
@@ -4467,8 +4467,8 @@ define dso_local i32 @Curl_http_bodysend(ptr noundef %0, ptr nocapture noundef r
   br label %.thread291
 
 .thread291:                                       ; preds = %.lr.ph, %140, %136, %145, %51, %50, %187, %186, %198, %197, %.thread274, %.thread275, %86, %39, %191, %171, %162, %154, %151, %123, %111, %109, %104, %73, %._crit_edge, %61, %44, %30, %28, %25
-  %.0187 = phi i32 [ %27, %25 ], [ %29, %28 ], [ %31, %30 ], [ %36, %39 ], [ %45, %44 ], [ %63, %61 ], [ %72, %._crit_edge ], [ %74, %73 ], [ %83, %86 ], [ %106, %104 ], [ %110, %109 ], [ %112, %111 ], [ %124, %123 ], [ %.2, %151 ], [ %161, %154 ], [ %163, %162 ], [ %172, %171 ], [ %192, %191 ], [ %196, %197 ], [ 0, %198 ], [ %185, %186 ], [ 0, %187 ], [ %49, %50 ], [ 0, %51 ], [ 0, %.thread274 ], [ 0, %.thread275 ], [ %146, %145 ], [ %139, %136 ], [ %144, %140 ], [ %71, %.lr.ph ]
-  ret i32 %.0187
+  %.0183 = phi i32 [ %27, %25 ], [ %29, %28 ], [ %31, %30 ], [ %36, %39 ], [ %45, %44 ], [ %63, %61 ], [ %72, %._crit_edge ], [ %74, %73 ], [ %83, %86 ], [ %106, %104 ], [ %110, %109 ], [ %112, %111 ], [ %124, %123 ], [ %.2, %151 ], [ %161, %154 ], [ %163, %162 ], [ %172, %171 ], [ %192, %191 ], [ %196, %197 ], [ 0, %198 ], [ %185, %186 ], [ 0, %187 ], [ %49, %50 ], [ 0, %51 ], [ 0, %.thread274 ], [ 0, %.thread275 ], [ %146, %145 ], [ %139, %136 ], [ %144, %140 ], [ %71, %.lr.ph ]
+  ret i32 %.0183
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4586,11 +4586,11 @@ define dso_local i32 @Curl_http_cookies(ptr noundef %0, ptr nocapture noundef re
   br label %10
 
 10:                                               ; preds = %8, %6, %3
-  %.075 = phi ptr [ null, %6 ], [ %9, %8 ], [ null, %3 ]
+  %.071 = phi ptr [ null, %6 ], [ %9, %8 ], [ null, %3 ]
   %11 = getelementptr inbounds i8, ptr %0, i64 2656
   %12 = load ptr, ptr %11, align 8
   %13 = icmp ne ptr %12, null
-  %14 = icmp ne ptr %.075, null
+  %14 = icmp ne ptr %.071, null
   %or.cond = select i1 %13, i1 true, i1 %14
   br i1 %or.cond, label %15, label %93
 
@@ -4652,16 +4652,16 @@ define dso_local i32 @Curl_http_cookies(ptr noundef %0, ptr nocapture noundef re
   br i1 %.not93, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %39, %76
-  %.0120 = phi i64 [ %.1, %76 ], [ 8, %39 ]
-  %.069119 = phi i32 [ %.170, %76 ], [ 0, %39 ]
-  %.172118 = phi ptr [ %77, %76 ], [ %45, %39 ]
-  %47 = getelementptr inbounds i8, ptr %.172118, i64 16
+  %.068120 = phi i64 [ %.1, %76 ], [ 8, %39 ]
+  %.074119 = phi i32 [ %.175, %76 ], [ 0, %39 ]
+  %.179118 = phi ptr [ %77, %76 ], [ %45, %39 ]
+  %47 = getelementptr inbounds i8, ptr %.179118, i64 16
   %48 = load ptr, ptr %47, align 8
   %.not95 = icmp eq ptr %48, null
   br i1 %.not95, label %76, label %49
 
 49:                                               ; preds = %.preheader
-  %.not96 = icmp eq i32 %.069119, 0
+  %.not96 = icmp eq i32 %.074119, 0
   br i1 %.not96, label %50, label %52
 
 50:                                               ; preds = %49
@@ -4675,13 +4675,13 @@ define dso_local i32 @Curl_http_cookies(ptr noundef %0, ptr nocapture noundef re
 
 52:                                               ; preds = %._crit_edge, %49
   %53 = phi ptr [ %.pre, %._crit_edge ], [ %48, %49 ]
-  %54 = getelementptr inbounds i8, ptr %.172118, i64 8
+  %54 = getelementptr inbounds i8, ptr %.179118, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #13
   %57 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #13
   %58 = add i64 %56, 1
   %59 = add i64 %58, %57
-  %60 = add i64 %59, %.0120
+  %60 = add i64 %59, %.068120
   %61 = icmp ugt i64 %60, 8189
   br i1 %61, label %62, label %68
 
@@ -4708,37 +4708,37 @@ define dso_local i32 @Curl_http_cookies(ptr noundef %0, ptr nocapture noundef re
 
 71:                                               ; preds = %68
   %72 = select i1 %.not96, i64 0, i64 2
-  %73 = add i64 %72, %.0120
+  %73 = add i64 %72, %.068120
   %74 = add i64 %73, %59
-  %75 = add nsw i32 %.069119, 1
+  %75 = add nsw i32 %.074119, 1
   br label %76
 
 76:                                               ; preds = %71, %.preheader
-  %.170 = phi i32 [ %75, %71 ], [ %.069119, %.preheader ]
-  %.1 = phi i64 [ %74, %71 ], [ %.0120, %.preheader ]
-  %77 = load ptr, ptr %.172118, align 8
+  %.175 = phi i32 [ %75, %71 ], [ %.074119, %.preheader ]
+  %.1 = phi i64 [ %74, %71 ], [ %.068120, %.preheader ]
+  %77 = load ptr, ptr %.179118, align 8
   %.not94 = icmp eq ptr %77, null
   br i1 %.not94, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %68, %50, %76, %67, %63, %62
-  %.069117 = phi i32 [ %.069119, %62 ], [ %.069119, %63 ], [ %.069119, %67 ], [ %.170, %76 ], [ 0, %50 ], [ %.069119, %68 ]
-  %.379 = phi i32 [ 0, %62 ], [ 0, %63 ], [ 0, %67 ], [ 0, %76 ], [ %51, %50 ], [ %70, %68 ]
-  %.073 = phi i1 [ true, %62 ], [ true, %63 ], [ true, %67 ], [ false, %76 ], [ false, %50 ], [ false, %68 ]
+  %.074117 = phi i32 [ %.074119, %62 ], [ %.074119, %63 ], [ %.074119, %67 ], [ %.175, %76 ], [ 0, %50 ], [ %.074119, %68 ]
+  %.072 = phi i1 [ true, %62 ], [ true, %63 ], [ true, %67 ], [ false, %76 ], [ false, %50 ], [ false, %68 ]
+  %.3 = phi i32 [ 0, %62 ], [ 0, %63 ], [ 0, %67 ], [ 0, %76 ], [ %51, %50 ], [ %70, %68 ]
   tail call void @Curl_cookie_freelist(ptr noundef nonnull %45) #12
   br label %.thread
 
 .thread:                                          ; preds = %15, %16, %.loopexit, %39
-  %.4 = phi i32 [ %.379, %.loopexit ], [ 0, %39 ], [ 0, %16 ], [ 0, %15 ]
-  %.174 = phi i1 [ %.073, %.loopexit ], [ false, %39 ], [ false, %16 ], [ false, %15 ]
-  %.2 = phi i32 [ %.069117, %.loopexit ], [ 0, %39 ], [ 0, %16 ], [ 0, %15 ]
-  %78 = icmp eq ptr %.075, null
+  %.276 = phi i32 [ %.074117, %.loopexit ], [ 0, %39 ], [ 0, %16 ], [ 0, %15 ]
+  %.173 = phi i1 [ %.072, %.loopexit ], [ false, %39 ], [ false, %16 ], [ false, %15 ]
+  %.4 = phi i32 [ %.3, %.loopexit ], [ 0, %39 ], [ 0, %16 ], [ 0, %15 ]
+  %78 = icmp eq ptr %.071, null
   %79 = icmp ne i32 %.4, 0
-  %80 = or i1 %79, %.174
+  %80 = or i1 %.173, %79
   %brmerge = or i1 %78, %80
   br i1 %brmerge, label %87, label %81
 
 81:                                               ; preds = %.thread
-  %.not101 = icmp eq i32 %.2, 0
+  %.not101 = icmp eq i32 %.276, 0
   br i1 %.not101, label %82, label %.thread106
 
 82:                                               ; preds = %81
@@ -4748,14 +4748,14 @@ define dso_local i32 @Curl_http_cookies(ptr noundef %0, ptr nocapture noundef re
 
 .thread106:                                       ; preds = %81, %82
   %84 = phi ptr [ @.str.67, %81 ], [ @.str.14, %82 ]
-  %85 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %2, ptr noundef nonnull @.str.68, ptr noundef nonnull %84, ptr noundef nonnull %.075) #12
-  %86 = add nsw i32 %.2, 1
+  %85 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %2, ptr noundef nonnull @.str.68, ptr noundef nonnull %84, ptr noundef nonnull %.071) #12
+  %86 = add nsw i32 %.276, 1
   br label %87
 
 87:                                               ; preds = %.thread, %.thread106
+  %.377 = phi i32 [ %.276, %.thread ], [ %86, %.thread106 ]
   %.6 = phi i32 [ %.4, %.thread ], [ %85, %.thread106 ]
-  %.3 = phi i32 [ %.2, %.thread ], [ %86, %.thread106 ]
-  %88 = icmp eq i32 %.3, 0
+  %88 = icmp eq i32 %.377, 0
   %89 = icmp ne i32 %.6, 0
   %or.cond5 = select i1 %88, i1 true, i1 %89
   br i1 %or.cond5, label %92, label %90
@@ -4773,8 +4773,8 @@ define dso_local i32 @Curl_http_cookies(ptr noundef %0, ptr nocapture noundef re
   br label %.thread113
 
 .thread113:                                       ; preds = %82, %92, %93
-  %.068 = phi i32 [ 0, %93 ], [ %.7, %92 ], [ %83, %82 ]
-  ret i32 %.068
+  %.0 = phi i32 [ 0, %93 ], [ %.7, %92 ], [ %83, %82 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -4945,8 +4945,8 @@ define dso_local range(i32 0, 27) i32 @Curl_http_resume(ptr noundef %0, ptr noca
 
 25:                                               ; preds = %.preheader, %39
   %26 = phi i64 [ %40, %39 ], [ %.pre, %.preheader ]
-  %.0 = phi i64 [ %36, %39 ], [ 0, %.preheader ]
-  %27 = sub nsw i64 %26, %.0
+  %.039 = phi i64 [ %36, %39 ], [ 0, %.preheader ]
+  %27 = sub nsw i64 %26, %.039
   %28 = icmp sgt i64 %27, 4096
   br i1 %28, label %31, label %29
 
@@ -4959,7 +4959,7 @@ define dso_local range(i32 0, 27) i32 @Curl_http_resume(ptr noundef %0, ptr noca
   %33 = load ptr, ptr %22, align 8
   %34 = load ptr, ptr %23, align 8
   %35 = call i64 %33(ptr noundef nonnull %4, i64 noundef 1, i64 noundef %32, ptr noundef %34) #12
-  %36 = add i64 %35, %.0
+  %36 = add i64 %35, %.039
   %37 = add i64 %35, -1
   %or.cond.not = icmp ult i64 %37, %32
   br i1 %or.cond.not, label %39, label %38
@@ -4991,8 +4991,8 @@ define dso_local range(i32 0, 27) i32 @Curl_http_resume(ptr noundef %0, ptr noca
   br label %50
 
 50:                                               ; preds = %.thread, %5, %.loopexit, %45, %10, %3, %49, %38, %24
-  %.039 = phi i32 [ 26, %24 ], [ 26, %38 ], [ 18, %49 ], [ 0, %3 ], [ 0, %10 ], [ 0, %45 ], [ 0, %.loopexit ], [ 0, %5 ], [ 0, %.thread ]
-  ret i32 %.039
+  %.0 = phi i32 [ 26, %24 ], [ 26, %38 ], [ 18, %49 ], [ 0, %3 ], [ 0, %10 ], [ 0, %45 ], [ 0, %.loopexit ], [ 0, %5 ], [ 0, %.thread ]
+  ret i32 %.0
 }
 
 declare void @Curl_set_in_callback(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -6182,14 +6182,14 @@ define dso_local i32 @Curl_http_write_resp_hds(ptr noundef %0, ptr noundef %1, i
   br i1 %.not21.i.i.i, label %checkprotoprefix.exit.i, label %.lr.ph.i.i.i
 
 78:                                               ; preds = %.lr.ph.i.i.i
-  %79 = getelementptr inbounds i8, ptr %.01222.i.i.i, i64 8
-  %.012.i.i.i = load ptr, ptr %79, align 8
-  %.not.i.i.i = icmp eq ptr %.012.i.i.i, null
+  %79 = getelementptr inbounds i8, ptr %.022.i.i.i, i64 8
+  %.0.i.i.i = load ptr, ptr %79, align 8
+  %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not.i.i.i, label %checkprotoprefix.exit.i, label %.lr.ph.i.i.i, !llvm.loop !29
 
 .lr.ph.i.i.i:                                     ; preds = %74, %78
-  %.01222.i.i.i = phi ptr [ %.012.i.i.i, %78 ], [ %.val496.i, %74 ]
-  %80 = load ptr, ptr %.01222.i.i.i, align 8
+  %.022.i.i.i = phi ptr [ %.0.i.i.i, %78 ], [ %.val496.i, %74 ]
+  %80 = load ptr, ptr %.022.i.i.i, align 8
   %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #13
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %81, i64 %76)
   %82 = tail call i32 @curl_strnequal(ptr noundef %80, ptr noundef %75, i64 noundef %..i.i.i.i) #12
@@ -6408,11 +6408,11 @@ Curl_http_size.exit.thread.i:                     ; preds = %167, %162, %161, %1
   %169 = load i32, ptr %20, align 8
   %170 = and i32 %169, 64
   %.not438.i = icmp eq i32 %170, 0
-  %.pre761.i = load i32, ptr %17, align 8
+  %.pre763.i = load i32, ptr %17, align 8
   br i1 %.not438.i, label %.thread.i, label %171
 
 171:                                              ; preds = %Curl_http_size.exit.thread.i
-  switch i32 %.pre761.i, label %.thread.i [
+  switch i32 %.pre763.i, label %.thread.i [
     i32 401, label %172
     i32 407, label %175
   ]
@@ -6439,14 +6439,14 @@ Curl_http_size.exit.thread.i:                     ; preds = %167, %162, %161, %1
   br label %182
 
 182:                                              ; preds = %181, %178
-  %.pre.i = phi i32 [ %.pre761.i, %178 ], [ %.pre.pre.i, %181 ]
+  %.pre.i = phi i32 [ %.pre763.i, %178 ], [ %.pre.pre.i, %181 ]
   %183 = load i32, ptr %31, align 4
   %184 = or i32 %183, 32
   store i32 %184, ptr %31, align 4
   br label %.thread.i
 
 .thread.i:                                        ; preds = %182, %175, %172, %171, %Curl_http_size.exit.thread.i
-  %185 = phi i32 [ %.pre761.i, %171 ], [ 401, %172 ], [ %.pre.i, %182 ], [ 407, %175 ], [ %.pre761.i, %Curl_http_size.exit.thread.i ]
+  %185 = phi i32 [ %.pre763.i, %171 ], [ 401, %172 ], [ %.pre.i, %182 ], [ 407, %175 ], [ %.pre763.i, %Curl_http_size.exit.thread.i ]
   %.off441.i = add i32 %185, -100
   %186 = icmp ult i32 %.off441.i, 100
   %187 = select i1 %186, i32 36, i32 4
@@ -6520,7 +6520,7 @@ Curl_bump_headersize.exit.i:                      ; preds = %select.unfold.i.i, 
   %219 = icmp eq i8 %218, 0
   %220 = icmp eq i32 %211, 416
   %or.cond.i500.i = select i1 %219, i1 %220, i1 false
-  br i1 %or.cond.i500.i, label %.thread530.i, label %221
+  br i1 %or.cond.i500.i, label %.thread532.i, label %221
 
 221:                                              ; preds = %217, %215
   switch i32 %211, label %http_should_fail.exit.thread.i [
@@ -6544,8 +6544,8 @@ Curl_bump_headersize.exit.i:                      ; preds = %select.unfold.i.i, 
 http_should_fail.exit.i:                          ; preds = %224, %222
   %229 = load i32, ptr %31, align 4
   %230 = and i32 %229, 32
-  %.not568.i = icmp eq i32 %230, 0
-  br i1 %.not568.i, label %.thread530.i, label %http_should_fail.exit.thread.i
+  %.not570.i = icmp eq i32 %230, 0
+  br i1 %.not570.i, label %.thread532.i, label %http_should_fail.exit.thread.i
 
 http_should_fail.exit.thread.i:                   ; preds = %http_should_fail.exit.i, %224, %222, %221
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, i32 noundef %211) #12
@@ -6554,20 +6554,20 @@ http_should_fail.exit.thread.i:                   ; preds = %http_should_fail.ex
 231:                                              ; preds = %210
   %232 = add i32 %211, -100
   %or.cond474.i = icmp ult i32 %232, 100
-  br i1 %or.cond474.i, label %233, label %.thread530.i
+  br i1 %or.cond474.i, label %233, label %.thread532.i
 
 233:                                              ; preds = %231
   %234 = load i32, ptr %34, align 8
-  br label %.thread530.i
+  br label %.thread532.i
 
-.thread530.i:                                     ; preds = %233, %231, %http_should_fail.exit.i, %217
+.thread532.i:                                     ; preds = %233, %231, %http_should_fail.exit.i, %217
   %235 = phi i32 [ %234, %233 ], [ 0, %231 ], [ 0, %217 ], [ 0, %http_should_fail.exit.i ]
   store i32 %235, ptr %37, align 8
   %236 = tail call i32 @Curl_http_auth_act(ptr noundef nonnull %0)
   %.not444.i = icmp eq i32 %236, 0
   br i1 %.not444.i, label %237, label %http_rw_headers.exit.thread
 
-237:                                              ; preds = %.thread530.i
+237:                                              ; preds = %.thread532.i
   %238 = load i32, ptr %17, align 8
   %239 = icmp sgt i32 %238, 299
   br i1 %239, label %240, label %311
@@ -6778,9 +6778,9 @@ http_should_fail.exit.thread.i:                   ; preds = %http_should_fail.ex
 330:                                              ; preds = %329
   %331 = tail call i32 @Curl_http2_upgrade(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef 0, ptr noundef %70, i64 noundef %69) #12
   %.not469.i = icmp eq i32 %331, 0
-  br i1 %.not469.i, label %.thread557.i, label %http_rw_headers.exit.thread
+  br i1 %.not469.i, label %.thread559.i, label %http_rw_headers.exit.thread
 
-.thread557.i:                                     ; preds = %330
+.thread559.i:                                     ; preds = %330
   %332 = load i64, ptr %3, align 8
   %333 = add i64 %332, %69
   store i64 %333, ptr %3, align 8
@@ -6799,9 +6799,9 @@ http_should_fail.exit.thread.i:                   ; preds = %http_should_fail.ex
   %340 = load i32, ptr %339, align 4
   %341 = and i32 %340, 3
   %.not408.i = icmp eq i32 %341, 0
-  br i1 %.not408.i, label %450, label %.preheader573.i
+  br i1 %.not408.i, label %450, label %.preheader575.i
 
-.preheader573.i:                                  ; preds = %337, %.critedge2.i
+.preheader575.i:                                  ; preds = %337, %.critedge2.i
   %.0347.i = phi ptr [ %343, %.critedge2.i ], [ %94, %337 ]
   %342 = load i8, ptr %.0347.i, align 1
   switch i8 %342, label %.critedge.i [
@@ -6809,11 +6809,11 @@ http_should_fail.exit.thread.i:                   ; preds = %http_should_fail.ex
     i8 32, label %.critedge2.i
   ]
 
-.critedge2.i:                                     ; preds = %.preheader573.i, %.preheader573.i
+.critedge2.i:                                     ; preds = %.preheader575.i, %.preheader575.i
   %343 = getelementptr inbounds i8, ptr %.0347.i, i64 1
-  br label %.preheader573.i, !llvm.loop !30
+  br label %.preheader575.i, !llvm.loop !30
 
-.critedge.i:                                      ; preds = %.preheader573.i
+.critedge.i:                                      ; preds = %.preheader575.i
   %344 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0347.i, ptr noundef nonnull dereferenceable(6) @.str.157, i64 noundef 5) #13
   %.not415.i = icmp eq i32 %344, 0
   br i1 %.not415.i, label %345, label %438
@@ -6875,8 +6875,8 @@ http_should_fail.exit.thread.i:                   ; preds = %http_should_fail.ex
   %374 = zext nneg i8 %364 to i32
   %375 = mul nuw nsw i32 %374, 100
   %376 = mul i8 %367, 10
-  %narrow570.i = add nsw i8 %376, 32
-  %377 = zext nneg i8 %narrow570.i to i32
+  %narrow572.i = add nsw i8 %376, 32
+  %377 = zext nneg i8 %narrow572.i to i32
   %378 = add nuw nsw i32 %375, %377
   %379 = zext nneg i8 %372 to i32
   %380 = add nuw nsw i32 %378, %379
@@ -6933,8 +6933,8 @@ http_should_fail.exit.thread.i:                   ; preds = %http_should_fail.ex
   %405 = zext nneg i8 %395 to i32
   %406 = mul nuw nsw i32 %405, 100
   %407 = mul i8 %398, 10
-  %narrow569.i = add nsw i8 %407, 32
-  %408 = zext nneg i8 %narrow569.i to i32
+  %narrow571.i = add nsw i8 %407, 32
+  %408 = zext nneg i8 %narrow571.i to i32
   %409 = add nuw nsw i32 %406, %408
   %410 = zext nneg i8 %403 to i32
   %411 = add nuw nsw i32 %409, %410
@@ -6984,13 +6984,13 @@ http_should_fail.exit.thread.i:                   ; preds = %http_should_fail.ex
   %427 = udiv i8 %.lhs.trunc.i, 10
   %.zext.i = zext nneg i8 %427 to i32
   %428 = urem i8 %.lhs.trunc.i, 10
-  %.zext567.i = zext nneg i8 %428 to i32
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.161, i32 noundef %.zext.i, i32 noundef %.zext567.i) #12
+  %.zext569.i = zext nneg i8 %428 to i32
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.161, i32 noundef %.zext.i, i32 noundef %.zext569.i) #12
   br label %http_rw_headers.exit.thread
 
 429:                                              ; preds = %422
-  %.not571.i = icmp eq i32 %.1.ph.i, 20
-  br i1 %.not571.i, label %thread-pre-split.thread.i, label %430
+  %.not573.i = icmp eq i32 %.1.ph.i, 20
+  br i1 %.not573.i, label %thread-pre-split.thread.i, label %430
 
 430:                                              ; preds = %429
   %431 = load i64, ptr %24, align 2
@@ -7017,24 +7017,24 @@ thread-pre-split.i:                               ; preds = %433, %430, %422
   %439 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %14) #12
   %440 = tail call i64 @Curl_dyn_len(ptr noundef nonnull %14) #12
   %441 = icmp ugt i64 %440, 4
-  %.01220.i.i = load ptr, ptr %16, align 8
-  %.not21.i.i = icmp eq ptr %.01220.i.i, null
+  %.020.i.i = load ptr, ptr %16, align 8
+  %.not21.i.i = icmp eq ptr %.020.i.i, null
   br i1 %.not21.i.i, label %checkhttpprefix.exit.i, label %.lr.ph.i.i
 
 442:                                              ; preds = %.lr.ph.i.i
-  %443 = getelementptr inbounds i8, ptr %.01222.i.i, i64 8
-  %.012.i.i = load ptr, ptr %443, align 8
-  %.not.i505.i = icmp eq ptr %.012.i.i, null
-  br i1 %.not.i505.i, label %checkhttpprefix.exit.i, label %.lr.ph.i.i, !llvm.loop !29
+  %443 = getelementptr inbounds i8, ptr %.022.i503.i, i64 8
+  %.0.i506.i = load ptr, ptr %443, align 8
+  %.not.i507.i = icmp eq ptr %.0.i506.i, null
+  br i1 %.not.i507.i, label %checkhttpprefix.exit.i, label %.lr.ph.i.i, !llvm.loop !29
 
 .lr.ph.i.i:                                       ; preds = %438, %442
-  %.01222.i.i = phi ptr [ %.012.i.i, %442 ], [ %.01220.i.i, %438 ]
-  %444 = load ptr, ptr %.01222.i.i, align 8
+  %.022.i503.i = phi ptr [ %.0.i506.i, %442 ], [ %.020.i.i, %438 ]
+  %444 = load ptr, ptr %.022.i503.i, align 8
   %445 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %444) #13
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %445, i64 %440)
   %446 = tail call i32 @curl_strnequal(ptr noundef %444, ptr noundef %439, i64 noundef %..i.i.i) #12
-  %.not18.i503.i = icmp eq i32 %446, 0
-  br i1 %.not18.i503.i, label %442, label %447
+  %.not18.i504.i = icmp eq i32 %446, 0
+  br i1 %.not18.i504.i, label %442, label %447
 
 447:                                              ; preds = %.lr.ph.i.i
   br i1 %441, label %checkhttpprefix.exit.thread.i, label %checkhttpprefix.exit.i
@@ -7042,8 +7042,8 @@ thread-pre-split.i:                               ; preds = %433, %430, %422
 checkhttpprefix.exit.i:                           ; preds = %442, %447, %438
   %..i14.i.i = tail call i64 @llvm.umin.i64(i64 %440, i64 5)
   %448 = tail call i32 @curl_strnequal(ptr noundef nonnull @.str.157, ptr noundef %439, i64 noundef %..i14.i.i) #12
-  %.not19.i504.i = icmp ne i32 %448, 0
-  %449 = select i1 %.not19.i504.i, i1 %441, i1 false
+  %.not19.i505.i = icmp ne i32 %448, 0
+  %449 = select i1 %.not19.i505.i, i1 %441, i1 false
   br i1 %449, label %checkhttpprefix.exit.thread.i, label %496
 
 checkhttpprefix.exit.thread.i:                    ; preds = %checkhttpprefix.exit.i, %447
@@ -7126,8 +7126,8 @@ checkhttpprefix.exit.thread.i:                    ; preds = %checkhttpprefix.exi
   %483 = zext nneg i8 %473 to i32
   %484 = mul nuw nsw i32 %483, 100
   %485 = mul i8 %476, 10
-  %narrow572.i = add nsw i8 %485, 32
-  %486 = zext nneg i8 %narrow572.i to i32
+  %narrow574.i = add nsw i8 %485, 32
+  %486 = zext nneg i8 %narrow574.i to i32
   %487 = add nuw nsw i32 %484, %486
   %488 = zext nneg i8 %481 to i32
   %489 = add nuw nsw i32 %487, %488
@@ -7163,8 +7163,8 @@ thread-pre-split.thread.i:                        ; preds = %494, %checkhttppref
   %500 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %14) #12
   %501 = tail call i64 @Curl_dyn_len(ptr noundef nonnull %14) #12
   %502 = tail call ptr @memchr(ptr noundef %500, i32 noundef 0, i64 noundef %501) #13
-  %.not.i506.i = icmp eq ptr %502, null
-  br i1 %.not.i506.i, label %504, label %503
+  %.not.i508.i = icmp eq ptr %502, null
+  br i1 %.not.i508.i, label %504, label %503
 
 503:                                              ; preds = %499
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.164) #12
@@ -7183,8 +7183,8 @@ thread-pre-split.thread.i:                        ; preds = %494, %checkhttppref
   ]
 
 509:                                              ; preds = %507, %507
-  %.not17.i508.i = icmp eq i32 %505, 2
-  br i1 %.not17.i508.i, label %510, label %513
+  %.not17.i510.i = icmp eq i32 %505, 2
+  br i1 %.not17.i510.i, label %510, label %513
 
 510:                                              ; preds = %509, %507
   %511 = tail call ptr @memchr(ptr noundef nonnull %500, i32 noundef 58, i64 noundef %501) #13
@@ -7230,36 +7230,36 @@ thread-pre-split.thread.i:                        ; preds = %494, %checkhttppref
   %532 = add i32 %531, %526
   store i32 %532, ptr %34, align 8
   %533 = icmp ugt i32 %530, 307200
-  br i1 %533, label %.thread30.i517.i, label %535
+  br i1 %533, label %.thread30.i519.i, label %535
 
-.thread30.i517.i:                                 ; preds = %525
+.thread30.i519.i:                                 ; preds = %525
   %534 = zext i32 %530 to i64
-  br label %Curl_bump_headersize.exit518.i
+  br label %Curl_bump_headersize.exit520.i
 
 535:                                              ; preds = %525
   %536 = icmp ugt i32 %528, 6144000
   %537 = zext i32 %528 to i64
-  br i1 %536, label %select.unfold.i509.i, label %542
+  br i1 %536, label %select.unfold.i511.i, label %542
 
 538:                                              ; preds = %522
   %539 = load i32, ptr %32, align 4
   %540 = zext i32 %539 to i64
   %541 = add i64 %523, %540
-  br label %select.unfold.i509.i
+  br label %select.unfold.i511.i
 
-select.unfold.i509.i:                             ; preds = %538, %535
-  %.021.i510.i = phi i64 [ %541, %538 ], [ %537, %535 ]
-  %.0.i511.i = phi i32 [ 307200, %538 ], [ 6144000, %535 ]
-  %.not.i512.i = icmp eq i64 %.021.i510.i, 0
-  br i1 %.not.i512.i, label %542, label %Curl_bump_headersize.exit518.i
+select.unfold.i511.i:                             ; preds = %538, %535
+  %.021.i512.i = phi i64 [ %541, %538 ], [ %537, %535 ]
+  %.0.i513.i = phi i32 [ 307200, %538 ], [ 6144000, %535 ]
+  %.not.i514.i = icmp eq i64 %.021.i512.i, 0
+  br i1 %.not.i514.i, label %542, label %Curl_bump_headersize.exit520.i
 
-Curl_bump_headersize.exit518.i:                   ; preds = %select.unfold.i509.i, %.thread30.i517.i
-  %.035.i513.i = phi i32 [ 307200, %.thread30.i517.i ], [ %.0.i511.i, %select.unfold.i509.i ]
-  %.02134.i514.i = phi i64 [ %534, %.thread30.i517.i ], [ %.021.i510.i, %select.unfold.i509.i ]
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.119, i64 noundef %.02134.i514.i, i32 noundef %.035.i513.i) #12
+Curl_bump_headersize.exit520.i:                   ; preds = %select.unfold.i511.i, %.thread30.i519.i
+  %.035.i515.i = phi i32 [ 307200, %.thread30.i519.i ], [ %.0.i513.i, %select.unfold.i511.i ]
+  %.02134.i516.i = phi i64 [ %534, %.thread30.i519.i ], [ %.021.i512.i, %select.unfold.i511.i ]
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.119, i64 noundef %.02134.i516.i, i32 noundef %.035.i515.i) #12
   br label %http_rw_headers.exit.thread
 
-542:                                              ; preds = %select.unfold.i509.i, %535
+542:                                              ; preds = %select.unfold.i511.i, %535
   tail call void @Curl_dyn_reset(ptr noundef nonnull %14) #12
   br label %543
 
@@ -7267,7 +7267,7 @@ Curl_bump_headersize.exit518.i:                   ; preds = %select.unfold.i509.
   %.not470.i = icmp eq i64 %69, 0
   br i1 %.not470.i, label %.loopexit.i, label %43, !llvm.loop !32
 
-.loopexit.i:                                      ; preds = %543, %496, %.thread557.i, %326, %51, %47
+.loopexit.i:                                      ; preds = %543, %496, %.thread559.i, %326, %51, %47
   %544 = load i16, ptr %6, align 1
   %545 = and i16 %544, 1
   %.not471.not.i = icmp eq i16 %545, 0
@@ -7307,8 +7307,8 @@ http_rw_headers.exit:                             ; preds = %546, %.loopexit.i, 
   tail call void @Curl_dyn_free(ptr noundef nonnull %14) #12
   br label %http_rw_headers.exit.thread
 
-http_rw_headers.exit.thread:                      ; preds = %62, %.thread.i, %.thread530.i, %291, %513, %515, %492, %478, %474, %470, %463, %459, %455, %467, %512, %503, %Curl_bump_headersize.exit518.i, %330, %Curl_bump_headersize.exit.i, %Curl_http_size.exit.i, %45, %61, %90, %385, %416, %426, %420, %123, %http_should_fail.exit.thread.i, %http_rw_headers.exit, %560, %9
-  %.019 = phi i32 [ 0, %9 ], [ 0, %http_rw_headers.exit ], [ %.0, %560 ], [ 8, %512 ], [ 8, %503 ], [ 56, %Curl_bump_headersize.exit518.i ], [ %331, %330 ], [ 56, %Curl_bump_headersize.exit.i ], [ 63, %Curl_http_size.exit.i ], [ %46, %45 ], [ 1, %61 ], [ 1, %90 ], [ 1, %385 ], [ 1, %416 ], [ 1, %426 ], [ 1, %420 ], [ 8, %123 ], [ 22, %http_should_fail.exit.thread.i ], [ 8, %467 ], [ 8, %455 ], [ 8, %459 ], [ 8, %463 ], [ 8, %470 ], [ 8, %474 ], [ 8, %478 ], [ 8, %492 ], [ %521, %515 ], [ %514, %513 ], [ %292, %291 ], [ %236, %.thread530.i ], [ %190, %.thread.i ], [ %67, %62 ]
+http_rw_headers.exit.thread:                      ; preds = %62, %.thread.i, %.thread532.i, %291, %513, %515, %492, %478, %474, %470, %463, %459, %455, %467, %512, %503, %Curl_bump_headersize.exit520.i, %330, %Curl_bump_headersize.exit.i, %Curl_http_size.exit.i, %45, %61, %90, %385, %416, %426, %420, %123, %http_should_fail.exit.thread.i, %http_rw_headers.exit, %560, %9
+  %.019 = phi i32 [ 0, %9 ], [ 0, %http_rw_headers.exit ], [ %.0, %560 ], [ 8, %512 ], [ 8, %503 ], [ 56, %Curl_bump_headersize.exit520.i ], [ %331, %330 ], [ 56, %Curl_bump_headersize.exit.i ], [ 63, %Curl_http_size.exit.i ], [ %46, %45 ], [ 1, %61 ], [ 1, %90 ], [ 1, %385 ], [ 1, %416 ], [ 1, %426 ], [ 1, %420 ], [ 8, %123 ], [ 22, %http_should_fail.exit.thread.i ], [ 8, %467 ], [ 8, %455 ], [ 8, %459 ], [ 8, %463 ], [ 8, %470 ], [ 8, %474 ], [ 8, %478 ], [ 8, %492 ], [ %521, %515 ], [ %514, %513 ], [ %292, %291 ], [ %236, %.thread532.i ], [ %190, %.thread.i ], [ %67, %62 ]
   ret i32 %.019
 }
 
@@ -7321,7 +7321,7 @@ define dso_local range(i32 0, 44) i32 @Curl_http_decode_status(ptr nocapture nou
 
 .preheader:                                       ; preds = %3, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %3 ]
-  %.01519 = phi i32 [ %11, %7 ], [ 0, %3 ]
+  %.01619 = phi i32 [ %11, %7 ], [ 0, %3 ]
   %4 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %6 = add i8 %5, -58
@@ -7330,7 +7330,7 @@ define dso_local range(i32 0, 44) i32 @Curl_http_decode_status(ptr nocapture nou
 
 7:                                                ; preds = %.preheader
   %8 = zext nneg i8 %5 to i32
-  %9 = mul nsw i32 %.01519, 10
+  %9 = mul nsw i32 %.01619, 10
   %10 = add i32 %9, -48
   %11 = add i32 %10, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7339,9 +7339,9 @@ define dso_local range(i32 0, 44) i32 @Curl_http_decode_status(ptr nocapture nou
 
 .loopexit:                                        ; preds = %7, %.preheader, %3
   %.not18 = phi i32 [ -1, %3 ], [ %11, %7 ], [ -1, %.preheader ]
-  %.016 = phi i32 [ 43, %3 ], [ 0, %7 ], [ 43, %.preheader ]
+  %.0 = phi i32 [ 43, %3 ], [ 0, %7 ], [ 43, %.preheader ]
   store i32 %.not18, ptr %0, align 4
-  ret i32 %.016
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8048,14 +8048,14 @@ define internal fastcc range(i32 0, 3) i32 @checkprotoprefix(ptr readonly %.1696
   br i1 %.not21.i, label %.thread.i, label %.lr.ph.i
 
 5:                                                ; preds = %.lr.ph.i
-  %6 = getelementptr inbounds i8, ptr %.01222.i, i64 8
-  %.012.i = load ptr, ptr %6, align 8
-  %.not.i = icmp eq ptr %.012.i, null
+  %6 = getelementptr inbounds i8, ptr %.022.i, i64 8
+  %.0.i = load ptr, ptr %6, align 8
+  %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !29
 
 .lr.ph.i:                                         ; preds = %2, %5
-  %.01222.i = phi ptr [ %.012.i, %5 ], [ %.1696.val, %2 ]
-  %7 = load ptr, ptr %.01222.i, align 8
+  %.022.i = phi ptr [ %.0.i, %5 ], [ %.1696.val, %2 ]
+  %7 = load ptr, ptr %.022.i, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #13
   %..i.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %1)
   %9 = tail call i32 @curl_strnequal(ptr noundef %7, ptr noundef %0, i64 noundef %..i.i) #12
@@ -8066,11 +8066,11 @@ define internal fastcc range(i32 0, 3) i32 @checkprotoprefix(ptr readonly %.1696
   br i1 %3, label %checkhttpprefix.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %5, %10, %2
-  %.017.i = phi i32 [ 0, %10 ], [ 2, %2 ], [ 2, %5 ]
+  %.01217.i = phi i32 [ 0, %10 ], [ 2, %2 ], [ 2, %5 ]
   %..i14.i = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
   %11 = tail call i32 @curl_strnequal(ptr noundef nonnull @.str.157, ptr noundef %0, i64 noundef %..i14.i) #12
   %.not19.i = icmp eq i32 %11, 0
-  %spec.select.i = select i1 %.not19.i, i32 %.017.i, i32 %4
+  %spec.select.i = select i1 %.not19.i, i32 %.01217.i, i32 %4
   br label %checkhttpprefix.exit
 
 checkhttpprefix.exit:                             ; preds = %10, %.thread.i

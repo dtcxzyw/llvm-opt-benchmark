@@ -189,8 +189,8 @@ define range(i32 0, 2) i32 @Aig_ManVerifyTopoOrder(ptr noundef %0) local_unnamed
   br label %85
 
 85:                                               ; preds = %.critedge, %75, %52, %38, %26
-  %.050 = phi i32 [ 0, %38 ], [ 0, %26 ], [ 0, %52 ], [ 0, %75 ], [ 1, %.critedge ]
-  ret i32 %.050
+  %.0 = phi i32 [ 0, %38 ], [ 0, %26 ], [ 0, %52 ], [ 0, %75 ], [ 1, %.critedge ]
+  ret i32 %.0
 }
 
 declare void @Aig_ManSetCioIds(ptr noundef) local_unnamed_addr #1
@@ -2499,7 +2499,7 @@ Abc_Clock.exit:                                   ; preds = %1, %7
 .lr.ph:                                           ; preds = %Abc_Clock.exit, %30
   %15 = phi ptr [ %31, %30 ], [ %12, %Abc_Clock.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %Abc_Clock.exit ]
-  %.025 = phi i32 [ %.1, %30 ], [ 0, %Abc_Clock.exit ]
+  %.01324 = phi i32 [ %.1, %30 ], [ 0, %Abc_Clock.exit ]
   %16 = getelementptr i8, ptr %15, i64 8
   %.val15 = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds ptr, ptr %.val15, i64 %indvars.iv
@@ -2525,13 +2525,13 @@ Abc_Clock.exit:                                   ; preds = %1, %7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %27 = icmp slt i32 %26, 17
   %28 = zext i1 %27 to i32
-  %29 = add nsw i32 %.025, %28
+  %29 = add nsw i32 %.01324, %28
   %.pre = load ptr, ptr %11, align 8
   br label %30
 
 30:                                               ; preds = %.lr.ph, %25, %20
   %31 = phi ptr [ %15, %.lr.ph ], [ %.pre, %25 ], [ %15, %20 ]
-  %.1 = phi i32 [ %.025, %.lr.ph ], [ %29, %25 ], [ %.025, %20 ]
+  %.1 = phi i32 [ %.01324, %.lr.ph ], [ %29, %25 ], [ %.01324, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = getelementptr i8, ptr %31, i64 4
   %.val = load i32, ptr %32, align 4
@@ -2540,13 +2540,13 @@ Abc_Clock.exit:                                   ; preds = %1, %7
   br i1 %34, label %.lr.ph, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %30, %Abc_Clock.exit
-  %.0.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1, %30 ]
+  %.013.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1, %30 ]
   %35 = getelementptr i8, ptr %0, i64 148
   %.val17 = load i32, ptr %35, align 4
   %36 = getelementptr i8, ptr %0, i64 152
   %.val18 = load i32, ptr %36, align 8
   %37 = add nsw i32 %.val18, %.val17
-  %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0.lcssa, i32 noundef %37)
+  %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.013.lcssa, i32 noundef %37)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %39 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #14
   %40 = icmp slt i32 %39, 0
@@ -2569,7 +2569,7 @@ Abc_Clock.exit20:                                 ; preds = %.critedge, %41
   %49 = sitofp i64 %48 to double
   %50 = fdiv double %49, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %50)
-  ret i32 %.0.lcssa
+  ret i32 %.013.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

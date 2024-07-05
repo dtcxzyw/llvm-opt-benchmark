@@ -632,8 +632,8 @@ define void @_ZNK5faiss5Index22search_and_reconstructElPKflPfPlS3_PKNS_16SearchP
   br label %34
 
 34:                                               ; preds = %.preheader.us, %49
-  %.02733.us = phi i64 [ 0, %.preheader.us ], [ %50, %49 ]
-  %35 = add nuw nsw i64 %.02733.us, %33
+  %.02933.us = phi i64 [ 0, %.preheader.us ], [ %50, %49 ]
+  %35 = add nuw nsw i64 %.02933.us, %33
   %36 = getelementptr inbounds i64, ptr %5, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = load i32, ptr %32, align 8
@@ -656,7 +656,7 @@ define void @_ZNK5faiss5Index22search_and_reconstructElPKflPfPlS3_PKNS_16SearchP
   br label %49
 
 49:                                               ; preds = %47, %43
-  %50 = add nuw nsw i64 %.02733.us, 1
+  %50 = add nuw nsw i64 %.02933.us, 1
   %exitcond.not = icmp eq i64 %50, %3
   br i1 %exitcond.not, label %._crit_edge.us, label %34, !llvm.loop !8
 

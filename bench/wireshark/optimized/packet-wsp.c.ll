@@ -1762,13 +1762,13 @@ define hidden i32 @add_content_type(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %72
 
 72:                                               ; preds = %.thread, %65
-  %.0129155 = phi i32 [ 1, %65 ], [ 0, %.thread ]
-  %.0136154 = phi ptr [ %67, %65 ], [ null, %.thread ]
-  %.0133 = phi i32 [ %69, %65 ], [ %53, %.thread ]
-  %.0 = phi ptr [ %71, %65 ], [ null, %.thread ]
+  %.0130155 = phi i32 [ 1, %65 ], [ 0, %.thread ]
+  %.0133154 = phi ptr [ %67, %65 ], [ null, %.thread ]
+  %.0135 = phi i32 [ %69, %65 ], [ %53, %.thread ]
+  %.0129 = phi ptr [ %71, %65 ], [ null, %.thread ]
   %73 = getelementptr inbounds i8, ptr %1, i64 408
   %74 = load ptr, ptr %73, align 8
-  %75 = call noalias ptr @wmem_strdup(ptr noundef %74, ptr noundef %.0136154) #4
+  %75 = call noalias ptr @wmem_strdup(ptr noundef %74, ptr noundef %.0133154) #4
   store ptr %75, ptr %5, align 8
   store i32 0, ptr %4, align 4
   br label %107
@@ -1825,31 +1825,31 @@ define hidden i32 @add_content_type(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 99:                                               ; preds = %80, %83, %87, %91, %94
   %100 = phi i32 [ 5, %94 ], [ 4, %91 ], [ 3, %87 ], [ 2, %83 ], [ 1, %80 ]
-  %.0132.ph = phi i32 [ %96, %94 ], [ %93, %91 ], [ %90, %87 ], [ %86, %83 ], [ %81, %80 ]
+  %.0134.ph = phi i32 [ %96, %94 ], [ %93, %91 ], [ %90, %87 ], [ %86, %83 ], [ %81, %80 ]
   store i32 %100, ptr %9, align 4
-  %101 = call ptr @val_to_str_ext(i32 noundef %.0132.ph, ptr noundef nonnull @vals_content_types_ext, ptr noundef nonnull @.str.4) #4
+  %101 = call ptr @val_to_str_ext(i32 noundef %.0134.ph, ptr noundef nonnull @vals_content_types_ext, ptr noundef nonnull @.str.4) #4
   store ptr %101, ptr %5, align 8
   %102 = load i32, ptr @hf_hdr_content_type, align 4
   %103 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %102, ptr noundef %2, i32 noundef %3, i32 noundef %51, ptr noundef %101) #4
-  store i32 %.0132.ph, ptr %4, align 4
+  store i32 %.0134.ph, ptr %4, align 4
   br label %104
 
 104:                                              ; preds = %97, %99
   %105 = phi i32 [ %100, %99 ], [ %98, %97 ]
-  %.1130162 = phi i32 [ 1, %99 ], [ 0, %97 ]
+  %.1131162 = phi i32 [ 1, %99 ], [ 0, %97 ]
   %.1 = phi ptr [ %103, %99 ], [ null, %97 ]
   %106 = add i32 %105, %53
   br label %107
 
 107:                                              ; preds = %104, %72
-  %.1134 = phi i32 [ %.0133, %72 ], [ %106, %104 ]
-  %.2131 = phi i32 [ %.0129155, %72 ], [ %.1130162, %104 ]
-  %.2 = phi ptr [ %.0, %72 ], [ %.1, %104 ]
-  %.not146 = icmp eq i32 %.2131, 0
+  %.1136 = phi i32 [ %.0135, %72 ], [ %106, %104 ]
+  %.2132 = phi i32 [ %.0130155, %72 ], [ %.1131162, %104 ]
+  %.2 = phi ptr [ %.0129, %72 ], [ %.1, %104 ]
+  %.not146 = icmp eq i32 %.2132, 0
   br i1 %.not146, label %.thread163, label %108
 
 108:                                              ; preds = %107
-  %109 = icmp ult i32 %.1134, %52
+  %109 = icmp ult i32 %.1136, %52
   br i1 %109, label %110, label %.thread169
 
 110:                                              ; preds = %108
@@ -1858,9 +1858,9 @@ define hidden i32 @add_content_type(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %113
 
 113:                                              ; preds = %110, %113
-  %.2135173 = phi i32 [ %.1134, %110 ], [ %115, %113 ]
-  %114 = sub i32 %52, %.2135173
-  %115 = call fastcc i32 @parameter(ptr noundef %112, ptr noundef %1, ptr noundef %.2, ptr noundef %2, i32 noundef %.2135173, i32 noundef %114)
+  %.2137173 = phi i32 [ %.1136, %110 ], [ %115, %113 ]
+  %114 = sub i32 %52, %.2137173
+  %115 = call fastcc i32 @parameter(ptr noundef %112, ptr noundef %1, ptr noundef %.2, ptr noundef %2, i32 noundef %.2137173, i32 noundef %114)
   %116 = icmp ult i32 %115, %52
   br i1 %116, label %113, label %.thread169, !llvm.loop !4
 
@@ -1870,8 +1870,8 @@ define hidden i32 @add_content_type(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread169
 
 .thread169:                                       ; preds = %113, %108, %39, %16, %.thread163
-  %.0137172 = phi i32 [ %52, %.thread163 ], [ %52, %108 ], [ %29, %39 ], [ %17, %16 ], [ %52, %113 ]
-  ret i32 %.0137172
+  %.0172 = phi i32 [ %52, %.thread163 ], [ %52, %108 ], [ %29, %39 ], [ %17, %16 ], [ %52, %113 ]
+  ret i32 %.0172
 }
 
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -2711,11 +2711,11 @@ define hidden void @add_post_data(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %29
 
 25:                                               ; preds = %.lr.ph
-  %.not59 = icmp eq i32 %.05261, 0
+  %.not59 = icmp eq i32 %.05460, 0
   br i1 %.not59, label %27, label %26
 
 26:                                               ; preds = %25
-  tail call fastcc void @add_post_variable(ptr noundef %13, ptr noundef %1, i32 noundef %.05460, i32 noundef %.05261, i32 noundef %.05162, i32 noundef %.063)
+  tail call fastcc void @add_post_variable(ptr noundef %13, ptr noundef %1, i32 noundef %.05162, i32 noundef %.05460, i32 noundef %.05261, i32 noundef %.063)
   br label %27
 
 27:                                               ; preds = %26, %25
@@ -2724,19 +2724,19 @@ define hidden void @add_post_data(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 29:                                               ; preds = %.lr.ph._crit_edge, %23, %27
   %.pre-phi = phi i32 [ %.pre, %.lr.ph._crit_edge ], [ %24, %23 ], [ %28, %27 ]
-  %.155 = phi i32 [ %.05460, %.lr.ph._crit_edge ], [ %.05460, %23 ], [ %28, %27 ]
-  %.153 = phi i32 [ %.05261, %.lr.ph._crit_edge ], [ %.063, %23 ], [ 0, %27 ]
-  %.1 = phi i32 [ %.05162, %.lr.ph._crit_edge ], [ %24, %23 ], [ 0, %27 ]
+  %.155 = phi i32 [ %.05460, %.lr.ph._crit_edge ], [ %.063, %23 ], [ 0, %27 ]
+  %.153 = phi i32 [ %.05261, %.lr.ph._crit_edge ], [ %24, %23 ], [ 0, %27 ]
+  %.1 = phi i32 [ %.05162, %.lr.ph._crit_edge ], [ %.05162, %23 ], [ %28, %27 ]
   %30 = tail call i32 @tvb_reported_length(ptr noundef %1) #4
   %31 = icmp ult i32 %.pre-phi, %30
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %29
-  %.not58 = icmp eq i32 %.153, 0
+  %.not58 = icmp eq i32 %.155, 0
   br i1 %.not58, label %._crit_edge.thread, label %32
 
 32:                                               ; preds = %._crit_edge
-  tail call fastcc void @add_post_variable(ptr noundef %13, ptr noundef %1, i32 noundef %.155, i32 noundef %.153, i32 noundef %.1, i32 noundef %.pre-phi)
+  tail call fastcc void @add_post_variable(ptr noundef %13, ptr noundef %1, i32 noundef %.1, i32 noundef %.155, i32 noundef %.153, i32 noundef %.pre-phi)
   br label %._crit_edge.thread
 
 33:                                               ; preds = %17, %16
@@ -3568,17 +3568,17 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
   br label %16
 
 16:                                               ; preds = %11, %proto_item_set_hidden.exit
-  %.0122151 = phi ptr [ %12, %11 ], [ %.4126, %proto_item_set_hidden.exit ]
-  %.0127150 = phi i32 [ 0, %11 ], [ %.2129, %proto_item_set_hidden.exit ]
-  %.0130149 = phi i8 [ 1, %11 ], [ %.1131, %proto_item_set_hidden.exit ]
-  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0127150) #4
+  %.0122151 = phi i8 [ 1, %11 ], [ %.1123, %proto_item_set_hidden.exit ]
+  %.0124150 = phi ptr [ %12, %11 ], [ %.4128, %proto_item_set_hidden.exit ]
+  %.0129149 = phi i32 [ 0, %11 ], [ %.2131, %proto_item_set_hidden.exit ]
+  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0129149) #4
   %18 = zext i8 %17 to i32
   %.not = icmp sgt i8 %17, -1
   br i1 %.not, label %35, label %19
 
 19:                                               ; preds = %16
   store i32 1, ptr %5, align 4
-  %20 = icmp eq i8 %.0130149, 1
+  %20 = icmp eq i8 %.0122151, 1
   %21 = and i32 %18, 127
   %22 = zext nneg i32 %21 to i64
   br i1 %20, label %23, label %29
@@ -3586,23 +3586,23 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
 23:                                               ; preds = %19
   %24 = getelementptr [128 x ptr], ptr @WellKnownHeader, i64 0, i64 %22
   %25 = load ptr, ptr %24, align 8
-  %26 = call i32 %25(ptr noundef %14, ptr noundef %1, i32 noundef %.0127150, ptr noundef %3) #4
-  %.not143 = icmp slt i32 %.0127150, %26
+  %26 = call i32 %25(ptr noundef %14, ptr noundef %1, i32 noundef %.0129149, ptr noundef %3) #4
+  %.not143 = icmp slt i32 %.0129149, %26
   br i1 %.not143, label %proto_item_set_hidden.exit, label %27
 
 27:                                               ; preds = %23
-  %28 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %.0122151, ptr noundef nonnull @ei_wsp_header_invalid) #4
+  %28 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %.0124150, ptr noundef nonnull @ei_wsp_header_invalid) #4
   br label %.loopexit
 
 29:                                               ; preds = %19
   %30 = getelementptr [128 x ptr], ptr @WellKnownOpenwaveHeader, i64 0, i64 %22
   %31 = load ptr, ptr %30, align 8
-  %32 = call i32 %31(ptr noundef %14, ptr noundef %1, i32 noundef %.0127150, ptr noundef %3) #4
-  %.not142 = icmp slt i32 %.0127150, %32
+  %32 = call i32 %31(ptr noundef %14, ptr noundef %1, i32 noundef %.0129149, ptr noundef %3) #4
+  %.not142 = icmp slt i32 %.0129149, %32
   br i1 %.not142, label %proto_item_set_hidden.exit, label %33
 
 33:                                               ; preds = %29
-  %34 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %.0122151, ptr noundef nonnull @ei_wsp_header_invalid) #4
+  %34 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %.0124150, ptr noundef nonnull @ei_wsp_header_invalid) #4
   br label %.loopexit
 
 35:                                               ; preds = %16
@@ -3610,12 +3610,12 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %36, label %37, label %44
 
 37:                                               ; preds = %35
-  %38 = add nsw i32 %.0127150, 1
+  %38 = add nsw i32 %.0129149, 1
   %39 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %38) #4
   %40 = load i32, ptr @hf_wsp_header_shift_code, align 4
   %41 = zext i8 %39 to i32
-  %42 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %40, ptr noundef %1, i32 noundef %.0127150, i32 noundef 2, i32 noundef %41) #4
-  %43 = add i32 %.0127150, 2
+  %42 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %40, ptr noundef %1, i32 noundef %.0129149, i32 noundef 2, i32 noundef %41) #4
+  %43 = add i32 %.0129149, 2
   br label %proto_item_set_hidden.exit
 
 44:                                               ; preds = %35
@@ -3624,9 +3624,9 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
 
 46:                                               ; preds = %44
   %47 = call ptr @wmem_packet_scope() #4
-  %48 = call ptr @tvb_get_stringz_enc(ptr noundef %47, ptr noundef %1, i32 noundef %.0127150, ptr noundef nonnull %5, i32 noundef 0) #4
+  %48 = call ptr @tvb_get_stringz_enc(ptr noundef %47, ptr noundef %1, i32 noundef %.0129149, ptr noundef nonnull %5, i32 noundef 0) #4
   %49 = load i32, ptr %5, align 4
-  %50 = add i32 %49, %.0127150
+  %50 = add i32 %49, %.0129149
   %51 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %50) #4
   %52 = add i8 %51, -32
   %or.cond = icmp ult i8 %52, 95
@@ -3638,8 +3638,8 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
   %56 = load i32, ptr %6, align 4
   %57 = add i32 %56, %50
   %58 = load i32, ptr @hf_wsp_header_text_value, align 4
-  %59 = sub i32 %57, %.0127150
-  %60 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %14, i32 noundef %58, ptr noundef %1, i32 noundef %.0127150, i32 noundef %59, ptr noundef %55, ptr noundef nonnull @.str.806, ptr noundef %48, ptr noundef %55) #4
+  %59 = sub i32 %57, %.0129149
+  %60 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %14, i32 noundef %58, ptr noundef %1, i32 noundef %.0129149, i32 noundef %59, ptr noundef %55, ptr noundef nonnull @.str.806, ptr noundef %48, ptr noundef %55) #4
   br label %122
 
 61:                                               ; preds = %46
@@ -3704,16 +3704,16 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %88, label %92, label %94
 
 92:                                               ; preds = %84
-  %93 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %14, i32 noundef %89, ptr noundef %1, i32 noundef %.0127150, i32 noundef %91, ptr noundef nonnull %7, ptr noundef nonnull @.str.862) #4
+  %93 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %14, i32 noundef %89, ptr noundef %1, i32 noundef %.0129149, i32 noundef %91, ptr noundef nonnull %7, ptr noundef nonnull @.str.862) #4
   br label %96
 
 94:                                               ; preds = %84
-  %95 = call ptr @proto_tree_add_time(ptr noundef %14, i32 noundef %89, ptr noundef %1, i32 noundef %.0127150, i32 noundef %91, ptr noundef nonnull %7) #4
+  %95 = call ptr @proto_tree_add_time(ptr noundef %14, i32 noundef %89, ptr noundef %1, i32 noundef %.0129149, i32 noundef %91, ptr noundef nonnull %7) #4
   br label %96
 
 96:                                               ; preds = %94, %92
-  %.1123 = phi ptr [ %93, %92 ], [ %95, %94 ]
-  %97 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %.1123, ptr noundef nonnull @ei_hdr_x_wap_tod) #4
+  %.1125 = phi ptr [ %93, %92 ], [ %95, %94 ]
+  %97 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %.1125, ptr noundef nonnull @ei_hdr_x_wap_tod) #4
   br label %119
 
 98:                                               ; preds = %69
@@ -3721,7 +3721,7 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
   store i32 %99, ptr %6, align 4
   %100 = load i32, ptr %5, align 4
   %101 = add i32 %100, %99
-  %102 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef %3, ptr noundef nonnull @ei_wsp_text_field_invalid, ptr noundef %1, i32 noundef %.0127150, i32 noundef %101, ptr noundef nonnull @.str.863) #4
+  %102 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef %3, ptr noundef nonnull @ei_wsp_text_field_invalid, ptr noundef %1, i32 noundef %.0129149, i32 noundef %101, ptr noundef nonnull @.str.863) #4
   br label %119
 
 103:                                              ; preds = %61
@@ -3751,22 +3751,22 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
 
 116:                                              ; preds = %107, %109, %105
   %117 = load i32, ptr %5, align 4
-  %118 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef %3, ptr noundef nonnull @ei_wsp_text_field_invalid, ptr noundef %1, i32 noundef %.0127150, i32 noundef %117, ptr noundef nonnull @.str.864, ptr noundef %48) #4
+  %118 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef %3, ptr noundef nonnull @ei_wsp_text_field_invalid, ptr noundef %1, i32 noundef %.0129149, i32 noundef %117, ptr noundef nonnull @.str.864, ptr noundef %48) #4
   br label %119
 
 119:                                              ; preds = %96, %98, %116
-  %.2124 = phi ptr [ %.1123, %96 ], [ %.0122151, %98 ], [ %.0122151, %116 ]
+  %.2126 = phi ptr [ %.1125, %96 ], [ %.0124150, %98 ], [ %.0124150, %116 ]
   %120 = load i32, ptr %6, align 4
   %121 = add i32 %120, %50
-  %.pre = sub i32 %121, %.0127150
+  %.pre = sub i32 %121, %.0129149
   br label %122
 
 122:                                              ; preds = %119, %53
   %.pre-phi = phi i32 [ %.pre, %119 ], [ %59, %53 ]
-  %.1128 = phi i32 [ %121, %119 ], [ %57, %53 ]
-  %.3125 = phi ptr [ %.2124, %119 ], [ %.0122151, %53 ]
+  %.1130 = phi i32 [ %121, %119 ], [ %57, %53 ]
+  %.3127 = phi ptr [ %.2126, %119 ], [ %.0124150, %53 ]
   %123 = load i32, ptr @hf_hdr_name_string, align 4
-  %124 = call ptr @proto_tree_add_string(ptr noundef %14, i32 noundef %123, ptr noundef %1, i32 noundef %.0127150, i32 noundef %.pre-phi, ptr noundef %48) #4
+  %124 = call ptr @proto_tree_add_string(ptr noundef %14, i32 noundef %123, ptr noundef %1, i32 noundef %.0129149, i32 noundef %.pre-phi, ptr noundef %48) #4
   %.not.i = icmp eq ptr %124, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %125
 
@@ -3789,19 +3789,19 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
 
 133:                                              ; preds = %132
   %134 = load i32, ptr @hf_wsp_header_shift_code, align 4
-  %135 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %134, ptr noundef %1, i32 noundef %.0127150, i32 noundef 1, i32 noundef %18) #4
-  %136 = add nsw i32 %.0127150, 1
+  %135 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %134, ptr noundef %1, i32 noundef %.0129149, i32 noundef 1, i32 noundef %18) #4
+  %136 = add nsw i32 %.0129149, 1
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit.thread:                ; preds = %132
-  %137 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef %3, ptr noundef nonnull @ei_wsp_text_field_invalid, ptr noundef %1, i32 noundef %.0127150, i32 noundef 1, ptr noundef nonnull @.str.865) #4
+  %137 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef %3, ptr noundef nonnull @ei_wsp_text_field_invalid, ptr noundef %1, i32 noundef %.0129149, i32 noundef 1, ptr noundef nonnull @.str.865) #4
   br label %.loopexit
 
 proto_item_set_hidden.exit:                       ; preds = %128, %125, %122, %37, %133, %23, %29
-  %.1131 = phi i8 [ 1, %23 ], [ %.0130149, %29 ], [ %39, %37 ], [ %17, %133 ], [ %.0130149, %122 ], [ %.0130149, %125 ], [ %.0130149, %128 ]
-  %.2129 = phi i32 [ %26, %23 ], [ %32, %29 ], [ %43, %37 ], [ %136, %133 ], [ %.1128, %122 ], [ %.1128, %125 ], [ %.1128, %128 ]
-  %.4126 = phi ptr [ %.0122151, %23 ], [ %.0122151, %29 ], [ %.0122151, %37 ], [ %.0122151, %133 ], [ %.3125, %122 ], [ %.3125, %125 ], [ %.3125, %128 ]
-  %138 = icmp slt i32 %.2129, %9
+  %.2131 = phi i32 [ %26, %23 ], [ %32, %29 ], [ %43, %37 ], [ %136, %133 ], [ %.1130, %122 ], [ %.1130, %125 ], [ %.1130, %128 ]
+  %.4128 = phi ptr [ %.0124150, %23 ], [ %.0124150, %29 ], [ %.0124150, %37 ], [ %.0124150, %133 ], [ %.3127, %122 ], [ %.3127, %125 ], [ %.3127, %128 ]
+  %.1123 = phi i8 [ 1, %23 ], [ %.0122151, %29 ], [ %39, %37 ], [ %17, %133 ], [ %.0122151, %122 ], [ %.0122151, %125 ], [ %.0122151, %128 ]
+  %138 = icmp slt i32 %.2131, %9
   br i1 %138, label %16, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %proto_item_set_hidden.exit, %proto_item_set_hidden.exit.thread, %4, %33, %27
@@ -3933,7 +3933,7 @@ switch.lookup:                                    ; preds = %53
   br label %59
 
 59:                                               ; preds = %53, %switch.lookup
-  %.0111 = phi i32 [ 0, %53 ], [ 1, %switch.lookup ]
+  %.0109 = phi i32 [ 0, %53 ], [ 1, %switch.lookup ]
   %.0 = phi ptr [ null, %53 ], [ %58, %switch.lookup ]
   %60 = add i32 %50, 1
   br label %79
@@ -3968,37 +3968,37 @@ switch.lookup:                                    ; preds = %53
 
 76:                                               ; preds = %.thread, %70
   %77 = phi i32 [ %.pre, %70 ], [ 0, %.thread ]
-  %.1112124 = phi i32 [ 1, %70 ], [ 0, %.thread ]
+  %.1110124 = phi i32 [ 1, %70 ], [ 0, %.thread ]
   %.1 = phi ptr [ %75, %70 ], [ null, %.thread ]
   %78 = add i32 %77, %50
   br label %79
 
 79:                                               ; preds = %76, %59
-  %.2113 = phi i32 [ %.0111, %59 ], [ %.1112124, %76 ]
-  %.0109 = phi i32 [ %60, %59 ], [ %78, %76 ]
+  %.0112 = phi i32 [ %60, %59 ], [ %78, %76 ]
+  %.2111 = phi i32 [ %.0109, %59 ], [ %.1110124, %76 ]
   %.2 = phi ptr [ %.0, %59 ], [ %.1, %76 ]
-  %.not119 = icmp eq i32 %.2113, 0
+  %.not119 = icmp eq i32 %.2111, 0
   br i1 %.not119, label %86, label %80
 
 80:                                               ; preds = %79
-  %81 = icmp ult i32 %.0109, %51
+  %81 = icmp ult i32 %.0112, %51
   br i1 %81, label %82, label %.thread125
 
 82:                                               ; preds = %80
   %83 = load i32, ptr @ett_header, align 4
   %84 = call ptr @proto_item_add_subtree(ptr noundef %.2, i32 noundef %83) #4
-  %85 = call fastcc i32 @parameter_value_q(ptr noundef %84, ptr noundef %3, ptr noundef %.2, ptr noundef %1, i32 noundef %.0109)
+  %85 = call fastcc i32 @parameter_value_q(ptr noundef %84, ptr noundef %3, ptr noundef %.2, ptr noundef %1, i32 noundef %.0112)
   br label %.thread125
 
 86:                                               ; preds = %15, %79
-  %.0110 = phi i32 [ %16, %15 ], [ %51, %79 ]
+  %.0113 = phi i32 [ %16, %15 ], [ %51, %79 ]
   %87 = load ptr, ptr %5, align 8
   %88 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %87, ptr noundef nonnull @ei_wsp_header_invalid_value) #4
   br label %.thread125
 
 .thread125:                                       ; preds = %80, %82, %31, %17, %20, %23, %26, %86
-  %.0110128 = phi i32 [ %.0110, %86 ], [ %51, %80 ], [ %51, %82 ], [ %35, %31 ], [ %16, %17 ], [ %16, %20 ], [ %16, %23 ], [ %16, %26 ]
-  ret i32 %.0110128
+  %.0113128 = phi i32 [ %.0113, %86 ], [ %51, %80 ], [ %51, %82 ], [ %35, %31 ], [ %16, %17 ], [ %16, %20 ], [ %16, %23 ], [ %16, %26 ]
+  ret i32 %.0113128
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4180,25 +4180,25 @@ define internal i32 @wkh_age(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
   br label %57
 
 57:                                               ; preds = %47, %50, %53, %55
-  %.0.ph = phi i32 [ %56, %55 ], [ %54, %53 ], [ %52, %50 ], [ %49, %47 ]
+  %.065.ph = phi i32 [ %56, %55 ], [ %54, %53 ], [ %52, %50 ], [ %49, %47 ]
   %58 = call ptr @wmem_packet_scope() #4
-  %59 = icmp eq i32 %.0.ph, 1
+  %59 = icmp eq i32 %.065.ph, 1
   %60 = select i1 %59, ptr @.str.1020, ptr @.str.1021
-  %61 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %58, ptr noundef nonnull @.str.1019, i32 noundef %.0.ph, ptr noundef nonnull %60) #4
+  %61 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %58, ptr noundef nonnull @.str.1019, i32 noundef %.065.ph, ptr noundef nonnull %60) #4
   %62 = load i32, ptr @hf_hdr_age, align 4
   %63 = sub i32 %43, %2
   %64 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %62, ptr noundef %1, i32 noundef %2, i32 noundef %63, ptr noundef %61) #4
   br label %68
 
 65:                                               ; preds = %26, %39, %.thread, %45
-  %.065.ph = phi i32 [ %43, %45 ], [ %38, %.thread ], [ %43, %39 ], [ %30, %26 ]
+  %.066.ph = phi i32 [ %43, %45 ], [ %38, %.thread ], [ %43, %39 ], [ %30, %26 ]
   %66 = load ptr, ptr %5, align 8
   %67 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %66, ptr noundef nonnull @ei_wsp_header_invalid_value) #4
   br label %68
 
 68:                                               ; preds = %14, %57, %65
-  %.06580 = phi i32 [ %.065.ph, %65 ], [ %15, %14 ], [ %43, %57 ]
-  ret i32 %.06580
+  %.06680 = phi i32 [ %.066.ph, %65 ], [ %15, %14 ], [ %43, %57 ]
+  ret i32 %.06680
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4377,8 +4377,8 @@ define internal i32 @wkh_cache_control(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %55, label %.lr.ph, label %.thread192.critedge
 
 .lr.ph:                                           ; preds = %51, %79
-  %.0149202 = phi i32 [ %.1150, %79 ], [ %46, %51 ]
-  %56 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0149202) #4
+  %.0155202 = phi i32 [ %.1156, %79 ], [ %46, %51 ]
+  %56 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0155202) #4
   %.not169 = icmp sgt i8 %56, -1
   br i1 %.not169, label %61, label %57
 
@@ -4386,21 +4386,21 @@ define internal i32 @wkh_cache_control(ptr noundef %0, ptr noundef %1, i32 nound
   %58 = zext i8 %56 to i32
   %59 = call ptr @val_to_str(i32 noundef %58, ptr noundef nonnull @vals_field_names, ptr noundef nonnull @.str.1029) #4
   call void @wmem_strbuf_append(ptr noundef %54, ptr noundef %59) #4
-  %60 = add nuw i32 %.0149202, 1
+  %60 = add nuw i32 %.0155202, 1
   br label %79
 
 61:                                               ; preds = %.lr.ph
-  %62 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0149202) #4
+  %62 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0155202) #4
   %63 = icmp eq i8 %62, 0
   br i1 %63, label %74, label %64
 
 64:                                               ; preds = %61
-  %65 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0149202) #4
+  %65 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0155202) #4
   %66 = icmp ugt i8 %65, 31
   br i1 %66, label %67, label %.thread203
 
 67:                                               ; preds = %64
-  %68 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0149202) #4
+  %68 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0155202) #4
   %69 = icmp sgt i8 %68, -1
   br i1 %69, label %74, label %.thread203
 
@@ -4414,15 +4414,15 @@ define internal i32 @wkh_cache_control(ptr noundef %0, ptr noundef %1, i32 nound
 
 74:                                               ; preds = %67, %61
   %75 = call ptr @wmem_packet_scope() #4
-  %76 = call ptr @tvb_get_stringz_enc(ptr noundef %75, ptr noundef %1, i32 noundef %.0149202, ptr noundef nonnull %8, i32 noundef 0) #4
+  %76 = call ptr @tvb_get_stringz_enc(ptr noundef %75, ptr noundef %1, i32 noundef %.0155202, ptr noundef nonnull %8, i32 noundef 0) #4
   call void @wmem_strbuf_append(ptr noundef %54, ptr noundef %76) #4
   %77 = load i32, ptr %8, align 4
-  %78 = add i32 %77, %.0149202
+  %78 = add i32 %77, %.0155202
   br label %79
 
 79:                                               ; preds = %74, %57
-  %.1150 = phi i32 [ %60, %57 ], [ %78, %74 ]
-  %80 = icmp ult i32 %.1150, %45
+  %.1156 = phi i32 [ %60, %57 ], [ %78, %74 ]
+  %80 = icmp ult i32 %.1156, %45
   br i1 %80, label %.lr.ph, label %.thread192.critedge, !llvm.loop !16
 
 81:                                               ; preds = %48, %48, %48, %48
@@ -4477,13 +4477,13 @@ define internal i32 @wkh_cache_control(ptr noundef %0, ptr noundef %1, i32 nound
   br label %.thread198
 
 107:                                              ; preds = %88, %91, %95, %99, %102
-  %.0.ph = phi i32 [ %104, %102 ], [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %89, %88 ]
+  %.0153.ph = phi i32 [ %104, %102 ], [ %101, %99 ], [ %98, %95 ], [ %94, %91 ], [ %89, %88 ]
   %108 = load i32, ptr %8, align 4
   %109 = add i32 %108, 1
   store i32 %109, ptr %8, align 4
-  %110 = icmp eq i32 %.0.ph, 1
+  %110 = icmp eq i32 %.0153.ph, 1
   %111 = select i1 %110, ptr @.str.1020, ptr @.str.1021
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %85, ptr noundef nonnull @.str.1030, i32 noundef %.0.ph, ptr noundef nonnull %111) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %85, ptr noundef nonnull @.str.1030, i32 noundef %.0153.ph, ptr noundef nonnull %111) #4
   br label %.thread192
 
 112:                                              ; preds = %43
@@ -4558,11 +4558,11 @@ define internal i32 @wkh_cache_control(ptr noundef %0, ptr noundef %1, i32 nound
   br label %148
 
 148:                                              ; preds = %131, %134, %138, %142, %145
-  %.1.ph = phi i32 [ %147, %145 ], [ %144, %142 ], [ %141, %138 ], [ %137, %134 ], [ %132, %131 ]
+  %.1154.ph = phi i32 [ %147, %145 ], [ %144, %142 ], [ %141, %138 ], [ %137, %134 ], [ %132, %131 ]
   %149 = load i32, ptr %8, align 4
   %150 = add i32 %149, 1
   store i32 %150, ptr %8, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %128, ptr noundef nonnull @.str.1031, i32 noundef %.1.ph) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %128, ptr noundef nonnull @.str.1031, i32 noundef %.1154.ph) #4
   br label %.thread192
 
 151:                                              ; preds = %133
@@ -4615,7 +4615,7 @@ define internal i32 @wkh_cache_control(ptr noundef %0, ptr noundef %1, i32 nound
   br label %.thread192
 
 .thread198:                                       ; preds = %.thread203, %.thread188, %.thread180, %112, %105, %48, %15
-  %.0153201 = phi i32 [ %45, %.thread203 ], [ %45, %.thread188 ], [ %45, %.thread180 ], [ %45, %112 ], [ %45, %105 ], [ %45, %48 ], [ %16, %15 ]
+  %.0149201 = phi i32 [ %45, %.thread203 ], [ %45, %.thread188 ], [ %45, %.thread180 ], [ %45, %112 ], [ %45, %105 ], [ %45, %48 ], [ %16, %15 ]
   %177 = load ptr, ptr %5, align 8
   %178 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %177, ptr noundef nonnull @ei_wsp_header_invalid_value) #4
   br label %.thread192
@@ -4628,8 +4628,8 @@ define internal i32 @wkh_cache_control(ptr noundef %0, ptr noundef %1, i32 nound
   br label %.thread192
 
 .thread192:                                       ; preds = %.thread192.critedge, %176, %175, %173, %148, %107, %25, %20, %.thread198
-  %.0153195 = phi i32 [ %.0153201, %.thread198 ], [ %45, %176 ], [ %45, %175 ], [ %45, %173 ], [ %45, %148 ], [ %45, %107 ], [ %29, %25 ], [ %16, %20 ], [ %45, %.thread192.critedge ]
-  ret i32 %.0153195
+  %.0149195 = phi i32 [ %.0149201, %.thread198 ], [ %45, %176 ], [ %45, %175 ], [ %45, %173 ], [ %45, %148 ], [ %45, %107 ], [ %29, %25 ], [ %16, %20 ], [ %45, %.thread192.critedge ]
+  ret i32 %.0149195
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4883,14 +4883,14 @@ define internal i32 @wkh_content_md5(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %43
 
 40:                                               ; preds = %14, %18, %33
-  %.0.ph = phi i32 [ %35, %33 ], [ %22, %18 ], [ %15, %14 ]
+  %.034.ph = phi i32 [ %35, %33 ], [ %22, %18 ], [ %15, %14 ]
   %41 = load ptr, ptr %5, align 8
   %42 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %41, ptr noundef nonnull @ei_wsp_header_invalid_value) #4
   br label %43
 
 43:                                               ; preds = %37, %40
-  %.040 = phi i32 [ %.0.ph, %40 ], [ %35, %37 ]
-  ret i32 %.040
+  %.03440 = phi i32 [ %.034.ph, %40 ], [ %35, %37 ]
+  ret i32 %.03440
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5898,14 +5898,14 @@ define internal i32 @wkh_warning(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %96
 
 93:                                               ; preds = %15, %29, %48, %44, %.thread, %.thread109
-  %.095.ph = phi i32 [ %46, %.thread109 ], [ %46, %.thread ], [ %46, %44 ], [ %46, %48 ], [ %33, %29 ], [ %16, %15 ]
+  %.097.ph = phi i32 [ %46, %.thread109 ], [ %46, %.thread ], [ %46, %44 ], [ %46, %48 ], [ %33, %29 ], [ %16, %15 ]
   %94 = load ptr, ptr %5, align 8
   %95 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %94, ptr noundef nonnull @ei_wsp_header_invalid_value) #4
   br label %96
 
 96:                                               ; preds = %20, %87, %93
-  %.095115 = phi i32 [ %.095.ph, %93 ], [ %16, %20 ], [ %46, %87 ]
-  ret i32 %.095115
+  %.097115 = phi i32 [ %.097.ph, %93 ], [ %16, %20 ], [ %46, %87 ]
+  ret i32 %.097115
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5990,7 +5990,7 @@ switch.lookup:                                    ; preds = %38
   br label %44
 
 44:                                               ; preds = %38, %switch.lookup
-  %.084 = phi i32 [ 0, %38 ], [ 1, %switch.lookup ]
+  %.081 = phi i32 [ 0, %38 ], [ 1, %switch.lookup ]
   %.0 = phi ptr [ null, %38 ], [ %43, %switch.lookup ]
   %45 = add i32 %35, 1
   br label %64
@@ -6025,20 +6025,20 @@ switch.lookup:                                    ; preds = %38
 
 61:                                               ; preds = %.thread, %55
   %62 = phi i32 [ %.pre, %55 ], [ 0, %.thread ]
-  %.18597 = phi i32 [ 1, %55 ], [ 0, %.thread ]
+  %.18297 = phi i32 [ 1, %55 ], [ 0, %.thread ]
   %.1 = phi ptr [ %60, %55 ], [ null, %.thread ]
   %63 = add i32 %62, %35
   br label %64
 
 64:                                               ; preds = %61, %44
-  %.286 = phi i32 [ %.084, %44 ], [ %.18597, %61 ]
-  %.081 = phi i32 [ %45, %44 ], [ %63, %61 ]
+  %.084 = phi i32 [ %45, %44 ], [ %63, %61 ]
+  %.283 = phi i32 [ %.081, %44 ], [ %.18297, %61 ]
   %.2 = phi ptr [ %.0, %44 ], [ %.1, %61 ]
-  %.not92 = icmp eq i32 %.286, 0
+  %.not92 = icmp eq i32 %.283, 0
   br i1 %.not92, label %74, label %65
 
 65:                                               ; preds = %64
-  %66 = icmp ult i32 %.081, %36
+  %66 = icmp ult i32 %.084, %36
   br i1 %66, label %67, label %.loopexit
 
 67:                                               ; preds = %65
@@ -6047,21 +6047,21 @@ switch.lookup:                                    ; preds = %38
   br label %70
 
 70:                                               ; preds = %67, %70
-  %.182103 = phi i32 [ %.081, %67 ], [ %72, %70 ]
-  %71 = sub i32 %36, %.182103
-  %72 = call fastcc i32 @parameter(ptr noundef %69, ptr noundef %3, ptr noundef %.2, ptr noundef %1, i32 noundef %.182103, i32 noundef %71)
+  %.185103 = phi i32 [ %.084, %67 ], [ %72, %70 ]
+  %71 = sub i32 %36, %.185103
+  %72 = call fastcc i32 @parameter(ptr noundef %69, ptr noundef %3, ptr noundef %.2, ptr noundef %1, i32 noundef %.185103, i32 noundef %71)
   %73 = icmp ult i32 %72, %36
   br i1 %73, label %70, label %.loopexit, !llvm.loop !17
 
 74:                                               ; preds = %15, %19, %64
-  %.083.ph = phi i32 [ %36, %64 ], [ %23, %19 ], [ %16, %15 ]
+  %.086.ph = phi i32 [ %36, %64 ], [ %23, %19 ], [ %16, %15 ]
   %75 = load ptr, ptr %5, align 8
   %76 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %75, ptr noundef nonnull @ei_wsp_header_invalid_value) #4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %70, %65, %74
-  %.083101 = phi i32 [ %.083.ph, %74 ], [ %36, %65 ], [ %36, %70 ]
-  ret i32 %.083101
+  %.086101 = phi i32 [ %.086.ph, %74 ], [ %36, %65 ], [ %36, %70 ]
+  ret i32 %.086101
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6308,14 +6308,14 @@ define internal i32 @wkh_push_flag(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not62.not, label %65, label %.thread
 
 .thread:                                          ; preds = %47, %32, %50
-  %.067 = phi i32 [ %18, %50 ], [ %49, %47 ], [ %36, %32 ]
+  %.05767 = phi i32 [ %18, %50 ], [ %49, %47 ], [ %36, %32 ]
   %63 = load ptr, ptr %5, align 8
   %64 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %63, ptr noundef nonnull @ei_wsp_header_invalid_value) #4
   br label %65
 
 65:                                               ; preds = %.thread, %50
-  %.066 = phi i32 [ %.067, %.thread ], [ %18, %50 ]
-  ret i32 %.066
+  %.05766 = phi i32 [ %.05767, %.thread ], [ %18, %50 ]
+  ret i32 %.05766
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6662,14 +6662,14 @@ define internal i32 @wkh_te(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
   br label %67
 
 .thread:                                          ; preds = %56, %53, %15, %23, %42
-  %.065.ph = phi i32 [ %40, %42 ], [ %27, %23 ], [ %16, %15 ], [ %40, %53 ], [ %40, %56 ]
+  %.066.ph = phi i32 [ %40, %42 ], [ %27, %23 ], [ %16, %15 ], [ %40, %53 ], [ %40, %56 ]
   %65 = load ptr, ptr %5, align 8
   %66 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %65, ptr noundef nonnull @ei_wsp_header_invalid_value) #4
   br label %67
 
 67:                                               ; preds = %18, %59, %46, %.thread
-  %.06578 = phi i32 [ %.065.ph, %.thread ], [ %16, %18 ], [ %40, %46 ], [ %40, %59 ]
-  ret i32 %.06578
+  %.06678 = phi i32 [ %.066.ph, %.thread ], [ %16, %18 ], [ %40, %46 ], [ %40, %59 ]
+  ret i32 %.06678
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7126,9 +7126,9 @@ define internal fastcc i32 @wkh_content_type_header(ptr noundef %0, ptr noundef 
 
 84:                                               ; preds = %66, %69, %73, %77, %80
   %85 = phi i32 [ 5, %80 ], [ 4, %77 ], [ 3, %73 ], [ 2, %69 ], [ 1, %66 ]
-  %.0105.ph = phi i32 [ %82, %80 ], [ %79, %77 ], [ %76, %73 ], [ %72, %69 ], [ %67, %66 ]
+  %.0106.ph = phi i32 [ %82, %80 ], [ %79, %77 ], [ %76, %73 ], [ %72, %69 ], [ %67, %66 ]
   %86 = sub i32 %54, %2
-  %87 = call ptr @val_to_str_ext(i32 noundef %.0105.ph, ptr noundef nonnull @vals_content_types_ext, ptr noundef nonnull @.str.824) #4
+  %87 = call ptr @val_to_str_ext(i32 noundef %.0106.ph, ptr noundef nonnull @vals_content_types_ext, ptr noundef nonnull @.str.824) #4
   %88 = call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %86, ptr noundef %87) #4
   %89 = add i32 %85, %53
   %90 = icmp ult i32 %89, %54
@@ -7140,9 +7140,9 @@ define internal fastcc i32 @wkh_content_type_header(ptr noundef %0, ptr noundef 
   br label %94
 
 94:                                               ; preds = %91, %94
-  %.1107138 = phi i32 [ %89, %91 ], [ %96, %94 ]
-  %95 = sub i32 %54, %.1107138
-  %96 = call fastcc i32 @parameter(ptr noundef %93, ptr noundef %3, ptr noundef %88, ptr noundef %1, i32 noundef %.1107138, i32 noundef %95)
+  %.1108138 = phi i32 [ %89, %91 ], [ %96, %94 ]
+  %95 = sub i32 %54, %.1108138
+  %96 = call fastcc i32 @parameter(ptr noundef %93, ptr noundef %3, ptr noundef %88, ptr noundef %1, i32 noundef %.1108138, i32 noundef %95)
   %97 = icmp ult i32 %96, %54
   br i1 %97, label %94, label %.thread134, !llvm.loop !19
 
@@ -7152,8 +7152,8 @@ define internal fastcc i32 @wkh_content_type_header(ptr noundef %0, ptr noundef 
   br label %.thread134
 
 .thread134:                                       ; preds = %94, %34, %39, %84, %19, %.thread126
-  %.0108137 = phi i32 [ %54, %.thread126 ], [ %32, %34 ], [ %32, %39 ], [ %54, %84 ], [ %20, %19 ], [ %54, %94 ]
-  ret i32 %.0108137
+  %.0105137 = phi i32 [ %54, %.thread126 ], [ %32, %34 ], [ %32, %39 ], [ %54, %84 ], [ %20, %19 ], [ %54, %94 ]
+  ret i32 %.0105137
 }
 
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -7295,24 +7295,24 @@ define internal fastcc i32 @wkh_accept_x_q_header_func(ptr noundef %0, ptr nound
 
 86:                                               ; preds = %83, %80, %76, %72, %68
   %87 = phi i32 [ 5, %83 ], [ 4, %80 ], [ 3, %76 ], [ 2, %72 ], [ 1, %68 ]
-  %.0111.ph = phi i32 [ %85, %83 ], [ %82, %80 ], [ %79, %76 ], [ %75, %72 ], [ %70, %68 ]
+  %.0112.ph = phi i32 [ %85, %83 ], [ %82, %80 ], [ %79, %76 ], [ %75, %72 ], [ %70, %68 ]
   store i32 %87, ptr %12, align 4
   %88 = sub i32 %48, %2
-  %89 = call ptr @val_to_str_ext(i32 noundef %.0111.ph, ptr noundef %6, ptr noundef %7) #4
+  %89 = call ptr @val_to_str_ext(i32 noundef %.0112.ph, ptr noundef %6, ptr noundef %7) #4
   %90 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %88, ptr noundef %89) #4
   br label %91
 
 91:                                               ; preds = %86, %.thread139
   %.1110144 = phi ptr [ %64, %.thread139 ], [ %90, %86 ]
   %.pn = phi i32 [ %62, %.thread139 ], [ %87, %86 ]
-  %.0112143 = add i32 %.pn, %47
-  %92 = icmp ult i32 %.0112143, %48
+  %.0113143 = add i32 %.pn, %47
+  %92 = icmp ult i32 %.0113143, %48
   br i1 %92, label %93, label %.thread149
 
 93:                                               ; preds = %91
   %94 = load i32, ptr @ett_header, align 4
   %95 = call ptr @proto_item_add_subtree(ptr noundef %.1110144, i32 noundef %94) #4
-  %96 = call fastcc i32 @parameter_value_q(ptr noundef %95, ptr noundef %3, ptr noundef %.1110144, ptr noundef %1, i32 noundef %.0112143)
+  %96 = call fastcc i32 @parameter_value_q(ptr noundef %95, ptr noundef %3, ptr noundef %.1110144, ptr noundef %1, i32 noundef %.0113143)
   br label %.thread149
 
 .thread135:                                       ; preds = %71, %57, %54, %65
@@ -7321,8 +7321,8 @@ define internal fastcc i32 @wkh_accept_x_q_header_func(ptr noundef %0, ptr nound
   br label %.thread149
 
 .thread149:                                       ; preds = %91, %93, %29, %21, %.thread135
-  %.0114152 = phi i32 [ %48, %.thread135 ], [ %48, %91 ], [ %48, %93 ], [ %33, %29 ], [ %22, %21 ]
-  ret i32 %.0114152
+  %.0111152 = phi i32 [ %48, %.thread135 ], [ %48, %91 ], [ %48, %93 ], [ %33, %29 ], [ %22, %21 ]
+  ret i32 %.0111152
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7747,22 +7747,22 @@ define internal fastcc i32 @wkh_integer_value_header_func(ptr noundef %0, ptr no
   br label %58
 
 58:                                               ; preds = %48, %51, %54, %56
-  %.066.ph = phi i32 [ %57, %56 ], [ %55, %54 ], [ %53, %51 ], [ %50, %48 ]
+  %.067.ph = phi i32 [ %57, %56 ], [ %55, %54 ], [ %53, %51 ], [ %50, %48 ]
   %59 = call ptr @wmem_packet_scope() #4
-  %60 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %59, ptr noundef nonnull @.str.1069, i32 noundef %.066.ph) #4
+  %60 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %59, ptr noundef nonnull @.str.1069, i32 noundef %.067.ph) #4
   %61 = sub i32 %44, %2
   %62 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %61, ptr noundef %60) #4
   br label %66
 
 63:                                               ; preds = %27, %40, %.thread, %46
-  %.067.ph = phi i32 [ %44, %46 ], [ %39, %.thread ], [ %44, %40 ], [ %31, %27 ]
+  %.066.ph = phi i32 [ %44, %46 ], [ %39, %.thread ], [ %44, %40 ], [ %31, %27 ]
   %64 = load ptr, ptr %7, align 8
   %65 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %64, ptr noundef nonnull @ei_wsp_header_invalid_value) #4
   br label %66
 
 66:                                               ; preds = %18, %58, %63
-  %.06781 = phi i32 [ %.067.ph, %63 ], [ %19, %18 ], [ %44, %58 ]
-  ret i32 %.06781
+  %.06681 = phi i32 [ %.066.ph, %63 ], [ %19, %18 ], [ %44, %58 ]
+  ret i32 %.06681
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8139,12 +8139,12 @@ define internal fastcc i32 @wkh_tod_value_header_func(ptr noundef %0, ptr nounde
   br label %58
 
 58:                                               ; preds = %48, %51, %54, %56
-  %.072.ph = phi i32 [ %57, %56 ], [ %55, %54 ], [ %53, %51 ], [ %50, %48 ]
-  %59 = zext i32 %.072.ph to i64
+  %.073.ph = phi i32 [ %57, %56 ], [ %55, %54 ], [ %53, %51 ], [ %50, %48 ]
+  %59 = zext i32 %.073.ph to i64
   store i64 %59, ptr %10, align 8
   %60 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 0, ptr %60, align 8
-  %61 = icmp eq i32 %.072.ph, 0
+  %61 = icmp eq i32 %.073.ph, 0
   %62 = sub i32 %44, %2
   br i1 %61, label %63, label %65
 
@@ -8157,14 +8157,14 @@ define internal fastcc i32 @wkh_tod_value_header_func(ptr noundef %0, ptr nounde
   br label %70
 
 67:                                               ; preds = %19, %27, %40, %.thread, %46
-  %.073.ph = phi i32 [ %44, %46 ], [ %39, %.thread ], [ %44, %40 ], [ %31, %27 ], [ %20, %19 ]
+  %.072.ph = phi i32 [ %44, %46 ], [ %39, %.thread ], [ %44, %40 ], [ %31, %27 ], [ %20, %19 ]
   %68 = load ptr, ptr %7, align 8
   %69 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %68, ptr noundef nonnull @ei_wsp_header_invalid_value) #4
   br label %70
 
 70:                                               ; preds = %22, %63, %65, %67
-  %.07387 = phi i32 [ %.073.ph, %67 ], [ %20, %22 ], [ %44, %63 ], [ %44, %65 ]
-  ret i32 %.07387
+  %.07287 = phi i32 [ %.072.ph, %67 ], [ %20, %22 ], [ %44, %63 ], [ %44, %65 ]
+  ret i32 %.07287
 }
 
 ; Function Attrs: nounwind uwtable

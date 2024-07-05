@@ -182,8 +182,8 @@ define internal noundef i64 @php_stream_memory_write(ptr nocapture noundef reado
   br label %80
 
 80:                                               ; preds = %77, %66
-  %.0178 = phi ptr [ %71, %66 ], [ %10, %77 ]
-  store ptr %.0178, ptr %5, align 8
+  %.0 = phi ptr [ %71, %66 ], [ %10, %77 ]
+  store ptr %.0, ptr %5, align 8
   br label %81
 
 81:                                               ; preds = %53, %56, %80
@@ -204,8 +204,8 @@ define internal noundef i64 @php_stream_memory_write(ptr nocapture noundef reado
   br label %90
 
 90:                                               ; preds = %81, %82, %3
-  %.0 = phi i64 [ -1, %3 ], [ %2, %82 ], [ 0, %81 ]
-  ret i64 %.0
+  %.0178 = phi i64 [ -1, %3 ], [ %2, %82 ], [ 0, %81 ]
+  ret i64 %.0178
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
@@ -601,9 +601,9 @@ define internal range(i32 -2, 1) i32 @php_stream_memory_set_option(ptr nocapture
   br label %84
 
 84:                                               ; preds = %67, %80, %58
-  %.0174 = phi ptr [ %61, %58 ], [ %70, %80 ], [ %70, %67 ]
-  store ptr %.0174, ptr %6, align 8
-  %85 = getelementptr inbounds i8, ptr %.0174, i64 24
+  %.0173 = phi ptr [ %61, %58 ], [ %70, %80 ], [ %70, %67 ]
+  store ptr %.0173, ptr %6, align 8
+  %85 = getelementptr inbounds i8, ptr %.0173, i64 24
   %86 = getelementptr inbounds i8, ptr %85, i64 %16
   %87 = sub i64 %13, %16
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %86, i8 0, i64 %87, i1 false)
@@ -613,8 +613,8 @@ define internal range(i32 -2, 1) i32 @php_stream_memory_set_option(ptr nocapture
   br label %89
 
 89:                                               ; preds = %84, %53, %49, %8, %7, %88
-  %.0173 = phi i32 [ -2, %88 ], [ %2, %7 ], [ -1, %8 ], [ 0, %49 ], [ 0, %53 ], [ 0, %84 ]
-  ret i32 %.0173
+  %.0174 = phi i32 [ -2, %88 ], [ %2, %7 ], [ -1, %8 ], [ 0, %49 ], [ 0, %53 ], [ 0, %84 ]
+  ret i32 %.0174
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
@@ -1187,9 +1187,9 @@ define internal ptr @php_stream_url_wrap_rfc2397(ptr noundef %0, ptr noundef %1,
   br label %24
 
 24:                                               ; preds = %21, %17, %14, %10
-  %.0170 = phi i64 [ %22, %21 ], [ %12, %17 ], [ %12, %14 ], [ %12, %10 ]
+  %.0166 = phi i64 [ %22, %21 ], [ %12, %17 ], [ %12, %14 ], [ %12, %10 ]
   %.0160 = phi ptr [ %23, %21 ], [ %11, %17 ], [ %11, %14 ], [ %11, %10 ]
-  %25 = tail call ptr @memchr(ptr noundef nonnull %.0160, i32 noundef 44, i64 noundef %.0170) #21
+  %25 = tail call ptr @memchr(ptr noundef nonnull %.0160, i32 noundef 44, i64 noundef %.0166) #21
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
 
@@ -1205,7 +1205,7 @@ define internal ptr @php_stream_url_wrap_rfc2397(ptr noundef %0, ptr noundef %1,
   %30 = ptrtoint ptr %25 to i64
   %31 = ptrtoint ptr %.0160 to i64
   %32 = sub i64 %30, %31
-  %33 = sub i64 %.0170, %32
+  %33 = sub i64 %.0166, %32
   %34 = tail call ptr @memchr(ptr noundef nonnull %.0160, i32 noundef 59, i64 noundef %32) #21
   %35 = tail call ptr @memchr(ptr noundef nonnull %.0160, i32 noundef 47, i64 noundef %32) #21
   %36 = icmp ne ptr %34, null
@@ -1358,17 +1358,17 @@ define internal ptr @php_stream_url_wrap_rfc2397(ptr noundef %0, ptr noundef %1,
   br label %99
 
 94:                                               ; preds = %._crit_edge.thread, %._crit_edge, %83
-  %.1171.ph = phi i64 [ %.0170, %83 ], [ %33, %._crit_edge ], [ %33, %._crit_edge.thread ]
+  %.1167.ph = phi i64 [ %.0166, %83 ], [ %33, %._crit_edge ], [ %33, %._crit_edge.thread ]
   call void @add_assoc_bool_ex(ptr noundef nonnull %7, ptr noundef nonnull @.str.16, i64 noundef 6, i1 noundef zeroext false) #20
   %95 = getelementptr inbounds i8, ptr %25, i64 1
-  %96 = add i64 %.1171.ph, -1
+  %96 = add i64 %.1167.ph, -1
   %97 = call noalias ptr @_estrndup(ptr noundef nonnull %95, i64 noundef %96) #20
   %98 = call i64 @php_url_decode(ptr noundef %97, i64 noundef %96) #20
   br label %99
 
 99:                                               ; preds = %90, %94
-  %.0169 = phi i64 [ %93, %90 ], [ %98, %94 ]
-  %.0166 = phi ptr [ %88, %90 ], [ null, %94 ]
+  %.0171 = phi i64 [ %93, %90 ], [ %98, %94 ]
+  %.0168 = phi ptr [ %88, %90 ], [ null, %94 ]
   %.0161 = phi ptr [ %91, %90 ], [ %97, %94 ]
   %100 = call noalias dereferenceable_or_null(48) ptr @_ecalloc(i64 noundef 1, i64 noundef 48) #22
   %101 = getelementptr inbounds i8, ptr %100, i64 8
@@ -1396,7 +1396,7 @@ define internal ptr @php_stream_url_wrap_rfc2397(ptr noundef %0, ptr noundef %1,
   store i32 %115, ptr %113, align 4
   store ptr %112, ptr %100, align 8
   %116 = call ptr @php_stream_encloses(ptr noundef %104, ptr noundef %112) #20
-  %117 = call i64 @php_stream_temp_write(ptr noundef nonnull %104, ptr noundef %.0161, i64 noundef %.0169)
+  %117 = call i64 @php_stream_temp_write(ptr noundef nonnull %104, ptr noundef %.0161, i64 noundef %.0171)
   %118 = getelementptr inbounds i8, ptr %104, i64 8
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr %119, align 8
@@ -1449,11 +1449,11 @@ php_stream_temp_seek.exit:                        ; preds = %99, %121
   store ptr %148, ptr %147, align 8
   %150 = getelementptr inbounds i8, ptr %133, i64 32
   store i32 %149, ptr %150, align 8
-  %.not198 = icmp eq ptr %.0166, null
+  %.not198 = icmp eq ptr %.0168, null
   br i1 %.not198, label %159, label %151
 
 151:                                              ; preds = %144
-  %152 = getelementptr inbounds i8, ptr %.0166, i64 4
+  %152 = getelementptr inbounds i8, ptr %.0168, i64 4
   %153 = load i32, ptr %152, align 4
   %154 = and i32 %153, 64
   %.not199 = icmp eq i32 %154, 0
@@ -1465,11 +1465,11 @@ php_stream_temp_seek.exit:                        ; preds = %99, %121
   br i1 %.not200, label %158, label %157
 
 157:                                              ; preds = %155
-  call void @free(ptr noundef nonnull %.0166) #20
+  call void @free(ptr noundef nonnull %.0168) #20
   br label %160
 
 158:                                              ; preds = %155
-  call void @_efree(ptr noundef nonnull %.0166) #20
+  call void @_efree(ptr noundef nonnull %.0168) #20
   br label %160
 
 159:                                              ; preds = %144

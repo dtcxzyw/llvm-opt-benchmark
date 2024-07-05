@@ -622,11 +622,11 @@ define void @_ZN5nblib14offsetGmxBlockESt6vectorIN3gmx14ExclusionBlockESaIS2_EEi
   br i1 %.not7.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ZN5nblib14offsetGmxBlockES3_IN3gmx14ExclusionBlockESaIS9_EEiE3$_0ET0_T_SE_SD_T1_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
-  %.sroa.01.09.i = phi ptr [ %12, %.lr.ph.i ], [ %7, %.lr.ph ]
-  %10 = load i32, ptr %.sroa.01.09.i, align 4
+  %.sroa.04.09.i = phi ptr [ %12, %.lr.ph.i ], [ %7, %.lr.ph ]
+  %10 = load i32, ptr %.sroa.04.09.i, align 4
   %11 = add nsw i32 %10, %2
-  store i32 %11, ptr %.sroa.01.09.i, align 4
-  %12 = getelementptr i8, ptr %.sroa.01.09.i, i64 4
+  store i32 %11, ptr %.sroa.04.09.i, align 4
+  %12 = getelementptr i8, ptr %.sroa.04.09.i, i64 4
   %.not.i = icmp eq ptr %12, %9
   br i1 %.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ZN5nblib14offsetGmxBlockES3_IN3gmx14ExclusionBlockESaIS9_EEiE3$_0ET0_T_SE_SD_T1_.exit", label %.lr.ph.i, !llvm.loop !23
 

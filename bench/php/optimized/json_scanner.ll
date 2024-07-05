@@ -234,8 +234,8 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
 
 89:                                               ; preds = %101, %85
   %90 = phi ptr [ %87, %85 ], [ %102, %101 ]
-  %.01359 = phi i8 [ %88, %85 ], [ %103, %101 ]
-  %91 = zext i8 %.01359 to i64
+  %.01358 = phi i8 [ %88, %85 ], [ %103, %101 ]
+  %91 = zext i8 %.01358 to i64
   %92 = getelementptr inbounds [256 x i8], ptr @php_json_scan.yybm, i64 0, i64 %91
   %93 = load i8, ptr %92, align 1
   %94 = and i8 %93, 64
@@ -1651,11 +1651,11 @@ php_json_scanner_copy_string.exit1566:            ; preds = %729, %735
   br label %php_json_scanner_copy_string.exit
 
 748:                                              ; preds = %php_json_scanner_copy_string.exit1566, %745, %744, %743, %742, %741
-  %.01362 = phi i8 [ %740, %745 ], [ 9, %744 ], [ 13, %743 ], [ 10, %742 ], [ 12, %741 ], [ 8, %php_json_scanner_copy_string.exit1566 ]
+  %.01361 = phi i8 [ %740, %745 ], [ 9, %744 ], [ 13, %743 ], [ 10, %742 ], [ 12, %741 ], [ 8, %php_json_scanner_copy_string.exit1566 ]
   %749 = load ptr, ptr %1437, align 8
   %750 = getelementptr inbounds i8, ptr %749, i64 1
   store ptr %750, ptr %1437, align 8
-  store i8 %.01362, ptr %749, align 1
+  store i8 %.01361, ptr %749, align 1
   %751 = load ptr, ptr %0, align 8
   %752 = getelementptr inbounds i8, ptr %751, i64 1
   store ptr %752, ptr %0, align 8
@@ -2468,11 +2468,11 @@ php_json_scanner_copy_string.exit1580:            ; preds = %1117, %1123
   br label %php_json_scanner_copy_string.exit
 
 1136:                                             ; preds = %php_json_scanner_copy_string.exit1580, %1133, %1132, %1131, %1130, %1129
-  %.01358 = phi i8 [ %1128, %1133 ], [ 9, %1132 ], [ 13, %1131 ], [ 10, %1130 ], [ 12, %1129 ], [ 8, %php_json_scanner_copy_string.exit1580 ]
+  %.01362 = phi i8 [ %1128, %1133 ], [ 9, %1132 ], [ 13, %1131 ], [ 10, %1130 ], [ 12, %1129 ], [ 8, %php_json_scanner_copy_string.exit1580 ]
   %1137 = load ptr, ptr %1099, align 8
   %1138 = getelementptr inbounds i8, ptr %1137, i64 1
   store ptr %1138, ptr %1099, align 8
-  store i8 %.01358, ptr %1137, align 1
+  store i8 %.01362, ptr %1137, align 1
   %1139 = load ptr, ptr %0, align 8
   %1140 = getelementptr inbounds i8, ptr %1139, i64 1
   store ptr %1140, ptr %0, align 8

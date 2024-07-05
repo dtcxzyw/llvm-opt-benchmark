@@ -464,7 +464,7 @@ define hidden void @_ZN3std2io16append_to_string17hbf06cdc5394ca82dE(ptr noalias
 
 45:                                               ; preds = %110, %30
   %46 = phi i64 [ %.pre.i.i, %30 ], [ %106, %110 ]
-  %.050.i.i = phi i64 [ 0, %30 ], [ %84, %110 ]
+  %.052.i.i = phi i64 [ 0, %30 ], [ %84, %110 ]
   %.1.i.i = phi i64 [ %26, %30 ], [ %.2.i.i, %110 ]
   %47 = load i64, ptr %1, align 8, !alias.scope !75, !noalias !76, !noundef !4
   %48 = icmp eq i64 %46, %47
@@ -535,7 +535,7 @@ define hidden void @_ZN3std2io16append_to_string17hbf06cdc5394ca82dE(ptr noalias
   store ptr %72, ptr %6, align 8, !noalias !81
   store i64 %.0.sroa.speculated.i.i.i, ptr %33, align 8, !noalias !81
   store i64 0, ptr %34, align 8, !noalias !81
-  store i64 %.050.i.i, ptr %35, align 8, !noalias !81
+  store i64 %.052.i.i, ptr %35, align 8, !noalias !81
   %74 = invoke noundef ptr @"_ZN59_$LT$std..process..ChildStderr$u20$as$u20$std..io..Read$GT$8read_buf17h6bedbcc4546f00ddE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0)
           to label %.noexc26 unwind label %.loopexit.split-lp.loopexit
 
@@ -1433,7 +1433,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h11a2db13c1671bc8E(ptr noal
 
 43:                                               ; preds = %.backedge, %.outer
   %44 = phi i64 [ %.ph, %.outer ], [ %106, %.backedge ]
-  %.050 = phi i64 [ %.050.ph, %.outer ], [ %84, %.backedge ]
+  %.052 = phi i64 [ %.052.ph, %.outer ], [ %84, %.backedge ]
   %45 = load i64, ptr %2, align 8, !noundef !4
   %46 = icmp eq i64 %44, %45
   %47 = icmp eq i64 %45, %12
@@ -1497,12 +1497,12 @@ define hidden void @_ZN3std2io19default_read_to_end17h11a2db13c1671bc8E(ptr noal
   %72 = sub i64 %68, %69
   %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %72, i64 %.1.ph)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !153
-  %73 = icmp ugt i64 %.050, %.0.sroa.speculated.i
+  %73 = icmp ugt i64 %.052, %.0.sroa.speculated.i
   br i1 %73, label %._crit_edge, label %_ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17hbba1705b8c0e2f83E.exit.i.i.lr.ph
 
 _ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17hbba1705b8c0e2f83E.exit.i.i.lr.ph: ; preds = %67
-  %74 = sub nuw i64 %.0.sroa.speculated.i, %.050
-  %75 = getelementptr inbounds i8, ptr %71, i64 %.050
+  %74 = sub nuw i64 %.0.sroa.speculated.i, %.052
+  %75 = getelementptr inbounds i8, ptr %71, i64 %.052
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %75, i8 0, i64 %74, i1 false), !noalias !153
   call void @"_ZN67_$LT$snap..read..FrameDecoder$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hd5479084a095c776E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 1 %71, i64 noundef %.0.sroa.speculated.i), !noalias !160
   %76 = load i64, ptr %7, align 8, !range !68, !noalias !153, !noundef !4
@@ -1517,7 +1517,7 @@ _ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17hbba1705b8c0e2f83E.exit.i
   br label %115
 
 ._crit_edge:                                      ; preds = %67
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.050, i64 noundef %.0.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8116ce5b6f07845c538d26bdcae5af43.23) #22, !noalias !153
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.052, i64 noundef %.0.sroa.speculated.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8116ce5b6f07845c538d26bdcae5af43.23) #22, !noalias !153
   unreachable
 
 _ZN3std2io4Read8read_buf17h1185e0b881c98c65E.exit: ; preds = %_ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17hbba1705b8c0e2f83E.exit.i.i.lr.ph, %_ZN4core2io12borrowed_buf14BorrowedCursor10uninit_mut17hbba1705b8c0e2f83E.exit.i.i
@@ -1604,7 +1604,7 @@ default.unreachable:                              ; preds = %86
 
 .outer:                                           ; preds = %110, %.split143
   %.ph = phi i64 [ %106, %110 ], [ %.pre, %.split143 ]
-  %.050.ph = phi i64 [ %84, %110 ], [ 0, %.split143 ]
+  %.052.ph = phi i64 [ %84, %110 ], [ 0, %.split143 ]
   %.1.ph = phi i64 [ %spec.select.i73, %110 ], [ %25, %.split143 ]
   br label %43
 
@@ -1749,8 +1749,8 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17h8810d865c93b4dd7E(p
   br i1 %22, label %23, label %10
 
 .loopexit:                                        ; preds = %10, %23
-  %.0 = phi ptr [ %24, %23 ], [ null, %10 ]
-  ret ptr %.0
+  %.09 = phi ptr [ %24, %23 ], [ null, %10 ]
+  ret ptr %.09
 
 23:                                               ; preds = %"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$8read_buf17h0b46225ab14c1095E.exit"
   %24 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hbc267614248ef0b4E(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.8116ce5b6f07845c538d26bdcae5af43.17, i64 noundef 21)
@@ -2267,8 +2267,8 @@ define hidden void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5pars
   br i1 %54, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a2820d1d6fc96f0E.exit.thread", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a2820d1d6fc96f0E.exit.us"
 
 55:                                               ; preds = %32, %33, %31
-  %.sroa.11.1.ph = phi i64 [ 25, %31 ], [ %30, %33 ], [ 31, %32 ]
   %.sroa.6.1.ph = phi ptr [ @anon.8116ce5b6f07845c538d26bdcae5af43.52, %31 ], [ %28, %33 ], [ @anon.8116ce5b6f07845c538d26bdcae5af43.53, %32 ]
+  %.sroa.11.1.ph = phi i64 [ 25, %31 ], [ %30, %33 ], [ 31, %32 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5.i)
   %56 = icmp ne ptr %.sroa.6.1.ph, null
   tail call void @llvm.assume(i1 %56)
@@ -2476,8 +2476,8 @@ define hidden void @"_ZN6object4read3elf6symbol26SymbolTable$LT$Elf$C$R$GT$5pars
   br i1 %54, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd2afaad205abc84eE.exit.thread", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd2afaad205abc84eE.exit.us"
 
 55:                                               ; preds = %32, %33, %31
-  %.sroa.11.1.ph = phi i64 [ 25, %31 ], [ %30, %33 ], [ 31, %32 ]
   %.sroa.6.1.ph = phi ptr [ @anon.8116ce5b6f07845c538d26bdcae5af43.52, %31 ], [ %28, %33 ], [ @anon.8116ce5b6f07845c538d26bdcae5af43.53, %32 ]
+  %.sroa.11.1.ph = phi i64 [ 25, %31 ], [ %30, %33 ], [ 31, %32 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5.i)
   %56 = icmp ne ptr %.sroa.6.1.ph, null
   tail call void @llvm.assume(i1 %56)

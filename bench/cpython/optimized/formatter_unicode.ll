@@ -2376,9 +2376,9 @@ if.end198.i:                                      ; preds = %PyUnicode_WRITE.exi
   br label %done.i
 
 done.i:                                           ; preds = %if.end198.i, %if.end184.i, %if.then178.i, %cond.false150.i, %if.end111.i, %if.end100.i, %if.end79.i, %if.end74.i, %if.end67.i, %if.end61.i, %.thread158.i, %land.lhs.true20.i, %land.lhs.true.i, %if.then10.i, %if.then6.i, %if.then.i
-  %re_buf.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then6.i ], [ null, %if.then10.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true20.i ], [ null, %.thread158.i ], [ %call57.i, %if.end61.i ], [ %call57.i, %if.end67.i ], [ %call57.i, %if.end74.i ], [ %call57.i, %if.end79.i ], [ %call57.i, %if.end100.i ], [ %call57.i, %if.end111.i ], [ %call57.i, %cond.false150.i ], [ %call57.i, %if.end184.i ], [ %call57.i, %if.end198.i ], [ %call57.i, %if.then178.i ]
-  %im_buf.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then6.i ], [ null, %if.then10.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true20.i ], [ null, %.thread158.i ], [ null, %if.end61.i ], [ %call63.i, %if.end67.i ], [ %call63.i, %if.end74.i ], [ %call63.i, %if.end79.i ], [ %call63.i, %if.end100.i ], [ %call63.i, %if.end111.i ], [ %call63.i, %cond.false150.i ], [ %call63.i, %if.end184.i ], [ %call63.i, %if.end198.i ], [ %call63.i, %if.then178.i ]
   %result.0.i = phi i32 [ -1, %if.then.i ], [ -1, %if.then6.i ], [ -1, %if.then10.i ], [ -1, %land.lhs.true.i ], [ -1, %land.lhs.true20.i ], [ -1, %.thread158.i ], [ -1, %if.end61.i ], [ -1, %if.end67.i ], [ -1, %if.end74.i ], [ -1, %if.end79.i ], [ -1, %if.end100.i ], [ -1, %if.end111.i ], [ -1, %cond.false150.i ], [ -1, %if.end184.i ], [ 0, %if.end198.i ], [ -1, %if.then178.i ]
+  %im_buf.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then6.i ], [ null, %if.then10.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true20.i ], [ null, %.thread158.i ], [ null, %if.end61.i ], [ %call63.i, %if.end67.i ], [ %call63.i, %if.end74.i ], [ %call63.i, %if.end79.i ], [ %call63.i, %if.end100.i ], [ %call63.i, %if.end111.i ], [ %call63.i, %cond.false150.i ], [ %call63.i, %if.end184.i ], [ %call63.i, %if.end198.i ], [ %call63.i, %if.then178.i ]
+  %re_buf.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then6.i ], [ null, %if.then10.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true20.i ], [ null, %.thread158.i ], [ %call57.i, %if.end61.i ], [ %call57.i, %if.end67.i ], [ %call57.i, %if.end74.i ], [ %call57.i, %if.end79.i ], [ %call57.i, %if.end100.i ], [ %call57.i, %if.end111.i ], [ %call57.i, %cond.false150.i ], [ %call57.i, %if.end184.i ], [ %call57.i, %if.end198.i ], [ %call57.i, %if.then178.i ]
   %re_unicode_tmp.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then6.i ], [ null, %if.then10.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true20.i ], [ null, %.thread158.i ], [ null, %if.end61.i ], [ null, %if.end67.i ], [ %call70.i, %if.end74.i ], [ %call70.i, %if.end79.i ], [ %call70.i, %if.end100.i ], [ %call70.i, %if.end111.i ], [ %call70.i, %cond.false150.i ], [ %call70.i, %if.end184.i ], [ %call70.i, %if.end198.i ], [ %call70.i, %if.then178.i ]
   %im_unicode_tmp.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then6.i ], [ null, %if.then10.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true20.i ], [ null, %.thread158.i ], [ null, %if.end61.i ], [ null, %if.end67.i ], [ null, %if.end74.i ], [ %call75.i, %if.end79.i ], [ %call75.i, %if.end100.i ], [ %call75.i, %if.end111.i ], [ %call75.i, %cond.false150.i ], [ %call75.i, %if.end184.i ], [ %call75.i, %if.end198.i ], [ %call75.i, %if.then178.i ]
   call void @PyMem_Free(ptr noundef %re_buf.0.i) #12
@@ -2542,10 +2542,10 @@ for.body.lr.ph:                                   ; preds = %PyUnicode_DATA.exit
   ]
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end9.us
-  %numdigits.021.us = phi i32 [ %inc10.us, %if.end9.us ], [ 0, %for.body.lr.ph ]
-  %pos.020.us = phi i64 [ %inc.us, %if.end9.us ], [ %0, %for.body.lr.ph ]
-  %accumulator.019.us = phi i64 [ %add.us, %if.end9.us ], [ 0, %for.body.lr.ph ]
-  %arrayidx.i.us = getelementptr i8, ptr %retval.0.i, i64 %pos.020.us
+  %accumulator.021.us = phi i64 [ %add.us, %if.end9.us ], [ 0, %for.body.lr.ph ]
+  %numdigits.020.us = phi i32 [ %inc10.us, %if.end9.us ], [ 0, %for.body.lr.ph ]
+  %pos.019.us = phi i64 [ %inc.us, %if.end9.us ], [ %0, %for.body.lr.ph ]
+  %arrayidx.i.us = getelementptr i8, ptr %retval.0.i, i64 %pos.019.us
   %7 = load i8, ptr %arrayidx.i.us, align 1
   %conv.i.us = zext i8 %7 to i32
   %call2.us = tail call i32 @_PyUnicode_ToDecimalDigit(i32 noundef %conv.i.us) #12
@@ -2556,22 +2556,22 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
 if.end.us:                                        ; preds = %for.body.us
   %sub.us = sub nuw nsw i64 9223372036854775807, %conv.us
   %div.us = udiv i64 %sub.us, 10
-  %cmp5.us = icmp sgt i64 %accumulator.019.us, %div.us
+  %cmp5.us = icmp sgt i64 %accumulator.021.us, %div.us
   br i1 %cmp5.us, label %if.then7, label %if.end9.us
 
 if.end9.us:                                       ; preds = %if.end.us
-  %mul.us = mul i64 %accumulator.019.us, 10
+  %mul.us = mul i64 %accumulator.021.us, 10
   %add.us = add i64 %mul.us, %conv.us
-  %inc.us = add i64 %pos.020.us, 1
-  %inc10.us = add i32 %numdigits.021.us, 1
+  %inc.us = add i64 %pos.019.us, 1
+  %inc10.us = add i32 %numdigits.020.us, 1
   %exitcond80.not = icmp eq i64 %inc.us, %end
   br i1 %exitcond80.not, label %for.end, label %for.body.us, !llvm.loop !7
 
 for.body.us34:                                    ; preds = %for.body.lr.ph, %if.end9.us47
-  %numdigits.021.us35 = phi i32 [ %inc10.us51, %if.end9.us47 ], [ 0, %for.body.lr.ph ]
-  %pos.020.us36 = phi i64 [ %inc.us50, %if.end9.us47 ], [ %0, %for.body.lr.ph ]
-  %accumulator.019.us37 = phi i64 [ %add.us49, %if.end9.us47 ], [ 0, %for.body.lr.ph ]
-  %arrayidx4.i.us = getelementptr i16, ptr %retval.0.i, i64 %pos.020.us36
+  %accumulator.021.us35 = phi i64 [ %add.us49, %if.end9.us47 ], [ 0, %for.body.lr.ph ]
+  %numdigits.020.us36 = phi i32 [ %inc10.us51, %if.end9.us47 ], [ 0, %for.body.lr.ph ]
+  %pos.019.us37 = phi i64 [ %inc.us50, %if.end9.us47 ], [ %0, %for.body.lr.ph ]
+  %arrayidx4.i.us = getelementptr i16, ptr %retval.0.i, i64 %pos.019.us37
   %8 = load i16, ptr %arrayidx4.i.us, align 2
   %conv5.i.us = zext i16 %8 to i32
   %call2.us40 = tail call i32 @_PyUnicode_ToDecimalDigit(i32 noundef %conv5.i.us) #12
@@ -2582,22 +2582,22 @@ for.body.us34:                                    ; preds = %for.body.lr.ph, %if
 if.end.us43:                                      ; preds = %for.body.us34
   %sub.us44 = sub nuw nsw i64 9223372036854775807, %conv.us41
   %div.us45 = udiv i64 %sub.us44, 10
-  %cmp5.us46 = icmp sgt i64 %accumulator.019.us37, %div.us45
+  %cmp5.us46 = icmp sgt i64 %accumulator.021.us35, %div.us45
   br i1 %cmp5.us46, label %if.then7, label %if.end9.us47
 
 if.end9.us47:                                     ; preds = %if.end.us43
-  %mul.us48 = mul i64 %accumulator.019.us37, 10
+  %mul.us48 = mul i64 %accumulator.021.us35, 10
   %add.us49 = add i64 %mul.us48, %conv.us41
-  %inc.us50 = add i64 %pos.020.us36, 1
-  %inc10.us51 = add i32 %numdigits.021.us35, 1
+  %inc.us50 = add i64 %pos.019.us37, 1
+  %inc10.us51 = add i32 %numdigits.020.us36, 1
   %exitcond.not = icmp eq i64 %inc.us50, %end
   br i1 %exitcond.not, label %for.end, label %for.body.us34, !llvm.loop !7
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end9
-  %numdigits.021 = phi i32 [ %inc10, %if.end9 ], [ 0, %for.body.lr.ph ]
-  %pos.020 = phi i64 [ %inc, %if.end9 ], [ %0, %for.body.lr.ph ]
-  %accumulator.019 = phi i64 [ %add, %if.end9 ], [ 0, %for.body.lr.ph ]
-  %arrayidx7.i = getelementptr i32, ptr %retval.0.i, i64 %pos.020
+  %accumulator.021 = phi i64 [ %add, %if.end9 ], [ 0, %for.body.lr.ph ]
+  %numdigits.020 = phi i32 [ %inc10, %if.end9 ], [ 0, %for.body.lr.ph ]
+  %pos.019 = phi i64 [ %inc, %if.end9 ], [ %0, %for.body.lr.ph ]
+  %arrayidx7.i = getelementptr i32, ptr %retval.0.i, i64 %pos.019
   %9 = load i32, ptr %arrayidx7.i, align 4
   %call2 = tail call i32 @_PyUnicode_ToDecimalDigit(i32 noundef %9) #12
   %conv = sext i32 %call2 to i64
@@ -2607,28 +2607,28 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 if.end:                                           ; preds = %for.body
   %sub = sub nuw nsw i64 9223372036854775807, %conv
   %div = udiv i64 %sub, 10
-  %cmp5 = icmp sgt i64 %accumulator.019, %div
+  %cmp5 = icmp sgt i64 %accumulator.021, %div
   br i1 %cmp5, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end.us43, %if.end.us, %if.end
-  %.us-phi29 = phi i64 [ %pos.020, %if.end ], [ %pos.020.us, %if.end.us ], [ %pos.020.us36, %if.end.us43 ]
+  %.us-phi29 = phi i64 [ %pos.019, %if.end ], [ %pos.019.us, %if.end.us ], [ %pos.019.us37, %if.end.us43 ]
   %10 = load ptr, ptr @PyExc_ValueError, align 8
   %call8 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.2) #12
   store i64 %.us-phi29, ptr %ppos, align 8
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %mul = mul i64 %accumulator.019, 10
+  %mul = mul i64 %accumulator.021, 10
   %add = add i64 %mul, %conv
-  %inc = add i64 %pos.020, 1
-  %inc10 = add i32 %numdigits.021, 1
+  %inc = add i64 %pos.019, 1
+  %inc10 = add i32 %numdigits.020, 1
   %exitcond81.not = icmp eq i64 %inc, %end
   br i1 %exitcond81.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end9.us47, %for.body.us34, %if.end9.us, %for.body.us, %if.end9, %for.body, %PyUnicode_DATA.exit
-  %accumulator.0.lcssa = phi i64 [ 0, %PyUnicode_DATA.exit ], [ %accumulator.019, %for.body ], [ %add, %if.end9 ], [ %accumulator.019.us, %for.body.us ], [ %add.us, %if.end9.us ], [ %accumulator.019.us37, %for.body.us34 ], [ %add.us49, %if.end9.us47 ]
-  %pos.0.lcssa = phi i64 [ %0, %PyUnicode_DATA.exit ], [ %pos.020, %for.body ], [ %end, %if.end9 ], [ %pos.020.us, %for.body.us ], [ %end, %if.end9.us ], [ %pos.020.us36, %for.body.us34 ], [ %end, %if.end9.us47 ]
-  %numdigits.0.lcssa = phi i32 [ 0, %PyUnicode_DATA.exit ], [ %numdigits.021, %for.body ], [ %6, %if.end9 ], [ %numdigits.021.us, %for.body.us ], [ %6, %if.end9.us ], [ %numdigits.021.us35, %for.body.us34 ], [ %6, %if.end9.us47 ]
+  %pos.0.lcssa = phi i64 [ %0, %PyUnicode_DATA.exit ], [ %pos.019, %for.body ], [ %end, %if.end9 ], [ %pos.019.us, %for.body.us ], [ %end, %if.end9.us ], [ %pos.019.us37, %for.body.us34 ], [ %end, %if.end9.us47 ]
+  %numdigits.0.lcssa = phi i32 [ 0, %PyUnicode_DATA.exit ], [ %numdigits.020, %for.body ], [ %6, %if.end9 ], [ %numdigits.020.us, %for.body.us ], [ %6, %if.end9.us ], [ %numdigits.020.us36, %for.body.us34 ], [ %6, %if.end9.us47 ]
+  %accumulator.0.lcssa = phi i64 [ 0, %PyUnicode_DATA.exit ], [ %accumulator.021, %for.body ], [ %add, %if.end9 ], [ %accumulator.021.us, %for.body.us ], [ %add.us, %if.end9.us ], [ %accumulator.021.us35, %for.body.us34 ], [ %add.us49, %if.end9.us47 ]
   store i64 %pos.0.lcssa, ptr %ppos, align 8
   store i64 %accumulator.0.lcssa, ptr %result, align 8
   br label %return

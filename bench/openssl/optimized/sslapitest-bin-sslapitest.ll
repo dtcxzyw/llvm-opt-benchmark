@@ -4118,8 +4118,8 @@ if.end72:                                         ; preds = %if.end63
   br label %end
 
 end:                                              ; preds = %if.end72, %if.end63, %if.end54, %if.end41, %lor.lhs.false45, %lor.lhs.false49, %if.end34, %if.end27, %if.end20, %if.end, %lor.lhs.false, %lor.lhs.false15, %entry
-  %crt1.0 = phi ptr [ null, %if.end63 ], [ %call42, %if.end54 ], [ %call42, %lor.lhs.false49 ], [ %call42, %lor.lhs.false45 ], [ %call42, %if.end41 ], [ null, %if.end34 ], [ null, %if.end27 ], [ null, %if.end20 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ], [ null, %if.end72 ]
   %crt2.0 = phi ptr [ %call46, %if.end63 ], [ %call46, %if.end54 ], [ %call46, %lor.lhs.false49 ], [ %call46, %lor.lhs.false45 ], [ null, %if.end41 ], [ null, %if.end34 ], [ null, %if.end27 ], [ null, %if.end20 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ], [ null, %if.end72 ]
+  %crt1.0 = phi ptr [ null, %if.end63 ], [ %call42, %if.end54 ], [ %call42, %lor.lhs.false49 ], [ %call42, %lor.lhs.false45 ], [ %call42, %if.end41 ], [ null, %if.end34 ], [ null, %if.end27 ], [ null, %if.end20 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ], [ null, %if.end72 ]
   %testresult.0 = phi i32 [ 0, %if.end63 ], [ 0, %if.end54 ], [ 0, %lor.lhs.false49 ], [ 0, %lor.lhs.false45 ], [ 0, %if.end41 ], [ 0, %if.end34 ], [ 0, %if.end27 ], [ 0, %if.end20 ], [ 0, %lor.lhs.false15 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %entry ], [ %spec.select, %if.end72 ]
   call void @X509_free(ptr noundef %crt1.0) #23
   call void @X509_free(ptr noundef %crt2.0) #23
@@ -4205,8 +4205,8 @@ if.end21:                                         ; preds = %lor.lhs.false16
   br label %end
 
 end:                                              ; preds = %if.end21, %if.end9, %lor.lhs.false, %lor.lhs.false16, %if.end, %entry
-  %ret.0 = phi i32 [ 0, %lor.lhs.false16 ], [ 0, %lor.lhs.false ], [ 0, %if.end9 ], [ 0, %if.end ], [ 0, %entry ], [ %spec.select, %if.end21 ]
   %ssl.0 = phi ptr [ %call5, %lor.lhs.false16 ], [ %call5, %lor.lhs.false ], [ %call5, %if.end9 ], [ %call5, %if.end ], [ null, %entry ], [ %call5, %if.end21 ]
+  %ret.0 = phi i32 [ 0, %lor.lhs.false16 ], [ 0, %lor.lhs.false ], [ 0, %if.end9 ], [ 0, %if.end ], [ 0, %entry ], [ %spec.select, %if.end21 ]
   tail call void @SSL_free(ptr noundef %ssl.0) #23
   tail call void @SSL_CTX_free(ptr noundef %call3) #23
   tail call void @CRYPTO_free(ptr noundef %call1, ptr noundef nonnull @.str.14, i32 noundef 666) #23
@@ -10847,8 +10847,8 @@ if.end38:                                         ; preds = %get_MFL_from_client
   br label %end
 
 end:                                              ; preds = %if.end38, %get_MFL_from_client_hello.exit, %if.end26, %if.end9, %if.end, %if.then23
-  %con.0 = phi ptr [ %call10, %get_MFL_from_client_hello.exit ], [ %call10, %if.end26 ], [ %call10, %if.then23 ], [ %call10, %if.end9 ], [ null, %if.end ], [ %call10, %if.end38 ]
   %testresult.0 = phi i32 [ 0, %get_MFL_from_client_hello.exit ], [ 0, %if.end26 ], [ 0, %if.then23 ], [ 0, %if.end9 ], [ 0, %if.end ], [ %spec.select, %if.end38 ]
+  %con.0 = phi ptr [ %call10, %get_MFL_from_client_hello.exit ], [ %call10, %if.end26 ], [ %call10, %if.then23 ], [ %call10, %if.end9 ], [ null, %if.end ], [ %call10, %if.end38 ]
   call void @SSL_free(ptr noundef %con.0) #23
   %16 = load ptr, ptr %ctx, align 8
   call void @SSL_CTX_free(ptr noundef %16) #23
@@ -21071,8 +21071,8 @@ if.end73:                                         ; preds = %land.lhs.true, %lor
   br label %end
 
 end:                                              ; preds = %cond.end, %land.lhs.true, %if.then43, %if.then32, %if.end22, %if.then15, %entry, %if.end73
-  %snictx.1 = phi ptr [ %snictx.0, %if.end73 ], [ %snictx.0, %land.lhs.true ], [ %snictx.0, %cond.end ], [ %snictx.0, %if.then32 ], [ %snictx.0, %if.then43 ], [ %snictx.0, %if.end22 ], [ %call17, %if.then15 ], [ null, %entry ]
   %testresult.0 = phi i32 [ 1, %if.end73 ], [ 0, %land.lhs.true ], [ 0, %cond.end ], [ 0, %if.then32 ], [ 0, %if.then43 ], [ 0, %if.end22 ], [ 0, %if.then15 ], [ 0, %entry ]
+  %snictx.1 = phi ptr [ %snictx.0, %if.end73 ], [ %snictx.0, %land.lhs.true ], [ %snictx.0, %cond.end ], [ %snictx.0, %if.then32 ], [ %snictx.0, %if.then43 ], [ %snictx.0, %if.end22 ], [ %call17, %if.then15 ], [ null, %entry ]
   %13 = load ptr, ptr %serverssl, align 8
   call void @SSL_free(ptr noundef %13) #23
   %14 = load ptr, ptr %clientssl, align 8

@@ -47,7 +47,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
   br label %33
 
 33:                                               ; preds = %25, %9
-  %.0206 = phi i32 [ %32, %25 ], [ %17, %9 ]
+  %.0207 = phi i32 [ %32, %25 ], [ %17, %9 ]
   %34 = add nsw i32 %24, %2
   %35 = icmp sgt i32 %34, 96
   br i1 %35, label %197, label %36
@@ -73,7 +73,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
 
 .lr.ph234:                                        ; preds = %.lr.ph234.preheader, %.lr.ph234
   %indvars.iv248 = phi i64 [ 0, %.lr.ph234.preheader ], [ %indvars.iv.next249, %.lr.ph234 ]
-  %.0209232 = phi i32 [ 0, %.lr.ph234.preheader ], [ %44, %.lr.ph234 ]
+  %.0203233 = phi i32 [ 0, %.lr.ph234.preheader ], [ %44, %.lr.ph234 ]
   %38 = getelementptr inbounds %struct.cli_exe_section, ptr %1, i64 %indvars.iv248, i32 3
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 511
@@ -81,14 +81,14 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
   %41 = select i1 %.not218, i32 0, i32 512
   %42 = add i32 %41, %39
   %43 = and i32 %42, -512
-  %44 = add i32 %43, %.0209232
+  %44 = add i32 %43, %.0203233
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
   br i1 %exitcond252.not, label %.loopexit, label %.lr.ph234
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.1210230 = phi i32 [ 0, %.lr.ph.preheader ], [ %57, %.lr.ph ]
+  %.1231 = phi i32 [ 0, %.lr.ph.preheader ], [ %57, %.lr.ph ]
   %45 = getelementptr inbounds %struct.cli_exe_section, ptr %1, i64 %indvars.iv, i32 3
   %46 = load i32, ptr %45, align 4
   %47 = udiv i32 %46, %8
@@ -102,19 +102,19 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
   %54 = select i1 %.not227, i32 0, i32 512
   %55 = add i32 %54, %52
   %56 = and i32 %55, -512
-  %57 = add i32 %56, %.1210230
+  %57 = add i32 %56, %.1231
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph234
-  %.2211 = phi i32 [ %44, %.lr.ph234 ], [ %57, %.lr.ph ]
-  %58 = icmp ugt i32 %.2211, 1073741824
+  %.2 = phi i32 [ %44, %.lr.ph234 ], [ %57, %.lr.ph ]
+  %58 = icmp ugt i32 %.2, 1073741824
   br i1 %58, label %197, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader228, %.preheader, %.loopexit
-  %.2211264 = phi i32 [ %.2211, %.loopexit ], [ 0, %.preheader ], [ 0, %.preheader228 ]
-  %59 = add i32 %.2211264, %.0206
+  %.2264 = phi i32 [ %.2, %.loopexit ], [ 0, %.preheader ], [ 0, %.preheader228 ]
+  %59 = add i32 %.2264, %.0207
   %60 = zext i32 %59 to i64
   %61 = tail call ptr @cli_max_calloc(i64 noundef %60, i64 noundef 1) #6
   %.not219 = icmp eq ptr %61, null
@@ -122,10 +122,10 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
 
 62:                                               ; preds = %.loopexit.thread
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(328) %61, ptr noundef nonnull align 1 dereferenceable(328) @.str, i64 328, i1 false)
-  %63 = and i32 %.0206, 3584
+  %63 = and i32 %.0207, 3584
   %.not220 = icmp eq i32 %63, 0
   %64 = select i1 %.not220, i32 0, i32 4096
-  %65 = add i32 %64, %.0206
+  %65 = add i32 %64, %.0207
   %66 = and i32 %65, -4096
   %67 = trunc i32 %34 to i16
   %68 = getelementptr inbounds i8, ptr %61, i64 214
@@ -135,7 +135,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
   %70 = getelementptr inbounds i8, ptr %61, i64 260
   store i32 %3, ptr %70, align 4
   %71 = getelementptr inbounds i8, ptr %61, i64 292
-  store i32 %.0206, ptr %71, align 4
+  store i32 %.0207, ptr %71, align 4
   %72 = getelementptr inbounds i8, ptr %61, i64 328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %72, i8 0, i64 128, i1 false)
   %73 = getelementptr inbounds i8, ptr %61, i64 344
@@ -167,8 +167,8 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
   br label %90
 
 90:                                               ; preds = %76, %62
+  %.0210 = phi ptr [ %82, %76 ], [ %75, %62 ]
   %.3 = phi i32 [ %89, %76 ], [ %66, %62 ]
-  %.0204 = phi ptr [ %82, %76 ], [ %75, %62 ]
   %91 = icmp sgt i32 %2, 0
   br i1 %91, label %.lr.ph240, label %._crit_edge
 
@@ -178,12 +178,12 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
 
 .lr.ph240.split.us:                               ; preds = %.lr.ph240, %97
   %indvars.iv258 = phi i64 [ %indvars.iv.next259, %97 ], [ 0, %.lr.ph240 ]
-  %.1205238.us = phi ptr [ %125, %97 ], [ %.0204, %.lr.ph240 ]
-  %.1207237.us = phi i32 [ %.2208.us, %97 ], [ %.0206, %.lr.ph240 ]
-  %.4236.us = phi i32 [ %.5.us, %97 ], [ %.3, %.lr.ph240 ]
+  %.4239.us = phi i32 [ %.5.us, %97 ], [ %.3, %.lr.ph240 ]
+  %.1208237.us = phi i32 [ %.2209.us, %97 ], [ %.0207, %.lr.ph240 ]
+  %.1211236.us = phi ptr [ %125, %97 ], [ %.0210, %.lr.ph240 ]
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %92 = trunc nuw nsw i64 %indvars.iv.next259 to i32
-  %93 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.1205238.us, i64 noundef 8, ptr noundef nonnull @.str.2, i32 noundef %92) #6
+  %93 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.1211236.us, i64 noundef 8, ptr noundef nonnull @.str.2, i32 noundef %92) #6
   %94 = icmp slt i32 %93, 0
   br i1 %94, label %95, label %97
 
@@ -196,20 +196,20 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
   %98 = getelementptr inbounds %struct.cli_exe_section, ptr %1, i64 %indvars.iv258
   %99 = getelementptr inbounds i8, ptr %98, i64 4
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %.1205238.us, i64 8
+  %101 = getelementptr inbounds i8, ptr %.1211236.us, i64 8
   store i32 %100, ptr %101, align 1
   %102 = load i32, ptr %98, align 4
-  %103 = getelementptr inbounds i8, ptr %.1205238.us, i64 12
+  %103 = getelementptr inbounds i8, ptr %.1211236.us, i64 12
   store i32 %102, ptr %103, align 1
   %104 = getelementptr inbounds i8, ptr %98, i64 12
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %.1205238.us, i64 16
+  %106 = getelementptr inbounds i8, ptr %.1211236.us, i64 16
   store i32 %105, ptr %106, align 1
-  %107 = getelementptr inbounds i8, ptr %.1205238.us, i64 20
-  store i32 %.1207237.us, ptr %107, align 1
-  %108 = getelementptr inbounds i8, ptr %.1205238.us, i64 36
+  %107 = getelementptr inbounds i8, ptr %.1211236.us, i64 20
+  store i32 %.1208237.us, ptr %107, align 1
+  %108 = getelementptr inbounds i8, ptr %.1211236.us, i64 36
   store i32 -1, ptr %108, align 1
-  %109 = zext i32 %.1207237.us to i64
+  %109 = zext i32 %.1208237.us to i64
   %110 = getelementptr inbounds i8, ptr %61, i64 %109
   %111 = getelementptr inbounds i8, ptr %98, i64 8
   %112 = load i32, ptr %111, align 4
@@ -228,22 +228,22 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
   %.not223.us = icmp eq i32 %122, 0
   %123 = select i1 %.not223.us, i32 0, i32 4096
   %124 = add i32 %123, %121
-  %125 = getelementptr inbounds i8, ptr %.1205238.us, i64 40
-  %.pn226.us = and i32 %120, -512
-  %.2208.us = add i32 %.pn226.us, %.1207237.us
-  %.pn.us = and i32 %124, -4096
-  %.5.us = add i32 %.pn.us, %.4236.us
+  %125 = getelementptr inbounds i8, ptr %.1211236.us, i64 40
+  %.pn226.us = and i32 %124, -4096
+  %.5.us = add i32 %.pn226.us, %.4239.us
+  %.pn.us = and i32 %120, -512
+  %.2209.us = add i32 %.pn.us, %.1208237.us
   %exitcond262.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count261
   br i1 %exitcond262.not, label %._crit_edge, label %.lr.ph240.split.us
 
 .lr.ph240.split:                                  ; preds = %.lr.ph240, %131
   %indvars.iv253 = phi i64 [ %indvars.iv.next254, %131 ], [ 0, %.lr.ph240 ]
-  %.1205238 = phi ptr [ %191, %131 ], [ %.0204, %.lr.ph240 ]
-  %.1207237 = phi i32 [ %.2208, %131 ], [ %.0206, %.lr.ph240 ]
-  %.4236 = phi i32 [ %.5, %131 ], [ %.3, %.lr.ph240 ]
+  %.4239 = phi i32 [ %.5, %131 ], [ %.3, %.lr.ph240 ]
+  %.1208237 = phi i32 [ %.2209, %131 ], [ %.0207, %.lr.ph240 ]
+  %.1211236 = phi ptr [ %191, %131 ], [ %.0210, %.lr.ph240 ]
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
   %126 = trunc nuw nsw i64 %indvars.iv.next254 to i32
-  %127 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.1205238, i64 noundef 8, ptr noundef nonnull @.str.2, i32 noundef %126) #6
+  %127 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.1211236, i64 noundef 8, ptr noundef nonnull @.str.2, i32 noundef %126) #6
   %128 = icmp slt i32 %127, 0
   br i1 %128, label %129, label %131
 
@@ -261,7 +261,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
   %137 = zext i1 %136 to i32
   %138 = add i32 %134, %137
   %139 = mul i32 %138, %8
-  %140 = getelementptr inbounds i8, ptr %.1205238, i64 8
+  %140 = getelementptr inbounds i8, ptr %.1211236, i64 8
   store i32 %139, ptr %140, align 1
   %141 = getelementptr inbounds %struct.cli_exe_section, ptr %1, i64 %indvars.iv253
   %142 = load i32, ptr %141, align 4
@@ -271,7 +271,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
   %146 = zext i1 %145 to i32
   %147 = add i32 %143, %146
   %148 = mul i32 %147, %8
-  %149 = getelementptr inbounds i8, ptr %.1205238, i64 12
+  %149 = getelementptr inbounds i8, ptr %.1211236, i64 12
   store i32 %148, ptr %149, align 1
   %150 = getelementptr inbounds %struct.cli_exe_section, ptr %1, i64 %indvars.iv253, i32 3
   %151 = load i32, ptr %150, align 4
@@ -281,13 +281,13 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
   %155 = zext i1 %154 to i32
   %156 = add i32 %152, %155
   %157 = mul i32 %156, %8
-  %158 = getelementptr inbounds i8, ptr %.1205238, i64 16
+  %158 = getelementptr inbounds i8, ptr %.1211236, i64 16
   store i32 %157, ptr %158, align 1
-  %159 = getelementptr inbounds i8, ptr %.1205238, i64 20
-  store i32 %.1207237, ptr %159, align 1
-  %160 = getelementptr inbounds i8, ptr %.1205238, i64 36
+  %159 = getelementptr inbounds i8, ptr %.1211236, i64 20
+  store i32 %.1208237, ptr %159, align 1
+  %160 = getelementptr inbounds i8, ptr %.1211236, i64 36
   store i32 -1, ptr %160, align 1
-  %161 = zext i32 %.1207237 to i64
+  %161 = zext i32 %.1208237 to i64
   %162 = getelementptr inbounds i8, ptr %61, i64 %161
   %163 = getelementptr inbounds i8, ptr %141, i64 8
   %164 = load i32, ptr %163, align 4
@@ -320,20 +320,20 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr nocapture noundef readonly %
   %.not225 = icmp eq i32 %188, 0
   %189 = select i1 %.not225, i32 0, i32 4096
   %190 = add i32 %189, %187
-  %191 = getelementptr inbounds i8, ptr %.1205238, i64 40
-  %.pn226 = and i32 %179, -512
-  %.2208 = add i32 %.pn226, %.1207237
-  %.pn = and i32 %190, -4096
-  %.5 = add i32 %.pn, %.4236
+  %191 = getelementptr inbounds i8, ptr %.1211236, i64 40
+  %.pn226 = and i32 %190, -4096
+  %.5 = add i32 %.pn226, %.4239
+  %.pn = and i32 %179, -512
+  %.2209 = add i32 %.pn, %.1208237
   %exitcond257.not = icmp eq i64 %indvars.iv.next254, %wide.trip.count261
   br i1 %exitcond257.not, label %._crit_edge, label %.lr.ph240.split
 
 ._crit_edge:                                      ; preds = %131, %97, %90
+  %.1208.lcssa = phi i32 [ %.0207, %90 ], [ %.2209.us, %97 ], [ %.2209, %131 ]
   %.4.lcssa = phi i32 [ %.3, %90 ], [ %.5.us, %97 ], [ %.5, %131 ]
-  %.1207.lcssa = phi i32 [ %.0206, %90 ], [ %.2208.us, %97 ], [ %.2208, %131 ]
   %192 = getelementptr inbounds i8, ptr %61, i64 288
   store i32 %.4.lcssa, ptr %192, align 4
-  %193 = zext i32 %.1207.lcssa to i64
+  %193 = zext i32 %.1208.lcssa to i64
   %194 = tail call i64 @cli_writen(i32 noundef %7, ptr noundef nonnull %61, i64 noundef %193) #6
   %195 = icmp ne i64 %194, -1
   %196 = zext i1 %195 to i32

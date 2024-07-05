@@ -1365,22 +1365,22 @@ _ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i.preheader:   ; preds = %.preheader, %._crit
   br label %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i:             ; preds = %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i ], [ 476, %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi ptr [ %.112.i.i.i, %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i ], [ @_ZN4pkpyL9kLoRangeAE, %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i.preheader ]
-  %57 = lshr i64 %.017.i.i.i, 1
-  %58 = getelementptr inbounds i32, ptr %.01116.i.i.i, i64 %57
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i ], [ @_ZN4pkpyL9kLoRangeAE, %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i.preheader ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i ], [ 476, %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i.preheader ]
+  %57 = lshr i64 %.01116.i.i.i, 1
+  %58 = getelementptr inbounds i32, ptr %.017.i.i.i, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = icmp ult i32 %59, %.038.lcssa149
   %61 = getelementptr inbounds i8, ptr %58, i64 4
   %62 = xor i64 %57, -1
-  %63 = add nsw i64 %.017.i.i.i, %62
-  %.112.i.i.i = select i1 %60, ptr %61, ptr %.01116.i.i.i
-  %.1.i.i.i = select i1 %60, i64 %63, i64 %57
-  %64 = icmp sgt i64 %.1.i.i.i, 0
+  %63 = add nsw i64 %.01116.i.i.i, %62
+  %.112.i.i.i = select i1 %60, i64 %63, i64 %57
+  %.1.i.i.i = select i1 %60, ptr %61, ptr %.017.i.i.i
+  %64 = icmp sgt i64 %.112.i.i.i, 0
   br i1 %64, label %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit.i, !llvm.loop !17
 
 _ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit.i:      ; preds = %_ZSt7advanceIPKjlEvRT_T0_.exit.i.i.i
-  %65 = ptrtoint ptr %.112.i.i.i to i64
+  %65 = ptrtoint ptr %.1.i.i.i to i64
   %66 = sub i64 %65, ptrtoint (ptr @_ZN4pkpyL9kLoRangeAE to i64)
   %67 = ashr exact i64 %66, 2
   %68 = getelementptr inbounds [476 x i32], ptr @_ZN4pkpyL9kLoRangeAE, i64 0, i64 %67
@@ -4609,8 +4609,8 @@ _ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.t
   br label %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread
 
 _ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread: ; preds = %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread.fold.split, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118, %8, %6, %4
-  %.0104 = phi i32 [ %3, %4 ], [ 2, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit ], [ 10, %6 ], [ 10, %8 ], [ %spec.select, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118 ], [ 8, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread.fold.split ]
-  %14 = add i32 %.0104, -2
+  %.0103 = phi i32 [ %3, %4 ], [ 2, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit ], [ 10, %6 ], [ 10, %8 ], [ %spec.select, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118 ], [ 8, %_ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.thread.fold.split ]
+  %14 = add i32 %.0103, -2
   %15 = tail call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 31)
   switch i32 %15, label %.loopexit [
     i32 4, label %16
@@ -4628,14 +4628,14 @@ _ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit118.t
   br label %.lr.ph218
 
 19:                                               ; preds = %24
-  %20 = getelementptr inbounds i8, ptr %.0105217, i64 1
+  %20 = getelementptr inbounds i8, ptr %.0104217, i64 1
   %.not114 = icmp eq ptr %20, %18
   br i1 %.not114, label %.loopexit, label %.lr.ph218
 
 .lr.ph218:                                        ; preds = %.lr.ph218.preheader, %19
   %21 = phi i64 [ %28, %19 ], [ 0, %.lr.ph218.preheader ]
-  %.0105217 = phi ptr [ %20, %19 ], [ %1, %.lr.ph218.preheader ]
-  %22 = load i8, ptr %.0105217, align 1
+  %.0104217 = phi ptr [ %20, %19 ], [ %1, %.lr.ph218.preheader ]
+  %22 = load i8, ptr %.0104217, align 1
   %23 = add i8 %22, -48
   %or.cond = icmp ult i8 %23, 10
   br i1 %or.cond, label %24, label %.loopexit
@@ -4791,8 +4791,8 @@ _ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.t
 
 91:                                               ; preds = %.lr.ph, %118
   %92 = phi i64 [ 0, %.lr.ph ], [ %119, %118 ]
-  %.0103191 = phi ptr [ %.sroa.21.2175, %.lr.ph ], [ %120, %118 ]
-  %93 = load i8, ptr %.0103191, align 1
+  %.0105191 = phi ptr [ %.sroa.21.2175, %.lr.ph ], [ %120, %118 ]
+  %93 = load i8, ptr %.0105191, align 1
   %94 = sext i8 %93 to i32
   %95 = add i8 %93, -48
   %or.cond11 = icmp ult i8 %95, 10
@@ -4837,7 +4837,7 @@ _ZN4pkpy14f_startswith_2ESt17basic_string_viewIcSt11char_traitsIcEEPKc.exit124.t
 
 118:                                              ; preds = %96, %112, %104
   %119 = phi i64 [ %100, %96 ], [ %116, %112 ], [ %108, %104 ]
-  %120 = getelementptr inbounds i8, ptr %.0103191, i64 1
+  %120 = getelementptr inbounds i8, ptr %.0105191, i64 1
   %.not = icmp eq ptr %120, %90
   br i1 %.not, label %.loopexit, label %91
 
@@ -7682,41 +7682,41 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.030.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %.02329.i = phi i32 [ %18, %17 ], [ %4, %2 ]
-  %6 = icmp ult i32 %.02329.i, 100
+  %.02230.i = phi i32 [ %18, %17 ], [ %4, %2 ]
+  %.02329.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %6 = icmp ult i32 %.02230.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.030.i, 1
+  %8 = add i32 %.02329.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i32 %.02329.i, 1000
+  %10 = icmp ult i32 %.02230.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.030.i, 2
+  %12 = add i32 %.02329.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %.02329.i, 10000
+  %14 = icmp ult i32 %.02230.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.030.i, 3
+  %16 = add i32 %.02329.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i32 %.02329.i, 10000
-  %19 = add i32 %.030.i, 4
-  %20 = icmp ult i32 %.02329.i, 100000
+  %18 = udiv i32 %.02230.i, 10000
+  %19 = add i32 %.02329.i, 4
+  %20 = icmp ult i32 %.02230.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !23
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
-  %21 = add i32 %.022.i, %.lobit
+  %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -7747,7 +7747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %29, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %28
-  %30 = add i32 %.022.i, -1
+  %30 = add i32 %.0.i, -1
   br label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i

@@ -3059,26 +3059,26 @@ for.body3:                                        ; preds = %for.cond1.preheader
   %age_hot.0285 = phi i32 [ 0, %for.cond1.preheader ], [ %age_hot.1251, %sw.epilog ]
   %age.0284 = phi i32 [ 0, %for.cond1.preheader ], [ %age.1250, %sw.epilog ]
   %size.0283 = phi i32 [ 0, %for.cond1.preheader ], [ %add70, %sw.epilog ]
-  %totals.sroa.4.1281 = phi i64 [ 0, %for.cond1.preheader ], [ %add12, %sw.epilog ]
-  %totals.sroa.57.1280 = phi i32 [ 0, %for.cond1.preheader ], [ %totals.sroa.57.2, %sw.epilog ]
-  %totals.sroa.54.1279 = phi i64 [ 0, %for.cond1.preheader ], [ %add67, %sw.epilog ]
-  %totals.sroa.52.1278 = phi i64 [ 0, %for.cond1.preheader ], [ %totals.sroa.52.2, %sw.epilog ]
-  %totals.sroa.50.1277 = phi i64 [ 0, %for.cond1.preheader ], [ %totals.sroa.50.2, %sw.epilog ]
-  %totals.sroa.48.1276 = phi i64 [ 0, %for.cond1.preheader ], [ %totals.sroa.48.2, %sw.epilog ]
-  %totals.sroa.46.1275 = phi i64 [ 0, %for.cond1.preheader ], [ %totals.sroa.46.2, %sw.epilog ]
-  %totals.sroa.43.1274 = phi i64 [ 0, %for.cond1.preheader ], [ %add64, %sw.epilog ]
-  %totals.sroa.40.1273 = phi i64 [ 0, %for.cond1.preheader ], [ %add60, %sw.epilog ]
-  %totals.sroa.37.1272 = phi i64 [ 0, %for.cond1.preheader ], [ %add56, %sw.epilog ]
-  %totals.sroa.34.1271 = phi i64 [ 0, %for.cond1.preheader ], [ %add52, %sw.epilog ]
-  %totals.sroa.31.1270 = phi i64 [ 0, %for.cond1.preheader ], [ %add48, %sw.epilog ]
-  %totals.sroa.28.1269 = phi i64 [ 0, %for.cond1.preheader ], [ %add44, %sw.epilog ]
-  %totals.sroa.25.1268 = phi i64 [ 0, %for.cond1.preheader ], [ %add40, %sw.epilog ]
-  %totals.sroa.22.1267 = phi i64 [ 0, %for.cond1.preheader ], [ %add36, %sw.epilog ]
-  %totals.sroa.19.1266 = phi i64 [ 0, %for.cond1.preheader ], [ %add32, %sw.epilog ]
-  %totals.sroa.16.1265 = phi i64 [ 0, %for.cond1.preheader ], [ %add28, %sw.epilog ]
-  %totals.sroa.13.1264 = phi i64 [ 0, %for.cond1.preheader ], [ %add20, %sw.epilog ]
-  %totals.sroa.10.1263 = phi i64 [ 0, %for.cond1.preheader ], [ %add16, %sw.epilog ]
-  %totals.sroa.7.1262 = phi i64 [ 0, %for.cond1.preheader ], [ %add24, %sw.epilog ]
+  %totals.sroa.4.1282 = phi i64 [ 0, %for.cond1.preheader ], [ %add12, %sw.epilog ]
+  %totals.sroa.7.1280 = phi i64 [ 0, %for.cond1.preheader ], [ %add24, %sw.epilog ]
+  %totals.sroa.57.1279 = phi i32 [ 0, %for.cond1.preheader ], [ %totals.sroa.57.2, %sw.epilog ]
+  %totals.sroa.54.1278 = phi i64 [ 0, %for.cond1.preheader ], [ %add67, %sw.epilog ]
+  %totals.sroa.52.1277 = phi i64 [ 0, %for.cond1.preheader ], [ %totals.sroa.52.2, %sw.epilog ]
+  %totals.sroa.50.1276 = phi i64 [ 0, %for.cond1.preheader ], [ %totals.sroa.50.2, %sw.epilog ]
+  %totals.sroa.48.1275 = phi i64 [ 0, %for.cond1.preheader ], [ %totals.sroa.48.2, %sw.epilog ]
+  %totals.sroa.46.1274 = phi i64 [ 0, %for.cond1.preheader ], [ %totals.sroa.46.2, %sw.epilog ]
+  %totals.sroa.43.1273 = phi i64 [ 0, %for.cond1.preheader ], [ %add64, %sw.epilog ]
+  %totals.sroa.40.1272 = phi i64 [ 0, %for.cond1.preheader ], [ %add60, %sw.epilog ]
+  %totals.sroa.37.1271 = phi i64 [ 0, %for.cond1.preheader ], [ %add56, %sw.epilog ]
+  %totals.sroa.34.1270 = phi i64 [ 0, %for.cond1.preheader ], [ %add52, %sw.epilog ]
+  %totals.sroa.31.1269 = phi i64 [ 0, %for.cond1.preheader ], [ %add48, %sw.epilog ]
+  %totals.sroa.28.1268 = phi i64 [ 0, %for.cond1.preheader ], [ %add44, %sw.epilog ]
+  %totals.sroa.25.1267 = phi i64 [ 0, %for.cond1.preheader ], [ %add40, %sw.epilog ]
+  %totals.sroa.22.1266 = phi i64 [ 0, %for.cond1.preheader ], [ %add36, %sw.epilog ]
+  %totals.sroa.19.1265 = phi i64 [ 0, %for.cond1.preheader ], [ %add32, %sw.epilog ]
+  %totals.sroa.16.1264 = phi i64 [ 0, %for.cond1.preheader ], [ %add28, %sw.epilog ]
+  %totals.sroa.13.1263 = phi i64 [ 0, %for.cond1.preheader ], [ %add20, %sw.epilog ]
+  %totals.sroa.10.1262 = phi i64 [ 0, %for.cond1.preheader ], [ %add16, %sw.epilog ]
   %arrayidx = getelementptr inbounds [4 x i32], ptr @lru_type_map, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %or = or i32 %0, %n.0288
@@ -3090,49 +3090,49 @@ for.body3:                                        ; preds = %for.cond1.preheader
   %add = add i64 %1, %totals.sroa.0.1287
   %evicted_nonzero = getelementptr inbounds i8, ptr %arrayidx7, i64 8
   %2 = load i64, ptr %evicted_nonzero, align 8
-  %add12 = add i64 %2, %totals.sroa.4.1281
+  %add12 = add i64 %2, %totals.sroa.4.1282
   %outofmemory = getelementptr inbounds i8, ptr %arrayidx7, i64 24
   %3 = load i64, ptr %outofmemory, align 8
-  %add16 = add i64 %3, %totals.sroa.10.1263
+  %add16 = add i64 %3, %totals.sroa.10.1262
   %tailrepairs = getelementptr inbounds i8, ptr %arrayidx7, i64 32
   %4 = load i64, ptr %tailrepairs, align 8
-  %add20 = add i64 %4, %totals.sroa.13.1264
+  %add20 = add i64 %4, %totals.sroa.13.1263
   %reclaimed = getelementptr inbounds i8, ptr %arrayidx7, i64 16
   %5 = load i64, ptr %reclaimed, align 8
-  %add24 = add i64 %5, %totals.sroa.7.1262
+  %add24 = add i64 %5, %totals.sroa.7.1280
   %expired_unfetched = getelementptr inbounds i8, ptr %arrayidx7, i64 40
   %6 = load i64, ptr %expired_unfetched, align 8
-  %add28 = add i64 %6, %totals.sroa.16.1265
+  %add28 = add i64 %6, %totals.sroa.16.1264
   %evicted_unfetched = getelementptr inbounds i8, ptr %arrayidx7, i64 48
   %7 = load i64, ptr %evicted_unfetched, align 8
-  %add32 = add i64 %7, %totals.sroa.19.1266
+  %add32 = add i64 %7, %totals.sroa.19.1265
   %evicted_active = getelementptr inbounds i8, ptr %arrayidx7, i64 56
   %8 = load i64, ptr %evicted_active, align 8
-  %add36 = add i64 %8, %totals.sroa.22.1267
+  %add36 = add i64 %8, %totals.sroa.22.1266
   %crawler_reclaimed = getelementptr inbounds i8, ptr %arrayidx7, i64 64
   %9 = load i64, ptr %crawler_reclaimed, align 8
-  %add40 = add i64 %9, %totals.sroa.25.1268
+  %add40 = add i64 %9, %totals.sroa.25.1267
   %crawler_items_checked = getelementptr inbounds i8, ptr %arrayidx7, i64 72
   %10 = load i64, ptr %crawler_items_checked, align 8
-  %add44 = add i64 %10, %totals.sroa.28.1269
+  %add44 = add i64 %10, %totals.sroa.28.1268
   %lrutail_reflocked = getelementptr inbounds i8, ptr %arrayidx7, i64 80
   %11 = load i64, ptr %lrutail_reflocked, align 8
-  %add48 = add i64 %11, %totals.sroa.31.1270
+  %add48 = add i64 %11, %totals.sroa.31.1269
   %moves_to_cold = getelementptr inbounds i8, ptr %arrayidx7, i64 88
   %12 = load i64, ptr %moves_to_cold, align 8
-  %add52 = add i64 %12, %totals.sroa.34.1271
+  %add52 = add i64 %12, %totals.sroa.34.1270
   %moves_to_warm = getelementptr inbounds i8, ptr %arrayidx7, i64 96
   %13 = load i64, ptr %moves_to_warm, align 8
-  %add56 = add i64 %13, %totals.sroa.37.1272
+  %add56 = add i64 %13, %totals.sroa.37.1271
   %moves_within_lru = getelementptr inbounds i8, ptr %arrayidx7, i64 104
   %14 = load i64, ptr %moves_within_lru, align 8
-  %add60 = add i64 %14, %totals.sroa.40.1273
+  %add60 = add i64 %14, %totals.sroa.40.1272
   %direct_reclaims = getelementptr inbounds i8, ptr %arrayidx7, i64 112
   %15 = load i64, ptr %direct_reclaims, align 8
-  %add64 = add i64 %15, %totals.sroa.43.1274
+  %add64 = add i64 %15, %totals.sroa.43.1273
   %arrayidx66 = getelementptr inbounds [256 x i64], ptr @sizes_bytes, i64 0, i64 %idxprom4
   %16 = load i64, ptr %arrayidx66, align 8
-  %add67 = add i64 %16, %totals.sroa.54.1279
+  %add67 = add i64 %16, %totals.sroa.54.1278
   %arrayidx69 = getelementptr inbounds [256 x i32], ptr @sizes, i64 0, i64 %idxprom4
   %17 = load i32, ptr %arrayidx69, align 4
   %add70 = add i32 %17, %size.0283
@@ -3194,7 +3194,7 @@ if.end117:                                        ; preds = %for.body3, %land.lh
   %age_warm.1252 = phi i32 [ %age_warm.0286, %if.then113 ], [ %age_warm.0286, %land.lhs.true86 ], [ %age_warm.0286, %land.lhs.true99 ], [ %sub107, %if.then103 ], [ %age_warm.0286, %if.then90 ], [ %age_warm.0286, %for.body3 ]
   %age_hot.1251 = phi i32 [ %age_hot.0285, %if.then113 ], [ %age_hot.0285, %land.lhs.true86 ], [ %age_hot.0285, %land.lhs.true99 ], [ %age_hot.0285, %if.then103 ], [ %sub94, %if.then90 ], [ %age_hot.0285, %for.body3 ]
   %age.1250 = phi i32 [ %age.1259, %if.then113 ], [ %age.0284, %land.lhs.true86 ], [ %age.0284, %land.lhs.true99 ], [ %age.0284, %if.then103 ], [ %age.0284, %if.then90 ], [ %age.0284, %for.body3 ]
-  %totals.sroa.57.2 = phi i32 [ %28, %if.then113 ], [ %totals.sroa.57.1280, %land.lhs.true86 ], [ %totals.sroa.57.1280, %land.lhs.true99 ], [ %totals.sroa.57.1280, %if.then103 ], [ %totals.sroa.57.1280, %if.then90 ], [ %totals.sroa.57.1280, %for.body3 ]
+  %totals.sroa.57.2 = phi i32 [ %28, %if.then113 ], [ %totals.sroa.57.1279, %land.lhs.true86 ], [ %totals.sroa.57.1279, %land.lhs.true99 ], [ %totals.sroa.57.1279, %if.then103 ], [ %totals.sroa.57.1279, %if.then90 ], [ %totals.sroa.57.1279, %for.body3 ]
   %29 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 26)
   switch i32 %29, label %sw.epilog [
     i32 0, label %sw.bb
@@ -3224,10 +3224,10 @@ sw.bb130:                                         ; preds = %if.end117
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb130, %sw.bb126, %sw.bb122, %sw.bb, %if.end117
-  %totals.sroa.46.2 = phi i64 [ %totals.sroa.46.1275, %if.end117 ], [ %totals.sroa.46.1275, %sw.bb130 ], [ %totals.sroa.46.1275, %sw.bb126 ], [ %totals.sroa.46.1275, %sw.bb122 ], [ %30, %sw.bb ]
-  %totals.sroa.48.2 = phi i64 [ %totals.sroa.48.1276, %if.end117 ], [ %totals.sroa.48.1276, %sw.bb130 ], [ %totals.sroa.48.1276, %sw.bb126 ], [ %31, %sw.bb122 ], [ %totals.sroa.48.1276, %sw.bb ]
-  %totals.sroa.50.2 = phi i64 [ %totals.sroa.50.1277, %if.end117 ], [ %totals.sroa.50.1277, %sw.bb130 ], [ %32, %sw.bb126 ], [ %totals.sroa.50.1277, %sw.bb122 ], [ %totals.sroa.50.1277, %sw.bb ]
-  %totals.sroa.52.2 = phi i64 [ %totals.sroa.52.1278, %if.end117 ], [ %33, %sw.bb130 ], [ %totals.sroa.52.1278, %sw.bb126 ], [ %totals.sroa.52.1278, %sw.bb122 ], [ %totals.sroa.52.1278, %sw.bb ]
+  %totals.sroa.46.2 = phi i64 [ %totals.sroa.46.1274, %if.end117 ], [ %totals.sroa.46.1274, %sw.bb130 ], [ %totals.sroa.46.1274, %sw.bb126 ], [ %totals.sroa.46.1274, %sw.bb122 ], [ %30, %sw.bb ]
+  %totals.sroa.48.2 = phi i64 [ %totals.sroa.48.1275, %if.end117 ], [ %totals.sroa.48.1275, %sw.bb130 ], [ %totals.sroa.48.1275, %sw.bb126 ], [ %31, %sw.bb122 ], [ %totals.sroa.48.1275, %sw.bb ]
+  %totals.sroa.50.2 = phi i64 [ %totals.sroa.50.1276, %if.end117 ], [ %totals.sroa.50.1276, %sw.bb130 ], [ %32, %sw.bb126 ], [ %totals.sroa.50.1276, %sw.bb122 ], [ %totals.sroa.50.1276, %sw.bb ]
+  %totals.sroa.52.2 = phi i64 [ %totals.sroa.52.1277, %if.end117 ], [ %33, %sw.bb130 ], [ %totals.sroa.52.1277, %sw.bb126 ], [ %totals.sroa.52.1277, %sw.bb122 ], [ %totals.sroa.52.1277, %sw.bb ]
   %call136 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx5) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -4168,20 +4168,20 @@ while.body.lr.ph:                                 ; preds = %if.end16
 while.body:                                       ; preds = %while.body.lr.ph, %if.end139
   %am.0106 = phi ptr [ %call11, %while.body.lr.ph ], [ %am.2, %if.end139 ]
   %last_ratio.0105 = phi double [ %4, %while.body.lr.ph ], [ %last_ratio.2, %if.end139 ]
-  %last_automove_check.0104 = phi i32 [ 0, %while.body.lr.ph ], [ %last_automove_check.1, %if.end139 ]
-  %last_crawler_check.0103 = phi i32 [ 0, %while.body.lr.ph ], [ %last_crawler_check.1, %if.end139 ]
-  %to_sleep.0102 = phi i32 [ 1000, %while.body.lr.ph ], [ %to_sleep.4, %if.end139 ]
+  %to_sleep.0104 = phi i32 [ 1000, %while.body.lr.ph ], [ %to_sleep.4, %if.end139 ]
+  %last_automove_check.0103 = phi i32 [ 0, %while.body.lr.ph ], [ %last_automove_check.1, %if.end139 ]
+  %last_crawler_check.0102 = phi i32 [ 0, %while.body.lr.ph ], [ %last_crawler_check.1, %if.end139 ]
   %call17 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lru_maintainer_lock) #18
-  %tobool18.not = icmp eq i32 %to_sleep.0102, 0
+  %tobool18.not = icmp eq i32 %to_sleep.0104, 0
   br i1 %tobool18.not, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %while.body
-  %call20 = call i32 @usleep(i32 noundef %to_sleep.0102) #18
+  %call20 = call i32 @usleep(i32 noundef %to_sleep.0104) #18
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then19, %while.body
   %call22 = call i32 @pthread_mutex_lock(ptr noundef nonnull @lru_maintainer_lock) #18
-  %cond = call i32 @llvm.umax.i32(i32 %to_sleep.0102, i32 1000)
+  %cond = call i32 @llvm.umax.i32(i32 %to_sleep.0104, i32 1000)
   call void @STATS_LOCK() #18
   %10 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 104), align 8
   %inc = add i64 %10, 1
@@ -4470,7 +4470,7 @@ if.end101:                                        ; preds = %lru_maintainer_bump
 
 land.lhs.true103:                                 ; preds = %if.end101
   %51 = load volatile i32, ptr @current_time, align 4
-  %cmp104.not = icmp eq i32 %last_crawler_check.0103, %51
+  %cmp104.not = icmp eq i32 %last_crawler_check.0102, %51
   br i1 %cmp104.not, label %if.end106, label %if.then105
 
 if.then105:                                       ; preds = %land.lhs.true103
@@ -4480,8 +4480,8 @@ if.then105:                                       ; preds = %land.lhs.true103
 
 for.body.outer.i:                                 ; preds = %for.inc93.thread.i, %if.then105
   %indvars.iv63.ph.i = phi i64 [ %indvars.iv.next6471.i, %for.inc93.thread.i ], [ 1, %if.then105 ]
-  %tocrawl_limit.057.ph.i = phi i32 [ %spec.select.i, %for.inc93.thread.i ], [ 0, %if.then105 ]
-  %do_run.056.ph.i = phi i1 [ true, %for.inc93.thread.i ], [ false, %if.then105 ]
+  %do_run.057.ph.i = phi i1 [ true, %for.inc93.thread.i ], [ false, %if.then105 ]
+  %tocrawl_limit.056.ph.i = phi i32 [ %spec.select.i, %for.inc93.thread.i ], [ 0, %if.then105 ]
   br label %for.body.i61
 
 for.body.i61:                                     ; preds = %for.inc93.i, %for.body.outer.i
@@ -4616,7 +4616,7 @@ for.inc93.thread.i:                               ; preds = %if.end67.i
   %call75.i = call i32 @pthread_mutex_lock(ptr noundef nonnull %arrayidx74.i) #18
   %arrayidx77.i = getelementptr inbounds [256 x i32], ptr @sizes, i64 0, i64 %indvars.iv63.i
   %74 = load i32, ptr %arrayidx77.i, align 4
-  %spec.select.i = call i32 @llvm.umax.i32(i32 %74, i32 %tocrawl_limit.057.ph.i)
+  %spec.select.i = call i32 @llvm.umax.i32(i32 %74, i32 %tocrawl_limit.056.ph.i)
   %call86.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx74.i) #18
   %arrayidx88.i = getelementptr inbounds [256 x i8], ptr %todo.i, i64 0, i64 %indvars.iv63.i
   store i8 1, ptr %arrayidx88.i, align 1
@@ -4628,14 +4628,14 @@ for.inc93.thread.i:                               ; preds = %if.end67.i
   br i1 %exitcond65.not72.i, label %if.then97.i, label %for.body.outer.i, !llvm.loop !24
 
 for.end95.i:                                      ; preds = %for.inc93.i
-  br i1 %do_run.056.ph.i, label %if.then97.i, label %lru_maintainer_crawler_check.exit
+  br i1 %do_run.057.ph.i, label %if.then97.i, label %lru_maintainer_crawler_check.exit
 
 if.then97.i:                                      ; preds = %for.inc93.thread.i, %for.end95.i
-  %tocrawl_limit.27477.i = phi i32 [ %tocrawl_limit.057.ph.i, %for.end95.i ], [ %spec.select.i, %for.inc93.thread.i ]
+  %tocrawl_limit.27377.i = phi i32 [ %tocrawl_limit.056.ph.i, %for.end95.i ], [ %spec.select.i, %for.inc93.thread.i ]
   %76 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 196), align 4
   %tobool98.not.not.i = icmp eq i32 %76, 0
-  %77 = call i32 @llvm.umin.i32(i32 %76, i32 %tocrawl_limit.27477.i)
-  %tocrawl_limit.3.i = select i1 %tobool98.not.not.i, i32 %tocrawl_limit.27477.i, i32 %77
+  %77 = call i32 @llvm.umin.i32(i32 %76, i32 %tocrawl_limit.27377.i)
+  %tocrawl_limit.3.i = select i1 %tobool98.not.not.i, i32 %tocrawl_limit.27377.i, i32 %77
   %call104.i = call i32 @lru_crawler_start(ptr noundef nonnull %todo.i, i32 noundef %tocrawl_limit.3.i, i32 noundef 0, ptr noundef nonnull %call, ptr noundef null, i32 noundef 0) #18
   br label %lru_maintainer_crawler_check.exit
 
@@ -4645,14 +4645,14 @@ lru_maintainer_crawler_check.exit:                ; preds = %for.end95.i, %if.th
   br label %if.end106
 
 if.end106:                                        ; preds = %lru_maintainer_crawler_check.exit, %land.lhs.true103, %if.end101
-  %last_crawler_check.1 = phi i32 [ %78, %lru_maintainer_crawler_check.exit ], [ %last_crawler_check.0103, %land.lhs.true103 ], [ %last_crawler_check.0103, %if.end101 ]
+  %last_crawler_check.1 = phi i32 [ %78, %lru_maintainer_crawler_check.exit ], [ %last_crawler_check.0102, %land.lhs.true103 ], [ %last_crawler_check.0102, %if.end101 ]
   %79 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 148), align 4
   %cmp107 = icmp eq i32 %79, 1
   br i1 %cmp107, label %land.lhs.true108, label %if.end139
 
 land.lhs.true108:                                 ; preds = %if.end106
   %80 = load volatile i32, ptr @current_time, align 4
-  %cmp109.not = icmp eq i32 %last_automove_check.0104, %80
+  %cmp109.not = icmp eq i32 %last_automove_check.0103, %80
   br i1 %cmp109.not, label %if.end139, label %if.then110
 
 if.then110:                                       ; preds = %land.lhs.true108
@@ -4711,8 +4711,8 @@ if.then132:                                       ; preds = %if.end129
   br label %if.end139
 
 if.end139:                                        ; preds = %if.end129, %if.then132, %land.lhs.true108, %if.end106
+  %last_automove_check.1 = phi i32 [ %93, %if.then132 ], [ %last_automove_check.0103, %land.lhs.true108 ], [ %last_automove_check.0103, %if.end106 ], [ %last_automove_check.0103, %if.end129 ]
   %to_sleep.4 = phi i32 [ %to_sleep.3, %if.then132 ], [ %to_sleep.3, %land.lhs.true108 ], [ %to_sleep.3, %if.end106 ], [ 1000, %if.end129 ]
-  %last_automove_check.1 = phi i32 [ %93, %if.then132 ], [ %last_automove_check.0104, %land.lhs.true108 ], [ %last_automove_check.0104, %if.end106 ], [ %last_automove_check.0104, %if.end129 ]
   %last_ratio.2 = phi double [ %last_ratio.1, %if.then132 ], [ %last_ratio.0105, %land.lhs.true108 ], [ %last_ratio.0105, %if.end106 ], [ %last_ratio.1, %if.end129 ]
   %am.2 = phi ptr [ %am.1, %if.then132 ], [ %am.0106, %land.lhs.true108 ], [ %am.0106, %if.end106 ], [ %am.1, %if.end129 ]
   %94 = load volatile i32, ptr @do_run_lru_maintainer_thread, align 4

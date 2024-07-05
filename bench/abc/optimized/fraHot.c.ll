@@ -300,7 +300,7 @@ Fra_OneHotNodeIsConst.exit.preheader:             ; preds = %.lr.ph.i
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %Fra_OneHotNodesAreClause.exit114
   %indvars.iv163 = phi i64 [ %indvars.iv, %.lr.ph.split.preheader ], [ %indvars.iv.next164, %Fra_OneHotNodesAreClause.exit114 ]
   %46 = phi ptr [ %23, %.lr.ph.split.preheader ], [ %250, %Fra_OneHotNodesAreClause.exit114 ]
-  %.0151.pn = phi i32 [ %42, %.lr.ph.split.preheader ], [ %254, %Fra_OneHotNodesAreClause.exit114 ]
+  %.054151.pn = phi i32 [ %42, %.lr.ph.split.preheader ], [ %254, %Fra_OneHotNodesAreClause.exit114 ]
   %47 = getelementptr i8, ptr %46, i64 8
   %.val66 = load ptr, ptr %47, align 8
   %48 = getelementptr inbounds ptr, ptr %.val66, i64 %indvars.iv163
@@ -432,7 +432,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %102 = sext i32 %77 to i64
   %103 = getelementptr inbounds i32, ptr %100, i64 %102
   store i32 %44, ptr %103, align 4
-  %104 = sub i32 %reass.sub, %.0151.pn
+  %104 = sub i32 %reass.sub, %.054151.pn
   %105 = load i32, ptr %8, align 4
   %106 = load i32, ptr %7, align 8
   %107 = icmp eq i32 %105, %106
@@ -566,7 +566,7 @@ Vec_IntPush.exit105:                              ; preds = %.Vec_IntGrow.exit10
   %160 = sext i32 %135 to i64
   %161 = getelementptr inbounds i32, ptr %158, i64 %160
   store i32 %45, ptr %161, align 4
-  %162 = sub i32 %reass.sub, %.0151.pn
+  %162 = sub i32 %reass.sub, %.054151.pn
   %163 = load i32, ptr %8, align 4
   %164 = load i32, ptr %7, align 8
   %165 = icmp eq i32 %163, %164
@@ -1028,7 +1028,7 @@ define range(i32 0, 2) i32 @Fra_OneHotRefineUsingCex(ptr nocapture noundef reado
 12:                                               ; preds = %.lr.ph, %Fra_OneHotNodesAreClause.exit.thread
   %.val2951 = phi i32 [ %.val2943, %.lr.ph ], [ %.val29, %Fra_OneHotNodesAreClause.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Fra_OneHotNodesAreClause.exit.thread ]
-  %.045 = phi i32 [ 0, %.lr.ph ], [ %.1, %Fra_OneHotNodesAreClause.exit.thread ]
+  %.02744 = phi i32 [ 0, %.lr.ph ], [ %.1, %Fra_OneHotNodesAreClause.exit.thread ]
   %.val31 = load ptr, ptr %10, align 8
   %13 = getelementptr inbounds i32, ptr %.val31, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
@@ -1178,15 +1178,15 @@ Fra_OneHotNodesAreClause.exit:                    ; preds = %.lr.ph49.i, %.lr.ph
 
 Fra_OneHotNodesAreClause.exit.thread:             ; preds = %61, %87, %74, %82, %69, %56, %81, %Fra_OneHotNodesAreClause.exit, %12
   %.val29 = phi i32 [ %.val2951, %12 ], [ %.val29.pre, %Fra_OneHotNodesAreClause.exit ], [ %.val2951, %81 ], [ %.val2951, %56 ], [ %.val2951, %69 ], [ %.val2951, %82 ], [ %.val2951, %74 ], [ %.val2951, %87 ], [ %.val2951, %61 ]
-  %.1 = phi i32 [ %.045, %12 ], [ 1, %Fra_OneHotNodesAreClause.exit ], [ %.045, %81 ], [ %.045, %56 ], [ %.045, %69 ], [ %.045, %82 ], [ %.045, %74 ], [ %.045, %87 ], [ %.045, %61 ]
+  %.1 = phi i32 [ %.02744, %12 ], [ 1, %Fra_OneHotNodesAreClause.exit ], [ %.02744, %81 ], [ %.02744, %56 ], [ %.02744, %69 ], [ %.02744, %82 ], [ %.02744, %74 ], [ %.02744, %87 ], [ %.02744, %61 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %95 = sext i32 %.val29 to i64
   %96 = icmp slt i64 %indvars.iv.next, %95
   br i1 %96, label %12, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %Fra_OneHotNodesAreClause.exit.thread, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %Fra_OneHotNodesAreClause.exit.thread ]
-  ret i32 %.0.lcssa
+  %.027.lcssa = phi i32 [ 0, %2 ], [ %.1, %Fra_OneHotNodesAreClause.exit.thread ]
+  ret i32 %.027.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

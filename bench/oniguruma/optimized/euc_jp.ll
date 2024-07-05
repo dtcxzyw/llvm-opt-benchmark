@@ -44,12 +44,12 @@ define internal i32 @mbc_to_code(ptr noundef %0, ptr noundef readnone %1) #2 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.01623 = phi ptr [ %.016, %.lr.ph ], [ %.01618, %.preheader ]
   %.022 = phi i32 [ %12, %.lr.ph ], [ %6, %.preheader ]
-  %.01421 = phi i32 [ %13, %.lr.ph ], [ 1, %.preheader ]
+  %.01521 = phi i32 [ %13, %.lr.ph ], [ 1, %.preheader ]
   %9 = load i8, ptr %.01623, align 1
   %10 = zext i8 %9 to i32
   %11 = shl i32 %.022, 8
   %12 = or disjoint i32 %11, %10
-  %13 = add nuw nsw i32 %.01421, 1
+  %13 = add nuw nsw i32 %.01521, 1
   %.016 = getelementptr inbounds i8, ptr %.01623, i64 1
   %14 = icmp slt i32 %13, %4
   %.not = icmp ult ptr %.016, %1
@@ -57,8 +57,8 @@ define internal i32 @mbc_to_code(ptr noundef %0, ptr noundef readnone %1) #2 {
   br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %2
-  %.015 = phi i32 [ %6, %2 ], [ %6, %.preheader ], [ %12, %.lr.ph ]
-  ret i32 %.015
+  %.014 = phi i32 [ %6, %2 ], [ %6, %.preheader ], [ %12, %.lr.ph ]
+  ret i32 %.014
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -175,11 +175,11 @@ define internal i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr nocaptu
 .lr.ph:                                           ; preds = %14, %.lr.ph
   %.020 = phi i32 [ %21, %.lr.ph ], [ 0, %14 ]
   %.01419 = phi ptr [ %18, %.lr.ph ], [ %5, %14 ]
-  %.01518 = phi ptr [ %20, %.lr.ph ], [ %3, %14 ]
+  %.01618 = phi ptr [ %20, %.lr.ph ], [ %3, %14 ]
   %18 = getelementptr inbounds i8, ptr %.01419, i64 1
   %19 = load i8, ptr %.01419, align 1
-  %20 = getelementptr inbounds i8, ptr %.01518, i64 1
-  store i8 %19, ptr %.01518, align 1
+  %20 = getelementptr inbounds i8, ptr %.01618, i64 1
+  store i8 %19, ptr %.01618, align 1
   %21 = add nuw nsw i32 %.020, 1
   %exitcond.not = icmp eq i32 %21, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -192,9 +192,9 @@ define internal i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr nocaptu
 
 25:                                               ; preds = %._crit_edge, %8
   %storemerge = phi ptr [ %24, %._crit_edge ], [ %13, %8 ]
-  %.016 = phi i32 [ %16, %._crit_edge ], [ 1, %8 ]
+  %.015 = phi i32 [ %16, %._crit_edge ], [ 1, %8 ]
   store ptr %storemerge, ptr %1, align 8
-  ret i32 %.016
+  ret i32 %.015
 }
 
 declare i32 @onigenc_ascii_apply_all_case_fold(i32 noundef, ptr noundef, ptr noundef) #1
@@ -336,20 +336,20 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   br i1 %.not, label %.preheader, label %21
 
 .preheader:                                       ; preds = %2, %.preheader
-  %.0 = phi ptr [ %8, %.preheader ], [ %1, %2 ]
-  %3 = load i8, ptr %.0, align 1
+  %.018 = phi ptr [ %8, %.preheader ], [ %1, %2 ]
+  %3 = load i8, ptr %.018, align 1
   %4 = add i8 %3, 95
   %5 = icmp ult i8 %4, 94
-  %6 = icmp ugt ptr %.0, %0
+  %6 = icmp ugt ptr %.018, %0
   %7 = and i1 %6, %5
-  %8 = getelementptr inbounds i8, ptr %.0, i64 -1
+  %8 = getelementptr inbounds i8, ptr %.018, i64 -1
   br i1 %7, label %.preheader, label %9, !llvm.loop !7
 
 9:                                                ; preds = %.preheader
   %10 = load ptr, ptr @OnigEncodingEUC_JP, align 8
-  %11 = tail call i32 %10(ptr noundef nonnull %.0) #7
+  %11 = tail call i32 %10(ptr noundef nonnull %.018) #7
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %.0, i64 %12
+  %13 = getelementptr inbounds i8, ptr %.018, i64 %12
   %14 = icmp ugt ptr %13, %1
   br i1 %14, label %21, label %15
 
@@ -362,8 +362,8 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   br label %21
 
 21:                                               ; preds = %9, %2, %15
-  %.018 = phi ptr [ %20, %15 ], [ %1, %2 ], [ %.0, %9 ]
-  ret ptr %.018
+  %.0 = phi ptr [ %20, %15 ], [ %1, %2 ], [ %.018, %9 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

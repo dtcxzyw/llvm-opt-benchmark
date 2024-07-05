@@ -35,8 +35,8 @@ define void @bezier_clip(ptr noundef %0, ptr nocapture noundef readonly %1, ptr 
 
 11:                                               ; preds = %4, %9
   %.sink = phi i64 [ 56, %9 ], [ 8, %4 ]
-  %.040 = phi ptr [ %5, %9 ], [ null, %4 ]
-  %.039 = phi ptr [ null, %9 ], [ %5, %4 ]
+  %.040 = phi ptr [ null, %9 ], [ %5, %4 ]
+  %.039 = phi ptr [ %5, %9 ], [ null, %4 ]
   %.038 = phi ptr [ %8, %9 ], [ %7, %4 ]
   %.037 = phi ptr [ %7, %9 ], [ %8, %4 ]
   %.sroa.021.0.in = phi ptr [ %10, %9 ], [ %2, %4 ]
@@ -53,7 +53,7 @@ define void @bezier_clip(ptr noundef %0, ptr nocapture noundef readonly %1, ptr 
   %.sroa.6.1 = phi double [ %.sroa.6.0, %11 ], [ %16, %.critedge.backedge ]
   %12 = phi double [ 1.000000e+00, %11 ], [ %26, %.critedge.backedge ]
   %13 = fmul double %12, 5.000000e-01
-  %14 = call { double, double } @Bezier(ptr noundef %2, double noundef %13, ptr noundef %.040, ptr noundef %.039) #16
+  %14 = call { double, double } @Bezier(ptr noundef %2, double noundef %13, ptr noundef %.039, ptr noundef %.040) #16
   %15 = extractvalue { double, double } %14, 0
   %16 = extractvalue { double, double } %14, 1
   %17 = call zeroext i1 %1(ptr noundef %0, double %15, double %16) #16
@@ -195,8 +195,8 @@ define internal fastcc void @shape_clip0(ptr noundef %0, ptr nocapture noundef r
 
 30:                                               ; preds = %28, %21
   %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %28 ], [ %.sink.i.sroa.gep25, %21 ]
-  %.040.i = phi ptr [ %5, %28 ], [ null, %21 ]
-  %.039.i = phi ptr [ null, %28 ], [ %5, %21 ]
+  %.040.i = phi ptr [ null, %28 ], [ %5, %21 ]
+  %.039.i = phi ptr [ %5, %28 ], [ null, %21 ]
   %.038.i = phi ptr [ %8, %28 ], [ %7, %21 ]
   %.037.i = phi ptr [ %7, %28 ], [ %8, %21 ]
   %.sroa.021.0.in.i = phi ptr [ %29, %28 ], [ %9, %21 ]
@@ -212,7 +212,7 @@ define internal fastcc void @shape_clip0(ptr noundef %0, ptr nocapture noundef r
   %.sroa.6.1.i = phi double [ %.sroa.6.0.i, %30 ], [ %35, %.critedge.backedge.i ]
   %31 = phi double [ 1.000000e+00, %30 ], [ %45, %.critedge.backedge.i ]
   %32 = fmul double %31, 5.000000e-01
-  %33 = call { double, double } @Bezier(ptr noundef nonnull %9, double noundef %32, ptr noundef %.040.i, ptr noundef %.039.i) #16
+  %33 = call { double, double } @Bezier(ptr noundef nonnull %9, double noundef %32, ptr noundef %.039.i, ptr noundef %.040.i) #16
   %34 = extractvalue { double, double } %33, 0
   %35 = extractvalue { double, double } %33, 1
   %36 = call zeroext i1 %27(ptr noundef %0, double %34, double %35) #16
@@ -2255,9 +2255,9 @@ define void @makeSelfEdge(ptr nocapture noundef readonly %0, i32 noundef %1, i32
 ._crit_edge:                                      ; preds = %18
   %.phi.trans.insert = getelementptr inbounds i8, ptr %14, i64 61
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  %.phi.trans.insert149 = getelementptr inbounds i8, ptr %14, i64 109
-  %.pre150 = load i8, ptr %.phi.trans.insert149, align 1
-  %.pre151 = zext i8 %.pre to i32
+  %.phi.trans.insert147 = getelementptr inbounds i8, ptr %14, i64 109
+  %.pre148 = load i8, ptr %.phi.trans.insert147, align 1
+  %.pre149 = zext i8 %.pre to i32
   br label %33
 
 22:                                               ; preds = %18, %6
@@ -2283,8 +2283,8 @@ define void @makeSelfEdge(ptr nocapture noundef readonly %0, i32 noundef %1, i32
   br i1 %or.cond, label %33, label %320
 
 33:                                               ; preds = %._crit_edge, %31
-  %.pre-phi = phi i32 [ %.pre151, %._crit_edge ], [ %25, %31 ]
-  %34 = phi i8 [ %.pre150, %._crit_edge ], [ %29, %31 ]
+  %.pre-phi = phi i32 [ %.pre149, %._crit_edge ], [ %25, %31 ]
+  %34 = phi i8 [ %.pre148, %._crit_edge ], [ %29, %31 ]
   call void @llvm.lifetime.start.p0(i64 16000, ptr nonnull %9)
   %35 = load i32, ptr %12, align 8
   %36 = and i32 %35, 3
@@ -2823,19 +2823,19 @@ selfLeft.exit:                                    ; preds = %312, %convert_sides
   %354 = getelementptr inbounds [8 x i32], ptr @__const.convert_sides_to_points.vertices, i64 0, i64 %indvars.iv.i.i108
   %355 = load i32, ptr %354, align 4
   %356 = icmp eq i32 %355, %352
-  br i1 %356, label %.split.loop.exit.i.i136, label %357
+  br i1 %356, label %.split.loop.exit.i.i134, label %357
 
 357:                                              ; preds = %353
   %indvars.iv.next.i.i109 = add nuw nsw i64 %indvars.iv.i.i108, 1
   %exitcond.not.i.i110 = icmp eq i64 %indvars.iv.next.i.i109, 8
   br i1 %exitcond.not.i.i110, label %.split.loop.exit26.i.i111, label %353
 
-.split.loop.exit.i.i136:                          ; preds = %353
+.split.loop.exit.i.i134:                          ; preds = %353
   %358 = trunc nuw nsw i64 %indvars.iv.i.i108 to i32
   br label %.split.loop.exit26.i.i111
 
-.split.loop.exit26.i.i111:                        ; preds = %357, %.split.loop.exit.i.i136
-  %.0.i.i112 = phi i32 [ %358, %.split.loop.exit.i.i136 ], [ -1, %357 ]
+.split.loop.exit26.i.i111:                        ; preds = %357, %.split.loop.exit.i.i134
+  %.0.i.i112 = phi i32 [ %358, %.split.loop.exit.i.i134 ], [ -1, %357 ]
   br label %359
 
 359:                                              ; preds = %363, %.split.loop.exit26.i.i111
@@ -2843,24 +2843,24 @@ selfLeft.exit:                                    ; preds = %312, %convert_sides
   %360 = getelementptr inbounds [8 x i32], ptr @__const.convert_sides_to_points.vertices, i64 0, i64 %indvars.iv22.i.i113
   %361 = load i32, ptr %360, align 4
   %362 = icmp eq i32 %361, %25
-  br i1 %362, label %.split.loop.exit28.i.i135, label %363
+  br i1 %362, label %.split.loop.exit28.i.i133, label %363
 
 363:                                              ; preds = %359
   %indvars.iv.next23.i.i114 = add nuw nsw i64 %indvars.iv22.i.i113, 1
   %exitcond25.not.i.i115 = icmp eq i64 %indvars.iv.next23.i.i114, 8
   br i1 %exitcond25.not.i.i115, label %.split.loop.exit29.i.i116, label %359
 
-.split.loop.exit28.i.i135:                        ; preds = %359
+.split.loop.exit28.i.i133:                        ; preds = %359
   %364 = trunc nuw nsw i64 %indvars.iv22.i.i113 to i32
   br label %.split.loop.exit29.i.i116
 
-.split.loop.exit29.i.i116:                        ; preds = %363, %.split.loop.exit28.i.i135
-  %.016.i.i117 = phi i32 [ %364, %.split.loop.exit28.i.i135 ], [ -1, %363 ]
+.split.loop.exit29.i.i116:                        ; preds = %363, %.split.loop.exit28.i.i133
+  %.016.i.i117 = phi i32 [ %364, %.split.loop.exit28.i.i133 ], [ -1, %363 ]
   %365 = or i32 %.016.i.i117, %.0.i.i112
   %or.cond.not.i.i118 = icmp sgt i32 %365, -1
-  br i1 %or.cond.not.i.i118, label %convert_sides_to_points.exit.i134, label %convert_sides_to_points.exit.thread.i119
+  br i1 %or.cond.not.i.i118, label %convert_sides_to_points.exit.i132, label %convert_sides_to_points.exit.thread.i119
 
-convert_sides_to_points.exit.i134:                ; preds = %.split.loop.exit29.i.i116
+convert_sides_to_points.exit.i132:                ; preds = %.split.loop.exit29.i.i116
   %366 = zext nneg i32 %.016.i.i117 to i64
   %367 = zext nneg i32 %.0.i.i112 to i64
   %368 = getelementptr inbounds [8 x [8 x i32]], ptr @__const.convert_sides_to_points.pair_a, i64 0, i64 %366, i64 %367
@@ -2871,8 +2871,8 @@ convert_sides_to_points.exit.i134:                ; preds = %.split.loop.exit29.
   %spec.select.i = select i1 %cond.i, i32 %370, i32 %..i107
   br label %convert_sides_to_points.exit.thread.i119
 
-convert_sides_to_points.exit.thread.i119:         ; preds = %convert_sides_to_points.exit.i134, %.split.loop.exit29.i.i116
-  %371 = phi i32 [ %..i107, %.split.loop.exit29.i.i116 ], [ %spec.select.i, %convert_sides_to_points.exit.i134 ]
+convert_sides_to_points.exit.thread.i119:         ; preds = %convert_sides_to_points.exit.i132, %.split.loop.exit29.i.i116
+  %371 = phi i32 [ %..i107, %.split.loop.exit29.i.i116 ], [ %spec.select.i, %convert_sides_to_points.exit.i132 ]
   %372 = icmp sgt i32 %2, 0
   br i1 %372, label %.lr.ph.i120, label %selfBottom.exit
 
@@ -2906,17 +2906,17 @@ convert_sides_to_points.exit.thread.i119:         ; preds = %convert_sides_to_po
   br label %394
 
 394:                                              ; preds = %455, %.lr.ph.i120
-  %indvars.iv.i126 = phi i64 [ %10, %.lr.ph.i120 ], [ %indvars.iv.next.i129, %455 ]
+  %indvars.iv.i126 = phi i64 [ %10, %.lr.ph.i120 ], [ %indvars.iv.next.i127, %455 ]
   %.0109130.i = phi i32 [ 0, %.lr.ph.i120 ], [ %462, %455 ]
-  %.0112129.i = phi double [ %351, %.lr.ph.i120 ], [ %.1113.i, %455 ]
-  %.0114128.i127 = phi double [ 0.000000e+00, %.lr.ph.i120 ], [ %400, %455 ]
+  %.0114127.i = phi double [ %351, %.lr.ph.i120 ], [ %.1115.i, %455 ]
+  %.0116126.i = phi double [ 0.000000e+00, %.lr.ph.i120 ], [ %400, %455 ]
   %395 = phi <2 x double> [ %380, %.lr.ph.i120 ], [ %399, %455 ]
-  %indvars.iv.next.i129 = add nsw i64 %indvars.iv.i126, 1
+  %indvars.iv.next.i127 = add nsw i64 %indvars.iv.i126, 1
   %396 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i126
   %397 = load ptr, ptr %396, align 8
-  %398 = fadd double %.0112129.i, %4
+  %398 = fadd double %.0114127.i, %4
   %399 = fadd <2 x double> %395, %393
-  %400 = call double @llvm.fmuladd.f64(double %381, double %335, double %.0114128.i127)
+  %400 = call double @llvm.fmuladd.f64(double %381, double %335, double %.0116126.i)
   store <2 x double> %342, ptr %7, align 16
   %401 = fadd double %346, %400
   %402 = extractelement <2 x double> %399, i64 1
@@ -2942,8 +2942,8 @@ convert_sides_to_points.exit.thread.i119:         ; preds = %convert_sides_to_po
   %413 = load ptr, ptr %412, align 8
   %414 = getelementptr inbounds i8, ptr %413, i64 120
   %415 = load ptr, ptr %414, align 8
-  %.not.i130 = icmp eq ptr %415, null
-  br i1 %.not.i130, label %455, label %416
+  %.not.i128 = icmp eq ptr %415, null
+  br i1 %.not.i128, label %455, label %416
 
 416:                                              ; preds = %394
   %417 = load i32, ptr %397, align 8
@@ -2963,14 +2963,14 @@ convert_sides_to_points.exit.thread.i119:         ; preds = %convert_sides_to_po
   %429 = load ptr, ptr %412, align 8
   %430 = getelementptr inbounds i8, ptr %429, i64 120
   %431 = load ptr, ptr %430, align 8
-  %.137.i131 = select i1 %.not119.i, i64 48, i64 40
-  %432 = getelementptr inbounds i8, ptr %431, i64 %.137.i131
-  %.0111.i = load double, ptr %432, align 8
+  %.137.i129 = select i1 %.not119.i, i64 48, i64 40
+  %432 = getelementptr inbounds i8, ptr %431, i64 %.137.i129
+  %.0113.i = load double, ptr %432, align 8
   %433 = load ptr, ptr %336, align 8
   %434 = getelementptr inbounds i8, ptr %433, i64 40
   %435 = load double, ptr %434, align 8
   %436 = fsub double %435, %398
-  %437 = fmul double %.0111.i, 5.000000e-01
+  %437 = fmul double %.0113.i, 5.000000e-01
   %438 = fsub double %436, %437
   %439 = getelementptr inbounds i8, ptr %431, i64 80
   store double %438, ptr %439, align 8
@@ -2987,27 +2987,27 @@ convert_sides_to_points.exit.thread.i119:         ; preds = %convert_sides_to_po
   %449 = load ptr, ptr %448, align 8
   %450 = getelementptr inbounds i8, ptr %449, i64 105
   store i8 1, ptr %450, align 1
-  %451 = fcmp ogt double %.0111.i, %4
+  %451 = fcmp ogt double %.0113.i, %4
   br i1 %451, label %452, label %455
 
 452:                                              ; preds = %416
-  %453 = fsub double %.0111.i, %4
+  %453 = fsub double %.0113.i, %4
   %454 = fadd double %398, %453
   br label %455
 
 455:                                              ; preds = %452, %416, %394
-  %.1113.i = phi double [ %454, %452 ], [ %398, %416 ], [ %398, %394 ]
+  %.1115.i = phi double [ %454, %452 ], [ %398, %416 ], [ %398, %394 ]
   %456 = load i32, ptr %397, align 8
   %457 = and i32 %456, 3
   %458 = icmp eq i32 %457, 2
-  %.idx120.i132 = select i1 %458, i64 0, i64 -64
-  %459 = getelementptr inbounds i8, ptr %397, i64 %.idx120.i132
+  %.idx120.i130 = select i1 %458, i64 0, i64 -64
+  %459 = getelementptr inbounds i8, ptr %397, i64 %.idx120.i130
   %460 = getelementptr inbounds i8, ptr %459, i64 56
   %461 = load ptr, ptr %460, align 8
   call void @clip_and_install(ptr noundef nonnull %397, ptr noundef %461, ptr noundef nonnull %7, i64 noundef 7, ptr noundef readonly %5)
   %462 = add nuw nsw i32 %.0109130.i, 1
-  %exitcond.not.i133 = icmp eq i32 %462, %2
-  br i1 %exitcond.not.i133, label %selfBottom.exit, label %394
+  %exitcond.not.i131 = icmp eq i32 %462, %2
+  br i1 %exitcond.not.i131, label %selfBottom.exit, label %394
 
 selfBottom.exit:                                  ; preds = %455, %convert_sides_to_points.exit.thread.i119
   call void @llvm.lifetime.end.p0(i64 16000, ptr nonnull %7)

@@ -8734,35 +8734,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.021.i, 2
+  %add8.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.021.i, 3
+  %add13.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
+  %0 = udiv i32 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !138
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
@@ -12297,13 +12297,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0114 = phi i64 [ 0, %for.body.lr.ph ], [ %inc165, %for.inc ]
-  %undumped_chars.0113 = phi i64 [ 0, %for.body.lr.ph ], [ %undumped_chars.1, %for.inc ]
-  %bytes_after_last_accept.0112 = phi i64 [ 0, %for.body.lr.ph ], [ %bytes_after_last_accept.2, %for.inc ]
-  %bytes.0111 = phi i64 [ 0, %for.body.lr.ph ], [ %bytes.7, %for.inc ]
+  %bytes.0114 = phi i64 [ 0, %for.body.lr.ph ], [ %bytes.7, %for.inc ]
+  %i.0113 = phi i64 [ 0, %for.body.lr.ph ], [ %inc165, %for.inc ]
+  %undumped_chars.0112 = phi i64 [ 0, %for.body.lr.ph ], [ %undumped_chars.1, %for.inc ]
+  %bytes_after_last_accept.0111 = phi i64 [ 0, %for.body.lr.ph ], [ %bytes_after_last_accept.2, %for.inc ]
   %state.0110 = phi i8 [ 0, %for.body.lr.ph ], [ %state.1, %for.inc ]
   %codepoint.0109 = phi i32 [ 0, %for.body.lr.ph ], [ %cond.i, %for.inc ]
-  %call2 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %s, i64 noundef %i.0114) #19
+  %call2 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %s, i64 noundef %i.0113) #19
   %0 = load i8, ptr %call2, align 1
   %conv.i = zext i8 %0 to i64
   %arrayidx.i.i.i = getelementptr inbounds [400 x i8], ptr @_ZZN8nlohmann16json_abi_v3_11_36detail10serializerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEE6decodeERhRjhE5utf8d, i64 0, i64 %conv.i
@@ -12351,64 +12351,64 @@ sw.bb:                                            ; preds = %_ZN8nlohmann16json_
   ]
 
 sw.bb4:                                           ; preds = %sw.bb
-  %inc = add i64 %bytes.0111, 1
-  %arrayidx.i.i = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0111
+  %inc = add i64 %bytes.0114, 1
+  %arrayidx.i.i = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0114
   store i8 92, ptr %arrayidx.i.i, align 1
-  %inc7 = add i64 %bytes.0111, 2
+  %inc7 = add i64 %bytes.0114, 2
   %arrayidx.i.i63 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc
   store i8 98, ptr %arrayidx.i.i63, align 1
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %sw.bb
-  %inc11 = add i64 %bytes.0111, 1
-  %arrayidx.i.i64 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0111
+  %inc11 = add i64 %bytes.0114, 1
+  %arrayidx.i.i64 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0114
   store i8 92, ptr %arrayidx.i.i64, align 1
-  %inc14 = add i64 %bytes.0111, 2
+  %inc14 = add i64 %bytes.0114, 2
   %arrayidx.i.i65 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc11
   store i8 116, ptr %arrayidx.i.i65, align 1
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %sw.bb
-  %inc18 = add i64 %bytes.0111, 1
-  %arrayidx.i.i66 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0111
+  %inc18 = add i64 %bytes.0114, 1
+  %arrayidx.i.i66 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0114
   store i8 92, ptr %arrayidx.i.i66, align 1
-  %inc21 = add i64 %bytes.0111, 2
+  %inc21 = add i64 %bytes.0114, 2
   %arrayidx.i.i67 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc18
   store i8 110, ptr %arrayidx.i.i67, align 1
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %sw.bb
-  %inc25 = add i64 %bytes.0111, 1
-  %arrayidx.i.i68 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0111
+  %inc25 = add i64 %bytes.0114, 1
+  %arrayidx.i.i68 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0114
   store i8 92, ptr %arrayidx.i.i68, align 1
-  %inc28 = add i64 %bytes.0111, 2
+  %inc28 = add i64 %bytes.0114, 2
   %arrayidx.i.i69 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc25
   store i8 102, ptr %arrayidx.i.i69, align 1
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %sw.bb
-  %inc32 = add i64 %bytes.0111, 1
-  %arrayidx.i.i70 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0111
+  %inc32 = add i64 %bytes.0114, 1
+  %arrayidx.i.i70 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0114
   store i8 92, ptr %arrayidx.i.i70, align 1
-  %inc35 = add i64 %bytes.0111, 2
+  %inc35 = add i64 %bytes.0114, 2
   %arrayidx.i.i71 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc32
   store i8 114, ptr %arrayidx.i.i71, align 1
   br label %sw.epilog
 
 sw.bb37:                                          ; preds = %sw.bb
-  %inc39 = add i64 %bytes.0111, 1
-  %arrayidx.i.i72 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0111
+  %inc39 = add i64 %bytes.0114, 1
+  %arrayidx.i.i72 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0114
   store i8 92, ptr %arrayidx.i.i72, align 1
-  %inc42 = add i64 %bytes.0111, 2
+  %inc42 = add i64 %bytes.0114, 2
   %arrayidx.i.i73 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc39
   store i8 34, ptr %arrayidx.i.i73, align 1
   br label %sw.epilog
 
 sw.bb44:                                          ; preds = %sw.bb
-  %inc46 = add i64 %bytes.0111, 1
-  %arrayidx.i.i74 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0111
+  %inc46 = add i64 %bytes.0114, 1
+  %arrayidx.i.i74 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0114
   store i8 92, ptr %arrayidx.i.i74, align 1
-  %inc49 = add i64 %bytes.0111, 2
+  %inc49 = add i64 %bytes.0114, 2
   %arrayidx.i.i75 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc46
   store i8 92, ptr %arrayidx.i.i75, align 1
   br label %sw.epilog
@@ -12422,12 +12422,12 @@ sw.default:                                       ; preds = %sw.bb
 
 if.then:                                          ; preds = %sw.default
   %cmp53 = icmp ult i32 %cond.i, 65536
-  %add.ptr = getelementptr inbounds i8, ptr %string_buffer128, i64 %bytes.0111
+  %add.ptr = getelementptr inbounds i8, ptr %string_buffer128, i64 %bytes.0114
   br i1 %cmp53, label %if.then54, label %if.else
 
 if.then54:                                        ; preds = %if.then
   %call59 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %add.ptr, i64 noundef 7, ptr noundef nonnull @.str.75, i32 noundef %cond.i) #19
-  %add = add i64 %bytes.0111, 6
+  %add = add i64 %bytes.0114, 6
   br label %sw.epilog
 
 if.else:                                          ; preds = %if.then
@@ -12437,14 +12437,14 @@ if.else:                                          ; preds = %if.then
   %4 = and i32 %cond.i, 1023
   %conv67 = or disjoint i32 %4, 56320
   %call69 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %add.ptr, i64 noundef 13, ptr noundef nonnull @.str.76, i32 noundef %conv65, i32 noundef %conv67) #19
-  %add70 = add i64 %bytes.0111, 12
+  %add70 = add i64 %bytes.0114, 12
   br label %sw.epilog
 
 if.else71:                                        ; preds = %sw.default
-  %call72 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %s, i64 noundef %i.0114) #19
+  %call72 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %s, i64 noundef %i.0113) #19
   %5 = load i8, ptr %call72, align 1
-  %inc74 = add i64 %bytes.0111, 1
-  %arrayidx.i.i76 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0111
+  %inc74 = add i64 %bytes.0114, 1
+  %arrayidx.i.i76 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0114
   store i8 %5, ptr %arrayidx.i.i76, align 1
   br label %sw.epilog
 
@@ -12472,7 +12472,7 @@ sw.bb85:                                          ; preds = %_ZN8nlohmann16json_
 
 sw.bb86:                                          ; preds = %sw.bb85
   %exception = tail call ptr @__cxa_allocate_exception(i64 32) #19
-  invoke void @_ZNSt7__cxx119to_stringEm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp87, i64 noundef %i.0114)
+  invoke void @_ZNSt7__cxx119to_stringEm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp87, i64 noundef %i.0113)
           to label %invoke.cont unwind label %ehcleanup98.thread
 
 invoke.cont:                                      ; preds = %sw.bb86
@@ -12522,32 +12522,32 @@ ehcleanup98:                                      ; preds = %lpad93, %lpad95
   br i1 %cleanup.isactive.1, label %eh.resume.sink.split, label %eh.resume
 
 sw.bb99:                                          ; preds = %sw.bb85, %sw.bb85
-  %cmp100.not = icmp ne i64 %undumped_chars.0113, 0
+  %cmp100.not = icmp ne i64 %undumped_chars.0112, 0
   %dec = sext i1 %cmp100.not to i64
-  %spec.select = add i64 %i.0114, %dec
+  %spec.select = add i64 %i.0113, %dec
   %cmp104 = icmp eq i32 %9, 1
   br i1 %cmp104, label %if.then105, label %for.inc
 
 if.then105:                                       ; preds = %sw.bb99
-  %arrayidx.i.i77 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes_after_last_accept.0112
+  %arrayidx.i.i77 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes_after_last_accept.0111
   br i1 %ensure_ascii, label %if.then107, label %if.else126
 
 if.then107:                                       ; preds = %if.then105
-  %inc118 = add i64 %bytes_after_last_accept.0112, 4
+  %inc118 = add i64 %bytes_after_last_accept.0111, 4
   store <4 x i8> <i8 92, i8 117, i8 102, i8 102>, ptr %arrayidx.i.i77, align 1
-  %inc121 = add i64 %bytes_after_last_accept.0112, 5
+  %inc121 = add i64 %bytes_after_last_accept.0111, 5
   %arrayidx.i.i81 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc118
   store i8 102, ptr %arrayidx.i.i81, align 1
-  %inc124 = add i64 %bytes_after_last_accept.0112, 6
+  %inc124 = add i64 %bytes_after_last_accept.0111, 6
   %arrayidx.i.i82 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc121
   store i8 100, ptr %arrayidx.i.i82, align 1
   br label %if.end139
 
 if.else126:                                       ; preds = %if.then105
-  %inc112 = add i64 %bytes_after_last_accept.0112, 2
+  %inc112 = add i64 %bytes_after_last_accept.0111, 2
   %arrayidx.i.i79 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc112
-  %inc115 = add i64 %bytes_after_last_accept.0112, 3
-  %inc109 = add i64 %bytes_after_last_accept.0112, 1
+  %inc115 = add i64 %bytes_after_last_accept.0111, 3
+  %inc109 = add i64 %bytes_after_last_accept.0111, 1
   %arrayidx.i.i78 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %inc109
   store i8 -17, ptr %arrayidx.i.i77, align 1
   store i8 -65, ptr %arrayidx.i.i78, align 1
@@ -12572,24 +12572,24 @@ sw.default155:                                    ; preds = %_ZN8nlohmann16json_
   br i1 %ensure_ascii, label %if.end162, label %if.then157
 
 if.then157:                                       ; preds = %sw.default155
-  %call158 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %s, i64 noundef %i.0114) #19
+  %call158 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %s, i64 noundef %i.0113) #19
   %17 = load i8, ptr %call158, align 1
-  %inc160 = add i64 %bytes.0111, 1
-  %arrayidx.i.i86 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0111
+  %inc160 = add i64 %bytes.0114, 1
+  %arrayidx.i.i86 = getelementptr inbounds [512 x i8], ptr %string_buffer128, i64 0, i64 %bytes.0114
   store i8 %17, ptr %arrayidx.i.i86, align 1
   br label %if.end162
 
 if.end162:                                        ; preds = %if.then157, %sw.default155
-  %bytes.6 = phi i64 [ %bytes.0111, %sw.default155 ], [ %inc160, %if.then157 ]
-  %inc163 = add i64 %undumped_chars.0113, 1
+  %bytes.6 = phi i64 [ %bytes.0114, %sw.default155 ], [ %inc160, %if.then157 ]
+  %inc163 = add i64 %undumped_chars.0112, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.bb99, %if.then144, %if.end139, %sw.epilog, %if.then80, %if.end162, %sw.bb85
   %state.1 = phi i8 [ %3, %if.end162 ], [ 1, %sw.bb85 ], [ 0, %if.then80 ], [ 0, %sw.epilog ], [ 0, %if.end139 ], [ 0, %if.then144 ], [ 0, %sw.bb99 ]
-  %bytes.7 = phi i64 [ %bytes.6, %if.end162 ], [ %bytes.0111, %sw.bb85 ], [ 0, %if.then80 ], [ %bytes.1, %sw.epilog ], [ %bytes.3, %if.end139 ], [ 0, %if.then144 ], [ %bytes_after_last_accept.0112, %sw.bb99 ]
-  %bytes_after_last_accept.2 = phi i64 [ %bytes_after_last_accept.0112, %if.end162 ], [ %bytes_after_last_accept.0112, %sw.bb85 ], [ 0, %if.then80 ], [ %bytes.1, %sw.epilog ], [ %bytes.3, %if.end139 ], [ 0, %if.then144 ], [ %bytes_after_last_accept.0112, %sw.bb99 ]
-  %undumped_chars.1 = phi i64 [ %inc163, %if.end162 ], [ %undumped_chars.0113, %sw.bb85 ], [ 0, %if.then80 ], [ 0, %sw.epilog ], [ 0, %if.end139 ], [ 0, %if.then144 ], [ 0, %sw.bb99 ]
-  %i.2 = phi i64 [ %i.0114, %if.end162 ], [ %i.0114, %sw.bb85 ], [ %i.0114, %if.then80 ], [ %i.0114, %sw.epilog ], [ %spec.select, %if.end139 ], [ %spec.select, %if.then144 ], [ %spec.select, %sw.bb99 ]
+  %bytes_after_last_accept.2 = phi i64 [ %bytes_after_last_accept.0111, %if.end162 ], [ %bytes_after_last_accept.0111, %sw.bb85 ], [ 0, %if.then80 ], [ %bytes.1, %sw.epilog ], [ %bytes.3, %if.end139 ], [ 0, %if.then144 ], [ %bytes_after_last_accept.0111, %sw.bb99 ]
+  %undumped_chars.1 = phi i64 [ %inc163, %if.end162 ], [ %undumped_chars.0112, %sw.bb85 ], [ 0, %if.then80 ], [ 0, %sw.epilog ], [ 0, %if.end139 ], [ 0, %if.then144 ], [ 0, %sw.bb99 ]
+  %i.2 = phi i64 [ %i.0113, %if.end162 ], [ %i.0113, %sw.bb85 ], [ %i.0113, %if.then80 ], [ %i.0113, %sw.epilog ], [ %spec.select, %if.end139 ], [ %spec.select, %if.then144 ], [ %spec.select, %sw.bb99 ]
+  %bytes.7 = phi i64 [ %bytes.6, %if.end162 ], [ %bytes.0114, %sw.bb85 ], [ 0, %if.then80 ], [ %bytes.1, %sw.epilog ], [ %bytes.3, %if.end139 ], [ 0, %if.then144 ], [ %bytes_after_last_accept.0111, %sw.bb99 ]
   %inc165 = add i64 %i.2, 1
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #19
   %cmp = icmp ult i64 %inc165, %call
@@ -13027,35 +13027,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.021.i, 2
+  %add11.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.021.i, 3
+  %add15.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
+  %div.i = udiv i64 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !183
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
@@ -13313,16 +13313,16 @@ cond.false13.i.i:                                 ; preds = %cond.end.i.i, %cond
   %sub547.i.i = phi i32 [ -1075, %cond.end.thread.i.i ], [ %sub5.i.i, %cond.end.i.i ]
   %add445.i.i = phi i64 [ %add437.i.i, %cond.end.thread.i.i ], [ %add4.i.i, %cond.end.i.i ]
   %mul43.i.i = phi i64 [ %mul36.i.i, %cond.end.thread.i.i ], [ %mul.i.i, %cond.end.i.i ]
-  %v.sroa.0.042.i.i = phi i64 [ %and.i.i, %cond.end.thread.i.i ], [ %add.i.i, %cond.end.i.i ]
-  %v.sroa.6.040.i.i = phi i32 [ -1074, %cond.end.thread.i.i ], [ %sub.i.i, %cond.end.i.i ]
+  %v.sroa.6.042.i.i = phi i32 [ -1074, %cond.end.thread.i.i ], [ %sub.i.i, %cond.end.i.i ]
+  %v.sroa.0.040.i.i = phi i64 [ %and.i.i, %cond.end.thread.i.i ], [ %add.i.i, %cond.end.i.i ]
   %sub16.i.i = add nsw i64 %mul43.i.i, -1
   br label %cond.end19.i.i
 
 cond.end19.i.i:                                   ; preds = %cond.false13.i.i, %cond.true7.i.i
   %sub546.i.i = phi i32 [ %sub5.i.i, %cond.true7.i.i ], [ %sub547.i.i, %cond.false13.i.i ]
   %add444.i.i = phi i64 [ %add4.i.i, %cond.true7.i.i ], [ %add445.i.i, %cond.false13.i.i ]
-  %v.sroa.0.041.i.i = phi i64 [ 4503599627370496, %cond.true7.i.i ], [ %v.sroa.0.042.i.i, %cond.false13.i.i ]
-  %v.sroa.6.039.i.i = phi i32 [ %sub.i.i, %cond.true7.i.i ], [ %v.sroa.6.040.i.i, %cond.false13.i.i ]
+  %v.sroa.6.041.i.i = phi i32 [ %sub.i.i, %cond.true7.i.i ], [ %v.sroa.6.042.i.i, %cond.false13.i.i ]
+  %v.sroa.0.039.i.i = phi i64 [ 4503599627370496, %cond.true7.i.i ], [ %v.sroa.0.040.i.i, %cond.false13.i.i ]
   %m_minus.sroa.3.0.i.i = phi i32 [ %sub12.i.i, %cond.true7.i.i ], [ %sub547.i.i, %cond.false13.i.i ]
   %m_minus.sroa.0.0.i.i = phi i64 [ 18014398509481983, %cond.true7.i.i ], [ %sub16.i.i, %cond.false13.i.i ]
   br label %while.body.i.i.i
@@ -13336,8 +13336,8 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.body.i19.i.i, !llvm.loop !185
 
 while.body.i19.i.i:                               ; preds = %while.body.i.i.i, %while.body.i19.i.i
-  %x.sroa.0.04.i20.i.i = phi i64 [ %shl.i22.i.i, %while.body.i19.i.i ], [ %v.sroa.0.041.i.i, %while.body.i.i.i ]
-  %x.sroa.5.03.i21.i.i = phi i32 [ %dec.i23.i.i, %while.body.i19.i.i ], [ %v.sroa.6.039.i.i, %while.body.i.i.i ]
+  %x.sroa.0.04.i20.i.i = phi i64 [ %shl.i22.i.i, %while.body.i19.i.i ], [ %v.sroa.0.039.i.i, %while.body.i.i.i ]
+  %x.sroa.5.03.i21.i.i = phi i32 [ %dec.i23.i.i, %while.body.i19.i.i ], [ %v.sroa.6.041.i.i, %while.body.i.i.i ]
   %shl.i22.i.i = shl nuw i64 %x.sroa.0.04.i20.i.i, 1
   %dec.i23.i.i = add nsw i32 %x.sroa.5.03.i21.i.i, -1
   %cmp.i24.i.i = icmp sgt i64 %shl.i22.i.i, -1

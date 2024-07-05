@@ -24,8 +24,8 @@ define ptr @pqsignal(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %2, %8
-  %.0 = phi ptr [ @wrapper_handler, %8 ], [ %1, %2 ]
-  store ptr %.0, ptr %3, align 8
+  %.010 = phi ptr [ @wrapper_handler, %8 ], [ %1, %2 ]
+  store ptr %.010, ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   %11 = call i32 @sigemptyset(ptr noundef nonnull %10) #3
   %12 = getelementptr inbounds i8, ptr %3, i64 136
@@ -37,8 +37,8 @@ define ptr @pqsignal(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %16 = load ptr, ptr %4, align 8
   %17 = icmp eq ptr %16, @wrapper_handler
   %. = select i1 %17, ptr %7, ptr %16
-  %.010 = select i1 %15, ptr inttoptr (i64 -1 to ptr), ptr %.
-  ret ptr %.010
+  %.0 = select i1 %15, ptr inttoptr (i64 -1 to ptr), ptr %.
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

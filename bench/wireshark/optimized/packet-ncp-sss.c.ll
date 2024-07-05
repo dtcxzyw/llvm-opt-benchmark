@@ -732,26 +732,26 @@ define internal fastcc i32 @sss_string(ptr noundef %0, i32 noundef %1, ptr nound
   br label %11
 
 11:                                               ; preds = %5, %8
-  %.062 = phi i32 [ %10, %8 ], [ %3, %5 ]
-  %.161 = phi i32 [ %9, %8 ], [ %4, %5 ]
-  %12 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.062) #3
+  %.064 = phi i32 [ %10, %8 ], [ %3, %5 ]
+  %.163 = phi i32 [ %9, %8 ], [ %4, %5 ]
+  %12 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.064) #3
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %54, label %14
 
 14:                                               ; preds = %11
-  %15 = icmp ugt i32 %.161, %12
-  %16 = icmp ugt i32 %.161, 1023
+  %15 = icmp ugt i32 %.163, %12
+  %16 = icmp ugt i32 %.163, 1023
   %or.cond = or i1 %16, %15
   br i1 %or.cond, label %17, label %21
 
 17:                                               ; preds = %14
   %18 = add nuw i32 %12, 4
-  %19 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %1, ptr noundef %0, i32 noundef %.062, i32 noundef %18, ptr noundef nonnull @.str.104) #3
-  %20 = add i32 %12, %.062
+  %19 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %1, ptr noundef %0, i32 noundef %.064, i32 noundef %18, ptr noundef nonnull @.str.104) #3
+  %20 = add i32 %12, %.064
   br label %54
 
 21:                                               ; preds = %14
-  %22 = icmp eq i32 %.161, 0
+  %22 = icmp eq i32 %.163, 0
   br i1 %22, label %24, label %.preheader
 
 .preheader:                                       ; preds = %21
@@ -763,10 +763,10 @@ define internal fastcc i32 @sss_string(ptr noundef %0, i32 noundef %1, ptr nound
   br label %54
 
 26:                                               ; preds = %.preheader, %42
-  %.072 = phi i32 [ 0, %.preheader ], [ %44, %42 ]
-  %.271 = phi i32 [ %.161, %.preheader ], [ %.3, %42 ]
-  %.16370 = phi i32 [ %.062, %.preheader ], [ %43, %42 ]
-  %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.16370) #3
+  %.06172 = phi i32 [ 0, %.preheader ], [ %44, %42 ]
+  %.271 = phi i32 [ %.163, %.preheader ], [ %.3, %42 ]
+  %.16570 = phi i32 [ %.064, %.preheader ], [ %43, %42 ]
+  %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.16570) #3
   %28 = zext i8 %27 to i64
   %29 = getelementptr i16, ptr %23, i64 %28
   %30 = load i16, ptr %29, align 2
@@ -775,7 +775,7 @@ define internal fastcc i32 @sss_string(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not, label %35, label %32
 
 32:                                               ; preds = %26
-  %33 = zext i32 %.072 to i64
+  %33 = zext i32 %.06172 to i64
   %34 = getelementptr [1024 x i8], ptr %6, i64 0, i64 %33
   store i8 %27, ptr %34, align 1
   br label %42
@@ -785,20 +785,20 @@ define internal fastcc i32 @sss_string(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not69, label %39, label %36
 
 36:                                               ; preds = %35
-  %37 = zext i32 %.072 to i64
+  %37 = zext i32 %.06172 to i64
   %38 = getelementptr [1024 x i8], ptr %6, i64 0, i64 %37
   store i8 46, ptr %38, align 1
   br label %42
 
 39:                                               ; preds = %35
-  %40 = add i32 %.072, -1
+  %40 = add i32 %.06172, -1
   %41 = add i32 %.271, -1
   br label %42
 
 42:                                               ; preds = %36, %39, %32
   %.3 = phi i32 [ %.271, %32 ], [ %.271, %36 ], [ %41, %39 ]
-  %.1 = phi i32 [ %.072, %32 ], [ %.072, %36 ], [ %40, %39 ]
-  %43 = add i32 %.16370, 1
+  %.1 = phi i32 [ %.06172, %32 ], [ %.06172, %36 ], [ %40, %39 ]
+  %43 = add i32 %.16570, 1
   %44 = add i32 %.1, 1
   %45 = icmp ult i32 %44, %.3
   br i1 %45, label %26, label %46, !llvm.loop !7
@@ -815,14 +815,14 @@ define internal fastcc i32 @sss_string(ptr noundef %0, i32 noundef %1, ptr nound
   br label %52
 
 52:                                               ; preds = %46, %49
-  %.065 = phi i32 [ %51, %49 ], [ %3, %46 ]
   %.5 = phi i32 [ %50, %49 ], [ %4, %46 ]
-  %53 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %1, ptr noundef %0, i32 noundef %.065, i32 noundef %.5, ptr noundef nonnull %6) #3
+  %.060 = phi i32 [ %51, %49 ], [ %3, %46 ]
+  %53 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %1, ptr noundef %0, i32 noundef %.060, i32 noundef %.5, ptr noundef nonnull %6) #3
   br label %54
 
 54:                                               ; preds = %11, %52, %24, %17
-  %.064 = phi i32 [ %20, %17 ], [ %.062, %24 ], [ %43, %52 ], [ %.062, %11 ]
-  ret i32 %.064
+  %.0 = phi i32 [ %20, %17 ], [ %.064, %24 ], [ %43, %52 ], [ %.064, %11 ]
+  ret i32 %.0
 }
 
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -870,7 +870,7 @@ define hidden void @dissect_sss_reply(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %29
 
 29:                                               ; preds = %22, %26, %20
-  %.096 = phi i32 [ %24, %26 ], [ %24, %22 ], [ 0, %20 ]
+  %.095 = phi i32 [ %24, %26 ], [ %24, %22 ], [ 0, %20 ]
   %30 = load i32, ptr @hf_sss_length, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %30, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #3
   %32 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #3
@@ -905,7 +905,7 @@ define hidden void @dissect_sss_reply(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %51, label %52, label %.loopexit
 
 52:                                               ; preds = %48
-  %53 = icmp eq i32 %.096, 6
+  %53 = icmp eq i32 %.095, 6
   %or.cond3 = and i1 %21, %53
   br i1 %or.cond3, label %54, label %68
 
@@ -916,7 +916,7 @@ define hidden void @dissect_sss_reply(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .lr.ph:                                           ; preds = %54, %65
   %.0102 = phi i32 [ %66, %65 ], [ 36, %54 ]
-  %.095101 = phi i32 [ %67, %65 ], [ 0, %54 ]
+  %.096101 = phi i32 [ %67, %65 ], [ 0, %54 ]
   %56 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0102, i32 noundef 256, i8 noundef zeroext 42) #3
   %.not.i = icmp slt i32 %56, %.0102
   %57 = sub i32 %56, %.0102
@@ -934,7 +934,7 @@ define hidden void @dissect_sss_reply(ptr noundef %0, ptr noundef %1, ptr nounde
 
 65:                                               ; preds = %60
   %66 = add i32 %62, 1
-  %67 = add nuw i32 %.095101, 1
+  %67 = add nuw i32 %.096101, 1
   %exitcond.not = icmp eq i32 %67, %55
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 

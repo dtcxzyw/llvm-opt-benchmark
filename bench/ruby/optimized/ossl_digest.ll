@@ -286,8 +286,8 @@ define internal noundef i64 @ossl_digest_initialize(i32 noundef %0, ptr noundef 
   unreachable
 
 22:                                               ; preds = %16, %14
-  %.0 = phi ptr [ %15, %14 ], [ %17, %16 ]
-  %23 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %.0, ptr noundef %9, ptr noundef null) #4
+  %.010 = phi ptr [ %15, %14 ], [ %17, %16 ]
+  %23 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %.010, ptr noundef %9, ptr noundef null) #4
   %.not14 = icmp eq i32 %23, 0
   br i1 %.not14, label %24, label %26
 
@@ -383,8 +383,8 @@ rb_check_frozen_inline.exit:                      ; preds = %7
   %18 = tail call ptr @EVP_MD_CTX_new() #4
   %19 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %18, ptr %19, align 8
-  %.not19 = icmp eq ptr %18, null
-  br i1 %.not19, label %20, label %22
+  %.not18 = icmp eq ptr %18, null
+  br i1 %.not18, label %20, label %22
 
 20:                                               ; preds = %17
   %21 = load i64, ptr @eDigestError, align 8
@@ -392,10 +392,10 @@ rb_check_frozen_inline.exit:                      ; preds = %7
   unreachable
 
 22:                                               ; preds = %15, %17
-  %.0 = phi ptr [ %16, %15 ], [ %18, %17 ]
+  %.013 = phi ptr [ %16, %15 ], [ %18, %17 ]
   %23 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_digest_type) #4
-  %.not20 = icmp eq ptr %23, null
-  br i1 %.not20, label %24, label %26
+  %.not19 = icmp eq ptr %23, null
+  br i1 %.not19, label %24, label %26
 
 24:                                               ; preds = %22
   %25 = load i64, ptr @rb_eRuntimeError, align 8
@@ -403,9 +403,9 @@ rb_check_frozen_inline.exit:                      ; preds = %7
   unreachable
 
 26:                                               ; preds = %22
-  %27 = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %.0, ptr noundef nonnull %23) #4
-  %.not21 = icmp eq i32 %27, 0
-  br i1 %.not21, label %28, label %30
+  %27 = tail call i32 @EVP_MD_CTX_copy(ptr noundef nonnull %.013, ptr noundef nonnull %23) #4
+  %.not20 = icmp eq i32 %27, 0
+  br i1 %.not20, label %28, label %30
 
 28:                                               ; preds = %26
   %29 = load i64, ptr @eDigestError, align 8

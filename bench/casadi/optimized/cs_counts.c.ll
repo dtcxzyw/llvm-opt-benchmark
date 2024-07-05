@@ -91,8 +91,8 @@ define ptr @cs_counts(ptr noundef %0, ptr noundef readonly %1, ptr noundef reado
   br label %.lr.ph153
 
 .lr.ph153:                                        ; preds = %.lr.ph153.preheader, %58
-  %.0123152 = phi i32 [ %60, %58 ], [ %46, %.lr.ph153.preheader ]
-  %54 = sext i32 %.0123152 to i64
+  %.0121152 = phi i32 [ %60, %58 ], [ %46, %.lr.ph153.preheader ]
+  %54 = sext i32 %.0121152 to i64
   %55 = getelementptr inbounds i32, ptr %38, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %56, -1
@@ -173,13 +173,13 @@ define ptr @cs_counts(ptr noundef %0, ptr noundef readonly %1, ptr noundef reado
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %.lr.ph48.preheader.i
   %indvars.iv54.i = phi i64 [ %89, %.lr.ph48.preheader.i ], [ %indvars.iv.next55.i, %.lr.ph48.i ]
-  %.146.i = phi i32 [ %69, %.lr.ph48.preheader.i ], [ %.1..i, %.lr.ph48.i ]
+  %.147.i = phi i32 [ %69, %.lr.ph48.preheader.i ], [ %.1..i, %.lr.ph48.i ]
   %90 = getelementptr inbounds i32, ptr %64, i64 %indvars.iv54.i
   %91 = load i32, ptr %90, align 4
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i32, ptr %23, i64 %92
   %94 = load i32, ptr %93, align 4
-  %.1..i = tail call i32 @llvm.smin.i32(i32 %.146.i, i32 %94)
+  %.1..i = tail call i32 @llvm.smin.i32(i32 %.147.i, i32 %94)
   %indvars.iv.next55.i = add nsw i64 %indvars.iv54.i, 1
   %exitcond58.not.i = icmp eq i64 %indvars.iv.next55.i, %wide.trip.count57.i
   br i1 %exitcond58.not.i, label %._crit_edge.i, label %.lr.ph48.i, !llvm.loop !8
@@ -310,8 +310,8 @@ init_ata.exit:                                    ; preds = %._crit_edge.i, %.pr
   br i1 %141, label %.lr.ph161.us, label %._crit_edge167, !llvm.loop !11
 
 .lr.ph166.split:                                  ; preds = %.lr.ph166.split.preheader, %._crit_edge162
-  %.0120164 = phi i32 [ %167, %._crit_edge162 ], [ %115, %.lr.ph166.split.preheader ]
-  %142 = sext i32 %.0120164 to i64
+  %.0124164 = phi i32 [ %167, %._crit_edge162 ], [ %115, %.lr.ph166.split.preheader ]
+  %142 = sext i32 %.0124164 to i64
   %143 = getelementptr inbounds i32, ptr %62, i64 %142
   %144 = load i32, ptr %143, align 4
   %145 = getelementptr i8, ptr %143, i64 4
@@ -403,8 +403,8 @@ init_ata.exit:                                    ; preds = %._crit_edge.i, %.pr
   br label %183
 
 183:                                              ; preds = %4, %6, %._crit_edge172, %28
-  %.0121 = phi ptr [ %182, %._crit_edge172 ], [ %29, %28 ], [ null, %6 ], [ null, %4 ]
-  ret ptr %.0121
+  %.0 = phi ptr [ %182, %._crit_edge172 ], [ %29, %28 ], [ null, %6 ], [ null, %4 ]
+  ret ptr %.0
 }
 
 declare ptr @cs_malloc(i32 noundef, i64 noundef) local_unnamed_addr #1

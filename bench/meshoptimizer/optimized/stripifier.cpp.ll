@@ -282,10 +282,10 @@ if.else102:                                       ; preds = %while.end
   br i1 %cmp17.not.i, label %_ZN7meshoptL14findStripFirstEPA3_KjjPS0_.exit, label %for.body.i186
 
 for.body.i186:                                    ; preds = %if.else102, %for.body.i186
-  %i.020.i = phi i64 [ %inc.i191, %for.body.i186 ], [ 0, %if.else102 ]
+  %index.020.i = phi i32 [ %index.1.i, %for.body.i186 ], [ 0, %if.else102 ]
   %iv.019.i = phi i32 [ %iv.1.i, %for.body.i186 ], [ -1, %if.else102 ]
-  %index.018.i = phi i32 [ %index.1.i, %for.body.i186 ], [ 0, %if.else102 ]
-  %arrayidx.i187 = getelementptr inbounds [3 x i32], ptr %buffer, i64 %i.020.i
+  %i.018.i = phi i64 [ %inc.i191, %for.body.i186 ], [ 0, %if.else102 ]
+  %arrayidx.i187 = getelementptr inbounds [3 x i32], ptr %buffer, i64 %i.018.i
   %24 = load i32, ptr %arrayidx.i187, align 4
   %idxprom.i = zext i32 %24 to i64
   %arrayidx2.i = getelementptr inbounds i32, ptr %call.i148, i64 %idxprom.i
@@ -306,10 +306,10 @@ for.body.i186:                                    ; preds = %if.else102, %for.bo
   %cond.i190 = tail call i32 @llvm.umin.i32(i32 %27, i32 %29)
   %cond17.i = select i1 %or.cond.i189, i32 %25, i32 %cond.i190
   %cmp18.i = icmp ult i32 %cond17.i, %iv.019.i
-  %conv19.i = trunc nuw i64 %i.020.i to i32
-  %index.1.i = select i1 %cmp18.i, i32 %conv19.i, i32 %index.018.i
+  %conv19.i = trunc nuw i64 %i.018.i to i32
   %iv.1.i = tail call i32 @llvm.umin.i32(i32 %cond17.i, i32 %iv.019.i)
-  %inc.i191 = add nuw nsw i64 %i.020.i, 1
+  %index.1.i = select i1 %cmp18.i, i32 %conv19.i, i32 %index.020.i
+  %inc.i191 = add nuw nsw i64 %i.018.i, 1
   %exitcond.not.i192 = icmp eq i64 %inc.i191, %conv.i185
   br i1 %exitcond.not.i192, label %_ZN7meshoptL14findStripFirstEPA3_KjjPS0_.exit, label %for.body.i186, !llvm.loop !9
 
@@ -672,18 +672,18 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %offset.033.us = phi i64 [ %offset.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %i.032.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %cmp2.us = icmp ugt i64 %i.032.us, 1
+  %i.031.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %cmp2.us = icmp ugt i64 %i.031.us, 1
   br i1 %cmp2.us, label %if.then3.us, label %for.inc.us
 
 if.then3.us:                                      ; preds = %for.body.us
-  %0 = getelementptr i32, ptr %indices, i64 %i.032.us
+  %0 = getelementptr i32, ptr %indices, i64 %i.031.us
   %arrayidx5.us = getelementptr i8, ptr %0, i64 -8
   %1 = load i32, ptr %arrayidx5.us, align 4
   %arrayidx7.us = getelementptr i8, ptr %0, i64 -4
   %2 = load i32, ptr %arrayidx7.us, align 4
   %3 = load i32, ptr %0, align 4
-  %and.us = and i64 %i.032.us, 1
+  %and.us = and i64 %i.031.us, 1
   %tobool10.not.us = icmp eq i64 %and.us, 0
   %spec.select.us = select i1 %tobool10.not.us, i32 %1, i32 %2
   %spec.select28.us = select i1 %tobool10.not.us, i32 %2, i32 %1
@@ -706,25 +706,25 @@ if.then17.us:                                     ; preds = %if.then3.us
 
 for.inc.us:                                       ; preds = %if.then17.us, %if.then3.us, %for.body.us
   %offset.1.us = phi i64 [ %add24.us, %if.then17.us ], [ %offset.033.us, %if.then3.us ], [ %offset.033.us, %for.body.us ]
-  %inc.us = add nuw i64 %i.032.us, 1
+  %inc.us = add nuw i64 %i.031.us, 1
   %exitcond35.not = icmp eq i64 %inc.us, %index_count
   br i1 %exitcond35.not, label %for.end, label %for.body.us, !llvm.loop !12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %offset.033 = phi i64 [ %offset.1, %for.inc ], [ 0, %for.body.lr.ph ]
-  %i.032 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %start.031 = phi i64 [ %start.1, %for.inc ], [ 0, %for.body.lr.ph ]
-  %arrayidx = getelementptr i32, ptr %indices, i64 %i.032
+  %start.032 = phi i64 [ %start.1, %for.inc ], [ 0, %for.body.lr.ph ]
+  %i.031 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
+  %arrayidx = getelementptr i32, ptr %indices, i64 %i.031
   %5 = load i32, ptr %arrayidx, align 4
   %cmp1 = icmp eq i32 %5, %restart_index
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %add = add nuw i64 %i.032, 1
+  %add = add nuw i64 %i.031, 1
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %sub = sub i64 %i.032, %start.031
+  %sub = sub i64 %i.031, %start.032
   %cmp2 = icmp ugt i64 %sub, 1
   br i1 %cmp2, label %if.then3, label %for.inc
 
@@ -755,9 +755,9 @@ if.then17:                                        ; preds = %if.then3
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.then3, %if.then17, %if.else
-  %start.1 = phi i64 [ %add, %if.then ], [ %start.031, %if.then17 ], [ %start.031, %if.then3 ], [ %start.031, %if.else ]
+  %start.1 = phi i64 [ %add, %if.then ], [ %start.032, %if.then17 ], [ %start.032, %if.then3 ], [ %start.032, %if.else ]
   %offset.1 = phi i64 [ %offset.033, %if.then ], [ %add24, %if.then17 ], [ %offset.033, %if.then3 ], [ %offset.033, %if.else ]
-  %inc = add nuw i64 %i.032, 1
+  %inc = add nuw i64 %i.031, 1
   %exitcond.not = icmp eq i64 %inc, %index_count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 

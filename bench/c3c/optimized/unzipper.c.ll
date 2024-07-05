@@ -532,8 +532,8 @@ define dso_local noundef ptr @zip_file_write(ptr nocapture noundef %0, ptr nound
   br label %65
 
 65:                                               ; preds = %.lr.ph, %96
-  %.06992 = phi i64 [ %60, %.lr.ph ], [ %99, %96 ]
-  %66 = call i64 @llvm.smin.i64(i64 %.06992, i64 65536)
+  %.07092 = phi i64 [ %60, %.lr.ph ], [ %99, %96 ]
+  %66 = call i64 @llvm.smin.i64(i64 %.07092, i64 65536)
   %67 = call i64 @fread(ptr noundef nonnull @internal_buffer, i64 noundef 1, i64 noundef %66, ptr noundef %0)
   %68 = trunc i64 %67 to i32
   store i32 %68, ptr %61, align 8
@@ -617,8 +617,8 @@ define dso_local noundef ptr @zip_file_write(ptr nocapture noundef %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %44, %16, %13, %4, %56, %38, %36, %26, %19, %._crit_edge, %91, %82, %80, %78, %72, %54, %50
-  %.070 = phi ptr [ @.str.25, %54 ], [ @.str.24, %50 ], [ @.str.16, %72 ], [ @.str.25, %91 ], [ @.str.19, %82 ], [ @.str.18, %80 ], [ @.str.17, %78 ], [ null, %._crit_edge ], [ @.str.29, %19 ], [ @.str.20, %26 ], [ null, %36 ], [ @.str.23, %38 ], [ @.str.15, %56 ], [ @.str.28, %16 ], [ @.str.27, %13 ], [ @.str.26, %4 ], [ null, %44 ]
-  ret ptr %.070
+  %.069 = phi ptr [ @.str.25, %54 ], [ @.str.24, %50 ], [ @.str.16, %72 ], [ @.str.25, %91 ], [ @.str.19, %82 ], [ @.str.18, %80 ], [ @.str.17, %78 ], [ null, %._crit_edge ], [ @.str.29, %19 ], [ @.str.20, %26 ], [ null, %36 ], [ @.str.23, %38 ], [ @.str.15, %56 ], [ @.str.28, %16 ], [ @.str.27, %13 ], [ @.str.26, %4 ], [ null, %44 ]
+  ret ptr %.069
 }
 
 declare zeroext i1 @file_namesplit(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3

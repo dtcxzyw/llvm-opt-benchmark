@@ -4799,10 +4799,10 @@ for.body.i.preheader.i:                           ; preds = %land.lhs.true.i.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i, %for.body.i.preheader.i
-  %__begin3.sroa.0.015.i.i = phi ptr [ %__begin3.sroa.0.2.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i ], [ %237, %for.body.i.preheader.i ]
-  %__begin3.sroa.5.014.i.i = phi i64 [ %__begin3.sroa.5.2.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i ], [ 0, %for.body.i.preheader.i ]
-  %data.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.015.i.i, i64 16
-  %arrayidx.i.i.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor"], ptr %data.i.i.i, i64 0, i64 %__begin3.sroa.5.014.i.i
+  %__begin3.sroa.5.015.i.i = phi i64 [ %__begin3.sroa.5.2.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i ], [ 0, %for.body.i.preheader.i ]
+  %__begin3.sroa.0.014.i.i = phi ptr [ %__begin3.sroa.0.2.i.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i ], [ %237, %for.body.i.preheader.i ]
+  %data.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.014.i.i, i64 16
+  %arrayidx.i.i.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor"], ptr %data.i.i.i, i64 0, i64 %__begin3.sroa.5.015.i.i
   %second.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !40
@@ -4863,12 +4863,12 @@ _ZN9grpc_core12_GLOBAL__N_112ArrayEncoder6EncodeERKNS_5SliceES4_.exit.i.i: ; pre
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !40
-  %inc.i.i.i = add i64 %__begin3.sroa.5.014.i.i, 1
+  %inc.i.i.i = add i64 %__begin3.sroa.5.015.i.i, 1
   br label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %_ZN9grpc_core12_GLOBAL__N_112ArrayEncoder6EncodeERKNS_5SliceES4_.exit.i.i
+  %__begin3.sroa.0.1.i.i = phi ptr [ %__begin3.sroa.0.014.i.i, %_ZN9grpc_core12_GLOBAL__N_112ArrayEncoder6EncodeERKNS_5SliceES4_.exit.i.i ], [ %249, %while.body.i.i.i ]
   %__begin3.sroa.5.1.i.i = phi i64 [ %inc.i.i.i, %_ZN9grpc_core12_GLOBAL__N_112ArrayEncoder6EncodeERKNS_5SliceES4_.exit.i.i ], [ 0, %while.body.i.i.i ]
-  %__begin3.sroa.0.1.i.i = phi ptr [ %__begin3.sroa.0.015.i.i, %_ZN9grpc_core12_GLOBAL__N_112ArrayEncoder6EncodeERKNS_5SliceES4_.exit.i.i ], [ %249, %while.body.i.i.i ]
   %count.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.1.i.i, i64 8
   %248 = load i64, ptr %count.i.i.i, align 8
   %cmp4.i.i.i = icmp eq i64 %__begin3.sroa.5.1.i.i, %248
@@ -4880,11 +4880,11 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i, label %land.rhs.i.i.i, !llvm.loop !194
 
 _ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i: ; preds = %while.body.i.i.i, %land.rhs.i.i.i
-  %__begin3.sroa.5.2.i.i = phi i64 [ 0, %while.body.i.i.i ], [ %__begin3.sroa.5.1.i.i, %land.rhs.i.i.i ]
   %__begin3.sroa.0.2.i.i = phi ptr [ null, %while.body.i.i.i ], [ %__begin3.sroa.0.1.i.i, %land.rhs.i.i.i ]
+  %__begin3.sroa.5.2.i.i = phi i64 [ 0, %while.body.i.i.i ], [ %__begin3.sroa.5.1.i.i, %land.rhs.i.i.i ]
   %cmp.i.i.i.i2 = icmp ne ptr %__begin3.sroa.0.2.i.i, null
   %cmp4.i.i.i.i = icmp ne i64 %__begin3.sroa.5.2.i.i, 0
-  %.not.i.i.i = or i1 %cmp4.i.i.i.i, %cmp.i.i.i.i2
+  %.not.i.i.i = or i1 %cmp.i.i.i.i2, %cmp4.i.i.i.i
   br i1 %.not.i.i.i, label %for.body.i.i, label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i.i, %land.lhs.true.i.i.i.i.i, %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_IN5

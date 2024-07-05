@@ -266,10 +266,10 @@ define internal i32 @dissect_vsif(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %26, label %.lr.ph56.i, label %dissect_cisco.exit
 
 .lr.ph56.i:                                       ; preds = %25, %.loopexit.i
-  %.04755.i = phi i32 [ %74, %.loopexit.i ], [ 5, %25 ]
-  %27 = add nsw i32 %.04755.i, 1
-  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.04755.i) #4
-  %29 = add i32 %.04755.i, 2
+  %.055.i = phi i32 [ %74, %.loopexit.i ], [ 5, %25 ]
+  %27 = add nsw i32 %.055.i, 1
+  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.055.i) #4
+  %29 = add i32 %.055.i, 2
   %30 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
   switch i8 %28, label %.lr.ph56..loopexit_crit_edge.i [
     i8 10, label %31
@@ -296,10 +296,10 @@ define internal i32 @dissect_vsif(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %40, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %35, %66
-  %.14853.i = phi i32 [ %68, %66 ], [ %29, %35 ]
-  %41 = add nsw i32 %.14853.i, 1
-  %42 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.14853.i) #4
-  %43 = add i32 %.14853.i, 2
+  %.153.i = phi i32 [ %68, %66 ], [ %29, %35 ]
+  %41 = add nsw i32 %.153.i, 1
+  %42 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.153.i) #4
+  %43 = add i32 %.153.i, 2
   %44 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %41) #4
   switch i8 %42, label %62 [
     i8 1, label %45

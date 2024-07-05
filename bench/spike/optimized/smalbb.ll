@@ -210,12 +210,12 @@ define noundef i64 @_Z17fast_rv64i_smalbbP11processor_t6insn_tm(ptr nocapture no
   br label %25
 
 25:                                               ; preds = %11, %25
+  %.036 = phi i64 [ %24, %11 ], [ %40, %25 ]
   %26 = phi i1 [ true, %11 ], [ false, %25 ]
-  %.036 = phi i64 [ 0, %11 ], [ 32, %25 ]
-  %.02635 = phi i64 [ %24, %11 ], [ %40, %25 ]
-  %27 = shl nuw i64 4294967295, %.036
+  %.02635 = phi i64 [ 0, %11 ], [ 32, %25 ]
+  %27 = shl nuw i64 4294967295, %.02635
   %28 = and i64 %27, %16
-  %29 = shl i64 8589934590, %.036
+  %29 = shl i64 8589934590, %.02635
   %30 = xor i64 %29, -1
   %31 = and i64 %27, %30
   %32 = udiv i64 %28, %31
@@ -226,7 +226,7 @@ define noundef i64 @_Z17fast_rv64i_smalbbP11processor_t6insn_tm(ptr nocapture no
   %37 = shl i64 %34, 48
   %38 = ashr exact i64 %37, 48
   %39 = mul nsw i64 %38, %36
-  %40 = add nsw i64 %39, %.02635
+  %40 = add nsw i64 %39, %.036
   br i1 %26, label %25, label %41, !llvm.loop !4
 
 41:                                               ; preds = %25
@@ -786,12 +786,12 @@ define noundef i64 @_Z17fast_rv64e_smalbbP11processor_t6insn_tm(ptr nocapture no
   br label %46
 
 46:                                               ; preds = %43, %46
+  %.03555 = phi i64 [ %45, %43 ], [ %61, %46 ]
   %47 = phi i1 [ true, %43 ], [ false, %46 ]
-  %.03455 = phi i64 [ 0, %43 ], [ 32, %46 ]
-  %.03554 = phi i64 [ %45, %43 ], [ %61, %46 ]
-  %48 = shl nuw i64 4294967295, %.03455
+  %.03654 = phi i64 [ 0, %43 ], [ 32, %46 ]
+  %48 = shl nuw i64 4294967295, %.03654
   %49 = and i64 %48, %23
-  %50 = shl i64 8589934590, %.03455
+  %50 = shl i64 8589934590, %.03654
   %51 = xor i64 %50, -1
   %52 = and i64 %48, %51
   %53 = udiv i64 %49, %52
@@ -802,7 +802,7 @@ define noundef i64 @_Z17fast_rv64e_smalbbP11processor_t6insn_tm(ptr nocapture no
   %58 = shl i64 %55, 48
   %59 = ashr exact i64 %58, 48
   %60 = mul nsw i64 %59, %57
-  %61 = add nsw i64 %60, %.03554
+  %61 = add nsw i64 %60, %.03555
   br i1 %47, label %46, label %62, !llvm.loop !8
 
 62:                                               ; preds = %46

@@ -1067,10 +1067,10 @@ define internal fastcc i32 @network_cmp_internal(ptr nocapture noundef readonly 
 
 .lr.ph.i:                                         ; preds = %33, %.lr.ph.preheader.i
   %.028.i = phi i32 [ %36, %33 ], [ %.zext74, %.lr.ph.preheader.i ]
-  %.01927.i = phi i32 [ %35, %33 ], [ %26, %.lr.ph.preheader.i ]
-  %.02026.i = phi i32 [ %34, %33 ], [ %29, %.lr.ph.preheader.i ]
-  %30 = and i32 %.02026.i, 128
-  %31 = and i32 %.01927.i, 128
+  %.02027.i = phi i32 [ %35, %33 ], [ %26, %.lr.ph.preheader.i ]
+  %.02126.i = phi i32 [ %34, %33 ], [ %29, %.lr.ph.preheader.i ]
+  %30 = and i32 %.02126.i, 128
+  %31 = and i32 %.02027.i, 128
   %.not24.i = icmp eq i32 %30, %31
   br i1 %.not24.i, label %33, label %32
 
@@ -1080,8 +1080,8 @@ define internal fastcc i32 @network_cmp_internal(ptr nocapture noundef readonly 
   br label %bitncmp.exit
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = shl i32 %.02026.i, 1
-  %35 = shl i32 %.01927.i, 1
+  %34 = shl i32 %.02126.i, 1
+  %35 = shl i32 %.02027.i, 1
   %36 = add nsw i32 %.028.i, -1
   %37 = icmp sgt i32 %.028.i, 1
   br i1 %37, label %.lr.ph.i, label %.loopexit, !llvm.loop !24
@@ -1192,8 +1192,8 @@ define internal i64 @network_abbrev_convert(i64 noundef %0, ptr nocapture nounde
 
 18:                                               ; preds = %16, %13
   %19 = phi i16 [ 32, %13 ], [ 128, %16 ]
-  %.059 = phi i64 [ 0, %13 ], [ -9223372036854775808, %16 ]
-  %.058 = phi i64 [ %15, %13 ], [ %17, %16 ]
+  %.057 = phi i64 [ %15, %13 ], [ %17, %16 ]
+  %.0 = phi i64 [ 0, %13 ], [ -9223372036854775808, %16 ]
   %20 = getelementptr inbounds i8, ptr %9, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i16
@@ -1211,35 +1211,35 @@ define internal i64 @network_abbrev_convert(i64 noundef %0, ptr nocapture nounde
   %28 = zext nneg i32 %.sext to i64
   %notmask = shl nsw i64 -1, %28
   %29 = xor i64 %notmask, -1
-  %30 = and i64 %notmask, %.058
+  %30 = and i64 %notmask, %.057
   br label %31
 
 31:                                               ; preds = %25, %18, %27
-  %.057 = phi i64 [ %29, %27 ], [ -1, %18 ], [ 0, %25 ]
-  %.056 = phi i64 [ %30, %27 ], [ 0, %18 ], [ %.058, %25 ]
+  %.059 = phi i64 [ %29, %27 ], [ -1, %18 ], [ 0, %25 ]
+  %.058 = phi i64 [ %30, %27 ], [ 0, %18 ], [ %.057, %25 ]
   br i1 %11, label %32, label %43
 
 32:                                               ; preds = %31
   %33 = zext i8 %21 to i64
-  %34 = shl i64 %.056, 31
+  %34 = shl i64 %.058, 31
   %35 = shl nuw nsw i64 %33, 25
-  %36 = and i64 %.057, %.058
+  %36 = and i64 %.059, %.057
   %37 = icmp sgt i16 %23, 25
   %38 = add nsw i32 %.sext, -25
   %39 = zext nneg i32 %38 to i64
   %40 = select i1 %37, i64 %39, i64 0
-  %.0 = lshr i64 %36, %40
+  %.056 = lshr i64 %36, %40
   %41 = or i64 %34, %35
-  %42 = or i64 %41, %.0
+  %42 = or i64 %41, %.056
   br label %45
 
 43:                                               ; preds = %31
-  %44 = lshr i64 %.056, 1
+  %44 = lshr i64 %.058, 1
   br label %45
 
 45:                                               ; preds = %43, %32
   %.pn = phi i64 [ %42, %32 ], [ %44, %43 ]
-  %.1 = or i64 %.pn, %.059
+  %.1 = or i64 %.pn, %.0
   %46 = load i64, ptr %4, align 8
   %47 = add i64 %46, 1
   store i64 %47, ptr %4, align 8
@@ -1576,16 +1576,16 @@ define dso_local range(i64 0, 2) i64 @network_sub(ptr nocapture noundef readonly
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.preheader.i
   %.028.i = phi i32 [ %43, %40 ], [ %.zext27, %.lr.ph.preheader.i ]
-  %.01927.i = phi i32 [ %42, %40 ], [ %34, %.lr.ph.preheader.i ]
-  %.02026.i = phi i32 [ %41, %40 ], [ %37, %.lr.ph.preheader.i ]
-  %38 = xor i32 %.02026.i, %.01927.i
+  %.02027.i = phi i32 [ %42, %40 ], [ %34, %.lr.ph.preheader.i ]
+  %.02126.i = phi i32 [ %41, %40 ], [ %37, %.lr.ph.preheader.i ]
+  %38 = xor i32 %.02126.i, %.02027.i
   %39 = and i32 %38, 128
   %.not24.i = icmp eq i32 %39, 0
   br i1 %.not24.i, label %40, label %bitncmp.exit
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = shl i32 %.02026.i, 1
-  %42 = shl i32 %.01927.i, 1
+  %41 = shl i32 %.02126.i, 1
+  %42 = shl i32 %.02027.i, 1
   %43 = add nsw i32 %.028.i, -1
   %44 = icmp sgt i32 %.028.i, 1
   br i1 %44, label %.lr.ph.i, label %bitncmp.exit, !llvm.loop !24
@@ -1619,10 +1619,10 @@ define dso_local i32 @bitncmp(ptr nocapture noundef readonly %0, ptr nocapture n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %.028 = phi i32 [ %22, %19 ], [ %5, %.lr.ph.preheader ]
-  %.01927 = phi i32 [ %21, %19 ], [ %12, %.lr.ph.preheader ]
-  %.02026 = phi i32 [ %20, %19 ], [ %15, %.lr.ph.preheader ]
-  %16 = and i32 %.02026, 128
-  %17 = and i32 %.01927, 128
+  %.02027 = phi i32 [ %21, %19 ], [ %12, %.lr.ph.preheader ]
+  %.02126 = phi i32 [ %20, %19 ], [ %15, %.lr.ph.preheader ]
+  %16 = and i32 %.02126, 128
+  %17 = and i32 %.02027, 128
   %.not24 = icmp eq i32 %16, %17
   br i1 %.not24, label %19, label %18
 
@@ -1632,15 +1632,15 @@ define dso_local i32 @bitncmp(ptr nocapture noundef readonly %0, ptr nocapture n
   br label %.loopexit
 
 19:                                               ; preds = %.lr.ph
-  %20 = shl i32 %.02026, 1
-  %21 = shl i32 %.01927, 1
+  %20 = shl i32 %.02126, 1
+  %21 = shl i32 %.02027, 1
   %22 = add nsw i32 %.028, -1
   %23 = icmp sgt i32 %.028, 1
   br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %19, %18, %3, %8
-  %.021 = phi i32 [ 0, %8 ], [ %7, %3 ], [ %., %18 ], [ 0, %19 ]
-  ret i32 %.021
+  %.019 = phi i32 [ 0, %8 ], [ %7, %3 ], [ %., %18 ], [ 0, %19 ]
+  ret i32 %.019
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1702,16 +1702,16 @@ define dso_local range(i64 0, 2) i64 @network_subeq(ptr nocapture noundef readon
 
 .lr.ph.i:                                         ; preds = %39, %.lr.ph.preheader.i
   %.028.i = phi i32 [ %42, %39 ], [ %.zext28, %.lr.ph.preheader.i ]
-  %.01927.i = phi i32 [ %41, %39 ], [ %33, %.lr.ph.preheader.i ]
-  %.02026.i = phi i32 [ %40, %39 ], [ %36, %.lr.ph.preheader.i ]
-  %37 = xor i32 %.02026.i, %.01927.i
+  %.02027.i = phi i32 [ %41, %39 ], [ %33, %.lr.ph.preheader.i ]
+  %.02126.i = phi i32 [ %40, %39 ], [ %36, %.lr.ph.preheader.i ]
+  %37 = xor i32 %.02126.i, %.02027.i
   %38 = and i32 %37, 128
   %.not24.i = icmp eq i32 %38, 0
   br i1 %.not24.i, label %39, label %bitncmp.exit
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = shl i32 %.02026.i, 1
-  %41 = shl i32 %.01927.i, 1
+  %40 = shl i32 %.02126.i, 1
+  %41 = shl i32 %.02027.i, 1
   %42 = add nsw i32 %.028.i, -1
   %43 = icmp sgt i32 %.028.i, 1
   br i1 %43, label %.lr.ph.i, label %bitncmp.exit, !llvm.loop !24
@@ -1780,16 +1780,16 @@ define dso_local range(i64 0, 2) i64 @network_sup(ptr nocapture noundef readonly
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.preheader.i
   %.028.i = phi i32 [ %43, %40 ], [ %.zext27, %.lr.ph.preheader.i ]
-  %.01927.i = phi i32 [ %42, %40 ], [ %34, %.lr.ph.preheader.i ]
-  %.02026.i = phi i32 [ %41, %40 ], [ %37, %.lr.ph.preheader.i ]
-  %38 = xor i32 %.02026.i, %.01927.i
+  %.02027.i = phi i32 [ %42, %40 ], [ %34, %.lr.ph.preheader.i ]
+  %.02126.i = phi i32 [ %41, %40 ], [ %37, %.lr.ph.preheader.i ]
+  %38 = xor i32 %.02126.i, %.02027.i
   %39 = and i32 %38, 128
   %.not24.i = icmp eq i32 %39, 0
   br i1 %.not24.i, label %40, label %bitncmp.exit
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = shl i32 %.02026.i, 1
-  %42 = shl i32 %.01927.i, 1
+  %41 = shl i32 %.02126.i, 1
+  %42 = shl i32 %.02027.i, 1
   %43 = add nsw i32 %.028.i, -1
   %44 = icmp sgt i32 %.028.i, 1
   br i1 %44, label %.lr.ph.i, label %bitncmp.exit, !llvm.loop !24
@@ -1858,16 +1858,16 @@ define dso_local range(i64 0, 2) i64 @network_supeq(ptr nocapture noundef readon
 
 .lr.ph.i:                                         ; preds = %39, %.lr.ph.preheader.i
   %.028.i = phi i32 [ %42, %39 ], [ %.zext28, %.lr.ph.preheader.i ]
-  %.01927.i = phi i32 [ %41, %39 ], [ %33, %.lr.ph.preheader.i ]
-  %.02026.i = phi i32 [ %40, %39 ], [ %36, %.lr.ph.preheader.i ]
-  %37 = xor i32 %.02026.i, %.01927.i
+  %.02027.i = phi i32 [ %41, %39 ], [ %33, %.lr.ph.preheader.i ]
+  %.02126.i = phi i32 [ %40, %39 ], [ %36, %.lr.ph.preheader.i ]
+  %37 = xor i32 %.02126.i, %.02027.i
   %38 = and i32 %37, 128
   %.not24.i = icmp eq i32 %38, 0
   br i1 %.not24.i, label %39, label %bitncmp.exit
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = shl i32 %.02026.i, 1
-  %41 = shl i32 %.01927.i, 1
+  %40 = shl i32 %.02126.i, 1
+  %41 = shl i32 %.02027.i, 1
   %42 = add nsw i32 %.028.i, -1
   %43 = icmp sgt i32 %.028.i, 1
   br i1 %43, label %.lr.ph.i, label %bitncmp.exit, !llvm.loop !24
@@ -1933,16 +1933,16 @@ define dso_local range(i64 0, 2) i64 @network_overlap(ptr nocapture noundef read
 
 .lr.ph.i:                                         ; preds = %38, %.lr.ph.preheader.i
   %.028.i = phi i32 [ %41, %38 ], [ %.zext31, %.lr.ph.preheader.i ]
-  %.01927.i = phi i32 [ %40, %38 ], [ %32, %.lr.ph.preheader.i ]
-  %.02026.i = phi i32 [ %39, %38 ], [ %35, %.lr.ph.preheader.i ]
-  %36 = xor i32 %.02026.i, %.01927.i
+  %.02027.i = phi i32 [ %40, %38 ], [ %32, %.lr.ph.preheader.i ]
+  %.02126.i = phi i32 [ %39, %38 ], [ %35, %.lr.ph.preheader.i ]
+  %36 = xor i32 %.02126.i, %.02027.i
   %37 = and i32 %36, 128
   %.not24.i = icmp eq i32 %37, 0
   br i1 %.not24.i, label %38, label %bitncmp.exit
 
 38:                                               ; preds = %.lr.ph.i
-  %39 = shl i32 %.02026.i, 1
-  %40 = shl i32 %.01927.i, 1
+  %39 = shl i32 %.02126.i, 1
+  %40 = shl i32 %.02027.i, 1
   %41 = add nsw i32 %.028.i, -1
   %42 = icmp sgt i32 %.028.i, 1
   br i1 %42, label %.lr.ph.i, label %bitncmp.exit, !llvm.loop !24
@@ -2340,12 +2340,12 @@ define dso_local noundef i64 @network_broadcast(ptr nocapture noundef readonly %
 
 24:                                               ; preds = %1, %24
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %24 ]
-  %.04150 = phi i32 [ %16, %1 ], [ %.1, %24 ]
-  %25 = icmp sgt i32 %.04150, 7
-  %26 = add nsw i32 %.04150, -8
-  %27 = lshr i32 255, %.04150
-  %.1 = select i1 %25, i32 %26, i32 0
+  %.04149 = phi i32 [ %16, %1 ], [ %.1, %24 ]
+  %25 = icmp sgt i32 %.04149, 7
+  %26 = add nsw i32 %.04149, -8
+  %27 = lshr i32 255, %.04149
   %28 = trunc nuw i32 %27 to i8
+  %.1 = select i1 %25, i32 %26, i32 0
   %29 = getelementptr i8, ptr %17, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1
   %31 = select i1 %25, i8 0, i8 %28
@@ -2418,21 +2418,21 @@ select.unfold.preheader:                          ; preds = %1
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.preheader, %select.unfold
-  %.03647 = phi i32 [ %spec.select, %select.unfold ], [ %21, %select.unfold.preheader ]
-  %.03746 = phi i32 [ %33, %select.unfold ], [ 0, %select.unfold.preheader ]
-  %22 = icmp sgt i32 %.03647, 7
-  %23 = add nsw i32 %.03647, -8
-  %24 = sub nuw nsw i32 8, %.03647
+  %.047 = phi i32 [ %33, %select.unfold ], [ 0, %select.unfold.preheader ]
+  %.03646 = phi i32 [ %spec.select, %select.unfold ], [ %21, %select.unfold.preheader ]
+  %22 = icmp sgt i32 %.03646, 7
+  %23 = add nsw i32 %.03646, -8
+  %24 = sub nuw nsw i32 8, %.03646
   %25 = shl nuw nsw i32 255, %24
   %26 = trunc i32 %25 to i8
-  %27 = sext i32 %.03746 to i64
+  %27 = sext i32 %.047 to i64
   %28 = getelementptr i8, ptr %14, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = select i1 %22, i8 -1, i8 %26
   %31 = and i8 %29, %30
   %32 = getelementptr i8, ptr %20, i64 %27
   store i8 %31, ptr %32, align 1
-  %33 = add i32 %.03746, 1
+  %33 = add i32 %.047, 1
   %spec.select = select i1 %22, i32 %23, i32 0
   %.not39 = icmp eq i32 %spec.select, 0
   br i1 %.not39, label %select.unfold._crit_edge.loopexit, label %select.unfold
@@ -2503,18 +2503,18 @@ select.unfold.preheader:                          ; preds = %1
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.preheader, %select.unfold
-  %.03142 = phi i32 [ %spec.select, %select.unfold ], [ %20, %select.unfold.preheader ]
-  %.03241 = phi i32 [ %28, %select.unfold ], [ 0, %select.unfold.preheader ]
-  %21 = icmp sgt i32 %.03142, 7
-  %22 = add nsw i32 %.03142, -8
-  %23 = sub nuw nsw i32 8, %.03142
+  %.042 = phi i32 [ %28, %select.unfold ], [ 0, %select.unfold.preheader ]
+  %.03241 = phi i32 [ %spec.select, %select.unfold ], [ %20, %select.unfold.preheader ]
+  %21 = icmp sgt i32 %.03241, 7
+  %22 = add nsw i32 %.03241, -8
+  %23 = sub nuw nsw i32 8, %.03241
   %24 = shl nuw nsw i32 255, %23
   %25 = trunc i32 %24 to i8
-  %.0 = select i1 %21, i8 -1, i8 %25
-  %26 = sext i32 %.03241 to i64
+  %.031 = select i1 %21, i8 -1, i8 %25
+  %26 = sext i32 %.042 to i64
   %27 = getelementptr i8, ptr %19, i64 %26
-  store i8 %.0, ptr %27, align 1
-  %28 = add i32 %.03241, 1
+  store i8 %.031, ptr %27, align 1
+  %28 = add i32 %.042, 1
   %spec.select = select i1 %21, i32 %22, i32 0
   %.not34 = icmp eq i32 %spec.select, 0
   br i1 %.not34, label %select.unfold._crit_edge.loopexit, label %select.unfold
@@ -2591,18 +2591,18 @@ select.unfold.preheader:                          ; preds = %1
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.preheader, %select.unfold
-  %.03849 = phi i32 [ %spec.select, %select.unfold ], [ %18, %select.unfold.preheader ]
-  %.03948 = phi i32 [ %33, %select.unfold ], [ %25, %select.unfold.preheader ]
-  %26 = icmp sgt i32 %.03849, 7
-  %27 = add nsw i32 %.03849, -8
-  %28 = sub nsw i32 8, %.03849
+  %.049 = phi i32 [ %33, %select.unfold ], [ %25, %select.unfold.preheader ]
+  %.03948 = phi i32 [ %spec.select, %select.unfold ], [ %18, %select.unfold.preheader ]
+  %26 = icmp sgt i32 %.03948, 7
+  %27 = add nsw i32 %.03948, -8
+  %28 = sub nsw i32 8, %.03948
   %29 = lshr i32 255, %28
   %30 = trunc nuw i32 %29 to i8
-  %.0 = select i1 %26, i8 -1, i8 %30
-  %31 = sext i32 %.03948 to i64
+  %.038 = select i1 %26, i8 -1, i8 %30
+  %31 = sext i32 %.049 to i64
   %32 = getelementptr i8, ptr %24, i64 %31
-  store i8 %.0, ptr %32, align 1
-  %33 = add i32 %.03948, -1
+  store i8 %.038, ptr %32, align 1
+  %33 = add i32 %.049, -1
   %spec.select = select i1 %26, i32 %27, i32 0
   %.not41 = icmp eq i32 %spec.select, 0
   br i1 %.not41, label %select.unfold._crit_edge.loopexit, label %select.unfold
@@ -2738,7 +2738,7 @@ define dso_local noundef i64 @inet_merge(ptr nocapture noundef readonly %0) loca
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %37, %22
-  %.017.lcssa.i = phi i32 [ 0, %22 ], [ %32, %37 ]
+  %.0.lcssa.i = phi i32 [ 0, %22 ], [ %32, %37 ]
   %.not18.i = icmp eq i8 %29, 0
   br i1 %.not18.i, label %bitncommon.exit, label %.thread.i
 
@@ -2747,9 +2747,9 @@ define dso_local noundef i64 @inet_merge(ptr nocapture noundef readonly %0) loca
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.loopexit.i, %._crit_edge.i
-  %.01724.i = phi i32 [ %.017.lcssa.i, %._crit_edge.i ], [ %38, %.thread.loopexit.i ]
-  %.022.i = phi i32 [ %.zext, %._crit_edge.i ], [ 7, %.thread.loopexit.i ]
-  %39 = zext nneg i32 %.01724.i to i64
+  %.024.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %38, %.thread.loopexit.i ]
+  %.01722.i = phi i32 [ %.zext, %._crit_edge.i ], [ 7, %.thread.loopexit.i ]
+  %39 = zext nneg i32 %.024.i to i64
   %40 = getelementptr i8, ptr %28, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = getelementptr i8, ptr %27, i64 %39
@@ -2759,7 +2759,7 @@ define dso_local noundef i64 @inet_merge(ptr nocapture noundef readonly %0) loca
   br label %46
 
 46:                                               ; preds = %46, %.thread.i
-  %.1.i = phi i32 [ %.022.i, %.thread.i ], [ %49, %46 ]
+  %.1.i = phi i32 [ %.01722.i, %.thread.i ], [ %49, %46 ]
   %47 = sub i32 8, %.1.i
   %48 = lshr i32 %45, %47
   %.not19.i = icmp eq i32 %48, 0
@@ -2767,9 +2767,9 @@ define dso_local noundef i64 @inet_merge(ptr nocapture noundef readonly %0) loca
   br i1 %.not19.i, label %bitncommon.exit, label %46, !llvm.loop !27
 
 bitncommon.exit:                                  ; preds = %46, %._crit_edge.i
-  %.01725.i = phi i32 [ %.017.lcssa.i, %._crit_edge.i ], [ %.01724.i, %46 ]
+  %.025.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %.024.i, %46 ]
   %.2.i = phi i32 [ 0, %._crit_edge.i ], [ %.1.i, %46 ]
-  %50 = shl i32 %.01725.i, 3
+  %50 = shl i32 %.025.i, 3
   %51 = add i32 %.2.i, %50
   %52 = tail call ptr @palloc0(i64 noundef 22) #13
   %53 = load i8, ptr %5, align 1
@@ -2866,7 +2866,7 @@ define dso_local i32 @bitncommon(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %11, %3
-  %.017.lcssa = phi i32 [ 0, %3 ], [ %6, %11 ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %6, %11 ]
   %.not18 = icmp eq i32 %4, 0
   br i1 %.not18, label %.loopexit, label %.thread
 
@@ -2875,9 +2875,9 @@ define dso_local i32 @bitncommon(ptr nocapture noundef readonly %0, ptr nocaptur
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %._crit_edge
-  %.01724 = phi i32 [ %.017.lcssa, %._crit_edge ], [ %12, %.thread.loopexit ]
-  %.022 = phi i32 [ %4, %._crit_edge ], [ 7, %.thread.loopexit ]
-  %13 = zext nneg i32 %.01724 to i64
+  %.024 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %12, %.thread.loopexit ]
+  %.01722 = phi i32 [ %4, %._crit_edge ], [ 7, %.thread.loopexit ]
+  %13 = zext nneg i32 %.024 to i64
   %14 = getelementptr i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = getelementptr i8, ptr %1, i64 %13
@@ -2887,7 +2887,7 @@ define dso_local i32 @bitncommon(ptr nocapture noundef readonly %0, ptr nocaptur
   br label %20
 
 20:                                               ; preds = %20, %.thread
-  %.1 = phi i32 [ %.022, %.thread ], [ %23, %20 ]
+  %.1 = phi i32 [ %.01722, %.thread ], [ %23, %20 ]
   %21 = sub i32 8, %.1
   %22 = lshr i32 %19, %21
   %.not19 = icmp eq i32 %22, 0
@@ -2895,9 +2895,9 @@ define dso_local i32 @bitncommon(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %.not19, label %.loopexit, label %20, !llvm.loop !27
 
 .loopexit:                                        ; preds = %20, %._crit_edge
-  %.01725 = phi i32 [ %.017.lcssa, %._crit_edge ], [ %.01724, %20 ]
+  %.025 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.024, %20 ]
   %.2 = phi i32 [ 0, %._crit_edge ], [ %.1, %20 ]
-  %24 = shl i32 %.01725, 3
+  %24 = shl i32 %.025, 3
   %25 = add i32 %.2, %24
   ret i32 %25
 }
@@ -3592,25 +3592,25 @@ define internal fastcc noundef ptr @internal_inetpl(ptr nocapture noundef readon
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %17, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.053 = phi i32 [ 0, %.lr.ph.preheader ], [ %27, %.lr.ph ]
-  %.04452 = phi i64 [ %1, %.lr.ph.preheader ], [ %28, %.lr.ph ]
+  %.04352 = phi i64 [ %1, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %18 = getelementptr i8, ptr %8, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
-  %21 = trunc i64 %.04452 to i32
+  %21 = trunc i64 %.04352 to i32
   %22 = and i32 %21, 255
-  %23 = add nuw nsw i32 %.053, %22
+  %23 = add nuw nsw i32 %22, %.053
   %24 = add nuw nsw i32 %23, %20
   %25 = trunc i32 %24 to i8
   %26 = getelementptr i8, ptr %14, i64 %indvars.iv
   store i8 %25, ptr %26, align 1
   %27 = lshr i32 %24, 8
-  %28 = ashr i64 %.04452, 8
+  %28 = ashr i64 %.04352, 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not59 = icmp eq i64 %indvars.iv, 0
   br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %29 = icmp ult i64 %.04452, 256
+  %29 = icmp ult i64 %.04352, 256
   %30 = icmp ult i32 %24, 256
   %or.cond = select i1 %29, i1 %30, i1 false
   br i1 %or.cond, label %38, label %31
@@ -3718,8 +3718,8 @@ define dso_local i64 @inetmi(ptr nocapture noundef readonly %0) local_unnamed_ad
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %52
   %indvars.iv58 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next59, %52 ]
   %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %52 ]
-  %.054 = phi i32 [ 1, %.lr.ph.preheader ], [ %53, %52 ]
-  %.04152 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1, %52 ]
+  %.054 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1, %52 ]
+  %.03953 = phi i32 [ 1, %.lr.ph.preheader ], [ %53, %52 ]
   %28 = getelementptr i8, ptr %22, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
@@ -3727,7 +3727,7 @@ define dso_local i64 @inetmi(ptr nocapture noundef readonly %0) local_unnamed_ad
   %32 = load i8, ptr %31, align 1
   %33 = xor i8 %32, -1
   %34 = zext i8 %33 to i32
-  %35 = add nuw nsw i32 %.054, %30
+  %35 = add nuw nsw i32 %.03953, %30
   %36 = add nuw nsw i32 %35, %34
   %37 = and i32 %36, 255
   %38 = icmp ult i64 %indvars.iv58, 8
@@ -3737,11 +3737,11 @@ define dso_local i64 @inetmi(ptr nocapture noundef readonly %0) local_unnamed_ad
   %40 = zext nneg i32 %37 to i64
   %41 = shl nuw nsw i64 %indvars.iv58, 3
   %42 = shl nuw i64 %40, %41
-  %43 = or i64 %42, %.04152
+  %43 = or i64 %42, %.054
   br label %52
 
 44:                                               ; preds = %.lr.ph
-  %45 = icmp slt i64 %.04152, 0
+  %45 = icmp slt i64 %.054, 0
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %44
@@ -3761,7 +3761,7 @@ define dso_local i64 @inetmi(ptr nocapture noundef readonly %0) local_unnamed_ad
   unreachable
 
 52:                                               ; preds = %46, %47, %39
-  %.1 = phi i64 [ %43, %39 ], [ %.04152, %46 ], [ %.04152, %47 ]
+  %.1 = phi i64 [ %43, %39 ], [ %.054, %46 ], [ %.054, %47 ]
   %53 = lshr i32 %36, 8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1

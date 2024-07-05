@@ -1700,7 +1700,7 @@ define void @_Z31_gmx_selelem_init_method_paramsRKSt10shared_ptrIN3gmx20Selectio
 
 47:                                               ; preds = %45, %._crit_edge
   %48 = phi ptr [ %.pre57, %45 ], [ %42, %._crit_edge ]
-  %.036 = phi ptr [ %46, %45 ], [ null, %._crit_edge ]
+  %.037 = phi ptr [ %46, %45 ], [ null, %._crit_edge ]
   %49 = getelementptr inbounds i8, ptr %48, i64 40
   %50 = load ptr, ptr %49, align 8
   %.not39 = icmp eq ptr %50, null
@@ -1713,7 +1713,7 @@ define void @_Z31_gmx_selelem_init_method_paramsRKSt10shared_ptrIN3gmx20Selectio
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 40
   %57 = load ptr, ptr %56, align 8
-  tail call void %57(ptr noundef %52, ptr noundef %.036)
+  tail call void %57(ptr noundef %52, ptr noundef %.037)
   %.pre58 = load ptr, ptr %0, align 8
   %.phi.trans.insert59 = getelementptr inbounds i8, ptr %.pre58, i64 48
   %.pre60 = load ptr, ptr %.phi.trans.insert59, align 8
@@ -1725,7 +1725,7 @@ define void @_Z31_gmx_selelem_init_method_paramsRKSt10shared_ptrIN3gmx20Selectio
   store ptr %11, ptr %60, align 8
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 56
-  store ptr %.036, ptr %62, align 8
+  store ptr %.037, ptr %62, align 8
   ret void
 }
 

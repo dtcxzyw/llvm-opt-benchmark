@@ -3157,7 +3157,7 @@ _ZN5QListIP19_recent_item_statusED2Ev.exit72:     ; preds = %99
   br label %119
 
 ._crit_edge:                                      ; preds = %_ZeqRK7QStringS1_.exit.thread, %_ZN5QListIP19_recent_item_statusED2Ev.exit72
-  %.031.lcssa = phi i32 [ 0, %_ZN5QListIP19_recent_item_statusED2Ev.exit72 ], [ %305, %_ZeqRK7QStringS1_.exit.thread ]
+  %.032.lcssa = phi i32 [ 0, %_ZN5QListIP19_recent_item_statusED2Ev.exit72 ], [ %305, %_ZeqRK7QStringS1_.exit.thread ]
   %.not.i.i.i.i = icmp eq ptr %101, null
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate17QForeachContainerI5QListIP19_recent_item_statusEED2Ev.exit, label %_ZN17QArrayDataPointerIP19_recent_item_statusE5derefEv.exit.i.i.i
 
@@ -3176,7 +3176,7 @@ _ZN17QArrayDataPointerIP19_recent_item_statusE5derefEv.exit.i.i.i: ; preds = %._
   br label %.body
 
 119:                                              ; preds = %.lr.ph, %_ZeqRK7QStringS1_.exit.thread
-  %.031239 = phi i32 [ 0, %.lr.ph ], [ %305, %_ZeqRK7QStringS1_.exit.thread ]
+  %.032239 = phi i32 [ 0, %.lr.ph ], [ %305, %_ZeqRK7QStringS1_.exit.thread ]
   %.sroa.7.0238 = phi ptr [ %103, %.lr.ph ], [ %306, %_ZeqRK7QStringS1_.exit.thread ]
   %120 = load ptr, ptr %.sroa.7.0238, align 8
   %121 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %120) #18
@@ -3185,7 +3185,7 @@ _ZN17QArrayDataPointerIP19_recent_item_statusE5derefEv.exit.i.i.i: ; preds = %._
           to label %124 unwind label %117
 
 124:                                              ; preds = %119
-  %.not44 = icmp slt i32 %.031239, %123
+  %.not44 = icmp slt i32 %.032239, %123
   br i1 %.not44, label %_ZN11QListWidget7addItemERK7QString.exit, label %125
 
 125:                                              ; preds = %124
@@ -3607,7 +3607,7 @@ _ZN7QStringD2Ev.exit88:                           ; preds = %_ZN7QStringD2Ev.exi
 
 _ZN5QFont9setItalicEb.exit:                       ; preds = %260
   %265 = load ptr, ptr %27, align 8
-  %266 = invoke noundef ptr @_ZNK11QListWidget4itemEi(ptr noundef nonnull align 8 dereferenceable(40) %265, i32 noundef %.031239)
+  %266 = invoke noundef ptr @_ZNK11QListWidget4itemEi(ptr noundef nonnull align 8 dereferenceable(40) %265, i32 noundef %.032239)
           to label %267 unwind label %117
 
 267:                                              ; preds = %_ZN5QFont9setItalicEb.exit
@@ -3711,7 +3711,7 @@ _ZeqRK7QStringS1_.exit:                           ; preds = %292
   br label %.body
 
 _ZeqRK7QStringS1_.exit.thread:                    ; preds = %292, %300, %_ZeqRK7QStringS1_.exit
-  %305 = add i32 %.031239, 1
+  %305 = add i32 %.032239, 1
   %306 = getelementptr i8, ptr %.sroa.7.0238, i64 8
   %.not217 = icmp eq ptr %306, %106
   br i1 %.not217, label %._crit_edge, label %119, !llvm.loop !9
@@ -3731,7 +3731,7 @@ _ZN17QArrayDataPointerIP19_recent_item_statusE5derefEv.exit.i.i.i166: ; preds = 
   br label %_ZN5QListIP15QListWidgetItemED2Ev.exit66
 
 _ZN9QtPrivate17QForeachContainerI5QListIP19_recent_item_statusEED2Ev.exit: ; preds = %116, %_ZN17QArrayDataPointerIP19_recent_item_statusE5derefEv.exit.i.i.i, %._crit_edge, %.loopexit222
-  %.1 = phi i32 [ 0, %.loopexit222 ], [ %.031.lcssa, %._crit_edge ], [ %.031.lcssa, %_ZN17QArrayDataPointerIP19_recent_item_statusE5derefEv.exit.i.i.i ], [ %.031.lcssa, %116 ]
+  %.133 = phi i32 [ 0, %.loopexit222 ], [ %.032.lcssa, %._crit_edge ], [ %.032.lcssa, %_ZN17QArrayDataPointerIP19_recent_item_statusE5derefEv.exit.i.i.i ], [ %.032.lcssa, %116 ]
   %309 = load ptr, ptr %27, align 8
   %310 = invoke noundef i32 @_ZNK11QListWidget5countEv(ptr noundef nonnull align 8 dereferenceable(40) %309)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -3744,7 +3744,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP19_recent_item_statusEED2Ev.exit: ; pre
   %.0240 = phi i32 [ %317, %326 ], [ %310, %.preheader ]
   %312 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 160), align 8
   %313 = icmp sgt i32 %.0240, %312
-  %314 = icmp sgt i32 %.0240, %.1
+  %314 = icmp sgt i32 %.0240, %.133
   %315 = select i1 %313, i1 true, i1 %314
   br i1 %315, label %316, label %.critedge
 

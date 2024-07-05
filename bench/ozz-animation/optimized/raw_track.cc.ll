@@ -140,8 +140,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
 
 .lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %15 = phi float [ %18, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %.01722 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %16 = add nuw i64 %.01722, 1
+  %.0101722 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %16 = add nuw i64 %.0101722, 1
   %exitcond = icmp eq i64 %16, %umax
   br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !5
 
@@ -248,8 +248,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
 
 .lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %15 = phi float [ %18, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %.01722 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %16 = add nuw i64 %.01722, 1
+  %.0101722 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %16 = add nuw i64 %.0101722, 1
   %exitcond = icmp eq i64 %16, %umax
   br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
 
@@ -350,8 +350,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
 
 .lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %15 = phi float [ %18, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %.01722 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %16 = add nuw i64 %.01722, 1
+  %.0101722 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %16 = add nuw i64 %.0101722, 1
   %exitcond = icmp eq i64 %16, %umax
   br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
@@ -452,8 +452,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
 
 .lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %15 = phi float [ %18, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %.01722 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %16 = add nuw i64 %.01722, 1
+  %.0101722 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %16 = add nuw i64 %.0101722, 1
   %exitcond = icmp eq i64 %16, %umax
   br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
@@ -554,8 +554,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline8interna
 
 .lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %15 = phi float [ %18, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %.01722 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %16 = add nuw i64 %.01722, 1
+  %.0101722 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %16 = add nuw i64 %.0101722, 1
   %exitcond = icmp eq i64 %16, %umax
   br i1 %exitcond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 

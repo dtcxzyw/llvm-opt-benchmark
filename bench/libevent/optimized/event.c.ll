@@ -1987,7 +1987,7 @@ event_del.exit92:                                 ; preds = %do.end3.i.i87, %if.
 
 for.body:                                         ; preds = %for.body.lr.ph, %event_mm_free_.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %event_mm_free_.exit ]
-  %n_deleted.1205 = phi i64 [ %n_deleted.0.lcssa, %for.body.lr.ph ], [ %n_deleted.2.lcssa, %event_mm_free_.exit ]
+  %n_deleted.1204 = phi i64 [ %n_deleted.0.lcssa, %for.body.lr.ph ], [ %n_deleted.2.lcssa, %event_mm_free_.exit ]
   %19 = load ptr, ptr %common_timeout_queues, align 8
   %arrayidx27 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
   %20 = load ptr, ptr %arrayidx27, align 8
@@ -2022,18 +2022,18 @@ event_del.exit103:                                ; preds = %do.end3.i.i98, %if.
   br i1 %tobool31.not200, label %for.end, label %for.body32
 
 for.body32:                                       ; preds = %event_del.exit103, %if.end37
-  %ev.0202 = phi ptr [ %27, %if.end37 ], [ %26, %event_del.exit103 ]
-  %n_deleted.2201 = phi i64 [ %n_deleted.3, %if.end37 ], [ %n_deleted.1205, %event_del.exit103 ]
-  %ev_timeout_pos = getelementptr inbounds i8, ptr %ev.0202, i64 40
+  %n_deleted.2202 = phi i64 [ %n_deleted.3, %if.end37 ], [ %n_deleted.1204, %event_del.exit103 ]
+  %ev.0201 = phi ptr [ %27, %if.end37 ], [ %26, %event_del.exit103 ]
+  %ev_timeout_pos = getelementptr inbounds i8, ptr %ev.0201, i64 40
   %27 = load ptr, ptr %ev_timeout_pos, align 8
-  %evcb_flags = getelementptr inbounds i8, ptr %ev.0202, i64 16
+  %evcb_flags = getelementptr inbounds i8, ptr %ev.0201, i64 16
   %28 = load i16, ptr %evcb_flags, align 8
   %29 = and i16 %28, 16
   %tobool33.not = icmp eq i16 %29, 0
   br i1 %tobool33.not, label %if.then34, label %if.end37
 
 if.then34:                                        ; preds = %for.body32
-  %ev_base.i.i104 = getelementptr inbounds i8, ptr %ev.0202, i64 64
+  %ev_base.i.i104 = getelementptr inbounds i8, ptr %ev.0201, i64 64
   %30 = load ptr, ptr %ev_base.i.i104, align 8
   %th_base_lock.i.i105 = getelementptr inbounds i8, ptr %30, i64 952
   %31 = load ptr, ptr %th_base_lock.i.i105, align 8
@@ -2046,7 +2046,7 @@ if.then.i.i107:                                   ; preds = %if.then34
   br label %do.end3.i.i109
 
 do.end3.i.i109:                                   ; preds = %if.then.i.i107, %if.then34
-  %call4.i.i110 = tail call i32 @event_del_nolock_(ptr noundef nonnull %ev.0202, i32 noundef 2)
+  %call4.i.i110 = tail call i32 @event_del_nolock_(ptr noundef nonnull %ev.0201, i32 noundef 2)
   %33 = load ptr, ptr %th_base_lock.i.i105, align 8
   %tobool8.not.i.i111 = icmp eq ptr %33, null
   br i1 %tobool8.not.i.i111, label %event_del.exit114, label %if.then9.i.i112
@@ -2057,16 +2057,16 @@ if.then9.i.i112:                                  ; preds = %do.end3.i.i109
   br label %event_del.exit114
 
 event_del.exit114:                                ; preds = %do.end3.i.i109, %if.then9.i.i112
-  %inc36 = add i64 %n_deleted.2201, 1
+  %inc36 = add i64 %n_deleted.2202, 1
   br label %if.end37
 
 if.end37:                                         ; preds = %event_del.exit114, %for.body32
-  %n_deleted.3 = phi i64 [ %n_deleted.2201, %for.body32 ], [ %inc36, %event_del.exit114 ]
+  %n_deleted.3 = phi i64 [ %n_deleted.2202, %for.body32 ], [ %inc36, %event_del.exit114 ]
   %tobool31.not = icmp eq ptr %27, null
   br i1 %tobool31.not, label %for.end, label %for.body32, !llvm.loop !22
 
 for.end:                                          ; preds = %if.end37, %event_del.exit103
-  %n_deleted.2.lcssa = phi i64 [ %n_deleted.1205, %event_del.exit103 ], [ %n_deleted.3, %if.end37 ]
+  %n_deleted.2.lcssa = phi i64 [ %n_deleted.1204, %event_del.exit103 ], [ %n_deleted.3, %if.end37 ]
   %35 = load ptr, ptr @mm_free_fn_, align 8
   %tobool.not.i115 = icmp eq ptr %35, null
   br i1 %tobool.not.i115, label %if.else.i, label %if.then.i
@@ -3872,13 +3872,13 @@ if.then95:                                        ; preds = %if.end92.if.then95_
   %42 = or i16 %41, 2
   store i16 %42, ptr %evcb_flags, align 8
   %cmp97 = icmp eq i32 %res.0176, 1
-  %spec.select = select i1 %cmp97, i32 0, i32 %res.0176
-  %spec.select105 = zext i1 %cmp97 to i32
+  %spec.select = zext i1 %cmp97 to i32
+  %spec.select105 = select i1 %cmp97, i32 0, i32 %res.0176
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then95, %land.lhs.true70, %if.end65
-  %res.1 = phi i32 [ 0, %land.lhs.true70 ], [ 0, %if.end65 ], [ %spec.select, %if.then95 ]
-  %notify.0 = phi i32 [ 0, %land.lhs.true70 ], [ 0, %if.end65 ], [ %spec.select105, %if.then95 ]
+  %notify.0 = phi i32 [ 0, %land.lhs.true70 ], [ 0, %if.end65 ], [ %spec.select, %if.then95 ]
+  %res.1 = phi i32 [ 0, %land.lhs.true70 ], [ 0, %if.end65 ], [ %spec.select105, %if.then95 ]
   br i1 %cmp, label %if.then107, label %if.end263
 
 if.then107:                                       ; preds = %if.end101

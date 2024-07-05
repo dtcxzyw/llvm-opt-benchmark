@@ -222,7 +222,7 @@ define internal ptr @H5FA__cache_hdr_deserialize(ptr noundef %0, i64 %1, ptr noc
   br label %73
 
 73:                                               ; preds = %70, %73
-  %.063 = phi i64 [ 0, %70 ], [ %81, %73 ]
+  %.05263 = phi i64 [ 0, %70 ], [ %81, %73 ]
   %74 = phi i64 [ 0, %70 ], [ %80, %73 ]
   %75 = phi ptr [ %72, %70 ], [ %77, %73 ]
   %76 = shl i64 %74, 8
@@ -231,7 +231,7 @@ define internal ptr @H5FA__cache_hdr_deserialize(ptr noundef %0, i64 %1, ptr noc
   %79 = zext i8 %78 to i64
   %80 = or disjoint i64 %76, %79
   store i64 %80, ptr %71, align 8
-  %81 = add nuw nsw i64 %.063, 1
+  %81 = add nuw nsw i64 %.05263, 1
   %exitcond.not = icmp eq i64 %81, 8
   br i1 %exitcond.not, label %82, label %73
 

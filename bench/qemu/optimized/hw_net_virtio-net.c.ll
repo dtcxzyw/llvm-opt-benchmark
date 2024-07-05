@@ -6016,18 +6016,18 @@ do.body.lr.ph:                                    ; preds = %if.end21
   br label %do.body
 
 do.body:                                          ; preds = %do.body.lr.ph, %do.body
-  %i.053 = phi i32 [ 0, %do.body.lr.ph ], [ %inc, %do.body ]
-  %str_list.052 = phi ptr [ null, %do.body.lr.ph ], [ %call31, %do.body ]
+  %str_list.053 = phi ptr [ null, %do.body.lr.ph ], [ %call31, %do.body ]
+  %i.052 = phi i32 [ 0, %do.body.lr.ph ], [ %inc, %do.body ]
   %call31 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #22
   %10 = load ptr, ptr %macs, align 8
-  %mul = mul i32 %i.053, 6
+  %mul = mul i32 %i.052, 6
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i8, ptr %10, i64 %idx.ext
   %call33 = tail call ptr @qemu_mac_strdup_printf(ptr noundef %add.ptr) #19
   %value = getelementptr inbounds i8, ptr %call31, i64 8
   store ptr %call33, ptr %value, align 8
-  store ptr %str_list.052, ptr %call31, align 8
-  %inc = add nuw i32 %i.053, 1
+  store ptr %str_list.053, ptr %call31, align 8
+  %inc = add nuw i32 %i.052, 1
   %11 = load i32, ptr %first_multi, align 4
   %cmp = icmp ult i32 %inc, %11
   br i1 %cmp, label %do.body, label %for.end, !llvm.loop !24
@@ -6046,18 +6046,18 @@ do.body40.lr.ph:                                  ; preds = %for.end
   br label %do.body40
 
 do.body40:                                        ; preds = %do.body40.lr.ph, %do.body40
-  %i.157 = phi i32 [ %.lcssa50, %do.body40.lr.ph ], [ %inc53, %do.body40 ]
-  %str_list.156 = phi ptr [ null, %do.body40.lr.ph ], [ %call42, %do.body40 ]
+  %str_list.157 = phi ptr [ null, %do.body40.lr.ph ], [ %call42, %do.body40 ]
+  %i.156 = phi i32 [ %.lcssa50, %do.body40.lr.ph ], [ %inc53, %do.body40 ]
   %call42 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #22
   %13 = load ptr, ptr %macs44, align 8
-  %mul45 = mul i32 %i.157, 6
+  %mul45 = mul i32 %i.156, 6
   %idx.ext46 = sext i32 %mul45 to i64
   %add.ptr47 = getelementptr i8, ptr %13, i64 %idx.ext46
   %call48 = tail call ptr @qemu_mac_strdup_printf(ptr noundef %add.ptr47) #19
   %value49 = getelementptr inbounds i8, ptr %call42, i64 8
   store ptr %call48, ptr %value49, align 8
-  store ptr %str_list.156, ptr %call42, align 8
-  %inc53 = add nuw i32 %i.157, 1
+  store ptr %str_list.157, ptr %call42, align 8
+  %inc53 = add nuw i32 %i.156, 1
   %14 = load i32, ptr %mac_table, align 8
   %cmp38 = icmp ult i32 %inc53, %14
   br i1 %cmp38, label %do.body40, label %for.end54, !llvm.loop !25
@@ -7438,10 +7438,10 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end89
-  %i.0208 = phi i64 [ 0, %while.body.lr.ph ], [ %inc, %if.end89 ]
+  %mhdr_cnt.0208 = phi i32 [ 0, %while.body.lr.ph ], [ %mhdr_cnt.2, %if.end89 ]
   %offset.0207 = phi i64 [ 0, %while.body.lr.ph ], [ %add81, %if.end89 ]
-  %mhdr_cnt.0206 = phi i32 [ 0, %while.body.lr.ph ], [ %mhdr_cnt.2, %if.end89 ]
-  %cmp26 = icmp eq i64 %i.0208, 1024
+  %i.0206 = phi i64 [ 0, %while.body.lr.ph ], [ %inc, %if.end89 ]
+  %cmp26 = icmp eq i64 %i.0206, 1024
   br i1 %cmp26, label %err111.thread248, label %if.end29
 
 err111.thread248:                                 ; preds = %while.body
@@ -7455,7 +7455,7 @@ if.end29:                                         ; preds = %while.body
   br i1 %tobool31.not, label %if.then32, label %if.end38
 
 if.then32:                                        ; preds = %if.end29
-  %tobool33.not = icmp eq i64 %i.0208, 0
+  %tobool33.not = icmp eq i64 %i.0206, 0
   br i1 %tobool33.not, label %return, label %if.then34
 
 if.then34:                                        ; preds = %if.then32
@@ -7464,7 +7464,7 @@ if.then34:                                        ; preds = %if.then32
   %61 = load i64, ptr %host_hdr_len, align 8
   %guest_features = getelementptr inbounds i8, ptr %call.i98, i64 184
   %62 = load i64, ptr %guest_features, align 8
-  call void (ptr, ptr, ...) @virtio_error(ptr noundef %call.i98, ptr noundef nonnull @.str.120, i64 noundef %i.0208, i32 noundef %59, i64 noundef %offset.0207, i64 noundef %size, i64 noundef %60, i64 noundef %61, i64 noundef %62) #19
+  call void (ptr, ptr, ...) @virtio_error(ptr noundef %call.i98, ptr noundef nonnull @.str.120, i64 noundef %i.0206, i32 noundef %59, i64 noundef %offset.0207, i64 noundef %size, i64 noundef %60, i64 noundef %61, i64 noundef %62) #19
   br label %err111
 
 if.end38:                                         ; preds = %if.end29
@@ -7483,7 +7483,7 @@ if.then41:                                        ; preds = %if.end38
 if.end43:                                         ; preds = %if.end38
   %in_sg = getelementptr inbounds i8, ptr %call30, i64 40
   %65 = load ptr, ptr %in_sg, align 8
-  %cmp44 = icmp eq i64 %i.0208, 0
+  %cmp44 = icmp eq i64 %i.0206, 0
   br i1 %cmp44, label %if.then46, label %if.else.i144
 
 if.then46:                                        ; preds = %if.end43
@@ -7506,7 +7506,7 @@ if.then53:                                        ; preds = %if.end50
 
 if.end56:                                         ; preds = %if.then53, %if.end50
   %67 = phi i32 [ %.pre, %if.then53 ], [ %63, %if.end50 ]
-  %mhdr_cnt.1 = phi i32 [ %call55, %if.then53 ], [ %mhdr_cnt.0206, %if.end50 ]
+  %mhdr_cnt.1 = phi i32 [ %call55, %if.then53 ], [ %mhdr_cnt.0208, %if.end50 ]
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %hdr.i)
   %68 = load i32, ptr %has_vnet_hdr.i, align 8
   %tobool.not.i122 = icmp eq i32 %68, 0
@@ -7632,9 +7632,9 @@ if.end65:                                         ; preds = %if.else.i134, %rece
 
 if.else.i144:                                     ; preds = %if.end65, %if.end43
   %91 = phi i32 [ %.pre235, %if.end65 ], [ %63, %if.end43 ]
-  %mhdr_cnt.2 = phi i32 [ %mhdr_cnt.1, %if.end65 ], [ %mhdr_cnt.0206, %if.end43 ]
-  %offset.1 = phi i64 [ %89, %if.end65 ], [ %offset.0207, %if.end43 ]
   %guest_offset.0 = phi i64 [ %90, %if.end65 ], [ 0, %if.end43 ]
+  %offset.1 = phi i64 [ %89, %if.end65 ], [ %offset.0207, %if.end43 ]
+  %mhdr_cnt.2 = phi i32 [ %mhdr_cnt.1, %if.end65 ], [ %mhdr_cnt.0208, %if.end43 ]
   %total.0 = phi i32 [ %conv70, %if.end65 ], [ 0, %if.end43 ]
   %sub76 = sub i64 %size, %offset.1
   %add.ptr75 = getelementptr i8, ptr %buf, i64 %offset.1
@@ -7657,12 +7657,12 @@ if.then87:                                        ; preds = %if.else.i144
   br label %err111
 
 if.end89:                                         ; preds = %if.else.i144
-  %arrayidx = getelementptr [1024 x ptr], ptr %elems, i64 0, i64 %i.0208
+  %arrayidx = getelementptr [1024 x ptr], ptr %elems, i64 0, i64 %i.0206
   store ptr %call30, ptr %arrayidx, align 8
   %conv90 = sext i32 %add79 to i64
-  %arrayidx91 = getelementptr [1024 x i64], ptr %lens, i64 0, i64 %i.0208
+  %arrayidx91 = getelementptr [1024 x i64], ptr %lens, i64 0, i64 %i.0206
   store i64 %conv90, ptr %arrayidx91, align 8
-  %inc = add nuw nsw i64 %i.0208, 1
+  %inc = add nuw nsw i64 %i.0206, 1
   br i1 %cmp85, label %while.body, label %while.end, !llvm.loop !35
 
 while.end:                                        ; preds = %if.end89
@@ -7702,7 +7702,7 @@ for.body:                                         ; preds = %for.body.preheader,
   call void @virtqueue_fill(ptr noundef %96, ptr noundef %97, i32 noundef %conv104, i32 noundef %conv105) #19
   call void @g_free(ptr noundef %97) #19
   %inc107 = add nuw nsw i64 %j.0211, 1
-  %exitcond234.not = icmp eq i64 %j.0211, %i.0208
+  %exitcond234.not = icmp eq i64 %j.0211, %i.0206
   br i1 %exitcond234.not, label %for.end.loopexit, label %for.body, !llvm.loop !36
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -7719,12 +7719,12 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 err111:                                           ; preds = %if.then34, %if.then87, %if.then41
   %err.0 = phi i64 [ -1, %if.then41 ], [ %size, %if.then87 ], [ -1, %if.then34 ]
-  %cmp113212.not = icmp eq i64 %i.0208, 0
+  %cmp113212.not = icmp eq i64 %i.0206, 0
   br i1 %cmp113212.not, label %return, label %for.body115.preheader
 
 for.body115.preheader:                            ; preds = %err111.thread248, %err111
   %err.0253 = phi i64 [ %size, %err111.thread248 ], [ %err.0, %err111 ]
-  %i.0208227252 = phi i64 [ 1024, %err111.thread248 ], [ %i.0208, %err111 ]
+  %i.0206222252 = phi i64 [ 1024, %err111.thread248 ], [ %i.0206, %err111 ]
   br label %for.body115
 
 for.body115:                                      ; preds = %for.body115.preheader, %for.body115
@@ -7738,7 +7738,7 @@ for.body115:                                      ; preds = %for.body115.prehead
   call void @virtqueue_detach_element(ptr noundef %102, ptr noundef %103, i32 noundef %conv119) #19
   call void @g_free(ptr noundef %103) #19
   %inc122 = add nuw nsw i64 %j.1213, 1
-  %exitcond.not = icmp eq i64 %inc122, %i.0208227252
+  %exitcond.not = icmp eq i64 %inc122, %i.0206222252
   br i1 %exitcond.not, label %return, label %for.body115, !llvm.loop !37
 
 return:                                           ; preds = %for.cond.i, %for.cond59.i, %for.body115, %if.then32, %err111, %if.end30.i, %for.cond59.preheader.i, %if.else41.i, %if.else.i, %if.then2.i, %if.then.i109, %land.lhs.true13.i, %if.end5.i, %if.end.i, %entry, %receive_filter.exit, %virtio_net_can_receive.exit, %for.end, %if.then10

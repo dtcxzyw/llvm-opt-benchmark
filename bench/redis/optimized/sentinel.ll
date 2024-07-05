@@ -6065,14 +6065,14 @@ if.end79:                                         ; preds = %if.then78, %if.end7
 
 if.end84.sink.split:                              ; preds = %if.end79, %if.end59
   %call80.sink = phi ptr [ %call61, %if.end59 ], [ %call80, %if.end79 ]
-  %ip.0.ph = phi ptr [ %incdec.ptr, %if.end59 ], [ %add.ptr70, %if.end79 ]
   %port.0.ph = phi ptr [ %incdec.ptr60, %if.end59 ], [ %add.ptr75, %if.end79 ]
+  %ip.0.ph = phi ptr [ %incdec.ptr, %if.end59 ], [ %add.ptr70, %if.end79 ]
   store i8 0, ptr %call80.sink, align 1
   br label %if.end84
 
 if.end84:                                         ; preds = %if.end84.sink.split, %if.end79
-  %ip.0 = phi ptr [ %add.ptr70, %if.end79 ], [ %ip.0.ph, %if.end84.sink.split ]
   %port.0 = phi ptr [ %add.ptr75, %if.end79 ], [ %port.0.ph, %if.end84.sink.split ]
+  %ip.0 = phi ptr [ %add.ptr70, %if.end79 ], [ %ip.0.ph, %if.end84.sink.split ]
   %call85 = call i32 @atoi(ptr nocapture noundef nonnull %port.0) #32
   %call86 = call ptr @sentinelRedisInstanceLookupSlave(ptr noundef nonnull %ri, ptr noundef nonnull %ip.0, i32 noundef %call85)
   %cmp87 = icmp eq ptr %call86, null
@@ -8317,23 +8317,23 @@ for.inc:                                          ; preds = %if.then25, %if.then
 
 for.body90:                                       ; preds = %for.body90.lr.ph, %for.inc243
   %20 = phi i32 [ %18, %for.body90.lr.ph ], [ %52, %for.inc243 ]
-  %i85.0128 = phi i32 [ 3, %for.body90.lr.ph ], [ %inc244, %for.inc243 ]
-  %drop_conns.0127 = phi i32 [ 0, %for.body90.lr.ph ], [ %drop_conns.1, %for.inc243 ]
+  %drop_conns.0128 = phi i32 [ 0, %for.body90.lr.ph ], [ %drop_conns.1, %for.inc243 ]
+  %i85.0127 = phi i32 [ 3, %for.body90.lr.ph ], [ %inc244, %for.inc243 ]
   %21 = load ptr, ptr %argv93, align 8
-  %idxprom94 = sext i32 %i85.0128 to i64
+  %idxprom94 = sext i32 %i85.0127 to i64
   %arrayidx95 = getelementptr inbounds ptr, ptr %21, i64 %idxprom94
   %22 = load ptr, ptr %arrayidx95, align 8
   %ptr96 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %ptr96, align 8
   %call97 = call i32 @strcasecmp(ptr noundef %23, ptr noundef nonnull @.str.212) #32
   %tobool98 = icmp eq i32 %call97, 0
-  %24 = sub i32 %i85.0128, %20
+  %24 = sub i32 %i85.0127, %20
   %cmp99 = icmp slt i32 %24, -1
   %or.cond2 = and i1 %cmp99, %tobool98
   br i1 %or.cond2, label %if.then101, label %if.else135
 
 if.then101:                                       ; preds = %for.body90
-  %inc103 = add nsw i32 %i85.0128, 1
+  %inc103 = add nsw i32 %i85.0127, 1
   %idxprom104 = sext i32 %inc103 to i64
   %arrayidx105 = getelementptr inbounds ptr, ptr %21, i64 %idxprom104
   %25 = load ptr, ptr %arrayidx105, align 8
@@ -8390,7 +8390,7 @@ if.else135:                                       ; preds = %for.body90
   br i1 %or.cond3, label %if.then141, label %if.else150
 
 if.then141:                                       ; preds = %if.else135
-  %inc143 = add nsw i32 %i85.0128, 1
+  %inc143 = add nsw i32 %i85.0127, 1
   %idxprom144 = sext i32 %inc143 to i64
   %arrayidx145 = getelementptr inbounds ptr, ptr %21, i64 %idxprom144
   %27 = load ptr, ptr %arrayidx145, align 8
@@ -8409,7 +8409,7 @@ if.else150:                                       ; preds = %if.else135
   br i1 %or.cond4, label %if.then156, label %if.else165
 
 if.then156:                                       ; preds = %if.else150
-  %inc158 = add nsw i32 %i85.0128, 1
+  %inc158 = add nsw i32 %i85.0127, 1
   %idxprom159 = sext i32 %inc158 to i64
   %arrayidx160 = getelementptr inbounds ptr, ptr %21, i64 %idxprom159
   %29 = load ptr, ptr %arrayidx160, align 8
@@ -8428,7 +8428,7 @@ if.else165:                                       ; preds = %if.else150
   br i1 %or.cond5, label %if.then171, label %if.else181
 
 if.then171:                                       ; preds = %if.else165
-  %inc173 = add nsw i32 %i85.0128, 1
+  %inc173 = add nsw i32 %i85.0127, 1
   %idxprom174 = sext i32 %inc173 to i64
   %arrayidx175 = getelementptr inbounds ptr, ptr %21, i64 %idxprom174
   %31 = load ptr, ptr %arrayidx175, align 8
@@ -8454,7 +8454,7 @@ if.else181:                                       ; preds = %if.else165
   br i1 %or.cond6, label %if.then187, label %if.else194
 
 if.then187:                                       ; preds = %if.else181
-  %inc189 = add nsw i32 %i85.0128, 1
+  %inc189 = add nsw i32 %i85.0127, 1
   %idxprom190 = sext i32 %inc189 to i64
   %arrayidx191 = getelementptr inbounds ptr, ptr %21, i64 %idxprom190
   %34 = load ptr, ptr %arrayidx191, align 8
@@ -8471,7 +8471,7 @@ if.else194:                                       ; preds = %if.else181
   br i1 %or.cond7, label %if.then200, label %if.else214
 
 if.then200:                                       ; preds = %if.else194
-  %inc202 = add nsw i32 %i85.0128, 1
+  %inc202 = add nsw i32 %i85.0127, 1
   %idxprom203 = sext i32 %inc202 to i64
   %arrayidx204 = getelementptr inbounds ptr, ptr %21, i64 %idxprom203
   %36 = load ptr, ptr %arrayidx204, align 8
@@ -8540,7 +8540,7 @@ if.else214:                                       ; preds = %if.else194
   br i1 %or.cond8, label %if.then220, label %if.else235
 
 if.then220:                                       ; preds = %if.else214
-  %inc222 = add nsw i32 %i85.0128, 1
+  %inc222 = add nsw i32 %i85.0127, 1
   %idxprom223 = sext i32 %inc222 to i64
   %arrayidx224 = getelementptr inbounds ptr, ptr %21, i64 %idxprom223
   %44 = load ptr, ptr %arrayidx224, align 8
@@ -8608,8 +8608,8 @@ if.else235:                                       ; preds = %if.else214
   unreachable
 
 for.inc243:                                       ; preds = %if.then114, %if.then124, %if.then129, %if.else125, %if.then119, %if.then109, %if.then156, %if.then187, %cond.end233, %cond.end213, %if.end178, %if.then141
-  %drop_conns.1 = phi i32 [ %drop_conns.0127, %if.else125 ], [ %drop_conns.0127, %if.then129 ], [ %drop_conns.0127, %if.then124 ], [ %drop_conns.0127, %if.then119 ], [ %drop_conns.0127, %if.then114 ], [ %drop_conns.0127, %if.then109 ], [ %drop_conns.0127, %if.then141 ], [ %drop_conns.0127, %if.then156 ], [ %drop_conns.0127, %if.end178 ], [ %drop_conns.0127, %if.then187 ], [ 1, %cond.end213 ], [ 1, %cond.end233 ]
   %i85.1 = phi i32 [ %inc103, %if.else125 ], [ %inc103, %if.then129 ], [ %inc103, %if.then124 ], [ %inc103, %if.then119 ], [ %inc103, %if.then114 ], [ %inc103, %if.then109 ], [ %inc143, %if.then141 ], [ %inc158, %if.then156 ], [ %inc173, %if.end178 ], [ %inc189, %if.then187 ], [ %inc202, %cond.end213 ], [ %inc222, %cond.end233 ]
+  %drop_conns.1 = phi i32 [ %drop_conns.0128, %if.else125 ], [ %drop_conns.0128, %if.then129 ], [ %drop_conns.0128, %if.then124 ], [ %drop_conns.0128, %if.then119 ], [ %drop_conns.0128, %if.then114 ], [ %drop_conns.0128, %if.then109 ], [ %drop_conns.0128, %if.then141 ], [ %drop_conns.0128, %if.then156 ], [ %drop_conns.0128, %if.end178 ], [ %drop_conns.0128, %if.then187 ], [ 1, %cond.end213 ], [ 1, %cond.end233 ]
   %inc244 = add nsw i32 %i85.1, 1
   %52 = load i32, ptr %argc, align 8
   %cmp88 = icmp slt i32 %inc244, %52

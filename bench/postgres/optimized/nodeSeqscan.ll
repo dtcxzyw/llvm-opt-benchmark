@@ -233,8 +233,8 @@ define internal ptr @SeqNext(ptr nocapture noundef %0) #0 {
   br label %21
 
 21:                                               ; preds = %11, %1
-  %.0 = phi ptr [ %20, %11 ], [ %3, %1 ]
-  %22 = load ptr, ptr %.0, align 8
+  %.013 = phi ptr [ %20, %11 ], [ %3, %1 ]
+  %22 = load ptr, ptr %.013, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 72
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %9, i64 56
@@ -254,12 +254,12 @@ define internal ptr @SeqNext(ptr nocapture noundef %0) #0 {
   unreachable
 
 table_scan_getnextslot.exit:                      ; preds = %21
-  %33 = load ptr, ptr %.0, align 8
+  %33 = load ptr, ptr %.013, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 312
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call zeroext i1 %37(ptr noundef nonnull %.0, i32 noundef %7, ptr noundef nonnull %9) #5
+  %38 = tail call zeroext i1 %37(ptr noundef nonnull %.013, i32 noundef %7, ptr noundef nonnull %9) #5
   %. = select i1 %38, ptr %9, ptr null
   ret ptr %.
 }

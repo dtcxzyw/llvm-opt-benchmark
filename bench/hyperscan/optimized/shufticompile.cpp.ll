@@ -685,15 +685,15 @@ for.body.i.i.preheader:                           ; preds = %for.inc, %invoke.co
 invoke.cont6:                                     ; preds = %invoke.cont, %for.inc
   %nibble_masks.sroa.0.0457 = phi ptr [ %nibble_masks.sroa.0.1, %for.inc ], [ null, %invoke.cont ]
   %nibble_masks.sroa.13.0456 = phi ptr [ %nibble_masks.sroa.13.1, %for.inc ], [ null, %invoke.cont ]
-  %__begin1.sroa.0.0455 = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc ], [ %0, %invoke.cont ]
-  %nibble_masks.sroa.30.0454 = phi ptr [ %nibble_masks.sroa.30.1, %for.inc ], [ null, %invoke.cont ]
-  %2 = load i8, ptr %__begin1.sroa.0.0455, align 1
+  %nibble_masks.sroa.30.0455 = phi ptr [ %nibble_masks.sroa.30.1, %for.inc ], [ null, %invoke.cont ]
+  %__begin1.sroa.0.0454 = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc ], [ %0, %invoke.cont ]
+  %2 = load i8, ptr %__begin1.sroa.0.0454, align 1
   %conv = zext i8 %2 to i32
   %and = and i32 %conv, 15
   %shl = shl nuw nsw i32 1, %and
   %conv10 = zext nneg i32 %shl to i64
   %shr = lshr i32 %conv, 4
-  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.0455, i64 1
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.0454, i64 1
   %3 = load i8, ptr %second, align 1
   %conv15 = zext i8 %3 to i32
   %and16 = and i32 %conv15, 15
@@ -702,7 +702,7 @@ invoke.cont6:                                     ; preds = %invoke.cont, %for.i
   %shr21 = lshr i32 %conv15, 4
   %shl22 = shl nuw nsw i32 1, %shr21
   %conv23 = zext nneg i32 %shl22 to i64
-  %cmp.not.i.i = icmp eq ptr %nibble_masks.sroa.13.0456, %nibble_masks.sroa.30.0454
+  %cmp.not.i.i = icmp eq ptr %nibble_masks.sroa.13.0456, %nibble_masks.sroa.30.0455
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont6
@@ -777,11 +777,11 @@ _ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__n
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %if.then.i.i
-  %nibble_masks.sroa.30.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %nibble_masks.sroa.30.0454, %if.then.i.i ]
+  %nibble_masks.sroa.30.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %nibble_masks.sroa.30.0455, %if.then.i.i ]
   %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %nibble_masks.sroa.13.0456, %if.then.i.i ]
   %nibble_masks.sroa.0.1 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %nibble_masks.sroa.0.0457, %if.then.i.i ]
   %nibble_masks.sroa.13.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0455, i64 2
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0454, i64 2
   %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i.i.not, label %for.body.i.i.preheader, label %invoke.cont6
 
@@ -1188,7 +1188,7 @@ lpad69.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then.i.i.i
   br label %lpad69.body
 
 lpad69.body:                                      ; preds = %lpad69.loopexit, %lpad69.loopexit.split-lp.loopexit.split-lp, %lpad69.loopexit.split-lp.loopexit, %_ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i276, %_ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i309, %_ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i
-  %nibble_masks.sroa.0.9 = phi ptr [ %nibble_masks.sroa.0.5480, %_ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i ], [ %nibble_masks.sroa.0.5480, %_ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i276 ], [ %nibble_masks.sroa.0.5480, %_ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i309 ], [ %nibble_masks.sroa.0.10473, %lpad69.loopexit ], [ %nibble_masks.sroa.0.5480, %lpad69.loopexit.split-lp.loopexit ], [ %nibble_masks.sroa.0.10473, %lpad69.loopexit.split-lp.loopexit.split-lp ]
+  %nibble_masks.sroa.0.9 = phi ptr [ %nibble_masks.sroa.0.5480, %_ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i ], [ %nibble_masks.sroa.0.5480, %_ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i276 ], [ %nibble_masks.sroa.0.5480, %_ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i309 ], [ %nibble_masks.sroa.0.10474, %lpad69.loopexit ], [ %nibble_masks.sroa.0.5480, %lpad69.loopexit.split-lp.loopexit ], [ %nibble_masks.sroa.0.10474, %lpad69.loopexit.split-lp.loopexit.split-lp ]
   %eh.lpad-body = phi { ptr, i32 } [ %39, %_ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i ], [ %52, %_ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i276 ], [ %69, %_ZNSt8_Rb_treeISt5arrayItLm4EESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i309 ], [ %lpad.loopexit, %lpad69.loopexit ], [ %lpad.loopexit408, %lpad69.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp409, %lpad69.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt3mapISt5arrayItLm4EES1_St4lessIS1_ESaISt4pairIKS1_S1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %new_masks) #14
   br label %ehcleanup
@@ -1481,22 +1481,22 @@ for.end85:                                        ; preds = %for.inc83
   br i1 %cmp.i193.not470, label %for.end101, label %for.body95
 
 for.body95:                                       ; preds = %for.end85, %for.inc99
-  %__begin287.sroa.0.0474 = phi ptr [ %call.i, %for.inc99 ], [ %.pre, %for.end85 ]
-  %nibble_masks.sroa.0.10473 = phi ptr [ %nibble_masks.sroa.0.11, %for.inc99 ], [ %nibble_masks.sroa.0.5480, %for.end85 ]
-  %nibble_masks.sroa.13.6472 = phi ptr [ %nibble_masks.sroa.13.7, %for.inc99 ], [ %nibble_masks.sroa.0.5480, %for.end85 ]
+  %nibble_masks.sroa.0.10474 = phi ptr [ %nibble_masks.sroa.0.11, %for.inc99 ], [ %nibble_masks.sroa.0.5480, %for.end85 ]
+  %nibble_masks.sroa.13.6473 = phi ptr [ %nibble_masks.sroa.13.7, %for.inc99 ], [ %nibble_masks.sroa.0.5480, %for.end85 ]
+  %__begin287.sroa.0.0472 = phi ptr [ %call.i, %for.inc99 ], [ %.pre, %for.end85 ]
   %nibble_masks.sroa.30.5471 = phi ptr [ %nibble_masks.sroa.30.6, %for.inc99 ], [ %nibble_masks.sroa.30.4478, %for.end85 ]
-  %second97 = getelementptr inbounds i8, ptr %__begin287.sroa.0.0474, i64 40
-  %cmp.not.i = icmp eq ptr %nibble_masks.sroa.13.6472, %nibble_masks.sroa.30.5471
+  %second97 = getelementptr inbounds i8, ptr %__begin287.sroa.0.0472, i64 40
+  %cmp.not.i = icmp eq ptr %nibble_masks.sroa.13.6473, %nibble_masks.sroa.30.5471
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i195
 
 if.then.i195:                                     ; preds = %for.body95
   %70 = load i64, ptr %second97, align 2
-  store i64 %70, ptr %nibble_masks.sroa.13.6472, align 2
+  store i64 %70, ptr %nibble_masks.sroa.13.6473, align 2
   br label %for.inc99
 
 if.else.i:                                        ; preds = %for.body95
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %nibble_masks.sroa.13.6472 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %nibble_masks.sroa.0.10473 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %nibble_masks.sroa.13.6473 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %nibble_masks.sroa.0.10474 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorISt5arrayItLm4EESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -1532,16 +1532,16 @@ _ZNSt12_Vector_baseISt5arrayItLm4EESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt5arrayItLm4EESaIS1_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %cond.i10.i.i, ptr align 2 %nibble_masks.sroa.0.10473, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %cond.i10.i.i, ptr align 2 %nibble_masks.sroa.0.10474, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
 
 _ZNSt6vectorISt5arrayItLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseISt5arrayItLm4EESaIS1_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i.i = icmp eq ptr %nibble_masks.sroa.0.10473, null
+  %tobool.not.i.i.i = icmp eq ptr %nibble_masks.sroa.0.10474, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %nibble_masks.sroa.0.10473) #17
+  call void @_ZdlPv(ptr noundef nonnull %nibble_masks.sroa.0.10474) #17
   br label %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
@@ -1550,10 +1550,10 @@ _ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 
 for.inc99:                                        ; preds = %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i195
   %nibble_masks.sroa.30.6 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %nibble_masks.sroa.30.5471, %if.then.i195 ]
-  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %nibble_masks.sroa.13.6472, %if.then.i195 ]
-  %nibble_masks.sroa.0.11 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %nibble_masks.sroa.0.10473, %if.then.i195 ]
+  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %nibble_masks.sroa.13.6473, %if.then.i195 ]
+  %nibble_masks.sroa.0.11 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %nibble_masks.sroa.0.10474, %if.then.i195 ]
   %nibble_masks.sroa.13.7 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin287.sroa.0.0474) #13
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin287.sroa.0.0472) #13
   %cmp.i193.not = icmp eq ptr %call.i, %9
   br i1 %cmp.i193.not, label %for.end101, label %for.body95
 

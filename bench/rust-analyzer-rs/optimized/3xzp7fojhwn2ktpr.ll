@@ -1430,8 +1430,8 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
   br label %20
 
 .loopexit.i.i:                                    ; preds = %80, %78, %76
-  %.012.i.i.i = phi i64 [ 1, %76 ], [ %..i.i.i, %80 ], [ 2, %78 ]
-  %19 = add i64 %.012.i.i.i, %22
+  %.013.i.i.i = phi i64 [ 1, %76 ], [ %..i.i.i, %80 ], [ 2, %78 ]
+  %19 = add i64 %.013.i.i.i, %22
   store i64 %19, ptr %14, align 8, !alias.scope !249, !noalias !250
   br label %20
 
@@ -1809,8 +1809,8 @@ define void @_ZN10lsp_server3msg7Message5_read17h5b352df54788db57E(ptr noalias n
   br label %42
 
 42:                                               ; preds = %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.thread.i", %3
-  %.sroa.3.0.i = phi i64 [ undef, %3 ], [ %.sroa.3.1.i, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.thread.i" ]
   %.sroa.023.0.i = phi i64 [ 0, %3 ], [ %.sroa.023.1.i, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.thread.i" ]
+  %.sroa.3.0.i = phi i64 [ undef, %3 ], [ %.sroa.3.1.i, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.thread.i" ]
   store i64 0, ptr %.sroa.553.0..sroa_idx.i, align 8, !noalias !270
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30), !noalias !270
   invoke void %36(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %30, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %31)
@@ -2242,8 +2242,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %61
   br label %180
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit.thread.i": ; preds = %161, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h35c961e19655ea66E.exit.thread.i", %149
-  %.sroa.3.1.i = phi i64 [ %174, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h35c961e19655ea66E.exit.thread.i" ], [ %.sroa.3.0.i, %149 ], [ %.sroa.3.0.i, %161 ]
   %.sroa.023.1.i = phi i64 [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h35c961e19655ea66E.exit.thread.i" ], [ %.sroa.023.0.i, %149 ], [ %.sroa.023.0.i, %161 ]
+  %.sroa.3.1.i = phi i64 [ %174, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h35c961e19655ea66E.exit.thread.i" ], [ %.sroa.3.0.i, %149 ], [ %.sroa.3.0.i, %161 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %26), !noalias !270
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27), !noalias !270
   br label %42

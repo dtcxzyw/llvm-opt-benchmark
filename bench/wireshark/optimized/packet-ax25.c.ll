@@ -213,8 +213,8 @@ define internal i32 @dissect_ax25(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %49
 
 49:                                               ; preds = %4, %48, %47
+  %.085 = phi i32 [ 0, %48 ], [ 0, %47 ], [ 1, %4 ]
   %.084 = phi ptr [ @.str.72, %48 ], [ @.str.71, %47 ], [ @.str.71, %4 ]
-  %.083 = phi i32 [ 0, %48 ], [ 0, %47 ], [ 1, %4 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.73, ptr noundef nonnull %.084) #2
   %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #2
   %51 = and i8 %50, 1
@@ -223,20 +223,20 @@ define internal i32 @dissect_ax25(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .lr.ph:                                           ; preds = %49, %60
   %.087 = phi i32 [ %61, %60 ], [ 14, %49 ]
-  %.08586 = phi i32 [ %.1, %60 ], [ 0, %49 ]
-  %53 = icmp slt i32 %.08586, 8
+  %.08386 = phi i32 [ %.1, %60 ], [ 0, %49 ]
+  %53 = icmp slt i32 %.08386, 8
   br i1 %53, label %54, label %60
 
 54:                                               ; preds = %.lr.ph
-  %55 = sext i32 %.08586 to i64
+  %55 = sext i32 %.08386 to i64
   %56 = getelementptr [8 x i32], ptr @hf_ax25_via, i64 0, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %57, ptr noundef %0, i32 noundef %.087, i32 noundef 7, i32 noundef 0) #2
-  %59 = add nsw i32 %.08586, 1
+  %59 = add nsw i32 %.08386, 1
   br label %60
 
 60:                                               ; preds = %54, %.lr.ph
-  %.1 = phi i32 [ %59, %54 ], [ %.08586, %.lr.ph ]
+  %.1 = phi i32 [ %59, %54 ], [ %.08386, %.lr.ph ]
   %61 = add i32 %.087, 7
   %62 = add i32 %.087, 6
   %63 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %62) #2
@@ -248,7 +248,7 @@ define internal i32 @dissect_ax25(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.0.lcssa = phi i32 [ 14, %49 ], [ %61, %60 ]
   %66 = load i32, ptr @hf_ax25_ctl, align 4
   %67 = load i32, ptr @ett_ax25_ctl, align 4
-  %68 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef %.0.lcssa, ptr noundef %1, ptr noundef %14, i32 noundef %66, i32 noundef %67, ptr noundef nonnull @ax25_cf_items, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %.083, i32 noundef 0, i32 noundef 0) #2
+  %68 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef %.0.lcssa, ptr noundef %1, ptr noundef %14, i32 noundef %66, i32 noundef %67, ptr noundef nonnull @ax25_cf_items, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %.085, i32 noundef 0, i32 noundef 0) #2
   %69 = and i32 %68, 255
   %70 = add i32 %.0.lcssa, 1
   %71 = and i32 %68, 1

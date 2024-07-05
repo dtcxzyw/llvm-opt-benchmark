@@ -121,30 +121,30 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.outer532
 
 .outer532:                                        ; preds = %375, %48
-  %.0453.ph = phi i32 [ %80, %375 ], [ 1, %48 ]
-  %.0450.ph = phi i32 [ %.3, %375 ], [ 0, %48 ]
+  %.0469.ph = phi i32 [ %80, %375 ], [ 1, %48 ]
+  %.0451.ph = phi i32 [ %.3, %375 ], [ 0, %48 ]
   %52 = load i32, ptr %1, align 4
-  %53 = icmp sgt i32 %.0453.ph, %52
+  %53 = icmp sgt i32 %.0469.ph, %52
   br i1 %53, label %.outer532._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.outer532, %.backedge
-  %.0453572 = phi i32 [ %80, %.backedge ], [ %.0453.ph, %.outer532 ]
-  %54 = icmp sgt i32 %.0453572, 1
+  %.0469572 = phi i32 [ %80, %.backedge ], [ %.0469.ph, %.outer532 ]
+  %54 = icmp sgt i32 %.0469572, 1
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %.lr.ph
-  %56 = zext nneg i32 %.0453572 to i64
+  %56 = zext nneg i32 %.0469572 to i64
   %gep = getelementptr float, ptr %invariant.gep, i64 %56
   store float 0.000000e+00, ptr %gep, align 4
   br label %57
 
 57:                                               ; preds = %55, %.lr.ph
-  %.not488.not = icmp slt i32 %.0453572, %49
+  %.not488.not = icmp slt i32 %.0469572, %49
   br i1 %.not488.not, label %58, label %.loopexit530
 
 58:                                               ; preds = %57
   store i32 %51, ptr %14, align 4
-  %59 = sext i32 %.0453572 to i64
+  %59 = sext i32 %.0469572 to i64
   br label %60
 
 60:                                               ; preds = %66, %58
@@ -187,21 +187,21 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.loopexit531
 
 .loopexit531:                                     ; preds = %.loopexit531.loopexit, %.loopexit530, %75
-  %.1459 = phi i32 [ %77, %75 ], [ %78, %.loopexit530 ], [ %79, %.loopexit531.loopexit ]
-  %80 = add nsw i32 %.1459, 1
-  %81 = icmp eq i32 %.1459, %.0453572
+  %.1462 = phi i32 [ %77, %75 ], [ %78, %.loopexit530 ], [ %79, %.loopexit531.loopexit ]
+  %80 = add nsw i32 %.1462, 1
+  %81 = icmp eq i32 %.1462, %.0469572
   br i1 %81, label %.backedge, label %83
 
 .backedge:                                        ; preds = %.loopexit531, %83
   %82 = load i32, ptr %1, align 4
-  %.not619 = icmp slt i32 %.1459, %82
+  %.not619 = icmp slt i32 %.1462, %82
   br i1 %.not619, label %.lr.ph, label %.outer532._crit_edge
 
 83:                                               ; preds = %.loopexit531
-  %84 = sub nsw i32 %.1459, %.0453572
+  %84 = sub nsw i32 %.1462, %.0469572
   %85 = add nsw i32 %84, 1
   store i32 %85, ptr %14, align 4
-  %86 = sext i32 %.0453572 to i64
+  %86 = sext i32 %.0469572 to i64
   %87 = getelementptr inbounds float, ptr %26, i64 %86
   %88 = getelementptr inbounds float, ptr %27, i64 %86
   %89 = call float @slanst_(ptr noundef nonnull @.str.1, ptr noundef nonnull %14, ptr noundef nonnull %87, ptr noundef nonnull %88)
@@ -230,48 +230,48 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 98:                                               ; preds = %.sink.split, %95
   %99 = phi i1 [ false, %95 ], [ %94, %.sink.split ]
-  %100 = sext i32 %.1459 to i64
+  %100 = sext i32 %.1462 to i64
   %101 = getelementptr inbounds float, ptr %26, i64 %100
   %102 = load float, ptr %101, align 4
   %103 = call noundef float @llvm.fabs.f32(float %102)
   %104 = load float, ptr %87, align 4
   %105 = call noundef float @llvm.fabs.f32(float %104)
   %106 = fcmp olt float %103, %105
-  %.0462 = select i1 %106, i32 %.1459, i32 %.0453572
-  %.0451 = select i1 %106, i32 %.0453572, i32 %.1459
-  %107 = icmp sgt i32 %.0451, %.0462
+  %.0458 = select i1 %106, i32 %.1462, i32 %.0469572
+  %.0454 = select i1 %106, i32 %.0469572, i32 %.1462
+  %107 = icmp sgt i32 %.0454, %.0458
   br i1 %107, label %.preheader, label %.preheader526
 
 .preheader526:                                    ; preds = %98
-  %108 = add nsw i32 %.0451, 1
-  %109 = sext i32 %.0451 to i64
+  %108 = add nsw i32 %.0454, 1
+  %109 = sext i32 %.0454 to i64
   br label %.outer528
 
 .preheader:                                       ; preds = %98
-  %110 = add nsw i32 %.0451, -1
+  %110 = add nsw i32 %.0454, -1
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.preheader
-  %.1463.ph = phi i32 [ %.0462, %.preheader ], [ %.1463.ph.be, %.outer.backedge ]
-  %.1.ph = phi i32 [ %.0450.ph, %.preheader ], [ %.1, %.outer.backedge ]
-  %.not496 = icmp eq i32 %.1463.ph, %.0451
-  %111 = sext i32 %.1463.ph to i64
+  %.1459.ph = phi i32 [ %.0458, %.preheader ], [ %.1459.ph.be, %.outer.backedge ]
+  %.1452.ph = phi i32 [ %.0451.ph, %.preheader ], [ %.1452, %.outer.backedge ]
+  %.not496 = icmp eq i32 %.1459.ph, %.0454
+  %111 = sext i32 %.1459.ph to i64
   %112 = getelementptr inbounds float, ptr %26, i64 %111
-  %113 = add nsw i32 %.1463.ph, 1
+  %113 = add nsw i32 %.1459.ph, 1
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds float, ptr %26, i64 %114
   %116 = getelementptr inbounds float, ptr %27, i64 %111
   %117 = getelementptr inbounds float, ptr %31, i64 %111
-  %118 = add i32 %.1463.ph, -1
-  %119 = mul nsw i32 %.1463.ph, %28
+  %118 = add i32 %.1459.ph, -1
+  %119 = mul nsw i32 %.1459.ph, %28
   %120 = sext i32 %119 to i64
   %gep595 = getelementptr float, ptr %invariant.gep583, i64 %120
-  %smax666 = call i32 @llvm.smax.i32(i32 %.0451, i32 %.1463.ph)
+  %smax666 = call i32 @llvm.smax.i32(i32 %.0454, i32 %.1459.ph)
   %wide.trip.count667 = sext i32 %smax666 to i64
   br label %121
 
 121:                                              ; preds = %.outer, %237
-  %.1 = phi i32 [ %165, %237 ], [ %.1.ph, %.outer ]
+  %.1452 = phi i32 [ %165, %237 ], [ %.1452.ph, %.outer ]
   br i1 %.not496, label %.thread516, label %122
 
 122:                                              ; preds = %121
@@ -308,13 +308,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.thread516
 
 .thread516:                                       ; preds = %123, %121, %137
-  %.3461518 = phi i32 [ %138, %137 ], [ %.0451, %121 ], [ %.0451, %123 ]
+  %.3464518 = phi i32 [ %138, %137 ], [ %.0454, %121 ], [ %.0454, %123 ]
   %141 = load float, ptr %112, align 4
-  %142 = icmp eq i32 %.3461518, %.1463.ph
+  %142 = icmp eq i32 %.3464518, %.1459.ph
   br i1 %142, label %241, label %143
 
 143:                                              ; preds = %.thread516
-  %144 = icmp eq i32 %.3461518, %113
+  %144 = icmp eq i32 %.3464518, %113
   br i1 %144, label %145, label %162
 
 145:                                              ; preds = %143
@@ -347,16 +347,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %160 = load float, ptr %22, align 4
   store float %160, ptr %115, align 4
   store float 0.000000e+00, ptr %116, align 4
-  %161 = add nsw i32 %.1463.ph, 2
-  %.not500 = icmp sgt i32 %161, %.0451
+  %161 = add nsw i32 %.1459.ph, 2
+  %.not500 = icmp sgt i32 %161, %.0454
   br i1 %.not500, label %.loopexit, label %.outer.backedge
 
 162:                                              ; preds = %143
-  %163 = icmp eq i32 %.1, %50
+  %163 = icmp eq i32 %.1452, %50
   br i1 %163, label %.loopexit, label %164
 
 164:                                              ; preds = %162
-  %165 = add nsw i32 %.1, 1
+  %165 = add nsw i32 %.1452, 1
   %166 = load float, ptr %115, align 4
   %167 = fsub float %166, %141
   %168 = fpext float %167 to double
@@ -368,7 +368,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store float %173, ptr %17, align 4
   %174 = call float @slapy2_(ptr noundef nonnull %17, ptr noundef nonnull %10)
   store float %174, ptr %18, align 4
-  %175 = sext i32 %.3461518 to i64
+  %175 = sext i32 %.3464518 to i64
   %176 = getelementptr inbounds float, ptr %26, i64 %175
   %177 = load float, ptr %176, align 4
   %178 = fsub float %177, %141
@@ -383,12 +383,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store float %186, ptr %17, align 4
   store float 1.000000e+00, ptr %19, align 4
   store float 1.000000e+00, ptr %15, align 4
-  store i32 %.1463.ph, ptr %14, align 4
-  %.not498587.not = icmp sgt i32 %.3461518, %.1463.ph
+  store i32 %.1459.ph, ptr %14, align 4
+  %.not498587.not = icmp sgt i32 %.3464518, %.1459.ph
   br i1 %.not498587.not, label %.lr.ph591.preheader, label %._crit_edge592
 
 .lr.ph591.preheader:                              ; preds = %164
-  %187 = add nsw i32 %.3461518, -1
+  %187 = add nsw i32 %.3464518, -1
   %sext671 = sext i32 %187 to i64
   br label %.lr.ph591
 
@@ -396,7 +396,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %188 = phi float [ 1.000000e+00, %.lr.ph591.preheader ], [ %208, %227 ]
   %189 = phi float [ 1.000000e+00, %.lr.ph591.preheader ], [ %205, %227 ]
   %indvars.iv669.in = phi i64 [ %175, %.lr.ph591.preheader ], [ %indvars.iv669, %227 ]
-  %.0454589 = phi float [ 0.000000e+00, %.lr.ph591.preheader ], [ %214, %227 ]
+  %.0465588 = phi float [ 0.000000e+00, %.lr.ph591.preheader ], [ %214, %227 ]
   %indvars.iv669 = add nsw i64 %indvars.iv669.in, -1
   %190 = getelementptr inbounds float, ptr %27, i64 %indvars.iv669
   %191 = load float, ptr %190, align 4
@@ -417,7 +417,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %199 = getelementptr float, ptr %26, i64 %indvars.iv669
   %200 = getelementptr i8, ptr %199, i64 4
   %201 = load float, ptr %200, align 4
-  %202 = fsub float %201, %.0454589
+  %202 = fsub float %201, %.0465588
   %203 = load float, ptr %199, align 4
   %204 = fsub float %203, %202
   %205 = load float, ptr %19, align 4
@@ -459,11 +459,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 ._crit_edge592:                                   ; preds = %227, %164
   %230 = phi float [ %186, %164 ], [ %217, %227 ]
-  %.0454.lcssa = phi float [ 0.000000e+00, %164 ], [ %214, %227 ]
+  %.0465.lcssa = phi float [ 0.000000e+00, %164 ], [ %214, %227 ]
   br i1 %switch.masked, label %231, label %237
 
 231:                                              ; preds = %._crit_edge592
-  %reass.sub = sub i32 %.3461518, %.1463.ph
+  %reass.sub = sub i32 %.3464518, %.1459.ph
   %232 = add i32 %reass.sub, 1
   store i32 %232, ptr %20, align 4
   %233 = load i32, ptr %1, align 4
@@ -477,21 +477,21 @@ switch.lookup:                                    ; preds = %switch.hole_check
 237:                                              ; preds = %231, %._crit_edge592
   %238 = phi float [ %.pre687, %231 ], [ %230, %._crit_edge592 ]
   %239 = load float, ptr %112, align 4
-  %240 = fsub float %239, %.0454.lcssa
+  %240 = fsub float %239, %.0465.lcssa
   store float %240, ptr %112, align 4
   store float %238, ptr %116, align 4
   br label %121
 
 241:                                              ; preds = %.thread516
-  %.not501.not = icmp slt i32 %.1463.ph, %.0451
+  %.not501.not = icmp slt i32 %.1459.ph, %.0454
   br i1 %.not501.not, label %.outer.backedge, label %.loopexit
 
 .outer.backedge:                                  ; preds = %241, %158
-  %.1463.ph.be = phi i32 [ %161, %158 ], [ %113, %241 ]
+  %.1459.ph.be = phi i32 [ %161, %158 ], [ %113, %241 ]
   br label %.outer
 
 242:                                              ; preds = %.outer528, %370
-  %.2 = phi i32 [ %296, %370 ], [ %.2.ph, %.outer528 ]
+  %.2453 = phi i32 [ %296, %370 ], [ %.2453.ph, %.outer528 ]
   br i1 %.not490, label %.thread520, label %243
 
 243:                                              ; preds = %242
@@ -528,9 +528,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.thread520
 
 .thread520:                                       ; preds = %244, %242, %258
-  %.5522 = phi i32 [ %259, %258 ], [ %.0451, %242 ], [ %.0451, %244 ]
+  %.5522 = phi i32 [ %259, %258 ], [ %.0454, %242 ], [ %.0454, %244 ]
   %261 = load float, ptr %287, align 4
-  %262 = icmp eq i32 %.5522, %.2464.ph
+  %262 = icmp eq i32 %.5522, %.2460.ph
   br i1 %262, label %374, label %263
 
 263:                                              ; preds = %.thread520
@@ -547,7 +547,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store float %267, ptr %268, align 4
   %269 = load float, ptr %19, align 4
   %270 = load i32, ptr %1, align 4
-  %271 = add i32 %.2464.ph, -2
+  %271 = add i32 %.2460.ph, -2
   %272 = add i32 %271, %270
   %273 = sext i32 %272 to i64
   %274 = getelementptr inbounds float, ptr %31, i64 %273
@@ -572,29 +572,29 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %284 = load float, ptr %22, align 4
   store float %284, ptr %287, align 4
   store float 0.000000e+00, ptr %291, align 4
-  %285 = add nsw i32 %.2464.ph, -2
-  %.not494 = icmp slt i32 %285, %.0451
+  %285 = add nsw i32 %.2460.ph, -2
+  %.not494 = icmp slt i32 %285, %.0454
   br i1 %.not494, label %.loopexit, label %.outer528.backedge
 
 .outer528:                                        ; preds = %.outer528.backedge, %.preheader526
-  %.2464.ph = phi i32 [ %.0462, %.preheader526 ], [ %.2464.ph.be, %.outer528.backedge ]
-  %.2.ph = phi i32 [ %.0450.ph, %.preheader526 ], [ %.2, %.outer528.backedge ]
-  %.not490 = icmp eq i32 %.2464.ph, %.0451
-  %286 = sext i32 %.2464.ph to i64
+  %.2460.ph = phi i32 [ %.0458, %.preheader526 ], [ %.2460.ph.be, %.outer528.backedge ]
+  %.2453.ph = phi i32 [ %.0451.ph, %.preheader526 ], [ %.2453, %.outer528.backedge ]
+  %.not490 = icmp eq i32 %.2460.ph, %.0454
+  %286 = sext i32 %.2460.ph to i64
   %287 = getelementptr inbounds float, ptr %26, i64 %286
-  %288 = add nsw i32 %.2464.ph, -1
+  %288 = add nsw i32 %.2460.ph, -1
   %289 = sext i32 %288 to i64
   %290 = getelementptr inbounds float, ptr %26, i64 %289
   %291 = getelementptr inbounds float, ptr %27, i64 %289
-  %292 = add i32 %.2464.ph, 1
+  %292 = add i32 %.2460.ph, 1
   br label %242
 
 293:                                              ; preds = %263
-  %294 = icmp eq i32 %.2, %50
+  %294 = icmp eq i32 %.2453, %50
   br i1 %294, label %.loopexit, label %295
 
 295:                                              ; preds = %293
-  %296 = add nsw i32 %.2, 1
+  %296 = add nsw i32 %.2453, 1
   %297 = load float, ptr %290, align 4
   %298 = fsub float %297, %261
   %299 = fpext float %298 to double
@@ -622,14 +622,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store float 1.000000e+00, ptr %19, align 4
   store float 1.000000e+00, ptr %15, align 4
   store i32 %288, ptr %14, align 4
-  %.not492574.not = icmp slt i32 %.5522, %.2464.ph
+  %.not492574.not = icmp slt i32 %.5522, %.2460.ph
   br i1 %.not492574.not, label %.lr.ph578, label %._crit_edge579
 
 .lr.ph578:                                        ; preds = %295, %356
   %318 = phi float [ %338, %356 ], [ 1.000000e+00, %295 ]
   %319 = phi float [ %335, %356 ], [ 1.000000e+00, %295 ]
   %indvars.iv660 = phi i64 [ %indvars.iv.next661, %356 ], [ %306, %295 ]
-  %.1455576 = phi float [ %344, %356 ], [ 0.000000e+00, %295 ]
+  %.1466575 = phi float [ %344, %356 ], [ 0.000000e+00, %295 ]
   %320 = getelementptr inbounds float, ptr %27, i64 %indvars.iv660
   %321 = load float, ptr %320, align 4
   %322 = fmul float %319, %321
@@ -648,7 +648,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 328:                                              ; preds = %325, %.lr.ph578
   %329 = getelementptr inbounds float, ptr %26, i64 %indvars.iv660
   %330 = load float, ptr %329, align 4
-  %331 = fsub float %330, %.1455576
+  %331 = fsub float %330, %.1466575
   %indvars.iv.next661 = add nsw i64 %indvars.iv660, 1
   %332 = getelementptr float, ptr %2, i64 %indvars.iv660
   %333 = load float, ptr %332, align 4
@@ -691,7 +691,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 ._crit_edge579:                                   ; preds = %356, %295
   %359 = phi float [ %317, %295 ], [ %347, %356 ]
-  %.1455.lcssa = phi float [ 0.000000e+00, %295 ], [ %344, %356 ]
+  %.1466.lcssa = phi float [ 0.000000e+00, %295 ], [ %344, %356 ]
   br i1 %switch.masked, label %360, label %370
 
 360:                                              ; preds = %._crit_edge579
@@ -713,21 +713,21 @@ switch.lookup:                                    ; preds = %switch.hole_check
 370:                                              ; preds = %360, %._crit_edge579
   %371 = phi float [ %.pre686, %360 ], [ %359, %._crit_edge579 ]
   %372 = load float, ptr %287, align 4
-  %373 = fsub float %372, %.1455.lcssa
+  %373 = fsub float %372, %.1466.lcssa
   store float %373, ptr %287, align 4
   store float %371, ptr %291, align 4
   br label %242
 
 374:                                              ; preds = %.thread520
-  %.not495.not = icmp sgt i32 %.2464.ph, %.0451
+  %.not495.not = icmp sgt i32 %.2460.ph, %.0454
   br i1 %.not495.not, label %.outer528.backedge, label %.loopexit
 
 .outer528.backedge:                               ; preds = %374, %282
-  %.2464.ph.be = phi i32 [ %285, %282 ], [ %288, %374 ]
+  %.2460.ph.be = phi i32 [ %285, %282 ], [ %288, %374 ]
   br label %.outer528
 
 .loopexit:                                        ; preds = %374, %282, %241, %158, %293, %162
-  %.3 = phi i32 [ %50, %162 ], [ %50, %293 ], [ %.1, %158 ], [ %.1, %241 ], [ %.2, %282 ], [ %.2, %374 ]
+  %.3 = phi i32 [ %50, %162 ], [ %50, %293 ], [ %.1452, %158 ], [ %.1452, %241 ], [ %.2453, %282 ], [ %.2453, %374 ]
   %.not = xor i1 %94, true
   %brmerge = or i1 %.not, %99
   %.mux = select i1 %.not, ptr %25, ptr %24
@@ -808,33 +808,33 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .lr.ph607:                                        ; preds = %.lr.ph607.preheader, %.lr.ph607
   %indvars.iv680 = phi i64 [ %indvars.iv678, %.lr.ph607.preheader ], [ %indvars.iv.next681, %.lr.ph607 ]
-  %.2456605 = phi float [ %393, %.lr.ph607.preheader ], [ %.3457, %.lr.ph607 ]
-  %.0465604 = phi i32 [ %396, %.lr.ph607.preheader ], [ %.1466, %.lr.ph607 ]
+  %.0456604 = phi i32 [ %396, %.lr.ph607.preheader ], [ %.1457, %.lr.ph607 ]
+  %.2467603 = phi float [ %393, %.lr.ph607.preheader ], [ %.3468, %.lr.ph607 ]
   %398 = getelementptr inbounds float, ptr %26, i64 %indvars.iv680
   %399 = load float, ptr %398, align 4
-  %400 = fcmp olt float %399, %.2456605
+  %400 = fcmp olt float %399, %.2467603
+  %.3468 = select i1 %400, float %399, float %.2467603
   %401 = trunc nuw nsw i64 %indvars.iv680 to i32
-  %.1466 = select i1 %400, i32 %401, i32 %.0465604
-  %.3457 = select i1 %400, float %399, float %.2456605
+  %.1457 = select i1 %400, i32 %401, i32 %.0456604
   %indvars.iv.next681 = add nuw nsw i64 %indvars.iv680, 1
   %exitcond684.not = icmp eq i64 %indvars.iv.next681, %wide.trip.count683
   br i1 %exitcond684.not, label %._crit_edge608, label %.lr.ph607, !llvm.loop !11
 
 ._crit_edge608:                                   ; preds = %.lr.ph607, %.lr.ph618
-  %.0465.lcssa = phi i32 [ %396, %.lr.ph618 ], [ %.1466, %.lr.ph607 ]
-  %.2456.lcssa = phi float [ %393, %.lr.ph618 ], [ %.3457, %.lr.ph607 ]
-  %402 = zext i32 %.0465.lcssa to i64
+  %.2467.lcssa = phi float [ %393, %.lr.ph618 ], [ %.3468, %.lr.ph607 ]
+  %.0456.lcssa = phi i32 [ %396, %.lr.ph618 ], [ %.1457, %.lr.ph607 ]
+  %402 = zext i32 %.0456.lcssa to i64
   %.not505 = icmp eq i64 %391, %402
   br i1 %.not505, label %409, label %403
 
 403:                                              ; preds = %._crit_edge608
-  %404 = sext i32 %.0465.lcssa to i64
+  %404 = sext i32 %.0456.lcssa to i64
   %405 = getelementptr inbounds float, ptr %26, i64 %404
   store float %393, ptr %405, align 4
-  store float %.2456.lcssa, ptr %392, align 4
+  store float %.2467.lcssa, ptr %392, align 4
   %406 = mul nsw i64 %391, %389
   %gep612 = getelementptr float, ptr %invariant.gep583, i64 %406
-  %407 = mul nsw i32 %.0465.lcssa, %28
+  %407 = mul nsw i32 %.0456.lcssa, %28
   %408 = sext i32 %407 to i64
   %gep614 = getelementptr float, ptr %invariant.gep583, i64 %408
   call void @sswap_(ptr noundef nonnull %1, ptr noundef %gep612, ptr noundef nonnull %12, ptr noundef %gep614, ptr noundef nonnull %12)

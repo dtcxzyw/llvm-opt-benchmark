@@ -319,19 +319,19 @@ entry:
   br i1 %cmp12.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %dst.014 = phi i64 [ %dst.1, %for.inc ], [ 0, %entry ]
-  %src.013 = phi i64 [ %inc7, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %struct.object_id, ptr %1, i64 %src.013
+  %src.014 = phi i64 [ %inc7, %for.inc ], [ 0, %entry ]
+  %dst.013 = phi i64 [ %dst.1, %for.inc ], [ 0, %entry ]
+  %arrayidx = getelementptr inbounds %struct.object_id, ptr %1, i64 %src.014
   %call = tail call i32 %want(ptr noundef %arrayidx, ptr noundef %cb_data) #15
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %cmp2.not = icmp eq i64 %src.013, %dst.014
+  %cmp2.not = icmp eq i64 %src.014, %dst.013
   br i1 %cmp2.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %arrayidx4 = getelementptr inbounds %struct.object_id, ptr %1, i64 %dst.014
+  %arrayidx4 = getelementptr inbounds %struct.object_id, ptr %1, i64 %dst.013
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %arrayidx4, ptr noundef nonnull readonly align 4 dereferenceable(32) %arrayidx, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %2 = load i32, ptr %algo.i, align 4
@@ -340,12 +340,12 @@ if.then3:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %inc = add i64 %dst.014, 1
+  %inc = add i64 %dst.013, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end
-  %dst.1 = phi i64 [ %inc, %if.end ], [ %dst.014, %for.body ]
-  %inc7 = add nuw i64 %src.013, 1
+  %dst.1 = phi i64 [ %inc, %if.end ], [ %dst.013, %for.body ]
+  %inc7 = add nuw i64 %src.014, 1
   %exitcond.not = icmp eq i64 %inc7, %0
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 

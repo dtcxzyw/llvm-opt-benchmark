@@ -540,9 +540,9 @@ if.then12:                                        ; preds = %_ZNK6icu_7513Unicod
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit37, %land.lhs.true, %if.then, %if.then12, %_ZNK6icu_7513UnicodeString6charAtEi.exit, %entry
-  %count.0 = phi i32 [ 0, %if.then12 ], [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ 0, %entry ], [ 1, %if.then ], [ 0, %land.lhs.true ], [ 1, %_ZNK6icu_7513UnicodeString6charAtEi.exit37 ]
   %p.0 = phi i32 [ %add13, %if.then12 ], [ %0, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %0, %entry ], [ %add, %if.then ], [ %0, %land.lhs.true ], [ %add, %_ZNK6icu_7513UnicodeString6charAtEi.exit37 ]
   %radix.0 = phi i8 [ 16, %if.then12 ], [ 10, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ 10, %entry ], [ 8, %if.then ], [ 10, %land.lhs.true ], [ 8, %_ZNK6icu_7513UnicodeString6charAtEi.exit37 ]
+  %count.0 = phi i32 [ 0, %if.then12 ], [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ 0, %entry ], [ 1, %if.then ], [ 0, %land.lhs.true ], [ 1, %_ZNK6icu_7513UnicodeString6charAtEi.exit37 ]
   %cmp1577 = icmp slt i32 %p.0, %limit
   br i1 %cmp1577, label %while.body.lr.ph, label %while.end
 
@@ -557,8 +557,8 @@ while.body.lr.ph:                                 ; preds = %if.end14
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end28
   %indvars.iv = phi i64 [ %8, %while.body.lr.ph ], [ %indvars.iv.next, %if.end28 ]
-  %value.079 = phi i32 [ 0, %while.body.lr.ph ], [ %add25, %if.end28 ]
-  %count.178 = phi i32 [ %count.0, %while.body.lr.ph ], [ %inc23, %if.end28 ]
+  %count.180 = phi i32 [ %count.0, %while.body.lr.ph ], [ %inc23, %if.end28 ]
+  %value.078 = phi i32 [ 0, %while.body.lr.ph ], [ %add25, %if.end28 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %9 = load i16, ptr %fUnion.i.i.i.i53, align 8
   %cmp.i.i.i.i54 = icmp slt i16 %9, 0
@@ -587,21 +587,21 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit67:       ; preds = %while.body, %if.the
   br i1 %cmp20, label %while.end, label %if.end22
 
 if.end22:                                         ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit67
-  %mul = mul nsw i32 %value.079, %conv24
+  %mul = mul nsw i32 %value.078, %conv24
   %add25 = add nuw nsw i32 %call19, %mul
-  %cmp26.not = icmp sgt i32 %add25, %value.079
+  %cmp26.not = icmp sgt i32 %add25, %value.078
   br i1 %cmp26.not, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end22
-  %inc23 = add nuw nsw i32 %count.178, 1
+  %inc23 = add nuw nsw i32 %count.180, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %limit
   br i1 %exitcond.not, label %if.then30, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit67, %if.end14
-  %count.1.lcssa = phi i32 [ %count.0, %if.end14 ], [ %count.178, %_ZNK6icu_7513UnicodeString6charAtEi.exit67 ]
-  %value.0.lcssa = phi i32 [ 0, %if.end14 ], [ %value.079, %_ZNK6icu_7513UnicodeString6charAtEi.exit67 ]
+  %value.0.lcssa = phi i32 [ 0, %if.end14 ], [ %value.078, %_ZNK6icu_7513UnicodeString6charAtEi.exit67 ]
   %p.1.lcssa = phi i32 [ %p.0, %if.end14 ], [ %12, %_ZNK6icu_7513UnicodeString6charAtEi.exit67 ]
+  %count.1.lcssa = phi i32 [ %count.0, %if.end14 ], [ %count.180, %_ZNK6icu_7513UnicodeString6charAtEi.exit67 ]
   %cmp29.not = icmp eq i32 %count.1.lcssa, 0
   br i1 %cmp29.not, label %return, label %if.then30
 
@@ -928,21 +928,21 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end6
-  %p.019 = phi i32 [ %0, %while.body.lr.ph ], [ %inc, %if.end6 ]
-  %n.018 = phi i32 [ 0, %while.body.lr.ph ], [ %add, %if.end6 ]
-  %call1 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %p.019)
+  %n.019 = phi i32 [ 0, %while.body.lr.ph ], [ %add, %if.end6 ]
+  %p.018 = phi i32 [ %0, %while.body.lr.ph ], [ %inc, %if.end6 ]
+  %call1 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %p.018)
   %call2 = tail call i32 @u_digit_75(i32 noundef %call1, i8 noundef signext %radix)
   %cmp3 = icmp slt i32 %call2, 0
   br i1 %cmp3, label %while.end, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %mul = mul nsw i32 %n.018, %conv
+  %mul = mul nsw i32 %n.019, %conv
   %add = add nsw i32 %call2, %mul
   %cmp4 = icmp slt i32 %add, 0
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %inc = add nsw i32 %p.019, 1
+  %inc = add nsw i32 %p.018, 1
   %4 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %4, 0
   %5 = ashr i16 %4, 5
@@ -953,8 +953,8 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end6, %while.body
-  %n.0.lcssa.ph = phi i32 [ %add, %if.end6 ], [ %n.018, %while.body ]
-  %p.0.lcssa.ph = phi i32 [ %inc, %if.end6 ], [ %p.019, %while.body ]
+  %p.0.lcssa.ph = phi i32 [ %inc, %if.end6 ], [ %p.018, %while.body ]
+  %n.0.lcssa.ph = phi i32 [ %add, %if.end6 ], [ %n.019, %while.body ]
   %.pre = load i32, ptr %pos, align 4
   %cmp7 = icmp eq i32 %p.0.lcssa.ph, %.pre
   br i1 %cmp7, label %return, label %if.end9

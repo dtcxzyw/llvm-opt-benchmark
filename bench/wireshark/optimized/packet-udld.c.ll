@@ -137,7 +137,7 @@ define internal i32 @dissect_udld(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %27
 
 27:                                               ; preds = %4, %8
-  %.0144 = phi ptr [ %12, %8 ], [ null, %4 ]
+  %.0143 = phi ptr [ %12, %8 ], [ null, %4 ]
   %28 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 4) #2
   %.not150161 = icmp eq i32 %28, 0
   br i1 %.not150161, label %.loopexit, label %.lr.ph
@@ -157,7 +157,7 @@ define internal i32 @dissect_udld(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 36:                                               ; preds = %30
   %37 = load i32, ptr @ett_udld_tlv, align 4
-  %38 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0144, ptr noundef %0, i32 noundef %.1162, i32 noundef 4, i32 noundef %37, ptr noundef null, ptr noundef nonnull @.str.38, i32 noundef %34) #2
+  %38 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0143, ptr noundef %0, i32 noundef %.1162, i32 noundef 4, i32 noundef %37, ptr noundef null, ptr noundef nonnull @.str.38, i32 noundef %34) #2
   %39 = load i32, ptr @hf_udld_tlvtype, align 4
   %40 = zext i16 %31 to i32
   %41 = tail call ptr @proto_tree_add_uint(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %.1162, i32 noundef 2, i32 noundef %40) #2
@@ -186,7 +186,7 @@ define internal i32 @dissect_udld(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %54 = load i32, ptr @ett_udld_tlv, align 4
   %55 = load ptr, ptr %29, align 8
   %56 = tail call ptr @tvb_format_stringzpad(ptr noundef %55, ptr noundef %0, i32 noundef %50, i32 noundef %51) #2
-  %57 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0144, ptr noundef %0, i32 noundef %.1162, i32 noundef %34, i32 noundef %54, ptr noundef null, ptr noundef nonnull @.str.40, ptr noundef %56) #2
+  %57 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0143, ptr noundef %0, i32 noundef %.1162, i32 noundef %34, i32 noundef %54, ptr noundef null, ptr noundef nonnull @.str.40, ptr noundef %56) #2
   %58 = load i32, ptr @hf_udld_tlvtype, align 4
   %59 = tail call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %58, ptr noundef %0, i32 noundef %.1162, i32 noundef 2, i32 noundef 1) #2
   %60 = load i32, ptr @hf_udld_tlvlength, align 4
@@ -214,7 +214,7 @@ define internal i32 @dissect_udld(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %75 = load ptr, ptr %29, align 8
   %76 = add nsw i32 %spec.select, -4
   %77 = tail call ptr @tvb_format_text(ptr noundef %75, ptr noundef %0, i32 noundef %70, i32 noundef %76) #2
-  %78 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0144, ptr noundef %0, i32 noundef %.1162, i32 noundef %spec.select, i32 noundef %74, ptr noundef null, ptr noundef nonnull @.str.42, ptr noundef %77) #2
+  %78 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0143, ptr noundef %0, i32 noundef %.1162, i32 noundef %spec.select, i32 noundef %74, ptr noundef null, ptr noundef nonnull @.str.42, ptr noundef %77) #2
   %79 = load i32, ptr @hf_udld_tlvtype, align 4
   %80 = tail call ptr @proto_tree_add_uint(ptr noundef %78, i32 noundef %79, ptr noundef %0, i32 noundef %.1162, i32 noundef 2, i32 noundef 2) #2
   %81 = load i32, ptr @hf_udld_tlvlength, align 4
@@ -227,7 +227,7 @@ define internal i32 @dissect_udld(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %86 = zext i16 %31 to i32
   %87 = load i32, ptr @ett_udld_tlv, align 4
   %88 = tail call ptr @val_to_str(i32 noundef %86, ptr noundef nonnull @type_vals, ptr noundef nonnull @.str.44) #2
-  %89 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0144, ptr noundef %0, i32 noundef %.1162, i32 noundef %34, i32 noundef %87, ptr noundef null, ptr noundef nonnull @.str.43, ptr noundef %88, i32 noundef %34) #2
+  %89 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0143, ptr noundef %0, i32 noundef %.1162, i32 noundef %34, i32 noundef %87, ptr noundef null, ptr noundef nonnull @.str.43, ptr noundef %88, i32 noundef %34) #2
   %90 = load i32, ptr @hf_udld_tlvtype, align 4
   %91 = tail call ptr @proto_tree_add_uint(ptr noundef %89, i32 noundef %90, ptr noundef %0, i32 noundef %.1162, i32 noundef 2, i32 noundef %86) #2
   %92 = load i32, ptr @hf_udld_tlvlength, align 4
@@ -252,7 +252,7 @@ define internal i32 @dissect_udld(ptr noundef %0, ptr noundef %1, ptr noundef %2
 .loopexit:                                        ; preds = %99, %27, %36
   %.3 = phi i32 [ %45, %36 ], [ 4, %27 ], [ %.2, %99 ]
   %101 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.3) #2
-  %102 = tail call i32 @call_data_dissector(ptr noundef %101, ptr noundef %1, ptr noundef %.0144) #2
+  %102 = tail call i32 @call_data_dissector(ptr noundef %101, ptr noundef %1, ptr noundef %.0143) #2
   %103 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %.loopexit153
 

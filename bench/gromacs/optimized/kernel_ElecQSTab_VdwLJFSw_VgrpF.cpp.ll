@@ -184,18 +184,18 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   br label %108
 
 108:                                              ; preds = %.lr.ph2706, %.loopexit
-  %.sroa.01909.02703 = phi ptr [ %86, %.lr.ph2706 ], [ %2034, %.loopexit ]
-  %.sroa.51859.02702 = phi <8 x float> [ undef, %.lr.ph2706 ], [ %.sroa.51859.1, %.loopexit ]
-  %.sroa.01855.02701 = phi <8 x float> [ undef, %.lr.ph2706 ], [ %.sroa.01855.1, %.loopexit ]
-  %109 = getelementptr inbounds i8, ptr %.sroa.01909.02703, i64 4
+  %.sroa.01909.02705 = phi ptr [ %86, %.lr.ph2706 ], [ %2034, %.loopexit ]
+  %.sroa.51859.02704 = phi <8 x float> [ undef, %.lr.ph2706 ], [ %.sroa.51859.1, %.loopexit ]
+  %.sroa.01855.02703 = phi <8 x float> [ undef, %.lr.ph2706 ], [ %.sroa.01855.1, %.loopexit ]
+  %109 = getelementptr inbounds i8, ptr %.sroa.01909.02705, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = and i32 %110, 127
   %112 = mul nuw nsw i32 %111, 3
-  %113 = getelementptr inbounds i8, ptr %.sroa.01909.02703, i64 8
+  %113 = getelementptr inbounds i8, ptr %.sroa.01909.02705, i64 8
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %.sroa.01909.02703, i64 12
+  %115 = getelementptr inbounds i8, ptr %.sroa.01909.02705, i64 12
   %116 = load i32, ptr %115, align 4
-  %117 = load i32, ptr %.sroa.01909.02703, align 4
+  %117 = load i32, ptr %.sroa.01909.02705, align 4
   %118 = icmp eq i32 %111, 22
   %119 = zext nneg i32 %112 to i64
   %120 = getelementptr inbounds float, ptr %3, i64 %119
@@ -378,8 +378,8 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE12initIClusterILi4EEEvi.exit: ; preds = %138
   br label %.loopexit2498._crit_edge
 
 .loopexit2498._crit_edge:                         ; preds = %.loopexit2498, %237
-  %.sroa.01855.1 = phi <8 x float> [ %243, %237 ], [ %.sroa.01855.02701, %.loopexit2498 ]
-  %.sroa.51859.1 = phi <8 x float> [ %249, %237 ], [ %.sroa.51859.02702, %.loopexit2498 ]
+  %.sroa.01855.1 = phi <8 x float> [ %243, %237 ], [ %.sroa.01855.02703, %.loopexit2498 ]
+  %.sroa.51859.1 = phi <8 x float> [ %249, %237 ], [ %.sroa.51859.02704, %.loopexit2498 ]
   %250 = load i32, ptr %1, align 8
   %251 = shl i32 %250, 1
   br label %252
@@ -1292,8 +1292,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %923 = icmp eq i32 %889, %160
   %924 = select <8 x i1> %919, <8 x i32> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i248427923034, <8 x i32> zeroinitializer
   %925 = select <8 x i1> %921, <8 x i32> %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i248527933035, <8 x i32> zeroinitializer
-  %.sroa.62364.0 = select i1 %923, <8 x i32> %925, <8 x i32> %922
   %.sroa.02360.0 = select i1 %923, <8 x i32> %924, <8 x i32> %920
+  %.sroa.62364.0 = select i1 %923, <8 x i32> %925, <8 x i32> %922
   %926 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %913, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %927 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %918, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %928 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %926)
@@ -2754,7 +2754,7 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4EL
   %2032 = load float, ptr %2031, align 4
   %2033 = fadd float %2024, %2032
   store float %2033, ptr %2031, align 4
-  %2034 = getelementptr inbounds i8, ptr %.sroa.01909.02703, i64 16
+  %2034 = getelementptr inbounds i8, ptr %.sroa.01909.02705, i64 16
   %.not2486 = icmp eq ptr %2034, %88
   br i1 %.not2486, label %._crit_edge, label %108
 

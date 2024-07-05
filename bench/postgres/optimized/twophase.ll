@@ -784,7 +784,7 @@ define dso_local i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr nocapture noundef w
 
 12:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %.016 = phi i32 [ 0, %.lr.ph ], [ %.1, %35 ]
+  %.01215 = phi i32 [ 0, %.lr.ph ], [ %.1, %35 ]
   %13 = getelementptr [0 x ptr], ptr %10, i64 0, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 52
@@ -809,7 +809,7 @@ define dso_local i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr nocapture noundef w
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %26
-  %.not = icmp eq i32 %.016, 0
+  %.not = icmp eq i32 %.01215, 0
   br i1 %.not, label %32, label %31
 
 31:                                               ; preds = %30
@@ -822,17 +822,17 @@ define dso_local i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr nocapture noundef w
   br label %35
 
 35:                                               ; preds = %18, %26, %32, %12
-  %.1 = phi i32 [ %34, %32 ], [ %.016, %26 ], [ %.016, %18 ], [ %.016, %12 ]
+  %.1 = phi i32 [ %34, %32 ], [ %.01215, %26 ], [ %.01215, %18 ], [ %.01215, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !12
 
 .loopexit:                                        ; preds = %35, %2, %31
-  %.014 = phi i32 [ %.016, %31 ], [ 0, %2 ], [ %.1, %35 ]
+  %.01214 = phi i32 [ %.01215, %31 ], [ 0, %2 ], [ %.1, %35 ]
   %36 = load ptr, ptr @MainLWLockArray, align 8
   %37 = getelementptr i8, ptr %36, i64 2304
   tail call void @LWLockRelease(ptr noundef %37) #15
-  ret i32 %.014
+  ret i32 %.01214
 }
 
 ; Function Attrs: nounwind uwtable
@@ -889,7 +889,7 @@ define internal fastcc ptr @TwoPhaseGetGXact(i32 noundef %0, i1 noundef zeroext 
   br i1 %24, label %._crit_edge, label %18
 
 ._crit_edge:                                      ; preds = %18, %19, %12
-  %.014 = phi ptr [ null, %12 ], [ %21, %19 ], [ null, %18 ]
+  %.015 = phi ptr [ null, %12 ], [ %21, %19 ], [ null, %18 ]
   br i1 %1, label %28, label %25
 
 25:                                               ; preds = %._crit_edge
@@ -899,7 +899,7 @@ define internal fastcc ptr @TwoPhaseGetGXact(i32 noundef %0, i1 noundef zeroext 
   br label %28
 
 28:                                               ; preds = %25, %._crit_edge
-  %29 = icmp eq ptr %.014, null
+  %29 = icmp eq ptr %.015, null
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %28
@@ -911,12 +911,12 @@ define internal fastcc ptr @TwoPhaseGetGXact(i32 noundef %0, i1 noundef zeroext 
 
 33:                                               ; preds = %28
   store i32 %0, ptr @TwoPhaseGetGXact.cached_xid, align 4
-  store ptr %.014, ptr @TwoPhaseGetGXact.cached_gxact, align 8
+  store ptr %.015, ptr @TwoPhaseGetGXact.cached_gxact, align 8
   br label %34
 
 34:                                               ; preds = %33, %5
-  %.015 = phi ptr [ %6, %5 ], [ %.014, %33 ]
-  ret ptr %.015
+  %.0 = phi ptr [ %6, %5 ], [ %.015, %33 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2312,12 +2312,12 @@ RecordTransactionAbortPrepared.exit:              ; preds = %174, %183
   br label %188
 
 188:                                              ; preds = %RecordTransactionAbortPrepared.exit, %RecordTransactionCommitPrepared.exit
-  %.80 = phi ptr [ %103, %RecordTransactionAbortPrepared.exit ], [ %96, %RecordTransactionCommitPrepared.exit ]
-  %. = phi ptr [ %102, %RecordTransactionAbortPrepared.exit ], [ %95, %RecordTransactionCommitPrepared.exit ]
+  %.80 = phi ptr [ %102, %RecordTransactionAbortPrepared.exit ], [ %95, %RecordTransactionCommitPrepared.exit ]
+  %. = phi ptr [ %103, %RecordTransactionAbortPrepared.exit ], [ %96, %RecordTransactionCommitPrepared.exit ]
   tail call void @ProcArrayRemove(ptr noundef %69, i32 noundef %129) #15
   store i8 0, ptr %25, align 4
-  %.0 = load i32, ptr %.80, align 4
-  tail call void @DropRelationFiles(ptr noundef %., i32 noundef %.0, i1 noundef zeroext false) #15
+  %.079 = load i32, ptr %., align 4
+  tail call void @DropRelationFiles(ptr noundef %.80, i32 noundef %.079, i1 noundef zeroext false) #15
   br i1 %1, label %189, label %225
 
 189:                                              ; preds = %188
@@ -2676,7 +2676,7 @@ define dso_local void @CheckPointTwoPhase(i64 noundef %0) local_unnamed_addr #0 
 .lr.ph:                                           ; preds = %8, %103
   %16 = phi ptr [ %104, %103 ], [ %12, %8 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %103 ], [ 0, %8 ]
-  %.027 = phi i32 [ %.1, %103 ], [ 0, %8 ]
+  %.01726 = phi i32 [ %.1, %103 ], [ 0, %8 ]
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = getelementptr [0 x ptr], ptr %17, i64 0, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
@@ -2832,13 +2832,13 @@ RecreateTwoPhaseFile.exit:                        ; preds = %95
   store i8 1, ptr %28, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   call void @pfree(ptr noundef %39) #15
-  %102 = add i32 %.027, 1
+  %102 = add i32 %.01726, 1
   %.pre = load ptr, ptr @TwoPhaseState, align 8
   br label %103
 
 103:                                              ; preds = %23, %27, %31, %RecreateTwoPhaseFile.exit
   %104 = phi ptr [ %16, %27 ], [ %.pre, %RecreateTwoPhaseFile.exit ], [ %16, %31 ], [ %16, %23 ]
-  %.1 = phi i32 [ %.027, %27 ], [ %102, %RecreateTwoPhaseFile.exit ], [ %.027, %31 ], [ %.027, %23 ]
+  %.1 = phi i32 [ %.01726, %27 ], [ %102, %RecreateTwoPhaseFile.exit ], [ %.01726, %31 ], [ %.01726, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 8
@@ -2847,14 +2847,14 @@ RecreateTwoPhaseFile.exit:                        ; preds = %95
   br i1 %108, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %103, %8
-  %.0.lcssa = phi i32 [ 0, %8 ], [ %.1, %103 ]
+  %.017.lcssa = phi i32 [ 0, %8 ], [ %.1, %103 ]
   %109 = load ptr, ptr @MainLWLockArray, align 8
   %110 = getelementptr i8, ptr %109, i64 2304
   call void @LWLockRelease(ptr noundef %110) #15
   call void @fsync_fname(ptr noundef nonnull @.str.14, i1 noundef zeroext true) #15
   %111 = load i8, ptr @log_checkpoints, align 1
   %112 = trunc i8 %111 to i1
-  %113 = icmp sgt i32 %.0.lcssa, 0
+  %113 = icmp sgt i32 %.017.lcssa, 0
   %or.cond = select i1 %112, i1 %113, i1 false
   br i1 %or.cond, label %114, label %119
 
@@ -2863,8 +2863,8 @@ RecreateTwoPhaseFile.exit:                        ; preds = %95
   br i1 %115, label %116, label %119
 
 116:                                              ; preds = %114
-  %117 = zext nneg i32 %.0.lcssa to i64
-  %118 = call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i64 noundef %117, i32 noundef %.0.lcssa) #15
+  %117 = zext nneg i32 %.017.lcssa to i64
+  %118 = call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i64 noundef %117, i32 noundef %.017.lcssa) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1889, ptr noundef nonnull @__func__.CheckPointTwoPhase) #15
   br label %119
 
@@ -3101,8 +3101,8 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
   br i1 %78, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %.lr.ph.split, %52, %30, %34, %18, %22
-  %.034 = phi ptr [ null, %22 ], [ null, %18 ], [ null, %34 ], [ null, %30 ], [ %53, %52 ], [ %53, %.lr.ph.split ], [ %53, %.lr.ph.split.us.split.us ], [ %53, %.lr.ph.split.us.split ], [ %53, %.lr.ph.split.split.us ]
-  ret ptr %.034
+  %.0 = phi ptr [ null, %22 ], [ null, %18 ], [ null, %34 ], [ null, %30 ], [ %53, %52 ], [ %53, %.lr.ph.split ], [ %53, %.lr.ph.split.us.split.us ], [ %53, %.lr.ph.split.us.split ], [ %53, %.lr.ph.split.split.us ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3305,9 +3305,9 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly %0, ptr 
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.lr.ph ]
   %34 = phi ptr [ %64, %63 ], [ %9, %.lr.ph ]
   %.047 = phi i32 [ %.2, %63 ], [ %5, %.lr.ph ]
-  %.03045 = phi i32 [ %.3, %63 ], [ 0, %.lr.ph ]
-  %.03344 = phi i32 [ %.235, %63 ], [ 0, %.lr.ph ]
-  %.03643 = phi ptr [ %.339, %63 ], [ null, %.lr.ph ]
+  %.02946 = phi ptr [ %.3, %63 ], [ null, %.lr.ph ]
+  %.03245 = phi i32 [ %.234, %63 ], [ 0, %.lr.ph ]
+  %.03643 = phi i32 [ %.339, %63 ], [ 0, %.lr.ph ]
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = getelementptr [0 x ptr], ptr %35, i64 0, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
@@ -3325,11 +3325,11 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly %0, ptr 
 47:                                               ; preds = %.lr.ph.split
   %48 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %39, i32 noundef %.047) #15
   %spec.select = select i1 %48, i32 %39, i32 %.047
-  %49 = icmp eq i32 %.03344, %.03045
+  %49 = icmp eq i32 %.03245, %.03643
   br i1 %49, label %50, label %59
 
 50:                                               ; preds = %47
-  %51 = icmp eq i32 %.03045, 0
+  %51 = icmp eq i32 %.03245, 0
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %50
@@ -3337,26 +3337,26 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly %0, ptr 
   br label %59
 
 54:                                               ; preds = %50
-  %55 = shl i32 %.03045, 1
+  %55 = shl i32 %.03245, 1
   %56 = sext i32 %55 to i64
   %57 = shl nsw i64 %56, 2
-  %58 = tail call ptr @repalloc(ptr noundef %.03643, i64 noundef %57) #15
+  %58 = tail call ptr @repalloc(ptr noundef %.02946, i64 noundef %57) #15
   br label %59
 
 59:                                               ; preds = %52, %54, %47
-  %.137 = phi ptr [ %53, %52 ], [ %58, %54 ], [ %.03643, %47 ]
-  %.131 = phi i32 [ 10, %52 ], [ %55, %54 ], [ %.03045, %47 ]
-  %60 = add i32 %.03344, 1
-  %61 = sext i32 %.03344 to i64
-  %62 = getelementptr i32, ptr %.137, i64 %61
+  %.137 = phi i32 [ 10, %52 ], [ %55, %54 ], [ %.03643, %47 ]
+  %.130 = phi ptr [ %53, %52 ], [ %58, %54 ], [ %.02946, %47 ]
+  %60 = add i32 %.03245, 1
+  %61 = sext i32 %.03245 to i64
+  %62 = getelementptr i32, ptr %.130, i64 %61
   store i32 %39, ptr %62, align 4
   tail call void @pfree(ptr noundef nonnull %45) #15
   br label %63
 
 63:                                               ; preds = %.lr.ph.split, %59
-  %.339 = phi ptr [ %.03643, %.lr.ph.split ], [ %.137, %59 ]
-  %.235 = phi i32 [ %.03344, %.lr.ph.split ], [ %60, %59 ]
-  %.3 = phi i32 [ %.03045, %.lr.ph.split ], [ %.131, %59 ]
+  %.339 = phi i32 [ %.03643, %.lr.ph.split ], [ %.137, %59 ]
+  %.234 = phi i32 [ %.03245, %.lr.ph.split ], [ %60, %59 ]
+  %.3 = phi ptr [ %.02946, %.lr.ph.split ], [ %.130, %59 ]
   %.2 = phi i32 [ %.047, %.lr.ph.split ], [ %spec.select, %59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load ptr, ptr @TwoPhaseState, align 8
@@ -3367,8 +3367,8 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly %0, ptr 
   br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %63, %28, %2
-  %.036.lcssa = phi ptr [ null, %2 ], [ null, %28 ], [ %.339, %63 ]
-  %.033.lcssa = phi i32 [ 0, %2 ], [ 0, %28 ], [ %.235, %63 ]
+  %.032.lcssa = phi i32 [ 0, %2 ], [ 0, %28 ], [ %.234, %63 ]
+  %.029.lcssa = phi ptr [ null, %2 ], [ null, %28 ], [ %.3, %63 ]
   %.0.lcssa = phi i32 [ %5, %2 ], [ %.2.us, %28 ], [ %.2, %63 ]
   %69 = load ptr, ptr @MainLWLockArray, align 8
   %70 = getelementptr i8, ptr %69, i64 2304
@@ -3377,8 +3377,8 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly %0, ptr 
   br i1 %.not, label %72, label %71
 
 71:                                               ; preds = %._crit_edge
-  store ptr %.036.lcssa, ptr %0, align 8
-  store i32 %.033.lcssa, ptr %1, align 4
+  store ptr %.029.lcssa, ptr %0, align 8
+  store i32 %.032.lcssa, ptr %1, align 4
   br label %72
 
 72:                                               ; preds = %71, %._crit_edge

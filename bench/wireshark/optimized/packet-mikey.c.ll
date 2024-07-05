@@ -378,7 +378,7 @@ define internal i32 @dissect_mikey(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %13
 
 13:                                               ; preds = %8, %4
-  %.055 = phi ptr [ %7, %4 ], [ %10, %8 ]
+  %.058 = phi ptr [ %7, %4 ], [ %10, %8 ]
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 3) #2
   %.not66 = icmp eq ptr %2, null
   br i1 %.not66, label %.split.us.preheader, label %14
@@ -393,23 +393,23 @@ define internal i32 @dissect_mikey(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not68, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %13, %14
-  %.06091 = phi ptr [ %16, %14 ], [ null, %13 ]
+  %.05491 = phi ptr [ %16, %14 ], [ null, %13 ]
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %31
-  %.05676.us = phi i32 [ %21, %31 ], [ -1, %.split.us.preheader ]
-  %.05775.us = phi i32 [ %33, %31 ], [ 2, %.split.us.preheader ]
-  %.05874.us = phi i32 [ %33, %31 ], [ 0, %.split.us.preheader ]
-  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.05775.us) #2
+  %.05976.us = phi i32 [ %21, %31 ], [ -1, %.split.us.preheader ]
+  %.06075.us = phi i32 [ %33, %31 ], [ 2, %.split.us.preheader ]
+  %.06174.us = phi i32 [ %33, %31 ], [ 0, %.split.us.preheader ]
+  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.06075.us) #2
   %21 = zext i8 %20 to i32
-  %22 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.05874.us) #2
+  %22 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.06174.us) #2
   br label %.lr.ph.i.i.us
 
 .lr.ph.i.i.us:                                    ; preds = %26, %.split.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %26 ], [ 0, %.split.us ]
   %23 = getelementptr %struct.mikey_dissector_entry, ptr @payload_map, i64 %indvars.iv.i.us
   %24 = load i32, ptr %23, align 16
-  %25 = icmp eq i32 %24, %.05676.us
+  %25 = icmp eq i32 %24, %.05976.us
   br i1 %25, label %mikey_dissector_lookup.exit.i.us, label %26
 
 26:                                               ; preds = %.lr.ph.i.i.us
@@ -424,30 +424,30 @@ mikey_dissector_lookup.exit.i.us:                 ; preds = %.lr.ph.i.i.us
   br i1 %.not10.i.us, label %.loopexit.sink.split, label %dissect_payload.exit.us
 
 dissect_payload.exit.us:                          ; preds = %mikey_dissector_lookup.exit.i.us
-  %29 = tail call i32 %28(ptr noundef nonnull %.055, ptr noundef %22, ptr noundef %1, ptr noundef null) #2
+  %29 = tail call i32 %28(ptr noundef nonnull %.058, ptr noundef %22, ptr noundef %1, ptr noundef null) #2
   %30 = icmp slt i32 %29, 1
   br i1 %30, label %.loopexit.sink.split, label %31
 
 31:                                               ; preds = %dissect_payload.exit.us
-  %32 = icmp eq i32 %.05676.us, 4
-  %33 = add i32 %29, %.05874.us
+  %32 = icmp eq i32 %.05976.us, 4
+  %33 = add i32 %29, %.06174.us
   %.not67.us = icmp eq i8 %20, 0
   %or.cond = select i1 %32, i1 true, i1 %.not67.us
   br i1 %or.cond, label %.split78.us, label %.split.us, !llvm.loop !6
 
 .split:                                           ; preds = %14, %61
-  %.05676 = phi i32 [ %35, %61 ], [ -1, %14 ]
-  %.05775 = phi i32 [ %63, %61 ], [ 2, %14 ]
-  %.05874 = phi i32 [ %63, %61 ], [ 0, %14 ]
-  %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.05775) #2
+  %.05976 = phi i32 [ %35, %61 ], [ -1, %14 ]
+  %.06075 = phi i32 [ %63, %61 ], [ 2, %14 ]
+  %.06174 = phi i32 [ %63, %61 ], [ 0, %14 ]
+  %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.06075) #2
   %35 = zext i8 %34 to i32
-  %36 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.05874) #2
-  %37 = icmp sgt i32 %.05676, 26
+  %36 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.06174) #2
+  %37 = icmp sgt i32 %.05976, 26
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %.split
-  %39 = icmp eq i32 %.05676, -1
-  %spec.store.select = select i1 %39, i32 0, i32 %.05676
+  %39 = icmp eq i32 %.05976, -1
+  %spec.store.select = select i1 %39, i32 0, i32 %.05976
   %40 = sext i32 %spec.store.select to i64
   %41 = getelementptr [27 x i32], ptr @hf_mikey_pl, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4
@@ -458,14 +458,14 @@ dissect_payload.exit.us:                          ; preds = %mikey_dissector_loo
   %45 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %19, i32 noundef %42, ptr noundef %36, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %46 = load i32, ptr @ett_mikey_payload, align 4
   %47 = tail call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %46) #2
-  switch i32 %.05676, label %48 [
+  switch i32 %.05976, label %48 [
     i32 -1, label %.lr.ph.i.i.preheader
     i32 4, label %.lr.ph.i.i.preheader
   ]
 
 48:                                               ; preds = %44
   %49 = load i32, ptr getelementptr inbounds (i8, ptr @hf_mikey, i64 276), align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %49, ptr noundef %0, i32 noundef %.05775, i32 noundef 1, i32 noundef 0) #2
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %49, ptr noundef %0, i32 noundef %.06075, i32 noundef 1, i32 noundef 0) #2
   br label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %44, %44, %48
@@ -480,7 +480,7 @@ dissect_payload.exit.us:                          ; preds = %mikey_dissector_loo
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %.lr.ph.i.i.preheader ]
   %52 = getelementptr %struct.mikey_dissector_entry, ptr @payload_map, i64 %indvars.iv.i
   %53 = load i32, ptr %52, align 16
-  %54 = icmp eq i32 %53, %.05676
+  %54 = icmp eq i32 %53, %.05976
   br i1 %54, label %mikey_dissector_lookup.exit.i, label %51
 
 mikey_dissector_lookup.exit.i:                    ; preds = %.lr.ph.i.i
@@ -490,7 +490,7 @@ mikey_dissector_lookup.exit.i:                    ; preds = %.lr.ph.i.i
   br i1 %.not10.i, label %.loopexit.sink.split, label %dissect_payload.exit
 
 dissect_payload.exit:                             ; preds = %mikey_dissector_lookup.exit.i
-  %57 = tail call i32 %56(ptr noundef nonnull %.055, ptr noundef %36, ptr noundef %1, ptr noundef %47) #2
+  %57 = tail call i32 %56(ptr noundef nonnull %.058, ptr noundef %36, ptr noundef %1, ptr noundef %47) #2
   %58 = icmp slt i32 %57, 1
   br i1 %58, label %.loopexit.sink.split, label %59
 
@@ -503,22 +503,22 @@ dissect_payload.exit:                             ; preds = %mikey_dissector_loo
   br label %61
 
 61:                                               ; preds = %60, %59
-  %62 = icmp eq i32 %.05676, 4
-  %63 = add i32 %57, %.05874
+  %62 = icmp eq i32 %.05976, 4
+  %63 = add i32 %57, %.06174
   %.not67 = icmp eq i8 %34, 0
   %or.cond79 = select i1 %62, i1 true, i1 %.not67
   br i1 %or.cond79, label %.split78.us, label %.split, !llvm.loop !6
 
 .split78.us:                                      ; preds = %61, %31
-  %.06090 = phi ptr [ %.06091, %31 ], [ %16, %61 ]
-  %.not70 = icmp eq ptr %.06090, null
+  %.05490 = phi ptr [ %.05491, %31 ], [ %16, %61 ]
+  %.not70 = icmp eq ptr %.05490, null
   br i1 %.not70, label %68, label %64
 
 64:                                               ; preds = %.split78.us
-  %65 = load i8, ptr %.055, align 1
+  %65 = load i8, ptr %.058, align 1
   %66 = zext i8 %65 to i32
   %67 = tail call ptr @val_to_str_ext_const(i32 noundef %66, ptr noundef nonnull @data_type_vals_ext, ptr noundef nonnull @.str.278) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.06090, ptr noundef nonnull @.str.277, ptr noundef %67) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.05490, ptr noundef nonnull @.str.277, ptr noundef %67) #2
   br label %68
 
 68:                                               ; preds = %64, %.split78.us
@@ -526,7 +526,7 @@ dissect_payload.exit:                             ; preds = %mikey_dissector_loo
   %70 = load ptr, ptr %69, align 8
   tail call void @col_append_str(ptr noundef %70, i32 noundef 34, ptr noundef nonnull @.str.279) #2
   %71 = load ptr, ptr %69, align 8
-  %72 = load i8, ptr %.055, align 1
+  %72 = load i8, ptr %.058, align 1
   %73 = zext i8 %72 to i32
   %74 = tail call ptr @val_to_str_ext_const(i32 noundef %73, ptr noundef nonnull @data_type_vals_ext, ptr noundef nonnull @.str.278) #2
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %71, i32 noundef 25, ptr noundef nonnull @.str.280, ptr noundef %74) #2
@@ -537,8 +537,8 @@ dissect_payload.exit:                             ; preds = %mikey_dissector_loo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %.split, %.loopexit.sink.split
-  %.061 = phi i32 [ %75, %.loopexit.sink.split ], [ -1, %.split ], [ -1, %38 ]
-  ret i32 %.061
+  %.0 = phi i32 [ %75, %.loopexit.sink.split ], [ -1, %.split ], [ -1, %38 ]
+  ret i32 %.0
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -788,8 +788,8 @@ switch.lookup:                                    ; preds = %4
   br label %22
 
 22:                                               ; preds = %4, %20
-  %.020 = phi i32 [ 0, %4 ], [ %spec.select, %20 ]
-  ret i32 %.020
+  %.0 = phi i32 [ 0, %4 ], [ %spec.select, %20 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

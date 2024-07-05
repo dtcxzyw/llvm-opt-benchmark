@@ -382,34 +382,34 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr nocapture noundef 
   br label %.lr.ph102.i
 
 .lr.ph102.i:                                      ; preds = %130, %.lr.ph102.preheader.i
-  %.080100.i = phi i32 [ %114, %130 ], [ 34, %.lr.ph102.preheader.i ]
-  %.08199.i = phi i32 [ %131, %130 ], [ 0, %.lr.ph102.preheader.i ]
-  %95 = add i32 %.080100.i, 4
-  %96 = add i32 %.080100.i, 8
-  %97 = add i32 %.080100.i, -15
+  %.0100.i = phi i32 [ %131, %130 ], [ 0, %.lr.ph102.preheader.i ]
+  %.07899.i = phi i32 [ %114, %130 ], [ 34, %.lr.ph102.preheader.i ]
+  %95 = add i32 %.07899.i, 4
+  %96 = add i32 %.07899.i, 8
+  %97 = add i32 %.07899.i, -15
   %98 = icmp ult i32 %97, %.055
   br i1 %98, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph102.i
-  %99 = sub i32 %93, %.080100.i
+  %99 = sub i32 %93, %.07899.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %102, %.lr.ph.preheader.i
-  %.07984.i = phi i32 [ %104, %102 ], [ 0, %.lr.ph.preheader.i ]
-  %.183.i = phi i32 [ %103, %102 ], [ %96, %.lr.ph.preheader.i ]
-  %100 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.183.i) #3
+  %.184.i = phi i32 [ %103, %102 ], [ %96, %.lr.ph.preheader.i ]
+  %.07983.i = phi i32 [ %104, %102 ], [ 0, %.lr.ph.preheader.i ]
+  %100 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.184.i) #3
   %101 = icmp eq i8 %100, 0
   br i1 %101, label %._crit_edge.i, label %102
 
 102:                                              ; preds = %.lr.ph.i
-  %103 = add i32 %.183.i, 1
-  %104 = add i32 %.07984.i, 1
+  %103 = add i32 %.184.i, 1
+  %104 = add i32 %.07983.i, 1
   %exitcond.not.i = icmp eq i32 %104, %99
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %102, %.lr.ph.i, %.lr.ph102.i
-  %.1.lcssa.i = phi i32 [ %96, %.lr.ph102.i ], [ %103, %102 ], [ %.183.i, %.lr.ph.i ]
-  %.079.lcssa.i = phi i32 [ 0, %.lr.ph102.i ], [ %99, %102 ], [ %.07984.i, %.lr.ph.i ]
+  %.079.lcssa.i = phi i32 [ 0, %.lr.ph102.i ], [ %99, %102 ], [ %.07983.i, %.lr.ph.i ]
+  %.1.lcssa.i = phi i32 [ %96, %.lr.ph102.i ], [ %103, %102 ], [ %.184.i, %.lr.ph.i ]
   %105 = add i32 %.1.lcssa.i, 1
   %106 = add i32 %.1.lcssa.i, -22
   %107 = icmp ult i32 %106, %.055
@@ -420,65 +420,65 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr nocapture noundef 
   br label %.lr.ph92.i
 
 .lr.ph92.i:                                       ; preds = %111, %.lr.ph92.preheader.i
-  %.07890.i = phi i32 [ %113, %111 ], [ 0, %.lr.ph92.preheader.i ]
-  %.289.i = phi i32 [ %112, %111 ], [ %105, %.lr.ph92.preheader.i ]
-  %109 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.289.i) #3
+  %.290.i = phi i32 [ %112, %111 ], [ %105, %.lr.ph92.preheader.i ]
+  %.08089.i = phi i32 [ %113, %111 ], [ 0, %.lr.ph92.preheader.i ]
+  %109 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.290.i) #3
   %110 = icmp eq i8 %109, 0
   br i1 %110, label %._crit_edge93.i, label %111
 
 111:                                              ; preds = %.lr.ph92.i
-  %112 = add i32 %.289.i, 1
-  %113 = add i32 %.07890.i, 1
+  %112 = add i32 %.290.i, 1
+  %113 = add i32 %.08089.i, 1
   %exitcond106.not.i = icmp eq i32 %113, %108
   br i1 %exitcond106.not.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !6
 
 ._crit_edge93.i:                                  ; preds = %111, %.lr.ph92.i, %._crit_edge.i
-  %.2.lcssa.i = phi i32 [ %105, %._crit_edge.i ], [ %112, %111 ], [ %.289.i, %.lr.ph92.i ]
-  %.078.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %108, %111 ], [ %.07890.i, %.lr.ph92.i ]
+  %.080.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %108, %111 ], [ %.08089.i, %.lr.ph92.i ]
+  %.2.lcssa.i = phi i32 [ %105, %._crit_edge.i ], [ %112, %111 ], [ %.290.i, %.lr.ph92.i ]
   %114 = add i32 %.2.lcssa.i, 1
   %115 = load i32, ptr @hf_gnutella_queryhit_hit, align 4
   %116 = add i32 %.079.lcssa.i, 10
-  %117 = add i32 %116, %.078.lcssa.i
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %115, ptr noundef %0, i32 noundef %.080100.i, i32 noundef %117, i32 noundef 0) #3
+  %117 = add i32 %116, %.080.lcssa.i
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %115, ptr noundef %0, i32 noundef %.07899.i, i32 noundef %117, i32 noundef 0) #3
   %119 = load i32, ptr @ett_gnutella, align 4
   %120 = tail call ptr @proto_item_add_subtree(ptr noundef %118, i32 noundef %119) #3
   %121 = load i32, ptr @hf_gnutella_queryhit_hit_index, align 4
-  %122 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %121, ptr noundef %0, i32 noundef %.080100.i, i32 noundef 4, i32 noundef -2147483648) #3
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %121, ptr noundef %0, i32 noundef %.07899.i, i32 noundef 4, i32 noundef -2147483648) #3
   %123 = load i32, ptr @hf_gnutella_queryhit_hit_size, align 4
   %124 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %123, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef -2147483648) #3
   %125 = load i32, ptr @hf_gnutella_queryhit_hit_name, align 4
   %126 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %125, ptr noundef %0, i32 noundef %96, i32 noundef %.079.lcssa.i, i32 noundef 0) #3
-  %.not.i = icmp eq i32 %.078.lcssa.i, 0
+  %.not.i = icmp eq i32 %.080.lcssa.i, 0
   br i1 %.not.i, label %130, label %127
 
 127:                                              ; preds = %._crit_edge93.i
   %128 = load i32, ptr @hf_gnutella_queryhit_hit_extra, align 4
-  %129 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %128, ptr noundef %0, i32 noundef %105, i32 noundef %.078.lcssa.i, i32 noundef 0) #3
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %128, ptr noundef %0, i32 noundef %105, i32 noundef %.080.lcssa.i, i32 noundef 0) #3
   br label %130
 
 130:                                              ; preds = %127, %._crit_edge93.i
-  %131 = add nuw nsw i32 %.08199.i, 1
+  %131 = add nuw nsw i32 %.0100.i, 1
   %exitcond107.not.i = icmp eq i32 %131, %84
   br i1 %exitcond107.not.i, label %._crit_edge103.i, label %.lr.ph102.i, !llvm.loop !7
 
 ._crit_edge103.i:                                 ; preds = %130, %78
-  %.080.lcssa.i = phi i32 [ 34, %78 ], [ %114, %130 ]
+  %.078.lcssa.i = phi i32 [ 34, %78 ], [ %114, %130 ]
   %.neg.i = add i32 %.055, 23
-  %132 = sub i32 %.neg.i, %.080.lcssa.i
+  %132 = sub i32 %.neg.i, %.078.lcssa.i
   %133 = icmp sgt i32 %132, 16
   br i1 %133, label %134, label %dissect_gnutella_queryhit.exit
 
 134:                                              ; preds = %._crit_edge103.i
   %135 = add i32 %.055, 7
   %136 = load i32, ptr @hf_gnutella_queryhit_extra, align 4
-  %137 = sub i32 %135, %.080.lcssa.i
-  %138 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %136, ptr noundef %0, i32 noundef %.080.lcssa.i, i32 noundef %137, i32 noundef 0) #3
+  %137 = sub i32 %135, %.078.lcssa.i
+  %138 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %136, ptr noundef %0, i32 noundef %.078.lcssa.i, i32 noundef %137, i32 noundef 0) #3
   br label %dissect_gnutella_queryhit.exit
 
 dissect_gnutella_queryhit.exit:                   ; preds = %._crit_edge103.i, %134
-  %.0.i = phi i32 [ %135, %134 ], [ %.080.lcssa.i, %._crit_edge103.i ]
+  %.081.i = phi i32 [ %135, %134 ], [ %.078.lcssa.i, %._crit_edge103.i ]
   %139 = load i32, ptr @hf_gnutella_queryhit_servent_id, align 4
-  %140 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %139, ptr noundef %0, i32 noundef %.0.i, i32 noundef 16, i32 noundef 0) #3
+  %140 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %139, ptr noundef %0, i32 noundef %.081.i, i32 noundef 16, i32 noundef 0) #3
   br label %dissect_gnutella_query.exit
 
 dissect_gnutella_query.exit:                      ; preds = %76, %73, %22, %dissect_gnutella_queryhit.exit, %51, %38, %37, %19

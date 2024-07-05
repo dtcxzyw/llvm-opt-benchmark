@@ -335,14 +335,14 @@ for.body.lr.ph:                                   ; preds = %do.end60
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.034 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %cch.033 = phi i64 [ 1, %for.body.lr.ph ], [ %add65, %for.body ]
-  %arrayidx = getelementptr ptr, ptr %22, i64 %i.034
+  %cch.034 = phi i64 [ 1, %for.body.lr.ph ], [ %add65, %for.body ]
+  %i.033 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %arrayidx = getelementptr ptr, ptr %22, i64 %i.033
   %23 = load ptr, ptr %arrayidx, align 8
   %call64 = call i64 @wcslen(ptr noundef %23) #12
-  %add = add i64 %cch.033, 1
+  %add = add i64 %cch.034, 1
   %add65 = add i64 %add, %call64
-  %inc = add nuw nsw i64 %i.034, 1
+  %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %21
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !5
 

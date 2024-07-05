@@ -307,9 +307,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.268 = private unnamed_addr constant [29 x i8] c"EVP_PKEY_keygen(kctx, &pkey)\00", align 1
 @.str.269 = private unnamed_addr constant [26 x i8] c"EVP_PKEY_keygen_init(ctx)\00", align 1
 @switch.table.compare_with_file = private unnamed_addr constant [6 x ptr] [ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100], align 8
-@switch.table.test_print_key_type_using_encoder = private unnamed_addr constant [6 x ptr] [ptr @.str.112, ptr @.str.113, ptr @.str.115, ptr @.str.112, ptr @.str.113, ptr @.str.115], align 8
-@switch.table.test_print_key_type_using_encoder.2 = private unnamed_addr constant [6 x ptr] [ptr null, ptr @.str.114, ptr @.str.114, ptr null, ptr @.str.116, ptr @.str.116], align 8
-@switch.table.test_print_key_type_using_encoder.3 = private unnamed_addr constant [6 x i32] [i32 7, i32 7, i32 7, i32 6, i32 6, i32 6], align 4
+@switch.table.test_print_key_type_using_encoder = private unnamed_addr constant [6 x ptr] [ptr null, ptr @.str.114, ptr @.str.114, ptr null, ptr @.str.116, ptr @.str.116], align 8
+@switch.table.test_print_key_type_using_encoder.2 = private unnamed_addr constant [6 x i32] [i32 7, i32 7, i32 7, i32 6, i32 6, i32 6], align 4
+@switch.table.test_print_key_type_using_encoder.3 = private unnamed_addr constant [6 x ptr] [ptr @.str.112, ptr @.str.113, ptr @.str.115, ptr @.str.112, ptr @.str.113, ptr @.str.115], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
@@ -746,9 +746,9 @@ land.rhs75:                                       ; preds = %lor.lhs.false68
   br i1 %tobool78.not, label %err, label %while.cond, !llvm.loop !5
 
 err:                                              ; preds = %if.end62, %while.cond, %land.rhs75, %land.end, %lor.lhs.false68, %if.end51, %lor.lhs.false55, %if.end34, %lor.lhs.false38, %lor.lhs.false42, %lor.lhs.false46, %if.end29, %while.body, %lor.lhs.false15, %lor.lhs.false19, %lor.lhs.false23, %land.end.i.thread, %if.end, %lor.lhs.false, %entry
-  %ret.1 = phi i32 [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %entry ], [ 0, %land.end.i.thread ], [ 0, %if.end62 ], [ 1, %while.cond ], [ 0, %while.body ], [ 0, %lor.lhs.false15 ], [ 0, %lor.lhs.false19 ], [ 0, %lor.lhs.false23 ], [ 0, %if.end29 ], [ 0, %if.end34 ], [ 0, %lor.lhs.false38 ], [ 0, %lor.lhs.false42 ], [ 0, %lor.lhs.false46 ], [ 0, %if.end51 ], [ 0, %lor.lhs.false55 ], [ 0, %land.end ], [ 1, %lor.lhs.false68 ], [ 0, %land.rhs75 ]
   %key_ctx.1 = phi ptr [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ], [ %call30, %land.end.i.thread ], [ %call30, %if.end62 ], [ %call30, %while.cond ], [ %key_ctx.021, %while.body ], [ %key_ctx.021, %lor.lhs.false15 ], [ %key_ctx.021, %lor.lhs.false19 ], [ %key_ctx.021, %lor.lhs.false23 ], [ %call30, %if.end29 ], [ %call30, %if.end34 ], [ %call30, %lor.lhs.false38 ], [ %call30, %lor.lhs.false42 ], [ %call30, %lor.lhs.false46 ], [ %call30, %if.end51 ], [ %call30, %lor.lhs.false55 ], [ %call30, %land.end ], [ %call30, %lor.lhs.false68 ], [ %call30, %land.rhs75 ]
   %copy_pk.1 = phi ptr [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ], [ null, %land.end.i.thread ], [ null, %if.end62 ], [ null, %while.cond ], [ null, %while.body ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false19 ], [ null, %lor.lhs.false23 ], [ null, %if.end29 ], [ null, %if.end34 ], [ null, %lor.lhs.false38 ], [ null, %lor.lhs.false42 ], [ null, %lor.lhs.false46 ], [ %call52, %if.end51 ], [ %call52, %lor.lhs.false55 ], [ null, %land.end ], [ null, %lor.lhs.false68 ], [ null, %land.rhs75 ]
+  %ret.1 = phi i32 [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %entry ], [ 0, %land.end.i.thread ], [ 0, %if.end62 ], [ 1, %while.cond ], [ 0, %while.body ], [ 0, %lor.lhs.false15 ], [ 0, %lor.lhs.false19 ], [ 0, %lor.lhs.false23 ], [ 0, %if.end29 ], [ 0, %if.end34 ], [ 0, %lor.lhs.false38 ], [ 0, %lor.lhs.false42 ], [ 0, %lor.lhs.false46 ], [ 0, %if.end51 ], [ 0, %lor.lhs.false55 ], [ 0, %land.end ], [ 1, %lor.lhs.false68 ], [ 0, %land.rhs75 ]
   %11 = load ptr, ptr %fromdata_params, align 16
   %cmp84.not22 = icmp eq ptr %11, null
   br i1 %cmp84.not22, label %for.end, label %for.body
@@ -756,7 +756,7 @@ err:                                              ; preds = %if.end62, %while.co
 for.body:                                         ; preds = %err, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %err ]
   %arrayidx26 = phi ptr [ %arrayidx, %for.inc ], [ %fromdata_params, %err ]
-  %ret.223 = phi i32 [ %ret.3, %for.inc ], [ %ret.1, %err ]
+  %ret.224 = phi i32 [ %ret.3, %for.inc ], [ %ret.1, %err ]
   %arrayidx87 = getelementptr inbounds [8 x i64], ptr @test_fromdata_rsa.key_numbers, i64 0, i64 %indvars.iv
   %12 = load i64, ptr %arrayidx87, align 8
   %call88 = call i32 @BN_set_word(ptr noundef %call1, i64 noundef %12) #6
@@ -786,7 +786,7 @@ if.then105:                                       ; preds = %lor.lhs.false102, %
   br label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false102, %if.then105
-  %ret.3 = phi i32 [ %ret.223, %lor.lhs.false102 ], [ 0, %if.then105 ]
+  %ret.3 = phi i32 [ %ret.224, %lor.lhs.false102 ], [ 0, %if.then105 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds [9 x %struct.ossl_param_st], ptr %fromdata_params, i64 0, i64 %indvars.iv.next
   %16 = load ptr, ptr %arrayidx, align 8
@@ -3561,9 +3561,9 @@ if.end42:                                         ; preds = %for.inc.i21, %strip
   br label %err
 
 err:                                              ; preds = %if.end42, %if.end28, %if.end13, %lor.lhs.false, %lor.lhs.false24, %if.end, %switch.lookup, %sw.default
-  %file.0 = phi ptr [ null, %sw.default ], [ %call9, %if.end28 ], [ %call9, %lor.lhs.false24 ], [ %call9, %lor.lhs.false ], [ %call9, %if.end13 ], [ %call9, %if.end ], [ null, %switch.lookup ], [ %call9, %if.end42 ]
   %fullfile.0 = phi ptr [ null, %sw.default ], [ %call7, %if.end28 ], [ %call7, %lor.lhs.false24 ], [ %call7, %lor.lhs.false ], [ %call7, %if.end13 ], [ %call7, %if.end ], [ %call7, %switch.lookup ], [ %call7, %if.end42 ]
   %ret.0 = phi i32 [ 0, %sw.default ], [ 0, %if.end28 ], [ 0, %lor.lhs.false24 ], [ 0, %lor.lhs.false ], [ 0, %if.end13 ], [ 0, %if.end ], [ 0, %switch.lookup ], [ %spec.select, %if.end42 ]
+  %file.0 = phi ptr [ null, %sw.default ], [ %call9, %if.end28 ], [ %call9, %lor.lhs.false24 ], [ %call9, %lor.lhs.false ], [ %call9, %if.end13 ], [ %call9, %if.end ], [ null, %switch.lookup ], [ %call9, %if.end42 ]
   call void @CRYPTO_free(ptr noundef %fullfile.0, ptr noundef nonnull @.str, i32 noundef 125) #6
   %call48 = call i64 @BIO_ctrl(ptr noundef %membio, i32 noundef 1, i64 noundef 0, ptr noundef null) #6
   %call50 = call i32 @BIO_free(ptr noundef %file.0) #6
@@ -3607,18 +3607,18 @@ switch.lookup:                                    ; preds = %entry
   %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.test_print_key_type_using_encoder, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i32 %type to i64
-  %switch.gep19 = getelementptr inbounds [6 x ptr], ptr @switch.table.test_print_key_type_using_encoder.2, i64 0, i64 %2
-  %switch.load20 = load ptr, ptr %switch.gep19, align 8
+  %switch.gep19 = getelementptr inbounds [6 x i32], ptr @switch.table.test_print_key_type_using_encoder.2, i64 0, i64 %2
+  %switch.load20 = load i32, ptr %switch.gep19, align 4
   %3 = zext nneg i32 %type to i64
-  %switch.gep21 = getelementptr inbounds [6 x i32], ptr @switch.table.test_print_key_type_using_encoder.3, i64 0, i64 %3
-  %switch.load22 = load i32, ptr %switch.gep21, align 4
+  %switch.gep21 = getelementptr inbounds [6 x ptr], ptr @switch.table.test_print_key_type_using_encoder.3, i64 0, i64 %3
+  %switch.load22 = load ptr, ptr %switch.gep21, align 8
   %call7 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 262, ptr noundef nonnull @.str.76, ptr noundef %call1) #6
   %tobool.not = icmp eq i32 %call7, 0
   br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %switch.lookup
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.118) #6
-  %call8 = tail call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %pk, i32 noundef %switch.load22, ptr noundef nonnull %switch.load, ptr noundef %switch.load20, ptr noundef null) #6
+  %call8 = tail call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %pk, i32 noundef %switch.load20, ptr noundef nonnull %switch.load22, ptr noundef %switch.load, ptr noundef null) #6
   %call9 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 270, ptr noundef nonnull @.str.119, ptr noundef %call8) #6
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %err, label %lor.lhs.false

@@ -270,9 +270,9 @@ for.body.preheader:                               ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %i.067 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %bytes_read.066 = phi i64 [ %bytes_read.1, %for.inc ], [ 0, %for.body.preheader ]
-  %add.ptr.i = getelementptr inbounds %struct.FileData, ptr %roots_filenames.sroa.0.0.ph, i64 %i.067
+  %bytes_read.067 = phi i64 [ %bytes_read.1, %for.inc ], [ 0, %for.body.preheader ]
+  %i.066 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+  %add.ptr.i = getelementptr inbounds %struct.FileData, ptr %roots_filenames.sroa.0.0.ph, i64 %i.066
   %call34 = invoke i32 (ptr, i32, ...) @open(ptr noundef nonnull %add.ptr.i, i32 noundef 0)
           to label %invoke.cont33 unwind label %lpad.loopexit
 
@@ -283,7 +283,7 @@ invoke.cont33:                                    ; preds = %for.body
 if.then36:                                        ; preds = %invoke.cont33
   %size38 = getelementptr inbounds i8, ptr %add.ptr.i, i64 4096
   %3 = load i64, ptr %size38, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %call27, i64 %bytes_read.066
+  %add.ptr = getelementptr inbounds i8, ptr %call27, i64 %bytes_read.067
   %call40 = invoke i64 @read(i32 noundef %call34, ptr noundef %add.ptr, i64 noundef %3)
           to label %invoke.cont39 unwind label %lpad.thread
 
@@ -295,7 +295,7 @@ invoke.cont39:                                    ; preds = %if.then36
 if.then42:                                        ; preds = %invoke.cont39
   %sext = shl i64 %call40, 32
   %conv43 = ashr exact i64 %sext, 32
-  %add44 = add i64 %conv43, %bytes_read.066
+  %add44 = add i64 %conv43, %bytes_read.067
   br label %for.inc
 
 if.else:                                          ; preds = %invoke.cont39
@@ -303,8 +303,8 @@ if.else:                                          ; preds = %invoke.cont39
           to label %for.inc unwind label %lpad.thread
 
 for.inc:                                          ; preds = %invoke.cont33, %if.else, %if.then42
-  %bytes_read.1 = phi i64 [ %add44, %if.then42 ], [ %bytes_read.066, %if.else ], [ %bytes_read.066, %invoke.cont33 ]
-  %inc = add nuw i64 %i.067, 1
+  %bytes_read.1 = phi i64 [ %add44, %if.then42 ], [ %bytes_read.067, %if.else ], [ %bytes_read.067, %invoke.cont33 ]
+  %inc = add nuw i64 %i.066, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 

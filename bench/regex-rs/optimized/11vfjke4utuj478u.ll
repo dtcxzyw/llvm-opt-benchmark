@@ -11046,12 +11046,12 @@ define hidden void @_ZN14regex_automata4meta8wrappers12HybridEngine3new17ha963b0
 
 "_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$regex_automata..util..prefilter..Prefilter$GT$$GT$$GT$17hd1216d4e1cb516bcE.exit.i": ; preds = %.thread244, %80, %76, %74, %69
   %83 = phi ptr [ %63, %.thread244 ], [ %72, %80 ], [ %72, %76 ], [ %72, %74 ], [ %72, %69 ]
-  %.sroa.0157.0248 = phi ptr [ undef, %.thread244 ], [ %.val, %80 ], [ %.val, %76 ], [ %.val, %74 ], [ %.val, %69 ]
-  %.sroa.5159.0247 = phi ptr [ undef, %.thread244 ], [ %.val42, %80 ], [ %.val42, %76 ], [ %.val42, %74 ], [ %.val42, %69 ]
   %84 = phi i8 [ 2, %.thread244 ], [ %71, %80 ], [ %71, %76 ], [ %71, %74 ], [ %71, %69 ]
-  store ptr %.sroa.0157.0248, ptr %83, align 8, !alias.scope !2339, !noalias !2321
+  %.sroa.5159.0248 = phi ptr [ undef, %.thread244 ], [ %.val42, %80 ], [ %.val42, %76 ], [ %.val42, %74 ], [ %.val42, %69 ]
+  %.sroa.0157.0247 = phi ptr [ undef, %.thread244 ], [ %.val, %80 ], [ %.val, %76 ], [ %.val, %74 ], [ %.val, %69 ]
+  store ptr %.sroa.0157.0247, ptr %83, align 8, !alias.scope !2339, !noalias !2321
   %.sroa.5159.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 96
-  store ptr %.sroa.5159.0247, ptr %.sroa.5159.0..sroa_idx, align 8, !alias.scope !2339, !noalias !2321
+  store ptr %.sroa.5159.0248, ptr %.sroa.5159.0..sroa_idx, align 8, !alias.scope !2339, !noalias !2321
   store i8 %84, ptr %.sroa.7236.0..sroa_idx, align 8, !alias.scope !2339, !noalias !2321
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8237.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8, i64 7, i1 false), !alias.scope !2339, !noalias !2321
   %85 = load i8, ptr %.sroa.13.0..sroa_idx242, align 4, !range !97, !alias.scope !2322, !noalias !2318, !noundef !5

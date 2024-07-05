@@ -8995,8 +8995,8 @@ define void @_ZN5osgeo4proj6common11ObjectUsage13setPropertiesERKNS0_4util11Prop
   br label %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj8metadata6ExtentENS3_4util10BaseObjectEEESt10shared_ptrIT_ERKNS0_2nnIS8_IT0_EEE.exit
 
 _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj8metadata6ExtentENS3_4util10BaseObjectEEESt10shared_ptrIT_ERKNS0_2nnIS8_IT0_EEE.exit: ; preds = %17, %20, %22, %28, %31
-  %.sroa.0123.0 = phi ptr [ %21, %22 ], [ %21, %31 ], [ %21, %28 ], [ null, %20 ], [ null, %17 ]
   %.sroa.4124.0 = phi ptr [ null, %22 ], [ %24, %31 ], [ %24, %28 ], [ null, %20 ], [ null, %17 ]
+  %.sroa.0123.0 = phi ptr [ %21, %22 ], [ %21, %31 ], [ %21, %28 ], [ null, %20 ], [ null, %17 ]
   store ptr %.sroa.0123.0, ptr %4, align 8
   %33 = getelementptr inbounds i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8

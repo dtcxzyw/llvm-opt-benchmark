@@ -3536,7 +3536,7 @@ define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %56
 
 56:                                               ; preds = %52, %55
-  %.0197 = phi i32 [ 300, %55 ], [ 240, %52 ]
+  %.0195 = phi i32 [ 300, %55 ], [ 240, %52 ]
   %57 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %58 = load i32, ptr @proto_dhcp, align 4
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #9
@@ -3545,11 +3545,11 @@ define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 0, ptr %5, align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_dns_domain_search_list, i64 4), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @rfc3396_sip_server, i64 4), align 4
-  %62 = icmp slt i32 %.0197, %57
+  %62 = icmp slt i32 %.0195, %57
   br i1 %62, label %.lr.ph, label %._crit_edge.thread
 
 63:                                               ; preds = %.lr.ph
-  %64 = add i32 %68, %.0196229
+  %64 = add i32 %68, %.0197229
   %65 = icmp slt i32 %64, %57
   %66 = load i32, ptr %5, align 4
   %.not210 = icmp eq i32 %66, 0
@@ -3557,13 +3557,13 @@ define internal i32 @dissect_dhcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %56, %63
-  %.0196229 = phi i32 [ %64, %63 ], [ %.0197, %56 ]
-  %68 = call fastcc i32 @dhcp_option(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %.0196229, i32 noundef %57, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %.0197229 = phi i32 [ %64, %63 ], [ %.0195, %56 ]
+  %68 = call fastcc i32 @dhcp_option(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %.0197229, i32 noundef %57, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %69 = icmp slt i32 %68, 1
   br i1 %69, label %70, label %63
 
 70:                                               ; preds = %.lr.ph
-  %71 = call ptr @proto_tree_add_expert(ptr noundef %61, ptr noundef %1, ptr noundef nonnull @ei_dhcp_option_parse_err, ptr noundef %0, i32 noundef %.0196229, i32 noundef %57) #9
+  %71 = call ptr @proto_tree_add_expert(ptr noundef %61, ptr noundef %1, ptr noundef nonnull @ei_dhcp_option_parse_err, ptr noundef %0, i32 noundef %.0197229, i32 noundef %57) #9
   br label %207
 
 ._crit_edge:                                      ; preds = %63
@@ -3824,7 +3824,7 @@ proto_item_set_hidden.exit:                       ; preds = %171, %168, %165, %1
   br label %207
 
 207:                                              ; preds = %16, %18, %205, %194, %70
-  %.0 = phi i32 [ %.0196229, %70 ], [ %.2231, %194 ], [ %206, %205 ], [ 0, %18 ], [ 0, %16 ]
+  %.0 = phi i32 [ %.0197229, %70 ], [ %.2231, %194 ], [ %206, %205 ], [ 0, %18 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -4215,10 +4215,10 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
   br label %32
 
 32:                                               ; preds = %25, %32
-  %.044 = phi i32 [ 44, %25 ], [ %35, %32 ]
+  %.03744 = phi i32 [ 44, %25 ], [ %35, %32 ]
   %33 = load ptr, ptr %26, align 8
-  %34 = call fastcc i32 @dhcp_option(ptr noundef %33, ptr noundef %1, ptr noundef %29, i32 noundef %.044, i32 noundef 108, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %8)
-  %35 = add i32 %34, %.044
+  %34 = call fastcc i32 @dhcp_option(ptr noundef %33, ptr noundef %1, ptr noundef %29, i32 noundef %.03744, i32 noundef 108, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %8)
+  %35 = add i32 %34, %.03744
   %.pr = load i32, ptr %5, align 4
   %36 = icmp slt i32 %35, 108
   %.not40 = icmp eq i32 %.pr, 0
@@ -4281,8 +4281,8 @@ define internal i32 @dissect_dhcpopt_option_overload(ptr noundef %0, ptr noundef
   br label %66
 
 66:                                               ; preds = %64, %13
-  %.037 = phi i32 [ 1, %13 ], [ %65, %64 ]
-  ret i32 %.037
+  %.0 = phi i32 [ 1, %13 ], [ %65, %64 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4657,10 +4657,10 @@ define internal i32 @dissect_dhcpopt_user_class_information(ptr noundef %0, ptr 
   br label %29
 
 29:                                               ; preds = %24, %15
-  %.084 = phi i32 [ %28, %24 ], [ %21, %15 ]
+  %.083 = phi i32 [ %28, %24 ], [ %21, %15 ]
   %30 = load i32, ptr @hf_dhcp_option77_user_class_name_length, align 4
-  %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %.084, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #9
-  %32 = add nuw nsw i32 %.084, 2
+  %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %.083, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #9
+  %32 = add nuw nsw i32 %.083, 2
   %33 = load i32, ptr @hf_dhcp_option77_user_class_name, align 4
   %34 = load i32, ptr %5, align 4
   %35 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %32, i32 noundef %34, i32 noundef 4) #9
@@ -4676,28 +4676,28 @@ define internal i32 @dissect_dhcpopt_user_class_information(ptr noundef %0, ptr 
   br label %73
 
 .lr.ph:                                           ; preds = %.preheader, %63
-  %.08297 = phi i32 [ %68, %63 ], [ %6, %.preheader ]
-  %.08396 = phi i8 [ %69, %63 ], [ 0, %.preheader ]
-  %.195 = phi i32 [ %67, %63 ], [ 0, %.preheader ]
-  %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.195) #9
+  %.08297 = phi i8 [ %69, %63 ], [ 0, %.preheader ]
+  %.196 = phi i32 [ %67, %63 ], [ 0, %.preheader ]
+  %.08495 = phi i32 [ %68, %63 ], [ %6, %.preheader ]
+  %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.196) #9
   %46 = zext i8 %45 to i32
-  %.not = icmp ugt i32 %.08297, %46
+  %.not = icmp ugt i32 %.08495, %46
   br i1 %.not, label %51, label %47
 
 47:                                               ; preds = %.lr.ph
   %48 = load i32, ptr @hf_dhcp_option77_user_class_text, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %48, ptr noundef %0, i32 noundef %.195, i32 noundef %.08297, i32 noundef 0) #9
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %48, ptr noundef %0, i32 noundef %.196, i32 noundef %.08495, i32 noundef 0) #9
   %50 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %49, ptr noundef nonnull @ei_dhcp_nonstd_option_data) #9
   br label %.loopexit
 
 51:                                               ; preds = %.lr.ph
   %52 = load i32, ptr @hf_dhcp_option77_user_class, align 4
-  %53 = zext i8 %.08396 to i32
-  %54 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %52, ptr noundef %0, i32 noundef %.195, i32 noundef 1, i32 noundef %53, ptr noundef nonnull @.str.1973, i32 noundef %53) #9
+  %53 = zext i8 %.08297 to i32
+  %54 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %52, ptr noundef %0, i32 noundef %.196, i32 noundef 1, i32 noundef %53, ptr noundef nonnull @.str.1973, i32 noundef %53) #9
   %55 = load i32, ptr @ett_dhcp_option77_instance, align 4
   %56 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55) #9
   %57 = load i32, ptr @hf_dhcp_option77_user_class_length, align 4
-  %58 = tail call ptr @proto_tree_add_uint(ptr noundef %56, i32 noundef %57, ptr noundef %0, i32 noundef %.195, i32 noundef 1, i32 noundef %46) #9
+  %58 = tail call ptr @proto_tree_add_uint(ptr noundef %56, i32 noundef %57, ptr noundef %0, i32 noundef %.196, i32 noundef 1, i32 noundef %46) #9
   %59 = add nuw nsw i32 %46, 1
   tail call void @proto_item_set_len(ptr noundef %54, i32 noundef %59) #9
   %60 = icmp eq i8 %45, 0
@@ -4708,12 +4708,12 @@ define internal i32 @dissect_dhcpopt_user_class_information(ptr noundef %0, ptr 
   br label %.loopexit
 
 63:                                               ; preds = %51
-  %64 = add i32 %.195, 1
+  %64 = add i32 %.196, 1
   %65 = load i32, ptr @hf_dhcp_option77_user_class_data, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef %46, i32 noundef 0) #9
   %67 = add i32 %64, %46
-  %68 = sub i32 %.08297, %59
-  %69 = add i8 %.08396, 1
+  %68 = sub i32 %.08495, %59
+  %69 = add i8 %.08297, 1
   %70 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %67) #9
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.lr.ph, label %.loopexit, !llvm.loop !18
@@ -4859,7 +4859,7 @@ define internal i32 @dissect_dhcpopt_relay_agent_info(ptr noundef %0, ptr nounde
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %dhcp_dhcp_decode_agent_info.exit
-  %.09 = phi i32 [ %.0170.i, %dhcp_dhcp_decode_agent_info.exit ], [ 0, %4 ]
+  %.09 = phi i32 [ %.0.i, %dhcp_dhcp_decode_agent_info.exit ], [ 0, %4 ]
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.09) #9
   %9 = add i32 %.09, 1
@@ -4909,11 +4909,11 @@ define internal i32 @dissect_dhcpopt_relay_agent_info(ptr noundef %0, ptr nounde
   br label %.split.loop.exit193.i
 
 .split.loop.exit193.i:                            ; preds = %33, %.split.loop.exit.i
-  %.0171.lcssa.i = phi i8 [ %34, %.split.loop.exit.i ], [ 23, %33 ]
+  %.0173.lcssa.i = phi i8 [ %34, %.split.loop.exit.i ], [ 23, %33 ]
   %.lcssa.i = phi i64 [ %indvars.iv.i, %.split.loop.exit.i ], [ 23, %33 ]
   %35 = load i32, ptr @hf_dhcp_option82_value, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %35, ptr noundef %0, i32 noundef %25, i32 noundef %15, i32 noundef 0) #9
-  %37 = add nsw i8 %.0171.lcssa.i, -1
+  %37 = add nsw i8 %.0173.lcssa.i, -1
   %or.cond.i = icmp ult i8 %37, 22
   br i1 %or.cond.i, label %38, label %.loopexit186.i
 
@@ -4953,18 +4953,18 @@ proto_item_set_hidden.exit.i:                     ; preds = %42, %39, %38
   br i1 %51, label %.lr.ph191.i, label %.loopexit186.i
 
 .lr.ph191.i:                                      ; preds = %.preheader.i, %.loopexit.i
-  %.0172190.i = phi i32 [ %.1173.i, %.loopexit.i ], [ %25, %.preheader.i ]
-  %52 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0172190.i) #9
+  %.0171190.i = phi i32 [ %.1172.i, %.loopexit.i ], [ %25, %.preheader.i ]
+  %52 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0171190.i) #9
   %53 = load i32, ptr @hf_dhcp_option82_vi_enterprise, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %53, ptr noundef %0, i32 noundef %.0172190.i, i32 noundef 4, i32 noundef 0) #9
-  %55 = add i32 %.0172190.i, 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %53, ptr noundef %0, i32 noundef %.0171190.i, i32 noundef 4, i32 noundef 0) #9
+  %55 = add i32 %.0171190.i, 4
   %56 = load i32, ptr @ett_dhcp_option82_suboption9, align 4
   %57 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %56) #9
   %58 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %55) #9
   %59 = zext i8 %58 to i32
   %60 = load i32, ptr @hf_dhcp_option82_vi_data_length, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %60, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef 0) #9
-  %62 = add i32 %.0172190.i, 5
+  %62 = add i32 %.0171190.i, 5
   %cond.i = icmp eq i32 %52, 4491
   br i1 %cond.i, label %63, label %114
 
@@ -4974,11 +4974,11 @@ proto_item_set_hidden.exit.i:                     ; preds = %42, %39, %38
   br i1 %65, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %63, %112
-  %.0189.i = phi i32 [ %.1.i, %112 ], [ %62, %63 ]
-  %66 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0189.i) #9
-  %67 = add nsw i32 %.0189.i, 1
+  %.0170189.i = phi i32 [ %.1.i, %112 ], [ %62, %63 ]
+  %66 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0170189.i) #9
+  %67 = add nsw i32 %.0170189.i, 1
   %68 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %67) #9
-  %69 = add i32 %.0189.i, 2
+  %69 = add i32 %.0170189.i, 2
   switch i8 %66, label %107 [
     i8 1, label %70
     i8 2, label %79
@@ -4992,22 +4992,22 @@ proto_item_set_hidden.exit.i:                     ; preds = %42, %39, %38
   %71 = load i32, ptr @hf_dhcp_option82_vi_cl_docsis_version, align 4
   %72 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %69) #9
   %73 = zext i8 %72 to i32
-  %74 = add i32 %.0189.i, 3
+  %74 = add i32 %.0170189.i, 3
   %75 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %74) #9
   %76 = zext i8 %75 to i32
   %77 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %57, i32 noundef %71, ptr noundef %0, i32 noundef %69, i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.1978, i32 noundef %73, i32 noundef %76) #9
-  %78 = add i32 %.0189.i, 4
+  %78 = add i32 %.0170189.i, 4
   br label %112
 
 79:                                               ; preds = %.lr.ph.i
   %80 = load i32, ptr @hf_dhcp_option82_vi_cl_dpoe_system_version, align 4
   %81 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %69) #9
   %82 = zext i8 %81 to i32
-  %83 = add i32 %.0189.i, 3
+  %83 = add i32 %.0170189.i, 3
   %84 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %83) #9
   %85 = zext i8 %84 to i32
   %86 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %57, i32 noundef %80, ptr noundef %0, i32 noundef %69, i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.1978, i32 noundef %82, i32 noundef %85) #9
-  %87 = add i32 %.0189.i, 4
+  %87 = add i32 %.0170189.i, 4
   br label %112
 
 88:                                               ; preds = %.lr.ph.i
@@ -5056,8 +5056,8 @@ proto_item_set_hidden.exit.i:                     ; preds = %42, %39, %38
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %112, %114, %63
-  %.1173.i = phi i32 [ %117, %114 ], [ %62, %63 ], [ %.1.i, %112 ]
-  %118 = icmp slt i32 %.1173.i, %26
+  %.1172.i = phi i32 [ %117, %114 ], [ %62, %63 ], [ %.1.i, %112 ]
+  %118 = icmp slt i32 %.1172.i, %26
   br i1 %118, label %.lr.ph191.i, label %.loopexit186.i, !llvm.loop !22
 
 119:                                              ; preds = %50
@@ -5127,8 +5127,8 @@ proto_item_set_hidden.exit.i:                     ; preds = %42, %39, %38
   br label %dhcp_dhcp_decode_agent_info.exit
 
 dhcp_dhcp_decode_agent_info.exit:                 ; preds = %10, %28, %.loopexit186.i
-  %.0170.i = phi i32 [ %7, %10 ], [ %7, %28 ], [ %154, %.loopexit186.i ]
-  %155 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0170.i) #9
+  %.0.i = phi i32 [ %7, %10 ], [ %7, %28 ], [ %154, %.loopexit186.i ]
+  %155 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i) #9
   %156 = icmp sgt i32 %155, 0
   br i1 %156, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
@@ -5629,8 +5629,8 @@ define internal i32 @dissect_dhcpopt_name_server_search(ptr noundef %0, ptr noun
   br label %39
 
 .lr.ph:                                           ; preds = %.preheader, %34
-  %.035 = phi i32 [ %35, %34 ], [ 0, %.preheader ]
-  %15 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.035) #9
+  %.03335 = phi i32 [ %35, %34 ], [ 0, %.preheader ]
+  %15 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.03335) #9
   switch i16 %15, label %31 [
     i16 0, label %16
     i16 6, label %19
@@ -5641,27 +5641,27 @@ define internal i32 @dissect_dhcpopt_name_server_search(ptr noundef %0, ptr noun
 
 16:                                               ; preds = %.lr.ph
   %17 = load i32, ptr @hf_dhcp_option_dhcp_name_service_search_option, align 4
-  %18 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %.035, i32 noundef 2, ptr noundef nonnull @.str.1987) #9
+  %18 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %.03335, i32 noundef 2, ptr noundef nonnull @.str.1987) #9
   br label %34
 
 19:                                               ; preds = %.lr.ph
   %20 = load i32, ptr @hf_dhcp_option_dhcp_name_service_search_option, align 4
-  %21 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %.035, i32 noundef 2, ptr noundef nonnull @.str.1988) #9
+  %21 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %.03335, i32 noundef 2, ptr noundef nonnull @.str.1988) #9
   br label %34
 
 22:                                               ; preds = %.lr.ph
   %23 = load i32, ptr @hf_dhcp_option_dhcp_name_service_search_option, align 4
-  %24 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %.035, i32 noundef 2, ptr noundef nonnull @.str.1989) #9
+  %24 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %.03335, i32 noundef 2, ptr noundef nonnull @.str.1989) #9
   br label %34
 
 25:                                               ; preds = %.lr.ph
   %26 = load i32, ptr @hf_dhcp_option_dhcp_name_service_search_option, align 4
-  %27 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef %.035, i32 noundef 2, ptr noundef nonnull @.str.1990) #9
+  %27 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef %.03335, i32 noundef 2, ptr noundef nonnull @.str.1990) #9
   br label %34
 
 28:                                               ; preds = %.lr.ph
   %29 = load i32, ptr @hf_dhcp_option_dhcp_name_service_search_option, align 4
-  %30 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %.035, i32 noundef 2, ptr noundef nonnull @.str.1991) #9
+  %30 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %.03335, i32 noundef 2, ptr noundef nonnull @.str.1991) #9
   br label %34
 
 31:                                               ; preds = %.lr.ph
@@ -5670,7 +5670,7 @@ define internal i32 @dissect_dhcpopt_name_server_search(ptr noundef %0, ptr noun
   br label %34
 
 34:                                               ; preds = %31, %28, %25, %22, %19, %16
-  %35 = add i32 %.035, 2
+  %35 = add i32 %.03335, 2
   %36 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %35) #9
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !28
@@ -5680,8 +5680,8 @@ define internal i32 @dissect_dhcpopt_name_server_search(ptr noundef %0, ptr noun
   br label %39
 
 39:                                               ; preds = %._crit_edge, %13, %7
-  %.033 = phi i32 [ 1, %7 ], [ 1, %13 ], [ %38, %._crit_edge ]
-  ret i32 %.033
+  %.0 = phi i32 [ 1, %7 ], [ 1, %13 ], [ %38, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6061,9 +6061,9 @@ define internal i32 @dissect_dhcpopt_classless_static_route(ptr noundef %0, ptr 
   br i1 %35, label %.lr.ph62, label %._crit_edge
 
 .lr.ph:                                           ; preds = %32, %37
-  %.060 = phi i32 [ %41, %37 ], [ 0, %32 ]
-  %.14859 = phi i32 [ %38, %37 ], [ %24, %32 ]
-  %.not = icmp eq i32 %.060, 0
+  %.160 = phi i32 [ %38, %37 ], [ %24, %32 ]
+  %.04859 = phi i32 [ %41, %37 ], [ 0, %32 ]
+  %.not = icmp eq i32 %.04859, 0
   br i1 %.not, label %37, label %36
 
 36:                                               ; preds = %.lr.ph
@@ -6071,18 +6071,18 @@ define internal i32 @dissect_dhcpopt_classless_static_route(ptr noundef %0, ptr 
   br label %37
 
 37:                                               ; preds = %36, %.lr.ph
-  %38 = add i32 %.14859, 1
-  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.14859) #9
+  %38 = add i32 %.160, 1
+  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.160) #9
   %40 = zext i8 %39 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.1863, i32 noundef %40) #9
-  %41 = add nuw nsw i32 %.060, 1
+  %41 = add nuw nsw i32 %.04859, 1
   %exitcond.not = icmp eq i32 %41, %20
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !32
 
 .lr.ph62:                                         ; preds = %.preheader, %.lr.ph62
-  %.161 = phi i32 [ %42, %.lr.ph62 ], [ %20, %.preheader ]
+  %.14961 = phi i32 [ %42, %.lr.ph62 ], [ %20, %.preheader ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.2005) #9
-  %42 = add nuw nsw i32 %.161, 1
+  %42 = add nuw nsw i32 %.14961, 1
   %exitcond75.not = icmp eq i32 %42, 4
   br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph62, !llvm.loop !33
 
@@ -6105,8 +6105,8 @@ define internal i32 @dissect_dhcpopt_classless_static_route(ptr noundef %0, ptr 
   br label %50
 
 50:                                               ; preds = %.loopexit, %10
-  %.049 = phi i32 [ 1, %10 ], [ %49, %.loopexit ]
-  ret i32 %.049
+  %.0 = phi i32 [ 1, %10 ], [ %49, %.loopexit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6875,8 +6875,8 @@ rfc3825_lci_to_fixpoint.exit:                     ; preds = %123, %139
   br label %223
 
 223:                                              ; preds = %220, %214, %208, %196
-  %.sroa.8.0 = phi double [ %222, %220 ], [ %200, %208 ], [ %200, %214 ], [ 0.000000e+00, %196 ]
   %.sroa.12.0 = phi double [ 0.000000e+00, %220 ], [ %213, %208 ], [ %218, %214 ], [ 0.000000e+00, %196 ]
+  %.sroa.8.0 = phi double [ %222, %220 ], [ %200, %208 ], [ %200, %214 ], [ 0.000000e+00, %196 ]
   %224 = add i8 %156, -4
   %or.cond58.i = icmp ult i8 %224, -3
   br i1 %or.cond58.i, label %225, label %228
@@ -7337,14 +7337,14 @@ define internal i32 @dissect_dhcpopt_pcp_server(ptr noundef %0, ptr noundef %1, 
   br label %36
 
 .lr.ph41:                                         ; preds = %.preheader, %.critedge
-  %.02740 = phi i32 [ %.1.lcssa, %.critedge ], [ 0, %.preheader ]
-  %12 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02740) #9
+  %.02840 = phi i32 [ %.1.lcssa, %.critedge ], [ 0, %.preheader ]
+  %12 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02840) #9
   %13 = zext i8 %12 to i32
   %14 = load i32, ptr @ett_dhcp_option158_pcp_list, align 4
-  %15 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.02740, i32 noundef %13, i32 noundef %14, ptr noundef nonnull %5, ptr noundef nonnull @.str.2033) #9
+  %15 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.02840, i32 noundef %13, i32 noundef %14, ptr noundef nonnull %5, ptr noundef nonnull @.str.2033) #9
   %16 = load i32, ptr @hf_dhcp_option_pcp_list_length, align 4
-  %17 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef %.02740, i32 noundef 1, i32 noundef 0) #9
-  %18 = add i32 %.02740, 1
+  %17 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef %.02840, i32 noundef 1, i32 noundef 0) #9
+  %18 = add i32 %.02840, 1
   %19 = add nuw nsw i32 %13, 3
   %20 = and i32 %19, 3
   %21 = icmp eq i32 %20, 0
@@ -7379,8 +7379,8 @@ define internal i32 @dissect_dhcpopt_pcp_server(ptr noundef %0, ptr noundef %1, 
   br label %36
 
 36:                                               ; preds = %._crit_edge, %10
-  %.028 = phi i32 [ 1, %10 ], [ %35, %._crit_edge ]
-  ret i32 %.028
+  %.027 = phi i32 [ 1, %10 ], [ %35, %._crit_edge ]
+  ret i32 %.027
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7495,8 +7495,8 @@ define internal i32 @dissect_dhcpopt_avaya_ip_telephone(ptr noundef %0, ptr noun
 
 .lr.ph:                                           ; preds = %10, %42
   %24 = phi ptr [ %46, %42 ], [ %23, %10 ]
-  %.055 = phi i32 [ %43, %42 ], [ 0, %10 ]
-  %.04554 = phi i32 [ %.2, %42 ], [ 0, %10 ]
+  %.04555 = phi i32 [ %43, %42 ], [ 0, %10 ]
+  %.04654 = phi i32 [ %.2, %42 ], [ 0, %10 ]
   %25 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %24, i32 noundef 61) #10
   %.not48 = icmp eq ptr %25, null
   %26 = call i64 @wmem_strbuf_get_len(ptr noundef %19) #9
@@ -7510,7 +7510,7 @@ define internal i32 @dissect_dhcpopt_avaya_ip_telephone(ptr noundef %0, ptr noun
   %30 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @ei_dhcp_subopt_unknown_type, ptr noundef nonnull @.str.2036, ptr noundef nonnull %24) #9
   %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #10
   %32 = trunc i64 %31 to i32
-  %33 = add i32 %.04554, %32
+  %33 = add i32 %.04654, %32
   br label %.loopexit
 
 34:                                               ; preds = %28
@@ -7521,22 +7521,22 @@ define internal i32 @dissect_dhcpopt_avaya_ip_telephone(ptr noundef %0, ptr noun
   br i1 %27, label %41, label %36
 
 36:                                               ; preds = %35
-  call fastcc void @dissect_vendor_avaya_param(ptr noundef %17, ptr noundef %1, ptr noundef %15, ptr noundef %0, i32 noundef %.04554, ptr noundef %19)
+  call fastcc void @dissect_vendor_avaya_param(ptr noundef %17, ptr noundef %1, ptr noundef %15, ptr noundef %0, i32 noundef %.04654, ptr noundef %19)
   %37 = call i64 @wmem_strbuf_get_len(ptr noundef %19) #9
   %38 = trunc i64 %37 to i32
-  %39 = add i32 %.04554, 1
+  %39 = add i32 %.04654, 1
   %40 = add i32 %39, %38
   call void @wmem_strbuf_truncate(ptr noundef %19, i64 noundef 0) #9
   br label %41
 
 41:                                               ; preds = %36, %35
-  %.1 = phi i32 [ %40, %36 ], [ %.04554, %35 ]
+  %.1 = phi i32 [ %40, %36 ], [ %.04654, %35 ]
   call void @wmem_strbuf_append(ptr noundef %19, ptr noundef nonnull %24) #9
   br label %42
 
 42:                                               ; preds = %34, %41
-  %.2 = phi i32 [ %.1, %41 ], [ %.04554, %34 ]
-  %43 = add i32 %.055, 1
+  %.2 = phi i32 [ %.1, %41 ], [ %.04654, %34 ]
+  %43 = add i32 %.04555, 1
   %44 = sext i32 %43 to i64
   %45 = getelementptr ptr, ptr %22, i64 %44
   %46 = load ptr, ptr %45, align 8
@@ -7558,8 +7558,8 @@ define internal i32 @dissect_dhcpopt_avaya_ip_telephone(ptr noundef %0, ptr noun
   br label %51
 
 51:                                               ; preds = %49, %8
-  %.046 = phi i32 [ 1, %8 ], [ %50, %49 ]
-  ret i32 %.046
+  %.0 = phi i32 [ 1, %8 ], [ %50, %49 ]
+  ret i32 %.0
 }
 
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -7625,11 +7625,11 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
   br label %41
 
 41:                                               ; preds = %.loopexit.i, %.lr.ph198.i
-  %.0164197.i = phi i32 [ 12, %.lr.ph198.i ], [ %181, %.loopexit.i ]
-  %.0165196.i = phi i32 [ 0, %.lr.ph198.i ], [ %.1175.i, %.loopexit.i ]
-  %42 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0164197.i) #9
+  %.0163197.i = phi i32 [ 0, %.lr.ph198.i ], [ %.1164175.i, %.loopexit.i ]
+  %.0165196.i = phi i32 [ 12, %.lr.ph198.i ], [ %181, %.loopexit.i ]
+  %42 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0165196.i) #9
   %43 = load ptr, ptr %12, align 8
-  %44 = add i32 %.0164197.i, 2
+  %44 = add i32 %.0165196.i, 2
   %45 = call ptr @tvb_get_string_enc(ptr noundef %43, ptr noundef %0, i32 noundef %44, i32 noundef 2, i32 noundef 0) #9
   %46 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %45, ptr noundef nonnull @.str.2101, ptr noundef nonnull %5) #9
   %47 = icmp ne i32 %46, 1
@@ -7640,19 +7640,19 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
   br i1 %or.cond5.i, label %51, label %56
 
 51:                                               ; preds = %41
-  %52 = sub i32 %24, %.0164197.i
+  %52 = sub i32 %24, %.0165196.i
   %53 = load ptr, ptr %12, align 8
   %54 = call ptr @format_text_string(ptr noundef %53, ptr noundef %45) #9
-  %55 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_dhcp_bad_length, ptr noundef %0, i32 noundef %.0164197.i, i32 noundef %52, ptr noundef nonnull @.str.2102, ptr noundef %54) #9
+  %55 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_dhcp_bad_length, ptr noundef %0, i32 noundef %.0165196.i, i32 noundef %52, ptr noundef nonnull @.str.2102, ptr noundef %54) #9
   br label %dissect_packetcable_mta_cap.exit
 
 56:                                               ; preds = %41
   %57 = load i32, ptr @hf_dhcp_pkt_mta_cap_type, align 4
   %58 = zext i16 %42 to i32
   %59 = load ptr, ptr %12, align 8
-  %60 = call ptr @tvb_format_text(ptr noundef %59, ptr noundef %0, i32 noundef %.0164197.i, i32 noundef 2) #9
+  %60 = call ptr @tvb_format_text(ptr noundef %59, ptr noundef %0, i32 noundef %.0165196.i, i32 noundef 2) #9
   %61 = call ptr @val_to_str_const(i32 noundef %58, ptr noundef nonnull @pkt_mdc_type_vals, ptr noundef nonnull @.str.1970) #9
-  %62 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %57, ptr noundef %0, i32 noundef %.0164197.i, i32 noundef 2, i32 noundef %58, ptr noundef nonnull @.str.2103, ptr noundef %60, ptr noundef %61) #9
+  %62 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %57, ptr noundef %0, i32 noundef %.0165196.i, i32 noundef 2, i32 noundef %58, ptr noundef nonnull @.str.2103, ptr noundef %60, ptr noundef %61) #9
   %63 = load i32, ptr %5, align 4
   %64 = shl i32 %63, 1
   %65 = add i32 %64, 4
@@ -7698,7 +7698,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
   br label %133
 
 68:                                               ; preds = %56
-  %69 = add i32 %.0164197.i, 4
+  %69 = add i32 %.0165196.i, 4
   %70 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %69) #9
   %71 = zext i16 %70 to i32
   %72 = call ptr @val_to_str_const(i32 noundef %71, ptr noundef nonnull @pkt_mdc_version_vals, ptr noundef nonnull @.str.100) #9
@@ -7709,13 +7709,13 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
 
 75:                                               ; preds = %56, %56
   %76 = load ptr, ptr %12, align 8
-  %77 = add i32 %.0164197.i, 4
+  %77 = add i32 %.0165196.i, 4
   %78 = call ptr @tvb_format_stringzpad(ptr noundef %76, ptr noundef %0, i32 noundef %77, i32 noundef 2) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %62, ptr noundef nonnull @.str.1944, ptr noundef %78) #9
   br label %.loopexit180.i
 
 79:                                               ; preds = %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56
-  %80 = add i32 %.0164197.i, 4
+  %80 = add i32 %.0165196.i, 4
   %81 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %80) #9
   %82 = zext i16 %81 to i32
   %83 = call ptr @val_to_str_const(i32 noundef %82, ptr noundef nonnull @pkt_mdc_boolean_vals, ptr noundef nonnull @.str.1970) #9
@@ -7730,16 +7730,16 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
   br i1 %.not199.i, label %.loopexit180.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %86
-  %88 = add i32 %.0164197.i, 4
+  %88 = add i32 %.0165196.i, 4
   br label %89
 
 89:                                               ; preds = %89, %.lr.ph.i
-  %.0193.i = phi i32 [ 0, %.lr.ph.i ], [ %93, %89 ]
-  %90 = shl i32 %.0193.i, 1
+  %.0166193.i = phi i32 [ 0, %.lr.ph.i ], [ %93, %89 ]
+  %90 = shl i32 %.0166193.i, 1
   %91 = add i32 %88, %90
   %92 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %91) #9
-  %93 = add nuw i32 %.0193.i, 1
-  %94 = icmp eq i32 %.0193.i, 0
+  %93 = add nuw i32 %.0166193.i, 1
+  %94 = icmp eq i32 %.0166193.i, 0
   %95 = select i1 %94, ptr @.str.1858, ptr @.str.2105
   %96 = zext i16 %92 to i32
   %97 = call ptr @val_to_str_const(i32 noundef %96, ptr noundef nonnull @pkt_mdc_codec_vals, ptr noundef nonnull @.str.1970) #9
@@ -7751,7 +7751,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
   br i1 %101, label %89, label %.loopexit180.i, !llvm.loop !44
 
 .thread.i:                                        ; preds = %56
-  %102 = add i32 %.0164197.i, 4
+  %102 = add i32 %.0165196.i, 4
   %103 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %102, i64 noundef 4) #9
   store i8 0, ptr %40, align 1
   %104 = call i64 @strtoul(ptr nocapture noundef nonnull %7, ptr noundef null, i32 noundef 16) #9
@@ -7762,7 +7762,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
   br label %130
 
 108:                                              ; preds = %56
-  %109 = add i32 %.0164197.i, 4
+  %109 = add i32 %.0165196.i, 4
   %110 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %109) #9
   %111 = zext i16 %110 to i32
   %112 = call ptr @val_to_str_const(i32 noundef %111, ptr noundef nonnull @pkt_mdc_t38_version_vals, ptr noundef nonnull @.str.1970) #9
@@ -7772,7 +7772,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
   br label %.loopexit180.i
 
 115:                                              ; preds = %56
-  %116 = add i32 %.0164197.i, 4
+  %116 = add i32 %.0165196.i, 4
   %117 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %116) #9
   %118 = zext i16 %117 to i32
   %119 = call ptr @val_to_str_const(i32 noundef %118, ptr noundef nonnull @pkt_mdc_t38_ec_vals, ptr noundef nonnull @.str.1970) #9
@@ -7783,7 +7783,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
 
 122:                                              ; preds = %56
   %123 = load ptr, ptr %12, align 8
-  %124 = add i32 %.0164197.i, 4
+  %124 = add i32 %.0165196.i, 4
   %125 = load i32, ptr %5, align 4
   %126 = shl i32 %125, 1
   %127 = call ptr @tvb_format_stringzpad(ptr noundef %123, ptr noundef %0, i32 noundef %124, i32 noundef %126) #9
@@ -7791,33 +7791,33 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
   br label %.loopexit180.i
 
 .loopexit180.i:                                   ; preds = %89, %122, %115, %108, %86, %79, %75, %68
-  %.1167.i = phi i16 [ %42, %122 ], [ %117, %115 ], [ %110, %108 ], [ %81, %79 ], [ %42, %75 ], [ %70, %68 ], [ %42, %86 ], [ %92, %89 ]
+  %.1.i = phi i16 [ %42, %122 ], [ %117, %115 ], [ %110, %108 ], [ %81, %79 ], [ %42, %75 ], [ %70, %68 ], [ %42, %86 ], [ %92, %89 ]
   %128 = load i32, ptr @ett_dhcp_option, align 4
   %129 = call ptr @proto_item_add_subtree(ptr noundef %62, i32 noundef %128) #9
-  switch i16 %.1167.i, label %.loopexit180..loopexit_crit_edge.i [
+  switch i16 %.1.i, label %.loopexit180..loopexit_crit_edge.i [
     i16 12594, label %.loopexit180._crit_edge.i
     i16 12599, label %133
   ]
 
 .loopexit180..loopexit_crit_edge.i:               ; preds = %.loopexit180.i
-  %.pre.i = add i32 %.0164197.i, 4
+  %.pre.i = add i32 %.0165196.i, 4
   br label %.loopexit.i
 
 .loopexit180._crit_edge.i:                        ; preds = %.loopexit180.i
-  %.pre215.i = add i32 %.0164197.i, 4
+  %.pre215.i = add i32 %.0165196.i, 4
   br label %130
 
 130:                                              ; preds = %.loopexit180._crit_edge.i, %.thread.i
   %.pre-phi216.i = phi i32 [ %.pre215.i, %.loopexit180._crit_edge.i ], [ %102, %.thread.i ]
   %131 = phi ptr [ %129, %.loopexit180._crit_edge.i ], [ %107, %.thread.i ]
-  %.1174.i = phi i32 [ %.0165196.i, %.loopexit180._crit_edge.i ], [ %105, %.thread.i ]
-  %132 = zext i32 %.1174.i to i64
+  %.1164174.i = phi i32 [ %.0163197.i, %.loopexit180._crit_edge.i ], [ %105, %.thread.i ]
+  %132 = zext i32 %.1164174.i to i64
   call void @proto_tree_add_bitmask_list_value(ptr noundef %131, ptr noundef %0, i32 noundef %.pre-phi216.i, i32 noundef 4, ptr noundef nonnull @dissect_packetcable_mta_cap.flows, i64 noundef %132) #9
   br label %.loopexit.i
 
 133:                                              ; preds = %.loopexit180.i, %.thread176.i
   %134 = phi ptr [ %67, %.thread176.i ], [ %129, %.loopexit180.i ]
-  %135 = add i32 %.0164197.i, 4
+  %135 = add i32 %.0165196.i, 4
   %136 = load i32, ptr %5, align 4
   %137 = shl i32 %136, 1
   %138 = add i32 %137, %135
@@ -7825,25 +7825,25 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
   br i1 %139, label %.lr.ph195.i, label %.loopexit.i
 
 .lr.ph195.i:                                      ; preds = %133
-  %140 = add i32 %.0164197.i, 6
+  %140 = add i32 %.0165196.i, 6
   br label %141
 
 141:                                              ; preds = %176, %.lr.ph195.i
-  %.0163194.i = phi i32 [ %135, %.lr.ph195.i ], [ %177, %176 ]
-  %142 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0163194.i) #9
+  %.0167194.i = phi i32 [ %135, %.lr.ph195.i ], [ %177, %176 ]
+  %142 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0167194.i) #9
   %.not.i = icmp eq i16 %142, 12338
   br i1 %.not.i, label %149, label %143
 
 143:                                              ; preds = %141
   %144 = load ptr, ptr %12, align 8
-  %145 = call ptr @tvb_get_string_enc(ptr noundef %144, ptr noundef %0, i32 noundef %.0163194.i, i32 noundef 2, i32 noundef 0) #9
+  %145 = call ptr @tvb_get_string_enc(ptr noundef %144, ptr noundef %0, i32 noundef %.0167194.i, i32 noundef 2, i32 noundef 0) #9
   %146 = load ptr, ptr %12, align 8
   %147 = call ptr @format_text_string(ptr noundef %146, ptr noundef %145) #9
-  %148 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %134, ptr noundef nonnull %1, ptr noundef nonnull @ei_dhcp_bad_length, ptr noundef %0, i32 noundef %.0163194.i, i32 noundef 2, ptr noundef nonnull @.str.2102, ptr noundef %147) #9
+  %148 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %134, ptr noundef nonnull %1, ptr noundef nonnull @ei_dhcp_bad_length, ptr noundef %0, i32 noundef %.0167194.i, i32 noundef 2, ptr noundef nonnull @.str.2102, ptr noundef %147) #9
   br label %dissect_packetcable_mta_cap.exit
 
 149:                                              ; preds = %141
-  %150 = add i32 %.0163194.i, 2
+  %150 = add i32 %.0167194.i, 2
   %151 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %150) #9
   %152 = load ptr, ptr %12, align 8
   %153 = call ptr @tvb_get_string_enc(ptr noundef %152, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef 0) #9
@@ -7863,7 +7863,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
 162:                                              ; preds = %161, %149
   %163 = call ptr @val_to_str_const(i32 noundef %155, ptr noundef nonnull @pkt_mdc_mib_orgs, ptr noundef nonnull @.str.479) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %62, ptr noundef nonnull @.str.1944, ptr noundef %163) #9
-  %164 = add i32 %.0163194.i, 4
+  %164 = add i32 %.0167194.i, 4
   %165 = load ptr, ptr %12, align 8
   %166 = call ptr @tvb_get_string_enc(ptr noundef %165, ptr noundef %0, i32 noundef %164, i32 noundef 2, i32 noundef 0) #9
   %167 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %166, ptr noundef nonnull @.str.2101, ptr noundef nonnull %6) #9
@@ -7891,13 +7891,13 @@ switch.lookup:                                    ; preds = %172
   br label %176
 
 176:                                              ; preds = %172, %switch.lookup
-  %177 = add i32 %.0163194.i, 6
+  %177 = add i32 %.0167194.i, 6
   %178 = icmp slt i32 %177, %138
   br i1 %178, label %141, label %.loopexit.i, !llvm.loop !45
 
 .loopexit.i:                                      ; preds = %176, %133, %130, %.loopexit180..loopexit_crit_edge.i
   %.pre-phi.i = phi i32 [ %.pre.i, %.loopexit180..loopexit_crit_edge.i ], [ %135, %133 ], [ %.pre-phi216.i, %130 ], [ %135, %176 ]
-  %.1175.i = phi i32 [ %.0165196.i, %.loopexit180..loopexit_crit_edge.i ], [ %.0165196.i, %133 ], [ %.1174.i, %130 ], [ %.0165196.i, %176 ]
+  %.1164175.i = phi i32 [ %.0163197.i, %.loopexit180..loopexit_crit_edge.i ], [ %.0163197.i, %133 ], [ %.1164174.i, %130 ], [ %.0163197.i, %176 ]
   %179 = load i32, ptr %5, align 4
   %180 = shl i32 %179, 1
   %181 = add i32 %180, %.pre-phi.i
@@ -8169,12 +8169,12 @@ define internal range(i32 0, 2) i32 @dissect_pxeclient_vendor_info_heur(ptr noun
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %12, %dissect_vendor_pxeclient_suboption.exit
-  %.016 = phi i32 [ %.0143.i, %dissect_vendor_pxeclient_suboption.exit ], [ 0, %12 ]
+  %.01316 = phi i32 [ %.0.i, %dissect_vendor_pxeclient_suboption.exit ], [ 0, %12 ]
   %17 = call i32 @tvb_reported_length(ptr noundef %0) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %18 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.016) #9
-  %19 = add i32 %.016, 1
+  %18 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.01316) #9
+  %19 = add i32 %.01316, 1
   %20 = zext i8 %18 to i32
   switch i8 %18, label %27 [
     i8 0, label %21
@@ -8183,12 +8183,12 @@ define internal range(i32 0, 2) i32 @dissect_pxeclient_vendor_info_heur(ptr noun
 
 21:                                               ; preds = %.lr.ph
   %22 = load i32, ptr @hf_dhcp_option43_pxeclient_padding, align 4
-  %23 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %22, ptr noundef %0, i32 noundef %.016, i32 noundef 1, i32 noundef 0) #9
+  %23 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %22, ptr noundef %0, i32 noundef %.01316, i32 noundef 1, i32 noundef 0) #9
   br label %dissect_vendor_pxeclient_suboption.exit
 
 24:                                               ; preds = %.lr.ph
   %25 = load i32, ptr @hf_dhcp_option43_pxeclient_end, align 4
-  %26 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %25, ptr noundef %0, i32 noundef %.016, i32 noundef 1, i32 noundef 0) #9
+  %26 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %25, ptr noundef %0, i32 noundef %.01316, i32 noundef 1, i32 noundef 0) #9
   br label %dissect_vendor_pxeclient_suboption.exit
 
 27:                                               ; preds = %.lr.ph
@@ -8205,12 +8205,12 @@ define internal range(i32 0, 2) i32 @dissect_pxeclient_vendor_info_heur(ptr noun
   %33 = zext i8 %31 to i32
   %34 = add nuw nsw i32 %33, 2
   %35 = call ptr @val_to_str_const(i32 noundef %20, ptr noundef nonnull @option43_pxeclient_suboption_vals, ptr noundef nonnull @.str.479) #9
-  %36 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %14, i32 noundef %32, ptr noundef %0, i32 noundef %.016, i32 noundef %34, i32 noundef %20, ptr noundef nonnull @.str.1950, i32 noundef %20, ptr noundef %35) #9
+  %36 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %14, i32 noundef %32, ptr noundef %0, i32 noundef %.01316, i32 noundef %34, i32 noundef %20, ptr noundef nonnull @.str.1950, i32 noundef %20, ptr noundef %35) #9
   %37 = load i32, ptr @ett_dhcp_option43_suboption, align 4
   %38 = call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37) #9
   %39 = load i32, ptr @hf_dhcp_suboption_length, align 4
   %40 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef 0) #9
-  %41 = add i32 %.016, 2
+  %41 = add i32 %.01316, 2
   %42 = load i32, ptr @hf_dhcp_option43_value, align 4
   %43 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef %33, i32 noundef 0) #9
   %.not.i.i = icmp eq ptr %43, null
@@ -8287,13 +8287,13 @@ proto_item_set_hidden.exit.i:                     ; preds = %47, %44, %30
   br i1 %79, label %.lr.ph159.i, label %.loopexit152.i, !llvm.loop !49
 
 .lr.ph159.i:                                      ; preds = %71, %.loopexit.i
-  %.0158.i = phi i32 [ %.1.lcssa.i, %.loopexit.i ], [ %41, %71 ]
+  %.0143158.i = phi i32 [ %.1.lcssa.i, %.loopexit.i ], [ %41, %71 ]
   %80 = load i32, ptr @hf_dhcp_option43_pxeclient_boot_server_type, align 4
-  %81 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %80, ptr noundef %0, i32 noundef %.0158.i, i32 noundef 2, i32 noundef 0) #9
-  %82 = add i32 %.0158.i, 2
+  %81 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %80, ptr noundef %0, i32 noundef %.0143158.i, i32 noundef 2, i32 noundef 0) #9
+  %82 = add i32 %.0143158.i, 2
   %83 = load i32, ptr @hf_dhcp_option43_pxeclient_boot_server_count, align 4
   %84 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %75, i32 noundef %83, ptr noundef %0, i32 noundef %82, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #9
-  %85 = add i32 %.0158.i, 3
+  %85 = add i32 %.0143158.i, 3
   %.pr.i = load i32, ptr %5, align 4
   %.not151155.i = icmp eq i32 %.pr.i, 0
   br i1 %.not151155.i, label %.loopexit.i, label %.lr.ph157.i
@@ -8342,7 +8342,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %47, %44, %30
   %115 = call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %114) #9
   %116 = load i32, ptr @hf_dhcp_option43_pxeclient_menu_prompt_timeout, align 4
   %117 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %116, ptr noundef %0, i32 noundef %41, i32 noundef 1, i32 noundef 0) #9
-  %118 = add i32 %.016, 3
+  %118 = add i32 %.01316, 3
   %119 = load i32, ptr @hf_dhcp_option43_pxeclient_menu_prompt_prompt, align 4
   %120 = add nsw i32 %33, -1
   %121 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %119, ptr noundef %0, i32 noundef %118, i32 noundef %120, i32 noundef 0) #9
@@ -8355,7 +8355,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %47, %44, %30
   %126 = call ptr @proto_item_add_subtree(ptr noundef %124, i32 noundef %125) #9
   %127 = load i32, ptr @hf_dhcp_option43_pxeclient_boot_item_type, align 4
   %128 = call ptr @proto_tree_add_item(ptr noundef %126, i32 noundef %127, ptr noundef %0, i32 noundef %41, i32 noundef 2, i32 noundef 0) #9
-  %129 = add i32 %.016, 4
+  %129 = add i32 %.01316, 4
   %130 = load i32, ptr @hf_dhcp_option43_pxeclient_boot_item_layer, align 4
   %131 = call ptr @proto_tree_add_item(ptr noundef %126, i32 noundef %130, ptr noundef %0, i32 noundef %129, i32 noundef 2, i32 noundef 0) #9
   br label %.loopexit152.i
@@ -8375,20 +8375,20 @@ proto_item_set_hidden.exit.i:                     ; preds = %47, %44, %30
   br label %.loopexit152.i
 
 .loopexit152.i:                                   ; preds = %.lr.ph.i, %.loopexit.i, %138, %135, %132, %122, %111, %91, %71, %67, %63, %52
-  %140 = add i32 %34, %.016
+  %140 = add i32 %34, %.01316
   br label %dissect_vendor_pxeclient_suboption.exit
 
 dissect_vendor_pxeclient_suboption.exit:          ; preds = %21, %24, %28, %.loopexit152.i
-  %.0143.i = phi i32 [ %19, %21 ], [ %17, %24 ], [ %17, %28 ], [ %140, %.loopexit152.i ]
+  %.0.i = phi i32 [ %19, %21 ], [ %17, %24 ], [ %17, %28 ], [ %140, %.loopexit152.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %141 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0143.i) #9
+  %141 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i) #9
   %142 = icmp sgt i32 %141, 0
   br i1 %142, label %.lr.ph, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %dissect_vendor_pxeclient_suboption.exit, %12, %4, %10
-  %.013 = phi i32 [ 0, %10 ], [ 0, %4 ], [ 1, %12 ], [ 1, %dissect_vendor_pxeclient_suboption.exit ]
-  ret i32 %.013
+  %.0 = phi i32 [ 0, %10 ], [ 0, %4 ], [ 1, %12 ], [ 1, %dissect_vendor_pxeclient_suboption.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8508,10 +8508,10 @@ sub_041:                                          ; preds = %.tail35.thread
   br i1 %53, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %49, %dissect_vendor_cablelabs_suboption.exit
-  %.044 = phi i32 [ %.0.i, %dissect_vendor_cablelabs_suboption.exit ], [ 0, %49 ]
+  %.02344 = phi i32 [ %.0.i, %dissect_vendor_cablelabs_suboption.exit ], [ 0, %49 ]
   %54 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.044) #9
-  %56 = add i32 %.044, 1
+  %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02344) #9
+  %56 = add i32 %.02344, 1
   %57 = zext i8 %55 to i32
   switch i8 %55, label %64 [
     i8 0, label %58
@@ -8520,12 +8520,12 @@ sub_041:                                          ; preds = %.tail35.thread
 
 58:                                               ; preds = %.lr.ph
   %59 = load i32, ptr @hf_dhcp_option43_cl_padding, align 4
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %59, ptr noundef %0, i32 noundef %.044, i32 noundef 1, i32 noundef 0) #9
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %59, ptr noundef %0, i32 noundef %.02344, i32 noundef 1, i32 noundef 0) #9
   br label %dissect_vendor_cablelabs_suboption.exit
 
 61:                                               ; preds = %.lr.ph
   %62 = load i32, ptr @hf_dhcp_option43_cl_end, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %62, ptr noundef %0, i32 noundef %.044, i32 noundef 1, i32 noundef 0) #9
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %62, ptr noundef %0, i32 noundef %.02344, i32 noundef 1, i32 noundef 0) #9
   br label %dissect_vendor_cablelabs_suboption.exit
 
 64:                                               ; preds = %.lr.ph
@@ -8542,12 +8542,12 @@ sub_041:                                          ; preds = %.tail35.thread
   %70 = zext i8 %68 to i32
   %71 = add nuw nsw i32 %70, 2
   %72 = tail call ptr @val_to_str_const(i32 noundef %57, ptr noundef nonnull @option43_cl_suboption_vals, ptr noundef nonnull @.str.479) #9
-  %73 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %51, i32 noundef %69, ptr noundef %0, i32 noundef %.044, i32 noundef %71, i32 noundef %57, ptr noundef nonnull @.str.1950, i32 noundef %57, ptr noundef %72) #9
+  %73 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %51, i32 noundef %69, ptr noundef %0, i32 noundef %.02344, i32 noundef %71, i32 noundef %57, ptr noundef nonnull @.str.1950, i32 noundef %57, ptr noundef %72) #9
   %74 = load i32, ptr @ett_dhcp_option43_suboption, align 4
   %75 = tail call ptr @proto_item_add_subtree(ptr noundef %73, i32 noundef %74) #9
   %76 = load i32, ptr @hf_dhcp_suboption_length, align 4
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %0, i32 noundef %56, i32 noundef 1, i32 noundef 0) #9
-  %78 = add i32 %.044, 2
+  %78 = add i32 %.02344, 2
   %79 = add i32 %78, %70
   %80 = icmp sgt i32 %79, %54
   br i1 %80, label %81, label %83
@@ -8589,10 +8589,10 @@ sub_041:                                          ; preds = %.tail35.thread
   %97 = load i32, ptr @hf_dhcp_option43_cl_oui_bytes, align 4
   %98 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %78) #9
   %99 = zext i8 %98 to i32
-  %100 = add i32 %.044, 3
+  %100 = add i32 %.02344, 3
   %101 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %100) #9
   %102 = zext i8 %101 to i32
-  %103 = add i32 %.044, 4
+  %103 = add i32 %.02344, 4
   %104 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %103) #9
   %105 = zext i8 %104 to i32
   %106 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %75, i32 noundef %97, ptr noundef %0, i32 noundef %78, i32 noundef 3, ptr noundef null, ptr noundef nonnull @.str.2200, i32 noundef %99, i32 noundef %102, i32 noundef %105) #9
@@ -8648,7 +8648,7 @@ sub_041:                                          ; preds = %.tail35.thread
   br label %134
 
 134:                                              ; preds = %132, %127, %124, %121, %115, %113, %110, %107, %96, %85
-  %135 = add i32 %71, %.044
+  %135 = add i32 %71, %.02344
   br label %dissect_vendor_cablelabs_suboption.exit
 
 dissect_vendor_cablelabs_suboption.exit:          ; preds = %58, %61, %65, %81, %134
@@ -8658,8 +8658,8 @@ dissect_vendor_cablelabs_suboption.exit:          ; preds = %58, %61, %65, %81, 
   br i1 %137, label %.lr.ph, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %dissect_vendor_cablelabs_suboption.exit, %49, %4, %.tail40.thread
-  %.023 = phi i32 [ 0, %.tail40.thread ], [ 0, %4 ], [ 1, %49 ], [ 1, %dissect_vendor_cablelabs_suboption.exit ]
-  ret i32 %.023
+  %.0 = phi i32 [ 0, %.tail40.thread ], [ 0, %4 ], [ 1, %49 ], [ 1, %dissect_vendor_cablelabs_suboption.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8750,10 +8750,10 @@ define internal range(i32 0, 2) i32 @dissect_apple_bsdp_vendor_info_heur(ptr nou
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %10, %dissect_vendor_bsdp_suboption.exit
-  %.016 = phi i32 [ %.0.i, %dissect_vendor_bsdp_suboption.exit ], [ 0, %10 ]
+  %.01316 = phi i32 [ %.0.i, %dissect_vendor_bsdp_suboption.exit ], [ 0, %10 ]
   %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.016) #9
-  %17 = add i32 %.016, 1
+  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.01316) #9
+  %17 = add i32 %.01316, 1
   %18 = zext i8 %16 to i32
   %19 = add i8 %16, 1
   %or.cond.i = icmp ult i8 %19, 2
@@ -8774,12 +8774,12 @@ define internal range(i32 0, 2) i32 @dissect_apple_bsdp_vendor_info_heur(ptr nou
   br label %27
 
 27:                                               ; preds = %23, %.lr.ph
-  %.0146.i = phi i8 [ %24, %23 ], [ undef, %.lr.ph ]
-  %.0144.i = phi i32 [ %26, %23 ], [ 1, %.lr.ph ]
+  %.0148.i = phi i32 [ %26, %23 ], [ 1, %.lr.ph ]
+  %.0145.i = phi i8 [ %24, %23 ], [ undef, %.lr.ph ]
   %28 = load i32, ptr @hf_dhcp_option43_bsdp_suboption, align 4
   %29 = tail call ptr @val_to_str_const(i32 noundef %18, ptr noundef nonnull @option43_bsdp_suboption_vals, ptr noundef nonnull @.str.479) #9
-  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %12, i32 noundef %28, ptr noundef %0, i32 noundef %.016, i32 noundef %.0144.i, i32 noundef %18, ptr noundef nonnull @.str.1950, i32 noundef %18, ptr noundef %29) #9
-  %31 = icmp eq i32 %.0144.i, 1
+  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %12, i32 noundef %28, ptr noundef %0, i32 noundef %.01316, i32 noundef %.0148.i, i32 noundef %18, ptr noundef nonnull @.str.1950, i32 noundef %18, ptr noundef %29) #9
+  %31 = icmp eq i32 %.0148.i, 1
   br i1 %31, label %dissect_vendor_bsdp_suboption.exit, label %32
 
 32:                                               ; preds = %27
@@ -8787,8 +8787,8 @@ define internal range(i32 0, 2) i32 @dissect_apple_bsdp_vendor_info_heur(ptr nou
   %34 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %33) #9
   %35 = load i32, ptr @hf_dhcp_suboption_length, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef 0) #9
-  %37 = add i32 %.016, 2
-  %38 = zext i8 %.0146.i to i32
+  %37 = add i32 %.01316, 2
+  %38 = zext i8 %.0145.i to i32
   %39 = add i32 %37, %38
   %40 = icmp sgt i32 %39, %15
   br i1 %40, label %41, label %43
@@ -8852,7 +8852,7 @@ define internal range(i32 0, 2) i32 @dissect_apple_bsdp_vendor_info_heur(ptr nou
   %68 = load i32, ptr @ett_dhcp_o43_bsdp_attributes_flags, align 4
   %69 = tail call ptr @proto_tree_add_bitmask(ptr noundef %66, ptr noundef %0, i32 noundef %37, i32 noundef %67, i32 noundef %68, ptr noundef nonnull @dissect_vendor_bsdp_boot_image.dhcp_o43_bsdp_attributes_flags, i32 noundef 0) #9
   %70 = load i32, ptr @hf_dhcp_option43_bsdp_boot_image_index, align 4
-  %71 = add i32 %.016, 4
+  %71 = add i32 %.01316, 4
   %72 = add nsw i32 %38, -2
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %70, ptr noundef %0, i32 noundef %71, i32 noundef %72, i32 noundef 0) #9
   br label %.loopexit.i
@@ -8866,7 +8866,7 @@ define internal range(i32 0, 2) i32 @dissect_apple_bsdp_vendor_info_heur(ptr nou
   %80 = load i32, ptr @ett_dhcp_o43_bsdp_attributes_flags, align 4
   %81 = tail call ptr @proto_tree_add_bitmask(ptr noundef %78, ptr noundef %0, i32 noundef %37, i32 noundef %79, i32 noundef %80, ptr noundef nonnull @dissect_vendor_bsdp_boot_image.dhcp_o43_bsdp_attributes_flags, i32 noundef 0) #9
   %82 = load i32, ptr @hf_dhcp_option43_bsdp_boot_image_index, align 4
-  %83 = add i32 %.016, 4
+  %83 = add i32 %.01316, 4
   %84 = add nsw i32 %38, -2
   %85 = tail call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %82, ptr noundef %0, i32 noundef %83, i32 noundef %84, i32 noundef 0) #9
   br label %.loopexit.i
@@ -8876,13 +8876,13 @@ define internal range(i32 0, 2) i32 @dissect_apple_bsdp_vendor_info_heur(ptr nou
   %88 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %87, ptr noundef %0, i32 noundef %37, i32 noundef %38, i32 noundef 0) #9
   %89 = load i32, ptr @ett_dhcp_o43_bsdp_image_desc_list, align 4
   %90 = tail call ptr @proto_item_add_subtree(ptr noundef %88, i32 noundef %89) #9
-  %91 = icmp ugt i8 %.0146.i, 4
+  %91 = icmp ugt i8 %.0145.i, 4
   br i1 %91, label %.lr.ph162.i, label %.loopexit.i
 
 .lr.ph162.i:                                      ; preds = %86, %.lr.ph162._crit_edge.i
-  %.0145161.i = phi i8 [ %114, %.lr.ph162._crit_edge.i ], [ %.0146.i, %86 ]
-  %.0147160.i = phi i32 [ %112, %.lr.ph162._crit_edge.i ], [ %37, %86 ]
-  %92 = add i32 %.0147160.i, 4
+  %.0144161.i = phi i32 [ %112, %.lr.ph162._crit_edge.i ], [ %37, %86 ]
+  %.0146160.i = phi i8 [ %114, %.lr.ph162._crit_edge.i ], [ %.0145.i, %86 ]
+  %92 = add i32 %.0144161.i, 4
   %93 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %92) #9
   %.not156.i = icmp eq i8 %93, 0
   br i1 %.not156.i, label %.lr.ph162._crit_edge.i, label %94
@@ -8891,27 +8891,27 @@ define internal range(i32 0, 2) i32 @dissect_apple_bsdp_vendor_info_heur(ptr nou
   %95 = zext i8 %93 to i32
   %96 = load i32, ptr @hf_dhcp_option43_bsdp_image_desc, align 4
   %97 = add nuw nsw i32 %95, 5
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %96, ptr noundef %0, i32 noundef %.0147160.i, i32 noundef %97, i32 noundef 0) #9
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %96, ptr noundef %0, i32 noundef %.0144161.i, i32 noundef %97, i32 noundef 0) #9
   %99 = load i32, ptr @ett_dhcp_o43_bsdp_image_desc, align 4
   %100 = tail call ptr @proto_item_add_subtree(ptr noundef %98, i32 noundef %99) #9
   %101 = load i32, ptr @hf_dhcp_option43_bsdp_boot_image_attribute, align 4
   %102 = load i32, ptr @ett_dhcp_o43_bsdp_attributes_flags, align 4
-  %103 = tail call ptr @proto_tree_add_bitmask(ptr noundef %100, ptr noundef %0, i32 noundef %.0147160.i, i32 noundef %101, i32 noundef %102, ptr noundef nonnull @dissect_vendor_bsdp_boot_image.dhcp_o43_bsdp_attributes_flags, i32 noundef 0) #9
+  %103 = tail call ptr @proto_tree_add_bitmask(ptr noundef %100, ptr noundef %0, i32 noundef %.0144161.i, i32 noundef %101, i32 noundef %102, ptr noundef nonnull @dissect_vendor_bsdp_boot_image.dhcp_o43_bsdp_attributes_flags, i32 noundef 0) #9
   %104 = load i32, ptr @hf_dhcp_option43_bsdp_boot_image_index, align 4
-  %105 = add i32 %.0147160.i, 2
+  %105 = add i32 %.0144161.i, 2
   %106 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %104, ptr noundef %0, i32 noundef %105, i32 noundef 2, i32 noundef 0) #9
   %107 = load i32, ptr @hf_dhcp_option43_bsdp_boot_image_name_len, align 4
   %108 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %107, ptr noundef %0, i32 noundef %92, i32 noundef 1, i32 noundef 0) #9
   %109 = load i32, ptr @hf_dhcp_option43_bsdp_boot_image_name, align 4
-  %110 = add i32 %.0147160.i, 5
+  %110 = add i32 %.0144161.i, 5
   %111 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %109, ptr noundef %0, i32 noundef %110, i32 noundef %95, i32 noundef 2) #9
   br label %.lr.ph162._crit_edge.i
 
 .lr.ph162._crit_edge.i:                           ; preds = %94, %.lr.ph162.i
   %.pre-phi.i = phi i32 [ %97, %94 ], [ 5, %.lr.ph162.i ]
-  %112 = add i32 %.pre-phi.i, %.0147160.i
+  %112 = add i32 %.pre-phi.i, %.0144161.i
   %113 = trunc i32 %.pre-phi.i to i8
-  %114 = sub i8 %.0145161.i, %113
+  %114 = sub i8 %.0146160.i, %113
   %115 = icmp ugt i8 %114, 4
   br i1 %115, label %.lr.ph162.i, label %.loopexit.i, !llvm.loop !54
 
@@ -8925,17 +8925,17 @@ define internal range(i32 0, 2) i32 @dissect_apple_bsdp_vendor_info_heur(ptr nou
   %121 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %120, ptr noundef %0, i32 noundef %37, i32 noundef %38, i32 noundef 0) #9
   %122 = load i32, ptr @ett_dhcp_o43_bsdp_attributes, align 4
   %123 = tail call ptr @proto_item_add_subtree(ptr noundef %121, i32 noundef %122) #9
-  %124 = icmp ugt i8 %.0146.i, 1
+  %124 = icmp ugt i8 %.0145.i, 1
   br i1 %124, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %119, %.lr.ph.i
-  %.1159.i = phi i8 [ %129, %.lr.ph.i ], [ %.0146.i, %119 ]
-  %.1148158.i = phi i32 [ %128, %.lr.ph.i ], [ %37, %119 ]
+  %.1159.i = phi i32 [ %128, %.lr.ph.i ], [ %37, %119 ]
+  %.1147158.i = phi i8 [ %129, %.lr.ph.i ], [ %.0145.i, %119 ]
   %125 = load i32, ptr @hf_dhcp_option43_bsdp_boot_image_attribute, align 4
   %126 = load i32, ptr @ett_dhcp_o43_bsdp_attributes_flags, align 4
-  %127 = tail call ptr @proto_tree_add_bitmask(ptr noundef %123, ptr noundef %0, i32 noundef %.1148158.i, i32 noundef %125, i32 noundef %126, ptr noundef nonnull @dissect_vendor_bsdp_boot_image.dhcp_o43_bsdp_attributes_flags, i32 noundef 0) #9
-  %128 = add i32 %.1148158.i, 2
-  %129 = add i8 %.1159.i, -2
+  %127 = tail call ptr @proto_tree_add_bitmask(ptr noundef %123, ptr noundef %0, i32 noundef %.1159.i, i32 noundef %125, i32 noundef %126, ptr noundef nonnull @dissect_vendor_bsdp_boot_image.dhcp_o43_bsdp_attributes_flags, i32 noundef 0) #9
+  %128 = add i32 %.1159.i, 2
+  %129 = add i8 %.1147158.i, -2
   %130 = icmp ugt i8 %129, 1
   br i1 %130, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !55
 
@@ -8945,7 +8945,7 @@ define internal range(i32 0, 2) i32 @dissect_apple_bsdp_vendor_info_heur(ptr nou
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph162._crit_edge.i, %131, %119, %116, %86, %74, %62, %59, %56, %53, %50, %47, %44, %43
-  %134 = add i32 %.0144.i, %.016
+  %134 = add i32 %.0148.i, %.01316
   br label %dissect_vendor_bsdp_suboption.exit
 
 dissect_vendor_bsdp_suboption.exit:               ; preds = %21, %27, %41, %.loopexit.i
@@ -8955,8 +8955,8 @@ dissect_vendor_bsdp_suboption.exit:               ; preds = %21, %27, %41, %.loo
   br i1 %136, label %.lr.ph, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %dissect_vendor_bsdp_suboption.exit, %10, %4, %8
-  %.013 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 1, %10 ], [ 1, %dissect_vendor_bsdp_suboption.exit ]
-  ret i32 %.013
+  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 1, %10 ], [ 1, %dissect_vendor_bsdp_suboption.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8980,10 +8980,10 @@ define internal range(i32 0, 2) i32 @dissect_aerohive_vendor_info_heur(ptr nound
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %10, %dissect_vendor_aerohive_suboption.exit
-  %.015 = phi i32 [ %.0.i, %dissect_vendor_aerohive_suboption.exit ], [ 0, %10 ]
+  %.01315 = phi i32 [ %.0.i, %dissect_vendor_aerohive_suboption.exit ], [ 0, %10 ]
   %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.015) #9
-  %17 = add i32 %.015, 1
+  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.01315) #9
+  %17 = add i32 %.01315, 1
   %.not.i = icmp slt i32 %17, %15
   br i1 %.not.i, label %21, label %18
 
@@ -8999,12 +8999,12 @@ define internal range(i32 0, 2) i32 @dissect_aerohive_vendor_info_heur(ptr nound
   %25 = load i32, ptr @hf_dhcp_option43_aerohive_suboption, align 4
   %26 = zext i8 %16 to i32
   %27 = tail call ptr @val_to_str_const(i32 noundef %26, ptr noundef nonnull @option43_aerohive_suboption_vals, ptr noundef nonnull @.str.479) #9
-  %28 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %12, i32 noundef %25, ptr noundef %0, i32 noundef %.015, i32 noundef %24, i32 noundef %26, ptr noundef nonnull @.str.1950, i32 noundef %26, ptr noundef %27) #9
+  %28 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %12, i32 noundef %25, ptr noundef %0, i32 noundef %.01315, i32 noundef %24, i32 noundef %26, ptr noundef nonnull @.str.1950, i32 noundef %26, ptr noundef %27) #9
   %29 = load i32, ptr @ett_dhcp_option43_suboption, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #9
   %31 = load i32, ptr @hf_dhcp_suboption_length, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef 0) #9
-  %33 = add i32 %.015, 2
+  %33 = add i32 %.01315, 2
   %34 = add i32 %33, %23
   %35 = icmp sgt i32 %34, %15
   br i1 %35, label %36, label %38
@@ -9022,7 +9022,7 @@ define internal range(i32 0, 2) i32 @dissect_aerohive_vendor_info_heur(ptr nound
   %switch.select.val.i = select i1 %switch.selectcmp.i, i32 %hf_dhcp_option43_aerohive_xiqipaddress.val.i, i32 %hf_dhcp_option43_aerohive_unknown.val.i
   %39 = select i1 %switch.selectcmp50.i, i32 %hf_dhcp_option43_aerohive_xiqhostname.val.i, i32 %switch.select.val.i
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %39, ptr noundef %0, i32 noundef %33, i32 noundef %23, i32 noundef 0) #9
-  %41 = add i32 %24, %.015
+  %41 = add i32 %24, %.01315
   br label %dissect_vendor_aerohive_suboption.exit
 
 dissect_vendor_aerohive_suboption.exit:           ; preds = %18, %36, %38
@@ -9032,8 +9032,8 @@ dissect_vendor_aerohive_suboption.exit:           ; preds = %18, %36, %38
   br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %dissect_vendor_aerohive_suboption.exit, %10, %4, %8
-  %.013 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 1, %10 ], [ 1, %dissect_vendor_aerohive_suboption.exit ]
-  ret i32 %.013
+  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 1, %10 ], [ 1, %dissect_vendor_aerohive_suboption.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9057,10 +9057,10 @@ define internal range(i32 0, 2) i32 @dissect_cisco_vendor_info_heur(ptr noundef 
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %10, %dissect_vendor_cisco_suboption.exit
-  %.015 = phi i32 [ %.0.i, %dissect_vendor_cisco_suboption.exit ], [ 0, %10 ]
+  %.01315 = phi i32 [ %.0.i, %dissect_vendor_cisco_suboption.exit ], [ 0, %10 ]
   %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.015) #9
-  %17 = add i32 %.015, 1
+  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.01315) #9
+  %17 = add i32 %.01315, 1
   %.not.i = icmp slt i32 %17, %15
   br i1 %.not.i, label %21, label %18
 
@@ -9076,12 +9076,12 @@ define internal range(i32 0, 2) i32 @dissect_cisco_vendor_info_heur(ptr noundef 
   %25 = load i32, ptr @hf_dhcp_option43_cisco_suboption, align 4
   %26 = zext i8 %16 to i32
   %27 = tail call ptr @val_to_str_const(i32 noundef %26, ptr noundef nonnull @option43_cisco_suboption_vals, ptr noundef nonnull @.str.479) #9
-  %28 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %12, i32 noundef %25, ptr noundef %0, i32 noundef %.015, i32 noundef %24, i32 noundef %26, ptr noundef nonnull @.str.1950, i32 noundef %26, ptr noundef %27) #9
+  %28 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %12, i32 noundef %25, ptr noundef %0, i32 noundef %.01315, i32 noundef %24, i32 noundef %26, ptr noundef nonnull @.str.1950, i32 noundef %26, ptr noundef %27) #9
   %29 = load i32, ptr @ett_dhcp_option43_suboption, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #9
   %31 = load i32, ptr @hf_dhcp_suboption_length, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef 0) #9
-  %33 = add i32 %.015, 2
+  %33 = add i32 %.01315, 2
   %34 = add i32 %33, %23
   %35 = icmp sgt i32 %34, %15
   br i1 %35, label %36, label %38
@@ -9105,7 +9105,7 @@ switch.lookup:                                    ; preds = %38
   %hf_dhcp_option43_cisco_unknown.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ @hf_dhcp_option43_cisco_unknown, %38 ]
   %42 = load i32, ptr %hf_dhcp_option43_cisco_unknown.sink.i, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %42, ptr noundef %0, i32 noundef %33, i32 noundef %23, i32 noundef 0) #9
-  %44 = add i32 %24, %.015
+  %44 = add i32 %24, %.01315
   br label %dissect_vendor_cisco_suboption.exit
 
 dissect_vendor_cisco_suboption.exit:              ; preds = %18, %36, %41
@@ -9115,8 +9115,8 @@ dissect_vendor_cisco_suboption.exit:              ; preds = %18, %36, %41
   br i1 %46, label %.lr.ph, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %dissect_vendor_cisco_suboption.exit, %10, %4, %8
-  %.013 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 1, %10 ], [ 1, %dissect_vendor_cisco_suboption.exit ]
-  ret i32 %.013
+  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 1, %10 ], [ 1, %dissect_vendor_cisco_suboption.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

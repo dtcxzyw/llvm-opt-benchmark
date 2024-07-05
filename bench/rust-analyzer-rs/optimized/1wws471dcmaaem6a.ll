@@ -713,8 +713,8 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   resume { ptr, i32 } %21
 
 "_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17he3037f40bd4cd3acE.exit": ; preds = %12, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h61d908888feff8e4E.llvm.2856947585988979465.exit.i.i"
-  %.sroa.32.0.i.i = phi i32 [ %.sroa.3.0.copyload.i.i, %12 ], [ %30, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h61d908888feff8e4E.llvm.2856947585988979465.exit.i.i" ]
   %.sroa.01.0.i.i = phi i32 [ %.sroa.2.0.copyload.i.i, %12 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h61d908888feff8e4E.llvm.2856947585988979465.exit.i.i" ]
+  %.sroa.32.0.i.i = phi i32 [ %.sroa.3.0.copyload.i.i, %12 ], [ %30, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h61d908888feff8e4E.llvm.2856947585988979465.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !23
   store ptr %17, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -34823,8 +34823,8 @@ default.unreachable1268:                          ; preds = %1110, %1336, %696, 
   unreachable
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3221e571115e30ccE.exit": ; preds = %.noexc269, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h61d908888feff8e4E.llvm.2856947585988979465.exit.i.i.i"
-  %.sroa.32.0.i.i.i = phi i32 [ %.sroa.3.0.copyload.i.i.i, %.noexc269 ], [ %420, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h61d908888feff8e4E.llvm.2856947585988979465.exit.i.i.i" ]
   %.sroa.01.0.i.i.i = phi i32 [ %.sroa.2.0.copyload.i.i.i, %.noexc269 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h61d908888feff8e4E.llvm.2856947585988979465.exit.i.i.i" ]
+  %.sroa.32.0.i.i.i = phi i32 [ %.sroa.3.0.copyload.i.i.i, %.noexc269 ], [ %420, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h61d908888feff8e4E.llvm.2856947585988979465.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41), !noalias !5185
   %423 = icmp eq ptr %408, null
   br i1 %423, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3221e571115e30ccE.exit.thread", label %424

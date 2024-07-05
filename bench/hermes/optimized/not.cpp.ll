@@ -236,8 +236,8 @@ for.body.preheader:                               ; preds = %_ZNSt6vectorIN4llvh
 for.body:                                         ; preds = %for.body.preheader, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit ]
   %Argv.sroa.0.1173 = phi ptr [ %call5.i.i.i.i, %for.body.preheader ], [ %Argv.sroa.0.2, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit ]
-  %Argv.sroa.14.1172 = phi ptr [ %add.ptr21.i, %for.body.preheader ], [ %Argv.sroa.14.2, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit ]
-  %Argv.sroa.7.1171 = phi ptr [ %call5.i.i.i.i, %for.body.preheader ], [ %Argv.sroa.7.2, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit ]
+  %Argv.sroa.7.1172 = phi ptr [ %call5.i.i.i.i, %for.body.preheader ], [ %Argv.sroa.7.2, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit ]
+  %Argv.sroa.14.1171 = phi ptr [ %add.ptr21.i, %for.body.preheader ], [ %Argv.sroa.14.2, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit ]
   %arrayidx24 = getelementptr inbounds ptr, ptr %argv.addr.0151158, i64 %indvars.iv
   %19 = load ptr, ptr %arrayidx24, align 8
   %tobool.i72.not = icmp eq ptr %19, null
@@ -249,17 +249,17 @@ cond.true.i75:                                    ; preds = %for.body
 
 _ZN4llvh9StringRefC2EPKc.exit77:                  ; preds = %for.body, %cond.true.i75
   %cond.i74 = phi i64 [ %call.i76, %cond.true.i75 ], [ 0, %for.body ]
-  %cmp.not.i.i = icmp eq ptr %Argv.sroa.7.1171, %Argv.sroa.14.1172
+  %cmp.not.i.i = icmp eq ptr %Argv.sroa.7.1172, %Argv.sroa.14.1171
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i86
 
 if.then.i.i86:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit77
-  store ptr %19, ptr %Argv.sroa.7.1171, align 8
-  %ref.tmp23.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %Argv.sroa.7.1171, i64 8
+  store ptr %19, ptr %Argv.sroa.7.1172, align 8
+  %ref.tmp23.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %Argv.sroa.7.1172, i64 8
   store i64 %cond.i74, ptr %ref.tmp23.sroa.3.0..sroa_idx, align 8
   br label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit
 
 if.else.i.i:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit77
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %Argv.sroa.14.1172 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %Argv.sroa.7.1172 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %Argv.sroa.0.1173 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775792
@@ -290,7 +290,7 @@ _ZNSt12_Vector_baseIN4llvh9StringRefESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds
   store ptr %19, ptr %add.ptr.i.i.i, align 8
   %ref.tmp23.sroa.3.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   store i64 %cond.i74, ptr %ref.tmp23.sroa.3.0.add.ptr.i.i.i.sroa_idx, align 8
-  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %Argv.sroa.0.1173, %Argv.sroa.14.1172
+  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %Argv.sroa.0.1173, %Argv.sroa.7.1172
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN4llvh9StringRefESaIS1_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
@@ -299,7 +299,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 16
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %Argv.sroa.14.1172
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %Argv.sroa.7.1172
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !12
 
 _ZNSt6vectorIN4llvh9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvh9StringRefESaIS1_EE11_M_allocateEm.exit.i.i.i
@@ -316,8 +316,8 @@ _ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17_
   br label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit: ; preds = %if.then.i.i86, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
-  %__cur.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %Argv.sroa.7.1171, %if.then.i.i86 ]
-  %Argv.sroa.14.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %Argv.sroa.14.1172, %if.then.i.i86 ]
+  %Argv.sroa.14.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %Argv.sroa.14.1171, %if.then.i.i86 ]
+  %__cur.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %Argv.sroa.7.1172, %if.then.i.i86 ]
   %Argv.sroa.0.2 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %Argv.sroa.0.1173, %if.then.i.i86 ]
   %Argv.sroa.7.2 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.pn, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

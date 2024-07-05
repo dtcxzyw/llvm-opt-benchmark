@@ -1955,13 +1955,13 @@ for.end:                                          ; preds = %if.end11
 
 for.body21:                                       ; preds = %for.end, %for.body21
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %for.body21 ], [ 0, %for.end ]
-  %current.036 = phi ptr [ %add.ptr, %for.body21 ], [ %call13, %for.end ]
+  %current.035 = phi ptr [ %add.ptr, %for.body21 ], [ %call13, %for.end ]
   %arrayidx24 = getelementptr inbounds ptr, ptr %alpn_protocols, i64 %indvars.iv38
   %3 = load ptr, ptr %arrayidx24, align 8
   %call25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #20
   %conv26 = trunc i64 %call25 to i8
-  %incdec.ptr = getelementptr inbounds i8, ptr %current.036, i64 1
-  store i8 %conv26, ptr %current.036, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %current.035, i64 1
+  store i8 %conv26, ptr %current.035, align 1
   %4 = load ptr, ptr %arrayidx24, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr, ptr align 1 %4, i64 %call25, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %incdec.ptr, i64 %call25

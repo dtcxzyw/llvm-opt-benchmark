@@ -572,14 +572,14 @@ define i32 @load_regex_matcher(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %.0.ph158 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %106, %.outer ]
-  %.081.ph157 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %46, %.outer ]
+  %.081.ph158 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %106, %.outer ]
+  %.082.ph157 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %46, %.outer ]
   br label %44
 
 44:                                               ; preds = %.lr.ph, %.backedge
-  %.081154 = phi i32 [ %.081.ph157, %.lr.ph ], [ %46, %.backedge ]
+  %.082154 = phi i32 [ %.082.ph157, %.lr.ph ], [ %46, %.backedge ]
   %45 = call i32 @cli_chomp(ptr noundef nonnull %11) #13
-  %46 = add nsw i32 %.081154, 1
+  %46 = add nsw i32 %.082154, 1
   %47 = load i8, ptr %11, align 16
   switch i8 %47, label %48 [
     i8 35, label %.backedge
@@ -612,7 +612,7 @@ define i32 @load_regex_matcher(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %67
 
 62:                                               ; preds = %67
-  %63 = add i64 %.02635.i, 1
+  %63 = add i64 %.02735.i, 1
   %exitcond.not.i = icmp eq i64 %63, %61
   br i1 %exitcond.not.i, label %.preheader.i, label %67
 
@@ -627,8 +627,8 @@ define i32 @load_regex_matcher(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %76
 
 67:                                               ; preds = %62, %.lr.ph.i
-  %.02635.i = phi i64 [ 0, %.lr.ph.i ], [ %63, %62 ]
-  %68 = getelementptr inbounds i8, ptr %52, i64 %.02635.i
+  %.02735.i = phi i64 [ 0, %.lr.ph.i ], [ %63, %62 ]
+  %68 = getelementptr inbounds i8, ptr %52, i64 %.02735.i
   %69 = load i8, ptr %68, align 1
   %70 = sext i8 %69 to i64
   %71 = getelementptr inbounds i16, ptr %59, i64 %70
@@ -708,7 +708,7 @@ define i32 @load_regex_matcher(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %.not94, label %.outer._crit_edge, label %44
 
 105:                                              ; preds = %100, %.loopexit
-  %106 = add nuw nsw i32 %.0.ph158, 1
+  %106 = add nuw nsw i32 %.081.ph158, 1
   %107 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 58) #14
   %.not99 = icmp eq ptr %107, null
   br i1 %.not99, label %108, label %111
@@ -1007,7 +1007,7 @@ add_hash.exit:                                    ; preds = %.thread64.i, %214
   br i1 %.not94153, label %.outer._crit_edge, label %.lr.ph
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %30
-  %.0.ph.lcssa152 = phi i32 [ 0, %30 ], [ %.0.ph158, %.backedge ], [ %106, %.outer ]
+  %.081.ph.lcssa152 = phi i32 [ 0, %30 ], [ %.081.ph158, %.backedge ], [ %106, %.outer ]
   %222 = load i8, ptr %15, align 8
   %223 = and i8 %222, -13
   %224 = or disjoint i8 %223, 4
@@ -1017,7 +1017,7 @@ add_hash.exit:                                    ; preds = %.thread64.i, %214
 
 225:                                              ; preds = %.outer._crit_edge
   %226 = load i32, ptr %3, align 4
-  %227 = add i32 %226, %.0.ph.lcssa152
+  %227 = add i32 %226, %.081.ph.lcssa152
   store i32 %227, ptr %3, align 4
   br label %.loopexit123
 
@@ -1025,8 +1025,8 @@ add_hash.exit:                                    ; preds = %.thread64.i, %214
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %add_static_pattern.exit, %.loopexit123.loopexit296, %.thread, %.outer._crit_edge, %225, %14, %219, %.loopexit122, %130, %123, %108, %27, %21, %13
-  %.082 = phi i32 [ 2, %13 ], [ %132, %130 ], [ %218, %.loopexit122 ], [ 4, %219 ], [ 4, %123 ], [ 4, %108 ], [ %25, %27 ], [ 2, %21 ], [ 4, %14 ], [ 0, %225 ], [ 0, %.outer._crit_edge ], [ 20, %.thread ], [ 4, %.loopexit123.loopexit296 ], [ 20, %add_static_pattern.exit ]
-  ret i32 %.082
+  %.0 = phi i32 [ 2, %13 ], [ %132, %130 ], [ %218, %.loopexit122 ], [ 4, %219 ], [ 4, %123 ], [ 4, %108 ], [ %25, %27 ], [ 2, %21 ], [ 4, %14 ], [ 0, %225 ], [ 0, %.outer._crit_edge ], [ 20, %.thread ], [ 4, %.loopexit123.loopexit296 ], [ 20, %add_static_pattern.exit ]
+  ret i32 %.0
 }
 
 declare ptr @cli_dbgets(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1594,9 +1594,9 @@ add_newsuffix.exit:                               ; preds = %109
   br label %130
 
 126:                                              ; preds = %6, %9, %12, %16, %36, %58, %119, %123, %24
-  %.062.ph = phi ptr [ %14, %24 ], [ %14, %123 ], [ %14, %119 ], [ %14, %58 ], [ %14, %36 ], [ null, %16 ], [ null, %12 ], [ null, %9 ], [ null, %6 ]
-  %.0.ph = phi i32 [ 20, %24 ], [ %.064.i.ph, %123 ], [ %.064.i.ph, %119 ], [ 20, %58 ], [ 34, %36 ], [ 20, %16 ], [ 2, %12 ], [ 2, %9 ], [ 2, %6 ]
-  %127 = load ptr, ptr %.062.ph, align 8
+  %.062.ph = phi i32 [ 20, %24 ], [ %.064.i.ph, %123 ], [ %.064.i.ph, %119 ], [ 20, %58 ], [ 34, %36 ], [ 20, %16 ], [ 2, %12 ], [ 2, %9 ], [ 2, %6 ]
+  %.0.ph = phi ptr [ %14, %24 ], [ %14, %123 ], [ %14, %119 ], [ %14, %58 ], [ %14, %36 ], [ null, %16 ], [ null, %12 ], [ null, %9 ], [ null, %6 ]
+  %127 = load ptr, ptr %.0.ph, align 8
   %.not78 = icmp eq ptr %127, null
   br i1 %.not78, label %129, label %128
 
@@ -1605,12 +1605,12 @@ add_newsuffix.exit:                               ; preds = %109
   br label %129
 
 129:                                              ; preds = %126, %128
-  tail call void @free(ptr noundef nonnull %.062.ph) #13
+  tail call void @free(ptr noundef nonnull %.0.ph) #13
   br label %130
 
 130:                                              ; preds = %add_newsuffix.exit, %list_add_tail.exit, %129
-  %.088 = phi i32 [ %.0.ph, %129 ], [ 0, %list_add_tail.exit ], [ 0, %add_newsuffix.exit ]
-  ret i32 %.088
+  %.06287 = phi i32 [ %.062.ph, %129 ], [ 0, %list_add_tail.exit ], [ 0, %add_newsuffix.exit ]
+  ret i32 %.06287
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1670,7 +1670,7 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
 
 .preheader49:                                     ; preds = %.critedge, %34
   %.156 = phi i64 [ %33, %34 ], [ %.052, %.critedge ]
-  %.03855 = phi i64 [ %35, %34 ], [ %14, %.critedge ]
+  %.03955 = phi i64 [ %35, %34 ], [ %14, %.critedge ]
   br label %29
 
 .preheader:                                       ; preds = %34, %.critedge.thread, %.critedge
@@ -1687,7 +1687,7 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
   br i1 %32, label %29, label %34
 
 34:                                               ; preds = %29
-  %35 = add i64 %.03855, -1
+  %35 = add i64 %.03955, -1
   %36 = getelementptr inbounds i8, ptr %8, i64 %33
   %37 = load i8, ptr %36, align 1
   %38 = icmp ne i8 %37, 0
@@ -1722,8 +1722,8 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
   br label %53
 
 53:                                               ; preds = %.sink.split, %48, %4
-  %.039 = phi i8 [ 0, %4 ], [ 0, %48 ], [ %52, %.sink.split ]
-  ret i8 %.039
+  %.038 = phi i8 [ 0, %4 ], [ 0, %48 ], [ %52, %.sink.split ]
+  ret i8 %.038
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

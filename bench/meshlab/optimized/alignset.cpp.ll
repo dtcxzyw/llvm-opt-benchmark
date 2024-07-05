@@ -1559,8 +1559,8 @@ define noundef zeroext i1 @_ZN8AlignSet15RenderShadowMapEv(ptr noundef nonnull a
   br label %25
 
 25:                                               ; preds = %25, %1
-  %.049 = phi float [ 0x3FB99999A0000000, %1 ], [ %.150, %25 ]
-  %.048 = phi float [ 1.000000e+04, %1 ], [ %.1, %25 ]
+  %.049 = phi float [ 1.000000e+04, %1 ], [ %.150, %25 ]
+  %.048 = phi float [ 0x3FB99999A0000000, %1 ], [ %.1, %25 ]
   %.040.i = phi i1 [ true, %1 ], [ false, %25 ]
   %.02339.i = phi i32 [ 0, %1 ], [ %41, %25 ]
   %.zext.i = and i32 %.02339.i, 1
@@ -1580,23 +1580,23 @@ define noundef zeroext i1 @_ZN8AlignSet15RenderShadowMapEv(ptr noundef nonnull a
   %36 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i, float %33, float %35)
   %37 = fsub float %36, %21
   %38 = fneg float %37
-  %39 = fcmp ogt float %.049, %38
+  %39 = fcmp ogt float %.048, %38
   %or.cond.i = select i1 %.040.i, i1 true, i1 %39
-  %.150 = select i1 %or.cond.i, float %38, float %.049
-  %40 = fcmp olt float %.048, %38
+  %.1 = select i1 %or.cond.i, float %38, float %.048
+  %40 = fcmp olt float %.049, %38
   %or.cond26.i = select i1 %.040.i, i1 true, i1 %40
-  %.1 = select i1 %or.cond26.i, float %38, float %.048
+  %.150 = select i1 %or.cond26.i, float %38, float %.049
   %41 = add nuw nsw i32 %.02339.i, 1
   %exitcond.not.i = icmp eq i32 %41, 8
   br i1 %exitcond.not.i, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, label %25, !llvm.loop !22
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit: ; preds = %25
   %42 = getelementptr inbounds i8, ptr %0, i64 188
-  %43 = fcmp ugt float %.150, 0.000000e+00
-  %.251 = select i1 %43, float %.150, float 0x3FB99999A0000000
-  %44 = fcmp olt float %.1, %.251
-  %45 = fmul float %.1, 2.000000e+00
-  %46 = fmul float %.251, 5.000000e-01
+  %43 = fcmp ugt float %.1, 0.000000e+00
+  %.2 = select i1 %43, float %.1, float 0x3FB99999A0000000
+  %44 = fcmp olt float %.150, %.2
+  %45 = fmul float %.150, 2.000000e+00
+  %46 = fmul float %.2, 5.000000e-01
   %47 = select i1 %44, float 2.000000e+03, float %45
   tail call void @glMatrixMode(i32 noundef 5889)
   tail call void @glPushMatrix()
@@ -2164,8 +2164,8 @@ define noundef zeroext i1 @_ZN8AlignSet20RenderMultiShadowMapEv(ptr nocapture no
   br label %30
 
 30:                                               ; preds = %30, %1
-  %.0286 = phi float [ 0x3FB99999A0000000, %1 ], [ %.1287, %30 ]
-  %.0283 = phi float [ 1.000000e+04, %1 ], [ %.1, %30 ]
+  %.0286 = phi float [ 1.000000e+04, %1 ], [ %.1287, %30 ]
+  %.0283 = phi float [ 0x3FB99999A0000000, %1 ], [ %.1, %30 ]
   %.040.i = phi i1 [ true, %1 ], [ false, %30 ]
   %.02339.i = phi i32 [ 0, %1 ], [ %46, %30 ]
   %.zext.i = and i32 %.02339.i, 1
@@ -2185,22 +2185,22 @@ define noundef zeroext i1 @_ZN8AlignSet20RenderMultiShadowMapEv(ptr nocapture no
   %41 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i, float %38, float %40)
   %42 = fsub float %41, %26
   %43 = fneg float %42
-  %44 = fcmp ogt float %.0286, %43
+  %44 = fcmp ogt float %.0283, %43
   %or.cond.i = select i1 %.040.i, i1 true, i1 %44
-  %.1287 = select i1 %or.cond.i, float %43, float %.0286
-  %45 = fcmp olt float %.0283, %43
+  %.1 = select i1 %or.cond.i, float %43, float %.0283
+  %45 = fcmp olt float %.0286, %43
   %or.cond26.i = select i1 %.040.i, i1 true, i1 %45
-  %.1 = select i1 %or.cond26.i, float %43, float %.0283
+  %.1287 = select i1 %or.cond26.i, float %43, float %.0286
   %46 = add nuw nsw i32 %.02339.i, 1
   %exitcond.not.i = icmp eq i32 %46, 8
   br i1 %exitcond.not.i, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, label %30, !llvm.loop !22
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit: ; preds = %30
-  %47 = fcmp ugt float %.1287, 0.000000e+00
-  %.2288 = select i1 %47, float %.1287, float 0x3FB99999A0000000
-  %48 = fcmp olt float %.1, %.2288
-  %49 = fmul float %.1, 2.000000e+00
-  %50 = fmul float %.2288, 5.000000e-01
+  %47 = fcmp ugt float %.1, 0.000000e+00
+  %.2284 = select i1 %47, float %.1, float 0x3FB99999A0000000
+  %48 = fcmp olt float %.1287, %.2284
+  %49 = fmul float %.1287, 2.000000e+00
+  %50 = fmul float %.2284, 5.000000e-01
   %51 = select i1 %48, float 2.000000e+03, float %49
   tail call void @glMatrixMode(i32 noundef 5889)
   tail call void @glPushMatrix()
@@ -2523,8 +2523,8 @@ _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6v
   br label %174
 
 174:                                              ; preds = %174, %.noexc64
-  %.3289 = phi float [ 0x3FB99999A0000000, %.noexc64 ], [ %.4290, %174 ]
-  %.3 = phi float [ 1.000000e+04, %.noexc64 ], [ %.4285, %174 ]
+  %.3289 = phi float [ 1.000000e+04, %.noexc64 ], [ %.4290, %174 ]
+  %.3 = phi float [ 0x3FB99999A0000000, %.noexc64 ], [ %.4285, %174 ]
   %.040.i81 = phi i1 [ true, %.noexc64 ], [ false, %174 ]
   %.02339.i82 = phi i32 [ 0, %.noexc64 ], [ %190, %174 ]
   %.zext.i83 = and i32 %.02339.i82, 1
@@ -2544,22 +2544,22 @@ _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6v
   %185 = call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i75, float %182, float %184)
   %186 = fsub float %185, %170
   %187 = fneg float %186
-  %188 = fcmp ogt float %.3289, %187
+  %188 = fcmp ogt float %.3, %187
   %or.cond.i87 = select i1 %.040.i81, i1 true, i1 %188
-  %.4290 = select i1 %or.cond.i87, float %187, float %.3289
-  %189 = fcmp olt float %.3, %187
+  %.4285 = select i1 %or.cond.i87, float %187, float %.3
+  %189 = fcmp olt float %.3289, %187
   %or.cond26.i88 = select i1 %.040.i81, i1 true, i1 %189
-  %.4285 = select i1 %or.cond26.i88, float %187, float %.3
+  %.4290 = select i1 %or.cond26.i88, float %187, float %.3289
   %190 = add nuw nsw i32 %.02339.i82, 1
   %exitcond.not.i89 = icmp eq i32 %190, 8
   br i1 %exitcond.not.i89, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit90, label %174, !llvm.loop !22
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit90: ; preds = %174
-  %191 = fcmp ugt float %.4290, 0.000000e+00
-  %.5291 = select i1 %191, float %.4290, float 0x3FB99999A0000000
-  %192 = fcmp olt float %.4285, %.5291
-  %193 = fmul float %.4285, 2.000000e+00
-  %194 = fmul float %.5291, 5.000000e-01
+  %191 = fcmp ugt float %.4285, 0.000000e+00
+  %.5 = select i1 %191, float %.4285, float 0x3FB99999A0000000
+  %192 = fcmp olt float %.4290, %.5
+  %193 = fmul float %.4290, 2.000000e+00
+  %194 = fmul float %.5, 5.000000e-01
   %195 = select i1 %192, float 2.000000e+03, float %193
   call void @glMatrixMode(i32 noundef 5889)
   call void @glPushMatrix()
@@ -2881,8 +2881,8 @@ _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE9push_backERKS2_.exit152: ; preds = %_ZNS
   br label %313
 
 313:                                              ; preds = %313, %.noexc153
-  %.6292 = phi float [ 0x3FB99999A0000000, %.noexc153 ], [ %.7293, %313 ]
-  %.6 = phi float [ 1.000000e+04, %.noexc153 ], [ %.7, %313 ]
+  %.6292 = phi float [ 1.000000e+04, %.noexc153 ], [ %.7293, %313 ]
+  %.6 = phi float [ 0x3FB99999A0000000, %.noexc153 ], [ %.7, %313 ]
   %.040.i171 = phi i1 [ true, %.noexc153 ], [ false, %313 ]
   %.02339.i172 = phi i32 [ 0, %.noexc153 ], [ %329, %313 ]
   %.zext.i173 = and i32 %.02339.i172, 1
@@ -2902,22 +2902,22 @@ _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE9push_backERKS2_.exit152: ; preds = %_ZNS
   %324 = call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i165, float %321, float %323)
   %325 = fsub float %324, %309
   %326 = fneg float %325
-  %327 = fcmp ogt float %.6292, %326
+  %327 = fcmp ogt float %.6, %326
   %or.cond.i177 = select i1 %.040.i171, i1 true, i1 %327
-  %.7293 = select i1 %or.cond.i177, float %326, float %.6292
-  %328 = fcmp olt float %.6, %326
+  %.7 = select i1 %or.cond.i177, float %326, float %.6
+  %328 = fcmp olt float %.6292, %326
   %or.cond26.i178 = select i1 %.040.i171, i1 true, i1 %328
-  %.7 = select i1 %or.cond26.i178, float %326, float %.6
+  %.7293 = select i1 %or.cond26.i178, float %326, float %.6292
   %329 = add nuw nsw i32 %.02339.i172, 1
   %exitcond.not.i179 = icmp eq i32 %329, 8
   br i1 %exitcond.not.i179, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit180, label %313, !llvm.loop !22
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit180: ; preds = %313
-  %330 = fcmp ugt float %.7293, 0.000000e+00
-  %.8294 = select i1 %330, float %.7293, float 0x3FB99999A0000000
-  %331 = fcmp olt float %.7, %.8294
-  %332 = fmul float %.7, 2.000000e+00
-  %333 = fmul float %.8294, 5.000000e-01
+  %330 = fcmp ugt float %.7, 0.000000e+00
+  %.8 = select i1 %330, float %.7, float 0x3FB99999A0000000
+  %331 = fcmp olt float %.7293, %.8
+  %332 = fmul float %.7293, 2.000000e+00
+  %333 = fmul float %.8, 5.000000e-01
   %334 = select i1 %331, float 2.000000e+03, float %332
   call void @glMatrixMode(i32 noundef 5889)
   call void @glPushMatrix()
@@ -3468,8 +3468,8 @@ define void @_ZN8AlignSet11renderSceneERN3vcg4ShotIfNS0_8Matrix44IfEEEEib(ptr no
   br label %26
 
 26:                                               ; preds = %26, %15
-  %.090 = phi float [ 0x3FB99999A0000000, %15 ], [ %.191, %26 ]
-  %.089 = phi float [ 1.000000e+04, %15 ], [ %.1, %26 ]
+  %.090 = phi float [ 1.000000e+04, %15 ], [ %.191, %26 ]
+  %.089 = phi float [ 0x3FB99999A0000000, %15 ], [ %.1, %26 ]
   %.040.i = phi i1 [ true, %15 ], [ false, %26 ]
   %.02339.i = phi i32 [ 0, %15 ], [ %42, %26 ]
   %.zext.i = and i32 %.02339.i, 1
@@ -3489,21 +3489,21 @@ define void @_ZN8AlignSet11renderSceneERN3vcg4ShotIfNS0_8Matrix44IfEEEEib(ptr no
   %37 = call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i, float %34, float %36)
   %38 = fsub float %37, %22
   %39 = fneg float %38
-  %40 = fcmp ogt float %.090, %39
+  %40 = fcmp ogt float %.089, %39
   %or.cond.i = select i1 %.040.i, i1 true, i1 %40
-  %.191 = select i1 %or.cond.i, float %39, float %.090
-  %41 = fcmp olt float %.089, %39
+  %.1 = select i1 %or.cond.i, float %39, float %.089
+  %41 = fcmp olt float %.090, %39
   %or.cond26.i = select i1 %.040.i, i1 true, i1 %41
-  %.1 = select i1 %or.cond26.i, float %39, float %.089
+  %.191 = select i1 %or.cond26.i, float %39, float %.090
   %42 = add nuw nsw i32 %.02339.i, 1
   %exitcond.not.i = icmp eq i32 %42, 8
   br i1 %exitcond.not.i, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, label %26, !llvm.loop !22
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit: ; preds = %26
-  %43 = fcmp ugt float %.191, 0.000000e+00
-  %.292 = select i1 %43, float %.191, float 0x3FB99999A0000000
-  %44 = fcmp olt float %.1, %.292
-  %45 = fmul float %.1, 2.000000e+00
+  %43 = fcmp ugt float %.1, 0.000000e+00
+  %.2 = select i1 %43, float %.1, float 0x3FB99999A0000000
+  %44 = fcmp olt float %.191, %.2
+  %45 = fmul float %.191, 2.000000e+00
   %46 = invoke noundef zeroext i1 @_ZN20QGLFramebufferObject4bindEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %49 unwind label %.loopexit.split-lp
 
@@ -3523,7 +3523,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
           to label %53 unwind label %.loopexit.split-lp
 
 53:                                               ; preds = %52
-  %54 = fmul float %.292, 5.000000e-01
+  %54 = fmul float %.2, 5.000000e-01
   %55 = select i1 %44, float 2.000000e+03, float %45
   invoke void @glMatrixMode(i32 noundef 5889)
           to label %.noexc unwind label %.loopexit.split-lp
@@ -3592,10 +3592,10 @@ switch.lookup:                                    ; preds = %_ZN6GlShotIN3vcg4Sh
   br label %63
 
 63:                                               ; preds = %switch.lookup, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit
-  %.057 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked, %switch.lookup ]
-  %.056 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked99, %switch.lookup ]
-  %.055 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked103, %switch.lookup ]
-  %.054 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked107, %switch.lookup ]
+  %.059 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked, %switch.lookup ]
+  %.058 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked99, %switch.lookup ]
+  %.057 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked103, %switch.lookup ]
+  %.056 = phi i1 [ false, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit ], [ %switch.masked107, %switch.lookup ]
   invoke void @glDisable(i32 noundef 2896)
           to label %64 unwind label %.loopexit.split-lp
 
@@ -3631,7 +3631,7 @@ switch.lookup:                                    ; preds = %_ZN6GlShotIN3vcg4Sh
           to label %77 unwind label %.loopexit.split-lp
 
 77:                                               ; preds = %75
-  br i1 %.057, label %78, label %84
+  br i1 %.059, label %78, label %84
 
 78:                                               ; preds = %77
   %79 = load ptr, ptr @__glewBindBufferARB, align 8
@@ -3649,7 +3649,7 @@ switch.lookup:                                    ; preds = %_ZN6GlShotIN3vcg4Sh
           to label %84 unwind label %.loopexit.split-lp
 
 84:                                               ; preds = %83, %77
-  br i1 %.056, label %85, label %91
+  br i1 %.058, label %85, label %91
 
 85:                                               ; preds = %84
   %86 = load ptr, ptr @__glewBindBufferARB, align 8
@@ -3667,7 +3667,7 @@ switch.lookup:                                    ; preds = %_ZN6GlShotIN3vcg4Sh
           to label %91 unwind label %.loopexit.split-lp
 
 91:                                               ; preds = %90, %84
-  br i1 %.055, label %92, label %120
+  br i1 %.057, label %92, label %120
 
 92:                                               ; preds = %91
   %93 = load ptr, ptr @__glewGetUniformLocation, align 8
@@ -3728,7 +3728,7 @@ switch.lookup:                                    ; preds = %_ZN6GlShotIN3vcg4Sh
           to label %120 unwind label %.loopexit.split-lp
 
 120:                                              ; preds = %118, %91
-  br i1 %.054, label %121, label %228
+  br i1 %.056, label %121, label %228
 
 121:                                              ; preds = %120
   %122 = load ptr, ptr @__glewGetUniformLocation, align 8
@@ -3973,7 +3973,7 @@ switch.lookup:                                    ; preds = %_ZN6GlShotIN3vcg4Sh
           to label %.loopexit unwind label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %238, %247
-  br i1 %.055, label %250, label %256
+  br i1 %.057, label %250, label %256
 
 250:                                              ; preds = %.loopexit
   %251 = load ptr, ptr @__glewActiveTexture, align 8
@@ -3994,7 +3994,7 @@ switch.lookup:                                    ; preds = %_ZN6GlShotIN3vcg4Sh
           to label %256 unwind label %.loopexit.split-lp
 
 256:                                              ; preds = %255, %.loopexit
-  br i1 %.054, label %257, label %275
+  br i1 %.056, label %257, label %275
 
 257:                                              ; preds = %256
   %258 = load ptr, ptr @__glewActiveTexture, align 8
@@ -4094,14 +4094,14 @@ switch.lookup108:                                 ; preds = %288
           to label %294 unwind label %.loopexit.split-lp
 
 294:                                              ; preds = %293
-  br i1 %.057, label %295, label %296
+  br i1 %.059, label %295, label %296
 
 295:                                              ; preds = %294
   invoke void @glDisableClientState(i32 noundef 32886)
           to label %296 unwind label %.loopexit.split-lp
 
 296:                                              ; preds = %295, %294
-  br i1 %.056, label %297, label %298
+  br i1 %.058, label %297, label %298
 
 297:                                              ; preds = %296
   invoke void @glDisableClientState(i32 noundef 32885)

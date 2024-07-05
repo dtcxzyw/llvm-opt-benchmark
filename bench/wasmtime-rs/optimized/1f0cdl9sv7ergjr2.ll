@@ -1052,8 +1052,8 @@ define noundef align 8 dereferenceable(32) ptr @_ZN16wasmtime_runtime9component9
   unreachable
 
 13:                                               ; preds = %4, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit"
-  %.05 = phi ptr [ %23, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit" ], [ %6, %4 ]
-  ret ptr %.05
+  %.06 = phi ptr [ %23, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit" ], [ %6, %4 ]
+  ret ptr %.06
 
 14:                                               ; preds = %8
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.764a2583fb810618b3ddee9b3a33c6c4.38.llvm.7252875092725274804) #28
@@ -1124,14 +1124,14 @@ define void @_ZN16wasmtime_runtime9component9resources14ResourceTables12resource
   br label %_ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit
 
 _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit: ; preds = %7, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i"
-  %.05.i = phi ptr [ %25, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %9, %7 ]
+  %.06.i = phi ptr [ %25, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %9, %7 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %26 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %4, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 0, ptr %27, align 8
   store i32 1, ptr %6, align 8
-  call void @_ZN16wasmtime_runtime9component9resources13ResourceTable6insert17hd31e96378db4e29eE.llvm.7252875092725274804(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %.05.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6)
+  call void @_ZN16wasmtime_runtime9component9resources13ResourceTable6insert17hd31e96378db4e29eE.llvm.7252875092725274804(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %.06.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret void
 }
@@ -1184,7 +1184,7 @@ define void @_ZN16wasmtime_runtime9component9resources14ResourceTables12resource
   br label %_ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit
 
 _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit: ; preds = %9, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i"
-  %.05.i = phi ptr [ %27, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %11, %9 ]
+  %.06.i = phi ptr [ %27, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %11, %9 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -1195,9 +1195,9 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
 28:                                               ; preds = %_ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit
   %29 = add i32 %4, -1
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %.05.i, i64 8
+  %31 = getelementptr inbounds i8, ptr %.06.i, i64 8
   %.val.i = load ptr, ptr %31, align 8, !alias.scope !235, !noalias !232
-  %32 = getelementptr inbounds i8, ptr %.05.i, i64 16
+  %32 = getelementptr inbounds i8, ptr %.06.i, i64 16
   %.val10.i = load i64, ptr %32, align 8, !alias.scope !235, !noalias !232, !noundef !14
   %33 = icmp ule i64 %.val10.i, %30
   %34 = getelementptr inbounds { i32, [3 x i32] }, ptr %.val.i, i64 %30
@@ -1295,9 +1295,9 @@ define void @_ZN16wasmtime_runtime9component9resources14ResourceTables13resource
   br label %_ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit
 
 _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit: ; preds = %10, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i"
-  %.05.i = phi ptr [ %28, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %12, %10 ]
+  %.06.i = phi ptr [ %28, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %12, %10 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !254)
-  %29 = getelementptr inbounds i8, ptr %.05.i, i64 24
+  %29 = getelementptr inbounds i8, ptr %.06.i, i64 24
   %30 = load i32, ptr %29, align 8, !alias.scope !254, !noalias !257, !noundef !14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !259)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8), !noalias !262
@@ -1308,13 +1308,13 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
 31:                                               ; preds = %_ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit
   %32 = add i32 %4, -1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %.05.i, i64 16
+  %34 = getelementptr inbounds i8, ptr %.06.i, i64 16
   %35 = load i64, ptr %34, align 8, !alias.scope !264, !noalias !257, !noundef !14
   %36 = icmp ugt i64 %35, %33
   br i1 %36, label %37, label %45
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %.05.i, i64 8
+  %38 = getelementptr inbounds i8, ptr %.06.i, i64 8
   %39 = load ptr, ptr %38, align 8, !alias.scope !264, !noalias !257, !nonnull !14
   %40 = getelementptr inbounds { i32, [3 x i32] }, ptr %39, i64 %33
   %41 = load i32, ptr %40, align 8, !range !244, !noalias !262, !noundef !14
@@ -1460,14 +1460,14 @@ define void @_ZN16wasmtime_runtime9component9resources14ResourceTables18resource
   br label %_ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit
 
 _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit: ; preds = %7, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i"
-  %.05.i = phi ptr [ %25, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %9, %7 ]
+  %.06.i = phi ptr [ %25, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %9, %7 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %26 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %4, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 0, ptr %27, align 8
   store i32 1, ptr %6, align 8
-  call void @_ZN16wasmtime_runtime9component9resources13ResourceTable6insert17hd31e96378db4e29eE.llvm.7252875092725274804(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %.05.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6)
+  call void @_ZN16wasmtime_runtime9component9resources13ResourceTable6insert17hd31e96378db4e29eE.llvm.7252875092725274804(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %.06.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret void
 }
@@ -1522,9 +1522,9 @@ define void @_ZN16wasmtime_runtime9component9resources14ResourceTables17resource
   br label %_ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit
 
 _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit: ; preds = %11, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i"
-  %.05.i = phi ptr [ %29, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %13, %11 ]
+  %.06.i = phi ptr [ %29, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %13, %11 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !291)
-  %30 = getelementptr inbounds i8, ptr %.05.i, i64 24
+  %30 = getelementptr inbounds i8, ptr %.06.i, i64 24
   %31 = load i32, ptr %30, align 8, !alias.scope !291, !noalias !294, !noundef !14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8), !noalias !299
@@ -1535,13 +1535,13 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
 32:                                               ; preds = %_ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit
   %33 = add i32 %4, -1
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %.05.i, i64 16
+  %35 = getelementptr inbounds i8, ptr %.06.i, i64 16
   %36 = load i64, ptr %35, align 8, !alias.scope !301, !noalias !294, !noundef !14
   %37 = icmp ugt i64 %36, %34
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %.05.i, i64 8
+  %39 = getelementptr inbounds i8, ptr %.06.i, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !301, !noalias !294, !nonnull !14
   %41 = getelementptr inbounds { i32, [3 x i32] }, ptr %40, i64 %34
   %42 = load i32, ptr %41, align 8, !range !244, !noalias !299, !noundef !14
@@ -1682,7 +1682,7 @@ define void @_ZN16wasmtime_runtime9component9resources14ResourceTables20resource
   br label %_ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit
 
 _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit: ; preds = %9, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i"
-  %.05.i = phi ptr [ %27, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %11, %9 ]
+  %.06.i = phi ptr [ %27, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %11, %9 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !319)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 %4, ptr %8, align 4, !noalias !319
@@ -1692,13 +1692,13 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
 28:                                               ; preds = %_ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit
   %29 = add i32 %4, -1
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %.05.i, i64 16
+  %31 = getelementptr inbounds i8, ptr %.06.i, i64 16
   %32 = load i64, ptr %31, align 8, !alias.scope !322, !noundef !14
   %33 = icmp ugt i64 %32, %30
   br i1 %33, label %34, label %41
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %.05.i, i64 8
+  %35 = getelementptr inbounds i8, ptr %.06.i, i64 8
   %36 = load ptr, ptr %35, align 8, !alias.scope !322, !nonnull !14
   %37 = getelementptr inbounds { i32, [3 x i32] }, ptr %36, i64 %30
   %38 = load i32, ptr %37, align 8, !range !244, !noundef !14
@@ -1878,14 +1878,14 @@ define void @_ZN16wasmtime_runtime9component9resources14ResourceTables21resource
   br label %_ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit
 
 _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit: ; preds = %22, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i"
-  %.05.i = phi ptr [ %40, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %24, %22 ]
+  %.06.i = phi ptr [ %40, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %24, %22 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %41 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %4, ptr %41, align 4
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %10, ptr %42, align 8
   store i32 2, ptr %6, align 8
-  call void @_ZN16wasmtime_runtime9component9resources13ResourceTable6insert17hd31e96378db4e29eE.llvm.7252875092725274804(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %.05.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6)
+  call void @_ZN16wasmtime_runtime9component9resources13ResourceTable6insert17hd31e96378db4e29eE.llvm.7252875092725274804(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %.06.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret void
 }

@@ -374,8 +374,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %switch.lookup, %sw.bb36.i, %sw.bb35.i, %if.then5.i41.i, %if.then2.i43.i, %sw.bb20.i, %if.then5.i35.i, %if.then2.i37.i, %sw.bb13.i, %if.then5.i.i, %if.then2.i.i, %sw.bb.i, %cryptodev_builtin_get_unused_session_index.exit.i
-  %algo.0.i = phi i32 [ 4, %sw.bb36.i ], [ 4, %sw.bb35.i ], [ 4, %cryptodev_builtin_get_unused_session_index.exit.i ], [ 2, %if.then5.i.i ], [ 0, %sw.bb.i ], [ 1, %if.then2.i.i ], [ 2, %if.then5.i35.i ], [ 0, %sw.bb13.i ], [ 1, %if.then2.i37.i ], [ 2, %if.then5.i41.i ], [ 0, %sw.bb20.i ], [ 1, %if.then2.i43.i ], [ %switch.load, %switch.lookup ]
-  %mode.0.i = phi i32 [ 3, %sw.bb36.i ], [ 1, %sw.bb35.i ], [ 0, %cryptodev_builtin_get_unused_session_index.exit.i ], [ 0, %if.then5.i.i ], [ 0, %sw.bb.i ], [ 0, %if.then2.i.i ], [ 1, %if.then5.i35.i ], [ 1, %sw.bb13.i ], [ 1, %if.then2.i37.i ], [ 3, %if.then5.i41.i ], [ 3, %sw.bb20.i ], [ 3, %if.then2.i43.i ], [ 2, %switch.lookup ]
+  %mode.0.i = phi i32 [ 3, %sw.bb36.i ], [ 1, %sw.bb35.i ], [ 0, %cryptodev_builtin_get_unused_session_index.exit.i ], [ 0, %if.then2.i.i ], [ 0, %sw.bb.i ], [ 0, %if.then5.i.i ], [ 1, %if.then2.i37.i ], [ 1, %sw.bb13.i ], [ 1, %if.then5.i35.i ], [ 3, %if.then2.i43.i ], [ 3, %sw.bb20.i ], [ 3, %if.then5.i41.i ], [ 2, %switch.lookup ]
+  %algo.0.i = phi i32 [ 4, %sw.bb36.i ], [ 4, %sw.bb35.i ], [ 4, %cryptodev_builtin_get_unused_session_index.exit.i ], [ 1, %if.then2.i.i ], [ 0, %sw.bb.i ], [ 2, %if.then5.i.i ], [ 1, %if.then2.i37.i ], [ 0, %sw.bb13.i ], [ 2, %if.then5.i35.i ], [ 1, %if.then2.i43.i ], [ 0, %sw.bb20.i ], [ 2, %if.then5.i41.i ], [ %switch.load, %switch.lookup ]
   %cipher_key.i = getelementptr inbounds i8, ptr %sess_info, i64 40
   %12 = load ptr, ptr %cipher_key.i, align 8
   %key_len38.i = getelementptr inbounds i8, ptr %sess_info, i64 12

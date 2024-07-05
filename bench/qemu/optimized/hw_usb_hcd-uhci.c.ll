@@ -1791,9 +1791,9 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %5 = phi i32 [ %4, %for.body.lr.ph ], [ %86, %for.inc ]
-  %cnt.0161 = phi i32 [ 256, %for.body.lr.ph ], [ %dec, %for.inc ]
-  %td_count.0160 = phi i32 [ 0, %for.body.lr.ph ], [ %td_count.2, %for.inc ]
-  %curr_qh.0159 = phi i32 [ 0, %for.body.lr.ph ], [ %curr_qh.1, %for.inc ]
+  %curr_qh.0161 = phi i32 [ 0, %for.body.lr.ph ], [ %curr_qh.1, %for.inc ]
+  %cnt.0160 = phi i32 [ 256, %for.body.lr.ph ], [ %dec, %for.inc ]
+  %td_count.0159 = phi i32 [ 0, %for.body.lr.ph ], [ %td_count.2, %for.inc ]
   %6 = load i8, ptr %completions_only, align 16
   %tobool4 = trunc i8 %6 to i1
   br i1 %tobool4, label %if.end, label %land.lhs.true
@@ -1915,7 +1915,7 @@ qhdb_insert.exit:                                 ; preds = %trace_usb_uhci_qh_l
   br label %if.end18
 
 if.then12:                                        ; preds = %for.body.i, %for.end.i
-  %cmp13 = icmp eq i32 %td_count.0160, 0
+  %cmp13 = icmp eq i32 %td_count.0159, 0
   br i1 %cmp13, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.then12
@@ -1996,7 +1996,7 @@ qhdb_insert.exit86:                               ; preds = %if.else, %land.lhs.
 
 if.end18:                                         ; preds = %qhdb_insert.exit, %qhdb_insert.exit86
   %38 = phi i32 [ %37, %qhdb_insert.exit86 ], [ %22, %qhdb_insert.exit ]
-  %td_count.1 = phi i32 [ 0, %qhdb_insert.exit86 ], [ %td_count.0160, %qhdb_insert.exit ]
+  %td_count.1 = phi i32 [ 0, %qhdb_insert.exit86 ], [ %td_count.0159, %qhdb_insert.exit ]
   %and20 = and i32 %38, -16
   %conv21 = zext i32 %and20 to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
@@ -2022,7 +2022,7 @@ if.end32:                                         ; preds = %if.end
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   fence seq_cst
   %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %conv.i92, i32 1, ptr noundef nonnull %td, i64 noundef 16, i1 noundef zeroext false) #10
-  %and33 = and i32 %curr_qh.0159, -16
+  %and33 = and i32 %curr_qh.0161, -16
   %42 = load i32, ptr %link, align 4
   %and34 = and i32 %42, -16
   %43 = load i32, ptr %ctrl, align 4
@@ -2062,7 +2062,7 @@ trace_usb_uhci_td_load.exit:                      ; preds = %if.end32, %land.lhs
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i93)
   %51 = load i32, ptr %ctrl, align 4
   %52 = load i32, ptr %link, align 4
-  %call36 = call fastcc i32 @uhci_handle_td(ptr noundef nonnull %s, ptr noundef null, i32 noundef %curr_qh.0159, ptr noundef nonnull %td, i32 noundef %52, ptr noundef nonnull %int_mask)
+  %call36 = call fastcc i32 @uhci_handle_td(ptr noundef nonnull %s, ptr noundef null, i32 noundef %curr_qh.0161, ptr noundef nonnull %td, i32 noundef %52, ptr noundef nonnull %int_mask)
   %53 = load i32, ptr %ctrl, align 4
   %cmp38.not = icmp eq i32 %51, %53
   br i1 %cmp38.not, label %if.end48, label %if.then40
@@ -2123,7 +2123,7 @@ if.else.i.i118:                                   ; preds = %if.then.i.i116
 
 trace_usb_uhci_td_nextqh.exit:                    ; preds = %sw.bb49, %land.lhs.true5.i.i113, %if.then8.i.i119, %if.else.i.i118
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i109)
-  %tobool52.not = icmp eq i32 %curr_qh.0159, 0
+  %tobool52.not = icmp eq i32 %curr_qh.0161, 0
   %62 = load i32, ptr %qh, align 4
   %63 = load i32, ptr %td, align 4
   %cond = select i1 %tobool52.not, i32 %63, i32 %62
@@ -2166,7 +2166,7 @@ if.else.i.i132:                                   ; preds = %if.then.i.i130
 
 trace_usb_uhci_td_async.exit:                     ; preds = %sw.bb55, %land.lhs.true5.i.i127, %if.then8.i.i133, %if.else.i.i132
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i123)
-  %tobool58.not = icmp eq i32 %curr_qh.0159, 0
+  %tobool58.not = icmp eq i32 %curr_qh.0161, 0
   %71 = load i32, ptr %qh, align 4
   %72 = load i32, ptr %td, align 4
   %cond64 = select i1 %tobool58.not, i32 %72, i32 %71
@@ -2211,14 +2211,14 @@ trace_usb_uhci_td_complete.exit:                  ; preds = %sw.bb65, %land.lhs.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i137)
   %80 = load i32, ptr %td, align 4
   store i32 %80, ptr %link, align 4
-  %inc = add i32 %td_count.0160, 1
+  %inc = add i32 %td_count.0159, 1
   %81 = load i32, ptr %ctrl, align 4
   %and70 = and i32 %81, 2047
   %add71 = add nuw nsw i32 %and70, 1
   %82 = load i32, ptr %frame_bytes, align 8
   %add73 = add i32 %add71, %82
   store i32 %add73, ptr %frame_bytes, align 8
-  %tobool74.not = icmp eq i32 %curr_qh.0159, 0
+  %tobool74.not = icmp eq i32 %curr_qh.0161, 0
   br i1 %tobool74.not, label %for.inc, label %if.then75
 
 if.then75:                                        ; preds = %trace_usb_uhci_td_complete.exit
@@ -2244,9 +2244,9 @@ default.unreachable162:                           ; preds = %if.end48
 
 for.inc:                                          ; preds = %if.then75, %if.then86, %trace_usb_uhci_td_complete.exit, %if.then27, %if.else29, %trace_usb_uhci_td_async.exit, %trace_usb_uhci_td_nextqh.exit
   %86 = phi i32 [ %39, %if.else29 ], [ %40, %if.then27 ], [ %83, %if.then75 ], [ %85, %if.then86 ], [ %80, %trace_usb_uhci_td_complete.exit ], [ %cond64, %trace_usb_uhci_td_async.exit ], [ %cond, %trace_usb_uhci_td_nextqh.exit ]
-  %curr_qh.1 = phi i32 [ %41, %if.else29 ], [ 0, %if.then27 ], [ %curr_qh.0159, %if.then75 ], [ 0, %if.then86 ], [ 0, %trace_usb_uhci_td_complete.exit ], [ %curr_qh.0159, %trace_usb_uhci_td_async.exit ], [ %curr_qh.0159, %trace_usb_uhci_td_nextqh.exit ]
-  %td_count.2 = phi i32 [ %td_count.1, %if.else29 ], [ %td_count.1, %if.then27 ], [ %inc, %if.then75 ], [ %inc, %if.then86 ], [ %inc, %trace_usb_uhci_td_complete.exit ], [ %td_count.0160, %trace_usb_uhci_td_async.exit ], [ %td_count.0160, %trace_usb_uhci_td_nextqh.exit ]
-  %dec = add nsw i32 %cnt.0161, -1
+  %td_count.2 = phi i32 [ %td_count.1, %if.else29 ], [ %td_count.1, %if.then27 ], [ %inc, %if.then75 ], [ %inc, %if.then86 ], [ %inc, %trace_usb_uhci_td_complete.exit ], [ %td_count.0159, %trace_usb_uhci_td_async.exit ], [ %td_count.0159, %trace_usb_uhci_td_nextqh.exit ]
+  %curr_qh.1 = phi i32 [ %41, %if.else29 ], [ 0, %if.then27 ], [ %curr_qh.0161, %if.then75 ], [ 0, %if.then86 ], [ 0, %trace_usb_uhci_td_complete.exit ], [ %curr_qh.0161, %trace_usb_uhci_td_async.exit ], [ %curr_qh.0161, %trace_usb_uhci_td_nextqh.exit ]
+  %dec = add nsw i32 %cnt.0160, -1
   %and.i = and i32 %86, 1
   %tobool = icmp eq i32 %and.i, 0
   %tobool3 = icmp ne i32 %dec, 0

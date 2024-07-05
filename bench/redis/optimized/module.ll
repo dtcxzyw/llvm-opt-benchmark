@@ -2231,7 +2231,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %flags.046 = phi i64 [ 0, %for.body.preheader ], [ %flags.1, %for.inc ]
+  %flags.045 = phi i64 [ 0, %for.body.preheader ], [ %flags.1, %for.inc ]
   %arrayidx = getelementptr inbounds ptr, ptr %call1, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %call2 = call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.5) #36
@@ -2239,7 +2239,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %or = or i64 %flags.046, 1
+  %or = or i64 %flags.045, 1
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
@@ -2248,7 +2248,7 @@ if.else:                                          ; preds = %for.body
   br i1 %tobool4.not, label %if.then5, label %if.else7
 
 if.then5:                                         ; preds = %if.else
-  %or6 = or i64 %flags.046, 2
+  %or6 = or i64 %flags.045, 2
   br label %for.inc
 
 if.else7:                                         ; preds = %if.else
@@ -2257,7 +2257,7 @@ if.else7:                                         ; preds = %if.else
   br i1 %tobool9.not, label %if.then10, label %if.else12
 
 if.then10:                                        ; preds = %if.else7
-  %or11 = or i64 %flags.046, 16
+  %or11 = or i64 %flags.045, 16
   br label %for.inc
 
 if.else12:                                        ; preds = %if.else7
@@ -2266,7 +2266,7 @@ if.else12:                                        ; preds = %if.else7
   br i1 %tobool14.not, label %if.then15, label %if.else17
 
 if.then15:                                        ; preds = %if.else12
-  %or16 = or i64 %flags.046, 4
+  %or16 = or i64 %flags.045, 4
   br label %for.inc
 
 if.else17:                                        ; preds = %if.else12
@@ -2275,7 +2275,7 @@ if.else17:                                        ; preds = %if.else12
   br i1 %tobool19.not, label %if.then20, label %if.else22
 
 if.then20:                                        ; preds = %if.else17
-  %or21 = or i64 %flags.046, 64
+  %or21 = or i64 %flags.045, 64
   br label %for.inc
 
 if.else22:                                        ; preds = %if.else17
@@ -2284,7 +2284,7 @@ if.else22:                                        ; preds = %if.else17
   br i1 %tobool24.not, label %if.then25, label %if.else27
 
 if.then25:                                        ; preds = %if.else22
-  %or26 = or i64 %flags.046, 512
+  %or26 = or i64 %flags.045, 512
   br label %for.inc
 
 if.else27:                                        ; preds = %if.else22
@@ -2293,7 +2293,7 @@ if.else27:                                        ; preds = %if.else22
   br i1 %tobool29.not, label %if.then30, label %if.else32
 
 if.then30:                                        ; preds = %if.else27
-  %or31 = or i64 %flags.046, 32
+  %or31 = or i64 %flags.045, 32
   br label %for.inc
 
 if.else32:                                        ; preds = %if.else27
@@ -2307,7 +2307,7 @@ if.else36:                                        ; preds = %if.else32
   br i1 %tobool38.not, label %if.then39, label %if.else41
 
 if.then39:                                        ; preds = %if.else36
-  %or40 = or i64 %flags.046, 256
+  %or40 = or i64 %flags.045, 256
   br label %for.inc
 
 if.else41:                                        ; preds = %if.else36
@@ -2316,7 +2316,7 @@ if.else41:                                        ; preds = %if.else36
   br i1 %tobool43.not, label %if.then44, label %if.else46
 
 if.then44:                                        ; preds = %if.else41
-  %or45 = or i64 %flags.046, 1024
+  %or45 = or i64 %flags.045, 1024
   br label %for.inc
 
 if.else46:                                        ; preds = %if.else41
@@ -2325,7 +2325,7 @@ if.else46:                                        ; preds = %if.else41
   br i1 %tobool48.not, label %if.then49, label %if.else51
 
 if.then49:                                        ; preds = %if.else46
-  %or50 = or i64 %flags.046, 2048
+  %or50 = or i64 %flags.045, 2048
   br label %for.inc
 
 if.else51:                                        ; preds = %if.else46
@@ -2334,7 +2334,7 @@ if.else51:                                        ; preds = %if.else46
   br i1 %tobool53.not, label %if.then54, label %if.else56
 
 if.then54:                                        ; preds = %if.else51
-  %or55 = or i64 %flags.046, 4096
+  %or55 = or i64 %flags.045, 4096
   br label %for.inc
 
 if.else56:                                        ; preds = %if.else51
@@ -2343,7 +2343,7 @@ if.else56:                                        ; preds = %if.else51
   br i1 %tobool58.not, label %if.then59, label %if.else61
 
 if.then59:                                        ; preds = %if.else56
-  %or60 = or i64 %flags.046, 16384
+  %or60 = or i64 %flags.045, 16384
   br label %for.inc
 
 if.else61:                                        ; preds = %if.else56
@@ -2352,7 +2352,7 @@ if.else61:                                        ; preds = %if.else56
   br i1 %tobool63.not, label %if.then64, label %if.else66
 
 if.then64:                                        ; preds = %if.else61
-  %or65 = or i64 %flags.046, 32768
+  %or65 = or i64 %flags.045, 32768
   br label %for.inc
 
 if.else66:                                        ; preds = %if.else61
@@ -2361,7 +2361,7 @@ if.else66:                                        ; preds = %if.else61
   br i1 %tobool68.not, label %if.then69, label %if.else71
 
 if.then69:                                        ; preds = %if.else66
-  %or70 = or i64 %flags.046, 65536
+  %or70 = or i64 %flags.045, 65536
   br label %for.inc
 
 if.else71:                                        ; preds = %if.else66
@@ -2370,7 +2370,7 @@ if.else71:                                        ; preds = %if.else66
   br i1 %tobool73.not, label %if.then74, label %if.else76
 
 if.then74:                                        ; preds = %if.else71
-  %or75 = or i64 %flags.046, 2097152
+  %or75 = or i64 %flags.045, 2097152
   br label %for.inc
 
 if.else76:                                        ; preds = %if.else71
@@ -2379,7 +2379,7 @@ if.else76:                                        ; preds = %if.else71
   br i1 %tobool78.not, label %if.then79, label %if.else81
 
 if.then79:                                        ; preds = %if.else76
-  %or80 = or i64 %flags.046, 134217728
+  %or80 = or i64 %flags.045, 134217728
   br label %for.inc
 
 if.else81:                                        ; preds = %if.else76
@@ -2388,7 +2388,7 @@ if.else81:                                        ; preds = %if.else76
   br i1 %tobool83.not, label %if.then84, label %if.else86
 
 if.then84:                                        ; preds = %if.else81
-  %or85 = or i64 %flags.046, 4194304
+  %or85 = or i64 %flags.045, 4194304
   br label %for.inc
 
 if.else86:                                        ; preds = %if.else81
@@ -2397,7 +2397,7 @@ if.else86:                                        ; preds = %if.else81
   br i1 %tobool88.not, label %if.then89, label %if.else91
 
 if.then89:                                        ; preds = %if.else86
-  %or90 = or i64 %flags.046, 524288
+  %or90 = or i64 %flags.045, 524288
   br label %for.inc
 
 if.else91:                                        ; preds = %if.else86
@@ -2406,11 +2406,11 @@ if.else91:                                        ; preds = %if.else86
   br i1 %tobool93.not, label %if.then94, label %for.end.loopexit.split.loop.exit
 
 if.then94:                                        ; preds = %if.else91
-  %or95 = or i64 %flags.046, 67108864
+  %or95 = or i64 %flags.045, 67108864
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.then10, %if.then20, %if.then30, %if.then39, %if.then49, %if.then59, %if.then69, %if.then79, %if.then89, %if.then94, %if.then84, %if.then74, %if.then64, %if.then54, %if.then44, %if.else32, %if.then25, %if.then15, %if.then5
-  %flags.1 = phi i64 [ %or95, %if.then94 ], [ %or90, %if.then89 ], [ %or85, %if.then84 ], [ %or80, %if.then79 ], [ %or75, %if.then74 ], [ %or70, %if.then69 ], [ %or65, %if.then64 ], [ %or60, %if.then59 ], [ %or55, %if.then54 ], [ %or50, %if.then49 ], [ %or45, %if.then44 ], [ %or40, %if.then39 ], [ %flags.046, %if.else32 ], [ %or31, %if.then30 ], [ %or26, %if.then25 ], [ %or21, %if.then20 ], [ %or16, %if.then15 ], [ %or11, %if.then10 ], [ %or6, %if.then5 ], [ %or, %if.then ]
+  %flags.1 = phi i64 [ %or95, %if.then94 ], [ %or90, %if.then89 ], [ %or85, %if.then84 ], [ %or80, %if.then79 ], [ %or75, %if.then74 ], [ %or70, %if.then69 ], [ %or65, %if.then64 ], [ %or60, %if.then59 ], [ %or55, %if.then54 ], [ %or50, %if.then49 ], [ %or45, %if.then44 ], [ %or40, %if.then39 ], [ %flags.045, %if.else32 ], [ %or31, %if.then30 ], [ %or26, %if.then25 ], [ %or21, %if.then20 ], [ %or16, %if.then15 ], [ %or11, %if.then10 ], [ %or6, %if.then5 ], [ %or, %if.then ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
@@ -2420,8 +2420,8 @@ for.end.loopexit.split.loop.exit:                 ; preds = %if.else91
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit, %entry
+  %flags.0.lcssa = phi i64 [ 0, %entry ], [ %flags.045, %for.end.loopexit.split.loop.exit ], [ %flags.1, %for.inc ]
   %j.0.lcssa = phi i32 [ 0, %entry ], [ %2, %for.end.loopexit.split.loop.exit ], [ %0, %for.inc ]
-  %flags.0.lcssa = phi i64 [ 0, %entry ], [ %flags.046, %for.end.loopexit.split.loop.exit ], [ %flags.1, %for.inc ]
   call void @sdsfreesplitres(ptr noundef %call1, i32 noundef %0) #32
   %3 = load i32, ptr %count, align 4
   %cmp116.not = icmp eq i32 %j.0.lcssa, %3
@@ -7475,8 +7475,8 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end252, %entry
-  %argv.0 = phi ptr [ %call2, %entry ], [ %argv.1, %if.end252 ]
   %p.0 = phi ptr [ %fmt, %entry ], [ %incdec.ptr, %if.end252 ]
+  %argv.0 = phi ptr [ %call2, %entry ], [ %argv.1, %if.end252 ]
   %argv_size.0 = phi i32 [ %conv, %entry ], [ %argv_size.1, %if.end252 ]
   %argc.0 = phi i32 [ 1, %entry ], [ %argc.2, %if.end252 ]
   %2 = load i8, ptr %p.0, align 1
@@ -14339,7 +14339,7 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end8
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %if.end8 ]
-  %id.012 = phi i64 [ 0, %for.cond.preheader ], [ %or, %if.end8 ]
+  %id.013 = phi i64 [ 0, %for.cond.preheader ], [ %or, %if.end8 ]
   %arrayidx = getelementptr inbounds i8, ptr %name, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %1 to i32
@@ -14350,7 +14350,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 if.end8:                                          ; preds = %for.body
   %sub.ptr.lhs.cast = ptrtoint ptr %call6 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %shl = shl i64 %id.012, 6
+  %shl = shl i64 %id.013, 6
   %or = or i64 %sub.ptr.sub, %shl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
@@ -14735,7 +14735,7 @@ for.cond.preheader.i:                             ; preds = %if.end
 
 for.body.i:                                       ; preds = %if.end8.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %if.end8.i ]
-  %id.012.i = phi i64 [ 0, %for.cond.preheader.i ], [ %or.i, %if.end8.i ]
+  %id.013.i = phi i64 [ 0, %for.cond.preheader.i ], [ %or.i, %if.end8.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %name, i64 %indvars.iv.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %conv.i = sext i8 %3 to i32
@@ -14746,7 +14746,7 @@ for.body.i:                                       ; preds = %if.end8.i, %for.con
 if.end8.i:                                        ; preds = %for.body.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call6.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %shl.i = shl i64 %id.012.i, 6
+  %shl.i = shl i64 %id.013.i, 6
   %or.i = or i64 %sub.ptr.sub.i, %shl.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
@@ -18983,7 +18983,7 @@ for.cond.preheader.i:                             ; preds = %if.end
 
 for.body.i:                                       ; preds = %if.end8.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %if.end8.i ]
-  %id.012.i = phi i64 [ 0, %for.cond.preheader.i ], [ %or.i, %if.end8.i ]
+  %id.013.i = phi i64 [ 0, %for.cond.preheader.i ], [ %or.i, %if.end8.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %conv.i = sext i8 %4 to i32
@@ -18994,7 +18994,7 @@ for.body.i:                                       ; preds = %if.end8.i, %for.con
 if.end8.i:                                        ; preds = %for.body.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call6.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %shl.i = shl i64 %id.012.i, 6
+  %shl.i = shl i64 %id.013.i, 6
   %or.i = or i64 %sub.ptr.sub.i, %shl.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
@@ -19095,7 +19095,7 @@ for.cond.preheader.i:                             ; preds = %if.end
 
 for.body.i:                                       ; preds = %if.end8.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %if.end8.i ]
-  %id.012.i = phi i64 [ 0, %for.cond.preheader.i ], [ %or.i, %if.end8.i ]
+  %id.013.i = phi i64 [ 0, %for.cond.preheader.i ], [ %or.i, %if.end8.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %conv.i = sext i8 %4 to i32
@@ -19106,7 +19106,7 @@ for.body.i:                                       ; preds = %if.end8.i, %for.con
 if.end8.i:                                        ; preds = %for.body.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call6.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %shl.i = shl i64 %id.012.i, 6
+  %shl.i = shl i64 %id.013.i, 6
   %or.i = or i64 %sub.ptr.sub.i, %shl.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9

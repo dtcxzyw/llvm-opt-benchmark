@@ -350,10 +350,10 @@ define internal i32 @dissect_net_dm_attrs(ptr noundef %0, ptr noundef %1, ptr no
   br label %66
 
 66:                                               ; preds = %59, %51, %64
-  %.0 = phi i16 [ %53, %64 ], [ %53, %51 ], [ 3, %59 ]
+  %.0140 = phi i16 [ %53, %64 ], [ %53, %51 ], [ 3, %59 ]
   %67 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %5, i32 noundef %6) #3
   %68 = load ptr, ptr @dissect_net_dm_attrs.dissector_table, align 8
-  %69 = zext i16 %.0 to i32
+  %69 = zext i16 %.0140 to i32
   %70 = load ptr, ptr %1, align 8
   %71 = tail call i32 @dissector_try_uint(ptr noundef %68, i32 noundef %69, ptr noundef %67, ptr noundef %70, ptr noundef %3) #3
   %.not = icmp eq i32 %71, 0
@@ -475,8 +475,8 @@ define internal i32 @dissect_net_dm_attrs(ptr noundef %0, ptr noundef %1, ptr no
   br label %148
 
 148:                                              ; preds = %7, %66, %72, %143, %140, %135, %130, %124, %120, %116, %111, %106, %101, %97, %93, %87, %81, %75, %43, %33, %29, %24, %18, %13
-  %.0140 = phi i32 [ 1, %143 ], [ 1, %140 ], [ 1, %135 ], [ 1, %130 ], [ 1, %124 ], [ %123, %120 ], [ %119, %116 ], [ 1, %111 ], [ 1, %106 ], [ 1, %101 ], [ %100, %97 ], [ %96, %93 ], [ 1, %87 ], [ 1, %81 ], [ 1, %75 ], [ 1, %43 ], [ 1, %33 ], [ %32, %29 ], [ 1, %24 ], [ 1, %18 ], [ 1, %13 ], [ 1, %72 ], [ 1, %66 ], [ 0, %7 ]
-  ret i32 %.0140
+  %.0 = phi i32 [ 1, %143 ], [ 1, %140 ], [ 1, %135 ], [ 1, %130 ], [ 1, %124 ], [ %123, %120 ], [ %119, %116 ], [ 1, %111 ], [ 1, %106 ], [ 1, %101 ], [ %100, %97 ], [ %96, %93 ], [ 1, %87 ], [ 1, %81 ], [ 1, %75 ], [ 1, %43 ], [ 1, %33 ], [ %32, %29 ], [ 1, %24 ], [ 1, %18 ], [ 1, %13 ], [ 1, %72 ], [ 1, %66 ], [ 0, %7 ]
+  ret i32 %.0
 }
 
 declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

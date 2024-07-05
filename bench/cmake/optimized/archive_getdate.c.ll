@@ -1542,8 +1542,8 @@ define internal fastcc i64 @Convert(i64 noundef %0, i64 noundef %1, i64 noundef 
   br label %69
 
 69:                                               ; preds = %24, %31, %67
-  %.055 = phi i64 [ %68, %67 ], [ -1, %31 ], [ -1, %24 ]
-  ret i64 %.055
+  %.0 = phi i64 [ %68, %67 ], [ -1, %31 ], [ -1, %24 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable

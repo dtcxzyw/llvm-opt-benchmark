@@ -8964,8 +8964,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %201
 
 201:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..table..SsTable$GT$$GT$$GT$17hcafd3e61d475ddbdE.exit295.i", %193
-  %.sroa.8.0.i = phi ptr [ %197, %193 ], [ %.sroa.8.1.ph.i, %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..table..SsTable$GT$$GT$$GT$17hcafd3e61d475ddbdE.exit295.i" ]
   %.sroa.0314.0.i = phi ptr [ %194, %193 ], [ %.sroa.0314.1351.ph.i, %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..table..SsTable$GT$$GT$$GT$17hcafd3e61d475ddbdE.exit295.i" ]
+  %.sroa.8.0.i = phi ptr [ %197, %193 ], [ %.sroa.8.1.ph.i, %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..table..SsTable$GT$$GT$$GT$17hcafd3e61d475ddbdE.exit295.i" ]
   %202 = icmp eq ptr %.sroa.0314.0.i, null
   %203 = icmp eq ptr %.sroa.0314.0.i, %196
   %or.cond.i = select i1 %202, i1 true, i1 %203
@@ -13523,12 +13523,12 @@ default.unreachable:                              ; preds = %433, %._crit_edge78
           to label %194 unwind label %188
 
 189:                                              ; preds = %.lr.ph779, %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..table..SsTable$GT$$GT$17hfc21c824d55faf88E.exit384"
-  %.sroa.0406.0777 = phi ptr [ %175, %.lr.ph779 ], [ %190, %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..table..SsTable$GT$$GT$17hfc21c824d55faf88E.exit384" ]
-  %190 = getelementptr inbounds i8, ptr %.sroa.0406.0777, i64 8
+  %.sroa.0406.0775 = phi ptr [ %175, %.lr.ph779 ], [ %190, %"_ZN4core3ptr74drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..table..SsTable$GT$$GT$17hfc21c824d55faf88E.exit384" ]
+  %190 = getelementptr inbounds i8, ptr %.sroa.0406.0775, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
   %191 = load ptr, ptr %54, align 8, !nonnull !4, !noundef !4
   %192 = getelementptr inbounds i8, ptr %191, i64 96
-  %.val267 = load i64, ptr %.sroa.0406.0777, align 8
+  %.val267 = load i64, ptr %.sroa.0406.0775, align 8
   %193 = invoke fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h28cc6ddcdce43d5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %192, i64 %.val267)
           to label %415 unwind label %.thread506.loopexit
 

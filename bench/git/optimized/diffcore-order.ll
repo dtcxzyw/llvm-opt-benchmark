@@ -75,7 +75,7 @@ land.rhs.us40.i:                                  ; preds = %for.inc.us42.i
   br i1 %cmp9.not.us41.i, label %for.end.us45.i, label %for.inc.us42.i, !llvm.loop !7
 
 for.inc.us42.i:                                   ; preds = %for.cond7.preheader.us54.i, %land.rhs.us40.i
-  %ep.028.us62.i = phi ptr [ %incdec.ptr.us43.i, %land.rhs.us40.i ], [ %cp.032.us55.i, %for.cond7.preheader.us54.i ]
+  %ep.028.us62.i = phi ptr [ %incdec.ptr.us43.i, %land.rhs.us40.i ], [ %cp.031.us56.i, %for.cond7.preheader.us54.i ]
   %incdec.ptr.us43.i = getelementptr inbounds i8, ptr %ep.028.us62.i, i64 1
   %cmp8.us44.i = icmp ult ptr %incdec.ptr.us43.i, %add.ptr.i
   br i1 %cmp8.us44.i, label %land.rhs.us40.i, label %for.end.us45.i, !llvm.loop !7
@@ -93,9 +93,9 @@ if.else.us48.i:                                   ; preds = %for.end.us45.i
 
 if.else27.us.i:                                   ; preds = %if.else.us48.i
   %sub.ptr.lhs.cast.us.i = ptrtoint ptr %incdec.ptr.us43.i to i64
-  %sub.ptr.rhs.cast.us.i = ptrtoint ptr %cp.032.us55.i to i64
+  %sub.ptr.rhs.cast.us.i = ptrtoint ptr %cp.031.us56.i to i64
   %sub.ptr.sub.us.i = sub i64 %sub.ptr.lhs.cast.us.i, %sub.ptr.rhs.cast.us.i
-  %call28.us.i = call ptr @xmemdupz(ptr noundef nonnull %cp.032.us55.i, i64 noundef %sub.ptr.sub.us.i) #11
+  %call28.us.i = call ptr @xmemdupz(ptr noundef nonnull %cp.031.us56.i, i64 noundef %sub.ptr.sub.us.i) #11
   br label %if.end31.us.i
 
 if.then26.us.i:                                   ; preds = %if.else.us48.i
@@ -103,27 +103,27 @@ if.then26.us.i:                                   ; preds = %if.else.us48.i
   br label %if.end31.us.i
 
 if.end31.us.i:                                    ; preds = %if.then26.us.i, %if.else27.us.i
-  %cp.032.us55.sink.i = phi ptr [ %cp.032.us55.i, %if.then26.us.i ], [ %call28.us.i, %if.else27.us.i ]
+  %cp.031.us56.sink.i = phi ptr [ %cp.031.us56.i, %if.then26.us.i ], [ %call28.us.i, %if.else27.us.i ]
   %3 = load ptr, ptr @order, align 8
-  %idxprom.us.i = sext i32 %cnt.031.us56.i to i64
+  %idxprom.us.i = sext i32 %cnt.032.us55.i to i64
   %arrayidx.us.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.us.i
-  store ptr %cp.032.us55.sink.i, ptr %arrayidx.us.i, align 8
-  %inc32.us.i = add nsw i32 %cnt.031.us56.i, 1
+  store ptr %cp.031.us56.sink.i, ptr %arrayidx.us.i, align 8
+  %inc32.us.i = add nsw i32 %cnt.032.us55.i, 1
   br label %if.end34.us49.i
 
 if.end34.us49.i:                                  ; preds = %for.cond7.preheader.us54.i, %if.end31.us.i, %for.end.us45.i, %for.end.us45.i
   %cmp8.lcssa.us4771.i = phi i1 [ %cmp8.us44.i, %for.end.us45.i ], [ %cmp8.us44.i, %if.end31.us.i ], [ %cmp8.us44.i, %for.end.us45.i ], [ true, %for.cond7.preheader.us54.i ]
-  %ep.0.lcssa.us4670.i = phi ptr [ %incdec.ptr.us43.i, %for.end.us45.i ], [ %incdec.ptr.us43.i, %if.end31.us.i ], [ %incdec.ptr.us43.i, %for.end.us45.i ], [ %cp.032.us55.i, %for.cond7.preheader.us54.i ]
-  %cnt.1.us50.i = phi i32 [ %cnt.031.us56.i, %for.end.us45.i ], [ %inc32.us.i, %if.end31.us.i ], [ %cnt.031.us56.i, %for.end.us45.i ], [ %cnt.031.us56.i, %for.cond7.preheader.us54.i ]
+  %ep.0.lcssa.us4670.i = phi ptr [ %incdec.ptr.us43.i, %for.end.us45.i ], [ %incdec.ptr.us43.i, %if.end31.us.i ], [ %incdec.ptr.us43.i, %for.end.us45.i ], [ %cp.031.us56.i, %for.cond7.preheader.us54.i ]
+  %cnt.1.us50.i = phi i32 [ %cnt.032.us55.i, %for.end.us45.i ], [ %inc32.us.i, %if.end31.us.i ], [ %cnt.032.us55.i, %for.end.us45.i ], [ %cnt.032.us55.i, %for.cond7.preheader.us54.i ]
   %spec.select.idx.us51.i = zext i1 %cmp8.lcssa.us4771.i to i64
   %spec.select.us52.i = getelementptr inbounds i8, ptr %ep.0.lcssa.us4670.i, i64 %spec.select.idx.us51.i
   %cmp6.us53.i = icmp ult ptr %spec.select.us52.i, %add.ptr.i
   br i1 %cmp6.us53.i, label %for.cond7.preheader.us54.i, label %while.cond.while.end_crit_edge.us.i, !llvm.loop !8
 
 for.cond7.preheader.us54.i:                       ; preds = %while.cond.preheader.us.i, %if.end34.us49.i
-  %cp.032.us55.i = phi ptr [ %spec.select.us52.i, %if.end34.us49.i ], [ %call4.i, %while.cond.preheader.us.i ]
-  %cnt.031.us56.i = phi i32 [ %cnt.1.us50.i, %if.end34.us49.i ], [ 0, %while.cond.preheader.us.i ]
-  %4 = load i8, ptr %cp.032.us55.i, align 1
+  %cnt.032.us55.i = phi i32 [ %cnt.1.us50.i, %if.end34.us49.i ], [ 0, %while.cond.preheader.us.i ]
+  %cp.031.us56.i = phi ptr [ %spec.select.us52.i, %if.end34.us49.i ], [ %call4.i, %while.cond.preheader.us.i ]
+  %4 = load i8, ptr %cp.031.us56.i, align 1
   %cmp9.not.us4161.i = icmp eq i8 %4, 10
   br i1 %cmp9.not.us4161.i, label %if.end34.us49.i, label %for.inc.us42.i
 
@@ -132,9 +132,9 @@ while.cond.while.end_crit_edge.us.i:              ; preds = %if.end34.us49.i, %i
   br i1 %cmp19.us.i, label %if.then42.us.i, label %for.inc47.us.i
 
 for.cond7.preheader.us.us.i:                      ; preds = %while.cond.preheader.us.i, %if.end34.us.us.i
-  %cp.032.us.us.i = phi ptr [ %spec.select.us.us.i, %if.end34.us.us.i ], [ %call4.i, %while.cond.preheader.us.i ]
-  %cnt.031.us.us.i = phi i32 [ %cnt.1.us.us.i, %if.end34.us.us.i ], [ 0, %while.cond.preheader.us.i ]
-  %5 = load i8, ptr %cp.032.us.us.i, align 1
+  %cnt.032.us.us.i = phi i32 [ %cnt.1.us.us.i, %if.end34.us.us.i ], [ 0, %while.cond.preheader.us.i ]
+  %cp.031.us.us.i = phi ptr [ %spec.select.us.us.i, %if.end34.us.us.i ], [ %call4.i, %while.cond.preheader.us.i ]
+  %5 = load i8, ptr %cp.031.us.us.i, align 1
   %cmp9.not.us33.us.i = icmp eq i8 %5, 10
   br i1 %cmp9.not.us33.us.i, label %if.end34.us.us.i, label %for.inc.us.us.i
 
@@ -144,7 +144,7 @@ land.rhs.us.us.i:                                 ; preds = %for.inc.us.us.i
   br i1 %cmp9.not.us.us.i, label %for.end.us.us.i, label %for.inc.us.us.i, !llvm.loop !7
 
 for.inc.us.us.i:                                  ; preds = %for.cond7.preheader.us.us.i, %land.rhs.us.us.i
-  %ep.028.us34.us.i = phi ptr [ %incdec.ptr.us.us.i, %land.rhs.us.us.i ], [ %cp.032.us.us.i, %for.cond7.preheader.us.us.i ]
+  %ep.028.us34.us.i = phi ptr [ %incdec.ptr.us.us.i, %land.rhs.us.us.i ], [ %cp.031.us.us.i, %for.cond7.preheader.us.us.i ]
   %incdec.ptr.us.us.i = getelementptr inbounds i8, ptr %ep.028.us34.us.i, i64 1
   %cmp8.us.us.i = icmp ult ptr %incdec.ptr.us.us.i, %add.ptr.i
   br i1 %cmp8.us.us.i, label %land.rhs.us.us.i, label %for.end.us.us.i, !llvm.loop !7
@@ -156,13 +156,13 @@ for.end.us.us.i:                                  ; preds = %for.inc.us.us.i, %l
   ]
 
 if.else.us.us.i:                                  ; preds = %for.end.us.us.i
-  %inc.us.us.i = add nsw i32 %cnt.031.us.us.i, 1
+  %inc.us.us.i = add nsw i32 %cnt.032.us.us.i, 1
   br label %if.end34.us.us.i
 
 if.end34.us.us.i:                                 ; preds = %if.else.us.us.i, %for.end.us.us.i, %for.end.us.us.i, %for.cond7.preheader.us.us.i
   %cmp8.lcssa.us.us75.i = phi i1 [ %cmp8.us.us.i, %for.end.us.us.i ], [ %cmp8.us.us.i, %if.else.us.us.i ], [ %cmp8.us.us.i, %for.end.us.us.i ], [ true, %for.cond7.preheader.us.us.i ]
-  %ep.0.lcssa.us.us74.i = phi ptr [ %incdec.ptr.us.us.i, %for.end.us.us.i ], [ %incdec.ptr.us.us.i, %if.else.us.us.i ], [ %incdec.ptr.us.us.i, %for.end.us.us.i ], [ %cp.032.us.us.i, %for.cond7.preheader.us.us.i ]
-  %cnt.1.us.us.i = phi i32 [ %cnt.031.us.us.i, %for.end.us.us.i ], [ %inc.us.us.i, %if.else.us.us.i ], [ %cnt.031.us.us.i, %for.end.us.us.i ], [ %cnt.031.us.us.i, %for.cond7.preheader.us.us.i ]
+  %ep.0.lcssa.us.us74.i = phi ptr [ %incdec.ptr.us.us.i, %for.end.us.us.i ], [ %incdec.ptr.us.us.i, %if.else.us.us.i ], [ %incdec.ptr.us.us.i, %for.end.us.us.i ], [ %cp.031.us.us.i, %for.cond7.preheader.us.us.i ]
+  %cnt.1.us.us.i = phi i32 [ %cnt.032.us.us.i, %for.end.us.us.i ], [ %inc.us.us.i, %if.else.us.us.i ], [ %cnt.032.us.us.i, %for.end.us.us.i ], [ %cnt.032.us.us.i, %for.cond7.preheader.us.us.i ]
   %spec.select.idx.us.us.i = zext i1 %cmp8.lcssa.us.us75.i to i64
   %spec.select.us.us.i = getelementptr inbounds i8, ptr %ep.0.lcssa.us.us74.i, i64 %spec.select.idx.us.us.i
   %cmp6.us.us.i = icmp ult ptr %spec.select.us.us.i, %add.ptr.i

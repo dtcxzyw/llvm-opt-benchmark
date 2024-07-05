@@ -67,8 +67,8 @@ define double @cs_norm(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %exitcond44.not, label %.loopexit, label %.lr.ph36, !llvm.loop !6
 
 .loopexit:                                        ; preds = %._crit_edge, %9, %1, %2, %6
-  %.026 = phi double [ -1.000000e+00, %6 ], [ -1.000000e+00, %2 ], [ -1.000000e+00, %1 ], [ 0.000000e+00, %9 ], [ %25, %._crit_edge ]
-  ret double %.026
+  %.024 = phi double [ -1.000000e+00, %6 ], [ -1.000000e+00, %2 ], [ -1.000000e+00, %1 ], [ 0.000000e+00, %9 ], [ %25, %._crit_edge ]
+  ret double %.024
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

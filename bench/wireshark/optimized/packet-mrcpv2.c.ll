@@ -574,13 +574,13 @@ define internal range(i32 0, -1) i32 @dissect_mrcpv2_tcp(ptr noundef %0, ptr nou
   br i1 %or.cond6.not, label %36, label %37
 
 36:                                               ; preds = %25
-  %.047 = select i1 %29, i32 10, i32 %28
+  %.046 = select i1 %29, i32 10, i32 %28
   call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, i32 noundef 30, ptr noundef nonnull @get_mrcpv2_pdu_len, ptr noundef nonnull @dissect_mrcpv2_tcp_pdu, ptr noundef %3) #4
   br label %37
 
 37:                                               ; preds = %25, %18, %15, %10, %8, %4, %36
-  %.046 = phi i32 [ %.047, %36 ], [ 0, %4 ], [ 0, %8 ], [ 0, %10 ], [ 0, %15 ], [ 0, %18 ], [ 0, %25 ]
-  ret i32 %.046
+  %.0 = phi i32 [ %.046, %36 ], [ 0, %4 ], [ 0, %8 ], [ 0, %10 ], [ 0, %15 ], [ 0, %18 ], [ 0, %25 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -918,21 +918,21 @@ default.unreachable:                              ; preds = %74
 
 205:                                              ; preds = %210, %193
   %206 = phi ptr [ @.str.265, %193 ], [ %213, %210 ]
-  %.0740768.i = phi ptr [ @header_type_vals, %193 ], [ %211, %210 ]
+  %.0741768.i = phi ptr [ @header_type_vals, %193 ], [ %211, %210 ]
   %207 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %206) #5
   %208 = call i32 @strncmp(ptr noundef nonnull %206, ptr noundef %196, i64 noundef %207) #5
   %209 = icmp eq i32 %208, 0
   br i1 %209, label %214, label %210
 
 210:                                              ; preds = %205
-  %211 = getelementptr i8, ptr %.0740768.i, i64 16
-  %212 = getelementptr i8, ptr %.0740768.i, i64 24
+  %211 = getelementptr i8, ptr %.0741768.i, i64 16
+  %212 = getelementptr i8, ptr %.0741768.i, i64 24
   %213 = load ptr, ptr %212, align 8
   %.not755.i = icmp eq ptr %213, null
   br i1 %.not755.i, label %.thread.i, label %205, !llvm.loop !6
 
 214:                                              ; preds = %205
-  %215 = load i32, ptr %.0740768.i, align 8
+  %215 = load i32, ptr %.0741768.i, align 8
   switch i32 %215, label %.thread.i [
     i32 1, label %216
     i32 2, label %219
@@ -1528,11 +1528,11 @@ default.unreachable:                              ; preds = %74
   br label %dissect_mrcpv2_common.exit
 
 dissect_mrcpv2_common.exit:                       ; preds = %4, %20, %30, %51, %54, %70, %.loopexit.i
-  %.0743.i = phi i32 [ %509, %.loopexit.i ], [ -1, %4 ], [ -1, %20 ], [ -1, %30 ], [ -1, %51 ], [ -1, %54 ], [ -1, %70 ]
+  %.0740.i = phi i32 [ %509, %.loopexit.i ], [ -1, %4 ], [ -1, %20 ], [ -1, %30 ], [ -1, %51 ], [ -1, %54 ], [ -1, %70 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  ret i32 %.0743.i
+  ret i32 %.0740.i
 }
 
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

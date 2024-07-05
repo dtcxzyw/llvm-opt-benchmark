@@ -711,12 +711,12 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_bufs_sendto(i32 noundef %0
   br label %18
 
 18:                                               ; preds = %14, %2
-  %.0 = phi i32 [ %17, %14 ], [ %11, %2 ]
+  %.026 = phi i32 [ %17, %14 ], [ %11, %2 ]
   %19 = getelementptr inbounds i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 20
   %22 = load i32, ptr %21, align 4
-  %23 = add i32 %22, %.0
+  %23 = add i32 %22, %.026
   %24 = tail call i32 @htonl(i32 noundef %23) #9
   store i32 %24, ptr %3, align 4
   %25 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef nonnull %3, i64 noundef 4, i32 noundef 0, ptr noundef nonnull %4)
@@ -755,7 +755,7 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_bufs_sendto(i32 noundef %0
   br label %49
 
 49:                                               ; preds = %47, %36
-  %.026 = phi i32 [ %48, %47 ], [ %37, %36 ]
+  %.0 = phi i32 [ %48, %47 ], [ %37, %36 ]
   %50 = load ptr, ptr %19, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
@@ -764,7 +764,7 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_bufs_sendto(i32 noundef %0
   %55 = zext i32 %54 to i64
   %56 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %52, i64 noundef %55, i32 noundef 0, ptr noundef nonnull %4)
   %57 = call i32 @llvm.smax.i32(i32 %56, i32 0)
-  %spec.select = add nuw nsw i32 %57, %.026
+  %spec.select = add nuw nsw i32 %57, %.0
   br label %58
 
 58:                                               ; preds = %49, %39, %27, %18
@@ -932,8 +932,8 @@ define dso_local range(i32 -1, -2147483648) i32 @slurm_open_stream(ptr noundef %
 
 25:                                               ; preds = %.lr.ph, %120
   %26 = phi i32 [ %12, %.lr.ph ], [ %125, %120 ]
-  %.050 = phi i32 [ 0, %.lr.ph ], [ %122, %120 ]
-  switch i32 %.050, label %31 [
+  %.02650 = phi i32 [ 0, %.lr.ph ], [ %122, %120 ]
+  switch i32 %.02650, label %31 [
     i32 0, label %51
     i32 1, label %27
   ]
@@ -1141,7 +1141,7 @@ _slurm_connect.exit:                              ; preds = %65, %84, %105
   %.0.i39 = phi i32 [ %.0.i.ph, %_slurm_connect.exit.thread36 ], [ %.0.i, %_slurm_connect.exit ]
   %114 = and i32 %.0.i39, -2
   %or.cond = icmp eq i32 %114, 110
-  %115 = icmp ult i32 %.050, 3
+  %115 = icmp ult i32 %.02650, 3
   %116 = and i1 %or.cond, %1
   %or.cond32 = and i1 %116, %115
   br i1 %or.cond32, label %120, label %117
@@ -1154,7 +1154,7 @@ _slurm_connect.exit:                              ; preds = %65, %84, %105
 
 120:                                              ; preds = %113
   %121 = call i32 @close(i32 noundef %26) #10
-  %122 = add nuw nsw i32 %.050, 1
+  %122 = add nuw nsw i32 %.02650, 1
   %123 = load i16, ptr %0, align 8
   %124 = zext i16 %123 to i32
   %125 = call i32 @socket(i32 noundef %124, i32 noundef 524289, i32 noundef 6) #10
@@ -1170,8 +1170,8 @@ _slurm_connect.exit:                              ; preds = %65, %84, %105
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_slurm_connect.exit, %_slurm_connect.exit.thread, %128, %._crit_edge, %16
-  %.026 = phi i32 [ -1, %16 ], [ -1, %._crit_edge ], [ -1, %128 ], [ %26, %_slurm_connect.exit.thread ], [ %26, %_slurm_connect.exit ]
-  ret i32 %.026
+  %.0 = phi i32 [ -1, %16 ], [ -1, %._crit_edge ], [ -1, %128 ], [ %26, %_slurm_connect.exit.thread ], [ %26, %_slurm_connect.exit ]
+  ret i32 %.0
 }
 
 declare zeroext i1 @slurm_addr_is_unspec(ptr noundef) local_unnamed_addr #2

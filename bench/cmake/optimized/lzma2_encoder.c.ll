@@ -41,21 +41,21 @@ define internal i32 @lzma2_encoder_init(ptr nocapture noundef %0, ptr noundef %1
   br label %17
 
 17:                                               ; preds = %12, %6
-  %.0 = phi ptr [ %10, %12 ], [ %7, %6 ]
-  %18 = getelementptr inbounds i8, ptr %.0, i64 16
+  %.029 = phi ptr [ %10, %12 ], [ %7, %6 ]
+  %18 = getelementptr inbounds i8, ptr %.029, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %18, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
-  store i32 0, ptr %.0, align 8
-  %19 = getelementptr inbounds i8, ptr %.0, i64 128
+  store i32 0, ptr %.029, align 8
+  %19 = getelementptr inbounds i8, ptr %.029, i64 128
   store i8 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %.0, i64 129
+  %20 = getelementptr inbounds i8, ptr %.029, i64 129
   store i8 0, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %.0, i64 24
+  %21 = getelementptr inbounds i8, ptr %.029, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %.0, i64 32
+  %25 = getelementptr inbounds i8, ptr %.029, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 0
   %28 = zext i1 %27 to i8
@@ -63,9 +63,9 @@ define internal i32 @lzma2_encoder_init(ptr nocapture noundef %0, ptr noundef %1
 
 29:                                               ; preds = %24, %17
   %30 = phi i8 [ 1, %17 ], [ %28, %24 ]
-  %31 = getelementptr inbounds i8, ptr %.0, i64 130
+  %31 = getelementptr inbounds i8, ptr %.029, i64 130
   store i8 %30, ptr %31, align 2
-  %32 = getelementptr inbounds i8, ptr %.0, i64 8
+  %32 = getelementptr inbounds i8, ptr %.029, i64 8
   %33 = tail call i32 @lzma_lzma_encoder_create(ptr noundef nonnull %32, ptr noundef %1, ptr noundef nonnull %18, ptr noundef %3) #8
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %34, label %42
@@ -84,8 +84,8 @@ define internal i32 @lzma2_encoder_init(ptr nocapture noundef %0, ptr noundef %1
   br label %42
 
 42:                                               ; preds = %34, %40, %29, %9, %4
-  %.029 = phi i32 [ 11, %4 ], [ 5, %9 ], [ %33, %29 ], [ 0, %40 ], [ 0, %34 ]
-  ret i32 %.029
+  %.0 = phi i32 [ 11, %4 ], [ 5, %9 ], [ %33, %29 ], [ 0, %40 ], [ 0, %34 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

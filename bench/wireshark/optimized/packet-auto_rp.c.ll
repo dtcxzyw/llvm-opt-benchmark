@@ -159,33 +159,33 @@ define internal i32 @dissect_auto_rp(ptr noundef %0, ptr nocapture noundef reado
   br label %43
 
 43:                                               ; preds = %.lr.ph, %do_auto_rp_map.exit
-  %.061 = phi i32 [ 8, %.lr.ph ], [ %.0.lcssa.i, %do_auto_rp_map.exit ]
-  %.05860 = phi i32 [ 0, %.lr.ph ], [ %80, %do_auto_rp_map.exit ]
+  %.061 = phi i32 [ 0, %.lr.ph ], [ %80, %do_auto_rp_map.exit ]
+  %.05860 = phi i32 [ 8, %.lr.ph ], [ %.0.lcssa.i, %do_auto_rp_map.exit ]
   %44 = load ptr, ptr %42, align 8
-  %45 = add i32 %.061, 5
+  %45 = add i32 %.05860, 5
   %46 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %45) #2
   %47 = zext i8 %46 to i32
   %48 = mul nuw nsw i32 %47, 6
   %49 = add nuw nsw i32 %48, 6
   %50 = load i32, ptr @ett_auto_rp_map, align 4
-  %51 = tail call ptr @tvb_address_to_str(ptr noundef %44, ptr noundef %0, i32 noundef 2, i32 noundef %.061) #2
+  %51 = tail call ptr @tvb_address_to_str(ptr noundef %44, ptr noundef %0, i32 noundef 2, i32 noundef %.05860) #2
   %52 = icmp eq i8 %46, 1
   %53 = select i1 %52, ptr @.str.48, ptr @.str.49
-  %54 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %23, ptr noundef %0, i32 noundef %.061, i32 noundef %49, i32 noundef %50, ptr noundef null, ptr noundef nonnull @.str.52, ptr noundef %51, i32 noundef %47, ptr noundef nonnull %53) #2
+  %54 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %23, ptr noundef %0, i32 noundef %.05860, i32 noundef %49, i32 noundef %50, ptr noundef null, ptr noundef nonnull @.str.52, ptr noundef %51, i32 noundef %47, ptr noundef nonnull %53) #2
   %55 = load i32, ptr @hf_auto_rp_rp_addr, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %55, ptr noundef %0, i32 noundef %.061, i32 noundef 4, i32 noundef 0) #2
-  %57 = add i32 %.061, 4
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %55, ptr noundef %0, i32 noundef %.05860, i32 noundef 4, i32 noundef 0) #2
+  %57 = add i32 %.05860, 4
   %58 = load i32, ptr @hf_auto_rp_pim_ver, align 4
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 1, i32 noundef 0) #2
   %60 = load i32, ptr @hf_auto_rp_group_num, align 4
   %61 = tail call ptr @proto_tree_add_uint(ptr noundef %54, i32 noundef %60, ptr noundef %0, i32 noundef %45, i32 noundef 1, i32 noundef %47) #2
-  %.054.i = add i32 %.061, 6
+  %.054.i = add i32 %.05860, 6
   %.not.i = icmp eq i8 %46, 0
   br i1 %.not.i, label %do_auto_rp_map.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43, %.lr.ph.i
   %.057.i = phi i32 [ %.0.i, %.lr.ph.i ], [ %.054.i, %43 ]
-  %.0.in56.i = phi i32 [ %.057.i, %.lr.ph.i ], [ %.061, %43 ]
+  %.0.in56.i = phi i32 [ %.057.i, %.lr.ph.i ], [ %.05860, %43 ]
   %.05355.i = phi i32 [ %79, %.lr.ph.i ], [ 0, %43 ]
   %62 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i) #2
   %63 = add i32 %.0.in56.i, 7
@@ -211,19 +211,19 @@ define internal i32 @dissect_auto_rp(ptr noundef %0, ptr nocapture noundef reado
 
 do_auto_rp_map.exit:                              ; preds = %.lr.ph.i, %43
   %.0.lcssa.i = phi i32 [ %.054.i, %43 ], [ %.0.i, %.lr.ph.i ]
-  %80 = add nuw nsw i32 %.05860, 1
+  %80 = add nuw nsw i32 %.061, 1
   %exitcond.not = icmp eq i32 %80, %16
   br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %do_auto_rp_map.exit, %19
-  %.0.lcssa = phi i32 [ 8, %19 ], [ %.0.lcssa.i, %do_auto_rp_map.exit ]
-  %81 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.lcssa) #2
+  %.058.lcssa = phi i32 [ 8, %19 ], [ %.0.lcssa.i, %do_auto_rp_map.exit ]
+  %81 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.058.lcssa) #2
   %82 = icmp sgt i32 %81, 0
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %._crit_edge
   %84 = load i32, ptr @hf_auto_rp_trailing_junk, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %84, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef -1, i32 noundef 0) #2
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %84, ptr noundef %0, i32 noundef %.058.lcssa, i32 noundef -1, i32 noundef 0) #2
   br label %86
 
 86:                                               ; preds = %._crit_edge, %83, %4

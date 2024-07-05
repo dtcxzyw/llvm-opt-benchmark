@@ -398,8 +398,8 @@ define void @_ZNK5faiss11IndexBinary22search_and_reconstructElPKhlPiPlPhPKNS_16S
   br label %34
 
 34:                                               ; preds = %.preheader.us, %48
-  %.02733.us = phi i64 [ 0, %.preheader.us ], [ %49, %48 ]
-  %35 = add nuw nsw i64 %.02733.us, %33
+  %.02933.us = phi i64 [ 0, %.preheader.us ], [ %49, %48 ]
+  %35 = add nuw nsw i64 %.02933.us, %33
   %36 = getelementptr inbounds i64, ptr %5, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = load i32, ptr %32, align 4
@@ -421,7 +421,7 @@ define void @_ZNK5faiss11IndexBinary22search_and_reconstructElPKhlPiPlPhPKNS_16S
   br label %48
 
 48:                                               ; preds = %47, %43
-  %49 = add nuw nsw i64 %.02733.us, 1
+  %49 = add nuw nsw i64 %.02933.us, 1
   %exitcond.not = icmp eq i64 %49, %3
   br i1 %exitcond.not, label %._crit_edge.us, label %34, !llvm.loop !7
 

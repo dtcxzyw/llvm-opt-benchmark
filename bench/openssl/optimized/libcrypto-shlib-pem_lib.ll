@@ -902,12 +902,12 @@ while.cond.preheader:                             ; preds = %if.end31
   br i1 %cmp3750, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end54
-  %j.053 = phi i32 [ %add56, %if.end54 ], [ 0, %while.cond.preheader ]
-  %i.052 = phi i32 [ %add, %if.end54 ], [ 0, %while.cond.preheader ]
-  %len.addr.051 = phi i64 [ %sub, %if.end54 ], [ %len, %while.cond.preheader ]
-  %1 = call i64 @llvm.umin.i64(i64 %len.addr.051, i64 5120)
+  %len.addr.053 = phi i64 [ %sub, %if.end54 ], [ %len, %while.cond.preheader ]
+  %j.052 = phi i32 [ %add56, %if.end54 ], [ 0, %while.cond.preheader ]
+  %i.051 = phi i32 [ %add, %if.end54 ], [ 0, %while.cond.preheader ]
+  %1 = call i64 @llvm.umin.i64(i64 %len.addr.053, i64 5120)
   %conv45 = trunc nuw nsw i64 %1 to i32
-  %idxprom = zext nneg i32 %j.053 to i64
+  %idxprom = zext nneg i32 %j.052 to i64
   %arrayidx = getelementptr inbounds i8, ptr %data, i64 %idxprom
   %call46 = call i32 @EVP_EncodeUpdate(ptr noundef nonnull %call, ptr noundef nonnull %call32, ptr noundef nonnull %outl, ptr noundef %arrayidx, i32 noundef %conv45) #10
   %tobool.not = icmp eq i32 %call46, 0
@@ -926,9 +926,9 @@ land.lhs.true:                                    ; preds = %if.end48
 
 if.end54:                                         ; preds = %land.lhs.true, %if.end48
   %4 = phi i32 [ %call50, %land.lhs.true ], [ 0, %if.end48 ]
-  %add = add nsw i32 %4, %i.052
-  %sub = sub nsw i64 %len.addr.051, %1
-  %add56 = add nuw nsw i32 %j.053, %conv45
+  %add = add nsw i32 %4, %i.051
+  %sub = sub nsw i64 %len.addr.053, %1
+  %add56 = add nuw nsw i32 %j.052, %conv45
   %cmp37 = icmp sgt i64 %sub, 0
   br i1 %cmp37, label %while.body, label %while.end, !llvm.loop !7
 

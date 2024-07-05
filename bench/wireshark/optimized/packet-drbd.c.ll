@@ -568,8 +568,8 @@ define internal void @format_node_mask(ptr noundef %0, i64 noundef %1) #0 {
 
 .preheader:                                       ; preds = %2, %.thread.thread71
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread.thread71 ], [ 0, %2 ]
-  %.04358 = phi i32 [ %.3, %.thread.thread71 ], [ -1, %2 ]
-  %.04457 = phi i32 [ %.14570, %.thread.thread71 ], [ 0, %2 ]
+  %.059 = phi i32 [ %.170, %.thread.thread71 ], [ 0, %2 ]
+  %.04258 = phi i32 [ %.3, %.thread.thread71 ], [ -1, %2 ]
   %5 = shl nuw i64 1, %indvars.iv
   %6 = and i64 %5, %1
   %.not55 = icmp eq i64 %6, 0
@@ -578,26 +578,26 @@ define internal void @format_node_mask(ptr noundef %0, i64 noundef %1) #0 {
 
 8:                                                ; preds = %.preheader
   %9 = icmp eq i64 %indvars.iv, 63
-  %10 = icmp eq i32 %.04358, -1
+  %10 = icmp eq i32 %.04258, -1
   br i1 %9, label %11, label %.thread
 
 11:                                               ; preds = %8
-  %spec.select = select i1 %10, i32 63, i32 %.04358
+  %spec.select = select i1 %10, i32 63, i32 %.04258
   br label %.thread61
 
 12:                                               ; preds = %.preheader
-  %.not56 = icmp eq i32 %.04358, -1
+  %.not56 = icmp eq i32 %.04258, -1
   br i1 %.not56, label %.thread.thread71, label %.thread61
 
 .thread61:                                        ; preds = %11, %12
-  %.066 = phi i32 [ %7, %12 ], [ 64, %11 ]
-  %.265 = phi i32 [ %.04358, %12 ], [ %spec.select, %11 ]
-  %13 = sub i32 %.066, %.265
-  %.not49 = icmp eq i32 %.04457, 0
+  %.266 = phi i32 [ %.04258, %12 ], [ %spec.select, %11 ]
+  %.04465 = phi i32 [ %7, %12 ], [ 64, %11 ]
+  %13 = sub i32 %.04465, %.266
+  %.not49 = icmp eq i32 %.059, 0
   %14 = select i1 %.not49, ptr @.str.330, ptr @.str.329
-  %15 = sext i32 %.04457 to i64
+  %15 = sext i32 %.059 to i64
   %16 = getelementptr i8, ptr %0, i64 %15
-  %17 = sub i32 240, %.04457
+  %17 = sub i32 240, %.059
   %18 = sext i32 %17 to i64
   switch i32 %13, label %26 [
     i32 1, label %19
@@ -605,33 +605,33 @@ define internal void @format_node_mask(ptr noundef %0, i64 noundef %1) #0 {
   ]
 
 19:                                               ; preds = %.thread61
-  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.331, ptr noundef nonnull %14, i32 noundef %.265) #8
-  %21 = add i32 %20, %.04457
+  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.331, ptr noundef nonnull %14, i32 noundef %.266) #8
+  %21 = add i32 %20, %.059
   br label %.thread.thread71
 
 22:                                               ; preds = %.thread61
-  %23 = add nuw i32 %.265, 1
-  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.332, ptr noundef nonnull %14, i32 noundef %.265, i32 noundef %23) #8
-  %25 = add i32 %24, %.04457
+  %23 = add nuw i32 %.266, 1
+  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.332, ptr noundef nonnull %14, i32 noundef %.266, i32 noundef %23) #8
+  %25 = add i32 %24, %.059
   br label %.thread.thread71
 
 26:                                               ; preds = %.thread61
-  %27 = add nsw i32 %.066, -1
-  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.333, ptr noundef nonnull %14, i32 noundef %.265, i32 noundef %27) #8
-  %29 = add i32 %28, %.04457
+  %27 = add nsw i32 %.04465, -1
+  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef %18, ptr noundef nonnull @.str.333, ptr noundef nonnull %14, i32 noundef %.266, i32 noundef %27) #8
+  %29 = add i32 %28, %.059
   br label %.thread.thread71
 
 .thread:                                          ; preds = %8
-  %spec.select76 = select i1 %10, i32 %7, i32 %.04358
+  %spec.select76 = select i1 %10, i32 %7, i32 %.04258
   br label %.thread.thread71
 
 .thread.thread71:                                 ; preds = %.thread, %26, %22, %19, %12
-  %.14570 = phi i32 [ %.04457, %12 ], [ %29, %26 ], [ %25, %22 ], [ %21, %19 ], [ %.04457, %.thread ]
-  %30 = phi i32 [ %7, %12 ], [ %.265, %26 ], [ %.265, %22 ], [ %.265, %19 ], [ %spec.select76, %.thread ]
+  %.170 = phi i32 [ %.059, %12 ], [ %29, %26 ], [ %25, %22 ], [ %21, %19 ], [ %.059, %.thread ]
+  %30 = phi i32 [ %7, %12 ], [ %.266, %26 ], [ %.266, %22 ], [ %.266, %19 ], [ %spec.select76, %.thread ]
   %.3 = select i1 %.not55, i32 -1, i32 %30
   %indvars.iv.next = add i64 %indvars.iv, 1
   %31 = icmp ult i64 %indvars.iv, 63
-  %32 = icmp slt i32 %.14570, 240
+  %32 = icmp slt i32 %.170, 240
   %33 = select i1 %31, i1 %32, i1 false
   br i1 %33, label %.preheader, label %.loopexit, !llvm.loop !4
 
@@ -771,28 +771,28 @@ test_drbd_header.exit.thread:                     ; preds = %13, %10, %test_drbd
   br label %27
 
 27:                                               ; preds = %94, %test_drbd_header.exit.thread
-  %.021 = phi ptr [ %0, %test_drbd_header.exit.thread ], [ %95, %94 ]
-  %28 = tail call i32 @tvb_reported_length(ptr noundef %.021) #8
+  %.020 = phi ptr [ %0, %test_drbd_header.exit.thread ], [ %95, %94 ]
+  %28 = tail call i32 @tvb_reported_length(ptr noundef %.020) #8
   %29 = icmp ult i32 %28, 16
   br i1 %29, label %test_drbd_rdma_control_header.exit26.thread, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call i32 @tvb_captured_length(ptr noundef %.021) #8
+  %31 = tail call i32 @tvb_captured_length(ptr noundef %.020) #8
   %32 = icmp ult i32 %31, 4
   br i1 %32, label %test_drbd_rdma_control_header.exit26.thread, label %test_drbd_rdma_control_header.exit26
 
 test_drbd_rdma_control_header.exit26:             ; preds = %30
-  %33 = tail call i32 @tvb_get_ntohl(ptr noundef %.021, i32 noundef 0) #8
+  %33 = tail call i32 @tvb_get_ntohl(ptr noundef %.020, i32 noundef 0) #8
   %.not51 = icmp eq i32 %33, 1381452110
   br i1 %.not51, label %36, label %test_drbd_rdma_control_header.exit26.thread
 
 test_drbd_rdma_control_header.exit26.thread:      ; preds = %27, %30, %test_drbd_rdma_control_header.exit26
-  %34 = tail call fastcc i32 @read_drbd_packet_len(ptr noundef %.021, i32 noundef 0)
+  %34 = tail call fastcc i32 @read_drbd_packet_len(ptr noundef %.020, i32 noundef 0)
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %test_drbd_rdma_control_header.exit.thread, label %60
 
 36:                                               ; preds = %test_drbd_rdma_control_header.exit26
-  %37 = tail call ptr @tvb_new_subset_length(ptr noundef %.021, i32 noundef 0, i32 noundef 16) #8
+  %37 = tail call ptr @tvb_new_subset_length(ptr noundef %.020, i32 noundef 0, i32 noundef 16) #8
   %38 = load ptr, ptr %23, align 8
   tail call void @col_clear(ptr noundef %38, i32 noundef 25) #8
   %39 = load ptr, ptr %23, align 8
@@ -836,7 +836,7 @@ drbd_ib_append_col_info.exit.i:                   ; preds = %46, %43
   br label %dissect_drbd_ib_control_message.exit
 
 60:                                               ; preds = %test_drbd_rdma_control_header.exit26.thread
-  %61 = tail call ptr @tvb_new_subset_length(ptr noundef %.021, i32 noundef 0, i32 noundef %34) #8
+  %61 = tail call ptr @tvb_new_subset_length(ptr noundef %.020, i32 noundef 0, i32 noundef %34) #8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   store i16 -1, ptr %5, align 2
   %62 = load i32, ptr @proto_drbd, align 4
@@ -910,19 +910,19 @@ dissect_drbd_ib_message.exit:                     ; preds = %83, %60, %drbd_ib_a
   br label %dissect_drbd_ib_control_message.exit
 
 dissect_drbd_ib_control_message.exit:             ; preds = %49, %drbd_ib_append_col_info.exit.i, %dissect_drbd_ib_message.exit
-  %.04448 = phi i32 [ %34, %dissect_drbd_ib_message.exit ], [ 16, %drbd_ib_append_col_info.exit.i ], [ 16, %49 ]
-  %91 = tail call i32 @tvb_reported_length(ptr noundef %.021) #8
-  %92 = add i32 %.04448, 8
+  %.0214448 = phi i32 [ %34, %dissect_drbd_ib_message.exit ], [ 16, %drbd_ib_append_col_info.exit.i ], [ 16, %49 ]
+  %91 = tail call i32 @tvb_reported_length(ptr noundef %.020) #8
+  %92 = add i32 %.0214448, 8
   %93 = icmp ult i32 %91, %92
   br i1 %93, label %test_drbd_rdma_control_header.exit.thread, label %94
 
 94:                                               ; preds = %dissect_drbd_ib_control_message.exit
-  %95 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.021, i32 noundef %.04448) #8
+  %95 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.020, i32 noundef %.0214448) #8
   br label %27
 
 test_drbd_rdma_control_header.exit.thread:        ; preds = %test_drbd_rdma_control_header.exit26.thread, %dissect_drbd_ib_control_message.exit, %test_drbd_header.exit.thread32, %19, %test_drbd_rdma_control_header.exit
-  %.020 = phi i32 [ 0, %test_drbd_rdma_control_header.exit ], [ 0, %19 ], [ 0, %test_drbd_header.exit.thread32 ], [ 1, %dissect_drbd_ib_control_message.exit ], [ 1, %test_drbd_rdma_control_header.exit26.thread ]
-  ret i32 %.020
+  %.0 = phi i32 [ 0, %test_drbd_rdma_control_header.exit ], [ 0, %19 ], [ 0, %test_drbd_header.exit.thread32 ], [ 1, %dissect_drbd_ib_control_message.exit ], [ 1, %test_drbd_rdma_control_header.exit26.thread ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1144,22 +1144,22 @@ cmp_address.exit.i:                               ; preds = %50
   %57 = tail call i32 @memcmp(ptr noundef %53, ptr noundef %55, i64 noundef %56) #10
   %.fr.i = freeze i32 %57
   %58 = icmp slt i32 %.fr.i, 0
-  %spec.select = select i1 %58, ptr %35, ptr %36
-  %spec.select57 = select i1 %58, ptr %36, ptr %35
+  %spec.select = select i1 %58, ptr %36, ptr %35
+  %spec.select57 = select i1 %58, ptr %35, ptr %36
   br label %.thread35.i
 
 .thread35.i:                                      ; preds = %cmp_address.exit.i, %50, %48, %42, %40, %28
-  %59 = phi ptr [ %36, %50 ], [ %36, %42 ], [ %36, %28 ], [ %35, %48 ], [ %35, %40 ], [ %spec.select, %cmp_address.exit.i ]
-  %60 = phi ptr [ %35, %50 ], [ %35, %42 ], [ %35, %28 ], [ %36, %48 ], [ %36, %40 ], [ %spec.select57, %cmp_address.exit.i ]
+  %59 = phi ptr [ %35, %50 ], [ %35, %42 ], [ %35, %28 ], [ %36, %48 ], [ %36, %40 ], [ %spec.select, %cmp_address.exit.i ]
+  %60 = phi ptr [ %36, %50 ], [ %36, %42 ], [ %36, %28 ], [ %35, %48 ], [ %35, %40 ], [ %spec.select57, %cmp_address.exit.i ]
   %61 = getelementptr inbounds i8, ptr %1, i64 20
   %62 = load i32, ptr %61, align 4
-  %63 = tail call ptr @find_conversation(i32 noundef %62, ptr noundef nonnull %59, ptr noundef nonnull %60, i32 noundef 2, i32 noundef %..i, i32 noundef 0, i32 noundef 131072) #8
+  %63 = tail call ptr @find_conversation(i32 noundef %62, ptr noundef nonnull %60, ptr noundef nonnull %59, i32 noundef 2, i32 noundef %..i, i32 noundef 0, i32 noundef 131072) #8
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %64, label %find_drbd_conversation.exit
 
 64:                                               ; preds = %.thread35.i
   %65 = load i32, ptr %61, align 4
-  %66 = tail call nonnull ptr @conversation_new(i32 noundef %65, ptr noundef nonnull %59, ptr noundef nonnull %60, i32 noundef 2, i32 noundef %..i, i32 noundef 0, i32 noundef 10) #8
+  %66 = tail call nonnull ptr @conversation_new(i32 noundef %65, ptr noundef nonnull %60, ptr noundef nonnull %59, i32 noundef 2, i32 noundef %..i, i32 noundef 0, i32 noundef 10) #8
   br label %find_drbd_conversation.exit
 
 find_drbd_conversation.exit:                      ; preds = %.thread35.i, %64
@@ -2008,7 +2008,7 @@ define internal fastcc void @decode_state_change(ptr noundef %0, ptr noundef %1,
 7:                                                ; preds = %19, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %19 ]
   %8 = phi ptr [ @hf_drbd_state_role, %3 ], [ %21, %19 ]
-  %.0141.i = phi i32 [ 0, %3 ], [ %.1.i, %19 ]
+  %.02.i = phi i32 [ 0, %3 ], [ %.1.i, %19 ]
   %9 = load i32, ptr %8, align 4
   %10 = tail call ptr @proto_registrar_get_nth(i32 noundef %9) #8
   %.not17.i = icmp eq ptr %10, null
@@ -2022,14 +2022,14 @@ define internal fastcc void @decode_state_change(ptr noundef %0, ptr noundef %1,
   br i1 %.not18.i, label %19, label %15
 
 15:                                               ; preds = %11
-  %16 = sext i32 %.0141.i to i64
+  %16 = sext i32 %.02.i to i64
   %17 = getelementptr ptr, ptr %4, i64 %16
   store ptr %8, ptr %17, align 8
-  %18 = add i32 %.0141.i, 1
+  %18 = add i32 %.02.i, 1
   br label %19
 
 19:                                               ; preds = %15, %11, %7
-  %.1.i = phi i32 [ %18, %15 ], [ %.0141.i, %11 ], [ %.0141.i, %7 ]
+  %.1.i = phi i32 [ %18, %15 ], [ %.02.i, %11 ], [ %.02.i, %7 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %20 = getelementptr ptr, ptr @state_fields, i64 %indvars.iv.next.i
   %21 = load ptr, ptr %20, align 8

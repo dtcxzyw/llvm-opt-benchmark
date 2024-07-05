@@ -521,8 +521,8 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_pml_count(ptr no
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3
-  %.011 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
-  ret i32 %.011
+  %.0 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -626,8 +626,8 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_sent_count(p
   br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !9
 
 .loopexit:                                        ; preds = %11, %.preheader, %3
-  %.011 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %11 ]
-  ret i32 %.011
+  %.0 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %11 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
@@ -698,8 +698,8 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_recv_count(p
   br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !11
 
 .loopexit:                                        ; preds = %11, %.preheader, %3
-  %.011 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %11 ]
-  ret i32 %.011
+  %.0 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %11 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
@@ -770,8 +770,8 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_coll_count(ptr n
   br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !13
 
 .loopexit:                                        ; preds = %11, %.preheader, %3
-  %.011 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %11 ]
-  ret i32 %.011
+  %.0 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ 0, %11 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable

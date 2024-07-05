@@ -781,8 +781,8 @@ if.end24:                                         ; preds = %if.end9
 
 do.body:                                          ; preds = %if.end61, %if.end24
   %8 = phi i64 [ %.pre, %if.end24 ], [ %15, %if.end61 ]
-  %buf.addr.0 = phi ptr [ %buf, %if.end24 ], [ %buf.addr.1, %if.end61 ]
   %rest.0 = phi i64 [ %spec.select, %if.end24 ], [ %sub62, %if.end61 ]
+  %buf.addr.0 = phi ptr [ %buf, %if.end24 ], [ %buf.addr.1, %if.end61 ]
   %add = add i64 %8, %rest.0
   %9 = load i64, ptr %size31, align 8
   %cmp32.not = icmp ugt i64 %add, %9

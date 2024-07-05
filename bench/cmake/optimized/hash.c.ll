@@ -74,8 +74,8 @@ define dso_local noundef ptr @Curl_hash_add(ptr noundef %0, ptr noundef %1, i64 
   %24 = sext i32 %20 to i64
   %25 = tail call i64 %23(ptr noundef %1, i64 noundef %2, i64 noundef %24) #8
   %26 = getelementptr inbounds %struct.Curl_llist, ptr %21, i64 %25
-  %.03747 = load ptr, ptr %26, align 8
-  %.not4148 = icmp eq ptr %.03747, null
+  %.03847 = load ptr, ptr %26, align 8
+  %.not4148 = icmp eq ptr %.03847, null
   br i1 %.not4148, label %.loopexit, label %.lr.ph50
 
 .lr.ph50:                                         ; preds = %.loopexit44
@@ -83,8 +83,8 @@ define dso_local noundef ptr @Curl_hash_add(ptr noundef %0, ptr noundef %1, i64 
   br label %28
 
 28:                                               ; preds = %.lr.ph50, %39
-  %.03749 = phi ptr [ %.03747, %.lr.ph50 ], [ %.037, %39 ]
-  %29 = load ptr, ptr %.03749, align 8
+  %.03849 = phi ptr [ %.03847, %.lr.ph50 ], [ %.038, %39 ]
+  %29 = load ptr, ptr %.03849, align 8
   %30 = load ptr, ptr %27, align 8
   %31 = getelementptr inbounds i8, ptr %29, i64 40
   %32 = getelementptr inbounds i8, ptr %29, i64 32
@@ -94,7 +94,7 @@ define dso_local noundef ptr @Curl_hash_add(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not42, label %39, label %35
 
 35:                                               ; preds = %28
-  tail call void @Curl_llist_remove(ptr noundef nonnull %26, ptr noundef nonnull %.03749, ptr noundef nonnull %0) #8
+  tail call void @Curl_llist_remove(ptr noundef nonnull %26, ptr noundef nonnull %.03849, ptr noundef nonnull %0) #8
   %36 = getelementptr inbounds i8, ptr %0, i64 40
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, -1
@@ -102,9 +102,9 @@ define dso_local noundef ptr @Curl_hash_add(ptr noundef %0, ptr noundef %1, i64 
   br label %.loopexit
 
 39:                                               ; preds = %28
-  %40 = getelementptr inbounds i8, ptr %.03749, i64 16
-  %.037 = load ptr, ptr %40, align 8
-  %.not41 = icmp eq ptr %.037, null
+  %40 = getelementptr inbounds i8, ptr %.03849, i64 16
+  %.038 = load ptr, ptr %40, align 8
+  %.not41 = icmp eq ptr %.038, null
   br i1 %.not41, label %.loopexit, label %28, !llvm.loop !7
 
 .loopexit:                                        ; preds = %39, %.loopexit44, %35
@@ -131,8 +131,8 @@ define dso_local noundef ptr @Curl_hash_add(ptr noundef %0, ptr noundef %1, i64 
   br label %mk_hash_element.exit.thread
 
 mk_hash_element.exit.thread:                      ; preds = %.loopexit, %6, %44
-  %.038 = phi ptr [ %3, %44 ], [ null, %6 ], [ null, %.loopexit ]
-  ret ptr %.038
+  %.037 = phi ptr [ %3, %44 ], [ null, %6 ], [ null, %.loopexit ]
+  ret ptr %.037
 }
 
 declare void @Curl_llist_init(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -349,10 +349,10 @@ define dso_local void @Curl_hash_clean(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %14, label %.lr.ph29.split.us.i, label %Curl_hash_clean_with_criterium.exit, !llvm.loop !11
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph29.split.us.i, %.lr.ph.us.i
-  %.01927.us.us.i = phi ptr [ %16, %.lr.ph.us.i ], [ %11, %.lr.ph29.split.us.i ]
-  %15 = getelementptr inbounds i8, ptr %.01927.us.us.i, i64 16
+  %.027.us.us.i = phi ptr [ %16, %.lr.ph.us.i ], [ %11, %.lr.ph29.split.us.i ]
+  %15 = getelementptr inbounds i8, ptr %.027.us.us.i, i64 16
   %16 = load ptr, ptr %15, align 8
-  tail call void @Curl_llist_remove(ptr noundef nonnull %10, ptr noundef nonnull %.01927.us.us.i, ptr noundef nonnull %0) #8
+  tail call void @Curl_llist_remove(ptr noundef nonnull %10, ptr noundef nonnull %.027.us.us.i, ptr noundef nonnull %0) #8
   %17 = load i64, ptr %7, align 8
   %18 = add i64 %17, -1
   store i64 %18, ptr %7, align 8
@@ -405,10 +405,10 @@ define dso_local void @Curl_hash_clean_with_criterium(ptr noundef %0, ptr nounde
   br i1 %16, label %.lr.ph29.split.us, label %.loopexit, !llvm.loop !11
 
 .lr.ph.us:                                        ; preds = %.lr.ph29.split.us, %.lr.ph.us
-  %.01927.us.us = phi ptr [ %18, %.lr.ph.us ], [ %13, %.lr.ph29.split.us ]
-  %17 = getelementptr inbounds i8, ptr %.01927.us.us, i64 16
+  %.027.us.us = phi ptr [ %18, %.lr.ph.us ], [ %13, %.lr.ph29.split.us ]
+  %17 = getelementptr inbounds i8, ptr %.027.us.us, i64 16
   %18 = load ptr, ptr %17, align 8
-  tail call void @Curl_llist_remove(ptr noundef nonnull %12, ptr noundef nonnull %.01927.us.us, ptr noundef nonnull %0) #8
+  tail call void @Curl_llist_remove(ptr noundef nonnull %12, ptr noundef nonnull %.027.us.us, ptr noundef nonnull %0) #8
   %19 = load i64, ptr %9, align 8
   %20 = add i64 %19, -1
   store i64 %20, ptr %9, align 8
@@ -425,10 +425,10 @@ define dso_local void @Curl_hash_clean_with_criterium(ptr noundef %0, ptr nounde
   br i1 %.not2326, label %._crit_edge.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph29.split, %34
-  %.01927 = phi ptr [ %26, %34 ], [ %24, %.lr.ph29.split ]
-  %25 = getelementptr inbounds i8, ptr %.01927, i64 16
+  %.027 = phi ptr [ %26, %34 ], [ %24, %.lr.ph29.split ]
+  %25 = getelementptr inbounds i8, ptr %.027, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %.01927, align 8
+  %27 = load ptr, ptr %.027, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 %2(ptr noundef %1, ptr noundef %29) #8
@@ -436,7 +436,7 @@ define dso_local void @Curl_hash_clean_with_criterium(ptr noundef %0, ptr nounde
   br i1 %.not25, label %34, label %31
 
 31:                                               ; preds = %.lr.ph
-  tail call void @Curl_llist_remove(ptr noundef nonnull %23, ptr noundef nonnull %.01927, ptr noundef nonnull %0) #8
+  tail call void @Curl_llist_remove(ptr noundef nonnull %23, ptr noundef nonnull %.027, ptr noundef nonnull %0) #8
   %32 = load i64, ptr %9, align 8
   %33 = add i64 %32, -1
   store i64 %33, ptr %9, align 8

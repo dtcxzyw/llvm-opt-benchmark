@@ -2403,10 +2403,10 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr nocapture noundef %0, i64 noundef %1, 
   br i1 %.not641690, label %._crit_edge, label %.lr.ph692
 
 .lr.ph692:                                        ; preds = %.lr.ph695, %321
-  %.0553691 = phi ptr [ %286, %321 ], [ %284, %.lr.ph695 ]
-  %285 = getelementptr inbounds i8, ptr %.0553691, i64 32
+  %.0591691 = phi ptr [ %286, %321 ], [ %284, %.lr.ph695 ]
+  %285 = getelementptr inbounds i8, ptr %.0591691, i64 32
   %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds i8, ptr %.0553691, i64 52
+  %287 = getelementptr inbounds i8, ptr %.0591691, i64 52
   %288 = load i32, ptr %287, align 4
   %289 = load ptr, ptr %191, align 8
   %290 = getelementptr inbounds i8, ptr %289, i64 8
@@ -2445,7 +2445,7 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr nocapture noundef %0, i64 noundef %1, 
   br label %316
 
 316:                                              ; preds = %303, %314, %.lr.ph692
-  %317 = getelementptr inbounds i8, ptr %.0553691, i64 24
+  %317 = getelementptr inbounds i8, ptr %.0591691, i64 24
   store ptr null, ptr %317, align 8
   %318 = load ptr, ptr %296, align 8
   store ptr %318, ptr %285, align 8
@@ -2454,11 +2454,11 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr nocapture noundef %0, i64 noundef %1, 
 
 319:                                              ; preds = %316
   %320 = getelementptr inbounds i8, ptr %318, i64 24
-  store ptr %.0553691, ptr %320, align 8
+  store ptr %.0591691, ptr %320, align 8
   br label %321
 
 321:                                              ; preds = %319, %316
-  store ptr %.0553691, ptr %296, align 8
+  store ptr %.0591691, ptr %296, align 8
   %.not641 = icmp eq ptr %286, null
   br i1 %.not641, label %._crit_edge.loopexit, label %.lr.ph692
 

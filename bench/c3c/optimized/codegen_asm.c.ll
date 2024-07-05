@@ -66,9 +66,9 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   br i1 %.not2935.i, label %codegen_create_x86_att_asm.exit, label %.lr.ph38.i
 
 .lr.ph38.i:                                       ; preds = %13, %._crit_edge.i
-  %.02536.i = phi i32 [ %18, %._crit_edge.i ], [ %7, %13 ]
+  %.02636.i = phi i32 [ %18, %._crit_edge.i ], [ %7, %13 ]
   %14 = load ptr, ptr @ast_arena, align 8
-  %15 = zext i32 %.02536.i to i64
+  %15 = zext i32 %.02636.i to i64
   %16 = getelementptr inbounds %struct.Ast_, ptr %14, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
@@ -137,9 +137,9 @@ define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) loca
   br i1 %.not2832.i, label %codegen_create_x86_att_asm.exit, label %.lr.ph35.i
 
 .lr.ph35.i:                                       ; preds = %40, %._crit_edge.i11
-  %.02433.i = phi i32 [ %45, %._crit_edge.i11 ], [ %34, %40 ]
+  %.02533.i = phi i32 [ %45, %._crit_edge.i11 ], [ %34, %40 ]
   %41 = load ptr, ptr @ast_arena, align 8
-  %42 = zext i32 %.02433.i to i64
+  %42 = zext i32 %.02533.i to i64
   %43 = getelementptr inbounds %struct.Ast_, ptr %41, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8

@@ -1482,12 +1482,12 @@ arkStep_AccessStepMem.exit:                       ; preds = %11
 
 150:                                              ; preds = %150, %.lr.ph43.us.preheader.i
   %indvars.iv49.i = phi i64 [ 0, %.lr.ph43.us.preheader.i ], [ %indvars.iv.next50.i, %150 ]
-  %.03841.us.i = phi double [ 1.000000e+00, %.lr.ph43.us.preheader.i ], [ %153, %150 ]
+  %.042.us.i = phi double [ 1.000000e+00, %.lr.ph43.us.preheader.i ], [ %153, %150 ]
   %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv49.i
   %151 = load double, ptr %gep.i, align 8
-  %152 = fadd double %.03841.us.i, %151
+  %152 = fadd double %.042.us.i, %151
   store double %152, ptr %gep.i, align 8
-  %153 = fmul double %149, %.03841.us.i
+  %153 = fmul double %149, %.042.us.i
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count.i
   br i1 %exitcond53.not.i, label %arkStep_ApplyForcing.exit, label %150
@@ -1530,7 +1530,7 @@ arkStep_ApplyForcing.exit:                        ; preds = %150, %136
   br label %171
 
 171:                                              ; preds = %167, %164
-  %.0 = phi i32 [ 0, %164 ], [ %spec.select, %167 ]
+  %.056 = phi i32 [ 0, %164 ], [ %spec.select, %167 ]
   %172 = getelementptr inbounds i8, ptr %13, i64 28
   %173 = load i32, ptr %172, align 4
   %.not75 = icmp eq i32 %173, 0
@@ -1541,11 +1541,11 @@ arkStep_ApplyForcing.exit:                        ; preds = %150, %136
   %176 = load ptr, ptr %175, align 8
   %177 = tail call i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef %176) #12
   %.not76 = icmp eq i32 %177, 0
-  %spec.select106 = select i1 %.not76, i32 1, i32 %.0
+  %spec.select106 = select i1 %.not76, i32 1, i32 %.056
   br label %178
 
 178:                                              ; preds = %174, %171
-  %.1 = phi i32 [ %.0, %171 ], [ %spec.select106, %174 ]
+  %.1 = phi i32 [ %.056, %171 ], [ %spec.select106, %174 ]
   %179 = getelementptr inbounds i8, ptr %0, i64 640
   %180 = load i32, ptr %179, align 8
   %.not77 = icmp eq i32 %180, 0
@@ -1782,12 +1782,12 @@ arkStep_ApplyForcing.exit:                        ; preds = %150, %136
 
 316:                                              ; preds = %316, %.lr.ph43.us.preheader.i115
   %indvars.iv49.i120 = phi i64 [ 0, %.lr.ph43.us.preheader.i115 ], [ %indvars.iv.next50.i123, %316 ]
-  %.03841.us.i121 = phi double [ 1.000000e+00, %.lr.ph43.us.preheader.i115 ], [ %319, %316 ]
+  %.042.us.i121 = phi double [ 1.000000e+00, %.lr.ph43.us.preheader.i115 ], [ %319, %316 ]
   %gep.i122 = getelementptr double, ptr %invariant.gep.i117, i64 %indvars.iv49.i120
   %317 = load double, ptr %gep.i122, align 8
-  %318 = fadd double %.03841.us.i121, %317
+  %318 = fadd double %.042.us.i121, %317
   store double %318, ptr %gep.i122, align 8
-  %319 = fmul double %315, %.03841.us.i121
+  %319 = fmul double %315, %.042.us.i121
   %indvars.iv.next50.i123 = add nuw nsw i64 %indvars.iv49.i120, 1
   %exitcond53.not.i124 = icmp eq i64 %indvars.iv.next50.i123, %wide.trip.count.i109
   br i1 %exitcond53.not.i124, label %arkStep_ApplyForcing.exit128, label %316
@@ -1938,8 +1938,8 @@ arkStep_ApplyForcing.exit128:                     ; preds = %316, %302
   br label %arkStep_AccessStepMem.exit.thread
 
 arkStep_AccessStepMem.exit.thread:                ; preds = %15, %10, %arkStep_ApplyForcing.exit, %133, %arkStep_ApplyForcing.exit128, %299, %388, %385, %26, %391, %381, %355, %340, %295, %239, %224, %209, %194, %129, %96, %81, %65, %50
-  %.056 = phi i32 [ -8, %391 ], [ -8, %340 ], [ -8, %355 ], [ -16, %381 ], [ -16, %295 ], [ -8, %194 ], [ -16, %209 ], [ -8, %224 ], [ -16, %239 ], [ -16, %129 ], [ -8, %50 ], [ -16, %65 ], [ -8, %81 ], [ -16, %96 ], [ -15, %26 ], [ 0, %385 ], [ 0, %388 ], [ 0, %299 ], [ 0, %arkStep_ApplyForcing.exit128 ], [ 0, %133 ], [ 0, %arkStep_ApplyForcing.exit ], [ -21, %10 ], [ -21, %15 ]
-  ret i32 %.056
+  %.0 = phi i32 [ -8, %391 ], [ -8, %340 ], [ -8, %355 ], [ -16, %381 ], [ -16, %295 ], [ -8, %194 ], [ -16, %209 ], [ -8, %224 ], [ -16, %239 ], [ -16, %129 ], [ -8, %50 ], [ -16, %65 ], [ -8, %81 ], [ -16, %96 ], [ -15, %26 ], [ 0, %385 ], [ 0, %388 ], [ 0, %299 ], [ 0, %arkStep_ApplyForcing.exit128 ], [ 0, %133 ], [ 0, %arkStep_ApplyForcing.exit ], [ -21, %10 ], [ -21, %15 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2049,7 +2049,7 @@ arkStep_AccessStepMem.exit:                       ; preds = %6
 
 .thread:                                          ; preds = %41, %37, %.thread211, %.thread213
   %56 = phi i1 [ %50, %.thread213 ], [ %.not97, %.thread211 ], [ false, %37 ], [ false, %41 ]
-  %.076186 = phi i32 [ 1, %.thread213 ], [ %.mux, %.thread211 ], [ 1, %37 ], [ 1, %41 ]
+  %.077186 = phi i32 [ 1, %.thread213 ], [ %.mux, %.thread211 ], [ 1, %37 ], [ 1, %41 ]
   %57 = phi i1 [ true, %.thread213 ], [ %49, %.thread211 ], [ true, %37 ], [ true, %41 ]
   %58 = getelementptr inbounds i8, ptr %8, i64 24
   %59 = load i32, ptr %58, align 8
@@ -2122,7 +2122,7 @@ arkStep_AccessStepMem.exit:                       ; preds = %6
 93:                                               ; preds = %92, %76, %72, %71
   %94 = getelementptr inbounds i8, ptr %8, i64 100
   %95 = load i32, ptr %94, align 4
-  %96 = icmp slt i32 %.076186, %95
+  %96 = icmp slt i32 %.077186, %95
   br i1 %96, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %93
@@ -2156,7 +2156,7 @@ arkStep_AccessStepMem.exit:                       ; preds = %6
   %124 = getelementptr inbounds i8, ptr %8, i64 336
   %125 = getelementptr inbounds i8, ptr %8, i64 40
   %126 = getelementptr inbounds i8, ptr %8, i64 376
-  %127 = zext nneg i32 %.076186 to i64
+  %127 = zext nneg i32 %.077186 to i64
   br label %128
 
 128:                                              ; preds = %.lr.ph, %282
@@ -2177,7 +2177,7 @@ arkStep_AccessStepMem.exit:                       ; preds = %6
   %138 = load double, ptr %137, align 8
   %139 = tail call double @llvm.fabs.f64(double %138)
   %140 = fcmp ogt double %139, 1.000000e-10
-  %.173.ph = zext i1 %140 to i32
+  %.175.ph = zext i1 %140 to i32
   %141 = load i32, ptr %99, align 8
   %142 = icmp ne i32 %141, 0
   %143 = and i1 %142, %140
@@ -2190,7 +2190,7 @@ arkStep_AccessStepMem.exit:                       ; preds = %6
 146:                                              ; preds = %144, %131
   %.sink = phi ptr [ %145, %144 ], [ %132, %131 ]
   %147 = phi i1 [ false, %144 ], [ %143, %131 ]
-  %.173189 = phi i32 [ 0, %144 ], [ %.173.ph, %131 ]
+  %.175189 = phi i32 [ 0, %144 ], [ %.175.ph, %131 ]
   %148 = phi i1 [ false, %144 ], [ %140, %131 ]
   %.sink215 = load double, ptr %100, align 8
   %149 = getelementptr inbounds i8, ptr %.sink, i64 24
@@ -2244,12 +2244,12 @@ arkStep_AccessStepMem.exit:                       ; preds = %6
   br i1 %.not116, label %177, label %arkStep_AccessStepMem.exit.thread
 
 177:                                              ; preds = %168, %176
-  %178 = tail call i32 @arkStep_StageSetup(ptr noundef nonnull %0, i32 noundef %.173189)
+  %178 = tail call i32 @arkStep_StageSetup(ptr noundef nonnull %0, i32 noundef %.175189)
   %.not117 = icmp eq i32 %178, 0
   br i1 %.not117, label %180, label %arkStep_AccessStepMem.exit.thread
 
 .thread191:                                       ; preds = %164
-  %179 = tail call i32 @arkStep_StageSetup(ptr noundef nonnull %0, i32 noundef %.173189)
+  %179 = tail call i32 @arkStep_StageSetup(ptr noundef nonnull %0, i32 noundef %.175189)
   %.not117192 = icmp eq i32 %179, 0
   br i1 %.not117192, label %.thread193, label %arkStep_AccessStepMem.exit.thread
 
@@ -3619,8 +3619,8 @@ switch.lookup72:                                  ; preds = %.thread
   br label %.thread60
 
 .thread60:                                        ; preds = %switch.lookup72, %33
-  %.039.ph.ph = phi i32 [ 21, %33 ], [ %switch.load75, %switch.lookup72 ]
-  %35 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef %.039.ph.ph) #12
+  %.040.ph.ph = phi i32 [ 21, %33 ], [ %switch.load75, %switch.lookup72 ]
+  %35 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef %.040.ph.ph) #12
   store ptr %35, ptr %9, align 8
   br label %42
 
@@ -3634,9 +3634,9 @@ switch.lookup:                                    ; preds = %19
   br label %38
 
 38:                                               ; preds = %switch.lookup, %23
-  %.039.ph = phi i32 [ 9, %23 ], [ %switch.load, %switch.lookup ]
-  %.0.ph = phi i32 [ 111, %23 ], [ %switch.load67, %switch.lookup ]
-  %39 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef %.039.ph) #12
+  %.040.ph = phi i32 [ 9, %23 ], [ %switch.load, %switch.lookup ]
+  %.039.ph = phi i32 [ 111, %23 ], [ %switch.load67, %switch.lookup ]
+  %39 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef %.040.ph) #12
   store ptr %39, ptr %9, align 8
   br label %.thread56
 
@@ -3647,8 +3647,8 @@ switch.lookup68:                                  ; preds = %25
   br label %.thread56
 
 .thread56:                                        ; preds = %switch.lookup68, %29, %38
-  %.05358 = phi i32 [ %.0.ph, %38 ], [ 111, %29 ], [ %switch.load71, %switch.lookup68 ]
-  %41 = tail call ptr @ARKodeButcherTable_LoadDIRK(i32 noundef %.05358) #12
+  %.0395358 = phi i32 [ %.039.ph, %38 ], [ 111, %29 ], [ %switch.load71, %switch.lookup68 ]
+  %41 = tail call ptr @ARKodeButcherTable_LoadDIRK(i32 noundef %.0395358) #12
   store ptr %41, ptr %12, align 8
   %.pre64 = load ptr, ptr %9, align 8
   br label %42
@@ -3714,8 +3714,8 @@ switch.lookup68:                                  ; preds = %25
   br label %80
 
 80:                                               ; preds = %69, %71, %8, %11, %7
-  %.040 = phi i32 [ -21, %7 ], [ 0, %11 ], [ 0, %8 ], [ 0, %71 ], [ 0, %69 ]
-  ret i32 %.040
+  %.0 = phi i32 [ -21, %7 ], [ 0, %11 ], [ 0, %8 ], [ 0, %71 ], [ 0, %69 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3844,19 +3844,19 @@ define range(i32 -41, 1) i32 @arkStep_CheckButcherTables(ptr noundef %0) local_u
 
 .preheader102:                                    ; preds = %.preheader102.lr.ph, %71
   %indvars.iv = phi i64 [ 0, %.preheader102.lr.ph ], [ %indvars.iv.next, %71 ]
-  %.074107 = phi i32 [ 1, %.preheader102.lr.ph ], [ %.2, %71 ]
+  %.075106 = phi i32 [ 1, %.preheader102.lr.ph ], [ %.277, %71 ]
   %63 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
   br label %65
 
 65:                                               ; preds = %.preheader102, %65
   %indvars.iv127 = phi i64 [ %indvars.iv, %.preheader102 ], [ %indvars.iv.next128, %65 ]
-  %.1105 = phi i32 [ %.074107, %.preheader102 ], [ %.2, %65 ]
+  %.176105 = phi i32 [ %.075106, %.preheader102 ], [ %.277, %65 ]
   %66 = getelementptr inbounds double, ptr %64, i64 %indvars.iv127
   %67 = load double, ptr %66, align 8
   %68 = tail call double @llvm.fabs.f64(double %67)
   %69 = fcmp ogt double %68, 0x3D19000000000000
-  %.2 = select i1 %69, i32 0, i32 %.1105
+  %.277 = select i1 %69, i32 0, i32 %.176105
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %70 = icmp ult i64 %indvars.iv.next128, %62
   br i1 %70, label %65, label %71
@@ -3867,7 +3867,7 @@ define range(i32 -41, 1) i32 @arkStep_CheckButcherTables(ptr noundef %0) local_u
   br i1 %exitcond.not, label %._crit_edge, label %.preheader102
 
 ._crit_edge:                                      ; preds = %71
-  %.not89 = icmp eq i32 %.2, 0
+  %.not89 = icmp eq i32 %.277, 0
   br i1 %.not89, label %72, label %.thread96
 
 72:                                               ; preds = %._crit_edge
@@ -3888,20 +3888,20 @@ define range(i32 -41, 1) i32 @arkStep_CheckButcherTables(ptr noundef %0) local_u
 
 77:                                               ; preds = %.lr.ph, %77
   %indvars.iv131 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next132, %77 ]
-  %.3109 = phi i32 [ 0, %.lr.ph ], [ %.4, %77 ]
+  %.378108 = phi i32 [ 0, %.lr.ph ], [ %.479, %77 ]
   %78 = getelementptr inbounds ptr, ptr %76, i64 %indvars.iv131
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds double, ptr %79, i64 %indvars.iv131
   %81 = load double, ptr %80, align 8
   %82 = tail call double @llvm.fabs.f64(double %81)
   %83 = fcmp ogt double %82, 0x3D19000000000000
-  %.4 = select i1 %83, i32 1, i32 %.3109
+  %.479 = select i1 %83, i32 1, i32 %.378108
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count135
   br i1 %exitcond136.not, label %._crit_edge110, label %77
 
 ._crit_edge110:                                   ; preds = %77
-  %.not91 = icmp eq i32 %.4, 0
+  %.not91 = icmp eq i32 %.479, 0
   br i1 %.not91, label %86, label %.lr.ph119
 
 .lr.ph119:                                        ; preds = %._crit_edge110
@@ -3917,7 +3917,7 @@ define range(i32 -41, 1) i32 @arkStep_CheckButcherTables(ptr noundef %0) local_u
   br label %.loopexit
 
 .loopexit99:                                      ; preds = %94, %87
-  %.6.lcssa = phi i32 [ %.5118, %87 ], [ %.7, %94 ]
+  %.6.lcssa = phi i32 [ %.5117, %87 ], [ %.7, %94 ]
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count148
   br i1 %exitcond149.not, label %._crit_edge120, label %87
@@ -3925,7 +3925,7 @@ define range(i32 -41, 1) i32 @arkStep_CheckButcherTables(ptr noundef %0) local_u
 87:                                               ; preds = %.lr.ph119, %.loopexit99
   %indvars.iv144 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next145, %.loopexit99 ]
   %indvars.iv137 = phi i64 [ 1, %.lr.ph119 ], [ %indvars.iv.next138, %.loopexit99 ]
-  %.5118 = phi i32 [ 1, %.lr.ph119 ], [ %.6.lcssa, %.loopexit99 ]
+  %.5117 = phi i32 [ 1, %.lr.ph119 ], [ %.6.lcssa, %.loopexit99 ]
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %88 = icmp ult i64 %indvars.iv.next145, %85
   br i1 %88, label %.lr.ph115, label %.loopexit99
@@ -3940,7 +3940,7 @@ define range(i32 -41, 1) i32 @arkStep_CheckButcherTables(ptr noundef %0) local_u
 
 94:                                               ; preds = %.lr.ph115, %94
   %indvars.iv139 = phi i64 [ %indvars.iv137, %.lr.ph115 ], [ %indvars.iv.next140, %94 ]
-  %.6113 = phi i32 [ %.5118, %.lr.ph115 ], [ %.7, %94 ]
+  %.6113 = phi i32 [ %.5117, %.lr.ph115 ], [ %.7, %94 ]
   %95 = getelementptr inbounds double, ptr %93, i64 %indvars.iv139
   %96 = load double, ptr %95, align 8
   %97 = tail call double @llvm.fabs.f64(double %96)
@@ -4088,13 +4088,13 @@ define void @arkStep_ApplyForcing(ptr nocapture noundef readonly %0, ptr nocaptu
 
 28:                                               ; preds = %.lr.ph43.us, %28
   %indvars.iv49 = phi i64 [ 0, %.lr.ph43.us ], [ %indvars.iv.next50, %28 ]
-  %.03841.us = phi double [ 1.000000e+00, %.lr.ph43.us ], [ %32, %28 ]
+  %.042.us = phi double [ 1.000000e+00, %.lr.ph43.us ], [ %32, %28 ]
   %29 = load double, ptr %27, align 8
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv49
   %30 = load double, ptr %gep, align 8
-  %31 = tail call double @llvm.fmuladd.f64(double %29, double %.03841.us, double %30)
+  %31 = tail call double @llvm.fmuladd.f64(double %29, double %.042.us, double %30)
   store double %31, ptr %gep, align 8
-  %32 = fmul double %26, %.03841.us
+  %32 = fmul double %26, %.042.us
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
   br i1 %exitcond53.not, label %._crit_edge.us, label %28
@@ -4228,12 +4228,12 @@ define i32 @arkStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
 
 .lr.ph161:                                        ; preds = %.lr.ph161.preheader, %.lr.ph161
   %indvars.iv184 = phi i64 [ 0, %.lr.ph161.preheader ], [ %indvars.iv.next185, %.lr.ph161 ]
-  %.0123160 = phi i32 [ -1, %.lr.ph161.preheader ], [ %54, %.lr.ph161 ]
+  %.0124159 = phi i32 [ -1, %.lr.ph161.preheader ], [ %54, %.lr.ph161 ]
   %50 = getelementptr inbounds double, ptr %31, i64 %indvars.iv184
   %51 = load double, ptr %50, align 8
   %52 = fcmp une double %51, 0.000000e+00
   %53 = trunc nuw nsw i64 %indvars.iv184 to i32
-  %54 = select i1 %52, i32 %53, i32 %.0123160
+  %54 = select i1 %52, i32 %53, i32 %.0124159
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
   br i1 %exitcond188.not, label %._crit_edge, label %.lr.ph161
@@ -4251,24 +4251,24 @@ define i32 @arkStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
 
 .lr.ph165:                                        ; preds = %.lr.ph165.preheader, %.lr.ph165
   %indvars.iv189 = phi i64 [ 0, %.lr.ph165.preheader ], [ %indvars.iv.next190, %.lr.ph165 ]
-  %.1124164 = phi i32 [ %54, %.lr.ph165.preheader ], [ %.2125, %.lr.ph165 ]
+  %.1125163 = phi i32 [ %54, %.lr.ph165.preheader ], [ %.2, %.lr.ph165 ]
   %56 = getelementptr inbounds double, ptr %31, i64 %indvars.iv189
   %57 = load double, ptr %56, align 8
-  %58 = sext i32 %.1124164 to i64
+  %58 = sext i32 %.1125163 to i64
   %59 = getelementptr inbounds double, ptr %31, i64 %58
   %60 = load double, ptr %59, align 8
   %61 = fcmp ogt double %57, %60
   %62 = fcmp une double %57, 0.000000e+00
   %or.cond148 = and i1 %62, %61
   %63 = trunc nuw nsw i64 %indvars.iv189 to i32
-  %.2125 = select i1 %or.cond148, i32 %63, i32 %.1124164
+  %.2 = select i1 %or.cond148, i32 %63, i32 %.1125163
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
   br i1 %exitcond193.not, label %._crit_edge166, label %.lr.ph165
 
 ._crit_edge166:                                   ; preds = %.lr.ph165, %.preheader
-  %.1124.lcssa = phi i32 [ %54, %.preheader ], [ %.2125, %.lr.ph165 ]
-  %64 = sext i32 %.1124.lcssa to i64
+  %.1125.lcssa = phi i32 [ %54, %.preheader ], [ %.2, %.lr.ph165 ]
+  %64 = sext i32 %.1125.lcssa to i64
   %65 = getelementptr inbounds double, ptr %31, i64 %64
   %66 = load double, ptr %65, align 8
   %67 = fmul double %36, %66
@@ -4287,14 +4287,14 @@ define i32 @arkStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   br label %75
 
 75:                                               ; preds = %70, %._crit_edge166
-  %.0 = phi i32 [ 1, %70 ], [ 0, %._crit_edge166 ]
+  %.0126 = phi i32 [ 1, %70 ], [ 0, %._crit_edge166 ]
   %76 = getelementptr inbounds i8, ptr %5, i64 24
   %77 = load i32, ptr %76, align 8
   %.not143 = icmp eq i32 %77, 0
   br i1 %.not143, label %87, label %78
 
 78:                                               ; preds = %75
-  %79 = zext nneg i32 %.0 to i64
+  %79 = zext nneg i32 %.0126 to i64
   %80 = getelementptr inbounds double, ptr %19, i64 %79
   store double 1.000000e+00, ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %5, i64 40
@@ -4303,12 +4303,12 @@ define i32 @arkStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds ptr, ptr %21, i64 %79
   store ptr %84, ptr %85, align 8
-  %86 = add nuw nsw i32 %.0, 1
+  %86 = add nuw nsw i32 %.0126, 1
   br label %87
 
 87:                                               ; preds = %78, %75
-  %.1 = phi i32 [ %86, %78 ], [ %.0, %75 ]
-  %88 = tail call i32 @arkPredict_Bootstrap(ptr noundef %0, double noundef %67, double noundef %37, i32 noundef %.1, ptr noundef %19, ptr noundef %21, ptr noundef %2) #12
+  %.1127 = phi i32 [ %86, %78 ], [ %.0126, %75 ]
+  %88 = tail call i32 @arkPredict_Bootstrap(ptr noundef %0, double noundef %67, double noundef %37, i32 noundef %.1127, ptr noundef %19, ptr noundef %21, ptr noundef %2) #12
   %.not144 = icmp eq i32 %88, -22
   br i1 %.not144, label %._crit_edge.thread, label %139
 
@@ -4349,7 +4349,7 @@ define i32 @arkStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   br i1 %exitcond.not, label %.loopexit152, label %95
 
 .loopexit152:                                     ; preds = %95, %89
-  %.3 = phi i32 [ 0, %89 ], [ %1, %95 ]
+  %.3129 = phi i32 [ 0, %89 ], [ %1, %95 ]
   %110 = getelementptr inbounds i8, ptr %5, i64 28
   %111 = load i32, ptr %110, align 4
   %.not140 = icmp ne i32 %111, 0
@@ -4358,40 +4358,40 @@ define i32 @arkStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
 
 .lr.ph157:                                        ; preds = %.loopexit152
   %112 = getelementptr inbounds i8, ptr %5, i64 48
-  %113 = zext nneg i32 %.3 to i64
+  %113 = zext nneg i32 %.3129 to i64
   %wide.trip.count182 = zext nneg i32 %1 to i64
   br label %114
 
 114:                                              ; preds = %.lr.ph157, %114
-  %indvars.iv177 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next178, %114 ]
-  %indvars.iv175 = phi i64 [ %113, %.lr.ph157 ], [ %indvars.iv.next176, %114 ]
+  %indvars.iv177 = phi i64 [ %113, %.lr.ph157 ], [ %indvars.iv.next178, %114 ]
+  %indvars.iv175 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next176, %114 ]
   %115 = load double, ptr %35, align 8
   %116 = load ptr, ptr %28, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds ptr, ptr %118, i64 %32
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds double, ptr %120, i64 %indvars.iv177
+  %121 = getelementptr inbounds double, ptr %120, i64 %indvars.iv175
   %122 = load double, ptr %121, align 8
   %123 = fmul double %115, %122
-  %124 = getelementptr inbounds double, ptr %19, i64 %indvars.iv175
+  %124 = getelementptr inbounds double, ptr %19, i64 %indvars.iv177
   store double %123, ptr %124, align 8
   %125 = load ptr, ptr %112, align 8
-  %126 = getelementptr inbounds ptr, ptr %125, i64 %indvars.iv177
+  %126 = getelementptr inbounds ptr, ptr %125, i64 %indvars.iv175
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv175
+  %128 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv177
   store ptr %127, ptr %128, align 8
-  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %exitcond183.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count182
+  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
+  %exitcond183.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count182
   br i1 %exitcond183.not, label %.loopexit.loopexit, label %114
 
 .loopexit.loopexit:                               ; preds = %114
-  %129 = trunc nuw i64 %indvars.iv.next176 to i32
+  %129 = trunc nuw i64 %indvars.iv.next178 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit152
-  %.5 = phi i32 [ %.3, %.loopexit152 ], [ %129, %.loopexit.loopexit ]
+  %.5 = phi i32 [ %.3129, %.loopexit152 ], [ %129, %.loopexit.loopexit ]
   %130 = sext i32 %.5 to i64
   %131 = getelementptr inbounds double, ptr %19, i64 %130
   store double 1.000000e+00, ptr %131, align 8
@@ -4412,8 +4412,8 @@ define i32 @arkStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   br label %139
 
 139:                                              ; preds = %.loopexit, %87, %48, %46, %44, %._crit_edge.thread, %24, %16, %7
-  %.0130 = phi i32 [ -21, %7 ], [ -21, %16 ], [ 0, %24 ], [ 0, %._crit_edge.thread ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %88, %87 ], [ %., %.loopexit ]
-  ret i32 %.0130
+  %.0 = phi i32 [ -21, %7 ], [ -21, %16 ], [ 0, %24 ], [ 0, %._crit_edge.thread ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %88, %87 ], [ %., %.loopexit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4609,30 +4609,30 @@ define range(i32 -28, 1) i32 @arkStep_StageSetup(ptr noundef %0, i32 noundef %1)
 106:                                              ; preds = %103, %.loopexit
   %.pn.in.v = phi i64 [ 112, %103 ], [ 104, %.loopexit ]
   %107 = zext i1 %.not102 to i32
-  %.091 = add nsw i32 %9, %107
+  %.092 = add nsw i32 %9, %107
   %.pn.in = getelementptr inbounds i8, ptr %4, i64 %.pn.in.v
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.090.in = getelementptr inbounds i8, ptr %.pn, i64 24
-  %.090 = load ptr, ptr %.090.in, align 8
-  %108 = icmp sgt i32 %.091, 0
+  %.091.in = getelementptr inbounds i8, ptr %.pn, i64 24
+  %.091 = load ptr, ptr %.091.in, align 8
+  %108 = icmp sgt i32 %.092, 0
   br i1 %108, label %.lr.ph130, label %._crit_edge
 
 .lr.ph130:                                        ; preds = %106
-  %.0.in = getelementptr inbounds i8, ptr %.pn, i64 16
-  %.0 = load ptr, ptr %.0.in, align 8
+  %.090.in = getelementptr inbounds i8, ptr %.pn, i64 16
+  %.090 = load ptr, ptr %.090.in, align 8
   %109 = getelementptr inbounds i8, ptr %0, i64 568
   %110 = getelementptr inbounds i8, ptr %0, i64 376
   %111 = getelementptr inbounds i8, ptr %4, i64 480
   %112 = sext i32 %9 to i64
-  %113 = getelementptr inbounds ptr, ptr %.0, i64 %112
+  %113 = getelementptr inbounds ptr, ptr %.090, i64 %112
   %114 = getelementptr inbounds i8, ptr %4, i64 488
-  %wide.trip.count150 = zext nneg i32 %.091 to i64
+  %wide.trip.count150 = zext nneg i32 %.092 to i64
   br label %115
 
 115:                                              ; preds = %.lr.ph130, %115
   %indvars.iv147 = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next148, %115 ]
   %116 = load double, ptr %109, align 8
-  %117 = getelementptr inbounds double, ptr %.090, i64 %indvars.iv147
+  %117 = getelementptr inbounds double, ptr %.091, i64 %indvars.iv147
   %118 = load double, ptr %117, align 8
   %119 = load double, ptr %110, align 8
   %120 = tail call double @llvm.fmuladd.f64(double %118, double %119, double %116)
@@ -4675,11 +4675,11 @@ define range(i32 -28, 1) i32 @arkStep_StageSetup(ptr noundef %0, i32 noundef %1)
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i
-  %146 = icmp slt i32 %.091, 1
+  %146 = icmp slt i32 %.092, 1
   br i1 %146, label %arkStep_ApplyForcing.exit, label %.lr.ph43.us.preheader.i
 
 .lr.ph43.us.preheader.i:                          ; preds = %.preheader.i
-  %wide.trip.count57.i = zext nneg i32 %.091 to i64
+  %wide.trip.count57.i = zext nneg i32 %.092 to i64
   %invariant.gep.i = getelementptr double, ptr %134, i64 %145
   br label %.lr.ph43.us.i
 
@@ -4694,13 +4694,13 @@ define range(i32 -28, 1) i32 @arkStep_StageSetup(ptr noundef %0, i32 noundef %1)
 
 152:                                              ; preds = %152, %.lr.ph43.us.i
   %indvars.iv49.i = phi i64 [ 0, %.lr.ph43.us.i ], [ %indvars.iv.next50.i, %152 ]
-  %.03841.us.i = phi double [ 1.000000e+00, %.lr.ph43.us.i ], [ %156, %152 ]
+  %.042.us.i = phi double [ 1.000000e+00, %.lr.ph43.us.i ], [ %156, %152 ]
   %153 = load double, ptr %151, align 8
   %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv49.i
   %154 = load double, ptr %gep.i, align 8
-  %155 = tail call double @llvm.fmuladd.f64(double %153, double %.03841.us.i, double %154)
+  %155 = tail call double @llvm.fmuladd.f64(double %153, double %.042.us.i, double %154)
   store double %155, ptr %gep.i, align 8
-  %156 = fmul double %150, %.03841.us.i
+  %156 = fmul double %150, %.042.us.i
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count.i
   br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %152
@@ -4737,8 +4737,8 @@ arkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i, %
   br label %167
 
 167:                                              ; preds = %163, %46, %6
-  %.093 = phi i32 [ -21, %6 ], [ -18, %46 ], [ %., %163 ]
-  ret i32 %.093
+  %.0 = phi i32 [ -21, %6 ], [ -18, %46 ], [ %., %163 ]
+  ret i32 %.0
 }
 
 declare i32 @arkStep_Nls(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -4777,7 +4777,7 @@ define range(i32 -28, 5) i32 @arkStep_ComputeSolutions_MassFixed(ptr noundef %0,
   br label %22
 
 22:                                               ; preds = %18, %7
-  %.0 = phi i1 [ false, %7 ], [ %.not103.not, %18 ]
+  %.098 = phi i1 [ false, %7 ], [ %.not103.not, %18 ]
   %23 = getelementptr inbounds i8, ptr %4, i64 28
   %24 = load i32, ptr %23, align 4
   %.not104 = icmp eq i32 %24, 0
@@ -4788,11 +4788,11 @@ define range(i32 -28, 5) i32 @arkStep_ComputeSolutions_MassFixed(ptr noundef %0,
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef %27) #12
   %.not105 = icmp eq i32 %28, 0
-  %or.cond = select i1 %.not105, i1 true, i1 %.0
+  %or.cond = select i1 %.not105, i1 true, i1 %.098
   br i1 %or.cond, label %.preheader116, label %89
 
 select.unfold:                                    ; preds = %22
-  br i1 %.0, label %.preheader116, label %89
+  br i1 %.098, label %.preheader116, label %89
 
 .preheader116:                                    ; preds = %25, %select.unfold
   %29 = getelementptr inbounds i8, ptr %4, i64 100
@@ -4810,7 +4810,7 @@ select.unfold:                                    ; preds = %22
 
 37:                                               ; preds = %.lr.ph, %71
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
-  %.097118 = phi i32 [ 0, %.lr.ph ], [ %.2, %71 ]
+  %.0100117 = phi i32 [ 0, %.lr.ph ], [ %.2, %71 ]
   %38 = load i32, ptr %16, align 8
   %.not108 = icmp eq i32 %38, 0
   br i1 %.not108, label %54, label %39
@@ -4823,7 +4823,7 @@ select.unfold:                                    ; preds = %22
   %44 = getelementptr inbounds double, ptr %43, i64 %indvars.iv
   %45 = load double, ptr %44, align 8
   %46 = fmul double %40, %45
-  %47 = sext i32 %.097118 to i64
+  %47 = sext i32 %.0100117 to i64
   %48 = getelementptr inbounds double, ptr %13, i64 %47
   store double %46, ptr %48, align 8
   %49 = load ptr, ptr %34, align 8
@@ -4831,11 +4831,11 @@ select.unfold:                                    ; preds = %22
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds ptr, ptr %15, i64 %47
   store ptr %51, ptr %52, align 8
-  %53 = add nsw i32 %.097118, 1
+  %53 = add nsw i32 %.0100117, 1
   br label %54
 
 54:                                               ; preds = %39, %37
-  %.198 = phi i32 [ %53, %39 ], [ %.097118, %37 ]
+  %.1101 = phi i32 [ %53, %39 ], [ %.0100117, %37 ]
   %55 = load i32, ptr %23, align 4
   %.not109 = icmp eq i32 %55, 0
   br i1 %.not109, label %71, label %56
@@ -4848,7 +4848,7 @@ select.unfold:                                    ; preds = %22
   %61 = getelementptr inbounds double, ptr %60, i64 %indvars.iv
   %62 = load double, ptr %61, align 8
   %63 = fmul double %57, %62
-  %64 = sext i32 %.198 to i64
+  %64 = sext i32 %.1101 to i64
   %65 = getelementptr inbounds double, ptr %13, i64 %64
   store double %63, ptr %65, align 8
   %66 = load ptr, ptr %36, align 8
@@ -4856,11 +4856,11 @@ select.unfold:                                    ; preds = %22
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds ptr, ptr %15, i64 %64
   store ptr %68, ptr %69, align 8
-  %70 = add nsw i32 %.198, 1
+  %70 = add nsw i32 %.1101, 1
   br label %71
 
 71:                                               ; preds = %54, %56
-  %.2 = phi i32 [ %70, %56 ], [ %.198, %54 ]
+  %.2 = phi i32 [ %70, %56 ], [ %.1101, %54 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = load i32, ptr %29, align 4
   %73 = sext i32 %72 to i64
@@ -4868,8 +4868,8 @@ select.unfold:                                    ; preds = %22
   br i1 %74, label %37, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %71, %.preheader116
-  %.097.lcssa = phi i32 [ 0, %.preheader116 ], [ %.2, %71 ]
-  %75 = tail call i32 @N_VLinearCombination(i32 noundef %.097.lcssa, ptr noundef %13, ptr noundef %15, ptr noundef %9) #12
+  %.0100.lcssa = phi i32 [ 0, %.preheader116 ], [ %.2, %71 ]
+  %75 = tail call i32 @N_VLinearCombination(i32 noundef %.0100.lcssa, ptr noundef %13, ptr noundef %15, ptr noundef %9) #12
   %.not107 = icmp eq i32 %75, 0
   br i1 %.not107, label %76, label %161
 
@@ -4917,7 +4917,7 @@ select.unfold:                                    ; preds = %22
 
 100:                                              ; preds = %.lr.ph121, %144
   %indvars.iv125 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next126, %144 ]
-  %.3120 = phi i32 [ 0, %.lr.ph121 ], [ %.5, %144 ]
+  %.3119 = phi i32 [ 0, %.lr.ph121 ], [ %.5, %144 ]
   %101 = load i32, ptr %16, align 8
   %.not112 = icmp eq i32 %101, 0
   br i1 %.not112, label %122, label %102
@@ -4935,7 +4935,7 @@ select.unfold:                                    ; preds = %22
   %112 = load double, ptr %111, align 8
   %113 = fsub double %108, %112
   %114 = fmul double %103, %113
-  %115 = sext i32 %.3120 to i64
+  %115 = sext i32 %.3119 to i64
   %116 = getelementptr inbounds double, ptr %13, i64 %115
   store double %114, ptr %116, align 8
   %117 = load ptr, ptr %97, align 8
@@ -4943,11 +4943,11 @@ select.unfold:                                    ; preds = %22
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds ptr, ptr %15, i64 %115
   store ptr %119, ptr %120, align 8
-  %121 = add nsw i32 %.3120, 1
+  %121 = add nsw i32 %.3119, 1
   br label %122
 
 122:                                              ; preds = %102, %100
-  %.4 = phi i32 [ %121, %102 ], [ %.3120, %100 ]
+  %.4 = phi i32 [ %121, %102 ], [ %.3119, %100 ]
   %123 = load i32, ptr %23, align 4
   %.not113 = icmp eq i32 %123, 0
   br i1 %.not113, label %144, label %124
@@ -5011,8 +5011,8 @@ select.unfold:                                    ; preds = %22
   br label %161
 
 161:                                              ; preds = %89, %157, %._crit_edge122, %._crit_edge, %156, %83, %6
-  %.0101 = phi i32 [ -21, %6 ], [ 4, %156 ], [ 4, %83 ], [ -28, %._crit_edge ], [ -28, %._crit_edge122 ], [ 0, %157 ], [ 0, %89 ]
-  ret i32 %.0101
+  %.0 = phi i32 [ -21, %6 ], [ 4, %156 ], [ 4, %83 ], [ -28, %._crit_edge ], [ -28, %._crit_edge122 ], [ 0, %157 ], [ 0, %89 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5060,12 +5060,12 @@ define range(i32 -28, 1) i32 @arkStep_ComputeSolutions(ptr nocapture noundef rea
 
 26:                                               ; preds = %.thread230, %18
   %27 = phi ptr [ %24, %.thread230 ], [ %22, %18 ]
-  %.0234 = phi i32 [ 1, %.thread230 ], [ %spec.select, %18 ]
+  %.0124234 = phi i32 [ 1, %.thread230 ], [ %spec.select, %18 ]
   %28 = getelementptr inbounds i8, ptr %4, i64 112
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef %29) #12
   %.not136 = icmp eq i32 %30, 0
-  %.not137 = icmp eq i32 %.0234, 0
+  %.not137 = icmp eq i32 %.0124234, 0
   %or.cond = select i1 %.not136, i1 true, i1 %.not137
   br i1 %or.cond, label %.thread, label %.thread235
 
@@ -5168,10 +5168,10 @@ define range(i32 -28, 1) i32 @arkStep_ComputeSolutions(ptr nocapture noundef rea
   %.pn.in.v = phi i64 [ 112, %84 ], [ 104, %._crit_edge ]
   %.pn.in = getelementptr inbounds i8, ptr %4, i64 %.pn.in.v
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.0124.in = getelementptr inbounds i8, ptr %.pn, i64 32
-  %.0124 = load ptr, ptr %.0124.in, align 8
-  %.0126.in = getelementptr inbounds i8, ptr %.pn, i64 24
-  %.0126 = load ptr, ptr %.0126.in, align 8
+  %.0127.in = getelementptr inbounds i8, ptr %.pn, i64 32
+  %.0127 = load ptr, ptr %.0127.in, align 8
+  %.0129.in = getelementptr inbounds i8, ptr %.pn, i64 24
+  %.0129 = load ptr, ptr %.0129.in, align 8
   %88 = icmp sgt i32 %81, 0
   br i1 %88, label %.lr.ph205, label %._crit_edge206
 
@@ -5185,7 +5185,7 @@ define range(i32 -28, 1) i32 @arkStep_ComputeSolutions(ptr nocapture noundef rea
 93:                                               ; preds = %.lr.ph205, %93
   %indvars.iv221 = phi i64 [ 0, %.lr.ph205 ], [ %indvars.iv.next222, %93 ]
   %94 = load double, ptr %89, align 8
-  %95 = getelementptr inbounds double, ptr %.0126, i64 %indvars.iv221
+  %95 = getelementptr inbounds double, ptr %.0129, i64 %indvars.iv221
   %96 = load double, ptr %95, align 8
   %97 = load double, ptr %90, align 8
   %98 = tail call double @llvm.fmuladd.f64(double %96, double %97, double %94)
@@ -5193,7 +5193,7 @@ define range(i32 -28, 1) i32 @arkStep_ComputeSolutions(ptr nocapture noundef rea
   %100 = getelementptr inbounds double, ptr %99, i64 %indvars.iv221
   store double %98, ptr %100, align 8
   %101 = load double, ptr %90, align 8
-  %102 = getelementptr inbounds double, ptr %.0124, i64 %indvars.iv221
+  %102 = getelementptr inbounds double, ptr %.0127, i64 %indvars.iv221
   %103 = load double, ptr %102, align 8
   %104 = fmul double %101, %103
   %105 = load ptr, ptr %92, align 8
@@ -5249,13 +5249,13 @@ define range(i32 -28, 1) i32 @arkStep_ComputeSolutions(ptr nocapture noundef rea
 
 132:                                              ; preds = %132, %.lr.ph43.us.i
   %indvars.iv49.i = phi i64 [ 0, %.lr.ph43.us.i ], [ %indvars.iv.next50.i, %132 ]
-  %.03841.us.i = phi double [ 1.000000e+00, %.lr.ph43.us.i ], [ %136, %132 ]
+  %.042.us.i = phi double [ 1.000000e+00, %.lr.ph43.us.i ], [ %136, %132 ]
   %133 = load double, ptr %131, align 8
   %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv49.i
   %134 = load double, ptr %gep.i, align 8
-  %135 = tail call double @llvm.fmuladd.f64(double %133, double %.03841.us.i, double %134)
+  %135 = tail call double @llvm.fmuladd.f64(double %133, double %.042.us.i, double %134)
   store double %135, ptr %gep.i, align 8
-  %136 = fmul double %130, %.03841.us.i
+  %136 = fmul double %130, %.042.us.i
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count.i
   br i1 %exitcond53.not.i, label %._crit_edge.us.i, label %132
@@ -5396,12 +5396,12 @@ arkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i, %
   %.pn149.in.v = phi i64 [ 112, %207 ], [ 104, %._crit_edge211 ]
   %.pn149.in = getelementptr inbounds i8, ptr %4, i64 %.pn149.in.v
   %.pn149 = load ptr, ptr %.pn149.in, align 8
-  %.0123.in = getelementptr inbounds i8, ptr %.pn149, i64 40
-  %.0123 = load ptr, ptr %.0123.in, align 8
-  %.1125.in = getelementptr inbounds i8, ptr %.pn149, i64 32
-  %.1125 = load ptr, ptr %.1125.in, align 8
-  %.1127.in = getelementptr inbounds i8, ptr %.pn149, i64 24
-  %.1127 = load ptr, ptr %.1127.in, align 8
+  %.0126.in = getelementptr inbounds i8, ptr %.pn149, i64 40
+  %.0126 = load ptr, ptr %.0126.in, align 8
+  %.1128.in = getelementptr inbounds i8, ptr %.pn149, i64 32
+  %.1128 = load ptr, ptr %.1128.in, align 8
+  %.1130.in = getelementptr inbounds i8, ptr %.pn149, i64 24
+  %.1130 = load ptr, ptr %.1130.in, align 8
   %211 = icmp sgt i32 %204, 0
   br i1 %211, label %.lr.ph215, label %._crit_edge216
 
@@ -5415,7 +5415,7 @@ arkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i, %
 216:                                              ; preds = %.lr.ph215, %216
   %indvars.iv227 = phi i64 [ 0, %.lr.ph215 ], [ %indvars.iv.next228, %216 ]
   %217 = load double, ptr %212, align 8
-  %218 = getelementptr inbounds double, ptr %.1127, i64 %indvars.iv227
+  %218 = getelementptr inbounds double, ptr %.1130, i64 %indvars.iv227
   %219 = load double, ptr %218, align 8
   %220 = load double, ptr %213, align 8
   %221 = tail call double @llvm.fmuladd.f64(double %219, double %220, double %217)
@@ -5423,9 +5423,9 @@ arkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i, %
   %223 = getelementptr inbounds double, ptr %222, i64 %indvars.iv227
   store double %221, ptr %223, align 8
   %224 = load double, ptr %213, align 8
-  %225 = getelementptr inbounds double, ptr %.1125, i64 %indvars.iv227
+  %225 = getelementptr inbounds double, ptr %.1128, i64 %indvars.iv227
   %226 = load double, ptr %225, align 8
-  %227 = getelementptr inbounds double, ptr %.0123, i64 %indvars.iv227
+  %227 = getelementptr inbounds double, ptr %.0126, i64 %indvars.iv227
   %228 = load double, ptr %227, align 8
   %229 = fsub double %226, %228
   %230 = fmul double %224, %229
@@ -5482,13 +5482,13 @@ arkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i, %
 
 258:                                              ; preds = %258, %.lr.ph43.us.i168
   %indvars.iv49.i170 = phi i64 [ 0, %.lr.ph43.us.i168 ], [ %indvars.iv.next50.i173, %258 ]
-  %.03841.us.i171 = phi double [ 1.000000e+00, %.lr.ph43.us.i168 ], [ %262, %258 ]
+  %.042.us.i171 = phi double [ 1.000000e+00, %.lr.ph43.us.i168 ], [ %262, %258 ]
   %259 = load double, ptr %257, align 8
   %gep.i172 = getelementptr double, ptr %invariant.gep.i167, i64 %indvars.iv49.i170
   %260 = load double, ptr %gep.i172, align 8
-  %261 = tail call double @llvm.fmuladd.f64(double %259, double %.03841.us.i171, double %260)
+  %261 = tail call double @llvm.fmuladd.f64(double %259, double %.042.us.i171, double %260)
   store double %261, ptr %gep.i172, align 8
-  %262 = fmul double %256, %.03841.us.i171
+  %262 = fmul double %256, %.042.us.i171
   %indvars.iv.next50.i173 = add nuw nsw i64 %indvars.iv49.i170, 1
   %exitcond53.not.i174 = icmp eq i64 %indvars.iv.next50.i173, %wide.trip.count.i157
   br i1 %exitcond53.not.i174, label %._crit_edge.us.i175, label %258
@@ -5529,8 +5529,8 @@ arkStep_ApplyForcing.exit178:                     ; preds = %._crit_edge.us.i175
   br label %275
 
 275:                                              ; preds = %.thread235, %271, %269, %143, %6
-  %.0130 = phi i32 [ -21, %6 ], [ -28, %143 ], [ -28, %269 ], [ 0, %271 ], [ 0, %.thread235 ]
-  ret i32 %.0130
+  %.0 = phi i32 [ -21, %6 ], [ -28, %143 ], [ -28, %269 ], [ 0, %271 ], [ 0, %.thread235 ]
+  ret i32 %.0
 }
 
 declare ptr @ARKodeButcherTable_LoadERK(i32 noundef) local_unnamed_addr #1
@@ -5905,7 +5905,7 @@ define range(i32 -46, 3) i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture 
 
 34:                                               ; preds = %.lr.ph126, %133
   %indvars.iv134 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next135, %133 ]
-  %.0100124 = phi ptr [ %12, %.lr.ph126 ], [ %.1101, %133 ]
+  %.0101124 = phi ptr [ %12, %.lr.ph126 ], [ %.1102, %133 ]
   %35 = load i32, ptr %20, align 4
   %.not111 = icmp eq i32 %35, 0
   br i1 %.not111, label %36, label %39
@@ -5929,43 +5929,43 @@ define range(i32 -46, 3) i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture 
   br i1 %.not128, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %43, %.lr.ph
-  %indvars.iv129 = phi i64 [ %indvars.iv.next130, %.lr.ph ], [ 0, %43 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %43 ]
+  %indvars.iv129 = phi i64 [ %indvars.iv.next130, %.lr.ph ], [ 1, %43 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %43 ]
   %45 = load double, ptr %23, align 8
   %46 = load ptr, ptr %24, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv134
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds double, ptr %50, i64 %indvars.iv129
+  %51 = getelementptr inbounds double, ptr %50, i64 %indvars.iv
   %52 = load double, ptr %51, align 8
   %53 = fmul double %45, %52
-  %54 = getelementptr inbounds double, ptr %14, i64 %indvars.iv
+  %54 = getelementptr inbounds double, ptr %14, i64 %indvars.iv129
   store double %53, ptr %54, align 8
   %55 = load ptr, ptr %25, align 8
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv129
+  %56 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %58 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv129
   store ptr %57, ptr %58, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next130, %indvars.iv134
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv134
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %59 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %59 = trunc nuw nsw i64 %indvars.iv.next130 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %43
-  %.0102.lcssa = phi i32 [ 1, %43 ], [ %59, %._crit_edge.loopexit ]
-  %60 = tail call i32 @N_VLinearCombination(i32 noundef %.0102.lcssa, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %.0100124) #12
+  %.0105.lcssa = phi i32 [ 1, %43 ], [ %59, %._crit_edge.loopexit ]
+  %60 = tail call i32 @N_VLinearCombination(i32 noundef %.0105.lcssa, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %.0101124) #12
   %.not112 = icmp eq i32 %60, 0
   br i1 %.not112, label %61, label %.loopexit
 
 61:                                               ; preds = %._crit_edge, %39
-  %.1101 = phi ptr [ %42, %39 ], [ %.0100124, %._crit_edge ]
+  %.1102 = phi ptr [ %42, %39 ], [ %.0101124, %._crit_edge ]
   %62 = load ptr, ptr %27, align 8
-  %63 = tail call i32 %1(ptr noundef %.1101, ptr noundef %6, ptr noundef %62) #12
+  %63 = tail call i32 %1(ptr noundef %.1102, ptr noundef %6, ptr noundef %62) #12
   %64 = load i64, ptr %2, align 8
   %65 = add nsw i64 %64, 1
   store i64 %65, ptr %2, align 8
@@ -6003,7 +6003,7 @@ define range(i32 -46, 3) i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture 
   %86 = load ptr, ptr %30, align 8
   %87 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv134
   %88 = load ptr, ptr %87, align 8
-  tail call void @N_VLinearSum(double noundef %77, ptr noundef %80, double noundef %85, ptr noundef %88, ptr noundef %.1101) #12
+  tail call void @N_VLinearSum(double noundef %77, ptr noundef %80, double noundef %85, ptr noundef %88, ptr noundef %.1102) #12
   br label %115
 
 89:                                               ; preds = %70
@@ -6015,11 +6015,11 @@ define range(i32 -46, 3) i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture 
   br i1 %91, label %95, label %96
 
 95:                                               ; preds = %89
-  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %94, ptr noundef %.1101) #12
+  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %94, ptr noundef %.1102) #12
   br label %96
 
 96:                                               ; preds = %89, %95
-  %.099 = phi ptr [ %.1101, %95 ], [ %94, %89 ]
+  %.099 = phi ptr [ %.1102, %95 ], [ %94, %89 ]
   %97 = load ptr, ptr %24, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 32
   %99 = load ptr, ptr %98, align 8
@@ -6036,11 +6036,11 @@ define range(i32 -46, 3) i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture 
   br i1 %104, label %108, label %109
 
 108:                                              ; preds = %102
-  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %107, ptr noundef %.1101) #12
+  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %107, ptr noundef %.1102) #12
   br label %109
 
 109:                                              ; preds = %102, %108
-  %.1 = phi ptr [ %.1101, %108 ], [ %107, %102 ]
+  %.1 = phi ptr [ %.1102, %108 ], [ %107, %102 ]
   %110 = load ptr, ptr %29, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 32
   %112 = load ptr, ptr %111, align 8
@@ -6049,7 +6049,7 @@ define range(i32 -46, 3) i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture 
   br label %115
 
 115:                                              ; preds = %96, %109, %72
-  %.2 = phi ptr [ %.1101, %72 ], [ %.099, %96 ], [ %.1, %109 ]
+  %.2 = phi ptr [ %.1102, %72 ], [ %.099, %96 ], [ %.1, %109 ]
   %.0 = phi double [ 1.000000e+00, %72 ], [ %101, %96 ], [ %114, %109 ]
   %116 = load i32, ptr %21, align 8
   %117 = icmp eq i32 %116, 1
@@ -6127,8 +6127,8 @@ define range(i32 -46, 3) i32 @arkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %118, %67, %61, %._crit_edge, %147, %149, %9
-  %.0105 = phi i32 [ 0, %149 ], [ -21, %9 ], [ -28, %147 ], [ -16, %118 ], [ 2, %67 ], [ -46, %61 ], [ -28, %._crit_edge ]
-  ret i32 %.0105
+  %.0100 = phi i32 [ 0, %149 ], [ -21, %9 ], [ -28, %147 ], [ -16, %118 ], [ 2, %67 ], [ -46, %61 ], [ -28, %._crit_edge ]
+  ret i32 %.0100
 }
 
 declare double @N_VDotProdLocal(ptr noundef, ptr noundef) local_unnamed_addr #1

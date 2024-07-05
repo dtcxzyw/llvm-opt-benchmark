@@ -2508,17 +2508,17 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
           to label %713 unwind label %693
 
 713:                                              ; preds = %711, %709, %698
-  %.039 = phi ptr [ %702, %698 ], [ %710, %709 ], [ %712, %711 ]
+  %.047 = phi ptr [ %702, %698 ], [ %710, %709 ], [ %712, %711 ]
   %714 = load i32, ptr %82, align 4
   %.not52 = icmp eq i32 %714, 0
   br i1 %.not52, label %719, label %715
 
 715:                                              ; preds = %713
-  %716 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef %.039)
+  %716 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef %.047)
           to label %717 unwind label %693
 
 717:                                              ; preds = %715
-  %718 = invoke ptr @jsonnet_realloc(ptr noundef %84, ptr noundef %.039, i64 noundef 0)
+  %718 = invoke ptr @jsonnet_realloc(ptr noundef %84, ptr noundef %.047, i64 noundef 0)
           to label %.invoke unwind label %693
 
 719:                                              ; preds = %713
@@ -2549,30 +2549,30 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   store ptr %723, ptr %726, align 8
   %727 = getelementptr inbounds i8, ptr %4, i64 40
   store i64 0, ptr %727, align 8
-  %728 = load i8, ptr %.039, align 1
+  %728 = load i8, ptr %.047, align 1
   %.not96.i = icmp eq i8 %728, 0
   br i1 %.not96.i, label %._crit_edge.i, label %.preheader.i66
 
 .preheader.i66:                                   ; preds = %722, %745
-  %.04097.i = phi ptr [ %735, %745 ], [ %.039, %722 ]
+  %.04097.i = phi ptr [ %735, %745 ], [ %.047, %722 ]
   br label %729
 
 729:                                              ; preds = %729, %.preheader.i66
-  %.05595.i = phi ptr [ %.04097.i, %.preheader.i66 ], [ %730, %729 ]
-  %730 = getelementptr inbounds i8, ptr %.05595.i, i64 1
+  %.04195.i = phi ptr [ %.04097.i, %.preheader.i66 ], [ %730, %729 ]
+  %730 = getelementptr inbounds i8, ptr %.04195.i, i64 1
   %.pr.i = load i8, ptr %730, align 1
   %.not61.i = icmp eq i8 %.pr.i, 0
   br i1 %.not61.i, label %731, label %729, !llvm.loop !10
 
 731:                                              ; preds = %729
-  %732 = getelementptr inbounds i8, ptr %.05595.i, i64 2
+  %732 = getelementptr inbounds i8, ptr %.04195.i, i64 2
   br label %733
 
 733:                                              ; preds = %733, %731
-  %.156.i = phi ptr [ %732, %731 ], [ %735, %733 ]
-  %734 = load i8, ptr %.156.i, align 1
+  %.142.i = phi ptr [ %732, %731 ], [ %735, %733 ]
+  %734 = load i8, ptr %.142.i, align 1
   %.not62.i = icmp eq i8 %734, 0
-  %735 = getelementptr inbounds i8, ptr %.156.i, i64 1
+  %735 = getelementptr inbounds i8, ptr %.142.i, i64 1
   br i1 %.not62.i, label %736, label %733, !llvm.loop !11
 
 736:                                              ; preds = %733
@@ -2634,7 +2634,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %865
 
 ._crit_edge.i:                                    ; preds = %745, %722
-  %751 = invoke ptr @jsonnet_realloc(ptr noundef %84, ptr noundef nonnull %.039, i64 noundef 0)
+  %751 = invoke ptr @jsonnet_realloc(ptr noundef %84, ptr noundef nonnull %.047, i64 noundef 0)
           to label %752 unwind label %755
 
 752:                                              ; preds = %._crit_edge.i
@@ -2692,7 +2692,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %.body68.i
 
 769:                                              ; preds = %765, %753
-  %.045.i = phi ptr [ @_ZSt4cout, %753 ], [ %7, %765 ]
+  %.051.i = phi ptr [ @_ZSt4cout, %753 ], [ %7, %765 ]
   %770 = load ptr, ptr %725, align 8
   %.not8998.i = icmp eq ptr %770, %723
   br i1 %.not8998.i, label %._crit_edge101.i, label %.lr.ph.i71
@@ -2721,7 +2721,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %.body68.i
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exit.i: ; preds = %.noexc67.i
-  %777 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %.045.i, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %777 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %.051.i, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %778 unwind label %811
 
 778:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exit.i
@@ -3001,18 +3001,18 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %869, label %870, label %873
 
 870:                                              ; preds = %867
-  %871 = invoke fastcc noundef zeroext i1 @_ZL19write_output_streamP9JsonnetVmPcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %84, ptr noundef %.039, ptr noundef nonnull align 8 dereferenceable(32) %86)
+  %871 = invoke fastcc noundef zeroext i1 @_ZL19write_output_streamP9JsonnetVmPcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %84, ptr noundef %.047, ptr noundef nonnull align 8 dereferenceable(32) %86)
           to label %872 unwind label %693
 
 872:                                              ; preds = %870
   br i1 %871, label %878, label %.invoke
 
 873:                                              ; preds = %867
-  %874 = invoke noundef zeroext i1 @_Z17write_output_filePKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %.039, ptr noundef nonnull align 8 dereferenceable(32) %86)
+  %874 = invoke noundef zeroext i1 @_Z17write_output_filePKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %.047, ptr noundef nonnull align 8 dereferenceable(32) %86)
           to label %875 unwind label %693
 
 875:                                              ; preds = %873
-  %876 = invoke ptr @jsonnet_realloc(ptr noundef %84, ptr noundef %.039, i64 noundef 0)
+  %876 = invoke ptr @jsonnet_realloc(ptr noundef %84, ptr noundef %.047, i64 noundef 0)
           to label %877 unwind label %693
 
 877:                                              ; preds = %875
@@ -3069,9 +3069,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 887:                                              ; preds = %.body64, %117
   %.pn53.pn.pn = phi { ptr, i32 } [ %.pn53.pn, %.body64 ], [ %118, %117 ]
   %.3 = extractvalue { ptr, i32 } %.pn53.pn.pn, 0
-  %.346 = extractvalue { ptr, i32 } %.pn53.pn.pn, 1
+  %.345 = extractvalue { ptr, i32 } %.pn53.pn.pn, 1
   %888 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #21
-  %889 = icmp eq i32 %.346, %888
+  %889 = icmp eq i32 %.345, %888
   br i1 %889, label %890, label %894
 
 890:                                              ; preds = %887
@@ -3083,7 +3083,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 894:                                              ; preds = %887
   %895 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
-  %896 = icmp eq i32 %.346, %895
+  %896 = icmp eq i32 %.345, %895
   %897 = call ptr @__cxa_begin_catch(ptr %.3) #21
   br i1 %896, label %898, label %909
 

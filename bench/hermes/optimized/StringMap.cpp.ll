@@ -148,9 +148,9 @@ _ZN4llvh7djbHashENS_9StringRefEj.exit:            ; preds = %for.body.i, %if.end
   br label %while.body
 
 while.body:                                       ; preds = %if.end34, %_ZN4llvh7djbHashENS_9StringRefEj.exit
-  %call.pn = phi i32 [ %H.addr.0.lcssa.i, %_ZN4llvh7djbHashENS_9StringRefEj.exit ], [ %add, %if.end34 ]
   %ProbeAmt.0 = phi i32 [ 1, %_ZN4llvh7djbHashENS_9StringRefEj.exit ], [ %inc, %if.end34 ]
   %FirstTombstone.0 = phi i32 [ -1, %_ZN4llvh7djbHashENS_9StringRefEj.exit ], [ %FirstTombstone.1, %if.end34 ]
+  %call.pn = phi i32 [ %H.addr.0.lcssa.i, %_ZN4llvh7djbHashENS_9StringRefEj.exit ], [ %add, %if.end34 ]
   %BucketNo.0 = and i32 %call.pn, %sub
   %idxprom = zext i32 %BucketNo.0 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
@@ -243,8 +243,8 @@ _ZN4llvh7djbHashENS_9StringRefEj.exit:            ; preds = %for.body.i, %if.end
   br label %while.body
 
 while.body:                                       ; preds = %if.end23, %_ZN4llvh7djbHashENS_9StringRefEj.exit
-  %call.pn = phi i32 [ %H.addr.0.lcssa.i, %_ZN4llvh7djbHashENS_9StringRefEj.exit ], [ %add, %if.end23 ]
   %ProbeAmt.0 = phi i32 [ 1, %_ZN4llvh7djbHashENS_9StringRefEj.exit ], [ %inc, %if.end23 ]
+  %call.pn = phi i32 [ %H.addr.0.lcssa.i, %_ZN4llvh7djbHashENS_9StringRefEj.exit ], [ %add, %if.end23 ]
   %BucketNo.0 = and i32 %call.pn, %sub
   %idxprom = zext i32 %BucketNo.0 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
@@ -348,8 +348,8 @@ while.body.i.us.preheader:                        ; preds = %_ZN4llvh7djbHashENS
   br label %while.body.i.us
 
 while.body.i.us:                                  ; preds = %while.body.i.us.preheader, %if.end23.i.us
-  %call.pn.i.us = phi i32 [ %add.i.us, %if.end23.i.us ], [ %H.addr.0.lcssa.i.i18, %while.body.i.us.preheader ]
   %ProbeAmt.0.i.us = phi i32 [ %inc.i.us, %if.end23.i.us ], [ 1, %while.body.i.us.preheader ]
+  %call.pn.i.us = phi i32 [ %add.i.us, %if.end23.i.us ], [ %H.addr.0.lcssa.i.i18, %while.body.i.us.preheader ]
   %BucketNo.0.i.us = and i32 %call.pn.i.us, %sub.i19
   %idxprom.i.us = zext i32 %BucketNo.0.i.us to i64
   %arrayidx.i.us = getelementptr inbounds ptr, ptr %6, i64 %idxprom.i.us
@@ -377,8 +377,8 @@ if.end23.i.us:                                    ; preds = %if.then13.i.us, %if
   br label %while.body.i.us, !llvm.loop !6
 
 while.body.i:                                     ; preds = %_ZN4llvh7djbHashENS_9StringRefEj.exit.i, %if.end23.i
-  %call.pn.i = phi i32 [ %add.i, %if.end23.i ], [ %add3.i.i, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i ]
   %ProbeAmt.0.i = phi i32 [ %inc.i, %if.end23.i ], [ 1, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i ]
+  %call.pn.i = phi i32 [ %add.i, %if.end23.i ], [ %add3.i.i, %_ZN4llvh7djbHashENS_9StringRefEj.exit.i ]
   %BucketNo.0.i = and i32 %call.pn.i, %sub.i
   %idxprom.i = zext i32 %BucketNo.0.i to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i
@@ -494,7 +494,7 @@ for.body.lr.ph:                                   ; preds = %_ZN4llvh11safe_call
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %NewBucketNo.041 = phi i32 [ %BucketNo, %for.body.lr.ph ], [ %NewBucketNo.1, %for.inc ]
+  %NewBucketNo.042 = phi i32 [ %BucketNo, %for.body.lr.ph ], [ %NewBucketNo.1, %for.inc ]
   %arrayidx23 = getelementptr inbounds ptr, ptr %.pre44, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx23, align 8
   %magicptr = ptrtoint ptr %8 to i64
@@ -537,11 +537,11 @@ for.inc.sink.split:                               ; preds = %if.then26, %do.end
   %arrayidx55 = getelementptr inbounds i32, ptr %add.ptr18, i64 %idxprom49.lcssa46.sink
   store i32 %9, ptr %arrayidx55, align 4
   %cmp56 = icmp eq i64 %indvars.iv, %6
-  %spec.select37 = select i1 %cmp56, i32 %and48.lcssa.sink, i32 %NewBucketNo.041
+  %spec.select37 = select i1 %cmp56, i32 %and48.lcssa.sink, i32 %NewBucketNo.042
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body, %for.body
-  %NewBucketNo.1 = phi i32 [ %NewBucketNo.041, %for.body ], [ %NewBucketNo.041, %for.body ], [ %spec.select37, %for.inc.sink.split ]
+  %NewBucketNo.1 = phi i32 [ %NewBucketNo.042, %for.body ], [ %NewBucketNo.042, %for.body ], [ %spec.select37, %for.inc.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp20.not = icmp eq i64 %indvars.iv.next, %7
   br i1 %cmp20.not, label %for.end, label %for.body, !llvm.loop !8

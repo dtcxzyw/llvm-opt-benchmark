@@ -384,8 +384,8 @@ dlist_push_head.exit.i:                           ; preds = %38, %22
   br label %91
 
 91:                                               ; preds = %85, %76
-  %.0.i37 = phi i64 [ %.0.i.i, %85 ], [ %79, %76 ]
-  %92 = tail call noalias ptr @malloc(i64 noundef %.0.i37) #13
+  %.029.i = phi i64 [ %.0.i.i, %85 ], [ %79, %76 ]
+  %92 = tail call noalias ptr @malloc(i64 noundef %.029.i) #13
   %93 = icmp eq ptr %92, null
   br i1 %93, label %94, label %96
 
@@ -396,12 +396,12 @@ dlist_push_head.exit.i:                           ; preds = %38, %22
 96:                                               ; preds = %91
   %97 = getelementptr inbounds i8, ptr %0, i64 8
   %98 = load i64, ptr %97, align 8
-  %99 = add i64 %98, %.0.i37
+  %99 = add i64 %98, %.029.i
   store i64 %99, ptr %97, align 8
   %100 = getelementptr inbounds i8, ptr %92, i64 16
   store ptr %0, ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %92, i64 24
-  store i64 %.0.i37, ptr %101, align 8
+  store i64 %.029.i, ptr %101, align 8
   %102 = getelementptr inbounds i8, ptr %92, i64 32
   store i32 0, ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %92, i64 36
@@ -409,20 +409,20 @@ dlist_push_head.exit.i:                           ; preds = %38, %22
   %104 = getelementptr i8, ptr %92, i64 56
   %105 = getelementptr inbounds i8, ptr %92, i64 40
   store ptr %104, ptr %105, align 8
-  %106 = getelementptr i8, ptr %92, i64 %.0.i37
+  %106 = getelementptr i8, ptr %92, i64 %.029.i
   %107 = getelementptr inbounds i8, ptr %92, i64 48
   store ptr %106, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %0, i64 112
   %109 = getelementptr inbounds i8, ptr %0, i64 120
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, null
-  br i1 %111, label %112, label %dlist_push_head.exit.i38
+  br i1 %111, label %112, label %dlist_push_head.exit.i37
 
 112:                                              ; preds = %96
   store ptr %108, ptr %108, align 8
-  br label %dlist_push_head.exit.i38
+  br label %dlist_push_head.exit.i37
 
-dlist_push_head.exit.i38:                         ; preds = %112, %96
+dlist_push_head.exit.i37:                         ; preds = %112, %96
   %113 = phi ptr [ %108, %112 ], [ %110, %96 ]
   %114 = getelementptr inbounds i8, ptr %92, i64 8
   store ptr %113, ptr %114, align 8
@@ -466,8 +466,8 @@ dlist_push_head.exit.i38:                         ; preds = %112, %96
   %140 = getelementptr i8, ptr %.val, i64 8
   br label %GenerationAllocLarge.exit
 
-GenerationAllocLarge.exit:                        ; preds = %dlist_push_head.exit.i38, %94, %dlist_push_head.exit.i, %20, %128, %61
-  %.0 = phi ptr [ %75, %61 ], [ %140, %128 ], [ %21, %20 ], [ %41, %dlist_push_head.exit.i ], [ %95, %94 ], [ %127, %dlist_push_head.exit.i38 ]
+GenerationAllocLarge.exit:                        ; preds = %dlist_push_head.exit.i37, %94, %dlist_push_head.exit.i, %20, %128, %61
+  %.0 = phi ptr [ %75, %61 ], [ %140, %128 ], [ %21, %20 ], [ %41, %dlist_push_head.exit.i ], [ %95, %94 ], [ %127, %dlist_push_head.exit.i37 ]
   ret ptr %.0
 }
 
@@ -626,9 +626,9 @@ define dso_local ptr @GenerationRealloc(ptr noundef %0, i64 noundef %1, i32 noun
   br label %29
 
 29:                                               ; preds = %23, %17
-  %.027 = phi ptr [ %7, %17 ], [ %26, %23 ]
+  %.028 = phi ptr [ %7, %17 ], [ %26, %23 ]
   %.0 = phi i64 [ %22, %17 ], [ %28, %23 ]
-  %30 = getelementptr inbounds i8, ptr %.027, i64 16
+  %30 = getelementptr inbounds i8, ptr %.028, i64 16
   %31 = load ptr, ptr %30, align 8
   %.not34 = icmp ult i64 %.0, %1
   br i1 %.not34, label %32, label %38
@@ -648,8 +648,8 @@ define dso_local ptr @GenerationRealloc(ptr noundef %0, i64 noundef %1, i32 noun
   br label %38
 
 38:                                               ; preds = %29, %37, %35
-  %.028 = phi ptr [ %36, %35 ], [ %33, %37 ], [ %0, %29 ]
-  ret ptr %.028
+  %.027 = phi ptr [ %36, %35 ], [ %33, %37 ], [ %0, %29 ]
+  ret ptr %.027
 }
 
 declare ptr @MemoryContextAllocationFailure(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2

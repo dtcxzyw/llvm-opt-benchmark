@@ -682,10 +682,10 @@ strview.exit123:                                  ; preds = %strview.exit118
   br label %30
 
 30:                                               ; preds = %strview.exit118, %strview.exit123, %strview.exit
-  %.sroa.026.0 = phi ptr [ %18, %strview.exit123 ], [ %18, %strview.exit118 ], [ null, %strview.exit ]
-  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i115, %strview.exit123 ], [ %.sroa.3.0.i115, %strview.exit118 ], [ 0, %strview.exit ]
-  %.sroa.024.0 = phi ptr [ %29, %strview.exit123 ], [ null, %strview.exit118 ], [ null, %strview.exit ]
   %.sroa.4.0 = phi i64 [ %strlen, %strview.exit123 ], [ 0, %strview.exit118 ], [ 0, %strview.exit ]
+  %.sroa.024.0 = phi ptr [ %29, %strview.exit123 ], [ null, %strview.exit118 ], [ null, %strview.exit ]
+  %.sroa.7.0 = phi i64 [ %.sroa.3.0.i115, %strview.exit123 ], [ %.sroa.3.0.i115, %strview.exit118 ], [ 0, %strview.exit ]
+  %.sroa.026.0 = phi ptr [ %18, %strview.exit123 ], [ %18, %strview.exit118 ], [ null, %strview.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %31 = getelementptr inbounds i8, ptr %0, i64 120
   %32 = zext i32 %1 to i64
@@ -1076,22 +1076,22 @@ strview.exit:                                     ; preds = %6, %10
   br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.02855.us = phi ptr [ %26, %.lr.ph.split.us ], [ %15, %.lr.ph ]
-  %20 = getelementptr inbounds i8, ptr %.02855.us, i64 8
+  %.02756.us = phi ptr [ %26, %.lr.ph.split.us ], [ %15, %.lr.ph ]
+  %20 = getelementptr inbounds i8, ptr %.02756.us, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %.02855.us, i64 24
+  %22 = getelementptr inbounds i8, ptr %.02756.us, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull @gvplugin_list.xb, ptr noundef nonnull @.str.16, ptr noundef %21, ptr noundef %25)
-  %26 = load ptr, ptr %.02855.us, align 8
+  %26 = load ptr, ptr %.02756.us, align 8
   %.not33.us = icmp eq ptr %26, null
   br i1 %.not33.us, label %agxbsizeof.exit.i.i, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %strview_case_eq.exit.thread
-  %.056 = phi i8 [ %.1, %strview_case_eq.exit.thread ], [ 1, %.lr.ph ]
-  %.02855 = phi ptr [ %43, %strview_case_eq.exit.thread ], [ %15, %.lr.ph ]
-  %27 = getelementptr inbounds i8, ptr %.02855, i64 8
+  %.02756 = phi ptr [ %43, %strview_case_eq.exit.thread ], [ %15, %.lr.ph ]
+  %.02955 = phi i8 [ %.130, %strview_case_eq.exit.thread ], [ 1, %.lr.ph ]
+  %27 = getelementptr inbounds i8, ptr %.02756, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %28, i32 noundef 58) #21
   %.not.i36 = icmp eq ptr %29, null
@@ -1118,7 +1118,7 @@ strview_case_eq.exit:                             ; preds = %strview.exit40
   br i1 %37, label %38, label %strview_case_eq.exit.thread
 
 38:                                               ; preds = %strview_case_eq.exit
-  %39 = getelementptr inbounds i8, ptr %.02855, i64 24
+  %39 = getelementptr inbounds i8, ptr %.02756, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
@@ -1126,24 +1126,24 @@ strview_case_eq.exit:                             ; preds = %strview.exit40
   br label %strview_case_eq.exit.thread
 
 strview_case_eq.exit.thread:                      ; preds = %strview.exit40, %strview_case_eq.exit, %38
-  %.1 = phi i8 [ 0, %38 ], [ %.056, %strview_case_eq.exit ], [ %.056, %strview.exit40 ]
-  %43 = load ptr, ptr %.02855, align 8
+  %.130 = phi i8 [ 0, %38 ], [ %.02955, %strview_case_eq.exit ], [ %.02955, %strview.exit40 ]
+  %43 = load ptr, ptr %.02756, align 8
   %.not33 = icmp eq ptr %43, null
   br i1 %.not33, label %.loopexit53, label %.lr.ph.split
 
 .loopexit53:                                      ; preds = %strview_case_eq.exit.thread, %strview.exit
-  %.2 = phi i8 [ 1, %strview.exit ], [ %.1, %strview_case_eq.exit.thread ]
+  %.2 = phi i8 [ 1, %strview.exit ], [ %.130, %strview_case_eq.exit.thread ]
   %44 = trunc nuw i8 %.2 to i1
   %.not3457 = icmp ne ptr %15, null
   %or.cond66.not = select i1 %44, i1 %.not3457, i1 false
   br i1 %or.cond66.not, label %.lr.ph62, label %.loopexit
 
 .lr.ph62:                                         ; preds = %.loopexit53, %57
-  %.sroa.45.061 = phi i64 [ %.sroa.3.0.i43, %57 ], [ 0, %.loopexit53 ]
-  %.sroa.03.060 = phi ptr [ %46, %57 ], [ null, %.loopexit53 ]
-  %.359 = phi i8 [ %.4, %57 ], [ %.2, %.loopexit53 ]
-  %.12958 = phi ptr [ %58, %57 ], [ %15, %.loopexit53 ]
-  %45 = getelementptr inbounds i8, ptr %.12958, i64 8
+  %.161 = phi ptr [ %58, %57 ], [ %15, %.loopexit53 ]
+  %.sroa.45.060 = phi i64 [ %.sroa.3.0.i43, %57 ], [ 0, %.loopexit53 ]
+  %.sroa.03.059 = phi ptr [ %46, %57 ], [ null, %.loopexit53 ]
+  %.358 = phi i8 [ %.4, %57 ], [ %.2, %.loopexit53 ]
+  %45 = getelementptr inbounds i8, ptr %.161, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %46, i32 noundef 58) #21
   %.not.i42 = icmp eq ptr %47, null
@@ -1161,13 +1161,13 @@ strview_case_eq.exit.thread:                      ; preds = %strview.exit40, %st
 
 strview.exit46:                                   ; preds = %48, %52
   %.sroa.3.0.i43 = phi i64 [ %51, %48 ], [ %53, %52 ]
-  %.not35 = icmp ne ptr %.sroa.03.060, null
-  %.not.i47 = icmp eq i64 %.sroa.45.061, %.sroa.3.0.i43
+  %.not35 = icmp ne ptr %.sroa.03.059, null
+  %.not.i47 = icmp eq i64 %.sroa.45.060, %.sroa.3.0.i43
   %or.cond = select i1 %.not35, i1 %.not.i47, i1 false
   br i1 %or.cond, label %strview_case_eq.exit49, label %strview_case_eq.exit49.thread
 
 strview_case_eq.exit49:                           ; preds = %strview.exit46
-  %54 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.03.060, ptr noundef readonly %46, i64 noundef %.sroa.45.061) #21
+  %54 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.03.059, ptr noundef readonly %46, i64 noundef %.sroa.45.060) #21
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %57, label %strview_case_eq.exit49.thread
 
@@ -1177,8 +1177,8 @@ strview_case_eq.exit49.thread:                    ; preds = %strview_case_eq.exi
   br label %57
 
 57:                                               ; preds = %strview_case_eq.exit49.thread, %strview_case_eq.exit49
-  %.4 = phi i8 [ %.359, %strview_case_eq.exit49 ], [ 0, %strview_case_eq.exit49.thread ]
-  %58 = load ptr, ptr %.12958, align 8
+  %.4 = phi i8 [ %.358, %strview_case_eq.exit49 ], [ 0, %strview_case_eq.exit49.thread ]
+  %58 = load ptr, ptr %.161, align 8
   %.not34 = icmp eq ptr %58, null
   br i1 %.not34, label %.loopexit, label %.lr.ph62
 
@@ -1243,8 +1243,8 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
   br label %agxbuse.exit
 
 agxbuse.exit:                                     ; preds = %76, %agxbclear.exit.thread.i, %.loopexit, %3
-  %.030 = phi ptr [ null, %3 ], [ @.str.18, %.loopexit ], [ %77, %76 ], [ @gvplugin_list.xb, %agxbclear.exit.thread.i ]
-  ret ptr %.030
+  %.0 = phi ptr [ null, %3 ], [ @.str.18, %.loopexit ], [ %77, %76 ], [ @gvplugin_list.xb, %agxbclear.exit.thread.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1253,15 +1253,15 @@ define noalias ptr @gvPluginList(ptr nocapture noundef readonly %0, ptr noundef 
   br i1 %.not, label %51, label %.preheader
 
 .preheader:                                       ; preds = %3, %7
-  %.02043 = phi i64 [ %8, %7 ], [ 0, %3 ]
-  %4 = getelementptr inbounds [5 x ptr], ptr @api_names, i64 0, i64 %.02043
+  %.01943 = phi i64 [ %8, %7 ], [ 0, %3 ]
+  %4 = getelementptr inbounds [5 x ptr], ptr @api_names, i64 0, i64 %.01943
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcasecmp(ptr noundef nonnull %1, ptr noundef %5) #21
   %.not22 = icmp eq i32 %6, 0
   br i1 %.not22, label %.thread, label %7
 
 7:                                                ; preds = %.preheader
-  %8 = add nuw nsw i64 %.02043, 1
+  %8 = add nuw nsw i64 %.01943, 1
   %exitcond.not = icmp eq i64 %8, 5
   br i1 %exitcond.not, label %9, label %.preheader
 
@@ -1271,19 +1271,19 @@ define noalias ptr @gvPluginList(ptr nocapture noundef readonly %0, ptr noundef 
 
 .thread:                                          ; preds = %.preheader
   %11 = getelementptr inbounds i8, ptr %0, i64 120
-  %12 = getelementptr inbounds [5 x ptr], ptr %11, i64 0, i64 %.02043
-  %.01944 = load ptr, ptr %12, align 8
-  %.not2345 = icmp eq ptr %.01944, null
+  %12 = getelementptr inbounds [5 x ptr], ptr %11, i64 0, i64 %.01943
+  %.02044 = load ptr, ptr %12, align 8
+  %.not2345 = icmp eq ptr %.02044, null
   br i1 %.not2345, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %49
-  %.01951 = phi ptr [ %.019, %49 ], [ %.01944, %.thread ]
+  %.02051 = phi ptr [ %.020, %49 ], [ %.02044, %.thread ]
   %.sroa.45.050 = phi i64 [ %.sroa.3.0.i, %49 ], [ 0, %.thread ]
   %.sroa.03.049 = phi ptr [ %14, %49 ], [ null, %.thread ]
   %.sroa.11.048 = phi i64 [ %.sroa.11.2, %49 ], [ 0, %.thread ]
   %.sroa.6.047 = phi i64 [ %.sroa.6.1, %49 ], [ 0, %.thread ]
   %.sroa.0.046 = phi ptr [ %.sroa.0.2, %49 ], [ null, %.thread ]
-  %13 = getelementptr inbounds i8, ptr %.01951, i64 8
+  %13 = getelementptr inbounds i8, ptr %.02051, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 58) #21
   %.not.i = icmp eq ptr %15, null
@@ -1368,8 +1368,8 @@ strs_append.exit:                                 ; preds = %strview_str.exit, %
   %.sroa.0.2 = phi ptr [ %.sroa.0.1, %strs_append.exit ], [ %.sroa.0.046, %strview_case_eq.exit ]
   %.sroa.6.1 = phi i64 [ %48, %strs_append.exit ], [ %.sroa.6.047, %strview_case_eq.exit ]
   %.sroa.11.2 = phi i64 [ %.sroa.11.1, %strs_append.exit ], [ %.sroa.11.048, %strview_case_eq.exit ]
-  %.019 = load ptr, ptr %.01951, align 8
-  %.not23 = icmp eq ptr %.019, null
+  %.020 = load ptr, ptr %.02051, align 8
+  %.not23 = icmp eq ptr %.020, null
   br i1 %.not23, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %49

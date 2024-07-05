@@ -239,12 +239,12 @@ define internal noundef i32 @dissect_metamako(ptr noundef %0, ptr noundef %1, pt
 
 22:                                               ; preds = %.lr.ph254, %validate_metamako_timestamp.exit.thread
   %.0188252 = phi i32 [ %17, %.lr.ph254 ], [ %76, %validate_metamako_timestamp.exit.thread ]
-  %.0190251 = phi i32 [ undef, %.lr.ph254 ], [ %.4, %validate_metamako_timestamp.exit.thread ]
-  %.0198250 = phi i32 [ undef, %.lr.ph254 ], [ %.3201, %validate_metamako_timestamp.exit.thread ]
-  %.0209248 = phi i32 [ %11, %.lr.ph254 ], [ %24, %validate_metamako_timestamp.exit.thread ]
-  %.0210247 = phi i32 [ 0, %.lr.ph254 ], [ %.1211, %validate_metamako_timestamp.exit.thread ]
+  %.0190251 = phi i32 [ 0, %.lr.ph254 ], [ %.1191, %validate_metamako_timestamp.exit.thread ]
+  %.0192250 = phi i32 [ %11, %.lr.ph254 ], [ %24, %validate_metamako_timestamp.exit.thread ]
+  %.0196249 = phi i32 [ undef, %.lr.ph254 ], [ %.4200, %validate_metamako_timestamp.exit.thread ]
+  %.0207248 = phi i32 [ undef, %.lr.ph254 ], [ %.3210, %validate_metamako_timestamp.exit.thread ]
   %23 = shl nuw nsw i32 %.0188252, 2
-  %24 = sub i32 %.0209248, %23
+  %24 = sub i32 %.0192250, %23
   %25 = add i32 %24, -4
   %26 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %25) #6
   %27 = add i32 %24, -8
@@ -290,65 +290,65 @@ validate_metamako_timestamp.exit:                 ; preds = %48, %45, %22
   br i1 %.not229, label %.loopexit239, label %.preheader
 
 .preheader:                                       ; preds = %validate_metamako_timestamp.exit, %._crit_edge
-  %.0206 = phi i32 [ %.1207.lcssa, %._crit_edge ], [ %29, %validate_metamako_timestamp.exit ]
-  %.1199 = phi i32 [ %56, %._crit_edge ], [ 0, %validate_metamako_timestamp.exit ]
-  %.1191 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 0, %validate_metamako_timestamp.exit ]
-  %52 = icmp ugt i32 %.0206, 3
+  %.1208 = phi i32 [ %56, %._crit_edge ], [ 0, %validate_metamako_timestamp.exit ]
+  %.1197 = phi i32 [ %.2198.lcssa, %._crit_edge ], [ 0, %validate_metamako_timestamp.exit ]
+  %.0193 = phi i32 [ %.1194.lcssa, %._crit_edge ], [ %29, %validate_metamako_timestamp.exit ]
+  %52 = icmp ugt i32 %.0193, 3
   br i1 %52, label %53, label %.loopexit239
 
 53:                                               ; preds = %.preheader
-  %54 = add i32 %.0206, -4
+  %54 = add i32 %.0193, -4
   %55 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %54) #6
-  %56 = add i32 %.1199, 1
+  %56 = add i32 %.1208, 1
   %57 = lshr i32 %55, 6
   %58 = and i32 %57, 3
   %59 = and i32 %55, 31
   %60 = icmp eq i32 %59, 31
   %61 = and i32 %57, 1023
   %62 = add nuw nsw i32 %61, 1
-  %.0195 = select i1 %60, i32 %62, i32 %58
-  %.2241 = add i32 %.1191, 4
-  %63 = icmp ne i32 %.0195, 0
+  %.0204 = select i1 %60, i32 %62, i32 %58
+  %.2198241 = add i32 %.1197, 4
+  %63 = icmp ne i32 %.0204, 0
   %64 = icmp ugt i32 %54, 3
   %65 = and i1 %63, %64
   br i1 %65, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %53
-  %66 = add i32 %.0206, -8
+  %66 = add i32 %.0193, -8
   %67 = lshr i32 %66, 2
-  %68 = add nsw i32 %.0195, -1
+  %68 = add nsw i32 %.0204, -1
   %umin = tail call i32 @llvm.umin.i32(i32 %67, i32 %68)
   %69 = shl nuw nsw i32 %umin, 2
-  %70 = add i32 %.1191, 8
+  %70 = add i32 %.1197, 8
   %71 = sub i32 %66, %69
   %72 = add i32 %70, %69
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %53
-  %.1207.lcssa = phi i32 [ %54, %53 ], [ %71, %.lr.ph.preheader ]
-  %.2.lcssa = phi i32 [ %.2241, %53 ], [ %72, %.lr.ph.preheader ]
+  %.1194.lcssa = phi i32 [ %54, %53 ], [ %71, %.lr.ph.preheader ]
+  %.2198.lcssa = phi i32 [ %.2198241, %53 ], [ %72, %.lr.ph.preheader ]
   %73 = and i32 %55, 32
   %.not230 = icmp eq i32 %73, 0
   br i1 %.not230, label %.preheader, label %.loopexit239, !llvm.loop !4
 
 .loopexit239:                                     ; preds = %.preheader, %._crit_edge, %validate_metamako_timestamp.exit
-  %.2208 = phi i32 [ %29, %validate_metamako_timestamp.exit ], [ %.0206, %.preheader ], [ %.1207.lcssa, %._crit_edge ]
-  %.2200 = phi i32 [ 0, %validate_metamako_timestamp.exit ], [ %.1199, %.preheader ], [ %56, %._crit_edge ]
-  %.3 = phi i32 [ 0, %validate_metamako_timestamp.exit ], [ %.1191, %.preheader ], [ %.2.lcssa, %._crit_edge ]
-  %74 = icmp ugt i32 %.2208, 3
-  %75 = add i32 %.2208, -4
-  %spec.select = select i1 %74, i32 %75, i32 %.0210247
-  %spec.select231 = zext i1 %74 to i32
+  %.2209 = phi i32 [ 0, %validate_metamako_timestamp.exit ], [ %.1208, %.preheader ], [ %56, %._crit_edge ]
+  %.3199 = phi i32 [ 0, %validate_metamako_timestamp.exit ], [ %.1197, %.preheader ], [ %.2198.lcssa, %._crit_edge ]
+  %.2195 = phi i32 [ %29, %validate_metamako_timestamp.exit ], [ %.0193, %.preheader ], [ %.1194.lcssa, %._crit_edge ]
+  %74 = icmp ugt i32 %.2195, 3
+  %75 = add i32 %.2195, -4
+  %spec.select = zext i1 %74 to i32
+  %spec.select231 = select i1 %74, i32 %75, i32 %.0190251
   br label %validate_metamako_timestamp.exit.thread
 
 validate_metamako_timestamp.exit.thread:          ; preds = %48, %45, %36, %34, %.loopexit239
-  %.1211 = phi i32 [ %spec.select, %.loopexit239 ], [ %.0210247, %34 ], [ %.0210247, %36 ], [ %.0210247, %45 ], [ %.0210247, %48 ]
-  %.1205 = phi i32 [ %spec.select231, %.loopexit239 ], [ 0, %34 ], [ 0, %36 ], [ 0, %45 ], [ 0, %48 ]
-  %.3201 = phi i32 [ %.2200, %.loopexit239 ], [ %.0198250, %34 ], [ %.0198250, %36 ], [ %.0198250, %45 ], [ %.0198250, %48 ]
-  %.4 = phi i32 [ %.3, %.loopexit239 ], [ %.0190251, %34 ], [ %.0190251, %36 ], [ %.0190251, %45 ], [ %.0190251, %48 ]
+  %.1213 = phi i32 [ %spec.select, %.loopexit239 ], [ 0, %34 ], [ 0, %36 ], [ 0, %45 ], [ 0, %48 ]
+  %.3210 = phi i32 [ %.2209, %.loopexit239 ], [ %.0207248, %34 ], [ %.0207248, %36 ], [ %.0207248, %45 ], [ %.0207248, %48 ]
+  %.4200 = phi i32 [ %.3199, %.loopexit239 ], [ %.0196249, %34 ], [ %.0196249, %36 ], [ %.0196249, %45 ], [ %.0196249, %48 ]
+  %.1191 = phi i32 [ %spec.select231, %.loopexit239 ], [ %.0190251, %34 ], [ %.0190251, %36 ], [ %.0190251, %45 ], [ %.0190251, %48 ]
   %76 = add nuw nsw i32 %.0188252, 1
   %77 = icmp ult i32 %76, %19
-  %.not = icmp eq i32 %.1205, 0
+  %.not = icmp eq i32 %.1213, 0
   %78 = select i1 %77, i1 %.not, i1 false
   br i1 %78, label %22, label %79, !llvm.loop !6
 
@@ -364,270 +364,270 @@ validate_metamako_timestamp.exit.thread:          ; preds = %48, %45, %36, %34, 
   %83 = load ptr, ptr %82, align 8
   tail call void @col_append_str(ptr noundef %83, i32 noundef 25, ptr noundef nonnull @.str.79) #6
   %84 = load i32, ptr @proto_metamako, align 4
-  %85 = sub i32 %24, %.1211
-  %86 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef %.1211, i32 noundef %85, i32 noundef 0) #6
+  %85 = sub i32 %24, %.1191
+  %86 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef %.1191, i32 noundef %85, i32 noundef 0) #6
   %87 = load i32, ptr @ett_metamako, align 4
   %88 = tail call ptr @proto_item_add_subtree(ptr noundef %86, i32 noundef %87) #6
   %89 = load i32, ptr @hf_metamako_origfcs, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %89, ptr noundef %0, i32 noundef %.1211, i32 noundef 4, i32 noundef 0) #6
-  %91 = add i32 %.1211, 4
-  %.not220 = icmp eq i32 %.4, 0
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %89, ptr noundef %0, i32 noundef %.1191, i32 noundef 4, i32 noundef 0) #6
+  %91 = add i32 %.1191, 4
+  %.not220 = icmp eq i32 %.4200, 0
   br i1 %.not220, label %.loopexit238, label %92
 
 92:                                               ; preds = %81
   %93 = load i32, ptr @hf_metamako_trailerext, align 4
-  %94 = add i32 %24, -12
-  %95 = sub i32 %94, %.4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %93, ptr noundef %0, i32 noundef %95, i32 noundef %.4, i32 noundef 0) #6
-  %97 = load i32, ptr @ett_metamako_extensions, align 4
-  %98 = tail call ptr @proto_item_add_subtree(ptr noundef %96, i32 noundef %97) #6
-  %.not221267 = icmp eq i32 %.3201, 0
+  %reass.sub = sub i32 %24, %.4200
+  %94 = add i32 %reass.sub, -12
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %93, ptr noundef %0, i32 noundef %94, i32 noundef %.4200, i32 noundef 0) #6
+  %96 = load i32, ptr @ett_metamako_extensions, align 4
+  %97 = tail call ptr @proto_item_add_subtree(ptr noundef %95, i32 noundef %96) #6
+  %.not221267 = icmp eq i32 %.3210, 0
   br i1 %.not221267, label %.loopexit238, label %.lr.ph271
 
 .lr.ph271:                                        ; preds = %92
-  %99 = add i32 %24, -16
+  %98 = add i32 %24, -16
+  br label %99
+
+99:                                               ; preds = %.lr.ph271, %.loopexit
+  %.2269 = phi i32 [ %91, %.lr.ph271 ], [ %161, %.loopexit ]
+  %.4211268 = phi i32 [ %.3210, %.lr.ph271 ], [ %162, %.loopexit ]
   br label %100
 
-100:                                              ; preds = %.lr.ph271, %.loopexit
-  %.4202269 = phi i32 [ %.3201, %.lr.ph271 ], [ %163, %.loopexit ]
-  %.2212268 = phi i32 [ %91, %.lr.ph271 ], [ %162, %.loopexit ]
-  br label %101
+100:                                              ; preds = %114, %99
+  %.0201 = phi i32 [ %98, %99 ], [ %117, %114 ]
+  %.1 = phi i32 [ %.4211268, %99 ], [ %115, %114 ]
+  %101 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0201) #6
+  %102 = lshr i32 %101, 6
+  %103 = shl nuw nsw i32 %102, 2
+  %104 = and i32 %103, 12
+  %105 = or disjoint i32 %104, 3
+  %106 = and i32 %101, 31
+  %107 = icmp eq i32 %106, 31
+  br i1 %107, label %108, label %114
 
-101:                                              ; preds = %115, %100
-  %.0192 = phi i32 [ %99, %100 ], [ %118, %115 ]
-  %.1 = phi i32 [ %.4202269, %100 ], [ %116, %115 ]
-  %102 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0192) #6
-  %103 = lshr i32 %102, 6
-  %104 = shl nuw nsw i32 %103, 2
-  %105 = and i32 %104, 12
-  %106 = or disjoint i32 %105, 3
-  %107 = and i32 %102, 31
-  %108 = icmp eq i32 %107, 31
-  br i1 %108, label %109, label %115
+108:                                              ; preds = %100
+  %109 = shl nuw nsw i32 %102, 2
+  %110 = and i32 %109, 4092
+  %111 = add nuw nsw i32 %110, 4
+  %112 = lshr i32 %101, 16
+  %113 = add nuw nsw i32 %112, 31
+  br label %114
 
-109:                                              ; preds = %101
-  %110 = shl nuw nsw i32 %103, 2
-  %111 = and i32 %110, 4092
-  %112 = add nuw nsw i32 %111, 4
-  %113 = lshr i32 %102, 16
-  %114 = add nuw nsw i32 %113, 31
-  br label %115
+114:                                              ; preds = %108, %100
+  %.pre-phi = phi i32 [ %111, %108 ], [ %104, %100 ]
+  %.0203 = phi i32 [ %113, %108 ], [ %106, %100 ]
+  %.5 = phi i32 [ %111, %108 ], [ %105, %100 ]
+  %115 = add i32 %.1, -1
+  %.not226 = icmp eq i32 %115, 0
+  %116 = add nuw nsw i32 %.pre-phi, 4
+  %117 = sub i32 %.0201, %116
+  br i1 %.not226, label %118, label %100, !llvm.loop !7
 
-115:                                              ; preds = %109, %101
-  %.pre-phi = phi i32 [ %112, %109 ], [ %105, %101 ]
-  %.0194 = phi i32 [ %114, %109 ], [ %107, %101 ]
-  %.5 = phi i32 [ %112, %109 ], [ %106, %101 ]
-  %116 = add i32 %.1, -1
-  %.not226 = icmp eq i32 %116, 0
-  %117 = add nuw nsw i32 %.pre-phi, 4
-  %118 = sub i32 %.0192, %117
-  br i1 %.not226, label %119, label %101, !llvm.loop !7
-
-119:                                              ; preds = %115
-  switch i32 %.0194, label %151 [
-    i32 0, label %120
-    i32 1, label %126
-    i32 2, label %135
-    i32 3, label %140
-    i32 31, label %147
+118:                                              ; preds = %114
+  switch i32 %.0203, label %150 [
+    i32 0, label %119
+    i32 1, label %125
+    i32 2, label %134
+    i32 3, label %139
+    i32 31, label %146
   ]
 
-120:                                              ; preds = %119
-  %121 = load i32, ptr @hf_metamako_seqnum, align 4
-  %122 = add i32 %118, 5
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %121, ptr noundef %0, i32 noundef %122, i32 noundef 2, i32 noundef 0) #6
-  %124 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %122) #6
-  %125 = zext i16 %124 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %96, ptr noundef nonnull @.str.80, i32 noundef %125) #6
+119:                                              ; preds = %118
+  %120 = load i32, ptr @hf_metamako_seqnum, align 4
+  %121 = add i32 %117, 5
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %120, ptr noundef %0, i32 noundef %121, i32 noundef 2, i32 noundef 0) #6
+  %123 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %121) #6
+  %124 = zext i16 %123 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %95, ptr noundef nonnull @.str.80, i32 noundef %124) #6
   br label %.loopexit
 
-126:                                              ; preds = %119
-  %127 = load i32, ptr @hf_metamako_fracns, align 4
-  %128 = add i32 %118, 4
-  %129 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %127, ptr noundef %0, i32 noundef %128, i32 noundef 3, i32 noundef 0) #6
-  %130 = add i32 %118, 3
-  %131 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %130) #6
-  %132 = and i32 %131, 16777215
-  %133 = uitofp nneg i32 %132 to double
-  %134 = fmul double %133, 0x3E70000000000000
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %96, ptr noundef nonnull @.str.81, double noundef %134) #6
+125:                                              ; preds = %118
+  %126 = load i32, ptr @hf_metamako_fracns, align 4
+  %127 = add i32 %117, 4
+  %128 = tail call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %126, ptr noundef %0, i32 noundef %127, i32 noundef 3, i32 noundef 0) #6
+  %129 = add i32 %117, 3
+  %130 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %129) #6
+  %131 = and i32 %130, 16777215
+  %132 = uitofp nneg i32 %131 to double
+  %133 = fmul double %132, 0x3E70000000000000
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %95, ptr noundef nonnull @.str.81, double noundef %133) #6
   br label %.loopexit
 
-135:                                              ; preds = %119
-  %136 = load i32, ptr @hf_metamako_crchash, align 4
-  %137 = add i32 %118, 4
-  %138 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %136, ptr noundef %0, i32 noundef %137, i32 noundef 8, i32 noundef 0) #6
-  %139 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %137) #6
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %96, ptr noundef nonnull @.str.82, i64 noundef %139) #6
+134:                                              ; preds = %118
+  %135 = load i32, ptr @hf_metamako_crchash, align 4
+  %136 = add i32 %117, 4
+  %137 = tail call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %135, ptr noundef %0, i32 noundef %136, i32 noundef 8, i32 noundef 0) #6
+  %138 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %136) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %95, ptr noundef nonnull @.str.82, i64 noundef %138) #6
   br label %.loopexit
 
-140:                                              ; preds = %119
-  %141 = load i32, ptr @hf_metamako_egress_seqnum, align 4
-  %142 = add i32 %118, 4
-  %143 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %141, ptr noundef %0, i32 noundef %142, i32 noundef 3, i32 noundef 0) #6
-  %144 = add i32 %118, 3
-  %145 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %144) #6
-  %146 = and i32 %145, 1048575
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %96, ptr noundef nonnull @.str.83, i32 noundef %146) #6
+139:                                              ; preds = %118
+  %140 = load i32, ptr @hf_metamako_egress_seqnum, align 4
+  %141 = add i32 %117, 4
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %140, ptr noundef %0, i32 noundef %141, i32 noundef 3, i32 noundef 0) #6
+  %143 = add i32 %117, 3
+  %144 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %143) #6
+  %145 = and i32 %144, 1048575
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %95, ptr noundef nonnull @.str.83, i32 noundef %145) #6
   br label %.loopexit
 
-147:                                              ; preds = %119
-  %148 = load i32, ptr @hf_metamako_tagstring, align 4
-  %149 = add i32 %118, 4
-  %150 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %148, ptr noundef %0, i32 noundef %149, i32 noundef %.pre-phi, i32 noundef 0) #6
+146:                                              ; preds = %118
+  %147 = load i32, ptr @hf_metamako_tagstring, align 4
+  %148 = add i32 %117, 4
+  %149 = tail call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %147, ptr noundef %0, i32 noundef %148, i32 noundef %.pre-phi, i32 noundef 0) #6
   br label %.loopexit
 
-151:                                              ; preds = %119
-  %152 = load i32, ptr @hf_metamako_unknownext, align 4
-  %153 = add i32 %118, 4
-  %154 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %152, ptr noundef %0, i32 noundef %153, i32 noundef %.5, i32 noundef 0) #6
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %154, ptr noundef nonnull @.str.84, i32 noundef %.0194) #6
-  br label %157
+150:                                              ; preds = %118
+  %151 = load i32, ptr @hf_metamako_unknownext, align 4
+  %152 = add i32 %117, 4
+  %153 = tail call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %151, ptr noundef %0, i32 noundef %152, i32 noundef %.5, i32 noundef 0) #6
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %153, ptr noundef nonnull @.str.84, i32 noundef %.0203) #6
+  br label %156
 
-155:                                              ; preds = %157
-  %156 = add nuw nsw i32 %.0189266, 1
-  %exitcond281.not = icmp eq i32 %156, %.5
-  br i1 %exitcond281.not, label %.loopexit, label %157, !llvm.loop !8
+154:                                              ; preds = %156
+  %155 = add nuw nsw i32 %.0189266, 1
+  %exitcond281.not = icmp eq i32 %155, %.5
+  br i1 %exitcond281.not, label %.loopexit, label %156, !llvm.loop !8
 
-157:                                              ; preds = %151, %155
-  %.0189266 = phi i32 [ 0, %151 ], [ %156, %155 ]
-  %158 = add i32 %.0189266, %153
-  %159 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %158) #6
-  %160 = zext i8 %159 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %154, ptr noundef nonnull @.str.85, i32 noundef %160) #6
+156:                                              ; preds = %150, %154
+  %.0189266 = phi i32 [ 0, %150 ], [ %155, %154 ]
+  %157 = add i32 %.0189266, %152
+  %158 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %157) #6
+  %159 = zext i8 %158 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %153, ptr noundef nonnull @.str.85, i32 noundef %159) #6
   %exitcond = icmp eq i32 %.0189266, 106
-  br i1 %exitcond, label %161, label %155
+  br i1 %exitcond, label %160, label %154
 
-161:                                              ; preds = %157
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %154, ptr noundef nonnull @.str.86) #6
+160:                                              ; preds = %156
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %153, ptr noundef nonnull @.str.86) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %155, %161, %147, %140, %135, %126, %120
-  %162 = add i32 %117, %.2212268
-  %163 = add i32 %.4202269, -1
-  %.not221 = icmp eq i32 %163, 0
-  br i1 %.not221, label %.loopexit238, label %100, !llvm.loop !9
+.loopexit:                                        ; preds = %154, %160, %146, %139, %134, %125, %119
+  %161 = add i32 %116, %.2269
+  %162 = add i32 %.4211268, -1
+  %.not221 = icmp eq i32 %162, 0
+  br i1 %.not221, label %.loopexit238, label %99, !llvm.loop !9
 
 .loopexit238:                                     ; preds = %.loopexit, %92, %81
-  %.3213 = phi i32 [ %91, %81 ], [ %91, %92 ], [ %162, %.loopexit ]
-  %164 = load i32, ptr @hf_metamako_time_abs, align 4
-  %165 = call ptr @proto_tree_add_time(ptr noundef %88, i32 noundef %164, ptr noundef %0, i32 noundef %.3213, i32 noundef 8, ptr noundef nonnull %5) #6
-  %166 = load i32, ptr @ett_metamako_timestamp, align 4
-  %167 = call ptr @proto_item_add_subtree(ptr noundef %165, i32 noundef %166) #6
-  %168 = call ptr @localtime(ptr noundef nonnull %5) #6
-  %.not222 = icmp eq ptr %168, null
-  br i1 %.not222, label %178, label %169
+  %.3 = phi i32 [ %91, %81 ], [ %91, %92 ], [ %161, %.loopexit ]
+  %163 = load i32, ptr @hf_metamako_time_abs, align 4
+  %164 = call ptr @proto_tree_add_time(ptr noundef %88, i32 noundef %163, ptr noundef %0, i32 noundef %.3, i32 noundef 8, ptr noundef nonnull %5) #6
+  %165 = load i32, ptr @ett_metamako_timestamp, align 4
+  %166 = call ptr @proto_item_add_subtree(ptr noundef %164, i32 noundef %165) #6
+  %167 = call ptr @localtime(ptr noundef nonnull %5) #6
+  %.not222 = icmp eq ptr %167, null
+  br i1 %.not222, label %177, label %168
 
-169:                                              ; preds = %.loopexit238
-  %170 = getelementptr inbounds i8, ptr %168, i64 8
-  %171 = load i32, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %168, i64 4
-  %173 = load i32, ptr %172, align 4
-  %174 = load i32, ptr %168, align 8
-  %175 = getelementptr inbounds i8, ptr %5, i64 8
-  %176 = load i32, ptr %175, align 8
-  %177 = sext i32 %176 to i64
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef nonnull @.str.87, i32 noundef %171, i32 noundef %173, i32 noundef %174, i64 noundef %177) #6
-  br label %179
+168:                                              ; preds = %.loopexit238
+  %169 = getelementptr inbounds i8, ptr %167, i64 8
+  %170 = load i32, ptr %169, align 8
+  %171 = getelementptr inbounds i8, ptr %167, i64 4
+  %172 = load i32, ptr %171, align 4
+  %173 = load i32, ptr %167, align 8
+  %174 = getelementptr inbounds i8, ptr %5, i64 8
+  %175 = load i32, ptr %174, align 8
+  %176 = sext i32 %175 to i64
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef nonnull @.str.87, i32 noundef %170, i32 noundef %172, i32 noundef %173, i64 noundef %176) #6
+  br label %178
 
-178:                                              ; preds = %.loopexit238
+177:                                              ; preds = %.loopexit238
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef nonnull @.str.88) #6
-  br label %179
+  br label %178
 
-179:                                              ; preds = %178, %169
-  %180 = load i32, ptr @hf_metamako_time_rel, align 4
-  %181 = call ptr @proto_tree_add_time_item(ptr noundef %167, i32 noundef %180, ptr noundef %0, i32 noundef %.3213, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null, ptr noundef null) #6
-  %.not.i232 = icmp eq ptr %181, null
-  br i1 %.not.i232, label %proto_item_set_generated.exit, label %182
+178:                                              ; preds = %177, %168
+  %179 = load i32, ptr @hf_metamako_time_rel, align 4
+  %180 = call ptr @proto_tree_add_time_item(ptr noundef %166, i32 noundef %179, ptr noundef %0, i32 noundef %.3, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null, ptr noundef null) #6
+  %.not.i232 = icmp eq ptr %180, null
+  br i1 %.not.i232, label %proto_item_set_generated.exit, label %181
 
-182:                                              ; preds = %179
-  %183 = getelementptr inbounds i8, ptr %181, i64 32
-  %184 = load ptr, ptr %183, align 8
-  %.not5.i = icmp eq ptr %184, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %185
+181:                                              ; preds = %178
+  %182 = getelementptr inbounds i8, ptr %180, i64 32
+  %183 = load ptr, ptr %182, align 8
+  %.not5.i = icmp eq ptr %183, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %184
 
-185:                                              ; preds = %182
-  %186 = getelementptr inbounds i8, ptr %184, i64 28
-  %187 = load i32, ptr %186, align 4
-  %188 = or i32 %187, 2
-  store i32 %188, ptr %186, align 4
+184:                                              ; preds = %181
+  %185 = getelementptr inbounds i8, ptr %183, i64 28
+  %186 = load i32, ptr %185, align 4
+  %187 = or i32 %186, 2
+  store i32 %187, ptr %185, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %179, %182, %185
-  %189 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %189, ptr noundef nonnull %5) #6
-  %190 = load i32, ptr @hf_metamako_time_diff, align 4
-  %191 = call ptr @proto_tree_add_time(ptr noundef %167, i32 noundef %190, ptr noundef %0, i32 noundef %.3213, i32 noundef 8, ptr noundef nonnull %6) #6
-  %.not.i233 = icmp eq ptr %191, null
-  br i1 %.not.i233, label %proto_item_set_generated.exit235, label %192
+proto_item_set_generated.exit:                    ; preds = %178, %181, %184
+  %188 = getelementptr inbounds i8, ptr %1, i64 24
+  call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %188, ptr noundef nonnull %5) #6
+  %189 = load i32, ptr @hf_metamako_time_diff, align 4
+  %190 = call ptr @proto_tree_add_time(ptr noundef %166, i32 noundef %189, ptr noundef %0, i32 noundef %.3, i32 noundef 8, ptr noundef nonnull %6) #6
+  %.not.i233 = icmp eq ptr %190, null
+  br i1 %.not.i233, label %proto_item_set_generated.exit235, label %191
 
-192:                                              ; preds = %proto_item_set_generated.exit
-  %193 = getelementptr inbounds i8, ptr %191, i64 32
-  %194 = load ptr, ptr %193, align 8
-  %.not5.i234 = icmp eq ptr %194, null
-  br i1 %.not5.i234, label %proto_item_set_generated.exit235, label %195
+191:                                              ; preds = %proto_item_set_generated.exit
+  %192 = getelementptr inbounds i8, ptr %190, i64 32
+  %193 = load ptr, ptr %192, align 8
+  %.not5.i234 = icmp eq ptr %193, null
+  br i1 %.not5.i234, label %proto_item_set_generated.exit235, label %194
 
-195:                                              ; preds = %192
-  %196 = getelementptr inbounds i8, ptr %194, i64 28
-  %197 = load i32, ptr %196, align 4
-  %198 = or i32 %197, 2
-  store i32 %198, ptr %196, align 4
+194:                                              ; preds = %191
+  %195 = getelementptr inbounds i8, ptr %193, i64 28
+  %196 = load i32, ptr %195, align 4
+  %197 = or i32 %196, 2
+  store i32 %197, ptr %195, align 4
   br label %proto_item_set_generated.exit235
 
-proto_item_set_generated.exit235:                 ; preds = %proto_item_set_generated.exit, %192, %195
-  %199 = add i32 %.3213, 8
-  %200 = load i32, ptr @hf_metamako_flags, align 4
-  %201 = load i32, ptr @ett_metamako_flags, align 4
-  %202 = call ptr @proto_tree_add_bitmask(ptr noundef %88, ptr noundef %0, i32 noundef %199, i32 noundef %200, i32 noundef %201, ptr noundef nonnull @flags, i32 noundef 0) #6
-  %203 = add i32 %.3213, 9
-  %204 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %203) #6
-  %205 = load i32, ptr @hf_metamako_src_device, align 4
-  %206 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %205, ptr noundef %0, i32 noundef %203, i32 noundef 2, i32 noundef 0) #6
-  %207 = zext i16 %204 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef nonnull @.str.89, i32 noundef %207) #6
-  %208 = add i32 %.3213, 11
-  %209 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %208) #6
-  %210 = load i32, ptr @hf_metamako_src_port, align 4
-  %211 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %210, ptr noundef %0, i32 noundef %208, i32 noundef 1, i32 noundef 0) #6
-  %212 = zext i8 %209 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef nonnull @.str.90, i32 noundef %212) #6
-  %213 = add i32 %.3213, 12
-  br i1 %.not294, label %214, label %.thread
+proto_item_set_generated.exit235:                 ; preds = %proto_item_set_generated.exit, %191, %194
+  %198 = add i32 %.3, 8
+  %199 = load i32, ptr @hf_metamako_flags, align 4
+  %200 = load i32, ptr @ett_metamako_flags, align 4
+  %201 = call ptr @proto_tree_add_bitmask(ptr noundef %88, ptr noundef %0, i32 noundef %198, i32 noundef %199, i32 noundef %200, ptr noundef nonnull @flags, i32 noundef 0) #6
+  %202 = add i32 %.3, 9
+  %203 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %202) #6
+  %204 = load i32, ptr @hf_metamako_src_device, align 4
+  %205 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %204, ptr noundef %0, i32 noundef %202, i32 noundef 2, i32 noundef 0) #6
+  %206 = zext i16 %203 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef nonnull @.str.89, i32 noundef %206) #6
+  %207 = add i32 %.3, 11
+  %208 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %207) #6
+  %209 = load i32, ptr @hf_metamako_src_port, align 4
+  %210 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %209, ptr noundef %0, i32 noundef %207, i32 noundef 1, i32 noundef 0) #6
+  %211 = zext i8 %208 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef nonnull @.str.90, i32 noundef %211) #6
+  %212 = add i32 %.3, 12
+  br i1 %.not294, label %213, label %.thread
 
-214:                                              ; preds = %proto_item_set_generated.exit235
-  %215 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %213) #6
-  %216 = load i32, ptr @metamako_check_fcs, align 4
-  %.not224 = icmp eq i32 %216, 0
-  br i1 %.not224, label %227, label %217
+213:                                              ; preds = %proto_item_set_generated.exit235
+  %214 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %212) #6
+  %215 = load i32, ptr @metamako_check_fcs, align 4
+  %.not224 = icmp eq i32 %215, 0
+  br i1 %.not224, label %226, label %216
 
-217:                                              ; preds = %214
-  %218 = call ptr @tvb_get_ds_tvb(ptr noundef %0) #6
-  %219 = call i32 @tvb_captured_length(ptr noundef %218) #6
-  %220 = add i32 %219, -4
-  %221 = call i32 @crc32_802_tvb(ptr noundef %218, i32 noundef %220) #6
-  %222 = load i32, ptr @hf_metamako_fcs, align 4
-  %223 = load i32, ptr @hf_metamako_fcs_status, align 4
-  %224 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %213, i32 noundef %222, i32 noundef %223, ptr noundef nonnull @ei_metamako_fcs_bad, ptr noundef %1, i32 noundef %221, i32 noundef 0, i32 noundef 1) #6
-  %.not225 = icmp eq i32 %221, %215
-  br i1 %.not225, label %231, label %225
+216:                                              ; preds = %213
+  %217 = call ptr @tvb_get_ds_tvb(ptr noundef %0) #6
+  %218 = call i32 @tvb_captured_length(ptr noundef %217) #6
+  %219 = add i32 %218, -4
+  %220 = call i32 @crc32_802_tvb(ptr noundef %217, i32 noundef %219) #6
+  %221 = load i32, ptr @hf_metamako_fcs, align 4
+  %222 = load i32, ptr @hf_metamako_fcs_status, align 4
+  %223 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %212, i32 noundef %221, i32 noundef %222, ptr noundef nonnull @ei_metamako_fcs_bad, ptr noundef %1, i32 noundef %220, i32 noundef 0, i32 noundef 1) #6
+  %.not225 = icmp eq i32 %220, %214
+  br i1 %.not225, label %230, label %224
 
-225:                                              ; preds = %217
-  %226 = load ptr, ptr %82, align 8
-  call void @col_append_str(ptr noundef %226, i32 noundef 25, ptr noundef nonnull @.str.91) #6
-  br label %231
+224:                                              ; preds = %216
+  %225 = load ptr, ptr %82, align 8
+  call void @col_append_str(ptr noundef %225, i32 noundef 25, ptr noundef nonnull @.str.91) #6
+  br label %230
 
-227:                                              ; preds = %214
-  %228 = load i32, ptr @hf_metamako_fcs, align 4
-  %229 = load i32, ptr @hf_metamako_fcs_status, align 4
-  %230 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %213, i32 noundef %228, i32 noundef %229, ptr noundef nonnull @ei_metamako_fcs_bad, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
-  br label %231
+226:                                              ; preds = %213
+  %227 = load i32, ptr @hf_metamako_fcs, align 4
+  %228 = load i32, ptr @hf_metamako_fcs_status, align 4
+  %229 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %212, i32 noundef %227, i32 noundef %228, ptr noundef nonnull @ei_metamako_fcs_bad, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
+  br label %230
 
-231:                                              ; preds = %217, %225, %227
-  %232 = add i32 %.3213, 16
+230:                                              ; preds = %216, %224, %226
+  %231 = add i32 %.3, 16
   br label %.thread
 
-.thread:                                          ; preds = %16, %proto_item_set_generated.exit235, %231, %79, %10, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %79 ], [ %232, %231 ], [ %213, %proto_item_set_generated.exit235 ], [ 0, %16 ]
+.thread:                                          ; preds = %16, %proto_item_set_generated.exit235, %230, %79, %10, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %79 ], [ %231, %230 ], [ %212, %proto_item_set_generated.exit235 ], [ 0, %16 ]
   ret i32 %.0
 }
 

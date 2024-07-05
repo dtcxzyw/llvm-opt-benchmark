@@ -605,10 +605,10 @@ define internal range(i32 0, 2) i32 @mtp3_stat_packet(ptr nocapture noundef read
   br label %20
 
 20:                                               ; preds = %.lr.ph, %37
-  %.08291 = phi i32 [ 0, %.lr.ph ], [ %38, %37 ]
-  %21 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.08291, i32 noundef 0) #13
-  %22 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.08291, i32 noundef 1) #13
-  %23 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.08291, i32 noundef 2) #13
+  %.08191 = phi i32 [ 0, %.lr.ph ], [ %38, %37 ]
+  %21 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.08191, i32 noundef 0) #13
+  %22 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.08191, i32 noundef 1) #13
+  %23 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.08191, i32 noundef 2) #13
   %24 = getelementptr inbounds i8, ptr %21, i64 16
   %25 = load ptr, ptr %24, align 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %3, ptr noundef nonnull dereferenceable(12) %25, i64 12)
@@ -631,13 +631,13 @@ define internal range(i32 0, 2) i32 @mtp3_stat_packet(ptr nocapture noundef read
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %20, %31, %27
-  %38 = add nuw i32 %.08291, 1
+  %38 = add nuw i32 %.08191, 1
   %39 = load i32, ptr %17, align 4
   %.not = icmp ult i32 %38, %39
   br i1 %.not, label %20, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %37, %11
-  %.082.lcssa = phi i32 [ 0, %11 ], [ %38, %37 ]
+  %.081.lcssa = phi i32 [ 0, %11 ], [ %38, %37 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %6, i8 0, i64 144, i1 false)
   store i32 3, ptr %6, align 16
   %40 = getelementptr inbounds i8, ptr %6, i64 24
@@ -650,8 +650,8 @@ define internal range(i32 0, 2) i32 @mtp3_stat_packet(ptr nocapture noundef read
   store i32 1, ptr %43, align 16
   %44 = getelementptr inbounds i8, ptr %6, i64 120
   store i32 4, ptr %44, align 8
-  call void @stat_tap_init_table_row(ptr noundef nonnull %16, i32 noundef %.082.lcssa, i32 noundef 6, ptr noundef nonnull %6) #13
-  %45 = call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.082.lcssa, i32 noundef 0) #13
+  call void @stat_tap_init_table_row(ptr noundef nonnull %16, i32 noundef %.081.lcssa, i32 noundef 6, ptr noundef nonnull %6) #13
+  %45 = call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.081.lcssa, i32 noundef 0) #13
   call fastcc void @mtp3_addr_to_str_buf(ptr noundef %3, ptr noundef nonnull %7, i32 noundef 256)
   %46 = call noalias ptr @g_strdup(ptr noundef nonnull %7) #13
   %47 = getelementptr inbounds i8, ptr %45, i64 8
@@ -659,8 +659,8 @@ define internal range(i32 0, 2) i32 @mtp3_stat_packet(ptr nocapture noundef read
   %48 = call dereferenceable_or_null(28) ptr @g_memdup2(ptr noundef %3, i64 noundef 28) #15
   %49 = getelementptr inbounds i8, ptr %45, i64 16
   store ptr %48, ptr %49, align 8
-  call void @stat_tap_set_field_data(ptr noundef nonnull %16, i32 noundef %.082.lcssa, i32 noundef 0, ptr noundef %45) #13
-  %50 = call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.082.lcssa, i32 noundef 1) #13
+  call void @stat_tap_set_field_data(ptr noundef nonnull %16, i32 noundef %.081.lcssa, i32 noundef 0, ptr noundef %45) #13
+  %50 = call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.081.lcssa, i32 noundef 1) #13
   %51 = getelementptr inbounds i8, ptr %3, i64 12
   call fastcc void @mtp3_addr_to_str_buf(ptr noundef nonnull %51, ptr noundef nonnull %7, i32 noundef 256)
   %52 = call noalias ptr @g_strdup(ptr noundef nonnull %7) #13
@@ -669,7 +669,7 @@ define internal range(i32 0, 2) i32 @mtp3_stat_packet(ptr nocapture noundef read
   %54 = call dereferenceable_or_null(28) ptr @g_memdup2(ptr noundef nonnull %51, i64 noundef 28) #15
   %55 = getelementptr inbounds i8, ptr %50, i64 16
   store ptr %54, ptr %55, align 8
-  call void @stat_tap_set_field_data(ptr noundef nonnull %16, i32 noundef %.082.lcssa, i32 noundef 1, ptr noundef %50) #13
+  call void @stat_tap_set_field_data(ptr noundef nonnull %16, i32 noundef %.081.lcssa, i32 noundef 1, ptr noundef %50) #13
   %56 = load i8, ptr %8, align 4
   %57 = zext i8 %56 to i32
   %58 = call ptr @try_val_to_str(i32 noundef %57, ptr noundef nonnull @mtp3_service_indicator_code_short_vals) #13
@@ -688,25 +688,25 @@ define internal range(i32 0, 2) i32 @mtp3_stat_packet(ptr nocapture noundef read
 
 65:                                               ; preds = %61, %59
   %.0 = phi ptr [ %60, %59 ], [ %64, %61 ]
-  %66 = call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.082.lcssa, i32 noundef 2) #13
+  %66 = call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.081.lcssa, i32 noundef 2) #13
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   store ptr %.0, ptr %67, align 8
   %68 = load i8, ptr %8, align 4
   %69 = zext i8 %68 to i32
   %70 = getelementptr inbounds i8, ptr %66, i64 16
   store i32 %69, ptr %70, align 8
-  call void @stat_tap_set_field_data(ptr noundef nonnull %16, i32 noundef %.082.lcssa, i32 noundef 2, ptr noundef %66) #13
+  call void @stat_tap_set_field_data(ptr noundef nonnull %16, i32 noundef %.081.lcssa, i32 noundef 2, ptr noundef %66) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %65
-  %.08289 = phi i32 [ %.082.lcssa, %65 ], [ %.08291, %31 ]
-  %71 = call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.08289, i32 noundef 3) #13
+  %.08189 = phi i32 [ %.081.lcssa, %65 ], [ %.08191, %31 ]
+  %71 = call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.08189, i32 noundef 3) #13
   %72 = getelementptr inbounds i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8
   %74 = add i32 %73, 1
   store i32 %74, ptr %72, align 8
-  call void @stat_tap_set_field_data(ptr noundef nonnull %16, i32 noundef %.08289, i32 noundef 3, ptr noundef %71) #13
-  %75 = call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.08289, i32 noundef 4) #13
+  call void @stat_tap_set_field_data(ptr noundef nonnull %16, i32 noundef %.08189, i32 noundef 3, ptr noundef %71) #13
+  %75 = call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.08189, i32 noundef 4) #13
   %76 = getelementptr inbounds i8, ptr %3, i64 26
   %77 = load i16, ptr %76, align 2
   %78 = zext i16 %77 to i32
@@ -714,16 +714,16 @@ define internal range(i32 0, 2) i32 @mtp3_stat_packet(ptr nocapture noundef read
   %80 = load i32, ptr %79, align 8
   %81 = add i32 %80, %78
   store i32 %81, ptr %79, align 8
-  call void @stat_tap_set_field_data(ptr noundef nonnull %16, i32 noundef %.08289, i32 noundef 4, ptr noundef %75) #13
+  call void @stat_tap_set_field_data(ptr noundef nonnull %16, i32 noundef %.08189, i32 noundef 4, ptr noundef %75) #13
   %.not87 = icmp eq i32 %74, 0
   %82 = uitofp i32 %81 to double
   %83 = uitofp i32 %74 to double
   %84 = fdiv double %82, %83
-  %.081 = select i1 %.not87, double 0.000000e+00, double %84
-  %85 = call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.08289, i32 noundef 5) #13
+  %.082 = select i1 %.not87, double 0.000000e+00, double %84
+  %85 = call ptr @stat_tap_get_field_data(ptr noundef nonnull %16, i32 noundef %.08189, i32 noundef 5) #13
   %86 = getelementptr inbounds i8, ptr %85, i64 8
-  store double %.081, ptr %86, align 8
-  call void @stat_tap_set_field_data(ptr noundef nonnull %16, i32 noundef %.08289, i32 noundef 5, ptr noundef %85) #13
+  store double %.082, ptr %86, align 8
+  call void @stat_tap_set_field_data(ptr noundef nonnull %16, i32 noundef %.08189, i32 noundef 5, ptr noundef %85) #13
   br label %87
 
 87:                                               ; preds = %5, %.loopexit

@@ -519,21 +519,21 @@ _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i: ; preds 
   %cmp9.i.i = icmp eq i32 %bcmp.i.i, 0
   %sub.i36 = add i64 %stem.sroa.0.0, -4
   %spec.select = select i1 %cmp9.i.i, i64 %sub.i.i, i64 %stem_basename.sroa.0.0
-  %spec.select60 = select i1 %cmp9.i.i, i64 %sub.i36, i64 %stem.sroa.0.0
+  %spec.select59 = select i1 %cmp9.i.i, i64 %sub.i36, i64 %stem.sroa.0.0
   br label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end, %if.end3, %lor.rhs.i.i, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i
-  %basename.sroa.5.05773 = phi ptr [ %basename.sroa.5.0, %lor.rhs.i.i ], [ %basename.sroa.5.0, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ], [ %file.coerce1, %if.end ], [ %basename.sroa.5.0, %if.end3 ]
+  %basename.sroa.5.05772 = phi ptr [ %basename.sroa.5.0, %lor.rhs.i.i ], [ %basename.sroa.5.0, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ], [ %file.coerce1, %if.end ], [ %basename.sroa.5.0, %if.end3 ]
   %stem_basename.sroa.0.151 = phi i64 [ %stem_basename.sroa.0.0, %lor.rhs.i.i ], [ %spec.select, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ], [ 0, %if.end ], [ 0, %if.end3 ]
-  %stem.sroa.0.1 = phi i64 [ %stem.sroa.0.0, %lor.rhs.i.i ], [ %spec.select60, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ], [ 0, %if.end ], [ %file.coerce0, %if.end3 ]
+  %stem.sroa.0.1 = phi i64 [ %stem.sroa.0.0, %lor.rhs.i.i ], [ %spec.select59, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ], [ 0, %if.end ], [ %file.coerce0, %if.end3 ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %__begin2.sroa.0.065 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %infos.val21, %for.body.preheader ]
-  %module_is_path = getelementptr inbounds i8, ptr %__begin2.sroa.0.065, i64 32
+  %__begin2.sroa.0.064 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %infos.val21, %for.body.preheader ]
+  %module_is_path = getelementptr inbounds i8, ptr %__begin2.sroa.0.064, i64 32
   %2 = load i8, ptr %module_is_path, align 8
   %tobool21 = trunc i8 %2 to i1
-  %call24 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.065) #18
+  %call24 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.064) #18
   %3 = extractvalue { i64, ptr } %call24, 0
   %4 = extractvalue { i64, ptr } %call24, 1
   br i1 %tobool21, label %if.then22, label %if.else
@@ -543,16 +543,16 @@ if.then22:                                        ; preds = %for.body
   br i1 %call26, label %return.sink.split, label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %call35 = tail call noundef zeroext i1 @_ZN4absl12log_internal7FNMatchESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %3, ptr %4, i64 %stem_basename.sroa.0.151, ptr %basename.sroa.5.05773)
+  %call35 = tail call noundef zeroext i1 @_ZN4absl12log_internal7FNMatchESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %3, ptr %4, i64 %stem_basename.sroa.0.151, ptr %basename.sroa.5.05772)
   br i1 %call35, label %return.sink.split, label %for.inc
 
 for.inc:                                          ; preds = %if.then22, %if.else
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.065, i64 40
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.064, i64 40
   %cmp.i37.not = icmp eq ptr %incdec.ptr.i, %infos.val22
   br i1 %cmp.i37.not, label %return, label %for.body
 
 return.sink.split:                                ; preds = %if.else, %if.then22
-  %vlog_level37 = getelementptr inbounds i8, ptr %__begin2.sroa.0.065, i64 36
+  %vlog_level37 = getelementptr inbounds i8, ptr %__begin2.sroa.0.064, i64 36
   %5 = load i32, ptr %vlog_level37, align 4
   %cmp38 = icmp eq i32 %5, -32768
   %current_global_v.19 = select i1 %cmp38, i32 %current_global_v, i32 %5

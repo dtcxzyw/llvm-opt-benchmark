@@ -31,18 +31,18 @@ while.cond.preheader.i:                           ; preds = %entry
   br label %while.cond.outer.i
 
 while.cond.outer.i:                               ; preds = %while.cond.outer.i.backedge, %while.cond.preheader.i
-  %current_form.0.ph.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %current_form.0.ph.i.be, %while.cond.outer.i.backedge ]
-  %return_value.0.ph.i = phi i32 [ 0, %while.cond.preheader.i ], [ %return_value.0.ph.i.be, %while.cond.outer.i.backedge ]
-  %forms.0.ph.i = phi ptr [ null, %while.cond.preheader.i ], [ %forms.0.ph.i.be, %while.cond.outer.i.backedge ]
-  %array_value.0.ph.i = phi ptr [ null, %while.cond.preheader.i ], [ %array_value.1.i, %while.cond.outer.i.backedge ]
   %array_state.0.ph.i = phi i1 [ false, %while.cond.preheader.i ], [ %array_state.0.ph.i.be, %while.cond.outer.i.backedge ]
+  %array_value.0.ph.i = phi ptr [ null, %while.cond.preheader.i ], [ %array_value.1.i, %while.cond.outer.i.backedge ]
+  %forms.0.ph.i = phi ptr [ null, %while.cond.preheader.i ], [ %forms.0.ph.i.be, %while.cond.outer.i.backedge ]
+  %return_value.0.ph.i = phi i32 [ 0, %while.cond.preheader.i ], [ %return_value.0.ph.i.be, %while.cond.outer.i.backedge ]
+  %current_form.0.ph.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %current_form.0.ph.i.be, %while.cond.outer.i.backedge ]
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.then3.i, %while.cond.outer.i
-  %return_value.0.i = phi i32 [ 0, %if.then3.i ], [ %return_value.0.ph.i, %while.cond.outer.i ]
-  %forms.0.i = phi ptr [ %incdec.ptr.i, %if.then3.i ], [ %forms.0.ph.i, %while.cond.outer.i ]
-  %array_value.0.i = phi ptr [ %3, %if.then3.i ], [ %array_value.0.ph.i, %while.cond.outer.i ]
   %array_state.0.i = phi i1 [ false, %if.then3.i ], [ %array_state.0.ph.i, %while.cond.outer.i ]
+  %array_value.0.i = phi ptr [ %3, %if.then3.i ], [ %array_value.0.ph.i, %while.cond.outer.i ]
+  %forms.0.i = phi ptr [ %incdec.ptr.i, %if.then3.i ], [ %forms.0.ph.i, %while.cond.outer.i ]
+  %return_value.0.i = phi i32 [ 0, %if.then3.i ], [ %return_value.0.ph.i, %while.cond.outer.i ]
   %cmp.i = icmp eq i32 %return_value.0.i, 0
   br i1 %cmp.i, label %while.body.i, label %for.body.i
 
@@ -85,10 +85,10 @@ vaarg.end.i:                                      ; preds = %vaarg.in_mem.i, %va
   br i1 %cmp8.i, label %for.body466.i, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then3.i, %vaarg.end.i
-  %array_state.0307.i = phi i1 [ %array_state.0.i, %vaarg.end.i ], [ true, %if.then3.i ]
-  %option.0.i = phi i32 [ %7, %vaarg.end.i ], [ %2, %if.then3.i ]
-  %forms.1.i = phi ptr [ %forms.0.i, %vaarg.end.i ], [ %incdec.ptr.i, %if.then3.i ]
+  %array_state.0314.i = phi i1 [ %array_state.0.i, %vaarg.end.i ], [ true, %if.then3.i ]
   %array_value.1.i = phi ptr [ %array_value.0.i, %vaarg.end.i ], [ %3, %if.then3.i ]
+  %forms.1.i = phi ptr [ %forms.0.i, %vaarg.end.i ], [ %incdec.ptr.i, %if.then3.i ]
+  %option.0.i = phi i32 [ %7, %vaarg.end.i ], [ %2, %if.then3.i ]
   switch i32 %option.0.i, label %while.cond.outer.i.backedge [
     i32 8, label %sw.bb.i
     i32 2, label %sw.bb31.i
@@ -110,7 +110,7 @@ if.end11.i:                                       ; preds = %if.then3.i, %vaarg.
   ]
 
 sw.bb.i:                                          ; preds = %if.end11.i
-  br i1 %array_state.0307.i, label %while.cond.outer.i.backedge, label %if.else14.i
+  br i1 %array_state.0314.i, label %while.cond.outer.i.backedge, label %if.else14.i
 
 if.else14.i:                                      ; preds = %sw.bb.i
   %gp_offset16.i = load i32, ptr %arg, align 16
@@ -135,7 +135,7 @@ vaarg.end24.i:                                    ; preds = %vaarg.in_mem20.i, %
   %vaarg.addr25.i = phi ptr [ %9, %vaarg.in_reg18.i ], [ %overflow_arg_area22.i, %vaarg.in_mem20.i ]
   %11 = load ptr, ptr %vaarg.addr25.i, align 8
   %tobool26.not.i = icmp ne ptr %11, null
-  %..i = select i1 %tobool26.not.i, i32 0, i32 3
+  %.232.i = select i1 %tobool26.not.i, i32 0, i32 3
   br label %while.cond.outer.i.backedge
 
 sw.bb31.i:                                        ; preds = %if.end11.i
@@ -151,7 +151,7 @@ sw.bb32.i:                                        ; preds = %sw.bb31.i, %if.end1
   br i1 %tobool33.not.i, label %if.else35.i, label %while.cond.outer.i.backedge
 
 if.else35.i:                                      ; preds = %sw.bb32.i
-  br i1 %array_state.0307.i, label %cond.end.i, label %cond.false.i
+  br i1 %array_state.0314.i, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.else35.i
   %gp_offset39.i = load i32, ptr %arg, align 16
@@ -193,7 +193,7 @@ sw.bb55.i:                                        ; preds = %if.end11.i
   br i1 %tobool56.not.i, label %if.else58.i, label %while.cond.outer.i.backedge
 
 if.else58.i:                                      ; preds = %sw.bb55.i
-  br i1 %array_state.0307.i, label %cond.true60.i, label %cond.false61.i
+  br i1 %array_state.0314.i, label %cond.true60.i, label %cond.false61.i
 
 cond.true60.i:                                    ; preds = %if.else58.i
   %19 = ptrtoint ptr %array_value.1.i to i64
@@ -242,7 +242,7 @@ sw.bb80.i:                                        ; preds = %sw.bb77.i, %if.end1
   br i1 %tobool82.not.i, label %if.else84.i, label %while.cond.outer.i.backedge
 
 if.else84.i:                                      ; preds = %sw.bb80.i
-  br i1 %array_state.0307.i, label %cond.end100.i, label %cond.false88.i
+  br i1 %array_state.0314.i, label %cond.end100.i, label %cond.false88.i
 
 cond.false88.i:                                   ; preds = %if.else84.i
   %gp_offset90.i = load i32, ptr %arg, align 16
@@ -278,7 +278,7 @@ if.then103.i:                                     ; preds = %cond.end100.i
   br label %while.cond.outer.i.backedge
 
 sw.bb108.i:                                       ; preds = %if.end11.i
-  br i1 %array_state.0307.i, label %cond.true110.i, label %cond.false111.i
+  br i1 %array_state.0314.i, label %cond.true110.i, label %cond.false111.i
 
 cond.true110.i:                                   ; preds = %sw.bb108.i
   %30 = ptrtoint ptr %array_value.1.i to i64
@@ -319,7 +319,7 @@ sw.bb125.i:                                       ; preds = %if.end11.i
   %35 = load i64, ptr %flags126.i, align 8
   %or127.i = or i64 %35, 128
   store i64 %or127.i, ptr %flags126.i, align 8
-  br i1 %array_state.0307.i, label %cond.true129.i, label %cond.false130.i
+  br i1 %array_state.0314.i, label %cond.true129.i, label %cond.false130.i
 
 cond.true129.i:                                   ; preds = %sw.bb125.i
   %36 = ptrtoint ptr %array_value.1.i to i64
@@ -363,7 +363,7 @@ sw.bb145.i:                                       ; preds = %if.end11.i
   br i1 %tobool147.not.i, label %if.else149.i, label %while.cond.outer.i.backedge
 
 if.else149.i:                                     ; preds = %sw.bb145.i
-  br i1 %array_state.0307.i, label %cond.end164.i, label %cond.false152.i
+  br i1 %array_state.0314.i, label %cond.end164.i, label %cond.false152.i
 
 cond.false152.i:                                  ; preds = %if.else149.i
   %gp_offset154.i = load i32, ptr %arg, align 16
@@ -411,7 +411,7 @@ if.else173.i:                                     ; preds = %if.then167.i
   br label %while.cond.outer.i.backedge
 
 sw.bb180.i:                                       ; preds = %if.end11.i
-  br i1 %array_state.0307.i, label %cond.end196.i, label %cond.false184.i
+  br i1 %array_state.0314.i, label %cond.end196.i, label %cond.false184.i
 
 cond.false184.i:                                  ; preds = %sw.bb180.i
   %gp_offset186.i = load i32, ptr %arg, align 16
@@ -517,7 +517,7 @@ sw.bb238.i:                                       ; preds = %if.end11.i
   br i1 %tobool241.not.i, label %if.else243.i, label %while.cond.outer.i.backedge
 
 if.else243.i:                                     ; preds = %sw.bb238.i
-  br i1 %array_state.0307.i, label %cond.end259.i, label %cond.false247.i
+  br i1 %array_state.0314.i, label %cond.end259.i, label %cond.false247.i
 
 cond.false247.i:                                  ; preds = %if.else243.i
   %gp_offset249.i = load i32, ptr %arg, align 16
@@ -561,7 +561,7 @@ sw.bb268.i:                                       ; preds = %if.end11.i
   br i1 %tobool269.not.i, label %if.else271.i, label %while.cond.outer.i.backedge
 
 if.else271.i:                                     ; preds = %sw.bb268.i
-  br i1 %array_state.0307.i, label %cond.true273.i, label %cond.false274.i
+  br i1 %array_state.0314.i, label %cond.true273.i, label %cond.false274.i
 
 cond.true273.i:                                   ; preds = %if.else271.i
   %67 = ptrtoint ptr %array_value.1.i to i64
@@ -607,7 +607,7 @@ sw.bb290.i:                                       ; preds = %if.end11.i
   br i1 %tobool293.not.i, label %if.else295.i, label %while.cond.outer.i.backedge
 
 if.else295.i:                                     ; preds = %sw.bb290.i
-  br i1 %array_state.0307.i, label %cond.end311.i, label %cond.false299.i
+  br i1 %array_state.0314.i, label %cond.end311.i, label %cond.false299.i
 
 cond.false299.i:                                  ; preds = %if.else295.i
   %gp_offset301.i = load i32, ptr %arg, align 16
@@ -645,7 +645,7 @@ if.then314.i:                                     ; preds = %cond.end311.i
   br label %while.cond.outer.i.backedge
 
 sw.bb320.i:                                       ; preds = %if.end11.i
-  br i1 %array_state.0307.i, label %cond.end335.i, label %cond.false323.i
+  br i1 %array_state.0314.i, label %cond.end335.i, label %cond.false323.i
 
 cond.false323.i:                                  ; preds = %sw.bb320.i
   %gp_offset325.i = load i32, ptr %arg, align 16
@@ -737,7 +737,7 @@ if.else368.i:                                     ; preds = %if.then362.i
   br label %while.cond.outer.i.backedge
 
 sw.bb374.i:                                       ; preds = %if.end11.i
-  br i1 %array_state.0307.i, label %cond.end389.i, label %cond.false377.i
+  br i1 %array_state.0314.i, label %cond.end389.i, label %cond.false377.i
 
 cond.false377.i:                                  ; preds = %sw.bb374.i
   %gp_offset379.i = load i32, ptr %arg, align 16
@@ -775,7 +775,7 @@ if.else393.i:                                     ; preds = %cond.end389.i
   br label %while.cond.outer.i.backedge
 
 sw.bb396.i:                                       ; preds = %if.end11.i, %if.end11.i
-  br i1 %array_state.0307.i, label %cond.end412.i, label %cond.false400.i
+  br i1 %array_state.0314.i, label %cond.end412.i, label %cond.false400.i
 
 cond.false400.i:                                  ; preds = %sw.bb396.i
   %gp_offset402.i = load i32, ptr %arg, align 16
@@ -821,10 +821,10 @@ if.else422.i:                                     ; preds = %if.else416.i
   br label %while.cond.outer.i.backedge
 
 while.cond.outer.i.backedge:                      ; preds = %if.else422.i, %if.else416.i, %cond.end412.i, %if.else393.i, %cond.end389.i, %if.else368.i, %if.then362.i, %if.else360.i, %if.else353.i, %if.then352.i, %if.then345.i, %if.then343.i, %if.then339.i, %if.then314.i, %cond.end311.i, %sw.bb290.i, %cond.end286.i, %sw.bb268.i, %if.then262.i, %cond.end259.i, %sw.bb238.i, %if.else230.i, %if.then224.i, %if.else222.i, %if.else214.i, %if.then213.i, %if.then206.i, %if.then204.i, %if.then200.i, %if.else173.i, %if.then167.i, %cond.end164.i, %sw.bb145.i, %cond.end142.i, %cond.end123.i, %if.then103.i, %cond.end100.i, %sw.bb80.i, %cond.end73.i, %sw.bb55.i, %if.then50.i, %cond.end.i, %sw.bb32.i, %vaarg.end24.i, %sw.bb.i, %if.end11.i
-  %current_form.0.ph.i.be = phi ptr [ %current_form.0.ph.i, %if.else422.i ], [ %current_form.0.ph.i, %if.else393.i ], [ %call.i238.i, %if.else353.i ], [ %current_form.0.ph.i, %if.then352.i ], [ %current_form.0.ph.i, %if.else368.i ], [ %current_form.0.ph.i, %if.then314.i ], [ %current_form.0.ph.i, %cond.end286.i ], [ %current_form.0.ph.i, %if.then262.i ], [ %call.i.i, %if.else214.i ], [ %current_form.0.ph.i, %if.then213.i ], [ %current_form.0.ph.i, %if.else230.i ], [ %current_form.0.ph.i, %if.else173.i ], [ %current_form.0.ph.i, %cond.end142.i ], [ %current_form.0.ph.i, %cond.end123.i ], [ %current_form.0.ph.i, %if.then103.i ], [ %current_form.0.ph.i, %cond.end73.i ], [ %current_form.0.ph.i, %if.then50.i ], [ %current_form.0.ph.i, %sw.bb.i ], [ %current_form.0.ph.i, %vaarg.end24.i ], [ %current_form.0.ph.i, %sw.bb32.i ], [ %current_form.0.ph.i, %cond.end.i ], [ %current_form.0.ph.i, %sw.bb55.i ], [ %current_form.0.ph.i, %sw.bb80.i ], [ %current_form.0.ph.i, %cond.end100.i ], [ %current_form.0.ph.i, %sw.bb145.i ], [ %current_form.0.ph.i, %if.then167.i ], [ %current_form.0.ph.i, %cond.end164.i ], [ %current_form.0.ph.i, %if.then206.i ], [ %current_form.0.ph.i, %if.then204.i ], [ %current_form.0.ph.i, %if.then200.i ], [ %current_form.0.ph.i, %if.then224.i ], [ %current_form.0.ph.i, %if.else222.i ], [ %current_form.0.ph.i, %sw.bb238.i ], [ %current_form.0.ph.i, %cond.end259.i ], [ %current_form.0.ph.i, %sw.bb268.i ], [ %current_form.0.ph.i, %sw.bb290.i ], [ %current_form.0.ph.i, %cond.end311.i ], [ %current_form.0.ph.i, %if.then345.i ], [ %current_form.0.ph.i, %if.then343.i ], [ %current_form.0.ph.i, %if.then339.i ], [ %current_form.0.ph.i, %if.then362.i ], [ %current_form.0.ph.i, %if.else360.i ], [ %current_form.0.ph.i, %cond.end389.i ], [ %current_form.0.ph.i, %cond.end412.i ], [ %current_form.0.ph.i, %if.else416.i ], [ %current_form.0.ph.i, %if.end11.i ]
-  %return_value.0.ph.i.be = phi i32 [ 0, %if.else422.i ], [ 0, %if.else393.i ], [ 0, %if.else353.i ], [ 1, %if.then352.i ], [ 0, %if.else368.i ], [ 0, %if.then314.i ], [ 0, %cond.end286.i ], [ 0, %if.then262.i ], [ 0, %if.else214.i ], [ 1, %if.then213.i ], [ 0, %if.else230.i ], [ 0, %if.else173.i ], [ 0, %cond.end142.i ], [ 0, %cond.end123.i ], [ 0, %if.then103.i ], [ 0, %cond.end73.i ], [ 0, %if.then50.i ], [ 6, %sw.bb.i ], [ %..i, %vaarg.end24.i ], [ 2, %sw.bb32.i ], [ 3, %cond.end.i ], [ 2, %sw.bb55.i ], [ 2, %sw.bb80.i ], [ 3, %cond.end100.i ], [ 2, %sw.bb145.i ], [ 1, %if.then167.i ], [ 3, %cond.end164.i ], [ 1, %if.then206.i ], [ 3, %if.then204.i ], [ 2, %if.then200.i ], [ 1, %if.then224.i ], [ 3, %if.else222.i ], [ 2, %sw.bb238.i ], [ 3, %cond.end259.i ], [ 2, %sw.bb268.i ], [ 2, %sw.bb290.i ], [ 3, %cond.end311.i ], [ 1, %if.then345.i ], [ 3, %if.then343.i ], [ 2, %if.then339.i ], [ 1, %if.then362.i ], [ 3, %if.else360.i ], [ 2, %cond.end389.i ], [ 2, %cond.end412.i ], [ 1, %if.else416.i ], [ 4, %if.end11.i ]
+  %array_state.0.ph.i.be = phi i1 [ %array_state.0314.i, %if.else422.i ], [ %array_state.0314.i, %if.else393.i ], [ %array_state.0314.i, %if.else353.i ], [ %array_state.0314.i, %if.then352.i ], [ %array_state.0314.i, %if.else368.i ], [ %array_state.0314.i, %if.then314.i ], [ %array_state.0314.i, %cond.end286.i ], [ %array_state.0314.i, %if.then262.i ], [ %array_state.0314.i, %if.else214.i ], [ %array_state.0314.i, %if.then213.i ], [ %array_state.0314.i, %if.else230.i ], [ %array_state.0314.i, %if.else173.i ], [ %array_state.0314.i, %cond.end142.i ], [ %array_state.0314.i, %cond.end123.i ], [ %array_state.0314.i, %if.then103.i ], [ %array_state.0314.i, %cond.end73.i ], [ %array_state.0314.i, %if.then50.i ], [ true, %sw.bb.i ], [ %tobool26.not.i, %vaarg.end24.i ], [ %array_state.0314.i, %sw.bb32.i ], [ %array_state.0314.i, %cond.end.i ], [ %array_state.0314.i, %sw.bb55.i ], [ %array_state.0314.i, %sw.bb80.i ], [ %array_state.0314.i, %cond.end100.i ], [ %array_state.0314.i, %sw.bb145.i ], [ %array_state.0314.i, %if.then167.i ], [ %array_state.0314.i, %cond.end164.i ], [ %array_state.0314.i, %if.then206.i ], [ %array_state.0314.i, %if.then204.i ], [ %array_state.0314.i, %if.then200.i ], [ %array_state.0314.i, %if.then224.i ], [ %array_state.0314.i, %if.else222.i ], [ %array_state.0314.i, %sw.bb238.i ], [ %array_state.0314.i, %cond.end259.i ], [ %array_state.0314.i, %sw.bb268.i ], [ %array_state.0314.i, %sw.bb290.i ], [ %array_state.0314.i, %cond.end311.i ], [ %array_state.0314.i, %if.then345.i ], [ %array_state.0314.i, %if.then343.i ], [ %array_state.0314.i, %if.then339.i ], [ %array_state.0314.i, %if.then362.i ], [ %array_state.0314.i, %if.else360.i ], [ %array_state.0314.i, %cond.end389.i ], [ %array_state.0314.i, %cond.end412.i ], [ %array_state.0314.i, %if.else416.i ], [ %array_state.0314.i, %if.end11.i ]
   %forms.0.ph.i.be = phi ptr [ %forms.1.i, %if.else422.i ], [ %forms.1.i, %if.else393.i ], [ %forms.1.i, %if.else353.i ], [ %forms.1.i, %if.then352.i ], [ %forms.1.i, %if.else368.i ], [ %forms.1.i, %if.then314.i ], [ %forms.1.i, %cond.end286.i ], [ %forms.1.i, %if.then262.i ], [ %forms.1.i, %if.else214.i ], [ %forms.1.i, %if.then213.i ], [ %forms.1.i, %if.else230.i ], [ %forms.1.i, %if.else173.i ], [ %forms.1.i, %cond.end142.i ], [ %forms.1.i, %cond.end123.i ], [ %forms.1.i, %if.then103.i ], [ %forms.1.i, %cond.end73.i ], [ %forms.1.i, %if.then50.i ], [ %forms.1.i, %sw.bb.i ], [ %11, %vaarg.end24.i ], [ %forms.1.i, %sw.bb32.i ], [ %forms.1.i, %cond.end.i ], [ %forms.1.i, %sw.bb55.i ], [ %forms.1.i, %sw.bb80.i ], [ %forms.1.i, %cond.end100.i ], [ %forms.1.i, %sw.bb145.i ], [ %forms.1.i, %if.then167.i ], [ %forms.1.i, %cond.end164.i ], [ %forms.1.i, %if.then206.i ], [ %forms.1.i, %if.then204.i ], [ %forms.1.i, %if.then200.i ], [ %forms.1.i, %if.then224.i ], [ %forms.1.i, %if.else222.i ], [ %forms.1.i, %sw.bb238.i ], [ %forms.1.i, %cond.end259.i ], [ %forms.1.i, %sw.bb268.i ], [ %forms.1.i, %sw.bb290.i ], [ %forms.1.i, %cond.end311.i ], [ %forms.1.i, %if.then345.i ], [ %forms.1.i, %if.then343.i ], [ %forms.1.i, %if.then339.i ], [ %forms.1.i, %if.then362.i ], [ %forms.1.i, %if.else360.i ], [ %forms.1.i, %cond.end389.i ], [ %forms.1.i, %cond.end412.i ], [ %forms.1.i, %if.else416.i ], [ %forms.1.i, %if.end11.i ]
-  %array_state.0.ph.i.be = phi i1 [ %array_state.0307.i, %if.else422.i ], [ %array_state.0307.i, %if.else393.i ], [ %array_state.0307.i, %if.else353.i ], [ %array_state.0307.i, %if.then352.i ], [ %array_state.0307.i, %if.else368.i ], [ %array_state.0307.i, %if.then314.i ], [ %array_state.0307.i, %cond.end286.i ], [ %array_state.0307.i, %if.then262.i ], [ %array_state.0307.i, %if.else214.i ], [ %array_state.0307.i, %if.then213.i ], [ %array_state.0307.i, %if.else230.i ], [ %array_state.0307.i, %if.else173.i ], [ %array_state.0307.i, %cond.end142.i ], [ %array_state.0307.i, %cond.end123.i ], [ %array_state.0307.i, %if.then103.i ], [ %array_state.0307.i, %cond.end73.i ], [ %array_state.0307.i, %if.then50.i ], [ true, %sw.bb.i ], [ %tobool26.not.i, %vaarg.end24.i ], [ %array_state.0307.i, %sw.bb32.i ], [ %array_state.0307.i, %cond.end.i ], [ %array_state.0307.i, %sw.bb55.i ], [ %array_state.0307.i, %sw.bb80.i ], [ %array_state.0307.i, %cond.end100.i ], [ %array_state.0307.i, %sw.bb145.i ], [ %array_state.0307.i, %if.then167.i ], [ %array_state.0307.i, %cond.end164.i ], [ %array_state.0307.i, %if.then206.i ], [ %array_state.0307.i, %if.then204.i ], [ %array_state.0307.i, %if.then200.i ], [ %array_state.0307.i, %if.then224.i ], [ %array_state.0307.i, %if.else222.i ], [ %array_state.0307.i, %sw.bb238.i ], [ %array_state.0307.i, %cond.end259.i ], [ %array_state.0307.i, %sw.bb268.i ], [ %array_state.0307.i, %sw.bb290.i ], [ %array_state.0307.i, %cond.end311.i ], [ %array_state.0307.i, %if.then345.i ], [ %array_state.0307.i, %if.then343.i ], [ %array_state.0307.i, %if.then339.i ], [ %array_state.0307.i, %if.then362.i ], [ %array_state.0307.i, %if.else360.i ], [ %array_state.0307.i, %cond.end389.i ], [ %array_state.0307.i, %cond.end412.i ], [ %array_state.0307.i, %if.else416.i ], [ %array_state.0307.i, %if.end11.i ]
+  %return_value.0.ph.i.be = phi i32 [ 0, %if.else422.i ], [ 0, %if.else393.i ], [ 0, %if.else353.i ], [ 1, %if.then352.i ], [ 0, %if.else368.i ], [ 0, %if.then314.i ], [ 0, %cond.end286.i ], [ 0, %if.then262.i ], [ 0, %if.else214.i ], [ 1, %if.then213.i ], [ 0, %if.else230.i ], [ 0, %if.else173.i ], [ 0, %cond.end142.i ], [ 0, %cond.end123.i ], [ 0, %if.then103.i ], [ 0, %cond.end73.i ], [ 0, %if.then50.i ], [ 6, %sw.bb.i ], [ %.232.i, %vaarg.end24.i ], [ 2, %sw.bb32.i ], [ 3, %cond.end.i ], [ 2, %sw.bb55.i ], [ 2, %sw.bb80.i ], [ 3, %cond.end100.i ], [ 2, %sw.bb145.i ], [ 1, %if.then167.i ], [ 3, %cond.end164.i ], [ 1, %if.then206.i ], [ 3, %if.then204.i ], [ 2, %if.then200.i ], [ 1, %if.then224.i ], [ 3, %if.else222.i ], [ 2, %sw.bb238.i ], [ 3, %cond.end259.i ], [ 2, %sw.bb268.i ], [ 2, %sw.bb290.i ], [ 3, %cond.end311.i ], [ 1, %if.then345.i ], [ 3, %if.then343.i ], [ 2, %if.then339.i ], [ 1, %if.then362.i ], [ 3, %if.else360.i ], [ 2, %cond.end389.i ], [ 2, %cond.end412.i ], [ 1, %if.else416.i ], [ 4, %if.end11.i ]
+  %current_form.0.ph.i.be = phi ptr [ %current_form.0.ph.i, %if.else422.i ], [ %current_form.0.ph.i, %if.else393.i ], [ %call.i238.i, %if.else353.i ], [ %current_form.0.ph.i, %if.then352.i ], [ %current_form.0.ph.i, %if.else368.i ], [ %current_form.0.ph.i, %if.then314.i ], [ %current_form.0.ph.i, %cond.end286.i ], [ %current_form.0.ph.i, %if.then262.i ], [ %call.i.i, %if.else214.i ], [ %current_form.0.ph.i, %if.then213.i ], [ %current_form.0.ph.i, %if.else230.i ], [ %current_form.0.ph.i, %if.else173.i ], [ %current_form.0.ph.i, %cond.end142.i ], [ %current_form.0.ph.i, %cond.end123.i ], [ %current_form.0.ph.i, %if.then103.i ], [ %current_form.0.ph.i, %cond.end73.i ], [ %current_form.0.ph.i, %if.then50.i ], [ %current_form.0.ph.i, %sw.bb.i ], [ %current_form.0.ph.i, %vaarg.end24.i ], [ %current_form.0.ph.i, %sw.bb32.i ], [ %current_form.0.ph.i, %cond.end.i ], [ %current_form.0.ph.i, %sw.bb55.i ], [ %current_form.0.ph.i, %sw.bb80.i ], [ %current_form.0.ph.i, %cond.end100.i ], [ %current_form.0.ph.i, %sw.bb145.i ], [ %current_form.0.ph.i, %if.then167.i ], [ %current_form.0.ph.i, %cond.end164.i ], [ %current_form.0.ph.i, %if.then206.i ], [ %current_form.0.ph.i, %if.then204.i ], [ %current_form.0.ph.i, %if.then200.i ], [ %current_form.0.ph.i, %if.then224.i ], [ %current_form.0.ph.i, %if.else222.i ], [ %current_form.0.ph.i, %sw.bb238.i ], [ %current_form.0.ph.i, %cond.end259.i ], [ %current_form.0.ph.i, %sw.bb268.i ], [ %current_form.0.ph.i, %sw.bb290.i ], [ %current_form.0.ph.i, %cond.end311.i ], [ %current_form.0.ph.i, %if.then345.i ], [ %current_form.0.ph.i, %if.then343.i ], [ %current_form.0.ph.i, %if.then339.i ], [ %current_form.0.ph.i, %if.then362.i ], [ %current_form.0.ph.i, %if.else360.i ], [ %current_form.0.ph.i, %cond.end389.i ], [ %current_form.0.ph.i, %cond.end412.i ], [ %current_form.0.ph.i, %if.else416.i ], [ %current_form.0.ph.i, %if.end11.i ]
   br label %while.cond.outer.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %while.cond.i, %for.inc.i
@@ -894,30 +894,30 @@ for.inc.i:                                        ; preds = %do.body455.i, %if.e
   br i1 %cmp427.not.i, label %if.end684.i, label %for.body.i, !llvm.loop !6
 
 for.body466.i:                                    ; preds = %vaarg.end.i, %if.end629.i
-  %post.0293.i = phi ptr [ %call5.i.i, %if.end629.i ], [ null, %vaarg.end.i ]
-  %prevtype.0292.i = phi ptr [ %spec.select.i, %if.end629.i ], [ null, %vaarg.end.i ]
-  %form.0289.i = phi ptr [ %146, %if.end629.i ], [ %call.i, %vaarg.end.i ]
-  %113 = load ptr, ptr %form.0289.i, align 8
+  %form.0291.i = phi ptr [ %146, %if.end629.i ], [ %call.i, %vaarg.end.i ]
+  %prevtype.0290.i = phi ptr [ %spec.select.i, %if.end629.i ], [ null, %vaarg.end.i ]
+  %post.0289.i = phi ptr [ %call5.i.i, %if.end629.i ], [ null, %vaarg.end.i ]
+  %113 = load ptr, ptr %form.0291.i, align 8
   %tobool468.not.i = icmp eq ptr %113, null
   br i1 %tobool468.not.i, label %land.lhs.true471.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body466.i
-  %value469.i = getelementptr inbounds i8, ptr %form.0289.i, i64 16
+  %value469.i = getelementptr inbounds i8, ptr %form.0291.i, i64 16
   %114 = load ptr, ptr %value469.i, align 8
   %tobool470.i = icmp ne ptr %114, null
-  %tobool472.i = icmp ne ptr %post.0293.i, null
+  %tobool472.i = icmp ne ptr %post.0289.i, null
   %or.cond1.i = or i1 %tobool472.i, %tobool470.i
   br i1 %or.cond1.i, label %lor.lhs.false473.i, label %for.end637.i
 
 land.lhs.true471.i:                               ; preds = %for.body466.i
-  %tobool472.old.not.i = icmp eq ptr %post.0293.i, null
+  %tobool472.old.not.i = icmp eq ptr %post.0289.i, null
   br i1 %tobool472.old.not.i, label %for.end637.i, label %lor.lhs.false473.i
 
 lor.lhs.false473.i:                               ; preds = %land.lhs.true471.i, %lor.lhs.false.i
-  %contentslength474.i = getelementptr inbounds i8, ptr %form.0289.i, i64 24
+  %contentslength474.i = getelementptr inbounds i8, ptr %form.0291.i, i64 24
   %115 = load i64, ptr %contentslength474.i, align 8
   %tobool475.not.i = icmp ne i64 %115, 0
-  %flags481.phi.trans.insert.i = getelementptr inbounds i8, ptr %form.0289.i, i64 40
+  %flags481.phi.trans.insert.i = getelementptr inbounds i8, ptr %form.0291.i, i64 40
   %.pre.i = load i64, ptr %flags481.phi.trans.insert.i, align 8
   %and478.i = and i64 %.pre.i, 1
   %tobool479.not.i = icmp ne i64 %and478.i, 0
@@ -928,7 +928,7 @@ lor.lhs.false473.i:                               ; preds = %land.lhs.true471.i,
   br i1 %or.cond, label %for.end637.i, label %lor.lhs.false488.i
 
 lor.lhs.false488.i:                               ; preds = %lor.lhs.false473.i
-  %buffer489.i = getelementptr inbounds i8, ptr %form.0289.i, i64 48
+  %buffer489.i = getelementptr inbounds i8, ptr %form.0291.i, i64 48
   %117 = load ptr, ptr %buffer489.i, align 8
   %tobool490.not.i = icmp eq ptr %117, null
   %118 = and i64 %.pre.i, 48
@@ -947,18 +947,18 @@ if.end508.i:                                      ; preds = %lor.lhs.false488.i
   br i1 %or.cond236.i, label %if.end544.i, label %land.lhs.true516.i
 
 land.lhs.true516.i:                               ; preds = %if.end508.i
-  %contenttype517.i = getelementptr inbounds i8, ptr %form.0289.i, i64 32
+  %contenttype517.i = getelementptr inbounds i8, ptr %form.0291.i, i64 32
   %121 = load ptr, ptr %contenttype517.i, align 8
   %tobool518.not.i = icmp eq ptr %121, null
   br i1 %tobool518.not.i, label %if.then519.i, label %if.end544.i
 
 if.then519.i:                                     ; preds = %land.lhs.true516.i
   %cond528.in.v.i = select i1 %tobool515.not.i, i64 16, i64 64
-  %cond528.in.i = getelementptr inbounds i8, ptr %form.0289.i, i64 %cond528.in.v.i
+  %cond528.in.i = getelementptr inbounds i8, ptr %form.0291.i, i64 %cond528.in.v.i
   %cond528.i = load ptr, ptr %cond528.in.i, align 8
   %call530.i = call ptr @Curl_mime_contenttype(ptr noundef %cond528.i) #6
   %tobool531.not.i = icmp eq ptr %call530.i, null
-  %type529.0.i = select i1 %tobool531.not.i, ptr %prevtype.0292.i, ptr %call530.i
+  %type529.0.i = select i1 %tobool531.not.i, ptr %prevtype.0290.i, ptr %call530.i
   %tobool534.not.i = icmp eq ptr %type529.0.i, null
   %spec.store.select.i = select i1 %tobool534.not.i, ptr @.str.2, ptr %type529.0.i
   %122 = load ptr, ptr @Curl_cstrdup, align 8
@@ -968,9 +968,9 @@ if.then519.i:                                     ; preds = %land.lhs.true516.i
   br i1 %tobool540.not.i, label %for.end637.i, label %if.end542.i
 
 if.end542.i:                                      ; preds = %if.then519.i
-  %contenttype_alloc543.i = getelementptr inbounds i8, ptr %form.0289.i, i64 98
+  %contenttype_alloc543.i = getelementptr inbounds i8, ptr %form.0291.i, i64 98
   store i8 1, ptr %contenttype_alloc543.i, align 2
-  %.pre316.i = load ptr, ptr %form.0289.i, align 8
+  %.pre316.i = load ptr, ptr %form.0291.i, align 8
   br label %if.end544.i
 
 if.end544.i:                                      ; preds = %if.end542.i, %land.lhs.true516.i, %if.end508.i
@@ -979,7 +979,7 @@ if.end544.i:                                      ; preds = %if.end542.i, %land.
   br i1 %tobool546.not.i, label %if.end564.thread255.i, label %land.lhs.true547.i
 
 land.lhs.true547.i:                               ; preds = %if.end544.i
-  %namelength548.i = getelementptr inbounds i8, ptr %form.0289.i, i64 8
+  %namelength548.i = getelementptr inbounds i8, ptr %form.0291.i, i64 8
   %123 = load i64, ptr %namelength548.i, align 8
   %tobool549.not.i = icmp eq i64 %123, 0
   br i1 %tobool549.not.i, label %if.end564.thread.i, label %for.body554.i
@@ -1000,7 +1000,7 @@ if.end564.i:                                      ; preds = %for.cond551.i
   %125 = load i64, ptr %flags481.phi.trans.insert.i, align 8
   %and566.i = and i64 %125, 4
   %tobool567.not.i = icmp eq i64 %and566.i, 0
-  %cmp569.i = icmp eq ptr %form.0289.i, %call.i
+  %cmp569.i = icmp eq ptr %form.0291.i, %call.i
   %or.cond237.i = and i1 %cmp569.i, %tobool567.not.i
   br i1 %or.cond237.i, label %if.end586.i, label %if.end592.i
 
@@ -1008,7 +1008,7 @@ if.end564.thread255.i:                            ; preds = %if.end544.i
   %126 = load i64, ptr %flags481.phi.trans.insert.i, align 8
   %and566256.i = and i64 %126, 4
   %tobool567.not257.i = icmp eq i64 %and566256.i, 0
-  %cmp569258.i = icmp eq ptr %form.0289.i, %call.i
+  %cmp569258.i = icmp eq ptr %form.0291.i, %call.i
   %or.cond237259.i = and i1 %cmp569258.i, %tobool567.not257.i
   br i1 %or.cond237259.i, label %for.end637.i, label %if.end592.i
 
@@ -1016,7 +1016,7 @@ if.end564.thread.i:                               ; preds = %land.lhs.true547.i
   %127 = load i64, ptr %flags481.phi.trans.insert.i, align 8
   %and566251.i = and i64 %127, 4
   %tobool567.not252.i = icmp eq i64 %and566251.i, 0
-  %cmp569253.i = icmp eq ptr %form.0289.i, %call.i
+  %cmp569253.i = icmp eq ptr %form.0291.i, %call.i
   %or.cond237254.i = and i1 %cmp569253.i, %tobool567.not252.i
   br i1 %or.cond237254.i, label %cond.false579.i, label %if.end592.i
 
@@ -1027,12 +1027,12 @@ cond.false579.i:                                  ; preds = %if.end564.thread.i
 if.end586.i:                                      ; preds = %cond.false579.i, %if.end564.i
   %cond583.i = phi i64 [ %call581.i, %cond.false579.i ], [ %123, %if.end564.i ]
   %call584.i = call ptr @Curl_memdup0(ptr noundef nonnull %.pr.i, i64 noundef %cond583.i) #6
-  store ptr %call584.i, ptr %form.0289.i, align 8
+  store ptr %call584.i, ptr %form.0291.i, align 8
   %tobool588.not.i = icmp eq ptr %call584.i, null
   br i1 %tobool588.not.i, label %for.end637.i, label %if.end590.i
 
 if.end590.i:                                      ; preds = %if.end586.i
-  %name_alloc591.i = getelementptr inbounds i8, ptr %form.0289.i, i64 96
+  %name_alloc591.i = getelementptr inbounds i8, ptr %form.0291.i, i64 96
   store i8 1, ptr %name_alloc591.i, align 8
   %.pre317.i = load i64, ptr %flags481.phi.trans.insert.i, align 8
   br label %if.end592.i
@@ -1042,7 +1042,7 @@ if.end592.i:                                      ; preds = %if.end590.i, %if.en
   %129 = phi i64 [ %126, %if.end564.thread255.i ], [ %127, %if.end564.thread.i ], [ %.pre317.i, %if.end590.i ], [ %125, %if.end564.i ]
   %and594.i = and i64 %129, 107
   %tobool595.not.i = icmp eq i64 %and594.i, 0
-  %value597.i = getelementptr inbounds i8, ptr %form.0289.i, i64 16
+  %value597.i = getelementptr inbounds i8, ptr %form.0291.i, i64 16
   %130 = load ptr, ptr %value597.i, align 8
   br i1 %tobool595.not.i, label %land.lhs.true596.i, label %if.end614.i
 
@@ -1068,9 +1068,9 @@ if.end605.i:                                      ; preds = %if.then602.i, %if.t
   br i1 %tobool610.not.i, label %for.end637.i, label %if.end612.i
 
 if.end612.i:                                      ; preds = %if.end605.i
-  %value_alloc613.i = getelementptr inbounds i8, ptr %form.0289.i, i64 97
+  %value_alloc613.i = getelementptr inbounds i8, ptr %form.0291.i, i64 97
   store i8 1, ptr %value_alloc613.i, align 1
-  %.pre318.i = load ptr, ptr %form.0289.i, align 8
+  %.pre318.i = load ptr, ptr %form.0291.i, align 8
   %.pre320.i = load i64, ptr %flags481.phi.trans.insert.i, align 8
   br label %if.end614.i
 
@@ -1078,17 +1078,17 @@ if.end614.i:                                      ; preds = %if.end612.i, %land.
   %132 = phi i64 [ %.pre320.i, %if.end612.i ], [ %129, %land.lhs.true596.i ], [ %129, %if.end592.i ]
   %133 = phi ptr [ %call607.i, %if.end612.i ], [ null, %land.lhs.true596.i ], [ %130, %if.end592.i ]
   %134 = phi ptr [ %.pre318.i, %if.end612.i ], [ %128, %land.lhs.true596.i ], [ %128, %if.end592.i ]
-  %namelength616.i = getelementptr inbounds i8, ptr %form.0289.i, i64 8
+  %namelength616.i = getelementptr inbounds i8, ptr %form.0291.i, i64 8
   %135 = load i64, ptr %namelength616.i, align 8
   %136 = load i64, ptr %contentslength474.i, align 8
   %137 = load ptr, ptr %buffer489.i, align 8
-  %bufferlength620.i = getelementptr inbounds i8, ptr %form.0289.i, i64 56
+  %bufferlength620.i = getelementptr inbounds i8, ptr %form.0291.i, i64 56
   %138 = load i64, ptr %bufferlength620.i, align 8
-  %contenttype621.i = getelementptr inbounds i8, ptr %form.0289.i, i64 32
+  %contenttype621.i = getelementptr inbounds i8, ptr %form.0291.i, i64 32
   %139 = load ptr, ptr %contenttype621.i, align 8
-  %contentheader623.i = getelementptr inbounds i8, ptr %form.0289.i, i64 80
+  %contentheader623.i = getelementptr inbounds i8, ptr %form.0291.i, i64 80
   %140 = load ptr, ptr %contentheader623.i, align 8
-  %showfilename624.i = getelementptr inbounds i8, ptr %form.0289.i, i64 64
+  %showfilename624.i = getelementptr inbounds i8, ptr %form.0291.i, i64 64
   %141 = load <2 x ptr>, ptr %showfilename624.i, align 8
   %tobool.i.i = icmp eq i64 %135, 0
   %tobool1.i.i = icmp ne ptr %134, null
@@ -1134,11 +1134,11 @@ if.then7.i.i:                                     ; preds = %if.end4.i247.i
   %or.i.i = or i64 %132, 128
   %flags15.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 80
   store i64 %or.i.i, ptr %flags15.i.i, align 8
-  %tobool17.not.i.i = icmp eq ptr %post.0293.i, null
+  %tobool17.not.i.i = icmp eq ptr %post.0289.i, null
   br i1 %tobool17.not.i.i, label %if.else21.i.i, label %if.then18.i.i
 
 if.then18.i.i:                                    ; preds = %if.then7.i.i
-  %more.i248.i = getelementptr inbounds i8, ptr %post.0293.i, i64 72
+  %more.i248.i = getelementptr inbounds i8, ptr %post.0289.i, i64 72
   %143 = load ptr, ptr %more.i248.i, align 8
   %more19.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 72
   store ptr %143, ptr %more19.i.i, align 8
@@ -1156,8 +1156,8 @@ if.end629.i:                                      ; preds = %if.else21.i.i, %if.
   store ptr %call5.i.i, ptr %more.sink.i.i, align 8
   %145 = load ptr, ptr %contenttype621.i, align 8
   %tobool631.not.i = icmp eq ptr %145, null
-  %spec.select.i = select i1 %tobool631.not.i, ptr %prevtype.0292.i, ptr %145
-  %more636.i = getelementptr inbounds i8, ptr %form.0289.i, i64 88
+  %spec.select.i = select i1 %tobool631.not.i, ptr %prevtype.0290.i, ptr %145
+  %more636.i = getelementptr inbounds i8, ptr %form.0291.i, i64 88
   %146 = load ptr, ptr %more636.i, align 8
   %cmp465.not.i = icmp eq ptr %146, null
   br i1 %cmp465.not.i, label %if.end684.i, label %for.body466.i, !llvm.loop !8
@@ -1167,7 +1167,7 @@ for.end637.i:                                     ; preds = %if.end4.i247.i, %if
   br label %for.body643.i
 
 for.body643.i:                                    ; preds = %for.inc680.i, %for.end637.i
-  %ptr640.0294.i = phi ptr [ %form.0289.i, %for.end637.i ], [ %159, %for.inc680.i ]
+  %ptr640.0294.i = phi ptr [ %form.0291.i, %for.end637.i ], [ %159, %for.inc680.i ]
   %name_alloc644.i = getelementptr inbounds i8, ptr %ptr640.0294.i, i64 96
   %147 = load i8, ptr %name_alloc644.i, align 8
   %tobool645.i = trunc i8 %147 to i1

@@ -1791,10 +1791,10 @@ if.then19:                                        ; preds = %if.end14
   br label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %idx.048 = phi i32 [ %inc42, %for.inc ], [ %call6.i, %for.cond.preheader ]
-  %i.047 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+  %i.048 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+  %idx.047 = phi i32 [ %inc42, %for.inc ], [ %call6.i, %for.cond.preheader ]
   %10 = load ptr, ptr %objs, align 8
-  %call25 = call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %idx.048) #6
+  %call25 = call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %idx.047) #6
   %data = getelementptr inbounds i8, ptr %call25, i64 8
   %11 = load ptr, ptr %data, align 8
   %call26 = call i32 @X509_CRL_up_ref(ptr noundef %11) #6
@@ -1820,8 +1820,8 @@ if.then37:                                        ; preds = %if.end32
   br label %return
 
 for.inc:                                          ; preds = %if.end32
-  %inc = add nuw nsw i32 %i.047, 1
-  %inc42 = add nuw nsw i32 %idx.048, 1
+  %inc = add nuw nsw i32 %i.048, 1
+  %inc42 = add nuw nsw i32 %idx.047, 1
   %14 = load i32, ptr %cnt, align 4
   %cmp22 = icmp slt i32 %inc, %14
   br i1 %cmp22, label %for.body, label %for.end, !llvm.loop !10

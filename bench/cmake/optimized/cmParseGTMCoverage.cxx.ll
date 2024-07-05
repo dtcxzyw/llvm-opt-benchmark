@@ -761,8 +761,8 @@ define dso_local noundef zeroext i1 @_ZN18cmParseGTMCoverage13ParseMCOVLineERKNS
   br label %21
 
 21:                                               ; preds = %.lr.ph, %36
-  %.05160 = phi i64 [ %13, %.lr.ph ], [ %37, %36 ]
-  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.05160) #16
+  %.04961 = phi i64 [ %13, %.lr.ph ], [ %37, %36 ]
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.04961) #16
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 41
   switch i8 %23, label %32 [
@@ -807,18 +807,18 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %98
 
 32:                                               ; preds = %21
-  %33 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.05160) #16
+  %33 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %.04961) #16
   %34 = load i8, ptr %33, align 1
   %35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, i8 noundef signext %34)
           to label %36 unwind label %.loopexit
 
 36:                                               ; preds = %21, %21, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit, %32
-  %.150 = phi i1 [ false, %32 ], [ %24, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ], [ false, %21 ], [ false, %21 ]
-  %37 = add i64 %.05160, 1
+  %.151 = phi i1 [ false, %32 ], [ %24, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ], [ false, %21 ], [ false, %21 ]
+  %37 = add i64 %.04961, 1
   %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %37) #16
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 0
-  %.not55 = or i1 %40, %.150
+  %.not55 = or i1 %40, %.151
   br i1 %.not55, label %._crit_edge, label %21, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %36, %15
@@ -1094,7 +1094,7 @@ define dso_local noundef zeroext i1 @_ZN18cmParseGTMCoverage23FindFunctionInMump
   br label %19
 
 19:                                               ; preds = %43, %18
-  %.033 = phi i32 [ 0, %18 ], [ %44, %43 ]
+  %.036 = phi i32 [ 0, %18 ], [ %44, %43 ]
   %20 = invoke noundef zeroext i1 @_ZN5cmsys11SystemTools17GetLineFromStreamERSiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPbm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef null, i64 noundef -1)
           to label %21 unwind label %.loopexit
 
@@ -1122,7 +1122,7 @@ define dso_local noundef zeroext i1 @_ZN18cmParseGTMCoverage23FindFunctionInMump
   ]
 
 29:                                               ; preds = %27, %27, %27
-  store i32 %.033, ptr %3, align 4
+  store i32 %.036, ptr %3, align 4
   br label %67
 
 .loopexit:                                        ; preds = %19, %24, %30, %32
@@ -1157,11 +1157,11 @@ define dso_local noundef zeroext i1 @_ZN18cmParseGTMCoverage23FindFunctionInMump
   br i1 %or.cond8, label %42, label %43
 
 42:                                               ; preds = %39
-  store i32 %.033, ptr %3, align 4
+  store i32 %.036, ptr %3, align 4
   br label %67
 
 43:                                               ; preds = %27, %22, %37, %39
-  %44 = add nuw nsw i32 %.033, 1
+  %44 = add nuw nsw i32 %.036, 1
   br label %19, !llvm.loop !23
 
 45:                                               ; preds = %21

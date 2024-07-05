@@ -148,8 +148,8 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %entry
-  %Value.addr.0 = phi i64 [ %Value, %entry ], [ %shr, %_ZN4llvh11raw_ostreamlsEc.exit ]
   %Count.0 = phi i32 [ 0, %entry ], [ %inc, %_ZN4llvh11raw_ostreamlsEc.exit ]
+  %Value.addr.0 = phi i64 [ %Value, %entry ], [ %shr, %_ZN4llvh11raw_ostreamlsEc.exit ]
   %0 = trunc i64 %Value.addr.0 to i8
   %conv = and i8 %0, 127
   %shr = ashr i64 %Value.addr.0, 7

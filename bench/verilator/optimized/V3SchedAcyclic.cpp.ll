@@ -9233,8 +9233,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.noexc25.i
   %.030.i.i = phi ptr [ %154, %.noexc25.i ], [ %.0110.i, %.lr.ph.i.i.preheader ]
-  %.sroa.020.029.i.i = phi ptr [ %.sroa.020.1.i.i, %.noexc25.i ], [ %135, %.lr.ph.i.i.preheader ]
-  %.sroa.022.028.i.i = phi ptr [ %.sroa.022.1.i.i, %.noexc25.i ], [ %.sroa.075.0109.i, %.lr.ph.i.i.preheader ]
+  %.sroa.022.029.i.i = phi ptr [ %.sroa.022.1.i.i, %.noexc25.i ], [ %.sroa.075.0109.i, %.lr.ph.i.i.preheader ]
+  %.sroa.020.028.i.i = phi ptr [ %.sroa.020.1.i.i, %.noexc25.i ], [ %135, %.lr.ph.i.i.preheader ]
   %149 = load ptr, ptr %109, align 8
   %.not.i.i.i.i.i = icmp eq ptr %149, null
   br i1 %.not.i.i.i.i.i, label %150, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i.i
@@ -9248,18 +9248,18 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i.i: ; preds = %.lr.ph.i.i
   %151 = load ptr, ptr %110, align 8
-  %152 = invoke noundef zeroext i1 %151(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.020.029.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.022.028.i.i)
+  %152 = invoke noundef zeroext i1 %151(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.020.028.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.022.029.i.i)
           to label %.noexc25.i unwind label %.loopexit77.i
 
 .noexc25.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i.i
-  %.sroa.020.029.pn.i.i = select i1 %152, ptr %.sroa.020.029.i.i, ptr %.sroa.022.028.i.i
-  %.sroa.022.1.i.idx.i = select i1 %152, i64 0, i64 16
-  %.sroa.022.1.i.i = getelementptr inbounds i8, ptr %.sroa.022.028.i.i, i64 %.sroa.022.1.i.idx.i
+  %.sroa.020.028.pn.i.i = select i1 %152, ptr %.sroa.020.028.i.i, ptr %.sroa.022.029.i.i
   %.sroa.020.1.i.idx.i = select i1 %152, i64 16, i64 0
-  %.sroa.020.1.i.i = getelementptr inbounds i8, ptr %.sroa.020.029.i.i, i64 %.sroa.020.1.i.idx.i
-  %.sink.i = load ptr, ptr %.sroa.020.029.pn.i.i, align 8
+  %.sroa.020.1.i.i = getelementptr inbounds i8, ptr %.sroa.020.028.i.i, i64 %.sroa.020.1.i.idx.i
+  %.sroa.022.1.i.idx.i = select i1 %152, i64 0, i64 16
+  %.sroa.022.1.i.i = getelementptr inbounds i8, ptr %.sroa.022.029.i.i, i64 %.sroa.022.1.i.idx.i
+  %.sink.i = load ptr, ptr %.sroa.020.028.pn.i.i, align 8
   store ptr %.sink.i, ptr %.030.i.i, align 8
-  %.sink.in.i.i = getelementptr inbounds i8, ptr %.sroa.020.029.pn.i.i, i64 8
+  %.sink.in.i.i = getelementptr inbounds i8, ptr %.sroa.020.028.pn.i.i, i64 8
   %.sink.i.i = load i32, ptr %.sink.in.i.i, align 4
   %153 = getelementptr inbounds i8, ptr %.030.i.i, i64 8
   store i32 %.sink.i.i, ptr %153, align 8
@@ -9418,8 +9418,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
 
 .lr.ph.i50.i:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i, %.noexc63.i
   %.030.i51.i = phi ptr [ %218, %.noexc63.i ], [ %.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ]
-  %.sroa.020.029.i52.i = phi ptr [ %.sroa.020.1.i58.i, %.noexc63.i ], [ %198, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ]
-  %.sroa.022.028.i53.i = phi ptr [ %.sroa.022.1.i57.i, %.noexc63.i ], [ %.sroa.075.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ]
+  %.sroa.022.029.i52.i = phi ptr [ %.sroa.022.1.i58.i, %.noexc63.i ], [ %.sroa.075.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ]
+  %.sroa.020.028.i53.i = phi ptr [ %.sroa.020.1.i57.i, %.noexc63.i ], [ %198, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ]
   %213 = load ptr, ptr %111, align 8
   %.not.i.i.i.i54.i = icmp eq ptr %213, null
   br i1 %.not.i.i.i.i54.i, label %214, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i55.i
@@ -9433,33 +9433,33 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i55.i: ; preds = %.lr.ph.i50.i
   %215 = load ptr, ptr %112, align 8
-  %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.020.029.i52.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.022.028.i53.i)
+  %216 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.020.028.i53.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.022.029.i52.i)
           to label %.noexc63.i unwind label %.loopexit.i
 
 .noexc63.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEESK_EEbT_T0_.exit.i55.i
-  %.sroa.020.029.pn.i56.i = select i1 %216, ptr %.sroa.020.029.i52.i, ptr %.sroa.022.028.i53.i
-  %.sroa.022.1.i57.idx.i = select i1 %216, i64 0, i64 16
-  %.sroa.022.1.i57.i = getelementptr inbounds i8, ptr %.sroa.022.028.i53.i, i64 %.sroa.022.1.i57.idx.i
-  %.sroa.020.1.i58.idx.i = select i1 %216, i64 16, i64 0
-  %.sroa.020.1.i58.i = getelementptr inbounds i8, ptr %.sroa.020.029.i52.i, i64 %.sroa.020.1.i58.idx.i
-  %.sink125.i = load ptr, ptr %.sroa.020.029.pn.i56.i, align 8
+  %.sroa.020.028.pn.i56.i = select i1 %216, ptr %.sroa.020.028.i53.i, ptr %.sroa.022.029.i52.i
+  %.sroa.020.1.i57.idx.i = select i1 %216, i64 16, i64 0
+  %.sroa.020.1.i57.i = getelementptr inbounds i8, ptr %.sroa.020.028.i53.i, i64 %.sroa.020.1.i57.idx.i
+  %.sroa.022.1.i58.idx.i = select i1 %216, i64 0, i64 16
+  %.sroa.022.1.i58.i = getelementptr inbounds i8, ptr %.sroa.022.029.i52.i, i64 %.sroa.022.1.i58.idx.i
+  %.sink125.i = load ptr, ptr %.sroa.020.028.pn.i56.i, align 8
   store ptr %.sink125.i, ptr %.030.i51.i, align 8
-  %.sink.in.i59.i = getelementptr inbounds i8, ptr %.sroa.020.029.pn.i56.i, i64 8
+  %.sink.in.i59.i = getelementptr inbounds i8, ptr %.sroa.020.028.pn.i56.i, i64 8
   %.sink.i60.i = load i32, ptr %.sink.in.i59.i, align 4
   %217 = getelementptr inbounds i8, ptr %.030.i51.i, i64 8
   store i32 %.sink.i60.i, ptr %217, align 8
   %218 = getelementptr inbounds i8, ptr %.030.i51.i, i64 16
-  %219 = icmp ne ptr %.sroa.022.1.i57.i, %198
-  %220 = icmp ne ptr %.sroa.020.1.i58.i, %1
+  %219 = icmp ne ptr %.sroa.022.1.i58.i, %198
+  %220 = icmp ne ptr %.sroa.020.1.i57.i, %1
   %or.cond.i61.i = select i1 %219, i1 %220, i1 false
   br i1 %or.cond.i61.i, label %.lr.ph.i50.i, label %.critedge.i35.i, !llvm.loop !100
 
 .critedge.i35.i:                                  ; preds = %.noexc63.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i
-  %.sroa.022.0.lcssa.i36.i = phi ptr [ %.sroa.075.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ], [ %.sroa.022.1.i57.i, %.noexc63.i ]
-  %.sroa.020.0.lcssa.i37.i = phi ptr [ %198, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ], [ %.sroa.020.1.i58.i, %.noexc63.i ]
+  %.sroa.020.0.lcssa.i36.i = phi ptr [ %198, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ], [ %.sroa.020.1.i57.i, %.noexc63.i ]
+  %.sroa.022.0.lcssa.i37.i = phi ptr [ %.sroa.075.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ], [ %.sroa.022.1.i58.i, %.noexc63.i ]
   %.0.lcssa.i38.i = phi ptr [ %.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit33.i ], [ %218, %.noexc63.i ]
   %221 = ptrtoint ptr %198 to i64
-  %222 = ptrtoint ptr %.sroa.022.0.lcssa.i36.i to i64
+  %222 = ptrtoint ptr %.sroa.022.0.lcssa.i37.i to i64
   %223 = sub i64 %221, %222
   %224 = ashr exact i64 %223, 4
   %225 = icmp sgt i64 %224, 0
@@ -9468,7 +9468,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
 .lr.ph.i.i.i.i.i.i46.i:                           ; preds = %.critedge.i35.i, %.lr.ph.i.i.i.i.i.i46.i
   %.012.i.i.i.i.i.i47.i = phi i64 [ %232, %.lr.ph.i.i.i.i.i.i46.i ], [ %224, %.critedge.i35.i ]
   %.0811.i.i.i.i.i.i48.i = phi ptr [ %231, %.lr.ph.i.i.i.i.i.i46.i ], [ %.0.lcssa.i38.i, %.critedge.i35.i ]
-  %.0910.i.i.i.i.i.i49.i = phi ptr [ %230, %.lr.ph.i.i.i.i.i.i46.i ], [ %.sroa.022.0.lcssa.i36.i, %.critedge.i35.i ]
+  %.0910.i.i.i.i.i.i49.i = phi ptr [ %230, %.lr.ph.i.i.i.i.i.i46.i ], [ %.sroa.022.0.lcssa.i37.i, %.critedge.i35.i ]
   %226 = load ptr, ptr %.0910.i.i.i.i.i.i49.i, align 8
   store ptr %226, ptr %.0811.i.i.i.i.i.i48.i, align 8
   %227 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i49.i, i64 8
@@ -9483,7 +9483,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i: ; preds = %.lr.ph.i.i.i.i.i.i46.i, %.critedge.i35.i
   %.08.lcssa.i.i.i.i.i.i40.i = phi ptr [ %.0.lcssa.i38.i, %.critedge.i35.i ], [ %231, %.lr.ph.i.i.i.i.i.i46.i ]
-  %234 = ptrtoint ptr %.sroa.020.0.lcssa.i37.i to i64
+  %234 = ptrtoint ptr %.sroa.020.0.lcssa.i36.i to i64
   %235 = sub i64 %14, %234
   %236 = ashr exact i64 %235, 4
   %237 = icmp sgt i64 %236, 0
@@ -9492,7 +9492,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121Sche
 .lr.ph.i.i.i.i.i15.i42.i:                         ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i, %.lr.ph.i.i.i.i.i15.i42.i
   %.012.i.i.i.i.i16.i43.i = phi i64 [ %244, %.lr.ph.i.i.i.i.i15.i42.i ], [ %236, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i ]
   %.0811.i.i.i.i.i17.i44.i = phi ptr [ %243, %.lr.ph.i.i.i.i.i15.i42.i ], [ %.08.lcssa.i.i.i.i.i.i40.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i ]
-  %.0910.i.i.i.i.i18.i45.i = phi ptr [ %242, %.lr.ph.i.i.i.i.i15.i42.i ], [ %.sroa.020.0.lcssa.i37.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i ]
+  %.0910.i.i.i.i.i18.i45.i = phi ptr [ %242, %.lr.ph.i.i.i.i.i15.i42.i ], [ %.sroa.020.0.lcssa.i36.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i ]
   %238 = load ptr, ptr %.0910.i.i.i.i.i18.i45.i, align 8
   store ptr %238, ptr %.0811.i.i.i.i.i17.i44.i, align 8
   %239 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i18.i45.i, i64 8

@@ -3514,40 +3514,40 @@ if.end16:                                         ; preds = %if.end12
   br label %while.body
 
 while.body:                                       ; preds = %if.end16, %if.end52
-  %msg.081 = phi ptr [ %add.ptr, %if.end16 ], [ %add.ptr53, %if.end52 ]
-  %extslen.080 = phi i64 [ %conv7, %if.end16 ], [ %sub55, %if.end52 ]
-  %cmp22 = icmp ult i64 %extslen.080, 4
+  %extslen.081 = phi i64 [ %conv7, %if.end16 ], [ %sub55, %if.end52 ]
+  %msg.080 = phi ptr [ %add.ptr, %if.end16 ], [ %add.ptr53, %if.end52 ]
+  %cmp22 = icmp ult i64 %extslen.081, 4
   br i1 %cmp22, label %return, label %if.end25
 
 if.end25:                                         ; preds = %while.body
-  %4 = load i8, ptr %msg.081, align 1
+  %4 = load i8, ptr %msg.080, align 1
   %conv27 = zext i8 %4 to i32
   %shl28 = shl nuw nsw i32 %conv27, 8
-  %arrayidx29 = getelementptr inbounds i8, ptr %msg.081, i64 1
+  %arrayidx29 = getelementptr inbounds i8, ptr %msg.080, i64 1
   %5 = load i8, ptr %arrayidx29, align 1
   %conv30 = zext i8 %5 to i32
   %or31 = or disjoint i32 %shl28, %conv30
-  %arrayidx32 = getelementptr inbounds i8, ptr %msg.081, i64 2
+  %arrayidx32 = getelementptr inbounds i8, ptr %msg.080, i64 2
   %6 = load i8, ptr %arrayidx32, align 1
   %conv33 = zext i8 %6 to i32
   %shl34 = shl nuw nsw i32 %conv33, 8
-  %arrayidx35 = getelementptr inbounds i8, ptr %msg.081, i64 3
+  %arrayidx35 = getelementptr inbounds i8, ptr %msg.080, i64 3
   %7 = load i8, ptr %arrayidx35, align 1
   %conv36 = zext i8 %7 to i32
   %or37 = or disjoint i32 %shl34, %conv36
   %conv38 = zext nneg i32 %or37 to i64
   %add = add nuw nsw i64 %conv38, 4
-  %cmp39 = icmp ult i64 %extslen.080, %add
+  %cmp39 = icmp ult i64 %extslen.081, %add
   br i1 %cmp39, label %if.then41, label %if.end47
 
 if.then41:                                        ; preds = %if.end25
   %call43 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.563, i32 noundef %or31, i32 noundef %or37) #3
-  %conv44 = trunc nuw nsw i64 %extslen.080 to i32
-  %call46 = tail call i32 @BIO_dump_indent(ptr noundef %bio, ptr noundef nonnull %msg.081, i32 noundef %conv44, i32 noundef %add49) #3
+  %conv44 = trunc nuw nsw i64 %extslen.081 to i32
+  %call46 = tail call i32 @BIO_dump_indent(ptr noundef %bio, ptr noundef nonnull %msg.080, i32 noundef %conv44, i32 noundef %add49) #3
   br label %return
 
 if.end47:                                         ; preds = %if.end25
-  %add.ptr48 = getelementptr inbounds i8, ptr %msg.081, i64 4
+  %add.ptr48 = getelementptr inbounds i8, ptr %msg.080, i64 4
   %call.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef %add49, i32 noundef 80) #3
   br label %for.body.i.i
 
@@ -3609,7 +3609,7 @@ while.cond.preheader.i.i:                         ; preds = %if.end.i
   br i1 %tobool1.not12.i.i, label %if.end52, label %while.body.us15.i.preheader.i
 
 while.body.us15.i.preheader.i:                    ; preds = %while.cond.preheader.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %msg.081, i64 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %msg.080, i64 5
   br label %while.body.us15.i.i
 
 while.body.us15.i.i:                              ; preds = %do_ssl_trace_str.exit.us27.i.i, %while.body.us15.i.preheader.i
@@ -3746,7 +3746,7 @@ if.end37.i:                                       ; preds = %sw.bb33.i
   %22 = load i8, ptr %add.ptr48, align 1
   %conv39.i = zext i8 %22 to i64
   %shl.i = shl nuw nsw i64 %conv39.i, 8
-  %arrayidx40.i = getelementptr inbounds i8, ptr %msg.081, i64 5
+  %arrayidx40.i = getelementptr inbounds i8, ptr %msg.080, i64 5
   %23 = load i8, ptr %arrayidx40.i, align 1
   %conv41.i = zext i8 %23 to i64
   %or.i = or disjoint i64 %shl.i, %conv41.i
@@ -3755,7 +3755,7 @@ if.end37.i:                                       ; preds = %sw.bb33.i
   br i1 %cmp44.not.i, label %if.end47.i, label %return
 
 if.end47.i:                                       ; preds = %if.end37.i
-  %add.ptr49.i = getelementptr inbounds i8, ptr %msg.081, i64 6
+  %add.ptr49.i = getelementptr inbounds i8, ptr %msg.080, i64 6
   %call50.i = tail call fastcc i32 @do_ssl_trace_list(ptr noundef %bio, i32 noundef %add310.i, ptr noundef nonnull %add.ptr49.i, i64 noundef %or.i, i64 noundef 2, ptr noundef nonnull @ssl_groups_tbl, i64 noundef 49)
   br label %ssl_print_extension.exit
 
@@ -3767,7 +3767,7 @@ if.end55.i:                                       ; preds = %sw.bb51.i
   %24 = load i8, ptr %add.ptr48, align 1
   %conv57.i = zext i8 %24 to i64
   %shl58.i = shl nuw nsw i64 %conv57.i, 8
-  %arrayidx59.i = getelementptr inbounds i8, ptr %msg.081, i64 5
+  %arrayidx59.i = getelementptr inbounds i8, ptr %msg.080, i64 5
   %25 = load i8, ptr %arrayidx59.i, align 1
   %conv60.i = zext i8 %25 to i64
   %or61.i = or disjoint i64 %shl58.i, %conv60.i
@@ -3780,7 +3780,7 @@ if.end67.i:                                       ; preds = %if.end55.i
   br i1 %cmp69.not366.i, label %if.end52, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end67.i
-  %add.ptr68.i = getelementptr inbounds i8, ptr %msg.081, i64 6
+  %add.ptr68.i = getelementptr inbounds i8, ptr %msg.080, i64 6
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end76.i, %while.body.lr.ph.i
@@ -3811,7 +3811,7 @@ if.end88.i:                                       ; preds = %sw.bb84.i
   %27 = load i8, ptr %add.ptr48, align 1
   %conv90.i = zext i8 %27 to i64
   %shl91.i = shl nuw nsw i64 %conv90.i, 8
-  %arrayidx92.i = getelementptr inbounds i8, ptr %msg.081, i64 5
+  %arrayidx92.i = getelementptr inbounds i8, ptr %msg.080, i64 5
   %28 = load i8, ptr %arrayidx92.i, align 1
   %conv93.i = zext i8 %28 to i64
   %or94.i = or disjoint i64 %shl91.i, %conv93.i
@@ -3877,7 +3877,7 @@ if.end125.i:                                      ; preds = %sw.bb121.i
   br i1 %cmp129.not.i, label %if.end132.i, label %return
 
 if.end132.i:                                      ; preds = %if.end125.i
-  %incdec.ptr133.i = getelementptr inbounds i8, ptr %msg.081, i64 5
+  %incdec.ptr133.i = getelementptr inbounds i8, ptr %msg.080, i64 5
   %tobool134.not.i = icmp eq i8 %33, 0
   br i1 %tobool134.not.i, label %if.else.i, label %if.then135.i
 
@@ -3937,7 +3937,7 @@ if.then163.i:                                     ; preds = %sw.bb159.i
   %35 = load i8, ptr %add.ptr48, align 1
   %conv165.i = zext i8 %35 to i32
   %shl166.i = shl nuw nsw i32 %conv165.i, 8
-  %arrayidx167.i = getelementptr inbounds i8, ptr %msg.081, i64 5
+  %arrayidx167.i = getelementptr inbounds i8, ptr %msg.080, i64 5
   %36 = load i8, ptr %arrayidx167.i, align 1
   %conv168.i = zext i8 %36 to i32
   %or169.i = or disjoint i32 %shl166.i, %conv168.i
@@ -3978,7 +3978,7 @@ if.else181.i:                                     ; preds = %if.end178.i
   %39 = load i8, ptr %add.ptr48, align 1
   %conv183.i = zext i8 %39 to i64
   %shl184.i = shl nuw nsw i64 %conv183.i, 8
-  %arrayidx185.i = getelementptr inbounds i8, ptr %msg.081, i64 5
+  %arrayidx185.i = getelementptr inbounds i8, ptr %msg.080, i64 5
   %40 = load i8, ptr %arrayidx185.i, align 1
   %conv186.i = zext i8 %40 to i64
   %or187.i = or disjoint i64 %shl184.i, %conv186.i
@@ -3987,7 +3987,7 @@ if.else181.i:                                     ; preds = %if.end178.i
   br i1 %cmp190.not.i, label %if.end195.i, label %return
 
 if.end195.i:                                      ; preds = %if.else181.i
-  %add.ptr194.i = getelementptr inbounds i8, ptr %msg.081, i64 6
+  %add.ptr194.i = getelementptr inbounds i8, ptr %msg.080, i64 6
   %cmp196.not358.i = icmp eq i64 %or187.i, 0
   br i1 %cmp196.not358.i, label %if.end52, label %for.body.i.preheader
 
@@ -4082,7 +4082,7 @@ if.end235.i:                                      ; preds = %if.then231.i
   %48 = load i8, ptr %add.ptr48, align 1
   %conv237.i = zext i8 %48 to i32
   %shl238.i = shl nuw nsw i32 %conv237.i, 8
-  %arrayidx239.i = getelementptr inbounds i8, ptr %msg.081, i64 5
+  %arrayidx239.i = getelementptr inbounds i8, ptr %msg.080, i64 5
   %49 = load i8, ptr %arrayidx239.i, align 1
   %conv240.i = zext i8 %49 to i32
   %or241.i = or disjoint i32 %shl238.i, %conv240.i
@@ -4124,7 +4124,7 @@ if.end250.i:                                      ; preds = %if.end246.i
   br i1 %cmp254.not.i, label %if.end257.i, label %return
 
 if.end257.i:                                      ; preds = %if.end250.i
-  %add.ptr259.i = getelementptr inbounds i8, ptr %msg.081, i64 5
+  %add.ptr259.i = getelementptr inbounds i8, ptr %msg.080, i64 5
   %call260.i = tail call fastcc i32 @do_ssl_trace_list(ptr noundef %bio, i32 noundef %add310.i, ptr noundef nonnull %add.ptr259.i, i64 noundef %conv252.i, i64 noundef 2, ptr noundef nonnull @ssl_version_tbl, i64 noundef 8)
   br label %ssl_print_extension.exit
 
@@ -4188,17 +4188,17 @@ if.end285.i:                                      ; preds = %if.end281.i
   %57 = load i8, ptr %add.ptr48, align 1
   %conv287.i = zext i8 %57 to i32
   %shl288.i = shl nuw i32 %conv287.i, 24
-  %arrayidx289.i = getelementptr inbounds i8, ptr %msg.081, i64 5
+  %arrayidx289.i = getelementptr inbounds i8, ptr %msg.080, i64 5
   %58 = load i8, ptr %arrayidx289.i, align 1
   %conv290.i = zext i8 %58 to i32
   %shl291.i = shl nuw nsw i32 %conv290.i, 16
   %or292.i = or disjoint i32 %shl291.i, %shl288.i
-  %arrayidx293.i = getelementptr inbounds i8, ptr %msg.081, i64 6
+  %arrayidx293.i = getelementptr inbounds i8, ptr %msg.080, i64 6
   %59 = load i8, ptr %arrayidx293.i, align 1
   %conv294.i = zext i8 %59 to i32
   %shl295.i = shl nuw nsw i32 %conv294.i, 8
   %or296.i = or disjoint i32 %or292.i, %shl295.i
-  %arrayidx297.i = getelementptr inbounds i8, ptr %msg.081, i64 7
+  %arrayidx297.i = getelementptr inbounds i8, ptr %msg.080, i64 7
   %60 = load i8, ptr %arrayidx297.i, align 1
   %conv298.i = zext i8 %60 to i32
   %or299.i = or disjoint i32 %or296.i, %conv298.i
@@ -4254,7 +4254,7 @@ if.end316.i:                                      ; preds = %if.end312.i
   br i1 %cmp320.not.i, label %if.end323.i, label %return
 
 if.end323.i:                                      ; preds = %if.end316.i
-  %add.ptr325.i = getelementptr inbounds i8, ptr %msg.081, i64 5
+  %add.ptr325.i = getelementptr inbounds i8, ptr %msg.080, i64 5
   %call326.i = tail call fastcc i32 @do_ssl_trace_list(ptr noundef %bio, i32 noundef %add310.i, ptr noundef nonnull %add.ptr325.i, i64 noundef %conv318.i, i64 noundef 1, ptr noundef nonnull @ssl_cert_type_tbl, i64 noundef 4)
   br label %ssl_print_extension.exit
 
@@ -4269,7 +4269,7 @@ ssl_print_extension.exit:                         ; preds = %if.end47.i, %if.end
 
 if.end52:                                         ; preds = %do_ssl_trace_str.exit.i303.i, %ssl_print_hex.exit271.i, %do_ssl_trace_str.exit229.i, %if.end76.i, %do_ssl_trace_str.exit.i209.i, %do_ssl_trace_str.exit.i.i, %do_ssl_trace_str.exit.us27.i.i, %do_ssl_trace_str.exit.i327.i, %if.end195.i, %while.cond104.preheader.i, %if.end67.i, %if.end272.i, %if.end142.thread.i, %if.end29.i, %while.cond.preheader.i.i, %do_ssl_trace_str.exit246.i, %do_ssl_trace_str.exit283.i, %if.end285.i, %sw.default.i, %if.then145.i, %if.else.i, %ssl_print_hex.exit.i, %sw.bb153.i, %sw.bb276.i, %ssl_print_extension.exit
   %add.ptr53 = getelementptr inbounds i8, ptr %add.ptr48, i64 %conv38
-  %sub55 = sub i64 %extslen.080, %add
+  %sub55 = sub i64 %extslen.081, %add
   %cmp20.not = icmp eq i64 %sub55, 0
   br i1 %cmp20.not, label %while.end, label %while.body, !llvm.loop !16
 

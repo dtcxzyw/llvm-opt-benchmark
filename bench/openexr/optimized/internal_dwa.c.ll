@@ -742,8 +742,8 @@ for.cond57.preheader:                             ; preds = %for.cond57.preheade
   %59 = phi i32 [ %82, %for.inc80 ], [ %55, %for.cond57.preheader.preheader ]
   %60 = phi i32 [ %83, %for.inc80 ], [ %53, %for.cond57.preheader.preheader ]
   %61 = phi i32 [ %84, %for.inc80 ], [ %53, %for.cond57.preheader.preheader ]
-  %y.0267 = phi i32 [ %inc81, %for.inc80 ], [ %54, %for.cond57.preheader.preheader ]
-  %inDataPtr.0266 = phi ptr [ %inDataPtr.1.lcssa, %for.inc80 ], [ %58, %for.cond57.preheader.preheader ]
+  %inDataPtr.0267 = phi ptr [ %inDataPtr.1.lcssa, %for.inc80 ], [ %58, %for.cond57.preheader.preheader ]
+  %y.0266 = phi i32 [ %inc81, %for.inc80 ], [ %54, %for.cond57.preheader.preheader ]
   %cmp59262 = icmp sgt i32 %61, 0
   br i1 %cmp59262, label %for.body61, label %for.inc80
 
@@ -776,14 +776,14 @@ for.body86.lr.ph:                                 ; preds = %for.cond83.preheade
 for.body61:                                       ; preds = %for.cond57.preheader, %for.inc77
   %64 = phi i32 [ %80, %for.inc77 ], [ %60, %for.cond57.preheader ]
   %indvars.iv298 = phi i64 [ %indvars.iv.next299, %for.inc77 ], [ 0, %for.cond57.preheader ]
-  %inDataPtr.1263 = phi ptr [ %inDataPtr.2, %for.inc77 ], [ %inDataPtr.0266, %for.cond57.preheader ]
+  %inDataPtr.1264 = phi ptr [ %inDataPtr.2, %for.inc77 ], [ %inDataPtr.0267, %for.cond57.preheader ]
   %65 = load ptr, ptr %_channelData62, align 8
   %arrayidx64 = getelementptr inbounds %struct._ChannelData, ptr %65, i64 %indvars.iv298
   %chan65 = getelementptr inbounds i8, ptr %arrayidx64, i64 448
   %66 = load ptr, ptr %chan65, align 32
   %y_samples = getelementptr inbounds i8, ptr %66, i64 20
   %67 = load i32, ptr %y_samples, align 4
-  %rem = srem i32 %y.0267, %67
+  %rem = srem i32 %y.0266, %67
   %cmp66.not = icmp eq i32 %rem, 0
   br i1 %cmp66.not, label %if.end69, label %for.inc77
 
@@ -836,7 +836,7 @@ if.end74:                                         ; preds = %entry.if.end15_crit
   %75 = phi i64 [ %69, %entry.if.end15_crit_edge.i ], [ %.pre18.i, %if.end.i ]
   %76 = phi ptr [ %.pre.i230, %entry.if.end15_crit_edge.i ], [ %call.i, %if.end.i ]
   %arrayidx.i231 = getelementptr inbounds ptr, ptr %76, i64 %75
-  store ptr %inDataPtr.1263, ptr %arrayidx.i231, align 8
+  store ptr %inDataPtr.1264, ptr %arrayidx.i231, align 8
   %77 = load i64, ptr %_size.i, align 8
   %inc.i = add i64 %77, 1
   store i64 %inc.i, ptr %_size.i, align 8
@@ -847,13 +847,13 @@ if.end74:                                         ; preds = %entry.if.end15_crit
   %conv75 = sext i8 %79 to i32
   %mul = mul nsw i32 %78, %conv75
   %idx.ext = sext i32 %mul to i64
-  %add.ptr76 = getelementptr inbounds i8, ptr %inDataPtr.1263, i64 %idx.ext
+  %add.ptr76 = getelementptr inbounds i8, ptr %inDataPtr.1264, i64 %idx.ext
   %.pre = load i32, ptr %_numChannels.i222, align 8
   br label %for.inc77
 
 for.inc77:                                        ; preds = %for.body61, %if.end74
   %80 = phi i32 [ %64, %for.body61 ], [ %.pre, %if.end74 ]
-  %inDataPtr.2 = phi ptr [ %inDataPtr.1263, %for.body61 ], [ %add.ptr76, %if.end74 ]
+  %inDataPtr.2 = phi ptr [ %inDataPtr.1264, %for.body61 ], [ %add.ptr76, %if.end74 ]
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %81 = sext i32 %80 to i64
   %cmp59 = icmp slt i64 %indvars.iv.next299, %81
@@ -867,9 +867,9 @@ for.inc80:                                        ; preds = %for.inc80.loopexit,
   %82 = phi i32 [ %59, %for.cond57.preheader ], [ %.pre310, %for.inc80.loopexit ]
   %83 = phi i32 [ %60, %for.cond57.preheader ], [ %80, %for.inc80.loopexit ]
   %84 = phi i32 [ %61, %for.cond57.preheader ], [ %80, %for.inc80.loopexit ]
-  %inDataPtr.1.lcssa = phi ptr [ %inDataPtr.0266, %for.cond57.preheader ], [ %inDataPtr.2, %for.inc80.loopexit ]
-  %inc81 = add nsw i32 %y.0267, 1
-  %cmp53.not.not = icmp slt i32 %y.0267, %82
+  %inDataPtr.1.lcssa = phi ptr [ %inDataPtr.0267, %for.cond57.preheader ], [ %inDataPtr.2, %for.inc80.loopexit ]
+  %inc81 = add nsw i32 %y.0266, 1
+  %cmp53.not.not = icmp slt i32 %y.0266, %82
   br i1 %cmp53.not.not, label %for.cond57.preheader, label %for.cond83.preheader, !llvm.loop !17
 
 for.cond161.preheader.loopexit:                   ; preds = %for.inc157
@@ -878,8 +878,8 @@ for.cond161.preheader.loopexit:                   ; preds = %for.inc157
 
 for.cond161.preheader:                            ; preds = %for.cond161.preheader.loopexit, %for.cond83.preheader
   %85 = phi i32 [ %62, %for.cond83.preheader ], [ %.pre311, %for.cond161.preheader.loopexit ]
-  %packedAcEnd.1.lcssa = phi ptr [ %28, %for.cond83.preheader ], [ %add.ptr131, %for.cond161.preheader.loopexit ]
   %packedDcEnd.1.lcssa = phi ptr [ %29, %for.cond83.preheader ], [ %add.ptr134, %for.cond161.preheader.loopexit ]
+  %packedAcEnd.1.lcssa = phi ptr [ %28, %for.cond83.preheader ], [ %add.ptr131, %for.cond161.preheader.loopexit ]
   %cmp163287 = icmp sgt i32 %85, 0
   br i1 %cmp163287, label %for.body165.lr.ph, label %for.end269
 
@@ -893,8 +893,8 @@ for.body165.lr.ph:                                ; preds = %for.cond161.prehead
 
 for.body86:                                       ; preds = %for.body86.lr.ph, %for.inc157
   %indvars.iv301 = phi i64 [ 0, %for.body86.lr.ph ], [ %indvars.iv.next302, %for.inc157 ]
+  %packedAcEnd.1271 = phi ptr [ %28, %for.body86.lr.ph ], [ %add.ptr131, %for.inc157 ]
   %packedDcEnd.1270 = phi ptr [ %29, %for.body86.lr.ph ], [ %add.ptr134, %for.inc157 ]
-  %packedAcEnd.1269 = phi ptr [ %28, %for.body86.lr.ph ], [ %add.ptr131, %for.inc157 ]
   %86 = load ptr, ptr %_cscChannelSets, align 8
   %arrayidx88 = getelementptr inbounds %struct._CscChannelSet, ptr %86, i64 %indvars.iv301
   %87 = load float, ptr %_dwaCompressionLevel, align 4
@@ -920,7 +920,7 @@ for.body86:                                       ; preds = %for.body86.lr.ph, %
   store <2 x i32> %94, ptr %_width.i.i, align 4
   store ptr @dwaCompressorToNonlinear, ptr %enc, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_numAcComp.i.i, i8 0, i64 16, i1 false)
-  store ptr %packedAcEnd.1269, ptr %_packedAc.i.i, align 8
+  store ptr %packedAcEnd.1271, ptr %_packedAc.i.i, align 8
   store ptr %packedDcEnd.1270, ptr %_packedDc.i.i, align 8
   %cmp.i.i = fcmp olt float %div, 0.000000e+00
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i235
@@ -989,7 +989,7 @@ for.inc157:                                       ; preds = %LossyDctEncoderCsc_
   %add.ptr134 = getelementptr inbounds i8, ptr %packedDcEnd.1270, i64 %mul133
   %110 = extractelement <2 x i64> %101, i64 0
   %mul130 = shl i64 %110, 1
-  %add.ptr131 = getelementptr inbounds i8, ptr %packedAcEnd.1269, i64 %mul130
+  %add.ptr131 = getelementptr inbounds i8, ptr %packedAcEnd.1271, i64 %mul130
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %111 = load i32, ptr %_numCscChannelSets, align 4
   %112 = sext i32 %111 to i64
@@ -999,8 +999,8 @@ for.inc157:                                       ; preds = %LossyDctEncoderCsc_
 for.body165:                                      ; preds = %for.body165.lr.ph, %for.inc267
   %113 = phi i32 [ %85, %for.body165.lr.ph ], [ %154, %for.inc267 ]
   %indvars.iv307 = phi i64 [ 0, %for.body165.lr.ph ], [ %indvars.iv.next308, %for.inc267 ]
+  %packedAcEnd.2290 = phi ptr [ %packedAcEnd.1.lcssa, %for.body165.lr.ph ], [ %packedAcEnd.4, %for.inc267 ]
   %packedDcEnd.2289 = phi ptr [ %packedDcEnd.1.lcssa, %for.body165.lr.ph ], [ %packedDcEnd.4, %for.inc267 ]
-  %packedAcEnd.2288 = phi ptr [ %packedAcEnd.1.lcssa, %for.body165.lr.ph ], [ %packedAcEnd.4, %for.inc267 ]
   %114 = load ptr, ptr %_channelData167, align 8
   %arrayidx169 = getelementptr inbounds %struct._ChannelData, ptr %114, i64 %indvars.iv307
   %chan170 = getelementptr inbounds i8, ptr %arrayidx169, i64 448
@@ -1043,7 +1043,7 @@ sw.bb:                                            ; preds = %if.end174
   %121 = load i32, ptr %width182, align 4
   %height183 = getelementptr inbounds i8, ptr %115, i64 8
   %122 = load i32, ptr %height183, align 8
-  call fastcc void @LossyDctEncoder_construct(ptr noundef nonnull %enc175, float noundef %div180, ptr noundef nonnull %arrayidx169, ptr noundef %packedAcEnd.2288, ptr noundef %packedDcEnd.2289, ptr noundef %spec.store.select, i32 noundef %121, i32 noundef %122)
+  call fastcc void @LossyDctEncoder_construct(ptr noundef nonnull %enc175, float noundef %div180, ptr noundef nonnull %arrayidx169, ptr noundef %packedAcEnd.2290, ptr noundef %packedDcEnd.2289, ptr noundef %spec.store.select, i32 noundef %121, i32 noundef %122)
   %123 = load ptr, ptr %alloc_fn188, align 8
   %124 = load ptr, ptr %free_fn189, align 8
   %call190 = call fastcc i32 @LossyDctEncoder_execute(ptr noundef %123, ptr noundef %124, ptr noundef nonnull %enc175)
@@ -1053,7 +1053,7 @@ sw.bb:                                            ; preds = %if.end174
   store <2 x i64> %127, ptr %add.ptr20, align 8
   %128 = extractelement <2 x i64> %126, i64 0
   %mul197 = shl i64 %128, 1
-  %add.ptr198 = getelementptr inbounds i8, ptr %packedAcEnd.2288, i64 %mul197
+  %add.ptr198 = getelementptr inbounds i8, ptr %packedAcEnd.2290, i64 %mul197
   %129 = extractelement <2 x i64> %126, i64 1
   %mul200 = shl i64 %129, 1
   %add.ptr201 = getelementptr inbounds i8, ptr %packedDcEnd.2289, i64 %mul200
@@ -1166,16 +1166,16 @@ for.end263:                                       ; preds = %for.body256, %sw.bb
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.end233, %for.cond209.preheader, %sw.bb, %for.end263
-  %packedAcEnd.3 = phi ptr [ %packedAcEnd.2288, %for.end263 ], [ %add.ptr198, %sw.bb ], [ %packedAcEnd.2288, %for.cond209.preheader ], [ %packedAcEnd.2288, %for.end233 ]
   %packedDcEnd.3 = phi ptr [ %packedDcEnd.2289, %for.end263 ], [ %add.ptr201, %sw.bb ], [ %packedDcEnd.2289, %for.cond209.preheader ], [ %packedDcEnd.2289, %for.end233 ]
+  %packedAcEnd.3 = phi ptr [ %packedAcEnd.2290, %for.end263 ], [ %add.ptr198, %sw.bb ], [ %packedAcEnd.2290, %for.cond209.preheader ], [ %packedAcEnd.2290, %for.end233 ]
   store i32 1, ptr %processed171, align 32
   %.pre316 = load i32, ptr %_numChannels.i222, align 8
   br label %for.inc267
 
 for.inc267:                                       ; preds = %for.body165, %sw.epilog
   %154 = phi i32 [ %113, %for.body165 ], [ %.pre316, %sw.epilog ]
-  %packedAcEnd.4 = phi ptr [ %packedAcEnd.2288, %for.body165 ], [ %packedAcEnd.3, %sw.epilog ]
   %packedDcEnd.4 = phi ptr [ %packedDcEnd.2289, %for.body165 ], [ %packedDcEnd.3, %sw.epilog ]
+  %packedAcEnd.4 = phi ptr [ %packedAcEnd.2290, %for.body165 ], [ %packedAcEnd.3, %sw.epilog ]
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %155 = sext i32 %154 to i64
   %cmp163 = icmp slt i64 %indvars.iv.next308, %155
@@ -2154,8 +2154,8 @@ for.cond200.preheader:                            ; preds = %for.cond200.prehead
   %61 = phi i32 [ %77, %for.inc222 ], [ %59, %for.cond200.preheader.lr.ph ]
   %62 = phi i32 [ %78, %for.inc222 ], [ %57, %for.cond200.preheader.lr.ph ]
   %63 = phi i32 [ %79, %for.inc222 ], [ %57, %for.cond200.preheader.lr.ph ]
-  %y.0304 = phi i32 [ %inc223, %for.inc222 ], [ %58, %for.cond200.preheader.lr.ph ]
-  %outBufferEnd.0303 = phi ptr [ %outBufferEnd.1.lcssa, %for.inc222 ], [ %20, %for.cond200.preheader.lr.ph ]
+  %outBufferEnd.0304 = phi ptr [ %outBufferEnd.1.lcssa, %for.inc222 ], [ %20, %for.cond200.preheader.lr.ph ]
+  %y.0303 = phi i32 [ %inc223, %for.inc222 ], [ %58, %for.cond200.preheader.lr.ph ]
   %cmp202299 = icmp sgt i32 %63, 0
   br i1 %cmp202299, label %for.body203, label %for.inc222
 
@@ -2188,21 +2188,21 @@ for.body228.lr.ph:                                ; preds = %for.cond225.prehead
 for.body203:                                      ; preds = %for.cond200.preheader, %for.inc219
   %66 = phi i32 [ %75, %for.inc219 ], [ %62, %for.cond200.preheader ]
   %indvars.iv346 = phi i64 [ %indvars.iv.next347, %for.inc219 ], [ 0, %for.cond200.preheader ]
-  %outBufferEnd.1300 = phi ptr [ %outBufferEnd.2, %for.inc219 ], [ %outBufferEnd.0303, %for.cond200.preheader ]
+  %outBufferEnd.1301 = phi ptr [ %outBufferEnd.2, %for.inc219 ], [ %outBufferEnd.0304, %for.cond200.preheader ]
   %67 = load ptr, ptr %_channelData204, align 8
   %arrayidx206 = getelementptr inbounds %struct._ChannelData, ptr %67, i64 %indvars.iv346
   %chan207 = getelementptr inbounds i8, ptr %arrayidx206, i64 448
   %68 = load ptr, ptr %chan207, align 32
   %y_samples = getelementptr inbounds i8, ptr %68, i64 20
   %69 = load i32, ptr %y_samples, align 4
-  %rem = srem i32 %y.0304, %69
+  %rem = srem i32 %y.0303, %69
   %cmp208.not = icmp eq i32 %rem, 0
   br i1 %cmp208.not, label %if.end210, label %for.inc219
 
 if.end210:                                        ; preds = %for.body203
   %70 = load ptr, ptr %alloc_fn, align 8
   %71 = load ptr, ptr %free_fn, align 8
-  %call211 = call fastcc i32 @DctCoderChannelData_push_row(ptr noundef %70, ptr noundef %71, ptr noundef nonnull %arrayidx206, ptr noundef %outBufferEnd.1300)
+  %call211 = call fastcc i32 @DctCoderChannelData_push_row(ptr noundef %70, ptr noundef %71, ptr noundef nonnull %arrayidx206, ptr noundef %outBufferEnd.1301)
   %cmp212.not = icmp eq i32 %call211, 0
   br i1 %cmp212.not, label %if.end214, label %return
 
@@ -2219,13 +2219,13 @@ if.end214:                                        ; preds = %if.end210
   %conv216 = sext i8 %74 to i32
   %mul217 = mul nsw i32 %73, %conv216
   %idx.ext = sext i32 %mul217 to i64
-  %add.ptr218 = getelementptr inbounds i8, ptr %outBufferEnd.1300, i64 %idx.ext
+  %add.ptr218 = getelementptr inbounds i8, ptr %outBufferEnd.1301, i64 %idx.ext
   %.pre = load i32, ptr %_numChannels, align 8
   br label %for.inc219
 
 for.inc219:                                       ; preds = %for.body203, %if.end214
   %75 = phi i32 [ %66, %for.body203 ], [ %.pre, %if.end214 ]
-  %outBufferEnd.2 = phi ptr [ %outBufferEnd.1300, %for.body203 ], [ %add.ptr218, %if.end214 ]
+  %outBufferEnd.2 = phi ptr [ %outBufferEnd.1301, %for.body203 ], [ %add.ptr218, %if.end214 ]
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %76 = sext i32 %75 to i64
   %cmp202 = icmp slt i64 %indvars.iv.next347, %76
@@ -2239,9 +2239,9 @@ for.inc222:                                       ; preds = %for.inc222.loopexit
   %77 = phi i32 [ %61, %for.cond200.preheader ], [ %.pre358, %for.inc222.loopexit ]
   %78 = phi i32 [ %62, %for.cond200.preheader ], [ %75, %for.inc222.loopexit ]
   %79 = phi i32 [ %63, %for.cond200.preheader ], [ %75, %for.inc222.loopexit ]
-  %outBufferEnd.1.lcssa = phi ptr [ %outBufferEnd.0303, %for.cond200.preheader ], [ %outBufferEnd.2, %for.inc222.loopexit ]
-  %inc223 = add nsw i32 %y.0304, 1
-  %cmp197.not.not = icmp slt i32 %y.0304, %77
+  %outBufferEnd.1.lcssa = phi ptr [ %outBufferEnd.0304, %for.cond200.preheader ], [ %outBufferEnd.2, %for.inc222.loopexit ]
+  %inc223 = add nsw i32 %y.0303, 1
+  %cmp197.not.not = icmp slt i32 %y.0303, %77
   br i1 %cmp197.not.not, label %for.cond200.preheader, label %for.cond225.preheader, !llvm.loop !33
 
 for.cond314.preheader.loopexit:                   ; preds = %for.inc310
@@ -2250,9 +2250,9 @@ for.cond314.preheader.loopexit:                   ; preds = %for.inc310
 
 for.cond314.preheader:                            ; preds = %for.cond314.preheader.loopexit, %for.cond225.preheader
   %80 = phi i32 [ %64, %for.cond225.preheader ], [ %.pre359, %for.cond314.preheader.loopexit ]
-  %totalDcUncompressedCount.0.lcssa = phi i64 [ %counters.sroa.10.0.copyload, %for.cond225.preheader ], [ %sub293, %for.cond314.preheader.loopexit ]
-  %packedAcBufferEnd.1.lcssa = phi ptr [ %22, %for.cond225.preheader ], [ %add.ptr289, %for.cond314.preheader.loopexit ]
   %packedDcBufferEnd.1.lcssa = phi ptr [ %23, %for.cond225.preheader ], [ %add.ptr291, %for.cond314.preheader.loopexit ]
+  %packedAcBufferEnd.1.lcssa = phi ptr [ %22, %for.cond225.preheader ], [ %add.ptr289, %for.cond314.preheader.loopexit ]
+  %totalDcUncompressedCount.0.lcssa = phi i64 [ %counters.sroa.10.0.copyload, %for.cond225.preheader ], [ %sub293, %for.cond314.preheader.loopexit ]
   %cmp316326 = icmp sgt i32 %80, 0
   br i1 %cmp316326, label %for.body318.lr.ph, label %return
 
@@ -2277,9 +2277,9 @@ for.body318.lr.ph:                                ; preds = %for.cond314.prehead
 
 for.body228:                                      ; preds = %for.body228.lr.ph, %for.inc310
   %indvars.iv349 = phi i64 [ 0, %for.body228.lr.ph ], [ %indvars.iv.next350, %for.inc310 ]
-  %packedDcBufferEnd.1308 = phi ptr [ %23, %for.body228.lr.ph ], [ %add.ptr291, %for.inc310 ]
-  %packedAcBufferEnd.1307 = phi ptr [ %22, %for.body228.lr.ph ], [ %add.ptr289, %for.inc310 ]
-  %totalDcUncompressedCount.0306 = phi i64 [ %counters.sroa.10.0.copyload, %for.body228.lr.ph ], [ %sub293, %for.inc310 ]
+  %totalDcUncompressedCount.0309 = phi i64 [ %counters.sroa.10.0.copyload, %for.body228.lr.ph ], [ %sub293, %for.inc310 ]
+  %packedAcBufferEnd.1308 = phi ptr [ %22, %for.body228.lr.ph ], [ %add.ptr289, %for.inc310 ]
+  %packedDcBufferEnd.1307 = phi ptr [ %23, %for.body228.lr.ph ], [ %add.ptr291, %for.inc310 ]
   %82 = load ptr, ptr %_cscChannelSets, align 8
   %arrayidx230 = getelementptr inbounds %struct._CscChannelSet, ptr %82, i64 %indvars.iv349
   %83 = load i32, ptr %arrayidx230, align 4
@@ -2312,15 +2312,15 @@ lor.lhs.false248:                                 ; preds = %lor.lhs.false241
   br i1 %cmp253.not, label %if.end256, label %return
 
 if.end256:                                        ; preds = %lor.lhs.false248
-  %add.ptr270 = getelementptr inbounds i8, ptr %packedAcBufferEnd.1307, i64 %mul269
+  %add.ptr270 = getelementptr inbounds i8, ptr %packedAcBufferEnd.1308, i64 %mul269
   %chan274 = getelementptr inbounds i8, ptr %arrayidx238, i64 448
   %90 = load ptr, ptr %chan274, align 32
   %height = getelementptr inbounds i8, ptr %90, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %decoder, i8 0, i64 16, i1 false)
-  store ptr %packedAcBufferEnd.1307, ptr %_packedAc.i.i, align 8
+  store ptr %packedAcBufferEnd.1308, ptr %_packedAc.i.i, align 8
   store ptr %add.ptr270, ptr %_packedAcEnd.i.i, align 8
-  store ptr %packedDcBufferEnd.1308, ptr %_packedDc.i.i, align 8
-  store i64 %totalDcUncompressedCount.0306, ptr %_remDcCount.i.i, align 8
+  store ptr %packedDcBufferEnd.1307, ptr %_packedDc.i.i, align 8
+  store i64 %totalDcUncompressedCount.0309, ptr %_remDcCount.i.i, align 8
   store ptr @dwaCompressorToLinear, ptr %_toLinear.i.i, align 8
   %91 = load <2 x i32>, ptr %height, align 8
   %92 = shufflevector <2 x i32> %91, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
@@ -2347,11 +2347,11 @@ if.end256:                                        ; preds = %lor.lhs.false248
   br i1 %cmp306.not, label %for.inc310, label %return
 
 for.inc310:                                       ; preds = %if.end256
-  %sub293 = sub i64 %totalDcUncompressedCount.0306, %96
+  %sub293 = sub i64 %totalDcUncompressedCount.0309, %96
   %mul290 = shl i64 %96, 1
-  %add.ptr291 = getelementptr inbounds i8, ptr %packedDcBufferEnd.1308, i64 %mul290
+  %add.ptr291 = getelementptr inbounds i8, ptr %packedDcBufferEnd.1307, i64 %mul290
   %mul288 = shl i64 %95, 1
-  %add.ptr289 = getelementptr inbounds i8, ptr %packedAcBufferEnd.1307, i64 %mul288
+  %add.ptr289 = getelementptr inbounds i8, ptr %packedAcBufferEnd.1308, i64 %mul288
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
   %100 = load i32, ptr %_numCscChannelSets, align 4
   %101 = sext i32 %100 to i64
@@ -2361,9 +2361,9 @@ for.inc310:                                       ; preds = %if.end256
 for.body318:                                      ; preds = %for.body318.lr.ph, %for.inc467
   %102 = phi i32 [ %80, %for.body318.lr.ph ], [ %150, %for.inc467 ]
   %indvars.iv355 = phi i64 [ 0, %for.body318.lr.ph ], [ %indvars.iv.next356, %for.inc467 ]
-  %packedDcBufferEnd.2329 = phi ptr [ %packedDcBufferEnd.1.lcssa, %for.body318.lr.ph ], [ %packedDcBufferEnd.4, %for.inc467 ]
-  %packedAcBufferEnd.2328 = phi ptr [ %packedAcBufferEnd.1.lcssa, %for.body318.lr.ph ], [ %packedAcBufferEnd.4, %for.inc467 ]
-  %totalDcUncompressedCount.1327 = phi i64 [ %totalDcUncompressedCount.0.lcssa, %for.body318.lr.ph ], [ %totalDcUncompressedCount.3, %for.inc467 ]
+  %totalDcUncompressedCount.1330 = phi i64 [ %totalDcUncompressedCount.0.lcssa, %for.body318.lr.ph ], [ %totalDcUncompressedCount.3, %for.inc467 ]
+  %packedAcBufferEnd.2329 = phi ptr [ %packedAcBufferEnd.1.lcssa, %for.body318.lr.ph ], [ %packedAcBufferEnd.4, %for.inc467 ]
+  %packedDcBufferEnd.2327 = phi ptr [ %packedDcBufferEnd.1.lcssa, %for.body318.lr.ph ], [ %packedDcBufferEnd.4, %for.inc467 ]
   %103 = load ptr, ptr %_channelData320, align 8
   %arrayidx322 = getelementptr inbounds %struct._ChannelData, ptr %103, i64 %indvars.iv355
   %chan324 = getelementptr inbounds i8, ptr %arrayidx322, i64 448
@@ -2391,13 +2391,13 @@ sw.bb333:                                         ; preds = %if.end331
   %108 = load i8, ptr %p_linear, align 8
   %tobool335.not.not = icmp eq i8 %108, 0
   %spec.store.select = select i1 %tobool335.not.not, ptr @dwaCompressorToLinear, ptr null
-  %add.ptr339 = getelementptr inbounds i8, ptr %packedAcBufferEnd.2328, i64 %mul338
+  %add.ptr339 = getelementptr inbounds i8, ptr %packedAcBufferEnd.2329, i64 %mul338
   %height341 = getelementptr inbounds i8, ptr %104, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %decoder334, i8 0, i64 16, i1 false)
-  store ptr %packedAcBufferEnd.2328, ptr %_packedAc.i.i266, align 8
+  store ptr %packedAcBufferEnd.2329, ptr %_packedAc.i.i266, align 8
   store ptr %add.ptr339, ptr %_packedAcEnd.i.i267, align 8
-  store ptr %packedDcBufferEnd.2329, ptr %_packedDc.i.i268, align 8
-  store i64 %totalDcUncompressedCount.1327, ptr %_remDcCount.i.i269, align 8
+  store ptr %packedDcBufferEnd.2327, ptr %_packedDc.i.i268, align 8
+  store i64 %totalDcUncompressedCount.1330, ptr %_remDcCount.i.i269, align 8
   store ptr %spec.store.select, ptr %_toLinear.i.i270, align 8
   %109 = load <2 x i32>, ptr %height341, align 8
   %110 = shufflevector <2 x i32> %109, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
@@ -2417,11 +2417,11 @@ LossyDctDecoder_construct.exit:                   ; preds = %sw.bb333, %if.then.
   %call348 = call fastcc i32 @LossyDctDecoder_execute(ptr noundef %111, ptr noundef %112, ptr noundef nonnull %decoder334)
   %113 = load i64, ptr %decoder334, align 8
   %mul351 = shl i64 %113, 1
-  %add.ptr352 = getelementptr inbounds i8, ptr %packedAcBufferEnd.2328, i64 %mul351
+  %add.ptr352 = getelementptr inbounds i8, ptr %packedAcBufferEnd.2329, i64 %mul351
   %114 = load i64, ptr %_packedDcCount353, align 8
   %mul354 = shl i64 %114, 1
-  %add.ptr355 = getelementptr inbounds i8, ptr %packedDcBufferEnd.2329, i64 %mul354
-  %sub357 = sub i64 %totalDcUncompressedCount.1327, %114
+  %add.ptr355 = getelementptr inbounds i8, ptr %packedDcBufferEnd.2327, i64 %mul354
+  %sub357 = sub i64 %totalDcUncompressedCount.1330, %114
   %cmp358.not = icmp eq i32 %call348, 0
   br i1 %cmp358.not, label %sw.epilog465, label %return
 
@@ -2601,18 +2601,18 @@ for.inc460:                                       ; preds = %for.body436, %if.en
   br i1 %cmp434.not.not, label %for.body436, label %sw.epilog465, !llvm.loop !38
 
 sw.epilog465:                                     ; preds = %for.inc460, %for.inc419, %for.inc419.us, %sw.bb422, %sw.bb362, %LossyDctDecoder_construct.exit
-  %totalDcUncompressedCount.2 = phi i64 [ %sub357, %LossyDctDecoder_construct.exit ], [ %totalDcUncompressedCount.1327, %sw.bb362 ], [ %totalDcUncompressedCount.1327, %sw.bb422 ], [ %totalDcUncompressedCount.1327, %for.inc419.us ], [ %totalDcUncompressedCount.1327, %for.inc419 ], [ %totalDcUncompressedCount.1327, %for.inc460 ]
-  %packedAcBufferEnd.3 = phi ptr [ %add.ptr352, %LossyDctDecoder_construct.exit ], [ %packedAcBufferEnd.2328, %sw.bb362 ], [ %packedAcBufferEnd.2328, %sw.bb422 ], [ %packedAcBufferEnd.2328, %for.inc419.us ], [ %packedAcBufferEnd.2328, %for.inc419 ], [ %packedAcBufferEnd.2328, %for.inc460 ]
-  %packedDcBufferEnd.3 = phi ptr [ %add.ptr355, %LossyDctDecoder_construct.exit ], [ %packedDcBufferEnd.2329, %sw.bb362 ], [ %packedDcBufferEnd.2329, %sw.bb422 ], [ %packedDcBufferEnd.2329, %for.inc419.us ], [ %packedDcBufferEnd.2329, %for.inc419 ], [ %packedDcBufferEnd.2329, %for.inc460 ]
+  %packedDcBufferEnd.3 = phi ptr [ %add.ptr355, %LossyDctDecoder_construct.exit ], [ %packedDcBufferEnd.2327, %sw.bb362 ], [ %packedDcBufferEnd.2327, %sw.bb422 ], [ %packedDcBufferEnd.2327, %for.inc419.us ], [ %packedDcBufferEnd.2327, %for.inc419 ], [ %packedDcBufferEnd.2327, %for.inc460 ]
+  %packedAcBufferEnd.3 = phi ptr [ %add.ptr352, %LossyDctDecoder_construct.exit ], [ %packedAcBufferEnd.2329, %sw.bb362 ], [ %packedAcBufferEnd.2329, %sw.bb422 ], [ %packedAcBufferEnd.2329, %for.inc419.us ], [ %packedAcBufferEnd.2329, %for.inc419 ], [ %packedAcBufferEnd.2329, %for.inc460 ]
+  %totalDcUncompressedCount.2 = phi i64 [ %sub357, %LossyDctDecoder_construct.exit ], [ %totalDcUncompressedCount.1330, %sw.bb362 ], [ %totalDcUncompressedCount.1330, %sw.bb422 ], [ %totalDcUncompressedCount.1330, %for.inc419.us ], [ %totalDcUncompressedCount.1330, %for.inc419 ], [ %totalDcUncompressedCount.1330, %for.inc460 ]
   store i32 1, ptr %processed328, align 32
   %.pre363 = load i32, ptr %_numChannels, align 8
   br label %for.inc467
 
 for.inc467:                                       ; preds = %for.body318, %sw.epilog465
   %150 = phi i32 [ %102, %for.body318 ], [ %.pre363, %sw.epilog465 ]
-  %totalDcUncompressedCount.3 = phi i64 [ %totalDcUncompressedCount.1327, %for.body318 ], [ %totalDcUncompressedCount.2, %sw.epilog465 ]
-  %packedAcBufferEnd.4 = phi ptr [ %packedAcBufferEnd.2328, %for.body318 ], [ %packedAcBufferEnd.3, %sw.epilog465 ]
-  %packedDcBufferEnd.4 = phi ptr [ %packedDcBufferEnd.2329, %for.body318 ], [ %packedDcBufferEnd.3, %sw.epilog465 ]
+  %packedDcBufferEnd.4 = phi ptr [ %packedDcBufferEnd.2327, %for.body318 ], [ %packedDcBufferEnd.3, %sw.epilog465 ]
+  %packedAcBufferEnd.4 = phi ptr [ %packedAcBufferEnd.2329, %for.body318 ], [ %packedAcBufferEnd.3, %sw.epilog465 ]
+  %totalDcUncompressedCount.3 = phi i64 [ %totalDcUncompressedCount.1330, %for.body318 ], [ %totalDcUncompressedCount.2, %sw.epilog465 ]
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %151 = sext i32 %150 to i64
   %cmp316 = icmp slt i64 %indvars.iv.next356, %151
@@ -6662,10 +6662,10 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %57 = phi i32 [ %56, %for.body51.lr.ph ], [ %65, %for.inc85 ]
   %indvars.iv = phi i64 [ 0, %for.body51.lr.ph ], [ %indvars.iv.next, %for.inc85 ]
   %58 = phi i64 [ 0, %for.body51.lr.ph ], [ %66, %for.inc85 ]
-  %rleBufferSize.0129 = phi i64 [ 0, %for.body51.lr.ph ], [ %rleBufferSize.1, %for.inc85 ]
-  %unknownBufferSize.0128 = phi i64 [ 0, %for.body51.lr.ph ], [ %unknownBufferSize.1, %for.inc85 ]
-  %numLossyDctChans.0127 = phi i64 [ 0, %for.body51.lr.ph ], [ %numLossyDctChans.1, %for.inc85 ]
-  %maxOutBufferSize.1126 = phi i64 [ %maxOutBufferSize.0.lcssa, %for.body51.lr.ph ], [ %maxOutBufferSize.2, %for.inc85 ]
+  %maxOutBufferSize.1129 = phi i64 [ %maxOutBufferSize.0.lcssa, %for.body51.lr.ph ], [ %maxOutBufferSize.2, %for.inc85 ]
+  %numLossyDctChans.0128 = phi i64 [ 0, %for.body51.lr.ph ], [ %numLossyDctChans.1, %for.inc85 ]
+  %rleBufferSize.0127 = phi i64 [ 0, %for.body51.lr.ph ], [ %rleBufferSize.1, %for.inc85 ]
+  %unknownBufferSize.0126 = phi i64 [ 0, %for.body51.lr.ph ], [ %unknownBufferSize.1, %for.inc85 ]
   %59 = phi i64 [ 0, %for.body51.lr.ph ], [ %67, %for.inc85 ]
   %60 = load ptr, ptr %_channelData, align 8
   %arrayidx53 = getelementptr inbounds %struct._ChannelData, ptr %60, i64 %indvars.iv
@@ -6682,8 +6682,8 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
 sw.bb:                                            ; preds = %for.body51
   %call59 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %mul7) #16
   %cond.i = tail call noundef i64 @llvm.umax.i64(i64 %add58, i64 %call59)
-  %add61 = add i64 %cond.i, %maxOutBufferSize.1126
-  %inc62 = add i64 %numLossyDctChans.0127, 1
+  %add61 = add i64 %cond.i, %maxOutBufferSize.1129
+  %inc62 = add i64 %numLossyDctChans.0128, 1
   %.pre = load i32, ptr %_numChannels.i, align 8
   br label %for.inc85
 
@@ -6692,7 +6692,7 @@ sw.bb63:                                          ; preds = %for.body51
   %63 = load i8, ptr %bytes_per_element, align 1
   %conv65 = sext i8 %63 to i64
   %mul66 = mul i64 %mul64, %conv65
-  %add67 = add i64 %mul66, %rleBufferSize.0129
+  %add67 = add i64 %mul66, %rleBufferSize.0127
   %add73 = add i64 %mul66, %58
   br label %for.inc85
 
@@ -6701,7 +6701,7 @@ sw.bb74:                                          ; preds = %for.body51
   %64 = load i8, ptr %bytes_per_element75, align 1
   %conv76 = sext i8 %64 to i64
   %mul77 = mul i64 %mul32, %conv76
-  %add78 = add i64 %mul77, %unknownBufferSize.0128
+  %add78 = add i64 %mul77, %unknownBufferSize.0126
   %add83 = add i64 %mul77, %59
   br label %for.inc85
 
@@ -6709,10 +6709,10 @@ for.inc85:                                        ; preds = %sw.bb, %sw.bb63, %s
   %65 = phi i32 [ %57, %sw.bb74 ], [ %57, %sw.bb63 ], [ %.pre, %sw.bb ]
   %66 = phi i64 [ %58, %sw.bb74 ], [ %add73, %sw.bb63 ], [ %58, %sw.bb ]
   %67 = phi i64 [ %add83, %sw.bb74 ], [ %59, %sw.bb63 ], [ %59, %sw.bb ]
-  %maxOutBufferSize.2 = phi i64 [ %maxOutBufferSize.1126, %sw.bb74 ], [ %maxOutBufferSize.1126, %sw.bb63 ], [ %add61, %sw.bb ]
-  %numLossyDctChans.1 = phi i64 [ %numLossyDctChans.0127, %sw.bb74 ], [ %numLossyDctChans.0127, %sw.bb63 ], [ %inc62, %sw.bb ]
-  %unknownBufferSize.1 = phi i64 [ %add78, %sw.bb74 ], [ %unknownBufferSize.0128, %sw.bb63 ], [ %unknownBufferSize.0128, %sw.bb ]
-  %rleBufferSize.1 = phi i64 [ %rleBufferSize.0129, %sw.bb74 ], [ %add67, %sw.bb63 ], [ %rleBufferSize.0129, %sw.bb ]
+  %unknownBufferSize.1 = phi i64 [ %add78, %sw.bb74 ], [ %unknownBufferSize.0126, %sw.bb63 ], [ %unknownBufferSize.0126, %sw.bb ]
+  %rleBufferSize.1 = phi i64 [ %rleBufferSize.0127, %sw.bb74 ], [ %add67, %sw.bb63 ], [ %rleBufferSize.0127, %sw.bb ]
+  %numLossyDctChans.1 = phi i64 [ %numLossyDctChans.0128, %sw.bb74 ], [ %numLossyDctChans.0128, %sw.bb63 ], [ %inc62, %sw.bb ]
+  %maxOutBufferSize.2 = phi i64 [ %maxOutBufferSize.1129, %sw.bb74 ], [ %maxOutBufferSize.1129, %sw.bb63 ], [ %add61, %sw.bb ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = sext i32 %65 to i64
   %cmp49 = icmp slt i64 %indvars.iv.next, %68
@@ -6724,10 +6724,10 @@ for.cond48.for.end87_crit_edge:                   ; preds = %for.inc85
 
 for.end87:                                        ; preds = %for.cond48.for.end87_crit_edge, %DwaCompressor_classifyChannels.exit
   %69 = phi i64 [ %67, %for.cond48.for.end87_crit_edge ], [ 0, %DwaCompressor_classifyChannels.exit ]
-  %maxOutBufferSize.1.lcssa = phi i64 [ %maxOutBufferSize.2, %for.cond48.for.end87_crit_edge ], [ %maxOutBufferSize.0.lcssa, %DwaCompressor_classifyChannels.exit ]
-  %numLossyDctChans.0.lcssa = phi i64 [ %numLossyDctChans.1, %for.cond48.for.end87_crit_edge ], [ 0, %DwaCompressor_classifyChannels.exit ]
   %unknownBufferSize.0.lcssa = phi i64 [ %unknownBufferSize.1, %for.cond48.for.end87_crit_edge ], [ 0, %DwaCompressor_classifyChannels.exit ]
   %rleBufferSize.0.lcssa = phi i64 [ %rleBufferSize.1, %for.cond48.for.end87_crit_edge ], [ 0, %DwaCompressor_classifyChannels.exit ]
+  %numLossyDctChans.0.lcssa = phi i64 [ %numLossyDctChans.1, %for.cond48.for.end87_crit_edge ], [ 0, %DwaCompressor_classifyChannels.exit ]
+  %maxOutBufferSize.1.lcssa = phi i64 [ %maxOutBufferSize.2, %for.cond48.for.end87_crit_edge ], [ %maxOutBufferSize.0.lcssa, %DwaCompressor_classifyChannels.exit ]
   store i64 %69, ptr %planarUncBufferSize, align 16
   %call88 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %rleBufferSize.0.lcssa) #16
   %call90 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %unknownBufferSize.0.lcssa) #16
@@ -8334,15 +8334,15 @@ for.body255.lr.ph:                                ; preds = %for.cond252.prehead
 
 for.body87:                                       ; preds = %for.body78, %for.inc248
   %indvars.iv378 = phi i64 [ %indvars.iv.next379, %for.inc248 ], [ 0, %for.body78 ]
-  %maxX.0297 = phi i32 [ %spec.select225, %for.inc248 ], [ 8, %for.body78 ]
+  %maxX.0298 = phi i32 [ %spec.select225, %for.inc248 ], [ 8, %for.body78 ]
   %currAcComp.1296 = phi ptr [ %currAcComp.2.lcssa428433, %for.inc248 ], [ %currAcComp.0330, %for.body78 ]
   %cmp89 = icmp eq i64 %indvars.iv378, %12
-  %spec.select225 = select i1 %cmp89, i32 %sub4, i32 %maxX.0297
+  %spec.select225 = select i1 %cmp89, i32 %sub4, i32 %maxX.0298
   br i1 %cmp16276, label %for.body97, label %for.inc248
 
 for.body97:                                       ; preds = %for.body87, %for.inc171
   %indvars.iv364 = phi i64 [ %indvars.iv.next365, %for.inc171 ], [ 0, %for.body87 ]
-  %blockIsConstant.0288 = phi i8 [ %blockIsConstant.1, %for.inc171 ], [ 1, %for.body87 ]
+  %blockIsConstant.0289 = phi i8 [ %blockIsConstant.1, %for.inc171 ], [ 1, %for.body87 ]
   %currAcComp.2287 = phi ptr [ %incdec.ptr27.i, %for.inc171 ], [ %currAcComp.1296, %for.body87 ]
   %arrayidx99 = getelementptr inbounds [3 x ptr], ptr %chanData, i64 0, i64 %indvars.iv364
   %18 = load ptr, ptr %arrayidx99, align 8
@@ -8508,7 +8508,7 @@ for.inc171.sink.split:                            ; preds = %if.else158, %if.els
   br label %for.inc171
 
 for.inc171:                                       ; preds = %for.body.i, %for.inc171.sink.split
-  %blockIsConstant.1 = phi i8 [ 0, %for.inc171.sink.split ], [ %blockIsConstant.0288, %for.body.i ]
+  %blockIsConstant.1 = phi i8 [ 0, %for.inc171.sink.split ], [ %blockIsConstant.0289, %for.body.i ]
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next365, %wide.trip.count366
   br i1 %exitcond367.not, label %for.end173, label %for.body97, !llvm.loop !88

@@ -1555,8 +1555,8 @@ Abc_Clock.exit243:                                ; preds = %Abc_Clock.exit241, 
   br label %495
 
 495:                                              ; preds = %Abc_Clock.exit243, %492, %41
-  %.0157 = phi i32 [ 0, %492 ], [ 0, %41 ], [ 1, %Abc_Clock.exit243 ]
-  ret i32 %.0157
+  %.0 = phi i32 [ 0, %492 ], [ 0, %41 ], [ 1, %Abc_Clock.exit243 ]
+  ret i32 %.0
 }
 
 declare i32 @Abc_NtkGetTotalFanins(ptr noundef) local_unnamed_addr #2

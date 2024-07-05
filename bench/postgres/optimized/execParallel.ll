@@ -294,9 +294,9 @@ ExecSerializePlan.exit:                           ; preds = %66, %._crit_edge.i,
   br label %181
 
 181:                                              ; preds = %150, %170, %ExecSerializePlan.exit
-  %.0174 = phi i32 [ %160, %170 ], [ %160, %150 ], [ 0, %ExecSerializePlan.exit ]
-  %.0173 = phi i64 [ %180, %170 ], [ 0, %150 ], [ 0, %ExecSerializePlan.exit ]
-  %.0172 = phi i32 [ %155, %170 ], [ %155, %150 ], [ 0, %ExecSerializePlan.exit ]
+  %.0175 = phi i32 [ %155, %170 ], [ %155, %150 ], [ 0, %ExecSerializePlan.exit ]
+  %.0174 = phi i64 [ %180, %170 ], [ 0, %150 ], [ 0, %ExecSerializePlan.exit ]
+  %.0173 = phi i32 [ %160, %170 ], [ %160, %150 ], [ 0, %ExecSerializePlan.exit ]
   %182 = load i64, ptr %82, align 8
   %183 = add i64 %9, 31
   %184 = and i64 %183, -32
@@ -369,18 +369,18 @@ ExecSerializePlan.exit:                           ; preds = %66, %._crit_edge.i,
 
 228:                                              ; preds = %181
   %229 = load ptr, ptr %188, align 8
-  %230 = sext i32 %.0174 to i64
+  %230 = sext i32 %.0173 to i64
   %231 = call ptr @shm_toc_allocate(ptr noundef %229, i64 noundef %230) #9
   %232 = load i32, ptr %148, align 4
   store i32 %232, ptr %231, align 4
   %233 = getelementptr inbounds i8, ptr %231, i64 4
-  store i32 %.0172, ptr %233, align 4
+  store i32 %.0175, ptr %233, align 4
   %234 = getelementptr inbounds i8, ptr %231, i64 8
   store i32 %3, ptr %234, align 4
   %235 = load i32, ptr %146, align 8
   %236 = getelementptr inbounds i8, ptr %231, i64 12
   store i32 %235, ptr %236, align 4
-  %237 = sext i32 %.0172 to i64
+  %237 = sext i32 %.0175 to i64
   %238 = getelementptr i8, ptr %231, i64 %237
   %239 = mul i32 %235, %3
   %240 = icmp sgt i32 %239, 0
@@ -409,7 +409,7 @@ ExecSerializePlan.exit:                           ; preds = %66, %._crit_edge.i,
 
 250:                                              ; preds = %._crit_edge
   %251 = load ptr, ptr %188, align 8
-  %252 = call ptr @shm_toc_allocate(ptr noundef %251, i64 noundef %.0173) #9
+  %252 = call ptr @shm_toc_allocate(ptr noundef %251, i64 noundef %.0174) #9
   store i32 %3, ptr %252, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 8
   %254 = sext i32 %3 to i64
@@ -422,7 +422,7 @@ ExecSerializePlan.exit:                           ; preds = %66, %._crit_edge.i,
   br label %258
 
 258:                                              ; preds = %._crit_edge, %250, %181
-  %.0175 = phi ptr [ %231, %250 ], [ %231, %._crit_edge ], [ null, %181 ]
+  %.0 = phi ptr [ %231, %250 ], [ %231, %._crit_edge ], [ null, %181 ]
   %259 = getelementptr inbounds i8, ptr %80, i64 72
   %260 = load ptr, ptr %259, align 8
   %.not184 = icmp eq ptr %260, null
@@ -450,7 +450,7 @@ ExecSerializePlan.exit:                           ; preds = %66, %._crit_edge.i,
 272:                                              ; preds = %261, %269, %258
   store ptr %80, ptr %7, align 8
   %273 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %.0175, ptr %273, align 8
+  store ptr %.0, ptr %273, align 8
   %274 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 0, ptr %274, align 8
   %275 = getelementptr inbounds i8, ptr %16, i64 48
@@ -764,7 +764,7 @@ define internal fastcc noundef i64 @SerializeParamExecParams(ptr nocapture nound
 
 13:                                               ; preds = %27, %.lr.ph.i
   %14 = phi i32 [ %9, %.lr.ph.i ], [ %39, %27 ]
-  %.015.i = phi i64 [ 4, %.lr.ph.i ], [ %38, %27 ]
+  %.01215.i = phi i64 [ 4, %.lr.ph.i ], [ %38, %27 ]
   %15 = load ptr, ptr %11, align 8
   %16 = zext nneg i32 %14 to i64
   %17 = getelementptr %struct.ParamExecData, ptr %15, i64 %16
@@ -775,7 +775,7 @@ define internal fastcc noundef i64 @SerializeParamExecParams(ptr nocapture nound
   %.val.i = load ptr, ptr %21, align 8
   %22 = getelementptr %union.ListCell, ptr %.val.i, i64 %16
   %23 = load i32, ptr %22, align 8
-  %24 = call i64 @add_size(i64 noundef %.015.i, i64 noundef 4) #9
+  %24 = call i64 @add_size(i64 noundef %.01215.i, i64 noundef 4) #9
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %26, label %25
 
@@ -807,10 +807,10 @@ define internal fastcc noundef i64 @SerializeParamExecParams(ptr nocapture nound
   br i1 %40, label %13, label %EstimateParamExecSpace.exit, !llvm.loop !8
 
 EstimateParamExecSpace.exit:                      ; preds = %27, %3
-  %.0.lcssa.i = phi i64 [ 4, %3 ], [ %38, %27 ]
+  %.012.lcssa.i = phi i64 [ 4, %3 ], [ %38, %27 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %41 = call i64 @dsa_allocate_extended(ptr noundef %2, i64 noundef %.0.lcssa.i, i32 noundef 0) #9
+  %41 = call i64 @dsa_allocate_extended(ptr noundef %2, i64 noundef %.012.lcssa.i, i32 noundef 0) #9
   %42 = call ptr @dsa_get_address(ptr noundef %2, i64 noundef %41) #9
   %43 = call i32 @bms_num_members(ptr noundef %1) #9
   store i32 %43, ptr %42, align 1

@@ -124,7 +124,7 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
 12:                                               ; preds = %.lr.ph, %103
   %13 = phi i32 [ %7, %.lr.ph ], [ %104, %103 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
-  %.0111124 = phi i64 [ 0, %.lr.ph ], [ %.1112, %103 ]
+  %.0125 = phi i64 [ 0, %.lr.ph ], [ %.1, %103 ]
   %14 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %9, i64 0, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 86
   %16 = load i8, ptr %15, align 2
@@ -170,22 +170,22 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   ]
 
 42:                                               ; preds = %39
-  %43 = add i64 %.0111124, 3
+  %43 = add i64 %.0125, 3
   %44 = and i64 %43, -4
   br label %51
 
 45:                                               ; preds = %39
-  %46 = add i64 %.0111124, 7
+  %46 = add i64 %.0125, 7
   %47 = and i64 %46, -8
   br label %51
 
 48:                                               ; preds = %39
-  %49 = add i64 %.0111124, 1
+  %49 = add i64 %.0125, 1
   %50 = and i64 %49, -2
   br label %51
 
 51:                                               ; preds = %39, %48, %45, %42
-  %52 = phi i64 [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %.0111124, %39 ]
+  %52 = phi i64 [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %.0125, %39 ]
   %53 = tail call ptr @DatumGetEOHP(i64 noundef %26) #13
   %54 = tail call i64 @EOH_get_flat_size(ptr noundef %53) #13
   %55 = add i64 %54, %52
@@ -202,22 +202,22 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   ]
 
 59:                                               ; preds = %56
-  %60 = add i64 %.0111124, 3
+  %60 = add i64 %.0125, 3
   %61 = and i64 %60, -4
   br label %68
 
 62:                                               ; preds = %56
-  %63 = add i64 %.0111124, 7
+  %63 = add i64 %.0125, 7
   %64 = and i64 %63, -8
   br label %68
 
 65:                                               ; preds = %56
-  %66 = add i64 %.0111124, 1
+  %66 = add i64 %.0125, 1
   %67 = and i64 %66, -2
   br label %68
 
 68:                                               ; preds = %56, %65, %62, %59
-  %69 = phi i64 [ %61, %59 ], [ %64, %62 ], [ %67, %65 ], [ %.0111124, %56 ]
+  %69 = phi i64 [ %61, %59 ], [ %64, %62 ], [ %67, %65 ], [ %.0125, %56 ]
   %70 = icmp sgt i16 %28, 0
   br i1 %70, label %71, label %73
 
@@ -278,20 +278,20 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
 
 103:                                              ; preds = %51, %101, %12, %18
   %104 = phi i32 [ %13, %12 ], [ %13, %18 ], [ %.pre, %51 ], [ %13, %101 ]
-  %.1112 = phi i64 [ %.0111124, %12 ], [ %.0111124, %18 ], [ %55, %51 ], [ %102, %101 ]
+  %.1 = phi i64 [ %.0125, %12 ], [ %.0125, %18 ], [ %55, %51 ], [ %102, %101 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next, %105
   br i1 %106, label %12, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %103
-  %107 = icmp eq i64 %.1112, 0
+  %107 = icmp eq i64 %.1, 0
   br i1 %107, label %.loopexit, label %108
 
 108:                                              ; preds = %._crit_edge
   %109 = getelementptr inbounds i8, ptr %0, i64 40
   %110 = load ptr, ptr %109, align 8
-  %111 = tail call ptr @MemoryContextAlloc(ptr noundef %110, i64 noundef %.1112) #13
+  %111 = tail call ptr @MemoryContextAlloc(ptr noundef %110, i64 noundef %.1) #13
   %112 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %111, ptr %112, align 8
   %113 = load i16, ptr %4, align 4
@@ -309,7 +309,7 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
 
 120:                                              ; preds = %.lr.ph129, %219
   %indvars.iv131 = phi i64 [ 0, %.lr.ph129 ], [ %indvars.iv.next132, %219 ]
-  %.0110126 = phi ptr [ %111, %.lr.ph129 ], [ %.1, %219 ]
+  %.0109127 = phi ptr [ %111, %.lr.ph129 ], [ %.1110, %219 ]
   %121 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %117, i64 0, i64 %indvars.iv131
   %122 = getelementptr inbounds i8, ptr %121, i64 86
   %123 = load i8, ptr %122, align 2
@@ -349,7 +349,7 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   %147 = tail call ptr @DatumGetEOHP(i64 noundef %133) #13
   %148 = getelementptr inbounds i8, ptr %121, i64 87
   %149 = load i8, ptr %148, align 1
-  %150 = ptrtoint ptr %.0110126 to i64
+  %150 = ptrtoint ptr %.0109127 to i64
   switch i8 %149, label %157 [
     i8 105, label %151
     i8 99, label %160
@@ -385,7 +385,7 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
 167:                                              ; preds = %141, %137, %130
   %168 = getelementptr inbounds i8, ptr %121, i64 87
   %169 = load i8, ptr %168, align 1
-  %170 = ptrtoint ptr %.0110126 to i64
+  %170 = ptrtoint ptr %.0109127 to i64
   switch i8 %169, label %177 [
     i8 105, label %171
     i8 99, label %180
@@ -475,7 +475,7 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   br label %219
 
 219:                                              ; preds = %160, %214, %120, %125
-  %.1 = phi ptr [ %.0110126, %120 ], [ %.0110126, %125 ], [ %166, %160 ], [ %218, %214 ]
+  %.1110 = phi ptr [ %.0109127, %120 ], [ %.0109127, %125 ], [ %166, %160 ], [ %218, %214 ]
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %220 = load i32, ptr %3, align 8
   %221 = sext i32 %220 to i64
@@ -3479,7 +3479,7 @@ define internal fastcc ptr @ExecTypeFromTLInternal(ptr noundef %0, i1 noundef ze
 .lr.ph37:                                         ; preds = %.lr.ph.split.us.split, %30
   %12 = phi i32 [ %31, %30 ], [ %10, %.lr.ph.split.us.split ]
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %30 ], [ 0, %.lr.ph.split.us.split ]
-  %.027.us36 = phi i16 [ %.1.us, %30 ], [ 1, %.lr.ph.split.us.split ]
+  %.02227.us36 = phi i16 [ %.1.us, %30 ], [ 1, %.lr.ph.split.us.split ]
   %13 = load ptr, ptr %9, align 8
   %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv39
   %15 = load ptr, ptr %14, align 8
@@ -3496,17 +3496,17 @@ define internal fastcc ptr @ExecTypeFromTLInternal(ptr noundef %0, i1 noundef ze
   %24 = tail call i32 @exprType(ptr noundef %23) #13
   %25 = load ptr, ptr %22, align 8
   %26 = tail call i32 @exprTypmod(ptr noundef %25) #13
-  tail call void @TupleDescInitEntry(ptr noundef %6, i16 noundef signext %.027.us36, ptr noundef %21, i32 noundef %24, i32 noundef %26, i32 noundef 0) #13
+  tail call void @TupleDescInitEntry(ptr noundef %6, i16 noundef signext %.02227.us36, ptr noundef %21, i32 noundef %24, i32 noundef %26, i32 noundef 0) #13
   %27 = load ptr, ptr %22, align 8
   %28 = tail call i32 @exprCollation(ptr noundef %27) #13
-  tail call void @TupleDescInitEntryCollation(ptr noundef %6, i16 noundef signext %.027.us36, i32 noundef %28) #13
-  %29 = add i16 %.027.us36, 1
+  tail call void @TupleDescInitEntryCollation(ptr noundef %6, i16 noundef signext %.02227.us36, i32 noundef %28) #13
+  %29 = add i16 %.02227.us36, 1
   %.pre = load i32, ptr %3, align 4
   br label %30
 
 30:                                               ; preds = %19, %.lr.ph37
   %31 = phi i32 [ %12, %.lr.ph37 ], [ %.pre, %19 ]
-  %.1.us = phi i16 [ %.027.us36, %.lr.ph37 ], [ %29, %19 ]
+  %.1.us = phi i16 [ %.02227.us36, %.lr.ph37 ], [ %29, %19 ]
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next40, %32
@@ -3520,7 +3520,7 @@ define internal fastcc ptr @ExecTypeFromTLInternal(ptr noundef %0, i1 noundef ze
 
 .lr.ph34:                                         ; preds = %.lr.ph.split.split, %.lr.ph34
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph34 ], [ 0, %.lr.ph.split.split ]
-  %.02733 = phi i16 [ %49, %.lr.ph34 ], [ 1, %.lr.ph.split.split ]
+  %.0222733 = phi i16 [ %49, %.lr.ph34 ], [ 1, %.lr.ph.split.split ]
   %37 = load ptr, ptr %34, align 8
   %38 = getelementptr %union.ListCell, ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
@@ -3531,11 +3531,11 @@ define internal fastcc ptr @ExecTypeFromTLInternal(ptr noundef %0, i1 noundef ze
   %44 = tail call i32 @exprType(ptr noundef %43) #13
   %45 = load ptr, ptr %42, align 8
   %46 = tail call i32 @exprTypmod(ptr noundef %45) #13
-  tail call void @TupleDescInitEntry(ptr noundef %8, i16 noundef signext %.02733, ptr noundef %41, i32 noundef %44, i32 noundef %46, i32 noundef 0) #13
+  tail call void @TupleDescInitEntry(ptr noundef %8, i16 noundef signext %.0222733, ptr noundef %41, i32 noundef %44, i32 noundef %46, i32 noundef 0) #13
   %47 = load ptr, ptr %42, align 8
   %48 = tail call i32 @exprCollation(ptr noundef %47) #13
-  tail call void @TupleDescInitEntryCollation(ptr noundef %8, i16 noundef signext %.02733, i32 noundef %48) #13
-  %49 = add i16 %.02733, 1
+  tail call void @TupleDescInitEntryCollation(ptr noundef %8, i16 noundef signext %.0222733, i32 noundef %48) #13
+  %49 = add i16 %.0222733, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %3, align 4
   %51 = sext i32 %50 to i64
@@ -3574,16 +3574,16 @@ list_length.exit.thread:                          ; preds = %1
 
 .lr.ph25:                                         ; preds = %.lr.ph, %.lr.ph25
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph25 ], [ 0, %.lr.ph ]
-  %.0152024 = phi i16 [ %16, %.lr.ph25 ], [ 1, %.lr.ph ]
+  %.0152123 = phi i16 [ %16, %.lr.ph25 ], [ 1, %.lr.ph ]
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr %union.ListCell, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @exprType(ptr noundef %12) #13
   %14 = tail call i32 @exprTypmod(ptr noundef %12) #13
-  tail call void @TupleDescInitEntry(ptr noundef %5, i16 noundef signext %.0152024, ptr noundef null, i32 noundef %13, i32 noundef %14, i32 noundef 0) #13
+  tail call void @TupleDescInitEntry(ptr noundef %5, i16 noundef signext %.0152123, ptr noundef null, i32 noundef %13, i32 noundef %14, i32 noundef 0) #13
   %15 = tail call i32 @exprCollation(ptr noundef %12) #13
-  tail call void @TupleDescInitEntryCollation(ptr noundef %5, i16 noundef signext %.0152024, i32 noundef %15) #13
-  %16 = add i16 %.0152024, 1
+  tail call void @TupleDescInitEntryCollation(ptr noundef %5, i16 noundef signext %.0152123, i32 noundef %15) #13
+  %16 = add i16 %.0152123, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %6, align 4
   %18 = sext i32 %17 to i64
@@ -4197,7 +4197,7 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   br label %28
 
 28:                                               ; preds = %3, %22
-  %.0100 = phi i32 [ %23, %22 ], [ 0, %3 ]
+  %.0101 = phi i32 [ %23, %22 ], [ 0, %3 ]
   %.0 = phi i8 [ %27, %22 ], [ 0, %3 ]
   %29 = getelementptr inbounds i8, ptr %.16.val, i64 22
   %30 = load i8, ptr %29, align 2
@@ -4215,7 +4215,7 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
 36:                                               ; preds = %.lr.ph, %175
   %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %175 ]
   %.19 = phi i8 [ %.0, %.lr.ph ], [ %.3, %175 ]
-  %.11018 = phi i32 [ %.0100, %.lr.ph ], [ %.3103, %175 ]
+  %.11026 = phi i32 [ %.0101, %.lr.ph ], [ %.3104, %175 ]
   %37 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %34, i64 0, i64 %indvars.iv
   br i1 %.not, label %51, label %38
 
@@ -4258,7 +4258,7 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   br i1 %61, label %._crit_edge13, label %90
 
 ._crit_edge13:                                    ; preds = %58
-  %.pre = zext i32 %.11018 to i64
+  %.pre = zext i32 %.11026 to i64
   br label %75
 
 .thread:                                          ; preds = %54
@@ -4268,7 +4268,7 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   br i1 %64, label %65, label %90
 
 65:                                               ; preds = %.thread
-  %66 = zext i32 %.11018 to i64
+  %66 = zext i32 %.11026 to i64
   %67 = getelementptr inbounds i8, ptr %37, i64 87
   %68 = load i8, ptr %67, align 1
   switch i8 %68, label %70 [
@@ -4292,7 +4292,7 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   br i1 %74, label %.thread2, label %75
 
 .thread2:                                         ; preds = %65, %71
-  store i32 %.11018, ptr %55, align 4
+  store i32 %.11026, ptr %55, align 4
   br label %106
 
 75:                                               ; preds = %._crit_edge13, %71
@@ -4312,17 +4312,17 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   ]
 
 81:                                               ; preds = %78
-  %82 = add i32 %.11018, 3
+  %82 = add i32 %.11026, 3
   %83 = and i32 %82, -4
   br label %106
 
 84:                                               ; preds = %78
-  %85 = add i32 %.11018, 7
+  %85 = add i32 %.11026, 7
   %86 = and i32 %85, -8
   br label %106
 
 87:                                               ; preds = %78
-  %88 = add i32 %.11018, 1
+  %88 = add i32 %.11026, 1
   %89 = and i32 %88, -2
   br label %106
 
@@ -4336,22 +4336,22 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   ]
 
 93:                                               ; preds = %90
-  %94 = add i32 %.11018, 3
+  %94 = add i32 %.11026, 3
   %95 = and i32 %94, -4
   br label %102
 
 96:                                               ; preds = %90
-  %97 = add i32 %.11018, 7
+  %97 = add i32 %.11026, 7
   %98 = and i32 %97, -8
   br label %102
 
 99:                                               ; preds = %90
-  %100 = add i32 %.11018, 1
+  %100 = add i32 %.11026, 1
   %101 = and i32 %100, -2
   br label %102
 
 102:                                              ; preds = %90, %99, %96, %93
-  %103 = phi i32 [ %95, %93 ], [ %98, %96 ], [ %101, %99 ], [ %.11018, %90 ]
+  %103 = phi i32 [ %95, %93 ], [ %98, %96 ], [ %101, %99 ], [ %.11026, %90 ]
   br i1 %53, label %106, label %104
 
 104:                                              ; preds = %102
@@ -4360,9 +4360,9 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   br label %106
 
 106:                                              ; preds = %87, %84, %81, %75, %78, %54, %.thread2, %104, %102
-  %.2102 = phi i32 [ %.11018, %.thread2 ], [ %103, %102 ], [ %103, %104 ], [ %56, %54 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %.11018, %75 ], [ %.11018, %78 ]
+  %.2103 = phi i32 [ %.11026, %.thread2 ], [ %103, %102 ], [ %103, %104 ], [ %56, %54 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %.11026, %75 ], [ %.11026, %78 ]
   %.2 = phi i8 [ %.19, %.thread2 ], [ %.19, %102 ], [ %.19, %104 ], [ %.19, %54 ], [ 1, %81 ], [ 1, %84 ], [ 1, %87 ], [ 1, %75 ], [ 1, %78 ]
-  %107 = zext i32 %.2102 to i64
+  %107 = zext i32 %.2103 to i64
   %108 = getelementptr i8, ptr %32, i64 %107
   %109 = getelementptr inbounds i8, ptr %37, i64 86
   %110 = load i8, ptr %109, align 2
@@ -4420,7 +4420,7 @@ fetch_att.exit:                                   ; preds = %115, %118, %121, %1
 
 135:                                              ; preds = %fetch_att.exit
   %136 = zext nneg i16 %133 to i32
-  %137 = add i32 %.2102, %136
+  %137 = add i32 %.2103, %136
   %138 = zext i32 %137 to i64
   br label %171
 
@@ -4484,7 +4484,7 @@ fetch_att.exit:                                   ; preds = %115, %118, %121, %1
   br label %175
 
 175:                                              ; preds = %171, %48
-  %.3103 = phi i32 [ %.11018, %48 ], [ %173, %171 ]
+  %.3104 = phi i32 [ %.11026, %48 ], [ %173, %171 ]
   %.3 = phi i8 [ 1, %48 ], [ %spec.select, %171 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4495,11 +4495,11 @@ fetch_att.exit:                                   ; preds = %115, %118, %121, %1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %28
-  %.0104.lcssa = phi i16 [ %19, %28 ], [ %176, %._crit_edge.loopexit ]
-  %.1101.lcssa = phi i32 [ %.0100, %28 ], [ %.3103, %._crit_edge.loopexit ]
+  %.1102.lcssa = phi i32 [ %.0101, %28 ], [ %.3104, %._crit_edge.loopexit ]
+  %.0100.lcssa = phi i16 [ %19, %28 ], [ %176, %._crit_edge.loopexit ]
   %.1.lcssa = phi i8 [ %.0, %28 ], [ %.3, %._crit_edge.loopexit ]
-  store i16 %.0104.lcssa, ptr %18, align 2
-  store i32 %.1101.lcssa, ptr %1, align 4
+  store i16 %.0100.lcssa, ptr %18, align 2
+  store i32 %.1102.lcssa, ptr %1, align 4
   %177 = trunc i8 %.1.lcssa to i1
   %178 = getelementptr inbounds i8, ptr %0, i64 4
   %179 = load i16, ptr %178, align 4

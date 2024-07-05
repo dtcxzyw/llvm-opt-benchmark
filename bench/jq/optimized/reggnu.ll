@@ -54,16 +54,16 @@ define i32 @re_adjust_startpos(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %23
 
 23:                                               ; preds = %19, %17
-  %.0 = phi ptr [ %18, %17 ], [ %22, %19 ]
-  %24 = ptrtoint ptr %.0 to i64
+  %.016 = phi ptr [ %18, %17 ], [ %22, %19 ]
+  %24 = ptrtoint ptr %.016 to i64
   %25 = ptrtoint ptr %1 to i64
   %26 = sub i64 %24, %25
   %27 = trunc i64 %26 to i32
   br label %28
 
 28:                                               ; preds = %5, %7, %23
-  %.016 = phi i32 [ %27, %23 ], [ %3, %7 ], [ %3, %5 ]
-  ret i32 %.016
+  %.0 = phi i32 [ %27, %23 ], [ %3, %7 ], [ %3, %5 ]
+  ret i32 %.0
 }
 
 declare ptr @onigenc_get_right_adjust_char_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

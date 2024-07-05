@@ -524,9 +524,9 @@ pmix_mca_base_component_parse_requested.exit:     ; preds = %10
   br i1 %21, label %._crit_edge, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph, %use_component.exit.thread
-  %.03669 = phi ptr [ %.03570, %use_component.exit.thread ], [ %20, %.lr.ph ]
-  %.03570.in = getelementptr inbounds i8, ptr %.03669, i64 120
-  %.03570 = load ptr, ptr %.03570.in, align 8
+  %.03669 = phi ptr [ %.03770, %use_component.exit.thread ], [ %20, %.lr.ph ]
+  %.03770.in = getelementptr inbounds i8, ptr %.03669, i64 120
+  %.03770 = load ptr, ptr %.03770.in, align 8
   %23 = getelementptr inbounds i8, ptr %.03669, i64 144
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 84
@@ -557,9 +557,9 @@ use_component.exit:                               ; preds = %.lr.ph.i
   %34 = getelementptr inbounds i8, ptr %.03669, i64 128
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 120
-  store volatile ptr %.03570, ptr %36, align 8
+  store volatile ptr %.03770, ptr %36, align 8
   %37 = load ptr, ptr %34, align 8
-  %38 = getelementptr inbounds i8, ptr %.03570, i64 128
+  %38 = getelementptr inbounds i8, ptr %.03770, i64 128
   store volatile ptr %37, ptr %38, align 8
   %39 = load volatile i64, ptr %22, align 8
   %40 = add i64 %39, -1
@@ -619,7 +619,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i45, %51
   br label %use_component.exit.thread
 
 use_component.exit.thread:                        ; preds = %use_component.exit.thr_comm, %62, %64, %use_component.exit, %45
-  %.not42 = icmp eq ptr %.03570, %18
+  %.not42 = icmp eq ptr %.03770, %18
   br i1 %.not42, label %._crit_edge, label %.preheader.i, !llvm.loop !14
 
 .thread88:                                        ; preds = %8
@@ -697,7 +697,7 @@ component_find_check.exit:                        ; preds = %80, %.thread.i, %.t
 
 89:                                               ; preds = %._crit_edge, %component_find_check.exit
   %.057.ph77 = phi ptr [ %.057.ph78, %component_find_check.exit ], [ %.057.ph76, %._crit_edge ]
-  %.0 = phi i32 [ %.019.i, %component_find_check.exit ], [ 0, %._crit_edge ]
+  %.035 = phi i32 [ %.019.i, %component_find_check.exit ], [ 0, %._crit_edge ]
   %.not43 = icmp eq ptr %.057.ph77, null
   br i1 %.not43, label %91, label %90
 
@@ -706,8 +706,8 @@ component_find_check.exit:                        ; preds = %80, %.thread.i, %.t
   br label %91
 
 91:                                               ; preds = %pmix_mca_base_component_parse_requested.exit, %89, %90, %1
-  %.037 = phi i32 [ 0, %1 ], [ -1, %pmix_mca_base_component_parse_requested.exit ], [ %.0, %90 ], [ %.0, %89 ]
-  ret i32 %.037
+  %.0 = phi i32 [ 0, %1 ], [ -1, %pmix_mca_base_component_parse_requested.exit ], [ %.035, %90 ], [ %.035, %89 ]
+  ret i32 %.0
 }
 
 declare void @pmix_mca_base_component_unload(ptr noundef, i32 noundef) local_unnamed_addr #1

@@ -4781,8 +4781,8 @@ entry:
   br i1 %cmp40.not, label %for.end, label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %entry, %_ZN4absl22bernoulli_distributionclINS_15random_internal10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEEEEbRT_.exit.thread
-  %i.044 = phi i64 [ %inc3, %_ZN4absl22bernoulli_distributionclINS_15random_internal10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEEEEbRT_.exit.thread ], [ 0, %entry ]
-  %yes.043 = phi i64 [ %1, %_ZN4absl22bernoulli_distributionclINS_15random_internal10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEEEEbRT_.exit.thread ], [ 0, %entry ]
+  %yes.044 = phi i64 [ %1, %_ZN4absl22bernoulli_distributionclINS_15random_internal10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEEEEbRT_.exit.thread ], [ 0, %entry ]
+  %i.043 = phi i64 [ %inc3, %_ZN4absl22bernoulli_distributionclINS_15random_internal10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEEEEbRT_.exit.thread ], [ 0, %entry ]
   %rng.sroa.4.042 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl22bernoulli_distributionclINS_15random_internal10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEEEEbRT_.exit.thread ], [ 5843272855002366918, %entry ]
   %rng.sroa.0.041 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl22bernoulli_distributionclINS_15random_internal10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEEEEbRT_.exit.thread ], [ 3337843704530833496, %entry ]
   br label %while.body.i.i
@@ -4822,12 +4822,12 @@ if.end.i.i:                                       ; preds = %while.body.i.i
 _ZN4absl22bernoulli_distributionclINS_15random_internal10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEEEEbRT_.exit: ; preds = %while.body.i.i
   %cmp4.i.i = icmp ult i64 %conv1.i.i, %conv.i.i.fr
   %inc = zext i1 %cmp4.i.i to i64
-  %spec.select = add i64 %yes.043, %inc
+  %spec.select = add i64 %yes.044, %inc
   br label %_ZN4absl22bernoulli_distributionclINS_15random_internal10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEEEEbRT_.exit.thread
 
 _ZN4absl22bernoulli_distributionclINS_15random_internal10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEEEEbRT_.exit.thread: ; preds = %if.end.i.i, %_ZN4absl22bernoulli_distributionclINS_15random_internal10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEEEEbRT_.exit
-  %1 = phi i64 [ %spec.select, %_ZN4absl22bernoulli_distributionclINS_15random_internal10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEEEEbRT_.exit ], [ %yes.043, %if.end.i.i ]
-  %inc3 = add nuw i64 %i.044, 1
+  %1 = phi i64 [ %spec.select, %_ZN4absl22bernoulli_distributionclINS_15random_internal10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEEEEbRT_.exit ], [ %yes.044, %if.end.i.i ]
+  %inc3 = add nuw i64 %i.043, 1
   %exitcond.not = icmp eq i64 %inc3, %para.sroa.2.0.copyload
   br i1 %exitcond.not, label %for.end.loopexit, label %while.body.i.i.preheader, !llvm.loop !132
 

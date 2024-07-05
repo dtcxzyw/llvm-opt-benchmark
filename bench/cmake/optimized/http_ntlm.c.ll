@@ -35,8 +35,8 @@ define dso_local i32 @Curl_input_ntlm(ptr noundef %0, i1 noundef zeroext %1, ptr
   br label %14
 
 14:                                               ; preds = %.critedge2, %12
-  %.042 = phi ptr [ %13, %12 ], [ %18, %.critedge2 ]
-  %15 = load i8, ptr %.042, align 1
+  %.043 = phi ptr [ %13, %12 ], [ %18, %.critedge2 ]
+  %15 = load i8, ptr %.043, align 1
   switch i8 %15, label %16 [
     i8 0, label %.critedge.thread
     i8 32, label %.critedge2
@@ -49,7 +49,7 @@ define dso_local i32 @Curl_input_ntlm(ptr noundef %0, i1 noundef zeroext %1, ptr
   br i1 %or.cond, label %.critedge2, label %.critedge
 
 .critedge2:                                       ; preds = %16, %14, %14
-  %18 = getelementptr inbounds i8, ptr %.042, i64 1
+  %18 = getelementptr inbounds i8, ptr %.043, i64 1
   br label %14, !llvm.loop !5
 
 .critedge:                                        ; preds = %16
@@ -57,7 +57,7 @@ define dso_local i32 @Curl_input_ntlm(ptr noundef %0, i1 noundef zeroext %1, ptr
   br i1 %.not51, label %.critedge.thread, label %19
 
 19:                                               ; preds = %.critedge
-  %20 = call i32 @Curl_base64_decode(ptr noundef nonnull %.042, ptr noundef nonnull %4, ptr noundef nonnull %5) #2
+  %20 = call i32 @Curl_base64_decode(ptr noundef nonnull %.043, ptr noundef nonnull %4, ptr noundef nonnull %5) #2
   %.not59 = icmp eq i32 %20, 0
   br i1 %.not59, label %21, label %.thread
 
@@ -148,8 +148,8 @@ define dso_local i32 @Curl_input_ntlm(ptr noundef %0, i1 noundef zeroext %1, ptr
   br label %.thread
 
 .thread:                                          ; preds = %19, %3, %51, %25, %50, %46, %45, %21, %42
-  %.043 = phi i32 [ 9, %42 ], [ %24, %21 ], [ 9, %45 ], [ 9, %46 ], [ 9, %50 ], [ 0, %25 ], [ 0, %51 ], [ 0, %3 ], [ %20, %19 ]
-  ret i32 %.043
+  %.0 = phi i32 [ 9, %42 ], [ %24, %21 ], [ 9, %45 ], [ 9, %46 ], [ 9, %50 ], [ 0, %25 ], [ 0, %51 ], [ 0, %3 ], [ %20, %19 ]
+  ret i32 %.0
 }
 
 declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -202,18 +202,18 @@ define dso_local i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) lo
   %13 = getelementptr inbounds i8, ptr %7, i64 %.94
   %14 = getelementptr inbounds i8, ptr %7, i64 %.95
   %15 = getelementptr inbounds i8, ptr %7, i64 %.96
-  %.058 = load ptr, ptr %10, align 8
-  %.059 = load ptr, ptr %9, align 8
+  %.059 = load ptr, ptr %10, align 8
+  %.060 = load ptr, ptr %9, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 %.97
-  %.056 = load ptr, ptr %13, align 8
+  %.057 = load ptr, ptr %13, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, -2
   store i8 %19, ptr %17, align 8
-  %.not71 = icmp eq ptr %.059, null
-  %spec.store.select = select i1 %.not71, ptr @.str.5, ptr %.059
-  %.not72 = icmp eq ptr %.058, null
-  %spec.store.select1 = select i1 %.not72, ptr @.str.5, ptr %.058
+  %.not71 = icmp eq ptr %.060, null
+  %spec.store.select = select i1 %.not71, ptr @.str.5, ptr %.060
+  %.not72 = icmp eq ptr %.059, null
+  %spec.store.select1 = select i1 %.not72, ptr @.str.5, ptr %.059
   call void @Curl_bufref_init(ptr noundef nonnull %5) #2
   %20 = load i32, ptr %15, align 4
   switch i32 %20, label %21 [
@@ -229,7 +229,7 @@ define dso_local i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) lo
 21:                                               ; preds = %2
   %.not = icmp eq ptr %12, null
   %spec.select80 = select i1 %.not, ptr @.str.4, ptr %12
-  %22 = call i32 @Curl_auth_create_ntlm_type1_message(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select1, ptr noundef nonnull %spec.select80, ptr noundef %.056, ptr noundef nonnull %14, ptr noundef nonnull %5) #2
+  %22 = call i32 @Curl_auth_create_ntlm_type1_message(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select1, ptr noundef nonnull %spec.select80, ptr noundef %.057, ptr noundef nonnull %14, ptr noundef nonnull %5) #2
   %.not77 = icmp eq i32 %22, 0
   br i1 %.not77, label %23, label %61
 
@@ -306,9 +306,9 @@ define dso_local i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) lo
   br label %61
 
 61:                                               ; preds = %27, %44, %36, %38, %53, %40, %21, %23, %56
-  %.061 = phi i32 [ %22, %21 ], [ %26, %23 ], [ %37, %36 ], [ %43, %40 ], [ 0, %53 ], [ 0, %38 ], [ 0, %56 ], [ %spec.select81, %27 ], [ 27, %44 ]
+  %.0 = phi i32 [ %22, %21 ], [ %26, %23 ], [ %37, %36 ], [ %43, %40 ], [ 0, %53 ], [ 0, %38 ], [ 0, %56 ], [ %spec.select81, %27 ], [ 27, %44 ]
   call void @Curl_bufref_free(ptr noundef nonnull %5) #2
-  ret i32 %.061
+  ret i32 %.0
 }
 
 declare i32 @Curl_auth_create_ntlm_type1_message(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

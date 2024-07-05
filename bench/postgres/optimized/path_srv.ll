@@ -178,26 +178,26 @@ trim_trailing_separator.exit:                     ; preds = %.lr.ph.i, %8, %1
 .preheader127:                                    ; preds = %trim_trailing_separator.exit, %16
   %11 = phi i8 [ %21, %16 ], [ %10, %trim_trailing_separator.exit ]
   %.075134 = phi i1 [ %18, %16 ], [ false, %trim_trailing_separator.exit ]
-  %.081133 = phi ptr [ %20, %16 ], [ %0, %trim_trailing_separator.exit ]
-  %.082132 = phi ptr [ %19, %16 ], [ %0, %trim_trailing_separator.exit ]
+  %.081133 = phi ptr [ %19, %16 ], [ %0, %trim_trailing_separator.exit ]
+  %.083132 = phi ptr [ %20, %16 ], [ %0, %trim_trailing_separator.exit ]
   %.075.fr = freeze i1 %.075134
   br i1 %.075.fr, label %.preheader127.split, label %.split
 
 .preheader127.split:                              ; preds = %.preheader127, %.preheader127.split
-  %.183 = phi ptr [ %14, %.preheader127.split ], [ %.082132, %.preheader127 ]
-  %12 = load i8, ptr %.183, align 1
+  %.182 = phi ptr [ %14, %.preheader127.split ], [ %.081133, %.preheader127 ]
+  %12 = load i8, ptr %.182, align 1
   %13 = icmp eq i8 %12, 47
-  %14 = getelementptr i8, ptr %.183, i64 1
+  %14 = getelementptr i8, ptr %.182, i64 1
   br i1 %13, label %.preheader127.split, label %.split, !llvm.loop !10
 
 .split:                                           ; preds = %.preheader127.split, %.preheader127
-  %.us-phi = phi ptr [ %.082132, %.preheader127 ], [ %.183, %.preheader127.split ]
+  %.us-phi = phi ptr [ %.081133, %.preheader127 ], [ %.182, %.preheader127.split ]
   %.us-phi130 = phi i8 [ %11, %.preheader127 ], [ %12, %.preheader127.split ]
-  %.not96 = icmp eq ptr %.081133, %.us-phi
+  %.not96 = icmp eq ptr %.083132, %.us-phi
   br i1 %.not96, label %16, label %15
 
 15:                                               ; preds = %.split
-  store i8 %.us-phi130, ptr %.081133, align 1
+  store i8 %.us-phi130, ptr %.083132, align 1
   %.pre = load i8, ptr %.us-phi, align 1
   br label %16
 
@@ -205,14 +205,14 @@ trim_trailing_separator.exit:                     ; preds = %.lr.ph.i, %8, %1
   %17 = phi i8 [ %.pre, %15 ], [ %.us-phi130, %.split ]
   %18 = icmp eq i8 %17, 47
   %19 = getelementptr i8, ptr %.us-phi, i64 1
-  %20 = getelementptr i8, ptr %.081133, i64 1
+  %20 = getelementptr i8, ptr %.083132, i64 1
   %21 = load i8, ptr %19, align 1
   %.not = icmp eq i8 %21, 0
   br i1 %.not, label %._crit_edge, label %.preheader127, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %16, %trim_trailing_separator.exit
-  %.081.lcssa = phi ptr [ %0, %trim_trailing_separator.exit ], [ %20, %16 ]
-  store i8 0, ptr %.081.lcssa, align 1
+  %.083.lcssa = phi ptr [ %0, %trim_trailing_separator.exit ], [ %20, %16 ]
+  store i8 0, ptr %.083.lcssa, align 1
   %22 = load i8, ptr %0, align 1
   switch i8 %22, label %.outer.preheader [
     i8 0, label %146

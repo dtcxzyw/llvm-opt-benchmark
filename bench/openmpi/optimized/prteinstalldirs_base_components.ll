@@ -30,8 +30,8 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 .preheader:                                       ; preds = %1
   %prte_install_dirs.promoted = load ptr, ptr @prte_install_dirs, align 8
-  %.0124 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_prteinstalldirs_base_framework, i64 320), align 8
-  %.not60125 = icmp eq ptr %.0124, getelementptr inbounds (i8, ptr @prte_prteinstalldirs_base_framework, i64 200)
+  %.041124 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_prteinstalldirs_base_framework, i64 320), align 8
+  %.not60125 = icmp eq ptr %.041124, getelementptr inbounds (i8, ptr @prte_prteinstalldirs_base_framework, i64 200)
   br i1 %.not60125, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -54,7 +54,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %123
-  %.0126 = phi ptr [ %.0, %123 ], [ %.0124, %.lr.ph.preheader ]
+  %.041126 = phi ptr [ %.041, %123 ], [ %.041124, %.lr.ph.preheader ]
   %3 = phi ptr [ %28, %123 ], [ %prte_install_dirs.promoted, %.lr.ph.preheader ]
   %4 = phi ptr [ %34, %123 ], [ %.promoted, %.lr.ph.preheader ]
   %5 = phi ptr [ %40, %123 ], [ %.promoted109, %.lr.ph.preheader ]
@@ -72,7 +72,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   %17 = phi ptr [ %112, %123 ], [ %.promoted121, %.lr.ph.preheader ]
   %18 = phi ptr [ %118, %123 ], [ %.promoted122, %.lr.ph.preheader ]
   %19 = phi ptr [ %124, %123 ], [ %.promoted123, %.lr.ph.preheader ]
-  %20 = getelementptr inbounds i8, ptr %.0126, i64 144
+  %20 = getelementptr inbounds i8, ptr %.041126, i64 144
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 224
   %23 = load ptr, ptr %22, align 8
@@ -295,9 +295,9 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 123:                                              ; preds = %122, %117
   %124 = phi ptr [ %120, %122 ], [ %19, %117 ]
-  %125 = getelementptr inbounds i8, ptr %.0126, i64 120
-  %.0 = load ptr, ptr %125, align 8
-  %.not60 = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_prteinstalldirs_base_framework, i64 200)
+  %125 = getelementptr inbounds i8, ptr %.041126, i64 120
+  %.041 = load ptr, ptr %125, align 8
+  %.not60 = icmp eq ptr %.041, getelementptr inbounds (i8, ptr @prte_prteinstalldirs_base_framework, i64 200)
   br i1 %.not60, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %123, %.preheader
@@ -355,8 +355,8 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   br label %160
 
 160:                                              ; preds = %1, %._crit_edge
-  %.041 = phi i32 [ 0, %._crit_edge ], [ %2, %1 ]
-  ret i32 %.041
+  %.0 = phi i32 [ 0, %._crit_edge ], [ %2, %1 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

@@ -654,23 +654,23 @@ define hidden void @_ZN5uu_od11output_info10OutputInfo19calculate_alignment17hb7
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
-  %.032 = phi i64 [ %35, %33 ], [ %22, %.lr.ph.preheader ]
-  %.01731 = phi i64 [ %34, %33 ], [ %.zext, %.lr.ph.preheader ]
-  %.01830 = phi i64 [ %44, %33 ], [ %30, %.lr.ph.preheader ]
-  %32 = udiv i64 %.01830, %.01731
-  %umax = tail call i64 @llvm.umax.i64(i64 %.01731, i64 1)
+  %.032 = phi i64 [ %44, %33 ], [ %30, %.lr.ph.preheader ]
+  %.01731 = phi i64 [ %35, %33 ], [ %22, %.lr.ph.preheader ]
+  %.01830 = phi i64 [ %34, %33 ], [ %.zext, %.lr.ph.preheader ]
+  %32 = udiv i64 %.032, %.01830
+  %umax = tail call i64 @llvm.umax.i64(i64 %.01830, i64 1)
   br label %36
 
 33:                                               ; preds = %39
-  %34 = lshr i64 %.01731, 1
-  %35 = shl i64 %.032, 1
-  %.not = icmp ult i64 %.01731, 2
+  %34 = lshr i64 %.01830, 1
+  %35 = shl i64 %.01731, 1
+  %.not = icmp ult i64 %.01830, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 36:                                               ; preds = %.lr.ph, %39
   %.sroa.013.028 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %.127 = phi i64 [ %.01830, %.lr.ph ], [ %44, %39 ]
-  %37 = mul i64 %.sroa.013.028, %.032
+  %.127 = phi i64 [ %.032, %.lr.ph ], [ %44, %39 ]
+  %37 = mul i64 %.sroa.013.028, %.01731
   %38 = icmp ult i64 %37, 8
   br i1 %38, label %39, label %45, !prof !51
 

@@ -1775,8 +1775,8 @@ wg_dissect_handshake_cookie.exit:                 ; preds = %558, %590, %591, %p
   br label %655
 
 655:                                              ; preds = %addresses_equal.exit28.i.i, %.lr.ph.i.i
-  %.034.i.i = phi ptr [ %650, %.lr.ph.i.i ], [ %705, %addresses_equal.exit28.i.i ]
-  %656 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.034.i.i) #15
+  %.01934.i.i = phi ptr [ %650, %.lr.ph.i.i ], [ %705, %addresses_equal.exit28.i.i ]
+  %656 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.01934.i.i) #15
   %657 = getelementptr inbounds i8, ptr %656, i64 8
   %658 = load i32, ptr %657, align 8
   %.not23.i.i = icmp eq i32 %658, 0
@@ -1852,7 +1852,7 @@ addresses_equal.exit.i.i:                         ; preds = %677, %670, %665, %6
   br i1 %704, label %706, label %addresses_equal.exit28.i.i
 
 addresses_equal.exit28.i.i:                       ; preds = %699, %692, %687, %addresses_equal.exit.i.i, %655
-  %705 = call ptr @wmem_list_frame_prev(ptr noundef nonnull %.034.i.i) #15
+  %705 = call ptr @wmem_list_frame_prev(ptr noundef nonnull %.01934.i.i) #15
   %.not22.i.i = icmp eq ptr %705, null
   br i1 %.not22.i.i, label %wg_dissect_data.exit, label %655, !llvm.loop !9
 
@@ -2246,22 +2246,22 @@ define internal void @wg_keylog_process_lines(ptr noundef %0, i32 noundef %1) #0
   br label %15
 
 15:                                               ; preds = %.lr.ph95, %.backedge
-  %.06694 = phi ptr [ %0, %.lr.ph95 ], [ %21, %.backedge ]
-  %16 = ptrtoint ptr %.06694 to i64
+  %.094 = phi ptr [ %0, %.lr.ph95 ], [ %21, %.backedge ]
+  %16 = ptrtoint ptr %.094 to i64
   %17 = sub i64 %14, %16
-  %18 = call ptr @memchr(ptr noundef nonnull %.06694, i32 noundef 10, i64 noundef %17) #16
+  %18 = call ptr @memchr(ptr noundef nonnull %.094, i32 noundef 10, i64 noundef %17) #16
   %.not = icmp eq ptr %18, null
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %19, %16
   %21 = getelementptr i8, ptr %18, i64 1
-  %.167 = select i1 %.not, ptr null, ptr %21
   %.064 = select i1 %.not, i64 %17, i64 %20
+  %.1 = select i1 %.not, ptr null, ptr %21
   %22 = icmp sgt i64 %.064, 0
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %15
   %24 = add nsw i64 %.064, -1
-  %25 = getelementptr i8, ptr %.06694, i64 %24
+  %25 = getelementptr i8, ptr %.094, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 13
   %spec.select = select i1 %27, i64 %24, i64 %.064
@@ -2269,34 +2269,34 @@ define internal void @wg_keylog_process_lines(ptr noundef %0, i32 noundef %1) #0
 
 28:                                               ; preds = %23, %15
   %.165 = phi i64 [ %.064, %15 ], [ %spec.select, %23 ]
-  %29 = icmp ult ptr %.06694, %10
+  %29 = icmp ult ptr %.094, %10
   br i1 %29, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %28, %32
-  %.06391 = phi ptr [ %33, %32 ], [ %.06694, %28 ]
-  %30 = load i8, ptr %.06391, align 1
+  %.06691 = phi ptr [ %33, %32 ], [ %.094, %28 ]
+  %30 = load i8, ptr %.06691, align 1
   %31 = icmp eq i8 %30, 32
   br i1 %31, label %32, label %.critedge.loopexit
 
 32:                                               ; preds = %.lr.ph
-  %33 = getelementptr i8, ptr %.06391, i64 1
+  %33 = getelementptr i8, ptr %.06691, i64 1
   %34 = icmp ult ptr %33, %10
   br i1 %34, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !11
 
 .critedge.loopexit:                               ; preds = %32, %.lr.ph
-  %.063.lcssa.ph = phi ptr [ %.06391, %.lr.ph ], [ %33, %32 ]
-  %.pre97 = ptrtoint ptr %.063.lcssa.ph to i64
+  %.066.lcssa.ph = phi ptr [ %.06691, %.lr.ph ], [ %33, %32 ]
+  %.pre97 = ptrtoint ptr %.066.lcssa.ph to i64
   %.pre98 = sub i64 %14, %.pre97
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %28
   %.pre-phi99 = phi i64 [ %.pre98, %.critedge.loopexit ], [ %17, %28 ]
   %.pre-phi = phi i64 [ %.pre97, %.critedge.loopexit ], [ %16, %28 ]
-  %.063.lcssa = phi ptr [ %.063.lcssa.ph, %.critedge.loopexit ], [ %.06694, %28 ]
+  %.066.lcssa = phi ptr [ %.066.lcssa.ph, %.critedge.loopexit ], [ %.094, %28 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(45) %7, i8 0, i64 45, i1 false)
-  %35 = call ptr @memchr(ptr noundef %.063.lcssa, i32 noundef 61, i64 noundef %.pre-phi99) #16
+  %35 = call ptr @memchr(ptr noundef %.066.lcssa, i32 noundef 61, i64 noundef %.pre-phi99) #16
   %.not74 = icmp eq ptr %35, null
-  %.not75 = icmp eq ptr %.063.lcssa, %35
+  %.not75 = icmp eq ptr %.066.lcssa, %35
   %or.cond85 = or i1 %.not74, %.not75
   br i1 %or.cond85, label %.backedge, label %36
 
@@ -2306,50 +2306,50 @@ define internal void @wg_keylog_process_lines(ptr noundef %0, i32 noundef %1) #0
   br label %39
 
 39:                                               ; preds = %40, %36
-  %.0 = phi i64 [ %38, %36 ], [ %41, %40 ]
-  %.not76 = icmp eq i64 %.0, 0
+  %.063 = phi i64 [ %38, %36 ], [ %41, %40 ]
+  %.not76 = icmp eq i64 %.063, 0
   br i1 %.not76, label %.backedge, label %40
 
 40:                                               ; preds = %39
-  %41 = add i64 %.0, -1
-  %42 = getelementptr i8, ptr %.063.lcssa, i64 %41
+  %41 = add i64 %.063, -1
+  %42 = getelementptr i8, ptr %.066.lcssa, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 32
   br i1 %44, label %39, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %40
-  %or.cond = icmp ult i64 %.0, 28
+  %or.cond = icmp ult i64 %.063, 28
   br i1 %or.cond, label %45, label %.backedge
 
 45:                                               ; preds = %.critedge2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %.063.lcssa, i64 %.0, i1 false)
-  %46 = getelementptr [28 x i8], ptr %6, i64 0, i64 %.0
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %.066.lcssa, i64 %.063, i1 false)
+  %46 = getelementptr [28 x i8], ptr %6, i64 0, i64 %.063
   store i8 0, ptr %46, align 1
   br label %47
 
 47:                                               ; preds = %49, %45
-  %.pn = phi ptr [ %35, %45 ], [ %.1, %49 ]
-  %.1 = getelementptr i8, ptr %.pn, i64 1
-  %48 = icmp ult ptr %.1, %10
+  %.pn = phi ptr [ %35, %45 ], [ %.167, %49 ]
+  %.167 = getelementptr i8, ptr %.pn, i64 1
+  %48 = icmp ult ptr %.167, %10
   br i1 %48, label %49, label %.critedge5
 
 49:                                               ; preds = %47
-  %50 = load i8, ptr %.1, align 1
+  %50 = load i8, ptr %.167, align 1
   %51 = icmp eq i8 %50, 32
   br i1 %51, label %47, label %.critedge5, !llvm.loop !13
 
 .critedge5:                                       ; preds = %47, %49
-  %52 = getelementptr i8, ptr %.06694, i64 %.165
+  %52 = getelementptr i8, ptr %.094, i64 %.165
   %53 = ptrtoint ptr %52 to i64
-  %54 = ptrtoint ptr %.1 to i64
+  %54 = ptrtoint ptr %.167 to i64
   %55 = sub i64 %53, %54
-  %56 = icmp ne ptr %52, %.1
+  %56 = icmp ne ptr %52, %.167
   %57 = icmp ult i64 %55, 45
   %or.cond7 = and i1 %56, %57
   br i1 %or.cond7, label %.critedge2.thread, label %.backedge
 
 .critedge2.thread:                                ; preds = %.critedge5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %.1, i64 %55, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %.167, i64 %55, i1 false)
   %.pre = load i8, ptr %7, align 16
   %.not77 = icmp eq i8 %.pre, 0
   br i1 %.not77, label %.backedge, label %58
@@ -2374,8 +2374,8 @@ decode_base64_key.exit.thread:                    ; preds = %58, %60
   br label %.backedge
 
 .backedge:                                        ; preds = %39, %.critedge, %.critedge5, %.critedge2, %67, %wg_add_ephemeral_privkey.exit, %87, %91, %69, %.critedge2.thread, %decode_base64_key.exit.thread
-  %63 = icmp ne ptr %.167, null
-  %64 = icmp ult ptr %.167, %10
+  %63 = icmp ne ptr %.1, null
+  %64 = icmp ult ptr %.1, %10
   %65 = and i1 %63, %64
   br i1 %65, label %15, label %._crit_edge, !llvm.loop !14
 
@@ -3205,8 +3205,8 @@ define internal fastcc ptr @wg_sessions_lookup_initiation(ptr nocapture noundef 
   br label %21
 
 21:                                               ; preds = %.lr.ph, %addresses_equal.exit
-  %.027 = phi ptr [ %15, %.lr.ph ], [ %50, %addresses_equal.exit ]
-  %22 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.027) #15
+  %.01527 = phi ptr [ %15, %.lr.ph ], [ %50, %addresses_equal.exit ]
+  %22 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.01527) #15
   %23 = getelementptr inbounds i8, ptr %22, i64 64
   %24 = load i16, ptr %23, align 8
   %25 = zext i16 %24 to i32
@@ -3253,13 +3253,13 @@ define internal fastcc ptr @wg_sessions_lookup_initiation(ptr nocapture noundef 
   br i1 %.not23, label %.loopexit, label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %39, %32, %27, %48, %21
-  %50 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.027) #15
+  %50 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.01527) #15
   %.not19 = icmp eq ptr %50, null
   br i1 %.not19, label %.loopexit, label %21, !llvm.loop !16
 
 .loopexit:                                        ; preds = %48, %45, %addresses_equal.exit, %14, %9
-  %.015 = phi ptr [ null, %9 ], [ null, %14 ], [ %22, %48 ], [ %22, %45 ], [ null, %addresses_equal.exit ]
-  ret ptr %.015
+  %.0 = phi ptr [ null, %9 ], [ null, %14 ], [ %22, %48 ], [ %22, %45 ], [ null, %addresses_equal.exit ]
+  ret ptr %.0
 }
 
 declare ptr @wmem_list_tail(ptr noundef) local_unnamed_addr #1

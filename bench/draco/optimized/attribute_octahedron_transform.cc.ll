@@ -471,9 +471,9 @@ define linkonce_odr void @_ZNK5draco17OctahedronToolBox38FloatVectorToQuantizedO
   %39 = icmp sgt i32 %38, 0
   %40 = sub i32 0, %36
   %storemerge.p = select i1 %39, i32 %36, i32 %40
-  %.sroa.7.0 = tail call i32 @llvm.smax.i32(i32 %36, i32 0)
   %storemerge = select i1 %37, i32 %storemerge.p, i32 0
   %.sroa.3.021 = add i32 %storemerge, %38
+  %.sroa.7.0 = tail call i32 @llvm.smax.i32(i32 %36, i32 0)
   %41 = sub nsw i32 0, %.sroa.7.0
   %spec.select = select i1 %.sroa.6.0, i32 %41, i32 %.sroa.7.0
   %42 = extractelement <2 x i32> %32, i64 0

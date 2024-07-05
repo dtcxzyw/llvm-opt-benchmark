@@ -1139,9 +1139,9 @@ for.inc:                                          ; preds = %if.end37
   br i1 %exitcond.not, label %for.cond50.preheader, label %for.body31, !llvm.loop !7
 
 for.cond50:                                       ; preds = %for.cond50.preheader, %if.end62
-  %s.2 = phi i32 [ %add64, %if.end62 ], [ %s.0.lcssa, %for.cond50.preheader ]
   %u.0 = phi i32 [ %add66, %if.end62 ], [ 0, %for.cond50.preheader ]
   %digitCount.0 = phi i32 [ %inc67, %if.end62 ], [ 0, %for.cond50.preheader ]
+  %s.2 = phi i32 [ %add64, %if.end62 ], [ %s.0.lcssa, %for.cond50.preheader ]
   %cmp51.not = icmp slt i32 %s.2, %limit.0106
   br i1 %cmp51.not, label %if.end57, label %if.then52
 
@@ -1168,9 +1168,9 @@ if.end62:                                         ; preds = %if.end57
   br i1 %cmp68, label %for.end71, label %for.cond50, !llvm.loop !8
 
 for.end71:                                        ; preds = %if.end62, %if.end57, %if.then52
-  %s.3 = phi i32 [ %s.2, %if.then52 ], [ %add64, %if.end62 ], [ %s.2, %if.end57 ]
   %u.1 = phi i32 [ %u.0, %if.then52 ], [ %add66, %if.end62 ], [ %u.0, %if.end57 ]
   %digitCount.1 = phi i32 [ %digitCount.0, %if.then52 ], [ %conv28, %if.end62 ], [ %digitCount.0, %if.end57 ]
+  %s.3 = phi i32 [ %s.2, %if.then52 ], [ %add64, %if.end62 ], [ %s.2, %if.end57 ]
   %cmp72.not = icmp ult i32 %digitCount.1, %conv23
   br i1 %cmp72.not, label %if.end111, label %for.cond76.preheader
 

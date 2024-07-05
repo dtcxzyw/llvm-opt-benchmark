@@ -200,8 +200,8 @@ define range(i32 -1, 1) i32 @pqGets(ptr noundef %0, ptr nocapture noundef %1) lo
   br label %pqGets_internal.exit
 
 pqGets_internal.exit:                             ; preds = %13, %2, %14
-  %.020.i = phi i32 [ 0, %14 ], [ -1, %2 ], [ -1, %13 ]
-  ret i32 %.020.i
+  %.0.i = phi i32 [ 0, %14 ], [ -1, %2 ], [ -1, %13 ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -243,8 +243,8 @@ define range(i32 -1, 1) i32 @pqGets_append(ptr noundef %0, ptr nocapture noundef
   br label %pqGets_internal.exit
 
 pqGets_internal.exit:                             ; preds = %13, %2, %14
-  %.020.i = phi i32 [ 0, %14 ], [ -1, %2 ], [ -1, %13 ]
-  ret i32 %.020.i
+  %.0.i = phi i32 [ 0, %14 ], [ -1, %2 ], [ -1, %13 ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -862,7 +862,7 @@ define internal fastcc range(i32 -1, 2) i32 @pqSendSome(ptr noundef %0, i32 noun
   br label %80
 
 30:                                               ; preds = %.outer.split, %34
-  %31 = call i64 @pqsecure_write(ptr noundef %0, ptr noundef %.037.ph86, i64 noundef %74) #19
+  %31 = call i64 @pqsecure_write(ptr noundef %0, ptr noundef %.038.ph86, i64 noundef %74) #19
   %32 = trunc i64 %31 to i32
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %34, label %47
@@ -896,16 +896,16 @@ define internal fastcc range(i32 -1, 2) i32 @pqSendSome(ptr noundef %0, i32 noun
 
 47:                                               ; preds = %30
   %48 = and i64 %31, 2147483647
-  %49 = getelementptr i8, ptr %.037.ph86, i64 %48
-  %50 = sub nsw i32 %.040.ph85, %32
-  %51 = sub i32 %.036.ph87, %32
+  %49 = getelementptr i8, ptr %.038.ph86, i64 %48
+  %50 = sub nsw i32 %.041.ph85, %32
+  %51 = sub i32 %.037.ph87, %32
   %52 = icmp sgt i32 %50, 0
   br i1 %52, label %.thread, label %pqWait.exit.thread
 
 .thread:                                          ; preds = %34, %47
-  %.154 = phi i32 [ %51, %47 ], [ %.036.ph87, %34 ]
-  %.13852 = phi ptr [ %49, %47 ], [ %.037.ph86, %34 ]
-  %.14150 = phi i32 [ %50, %47 ], [ %.040.ph85, %34 ]
+  %.154 = phi i32 [ %51, %47 ], [ %.037.ph87, %34 ]
+  %.13952 = phi ptr [ %49, %47 ], [ %.038.ph86, %34 ]
+  %.14250 = phi i32 [ %50, %47 ], [ %.041.ph85, %34 ]
   %53 = call i32 @pqReadData(ptr noundef %0)
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %pqWait.exit.thread, label %55
@@ -961,27 +961,27 @@ pqSocketCheck.exit.thread:                        ; preds = %68, %.critedge.i
   br label %pqWait.exit.thread
 
 pqWait.exit:                                      ; preds = %70
-  %73 = icmp sgt i32 %.14150, 0
+  %73 = icmp sgt i32 %.14250, 0
   br i1 %73, label %.outer.split, label %pqWait.exit.thread, !llvm.loop !10
 
 .outer.split:                                     ; preds = %.outer.split.lr.ph, %pqWait.exit
-  %.036.ph87 = phi i32 [ %18, %.outer.split.lr.ph ], [ %.154, %pqWait.exit ]
-  %.037.ph86 = phi ptr [ %19, %.outer.split.lr.ph ], [ %.13852, %pqWait.exit ]
-  %.040.ph85 = phi i32 [ %1, %.outer.split.lr.ph ], [ %.14150, %pqWait.exit ]
-  %74 = zext nneg i32 %.040.ph85 to i64
+  %.037.ph87 = phi i32 [ %18, %.outer.split.lr.ph ], [ %.154, %pqWait.exit ]
+  %.038.ph86 = phi ptr [ %19, %.outer.split.lr.ph ], [ %.13952, %pqWait.exit ]
+  %.041.ph85 = phi i32 [ %1, %.outer.split.lr.ph ], [ %.14250, %pqWait.exit ]
+  %74 = zext nneg i32 %.041.ph85 to i64
   br label %30
 
 pqWait.exit.thread:                               ; preds = %47, %pqWait.exit, %55, %.thread, %.preheader, %pqSocketCheck.exit.thread, %72
-  %.239 = phi ptr [ %.13852, %72 ], [ %.13852, %pqSocketCheck.exit.thread ], [ %19, %.preheader ], [ %49, %47 ], [ %.13852, %pqWait.exit ], [ %.13852, %55 ], [ %.13852, %.thread ]
+  %.240 = phi ptr [ %.13952, %72 ], [ %.13952, %pqSocketCheck.exit.thread ], [ %19, %.preheader ], [ %49, %47 ], [ %.13952, %pqWait.exit ], [ %.13952, %55 ], [ %.13952, %.thread ]
   %.2 = phi i32 [ %.154, %72 ], [ %.154, %pqSocketCheck.exit.thread ], [ %18, %.preheader ], [ %51, %47 ], [ %.154, %pqWait.exit ], [ %.154, %55 ], [ %.154, %.thread ]
-  %.0 = phi i32 [ -1, %72 ], [ -1, %pqSocketCheck.exit.thread ], [ 0, %.preheader ], [ 0, %47 ], [ 0, %pqWait.exit ], [ 1, %55 ], [ -1, %.thread ]
+  %.036 = phi i32 [ -1, %72 ], [ -1, %pqSocketCheck.exit.thread ], [ 0, %.preheader ], [ 0, %47 ], [ 0, %pqWait.exit ], [ 1, %55 ], [ -1, %.thread ]
   %75 = icmp sgt i32 %.2, 0
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %pqWait.exit.thread
   %77 = load ptr, ptr %5, align 8
   %78 = zext nneg i32 %.2 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %77, ptr align 1 %.239, i64 %78, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %77, ptr align 1 %.240, i64 %78, i1 false)
   br label %79
 
 79:                                               ; preds = %76, %pqWait.exit.thread
@@ -989,8 +989,8 @@ pqWait.exit.thread:                               ; preds = %47, %pqWait.exit, %
   br label %80
 
 80:                                               ; preds = %42, %39, %13, %79, %27, %16
-  %.042 = phi i32 [ 0, %16 ], [ 0, %27 ], [ %.0, %79 ], [ -1, %13 ], [ -1, %39 ], [ %., %42 ]
-  ret i32 %.042
+  %.0 = phi i32 [ 0, %16 ], [ 0, %27 ], [ %.036, %79 ], [ -1, %13 ], [ -1, %39 ], [ %., %42 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1362,8 +1362,8 @@ pqSocketPoll.exit.us:                             ; preds = %.preheader.split, %
   %27 = sub i64 %3, %25
   %28 = trunc i64 %27 to i32
   %29 = mul i32 %28, 1000
-  %.0.i = select i1 %26, i32 %29, i32 0
-  %30 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %.0.i) #19
+  %.013.i = select i1 %26, i32 %29, i32 0
+  %30 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %.013.i) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %32, label %.critedge12

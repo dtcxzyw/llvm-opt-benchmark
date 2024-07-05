@@ -5012,7 +5012,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit.us: ; preds = %2005, %._crit_
   unreachable
 
 .loopexit2095.split.us:                           ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL8SigChunkEEE8allocateERS3_m.exit.i.i.i.i.i429.us, %.loopexit1995.us, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL8SigChunkEEE8allocateERS3_m.exit.i.i.i.i.i404.us, %.loopexit1996.us, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL8SigChunkEEE8allocateERS3_m.exit.i.i.i.i.i380.us
-  %.069.ph.us = phi ptr [ %281, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL8SigChunkEEE8allocateERS3_m.exit.i.i.i.i.i429.us ], [ %274, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL8SigChunkEEE8allocateERS3_m.exit.i.i.i.i.i404.us ], [ %84, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL8SigChunkEEE8allocateERS3_m.exit.i.i.i.i.i380.us ], [ %274, %.loopexit1996.us ], [ %281, %.loopexit1995.us ]
+  %.094.ph.us = phi ptr [ %281, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL8SigChunkEEE8allocateERS3_m.exit.i.i.i.i.i429.us ], [ %274, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL8SigChunkEEE8allocateERS3_m.exit.i.i.i.i.i404.us ], [ %84, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL8SigChunkEEE8allocateERS3_m.exit.i.i.i.i.i380.us ], [ %274, %.loopexit1996.us ], [ %281, %.loopexit1995.us ]
   %lpad.loopexit2098.us = landingpad { ptr, i32 }
           cleanup
   br label %.body400
@@ -12649,7 +12649,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit558:                ; preds = %4969, %.body1412, %
   br label %.body344
 
 .loopexit.split-lp2096:                           ; preds = %.noexc.i.i.i397, %.noexc.i.i.i421, %.noexc.i.i.i446
-  %.069.ph2097 = phi ptr [ %281, %.noexc.i.i.i446 ], [ %274, %.noexc.i.i.i421 ], [ %84, %.noexc.i.i.i397 ]
+  %.094.ph2097 = phi ptr [ %281, %.noexc.i.i.i446 ], [ %274, %.noexc.i.i.i421 ], [ %84, %.noexc.i.i.i397 ]
   %lpad.loopexit.split-lp2099 = landingpad { ptr, i32 }
           cleanup
   br label %.body400
@@ -12671,21 +12671,21 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit558:                ; preds = %4969, %.body1412, %
   br i1 %4979, label %.body479, label %4976
 
 .body479:                                         ; preds = %4976, %.loopexit2116.split.us, %.loopexit.split-lp2117, %4946, %4945, %.body1069
-  %.pn116.pn = phi { ptr, i32 } [ %lpad.phi2125, %4946 ], [ %4939, %4945 ], [ %4939, %.body1069 ], [ %lpad.loopexit2118.us, %.loopexit2116.split.us ], [ %lpad.loopexit.split-lp2119, %.loopexit.split-lp2117 ], [ %.pn116, %4976 ]
-  %4980 = phi i1 [ false, %4946 ], [ false, %4945 ], [ false, %.body1069 ], [ false, %.loopexit2116.split.us ], [ false, %.loopexit.split-lp2117 ], [ true, %4976 ]
+  %4980 = phi i1 [ false, %.body1069 ], [ false, %4945 ], [ false, %4946 ], [ false, %.loopexit.split-lp2117 ], [ false, %.loopexit2116.split.us ], [ true, %4976 ]
+  %.pn116.pn = phi { ptr, i32 } [ %4939, %.body1069 ], [ %4939, %4945 ], [ %lpad.phi2125, %4946 ], [ %lpad.loopexit.split-lp2119, %.loopexit.split-lp2117 ], [ %lpad.loopexit2118.us, %.loopexit2116.split.us ], [ %.pn116, %4976 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %85) #22
   br label %.body400
 
 .body400:                                         ; preds = %.loopexit2095.split.us, %.loopexit.split-lp2096, %4930, %4929, %.body1042, %.split6140.us, %.body1015, %4913, %4914, %.body479
+  %.195 = phi ptr [ %288, %.body479 ], [ %274, %4914 ], [ %274, %4913 ], [ %274, %.body1015 ], [ %281, %4930 ], [ %281, %4929 ], [ %281, %.body1042 ], [ %288, %.split6140.us ], [ %.094.ph.us, %.loopexit2095.split.us ], [ %.094.ph2097, %.loopexit.split-lp2096 ]
+  %.193 = phi i1 [ %4980, %.body479 ], [ false, %4914 ], [ false, %4913 ], [ false, %.body1015 ], [ false, %4930 ], [ false, %4929 ], [ false, %.body1042 ], [ false, %.split6140.us ], [ false, %.loopexit2095.split.us ], [ false, %.loopexit.split-lp2096 ]
   %.pn116.pn.pn = phi { ptr, i32 } [ %.pn116.pn, %.body479 ], [ %lpad.phi2110, %4914 ], [ %4907, %4913 ], [ %4907, %.body1015 ], [ %lpad.phi2115, %4930 ], [ %4923, %4929 ], [ %4923, %.body1042 ], [ %2058, %.split6140.us ], [ %lpad.loopexit2098.us, %.loopexit2095.split.us ], [ %lpad.loopexit.split-lp2099, %.loopexit.split-lp2096 ]
-  %.170 = phi ptr [ %288, %.body479 ], [ %274, %4914 ], [ %274, %4913 ], [ %274, %.body1015 ], [ %281, %4930 ], [ %281, %4929 ], [ %281, %.body1042 ], [ %288, %.split6140.us ], [ %.069.ph.us, %.loopexit2095.split.us ], [ %.069.ph2097, %.loopexit.split-lp2096 ]
-  %.168 = phi i1 [ %4980, %.body479 ], [ false, %4914 ], [ false, %4913 ], [ false, %.body1015 ], [ false, %4930 ], [ false, %4929 ], [ false, %.body1042 ], [ false, %.split6140.us ], [ false, %.loopexit2095.split.us ], [ false, %.loopexit.split-lp2096 ]
-  %4981 = icmp eq ptr %84, %.170
-  %or.cond = select i1 %.168, i1 true, i1 %4981
+  %4981 = icmp eq ptr %84, %.195
+  %or.cond = select i1 %.193, i1 true, i1 %4981
   br i1 %or.cond, label %.body531, label %.preheader
 
 .preheader:                                       ; preds = %.body400, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit575
-  %4982 = phi ptr [ %4983, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit575 ], [ %.170, %.body400 ]
+  %4982 = phi ptr [ %4983, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit575 ], [ %.195, %.body400 ]
   %4983 = getelementptr inbounds i8, ptr %4982, i64 -64
   %4984 = getelementptr inbounds i8, ptr %4982, i64 -24
   %4985 = load ptr, ptr %4984, align 8
@@ -23667,14 +23667,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.073, i64 1
+  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !256
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -24121,8 +24121,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.016
+  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind

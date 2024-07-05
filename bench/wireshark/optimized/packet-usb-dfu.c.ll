@@ -331,7 +331,7 @@ define internal i32 @dissect_usb_dfu(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %66
 
 66:                                               ; preds = %55, %63, %48
-  %.0 = phi i32 [ -1, %48 ], [ %62, %55 ], [ -1, %63 ]
+  %.0215 = phi i32 [ -1, %48 ], [ %62, %55 ], [ -1, %63 ]
   %67 = load i32, ptr @hf_setup_interface, align 4
   %68 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %67, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648) #2
   %69 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 3) #2
@@ -347,19 +347,19 @@ define internal i32 @dissect_usb_dfu(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %77
 
 77:                                               ; preds = %73, %66
-  %.0217 = phi i32 [ %76, %73 ], [ 7, %66 ]
-  %78 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0217) #2
+  %.0216 = phi i32 [ %76, %73 ], [ 7, %66 ]
+  %78 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0216) #2
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %77
-  %81 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0217) #2
-  %82 = call ptr @proto_tree_add_expert(ptr noundef %23, ptr noundef nonnull %1, ptr noundef nonnull @ei_unexpected_data, ptr noundef %0, i32 noundef %.0217, i32 noundef %81) #2
+  %81 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0216) #2
+  %82 = call ptr @proto_tree_add_expert(ptr noundef %23, ptr noundef nonnull %1, ptr noundef nonnull @ei_unexpected_data, ptr noundef %0, i32 noundef %.0216, i32 noundef %81) #2
   %83 = call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %84
 
 84:                                               ; preds = %80, %77
-  %.1218 = phi i32 [ %83, %80 ], [ %.0217, %77 ]
+  %.1217 = phi i32 [ %83, %80 ], [ %.0216, %77 ]
   %85 = getelementptr inbounds i8, ptr %1, i64 80
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 50
@@ -392,7 +392,7 @@ define internal i32 @dissect_usb_dfu(ptr noundef %0, ptr noundef %1, ptr noundef
   %103 = getelementptr inbounds i8, ptr %98, i64 12
   store i32 %102, ptr %103, align 4
   %104 = getelementptr inbounds i8, ptr %98, i64 16
-  store i32 %.0, ptr %104, align 4
+  store i32 %.0215, ptr %104, align 4
   %105 = load ptr, ptr @command_info, align 8
   call void @wmem_tree_insert32_array(ptr noundef %105, ptr noundef nonnull %5, ptr noundef nonnull %98) #2
   br label %106
@@ -586,8 +586,8 @@ proto_item_set_generated.exit239:                 ; preds = %163, %166, %169
   br label %210
 
 210:                                              ; preds = %4, %209, %115, %106
-  %.0219 = phi i32 [ %.1218, %106 ], [ %.2, %209 ], [ %119, %115 ], [ 0, %4 ]
-  ret i32 %.0219
+  %.0 = phi i32 [ %.1217, %106 ], [ %.2, %209 ], [ %119, %115 ], [ 0, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -654,8 +654,8 @@ define internal range(i32 0, 10) i32 @dissect_usb_dfu_descriptor(ptr noundef %0,
   br label %44
 
 44:                                               ; preds = %13, %41, %25, %5, %9, %4
-  %.057 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %5 ], [ 9, %41 ], [ 7, %25 ], [ 0, %13 ]
-  ret i32 %.057
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %5 ], [ 9, %41 ], [ 7, %25 ], [ 0, %13 ]
+  ret i32 %.0
 }
 
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1

@@ -147,21 +147,21 @@ define internal i32 @dissect_data(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 proto_item_set_generated.exit:                    ; preds = %40, %37, %31, %28, %18
   %.064 = phi i32 [ 0, %28 ], [ 0, %18 ], [ %32, %31 ], [ %32, %37 ], [ %32, %40 ]
-  %.063 = phi ptr [ null, %28 ], [ null, %18 ], [ %30, %31 ], [ %30, %37 ], [ %30, %40 ]
+  %.061 = phi ptr [ null, %28 ], [ null, %18 ], [ %30, %31 ], [ %30, %37 ], [ %30, %40 ]
   %44 = load i32, ptr @show_as_text, align 4
   %.not71 = icmp eq i32 %44, 0
   br i1 %.not71, label %55, label %45
 
 45:                                               ; preds = %proto_item_set_generated.exit
-  %46 = icmp ne ptr %.063, null
+  %46 = icmp ne ptr %.061, null
   %47 = icmp sgt i32 %.064, 0
   %or.cond = select i1 %46, i1 %47, i1 false
-  %.063..0 = select i1 %or.cond, ptr %.063, ptr %.0
+  %.061..0 = select i1 %or.cond, ptr %.061, ptr %.0
   %.064. = select i1 %or.cond, i32 %.064, i32 %8
   %48 = load i32, ptr @hf_data_text, align 4
   %49 = getelementptr inbounds i8, ptr %1, i64 408
   %50 = load ptr, ptr %49, align 8
-  %51 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %24, i32 noundef %48, ptr noundef %.063..0, i32 noundef 0, i32 noundef %.064., i32 noundef 2, ptr noundef %50, ptr noundef nonnull %5) #2
+  %51 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %24, i32 noundef %48, ptr noundef %.061..0, i32 noundef 0, i32 noundef %.064., i32 noundef 2, ptr noundef %50, ptr noundef nonnull %5) #2
   %52 = getelementptr inbounds i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %5, align 8

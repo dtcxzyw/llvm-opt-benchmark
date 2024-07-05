@@ -3480,8 +3480,8 @@ select.unfold:                                    ; preds = %51
 143:                                              ; preds = %138
   %144 = add i64 %.val159, -1
   %145 = getelementptr inbounds [0 x { { [16 x i8], i8, [7 x i8] }, { i64, i64, i8, [7 x i8] }, { i8, i8, i8, i8, i8, i8 }, i8, i8 }], ptr %.val, i64 0, i64 %144
-  %.0142 = select i1 %71, ptr null, ptr %145
-  %146 = invoke fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17hce01d764012b9f9cE"(ptr noalias noundef readonly align 8 dereferenceable_or_null(56) %.0142)
+  %.0140 = select i1 %71, ptr null, ptr %145
+  %146 = invoke fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17hce01d764012b9f9cE"(ptr noalias noundef readonly align 8 dereferenceable_or_null(56) %.0140)
           to label %147 unwind label %.loopexit.split-lp
 
 147:                                              ; preds = %143
@@ -5500,8 +5500,8 @@ select.unfold:                                    ; preds = %51
 143:                                              ; preds = %138
   %144 = add i64 %.val159, -1
   %145 = getelementptr inbounds [0 x { { [16 x i8], i8, [7 x i8] }, { i64, i64, i8, [7 x i8] }, { i8, i8, i8, i8, i8, i8 }, i8, i8 }], ptr %.val, i64 0, i64 %144
-  %.0142 = select i1 %71, ptr null, ptr %145
-  %146 = invoke fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h16096f71918135bfE"(ptr noalias noundef readonly align 8 dereferenceable_or_null(56) %.0142)
+  %.0140 = select i1 %71, ptr null, ptr %145
+  %146 = invoke fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h16096f71918135bfE"(ptr noalias noundef readonly align 8 dereferenceable_or_null(56) %.0140)
           to label %147 unwind label %.loopexit.split-lp
 
 147:                                              ; preds = %143
@@ -7520,8 +7520,8 @@ select.unfold:                                    ; preds = %51
 143:                                              ; preds = %138
   %144 = add i64 %.val159, -1
   %145 = getelementptr inbounds [0 x { { [16 x i8], i8, [7 x i8] }, { i64, i64, i8, [7 x i8] }, { i8, i8, i8, i8, i8, i8 }, i8, i8 }], ptr %.val, i64 0, i64 %144
-  %.0142 = select i1 %71, ptr null, ptr %145
-  %146 = invoke fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h88f15f9d211ba222E"(ptr noalias noundef readonly align 8 dereferenceable_or_null(56) %.0142)
+  %.0140 = select i1 %71, ptr null, ptr %145
+  %146 = invoke fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h88f15f9d211ba222E"(ptr noalias noundef readonly align 8 dereferenceable_or_null(56) %.0140)
           to label %147 unwind label %.loopexit.split-lp
 
 147:                                              ; preds = %143

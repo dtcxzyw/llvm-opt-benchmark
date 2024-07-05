@@ -4345,10 +4345,10 @@ invoke.cont49:                                    ; preds = %if.then46
   br i1 %cmp.i.not371, label %if.end114, label %for.body
 
 for.body:                                         ; preds = %invoke.cont49, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit347
-  %__begin5.sroa.0.0373 = phi ptr [ %incdec.ptr.i, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit347 ], [ %spec.select.i.i146, %invoke.cont49 ]
-  %allEmptyEqs.0372 = phi i8 [ %allEmptyEqs.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit347 ], [ 1, %invoke.cont49 ]
+  %allEmptyEqs.0373 = phi i8 [ %allEmptyEqs.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit347 ], [ 1, %invoke.cont49 ]
+  %__begin5.sroa.0.0372 = phi ptr [ %incdec.ptr.i, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit347 ], [ %spec.select.i.i146, %invoke.cont49 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  %30 = load ptr, ptr %__begin5.sroa.0.0373, align 8, !noalias !86
+  %30 = load ptr, ptr %__begin5.sroa.0.0372, align 8, !noalias !86
   store ptr %30, ptr %ref.tmp54, align 8, !alias.scope !86
   %bf.load.i.i.i151 = load i64, ptr %30, align 8, !noalias !86
   %bf.lshr.i.i.i152 = lshr i64 %bf.load.i.i.i151, 40
@@ -4702,7 +4702,7 @@ lpad101:                                          ; preds = %invoke.cont98
   br label %ehcleanup110
 
 cleanup:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit292, %if.then13.i.i334, %if.then.i.i328, %invoke.cont102, %if.then13.i.i250, %if.then.i.i244, %invoke.cont79, %invoke.cont55
-  %allEmptyEqs.1 = phi i8 [ 0, %invoke.cont55 ], [ %allEmptyEqs.0372, %invoke.cont79 ], [ %allEmptyEqs.0372, %if.then.i.i244 ], [ %allEmptyEqs.0372, %if.then13.i.i250 ], [ %allEmptyEqs.0372, %invoke.cont102 ], [ %allEmptyEqs.0372, %if.then.i.i328 ], [ %allEmptyEqs.0372, %if.then13.i.i334 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit292 ]
+  %allEmptyEqs.1 = phi i8 [ 0, %invoke.cont55 ], [ %allEmptyEqs.0373, %invoke.cont79 ], [ %allEmptyEqs.0373, %if.then.i.i244 ], [ %allEmptyEqs.0373, %if.then13.i.i250 ], [ %allEmptyEqs.0373, %invoke.cont102 ], [ %allEmptyEqs.0373, %if.then.i.i328 ], [ %allEmptyEqs.0373, %if.then13.i.i334 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit292 ]
   %bf.load.i.i337 = load i64, ptr %30, align 8
   %57 = and i64 %bf.load.i.i337, 1152920405095219200
   %cmp.not.i.i338 = icmp eq i64 %57, 1152920405095219200
@@ -4729,7 +4729,7 @@ terminate.lpad.i346:                              ; preds = %if.then13.i.i345
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit347: ; preds = %cleanup, %if.then.i.i339, %if.then13.i.i345
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.0373, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.0372, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %if.end114.loopexit, label %for.body
 

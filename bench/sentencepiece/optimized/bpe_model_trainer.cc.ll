@@ -544,9 +544,9 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %135, %_ZNSt6vectorI
   br label %162
 
 162:                                              ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, %_ZNSt13unordered_mapImPN13sentencepiece3bpe7Trainer6SymbolESt4hashImESt8equal_toImESaISt4pairIKmS4_EEE4findERSA_.exit
-  %.07.in = phi ptr [ %85, %_ZNSt13unordered_mapImPN13sentencepiece3bpe7Trainer6SymbolESt4hashImESt8equal_toImESaISt4pairIKmS4_EEE4findERSA_.exit ], [ %4, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
-  %.07 = load ptr, ptr %.07.in, align 8
-  ret ptr %.07
+  %.0.in = phi ptr [ %85, %_ZNSt13unordered_mapImPN13sentencepiece3bpe7Trainer6SymbolESt4hashImESt8equal_toImESaISt4pairIKmS4_EEE4findERSA_.exit ], [ %4, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %.0 = load ptr, ptr %.0.in, align 8
+  ret ptr %.0
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
@@ -3416,8 +3416,8 @@ _ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backEOS4_.exit: 
 .preheader:                                       ; preds = %.preheader303, %._crit_edge324
   %330 = phi ptr [ %355, %._crit_edge324 ], [ %264, %.preheader303 ]
   %331 = phi ptr [ %356, %._crit_edge324 ], [ %263, %.preheader303 ]
-  %.0104325 = phi i64 [ %357, %._crit_edge324 ], [ 0, %.preheader303 ]
-  %332 = getelementptr inbounds %"class.std::vector.64", ptr %330, i64 %.0104325
+  %.0102325 = phi i64 [ %357, %._crit_edge324 ], [ 0, %.preheader303 ]
+  %332 = getelementptr inbounds %"class.std::vector.64", ptr %330, i64 %.0102325
   %333 = getelementptr inbounds i8, ptr %332, i64 8
   %334 = load ptr, ptr %333, align 8
   %335 = load ptr, ptr %332, align 8
@@ -3428,17 +3428,17 @@ _ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backEOS4_.exit: 
   br i1 %339, label %.lr.ph323, label %._crit_edge324
 
 .lr.ph323:                                        ; preds = %.preheader
-  %340 = trunc i64 %.0104325 to i32
+  %340 = trunc i64 %.0102325 to i32
   br label %341
 
 341:                                              ; preds = %.lr.ph323, %341
-  %.0105322 = phi i64 [ 1, %.lr.ph323 ], [ %344, %341 ]
-  %342 = trunc i64 %.0105322 to i32
+  %.0103322 = phi i64 [ 1, %.lr.ph323 ], [ %344, %341 ]
+  %342 = trunc i64 %.0103322 to i32
   %343 = add i32 %342, -1
   call void @_ZN13sentencepiece3bpe7Trainer10AddNewPairEiii(ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %340, i32 noundef %343, i32 noundef %342)
-  %344 = add nuw i64 %.0105322, 1
+  %344 = add nuw i64 %.0103322, 1
   %345 = load ptr, ptr %78, align 8
-  %346 = getelementptr inbounds %"class.std::vector.64", ptr %345, i64 %.0104325
+  %346 = getelementptr inbounds %"class.std::vector.64", ptr %345, i64 %.0102325
   %347 = getelementptr inbounds i8, ptr %346, i64 8
   %348 = load ptr, ptr %347, align 8
   %349 = load ptr, ptr %346, align 8
@@ -3456,7 +3456,7 @@ _ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backEOS4_.exit: 
 ._crit_edge324:                                   ; preds = %._crit_edge324.loopexit, %.preheader
   %355 = phi ptr [ %345, %._crit_edge324.loopexit ], [ %330, %.preheader ]
   %356 = phi ptr [ %.pre347, %._crit_edge324.loopexit ], [ %331, %.preheader ]
-  %357 = add nuw i64 %.0104325, 1
+  %357 = add nuw i64 %.0102325, 1
   %358 = ptrtoint ptr %356 to i64
   %359 = ptrtoint ptr %355 to i64
   %360 = sub i64 %358, %359
@@ -4922,14 +4922,14 @@ define linkonce_odr void @_ZN4absl13StringReplaceESt17basic_string_viewIcSt11cha
 
 17:                                               ; preds = %23, %.lr.ph.i.i.us
   %.033.i.i.us = phi i64 [ %13, %.lr.ph.i.i.us ], [ %26, %23 ]
-  %.02032.i.i.us = phi ptr [ %14, %.lr.ph.i.i.us ], [ %24, %23 ]
+  %.02132.i.i.us = phi ptr [ %14, %.lr.ph.i.i.us ], [ %24, %23 ]
   %18 = sub i64 %.033.i.i.us, %2
   %19 = add i64 %18, 1
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.us
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.us:  ; preds = %17
-  %21 = tail call ptr @memchr(ptr noundef %.02032.i.i.us, i32 noundef %16, i64 noundef %19) #22
+  %21 = tail call ptr @memchr(ptr noundef %.02132.i.i.us, i32 noundef %16, i64 noundef %19) #22
   %.not26.i.i.us = icmp eq ptr %21, null
   br i1 %.not26.i.i.us, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us
 
@@ -4974,14 +4974,14 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.us: ; preds = %_ZN
 
 39:                                               ; preds = %45, %.lr.ph.i.i
   %.033.i.i = phi i64 [ %0, %.lr.ph.i.i ], [ %48, %45 ]
-  %.02032.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %46, %45 ]
+  %.02132.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %46, %45 ]
   %40 = sub i64 %.033.i.i, %2
   %41 = add i64 %40, 1
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %39
-  %43 = tail call ptr @memchr(ptr noundef %.02032.i.i, i32 noundef %38, i64 noundef %41) #22
+  %43 = tail call ptr @memchr(ptr noundef %.02132.i.i, i32 noundef %38, i64 noundef %41) #22
   %.not26.i.i = icmp eq ptr %43, null
   br i1 %.not26.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 

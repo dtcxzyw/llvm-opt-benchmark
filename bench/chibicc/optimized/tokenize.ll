@@ -1106,21 +1106,21 @@ entry:
 
 sub_0:                                            ; preds = %entry, %while.cond.backedge
   %2 = phi i8 [ %8, %while.cond.backedge ], [ %1, %entry ]
-  %cur.0160 = phi ptr [ %cur.0.be, %while.cond.backedge ], [ %head, %entry ]
-  %p.0159 = phi ptr [ %p.0.be, %while.cond.backedge ], [ %0, %entry ]
+  %p.0160 = phi ptr [ %p.0.be, %while.cond.backedge ], [ %0, %entry ]
+  %cur.0159 = phi ptr [ %cur.0.be, %while.cond.backedge ], [ %head, %entry ]
   %3 = zext i8 %2 to i32
   %4 = add nsw i32 %3, -47
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %while.body.tail, label %if.end.tail
 
 while.body.tail:                                  ; preds = %sub_0
-  %5 = getelementptr inbounds i8, ptr %p.0159, i64 1
+  %5 = getelementptr inbounds i8, ptr %p.0160, i64 1
   %6 = load i8, ptr %5, align 1
   %cmp.i = icmp eq i8 %6, 47
   br i1 %cmp.i, label %if.then, label %sub_1140
 
 if.then:                                          ; preds = %while.body.tail
-  %add.ptr = getelementptr inbounds i8, ptr %p.0159, i64 2
+  %add.ptr = getelementptr inbounds i8, ptr %p.0160, i64 2
   br label %while.cond1
 
 while.cond1:                                      ; preds = %while.cond1, %if.then
@@ -1135,14 +1135,14 @@ while.end:                                        ; preds = %while.cond1
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %while.end, %if.end10, %if.then16, %if.then23, %for.end, %if.then87, %if.then93, %if.then102, %if.then111, %if.then120, %if.then131, %if.then142, %if.then153, %if.then162, %if.then172, %if.then183
+  %cur.0.be = phi ptr [ %cur.0159, %while.end ], [ %cur.0159, %if.end10 ], [ %cur.0159, %if.then16 ], [ %cur.0159, %if.then23 ], [ %call.i107, %for.end ], [ %call88, %if.then87 ], [ %call95, %if.then93 ], [ %call104, %if.then102 ], [ %call113, %if.then111 ], [ %call122, %if.then120 ], [ %call132, %if.then131 ], [ %call144, %if.then142 ], [ %call155, %if.then153 ], [ %call164, %if.then162 ], [ %call175, %if.then172 ], [ %call186, %if.then183 ]
   %p.0.be = phi ptr [ %p.1, %while.end ], [ %add.ptr11, %if.end10 ], [ %incdec.ptr17, %if.then16 ], [ %incdec.ptr24, %if.then23 ], [ %p.2, %for.end ], [ %add.ptr90, %if.then87 ], [ %add.ptr99, %if.then93 ], [ %add.ptr108, %if.then102 ], [ %add.ptr117, %if.then111 ], [ %add.ptr126, %if.then120 ], [ %add.ptr139, %if.then131 ], [ %add.ptr150, %if.then142 ], [ %add.ptr159, %if.then153 ], [ %add.ptr168, %if.then162 ], [ %add.ptr179, %if.then172 ], [ %add.ptr190, %if.then183 ]
-  %cur.0.be = phi ptr [ %cur.0160, %while.end ], [ %cur.0160, %if.end10 ], [ %cur.0160, %if.then16 ], [ %cur.0160, %if.then23 ], [ %call.i107, %for.end ], [ %call88, %if.then87 ], [ %call95, %if.then93 ], [ %call104, %if.then102 ], [ %call113, %if.then111 ], [ %call122, %if.then120 ], [ %call132, %if.then131 ], [ %call144, %if.then142 ], [ %call155, %if.then153 ], [ %call164, %if.then162 ], [ %call175, %if.then172 ], [ %call186, %if.then183 ]
   %8 = load i8, ptr %p.0.be, align 1
   %tobool.not = icmp eq i8 %8, 0
   br i1 %tobool.not, label %while.end192.loopexit, label %sub_0, !llvm.loop !17
 
 sub_1140:                                         ; preds = %while.body.tail
-  %9 = getelementptr inbounds i8, ptr %p.0159, i64 1
+  %9 = getelementptr inbounds i8, ptr %p.0160, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = add nsw i32 %11, -42
@@ -1154,13 +1154,13 @@ if.end.tail:                                      ; preds = %sub_0, %sub_1140
   br i1 %cmp.i106, label %if.then5, label %if.end12
 
 if.then5:                                         ; preds = %if.end.tail
-  %add.ptr6 = getelementptr inbounds i8, ptr %p.0159, i64 2
+  %add.ptr6 = getelementptr inbounds i8, ptr %p.0160, i64 2
   %call7 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %add.ptr6, ptr noundef nonnull dereferenceable(1) @.str.4) #27
   %tobool8.not = icmp eq ptr %call7, null
   br i1 %tobool8.not, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.then5
-  tail call void (ptr, ptr, ...) @error_at(ptr noundef nonnull %p.0159, ptr noundef nonnull @.str.5) #26
+  tail call void (ptr, ptr, ...) @error_at(ptr noundef nonnull %p.0160, ptr noundef nonnull @.str.5) #26
   unreachable
 
 if.end10:                                         ; preds = %if.then5
@@ -1173,7 +1173,7 @@ if.end12:                                         ; preds = %if.end.tail
   br i1 %cmp14, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %if.end12
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %p.0159, i64 1
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %p.0160, i64 1
   store i1 true, ptr @at_bol, align 1
   store i1 false, ptr @has_space, align 1
   br label %while.cond.backedge
@@ -1190,7 +1190,7 @@ if.end18:                                         ; preds = %if.end12
   br i1 %tobool22.not, label %if.end25, label %if.then23
 
 if.then23:                                        ; preds = %if.end18
-  %incdec.ptr24 = getelementptr inbounds i8, ptr %p.0159, i64 1
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %p.0160, i64 1
   store i1 true, ptr @has_space, align 1
   br label %while.cond.backedge
 
@@ -1206,7 +1206,7 @@ lor.lhs.false:                                    ; preds = %if.end25
   ]
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %arrayidx37 = getelementptr inbounds i8, ptr %p.0159, i64 1
+  %arrayidx37 = getelementptr inbounds i8, ptr %p.0160, i64 1
   %16 = load i8, ptr %arrayidx37, align 1
   %idxprom39 = sext i8 %16 to i64
   %arrayidx40 = getelementptr inbounds i16, ptr %14, i64 %idxprom39
@@ -1216,7 +1216,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   br i1 %tobool43.not, label %if.end140, label %if.then44
 
 if.then44:                                        ; preds = %land.lhs.true, %if.end25
-  %incdec.ptr46 = getelementptr inbounds i8, ptr %p.0159, i64 1
+  %incdec.ptr46 = getelementptr inbounds i8, ptr %p.0160, i64 1
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end81, %if.then44
@@ -1265,9 +1265,9 @@ for.end:                                          ; preds = %if.else
   %call.i107 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #29
   store i32 5, ptr %call.i107, align 16
   %loc.i = getelementptr inbounds i8, ptr %call.i107, i64 48
-  store ptr %p.0159, ptr %loc.i, align 16
+  store ptr %p.0160, ptr %loc.i, align 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %p.2 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %p.0159 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %p.0160 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
   %len.i = getelementptr inbounds i8, ptr %call.i107, i64 56
@@ -1289,18 +1289,18 @@ for.end:                                          ; preds = %if.else
   store i8 %frombool3.i, ptr %has_space.i, align 1
   store i1 false, ptr @has_space, align 1
   store i1 false, ptr @at_bol, align 1
-  %next = getelementptr inbounds i8, ptr %cur.0160, i64 8
+  %next = getelementptr inbounds i8, ptr %cur.0159, i64 8
   store ptr %call.i107, ptr %next, align 8
   br label %while.cond.backedge
 
 if.then87:                                        ; preds = %lor.lhs.false
-  %call88 = tail call fastcc ptr @read_string_literal(ptr noundef nonnull %p.0159, ptr noundef nonnull %p.0159)
-  %next89 = getelementptr inbounds i8, ptr %cur.0160, i64 8
+  %call88 = tail call fastcc ptr @read_string_literal(ptr noundef nonnull %p.0160, ptr noundef nonnull %p.0160)
+  %next89 = getelementptr inbounds i8, ptr %cur.0159, i64 8
   store ptr %call88, ptr %next89, align 8
   %len = getelementptr inbounds i8, ptr %call88, i64 56
   %27 = load i32, ptr %len, align 8
   %idx.ext = sext i32 %27 to i64
-  %add.ptr90 = getelementptr inbounds i8, ptr %p.0159, i64 %idx.ext
+  %add.ptr90 = getelementptr inbounds i8, ptr %p.0160, i64 %idx.ext
   br label %while.cond.backedge
 
 sub_0142:                                         ; preds = %lor.lhs.false
@@ -1309,7 +1309,7 @@ sub_0142:                                         ; preds = %lor.lhs.false
   br i1 %.not163, label %sub_1143, label %if.end91.tail
 
 sub_1143:                                         ; preds = %sub_0142
-  %29 = getelementptr inbounds i8, ptr %p.0159, i64 1
+  %29 = getelementptr inbounds i8, ptr %p.0160, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = add nsw i32 %31, -56
@@ -1317,7 +1317,7 @@ sub_1143:                                         ; preds = %sub_0142
   br i1 %.not164, label %sub_2, label %if.end91.tail
 
 sub_2:                                            ; preds = %sub_1143
-  %33 = getelementptr inbounds i8, ptr %p.0159, i64 2
+  %33 = getelementptr inbounds i8, ptr %p.0160, i64 2
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = add nsw i32 %35, -34
@@ -1330,21 +1330,21 @@ if.end91.tail:                                    ; preds = %sub_0142, %sub_1143
   br i1 %cmp.i110, label %if.then93, label %sub_0145
 
 if.then93:                                        ; preds = %if.end91.tail
-  %add.ptr94 = getelementptr inbounds i8, ptr %p.0159, i64 2
-  %call95 = tail call fastcc ptr @read_string_literal(ptr noundef nonnull %p.0159, ptr noundef nonnull %add.ptr94)
-  %next96 = getelementptr inbounds i8, ptr %cur.0160, i64 8
+  %add.ptr94 = getelementptr inbounds i8, ptr %p.0160, i64 2
+  %call95 = tail call fastcc ptr @read_string_literal(ptr noundef nonnull %p.0160, ptr noundef nonnull %add.ptr94)
+  %next96 = getelementptr inbounds i8, ptr %cur.0159, i64 8
   store ptr %call95, ptr %next96, align 8
   %len97 = getelementptr inbounds i8, ptr %call95, i64 56
   %39 = load i32, ptr %len97, align 8
   %idx.ext98 = sext i32 %39 to i64
-  %add.ptr99 = getelementptr inbounds i8, ptr %p.0159, i64 %idx.ext98
+  %add.ptr99 = getelementptr inbounds i8, ptr %p.0160, i64 %idx.ext98
   br label %while.cond.backedge
 
 sub_0145:                                         ; preds = %if.end91.tail
   br i1 %.not163, label %sub_1146, label %if.end100.tail
 
 sub_1146:                                         ; preds = %sub_0145
-  %40 = getelementptr inbounds i8, ptr %p.0159, i64 1
+  %40 = getelementptr inbounds i8, ptr %p.0160, i64 1
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = add nsw i32 %42, -34
@@ -1356,14 +1356,14 @@ if.end100.tail:                                   ; preds = %sub_0145, %sub_1146
   br i1 %cmp.i113, label %if.then102, label %sub_0148
 
 if.then102:                                       ; preds = %if.end100.tail
-  %add.ptr103 = getelementptr inbounds i8, ptr %p.0159, i64 1
-  %call104 = tail call fastcc ptr @read_utf16_string_literal(ptr noundef nonnull %p.0159, ptr noundef nonnull %add.ptr103)
-  %next105 = getelementptr inbounds i8, ptr %cur.0160, i64 8
+  %add.ptr103 = getelementptr inbounds i8, ptr %p.0160, i64 1
+  %call104 = tail call fastcc ptr @read_utf16_string_literal(ptr noundef nonnull %p.0160, ptr noundef nonnull %add.ptr103)
+  %next105 = getelementptr inbounds i8, ptr %cur.0159, i64 8
   store ptr %call104, ptr %next105, align 8
   %len106 = getelementptr inbounds i8, ptr %call104, i64 56
   %45 = load i32, ptr %len106, align 8
   %idx.ext107 = sext i32 %45 to i64
-  %add.ptr108 = getelementptr inbounds i8, ptr %p.0159, i64 %idx.ext107
+  %add.ptr108 = getelementptr inbounds i8, ptr %p.0160, i64 %idx.ext107
   br label %while.cond.backedge
 
 sub_0148:                                         ; preds = %if.end100.tail
@@ -1372,7 +1372,7 @@ sub_0148:                                         ; preds = %if.end100.tail
   br i1 %.not166, label %sub_1149, label %if.end109.tail
 
 sub_1149:                                         ; preds = %sub_0148
-  %47 = getelementptr inbounds i8, ptr %p.0159, i64 1
+  %47 = getelementptr inbounds i8, ptr %p.0160, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = add nsw i32 %49, -34
@@ -1384,15 +1384,15 @@ if.end109.tail:                                   ; preds = %sub_0148, %sub_1149
   br i1 %cmp.i116, label %if.then111, label %sub_0151
 
 if.then111:                                       ; preds = %if.end109.tail
-  %add.ptr112 = getelementptr inbounds i8, ptr %p.0159, i64 1
+  %add.ptr112 = getelementptr inbounds i8, ptr %p.0160, i64 1
   %52 = load ptr, ptr @ty_int, align 8
-  %call113 = tail call fastcc ptr @read_utf32_string_literal(ptr noundef nonnull %p.0159, ptr noundef nonnull %add.ptr112, ptr noundef %52)
-  %next114 = getelementptr inbounds i8, ptr %cur.0160, i64 8
+  %call113 = tail call fastcc ptr @read_utf32_string_literal(ptr noundef nonnull %p.0160, ptr noundef nonnull %add.ptr112, ptr noundef %52)
+  %next114 = getelementptr inbounds i8, ptr %cur.0159, i64 8
   store ptr %call113, ptr %next114, align 8
   %len115 = getelementptr inbounds i8, ptr %call113, i64 56
   %53 = load i32, ptr %len115, align 8
   %idx.ext116 = sext i32 %53 to i64
-  %add.ptr117 = getelementptr inbounds i8, ptr %p.0159, i64 %idx.ext116
+  %add.ptr117 = getelementptr inbounds i8, ptr %p.0160, i64 %idx.ext116
   br label %while.cond.backedge
 
 sub_0151:                                         ; preds = %if.end109.tail
@@ -1401,7 +1401,7 @@ sub_0151:                                         ; preds = %if.end109.tail
   br i1 %.not167, label %sub_1152, label %if.end118.tail
 
 sub_1152:                                         ; preds = %sub_0151
-  %55 = getelementptr inbounds i8, ptr %p.0159, i64 1
+  %55 = getelementptr inbounds i8, ptr %p.0160, i64 1
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = add nsw i32 %57, -34
@@ -1413,15 +1413,15 @@ if.end118.tail:                                   ; preds = %sub_0151, %sub_1152
   br i1 %cmp.i119, label %if.then120, label %if.end127
 
 if.then120:                                       ; preds = %if.end118.tail
-  %add.ptr121 = getelementptr inbounds i8, ptr %p.0159, i64 1
+  %add.ptr121 = getelementptr inbounds i8, ptr %p.0160, i64 1
   %60 = load ptr, ptr @ty_uint, align 8
-  %call122 = tail call fastcc ptr @read_utf32_string_literal(ptr noundef nonnull %p.0159, ptr noundef nonnull %add.ptr121, ptr noundef %60)
-  %next123 = getelementptr inbounds i8, ptr %cur.0160, i64 8
+  %call122 = tail call fastcc ptr @read_utf32_string_literal(ptr noundef nonnull %p.0160, ptr noundef nonnull %add.ptr121, ptr noundef %60)
+  %next123 = getelementptr inbounds i8, ptr %cur.0159, i64 8
   store ptr %call122, ptr %next123, align 8
   %len124 = getelementptr inbounds i8, ptr %call122, i64 56
   %61 = load i32, ptr %len124, align 8
   %idx.ext125 = sext i32 %61 to i64
-  %add.ptr126 = getelementptr inbounds i8, ptr %p.0159, i64 %idx.ext125
+  %add.ptr126 = getelementptr inbounds i8, ptr %p.0160, i64 %idx.ext125
   br label %while.cond.backedge
 
 if.end127:                                        ; preds = %if.end118.tail
@@ -1430,8 +1430,8 @@ if.end127:                                        ; preds = %if.end118.tail
 
 if.then131:                                       ; preds = %if.end127
   %62 = load ptr, ptr @ty_int, align 8
-  %call132 = tail call fastcc ptr @read_char_literal(ptr noundef nonnull %p.0159, ptr noundef nonnull %p.0159, ptr noundef %62)
-  %next133 = getelementptr inbounds i8, ptr %cur.0160, i64 8
+  %call132 = tail call fastcc ptr @read_char_literal(ptr noundef nonnull %p.0160, ptr noundef nonnull %p.0160, ptr noundef %62)
+  %next133 = getelementptr inbounds i8, ptr %cur.0159, i64 8
   store ptr %call132, ptr %next133, align 8
   %val = getelementptr inbounds i8, ptr %call132, i64 16
   %63 = load i64, ptr %val, align 16
@@ -1441,18 +1441,18 @@ if.then131:                                       ; preds = %if.end127
   %len137 = getelementptr inbounds i8, ptr %call132, i64 56
   %64 = load i32, ptr %len137, align 8
   %idx.ext138 = sext i32 %64 to i64
-  %add.ptr139 = getelementptr inbounds i8, ptr %p.0159, i64 %idx.ext138
+  %add.ptr139 = getelementptr inbounds i8, ptr %p.0160, i64 %idx.ext138
   br label %while.cond.backedge
 
 if.end140:                                        ; preds = %land.lhs.true, %if.end127
-  %call141 = tail call fastcc zeroext i1 @startswith(ptr noundef nonnull %p.0159, ptr noundef nonnull @.str.12)
+  %call141 = tail call fastcc zeroext i1 @startswith(ptr noundef nonnull %p.0160, ptr noundef nonnull @.str.12)
   br i1 %call141, label %if.then142, label %if.end151
 
 if.then142:                                       ; preds = %if.end140
-  %add.ptr143 = getelementptr inbounds i8, ptr %p.0159, i64 1
+  %add.ptr143 = getelementptr inbounds i8, ptr %p.0160, i64 1
   %65 = load ptr, ptr @ty_ushort, align 8
-  %call144 = tail call fastcc ptr @read_char_literal(ptr noundef nonnull %p.0159, ptr noundef nonnull %add.ptr143, ptr noundef %65)
-  %next145 = getelementptr inbounds i8, ptr %cur.0160, i64 8
+  %call144 = tail call fastcc ptr @read_char_literal(ptr noundef nonnull %p.0160, ptr noundef nonnull %add.ptr143, ptr noundef %65)
+  %next145 = getelementptr inbounds i8, ptr %cur.0159, i64 8
   store ptr %call144, ptr %next145, align 8
   %val146 = getelementptr inbounds i8, ptr %call144, i64 16
   %66 = load i64, ptr %val146, align 16
@@ -1461,77 +1461,77 @@ if.then142:                                       ; preds = %if.end140
   %len148 = getelementptr inbounds i8, ptr %call144, i64 56
   %67 = load i32, ptr %len148, align 8
   %idx.ext149 = sext i32 %67 to i64
-  %add.ptr150 = getelementptr inbounds i8, ptr %p.0159, i64 %idx.ext149
+  %add.ptr150 = getelementptr inbounds i8, ptr %p.0160, i64 %idx.ext149
   br label %while.cond.backedge
 
 if.end151:                                        ; preds = %if.end140
-  %call152 = tail call fastcc zeroext i1 @startswith(ptr noundef nonnull %p.0159, ptr noundef nonnull @.str.13)
+  %call152 = tail call fastcc zeroext i1 @startswith(ptr noundef nonnull %p.0160, ptr noundef nonnull @.str.13)
   br i1 %call152, label %if.then153, label %if.end160
 
 if.then153:                                       ; preds = %if.end151
-  %add.ptr154 = getelementptr inbounds i8, ptr %p.0159, i64 1
+  %add.ptr154 = getelementptr inbounds i8, ptr %p.0160, i64 1
   %68 = load ptr, ptr @ty_int, align 8
-  %call155 = tail call fastcc ptr @read_char_literal(ptr noundef nonnull %p.0159, ptr noundef nonnull %add.ptr154, ptr noundef %68)
-  %next156 = getelementptr inbounds i8, ptr %cur.0160, i64 8
+  %call155 = tail call fastcc ptr @read_char_literal(ptr noundef nonnull %p.0160, ptr noundef nonnull %add.ptr154, ptr noundef %68)
+  %next156 = getelementptr inbounds i8, ptr %cur.0159, i64 8
   store ptr %call155, ptr %next156, align 8
   %len157 = getelementptr inbounds i8, ptr %call155, i64 56
   %69 = load i32, ptr %len157, align 8
   %idx.ext158 = sext i32 %69 to i64
-  %add.ptr159 = getelementptr inbounds i8, ptr %p.0159, i64 %idx.ext158
+  %add.ptr159 = getelementptr inbounds i8, ptr %p.0160, i64 %idx.ext158
   br label %while.cond.backedge
 
 if.end160:                                        ; preds = %if.end151
-  %call161 = tail call fastcc zeroext i1 @startswith(ptr noundef nonnull %p.0159, ptr noundef nonnull @.str.14)
+  %call161 = tail call fastcc zeroext i1 @startswith(ptr noundef nonnull %p.0160, ptr noundef nonnull @.str.14)
   br i1 %call161, label %if.then162, label %if.end169
 
 if.then162:                                       ; preds = %if.end160
-  %add.ptr163 = getelementptr inbounds i8, ptr %p.0159, i64 1
+  %add.ptr163 = getelementptr inbounds i8, ptr %p.0160, i64 1
   %70 = load ptr, ptr @ty_uint, align 8
-  %call164 = tail call fastcc ptr @read_char_literal(ptr noundef nonnull %p.0159, ptr noundef nonnull %add.ptr163, ptr noundef %70)
-  %next165 = getelementptr inbounds i8, ptr %cur.0160, i64 8
+  %call164 = tail call fastcc ptr @read_char_literal(ptr noundef nonnull %p.0160, ptr noundef nonnull %add.ptr163, ptr noundef %70)
+  %next165 = getelementptr inbounds i8, ptr %cur.0159, i64 8
   store ptr %call164, ptr %next165, align 8
   %len166 = getelementptr inbounds i8, ptr %call164, i64 56
   %71 = load i32, ptr %len166, align 8
   %idx.ext167 = sext i32 %71 to i64
-  %add.ptr168 = getelementptr inbounds i8, ptr %p.0159, i64 %idx.ext167
+  %add.ptr168 = getelementptr inbounds i8, ptr %p.0160, i64 %idx.ext167
   br label %while.cond.backedge
 
 if.end169:                                        ; preds = %if.end160
-  %call170 = tail call fastcc i32 @read_ident(ptr noundef nonnull %p.0159)
+  %call170 = tail call fastcc i32 @read_ident(ptr noundef nonnull %p.0160)
   %tobool171.not = icmp eq i32 %call170, 0
   br i1 %tobool171.not, label %if.end180, label %if.then172
 
 if.then172:                                       ; preds = %if.end169
   %idx.ext173 = sext i32 %call170 to i64
-  %add.ptr174 = getelementptr inbounds i8, ptr %p.0159, i64 %idx.ext173
-  %call175 = tail call fastcc ptr @new_token(i32 noundef 0, ptr noundef nonnull %p.0159, ptr noundef nonnull %add.ptr174)
-  %next176 = getelementptr inbounds i8, ptr %cur.0160, i64 8
+  %add.ptr174 = getelementptr inbounds i8, ptr %p.0160, i64 %idx.ext173
+  %call175 = tail call fastcc ptr @new_token(i32 noundef 0, ptr noundef nonnull %p.0160, ptr noundef nonnull %add.ptr174)
+  %next176 = getelementptr inbounds i8, ptr %cur.0159, i64 8
   store ptr %call175, ptr %next176, align 8
   %len177 = getelementptr inbounds i8, ptr %call175, i64 56
   %72 = load i32, ptr %len177, align 8
   %idx.ext178 = sext i32 %72 to i64
-  %add.ptr179 = getelementptr inbounds i8, ptr %p.0159, i64 %idx.ext178
+  %add.ptr179 = getelementptr inbounds i8, ptr %p.0160, i64 %idx.ext178
   br label %while.cond.backedge
 
 if.end180:                                        ; preds = %if.end169
-  %call181 = tail call fastcc i32 @read_punct(ptr noundef nonnull %p.0159)
+  %call181 = tail call fastcc i32 @read_punct(ptr noundef nonnull %p.0160)
   %tobool182.not = icmp eq i32 %call181, 0
   br i1 %tobool182.not, label %if.end191, label %if.then183
 
 if.then183:                                       ; preds = %if.end180
   %idx.ext184 = sext i32 %call181 to i64
-  %add.ptr185 = getelementptr inbounds i8, ptr %p.0159, i64 %idx.ext184
-  %call186 = tail call fastcc ptr @new_token(i32 noundef 1, ptr noundef nonnull %p.0159, ptr noundef nonnull %add.ptr185)
-  %next187 = getelementptr inbounds i8, ptr %cur.0160, i64 8
+  %add.ptr185 = getelementptr inbounds i8, ptr %p.0160, i64 %idx.ext184
+  %call186 = tail call fastcc ptr @new_token(i32 noundef 1, ptr noundef nonnull %p.0160, ptr noundef nonnull %add.ptr185)
+  %next187 = getelementptr inbounds i8, ptr %cur.0159, i64 8
   store ptr %call186, ptr %next187, align 8
   %len188 = getelementptr inbounds i8, ptr %call186, i64 56
   %73 = load i32, ptr %len188, align 8
   %idx.ext189 = sext i32 %73 to i64
-  %add.ptr190 = getelementptr inbounds i8, ptr %p.0159, i64 %idx.ext189
+  %add.ptr190 = getelementptr inbounds i8, ptr %p.0160, i64 %idx.ext189
   br label %while.cond.backedge
 
 if.end191:                                        ; preds = %if.end180
-  tail call void (ptr, ptr, ...) @error_at(ptr noundef nonnull %p.0159, ptr noundef nonnull @.str.15) #26
+  tail call void (ptr, ptr, ...) @error_at(ptr noundef nonnull %p.0160, ptr noundef nonnull @.str.15) #26
   unreachable
 
 while.end192.loopexit:                            ; preds = %while.cond.backedge
@@ -1546,8 +1546,8 @@ while.end192:                                     ; preds = %while.end192.loopex
   %.b911.i133 = phi i8 [ 0, %entry ], [ %75, %while.end192.loopexit ]
   %.b10.i130 = phi i8 [ 1, %entry ], [ %74, %while.end192.loopexit ]
   %76 = phi ptr [ %file, %entry ], [ %.pre, %while.end192.loopexit ]
-  %p.0.lcssa = phi ptr [ %0, %entry ], [ %p.0.be, %while.end192.loopexit ]
   %cur.0.lcssa = phi ptr [ %head, %entry ], [ %cur.0.be, %while.end192.loopexit ]
+  %p.0.lcssa = phi ptr [ %0, %entry ], [ %p.0.be, %while.end192.loopexit ]
   %call.i120 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #29
   store i32 6, ptr %call.i120, align 16
   %loc.i121 = getelementptr inbounds i8, ptr %call.i120, i64 48
@@ -2162,21 +2162,21 @@ remove_backslash_newline.exit:                    ; preds = %for.cond35.preheade
 
 sub_0.i:                                          ; preds = %remove_backslash_newline.exit, %if.end36.i
   %24 = phi i8 [ %45, %if.end36.i ], [ %23, %remove_backslash_newline.exit ]
-  %q.059.i = phi ptr [ %q.1.i, %if.end36.i ], [ %spec.select, %remove_backslash_newline.exit ]
-  %p.addr.058.i = phi ptr [ %p.addr.1.i, %if.end36.i ], [ %spec.select, %remove_backslash_newline.exit ]
+  %p.addr.059.i = phi ptr [ %p.addr.1.i, %if.end36.i ], [ %spec.select, %remove_backslash_newline.exit ]
+  %q.058.i = phi ptr [ %q.1.i, %if.end36.i ], [ %spec.select, %remove_backslash_newline.exit ]
   %25 = zext i8 %24 to i32
   %26 = add nsw i32 %25, -92
   %.not.i22 = icmp eq i32 %26, 0
   br i1 %.not.i22, label %while.body.tail.i, label %if.else8.tail.i
 
 while.body.tail.i:                                ; preds = %sub_0.i
-  %27 = getelementptr inbounds i8, ptr %p.addr.058.i, i64 1
+  %27 = getelementptr inbounds i8, ptr %p.addr.059.i, i64 1
   %28 = load i8, ptr %27, align 1
   %cmp.i.i = icmp eq i8 %28, 117
   br i1 %cmp.i.i, label %if.then.i25, label %sub_155.i
 
 if.then.i25:                                      ; preds = %while.body.tail.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %p.addr.058.i, i64 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %p.addr.059.i, i64 2
   %call.i25.i = tail call ptr @__ctype_b_loc() #28
   %29 = load ptr, ptr %call.i25.i, align 8
   br label %for.body.i.i
@@ -2213,15 +2213,15 @@ read_universal_char.exit.i:                       ; preds = %if.end.i.i
   br i1 %tobool2.not.i, label %if.else.i27, label %if.then3.i
 
 if.then3.i:                                       ; preds = %read_universal_char.exit.i
-  %add.ptr4.i = getelementptr inbounds i8, ptr %p.addr.058.i, i64 6
-  %call5.i26 = call i32 @encode_utf8(ptr noundef %q.059.i, i32 noundef %or.i.i) #25
+  %add.ptr4.i = getelementptr inbounds i8, ptr %p.addr.059.i, i64 6
+  %call5.i26 = call i32 @encode_utf8(ptr noundef %q.058.i, i32 noundef %or.i.i) #25
   %idx.ext.i = sext i32 %call5.i26 to i64
-  %add.ptr6.i = getelementptr inbounds i8, ptr %q.059.i, i64 %idx.ext.i
+  %add.ptr6.i = getelementptr inbounds i8, ptr %q.058.i, i64 %idx.ext.i
   br label %if.end36.i
 
 if.else.i27:                                      ; preds = %for.body.i.i, %read_universal_char.exit.i
-  %incdec.ptr7.i = getelementptr inbounds i8, ptr %q.059.i, i64 1
-  store i8 %24, ptr %q.059.i, align 1
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %q.058.i, i64 1
+  store i8 %24, ptr %q.058.i, align 1
   br label %if.end36.i
 
 sub_155.i:                                        ; preds = %while.body.tail.i
@@ -2235,7 +2235,7 @@ if.else8.tail.i:                                  ; preds = %sub_155.i, %sub_0.i
   br i1 %cmp.i28.i, label %if.then10.i, label %if.else24.i
 
 if.then10.i:                                      ; preds = %if.else8.tail.i
-  %add.ptr12.i = getelementptr inbounds i8, ptr %p.addr.058.i, i64 2
+  %add.ptr12.i = getelementptr inbounds i8, ptr %p.addr.059.i, i64 2
   %call.i29.i = tail call ptr @__ctype_b_loc() #28
   %38 = load ptr, ptr %call.i29.i, align 8
   br label %for.body.i30.i
@@ -2272,39 +2272,39 @@ read_universal_char.exit49.i:                     ; preds = %if.end.i37.i
   br i1 %tobool14.not.i, label %if.else20.i, label %if.then15.i24
 
 if.then15.i24:                                    ; preds = %read_universal_char.exit49.i
-  %add.ptr16.i = getelementptr inbounds i8, ptr %p.addr.058.i, i64 10
-  %call17.i = call i32 @encode_utf8(ptr noundef %q.059.i, i32 noundef %or.i45.i) #25
+  %add.ptr16.i = getelementptr inbounds i8, ptr %p.addr.059.i, i64 10
+  %call17.i = call i32 @encode_utf8(ptr noundef %q.058.i, i32 noundef %or.i45.i) #25
   %idx.ext18.i = sext i32 %call17.i to i64
-  %add.ptr19.i = getelementptr inbounds i8, ptr %q.059.i, i64 %idx.ext18.i
+  %add.ptr19.i = getelementptr inbounds i8, ptr %q.058.i, i64 %idx.ext18.i
   br label %if.end36.i
 
 if.else20.i:                                      ; preds = %for.body.i30.i, %read_universal_char.exit49.i
-  %incdec.ptr21.i = getelementptr inbounds i8, ptr %p.addr.058.i, i64 1
-  %incdec.ptr22.i = getelementptr inbounds i8, ptr %q.059.i, i64 1
-  store i8 %24, ptr %q.059.i, align 1
+  %incdec.ptr21.i = getelementptr inbounds i8, ptr %p.addr.059.i, i64 1
+  %incdec.ptr22.i = getelementptr inbounds i8, ptr %q.058.i, i64 1
+  store i8 %24, ptr %q.058.i, align 1
   br label %if.end36.i
 
 if.else24.i:                                      ; preds = %if.else8.tail.i
   %cmp.i = icmp eq i8 %24, 92
-  %incdec.ptr27.i = getelementptr inbounds i8, ptr %p.addr.058.i, i64 1
-  %incdec.ptr28.i = getelementptr inbounds i8, ptr %q.059.i, i64 1
+  %incdec.ptr27.i = getelementptr inbounds i8, ptr %p.addr.059.i, i64 1
+  %incdec.ptr28.i = getelementptr inbounds i8, ptr %q.058.i, i64 1
   br i1 %cmp.i, label %if.then26.i, label %if.else31.i
 
 if.then26.i:                                      ; preds = %if.else24.i
-  store i8 92, ptr %q.059.i, align 1
-  %incdec.ptr29.i = getelementptr inbounds i8, ptr %p.addr.058.i, i64 2
+  store i8 92, ptr %q.058.i, align 1
+  %incdec.ptr29.i = getelementptr inbounds i8, ptr %p.addr.059.i, i64 2
   %44 = load i8, ptr %incdec.ptr27.i, align 1
-  %incdec.ptr30.i = getelementptr inbounds i8, ptr %q.059.i, i64 2
+  %incdec.ptr30.i = getelementptr inbounds i8, ptr %q.058.i, i64 2
   store i8 %44, ptr %incdec.ptr28.i, align 1
   br label %if.end36.i
 
 if.else31.i:                                      ; preds = %if.else24.i
-  store i8 %24, ptr %q.059.i, align 1
+  store i8 %24, ptr %q.058.i, align 1
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.else31.i, %if.then26.i, %if.else20.i, %if.then15.i24, %if.else.i27, %if.then3.i
-  %p.addr.1.i = phi ptr [ %add.ptr4.i, %if.then3.i ], [ %27, %if.else.i27 ], [ %add.ptr16.i, %if.then15.i24 ], [ %incdec.ptr21.i, %if.else20.i ], [ %incdec.ptr29.i, %if.then26.i ], [ %incdec.ptr27.i, %if.else31.i ]
   %q.1.i = phi ptr [ %add.ptr6.i, %if.then3.i ], [ %incdec.ptr7.i, %if.else.i27 ], [ %add.ptr19.i, %if.then15.i24 ], [ %incdec.ptr22.i, %if.else20.i ], [ %incdec.ptr30.i, %if.then26.i ], [ %incdec.ptr28.i, %if.else31.i ]
+  %p.addr.1.i = phi ptr [ %add.ptr4.i, %if.then3.i ], [ %27, %if.else.i27 ], [ %add.ptr16.i, %if.then15.i24 ], [ %incdec.ptr21.i, %if.else20.i ], [ %incdec.ptr29.i, %if.then26.i ], [ %incdec.ptr27.i, %if.else31.i ]
   %45 = load i8, ptr %p.addr.1.i, align 1
   %tobool.not.i23 = icmp eq i8 %45, 0
   br i1 %tobool.not.i23, label %convert_universal_chars.exit, label %sub_0.i, !llvm.loop !24

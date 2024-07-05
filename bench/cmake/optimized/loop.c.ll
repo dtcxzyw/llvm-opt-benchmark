@@ -314,8 +314,8 @@ define dso_local i32 @uv_loop_fork(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %32, label %12, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %29, %.preheader, %5, %3, %1
-  %.027 = phi i32 [ %2, %1 ], [ %4, %3 ], [ %6, %5 ], [ 0, %.preheader ], [ 0, %29 ]
-  ret i32 %.027
+  %.0 = phi i32 [ %2, %1 ], [ %4, %3 ], [ %6, %5 ], [ 0, %.preheader ], [ 0, %29 ]
+  ret i32 %.0
 }
 
 declare i32 @uv__io_fork(ptr noundef) local_unnamed_addr #2

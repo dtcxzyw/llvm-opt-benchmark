@@ -686,7 +686,7 @@ _ZNK4pkpy3Str6lstripEv.exit:                      ; preds = %70
   br label %119
 
 89:                                               ; preds = %72, %79, %62
-  %.0 = phi i32 [ %74, %79 ], [ %74, %72 ], [ 0, %62 ]
+  %.022 = phi i32 [ %74, %79 ], [ %74, %72 ], [ 0, %62 ]
   %90 = invoke noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull @.str.7)
           to label %91 unwind label %80
 
@@ -713,7 +713,7 @@ _ZNK4pkpy3Str6lstripEv.exit:                      ; preds = %70
 97:                                               ; preds = %96
   %98 = ptrtoint ptr %3 to i64
   %99 = ptrtoint ptr %.sroa.0.0.i to i64
-  %100 = sext i32 %.0 to i64
+  %100 = sext i32 %.022 to i64
   %101 = add i64 %99, %100
   %102 = sub i64 %98, %101
   %103 = icmp sgt i64 %102, -1

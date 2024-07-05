@@ -151,17 +151,17 @@ fmap_readn.exit137.thread:                        ; preds = %31, %30, %fmap_read
 39:                                               ; preds = %36, %27
   %40 = phi i64 [ %22, %27 ], [ %.pre173, %36 ]
   %41 = phi ptr [ %20, %27 ], [ %.pre, %36 ]
-  %.050 = phi i1 [ false, %27 ], [ %38, %36 ]
-  %.049 = phi i64 [ %28, %27 ], [ %spec.select129, %36 ]
-  %or.cond162.not = icmp ugt i64 %40, %.049
+  %.051 = phi i1 [ false, %27 ], [ %38, %36 ]
+  %.050 = phi i64 [ %28, %27 ], [ %spec.select129, %36 ]
+  %or.cond162.not = icmp ugt i64 %40, %.050
   br i1 %or.cond162.not, label %42, label %fmap_readn.exit142.thread
 
 42:                                               ; preds = %39
-  %43 = sub i64 %40, %.049
+  %43 = sub i64 %40, %.050
   %spec.select.i139 = tail call i64 @llvm.umin.i64(i64 %43, i64 136)
   %44 = getelementptr inbounds i8, ptr %41, i64 104
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call ptr %45(ptr noundef nonnull %41, i64 noundef %.049, i64 noundef %spec.select.i139, i32 noundef 0) #5
+  %46 = tail call ptr %45(ptr noundef nonnull %41, i64 noundef %.050, i64 noundef %spec.select.i139, i32 noundef 0) #5
   %.not26.i140 = icmp eq ptr %46, null
   br i1 %.not26.i140, label %fmap_readn.exit142.thread, label %fmap_readn.exit142
 
@@ -236,7 +236,7 @@ fmap_readn.exit142.thread:                        ; preds = %42, %39, %fmap_read
   br i1 %.not93, label %78, label %76
 
 76:                                               ; preds = %70
-  %77 = call fastcc i32 @apm_partition_intersection(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %.049, i1 noundef zeroext %.050)
+  %77 = call fastcc i32 @apm_partition_intersection(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %.050, i1 noundef zeroext %.051)
   %.not94 = icmp eq i32 %77, 0
   br i1 %.not94, label %78, label %.loopexit
 
@@ -253,9 +253,9 @@ fmap_readn.exit142.thread:                        ; preds = %42, %39, %fmap_read
   %83 = load i32, ptr %52, align 2
   %84 = load i32, ptr %55, align 2
   %85 = zext i32 %83 to i64
-  %86 = mul nuw nsw i64 %.049, %85
+  %86 = mul nuw nsw i64 %.050, %85
   %87 = zext i32 %84 to i64
-  %88 = mul nuw nsw i64 %.049, %87
+  %88 = mul nuw nsw i64 %.050, %87
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, i32 noundef %83, i32 noundef %84, i64 noundef %86, i64 noundef %88) #5
   %89 = load i32, ptr %49, align 2
   %90 = getelementptr inbounds i8, ptr %0, i64 48
@@ -278,7 +278,7 @@ fmap_readn.exit142.thread:                        ; preds = %42, %39, %fmap_read
 100:                                              ; preds = %.lr.ph, %153
   %.047168 = phi i32 [ 2, %.lr.ph ], [ %154, %153 ]
   %101 = zext i32 %.047168 to i64
-  %102 = mul nuw nsw i64 %.049, %101
+  %102 = mul nuw nsw i64 %.050, %101
   %103 = load ptr, ptr %6, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 88
   %105 = load i64, ptr %104, align 8
@@ -344,12 +344,12 @@ fmap_readn.exit147.thread:                        ; preds = %106, %100, %fmap_re
 
 125:                                              ; preds = %124
   %126 = zext i32 %117 to i64
-  %127 = mul nuw nsw i64 %.049, %126
+  %127 = mul nuw nsw i64 %.050, %126
   %128 = zext i32 %119 to i64
-  %129 = mul nuw nsw i64 %.049, %128
+  %129 = mul nuw nsw i64 %.050, %128
   %130 = and i32 %.047168, 3
   %131 = icmp eq i32 %130, 0
-  %or.cond = and i1 %.050, %131
+  %or.cond = and i1 %.051, %131
   br i1 %or.cond, label %132, label %141
 
 132:                                              ; preds = %125

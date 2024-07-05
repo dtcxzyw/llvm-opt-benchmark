@@ -12828,8 +12828,8 @@ if.then.i69:                                      ; preds = %sw.bb6
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i69, %sw.bb6
-  %t1.sroa.3.0.i = phi <2 x float> [ %12, %if.then.i69 ], [ zeroinitializer, %sw.bb6 ]
   %t1.sroa.0.0.i = phi <2 x float> [ %11, %if.then.i69 ], [ zeroinitializer, %sw.bb6 ]
+  %t1.sroa.3.0.i = phi <2 x float> [ %12, %if.then.i69 ], [ zeroinitializer, %sw.bb6 ]
   %cmp6.i = fcmp une float %call3.i.i.i, 0.000000e+00
   br i1 %cmp6.i, label %if.then7.i, label %if.end14.i
 
@@ -12997,8 +12997,8 @@ if.then.i102:                                     ; preds = %sw.bb10
   br label %if.end.i79
 
 if.end.i79:                                       ; preds = %if.then.i102, %sw.bb10
-  %t1.sroa.3.0.i80 = phi <2 x float> [ %34, %if.then.i102 ], [ zeroinitializer, %sw.bb10 ]
-  %t1.sroa.0.0.i81 = phi <2 x float> [ %33, %if.then.i102 ], [ zeroinitializer, %sw.bb10 ]
+  %t1.sroa.0.0.i80 = phi <2 x float> [ %33, %if.then.i102 ], [ zeroinitializer, %sw.bb10 ]
+  %t1.sroa.3.0.i81 = phi <2 x float> [ %34, %if.then.i102 ], [ zeroinitializer, %sw.bb10 ]
   %cmp7.i = fcmp une float %29, 1.000000e+00
   br i1 %cmp7.i, label %if.then8.i, label %if.end15.i
 
@@ -13036,9 +13036,9 @@ if.end15.i:                                       ; preds = %if.then8.i, %if.end
   %t2.sroa.3.0.i82 = phi <2 x float> [ %39, %if.then8.i ], [ zeroinitializer, %if.end.i79 ]
   %t2.sroa.0.0.i83 = phi <2 x float> [ %38, %if.then8.i ], [ zeroinitializer, %if.end.i79 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i76)
-  store <2 x float> %t1.sroa.0.0.i81, ptr %retval.i.i.i76, align 8
+  store <2 x float> %t1.sroa.0.0.i80, ptr %retval.i.i.i76, align 8
   %t1.sroa.3.0.retval.i.i.sroa_idx.i84 = getelementptr inbounds i8, ptr %retval.i.i.i76, i64 8
-  store <2 x float> %t1.sroa.3.0.i80, ptr %t1.sroa.3.0.retval.i.i.sroa_idx.i84, align 8
+  store <2 x float> %t1.sroa.3.0.i81, ptr %t1.sroa.3.0.retval.i.i.sroa_idx.i84, align 8
   br label %for.body.i.i.i85
 
 for.body.i.i.i85:                                 ; preds = %for.body.i.i.i85, %if.end15.i
@@ -13265,8 +13265,8 @@ if.then.i175:                                     ; preds = %sw.bb26
   br label %if.end.i137
 
 if.end.i137:                                      ; preds = %if.then.i175, %sw.bb26
-  %t0.sroa.3.0.i = phi <2 x float> [ %72, %if.then.i175 ], [ zeroinitializer, %sw.bb26 ]
   %t0.sroa.0.0.i = phi <2 x float> [ %71, %if.then.i175 ], [ zeroinitializer, %sw.bb26 ]
+  %t0.sroa.3.0.i = phi <2 x float> [ %72, %if.then.i175 ], [ zeroinitializer, %sw.bb26 ]
   %cmp8.i = fcmp une float %call.i135, 0.000000e+00
   br i1 %cmp8.i, label %if.then9.i, label %if.end18.i
 

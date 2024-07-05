@@ -1109,7 +1109,7 @@ define internal fastcc i64 @json_agg_transfn_worker(ptr noundef %0, i1 noundef z
   br label %32
 
 32:                                               ; preds = %28, %20
-  %.0 = phi ptr [ %23, %20 ], [ %31, %28 ]
+  %.030 = phi ptr [ %23, %20 ], [ %31, %28 ]
   br i1 %1, label %33, label %37
 
 33:                                               ; preds = %32
@@ -1119,7 +1119,7 @@ define internal fastcc i64 @json_agg_transfn_worker(ptr noundef %0, i1 noundef z
   br i1 %36, label %69, label %37
 
 37:                                               ; preds = %33, %32
-  %38 = load ptr, ptr %.0, align 8
+  %38 = load ptr, ptr %.030, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = icmp sgt i32 %40, 1
@@ -1136,7 +1136,7 @@ define internal fastcc i64 @json_agg_transfn_worker(ptr noundef %0, i1 noundef z
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %43
-  %48 = load ptr, ptr %.0, align 8
+  %48 = load ptr, ptr %.030, align 8
   call void @check_stack_depth() #9
   call void @appendBinaryStringInfo(ptr noundef %48, ptr noundef nonnull @.str.19, i32 noundef 4) #9
   br label %69
@@ -1146,7 +1146,7 @@ define internal fastcc i64 @json_agg_transfn_worker(ptr noundef %0, i1 noundef z
   %51 = load i64, ptr %50, align 8
   %52 = load i8, ptr %9, align 8
   %53 = trunc i8 %52 to i1
-  %.pre33 = load ptr, ptr %.0, align 8
+  %.pre33 = load ptr, ptr %.030, align 8
   br i1 %53, label %63, label %54
 
 54:                                               ; preds = %49
@@ -1156,7 +1156,7 @@ define internal fastcc i64 @json_agg_transfn_worker(ptr noundef %0, i1 noundef z
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %.0, i64 16
+  %59 = getelementptr inbounds i8, ptr %.030, i64 16
   %60 = load i32, ptr %59, align 8
   %61 = and i32 %60, -2
   %switch = icmp eq i32 %61, 8
@@ -1164,21 +1164,21 @@ define internal fastcc i64 @json_agg_transfn_worker(ptr noundef %0, i1 noundef z
 
 62:                                               ; preds = %58
   call void @appendStringInfoString(ptr noundef nonnull %.pre33, ptr noundef nonnull @.str.44) #9
-  %.pre = load ptr, ptr %.0, align 8
+  %.pre = load ptr, ptr %.030, align 8
   br label %63
 
 63:                                               ; preds = %58, %62, %54, %49
   %64 = phi ptr [ %.pre33, %58 ], [ %.pre, %62 ], [ %.pre33, %54 ], [ %.pre33, %49 ]
-  %65 = getelementptr inbounds i8, ptr %.0, i64 16
+  %65 = getelementptr inbounds i8, ptr %.030, i64 16
   %66 = load i32, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %.0, i64 20
+  %67 = getelementptr inbounds i8, ptr %.030, i64 20
   %68 = load i32, ptr %67, align 4
   call fastcc void @datum_to_json_internal(i64 noundef %51, i1 noundef zeroext false, ptr noundef %64, i32 noundef %66, i32 noundef %68, i1 noundef zeroext false)
   br label %69
 
 69:                                               ; preds = %33, %63, %47
-  %.030 = ptrtoint ptr %.0 to i64
-  ret i64 %.030
+  %.0 = ptrtoint ptr %.030 to i64
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1343,7 +1343,7 @@ define internal fastcc i64 @json_object_agg_transfn_worker(ptr noundef %0, i1 no
   br label %60
 
 60:                                               ; preds = %56, %52
-  %.053 = phi ptr [ %19, %52 ], [ %59, %56 ]
+  %.052 = phi ptr [ %19, %52 ], [ %59, %56 ]
   %61 = getelementptr i8, ptr %0, i64 48
   %62 = getelementptr i8, ptr %0, i64 56
   %63 = load i8, ptr %62, align 8
@@ -1371,13 +1371,13 @@ define internal fastcc i64 @json_object_agg_transfn_worker(ptr noundef %0, i1 no
   br i1 %2, label %75, label %128
 
 75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %.053, i64 32
+  %76 = getelementptr inbounds i8, ptr %.052, i64 32
   %77 = load ptr, ptr %76, align 8
   %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %78, label %82
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %.053, i64 56
+  %79 = getelementptr inbounds i8, ptr %.052, i64 56
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %80, ptr @CurrentMemoryContext, align 8
@@ -1386,12 +1386,12 @@ define internal fastcc i64 @json_object_agg_transfn_worker(ptr noundef %0, i1 no
   br label %json_unique_builder_get_throwawaybuf.exit
 
 82:                                               ; preds = %75
-  %83 = getelementptr inbounds i8, ptr %.053, i64 40
+  %83 = getelementptr inbounds i8, ptr %.052, i64 40
   store i32 0, ptr %83, align 8
   br label %json_unique_builder_get_throwawaybuf.exit
 
 .thread:                                          ; preds = %69, %70
-  %84 = load ptr, ptr %.053, align 8
+  %84 = load ptr, ptr %.052, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 8
   %86 = load i32, ptr %85, align 8
   %87 = icmp sgt i32 %86, 2
@@ -1403,22 +1403,22 @@ define internal fastcc i64 @json_object_agg_transfn_worker(ptr noundef %0, i1 no
 
 json_unique_builder_get_throwawaybuf.exit:        ; preds = %82, %78, %.thread, %88
   %89 = phi i1 [ false, %88 ], [ false, %.thread ], [ true, %78 ], [ true, %82 ]
-  %.052 = phi ptr [ %84, %88 ], [ %84, %.thread ], [ %76, %78 ], [ %76, %82 ]
+  %.053 = phi ptr [ %84, %88 ], [ %84, %.thread ], [ %76, %78 ], [ %76, %82 ]
   %90 = load i64, ptr %61, align 8
-  %91 = getelementptr inbounds i8, ptr %.052, i64 8
+  %91 = getelementptr inbounds i8, ptr %.053, i64 8
   %92 = load i32, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %.053, i64 8
+  %93 = getelementptr inbounds i8, ptr %.052, i64 8
   %94 = load i32, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %.053, i64 12
+  %95 = getelementptr inbounds i8, ptr %.052, i64 12
   %96 = load i32, ptr %95, align 4
-  call fastcc void @datum_to_json_internal(i64 noundef %90, i1 noundef zeroext false, ptr noundef nonnull %.052, i32 noundef %94, i32 noundef %96, i1 noundef zeroext true)
+  call fastcc void @datum_to_json_internal(i64 noundef %90, i1 noundef zeroext false, ptr noundef nonnull %.053, i32 noundef %94, i32 noundef %96, i1 noundef zeroext true)
   br i1 %2, label %97, label %114
 
 97:                                               ; preds = %json_unique_builder_get_throwawaybuf.exit
-  %98 = load ptr, ptr %.052, align 8
+  %98 = load ptr, ptr %.053, align 8
   %99 = sext i32 %92 to i64
   %100 = getelementptr i8, ptr %98, i64 %99
-  %101 = getelementptr inbounds i8, ptr %.053, i64 24
+  %101 = getelementptr inbounds i8, ptr %.052, i64 24
   %.val = load ptr, ptr %101, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
@@ -1448,7 +1448,7 @@ json_unique_builder_get_throwawaybuf.exit:        ; preds = %82, %78, %.thread, 
   br i1 %89, label %128, label %114
 
 114:                                              ; preds = %113, %json_unique_builder_get_throwawaybuf.exit
-  %115 = load ptr, ptr %.053, align 8
+  %115 = load ptr, ptr %.052, align 8
   call void @appendStringInfoString(ptr noundef %115, ptr noundef nonnull @.str.13) #9
   %116 = getelementptr i8, ptr %0, i64 72
   %117 = load i8, ptr %116, align 8
@@ -1461,18 +1461,18 @@ json_unique_builder_get_throwawaybuf.exit:        ; preds = %82, %78, %.thread, 
   br label %122
 
 122:                                              ; preds = %114, %119
-  %.0 = phi i64 [ %121, %119 ], [ 0, %114 ]
-  %123 = load ptr, ptr %.053, align 8
-  %124 = getelementptr inbounds i8, ptr %.053, i64 16
+  %.054 = phi i64 [ %121, %119 ], [ 0, %114 ]
+  %123 = load ptr, ptr %.052, align 8
+  %124 = getelementptr inbounds i8, ptr %.052, i64 16
   %125 = load i32, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %.053, i64 20
+  %126 = getelementptr inbounds i8, ptr %.052, i64 20
   %127 = load i32, ptr %126, align 4
-  call fastcc void @datum_to_json_internal(i64 noundef %.0, i1 noundef zeroext %118, ptr noundef %123, i32 noundef %125, i32 noundef %127, i1 noundef zeroext false)
+  call fastcc void @datum_to_json_internal(i64 noundef %.054, i1 noundef zeroext %118, ptr noundef %123, i32 noundef %125, i32 noundef %127, i1 noundef zeroext false)
   br label %128
 
 128:                                              ; preds = %113, %74, %122
-  %.054 = ptrtoint ptr %.053 to i64
-  ret i64 %.054
+  %.0 = ptrtoint ptr %.052 to i64
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1598,12 +1598,12 @@ define dso_local i64 @json_build_object_worker(i32 noundef %0, ptr nocapture nou
   br label %39
 
 39:                                               ; preds = %.lr.ph, %98
-  %.03841 = phi ptr [ @.str.6, %.lr.ph ], [ %.2, %98 ]
-  %.03940 = phi i32 [ 0, %.lr.ph ], [ %99, %98 ]
+  %.041 = phi i32 [ 0, %.lr.ph ], [ %99, %98 ]
+  %.03840 = phi ptr [ @.str.6, %.lr.ph ], [ %.2, %98 ]
   br i1 %4, label %40, label %.thread
 
 40:                                               ; preds = %39
-  %41 = or disjoint i32 %.03940, 1
+  %41 = or disjoint i32 %.041, 1
   %42 = sext i32 %41 to i64
   %43 = getelementptr i8, ptr %2, i64 %42
   %44 = load i8, ptr %43, align 1
@@ -1631,14 +1631,14 @@ define dso_local i64 @json_build_object_worker(i32 noundef %0, ptr nocapture nou
   br label %json_unique_builder_get_throwawaybuf.exit
 
 .thread:                                          ; preds = %39, %40
-  call void @appendStringInfoString(ptr noundef %20, ptr noundef %.03841) #9
+  call void @appendStringInfoString(ptr noundef %20, ptr noundef %.03840) #9
   br label %json_unique_builder_get_throwawaybuf.exit
 
 json_unique_builder_get_throwawaybuf.exit:        ; preds = %52, %49, %.thread
   %53 = phi i1 [ false, %.thread ], [ true, %49 ], [ true, %52 ]
-  %.1 = phi ptr [ @.str.10, %.thread ], [ %.03841, %49 ], [ %.03841, %52 ]
-  %.0 = phi ptr [ %20, %.thread ], [ %34, %49 ], [ %34, %52 ]
-  %54 = sext i32 %.03940 to i64
+  %.039 = phi ptr [ %20, %.thread ], [ %34, %49 ], [ %34, %52 ]
+  %.1 = phi ptr [ @.str.10, %.thread ], [ %.03840, %49 ], [ %.03840, %52 ]
+  %54 = sext i32 %.041 to i64
   %55 = getelementptr i8, ptr %2, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = trunc i8 %56 to i1
@@ -1653,7 +1653,7 @@ json_unique_builder_get_throwawaybuf.exit:        ; preds = %52, %49, %.thread
   unreachable
 
 62:                                               ; preds = %json_unique_builder_get_throwawaybuf.exit
-  %63 = getelementptr inbounds i8, ptr %.0, i64 8
+  %63 = getelementptr inbounds i8, ptr %.039, i64 8
   %64 = load i32, ptr %63, align 8
   %65 = getelementptr i64, ptr %1, i64 %54
   %66 = load i64, ptr %65, align 8
@@ -1676,13 +1676,13 @@ add_json.exit:                                    ; preds = %62
   call void @json_categorize_type(i32 noundef %68, i1 noundef zeroext false, ptr noundef nonnull %9, ptr noundef nonnull %10) #9
   %.pre.i = load i32, ptr %9, align 4
   %.pre6.i = load i32, ptr %10, align 4
-  call fastcc void @datum_to_json_internal(i64 noundef %66, i1 noundef zeroext false, ptr noundef nonnull %.0, i32 noundef %.pre.i, i32 noundef %.pre6.i, i1 noundef zeroext true)
+  call fastcc void @datum_to_json_internal(i64 noundef %66, i1 noundef zeroext false, ptr noundef nonnull %.039, i32 noundef %.pre.i, i32 noundef %.pre6.i, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br i1 %5, label %74, label %88
 
 74:                                               ; preds = %add_json.exit
-  %75 = load ptr, ptr %.0, align 8
+  %75 = load ptr, ptr %.039, align 8
   %76 = sext i32 %64 to i64
   %77 = getelementptr i8, ptr %75, i64 %76
   %.val = load ptr, ptr %12, align 8
@@ -1713,7 +1713,7 @@ add_json.exit:                                    ; preds = %62
 
 88:                                               ; preds = %87, %add_json.exit
   call void @appendStringInfoString(ptr noundef %20, ptr noundef nonnull @.str.13) #9
-  %89 = or disjoint i32 %.03940, 1
+  %89 = or disjoint i32 %.041, 1
   %90 = sext i32 %89 to i64
   %91 = getelementptr i64, ptr %1, i64 %90
   %92 = load i64, ptr %91, align 8
@@ -1726,8 +1726,8 @@ add_json.exit:                                    ; preds = %62
   br label %98
 
 98:                                               ; preds = %87, %46, %88
-  %.2 = phi ptr [ %.1, %87 ], [ %.1, %88 ], [ %.03841, %46 ]
-  %99 = add i32 %.03940, 2
+  %.2 = phi ptr [ %.1, %87 ], [ %.1, %88 ], [ %.03840, %46 ]
+  %99 = add i32 %.041, 2
   %100 = icmp slt i32 %99, %0
   br i1 %100, label %39, label %._crit_edge, !llvm.loop !7
 
@@ -1831,14 +1831,14 @@ define dso_local i64 @json_build_array_worker(i32 noundef %0, ptr nocapture noun
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %18
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %18 ], [ 0, %.lr.ph ]
-  %.020.us = phi ptr [ %.1.us, %18 ], [ @.str.6, %.lr.ph ]
+  %.01819.us = phi ptr [ %.1.us, %18 ], [ @.str.6, %.lr.ph ]
   %8 = getelementptr i8, ptr %2, i64 %indvars.iv23
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %.lr.ph.split.us
-  tail call void @appendStringInfoString(ptr noundef %6, ptr noundef %.020.us) #9
+  tail call void @appendStringInfoString(ptr noundef %6, ptr noundef %.01819.us) #9
   %12 = getelementptr i64, ptr %1, i64 %indvars.iv23
   %13 = load i64, ptr %12, align 8
   %14 = load i8, ptr %8, align 1
@@ -1849,15 +1849,15 @@ define dso_local i64 @json_build_array_worker(i32 noundef %0, ptr nocapture noun
   br label %18
 
 18:                                               ; preds = %11, %.lr.ph.split.us
-  %.1.us = phi ptr [ %.020.us, %.lr.ph.split.us ], [ @.str.10, %11 ]
+  %.1.us = phi ptr [ %.01819.us, %.lr.ph.split.us ], [ @.str.10, %11 ]
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count26
   br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.020 = phi ptr [ @.str.10, %.lr.ph.split ], [ @.str.6, %.lr.ph ]
-  tail call void @appendStringInfoString(ptr noundef %6, ptr noundef nonnull %.020) #9
+  %.01819 = phi ptr [ @.str.10, %.lr.ph.split ], [ @.str.6, %.lr.ph ]
+  tail call void @appendStringInfoString(ptr noundef %6, ptr noundef nonnull %.01819) #9
   %19 = getelementptr i64, ptr %1, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr i8, ptr %2, i64 %indvars.iv
@@ -1909,8 +1909,8 @@ define dso_local i64 @json_build_array(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %.020.i = phi ptr [ @.str.10, %.lr.ph.split.i ], [ @.str.6, %.lr.ph.i ]
-  call void @appendStringInfoString(ptr noundef %13, ptr noundef nonnull %.020.i) #9
+  %.01819.i = phi ptr [ @.str.10, %.lr.ph.split.i ], [ @.str.6, %.lr.ph.i ]
+  call void @appendStringInfoString(ptr noundef %13, ptr noundef nonnull %.01819.i) #9
   %14 = getelementptr i64, ptr %10, i64 %indvars.iv.i
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr i8, ptr %11, i64 %indvars.iv.i

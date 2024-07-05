@@ -335,8 +335,8 @@ define void @_Z8BinToHexPKhmPcPwm(ptr nocapture noundef readonly %0, i64 noundef
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %29
   %7 = phi i64 [ %31, %29 ], [ 0, %.lr.ph.split.us ]
-  %.058.us = phi i32 [ %30, %29 ], [ 0, %.lr.ph.split.us ]
-  %.04157.us = phi i32 [ %.1.us, %29 ], [ 0, %.lr.ph.split.us ]
+  %.04157.us = phi i32 [ %.142.us, %29 ], [ 0, %.lr.ph.split.us ]
+  %.04356.us = phi i32 [ %30, %29 ], [ 0, %.lr.ph.split.us ]
   %8 = zext i32 %.04157.us to i64
   %9 = icmp ugt i64 %6, %8
   br i1 %9, label %10, label %29
@@ -365,8 +365,8 @@ define void @_Z8BinToHexPKhmPcPwm(ptr nocapture noundef readonly %0, i64 noundef
   br label %29
 
 29:                                               ; preds = %10, %.lr.ph.split.us.split
-  %.1.us = phi i32 [ %26, %10 ], [ %.04157.us, %.lr.ph.split.us.split ]
-  %30 = add i32 %.058.us, 1
+  %.142.us = phi i32 [ %26, %10 ], [ %.04157.us, %.lr.ph.split.us.split ]
+  %30 = add i32 %.04356.us, 1
   %31 = zext i32 %30 to i64
   %32 = icmp ult i64 %31, %1
   br i1 %32, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !10
@@ -376,9 +376,9 @@ define void @_Z8BinToHexPKhmPcPwm(ptr nocapture noundef readonly %0, i64 noundef
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %57
   %33 = phi i64 [ %59, %57 ], [ 0, %.lr.ph.split ]
-  %.058.us61 = phi i32 [ %58, %57 ], [ 0, %.lr.ph.split ]
-  %.04256.us63 = phi i32 [ %.143.us64, %57 ], [ 0, %.lr.ph.split ]
-  %34 = zext i32 %.04256.us63 to i64
+  %.058.us61 = phi i32 [ %.1.us64, %57 ], [ 0, %.lr.ph.split ]
+  %.04356.us63 = phi i32 [ %58, %57 ], [ 0, %.lr.ph.split ]
+  %34 = zext i32 %.058.us61 to i64
   %35 = icmp ugt i64 %6, %34
   br i1 %35, label %36, label %57
 
@@ -397,28 +397,28 @@ define void @_Z8BinToHexPKhmPcPwm(ptr nocapture noundef readonly %0, i64 noundef
   %48 = or disjoint i32 %46, 48
   %49 = select i1 %45, i32 %47, i32 %48
   %50 = trunc nuw nsw i32 %49 to i8
-  %51 = add i32 %.04256.us63, 1
+  %51 = add i32 %.058.us61, 1
   %52 = getelementptr inbounds i8, ptr %2, i64 %34
   store i8 %50, ptr %52, align 1
   %53 = trunc nuw nsw i32 %44 to i8
-  %54 = add i32 %.04256.us63, 2
+  %54 = add i32 %.058.us61, 2
   %55 = zext i32 %51 to i64
   %56 = getelementptr inbounds i8, ptr %2, i64 %55
   store i8 %53, ptr %56, align 1
   br label %57
 
 57:                                               ; preds = %36, %.lr.ph.split.split.us
-  %.143.us64 = phi i32 [ %54, %36 ], [ %.04256.us63, %.lr.ph.split.split.us ]
-  %58 = add i32 %.058.us61, 1
+  %.1.us64 = phi i32 [ %54, %36 ], [ %.058.us61, %.lr.ph.split.split.us ]
+  %58 = add i32 %.04356.us63, 1
   %59 = zext i32 %58 to i64
   %60 = icmp ult i64 %59, %1
   br i1 %60, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !10
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %94
   %61 = phi i64 [ %96, %94 ], [ 0, %.lr.ph.split ]
-  %.058 = phi i32 [ %95, %94 ], [ 0, %.lr.ph.split ]
-  %.04157 = phi i32 [ %.1, %94 ], [ 0, %.lr.ph.split ]
-  %.04256 = phi i32 [ %.143, %94 ], [ 0, %.lr.ph.split ]
+  %.058 = phi i32 [ %.1, %94 ], [ 0, %.lr.ph.split ]
+  %.04157 = phi i32 [ %.142, %94 ], [ 0, %.lr.ph.split ]
+  %.04356 = phi i32 [ %95, %94 ], [ 0, %.lr.ph.split ]
   %62 = getelementptr inbounds i8, ptr %0, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
@@ -432,24 +432,24 @@ define void @_Z8BinToHexPKhmPcPwm(ptr nocapture noundef readonly %0, i64 noundef
   %72 = add nuw nsw i32 %66, 87
   %73 = or disjoint i32 %66, 48
   %74 = select i1 %71, i32 %72, i32 %73
-  %75 = zext i32 %.04256 to i64
+  %75 = zext i32 %.058 to i64
   %76 = icmp ugt i64 %6, %75
   br i1 %76, label %77, label %85
 
 77:                                               ; preds = %.lr.ph.split.split
   %78 = trunc nuw nsw i32 %70 to i8
-  %79 = add i32 %.04256, 1
+  %79 = add i32 %.058, 1
   %80 = getelementptr inbounds i8, ptr %2, i64 %75
   store i8 %78, ptr %80, align 1
   %81 = trunc nuw nsw i32 %74 to i8
-  %82 = add i32 %.04256, 2
+  %82 = add i32 %.058, 2
   %83 = zext i32 %79 to i64
   %84 = getelementptr inbounds i8, ptr %2, i64 %83
   store i8 %81, ptr %84, align 1
   br label %85
 
 85:                                               ; preds = %77, %.lr.ph.split.split
-  %.143 = phi i32 [ %82, %77 ], [ %.04256, %.lr.ph.split.split ]
+  %.1 = phi i32 [ %82, %77 ], [ %.058, %.lr.ph.split.split ]
   %86 = zext i32 %.04157 to i64
   %87 = icmp ugt i64 %6, %86
   br i1 %87, label %88, label %94
@@ -465,22 +465,22 @@ define void @_Z8BinToHexPKhmPcPwm(ptr nocapture noundef readonly %0, i64 noundef
   br label %94
 
 94:                                               ; preds = %85, %88
-  %.1 = phi i32 [ %91, %88 ], [ %.04157, %85 ]
-  %95 = add i32 %.058, 1
+  %.142 = phi i32 [ %91, %88 ], [ %.04157, %85 ]
+  %95 = add i32 %.04356, 1
   %96 = zext i32 %95 to i64
   %97 = icmp ult i64 %96, %1
   br i1 %97, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %94, %57, %29, %5
-  %.042.lcssa = phi i32 [ 0, %5 ], [ 0, %29 ], [ %.143.us64, %57 ], [ %.143, %94 ]
-  %.041.lcssa = phi i32 [ 0, %5 ], [ %.1.us, %29 ], [ 0, %57 ], [ %.1, %94 ]
+  %.041.lcssa = phi i32 [ 0, %5 ], [ %.142.us, %29 ], [ 0, %57 ], [ %.142, %94 ]
+  %.0.lcssa = phi i32 [ 0, %5 ], [ 0, %29 ], [ %.1.us64, %57 ], [ %.1, %94 ]
   %98 = icmp ne ptr %2, null
   %99 = icmp ne i64 %4, 0
   %or.cond = and i1 %98, %99
   br i1 %or.cond, label %100, label %103
 
 100:                                              ; preds = %._crit_edge
-  %101 = zext i32 %.042.lcssa to i64
+  %101 = zext i32 %.0.lcssa to i64
   %102 = getelementptr inbounds i8, ptr %2, i64 %101
   store i8 0, ptr %102, align 1
   br label %103
@@ -697,34 +697,34 @@ define void @_Z4itoalPcm(i64 noundef %0, ptr nocapture noundef writeonly %1, i64
   br label %8
 
 8:                                                ; preds = %9, %3
-  %.122 = phi i64 [ %spec.select, %3 ], [ %15, %9 ]
-  %.020 = phi i64 [ 0, %3 ], [ %10, %9 ]
-  %exitcond.not = icmp eq i64 %.020, %7
+  %.021 = phi i64 [ 0, %3 ], [ %10, %9 ]
+  %.1 = phi i64 [ %spec.select, %3 ], [ %15, %9 ]
+  %exitcond.not = icmp eq i64 %.021, %7
   br i1 %exitcond.not, label %16, label %9
 
 9:                                                ; preds = %8
-  %10 = add nuw i64 %.020, 1
-  %11 = urem i64 %.122, 10
+  %10 = add nuw i64 %.021, 1
+  %11 = urem i64 %.1, 10
   %12 = trunc nuw nsw i64 %11 to i8
   %13 = or disjoint i8 %12, 48
-  %14 = getelementptr inbounds [50 x i8], ptr %4, i64 0, i64 %.020
+  %14 = getelementptr inbounds [50 x i8], ptr %4, i64 0, i64 %.021
   store i8 %13, ptr %14, align 1
-  %15 = udiv i64 %.122, 10
-  %.not27 = icmp ult i64 %.122, 10
+  %15 = udiv i64 %.1, 10
+  %.not27 = icmp ult i64 %.1, 10
   br i1 %.not27, label %16, label %8, !llvm.loop !15
 
 16:                                               ; preds = %8, %9
-  %.1 = phi i64 [ %7, %8 ], [ %10, %9 ]
+  %.122 = phi i64 [ %7, %8 ], [ %10, %9 ]
   br i1 %5, label %17, label %20
 
 17:                                               ; preds = %16
-  %18 = add i64 %.1, 1
-  %19 = getelementptr inbounds [50 x i8], ptr %4, i64 0, i64 %.1
+  %18 = add i64 %.122, 1
+  %19 = getelementptr inbounds [50 x i8], ptr %4, i64 0, i64 %.122
   store i8 45, ptr %19, align 1
   br label %20
 
 20:                                               ; preds = %17, %16
-  %.2 = phi i64 [ %18, %17 ], [ %.1, %16 ]
+  %.2 = phi i64 [ %18, %17 ], [ %.122, %16 ]
   %.not29 = icmp eq i64 %.2, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
@@ -758,34 +758,34 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr nocapture noundef writeonly %1, i64
   br label %8
 
 8:                                                ; preds = %9, %3
-  %.122 = phi i64 [ %spec.select, %3 ], [ %15, %9 ]
-  %.020 = phi i64 [ 0, %3 ], [ %10, %9 ]
-  %exitcond.not = icmp eq i64 %.020, %7
+  %.021 = phi i64 [ 0, %3 ], [ %10, %9 ]
+  %.1 = phi i64 [ %spec.select, %3 ], [ %15, %9 ]
+  %exitcond.not = icmp eq i64 %.021, %7
   br i1 %exitcond.not, label %16, label %9
 
 9:                                                ; preds = %8
-  %10 = add nuw i64 %.020, 1
-  %11 = urem i64 %.122, 10
+  %10 = add nuw i64 %.021, 1
+  %11 = urem i64 %.1, 10
   %12 = trunc nuw nsw i64 %11 to i32
   %13 = or disjoint i32 %12, 48
-  %14 = getelementptr inbounds [50 x i32], ptr %4, i64 0, i64 %.020
+  %14 = getelementptr inbounds [50 x i32], ptr %4, i64 0, i64 %.021
   store i32 %13, ptr %14, align 4
-  %15 = udiv i64 %.122, 10
-  %.not27 = icmp ult i64 %.122, 10
+  %15 = udiv i64 %.1, 10
+  %.not27 = icmp ult i64 %.1, 10
   br i1 %.not27, label %16, label %8, !llvm.loop !17
 
 16:                                               ; preds = %8, %9
-  %.1 = phi i64 [ %7, %8 ], [ %10, %9 ]
+  %.122 = phi i64 [ %7, %8 ], [ %10, %9 ]
   br i1 %5, label %17, label %20
 
 17:                                               ; preds = %16
-  %18 = add i64 %.1, 1
-  %19 = getelementptr inbounds [50 x i32], ptr %4, i64 0, i64 %.1
+  %18 = add i64 %.122, 1
+  %19 = getelementptr inbounds [50 x i32], ptr %4, i64 0, i64 %.122
   store i32 45, ptr %19, align 4
   br label %20
 
 20:                                               ; preds = %17, %16
-  %.2 = phi i64 [ %18, %17 ], [ %.1, %16 ]
+  %.2 = phi i64 [ %18, %17 ], [ %.122, %16 ]
   %.not29 = icmp eq i64 %.2, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
@@ -826,34 +826,34 @@ define void @_Z7fmtitoalPwm(i64 noundef %0, ptr nocapture noundef writeonly %1, 
   br label %13
 
 13:                                               ; preds = %14, %3
-  %.122.i = phi i64 [ %spec.select.i, %3 ], [ %20, %14 ]
-  %.020.i = phi i64 [ 0, %3 ], [ %15, %14 ]
-  %exitcond.not.i = icmp eq i64 %.020.i, %12
+  %.021.i = phi i64 [ 0, %3 ], [ %15, %14 ]
+  %.1.i = phi i64 [ %spec.select.i, %3 ], [ %20, %14 ]
+  %exitcond.not.i = icmp eq i64 %.021.i, %12
   br i1 %exitcond.not.i, label %21, label %14
 
 14:                                               ; preds = %13
-  %15 = add nuw nsw i64 %.020.i, 1
-  %16 = urem i64 %.122.i, 10
+  %15 = add nuw nsw i64 %.021.i, 1
+  %16 = urem i64 %.1.i, 10
   %17 = trunc nuw nsw i64 %16 to i32
   %18 = or disjoint i32 %17, 48
-  %19 = getelementptr inbounds [50 x i32], ptr %4, i64 0, i64 %.020.i
+  %19 = getelementptr inbounds [50 x i32], ptr %4, i64 0, i64 %.021.i
   store i32 %18, ptr %19, align 4
-  %20 = udiv i64 %.122.i, 10
-  %.not27.i = icmp ult i64 %.122.i, 10
+  %20 = udiv i64 %.1.i, 10
+  %.not27.i = icmp ult i64 %.1.i, 10
   br i1 %.not27.i, label %21, label %13, !llvm.loop !17
 
 21:                                               ; preds = %14, %13
-  %.1.i = phi i64 [ %12, %13 ], [ %15, %14 ]
+  %.122.i = phi i64 [ %12, %13 ], [ %15, %14 ]
   br i1 %11, label %22, label %25
 
 22:                                               ; preds = %21
-  %23 = add i64 %.1.i, 1
-  %24 = getelementptr inbounds [50 x i32], ptr %4, i64 0, i64 %.1.i
+  %23 = add i64 %.122.i, 1
+  %24 = getelementptr inbounds [50 x i32], ptr %4, i64 0, i64 %.122.i
   store i32 45, ptr %24, align 4
   br label %25
 
 25:                                               ; preds = %22, %21
-  %.2.i = phi i64 [ %23, %22 ], [ %.1.i, %21 ]
+  %.2.i = phi i64 [ %23, %22 ], [ %.122.i, %21 ]
   %.not29.i = icmp eq i64 %.2.i, 0
   br i1 %.not29.i, label %_Z4itoalPwm.exit, label %.lr.ph.i
 
@@ -889,26 +889,26 @@ _Z4itoalPwm.exit:                                 ; preds = %.lr.ph.i, %25
 41:                                               ; preds = %.lr.ph, %51
   %42 = phi i32 [ 1, %.lr.ph ], [ %60, %51 ]
   %43 = phi i32 [ %33, %.lr.ph ], [ %58, %51 ]
-  %.015 = phi i32 [ 0, %.lr.ph ], [ %53, %51 ]
-  %.01314 = phi i32 [ 0, %.lr.ph ], [ %52, %51 ]
-  %.not = icmp eq i32 %.01314, 0
+  %.015 = phi i32 [ 0, %.lr.ph ], [ %52, %51 ]
+  %.01314 = phi i32 [ 0, %.lr.ph ], [ %53, %51 ]
+  %.not = icmp eq i32 %.015, 0
   br i1 %.not, label %51, label %44
 
 44:                                               ; preds = %41
-  %45 = add i32 %40, %.01314
+  %45 = add i32 %40, %.015
   %46 = urem i32 %45, 3
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %44
-  %49 = zext i32 %.015 to i64
+  %49 = zext i32 %.01314 to i64
   %50 = getelementptr inbounds i32, ptr %1, i64 %49
   store i32 %spec.store.select, ptr %50, align 4
   br label %51
 
 51:                                               ; preds = %48, %44, %41
-  %.1 = phi i32 [ %42, %48 ], [ %.015, %44 ], [ %.015, %41 ]
-  %52 = add i32 %.01314, 1
+  %.1 = phi i32 [ %42, %48 ], [ %.01314, %44 ], [ %.01314, %41 ]
+  %52 = add i32 %.015, 1
   %53 = add i32 %.1, 1
   %54 = zext i32 %.1 to i64
   %55 = getelementptr inbounds i32, ptr %1, i64 %54
@@ -928,8 +928,8 @@ _Z4itoalPwm.exit:                                 ; preds = %.lr.ph.i, %25
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_Z4itoalPwm.exit
-  %.0.lcssa = phi i64 [ 0, %_Z4itoalPwm.exit ], [ %64, %._crit_edge.loopexit ]
-  %65 = getelementptr inbounds i32, ptr %1, i64 %.0.lcssa
+  %.013.lcssa = phi i64 [ 0, %_Z4itoalPwm.exit ], [ %64, %._crit_edge.loopexit ]
+  %65 = getelementptr inbounds i32, ptr %1, i64 %.013.lcssa
   store i32 0, ptr %65, align 4
   ret void
 }

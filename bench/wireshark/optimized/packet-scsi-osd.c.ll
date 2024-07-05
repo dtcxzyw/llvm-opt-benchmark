@@ -1553,23 +1553,23 @@ select.unfold:                                    ; preds = %146, %149, %150
   br label %select.unfold244
 
 select.unfold244:                                 ; preds = %150, %149, %146, %153
-  %.1219 = phi i1 [ %158, %153 ], [ false, %146 ], [ false, %149 ], [ true, %150 ]
-  %.1217 = phi i8 [ 0, %153 ], [ %144, %146 ], [ %144, %149 ], [ %144, %150 ]
+  %.1221 = phi i8 [ 0, %153 ], [ %144, %146 ], [ %144, %149 ], [ %144, %150 ]
+  %.1218 = phi i1 [ %158, %153 ], [ false, %146 ], [ false, %149 ], [ true, %150 ]
   %159 = add i32 %.1243, 24
   %160 = zext i32 %134 to i64
   %161 = icmp ugt i64 %spec.select231, %160
   br i1 %161, label %.lr.ph253, label %.loopexit250
 
 .lr.ph253:                                        ; preds = %select.unfold244
-  %.1217.fr = freeze i8 %.1217
-  %162 = and i8 %.1217.fr, 2
+  %.1221.fr = freeze i8 %.1221
+  %162 = and i8 %.1221.fr, 2
   %.not230 = icmp eq i8 %162, 0
   %or.cond235 = or i1 %.not227, %.not230
   %163 = add nuw nsw i64 %spec.select231, 8
   br i1 %or.cond235, label %.lr.ph253.split.us, label %.lr.ph253.split
 
 .lr.ph253.split.us:                               ; preds = %.lr.ph253
-  br i1 %.1219, label %.lr.ph253.split.us.split.us, label %.lr.ph253.split.us.split
+  br i1 %.1218, label %.lr.ph253.split.us.split.us, label %.lr.ph253.split.us.split
 
 .lr.ph253.split.us.split.us:                      ; preds = %.lr.ph253.split.us, %.lr.ph253.split.us.split.us
   %.2252.us.us = phi i32 [ %166, %.lr.ph253.split.us.split.us ], [ %159, %.lr.ph253.split.us ]
@@ -1603,7 +1603,7 @@ select.unfold244:                                 ; preds = %150, %149, %146, %1
 
 .lr.ph253.split:                                  ; preds = %.lr.ph253, %.loopexit
   %.2252 = phi i32 [ %202, %.loopexit ], [ %159, %.lr.ph253 ]
-  br i1 %.1219, label %186, label %179
+  br i1 %.1218, label %186, label %179
 
 179:                                              ; preds = %.lr.ph253.split
   br i1 %18, label %180, label %183
@@ -1624,7 +1624,7 @@ select.unfold244:                                 ; preds = %150, %149, %146, %1
   br label %189
 
 189:                                              ; preds = %180, %183, %186
-  %.0215 = phi ptr [ %182, %180 ], [ %185, %183 ], [ %188, %186 ]
+  %.0219 = phi ptr [ %182, %180 ], [ %185, %183 ], [ %188, %186 ]
   %190 = add i32 %.2252, 16
   %191 = zext i32 %190 to i64
   %192 = icmp ult i64 %spec.select231, %191
@@ -1633,7 +1633,7 @@ select.unfold244:                                 ; preds = %150, %149, %146, %1
 193:                                              ; preds = %189
   %194 = add i32 %.2252, 8
   %195 = load i32, ptr @ett_osd_multi_object, align 4
-  %196 = call ptr @proto_item_add_subtree(ptr noundef %.0215, i32 noundef %195) #4
+  %196 = call ptr @proto_item_add_subtree(ptr noundef %.0219, i32 noundef %195) #4
   %197 = load i32, ptr @hf_scsi_osd_object_type, align 4
   %198 = call ptr @proto_tree_add_item(ptr noundef %196, i32 noundef %197, ptr noundef %0, i32 noundef %194, i32 noundef 1, i32 noundef 0) #4
   %199 = add i32 %.2252, 14

@@ -424,14 +424,14 @@ lor.lhs.false44:                                  ; preds = %lor.lhs.false41
   %conv47 = zext i1 %cmp46 to i32
   %call48 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 97, ptr noundef nonnull @.str.40, i32 noundef %conv47) #6
   %tobool49.not = icmp eq i32 %call48, 0
-  %spec.select = select i1 %tobool49.not, ptr %call, ptr null
-  %spec.select19 = select i1 %tobool49.not, ptr null, ptr %call
+  %spec.select = select i1 %tobool49.not, ptr null, ptr %call
+  %spec.select19 = select i1 %tobool49.not, ptr %call, ptr null
   br label %err
 
 err:                                              ; preds = %lor.lhs.false44, %if.end, %lor.lhs.false35, %lor.lhs.false38, %lor.lhs.false41, %entry, %lor.lhs.false, %lor.lhs.false11, %lor.lhs.false14, %lor.lhs.false18, %lor.lhs.false25
-  %bs.0 = phi ptr [ %call, %lor.lhs.false41 ], [ %call, %lor.lhs.false38 ], [ %call, %lor.lhs.false35 ], [ %call, %if.end ], [ %call, %lor.lhs.false25 ], [ %call, %lor.lhs.false18 ], [ %call, %lor.lhs.false14 ], [ %call, %lor.lhs.false11 ], [ %call, %lor.lhs.false ], [ %call, %entry ], [ %spec.select, %lor.lhs.false44 ]
-  %bs_out.0 = phi ptr [ null, %lor.lhs.false41 ], [ null, %lor.lhs.false38 ], [ null, %lor.lhs.false35 ], [ null, %if.end ], [ null, %lor.lhs.false25 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false11 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %spec.select19, %lor.lhs.false44 ]
   %cid.0 = phi ptr [ %call32, %lor.lhs.false41 ], [ %call32, %lor.lhs.false38 ], [ %call32, %lor.lhs.false35 ], [ %call32, %if.end ], [ null, %lor.lhs.false25 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false11 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call32, %lor.lhs.false44 ]
+  %bs_out.0 = phi ptr [ null, %lor.lhs.false41 ], [ null, %lor.lhs.false38 ], [ null, %lor.lhs.false35 ], [ null, %if.end ], [ null, %lor.lhs.false25 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false11 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %spec.select, %lor.lhs.false44 ]
+  %bs.0 = phi ptr [ %call, %lor.lhs.false41 ], [ %call, %lor.lhs.false38 ], [ %call, %lor.lhs.false35 ], [ %call, %if.end ], [ %call, %lor.lhs.false25 ], [ %call, %lor.lhs.false18 ], [ %call, %lor.lhs.false14 ], [ %call, %lor.lhs.false11 ], [ %call, %lor.lhs.false ], [ %call, %entry ], [ %spec.select19, %lor.lhs.false44 ]
   call void @ASN1_TIME_free(ptr noundef %call2) #6
   call void @ASN1_TIME_free(ptr noundef %call4) #6
   call void @ASN1_BIT_STRING_free(ptr noundef %call6) #6

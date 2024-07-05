@@ -83,10 +83,10 @@ define i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .lr.ph90:                                         ; preds = %26, %.lr.ph90
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph90 ], [ 0, %26 ]
-  %.06687 = phi i32 [ %37, %.lr.ph90 ], [ 0, %26 ]
+  %.06588 = phi i32 [ %37, %.lr.ph90 ], [ 0, %26 ]
   %35 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %indvars.iv
   %36 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %35)
-  %37 = or i32 %36, %.06687
+  %37 = or i32 %36, %.06588
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %35, align 4
   %39 = load i32, ptr %3, align 4
@@ -109,27 +109,27 @@ define i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge97.us
-  %.065100.us = phi i32 [ %58, %._crit_edge97.us ], [ 1, %.preheader.us.preheader ]
-  %.16799.us = phi i32 [ %.2.us, %._crit_edge97.us ], [ %37, %.preheader.us.preheader ]
+  %.166100.us = phi i32 [ %.2.us, %._crit_edge97.us ], [ %37, %.preheader.us.preheader ]
+  %.06799.us = phi i32 [ %58, %._crit_edge97.us ], [ 1, %.preheader.us.preheader ]
   br label %46
 
 46:                                               ; preds = %.preheader.us, %54
   %indvars.iv109 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next110, %54 ]
-  %.06295.us = phi i32 [ 0, %.preheader.us ], [ %.1.us, %54 ]
+  %.06395.us = phi i32 [ 0, %.preheader.us ], [ %.1.us, %54 ]
   %47 = trunc nuw nsw i64 %indvars.iv109 to i32
   %48 = shl nuw i32 1, %47
-  %49 = and i32 %48, %.065100.us
+  %49 = and i32 %48, %.06799.us
   %.not.us = icmp eq i32 %49, 0
   br i1 %.not.us, label %54, label %50
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %indvars.iv109
   %52 = load i32, ptr %51, align 4
-  %53 = add nsw i32 %52, %.06295.us
+  %53 = add nsw i32 %52, %.06395.us
   br label %54
 
 54:                                               ; preds = %50, %46
-  %.1.us = phi i32 [ %53, %50 ], [ %.06295.us, %46 ]
+  %.1.us = phi i32 [ %53, %50 ], [ %.06395.us, %46 ]
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge97.us, label %46, !llvm.loop !7
@@ -138,8 +138,8 @@ define i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   %55 = icmp sgt i32 %.1.us, 1
   %56 = shl nuw i32 1, %.1.us
   %57 = select i1 %55, i32 %56, i32 0
-  %.2.us = or i32 %57, %.16799.us
-  %58 = add nuw nsw i32 %.065100.us, 1
+  %.2.us = or i32 %57, %.166100.us
+  %58 = add nuw nsw i32 %.06799.us, 1
   %exitcond112.not = icmp eq i32 %58, %44
   br i1 %exitcond112.not, label %.loopexit, label %.preheader.us, !llvm.loop !8
 
@@ -157,10 +157,10 @@ define i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %67, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %59, %.lr.ph
-  %.084 = phi i32 [ %69, %.lr.ph ], [ 0, %59 ]
+  %.06284 = phi i32 [ %69, %.lr.ph ], [ 0, %59 ]
   store i32 0, ptr %6, align 4
   %68 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %6)
-  %69 = or i32 %68, %.084
+  %69 = or i32 %68, %.06284
   %70 = load i32, ptr %6, align 4
   %71 = load i32, ptr %3, align 4
   %72 = add nsw i32 %71, %70
@@ -172,15 +172,15 @@ define i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %59
-  %.0.lcssa = phi i32 [ 0, %59 ], [ %69, %.lr.ph ]
+  %.062.lcssa = phi i32 [ 0, %59 ], [ %69, %.lr.ph ]
   %75 = load i32, ptr %3, align 4
   %76 = shl nuw i32 1, %75
-  %77 = or i32 %76, %.0.lcssa
+  %77 = or i32 %76, %.062.lcssa
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge97.us, %26, %._crit_edge91, %25, %._crit_edge, %22
-  %.068 = phi i32 [ 0, %22 ], [ %77, %._crit_edge ], [ 0, %25 ], [ %37, %._crit_edge91 ], [ 0, %26 ], [ %.2.us, %._crit_edge97.us ]
-  ret i32 %.068
+  %.0 = phi i32 [ 0, %22 ], [ %77, %._crit_edge ], [ 0, %25 ], [ %37, %._crit_edge91 ], [ 0, %26 ], [ %.2.us, %._crit_edge97.us ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -283,15 +283,15 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph110:                                        ; preds = %26, %.lr.ph110
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph110 ], [ 0, %26 ]
-  %.074109 = phi i32 [ %41, %.lr.ph110 ], [ 0, %26 ]
-  %.079107 = phi i32 [ %37, %.lr.ph110 ], [ 0, %26 ]
+  %.075109 = phi i32 [ %37, %.lr.ph110 ], [ 0, %26 ]
+  %.078108 = phi i32 [ %41, %.lr.ph110 ], [ 0, %26 ]
   %35 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %indvars.iv
   %36 = call i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %35)
-  %37 = or i32 %36, %.079107
+  %37 = or i32 %36, %.075109
   %38 = load i32, ptr %35, align 4
   %39 = icmp eq i32 %38, 1
   %40 = zext i1 %39 to i32
-  %41 = add nuw nsw i32 %.074109, %40
+  %41 = add nuw nsw i32 %.078108, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %3, align 4
   %43 = add nsw i32 %42, %38
@@ -317,29 +317,29 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.preheader96.us
 
 .preheader96.us:                                  ; preds = %.preheader96.us.preheader, %.loopexit95.us
-  %.078122.us = phi i32 [ %50, %.loopexit95.us ], [ 1, %.preheader96.us.preheader ]
-  %.180121.us = phi i32 [ %.3.us, %.loopexit95.us ], [ %37, %.preheader96.us.preheader ]
+  %.176122.us = phi i32 [ %.3.us, %.loopexit95.us ], [ %37, %.preheader96.us.preheader ]
+  %.077121.us = phi i32 [ %50, %.loopexit95.us ], [ 1, %.preheader96.us.preheader ]
   br label %55
 
 .loopexit95.us:                                   ; preds = %.preheader94.us, %._crit_edge117.us
-  %.3.us = phi i32 [ %.180121.us, %._crit_edge117.us ], [ %53, %.preheader94.us ]
-  %50 = add nuw nsw i32 %.078122.us, 1
+  %.3.us = phi i32 [ %.176122.us, %._crit_edge117.us ], [ %53, %.preheader94.us ]
+  %50 = add nuw nsw i32 %.077121.us, 1
   %exitcond144.not = icmp eq i32 %50, %48
   br i1 %exitcond144.not, label %.preheader, label %.preheader96.us, !llvm.loop !12
 
 .preheader94.us:                                  ; preds = %._crit_edge117.us, %.preheader94.us
-  %.177120.us = phi i32 [ %54, %.preheader94.us ], [ 0, %._crit_edge117.us ]
-  %.281119.us = phi i32 [ %53, %.preheader94.us ], [ %.180121.us, %._crit_edge117.us ]
-  %51 = add nuw nsw i32 %.177120.us, %.1.us
+  %.2120.us = phi i32 [ %53, %.preheader94.us ], [ %.176122.us, %._crit_edge117.us ]
+  %.181119.us = phi i32 [ %54, %.preheader94.us ], [ 0, %._crit_edge117.us ]
+  %51 = add nuw nsw i32 %.181119.us, %.1.us
   %52 = shl nuw i32 1, %51
-  %53 = or i32 %52, %.281119.us
-  %54 = add nuw nsw i32 %.177120.us, 1
+  %53 = or i32 %52, %.2120.us
+  %54 = add nuw nsw i32 %.181119.us, 1
   %exitcond143.not = icmp eq i32 %54, %41
   br i1 %exitcond143.not, label %.loopexit95.us, label %.preheader94.us, !llvm.loop !13
 
 55:                                               ; preds = %.preheader96.us, %64
   %indvars.iv140 = phi i64 [ 0, %.preheader96.us ], [ %indvars.iv.next141, %64 ]
-  %.073115.us = phi i32 [ 0, %.preheader96.us ], [ %.1.us, %64 ]
+  %.074115.us = phi i32 [ 0, %.preheader96.us ], [ %.1.us, %64 ]
   %56 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %indvars.iv140
   %57 = load i32, ptr %56, align 4
   %58 = icmp sgt i32 %57, 1
@@ -348,14 +348,14 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
 59:                                               ; preds = %55
   %60 = trunc nuw nsw i64 %indvars.iv140 to i32
   %61 = shl nuw i32 1, %60
-  %62 = and i32 %61, %.078122.us
+  %62 = and i32 %61, %.077121.us
   %.not89.us = icmp eq i32 %62, 0
   %63 = select i1 %.not89.us, i32 0, i32 %57
-  %spec.select.us = add nuw nsw i32 %63, %.073115.us
+  %spec.select.us = add nuw nsw i32 %63, %.074115.us
   br label %64
 
 64:                                               ; preds = %59, %55
-  %.1.us = phi i32 [ %.073115.us, %55 ], [ %spec.select.us, %59 ]
+  %.1.us = phi i32 [ %.074115.us, %55 ], [ %spec.select.us, %59 ]
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge117.us, label %55, !llvm.loop !14
@@ -365,16 +365,16 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %65, label %.preheader94.us, label %.loopexit95.us
 
 .preheader:                                       ; preds = %.loopexit95.us, %46
-  %.180.lcssa = phi i32 [ %37, %46 ], [ %.3.us, %.loopexit95.us ]
+  %.176.lcssa = phi i32 [ %37, %46 ], [ %.3.us, %.loopexit95.us ]
   %66 = icmp ugt i32 %41, 2
   br i1 %66, label %.lr.ph126, label %.loopexit
 
 .lr.ph126:                                        ; preds = %.preheader, %.lr.ph126
-  %.2125 = phi i32 [ %69, %.lr.ph126 ], [ 2, %.preheader ]
-  %.4124 = phi i32 [ %68, %.lr.ph126 ], [ %.180.lcssa, %.preheader ]
-  %67 = shl nuw i32 1, %.2125
-  %68 = or i32 %67, %.4124
-  %69 = add nuw nsw i32 %.2125, 1
+  %.4125 = phi i32 [ %68, %.lr.ph126 ], [ %.176.lcssa, %.preheader ]
+  %.282124 = phi i32 [ %69, %.lr.ph126 ], [ 2, %.preheader ]
+  %67 = shl nuw i32 1, %.282124
+  %68 = or i32 %.4125, %67
+  %69 = add nuw nsw i32 %.282124, 1
   %exitcond145.not = icmp eq i32 %69, %41
   br i1 %exitcond145.not, label %.loopexit, label %.lr.ph126, !llvm.loop !15
 
@@ -392,10 +392,10 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %78, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %70, %.lr.ph
-  %.0104 = phi i32 [ %80, %.lr.ph ], [ 0, %70 ]
+  %.073104 = phi i32 [ %80, %.lr.ph ], [ 0, %70 ]
   store i32 0, ptr %6, align 4
   %79 = call i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %6)
-  %80 = or i32 %79, %.0104
+  %80 = or i32 %79, %.073104
   %81 = load i32, ptr %6, align 4
   %82 = load i32, ptr %3, align 4
   %83 = add nsw i32 %82, %81
@@ -407,8 +407,8 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph126, %26, %70, %.preheader, %25, %._crit_edge, %22
-  %.082 = phi i32 [ 0, %22 ], [ %37, %._crit_edge ], [ 0, %25 ], [ %.180.lcssa, %.preheader ], [ 0, %70 ], [ 0, %26 ], [ %68, %.lr.ph126 ], [ %80, %.lr.ph ]
-  ret i32 %.082
+  %.0 = phi i32 [ 0, %22 ], [ %37, %._crit_edge ], [ 0, %25 ], [ %.176.lcssa, %.preheader ], [ 0, %70 ], [ 0, %26 ], [ %68, %.lr.ph126 ], [ %80, %.lr.ph ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -932,7 +932,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
   br label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %.preheader.us.preheader.i.i
-  %.03342.us.i.i = phi ptr [ %64, %._crit_edge.us.i.i ], [ %8, %.preheader.us.preheader.i.i ]
+  %.03142.us.i.i = phi ptr [ %64, %._crit_edge.us.i.i ], [ %8, %.preheader.us.preheader.i.i ]
   br label %58
 
 57:                                               ; preds = %58
@@ -942,16 +942,16 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
 
 58:                                               ; preds = %57, %.preheader.us.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i, %57 ]
-  %59 = getelementptr inbounds i64, ptr %.03342.us.i.i, i64 %indvars.iv.i.i
+  %59 = getelementptr inbounds i64, ptr %.03142.us.i.i, i64 %indvars.iv.i.i
   %60 = load i64, ptr %59, align 8
   %61 = add nuw nsw i64 %indvars.iv.i.i, %56
-  %62 = getelementptr inbounds i64, ptr %.03342.us.i.i, i64 %61
+  %62 = getelementptr inbounds i64, ptr %.03142.us.i.i, i64 %61
   %63 = load i64, ptr %62, align 8
   %.not.us.i.i = icmp eq i64 %60, %63
   br i1 %.not.us.i.i, label %57, label %Abc_TtHasVar.exit.i.loopexit
 
 ._crit_edge.us.i.i:                               ; preds = %57
-  %64 = getelementptr inbounds i64, ptr %.03342.us.i.i, i64 %54
+  %64 = getelementptr inbounds i64, ptr %.03142.us.i.i, i64 %54
   %65 = icmp ult ptr %64, %24
   br i1 %65, label %.preheader.us.i.i, label %.loopexit.i, !llvm.loop !22
 

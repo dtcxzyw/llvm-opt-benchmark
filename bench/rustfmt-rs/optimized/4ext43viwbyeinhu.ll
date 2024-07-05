@@ -475,8 +475,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN12rustc_errors7emitter7Emitter32render_multispan_macro_backtrace17h56358d454a16f155E.135 = private unnamed_addr constant [9 x ptr] [ptr @anon.21be9a90e725640ba5b7aff756abf24e.3, ptr @anon.21be9a90e725640ba5b7aff756abf24e.4, ptr @anon.21be9a90e725640ba5b7aff756abf24e.5, ptr @anon.21be9a90e725640ba5b7aff756abf24e.6, ptr @anon.21be9a90e725640ba5b7aff756abf24e.7, ptr @anon.21be9a90e725640ba5b7aff756abf24e.8, ptr @anon.21be9a90e725640ba5b7aff756abf24e.9, ptr @anon.21be9a90e725640ba5b7aff756abf24e.10, ptr @anon.21be9a90e725640ba5b7aff756abf24e.11], align 8
 @switch.table._ZN12rustc_errors7emitter7Emitter32render_multispan_macro_backtrace17h56358d454a16f155E.136 = private unnamed_addr constant [9 x i64] [i64 25, i64 12, i64 11, i64 20, i64 12, i64 25, i64 18, i64 10, i64 12], align 8
 @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.137 = private unnamed_addr constant [3 x ptr] [ptr @anon.21be9a90e725640ba5b7aff756abf24e.188, ptr @anon.21be9a90e725640ba5b7aff756abf24e.333, ptr @anon.21be9a90e725640ba5b7aff756abf24e.323], align 8
-@switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.139 = private unnamed_addr constant [3 x i64] [i64 1, i64 2, i64 1], align 8
-@switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.140 = private unnamed_addr constant [3 x ptr] [ptr @anon.21be9a90e725640ba5b7aff756abf24e.321.llvm.3200710723383270248, ptr @anon.21be9a90e725640ba5b7aff756abf24e.334, ptr @anon.21be9a90e725640ba5b7aff756abf24e.322.llvm.3200710723383270248], align 8
+@switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.139 = private unnamed_addr constant [3 x ptr] [ptr @anon.21be9a90e725640ba5b7aff756abf24e.321.llvm.3200710723383270248, ptr @anon.21be9a90e725640ba5b7aff756abf24e.334, ptr @anon.21be9a90e725640ba5b7aff756abf24e.322.llvm.3200710723383270248], align 8
+@switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.140 = private unnamed_addr constant [3 x i64] [i64 1, i64 2, i64 1], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc i64 @_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span3new(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -3716,8 +3716,8 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit297
   br label %.loopexit434.i.i.i
 
 409:                                              ; preds = %.loopexit434.i.i.i, %399
-  %.sroa.453.0.i.i.i = phi i64 [ %412, %.loopexit434.i.i.i ], [ %.sroa.4.0.i.i.i, %399 ]
   %.sroa.051.0.i.i.i = phi ptr [ %411, %.loopexit434.i.i.i ], [ %369, %399 ]
+  %.sroa.453.0.i.i.i = phi i64 [ %412, %.loopexit434.i.i.i ], [ %.sroa.4.0.i.i.i, %399 ]
   br i1 %.not155.not.i.i.i, label %413, label %414
 
 .loopexit434.i.i.i:                               ; preds = %.noexc326.i.i.i, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h907bb60876c544bcE.llvm.5923418642108526555.exit.i.i.i.i", %.noexc324.i.i.i
@@ -13130,23 +13130,23 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   br i1 %85, label %.lr.ph.i44, label %._crit_edge.i
 
 .preheader.i:                                     ; preds = %74, %90
-  %.165144.i = phi i8 [ %.2.i, %90 ], [ %.064145.i, %74 ]
-  %.sroa.025.0143.i = phi i64 [ %86, %90 ], [ 0, %74 ]
-  %86 = add nuw nsw i64 %.sroa.025.0143.i, 1
-  %87 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0143.i
+  %.sroa.025.0144.i = phi i64 [ %86, %90 ], [ 0, %74 ]
+  %.165143.i = phi i8 [ %.2.i, %90 ], [ %.064145.i, %74 ]
+  %86 = add nuw nsw i64 %.sroa.025.0144.i, 1
+  %87 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0144.i
   %88 = load i16, ptr %87, align 2, !noalias !2349, !noundef !14
   %89 = icmp eq i16 %88, 0
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %91, %.preheader.i
-  %.2.i = phi i8 [ %.165144.i, %.preheader.i ], [ %97, %91 ]
+  %.2.i = phi i8 [ %.165143.i, %.preheader.i ], [ %97, %91 ]
   %exitcond161.not.i = icmp eq i64 %86, 4
   br i1 %exitcond161.not.i, label %82, label %.preheader.i
 
 91:                                               ; preds = %.preheader.i
-  %92 = shl nuw nsw i64 %.sroa.025.0143.i, 4
+  %92 = shl nuw nsw i64 %.sroa.025.0144.i, 4
   %93 = add nuw nsw i64 %92, %.062146.i
-  %94 = trunc nuw i8 %.165144.i to i1
+  %94 = trunc nuw i8 %.165143.i to i1
   %95 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf5c284d063610c5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %93, i16 noundef %88, i1 noundef zeroext %94)
   %96 = or i1 %95, %94
   %97 = zext i1 %96 to i8
@@ -13921,8 +13921,8 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   br label %14
 
 .loopexit:                                        ; preds = %70, %72, %74
-  %.015.i = phi i64 [ 1, %70 ], [ %..i, %74 ], [ 2, %72 ]
-  %13 = add i64 %.015.i, %16
+  %.016.i = phi i64 [ 1, %70 ], [ %..i, %74 ], [ 2, %72 ]
+  %13 = add i64 %.016.i, %16
   store i64 %13, ptr %4, align 8, !alias.scope !2408, !noalias !2411
   br label %14
 
@@ -19066,20 +19066,20 @@ switch.lookup:                                    ; preds = %1146
   call void @llvm.experimental.noalias.scope.decl(metadata !3311)
   call void @llvm.experimental.noalias.scope.decl(metadata !3313)
   %1263 = zext nneg i8 %. to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.139, i64 0, i64 %1263
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.140, i64 0, i64 %1263
   %switch.load = load i64, ptr %switch.gep, align 8
   %1264 = zext nneg i8 %. to i64
   %switch.gep494 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.137, i64 0, i64 %1264
   %switch.load495 = load ptr, ptr %switch.gep494, align 8
   %1265 = zext nneg i8 %. to i64
-  %switch.gep496 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.140, i64 0, i64 %1265
+  %switch.gep496 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.139, i64 0, i64 %1265
   %switch.load497 = load ptr, ptr %switch.gep496, align 8
   %1266 = zext nneg i8 %163 to i64
-  %switch.gep499 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.139, i64 0, i64 %1266
-  %switch.load500 = load i64, ptr %switch.gep499, align 8
+  %switch.gep499 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.139, i64 0, i64 %1266
+  %switch.load500 = load ptr, ptr %switch.gep499, align 8
   %1267 = zext nneg i8 %163 to i64
-  %switch.gep501 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.140, i64 0, i64 %1267
-  %switch.load502 = load ptr, ptr %switch.gep501, align 8
+  %switch.gep501 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN15rustfmt_nightly6macros19rewrite_macro_inner17h18ecf14f2bf1e664E.140, i64 0, i64 %1267
+  %switch.load502 = load i64, ptr %switch.gep501, align 8
   switch i8 %., label %1274 [
     i8 0, label %1268
     i8 2, label %1270
@@ -19133,7 +19133,7 @@ switch.lookup:                                    ; preds = %1146
   %1284 = getelementptr inbounds i8, ptr %19, i64 104
   store i64 %1277, ptr %1284, align 8, !noalias !3317
   %1285 = load ptr, ptr %239, align 8, !noalias !3317, !nonnull !14, !align !15, !noundef !14
-  %1286 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h145c2abaaf4f1a22E"(ptr noalias noundef nonnull readonly align 1 %switch.load502, i64 noundef %switch.load500)
+  %1286 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h145c2abaaf4f1a22E"(ptr noalias noundef nonnull readonly align 1 %switch.load500, i64 noundef %switch.load502)
           to label %1287 unwind label %.loopexit.split-lp.i225, !noalias !3319
 
 1287:                                             ; preds = %.noexc245
@@ -27103,8 +27103,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h74be3b52806deb4cE.exit.i.i: 
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %206
-  %.078.i.ph = phi i64 [ 0, %206 ], [ %.078.i.ph.be, %.outer.backedge ]
-  %211 = icmp eq i64 %.078.i.ph, 0
+  %.080.i.ph = phi i64 [ 0, %206 ], [ %.080.i.ph.be, %.outer.backedge ]
+  %211 = icmp eq i64 %.080.i.ph, 0
   br label %212
 
 212:                                              ; preds = %.backedge, %.outer
@@ -27179,7 +27179,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h74be3b52806deb4cE.exit.i.i: 
 
 233:                                              ; preds = %230
   %234 = load ptr, ptr %.sroa.443.0..sroa_idx.i, align 8, !noalias !4996, !nonnull !14, !noundef !14
-  invoke fastcc void @_ZN15rustfmt_nightly6macros21register_metavariable17h57e209a76fa1eef0E(ptr noalias noundef nonnull align 8 dereferenceable(48) %33, ptr noalias noundef nonnull align 8 dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 1 %234, i64 noundef %231, i64 noundef %.078.i.ph)
+  invoke fastcc void @_ZN15rustfmt_nightly6macros21register_metavariable17h57e209a76fa1eef0E(ptr noalias noundef nonnull align 8 dereferenceable(48) %33, ptr noalias noundef nonnull align 8 dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 1 %234, i64 noundef %231, i64 noundef %.080.i.ph)
           to label %235 unwind label %204, !noalias !5007
 
 235:                                              ; preds = %233, %230
@@ -27321,11 +27321,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.th
   br i1 %275, label %276, label %278
 
 276:                                              ; preds = %274
-  %277 = add i64 %.078.i.ph, 1
+  %277 = add i64 %.080.i.ph, 1
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %276, %279, %299
-  %.078.i.ph.be = phi i64 [ 0, %299 ], [ 0, %279 ], [ %277, %276 ]
+  %.080.i.ph.be = phi i64 [ 0, %299 ], [ 0, %279 ], [ %277, %276 ]
   br label %.outer
 
 278:                                              ; preds = %274
@@ -27382,7 +27382,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.th
 
 296:                                              ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hd197d81faec75770E.exit.i"
   %297 = load ptr, ptr %.sroa.443.0..sroa_idx.i, align 8, !noalias !4996, !nonnull !14, !noundef !14
-  invoke fastcc void @_ZN15rustfmt_nightly6macros21register_metavariable17h57e209a76fa1eef0E(ptr noalias noundef nonnull align 8 dereferenceable(48) %33, ptr noalias noundef nonnull align 8 dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 1 %297, i64 noundef %289, i64 noundef %.078.i.ph)
+  invoke fastcc void @_ZN15rustfmt_nightly6macros21register_metavariable17h57e209a76fa1eef0E(ptr noalias noundef nonnull align 8 dereferenceable(48) %33, ptr noalias noundef nonnull align 8 dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 1 %297, i64 noundef %289, i64 noundef %.080.i.ph)
           to label %298 unwind label %.loopexit.split-lp311, !noalias !5007
 
 298:                                              ; preds = %296

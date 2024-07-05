@@ -245,10 +245,10 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 .lr.ph:                                           ; preds = %3, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit"
   %.sroa.1015.033 = phi i64 [ %.sroa.1015.1, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit" ], [ undef, %3 ]
   %.sroa.013.032 = phi ptr [ %15, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit" ], [ %1, %3 ]
-  %.sroa.7.031 = phi i64 [ %16, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit" ], [ 0, %3 ]
-  %.sroa.10.030 = phi i64 [ %12, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit" ], [ %6, %3 ]
-  %.sroa.9.029 = phi ptr [ %.sroa.9.1, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit" ], [ undef, %3 ]
-  %12 = add i64 %.sroa.10.030, -1
+  %.sroa.9.031 = phi ptr [ %.sroa.9.1, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit" ], [ undef, %3 ]
+  %.sroa.7.030 = phi i64 [ %16, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit" ], [ 0, %3 ]
+  %.sroa.10.029 = phi i64 [ %12, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit" ], [ %6, %3 ]
+  %12 = add i64 %.sroa.10.029, -1
   %13 = icmp eq ptr %.sroa.013.032, %10
   br i1 %13, label %.thread, label %14
 
@@ -260,7 +260,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds i8, ptr %.sroa.013.032, i64 24
-  %16 = add nuw nsw i64 %.sroa.7.031, 1
+  %16 = add nuw nsw i64 %.sroa.7.030, 1
   %17 = load i64, ptr %.sroa.013.032, align 8, !range !30, !alias.scope !31, !noalias !34, !noundef !26
   %18 = icmp slt i64 %17, -9223372036854775803
   %19 = add i64 %17, -9223372036854775807
@@ -306,10 +306,10 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   br label %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit"
 
 "_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit": ; preds = %32, %31, %30, %29, %.noexc, %14
-  %.sroa.9.1 = phi ptr [ %.sroa.9.029, %32 ], [ %.sroa.9.029, %31 ], [ %.sroa.9.029, %30 ], [ %.sroa.9.029, %29 ], [ %27, %.noexc ], [ %.sroa.9.029, %14 ]
   %.sroa.014.0 = phi i64 [ -9223372036854775804, %32 ], [ -9223372036854775805, %31 ], [ -9223372036854775806, %30 ], [ -9223372036854775807, %29 ], [ %26, %.noexc ], [ -9223372036854775808, %14 ]
+  %.sroa.9.1 = phi ptr [ %.sroa.9.031, %32 ], [ %.sroa.9.031, %31 ], [ %.sroa.9.031, %30 ], [ %.sroa.9.031, %29 ], [ %27, %.noexc ], [ %.sroa.9.031, %14 ]
   %.sroa.1015.1 = phi i64 [ %.sroa.1015.033, %32 ], [ %.sroa.1015.033, %31 ], [ %.sroa.1015.033, %30 ], [ %.sroa.1015.033, %29 ], [ %.val1.i, %.noexc ], [ %.sroa.1015.033, %14 ]
-  %33 = getelementptr inbounds [0 x { [3 x i64] }], ptr %7, i64 0, i64 %.sroa.7.031
+  %33 = getelementptr inbounds [0 x { [3 x i64] }], ptr %7, i64 0, i64 %.sroa.7.030
   store i64 %.sroa.014.0, ptr %33, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %.sroa.9.1, ptr %.sroa.06.sroa.4.0..sroa_idx, align 8
@@ -327,7 +327,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 37:                                               ; preds = %22
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.7.031, ptr %9, align 8
+  store i64 %.sroa.7.030, ptr %9, align 8
   invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$grep_printer..hyperlink..Part$GT$$GT$17h1234086875e90139E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #12
           to label %38 unwind label %35
 
@@ -406,16 +406,16 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
 .lr.ph.i:                                         ; preds = %2, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit.i"
   %.sroa.1015.033.i = phi i64 [ %.sroa.1015.1.i, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit.i" ], [ undef, %2 ]
   %.sroa.013.032.i = phi ptr [ %18, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit.i" ], [ %6, %2 ]
-  %.sroa.7.031.i = phi i64 [ %19, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit.i" ], [ 0, %2 ]
-  %.sroa.10.030.i = phi i64 [ %15, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit.i" ], [ %9, %2 ]
-  %.sroa.9.029.i = phi ptr [ %.sroa.9.1.i, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit.i" ], [ undef, %2 ]
-  %15 = add i64 %.sroa.10.030.i, -1
+  %.sroa.9.031.i = phi ptr [ %.sroa.9.1.i, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit.i" ], [ undef, %2 ]
+  %.sroa.7.030.i = phi i64 [ %19, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit.i" ], [ 0, %2 ]
+  %.sroa.10.029.i = phi i64 [ %15, %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit.i" ], [ %9, %2 ]
+  %15 = add i64 %.sroa.10.029.i, -1
   %16 = icmp eq ptr %.sroa.013.032.i, %13
   br i1 %16, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1f2d684575267283E.llvm.11869723920097764970.exit", label %17
 
 17:                                               ; preds = %.lr.ph.i
   %18 = getelementptr inbounds i8, ptr %.sroa.013.032.i, i64 24
-  %19 = add nuw nsw i64 %.sroa.7.031.i, 1
+  %19 = add nuw nsw i64 %.sroa.7.030.i, 1
   %20 = load i64, ptr %.sroa.013.032.i, align 8, !range !30, !alias.scope !47, !noalias !50, !noundef !26
   %21 = icmp slt i64 %20, -9223372036854775803
   %22 = add i64 %20, -9223372036854775807
@@ -461,10 +461,10 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   br label %"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit.i"
 
 "_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..clone..Clone$GT$5clone17ha1e002d751fb177fE.exit.i": ; preds = %35, %34, %33, %32, %.noexc.i, %17
-  %.sroa.9.1.i = phi ptr [ %.sroa.9.029.i, %35 ], [ %.sroa.9.029.i, %34 ], [ %.sroa.9.029.i, %33 ], [ %.sroa.9.029.i, %32 ], [ %30, %.noexc.i ], [ %.sroa.9.029.i, %17 ]
   %.sroa.014.0.i = phi i64 [ -9223372036854775804, %35 ], [ -9223372036854775805, %34 ], [ -9223372036854775806, %33 ], [ -9223372036854775807, %32 ], [ %29, %.noexc.i ], [ -9223372036854775808, %17 ]
+  %.sroa.9.1.i = phi ptr [ %.sroa.9.031.i, %35 ], [ %.sroa.9.031.i, %34 ], [ %.sroa.9.031.i, %33 ], [ %.sroa.9.031.i, %32 ], [ %30, %.noexc.i ], [ %.sroa.9.031.i, %17 ]
   %.sroa.1015.1.i = phi i64 [ %.sroa.1015.033.i, %35 ], [ %.sroa.1015.033.i, %34 ], [ %.sroa.1015.033.i, %33 ], [ %.sroa.1015.033.i, %32 ], [ %.val1.i.i, %.noexc.i ], [ %.sroa.1015.033.i, %17 ]
-  %36 = getelementptr inbounds [0 x { [3 x i64] }], ptr %10, i64 0, i64 %.sroa.7.031.i
+  %36 = getelementptr inbounds [0 x { [3 x i64] }], ptr %10, i64 0, i64 %.sroa.7.030.i
   store i64 %.sroa.014.0.i, ptr %36, align 8
   %.sroa.06.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %.sroa.9.1.i, ptr %.sroa.06.sroa.4.0..sroa_idx.i, align 8
@@ -482,7 +482,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
 40:                                               ; preds = %25
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.7.031.i, ptr %12, align 8, !noalias !45
+  store i64 %.sroa.7.030.i, ptr %12, align 8, !noalias !45
   invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$grep_printer..hyperlink..Part$GT$$GT$17h1234086875e90139E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #12
           to label %41 unwind label %38, !noalias !52
 

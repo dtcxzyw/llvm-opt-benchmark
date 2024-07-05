@@ -92,8 +92,8 @@ define hidden noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17h76e
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %4, %6
-  %.0 = select i1 %.not, i1 %7, i1 false
-  ret i1 %.0
+  %.016 = select i1 %.not, i1 %7, i1 false
+  ret i1 %.016
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -942,8 +942,8 @@ define hidden void @"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !328, !noalias !331
   %11 = icmp ult i64 %.fca.1.extract.i, %10
-  %.0.i.i = select i1 %.not.i.i, i1 %11, i1 false
-  br i1 %.0.i.i, label %12, label %"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$3get17h916bb30693bfa52cE.exit"
+  %.016.i.i = select i1 %.not.i.i, i1 %11, i1 false
+  br i1 %.016.i.i, label %12, label %"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$3get17h916bb30693bfa52cE.exit"
 
 12:                                               ; preds = %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h9711bf93ecd889ddE.llvm.5910539677089311526.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
@@ -1049,8 +1049,8 @@ define hidden { i64, i64 } @"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !339, !noalias !342
   %11 = icmp ult i64 %.fca.1.extract, %10
-  %.0.i = select i1 %.not.i, i1 %11, i1 false
-  %.sroa.0.0 = zext i1 %.0.i to i64
+  %.016.i = select i1 %.not.i, i1 %11, i1 false
+  %.sroa.0.0 = zext i1 %.016.i to i64
   br label %12
 
 12:                                               ; preds = %2, %8

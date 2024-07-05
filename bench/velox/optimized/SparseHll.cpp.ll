@@ -48,9 +48,9 @@ entry:
   br i1 %cmp.not2.i, label %if.else, label %while.body.i
 
 while.body.i:                                     ; preds = %entry, %if.end10.i
-  %high.04.i = phi i32 [ %high.1.i, %if.end10.i ], [ %conv.i10, %entry ]
-  %low.03.i = phi i32 [ %low.1.i, %if.end10.i ], [ 0, %entry ]
-  %add.i = add nuw nsw i32 %low.03.i, %high.04.i
+  %low.04.i = phi i32 [ %low.1.i, %if.end10.i ], [ 0, %entry ]
+  %high.03.i = phi i32 [ %high.1.i, %if.end10.i ], [ %conv.i10, %entry ]
+  %add.i = add nuw nsw i32 %high.03.i, %low.04.i
   %shr.i11 = lshr i32 %add.i, 1
   %conv1.i = zext nneg i32 %shr.i11 to i64
   %add.ptr2.i.i = getelementptr inbounds i32, ptr %this.val, i64 %conv1.i
@@ -72,8 +72,8 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then7.i, %if.then.i
-  %low.1.i = phi i32 [ %add5.i, %if.then.i ], [ %low.03.i, %if.then7.i ]
-  %high.1.i = phi i32 [ %high.04.i, %if.then.i ], [ %sub8.i, %if.then7.i ]
+  %high.1.i = phi i32 [ %high.03.i, %if.then.i ], [ %sub8.i, %if.then7.i ]
+  %low.1.i = phi i32 [ %add5.i, %if.then.i ], [ %low.04.i, %if.then7.i ]
   %cmp.not.i = icmp sgt i32 %low.1.i, %high.1.i
   br i1 %cmp.not.i, label %_ZN8facebook5velox6common3hll12_GLOBAL__N_111searchIndexEjRKSt6vectorIjNS0_12StlAllocatorIjEEE.exit, label %while.body.i, !llvm.loop !4
 
@@ -226,14 +226,14 @@ entry:
   br i1 %cmp.i.not30, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %__begin3.sroa.0.032 = phi ptr [ %incdec.ptr.i, %for.body ], [ %2, %entry ]
-  %stream.sroa.5.031 = phi i32 [ %add.i17, %for.body ], [ 4, %entry ]
-  %4 = load i32, ptr %__begin3.sroa.0.032, align 4
-  %idx.ext.i15 = sext i32 %stream.sroa.5.031 to i64
+  %stream.sroa.5.032 = phi i32 [ %add.i17, %for.body ], [ 4, %entry ]
+  %__begin3.sroa.0.031 = phi ptr [ %incdec.ptr.i, %for.body ], [ %2, %entry ]
+  %4 = load i32, ptr %__begin3.sroa.0.031, align 4
+  %idx.ext.i15 = sext i32 %stream.sroa.5.032 to i64
   %add.ptr.i16 = getelementptr inbounds i8, ptr %output, i64 %idx.ext.i15
   store i32 %4, ptr %add.ptr.i16, align 4
-  %add.i17 = add i32 %stream.sroa.5.031, 4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.032, i64 4
+  %add.i17 = add i32 %stream.sroa.5.032, 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.031, i64 4
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %3
   br i1 %cmp.i.not, label %for.end, label %for.body
 

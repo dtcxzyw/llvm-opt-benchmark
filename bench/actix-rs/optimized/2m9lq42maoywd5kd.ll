@@ -716,7 +716,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h6b3b9c9a0de35a59E(ptr noal
 
 52:                                               ; preds = %161, %30
   %53 = phi i64 [ %.pre, %30 ], [ %156, %161 ]
-  %.050 = phi i64 [ 0, %30 ], [ %133, %161 ]
+  %.052 = phi i64 [ 0, %30 ], [ %133, %161 ]
   %.1 = phi i64 [ %26, %30 ], [ %.2, %161 ]
   %54 = load i64, ptr %2, align 8, !noundef !5
   %55 = icmp eq i64 %53, %54
@@ -786,7 +786,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h6b3b9c9a0de35a59E(ptr noal
   store ptr %80, ptr %8, align 8
   store i64 %.0.sroa.speculated.i, ptr %33, align 8
   store i64 0, ptr %34, align 8
-  store i64 %.050, ptr %35, align 8
+  store i64 %.052, ptr %35, align 8
   %82 = load i64, ptr %36, align 8, !alias.scope !69, !noalias !72, !noundef !5
   %83 = icmp eq i64 %82, 0
   br i1 %83, label %.thread180, label %.lr.ph

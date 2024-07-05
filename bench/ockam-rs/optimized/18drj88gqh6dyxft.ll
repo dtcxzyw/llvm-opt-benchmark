@@ -2369,9 +2369,9 @@ common.resume:                                    ; preds = %147, %.body142
   br label %.body
 
 115:                                              ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1b67f079189586c8E.exit.thread36.i.i", %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1b67f079189586c8E.exit.i.i"
-  %.sroa.10.0 = phi i64 [ %107, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1b67f079189586c8E.exit.thread36.i.i" ], [ 0, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1b67f079189586c8E.exit.i.i" ]
-  %.sroa.8156.0 = phi ptr [ %.sroa.6.0.copyload.pre.i.i, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1b67f079189586c8E.exit.thread36.i.i" ], [ %111, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1b67f079189586c8E.exit.i.i" ]
   %.sroa.4155.0 = phi ptr [ %105, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1b67f079189586c8E.exit.thread36.i.i" ], [ %81, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1b67f079189586c8E.exit.i.i" ]
+  %.sroa.8156.0 = phi ptr [ %.sroa.6.0.copyload.pre.i.i, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1b67f079189586c8E.exit.thread36.i.i" ], [ %111, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1b67f079189586c8E.exit.i.i" ]
+  %.sroa.10.0 = phi i64 [ %107, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1b67f079189586c8E.exit.thread36.i.i" ], [ 0, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1b67f079189586c8E.exit.i.i" ]
   store ptr %.sroa.4155.0, ptr %13, align 8
   %.sroa.440.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %.sroa.8156.0, ptr %.sroa.440.0..sroa_idx, align 8

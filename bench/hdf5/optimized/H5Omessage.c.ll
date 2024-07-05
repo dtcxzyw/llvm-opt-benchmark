@@ -698,14 +698,14 @@ define ptr @H5O_msg_read_oh(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
   br label %17
 
 13:                                               ; preds = %17
-  %14 = add i32 %.05866, 1
+  %14 = add i32 %.066, 1
   %15 = zext i32 %14 to i64
   %16 = icmp ugt i64 %10, %15
   br i1 %16, label %17, label %._crit_edge
 
 17:                                               ; preds = %.lr.ph, %13
   %18 = phi i64 [ 0, %.lr.ph ], [ %15, %13 ]
-  %.05866 = phi i32 [ 0, %.lr.ph ], [ %14, %13 ]
+  %.066 = phi i32 [ 0, %.lr.ph ], [ %14, %13 ]
   %19 = getelementptr inbounds %struct.H5O_mesg_t, ptr %12, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %8, %20
@@ -861,8 +861,8 @@ define ptr @H5O_msg_read_oh(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
   br label %120
 
 120:                                              ; preds = %108, %116, %104, %48, %._crit_edge.thread
-  %.0 = phi ptr [ null, %._crit_edge.thread ], [ null, %48 ], [ null, %104 ], [ null, %116 ], [ %114, %108 ]
-  ret ptr %.0
+  %.058 = phi ptr [ null, %._crit_edge.thread ], [ null, %48 ], [ null, %104 ], [ null, %116 ], [ %114, %108 ]
+  ret ptr %.058
 }
 
 declare i32 @H5O_unprotect(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1488,15 +1488,15 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 14:                                               ; preds = %.lr.ph, %89
   %15 = phi i64 [ %9, %.lr.ph ], [ %90, %89 ]
-  %.05673 = phi i32 [ 0, %.lr.ph ], [ %.157, %89 ]
-  %.05872 = phi i32 [ 0, %.lr.ph ], [ %91, %89 ]
-  %.05971 = phi ptr [ %11, %.lr.ph ], [ %92, %89 ]
-  %16 = load ptr, ptr %.05971, align 8
+  %.073 = phi ptr [ %11, %.lr.ph ], [ %92, %89 ]
+  %.05772 = phi i32 [ 0, %.lr.ph ], [ %.158, %89 ]
+  %.05971 = phi i32 [ 0, %.lr.ph ], [ %91, %89 ]
+  %16 = load ptr, ptr %.073, align 8
   %17 = icmp eq ptr %16, %2
   br i1 %17, label %18, label %89
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %.05971, i64 24
+  %19 = getelementptr inbounds i8, ptr %.073, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %77
@@ -1505,12 +1505,12 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
   store i32 0, ptr %7, align 4
   %23 = getelementptr inbounds i8, ptr %16, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %.05971, i64 9
+  %25 = getelementptr inbounds i8, ptr %.073, i64 9
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %.05971, i64 40
+  %28 = getelementptr inbounds i8, ptr %.073, i64 40
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %.05971, i64 32
+  %30 = getelementptr inbounds i8, ptr %.073, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr %24(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %27, ptr noundef nonnull %7, i64 noundef %29, ptr noundef %31) #6
   store ptr %32, ptr %19, align 8
@@ -1536,7 +1536,7 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %.not63, label %46, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %.05971, i64 8
+  %45 = getelementptr inbounds i8, ptr %.073, i64 8
   store i8 1, ptr %45, align 8
   br label %46
 
@@ -1556,7 +1556,7 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
   %54 = load ptr, ptr %19, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   store i32 %53, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %.05971, i64 12
+  %56 = getelementptr inbounds i8, ptr %.073, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = load ptr, ptr %19, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 24
@@ -1576,7 +1576,7 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 67:                                               ; preds = %64
   %68 = load ptr, ptr %19, align 8
-  %69 = getelementptr inbounds i8, ptr %.05971, i64 12
+  %69 = getelementptr inbounds i8, ptr %.073, i64 12
   %70 = load i32, ptr %69, align 4
   %71 = call i32 %66(ptr noundef %68, i32 noundef %70) #6
   %72 = icmp slt i32 %71, 0
@@ -1595,12 +1595,12 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %79, label %81, label %83
 
 81:                                               ; preds = %77
-  %82 = call i32 %80(ptr noundef nonnull %1, ptr noundef nonnull %.05971, i32 noundef %.05673, ptr noundef nonnull %6, ptr noundef %4) #6
+  %82 = call i32 %80(ptr noundef nonnull %1, ptr noundef nonnull %.073, i32 noundef %.05772, ptr noundef nonnull %6, ptr noundef %4) #6
   br label %86
 
 83:                                               ; preds = %77
   %84 = load ptr, ptr %19, align 8
-  %85 = call i32 %80(ptr noundef %84, i32 noundef %.05673, ptr noundef %4) #6
+  %85 = call i32 %80(ptr noundef %84, i32 noundef %.05772, ptr noundef %4) #6
   br label %86
 
 86:                                               ; preds = %83, %81
@@ -1609,15 +1609,15 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %.not66, label %87, label %95
 
 87:                                               ; preds = %86
-  %88 = add i32 %.05673, 1
+  %88 = add i32 %.05772, 1
   %.pre = load i64, ptr %8, align 8
   br label %89
 
 89:                                               ; preds = %14, %87
   %90 = phi i64 [ %.pre, %87 ], [ %15, %14 ]
-  %.157 = phi i32 [ %88, %87 ], [ %.05673, %14 ]
-  %91 = add i32 %.05872, 1
-  %92 = getelementptr inbounds i8, ptr %.05971, i64 48
+  %.158 = phi i32 [ %88, %87 ], [ %.05772, %14 ]
+  %91 = add i32 %.05971, 1
+  %92 = getelementptr inbounds i8, ptr %.073, i64 48
   %93 = zext i32 %91 to i64
   %94 = icmp ugt i64 %90, %93
   br i1 %94, label %14, label %.preheader

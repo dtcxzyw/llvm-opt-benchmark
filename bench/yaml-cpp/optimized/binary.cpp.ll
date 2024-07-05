@@ -37,48 +37,48 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 for.body:                                         ; preds = %invoke.cont1, %for.body
   %i.034 = phi i64 [ %inc, %for.body ], [ 0, %invoke.cont1 ]
-  %out.033 = phi ptr [ %incdec.ptr28, %for.body ], [ %call, %invoke.cont1 ]
-  %data.addr.032 = phi ptr [ %add.ptr, %for.body ], [ %data, %invoke.cont1 ]
-  %0 = load i8, ptr %data.addr.032, align 1
+  %data.addr.033 = phi ptr [ %add.ptr, %for.body ], [ %data, %invoke.cont1 ]
+  %out.032 = phi ptr [ %incdec.ptr28, %for.body ], [ %call, %invoke.cont1 ]
+  %0 = load i8, ptr %data.addr.033, align 1
   %1 = lshr i8 %0, 2
   %idxprom = zext nneg i8 %1 to i64
   %arrayidx3 = getelementptr inbounds [65 x i8], ptr @_ZN4YAMLL8encodingE, i64 0, i64 %idxprom
   %2 = load i8, ptr %arrayidx3, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %out.033, i64 1
-  store i8 %2, ptr %out.033, align 1
-  %3 = load i8, ptr %data.addr.032, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out.032, i64 1
+  store i8 %2, ptr %out.032, align 1
+  %3 = load i8, ptr %data.addr.033, align 1
   %4 = shl i8 %3, 4
   %5 = and i8 %4, 48
-  %arrayidx6 = getelementptr inbounds i8, ptr %data.addr.032, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %data.addr.033, i64 1
   %6 = load i8, ptr %arrayidx6, align 1
   %7 = lshr i8 %6, 4
   %or29 = or disjoint i8 %5, %7
   %idxprom9 = zext nneg i8 %or29 to i64
   %arrayidx10 = getelementptr inbounds [65 x i8], ptr @_ZN4YAMLL8encodingE, i64 0, i64 %idxprom9
   %8 = load i8, ptr %arrayidx10, align 1
-  %incdec.ptr11 = getelementptr inbounds i8, ptr %out.033, i64 2
+  %incdec.ptr11 = getelementptr inbounds i8, ptr %out.032, i64 2
   store i8 %8, ptr %incdec.ptr, align 1
   %9 = load i8, ptr %arrayidx6, align 1
   %10 = shl i8 %9, 2
   %11 = and i8 %10, 60
-  %arrayidx16 = getelementptr inbounds i8, ptr %data.addr.032, i64 2
+  %arrayidx16 = getelementptr inbounds i8, ptr %data.addr.033, i64 2
   %12 = load i8, ptr %arrayidx16, align 1
   %13 = lshr i8 %12, 6
   %or1930 = or disjoint i8 %11, %13
   %idxprom20 = zext nneg i8 %or1930 to i64
   %arrayidx21 = getelementptr inbounds [65 x i8], ptr @_ZN4YAMLL8encodingE, i64 0, i64 %idxprom20
   %14 = load i8, ptr %arrayidx21, align 1
-  %incdec.ptr22 = getelementptr inbounds i8, ptr %out.033, i64 3
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %out.032, i64 3
   store i8 %14, ptr %incdec.ptr11, align 1
   %15 = load i8, ptr %arrayidx16, align 1
   %16 = and i8 %15, 63
   %idxprom26 = zext nneg i8 %16 to i64
   %arrayidx27 = getelementptr inbounds [65 x i8], ptr @_ZN4YAMLL8encodingE, i64 0, i64 %idxprom26
   %17 = load i8, ptr %arrayidx27, align 1
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %out.033, i64 4
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %out.032, i64 4
   store i8 %17, ptr %incdec.ptr22, align 1
   %inc = add nuw nsw i64 %i.034, 1
-  %add.ptr = getelementptr inbounds i8, ptr %data.addr.032, i64 3
+  %add.ptr = getelementptr inbounds i8, ptr %data.addr.033, i64 3
   %exitcond.not = icmp eq i64 %inc, %div2
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
@@ -89,8 +89,8 @@ lpad:                                             ; preds = %invoke.cont71, %sw.
   resume { ptr, i32 } %18
 
 for.end:                                          ; preds = %for.body, %invoke.cont1
-  %data.addr.0.lcssa = phi ptr [ %data, %invoke.cont1 ], [ %add.ptr, %for.body ]
   %out.0.lcssa = phi ptr [ %call, %invoke.cont1 ], [ %incdec.ptr28, %for.body ]
+  %data.addr.0.lcssa = phi ptr [ %data, %invoke.cont1 ], [ %add.ptr, %for.body ]
   switch i64 %rem, label %sw.epilog [
     i64 2, label %sw.bb45
     i64 1, label %sw.bb29

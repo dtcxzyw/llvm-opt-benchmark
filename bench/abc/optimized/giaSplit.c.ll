@@ -1816,7 +1816,7 @@ define i32 @Spl_ManCountMarkedFanins(ptr nocapture noundef readonly %0, i32 noun
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %.015 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %12 ]
+  %.01014 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %12 ]
   %13 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = ashr i32 %14, 5
@@ -1826,14 +1826,14 @@ define i32 @Spl_ManCountMarkedFanins(ptr nocapture noundef readonly %0, i32 noun
   %19 = and i32 %14, 31
   %20 = lshr i32 %18, %19
   %21 = and i32 %20, 1
-  %spec.select = add nuw nsw i32 %21, %.015
+  %spec.select = add nuw nsw i32 %21, %.01014
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !25
 
 .critedge:                                        ; preds = %12, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %spec.select, %12 ]
-  ret i32 %.0.lcssa
+  %.010.lcssa = phi i32 [ 0, %3 ], [ %spec.select, %12 ]
+  ret i32 %.010.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1902,7 +1902,7 @@ define i32 @Spl_ManFindGoodCand(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %36, label %18, label %.critedge.preheader.loopexit, !llvm.loop !26
 
 .critedge2.preheader:                             ; preds = %Spl_ManCountMarkedFanins.exit, %.critedge.preheader
-  %.030.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %spec.select, %Spl_ManCountMarkedFanins.exit ]
+  %.032.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %spec.select, %Spl_ManCountMarkedFanins.exit ]
   br i1 %.val3847, label %.lr.ph49, label %.critedge4
 
 .lr.ph49:                                         ; preds = %.critedge2.preheader
@@ -1912,7 +1912,7 @@ define i32 @Spl_ManFindGoodCand(ptr nocapture noundef readonly %0) local_unnamed
 38:                                               ; preds = %.lr.ph46, %Spl_ManCountMarkedFanins.exit
   %indvars.iv51 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next52, %Spl_ManCountMarkedFanins.exit ]
   %.045 = phi i32 [ -1, %.lr.ph46 ], [ %spec.select35, %Spl_ManCountMarkedFanins.exit ]
-  %.03044 = phi i32 [ 0, %.lr.ph46 ], [ %spec.select, %Spl_ManCountMarkedFanins.exit ]
+  %.03243 = phi i32 [ 0, %.lr.ph46 ], [ %spec.select, %Spl_ManCountMarkedFanins.exit ]
   %39 = getelementptr inbounds i32, ptr %.val36, i64 %indvars.iv51
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
@@ -1933,7 +1933,7 @@ define i32 @Spl_ManFindGoodCand(ptr nocapture noundef readonly %0) local_unnamed
 
 48:                                               ; preds = %48, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %48 ]
-  %.015.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %48 ]
+  %.01014.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %48 ]
   %49 = getelementptr inbounds i32, ptr %.val.i, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4
   %51 = ashr i32 %50, 5
@@ -1943,16 +1943,16 @@ define i32 @Spl_ManFindGoodCand(ptr nocapture noundef readonly %0) local_unnamed
   %55 = and i32 %50, 31
   %56 = lshr i32 %54, %55
   %57 = and i32 %56, 1
-  %spec.select.i = add nuw nsw i32 %57, %.015.i
+  %spec.select.i = add nuw nsw i32 %57, %.01014.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Spl_ManCountMarkedFanins.exit, label %48, !llvm.loop !25
 
 Spl_ManCountMarkedFanins.exit:                    ; preds = %48, %38
-  %.0.lcssa.i = phi i32 [ 0, %38 ], [ %spec.select.i, %48 ]
-  %58 = icmp slt i32 %.045, %.0.lcssa.i
-  %spec.select = select i1 %58, i32 %40, i32 %.03044
-  %spec.select35 = tail call i32 @llvm.smax.i32(i32 %.045, i32 %.0.lcssa.i)
+  %.010.lcssa.i = phi i32 [ 0, %38 ], [ %spec.select.i, %48 ]
+  %58 = icmp slt i32 %.045, %.010.lcssa.i
+  %spec.select = select i1 %58, i32 %40, i32 %.03243
+  %spec.select35 = tail call i32 @llvm.smax.i32(i32 %.045, i32 %.010.lcssa.i)
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2.preheader, label %38, !llvm.loop !27
@@ -1985,7 +1985,7 @@ Spl_ManCountMarkedFanins.exit:                    ; preds = %48, %38
   br i1 %77, label %.critedge2, label %.critedge4, !llvm.loop !28
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
-  ret i32 %.030.lcssa
+  ret i32 %.032.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

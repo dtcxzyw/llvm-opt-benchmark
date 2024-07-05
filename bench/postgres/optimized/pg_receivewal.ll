@@ -905,15 +905,15 @@ get_destination_dir.exit.backedge.i.i:            ; preds = %322, %285, %263, %2
 
 341:                                              ; preds = %337
   %342 = icmp eq i64 %339, %.038.ph159.i.i
-  %343 = icmp ugt i32 %.pre.i.i, %.041.ph155.i.i
+  %343 = icmp ugt i32 %.pre.i.i, %.039.ph157.i.i
   %or.cond.i.i = select i1 %342, i1 %343, i1 false
   br i1 %or.cond.i.i, label %347, label %344
 
 344:                                              ; preds = %341
-  %345 = icmp ne i32 %.pre.i.i, %.041.ph155.i.i
+  %345 = icmp ne i32 %.pre.i.i, %.039.ph157.i.i
   %not..i.i = xor i1 %342, true
   %or.cond60.i.i = select i1 %not..i.i, i1 true, i1 %345
-  %346 = trunc nuw i8 %.039.ph157.i.i to i1
+  %346 = trunc nuw i8 %.041.ph155.i.i to i1
   %.not77.i.i = xor i1 %346, true
   %brmerge.i.i = or i1 %338, %.not77.i.i
   %or.cond78.i.i = select i1 %or.cond60.i.i, i1 true, i1 %brmerge.i.i
@@ -923,8 +923,8 @@ get_destination_dir.exit.backedge.i.i:            ; preds = %322, %285, %263, %2
   br label %get_destination_dir.exit.outer.i.i
 
 get_destination_dir.exit.outer.i.i:               ; preds = %347, %344
-  %.142.i.i = phi i32 [ %.pre.i.i, %347 ], [ %.041.ph155.i.i, %344 ]
-  %.140.i.i = phi i8 [ %.sink27.i.i.i, %347 ], [ %.039.ph157.i.i, %344 ]
+  %.142.i.i = phi i8 [ %.sink27.i.i.i, %347 ], [ %.041.ph155.i.i, %344 ]
+  %.140.i.i = phi i32 [ %.pre.i.i, %347 ], [ %.039.ph157.i.i, %344 ]
   %.1.i.i = phi i64 [ %339, %347 ], [ %.038.ph159.i.i, %344 ]
   store i32 0, ptr %238, align 4
   %348 = call ptr @readdir(ptr noundef nonnull %236) #12
@@ -934,13 +934,13 @@ get_destination_dir.exit.outer.i.i:               ; preds = %347, %344
 .lr.ph.i.i:                                       ; preds = %get_destination_dir.exit.preheader.i.i, %get_destination_dir.exit.outer.i.i
   %349 = phi ptr [ %348, %get_destination_dir.exit.outer.i.i ], [ %239, %get_destination_dir.exit.preheader.i.i ]
   %.038.ph159.i.i = phi i64 [ %.1.i.i, %get_destination_dir.exit.outer.i.i ], [ 0, %get_destination_dir.exit.preheader.i.i ]
-  %.039.ph157.i.i = phi i8 [ %.140.i.i, %get_destination_dir.exit.outer.i.i ], [ 0, %get_destination_dir.exit.preheader.i.i ]
-  %.041.ph155.i.i = phi i32 [ %.142.i.i, %get_destination_dir.exit.outer.i.i ], [ 0, %get_destination_dir.exit.preheader.i.i ]
+  %.039.ph157.i.i = phi i32 [ %.140.i.i, %get_destination_dir.exit.outer.i.i ], [ 0, %get_destination_dir.exit.preheader.i.i ]
+  %.041.ph155.i.i = phi i8 [ %.142.i.i, %get_destination_dir.exit.outer.i.i ], [ 0, %get_destination_dir.exit.preheader.i.i ]
   br label %241
 
 get_destination_dir.exit.outer._crit_edge.i.i:    ; preds = %get_destination_dir.exit.outer.i.i, %get_destination_dir.exit.backedge.i.i, %get_destination_dir.exit.preheader.i.i
-  %.041.ph.lcssa131.i.i = phi i32 [ 0, %get_destination_dir.exit.preheader.i.i ], [ %.041.ph155.i.i, %get_destination_dir.exit.backedge.i.i ], [ %.142.i.i, %get_destination_dir.exit.outer.i.i ]
-  %.039.ph.lcssa126.i.i = phi i8 [ 0, %get_destination_dir.exit.preheader.i.i ], [ %.039.ph157.i.i, %get_destination_dir.exit.backedge.i.i ], [ %.140.i.i, %get_destination_dir.exit.outer.i.i ]
+  %.041.ph.lcssa131.i.i = phi i8 [ 0, %get_destination_dir.exit.preheader.i.i ], [ %.041.ph155.i.i, %get_destination_dir.exit.backedge.i.i ], [ %.142.i.i, %get_destination_dir.exit.outer.i.i ]
+  %.039.ph.lcssa126.i.i = phi i32 [ 0, %get_destination_dir.exit.preheader.i.i ], [ %.039.ph157.i.i, %get_destination_dir.exit.backedge.i.i ], [ %.140.i.i, %get_destination_dir.exit.outer.i.i ]
   %.038.ph.lcssa121.i.i = phi i64 [ 0, %get_destination_dir.exit.preheader.i.i ], [ %.038.ph159.i.i, %get_destination_dir.exit.backedge.i.i ], [ %.1.i.i, %get_destination_dir.exit.outer.i.i ]
   %350 = load i32, ptr %238, align 4
   %.not50.i.i = icmp eq i32 %350, 0
@@ -976,14 +976,14 @@ FindStreamingStart.exit.thread.i:                 ; preds = %close_destination_d
   br label %363
 
 FindStreamingStart.exit.i:                        ; preds = %close_destination_dir.exit.i.i
-  %356 = and i8 %.039.ph.lcssa126.i.i, 1
+  %356 = and i8 %.041.ph.lcssa131.i.i, 1
   %357 = xor i8 %356, 1
   %358 = zext nneg i8 %357 to i64
   %spec.select.i.i = add i64 %.038.ph.lcssa121.i.i, %358
   %359 = load i32, ptr @WalSegSz, align 4
   %360 = sext i32 %359 to i64
   %361 = mul i64 %spec.select.i.i, %360
-  store i32 %.041.ph.lcssa131.i.i, ptr %206, align 8
+  store i32 %.039.ph.lcssa126.i.i, ptr %206, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %7)

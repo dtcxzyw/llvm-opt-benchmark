@@ -308,12 +308,12 @@ pg_password_sendauth.exit.thread:                 ; preds = %105, %100, %93, %89
   br label %110
 
 pg_password_sendauth.exit:                        ; preds = %88, %102
-  %.023.i = phi ptr [ %92, %102 ], [ null, %88 ]
-  %.0.i = phi ptr [ %92, %102 ], [ %.051, %88 ]
-  %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #11
+  %.024.i = phi ptr [ %92, %102 ], [ null, %88 ]
+  %.023.i = phi ptr [ %92, %102 ], [ %.051, %88 ]
+  %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.023.i) #11
   %108 = add i64 %107, 1
-  %109 = call i32 @pqPacketSend(ptr noundef nonnull %2, i8 noundef signext 112, ptr noundef nonnull %.0.i, i64 noundef %108) #9
-  call void @free(ptr noundef %.023.i) #9
+  %109 = call i32 @pqPacketSend(ptr noundef nonnull %2, i8 noundef signext 112, ptr noundef nonnull %.023.i, i64 noundef %108) #9
+  call void @free(ptr noundef %.024.i) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   %.not37 = icmp eq i32 %109, 0
@@ -968,8 +968,8 @@ sub_1:                                            ; preds = %sub_0
   br label %58
 
 58:                                               ; preds = %44, %40, %56, %54, %51, %12, %4, %57, %27, %22, %17
-  %.039 = phi ptr [ null, %17 ], [ null, %22 ], [ null, %27 ], [ null, %57 ], [ null, %4 ], [ null, %12 ], [ %43, %40 ], [ null, %44 ], [ %50, %51 ], [ null, %54 ], [ null, %56 ]
-  ret ptr %.039
+  %.0 = phi ptr [ null, %17 ], [ null, %22 ], [ null, %27 ], [ null, %57 ], [ null, %4 ], [ null, %12 ], [ %43, %40 ], [ null, %44 ], [ %50, %51 ], [ null, %54 ], [ null, %56 ]
+  ret ptr %.0
 }
 
 declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #1

@@ -51,17 +51,17 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef re
   br label %179
 
 .lr.ph:                                           ; preds = %.preheader, %57
-  %.063127 = phi ptr [ %.1, %57 ], [ null, %.preheader ]
-  %.064126 = phi ptr [ %.165, %57 ], [ null, %.preheader ]
-  %.066125 = phi ptr [ %.167, %57 ], [ null, %.preheader ]
-  %.068124 = phi i32 [ %.169, %57 ], [ 0, %.preheader ]
-  %.070123 = phi i32 [ %.171, %57 ], [ 0, %.preheader ]
-  %.072122 = phi i32 [ %.173, %57 ], [ 0, %.preheader ]
-  %.074121 = phi i32 [ %.175, %57 ], [ 0, %.preheader ]
-  %.076120 = phi i32 [ %58, %57 ], [ 1, %.preheader ]
-  %.078119 = phi i32 [ %.179, %57 ], [ 0, %.preheader ]
-  %.080118 = phi i32 [ %.181, %57 ], [ 1, %.preheader ]
-  %14 = sext i32 %.076120 to i64
+  %.064127 = phi ptr [ %.1, %57 ], [ null, %.preheader ]
+  %.065126 = phi ptr [ %.166, %57 ], [ null, %.preheader ]
+  %.067125 = phi ptr [ %.168, %57 ], [ null, %.preheader ]
+  %.069124 = phi i32 [ %.170, %57 ], [ 0, %.preheader ]
+  %.071123 = phi i32 [ %.172, %57 ], [ 0, %.preheader ]
+  %.073122 = phi i32 [ %.174, %57 ], [ 0, %.preheader ]
+  %.075121 = phi i32 [ %.176, %57 ], [ 0, %.preheader ]
+  %.077120 = phi i32 [ %58, %57 ], [ 1, %.preheader ]
+  %.079119 = phi i32 [ %.180, %57 ], [ 0, %.preheader ]
+  %.081118 = phi i32 [ %.182, %57 ], [ 1, %.preheader ]
+  %14 = sext i32 %.077120 to i64
   %15 = getelementptr inbounds ptr, ptr %1, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str.1) #13
@@ -137,7 +137,7 @@ sub_2107:                                         ; preds = %sub_1106
   br i1 %.not103, label %45, label %55
 
 45:                                               ; preds = %.tail104
-  %46 = add nsw i32 %.076120, 1
+  %46 = add nsw i32 %.077120, 1
   %47 = icmp eq i32 %46, %0
   br i1 %47, label %48, label %51
 
@@ -153,33 +153,33 @@ sub_2107:                                         ; preds = %sub_1106
   br label %57
 
 55:                                               ; preds = %.tail104
-  %56 = icmp eq ptr %.066125, null
-  %..066 = select i1 %56, ptr %16, ptr %.066125
-  %.064. = select i1 %56, ptr %.064126, ptr %16
+  %56 = icmp eq ptr %.067125, null
+  %..067 = select i1 %56, ptr %16, ptr %.067125
+  %.065. = select i1 %56, ptr %.065126, ptr %16
   br label %57
 
 57:                                               ; preds = %55, %.tail, %24, %22, %20, %18, %.lr.ph, %51
-  %.181 = phi i32 [ %.080118, %51 ], [ %.080118, %.lr.ph ], [ %.080118, %18 ], [ %.080118, %20 ], [ %.080118, %22 ], [ %.080118, %24 ], [ 0, %.tail ], [ %.080118, %55 ]
-  %.179 = phi i32 [ %.078119, %51 ], [ 1, %.lr.ph ], [ 0, %18 ], [ %.078119, %20 ], [ %.078119, %22 ], [ %.078119, %24 ], [ %.078119, %.tail ], [ %.078119, %55 ]
-  %.177 = phi i32 [ %46, %51 ], [ %.076120, %.lr.ph ], [ %.076120, %18 ], [ %.076120, %20 ], [ %.076120, %22 ], [ %.076120, %24 ], [ %.076120, %.tail ], [ %.076120, %55 ]
-  %.175 = phi i32 [ %.074121, %51 ], [ %.074121, %.lr.ph ], [ %.074121, %18 ], [ %.074121, %20 ], [ %.074121, %22 ], [ %.074121, %24 ], [ 1, %.tail ], [ %.074121, %55 ]
-  %.173 = phi i32 [ %.072122, %51 ], [ %.072122, %.lr.ph ], [ %.072122, %18 ], [ 1, %20 ], [ %.072122, %22 ], [ %.072122, %24 ], [ %.072122, %.tail ], [ %.072122, %55 ]
-  %.171 = phi i32 [ %.070123, %51 ], [ %.070123, %.lr.ph ], [ %.070123, %18 ], [ %.070123, %20 ], [ 1, %22 ], [ %.070123, %24 ], [ %.070123, %.tail ], [ %.070123, %55 ]
-  %.169 = phi i32 [ %.068124, %51 ], [ %.068124, %.lr.ph ], [ %.068124, %18 ], [ %.068124, %20 ], [ %.068124, %22 ], [ 1, %24 ], [ %.068124, %.tail ], [ %.068124, %55 ]
-  %.167 = phi ptr [ %.066125, %51 ], [ %.066125, %.lr.ph ], [ %.066125, %18 ], [ %.066125, %20 ], [ %.066125, %22 ], [ %.066125, %24 ], [ %.066125, %.tail ], [ %..066, %55 ]
-  %.165 = phi ptr [ %.064126, %51 ], [ %.064126, %.lr.ph ], [ %.064126, %18 ], [ %.064126, %20 ], [ %.064126, %22 ], [ %.064126, %24 ], [ %.064126, %.tail ], [ %.064., %55 ]
-  %.1 = phi ptr [ %54, %51 ], [ %.063127, %.lr.ph ], [ %.063127, %18 ], [ %.063127, %20 ], [ %.063127, %22 ], [ %.063127, %24 ], [ %.063127, %.tail ], [ %.063127, %55 ]
-  %58 = add nsw i32 %.177, 1
+  %.182 = phi i32 [ %.081118, %51 ], [ %.081118, %.lr.ph ], [ %.081118, %18 ], [ %.081118, %20 ], [ %.081118, %22 ], [ %.081118, %24 ], [ 0, %.tail ], [ %.081118, %55 ]
+  %.180 = phi i32 [ %.079119, %51 ], [ 1, %.lr.ph ], [ 0, %18 ], [ %.079119, %20 ], [ %.079119, %22 ], [ %.079119, %24 ], [ %.079119, %.tail ], [ %.079119, %55 ]
+  %.178 = phi i32 [ %46, %51 ], [ %.077120, %.lr.ph ], [ %.077120, %18 ], [ %.077120, %20 ], [ %.077120, %22 ], [ %.077120, %24 ], [ %.077120, %.tail ], [ %.077120, %55 ]
+  %.176 = phi i32 [ %.075121, %51 ], [ %.075121, %.lr.ph ], [ %.075121, %18 ], [ %.075121, %20 ], [ %.075121, %22 ], [ %.075121, %24 ], [ 1, %.tail ], [ %.075121, %55 ]
+  %.174 = phi i32 [ %.073122, %51 ], [ %.073122, %.lr.ph ], [ %.073122, %18 ], [ 1, %20 ], [ %.073122, %22 ], [ %.073122, %24 ], [ %.073122, %.tail ], [ %.073122, %55 ]
+  %.172 = phi i32 [ %.071123, %51 ], [ %.071123, %.lr.ph ], [ %.071123, %18 ], [ %.071123, %20 ], [ 1, %22 ], [ %.071123, %24 ], [ %.071123, %.tail ], [ %.071123, %55 ]
+  %.170 = phi i32 [ %.069124, %51 ], [ %.069124, %.lr.ph ], [ %.069124, %18 ], [ %.069124, %20 ], [ %.069124, %22 ], [ 1, %24 ], [ %.069124, %.tail ], [ %.069124, %55 ]
+  %.168 = phi ptr [ %.067125, %51 ], [ %.067125, %.lr.ph ], [ %.067125, %18 ], [ %.067125, %20 ], [ %.067125, %22 ], [ %.067125, %24 ], [ %.067125, %.tail ], [ %..067, %55 ]
+  %.166 = phi ptr [ %.065126, %51 ], [ %.065126, %.lr.ph ], [ %.065126, %18 ], [ %.065126, %20 ], [ %.065126, %22 ], [ %.065126, %24 ], [ %.065126, %.tail ], [ %.065., %55 ]
+  %.1 = phi ptr [ %54, %51 ], [ %.064127, %.lr.ph ], [ %.064127, %18 ], [ %.064127, %20 ], [ %.064127, %22 ], [ %.064127, %24 ], [ %.064127, %.tail ], [ %.064127, %55 ]
+  %58 = add nsw i32 %.178, 1
   %59 = icmp slt i32 %58, %0
   br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %57
-  %60 = icmp ne i32 %.175, 0
-  %61 = icmp eq i32 %.173, 0
-  %62 = icmp eq i32 %.169, 0
-  %63 = icmp eq ptr %.167, null
+  %60 = icmp ne i32 %.176, 0
+  %61 = icmp eq i32 %.174, 0
+  %62 = icmp eq i32 %.170, 0
+  %63 = icmp eq ptr %.168, null
   %or.cond = select i1 %60, i1 true, i1 %63
-  %64 = icmp eq ptr %.165, null
+  %64 = icmp eq ptr %.166, null
   %or.cond3 = select i1 %or.cond, i1 true, i1 %64
   br i1 %or.cond3, label %65, label %72
 
@@ -187,21 +187,21 @@ sub_2107:                                         ; preds = %sub_1106
   br i1 %60, label %68, label %.thread165
 
 .thread165:                                       ; preds = %.preheader, %65
-  %.080.lcssa163168 = phi i32 [ %.181, %65 ], [ 1, %.preheader ]
+  %.081.lcssa163168 = phi i32 [ %.182, %65 ], [ 1, %.preheader ]
   %66 = load ptr, ptr @stderr, align 8
   %67 = call i64 @fwrite(ptr nonnull @.str.9, i64 26, i64 1, ptr %66) #12
   br label %68
 
 68:                                               ; preds = %.thread165, %65
-  %.080.lcssa163169 = phi i32 [ %.080.lcssa163168, %.thread165 ], [ %.181, %65 ]
+  %.081.lcssa163169 = phi i32 [ %.081.lcssa163168, %.thread165 ], [ %.182, %65 ]
   %69 = load ptr, ptr @stderr, align 8
   %70 = call ptr @WebPGetEnabledInputFileFormats() #11
   %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.19, ptr noundef %70) #14
   br label %178
 
 72:                                               ; preds = %._crit_edge
-  %73 = call fastcc i64 @ReadPicture(ptr noundef nonnull %.167, ptr noundef nonnull %3)
-  %74 = call fastcc i64 @ReadPicture(ptr noundef nonnull %.165, ptr noundef nonnull %4)
+  %73 = call fastcc i64 @ReadPicture(ptr noundef nonnull %.168, ptr noundef nonnull %3)
+  %74 = call fastcc i64 @ReadPicture(ptr noundef nonnull %.166, ptr noundef nonnull %4)
   %75 = icmp eq i64 %73, 0
   %76 = icmp eq i64 %74, 0
   %or.cond5 = select i1 %75, i1 true, i1 %76
@@ -216,7 +216,7 @@ sub_2107:                                         ; preds = %sub_1106
   br label %79
 
 79:                                               ; preds = %78, %77
-  %80 = call i32 @WebPPictureDistortion(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %.179, ptr noundef nonnull %5) #11
+  %80 = call i32 @WebPPictureDistortion(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %.180, ptr noundef nonnull %5) #11
   %.not91 = icmp eq i32 %80, 0
   br i1 %.not91, label %81, label %84
 
@@ -275,7 +275,7 @@ sub_2107:                                         ; preds = %sub_1106
 
 120:                                              ; preds = %118
   %121 = call i64 @fwrite(ptr nonnull @.str.13, i64 29, i64 1, ptr %119) #12
-  %122 = icmp eq i32 %.179, 1
+  %122 = icmp eq i32 %.180, 1
   %123 = getelementptr inbounds i8, ptr %3, i64 72
   %124 = getelementptr inbounds i8, ptr %3, i64 80
   %125 = getelementptr inbounds i8, ptr %4, i64 72
@@ -294,7 +294,7 @@ sub_2107:                                         ; preds = %sub_1106
   %134 = shl nsw i32 %133, 2
   %135 = load i32, ptr %102, align 8
   %136 = load i32, ptr %106, align 4
-  %137 = call fastcc i32 @SSIMScaleChannel(ptr noundef %128, i32 noundef %130, ptr noundef %132, i32 noundef %134, i32 noundef %135, i32 noundef %136, i32 noundef %.171)
+  %137 = call fastcc i32 @SSIMScaleChannel(ptr noundef %128, i32 noundef %130, ptr noundef %132, i32 noundef %134, i32 noundef %135, i32 noundef %136, i32 noundef %.172)
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %139, label %142
 
@@ -322,7 +322,7 @@ sub_2107:                                         ; preds = %sub_1106
   %152 = shl nsw i32 %151, 2
   %153 = load i32, ptr %102, align 8
   %154 = load i32, ptr %106, align 4
-  %155 = call fastcc i32 @DiffScaleChannel(ptr noundef %146, i32 noundef %148, ptr noundef %150, i32 noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef %.171)
+  %155 = call fastcc i32 @DiffScaleChannel(ptr noundef %146, i32 noundef %148, ptr noundef %150, i32 noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef %.172)
   %156 = load ptr, ptr @stderr, align 8
   %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef nonnull @.str.15, i32 noundef %155) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -369,14 +369,14 @@ sub_2107:                                         ; preds = %sub_1106
   br label %178
 
 178:                                              ; preds = %173, %72, %177, %170, %160, %115, %81, %68, %48
-  %.2 = phi i32 [ %.080118, %48 ], [ %.080.lcssa163169, %68 ], [ %.181, %72 ], [ %.181, %115 ], [ %.181, %170 ], [ 1, %173 ], [ 0, %177 ], [ %.181, %160 ], [ %.181, %81 ]
+  %.2 = phi i32 [ %.081118, %48 ], [ %.081.lcssa163169, %68 ], [ %.182, %72 ], [ %.182, %115 ], [ %.182, %170 ], [ 1, %173 ], [ 0, %177 ], [ %.182, %160 ], [ %.182, %81 ]
   call void @WebPPictureFree(ptr noundef nonnull %3) #11
   call void @WebPPictureFree(ptr noundef nonnull %4) #11
   br label %179
 
 179:                                              ; preds = %178, %11
-  %.082 = phi i32 [ %.2, %178 ], [ 1, %11 ]
-  ret i32 %.082
+  %.0 = phi i32 [ %.2, %178 ], [ 1, %11 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
@@ -501,7 +501,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noca
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us95
   %indvars.iv115 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next116, %._crit_edge.us95 ]
-  %.06792.us = phi i32 [ 0, %.preheader.lr.ph ], [ %.2.us, %._crit_edge.us95 ]
+  %.06991.us = phi i32 [ 0, %.preheader.lr.ph ], [ %.2.us, %._crit_edge.us95 ]
   %35 = trunc nuw nsw i64 %indvars.iv115 to i32
   %36 = tail call i32 @llvm.smax.i32(i32 %35, i32 3)
   %37 = add nsw i32 %36, -3
@@ -522,7 +522,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noca
 
 49:                                               ; preds = %.preheader.us, %SSIMGetClipped.exit.us
   %indvars.iv110 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next111, %SSIMGetClipped.exit.us ]
-  %.16889.us = phi i32 [ %.06792.us, %.preheader.us ], [ %.2.us, %SSIMGetClipped.exit.us ]
+  %.17089.us = phi i32 [ %.06991.us, %.preheader.us ], [ %.2.us, %SSIMGetClipped.exit.us ]
   %50 = trunc nuw nsw i64 %indvars.iv110 to i32
   %51 = tail call i32 @llvm.smax.i32(i32 %50, i32 3)
   %52 = trunc i64 %indvars.iv110 to i32
@@ -659,8 +659,8 @@ SSIMGetClipped.exit.us:                           ; preds = %99, %._crit_edge91.
   %124 = fmul double %123, 2.550000e+02
   %125 = fptosi double %124 to i32
   %126 = icmp slt i32 %125, 0
-  %spec.select.us = tail call i32 @llvm.smax.i32(i32 %.16889.us, i32 %125)
-  %.2.us = select i1 %126, i32 %.16889.us, i32 %spec.select.us
+  %spec.select.us = tail call i32 @llvm.smax.i32(i32 %.17089.us, i32 %125)
+  %.2.us = select i1 %126, i32 %.17089.us, i32 %spec.select.us
   %.0.us = tail call i32 @llvm.smax.i32(i32 %125, i32 0)
   %127 = tail call i32 @llvm.umin.i32(i32 %.0.us, i32 255)
   %128 = trunc nuw i32 %127 to i8
@@ -677,17 +677,17 @@ SSIMGetClipped.exit.us:                           ; preds = %99, %._crit_edge91.
   br i1 %exitcond119.not, label %._crit_edge93, label %.preheader.us, !llvm.loop !13
 
 ._crit_edge93:                                    ; preds = %._crit_edge.us95, %.preheader81, %.preheader79
-  %.067.lcssa = phi i32 [ 0, %.preheader79 ], [ 0, %.preheader81 ], [ %.2.us, %._crit_edge.us95 ]
+  %.069.lcssa = phi i32 [ 0, %.preheader79 ], [ 0, %.preheader81 ], [ %.2.us, %._crit_edge.us95 ]
   tail call void @free(ptr noundef %11) #11
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %RescalePlane.exit, label %130
 
 130:                                              ; preds = %._crit_edge93
-  %131 = icmp sgt i32 %.067.lcssa, 0
+  %131 = icmp sgt i32 %.069.lcssa, 0
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %130
-  %133 = udiv i32 16711680, %.067.lcssa
+  %133 = udiv i32 16711680, %.069.lcssa
   br label %134
 
 134:                                              ; preds = %132, %130
@@ -729,7 +729,7 @@ SSIMGetClipped.exit.us:                           ; preds = %99, %._crit_edge91.
   br i1 %exitcond.not.i78, label %RescalePlane.exit, label %.lr.ph.us.i, !llvm.loop !15
 
 RescalePlane.exit:                                ; preds = %._crit_edge.us.i, %134, %._crit_edge93, %7
-  %.065 = phi i32 [ -1, %7 ], [ %.067.lcssa, %._crit_edge93 ], [ %.067.lcssa, %134 ], [ %.067.lcssa, %._crit_edge.us.i ]
+  %.065 = phi i32 [ -1, %7 ], [ %.069.lcssa, %._crit_edge93 ], [ %.069.lcssa, %134 ], [ %.069.lcssa, %._crit_edge.us.i ]
   ret i32 %.065
 }
 
@@ -750,7 +750,7 @@ define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr nocapture nou
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv45 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next46, %._crit_edge.us ]
-  %.038.us = phi i32 [ 0, %.lr.ph.us.preheader ], [ %spec.select.us, %._crit_edge.us ]
+  %.03237.us = phi i32 [ 0, %.lr.ph.us.preheader ], [ %spec.select.us, %._crit_edge.us ]
   %14 = mul nsw i64 %indvars.iv45, %12
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
   %16 = mul nsw i64 %indvars.iv45, %13
@@ -759,7 +759,7 @@ define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr nocapture nou
 
 18:                                               ; preds = %.lr.ph.us, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %18 ]
-  %.136.us = phi i32 [ %.038.us, %.lr.ph.us ], [ %spec.select.us, %18 ]
+  %.135.us = phi i32 [ %.03237.us, %.lr.ph.us ], [ %spec.select.us, %18 ]
   %19 = getelementptr inbounds i8, ptr %15, i64 %indvars.iv
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
@@ -768,7 +768,7 @@ define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr nocapture nou
   %24 = zext i8 %23 to i32
   %25 = sub nsw i32 %21, %24
   %26 = tail call i32 @llvm.abs.i32(i32 %25, i1 true)
-  %spec.select.us = tail call i32 @llvm.smax.i32(i32 %26, i32 %.136.us)
+  %spec.select.us = tail call i32 @llvm.smax.i32(i32 %26, i32 %.135.us)
   %27 = trunc nuw i32 %26 to i8
   store i8 %27, ptr %19, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
@@ -781,16 +781,16 @@ define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr nocapture nou
   br i1 %exitcond.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !17
 
 ._crit_edge41:                                    ; preds = %._crit_edge.us, %7
-  %.0.lcssa = phi i32 [ 0, %7 ], [ %spec.select.us, %._crit_edge.us ]
+  %.032.lcssa = phi i32 [ 0, %7 ], [ %spec.select.us, %._crit_edge.us ]
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %RescalePlane.exit, label %29
 
 29:                                               ; preds = %._crit_edge41
-  %.not48 = icmp eq i32 %.0.lcssa, 0
+  %.not48 = icmp eq i32 %.032.lcssa, 0
   br i1 %.not48, label %32, label %30
 
 30:                                               ; preds = %29
-  %31 = udiv i32 16711680, %.0.lcssa
+  %31 = udiv i32 16711680, %.032.lcssa
   br label %32
 
 32:                                               ; preds = %30, %29
@@ -832,7 +832,7 @@ define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr nocapture nou
   br i1 %exitcond.not.i, label %RescalePlane.exit, label %.lr.ph.us.i, !llvm.loop !15
 
 RescalePlane.exit:                                ; preds = %._crit_edge.us.i, %32, %._crit_edge41
-  ret i32 %.0.lcssa
+  ret i32 %.032.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

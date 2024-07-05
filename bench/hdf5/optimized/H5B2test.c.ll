@@ -575,8 +575,8 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
 
 30:                                               ; preds = %.lr.ph, %82
   %.1101 = phi ptr [ %spec.select, %.lr.ph ], [ %spec.select76, %82 ]
-  %.066100 = phi i16 [ %26, %.lr.ph ], [ %85, %82 ]
-  %31 = call ptr @H5B2__protect_internal(ptr noundef nonnull %12, ptr noundef %.1101, ptr noundef nonnull %4, i16 noundef zeroext %.066100, i1 noundef zeroext false, i32 noundef 128) #10
+  %.064100 = phi i16 [ %26, %.lr.ph ], [ %85, %82 ]
+  %31 = call ptr @H5B2__protect_internal(ptr noundef nonnull %12, ptr noundef %.1101, ptr noundef nonnull %4, i16 noundef zeroext %.064100, i1 noundef zeroext false, i32 noundef 128) #10
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %37
 
@@ -667,7 +667,7 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
   %84 = trunc i8 %83 to i1
   %spec.select76 = select i1 %84, ptr %31, ptr null
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %85 = add i16 %.066100, -1
+  %85 = add i16 %.064100, -1
   %86 = icmp ne i16 %85, 0
   %87 = load i32, ptr %5, align 4
   %88 = icmp ne i32 %87, 0
@@ -688,14 +688,14 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
   br label %.thread80
 
 99:                                               ; preds = %90
-  store i16 %.066100, ptr %2, align 2
+  store i16 %.064100, ptr %2, align 2
   %100 = load i16, ptr %17, align 8
   %101 = getelementptr inbounds i8, ptr %2, i64 2
   store i16 %100, ptr %101, align 2
   br label %.thread80
 
 ._crit_edge:                                      ; preds = %82, %24
-  %.066.lcssa = phi i16 [ 0, %24 ], [ %85, %82 ]
+  %.064.lcssa = phi i16 [ 0, %24 ], [ %85, %82 ]
   %.1.lcssa = phi ptr [ %spec.select, %24 ], [ %spec.select76, %82 ]
   %102 = call ptr @H5B2__protect_leaf(ptr noundef nonnull %12, ptr noundef %.1.lcssa, ptr noundef nonnull %4, i1 noundef zeroext false, i32 noundef 128) #10
   %103 = icmp eq ptr %102, null
@@ -770,7 +770,7 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
   br label %.thread80
 
 148:                                              ; preds = %142
-  store i16 %.066.lcssa, ptr %2, align 2
+  store i16 %.064.lcssa, ptr %2, align 2
   %149 = load i16, ptr %17, align 8
   %150 = getelementptr inbounds i8, ptr %2, i64 2
   store i16 %149, ptr %150, align 2
@@ -795,8 +795,8 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
   br label %.thread80
 
 .thread80:                                        ; preds = %148, %144, %138, %128, %99, %95, %78, %55, %152, %155, %151
-  %.165 = phi i32 [ -1, %155 ], [ -1, %152 ], [ -1, %151 ], [ 0, %148 ], [ -1, %144 ], [ -1, %138 ], [ -1, %128 ], [ 0, %99 ], [ -1, %95 ], [ -1, %78 ], [ -1, %55 ]
-  ret i32 %.165
+  %.166 = phi i32 [ -1, %155 ], [ -1, %152 ], [ -1, %151 ], [ 0, %148 ], [ -1, %144 ], [ -1, %138 ], [ -1, %128 ], [ 0, %99 ], [ -1, %95 ], [ -1, %78 ], [ -1, %55 ]
+  ret i32 %.166
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -58,17 +58,17 @@ entry:
 
 while.cond.outer:                                 ; preds = %sw.bb4, %entry
   %outfile.0.ph = phi ptr [ %call5, %sw.bb4 ], [ null, %entry ]
-  %e.0.ph = phi ptr [ %e.0.ph200, %sw.bb4 ], [ null, %entry ]
-  %format.0.ph = phi i32 [ %format.0.ph203, %sw.bb4 ], [ 2, %entry ]
+  %format.0.ph = phi i32 [ %format.0.ph200, %sw.bb4 ], [ 2, %entry ]
+  %e.0.ph = phi ptr [ %e.0.ph203, %sw.bb4 ], [ null, %entry ]
   br label %while.cond.outer199
 
-while.cond.outer199:                              ; preds = %while.cond.outer, %sw.bb6
-  %e.0.ph200 = phi ptr [ %e.0.ph, %while.cond.outer ], [ %call8, %sw.bb6 ]
-  %format.0.ph201 = phi i32 [ %format.0.ph, %while.cond.outer ], [ %format.0.ph203, %sw.bb6 ]
+while.cond.outer199:                              ; preds = %while.cond.outer199.backedge, %while.cond.outer
+  %format.0.ph200 = phi i32 [ %format.0.ph, %while.cond.outer ], [ %format.0.ph200.be, %while.cond.outer199.backedge ]
+  %e.0.ph201 = phi ptr [ %e.0.ph, %while.cond.outer ], [ %e.0.ph203, %while.cond.outer199.backedge ]
   br label %while.cond.outer202
 
-while.cond.outer202:                              ; preds = %while.cond.outer202.backedge, %while.cond.outer199
-  %format.0.ph203 = phi i32 [ %format.0.ph201, %while.cond.outer199 ], [ %format.0.ph203.be, %while.cond.outer202.backedge ]
+while.cond.outer202:                              ; preds = %while.cond.outer199, %sw.bb6
+  %e.0.ph203 = phi ptr [ %e.0.ph201, %while.cond.outer199 ], [ %call8, %sw.bb6 ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.outer202
@@ -84,7 +84,7 @@ while.cond:                                       ; preds = %while.cond.backedge
     i32 1602, label %sw.bb15
     i32 1501, label %sw.bb10
     i32 1502, label %sw.bb10
-    i32 4, label %while.cond.outer202.backedge
+    i32 4, label %while.cond.outer199.backedge
     i32 5, label %sw.bb13
   ]
 
@@ -107,7 +107,7 @@ sw.bb4:                                           ; preds = %while.cond
 sw.bb6:                                           ; preds = %while.cond
   %call7 = tail call ptr @opt_arg() #5
   %call8 = tail call ptr @setup_engine_methods(ptr noundef %call7, i32 noundef -1, i32 noundef 0) #5
-  br label %while.cond.outer199, !llvm.loop !5
+  br label %while.cond.outer202, !llvm.loop !5
 
 sw.bb10:                                          ; preds = %while.cond, %while.cond
   %call11 = tail call i32 @opt_rand(i32 noundef %call1) #5
@@ -115,11 +115,11 @@ sw.bb10:                                          ; preds = %while.cond, %while.
   br i1 %tobool.not, label %if.then184, label %while.cond.backedge
 
 sw.bb13:                                          ; preds = %while.cond
-  br label %while.cond.outer202.backedge
+  br label %while.cond.outer199.backedge
 
-while.cond.outer202.backedge:                     ; preds = %while.cond, %sw.bb13
-  %format.0.ph203.be = phi i32 [ 32769, %sw.bb13 ], [ 32771, %while.cond ]
-  br label %while.cond.outer202, !llvm.loop !5
+while.cond.outer199.backedge:                     ; preds = %while.cond, %sw.bb13
+  %format.0.ph200.be = phi i32 [ 32769, %sw.bb13 ], [ 32771, %while.cond ]
+  br label %while.cond.outer199, !llvm.loop !5
 
 sw.bb15:                                          ; preds = %while.cond, %while.cond, %while.cond
   %call16 = tail call i32 @opt_provider(i32 noundef %call1) #5
@@ -252,12 +252,12 @@ if.end113:                                        ; preds = %if.end87, %if.then2
   br i1 %tobool115.not, label %if.then184, label %if.end117
 
 if.end117:                                        ; preds = %if.end113
-  %call118 = call ptr @bio_open_default(ptr noundef %outfile.0.ph, i8 noundef signext 119, i32 noundef %format.0.ph203) #5
+  %call118 = call ptr @bio_open_default(ptr noundef %outfile.0.ph, i8 noundef signext 119, i32 noundef %format.0.ph200) #5
   %cmp119 = icmp eq ptr %call118, null
   br i1 %cmp119, label %if.then184, label %if.end122
 
 if.end122:                                        ; preds = %if.end117
-  %cmp123 = icmp eq i32 %format.0.ph203, 32771
+  %cmp123 = icmp eq i32 %format.0.ph200, 32771
   br i1 %cmp123, label %if.then125, label %if.end133
 
 if.then125:                                       ; preds = %if.end122
@@ -278,7 +278,7 @@ if.end133.thread:                                 ; preds = %if.then125
   br i1 %cmp136.not114141, label %end, label %while.body138.preheader
 
 while.body138.lr.ph:                              ; preds = %if.end133
-  %cmp148.not = icmp eq i32 %format.0.ph203, 32769
+  %cmp148.not = icmp eq i32 %format.0.ph200, 32769
   br i1 %cmp148.not, label %while.body138.us, label %while.body138.preheader
 
 while.body138.preheader:                          ; preds = %if.end133.thread, %while.body138.lr.ph
@@ -334,7 +334,7 @@ if.end168:                                        ; preds = %if.end147
 while.end170:                                     ; preds = %if.end168.loopexit.us, %if.end168, %if.end133
   %call134145 = phi ptr [ %call134, %if.end133 ], [ %call134144149, %if.end168 ], [ %call134, %if.end168.loopexit.us ]
   %out.0143 = phi ptr [ %call118, %if.end133 ], [ %out.0142150, %if.end168 ], [ %call118, %if.end168.loopexit.us ]
-  %cmp171 = icmp eq i32 %format.0.ph203, 32769
+  %cmp171 = icmp eq i32 %format.0.ph200, 32769
   br i1 %cmp171, label %if.then173, label %end
 
 if.then173:                                       ; preds = %while.end170
@@ -361,7 +361,7 @@ if.end185:                                        ; preds = %end.thread75, %if.t
   %ret.072 = phi i32 [ 1, %if.then184 ], [ 0, %end ], [ 0, %end.thread75 ]
   %out.170 = phi ptr [ %out.169, %if.then184 ], [ %out.0143155, %end ], [ null, %end.thread75 ]
   call void @CRYPTO_free(ptr noundef %buf.074, ptr noundef nonnull @.str.36, i32 noundef 225) #5
-  call void @release_engine(ptr noundef %e.0.ph200) #5
+  call void @release_engine(ptr noundef %e.0.ph203) #5
   call void @BIO_free_all(ptr noundef %out.170) #5
   ret i32 %ret.072
 }

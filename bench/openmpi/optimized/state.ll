@@ -822,15 +822,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @psched_activate_sched_state(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.timeval, align 8
-  %.04575 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_psched_states, i64 240), align 8
-  %.not76 = icmp eq ptr %.04575, getelementptr inbounds (i8, ptr @prte_psched_states, i64 120)
+  %.075 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_psched_states, i64 240), align 8
+  %.not76 = icmp eq ptr %.075, getelementptr inbounds (i8, ptr @prte_psched_states, i64 120)
   br i1 %.not76, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %61
-  %.04579 = phi ptr [ %.045, %61 ], [ %.04575, %2 ]
-  %.078 = phi ptr [ %.1, %61 ], [ null, %2 ]
-  %.04377 = phi ptr [ %spec.select, %61 ], [ null, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.04579, i64 144
+  %.079 = phi ptr [ %.0, %61 ], [ %.075, %2 ]
+  %.04378 = phi ptr [ %spec.select, %61 ], [ null, %2 ]
+  %.04577 = phi ptr [ %.146, %61 ], [ null, %2 ]
+  %5 = getelementptr inbounds i8, ptr %.079, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %1
   br i1 %7, label %8, label %61
@@ -896,7 +896,7 @@ prte_sched_state_to_str.exit:                     ; preds = %26, %31, %32, %33, 
   br label %37
 
 37:                                               ; preds = %8, %35
-  %38 = getelementptr inbounds i8, ptr %.04579, i64 152
+  %38 = getelementptr inbounds i8, ptr %.079, i64 152
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %57
@@ -953,17 +953,17 @@ prte_sched_state_to_str.exit67:                   ; preds = %48, %53, %54, %55, 
 
 61:                                               ; preds = %.lr.ph
   %62 = icmp eq i32 %6, 50
-  %.1 = select i1 %62, ptr %.04579, ptr %.078
+  %.146 = select i1 %62, ptr %.079, ptr %.04577
   %63 = icmp eq i32 %6, 2147483647
-  %spec.select = select i1 %63, ptr %.04579, ptr %.04377
-  %64 = getelementptr inbounds i8, ptr %.04579, i64 120
-  %.045 = load ptr, ptr %64, align 8
-  %.not = icmp eq ptr %.045, getelementptr inbounds (i8, ptr @prte_psched_states, i64 120)
+  %spec.select = select i1 %63, ptr %.079, ptr %.04378
+  %64 = getelementptr inbounds i8, ptr %.079, i64 120
+  %.0 = load ptr, ptr %64, align 8
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_psched_states, i64 120)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %61
   %65 = icmp sgt i32 %1, 50
-  %66 = icmp ne ptr %.1, null
+  %66 = icmp ne ptr %.146, null
   %or.cond = select i1 %65, i1 %66, i1 false
   br i1 %or.cond, label %79, label %67
 
@@ -1009,8 +1009,8 @@ prte_sched_state_to_str.exit69:                   ; preds = %74, %75, %76, %77, 
   br label %125
 
 79:                                               ; preds = %67, %._crit_edge
-  %.146 = phi ptr [ %.1, %._crit_edge ], [ %spec.select, %67 ]
-  %80 = getelementptr inbounds i8, ptr %.146, i64 152
+  %.1 = phi ptr [ %.146, %._crit_edge ], [ %spec.select, %67 ]
+  %80 = getelementptr inbounds i8, ptr %.1, i64 152
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %91

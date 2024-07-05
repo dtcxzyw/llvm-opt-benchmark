@@ -11166,18 +11166,18 @@ define noundef zeroext i1 @_ZN5Ipopt24LimMemQuasiNewtonUpdater16SplitEigenvalues
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.097190 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
+  %.095190 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
   %16 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
   %17 = load double, ptr %16, align 8
   %18 = fcmp olt double %17, 0.000000e+00
   %19 = zext i1 %18 to i32
-  %.1 = add nuw nsw i32 %.097190, %19
+  %.1 = add nuw nsw i32 %.095190, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %.097.lcssa = phi i32 [ 0, %5 ], [ %.1, %.lr.ph ]
+  %.095.lcssa = phi i32 [ 0, %5 ], [ %.1, %.lr.ph ]
   %20 = load double, ptr %11, align 8
   %21 = tail call noundef double @llvm.fabs.f64(double %20)
   %22 = sext i32 %9 to i64
@@ -11191,11 +11191,11 @@ define noundef zeroext i1 @_ZN5Ipopt24LimMemQuasiNewtonUpdater16SplitEigenvalues
   br i1 %28, label %_ZN5Ipopt8SmartPtrINS_11DenseVectorEED2Ev.exit, label %29
 
 29:                                               ; preds = %._crit_edge
-  %30 = icmp eq i32 %.097.lcssa, 0
+  %30 = icmp eq i32 %.095.lcssa, 0
   br i1 %30, label %43, label %31
 
 31:                                               ; preds = %29
-  %32 = icmp eq i32 %.097.lcssa, %9
+  %32 = icmp eq i32 %.095.lcssa, %9
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -11203,7 +11203,7 @@ define noundef zeroext i1 @_ZN5Ipopt24LimMemQuasiNewtonUpdater16SplitEigenvalues
   br label %43
 
 35:                                               ; preds = %31
-  %36 = sext i32 %.097.lcssa to i64
+  %36 = sext i32 %.095.lcssa to i64
   %37 = getelementptr double, ptr %11, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -8
   %39 = load double, ptr %38, align 8
@@ -11214,14 +11214,14 @@ define noundef zeroext i1 @_ZN5Ipopt24LimMemQuasiNewtonUpdater16SplitEigenvalues
   br label %43
 
 43:                                               ; preds = %29, %33, %35
-  %.0103 = phi double [ %34, %33 ], [ %.sroa.speculated.i109, %35 ], [ %20, %29 ]
-  %44 = fdiv double %.0103, %.sroa.speculated.i
+  %.099 = phi double [ %34, %33 ], [ %.sroa.speculated.i109, %35 ], [ %20, %29 ]
+  %44 = fdiv double %.099, %.sroa.speculated.i
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %49(ptr noundef nonnull align 8 dereferenceable(40) %46, i32 noundef 6, i32 noundef 9, ptr noundef nonnull @.str.58, double noundef %.0103, double noundef %.sroa.speculated.i, double noundef %44)
+  tail call void (ptr, i32, i32, ptr, ...) %49(ptr noundef nonnull align 8 dereferenceable(40) %46, i32 noundef 6, i32 noundef 9, ptr noundef nonnull @.str.58, double noundef %.099, double noundef %.sroa.speculated.i, double noundef %44)
   %50 = fcmp olt double %44, 0x3D719799812DEA11
   br i1 %50, label %_ZN5Ipopt8SmartPtrINS_11DenseVectorEED2Ev.exit, label %51
 
@@ -11365,7 +11365,7 @@ _ZN5Ipopt6Vector21ElementWiseReciprocalEv.exit:   ; preds = %.noexc111
   %117 = load ptr, ptr %6, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 12
   %119 = load i32, ptr %118, align 4
-  %120 = icmp eq i32 %.097.lcssa, %119
+  %120 = icmp eq i32 %.095.lcssa, %119
   br i1 %120, label %121, label %187
 
 121:                                              ; preds = %116
@@ -11506,7 +11506,7 @@ _ZN5Ipopt6Vector21ElementWiseReciprocalEv.exit125: ; preds = %.noexc123
 
 187:                                              ; preds = %116
   %188 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
-  invoke void @_ZN5Ipopt19DenseGenMatrixSpaceC1Eii(ptr noundef nonnull align 8 dereferenceable(20) %188, i32 noundef %9, i32 noundef %.097.lcssa)
+  invoke void @_ZN5Ipopt19DenseGenMatrixSpaceC1Eii(ptr noundef nonnull align 8 dereferenceable(20) %188, i32 noundef %9, i32 noundef %.095.lcssa)
           to label %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEEC2EPS1_.exit unwind label %232
 
 _ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEEC2EPS1_.exit: ; preds = %187
@@ -11564,19 +11564,19 @@ _ZNK5Ipopt19DenseGenMatrixSpace21MakeNewDenseGenMatrixEv.exit: ; preds = %.noexc
 _ZN5Ipopt14DenseGenMatrix6ValuesEv.exit:          ; preds = %211
   %213 = getelementptr inbounds i8, ptr %192, i64 80
   %214 = load ptr, ptr %213, align 8
-  %215 = icmp sgt i32 %.097.lcssa, 0
+  %215 = icmp sgt i32 %.095.lcssa, 0
   br i1 %215, label %.lr.ph196, label %._crit_edge197
 
 .lr.ph196:                                        ; preds = %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit
   br i1 %15, label %.lr.ph193.us.preheader, label %.lr.ph196.split.preheader
 
 .lr.ph196.split.preheader:                        ; preds = %.lr.ph196
-  %wide.trip.count211 = zext nneg i32 %.097.lcssa to i64
+  %wide.trip.count211 = zext nneg i32 %.095.lcssa to i64
   br label %.lr.ph196.split
 
 .lr.ph193.us.preheader:                           ; preds = %.lr.ph196
   %216 = zext nneg i32 %9 to i64
-  %wide.trip.count221 = zext nneg i32 %.097.lcssa to i64
+  %wide.trip.count221 = zext nneg i32 %.095.lcssa to i64
   br label %.lr.ph193.us
 
 .lr.ph193.us:                                     ; preds = %.lr.ph193.us.preheader, %._crit_edge194.us
@@ -11631,7 +11631,7 @@ _ZN5Ipopt14DenseGenMatrix6ValuesEv.exit:          ; preds = %211
           to label %237 unwind label %234
 
 237:                                              ; preds = %._crit_edge197
-  %238 = sub nsw i32 %9, %.097.lcssa
+  %238 = sub nsw i32 %9, %.095.lcssa
   invoke void @_ZN5Ipopt19DenseGenMatrixSpaceC1Eii(ptr noundef nonnull align 8 dereferenceable(20) %236, i32 noundef %9, i32 noundef %238)
           to label %239 unwind label %279
 
@@ -11694,7 +11694,7 @@ _ZN5Ipopt14DenseGenMatrix6ValuesEv.exit154:       ; preds = %262
   br i1 %266, label %.lr.ph203, label %._crit_edge204
 
 .lr.ph203:                                        ; preds = %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit154
-  %267 = sext i32 %.097.lcssa to i64
+  %267 = sext i32 %.095.lcssa to i64
   %wide.trip.count236 = zext nneg i32 %238 to i64
   br i1 %15, label %.lr.ph200.us.preheader, label %.lr.ph203.split.preheader
 
@@ -11813,8 +11813,8 @@ _ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit157: ; preds = %293, %._cr
   br label %common.resume
 
 _ZN5Ipopt8SmartPtrINS_11DenseVectorEED2Ev.exit:   ; preds = %300, %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit157, %174, %170, %103, %99, %43, %._crit_edge
-  %.094 = phi i1 [ true, %._crit_edge ], [ true, %43 ], [ false, %99 ], [ false, %103 ], [ false, %170 ], [ false, %174 ], [ false, %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit157 ], [ false, %300 ]
-  ret i1 %.094
+  %.093 = phi i1 [ true, %._crit_edge ], [ true, %43 ], [ false, %99 ], [ false, %103 ], [ false, %170 ], [ false, %174 ], [ false, %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit157 ], [ false, %300 ]
+  ret i1 %.093
 }
 
 declare void @_ZN5Ipopt17MultiVectorMatrix23AddOneMultiVectorMatrixEdRKS0_d(ptr noundef nonnull align 8 dereferenceable(128), double noundef, ptr noundef nonnull align 8 dereferenceable(128), double noundef) local_unnamed_addr #0

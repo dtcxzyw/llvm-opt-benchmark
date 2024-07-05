@@ -847,13 +847,13 @@ if.then19.i:                                      ; preds = %if.else12.i
   br label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then19.i, %if.then14.i, %if.else12.i
-  %s.222.i.ph = phi ptr [ %s.0.i, %if.else12.i ], [ %incdec.ptr16.i, %if.then14.i ], [ %incdec.ptr20.i, %if.then19.i ]
+  %s.221.i.ph = phi ptr [ %s.0.i, %if.else12.i ], [ %incdec.ptr16.i, %if.then14.i ], [ %incdec.ptr20.i, %if.then19.i ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 3, %for.body.i.preheader ]
   %seenNonZero.023.i = phi i32 [ %seenNonZero.1.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %s.222.i = phi ptr [ %s.3.i, %for.inc.i ], [ %s.222.i.ph, %for.body.i.preheader ]
+  %s.221.i = phi ptr [ %s.3.i, %for.inc.i ], [ %s.221.i.ph, %for.body.i.preheader ]
   %arrayidx25.i = getelementptr inbounds i8, ptr %bitField.addr.i, i64 %indvars.iv.i
   %18 = load i8, ptr %arrayidx25.i, align 1
   %tobool.i = icmp ne i8 %18, 0
@@ -867,18 +867,18 @@ if.then27.i:                                      ; preds = %for.body.i
   %idxprom28.i = zext nneg i32 %shr.i to i64
   %arrayidx29.i = getelementptr inbounds [16 x i8], ptr @_ZZL7write32P11_FileStreamjjE8hexToStr, i64 0, i64 %idxprom28.i
   %19 = load i8, ptr %arrayidx29.i, align 1
-  %incdec.ptr30.i = getelementptr inbounds i8, ptr %s.222.i, i64 1
-  store i8 %19, ptr %s.222.i, align 1
+  %incdec.ptr30.i = getelementptr inbounds i8, ptr %s.221.i, i64 1
+  store i8 %19, ptr %s.221.i, align 1
   %and.i = and i32 %conv.i, 15
   %idxprom32.i = zext nneg i32 %and.i to i64
   %arrayidx33.i = getelementptr inbounds [16 x i8], ptr @_ZZL7write32P11_FileStreamjjE8hexToStr, i64 0, i64 %idxprom32.i
   %20 = load i8, ptr %arrayidx33.i, align 1
-  %incdec.ptr34.i = getelementptr inbounds i8, ptr %s.222.i, i64 2
+  %incdec.ptr34.i = getelementptr inbounds i8, ptr %s.221.i, i64 2
   store i8 %20, ptr %incdec.ptr30.i, align 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then27.i, %for.body.i
-  %s.3.i = phi ptr [ %incdec.ptr34.i, %if.then27.i ], [ %s.222.i, %for.body.i ]
+  %s.3.i = phi ptr [ %incdec.ptr34.i, %if.then27.i ], [ %s.221.i, %for.body.i ]
   %seenNonZero.1.i = phi i32 [ 1, %if.then27.i ], [ 0, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp23.not.i = icmp eq i64 %indvars.iv.i, 0

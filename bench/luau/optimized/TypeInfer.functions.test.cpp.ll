@@ -33857,9 +33857,9 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi4EmiEEbRKT0_RKT1_.exit.i: ; p
 
 244:                                              ; preds = %250, %235
   %.pn.i.i.i = phi i64 [ %242, %235 ], [ %252, %250 ]
-  %.019.i.i.i = phi i64 [ 0, %235 ], [ %251, %250 ]
-  %.01520.i.i.i = and i64 %.pn.i.i.i, %238
-  %245 = getelementptr inbounds %"struct.std::pair.638", ptr %243, i64 %.01520.i.i.i
+  %.01519.i.i.i = phi i64 [ 0, %235 ], [ %251, %250 ]
+  %.01620.i.i.i = and i64 %.pn.i.i.i, %238
+  %245 = getelementptr inbounds %"struct.std::pair.638", ptr %243, i64 %.01620.i.i.i
   %246 = load ptr, ptr %245, align 8
   %247 = icmp eq ptr %246, %156
   br i1 %247, label %.loopexit.i, label %248
@@ -33869,15 +33869,15 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi4EmiEEbRKT0_RKT1_.exit.i: ; p
   br i1 %249, label %.loopexit.i, label %250
 
 250:                                              ; preds = %248
-  %251 = add i64 %.019.i.i.i, 1
-  %252 = add i64 %251, %.01520.i.i.i
+  %251 = add i64 %.01519.i.i.i, 1
+  %252 = add i64 %251, %.01620.i.i.i
   %.not.i.i.i = icmp ugt i64 %251, %238
   br i1 %.not.i.i.i, label %.loopexit.i, label %244, !llvm.loop !394
 
 .loopexit.i:                                      ; preds = %250, %248, %244, %231, %225
-  %.016.i.i.i = phi ptr [ null, %225 ], [ null, %231 ], [ %245, %244 ], [ null, %248 ], [ null, %250 ]
-  %.not.i59.i = icmp eq ptr %.016.i.i.i, null
-  %253 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 8
+  %.0.i.i.i = phi ptr [ null, %225 ], [ null, %231 ], [ %245, %244 ], [ null, %248 ], [ null, %250 ]
+  %.not.i59.i = icmp eq ptr %.0.i.i.i, null
+  %253 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
   %254 = select i1 %.not.i59.i, ptr null, ptr %253
   store ptr %254, ptr %30, align 8
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull @.str)

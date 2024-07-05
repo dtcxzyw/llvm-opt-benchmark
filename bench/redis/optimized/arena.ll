@@ -2120,9 +2120,9 @@ arena_bin_choose.exit:                            ; preds = %entry, %lor.lhs.fal
   br label %label_refill
 
 label_refill:                                     ; preds = %do.end57.critedge, %arena_bin_choose.exit
-  %made_progress.0 = phi i1 [ true, %arena_bin_choose.exit ], [ false, %do.end57.critedge ]
+  %filled.0 = phi i32 [ 0, %arena_bin_choose.exit ], [ %filled.1.ph200, %do.end57.critedge ]
   %fresh_slab.0 = phi ptr [ null, %arena_bin_choose.exit ], [ %call58, %do.end57.critedge ]
-  %filled.0 = phi i32 [ 0, %arena_bin_choose.exit ], [ %filled.1.ph202, %do.end57.critedge ]
+  %made_progress.0 = phi i1 [ true, %arena_bin_choose.exit ], [ false, %do.end57.critedge ]
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #15
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i58, label %if.then.i
@@ -2152,9 +2152,9 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i58, %if.the
   br i1 %cmp199, label %while.body.lr.ph.us.preheader, label %if.then36
 
 while.body.lr.ph.us.preheader:                    ; preds = %malloc_mutex_lock.exit, %arena_slab_reg_alloc_batch.exit
-  %filled.1.ph202 = phi i32 [ %add, %arena_slab_reg_alloc_batch.exit ], [ %filled.0, %malloc_mutex_lock.exit ]
+  %made_progress.1.ph202 = phi i1 [ true, %arena_slab_reg_alloc_batch.exit ], [ %made_progress.0, %malloc_mutex_lock.exit ]
   %fresh_slab.1.ph201 = phi ptr [ %fresh_slab.1.ph137183.us, %arena_slab_reg_alloc_batch.exit ], [ %fresh_slab.0, %malloc_mutex_lock.exit ]
-  %made_progress.1.ph200 = phi i1 [ true, %arena_slab_reg_alloc_batch.exit ], [ %made_progress.0, %malloc_mutex_lock.exit ]
+  %filled.1.ph200 = phi i32 [ %add, %arena_slab_reg_alloc_batch.exit ], [ %filled.0, %malloc_mutex_lock.exit ]
   %.pre.pre = load ptr, ptr %slabcur3, align 8
   br label %while.body.lr.ph.us
 
@@ -2249,9 +2249,9 @@ if.end18.split.us.us:                             ; preds = %if.end.i68.us.us
   br i1 %cmp19.not.us, label %if.end24, label %if.then21.us
 
 if.then:                                          ; preds = %land.lhs.true.us.us
-  %sub = sub i32 %nfill, %filled.1.ph202
+  %sub = sub i32 %nfill, %filled.1.ph200
   %cond = tail call i32 @llvm.umin.i32(i32 %sub, i32 %conv.i59.us.us)
-  %idxprom12 = zext i32 %filled.1.ph202 to i64
+  %idxprom12 = zext i32 %filled.1.ph200 to i64
   %arrayidx13 = getelementptr inbounds ptr, ptr %add.ptr.i, i64 %idxprom12
   %32 = getelementptr inbounds i8, ptr %14, i64 64
   %33 = load i64, ptr %32, align 8
@@ -2300,10 +2300,10 @@ while.body18.preheader.i:                         ; preds = %while.end.i
   br label %while.body18.i
 
 while.body18.i:                                   ; preds = %while.body18.i, %while.body18.preheader.i
-  %pop.125.i = phi i64 [ %dec.i, %while.body18.i ], [ %pop.0.i, %while.body18.preheader.i ]
-  %i.124.i = phi i32 [ %inc21.i, %while.body18.i ], [ %i.030.i, %while.body18.preheader.i ]
+  %i.125.i = phi i32 [ %inc21.i, %while.body18.i ], [ %i.030.i, %while.body18.preheader.i ]
+  %pop.124.i = phi i64 [ %dec.i, %while.body18.i ], [ %pop.0.i, %while.body18.preheader.i ]
   %g.223.i = phi i64 [ %xor.i.i, %while.body18.i ], [ %g.1.lcssa.i, %while.body18.preheader.i ]
-  %dec.i = add i64 %pop.125.i, -1
+  %dec.i = add i64 %pop.124.i, -1
   %cmp.i.i63 = icmp ne i64 %g.223.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i63)
   %39 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %g.223.i, i1 true)
@@ -2313,10 +2313,10 @@ while.body18.i:                                   ; preds = %while.body18.i, %wh
   %mul.i = mul i64 %add.i, %37
   %add20.i = add i64 %mul.i, %36
   %40 = inttoptr i64 %add20.i to ptr
-  %idx.ext.i64 = zext i32 %i.124.i to i64
+  %idx.ext.i64 = zext i32 %i.125.i to i64
   %add.ptr.i65 = getelementptr inbounds ptr, ptr %arrayidx13, i64 %idx.ext.i64
   store ptr %40, ptr %add.ptr.i65, align 8
-  %inc21.i = add i32 %i.124.i, 1
+  %inc21.i = add i32 %i.125.i, 1
   %tobool.not.i = icmp eq i64 %dec.i, 0
   br i1 %tobool.not.i, label %while.end22.i, label %while.body18.i, !llvm.loop !19
 
@@ -2333,17 +2333,17 @@ arena_slab_reg_alloc_batch.exit:                  ; preds = %while.end22.i, %whi
   %41 = load i64, ptr %14, align 8
   %sub.i.i = sub i64 %41, %shl.i16.i
   store i64 %sub.i.i, ptr %14, align 8
-  %add = add i32 %cond, %filled.1.ph202
+  %add = add i32 %cond, %filled.1.ph200
   %cmp = icmp ult i32 %add, %nfill
   br i1 %cmp, label %while.body.lr.ph.us.preheader, label %if.then36, !llvm.loop !17
 
 if.end24:                                         ; preds = %if.end18.split.us.us
-  br i1 %made_progress.1.ph200, label %do.end57.critedge, label %if.then36
+  br i1 %made_progress.1.ph202, label %do.end57.critedge, label %if.then36
 
 if.then36:                                        ; preds = %if.end24, %malloc_mutex_lock.exit, %arena_slab_reg_alloc_batch.exit
-  %filled.1.ph149 = phi i32 [ %add, %arena_slab_reg_alloc_batch.exit ], [ %filled.0, %malloc_mutex_lock.exit ], [ %filled.1.ph202, %if.end24 ]
+  %filled.1.ph150 = phi i32 [ %add, %arena_slab_reg_alloc_batch.exit ], [ %filled.0, %malloc_mutex_lock.exit ], [ %filled.1.ph200, %if.end24 ]
   %fresh_slab.1.ph137144 = phi ptr [ %fresh_slab.1.ph137183.us, %arena_slab_reg_alloc_batch.exit ], [ %fresh_slab.0, %malloc_mutex_lock.exit ], [ null, %if.end24 ]
-  %conv37 = zext i32 %filled.1.ph149 to i64
+  %conv37 = zext i32 %filled.1.ph150 to i64
   %stats = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 112
   %42 = load i64, ptr %stats, align 8
   %add38 = add i64 %42, %conv37
@@ -2389,7 +2389,7 @@ arena_slab_dalloc.exit:                           ; preds = %do.end66, %if.then.
   br label %if.end67
 
 if.end67:                                         ; preds = %arena_slab_dalloc.exit, %if.then36
-  %conv68 = trunc i32 %filled.1.ph149 to i16
+  %conv68 = trunc i32 %filled.1.ph150 to i16
   %bin.val.i = load ptr, ptr %cache_bin, align 8
   %bin.val9.i = load i16, ptr %0, align 4
   %49 = ptrtoint ptr %bin.val.i to i64
@@ -2399,7 +2399,7 @@ if.end67:                                         ; preds = %arena_slab_dalloc.e
   %add.i.i83 = add i64 %conv2.i.i82, %49
   %50 = inttoptr i64 %add.i.i83 to ptr
   %cmp.i84 = icmp ugt i16 %conv, %conv68
-  %conv68.mask = and i32 %filled.1.ph149, 65535
+  %conv68.mask = and i32 %filled.1.ph150, 65535
   %idx.ext.i85 = zext nneg i32 %conv68.mask to i64
   %idx.neg.i86 = sub nsw i64 0, %idx.ext.i85
   br i1 %cmp.i84, label %if.then.i88, label %cache_bin_finish_fill.exit
@@ -2756,10 +2756,10 @@ while.body18.preheader.i:                         ; preds = %while.end.i
   br label %while.body18.i
 
 while.body18.i:                                   ; preds = %while.body18.i, %while.body18.preheader.i
-  %pop.125.i = phi i64 [ %dec.i, %while.body18.i ], [ %pop.0.i, %while.body18.preheader.i ]
-  %i.124.i = phi i32 [ %inc21.i, %while.body18.i ], [ %i.030.i, %while.body18.preheader.i ]
+  %i.125.i = phi i32 [ %inc21.i, %while.body18.i ], [ %i.030.i, %while.body18.preheader.i ]
+  %pop.124.i = phi i64 [ %dec.i, %while.body18.i ], [ %pop.0.i, %while.body18.preheader.i ]
   %g.223.i = phi i64 [ %xor.i.i, %while.body18.i ], [ %g.1.lcssa.i, %while.body18.preheader.i ]
-  %dec.i = add i64 %pop.125.i, -1
+  %dec.i = add i64 %pop.124.i, -1
   %cmp.i.i53 = icmp ne i64 %g.223.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i53)
   %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %g.223.i, i1 true)
@@ -2769,10 +2769,10 @@ while.body18.i:                                   ; preds = %while.body18.i, %wh
   %mul.i = mul i64 %add.i, %14
   %add20.i = add i64 %mul.i, %13
   %17 = inttoptr i64 %add20.i to ptr
-  %idx.ext.i = zext i32 %i.124.i to i64
+  %idx.ext.i = zext i32 %i.125.i to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %arrayidx17, i64 %idx.ext.i
   store ptr %17, ptr %add.ptr.i, align 8
-  %inc21.i = add i32 %i.124.i, 1
+  %inc21.i = add i32 %i.125.i, 1
   %tobool.not.i = icmp eq i64 %dec.i, 0
   br i1 %tobool.not.i, label %while.end22.i, label %while.body18.i, !llvm.loop !19
 

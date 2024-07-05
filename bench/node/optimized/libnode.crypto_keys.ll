@@ -3021,8 +3021,8 @@ do.body23:                                        ; preds = %do.body17
   unreachable
 
 if.end42:                                         ; preds = %do.body17, %_ZNK4node16NonCopyableMaybeINS_6crypto10ByteSourceEEptEv.exit43, %do.end7
-  %pass.0 = phi ptr [ null, %do.end7 ], [ %1, %_ZNK4node16NonCopyableMaybeINS_6crypto10ByteSourceEEptEv.exit43 ], [ inttoptr (i64 -1 to ptr), %do.body17 ]
   %pass_len.0 = phi i64 [ 0, %do.end7 ], [ %2, %_ZNK4node16NonCopyableMaybeINS_6crypto10ByteSourceEEptEv.exit43 ], [ 0, %do.body17 ]
+  %pass.0 = phi ptr [ null, %do.end7 ], [ %1, %_ZNK4node16NonCopyableMaybeINS_6crypto10ByteSourceEEptEv.exit43 ], [ inttoptr (i64 -1 to ptr), %do.body17 ]
   %call.i = tail call i32 @ERR_set_mark() #24
   %type_ = getelementptr inbounds i8, ptr %config, i64 8
   %3 = load i8, ptr %type_, align 8

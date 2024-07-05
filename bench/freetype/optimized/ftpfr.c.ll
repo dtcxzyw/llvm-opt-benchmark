@@ -45,12 +45,12 @@ define i32 @FT_Get_PFR_Metrics(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %ft_pfr_check.exit
 
 ft_pfr_check.exit:                                ; preds = %6, %19
-  %.014.i = phi ptr [ %.0.i, %19 ], [ %10, %6 ]
-  %.not35 = icmp eq ptr %.014.i, null
+  %.015.i = phi ptr [ %.0.i, %19 ], [ %10, %6 ]
+  %.not35 = icmp eq ptr %.015.i, null
   br i1 %.not35, label %ft_pfr_check.exit.thread, label %23
 
 23:                                               ; preds = %ft_pfr_check.exit
-  %24 = load ptr, ptr %.014.i, align 8
+  %24 = load ptr, ptr %.015.i, align 8
   %25 = tail call i32 %24(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2
   br label %47
 
@@ -108,8 +108,8 @@ ft_pfr_check.exit.thread:                         ; preds = %6, %ft_pfr_check.ex
   br label %47
 
 47:                                               ; preds = %23, %46, %45, %5
-  %.027 = phi i32 [ 35, %5 ], [ %25, %23 ], [ 2, %46 ], [ 2, %45 ]
-  ret i32 %.027
+  %.026 = phi i32 [ 35, %5 ], [ %25, %23 ], [ 2, %46 ], [ 2, %45 ]
+  ret i32 %.026
 }
 
 ; Function Attrs: nounwind uwtable
@@ -156,12 +156,12 @@ define i32 @FT_Get_PFR_Kerning(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   br label %ft_pfr_check.exit
 
 ft_pfr_check.exit:                                ; preds = %6, %19
-  %.014.i = phi ptr [ %.0.i, %19 ], [ %10, %6 ]
-  %.not19 = icmp eq ptr %.014.i, null
+  %.015.i = phi ptr [ %.0.i, %19 ], [ %10, %6 ]
+  %.not19 = icmp eq ptr %.015.i, null
   br i1 %.not19, label %ft_pfr_check.exit.thread, label %23
 
 23:                                               ; preds = %ft_pfr_check.exit
-  %24 = getelementptr inbounds i8, ptr %.014.i, i64 8
+  %24 = getelementptr inbounds i8, ptr %.015.i, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3) #2
   br label %28
@@ -171,8 +171,8 @@ ft_pfr_check.exit.thread:                         ; preds = %6, %ft_pfr_check.ex
   br label %28
 
 28:                                               ; preds = %23, %ft_pfr_check.exit.thread, %5, %4
-  %.014 = phi i32 [ 35, %4 ], [ 6, %5 ], [ %26, %23 ], [ %27, %ft_pfr_check.exit.thread ]
-  ret i32 %.014
+  %.0 = phi i32 [ 35, %4 ], [ 6, %5 ], [ %26, %23 ], [ %27, %ft_pfr_check.exit.thread ]
+  ret i32 %.0
 }
 
 declare i32 @FT_Get_Kerning(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -221,19 +221,19 @@ define i32 @FT_Get_PFR_Advance(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   br label %ft_pfr_check.exit
 
 ft_pfr_check.exit:                                ; preds = %5, %18
-  %.014.i = phi ptr [ %.0.i, %18 ], [ %9, %5 ]
-  %.not14 = icmp eq ptr %.014.i, null
+  %.015.i = phi ptr [ %.0.i, %18 ], [ %9, %5 ]
+  %.not14 = icmp eq ptr %.015.i, null
   br i1 %.not14, label %ft_pfr_check.exit.thread, label %22
 
 22:                                               ; preds = %ft_pfr_check.exit
-  %23 = getelementptr inbounds i8, ptr %.014.i, i64 16
+  %23 = getelementptr inbounds i8, ptr %.015.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %24(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #2
   br label %ft_pfr_check.exit.thread
 
 ft_pfr_check.exit.thread:                         ; preds = %5, %22, %ft_pfr_check.exit, %4, %3
-  %.09 = phi i32 [ 35, %3 ], [ 6, %4 ], [ %25, %22 ], [ 6, %ft_pfr_check.exit ], [ 6, %5 ]
-  ret i32 %.09
+  %.0 = phi i32 [ 35, %3 ], [ 6, %4 ], [ %25, %22 ], [ 6, %ft_pfr_check.exit ], [ 6, %5 ]
+  ret i32 %.0
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

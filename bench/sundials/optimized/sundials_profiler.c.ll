@@ -419,16 +419,16 @@ SUNHashMap_Iterate.exit.loopexit.split.loop.exit.i: ; preds = %.lr.ph.i31.i
   br label %SUNHashMap_Iterate.exit.i
 
 SUNHashMap_Iterate.exit.i:                        ; preds = %39, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit.i, %36
-  %.017.i.i = phi i32 [ %27, %36 ], [ %44, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit.i ], [ %27, %39 ]
-  %45 = icmp slt i32 %.017.i.i, 0
+  %.0.i.i = phi i32 [ %27, %36 ], [ %44, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit.i ], [ %27, %39 ]
+  %45 = icmp slt i32 %.0.i.i, 0
   br i1 %45, label %.thread, label %46
 
 46:                                               ; preds = %SUNHashMap_Iterate.exit.i
-  %47 = icmp eq i32 %.017.i.i, %27
+  %47 = icmp eq i32 %.0.i.i, %27
   br i1 %47, label %.thread, label %48
 
 48:                                               ; preds = %46, %fnv1a_hash.exit.i
-  %.025.i = phi i32 [ %30, %fnv1a_hash.exit.i ], [ %.017.i.i, %46 ]
+  %.025.i = phi i32 [ %30, %fnv1a_hash.exit.i ], [ %.0.i.i, %46 ]
   %49 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.thread, label %SUNHashMap_Insert.exit
@@ -590,20 +590,20 @@ sunHashMapLinearProbeGet.exit.thread:             ; preds = %38, %34
   %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull readonly dereferenceable(1) %1) #20
   %.not.i29 = icmp ne i32 %40, 0
   %.not.i28 = icmp eq i64 %indvars.iv.i, -1
-  %or.cond32 = or i1 %.not.i28, %.not.i29
-  br i1 %or.cond32, label %sunHashMapLinearProbeGet.exit.thread, label %SUNHashMap_Iterate.exit.loopexit.split.loop.exit33
+  %or.cond33 = or i1 %.not.i28, %.not.i29
+  br i1 %or.cond33, label %sunHashMapLinearProbeGet.exit.thread, label %SUNHashMap_Iterate.exit.loopexit.split.loop.exit34
 
-SUNHashMap_Iterate.exit.loopexit.split.loop.exit33: ; preds = %38
+SUNHashMap_Iterate.exit.loopexit.split.loop.exit34: ; preds = %38
   %41 = trunc nsw i64 %indvars.iv.i to i32
   br label %SUNHashMap_Iterate.exit
 
-SUNHashMap_Iterate.exit:                          ; preds = %sunHashMapLinearProbeGet.exit.thread, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit33, %29
-  %.017.i = phi i32 [ %16, %29 ], [ %41, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit33 ], [ %16, %sunHashMapLinearProbeGet.exit.thread ]
-  %42 = icmp slt i32 %.017.i, 0
+SUNHashMap_Iterate.exit:                          ; preds = %sunHashMapLinearProbeGet.exit.thread, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit34, %29
+  %.0.i = phi i32 [ %16, %29 ], [ %41, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit34 ], [ %16, %sunHashMapLinearProbeGet.exit.thread ]
+  %42 = icmp slt i32 %.0.i, 0
   br i1 %42, label %48, label %43
 
 43:                                               ; preds = %SUNHashMap_Iterate.exit
-  %44 = icmp eq i32 %.017.i, %16
+  %44 = icmp eq i32 %.0.i, %16
   br i1 %44, label %48, label %45
 
 45:                                               ; preds = %43, %26
@@ -965,20 +965,20 @@ sunHashMapLinearProbeGet.exit.thread.i:           ; preds = %34, %30
   %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull readonly dereferenceable(20) @.str.1) #20
   %.not.i29.i = icmp ne i32 %36, 0
   %.not.i28.i = icmp eq i64 %indvars.iv.i.i, -1
-  %or.cond32.i = or i1 %.not.i28.i, %.not.i29.i
-  br i1 %or.cond32.i, label %sunHashMapLinearProbeGet.exit.thread.i, label %SUNHashMap_Iterate.exit.loopexit.split.loop.exit33.i
+  %or.cond33.i = or i1 %.not.i28.i, %.not.i29.i
+  br i1 %or.cond33.i, label %sunHashMapLinearProbeGet.exit.thread.i, label %SUNHashMap_Iterate.exit.loopexit.split.loop.exit34.i
 
-SUNHashMap_Iterate.exit.loopexit.split.loop.exit33.i: ; preds = %34
+SUNHashMap_Iterate.exit.loopexit.split.loop.exit34.i: ; preds = %34
   %37 = trunc nsw i64 %indvars.iv.i.i to i32
   br label %SUNHashMap_Iterate.exit.i
 
-SUNHashMap_Iterate.exit.i:                        ; preds = %sunHashMapLinearProbeGet.exit.thread.i, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit33.i, %25
-  %.017.i.i = phi i32 [ %12, %25 ], [ %37, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit33.i ], [ %12, %sunHashMapLinearProbeGet.exit.thread.i ]
-  %38 = icmp slt i32 %.017.i.i, 0
+SUNHashMap_Iterate.exit.i:                        ; preds = %sunHashMapLinearProbeGet.exit.thread.i, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit34.i, %25
+  %.0.i.i = phi i32 [ %12, %25 ], [ %37, %SUNHashMap_Iterate.exit.loopexit.split.loop.exit34.i ], [ %12, %sunHashMapLinearProbeGet.exit.thread.i ]
+  %38 = icmp slt i32 %.0.i.i, 0
   br i1 %38, label %SUNHashMap_GetValue.exit.thread, label %39
 
 39:                                               ; preds = %SUNHashMap_Iterate.exit.i
-  %40 = icmp eq i32 %.017.i.i, %12
+  %40 = icmp eq i32 %.0.i.i, %12
   br i1 %40, label %SUNHashMap_GetValue.exit.thread, label %.thread
 
 .thread:                                          ; preds = %39, %22

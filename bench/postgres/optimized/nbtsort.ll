@@ -122,9 +122,9 @@ define dso_local noundef ptr @btbuild(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %53
 
 53:                                               ; preds = %50, %42
-  %.0124.i.i = phi ptr [ %52, %50 ], [ @SnapshotAnyData, %42 ]
+  %.0.i.i = phi ptr [ %52, %50 ], [ @SnapshotAnyData, %42 ]
   %54 = load ptr, ptr %31, align 8
-  %55 = tail call i64 @table_parallelscan_estimate(ptr noundef %54, ptr noundef %.0124.i.i) #10
+  %55 = tail call i64 @table_parallelscan_estimate(ptr noundef %54, ptr noundef %.0.i.i) #10
   %56 = tail call i64 @add_size(i64 noundef 96, i64 noundef %55) #10
   %57 = getelementptr inbounds i8, ptr %48, i64 56
   %58 = load i64, ptr %57, align 8
@@ -196,7 +196,7 @@ define dso_local noundef ptr @btbuild(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %105
 
 105:                                              ; preds = %95, %71
-  %.0.i.i = phi i64 [ %99, %95 ], [ 1, %71 ]
+  %.0124.i.i = phi i64 [ %99, %95 ], [ 1, %71 ]
   tail call void @InitializeParallelDSM(ptr noundef nonnull %48) #10
   %106 = getelementptr inbounds i8, ptr %48, i64 72
   %107 = load ptr, ptr %106, align 8
@@ -204,14 +204,14 @@ define dso_local noundef ptr @btbuild(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %108, label %109, label %113
 
 109:                                              ; preds = %105
-  %110 = load i32, ptr %.0124.i.i, align 8
+  %110 = load i32, ptr %.0.i.i, align 8
   switch i32 %110, label %112 [
     i32 0, label %111
     i32 5, label %111
   ]
 
 111:                                              ; preds = %109, %109
-  tail call void @UnregisterSnapshot(ptr noundef nonnull %.0124.i.i) #10
+  tail call void @UnregisterSnapshot(ptr noundef nonnull %.0.i.i) #10
   br label %112
 
 112:                                              ; preds = %111, %109
@@ -261,7 +261,7 @@ define dso_local noundef ptr @btbuild(ptr noundef %0, ptr noundef %1, ptr nounde
   store i8 0, ptr %138, align 8
   %139 = load ptr, ptr %31, align 8
   %140 = getelementptr i8, ptr %116, i64 96
-  tail call void @table_parallelscan_initialize(ptr noundef %139, ptr noundef %140, ptr noundef %.0124.i.i) #10
+  tail call void @table_parallelscan_initialize(ptr noundef %139, ptr noundef %140, ptr noundef %.0.i.i) #10
   %141 = load ptr, ptr %114, align 8
   %142 = tail call ptr @shm_toc_allocate(ptr noundef %141, i64 noundef %62) #10
   %143 = load ptr, ptr %106, align 8
@@ -291,9 +291,9 @@ define dso_local noundef ptr @btbuild(ptr noundef %0, ptr noundef %1, ptr nounde
 
 155:                                              ; preds = %153
   %156 = load ptr, ptr %114, align 8
-  %157 = tail call ptr @shm_toc_allocate(ptr noundef %156, i64 noundef %.0.i.i) #10
+  %157 = tail call ptr @shm_toc_allocate(ptr noundef %156, i64 noundef %.0124.i.i) #10
   %158 = load ptr, ptr @debug_query_string, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %157, ptr align 1 %158, i64 %.0.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %157, ptr align 1 %158, i64 %.0124.i.i, i1 false)
   %159 = load ptr, ptr %114, align 8
   tail call void @shm_toc_insert(ptr noundef %159, i64 noundef -6917529027641081852, ptr noundef %157) #10
   br label %160
@@ -327,7 +327,7 @@ define dso_local noundef ptr @btbuild(ptr noundef %0, ptr noundef %1, ptr nounde
   %179 = getelementptr inbounds i8, ptr %47, i64 32
   store ptr %.0125.i.i, ptr %179, align 8
   %180 = getelementptr inbounds i8, ptr %47, i64 40
-  store ptr %.0124.i.i, ptr %180, align 8
+  store ptr %.0.i.i, ptr %180, align 8
   %181 = getelementptr inbounds i8, ptr %47, i64 48
   store ptr %165, ptr %181, align 8
   %182 = getelementptr inbounds i8, ptr %47, i64 56
@@ -940,7 +940,7 @@ ApplySortComparator.exit.thread169.thread174.i.i: ; preds = %ApplySortComparator
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %ApplySortComparator.exit.thread169.i.i, %ApplySortComparator.exit.i.i, %506, %._crit_edge.i.i, %ApplySortComparator.exit.thread169.thread.i.i, %495, %491, %385, %384
-  %.1124.i.i = phi i1 [ true, %384 ], [ %512, %._crit_edge.i.i ], [ false, %385 ], [ false, %491 ], [ false, %495 ], [ true, %ApplySortComparator.exit.thread169.thread.i.i ], [ false, %506 ], [ true, %ApplySortComparator.exit.thread169.i.i ], [ false, %ApplySortComparator.exit.i.i ]
+  %.1122.i.i = phi i1 [ true, %384 ], [ %512, %._crit_edge.i.i ], [ false, %385 ], [ false, %491 ], [ false, %495 ], [ true, %ApplySortComparator.exit.thread169.thread.i.i ], [ false, %506 ], [ true, %ApplySortComparator.exit.thread169.i.i ], [ false, %ApplySortComparator.exit.i.i ]
   %513 = icmp eq ptr %.0.i.i16, null
   br i1 %513, label %514, label %547
 
@@ -1005,7 +1005,7 @@ _bt_pagestate.exit.i.i:                           ; preds = %538, %514
 
 547:                                              ; preds = %_bt_pagestate.exit.i.i, %.thread.i.i
   %.1.i.i = phi ptr [ %515, %_bt_pagestate.exit.i.i ], [ %.0.i.i16, %.thread.i.i ]
-  br i1 %.1124.i.i, label %548, label %551
+  br i1 %.1122.i.i, label %548, label %551
 
 548:                                              ; preds = %547
   call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.1.i.i, ptr noundef %.0117.i.i, i64 noundef 0)
@@ -1360,8 +1360,8 @@ _bt_pagestate.exit159.i.i:                        ; preds = %684, %660
   br label %723
 
 723:                                              ; preds = %713, %702
-  %.129.i.i.i = phi i32 [ %698, %702 ], [ %.02832.i.i.i, %713 ]
-  %.1.i.i.i = phi i32 [ %712, %702 ], [ %.02733.i.i.i, %713 ]
+  %.129.i.i.i = phi i32 [ %712, %702 ], [ %.02832.i.i.i, %713 ]
+  %.1.i.i.i = phi i32 [ %698, %702 ], [ %.02733.i.i.i, %713 ]
   %724 = load ptr, ptr %.034.i.i.i, align 8
   %725 = getelementptr i8, ptr %724, i64 12
   %.val.i.i.i.i = load i16, ptr %725, align 4
@@ -1406,7 +1406,7 @@ _bt_leafbuild.exit:                               ; preds = %_bt_slideleft.exit.
   %743 = getelementptr inbounds i8, ptr %742, i64 1
   %744 = load i8, ptr %743, align 1
   %745 = trunc i8 %744 to i1
-  call void @_bt_initmetapage(ptr noundef %741, i32 noundef %.028.lcssa.i.i.i, i32 noundef %.027.lcssa.i.i.i, i1 noundef zeroext %745) #10
+  call void @_bt_initmetapage(ptr noundef %741, i32 noundef %.027.lcssa.i.i.i, i32 noundef %.028.lcssa.i.i.i, i1 noundef zeroext %745) #10
   call void @smgr_bulk_write(ptr noundef %740, i32 noundef 0, ptr noundef %741, i1 noundef zeroext true) #10
   call void @smgr_bulk_finish(ptr noundef %740) #10
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -1514,13 +1514,13 @@ define dso_local void @_bt_parallel_build_main(ptr noundef %0, ptr noundef %1) l
   %5 = getelementptr inbounds i8, ptr %4, i64 10
   %6 = load i8, ptr %5, align 2
   %7 = trunc i8 %6 to i1
-  %. = select i1 %7, i32 4, i32 5
-  %.45 = select i1 %7, i32 3, i32 8
+  %. = select i1 %7, i32 3, i32 8
+  %.45 = select i1 %7, i32 4, i32 5
   %8 = load i32, ptr %4, align 8
-  %9 = tail call ptr @table_open(i32 noundef %8, i32 noundef %.) #10
+  %9 = tail call ptr @table_open(i32 noundef %8, i32 noundef %.45) #10
   %10 = getelementptr inbounds i8, ptr %4, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = tail call ptr @index_open(i32 noundef %11, i32 noundef %.45) #10
+  %12 = tail call ptr @index_open(i32 noundef %11, i32 noundef %.) #10
   %13 = tail call ptr @palloc0(i64 noundef 32) #10
   %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %9, ptr %14, align 8
@@ -1557,14 +1557,14 @@ define dso_local void @_bt_parallel_build_main(ptr noundef %0, ptr noundef %1) l
   br label %35
 
 35:                                               ; preds = %2, %27
-  %.044 = phi ptr [ %34, %27 ], [ null, %2 ]
+  %.042 = phi ptr [ %34, %27 ], [ null, %2 ]
   %.0 = phi ptr [ %28, %27 ], [ null, %2 ]
   tail call void @InstrStartParallelQuery() #10
   %36 = load i32, ptr @maintenance_work_mem, align 4
   %37 = getelementptr inbounds i8, ptr %4, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = sdiv i32 %36, %38
-  tail call fastcc void @_bt_parallel_scan_and_sort(ptr noundef nonnull %13, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %24, ptr noundef %.044, i32 noundef %39, i1 noundef zeroext false)
+  tail call fastcc void @_bt_parallel_scan_and_sort(ptr noundef nonnull %13, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %24, ptr noundef %.042, i32 noundef %39, i1 noundef zeroext false)
   %40 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef -6917529027641081850, i1 noundef zeroext false) #10
   %41 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef -6917529027641081851, i1 noundef zeroext false) #10
   %42 = load i32, ptr @ParallelWorkerNumber, align 4
@@ -1572,8 +1572,8 @@ define dso_local void @_bt_parallel_build_main(ptr noundef %0, ptr noundef %1) l
   %44 = getelementptr %struct.BufferUsage, ptr %40, i64 %43
   %45 = getelementptr %struct.WalUsage, ptr %41, i64 %43
   tail call void @InstrEndParallelQuery(ptr noundef %44, ptr noundef %45) #10
-  tail call void @index_close(ptr noundef %12, i32 noundef %.45) #10
-  tail call void @table_close(ptr noundef %9, i32 noundef %.) #10
+  tail call void @index_close(ptr noundef %12, i32 noundef %.) #10
+  tail call void @table_close(ptr noundef %9, i32 noundef %.45) #10
   ret void
 }
 
@@ -2044,7 +2044,7 @@ _bt_sortaddtup.exit:                              ; preds = %80
   br label %115
 
 115:                                              ; preds = %111, %_bt_sortaddtup.exit
-  %.0105 = phi ptr [ %114, %111 ], [ %73, %_bt_sortaddtup.exit ]
+  %.0106 = phi ptr [ %114, %111 ], [ %73, %_bt_sortaddtup.exit ]
   %116 = getelementptr inbounds i8, ptr %1, i64 56
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, null
@@ -2132,7 +2132,7 @@ _bt_pagestate.exit:                               ; preds = %119, %143, %148
   call fastcc void @_bt_buildadd(ptr noundef nonnull %0, ptr noundef %163, ptr noundef %164, i64 noundef 0)
   %165 = load ptr, ptr %157, align 8
   call void @pfree(ptr noundef %165) #10
-  %166 = call ptr @CopyIndexTuple(ptr noundef %.0105) #10
+  %166 = call ptr @CopyIndexTuple(ptr noundef %.0106) #10
   store ptr %166, ptr %157, align 8
   %167 = getelementptr inbounds i8, ptr %10, i64 16
   %168 = load i16, ptr %167, align 4

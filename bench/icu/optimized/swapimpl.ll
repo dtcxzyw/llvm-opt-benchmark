@@ -1370,8 +1370,8 @@ do.body:                                          ; preds = %if.end53
   br label %if.end66
 
 if.end66:                                         ; preds = %if.end46, %if.end53, %do.body
-  %call4854 = phi i32 [ %call4850, %if.end53 ], [ %call4850, %do.body ], [ %call48, %if.end46 ]
-  %add = add nsw i32 %call4854, %call
+  %call4853 = phi i32 [ %call4850, %if.end53 ], [ %call4850, %do.body ], [ %call48, %if.end46 ]
+  %add = add nsw i32 %call4853, %call
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end66, %if.then52, %if.then44, %if.then21

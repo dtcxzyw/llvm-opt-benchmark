@@ -174,10 +174,10 @@ define internal i32 @cond_chars_common(ptr noundef %0, i32 noundef %1, ptr nound
   br label %18
 
 18:                                               ; preds = %.lr.ph, %25
-  %.02732 = phi i32 [ 0, %.lr.ph ], [ %27, %25 ]
-  %.02831 = phi i32 [ %1, %.lr.ph ], [ %26, %25 ]
+  %.02732 = phi i32 [ %1, %.lr.ph ], [ %26, %25 ]
+  %.02831 = phi i32 [ 0, %.lr.ph ], [ %27, %25 ]
   %19 = load ptr, ptr %15, align 8
-  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %19, i32 noundef %.02831) #10
+  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %19, i32 noundef %.02732) #10
   %21 = load ptr, ptr %17, align 8
   %22 = zext i8 %20 to i64
   %23 = getelementptr i8, ptr %21, i64 %22
@@ -186,20 +186,20 @@ define internal i32 @cond_chars_common(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not, label %._crit_edge.loopexit, label %25
 
 25:                                               ; preds = %18
-  %26 = add i32 %.02831, 1
-  %27 = add nuw nsw i32 %.02732, 1
+  %26 = add i32 %.02732, 1
+  %27 = add nuw nsw i32 %.02831, 1
   %exitcond.not = icmp eq i32 %27, %.
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %18, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %18, %25
-  %.027.lcssa.ph = phi i32 [ %., %25 ], [ %.02732, %18 ]
+  %.028.lcssa.ph = phi i32 [ %., %25 ], [ %.02831, %18 ]
   %.pre = load i32, ptr %7, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
   %28 = phi i32 [ %8, %11 ], [ %.pre, %._crit_edge.loopexit ]
-  %.027.lcssa = phi i32 [ 0, %11 ], [ %.027.lcssa.ph, %._crit_edge.loopexit ]
-  %29 = icmp ult i32 %.027.lcssa, %28
+  %.028.lcssa = phi i32 [ 0, %11 ], [ %.028.lcssa.ph, %._crit_edge.loopexit ]
+  %29 = icmp ult i32 %.028.lcssa, %28
   br i1 %29, label %42, label %30
 
 30:                                               ; preds = %._crit_edge
@@ -215,7 +215,7 @@ define internal i32 @cond_chars_common(ptr noundef %0, i32 noundef %1, ptr nound
   %37 = getelementptr inbounds i8, ptr %33, i64 24
   store i32 %1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %33, i64 28
-  store i32 %.027.lcssa, ptr %38, align 4
+  store i32 %.028.lcssa, ptr %38, align 4
   %39 = getelementptr inbounds i8, ptr %33, i64 32
   %40 = getelementptr inbounds i8, ptr %33, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
@@ -226,7 +226,7 @@ define internal i32 @cond_chars_common(ptr noundef %0, i32 noundef %1, ptr nound
   br label %42
 
 42:                                               ; preds = %._crit_edge, %4, %30
-  %.0 = phi i32 [ %.027.lcssa, %30 ], [ -1, %4 ], [ -1, %._crit_edge ]
+  %.0 = phi i32 [ %.028.lcssa, %30 ], [ -1, %4 ], [ -1, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -652,20 +652,20 @@ define internal range(i32 -1, -2147483648) i32 @cond_one_of(ptr noundef %0, i32 
   br i1 %54, label %.lr.ph, label %.sink.split.sink.split, !llvm.loop !11
 
 .sink.split.sink.split:                           ; preds = %49, %32
-  %.024.ph.ph = phi i32 [ %30, %32 ], [ -1, %49 ]
+  %.0.ph.ph = phi i32 [ %30, %32 ], [ -1, %49 ]
   %.pre30 = load i32, ptr %10, align 8
   %55 = add i32 %.pre30, -1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %.preheader
   %.sink = phi i32 [ %11, %.preheader ], [ %55, %.sink.split.sink.split ]
-  %.024.ph = phi i32 [ -1, %.preheader ], [ %.024.ph.ph, %.sink.split.sink.split ]
+  %.0.ph = phi i32 [ -1, %.preheader ], [ %.0.ph.ph, %.sink.split.sink.split ]
   store i32 %.sink, ptr %10, align 8
   br label %56
 
 56:                                               ; preds = %.sink.split, %9, %4
-  %.024 = phi i32 [ -1, %4 ], [ -1, %9 ], [ %.024.ph, %.sink.split ]
-  ret i32 %.024
+  %.0 = phi i32 [ -1, %4 ], [ -1, %9 ], [ %.0.ph, %.sink.split ]
+  ret i32 %.0
 }
 
 declare ptr @g_ptr_array_new() local_unnamed_addr #1
@@ -1056,17 +1056,17 @@ define internal i32 @cond_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 21:                                               ; preds = %.lr.ph, %ignore_fcn.exit
   %22 = phi ptr [ %16, %.lr.ph ], [ %97, %ignore_fcn.exit ]
-  %.051 = phi ptr [ null, %.lr.ph ], [ %.1, %ignore_fcn.exit ]
-  %.03850 = phi i32 [ 0, %.lr.ph ], [ %96, %ignore_fcn.exit ]
-  %.04049 = phi i32 [ %1, %.lr.ph ], [ %95, %ignore_fcn.exit ]
+  %.03851 = phi ptr [ null, %.lr.ph ], [ %.1, %ignore_fcn.exit ]
+  %.03950 = phi i32 [ %1, %.lr.ph ], [ %95, %ignore_fcn.exit ]
+  %.04049 = phi i32 [ 0, %.lr.ph ], [ %96, %ignore_fcn.exit ]
   %23 = load ptr, ptr %22, align 8
-  %24 = zext i32 %.03850 to i64
+  %24 = zext i32 %.04049 to i64
   %25 = getelementptr ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   store ptr null, ptr %6, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 40
   %28 = load i32, ptr %27, align 8
-  %29 = add i32 %28, %.04049
+  %29 = add i32 %28, %.03950
   %30 = load i32, ptr %7, align 4
   %31 = icmp sgt i32 %29, %30
   br i1 %31, label %32, label %35
@@ -1080,12 +1080,12 @@ define internal i32 @cond_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 35:                                               ; preds = %21
   %36 = getelementptr inbounds i8, ptr %26, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = call i32 %37(ptr noundef nonnull %0, i32 noundef %.04049, ptr noundef nonnull %26, ptr noundef nonnull %6) #10
+  %38 = call i32 %37(ptr noundef nonnull %0, i32 noundef %.03950, ptr noundef nonnull %26, ptr noundef nonnull %6) #10
   %39 = icmp sgt i32 %38, -1
   br i1 %39, label %40, label %76
 
 40:                                               ; preds = %35
-  %.not = icmp eq ptr %.051, null
+  %.not = icmp eq ptr %.03851, null
   br i1 %.not, label %60, label %41
 
 41:                                               ; preds = %40
@@ -1098,16 +1098,16 @@ define internal i32 @cond_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 45:                                               ; preds = %41
   %46 = getelementptr inbounds i8, ptr %42, i64 24
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %.051, i64 24
+  %48 = getelementptr inbounds i8, ptr %.03851, i64 24
   %49 = load i32, ptr %48, align 8
   %50 = add i32 %47, %44
   %51 = sub i32 %50, %49
-  %52 = getelementptr inbounds i8, ptr %.051, i64 28
+  %52 = getelementptr inbounds i8, ptr %.03851, i64 28
   store i32 %51, ptr %52, align 4
   br label %53
 
 53:                                               ; preds = %45, %41
-  %54 = getelementptr inbounds i8, ptr %.051, i64 40
+  %54 = getelementptr inbounds i8, ptr %.03851, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 56
   %57 = load ptr, ptr %56, align 8
@@ -1151,10 +1151,10 @@ define internal i32 @cond_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 79:                                               ; preds = %53, %60
   %.sink57 = phi ptr [ %59, %53 ], [ %74, %60 ]
   %.sink = phi ptr [ %42, %53 ], [ %74, %60 ]
-  %.1 = phi ptr [ %.051, %53 ], [ %66, %60 ]
+  %.1 = phi ptr [ %.03851, %53 ], [ %66, %60 ]
   %80 = getelementptr inbounds i8, ptr %.sink57, i64 56
   store ptr %.sink, ptr %80, align 8
-  %81 = add i32 %38, %.04049
+  %81 = add i32 %38, %.03950
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %82 = load ptr, ptr %20, align 8
@@ -1185,7 +1185,7 @@ ignore_fcn.exit:                                  ; preds = %.lr.ph.i, %79, %.pr
   %.0.i = phi i32 [ 0, %79 ], [ 0, %.preheader.i ], [ %88, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %95 = add i32 %.0.i, %81
-  %96 = add nuw i32 %.03850, 1
+  %96 = add nuw i32 %.04049, 1
   %97 = load ptr, ptr %15, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 8
   %99 = load i32, ptr %98, align 8
@@ -1199,16 +1199,16 @@ ignore_fcn.exit:                                  ; preds = %.lr.ph.i, %79, %.pr
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %102 = phi i32 [ %12, %.preheader ], [ %101, %._crit_edge.loopexit ]
-  %.040.lcssa = phi i32 [ %1, %.preheader ], [ %95, %._crit_edge.loopexit ]
-  %.0.lcssa = phi ptr [ null, %.preheader ], [ %.1, %._crit_edge.loopexit ]
+  %.039.lcssa = phi i32 [ %1, %.preheader ], [ %95, %._crit_edge.loopexit ]
+  %.038.lcssa = phi ptr [ null, %.preheader ], [ %.1, %._crit_edge.loopexit ]
   store i32 %102, ptr %11, align 8
-  store ptr %.0.lcssa, ptr %3, align 8
-  %103 = sub i32 %.040.lcssa, %1
+  store ptr %.038.lcssa, ptr %3, align 8
+  %103 = sub i32 %.039.lcssa, %1
   br label %104
 
 104:                                              ; preds = %10, %4, %._crit_edge, %76, %32
-  %.039 = phi i32 [ -1, %32 ], [ -1, %76 ], [ %103, %._crit_edge ], [ -1, %4 ], [ -1, %10 ]
-  ret i32 %.039
+  %.0 = phi i32 [ -1, %32 ], [ -1, %76 ], [ %103, %._crit_edge ], [ -1, %4 ], [ -1, %10 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1277,7 +1277,7 @@ define internal i32 @cond_some(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %30
 
 30:                                               ; preds = %18, %14
-  %.0 = phi ptr [ %21, %18 ], [ null, %14 ]
+  %.040 = phi ptr [ %21, %18 ], [ null, %14 ]
   %31 = getelementptr inbounds i8, ptr %2, i64 48
   %32 = load i32, ptr %31, align 8
   %.not61 = icmp eq i32 %32, 0
@@ -1289,12 +1289,12 @@ define internal i32 @cond_some(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %35
 
 35:                                               ; preds = %.lr.ph, %86
-  %.154 = phi ptr [ %.0, %.lr.ph ], [ %.2, %86 ]
-  %.04053 = phi i32 [ 0, %.lr.ph ], [ %88, %86 ]
-  %.04252 = phi i32 [ %1, %.lr.ph ], [ %87, %86 ]
+  %.154 = phi ptr [ %.040, %.lr.ph ], [ %.2, %86 ]
+  %.04153 = phi i32 [ %1, %.lr.ph ], [ %87, %86 ]
+  %.04252 = phi i32 [ 0, %.lr.ph ], [ %88, %86 ]
   store ptr null, ptr %5, align 8
   %36 = load i32, ptr %6, align 4
-  %37 = icmp sgt i32 %.04252, %36
+  %37 = icmp sgt i32 %.04153, %36
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %35
@@ -1307,7 +1307,7 @@ define internal i32 @cond_some(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = call i32 %44(ptr noundef nonnull %0, i32 noundef %.04252, ptr noundef %42, ptr noundef nonnull %5) #10
+  %45 = call i32 %44(ptr noundef nonnull %0, i32 noundef %.04153, ptr noundef %42, ptr noundef nonnull %5) #10
   %46 = icmp sgt i32 %45, -1
   br i1 %46, label %47, label %._crit_edge
 
@@ -1381,31 +1381,31 @@ define internal i32 @cond_some(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 
 86:                                               ; preds = %70, %69, %63
   %.2 = phi ptr [ %.154, %63 ], [ %.154, %69 ], [ %76, %70 ]
-  %87 = add i32 %45, %.04252
-  %88 = add nuw i32 %.04053, 1
+  %87 = add i32 %45, %.04153
+  %88 = add nuw i32 %.04252, 1
   %89 = load i32, ptr %31, align 8
   %90 = icmp ult i32 %88, %89
   br i1 %90, label %35, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %86, %41, %30
-  %.042.lcssa = phi i32 [ %1, %30 ], [ %.04252, %41 ], [ %87, %86 ]
-  %.040.lcssa = phi i32 [ 0, %30 ], [ %.04053, %41 ], [ %88, %86 ]
-  %.1.lcssa = phi ptr [ %.0, %30 ], [ %.154, %41 ], [ %.2, %86 ]
+  %.042.lcssa = phi i32 [ 0, %30 ], [ %.04252, %41 ], [ %88, %86 ]
+  %.041.lcssa = phi i32 [ %1, %30 ], [ %.04153, %41 ], [ %87, %86 ]
+  %.1.lcssa = phi ptr [ %.040, %30 ], [ %.154, %41 ], [ %.2, %86 ]
   %91 = load i32, ptr %10, align 8
   %92 = add i32 %91, -1
   store i32 %92, ptr %10, align 8
   %93 = load i32, ptr %15, align 4
-  %94 = icmp ult i32 %.040.lcssa, %93
+  %94 = icmp ult i32 %.042.lcssa, %93
   br i1 %94, label %97, label %95
 
 95:                                               ; preds = %._crit_edge
   store ptr %.1.lcssa, ptr %3, align 8
-  %96 = sub i32 %.042.lcssa, %1
+  %96 = sub i32 %.041.lcssa, %1
   br label %97
 
 97:                                               ; preds = %._crit_edge, %9, %4, %95, %38
-  %.041 = phi i32 [ -1, %38 ], [ %96, %95 ], [ -1, %4 ], [ -1, %9 ], [ -1, %._crit_edge ]
-  ret i32 %.041
+  %.0 = phi i32 [ -1, %38 ], [ %96, %95 ], [ -1, %4 ], [ -1, %9 ], [ -1, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1933,33 +1933,33 @@ define void @tvbparse_tree_add_elem(ptr noundef %0, ptr noundef %1) local_unname
   br label %.lr.ph42
 
 .lr.ph42:                                         ; preds = %.lr.ph42.preheader, %.backedge
-  %.041 = phi ptr [ %.0.be, %.backedge ], [ %8, %.lr.ph42.preheader ]
-  %.02540 = phi ptr [ %.025.be, %.backedge ], [ %1, %.lr.ph42.preheader ]
-  %10 = load ptr, ptr %.041, align 8
-  %11 = getelementptr inbounds i8, ptr %.02540, i64 8
+  %.041 = phi ptr [ %.0.be, %.backedge ], [ %1, %.lr.ph42.preheader ]
+  %.02540 = phi ptr [ %.025.be, %.backedge ], [ %8, %.lr.ph42.preheader ]
+  %10 = load ptr, ptr %.02540, align 8
+  %11 = getelementptr inbounds i8, ptr %.041, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %.02540, i64 24
+  %15 = getelementptr inbounds i8, ptr %.041, i64 24
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %.02540, i64 28
+  %17 = getelementptr inbounds i8, ptr %.041, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = tail call ptr @proto_tree_add_format_text(ptr noundef %10, ptr noundef %14, i32 noundef %16, i32 noundef %18) #10
-  %20 = getelementptr inbounds i8, ptr %.02540, i64 40
+  %20 = getelementptr inbounds i8, ptr %.041, i64 40
   %21 = load ptr, ptr %20, align 8
   %.not27 = icmp eq ptr %21, null
   br i1 %.not27, label %.preheader, label %22
 
 .preheader:                                       ; preds = %.lr.ph42
-  %.126.in30 = getelementptr inbounds i8, ptr %.02540, i64 48
-  %.12631 = load ptr, ptr %.126.in30, align 8
-  %.not2832 = icmp eq ptr %.12631, null
+  %.1.in30 = getelementptr inbounds i8, ptr %.041, i64 48
+  %.131 = load ptr, ptr %.1.in30, align 8
+  %.not2832 = icmp eq ptr %.131, null
   br i1 %.not2832, label %.lr.ph, label %.backedge
 
 22:                                               ; preds = %.lr.ph42
-  %23 = getelementptr inbounds i8, ptr %.041, i64 8
-  store ptr %.02540, ptr %23, align 8
-  tail call void @wmem_list_prepend(ptr noundef %5, ptr noundef nonnull %.041) #10
+  %23 = getelementptr inbounds i8, ptr %.02540, i64 8
+  store ptr %.041, ptr %23, align 8
+  tail call void @wmem_list_prepend(ptr noundef %5, ptr noundef nonnull %.02540) #10
   %24 = load ptr, ptr %11, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias ptr @wmem_alloc(ptr noundef %25, i64 noundef 16) #10
@@ -1969,9 +1969,9 @@ define void @tvbparse_tree_add_elem(ptr noundef %0, ptr noundef %1) local_unname
   br label %.backedge
 
 .backedge:                                        ; preds = %30, %.preheader, %22
-  %.025.be = phi ptr [ %28, %22 ], [ %.12631, %.preheader ], [ %.126, %30 ]
-  %.0.be = phi ptr [ %26, %22 ], [ %.041, %.preheader ], [ %31, %30 ]
-  %.not = icmp eq ptr %.025.be, null
+  %.025.be = phi ptr [ %26, %22 ], [ %.02540, %.preheader ], [ %31, %30 ]
+  %.0.be = phi ptr [ %28, %22 ], [ %.131, %.preheader ], [ %.1, %30 ]
+  %.not = icmp eq ptr %.0.be, null
   br i1 %.not, label %._crit_edge, label %.lr.ph42, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %.preheader, %30
@@ -1983,9 +1983,9 @@ define void @tvbparse_tree_add_elem(ptr noundef %0, ptr noundef %1) local_unname
   %31 = tail call ptr @wmem_stack_pop(ptr noundef %5) #10
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
-  %.126.in = getelementptr inbounds i8, ptr %33, i64 48
-  %.126 = load ptr, ptr %.126.in, align 8
-  %.not28 = icmp eq ptr %.126, null
+  %.1.in = getelementptr inbounds i8, ptr %33, i64 48
+  %.1 = load ptr, ptr %.1.in, align 8
+  %.not28 = icmp eq ptr %.1, null
   br i1 %.not28, label %.lr.ph, label %.backedge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.backedge, %.lr.ph

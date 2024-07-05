@@ -217,8 +217,8 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
-  %leftPair.0 = phi i32 [ 0, %entry ], [ %leftPair.0.be, %for.cond.backedge ]
   %rightPair.0 = phi i32 [ 0, %entry ], [ %rightPair.0.be, %for.cond.backedge ]
+  %leftPair.0 = phi i32 [ 0, %entry ], [ %leftPair.0.be, %for.cond.backedge ]
   %cmp617 = icmp eq i32 %leftPair.0, 0
   br i1 %cmp617, label %while.body, label %while.end
 
@@ -495,8 +495,8 @@ if.end122:                                        ; preds = %if.end119
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.end122, %if.then109
-  %leftPair.0.be = phi i32 [ %shr123, %if.end122 ], [ 0, %if.then109 ]
   %rightPair.0.be = phi i32 [ %shr124, %if.end122 ], [ 0, %if.then109 ]
+  %leftPair.0.be = phi i32 [ %shr123, %if.end122 ], [ 0, %if.then109 ]
   br label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %if.end119, %if.then109
@@ -509,8 +509,8 @@ if.then127:                                       ; preds = %for.end
   br label %for.cond128
 
 for.cond128:                                      ; preds = %for.cond128.backedge, %if.then127
-  %leftPair.4 = phi i32 [ 0, %if.then127 ], [ %leftPair.4.be, %for.cond128.backedge ]
   %rightPair.4 = phi i32 [ 0, %if.then127 ], [ %rightPair.4.be, %for.cond128.backedge ]
+  %leftPair.4 = phi i32 [ 0, %if.then127 ], [ %leftPair.4.be, %for.cond128.backedge ]
   %cmp130633 = icmp eq i32 %leftPair.4, 0
   br i1 %cmp130633, label %while.body131, label %while.end170
 
@@ -760,8 +760,8 @@ if.end232:                                        ; preds = %if.end229
   br label %for.cond128.backedge
 
 for.cond128.backedge:                             ; preds = %if.end232, %if.then214
-  %leftPair.4.be = phi i32 [ %shr233, %if.end232 ], [ 0, %if.then214 ]
   %rightPair.4.be = phi i32 [ %shr234, %if.end232 ], [ 0, %if.then214 ]
+  %leftPair.4.be = phi i32 [ %shr233, %if.end232 ], [ 0, %if.then214 ]
   br label %for.cond128, !llvm.loop !12
 
 if.end236:                                        ; preds = %if.then214, %if.end229, %for.end
@@ -775,8 +775,8 @@ if.then239:                                       ; preds = %if.end236
   br label %for.cond243
 
 for.cond243:                                      ; preds = %for.cond243.backedge, %if.then239
-  %leftPair.8 = phi i32 [ 0, %if.then239 ], [ %leftPair.8.be, %for.cond243.backedge ]
   %rightPair.8 = phi i32 [ 0, %if.then239 ], [ %rightPair.8.be, %for.cond243.backedge ]
+  %leftPair.8 = phi i32 [ 0, %if.then239 ], [ %leftPair.8.be, %for.cond243.backedge ]
   %cmp245647 = icmp eq i32 %leftPair.8, 0
   br i1 %cmp245647, label %while.body246, label %while.end266
 
@@ -1020,8 +1020,8 @@ if.end314:                                        ; preds = %if.end311
   br label %for.cond243.backedge
 
 for.cond243.backedge:                             ; preds = %if.end314, %if.then294
-  %leftPair.8.be = phi i32 [ %shr315, %if.end314 ], [ 0, %if.then294 ]
   %rightPair.8.be = phi i32 [ %shr316, %if.end314 ], [ 0, %if.then294 ]
+  %leftPair.8.be = phi i32 [ %shr315, %if.end314 ], [ 0, %if.then294 ]
   br label %for.cond243, !llvm.loop !15
 
 if.end318:                                        ; preds = %if.then294, %if.end311, %if.end236
@@ -1039,8 +1039,8 @@ if.end322:                                        ; preds = %if.end318
   br label %for.cond324
 
 for.cond324:                                      ; preds = %for.cond324.backedge, %if.end322
-  %leftPair.12 = phi i32 [ 0, %if.end322 ], [ %leftPair.12.be, %for.cond324.backedge ]
   %rightPair.12 = phi i32 [ 0, %if.end322 ], [ %rightPair.12.be, %for.cond324.backedge ]
+  %leftPair.12 = phi i32 [ 0, %if.end322 ], [ %leftPair.12.be, %for.cond324.backedge ]
   %cmp326657 = icmp eq i32 %leftPair.12, 0
   br i1 %cmp326657, label %while.body327, label %while.end350
 
@@ -1307,8 +1307,8 @@ if.end402:                                        ; preds = %if.end399
   br label %for.cond324.backedge
 
 for.cond324.backedge:                             ; preds = %if.end402, %if.then378
-  %leftPair.12.be = phi i32 [ %shr403, %if.end402 ], [ 0, %if.then378 ]
   %rightPair.12.be = phi i32 [ %shr404, %if.end402 ], [ 0, %if.then378 ]
+  %leftPair.12.be = phi i32 [ %shr403, %if.end402 ], [ 0, %if.then378 ]
   br label %for.cond324, !llvm.loop !18
 
 for.end405:                                       ; preds = %if.end399, %if.then378
@@ -1321,8 +1321,8 @@ if.end409:                                        ; preds = %for.end405
   br label %for.cond410
 
 for.cond410:                                      ; preds = %for.cond410.backedge, %if.end409
-  %leftPair.16 = phi i32 [ 0, %if.end409 ], [ %leftPair.16.be, %for.cond410.backedge ]
   %rightPair.16 = phi i32 [ 0, %if.end409 ], [ %rightPair.16.be, %for.cond410.backedge ]
+  %leftPair.16 = phi i32 [ 0, %if.end409 ], [ %leftPair.16.be, %for.cond410.backedge ]
   %cmp412667 = icmp eq i32 %leftPair.16, 0
   br i1 %cmp412667, label %while.body413, label %while.end436
 
@@ -1517,8 +1517,8 @@ if.end478:                                        ; preds = %if.end475
   br label %for.cond410.backedge
 
 for.cond410.backedge:                             ; preds = %if.end478, %if.then464
-  %leftPair.16.be = phi i32 [ %shr479, %if.end478 ], [ 0, %if.then464 ]
   %rightPair.16.be = phi i32 [ %shr480, %if.end478 ], [ 0, %if.then464 ]
+  %leftPair.16.be = phi i32 [ %shr479, %if.end478 ], [ 0, %if.then464 ]
   br label %for.cond410, !llvm.loop !21
 
 return:                                           ; preds = %if.else40, %if.end12, %if.else99, %if.end66, %if.then464, %if.end475, %for.end405, %if.end318, %if.then222, %if.then472, %if.end396, %if.else308, %if.then305, %if.end226, %if.then117
@@ -2006,8 +2006,8 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
-  %leftPair.0 = phi i32 [ 0, %entry ], [ %leftPair.0.be, %for.cond.backedge ]
   %rightPair.0 = phi i32 [ 0, %entry ], [ %rightPair.0.be, %for.cond.backedge ]
+  %leftPair.0 = phi i32 [ 0, %entry ], [ %leftPair.0.be, %for.cond.backedge ]
   %cmp736 = icmp eq i32 %leftPair.0, 0
   br i1 %cmp736, label %while.body, label %while.end
 
@@ -2116,8 +2116,8 @@ if.end50.sink.split:                              ; preds = %if.then36, %if.end1
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end50.sink.split, %if.then23.i
-  %leftPair.2 = phi i32 [ %switch.select.i, %if.then23.i ], [ %conv18.i, %if.end50.sink.split ]
   %c.0 = phi i32 [ 239, %if.then23.i ], [ %c.0.ph, %if.end50.sink.split ]
+  %leftPair.2 = phi i32 [ %switch.select.i, %if.then23.i ], [ %conv18.i, %if.end50.sink.split ]
   %cmp51 = icmp ugt i32 %leftPair.2, 4095
   br i1 %cmp51, label %if.then52, label %if.else54
 
@@ -2126,17 +2126,17 @@ if.then52:                                        ; preds = %if.end50
   br label %while.end
 
 if.else54:                                        ; preds = %if.then23.i, %if.else48, %if.else.i, %if.end50
-  %c.0702 = phi i32 [ %c.0, %if.end50 ], [ %conv4, %if.else.i ], [ %conv4, %if.else48 ], [ 239, %if.then23.i ]
-  %leftPair.2701 = phi i32 [ %leftPair.2, %if.end50 ], [ 1, %if.else.i ], [ 1, %if.else48 ], [ 3, %if.then23.i ]
-  %cmp55 = icmp ugt i32 %leftPair.2701, %shr
+  %leftPair.2702 = phi i32 [ %leftPair.2, %if.end50 ], [ 1, %if.else48 ], [ 1, %if.else.i ], [ 3, %if.then23.i ]
+  %c.0701 = phi i32 [ %c.0, %if.end50 ], [ %conv4, %if.else48 ], [ %conv4, %if.else.i ], [ 239, %if.then23.i ]
+  %cmp55 = icmp ugt i32 %leftPair.2702, %shr
   br i1 %cmp55, label %if.then56, label %if.else58
 
 if.then56:                                        ; preds = %if.else54
-  %and57 = and i32 %leftPair.2701, 4088
+  %and57 = and i32 %leftPair.2702, 4088
   br label %while.end
 
 if.else58:                                        ; preds = %if.else54
-  %call59 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %c.0702, i32 noundef %leftPair.2701, ptr noundef null, ptr noundef nonnull %left, ptr noundef nonnull align 4 dereferenceable(4) %leftIndex, ptr noundef nonnull align 4 dereferenceable(4) %leftLength.addr)
+  %call59 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %c.0701, i32 noundef %leftPair.2702, ptr noundef null, ptr noundef nonnull %left, ptr noundef nonnull align 4 dereferenceable(4) %leftIndex, ptr noundef nonnull align 4 dereferenceable(4) %leftLength.addr)
   %cmp60 = icmp eq i32 %call59, 1
   br i1 %cmp60, label %return, label %if.end62
 
@@ -2285,8 +2285,8 @@ if.end129.sink.split:                             ; preds = %if.then111, %if.end
   br label %if.end129
 
 if.end129:                                        ; preds = %if.end129.sink.split, %if.then23.i302
-  %rightPair.2 = phi i32 [ %switch.select.i304, %if.then23.i302 ], [ %conv18.i311, %if.end129.sink.split ]
   %c72.0 = phi i32 [ 239, %if.then23.i302 ], [ %c72.0.ph, %if.end129.sink.split ]
+  %rightPair.2 = phi i32 [ %switch.select.i304, %if.then23.i302 ], [ %conv18.i311, %if.end129.sink.split ]
   %cmp130 = icmp ugt i32 %rightPair.2, 4095
   br i1 %cmp130, label %if.then131, label %if.else133
 
@@ -2295,17 +2295,17 @@ if.then131:                                       ; preds = %if.end129
   br label %while.end145
 
 if.else133:                                       ; preds = %if.then23.i302, %if.else126, %if.else.i298, %if.end129
-  %c72.0708 = phi i32 [ %c72.0, %if.end129 ], [ %conv76, %if.else.i298 ], [ %conv76, %if.else126 ], [ 239, %if.then23.i302 ]
-  %rightPair.2707 = phi i32 [ %rightPair.2, %if.end129 ], [ 1, %if.else.i298 ], [ 1, %if.else126 ], [ 3, %if.then23.i302 ]
-  %cmp134 = icmp ugt i32 %rightPair.2707, %shr
+  %rightPair.2708 = phi i32 [ %rightPair.2, %if.end129 ], [ 1, %if.else126 ], [ 1, %if.else.i298 ], [ 3, %if.then23.i302 ]
+  %c72.0707 = phi i32 [ %c72.0, %if.end129 ], [ %conv76, %if.else126 ], [ %conv76, %if.else.i298 ], [ 239, %if.then23.i302 ]
+  %cmp134 = icmp ugt i32 %rightPair.2708, %shr
   br i1 %cmp134, label %if.then135, label %if.else137
 
 if.then135:                                       ; preds = %if.else133
-  %and136 = and i32 %rightPair.2707, 4088
+  %and136 = and i32 %rightPair.2708, 4088
   br label %while.end145
 
 if.else137:                                       ; preds = %if.else133
-  %call138 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %c72.0708, i32 noundef %rightPair.2707, ptr noundef null, ptr noundef nonnull %right, ptr noundef nonnull align 4 dereferenceable(4) %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %rightLength.addr)
+  %call138 = call noundef i32 @_ZN6icu_7518CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %add.ptr, i32 noundef %c72.0707, i32 noundef %rightPair.2708, ptr noundef null, ptr noundef nonnull %right, ptr noundef nonnull align 4 dereferenceable(4) %rightIndex, ptr noundef nonnull align 4 dereferenceable(4) %rightLength.addr)
   %cmp139 = icmp eq i32 %call138, 1
   br i1 %cmp139, label %return, label %if.end141
 
@@ -2374,8 +2374,8 @@ if.end160:                                        ; preds = %if.end157
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.end160, %if.then147
-  %leftPair.0.be = phi i32 [ %shr161, %if.end160 ], [ 0, %if.then147 ]
   %rightPair.0.be = phi i32 [ %shr162, %if.end160 ], [ 0, %if.then147 ]
+  %leftPair.0.be = phi i32 [ %shr161, %if.end160 ], [ 0, %if.then147 ]
   br label %for.cond, !llvm.loop !25
 
 for.end:                                          ; preds = %if.end157, %if.then147
@@ -2390,8 +2390,8 @@ if.then165:                                       ; preds = %for.end
   br label %for.cond166
 
 for.cond166:                                      ; preds = %for.cond166.backedge, %if.then165
-  %leftPair.4 = phi i32 [ 0, %if.then165 ], [ %leftPair.4.be, %for.cond166.backedge ]
   %rightPair.4 = phi i32 [ 0, %if.then165 ], [ %rightPair.4.be, %for.cond166.backedge ]
+  %leftPair.4 = phi i32 [ 0, %if.then165 ], [ %leftPair.4.be, %for.cond166.backedge ]
   %cmp168747 = icmp eq i32 %leftPair.4, 0
   br i1 %cmp168747, label %while.body169, label %while.end211
 
@@ -2683,8 +2683,8 @@ if.end276:                                        ; preds = %if.end273
   br label %for.cond166.backedge
 
 for.cond166.backedge:                             ; preds = %if.end276, %if.then258
-  %leftPair.4.be = phi i32 [ %shr277, %if.end276 ], [ 0, %if.then258 ]
   %rightPair.4.be = phi i32 [ %shr278, %if.end276 ], [ 0, %if.then258 ]
+  %leftPair.4.be = phi i32 [ %shr277, %if.end276 ], [ 0, %if.then258 ]
   br label %for.cond166, !llvm.loop !28
 
 if.end280:                                        ; preds = %if.then258, %if.end273, %for.end
@@ -2700,8 +2700,8 @@ if.then283:                                       ; preds = %if.end280
   br label %for.cond287
 
 for.cond287:                                      ; preds = %for.cond287.backedge, %if.then283
-  %leftPair.8 = phi i32 [ 0, %if.then283 ], [ %leftPair.8.be, %for.cond287.backedge ]
   %rightPair.8 = phi i32 [ 0, %if.then283 ], [ %rightPair.8.be, %for.cond287.backedge ]
+  %leftPair.8 = phi i32 [ 0, %if.then283 ], [ %leftPair.8.be, %for.cond287.backedge ]
   %cmp289759 = icmp eq i32 %leftPair.8, 0
   br i1 %cmp289759, label %while.body290, label %while.end310
 
@@ -2991,8 +2991,8 @@ if.end358:                                        ; preds = %if.end355
   br label %for.cond287.backedge
 
 for.cond287.backedge:                             ; preds = %if.end358, %if.then338
-  %leftPair.8.be = phi i32 [ %shr359, %if.end358 ], [ 0, %if.then338 ]
   %rightPair.8.be = phi i32 [ %shr360, %if.end358 ], [ 0, %if.then338 ]
+  %leftPair.8.be = phi i32 [ %shr359, %if.end358 ], [ 0, %if.then338 ]
   br label %for.cond287, !llvm.loop !31
 
 if.end362:                                        ; preds = %if.then338, %if.end355, %if.end280
@@ -3012,8 +3012,8 @@ if.end366:                                        ; preds = %if.end362
   br label %for.cond368
 
 for.cond368:                                      ; preds = %for.cond368.backedge, %if.end366
-  %leftPair.12 = phi i32 [ 0, %if.end366 ], [ %leftPair.12.be, %for.cond368.backedge ]
   %rightPair.12 = phi i32 [ 0, %if.end366 ], [ %rightPair.12.be, %for.cond368.backedge ]
+  %leftPair.12 = phi i32 [ 0, %if.end366 ], [ %leftPair.12.be, %for.cond368.backedge ]
   %cmp370769 = icmp eq i32 %leftPair.12, 0
   br i1 %cmp370769, label %while.body371, label %while.end394
 
@@ -3328,8 +3328,8 @@ if.end446:                                        ; preds = %if.end443
   br label %for.cond368.backedge
 
 for.cond368.backedge:                             ; preds = %if.end446, %if.then422
-  %leftPair.12.be = phi i32 [ %shr447, %if.end446 ], [ 0, %if.then422 ]
   %rightPair.12.be = phi i32 [ %shr448, %if.end446 ], [ 0, %if.then422 ]
+  %leftPair.12.be = phi i32 [ %shr447, %if.end446 ], [ 0, %if.then422 ]
   br label %for.cond368, !llvm.loop !34
 
 for.end449:                                       ; preds = %if.end443, %if.then422
@@ -3342,8 +3342,8 @@ if.end453:                                        ; preds = %for.end449
   br label %for.cond454
 
 for.cond454:                                      ; preds = %for.cond454.backedge, %if.end453
-  %leftPair.16 = phi i32 [ 0, %if.end453 ], [ %leftPair.16.be, %for.cond454.backedge ]
   %rightPair.16 = phi i32 [ 0, %if.end453 ], [ %rightPair.16.be, %for.cond454.backedge ]
+  %leftPair.16 = phi i32 [ 0, %if.end453 ], [ %leftPair.16.be, %for.cond454.backedge ]
   %cmp456779 = icmp eq i32 %leftPair.16, 0
   br i1 %cmp456779, label %while.body457, label %while.end480
 
@@ -3586,8 +3586,8 @@ if.end522:                                        ; preds = %if.end519
   br label %for.cond454.backedge
 
 for.cond454.backedge:                             ; preds = %if.end522, %if.then508
-  %leftPair.16.be = phi i32 [ %shr523, %if.end522 ], [ 0, %if.then508 ]
   %rightPair.16.be = phi i32 [ %shr524, %if.end522 ], [ 0, %if.then508 ]
+  %leftPair.16.be = phi i32 [ %shr523, %if.end522 ], [ 0, %if.then508 ]
   br label %for.cond454, !llvm.loop !37
 
 return:                                           ; preds = %if.else58, %if.end12, %if.else137, %if.end85, %if.then508, %if.end519, %for.end449, %if.end362, %if.then266, %if.then516, %if.end440, %if.else352, %if.then349, %if.end270, %if.then155

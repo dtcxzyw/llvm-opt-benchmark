@@ -3740,16 +3740,16 @@ land.lhs.true41:                                  ; preds = %if.end36
   br label %if.end80
 
 while.body.i:                                     ; preds = %lor.lhs.false, %while.body.i
-  %hi.09.i = phi i64 [ %hi.1.i, %while.body.i ], [ %7, %lor.lhs.false ]
-  %lo.08.i = phi i64 [ %lo.1.i, %while.body.i ], [ 0, %lor.lhs.false ]
-  %add.i70 = add i64 %lo.08.i, %hi.09.i
+  %lo.09.i = phi i64 [ %lo.1.i, %while.body.i ], [ 0, %lor.lhs.false ]
+  %hi.08.i = phi i64 [ %hi.1.i, %while.body.i ], [ %7, %lor.lhs.false ]
+  %add.i70 = add i64 %hi.08.i, %lo.09.i
   %div6.i = lshr i64 %add.i70, 1
   %arrayidx.i = getelementptr i64, ptr %8, i64 %div6.i
   %33 = load i64, ptr %arrayidx.i, align 8
   %cmp1.i = icmp sgt i64 %33, %.pre
   %add2.i = add nuw i64 %div6.i, 1
-  %lo.1.i = select i1 %cmp1.i, i64 %lo.08.i, i64 %add2.i
-  %hi.1.i = select i1 %cmp1.i, i64 %div6.i, i64 %hi.09.i
+  %hi.1.i = select i1 %cmp1.i, i64 %div6.i, i64 %hi.08.i
+  %lo.1.i = select i1 %cmp1.i, i64 %lo.09.i, i64 %add2.i
   %cmp.i71 = icmp ult i64 %lo.1.i, %hi.1.i
   br i1 %cmp.i71, label %while.body.i, label %_bisect.exit, !llvm.loop !12
 
@@ -3772,10 +3772,10 @@ if.else63:                                        ; preds = %_bisect.exit
   br label %if.end67
 
 if.end67:                                         ; preds = %if.else63, %if.then56
-  %tti.0.in = phi ptr [ %arrayidx62, %if.then56 ], [ %36, %if.else63 ]
   %tti_prev53.0.in = phi ptr [ %arrayidx59, %if.then56 ], [ %ttinfo_before64, %if.else63 ]
-  %tti_prev53.0 = load ptr, ptr %tti_prev53.0.in, align 8
+  %tti.0.in = phi ptr [ %arrayidx62, %if.then56 ], [ %36, %if.else63 ]
   %tti.0 = load ptr, ptr %tti.0.in, align 8
+  %tti_prev53.0 = load ptr, ptr %tti_prev53.0.in, align 8
   %utcoff_seconds68 = getelementptr inbounds i8, ptr %tti_prev53.0, i64 24
   %37 = load i64, ptr %utcoff_seconds68, align 8
   %utcoff_seconds69 = getelementptr inbounds i8, ptr %tti.0, i64 24
@@ -4596,29 +4596,29 @@ for.cond152.preheader:                            ; preds = %if.end141
 
 for.cond152:                                      ; preds = %if.end161
   %22 = load i64, ptr %num_ttinfos40, align 8
-  %cmp154 = icmp ult i64 %inc172, %22
+  %cmp154 = icmp ult i64 %inc162, %22
   br i1 %cmp154, label %for.body156, label %for.end173, !llvm.loop !15
 
 for.body156:                                      ; preds = %for.cond152.preheader, %for.cond152
-  %i151.0208 = phi i64 [ %inc172, %for.cond152 ], [ 0, %for.cond152.preheader ]
-  %call157 = tail call ptr @PyTuple_GetItem(ptr noundef nonnull %call23, i64 noundef %i151.0208) #9
+  %ttinfos_allocated.0208 = phi i64 [ %inc162, %for.cond152 ], [ 0, %for.cond152.preheader ]
+  %call157 = tail call ptr @PyTuple_GetItem(ptr noundef nonnull %call23, i64 noundef %ttinfos_allocated.0208) #9
   %cmp158 = icmp eq ptr %call157, null
   br i1 %cmp158, label %error, label %if.end161
 
 if.end161:                                        ; preds = %for.body156
-  %inc172 = add nuw i64 %i151.0208, 1
-  %arrayidx163 = getelementptr i64, ptr %call87, i64 %i151.0208
+  %inc162 = add nuw i64 %ttinfos_allocated.0208, 1
+  %arrayidx163 = getelementptr i64, ptr %call87, i64 %ttinfos_allocated.0208
   %23 = load i64, ptr %arrayidx163, align 8
-  %arrayidx164 = getelementptr i64, ptr %call127, i64 %i151.0208
+  %arrayidx164 = getelementptr i64, ptr %call127, i64 %ttinfos_allocated.0208
   %24 = load i64, ptr %arrayidx164, align 8
   %25 = load ptr, ptr %_ttinfos, align 8
-  %arrayidx166 = getelementptr %struct._ttinfo, ptr %25, i64 %i151.0208
+  %arrayidx166 = getelementptr %struct._ttinfo, ptr %25, i64 %ttinfos_allocated.0208
   %call167 = tail call fastcc i32 @build_ttinfo(ptr noundef %state, i64 noundef %23, i64 noundef %24, ptr noundef nonnull %call157, ptr noundef %arrayidx166)
   %tobool168.not = icmp eq i32 %call167, 0
   br i1 %tobool168.not, label %for.cond152, label %error
 
 for.end173:                                       ; preds = %for.cond152, %for.cond152.preheader
-  %ttinfos_allocated.0.lcssa = phi i64 [ 0, %for.cond152.preheader ], [ %inc172, %for.cond152 ]
+  %ttinfos_allocated.0.lcssa = phi i64 [ 0, %for.cond152.preheader ], [ %inc162, %for.cond152 ]
   %26 = load i64, ptr %num_transitions39, align 8
   %call175 = tail call ptr @PyMem_Calloc(i64 noundef %26, i64 noundef 8) #9
   store ptr %call175, ptr %trans_ttinfos, align 8
@@ -4809,8 +4809,8 @@ if.else285:                                       ; preds = %if.else276
   br label %cleanup
 
 error:                                            ; preds = %if.end73, %if.end69, %land.lhs.true, %for.body, %if.end117, %if.end113, %land.lhs.true109, %for.body99, %if.end161, %for.body156, %if.else276, %if.then228, %for.end173, %if.end141, %if.end131, %for.end125, %for.end, %if.end47, %if.end34, %if.end30, %if.end26, %if.end22, %if.end18, %if.end14, %if.end10, %if.end6, %entry, %if.then236, %if.then82, %if.then4
+  %ttinfos_allocated.1.ph = phi i64 [ 0, %if.then4 ], [ %ttinfos_allocated.0.lcssa, %if.then236 ], [ %ttinfos_allocated.0.lcssa, %if.else276 ], [ %ttinfos_allocated.0.lcssa, %if.then228 ], [ %ttinfos_allocated.0.lcssa, %for.end173 ], [ 0, %if.end141 ], [ 0, %if.end131 ], [ 0, %for.end125 ], [ 0, %for.end ], [ 0, %if.then82 ], [ 0, %if.end47 ], [ 0, %if.end34 ], [ 0, %if.end30 ], [ 0, %if.end26 ], [ 0, %if.end22 ], [ 0, %if.end18 ], [ 0, %if.end14 ], [ 0, %if.end10 ], [ 0, %if.end6 ], [ 0, %entry ], [ %ttinfos_allocated.0208, %for.body156 ], [ %inc162, %if.end161 ], [ 0, %for.body99 ], [ 0, %land.lhs.true109 ], [ 0, %if.end113 ], [ 0, %if.end117 ], [ 0, %for.body ], [ 0, %land.lhs.true ], [ 0, %if.end69 ], [ 0, %if.end73 ]
   %isdst.0.ph = phi ptr [ null, %if.then4 ], [ %call90, %if.then236 ], [ %call90, %if.else276 ], [ %call90, %if.then228 ], [ %call90, %for.end173 ], [ %call90, %if.end141 ], [ %call90, %if.end131 ], [ %call90, %for.end125 ], [ %call90, %for.end ], [ null, %if.then82 ], [ null, %if.end47 ], [ null, %if.end34 ], [ null, %if.end30 ], [ null, %if.end26 ], [ null, %if.end22 ], [ null, %if.end18 ], [ null, %if.end14 ], [ null, %if.end10 ], [ null, %if.end6 ], [ null, %entry ], [ %call90, %for.body156 ], [ %call90, %if.end161 ], [ %call90, %for.body99 ], [ %call90, %land.lhs.true109 ], [ %call90, %if.end113 ], [ %call90, %if.end117 ], [ null, %for.body ], [ null, %land.lhs.true ], [ null, %if.end69 ], [ null, %if.end73 ]
-  %ttinfos_allocated.1.ph = phi i64 [ 0, %if.then4 ], [ %ttinfos_allocated.0.lcssa, %if.then236 ], [ %ttinfos_allocated.0.lcssa, %if.else276 ], [ %ttinfos_allocated.0.lcssa, %if.then228 ], [ %ttinfos_allocated.0.lcssa, %for.end173 ], [ 0, %if.end141 ], [ 0, %if.end131 ], [ 0, %for.end125 ], [ 0, %for.end ], [ 0, %if.then82 ], [ 0, %if.end47 ], [ 0, %if.end34 ], [ 0, %if.end30 ], [ 0, %if.end26 ], [ 0, %if.end22 ], [ 0, %if.end18 ], [ 0, %if.end14 ], [ 0, %if.end10 ], [ 0, %if.end6 ], [ 0, %entry ], [ %inc172, %if.end161 ], [ %i151.0208, %for.body156 ], [ 0, %for.body99 ], [ 0, %land.lhs.true109 ], [ 0, %if.end113 ], [ 0, %if.end117 ], [ 0, %for.body ], [ 0, %land.lhs.true ], [ 0, %if.end69 ], [ 0, %if.end73 ]
   %trans_idx.0.ph = phi ptr [ null, %if.then4 ], [ %call50, %if.then236 ], [ %call50, %if.else276 ], [ %call50, %if.then228 ], [ %call50, %for.end173 ], [ %call50, %if.end141 ], [ %call50, %if.end131 ], [ %call50, %for.end125 ], [ %call50, %for.end ], [ %call50, %if.then82 ], [ null, %if.end47 ], [ null, %if.end34 ], [ null, %if.end30 ], [ null, %if.end26 ], [ null, %if.end22 ], [ null, %if.end18 ], [ null, %if.end14 ], [ null, %if.end10 ], [ null, %if.end6 ], [ null, %entry ], [ %call50, %for.body156 ], [ %call50, %if.end161 ], [ %call50, %for.body99 ], [ %call50, %land.lhs.true109 ], [ %call50, %if.end113 ], [ %call50, %if.end117 ], [ %call50, %for.body ], [ %call50, %land.lhs.true ], [ %call50, %if.end69 ], [ %call50, %if.end73 ]
   %dstoff.0.ph = phi ptr [ null, %if.then4 ], [ %call127, %if.then236 ], [ %call127, %if.else276 ], [ %call127, %if.then228 ], [ %call127, %for.end173 ], [ %call127, %if.end141 ], [ %call127, %if.end131 ], [ null, %for.end125 ], [ null, %for.end ], [ null, %if.then82 ], [ null, %if.end47 ], [ null, %if.end34 ], [ null, %if.end30 ], [ null, %if.end26 ], [ null, %if.end22 ], [ null, %if.end18 ], [ null, %if.end14 ], [ null, %if.end10 ], [ null, %if.end6 ], [ null, %entry ], [ %call127, %for.body156 ], [ %call127, %if.end161 ], [ null, %for.body99 ], [ null, %land.lhs.true109 ], [ null, %if.end113 ], [ null, %if.end117 ], [ null, %for.body ], [ null, %land.lhs.true ], [ null, %if.end69 ], [ null, %if.end73 ]
   %utcoff.0.ph = phi ptr [ null, %if.then4 ], [ %call87, %if.then236 ], [ %call87, %if.else276 ], [ %call87, %if.then228 ], [ %call87, %for.end173 ], [ %call87, %if.end141 ], [ %call87, %if.end131 ], [ %call87, %for.end125 ], [ %call87, %for.end ], [ null, %if.then82 ], [ null, %if.end47 ], [ null, %if.end34 ], [ null, %if.end30 ], [ null, %if.end26 ], [ null, %if.end22 ], [ null, %if.end18 ], [ null, %if.end14 ], [ null, %if.end10 ], [ null, %if.end6 ], [ null, %entry ], [ %call87, %for.body156 ], [ %call87, %if.end161 ], [ %call87, %for.body99 ], [ %call87, %land.lhs.true109 ], [ %call87, %if.end113 ], [ %call87, %if.end117 ], [ null, %for.body ], [ null, %land.lhs.true ], [ null, %if.end69 ], [ null, %if.end73 ]
@@ -4827,8 +4827,8 @@ if.end297:                                        ; preds = %if.end38, %if.then2
   %utcoff.0192 = phi ptr [ %utcoff.0.ph, %if.then294 ], [ %utcoff.0.ph, %error ], [ null, %if.end38 ]
   %dstoff.0191 = phi ptr [ %dstoff.0.ph, %if.then294 ], [ %dstoff.0.ph, %error ], [ null, %if.end38 ]
   %trans_idx.0190 = phi ptr [ %trans_idx.0.ph, %if.then294 ], [ %trans_idx.0.ph, %error ], [ null, %if.end38 ]
-  %ttinfos_allocated.1189 = phi i64 [ %ttinfos_allocated.1.ph, %if.then294 ], [ %ttinfos_allocated.1.ph, %error ], [ 0, %if.end38 ]
-  %isdst.0188 = phi ptr [ %isdst.0.ph, %if.then294 ], [ %isdst.0.ph, %error ], [ null, %if.end38 ]
+  %isdst.0189 = phi ptr [ %isdst.0.ph, %if.then294 ], [ %isdst.0.ph, %error ], [ null, %if.end38 ]
+  %ttinfos_allocated.1188 = phi i64 [ %ttinfos_allocated.1.ph, %if.then294 ], [ %ttinfos_allocated.1.ph, %error ], [ 0, %if.end38 ]
   br label %for.body302
 
 for.body302:                                      ; preds = %if.end297, %for.inc313
@@ -4853,7 +4853,7 @@ for.end315:                                       ; preds = %for.inc313
   br i1 %cmp317.not, label %if.end332, label %for.cond321.preheader
 
 for.cond321.preheader:                            ; preds = %for.end315
-  %cmp322216.not = icmp eq i64 %ttinfos_allocated.1189, 0
+  %cmp322216.not = icmp eq i64 %ttinfos_allocated.1188, 0
   br i1 %cmp322216.not, label %for.end329, label %for.body324
 
 for.body324:                                      ; preds = %for.cond321.preheader, %xdecref_ttinfo.exit
@@ -4930,7 +4930,7 @@ if.then1.i.i18.i:                                 ; preds = %if.end.i.i15.i
 
 xdecref_ttinfo.exit:                              ; preds = %for.body324, %Py_XDECREF.exit11.i, %if.then.i13.i, %if.end.i.i15.i, %if.then1.i.i18.i
   %inc328 = add nuw i64 %i320.0217, 1
-  %exitcond222.not = icmp eq i64 %inc328, %ttinfos_allocated.1189
+  %exitcond222.not = icmp eq i64 %inc328, %ttinfos_allocated.1188
   br i1 %exitcond222.not, label %for.end329.loopexit, label %for.body324, !llvm.loop !19
 
 for.end329.loopexit:                              ; preds = %xdecref_ttinfo.exit
@@ -4954,7 +4954,7 @@ if.then336:                                       ; preds = %if.end332
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end332, %if.then336, %if.then269, %if.else285, %if.then274
-  %isdst.1 = phi ptr [ %call90, %if.then274 ], [ %call90, %if.else285 ], [ %call90, %if.then269 ], [ %isdst.0188, %if.then336 ], [ %isdst.0188, %if.end332 ]
+  %isdst.1 = phi ptr [ %call90, %if.then274 ], [ %call90, %if.else285 ], [ %call90, %if.then269 ], [ %isdst.0189, %if.then336 ], [ %isdst.0189, %if.end332 ]
   %trans_idx.1 = phi ptr [ %call50, %if.then274 ], [ %call50, %if.else285 ], [ %call50, %if.then269 ], [ %trans_idx.0190, %if.then336 ], [ %trans_idx.0190, %if.end332 ]
   %dstoff.1 = phi ptr [ %call127, %if.then274 ], [ %call127, %if.else285 ], [ %call127, %if.then269 ], [ %dstoff.0191, %if.then336 ], [ %dstoff.0191, %if.end332 ]
   %utcoff.1 = phi ptr [ %call87, %if.then274 ], [ %call87, %if.else285 ], [ %call87, %if.then269 ], [ %utcoff.0192, %if.then336 ], [ %utcoff.0192, %if.end332 ]
@@ -5048,9 +5048,9 @@ if.end.lr.ph:                                     ; preds = %for.cond3.preheader
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %for.inc37
-  %i2.052 = phi i64 [ 1, %if.end.lr.ph ], [ %inc38, %for.inc37 ]
-  %dst_found.051 = phi i64 [ 0, %if.end.lr.ph ], [ %dst_found.1, %for.inc37 ]
-  %arrayidx = getelementptr i64, ptr %trans_idx, i64 %i2.052
+  %dst_found.052 = phi i64 [ 0, %if.end.lr.ph ], [ %dst_found.1, %for.inc37 ]
+  %i2.051 = phi i64 [ 1, %if.end.lr.ph ], [ %inc38, %for.inc37 ]
+  %arrayidx = getelementptr i64, ptr %trans_idx, i64 %i2.051
   %0 = load i64, ptr %arrayidx, align 8
   %arrayidx7 = getelementptr i8, ptr %arrayidx, i64 -8
   %1 = load i64, ptr %arrayidx7, align 8
@@ -5101,13 +5101,13 @@ if.end31:                                         ; preds = %if.then23
 
 if.then33:                                        ; preds = %if.end19, %if.end31
   %dstoff.143 = phi i64 [ %sub30, %if.end31 ], [ %sub18, %if.end19 ]
-  %inc34 = add i64 %dst_found.051, 1
+  %inc34 = add i64 %dst_found.052, 1
   store i64 %dstoff.143, ptr %arrayidx9, align 8
   br label %for.inc37
 
 for.inc37:                                        ; preds = %land.lhs.true, %if.end31, %if.then33, %if.then23, %if.end, %lor.lhs.false
-  %dst_found.1 = phi i64 [ %dst_found.051, %lor.lhs.false ], [ %inc34, %if.then33 ], [ %dst_found.051, %if.end31 ], [ %dst_found.051, %if.then23 ], [ %dst_found.051, %if.end ], [ %dst_found.051, %land.lhs.true ]
-  %inc38 = add nuw i64 %i2.052, 1
+  %dst_found.1 = phi i64 [ %dst_found.052, %lor.lhs.false ], [ %inc34, %if.then33 ], [ %dst_found.052, %if.end31 ], [ %dst_found.052, %if.then23 ], [ %dst_found.052, %if.end ], [ %dst_found.052, %land.lhs.true ]
+  %inc38 = add nuw i64 %i2.051, 1
   %cmp4 = icmp uge i64 %inc38, %num_transitions
   %cmp6 = icmp eq i64 %dst_found.1, %num_ttinfos
   %or.cond = select i1 %cmp4, i1 true, i1 %cmp6
@@ -6755,16 +6755,16 @@ if.end24.i:                                       ; preds = %if.else18.i, %if.th
   br label %return
 
 while.body.i:                                     ; preds = %lor.lhs.false, %while.body.i
-  %hi.09.i = phi i64 [ %hi.1.i, %while.body.i ], [ %3, %lor.lhs.false ]
-  %lo.08.i = phi i64 [ %lo.1.i, %while.body.i ], [ 0, %lor.lhs.false ]
-  %add.i17 = add i64 %lo.08.i, %hi.09.i
+  %lo.09.i = phi i64 [ %lo.1.i, %while.body.i ], [ 0, %lor.lhs.false ]
+  %hi.08.i = phi i64 [ %hi.1.i, %while.body.i ], [ %3, %lor.lhs.false ]
+  %add.i17 = add i64 %hi.08.i, %lo.09.i
   %div6.i = lshr i64 %add.i17, 1
   %arrayidx.i = getelementptr i64, ptr %2, i64 %div6.i
   %19 = load i64, ptr %arrayidx.i, align 8
   %cmp1.i = icmp sgt i64 %19, %.pre
   %add2.i = add nuw i64 %div6.i, 1
-  %lo.1.i = select i1 %cmp1.i, i64 %lo.08.i, i64 %add2.i
-  %hi.1.i = select i1 %cmp1.i, i64 %div6.i, i64 %hi.09.i
+  %hi.1.i = select i1 %cmp1.i, i64 %div6.i, i64 %hi.08.i
+  %lo.1.i = select i1 %cmp1.i, i64 %lo.09.i, i64 %add2.i
   %cmp.i18 = icmp ult i64 %lo.1.i, %hi.1.i
   br i1 %cmp.i18, label %while.body.i, label %_bisect.exit, !llvm.loop !12
 
@@ -6973,10 +6973,10 @@ Py_DECREF.exit:                                   ; preds = %if.end57, %if.then1
   br i1 %cmp60, label %return, label %if.end64
 
 if.end64:                                         ; preds = %Py_DECREF.exit, %ymd_to_ord.exit
-  %hour.0 = phi i64 [ %conv12, %ymd_to_ord.exit ], [ %call36, %Py_DECREF.exit ]
-  %minute.0 = phi i64 [ %conv15, %ymd_to_ord.exit ], [ %call47, %Py_DECREF.exit ]
   %second.0 = phi i64 [ %conv18, %ymd_to_ord.exit ], [ %call58, %Py_DECREF.exit ]
   %ord.0 = phi i32 [ %add8.i, %ymd_to_ord.exit ], [ %conv24, %Py_DECREF.exit ]
+  %minute.0 = phi i64 [ %conv15, %ymd_to_ord.exit ], [ %call47, %Py_DECREF.exit ]
+  %hour.0 = phi i64 [ %conv12, %ymd_to_ord.exit ], [ %call36, %Py_DECREF.exit ]
   %sub = add i32 %ord.0, -719163
   %conv65 = sext i32 %sub to i64
   %mul = mul nsw i64 %conv65, 86400
@@ -6985,11 +6985,11 @@ if.end64:                                         ; preds = %Py_DECREF.exit, %ym
   %mul67 = mul nsw i64 %conv66, 3600
   %sext35 = mul i64 %minute.0, 257698037760
   %conv69 = ashr exact i64 %sext35, 32
-  %add = add nsw i64 %mul67, %conv69
   %sext36 = shl i64 %second.0, 32
   %conv70 = ashr exact i64 %sext36, 32
-  %add71 = add nsw i64 %add, %conv70
-  %add72 = add nsw i64 %add71, %mul
+  %add = add nsw i64 %conv69, %conv70
+  %add71 = add nsw i64 %add, %mul
+  %add72 = add nsw i64 %add71, %mul67
   store i64 %add72, ptr %local_ts, align 8
   br label %return
 

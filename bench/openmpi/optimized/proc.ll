@@ -513,17 +513,17 @@ define noundef i32 @ompi_proc_complete_init() local_unnamed_addr #1 {
   br i1 %.not43, label %27, label %.thread
 
 .thread:                                          ; preds = %21, %24
-  %.028.ph92 = phi i1 [ %26, %24 ], [ false, %21 ]
+  %.025.ph92 = phi i1 [ %26, %24 ], [ false, %21 ]
   %.pr91 = phi ptr [ %.pr.pre, %24 ], [ %19, %21 ]
   call void @PMIx_Value_free(ptr noundef nonnull %.pr91, i64 noundef 1) #13
   store ptr null, ptr %5, align 8
   br label %27
 
 27:                                               ; preds = %24, %.thread
-  %.028.ph93 = phi i1 [ %26, %24 ], [ %.028.ph92, %.thread ]
+  %.025.ph93 = phi i1 [ %26, %24 ], [ %.025.ph92, %.thread ]
   %28 = load ptr, ptr %3, align 8
   %29 = icmp ne ptr %28, null
-  %or.cond = select i1 %.028.ph93, i1 %29, i1 false
+  %or.cond = select i1 %.025.ph93, i1 %29, i1 false
   br i1 %or.cond, label %30, label %.thread55
 
 30:                                               ; preds = %27

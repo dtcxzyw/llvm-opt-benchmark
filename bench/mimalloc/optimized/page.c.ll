@@ -1278,10 +1278,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %bin.025 = phi i64 [ %0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %min.025 = phi i64 [ 74, %for.body.lr.ph ], [ %min.2, %for.inc ]
   %max.024 = phi i64 [ 0, %for.body.lr.ph ], [ %max.1, %for.inc ]
-  %min.023 = phi i64 [ 74, %for.body.lr.ph ], [ %min.2, %for.inc ]
-  %arrayidx = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages, i64 0, i64 %bin.025
+  %bin.023 = phi i64 [ %0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %arrayidx = getelementptr inbounds [75 x %struct.mi_page_queue_s], ptr %pages, i64 0, i64 %bin.023
   %2 = load ptr, ptr %arrayidx, align 8
   %cmp1.not = icmp eq ptr %2, null
   br i1 %cmp1.not, label %for.inc, label %land.lhs.true
@@ -1379,8 +1379,8 @@ _mi_page_free.exit:                               ; preds = %if.end14.i.i, %if.t
   br label %for.inc
 
 if.else:                                          ; preds = %if.then4
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %bin.025, i64 %min.023)
-  %spec.select21 = tail call i64 @llvm.umax.i64(i64 %bin.025, i64 %max.024)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %bin.023, i64 %min.025)
+  %spec.select21 = tail call i64 @llvm.umax.i64(i64 %bin.023, i64 %max.024)
   br label %for.inc
 
 if.else27:                                        ; preds = %if.then
@@ -1389,16 +1389,16 @@ if.else27:                                        ; preds = %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else, %for.body, %land.lhs.true, %_mi_page_free.exit, %if.else27
-  %min.2 = phi i64 [ %min.023, %_mi_page_free.exit ], [ %min.023, %if.else27 ], [ %min.023, %land.lhs.true ], [ %min.023, %for.body ], [ %spec.select, %if.else ]
   %max.1 = phi i64 [ %max.024, %_mi_page_free.exit ], [ %max.024, %if.else27 ], [ %max.024, %land.lhs.true ], [ %max.024, %for.body ], [ %spec.select21, %if.else ]
-  %inc = add i64 %bin.025, 1
+  %min.2 = phi i64 [ %min.025, %_mi_page_free.exit ], [ %min.025, %if.else27 ], [ %min.025, %land.lhs.true ], [ %min.025, %for.body ], [ %spec.select, %if.else ]
+  %inc = add i64 %bin.023, 1
   %18 = load i64, ptr %page_retired_max, align 8
   %cmp.not = icmp ugt i64 %inc, %18
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %entry
-  %min.0.lcssa = phi i64 [ 74, %entry ], [ %min.2, %for.inc ]
   %max.0.lcssa = phi i64 [ 0, %entry ], [ %max.1, %for.inc ]
+  %min.0.lcssa = phi i64 [ 74, %entry ], [ %min.2, %for.inc ]
   store i64 %min.0.lcssa, ptr %page_retired_min, align 8
   store i64 %max.0.lcssa, ptr %page_retired_max, align 8
   ret void

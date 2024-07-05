@@ -6813,11 +6813,11 @@ _ZN10serde_json3ser6to_vec17h6ea22bc9979944f4E.exit: ; preds = %186
   br i1 %199, label %200, label %207
 
 200:                                              ; preds = %_ZN10serde_json3ser6to_vec17h6ea22bc9979944f4E.exit, %_ZN10serde_json3ser6to_vec17h6ea22bc9979944f4E.exit.thread
-  %.sroa.7268.0405 = phi ptr [ %183, %_ZN10serde_json3ser6to_vec17h6ea22bc9979944f4E.exit.thread ], [ %.sroa.7268.0.copyload270, %_ZN10serde_json3ser6to_vec17h6ea22bc9979944f4E.exit ]
-  %201 = icmp ne ptr %.sroa.7268.0405, null
+  %.sroa.7268.0403 = phi ptr [ %183, %_ZN10serde_json3ser6to_vec17h6ea22bc9979944f4E.exit.thread ], [ %.sroa.7268.0.copyload270, %_ZN10serde_json3ser6to_vec17h6ea22bc9979944f4E.exit ]
+  %201 = icmp ne ptr %.sroa.7268.0403, null
   call void @llvm.assume(i1 %201)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15), !noalias !1130
-  store ptr %.sroa.7268.0405, ptr %15, align 8, !noalias !1130
+  store ptr %.sroa.7268.0403, ptr %15, align 8, !noalias !1130
   invoke void @_ZN4core6result13unwrap_failed17hddb4fea594200c52E(ptr noalias noundef nonnull readonly align 1 @anon.7463256388310ca230f95e7a445731de.40, i64 noundef 43, ptr noundef nonnull align 1 %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.236) #20
           to label %204 unwind label %202, !noalias !1135
 
@@ -7691,7 +7691,7 @@ define void @_ZN16influxdb3_server4http16validate_db_name17h1ddca540ed810586E(pt
 
 .preheader.i.i.preheader:                         ; preds = %56, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he83431da7314e745E.exit15.i.i.i", %44, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he83431da7314e745E.exit13.i.i.i"
   %.sroa.0.4.i.i.ph = phi ptr [ %37, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he83431da7314e745E.exit13.i.i.i" ], [ %31, %44 ], [ %47, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he83431da7314e745E.exit15.i.i.i" ], [ %58, %56 ]
-  %.046.i.i.ph = phi i32 [ %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he83431da7314e745E.exit13.i.i.i" ], [ %45, %44 ], [ %54, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he83431da7314e745E.exit15.i.i.i" ], [ %66, %56 ]
+  %.0.i.i.ph = phi i32 [ %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he83431da7314e745E.exit13.i.i.i" ], [ %45, %44 ], [ %54, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he83431da7314e745E.exit15.i.i.i" ], [ %66, %56 ]
   br label %.preheader.i.i
 
 44:                                               ; preds = %30
@@ -7735,23 +7735,23 @@ define void @_ZN16influxdb3_server4http16validate_db_name17h1ddca540ed810586E(pt
   %.sroa.8.1 = phi i64 [ %.sroa.8.3, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9d7E.exit.thread.i.i ], [ %.sroa.8.0200, %.preheader.i.i.preheader ]
   %.sroa.0.4.i.i = phi ptr [ %.sroa.0.8.ph87.i.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9d7E.exit.thread.i.i ], [ %.sroa.0.4.i.i.ph, %.preheader.i.i.preheader ]
   %.sroa.5.0.i.i = phi i64 [ %.sroa.5.2.i.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9d7E.exit.thread.i.i ], [ undef, %.preheader.i.i.preheader ]
-  %.046.i.i = phi i32 [ %.sroa.4.0.i59.ph88.i.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9d7E.exit.thread.i.i ], [ %.046.i.i.ph, %.preheader.i.i.preheader ]
-  %68 = icmp ult i32 %.046.i.i, 128
+  %.0.i.i = phi i32 [ %.sroa.4.0.i59.ph88.i.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9d7E.exit.thread.i.i ], [ %.0.i.i.ph, %.preheader.i.i.preheader ]
+  %68 = icmp ult i32 %.0.i.i, 128
   br i1 %68, label %73, label %69
 
 69:                                               ; preds = %.preheader.i.i
-  %70 = icmp ult i32 %.046.i.i, 2048
+  %70 = icmp ult i32 %.0.i.i, 2048
   br i1 %70, label %73, label %71
 
 71:                                               ; preds = %69
-  %72 = icmp ult i32 %.046.i.i, 65536
+  %72 = icmp ult i32 %.0.i.i, 65536
   %..i.i = select i1 %72, i64 3, i64 4
   br label %73
 
 73:                                               ; preds = %71, %69, %.preheader.i.i
-  %.045.i.i = phi i64 [ 1, %.preheader.i.i ], [ %..i.i, %71 ], [ 2, %69 ]
+  %.047.i.i = phi i64 [ 1, %.preheader.i.i ], [ %..i.i, %71 ], [ 2, %69 ]
   %74 = load i64, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8, !alias.scope !1303, !noalias !1304, !noundef !4
-  %75 = add i64 %74, %.045.i.i
+  %75 = add i64 %74, %.047.i.i
   store i64 %75, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8, !alias.scope !1303, !noalias !1304
   store i8 0, ptr %.sroa.0.sroa.10.0..sroa_idx, align 2, !alias.scope !1303, !noalias !1304
   %76 = load i8, ptr %.sroa.0.sroa.12.0..sroa_idx, align 8, !range !1316, !alias.scope !1303, !noalias !1304, !noundef !4
@@ -7761,7 +7761,7 @@ define void @_ZN16influxdb3_server4http16validate_db_name17h1ddca540ed810586E(pt
   br i1 %.not.i.i, label %77, label %79
 
 77:                                               ; preds = %73
-  %78 = call noundef i8 @_ZN20unicode_segmentation8grapheme14GraphemeCursor17grapheme_category17h944a396dff2bff00E(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %.046.i.i), !range !1317, !noalias !1312
+  %78 = call noundef i8 @_ZN20unicode_segmentation8grapheme14GraphemeCursor17grapheme_category17h944a396dff2bff00E(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %.0.i.i), !range !1317, !noalias !1312
   store i8 %78, ptr %.sroa.0.sroa.11.0..sroa_idx, align 1, !alias.scope !1303, !noalias !1304
   br label %79
 

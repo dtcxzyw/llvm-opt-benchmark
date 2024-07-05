@@ -561,11 +561,11 @@ define range(i32 -21, 1) i32 @arkSetAdaptController(ptr noundef %0, ptr noundef 
 
 43:                                               ; preds = %34, %38
   %.sink = phi i32 [ 1, %38 ], [ 0, %34 ]
-  %.0 = phi ptr [ %40, %38 ], [ %1, %34 ]
+  %.024 = phi ptr [ %40, %38 ], [ %1, %34 ]
   %44 = load ptr, ptr %8, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 112
   store i32 %.sink, ptr %45, align 8
-  %46 = call i32 @SUNAdaptController_Space(ptr noundef nonnull %.0, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
+  %46 = call i32 @SUNAdaptController_Space(ptr noundef nonnull %.024, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %57
 
@@ -585,12 +585,12 @@ define range(i32 -21, 1) i32 @arkSetAdaptController(ptr noundef %0, ptr noundef 
 57:                                               ; preds = %48, %43
   %58 = load ptr, ptr %8, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 104
-  store ptr %.0, ptr %59, align 8
+  store ptr %.024, ptr %59, align 8
   br label %60
 
 60:                                               ; preds = %57, %42, %33, %6
-  %.024 = phi i32 [ -21, %6 ], [ -20, %33 ], [ -20, %42 ], [ 0, %57 ]
-  ret i32 %.024
+  %.0 = phi i32 [ -21, %6 ], [ -20, %33 ], [ -20, %42 ], [ 0, %57 ]
+  ret i32 %.0
 }
 
 declare i32 @SUNAdaptController_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -889,8 +889,8 @@ define i32 @arkSetFixedStep(ptr noundef %0, double noundef %1) local_unnamed_add
   br label %27
 
 27:                                               ; preds = %21, %17
-  %.0 = phi i32 [ %20, %17 ], [ %26, %21 ]
-  %.not26 = icmp eq i32 %.0, 0
+  %.021 = phi i32 [ %20, %17 ], [ %26, %21 ]
+  %.not26 = icmp eq i32 %.021, 0
   br i1 %.not26, label %arkSetInitStep.exit, label %37
 
 arkSetInitStep.exit:                              ; preds = %27, %7, %5
@@ -911,8 +911,8 @@ arkSetInitStep.exit:                              ; preds = %27, %7, %5
   br label %37
 
 37:                                               ; preds = %27, %arkSetInitStep.exit, %4
-  %.021 = phi i32 [ -21, %4 ], [ 0, %arkSetInitStep.exit ], [ %.0, %27 ]
-  ret i32 %.021
+  %.0 = phi i32 [ -21, %4 ], [ 0, %arkSetInitStep.exit ], [ %.021, %27 ]
+  ret i32 %.0
 }
 
 declare i32 @arkSVtolerances(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
@@ -1248,9 +1248,9 @@ define range(i32 -47, 1) i32 @arkSetAdaptivityMethod(ptr noundef %0, i32 noundef
   br label %50
 
 50:                                               ; preds = %44, %41
-  %.095 = phi double [ %45, %44 ], [ 0.000000e+00, %41 ]
-  %.094 = phi double [ %47, %44 ], [ 0.000000e+00, %41 ]
-  %.093 = phi double [ %49, %44 ], [ 0.000000e+00, %41 ]
+  %.096 = phi double [ %45, %44 ], [ 0.000000e+00, %41 ]
+  %.095 = phi double [ %47, %44 ], [ 0.000000e+00, %41 ]
+  %.094 = phi double [ %49, %44 ], [ 0.000000e+00, %41 ]
   %51 = load ptr, ptr %15, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 96
   store i32 %3, ptr %52, align 8
@@ -1277,8 +1277,8 @@ define range(i32 -47, 1) i32 @arkSetAdaptivityMethod(ptr noundef %0, i32 noundef
   br i1 %11, label %59, label %116
 
 59:                                               ; preds = %58
-  %60 = fneg double %.094
-  %61 = call i32 @SUNAdaptController_SetParams_PID(ptr noundef nonnull %55, double noundef %.095, double noundef %60, double noundef %.093) #8
+  %60 = fneg double %.095
+  %61 = call i32 @SUNAdaptController_SetParams_PID(ptr noundef nonnull %55, double noundef %.096, double noundef %60, double noundef %.094) #8
   %.not110 = icmp eq i32 %61, 0
   br i1 %.not110, label %116, label %62
 
@@ -1301,8 +1301,8 @@ define range(i32 -47, 1) i32 @arkSetAdaptivityMethod(ptr noundef %0, i32 noundef
   br i1 %11, label %70, label %116
 
 70:                                               ; preds = %69
-  %71 = fneg double %.094
-  %72 = call i32 @SUNAdaptController_SetParams_PI(ptr noundef nonnull %66, double noundef %.095, double noundef %71) #8
+  %71 = fneg double %.095
+  %72 = call i32 @SUNAdaptController_SetParams_PI(ptr noundef nonnull %66, double noundef %.096, double noundef %71) #8
   %.not109 = icmp eq i32 %72, 0
   br i1 %.not109, label %116, label %73
 
@@ -1325,7 +1325,7 @@ define range(i32 -47, 1) i32 @arkSetAdaptivityMethod(ptr noundef %0, i32 noundef
   br i1 %11, label %81, label %116
 
 81:                                               ; preds = %80
-  %82 = call i32 @SUNAdaptController_SetParams_I(ptr noundef nonnull %77, double noundef %.095) #8
+  %82 = call i32 @SUNAdaptController_SetParams_I(ptr noundef nonnull %77, double noundef %.096) #8
   %.not108 = icmp eq i32 %82, 0
   br i1 %.not108, label %116, label %83
 
@@ -1348,7 +1348,7 @@ define range(i32 -47, 1) i32 @arkSetAdaptivityMethod(ptr noundef %0, i32 noundef
   br i1 %11, label %91, label %116
 
 91:                                               ; preds = %90
-  %92 = call i32 @SUNAdaptController_SetParams_ExpGus(ptr noundef nonnull %87, double noundef %.095, double noundef %.094) #8
+  %92 = call i32 @SUNAdaptController_SetParams_ExpGus(ptr noundef nonnull %87, double noundef %.096, double noundef %.095) #8
   %.not107 = icmp eq i32 %92, 0
   br i1 %.not107, label %116, label %93
 
@@ -1371,7 +1371,7 @@ define range(i32 -47, 1) i32 @arkSetAdaptivityMethod(ptr noundef %0, i32 noundef
   br i1 %11, label %101, label %116
 
 101:                                              ; preds = %100
-  %102 = call i32 @SUNAdaptController_SetParams_ImpGus(ptr noundef nonnull %97, double noundef %.095, double noundef %.094) #8
+  %102 = call i32 @SUNAdaptController_SetParams_ImpGus(ptr noundef nonnull %97, double noundef %.096, double noundef %.095) #8
   %.not106 = icmp eq i32 %102, 0
   br i1 %.not106, label %116, label %103
 
@@ -1394,7 +1394,7 @@ define range(i32 -47, 1) i32 @arkSetAdaptivityMethod(ptr noundef %0, i32 noundef
   br i1 %11, label %111, label %116
 
 111:                                              ; preds = %110
-  %112 = call i32 @SUNAdaptController_SetParams_ImExGus(ptr noundef nonnull %107, double noundef %.095, double noundef %.094, double noundef %.093, double noundef %.093) #8
+  %112 = call i32 @SUNAdaptController_SetParams_ImExGus(ptr noundef nonnull %107, double noundef %.096, double noundef %.095, double noundef %.094, double noundef %.094) #8
   %.not105 = icmp eq i32 %112, 0
   br i1 %.not105, label %116, label %113
 
@@ -1436,8 +1436,8 @@ define range(i32 -47, 1) i32 @arkSetAdaptivityMethod(ptr noundef %0, i32 noundef
   br label %133
 
 133:                                              ; preds = %128, %115, %113, %109, %103, %99, %93, %89, %83, %79, %73, %68, %62, %57, %40, %13, %9
-  %.096 = phi i32 [ -21, %9 ], [ -22, %13 ], [ -20, %40 ], [ -22, %115 ], [ -20, %109 ], [ -47, %113 ], [ 0, %128 ], [ -20, %99 ], [ -47, %103 ], [ -20, %89 ], [ -47, %93 ], [ -20, %79 ], [ -47, %83 ], [ -20, %68 ], [ -47, %73 ], [ -20, %57 ], [ -47, %62 ]
-  ret i32 %.096
+  %.093 = phi i32 [ -21, %9 ], [ -22, %13 ], [ -20, %40 ], [ -22, %115 ], [ -20, %109 ], [ -47, %113 ], [ 0, %128 ], [ -20, %99 ], [ -47, %103 ], [ -20, %89 ], [ -47, %93 ], [ -20, %79 ], [ -47, %83 ], [ -20, %68 ], [ -47, %73 ], [ -20, %57 ], [ -47, %62 ]
+  ret i32 %.093
 }
 
 declare i32 @SUNAdaptController_SetParams_PID(ptr noundef, double noundef, double noundef, double noundef) local_unnamed_addr #1
@@ -2264,8 +2264,8 @@ define range(i32 -21, 1) i32 @arkGetRootInfo(ptr noundef %0, ptr nocapture nound
   br i1 %21, label %14, label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.preheader, %13, %4
-  %.012 = phi i32 [ -21, %4 ], [ -21, %13 ], [ 0, %.preheader ], [ 0, %14 ]
-  ret i32 %.012
+  %.0 = phi i32 [ -21, %4 ], [ -21, %13 ], [ 0, %.preheader ], [ 0, %14 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

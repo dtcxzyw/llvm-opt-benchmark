@@ -497,8 +497,8 @@ define i32 @opal_free_list_grow_st(ptr noundef %0, i64 noundef %1, ptr noundef w
   br label %13
 
 13:                                               ; preds = %7, %3
-  %.0110 = phi i64 [ %1, %3 ], [ %spec.select, %7 ]
-  %14 = icmp eq i64 %.0110, 0
+  %.0106 = phi i64 [ %1, %3 ], [ %spec.select, %7 ]
+  %14 = icmp eq i64 %.0106, 0
   br i1 %14, label %201, label %15
 
 15:                                               ; preds = %13
@@ -522,7 +522,7 @@ define i32 @opal_free_list_grow_st(ptr noundef %0, i64 noundef %1, ptr noundef w
   %30 = add i64 %29, %28
   %31 = sub i64 0, %28
   %32 = and i64 %30, %31
-  %33 = mul i64 %32, %.0110
+  %33 = mul i64 %32, %.0106
   %34 = getelementptr inbounds i8, ptr %0, i64 320
   %35 = load i32, ptr %34, align 16
   %36 = and i32 %35, 16
@@ -544,11 +544,11 @@ define i32 @opal_free_list_grow_st(ptr noundef %0, i64 noundef %1, ptr noundef w
 
 47:                                               ; preds = %26, %37, %15
   %48 = phi i64 [ %.pre, %37 ], [ %19, %26 ], [ %19, %15 ]
-  %.1111 = phi i64 [ %46, %37 ], [ %.0110, %26 ], [ %.0110, %15 ]
-  %.0109 = phi i64 [ %32, %37 ], [ %32, %26 ], [ 0, %15 ]
-  %.0108 = phi i64 [ %45, %37 ], [ %33, %26 ], [ 0, %15 ]
-  %.0107 = phi i64 [ %43, %37 ], [ %28, %26 ], [ 0, %15 ]
-  %49 = mul i64 %.1111, %23
+  %.0112 = phi i64 [ %32, %37 ], [ %32, %26 ], [ 0, %15 ]
+  %.0111 = phi i64 [ %45, %37 ], [ %33, %26 ], [ 0, %15 ]
+  %.0110 = phi i64 [ %43, %37 ], [ %28, %26 ], [ 0, %15 ]
+  %.1 = phi i64 [ %46, %37 ], [ %.0106, %26 ], [ %.0106, %15 ]
+  %49 = mul i64 %.1, %23
   %50 = add i64 %49, 56
   %51 = add i64 %50, %48
   %52 = tail call noalias ptr @malloc(i64 noundef %51) #9
@@ -565,7 +565,7 @@ define i32 @opal_free_list_grow_st(ptr noundef %0, i64 noundef %1, ptr noundef w
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call ptr %60(ptr noundef %58, i64 noundef %.0108, i64 noundef %.0107, i32 noundef 0) #8
+  %61 = tail call ptr %60(ptr noundef %58, i64 noundef %.0111, i64 noundef %.0110, i32 noundef 0) #8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %64
 
@@ -582,7 +582,7 @@ define i32 @opal_free_list_grow_st(ptr noundef %0, i64 noundef %1, ptr noundef w
 67:                                               ; preds = %64
   %68 = getelementptr inbounds i8, ptr %66, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = mul i64 %.0109, %.1111
+  %70 = mul i64 %.1, %.0112
   %71 = getelementptr inbounds i8, ptr %0, i64 320
   %72 = load i32, ptr %71, align 16
   %73 = call i32 %69(ptr noundef nonnull %66, ptr noundef nonnull %61, i64 noundef %70, i32 noundef %72, i32 noundef 15, ptr noundef nonnull %4) #8
@@ -647,7 +647,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %82
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %52, i64 48
   store ptr %.0114, ptr %101, align 8
-  %.not157 = icmp eq i64 %.1111, 0
+  %.not157 = icmp eq i64 %.1, 0
   br i1 %.not157, label %opal_obj_run_destructors.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %opal_obj_run_constructors.exit
@@ -667,7 +667,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %82
   br label %115
 
 115:                                              ; preds = %.lr.ph, %opal_lifo_push_atomic.exit
-  %.0156 = phi i64 [ 0, %.lr.ph ], [ %161, %opal_lifo_push_atomic.exit ]
+  %.0105156 = phi i64 [ 0, %.lr.ph ], [ %161, %opal_lifo_push_atomic.exit ]
   %.0113155 = phi ptr [ %109, %.lr.ph ], [ %159, %opal_lifo_push_atomic.exit ]
   %.1115154 = phi ptr [ %.0114, %.lr.ph ], [ %spec.select138, %opal_lifo_push_atomic.exit ]
   %116 = load ptr, ptr %4, align 8
@@ -738,7 +738,7 @@ opal_obj_run_constructors.exit143:                ; preds = %.lr.ph.i140, %124
   br i1 %.not.i147, label %opal_obj_run_destructors.exit, label %.lr.ph.i145, !llvm.loop !6
 
 146:                                              ; preds = %135, %opal_obj_run_constructors.exit143
-  %147 = icmp eq i64 %.0156, 0
+  %147 = icmp eq i64 %.0105156, 0
   %or.cond = and i1 %113, %147
   br i1 %or.cond, label %148, label %149
 
@@ -770,14 +770,14 @@ opal_atomic_compare_exchange_strong_ptr.exit.i:   ; preds = %149, %opal_atomic_c
 opal_lifo_push_atomic.exit:                       ; preds = %opal_atomic_compare_exchange_strong_ptr.exit.i, %149, %148
   %159 = getelementptr inbounds i8, ptr %.0113155, i64 %23
   %.not137 = icmp eq ptr %.1115154, null
-  %160 = getelementptr inbounds i8, ptr %.1115154, i64 %.0109
+  %160 = getelementptr inbounds i8, ptr %.1115154, i64 %.0112
   %spec.select138 = select i1 %.not137, ptr null, ptr %160
-  %161 = add nuw i64 %.0156, 1
-  %exitcond.not = icmp eq i64 %161, %.1111
+  %161 = add nuw i64 %.0105156, 1
+  %exitcond.not = icmp eq i64 %161, %.1
   br i1 %exitcond.not, label %opal_obj_run_destructors.exit.thread, label %115, !llvm.loop !9
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i145, %138
-  %162 = icmp eq i64 %.0156, 0
+  %162 = icmp eq i64 %.0105156, 0
   br i1 %162, label %163, label %opal_obj_run_destructors.exit.thread
 
 163:                                              ; preds = %opal_obj_run_destructors.exit
@@ -849,16 +849,16 @@ opal_free_list_allocation_release.exit:           ; preds = %.lr.ph.i.i, %190
   br label %201
 
 opal_obj_run_destructors.exit.thread:             ; preds = %opal_lifo_push_atomic.exit, %opal_obj_run_constructors.exit, %opal_obj_run_destructors.exit
-  %.2112151 = phi i64 [ %.0156, %opal_obj_run_destructors.exit ], [ 0, %opal_obj_run_constructors.exit ], [ %.1111, %opal_lifo_push_atomic.exit ]
+  %.2151 = phi i64 [ %.0105156, %opal_obj_run_destructors.exit ], [ 0, %opal_obj_run_constructors.exit ], [ %.1, %opal_lifo_push_atomic.exit ]
   %198 = getelementptr inbounds i8, ptr %0, i64 88
   %199 = load i64, ptr %198, align 8
-  %200 = add i64 %199, %.2112151
+  %200 = add i64 %199, %.2151
   store i64 %200, ptr %198, align 8
   br label %201
 
 201:                                              ; preds = %47, %13, %opal_obj_run_destructors.exit.thread, %opal_free_list_allocation_release.exit, %74, %63
-  %.0105 = phi i32 [ -3, %63 ], [ %73, %74 ], [ -2, %opal_free_list_allocation_release.exit ], [ 0, %opal_obj_run_destructors.exit.thread ], [ -3, %13 ], [ -3, %47 ]
-  ret i32 %.0105
+  %.0 = phi i32 [ -3, %63 ], [ %73, %74 ], [ -2, %opal_free_list_allocation_release.exit ], [ 0, %opal_obj_run_destructors.exit.thread ], [ -3, %13 ], [ -3, %47 ]
+  ret i32 %.0
 }
 
 declare i32 @opal_getpagesize() local_unnamed_addr #1

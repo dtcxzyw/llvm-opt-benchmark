@@ -2409,7 +2409,7 @@ for.body15.lr.ph:                                 ; preds = %if.end9
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %for.inc28
   %indvars.iv53 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next54, %for.inc28 ]
-  %ret.049 = phi i32 [ 1, %for.body15.lr.ph ], [ %ret.1, %for.inc28 ]
+  %ret.048 = phi i32 [ 1, %for.body15.lr.ph ], [ %ret.1, %for.inc28 ]
   %14 = load ptr, ptr %needs_pushing, align 8
   %arrayidx18 = getelementptr inbounds %struct.string_list_item, ptr %14, i64 %indvars.iv53
   %15 = load ptr, ptr %arrayidx18, align 8
@@ -2527,7 +2527,7 @@ _.exit38:                                         ; preds = %if.then24, %if.end3
   br label %for.inc28
 
 for.inc28:                                        ; preds = %push_submodule.exit.thread, %_.exit38
-  %ret.1 = phi i32 [ 0, %_.exit38 ], [ %ret.049, %push_submodule.exit.thread ]
+  %ret.1 = phi i32 [ 0, %_.exit38 ], [ %ret.048, %push_submodule.exit.thread ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %33 = load i64, ptr %nr12, align 8
   %cmp13 = icmp ugt i64 %33, %indvars.iv.next54

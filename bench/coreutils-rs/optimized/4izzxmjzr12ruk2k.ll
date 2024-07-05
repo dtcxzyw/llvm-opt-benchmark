@@ -1418,56 +1418,59 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 
 10:                                               ; preds = %2
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  %11 = load <2 x i64>, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.4.sroa.0.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.4.sroa.4.0.copyload = load i64, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr %7, ptr %4, align 8
-  store <2 x i64> %11, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %.sroa.4.sroa.0.0.copyload, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %.sroa.4.sroa.4.0.copyload, ptr %.sroa.44.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !233
   call void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17hb332f3533cbf15f8E.llvm.13509343365583292059"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4), !noalias !230
-  %12 = load i64, ptr %3, align 8, !range !25, !noalias !233, !noundef !13
-  %trunc.i = trunc nuw i64 %12 to i1
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  %14 = load ptr, ptr %13, align 8, !noalias !233, !nonnull !13, !noundef !13
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
-  %16 = load i64, ptr %15, align 8, !noalias !233, !noundef !13
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
-  %18 = load i64, ptr %17, align 8, !noalias !233, !noundef !13
-  br i1 %trunc.i, label %23, label %19
+  %11 = load i64, ptr %3, align 8, !range !25, !noalias !233, !noundef !13
+  %trunc.i = trunc nuw i64 %11 to i1
+  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = load ptr, ptr %12, align 8, !noalias !233, !nonnull !13, !noundef !13
+  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = load i64, ptr %14, align 8, !noalias !233, !noundef !13
+  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %17 = load i64, ptr %16, align 8, !noalias !233, !noundef !13
+  br i1 %trunc.i, label %22, label %18
 
-19:                                               ; preds = %10
-  %20 = add i64 %18, 1
-  store ptr %14, ptr %5, align 8, !alias.scope !230, !noalias !235
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %16, ptr %21, align 8, !alias.scope !230, !noalias !235
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %20, ptr %22, align 8, !alias.scope !230, !noalias !235
+18:                                               ; preds = %10
+  %19 = add i64 %17, 1
+  store ptr %13, ptr %5, align 8, !alias.scope !230, !noalias !235
+  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %15, ptr %20, align 8, !alias.scope !230, !noalias !235
+  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 %19, ptr %21, align 8, !alias.scope !230, !noalias !235
   br label %"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h1576e816efd9d600E.exit"
 
-23:                                               ; preds = %10
-  %24 = getelementptr i8, ptr %14, i64 904
-  %25 = getelementptr ptr, ptr %24, i64 %18
-  %26 = load ptr, ptr %25, align 8, !noalias !233, !nonnull !13, !noundef !13
-  %27 = add i64 %16, -1
-  call void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hda750ea81947145cE.llvm.13509343365583292059"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64, {} }, i64, {} }) align 8 dereferenceable(24) %5, ptr noundef nonnull %26, i64 noundef %27), !noalias !235
+22:                                               ; preds = %10
+  %23 = getelementptr i8, ptr %13, i64 904
+  %24 = getelementptr ptr, ptr %23, i64 %17
+  %25 = load ptr, ptr %24, align 8, !noalias !233, !nonnull !13, !noundef !13
+  %26 = add i64 %15, -1
+  call void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hda750ea81947145cE.llvm.13509343365583292059"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64, {} }, i64, {} }) align 8 dereferenceable(24) %5, ptr noundef nonnull %25, i64 noundef %26), !noalias !235
   br label %"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h1576e816efd9d600E.exit"
 
-"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h1576e816efd9d600E.exit": ; preds = %19, %23
+"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h1576e816efd9d600E.exit": ; preds = %18, %22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !233
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %28 = extractelement <2 x i64> %11, i64 1
-  %29 = icmp ult i64 %28, 11
-  tail call void @llvm.assume(i1 %29)
-  %30 = getelementptr inbounds { [10 x i64] }, ptr %7, i64 %28
-  %31 = getelementptr inbounds i8, ptr %7, i64 892
+  %27 = icmp ult i64 %.sroa.4.sroa.4.0.copyload, 11
+  tail call void @llvm.assume(i1 %27)
+  %28 = getelementptr inbounds { [10 x i64] }, ptr %7, i64 %.sroa.4.sroa.4.0.copyload
+  %29 = getelementptr inbounds i8, ptr %7, i64 892
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %30, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %31, ptr %33, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %28, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %29, ptr %31, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
@@ -1812,12 +1815,12 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   br label %28
 
 .lr.ph333:                                        ; preds = %.preheader289, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit79"
-  %.sroa.016.0332 = phi ptr [ %63, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit79" ], [ %55, %.preheader289 ]
-  %.sroa.27.0331 = phi i64 [ %64, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit79" ], [ %56, %.preheader289 ]
+  %.sroa.27.0332 = phi i64 [ %64, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit79" ], [ %56, %.preheader289 ]
+  %.sroa.016.0331 = phi ptr [ %63, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit79" ], [ %55, %.preheader289 ]
   %.sroa.0199.0330 = phi ptr [ %62, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit79" ], [ %24, %.preheader289 ]
   %59 = getelementptr i8, ptr %.sroa.0199.0330, i64 16
   %.val3.i = load i64, ptr %59, align 8, !noalias !277, !noundef !13
-  %.not.i.i = icmp ugt i64 %.val3.i, %.sroa.27.0331
+  %.not.i.i = icmp ugt i64 %.val3.i, %.sroa.27.0332
   br i1 %.not.i.i, label %60, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit79"
 
 60:                                               ; preds = %.lr.ph333
@@ -1829,22 +1832,22 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   %61 = getelementptr i8, ptr %.sroa.0199.0330, i64 8
   %.val.i = load ptr, ptr %61, align 8, !noalias !277, !nonnull !13, !noundef !13
   %62 = getelementptr inbounds i8, ptr %.sroa.0199.0330, i64 24
-  %63 = getelementptr inbounds i8, ptr %.sroa.016.0332, i64 %.val3.i
-  %64 = sub i64 %.sroa.27.0331, %.val3.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.016.0332, ptr nonnull readonly align 1 %.val.i, i64 %.val3.i, i1 false), !alias.scope !284, !noalias !288
+  %63 = getelementptr inbounds i8, ptr %.sroa.016.0331, i64 %.val3.i
+  %64 = sub i64 %.sroa.27.0332, %.val3.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.016.0331, ptr nonnull readonly align 1 %.val.i, i64 %.val3.i, i1 false), !alias.scope !284, !noalias !288
   %65 = icmp eq ptr %62, %18
   br i1 %65, label %.loopexit, label %.lr.ph333
 
 .lr.ph328:                                        ; preds = %.preheader291, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit102"
-  %.sroa.016.1327 = phi ptr [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit102" ], [ %55, %.preheader291 ]
-  %.sroa.27.2326 = phi i64 [ %76, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit102" ], [ %56, %.preheader291 ]
+  %.sroa.27.2327 = phi i64 [ %76, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit102" ], [ %56, %.preheader291 ]
+  %.sroa.016.1326 = phi ptr [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit102" ], [ %55, %.preheader291 ]
   %.sroa.0206.0325 = phi ptr [ %66, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit102" ], [ %24, %.preheader291 ]
   %66 = getelementptr inbounds i8, ptr %.sroa.0206.0325, i64 24
   %67 = getelementptr i8, ptr %.sroa.0206.0325, i64 8
   %.val.i80 = load ptr, ptr %67, align 8, !noalias !290, !nonnull !13, !noundef !13
   %68 = getelementptr i8, ptr %.sroa.0206.0325, i64 16
   %.val3.i81 = load i64, ptr %68, align 8, !noalias !290, !noundef !13
-  %.not.i.i85 = icmp eq i64 %.sroa.27.2326, 0
+  %.not.i.i85 = icmp eq i64 %.sroa.27.2327, 0
   br i1 %.not.i.i85, label %69, label %70
 
 69:                                               ; preds = %.lr.ph328
@@ -1853,9 +1856,9 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   br label %.invoke
 
 70:                                               ; preds = %.lr.ph328
-  %71 = add i64 %.sroa.27.2326, -1
+  %71 = add i64 %.sroa.27.2327, -1
   %72 = load i8, ptr %3, align 1, !alias.scope !297, !noalias !301
-  store i8 %72, ptr %.sroa.016.1327, align 1, !alias.scope !297, !noalias !301
+  store i8 %72, ptr %.sroa.016.1326, align 1, !alias.scope !297, !noalias !301
   %.not.i.i94 = icmp ugt i64 %.val3.i81, %71
   br i1 %.not.i.i94, label %73, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit102"
 
@@ -1865,7 +1868,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   br label %.invoke
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit102": ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %.sroa.016.1327, i64 1
+  %74 = getelementptr inbounds i8, ptr %.sroa.016.1326, i64 1
   %75 = getelementptr inbounds i8, ptr %74, i64 %.val3.i81
   %76 = sub i64 %71, %.val3.i81
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %.val.i80, i64 %.val3.i81, i1 false), !alias.scope !307, !noalias !311
@@ -1873,15 +1876,15 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   br i1 %77, label %.loopexit, label %.lr.ph328
 
 .lr.ph323:                                        ; preds = %.preheader293, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit125"
-  %.sroa.016.2322 = phi ptr [ %87, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit125" ], [ %55, %.preheader293 ]
-  %.sroa.27.3321 = phi i64 [ %88, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit125" ], [ %56, %.preheader293 ]
+  %.sroa.27.3322 = phi i64 [ %88, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit125" ], [ %56, %.preheader293 ]
+  %.sroa.016.2321 = phi ptr [ %87, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit125" ], [ %55, %.preheader293 ]
   %.sroa.0216.0320 = phi ptr [ %78, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit125" ], [ %24, %.preheader293 ]
   %78 = getelementptr inbounds i8, ptr %.sroa.0216.0320, i64 24
   %79 = getelementptr i8, ptr %.sroa.0216.0320, i64 8
   %.val.i103 = load ptr, ptr %79, align 8, !noalias !313, !nonnull !13, !noundef !13
   %80 = getelementptr i8, ptr %.sroa.0216.0320, i64 16
   %.val3.i104 = load i64, ptr %80, align 8, !noalias !313, !noundef !13
-  %.not.i.i108 = icmp ult i64 %.sroa.27.3321, 2
+  %.not.i.i108 = icmp ult i64 %.sroa.27.3322, 2
   br i1 %.not.i.i108, label %81, label %82
 
 81:                                               ; preds = %.lr.ph323
@@ -1890,9 +1893,9 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   br label %.invoke
 
 82:                                               ; preds = %.lr.ph323
-  %83 = add i64 %.sroa.27.3321, -2
+  %83 = add i64 %.sroa.27.3322, -2
   %84 = load i16, ptr %3, align 1, !alias.scope !320, !noalias !324
-  store i16 %84, ptr %.sroa.016.2322, align 1, !alias.scope !320, !noalias !324
+  store i16 %84, ptr %.sroa.016.2321, align 1, !alias.scope !320, !noalias !324
   %.not.i.i117 = icmp ugt i64 %.val3.i104, %83
   br i1 %.not.i.i117, label %85, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit125"
 
@@ -1902,7 +1905,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   br label %.invoke
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit125": ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %.sroa.016.2322, i64 2
+  %86 = getelementptr inbounds i8, ptr %.sroa.016.2321, i64 2
   %87 = getelementptr inbounds i8, ptr %86, i64 %.val3.i104
   %88 = sub i64 %83, %.val3.i104
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull readonly align 1 %.val.i103, i64 %.val3.i104, i1 false), !alias.scope !330, !noalias !334
@@ -1910,15 +1913,15 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   br i1 %89, label %.loopexit, label %.lr.ph323
 
 .lr.ph318:                                        ; preds = %.preheader295, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit148"
-  %.sroa.016.3317 = phi ptr [ %98, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit148" ], [ %55, %.preheader295 ]
-  %.sroa.27.4316 = phi i64 [ %99, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit148" ], [ %56, %.preheader295 ]
+  %.sroa.27.4317 = phi i64 [ %99, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit148" ], [ %56, %.preheader295 ]
+  %.sroa.016.3316 = phi ptr [ %98, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit148" ], [ %55, %.preheader295 ]
   %.sroa.0226.0315 = phi ptr [ %90, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit148" ], [ %24, %.preheader295 ]
   %90 = getelementptr inbounds i8, ptr %.sroa.0226.0315, i64 24
   %91 = getelementptr i8, ptr %.sroa.0226.0315, i64 8
   %.val.i126 = load ptr, ptr %91, align 8, !noalias !336, !nonnull !13, !noundef !13
   %92 = getelementptr i8, ptr %.sroa.0226.0315, i64 16
   %.val3.i127 = load i64, ptr %92, align 8, !noalias !336, !noundef !13
-  %.not.i.i131 = icmp ult i64 %.sroa.27.4316, 3
+  %.not.i.i131 = icmp ult i64 %.sroa.27.4317, 3
   br i1 %.not.i.i131, label %93, label %94
 
 93:                                               ; preds = %.lr.ph318
@@ -1927,8 +1930,8 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   br label %.invoke
 
 94:                                               ; preds = %.lr.ph318
-  %95 = add i64 %.sroa.27.4316, -3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.016.3317, ptr noundef nonnull readonly align 1 dereferenceable(3) %3, i64 3, i1 false), !alias.scope !343, !noalias !347
+  %95 = add i64 %.sroa.27.4317, -3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.016.3316, ptr noundef nonnull readonly align 1 dereferenceable(3) %3, i64 3, i1 false), !alias.scope !343, !noalias !347
   %.not.i.i140 = icmp ugt i64 %.val3.i127, %95
   br i1 %.not.i.i140, label %96, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit148"
 
@@ -1938,7 +1941,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   br label %.invoke
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit148": ; preds = %94
-  %97 = getelementptr inbounds i8, ptr %.sroa.016.3317, i64 3
+  %97 = getelementptr inbounds i8, ptr %.sroa.016.3316, i64 3
   %98 = getelementptr inbounds i8, ptr %97, i64 %.val3.i127
   %99 = sub i64 %95, %.val3.i127
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %97, ptr nonnull readonly align 1 %.val.i126, i64 %.val3.i127, i1 false), !alias.scope !353, !noalias !357
@@ -1946,15 +1949,15 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   br i1 %100, label %.loopexit, label %.lr.ph318
 
 .lr.ph:                                           ; preds = %.preheader297, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit171"
-  %.sroa.016.4314 = phi ptr [ %110, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit171" ], [ %55, %.preheader297 ]
-  %.sroa.27.5313 = phi i64 [ %111, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit171" ], [ %56, %.preheader297 ]
+  %.sroa.27.5314 = phi i64 [ %111, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit171" ], [ %56, %.preheader297 ]
+  %.sroa.016.4313 = phi ptr [ %110, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit171" ], [ %55, %.preheader297 ]
   %.sroa.0236.0312 = phi ptr [ %101, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit171" ], [ %24, %.preheader297 ]
   %101 = getelementptr inbounds i8, ptr %.sroa.0236.0312, i64 24
   %102 = getelementptr i8, ptr %.sroa.0236.0312, i64 8
   %.val.i149 = load ptr, ptr %102, align 8, !noalias !359, !nonnull !13, !noundef !13
   %103 = getelementptr i8, ptr %.sroa.0236.0312, i64 16
   %.val3.i150 = load i64, ptr %103, align 8, !noalias !359, !noundef !13
-  %.not.i.i154 = icmp ult i64 %.sroa.27.5313, 4
+  %.not.i.i154 = icmp ult i64 %.sroa.27.5314, 4
   br i1 %.not.i.i154, label %104, label %105
 
 104:                                              ; preds = %.lr.ph
@@ -1963,9 +1966,9 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   br label %.invoke
 
 105:                                              ; preds = %.lr.ph
-  %106 = add i64 %.sroa.27.5313, -4
+  %106 = add i64 %.sroa.27.5314, -4
   %107 = load i32, ptr %3, align 1, !alias.scope !366, !noalias !370
-  store i32 %107, ptr %.sroa.016.4314, align 1, !alias.scope !366, !noalias !370
+  store i32 %107, ptr %.sroa.016.4313, align 1, !alias.scope !366, !noalias !370
   %.not.i.i163 = icmp ugt i64 %.val3.i150, %106
   br i1 %.not.i.i163, label %108, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit171"
 
@@ -1975,7 +1978,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   br label %.invoke
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit171": ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %.sroa.016.4314, i64 4
+  %109 = getelementptr inbounds i8, ptr %.sroa.016.4313, i64 4
   %110 = getelementptr inbounds i8, ptr %109, i64 %.val3.i150
   %111 = sub i64 %106, %.val3.i150
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr nonnull readonly align 1 %.val.i149, i64 %.val3.i150, i1 false), !alias.scope !376, !noalias !380
@@ -1983,15 +1986,15 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   br i1 %112, label %.loopexit, label %.lr.ph
 
 .lr.ph338:                                        ; preds = %.preheader, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit194"
-  %.sroa.016.5337 = phi ptr [ %121, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit194" ], [ %55, %.preheader ]
-  %.sroa.27.6336 = phi i64 [ %122, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit194" ], [ %56, %.preheader ]
+  %.sroa.27.6337 = phi i64 [ %122, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit194" ], [ %56, %.preheader ]
+  %.sroa.016.5336 = phi ptr [ %121, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit194" ], [ %55, %.preheader ]
   %.sroa.0246.0335 = phi ptr [ %113, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit194" ], [ %24, %.preheader ]
   %113 = getelementptr inbounds i8, ptr %.sroa.0246.0335, i64 24
   %114 = getelementptr i8, ptr %.sroa.0246.0335, i64 8
   %.val.i172 = load ptr, ptr %114, align 8, !noalias !382, !nonnull !13, !noundef !13
   %115 = getelementptr i8, ptr %.sroa.0246.0335, i64 16
   %.val3.i173 = load i64, ptr %115, align 8, !noalias !382, !noundef !13
-  %.not.i.i177 = icmp ult i64 %.sroa.27.6336, %4
+  %.not.i.i177 = icmp ult i64 %.sroa.27.6337, %4
   br i1 %.not.i.i177, label %116, label %117
 
 116:                                              ; preds = %.lr.ph338
@@ -2000,8 +2003,8 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   br label %.invoke
 
 117:                                              ; preds = %.lr.ph338
-  %118 = sub i64 %.sroa.27.6336, %4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.016.5337, ptr nonnull readonly align 1 %3, i64 %4, i1 false), !alias.scope !389, !noalias !393
+  %118 = sub i64 %.sroa.27.6337, %4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.016.5336, ptr nonnull readonly align 1 %3, i64 %4, i1 false), !alias.scope !389, !noalias !393
   %.not.i.i186 = icmp ugt i64 %.val3.i173, %118
   br i1 %.not.i.i186, label %119, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit194"
 
@@ -2027,7 +2030,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h1bcc0d231bda1b6cE(ptr noa
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h88dc288903c62738E.exit194": ; preds = %117
-  %120 = getelementptr inbounds i8, ptr %.sroa.016.5337, i64 %4
+  %120 = getelementptr inbounds i8, ptr %.sroa.016.5336, i64 %4
   %121 = getelementptr inbounds i8, ptr %120, i64 %.val3.i173
   %122 = sub i64 %118, %.val3.i173
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %120, ptr nonnull readonly align 1 %.val.i172, i64 %.val3.i173, i1 false), !alias.scope !399, !noalias !403

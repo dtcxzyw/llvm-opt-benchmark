@@ -20009,11 +20009,11 @@ for.body.lr.ph:                                   ; preds = %invoke.cont.i
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %field_pos.0191 = phi i32 [ -1, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %key_field.0190 = phi ptr [ null, %for.body.lr.ph ], [ %key_field.2, %for.inc ]
+  %key_field.0191 = phi ptr [ null, %for.body.lr.ph ], [ %key_field.2, %for.inc ]
+  %field_pos.0190 = phi i32 [ -1, %for.body.lr.ph ], [ %inc, %for.inc ]
   %it.sroa.0.0189 = phi ptr [ %cond.i.i.i.i, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
   %42 = load ptr, ptr %it.sroa.0.0189, align 8
-  %inc = add nsw i32 %field_pos.0191, 1
+  %inc = add nsw i32 %field_pos.0190, 1
   %deprecated = getelementptr inbounds i8, ptr %42, i64 272
   %43 = load i8, ptr %deprecated, align 8
   %tobool69 = trunc i8 %43 to i1
@@ -20159,7 +20159,7 @@ if.end:                                           ; preds = %for.body
   %key = getelementptr inbounds i8, ptr %42, i64 273
   %62 = load i8, ptr %key, align 1
   %tobool71 = trunc i8 %62 to i1
-  %spec.select = select i1 %tobool71, ptr %42, ptr %key_field.0190
+  %spec.select = select i1 %tobool71, ptr %42, ptr %key_field.0191
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp75) #18
   %call.i97 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp74)
           to label %call.i.noexc96 unwind label %lpad76
@@ -20407,7 +20407,7 @@ lpad124:                                          ; preds = %invoke.cont123
   br label %ehcleanup190
 
 for.inc:                                          ; preds = %invoke.cont92, %invoke.cont125, %for.body
-  %key_field.2 = phi ptr [ %key_field.0190, %for.body ], [ %spec.select, %invoke.cont125 ], [ %spec.select, %invoke.cont92 ]
+  %key_field.2 = phi ptr [ %key_field.0191, %for.body ], [ %spec.select, %invoke.cont125 ], [ %spec.select, %invoke.cont92 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.0189, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i.i.i.i.i.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !181

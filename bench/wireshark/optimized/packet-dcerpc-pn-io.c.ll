@@ -5487,7 +5487,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
   br label %52
 
 52:                                               ; preds = %49, %38
-  %.085.i = phi ptr [ %51, %49 ], [ %47, %38 ]
+  %.087.i = phi ptr [ %51, %49 ], [ %47, %38 ]
   %53 = call ptr @pn_find_aruuid_frame_setup(ptr noundef nonnull %2) #11
   %.not.i = icmp eq ptr %53, null
   br i1 %.not.i, label %56, label %54
@@ -5498,12 +5498,12 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
 
 56:                                               ; preds = %54, %52
   %.0.i = phi i32 [ %55, %54 ], [ 0, %52 ]
-  %57 = call ptr @conversation_get_proto_data(ptr noundef nonnull %.085.i, i32 noundef %.0.i) #11
+  %57 = call ptr @conversation_get_proto_data(ptr noundef nonnull %.087.i, i32 noundef %.0.i) #11
   %.not93.i = icmp eq ptr %57, null
   br i1 %.not93.i, label %.loopexit.i, label %58
 
 58:                                               ; preds = %56
-  call void @pn_find_dcp_station_info(ptr noundef nonnull %57, ptr noundef nonnull %.085.i) #11
+  call void @pn_find_dcp_station_info(ptr noundef nonnull %57, ptr noundef nonnull %.087.i) #11
   %59 = getelementptr inbounds i8, ptr %2, i64 80
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 50
@@ -5524,8 +5524,8 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
   br label %69
 
 69:                                               ; preds = %83, %.lr.ph123.i
-  %.084121.i = phi ptr [ %66, %.lr.ph123.i ], [ %84, %83 ]
-  %70 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.084121.i) #11
+  %.085121.i = phi ptr [ %66, %.lr.ph123.i ], [ %84, %83 ]
+  %70 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.085121.i) #11
   %71 = getelementptr inbounds i8, ptr %70, i64 24
   %72 = load i32, ptr %71, align 8
   %73 = icmp eq i32 %72, %68
@@ -5544,11 +5544,11 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %77
-  %82 = call fastcc i32 @dissect_ProfiSafeParameterRequest(ptr noundef %40, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %41, ptr noundef nonnull %.084121.i)
+  %82 = call fastcc i32 @dissect_ProfiSafeParameterRequest(ptr noundef %40, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %41, ptr noundef nonnull %.085121.i)
   br label %dissect_RecordDataWrite.exit
 
 83:                                               ; preds = %77, %74, %69
-  %84 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.084121.i) #11
+  %84 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.085121.i) #11
   %.not95.i = icmp eq ptr %84, null
   br i1 %.not95.i, label %.loopexit.i, label %69, !llvm.loop !7
 
@@ -5873,11 +5873,11 @@ indexReservedForProfiles.exit.i:                  ; preds = %226
   br label %dissect_RecordDataWrite.exit
 
 dissect_RecordDataWrite.exit:                     ; preds = %81, %95, %111, %dissect_ProfiDriveParameterRequest.exit.i, %220, %select.unfold.i, %229, %231
-  %.086.i = phi i32 [ %96, %95 ], [ %112, %111 ], [ %.3.i.i, %dissect_ProfiDriveParameterRequest.exit.i ], [ %221, %220 ], [ %228, %select.unfold.i ], [ %82, %81 ], [ %232, %231 ], [ %230, %229 ]
+  %.084.i = phi i32 [ %96, %95 ], [ %112, %111 ], [ %.3.i.i, %dissect_ProfiDriveParameterRequest.exit.i ], [ %221, %220 ], [ %228, %select.unfold.i ], [ %82, %81 ], [ %232, %231 ], [ %230, %229 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  %233 = add i32 %.086.i, %29
+  %233 = add i32 %.084.i, %29
   %234 = srem i32 %233, 4
   switch i32 %234, label %.loopexit [
     i32 3, label %235
@@ -6347,8 +6347,8 @@ define internal noalias ptr @pn_io_ar_conv_data_filter(ptr noundef %0, ptr nocap
   br label %50
 
 50:                                               ; preds = %46, %48, %2
-  %.038 = phi ptr [ null, %2 ], [ %47, %46 ], [ %49, %48 ]
-  ret ptr %.038
+  %.0 = phi ptr [ null, %2 ], [ %47, %46 ], [ %49, %48 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6470,26 +6470,26 @@ define internal fastcc void @dissect_IODWriteReqHeader_block(ptr noundef %0, i32
 
 20:                                               ; preds = %11
   %21 = call fastcc i32 @dissect_ReadWrite_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %8, ptr noundef nonnull %12)
-  %.01.i = load ptr, ptr @pnio_ars, align 8
-  %.not2.i = icmp eq ptr %.01.i, null
+  %.081.i = load ptr, ptr @pnio_ars, align 8
+  %.not2.i = icmp eq ptr %.081.i, null
   br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i
 
 22:                                               ; preds = %.lr.ph.i
-  %23 = getelementptr inbounds i8, ptr %.03.i, i64 8
-  %.0.i = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %.0.i, null
+  %23 = getelementptr inbounds i8, ptr %.083.i, i64 8
+  %.08.i = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %.08.i, null
   br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %20, %22
-  %.03.i = phi ptr [ %.0.i, %22 ], [ %.01.i, %20 ]
-  %24 = load ptr, ptr %.03.i, align 8
+  %.083.i = phi ptr [ %.08.i, %22 ], [ %.081.i, %20 ]
+  %24 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %24, ptr noundef nonnull readonly dereferenceable(16) %12, i64 16)
   %25 = icmp eq i32 %bcmp.i, 0
   br i1 %25, label %pnio_ar_find_by_aruuid.exit, label %22
 
 pnio_ar_find_by_aruuid.exit:                      ; preds = %22, %.lr.ph.i, %20
-  %.08.i = phi ptr [ null, %20 ], [ %24, %.lr.ph.i ], [ null, %22 ]
-  store ptr %.08.i, ptr %10, align 8
+  %.0.i = phi ptr [ null, %20 ], [ %24, %.lr.ph.i ], [ null, %22 ]
+  store ptr %.0.i, ptr %10, align 8
   %26 = load i32, ptr @hf_pn_io_record_data_length, align 4
   %27 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %26, ptr noundef %9) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, i8 0, i64 16, i1 false)
@@ -6538,26 +6538,26 @@ define internal fastcc void @dissect_IODReadReqHeader_block(ptr noundef %0, i32 
 
 20:                                               ; preds = %11
   %21 = call fastcc i32 @dissect_ReadWrite_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %8, ptr noundef nonnull %12)
-  %.01.i = load ptr, ptr @pnio_ars, align 8
-  %.not2.i = icmp eq ptr %.01.i, null
+  %.081.i = load ptr, ptr @pnio_ars, align 8
+  %.not2.i = icmp eq ptr %.081.i, null
   br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i
 
 22:                                               ; preds = %.lr.ph.i
-  %23 = getelementptr inbounds i8, ptr %.03.i, i64 8
-  %.0.i = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %.0.i, null
+  %23 = getelementptr inbounds i8, ptr %.083.i, i64 8
+  %.08.i = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %.08.i, null
   br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %20, %22
-  %.03.i = phi ptr [ %.0.i, %22 ], [ %.01.i, %20 ]
-  %24 = load ptr, ptr %.03.i, align 8
+  %.083.i = phi ptr [ %.08.i, %22 ], [ %.081.i, %20 ]
+  %24 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %24, ptr noundef nonnull readonly dereferenceable(16) %12, i64 16)
   %25 = icmp eq i32 %bcmp.i, 0
   br i1 %25, label %pnio_ar_find_by_aruuid.exit, label %22
 
 pnio_ar_find_by_aruuid.exit:                      ; preds = %22, %.lr.ph.i, %20
-  %.08.i = phi ptr [ null, %20 ], [ %24, %.lr.ph.i ], [ null, %22 ]
-  store ptr %.08.i, ptr %10, align 8
+  %.0.i = phi ptr [ null, %20 ], [ %24, %.lr.ph.i ], [ null, %22 ]
+  store ptr %.0.i, ptr %10, align 8
   %26 = load i32, ptr @hf_pn_io_record_data_length, align 4
   %27 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %26, ptr noundef %9) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, i8 0, i64 16, i1 false)
@@ -8503,19 +8503,19 @@ decode_ARType_spezial.exit162:                    ; preds = %149, %149, %169, %1
   br i1 %55, label %210, label %196
 
 196:                                              ; preds = %decode_ARType_spezial.exit162
-  %.01.i = load ptr, ptr @pnio_ars, align 8
-  %.not2.i = icmp eq ptr %.01.i, null
+  %.081.i = load ptr, ptr @pnio_ars, align 8
+  %.not2.i = icmp eq ptr %.081.i, null
   br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i
 
 197:                                              ; preds = %.lr.ph.i
-  %198 = getelementptr inbounds i8, ptr %.03.i, i64 8
-  %.0.i163 = load ptr, ptr %198, align 8
-  %.not.i164 = icmp eq ptr %.0.i163, null
-  br i1 %.not.i164, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  %198 = getelementptr inbounds i8, ptr %.083.i, i64 8
+  %.08.i = load ptr, ptr %198, align 8
+  %.not.i163 = icmp eq ptr %.08.i, null
+  br i1 %.not.i163, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %196, %197
-  %.03.i = phi ptr [ %.0.i163, %197 ], [ %.01.i, %196 ]
-  %199 = load ptr, ptr %.03.i, align 8
+  %.083.i = phi ptr [ %.08.i, %197 ], [ %.081.i, %196 ]
+  %199 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %199, ptr noundef nonnull readonly dereferenceable(16) %10, i64 16)
   %200 = icmp eq i32 %bcmp.i, 0
   br i1 %200, label %pnio_ar_find_by_aruuid.exit, label %197
@@ -8649,14 +8649,14 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
   br label %89
 
 89:                                               ; preds = %86, %76
-  %.0270 = phi ptr [ %88, %86 ], [ %84, %76 ]
+  %.0277 = phi ptr [ %88, %86 ], [ %84, %76 ]
   %90 = load i32, ptr @proto_pn_io_time_aware_status, align 4
   %91 = load ptr, ptr @pnio_time_aware_frame_map, align 8
   %92 = load i32, ptr %71, align 4
   %93 = zext i32 %92 to i64
   %94 = inttoptr i64 %93 to ptr
   %95 = call ptr @wmem_map_lookup(ptr noundef %91, ptr noundef %94) #11
-  call void @conversation_add_proto_data(ptr noundef nonnull %.0270, i32 noundef %90, ptr noundef %95) #11
+  call void @conversation_add_proto_data(ptr noundef nonnull %.0277, i32 noundef %90, ptr noundef %95) #11
   br label %96
 
 96:                                               ; preds = %89, %40
@@ -8694,16 +8694,16 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
 
 121:                                              ; preds = %.lr.ph326, %._crit_edge317
   %.0324 = phi i32 [ 0, %.lr.ph326 ], [ %.2, %._crit_edge317 ]
-  %.0267323 = phi ptr [ null, %.lr.ph326 ], [ %.2269, %._crit_edge317 ]
-  %.0274322 = phi i16 [ 0, %.lr.ph326 ], [ %.1275, %._crit_edge317 ]
-  %.0276321 = phi i16 [ 0, %.lr.ph326 ], [ %.1277, %._crit_edge317 ]
-  %.0278320 = phi i32 [ %98, %.lr.ph326 ], [ %.2280.lcssa, %._crit_edge317 ]
+  %.0267323 = phi i32 [ %98, %.lr.ph326 ], [ %.2269.lcssa, %._crit_edge317 ]
+  %.0270322 = phi i16 [ 0, %.lr.ph326 ], [ %.1271, %._crit_edge317 ]
+  %.0272321 = phi i16 [ 0, %.lr.ph326 ], [ %.1273, %._crit_edge317 ]
+  %.0274320 = phi ptr [ null, %.lr.ph326 ], [ %.2276, %._crit_edge317 ]
   %122 = load i32, ptr @hf_pn_io_api_tree, align 4
-  %123 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %122, ptr noundef %0, i32 noundef %.0278320, i32 noundef 0, i32 noundef 0) #11
+  %123 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %122, ptr noundef %0, i32 noundef %.0267323, i32 noundef 0, i32 noundef 0) #11
   %124 = load i32, ptr @ett_pn_io_api, align 4
   %125 = call ptr @proto_item_add_subtree(ptr noundef %123, i32 noundef %124) #11
   %126 = load i32, ptr @hf_pn_io_api, align 4
-  %127 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.0278320, ptr noundef %2, ptr noundef %125, ptr noundef %5, i32 noundef %126, ptr noundef nonnull %25) #11
+  %127 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.0267323, ptr noundef %2, ptr noundef %125, ptr noundef %5, i32 noundef %126, ptr noundef nonnull %25) #11
   %128 = load i32, ptr @hf_pn_io_number_of_io_data_objects, align 4
   %129 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %127, ptr noundef %2, ptr noundef %125, ptr noundef %5, i32 noundef %128, ptr noundef nonnull %26) #11
   %130 = load ptr, ptr %118, align 8
@@ -8725,7 +8725,7 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
   br label %141
 
 141:                                              ; preds = %138, %134
-  %.0271 = phi ptr [ %140, %138 ], [ %136, %134 ]
+  %.0278 = phi ptr [ %140, %138 ], [ %136, %134 ]
   %142 = call ptr @pn_find_aruuid_frame_setup(ptr noundef nonnull %2) #11
   %.not292 = icmp eq ptr %142, null
   br i1 %.not292, label %150, label %143
@@ -8744,7 +8744,7 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
 
 150:                                              ; preds = %143, %147, %141
   %.1 = phi i32 [ %144, %147 ], [ %144, %143 ], [ %.0324, %141 ]
-  %151 = call ptr @conversation_get_proto_data(ptr noundef nonnull %.0271, i32 noundef %.1) #11
+  %151 = call ptr @conversation_get_proto_data(ptr noundef nonnull %.0278, i32 noundef %.1) #11
   %152 = icmp eq ptr %151, null
   br i1 %152, label %153, label %156
 
@@ -8752,38 +8752,38 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
   %154 = call ptr @wmem_file_scope() #11
   %155 = call noalias ptr @wmem_alloc0(ptr noundef %154, i64 noundef 88) #11
   call void @init_pnio_rtc1_station(ptr noundef %155) #11
-  call void @conversation_add_proto_data(ptr noundef nonnull %.0271, i32 noundef %.1, ptr noundef %155) #11
+  call void @conversation_add_proto_data(ptr noundef nonnull %.0278, i32 noundef %.1, ptr noundef %155) #11
   br label %156
 
 156:                                              ; preds = %153, %150
-  %.1268 = phi ptr [ %155, %153 ], [ %151, %150 ]
+  %.1275 = phi ptr [ %155, %153 ], [ %151, %150 ]
   %157 = load i16, ptr %26, align 2
-  %158 = add i16 %157, %.0276321
-  call void @pn_find_dcp_station_info(ptr noundef %.1268, ptr noundef nonnull %.0271) #11
+  %158 = add i16 %157, %.0270322
+  call void @pn_find_dcp_station_info(ptr noundef %.1275, ptr noundef nonnull %.0278) #11
   br label %159
 
 159:                                              ; preds = %156, %121
-  %.1277 = phi i16 [ %.0276321, %121 ], [ %158, %156 ]
-  %.2269 = phi ptr [ %.0267323, %121 ], [ %.1268, %156 ]
+  %.2276 = phi ptr [ %.0274320, %121 ], [ %.1275, %156 ]
+  %.1271 = phi i16 [ %.0270322, %121 ], [ %158, %156 ]
   %.2 = phi i32 [ %.0324, %121 ], [ %.1, %156 ]
   %160 = load i16, ptr %26, align 2
   %.not293303 = icmp eq i16 %160, 0
   br i1 %.not293303, label %._crit_edge307, label %.lr.ph306
 
 .lr.ph306:                                        ; preds = %159
-  %161 = icmp ne ptr %.2269, null
+  %161 = icmp ne ptr %.2276, null
   br label %162
 
 162:                                              ; preds = %.lr.ph306, %.loopexit300
   %.in = phi i16 [ %160, %.lr.ph306 ], [ %163, %.loopexit300 ]
-  %.1279304 = phi i32 [ %129, %.lr.ph306 ], [ %173, %.loopexit300 ]
+  %.1268304 = phi i32 [ %129, %.lr.ph306 ], [ %173, %.loopexit300 ]
   %163 = add i16 %.in, -1
   %164 = load i32, ptr @hf_pn_io_io_data_object, align 4
-  %165 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %164, ptr noundef %0, i32 noundef %.1279304, i32 noundef 0, i32 noundef 0) #11
+  %165 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %164, ptr noundef %0, i32 noundef %.1268304, i32 noundef 0, i32 noundef 0) #11
   %166 = load i32, ptr @ett_pn_io_io_data_object, align 4
   %167 = call ptr @proto_item_add_subtree(ptr noundef %165, i32 noundef %166) #11
   %168 = load i32, ptr @hf_pn_io_slot_nr, align 4
-  %169 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.1279304, ptr noundef %2, ptr noundef %167, ptr noundef %5, i32 noundef %168, ptr noundef nonnull %27) #11
+  %169 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.1268304, ptr noundef %2, ptr noundef %167, ptr noundef %5, i32 noundef %168, ptr noundef nonnull %27) #11
   %170 = load i32, ptr @hf_pn_io_subslot_nr, align 4
   %171 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %169, ptr noundef %2, ptr noundef %167, ptr noundef %5, i32 noundef %170, ptr noundef nonnull %28) #11
   %172 = load i32, ptr @hf_pn_io_io_data_object_frame_offset, align 4
@@ -8795,7 +8795,7 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
   %178 = load i16, ptr %29, align 2
   %179 = zext i16 %178 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %165, ptr noundef nonnull @.str.1371, i32 noundef %175, i32 noundef %177, i32 noundef %179) #11
-  %180 = sub i32 %173, %.1279304
+  %180 = sub i32 %173, %.1268304
   call void @proto_item_set_len(ptr noundef %165, i32 noundef %180) #11
   %181 = load ptr, ptr %118, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 50
@@ -8833,7 +8833,7 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
   %201 = load i16, ptr %10, align 2
   %202 = icmp eq i16 %201, 1
   %.0262.in.v = select i1 %202, i64 64, i64 72
-  %.0262.in = getelementptr inbounds i8, ptr %.2269, i64 %.0262.in.v
+  %.0262.in = getelementptr inbounds i8, ptr %.2276, i64 %.0262.in.v
   %.0262 = load ptr, ptr %.0262.in, align 8
   %203 = call ptr @wmem_list_head(ptr noundef %.0262) #11
   %cond301 = icmp eq ptr %203, null
@@ -8868,9 +8868,9 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
   br i1 %.not293, label %._crit_edge307, label %162, !llvm.loop !35
 
 ._crit_edge307:                                   ; preds = %.loopexit300, %159
-  %.1279.lcssa = phi i32 [ %129, %159 ], [ %173, %.loopexit300 ]
+  %.1268.lcssa = phi i32 [ %129, %159 ], [ %173, %.loopexit300 ]
   %215 = load i32, ptr @hf_pn_io_number_of_iocs, align 4
-  %216 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.1279.lcssa, ptr noundef %2, ptr noundef %125, ptr noundef %5, i32 noundef %215, ptr noundef nonnull %30) #11
+  %216 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.1268.lcssa, ptr noundef %2, ptr noundef %125, ptr noundef %5, i32 noundef %215, ptr noundef nonnull %30) #11
   %217 = load ptr, ptr %118, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 50
   %219 = load i16, ptr %218, align 2
@@ -8878,24 +8878,24 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
   %.not294 = icmp eq i16 %220, 0
   %221 = load i16, ptr %30, align 2
   %222 = select i1 %.not294, i16 %221, i16 0
-  %.1275 = add i16 %222, %.0274322
+  %.1273 = add i16 %222, %.0272321
   %.not295313 = icmp eq i16 %221, 0
   br i1 %.not295313, label %._crit_edge317, label %.lr.ph316
 
 .lr.ph316:                                        ; preds = %._crit_edge307
-  %223 = icmp ne ptr %.2269, null
+  %223 = icmp ne ptr %.2276, null
   br label %224
 
 224:                                              ; preds = %.lr.ph316, %.loopexit
   %.in332 = phi i16 [ %221, %.lr.ph316 ], [ %225, %.loopexit ]
-  %.2280314 = phi i32 [ %216, %.lr.ph316 ], [ %235, %.loopexit ]
+  %.2269314 = phi i32 [ %216, %.lr.ph316 ], [ %235, %.loopexit ]
   %225 = add i16 %.in332, -1
   %226 = load i32, ptr @hf_pn_io_io_cs, align 4
-  %227 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %226, ptr noundef %0, i32 noundef %.2280314, i32 noundef 0, i32 noundef 0) #11
+  %227 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %226, ptr noundef %0, i32 noundef %.2269314, i32 noundef 0, i32 noundef 0) #11
   %228 = load i32, ptr @ett_pn_io_io_cs, align 4
   %229 = call ptr @proto_item_add_subtree(ptr noundef %227, i32 noundef %228) #11
   %230 = load i32, ptr @hf_pn_io_slot_nr, align 4
-  %231 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.2280314, ptr noundef %2, ptr noundef %229, ptr noundef %5, i32 noundef %230, ptr noundef nonnull %27) #11
+  %231 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.2269314, ptr noundef %2, ptr noundef %229, ptr noundef %5, i32 noundef %230, ptr noundef nonnull %27) #11
   %232 = load i32, ptr @hf_pn_io_subslot_nr, align 4
   %233 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %231, ptr noundef %2, ptr noundef %229, ptr noundef %5, i32 noundef %232, ptr noundef nonnull %28) #11
   %234 = load i32, ptr @hf_pn_io_iocs_frame_offset, align 4
@@ -8907,7 +8907,7 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
   %240 = load i16, ptr %31, align 2
   %241 = zext i16 %240 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %227, ptr noundef nonnull @.str.1371, i32 noundef %237, i32 noundef %239, i32 noundef %241) #11
-  %242 = sub i32 %235, %.2280314
+  %242 = sub i32 %235, %.2269314
   call void @proto_item_set_len(ptr noundef %227, i32 noundef %242) #11
   %243 = load ptr, ptr %118, align 8
   %244 = getelementptr inbounds i8, ptr %243, i64 50
@@ -8921,7 +8921,7 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
   %249 = load i16, ptr %10, align 2
   %250 = icmp eq i16 %249, 1
   %.1263.in.v = select i1 %250, i64 48, i64 56
-  %.1263.in = getelementptr inbounds i8, ptr %.2269, i64 %.1263.in.v
+  %.1263.in = getelementptr inbounds i8, ptr %.2276, i64 %.1263.in.v
   %.1263 = load ptr, ptr %.1263.in, align 8
   %251 = call ptr @wmem_list_head(ptr noundef %.1263) #11
   %cond299308 = icmp eq ptr %251, null
@@ -8971,13 +8971,13 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
 
 ._crit_edge317:                                   ; preds = %._crit_edge317.loopexit, %._crit_edge307
   %270 = phi i16 [ 0, %._crit_edge307 ], [ %.pre, %._crit_edge317.loopexit ]
-  %.2280.lcssa = phi i32 [ %216, %._crit_edge307 ], [ %235, %._crit_edge317.loopexit ]
+  %.2269.lcssa = phi i32 [ %216, %._crit_edge307 ], [ %235, %._crit_edge317.loopexit ]
   %271 = load i32, ptr %25, align 4
   %272 = load i16, ptr %26, align 2
   %273 = zext i16 %272 to i32
   %274 = zext i16 %270 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %123, ptr noundef nonnull @.str.1372, i32 noundef %271, i32 noundef %273, i32 noundef %274) #11
-  %275 = sub i32 %.2280.lcssa, %.0278320
+  %275 = sub i32 %.2269.lcssa, %.0267323
   call void @proto_item_set_len(ptr noundef %123, i32 noundef %275) #11
   %276 = load i16, ptr %24, align 2
   %277 = add i16 %276, -1
@@ -8992,7 +8992,7 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
   %281 = load i16, ptr %280, align 2
   %282 = and i16 %281, 8
   %283 = icmp eq i16 %282, 0
-  %284 = icmp ne ptr %.2269, null
+  %284 = icmp ne ptr %.2276, null
   %or.cond8 = select i1 %283, i1 %284, i1 false
   br i1 %or.cond8, label %285, label %._crit_edge327.thread
 
@@ -9002,17 +9002,17 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
   br i1 %287, label %288, label %291
 
 288:                                              ; preds = %285
-  %289 = getelementptr inbounds i8, ptr %.2269, i64 24
-  store i16 %.1275, ptr %289, align 8
-  %290 = getelementptr inbounds i8, ptr %.2269, i64 20
-  store i16 %.1277, ptr %290, align 4
+  %289 = getelementptr inbounds i8, ptr %.2276, i64 24
+  store i16 %.1273, ptr %289, align 8
+  %290 = getelementptr inbounds i8, ptr %.2276, i64 20
+  store i16 %.1271, ptr %290, align 4
   br label %._crit_edge327.thread
 
 291:                                              ; preds = %285
-  %292 = getelementptr inbounds i8, ptr %.2269, i64 26
-  store i16 %.1275, ptr %292, align 2
-  %293 = getelementptr inbounds i8, ptr %.2269, i64 22
-  store i16 %.1277, ptr %293, align 2
+  %292 = getelementptr inbounds i8, ptr %.2276, i64 26
+  store i16 %.1273, ptr %292, align 2
+  %293 = getelementptr inbounds i8, ptr %.2276, i64 22
+  store i16 %.1271, ptr %293, align 2
   br label %._crit_edge327.thread
 
 ._crit_edge327.thread:                            ; preds = %96, %291, %288, %._crit_edge327
@@ -9228,7 +9228,7 @@ define internal fastcc void @dissect_ExpectedSubmoduleBlockReq_block(ptr noundef
   br label %55
 
 55:                                               ; preds = %52, %41
-  %.0301 = phi ptr [ %54, %52 ], [ %50, %41 ]
+  %.0312 = phi ptr [ %54, %52 ], [ %50, %41 ]
   %56 = call ptr @pn_find_aruuid_frame_setup(ptr noundef nonnull %2) #11
   %.not = icmp eq ptr %56, null
   br i1 %.not, label %59, label %57
@@ -9239,12 +9239,12 @@ define internal fastcc void @dissect_ExpectedSubmoduleBlockReq_block(ptr noundef
 
 59:                                               ; preds = %57, %55
   %.0290 = phi i32 [ %58, %57 ], [ 0, %55 ]
-  %60 = call ptr @conversation_get_proto_data(ptr noundef nonnull %.0301, i32 noundef %.0290) #11
+  %60 = call ptr @conversation_get_proto_data(ptr noundef nonnull %.0312, i32 noundef %.0290) #11
   %.not323 = icmp eq ptr %60, null
   br i1 %.not323, label %115, label %61
 
 61:                                               ; preds = %59
-  call void @pn_find_dcp_station_info(ptr noundef nonnull %60, ptr noundef nonnull %.0301) #11
+  call void @pn_find_dcp_station_info(ptr noundef nonnull %60, ptr noundef nonnull %.0312) #11
   %62 = getelementptr inbounds i8, ptr %60, i64 28
   store i32 0, ptr %62, align 4
   %63 = getelementptr inbounds i8, ptr %60, i64 32
@@ -9295,8 +9295,8 @@ define internal fastcc void @dissect_ExpectedSubmoduleBlockReq_block(ptr noundef
   br i1 %.not328383, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader378, %100
-  %.1303385 = phi i32 [ %.2304, %100 ], [ 0, %.preheader378 ]
-  %.1308384 = phi i32 [ %.2309, %100 ], [ 0, %.preheader378 ]
+  %.1298385 = phi i32 [ %.2299, %100 ], [ 0, %.preheader378 ]
+  %.1303384 = phi i32 [ %.2304, %100 ], [ 0, %.preheader378 ]
   %83 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @__const.dissect_ExpectedSubmoduleBlockReq_block.vendorIdStr) #12
   %.not352 = icmp eq ptr %83, null
   br i1 %.not352, label %91, label %84
@@ -9311,11 +9311,11 @@ define internal fastcc void @dissect_ExpectedSubmoduleBlockReq_block(ptr noundef
   %88 = call i64 @strtoul(ptr nocapture noundef nonnull %21, ptr noundef null, i32 noundef 0) #11
   %89 = trunc i64 %88 to i32
   %90 = icmp eq i32 %89, %73
-  %spec.select = select i1 %90, i32 1, i32 %.1308384
+  %spec.select = select i1 %90, i32 1, i32 %.1298385
   br label %91
 
 91:                                               ; preds = %87, %84, %.lr.ph
-  %.2309 = phi i32 [ %.1308384, %84 ], [ %.1308384, %.lr.ph ], [ %spec.select, %87 ]
+  %.2299 = phi i32 [ %.1298385, %84 ], [ %.1298385, %.lr.ph ], [ %spec.select, %87 ]
   %92 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @__const.dissect_ExpectedSubmoduleBlockReq_block.deviceIdStr) #12
   %.not354 = icmp eq ptr %92, null
   br i1 %.not354, label %100, label %93
@@ -9330,21 +9330,21 @@ define internal fastcc void @dissect_ExpectedSubmoduleBlockReq_block(ptr noundef
   %97 = call i64 @strtoul(ptr nocapture noundef nonnull %21, ptr noundef null, i32 noundef 0) #11
   %98 = trunc i64 %97 to i32
   %99 = icmp eq i32 %98, %74
-  %spec.select356 = select i1 %99, i32 1, i32 %.1303385
+  %spec.select356 = select i1 %99, i32 1, i32 %.1303384
   br label %100
 
 100:                                              ; preds = %96, %93, %91
-  %.2304 = phi i32 [ %.1303385, %93 ], [ %.1303385, %91 ], [ %spec.select356, %96 ]
+  %.2304 = phi i32 [ %.1303384, %93 ], [ %.1303384, %91 ], [ %spec.select356, %96 ]
   %101 = load ptr, ptr %19, align 8
   %102 = call ptr @pn_fgets(ptr noundef nonnull %25, i32 noundef 1024, ptr noundef nonnull %80, ptr noundef %101) #11
   %.not328 = icmp eq ptr %102, null
   br i1 %.not328, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %100, %.preheader378
-  %.1308.lcssa = phi i32 [ 0, %.preheader378 ], [ %.2309, %100 ]
   %.1303.lcssa = phi i32 [ 0, %.preheader378 ], [ %.2304, %100 ]
+  %.1298.lcssa = phi i32 [ 0, %.preheader378 ], [ %.2299, %100 ]
   %103 = call i32 @fclose(ptr noundef nonnull %80)
-  %104 = icmp ne i32 %.1308.lcssa, 0
+  %104 = icmp ne i32 %.1298.lcssa, 0
   %105 = icmp ne i32 %.1303.lcssa, 0
   %or.cond4 = select i1 %104, i1 %105, i1 false
   br i1 %or.cond4, label %108, label %106
@@ -9552,14 +9552,14 @@ define internal fastcc void @dissect_ExpectedSubmoduleBlockReq_block(ptr noundef
   br label %225
 
 225:                                              ; preds = %222, %219
-  %.0.i = phi ptr [ %221, %219 ], [ %224, %222 ]
-  %226 = icmp ne ptr %.0.i, null
+  %.052.i = phi ptr [ %221, %219 ], [ %224, %222 ]
+  %226 = icmp ne ptr %.052.i, null
   %227 = icmp ne ptr %217, null
   %or.cond.i = select i1 %226, i1 %227, i1 false
   br i1 %or.cond.i, label %228, label %230
 
 228:                                              ; preds = %225
-  %229 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %32, i64 noundef 200, ptr noundef nonnull @.str.1398, ptr noundef nonnull %192, ptr noundef nonnull %.0.i, ptr noundef nonnull %217) #11
+  %229 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %32, i64 noundef 200, ptr noundef nonnull @.str.1398, ptr noundef nonnull %192, ptr noundef nonnull %.052.i, ptr noundef nonnull %217) #11
   br label %244
 
 230:                                              ; preds = %225
@@ -10173,26 +10173,26 @@ define internal fastcc void @dissect_ControlPlugOrConnect_block(ptr noundef %0, 
   %23 = tail call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %22, ptr noundef null) #11
   %24 = load i32, ptr @hf_pn_io_ar_uuid, align 4
   %25 = call i32 @dissect_dcerpc_uuid_t(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %11) #11
-  %.01.i = load ptr, ptr @pnio_ars, align 8
-  %.not2.i = icmp eq ptr %.01.i, null
+  %.081.i = load ptr, ptr @pnio_ars, align 8
+  %.not2.i = icmp eq ptr %.081.i, null
   br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i
 
 26:                                               ; preds = %.lr.ph.i
-  %27 = getelementptr inbounds i8, ptr %.03.i, i64 8
-  %.0.i = load ptr, ptr %27, align 8
-  %.not.i = icmp eq ptr %.0.i, null
+  %27 = getelementptr inbounds i8, ptr %.083.i, i64 8
+  %.08.i = load ptr, ptr %27, align 8
+  %.not.i = icmp eq ptr %.08.i, null
   br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %21, %26
-  %.03.i = phi ptr [ %.0.i, %26 ], [ %.01.i, %21 ]
-  %28 = load ptr, ptr %.03.i, align 8
+  %.083.i = phi ptr [ %.08.i, %26 ], [ %.081.i, %21 ]
+  %28 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %28, ptr noundef nonnull readonly dereferenceable(16) %11, i64 16)
   %29 = icmp eq i32 %bcmp.i, 0
   br i1 %29, label %pnio_ar_find_by_aruuid.exit, label %26
 
 pnio_ar_find_by_aruuid.exit:                      ; preds = %26, %.lr.ph.i, %21
-  %.08.i = phi ptr [ null, %21 ], [ %28, %.lr.ph.i ], [ null, %26 ]
-  store ptr %.08.i, ptr %8, align 8
+  %.0.i = phi ptr [ null, %21 ], [ %28, %.lr.ph.i ], [ null, %26 ]
+  store ptr %.0.i, ptr %8, align 8
   %30 = load i32, ptr @hf_pn_io_sessionkey, align 4
   %31 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %30, ptr noundef nonnull %12) #11
   %32 = and i16 %9, 32767
@@ -10401,26 +10401,26 @@ define internal fastcc void @dissect_ControlBlockPrmBegin(ptr noundef %0, i32 no
   br label %38
 
 38:                                               ; preds = %32, %23
-  %.01.i = load ptr, ptr @pnio_ars, align 8
-  %.not2.i = icmp eq ptr %.01.i, null
+  %.081.i = load ptr, ptr @pnio_ars, align 8
+  %.not2.i = icmp eq ptr %.081.i, null
   br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds i8, ptr %.03.i, i64 8
-  %.0.i = load ptr, ptr %40, align 8
-  %.not.i = icmp eq ptr %.0.i, null
+  %40 = getelementptr inbounds i8, ptr %.083.i, i64 8
+  %.08.i = load ptr, ptr %40, align 8
+  %.not.i = icmp eq ptr %.08.i, null
   br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %38, %39
-  %.03.i = phi ptr [ %.0.i, %39 ], [ %.01.i, %38 ]
-  %41 = load ptr, ptr %.03.i, align 8
+  %.083.i = phi ptr [ %.08.i, %39 ], [ %.081.i, %38 ]
+  %41 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %41, ptr noundef nonnull readonly dereferenceable(16) %11, i64 16)
   %42 = icmp eq i32 %bcmp.i, 0
   br i1 %42, label %pnio_ar_find_by_aruuid.exit, label %39
 
 pnio_ar_find_by_aruuid.exit:                      ; preds = %39, %.lr.ph.i, %38
-  %.08.i = phi ptr [ null, %38 ], [ %41, %.lr.ph.i ], [ null, %39 ]
-  store ptr %.08.i, ptr %9, align 8
+  %.0.i = phi ptr [ null, %38 ], [ %41, %.lr.ph.i ], [ null, %39 ]
+  store ptr %.0.i, ptr %9, align 8
   %43 = load i32, ptr @hf_pn_io_sessionkey, align 4
   %44 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %43, ptr noundef nonnull %12) #11
   %45 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %3, i32 noundef 2) #11
@@ -11034,21 +11034,21 @@ define internal fastcc void @dissect_PDIRFrameData_block(ptr noundef %0, i32 nou
   br label %46
 
 46:                                               ; preds = %31, %26
-  %.0176 = phi i32 [ %45, %31 ], [ %27, %26 ]
+  %.0174 = phi i32 [ %45, %31 ], [ %27, %26 ]
   %47 = zext i16 %30 to i32
-  %48 = icmp slt i32 %.0176, %47
+  %48 = icmp slt i32 %.0174, %47
   br i1 %48, label %.lr.ph188, label %._crit_edge189
 
 .lr.ph188:                                        ; preds = %46, %._crit_edge
-  %.0174186 = phi i16 [ %49, %._crit_edge ], [ 0, %46 ]
-  %.1185 = phi i32 [ %111, %._crit_edge ], [ %.0176, %46 ]
-  %49 = add i16 %.0174186, 1
+  %.1186 = phi i32 [ %111, %._crit_edge ], [ %.0174, %46 ]
+  %.0175185 = phi i16 [ %49, %._crit_edge ], [ 0, %46 ]
+  %49 = add i16 %.0175185, 1
   %50 = load i32, ptr @hf_pn_io_ir_frame_data, align 4
-  %51 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %50, ptr noundef %0, i32 noundef %.1185, i32 noundef 17, i32 noundef 0) #11
+  %51 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %50, ptr noundef %0, i32 noundef %.1186, i32 noundef 17, i32 noundef 0) #11
   %52 = load i32, ptr @ett_pn_io_ir_frame_data, align 4
   %53 = call ptr @proto_item_add_subtree(ptr noundef %51, i32 noundef %52) #11
   %54 = load i32, ptr @hf_pn_io_frame_send_offset, align 4
-  %55 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.1185, ptr noundef %2, ptr noundef %53, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %10) #11
+  %55 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.1186, ptr noundef %2, ptr noundef %53, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %10) #11
   %56 = load i32, ptr @hf_pn_io_data_length, align 4
   %57 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %53, ptr noundef %5, i32 noundef %56, ptr noundef nonnull %12) #11
   %58 = load i32, ptr @hf_pn_io_reduction_ratio, align 4
@@ -11099,26 +11099,26 @@ define internal fastcc void @dissect_PDIRFrameData_block(ptr noundef %0, i32 nou
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0175184 = phi i16 [ %110, %.lr.ph ], [ %92, %.lr.ph.preheader ]
-  %.2183 = phi i32 [ %109, %.lr.ph ], [ %82, %.lr.ph.preheader ]
+  %.2184 = phi i32 [ %109, %.lr.ph ], [ %82, %.lr.ph.preheader ]
+  %.0176183 = phi i16 [ %110, %.lr.ph ], [ %92, %.lr.ph.preheader ]
   %93 = load i32, ptr @hf_pn_io_TxPortGroupProperties_bit0, align 4
-  %94 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2183, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %93, ptr noundef nonnull %19) #11
+  %94 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2184, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %93, ptr noundef nonnull %19) #11
   %95 = load i32, ptr @hf_pn_io_TxPortGroupProperties_bit1, align 4
-  %96 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2183, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %95, ptr noundef nonnull %19) #11
+  %96 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2184, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %95, ptr noundef nonnull %19) #11
   %97 = load i32, ptr @hf_pn_io_TxPortGroupProperties_bit2, align 4
-  %98 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2183, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %97, ptr noundef nonnull %19) #11
+  %98 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2184, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %97, ptr noundef nonnull %19) #11
   %99 = load i32, ptr @hf_pn_io_TxPortGroupProperties_bit3, align 4
-  %100 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2183, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %99, ptr noundef nonnull %19) #11
+  %100 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2184, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %99, ptr noundef nonnull %19) #11
   %101 = load i32, ptr @hf_pn_io_TxPortGroupProperties_bit4, align 4
-  %102 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2183, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %101, ptr noundef nonnull %19) #11
+  %102 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2184, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %101, ptr noundef nonnull %19) #11
   %103 = load i32, ptr @hf_pn_io_TxPortGroupProperties_bit5, align 4
-  %104 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2183, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %103, ptr noundef nonnull %19) #11
+  %104 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2184, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %103, ptr noundef nonnull %19) #11
   %105 = load i32, ptr @hf_pn_io_TxPortGroupProperties_bit6, align 4
-  %106 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2183, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %105, ptr noundef nonnull %19) #11
+  %106 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2184, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %105, ptr noundef nonnull %19) #11
   %107 = load i32, ptr @hf_pn_io_TxPortGroupProperties_bit7, align 4
-  %108 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2183, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %107, ptr noundef nonnull %19) #11
-  %109 = add i32 %.2183, 1
-  %110 = add nsw i16 %.0175184, -1
+  %108 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.2184, ptr noundef %2, ptr noundef %91, ptr noundef %5, i32 noundef %107, ptr noundef nonnull %19) #11
+  %109 = add i32 %.2184, 1
+  %110 = add nsw i16 %.0176183, -1
   %.not180 = icmp eq i16 %110, 0
   br i1 %.not180, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
@@ -11143,8 +11143,8 @@ define internal fastcc void @dissect_PDIRFrameData_block(ptr noundef %0, i32 nou
   br label %._crit_edge189
 
 ._crit_edge189:                                   ; preds = %._crit_edge189.loopexit, %46
-  %.0174.lcssa = phi i32 [ 0, %46 ], [ %122, %._crit_edge189.loopexit ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.1554, i32 noundef %.0174.lcssa) #11
+  %.0175.lcssa = phi i32 [ 0, %46 ], [ %122, %._crit_edge189.loopexit ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.1554, i32 noundef %.0175.lcssa) #11
   br label %123
 
 123:                                              ; preds = %._crit_edge189, %22
@@ -11216,8 +11216,8 @@ define internal fastcc void @dissect_PDIRBeginEndData_block(ptr noundef %0, i32 
 .lr.ph:                                           ; preds = %.lr.ph164, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph164 ]
   %.1156 = phi i32 [ %72, %.lr.ph ], [ %47, %.lr.ph164 ]
-  %.0145154 = phi i32 [ %50, %.lr.ph ], [ %48, %.lr.ph164 ]
-  %50 = add i32 %.0145154, -1
+  %.0143155 = phi i32 [ %50, %.lr.ph ], [ %48, %.lr.ph164 ]
+  %50 = add i32 %.0143155, -1
   %51 = load i32, ptr @hf_pn_io_red_orange_period_begin_tx, align 4
   %52 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.1156, ptr noundef %2, ptr noundef %45, ptr noundef %5, i32 noundef %51, ptr noundef nonnull %15) #11
   %53 = load i32, ptr %15, align 4
@@ -11263,8 +11263,8 @@ define internal fastcc void @dissect_PDIRBeginEndData_block(ptr noundef %0, i32 
 
 .lr.ph160:                                        ; preds = %.loopexit152, %.lr.ph160
   %.3159 = phi i32 [ %119, %.lr.ph160 ], [ %76, %.loopexit152 ]
-  %.1146158 = phi i32 [ %79, %.lr.ph160 ], [ %77, %.loopexit152 ]
-  %79 = add i32 %.1146158, -1
+  %.1144158 = phi i32 [ %79, %.lr.ph160 ], [ %77, %.loopexit152 ]
+  %79 = add i32 %.1144158, -1
   %80 = load i32, ptr @hf_pn_ir_tx_phase_assignment, align 4
   %81 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %80, ptr noundef %0, i32 noundef %.3159, i32 noundef 0, i32 noundef 0) #11
   %82 = load i32, ptr @ett_pn_io_ir_tx_phase, align 4
@@ -15583,26 +15583,26 @@ define internal fastcc void @dissect_IODWriteResHeader_block(ptr noundef %0, i32
 
 21:                                               ; preds = %11
   %22 = call fastcc i32 @dissect_ReadWrite_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %8, ptr noundef nonnull %12)
-  %.01.i = load ptr, ptr @pnio_ars, align 8
-  %.not2.i = icmp eq ptr %.01.i, null
+  %.081.i = load ptr, ptr @pnio_ars, align 8
+  %.not2.i = icmp eq ptr %.081.i, null
   br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i
 
 23:                                               ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds i8, ptr %.03.i, i64 8
-  %.0.i = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %.0.i, null
+  %24 = getelementptr inbounds i8, ptr %.083.i, i64 8
+  %.08.i = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %.08.i, null
   br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %21, %23
-  %.03.i = phi ptr [ %.0.i, %23 ], [ %.01.i, %21 ]
-  %25 = load ptr, ptr %.03.i, align 8
+  %.083.i = phi ptr [ %.08.i, %23 ], [ %.081.i, %21 ]
+  %25 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %25, ptr noundef nonnull readonly dereferenceable(16) %12, i64 16)
   %26 = icmp eq i32 %bcmp.i, 0
   br i1 %26, label %pnio_ar_find_by_aruuid.exit, label %23
 
 pnio_ar_find_by_aruuid.exit:                      ; preds = %23, %.lr.ph.i, %21
-  %.08.i = phi ptr [ null, %21 ], [ %25, %.lr.ph.i ], [ null, %23 ]
-  store ptr %.08.i, ptr %10, align 8
+  %.0.i = phi ptr [ null, %21 ], [ %25, %.lr.ph.i ], [ null, %23 ]
+  store ptr %.0.i, ptr %10, align 8
   %27 = load i32, ptr @hf_pn_io_record_data_length, align 4
   %28 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %27, ptr noundef %9) #11
   %29 = load i32, ptr @hf_pn_io_add_val1, align 4
@@ -15666,26 +15666,26 @@ define internal fastcc void @dissect_IODReadResHeader_block(ptr noundef %0, i32 
 
 21:                                               ; preds = %11
   %22 = call fastcc i32 @dissect_ReadWrite_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %8, ptr noundef nonnull %12)
-  %.01.i = load ptr, ptr @pnio_ars, align 8
-  %.not2.i = icmp eq ptr %.01.i, null
+  %.081.i = load ptr, ptr @pnio_ars, align 8
+  %.not2.i = icmp eq ptr %.081.i, null
   br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i
 
 23:                                               ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds i8, ptr %.03.i, i64 8
-  %.0.i = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %.0.i, null
+  %24 = getelementptr inbounds i8, ptr %.083.i, i64 8
+  %.08.i = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %.08.i, null
   br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %21, %23
-  %.03.i = phi ptr [ %.0.i, %23 ], [ %.01.i, %21 ]
-  %25 = load ptr, ptr %.03.i, align 8
+  %.083.i = phi ptr [ %.08.i, %23 ], [ %.081.i, %21 ]
+  %25 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %25, ptr noundef nonnull readonly dereferenceable(16) %12, i64 16)
   %26 = icmp eq i32 %bcmp.i, 0
   br i1 %26, label %pnio_ar_find_by_aruuid.exit, label %23
 
 pnio_ar_find_by_aruuid.exit:                      ; preds = %23, %.lr.ph.i, %21
-  %.08.i = phi ptr [ null, %21 ], [ %25, %.lr.ph.i ], [ null, %23 ]
-  store ptr %.08.i, ptr %10, align 8
+  %.0.i = phi ptr [ null, %21 ], [ %25, %.lr.ph.i ], [ null, %23 ]
+  store ptr %.0.i, ptr %10, align 8
   %27 = load i32, ptr @hf_pn_io_record_data_length, align 4
   %28 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %27, ptr noundef %9) #11
   %29 = load i32, ptr @hf_pn_io_add_val1, align 4
@@ -15785,19 +15785,19 @@ define internal fastcc void @dissect_ARBlockRes_block(ptr noundef %0, i32 nounde
   %66 = load i16, ptr %14, align 2
   %67 = zext i16 %66 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.1618, ptr noundef %46, i32 noundef %48, i32 noundef %50, i32 noundef %53, i32 noundef %56, i32 noundef %59, i32 noundef %62, i32 noundef %65, i32 noundef %67) #11
-  %.01.i = load ptr, ptr @pnio_ars, align 8
-  %.not2.i = icmp eq ptr %.01.i, null
+  %.081.i = load ptr, ptr @pnio_ars, align 8
+  %.not2.i = icmp eq ptr %.081.i, null
   br i1 %.not2.i, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i
 
 68:                                               ; preds = %.lr.ph.i
-  %69 = getelementptr inbounds i8, ptr %.03.i, i64 8
-  %.0.i = load ptr, ptr %69, align 8
-  %.not.i = icmp eq ptr %.0.i, null
+  %69 = getelementptr inbounds i8, ptr %.083.i, i64 8
+  %.08.i = load ptr, ptr %69, align 8
+  %.not.i = icmp eq ptr %.08.i, null
   br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %37, %68
-  %.03.i = phi ptr [ %.0.i, %68 ], [ %.01.i, %37 ]
-  %70 = load ptr, ptr %.03.i, align 8
+  %.083.i = phi ptr [ %.08.i, %68 ], [ %.081.i, %37 ]
+  %70 = load ptr, ptr %.083.i, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %70, ptr noundef nonnull readonly dereferenceable(16) %11, i64 16)
   %71 = icmp eq i32 %bcmp.i, 0
   br i1 %71, label %pnio_ar_find_by_aruuid.exit, label %68
@@ -15812,8 +15812,8 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %.lr.ph.i
   br label %pnio_ar_find_by_aruuid.exit.thread
 
 pnio_ar_find_by_aruuid.exit.thread:               ; preds = %68, %37, %72, %pnio_ar_find_by_aruuid.exit
-  %.08.i46 = phi ptr [ %70, %72 ], [ null, %pnio_ar_find_by_aruuid.exit ], [ null, %37 ], [ null, %68 ]
-  store ptr %.08.i46, ptr %8, align 8
+  %.0.i46 = phi ptr [ %70, %72 ], [ null, %pnio_ar_find_by_aruuid.exit ], [ null, %37 ], [ null, %68 ]
+  store ptr %.0.i46, ptr %8, align 8
   br label %74
 
 74:                                               ; preds = %pnio_ar_find_by_aruuid.exit.thread, %17
@@ -17651,9 +17651,9 @@ define internal fastcc i32 @dissect_ProfiSafeParameterRequest(ptr noundef %0, pt
   br label %78
 
 78:                                               ; preds = %75, %6
-  %.0143 = phi i32 [ %77, %75 ], [ %72, %6 ]
+  %.0142 = phi i32 [ %77, %75 ], [ %72, %6 ]
   %79 = load i32, ptr @hf_pn_io_ps_f_par_crc, align 4
-  %80 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.0143, ptr noundef %1, ptr noundef %22, ptr noundef %3, i32 noundef %79, ptr noundef nonnull %10) #11
+  %80 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.0142, ptr noundef %1, ptr noundef %22, ptr noundef %3, i32 noundef %79, ptr noundef nonnull %10) #11
   %81 = load i8, ptr %19, align 1
   %82 = and i8 %81, 40
   %or.cond160 = icmp eq i8 %82, 8
@@ -17725,7 +17725,7 @@ define internal fastcc i32 @dissect_ProfiSafeParameterRequest(ptr noundef %0, pt
   br label %133
 
 133:                                              ; preds = %130, %123
-  %.0142 = phi ptr [ %132, %130 ], [ %128, %123 ]
+  %.0143 = phi ptr [ %132, %130 ], [ %128, %123 ]
   %134 = call ptr @pn_find_aruuid_frame_setup(ptr noundef nonnull %1) #11
   %.not152 = icmp eq ptr %134, null
   br i1 %.not152, label %137, label %135
@@ -17736,12 +17736,12 @@ define internal fastcc i32 @dissect_ProfiSafeParameterRequest(ptr noundef %0, pt
 
 137:                                              ; preds = %135, %133
   %.0 = phi i32 [ %136, %135 ], [ 0, %133 ]
-  %138 = call ptr @conversation_get_proto_data(ptr noundef nonnull %.0142, i32 noundef %.0) #11
+  %138 = call ptr @conversation_get_proto_data(ptr noundef nonnull %.0143, i32 noundef %.0) #11
   %.not153 = icmp eq ptr %138, null
   br i1 %.not153, label %.loopexit, label %139
 
 139:                                              ; preds = %137
-  call void @pn_find_dcp_station_info(ptr noundef nonnull %138, ptr noundef nonnull %.0142) #11
+  call void @pn_find_dcp_station_info(ptr noundef nonnull %138, ptr noundef nonnull %.0143) #11
   %140 = call ptr @wmem_list_frame_data(ptr noundef %5) #11
   %141 = load i16, ptr %10, align 2
   %142 = getelementptr inbounds i8, ptr %140, i64 28

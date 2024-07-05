@@ -341,14 +341,14 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 99:                                               ; preds = %167, %97
   %indvars.iv.i.i.i = phi i64 [ 0, %97 ], [ %indvars.iv.next.i.i.i, %167 ]
-  %.0181206.i.i.i = phi i32 [ 5, %97 ], [ %177, %167 ]
-  %100 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %96, i32 noundef %.0181206.i.i.i) #3
+  %.0182205.i.i.i = phi i32 [ 5, %97 ], [ %177, %167 ]
+  %100 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %96, i32 noundef %.0182205.i.i.i) #3
   %101 = getelementptr [4 x %struct.movement], ptr %5, i64 0, i64 %indvars.iv.i.i.i
   %102 = getelementptr i8, ptr %101, i64 1
   store i8 %100, ptr %102, align 1
-  %103 = trunc i32 %.0181206.i.i.i to i8
+  %103 = trunc i32 %.0182205.i.i.i to i8
   store i8 %103, ptr %101, align 2
-  %104 = add i32 %.0181206.i.i.i, 1
+  %104 = add i32 %.0182205.i.i.i, 1
   %105 = and i8 %100, 1
   %.not195.i.i.i = icmp eq i8 %105, 0
   br i1 %.not195.i.i.i, label %112, label %106
@@ -360,27 +360,27 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
   store i16 %107, ptr %109, align 2
   %110 = trunc i32 %104 to i16
   store i16 %110, ptr %108, align 2
-  %111 = add i32 %.0181206.i.i.i, 3
+  %111 = add i32 %.0182205.i.i.i, 3
   br label %112
 
 112:                                              ; preds = %106, %99
-  %.1.i.i.i = phi i32 [ %111, %106 ], [ %104, %99 ]
+  %.1183.i.i.i = phi i32 [ %111, %106 ], [ %104, %99 ]
   %113 = and i8 %100, 2
   %.not196.i.i.i = icmp eq i8 %113, 0
   br i1 %.not196.i.i.i, label %120, label %114
 
 114:                                              ; preds = %112
-  %115 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %96, i32 noundef %.1.i.i.i) #3
+  %115 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %96, i32 noundef %.1183.i.i.i) #3
   %116 = getelementptr i8, ptr %101, i64 6
   %117 = getelementptr i8, ptr %101, i64 8
   store i16 %115, ptr %117, align 2
-  %118 = trunc i32 %.1.i.i.i to i16
+  %118 = trunc i32 %.1183.i.i.i to i16
   store i16 %118, ptr %116, align 2
-  %119 = add i32 %.1.i.i.i, 2
+  %119 = add i32 %.1183.i.i.i, 2
   br label %120
 
 120:                                              ; preds = %114, %112
-  %.2.i.i.i = phi i32 [ %119, %114 ], [ %.1.i.i.i, %112 ]
+  %.2.i.i.i = phi i32 [ %119, %114 ], [ %.1183.i.i.i, %112 ]
   %121 = and i8 %100, 4
   %.not197.i.i.i = icmp eq i8 %121, 0
   br i1 %.not197.i.i.i, label %128, label %122

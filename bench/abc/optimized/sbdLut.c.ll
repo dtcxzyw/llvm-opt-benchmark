@@ -59,11 +59,11 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
 
 14:                                               ; preds = %.lr.ph88, %.loopexit70
   %indvars.iv106 = phi i64 [ %13, %.lr.ph88 ], [ %indvars.iv.next107, %.loopexit70 ]
-  %.05787 = phi i32 [ %10, %.lr.ph88 ], [ %.3, %.loopexit70 ]
-  %.06083 = phi ptr [ %4, %.lr.ph88 ], [ %85, %.loopexit70 ]
-  %15 = load i32, ptr %.06083, align 8
+  %.05887 = phi i32 [ %10, %.lr.ph88 ], [ %.3, %.loopexit70 ]
+  %.06183 = phi ptr [ %4, %.lr.ph88 ], [ %85, %.loopexit70 ]
+  %15 = load i32, ptr %.06183, align 8
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %.06083, i64 4
+  %16 = getelementptr inbounds i8, ptr %.06183, i64 4
   %17 = load i32, ptr %16, align 4
   br i1 %.not, label %.preheader69, label %22
 
@@ -73,8 +73,8 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
 
 .preheader.lr.ph:                                 ; preds = %.preheader69
   %19 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv106
-  %20 = getelementptr inbounds i8, ptr %.06083, i64 8
-  %21 = sext i32 %.05787 to i64
+  %20 = getelementptr inbounds i8, ptr %.06183, i64 8
+  %21 = sext i32 %.05887 to i64
   br label %.preheader
 
 22:                                               ; preds = %14
@@ -83,14 +83,14 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
 
 .preheader68.lr.ph:                               ; preds = %22
   %23 = shl nuw nsw i32 1, %17
-  %24 = getelementptr inbounds i8, ptr %.06083, i64 8
+  %24 = getelementptr inbounds i8, ptr %.06183, i64 8
   %25 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv106
-  %26 = sext i32 %.05787 to i64
+  %26 = sext i32 %.05887 to i64
   br label %.preheader68
 
 .preheader68:                                     ; preds = %.preheader68.lr.ph, %58
   %indvars.iv95 = phi i64 [ %26, %.preheader68.lr.ph ], [ %indvars.iv.next96, %58 ]
-  %.05678 = phi i32 [ 0, %.preheader68.lr.ph ], [ %59, %58 ]
+  %.05778 = phi i32 [ 0, %.preheader68.lr.ph ], [ %59, %58 ]
   %27 = load i32, ptr %16, align 4
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph.preheader, label %.preheader66
@@ -111,7 +111,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
   %33 = getelementptr inbounds i32, ptr %3, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = trunc nuw nsw i64 %indvars.iv to i32
-  %36 = lshr i32 %.05678, %35
+  %36 = lshr i32 %.05778, %35
   %37 = and i32 %36, 1
   %38 = shl nsw i32 %34, 1
   %39 = or disjoint i32 %38, %37
@@ -126,17 +126,17 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
 
 42:                                               ; preds = %.preheader66, %41
   %43 = phi i1 [ true, %.preheader66 ], [ false, %41 ]
-  %.076 = phi i32 [ 0, %.preheader66 ], [ 1, %41 ]
+  %.05476 = phi i32 [ 0, %.preheader66 ], [ 1, %41 ]
   %44 = load i32, ptr %29, align 4
   %45 = shl nsw i32 %44, 1
-  %46 = or disjoint i32 %45, %.076
+  %46 = or disjoint i32 %45, %.05476
   %47 = load i32, ptr %16, align 4
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %48
   store i32 %46, ptr %49, align 4
   %50 = load i32, ptr %25, align 4
   %51 = shl nsw i32 %50, 1
-  %52 = or disjoint i32 %51, %.076
+  %52 = or disjoint i32 %51, %.05476
   %53 = xor i32 %52, 1
   %54 = add nsw i32 %47, 1
   %55 = sext i32 %54 to i64
@@ -148,7 +148,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
   br i1 %.not65, label %.loopexit, label %41
 
 58:                                               ; preds = %41
-  %59 = add nuw nsw i32 %.05678, 1
+  %59 = add nuw nsw i32 %.05778, 1
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i32 %59, %23
   br i1 %exitcond98.not, label %.loopexit70.loopexit91, label %.preheader68, !llvm.loop !8
@@ -203,15 +203,15 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
   br label %.loopexit70
 
 .loopexit70:                                      ; preds = %.loopexit70.loopexit91, %.loopexit70.loopexit, %22, %.preheader69
-  %.3 = phi i32 [ %.05787, %.preheader69 ], [ %.05787, %22 ], [ %83, %.loopexit70.loopexit ], [ %84, %.loopexit70.loopexit91 ]
-  %85 = getelementptr inbounds i8, ptr %.06083, i64 56
+  %.3 = phi i32 [ %.05887, %.preheader69 ], [ %.05887, %22 ], [ %83, %.loopexit70.loopexit ], [ %84, %.loopexit70.loopexit91 ]
+  %85 = getelementptr inbounds i8, ptr %.06183, i64 56
   %indvars.iv.next107 = add nsw i64 %indvars.iv106, 1
   %86 = icmp ult ptr %85, %8
   br i1 %86, label %14, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.loopexit70, %42, %63, %5
-  %.061 = phi i32 [ 1, %5 ], [ 0, %63 ], [ 0, %42 ], [ 1, %.loopexit70 ]
-  ret i32 %.061
+  %.0 = phi i32 [ 1, %5 ], [ 0, %63 ], [ 0, %42 ], [ 1, %.loopexit70 ]
+  ret i32 %.0
 }
 
 declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -349,15 +349,15 @@ define void @Sbd_ProblemPrintSolution(i32 noundef %0, ptr noundef %1, ptr nocapt
 
 9:                                                ; preds = %.lr.ph36, %._crit_edge32
   %.034 = phi i32 [ 0, %.lr.ph36 ], [ %.1.lcssa, %._crit_edge32 ]
-  %.02333 = phi ptr [ %1, %.lr.ph36 ], [ %42, %._crit_edge32 ]
-  %10 = load i32, ptr %.02333, align 8
+  %.02133 = phi ptr [ %1, %.lr.ph36 ], [ %42, %._crit_edge32 ]
+  %10 = load i32, ptr %.02133, align 8
   %.not = icmp eq i32 %10, 0
-  %11 = getelementptr inbounds i8, ptr %.02333, i64 4
+  %11 = getelementptr inbounds i8, ptr %.02133, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = shl nuw i32 1, %12
   %14 = select i1 %.not, ptr @.str.3, ptr @.str.2
   %15 = select i1 %.not, i32 %12, i32 %13
-  %16 = ptrtoint ptr %.02333 to i64
+  %16 = ptrtoint ptr %.02133 to i64
   %17 = sub i64 %16, %7
   %18 = sdiv exact i64 %17, 56
   %19 = trunc i64 %18 to i32
@@ -371,14 +371,14 @@ define void @Sbd_ProblemPrintSolution(i32 noundef %0, ptr noundef %1, ptr nocapt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %22, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.02127 = phi i32 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
+  %.02227 = phi i32 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.val = load ptr, ptr %8, align 8
   %23 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 1
   %26 = xor i32 %25, 1
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %26)
-  %28 = add nuw nsw i32 %.02127, 1
+  %28 = add nuw nsw i32 %.02227, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %28, %15
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
@@ -390,13 +390,13 @@ define void @Sbd_ProblemPrintSolution(i32 noundef %0, ptr noundef %1, ptr nocapt
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %9
   %.1.lcssa = phi i32 [ %.034, %9 ], [ %29, %._crit_edge.loopexit ]
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5)
-  %31 = getelementptr inbounds i8, ptr %.02333, i64 4
+  %31 = getelementptr inbounds i8, ptr %.02133, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph31, label %._crit_edge32
 
 .lr.ph31:                                         ; preds = %._crit_edge
-  %34 = getelementptr inbounds i8, ptr %.02333, i64 8
+  %34 = getelementptr inbounds i8, ptr %.02133, i64 8
   br label %35
 
 35:                                               ; preds = %.lr.ph31, %35
@@ -412,7 +412,7 @@ define void @Sbd_ProblemPrintSolution(i32 noundef %0, ptr noundef %1, ptr nocapt
 
 ._crit_edge32:                                    ; preds = %35, %._crit_edge
   %puts25 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %42 = getelementptr inbounds i8, ptr %.02333, i64 56
+  %42 = getelementptr inbounds i8, ptr %.02133, i64 56
   %43 = icmp ult ptr %42, %5
   br i1 %43, label %9, label %._crit_edge37, !llvm.loop !18
 

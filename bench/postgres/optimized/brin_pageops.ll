@@ -505,7 +505,7 @@ define internal fastcc i32 @brin_getinsertbuffer(ptr noundef %0, i32 noundef %1,
   br label %8
 
 8:                                                ; preds = %4, %6
-  %.072 = phi i32 [ %7, %6 ], [ -1, %4 ]
+  %.071 = phi i32 [ %7, %6 ], [ -1, %4 ]
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
@@ -522,7 +522,7 @@ define internal fastcc i32 @brin_getinsertbuffer(ptr noundef %0, i32 noundef %1,
   br label %16
 
 16:                                               ; preds = %.thread, %11
-  %.070 = phi i32 [ %15, %.thread ], [ %13, %11 ]
+  %.072 = phi i32 [ %15, %.thread ], [ %13, %11 ]
   %17 = getelementptr inbounds i8, ptr %0, i64 32
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = icmp slt i32 %1, 0
@@ -534,7 +534,7 @@ define internal fastcc i32 @brin_getinsertbuffer(ptr noundef %0, i32 noundef %1,
   br label %25
 
 25:                                               ; preds = %131, %16
-  %.171 = phi i32 [ %.070, %16 ], [ %132, %131 ]
+  %.173 = phi i32 [ %.072, %16 ], [ %132, %131 ]
   %26 = load volatile i32, ptr @InterruptPending, align 4
   %.not78 = icmp eq i32 %26, 0
   br i1 %.not78, label %28, label %27
@@ -545,7 +545,7 @@ define internal fastcc i32 @brin_getinsertbuffer(ptr noundef %0, i32 noundef %1,
 
 28:                                               ; preds = %25, %27
   store i8 0, ptr %3, align 1
-  %29 = icmp eq i32 %.171, -1
+  %29 = icmp eq i32 %.173, -1
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %28
@@ -570,18 +570,18 @@ define internal fastcc i32 @brin_getinsertbuffer(ptr noundef %0, i32 noundef %1,
   br label %43
 
 39:                                               ; preds = %28
-  %40 = icmp eq i32 %.171, %.072
+  %40 = icmp eq i32 %.173, %.071
   br i1 %40, label %43, label %41
 
 41:                                               ; preds = %39
-  %42 = tail call i32 @ReadBuffer(ptr noundef %0, i32 noundef %.171) #5
+  %42 = tail call i32 @ReadBuffer(ptr noundef %0, i32 noundef %.173) #5
   br label %43
 
 43:                                               ; preds = %39, %41, %36
-  %.2 = phi i32 [ %38, %36 ], [ %.171, %41 ], [ %.072, %39 ]
+  %.2 = phi i32 [ %38, %36 ], [ %.173, %41 ], [ %.071, %39 ]
   %.069 = phi i32 [ %37, %36 ], [ %42, %41 ], [ %1, %39 ]
   %.1 = phi i8 [ %.0, %36 ], [ 0, %41 ], [ 0, %39 ]
-  %44 = icmp ult i32 %.072, %.2
+  %44 = icmp ult i32 %.071, %.2
   %or.cond = select i1 %5, i1 %44, i1 false
   br i1 %or.cond, label %45, label %72
 
@@ -723,7 +723,7 @@ RelationGetSmgr.exit:                             ; preds = %106, %109
   %113 = phi ptr [ %.pre.i, %109 ], [ %107, %106 ]
   %114 = getelementptr inbounds i8, ptr %113, i64 16
   store i32 %.2, ptr %114, align 8
-  %115 = icmp ugt i32 %.072, %.2
+  %115 = icmp ugt i32 %.071, %.2
   %or.cond83 = select i1 %5, i1 %115, i1 false
   br i1 %or.cond83, label %116, label %133
 
@@ -749,7 +749,7 @@ RelationGetSmgr.exit:                             ; preds = %106, %109
   unreachable
 
 127:                                              ; preds = %117
-  %.not81 = icmp eq i32 %.2, %.072
+  %.not81 = icmp eq i32 %.2, %.071
   br i1 %.not81, label %129, label %128
 
 128:                                              ; preds = %127
@@ -757,7 +757,7 @@ RelationGetSmgr.exit:                             ; preds = %106, %109
   br label %129
 
 129:                                              ; preds = %128, %127
-  %.not82 = icmp ule i32 %.072, %.2
+  %.not82 = icmp ule i32 %.071, %.2
   %or.cond85.not = select i1 %5, i1 %.not82, i1 false
   br i1 %or.cond85.not, label %130, label %131
 
@@ -770,8 +770,8 @@ RelationGetSmgr.exit:                             ; preds = %106, %109
   br label %25
 
 133:                                              ; preds = %RelationGetSmgr.exit, %116, %67, %70
-  %.073 = phi i32 [ 0, %70 ], [ 0, %67 ], [ %.069, %116 ], [ %.069, %RelationGetSmgr.exit ]
-  ret i32 %.073
+  %.070 = phi i32 [ 0, %70 ], [ 0, %67 ], [ %.069, %116 ], [ %.069, %RelationGetSmgr.exit ]
+  ret i32 %.070
 }
 
 declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #2

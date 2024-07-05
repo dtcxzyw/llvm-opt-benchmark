@@ -1393,8 +1393,8 @@ _ZL11seterrorobjP9lua_StateiP10lua_TValue.exit:   ; preds = %21, %24, %27, %30
   br label %42
 
 42:                                               ; preds = %39, %33, %19
-  %.047 = phi i32 [ %18, %19 ], [ %18, %33 ], [ %., %39 ]
-  %.046 = phi i32 [ %18, %19 ], [ 2, %33 ], [ %., %39 ]
+  %.047 = phi i32 [ %18, %19 ], [ 2, %33 ], [ %., %39 ]
+  %.046 = phi i32 [ %18, %19 ], [ %18, %33 ], [ %., %39 ]
   br i1 %17, label %44, label %43
 
 43:                                               ; preds = %42
@@ -1429,7 +1429,7 @@ _ZL11seterrorobjP9lua_StateiP10lua_TValue.exit:   ; preds = %21, %24, %27, %30
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 %3
   tail call void @_Z10luaF_closeP9lua_StateP10lua_TValue(ptr noundef nonnull %0, ptr noundef %60)
-  switch i32 %.046, label %_ZL11seterrorobjP9lua_StateiP10lua_TValue.exit57 [
+  switch i32 %.047, label %_ZL11seterrorobjP9lua_StateiP10lua_TValue.exit57 [
     i32 4, label %61
     i32 5, label %64
     i32 3, label %67
@@ -1496,7 +1496,7 @@ _ZL11seterrorobjP9lua_StateiP10lua_TValue.exit57: ; preds = %57, %61, %64, %67
   br label %_ZL19restore_stack_limitP9lua_State.exit
 
 _ZL19restore_stack_limitP9lua_State.exit:         ; preds = %83, %_ZL11seterrorobjP9lua_StateiP10lua_TValue.exit57, %5, %53
-  %.0 = phi i32 [ 0, %53 ], [ 0, %5 ], [ %.047, %_ZL11seterrorobjP9lua_StateiP10lua_TValue.exit57 ], [ %.047, %83 ]
+  %.0 = phi i32 [ 0, %53 ], [ 0, %5 ], [ %.046, %_ZL11seterrorobjP9lua_StateiP10lua_TValue.exit57 ], [ %.046, %83 ]
   ret i32 %.0
 }
 

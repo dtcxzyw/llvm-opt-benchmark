@@ -30,7 +30,7 @@ define void @cli_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nound
   %.lcssa = phi i32 [ %11, %4 ], [ %519, %512 ]
   %15 = mul i64 %.0336.lcssa, %2
   %16 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %15
-  %.0352582 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %2
+  %.0351582 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %2
   %17 = icmp sgt i64 %15, %2
   br i1 %17, label %.preheader479.lr.ph, label %.loopexit
 
@@ -46,22 +46,22 @@ define void @cli_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nound
   br i1 %.not395, label %.preheader479.us.us, label %.preheader479.us
 
 .preheader479.us.us:                              ; preds = %.preheader479.lr.ph.split.us, %.critedge.us.us
-  %.0352583.us.us = phi ptr [ %.0352.us.us, %.critedge.us.us ], [ %.0352582, %.preheader479.lr.ph.split.us ]
-  %21 = icmp ugt ptr %.0352583.us.us, %.0.lcssa
+  %.0351583.us.us = phi ptr [ %.0351.us.us, %.critedge.us.us ], [ %.0351582, %.preheader479.lr.ph.split.us ]
+  %21 = icmp ugt ptr %.0351583.us.us, %.0.lcssa
   br i1 %21, label %.lr.ph577.us.us.preheader, label %.critedge.us.us
 
 .lr.ph577.us.us.preheader:                        ; preds = %.preheader479.us.us
-  %.pre671 = load i32, ptr %.0352583.us.us, align 4
+  %.pre671 = load i32, ptr %.0351583.us.us, align 4
   br label %.lr.ph577.us.us
 
 .critedge.us.us:                                  ; preds = %swapfunc.exit.us.us.us.us, %.lr.ph577.us.us, %.preheader479.us.us
-  %.0352.us.us = getelementptr inbounds i8, ptr %.0352583.us.us, i64 %2
-  %22 = icmp ult ptr %.0352.us.us, %16
+  %.0351.us.us = getelementptr inbounds i8, ptr %.0351583.us.us, i64 %2
+  %22 = icmp ult ptr %.0351.us.us, %16
   br i1 %22, label %.preheader479.us.us, label %.loopexit
 
 .lr.ph577.us.us:                                  ; preds = %.lr.ph577.us.us.preheader, %swapfunc.exit.us.us.us.us
   %23 = phi i32 [ %31, %swapfunc.exit.us.us.us.us ], [ %.pre671, %.lr.ph577.us.us.preheader ]
-  %.0348576.us.us.us.us = phi ptr [ %24, %swapfunc.exit.us.us.us.us ], [ %.0352583.us.us, %.lr.ph577.us.us.preheader ]
+  %.0348576.us.us.us.us = phi ptr [ %24, %swapfunc.exit.us.us.us.us ], [ %.0351583.us.us, %.lr.ph577.us.us.preheader ]
   %24 = getelementptr inbounds i8, ptr %.0348576.us.us.us.us, i64 %5
   %25 = load i32, ptr %24, align 4
   %26 = sub i32 %25, %23
@@ -78,17 +78,17 @@ swapfunc.exit.us.us.us.us:                        ; preds = %.lr.ph577.us.us
   br i1 %30, label %.lr.ph577.us.us, label %.critedge.us.us
 
 .preheader479.us:                                 ; preds = %.preheader479.lr.ph.split.us, %.critedge.us
-  %.0352583.us = phi ptr [ %.0352.us, %.critedge.us ], [ %.0352582, %.preheader479.lr.ph.split.us ]
-  %32 = icmp ugt ptr %.0352583.us, %.0.lcssa
+  %.0351583.us = phi ptr [ %.0351.us, %.critedge.us ], [ %.0351582, %.preheader479.lr.ph.split.us ]
+  %32 = icmp ugt ptr %.0351583.us, %.0.lcssa
   br i1 %32, label %.lr.ph577.us, label %.critedge.us
 
 .critedge.us:                                     ; preds = %swapfunc.exit.us.us590, %.lr.ph577.us, %.preheader479.us
-  %.0352.us = getelementptr inbounds i8, ptr %.0352583.us, i64 %2
-  %33 = icmp ult ptr %.0352.us, %16
+  %.0351.us = getelementptr inbounds i8, ptr %.0351583.us, i64 %2
+  %33 = icmp ult ptr %.0351.us, %16
   br i1 %33, label %.preheader479.us, label %.loopexit
 
 .lr.ph577.us:                                     ; preds = %.preheader479.us, %swapfunc.exit.us.us590
-  %.0348576.us.us589 = phi ptr [ %34, %swapfunc.exit.us.us590 ], [ %.0352583.us, %.preheader479.us ]
+  %.0348576.us.us589 = phi ptr [ %34, %swapfunc.exit.us.us590 ], [ %.0351583.us, %.preheader479.us ]
   %34 = getelementptr inbounds i8, ptr %.0348576.us.us589, i64 %5
   %35 = tail call i32 %3(ptr noundef nonnull %34, ptr noundef nonnull %.0348576.us.us589) #2
   %36 = icmp sgt i32 %35, 0
@@ -109,17 +109,17 @@ swapfunc.exit.us.us590:                           ; preds = %.lr.ph577.us
   br i1 %.not395, label %.preheader479.us594.us, label %.preheader479.us594
 
 .preheader479.us594.us:                           ; preds = %.preheader479.lr.ph.split.split.us, %.critedge.us596.us
-  %.0352583.us595.us = phi ptr [ %.0352.us597.us, %.critedge.us596.us ], [ %.0352582, %.preheader479.lr.ph.split.split.us ]
-  %40 = icmp ugt ptr %.0352583.us595.us, %.0.lcssa
+  %.0351583.us595.us = phi ptr [ %.0351.us597.us, %.critedge.us596.us ], [ %.0351582, %.preheader479.lr.ph.split.split.us ]
+  %40 = icmp ugt ptr %.0351583.us595.us, %.0.lcssa
   br i1 %40, label %.lr.ph577.us598.us, label %.critedge.us596.us
 
 .critedge.us596.us:                               ; preds = %swapfunc.exit.loopexit.us.us.us.us, %.lr.ph577.us598.us, %.preheader479.us594.us
-  %.0352.us597.us = getelementptr inbounds i8, ptr %.0352583.us595.us, i64 %2
-  %41 = icmp ult ptr %.0352.us597.us, %16
+  %.0351.us597.us = getelementptr inbounds i8, ptr %.0351583.us595.us, i64 %2
+  %41 = icmp ult ptr %.0351.us597.us, %16
   br i1 %41, label %.preheader479.us594.us, label %.loopexit
 
 .lr.ph577.us598.us:                               ; preds = %.preheader479.us594.us, %swapfunc.exit.loopexit.us.us.us.us
-  %.0348576.us579.us.us.us = phi ptr [ %42, %swapfunc.exit.loopexit.us.us.us.us ], [ %.0352583.us595.us, %.preheader479.us594.us ]
+  %.0348576.us579.us.us.us = phi ptr [ %42, %swapfunc.exit.loopexit.us.us.us.us ], [ %.0351583.us595.us, %.preheader479.us594.us ]
   %42 = getelementptr inbounds i8, ptr %.0348576.us579.us.us.us, i64 %5
   %43 = load i32, ptr %42, align 4
   %44 = load i32, ptr %.0348576.us579.us.us.us, align 4
@@ -146,17 +146,17 @@ swapfunc.exit.loopexit.us.us.us.us:               ; preds = %.preheader719
   br i1 %53, label %.lr.ph577.us598.us, label %.critedge.us596.us
 
 .preheader479.us594:                              ; preds = %.preheader479.lr.ph.split.split.us, %.critedge.us596
-  %.0352583.us595 = phi ptr [ %.0352.us597, %.critedge.us596 ], [ %.0352582, %.preheader479.lr.ph.split.split.us ]
-  %54 = icmp ugt ptr %.0352583.us595, %.0.lcssa
+  %.0351583.us595 = phi ptr [ %.0351.us597, %.critedge.us596 ], [ %.0351582, %.preheader479.lr.ph.split.split.us ]
+  %54 = icmp ugt ptr %.0351583.us595, %.0.lcssa
   br i1 %54, label %.lr.ph577.us598, label %.critedge.us596
 
 .critedge.us596:                                  ; preds = %swapfunc.exit.loopexit.us.us, %.lr.ph577.us598, %.preheader479.us594
-  %.0352.us597 = getelementptr inbounds i8, ptr %.0352583.us595, i64 %2
-  %55 = icmp ult ptr %.0352.us597, %16
+  %.0351.us597 = getelementptr inbounds i8, ptr %.0351583.us595, i64 %2
+  %55 = icmp ult ptr %.0351.us597, %16
   br i1 %55, label %.preheader479.us594, label %.loopexit
 
 .lr.ph577.us598:                                  ; preds = %.preheader479.us594, %swapfunc.exit.loopexit.us.us
-  %.0348576.us579.us = phi ptr [ %56, %swapfunc.exit.loopexit.us.us ], [ %.0352583.us595, %.preheader479.us594 ]
+  %.0348576.us579.us = phi ptr [ %56, %swapfunc.exit.loopexit.us.us ], [ %.0351583.us595, %.preheader479.us594 ]
   %56 = getelementptr inbounds i8, ptr %.0348576.us579.us, i64 %5
   %57 = tail call i32 %3(ptr noundef nonnull %56, ptr noundef nonnull %.0348576.us579.us) #2
   %58 = icmp sgt i32 %57, 0
@@ -184,17 +184,17 @@ swapfunc.exit.loopexit.us.us:                     ; preds = %.preheader721
   br i1 %.not395, label %.preheader479.us599, label %.preheader479
 
 .preheader479.us599:                              ; preds = %.preheader479.lr.ph.split.split, %.critedge.us601
-  %.0352583.us600 = phi ptr [ %.0352.us602, %.critedge.us601 ], [ %.0352582, %.preheader479.lr.ph.split.split ]
-  %66 = icmp ugt ptr %.0352583.us600, %.0.lcssa
+  %.0351583.us600 = phi ptr [ %.0351.us602, %.critedge.us601 ], [ %.0351582, %.preheader479.lr.ph.split.split ]
+  %66 = icmp ugt ptr %.0351583.us600, %.0.lcssa
   br i1 %66, label %.lr.ph577.us603, label %.critedge.us601
 
 .critedge.us601:                                  ; preds = %swapfunc.exit.loopexit478.us.us, %.lr.ph577.us603, %.preheader479.us599
-  %.0352.us602 = getelementptr inbounds i8, ptr %.0352583.us600, i64 %2
-  %67 = icmp ult ptr %.0352.us602, %16
+  %.0351.us602 = getelementptr inbounds i8, ptr %.0351583.us600, i64 %2
+  %67 = icmp ult ptr %.0351.us602, %16
   br i1 %67, label %.preheader479.us599, label %.loopexit
 
 .lr.ph577.us603:                                  ; preds = %.preheader479.us599, %swapfunc.exit.loopexit478.us.us
-  %.0348576.us581.us = phi ptr [ %68, %swapfunc.exit.loopexit478.us.us ], [ %.0352583.us600, %.preheader479.us599 ]
+  %.0348576.us581.us = phi ptr [ %68, %swapfunc.exit.loopexit478.us.us ], [ %.0351583.us600, %.preheader479.us599 ]
   %68 = getelementptr inbounds i8, ptr %.0348576.us581.us, i64 %5
   %69 = load i32, ptr %68, align 4
   %70 = load i32, ptr %.0348576.us581.us, align 4
@@ -221,12 +221,12 @@ swapfunc.exit.loopexit478.us.us:                  ; preds = %.preheader.us.us
   br i1 %79, label %.lr.ph577.us603, label %.critedge.us601
 
 .preheader479:                                    ; preds = %.preheader479.lr.ph.split.split, %.critedge
-  %.0352583 = phi ptr [ %.0352, %.critedge ], [ %.0352582, %.preheader479.lr.ph.split.split ]
-  %80 = icmp ugt ptr %.0352583, %.0.lcssa
+  %.0351583 = phi ptr [ %.0351, %.critedge ], [ %.0351582, %.preheader479.lr.ph.split.split ]
+  %80 = icmp ugt ptr %.0351583, %.0.lcssa
   br i1 %80, label %.lr.ph577, label %.critedge
 
 .lr.ph577:                                        ; preds = %.preheader479, %swapfunc.exit.loopexit478
-  %.0348576 = phi ptr [ %81, %swapfunc.exit.loopexit478 ], [ %.0352583, %.preheader479 ]
+  %.0348576 = phi ptr [ %81, %swapfunc.exit.loopexit478 ], [ %.0351583, %.preheader479 ]
   %81 = getelementptr inbounds i8, ptr %.0348576, i64 %5
   %82 = tail call i32 %3(ptr noundef nonnull %81, ptr noundef nonnull %.0348576) #2
   %83 = icmp sgt i32 %82, 0
@@ -251,8 +251,8 @@ swapfunc.exit.loopexit478:                        ; preds = %.preheader
   br i1 %90, label %.lr.ph577, label %.critedge
 
 .critedge:                                        ; preds = %swapfunc.exit.loopexit478, %.lr.ph577, %.preheader479
-  %.0352 = getelementptr inbounds i8, ptr %.0352583, i64 %2
-  %91 = icmp ult ptr %.0352, %16
+  %.0351 = getelementptr inbounds i8, ptr %.0351583, i64 %2
+  %91 = icmp ult ptr %.0351, %16
   br i1 %91, label %.preheader479, label %.loopexit
 
 92:                                               ; preds = %.lr.ph546, %512
@@ -491,11 +491,11 @@ med3.exit402.med3.exit402.thread_crit_edge:       ; preds = %med3.exit402
 
 med3.exit402.thread463:                           ; preds = %201, %203, %207, %209, %med3.exit402
   %.1349470 = phi ptr [ %.0543, %med3.exit402 ], [ %152, %209 ], [ %152, %207 ], [ %152, %203 ], [ %152, %201 ]
-  %.0351469 = phi ptr [ %101, %med3.exit402 ], [ %212, %209 ], [ %197, %207 ], [ %206, %203 ], [ %197, %201 ]
-  %.1353468 = phi ptr [ %97, %med3.exit402 ], [ %194, %209 ], [ %194, %207 ], [ %194, %203 ], [ %194, %201 ]
-  %236 = tail call i32 %3(ptr noundef %.1349470, ptr noundef %.1353468) #2
+  %.1352469 = phi ptr [ %97, %med3.exit402 ], [ %194, %209 ], [ %194, %207 ], [ %194, %203 ], [ %194, %201 ]
+  %.0355468 = phi ptr [ %101, %med3.exit402 ], [ %212, %209 ], [ %197, %207 ], [ %206, %203 ], [ %197, %201 ]
+  %236 = tail call i32 %3(ptr noundef %.1349470, ptr noundef %.1352469) #2
   %237 = icmp slt i32 %236, 0
-  %238 = tail call i32 %3(ptr noundef %.1353468, ptr noundef %.0351469) #2
+  %238 = tail call i32 %3(ptr noundef %.1352469, ptr noundef %.0355468) #2
   br i1 %237, label %239, label %245
 
 239:                                              ; preds = %med3.exit402.thread463
@@ -503,9 +503,9 @@ med3.exit402.thread463:                           ; preds = %201, %203, %207, %2
   br i1 %240, label %med3.exit403, label %241
 
 241:                                              ; preds = %239
-  %242 = tail call i32 %3(ptr noundef %.1349470, ptr noundef %.0351469) #2
+  %242 = tail call i32 %3(ptr noundef %.1349470, ptr noundef %.0355468) #2
   %243 = icmp slt i32 %242, 0
-  %244 = select i1 %243, ptr %.0351469, ptr %.1349470
+  %244 = select i1 %243, ptr %.0355468, ptr %.1349470
   br label %med3.exit403
 
 245:                                              ; preds = %med3.exit402.thread463
@@ -513,20 +513,20 @@ med3.exit402.thread463:                           ; preds = %201, %203, %207, %2
   br i1 %246, label %med3.exit403, label %247
 
 247:                                              ; preds = %245
-  %248 = tail call i32 %3(ptr noundef %.1349470, ptr noundef %.0351469) #2
+  %248 = tail call i32 %3(ptr noundef %.1349470, ptr noundef %.0355468) #2
   %249 = icmp slt i32 %248, 0
-  %250 = select i1 %249, ptr %.1349470, ptr %.0351469
+  %250 = select i1 %249, ptr %.1349470, ptr %.0355468
   br label %med3.exit403
 
 med3.exit402.thread:                              ; preds = %med3.exit402.med3.exit402.thread_crit_edge, %233, %231, %228, %226
   %251 = phi i32 [ %.pre669, %med3.exit402.med3.exit402.thread_crit_edge ], [ %214, %226 ], [ %214, %228 ], [ %214, %231 ], [ %214, %233 ]
   %252 = phi i32 [ %.pre, %med3.exit402.med3.exit402.thread_crit_edge ], [ %172, %226 ], [ %172, %228 ], [ %172, %231 ], [ %172, %233 ]
   %.1349460 = phi ptr [ %.0543, %med3.exit402.med3.exit402.thread_crit_edge ], [ %.ph, %226 ], [ %.ph, %228 ], [ %.ph, %231 ], [ %.ph, %233 ]
-  %.0351459 = phi ptr [ %101, %med3.exit402.med3.exit402.thread_crit_edge ], [ %220, %226 ], [ %.397, %228 ], [ %220, %231 ], [ %.398, %233 ]
-  %.1353458 = phi ptr [ %97, %med3.exit402.med3.exit402.thread_crit_edge ], [ %.ph453, %226 ], [ %.ph453, %228 ], [ %.ph453, %231 ], [ %.ph453, %233 ]
+  %.1352459 = phi ptr [ %97, %med3.exit402.med3.exit402.thread_crit_edge ], [ %.ph453, %226 ], [ %.ph453, %228 ], [ %.ph453, %231 ], [ %.ph453, %233 ]
+  %.0355458 = phi ptr [ %101, %med3.exit402.med3.exit402.thread_crit_edge ], [ %220, %226 ], [ %.397, %228 ], [ %220, %231 ], [ %.398, %233 ]
   %253 = sub i32 %252, %251
   %254 = icmp slt i32 %253, 0
-  %255 = load i32, ptr %.0351459, align 4
+  %255 = load i32, ptr %.0355458, align 4
   %256 = sub i32 %251, %255
   br i1 %254, label %257, label %263
 
@@ -537,7 +537,7 @@ med3.exit402.thread:                              ; preds = %med3.exit402.med3.e
 259:                                              ; preds = %257
   %260 = sub i32 %252, %255
   %261 = icmp slt i32 %260, 0
-  %262 = select i1 %261, ptr %.0351459, ptr %.1349460
+  %262 = select i1 %261, ptr %.0355458, ptr %.1349460
   br label %med3.exit403
 
 263:                                              ; preds = %med3.exit402.thread
@@ -547,26 +547,26 @@ med3.exit402.thread:                              ; preds = %med3.exit402.med3.e
 265:                                              ; preds = %263
   %266 = sub i32 %252, %255
   %267 = icmp slt i32 %266, 0
-  %268 = select i1 %267, ptr %.1349460, ptr %.0351459
+  %268 = select i1 %267, ptr %.1349460, ptr %.0355458
   br label %med3.exit403
 
 med3.exit403:                                     ; preds = %247, %245, %241, %239, %265, %259, %257, %263, %92
-  %.2354 = phi ptr [ %97, %92 ], [ %262, %259 ], [ %268, %265 ], [ %.1353458, %257 ], [ %.1353458, %263 ], [ %244, %241 ], [ %250, %247 ], [ %.1353468, %239 ], [ %.1353468, %245 ]
+  %.2353 = phi ptr [ %97, %92 ], [ %262, %259 ], [ %268, %265 ], [ %.1352459, %257 ], [ %.1352459, %263 ], [ %244, %241 ], [ %250, %247 ], [ %.1352469, %239 ], [ %.1352469, %245 ]
   %269 = icmp eq i32 %93, 0
   br i1 %269, label %270, label %273
 
 270:                                              ; preds = %med3.exit403
   %271 = load i64, ptr %.0543, align 8
-  %272 = load i64, ptr %.2354, align 8
+  %272 = load i64, ptr %.2353, align 8
   store i64 %272, ptr %.0543, align 8
-  store i64 %271, ptr %.2354, align 8
+  store i64 %271, ptr %.2353, align 8
   br label %swapfunc.exit410
 
 273:                                              ; preds = %med3.exit403
   br i1 %or.cond544, label %.preheader624, label %.preheader496
 
 .preheader624:                                    ; preds = %273, %.preheader624
-  %.022.i407 = phi ptr [ %277, %.preheader624 ], [ %.2354, %273 ]
+  %.022.i407 = phi ptr [ %277, %.preheader624 ], [ %.2353, %273 ]
   %.021.i408 = phi ptr [ %276, %.preheader624 ], [ %.0543, %273 ]
   %.0.i409 = phi i64 [ %278, %.preheader624 ], [ %14, %273 ]
   %274 = load i64, ptr %.021.i408, align 8
@@ -582,7 +582,7 @@ med3.exit403:                                     ; preds = %247, %245, %241, %2
 .preheader496:                                    ; preds = %273, %.preheader496
   %.020.i404 = phi i64 [ %284, %.preheader496 ], [ %13, %273 ]
   %.019.i405 = phi ptr [ %282, %.preheader496 ], [ %.0543, %273 ]
-  %.018.i406 = phi ptr [ %283, %.preheader496 ], [ %.2354, %273 ]
+  %.018.i406 = phi ptr [ %283, %.preheader496 ], [ %.2353, %273 ]
   %280 = load i8, ptr %.019.i405, align 1
   %281 = load i8, ptr %.018.i406, align 1
   %282 = getelementptr inbounds i8, ptr %.019.i405, i64 1
@@ -836,22 +836,22 @@ swapfunc.exit431:                                 ; preds = %.preheader490, %.pr
   br i1 %.not387, label %.preheader483.us.us, label %.preheader483.us
 
 .preheader483.us.us:                              ; preds = %.preheader483.lr.ph.split.us, %.critedge6.us.us
-  %.3355557.us.us = phi ptr [ %376, %.critedge6.us.us ], [ %286, %.preheader483.lr.ph.split.us ]
-  %375 = icmp ugt ptr %.3355557.us.us, %.0543
+  %.3354557.us.us = phi ptr [ %376, %.critedge6.us.us ], [ %286, %.preheader483.lr.ph.split.us ]
+  %375 = icmp ugt ptr %.3354557.us.us, %.0543
   br i1 %375, label %.lr.ph552.us.us.preheader, label %.critedge6.us.us
 
 .lr.ph552.us.us.preheader:                        ; preds = %.preheader483.us.us
-  %.pre670 = load i32, ptr %.3355557.us.us, align 4
+  %.pre670 = load i32, ptr %.3354557.us.us, align 4
   br label %.lr.ph552.us.us
 
 .critedge6.us.us:                                 ; preds = %swapfunc.exit438.us.us.us.us, %.lr.ph552.us.us, %.preheader483.us.us
-  %376 = getelementptr inbounds i8, ptr %.3355557.us.us, i64 %2
+  %376 = getelementptr inbounds i8, ptr %.3354557.us.us, i64 %2
   %377 = icmp ult ptr %376, %373
   br i1 %377, label %.preheader483.us.us, label %.loopexit
 
 .lr.ph552.us.us:                                  ; preds = %.lr.ph552.us.us.preheader, %swapfunc.exit438.us.us.us.us
   %378 = phi i32 [ %386, %swapfunc.exit438.us.us.us.us ], [ %.pre670, %.lr.ph552.us.us.preheader ]
-  %.2350551.us.us.us.us = phi ptr [ %379, %swapfunc.exit438.us.us.us.us ], [ %.3355557.us.us, %.lr.ph552.us.us.preheader ]
+  %.2350551.us.us.us.us = phi ptr [ %379, %swapfunc.exit438.us.us.us.us ], [ %.3354557.us.us, %.lr.ph552.us.us.preheader ]
   %379 = getelementptr inbounds i8, ptr %.2350551.us.us.us.us, i64 %5
   %380 = load i32, ptr %379, align 4
   %381 = sub i32 %380, %378
@@ -868,17 +868,17 @@ swapfunc.exit438.us.us.us.us:                     ; preds = %.lr.ph552.us.us
   br i1 %385, label %.lr.ph552.us.us, label %.critedge6.us.us
 
 .preheader483.us:                                 ; preds = %.preheader483.lr.ph.split.us, %.critedge6.us
-  %.3355557.us = phi ptr [ %388, %.critedge6.us ], [ %286, %.preheader483.lr.ph.split.us ]
-  %387 = icmp ugt ptr %.3355557.us, %.0543
+  %.3354557.us = phi ptr [ %388, %.critedge6.us ], [ %286, %.preheader483.lr.ph.split.us ]
+  %387 = icmp ugt ptr %.3354557.us, %.0543
   br i1 %387, label %.lr.ph552.us, label %.critedge6.us
 
 .critedge6.us:                                    ; preds = %swapfunc.exit438.us.us564, %.lr.ph552.us, %.preheader483.us
-  %388 = getelementptr inbounds i8, ptr %.3355557.us, i64 %2
+  %388 = getelementptr inbounds i8, ptr %.3354557.us, i64 %2
   %389 = icmp ult ptr %388, %373
   br i1 %389, label %.preheader483.us, label %.loopexit
 
 .lr.ph552.us:                                     ; preds = %.preheader483.us, %swapfunc.exit438.us.us564
-  %.2350551.us.us563 = phi ptr [ %390, %swapfunc.exit438.us.us564 ], [ %.3355557.us, %.preheader483.us ]
+  %.2350551.us.us563 = phi ptr [ %390, %swapfunc.exit438.us.us564 ], [ %.3354557.us, %.preheader483.us ]
   %390 = getelementptr inbounds i8, ptr %.2350551.us.us563, i64 %5
   %391 = tail call i32 %3(ptr noundef nonnull %390, ptr noundef nonnull %.2350551.us.us563) #2
   %392 = icmp sgt i32 %391, 0
@@ -899,17 +899,17 @@ swapfunc.exit438.us.us564:                        ; preds = %.lr.ph552.us
   br i1 %.not387, label %.preheader483.us568.us, label %.preheader483.us568
 
 .preheader483.us568.us:                           ; preds = %.preheader483.lr.ph.split.split.us, %.critedge6.us570.us
-  %.3355557.us569.us = phi ptr [ %397, %.critedge6.us570.us ], [ %286, %.preheader483.lr.ph.split.split.us ]
-  %396 = icmp ugt ptr %.3355557.us569.us, %.0543
+  %.3354557.us569.us = phi ptr [ %397, %.critedge6.us570.us ], [ %286, %.preheader483.lr.ph.split.split.us ]
+  %396 = icmp ugt ptr %.3354557.us569.us, %.0543
   br i1 %396, label %.lr.ph552.us571.us, label %.critedge6.us570.us
 
 .critedge6.us570.us:                              ; preds = %swapfunc.exit438.loopexit.us.us.us.us, %.lr.ph552.us571.us, %.preheader483.us568.us
-  %397 = getelementptr inbounds i8, ptr %.3355557.us569.us, i64 %2
+  %397 = getelementptr inbounds i8, ptr %.3354557.us569.us, i64 %2
   %398 = icmp ult ptr %397, %373
   br i1 %398, label %.preheader483.us568.us, label %.loopexit
 
 .lr.ph552.us571.us:                               ; preds = %.preheader483.us568.us, %swapfunc.exit438.loopexit.us.us.us.us
-  %.2350551.us554.us.us.us = phi ptr [ %399, %swapfunc.exit438.loopexit.us.us.us.us ], [ %.3355557.us569.us, %.preheader483.us568.us ]
+  %.2350551.us554.us.us.us = phi ptr [ %399, %swapfunc.exit438.loopexit.us.us.us.us ], [ %.3354557.us569.us, %.preheader483.us568.us ]
   %399 = getelementptr inbounds i8, ptr %.2350551.us554.us.us.us, i64 %5
   %400 = load i32, ptr %399, align 4
   %401 = load i32, ptr %.2350551.us554.us.us.us, align 4
@@ -936,17 +936,17 @@ swapfunc.exit438.loopexit.us.us.us.us:            ; preds = %.preheader727
   br i1 %410, label %.lr.ph552.us571.us, label %.critedge6.us570.us
 
 .preheader483.us568:                              ; preds = %.preheader483.lr.ph.split.split.us, %.critedge6.us570
-  %.3355557.us569 = phi ptr [ %412, %.critedge6.us570 ], [ %286, %.preheader483.lr.ph.split.split.us ]
-  %411 = icmp ugt ptr %.3355557.us569, %.0543
+  %.3354557.us569 = phi ptr [ %412, %.critedge6.us570 ], [ %286, %.preheader483.lr.ph.split.split.us ]
+  %411 = icmp ugt ptr %.3354557.us569, %.0543
   br i1 %411, label %.lr.ph552.us571, label %.critedge6.us570
 
 .critedge6.us570:                                 ; preds = %swapfunc.exit438.loopexit.us.us, %.lr.ph552.us571, %.preheader483.us568
-  %412 = getelementptr inbounds i8, ptr %.3355557.us569, i64 %2
+  %412 = getelementptr inbounds i8, ptr %.3354557.us569, i64 %2
   %413 = icmp ult ptr %412, %373
   br i1 %413, label %.preheader483.us568, label %.loopexit
 
 .lr.ph552.us571:                                  ; preds = %.preheader483.us568, %swapfunc.exit438.loopexit.us.us
-  %.2350551.us554.us = phi ptr [ %414, %swapfunc.exit438.loopexit.us.us ], [ %.3355557.us569, %.preheader483.us568 ]
+  %.2350551.us554.us = phi ptr [ %414, %swapfunc.exit438.loopexit.us.us ], [ %.3354557.us569, %.preheader483.us568 ]
   %414 = getelementptr inbounds i8, ptr %.2350551.us554.us, i64 %5
   %415 = tail call i32 %3(ptr noundef nonnull %414, ptr noundef nonnull %.2350551.us554.us) #2
   %416 = icmp sgt i32 %415, 0
@@ -974,17 +974,17 @@ swapfunc.exit438.loopexit.us.us:                  ; preds = %.preheader729
   br i1 %.not387, label %.preheader483.us572, label %.preheader483
 
 .preheader483.us572:                              ; preds = %.preheader483.lr.ph.split.split, %.critedge6.us574
-  %.3355557.us573 = phi ptr [ %425, %.critedge6.us574 ], [ %286, %.preheader483.lr.ph.split.split ]
-  %424 = icmp ugt ptr %.3355557.us573, %.0543
+  %.3354557.us573 = phi ptr [ %425, %.critedge6.us574 ], [ %286, %.preheader483.lr.ph.split.split ]
+  %424 = icmp ugt ptr %.3354557.us573, %.0543
   br i1 %424, label %.lr.ph552.us575, label %.critedge6.us574
 
 .critedge6.us574:                                 ; preds = %swapfunc.exit438.loopexit482.us.us, %.lr.ph552.us575, %.preheader483.us572
-  %425 = getelementptr inbounds i8, ptr %.3355557.us573, i64 %2
+  %425 = getelementptr inbounds i8, ptr %.3354557.us573, i64 %2
   %426 = icmp ult ptr %425, %373
   br i1 %426, label %.preheader483.us572, label %.loopexit
 
 .lr.ph552.us575:                                  ; preds = %.preheader483.us572, %swapfunc.exit438.loopexit482.us.us
-  %.2350551.us556.us = phi ptr [ %427, %swapfunc.exit438.loopexit482.us.us ], [ %.3355557.us573, %.preheader483.us572 ]
+  %.2350551.us556.us = phi ptr [ %427, %swapfunc.exit438.loopexit482.us.us ], [ %.3354557.us573, %.preheader483.us572 ]
   %427 = getelementptr inbounds i8, ptr %.2350551.us556.us, i64 %5
   %428 = load i32, ptr %427, align 4
   %429 = load i32, ptr %.2350551.us556.us, align 4
@@ -1011,12 +1011,12 @@ swapfunc.exit438.loopexit482.us.us:               ; preds = %.preheader481.us.us
   br i1 %438, label %.lr.ph552.us575, label %.critedge6.us574
 
 .preheader483:                                    ; preds = %.preheader483.lr.ph.split.split, %.critedge6
-  %.3355557 = phi ptr [ %450, %.critedge6 ], [ %286, %.preheader483.lr.ph.split.split ]
-  %439 = icmp ugt ptr %.3355557, %.0543
+  %.3354557 = phi ptr [ %450, %.critedge6 ], [ %286, %.preheader483.lr.ph.split.split ]
+  %439 = icmp ugt ptr %.3354557, %.0543
   br i1 %439, label %.lr.ph552, label %.critedge6
 
 .lr.ph552:                                        ; preds = %.preheader483, %swapfunc.exit438.loopexit482
-  %.2350551 = phi ptr [ %440, %swapfunc.exit438.loopexit482 ], [ %.3355557, %.preheader483 ]
+  %.2350551 = phi ptr [ %440, %swapfunc.exit438.loopexit482 ], [ %.3354557, %.preheader483 ]
   %440 = getelementptr inbounds i8, ptr %.2350551, i64 %5
   %441 = tail call i32 %3(ptr noundef nonnull %440, ptr noundef nonnull %.2350551) #2
   %442 = icmp sgt i32 %441, 0
@@ -1041,7 +1041,7 @@ swapfunc.exit438.loopexit482:                     ; preds = %.preheader481
   br i1 %449, label %.lr.ph552, label %.critedge6
 
 .critedge6:                                       ; preds = %swapfunc.exit438.loopexit482, %.lr.ph552, %.preheader483
-  %450 = getelementptr inbounds i8, ptr %.3355557, i64 %2
+  %450 = getelementptr inbounds i8, ptr %.3354557, i64 %2
   %451 = icmp ult ptr %450, %373
   br i1 %451, label %.preheader483, label %.loopexit
 
@@ -1204,7 +1204,7 @@ define void @cli_qsort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nou
   %.lcssa = phi i32 [ %12, %5 ], [ %520, %513 ]
   %16 = mul i64 %.0345.lcssa, %2
   %17 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %16
-  %.0361591 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %2
+  %.0360591 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %2
   %18 = icmp sgt i64 %16, %2
   br i1 %18, label %.preheader488.lr.ph, label %.loopexit
 
@@ -1220,22 +1220,22 @@ define void @cli_qsort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nou
   br i1 %.not404, label %.preheader488.us.us, label %.preheader488.us
 
 .preheader488.us.us:                              ; preds = %.preheader488.lr.ph.split.us, %.critedge.us.us
-  %.0361592.us.us = phi ptr [ %.0361.us.us, %.critedge.us.us ], [ %.0361591, %.preheader488.lr.ph.split.us ]
-  %22 = icmp ugt ptr %.0361592.us.us, %.0.lcssa
+  %.0360592.us.us = phi ptr [ %.0360.us.us, %.critedge.us.us ], [ %.0360591, %.preheader488.lr.ph.split.us ]
+  %22 = icmp ugt ptr %.0360592.us.us, %.0.lcssa
   br i1 %22, label %.lr.ph586.us.us.preheader, label %.critedge.us.us
 
 .lr.ph586.us.us.preheader:                        ; preds = %.preheader488.us.us
-  %.pre680 = load i32, ptr %.0361592.us.us, align 4
+  %.pre680 = load i32, ptr %.0360592.us.us, align 4
   br label %.lr.ph586.us.us
 
 .critedge.us.us:                                  ; preds = %swapfunc.exit.us.us.us.us, %.lr.ph586.us.us, %.preheader488.us.us
-  %.0361.us.us = getelementptr inbounds i8, ptr %.0361592.us.us, i64 %2
-  %23 = icmp ult ptr %.0361.us.us, %17
+  %.0360.us.us = getelementptr inbounds i8, ptr %.0360592.us.us, i64 %2
+  %23 = icmp ult ptr %.0360.us.us, %17
   br i1 %23, label %.preheader488.us.us, label %.loopexit
 
 .lr.ph586.us.us:                                  ; preds = %.lr.ph586.us.us.preheader, %swapfunc.exit.us.us.us.us
   %24 = phi i32 [ %32, %swapfunc.exit.us.us.us.us ], [ %.pre680, %.lr.ph586.us.us.preheader ]
-  %.0357585.us.us.us.us = phi ptr [ %25, %swapfunc.exit.us.us.us.us ], [ %.0361592.us.us, %.lr.ph586.us.us.preheader ]
+  %.0357585.us.us.us.us = phi ptr [ %25, %swapfunc.exit.us.us.us.us ], [ %.0360592.us.us, %.lr.ph586.us.us.preheader ]
   %25 = getelementptr inbounds i8, ptr %.0357585.us.us.us.us, i64 %6
   %26 = load i32, ptr %25, align 4
   %27 = sub i32 %26, %24
@@ -1252,17 +1252,17 @@ swapfunc.exit.us.us.us.us:                        ; preds = %.lr.ph586.us.us
   br i1 %31, label %.lr.ph586.us.us, label %.critedge.us.us
 
 .preheader488.us:                                 ; preds = %.preheader488.lr.ph.split.us, %.critedge.us
-  %.0361592.us = phi ptr [ %.0361.us, %.critedge.us ], [ %.0361591, %.preheader488.lr.ph.split.us ]
-  %33 = icmp ugt ptr %.0361592.us, %.0.lcssa
+  %.0360592.us = phi ptr [ %.0360.us, %.critedge.us ], [ %.0360591, %.preheader488.lr.ph.split.us ]
+  %33 = icmp ugt ptr %.0360592.us, %.0.lcssa
   br i1 %33, label %.lr.ph586.us, label %.critedge.us
 
 .critedge.us:                                     ; preds = %swapfunc.exit.us.us599, %.lr.ph586.us, %.preheader488.us
-  %.0361.us = getelementptr inbounds i8, ptr %.0361592.us, i64 %2
-  %34 = icmp ult ptr %.0361.us, %17
+  %.0360.us = getelementptr inbounds i8, ptr %.0360592.us, i64 %2
+  %34 = icmp ult ptr %.0360.us, %17
   br i1 %34, label %.preheader488.us, label %.loopexit
 
 .lr.ph586.us:                                     ; preds = %.preheader488.us, %swapfunc.exit.us.us599
-  %.0357585.us.us598 = phi ptr [ %35, %swapfunc.exit.us.us599 ], [ %.0361592.us, %.preheader488.us ]
+  %.0357585.us.us598 = phi ptr [ %35, %swapfunc.exit.us.us599 ], [ %.0360592.us, %.preheader488.us ]
   %35 = getelementptr inbounds i8, ptr %.0357585.us.us598, i64 %6
   %36 = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %35, ptr noundef nonnull %.0357585.us.us598) #2
   %37 = icmp sgt i32 %36, 0
@@ -1283,17 +1283,17 @@ swapfunc.exit.us.us599:                           ; preds = %.lr.ph586.us
   br i1 %.not404, label %.preheader488.us603.us, label %.preheader488.us603
 
 .preheader488.us603.us:                           ; preds = %.preheader488.lr.ph.split.split.us, %.critedge.us605.us
-  %.0361592.us604.us = phi ptr [ %.0361.us606.us, %.critedge.us605.us ], [ %.0361591, %.preheader488.lr.ph.split.split.us ]
-  %41 = icmp ugt ptr %.0361592.us604.us, %.0.lcssa
+  %.0360592.us604.us = phi ptr [ %.0360.us606.us, %.critedge.us605.us ], [ %.0360591, %.preheader488.lr.ph.split.split.us ]
+  %41 = icmp ugt ptr %.0360592.us604.us, %.0.lcssa
   br i1 %41, label %.lr.ph586.us607.us, label %.critedge.us605.us
 
 .critedge.us605.us:                               ; preds = %swapfunc.exit.loopexit.us.us.us.us, %.lr.ph586.us607.us, %.preheader488.us603.us
-  %.0361.us606.us = getelementptr inbounds i8, ptr %.0361592.us604.us, i64 %2
-  %42 = icmp ult ptr %.0361.us606.us, %17
+  %.0360.us606.us = getelementptr inbounds i8, ptr %.0360592.us604.us, i64 %2
+  %42 = icmp ult ptr %.0360.us606.us, %17
   br i1 %42, label %.preheader488.us603.us, label %.loopexit
 
 .lr.ph586.us607.us:                               ; preds = %.preheader488.us603.us, %swapfunc.exit.loopexit.us.us.us.us
-  %.0357585.us588.us.us.us = phi ptr [ %43, %swapfunc.exit.loopexit.us.us.us.us ], [ %.0361592.us604.us, %.preheader488.us603.us ]
+  %.0357585.us588.us.us.us = phi ptr [ %43, %swapfunc.exit.loopexit.us.us.us.us ], [ %.0360592.us604.us, %.preheader488.us603.us ]
   %43 = getelementptr inbounds i8, ptr %.0357585.us588.us.us.us, i64 %6
   %44 = load i32, ptr %43, align 4
   %45 = load i32, ptr %.0357585.us588.us.us.us, align 4
@@ -1320,17 +1320,17 @@ swapfunc.exit.loopexit.us.us.us.us:               ; preds = %.preheader728
   br i1 %54, label %.lr.ph586.us607.us, label %.critedge.us605.us
 
 .preheader488.us603:                              ; preds = %.preheader488.lr.ph.split.split.us, %.critedge.us605
-  %.0361592.us604 = phi ptr [ %.0361.us606, %.critedge.us605 ], [ %.0361591, %.preheader488.lr.ph.split.split.us ]
-  %55 = icmp ugt ptr %.0361592.us604, %.0.lcssa
+  %.0360592.us604 = phi ptr [ %.0360.us606, %.critedge.us605 ], [ %.0360591, %.preheader488.lr.ph.split.split.us ]
+  %55 = icmp ugt ptr %.0360592.us604, %.0.lcssa
   br i1 %55, label %.lr.ph586.us607, label %.critedge.us605
 
 .critedge.us605:                                  ; preds = %swapfunc.exit.loopexit.us.us, %.lr.ph586.us607, %.preheader488.us603
-  %.0361.us606 = getelementptr inbounds i8, ptr %.0361592.us604, i64 %2
-  %56 = icmp ult ptr %.0361.us606, %17
+  %.0360.us606 = getelementptr inbounds i8, ptr %.0360592.us604, i64 %2
+  %56 = icmp ult ptr %.0360.us606, %17
   br i1 %56, label %.preheader488.us603, label %.loopexit
 
 .lr.ph586.us607:                                  ; preds = %.preheader488.us603, %swapfunc.exit.loopexit.us.us
-  %.0357585.us588.us = phi ptr [ %57, %swapfunc.exit.loopexit.us.us ], [ %.0361592.us604, %.preheader488.us603 ]
+  %.0357585.us588.us = phi ptr [ %57, %swapfunc.exit.loopexit.us.us ], [ %.0360592.us604, %.preheader488.us603 ]
   %57 = getelementptr inbounds i8, ptr %.0357585.us588.us, i64 %6
   %58 = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %57, ptr noundef nonnull %.0357585.us588.us) #2
   %59 = icmp sgt i32 %58, 0
@@ -1358,17 +1358,17 @@ swapfunc.exit.loopexit.us.us:                     ; preds = %.preheader730
   br i1 %.not404, label %.preheader488.us608, label %.preheader488
 
 .preheader488.us608:                              ; preds = %.preheader488.lr.ph.split.split, %.critedge.us610
-  %.0361592.us609 = phi ptr [ %.0361.us611, %.critedge.us610 ], [ %.0361591, %.preheader488.lr.ph.split.split ]
-  %67 = icmp ugt ptr %.0361592.us609, %.0.lcssa
+  %.0360592.us609 = phi ptr [ %.0360.us611, %.critedge.us610 ], [ %.0360591, %.preheader488.lr.ph.split.split ]
+  %67 = icmp ugt ptr %.0360592.us609, %.0.lcssa
   br i1 %67, label %.lr.ph586.us612, label %.critedge.us610
 
 .critedge.us610:                                  ; preds = %swapfunc.exit.loopexit487.us.us, %.lr.ph586.us612, %.preheader488.us608
-  %.0361.us611 = getelementptr inbounds i8, ptr %.0361592.us609, i64 %2
-  %68 = icmp ult ptr %.0361.us611, %17
+  %.0360.us611 = getelementptr inbounds i8, ptr %.0360592.us609, i64 %2
+  %68 = icmp ult ptr %.0360.us611, %17
   br i1 %68, label %.preheader488.us608, label %.loopexit
 
 .lr.ph586.us612:                                  ; preds = %.preheader488.us608, %swapfunc.exit.loopexit487.us.us
-  %.0357585.us590.us = phi ptr [ %69, %swapfunc.exit.loopexit487.us.us ], [ %.0361592.us609, %.preheader488.us608 ]
+  %.0357585.us590.us = phi ptr [ %69, %swapfunc.exit.loopexit487.us.us ], [ %.0360592.us609, %.preheader488.us608 ]
   %69 = getelementptr inbounds i8, ptr %.0357585.us590.us, i64 %6
   %70 = load i32, ptr %69, align 4
   %71 = load i32, ptr %.0357585.us590.us, align 4
@@ -1395,12 +1395,12 @@ swapfunc.exit.loopexit487.us.us:                  ; preds = %.preheader.us.us
   br i1 %80, label %.lr.ph586.us612, label %.critedge.us610
 
 .preheader488:                                    ; preds = %.preheader488.lr.ph.split.split, %.critedge
-  %.0361592 = phi ptr [ %.0361, %.critedge ], [ %.0361591, %.preheader488.lr.ph.split.split ]
-  %81 = icmp ugt ptr %.0361592, %.0.lcssa
+  %.0360592 = phi ptr [ %.0360, %.critedge ], [ %.0360591, %.preheader488.lr.ph.split.split ]
+  %81 = icmp ugt ptr %.0360592, %.0.lcssa
   br i1 %81, label %.lr.ph586, label %.critedge
 
 .lr.ph586:                                        ; preds = %.preheader488, %swapfunc.exit.loopexit487
-  %.0357585 = phi ptr [ %82, %swapfunc.exit.loopexit487 ], [ %.0361592, %.preheader488 ]
+  %.0357585 = phi ptr [ %82, %swapfunc.exit.loopexit487 ], [ %.0360592, %.preheader488 ]
   %82 = getelementptr inbounds i8, ptr %.0357585, i64 %6
   %83 = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %82, ptr noundef nonnull %.0357585) #2
   %84 = icmp sgt i32 %83, 0
@@ -1425,8 +1425,8 @@ swapfunc.exit.loopexit487:                        ; preds = %.preheader
   br i1 %91, label %.lr.ph586, label %.critedge
 
 .critedge:                                        ; preds = %swapfunc.exit.loopexit487, %.lr.ph586, %.preheader488
-  %.0361 = getelementptr inbounds i8, ptr %.0361592, i64 %2
-  %92 = icmp ult ptr %.0361, %17
+  %.0360 = getelementptr inbounds i8, ptr %.0360592, i64 %2
+  %92 = icmp ult ptr %.0360, %17
   br i1 %92, label %.preheader488, label %.loopexit
 
 93:                                               ; preds = %.lr.ph555, %513
@@ -1665,11 +1665,11 @@ med3_r.exit411.med3_r.exit411.thread_crit_edge:   ; preds = %med3_r.exit411
 
 med3_r.exit411.thread472:                         ; preds = %202, %204, %208, %210, %med3_r.exit411
   %.1358479 = phi ptr [ %.0552, %med3_r.exit411 ], [ %153, %210 ], [ %153, %208 ], [ %153, %204 ], [ %153, %202 ]
-  %.0360478 = phi ptr [ %102, %med3_r.exit411 ], [ %213, %210 ], [ %198, %208 ], [ %207, %204 ], [ %198, %202 ]
-  %.1362477 = phi ptr [ %98, %med3_r.exit411 ], [ %195, %210 ], [ %195, %208 ], [ %195, %204 ], [ %195, %202 ]
-  %237 = tail call i32 %3(ptr noundef %4, ptr noundef %.1358479, ptr noundef %.1362477) #2
+  %.1361478 = phi ptr [ %98, %med3_r.exit411 ], [ %195, %210 ], [ %195, %208 ], [ %195, %204 ], [ %195, %202 ]
+  %.0364477 = phi ptr [ %102, %med3_r.exit411 ], [ %213, %210 ], [ %198, %208 ], [ %207, %204 ], [ %198, %202 ]
+  %237 = tail call i32 %3(ptr noundef %4, ptr noundef %.1358479, ptr noundef %.1361478) #2
   %238 = icmp slt i32 %237, 0
-  %239 = tail call i32 %3(ptr noundef %4, ptr noundef %.1362477, ptr noundef %.0360478) #2
+  %239 = tail call i32 %3(ptr noundef %4, ptr noundef %.1361478, ptr noundef %.0364477) #2
   br i1 %238, label %240, label %246
 
 240:                                              ; preds = %med3_r.exit411.thread472
@@ -1677,9 +1677,9 @@ med3_r.exit411.thread472:                         ; preds = %202, %204, %208, %2
   br i1 %241, label %med3_r.exit412, label %242
 
 242:                                              ; preds = %240
-  %243 = tail call i32 %3(ptr noundef %4, ptr noundef %.1358479, ptr noundef %.0360478) #2
+  %243 = tail call i32 %3(ptr noundef %4, ptr noundef %.1358479, ptr noundef %.0364477) #2
   %244 = icmp slt i32 %243, 0
-  %245 = select i1 %244, ptr %.0360478, ptr %.1358479
+  %245 = select i1 %244, ptr %.0364477, ptr %.1358479
   br label %med3_r.exit412
 
 246:                                              ; preds = %med3_r.exit411.thread472
@@ -1687,20 +1687,20 @@ med3_r.exit411.thread472:                         ; preds = %202, %204, %208, %2
   br i1 %247, label %med3_r.exit412, label %248
 
 248:                                              ; preds = %246
-  %249 = tail call i32 %3(ptr noundef %4, ptr noundef %.1358479, ptr noundef %.0360478) #2
+  %249 = tail call i32 %3(ptr noundef %4, ptr noundef %.1358479, ptr noundef %.0364477) #2
   %250 = icmp slt i32 %249, 0
-  %251 = select i1 %250, ptr %.1358479, ptr %.0360478
+  %251 = select i1 %250, ptr %.1358479, ptr %.0364477
   br label %med3_r.exit412
 
 med3_r.exit411.thread:                            ; preds = %med3_r.exit411.med3_r.exit411.thread_crit_edge, %234, %232, %229, %227
   %252 = phi i32 [ %.pre678, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %215, %227 ], [ %215, %229 ], [ %215, %232 ], [ %215, %234 ]
   %253 = phi i32 [ %.pre, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %173, %227 ], [ %173, %229 ], [ %173, %232 ], [ %173, %234 ]
   %.1358469 = phi ptr [ %.0552, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %.ph, %227 ], [ %.ph, %229 ], [ %.ph, %232 ], [ %.ph, %234 ]
-  %.0360468 = phi ptr [ %102, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %221, %227 ], [ %.406, %229 ], [ %221, %232 ], [ %.407, %234 ]
-  %.1362467 = phi ptr [ %98, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %.ph462, %227 ], [ %.ph462, %229 ], [ %.ph462, %232 ], [ %.ph462, %234 ]
+  %.1361468 = phi ptr [ %98, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %.ph462, %227 ], [ %.ph462, %229 ], [ %.ph462, %232 ], [ %.ph462, %234 ]
+  %.0364467 = phi ptr [ %102, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %221, %227 ], [ %.406, %229 ], [ %221, %232 ], [ %.407, %234 ]
   %254 = sub i32 %253, %252
   %255 = icmp slt i32 %254, 0
-  %256 = load i32, ptr %.0360468, align 4
+  %256 = load i32, ptr %.0364467, align 4
   %257 = sub i32 %252, %256
   br i1 %255, label %258, label %264
 
@@ -1711,7 +1711,7 @@ med3_r.exit411.thread:                            ; preds = %med3_r.exit411.med3
 260:                                              ; preds = %258
   %261 = sub i32 %253, %256
   %262 = icmp slt i32 %261, 0
-  %263 = select i1 %262, ptr %.0360468, ptr %.1358469
+  %263 = select i1 %262, ptr %.0364467, ptr %.1358469
   br label %med3_r.exit412
 
 264:                                              ; preds = %med3_r.exit411.thread
@@ -1721,26 +1721,26 @@ med3_r.exit411.thread:                            ; preds = %med3_r.exit411.med3
 266:                                              ; preds = %264
   %267 = sub i32 %253, %256
   %268 = icmp slt i32 %267, 0
-  %269 = select i1 %268, ptr %.1358469, ptr %.0360468
+  %269 = select i1 %268, ptr %.1358469, ptr %.0364467
   br label %med3_r.exit412
 
 med3_r.exit412:                                   ; preds = %248, %246, %242, %240, %266, %260, %258, %264, %93
-  %.2363 = phi ptr [ %98, %93 ], [ %263, %260 ], [ %269, %266 ], [ %.1362467, %258 ], [ %.1362467, %264 ], [ %245, %242 ], [ %251, %248 ], [ %.1362477, %240 ], [ %.1362477, %246 ]
+  %.2362 = phi ptr [ %98, %93 ], [ %263, %260 ], [ %269, %266 ], [ %.1361468, %258 ], [ %.1361468, %264 ], [ %245, %242 ], [ %251, %248 ], [ %.1361478, %240 ], [ %.1361478, %246 ]
   %270 = icmp eq i32 %94, 0
   br i1 %270, label %271, label %274
 
 271:                                              ; preds = %med3_r.exit412
   %272 = load i64, ptr %.0552, align 8
-  %273 = load i64, ptr %.2363, align 8
+  %273 = load i64, ptr %.2362, align 8
   store i64 %273, ptr %.0552, align 8
-  store i64 %272, ptr %.2363, align 8
+  store i64 %272, ptr %.2362, align 8
   br label %swapfunc.exit419
 
 274:                                              ; preds = %med3_r.exit412
   br i1 %or.cond553, label %.preheader633, label %.preheader505
 
 .preheader633:                                    ; preds = %274, %.preheader633
-  %.022.i416 = phi ptr [ %278, %.preheader633 ], [ %.2363, %274 ]
+  %.022.i416 = phi ptr [ %278, %.preheader633 ], [ %.2362, %274 ]
   %.021.i417 = phi ptr [ %277, %.preheader633 ], [ %.0552, %274 ]
   %.0.i418 = phi i64 [ %279, %.preheader633 ], [ %15, %274 ]
   %275 = load i64, ptr %.021.i417, align 8
@@ -1756,7 +1756,7 @@ med3_r.exit412:                                   ; preds = %248, %246, %242, %2
 .preheader505:                                    ; preds = %274, %.preheader505
   %.020.i413 = phi i64 [ %285, %.preheader505 ], [ %14, %274 ]
   %.019.i414 = phi ptr [ %283, %.preheader505 ], [ %.0552, %274 ]
-  %.018.i415 = phi ptr [ %284, %.preheader505 ], [ %.2363, %274 ]
+  %.018.i415 = phi ptr [ %284, %.preheader505 ], [ %.2362, %274 ]
   %281 = load i8, ptr %.019.i414, align 1
   %282 = load i8, ptr %.018.i415, align 1
   %283 = getelementptr inbounds i8, ptr %.019.i414, i64 1
@@ -2010,22 +2010,22 @@ swapfunc.exit440:                                 ; preds = %.preheader499, %.pr
   br i1 %.not396, label %.preheader492.us.us, label %.preheader492.us
 
 .preheader492.us.us:                              ; preds = %.preheader492.lr.ph.split.us, %.critedge6.us.us
-  %.3364566.us.us = phi ptr [ %377, %.critedge6.us.us ], [ %287, %.preheader492.lr.ph.split.us ]
-  %376 = icmp ugt ptr %.3364566.us.us, %.0552
+  %.3363566.us.us = phi ptr [ %377, %.critedge6.us.us ], [ %287, %.preheader492.lr.ph.split.us ]
+  %376 = icmp ugt ptr %.3363566.us.us, %.0552
   br i1 %376, label %.lr.ph561.us.us.preheader, label %.critedge6.us.us
 
 .lr.ph561.us.us.preheader:                        ; preds = %.preheader492.us.us
-  %.pre679 = load i32, ptr %.3364566.us.us, align 4
+  %.pre679 = load i32, ptr %.3363566.us.us, align 4
   br label %.lr.ph561.us.us
 
 .critedge6.us.us:                                 ; preds = %swapfunc.exit447.us.us.us.us, %.lr.ph561.us.us, %.preheader492.us.us
-  %377 = getelementptr inbounds i8, ptr %.3364566.us.us, i64 %2
+  %377 = getelementptr inbounds i8, ptr %.3363566.us.us, i64 %2
   %378 = icmp ult ptr %377, %374
   br i1 %378, label %.preheader492.us.us, label %.loopexit
 
 .lr.ph561.us.us:                                  ; preds = %.lr.ph561.us.us.preheader, %swapfunc.exit447.us.us.us.us
   %379 = phi i32 [ %387, %swapfunc.exit447.us.us.us.us ], [ %.pre679, %.lr.ph561.us.us.preheader ]
-  %.2359560.us.us.us.us = phi ptr [ %380, %swapfunc.exit447.us.us.us.us ], [ %.3364566.us.us, %.lr.ph561.us.us.preheader ]
+  %.2359560.us.us.us.us = phi ptr [ %380, %swapfunc.exit447.us.us.us.us ], [ %.3363566.us.us, %.lr.ph561.us.us.preheader ]
   %380 = getelementptr inbounds i8, ptr %.2359560.us.us.us.us, i64 %6
   %381 = load i32, ptr %380, align 4
   %382 = sub i32 %381, %379
@@ -2042,17 +2042,17 @@ swapfunc.exit447.us.us.us.us:                     ; preds = %.lr.ph561.us.us
   br i1 %386, label %.lr.ph561.us.us, label %.critedge6.us.us
 
 .preheader492.us:                                 ; preds = %.preheader492.lr.ph.split.us, %.critedge6.us
-  %.3364566.us = phi ptr [ %389, %.critedge6.us ], [ %287, %.preheader492.lr.ph.split.us ]
-  %388 = icmp ugt ptr %.3364566.us, %.0552
+  %.3363566.us = phi ptr [ %389, %.critedge6.us ], [ %287, %.preheader492.lr.ph.split.us ]
+  %388 = icmp ugt ptr %.3363566.us, %.0552
   br i1 %388, label %.lr.ph561.us, label %.critedge6.us
 
 .critedge6.us:                                    ; preds = %swapfunc.exit447.us.us573, %.lr.ph561.us, %.preheader492.us
-  %389 = getelementptr inbounds i8, ptr %.3364566.us, i64 %2
+  %389 = getelementptr inbounds i8, ptr %.3363566.us, i64 %2
   %390 = icmp ult ptr %389, %374
   br i1 %390, label %.preheader492.us, label %.loopexit
 
 .lr.ph561.us:                                     ; preds = %.preheader492.us, %swapfunc.exit447.us.us573
-  %.2359560.us.us572 = phi ptr [ %391, %swapfunc.exit447.us.us573 ], [ %.3364566.us, %.preheader492.us ]
+  %.2359560.us.us572 = phi ptr [ %391, %swapfunc.exit447.us.us573 ], [ %.3363566.us, %.preheader492.us ]
   %391 = getelementptr inbounds i8, ptr %.2359560.us.us572, i64 %6
   %392 = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %391, ptr noundef nonnull %.2359560.us.us572) #2
   %393 = icmp sgt i32 %392, 0
@@ -2073,17 +2073,17 @@ swapfunc.exit447.us.us573:                        ; preds = %.lr.ph561.us
   br i1 %.not396, label %.preheader492.us577.us, label %.preheader492.us577
 
 .preheader492.us577.us:                           ; preds = %.preheader492.lr.ph.split.split.us, %.critedge6.us579.us
-  %.3364566.us578.us = phi ptr [ %398, %.critedge6.us579.us ], [ %287, %.preheader492.lr.ph.split.split.us ]
-  %397 = icmp ugt ptr %.3364566.us578.us, %.0552
+  %.3363566.us578.us = phi ptr [ %398, %.critedge6.us579.us ], [ %287, %.preheader492.lr.ph.split.split.us ]
+  %397 = icmp ugt ptr %.3363566.us578.us, %.0552
   br i1 %397, label %.lr.ph561.us580.us, label %.critedge6.us579.us
 
 .critedge6.us579.us:                              ; preds = %swapfunc.exit447.loopexit.us.us.us.us, %.lr.ph561.us580.us, %.preheader492.us577.us
-  %398 = getelementptr inbounds i8, ptr %.3364566.us578.us, i64 %2
+  %398 = getelementptr inbounds i8, ptr %.3363566.us578.us, i64 %2
   %399 = icmp ult ptr %398, %374
   br i1 %399, label %.preheader492.us577.us, label %.loopexit
 
 .lr.ph561.us580.us:                               ; preds = %.preheader492.us577.us, %swapfunc.exit447.loopexit.us.us.us.us
-  %.2359560.us563.us.us.us = phi ptr [ %400, %swapfunc.exit447.loopexit.us.us.us.us ], [ %.3364566.us578.us, %.preheader492.us577.us ]
+  %.2359560.us563.us.us.us = phi ptr [ %400, %swapfunc.exit447.loopexit.us.us.us.us ], [ %.3363566.us578.us, %.preheader492.us577.us ]
   %400 = getelementptr inbounds i8, ptr %.2359560.us563.us.us.us, i64 %6
   %401 = load i32, ptr %400, align 4
   %402 = load i32, ptr %.2359560.us563.us.us.us, align 4
@@ -2110,17 +2110,17 @@ swapfunc.exit447.loopexit.us.us.us.us:            ; preds = %.preheader736
   br i1 %411, label %.lr.ph561.us580.us, label %.critedge6.us579.us
 
 .preheader492.us577:                              ; preds = %.preheader492.lr.ph.split.split.us, %.critedge6.us579
-  %.3364566.us578 = phi ptr [ %413, %.critedge6.us579 ], [ %287, %.preheader492.lr.ph.split.split.us ]
-  %412 = icmp ugt ptr %.3364566.us578, %.0552
+  %.3363566.us578 = phi ptr [ %413, %.critedge6.us579 ], [ %287, %.preheader492.lr.ph.split.split.us ]
+  %412 = icmp ugt ptr %.3363566.us578, %.0552
   br i1 %412, label %.lr.ph561.us580, label %.critedge6.us579
 
 .critedge6.us579:                                 ; preds = %swapfunc.exit447.loopexit.us.us, %.lr.ph561.us580, %.preheader492.us577
-  %413 = getelementptr inbounds i8, ptr %.3364566.us578, i64 %2
+  %413 = getelementptr inbounds i8, ptr %.3363566.us578, i64 %2
   %414 = icmp ult ptr %413, %374
   br i1 %414, label %.preheader492.us577, label %.loopexit
 
 .lr.ph561.us580:                                  ; preds = %.preheader492.us577, %swapfunc.exit447.loopexit.us.us
-  %.2359560.us563.us = phi ptr [ %415, %swapfunc.exit447.loopexit.us.us ], [ %.3364566.us578, %.preheader492.us577 ]
+  %.2359560.us563.us = phi ptr [ %415, %swapfunc.exit447.loopexit.us.us ], [ %.3363566.us578, %.preheader492.us577 ]
   %415 = getelementptr inbounds i8, ptr %.2359560.us563.us, i64 %6
   %416 = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %415, ptr noundef nonnull %.2359560.us563.us) #2
   %417 = icmp sgt i32 %416, 0
@@ -2148,17 +2148,17 @@ swapfunc.exit447.loopexit.us.us:                  ; preds = %.preheader738
   br i1 %.not396, label %.preheader492.us581, label %.preheader492
 
 .preheader492.us581:                              ; preds = %.preheader492.lr.ph.split.split, %.critedge6.us583
-  %.3364566.us582 = phi ptr [ %426, %.critedge6.us583 ], [ %287, %.preheader492.lr.ph.split.split ]
-  %425 = icmp ugt ptr %.3364566.us582, %.0552
+  %.3363566.us582 = phi ptr [ %426, %.critedge6.us583 ], [ %287, %.preheader492.lr.ph.split.split ]
+  %425 = icmp ugt ptr %.3363566.us582, %.0552
   br i1 %425, label %.lr.ph561.us584, label %.critedge6.us583
 
 .critedge6.us583:                                 ; preds = %swapfunc.exit447.loopexit491.us.us, %.lr.ph561.us584, %.preheader492.us581
-  %426 = getelementptr inbounds i8, ptr %.3364566.us582, i64 %2
+  %426 = getelementptr inbounds i8, ptr %.3363566.us582, i64 %2
   %427 = icmp ult ptr %426, %374
   br i1 %427, label %.preheader492.us581, label %.loopexit
 
 .lr.ph561.us584:                                  ; preds = %.preheader492.us581, %swapfunc.exit447.loopexit491.us.us
-  %.2359560.us565.us = phi ptr [ %428, %swapfunc.exit447.loopexit491.us.us ], [ %.3364566.us582, %.preheader492.us581 ]
+  %.2359560.us565.us = phi ptr [ %428, %swapfunc.exit447.loopexit491.us.us ], [ %.3363566.us582, %.preheader492.us581 ]
   %428 = getelementptr inbounds i8, ptr %.2359560.us565.us, i64 %6
   %429 = load i32, ptr %428, align 4
   %430 = load i32, ptr %.2359560.us565.us, align 4
@@ -2185,12 +2185,12 @@ swapfunc.exit447.loopexit491.us.us:               ; preds = %.preheader490.us.us
   br i1 %439, label %.lr.ph561.us584, label %.critedge6.us583
 
 .preheader492:                                    ; preds = %.preheader492.lr.ph.split.split, %.critedge6
-  %.3364566 = phi ptr [ %451, %.critedge6 ], [ %287, %.preheader492.lr.ph.split.split ]
-  %440 = icmp ugt ptr %.3364566, %.0552
+  %.3363566 = phi ptr [ %451, %.critedge6 ], [ %287, %.preheader492.lr.ph.split.split ]
+  %440 = icmp ugt ptr %.3363566, %.0552
   br i1 %440, label %.lr.ph561, label %.critedge6
 
 .lr.ph561:                                        ; preds = %.preheader492, %swapfunc.exit447.loopexit491
-  %.2359560 = phi ptr [ %441, %swapfunc.exit447.loopexit491 ], [ %.3364566, %.preheader492 ]
+  %.2359560 = phi ptr [ %441, %swapfunc.exit447.loopexit491 ], [ %.3363566, %.preheader492 ]
   %441 = getelementptr inbounds i8, ptr %.2359560, i64 %6
   %442 = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %441, ptr noundef nonnull %.2359560) #2
   %443 = icmp sgt i32 %442, 0
@@ -2215,7 +2215,7 @@ swapfunc.exit447.loopexit491:                     ; preds = %.preheader490
   br i1 %450, label %.lr.ph561, label %.critedge6
 
 .critedge6:                                       ; preds = %swapfunc.exit447.loopexit491, %.lr.ph561, %.preheader492
-  %451 = getelementptr inbounds i8, ptr %.3364566, i64 %2
+  %451 = getelementptr inbounds i8, ptr %.3363566, i64 %2
   %452 = icmp ult ptr %451, %374
   br i1 %452, label %.preheader492, label %.loopexit
 

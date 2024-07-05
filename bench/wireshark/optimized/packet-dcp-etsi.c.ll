@@ -497,7 +497,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %38
 
 38:                                               ; preds = %30, %4
-  %.0111 = phi i16 [ %32, %30 ], [ 0, %4 ]
+  %.0113 = phi i16 [ %32, %30 ], [ 0, %4 ]
   %.0 = phi i32 [ 14, %30 ], [ 12, %4 ]
   %39 = and i16 %22, 16384
   %.not116 = icmp eq i16 %39, 0
@@ -572,7 +572,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 81:                                               ; preds = %77
   %82 = mul nuw i32 %64, %19
-  %83 = zext nneg i16 %.0111 to i32
+  %83 = zext nneg i16 %.0113 to i32
   %84 = add nuw nsw i32 %83, 48
   %85 = udiv i32 %82, %84
   %86 = mul nuw i32 %85, 48
@@ -646,8 +646,8 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph161.i.i:                                    ; preds = %._crit_edge.i.i, %.lr.ph161.i.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph161.i.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i.i ]
-  %.0125159.i.i = phi ptr [ null, %.lr.ph161.i.preheader.i ], [ %.1126.lcssa.i.i, %._crit_edge.i.i ]
-  %.0127158.i.i = phi i32 [ 0, %.lr.ph161.i.preheader.i ], [ %131, %._crit_edge.i.i ]
+  %.0126158.i.i = phi i32 [ 0, %.lr.ph161.i.preheader.i ], [ %131, %._crit_edge.i.i ]
+  %.0128157.i.i = phi ptr [ null, %.lr.ph161.i.preheader.i ], [ %.1129.lcssa.i.i, %._crit_edge.i.i ]
   %116 = getelementptr i32, ptr %95, i64 %indvars.iv.i
   %117 = load i32, ptr %116, align 4
   %118 = icmp ugt i32 %117, 262144
@@ -658,12 +658,12 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_pft_fec_detailed.exit.thread.i
 
 121:                                              ; preds = %.lr.ph161.i.i
-  %122 = sub i32 %117, %.0127158.i.i
+  %122 = sub i32 %117, %.0126158.i.i
   %123 = icmp ugt i32 %122, 1000
   br i1 %123, label %125, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %121
-  %124 = icmp ult i32 %.0127158.i.i, %117
+  %124 = icmp ult i32 %.0126158.i.i, %117
   br i1 %124, label %.lr.ph154.i.i, label %._crit_edge.i.i
 
 125:                                              ; preds = %121
@@ -671,30 +671,30 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_pft_fec_detailed.exit.thread.i
 
 .lr.ph154.i.i:                                    ; preds = %.preheader.i.i, %.lr.ph154.i.i
-  %.1128153.i.i = phi i32 [ %127, %.lr.ph154.i.i ], [ %.0127158.i.i, %.preheader.i.i ]
-  %127 = add nuw i32 %.1128153.i.i, 1
+  %.1127153.i.i = phi i32 [ %127, %.lr.ph154.i.i ], [ %.0126158.i.i, %.preheader.i.i ]
+  %127 = add nuw i32 %.1127153.i.i, 1
   %128 = icmp ne i32 %127, %19
   %129 = zext i1 %128 to i32
-  %130 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @dcp_reassembly_table, ptr noundef %113, i32 noundef 0, ptr noundef %1, i32 noundef %74, ptr noundef null, i32 noundef %.1128153.i.i, i32 noundef %64, i32 noundef %129) #3
+  %130 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @dcp_reassembly_table, ptr noundef %113, i32 noundef 0, ptr noundef %1, i32 noundef %74, ptr noundef null, i32 noundef %.1127153.i.i, i32 noundef %64, i32 noundef %129) #3
   %exitcond.not.i.i = icmp eq i32 %127, %117
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph154.i.i, !llvm.loop !6
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph154.i.i, %.preheader.i.i
-  %.1128.lcssa.i.i = phi i32 [ %.0127158.i.i, %.preheader.i.i ], [ %117, %.lr.ph154.i.i ]
-  %.1126.lcssa.i.i = phi ptr [ %.0125159.i.i, %.preheader.i.i ], [ %130, %.lr.ph154.i.i ]
-  %131 = add i32 %.1128.lcssa.i.i, 1
+  %.1129.lcssa.i.i = phi ptr [ %.0128157.i.i, %.preheader.i.i ], [ %130, %.lr.ph154.i.i ]
+  %.1127.lcssa.i.i = phi i32 [ %.0126158.i.i, %.preheader.i.i ], [ %117, %.lr.ph154.i.i ]
+  %131 = add i32 %.1127.lcssa.i.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond171.not.i.i = icmp eq i64 %indvars.iv.next.i, %115
   br i1 %exitcond171.not.i.i, label %._crit_edge162.i.i, label %.lr.ph161.i.i, !llvm.loop !7
 
 ._crit_edge162.i.i:                               ; preds = %._crit_edge.i.i
   tail call void @tvb_free(ptr noundef %113) #3
-  %.not137.i.i = icmp eq ptr %.1126.lcssa.i.i, null
+  %.not137.i.i = icmp eq ptr %.1129.lcssa.i.i, null
   br i1 %.not137.i.i, label %dissect_pft_fec_detailed.exit.thread.i, label %132
 
 132:                                              ; preds = %._crit_edge162.i.i, %81
-  %.1126.lcssa.lcssa.sink.i.i = phi ptr [ %76, %81 ], [ %.1126.lcssa.i.i, %._crit_edge162.i.i ]
-  %133 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.pre, ptr noundef %1, ptr noundef nonnull @.str.123, ptr noundef nonnull %.1126.lcssa.lcssa.sink.i.i, ptr noundef nonnull @dcp_frag_items, ptr noundef null, ptr noundef %10) #3
+  %.1129.lcssa.lcssa.sink.i.i = phi ptr [ %76, %81 ], [ %.1129.lcssa.i.i, %._crit_edge162.i.i ]
+  %133 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.pre, ptr noundef %1, ptr noundef nonnull @.str.123, ptr noundef nonnull %.1129.lcssa.lcssa.sink.i.i, ptr noundef nonnull @dcp_frag_items, ptr noundef null, ptr noundef %10) #3
   %.not139.i.i = icmp eq ptr %133, null
   br i1 %.not139.i.i, label %dissect_pft_fec_detailed.exit.thread.i, label %134
 
@@ -753,7 +753,7 @@ rs_deinterleave.exit.i.i:                         ; preds = %._crit_edge.us.i.i.
   br i1 %.not.i141.i.i, label %rs_correct_data.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %rs_deinterleave.exit.i.i
-  %159 = zext nneg i16 %.0111 to i64
+  %159 = zext nneg i16 %.0113 to i64
   br label %160
 
 160:                                              ; preds = %171, %.lr.ph.i.i.i
@@ -835,7 +835,7 @@ dissect_pft_fec_detailed.exit.thread.i:           ; preds = %dissect_pft_fec_det
   br label %dissect_pft_fragmented.exit
 
 dissect_pft_fragmented.exit:                      ; preds = %187, %186, %69
-  %.0113 = phi ptr [ null, %69 ], [ %.043.i, %186 ], [ %.043.i120123, %187 ]
+  %.0110 = phi ptr [ null, %69 ], [ %.043.i, %186 ], [ %.043.i120123, %187 ]
   store i32 %60, ptr %59, align 8
   br label %191
 
@@ -844,12 +844,12 @@ dissect_pft_fragmented.exit:                      ; preds = %187, %186, %69
   br label %191
 
 191:                                              ; preds = %189, %dissect_pft_fragmented.exit
-  %.1114 = phi ptr [ %.0113, %dissect_pft_fragmented.exit ], [ %190, %189 ]
-  %.not118 = icmp eq ptr %.1114, null
+  %.1111 = phi ptr [ %.0110, %dissect_pft_fragmented.exit ], [ %190, %189 ]
+  %.not118 = icmp eq ptr %.1111, null
   br i1 %.not118, label %194, label %192
 
 192:                                              ; preds = %191
-  %193 = tail call i32 @dissect_af(ptr noundef nonnull %.1114, ptr noundef nonnull %1, ptr noundef %2, ptr poison)
+  %193 = tail call i32 @dissect_af(ptr noundef nonnull %.1111, ptr noundef nonnull %1, ptr noundef %2, ptr poison)
   br label %194
 
 194:                                              ; preds = %192, %191
@@ -875,10 +875,10 @@ define internal i32 @dissect_tpl(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %13
 
 13:                                               ; preds = %.lr.ph, %13
-  %.02930 = phi i32 [ 0, %.lr.ph ], [ %28, %13 ]
+  %.030 = phi i32 [ 0, %.lr.ph ], [ %28, %13 ]
   %14 = load ptr, ptr %12, align 8
-  %15 = tail call ptr @tvb_get_string_enc(ptr noundef %14, ptr noundef %0, i32 noundef %.02930, i32 noundef 4, i32 noundef 0) #3
-  %16 = add i32 %.02930, 4
+  %15 = tail call ptr @tvb_get_string_enc(ptr noundef %14, ptr noundef %0, i32 noundef %.030, i32 noundef 4, i32 noundef 0) #3
+  %16 = add i32 %.030, 4
   %17 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %16) #3
   %18 = lshr i32 %17, 3
   %19 = and i32 %17, 7
@@ -887,12 +887,12 @@ define internal i32 @dissect_tpl(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %spec.select = add nuw nsw i32 %18, %20
   %21 = load i32, ptr @hf_tpl_tlv, align 4
   %22 = add nuw nsw i32 %spec.select, 8
-  %23 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %10, i32 noundef %21, ptr noundef %0, i32 noundef %.02930, i32 noundef %22, ptr noundef null, ptr noundef nonnull @.str.134, ptr noundef %15, i32 noundef %17) #3
-  %24 = add i32 %.02930, 8
+  %23 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %10, i32 noundef %21, ptr noundef %0, i32 noundef %.030, i32 noundef %22, ptr noundef null, ptr noundef nonnull @.str.134, ptr noundef %15, i32 noundef %17) #3
+  %24 = add i32 %.030, 8
   %25 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %24, i32 noundef %spec.select) #3
   %26 = load ptr, ptr @tpl_dissector_table, align 8
   %27 = tail call i32 @dissector_try_string(ptr noundef %26, ptr noundef %15, ptr noundef %25, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null) #3
-  %28 = add i32 %22, %.02930
+  %28 = add i32 %22, %.030
   %29 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %30 = icmp ult i32 %28, %29
   br i1 %30, label %13, label %._crit_edge, !llvm.loop !11

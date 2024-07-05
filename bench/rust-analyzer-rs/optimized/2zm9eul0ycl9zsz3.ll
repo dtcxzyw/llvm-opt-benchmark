@@ -18093,8 +18093,8 @@ _ZN4core4iter6traits8iterator8Iterator4find17h232c8818674a6908E.exit.i: ; preds 
   br label %162
 
 162:                                              ; preds = %161, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h3ce99abb36bf8ff7E.exit97.i"
-  %163 = phi i64 [ 0, %161 ], [ 1, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h3ce99abb36bf8ff7E.exit97.i" ]
-  %164 = phi ptr [ @anon.1eb937629536308b0fe3bd2cbcc08bd4.35, %161 ], [ @anon.1eb937629536308b0fe3bd2cbcc08bd4.256, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h3ce99abb36bf8ff7E.exit97.i" ]
+  %163 = phi ptr [ @anon.1eb937629536308b0fe3bd2cbcc08bd4.35, %161 ], [ @anon.1eb937629536308b0fe3bd2cbcc08bd4.256, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h3ce99abb36bf8ff7E.exit97.i" ]
+  %164 = phi i64 [ 0, %161 ], [ 1, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h3ce99abb36bf8ff7E.exit97.i" ]
   switch i16 %154, label %166 [
     i16 3, label %165
     i16 4, label %165
@@ -18177,9 +18177,9 @@ _ZN4core4iter6traits8iterator8Iterator4find17h232c8818674a6908E.exit.i: ; preds 
   %.sroa.033.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %168, ptr %.sroa.033.sroa.4.0..sroa_idx.i, align 8, !alias.scope !3623
   %.sroa.033.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr %164, ptr %.sroa.033.sroa.5.0..sroa_idx.i, align 8, !alias.scope !3623
+  store ptr %163, ptr %.sroa.033.sroa.5.0..sroa_idx.i, align 8, !alias.scope !3623
   %.sroa.033.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 24
-  store i64 %163, ptr %.sroa.033.sroa.6.0..sroa_idx.i, align 8, !alias.scope !3623
+  store i64 %164, ptr %.sroa.033.sroa.6.0..sroa_idx.i, align 8, !alias.scope !3623
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 32
   store i32 %.0.i.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !3623
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 36

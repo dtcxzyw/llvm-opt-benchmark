@@ -105,15 +105,15 @@ define void @zend_observer_post_startup() local_unnamed_addr #0 {
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
-  %.03546 = phi i32 [ %27, %25 ], [ %8, %.lr.ph.preheader ]
-  %.03645 = phi ptr [ %26, %25 ], [ %16, %.lr.ph.preheader ]
-  %17 = getelementptr inbounds i8, ptr %.03645, i64 8
+  %.046 = phi i32 [ %27, %25 ], [ %8, %.lr.ph.preheader ]
+  %.03545 = phi ptr [ %26, %25 ], [ %16, %.lr.ph.preheader ]
+  %17 = getelementptr inbounds i8, ptr %.03545, i64 8
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %25, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = load ptr, ptr %.03645, align 8
+  %21 = load ptr, ptr %.03545, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 72
   %23 = load i32, ptr %22, align 8
   %24 = add i32 %23, 1
@@ -121,8 +121,8 @@ define void @zend_observer_post_startup() local_unnamed_addr #0 {
   br label %25
 
 25:                                               ; preds = %.lr.ph, %20
-  %26 = getelementptr inbounds i8, ptr %.03645, i64 %14
-  %27 = add i32 %.03546, -1
+  %26 = getelementptr inbounds i8, ptr %.03545, i64 %14
+  %27 = add i32 %.046, -1
   %.not38 = icmp eq i32 %27, 0
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
@@ -143,14 +143,14 @@ define void @zend_observer_post_startup() local_unnamed_addr #0 {
   br i1 %.not4051, label %.loopexit43, label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %._crit_edge, %.loopexit
-  %.03452 = phi ptr [ %62, %.loopexit ], [ %30, %._crit_edge ]
-  %38 = getelementptr inbounds i8, ptr %.03452, i64 8
+  %.03652 = phi ptr [ %62, %.loopexit ], [ %30, %._crit_edge ]
+  %38 = getelementptr inbounds i8, ptr %.03652, i64 8
   %39 = load i8, ptr %38, align 8
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %.lr.ph54
-  %42 = load ptr, ptr %.03452, align 8
+  %42 = load ptr, ptr %.03652, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 80
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %42, i64 88
@@ -166,14 +166,14 @@ define void @zend_observer_post_startup() local_unnamed_addr #0 {
   br i1 %.not4247, label %.loopexit, label %.lr.ph50
 
 .lr.ph50:                                         ; preds = %41, %60
-  %.048 = phi ptr [ %61, %60 ], [ %44, %41 ]
-  %52 = getelementptr inbounds i8, ptr %.048, i64 8
+  %.03448 = phi ptr [ %61, %60 ], [ %44, %41 ]
+  %52 = getelementptr inbounds i8, ptr %.03448, i64 8
   %53 = load i8, ptr %52, align 8
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %60, label %55
 
 55:                                               ; preds = %.lr.ph50
-  %56 = load ptr, ptr %.048, align 8
+  %56 = load ptr, ptr %.03448, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 72
   %58 = load i32, ptr %57, align 8
   %59 = add i32 %58, 1
@@ -181,12 +181,12 @@ define void @zend_observer_post_startup() local_unnamed_addr #0 {
   br label %60
 
 60:                                               ; preds = %.lr.ph50, %55
-  %61 = getelementptr inbounds i8, ptr %.048, i64 32
+  %61 = getelementptr inbounds i8, ptr %.03448, i64 32
   %.not42 = icmp eq ptr %61, %48
   br i1 %.not42, label %.loopexit, label %.lr.ph50
 
 .loopexit:                                        ; preds = %60, %41, %.lr.ph54
-  %62 = getelementptr inbounds i8, ptr %.03452, i64 32
+  %62 = getelementptr inbounds i8, ptr %.03652, i64 32
   %.not40 = icmp eq ptr %62, %34
   br i1 %.not40, label %.loopexit43, label %.lr.ph54
 
@@ -520,21 +520,21 @@ define internal fastcc void @_zend_observe_fcall_begin(ptr noundef %0) unnamed_a
   %30 = getelementptr inbounds ptr, ptr %28, i64 %29
   store ptr inttoptr (i64 2 to ptr), ptr %28, align 8
   store ptr inttoptr (i64 2 to ptr), ptr %30, align 8
-  %.03242.i = load ptr, ptr @zend_observers_fcall_list, align 8
-  %.not3943.i = icmp eq ptr %.03242.i, null
+  %.03542.i = load ptr, ptr @zend_observers_fcall_list, align 8
+  %.not3943.i = icmp eq ptr %.03542.i, null
   br i1 %.not3943.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %41, %.thread.i
-  %.034.lcssa.i = phi ptr [ %30, %.thread.i ], [ %.135.i, %41 ]
-  %.247.i = getelementptr inbounds i8, ptr %.034.lcssa.i, i64 -8
+  %.032.lcssa.i = phi ptr [ %30, %.thread.i ], [ %.133.i, %41 ]
+  %.247.i = getelementptr inbounds i8, ptr %.032.lcssa.i, i64 -8
   %31 = icmp ult ptr %30, %.247.i
   br i1 %31, label %.lr.ph50.i, label %zend_observer_fcall_install.exit
 
 .lr.ph.i:                                         ; preds = %.thread.i, %41
-  %.03246.i = phi ptr [ %.032.i, %41 ], [ %.03242.i, %.thread.i ]
+  %.03546.i = phi ptr [ %.035.i, %41 ], [ %.03542.i, %.thread.i ]
   %.045.i = phi ptr [ %.1.i, %41 ], [ %28, %.thread.i ]
-  %.03444.i = phi ptr [ %.135.i, %41 ], [ %30, %.thread.i ]
-  %32 = getelementptr inbounds i8, ptr %.03246.i, i64 16
+  %.03244.i = phi ptr [ %.133.i, %41 ], [ %30, %.thread.i ]
+  %32 = getelementptr inbounds i8, ptr %.03546.i, i64 16
   %.0.copyload.i = load ptr, ptr %32, align 8
   %33 = tail call { ptr, ptr } %.0.copyload.i(ptr noundef %0) #8
   %34 = extractvalue { ptr, ptr } %33, 0
@@ -553,24 +553,24 @@ define internal fastcc void @_zend_observe_fcall_begin(ptr noundef %0) unnamed_a
   br i1 %.not41.i, label %41, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %.03444.i, i64 8
-  store ptr %35, ptr %.03444.i, align 8
+  %40 = getelementptr inbounds i8, ptr %.03244.i, i64 8
+  store ptr %35, ptr %.03244.i, align 8
   br label %41
 
 41:                                               ; preds = %39, %38
-  %.135.i = phi ptr [ %40, %39 ], [ %.03444.i, %38 ]
-  %.032.i = load ptr, ptr %.03246.i, align 8
-  %.not39.i = icmp eq ptr %.032.i, null
+  %.133.i = phi ptr [ %40, %39 ], [ %.03244.i, %38 ]
+  %.035.i = load ptr, ptr %.03546.i, align 8
+  %.not39.i = icmp eq ptr %.035.i, null
   br i1 %.not39.i, label %.preheader.i, label %.lr.ph.i
 
 .lr.ph50.i:                                       ; preds = %.preheader.i, %.lr.ph50.i
   %.249.i = phi ptr [ %.2.i, %.lr.ph50.i ], [ %.247.i, %.preheader.i ]
-  %.03348.i = phi ptr [ %44, %.lr.ph50.i ], [ %30, %.preheader.i ]
+  %.03448.i = phi ptr [ %44, %.lr.ph50.i ], [ %30, %.preheader.i ]
   %42 = load ptr, ptr %.249.i, align 8
-  %43 = load ptr, ptr %.03348.i, align 8
+  %43 = load ptr, ptr %.03448.i, align 8
   store ptr %43, ptr %.249.i, align 8
-  store ptr %42, ptr %.03348.i, align 8
-  %44 = getelementptr inbounds i8, ptr %.03348.i, i64 8
+  store ptr %42, ptr %.03448.i, align 8
+  %44 = getelementptr inbounds i8, ptr %.03448.i, i64 8
   %.2.i = getelementptr inbounds i8, ptr %.249.i, i64 -8
   %45 = icmp ult ptr %44, %.2.i
   br i1 %45, label %.lr.ph50.i, label %zend_observer_fcall_install.exit

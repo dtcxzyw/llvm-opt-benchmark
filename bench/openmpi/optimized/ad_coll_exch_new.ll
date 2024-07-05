@@ -187,8 +187,8 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   br i1 %exitcond.not, label %.loopexit316, label %74, !llvm.loop !6
 
 .loopexit316:                                     ; preds = %74, %67, %60
-  %.0282 = phi ptr [ null, %60 ], [ %69, %67 ], [ %69, %74 ]
-  %.0275 = phi ptr [ null, %60 ], [ %71, %67 ], [ %71, %74 ]
+  %.0293 = phi ptr [ null, %60 ], [ %71, %67 ], [ %71, %74 ]
+  %.0283 = phi ptr [ null, %60 ], [ %69, %67 ], [ %69, %74 ]
   %80 = load ptr, ptr %52, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 20
   %82 = load i32, ptr %81, align 4
@@ -249,10 +249,10 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 .loopexit315:                                     ; preds = %93, %56
   %116 = phi i32 [ %.pre381, %56 ], [ %113, %93 ]
   %117 = phi ptr [ %.pre380, %56 ], [ %111, %93 ]
-  %.0284 = phi ptr [ %59, %56 ], [ %64, %93 ]
-  %.1283 = phi ptr [ %58, %56 ], [ %.0282, %93 ]
-  %.0276 = phi ptr [ null, %56 ], [ %84, %93 ]
-  %.1 = phi ptr [ null, %56 ], [ %.0275, %93 ]
+  %.1294 = phi ptr [ null, %56 ], [ %.0293, %93 ]
+  %.0292 = phi ptr [ null, %56 ], [ %84, %93 ]
+  %.1284 = phi ptr [ %58, %56 ], [ %.0283, %93 ]
+  %.0282 = phi ptr [ %59, %56 ], [ %64, %93 ]
   %118 = load i64, ptr %14, align 8
   %119 = mul nsw i64 %118, %39
   store i64 %119, ptr %14, align 8
@@ -313,7 +313,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 151:                                              ; preds = %122
   %152 = load i64, ptr %121, align 8
   %153 = trunc i64 %152 to i32
-  %154 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.0284, i64 %128
+  %154 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.0282, i64 %128
   store i32 %153, ptr %154, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 8
   store i64 %49, ptr %155, align 8
@@ -340,10 +340,10 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   br i1 %166, label %122, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %161, %.loopexit315.thread, %.loopexit315
-  %.1397 = phi ptr [ %.1, %.loopexit315 ], [ %.0275, %.loopexit315.thread ], [ %.1, %161 ]
-  %.0276396 = phi ptr [ %.0276, %.loopexit315 ], [ %84, %.loopexit315.thread ], [ %.0276, %161 ]
-  %.1283395 = phi ptr [ %.1283, %.loopexit315 ], [ %.0282, %.loopexit315.thread ], [ %.1283, %161 ]
-  %.0284394 = phi ptr [ %.0284, %.loopexit315 ], [ %64, %.loopexit315.thread ], [ %.0284, %161 ]
+  %.0282398 = phi ptr [ %.0282, %.loopexit315 ], [ %64, %.loopexit315.thread ], [ %.0282, %161 ]
+  %.1284397 = phi ptr [ %.1284, %.loopexit315 ], [ %.0283, %.loopexit315.thread ], [ %.1284, %161 ]
+  %.0292396 = phi ptr [ %.0292, %.loopexit315 ], [ %84, %.loopexit315.thread ], [ %.0292, %161 ]
+  %.1294394 = phi ptr [ %.1294, %.loopexit315 ], [ %.0293, %.loopexit315.thread ], [ %.1294, %161 ]
   %.lcssa = phi ptr [ %117, %.loopexit315 ], [ %85, %.loopexit315.thread ], [ %162, %161 ]
   %167 = getelementptr inbounds i8, ptr %.lcssa, i64 44
   %168 = load i32, ptr %167, align 4
@@ -353,7 +353,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 169:                                              ; preds = %._crit_edge
   %170 = getelementptr inbounds i8, ptr %3, i64 64
   %171 = load ptr, ptr %170, align 8
-  %172 = call i32 @PMPI_Alltoall(ptr noundef %.0284394, i32 noundef 56, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %.1283395, i32 noundef 56, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %171) #9
+  %172 = call i32 @PMPI_Alltoall(ptr noundef %.0282398, i32 noundef 56, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %.1284397, i32 noundef 56, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %171) #9
   %.not304 = icmp eq i32 %172, 0
   br i1 %.not304, label %186, label %173
 
@@ -369,8 +369,8 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not303, label %181, label %179
 
 179:                                              ; preds = %176
-  %180 = call i32 @PMPI_Waitall(i32 noundef %1, ptr noundef %.1397, ptr noundef null) #9
-  call void @ADIOI_Free_fn(ptr noundef %.1397, i32 noundef 222, ptr noundef nonnull @.str.5) #9
+  %180 = call i32 @PMPI_Waitall(i32 noundef %1, ptr noundef %.1294394, ptr noundef null) #9
+  call void @ADIOI_Free_fn(ptr noundef %.1294394, i32 noundef 222, ptr noundef nonnull @.str.5) #9
   %.pre383 = load ptr, ptr %52, align 8
   br label %181
 
@@ -378,8 +378,8 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   %182 = phi ptr [ %.pre383, %179 ], [ %.lcssa, %176 ]
   %183 = getelementptr inbounds i8, ptr %182, i64 20
   %184 = load i32, ptr %183, align 4
-  %185 = call i32 @PMPI_Waitall(i32 noundef %184, ptr noundef %.0276396, ptr noundef null) #9
-  call void @ADIOI_Free_fn(ptr noundef %.0276396, i32 noundef 228, ptr noundef nonnull @.str.5) #9
+  %185 = call i32 @PMPI_Waitall(i32 noundef %184, ptr noundef %.0292396, ptr noundef null) #9
+  call void @ADIOI_Free_fn(ptr noundef %.0292396, i32 noundef 228, ptr noundef nonnull @.str.5) #9
   br label %186
 
 186:                                              ; preds = %169, %181
@@ -401,18 +401,18 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 
 .lr.ph324:                                        ; preds = %.lr.ph324.preheader, %.lr.ph324
   %indvars.iv357 = phi i64 [ 0, %.lr.ph324.preheader ], [ %indvars.iv.next358, %.lr.ph324 ]
-  %.0279323 = phi i32 [ 0, %.lr.ph324.preheader ], [ %spec.select, %.lr.ph324 ]
-  %194 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.0284394, i64 %indvars.iv357
+  %.0285322 = phi i32 [ 0, %.lr.ph324.preheader ], [ %spec.select, %.lr.ph324 ]
+  %194 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.0282398, i64 %indvars.iv357
   %195 = load i32, ptr %194, align 8
   %196 = icmp sgt i32 %195, 0
   %197 = zext i1 %196 to i32
-  %spec.select = add nuw nsw i32 %.0279323, %197
+  %spec.select = add nuw nsw i32 %.0285322, %197
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count360
   br i1 %exitcond361.not, label %.loopexit314, label %.lr.ph324, !llvm.loop !9
 
 .loopexit314:                                     ; preds = %.lr.ph324, %.preheader313, %186
-  %.2281 = phi i32 [ 0, %186 ], [ 0, %.preheader313 ], [ %spec.select, %.lr.ph324 ]
+  %.2287 = phi i32 [ 0, %186 ], [ 0, %.preheader313 ], [ %spec.select, %.lr.ph324 ]
   %198 = icmp sgt i32 %1, 0
   br i1 %198, label %.lr.ph330, label %._crit_edge331
 
@@ -423,8 +423,8 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 
 200:                                              ; preds = %.lr.ph330, %240
   %indvars.iv362 = phi i64 [ 0, %.lr.ph330 ], [ %indvars.iv.next363, %240 ]
-  %.0277328 = phi i32 [ 0, %.lr.ph330 ], [ %.1278, %240 ]
-  %.3327 = phi i32 [ %.2281, %.lr.ph330 ], [ %.4, %240 ]
+  %.3288327 = phi i32 [ %.2287, %.lr.ph330 ], [ %.4289, %240 ]
+  %.0290326 = phi i32 [ 0, %.lr.ph330 ], [ %.1291, %240 ]
   %201 = load ptr, ptr %52, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 44
   %203 = load i32, ptr %202, align 4
@@ -432,21 +432,21 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not306, label %209, label %204
 
 204:                                              ; preds = %200
-  %205 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.0284394, i64 %indvars.iv362
+  %205 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.0282398, i64 %indvars.iv362
   %206 = load i32, ptr %205, align 8
   %207 = icmp sgt i32 %206, 0
   %208 = zext i1 %207 to i32
-  %spec.select309 = add nsw i32 %.3327, %208
+  %spec.select309 = add nsw i32 %.3288327, %208
   br label %209
 
 209:                                              ; preds = %204, %200
-  %.4 = phi i32 [ %.3327, %200 ], [ %spec.select309, %204 ]
+  %.4289 = phi i32 [ %.3288327, %200 ], [ %spec.select309, %204 ]
   %210 = load i32, ptr %199, align 4
   %.not307 = icmp eq i32 %210, 0
   br i1 %.not307, label %240, label %211
 
 211:                                              ; preds = %209
-  %212 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.1283395, i64 %indvars.iv362
+  %212 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.1284397, i64 %indvars.iv362
   %213 = load i32, ptr %212, align 8
   %214 = icmp sgt i32 %213, 0
   br i1 %214, label %215, label %240
@@ -485,27 +485,27 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   store ptr %235, ptr %237, align 8
   %238 = getelementptr inbounds i8, ptr %212, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %217, ptr noundef nonnull align 8 dereferenceable(48) %238, i64 48, i1 false)
-  %239 = add nsw i32 %.0277328, 1
+  %239 = add nsw i32 %.0290326, 1
   br label %240
 
 240:                                              ; preds = %209, %223, %211
-  %.1278 = phi i32 [ %239, %223 ], [ %.0277328, %211 ], [ %.0277328, %209 ]
+  %.1291 = phi i32 [ %239, %223 ], [ %.0290326, %211 ], [ %.0290326, %209 ]
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond366.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count365
   br i1 %exitcond366.not, label %._crit_edge331, label %200, !llvm.loop !10
 
 ._crit_edge331:                                   ; preds = %240, %.loopexit314
-  %.3.lcssa = phi i32 [ %.2281, %.loopexit314 ], [ %.4, %240 ]
-  %.0277.lcssa = phi i32 [ 0, %.loopexit314 ], [ %.1278, %240 ]
-  %241 = shl nsw i32 %.3.lcssa, 1
+  %.0290.lcssa = phi i32 [ 0, %.loopexit314 ], [ %.1291, %240 ]
+  %.3288.lcssa = phi i32 [ %.2287, %.loopexit314 ], [ %.4289, %240 ]
+  %241 = shl nsw i32 %.3288.lcssa, 1
   %242 = or disjoint i32 %241, 1
   %243 = sext i32 %242 to i64
   %244 = call ptr @ADIOI_Calloc_fn(i64 noundef %243, i64 noundef 8, i32 noundef 293, ptr noundef nonnull @.str.5) #9
-  %245 = icmp sgt i32 %.0277.lcssa, 0
+  %245 = icmp sgt i32 %.0290.lcssa, 0
   br i1 %245, label %246, label %.loopexit312
 
 246:                                              ; preds = %._crit_edge331
-  %247 = shl nuw nsw i32 %.0277.lcssa, 1
+  %247 = shl nuw nsw i32 %.0290.lcssa, 1
   %248 = zext nneg i32 %247 to i64
   %249 = call ptr @ADIOI_Calloc_fn(i64 noundef %248, i64 noundef 8, i32 noundef 298, ptr noundef nonnull @.str.5) #9
   %invariant.gep = getelementptr i8, ptr %249, i64 8
@@ -518,8 +518,8 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 
 251:                                              ; preds = %.lr.ph337, %272
   %indvars.iv367 = phi i64 [ 0, %.lr.ph337 ], [ %indvars.iv.next368, %272 ]
-  %.0285335 = phi i32 [ 0, %.lr.ph337 ], [ %.1286, %272 ]
-  %252 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.1283395, i64 %indvars.iv367
+  %.0276334 = phi i32 [ 0, %.lr.ph337 ], [ %.1277, %272 ]
+  %252 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.1284397, i64 %indvars.iv367
   %253 = load i32, ptr %252, align 8
   %254 = icmp sgt i32 %253, 0
   br i1 %254, label %255, label %272
@@ -530,7 +530,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   %258 = getelementptr inbounds i8, ptr %257, i64 24
   %259 = load ptr, ptr %258, align 8
   %260 = load ptr, ptr %250, align 8
-  %261 = sext i32 %.0285335 to i64
+  %261 = sext i32 %.0276334 to i64
   %262 = getelementptr inbounds ptr, ptr %249, i64 %261
   %263 = trunc nuw nsw i64 %indvars.iv367 to i32
   %264 = call i32 @PMPI_Irecv(ptr noundef %259, i32 noundef %253, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef %263, i32 noundef 2, ptr noundef %260, ptr noundef %262) #9
@@ -541,17 +541,17 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   %269 = load ptr, ptr %250, align 8
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %261
   %270 = call i32 @PMPI_Irecv(ptr noundef %267, i32 noundef %268, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef %263, i32 noundef 1, ptr noundef %269, ptr noundef %gep) #9
-  %271 = add nsw i32 %.0285335, 2
+  %271 = add nsw i32 %.0276334, 2
   br label %272
 
 272:                                              ; preds = %251, %255
-  %.1286 = phi i32 [ %271, %255 ], [ %.0285335, %251 ]
+  %.1277 = phi i32 [ %271, %255 ], [ %.0276334, %251 ]
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
   %exitcond371.not = icmp eq i64 %indvars.iv.next368, %wide.trip.count370
   br i1 %exitcond371.not, label %.loopexit312, label %251, !llvm.loop !11
 
 .loopexit312:                                     ; preds = %272, %._crit_edge331
-  %.2 = phi ptr [ %.1397, %._crit_edge331 ], [ %249, %272 ]
+  %.2295 = phi ptr [ %.1294394, %._crit_edge331 ], [ %249, %272 ]
   %273 = load ptr, ptr %52, align 8
   %274 = getelementptr inbounds i8, ptr %273, i64 44
   %275 = load i32, ptr %274, align 4
@@ -578,7 +578,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 
 .preheader:                                       ; preds = %.loopexit312.thread, %.loopexit312
   %282 = phi ptr [ %276, %.loopexit312.thread ], [ %273, %.loopexit312 ]
-  %.2403 = phi ptr [ %249, %.loopexit312.thread ], [ %.2, %.loopexit312 ]
+  %.2295403 = phi ptr [ %249, %.loopexit312.thread ], [ %.2295, %.loopexit312 ]
   %invariant.gep343 = getelementptr i8, ptr %244, i64 8
   %283 = getelementptr inbounds i8, ptr %282, i64 20
   %284 = load i32, ptr %283, align 4
@@ -593,8 +593,8 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 
 289:                                              ; preds = %.lr.ph342, %305
   %indvars.iv372 = phi i64 [ 0, %.lr.ph342 ], [ %indvars.iv.next373, %305 ]
-  %.2287341 = phi i32 [ 0, %.lr.ph342 ], [ %.3288, %305 ]
-  %290 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.0284394, i64 %indvars.iv372
+  %.2278340 = phi i32 [ 0, %.lr.ph342 ], [ %.3279, %305 ]
+  %290 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.0282398, i64 %indvars.iv372
   %291 = load i32, ptr %290, align 8
   %292 = icmp sgt i32 %291, 0
   br i1 %292, label %293, label %305
@@ -602,7 +602,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 293:                                              ; preds = %289
   %294 = load ptr, ptr %279, align 8
   %295 = load ptr, ptr %280, align 8
-  %296 = sext i32 %.2287341 to i64
+  %296 = sext i32 %.2278340 to i64
   %297 = getelementptr inbounds ptr, ptr %244, i64 %296
   %298 = trunc nuw nsw i64 %indvars.iv372 to i32
   %299 = call i32 @PMPI_Isend(ptr noundef %294, i32 noundef %291, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef %298, i32 noundef 2, ptr noundef %295, ptr noundef %297) #9
@@ -611,11 +611,11 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   %302 = load ptr, ptr %280, align 8
   %gep339 = getelementptr ptr, ptr %invariant.gep338, i64 %296
   %303 = call i32 @PMPI_Isend(ptr noundef %300, i32 noundef %301, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef %298, i32 noundef 1, ptr noundef %302, ptr noundef %gep339) #9
-  %304 = add nsw i32 %.2287341, 2
+  %304 = add nsw i32 %.2278340, 2
   br label %305
 
 305:                                              ; preds = %289, %293
-  %.3288 = phi i32 [ %304, %293 ], [ %.2287341, %289 ]
+  %.3279 = phi i32 [ %304, %293 ], [ %.2278340, %289 ]
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
   %exitcond376.not = icmp eq i64 %indvars.iv.next373, %wide.trip.count375
   br i1 %exitcond376.not, label %.loopexit, label %289, !llvm.loop !12
@@ -623,8 +623,8 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 306:                                              ; preds = %.lr.ph347, %331
   %307 = phi ptr [ %282, %.lr.ph347 ], [ %332, %331 ]
   %indvars.iv377 = phi i64 [ 0, %.lr.ph347 ], [ %indvars.iv.next378, %331 ]
-  %.4289346 = phi i32 [ 0, %.lr.ph347 ], [ %.5, %331 ]
-  %308 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.0284394, i64 %indvars.iv377
+  %.4280345 = phi i32 [ 0, %.lr.ph347 ], [ %.5281, %331 ]
+  %308 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.0282398, i64 %indvars.iv377
   %309 = load i32, ptr %308, align 8
   %310 = icmp sgt i32 %309, 0
   br i1 %310, label %311, label %331
@@ -636,7 +636,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   %315 = getelementptr inbounds i32, ptr %314, i64 %indvars.iv377
   %316 = load i32, ptr %315, align 4
   %317 = load ptr, ptr %287, align 8
-  %318 = sext i32 %.4289346 to i64
+  %318 = sext i32 %.4280345 to i64
   %319 = getelementptr inbounds ptr, ptr %244, i64 %318
   %320 = call i32 @PMPI_Isend(ptr noundef %312, i32 noundef %309, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef %316, i32 noundef 2, ptr noundef %317, ptr noundef %319) #9
   %321 = load ptr, ptr %288, align 8
@@ -649,13 +649,13 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   %328 = load ptr, ptr %287, align 8
   %gep344 = getelementptr ptr, ptr %invariant.gep343, i64 %318
   %329 = call i32 @PMPI_Isend(ptr noundef %321, i32 noundef %322, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef %327, i32 noundef 1, ptr noundef %328, ptr noundef %gep344) #9
-  %330 = add nsw i32 %.4289346, 2
+  %330 = add nsw i32 %.4280345, 2
   %.pre385 = load ptr, ptr %52, align 8
   br label %331
 
 331:                                              ; preds = %306, %311
   %332 = phi ptr [ %.pre385, %311 ], [ %307, %306 ]
-  %.5 = phi i32 [ %330, %311 ], [ %.4289346, %306 ]
+  %.5281 = phi i32 [ %330, %311 ], [ %.4280345, %306 ]
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %333 = getelementptr inbounds i8, ptr %332, i64 20
   %334 = load i32, ptr %333, align 4
@@ -664,13 +664,13 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   br i1 %336, label %306, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %305, %331, %.loopexit312.thread, %.preheader310, %.preheader
-  %.2401 = phi ptr [ %.2, %.preheader310 ], [ %.2403, %.preheader ], [ %249, %.loopexit312.thread ], [ %.2403, %331 ], [ %.2, %305 ]
-  %337 = icmp sgt i32 %.3.lcssa, 0
+  %.2295401 = phi ptr [ %.2295, %.preheader310 ], [ %.2295403, %.preheader ], [ %249, %.loopexit312.thread ], [ %.2295403, %331 ], [ %.2295, %305 ]
+  %337 = icmp sgt i32 %.3288.lcssa, 0
   br i1 %337, label %338, label %340
 
 338:                                              ; preds = %.loopexit
   %339 = call i32 @PMPI_Waitall(i32 noundef %241, ptr noundef %244, ptr noundef null) #9
-  call void @ADIOI_Free_fn(ptr noundef %.0284394, i32 noundef 355, ptr noundef nonnull @.str.5) #9
+  call void @ADIOI_Free_fn(ptr noundef %.0282398, i32 noundef 355, ptr noundef nonnull @.str.5) #9
   call void @ADIOI_Free_fn(ptr noundef %244, i32 noundef 356, ptr noundef nonnull @.str.5) #9
   br label %340
 
@@ -678,10 +678,10 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   br i1 %245, label %341, label %344
 
 341:                                              ; preds = %340
-  %342 = shl nuw nsw i32 %.0277.lcssa, 1
-  %343 = call i32 @PMPI_Waitall(i32 noundef %342, ptr noundef %.2401, ptr noundef null) #9
-  call void @ADIOI_Free_fn(ptr noundef %.1283395, i32 noundef 360, ptr noundef nonnull @.str.5) #9
-  call void @ADIOI_Free_fn(ptr noundef %.2401, i32 noundef 361, ptr noundef nonnull @.str.5) #9
+  %342 = shl nuw nsw i32 %.0290.lcssa, 1
+  %343 = call i32 @PMPI_Waitall(i32 noundef %342, ptr noundef %.2295401, ptr noundef null) #9
+  call void @ADIOI_Free_fn(ptr noundef %.1284397, i32 noundef 360, ptr noundef nonnull @.str.5) #9
+  call void @ADIOI_Free_fn(ptr noundef %.2295401, i32 noundef 361, ptr noundef nonnull @.str.5) #9
   br label %344
 
 344:                                              ; preds = %341, %340

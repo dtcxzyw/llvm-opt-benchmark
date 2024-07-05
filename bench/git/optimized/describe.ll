@@ -1558,14 +1558,14 @@ if.end45:                                         ; preds = %for.end, %if.end31
   br i1 %tobool50.not162, label %if.then190.thread, label %while.body
 
 while.body:                                       ; preds = %if.end45, %while.end
-  %unannotated_cnt.0166 = phi i32 [ %unannotated_cnt.1209, %while.end ], [ 0, %if.end45 ]
-  %seen_commits.0165 = phi i64 [ %inc, %while.end ], [ 0, %if.end45 ]
-  %annotated_cnt.0164 = phi i32 [ %annotated_cnt.1207, %while.end ], [ 0, %if.end45 ]
-  %match_cnt.0163 = phi i32 [ %match_cnt.1205, %while.end ], [ 0, %if.end45 ]
+  %match_cnt.0166 = phi i32 [ %match_cnt.1209, %while.end ], [ 0, %if.end45 ]
+  %annotated_cnt.0165 = phi i32 [ %annotated_cnt.1207, %while.end ], [ 0, %if.end45 ]
+  %seen_commits.0164 = phi i64 [ %inc, %while.end ], [ 0, %if.end45 ]
+  %unannotated_cnt.0163 = phi i32 [ %unannotated_cnt.1205, %while.end ], [ 0, %if.end45 ]
   %call52 = call ptr @pop_commit(ptr noundef nonnull %list) #15
   %parents53 = getelementptr inbounds i8, ptr %call52, i64 48
   %24 = load ptr, ptr %parents53, align 8
-  %inc = add i64 %seen_commits.0165, 1
+  %inc = add i64 %seen_commits.0164, 1
   %25 = getelementptr i8, ptr %call52, i64 64
   %call52.val = load i32, ptr %25, align 8
   %div.i.i100 = udiv i32 %call52.val, 65532
@@ -1607,29 +1607,29 @@ land.lhs.true65:                                  ; preds = %if.then61
   br i1 %cmp70.not.not, label %if.then71, label %if.else
 
 if.then71:                                        ; preds = %land.lhs.true65
-  %inc72 = add i32 %unannotated_cnt.0166, 1
+  %inc72 = add i32 %unannotated_cnt.0163, 1
   br label %if.end95
 
 if.else:                                          ; preds = %land.lhs.true65, %if.then61
   %33 = load i32, ptr @max_candidates, align 4
-  %cmp73 = icmp ult i32 %match_cnt.0163, %33
+  %cmp73 = icmp ult i32 %match_cnt.0166, %33
   br i1 %cmp73, label %if.end95.thread, label %while.end188
 
 if.end95.thread:                                  ; preds = %if.else
-  %inc75 = add nuw i32 %match_cnt.0163, 1
-  %idxprom = zext i32 %match_cnt.0163 to i64
+  %inc75 = add nuw i32 %match_cnt.0166, 1
+  %idxprom = zext i32 %match_cnt.0166 to i64
   %arrayidx = getelementptr inbounds [27 x %struct.possible_tag], ptr %all_matches, i64 0, i64 %idxprom
   store ptr %30, ptr %arrayidx, align 8
-  %conv = trunc i64 %seen_commits.0165 to i32
+  %conv = trunc i64 %seen_commits.0164 to i32
   %depth = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 %conv, ptr %depth, align 8
-  %shl = shl nuw i32 2, %match_cnt.0163
+  %shl = shl nuw i32 2, %match_cnt.0166
   %flag_within = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i32 %shl, ptr %flag_within, align 8
   %found_order = getelementptr inbounds i8, ptr %arrayidx, i64 12
   store i32 %inc75, ptr %found_order, align 4
   %bf.load78 = load i32, ptr %call52, align 8
-  %bf.value94 = shl i32 32, %match_cnt.0163
+  %bf.value94 = shl i32 32, %match_cnt.0166
   %bf.set82 = or i32 %bf.load78, %bf.value94
   store i32 %bf.set82, ptr %call52, align 8
   %prio83 = getelementptr inbounds i8, ptr %30, i64 64
@@ -1637,19 +1637,19 @@ if.end95.thread:                                  ; preds = %if.else
   %bf.clear85 = and i8 %bf.load84, 3
   %cmp87 = icmp eq i8 %bf.clear85, 2
   %inc90 = zext i1 %cmp87 to i32
-  %spec.select = add i32 %annotated_cnt.0164, %inc90
+  %spec.select = add i32 %annotated_cnt.0165, %inc90
   br label %for.body99.preheader
 
 if.end95:                                         ; preds = %if.end12.i.i103, %while.body, %if.then71, %cond.end58
-  %unannotated_cnt.1 = phi i32 [ %inc72, %if.then71 ], [ %unannotated_cnt.0166, %cond.end58 ], [ %unannotated_cnt.0166, %while.body ], [ %unannotated_cnt.0166, %if.end12.i.i103 ]
-  %cmp97156.not = icmp eq i32 %match_cnt.0163, 0
+  %unannotated_cnt.1 = phi i32 [ %inc72, %if.then71 ], [ %unannotated_cnt.0163, %cond.end58 ], [ %unannotated_cnt.0163, %while.body ], [ %unannotated_cnt.0163, %if.end12.i.i103 ]
+  %cmp97156.not = icmp eq i32 %match_cnt.0166, 0
   br i1 %cmp97156.not, label %for.end114, label %for.body99.preheader
 
 for.body99.preheader:                             ; preds = %if.end95.thread, %if.end95
-  %unannotated_cnt.1208 = phi i32 [ %unannotated_cnt.0166, %if.end95.thread ], [ %unannotated_cnt.1, %if.end95 ]
-  %annotated_cnt.1206 = phi i32 [ %spec.select, %if.end95.thread ], [ %annotated_cnt.0164, %if.end95 ]
-  %match_cnt.1204 = phi i32 [ %inc75, %if.end95.thread ], [ %match_cnt.0163, %if.end95 ]
-  %wide.trip.count = zext i32 %match_cnt.1204 to i64
+  %match_cnt.1208 = phi i32 [ %inc75, %if.end95.thread ], [ %match_cnt.0166, %if.end95 ]
+  %annotated_cnt.1206 = phi i32 [ %spec.select, %if.end95.thread ], [ %annotated_cnt.0165, %if.end95 ]
+  %unannotated_cnt.1204 = phi i32 [ %unannotated_cnt.0163, %if.end95.thread ], [ %unannotated_cnt.1, %if.end95 ]
+  %wide.trip.count = zext i32 %match_cnt.1208 to i64
   br label %for.body99
 
 for.body99:                                       ; preds = %for.body99.preheader, %for.inc112
@@ -1677,9 +1677,9 @@ for.inc112:                                       ; preds = %for.body99, %if.the
 
 for.end114:                                       ; preds = %for.inc112, %if.end95
   %cmp97156.not211 = phi i1 [ true, %if.end95 ], [ false, %for.inc112 ]
-  %unannotated_cnt.1209 = phi i32 [ %unannotated_cnt.1, %if.end95 ], [ %unannotated_cnt.1208, %for.inc112 ]
-  %annotated_cnt.1207 = phi i32 [ %annotated_cnt.0164, %if.end95 ], [ %annotated_cnt.1206, %for.inc112 ]
-  %match_cnt.1205 = phi i32 [ 0, %if.end95 ], [ %match_cnt.1204, %for.inc112 ]
+  %match_cnt.1209 = phi i32 [ 0, %if.end95 ], [ %match_cnt.1208, %for.inc112 ]
+  %annotated_cnt.1207 = phi i32 [ %annotated_cnt.0165, %if.end95 ], [ %annotated_cnt.1206, %for.inc112 ]
+  %unannotated_cnt.1205 = phi i32 [ %unannotated_cnt.1, %if.end95 ], [ %unannotated_cnt.1204, %for.inc112 ]
   %tobool115 = icmp eq i32 %annotated_cnt.1207, 0
   %36 = load ptr, ptr %list, align 8
   %tobool117 = icmp ne ptr %36, null
@@ -1690,17 +1690,17 @@ for.cond119.preheader:                            ; preds = %for.end114
   br i1 %cmp97156.not211, label %for.end143, label %for.body122.preheader
 
 for.body122.preheader:                            ; preds = %for.cond119.preheader
-  %wide.trip.count186 = zext i32 %match_cnt.1205 to i64
+  %wide.trip.count186 = zext i32 %match_cnt.1209 to i64
   br label %for.body122
 
 for.body122:                                      ; preds = %for.body122.preheader, %for.inc141
   %indvars.iv183 = phi i64 [ 0, %for.body122.preheader ], [ %indvars.iv.next184, %for.inc141 ]
-  %best_within.0161 = phi i32 [ 0, %for.body122.preheader ], [ %best_within.1, %for.inc141 ]
-  %best_depth.0160 = phi i32 [ 2147483647, %for.body122.preheader ], [ %best_depth.1, %for.inc141 ]
+  %best_within.0160 = phi i32 [ 0, %for.body122.preheader ], [ %best_within.1, %for.inc141 ]
+  %best_depth.0159 = phi i32 [ 2147483647, %for.body122.preheader ], [ %best_depth.1, %for.inc141 ]
   %arrayidx125 = getelementptr inbounds [27 x %struct.possible_tag], ptr %all_matches, i64 0, i64 %indvars.iv183
   %depth126 = getelementptr inbounds i8, ptr %arrayidx125, i64 8
   %37 = load i32, ptr %depth126, align 8
-  %cmp127 = icmp slt i32 %37, %best_depth.0160
+  %cmp127 = icmp slt i32 %37, %best_depth.0159
   br i1 %cmp127, label %if.then129, label %if.else132
 
 if.then129:                                       ; preds = %for.body122
@@ -1709,18 +1709,18 @@ if.then129:                                       ; preds = %for.body122
   br label %for.inc141
 
 if.else132:                                       ; preds = %for.body122
-  %cmp134 = icmp eq i32 %37, %best_depth.0160
+  %cmp134 = icmp eq i32 %37, %best_depth.0159
   br i1 %cmp134, label %if.then136, label %for.inc141
 
 if.then136:                                       ; preds = %if.else132
   %flag_within137 = getelementptr inbounds i8, ptr %arrayidx125, i64 16
   %39 = load i32, ptr %flag_within137, align 8
-  %or138 = or i32 %39, %best_within.0161
+  %or138 = or i32 %39, %best_within.0160
   br label %for.inc141
 
 for.inc141:                                       ; preds = %if.then129, %if.then136, %if.else132
-  %best_depth.1 = phi i32 [ %37, %if.then129 ], [ %best_depth.0160, %if.then136 ], [ %best_depth.0160, %if.else132 ]
-  %best_within.1 = phi i32 [ %38, %if.then129 ], [ %or138, %if.then136 ], [ %best_within.0161, %if.else132 ]
+  %best_depth.1 = phi i32 [ %37, %if.then129 ], [ %best_depth.0159, %if.then136 ], [ %best_depth.0159, %if.else132 ]
+  %best_within.1 = phi i32 [ %38, %if.then129 ], [ %or138, %if.then136 ], [ %best_within.0160, %if.else132 ]
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
   br i1 %exitcond187.not, label %for.end143, label %for.body122, !llvm.loop !11
@@ -1798,8 +1798,8 @@ while.end:                                        ; preds = %while.end.loopexit,
   br i1 %tobool50.not, label %while.end188, label %while.body, !llvm.loop !13
 
 while.end188:                                     ; preds = %while.end, %if.else, %if.then150, %_.exit114
-  %match_cnt.2 = phi i32 [ %match_cnt.1205, %_.exit114 ], [ %match_cnt.1205, %if.then150 ], [ %match_cnt.1205, %while.end ], [ %match_cnt.0163, %if.else ]
-  %unannotated_cnt.2 = phi i32 [ %unannotated_cnt.1209, %_.exit114 ], [ %unannotated_cnt.1209, %if.then150 ], [ %unannotated_cnt.1209, %while.end ], [ %unannotated_cnt.0166, %if.else ]
+  %unannotated_cnt.2 = phi i32 [ %unannotated_cnt.1205, %_.exit114 ], [ %unannotated_cnt.1205, %if.then150 ], [ %unannotated_cnt.1205, %while.end ], [ %unannotated_cnt.0163, %if.else ]
+  %match_cnt.2 = phi i32 [ %match_cnt.1209, %_.exit114 ], [ %match_cnt.1209, %if.then150 ], [ %match_cnt.1209, %while.end ], [ %match_cnt.0166, %if.else ]
   %gave_up_on.0 = phi ptr [ null, %_.exit114 ], [ null, %if.then150 ], [ null, %while.end ], [ %call52, %if.else ]
   switch i32 %match_cnt.2, label %if.then.i [
     i32 0, label %if.then190
@@ -1853,7 +1853,7 @@ if.then209:                                       ; preds = %sane_qsort.exit
   br label %if.end211
 
 if.end211:                                        ; preds = %if.then209, %sane_qsort.exit
-  %seen_commits.2 = phi i64 [ %seen_commits.0165, %if.then209 ], [ %inc, %sane_qsort.exit ]
+  %seen_commits.2 = phi i64 [ %seen_commits.0164, %if.then209 ], [ %inc, %sane_qsort.exit ]
   %54 = load ptr, ptr %list, align 8
   %tobool.not26.i = icmp eq ptr %54, null
   br i1 %tobool.not26.i, label %finish_depth_computation.exit, label %while.body.lr.ph.i

@@ -2182,8 +2182,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h48
   br label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i"
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i": ; preds = %23, %18
-  %.0.i.i = phi i16 [ %21, %18 ], [ %27, %23 ]
-  %.not.i.not.i.i = icmp eq i16 %.0.i.i, 0
+  %.026.i.i = phi i16 [ %21, %18 ], [ %27, %23 ]
+  %.not.i.not.i.i = icmp eq i16 %.026.i.i, 0
   br i1 %.not.i.not.i.i, label %22, label %23
 
 22:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i"
@@ -2191,10 +2191,10 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h48
   br i1 %.not.i.i, label %39, label %32
 
 23:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i"
-  %24 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %24 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.026.i.i, i1 true)
   %25 = zext nneg i16 %24 to i64
-  %26 = add i16 %.0.i.i, -1
-  %27 = and i16 %26, %.0.i.i
+  %26 = add i16 %.026.i.i, -1
+  %27 = and i16 %26, %.026.i.i
   %28 = add i64 %.sroa.0.025.i.i, %25
   %29 = and i64 %28, %.val4.i
   %30 = sub nsw i64 0, %29

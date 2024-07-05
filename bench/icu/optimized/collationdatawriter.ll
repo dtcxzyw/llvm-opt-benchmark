@@ -276,8 +276,8 @@ if.then38:                                        ; preds = %invoke.cont30
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then15, %if.then38, %invoke.cont30, %invoke.cont
-  %tobool78.not = phi i1 [ false, %invoke.cont ], [ false, %if.then38 ], [ false, %invoke.cont30 ], [ true, %if.then15 ]
   %fastLatinTableLength.0 = phi i32 [ %4, %invoke.cont ], [ %12, %if.then38 ], [ 0, %invoke.cont30 ], [ 0, %if.then15 ]
+  %tobool78.not = phi i1 [ false, %invoke.cont ], [ false, %if.then38 ], [ false, %invoke.cont30 ], [ true, %if.then15 ]
   %indexesLength.1 = phi i32 [ 20, %invoke.cont ], [ 17, %if.then38 ], [ %spec.select, %invoke.cont30 ], [ %.174, %if.then15 ]
   invoke void @_ZN6icu_759UVector32C1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %codesAndRanges, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont43 unwind label %lpad

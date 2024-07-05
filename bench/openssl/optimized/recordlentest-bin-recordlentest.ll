@@ -276,8 +276,8 @@ if.then68:                                        ; preds = %if.end62, %if.end62
   br label %if.end71
 
 if.end71:                                         ; preds = %if.end62, %if.then68
-  %len.2 = phi i64 [ %inc69, %if.then68 ], [ %len.0, %if.end62 ]
   %overf_expected.0 = phi i32 [ 1, %if.then68 ], [ 0, %if.end62 ]
+  %len.2 = phi i64 [ %inc69, %if.then68 ], [ %len.0, %if.end62 ]
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %header.i48)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %written.i49)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i50)

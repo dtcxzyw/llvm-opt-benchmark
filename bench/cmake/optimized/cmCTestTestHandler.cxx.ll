@@ -6472,12 +6472,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .lr.ph:                                           ; preds = %94, %113
   %.0257271 = phi i32 [ %98, %113 ], [ 0, %94 ]
-  %.sroa.0246.0270 = phi ptr [ %114, %113 ], [ %96, %94 ]
-  %.0258269 = phi i32 [ %.1259, %113 ], [ 0, %94 ]
-  %.0260268 = phi i32 [ %.1261, %113 ], [ 0, %94 ]
-  %.0262267 = phi i32 [ %.1263, %113 ], [ 0, %94 ]
+  %.0258270 = phi i32 [ %.1259, %113 ], [ 0, %94 ]
+  %.0260269 = phi i32 [ %.1261, %113 ], [ 0, %94 ]
+  %.0262268 = phi i32 [ %.1263, %113 ], [ 0, %94 ]
+  %.sroa.0246.0267 = phi ptr [ %114, %113 ], [ %96, %94 ]
   %98 = add nuw nsw i32 %.0257271, 1
-  %99 = getelementptr inbounds i8, ptr %.sroa.0246.0270, i64 208
+  %99 = getelementptr inbounds i8, ptr %.sroa.0246.0267, i64 208
   %100 = load i32, ptr %99, align 8
   switch i32 %100, label %111 [
     i32 0, label %101
@@ -6485,13 +6485,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   ]
 
 101:                                              ; preds = %.lr.ph
-  %102 = getelementptr inbounds i8, ptr %.sroa.0246.0270, i64 256
+  %102 = getelementptr inbounds i8, ptr %.sroa.0246.0267, i64 256
   %103 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull @.str.24) #25
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %109
 
 105:                                              ; preds = %101
-  %106 = add nsw i32 %.0258269, 1
+  %106 = add nsw i32 %.0262268, 1
   br label %113
 
 107:                                              ; preds = %89
@@ -6510,18 +6510,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %370
 
 109:                                              ; preds = %101
-  %110 = add nsw i32 %.0260268, 1
+  %110 = add nsw i32 %.0260269, 1
   br label %113
 
 111:                                              ; preds = %.lr.ph
-  %112 = add nsw i32 %.0262267, 1
+  %112 = add nsw i32 %.0258270, 1
   br label %113
 
 113:                                              ; preds = %.lr.ph, %109, %105, %111
-  %.1263 = phi i32 [ %112, %111 ], [ %.0262267, %.lr.ph ], [ %.0262267, %105 ], [ %.0262267, %109 ]
-  %.1261 = phi i32 [ %.0260268, %111 ], [ %.0260268, %.lr.ph ], [ %.0260268, %105 ], [ %110, %109 ]
-  %.1259 = phi i32 [ %.0258269, %111 ], [ %.0258269, %.lr.ph ], [ %106, %105 ], [ %.0258269, %109 ]
-  %114 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0246.0270) #28
+  %.1263 = phi i32 [ %.0262268, %111 ], [ %.0262268, %.lr.ph ], [ %106, %105 ], [ %.0262268, %109 ]
+  %.1261 = phi i32 [ %.0260269, %111 ], [ %.0260269, %.lr.ph ], [ %.0260269, %105 ], [ %110, %109 ]
+  %.1259 = phi i32 [ %112, %111 ], [ %.0258270, %.lr.ph ], [ %.0258270, %105 ], [ %.0258270, %109 ]
+  %114 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0246.0267) #28
   %.not264 = icmp eq ptr %114, %97
   br i1 %.not264, label %._crit_edge, label %.lr.ph
 
@@ -6657,7 +6657,7 @@ _ZN11cmXMLWriter9AttributeIiEEvPKcRKT_.exit:      ; preds = %.noexc102
           to label %.noexc106 unwind label %.loopexit.split-lp
 
 .noexc106:                                        ; preds = %.noexc105
-  %142 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %141, i32 noundef %.0262.lcssa)
+  %142 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %141, i32 noundef %.0258.lcssa)
           to label %.noexc107 unwind label %.loopexit.split-lp
 
 .noexc107:                                        ; preds = %.noexc106
@@ -6678,7 +6678,7 @@ _ZN11cmXMLWriter9AttributeIiEEvPKcRKT_.exit109:   ; preds = %.noexc107
           to label %.noexc112 unwind label %.loopexit.split-lp
 
 .noexc112:                                        ; preds = %.noexc111
-  %147 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %146, i32 noundef %.0258.lcssa)
+  %147 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %146, i32 noundef %.0262.lcssa)
           to label %.noexc113 unwind label %.loopexit.split-lp
 
 .noexc113:                                        ; preds = %.noexc112
@@ -13035,9 +13035,9 @@ define dso_local noundef zeroext i1 @_ZN18cmCTestTestHandler29ComputeTestListFor
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN18cmCTestTestHandler21cmCTestTestPropertiesESaIS1_EE9push_backERKS1_.exit
-  %.sroa.012.033 = phi ptr [ %4, %.lr.ph ], [ %66, %_ZNSt6vectorIN18cmCTestTestHandler21cmCTestTestPropertiesESaIS1_EE9push_backERKS1_.exit ]
-  %.032 = phi i32 [ 0, %.lr.ph ], [ %12, %_ZNSt6vectorIN18cmCTestTestHandler21cmCTestTestPropertiesESaIS1_EE9push_backERKS1_.exit ]
-  %12 = add nuw nsw i32 %.032, 1
+  %.033 = phi i32 [ 0, %.lr.ph ], [ %12, %_ZNSt6vectorIN18cmCTestTestHandler21cmCTestTestPropertiesESaIS1_EE9push_backERKS1_.exit ]
+  %.sroa.012.032 = phi ptr [ %4, %.lr.ph ], [ %66, %_ZNSt6vectorIN18cmCTestTestHandler21cmCTestTestPropertiesESaIS1_EE9push_backERKS1_.exit ]
+  %12 = add nuw nsw i32 %.033, 1
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %8, align 8
   %15 = icmp eq ptr %13, %14
@@ -13161,7 +13161,7 @@ define dso_local noundef zeroext i1 @_ZN18cmCTestTestHandler29ComputeTestListFor
   resume { ptr, i32 } %lpad.phi
 
 58:                                               ; preds = %.loopexit, %11
-  %59 = getelementptr inbounds i8, ptr %.sroa.012.033, i64 472
+  %59 = getelementptr inbounds i8, ptr %.sroa.012.032, i64 472
   store i32 %12, ptr %59, align 8
   %60 = load ptr, ptr %9, align 8
   %61 = load ptr, ptr %10, align 8
@@ -13169,7 +13169,7 @@ define dso_local noundef zeroext i1 @_ZN18cmCTestTestHandler29ComputeTestListFor
   br i1 %.not.i, label %65, label %62
 
 62:                                               ; preds = %58
-  invoke void @_ZN18cmCTestTestHandler21cmCTestTestPropertiesC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(904) %60, ptr noundef nonnull align 8 dereferenceable(904) %.sroa.012.033)
+  invoke void @_ZN18cmCTestTestHandler21cmCTestTestPropertiesC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(904) %60, ptr noundef nonnull align 8 dereferenceable(904) %.sroa.012.032)
           to label %.noexc unwind label %.loopexit22
 
 .noexc:                                           ; preds = %62
@@ -13179,11 +13179,11 @@ define dso_local noundef zeroext i1 @_ZN18cmCTestTestHandler29ComputeTestListFor
   br label %_ZNSt6vectorIN18cmCTestTestHandler21cmCTestTestPropertiesESaIS1_EE9push_backERKS1_.exit
 
 65:                                               ; preds = %58
-  invoke void @_ZNSt6vectorIN18cmCTestTestHandler21cmCTestTestPropertiesESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %60, ptr noundef nonnull align 8 dereferenceable(904) %.sroa.012.033)
+  invoke void @_ZNSt6vectorIN18cmCTestTestHandler21cmCTestTestPropertiesESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %60, ptr noundef nonnull align 8 dereferenceable(904) %.sroa.012.032)
           to label %_ZNSt6vectorIN18cmCTestTestHandler21cmCTestTestPropertiesESaIS1_EE9push_backERKS1_.exit unwind label %.loopexit22
 
 _ZNSt6vectorIN18cmCTestTestHandler21cmCTestTestPropertiesESaIS1_EE9push_backERKS1_.exit: ; preds = %._crit_edge.i.i.i.i, %.noexc, %65, %.loopexit
-  %66 = getelementptr inbounds i8, ptr %.sroa.012.033, i64 904
+  %66 = getelementptr inbounds i8, ptr %.sroa.012.032, i64 904
   %.not = icmp eq ptr %66, %6
   br i1 %.not, label %._crit_edge, label %11
 
@@ -22569,40 +22569,40 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind
   br i1 %4, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %16
-  %.029.i = phi i32 [ %18, %16 ], [ 1, %2 ]
-  %.02328.i = phi i64 [ %17, %16 ], [ %1, %2 ]
-  %5 = icmp ult i64 %.02328.i, 100
+  %.02229.i = phi i64 [ %17, %16 ], [ %1, %2 ]
+  %.02328.i = phi i32 [ %18, %16 ], [ 1, %2 ]
+  %5 = icmp ult i64 %.02229.i, 100
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = add i32 %.029.i, 1
+  %7 = add i32 %.02328.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = icmp ult i64 %.02328.i, 1000
+  %9 = icmp ult i64 %.02229.i, 1000
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = add i32 %.029.i, 2
+  %11 = add i32 %.02328.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 12:                                               ; preds = %8
-  %13 = icmp ult i64 %.02328.i, 10000
+  %13 = icmp ult i64 %.02229.i, 10000
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = add i32 %.029.i, 3
+  %15 = add i32 %.02328.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 16:                                               ; preds = %12
-  %17 = udiv i64 %.02328.i, 10000
-  %18 = add i32 %.029.i, 4
-  %19 = icmp ult i64 %.02328.i, 100000
+  %17 = udiv i64 %.02229.i, 10000
+  %18 = add i32 %.02328.i, 4
+  %19 = icmp ult i64 %.02229.i, 100000
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i, !llvm.loop !232
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.022.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
-  %20 = zext i32 %.022.i to i64
+  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %20 = zext i32 %.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
   %21 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %57

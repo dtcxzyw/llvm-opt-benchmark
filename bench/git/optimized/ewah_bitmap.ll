@@ -860,10 +860,10 @@ while.cond.loopexit:                              ; preds = %for.end24, %if.end
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 
 while.body:                                       ; preds = %entry, %while.cond.loopexit
-  %pointer.044 = phi i64 [ %pointer.1.lcssa, %while.cond.loopexit ], [ 0, %entry ]
-  %pos.043 = phi i64 [ %pos.3.lcssa, %while.cond.loopexit ], [ 0, %entry ]
+  %pos.044 = phi i64 [ %pos.3.lcssa, %while.cond.loopexit ], [ 0, %entry ]
+  %pointer.043 = phi i64 [ %pointer.1.lcssa, %while.cond.loopexit ], [ 0, %entry ]
   %2 = load ptr, ptr %self, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %2, i64 %pointer.044
+  %arrayidx = getelementptr inbounds i64, ptr %2, i64 %pointer.043
   %arrayidx.val = load i64, ptr %arrayidx, align 8
   %conv.i27 = and i64 %arrayidx.val, 1
   %tobool.not = icmp eq i64 %conv.i27, 0
@@ -876,16 +876,16 @@ if.then:                                          ; preds = %while.body
   br i1 %cmp228.not, label %if.end, label %for.body
 
 for.body:                                         ; preds = %if.then, %for.body
-  %k.030 = phi i64 [ %inc, %for.body ], [ 0, %if.then ]
-  %pos.129 = phi i64 [ %inc3, %for.body ], [ %pos.043, %if.then ]
-  tail call void %callback(i64 noundef %pos.129, ptr noundef %payload) #11
-  %inc = add nuw nsw i64 %k.030, 1
-  %inc3 = add i64 %pos.129, 1
+  %pos.130 = phi i64 [ %inc3, %for.body ], [ %pos.044, %if.then ]
+  %k.029 = phi i64 [ %inc, %for.body ], [ 0, %if.then ]
+  tail call void %callback(i64 noundef %pos.130, ptr noundef %payload) #11
+  %inc = add nuw nsw i64 %k.029, 1
+  %inc3 = add i64 %pos.130, 1
   %exitcond.not = icmp eq i64 %inc, %mul5
   br i1 %exitcond.not, label %if.end.loopexit, label %for.body, !llvm.loop !9
 
 if.else:                                          ; preds = %while.body
-  %add = add i64 %mul5, %pos.043
+  %add = add i64 %mul5, %pos.044
   br label %if.end
 
 if.end.loopexit:                                  ; preds = %for.body
@@ -894,20 +894,20 @@ if.end.loopexit:                                  ; preds = %for.body
 
 if.end:                                           ; preds = %if.end.loopexit, %if.then, %if.else
   %arrayidx.val2334 = phi i64 [ %arrayidx.val, %if.else ], [ %arrayidx.val, %if.then ], [ %arrayidx.val2334.pre, %if.end.loopexit ]
-  %pos.2 = phi i64 [ %add, %if.else ], [ %pos.043, %if.then ], [ %inc3, %if.end.loopexit ]
-  %pointer.133 = add i64 %pointer.044, 1
+  %pos.2 = phi i64 [ %add, %if.else ], [ %pos.044, %if.then ], [ %inc3, %if.end.loopexit ]
+  %pointer.133 = add i64 %pointer.043, 1
   %cmp936.not = icmp ult i64 %arrayidx.val2334, 8589934592
   br i1 %cmp936.not, label %while.cond.loopexit, label %for.cond11.preheader
 
 for.cond11.preheader:                             ; preds = %if.end, %for.end24
   %pointer.139 = phi i64 [ %pointer.1, %for.end24 ], [ %pointer.133, %if.end ]
-  %k.138 = phi i64 [ %inc27, %for.end24 ], [ 0, %if.end ]
-  %pos.337 = phi i64 [ %inc23, %for.end24 ], [ %pos.2, %if.end ]
+  %pos.338 = phi i64 [ %inc23, %for.end24 ], [ %pos.2, %if.end ]
+  %k.137 = phi i64 [ %inc27, %for.end24 ], [ 0, %if.end ]
   br label %for.body14
 
 for.body14:                                       ; preds = %for.cond11.preheader, %for.inc21
   %indvars.iv = phi i64 [ 0, %for.cond11.preheader ], [ %indvars.iv.next, %for.inc21 ]
-  %pos.431 = phi i64 [ %pos.337, %for.cond11.preheader ], [ %inc23, %for.inc21 ]
+  %pos.431 = phi i64 [ %pos.338, %for.cond11.preheader ], [ %inc23, %for.inc21 ]
   %3 = load ptr, ptr %self, align 8
   %arrayidx16 = getelementptr inbounds i64, ptr %3, i64 %pointer.139
   %4 = load i64, ptr %arrayidx16, align 8
@@ -927,7 +927,7 @@ for.inc21:                                        ; preds = %for.body14, %if.the
   br i1 %exitcond47.not, label %for.end24, label %for.body14, !llvm.loop !10
 
 for.end24:                                        ; preds = %for.inc21
-  %inc27 = add nuw nsw i64 %k.138, 1
+  %inc27 = add nuw nsw i64 %k.137, 1
   %pointer.1 = add i64 %pointer.139, 1
   %arrayidx.val23 = load i64, ptr %arrayidx, align 8
   %shr.i26 = lshr i64 %arrayidx.val23, 33

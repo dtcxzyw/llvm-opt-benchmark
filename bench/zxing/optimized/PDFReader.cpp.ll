@@ -1654,8 +1654,8 @@ define linkonce_odr void @_ZN5ZXing6Pdf41713ReadCodeWordsINS_6PointTIdEEEESt6vec
 41:                                               ; preds = %26, %3
   %42 = phi i32 [ %21, %26 ], [ %23, %3 ]
   %43 = phi i32 [ %23, %26 ], [ %21, %3 ]
-  %.sroa.5.0 = phi double [ %40, %26 ], [ %25, %3 ]
   %.sroa.0141.0 = phi double [ %18, %26 ], [ %19, %3 ]
+  %.sroa.5.0 = phi double [ %40, %26 ], [ %25, %3 ]
   %44 = getelementptr inbounds i8, ptr %2, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = mul nsw i32 %45, 3

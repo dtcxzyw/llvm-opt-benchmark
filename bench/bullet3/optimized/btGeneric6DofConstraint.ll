@@ -935,9 +935,9 @@ if.then23:                                        ; preds = %if.else
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then21, %if.then23, %entry
-  %depth.0 = phi float [ %sub, %if.then21 ], [ %sub24, %if.then23 ], [ %fneg, %entry ]
-  %lo.0 = phi float [ 0.000000e+00, %if.then21 ], [ 0xC3ABC16D60000000, %if.then23 ], [ 0xC3ABC16D60000000, %entry ]
   %hi.0 = phi float [ 0x43ABC16D60000000, %if.then21 ], [ 0.000000e+00, %if.then23 ], [ 0x43ABC16D60000000, %entry ]
+  %lo.0 = phi float [ 0.000000e+00, %if.then21 ], [ 0xC3ABC16D60000000, %if.then23 ], [ 0xC3ABC16D60000000, %entry ]
+  %depth.0 = phi float [ %sub, %if.then21 ], [ %sub24, %if.then23 ], [ %fneg, %entry ]
   %m_limitSoftness = getelementptr inbounds i8, ptr %this, i64 48
   %53 = load float, ptr %m_limitSoftness, align 4
   %m_restitution = getelementptr inbounds i8, ptr %this, i64 56
@@ -2755,7 +2755,7 @@ if.then:                                          ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then
   %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %for.inc.i ]
-  %row.024.i = phi i32 [ 0, %if.then ], [ %row.1.i, %for.inc.i ]
+  %row.026.i = phi i32 [ 0, %if.then ], [ %row.1.i, %for.inc.i ]
   %arrayidx.i.i = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i.i, i64 0, i64 %indvars.iv.i
   %m_currentLimit.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 56
   %4 = load i32, ptr %m_currentLimit.i.i, align 4
@@ -2816,12 +2816,12 @@ if.then17.i:                                      ; preds = %if.end14.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then17.i, %if.end14.i
-  %call23.i = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %m_worldTransform.i22, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_linearVelocity.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_linearVelocity.i23, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_angularVelocity.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_angularVelocity.i24, ptr noundef readonly %info, i32 noundef %row.024.i, ptr noundef nonnull align 4 dereferenceable(16) %axis.i, i32 noundef 1, i32 noundef 0)
-  %add24.i = add nsw i32 %call23.i, %row.024.i
+  %call23.i = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %m_worldTransform.i22, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_linearVelocity.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_linearVelocity.i23, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_angularVelocity.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_angularVelocity.i24, ptr noundef readonly %info, i32 noundef %row.026.i, ptr noundef nonnull align 4 dereferenceable(16) %axis.i, i32 noundef 1, i32 noundef 0)
+  %add24.i = add nsw i32 %call23.i, %row.026.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end21.i, %land.lhs.true.i.i
-  %row.1.i = phi i32 [ %add24.i, %if.end21.i ], [ %row.024.i, %land.lhs.true.i.i ]
+  %row.1.i = phi i32 [ %add24.i, %if.end21.i ], [ %row.026.i, %land.lhs.true.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit, label %for.body.i, !llvm.loop !57
@@ -2844,7 +2844,7 @@ if.else:                                          ; preds = %entry
 
 for.body.i31:                                     ; preds = %for.inc.i54, %if.else
   %indvars.iv.i32 = phi i64 [ 0, %if.else ], [ %indvars.iv.next.i56, %for.inc.i54 ]
-  %row.024.i33 = phi i32 [ %call14, %if.else ], [ %row.1.i55, %for.inc.i54 ]
+  %row.026.i33 = phi i32 [ %call14, %if.else ], [ %row.1.i55, %for.inc.i54 ]
   %arrayidx.i.i34 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i.i26, i64 0, i64 %indvars.iv.i32
   %m_currentLimit.i.i35 = getelementptr inbounds i8, ptr %arrayidx.i.i34, i64 56
   %17 = load i32, ptr %m_currentLimit.i.i35, align 4
@@ -2905,12 +2905,12 @@ if.then17.i58:                                    ; preds = %if.end14.i48
   br label %if.end21.i51
 
 if.end21.i51:                                     ; preds = %if.then17.i58, %if.end14.i48
-  %call23.i52 = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i34, ptr noundef nonnull readonly align 4 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %m_worldTransform.i22, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_linearVelocity.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_linearVelocity.i23, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_angularVelocity.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_angularVelocity.i24, ptr noundef readonly %info, i32 noundef %row.024.i33, ptr noundef nonnull align 4 dereferenceable(16) %axis.i25, i32 noundef 1, i32 noundef 0)
-  %add24.i53 = add nsw i32 %call23.i52, %row.024.i33
+  %call23.i52 = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i34, ptr noundef nonnull readonly align 4 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %m_worldTransform.i22, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_linearVelocity.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_linearVelocity.i23, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_angularVelocity.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %m_angularVelocity.i24, ptr noundef readonly %info, i32 noundef %row.026.i33, ptr noundef nonnull align 4 dereferenceable(16) %axis.i25, i32 noundef 1, i32 noundef 0)
+  %add24.i53 = add nsw i32 %call23.i52, %row.026.i33
   br label %for.inc.i54
 
 for.inc.i54:                                      ; preds = %if.end21.i51, %land.lhs.true.i.i64
-  %row.1.i55 = phi i32 [ %add24.i53, %if.end21.i51 ], [ %row.024.i33, %land.lhs.true.i.i64 ]
+  %row.1.i55 = phi i32 [ %add24.i53, %if.end21.i51 ], [ %row.026.i33, %land.lhs.true.i.i64 ]
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, 3
   br i1 %exitcond.not.i57, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit67, label %for.body.i31, !llvm.loop !57
@@ -2937,7 +2937,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %row.024 = phi i32 [ %row_offset, %entry ], [ %row.1, %for.inc ]
+  %row.026 = phi i32 [ %row_offset, %entry ], [ %row.1, %for.inc ]
   %arrayidx.i = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv
   %m_currentLimit.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
   %1 = load i32, ptr %m_currentLimit.i, align 4
@@ -2998,12 +2998,12 @@ if.then17:                                        ; preds = %if.end14
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then17, %if.end14
-  %call23 = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.024, ptr noundef nonnull align 4 dereferenceable(16) %axis, i32 noundef 1, i32 noundef 0)
-  %add24 = add nsw i32 %call23, %row.024
+  %call23 = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.026, ptr noundef nonnull align 4 dereferenceable(16) %axis, i32 noundef 1, i32 noundef 0)
+  %add24 = add nsw i32 %call23, %row.026
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true.i, %if.end21
-  %row.1 = phi i32 [ %add24, %if.end21 ], [ %row.024, %land.lhs.true.i ]
+  %row.1 = phi i32 [ %add24, %if.end21 ], [ %row.026, %land.lhs.true.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !57
@@ -3304,7 +3304,7 @@ if.then:                                          ; preds = %for.end
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then
   %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %for.inc.i ]
-  %row.024.i = phi i32 [ 0, %if.then ], [ %row.1.i, %for.inc.i ]
+  %row.026.i = phi i32 [ 0, %if.then ], [ %row.1.i, %for.inc.i ]
   %arrayidx.i.i = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv.i
   %m_currentLimit.i.i26 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 56
   %7 = load i32, ptr %m_currentLimit.i.i26, align 4
@@ -3365,12 +3365,12 @@ if.then17.i:                                      ; preds = %if.end14.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then17.i, %if.end14.i
-  %call23.i = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr noundef nonnull readonly align 4 dereferenceable(64) %transB, ptr noundef nonnull readonly align 4 dereferenceable(16) %linVelA, ptr noundef nonnull readonly align 4 dereferenceable(16) %linVelB, ptr noundef nonnull readonly align 4 dereferenceable(16) %angVelA, ptr noundef nonnull readonly align 4 dereferenceable(16) %angVelB, ptr noundef readonly %info, i32 noundef %row.024.i, ptr noundef nonnull align 4 dereferenceable(16) %axis.i, i32 noundef 1, i32 noundef 0)
-  %add24.i = add nsw i32 %call23.i, %row.024.i
+  %call23.i = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i, ptr noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr noundef nonnull readonly align 4 dereferenceable(64) %transB, ptr noundef nonnull readonly align 4 dereferenceable(16) %linVelA, ptr noundef nonnull readonly align 4 dereferenceable(16) %linVelB, ptr noundef nonnull readonly align 4 dereferenceable(16) %angVelA, ptr noundef nonnull readonly align 4 dereferenceable(16) %angVelB, ptr noundef readonly %info, i32 noundef %row.026.i, ptr noundef nonnull align 4 dereferenceable(16) %axis.i, i32 noundef 1, i32 noundef 0)
+  %add24.i = add nsw i32 %call23.i, %row.026.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end21.i, %land.lhs.true.i.i28
-  %row.1.i = phi i32 [ %add24.i, %if.end21.i ], [ %row.024.i, %land.lhs.true.i.i28 ]
+  %row.1.i = phi i32 [ %add24.i, %if.end21.i ], [ %row.026.i, %land.lhs.true.i.i28 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit, label %for.body.i, !llvm.loop !57
@@ -3392,7 +3392,7 @@ if.else:                                          ; preds = %for.end
 
 for.body.i37:                                     ; preds = %for.inc.i60, %if.else
   %indvars.iv.i38 = phi i64 [ 0, %if.else ], [ %indvars.iv.next.i62, %for.inc.i60 ]
-  %row.024.i39 = phi i32 [ %call5, %if.else ], [ %row.1.i61, %for.inc.i60 ]
+  %row.026.i39 = phi i32 [ %call5, %if.else ], [ %row.1.i61, %for.inc.i60 ]
   %arrayidx.i.i40 = getelementptr inbounds [3 x %class.btRotationalLimitMotor], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv.i38
   %m_currentLimit.i.i41 = getelementptr inbounds i8, ptr %arrayidx.i.i40, i64 56
   %20 = load i32, ptr %m_currentLimit.i.i41, align 4
@@ -3453,12 +3453,12 @@ if.then17.i64:                                    ; preds = %if.end14.i54
   br label %if.end21.i57
 
 if.end21.i57:                                     ; preds = %if.then17.i64, %if.end14.i54
-  %call23.i58 = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i40, ptr noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr noundef nonnull readonly align 4 dereferenceable(64) %transB, ptr noundef nonnull readonly align 4 dereferenceable(16) %linVelA, ptr noundef nonnull readonly align 4 dereferenceable(16) %linVelB, ptr noundef nonnull readonly align 4 dereferenceable(16) %angVelA, ptr noundef nonnull readonly align 4 dereferenceable(16) %angVelB, ptr noundef readonly %info, i32 noundef %row.024.i39, ptr noundef nonnull align 4 dereferenceable(16) %axis.i31, i32 noundef 1, i32 noundef 0)
-  %add24.i59 = add nsw i32 %call23.i58, %row.024.i39
+  %call23.i58 = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %this, ptr noundef nonnull %arrayidx.i.i40, ptr noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr noundef nonnull readonly align 4 dereferenceable(64) %transB, ptr noundef nonnull readonly align 4 dereferenceable(16) %linVelA, ptr noundef nonnull readonly align 4 dereferenceable(16) %linVelB, ptr noundef nonnull readonly align 4 dereferenceable(16) %angVelA, ptr noundef nonnull readonly align 4 dereferenceable(16) %angVelB, ptr noundef readonly %info, i32 noundef %row.026.i39, ptr noundef nonnull align 4 dereferenceable(16) %axis.i31, i32 noundef 1, i32 noundef 0)
+  %add24.i59 = add nsw i32 %call23.i58, %row.026.i39
   br label %for.inc.i60
 
 for.inc.i60:                                      ; preds = %if.end21.i57, %land.lhs.true.i.i70
-  %row.1.i61 = phi i32 [ %add24.i59, %if.end21.i57 ], [ %row.024.i39, %land.lhs.true.i.i70 ]
+  %row.1.i61 = phi i32 [ %add24.i59, %if.end21.i57 ], [ %row.026.i39, %land.lhs.true.i.i70 ]
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, 3
   br i1 %exitcond.not.i63, label %_ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.exit73, label %for.body.i37, !llvm.loop !57

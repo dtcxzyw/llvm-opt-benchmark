@@ -656,7 +656,7 @@ define internal range(i32 -2, 1) i32 @mca_base_var_enum_verbose_dump(ptr noundef
 
 .lr.ph.i:                                         ; preds = %6, %25
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 0, %6 ]
-  %.02533.i = phi ptr [ %26, %25 ], [ null, %6 ]
+  %.02633.i = phi ptr [ %26, %25 ], [ null, %6 ]
   %13 = load ptr, ptr %9, align 8
   %14 = getelementptr inbounds %struct.mca_base_var_enum_value_t, ptr %13, i64 %indvars.iv.i
   %15 = getelementptr inbounds i8, ptr %14, i64 8
@@ -665,15 +665,15 @@ define internal range(i32 -2, 1) i32 @mca_base_var_enum_verbose_dump(ptr noundef
   br i1 %.not.i, label %.loopexit.loopexit, label %17
 
 17:                                               ; preds = %.lr.ph.i
-  %.not30.i = icmp eq ptr %.02533.i, null
-  %18 = select i1 %.not30.i, ptr @.str.15, ptr %.02533.i
+  %.not30.i = icmp eq ptr %.02633.i, null
+  %18 = select i1 %.not30.i, ptr @.str.15, ptr %.02633.i
   %19 = select i1 %.not30.i, ptr @.str.15, ptr @.str.23
   %20 = load i32, ptr %14, align 8
   %21 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.22, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef %spec.select.i, i32 noundef %20, ptr noundef nonnull %spec.select31.i, ptr noundef %spec.select.i, ptr noundef nonnull %16, ptr noundef nonnull %spec.select31.i) #16
   br i1 %.not30.i, label %23, label %22
 
 22:                                               ; preds = %17
-  tail call void @free(ptr noundef nonnull %.02533.i) #16
+  tail call void @free(ptr noundef nonnull %.02633.i) #16
   br label %23
 
 23:                                               ; preds = %22, %17
@@ -689,7 +689,7 @@ define internal range(i32 -2, 1) i32 @mca_base_var_enum_verbose_dump(ptr noundef
   br i1 %29, label %.lr.ph.i, label %.loopexit.loopexit, !llvm.loop !8
 
 .loopexit.loopexit:                               ; preds = %.lr.ph.i, %25
-  %30 = phi ptr [ %.02533.i, %.lr.ph.i ], [ %26, %25 ]
+  %30 = phi ptr [ %.02633.i, %.lr.ph.i ], [ %26, %25 ]
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @opal_var_dump_color, i64 16), align 16
   %.pre21 = select i1 %7, ptr %.pre, ptr @.str.15
   br label %.loopexit
@@ -1101,7 +1101,7 @@ define internal range(i32 -2, 1) i32 @enum_dump(ptr noundef readonly %0, ptr nou
 
 .lr.ph:                                           ; preds = %5, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %5 ]
-  %.02533 = phi ptr [ %25, %24 ], [ null, %5 ]
+  %.02633 = phi ptr [ %25, %24 ], [ null, %5 ]
   %12 = load ptr, ptr %8, align 8
   %13 = getelementptr inbounds %struct.mca_base_var_enum_value_t, ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds i8, ptr %13, i64 8
@@ -1110,15 +1110,15 @@ define internal range(i32 -2, 1) i32 @enum_dump(ptr noundef readonly %0, ptr nou
   br i1 %.not, label %.critedge, label %16
 
 16:                                               ; preds = %.lr.ph
-  %.not30 = icmp eq ptr %.02533, null
-  %17 = select i1 %.not30, ptr @.str.15, ptr %.02533
+  %.not30 = icmp eq ptr %.02633, null
+  %17 = select i1 %.not30, ptr @.str.15, ptr %.02633
   %18 = select i1 %.not30, ptr @.str.15, ptr @.str.23
   %19 = load i32, ptr %13, align 8
   %20 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.22, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %spec.select, i32 noundef %19, ptr noundef nonnull %spec.select31, ptr noundef %spec.select, ptr noundef nonnull %15, ptr noundef nonnull %spec.select31) #16
   br i1 %.not30, label %22, label %21
 
 21:                                               ; preds = %16
-  tail call void @free(ptr noundef nonnull %.02533) #16
+  tail call void @free(ptr noundef nonnull %.02633) #16
   br label %22
 
 22:                                               ; preds = %21, %16
@@ -1134,8 +1134,8 @@ define internal range(i32 -2, 1) i32 @enum_dump(ptr noundef readonly %0, ptr nou
   br i1 %28, label %.lr.ph, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %22, %24, %.lr.ph, %5, %3
-  %.027 = phi i32 [ -1, %3 ], [ 0, %5 ], [ -2, %22 ], [ 0, %24 ], [ 0, %.lr.ph ]
-  ret i32 %.027
+  %.025 = phi i32 [ -1, %3 ], [ 0, %5 ], [ -2, %22 ], [ 0, %24 ], [ 0, %.lr.ph ]
+  ret i32 %.025
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -1292,7 +1292,7 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
 17:                                               ; preds = %.lr.ph94, %14
   %indvars.iv104 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next105, %14 ]
   %18 = phi ptr [ %12, %.lr.ph94 ], [ %16, %14 ]
-  %.04892 = phi i32 [ 0, %.lr.ph94 ], [ %.470, %14 ]
+  %.05292 = phi i32 [ 0, %.lr.ph94 ], [ %.469, %14 ]
   %19 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv104
   %20 = call i64 @strtol(ptr noundef nonnull %18, ptr noundef nonnull %5, i32 noundef 0) #16
   %21 = trunc i64 %20 to i32
@@ -1315,11 +1315,11 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %46 ], [ 0, %.lr.ph.split.us ]
   %.04380.us = phi i1 [ %.2.us, %46 ], [ false, %.lr.ph.split.us ]
   %.04479.us = phi i1 [ %.145.us, %46 ], [ false, %.lr.ph.split.us ]
-  %.14978.us = phi i32 [ %.351.us, %46 ], [ %.04892, %.lr.ph.split.us ]
-  %.05277.us = phi i32 [ %.153.us, %46 ], [ %21, %.lr.ph.split.us ]
+  %.04978.us = phi i32 [ %.150.us, %46 ], [ %21, %.lr.ph.split.us ]
+  %.15377.us = phi i32 [ %.355.us, %46 ], [ %.05292, %.lr.ph.split.us ]
   %29 = getelementptr inbounds %struct.mca_base_var_enum_value_flag_t, ptr %27, i64 %indvars.iv100
   %30 = load i32, ptr %29, align 8
-  %31 = and i32 %30, %.05277.us
+  %31 = and i32 %30, %.04978.us
   %.not62.us = icmp eq i32 %31, 0
   br i1 %.not62.us, label %32, label %38
 
@@ -1334,19 +1334,19 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
 38:                                               ; preds = %32, %28
   %39 = getelementptr inbounds i8, ptr %29, i64 16
   %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, %.14978.us
+  %41 = and i32 %40, %.15377.us
   %.not63.us = icmp ne i32 %41, 0
   %42 = select i1 %.not63.us, i32 0, i32 %30
-  %spec.select = or i32 %.14978.us, %42
+  %spec.select = or i32 %.15377.us, %42
   %spec.select118 = select i1 %.not63.us, i1 true, i1 %.04380.us
   %43 = xor i32 %30, -1
-  %44 = and i32 %.05277.us, %43
+  %44 = and i32 %.04978.us, %43
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.thread, label %46
 
 46:                                               ; preds = %38, %32
-  %.153.us = phi i32 [ %44, %38 ], [ %.05277.us, %32 ]
-  %.351.us = phi i32 [ %spec.select, %38 ], [ %.14978.us, %32 ]
+  %.355.us = phi i32 [ %spec.select, %38 ], [ %.15377.us, %32 ]
+  %.150.us = phi i32 [ %44, %38 ], [ %.04978.us, %32 ]
   %.145.us = phi i1 [ true, %38 ], [ %.04479.us, %32 ]
   %.2.us = phi i1 [ %spec.select118, %38 ], [ %.04380.us, %32 ]
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
@@ -1372,13 +1372,13 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   %56 = getelementptr inbounds %struct.mca_base_var_enum_value_flag_t, ptr %48, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = load i32, ptr %57, align 8
-  %59 = and i32 %58, %.04892
+  %59 = and i32 %58, %.05292
   %.not63 = icmp eq i32 %59, 0
   br i1 %.not63, label %60, label %.thread.thread
 
 60:                                               ; preds = %54
   %61 = load i32, ptr %56, align 8
-  %62 = or i32 %61, %.04892
+  %62 = or i32 %61, %.05292
   br label %.thread
 
 63:                                               ; preds = %49
@@ -1391,9 +1391,9 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
 
 .thread:                                          ; preds = %38, %60, %._crit_edge
   %.371 = phi i1 [ %.2.us, %._crit_edge ], [ false, %60 ], [ %spec.select118, %38 ]
-  %.470 = phi i32 [ %.351.us, %._crit_edge ], [ %62, %60 ], [ %spec.select, %38 ]
-  %.25469 = phi i32 [ %.153.us, %._crit_edge ], [ %21, %60 ], [ 0, %38 ]
-  %64 = icmp ne i32 %.25469, 0
+  %.25170 = phi i32 [ %.150.us, %._crit_edge ], [ %21, %60 ], [ 0, %38 ]
+  %.469 = phi i32 [ %.355.us, %._crit_edge ], [ %62, %60 ], [ %spec.select, %38 ]
+  %64 = icmp ne i32 %.25170, 0
   %or.cond = select i1 %24, i1 %64, i1 false
   %or.cond64 = select i1 %.371, i1 true, i1 %or.cond
   br i1 %or.cond64, label %.thread.thread, label %14
@@ -1404,14 +1404,14 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   br label %66
 
 ._crit_edge95:                                    ; preds = %14, %.preheader
-  %.048.lcssa = phi i32 [ 0, %.preheader ], [ %.470, %14 ]
+  %.052.lcssa = phi i32 [ 0, %.preheader ], [ %.469, %14 ]
   call void @opal_argv_free(ptr noundef nonnull %10) #16
-  store i32 %.048.lcssa, ptr %2, align 4
+  store i32 %.052.lcssa, ptr %2, align 4
   br label %66
 
 66:                                               ; preds = %9, %3, %._crit_edge95, %.thread.thread
-  %.055 = phi i32 [ %65, %.thread.thread ], [ 0, %._crit_edge95 ], [ %8, %3 ], [ -5, %9 ]
-  ret i32 %.055
+  %.048 = phi i32 [ %65, %.thread.thread ], [ 0, %._crit_edge95 ], [ %8, %3 ], [ -5, %9 ]
+  ret i32 %.048
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1652,21 +1652,21 @@ define internal i32 @enum_value_from_string(ptr noundef %0, ptr noundef %1, ptr 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit42, %._crit_edge.loopexit, %9
-  %.0.lcssa = phi i32 [ 0, %9 ], [ %33, %._crit_edge.loopexit ], [ %34, %._crit_edge.loopexit42 ]
-  %35 = icmp eq i32 %.0.lcssa, %13
+  %.018.lcssa = phi i32 [ 0, %9 ], [ %33, %._crit_edge.loopexit ], [ %34, %._crit_edge.loopexit42 ]
+  %35 = icmp eq i32 %.018.lcssa, %13
   br i1 %35, label %._crit_edge.thread, label %36
 
 36:                                               ; preds = %._crit_edge
   %37 = load ptr, ptr %12, align 8
-  %38 = zext nneg i32 %.0.lcssa to i64
+  %38 = zext nneg i32 %.018.lcssa to i64
   %39 = getelementptr inbounds %struct.mca_base_var_enum_value_t, ptr %37, i64 %38
   %40 = load i32, ptr %39, align 8
   store i32 %40, ptr %2, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %32, %27, %._crit_edge, %3, %36
-  %.018 = phi i32 [ 0, %36 ], [ %8, %3 ], [ -18, %._crit_edge ], [ -18, %27 ], [ -18, %32 ]
-  ret i32 %.018
+  %.0 = phi i32 [ 0, %36 ], [ %8, %3 ], [ -18, %._crit_edge ], [ -18, %27 ], [ -18, %32 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

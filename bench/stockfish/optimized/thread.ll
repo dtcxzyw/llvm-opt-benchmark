@@ -1774,16 +1774,16 @@ _ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairI
   br i1 %.not8690, label %._crit_edge101, label %.lr.ph95
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit, %.lr.ph
-  %.sroa.074.092 = phi ptr [ %50, %.lr.ph ], [ %42, %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit ]
-  %.08591 = phi i32 [ %.sroa.speculated81, %.lr.ph ], [ 32002, %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit ]
-  %44 = load ptr, ptr %.sroa.074.092, align 8
+  %.08592 = phi i32 [ %.sroa.speculated81, %.lr.ph ], [ 32002, %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit ]
+  %.sroa.074.091 = phi ptr [ %50, %.lr.ph ], [ %42, %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit ]
+  %44 = load ptr, ptr %.sroa.074.091, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 9582656
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %48, align 4
-  %.sroa.speculated81 = call i32 @llvm.smin.i32(i32 %49, i32 %.08591)
-  %50 = getelementptr inbounds i8, ptr %.sroa.074.092, i64 8
+  %.sroa.speculated81 = call i32 @llvm.smin.i32(i32 %49, i32 %.08592)
+  %50 = getelementptr inbounds i8, ptr %.sroa.074.091, i64 8
   %.not86 = icmp eq ptr %50, %43
   br i1 %.not86, label %.preheader, label %.lr.ph
 

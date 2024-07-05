@@ -259,8 +259,8 @@ define dso_local range(i32 -1, 1) i32 @StreamServerPort(i32 noundef %0, ptr noun
   br label %Lock_AF_UNIX.exit
 
 Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
-  %.094 = phi ptr [ %9, %37 ], [ %14, %29 ], [ %14, %32 ]
-  %39 = call i32 @pg_getaddrinfo_all(ptr noundef %1, ptr noundef nonnull %.094, ptr noundef nonnull %13, ptr noundef nonnull %12) #19
+  %.093 = phi ptr [ %9, %37 ], [ %14, %29 ], [ %14, %32 ]
+  %39 = call i32 @pg_getaddrinfo_all(ptr noundef %1, ptr noundef nonnull %.093, ptr noundef nonnull %13, ptr noundef nonnull %12) #19
   %40 = icmp eq i32 %39, 0
   %41 = load ptr, ptr %12, align 8
   %42 = icmp ne ptr %41, null
@@ -281,7 +281,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 47:                                               ; preds = %46
   %48 = call ptr @gai_strerror(i32 noundef %39) #19
-  %49 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %1, ptr noundef nonnull %.094, ptr noundef %48) #19
+  %49 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %1, ptr noundef nonnull %.093, ptr noundef %48) #19
   br label %.sink.split
 
 50:                                               ; preds = %44
@@ -289,7 +289,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 51:                                               ; preds = %50
   %52 = call ptr @gai_strerror(i32 noundef %39) #19
-  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %.094, ptr noundef %52) #19
+  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %.093, ptr noundef %52) #19
   br label %.sink.split
 
 .sink.split:                                      ; preds = %47, %51
@@ -308,12 +308,12 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   br label %220
 
 58:                                               ; preds = %.preheader, %215
-  %.092129 = phi i32 [ 0, %.preheader ], [ %.1, %215 ]
-  %.093128 = phi ptr [ %41, %.preheader ], [ %217, %215 ]
+  %.094130 = phi ptr [ %41, %.preheader ], [ %217, %215 ]
+  %.095128 = phi i32 [ 0, %.preheader ], [ %.1, %215 ]
   br i1 %19, label %63, label %59
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds i8, ptr %.093128, i64 4
+  %60 = getelementptr inbounds i8, ptr %.094130, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, 1
   br i1 %62, label %215, label %63
@@ -333,7 +333,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   br label %.loopexit
 
 70:                                               ; preds = %63
-  %71 = getelementptr inbounds i8, ptr %.093128, i64 4
+  %71 = getelementptr inbounds i8, ptr %.094130, i64 4
   %72 = load i32, ptr %71, align 4
   switch i32 %72, label %74 [
     i32 2, label %.thread
@@ -351,10 +351,10 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   br i1 %76, label %.thread110, label %.thread
 
 .thread:                                          ; preds = %73, %70, %74
-  %.091108 = phi ptr [ %10, %74 ], [ @.str.9, %70 ], [ @.str.10, %73 ]
-  %77 = getelementptr inbounds i8, ptr %.093128, i64 24
+  %.090108 = phi ptr [ %10, %74 ], [ @.str.9, %70 ], [ @.str.10, %73 ]
+  %77 = getelementptr inbounds i8, ptr %.094130, i64 24
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.093128, i64 16
+  %79 = getelementptr inbounds i8, ptr %.094130, i64 16
   %80 = load i32, ptr %79, align 8
   %81 = call i32 @pg_getnameinfo_all(ptr noundef %78, i32 noundef %80, ptr noundef nonnull %11, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #19
   %.pre = load i32, ptr %71, align 4
@@ -362,8 +362,8 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 .thread110:                                       ; preds = %70, %74, %.thread
   %82 = phi i32 [ %.pre, %.thread ], [ 1, %74 ], [ %72, %70 ]
-  %.091109 = phi ptr [ %.091108, %.thread ], [ %10, %74 ], [ @.str.11, %70 ]
-  %.095 = phi ptr [ %11, %.thread ], [ %14, %74 ], [ %14, %70 ]
+  %.090109 = phi ptr [ %.090108, %.thread ], [ %10, %74 ], [ @.str.11, %70 ]
+  %.092 = phi ptr [ %11, %.thread ], [ %14, %74 ], [ %14, %70 ]
   %83 = call i32 @socket(i32 noundef %82, i32 noundef 1, i32 noundef 0) #19
   %84 = icmp eq i32 %83, -1
   br i1 %84, label %85, label %90
@@ -374,7 +374,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 87:                                               ; preds = %85
   %88 = call i32 @errcode_for_socket_access() #19
-  %89 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %.091109, ptr noundef nonnull %.095) #19
+  %89 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %.090109, ptr noundef nonnull %.092) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 451, ptr noundef nonnull @__func__.StreamServerPort) #19
   br label %215
 
@@ -406,7 +406,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 103:                                              ; preds = %101
   %104 = call i32 @errcode_for_socket_access() #19
-  %105 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull %.091109, ptr noundef nonnull %.095) #19
+  %105 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull %.090109, ptr noundef nonnull %.092) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 481, ptr noundef nonnull @__func__.StreamServerPort) #19
   br label %106
 
@@ -430,7 +430,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 115:                                              ; preds = %113
   %116 = call i32 @errcode_for_socket_access() #19
-  %117 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, ptr noundef nonnull %.091109, ptr noundef nonnull %.095) #19
+  %117 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, ptr noundef nonnull %.090109, ptr noundef nonnull %.092) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 499, ptr noundef nonnull @__func__.StreamServerPort) #19
   br label %118
 
@@ -439,9 +439,9 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   br label %215
 
 .thread113:                                       ; preds = %96, %110, %108
-  %120 = getelementptr inbounds i8, ptr %.093128, i64 24
+  %120 = getelementptr inbounds i8, ptr %.094130, i64 24
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %.093128, i64 16
+  %122 = getelementptr inbounds i8, ptr %.094130, i64 16
   %123 = load i32, ptr %122, align 8
   %124 = call i32 @bind(i32 noundef %83, ptr %121, i32 noundef %123) #19
   %125 = icmp slt i32 %124, 0
@@ -455,7 +455,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 130:                                              ; preds = %126
   %131 = call i32 @errcode_for_socket_access() #19
-  %132 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %.091109, ptr noundef nonnull %.095) #19
+  %132 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %.090109, ptr noundef nonnull %.092) #19
   %133 = icmp eq i32 %128, 98
   br i1 %133, label %.sink.split151, label %137
 
@@ -481,7 +481,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 143:                                              ; preds = %140
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %144 = load i8, ptr %.094, align 16
+  %144 = load i8, ptr %.093, align 16
   %145 = icmp eq i8 %144, 64
   br i1 %145, label %Setup_AF_UNIX.exit, label %146
 
@@ -523,8 +523,8 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   br label %167
 
 167:                                              ; preds = %164, %154
-  %.0.i = phi i32 [ %155, %154 ], [ %166, %164 ]
-  %168 = call i32 @chown(ptr noundef nonnull %.094, i32 noundef -1, i32 noundef %.0.i) #19
+  %.09.i = phi i32 [ %155, %154 ], [ %166, %164 ]
+  %168 = call i32 @chown(ptr noundef nonnull %.093, i32 noundef -1, i32 noundef %.09.i) #19
   %169 = icmp eq i32 %168, -1
   br i1 %169, label %170, label %175
 
@@ -534,12 +534,12 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 172:                                              ; preds = %170
   %173 = call i32 @errcode_for_file_access() #19
-  %174 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.43, ptr noundef nonnull %.094) #19
+  %174 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.43, ptr noundef nonnull %.093) #19
   br label %.sink.split.i
 
 175:                                              ; preds = %167, %146
   %176 = load i32, ptr @Unix_socket_permissions, align 4
-  %177 = call i32 @chmod(ptr noundef nonnull %.094, i32 noundef %176) #19
+  %177 = call i32 @chmod(ptr noundef nonnull %.093, i32 noundef %176) #19
   %178 = icmp eq i32 %177, -1
   br i1 %178, label %179, label %Setup_AF_UNIX.exit
 
@@ -549,7 +549,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 181:                                              ; preds = %179
   %182 = call i32 @errcode_for_file_access() #19
-  %183 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef nonnull %.094) #19
+  %183 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef nonnull %.093) #19
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %181, %172, %161
@@ -579,7 +579,7 @@ Setup_AF_UNIX.exit:                               ; preds = %143, %175
 
 193:                                              ; preds = %191
   %194 = call i32 @errcode_for_socket_access() #19
-  %195 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %.091109, ptr noundef nonnull %.095) #19
+  %195 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %.090109, ptr noundef nonnull %.092) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 556, ptr noundef nonnull @__func__.StreamServerPort) #19
   br label %196
 
@@ -597,14 +597,14 @@ Setup_AF_UNIX.exit:                               ; preds = %143, %175
   br i1 %201, label %203, label %208
 
 203:                                              ; preds = %202
-  %204 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %.095) #19
+  %204 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %.092) #19
   br label %.sink.split152
 
 205:                                              ; preds = %198
   br i1 %201, label %206, label %208
 
 206:                                              ; preds = %205
-  %207 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef nonnull %.091109, ptr noundef nonnull %.095, i32 noundef %43) #19
+  %207 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef nonnull %.090109, ptr noundef nonnull %.092, i32 noundef %43) #19
   br label %.sink.split152
 
 .sink.split152:                                   ; preds = %203, %206
@@ -620,22 +620,22 @@ Setup_AF_UNIX.exit:                               ; preds = %143, %175
   %212 = load i32, ptr %5, align 4
   %213 = add i32 %212, 1
   store i32 %213, ptr %5, align 4
-  %214 = add i32 %.092129, 1
+  %214 = add i32 %.095128, 1
   br label %215
 
 215:                                              ; preds = %87, %85, %59, %208, %196, %138, %118, %106
-  %.1 = phi i32 [ %.092129, %59 ], [ %.092129, %87 ], [ %.092129, %85 ], [ %.092129, %106 ], [ %.092129, %118 ], [ %.092129, %138 ], [ %.092129, %196 ], [ %214, %208 ]
-  %216 = getelementptr inbounds i8, ptr %.093128, i64 40
+  %.1 = phi i32 [ %.095128, %59 ], [ %.095128, %87 ], [ %.095128, %85 ], [ %.095128, %106 ], [ %.095128, %118 ], [ %.095128, %138 ], [ %.095128, %196 ], [ %214, %208 ]
+  %216 = getelementptr inbounds i8, ptr %.094130, i64 40
   %217 = load ptr, ptr %216, align 8
   %.not102 = icmp eq ptr %217, null
   br i1 %.not102, label %.loopexit, label %58, !llvm.loop !5
 
 .loopexit:                                        ; preds = %215, %68, %66, %184
-  %.092121 = phi i32 [ %.092129, %68 ], [ %.092129, %66 ], [ %.092129, %184 ], [ %.1, %215 ]
+  %.095121 = phi i32 [ %.095128, %68 ], [ %.095128, %66 ], [ %.095128, %184 ], [ %.1, %215 ]
   %218 = load i32, ptr %17, align 4
   %219 = load ptr, ptr %12, align 8
   call void @pg_freeaddrinfo_all(i32 noundef %218, ptr noundef %219) #19
-  %.not106 = icmp eq i32 %.092121, 0
+  %.not106 = icmp eq i32 %.095121, 0
   %. = sext i1 %.not106 to i32
   br label %220
 
@@ -2633,12 +2633,12 @@ define internal fastcc range(i32 -1, 1) i32 @internal_flush() unnamed_addr #0 {
 
 .outer.split:                                     ; preds = %.outer.split.preheader, %.outer
   %10 = phi i64 [ %33, %.outer ], [ %gepdiff, %.outer.split.preheader ]
-  %.0.ph20 = phi ptr [ %28, %.outer ], [ %4, %.outer.split.preheader ]
+  %.09.ph20 = phi ptr [ %28, %.outer ], [ %4, %.outer.split.preheader ]
   br label %11
 
 11:                                               ; preds = %.outer.split, %16
   %12 = load ptr, ptr @MyProcPort, align 8
-  %13 = tail call i64 @secure_write(ptr noundef %12, ptr noundef %.0.ph20, i64 noundef %10) #19
+  %13 = tail call i64 @secure_write(ptr noundef %12, ptr noundef %.09.ph20, i64 noundef %10) #19
   %14 = trunc i64 %13 to i32
   %15 = icmp slt i32 %14, 1
   br i1 %15, label %16, label %.outer
@@ -2677,7 +2677,7 @@ define internal fastcc range(i32 -1, 1) i32 @internal_flush() unnamed_addr #0 {
 .outer:                                           ; preds = %11
   store i32 0, ptr @internal_flush.last_reported_send_errno, align 4
   %27 = and i64 %13, 2147483647
-  %28 = getelementptr i8, ptr %.0.ph20, i64 %27
+  %28 = getelementptr i8, ptr %.09.ph20, i64 %27
   %29 = load i32, ptr @PqSendStart, align 4
   %30 = add i32 %29, %14
   store i32 %30, ptr @PqSendStart, align 4
@@ -2692,8 +2692,8 @@ define internal fastcc range(i32 -1, 1) i32 @internal_flush() unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %.outer._crit_edge, %26
-  %.09 = phi i32 [ -1, %26 ], [ 0, %.outer._crit_edge ], [ 0, %16 ]
-  ret i32 %.09
+  %.0 = phi i32 [ -1, %26 ], [ 0, %.outer._crit_edge ], [ 0, %16 ]
+  ret i32 %.0
 }
 
 declare i64 @secure_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

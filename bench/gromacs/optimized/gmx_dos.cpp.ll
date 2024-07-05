@@ -537,14 +537,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit341:       ; preds = %135, %138
 
 177:                                              ; preds = %.lr.ph, %177
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %177 ]
-  %.0299485 = phi double [ 0.000000e+00, %.lr.ph ], [ %184, %177 ]
+  %.0301485 = phi double [ 0.000000e+00, %.lr.ph ], [ %184, %177 ]
   %178 = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv
   %179 = load i32, ptr %178, align 4
   %180 = sext i32 %179 to i64
   %181 = getelementptr inbounds %struct.t_atom, ptr %176, i64 %180
   %182 = load float, ptr %181, align 4
   %183 = fpext float %182 to double
-  %184 = fadd double %.0299485, %183
+  %184 = fadd double %.0301485, %183
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %177, !llvm.loop !5
@@ -697,7 +697,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit341:       ; preds = %135, %138
   br label %.body345
 
 .loopexit461:                                     ; preds = %._crit_edge.i, %._crit_edge.thread, %._crit_edge
-  %.0299.lcssa609 = phi double [ %184, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %184, %._crit_edge.i ]
+  %.0301.lcssa609 = phi double [ %184, %._crit_edge ], [ 0.000000e+00, %._crit_edge.thread ], [ %184, %._crit_edge.i ]
   %.028.lcssa.i = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %225, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -763,8 +763,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit349:       ; preds = %238, %241
 
 255:                                              ; preds = %331, %_ZNSt10filesystem7__cxx114pathD2Ev.exit349
   %indvars.iv572 = phi i64 [ %indvars.iv.next573, %331 ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit349 ]
-  %.0300 = phi double [ %.1301, %331 ], [ %172, %_ZNSt10filesystem7__cxx114pathD2Ev.exit349 ]
-  %.0297 = phi double [ %.1298, %331 ], [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit349 ]
+  %.0298 = phi double [ %.1299, %331 ], [ %172, %_ZNSt10filesystem7__cxx114pathD2Ev.exit349 ]
+  %.0296 = phi double [ %.1297, %331 ], [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit349 ]
   %.0281 = phi i32 [ %.1282611, %331 ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit349 ]
   %.0278 = phi i32 [ %.1279, %331 ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit349 ]
   %256 = load i8, ptr %244, align 8
@@ -794,7 +794,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit349:       ; preds = %238, %241
   %278 = call float @llvm.fmuladd.f32(float %268, float %263, float %277)
   %279 = call noundef float @llvm.fmuladd.f32(float %275, float %278, float %274)
   %280 = fpext float %279 to double
-  %281 = fadd double %.0297, %280
+  %281 = fadd double %.0296, %280
   %282 = add nsw i32 %.0278, 1
   br label %285
 
@@ -805,8 +805,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit349:       ; preds = %238, %241
   br label %.body345
 
 285:                                              ; preds = %258, %255
-  %.1301 = phi double [ %280, %258 ], [ %.0300, %255 ]
-  %.1298 = phi double [ %281, %258 ], [ %.0297, %255 ]
+  %.1299 = phi double [ %280, %258 ], [ %.0298, %255 ]
+  %.1297 = phi double [ %281, %258 ], [ %.0296, %255 ]
   %.1279 = phi i32 [ %282, %258 ], [ %.0278, %255 ]
   %286 = sext i32 %.0281 to i64
   %.not = icmp slt i64 %indvars.iv572, %286
@@ -924,8 +924,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit349:       ; preds = %238, %241
   %347 = fpext float %346 to double
   %348 = icmp sgt i32 %.1279, 0
   %349 = uitofp nneg i32 %.1279 to double
-  %350 = fdiv double %.1298, %349
-  %.2302 = select i1 %348, double %350, double %.1301
+  %350 = fdiv double %.1297, %349
+  %.2300 = select i1 %348, double %350, double %.1299
   %351 = load i8, ptr @_ZZ7gmx_dosiPPcE8bVerbose, align 1
   %352 = trunc i8 %351 to i1
   br i1 %352, label %353, label %355
@@ -1375,7 +1375,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit379:       ; preds = %466, %469
 .lr.ph517:                                        ; preds = %.lr.ph517.preheader, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit381
   %524 = phi i8 [ %.pre604, %.lr.ph517.preheader ], [ %550, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit381 ]
   %indvars.iv591 = phi i64 [ 0, %.lr.ph517.preheader ], [ %indvars.iv.next592, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit381 ]
-  %.0296515 = phi double [ 0.000000e+00, %.lr.ph517.preheader ], [ %540, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit381 ]
+  %.0302515 = phi double [ 0.000000e+00, %.lr.ph517.preheader ], [ %540, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit381 ]
   %525 = shl nuw nsw i64 %indvars.iv591, 1
   %526 = trunc nuw nsw i64 %525 to i32
   %527 = uitofp nneg i32 %526 to float
@@ -1392,7 +1392,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit379:       ; preds = %466, %469
   %537 = fmul float %536, %536
   %538 = fadd float %533, %537
   %539 = fpext float %538 to double
-  %540 = fadd double %.0296515, %539
+  %540 = fadd double %.0302515, %539
   %541 = trunc i8 %524 to i1
   br i1 %541, label %542, label %547
 
@@ -1460,10 +1460,10 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit381._crit_edge: ; preds = %_ZL13gmx_snew_
   %578 = fmul double %577, 0x3F9ABF5F7665F870
   %579 = sitofp i32 %173 to double
   %580 = fmul double %578, %579
-  %581 = fdiv double %580, %.0299.lcssa609
+  %581 = fdiv double %580, %.0301.lcssa609
   %582 = call double @sqrt(double noundef %581) #17
   %583 = fmul double %582, %575
-  %584 = fdiv double %579, %.2302
+  %584 = fdiv double %579, %.2300
   %585 = call double @pow(double noundef %584, double noundef 0x3FD5555555555555) #17
   %586 = fmul double %585, %583
   %587 = fmul double %586, 0x3FF8A121DA9A542D
@@ -1602,7 +1602,7 @@ _ZL13calc_compressd.exit:                         ; preds = %662, %_ZL6calc_yddd
   %673 = fpext float %672 to double
   %674 = fmul double %673, 0x3FAABF5F7665F870
   %675 = fdiv double %674, 0x3FC461841FB3BD3C
-  %676 = fmul double %.2302, %675
+  %676 = fmul double %.2300, %675
   %677 = fmul double %597, %579
   %678 = fdiv double %676, %677
   %679 = call double @log(double noundef %678) #17
@@ -1634,13 +1634,13 @@ _ZL13calc_compressd.exit:                         ; preds = %662, %_ZL6calc_yddd
   %698 = fadd double %679, 2.500000e+00
   %699 = fmul double %698, 0x3F81072C483AF26D
   %700 = fadd double %699, %697
-  %701 = fmul double %.0299.lcssa609, 0x3A6071F778ED6AAF
-  %702 = fmul double %.2302, 1.000000e-09
+  %701 = fmul double %.0301.lcssa609, 0x3A6071F778ED6AAF
+  %702 = fmul double %.2300, 1.000000e-09
   %703 = fmul double %702, 1.000000e-09
   %704 = fmul double %703, 1.000000e-09
   %705 = fdiv double %701, %704
   %706 = fmul double %625, 6.000000e+00
-  %707 = fmul double %.2302, %706
+  %707 = fmul double %.2300, %706
   %708 = fmul double %579, 0x400921FB54442D18
   %709 = fdiv double %707, %708
   %710 = call double @cbrt(double noundef %709) #20
@@ -1650,8 +1650,8 @@ _ZL13calc_compressd.exit:                         ; preds = %662, %_ZL6calc_yddd
   %714 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.59, i32 noundef %.028.lcssa.i) #17
   %715 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.60, i32 noundef %173) #17
   %716 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.61, double noundef %347) #17
-  %717 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.62, double noundef %.0299.lcssa609) #17
-  %718 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.63, double noundef %.2302) #17
+  %717 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.62, double noundef %.0301.lcssa609) #17
+  %718 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.63, double noundef %.2300) #17
   %719 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.64, double noundef %705) #17
   %720 = load float, ptr @_ZZ7gmx_dosiPPcE4Temp, align 4
   %721 = fpext float %720 to double
@@ -2000,7 +2000,7 @@ _ZL7wEsolidff.exit:                               ; preds = %_ZL7wAsolidff.exit,
   %935 = fdiv double %934, 3.000000e+00
   %936 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.83, double noundef %935) #17
   %937 = fmul double %571, 1.000000e+03
-  %938 = fmul double %.0299.lcssa609, 1.200000e+01
+  %938 = fmul double %.0301.lcssa609, 1.200000e+01
   %939 = fmul double %938, %517
   %940 = fdiv double %937, %939
   %941 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.84, double noundef %940) #17

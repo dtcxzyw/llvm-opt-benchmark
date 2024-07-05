@@ -4592,20 +4592,20 @@ if.end.i882:                                      ; preds = %for.body.i879
 for.body19.i:                                     ; preds = %while.end64.i, %for.body19.lr.ph.i
   %field_entry_index.195.i = phi i16 [ %495, %for.body19.lr.ph.i ], [ %inc75.i, %while.end64.i ]
   %block.094.i = phi ptr [ null, %for.body19.lr.ph.i ], [ %block.1.i, %while.end64.i ]
-  %last_skip_entry_start.093.i = phi i32 [ 0, %for.body19.lr.ph.i ], [ %sub73.i, %while.end64.i ]
-  %start_new_block.092.i = phi i8 [ 1, %for.body19.lr.ph.i ], [ %start_new_block.2.i, %while.end64.i ]
+  %start_new_block.093.i = phi i8 [ 1, %for.body19.lr.ph.i ], [ %start_new_block.2.i, %while.end64.i ]
+  %last_skip_entry_start.092.i = phi i32 [ 0, %for.body19.lr.ph.i ], [ %sub73.i, %while.end64.i ]
   %conv21.i = zext i16 %field_entry_index.195.i to i64
   %496 = load ptr, ptr %ordered_fields, align 8, !noalias !14
   %add.ptr.i30.i = getelementptr inbounds ptr, ptr %496, i64 %conv21.i
   %497 = load ptr, ptr %add.ptr.i30.i, align 8
   %number_.i31.i = getelementptr inbounds i8, ptr %497, i64 4
   %498 = load i32, ptr %number_.i31.i, align 4
-  %cmp.i.i885 = icmp ugt i32 %498, %last_skip_entry_start.093.i
+  %cmp.i.i885 = icmp ugt i32 %498, %last_skip_entry_start.092.i
   br i1 %cmp.i.i885, label %while.end.i, label %cond.false.i.i886
 
 cond.false.i.i886:                                ; preds = %for.body19.i
   %conv.i.i887 = zext i32 %498 to i64
-  %conv1.i.i = zext i32 %last_skip_entry_start.093.i to i64
+  %conv1.i.i = zext i32 %last_skip_entry_start.092.i to i64
   %call.i32.i = invoke noundef nonnull ptr @_ZN4absl12lts_2023080212log_internal17MakeCheckOpStringIllEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %conv.i.i887, i64 noundef %conv1.i.i, ptr noundef nonnull @.str.16)
           to label %while.body.i unwind label %lpad.loopexit.split-lp.i888
 
@@ -4631,12 +4631,12 @@ lpad.loopexit.split-lp.i888:                      ; preds = %if.then.i.i.i.i50.i
   br label %ehcleanup.i
 
 while.end.i:                                      ; preds = %for.body19.i
-  %501 = and i8 %start_new_block.092.i, 1
+  %501 = and i8 %start_new_block.093.i, 1
   %cmp36.i = icmp eq i8 %501, 0
-  %sub38.i = sub i32 %498, %last_skip_entry_start.093.i
+  %sub38.i = sub i32 %498, %last_skip_entry_start.092.i
   %cmp39.i = icmp ugt i32 %sub38.i, 96
   %or.cond.i890 = and i1 %cmp36.i, %cmp39.i
-  %start_new_block.1.i = select i1 %or.cond.i890, i8 1, i8 %start_new_block.092.i
+  %start_new_block.1.i = select i1 %or.cond.i890, i8 1, i8 %start_new_block.093.i
   %tobool43.i = trunc nuw i8 %start_new_block.1.i to i1
   br i1 %tobool43.i, label %if.then44.i, label %if.end50.i
 

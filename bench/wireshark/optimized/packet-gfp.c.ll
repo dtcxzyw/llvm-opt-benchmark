@@ -355,7 +355,7 @@ define internal noundef i32 @dissect_gfp(ptr noundef %0, ptr noundef %1, ptr nou
   br label %73
 
 73:                                               ; preds = %.sink.split.i, %51
-  %.0126.i = phi ptr [ null, %51 ], [ %70, %.sink.split.i ]
+  %.0128.i = phi ptr [ null, %51 ], [ %70, %.sink.split.i ]
   %74 = load i32, ptr @hf_gfp_thec, align 4
   %75 = load i32, ptr @hf_gfp_thec_status, align 4
   %76 = call zeroext i16 @crc16_r3_ccitt_tvb(ptr noundef %0, i32 noundef 4, i32 noundef 2) #3
@@ -369,7 +369,7 @@ define internal noundef i32 @dissect_gfp(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %79
-  %82 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0126.i, ptr noundef nonnull @ei_gfp_exi_short) #3
+  %82 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0128.i, ptr noundef nonnull @ei_gfp_exi_short) #3
   br label %85
 
 83:                                               ; preds = %79
@@ -377,7 +377,7 @@ define internal noundef i32 @dissect_gfp(ptr noundef %0, ptr noundef %1, ptr nou
   br label %85
 
 85:                                               ; preds = %83, %81
-  %.0127.i = phi i32 [ 0, %81 ], [ %84, %83 ]
+  %.0126.i = phi i32 [ 0, %81 ], [ %84, %83 ]
   %86 = load i32, ptr @hf_gfp_cid, align 4
   %87 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %86, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #3
   %88 = load i32, ptr @hf_gfp_ehec, align 4
@@ -389,26 +389,26 @@ define internal noundef i32 @dissect_gfp(ptr noundef %0, ptr noundef %1, ptr nou
 
 93:                                               ; preds = %85, %73
   %.062 = phi i32 [ 12, %85 ], [ 8, %73 ]
-  %.1128.i = phi i32 [ %.0127.i, %85 ], [ %53, %73 ]
+  %.1127.i = phi i32 [ %.0126.i, %85 ], [ %53, %73 ]
   call void @proto_item_set_end(ptr noundef %17, ptr noundef %0, i32 noundef %.062) #3
   %94 = icmp eq i8 %56, 1
   br i1 %94, label %95, label %proto_item_set_generated.exit135.i
 
 95:                                               ; preds = %93
-  %96 = icmp ult i32 %.1128.i, 4
+  %96 = icmp ult i32 %.1127.i, 4
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0126.i, ptr noundef nonnull @ei_gfp_pfi_short) #3
+  %98 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0128.i, ptr noundef nonnull @ei_gfp_pfi_short) #3
   br label %101
 
 99:                                               ; preds = %95
-  %100 = add i32 %.1128.i, -4
+  %100 = add i32 %.1127.i, -4
   br label %101
 
 101:                                              ; preds = %99, %97
   %.2.i = phi i32 [ 0, %97 ], [ %100, %99 ]
-  %.0.i = phi i32 [ %.1128.i, %97 ], [ 4, %99 ]
+  %.0.i = phi i32 [ %.1127.i, %97 ], [ 4, %99 ]
   %102 = add i32 %.2.i, %.062
   call void @proto_tree_set_appendix(ptr noundef %17, ptr noundef %0, i32 noundef %102, i32 noundef %.0.i) #3
   %103 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %102) #3
@@ -505,7 +505,7 @@ proto_item_set_generated.exit141.i:               ; preds = %148, %145, %proto_i
   br label %proto_item_set_generated.exit135.i
 
 proto_item_set_generated.exit135.i:               ; preds = %proto_item_set_generated.exit141.i, %126, %123, %proto_item_set_generated.exit.i, %93
-  %.3.i = phi i32 [ %.2.i, %proto_item_set_generated.exit141.i ], [ %.1128.i, %93 ], [ %.2.i, %proto_item_set_generated.exit.i ], [ %.2.i, %123 ], [ %.2.i, %126 ]
+  %.3.i = phi i32 [ %.2.i, %proto_item_set_generated.exit141.i ], [ %.1127.i, %93 ], [ %.2.i, %proto_item_set_generated.exit.i ], [ %.2.i, %123 ], [ %.2.i, %126 ]
   %.1.i = phi i32 [ %.0.i, %proto_item_set_generated.exit141.i ], [ 0, %93 ], [ %.0.i, %proto_item_set_generated.exit.i ], [ %.0.i, %123 ], [ %.0.i, %126 ]
   %153 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.062, i32 noundef %.3.i) #3
   switch i8 %54, label %dissect_gfp_payload.exit [
@@ -522,7 +522,7 @@ proto_item_set_generated.exit135.i:               ; preds = %proto_item_set_gene
 
 157:                                              ; preds = %154
   %158 = call ptr @rval_to_str_const(i32 noundef %59, ptr noundef nonnull @gfp_upi_data_rvals, ptr noundef nonnull @.str.123) #3
-  %159 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %.0126.i, ptr noundef nonnull @ei_gfp_payload_undecoded, ptr noundef nonnull @.str.122, i32 noundef %59, ptr noundef %158) #3
+  %159 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %.0128.i, ptr noundef nonnull @ei_gfp_payload_undecoded, ptr noundef nonnull @.str.122, i32 noundef %59, ptr noundef %158) #3
   br label %.sink.split145.i
 
 .sink.split145.i:                                 ; preds = %157, %proto_item_set_generated.exit135.i

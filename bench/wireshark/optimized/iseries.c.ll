@@ -195,8 +195,8 @@ define internal fastcc range(i32 0, 2) i32 @iseries_check_file_type(ptr nocaptur
   br label %12
 
 12:                                               ; preds = %4, %39
-  %.027 = phi i32 [ 0, %4 ], [ %40, %39 ]
-  %.02326 = phi i32 [ 0, %4 ], [ %.1, %39 ]
+  %.027 = phi i32 [ 0, %4 ], [ %.1, %39 ]
+  %.02326 = phi i32 [ 0, %4 ], [ %40, %39 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(270) %5, i8 0, i64 270, i1 false)
   %13 = load ptr, ptr %0, align 8
   %14 = call ptr @file_gets(ptr noundef nonnull %5, i32 noundef 270, ptr noundef %13) #14
@@ -261,7 +261,7 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %25, %.thread.i
   br label %35
 
 35:                                               ; preds = %32, %34, %28
-  %.1 = phi i32 [ 1, %34 ], [ %.02326, %32 ], [ %.02326, %28 ]
+  %.1 = phi i32 [ 1, %34 ], [ %.027, %32 ], [ %.027, %28 ]
   %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.4, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #14
   %37 = icmp eq i32 %36, 3
   br i1 %37, label %38, label %39
@@ -271,13 +271,13 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %25, %.thread.i
   br label %39
 
 39:                                               ; preds = %35, %38
-  %40 = add nuw nsw i32 %.027, 1
+  %40 = add nuw nsw i32 %.02326, 1
   %exitcond.not = icmp eq i32 %40, 100
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !8
 
 .loopexit:                                        ; preds = %39, %16
-  %.02325 = phi i32 [ %.02326, %16 ], [ %.1, %39 ]
-  %.not = icmp eq i32 %.02325, 0
+  %.025 = phi i32 [ %.027, %16 ], [ %.1, %39 ]
+  %.not = icmp eq i32 %.025, 0
   br i1 %.not, label %43, label %41
 
 41:                                               ; preds = %.loopexit
@@ -290,7 +290,7 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %25, %.thread.i
   br label %44
 
 44:                                               ; preds = %43, %41
-  ret i32 %.02325
+  ret i32 %.025
 }
 
 ; Function Attrs: nounwind uwtable
@@ -497,12 +497,12 @@ define internal fastcc range(i32 0, 2) i32 @iseries_parse_packet(ptr nocapture r
   br label %21
 
 19:                                               ; preds = %34
-  %20 = add nuw nsw i32 %.011320, 1
+  %20 = add nuw nsw i32 %.011420, 1
   %exitcond = icmp eq i32 %20, 4
   br i1 %exitcond, label %.critedge, label %21, !llvm.loop !10
 
 21:                                               ; preds = %5, %19
-  %.011320 = phi i32 [ 1, %5 ], [ %20, %19 ]
+  %.011420 = phi i32 [ 1, %5 ], [ %20, %19 ]
   %22 = call ptr @file_gets(ptr noundef nonnull %16, i32 noundef 270, ptr noundef %0) #14
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %26
@@ -760,13 +760,13 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %31, %.thread.i
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %120
-  %.0112.ph = phi i32 [ 0, %120 ], [ %139, %.outer.backedge ]
+  %.0113.ph = phi i32 [ 0, %120 ], [ %139, %.outer.backedge ]
   %.0.ph = phi i32 [ 28, %120 ], [ %.0.ph.be, %.outer.backedge ]
   br label %138
 
 138:                                              ; preds = %200, %.outer
-  %.011221 = phi i32 [ %.0112.ph, %.outer ], [ %139, %200 ]
-  %139 = add i32 %.011221, 1
+  %.011321 = phi i32 [ %.0113.ph, %.outer ], [ %139, %200 ]
+  %139 = add i32 %.011321, 1
   %140 = call ptr @file_gets(ptr noundef nonnull %16, i32 noundef 270, ptr noundef %0) #14
   %141 = icmp eq ptr %140, null
   br i1 %141, label %142, label %145
@@ -817,12 +817,12 @@ iseries_UNICODE_to_ASCII.exit149:                 ; preds = %150, %.thread.i141
   br label %155
 
 155:                                              ; preds = %153, %iseries_UNICODE_to_ASCII.exit149
-  %.0111 = phi i64 [ %.013.lcssa.i145, %iseries_UNICODE_to_ASCII.exit149 ], [ %154, %153 ]
+  %.0112 = phi i64 [ %.013.lcssa.i145, %iseries_UNICODE_to_ASCII.exit149 ], [ %154, %153 ]
   br label %156
 
 156:                                              ; preds = %156, %155
-  %.0110 = phi i32 [ 0, %155 ], [ %164, %156 ]
-  %157 = sext i32 %.0110 to i64
+  %.0111 = phi i32 [ 0, %155 ], [ %164, %156 ]
+  %157 = sext i32 %.0111 to i64
   %158 = getelementptr [540 x i8], ptr %16, i64 0, i64 %157
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i64
@@ -830,11 +830,11 @@ iseries_UNICODE_to_ASCII.exit149:                 ; preds = %150, %.thread.i141
   %162 = load i16, ptr %161, align 2
   %163 = and i16 %162, 256
   %.not130 = icmp eq i16 %163, 0
-  %164 = add i32 %.0110, 1
+  %164 = add i32 %.0111, 1
   br i1 %.not130, label %165, label %156, !llvm.loop !11
 
 165:                                              ; preds = %156
-  switch i32 %.0110, label %200 [
+  switch i32 %.0111, label %200 [
     i32 22, label %166
     i32 9, label %187
     i32 36, label %194
@@ -931,7 +931,7 @@ iseries_UNICODE_to_ASCII.exit149:                 ; preds = %150, %.thread.i141
   br label %.loopexit2
 
 210:                                              ; preds = %205
-  %sext = shl i64 %.0111, 32
+  %sext = shl i64 %.0112, 32
   %211 = ashr exact i64 %sext, 32
   %212 = sub i64 %206, %211
   %213 = call i64 @file_seek(ptr noundef %0, i64 noundef %212, i32 noundef 0, ptr noundef %3) #14
@@ -958,8 +958,8 @@ iseries_UNICODE_to_ASCII.exit149:                 ; preds = %150, %.thread.i141
   br label %.loopexit1
 
 .loopexit1:                                       ; preds = %194, %189, %182, %.loopexit2, %.loopexit, %.critedge, %89, %85, %81, %77, %73, %69, %64, %60, %55, %51, %46, %41, %24
-  %.0116 = phi i32 [ 0, %24 ], [ 0, %41 ], [ 0, %46 ], [ 0, %51 ], [ 0, %55 ], [ 0, %60 ], [ 0, %64 ], [ 0, %69 ], [ 0, %73 ], [ 0, %77 ], [ 0, %81 ], [ 0, %85 ], [ 0, %89 ], [ 1, %.loopexit ], [ 0, %.loopexit2 ], [ 0, %.critedge ], [ 0, %182 ], [ 0, %189 ], [ 0, %194 ]
-  ret i32 %.0116
+  %.0110 = phi i32 [ 0, %24 ], [ 0, %41 ], [ 0, %46 ], [ 0, %51 ], [ 0, %55 ], [ 0, %60 ], [ 0, %64 ], [ 0, %69 ], [ 0, %73 ], [ 0, %77 ], [ 0, %81 ], [ 0, %85 ], [ 0, %89 ], [ 1, %.loopexit ], [ 0, %.loopexit2 ], [ 0, %.critedge ], [ 0, %182 ], [ 0, %189 ], [ 0, %194 ]
+  ret i32 %.0110
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -1029,9 +1029,9 @@ define internal fastcc i32 @append_hex_digits(ptr nocapture noundef writeonly %0
 .loopexit:                                        ; preds = %.loopexit.backedge, %6
   %.162 = phi i32 [ 0, %6 ], [ %.2, %.loopexit.backedge ]
   %.03761 = phi i32 [ 0, %6 ], [ %.03761.be, %.loopexit.backedge ]
-  %.13960 = phi i32 [ %1, %6 ], [ %.240, %.loopexit.backedge ]
-  %.14259 = phi i32 [ 0, %6 ], [ %.14259.be, %.loopexit.backedge ]
-  %8 = sext i32 %.14259 to i64
+  %.14060 = phi i32 [ %1, %6 ], [ %.241, %.loopexit.backedge ]
+  %.14359 = phi i32 [ 0, %6 ], [ %.14359.be, %.loopexit.backedge ]
+  %8 = sext i32 %.14359 to i64
   %9 = getelementptr i8, ptr %3, i64 %8
   %10 = load i8, ptr %9, align 1
   switch i8 %10, label %11 [
@@ -1051,36 +1051,36 @@ define internal fastcc i32 @append_hex_digits(ptr nocapture noundef writeonly %0
   br i1 %or.cond, label %16, label %.loopexit50
 
 16:                                               ; preds = %11
-  %.not47 = icmp slt i32 %.13960, %2
+  %.not47 = icmp slt i32 %.14060, %2
   br i1 %.not47, label %17, label %21
 
 17:                                               ; preds = %16
-  %18 = sext i32 %.13960 to i64
+  %18 = sext i32 %.14060 to i64
   %19 = getelementptr i8, ptr %0, i64 %18
   store i8 %10, ptr %19, align 1
-  %20 = add nsw i32 %.13960, 1
+  %20 = add nsw i32 %.14060, 1
   br label %21
 
 21:                                               ; preds = %16, %17
-  %.240 = phi i32 [ %20, %17 ], [ %.13960, %16 ]
+  %.241 = phi i32 [ %20, %17 ], [ %.14060, %16 ]
   %.2 = phi i32 [ %.162, %17 ], [ 1, %16 ]
   %22 = add nuw nsw i32 %.03761, 1
-  %23 = add i32 %.14259, 1
+  %23 = add i32 %.14359, 1
   %exitcond.not = icmp eq i32 %22, 16
   br i1 %exitcond.not, label %.preheader, label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %.preheader, %21
   %.03761.be = phi i32 [ %22, %21 ], [ 0, %.preheader ]
-  %.14259.be = phi i32 [ %23, %21 ], [ %.243, %.preheader ]
+  %.14359.be = phi i32 [ %23, %21 ], [ %.244, %.preheader ]
   br label %.loopexit, !llvm.loop !13
 
 .preheader:                                       ; preds = %21, %.preheader
-  %.243 = phi i32 [ %28, %.preheader ], [ %23, %21 ]
-  %24 = sext i32 %.243 to i64
+  %.244 = phi i32 [ %28, %.preheader ], [ %23, %21 ]
+  %24 = sext i32 %.244 to i64
   %25 = getelementptr i8, ptr %3, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 32
-  %28 = add i32 %.243, 1
+  %28 = add i32 %.244, 1
   br i1 %27, label %.preheader, label %.loopexit.backedge, !llvm.loop !13
 
 29:                                               ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
@@ -1100,8 +1100,8 @@ define internal fastcc i32 @append_hex_digits(ptr nocapture noundef writeonly %0
   br label %.loopexit50
 
 .loopexit50:                                      ; preds = %11, %.loopexit50.sink.split, %31
-  %.044 = phi i32 [ %.13960, %31 ], [ -1, %.loopexit50.sink.split ], [ %1, %11 ]
-  ret i32 %.044
+  %.038 = phi i32 [ %.14060, %31 ], [ -1, %.loopexit50.sink.split ], [ %1, %11 ]
+  ret i32 %.038
 }
 
 declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_addr #1

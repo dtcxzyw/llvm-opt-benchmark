@@ -282,41 +282,41 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr nocapture noundef readonly 
 
 .lr.ph:                                           ; preds = %.preheader78, %23
   %.06580 = phi i64 [ %.1, %23 ], [ 0, %.preheader78 ]
-  %.06879 = phi i64 [ %24, %23 ], [ 0, %.preheader78 ]
-  %18 = getelementptr inbounds i64, ptr %1, i64 %.06879
+  %.06679 = phi i64 [ %24, %23 ], [ 0, %.preheader78 ]
+  %18 = getelementptr inbounds i64, ptr %1, i64 %.06679
   %19 = load i64, ptr %18, align 8
   %.not77 = icmp eq i64 %19, 0
   br i1 %.not77, label %23, label %20
 
 20:                                               ; preds = %.lr.ph
   %21 = add nsw i64 %.06580, 1
-  %22 = getelementptr inbounds i64, ptr %13, i64 %.06879
+  %22 = getelementptr inbounds i64, ptr %13, i64 %.06679
   store i64 %.06580, ptr %22, align 8
   br label %23
 
 23:                                               ; preds = %.lr.ph, %20
   %.1 = phi i64 [ %21, %20 ], [ %.06580, %.lr.ph ]
-  %24 = add nuw nsw i64 %.06879, 1
+  %24 = add nuw nsw i64 %.06679, 1
   %exitcond.not = icmp eq i64 %24, %5
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !8
 
 .lr.ph83:                                         ; preds = %.preheader, %.lr.ph83
-  %.06682 = phi i64 [ %spec.select, %.lr.ph83 ], [ 0, %.preheader ]
-  %.16981 = phi i64 [ %30, %.lr.ph83 ], [ 0, %.preheader ]
-  %25 = getelementptr inbounds i64, ptr %9, i64 %.16981
+  %.16782 = phi i64 [ %30, %.lr.ph83 ], [ 0, %.preheader ]
+  %.06881 = phi i64 [ %spec.select, %.lr.ph83 ], [ 0, %.preheader ]
+  %25 = getelementptr inbounds i64, ptr %9, i64 %.16782
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i64, ptr %1, i64 %26
   %28 = load i64, ptr %27, align 8
   %.not76 = icmp ne i64 %28, 0
   %29 = zext i1 %.not76 to i64
-  %spec.select = add nuw nsw i64 %.06682, %29
-  %30 = add nuw nsw i64 %.16981, 1
+  %spec.select = add nuw nsw i64 %.06881, %29
+  %30 = add nuw nsw i64 %.16782, 1
   %exitcond97.not = icmp eq i64 %30, %16
   br i1 %exitcond97.not, label %._crit_edge, label %.lr.ph83, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph83, %.preheader
-  %.066.lcssa = phi i64 [ 0, %.preheader ], [ %spec.select, %.lr.ph83 ]
-  %31 = tail call ptr @csc_spalloc(i64 noundef %.065.lcssa, i64 noundef %4, i64 noundef %.066.lcssa, i64 noundef 1, i64 noundef 0)
+  %.068.lcssa = phi i64 [ 0, %.preheader ], [ %spec.select, %.lr.ph83 ]
+  %31 = tail call ptr @csc_spalloc(i64 noundef %.065.lcssa, i64 noundef %4, i64 noundef %.068.lcssa, i64 noundef 1, i64 noundef 0)
   %.not74 = icmp eq ptr %31, null
   br i1 %.not74, label %.sink.split, label %32
 
@@ -347,18 +347,18 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr nocapture noundef readonly 
   br i1 %47, label %.lr.ph94, label %._crit_edge95
 
 .loopexit:                                        ; preds = %71, %.lr.ph94
-  %.3.lcssa = phi i64 [ %.292, %.lr.ph94 ], [ %.4, %71 ]
+  %.3.lcssa = phi i64 [ %.27091, %.lr.ph94 ], [ %.4, %71 ]
   %exitcond98.not = icmp eq i64 %51, %4
   br i1 %exitcond98.not, label %._crit_edge95, label %.lr.ph94, !llvm.loop !10
 
 .lr.ph94:                                         ; preds = %40, %.loopexit
-  %.292 = phi i64 [ %.3.lcssa, %.loopexit ], [ 0, %40 ]
-  %.27091 = phi i64 [ %51, %.loopexit ], [ 0, %40 ]
-  %48 = getelementptr inbounds i64, ptr %42, i64 %.27091
-  store i64 %.292, ptr %48, align 8
-  %49 = getelementptr inbounds i64, ptr %7, i64 %.27091
+  %.292 = phi i64 [ %51, %.loopexit ], [ 0, %40 ]
+  %.27091 = phi i64 [ %.3.lcssa, %.loopexit ], [ 0, %40 ]
+  %48 = getelementptr inbounds i64, ptr %42, i64 %.292
+  store i64 %.27091, ptr %48, align 8
+  %49 = getelementptr inbounds i64, ptr %7, i64 %.292
   %50 = load i64, ptr %49, align 8
-  %51 = add nuw nsw i64 %.27091, 1
+  %51 = add nuw nsw i64 %.292, 1
   %52 = getelementptr inbounds i64, ptr %7, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = icmp slt i64 %50, %53
@@ -367,7 +367,7 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr nocapture noundef readonly 
 .lr.ph88:                                         ; preds = %.lr.ph94, %71
   %55 = phi i64 [ %72, %71 ], [ %53, %.lr.ph94 ]
   %.06486 = phi i64 [ %73, %71 ], [ %50, %.lr.ph94 ]
-  %.385 = phi i64 [ %.4, %71 ], [ %.292, %.lr.ph94 ]
+  %.385 = phi i64 [ %.4, %71 ], [ %.27091, %.lr.ph94 ]
   %56 = load ptr, ptr %8, align 8
   %57 = getelementptr inbounds i64, ptr %56, i64 %.06486
   %58 = load i64, ptr %57, align 8
@@ -399,9 +399,9 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr nocapture noundef readonly 
   br i1 %74, label %.lr.ph88, label %.loopexit, !llvm.loop !11
 
 ._crit_edge95:                                    ; preds = %.loopexit, %40
-  %.2.lcssa = phi i64 [ 0, %40 ], [ %.3.lcssa, %.loopexit ]
+  %.270.lcssa = phi i64 [ 0, %40 ], [ %.3.lcssa, %.loopexit ]
   %75 = getelementptr inbounds i64, ptr %42, i64 %4
-  store i64 %.2.lcssa, ptr %75, align 8
+  store i64 %.270.lcssa, ptr %75, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge95, %34, %.lr.ph.preheader.i, %._crit_edge
@@ -485,14 +485,14 @@ define noalias noundef ptr @triplet_to_csc(ptr nocapture noundef readonly %0, pt
   br i1 %40, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
-  %.056 = phi i64 [ %46, %.lr.ph ], [ 0, %33 ]
-  %41 = getelementptr inbounds i64, ptr %9, i64 %.056
+  %.04856 = phi i64 [ %46, %.lr.ph ], [ 0, %33 ]
+  %41 = getelementptr inbounds i64, ptr %9, i64 %.04856
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %17, i64 %42
   %44 = load i64, ptr %43, align 8
   %45 = add nsw i64 %44, 1
   store i64 %45, ptr %43, align 8
-  %46 = add nuw nsw i64 %.056, 1
+  %46 = add nuw nsw i64 %.04856, 1
   %exitcond.not = icmp eq i64 %46, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
@@ -594,13 +594,13 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 csc_done.exit.sink.split:                         ; preds = %.lr.ph58.split.split, %.lr.ph58.split.split.us, %.lr.ph58.split.us, %csc_cumsum.exit, %29, %32
   %.sink = phi ptr [ %16, %32 ], [ %16, %29 ], [ %17, %csc_cumsum.exit ], [ %17, %.lr.ph58.split.us ], [ %17, %.lr.ph58.split.split.us ], [ %17, %.lr.ph58.split.split ]
-  %.048.ph = phi ptr [ null, %32 ], [ null, %29 ], [ %16, %csc_cumsum.exit ], [ %16, %.lr.ph58.split.us ], [ %16, %.lr.ph58.split.split.us ], [ %16, %.lr.ph58.split.split ]
+  %.0.ph = phi ptr [ null, %32 ], [ null, %29 ], [ %16, %csc_cumsum.exit ], [ %16, %.lr.ph58.split.us ], [ %16, %.lr.ph58.split.split.us ], [ %16, %.lr.ph58.split.split ]
   tail call void @free(ptr noundef nonnull %.sink) #17
   br label %csc_done.exit
 
 csc_done.exit:                                    ; preds = %csc_done.exit.sink.split, %20
-  %.048 = phi ptr [ null, %20 ], [ %.048.ph, %csc_done.exit.sink.split ]
-  ret ptr %.048
+  %.0 = phi ptr [ null, %20 ], [ %.0.ph, %csc_done.exit.sink.split ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
@@ -721,14 +721,14 @@ define noalias noundef ptr @triplet_to_csr(ptr nocapture noundef readonly %0, pt
   br i1 %40, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
-  %.056 = phi i64 [ %46, %.lr.ph ], [ 0, %33 ]
-  %41 = getelementptr inbounds i64, ptr %7, i64 %.056
+  %.04856 = phi i64 [ %46, %.lr.ph ], [ 0, %33 ]
+  %41 = getelementptr inbounds i64, ptr %7, i64 %.04856
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %17, i64 %42
   %44 = load i64, ptr %43, align 8
   %45 = add nsw i64 %44, 1
   store i64 %45, ptr %43, align 8
-  %46 = add nuw nsw i64 %.056, 1
+  %46 = add nuw nsw i64 %.04856, 1
   %exitcond.not = icmp eq i64 %46, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
@@ -830,13 +830,13 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 csc_done.exit.sink.split:                         ; preds = %.lr.ph58.split.split, %.lr.ph58.split.split.us, %.lr.ph58.split.us, %csc_cumsum.exit, %29, %32
   %.sink = phi ptr [ %16, %32 ], [ %16, %29 ], [ %17, %csc_cumsum.exit ], [ %17, %.lr.ph58.split.us ], [ %17, %.lr.ph58.split.split.us ], [ %17, %.lr.ph58.split.split ]
-  %.048.ph = phi ptr [ null, %32 ], [ null, %29 ], [ %16, %csc_cumsum.exit ], [ %16, %.lr.ph58.split.us ], [ %16, %.lr.ph58.split.split.us ], [ %16, %.lr.ph58.split.split ]
+  %.0.ph = phi ptr [ null, %32 ], [ null, %29 ], [ %16, %csc_cumsum.exit ], [ %16, %.lr.ph58.split.us ], [ %16, %.lr.ph58.split.split.us ], [ %16, %.lr.ph58.split.split ]
   tail call void @free(ptr noundef nonnull %.sink) #17
   br label %csc_done.exit
 
 csc_done.exit:                                    ; preds = %csc_done.exit.sink.split, %20
-  %.048 = phi ptr [ null, %20 ], [ %.048.ph, %csc_done.exit.sink.split ]
-  ret ptr %.048
+  %.0 = phi ptr [ null, %20 ], [ %.0.ph, %csc_done.exit.sink.split ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -865,27 +865,27 @@ define void @csc_extract_diag(ptr nocapture noundef readonly %0, ptr nocapture n
 
 .lr.ph24:                                         ; preds = %.lr.ph24.preheader, %.loopexit
   %14 = phi i64 [ %13, %.loopexit ], [ %.pre, %.lr.ph24.preheader ]
-  %.02123 = phi i64 [ %15, %.loopexit ], [ 0, %.lr.ph24.preheader ]
-  %15 = add nuw nsw i64 %.02123, 1
+  %.023 = phi i64 [ %15, %.loopexit ], [ 0, %.lr.ph24.preheader ]
+  %15 = add nuw nsw i64 %.023, 1
   %16 = getelementptr inbounds i64, ptr %6, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = icmp slt i64 %14, %17
   br i1 %18, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph24
-  %19 = getelementptr inbounds double, ptr %1, i64 %.02123
+  %19 = getelementptr inbounds double, ptr %1, i64 %.023
   br label %20
 
 20:                                               ; preds = %.lr.ph, %28
   %21 = phi i64 [ %17, %.lr.ph ], [ %29, %28 ]
-  %.022 = phi i64 [ %14, %.lr.ph ], [ %30, %28 ]
-  %22 = getelementptr inbounds i64, ptr %8, i64 %.022
+  %.02122 = phi i64 [ %14, %.lr.ph ], [ %30, %28 ]
+  %22 = getelementptr inbounds i64, ptr %8, i64 %.02122
   %23 = load i64, ptr %22, align 8
-  %24 = icmp eq i64 %23, %.02123
+  %24 = icmp eq i64 %23, %.023
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds double, ptr %10, i64 %.022
+  %26 = getelementptr inbounds double, ptr %10, i64 %.02122
   %27 = load double, ptr %26, align 8
   store double %27, ptr %19, align 8
   %.pre25 = load i64, ptr %16, align 8
@@ -893,7 +893,7 @@ define void @csc_extract_diag(ptr nocapture noundef readonly %0, ptr nocapture n
 
 28:                                               ; preds = %20, %25
   %29 = phi i64 [ %21, %20 ], [ %.pre25, %25 ]
-  %30 = add nsw i64 %.022, 1
+  %30 = add nsw i64 %.02122, 1
   %31 = icmp slt i64 %30, %29
   br i1 %31, label %20, label %.loopexit, !llvm.loop !17
 
@@ -917,18 +917,18 @@ define noalias noundef ptr @csc_pinv(ptr noundef readonly %0, i64 noundef %1) lo
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.015 = phi i64 [ %10, %.lr.ph ], [ 0, %.preheader ]
-  %7 = getelementptr inbounds i64, ptr %0, i64 %.015
+  %.01115 = phi i64 [ %10, %.lr.ph ], [ 0, %.preheader ]
+  %7 = getelementptr inbounds i64, ptr %0, i64 %.01115
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i64, ptr %5, i64 %8
-  store i64 %.015, ptr %9, align 8
-  %10 = add nuw nsw i64 %.015, 1
+  store i64 %.01115, ptr %9, align 8
+  %10 = add nuw nsw i64 %.01115, 1
   %exitcond.not = icmp eq i64 %10, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3, %2
-  %.011 = phi ptr [ null, %2 ], [ null, %3 ], [ %5, %.preheader ], [ %5, %.lr.ph ]
-  ret ptr %.011
+  %.0 = phi ptr [ null, %2 ], [ null, %3 ], [ %5, %.preheader ], [ %5, %.lr.ph ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1011,15 +1011,15 @@ define noalias noundef ptr @csc_symperm(ptr nocapture noundef readonly %0, ptr n
 
 .lr.ph111.split.us:                               ; preds = %.lr.ph111, %.loopexit106.us
   %45 = phi i64 [ %48, %.loopexit106.us ], [ %.pre138, %.lr.ph111 ]
-  %.091110.us = phi i64 [ %46, %.loopexit106.us ], [ 0, %.lr.ph111 ]
-  %46 = add nuw nsw i64 %.091110.us, 1
+  %.090110.us = phi i64 [ %46, %.loopexit106.us ], [ 0, %.lr.ph111 ]
+  %46 = add nuw nsw i64 %.090110.us, 1
   %47 = getelementptr inbounds i64, ptr %8, i64 %46
   %48 = load i64, ptr %47, align 8
   %49 = icmp slt i64 %45, %48
   br i1 %49, label %.lr.ph.us.preheader, label %.loopexit106.us
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph111.split.us
-  %50 = getelementptr inbounds i64, ptr %20, i64 %.091110.us
+  %50 = getelementptr inbounds i64, ptr %20, i64 %.090110.us
   br label %.lr.ph.us
 
 .loopexit106.us:                                  ; preds = %57, %.lr.ph111.split.us
@@ -1027,10 +1027,10 @@ define noalias noundef ptr @csc_symperm(ptr nocapture noundef readonly %0, ptr n
   br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph111.split.us, !llvm.loop !19
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %57
-  %.090109.us.us = phi i64 [ %58, %57 ], [ %45, %.lr.ph.us.preheader ]
-  %51 = getelementptr inbounds i64, ptr %10, i64 %.090109.us.us
+  %.091109.us.us = phi i64 [ %58, %57 ], [ %45, %.lr.ph.us.preheader ]
+  %51 = getelementptr inbounds i64, ptr %10, i64 %.091109.us.us
   %52 = load i64, ptr %51, align 8
-  %53 = icmp sgt i64 %52, %.091110.us
+  %53 = icmp sgt i64 %52, %.090110.us
   br i1 %53, label %57, label %54
 
 54:                                               ; preds = %.lr.ph.us
@@ -1040,7 +1040,7 @@ define noalias noundef ptr @csc_symperm(ptr nocapture noundef readonly %0, ptr n
   br label %57
 
 57:                                               ; preds = %54, %.lr.ph.us
-  %58 = add nsw i64 %.090109.us.us, 1
+  %58 = add nsw i64 %.091109.us.us, 1
   %exitcond131.not = icmp eq i64 %58, %48
   br i1 %exitcond131.not, label %.loopexit106.us, label %.lr.ph.us, !llvm.loop !20
 
@@ -1050,20 +1050,20 @@ define noalias noundef ptr @csc_symperm(ptr nocapture noundef readonly %0, ptr n
 
 .lr.ph111.split:                                  ; preds = %.lr.ph111, %.loopexit106
   %59 = phi i64 [ %64, %.loopexit106 ], [ %.pre138, %.lr.ph111 ]
-  %.091110 = phi i64 [ %62, %.loopexit106 ], [ 0, %.lr.ph111 ]
-  %60 = getelementptr inbounds i64, ptr %1, i64 %.091110
+  %.090110 = phi i64 [ %62, %.loopexit106 ], [ 0, %.lr.ph111 ]
+  %60 = getelementptr inbounds i64, ptr %1, i64 %.090110
   %61 = load i64, ptr %60, align 8
-  %62 = add nuw nsw i64 %.091110, 1
+  %62 = add nuw nsw i64 %.090110, 1
   %63 = getelementptr inbounds i64, ptr %8, i64 %62
   %64 = load i64, ptr %63, align 8
   %65 = icmp slt i64 %59, %64
   br i1 %65, label %.lr.ph, label %.loopexit106
 
 .lr.ph:                                           ; preds = %.lr.ph111.split, %76
-  %.090109 = phi i64 [ %77, %76 ], [ %59, %.lr.ph111.split ]
-  %66 = getelementptr inbounds i64, ptr %10, i64 %.090109
+  %.091109 = phi i64 [ %77, %76 ], [ %59, %.lr.ph111.split ]
+  %66 = getelementptr inbounds i64, ptr %10, i64 %.091109
   %67 = load i64, ptr %66, align 8
-  %68 = icmp sgt i64 %67, %.091110
+  %68 = icmp sgt i64 %67, %.090110
   br i1 %68, label %76, label %69
 
 69:                                               ; preds = %.lr.ph
@@ -1077,7 +1077,7 @@ define noalias noundef ptr @csc_symperm(ptr nocapture noundef readonly %0, ptr n
   br label %76
 
 76:                                               ; preds = %.lr.ph, %69
-  %77 = add nsw i64 %.090109, 1
+  %77 = add nsw i64 %.091109, 1
   %exitcond.not = icmp eq i64 %77, %64
   br i1 %exitcond.not, label %.loopexit106, label %.lr.ph, !llvm.loop !20
 
@@ -1129,15 +1129,15 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph117.split.us.split.us.split.us:             ; preds = %.lr.ph117.split.us.split.us, %.loopexit.us.us.us
   %84 = phi i64 [ %90, %.loopexit.us.us.us ], [ %.pre145, %.lr.ph117.split.us.split.us ]
-  %.192116.us.us.us = phi i64 [ %85, %.loopexit.us.us.us ], [ 0, %.lr.ph117.split.us.split.us ]
-  %85 = add nuw nsw i64 %.192116.us.us.us, 1
+  %.1116.us.us.us = phi i64 [ %85, %.loopexit.us.us.us ], [ 0, %.lr.ph117.split.us.split.us ]
+  %85 = add nuw nsw i64 %.1116.us.us.us, 1
   %86 = getelementptr inbounds i64, ptr %8, i64 %85
   %87 = load i64, ptr %86, align 8
   %88 = icmp slt i64 %84, %87
   br i1 %88, label %.lr.ph114.us.us.us.preheader, label %.loopexit.us.us.us
 
 .lr.ph114.us.us.us.preheader:                     ; preds = %.lr.ph117.split.us.split.us.split.us
-  %89 = getelementptr inbounds i64, ptr %20, i64 %.192116.us.us.us
+  %89 = getelementptr inbounds i64, ptr %20, i64 %.1116.us.us.us
   br label %.lr.ph114.us.us.us
 
 .loopexit.us.us.us:                               ; preds = %99, %.lr.ph117.split.us.split.us.split.us
@@ -1147,10 +1147,10 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph114.us.us.us:                               ; preds = %.lr.ph114.us.us.us.preheader, %99
   %91 = phi i64 [ %100, %99 ], [ %87, %.lr.ph114.us.us.us.preheader ]
-  %.1112.us.us.us.us.us.us = phi i64 [ %101, %99 ], [ %84, %.lr.ph114.us.us.us.preheader ]
-  %92 = getelementptr inbounds i64, ptr %10, i64 %.1112.us.us.us.us.us.us
+  %.192112.us.us.us.us.us.us = phi i64 [ %101, %99 ], [ %84, %.lr.ph114.us.us.us.preheader ]
+  %92 = getelementptr inbounds i64, ptr %10, i64 %.192112.us.us.us.us.us.us
   %93 = load i64, ptr %92, align 8
-  %94 = icmp sgt i64 %93, %.192116.us.us.us
+  %94 = icmp sgt i64 %93, %.1116.us.us.us
   br i1 %94, label %99, label %95
 
 95:                                               ; preds = %.lr.ph114.us.us.us
@@ -1164,16 +1164,16 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 99:                                               ; preds = %95, %.lr.ph114.us.us.us
   %100 = phi i64 [ %.pre146, %95 ], [ %91, %.lr.ph114.us.us.us ]
-  %101 = add nsw i64 %.1112.us.us.us.us.us.us, 1
+  %101 = add nsw i64 %.192112.us.us.us.us.us.us, 1
   %102 = icmp slt i64 %101, %100
   br i1 %102, label %.lr.ph114.us.us.us, label %.loopexit.us.us.us, !llvm.loop !22
 
 .lr.ph117.split.us.split.us.split:                ; preds = %.lr.ph117.split.us.split.us, %.loopexit.us.us
   %103 = phi i64 [ %110, %.loopexit.us.us ], [ %.pre145, %.lr.ph117.split.us.split.us ]
-  %.192116.us.us = phi i64 [ %106, %.loopexit.us.us ], [ 0, %.lr.ph117.split.us.split.us ]
-  %104 = getelementptr inbounds i64, ptr %1, i64 %.192116.us.us
+  %.1116.us.us = phi i64 [ %106, %.loopexit.us.us ], [ 0, %.lr.ph117.split.us.split.us ]
+  %104 = getelementptr inbounds i64, ptr %1, i64 %.1116.us.us
   %105 = load i64, ptr %104, align 8
-  %106 = add nuw nsw i64 %.192116.us.us, 1
+  %106 = add nuw nsw i64 %.1116.us.us, 1
   %107 = getelementptr inbounds i64, ptr %8, i64 %106
   %108 = load i64, ptr %107, align 8
   %109 = icmp slt i64 %103, %108
@@ -1186,10 +1186,10 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph114.us.us:                                  ; preds = %.lr.ph117.split.us.split.us.split, %124
   %111 = phi i64 [ %125, %124 ], [ %108, %.lr.ph117.split.us.split.us.split ]
-  %.1112.us.us.us.us = phi i64 [ %126, %124 ], [ %103, %.lr.ph117.split.us.split.us.split ]
-  %112 = getelementptr inbounds i64, ptr %10, i64 %.1112.us.us.us.us
+  %.192112.us.us.us.us = phi i64 [ %126, %124 ], [ %103, %.lr.ph117.split.us.split.us.split ]
+  %112 = getelementptr inbounds i64, ptr %10, i64 %.192112.us.us.us.us
   %113 = load i64, ptr %112, align 8
-  %114 = icmp sgt i64 %113, %.192116.us.us
+  %114 = icmp sgt i64 %113, %.1116.us.us
   br i1 %114, label %124, label %115
 
 115:                                              ; preds = %.lr.ph114.us.us
@@ -1208,7 +1208,7 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 124:                                              ; preds = %115, %.lr.ph114.us.us
   %125 = phi i64 [ %.pre144, %115 ], [ %111, %.lr.ph114.us.us ]
-  %126 = add nsw i64 %.1112.us.us.us.us, 1
+  %126 = add nsw i64 %.192112.us.us.us.us, 1
   %127 = icmp slt i64 %126, %125
   br i1 %127, label %.lr.ph114.us.us, label %.loopexit.us.us, !llvm.loop !22
 
@@ -1217,15 +1217,15 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph117.split.us.split.split.us:                ; preds = %.lr.ph117.split.us.split, %.loopexit.us.us123
   %128 = phi i64 [ %134, %.loopexit.us.us123 ], [ %.pre145, %.lr.ph117.split.us.split ]
-  %.192116.us.us122 = phi i64 [ %129, %.loopexit.us.us123 ], [ 0, %.lr.ph117.split.us.split ]
-  %129 = add nuw nsw i64 %.192116.us.us122, 1
+  %.1116.us.us122 = phi i64 [ %129, %.loopexit.us.us123 ], [ 0, %.lr.ph117.split.us.split ]
+  %129 = add nuw nsw i64 %.1116.us.us122, 1
   %130 = getelementptr inbounds i64, ptr %8, i64 %129
   %131 = load i64, ptr %130, align 8
   %132 = icmp slt i64 %128, %131
   br i1 %132, label %.lr.ph114.us.us124.preheader, label %.loopexit.us.us123
 
 .lr.ph114.us.us124.preheader:                     ; preds = %.lr.ph117.split.us.split.split.us
-  %133 = getelementptr inbounds i64, ptr %20, i64 %.192116.us.us122
+  %133 = getelementptr inbounds i64, ptr %20, i64 %.1116.us.us122
   br label %.lr.ph114.us.us124
 
 .loopexit.us.us123:                               ; preds = %144, %.lr.ph117.split.us.split.split.us
@@ -1235,10 +1235,10 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph114.us.us124:                               ; preds = %.lr.ph114.us.us124.preheader, %144
   %135 = phi i64 [ %145, %144 ], [ %131, %.lr.ph114.us.us124.preheader ]
-  %.1112.us.us119.us.us = phi i64 [ %146, %144 ], [ %128, %.lr.ph114.us.us124.preheader ]
-  %136 = getelementptr inbounds i64, ptr %10, i64 %.1112.us.us119.us.us
+  %.192112.us.us119.us.us = phi i64 [ %146, %144 ], [ %128, %.lr.ph114.us.us124.preheader ]
+  %136 = getelementptr inbounds i64, ptr %10, i64 %.192112.us.us119.us.us
   %137 = load i64, ptr %136, align 8
-  %138 = icmp sgt i64 %137, %.192116.us.us122
+  %138 = icmp sgt i64 %137, %.1116.us.us122
   br i1 %138, label %144, label %139
 
 139:                                              ; preds = %.lr.ph114.us.us124
@@ -1247,23 +1247,23 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   store i64 %141, ptr %133, align 8
   %142 = getelementptr inbounds i64, ptr %41, i64 %140
   store i64 %137, ptr %142, align 8
-  %143 = getelementptr inbounds i64, ptr %2, i64 %.1112.us.us119.us.us
+  %143 = getelementptr inbounds i64, ptr %2, i64 %.192112.us.us119.us.us
   store i64 %140, ptr %143, align 8
   %.pre142 = load i64, ptr %130, align 8
   br label %144
 
 144:                                              ; preds = %139, %.lr.ph114.us.us124
   %145 = phi i64 [ %.pre142, %139 ], [ %135, %.lr.ph114.us.us124 ]
-  %146 = add nsw i64 %.1112.us.us119.us.us, 1
+  %146 = add nsw i64 %.192112.us.us119.us.us, 1
   %147 = icmp slt i64 %146, %145
   br i1 %147, label %.lr.ph114.us.us124, label %.loopexit.us.us123, !llvm.loop !22
 
 .lr.ph117.split.us.split.split:                   ; preds = %.lr.ph117.split.us.split, %.loopexit.us
   %148 = phi i64 [ %155, %.loopexit.us ], [ %.pre145, %.lr.ph117.split.us.split ]
-  %.192116.us = phi i64 [ %151, %.loopexit.us ], [ 0, %.lr.ph117.split.us.split ]
-  %149 = getelementptr inbounds i64, ptr %1, i64 %.192116.us
+  %.1116.us = phi i64 [ %151, %.loopexit.us ], [ 0, %.lr.ph117.split.us.split ]
+  %149 = getelementptr inbounds i64, ptr %1, i64 %.1116.us
   %150 = load i64, ptr %149, align 8
-  %151 = add nuw nsw i64 %.192116.us, 1
+  %151 = add nuw nsw i64 %.1116.us, 1
   %152 = getelementptr inbounds i64, ptr %8, i64 %151
   %153 = load i64, ptr %152, align 8
   %154 = icmp slt i64 %148, %153
@@ -1276,10 +1276,10 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph114.us:                                     ; preds = %.lr.ph117.split.us.split.split, %170
   %156 = phi i64 [ %171, %170 ], [ %153, %.lr.ph117.split.us.split.split ]
-  %.1112.us.us119 = phi i64 [ %172, %170 ], [ %148, %.lr.ph117.split.us.split.split ]
-  %157 = getelementptr inbounds i64, ptr %10, i64 %.1112.us.us119
+  %.192112.us.us119 = phi i64 [ %172, %170 ], [ %148, %.lr.ph117.split.us.split.split ]
+  %157 = getelementptr inbounds i64, ptr %10, i64 %.192112.us.us119
   %158 = load i64, ptr %157, align 8
-  %159 = icmp sgt i64 %158, %.192116.us
+  %159 = icmp sgt i64 %158, %.1116.us
   br i1 %159, label %170, label %160
 
 160:                                              ; preds = %.lr.ph114.us
@@ -1293,14 +1293,14 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   store i64 %167, ptr %165, align 8
   %168 = getelementptr inbounds i64, ptr %41, i64 %166
   store i64 %163, ptr %168, align 8
-  %169 = getelementptr inbounds i64, ptr %2, i64 %.1112.us.us119
+  %169 = getelementptr inbounds i64, ptr %2, i64 %.192112.us.us119
   store i64 %166, ptr %169, align 8
   %.pre140 = load i64, ptr %152, align 8
   br label %170
 
 170:                                              ; preds = %160, %.lr.ph114.us
   %171 = phi i64 [ %.pre140, %160 ], [ %156, %.lr.ph114.us ]
-  %172 = add nsw i64 %.1112.us.us119, 1
+  %172 = add nsw i64 %.192112.us.us119, 1
   %173 = icmp slt i64 %172, %171
   br i1 %173, label %.lr.ph114.us, label %.loopexit.us, !llvm.loop !22
 
@@ -1309,29 +1309,29 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   br i1 %exitcond133.not, label %._crit_edge118, label %.lr.ph117.split, !llvm.loop !21
 
 .lr.ph117.split:                                  ; preds = %.lr.ph117, %.loopexit
-  %.192116 = phi i64 [ %181, %.loopexit ], [ 0, %.lr.ph117 ]
+  %.1116 = phi i64 [ %181, %.loopexit ], [ 0, %.lr.ph117 ]
   br i1 %.not, label %177, label %174
 
 174:                                              ; preds = %.lr.ph117.split
-  %175 = getelementptr inbounds i64, ptr %1, i64 %.192116
+  %175 = getelementptr inbounds i64, ptr %1, i64 %.1116
   %176 = load i64, ptr %175, align 8
   br label %177
 
 177:                                              ; preds = %.lr.ph117.split, %174
-  %178 = phi i64 [ %176, %174 ], [ %.192116, %.lr.ph117.split ]
-  %179 = getelementptr inbounds i64, ptr %8, i64 %.192116
+  %178 = phi i64 [ %176, %174 ], [ %.1116, %.lr.ph117.split ]
+  %179 = getelementptr inbounds i64, ptr %8, i64 %.1116
   %180 = load i64, ptr %179, align 8
-  %181 = add nuw nsw i64 %.192116, 1
+  %181 = add nuw nsw i64 %.1116, 1
   %182 = getelementptr inbounds i64, ptr %8, i64 %181
   %183 = load i64, ptr %182, align 8
   %184 = icmp slt i64 %180, %183
   br i1 %184, label %.lr.ph114, label %.loopexit
 
 .lr.ph114:                                        ; preds = %177, %205
-  %.1112 = phi i64 [ %206, %205 ], [ %180, %177 ]
-  %185 = getelementptr inbounds i64, ptr %10, i64 %.1112
+  %.192112 = phi i64 [ %206, %205 ], [ %180, %177 ]
+  %185 = getelementptr inbounds i64, ptr %10, i64 %.192112
   %186 = load i64, ptr %185, align 8
-  %187 = icmp sgt i64 %186, %.192116
+  %187 = icmp sgt i64 %186, %.1116
   br i1 %187, label %205, label %188
 
 188:                                              ; preds = %.lr.ph114
@@ -1352,19 +1352,19 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   store i64 %198, ptr %196, align 8
   %199 = getelementptr inbounds i64, ptr %41, i64 %197
   store i64 %194, ptr %199, align 8
-  %200 = getelementptr inbounds double, ptr %12, i64 %.1112
+  %200 = getelementptr inbounds double, ptr %12, i64 %.192112
   %201 = load double, ptr %200, align 8
   %202 = getelementptr inbounds double, ptr %.fr, i64 %197
   store double %201, ptr %202, align 8
   br i1 %.not103, label %205, label %203
 
 203:                                              ; preds = %192
-  %204 = getelementptr inbounds i64, ptr %2, i64 %.1112
+  %204 = getelementptr inbounds i64, ptr %2, i64 %.192112
   store i64 %197, ptr %204, align 8
   br label %205
 
 205:                                              ; preds = %192, %203, %.lr.ph114
-  %206 = add nsw i64 %.1112, 1
+  %206 = add nsw i64 %.192112, 1
   %207 = load i64, ptr %182, align 8
   %208 = icmp slt i64 %206, %207
   br i1 %208, label %.lr.ph114, label %.loopexit, !llvm.loop !22
@@ -1589,16 +1589,16 @@ define noalias noundef ptr @triu_to_csc(ptr nocapture noundef readonly %0) local
 
 36:                                               ; preds = %.lr.ph, %56
   %.159 = phi i64 [ %.062, %.lr.ph ], [ %.2, %56 ]
-  %.05158 = phi i64 [ %28, %.lr.ph ], [ %57, %56 ]
+  %.05258 = phi i64 [ %28, %.lr.ph ], [ %57, %56 ]
   %37 = load ptr, ptr %16, align 8
-  %38 = getelementptr inbounds i64, ptr %37, i64 %.05158
+  %38 = getelementptr inbounds i64, ptr %37, i64 %.05258
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds i64, ptr %33, i64 %.159
   store i64 %39, ptr %40, align 8
   %41 = getelementptr inbounds i64, ptr %34, i64 %.159
   store i64 %.05061, ptr %41, align 8
   %42 = load ptr, ptr %19, align 8
-  %43 = getelementptr inbounds double, ptr %42, i64 %.05158
+  %43 = getelementptr inbounds double, ptr %42, i64 %.05258
   %44 = load double, ptr %43, align 8
   %45 = getelementptr inbounds double, ptr %35, i64 %.159
   store double %44, ptr %45, align 8
@@ -1612,7 +1612,7 @@ define noalias noundef ptr @triu_to_csc(ptr nocapture noundef readonly %0) local
   %50 = getelementptr inbounds i64, ptr %34, i64 %46
   store i64 %39, ptr %50, align 8
   %51 = load ptr, ptr %19, align 8
-  %52 = getelementptr inbounds double, ptr %51, i64 %.05158
+  %52 = getelementptr inbounds double, ptr %51, i64 %.05258
   %53 = load double, ptr %52, align 8
   %54 = getelementptr inbounds double, ptr %35, i64 %46
   store double %53, ptr %54, align 8
@@ -1621,7 +1621,7 @@ define noalias noundef ptr @triu_to_csc(ptr nocapture noundef readonly %0) local
 
 56:                                               ; preds = %36, %48
   %.2 = phi i64 [ %55, %48 ], [ %46, %36 ]
-  %57 = add nsw i64 %.05158, 1
+  %57 = add nsw i64 %.05258, 1
   %58 = load ptr, ptr %9, align 8
   %59 = getelementptr inbounds i64, ptr %58, i64 %29
   %60 = load i64, ptr %59, align 8
@@ -1669,8 +1669,8 @@ csc_spfree.exit:                                  ; preds = %72, %75
   br label %76
 
 76:                                               ; preds = %csc_spfree.exit, %21, %5
-  %.052 = phi ptr [ null, %5 ], [ %63, %csc_spfree.exit ], [ null, %21 ]
-  ret ptr %.052
+  %.051 = phi ptr [ null, %5 ], [ %63, %csc_spfree.exit ], [ null, %21 ]
+  ret ptr %.051
 }
 
 ; Function Attrs: nofree nounwind

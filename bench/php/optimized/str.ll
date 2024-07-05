@@ -341,15 +341,15 @@ define hidden ptr @lexbor_str_append_lowercase(ptr nocapture noundef %0, ptr nou
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %.lr.ph
-  %.030 = phi i64 [ %28, %.lr.ph ], [ 0, %18 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %.030
+  %.02630 = phi i64 [ %28, %.lr.ph ], [ 0, %18 ]
+  %22 = getelementptr inbounds i8, ptr %2, i64 %.02630
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
   %25 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %21, i64 %.030
+  %27 = getelementptr inbounds i8, ptr %21, i64 %.02630
   store i8 %26, ptr %27, align 1
-  %28 = add nuw i64 %.030, 1
+  %28 = add nuw i64 %.02630, 1
   %exitcond.not = icmp eq i64 %28, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
@@ -362,8 +362,8 @@ define hidden ptr @lexbor_str_append_lowercase(ptr nocapture noundef %0, ptr nou
   br label %32
 
 32:                                               ; preds = %14, %4, %._crit_edge
-  %.026 = phi ptr [ %21, %._crit_edge ], [ null, %4 ], [ null, %14 ]
-  ret ptr %.026
+  %.0 = phi ptr [ %21, %._crit_edge ], [ null, %4 ], [ null, %14 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -624,9 +624,9 @@ define hidden void @lexbor_str_stay_only_whitespace(ptr nocapture noundef %0) lo
 
 .lr.ph:                                           ; preds = %1, %11
   %5 = phi i64 [ %12, %11 ], [ %4, %1 ]
-  %.023 = phi i64 [ %.1, %11 ], [ 0, %1 ]
-  %.02022 = phi i64 [ %13, %11 ], [ 0, %1 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %.02022
+  %.023 = phi i64 [ %13, %11 ], [ 0, %1 ]
+  %.02022 = phi i64 [ %.1, %11 ], [ 0, %1 ]
+  %6 = getelementptr inbounds i8, ptr %2, i64 %.023
   %7 = load i8, ptr %6, align 1
   switch i8 %7, label %11 [
     i8 32, label %8
@@ -637,22 +637,22 @@ define hidden void @lexbor_str_stay_only_whitespace(ptr nocapture noundef %0) lo
   ]
 
 8:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %2, i64 %.023
+  %9 = getelementptr inbounds i8, ptr %2, i64 %.02022
   store i8 %7, ptr %9, align 1
-  %10 = add i64 %.023, 1
+  %10 = add i64 %.02022, 1
   %.pre = load i64, ptr %3, align 8
   br label %11
 
 11:                                               ; preds = %.lr.ph, %8
   %12 = phi i64 [ %.pre, %8 ], [ %5, %.lr.ph ]
-  %.1 = phi i64 [ %10, %8 ], [ %.023, %.lr.ph ]
-  %13 = add nuw i64 %.02022, 1
+  %.1 = phi i64 [ %10, %8 ], [ %.02022, %.lr.ph ]
+  %13 = add nuw i64 %.023, 1
   %14 = icmp ult i64 %13, %12
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11, %1
-  %.0.lcssa = phi i64 [ 0, %1 ], [ %.1, %11 ]
-  store i64 %.0.lcssa, ptr %3, align 8
+  %.020.lcssa = phi i64 [ 0, %1 ], [ %.1, %11 ]
+  store i64 %.020.lcssa, ptr %3, align 8
   ret void
 }
 
@@ -684,10 +684,10 @@ define hidden void @lexbor_str_strip_collapse_whitespace(ptr nocapture noundef %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %.055 = phi i64 [ %.2, %21 ], [ 0, %.lr.ph.preheader ]
-  %.04454 = phi i64 [ %.145, %21 ], [ 0, %.lr.ph.preheader ]
-  %.04753 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.preheader ]
-  %10 = getelementptr inbounds i8, ptr %2, i64 %.04753
+  %.055 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.preheader ]
+  %.04454 = phi i64 [ %.2, %21 ], [ 0, %.lr.ph.preheader ]
+  %.04553 = phi i64 [ %.146, %21 ], [ 0, %.lr.ph.preheader ]
+  %10 = getelementptr inbounds i8, ptr %2, i64 %.055
   %11 = load i8, ptr %10, align 1
   switch i8 %11, label %15 [
     i8 32, label %12
@@ -698,56 +698,56 @@ define hidden void @lexbor_str_strip_collapse_whitespace(ptr nocapture noundef %
   ]
 
 12:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %2, i64 %.055
+  %13 = getelementptr inbounds i8, ptr %2, i64 %.04454
   %14 = load i8, ptr %13, align 1
   %.not51 = icmp eq i8 %14, 32
   br i1 %.not51, label %21, label %.sink.split
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %2, i64 %.055
+  %16 = getelementptr inbounds i8, ptr %2, i64 %.04454
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 32
-  %spec.select = select i1 %18, i64 %.04454, i64 %.055
+  %spec.select = select i1 %18, i64 %.04553, i64 %.04454
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %15
   %.sink = phi i8 [ %11, %15 ], [ 32, %12 ]
-  %.2.ph = phi i64 [ %spec.select, %15 ], [ %.04454, %12 ]
-  %19 = getelementptr inbounds i8, ptr %2, i64 %.04454
+  %.2.ph = phi i64 [ %spec.select, %15 ], [ %.04553, %12 ]
+  %19 = getelementptr inbounds i8, ptr %2, i64 %.04553
   store i8 %.sink, ptr %19, align 1
-  %20 = add i64 %.04454, 1
+  %20 = add i64 %.04553, 1
   br label %21
 
 21:                                               ; preds = %.sink.split, %12
-  %.145 = phi i64 [ %.04454, %12 ], [ %20, %.sink.split ]
-  %.2 = phi i64 [ %.055, %12 ], [ %.2.ph, %.sink.split ]
-  %22 = add nuw i64 %.04753, 1
+  %.146 = phi i64 [ %.04553, %12 ], [ %20, %.sink.split ]
+  %.2 = phi i64 [ %.04454, %12 ], [ %.2.ph, %.sink.split ]
+  %22 = add nuw i64 %.055, 1
   %23 = load i64, ptr %3, align 8
   %24 = icmp ult i64 %22, %23
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %21
-  %.not = icmp eq i64 %.145, %22
+  %.not = icmp eq i64 %.146, %22
   br i1 %.not, label %._crit_edge.thread, label %25
 
 25:                                               ; preds = %._crit_edge
-  %.not50 = icmp eq i64 %.145, 0
+  %.not50 = icmp eq i64 %.146, 0
   br i1 %.not50, label %32, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr i8, ptr %2, i64 %.145
+  %27 = getelementptr i8, ptr %2, i64 %.146
   %28 = getelementptr i8, ptr %27, i64 -1
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 32
   %31 = sext i1 %30 to i64
-  %spec.select52 = add i64 %.145, %31
+  %spec.select52 = add i64 %.146, %31
   br label %32
 
 32:                                               ; preds = %26, %25
-  %.246 = phi i64 [ 0, %25 ], [ %spec.select52, %26 ]
-  %33 = getelementptr inbounds i8, ptr %2, i64 %.246
+  %.247 = phi i64 [ 0, %25 ], [ %spec.select52, %26 ]
+  %33 = getelementptr inbounds i8, ptr %2, i64 %.247
   store i8 0, ptr %33, align 1
-  store i64 %.246, ptr %3, align 8
+  store i64 %.247, ptr %3, align 8
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %8, %1, %32, %._crit_edge
@@ -839,8 +839,8 @@ define hidden i64 @lexbor_str_whitespace_from_end(ptr nocapture noundef readonly
   br i1 %.not24, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %10
-  %.025 = phi i64 [ %5, %10 ], [ %3, %1 ]
-  %5 = add i64 %.025, -1
+  %.01625 = phi i64 [ %5, %10 ], [ %3, %1 ]
+  %5 = add i64 %.01625, -1
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
   %7 = load i8, ptr %6, align 1
   switch i8 %7, label %8 [
@@ -852,7 +852,7 @@ define hidden i64 @lexbor_str_whitespace_from_end(ptr nocapture noundef readonly
   ]
 
 8:                                                ; preds = %.lr.ph
-  %9 = sub i64 %3, %.025
+  %9 = sub i64 %3, %.01625
   br label %.loopexit
 
 10:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
@@ -860,8 +860,8 @@ define hidden i64 @lexbor_str_whitespace_from_end(ptr nocapture noundef readonly
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %10, %1, %8
-  %.016 = phi i64 [ %9, %8 ], [ 0, %1 ], [ 0, %10 ]
-  ret i64 %.016
+  %.0 = phi i64 [ %9, %8 ], [ 0, %1 ], [ 0, %10 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

@@ -325,13 +325,13 @@ define internal i32 @dir_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   br label %23
 
 23:                                               ; preds = %21, %14
-  %.0.i = phi i32 [ 0, %21 ], [ %.val, %14 ]
+  %.018.i = phi i32 [ 0, %21 ], [ %.val, %14 ]
   %24 = getelementptr inbounds i8, ptr %8, i64 32
-  %25 = icmp slt i32 %.0.i, %1
+  %25 = icmp slt i32 %.018.i, %1
   br i1 %25, label %.lr.ph.i, label %seek_mountptdir.exit
 
 .lr.ph.i:                                         ; preds = %23, %31
-  %.11.i = phi i32 [ %32, %31 ], [ %.0.i, %23 ]
+  %.11.i = phi i32 [ %32, %31 ], [ %.018.i, %23 ]
   %26 = load ptr, ptr %24, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 120
   %28 = load ptr, ptr %27, align 8
@@ -345,7 +345,7 @@ define internal i32 @dir_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   br i1 %exitcond.not.i, label %seek_mountptdir.exit, label %.lr.ph.i, !llvm.loop !6
 
 seek_mountptdir.exit:                             ; preds = %.lr.ph.i, %31, %16, %23
-  %.018.i = phi i32 [ -138, %16 ], [ %.0.i, %23 ], [ %1, %31 ], [ %29, %.lr.ph.i ]
+  %.0.i = phi i32 [ -138, %16 ], [ %.018.i, %23 ], [ %1, %31 ], [ %29, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %4)
   br label %seek_pseudodir.exit
 
@@ -403,7 +403,7 @@ seek_mountptdir.exit:                             ; preds = %.lr.ph.i, %31, %16,
   br label %59
 
 seek_pseudodir.exit:                              ; preds = %52, %51, %seek_mountptdir.exit
-  %.013 = phi i32 [ %.018.i, %seek_mountptdir.exit ], [ %.1.lcssa.i, %51 ], [ %.1.lcssa.i, %52 ]
+  %.013 = phi i32 [ %.0.i, %seek_mountptdir.exit ], [ %.1.lcssa.i, %51 ], [ %.1.lcssa.i, %52 ]
   %56 = icmp sgt i32 %.013, -1
   br i1 %56, label %57, label %59
 

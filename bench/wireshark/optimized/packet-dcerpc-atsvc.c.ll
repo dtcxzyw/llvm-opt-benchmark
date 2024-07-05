@@ -531,23 +531,23 @@ define hidden i32 @atsvc_dissect_struct_JobInfo(ptr noundef %0, i32 noundef %1, 
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.056 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #3
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
   %31 = load i32, ptr @ett_atsvc_atsvc_JobInfo, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #3
   br label %33
 
 33:                                               ; preds = %29, %28
-  %.055 = phi ptr [ %30, %29 ], [ null, %28 ]
-  %.0 = phi ptr [ %32, %29 ], [ null, %28 ]
+  %.056 = phi ptr [ %30, %29 ], [ null, %28 ]
+  %.055 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_atsvc_atsvc_JobInfo_job_time, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #3
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #3
   %36 = load i32, ptr @hf_atsvc_atsvc_JobInfo_days_of_month, align 4
-  %37 = tail call i32 @atsvc_dissect_bitmap_DaysOfMonth(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %37 = tail call i32 @atsvc_dissect_bitmap_DaysOfMonth(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
   %38 = load i32, ptr @hf_atsvc_atsvc_JobInfo_days_of_week, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   %39 = load i32, ptr @ett_atsvc_atsvc_DaysOfWeek, align 4
@@ -555,8 +555,8 @@ define hidden i32 @atsvc_dissect_struct_JobInfo(ptr noundef %0, i32 noundef %1, 
   %41 = and i8 %40, 16
   %42 = zext nneg i8 %41 to i32
   %43 = shl nuw i32 %42, 27
-  %44 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.0, ptr noundef %0, i32 noundef %37, i32 noundef %38, i32 noundef %39, ptr noundef nonnull @atsvc_dissect_bitmap_DaysOfWeek.atsvc_atsvc_DaysOfWeek_fields, i32 noundef %43, i32 noundef 4) #3
-  %45 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %10) #3
+  %44 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.055, ptr noundef %0, i32 noundef %37, i32 noundef %38, i32 noundef %39, ptr noundef nonnull @atsvc_dissect_bitmap_DaysOfWeek.atsvc_atsvc_DaysOfWeek_fields, i32 noundef %43, i32 noundef 4) #3
+  %45 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %10) #3
   %46 = load i8, ptr %10, align 1
   %.not.i.i = icmp eq i8 %46, 0
   br i1 %.not.i.i, label %47, label %48
@@ -587,8 +587,8 @@ atsvc_dissect_element_JobInfo_days_of_week.exit:  ; preds = %48, %51
   %56 = and i8 %55, 16
   %57 = zext nneg i8 %56 to i32
   %58 = shl nuw i32 %57, 27
-  %59 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.0, ptr noundef %0, i32 noundef %45, i32 noundef %53, i32 noundef %54, ptr noundef nonnull @atsvc_dissect_bitmap_Flags.atsvc_atsvc_Flags_fields, i32 noundef %58, i32 noundef 4) #3
-  %60 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %9) #3
+  %59 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.055, ptr noundef %0, i32 noundef %45, i32 noundef %53, i32 noundef %54, ptr noundef nonnull @atsvc_dissect_bitmap_Flags.atsvc_atsvc_Flags_fields, i32 noundef %58, i32 noundef 4) #3
+  %60 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %9) #3
   %61 = load i8, ptr %9, align 1
   %.not.i.i68 = icmp eq i8 %61, 0
   br i1 %.not.i.i68, label %62, label %63
@@ -613,9 +613,9 @@ atsvc_dissect_element_JobInfo_days_of_week.exit:  ; preds = %48, %51
 atsvc_dissect_element_JobInfo_flags.exit:         ; preds = %63, %66
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %68 = load i32, ptr @hf_atsvc_atsvc_JobInfo_command, align 4
-  %69 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %60, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @atsvc_dissect_element_JobInfo_command_, i32 noundef 2, ptr noundef nonnull @.str.135, i32 noundef %68) #3
-  %70 = sub i32 %69, %.056
-  call void @proto_item_set_len(ptr noundef %.055, i32 noundef %70) #3
+  %69 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %60, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @atsvc_dissect_element_JobInfo_command_, i32 noundef 2, ptr noundef nonnull @.str.135, i32 noundef %68) #3
+  %70 = sub i32 %69, %.0
+  call void @proto_item_set_len(ptr noundef %.056, i32 noundef %70) #3
   %71 = load ptr, ptr %11, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 96
   %73 = load i32, ptr %72, align 8
@@ -686,25 +686,25 @@ define hidden i32 @atsvc_dissect_struct_JobEnumInfo(ptr noundef %0, i32 noundef 
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.062 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not68 = icmp eq ptr %3, null
   br i1 %.not68, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.062, i32 noundef -1, i32 noundef 0) #3
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
   %31 = load i32, ptr @ett_atsvc_atsvc_JobEnumInfo, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #3
   br label %33
 
 33:                                               ; preds = %29, %28
-  %.061 = phi ptr [ %30, %29 ], [ null, %28 ]
-  %.0 = phi ptr [ %32, %29 ], [ null, %28 ]
+  %.062 = phi ptr [ %30, %29 ], [ null, %28 ]
+  %.061 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_atsvc_job_id, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.062, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #3
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #3
   %36 = load i32, ptr @hf_atsvc_atsvc_JobEnumInfo_job_time, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #3
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #3
   %38 = load i32, ptr @hf_atsvc_atsvc_JobEnumInfo_days_of_month, align 4
-  %39 = tail call i32 @atsvc_dissect_bitmap_DaysOfMonth(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
+  %39 = tail call i32 @atsvc_dissect_bitmap_DaysOfMonth(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
   %40 = load i32, ptr @hf_atsvc_atsvc_JobEnumInfo_days_of_week, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   %41 = load i32, ptr @ett_atsvc_atsvc_DaysOfWeek, align 4
@@ -712,8 +712,8 @@ define hidden i32 @atsvc_dissect_struct_JobEnumInfo(ptr noundef %0, i32 noundef 
   %43 = and i8 %42, 16
   %44 = zext nneg i8 %43 to i32
   %45 = shl nuw i32 %44, 27
-  %46 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.0, ptr noundef %0, i32 noundef %39, i32 noundef %40, i32 noundef %41, ptr noundef nonnull @atsvc_dissect_bitmap_DaysOfWeek.atsvc_atsvc_DaysOfWeek_fields, i32 noundef %45, i32 noundef 4) #3
-  %47 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %10) #3
+  %46 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.061, ptr noundef %0, i32 noundef %39, i32 noundef %40, i32 noundef %41, ptr noundef nonnull @atsvc_dissect_bitmap_DaysOfWeek.atsvc_atsvc_DaysOfWeek_fields, i32 noundef %45, i32 noundef 4) #3
+  %47 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %10) #3
   %48 = load i8, ptr %10, align 1
   %.not.i.i = icmp eq i8 %48, 0
   br i1 %.not.i.i, label %49, label %50
@@ -744,8 +744,8 @@ atsvc_dissect_element_JobEnumInfo_days_of_week.exit: ; preds = %50, %53
   %58 = and i8 %57, 16
   %59 = zext nneg i8 %58 to i32
   %60 = shl nuw i32 %59, 27
-  %61 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.0, ptr noundef %0, i32 noundef %47, i32 noundef %55, i32 noundef %56, ptr noundef nonnull @atsvc_dissect_bitmap_Flags.atsvc_atsvc_Flags_fields, i32 noundef %60, i32 noundef 4) #3
-  %62 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %9) #3
+  %61 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.061, ptr noundef %0, i32 noundef %47, i32 noundef %55, i32 noundef %56, ptr noundef nonnull @atsvc_dissect_bitmap_Flags.atsvc_atsvc_Flags_fields, i32 noundef %60, i32 noundef 4) #3
+  %62 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %9) #3
   %63 = load i8, ptr %9, align 1
   %.not.i.i74 = icmp eq i8 %63, 0
   br i1 %.not.i.i74, label %64, label %65
@@ -770,9 +770,9 @@ atsvc_dissect_element_JobEnumInfo_days_of_week.exit: ; preds = %50, %53
 atsvc_dissect_element_JobEnumInfo_flags.exit:     ; preds = %65, %68
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %70 = load i32, ptr @hf_atsvc_atsvc_JobEnumInfo_command, align 4
-  %71 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %62, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @atsvc_dissect_element_JobEnumInfo_command_, i32 noundef 2, ptr noundef nonnull @.str.135, i32 noundef %70) #3
-  %72 = sub i32 %71, %.062
-  call void @proto_item_set_len(ptr noundef %.061, i32 noundef %72) #3
+  %71 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %62, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @atsvc_dissect_element_JobEnumInfo_command_, i32 noundef 2, ptr noundef nonnull @.str.135, i32 noundef %70) #3
+  %72 = sub i32 %71, %.0
+  call void @proto_item_set_len(ptr noundef %.062, i32 noundef %72) #3
   %73 = load ptr, ptr %11, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 96
   %75 = load i32, ptr %74, align 8
@@ -835,25 +835,25 @@ define hidden i32 @atsvc_dissect_struct_enum_ctr(ptr noundef %0, i32 noundef %1,
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
   %29 = load i32, ptr @ett_atsvc_atsvc_enum_ctr, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #3
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_atsvc_atsvc_enum_ctr_entries_read, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
   %34 = load i32, ptr @hf_atsvc_atsvc_enum_ctr_first_entry, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @atsvc_dissect_element_enum_ctr_first_entry_, i32 noundef 2, ptr noundef nonnull @.str.137, i32 noundef %34) #3
-  %36 = sub i32 %35, %.038
-  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #3
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @atsvc_dissect_element_enum_ctr_first_entry_, i32 noundef 2, ptr noundef nonnull @.str.137, i32 noundef %34) #3
+  %36 = sub i32 %35, %.0
+  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #3
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8

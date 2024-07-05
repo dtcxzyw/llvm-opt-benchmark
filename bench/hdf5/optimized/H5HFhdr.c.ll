@@ -1590,8 +1590,8 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   br label %34
 
 34:                                               ; preds = %.lr.ph, %.critedge2
-  %.05877 = phi i32 [ %30, %.lr.ph ], [ %39, %.critedge2 ]
-  %35 = zext nneg i32 %.05877 to i64
+  %.05977 = phi i32 [ %30, %.lr.ph ], [ %39, %.critedge2 ]
+  %35 = zext nneg i32 %.05977 to i64
   %36 = getelementptr inbounds %struct.H5HF_indirect_ent_t, ptr %33, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, %1
@@ -1600,8 +1600,8 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   br i1 %or.cond67, label %.critedge2, label %.critedge
 
 .critedge2:                                       ; preds = %34
-  %39 = add nsw i32 %.05877, -1
-  %40 = icmp sgt i32 %.05877, 0
+  %39 = add nsw i32 %.05977, -1
+  %40 = icmp sgt i32 %.05977, 0
   br i1 %40, label %34, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.critedge2, %.critedge66
@@ -1652,15 +1652,15 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   br label %149
 
 .critedge:                                        ; preds = %34
-  store i32 %.05877, ptr %4, align 4
+  store i32 %.05977, ptr %4, align 4
   %68 = load i32, ptr %27, align 8
-  %69 = udiv i32 %.05877, %68
+  %69 = udiv i32 %.05977, %68
   %70 = load i32, ptr %28, align 8
   %71 = icmp ult i32 %69, %70
   br i1 %71, label %72, label %101
 
 72:                                               ; preds = %.critedge
-  %73 = add nuw i32 %.05877, 1
+  %73 = add nuw i32 %.05977, 1
   store i32 %73, ptr %4, align 4
   %74 = call i32 @H5HF__man_iter_set_entry(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef %73) #6
   %75 = icmp slt i32 %74, 0
@@ -1773,8 +1773,8 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   br label %149
 
 149:                                              ; preds = %80, %60, %145, %131, %124, %116, %76, %64, %53, %46, %20, %13
-  %.059 = phi i32 [ -1, %20 ], [ -1, %46 ], [ -1, %53 ], [ -1, %64 ], [ -1, %76 ], [ -1, %116 ], [ -1, %124 ], [ -1, %131 ], [ -1, %145 ], [ -1, %13 ], [ 0, %60 ], [ 0, %80 ]
-  ret i32 %.059
+  %.058 = phi i32 [ -1, %20 ], [ -1, %46 ], [ -1, %53 ], [ -1, %64 ], [ -1, %76 ], [ -1, %116 ], [ -1, %124 ], [ -1, %131 ], [ -1, %145 ], [ -1, %13 ], [ 0, %60 ], [ 0, %80 ]
+  ret i32 %.058
 }
 
 declare i32 @H5HF__man_iter_set_entry(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

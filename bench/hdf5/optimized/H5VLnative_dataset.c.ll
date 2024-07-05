@@ -325,14 +325,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   br i1 %.not106, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %148
-  %.097105 = phi i64 [ %152, %148 ], [ 0, %8 ]
-  %14 = getelementptr inbounds %struct.H5D_dset_io_info_t, ptr %7, i64 %.097105
+  %.0105 = phi i64 [ %152, %148 ], [ 0, %8 ]
+  %14 = getelementptr inbounds %struct.H5D_dset_io_info_t, ptr %7, i64 %.0105
   %15 = getelementptr inbounds i8, ptr %14, i64 128
   %16 = getelementptr inbounds i8, ptr %14, i64 192
   store i64 0, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 208
   %18 = getelementptr inbounds i8, ptr %14, i64 8
-  %19 = getelementptr inbounds ptr, ptr %1, i64 %.097105
+  %19 = getelementptr inbounds ptr, ptr %1, i64 %.0105
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %18, i8 0, i64 112, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(89) %17, i8 0, i64 89, i1 false)
@@ -360,7 +360,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   br label %.loopexit
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i64, ptr %2, i64 %.097105
+  %34 = getelementptr inbounds i64, ptr %2, i64 %.0105
   %35 = load i64, ptr %34, align 8
   %36 = call ptr @H5I_object_verify(i64 noundef %35, i32 noundef 3) #4
   %37 = getelementptr inbounds i8, ptr %14, i64 200
@@ -375,7 +375,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   br label %.loopexit
 
 43:                                               ; preds = %33
-  %44 = getelementptr inbounds i64, ptr %4, i64 %.097105
+  %44 = getelementptr inbounds i64, ptr %4, i64 %.0105
   %45 = load i64, ptr %44, align 8
   switch i64 %45, label %86 [
     i64 0, label %46
@@ -455,7 +455,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   br label %.loopexit
 
 94:                                               ; preds = %86, %72, %46
-  %95 = getelementptr inbounds i64, ptr %3, i64 %.097105
+  %95 = getelementptr inbounds i64, ptr %3, i64 %.0105
   %96 = load i64, ptr %95, align 8
   switch i64 %96, label %124 [
     i64 0, label %97
@@ -550,16 +550,16 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
 
 148:                                              ; preds = %140
   %149 = getelementptr inbounds i8, ptr %14, i64 120
-  %150 = getelementptr inbounds %union.H5_flexible_const_ptr_t, ptr %6, i64 %.097105
+  %150 = getelementptr inbounds %union.H5_flexible_const_ptr_t, ptr %6, i64 %.0105
   %151 = load i64, ptr %150, align 8
   store i64 %151, ptr %149, align 8
-  %152 = add nuw i64 %.097105, 1
+  %152 = add nuw i64 %.0105, 1
   %exitcond.not = icmp eq i64 %152, %0
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %148, %8, %144, %136, %128, %120, %116, %109, %90, %82, %68, %61, %53, %39, %29, %23
-  %.0 = phi i32 [ -1, %23 ], [ -1, %29 ], [ -1, %39 ], [ -1, %136 ], [ -1, %144 ], [ -1, %109 ], [ -1, %116 ], [ -1, %120 ], [ -1, %128 ], [ -1, %53 ], [ -1, %61 ], [ -1, %68 ], [ -1, %82 ], [ -1, %90 ], [ 0, %8 ], [ 0, %148 ]
-  ret i32 %.0
+  %.097 = phi i32 [ -1, %23 ], [ -1, %29 ], [ -1, %39 ], [ -1, %136 ], [ -1, %144 ], [ -1, %109 ], [ -1, %116 ], [ -1, %120 ], [ -1, %128 ], [ -1, %53 ], [ -1, %61 ], [ -1, %68 ], [ -1, %82 ], [ -1, %90 ], [ 0, %8 ], [ 0, %148 ]
+  ret i32 %.097
 }
 
 declare void @H5CX_set_dxpl(i64 noundef) local_unnamed_addr #1
@@ -1097,7 +1097,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
 
 123:                                              ; preds = %._crit_edge, %111
   %124 = phi ptr [ %113, %111 ], [ %.pre, %._crit_edge ]
-  %.0 = phi ptr [ %115, %111 ], [ %117, %._crit_edge ]
+  %.099 = phi ptr [ %115, %111 ], [ %117, %._crit_edge ]
   %125 = getelementptr inbounds i8, ptr %124, i64 248
   %126 = load i32, ptr %125, align 8
   %.not108 = icmp eq i32 %126, 2
@@ -1120,7 +1120,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds i8, ptr %8, i64 40
   %141 = load ptr, ptr %140, align 8
-  %142 = tail call i32 @H5D__get_chunk_info(ptr noundef nonnull %0, ptr noundef %.0, i64 noundef %133, ptr noundef %135, ptr noundef %137, ptr noundef %139, ptr noundef %141) #4
+  %142 = tail call i32 @H5D__get_chunk_info(ptr noundef nonnull %0, ptr noundef %.099, i64 noundef %133, ptr noundef %135, ptr noundef %137, ptr noundef %139, ptr noundef %141) #4
   %143 = icmp slt i32 %142, 0
   br i1 %143, label %144, label %280
 
@@ -1324,8 +1324,8 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br label %280
 
 280:                                              ; preds = %53, %254, %10, %25, %29, %15, %18, %66, %99, %131, %157, %195, %229, %242, %272, %266, %276, %262, %250, %238, %225, %217, %208, %201, %191, %183, %174, %167, %153, %144, %127, %119, %104, %95, %87, %72, %62, %49, %40, %36, %32, %21
-  %.099 = phi i32 [ -1, %276 ], [ -1, %262 ], [ %270, %272 ], [ %270, %266 ], [ 0, %254 ], [ -1, %250 ], [ 0, %242 ], [ -1, %208 ], [ -1, %217 ], [ -1, %225 ], [ -1, %238 ], [ 0, %229 ], [ -1, %174 ], [ -1, %183 ], [ -1, %191 ], [ -1, %201 ], [ 0, %195 ], [ -1, %153 ], [ -1, %167 ], [ 0, %157 ], [ -1, %127 ], [ -1, %144 ], [ 0, %131 ], [ -1, %119 ], [ -1, %95 ], [ -1, %104 ], [ 0, %99 ], [ -1, %87 ], [ -1, %62 ], [ -1, %72 ], [ 0, %66 ], [ -1, %49 ], [ 0, %53 ], [ -1, %40 ], [ -1, %36 ], [ 0, %10 ], [ -1, %32 ], [ 0, %29 ], [ 0, %25 ], [ -1, %21 ], [ 0, %18 ], [ 0, %15 ]
-  ret i32 %.099
+  %.0 = phi i32 [ -1, %276 ], [ -1, %262 ], [ %270, %272 ], [ %270, %266 ], [ 0, %254 ], [ -1, %250 ], [ 0, %242 ], [ -1, %208 ], [ -1, %217 ], [ -1, %225 ], [ -1, %238 ], [ 0, %229 ], [ -1, %174 ], [ -1, %183 ], [ -1, %191 ], [ -1, %201 ], [ 0, %195 ], [ -1, %153 ], [ -1, %167 ], [ 0, %157 ], [ -1, %127 ], [ -1, %144 ], [ 0, %131 ], [ -1, %119 ], [ -1, %95 ], [ -1, %104 ], [ 0, %99 ], [ -1, %87 ], [ -1, %62 ], [ -1, %72 ], [ 0, %66 ], [ -1, %49 ], [ 0, %53 ], [ -1, %40 ], [ -1, %36 ], [ 0, %10 ], [ -1, %32 ], [ 0, %29 ], [ 0, %25 ], [ -1, %21 ], [ 0, %18 ], [ 0, %15 ]
+  ret i32 %.0
 }
 
 declare i32 @H5D__format_convert(ptr noundef) local_unnamed_addr #1

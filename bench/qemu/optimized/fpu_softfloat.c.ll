@@ -3078,8 +3078,8 @@ floatx80_round_pack_canonical.exit:               ; preds = %floatx80_round_pack
   br label %return
 
 return:                                           ; preds = %floatx80_unpack_canonical.exit42, %floatx80_unpack_canonical.exit, %floatx80_round_pack_canonical.exit
-  %retval.sroa.3.0 = phi i16 [ %conv2.i, %floatx80_round_pack_canonical.exit ], [ -1, %floatx80_unpack_canonical.exit ], [ -1, %floatx80_unpack_canonical.exit42 ]
   %retval.sroa.0.0 = phi i64 [ %frac.i.1, %floatx80_round_pack_canonical.exit ], [ -4611686018427387904, %floatx80_unpack_canonical.exit ], [ -4611686018427387904, %floatx80_unpack_canonical.exit42 ]
+  %retval.sroa.3.0 = phi i16 [ %conv2.i, %floatx80_round_pack_canonical.exit ], [ -1, %floatx80_unpack_canonical.exit ], [ -1, %floatx80_unpack_canonical.exit42 ]
   %.fca.0.insert = insertvalue { i64, i16 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i16 } %.fca.0.insert, i16 %retval.sroa.3.0, 1
   ret { i64, i16 } %.fca.1.insert
@@ -5901,8 +5901,8 @@ floatx80_round_pack_canonical.exit:               ; preds = %parts128_mul.exit.t
   br label %return
 
 return:                                           ; preds = %floatx80_unpack_canonical.exit57, %floatx80_unpack_canonical.exit, %floatx80_round_pack_canonical.exit
-  %retval.sroa.3.0 = phi i16 [ %conv2.i115, %floatx80_round_pack_canonical.exit ], [ -1, %floatx80_unpack_canonical.exit ], [ -1, %floatx80_unpack_canonical.exit57 ]
   %retval.sroa.0.0 = phi i64 [ %frac.i.1, %floatx80_round_pack_canonical.exit ], [ -4611686018427387904, %floatx80_unpack_canonical.exit ], [ -4611686018427387904, %floatx80_unpack_canonical.exit57 ]
+  %retval.sroa.3.0 = phi i16 [ %conv2.i115, %floatx80_round_pack_canonical.exit ], [ -1, %floatx80_unpack_canonical.exit ], [ -1, %floatx80_unpack_canonical.exit57 ]
   %.fca.0.insert = insertvalue { i64, i16 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i16 } %.fca.0.insert, i16 %retval.sroa.3.0, 1
   ret { i64, i16 } %.fca.1.insert
@@ -14704,8 +14704,8 @@ if.then33.i.i:                                    ; preds = %entry
   br label %float32_unpack_canonical.exit.thread
 
 float32_unpack_canonical.exit.thread:             ; preds = %if.then33.i.i, %if.then10.i.i, %frac64_normalize.exit.i.i, %if.then.i.i, %lor.lhs.false.i.i
-  %p64.sroa.14.0.ph = phi i64 [ 0, %lor.lhs.false.i.i ], [ 0, %if.then.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ 0, %if.then10.i.i ], [ %or.i.i, %if.then33.i.i ]
   %p64.sroa.10.0.ph = phi i32 [ %and.i9.i.i, %lor.lhs.false.i.i ], [ %and.i9.i.i, %if.then.i.i ], [ %add.i.i, %frac64_normalize.exit.i.i ], [ %and.i9.i.i, %if.then10.i.i ], [ %sub37.i.i, %if.then33.i.i ]
+  %p64.sroa.14.0.ph = phi i64 [ 0, %lor.lhs.false.i.i ], [ 0, %if.then.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ 0, %if.then10.i.i ], [ %or.i.i, %if.then33.i.i ]
   %p64.sroa.0.0.ph = phi i8 [ 3, %lor.lhs.false.i.i ], [ 1, %if.then.i.i ], [ 2, %frac64_normalize.exit.i.i ], [ 1, %if.then10.i.i ], [ 2, %if.then33.i.i ]
   store i8 %p64.sroa.0.0.ph, ptr %p128, align 8
   %sign2.i9 = getelementptr inbounds i8, ptr %p128, i64 1
@@ -14822,8 +14822,8 @@ if.then33.i.i:                                    ; preds = %entry
   br label %float64_unpack_canonical.exit.thread
 
 float64_unpack_canonical.exit.thread:             ; preds = %if.then33.i.i, %if.then10.i.i, %frac64_normalize.exit.i.i, %if.then.i.i, %lor.lhs.false.i.i
-  %p64.sroa.14.0.ph = phi i64 [ 0, %lor.lhs.false.i.i ], [ 0, %if.then.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ 0, %if.then10.i.i ], [ %or.i.i, %if.then33.i.i ]
   %p64.sroa.10.0.ph = phi i32 [ 2047, %lor.lhs.false.i.i ], [ 0, %if.then.i.i ], [ %add.i.i, %frac64_normalize.exit.i.i ], [ 0, %if.then10.i.i ], [ %sub37.i.i, %if.then33.i.i ]
+  %p64.sroa.14.0.ph = phi i64 [ 0, %lor.lhs.false.i.i ], [ 0, %if.then.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ 0, %if.then10.i.i ], [ %or.i.i, %if.then33.i.i ]
   %p64.sroa.0.0.ph = phi i8 [ 3, %lor.lhs.false.i.i ], [ 1, %if.then.i.i ], [ 2, %frac64_normalize.exit.i.i ], [ 1, %if.then10.i.i ], [ 2, %if.then33.i.i ]
   store i8 %p64.sroa.0.0.ph, ptr %p128, align 8
   %sign2.i9 = getelementptr inbounds i8, ptr %p128, i64 1
@@ -15390,8 +15390,8 @@ if.then33.i.i:                                    ; preds = %entry
   br label %float32_unpack_canonical.exit.thread
 
 float32_unpack_canonical.exit.thread:             ; preds = %if.then33.i.i, %if.then10.i.i, %frac64_normalize.exit.i.i, %if.then.i.i, %lor.lhs.false.i.i
-  %p64.sroa.14.0.ph = phi i64 [ 0, %lor.lhs.false.i.i ], [ 0, %if.then.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ 0, %if.then10.i.i ], [ %or.i.i, %if.then33.i.i ]
   %p64.sroa.10.0.ph = phi i32 [ %and.i9.i.i, %lor.lhs.false.i.i ], [ %and.i9.i.i, %if.then.i.i ], [ %add.i.i, %frac64_normalize.exit.i.i ], [ %and.i9.i.i, %if.then10.i.i ], [ %sub37.i.i, %if.then33.i.i ]
+  %p64.sroa.14.0.ph = phi i64 [ 0, %lor.lhs.false.i.i ], [ 0, %if.then.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ 0, %if.then10.i.i ], [ %or.i.i, %if.then33.i.i ]
   %p64.sroa.0.0.ph = phi i8 [ 3, %lor.lhs.false.i.i ], [ 1, %if.then.i.i ], [ 2, %frac64_normalize.exit.i.i ], [ 1, %if.then10.i.i ], [ 2, %if.then33.i.i ]
   store i8 %p64.sroa.0.0.ph, ptr %p128, align 8
   %sign2.i9 = getelementptr inbounds i8, ptr %p128, i64 1
@@ -15508,8 +15508,8 @@ if.then33.i.i:                                    ; preds = %entry
   br label %float64_unpack_canonical.exit.thread
 
 float64_unpack_canonical.exit.thread:             ; preds = %if.then33.i.i, %if.then10.i.i, %frac64_normalize.exit.i.i, %if.then.i.i, %lor.lhs.false.i.i
-  %p64.sroa.14.0.ph = phi i64 [ 0, %lor.lhs.false.i.i ], [ 0, %if.then.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ 0, %if.then10.i.i ], [ %or.i.i, %if.then33.i.i ]
   %p64.sroa.10.0.ph = phi i32 [ 2047, %lor.lhs.false.i.i ], [ 0, %if.then.i.i ], [ %add.i.i, %frac64_normalize.exit.i.i ], [ 0, %if.then10.i.i ], [ %sub37.i.i, %if.then33.i.i ]
+  %p64.sroa.14.0.ph = phi i64 [ 0, %lor.lhs.false.i.i ], [ 0, %if.then.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ 0, %if.then10.i.i ], [ %or.i.i, %if.then33.i.i ]
   %p64.sroa.0.0.ph = phi i8 [ 3, %lor.lhs.false.i.i ], [ 1, %if.then.i.i ], [ 2, %frac64_normalize.exit.i.i ], [ 1, %if.then10.i.i ], [ 2, %if.then33.i.i ]
   store i8 %p64.sroa.0.0.ph, ptr %p128, align 8
   %sign2.i9 = getelementptr inbounds i8, ptr %p128, i64 1
@@ -26303,9 +26303,9 @@ if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   br label %float16a_unpack_canonical.exit
 
 float16a_unpack_canonical.exit:                   ; preds = %lor.lhs.false.i.i, %if.then.i.i, %if.then10.i.i, %frac64_normalize.exit.i.i, %if.then33.i.i, %if.else49.i.i
-  %pa.sroa.17.0 = phi i64 [ 0, %if.then10.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ %or.i.i, %if.then33.i.i ], [ %shl.i31.i.i, %if.else49.i.i ], [ 0, %if.then.i.i ], [ 0, %lor.lhs.false.i.i ]
   %pa.sroa.13.0 = phi i32 [ 0, %if.then10.i.i ], [ %add.i.i, %frac64_normalize.exit.i.i ], [ %sub37.i.i, %if.then33.i.i ], [ 31, %if.else49.i.i ], [ 0, %if.then.i.i ], [ 31, %lor.lhs.false.i.i ]
   %pa.sroa.0.0 = phi i8 [ 1, %if.then10.i.i ], [ 2, %frac64_normalize.exit.i.i ], [ 2, %if.then33.i.i ], [ %conv53.i.i, %if.else49.i.i ], [ 1, %if.then.i.i ], [ 3, %lor.lhs.false.i.i ]
+  %pa.sroa.17.0 = phi i64 [ 0, %if.then10.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ %or.i.i, %if.then33.i.i ], [ %shl.i31.i.i, %if.else49.i.i ], [ 0, %if.then.i.i ], [ 0, %lor.lhs.false.i.i ]
   %f.lobit.i.i27 = lshr i16 %b, 15
   %6 = lshr i16 %b, 10
   %7 = and i16 %6, 31
@@ -26587,9 +26587,9 @@ if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   br label %parts64_canonicalize.exit.i
 
 parts64_canonicalize.exit.i:                      ; preds = %if.else49.i.i, %if.then33.i.i, %lor.lhs.false.i.i, %frac64_normalize.exit.i.i, %if.then10.i.i, %if.then.i32.i
-  %pa.sroa.18.0.i = phi i64 [ 0, %if.then10.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ %or.i31.i, %if.then33.i.i ], [ %shl.i31.i.i, %if.else49.i.i ], [ 0, %if.then.i32.i ], [ 0, %lor.lhs.false.i.i ]
   %pa.sroa.13.0.i = phi i32 [ 0, %if.then10.i.i ], [ %add.i.i, %frac64_normalize.exit.i.i ], [ %sub37.i.i, %if.then33.i.i ], [ 255, %if.else49.i.i ], [ 0, %if.then.i32.i ], [ 255, %lor.lhs.false.i.i ]
   %pa.sroa.0.0.i = phi i8 [ 1, %if.then10.i.i ], [ 2, %frac64_normalize.exit.i.i ], [ 2, %if.then33.i.i ], [ %conv53.i.i, %if.else49.i.i ], [ 1, %if.then.i32.i ], [ 3, %lor.lhs.false.i.i ]
+  %pa.sroa.18.0.i = phi i64 [ 0, %if.then10.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ %or.i31.i, %if.then33.i.i ], [ %shl.i31.i.i, %if.else49.i.i ], [ 0, %if.then.i32.i ], [ 0, %lor.lhs.false.i.i ]
   %f.lobit.i34.i = lshr i32 %ub.sroa.0.1, 31
   %shr.i8.i36.i = lshr i32 %ub.sroa.0.1, 23
   %10 = and i32 %ub.sroa.0.1, 8388607
@@ -26867,9 +26867,9 @@ if.else49.i.i:                                    ; preds = %lor.lhs.false.i.i
   br label %parts64_canonicalize.exit.i
 
 parts64_canonicalize.exit.i:                      ; preds = %if.else49.i.i, %if.then33.i.i, %lor.lhs.false.i.i, %frac64_normalize.exit.i.i, %if.then10.i.i, %if.then.i32.i
-  %pa.sroa.18.0.i = phi i64 [ 0, %if.then10.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ %or.i31.i, %if.then33.i.i ], [ %shl.i31.i.i, %if.else49.i.i ], [ 0, %if.then.i32.i ], [ 0, %lor.lhs.false.i.i ]
   %pa.sroa.13.0.i = phi i32 [ 0, %if.then10.i.i ], [ %add.i.i, %frac64_normalize.exit.i.i ], [ %sub37.i.i, %if.then33.i.i ], [ 2047, %if.else49.i.i ], [ 0, %if.then.i32.i ], [ 2047, %lor.lhs.false.i.i ]
   %pa.sroa.0.0.i = phi i8 [ 1, %if.then10.i.i ], [ 2, %frac64_normalize.exit.i.i ], [ 2, %if.then33.i.i ], [ %conv53.i.i, %if.else49.i.i ], [ 1, %if.then.i32.i ], [ 3, %lor.lhs.false.i.i ]
+  %pa.sroa.18.0.i = phi i64 [ 0, %if.then10.i.i ], [ %shl.i.i.i, %frac64_normalize.exit.i.i ], [ %or.i31.i, %if.then33.i.i ], [ %shl.i31.i.i, %if.else49.i.i ], [ 0, %if.then.i32.i ], [ 0, %lor.lhs.false.i.i ]
   %f.lobit.i34.i = lshr i64 %ub.sroa.0.1, 63
   %shr.i8.i36.i = lshr i64 %ub.sroa.0.1, 52
   %10 = trunc nuw nsw i64 %shr.i8.i36.i to i32
@@ -27097,9 +27097,9 @@ if.else49.i:                                      ; preds = %lor.lhs.false.i
   br label %parts64_canonicalize.exit
 
 parts64_canonicalize.exit:                        ; preds = %lor.lhs.false.i, %if.then.i32, %if.then10.i, %frac64_normalize.exit.i, %if.then33.i, %if.else49.i
-  %pa.sroa.18.0 = phi i64 [ 0, %if.then10.i ], [ %shl.i.i, %frac64_normalize.exit.i ], [ %or.i31, %if.then33.i ], [ %shl.i31.i, %if.else49.i ], [ 0, %if.then.i32 ], [ 0, %lor.lhs.false.i ]
   %pa.sroa.13.0 = phi i32 [ 0, %if.then10.i ], [ %add.i, %frac64_normalize.exit.i ], [ %sub37.i, %if.then33.i ], [ 255, %if.else49.i ], [ 0, %if.then.i32 ], [ 255, %lor.lhs.false.i ]
   %pa.sroa.0.0 = phi i8 [ 1, %if.then10.i ], [ 2, %frac64_normalize.exit.i ], [ 2, %if.then33.i ], [ %conv53.i, %if.else49.i ], [ 1, %if.then.i32 ], [ 3, %lor.lhs.false.i ]
+  %pa.sroa.18.0 = phi i64 [ 0, %if.then10.i ], [ %shl.i.i, %frac64_normalize.exit.i ], [ %or.i31, %if.then33.i ], [ %shl.i31.i, %if.else49.i ], [ 0, %if.then.i32 ], [ 0, %lor.lhs.false.i ]
   %f.lobit.i34 = lshr i16 %b, 15
   %6 = lshr i16 %b, 7
   %7 = and i16 %b, 127
@@ -31719,9 +31719,9 @@ if.else18.i:                                      ; preds = %if.else10.i
   br label %shift64ExtraRightJamming.exit
 
 shift64ExtraRightJamming.exit:                    ; preds = %if.then4.i, %if.then13.i, %if.else18.i
-  %15 = phi i1 [ %14, %if.then4.i ], [ true, %if.else18.i ], [ true, %if.then13.i ]
-  %z0.0.i = phi i64 [ %shr.i123, %if.then4.i ], [ 0, %if.else18.i ], [ 0, %if.then13.i ]
-  %z1.1.i = phi i64 [ %or.i122, %if.then4.i ], [ %conv22.i, %if.else18.i ], [ %or17.i, %if.then13.i ]
+  %15 = phi i1 [ %14, %if.then4.i ], [ true, %if.then13.i ], [ true, %if.else18.i ]
+  %z1.1.i = phi i64 [ %or.i122, %if.then4.i ], [ %or17.i, %if.then13.i ], [ %conv22.i, %if.else18.i ]
+  %z0.0.i = phi i64 [ %shr.i123, %if.then4.i ], [ 0, %if.then13.i ], [ 0, %if.else18.i ]
   %tobool183 = icmp ne i64 %z1.1.i, 0
   %or.cond6 = select i1 %15, i1 %tobool183, i1 false
   br i1 %or.cond6, label %if.end185.thread, label %if.end185

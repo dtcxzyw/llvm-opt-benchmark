@@ -130,10 +130,10 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish19CaseInsensitiveLessclERKNSt
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %23, %.lr.ph.preheader.i.i
-  %.sroa.011.021.i.i = phi ptr [ %25, %23 ], [ %6, %.lr.ph.preheader.i.i ]
-  %.sroa.015.020.i.i = phi ptr [ %24, %23 ], [ %4, %.lr.ph.preheader.i.i ]
-  %17 = load i8, ptr %.sroa.015.020.i.i, align 1
-  %18 = load i8, ptr %.sroa.011.021.i.i, align 1
+  %.sroa.015.021.i.i = phi ptr [ %24, %23 ], [ %4, %.lr.ph.preheader.i.i ]
+  %.sroa.011.020.i.i = phi ptr [ %25, %23 ], [ %6, %.lr.ph.preheader.i.i ]
+  %17 = load i8, ptr %.sroa.015.021.i.i, align 1
+  %18 = load i8, ptr %.sroa.011.020.i.i, align 1
   %19 = sext i8 %17 to i32
   %20 = tail call i32 @tolower(i32 noundef %19) #18
   %21 = sext i8 %18 to i32
@@ -142,8 +142,8 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish19CaseInsensitiveLessclERKNSt
   br i1 %or.cond.not, label %23, label %"_ZSt23lexicographical_compareIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_ZNK9Stockfish19CaseInsensitiveLessclERKS9_SE_E3$_0EbT_SG_T0_SH_T1_.exit.loopexit"
 
 23:                                               ; preds = %.lr.ph.i.i
-  %24 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i, i64 1
-  %25 = getelementptr inbounds i8, ptr %.sroa.011.021.i.i, i64 1
+  %24 = getelementptr inbounds i8, ptr %.sroa.015.021.i.i, i64 1
+  %25 = getelementptr inbounds i8, ptr %.sroa.011.020.i.i, i64 1
   %.not.i.i = icmp eq ptr %24, %spec.select.i.i.i
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !5
 
@@ -339,10 +339,10 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(144) ptr @
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %34, %.lr.ph.preheader.i.i.i
-  %.sroa.011.021.i.i.i = phi ptr [ %36, %34 ], [ %14, %.lr.ph.preheader.i.i.i ]
-  %.sroa.015.020.i.i.i = phi ptr [ %35, %34 ], [ %12, %.lr.ph.preheader.i.i.i ]
-  %25 = load i8, ptr %.sroa.015.020.i.i.i, align 1
-  %26 = load i8, ptr %.sroa.011.021.i.i.i, align 1
+  %.sroa.015.021.i.i.i = phi ptr [ %35, %34 ], [ %12, %.lr.ph.preheader.i.i.i ]
+  %.sroa.011.020.i.i.i = phi ptr [ %36, %34 ], [ %14, %.lr.ph.preheader.i.i.i ]
+  %25 = load i8, ptr %.sroa.015.021.i.i.i, align 1
+  %26 = load i8, ptr %.sroa.011.020.i.i.i, align 1
   %27 = sext i8 %25 to i32
   %28 = tail call i32 @tolower(i32 noundef %27) #18
   %29 = sext i8 %26 to i32
@@ -355,8 +355,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(144) ptr @
   br i1 %33, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread10, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i, i64 1
-  %36 = getelementptr inbounds i8, ptr %.sroa.011.021.i.i.i, i64 1
+  %35 = getelementptr inbounds i8, ptr %.sroa.015.021.i.i.i, i64 1
+  %36 = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %35, %spec.select.i.i.i.i
   br i1 %.not.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.i.i.i, !llvm.loop !5
 
@@ -1074,10 +1074,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %35, %.lr.ph.preheader.i.i.i
-  %.sroa.011.021.i.i.i = phi ptr [ %37, %35 ], [ %15, %.lr.ph.preheader.i.i.i ]
-  %.sroa.015.020.i.i.i = phi ptr [ %36, %35 ], [ %13, %.lr.ph.preheader.i.i.i ]
-  %26 = load i8, ptr %.sroa.015.020.i.i.i, align 1
-  %27 = load i8, ptr %.sroa.011.021.i.i.i, align 1
+  %.sroa.015.021.i.i.i = phi ptr [ %36, %35 ], [ %13, %.lr.ph.preheader.i.i.i ]
+  %.sroa.011.020.i.i.i = phi ptr [ %37, %35 ], [ %15, %.lr.ph.preheader.i.i.i ]
+  %26 = load i8, ptr %.sroa.015.021.i.i.i, align 1
+  %27 = load i8, ptr %.sroa.011.020.i.i.i, align 1
   %28 = sext i8 %26 to i32
   %29 = call i32 @tolower(i32 noundef %28) #18
   %30 = sext i8 %27 to i32
@@ -1090,8 +1090,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %34, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit7, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i, i64 1
-  %37 = getelementptr inbounds i8, ptr %.sroa.011.021.i.i.i, i64 1
+  %36 = getelementptr inbounds i8, ptr %.sroa.015.021.i.i.i, i64 1
+  %37 = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %36, %spec.select.i.i.i.i
   br i1 %.not.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.i.i.i, !llvm.loop !5
 
@@ -1130,10 +1130,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit7: ; p
   br label %.lr.ph.i.i.i13
 
 .lr.ph.i.i.i13:                                   ; preds = %60, %.lr.ph.preheader.i.i.i10
-  %.sroa.011.021.i.i.i14 = phi ptr [ %62, %60 ], [ %43, %.lr.ph.preheader.i.i.i10 ]
-  %.sroa.015.020.i.i.i15 = phi ptr [ %61, %60 ], [ %41, %.lr.ph.preheader.i.i.i10 ]
-  %54 = load i8, ptr %.sroa.015.020.i.i.i15, align 1
-  %55 = load i8, ptr %.sroa.011.021.i.i.i14, align 1
+  %.sroa.015.021.i.i.i14 = phi ptr [ %61, %60 ], [ %41, %.lr.ph.preheader.i.i.i10 ]
+  %.sroa.011.020.i.i.i15 = phi ptr [ %62, %60 ], [ %43, %.lr.ph.preheader.i.i.i10 ]
+  %54 = load i8, ptr %.sroa.015.021.i.i.i14, align 1
+  %55 = load i8, ptr %.sroa.011.020.i.i.i15, align 1
   %56 = sext i8 %54 to i32
   %57 = call i32 @tolower(i32 noundef %56) #18
   %58 = sext i8 %55 to i32
@@ -1142,8 +1142,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit7: ; p
   br i1 %or.cond.not, label %60, label %.loopexit.loopexit
 
 60:                                               ; preds = %.lr.ph.i.i.i13
-  %61 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i15, i64 1
-  %62 = getelementptr inbounds i8, ptr %.sroa.011.021.i.i.i14, i64 1
+  %61 = getelementptr inbounds i8, ptr %.sroa.015.021.i.i.i14, i64 1
+  %62 = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i15, i64 1
   %.not.i.i.i16 = icmp eq ptr %61, %spec.select.i.i.i.i8
   br i1 %.not.i.i.i16, label %._crit_edge.i.i.i17, label %.lr.ph.i.i.i13, !llvm.loop !5
 
@@ -1550,10 +1550,10 @@ define linkonce_odr dso_local ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %32, %.lr.ph.preheader.i.i.i
-  %.sroa.011.021.i.i.i = phi ptr [ %34, %32 ], [ %12, %.lr.ph.preheader.i.i.i ]
-  %.sroa.015.020.i.i.i = phi ptr [ %33, %32 ], [ %10, %.lr.ph.preheader.i.i.i ]
-  %23 = load i8, ptr %.sroa.015.020.i.i.i, align 1
-  %24 = load i8, ptr %.sroa.011.021.i.i.i, align 1
+  %.sroa.015.021.i.i.i = phi ptr [ %33, %32 ], [ %10, %.lr.ph.preheader.i.i.i ]
+  %.sroa.011.020.i.i.i = phi ptr [ %34, %32 ], [ %12, %.lr.ph.preheader.i.i.i ]
+  %23 = load i8, ptr %.sroa.015.021.i.i.i, align 1
+  %24 = load i8, ptr %.sroa.011.020.i.i.i, align 1
   %25 = sext i8 %23 to i32
   %26 = tail call i32 @tolower(i32 noundef %25) #18
   %27 = sext i8 %24 to i32
@@ -1566,8 +1566,8 @@ define linkonce_odr dso_local ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   br i1 %31, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread6, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i, i64 1
-  %34 = getelementptr inbounds i8, ptr %.sroa.011.021.i.i.i, i64 1
+  %33 = getelementptr inbounds i8, ptr %.sroa.015.021.i.i.i, i64 1
+  %34 = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %33, %spec.select.i.i.i.i
   br i1 %.not.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.i.i.i, !llvm.loop !5
 
@@ -1616,10 +1616,10 @@ define linkonce_odr dso_local ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %28, %.lr.ph.preheader.i.i.i
-  %.sroa.011.021.i.i.i = phi ptr [ %30, %28 ], [ %8, %.lr.ph.preheader.i.i.i ]
-  %.sroa.015.020.i.i.i = phi ptr [ %29, %28 ], [ %6, %.lr.ph.preheader.i.i.i ]
-  %19 = load i8, ptr %.sroa.015.020.i.i.i, align 1
-  %20 = load i8, ptr %.sroa.011.021.i.i.i, align 1
+  %.sroa.015.021.i.i.i = phi ptr [ %29, %28 ], [ %6, %.lr.ph.preheader.i.i.i ]
+  %.sroa.011.020.i.i.i = phi ptr [ %30, %28 ], [ %8, %.lr.ph.preheader.i.i.i ]
+  %19 = load i8, ptr %.sroa.015.021.i.i.i, align 1
+  %20 = load i8, ptr %.sroa.011.020.i.i.i, align 1
   %21 = sext i8 %19 to i32
   %22 = tail call i32 @tolower(i32 noundef %21) #18
   %23 = sext i8 %20 to i32
@@ -1632,8 +1632,8 @@ define linkonce_odr dso_local ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   br i1 %27, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread11, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i, i64 1
-  %30 = getelementptr inbounds i8, ptr %.sroa.011.021.i.i.i, i64 1
+  %29 = getelementptr inbounds i8, ptr %.sroa.015.021.i.i.i, i64 1
+  %30 = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %29, %spec.select.i.i.i.i
   br i1 %.not.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.i.i.i, !llvm.loop !5
 
@@ -1749,10 +1749,10 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %28, %.lr.ph.preheader.i.i.i
-  %.sroa.011.021.i.i.i = phi ptr [ %30, %28 ], [ %8, %.lr.ph.preheader.i.i.i ]
-  %.sroa.015.020.i.i.i = phi ptr [ %29, %28 ], [ %6, %.lr.ph.preheader.i.i.i ]
-  %19 = load i8, ptr %.sroa.015.020.i.i.i, align 1
-  %20 = load i8, ptr %.sroa.011.021.i.i.i, align 1
+  %.sroa.015.021.i.i.i = phi ptr [ %29, %28 ], [ %6, %.lr.ph.preheader.i.i.i ]
+  %.sroa.011.020.i.i.i = phi ptr [ %30, %28 ], [ %8, %.lr.ph.preheader.i.i.i ]
+  %19 = load i8, ptr %.sroa.015.021.i.i.i, align 1
+  %20 = load i8, ptr %.sroa.011.020.i.i.i, align 1
   %21 = sext i8 %19 to i32
   %22 = tail call i32 @tolower(i32 noundef %21) #18
   %23 = sext i8 %20 to i32
@@ -1765,8 +1765,8 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
   br i1 %27, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread11, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i, i64 1
-  %30 = getelementptr inbounds i8, ptr %.sroa.011.021.i.i.i, i64 1
+  %29 = getelementptr inbounds i8, ptr %.sroa.015.021.i.i.i, i64 1
+  %30 = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %29, %spec.select.i.i.i.i
   br i1 %.not.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.i.i.i, !llvm.loop !5
 
@@ -1830,10 +1830,10 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_st
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %35, %.lr.ph.preheader.i.i.i
-  %.sroa.011.021.i.i.i = phi ptr [ %37, %35 ], [ %15, %.lr.ph.preheader.i.i.i ]
-  %.sroa.015.020.i.i.i = phi ptr [ %36, %35 ], [ %13, %.lr.ph.preheader.i.i.i ]
-  %26 = load i8, ptr %.sroa.015.020.i.i.i, align 1
-  %27 = load i8, ptr %.sroa.011.021.i.i.i, align 1
+  %.sroa.015.021.i.i.i = phi ptr [ %36, %35 ], [ %13, %.lr.ph.preheader.i.i.i ]
+  %.sroa.011.020.i.i.i = phi ptr [ %37, %35 ], [ %15, %.lr.ph.preheader.i.i.i ]
+  %26 = load i8, ptr %.sroa.015.021.i.i.i, align 1
+  %27 = load i8, ptr %.sroa.011.020.i.i.i, align 1
   %28 = sext i8 %26 to i32
   %29 = tail call i32 @tolower(i32 noundef %28) #18
   %30 = sext i8 %27 to i32
@@ -1846,8 +1846,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_st
   br i1 %34, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread84, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i, i64 1
-  %37 = getelementptr inbounds i8, ptr %.sroa.011.021.i.i.i, i64 1
+  %36 = getelementptr inbounds i8, ptr %.sroa.015.021.i.i.i, i64 1
+  %37 = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %36, %spec.select.i.i.i.i
   br i1 %.not.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.i.i.i, !llvm.loop !5
 
@@ -1891,10 +1891,10 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %.lr.ph.i.i.i15
 
 .lr.ph.i.i.i15:                                   ; preds = %66, %.lr.ph.preheader.i.i.i12
-  %.sroa.011.021.i.i.i16 = phi ptr [ %68, %66 ], [ %46, %.lr.ph.preheader.i.i.i12 ]
-  %.sroa.015.020.i.i.i17 = phi ptr [ %67, %66 ], [ %44, %.lr.ph.preheader.i.i.i12 ]
-  %57 = load i8, ptr %.sroa.015.020.i.i.i17, align 1
-  %58 = load i8, ptr %.sroa.011.021.i.i.i16, align 1
+  %.sroa.015.021.i.i.i16 = phi ptr [ %67, %66 ], [ %44, %.lr.ph.preheader.i.i.i12 ]
+  %.sroa.011.020.i.i.i17 = phi ptr [ %68, %66 ], [ %46, %.lr.ph.preheader.i.i.i12 ]
+  %57 = load i8, ptr %.sroa.015.021.i.i.i16, align 1
+  %58 = load i8, ptr %.sroa.011.020.i.i.i17, align 1
   %59 = sext i8 %57 to i32
   %60 = tail call i32 @tolower(i32 noundef %59) #18
   %61 = sext i8 %58 to i32
@@ -1907,8 +1907,8 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %65, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit22.thread87, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i17, i64 1
-  %68 = getelementptr inbounds i8, ptr %.sroa.011.021.i.i.i16, i64 1
+  %67 = getelementptr inbounds i8, ptr %.sroa.015.021.i.i.i16, i64 1
+  %68 = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i17, i64 1
   %.not.i.i.i18 = icmp eq ptr %67, %spec.select.i.i.i.i10
   br i1 %.not.i.i.i18, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit22, label %.lr.ph.i.i.i15, !llvm.loop !5
 
@@ -1949,10 +1949,10 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %.lr.ph.i.i.i28
 
 .lr.ph.i.i.i28:                                   ; preds = %97, %.lr.ph.preheader.i.i.i25
-  %.sroa.011.021.i.i.i29 = phi ptr [ %99, %97 ], [ %77, %.lr.ph.preheader.i.i.i25 ]
-  %.sroa.015.020.i.i.i30 = phi ptr [ %98, %97 ], [ %75, %.lr.ph.preheader.i.i.i25 ]
-  %88 = load i8, ptr %.sroa.015.020.i.i.i30, align 1
-  %89 = load i8, ptr %.sroa.011.021.i.i.i29, align 1
+  %.sroa.015.021.i.i.i29 = phi ptr [ %98, %97 ], [ %75, %.lr.ph.preheader.i.i.i25 ]
+  %.sroa.011.020.i.i.i30 = phi ptr [ %99, %97 ], [ %77, %.lr.ph.preheader.i.i.i25 ]
+  %88 = load i8, ptr %.sroa.015.021.i.i.i29, align 1
+  %89 = load i8, ptr %.sroa.011.020.i.i.i30, align 1
   %90 = sext i8 %88 to i32
   %91 = tail call i32 @tolower(i32 noundef %90) #18
   %92 = sext i8 %89 to i32
@@ -1965,8 +1965,8 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %96, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit35.thread90, label %97
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i30, i64 1
-  %99 = getelementptr inbounds i8, ptr %.sroa.011.021.i.i.i29, i64 1
+  %98 = getelementptr inbounds i8, ptr %.sroa.015.021.i.i.i29, i64 1
+  %99 = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i30, i64 1
   %.not.i.i.i31 = icmp eq ptr %98, %spec.select.i.i.i.i23
   br i1 %.not.i.i.i31, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit35, label %.lr.ph.i.i.i28, !llvm.loop !5
 
@@ -2013,10 +2013,10 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %.lr.ph.i.i.i41
 
 .lr.ph.i.i.i41:                                   ; preds = %128, %.lr.ph.preheader.i.i.i38
-  %.sroa.011.021.i.i.i42 = phi ptr [ %130, %128 ], [ %108, %.lr.ph.preheader.i.i.i38 ]
-  %.sroa.015.020.i.i.i43 = phi ptr [ %129, %128 ], [ %106, %.lr.ph.preheader.i.i.i38 ]
-  %119 = load i8, ptr %.sroa.015.020.i.i.i43, align 1
-  %120 = load i8, ptr %.sroa.011.021.i.i.i42, align 1
+  %.sroa.015.021.i.i.i42 = phi ptr [ %129, %128 ], [ %106, %.lr.ph.preheader.i.i.i38 ]
+  %.sroa.011.020.i.i.i43 = phi ptr [ %130, %128 ], [ %108, %.lr.ph.preheader.i.i.i38 ]
+  %119 = load i8, ptr %.sroa.015.021.i.i.i42, align 1
+  %120 = load i8, ptr %.sroa.011.020.i.i.i43, align 1
   %121 = sext i8 %119 to i32
   %122 = tail call i32 @tolower(i32 noundef %121) #18
   %123 = sext i8 %120 to i32
@@ -2029,8 +2029,8 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %127, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit48.thread93, label %128
 
 128:                                              ; preds = %126
-  %129 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i43, i64 1
-  %130 = getelementptr inbounds i8, ptr %.sroa.011.021.i.i.i42, i64 1
+  %129 = getelementptr inbounds i8, ptr %.sroa.015.021.i.i.i42, i64 1
+  %130 = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i43, i64 1
   %.not.i.i.i44 = icmp eq ptr %129, %spec.select.i.i.i.i36
   br i1 %.not.i.i.i44, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit48, label %.lr.ph.i.i.i41, !llvm.loop !5
 
@@ -2071,10 +2071,10 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %.lr.ph.i.i.i54
 
 .lr.ph.i.i.i54:                                   ; preds = %159, %.lr.ph.preheader.i.i.i51
-  %.sroa.011.021.i.i.i55 = phi ptr [ %161, %159 ], [ %139, %.lr.ph.preheader.i.i.i51 ]
-  %.sroa.015.020.i.i.i56 = phi ptr [ %160, %159 ], [ %137, %.lr.ph.preheader.i.i.i51 ]
-  %150 = load i8, ptr %.sroa.015.020.i.i.i56, align 1
-  %151 = load i8, ptr %.sroa.011.021.i.i.i55, align 1
+  %.sroa.015.021.i.i.i55 = phi ptr [ %160, %159 ], [ %137, %.lr.ph.preheader.i.i.i51 ]
+  %.sroa.011.020.i.i.i56 = phi ptr [ %161, %159 ], [ %139, %.lr.ph.preheader.i.i.i51 ]
+  %150 = load i8, ptr %.sroa.015.021.i.i.i55, align 1
+  %151 = load i8, ptr %.sroa.011.020.i.i.i56, align 1
   %152 = sext i8 %150 to i32
   %153 = tail call i32 @tolower(i32 noundef %152) #18
   %154 = sext i8 %151 to i32
@@ -2087,8 +2087,8 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %158, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit61.thread96, label %159
 
 159:                                              ; preds = %157
-  %160 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i56, i64 1
-  %161 = getelementptr inbounds i8, ptr %.sroa.011.021.i.i.i55, i64 1
+  %160 = getelementptr inbounds i8, ptr %.sroa.015.021.i.i.i55, i64 1
+  %161 = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i56, i64 1
   %.not.i.i.i57 = icmp eq ptr %160, %spec.select.i.i.i.i49
   br i1 %.not.i.i.i57, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit61, label %.lr.ph.i.i.i54, !llvm.loop !5
 
@@ -2156,10 +2156,10 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_st
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %28, %.lr.ph.preheader.i.i.i
-  %.sroa.011.021.i.i.i = phi ptr [ %30, %28 ], [ %8, %.lr.ph.preheader.i.i.i ]
-  %.sroa.015.020.i.i.i = phi ptr [ %29, %28 ], [ %6, %.lr.ph.preheader.i.i.i ]
-  %19 = load i8, ptr %.sroa.015.020.i.i.i, align 1
-  %20 = load i8, ptr %.sroa.011.021.i.i.i, align 1
+  %.sroa.015.021.i.i.i = phi ptr [ %29, %28 ], [ %6, %.lr.ph.preheader.i.i.i ]
+  %.sroa.011.020.i.i.i = phi ptr [ %30, %28 ], [ %8, %.lr.ph.preheader.i.i.i ]
+  %19 = load i8, ptr %.sroa.015.021.i.i.i, align 1
+  %20 = load i8, ptr %.sroa.011.020.i.i.i, align 1
   %21 = sext i8 %19 to i32
   %22 = tail call i32 @tolower(i32 noundef %21) #18
   %23 = sext i8 %20 to i32
@@ -2172,8 +2172,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_st
   br i1 %27, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread37, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i, i64 1
-  %30 = getelementptr inbounds i8, ptr %.sroa.011.021.i.i.i, i64 1
+  %29 = getelementptr inbounds i8, ptr %.sroa.015.021.i.i.i, i64 1
+  %30 = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %29, %spec.select.i.i.i.i
   br i1 %.not.i.i.i, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %.lr.ph.i.i.i, !llvm.loop !5
 
@@ -2234,10 +2234,10 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %.lr.ph.i.i.i10
 
 .lr.ph.i.i.i10:                                   ; preds = %61, %.lr.ph.preheader.i.i.i7
-  %.sroa.011.021.i.i.i11 = phi ptr [ %63, %61 ], [ %41, %.lr.ph.preheader.i.i.i7 ]
-  %.sroa.015.020.i.i.i12 = phi ptr [ %62, %61 ], [ %39, %.lr.ph.preheader.i.i.i7 ]
-  %52 = load i8, ptr %.sroa.015.020.i.i.i12, align 1
-  %53 = load i8, ptr %.sroa.011.021.i.i.i11, align 1
+  %.sroa.015.021.i.i.i11 = phi ptr [ %62, %61 ], [ %39, %.lr.ph.preheader.i.i.i7 ]
+  %.sroa.011.020.i.i.i12 = phi ptr [ %63, %61 ], [ %41, %.lr.ph.preheader.i.i.i7 ]
+  %52 = load i8, ptr %.sroa.015.021.i.i.i11, align 1
+  %53 = load i8, ptr %.sroa.011.020.i.i.i12, align 1
   %54 = sext i8 %52 to i32
   %55 = tail call i32 @tolower(i32 noundef %54) #18
   %56 = sext i8 %53 to i32
@@ -2250,8 +2250,8 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %60, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit17.thread41, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i12, i64 1
-  %63 = getelementptr inbounds i8, ptr %.sroa.011.021.i.i.i11, i64 1
+  %62 = getelementptr inbounds i8, ptr %.sroa.015.021.i.i.i11, i64 1
+  %63 = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i12, i64 1
   %.not.i.i.i13 = icmp eq ptr %62, %spec.select.i.i.i.i5
   br i1 %.not.i.i.i13, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit17, label %.lr.ph.i.i.i10, !llvm.loop !5
 
@@ -2311,10 +2311,10 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %29, %.lr.ph.preheader.i.i.i
-  %.sroa.011.021.i.i.i = phi ptr [ %31, %29 ], [ %12, %.lr.ph.preheader.i.i.i ]
-  %.sroa.015.020.i.i.i = phi ptr [ %30, %29 ], [ %10, %.lr.ph.preheader.i.i.i ]
-  %23 = load i8, ptr %.sroa.015.020.i.i.i, align 1
-  %24 = load i8, ptr %.sroa.011.021.i.i.i, align 1
+  %.sroa.015.021.i.i.i = phi ptr [ %30, %29 ], [ %10, %.lr.ph.preheader.i.i.i ]
+  %.sroa.011.020.i.i.i = phi ptr [ %31, %29 ], [ %12, %.lr.ph.preheader.i.i.i ]
+  %23 = load i8, ptr %.sroa.015.021.i.i.i, align 1
+  %24 = load i8, ptr %.sroa.011.020.i.i.i, align 1
   %25 = sext i8 %23 to i32
   %26 = tail call i32 @tolower(i32 noundef %25) #18
   %27 = sext i8 %24 to i32
@@ -2323,8 +2323,8 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
   br i1 %or.cond9.not, label %29, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.loopexit
 
 29:                                               ; preds = %.lr.ph.i.i.i
-  %30 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i, i64 1
-  %31 = getelementptr inbounds i8, ptr %.sroa.011.021.i.i.i, i64 1
+  %30 = getelementptr inbounds i8, ptr %.sroa.015.021.i.i.i, i64 1
+  %31 = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %30, %spec.select.i.i.i.i
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !5
 

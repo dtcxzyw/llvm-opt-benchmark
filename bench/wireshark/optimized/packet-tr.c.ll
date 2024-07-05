@@ -1135,8 +1135,8 @@ check_for_old_linux.exit:                         ; preds = %10, %.split.loop.ex
   br label %112
 
 56:                                               ; preds = %47, %37, %29, %54, %32
-  %.086.shrunk.ph = phi i8 [ 0, %47 ], [ 0, %37 ], [ %22, %29 ], [ 0, %32 ], [ 1, %54 ]
-  %.not117 = icmp eq i8 %.086.shrunk.ph, 0
+  %.083.shrunk.ph = phi i8 [ 0, %47 ], [ 0, %37 ], [ %22, %29 ], [ 0, %32 ], [ 1, %54 ]
+  %.not117 = icmp eq i8 %.083.shrunk.ph, 0
   %.105 = select i1 %.not117, i8 0, i8 %27
   %57 = icmp eq i8 %.105, 2
   %58 = icmp eq i8 %20, 1
@@ -1222,14 +1222,14 @@ check_for_old_linux.exit:                         ; preds = %10, %.split.loop.ex
   br label %.thread111
 
 112:                                              ; preds = %55, %56
-  %.184 = phi i8 [ %., %55 ], [ %.105, %56 ]
+  %.185 = phi i8 [ %., %55 ], [ %.105, %56 ]
   %cond = icmp eq i8 %20, 1
   br i1 %cond, label %.thread111, label %117
 
 .thread111:                                       ; preds = %100, %94, %88, %.thread109, %77, %71, %106, %112
   %.pre-phi = phi i32 [ %23, %100 ], [ %23, %94 ], [ %23, %88 ], [ %23, %.thread109 ], [ %23, %77 ], [ %23, %71 ], [ %.pre, %106 ], [ %23, %112 ]
-  %.184115 = phi i8 [ %.105, %100 ], [ %.105, %94 ], [ %.105, %88 ], [ %.105, %.thread109 ], [ 18, %77 ], [ 18, %71 ], [ %spec.select101, %106 ], [ %.184, %112 ]
-  %113 = zext nneg i8 %.184115 to i32
+  %.185115 = phi i8 [ %.105, %100 ], [ %.105, %94 ], [ %.105, %88 ], [ %.105, %.thread109 ], [ 18, %77 ], [ 18, %71 ], [ %spec.select101, %106 ], [ %.185, %112 ]
+  %113 = zext nneg i8 %.185115 to i32
   %114 = add i32 %.pre-phi, %113
   %115 = load ptr, ptr @llc_cap_handle, align 8
   %116 = tail call i32 @call_capture_dissector(ptr noundef %115, ptr noundef nonnull %0, i32 noundef %114, i32 noundef %2, ptr noundef %3, ptr noundef %4) #8

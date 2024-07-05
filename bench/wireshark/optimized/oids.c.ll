@@ -480,10 +480,10 @@ check_num_oid.exit:                               ; preds = %.preheader.split.us
   br label %47
 
 47:                                               ; preds = %67, %42
-  %.031 = phi ptr [ %1, %42 ], [ %69, %67 ]
-  %.029 = phi ptr [ %45, %42 ], [ %.130, %67 ]
+  %.031 = phi ptr [ %45, %42 ], [ %.132, %67 ]
+  %.030 = phi ptr [ %1, %42 ], [ %69, %67 ]
   %.0 = phi i64 [ 0, %42 ], [ %.1, %67 ]
-  %48 = load i8, ptr %.031, align 1
+  %48 = load i8, ptr %.030, align 1
   switch i8 %48, label %.thread.loopexit49 [
     i8 46, label %49
     i8 49, label %51
@@ -500,7 +500,7 @@ check_num_oid.exit:                               ; preds = %.preheader.split.us
   ]
 
 49:                                               ; preds = %47
-  %50 = getelementptr i8, ptr %.029, i64 4
+  %50 = getelementptr i8, ptr %.031, i64 4
   br label %67
 
 51:                                               ; preds = %47, %47, %47, %47, %47, %47, %47, %47, %47, %47
@@ -508,7 +508,7 @@ check_num_oid.exit:                               ; preds = %.preheader.split.us
   %53 = zext nneg i8 %48 to i64
   %54 = add i64 %52, -48
   %55 = add i64 %54, %53
-  %56 = icmp uge ptr %.029, %46
+  %56 = icmp uge ptr %.031, %46
   %57 = icmp ugt i64 %55, 4294967295
   %or.cond = select i1 %56, i1 true, i1 %57
   br i1 %or.cond, label %58, label %60
@@ -520,22 +520,22 @@ check_num_oid.exit:                               ; preds = %.preheader.split.us
   br label %.thread
 
 60:                                               ; preds = %51
-  %61 = load i32, ptr %.029, align 4
+  %61 = load i32, ptr %.031, align 4
   %62 = mul i32 %61, 10
-  store i32 %62, ptr %.029, align 4
-  %63 = load i8, ptr %.031, align 1
+  store i32 %62, ptr %.031, align 4
+  %63 = load i8, ptr %.030, align 1
   %64 = sext i8 %63 to i32
   %65 = add i32 %62, -48
   %66 = add i32 %65, %64
-  store i32 %66, ptr %.029, align 4
-  %.pr = load i8, ptr %.031, align 1
+  store i32 %66, ptr %.031, align 4
+  %.pr = load i8, ptr %.030, align 1
   br label %67
 
 67:                                               ; preds = %60, %49
   %68 = phi i8 [ %.pr, %60 ], [ 46, %49 ]
-  %.130 = phi ptr [ %.029, %60 ], [ %50, %49 ]
+  %.132 = phi ptr [ %.031, %60 ], [ %50, %49 ]
   %.1 = phi i64 [ %55, %60 ], [ 0, %49 ]
-  %69 = getelementptr i8, ptr %.031, i64 1
+  %69 = getelementptr i8, ptr %.030, i64 1
   %.not35 = icmp eq i8 %68, 0
   br i1 %.not35, label %.thread, label %47, !llvm.loop !10
 
@@ -543,8 +543,8 @@ check_num_oid.exit:                               ; preds = %.preheader.split.us
   br label %.thread
 
 .thread:                                          ; preds = %67, %47, %.thread.loopexit49, %58, %41
-  %.032 = phi i32 [ 0, %58 ], [ 0, %41 ], [ 0, %.thread.loopexit49 ], [ %.012.i, %47 ], [ %.012.i, %67 ]
-  ret i32 %.032
+  %.029 = phi i32 [ 0, %58 ], [ 0, %41 ], [ 0, %.thread.loopexit49 ], [ %.012.i, %47 ], [ %.012.i, %67 ]
+  ret i32 %.029
 }
 
 ; Function Attrs: nounwind uwtable
@@ -562,12 +562,12 @@ define void @oid_add_from_encoded(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.05773.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
+  %.06073.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %6 = getelementptr i8, ptr %1, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %.not6871.i = icmp sgt i8 %7, -1
   %8 = zext i1 %.not6871.i to i32
-  %spec.select.i = add i32 %.05773.i, %8
+  %spec.select.i = add i32 %.06073.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
@@ -588,8 +588,8 @@ define void @oid_add_from_encoded(ptr noundef %0, ptr noundef %1, i32 noundef %2
 .lr.ph78.i:                                       ; preds = %._crit_edge.i, %35
   %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %35 ], [ 0, %._crit_edge.i ]
   %.05277.i = phi i64 [ %.4.i, %35 ], [ 0, %._crit_edge.i ]
-  %.05476.i = phi ptr [ %.256.i, %35 ], [ %11, %._crit_edge.i ]
-  %.06174.i = phi i32 [ %.263.i, %35 ], [ 1, %._crit_edge.i ]
+  %.05476.i = phi i32 [ %.256.i, %35 ], [ 1, %._crit_edge.i ]
+  %.05775.i = phi ptr [ %.259.i, %35 ], [ %11, %._crit_edge.i ]
   %15 = getelementptr i8, ptr %1, i64 %indvars.iv80.i
   %16 = load i8, ptr %15, align 1
   %17 = shl i64 %.05277.i, 7
@@ -600,7 +600,7 @@ define void @oid_add_from_encoded(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not.i, label %21, label %35
 
 21:                                               ; preds = %.lr.ph78.i
-  %.not67.i = icmp eq i32 %.06174.i, 0
+  %.not67.i = icmp eq i32 %.05476.i, 0
   br i1 %.not67.i, label %29, label %22
 
 22:                                               ; preds = %21
@@ -613,14 +613,14 @@ define void @oid_add_from_encoded(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %27 = add i64 %spec.select69.i, -40
   %.2.i = select i1 %25, i64 %27, i64 %spec.select69.i
   %.1.i = select i1 %25, i32 %26, i32 %spec.select70.i
-  %28 = getelementptr i8, ptr %.05476.i, i64 4
-  store i32 %.1.i, ptr %.05476.i, align 4
+  %28 = getelementptr i8, ptr %.05775.i, i64 4
+  store i32 %.1.i, ptr %.05775.i, align 4
   br label %29
 
 29:                                               ; preds = %22, %21
-  %.155.i = phi ptr [ %28, %22 ], [ %.05476.i, %21 ]
+  %.158.i = phi ptr [ %28, %22 ], [ %.05775.i, %21 ]
   %.3.i = phi i64 [ %.2.i, %22 ], [ %20, %21 ]
-  %30 = icmp uge ptr %.155.i, %12
+  %30 = icmp uge ptr %.158.i, %12
   %31 = icmp ugt i64 %.3.i, 4294967295
   %or.cond5.i = select i1 %30, i1 true, i1 %31
   br i1 %or.cond5.i, label %oid_encoded2subid_sub.exit.thread, label %32
@@ -631,13 +631,13 @@ oid_encoded2subid_sub.exit.thread:                ; preds = %29
 
 32:                                               ; preds = %29
   %33 = trunc nuw i64 %.3.i to i32
-  %34 = getelementptr i8, ptr %.155.i, i64 4
-  store i32 %33, ptr %.155.i, align 4
+  %34 = getelementptr i8, ptr %.158.i, i64 4
+  store i32 %33, ptr %.158.i, align 4
   br label %35
 
 35:                                               ; preds = %32, %.lr.ph78.i
-  %.263.i = phi i32 [ %.06174.i, %.lr.ph78.i ], [ 0, %32 ]
-  %.256.i = phi ptr [ %.05476.i, %.lr.ph78.i ], [ %34, %32 ]
+  %.259.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %34, %32 ]
+  %.256.i = phi i32 [ %.05476.i, %.lr.ph78.i ], [ 0, %32 ]
   %.4.i = phi i64 [ %20, %.lr.ph78.i ], [ 0, %32 ]
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count.i
@@ -883,24 +883,24 @@ define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr nocapture noundef readonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.05773 = phi i32 [ %7, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
+  %.06073 = phi i32 [ %7, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %9 = getelementptr i8, ptr %1, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %.not6871 = icmp sgt i8 %10, -1
   %11 = zext i1 %.not6871 to i32
-  %spec.select = add i32 %.05773, %11
+  %spec.select = add i32 %.06073, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %.057.lcssa = phi i32 [ %7, %5 ], [ %spec.select, %.lr.ph ]
-  %12 = zext i32 %.057.lcssa to i64
+  %.060.lcssa = phi i32 [ %7, %5 ], [ %spec.select, %.lr.ph ]
+  %12 = zext i32 %.060.lcssa to i64
   %13 = shl nuw nsw i64 %12, 2
   %14 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %13) #8
   store ptr %14, ptr %3, align 8
   %15 = getelementptr i32, ptr %14, i64 %12
-  %16 = icmp eq i32 %.057.lcssa, 1
+  %16 = icmp eq i32 %.060.lcssa, 1
   %or.cond = and i1 %6, %16
   br i1 %or.cond, label %17, label %18
 
@@ -909,7 +909,7 @@ define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr nocapture noundef readonly
   br label %.loopexit
 
 18:                                               ; preds = %._crit_edge
-  %19 = or i32 %.057.lcssa, %4
+  %19 = or i32 %.060.lcssa, %4
   %or.cond3 = icmp eq i32 %19, 0
   %brmerge = or i1 %or.cond3, %8
   br i1 %brmerge, label %.loopexit, label %.lr.ph78.preheader
@@ -921,8 +921,8 @@ define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr nocapture noundef readonly
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %42
   %indvars.iv80 = phi i64 [ 0, %.lr.ph78.preheader ], [ %indvars.iv.next81, %42 ]
   %.05277 = phi i64 [ 0, %.lr.ph78.preheader ], [ %.4, %42 ]
-  %.05476 = phi ptr [ %14, %.lr.ph78.preheader ], [ %.256, %42 ]
-  %.06174 = phi i32 [ %4, %.lr.ph78.preheader ], [ %.263, %42 ]
+  %.05476 = phi i32 [ %4, %.lr.ph78.preheader ], [ %.256, %42 ]
+  %.05775 = phi ptr [ %14, %.lr.ph78.preheader ], [ %.259, %42 ]
   %20 = getelementptr i8, ptr %1, i64 %indvars.iv80
   %21 = load i8, ptr %20, align 1
   %22 = shl i64 %.05277, 7
@@ -933,7 +933,7 @@ define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not, label %26, label %42
 
 26:                                               ; preds = %.lr.ph78
-  %.not67 = icmp eq i32 %.06174, 0
+  %.not67 = icmp eq i32 %.05476, 0
   br i1 %.not67, label %34, label %27
 
 27:                                               ; preds = %26
@@ -946,14 +946,14 @@ define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr nocapture noundef readonly
   %32 = add i64 %spec.select69, -40
   %.2 = select i1 %30, i64 %32, i64 %spec.select69
   %.1 = select i1 %30, i32 %31, i32 %spec.select70
-  %33 = getelementptr i8, ptr %.05476, i64 4
-  store i32 %.1, ptr %.05476, align 4
+  %33 = getelementptr i8, ptr %.05775, i64 4
+  store i32 %.1, ptr %.05775, align 4
   br label %34
 
 34:                                               ; preds = %27, %26
-  %.155 = phi ptr [ %33, %27 ], [ %.05476, %26 ]
+  %.158 = phi ptr [ %33, %27 ], [ %.05775, %26 ]
   %.3 = phi i64 [ %.2, %27 ], [ %25, %26 ]
-  %35 = icmp uge ptr %.155, %15
+  %35 = icmp uge ptr %.158, %15
   %36 = icmp ugt i64 %.3, 4294967295
   %or.cond5 = select i1 %35, i1 true, i1 %36
   br i1 %or.cond5, label %37, label %39
@@ -966,20 +966,20 @@ define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr nocapture noundef readonly
 
 39:                                               ; preds = %34
   %40 = trunc nuw i64 %.3 to i32
-  %41 = getelementptr i8, ptr %.155, i64 4
-  store i32 %40, ptr %.155, align 4
+  %41 = getelementptr i8, ptr %.158, i64 4
+  store i32 %40, ptr %.158, align 4
   br label %42
 
 42:                                               ; preds = %.lr.ph78, %39
-  %.263 = phi i32 [ %.06174, %.lr.ph78 ], [ 0, %39 ]
-  %.256 = phi ptr [ %.05476, %.lr.ph78 ], [ %41, %39 ]
+  %.259 = phi ptr [ %.05775, %.lr.ph78 ], [ %41, %39 ]
+  %.256 = phi i32 [ %.05476, %.lr.ph78 ], [ 0, %39 ]
   %.4 = phi i64 [ %25, %.lr.ph78 ], [ 0, %39 ]
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
   br i1 %exitcond84.not, label %.loopexit, label %.lr.ph78, !llvm.loop !12
 
 .loopexit:                                        ; preds = %42, %18, %37, %17
-  %.051 = phi i32 [ 1, %17 ], [ 0, %37 ], [ %.057.lcssa, %18 ], [ %.057.lcssa, %42 ]
+  %.051 = phi i32 [ 1, %17 ], [ 0, %37 ], [ %.060.lcssa, %18 ], [ %.060.lcssa, %42 ]
   ret i32 %.051
 }
 
@@ -1009,8 +1009,8 @@ define ptr @oid_get(i32 noundef %0, ptr noundef readonly %1, ptr nocapture nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %.02025 = phi ptr [ @oid_root, %.lr.ph.preheader ], [ %13, %14 ]
-  %9 = getelementptr inbounds i8, ptr %.02025, i64 24
+  %.02125 = phi ptr [ @oid_root, %.lr.ph.preheader ], [ %13, %14 ]
+  %9 = getelementptr inbounds i8, ptr %.02125, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i32, ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
@@ -1028,17 +1028,17 @@ define ptr @oid_get(i32 noundef %0, ptr noundef readonly %1, ptr nocapture nound
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit.split.loop.exit33, %.preheader
-  %.020.lcssa = phi ptr [ @oid_root, %.preheader ], [ %.02025, %._crit_edge.loopexit.split.loop.exit33 ], [ %13, %14 ]
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %15, %._crit_edge.loopexit.split.loop.exit33 ], [ %0, %14 ]
-  store i32 %.0.lcssa, ptr %2, align 4
-  %16 = sub i32 %0, %.0.lcssa
+  %.021.lcssa = phi ptr [ @oid_root, %.preheader ], [ %.02125, %._crit_edge.loopexit.split.loop.exit33 ], [ %13, %14 ]
+  %.020.lcssa = phi i32 [ 0, %.preheader ], [ %15, %._crit_edge.loopexit.split.loop.exit33 ], [ %0, %14 ]
+  store i32 %.020.lcssa, ptr %2, align 4
+  %16 = sub i32 %0, %.020.lcssa
   br label %17
 
 17:                                               ; preds = %._crit_edge, %8
   %storemerge = phi i32 [ %0, %8 ], [ %16, %._crit_edge ]
-  %.021 = phi ptr [ @oid_root, %8 ], [ %.020.lcssa, %._crit_edge ]
+  %.0 = phi ptr [ @oid_root, %8 ], [ %.021.lcssa, %._crit_edge ]
   store i32 %storemerge, ptr %3, align 4
-  ret ptr %.021
+  ret ptr %.0
 }
 
 declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1069,8 +1069,8 @@ define ptr @oid_get_from_encoded(ptr noundef %0, ptr nocapture noundef readonly 
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %18 ]
-  %.02025.i = phi ptr [ @oid_root, %.lr.ph.preheader.i ], [ %17, %18 ]
-  %13 = getelementptr inbounds i8, ptr %.02025.i, i64 24
+  %.02125.i = phi ptr [ @oid_root, %.lr.ph.preheader.i ], [ %17, %18 ]
+  %13 = getelementptr inbounds i8, ptr %.02125.i, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i32, ptr %8, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
@@ -1088,17 +1088,17 @@ define ptr @oid_get_from_encoded(ptr noundef %0, ptr nocapture noundef readonly 
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %18, %._crit_edge.loopexit.split.loop.exit33.i, %.preheader.i
-  %.020.lcssa.i = phi ptr [ @oid_root, %.preheader.i ], [ %.02025.i, %._crit_edge.loopexit.split.loop.exit33.i ], [ %17, %18 ]
-  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %19, %._crit_edge.loopexit.split.loop.exit33.i ], [ %7, %18 ]
-  store i32 %.0.lcssa.i, ptr %4, align 4
-  %20 = sub i32 %7, %.0.lcssa.i
+  %.021.lcssa.i = phi ptr [ @oid_root, %.preheader.i ], [ %.02125.i, %._crit_edge.loopexit.split.loop.exit33.i ], [ %17, %18 ]
+  %.020.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %19, %._crit_edge.loopexit.split.loop.exit33.i ], [ %7, %18 ]
+  store i32 %.020.lcssa.i, ptr %4, align 4
+  %20 = sub i32 %7, %.020.lcssa.i
   br label %oid_get.exit
 
 oid_get.exit:                                     ; preds = %12, %._crit_edge.i
   %storemerge.i = phi i32 [ %7, %12 ], [ %20, %._crit_edge.i ]
-  %.021.i = phi ptr [ @oid_root, %12 ], [ %.020.lcssa.i, %._crit_edge.i ]
+  %.0.i = phi ptr [ @oid_root, %12 ], [ %.021.lcssa.i, %._crit_edge.i ]
   store i32 %storemerge.i, ptr %5, align 4
-  ret ptr %.021.i
+  ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1127,8 +1127,8 @@ define ptr @oid_get_from_string(ptr noundef %0, ptr noundef %1, ptr nocapture no
 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %17 ]
-  %.02025.i = phi ptr [ @oid_root, %.lr.ph.preheader.i ], [ %16, %17 ]
-  %12 = getelementptr inbounds i8, ptr %.02025.i, i64 24
+  %.02125.i = phi ptr [ @oid_root, %.lr.ph.preheader.i ], [ %16, %17 ]
+  %12 = getelementptr inbounds i8, ptr %.02125.i, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i32, ptr %7, i64 %indvars.iv.i
   %15 = load i32, ptr %14, align 4
@@ -1146,17 +1146,17 @@ define ptr @oid_get_from_string(ptr noundef %0, ptr noundef %1, ptr nocapture no
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %17, %._crit_edge.loopexit.split.loop.exit33.i, %.preheader.i
-  %.020.lcssa.i = phi ptr [ @oid_root, %.preheader.i ], [ %.02025.i, %._crit_edge.loopexit.split.loop.exit33.i ], [ %16, %17 ]
-  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %18, %._crit_edge.loopexit.split.loop.exit33.i ], [ %6, %17 ]
-  store i32 %.0.lcssa.i, ptr %3, align 4
-  %19 = sub i32 %6, %.0.lcssa.i
+  %.021.lcssa.i = phi ptr [ @oid_root, %.preheader.i ], [ %.02125.i, %._crit_edge.loopexit.split.loop.exit33.i ], [ %16, %17 ]
+  %.020.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %18, %._crit_edge.loopexit.split.loop.exit33.i ], [ %6, %17 ]
+  store i32 %.020.lcssa.i, ptr %3, align 4
+  %19 = sub i32 %6, %.020.lcssa.i
   br label %oid_get.exit
 
 oid_get.exit:                                     ; preds = %11, %._crit_edge.i
   %storemerge.i = phi i32 [ %6, %11 ], [ %19, %._crit_edge.i ]
-  %.021.i = phi ptr [ @oid_root, %11 ], [ %.020.lcssa.i, %._crit_edge.i ]
+  %.0.i = phi ptr [ @oid_root, %11 ], [ %.021.lcssa.i, %._crit_edge.i ]
   store i32 %storemerge.i, ptr %4, align 4
-  ret ptr %.021.i
+  ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1174,12 +1174,12 @@ define ptr @oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef read
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.05773.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
+  %.06073.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %6 = getelementptr i8, ptr %1, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %.not6871.i = icmp sgt i8 %7, -1
   %8 = zext i1 %.not6871.i to i32
-  %spec.select.i = add i32 %.05773.i, %8
+  %spec.select.i = add i32 %.06073.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
@@ -1200,8 +1200,8 @@ define ptr @oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef read
 .lr.ph78.i:                                       ; preds = %._crit_edge.i, %37
   %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %37 ], [ 0, %._crit_edge.i ]
   %.05277.i = phi i64 [ %.4.i, %37 ], [ 0, %._crit_edge.i ]
-  %.05476.i = phi ptr [ %.256.i, %37 ], [ %11, %._crit_edge.i ]
-  %.06174.i = phi i32 [ %.263.i, %37 ], [ 1, %._crit_edge.i ]
+  %.05476.i = phi i32 [ %.256.i, %37 ], [ 1, %._crit_edge.i ]
+  %.05775.i = phi ptr [ %.259.i, %37 ], [ %11, %._crit_edge.i ]
   %16 = getelementptr i8, ptr %1, i64 %indvars.iv80.i
   %17 = load i8, ptr %16, align 1
   %18 = shl i64 %.05277.i, 7
@@ -1212,7 +1212,7 @@ define ptr @oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not.i, label %22, label %37
 
 22:                                               ; preds = %.lr.ph78.i
-  %.not67.i = icmp eq i32 %.06174.i, 0
+  %.not67.i = icmp eq i32 %.05476.i, 0
   br i1 %.not67.i, label %30, label %23
 
 23:                                               ; preds = %22
@@ -1225,14 +1225,14 @@ define ptr @oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef read
   %28 = add i64 %spec.select69.i, -40
   %.2.i = select i1 %26, i64 %28, i64 %spec.select69.i
   %.1.i = select i1 %26, i32 %27, i32 %spec.select70.i
-  %29 = getelementptr i8, ptr %.05476.i, i64 4
-  store i32 %.1.i, ptr %.05476.i, align 4
+  %29 = getelementptr i8, ptr %.05775.i, i64 4
+  store i32 %.1.i, ptr %.05775.i, align 4
   br label %30
 
 30:                                               ; preds = %23, %22
-  %.155.i = phi ptr [ %29, %23 ], [ %.05476.i, %22 ]
+  %.158.i = phi ptr [ %29, %23 ], [ %.05775.i, %22 ]
   %.3.i = phi i64 [ %.2.i, %23 ], [ %21, %22 ]
-  %31 = icmp uge ptr %.155.i, %12
+  %31 = icmp uge ptr %.158.i, %12
   %32 = icmp ugt i64 %.3.i, 4294967295
   %or.cond5.i = select i1 %31, i1 true, i1 %32
   br i1 %or.cond5.i, label %33, label %34
@@ -1243,13 +1243,13 @@ define ptr @oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef read
 
 34:                                               ; preds = %30
   %35 = trunc nuw i64 %.3.i to i32
-  %36 = getelementptr i8, ptr %.155.i, i64 4
-  store i32 %35, ptr %.155.i, align 4
+  %36 = getelementptr i8, ptr %.158.i, i64 4
+  store i32 %35, ptr %.158.i, align 4
   br label %37
 
 37:                                               ; preds = %34, %.lr.ph78.i
-  %.263.i = phi i32 [ %.06174.i, %.lr.ph78.i ], [ 0, %34 ]
-  %.256.i = phi ptr [ %.05476.i, %.lr.ph78.i ], [ %36, %34 ]
+  %.259.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %36, %34 ]
+  %.256.i = phi i32 [ %.05476.i, %.lr.ph78.i ], [ 0, %34 ]
   %.4.i = phi i64 [ %21, %.lr.ph78.i ], [ 0, %34 ]
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count.i
@@ -1287,8 +1287,8 @@ define ptr @oid_resolved(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2
 
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %14 ]
-  %.02025.i = phi ptr [ @oid_root, %.lr.ph.preheader.i ], [ %13, %14 ]
-  %9 = getelementptr inbounds i8, ptr %.02025.i, i64 24
+  %.02125.i = phi ptr [ @oid_root, %.lr.ph.preheader.i ], [ %13, %14 ]
+  %9 = getelementptr inbounds i8, ptr %.02125.i, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i32, ptr %2, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4
@@ -1306,18 +1306,18 @@ define ptr @oid_resolved(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2
   br label %oid_get.exit
 
 oid_get.exit:                                     ; preds = %14, %.preheader.i, %._crit_edge.loopexit.split.loop.exit33.i
-  %.020.lcssa.i = phi ptr [ @oid_root, %.preheader.i ], [ %.02025.i, %._crit_edge.loopexit.split.loop.exit33.i ], [ %13, %14 ]
-  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %15, %._crit_edge.loopexit.split.loop.exit33.i ], [ %1, %14 ]
-  %16 = sub i32 %1, %.0.lcssa.i
-  %17 = getelementptr inbounds i8, ptr %.020.lcssa.i, i64 8
+  %.021.lcssa.i = phi ptr [ @oid_root, %.preheader.i ], [ %.02125.i, %._crit_edge.loopexit.split.loop.exit33.i ], [ %13, %14 ]
+  %.020.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %15, %._crit_edge.loopexit.split.loop.exit33.i ], [ %1, %14 ]
+  %16 = sub i32 %1, %.020.lcssa.i
+  %17 = getelementptr inbounds i8, ptr %.021.lcssa.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not3069 = icmp eq ptr %18, null
   br i1 %.not3069, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %oid_get.exit, %34
-  %.02572 = phi ptr [ %20, %34 ], [ %.020.lcssa.i, %oid_get.exit ]
+  %.02572 = phi ptr [ %20, %34 ], [ %.021.lcssa.i, %oid_get.exit ]
   %.05871 = phi i32 [ %35, %34 ], [ %16, %oid_get.exit ]
-  %.170 = phi i32 [ %36, %34 ], [ %.0.lcssa.i, %oid_get.exit ]
+  %.170 = phi i32 [ %36, %34 ], [ %.020.lcssa.i, %oid_get.exit ]
   %19 = getelementptr inbounds i8, ptr %.02572, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not33 = icmp eq ptr %20, null
@@ -1360,8 +1360,8 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
   br i1 %.not30, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %34, %oid_get.exit
-  %.025.lcssa = phi ptr [ %.020.lcssa.i, %oid_get.exit ], [ %20, %34 ]
-  %.1.lcssa = phi i32 [ %.0.lcssa.i, %oid_get.exit ], [ %36, %34 ]
+  %.025.lcssa = phi ptr [ %.021.lcssa.i, %oid_get.exit ], [ %20, %34 ]
+  %.1.lcssa = phi i32 [ %.020.lcssa.i, %oid_get.exit ], [ %36, %34 ]
   %.058.lcssa = phi i32 [ %16, %oid_get.exit ], [ %35, %34 ]
   %.lcssa = phi ptr [ %18, %oid_get.exit ], [ %38, %34 ]
   %39 = getelementptr inbounds i8, ptr %.025.lcssa, i64 8
@@ -1459,23 +1459,23 @@ define ptr @rel_oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.05773.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
+  %.06073.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %5 = getelementptr i8, ptr %1, i64 %indvars.iv.i
   %6 = load i8, ptr %5, align 1
   %.not6871.i = icmp sgt i8 %6, -1
   %7 = zext i1 %.not6871.i to i32
-  %spec.select.i = add i32 %.05773.i, %7
+  %spec.select.i = add i32 %.06073.i, %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %3
-  %.057.lcssa.i = phi i32 [ 0, %3 ], [ %spec.select.i, %.lr.ph.i ]
-  %8 = zext i32 %.057.lcssa.i to i64
+  %.060.lcssa.i = phi i32 [ 0, %3 ], [ %spec.select.i, %.lr.ph.i ]
+  %8 = zext i32 %.060.lcssa.i to i64
   %9 = shl nuw nsw i64 %8, 2
   %10 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %9) #8
   %11 = getelementptr i32, ptr %10, i64 %8
-  %or.cond3.i = icmp eq i32 %.057.lcssa.i, 0
+  %or.cond3.i = icmp eq i32 %.060.lcssa.i, 0
   %brmerge.i = or i1 %4, %or.cond3.i
   br i1 %brmerge.i, label %oid_encoded2subid_sub.exit, label %.lr.ph78.preheader.i
 
@@ -1486,7 +1486,7 @@ define ptr @rel_oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef 
 .lr.ph78.i:                                       ; preds = %25, %.lr.ph78.preheader.i
   %indvars.iv80.i = phi i64 [ 0, %.lr.ph78.preheader.i ], [ %indvars.iv.next81.i, %25 ]
   %.05277.i = phi i64 [ 0, %.lr.ph78.preheader.i ], [ %.4.i, %25 ]
-  %.05476.i = phi ptr [ %10, %.lr.ph78.preheader.i ], [ %.256.i, %25 ]
+  %.05775.i = phi ptr [ %10, %.lr.ph78.preheader.i ], [ %.259.i, %25 ]
   %12 = getelementptr i8, ptr %1, i64 %indvars.iv80.i
   %13 = load i8, ptr %12, align 1
   %14 = shl i64 %.05277.i, 7
@@ -1497,7 +1497,7 @@ define ptr @rel_oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef 
   br i1 %.not.i, label %18, label %25
 
 18:                                               ; preds = %.lr.ph78.i
-  %19 = icmp uge ptr %.05476.i, %11
+  %19 = icmp uge ptr %.05775.i, %11
   %20 = icmp ugt i64 %14, 4294967295
   %or.cond5.i = select i1 %19, i1 true, i1 %20
   br i1 %or.cond5.i, label %21, label %22
@@ -1508,12 +1508,12 @@ define ptr @rel_oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef 
 
 22:                                               ; preds = %18
   %23 = trunc nuw i64 %17 to i32
-  %24 = getelementptr i8, ptr %.05476.i, i64 4
-  store i32 %23, ptr %.05476.i, align 4
+  %24 = getelementptr i8, ptr %.05775.i, i64 4
+  store i32 %23, ptr %.05775.i, align 4
   br label %25
 
 25:                                               ; preds = %22, %.lr.ph78.i
-  %.256.i = phi ptr [ %.05476.i, %.lr.ph78.i ], [ %24, %22 ]
+  %.259.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %24, %22 ]
   %.4.i = phi i64 [ %17, %.lr.ph78.i ], [ 0, %22 ]
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count83.i
@@ -1521,7 +1521,7 @@ define ptr @rel_oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef 
 
 oid_encoded2subid_sub.exit:                       ; preds = %25, %._crit_edge.i, %21
   %.0 = phi ptr [ %10, %._crit_edge.i ], [ null, %21 ], [ %10, %25 ]
-  %.051.i = phi i32 [ %.057.lcssa.i, %._crit_edge.i ], [ 0, %21 ], [ %.057.lcssa.i, %25 ]
+  %.051.i = phi i32 [ %.060.lcssa.i, %._crit_edge.i ], [ 0, %21 ], [ %.060.lcssa.i, %25 ]
   %26 = tail call ptr @rel_oid_subid2string(ptr noundef %0, ptr noundef %.0, i32 noundef %.051.i, i32 noundef 0)
   tail call void @wmem_free(ptr noundef null, ptr noundef %.0) #8
   ret ptr %26
@@ -1673,12 +1673,12 @@ define ptr @oid_encoded2string(ptr noundef %0, ptr nocapture noundef readonly %1
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.05773.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
+  %.06073.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %6 = getelementptr i8, ptr %1, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %.not6871.i = icmp sgt i8 %7, -1
   %8 = zext i1 %.not6871.i to i32
-  %spec.select.i = add i32 %.05773.i, %8
+  %spec.select.i = add i32 %.06073.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
@@ -1699,8 +1699,8 @@ define ptr @oid_encoded2string(ptr noundef %0, ptr nocapture noundef readonly %1
 .lr.ph78.i:                                       ; preds = %._crit_edge.i, %35
   %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %35 ], [ 0, %._crit_edge.i ]
   %.05277.i = phi i64 [ %.4.i, %35 ], [ 0, %._crit_edge.i ]
-  %.05476.i = phi ptr [ %.256.i, %35 ], [ %11, %._crit_edge.i ]
-  %.06174.i = phi i32 [ %.263.i, %35 ], [ 1, %._crit_edge.i ]
+  %.05476.i = phi i32 [ %.256.i, %35 ], [ 1, %._crit_edge.i ]
+  %.05775.i = phi ptr [ %.259.i, %35 ], [ %11, %._crit_edge.i ]
   %15 = getelementptr i8, ptr %1, i64 %indvars.iv80.i
   %16 = load i8, ptr %15, align 1
   %17 = shl i64 %.05277.i, 7
@@ -1711,7 +1711,7 @@ define ptr @oid_encoded2string(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %.not.i, label %21, label %35
 
 21:                                               ; preds = %.lr.ph78.i
-  %.not67.i = icmp eq i32 %.06174.i, 0
+  %.not67.i = icmp eq i32 %.05476.i, 0
   br i1 %.not67.i, label %29, label %22
 
 22:                                               ; preds = %21
@@ -1724,14 +1724,14 @@ define ptr @oid_encoded2string(ptr noundef %0, ptr nocapture noundef readonly %1
   %27 = add i64 %spec.select69.i, -40
   %.2.i = select i1 %25, i64 %27, i64 %spec.select69.i
   %.1.i = select i1 %25, i32 %26, i32 %spec.select70.i
-  %28 = getelementptr i8, ptr %.05476.i, i64 4
-  store i32 %.1.i, ptr %.05476.i, align 4
+  %28 = getelementptr i8, ptr %.05775.i, i64 4
+  store i32 %.1.i, ptr %.05775.i, align 4
   br label %29
 
 29:                                               ; preds = %22, %21
-  %.155.i = phi ptr [ %28, %22 ], [ %.05476.i, %21 ]
+  %.158.i = phi ptr [ %28, %22 ], [ %.05775.i, %21 ]
   %.3.i = phi i64 [ %.2.i, %22 ], [ %20, %21 ]
-  %30 = icmp uge ptr %.155.i, %12
+  %30 = icmp uge ptr %.158.i, %12
   %31 = icmp ugt i64 %.3.i, 4294967295
   %or.cond5.i = select i1 %30, i1 true, i1 %31
   br i1 %or.cond5.i, label %oid_encoded2subid_sub.exit.thread, label %32
@@ -1742,13 +1742,13 @@ oid_encoded2subid_sub.exit.thread:                ; preds = %29
 
 32:                                               ; preds = %29
   %33 = trunc nuw i64 %.3.i to i32
-  %34 = getelementptr i8, ptr %.155.i, i64 4
-  store i32 %33, ptr %.155.i, align 4
+  %34 = getelementptr i8, ptr %.158.i, i64 4
+  store i32 %33, ptr %.158.i, align 4
   br label %35
 
 35:                                               ; preds = %32, %.lr.ph78.i
-  %.263.i = phi i32 [ %.06174.i, %.lr.ph78.i ], [ 0, %32 ]
-  %.256.i = phi ptr [ %.05476.i, %.lr.ph78.i ], [ %34, %32 ]
+  %.259.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %34, %32 ]
+  %.256.i = phi i32 [ %.05476.i, %.lr.ph78.i ], [ 0, %32 ]
   %.4.i = phi i64 [ %20, %.lr.ph78.i ], [ 0, %32 ]
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count.i
@@ -1812,23 +1812,23 @@ define ptr @rel_oid_encoded2string(ptr noundef %0, ptr nocapture noundef readonl
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.05773.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
+  %.06073.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %5 = getelementptr i8, ptr %1, i64 %indvars.iv.i
   %6 = load i8, ptr %5, align 1
   %.not6871.i = icmp sgt i8 %6, -1
   %7 = zext i1 %.not6871.i to i32
-  %spec.select.i = add i32 %.05773.i, %7
+  %spec.select.i = add i32 %.06073.i, %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %3
-  %.057.lcssa.i = phi i32 [ 0, %3 ], [ %spec.select.i, %.lr.ph.i ]
-  %8 = zext i32 %.057.lcssa.i to i64
+  %.060.lcssa.i = phi i32 [ 0, %3 ], [ %spec.select.i, %.lr.ph.i ]
+  %8 = zext i32 %.060.lcssa.i to i64
   %9 = shl nuw nsw i64 %8, 2
   %10 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %9) #8
   %11 = getelementptr i32, ptr %10, i64 %8
-  %or.cond3.i = icmp eq i32 %.057.lcssa.i, 0
+  %or.cond3.i = icmp eq i32 %.060.lcssa.i, 0
   %brmerge.i = or i1 %4, %or.cond3.i
   br i1 %brmerge.i, label %oid_encoded2subid_sub.exit, label %.lr.ph78.preheader.i
 
@@ -1839,7 +1839,7 @@ define ptr @rel_oid_encoded2string(ptr noundef %0, ptr nocapture noundef readonl
 .lr.ph78.i:                                       ; preds = %24, %.lr.ph78.preheader.i
   %indvars.iv80.i = phi i64 [ 0, %.lr.ph78.preheader.i ], [ %indvars.iv.next81.i, %24 ]
   %.05277.i = phi i64 [ 0, %.lr.ph78.preheader.i ], [ %.4.i, %24 ]
-  %.05476.i = phi ptr [ %10, %.lr.ph78.preheader.i ], [ %.256.i, %24 ]
+  %.05775.i = phi ptr [ %10, %.lr.ph78.preheader.i ], [ %.259.i, %24 ]
   %12 = getelementptr i8, ptr %1, i64 %indvars.iv80.i
   %13 = load i8, ptr %12, align 1
   %14 = shl i64 %.05277.i, 7
@@ -1850,7 +1850,7 @@ define ptr @rel_oid_encoded2string(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %.not.i, label %18, label %24
 
 18:                                               ; preds = %.lr.ph78.i
-  %19 = icmp uge ptr %.05476.i, %11
+  %19 = icmp uge ptr %.05775.i, %11
   %20 = icmp ugt i64 %14, 4294967295
   %or.cond5.i = select i1 %19, i1 true, i1 %20
   br i1 %or.cond5.i, label %oid_encoded2subid_sub.exit.thread, label %21
@@ -1861,12 +1861,12 @@ oid_encoded2subid_sub.exit.thread:                ; preds = %18
 
 21:                                               ; preds = %18
   %22 = trunc nuw i64 %17 to i32
-  %23 = getelementptr i8, ptr %.05476.i, i64 4
-  store i32 %22, ptr %.05476.i, align 4
+  %23 = getelementptr i8, ptr %.05775.i, i64 4
+  store i32 %22, ptr %.05775.i, align 4
   br label %24
 
 24:                                               ; preds = %21, %.lr.ph78.i
-  %.256.i = phi ptr [ %.05476.i, %.lr.ph78.i ], [ %23, %21 ]
+  %.259.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %23, %21 ]
   %.4.i = phi i64 [ %17, %.lr.ph78.i ], [ 0, %21 ]
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count83.i
@@ -1876,7 +1876,7 @@ oid_encoded2subid_sub.exit:                       ; preds = %24, %._crit_edge.i
   br i1 %or.cond3.i, label %27, label %25
 
 25:                                               ; preds = %oid_encoded2subid_sub.exit
-  %26 = tail call ptr @rel_oid_subid2string(ptr noundef %0, ptr noundef %10, i32 noundef %.057.lcssa.i, i32 noundef 0)
+  %26 = tail call ptr @rel_oid_subid2string(ptr noundef %0, ptr noundef %10, i32 noundef %.060.lcssa.i, i32 noundef 0)
   br label %29
 
 27:                                               ; preds = %oid_encoded2subid_sub.exit.thread, %oid_encoded2subid_sub.exit
@@ -1980,12 +1980,12 @@ define void @oid_both_from_encoded(ptr noundef %0, ptr nocapture noundef readonl
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.05773.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
+  %.06073.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %8 = getelementptr i8, ptr %1, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %.not6871.i = icmp sgt i8 %9, -1
   %10 = zext i1 %.not6871.i to i32
-  %spec.select.i = add i32 %.05773.i, %10
+  %spec.select.i = add i32 %.06073.i, %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
@@ -2006,8 +2006,8 @@ define void @oid_both_from_encoded(ptr noundef %0, ptr nocapture noundef readonl
 .lr.ph78.i:                                       ; preds = %._crit_edge.i, %39
   %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %39 ], [ 0, %._crit_edge.i ]
   %.05277.i = phi i64 [ %.4.i, %39 ], [ 0, %._crit_edge.i ]
-  %.05476.i = phi ptr [ %.256.i, %39 ], [ %13, %._crit_edge.i ]
-  %.06174.i = phi i32 [ %.263.i, %39 ], [ 1, %._crit_edge.i ]
+  %.05476.i = phi i32 [ %.256.i, %39 ], [ 1, %._crit_edge.i ]
+  %.05775.i = phi ptr [ %.259.i, %39 ], [ %13, %._crit_edge.i ]
   %18 = getelementptr i8, ptr %1, i64 %indvars.iv80.i
   %19 = load i8, ptr %18, align 1
   %20 = shl i64 %.05277.i, 7
@@ -2018,7 +2018,7 @@ define void @oid_both_from_encoded(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %.not.i, label %24, label %39
 
 24:                                               ; preds = %.lr.ph78.i
-  %.not67.i = icmp eq i32 %.06174.i, 0
+  %.not67.i = icmp eq i32 %.05476.i, 0
   br i1 %.not67.i, label %32, label %25
 
 25:                                               ; preds = %24
@@ -2031,14 +2031,14 @@ define void @oid_both_from_encoded(ptr noundef %0, ptr nocapture noundef readonl
   %30 = add i64 %spec.select69.i, -40
   %.2.i = select i1 %28, i64 %30, i64 %spec.select69.i
   %.1.i = select i1 %28, i32 %29, i32 %spec.select70.i
-  %31 = getelementptr i8, ptr %.05476.i, i64 4
-  store i32 %.1.i, ptr %.05476.i, align 4
+  %31 = getelementptr i8, ptr %.05775.i, i64 4
+  store i32 %.1.i, ptr %.05775.i, align 4
   br label %32
 
 32:                                               ; preds = %25, %24
-  %.155.i = phi ptr [ %31, %25 ], [ %.05476.i, %24 ]
+  %.158.i = phi ptr [ %31, %25 ], [ %.05775.i, %24 ]
   %.3.i = phi i64 [ %.2.i, %25 ], [ %23, %24 ]
-  %33 = icmp uge ptr %.155.i, %14
+  %33 = icmp uge ptr %.158.i, %14
   %34 = icmp ugt i64 %.3.i, 4294967295
   %or.cond5.i = select i1 %33, i1 true, i1 %34
   br i1 %or.cond5.i, label %35, label %36
@@ -2049,13 +2049,13 @@ define void @oid_both_from_encoded(ptr noundef %0, ptr nocapture noundef readonl
 
 36:                                               ; preds = %32
   %37 = trunc nuw i64 %.3.i to i32
-  %38 = getelementptr i8, ptr %.155.i, i64 4
-  store i32 %37, ptr %.155.i, align 4
+  %38 = getelementptr i8, ptr %.158.i, i64 4
+  store i32 %37, ptr %.158.i, align 4
   br label %39
 
 39:                                               ; preds = %36, %.lr.ph78.i
-  %.263.i = phi i32 [ %.06174.i, %.lr.ph78.i ], [ 0, %36 ]
-  %.256.i = phi ptr [ %.05476.i, %.lr.ph78.i ], [ %38, %36 ]
+  %.259.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %38, %36 ]
+  %.256.i = phi i32 [ %.05476.i, %.lr.ph78.i ], [ 0, %36 ]
   %.4.i = phi i64 [ %23, %.lr.ph78.i ], [ 0, %36 ]
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count.i

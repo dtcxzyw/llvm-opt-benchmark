@@ -20124,8 +20124,8 @@ define internal i32 @dissect_ngap_media_type(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not130, label %74, label %.thread
 
 .thread:                                          ; preds = %28, %30
-  %.0112160 = phi ptr [ %31, %30 ], [ %29, %28 ]
-  %32 = tail call ptr @json_get_string(ptr noundef %18, ptr noundef nonnull %.0112160, ptr noundef nonnull @.str.3947) #10
+  %.0111160 = phi ptr [ %31, %30 ], [ %29, %28 ]
+  %32 = tail call ptr @json_get_string(ptr noundef %18, ptr noundef nonnull %.0111160, ptr noundef nonnull @.str.3947) #10
   %.not131 = icmp eq ptr %32, null
   br i1 %.not131, label %74, label %sub_0
 
@@ -20156,7 +20156,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not132, label %44, label %49
 
 44:                                               ; preds = %.tail
-  %45 = tail call ptr @json_get_object(ptr noundef %18, ptr noundef nonnull %.0112160, ptr noundef nonnull @.str.3949) #10
+  %45 = tail call ptr @json_get_object(ptr noundef %18, ptr noundef nonnull %.0111160, ptr noundef nonnull @.str.3949) #10
   %.not133 = icmp eq ptr %45, null
   br i1 %.not133, label %49, label %46
 
@@ -20167,7 +20167,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not134, label %49, label %thread-pre-split
 
 49:                                               ; preds = %44, %46, %.tail
-  %.1 = phi ptr [ %.0112160, %.tail ], [ %45, %46 ], [ null, %44 ]
+  %.1 = phi ptr [ %.0111160, %.tail ], [ %45, %46 ], [ null, %44 ]
   %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(4) @.str.3951) #11
   %.not135 = icmp eq i32 %50, 0
   br i1 %.not135, label %51, label %56
@@ -20274,13 +20274,13 @@ sub_2:                                            ; preds = %sub_1
   br i1 %92, label %.lr.ph, label %.loopexit
 
 93:                                               ; preds = %.lr.ph
-  %94 = add nuw nsw i32 %.0111163, 1
+  %94 = add nuw nsw i32 %.0112163, 1
   %exitcond.not = icmp eq i32 %94, %91
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %90, %93
-  %.0111163 = phi i32 [ %94, %93 ], [ 0, %90 ]
-  %95 = tail call ptr @json_get_array_index(ptr noundef nonnull %89, i32 noundef %.0111163) #10
+  %.0112163 = phi i32 [ %94, %93 ], [ 0, %90 ]
+  %95 = tail call ptr @json_get_array_index(ptr noundef nonnull %89, i32 noundef %.0112163) #10
   %96 = load ptr, ptr %13, align 8
   %97 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %95, ptr noundef nonnull @.str.3950, ptr noundef %96, ptr noundef nonnull %5)
   %.not155 = icmp eq i32 %97, 0

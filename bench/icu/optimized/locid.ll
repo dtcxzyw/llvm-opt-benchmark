@@ -7500,16 +7500,16 @@ for.body.lr.ph:                                   ; preds = %cond.end.thread, %c
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %variant_index.0203 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %searchVariant.0202 = phi ptr [ null, %for.body.lr.ph ], [ %searchVariant.2, %for.inc ]
+  %searchVariant.0203 = phi ptr [ null, %for.body.lr.ph ], [ %searchVariant.2, %for.inc ]
+  %variant_index.0202 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   br i1 %checkVariants, label %if.then27, label %if.end30
 
 if.then27:                                        ; preds = %for.body
-  %call29 = call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %variants28, i32 noundef %variant_index.0203)
+  %call29 = call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %variants28, i32 noundef %variant_index.0202)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then27, %for.body
-  %searchVariant.1 = phi ptr [ %call29, %if.then27 ], [ %searchVariant.0202, %for.body ]
+  %searchVariant.1 = phi ptr [ %call29, %if.then27 ], [ %searchVariant.0203, %for.body ]
   %cmp31.not = icmp eq ptr %searchVariant.1, null
   br i1 %cmp31.not, label %if.end36, label %land.lhs.true32
 
@@ -7951,11 +7951,11 @@ _ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit: ; preds = %if.then89
   br i1 %cmp.i95.not, label %if.else, label %if.then91
 
 if.then91:                                        ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit
-  invoke void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %variants28, ptr noundef nonnull %47, i32 noundef %variant_index.0203)
+  invoke void @_ZN6icu_757UVector12setElementAtEPvi(ptr noundef nonnull align 8 dereferenceable(40) %variants28, ptr noundef nonnull %47, i32 noundef %variant_index.0202)
           to label %cleanup.thread unwind label %lpad.loopexit.split-lp
 
 if.else:                                          ; preds = %if.then89, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit
-  invoke void @_ZN6icu_757UVector15removeElementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %variants28, i32 noundef %variant_index.0203)
+  invoke void @_ZN6icu_757UVector15removeElementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %variants28, i32 noundef %variant_index.0202)
           to label %cleanup.thread unwind label %lpad.loopexit.split-lp
 
 cleanup.thread:                                   ; preds = %invoke.cont, %if.then91, %if.else, %if.end84
@@ -7964,7 +7964,7 @@ cleanup.thread:                                   ; preds = %invoke.cont, %if.th
 
 for.inc:                                          ; preds = %invoke.cont45, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer4sameEPKcS3_.exit94
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %typeKey) #20
-  %inc = add nuw nsw i32 %variant_index.0203, 1
+  %inc = add nuw nsw i32 %variant_index.0202, 1
   %exitcond.not = icmp eq i32 %inc, %cond226
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !23
 

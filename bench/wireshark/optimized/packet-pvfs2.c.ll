@@ -933,13 +933,13 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i.i.i, label %dissect_pvfs2_request.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %111, %.preheader.i.i.i
-  %.02.i.i.i = phi i32 [ %124, %.preheader.i.i.i ], [ 0, %111 ]
-  %.0161.i.i.i = phi i32 [ %123, %.preheader.i.i.i ], [ 64, %111 ]
+  %.02.i.i.i = phi i32 [ %123, %.preheader.i.i.i ], [ 64, %111 ]
+  %.0161.i.i.i = phi i32 [ %124, %.preheader.i.i.i ], [ 0, %111 ]
   %120 = load i32, ptr @ett_pvfs_extent_item, align 4
-  %121 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %119, ptr noundef %0, i32 noundef %.0161.i.i.i, i32 noundef 8, i32 noundef %120, ptr noundef null, ptr noundef nonnull @.str.399, i32 noundef %.02.i.i.i) #9
-  %122 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.0161.i.i.i, ptr noundef %121, ptr noundef nonnull @.str.400)
+  %121 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %119, ptr noundef %0, i32 noundef %.02.i.i.i, i32 noundef 8, i32 noundef %120, ptr noundef null, ptr noundef nonnull @.str.399, i32 noundef %.0161.i.i.i) #9
+  %122 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.02.i.i.i, ptr noundef %121, ptr noundef nonnull @.str.400)
   %123 = call fastcc noundef i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %122, ptr noundef %121, ptr noundef nonnull @.str.401)
-  %124 = add nuw i32 %.02.i.i.i, 1
+  %124 = add nuw i32 %.0161.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %124, %117
   br i1 %exitcond.not.i.i.i, label %dissect_pvfs2_request.exit, label %.preheader.i.i.i, !llvm.loop !4
 
@@ -1535,16 +1535,16 @@ dissect_pvfs2_error.exit.i:                       ; preds = %513, %508
   br i1 %.not.i75.i, label %._crit_edge.i.i, label %.lr.ph.i.i73
 
 .lr.ph.i.i73:                                     ; preds = %524, %.lr.ph.i.i73
-  %.032.i.i = phi i32 [ %529, %.lr.ph.i.i73 ], [ 0, %524 ]
-  %.02931.i.i = phi i32 [ %528, %.lr.ph.i.i73 ], [ 48, %524 ]
-  %528 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.02931.i.i, ptr noundef %21, ptr noundef nonnull @.str.402)
-  %529 = add nuw i32 %.032.i.i, 1
+  %.032.i.i = phi i32 [ %528, %.lr.ph.i.i73 ], [ 48, %524 ]
+  %.02931.i.i = phi i32 [ %529, %.lr.ph.i.i73 ], [ 0, %524 ]
+  %528 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.032.i.i, ptr noundef %21, ptr noundef nonnull @.str.402)
+  %529 = add nuw i32 %.02931.i.i, 1
   %exitcond.not.i.i74 = icmp eq i32 %529, %525
   br i1 %exitcond.not.i.i74, label %._crit_edge.i.i, label %.lr.ph.i.i73, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i73, %524
-  %.029.lcssa.i.i = phi i32 [ 48, %524 ], [ %528, %.lr.ph.i.i73 ]
-  %530 = add i32 %.029.lcssa.i.i, 4
+  %.0.lcssa.i.i = phi i32 [ 48, %524 ], [ %528, %.lr.ph.i.i73 ]
+  %530 = add i32 %.0.lcssa.i.i, 4
   %531 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %530) #9
   %532 = load i32, ptr @ett_pvfs_attr, align 4
   %533 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %0, i32 noundef %530, i32 noundef 4, i32 noundef %532, ptr noundef null, ptr noundef nonnull @.str.418, i32 noundef %531) #9
@@ -1552,14 +1552,14 @@ dissect_pvfs2_error.exit.i:                       ; preds = %513, %508
   br i1 %.not39.i.i, label %dissect_pvfs2_request.exit, label %.lr.ph36.i.i.preheader
 
 .lr.ph36.i.i.preheader:                           ; preds = %._crit_edge.i.i
-  %534 = add i32 %.029.lcssa.i.i, 8
+  %534 = add i32 %.0.lcssa.i.i, 8
   br label %.lr.ph36.i.i
 
 .lr.ph36.i.i:                                     ; preds = %.lr.ph36.i.i.preheader, %.lr.ph36.i.i
-  %.134.i.i = phi i32 [ %536, %.lr.ph36.i.i ], [ 0, %.lr.ph36.i.i.preheader ]
-  %.13033.i.i = phi i32 [ %535, %.lr.ph36.i.i ], [ %534, %.lr.ph36.i.i.preheader ]
-  %535 = call fastcc i32 @dissect_pvfs_object_attr(ptr noundef %0, ptr noundef %533, i32 noundef %.13033.i.i, ptr noundef readonly %1)
-  %536 = add nuw i32 %.134.i.i, 1
+  %.134.i.i = phi i32 [ %535, %.lr.ph36.i.i ], [ %534, %.lr.ph36.i.i.preheader ]
+  %.13033.i.i = phi i32 [ %536, %.lr.ph36.i.i ], [ 0, %.lr.ph36.i.i.preheader ]
+  %535 = call fastcc i32 @dissect_pvfs_object_attr(ptr noundef %0, ptr noundef %533, i32 noundef %.134.i.i, ptr noundef readonly %1)
+  %536 = add nuw i32 %.13033.i.i, 1
   %exitcond41.not.i.i = icmp eq i32 %536, %531
   br i1 %exitcond41.not.i.i, label %dissect_pvfs2_request.exit, label %.lr.ph36.i.i, !llvm.loop !11
 
@@ -1631,29 +1631,29 @@ dissect_pvfs2_error.exit.i:                       ; preds = %513, %508
 
 .preheader.i.i:                                   ; preds = %623, %.preheader.lr.ph.i.i
   %.096152.i.i = phi ptr [ null, %.preheader.lr.ph.i.i ], [ %.2.i.i, %623 ]
-  %.097151.i.i = phi ptr [ %569, %.preheader.lr.ph.i.i ], [ %626, %623 ]
-  %.099150.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %627, %623 ]
-  %.0103149.i.i = phi i32 [ 52, %.preheader.lr.ph.i.i ], [ %625, %623 ]
+  %.097151.i.i = phi i32 [ 52, %.preheader.lr.ph.i.i ], [ %625, %623 ]
+  %.098150.i.i = phi ptr [ %569, %.preheader.lr.ph.i.i ], [ %626, %623 ]
+  %.0100149.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %627, %623 ]
   %.0104148.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %628, %623 ]
-  %575 = icmp ult i32 %.099150.i.i, %spec.select.i.i
+  %575 = icmp ult i32 %.0100149.i.i, %spec.select.i.i
   br i1 %575, label %.lr.ph.i83.i, label %.critedge.thread.i.i
 
 .lr.ph.i83.i:                                     ; preds = %.preheader.i.i, %577
   %.093138.i.i = phi i32 [ %581, %577 ], [ 0, %.preheader.i.i ]
   %.095137.i.i = phi ptr [ %579, %577 ], [ %4, %.preheader.i.i ]
-  %.198136.i.i = phi ptr [ %578, %577 ], [ %.097151.i.i, %.preheader.i.i ]
-  %.1100135.i.i = phi i32 [ %580, %577 ], [ %.099150.i.i, %.preheader.i.i ]
-  %576 = load i8, ptr %.198136.i.i, align 1
+  %.199136.i.i = phi ptr [ %578, %577 ], [ %.098150.i.i, %.preheader.i.i ]
+  %.1101135.i.i = phi i32 [ %580, %577 ], [ %.0100149.i.i, %.preheader.i.i ]
+  %576 = load i8, ptr %.199136.i.i, align 1
   switch i8 %576, label %577 [
     i8 10, label %.critedge.thread.i.i
     i8 0, label %.critedge.thread.i.i
   ]
 
 577:                                              ; preds = %.lr.ph.i83.i
-  %578 = getelementptr i8, ptr %.198136.i.i, i64 1
+  %578 = getelementptr i8, ptr %.199136.i.i, i64 1
   %579 = getelementptr i8, ptr %.095137.i.i, i64 1
   store i8 %576, ptr %.095137.i.i, align 1
-  %580 = add nuw i32 %.1100135.i.i, 1
+  %580 = add nuw i32 %.1101135.i.i, 1
   %581 = add nuw nsw i32 %.093138.i.i, 1
   %582 = icmp ult i32 %580, %spec.select.i.i
   %583 = icmp ult i32 %.093138.i.i, 255
@@ -1672,11 +1672,11 @@ dissect_pvfs2_error.exit.i:                       ; preds = %513, %508
   ]
 
 .critedge.thread.i.i:                             ; preds = %.lr.ph.i83.i, %.lr.ph.i83.i, %585, %585, %.critedge.i.i, %.preheader.i.i
-  %.1100130.i.i = phi i32 [ %580, %585 ], [ %580, %585 ], [ %580, %.critedge.i.i ], [ %.099150.i.i, %.preheader.i.i ], [ %.1100135.i.i, %.lr.ph.i83.i ], [ %.1100135.i.i, %.lr.ph.i83.i ]
-  %.198127.i.i = phi ptr [ %578, %585 ], [ %578, %585 ], [ %578, %.critedge.i.i ], [ %.097151.i.i, %.preheader.i.i ], [ %.198136.i.i, %.lr.ph.i83.i ], [ %.198136.i.i, %.lr.ph.i83.i ]
+  %.1101130.i.i = phi i32 [ %580, %585 ], [ %580, %585 ], [ %580, %.critedge.i.i ], [ %.0100149.i.i, %.preheader.i.i ], [ %.1101135.i.i, %.lr.ph.i83.i ], [ %.1101135.i.i, %.lr.ph.i83.i ]
+  %.199127.i.i = phi ptr [ %578, %585 ], [ %578, %585 ], [ %578, %.critedge.i.i ], [ %.098150.i.i, %.preheader.i.i ], [ %.199136.i.i, %.lr.ph.i83.i ], [ %.199136.i.i, %.lr.ph.i83.i ]
   %.095125.i.i = phi ptr [ %579, %585 ], [ %579, %585 ], [ %579, %.critedge.i.i ], [ %4, %.preheader.i.i ], [ %.095137.i.i, %.lr.ph.i83.i ], [ %.095137.i.i, %.lr.ph.i83.i ]
   %.093123.i.i = phi i32 [ 256, %585 ], [ 256, %585 ], [ %581, %.critedge.i.i ], [ 0, %.preheader.i.i ], [ %.093138.i.i, %.lr.ph.i83.i ], [ %.093138.i.i, %.lr.ph.i83.i ]
-  %587 = icmp eq i32 %.1100130.i.i, %spec.select.i.i
+  %587 = icmp eq i32 %.1101130.i.i, %spec.select.i.i
   br i1 %587, label %dissect_pvfs2_getconfig_response.exit.i, label %588
 
 588:                                              ; preds = %.critedge.thread.i.i
@@ -1741,7 +1741,7 @@ dissect_pvfs2_error.exit.i:                       ; preds = %513, %508
 
 614:                                              ; preds = %611
   %615 = load i32, ptr @ett_pvfs_server_config_branch, align 4
-  %616 = call ptr @proto_tree_add_subtree(ptr noundef %557, ptr noundef %0, i32 noundef %.0103149.i.i, i32 noundef %.092132.i.i, i32 noundef %615, ptr noundef null, ptr noundef nonnull %.094134.i.i) #9
+  %616 = call ptr @proto_tree_add_subtree(ptr noundef %557, ptr noundef %0, i32 noundef %.097151.i.i, i32 noundef %.092132.i.i, i32 noundef %615, ptr noundef null, ptr noundef nonnull %.094134.i.i) #9
   br label %623
 
 617:                                              ; preds = %.critedge2.i.i
@@ -1753,28 +1753,28 @@ dissect_pvfs2_error.exit.i:                       ; preds = %513, %508
   %620 = icmp eq ptr %.096152.i.i, null
   %spec.select119120.i.i = select i1 %620, ptr %557, ptr %.096152.i.i
   %621 = load i32, ptr @hf_pvfs_getconfig_response_entry, align 4
-  %622 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %spec.select119120.i.i, i32 noundef %621, ptr noundef %0, i32 noundef %.0103149.i.i, i32 noundef %.092144.i.i, ptr noundef nonnull %.094143.i.i, ptr noundef nonnull @.str.420, ptr noundef nonnull %.094143.i.i) #9
+  %622 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %spec.select119120.i.i, i32 noundef %621, ptr noundef %0, i32 noundef %.097151.i.i, i32 noundef %.092144.i.i, ptr noundef nonnull %.094143.i.i, ptr noundef nonnull @.str.420, ptr noundef nonnull %.094143.i.i) #9
   br label %623
 
 623:                                              ; preds = %619, %617, %614, %611
   %.2.i.i = phi ptr [ %616, %614 ], [ %spec.select119120.i.i, %619 ], [ %spec.select119.i.i, %617 ], [ null, %611 ]
-  %624 = add i32 %.0103149.i.i, 1
+  %624 = add i32 %.097151.i.i, 1
   %625 = add i32 %624, %.093123.i.i
-  %626 = getelementptr i8, ptr %.198127.i.i, i64 1
-  %627 = add i32 %.1100130.i.i, 1
+  %626 = getelementptr i8, ptr %.199127.i.i, i64 1
+  %627 = add i32 %.1101130.i.i, 1
   %628 = add nuw i32 %.0104148.i.i, 1
   %exitcond.not.i81.i = icmp eq i32 %628, %563
   br i1 %exitcond.not.i81.i, label %._crit_edge.i82.i, label %.preheader.i.i, !llvm.loop !15
 
 ._crit_edge.i82.i:                                ; preds = %623, %605, %585, %570
-  %.0103.lcssa.i.i = phi i32 [ 52, %570 ], [ %.0103149.i.i, %585 ], [ %.0103149.i.i, %605 ], [ %625, %623 ]
+  %.097.lcssa.i.i = phi i32 [ 52, %570 ], [ %.097151.i.i, %585 ], [ %.097151.i.i, %605 ], [ %625, %623 ]
   %.096.lcssa.i.i = phi ptr [ null, %570 ], [ %.096152.i.i, %585 ], [ %.096152.i.i, %605 ], [ %.2.i.i, %623 ]
-  %.2101.i.i = phi i32 [ 0, %570 ], [ %580, %585 ], [ %.1100130.i.i, %605 ], [ %627, %623 ]
-  %629 = icmp ult i32 %.2101.i.i, %spec.select.i.i
+  %.2102.i.i = phi i32 [ 0, %570 ], [ %580, %585 ], [ %.1101130.i.i, %605 ], [ %627, %623 ]
+  %629 = icmp ult i32 %.2102.i.i, %spec.select.i.i
   br i1 %629, label %630, label %dissect_pvfs2_getconfig_response.exit.i
 
 630:                                              ; preds = %._crit_edge.i82.i
-  %631 = call ptr @proto_tree_add_expert(ptr noundef %.096.lcssa.i.i, ptr noundef %1, ptr noundef nonnull @ei_pvfs_malformed, ptr noundef %0, i32 noundef %.0103.lcssa.i.i, i32 noundef -1) #9
+  %631 = call ptr @proto_tree_add_expert(ptr noundef %.096.lcssa.i.i, ptr noundef %1, ptr noundef nonnull @ei_pvfs_malformed, ptr noundef %0, i32 noundef %.097.lcssa.i.i, i32 noundef -1) #9
   br label %dissect_pvfs2_getconfig_response.exit.i
 
 dissect_pvfs2_getconfig_response.exit.i:          ; preds = %.critedge.thread.i.i, %630, %._crit_edge.i82.i, %562, %555
@@ -2160,9 +2160,9 @@ define internal fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %1, 
   %32 = phi ptr [ %13, %.thread.i ], [ %27, %16 ]
   %.012316.i = phi i64 [ %..i, %.thread.i ], [ %.0123.i, %16 ]
   %.012414.i = phi i32 [ 0, %.thread.i ], [ %.0124.i, %16 ]
-  %.112612.i = phi i1 [ true, %.thread.i ], [ %25, %16 ]
+  %.112712.i = phi i1 [ true, %.thread.i ], [ %25, %16 ]
   %.not1439.i = phi i1 [ false, %.thread.i ], [ %24, %16 ]
-  %.01287.i = phi i32 [ %9, %.thread.i ], [ %8, %16 ]
+  %.01297.i = phi i32 [ %9, %.thread.i ], [ %8, %16 ]
   %33 = zext i32 %8 to i64
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #10
   %.not139.i = icmp eq i64 %34, %33
@@ -2189,18 +2189,18 @@ define internal fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %1, 
   %48 = phi ptr [ %31, %36 ], [ %31, %44 ], [ %29, %16 ]
   %.012317.i = phi i64 [ %.012316.i, %36 ], [ %.012316.i, %44 ], [ %.0123.i, %16 ]
   %.012415.i = phi i32 [ %.012414.i, %36 ], [ %.012414.i, %44 ], [ %.0124.i, %16 ]
-  %.112613.i = phi i1 [ %.112612.i, %36 ], [ %.112612.i, %44 ], [ %25, %16 ]
+  %.112713.i = phi i1 [ %.112712.i, %36 ], [ %.112712.i, %44 ], [ %25, %16 ]
   %.not14310.i = phi i1 [ %.not1439.i, %36 ], [ %.not1439.i, %44 ], [ %24, %16 ]
-  %.01288.i = phi i32 [ %.01287.i, %36 ], [ %.01287.i, %44 ], [ 0, %16 ]
+  %.01298.i = phi i32 [ %.01297.i, %36 ], [ %.01297.i, %44 ], [ 0, %16 ]
   %.0121.i = phi ptr [ %42, %36 ], [ %46, %44 ], [ @.str.407, %16 ]
   %49 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, ptr noundef %.0121.i) #9
   %50 = load i32, ptr @ett_pvfs_string, align 4
   %51 = tail call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50) #9
   %52 = load i32, ptr @hf_pvfs_opaque_length, align 4
   %53 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef %6, ptr noundef nonnull @.str.408, i32 noundef %6) #9
-  %54 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %51, i32 noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef %.01288.i, ptr noundef %48, ptr noundef nonnull @.str.409, ptr noundef %.0121.i) #9
-  %55 = add i32 %.01288.i, %7
-  br i1 %.112613.i, label %61, label %56
+  %54 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %51, i32 noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef %.01298.i, ptr noundef %48, ptr noundef nonnull @.str.409, ptr noundef %.0121.i) #9
+  %55 = add i32 %.01298.i, %7
+  br i1 %.112713.i, label %61, label %56
 
 56:                                               ; preds = %47
   %.not142.i = icmp eq ptr %51, null

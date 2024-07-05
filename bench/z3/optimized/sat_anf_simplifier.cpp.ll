@@ -3357,9 +3357,9 @@ _ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE3endEv.exit131: ; preds = %for.end81
 
 for.body91:                                       ; preds = %_ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE3endEv.exit131, %for.inc105
   %j.4269 = phi i32 [ %j.5, %for.inc105 ], [ 0, %_ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE3endEv.exit131 ]
-  %__begin283.0268 = phi ptr [ %incdec.ptr106, %for.inc105 ], [ %58, %_ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE3endEv.exit131 ]
-  %added.1267 = phi i1 [ %added.2, %for.inc105 ], [ false, %_ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE3endEv.exit131 ]
-  %agg.tmp.sroa.0.0.copyload.i132 = load i32, ptr %__begin283.0268, align 4
+  %added.1268 = phi i1 [ %added.2, %for.inc105 ], [ false, %_ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE3endEv.exit131 ]
+  %__begin283.0267 = phi ptr [ %incdec.ptr106, %for.inc105 ], [ %58, %_ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE3endEv.exit131 ]
+  %agg.tmp.sroa.0.0.copyload.i132 = load i32, ptr %__begin283.0267, align 4
   %shr.i.i.i133 = lshr i32 %agg.tmp.sroa.0.0.copyload.i132, 1
   %61 = load ptr, ptr %m_relevant.i.i.i, align 8
   %idxprom.i.i.i.i135 = zext nneg i32 %shr.i.i.i133 to i64
@@ -3369,7 +3369,7 @@ for.body91:                                       ; preds = %_ZN6vectorISt4pairI
   br i1 %tobool.i.i.i, label %if.then95, label %invoke.cont93
 
 invoke.cont93:                                    ; preds = %for.body91
-  %second.i138 = getelementptr inbounds i8, ptr %__begin283.0268, i64 4
+  %second.i138 = getelementptr inbounds i8, ptr %__begin283.0267, i64 4
   %agg.tmp2.sroa.0.0.copyload.i139 = load i32, ptr %second.i138, align 4
   %shr.i.i2.i140 = lshr i32 %agg.tmp2.sroa.0.0.copyload.i139, 1
   %idxprom.i.i.i4.i141 = zext nneg i32 %shr.i.i2.i140 to i64
@@ -3406,7 +3406,7 @@ _ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE9push_backERKS3_.exit158: ; preds = %
   %68 = phi ptr [ %.pre.i154, %.noexc157 ], [ %64, %lor.lhs.false.i144 ]
   %idx.ext.i149 = zext i32 %67 to i64
   %add.ptr.i150 = getelementptr inbounds %"struct.std::pair", ptr %68, i64 %idx.ext.i149
-  %69 = load i64, ptr %__begin283.0268, align 4
+  %69 = load i64, ptr %__begin283.0267, align 4
   store i64 %69, ptr %add.ptr.i150, align 4
   %70 = load ptr, ptr %bins, align 8
   %arrayidx10.i151 = getelementptr inbounds i8, ptr %70, i64 -4
@@ -3427,9 +3427,9 @@ if.else98:                                        ; preds = %invoke.cont93
   br label %for.inc105
 
 for.inc105:                                       ; preds = %_ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE9push_backERKS3_.exit158, %if.else98
-  %added.2 = phi i1 [ true, %_ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE9push_backERKS3_.exit158 ], [ %added.1267, %if.else98 ]
+  %added.2 = phi i1 [ true, %_ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE9push_backERKS3_.exit158 ], [ %added.1268, %if.else98 ]
   %j.5 = phi i32 [ %j.4269, %_ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE9push_backERKS3_.exit158 ], [ %inc99, %if.else98 ]
-  %incdec.ptr106 = getelementptr inbounds i8, ptr %__begin283.0268, i64 8
+  %incdec.ptr106 = getelementptr inbounds i8, ptr %__begin283.0267, i64 8
   %cmp90.not = icmp eq ptr %incdec.ptr106, %add.ptr.i130
   br i1 %cmp90.not, label %for.end107, label %for.body91
 
@@ -7381,15 +7381,15 @@ if.end:                                           ; preds = %_ZNK10union_findI22
   %arrayidx.i9 = getelementptr inbounds i32, ptr %3, i64 %idxprom.i.i4
   %5 = load i32, ptr %arrayidx.i9, align 4
   %cmp6 = icmp ugt i32 %4, %5
-  %spec.select = select i1 %cmp6, i32 %v.addr.0.i3, i32 %v.addr.0.i
-  %spec.select40 = select i1 %cmp6, i32 %v.addr.0.i, i32 %v.addr.0.i3
-  %idxprom.i10 = zext i32 %spec.select to i64
+  %spec.select = select i1 %cmp6, i32 %v.addr.0.i, i32 %v.addr.0.i3
+  %spec.select40 = select i1 %cmp6, i32 %v.addr.0.i3, i32 %v.addr.0.i
+  %idxprom.i10 = zext i32 %spec.select40 to i64
   %arrayidx.i11 = getelementptr inbounds i32, ptr %0, i64 %idxprom.i10
-  store i32 %spec.select40, ptr %arrayidx.i11, align 4
+  store i32 %spec.select, ptr %arrayidx.i11, align 4
   %6 = load ptr, ptr %m_size, align 8
   %arrayidx.i13 = getelementptr inbounds i32, ptr %6, i64 %idxprom.i10
   %7 = load i32, ptr %arrayidx.i13, align 4
-  %idxprom.i14 = zext i32 %spec.select40 to i64
+  %idxprom.i14 = zext i32 %spec.select to i64
   %arrayidx.i15 = getelementptr inbounds i32, ptr %6, i64 %idxprom.i14
   %8 = load i32, ptr %arrayidx.i15, align 4
   %add = add i32 %8, %7
@@ -7410,7 +7410,7 @@ if.end:                                           ; preds = %_ZNK10union_findI22
   %m_owner.i.i = getelementptr inbounds i8, ptr %call.i.i21, i64 8
   store ptr %this, ptr %m_owner.i.i, align 8
   %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i21, i64 16
-  store i32 %spec.select, ptr %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx, align 8
+  store i32 %spec.select40, ptr %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx, align 8
   %13 = load ptr, ptr %12, align 8
   %cmp.i.i = icmp eq ptr %13, null
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
@@ -9659,8 +9659,8 @@ if.end.split:                                     ; preds = %entry
   br i1 %cmp28.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i
-  %__secondChild.029.i = phi i64 [ %5, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i ], [ %div13, %if.end.split ]
-  %add.i = shl i64 %__secondChild.029.i, 1
+  %__holeIndex.addr.029.i = phi i64 [ %5, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i ], [ %div13, %if.end.split ]
+  %add.i = shl i64 %__holeIndex.addr.029.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -9689,7 +9689,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i: ;
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i, %lor.rhs.i.i.i
   %4 = phi i32 [ %1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i ], [ %0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i ], [ %0, %lor.rhs.i.i.i ]
   %5 = phi i64 [ %sub1.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i ], [ %mul.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i ], [ %mul.i, %lor.rhs.i.i.i ]
-  %add.ptr4.i = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %__secondChild.029.i
+  %add.ptr4.i = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %__holeIndex.addr.029.i
   store i32 %4, ptr %add.ptr4.i, align 4
   %second.i.i = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %5, i32 1
   %6 = load i32, ptr %second.i.i, align 4
@@ -9699,25 +9699,25 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i:
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !107
 
 while.end.i:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i, %if.end.split
-  %__secondChild.0.lcssa.i = phi i64 [ %div13, %if.end.split ], [ %5, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i ]
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %div13, %if.end.split ], [ %5, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i ]
   %7 = and i64 %sub.ptr.sub, 8
   %cmp6.i = icmp eq i64 %7, 0
   %div8.i = ashr exact i64 %sub, 1
-  %cmp9.i = icmp eq i64 %__secondChild.0.lcssa.i, %div8.i
+  %cmp9.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div8.i
   %or.cond = select i1 %cmp6.i, i1 %cmp9.i, i1 false
   br i1 %or.cond, label %if.then10.i, label %if.end18.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %add11.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
+  %add11.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
   %sub13.i = or disjoint i64 %add11.i, 1
   %add.ptr14.i = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %sub13.i
-  %add.ptr15.i = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %__secondChild.0.lcssa.i
+  %add.ptr15.i = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   %8 = load <2 x i32>, ptr %add.ptr14.i, align 4
   store <2 x i32> %8, ptr %add.ptr15.i, align 4
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then10.i, %while.end.i
-  %__holeIndex.addr.1.i = phi i64 [ %sub13.i, %if.then10.i ], [ %__secondChild.0.lcssa.i, %while.end.i ]
+  %__holeIndex.addr.1.i = phi i64 [ %sub13.i, %if.then10.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
   %__value.sroa.0.0.extract.trunc.i.i = trunc i64 %__value.sroa.0.0.copyload10 to i32
   %__value.sroa.3.0.extract.shift.i.i = lshr i64 %__value.sroa.0.0.copyload10, 32
   %__value.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %__value.sroa.3.0.extract.shift.i.i to i32
@@ -9781,8 +9781,8 @@ if.end8.split:                                    ; preds = %if.end8.split.lr.ph
   br i1 %cmp28.i16.not, label %while.end.i17, label %while.body.i59
 
 while.body.i59:                                   ; preds = %if.end8.split, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i74
-  %__secondChild.029.i60 = phi i64 [ %17, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i74 ], [ %dec, %if.end8.split ]
-  %add.i61 = shl i64 %__secondChild.029.i60, 1
+  %__holeIndex.addr.029.i60 = phi i64 [ %17, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i74 ], [ %dec, %if.end8.split ]
+  %add.i61 = shl i64 %__holeIndex.addr.029.i60, 1
   %mul.i62 = add i64 %add.i61, 2
   %add.ptr.i63 = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %mul.i62
   %sub1.i64 = or disjoint i64 %add.i61, 1
@@ -9811,7 +9811,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i79:
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i74: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i79, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i69, %lor.rhs.i.i.i67
   %16 = phi i32 [ %13, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i79 ], [ %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i69 ], [ %12, %lor.rhs.i.i.i67 ]
   %17 = phi i64 [ %sub1.i64, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i79 ], [ %mul.i62, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i69 ], [ %mul.i62, %lor.rhs.i.i.i67 ]
-  %add.ptr4.i75 = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %__secondChild.029.i60
+  %add.ptr4.i75 = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %__holeIndex.addr.029.i60
   store i32 %16, ptr %add.ptr4.i75, align 4
   %second.i.i76 = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %17, i32 1
   %18 = load i32, ptr %second.i.i76, align 4
@@ -9821,8 +9821,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i7
   br i1 %cmp.i78, label %while.body.i59, label %while.end.i17, !llvm.loop !107
 
 while.end.i17:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i74, %if.end8.split
-  %__secondChild.0.lcssa.i18 = phi i64 [ %dec, %if.end8.split ], [ %17, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i74 ]
-  %cmp9.i51 = icmp eq i64 %__secondChild.0.lcssa.i18, %div8.i
+  %__holeIndex.addr.0.lcssa.i18 = phi i64 [ %dec, %if.end8.split ], [ %17, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i74 ]
+  %cmp9.i51 = icmp eq i64 %__holeIndex.addr.0.lcssa.i18, %div8.i
   %or.cond82 = select i1 %cmp6.i, i1 %cmp9.i51, i1 false
   br i1 %or.cond82, label %if.then10.i52, label %if.end18.i21
 
@@ -9832,7 +9832,7 @@ if.then10.i52:                                    ; preds = %while.end.i17
   br label %if.end18.i21
 
 if.end18.i21:                                     ; preds = %if.then10.i52, %while.end.i17
-  %__holeIndex.addr.1.i22 = phi i64 [ %sub13.i54, %if.then10.i52 ], [ %__secondChild.0.lcssa.i18, %while.end.i17 ]
+  %__holeIndex.addr.1.i22 = phi i64 [ %sub13.i54, %if.then10.i52 ], [ %__holeIndex.addr.0.lcssa.i18, %while.end.i17 ]
   %__value.sroa.0.0.extract.trunc.i.i23 = trunc i64 %__value.sroa.0.0.copyload12 to i32
   %__value.sroa.3.0.extract.shift.i.i24 = lshr i64 %__value.sroa.0.0.copyload12, 32
   %__value.sroa.3.0.extract.trunc.i.i25 = trunc nuw i64 %__value.sroa.3.0.extract.shift.i.i24 to i32
@@ -9905,8 +9905,8 @@ entry:
   br i1 %cmp28.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %entry, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i
-  %__secondChild.029.i = phi i64 [ %7, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i ], [ 0, %entry ]
-  %add.i = shl i64 %__secondChild.029.i, 1
+  %__holeIndex.addr.029.i = phi i64 [ %7, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i ], [ 0, %entry ]
+  %add.i = shl i64 %__holeIndex.addr.029.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -9935,7 +9935,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i: ;
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i, %lor.rhs.i.i.i
   %6 = phi i32 [ %3, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i ], [ %2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i ], [ %2, %lor.rhs.i.i.i ]
   %7 = phi i64 [ %sub1.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread.i ], [ %mul.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.i ], [ %mul.i, %lor.rhs.i.i.i ]
-  %add.ptr4.i = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %__secondChild.029.i
+  %add.ptr4.i = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %__holeIndex.addr.029.i
   store i32 %6, ptr %add.ptr4.i, align 4
   %second.i.i = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %7, i32 1
   %8 = load i32, ptr %second.i.i, align 4
@@ -9945,7 +9945,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i:
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !107
 
 while.end.i:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i, %entry
-  %__secondChild.0.lcssa.i = phi i64 [ 0, %entry ], [ %7, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i ]
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ 0, %entry ], [ %7, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i ]
   %9 = and i64 %sub.ptr.sub, 8
   %cmp6.i = icmp eq i64 %9, 0
   br i1 %cmp6.i, label %land.lhs.true.i, label %if.end18.i
@@ -9953,20 +9953,20 @@ while.end.i:                                      ; preds = %_ZNK9__gnu_cxx5__op
 land.lhs.true.i:                                  ; preds = %while.end.i
   %sub7.i = add nsw i64 %sub.ptr.div, -2
   %div8.i = ashr exact i64 %sub7.i, 1
-  %cmp9.i = icmp eq i64 %__secondChild.0.lcssa.i, %div8.i
+  %cmp9.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div8.i
   br i1 %cmp9.i, label %if.then10.i, label %if.end18.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
-  %add11.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
+  %add11.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
   %sub13.i = or disjoint i64 %add11.i, 1
   %add.ptr14.i = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %sub13.i
-  %add.ptr15.i = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %__secondChild.0.lcssa.i
+  %add.ptr15.i = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   %10 = load <2 x i32>, ptr %add.ptr14.i, align 4
   store <2 x i32> %10, ptr %add.ptr15.i, align 4
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then10.i, %land.lhs.true.i, %while.end.i
-  %__holeIndex.addr.1.i = phi i64 [ %sub13.i, %if.then10.i ], [ %__secondChild.0.lcssa.i, %land.lhs.true.i ], [ %__secondChild.0.lcssa.i, %while.end.i ]
+  %__holeIndex.addr.1.i = phi i64 [ %sub13.i, %if.then10.i ], [ %__holeIndex.addr.0.lcssa.i, %land.lhs.true.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
   %__value.sroa.0.0.extract.trunc.i.i = trunc i64 %__value.sroa.0.0.copyload to i32
   %__value.sroa.3.0.extract.shift.i.i = lshr i64 %__value.sroa.0.0.copyload, 32
   %__value.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %__value.sroa.3.0.extract.shift.i.i to i32

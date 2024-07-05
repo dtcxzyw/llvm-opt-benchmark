@@ -1084,7 +1084,7 @@ tsd_fetch_impl.exit:                              ; preds = %entry
   br i1 %cmp.i, label %if.then2.i.i, label %land.lhs.true8.i
 
 if.then2.i.i:                                     ; preds = %entry, %tsd_fetch_impl.exit
-  %retval.i1101.0769 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %0, %entry ]
+  %retval.i1101.0770 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %0, %entry ]
   %cmp.i152.i = icmp ult i64 %size, 4097
   br i1 %cmp.i152.i, label %if.then.i157.i, label %if.end.i156.i
 
@@ -1127,12 +1127,12 @@ land.lhs.true.i31.i666:                           ; preds = %sz_size2index.exit.
   %conv.i147.i = zext nneg i32 %retval.i150.i.0 to i64
   %arrayidx.i.i = getelementptr inbounds [235 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i147.i
   %6 = load i64, ptr %arrayidx.i.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098 = getelementptr inbounds i8, ptr %retval.i1101.0769, i64 872
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098 = getelementptr inbounds i8, ptr %retval.i1101.0770, i64 872
   %cmp3.i.i708 = icmp ult i64 %size, 14337
   br i1 %cmp3.i.i708, label %if.then11.i.i824, label %if.end.i65.i712
 
 if.then11.i.i824:                                 ; preds = %land.lhs.true.i31.i666
-  %bins.i.i829 = getelementptr inbounds i8, ptr %retval.i1101.0769, i64 880
+  %bins.i.i829 = getelementptr inbounds i8, ptr %retval.i1101.0770, i64 880
   %arrayidx.i.i831 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i.i829, i64 0, i64 %conv.i147.i
   %7 = load ptr, ptr %arrayidx.i.i831, align 8
   %8 = load ptr, ptr %7, align 8
@@ -1162,7 +1162,7 @@ if.then22.i166.i904:                              ; preds = %if.end11.i.i895
   br label %if.end50.i.i855
 
 if.then.i86.i862:                                 ; preds = %if.end11.i.i895
-  %call7.i.i863 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1101.0769, ptr noundef null)
+  %call7.i.i863 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1101.0770, ptr noundef null)
   %cmp.i87.i864 = icmp eq ptr %call7.i.i863, null
   br i1 %cmp.i87.i864, label %if.then112.i, label %if.end.i88.i868
 
@@ -1174,12 +1174,12 @@ if.end.i88.i868:                                  ; preds = %if.then.i86.i862
   br i1 %cmp.i146.i873, label %if.then23.i93.i888, label %if.end27.i.i881
 
 if.then23.i93.i888:                               ; preds = %if.end.i88.i868
-  %call26.i.i890 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1101.0769, ptr noundef nonnull %call7.i.i863, i64 noundef %size, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #19
+  %call26.i.i890 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1101.0770, ptr noundef nonnull %call7.i.i863, i64 noundef %size, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #19
   br label %imalloc_no_sample.exit948
 
 if.end27.i.i881:                                  ; preds = %if.end.i88.i868
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1101.0769, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098, ptr noundef nonnull %arrayidx.i.i831, i32 noundef %retval.i150.i.0, i1 noundef zeroext true) #19
-  %call29.i92.i882 = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %retval.i1101.0769, ptr noundef nonnull %call7.i.i863, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098, ptr noundef nonnull %arrayidx.i.i831, i32 noundef %retval.i150.i.0, ptr noundef nonnull %tcache_hard_success.i.i573) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1101.0770, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098, ptr noundef nonnull %arrayidx.i.i831, i32 noundef %retval.i150.i.0, i1 noundef zeroext true) #19
+  %call29.i92.i882 = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %retval.i1101.0770, ptr noundef nonnull %call7.i.i863, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098, ptr noundef nonnull %arrayidx.i.i831, i32 noundef %retval.i150.i.0, ptr noundef nonnull %tcache_hard_success.i.i573) #19
   %15 = load i8, ptr %tcache_hard_success.i.i573, align 1
   %16 = and i8 %15, 1
   %cmp32.i.i885 = icmp eq i8 %16, 0
@@ -1199,7 +1199,7 @@ if.end.i65.i712:                                  ; preds = %land.lhs.true.i31.i
   br i1 %cmp15.i.i713.not, label %if.end31.i.i679, label %if.then23.i.i718
 
 if.then23.i.i718:                                 ; preds = %if.end.i65.i712
-  %bins.i111.i723 = getelementptr inbounds i8, ptr %retval.i1101.0769, i64 880
+  %bins.i111.i723 = getelementptr inbounds i8, ptr %retval.i1101.0770, i64 880
   %arrayidx.i113.i725 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i111.i723, i64 0, i64 %conv.i147.i
   %19 = load ptr, ptr %arrayidx.i113.i725, align 8
   %20 = load ptr, ptr %19, align 8
@@ -1229,12 +1229,12 @@ if.then22.i196.i820:                              ; preds = %if.end11.i187.i811
   br label %if.end35.i121.i749
 
 if.then.i126.i757:                                ; preds = %if.end11.i187.i811
-  %call7.i127.i758 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1101.0769, ptr noundef null)
+  %call7.i127.i758 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1101.0770, ptr noundef null)
   %cmp.i128.i759 = icmp eq ptr %call7.i127.i758, null
   br i1 %cmp.i128.i759, label %if.then112.i, label %sz_s2u.exit.i792
 
 sz_s2u.exit.i792:                                 ; preds = %if.then.i126.i757
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1101.0769, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098, ptr noundef nonnull %arrayidx.i113.i725, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1101.0770, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098, ptr noundef nonnull %arrayidx.i113.i725, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #19
   %shl.i.i776 = shl nuw i64 %size, 1
   %sub.i.i777 = add i64 %shl.i.i776, -1
   %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i777, i1 true)
@@ -1243,7 +1243,7 @@ sz_s2u.exit.i792:                                 ; preds = %if.then.i126.i757
   %sub12.i.i787 = xor i64 %notmask701, -1
   %add.i.i788 = add nuw nsw i64 %sub12.i.i787, %size
   %and.i.i790 = and i64 %add.i.i788, %notmask701
-  %call19.i133.i794 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1101.0769, ptr noundef nonnull %call7.i127.i758, i64 noundef %and.i.i790, i1 noundef zeroext false) #19
+  %call19.i133.i794 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1101.0770, ptr noundef nonnull %call7.i127.i758, i64 noundef %and.i.i790, i1 noundef zeroext false) #19
   br label %imalloc_no_sample.exit948
 
 if.end35.i121.i749:                               ; preds = %if.then.i199.i823, %if.then22.i196.i820
@@ -1254,7 +1254,7 @@ if.end35.i121.i749:                               ; preds = %if.then.i199.i823, 
   br label %imalloc_no_sample.exit948
 
 if.end31.i.i679:                                  ; preds = %if.end.i65.i712
-  %call33.i.i681 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1101.0769, ptr noundef null, i64 noundef %size, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #19
+  %call33.i.i681 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1101.0770, ptr noundef null, i64 noundef %size, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #19
   br label %imalloc_no_sample.exit948
 
 imalloc_no_sample.exit948:                        ; preds = %sz_s2u.exit.i792, %if.end35.i121.i749, %if.then23.i93.i888, %if.end50.i.i855, %if.end31.i.i679
@@ -1264,16 +1264,16 @@ imalloc_no_sample.exit948:                        ; preds = %sz_s2u.exit.i792, %
 
 if.end61.i:                                       ; preds = %imalloc_no_sample.exit948
   store i8 1, ptr %ctx.i1508, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i = getelementptr inbounds i8, ptr %retval.i1101.0769, i64 840
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i = getelementptr inbounds i8, ptr %retval.i1101.0770, i64 840
   %current.i = getelementptr inbounds i8, ptr %ctx.i1508, i64 8
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, ptr %current.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i = getelementptr inbounds i8, ptr %retval.i1101.0769, i64 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i = getelementptr inbounds i8, ptr %retval.i1101.0770, i64 8
   %last_event.i = getelementptr inbounds i8, ptr %ctx.i1508, i64 16
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i, ptr %last_event.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i = getelementptr inbounds i8, ptr %retval.i1101.0769, i64 16
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i = getelementptr inbounds i8, ptr %retval.i1101.0770, i64 16
   %next_event.i = getelementptr inbounds i8, ptr %ctx.i1508, i64 24
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, ptr %next_event.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1619 = getelementptr inbounds i8, ptr %retval.i1101.0769, i64 848
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1619 = getelementptr inbounds i8, ptr %retval.i1101.0770, i64 848
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i1508, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1619, ptr %next_event_fast.i, align 8
   %28 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
@@ -1285,7 +1285,7 @@ if.end61.i:                                       ; preds = %imalloc_no_sample.e
   br i1 %cmp.i1515, label %do.end, label %if.else.i1519
 
 if.else.i1519:                                    ; preds = %if.end61.i
-  call void @te_event_trigger(ptr noundef nonnull %retval.i1101.0769, ptr noundef nonnull %ctx.i1508) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i1101.0770, ptr noundef nonnull %ctx.i1508) #19
   br label %do.end
 
 if.then112.i:                                     ; preds = %if.then.i126.i757, %if.end27.i.i881, %if.then.i86.i862, %if.end.i156.i, %sz_size2index.exit.i, %imalloc_no_sample.exit948
@@ -1572,8 +1572,8 @@ if.end35.i121.i:                                  ; preds = %if.then31.i.i, %if.
   br label %imalloc_no_sample.exit
 
 if.end31.i.i:                                     ; preds = %arena_get.exit, %tcache_get_from_ind.exit.i.thread, %arena_get_from_ind.exit.i, %if.end.i65.i
-  %arena.i.1755773 = phi ptr [ null, %if.end.i65.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
-  %call33.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1755773, i64 noundef %size, i32 noundef %retval.i150.i103.0, i1 noundef zeroext %tobool2.i.i324) #19
+  %arena.i.1755775 = phi ptr [ null, %if.end.i65.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
+  %call33.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1755775, i64 noundef %size, i32 noundef %retval.i150.i103.0, i1 noundef zeroext %tobool2.i.i324) #19
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %sz_s2u.exit.i463, %if.end35.i121.i, %if.then23.i93.i, %if.end50.i.i, %if.end31.i.i
@@ -3048,8 +3048,8 @@ if.then31.i.i:                                    ; preds = %if.then.i199.i, %if
   br label %imalloc_no_sample.exit
 
 if.end31.i.i:                                     ; preds = %arena_get.exit, %tcache_get_from_ind.exit.i.thread, %arena_get_from_ind.exit.i, %if.end.i65.i
-  %arena.i.1780797 = phi ptr [ null, %if.end.i65.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
-  %call33.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1780797, i64 noundef %mul.val, i32 noundef %retval.i150.i105.0, i1 noundef zeroext true) #19
+  %arena.i.1780798 = phi ptr [ null, %if.end.i65.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
+  %call33.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1780798, i64 noundef %mul.val, i32 noundef %retval.i150.i105.0, i1 noundef zeroext true) #19
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %sz_s2u.exit.i465, %if.then31.i.i, %if.then23.i93.i, %if.then46.i.i, %if.end31.i.i
@@ -5251,6 +5251,7 @@ tcache_get_from_ind.exit.thread:                  ; preds = %mallocx_tcache_get.
   %tobool.i236 = trunc i8 %6 to i1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i = getelementptr inbounds i8, ptr %retval.i197.0, i64 872
   %retval.i209.0 = select i1 %tobool.i236, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i, ptr null
+  %cmp.i.i586347 = icmp eq ptr %retval.i197.0, null
   br label %if.end.i590.split
 
 if.else28.i:                                      ; preds = %mallocx_tcache_get.exit
@@ -5286,6 +5287,7 @@ if.then.i592:                                     ; preds = %tcache_get_from_ind
   br label %tsdn_rtree_ctx.exit593
 
 if.end.i590.split:                                ; preds = %tcache_get_from_ind.exit.thread, %tcache_get_from_ind.exit
+  %cmp.i.i586351 = phi i1 [ %cmp.i.i586347, %tcache_get_from_ind.exit.thread ], [ false, %tcache_get_from_ind.exit ]
   %tcache.i.0349 = phi ptr [ %retval.i209.0, %tcache_get_from_ind.exit.thread ], [ %tcache.i.0, %tcache_get_from_ind.exit ]
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i615 = getelementptr inbounds i8, ptr %retval.i197.0, i64 448
   %10 = ptrtoint ptr %ptr to i64
@@ -5293,7 +5295,7 @@ if.end.i590.split:                                ; preds = %tcache_get_from_ind
   br label %tsdn_rtree_ctx.exit593
 
 tsdn_rtree_ctx.exit593:                           ; preds = %if.end.i590.split, %if.then.i592
-  %cmp.i.i586350 = phi i1 [ true, %if.then.i592 ], [ false, %if.end.i590.split ]
+  %cmp.i.i586350 = phi i1 [ true, %if.then.i592 ], [ %cmp.i.i586351, %if.end.i590.split ]
   %tcache.i.0348 = phi ptr [ %tcache.i.0, %if.then.i592 ], [ %tcache.i.0349, %if.end.i590.split ]
   %11 = phi i64 [ %9, %if.then.i592 ], [ %10, %if.end.i590.split ]
   %phi.call = phi { i64, i32 } [ %call1.i322, %if.then.i592 ], [ %call1.i323, %if.end.i590.split ]
@@ -6460,8 +6462,8 @@ if.end35.i121.i:                                  ; preds = %if.then31.i.i, %if.
   br label %imalloc_no_sample.exit
 
 if.end31.i.i:                                     ; preds = %arena_get.exit, %tcache_get_from_ind.exit.i.thread, %arena_get_from_ind.exit.i, %if.end.i65.i
-  %arena.i.1770787 = phi ptr [ null, %if.end.i65.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
-  %call33.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1770787, i64 noundef %size, i32 noundef %retval.i150.i123.0, i1 noundef zeroext %tobool2.i.i344) #19
+  %arena.i.1770788 = phi ptr [ null, %if.end.i65.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
+  %call33.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1770788, i64 noundef %size, i32 noundef %retval.i150.i123.0, i1 noundef zeroext %tobool2.i.i344) #19
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %sz_s2u.exit.i483, %if.end35.i121.i, %if.then23.i93.i, %if.end50.i.i, %if.end31.i.i

@@ -1662,9 +1662,9 @@ for.body.lr.ph:                                   ; preds = %_ZN4cvc57context3CD
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %it.sroa.0.0145 = phi ptr [ %51, %for.body.lr.ph ], [ %78, %for.inc ]
-  %d_value.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0145, i64 40
-  %second = getelementptr inbounds i8, ptr %it.sroa.0.0145, i64 48
+  %it.sroa.0.0146 = phi ptr [ %51, %for.body.lr.ph ], [ %78, %for.inc ]
+  %d_value.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0146, i64 40
+  %second = getelementptr inbounds i8, ptr %it.sroa.0.0146, i64 48
   %52 = load i8, ptr %second, align 8
   %tobool41 = trunc i8 %52 to i1
   br i1 %tobool41, label %if.then42, label %for.inc
@@ -1864,9 +1864,9 @@ lpad45:                                           ; preds = %if.then13.i.i.i88, 
   br label %eh.resume
 
 for.inc:                                          ; preds = %for.body, %_ZN4cvc57context3CDOIjEaSERKj.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit108
-  %d_next.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0145, i64 72
+  %d_next.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0146, i64 72
   %78 = load ptr, ptr %d_next.i.i, align 8
-  %d_map.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0145, i64 56
+  %d_map.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0146, i64 56
   %79 = load ptr, ptr %d_map.i.i, align 8
   %d_first.i.i125 = getelementptr inbounds i8, ptr %79, i64 96
   %80 = load ptr, ptr %d_first.i.i125, align 8

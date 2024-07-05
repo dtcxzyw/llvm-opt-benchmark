@@ -70,10 +70,10 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %bio, ptr nound
 entry:
   %and = and i64 %nmflags, 983040
   %cmp = icmp eq i64 %and, 262144
-  %spec.select = select i1 %cmp, i32 10, i32 32
-  %spec.select78 = select i1 %cmp, i32 12, i32 0
+  %spec.select = select i1 %cmp, i32 12, i32 0
+  %spec.select78 = select i1 %cmp, i32 10, i32 32
   %cmp1 = icmp eq i64 %nmflags, 0
-  %nmindent.1 = select i1 %cmp1, i32 16, i32 %spec.select78
+  %nmindent.1 = select i1 %cmp1, i32 16, i32 %spec.select
   %0 = load ptr, ptr %x, align 8
   %and4 = and i64 %cflag, 1
   %tobool.not = icmp eq i64 %and4, 0
@@ -110,7 +110,7 @@ if.end21:                                         ; preds = %if.then14, %if.end1
   br i1 %tobool23.not, label %if.then24, label %if.end38
 
 if.then24:                                        ; preds = %if.end21
-  %call25 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.5, i32 noundef %spec.select) #2
+  %call25 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.5, i32 noundef %spec.select78) #2
   %cmp26 = icmp slt i32 %call25, 1
   br i1 %cmp26, label %err, label %lor.lhs.false28
 

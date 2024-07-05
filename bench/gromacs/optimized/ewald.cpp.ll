@@ -472,7 +472,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   %202 = phi i1 [ true, %_ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI9t_complexLm3EEPKf.exit ], [ false, %._crit_edge341 ]
   %indvars.iv386.sroa.phi = phi ptr [ %.sroa.0, %_ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI9t_complexLm3EEPKf.exit ], [ %.sroa.3, %._crit_edge341 ]
   %.mux410 = select i1 %202, float %190, float %15
-  %.0235 = select i1 %.not238, float %.mux410, float 1.000000e+00
+  %.0234 = select i1 %.not238, float %.mux410, float 1.000000e+00
   store float 0.000000e+00, ptr %indvars.iv386.sroa.phi, align 4
   %203 = load i32, ptr %17, align 8
   %204 = icmp sgt i32 %203, 0
@@ -482,7 +482,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   %.mux.val = select i1 %202, i64 %.val411, i64 %.val412
   %.sroa.0.0 = select i1 %.not238, i64 %.mux.val, i64 %.val411
   %205 = inttoptr i64 %.sroa.0.0 to ptr
-  %206 = fneg float %.0235
+  %206 = fneg float %.0234
   %.pre = load i32, ptr %191, align 4
   br label %207
 
@@ -739,7 +739,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   br i1 %119, label %.lr.ph318, label %._crit_edge319
 
 .lr.ph318:                                        ; preds = %._crit_edge314
-  %338 = fmul float %.0235, %262
+  %338 = fmul float %.0234, %262
   %339 = fneg float %315
   br label %340
 

@@ -119,8 +119,8 @@ define dso_local { i64, i32 } @TypeShellMake(ptr noundef %0, i32 noundef %1, i32
   br label %45
 
 45:                                               ; preds = %43, %42
-  %.0 = phi i32 [ %37, %42 ], [ %44, %43 ]
-  %46 = zext i32 %.0 to i64
+  %.020 = phi i32 [ %37, %42 ], [ %44, %43 ]
+  %46 = zext i32 %.020 to i64
   store i64 %46, ptr %4, align 16
   %47 = call ptr @heap_form_tuple(ptr noundef %9, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   call void @CatalogTupleInsert(ptr noundef nonnull %7, ptr noundef %47) #6
@@ -138,7 +138,7 @@ define dso_local { i64, i32 } @TypeShellMake(ptr noundef %0, i32 noundef %1, i32
   br i1 %.not22, label %54, label %53
 
 53:                                               ; preds = %51
-  call void @RunObjectPostCreateHook(i32 noundef 1247, i32 noundef %.0, i32 noundef 0, i1 noundef zeroext false) #6
+  call void @RunObjectPostCreateHook(i32 noundef 1247, i32 noundef %.020, i32 noundef 0, i1 noundef zeroext false) #6
   br label %54
 
 54:                                               ; preds = %53, %51
@@ -772,7 +772,7 @@ switch.early.test:                                ; preds = %74
   br label %176
 
 176:                                              ; preds = %.thread166, %172
-  %.0135169 = phi ptr [ null, %.thread166 ], [ %171, %172 ]
+  %.0134169 = phi ptr [ null, %.thread166 ], [ %171, %172 ]
   %177 = call ptr @table_open(i32 noundef 1247, i32 noundef 3) #6
   %178 = ptrtoint ptr %1 to i64
   %179 = call ptr @SearchSysCacheCopy(i32 noundef 79, i64 noundef %178, i64 noundef %103, i64 noundef 0, i64 noundef 0) #6
@@ -871,7 +871,7 @@ switch.early.test:                                ; preds = %74
   br label %226
 
 226:                                              ; preds = %221, %202
-  %.0134 = phi ptr [ %205, %202 ], [ %225, %221 ]
+  %.0136 = phi ptr [ %205, %202 ], [ %225, %221 ]
   %.1 = phi i32 [ %207, %202 ], [ %.0, %221 ]
   %227 = load i32, ptr @Mode, align 4
   %228 = icmp eq i32 %227, 0
@@ -886,7 +886,7 @@ switch.early.test:                                ; preds = %74
 
 232:                                              ; preds = %229, %230
   %233 = phi ptr [ %231, %230 ], [ null, %229 ]
-  call void @GenerateTypeDependencies(ptr noundef %.0134, ptr noundef nonnull %177, ptr noundef %233, ptr noundef %.0135169, i8 noundef signext %4, i1 noundef zeroext %20, i1 noundef zeroext %100, i1 noundef zeroext true, i1 noundef zeroext %.not157)
+  call void @GenerateTypeDependencies(ptr noundef %.0136, ptr noundef nonnull %177, ptr noundef %233, ptr noundef %.0134169, i8 noundef signext %4, i1 noundef zeroext %20, i1 noundef zeroext %100, i1 noundef zeroext true, i1 noundef zeroext %.not157)
   br label %234
 
 234:                                              ; preds = %226, %232

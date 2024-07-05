@@ -162,21 +162,21 @@ define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %100
 
 100:                                              ; preds = %100, %99
-  %.04655.i = phi i64 [ %55, %99 ], [ %105, %100 ]
-  %.04754.i = phi i64 [ %93, %99 ], [ %102, %100 ]
-  %.04853.i = phi i32 [ 4, %99 ], [ %109, %100 ]
-  %101 = trunc i64 %.04754.i to i1
-  %102 = call i64 @llvm.fshl.i64(i64 %.04655.i, i64 %.04754.i, i64 63)
-  %103 = lshr i64 %.04655.i, 1
+  %.04655.i = phi i32 [ 4, %99 ], [ %109, %100 ]
+  %.04854.i = phi i64 [ %55, %99 ], [ %105, %100 ]
+  %.04953.i = phi i64 [ %93, %99 ], [ %102, %100 ]
+  %101 = trunc i64 %.04953.i to i1
+  %102 = call i64 @llvm.fshl.i64(i64 %.04854.i, i64 %.04953.i, i64 63)
+  %103 = lshr i64 %.04854.i, 1
   %104 = select i1 %101, i64 -2233785415175766016, i64 0
   %105 = xor i64 %104, %103
-  %106 = zext nneg i32 %.04853.i to i64
+  %106 = zext nneg i32 %.04655.i to i64
   %107 = getelementptr inbounds [16 x i64], ptr %94, i64 0, i64 %106
   store i64 %102, ptr %107, align 8
   %108 = getelementptr inbounds [16 x i64], ptr %96, i64 0, i64 %106
   store i64 %105, ptr %108, align 8
-  %109 = lshr i32 %.04853.i, 1
-  %.not52.i = icmp ult i32 %.04853.i, 2
+  %109 = lshr i32 %.04655.i, 1
+  %.not52.i = icmp ult i32 %.04655.i, 2
   br i1 %.not52.i, label %.lr.ph.preheader.i, label %100, !llvm.loop !4
 
 .lr.ph.preheader.i:                               ; preds = %100, %._crit_edge.i
@@ -290,27 +290,27 @@ define hidden i32 @mbedtls_gcm_starts(ptr noundef %0, i32 noundef %1, ptr nocapt
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
-  %.05263 = phi ptr [ %48, %46 ], [ %2, %.lr.ph.preheader ]
-  %.05462 = phi i64 [ %47, %46 ], [ %3, %.lr.ph.preheader ]
-  %38 = tail call i64 @llvm.umin.i64(i64 %.05462, i64 16)
+  %.05263 = phi i64 [ %47, %46 ], [ %3, %.lr.ph.preheader ]
+  %.05362 = phi ptr [ %48, %46 ], [ %2, %.lr.ph.preheader ]
+  %38 = tail call i64 @llvm.umin.i64(i64 %.05263, i64 16)
   br label %39
 
 39:                                               ; preds = %.lr.ph, %39
-  %.05360 = phi i64 [ 0, %.lr.ph ], [ %45, %39 ]
-  %40 = getelementptr inbounds i8, ptr %.05263, i64 %.05360
+  %.05460 = phi i64 [ 0, %.lr.ph ], [ %45, %39 ]
+  %40 = getelementptr inbounds i8, ptr %.05362, i64 %.05460
   %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 %.05360
+  %42 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 %.05460
   %43 = load i8, ptr %42, align 1
   %44 = xor i8 %43, %41
   store i8 %44, ptr %42, align 1
-  %45 = add nuw nsw i64 %.05360, 1
+  %45 = add nuw nsw i64 %.05460, 1
   %exitcond.not = icmp eq i64 %45, %38
   br i1 %exitcond.not, label %46, label %39, !llvm.loop !8
 
 46:                                               ; preds = %39
   tail call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %9)
-  %47 = sub i64 %.05462, %38
-  %48 = getelementptr inbounds i8, ptr %.05263, i64 %38
+  %47 = sub i64 %.05263, %38
+  %48 = getelementptr inbounds i8, ptr %.05362, i64 %38
   %.not58 = icmp eq i64 %47, 0
   br i1 %.not58, label %.preheader, label %.lr.ph, !llvm.loop !9
 
@@ -574,15 +574,15 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr n
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
-  %.061 = phi i64 [ 0, %.lr.ph ], [ %18, %11 ]
-  %12 = getelementptr inbounds i8, ptr %1, i64 %.061
+  %.04961 = phi i64 [ 0, %.lr.ph ], [ %18, %11 ]
+  %12 = getelementptr inbounds i8, ptr %1, i64 %.04961
   %13 = load i8, ptr %12, align 1
-  %14 = add nuw nsw i64 %.061, %7
+  %14 = add nuw nsw i64 %.04961, %7
   %15 = getelementptr inbounds [16 x i8], ptr %10, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = xor i8 %16, %13
   store i8 %17, ptr %15, align 1
-  %18 = add nuw nsw i64 %.061, 1
+  %18 = add nuw nsw i64 %.04961, 1
   %exitcond.not = icmp eq i64 %18, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !12
 
@@ -606,11 +606,11 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr n
 
 28:                                               ; preds = %23, %4
   %29 = phi i64 [ %25, %23 ], [ %6, %4 ]
-  %.052 = phi i64 [ %26, %23 ], [ %2, %4 ]
-  %.050 = phi ptr [ %27, %23 ], [ %1, %4 ]
-  %30 = add i64 %29, %.052
+  %.053 = phi i64 [ %26, %23 ], [ %2, %4 ]
+  %.051 = phi ptr [ %27, %23 ], [ %1, %4 ]
+  %30 = add i64 %29, %.053
   store i64 %30, ptr %5, align 8
-  %31 = icmp ugt i64 %.052, 15
+  %31 = icmp ugt i64 %.053, 15
   br i1 %31, label %.preheader60.lr.ph, label %._crit_edge65
 
 .preheader60.lr.ph:                               ; preds = %28
@@ -618,13 +618,13 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr n
   br label %.preheader60
 
 .preheader60:                                     ; preds = %.preheader60.lr.ph, %40
-  %.15164 = phi ptr [ %.050, %.preheader60.lr.ph ], [ %42, %40 ]
-  %.15363 = phi i64 [ %.052, %.preheader60.lr.ph ], [ %41, %40 ]
+  %.15264 = phi ptr [ %.051, %.preheader60.lr.ph ], [ %42, %40 ]
+  %.15463 = phi i64 [ %.053, %.preheader60.lr.ph ], [ %41, %40 ]
   br label %33
 
 33:                                               ; preds = %.preheader60, %33
   %.162 = phi i64 [ 0, %.preheader60 ], [ %39, %33 ]
-  %34 = getelementptr inbounds i8, ptr %.15164, i64 %.162
+  %34 = getelementptr inbounds i8, ptr %.15264, i64 %.162
   %35 = load i8, ptr %34, align 1
   %36 = getelementptr inbounds [16 x i8], ptr %32, i64 0, i64 %.162
   %37 = load i8, ptr %36, align 1
@@ -636,15 +636,15 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr n
 
 40:                                               ; preds = %33
   tail call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef nonnull %32)
-  %41 = add i64 %.15363, -16
-  %42 = getelementptr inbounds i8, ptr %.15164, i64 16
+  %41 = add i64 %.15463, -16
+  %42 = getelementptr inbounds i8, ptr %.15264, i64 16
   %43 = icmp ugt i64 %41, 15
   br i1 %43, label %.preheader60, label %._crit_edge65, !llvm.loop !14
 
 ._crit_edge65:                                    ; preds = %40, %28
-  %.153.lcssa = phi i64 [ %.052, %28 ], [ %41, %40 ]
-  %.151.lcssa = phi ptr [ %.050, %28 ], [ %42, %40 ]
-  %.not59 = icmp eq i64 %.153.lcssa, 0
+  %.154.lcssa = phi i64 [ %.053, %28 ], [ %41, %40 ]
+  %.152.lcssa = phi ptr [ %.051, %28 ], [ %42, %40 ]
+  %.not59 = icmp eq i64 %.154.lcssa, 0
   br i1 %.not59, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge65
@@ -653,19 +653,19 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr n
 
 45:                                               ; preds = %.preheader, %45
   %.267 = phi i64 [ 0, %.preheader ], [ %51, %45 ]
-  %46 = getelementptr inbounds i8, ptr %.151.lcssa, i64 %.267
+  %46 = getelementptr inbounds i8, ptr %.152.lcssa, i64 %.267
   %47 = load i8, ptr %46, align 1
   %48 = getelementptr inbounds [16 x i8], ptr %44, i64 0, i64 %.267
   %49 = load i8, ptr %48, align 1
   %50 = xor i8 %49, %47
   store i8 %50, ptr %48, align 1
   %51 = add nuw nsw i64 %.267, 1
-  %exitcond71.not = icmp eq i64 %51, %.153.lcssa
+  %exitcond71.not = icmp eq i64 %51, %.154.lcssa
   br i1 %exitcond71.not, label %.loopexit, label %45, !llvm.loop !15
 
 .loopexit:                                        ; preds = %45, %._crit_edge65, %3
-  %.054 = phi i32 [ -20, %3 ], [ 0, %._crit_edge65 ], [ 0, %45 ]
-  ret i32 %.054
+  %.0 = phi i32 [ -20, %3 ], [ 0, %._crit_edge65 ], [ 0, %45 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -809,8 +809,8 @@ gcm_mask.exit:                                    ; preds = %36
 .thread:                                          ; preds = %27, %71, %33
   %77 = phi i64 [ %73, %71 ], [ %34, %33 ], [ 0, %27 ]
   %.072 = phi i64 [ %74, %71 ], [ %2, %33 ], [ %2, %27 ]
-  %.069 = phi ptr [ %75, %71 ], [ %1, %33 ], [ %1, %27 ]
-  %.068 = phi ptr [ %76, %71 ], [ %3, %33 ], [ %3, %27 ]
+  %.070 = phi ptr [ %75, %71 ], [ %1, %33 ], [ %1, %27 ]
+  %.069 = phi ptr [ %76, %71 ], [ %3, %33 ], [ %3, %27 ]
   %78 = add i64 %77, %.072
   store i64 %78, ptr %20, align 8
   %79 = icmp ugt i64 %.072, 15
@@ -824,8 +824,8 @@ gcm_mask.exit:                                    ; preds = %36
   br label %83
 
 83:                                               ; preds = %.lr.ph, %112
-  %.1119 = phi ptr [ %.068, %.lr.ph ], [ %115, %112 ]
-  %.170118 = phi ptr [ %.069, %.lr.ph ], [ %114, %112 ]
+  %.1119 = phi ptr [ %.069, %.lr.ph ], [ %115, %112 ]
+  %.171118 = phi ptr [ %.070, %.lr.ph ], [ %114, %112 ]
   %.173117 = phi i64 [ %.072, %.lr.ph ], [ %113, %112 ]
   br label %84
 
@@ -855,7 +855,7 @@ gcm_incr.exit:                                    ; preds = %84
   br i1 %91, label %92, label %._crit_edge.i99
 
 92:                                               ; preds = %.preheader.i96
-  %93 = getelementptr inbounds i8, ptr %.170118, i64 %.029.i98
+  %93 = getelementptr inbounds i8, ptr %.171118, i64 %.029.i98
   %94 = load i8, ptr %93, align 1
   %95 = getelementptr inbounds [16 x i8], ptr %82, i64 0, i64 %.029.i98
   %96 = load i8, ptr %95, align 1
@@ -866,7 +866,7 @@ gcm_incr.exit:                                    ; preds = %84
 ._crit_edge.i99:                                  ; preds = %.preheader.i96, %92
   %98 = getelementptr inbounds i8, ptr %9, i64 %.029.i98
   %99 = load i8, ptr %98, align 1
-  %100 = getelementptr inbounds i8, ptr %.170118, i64 %.029.i98
+  %100 = getelementptr inbounds i8, ptr %.171118, i64 %.029.i98
   %101 = load i8, ptr %100, align 1
   %102 = xor i8 %101, %99
   %103 = getelementptr inbounds i8, ptr %.1119, i64 %.029.i98
@@ -896,15 +896,15 @@ gcm_mask.exit103:                                 ; preds = %gcm_incr.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %82, ptr noundef nonnull %82)
   %113 = add i64 %.173117, -16
-  %114 = getelementptr inbounds i8, ptr %.170118, i64 16
+  %114 = getelementptr inbounds i8, ptr %.171118, i64 16
   %115 = getelementptr inbounds i8, ptr %.1119, i64 16
   %116 = icmp ugt i64 %113, 15
   br i1 %116, label %83, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %112, %.thread
   %.173.lcssa = phi i64 [ %.072, %.thread ], [ %113, %112 ]
-  %.170.lcssa = phi ptr [ %.069, %.thread ], [ %114, %112 ]
-  %.1.lcssa = phi ptr [ %.068, %.thread ], [ %115, %112 ]
+  %.171.lcssa = phi ptr [ %.070, %.thread ], [ %114, %112 ]
+  %.1.lcssa = phi ptr [ %.069, %.thread ], [ %115, %112 ]
   %.not86 = icmp eq i64 %.173.lcssa, 0
   br i1 %.not86, label %124, label %117
 
@@ -925,7 +925,7 @@ gcm_mask.exit103:                                 ; preds = %gcm_incr.exit
   br i1 %or.cond.i108, label %118, label %gcm_incr.exit109, !llvm.loop !17
 
 gcm_incr.exit109:                                 ; preds = %118
-  %123 = call fastcc i32 @gcm_mask(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef 0, i64 noundef %.173.lcssa, ptr noundef %.170.lcssa, ptr noundef %.1.lcssa)
+  %123 = call fastcc i32 @gcm_mask(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef 0, i64 noundef %.173.lcssa, ptr noundef %.171.lcssa, ptr noundef %.1.lcssa)
   %.not87 = icmp eq i32 %123, 0
   br i1 %.not87, label %124, label %125
 
@@ -934,8 +934,8 @@ gcm_incr.exit109:                                 ; preds = %118
   br label %125
 
 125:                                              ; preds = %gcm_mask.exit103, %gcm_mask.exit, %gcm_incr.exit109, %19, %13, %11, %6, %124
-  %.071 = phi i32 [ 0, %124 ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ -20, %19 ], [ %39, %gcm_mask.exit ], [ %89, %gcm_mask.exit103 ], [ %123, %gcm_incr.exit109 ]
-  ret i32 %.071
+  %.068 = phi i32 [ 0, %124 ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ -20, %19 ], [ %39, %gcm_mask.exit ], [ %89, %gcm_mask.exit103 ], [ %123, %gcm_incr.exit109 ]
+  ret i32 %.068
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1123,14 +1123,14 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_finish(ptr noundef %0, ptr noca
   br label %76
 
 76:                                               ; preds = %29, %76
-  %.057 = phi i64 [ 0, %29 ], [ %82, %76 ]
-  %77 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %.057
+  %.05357 = phi i64 [ 0, %29 ], [ %82, %76 ]
+  %77 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %.05357
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds [16 x i8], ptr %75, i64 0, i64 %.057
+  %79 = getelementptr inbounds [16 x i8], ptr %75, i64 0, i64 %.05357
   %80 = load i8, ptr %79, align 1
   %81 = xor i8 %80, %78
   store i8 %81, ptr %79, align 1
-  %82 = add nuw nsw i64 %.057, 1
+  %82 = add nuw nsw i64 %.05357, 1
   %exitcond.not = icmp eq i64 %82, 16
   br i1 %exitcond.not, label %83, label %76, !llvm.loop !19
 
@@ -1152,8 +1152,8 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_finish(ptr noundef %0, ptr noca
   br i1 %exitcond60.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %83, %25, %18
-  %.053 = phi i32 [ -20, %18 ], [ 0, %25 ], [ 0, %83 ], [ 0, %.lr.ph ]
-  ret i32 %.053
+  %.0 = phi i32 [ -20, %18 ], [ 0, %25 ], [ 0, %83 ], [ 0, %.lr.ph ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1610,12 +1610,12 @@ mbedtls_gcm_crypt_and_tag.exit198:                ; preds = %67
   br label %.thread208
 
 138:                                              ; preds = %114, %84
-  %.0122 = phi i32 [ %86, %84 ], [ %116, %114 ]
-  %.not186 = icmp eq i32 %.0122, 0
+  %.0123 = phi i32 [ %86, %84 ], [ %116, %114 ]
+  %.not186 = icmp eq i32 %.0123, 0
   br i1 %.not186, label %.thread208, label %.thread
 
 .thread:                                          ; preds = %131, %132, %101, %102, %70, %71, %52, %55, %95, %125, %129, %120, %111, %109, %107, %99, %90, %80, %78, %76, %mbedtls_gcm_crypt_and_tag.exit198, %61, %mbedtls_gcm_crypt_and_tag.exit, %26, %mbedtls_gcm_crypt_and_tag.exit198.thread, %mbedtls_gcm_crypt_and_tag.exit.thread, %138
-  %.0122205 = phi i32 [ %.0122, %138 ], [ %.0.i195.ph, %mbedtls_gcm_crypt_and_tag.exit198.thread ], [ %.0.i.ph, %mbedtls_gcm_crypt_and_tag.exit.thread ], [ %23, %26 ], [ %51, %mbedtls_gcm_crypt_and_tag.exit ], [ %62, %61 ], [ %69, %mbedtls_gcm_crypt_and_tag.exit198 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %92, %90 ], [ %100, %99 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %122, %120 ], [ %130, %129 ], [ %126, %125 ], [ %96, %95 ], [ 1, %55 ], [ 1, %52 ], [ 1, %71 ], [ 1, %70 ], [ 1, %102 ], [ 1, %101 ], [ 1, %132 ], [ 1, %131 ]
+  %.0123205 = phi i32 [ %.0123, %138 ], [ %.0.i195.ph, %mbedtls_gcm_crypt_and_tag.exit198.thread ], [ %.0.i.ph, %mbedtls_gcm_crypt_and_tag.exit.thread ], [ %23, %26 ], [ %51, %mbedtls_gcm_crypt_and_tag.exit ], [ %62, %61 ], [ %69, %mbedtls_gcm_crypt_and_tag.exit198 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %92, %90 ], [ %100, %99 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %122, %120 ], [ %130, %129 ], [ %126, %125 ], [ %96, %95 ], [ 1, %55 ], [ 1, %52 ], [ 1, %71 ], [ 1, %70 ], [ 1, %102 ], [ 1, %101 ], [ 1, %132 ], [ 1, %131 ]
   br i1 %.not147, label %140, label %139
 
 139:                                              ; preds = %.thread
@@ -1628,8 +1628,8 @@ mbedtls_gcm_crypt_and_tag.exit198:                ; preds = %67
   br label %.thread208
 
 .thread208:                                       ; preds = %97, %127, %123, %93, %136, %137, %140, %138
-  %.0122206 = phi i32 [ %.0122205, %140 ], [ 0, %138 ], [ 0, %137 ], [ 0, %136 ], [ 0, %93 ], [ 0, %123 ], [ 0, %127 ], [ 0, %97 ]
-  ret i32 %.0122206
+  %.0123206 = phi i32 [ %.0123205, %140 ], [ 0, %138 ], [ 0, %137 ], [ 0, %136 ], [ 0, %93 ], [ 0, %123 ], [ 0, %127 ], [ 0, %97 ]
+  ret i32 %.0123206
 }
 
 ; Function Attrs: nofree nounwind

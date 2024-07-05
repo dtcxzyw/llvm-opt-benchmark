@@ -1656,9 +1656,9 @@ Abc_Clock.exit213:                                ; preds = %379, %386
   br label %410
 
 410:                                              ; preds = %408, %397
-  %.0150 = phi ptr [ %409, %408 ], [ %398, %397 ]
-  %411 = call ptr @Gia_ManCleanup(ptr noundef %.0150) #18
-  call void @Gia_ManStop(ptr noundef %.0150) #18
+  %.0149 = phi ptr [ %409, %408 ], [ %398, %397 ]
+  %411 = call ptr @Gia_ManCleanup(ptr noundef %.0149) #18
+  call void @Gia_ManStop(ptr noundef %.0149) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %412 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #18
   %413 = icmp slt i32 %412, 0

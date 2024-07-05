@@ -177,7 +177,7 @@ define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef 
 
 36:                                               ; preds = %.lr.ph74, %94
   %37 = phi i64 [ 0, %.lr.ph74 ], [ %96, %94 ]
-  %.05572 = phi i32 [ 0, %.lr.ph74 ], [ %95, %94 ]
+  %.072 = phi i32 [ 0, %.lr.ph74 ], [ %95, %94 ]
   %38 = load i32, ptr %28, align 8
   %.not62 = icmp eq i32 %38, 0
   br i1 %.not62, label %43, label %39
@@ -189,9 +189,9 @@ define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef 
   br label %43
 
 43:                                               ; preds = %36, %39
-  %.0 = phi i32 [ %42, %39 ], [ 0, %36 ]
+  %.055 = phi i32 [ %42, %39 ], [ 0, %36 ]
   %44 = load i32, ptr %29, align 8
-  %45 = add i32 %44, %.0
+  %45 = add i32 %44, %.055
   %spec.store.select = call i32 @llvm.umin.i32(i32 %45, i32 262144)
   store i32 %spec.store.select, ptr %11, align 8
   store i32 %spec.store.select, ptr %30, align 4
@@ -226,7 +226,7 @@ define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef 
   br i1 %55, label %.lr.ph70, label %._crit_edge71
 
 .lr.ph70:                                         ; preds = %._crit_edge
-  %56 = add i32 %.0, -3
+  %56 = add i32 %.055, -3
   br label %57
 
 57:                                               ; preds = %.lr.ph70, %74
@@ -296,7 +296,7 @@ define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef 
   br label %94
 
 94:                                               ; preds = %85, %89, %86
-  %95 = add i32 %.05572, 1
+  %95 = add i32 %.072, 1
   %96 = zext i32 %95 to i64
   %97 = icmp ult i64 %96, %1
   br i1 %97, label %36, label %._crit_edge75, !llvm.loop !8

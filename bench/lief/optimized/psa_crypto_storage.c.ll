@@ -405,19 +405,19 @@ define hidden i32 @psa_save_persistent_key(ptr nocapture noundef readonly %0, pt
 
 97:                                               ; preds = %93
   %spec.select.i = select i1 %.not16.i, i32 0, i32 -153
-  %.0.i = select i1 %.not15.i, i32 %spec.select.i, i32 %94
+  %.012.i = select i1 %.not15.i, i32 %spec.select.i, i32 %94
   %98 = call i32 @psa_its_remove(i64 noundef %88) #9
   br label %psa_crypto_storage_store.exit
 
 psa_crypto_storage_store.exit:                    ; preds = %14, %90, %93, %97
-  %.012.i = phi i32 [ -139, %14 ], [ -153, %90 ], [ %.0.i, %97 ], [ 0, %93 ]
+  %.0.i = phi i32 [ -139, %14 ], [ -153, %90 ], [ %.012.i, %97 ], [ 0, %93 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %12, i64 noundef %11) #9
   call void @free(ptr noundef nonnull %12) #9
   br label %99
 
 99:                                               ; preds = %10, %8, %3, %psa_crypto_storage_store.exit
-  %.0 = phi i32 [ %.012.i, %psa_crypto_storage_store.exit ], [ -135, %3 ], [ -142, %8 ], [ -141, %10 ]
+  %.0 = phi i32 [ %.0.i, %psa_crypto_storage_store.exit ], [ -135, %3 ], [ -142, %8 ], [ -141, %10 ]
   ret i32 %.0
 }
 

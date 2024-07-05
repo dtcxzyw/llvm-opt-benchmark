@@ -1890,8 +1890,8 @@ _ZN4core4iter8adapters11try_process17h7ebfa4a417da4123E.exit: ; preds = %39
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h63945f4143e430c7E.llvm.11644101286175177538.exit.i": ; preds = %67, %61
   %68 = load ptr, ptr %.sroa.420.0..sroa_idx, align 8, !alias.scope !450, !noalias !453, !nonnull !5, !noundef !5
-  %.not133 = icmp eq i64 %64, 0
-  br i1 %.not133, label %76, label %71
+  %.not139 = icmp eq i64 %64, 0
+  br i1 %.not139, label %76, label %71
 
 69:                                               ; preds = %67
   %70 = landingpad { ptr, i32 }
@@ -1987,9 +1987,9 @@ _ZN3std2io4copy12generic_copy17h3aa78b6cbea8bd97E.exit: ; preds = %88
   unreachable
 
 .thread120:                                       ; preds = %_ZN3std2io4copy12generic_copy17h3aa78b6cbea8bd97E.exit, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h2b43987936a00542E.exit", %94
-  %storemerge125 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h2b43987936a00542E.exit" ], [ %.val, %94 ], [ null, %_ZN3std2io4copy12generic_copy17h3aa78b6cbea8bd97E.exit ]
+  %storemerge127 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h2b43987936a00542E.exit" ], [ %.val, %94 ], [ null, %_ZN3std2io4copy12generic_copy17h3aa78b6cbea8bd97E.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  %.not57 = icmp eq ptr %storemerge125, null
+  %.not57 = icmp eq ptr %storemerge127, null
   %or.cond = and i1 %.not53, %.not57
   br i1 %or.cond, label %105, label %123
 
@@ -2074,20 +2074,20 @@ _ZN3std2io4copy12generic_copy17h3aa78b6cbea8bd97E.exit: ; preds = %88
 .noexc87:                                         ; preds = %118
   %119 = load i8, ptr %3, align 8, !range !20, !alias.scope !481, !noalias !474, !noundef !5
   %switch.not.i.i.i.i.i85 = icmp eq i8 %119, 3
-  br i1 %switch.not.i.i.i.i.i85, label %120, label %.thread132
+  br i1 %switch.not.i.i.i.i.i85, label %120, label %.thread137
 
 120:                                              ; preds = %.noexc87
   %121 = getelementptr inbounds i8, ptr %3, i64 8
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h9d3b9bf413ee07c6E.llvm.7235721625540830308"(ptr noalias noundef nonnull align 8 dereferenceable(8) %121)
-          to label %.thread132 unwind label %103
+          to label %.thread137 unwind label %103
 
-.thread132:                                       ; preds = %120, %.noexc87
+.thread137:                                       ; preds = %120, %.noexc87
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !474
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hd7274ca64a1b3d24E.exit94"
 
 122:                                              ; preds = %113
-  %.not134 = icmp eq i64 %116, 0
-  %spec.select = select i1 %.not134, ptr null, ptr inttoptr (i64 167503724547 to ptr)
+  %.not140 = icmp eq i64 %116, 0
+  %spec.select = select i1 %.not140, ptr null, ptr inttoptr (i64 167503724547 to ptr)
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hd7274ca64a1b3d24E.exit94"
 
 123:                                              ; preds = %.thread120
@@ -2095,7 +2095,7 @@ _ZN3std2io4copy12generic_copy17h3aa78b6cbea8bd97E.exit: ; preds = %88
 
 124:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !484
-  invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h32d9e88ab366f8eeE.llvm.7235721625540830308(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %2, ptr noundef nonnull %storemerge125)
+  invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h32d9e88ab366f8eeE.llvm.7235721625540830308(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %2, ptr noundef nonnull %storemerge127)
           to label %.noexc92 unwind label %91
 
 .noexc92:                                         ; preds = %124
@@ -2112,8 +2112,8 @@ _ZN3std2io4copy12generic_copy17h3aa78b6cbea8bd97E.exit: ; preds = %88
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !484
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hd7274ca64a1b3d24E.exit94"
 
-"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hd7274ca64a1b3d24E.exit94": ; preds = %122, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h2b43987936a00542E.exit.i91", %123, %.thread132
-  %.0130 = phi ptr [ inttoptr (i64 167503724547 to ptr), %123 ], [ inttoptr (i64 167503724547 to ptr), %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h2b43987936a00542E.exit.i91" ], [ inttoptr (i64 167503724547 to ptr), %.thread132 ], [ %spec.select, %122 ]
+"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hd7274ca64a1b3d24E.exit94": ; preds = %122, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h2b43987936a00542E.exit.i91", %123, %.thread137
+  %.0136 = phi ptr [ inttoptr (i64 167503724547 to ptr), %123 ], [ inttoptr (i64 167503724547 to ptr), %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h2b43987936a00542E.exit.i91" ], [ inttoptr (i64 167503724547 to ptr), %.thread137 ], [ %spec.select, %122 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !494)
   call void @llvm.experimental.noalias.scope.decl(metadata !497)
   %128 = load ptr, ptr %13, align 8, !alias.scope !500, !noundef !5
@@ -2146,7 +2146,7 @@ _ZN3std2io4copy12generic_copy17h3aa78b6cbea8bd97E.exit: ; preds = %88
   br label %135
 
 135:                                              ; preds = %27, %24, %"_ZN4core3ptr40drop_in_place$LT$uu_tee..NamedReader$GT$17h42ef008decc29c4fE.exit", %48
-  %.1 = phi ptr [ %.sroa.5.0107, %48 ], [ %.0130, %"_ZN4core3ptr40drop_in_place$LT$uu_tee..NamedReader$GT$17h42ef008decc29c4fE.exit" ], [ inttoptr (i64 167503724547 to ptr), %24 ], [ inttoptr (i64 167503724547 to ptr), %27 ]
+  %.1 = phi ptr [ %.sroa.5.0107, %48 ], [ %.0136, %"_ZN4core3ptr40drop_in_place$LT$uu_tee..NamedReader$GT$17h42ef008decc29c4fE.exit" ], [ inttoptr (i64 167503724547 to ptr), %24 ], [ inttoptr (i64 167503724547 to ptr), %27 ]
   ret ptr %.1
 
 .thread:                                          ; preds = %69, %54, %.thread118
@@ -2780,8 +2780,8 @@ default.unreachable62:                            ; preds = %34
   br label %143
 
 143:                                              ; preds = %115, %141, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h2b43987936a00542E.exit"
-  %.060 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h2b43987936a00542E.exit" ], [ %142, %141 ], [ %116, %115 ]
-  ret ptr %.060
+  %.05660 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h2b43987936a00542E.exit" ], [ %142, %141 ], [ %116, %115 ]
+  ret ptr %.05660
 
 .sink.split:                                      ; preds = %92, %67
   %144 = load i64, ptr %3, align 8, !noundef !5

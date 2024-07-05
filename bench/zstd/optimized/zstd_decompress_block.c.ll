@@ -63,7 +63,7 @@ return:                                           ; preds = %do.end8, %entry, %d
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_decodeLiteralsBlock_wrapper(ptr noundef %dctx, ptr noundef %src, i64 noundef %srcSize, ptr noundef %dst, i64 noundef %dstCapacity) local_unnamed_addr #1 {
+define range(i64 -70, 1048579) i64 @ZSTD_decodeLiteralsBlock_wrapper(ptr noundef %dctx, ptr noundef %src, i64 noundef %srcSize, ptr noundef %dst, i64 noundef %dstCapacity) local_unnamed_addr #1 {
 entry:
   %isFrameDecompression = getelementptr inbounds i8, ptr %dctx, i64 30176
   store i32 0, ptr %isFrameDecompression, align 8
@@ -72,7 +72,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_decodeLiteralsBlock(ptr noundef %dctx, ptr noundef %src, i64 noundef %srcSize, ptr noundef %dst, i64 noundef %dstCapacity, i32 noundef %streaming) unnamed_addr #1 {
+define internal fastcc range(i64 -70, 1048579) i64 @ZSTD_decodeLiteralsBlock(ptr noundef %dctx, ptr noundef %src, i64 noundef %srcSize, ptr noundef %dst, i64 noundef %dstCapacity, i32 noundef %streaming) unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %srcSize, 2
   br i1 %cmp, label %sw.epilog508, label %do.end10
@@ -158,10 +158,10 @@ sw.bb67:                                          ; preds = %do.end41
   br label %do.body75
 
 do.body75:                                        ; preds = %sw.default, %sw.bb61, %sw.bb67
-  %lhSize.0 = phi i64 [ 3, %sw.default ], [ 4, %sw.bb61 ], [ 5, %sw.bb67 ]
-  %litSize.0.in = phi i32 [ %and56, %sw.default ], [ %and63, %sw.bb61 ], [ %and69, %sw.bb67 ]
-  %litCSize.0 = phi i64 [ %conv60, %sw.default ], [ %conv66, %sw.bb61 ], [ %add, %sw.bb67 ]
   %singleStream.0 = phi i1 [ %tobool54.not, %sw.default ], [ true, %sw.bb61 ], [ true, %sw.bb67 ]
+  %litCSize.0 = phi i64 [ %conv60, %sw.default ], [ %conv66, %sw.bb61 ], [ %add, %sw.bb67 ]
+  %litSize.0.in = phi i32 [ %and56, %sw.default ], [ %and63, %sw.bb61 ], [ %and69, %sw.bb67 ]
+  %lhSize.0 = phi i64 [ 3, %sw.default ], [ 4, %sw.bb61 ], [ 5, %sw.bb67 ]
   %litSize.0 = zext nneg i32 %litSize.0.in to i64
   %cmp76 = icmp ne i32 %litSize.0.in, 0
   %cmp78 = icmp eq ptr %dst, null
@@ -174,11 +174,11 @@ do.body91:                                        ; preds = %do.body75
 
 do.end104:                                        ; preds = %do.body91
   %cmp108 = icmp ult i32 %litSize.0.in, 6
-  %or.cond4 = and i1 %cmp108, %singleStream.0
+  %or.cond4 = and i1 %singleStream.0, %cmp108
   br i1 %or.cond4, label %sw.epilog508, label %do.body122
 
 do.body122:                                       ; preds = %do.end104
-  %add123 = add nuw nsw i64 %litCSize.0, %lhSize.0
+  %add123 = add nuw nsw i64 %lhSize.0, %litCSize.0
   %cmp124 = icmp ugt i64 %add123, %srcSize
   br i1 %cmp124, label %sw.epilog508, label %do.body137
 
@@ -733,11 +733,11 @@ for.cond64.i.preheader.i:                         ; preds = %for.cond64.i.prehea
 
 for.body43.i.i:                                   ; preds = %for.end56.i.i, %for.body43.i.preheader.i
   %indvars.iv114.i = phi i64 [ 0, %for.body43.i.preheader.i ], [ %indvars.iv.next115.i, %for.end56.i.i ]
+  %pos.i.098.i = phi i64 [ 0, %for.body43.i.preheader.i ], [ %add58.i.i, %for.end56.i.i ]
   %sv.i.097.i = phi i64 [ 0, %for.body43.i.preheader.i ], [ %add61.i.i, %for.end56.i.i ]
-  %pos.i.096.i = phi i64 [ 0, %for.body43.i.preheader.i ], [ %add58.i.i, %for.end56.i.i ]
   %arrayidx45.i.i = getelementptr inbounds i16, ptr %normalizedCounter, i64 %indvars.iv114.i
   %3 = load i16, ptr %arrayidx45.i.i, align 2
-  %add.ptr47.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 %pos.i.096.i
+  %add.ptr47.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 %pos.i.098.i
   store i64 %sv.i.097.i, ptr %add.ptr47.i.i, align 1
   %cmp49.i93.i = icmp sgt i16 %3, 8
   br i1 %cmp49.i93.i, label %for.body51.i.preheader.i, label %for.end56.i.i
@@ -756,32 +756,32 @@ for.body51.i.i:                                   ; preds = %for.body51.i.i, %fo
 
 for.end56.i.i:                                    ; preds = %for.body51.i.i, %for.body43.i.i
   %conv57.i.i = sext i16 %3 to i64
-  %add58.i.i = add i64 %pos.i.096.i, %conv57.i.i
+  %add58.i.i = add i64 %pos.i.098.i, %conv57.i.i
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
   %add61.i.i = add i64 %sv.i.097.i, 72340172838076673
   %exitcond118.not.i = icmp eq i64 %indvars.iv.next115.i, %wide.trip.count.i
   br i1 %exitcond118.not.i, label %for.cond64.i.preheader.i.loopexit, label %for.body43.i.i, !llvm.loop !8
 
 for.cond69.i.preheader.i:                         ; preds = %for.cond69.i.preheader.i, %for.cond64.i.preheader.i
-  %s63.i.0101.i = phi i64 [ 0, %for.cond64.i.preheader.i ], [ %add86.i.i, %for.cond69.i.preheader.i ]
-  %position.i.0100.i = phi i64 [ 0, %for.cond64.i.preheader.i ], [ %and84.i.i, %for.cond69.i.preheader.i ]
-  %and.i.i = and i64 %position.i.0100.i, %conv33.i134.i
-  %arrayidx75.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 %s63.i.0101.i
+  %position.i.0101.i = phi i64 [ 0, %for.cond64.i.preheader.i ], [ %and84.i.i, %for.cond69.i.preheader.i ]
+  %s63.i.0100.i = phi i64 [ 0, %for.cond64.i.preheader.i ], [ %add86.i.i, %for.cond69.i.preheader.i ]
+  %and.i.i = and i64 %position.i.0101.i, %conv33.i134.i
+  %arrayidx75.i.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 %s63.i.0100.i
   %5 = load i8, ptr %arrayidx75.i.i, align 1
   %conv76.i.i = zext i8 %5 to i32
   %baseValue78.i.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i.i, i64 %and.i.i, i32 3
   store i32 %conv76.i.i, ptr %baseValue78.i.i, align 4
-  %add73.i.i.c = add nuw nsw i64 %position.i.0100.i, %conv37.i135.i
+  %add73.i.i.c = add nuw nsw i64 %position.i.0101.i, %conv37.i135.i
   %and.i.i.c = and i64 %add73.i.i.c, %conv33.i134.i
-  %add74.i.i.c = or disjoint i64 %s63.i.0101.i, 1
+  %add74.i.i.c = or disjoint i64 %s63.i.0100.i, 1
   %arrayidx75.i.i.c = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 %add74.i.i.c
   %6 = load i8, ptr %arrayidx75.i.i.c, align 1
   %conv76.i.i.c = zext i8 %6 to i32
   %baseValue78.i.i.c = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i.i, i64 %and.i.i.c, i32 3
   store i32 %conv76.i.i.c, ptr %baseValue78.i.i.c, align 4
-  %add83.i.i = add nuw nsw i64 %position.i.0100.i, %mul82.i.i
+  %add83.i.i = add nuw nsw i64 %position.i.0101.i, %mul82.i.i
   %and84.i.i = and i64 %add83.i.i, %conv33.i134.i
-  %add86.i.i = add nuw nsw i64 %s63.i.0101.i, 2
+  %add86.i.i = add nuw nsw i64 %s63.i.0100.i, 2
   %cmp66.i.i = icmp ult i64 %add86.i.i, %conv65.i.i
   br i1 %cmp66.i.i, label %for.cond69.i.preheader.i, label %if.end127.i.i, !llvm.loop !9
 
@@ -793,7 +793,7 @@ for.body101.i.lr.ph.i:                            ; preds = %for.end.i.i
 
 for.body101.i.i:                                  ; preds = %for.end123.i.i, %for.body101.i.lr.ph.i
   %indvars.iv106.i = phi i64 [ 0, %for.body101.i.lr.ph.i ], [ %indvars.iv.next107.i, %for.end123.i.i ]
-  %position97.i.092.i = phi i32 [ 0, %for.body101.i.lr.ph.i ], [ %position97.i.1.lcssa.i, %for.end123.i.i ]
+  %position97.i.091.i = phi i32 [ 0, %for.body101.i.lr.ph.i ], [ %position97.i.1.lcssa.i, %for.end123.i.i ]
   %arrayidx105.i.i = getelementptr inbounds i16, ptr %normalizedCounter, i64 %indvars.iv106.i
   %7 = load i16, ptr %arrayidx105.i.i, align 2
   %conv106.i.i = sext i16 %7 to i32
@@ -806,7 +806,7 @@ for.body110.i.preheader.i:                        ; preds = %for.body101.i.i
 
 for.body110.i.i:                                  ; preds = %while.end.i.i, %for.body110.i.preheader.i
   %i102.i.088.i = phi i32 [ %inc122.i.i, %while.end.i.i ], [ 0, %for.body110.i.preheader.i ]
-  %position97.i.187.i = phi i32 [ %position97.i.2.i, %while.end.i.i ], [ %position97.i.092.i, %for.body110.i.preheader.i ]
+  %position97.i.187.i = phi i32 [ %position97.i.2.i, %while.end.i.i ], [ %position97.i.091.i, %for.body110.i.preheader.i ]
   %idxprom111.i.i = zext i32 %position97.i.187.i to i64
   %baseValue113.i.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i.i, i64 %idxprom111.i.i, i32 3
   store i32 %8, ptr %baseValue113.i.i, align 4
@@ -825,7 +825,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
   br i1 %exitcond105.not.i, label %for.end123.i.i, label %for.body110.i.i, !llvm.loop !11
 
 for.end123.i.i:                                   ; preds = %while.end.i.i, %for.body101.i.i
-  %position97.i.1.lcssa.i = phi i32 [ %position97.i.092.i, %for.body101.i.i ], [ %position97.i.2.i, %while.end.i.i ]
+  %position97.i.1.lcssa.i = phi i32 [ %position97.i.091.i, %for.body101.i.i ], [ %position97.i.2.i, %while.end.i.i ]
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
   %exitcond110.not.i = icmp eq i64 %indvars.iv.next107.i, %wide.trip.count.i
   br i1 %exitcond110.not.i, label %if.end127.i.i.loopexit10, label %for.body101.i.i, !llvm.loop !12
@@ -964,11 +964,11 @@ for.cond64.i.preheader:                           ; preds = %for.end56.i, %if.th
 
 for.body43.i:                                     ; preds = %for.body43.i.preheader, %for.end56.i
   %indvars.iv114 = phi i64 [ 0, %for.body43.i.preheader ], [ %indvars.iv.next115, %for.end56.i ]
+  %pos.i.098 = phi i64 [ 0, %for.body43.i.preheader ], [ %add58.i, %for.end56.i ]
   %sv.i.097 = phi i64 [ 0, %for.body43.i.preheader ], [ %add61.i, %for.end56.i ]
-  %pos.i.096 = phi i64 [ 0, %for.body43.i.preheader ], [ %add58.i, %for.end56.i ]
   %arrayidx45.i = getelementptr inbounds i16, ptr %normalizedCounter, i64 %indvars.iv114
   %3 = load i16, ptr %arrayidx45.i, align 2
-  %add.ptr47.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %pos.i.096
+  %add.ptr47.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %pos.i.098
   store i64 %sv.i.097, ptr %add.ptr47.i, align 1
   %cmp49.i93 = icmp sgt i16 %3, 8
   br i1 %cmp49.i93, label %for.body51.i.preheader, label %for.end56.i
@@ -987,32 +987,32 @@ for.body51.i:                                     ; preds = %for.body51.i.prehea
 
 for.end56.i:                                      ; preds = %for.body51.i, %for.body43.i
   %conv57.i = sext i16 %3 to i64
-  %add58.i = add i64 %pos.i.096, %conv57.i
+  %add58.i = add i64 %pos.i.098, %conv57.i
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %add61.i = add i64 %sv.i.097, 72340172838076673
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
   br i1 %exitcond118.not, label %for.cond64.i.preheader, label %for.body43.i, !llvm.loop !8
 
 for.cond69.i.preheader:                           ; preds = %for.cond64.i.preheader, %for.cond69.i.preheader
-  %s63.i.0101 = phi i64 [ 0, %for.cond64.i.preheader ], [ %add86.i, %for.cond69.i.preheader ]
-  %position.i.0100 = phi i64 [ 0, %for.cond64.i.preheader ], [ %and84.i, %for.cond69.i.preheader ]
-  %and.i = and i64 %position.i.0100, %conv33.i134
-  %arrayidx75.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %s63.i.0101
+  %position.i.0101 = phi i64 [ 0, %for.cond64.i.preheader ], [ %and84.i, %for.cond69.i.preheader ]
+  %s63.i.0100 = phi i64 [ 0, %for.cond64.i.preheader ], [ %add86.i, %for.cond69.i.preheader ]
+  %and.i = and i64 %position.i.0101, %conv33.i134
+  %arrayidx75.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %s63.i.0100
   %5 = load i8, ptr %arrayidx75.i, align 1
   %conv76.i = zext i8 %5 to i32
   %baseValue78.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i, i64 %and.i, i32 3
   store i32 %conv76.i, ptr %baseValue78.i, align 4
-  %add73.i.c = add nuw nsw i64 %position.i.0100, %conv37.i135
+  %add73.i.c = add nuw nsw i64 %position.i.0101, %conv37.i135
   %and.i.c = and i64 %add73.i.c, %conv33.i134
-  %add74.i.c = or disjoint i64 %s63.i.0101, 1
+  %add74.i.c = or disjoint i64 %s63.i.0100, 1
   %arrayidx75.i.c = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %add74.i.c
   %6 = load i8, ptr %arrayidx75.i.c, align 1
   %conv76.i.c = zext i8 %6 to i32
   %baseValue78.i.c = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i, i64 %and.i.c, i32 3
   store i32 %conv76.i.c, ptr %baseValue78.i.c, align 4
-  %add83.i = add nuw nsw i64 %position.i.0100, %mul82.i
+  %add83.i = add nuw nsw i64 %position.i.0101, %mul82.i
   %and84.i = and i64 %add83.i, %conv33.i134
-  %add86.i = add nuw nsw i64 %s63.i.0101, 2
+  %add86.i = add nuw nsw i64 %s63.i.0100, 2
   %cmp66.i = icmp ult i64 %add86.i, %conv65.i
   br i1 %cmp66.i, label %for.cond69.i.preheader, label %if.end127.i, !llvm.loop !9
 
@@ -1029,7 +1029,7 @@ for.body101.i.lr.ph:                              ; preds = %if.else88.i
 
 for.body101.i:                                    ; preds = %for.body101.i.lr.ph, %for.end123.i
   %indvars.iv106 = phi i64 [ 0, %for.body101.i.lr.ph ], [ %indvars.iv.next107, %for.end123.i ]
-  %position97.i.092 = phi i32 [ 0, %for.body101.i.lr.ph ], [ %position97.i.1.lcssa, %for.end123.i ]
+  %position97.i.091 = phi i32 [ 0, %for.body101.i.lr.ph ], [ %position97.i.1.lcssa, %for.end123.i ]
   %arrayidx105.i = getelementptr inbounds i16, ptr %normalizedCounter, i64 %indvars.iv106
   %7 = load i16, ptr %arrayidx105.i, align 2
   %conv106.i = sext i16 %7 to i32
@@ -1042,7 +1042,7 @@ for.body110.i.preheader:                          ; preds = %for.body101.i
 
 for.body110.i:                                    ; preds = %for.body110.i.preheader, %while.end.i
   %i102.i.088 = phi i32 [ %inc122.i, %while.end.i ], [ 0, %for.body110.i.preheader ]
-  %position97.i.187 = phi i32 [ %position97.i.2, %while.end.i ], [ %position97.i.092, %for.body110.i.preheader ]
+  %position97.i.187 = phi i32 [ %position97.i.2, %while.end.i ], [ %position97.i.091, %for.body110.i.preheader ]
   %idxprom111.i = zext i32 %position97.i.187 to i64
   %baseValue113.i = getelementptr inbounds %struct.ZSTD_seqSymbol, ptr %add.ptr.i, i64 %idxprom111.i, i32 3
   store i32 %8, ptr %baseValue113.i, align 4
@@ -1061,7 +1061,7 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %exitcond105.not, label %for.end123.i, label %for.body110.i, !llvm.loop !11
 
 for.end123.i:                                     ; preds = %while.end.i, %for.body101.i
-  %position97.i.1.lcssa = phi i32 [ %position97.i.092, %for.body101.i ], [ %position97.i.2, %while.end.i ]
+  %position97.i.1.lcssa = phi i32 [ %position97.i.091, %for.body101.i ], [ %position97.i.2, %while.end.i ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
   br i1 %exitcond110.not, label %if.end127.i, label %for.body101.i, !llvm.loop !12
@@ -1160,8 +1160,8 @@ do.end47:                                         ; preds = %do.body34
   br label %if.end52
 
 if.end52:                                         ; preds = %do.end47, %do.end10
-  %ip.0 = phi ptr [ %incdec.ptr48, %do.end47 ], [ %incdec.ptr, %do.end10 ]
   %nbSeq.0 = phi i32 [ %add50, %do.end47 ], [ %conv, %do.end10 ]
+  %ip.0 = phi ptr [ %incdec.ptr48, %do.end47 ], [ %incdec.ptr, %do.end10 ]
   store i32 %nbSeq.0, ptr %nbSeqPtr, align 4
   %cmp53 = icmp eq i32 %nbSeq.0, 0
   br i1 %cmp53, label %do.body56, label %do.body71
@@ -1172,14 +1172,14 @@ do.body56:                                        ; preds = %if.end52
   br label %return
 
 do.body71:                                        ; preds = %if.end52.thread, %if.end52
-  %nbSeq.0154 = phi i32 [ %add, %if.end52.thread ], [ %nbSeq.0, %if.end52 ]
-  %ip.0153 = phi ptr [ %add.ptr18, %if.end52.thread ], [ %ip.0, %if.end52 ]
-  %add.ptr72 = getelementptr inbounds i8, ptr %ip.0153, i64 1
+  %ip.0154 = phi ptr [ %add.ptr18, %if.end52.thread ], [ %ip.0, %if.end52 ]
+  %nbSeq.0153 = phi i32 [ %add, %if.end52.thread ], [ %nbSeq.0, %if.end52 ]
+  %add.ptr72 = getelementptr inbounds i8, ptr %ip.0154, i64 1
   %cmp73 = icmp ugt ptr %add.ptr72, %add.ptr
   br i1 %cmp73, label %return, label %do.end85
 
 do.end85:                                         ; preds = %do.body71
-  %2 = load i8, ptr %ip.0153, align 1
+  %2 = load i8, ptr %ip.0154, align 1
   %conv86 = zext i8 %2 to i32
   %shr = lshr i32 %conv86, 6
   %shr90 = lshr i32 %conv86, 2
@@ -1238,7 +1238,7 @@ do.body27.i:                                      ; preds = %do.end85
 
 do.end39.i:                                       ; preds = %do.body27.i
   %tobool40.i = icmp ne i32 %4, 0
-  %cmp41.i = icmp sgt i32 %nbSeq.0154, 24
+  %cmp41.i = icmp sgt i32 %nbSeq.0153, 24
   %or.cond.i = and i1 %cmp41.i, %tobool40.i
   br i1 %or.cond.i, label %if.then43.i, label %do.end111
 
@@ -1350,7 +1350,7 @@ do.body27.i77:                                    ; preds = %do.end111
 
 do.end39.i79:                                     ; preds = %do.body27.i77
   %tobool40.i80 = icmp ne i32 %12, 0
-  %cmp41.i81 = icmp sgt i32 %nbSeq.0154, 24
+  %cmp41.i81 = icmp sgt i32 %nbSeq.0153, 24
   %or.cond.i82 = and i1 %cmp41.i81, %tobool40.i80
   br i1 %or.cond.i82, label %if.then43.i83, label %do.end137
 
@@ -1457,7 +1457,7 @@ do.body27.i120:                                   ; preds = %do.end137
 
 do.end39.i122:                                    ; preds = %do.body27.i120
   %tobool40.i123 = icmp ne i32 %21, 0
-  %cmp41.i124 = icmp sgt i32 %nbSeq.0154, 24
+  %cmp41.i124 = icmp sgt i32 %nbSeq.0153, 24
   %or.cond.i125 = and i1 %cmp41.i124, %tobool40.i123
   br i1 %or.cond.i125, label %if.then43.i126, label %do.end163
 
@@ -1545,7 +1545,7 @@ do.end10:                                         ; preds = %ZSTD_blockSizeMax.e
 
 if.end16:                                         ; preds = %do.end10
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %call11
-  %sub = sub i64 %srcSize, %call11
+  %sub = sub nsw i64 %srcSize, %call11
   %3 = load i32, ptr %isFrameDecompression.i, align 8
   %tobool.not.i55 = icmp eq i32 %3, 0
   br i1 %tobool.not.i55, label %ZSTD_blockSizeMax.exit59, label %ZSTD_blockSizeMax.exit59.thread
@@ -2782,12 +2782,12 @@ while.cond.preheader.i.i:                         ; preds = %if.end83.i.i
   br i1 %cmp250.i.i, label %while.body.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i
 
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %while.body.i.i
-  %ip.addr.052.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %112, %while.cond.preheader.i.i ]
-  %op.addr.051.i.i = phi ptr [ %incdec.ptr3.i.i, %while.body.i.i ], [ %op.i.02020.i, %while.cond.preheader.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ip.addr.052.i.i, i64 1
-  %115 = load i8, ptr %ip.addr.052.i.i, align 1
-  %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %op.addr.051.i.i, i64 1
-  store i8 %115, ptr %op.addr.051.i.i, align 1
+  %op.addr.052.i.i = phi ptr [ %incdec.ptr3.i.i, %while.body.i.i ], [ %op.i.02020.i, %while.cond.preheader.i.i ]
+  %ip.addr.051.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %112, %while.cond.preheader.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ip.addr.051.i.i, i64 1
+  %115 = load i8, ptr %ip.addr.051.i.i, align 1
+  %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %op.addr.052.i.i, i64 1
+  store i8 %115, ptr %op.addr.052.i.i, align 1
   %cmp2.i1739.i = icmp ult ptr %incdec.ptr3.i.i, %add.ptr.i1733.i
   br i1 %cmp2.i1739.i, label %while.body.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i, !llvm.loop !24
 
@@ -2811,8 +2811,8 @@ if.end.i.i1738.i:                                 ; preds = %if.then7.i.i
   br label %do.body11.i.i.i
 
 do.body11.i.i.i:                                  ; preds = %do.body11.i.i.i, %if.end.i.i1738.i
-  %ip.pn.i.i = phi ptr [ %112, %if.end.i.i1738.i ], [ %add.ptr14.i.i.i, %do.body11.i.i.i ]
   %op.i.1.i.i = phi ptr [ %add.ptr9.i.i.i, %if.end.i.i1738.i ], [ %add.ptr18.i.i.i, %do.body11.i.i.i ]
+  %ip.pn.i.i = phi ptr [ %112, %if.end.i.i1738.i ], [ %add.ptr14.i.i.i, %do.body11.i.i.i ]
   %ip.i.1.i.i = getelementptr inbounds i8, ptr %ip.pn.i.i, i64 16
   %117 = load <2 x i64>, ptr %ip.i.1.i.i, align 1
   store <2 x i64> %117, ptr %op.i.1.i.i, align 1
@@ -2829,17 +2829,17 @@ if.end22.thread.i.i:                              ; preds = %do.body11.i.i.i, %i
   br label %while.body25.i.i.preheader
 
 while.body25.i.i.preheader:                       ; preds = %if.end22.thread.i.i, %if.end.i1735.i
-  %ip.addr.249.i.i.ph = phi ptr [ %112, %if.end.i1735.i ], [ %add.ptr16.i.i, %if.end22.thread.i.i ]
-  %op.addr.248.i.i.ph = phi ptr [ %op.i.02020.i, %if.end.i1735.i ], [ %add.ptr4.i1736.i, %if.end22.thread.i.i ]
+  %op.addr.249.i.i.ph = phi ptr [ %op.i.02020.i, %if.end.i1735.i ], [ %add.ptr4.i1736.i, %if.end22.thread.i.i ]
+  %ip.addr.248.i.i.ph = phi ptr [ %112, %if.end.i1735.i ], [ %add.ptr16.i.i, %if.end22.thread.i.i ]
   br label %while.body25.i.i
 
 while.body25.i.i:                                 ; preds = %while.body25.i.i.preheader, %while.body25.i.i
-  %ip.addr.249.i.i = phi ptr [ %incdec.ptr26.i.i, %while.body25.i.i ], [ %ip.addr.249.i.i.ph, %while.body25.i.i.preheader ]
-  %op.addr.248.i.i = phi ptr [ %incdec.ptr27.i.i, %while.body25.i.i ], [ %op.addr.248.i.i.ph, %while.body25.i.i.preheader ]
-  %incdec.ptr26.i.i = getelementptr inbounds i8, ptr %ip.addr.249.i.i, i64 1
-  %119 = load i8, ptr %ip.addr.249.i.i, align 1
-  %incdec.ptr27.i.i = getelementptr inbounds i8, ptr %op.addr.248.i.i, i64 1
-  store i8 %119, ptr %op.addr.248.i.i, align 1
+  %op.addr.249.i.i = phi ptr [ %incdec.ptr27.i.i, %while.body25.i.i ], [ %op.addr.249.i.i.ph, %while.body25.i.i.preheader ]
+  %ip.addr.248.i.i = phi ptr [ %incdec.ptr26.i.i, %while.body25.i.i ], [ %ip.addr.248.i.i.ph, %while.body25.i.i.preheader ]
+  %incdec.ptr26.i.i = getelementptr inbounds i8, ptr %ip.addr.248.i.i, i64 1
+  %119 = load i8, ptr %ip.addr.248.i.i, align 1
+  %incdec.ptr27.i.i = getelementptr inbounds i8, ptr %op.addr.249.i.i, i64 1
+  store i8 %119, ptr %op.addr.249.i.i, align 1
   %cmp24.i.i = icmp ult ptr %incdec.ptr27.i.i, %add.ptr.i1733.i
   br i1 %cmp24.i.i, label %while.body25.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i, !llvm.loop !26
 
@@ -3130,12 +3130,12 @@ while.cond.preheader.i.i.i:                       ; preds = %do.end45.i.i
   br i1 %cmp250.i.i.i, label %while.body.i.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.preheader.i.i.i, %while.body.i.i.i
-  %ip.addr.052.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %112, %while.cond.preheader.i.i.i ]
-  %op.addr.051.i.i.i = phi ptr [ %incdec.ptr3.i.i.i, %while.body.i.i.i ], [ %op.i.02020.i, %while.cond.preheader.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %ip.addr.052.i.i.i, i64 1
-  %141 = load i8, ptr %ip.addr.052.i.i.i, align 1
-  %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %op.addr.051.i.i.i, i64 1
-  store i8 %141, ptr %op.addr.051.i.i.i, align 1
+  %op.addr.052.i.i.i = phi ptr [ %incdec.ptr3.i.i.i, %while.body.i.i.i ], [ %op.i.02020.i, %while.cond.preheader.i.i.i ]
+  %ip.addr.051.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %112, %while.cond.preheader.i.i.i ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %ip.addr.051.i.i.i, i64 1
+  %141 = load i8, ptr %ip.addr.051.i.i.i, align 1
+  %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %op.addr.052.i.i.i, i64 1
+  store i8 %141, ptr %op.addr.052.i.i.i, align 1
   %cmp2.i.i.i = icmp ult ptr %incdec.ptr3.i.i.i, %add.ptr.i610.i
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i.i, !llvm.loop !24
 
@@ -3159,8 +3159,8 @@ if.end.i.i.i.i:                                   ; preds = %if.then7.i.i.i
   br label %do.body11.i.i.i.i
 
 do.body11.i.i.i.i:                                ; preds = %do.body11.i.i.i.i, %if.end.i.i.i.i
-  %ip.pn.i.i.i = phi ptr [ %112, %if.end.i.i.i.i ], [ %add.ptr14.i.i.i.i, %do.body11.i.i.i.i ]
   %op.i.1.i.i.i = phi ptr [ %add.ptr9.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr18.i.i.i.i, %do.body11.i.i.i.i ]
+  %ip.pn.i.i.i = phi ptr [ %112, %if.end.i.i.i.i ], [ %add.ptr14.i.i.i.i, %do.body11.i.i.i.i ]
   %ip.i.1.i.i.i = getelementptr inbounds i8, ptr %ip.pn.i.i.i, i64 16
   %143 = load <2 x i64>, ptr %ip.i.1.i.i.i, align 1
   store <2 x i64> %143, ptr %op.i.1.i.i.i, align 1
@@ -3177,17 +3177,17 @@ if.end22.thread.i.i.i:                            ; preds = %do.body11.i.i.i.i, 
   br label %while.body25.i.i.i.preheader
 
 while.body25.i.i.i.preheader:                     ; preds = %if.end22.thread.i.i.i, %if.end.i.i1758.i
-  %ip.addr.249.i.i.i.ph = phi ptr [ %112, %if.end.i.i1758.i ], [ %add.ptr16.i.i.i, %if.end22.thread.i.i.i ]
-  %op.addr.248.i.i.i.ph = phi ptr [ %op.i.02020.i, %if.end.i.i1758.i ], [ %add.ptr4.i.i.i, %if.end22.thread.i.i.i ]
+  %op.addr.249.i.i.i.ph = phi ptr [ %op.i.02020.i, %if.end.i.i1758.i ], [ %add.ptr4.i.i.i, %if.end22.thread.i.i.i ]
+  %ip.addr.248.i.i.i.ph = phi ptr [ %112, %if.end.i.i1758.i ], [ %add.ptr16.i.i.i, %if.end22.thread.i.i.i ]
   br label %while.body25.i.i.i
 
 while.body25.i.i.i:                               ; preds = %while.body25.i.i.i.preheader, %while.body25.i.i.i
-  %ip.addr.249.i.i.i = phi ptr [ %incdec.ptr26.i.i.i, %while.body25.i.i.i ], [ %ip.addr.249.i.i.i.ph, %while.body25.i.i.i.preheader ]
-  %op.addr.248.i.i.i = phi ptr [ %incdec.ptr27.i.i.i, %while.body25.i.i.i ], [ %op.addr.248.i.i.i.ph, %while.body25.i.i.i.preheader ]
-  %incdec.ptr26.i.i.i = getelementptr inbounds i8, ptr %ip.addr.249.i.i.i, i64 1
-  %145 = load i8, ptr %ip.addr.249.i.i.i, align 1
-  %incdec.ptr27.i.i.i = getelementptr inbounds i8, ptr %op.addr.248.i.i.i, i64 1
-  store i8 %145, ptr %op.addr.248.i.i.i, align 1
+  %op.addr.249.i.i.i = phi ptr [ %incdec.ptr27.i.i.i, %while.body25.i.i.i ], [ %op.addr.249.i.i.i.ph, %while.body25.i.i.i.preheader ]
+  %ip.addr.248.i.i.i = phi ptr [ %incdec.ptr26.i.i.i, %while.body25.i.i.i ], [ %ip.addr.248.i.i.i.ph, %while.body25.i.i.i.preheader ]
+  %incdec.ptr26.i.i.i = getelementptr inbounds i8, ptr %ip.addr.248.i.i.i, i64 1
+  %145 = load i8, ptr %ip.addr.248.i.i.i, align 1
+  %incdec.ptr27.i.i.i = getelementptr inbounds i8, ptr %op.addr.249.i.i.i, i64 1
+  store i8 %145, ptr %op.addr.249.i.i.i, align 1
   %cmp24.i.i.i = icmp ult ptr %incdec.ptr27.i.i.i, %add.ptr.i610.i
   br i1 %cmp24.i.i.i, label %while.body25.i.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i.i, !llvm.loop !26
 
@@ -3733,12 +3733,12 @@ while.cond.preheader.i1810.i:                     ; preds = %if.end205.i.i
   br i1 %cmp250.i1811.i, label %while.body.i1812.i, label %ZSTD_safecopyDstBeforeSrc.exit1818.i
 
 while.body.i1812.i:                               ; preds = %while.cond.preheader.i1810.i, %while.body.i1812.i
-  %ip.addr.052.i1813.i = phi ptr [ %incdec.ptr.i1815.i, %while.body.i1812.i ], [ %189, %while.cond.preheader.i1810.i ]
-  %op.addr.051.i1814.i = phi ptr [ %incdec.ptr3.i1816.i, %while.body.i1812.i ], [ %op.i.32032.i, %while.cond.preheader.i1810.i ]
-  %incdec.ptr.i1815.i = getelementptr inbounds i8, ptr %ip.addr.052.i1813.i, i64 1
-  %192 = load i8, ptr %ip.addr.052.i1813.i, align 1
-  %incdec.ptr3.i1816.i = getelementptr inbounds i8, ptr %op.addr.051.i1814.i, i64 1
-  store i8 %192, ptr %op.addr.051.i1814.i, align 1
+  %op.addr.052.i1813.i = phi ptr [ %incdec.ptr3.i1816.i, %while.body.i1812.i ], [ %op.i.32032.i, %while.cond.preheader.i1810.i ]
+  %ip.addr.051.i1814.i = phi ptr [ %incdec.ptr.i1815.i, %while.body.i1812.i ], [ %189, %while.cond.preheader.i1810.i ]
+  %incdec.ptr.i1815.i = getelementptr inbounds i8, ptr %ip.addr.051.i1814.i, i64 1
+  %192 = load i8, ptr %ip.addr.051.i1814.i, align 1
+  %incdec.ptr3.i1816.i = getelementptr inbounds i8, ptr %op.addr.052.i1813.i, i64 1
+  store i8 %192, ptr %op.addr.052.i1813.i, align 1
   %cmp2.i1817.i = icmp ult ptr %incdec.ptr3.i1816.i, %add.ptr.i1774.i
   br i1 %cmp2.i1817.i, label %while.body.i1812.i, label %ZSTD_safecopyDstBeforeSrc.exit1818.i, !llvm.loop !24
 
@@ -3762,16 +3762,16 @@ if.end.i.i1798.i:                                 ; preds = %if.then7.i1794.i
   br label %do.body11.i.i1800.i
 
 do.body11.i.i1800.i:                              ; preds = %do.body11.i.i1800.i, %if.end.i.i1798.i
-  %ip.pn.i1801.i = phi ptr [ %189, %if.end.i.i1798.i ], [ %add.ptr14.i.i1805.i, %do.body11.i.i1800.i ]
-  %op.i.1.i1802.i = phi ptr [ %add.ptr9.i.i1799.i, %if.end.i.i1798.i ], [ %add.ptr18.i.i1806.i, %do.body11.i.i1800.i ]
-  %ip.i.1.i1803.i = getelementptr inbounds i8, ptr %ip.pn.i1801.i, i64 16
+  %op.i.1.i1801.i = phi ptr [ %add.ptr9.i.i1799.i, %if.end.i.i1798.i ], [ %add.ptr18.i.i1806.i, %do.body11.i.i1800.i ]
+  %ip.pn.i1802.i = phi ptr [ %189, %if.end.i.i1798.i ], [ %add.ptr14.i.i1805.i, %do.body11.i.i1800.i ]
+  %ip.i.1.i1803.i = getelementptr inbounds i8, ptr %ip.pn.i1802.i, i64 16
   %194 = load <2 x i64>, ptr %ip.i.1.i1803.i, align 1
-  store <2 x i64> %194, ptr %op.i.1.i1802.i, align 1
-  %add.ptr13.i.i1804.i = getelementptr inbounds i8, ptr %op.i.1.i1802.i, i64 16
-  %add.ptr14.i.i1805.i = getelementptr inbounds i8, ptr %ip.pn.i1801.i, i64 32
+  store <2 x i64> %194, ptr %op.i.1.i1801.i, align 1
+  %add.ptr13.i.i1804.i = getelementptr inbounds i8, ptr %op.i.1.i1801.i, i64 16
+  %add.ptr14.i.i1805.i = getelementptr inbounds i8, ptr %ip.pn.i1802.i, i64 32
   %195 = load <2 x i64>, ptr %add.ptr14.i.i1805.i, align 1
   store <2 x i64> %195, ptr %add.ptr13.i.i1804.i, align 1
-  %add.ptr18.i.i1806.i = getelementptr inbounds i8, ptr %op.i.1.i1802.i, i64 32
+  %add.ptr18.i.i1806.i = getelementptr inbounds i8, ptr %op.i.1.i1801.i, i64 32
   %cmp23.i.i1807.i = icmp ult ptr %add.ptr18.i.i1806.i, %add.ptr4.i1779.i
   br i1 %cmp23.i.i1807.i, label %do.body11.i.i1800.i, label %if.end22.thread.i1808.i, !llvm.loop !25
 
@@ -3780,17 +3780,17 @@ if.end22.thread.i1808.i:                          ; preds = %do.body11.i.i1800.i
   br label %while.body25.i1788.i.preheader
 
 while.body25.i1788.i.preheader:                   ; preds = %if.end22.thread.i1808.i, %if.end.i1778.i
-  %ip.addr.249.i1789.i.ph = phi ptr [ %189, %if.end.i1778.i ], [ %add.ptr16.i1809.i, %if.end22.thread.i1808.i ]
-  %op.addr.248.i1790.i.ph = phi ptr [ %op.i.32032.i, %if.end.i1778.i ], [ %add.ptr4.i1779.i, %if.end22.thread.i1808.i ]
+  %op.addr.249.i1789.i.ph = phi ptr [ %op.i.32032.i, %if.end.i1778.i ], [ %add.ptr4.i1779.i, %if.end22.thread.i1808.i ]
+  %ip.addr.248.i1790.i.ph = phi ptr [ %189, %if.end.i1778.i ], [ %add.ptr16.i1809.i, %if.end22.thread.i1808.i ]
   br label %while.body25.i1788.i
 
 while.body25.i1788.i:                             ; preds = %while.body25.i1788.i.preheader, %while.body25.i1788.i
-  %ip.addr.249.i1789.i = phi ptr [ %incdec.ptr26.i1791.i, %while.body25.i1788.i ], [ %ip.addr.249.i1789.i.ph, %while.body25.i1788.i.preheader ]
-  %op.addr.248.i1790.i = phi ptr [ %incdec.ptr27.i1792.i, %while.body25.i1788.i ], [ %op.addr.248.i1790.i.ph, %while.body25.i1788.i.preheader ]
-  %incdec.ptr26.i1791.i = getelementptr inbounds i8, ptr %ip.addr.249.i1789.i, i64 1
-  %196 = load i8, ptr %ip.addr.249.i1789.i, align 1
-  %incdec.ptr27.i1792.i = getelementptr inbounds i8, ptr %op.addr.248.i1790.i, i64 1
-  store i8 %196, ptr %op.addr.248.i1790.i, align 1
+  %op.addr.249.i1789.i = phi ptr [ %incdec.ptr27.i1792.i, %while.body25.i1788.i ], [ %op.addr.249.i1789.i.ph, %while.body25.i1788.i.preheader ]
+  %ip.addr.248.i1790.i = phi ptr [ %incdec.ptr26.i1791.i, %while.body25.i1788.i ], [ %ip.addr.248.i1790.i.ph, %while.body25.i1788.i.preheader ]
+  %incdec.ptr26.i1791.i = getelementptr inbounds i8, ptr %ip.addr.248.i1790.i, i64 1
+  %196 = load i8, ptr %ip.addr.248.i1790.i, align 1
+  %incdec.ptr27.i1792.i = getelementptr inbounds i8, ptr %op.addr.249.i1789.i, i64 1
+  store i8 %196, ptr %op.addr.249.i1789.i, align 1
   %cmp24.i1793.i = icmp ult ptr %incdec.ptr27.i1792.i, %add.ptr.i1774.i
   br i1 %cmp24.i1793.i, label %while.body25.i1788.i, label %ZSTD_safecopyDstBeforeSrc.exit1818.i, !llvm.loop !26
 
@@ -4069,12 +4069,12 @@ while.cond.preheader.i.i1900.i:                   ; preds = %do.end45.i1841.i
   br i1 %cmp250.i.i1901.i, label %while.body.i.i1902.i, label %ZSTD_safecopyDstBeforeSrc.exit.i1860.i
 
 while.body.i.i1902.i:                             ; preds = %while.cond.preheader.i.i1900.i, %while.body.i.i1902.i
-  %ip.addr.052.i.i1903.i = phi ptr [ %incdec.ptr.i.i1905.i, %while.body.i.i1902.i ], [ %189, %while.cond.preheader.i.i1900.i ]
-  %op.addr.051.i.i1904.i = phi ptr [ %incdec.ptr3.i.i1906.i, %while.body.i.i1902.i ], [ %op.i.32032.i, %while.cond.preheader.i.i1900.i ]
-  %incdec.ptr.i.i1905.i = getelementptr inbounds i8, ptr %ip.addr.052.i.i1903.i, i64 1
-  %218 = load i8, ptr %ip.addr.052.i.i1903.i, align 1
-  %incdec.ptr3.i.i1906.i = getelementptr inbounds i8, ptr %op.addr.051.i.i1904.i, i64 1
-  store i8 %218, ptr %op.addr.051.i.i1904.i, align 1
+  %op.addr.052.i.i1903.i = phi ptr [ %incdec.ptr3.i.i1906.i, %while.body.i.i1902.i ], [ %op.i.32032.i, %while.cond.preheader.i.i1900.i ]
+  %ip.addr.051.i.i1904.i = phi ptr [ %incdec.ptr.i.i1905.i, %while.body.i.i1902.i ], [ %189, %while.cond.preheader.i.i1900.i ]
+  %incdec.ptr.i.i1905.i = getelementptr inbounds i8, ptr %ip.addr.051.i.i1904.i, i64 1
+  %218 = load i8, ptr %ip.addr.051.i.i1904.i, align 1
+  %incdec.ptr3.i.i1906.i = getelementptr inbounds i8, ptr %op.addr.052.i.i1903.i, i64 1
+  store i8 %218, ptr %op.addr.052.i.i1903.i, align 1
   %cmp2.i.i1907.i = icmp ult ptr %incdec.ptr3.i.i1906.i, %add.ptr.i656.i
   br i1 %cmp2.i.i1907.i, label %while.body.i.i1902.i, label %ZSTD_safecopyDstBeforeSrc.exit.i1860.i, !llvm.loop !24
 
@@ -4098,16 +4098,16 @@ if.end.i.i.i1888.i:                               ; preds = %if.then7.i.i1884.i
   br label %do.body11.i.i.i1890.i
 
 do.body11.i.i.i1890.i:                            ; preds = %do.body11.i.i.i1890.i, %if.end.i.i.i1888.i
-  %ip.pn.i.i1891.i = phi ptr [ %189, %if.end.i.i.i1888.i ], [ %add.ptr14.i.i.i1895.i, %do.body11.i.i.i1890.i ]
-  %op.i.1.i.i1892.i = phi ptr [ %add.ptr9.i.i.i1889.i, %if.end.i.i.i1888.i ], [ %add.ptr18.i.i.i1896.i, %do.body11.i.i.i1890.i ]
-  %ip.i.1.i.i1893.i = getelementptr inbounds i8, ptr %ip.pn.i.i1891.i, i64 16
+  %op.i.1.i.i1891.i = phi ptr [ %add.ptr9.i.i.i1889.i, %if.end.i.i.i1888.i ], [ %add.ptr18.i.i.i1896.i, %do.body11.i.i.i1890.i ]
+  %ip.pn.i.i1892.i = phi ptr [ %189, %if.end.i.i.i1888.i ], [ %add.ptr14.i.i.i1895.i, %do.body11.i.i.i1890.i ]
+  %ip.i.1.i.i1893.i = getelementptr inbounds i8, ptr %ip.pn.i.i1892.i, i64 16
   %220 = load <2 x i64>, ptr %ip.i.1.i.i1893.i, align 1
-  store <2 x i64> %220, ptr %op.i.1.i.i1892.i, align 1
-  %add.ptr13.i.i.i1894.i = getelementptr inbounds i8, ptr %op.i.1.i.i1892.i, i64 16
-  %add.ptr14.i.i.i1895.i = getelementptr inbounds i8, ptr %ip.pn.i.i1891.i, i64 32
+  store <2 x i64> %220, ptr %op.i.1.i.i1891.i, align 1
+  %add.ptr13.i.i.i1894.i = getelementptr inbounds i8, ptr %op.i.1.i.i1891.i, i64 16
+  %add.ptr14.i.i.i1895.i = getelementptr inbounds i8, ptr %ip.pn.i.i1892.i, i64 32
   %221 = load <2 x i64>, ptr %add.ptr14.i.i.i1895.i, align 1
   store <2 x i64> %221, ptr %add.ptr13.i.i.i1894.i, align 1
-  %add.ptr18.i.i.i1896.i = getelementptr inbounds i8, ptr %op.i.1.i.i1892.i, i64 32
+  %add.ptr18.i.i.i1896.i = getelementptr inbounds i8, ptr %op.i.1.i.i1891.i, i64 32
   %cmp23.i.i.i1897.i = icmp ult ptr %add.ptr18.i.i.i1896.i, %add.ptr4.i.i1847.i
   br i1 %cmp23.i.i.i1897.i, label %do.body11.i.i.i1890.i, label %if.end22.thread.i.i1898.i, !llvm.loop !25
 
@@ -4116,17 +4116,17 @@ if.end22.thread.i.i1898.i:                        ; preds = %do.body11.i.i.i1890
   br label %while.body25.i.i1854.i.preheader
 
 while.body25.i.i1854.i.preheader:                 ; preds = %if.end22.thread.i.i1898.i, %if.end.i.i1846.i
-  %ip.addr.249.i.i1855.i.ph = phi ptr [ %189, %if.end.i.i1846.i ], [ %add.ptr16.i.i1899.i, %if.end22.thread.i.i1898.i ]
-  %op.addr.248.i.i1856.i.ph = phi ptr [ %op.i.32032.i, %if.end.i.i1846.i ], [ %add.ptr4.i.i1847.i, %if.end22.thread.i.i1898.i ]
+  %op.addr.249.i.i1855.i.ph = phi ptr [ %op.i.32032.i, %if.end.i.i1846.i ], [ %add.ptr4.i.i1847.i, %if.end22.thread.i.i1898.i ]
+  %ip.addr.248.i.i1856.i.ph = phi ptr [ %189, %if.end.i.i1846.i ], [ %add.ptr16.i.i1899.i, %if.end22.thread.i.i1898.i ]
   br label %while.body25.i.i1854.i
 
 while.body25.i.i1854.i:                           ; preds = %while.body25.i.i1854.i.preheader, %while.body25.i.i1854.i
-  %ip.addr.249.i.i1855.i = phi ptr [ %incdec.ptr26.i.i1857.i, %while.body25.i.i1854.i ], [ %ip.addr.249.i.i1855.i.ph, %while.body25.i.i1854.i.preheader ]
-  %op.addr.248.i.i1856.i = phi ptr [ %incdec.ptr27.i.i1858.i, %while.body25.i.i1854.i ], [ %op.addr.248.i.i1856.i.ph, %while.body25.i.i1854.i.preheader ]
-  %incdec.ptr26.i.i1857.i = getelementptr inbounds i8, ptr %ip.addr.249.i.i1855.i, i64 1
-  %222 = load i8, ptr %ip.addr.249.i.i1855.i, align 1
-  %incdec.ptr27.i.i1858.i = getelementptr inbounds i8, ptr %op.addr.248.i.i1856.i, i64 1
-  store i8 %222, ptr %op.addr.248.i.i1856.i, align 1
+  %op.addr.249.i.i1855.i = phi ptr [ %incdec.ptr27.i.i1858.i, %while.body25.i.i1854.i ], [ %op.addr.249.i.i1855.i.ph, %while.body25.i.i1854.i.preheader ]
+  %ip.addr.248.i.i1856.i = phi ptr [ %incdec.ptr26.i.i1857.i, %while.body25.i.i1854.i ], [ %ip.addr.248.i.i1856.i.ph, %while.body25.i.i1854.i.preheader ]
+  %incdec.ptr26.i.i1857.i = getelementptr inbounds i8, ptr %ip.addr.248.i.i1856.i, i64 1
+  %222 = load i8, ptr %ip.addr.248.i.i1856.i, align 1
+  %incdec.ptr27.i.i1858.i = getelementptr inbounds i8, ptr %op.addr.249.i.i1855.i, i64 1
+  store i8 %222, ptr %op.addr.249.i.i1855.i, align 1
   %cmp24.i.i1859.i = icmp ult ptr %incdec.ptr27.i.i1858.i, %add.ptr.i656.i
   br i1 %cmp24.i.i1859.i, label %while.body25.i.i1854.i, label %ZSTD_safecopyDstBeforeSrc.exit.i1860.i, !llvm.loop !26
 
@@ -5440,12 +5440,12 @@ while.cond.preheader.i.i.i:                       ; preds = %do.end45.i.i
   br i1 %cmp250.i.i.i, label %while.body.i.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.preheader.i.i.i, %while.body.i.i.i
-  %ip.addr.052.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %84, %while.cond.preheader.i.i.i ]
-  %op.addr.051.i.i.i = phi ptr [ %incdec.ptr3.i.i.i, %while.body.i.i.i ], [ %op.i.01347.i, %while.cond.preheader.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %ip.addr.052.i.i.i, i64 1
-  %86 = load i8, ptr %ip.addr.052.i.i.i, align 1
-  %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %op.addr.051.i.i.i, i64 1
-  store i8 %86, ptr %op.addr.051.i.i.i, align 1
+  %op.addr.052.i.i.i = phi ptr [ %incdec.ptr3.i.i.i, %while.body.i.i.i ], [ %op.i.01347.i, %while.cond.preheader.i.i.i ]
+  %ip.addr.051.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %84, %while.cond.preheader.i.i.i ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %ip.addr.051.i.i.i, i64 1
+  %86 = load i8, ptr %ip.addr.051.i.i.i, align 1
+  %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %op.addr.052.i.i.i, i64 1
+  store i8 %86, ptr %op.addr.052.i.i.i, align 1
   %cmp2.i.i.i = icmp ult ptr %incdec.ptr3.i.i.i, %add.ptr.i563.i.i
   br i1 %cmp2.i.i.i, label %while.body.i.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i.i, !llvm.loop !24
 
@@ -5469,8 +5469,8 @@ if.end.i.i.i.i:                                   ; preds = %if.then7.i.i.i
   br label %do.body11.i.i.i.i
 
 do.body11.i.i.i.i:                                ; preds = %do.body11.i.i.i.i, %if.end.i.i.i.i
-  %ip.pn.i.i.i = phi ptr [ %84, %if.end.i.i.i.i ], [ %add.ptr14.i.i.i.i, %do.body11.i.i.i.i ]
   %op.i.1.i.i.i = phi ptr [ %add.ptr9.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr18.i.i.i.i, %do.body11.i.i.i.i ]
+  %ip.pn.i.i.i = phi ptr [ %84, %if.end.i.i.i.i ], [ %add.ptr14.i.i.i.i, %do.body11.i.i.i.i ]
   %ip.i.1.i.i.i = getelementptr inbounds i8, ptr %ip.pn.i.i.i, i64 16
   %88 = load <2 x i64>, ptr %ip.i.1.i.i.i, align 1
   store <2 x i64> %88, ptr %op.i.1.i.i.i, align 1
@@ -5487,17 +5487,17 @@ if.end22.thread.i.i.i:                            ; preds = %do.body11.i.i.i.i, 
   br label %while.body25.i.i.i.preheader
 
 while.body25.i.i.i.preheader:                     ; preds = %if.end22.thread.i.i.i, %if.end.i.i1149.i
-  %ip.addr.249.i.i.i.ph = phi ptr [ %84, %if.end.i.i1149.i ], [ %add.ptr16.i.i.i, %if.end22.thread.i.i.i ]
-  %op.addr.248.i.i.i.ph = phi ptr [ %op.i.01347.i, %if.end.i.i1149.i ], [ %add.ptr4.i.i1150.i, %if.end22.thread.i.i.i ]
+  %op.addr.249.i.i.i.ph = phi ptr [ %op.i.01347.i, %if.end.i.i1149.i ], [ %add.ptr4.i.i1150.i, %if.end22.thread.i.i.i ]
+  %ip.addr.248.i.i.i.ph = phi ptr [ %84, %if.end.i.i1149.i ], [ %add.ptr16.i.i.i, %if.end22.thread.i.i.i ]
   br label %while.body25.i.i.i
 
 while.body25.i.i.i:                               ; preds = %while.body25.i.i.i.preheader, %while.body25.i.i.i
-  %ip.addr.249.i.i.i = phi ptr [ %incdec.ptr26.i.i.i, %while.body25.i.i.i ], [ %ip.addr.249.i.i.i.ph, %while.body25.i.i.i.preheader ]
-  %op.addr.248.i.i.i = phi ptr [ %incdec.ptr27.i.i.i, %while.body25.i.i.i ], [ %op.addr.248.i.i.i.ph, %while.body25.i.i.i.preheader ]
-  %incdec.ptr26.i.i.i = getelementptr inbounds i8, ptr %ip.addr.249.i.i.i, i64 1
-  %90 = load i8, ptr %ip.addr.249.i.i.i, align 1
-  %incdec.ptr27.i.i.i = getelementptr inbounds i8, ptr %op.addr.248.i.i.i, i64 1
-  store i8 %90, ptr %op.addr.248.i.i.i, align 1
+  %op.addr.249.i.i.i = phi ptr [ %incdec.ptr27.i.i.i, %while.body25.i.i.i ], [ %op.addr.249.i.i.i.ph, %while.body25.i.i.i.preheader ]
+  %ip.addr.248.i.i.i = phi ptr [ %incdec.ptr26.i.i.i, %while.body25.i.i.i ], [ %ip.addr.248.i.i.i.ph, %while.body25.i.i.i.preheader ]
+  %incdec.ptr26.i.i.i = getelementptr inbounds i8, ptr %ip.addr.248.i.i.i, i64 1
+  %90 = load i8, ptr %ip.addr.248.i.i.i, align 1
+  %incdec.ptr27.i.i.i = getelementptr inbounds i8, ptr %op.addr.249.i.i.i, i64 1
+  store i8 %90, ptr %op.addr.249.i.i.i, align 1
   %cmp24.i.i.i = icmp ult ptr %incdec.ptr27.i.i.i, %add.ptr.i563.i.i
   br i1 %cmp24.i.i.i, label %while.body25.i.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i.i, !llvm.loop !26
 
@@ -5758,12 +5758,12 @@ while.cond.preheader.i.i:                         ; preds = %if.end77.i.i
   br i1 %cmp250.i.i, label %while.body.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i
 
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %while.body.i.i
-  %ip.addr.052.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %110, %while.cond.preheader.i.i ]
-  %op.addr.051.i.i = phi ptr [ %incdec.ptr3.i.i, %while.body.i.i ], [ %op.i.01347.i, %while.cond.preheader.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ip.addr.052.i.i, i64 1
-  %112 = load i8, ptr %ip.addr.052.i.i, align 1
-  %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %op.addr.051.i.i, i64 1
-  store i8 %112, ptr %op.addr.051.i.i, align 1
+  %op.addr.052.i.i = phi ptr [ %incdec.ptr3.i.i, %while.body.i.i ], [ %op.i.01347.i, %while.cond.preheader.i.i ]
+  %ip.addr.051.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %110, %while.cond.preheader.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ip.addr.051.i.i, i64 1
+  %112 = load i8, ptr %ip.addr.051.i.i, align 1
+  %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %op.addr.052.i.i, i64 1
+  store i8 %112, ptr %op.addr.052.i.i, align 1
   %cmp2.i1176.i = icmp ult ptr %incdec.ptr3.i.i, %add.ptr.i1163.i
   br i1 %cmp2.i1176.i, label %while.body.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i, !llvm.loop !24
 
@@ -5787,8 +5787,8 @@ if.end.i.i1169.i:                                 ; preds = %if.then7.i.i
   br label %do.body11.i.i1171.i
 
 do.body11.i.i1171.i:                              ; preds = %do.body11.i.i1171.i, %if.end.i.i1169.i
-  %ip.pn.i.i = phi ptr [ %110, %if.end.i.i1169.i ], [ %add.ptr14.i.i1173.i, %do.body11.i.i1171.i ]
   %op.i.1.i.i = phi ptr [ %add.ptr9.i.i1170.i, %if.end.i.i1169.i ], [ %add.ptr18.i.i1174.i, %do.body11.i.i1171.i ]
+  %ip.pn.i.i = phi ptr [ %110, %if.end.i.i1169.i ], [ %add.ptr14.i.i1173.i, %do.body11.i.i1171.i ]
   %ip.i.1.i.i = getelementptr inbounds i8, ptr %ip.pn.i.i, i64 16
   %114 = load <2 x i64>, ptr %ip.i.1.i.i, align 1
   store <2 x i64> %114, ptr %op.i.1.i.i, align 1
@@ -5805,17 +5805,17 @@ if.end22.thread.i.i:                              ; preds = %do.body11.i.i1171.i
   br label %while.body25.i.i.preheader
 
 while.body25.i.i.preheader:                       ; preds = %if.end22.thread.i.i, %if.end.i1166.i
-  %ip.addr.249.i.i.ph = phi ptr [ %110, %if.end.i1166.i ], [ %add.ptr16.i.i, %if.end22.thread.i.i ]
-  %op.addr.248.i.i.ph = phi ptr [ %op.i.01347.i, %if.end.i1166.i ], [ %add.ptr4.i1167.i, %if.end22.thread.i.i ]
+  %op.addr.249.i.i.ph = phi ptr [ %op.i.01347.i, %if.end.i1166.i ], [ %add.ptr4.i1167.i, %if.end22.thread.i.i ]
+  %ip.addr.248.i.i.ph = phi ptr [ %110, %if.end.i1166.i ], [ %add.ptr16.i.i, %if.end22.thread.i.i ]
   br label %while.body25.i.i
 
 while.body25.i.i:                                 ; preds = %while.body25.i.i.preheader, %while.body25.i.i
-  %ip.addr.249.i.i = phi ptr [ %incdec.ptr26.i.i, %while.body25.i.i ], [ %ip.addr.249.i.i.ph, %while.body25.i.i.preheader ]
-  %op.addr.248.i.i = phi ptr [ %incdec.ptr27.i.i, %while.body25.i.i ], [ %op.addr.248.i.i.ph, %while.body25.i.i.preheader ]
-  %incdec.ptr26.i.i = getelementptr inbounds i8, ptr %ip.addr.249.i.i, i64 1
-  %116 = load i8, ptr %ip.addr.249.i.i, align 1
-  %incdec.ptr27.i.i = getelementptr inbounds i8, ptr %op.addr.248.i.i, i64 1
-  store i8 %116, ptr %op.addr.248.i.i, align 1
+  %op.addr.249.i.i = phi ptr [ %incdec.ptr27.i.i, %while.body25.i.i ], [ %op.addr.249.i.i.ph, %while.body25.i.i.preheader ]
+  %ip.addr.248.i.i = phi ptr [ %incdec.ptr26.i.i, %while.body25.i.i ], [ %ip.addr.248.i.i.ph, %while.body25.i.i.preheader ]
+  %incdec.ptr26.i.i = getelementptr inbounds i8, ptr %ip.addr.248.i.i, i64 1
+  %116 = load i8, ptr %ip.addr.248.i.i, align 1
+  %incdec.ptr27.i.i = getelementptr inbounds i8, ptr %op.addr.249.i.i, i64 1
+  store i8 %116, ptr %op.addr.249.i.i, align 1
   %cmp24.i.i = icmp ult ptr %incdec.ptr27.i.i, %add.ptr.i1163.i
   br i1 %cmp24.i.i, label %while.body25.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i, !llvm.loop !26
 
@@ -8980,12 +8980,12 @@ while.cond.preheader.i:                           ; preds = %if.end83.i
   br i1 %cmp250.i, label %while.body.i, label %ZSTD_safecopyDstBeforeSrc.exit
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
-  %ip.addr.052.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %111, %while.cond.preheader.i ]
-  %op.addr.051.i = phi ptr [ %incdec.ptr3.i, %while.body.i ], [ %op.i.02020, %while.cond.preheader.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ip.addr.052.i, i64 1
-  %114 = load i8, ptr %ip.addr.052.i, align 1
-  %incdec.ptr3.i = getelementptr inbounds i8, ptr %op.addr.051.i, i64 1
-  store i8 %114, ptr %op.addr.051.i, align 1
+  %op.addr.052.i = phi ptr [ %incdec.ptr3.i, %while.body.i ], [ %op.i.02020, %while.cond.preheader.i ]
+  %ip.addr.051.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %111, %while.cond.preheader.i ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ip.addr.051.i, i64 1
+  %114 = load i8, ptr %ip.addr.051.i, align 1
+  %incdec.ptr3.i = getelementptr inbounds i8, ptr %op.addr.052.i, i64 1
+  store i8 %114, ptr %op.addr.052.i, align 1
   %cmp2.i1739 = icmp ult ptr %incdec.ptr3.i, %add.ptr.i1733
   br i1 %cmp2.i1739, label %while.body.i, label %ZSTD_safecopyDstBeforeSrc.exit, !llvm.loop !24
 
@@ -9009,8 +9009,8 @@ if.end.i.i1738:                                   ; preds = %if.then7.i
   br label %do.body11.i.i
 
 do.body11.i.i:                                    ; preds = %do.body11.i.i, %if.end.i.i1738
-  %ip.pn.i = phi ptr [ %111, %if.end.i.i1738 ], [ %add.ptr14.i.i, %do.body11.i.i ]
   %op.i.1.i = phi ptr [ %add.ptr9.i.i, %if.end.i.i1738 ], [ %add.ptr18.i.i, %do.body11.i.i ]
+  %ip.pn.i = phi ptr [ %111, %if.end.i.i1738 ], [ %add.ptr14.i.i, %do.body11.i.i ]
   %ip.i.1.i = getelementptr inbounds i8, ptr %ip.pn.i, i64 16
   %116 = load <2 x i64>, ptr %ip.i.1.i, align 1
   store <2 x i64> %116, ptr %op.i.1.i, align 1
@@ -9027,17 +9027,17 @@ if.end22.thread.i:                                ; preds = %do.body11.i.i, %if.
   br label %while.body25.i.preheader
 
 while.body25.i.preheader:                         ; preds = %if.end.i1735, %if.end22.thread.i
-  %ip.addr.249.i.ph = phi ptr [ %111, %if.end.i1735 ], [ %add.ptr16.i, %if.end22.thread.i ]
-  %op.addr.248.i.ph = phi ptr [ %op.i.02020, %if.end.i1735 ], [ %add.ptr4.i1736, %if.end22.thread.i ]
+  %op.addr.249.i.ph = phi ptr [ %op.i.02020, %if.end.i1735 ], [ %add.ptr4.i1736, %if.end22.thread.i ]
+  %ip.addr.248.i.ph = phi ptr [ %111, %if.end.i1735 ], [ %add.ptr16.i, %if.end22.thread.i ]
   br label %while.body25.i
 
 while.body25.i:                                   ; preds = %while.body25.i.preheader, %while.body25.i
-  %ip.addr.249.i = phi ptr [ %incdec.ptr26.i, %while.body25.i ], [ %ip.addr.249.i.ph, %while.body25.i.preheader ]
-  %op.addr.248.i = phi ptr [ %incdec.ptr27.i, %while.body25.i ], [ %op.addr.248.i.ph, %while.body25.i.preheader ]
-  %incdec.ptr26.i = getelementptr inbounds i8, ptr %ip.addr.249.i, i64 1
-  %118 = load i8, ptr %ip.addr.249.i, align 1
-  %incdec.ptr27.i = getelementptr inbounds i8, ptr %op.addr.248.i, i64 1
-  store i8 %118, ptr %op.addr.248.i, align 1
+  %op.addr.249.i = phi ptr [ %incdec.ptr27.i, %while.body25.i ], [ %op.addr.249.i.ph, %while.body25.i.preheader ]
+  %ip.addr.248.i = phi ptr [ %incdec.ptr26.i, %while.body25.i ], [ %ip.addr.248.i.ph, %while.body25.i.preheader ]
+  %incdec.ptr26.i = getelementptr inbounds i8, ptr %ip.addr.248.i, i64 1
+  %118 = load i8, ptr %ip.addr.248.i, align 1
+  %incdec.ptr27.i = getelementptr inbounds i8, ptr %op.addr.249.i, i64 1
+  store i8 %118, ptr %op.addr.249.i, align 1
   %cmp24.i = icmp ult ptr %incdec.ptr27.i, %add.ptr.i1733
   br i1 %cmp24.i, label %while.body25.i, label %ZSTD_safecopyDstBeforeSrc.exit, !llvm.loop !26
 
@@ -9331,12 +9331,12 @@ while.cond.preheader.i.i:                         ; preds = %do.end45.i
   br i1 %cmp250.i.i, label %while.body.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i
 
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %while.body.i.i
-  %ip.addr.052.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %111, %while.cond.preheader.i.i ]
-  %op.addr.051.i.i = phi ptr [ %incdec.ptr3.i.i, %while.body.i.i ], [ %op.i.02020, %while.cond.preheader.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ip.addr.052.i.i, i64 1
-  %140 = load i8, ptr %ip.addr.052.i.i, align 1
-  %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %op.addr.051.i.i, i64 1
-  store i8 %140, ptr %op.addr.051.i.i, align 1
+  %op.addr.052.i.i = phi ptr [ %incdec.ptr3.i.i, %while.body.i.i ], [ %op.i.02020, %while.cond.preheader.i.i ]
+  %ip.addr.051.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %111, %while.cond.preheader.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ip.addr.051.i.i, i64 1
+  %140 = load i8, ptr %ip.addr.051.i.i, align 1
+  %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %op.addr.052.i.i, i64 1
+  store i8 %140, ptr %op.addr.052.i.i, align 1
   %cmp2.i.i = icmp ult ptr %incdec.ptr3.i.i, %add.ptr.i610
   br i1 %cmp2.i.i, label %while.body.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i, !llvm.loop !24
 
@@ -9360,8 +9360,8 @@ if.end.i.i.i:                                     ; preds = %if.then7.i.i
   br label %do.body11.i.i.i
 
 do.body11.i.i.i:                                  ; preds = %do.body11.i.i.i, %if.end.i.i.i
-  %ip.pn.i.i = phi ptr [ %111, %if.end.i.i.i ], [ %add.ptr14.i.i.i, %do.body11.i.i.i ]
   %op.i.1.i.i = phi ptr [ %add.ptr9.i.i.i, %if.end.i.i.i ], [ %add.ptr18.i.i.i, %do.body11.i.i.i ]
+  %ip.pn.i.i = phi ptr [ %111, %if.end.i.i.i ], [ %add.ptr14.i.i.i, %do.body11.i.i.i ]
   %ip.i.1.i.i = getelementptr inbounds i8, ptr %ip.pn.i.i, i64 16
   %142 = load <2 x i64>, ptr %ip.i.1.i.i, align 1
   store <2 x i64> %142, ptr %op.i.1.i.i, align 1
@@ -9378,17 +9378,17 @@ if.end22.thread.i.i:                              ; preds = %do.body11.i.i.i, %i
   br label %while.body25.i.i.preheader
 
 while.body25.i.i.preheader:                       ; preds = %if.end22.thread.i.i, %if.end.i.i1758
-  %ip.addr.249.i.i.ph = phi ptr [ %111, %if.end.i.i1758 ], [ %add.ptr16.i.i, %if.end22.thread.i.i ]
-  %op.addr.248.i.i.ph = phi ptr [ %op.i.02020, %if.end.i.i1758 ], [ %add.ptr4.i.i, %if.end22.thread.i.i ]
+  %op.addr.249.i.i.ph = phi ptr [ %op.i.02020, %if.end.i.i1758 ], [ %add.ptr4.i.i, %if.end22.thread.i.i ]
+  %ip.addr.248.i.i.ph = phi ptr [ %111, %if.end.i.i1758 ], [ %add.ptr16.i.i, %if.end22.thread.i.i ]
   br label %while.body25.i.i
 
 while.body25.i.i:                                 ; preds = %while.body25.i.i.preheader, %while.body25.i.i
-  %ip.addr.249.i.i = phi ptr [ %incdec.ptr26.i.i, %while.body25.i.i ], [ %ip.addr.249.i.i.ph, %while.body25.i.i.preheader ]
-  %op.addr.248.i.i = phi ptr [ %incdec.ptr27.i.i, %while.body25.i.i ], [ %op.addr.248.i.i.ph, %while.body25.i.i.preheader ]
-  %incdec.ptr26.i.i = getelementptr inbounds i8, ptr %ip.addr.249.i.i, i64 1
-  %144 = load i8, ptr %ip.addr.249.i.i, align 1
-  %incdec.ptr27.i.i = getelementptr inbounds i8, ptr %op.addr.248.i.i, i64 1
-  store i8 %144, ptr %op.addr.248.i.i, align 1
+  %op.addr.249.i.i = phi ptr [ %incdec.ptr27.i.i, %while.body25.i.i ], [ %op.addr.249.i.i.ph, %while.body25.i.i.preheader ]
+  %ip.addr.248.i.i = phi ptr [ %incdec.ptr26.i.i, %while.body25.i.i ], [ %ip.addr.248.i.i.ph, %while.body25.i.i.preheader ]
+  %incdec.ptr26.i.i = getelementptr inbounds i8, ptr %ip.addr.248.i.i, i64 1
+  %144 = load i8, ptr %ip.addr.248.i.i, align 1
+  %incdec.ptr27.i.i = getelementptr inbounds i8, ptr %op.addr.249.i.i, i64 1
+  store i8 %144, ptr %op.addr.249.i.i, align 1
   %cmp24.i.i = icmp ult ptr %incdec.ptr27.i.i, %add.ptr.i610
   br i1 %cmp24.i.i, label %while.body25.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i, !llvm.loop !26
 
@@ -9936,12 +9936,12 @@ while.cond.preheader.i1810:                       ; preds = %if.end205.i
   br i1 %cmp250.i1811, label %while.body.i1812, label %ZSTD_safecopyDstBeforeSrc.exit1818
 
 while.body.i1812:                                 ; preds = %while.cond.preheader.i1810, %while.body.i1812
-  %ip.addr.052.i1813 = phi ptr [ %incdec.ptr.i1815, %while.body.i1812 ], [ %188, %while.cond.preheader.i1810 ]
-  %op.addr.051.i1814 = phi ptr [ %incdec.ptr3.i1816, %while.body.i1812 ], [ %op.i.32032, %while.cond.preheader.i1810 ]
-  %incdec.ptr.i1815 = getelementptr inbounds i8, ptr %ip.addr.052.i1813, i64 1
-  %191 = load i8, ptr %ip.addr.052.i1813, align 1
-  %incdec.ptr3.i1816 = getelementptr inbounds i8, ptr %op.addr.051.i1814, i64 1
-  store i8 %191, ptr %op.addr.051.i1814, align 1
+  %op.addr.052.i1813 = phi ptr [ %incdec.ptr3.i1816, %while.body.i1812 ], [ %op.i.32032, %while.cond.preheader.i1810 ]
+  %ip.addr.051.i1814 = phi ptr [ %incdec.ptr.i1815, %while.body.i1812 ], [ %188, %while.cond.preheader.i1810 ]
+  %incdec.ptr.i1815 = getelementptr inbounds i8, ptr %ip.addr.051.i1814, i64 1
+  %191 = load i8, ptr %ip.addr.051.i1814, align 1
+  %incdec.ptr3.i1816 = getelementptr inbounds i8, ptr %op.addr.052.i1813, i64 1
+  store i8 %191, ptr %op.addr.052.i1813, align 1
   %cmp2.i1817 = icmp ult ptr %incdec.ptr3.i1816, %add.ptr.i1774
   br i1 %cmp2.i1817, label %while.body.i1812, label %ZSTD_safecopyDstBeforeSrc.exit1818, !llvm.loop !24
 
@@ -9965,16 +9965,16 @@ if.end.i.i1798:                                   ; preds = %if.then7.i1794
   br label %do.body11.i.i1800
 
 do.body11.i.i1800:                                ; preds = %do.body11.i.i1800, %if.end.i.i1798
-  %ip.pn.i1801 = phi ptr [ %188, %if.end.i.i1798 ], [ %add.ptr14.i.i1805, %do.body11.i.i1800 ]
-  %op.i.1.i1802 = phi ptr [ %add.ptr9.i.i1799, %if.end.i.i1798 ], [ %add.ptr18.i.i1806, %do.body11.i.i1800 ]
-  %ip.i.1.i1803 = getelementptr inbounds i8, ptr %ip.pn.i1801, i64 16
+  %op.i.1.i1801 = phi ptr [ %add.ptr9.i.i1799, %if.end.i.i1798 ], [ %add.ptr18.i.i1806, %do.body11.i.i1800 ]
+  %ip.pn.i1802 = phi ptr [ %188, %if.end.i.i1798 ], [ %add.ptr14.i.i1805, %do.body11.i.i1800 ]
+  %ip.i.1.i1803 = getelementptr inbounds i8, ptr %ip.pn.i1802, i64 16
   %193 = load <2 x i64>, ptr %ip.i.1.i1803, align 1
-  store <2 x i64> %193, ptr %op.i.1.i1802, align 1
-  %add.ptr13.i.i1804 = getelementptr inbounds i8, ptr %op.i.1.i1802, i64 16
-  %add.ptr14.i.i1805 = getelementptr inbounds i8, ptr %ip.pn.i1801, i64 32
+  store <2 x i64> %193, ptr %op.i.1.i1801, align 1
+  %add.ptr13.i.i1804 = getelementptr inbounds i8, ptr %op.i.1.i1801, i64 16
+  %add.ptr14.i.i1805 = getelementptr inbounds i8, ptr %ip.pn.i1802, i64 32
   %194 = load <2 x i64>, ptr %add.ptr14.i.i1805, align 1
   store <2 x i64> %194, ptr %add.ptr13.i.i1804, align 1
-  %add.ptr18.i.i1806 = getelementptr inbounds i8, ptr %op.i.1.i1802, i64 32
+  %add.ptr18.i.i1806 = getelementptr inbounds i8, ptr %op.i.1.i1801, i64 32
   %cmp23.i.i1807 = icmp ult ptr %add.ptr18.i.i1806, %add.ptr4.i1779
   br i1 %cmp23.i.i1807, label %do.body11.i.i1800, label %if.end22.thread.i1808, !llvm.loop !25
 
@@ -9983,17 +9983,17 @@ if.end22.thread.i1808:                            ; preds = %do.body11.i.i1800, 
   br label %while.body25.i1788.preheader
 
 while.body25.i1788.preheader:                     ; preds = %if.end.i1778, %if.end22.thread.i1808
-  %ip.addr.249.i1789.ph = phi ptr [ %188, %if.end.i1778 ], [ %add.ptr16.i1809, %if.end22.thread.i1808 ]
-  %op.addr.248.i1790.ph = phi ptr [ %op.i.32032, %if.end.i1778 ], [ %add.ptr4.i1779, %if.end22.thread.i1808 ]
+  %op.addr.249.i1789.ph = phi ptr [ %op.i.32032, %if.end.i1778 ], [ %add.ptr4.i1779, %if.end22.thread.i1808 ]
+  %ip.addr.248.i1790.ph = phi ptr [ %188, %if.end.i1778 ], [ %add.ptr16.i1809, %if.end22.thread.i1808 ]
   br label %while.body25.i1788
 
 while.body25.i1788:                               ; preds = %while.body25.i1788.preheader, %while.body25.i1788
-  %ip.addr.249.i1789 = phi ptr [ %incdec.ptr26.i1791, %while.body25.i1788 ], [ %ip.addr.249.i1789.ph, %while.body25.i1788.preheader ]
-  %op.addr.248.i1790 = phi ptr [ %incdec.ptr27.i1792, %while.body25.i1788 ], [ %op.addr.248.i1790.ph, %while.body25.i1788.preheader ]
-  %incdec.ptr26.i1791 = getelementptr inbounds i8, ptr %ip.addr.249.i1789, i64 1
-  %195 = load i8, ptr %ip.addr.249.i1789, align 1
-  %incdec.ptr27.i1792 = getelementptr inbounds i8, ptr %op.addr.248.i1790, i64 1
-  store i8 %195, ptr %op.addr.248.i1790, align 1
+  %op.addr.249.i1789 = phi ptr [ %incdec.ptr27.i1792, %while.body25.i1788 ], [ %op.addr.249.i1789.ph, %while.body25.i1788.preheader ]
+  %ip.addr.248.i1790 = phi ptr [ %incdec.ptr26.i1791, %while.body25.i1788 ], [ %ip.addr.248.i1790.ph, %while.body25.i1788.preheader ]
+  %incdec.ptr26.i1791 = getelementptr inbounds i8, ptr %ip.addr.248.i1790, i64 1
+  %195 = load i8, ptr %ip.addr.248.i1790, align 1
+  %incdec.ptr27.i1792 = getelementptr inbounds i8, ptr %op.addr.249.i1789, i64 1
+  store i8 %195, ptr %op.addr.249.i1789, align 1
   %cmp24.i1793 = icmp ult ptr %incdec.ptr27.i1792, %add.ptr.i1774
   br i1 %cmp24.i1793, label %while.body25.i1788, label %ZSTD_safecopyDstBeforeSrc.exit1818, !llvm.loop !26
 
@@ -10273,12 +10273,12 @@ while.cond.preheader.i.i1900:                     ; preds = %do.end45.i1841
   br i1 %cmp250.i.i1901, label %while.body.i.i1902, label %ZSTD_safecopyDstBeforeSrc.exit.i1860
 
 while.body.i.i1902:                               ; preds = %while.cond.preheader.i.i1900, %while.body.i.i1902
-  %ip.addr.052.i.i1903 = phi ptr [ %incdec.ptr.i.i1905, %while.body.i.i1902 ], [ %188, %while.cond.preheader.i.i1900 ]
-  %op.addr.051.i.i1904 = phi ptr [ %incdec.ptr3.i.i1906, %while.body.i.i1902 ], [ %op.i.32032, %while.cond.preheader.i.i1900 ]
-  %incdec.ptr.i.i1905 = getelementptr inbounds i8, ptr %ip.addr.052.i.i1903, i64 1
-  %217 = load i8, ptr %ip.addr.052.i.i1903, align 1
-  %incdec.ptr3.i.i1906 = getelementptr inbounds i8, ptr %op.addr.051.i.i1904, i64 1
-  store i8 %217, ptr %op.addr.051.i.i1904, align 1
+  %op.addr.052.i.i1903 = phi ptr [ %incdec.ptr3.i.i1906, %while.body.i.i1902 ], [ %op.i.32032, %while.cond.preheader.i.i1900 ]
+  %ip.addr.051.i.i1904 = phi ptr [ %incdec.ptr.i.i1905, %while.body.i.i1902 ], [ %188, %while.cond.preheader.i.i1900 ]
+  %incdec.ptr.i.i1905 = getelementptr inbounds i8, ptr %ip.addr.051.i.i1904, i64 1
+  %217 = load i8, ptr %ip.addr.051.i.i1904, align 1
+  %incdec.ptr3.i.i1906 = getelementptr inbounds i8, ptr %op.addr.052.i.i1903, i64 1
+  store i8 %217, ptr %op.addr.052.i.i1903, align 1
   %cmp2.i.i1907 = icmp ult ptr %incdec.ptr3.i.i1906, %add.ptr.i656
   br i1 %cmp2.i.i1907, label %while.body.i.i1902, label %ZSTD_safecopyDstBeforeSrc.exit.i1860, !llvm.loop !24
 
@@ -10302,16 +10302,16 @@ if.end.i.i.i1888:                                 ; preds = %if.then7.i.i1884
   br label %do.body11.i.i.i1890
 
 do.body11.i.i.i1890:                              ; preds = %do.body11.i.i.i1890, %if.end.i.i.i1888
-  %ip.pn.i.i1891 = phi ptr [ %188, %if.end.i.i.i1888 ], [ %add.ptr14.i.i.i1895, %do.body11.i.i.i1890 ]
-  %op.i.1.i.i1892 = phi ptr [ %add.ptr9.i.i.i1889, %if.end.i.i.i1888 ], [ %add.ptr18.i.i.i1896, %do.body11.i.i.i1890 ]
-  %ip.i.1.i.i1893 = getelementptr inbounds i8, ptr %ip.pn.i.i1891, i64 16
+  %op.i.1.i.i1891 = phi ptr [ %add.ptr9.i.i.i1889, %if.end.i.i.i1888 ], [ %add.ptr18.i.i.i1896, %do.body11.i.i.i1890 ]
+  %ip.pn.i.i1892 = phi ptr [ %188, %if.end.i.i.i1888 ], [ %add.ptr14.i.i.i1895, %do.body11.i.i.i1890 ]
+  %ip.i.1.i.i1893 = getelementptr inbounds i8, ptr %ip.pn.i.i1892, i64 16
   %219 = load <2 x i64>, ptr %ip.i.1.i.i1893, align 1
-  store <2 x i64> %219, ptr %op.i.1.i.i1892, align 1
-  %add.ptr13.i.i.i1894 = getelementptr inbounds i8, ptr %op.i.1.i.i1892, i64 16
-  %add.ptr14.i.i.i1895 = getelementptr inbounds i8, ptr %ip.pn.i.i1891, i64 32
+  store <2 x i64> %219, ptr %op.i.1.i.i1891, align 1
+  %add.ptr13.i.i.i1894 = getelementptr inbounds i8, ptr %op.i.1.i.i1891, i64 16
+  %add.ptr14.i.i.i1895 = getelementptr inbounds i8, ptr %ip.pn.i.i1892, i64 32
   %220 = load <2 x i64>, ptr %add.ptr14.i.i.i1895, align 1
   store <2 x i64> %220, ptr %add.ptr13.i.i.i1894, align 1
-  %add.ptr18.i.i.i1896 = getelementptr inbounds i8, ptr %op.i.1.i.i1892, i64 32
+  %add.ptr18.i.i.i1896 = getelementptr inbounds i8, ptr %op.i.1.i.i1891, i64 32
   %cmp23.i.i.i1897 = icmp ult ptr %add.ptr18.i.i.i1896, %add.ptr4.i.i1847
   br i1 %cmp23.i.i.i1897, label %do.body11.i.i.i1890, label %if.end22.thread.i.i1898, !llvm.loop !25
 
@@ -10320,17 +10320,17 @@ if.end22.thread.i.i1898:                          ; preds = %do.body11.i.i.i1890
   br label %while.body25.i.i1854.preheader
 
 while.body25.i.i1854.preheader:                   ; preds = %if.end22.thread.i.i1898, %if.end.i.i1846
-  %ip.addr.249.i.i1855.ph = phi ptr [ %188, %if.end.i.i1846 ], [ %add.ptr16.i.i1899, %if.end22.thread.i.i1898 ]
-  %op.addr.248.i.i1856.ph = phi ptr [ %op.i.32032, %if.end.i.i1846 ], [ %add.ptr4.i.i1847, %if.end22.thread.i.i1898 ]
+  %op.addr.249.i.i1855.ph = phi ptr [ %op.i.32032, %if.end.i.i1846 ], [ %add.ptr4.i.i1847, %if.end22.thread.i.i1898 ]
+  %ip.addr.248.i.i1856.ph = phi ptr [ %188, %if.end.i.i1846 ], [ %add.ptr16.i.i1899, %if.end22.thread.i.i1898 ]
   br label %while.body25.i.i1854
 
 while.body25.i.i1854:                             ; preds = %while.body25.i.i1854.preheader, %while.body25.i.i1854
-  %ip.addr.249.i.i1855 = phi ptr [ %incdec.ptr26.i.i1857, %while.body25.i.i1854 ], [ %ip.addr.249.i.i1855.ph, %while.body25.i.i1854.preheader ]
-  %op.addr.248.i.i1856 = phi ptr [ %incdec.ptr27.i.i1858, %while.body25.i.i1854 ], [ %op.addr.248.i.i1856.ph, %while.body25.i.i1854.preheader ]
-  %incdec.ptr26.i.i1857 = getelementptr inbounds i8, ptr %ip.addr.249.i.i1855, i64 1
-  %221 = load i8, ptr %ip.addr.249.i.i1855, align 1
-  %incdec.ptr27.i.i1858 = getelementptr inbounds i8, ptr %op.addr.248.i.i1856, i64 1
-  store i8 %221, ptr %op.addr.248.i.i1856, align 1
+  %op.addr.249.i.i1855 = phi ptr [ %incdec.ptr27.i.i1858, %while.body25.i.i1854 ], [ %op.addr.249.i.i1855.ph, %while.body25.i.i1854.preheader ]
+  %ip.addr.248.i.i1856 = phi ptr [ %incdec.ptr26.i.i1857, %while.body25.i.i1854 ], [ %ip.addr.248.i.i1856.ph, %while.body25.i.i1854.preheader ]
+  %incdec.ptr26.i.i1857 = getelementptr inbounds i8, ptr %ip.addr.248.i.i1856, i64 1
+  %221 = load i8, ptr %ip.addr.248.i.i1856, align 1
+  %incdec.ptr27.i.i1858 = getelementptr inbounds i8, ptr %op.addr.249.i.i1855, i64 1
+  store i8 %221, ptr %op.addr.249.i.i1855, align 1
   %cmp24.i.i1859 = icmp ult ptr %incdec.ptr27.i.i1858, %add.ptr.i656
   br i1 %cmp24.i.i1859, label %while.body25.i.i1854, label %ZSTD_safecopyDstBeforeSrc.exit.i1860, !llvm.loop !26
 
@@ -10952,8 +10952,8 @@ if.end.i.i:                                       ; preds = %if.then10.i
   br label %do.body11.i.i
 
 do.body11.i.i:                                    ; preds = %do.body11.i.i, %if.end.i.i
-  %ip.addr.2.pn.i = phi ptr [ %2, %if.end.i.i ], [ %add.ptr14.i.i, %do.body11.i.i ]
   %op.i.1.i = phi ptr [ %add.ptr9.i.i, %if.end.i.i ], [ %add.ptr18.i.i, %do.body11.i.i ]
+  %ip.addr.2.pn.i = phi ptr [ %2, %if.end.i.i ], [ %add.ptr14.i.i, %do.body11.i.i ]
   %ip.i.1.i = getelementptr inbounds i8, ptr %ip.addr.2.pn.i, i64 16
   %9 = load <2 x i64>, ptr %ip.i.1.i, align 1
   store <2 x i64> %9, ptr %op.i.1.i, align 1
@@ -11020,8 +11020,8 @@ if.end65:                                         ; preds = %do.end54
 
 if.end71:                                         ; preds = %if.end65, %ZSTD_safecopy.exit
   %12 = phi i64 [ %sub, %if.end65 ], [ %1, %ZSTD_safecopy.exit ]
-  %op.addr.0 = phi ptr [ %add.ptr69, %if.end65 ], [ %add.ptr, %ZSTD_safecopy.exit ]
   %match.0 = phi ptr [ %prefixStart, %if.end65 ], [ %add.ptr4, %ZSTD_safecopy.exit ]
+  %op.addr.0 = phi ptr [ %add.ptr69, %if.end65 ], [ %add.ptr, %ZSTD_safecopy.exit ]
   tail call fastcc void @ZSTD_safecopy(ptr noundef %op.addr.0, ptr noundef nonnull %add.ptr5, ptr noundef %match.0, i64 noundef %12, i32 noundef 1)
   br label %return
 
@@ -11169,8 +11169,8 @@ if.then10:                                        ; preds = %if.end8
   br i1 %or.cond1, label %do.body.i, label %if.else.i
 
 do.body.i:                                        ; preds = %if.then10, %do.body.i
-  %ip.i.0 = phi ptr [ %add.ptr4.i, %do.body.i ], [ %ip.addr.2, %if.then10 ]
   %op.i.0 = phi ptr [ %add.ptr3.i, %do.body.i ], [ %op.addr.1, %if.then10 ]
+  %ip.i.0 = phi ptr [ %add.ptr4.i, %do.body.i ], [ %ip.addr.2, %if.then10 ]
   %13 = load i64, ptr %ip.i.0, align 1
   store i64 %13, ptr %op.i.0, align 1
   %add.ptr3.i = getelementptr inbounds i8, ptr %op.i.0, i64 8
@@ -11189,8 +11189,8 @@ if.end.i:                                         ; preds = %if.else.i
   br label %do.body11.i
 
 do.body11.i:                                      ; preds = %do.body11.i, %if.end.i
-  %ip.addr.2.pn = phi ptr [ %ip.addr.2, %if.end.i ], [ %add.ptr14.i, %do.body11.i ]
   %op.i.1 = phi ptr [ %add.ptr9.i, %if.end.i ], [ %add.ptr18.i, %do.body11.i ]
+  %ip.addr.2.pn = phi ptr [ %ip.addr.2, %if.end.i ], [ %add.ptr14.i, %do.body11.i ]
   %ip.i.1 = getelementptr inbounds i8, ptr %ip.addr.2.pn, i64 16
   %15 = load <2 x i64>, ptr %ip.i.1, align 1
   store <2 x i64> %15, ptr %op.i.1, align 1
@@ -11990,12 +11990,12 @@ while.cond.preheader.i.i:                         ; preds = %do.end45.i
   br i1 %cmp250.i.i, label %while.body.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i
 
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %while.body.i.i
-  %ip.addr.052.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %83, %while.cond.preheader.i.i ]
-  %op.addr.051.i.i = phi ptr [ %incdec.ptr3.i.i, %while.body.i.i ], [ %op.i.01347, %while.cond.preheader.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ip.addr.052.i.i, i64 1
-  %85 = load i8, ptr %ip.addr.052.i.i, align 1
-  %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %op.addr.051.i.i, i64 1
-  store i8 %85, ptr %op.addr.051.i.i, align 1
+  %op.addr.052.i.i = phi ptr [ %incdec.ptr3.i.i, %while.body.i.i ], [ %op.i.01347, %while.cond.preheader.i.i ]
+  %ip.addr.051.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %83, %while.cond.preheader.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ip.addr.051.i.i, i64 1
+  %85 = load i8, ptr %ip.addr.051.i.i, align 1
+  %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %op.addr.052.i.i, i64 1
+  store i8 %85, ptr %op.addr.052.i.i, align 1
   %cmp2.i.i = icmp ult ptr %incdec.ptr3.i.i, %add.ptr.i563.i
   br i1 %cmp2.i.i, label %while.body.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i, !llvm.loop !24
 
@@ -12019,8 +12019,8 @@ if.end.i.i.i:                                     ; preds = %if.then7.i.i
   br label %do.body11.i.i.i
 
 do.body11.i.i.i:                                  ; preds = %do.body11.i.i.i, %if.end.i.i.i
-  %ip.pn.i.i = phi ptr [ %83, %if.end.i.i.i ], [ %add.ptr14.i.i.i, %do.body11.i.i.i ]
   %op.i.1.i.i = phi ptr [ %add.ptr9.i.i.i, %if.end.i.i.i ], [ %add.ptr18.i.i.i, %do.body11.i.i.i ]
+  %ip.pn.i.i = phi ptr [ %83, %if.end.i.i.i ], [ %add.ptr14.i.i.i, %do.body11.i.i.i ]
   %ip.i.1.i.i = getelementptr inbounds i8, ptr %ip.pn.i.i, i64 16
   %87 = load <2 x i64>, ptr %ip.i.1.i.i, align 1
   store <2 x i64> %87, ptr %op.i.1.i.i, align 1
@@ -12037,17 +12037,17 @@ if.end22.thread.i.i:                              ; preds = %do.body11.i.i.i, %i
   br label %while.body25.i.i.preheader
 
 while.body25.i.i.preheader:                       ; preds = %if.end22.thread.i.i, %if.end.i.i1149
-  %ip.addr.249.i.i.ph = phi ptr [ %83, %if.end.i.i1149 ], [ %add.ptr16.i.i, %if.end22.thread.i.i ]
-  %op.addr.248.i.i.ph = phi ptr [ %op.i.01347, %if.end.i.i1149 ], [ %add.ptr4.i.i1150, %if.end22.thread.i.i ]
+  %op.addr.249.i.i.ph = phi ptr [ %op.i.01347, %if.end.i.i1149 ], [ %add.ptr4.i.i1150, %if.end22.thread.i.i ]
+  %ip.addr.248.i.i.ph = phi ptr [ %83, %if.end.i.i1149 ], [ %add.ptr16.i.i, %if.end22.thread.i.i ]
   br label %while.body25.i.i
 
 while.body25.i.i:                                 ; preds = %while.body25.i.i.preheader, %while.body25.i.i
-  %ip.addr.249.i.i = phi ptr [ %incdec.ptr26.i.i, %while.body25.i.i ], [ %ip.addr.249.i.i.ph, %while.body25.i.i.preheader ]
-  %op.addr.248.i.i = phi ptr [ %incdec.ptr27.i.i, %while.body25.i.i ], [ %op.addr.248.i.i.ph, %while.body25.i.i.preheader ]
-  %incdec.ptr26.i.i = getelementptr inbounds i8, ptr %ip.addr.249.i.i, i64 1
-  %89 = load i8, ptr %ip.addr.249.i.i, align 1
-  %incdec.ptr27.i.i = getelementptr inbounds i8, ptr %op.addr.248.i.i, i64 1
-  store i8 %89, ptr %op.addr.248.i.i, align 1
+  %op.addr.249.i.i = phi ptr [ %incdec.ptr27.i.i, %while.body25.i.i ], [ %op.addr.249.i.i.ph, %while.body25.i.i.preheader ]
+  %ip.addr.248.i.i = phi ptr [ %incdec.ptr26.i.i, %while.body25.i.i ], [ %ip.addr.248.i.i.ph, %while.body25.i.i.preheader ]
+  %incdec.ptr26.i.i = getelementptr inbounds i8, ptr %ip.addr.248.i.i, i64 1
+  %89 = load i8, ptr %ip.addr.248.i.i, align 1
+  %incdec.ptr27.i.i = getelementptr inbounds i8, ptr %op.addr.249.i.i, i64 1
+  store i8 %89, ptr %op.addr.249.i.i, align 1
   %cmp24.i.i = icmp ult ptr %incdec.ptr27.i.i, %add.ptr.i563.i
   br i1 %cmp24.i.i, label %while.body25.i.i, label %ZSTD_safecopyDstBeforeSrc.exit.i, !llvm.loop !26
 
@@ -12308,12 +12308,12 @@ while.cond.preheader.i:                           ; preds = %if.end77.i
   br i1 %cmp250.i, label %while.body.i, label %ZSTD_safecopyDstBeforeSrc.exit
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
-  %ip.addr.052.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %109, %while.cond.preheader.i ]
-  %op.addr.051.i = phi ptr [ %incdec.ptr3.i, %while.body.i ], [ %op.i.01347, %while.cond.preheader.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ip.addr.052.i, i64 1
-  %111 = load i8, ptr %ip.addr.052.i, align 1
-  %incdec.ptr3.i = getelementptr inbounds i8, ptr %op.addr.051.i, i64 1
-  store i8 %111, ptr %op.addr.051.i, align 1
+  %op.addr.052.i = phi ptr [ %incdec.ptr3.i, %while.body.i ], [ %op.i.01347, %while.cond.preheader.i ]
+  %ip.addr.051.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %109, %while.cond.preheader.i ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ip.addr.051.i, i64 1
+  %111 = load i8, ptr %ip.addr.051.i, align 1
+  %incdec.ptr3.i = getelementptr inbounds i8, ptr %op.addr.052.i, i64 1
+  store i8 %111, ptr %op.addr.052.i, align 1
   %cmp2.i1176 = icmp ult ptr %incdec.ptr3.i, %add.ptr.i1163
   br i1 %cmp2.i1176, label %while.body.i, label %ZSTD_safecopyDstBeforeSrc.exit, !llvm.loop !24
 
@@ -12337,8 +12337,8 @@ if.end.i.i1169:                                   ; preds = %if.then7.i
   br label %do.body11.i.i1171
 
 do.body11.i.i1171:                                ; preds = %do.body11.i.i1171, %if.end.i.i1169
-  %ip.pn.i = phi ptr [ %109, %if.end.i.i1169 ], [ %add.ptr14.i.i1173, %do.body11.i.i1171 ]
   %op.i.1.i = phi ptr [ %add.ptr9.i.i1170, %if.end.i.i1169 ], [ %add.ptr18.i.i1174, %do.body11.i.i1171 ]
+  %ip.pn.i = phi ptr [ %109, %if.end.i.i1169 ], [ %add.ptr14.i.i1173, %do.body11.i.i1171 ]
   %ip.i.1.i = getelementptr inbounds i8, ptr %ip.pn.i, i64 16
   %113 = load <2 x i64>, ptr %ip.i.1.i, align 1
   store <2 x i64> %113, ptr %op.i.1.i, align 1
@@ -12355,17 +12355,17 @@ if.end22.thread.i:                                ; preds = %do.body11.i.i1171, 
   br label %while.body25.i.preheader
 
 while.body25.i.preheader:                         ; preds = %if.end.i1166, %if.end22.thread.i
-  %ip.addr.249.i.ph = phi ptr [ %109, %if.end.i1166 ], [ %add.ptr16.i, %if.end22.thread.i ]
-  %op.addr.248.i.ph = phi ptr [ %op.i.01347, %if.end.i1166 ], [ %add.ptr4.i1167, %if.end22.thread.i ]
+  %op.addr.249.i.ph = phi ptr [ %op.i.01347, %if.end.i1166 ], [ %add.ptr4.i1167, %if.end22.thread.i ]
+  %ip.addr.248.i.ph = phi ptr [ %109, %if.end.i1166 ], [ %add.ptr16.i, %if.end22.thread.i ]
   br label %while.body25.i
 
 while.body25.i:                                   ; preds = %while.body25.i.preheader, %while.body25.i
-  %ip.addr.249.i = phi ptr [ %incdec.ptr26.i, %while.body25.i ], [ %ip.addr.249.i.ph, %while.body25.i.preheader ]
-  %op.addr.248.i = phi ptr [ %incdec.ptr27.i, %while.body25.i ], [ %op.addr.248.i.ph, %while.body25.i.preheader ]
-  %incdec.ptr26.i = getelementptr inbounds i8, ptr %ip.addr.249.i, i64 1
-  %115 = load i8, ptr %ip.addr.249.i, align 1
-  %incdec.ptr27.i = getelementptr inbounds i8, ptr %op.addr.248.i, i64 1
-  store i8 %115, ptr %op.addr.248.i, align 1
+  %op.addr.249.i = phi ptr [ %incdec.ptr27.i, %while.body25.i ], [ %op.addr.249.i.ph, %while.body25.i.preheader ]
+  %ip.addr.248.i = phi ptr [ %incdec.ptr26.i, %while.body25.i ], [ %ip.addr.248.i.ph, %while.body25.i.preheader ]
+  %incdec.ptr26.i = getelementptr inbounds i8, ptr %ip.addr.248.i, i64 1
+  %115 = load i8, ptr %ip.addr.248.i, align 1
+  %incdec.ptr27.i = getelementptr inbounds i8, ptr %op.addr.249.i, i64 1
+  store i8 %115, ptr %op.addr.249.i, align 1
   %cmp24.i = icmp ult ptr %incdec.ptr27.i, %add.ptr.i1163
   br i1 %cmp24.i, label %while.body25.i, label %ZSTD_safecopyDstBeforeSrc.exit, !llvm.loop !26
 

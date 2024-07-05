@@ -112,12 +112,12 @@ define dso_local noundef ptr @gistbuild(ptr noundef %0, ptr noundef %1, ptr noun
   br label %39
 
 39:                                               ; preds = %40, %32
-  %.045 = phi i32 [ 0, %32 ], [ %41, %40 ]
-  %exitcond.not = icmp eq i32 %.045, %smax
+  %.046 = phi i32 [ 0, %32 ], [ %41, %40 ]
+  %exitcond.not = icmp eq i32 %.046, %smax
   br i1 %exitcond.not, label %.critedge, label %40
 
 40:                                               ; preds = %39
-  %41 = add nuw nsw i32 %.045, 1
+  %41 = add nuw nsw i32 %.046, 1
   %42 = trunc i32 %41 to i16
   %43 = tail call i32 @index_getprocid(ptr noundef %1, i16 noundef signext %42, i16 noundef zeroext 11) #10
   %.not51 = icmp eq i32 %43, 0
@@ -771,34 +771,34 @@ RelationGetSmgr.exit._crit_edge:                  ; preds = %RelationGetSmgr.exi
 
 132:                                              ; preds = %132, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %132 ]
-  %.03840.i = phi i64 [ 8, %.lr.ph.i ], [ %.1.i, %132 ]
+  %.041.i = phi i64 [ 8, %.lr.ph.i ], [ %.1.i, %132 ]
   %133 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %131, i64 0, i64 %indvars.iv.i, i32 3
   %134 = load i16, ptr %133, align 8
   %135 = icmp slt i16 %134, 0
   %narrow.i = select i1 %135, i16 4, i16 %134
   %.1.v.i = zext i16 %narrow.i to i64
-  %.1.i = add i64 %.03840.i, %.1.v.i
+  %.1.i = add i64 %.041.i, %.1.v.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %132, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %132, %116
-  %.038.lcssa.i = phi i64 [ 8, %116 ], [ %.1.i, %132 ]
+  %.0.lcssa.i = phi i64 [ 8, %116 ], [ %.1.i, %132 ]
   %136 = udiv i64 %121, %126
   %137 = uitofp i64 %136 to double
-  %138 = udiv i64 %121, %.038.lcssa.i
+  %138 = udiv i64 %121, %.0.lcssa.i
   %139 = uitofp i64 %138 to double
   %140 = fsub double 1.000000e+00, %137
   br label %141
 
 141:                                              ; preds = %153, %._crit_edge.i
-  %.0.i = phi i32 [ 1, %._crit_edge.i ], [ %142, %153 ]
-  %142 = add i32 %.0.i, 1
+  %.038.i = phi i32 [ 1, %._crit_edge.i ], [ %142, %153 ]
+  %142 = add i32 %.038.i, 1
   %143 = sitofp i32 %142 to double
   %144 = call double @pow(double noundef %137, double noundef %143) #10
   %145 = fsub double 1.000000e+00, %144
   %146 = fdiv double %145, %140
-  %147 = sitofp i32 %.0.i to double
+  %147 = sitofp i32 %.038.i to double
   %148 = call double @pow(double noundef %139, double noundef %147) #10
   %149 = load i32, ptr @effective_cache_size, align 4
   %150 = sdiv i32 %149, 4
@@ -815,7 +815,7 @@ RelationGetSmgr.exit._crit_edge:                  ; preds = %RelationGetSmgr.exi
   br i1 %158, label %159, label %141
 
 159:                                              ; preds = %153, %141
-  %160 = add i32 %.0.i, -1
+  %160 = add i32 %.038.i, -1
   %161 = icmp slt i32 %160, 1
   br i1 %161, label %162, label %167
 
@@ -1075,12 +1075,12 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr nocapture 
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %.preheader ]
-  %.07077 = phi ptr [ %32, %.lr.ph ], [ %23, %.preheader ]
+  %.07078 = phi ptr [ %32, %.lr.ph ], [ %23, %.preheader ]
   %28 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @gistextractpage(ptr noundef %29, ptr noundef nonnull %4) #10
   %31 = load i32, ptr %4, align 4
-  %32 = call ptr @gistjoinvector(ptr noundef %.07077, ptr noundef nonnull %3, ptr noundef %30, i32 noundef %31) #10
+  %32 = call ptr @gistjoinvector(ptr noundef %.07078, ptr noundef nonnull %3, ptr noundef %30, i32 noundef %31) #10
   call void @pfree(ptr noundef %30) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %1, align 8
@@ -1122,7 +1122,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr nocapture 
   br i1 %.not7584, label %._crit_edge88, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %.thread, %.loopexit
-  %.07192 = phi ptr [ %37, %.thread ], [ %53, %.loopexit ]
+  %.06892 = phi ptr [ %37, %.thread ], [ %53, %.loopexit ]
   %54 = getelementptr inbounds i8, ptr %0, i64 88
   %55 = zext nneg i16 %13 to i32
   %56 = getelementptr inbounds i8, ptr %1, i64 4
@@ -1131,7 +1131,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr nocapture 
   br label %59
 
 59:                                               ; preds = %.lr.ph87, %117
-  %.185 = phi ptr [ %.07192, %.lr.ph87 ], [ %119, %117 ]
+  %.185 = phi ptr [ %.06892, %.lr.ph87 ], [ %119, %117 ]
   %60 = load volatile i32, ptr @InterruptPending, align 4
   %.not76 = icmp eq i32 %60, 0
   br i1 %.not76, label %62, label %61
@@ -1152,15 +1152,15 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr nocapture 
   br i1 %69, label %.lr.ph82, label %._crit_edge83
 
 .lr.ph82:                                         ; preds = %62, %85
-  %.080 = phi i32 [ %74, %85 ], [ 0, %62 ]
-  %.06779 = phi ptr [ %89, %85 ], [ %64, %62 ]
-  %70 = getelementptr inbounds i8, ptr %.06779, i64 6
+  %.06780 = phi i32 [ %74, %85 ], [ 0, %62 ]
+  %.06979 = phi ptr [ %89, %85 ], [ %64, %62 ]
+  %70 = getelementptr inbounds i8, ptr %.06979, i64 6
   %71 = load i16, ptr %70, align 2
   %72 = and i16 %71, 8191
   %73 = zext nneg i16 %72 to i64
-  %74 = add nuw nsw i32 %.080, 1
+  %74 = add nuw nsw i32 %.06780, 1
   %75 = trunc i32 %74 to i16
-  %76 = call zeroext i16 @PageAddItemExtended(ptr noundef %66, ptr noundef %.06779, i64 noundef %73, i16 noundef zeroext %75, i32 noundef 0) #10
+  %76 = call zeroext i16 @PageAddItemExtended(ptr noundef %66, ptr noundef %.06979, i64 noundef %73, i16 noundef zeroext %75, i32 noundef 0) #10
   %77 = icmp eq i16 %76, 0
   br i1 %77, label %78, label %85
 
@@ -1179,7 +1179,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr nocapture 
   %86 = load i16, ptr %70, align 2
   %87 = and i16 %86, 8191
   %88 = zext nneg i16 %87 to i64
-  %89 = getelementptr i8, ptr %.06779, i64 %88
+  %89 = getelementptr i8, ptr %.06979, i64 %88
   %90 = load i32, ptr %67, align 4
   %91 = icmp slt i32 %74, %90
   br i1 %91, label %.lr.ph82, label %._crit_edge83, !llvm.loop !15
@@ -1232,8 +1232,8 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr nocapture 
   br label %117
 
 117:                                              ; preds = %112, %101
-  %.068 = phi ptr [ %113, %112 ], [ %110, %101 ]
-  call fastcc void @gist_indexsortbuild_levelstate_add(ptr noundef nonnull %0, ptr noundef nonnull %.068, ptr noundef nonnull %93)
+  %.0 = phi ptr [ %113, %112 ], [ %110, %101 ]
+  call fastcc void @gist_indexsortbuild_levelstate_add(ptr noundef nonnull %0, ptr noundef nonnull %.0, ptr noundef nonnull %93)
   %118 = getelementptr inbounds i8, ptr %.185, i64 48
   %119 = load ptr, ptr %118, align 8
   %.not75 = icmp eq ptr %119, null
@@ -1309,22 +1309,22 @@ define internal fastcc zeroext i1 @gistProcessItup(ptr nocapture noundef readonl
   br label %20
 
 20:                                               ; preds = %.lr.ph, %63
-  %.06587 = phi i32 [ %3, %.lr.ph ], [ %64, %63 ]
-  %.06686 = phi i32 [ %2, %.lr.ph ], [ %53, %63 ]
+  %.06489 = phi i32 [ %2, %.lr.ph ], [ %53, %63 ]
+  %.06588 = phi i32 [ %3, %.lr.ph ], [ %64, %63 ]
   %21 = load i32, ptr %17, align 8
-  %22 = srem i32 %.06587, %21
+  %22 = srem i32 %.06588, %21
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %20
   %25 = load i32, ptr %18, align 8
-  %.not69 = icmp eq i32 %.06587, %25
-  %.not70 = icmp eq i32 %.06587, %3
+  %.not69 = icmp eq i32 %.06588, %25
+  %.not70 = icmp eq i32 %.06588, %3
   %or.cond = or i1 %.not70, %.not69
   br i1 %or.cond, label %.thread, label %65
 
 .thread:                                          ; preds = %20, %24
-  %26 = call i32 @ReadBuffer(ptr noundef %13, i32 noundef %.06686) #10
+  %26 = call i32 @ReadBuffer(ptr noundef %13, i32 noundef %.06489) #10
   call void @LockBuffer(i32 noundef %26, i32 noundef 2) #10
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %34
@@ -1364,7 +1364,7 @@ BufferGetPage.exit:                               ; preds = %28, %34
   %51 = shl nuw i32 %50, 16
   %52 = zext i16 %.val74 to i32
   %53 = or disjoint i32 %51, %52
-  %54 = icmp sgt i32 %.06587, 1
+  %54 = icmp sgt i32 %.06588, 1
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %BufferGetPage.exit
@@ -1374,7 +1374,7 @@ BufferGetPage.exit:                               ; preds = %28, %34
   store i32 %53, ptr %5, align 4
   %56 = call ptr @hash_search(ptr noundef %.val75, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #10
   %57 = getelementptr inbounds i8, ptr %56, i64 4
-  store i32 %.06686, ptr %57, align 4
+  store i32 %.06489, ptr %57, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %58
@@ -1386,7 +1386,7 @@ BufferGetPage.exit:                               ; preds = %28, %34
   br i1 %.not71, label %62, label %60
 
 60:                                               ; preds = %58
-  %61 = call fastcc i32 @gistbufferinginserttuples(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %.06587, ptr noundef nonnull %8, i32 noundef 1, i16 noundef zeroext %41, i32 noundef -1, i16 noundef zeroext 0)
+  %61 = call fastcc i32 @gistbufferinginserttuples(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %.06588, ptr noundef nonnull %8, i32 noundef 1, i16 noundef zeroext %41, i32 noundef -1, i16 noundef zeroext 0)
   br label %63
 
 62:                                               ; preds = %58
@@ -1394,13 +1394,13 @@ BufferGetPage.exit:                               ; preds = %28, %34
   br label %63
 
 63:                                               ; preds = %62, %60
-  %.1 = phi i32 [ %61, %60 ], [ %.06686, %62 ]
-  %64 = add i32 %.06587, -1
+  %.1 = phi i32 [ %61, %60 ], [ %.06489, %62 ]
+  %64 = add i32 %.06588, -1
   %.not68 = icmp eq i32 %64, 0
   br i1 %.not68, label %.thread76, label %20
 
 65:                                               ; preds = %24
-  %66 = call ptr @gistGetNodeBuffer(ptr noundef nonnull %12, ptr noundef %10, i32 noundef %.06686, i32 noundef %.06587) #10
+  %66 = call ptr @gistGetNodeBuffer(ptr noundef nonnull %12, ptr noundef %10, i32 noundef %.06489, i32 noundef %.06588) #10
   %67 = load ptr, ptr %7, align 8
   call void @gistPushItupToNodeBuffer(ptr noundef nonnull %12, ptr noundef %66, ptr noundef %67) #10
   %68 = getelementptr inbounds i8, ptr %66, i64 4
@@ -1411,17 +1411,17 @@ BufferGetPage.exit:                               ; preds = %28, %34
   br label %75
 
 .thread76:                                        ; preds = %63, %16
-  %.06684 = phi i32 [ %2, %16 ], [ %53, %63 ]
-  %.06480 = phi i16 [ 0, %16 ], [ %41, %63 ]
-  %.078 = phi i32 [ -1, %16 ], [ %.1, %63 ]
-  %73 = call i32 @ReadBuffer(ptr noundef %13, i32 noundef %.06684) #10
+  %.06784 = phi i32 [ -1, %16 ], [ %.1, %63 ]
+  %.06682 = phi i16 [ 0, %16 ], [ %41, %63 ]
+  %.06478 = phi i32 [ %2, %16 ], [ %53, %63 ]
+  %73 = call i32 @ReadBuffer(ptr noundef %13, i32 noundef %.06478) #10
   call void @LockBuffer(i32 noundef %73, i32 noundef 2) #10
-  %74 = call fastcc i32 @gistbufferinginserttuples(ptr noundef nonnull %0, i32 noundef %73, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 1, i16 noundef zeroext 0, i32 noundef %.078, i16 noundef zeroext %.06480)
+  %74 = call fastcc i32 @gistbufferinginserttuples(ptr noundef nonnull %0, i32 noundef %73, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 1, i16 noundef zeroext 0, i32 noundef %.06784, i16 noundef zeroext %.06682)
   br label %75
 
 75:                                               ; preds = %65, %.thread76
-  %.067 = phi i1 [ false, %.thread76 ], [ %72, %65 ]
-  ret i1 %.067
+  %.0 = phi i1 [ false, %.thread76 ], [ %72, %65 ]
+  ret i1 %.0
 }
 
 declare i32 @ReadBuffer(ptr noundef, i32 noundef) local_unnamed_addr #1

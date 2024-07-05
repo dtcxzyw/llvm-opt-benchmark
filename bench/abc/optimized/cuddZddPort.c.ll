@@ -93,17 +93,17 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
 
 51:                                               ; preds = %41, %58
   %indvars.iv = phi i64 [ %49, %41 ], [ %indvars.iv.next, %58 ]
-  %.0100125 = phi ptr [ %28, %41 ], [ %55, %58 ]
+  %.0101125 = phi ptr [ %28, %41 ], [ %55, %58 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %52 = load ptr, ptr %48, align 8
   %53 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv.next
   %54 = load i32, ptr %53, align 4
-  %55 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %54, ptr noundef nonnull %.0100125, ptr noundef nonnull %.0100125) #2
+  %55 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %54, ptr noundef nonnull %.0101125, ptr noundef nonnull %.0101125) #2
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %51
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0100125) #2
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0101125) #2
   br label %146
 
 58:                                               ; preds = %51
@@ -114,7 +114,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, 1
   store i32 %64, ptr %62, align 4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0100125) #2
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.0101125) #2
   %.not120.not = icmp sgt i64 %indvars.iv.next, %50
   br i1 %.not120.not, label %51, label %65, !llvm.loop !6
 
@@ -260,8 +260,8 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   br label %146
 
 146:                                              ; preds = %94, %38, %65, %15, %._crit_edge, %135, %118, %108, %57, %18, %10
-  %.0102 = phi ptr [ %12, %10 ], [ %23, %18 ], [ null, %57 ], [ null, %108 ], [ null, %118 ], [ null, %135 ], [ %.2.lcssa, %._crit_edge ], [ %5, %15 ], [ %55, %65 ], [ %28, %38 ], [ null, %94 ]
-  ret ptr %.0102
+  %.0100 = phi ptr [ %12, %10 ], [ %23, %18 ], [ null, %57 ], [ null, %108 ], [ null, %118 ], [ null, %135 ], [ %.2.lcssa, %._crit_edge ], [ %5, %15 ], [ %55, %65 ], [ %28, %38 ], [ null, %94 ]
+  ret ptr %.0100
 }
 
 ; Function Attrs: nounwind uwtable

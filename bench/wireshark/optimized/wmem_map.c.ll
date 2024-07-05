@@ -192,18 +192,18 @@ define ptr @wmem_map_insert(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   br label %58
 
 58:                                               ; preds = %._crit_edge.i, %49
-  %.029.i = phi i64 [ 0, %49 ], [ %78, %._crit_edge.i ]
-  %59 = getelementptr ptr, ptr %50, i64 %.029.i
+  %.02629.i = phi i64 [ 0, %49 ], [ %78, %._crit_edge.i ]
+  %59 = getelementptr ptr, ptr %50, i64 %.02629.i
   %60 = load ptr, ptr %59, align 8
   %.not27.i = icmp eq ptr %60, null
   br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.i
-  %.02628.i = phi ptr [ %62, %.lr.ph.i ], [ %60, %58 ]
-  %61 = getelementptr inbounds i8, ptr %.02628.i, i64 16
+  %.028.i = phi ptr [ %62, %.lr.ph.i ], [ %60, %58 ]
+  %61 = getelementptr inbounds i8, ptr %.028.i, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %14, align 8
-  %64 = load ptr, ptr %.02628.i, align 8
+  %64 = load ptr, ptr %.028.i, align 8
   %65 = tail call i32 %63(ptr noundef %64) #7
   %66 = load i32, ptr @x, align 4
   %67 = mul i32 %66, %65
@@ -218,14 +218,14 @@ define ptr @wmem_map_insert(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   store ptr %75, ptr %61, align 8
   %76 = load ptr, ptr %4, align 8
   %77 = getelementptr ptr, ptr %76, i64 %73
-  store ptr %.02628.i, ptr %77, align 8
+  store ptr %.028.i, ptr %77, align 8
   %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %58
-  %78 = add i64 %.029.i, 1
-  %.0.highbits.i = lshr i64 %78, %48
-  %79 = icmp eq i64 %.0.highbits.i, 0
+  %78 = add i64 %.02629.i, 1
+  %.026.highbits.i = lshr i64 %78, %48
+  %79 = icmp eq i64 %.026.highbits.i, 0
   br i1 %79, label %58, label %wmem_map_grow.exit, !llvm.loop !7
 
 wmem_map_grow.exit:                               ; preds = %._crit_edge.i
@@ -555,26 +555,26 @@ define ptr @wmem_map_get_keys(ptr noundef %0, ptr nocapture noundef readonly %1)
   br label %9
 
 9:                                                ; preds = %6, %._crit_edge
-  %.01217 = phi i64 [ 0, %6 ], [ %14, %._crit_edge ]
+  %.017 = phi i64 [ 0, %6 ], [ %14, %._crit_edge ]
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr ptr, ptr %10, i64 %.01217
-  %.014 = load ptr, ptr %11, align 8
-  %.not1315 = icmp eq ptr %.014, null
+  %11 = getelementptr ptr, ptr %10, i64 %.017
+  %.01214 = load ptr, ptr %11, align 8
+  %.not1315 = icmp eq ptr %.01214, null
   br i1 %.not1315, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
-  %.016 = phi ptr [ %.0, %.lr.ph ], [ %.014, %9 ]
-  %12 = load ptr, ptr %.016, align 8
+  %.01216 = phi ptr [ %.012, %.lr.ph ], [ %.01214, %9 ]
+  %12 = load ptr, ptr %.01216, align 8
   tail call void @wmem_list_prepend(ptr noundef %3, ptr noundef %12) #7
-  %13 = getelementptr inbounds i8, ptr %.016, i64 16
-  %.0 = load ptr, ptr %13, align 8
-  %.not13 = icmp eq ptr %.0, null
+  %13 = getelementptr inbounds i8, ptr %.01216, i64 16
+  %.012 = load ptr, ptr %13, align 8
+  %.not13 = icmp eq ptr %.012, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
-  %14 = add i64 %.01217, 1
-  %.012.highbits = lshr i64 %14, %8
-  %15 = icmp eq i64 %.012.highbits, 0
+  %14 = add i64 %.017, 1
+  %.0.highbits = lshr i64 %14, %8
+  %15 = icmp eq i64 %.0.highbits, 0
   br i1 %15, label %9, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge, %2

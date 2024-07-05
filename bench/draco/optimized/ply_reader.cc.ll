@@ -1557,7 +1557,7 @@ _ZNSt6vectorIN5draco10PlyElementESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit: ;
 
 92:                                               ; preds = %10, %18, %_ZNSt6vectorIN5draco10PlyElementESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
   %93 = phi ptr [ %.pre, %_ZNSt6vectorIN5draco10PlyElementESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ], [ %.pre13, %18 ], [ %13, %10 ]
-  %.09 = phi i1 [ true, %_ZNSt6vectorIN5draco10PlyElementESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ], [ false, %18 ], [ false, %10 ]
+  %.0 = phi i1 [ true, %_ZNSt6vectorIN5draco10PlyElementESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ], [ false, %18 ], [ false, %10 ]
   %94 = load ptr, ptr %11, align 8
   %.not4.i.i.i.i = icmp eq ptr %93, %94
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -1587,7 +1587,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %98 = getelementptr inbounds i8, ptr %3, i64 24
   call void @_ZN5draco13DecoderBuffer10BitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %98) #21
-  ret i1 %.09
+  ret i1 %.0
 
 99:                                               ; preds = %90, %39
   %.pn = phi { ptr, i32 } [ %91, %90 ], [ %40, %39 ]

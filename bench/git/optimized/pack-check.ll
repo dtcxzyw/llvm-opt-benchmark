@@ -30,8 +30,8 @@ entry:
 
 do.body:                                          ; preds = %if.end, %entry
   %len.addr.0 = phi i64 [ %len, %entry ], [ %sub, %if.end ]
-  %offset.addr.0 = phi i64 [ %offset, %entry ], [ %add, %if.end ]
   %data_crc.0 = phi i64 [ %call, %entry ], [ %call5, %if.end ]
+  %offset.addr.0 = phi i64 [ %offset, %entry ], [ %add, %if.end ]
   %call1 = call ptr @use_pack(ptr noundef %p, ptr noundef %w_curs, i64 noundef %offset.addr.0, ptr noundef nonnull %avail) #8
   %0 = load i64, ptr %avail, align 8
   %cmp = icmp ugt i64 %0, %len.addr.0
@@ -184,8 +184,8 @@ if.end.i8:                                        ; preds = %if.end
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end13.i, %if.end.i8
-  %offset.0.i = phi i64 [ 0, %if.end.i8 ], [ %add.i, %if.end13.i ]
   %pack_sig_ofs.0.i = phi i64 [ 0, %if.end.i8 ], [ %pack_sig_ofs.1.i, %if.end13.i ]
+  %offset.0.i = phi i64 [ 0, %if.end.i8 ], [ %add.i, %if.end13.i ]
   %call4.i = call ptr @use_pack(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %offset.0.i, ptr noundef nonnull %remaining.i) #8
   %6 = load i64, ptr %remaining.i, align 8
   %add.i = add i64 %6, %offset.0.i
@@ -332,7 +332,7 @@ for.body56.lr.ph.i:                               ; preds = %for.end.i, %sane_qs
 
 for.body56.i:                                     ; preds = %if.end164.i, %for.body56.lr.ph.i
   %indvars.iv125.i = phi i64 [ 0, %for.body56.lr.ph.i ], [ %indvars.iv.next126.i, %if.end164.i ]
-  %err.2121.i = phi i32 [ %err.1.i, %for.body56.lr.ph.i ], [ %err.4.i, %if.end164.i ]
+  %err.2120.i = phi i32 [ %err.1.i, %for.body56.lr.ph.i ], [ %err.4.i, %if.end164.i ]
   %arrayidx58.i = getelementptr inbounds %struct.idx_entry, ptr %call42.i, i64 %indvars.iv125.i
   %nr59.i = getelementptr inbounds i8, ptr %arrayidx58.i, i64 8
   %22 = load i32, ptr %nr59.i, align 8
@@ -363,8 +363,8 @@ if.then73.i:                                      ; preds = %if.end70.i
 
 do.body.i.i:                                      ; preds = %if.end.i.i, %if.then73.i
   %len.addr.0.i.i = phi i64 [ %sub82.i, %if.then73.i ], [ %sub.i.i, %if.end.i.i ]
-  %offset.addr.0.i.i = phi i64 [ %25, %if.then73.i ], [ %add.i.i, %if.end.i.i ]
   %data_crc.0.i.i = phi i64 [ %call.i.i, %if.then73.i ], [ %call5.i.i, %if.end.i.i ]
+  %offset.addr.0.i.i = phi i64 [ %25, %if.then73.i ], [ %add.i.i, %if.end.i.i ]
   %call1.i.i = call ptr @use_pack(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %offset.addr.0.i.i, ptr noundef nonnull %avail.i.i) #8
   %28 = load i64, ptr %avail.i.i, align 8
   %cmp.i100.i = icmp ugt i64 %28, %len.addr.0.i.i
@@ -413,7 +413,7 @@ if.then89.i:                                      ; preds = %if.else.i.i.i
   br label %if.end96.i
 
 if.end96.i:                                       ; preds = %if.then89.i, %if.else.i.i.i, %if.end70.i
-  %err.3.i = phi i32 [ -1, %if.then89.i ], [ %err.2121.i, %if.else.i.i.i ], [ %err.2121.i, %if.end70.i ]
+  %err.3.i = phi i32 [ -1, %if.then89.i ], [ %err.2120.i, %if.else.i.i.i ], [ %err.2120.i, %if.end70.i ]
   %40 = load i64, ptr %arrayidx58.i, align 8
   store i64 %40, ptr %curpos.i, align 8
   %call100.i = call i32 @unpack_object_header(ptr noundef nonnull %p, ptr noundef nonnull %w_curs, ptr noundef nonnull %curpos.i, ptr noundef nonnull %size.i) #8

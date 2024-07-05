@@ -338,8 +338,8 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !14
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
-  %nr.addr.0.lcssa = phi i64 [ %nr, %while.cond.preheader ], [ %sub519, %while.body ]
   %p.0.lcssa = phi ptr [ %add.ptr, %while.cond.preheader ], [ %incdec.ptr, %while.body ]
+  %nr.addr.0.lcssa = phi i64 [ %nr, %while.cond.preheader ], [ %sub519, %while.body ]
   %mask_to_set.0.lcssa = phi i64 [ %shl, %while.cond.preheader ], [ -1, %while.body ]
   %tobool.not = icmp eq i64 %nr.addr.0.lcssa, 0
   br i1 %tobool.not, label %if.end15, label %if.then10
@@ -473,8 +473,8 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !16
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
-  %nr.addr.0.lcssa = phi i64 [ %nr, %while.cond.preheader ], [ %sub519, %while.body ]
   %p.0.lcssa = phi ptr [ %add.ptr, %while.cond.preheader ], [ %incdec.ptr, %while.body ]
+  %nr.addr.0.lcssa = phi i64 [ %nr, %while.cond.preheader ], [ %sub519, %while.body ]
   %mask_to_clear.0.lcssa = phi i64 [ %shl, %while.cond.preheader ], [ -1, %while.body ]
   %tobool.not = icmp eq i64 %nr.addr.0.lcssa, 0
   br i1 %tobool.not, label %if.end17, label %if.then11
@@ -530,8 +530,8 @@ if.then8:                                         ; preds = %if.end
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then8, %if.end
-  %nr.addr.0 = phi i64 [ %sub5, %if.then8 ], [ %nr, %if.end ]
   %p.0 = phi ptr [ %incdec.ptr, %if.then8 ], [ %add.ptr, %if.end ]
+  %nr.addr.0 = phi i64 [ %sub5, %if.then8 ], [ %nr, %if.end ]
   %bits_to_clear.0 = phi i32 [ 64, %if.then8 ], [ %conv, %if.end ]
   %dirty.1 = phi i1 [ %tobool.not, %if.then8 ], [ false, %if.end ]
   %cmp17 = icmp eq i32 %bits_to_clear.0, 64
@@ -540,8 +540,8 @@ if.end15:                                         ; preds = %if.then8, %if.end
   br i1 %or.cond1, label %while.body, label %if.end27
 
 while.body:                                       ; preds = %if.end15, %if.end24
-  %nr.addr.1 = phi i64 [ %sub25, %if.end24 ], [ %nr.addr.0, %if.end15 ]
   %p.1 = phi ptr [ %incdec.ptr26, %if.end24 ], [ %p.0, %if.end15 ]
+  %nr.addr.1 = phi i64 [ %sub25, %if.end24 ], [ %nr.addr.0, %if.end15 ]
   %dirty.2 = phi i1 [ %dirty.3, %if.end24 ], [ %dirty.1, %if.end15 ]
   %4 = load i64, ptr %p.1, align 8
   %tobool22.not = icmp eq i64 %4, 0
@@ -559,8 +559,8 @@ if.end24:                                         ; preds = %if.then23, %while.b
   br i1 %cmp20.old, label %while.body, label %if.end27
 
 if.end27:                                         ; preds = %if.end24, %if.end15
-  %nr.addr.2 = phi i64 [ %nr.addr.0, %if.end15 ], [ %sub25, %if.end24 ]
   %p.2 = phi ptr [ %p.0, %if.end15 ], [ %incdec.ptr26, %if.end24 ]
+  %nr.addr.2 = phi i64 [ %nr.addr.0, %if.end15 ], [ %sub25, %if.end24 ]
   %dirty.4 = phi i1 [ %dirty.1, %if.end15 ], [ %dirty.3, %if.end24 ]
   %tobool28.not = icmp eq i64 %nr.addr.2, 0
   br i1 %tobool28.not, label %if.end39, label %if.then29
@@ -880,27 +880,27 @@ if.end:                                           ; preds = %entry
   br i1 %cmp37, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end, %while.body
-  %nbits.addr.040 = phi i64 [ %sub5, %while.body ], [ %nbits, %if.end ]
+  %dst.addr.040 = phi ptr [ %incdec.ptr, %while.body ], [ %dst, %if.end ]
   %src.addr.039 = phi ptr [ %arrayidx, %while.body ], [ %add.ptr, %if.end ]
-  %dst.addr.038 = phi ptr [ %incdec.ptr, %while.body ], [ %dst, %if.end ]
+  %nbits.addr.038 = phi i64 [ %sub5, %while.body ], [ %nbits, %if.end ]
   %2 = load i64, ptr %src.addr.039, align 8
   %and = and i64 %2, %notmask
   %shr = lshr i64 %and, %rem
-  store i64 %shr, ptr %dst.addr.038, align 8
+  store i64 %shr, ptr %dst.addr.040, align 8
   %arrayidx = getelementptr i8, ptr %src.addr.039, i64 8
   %3 = load i64, ptr %arrayidx, align 8
   %shl3 = shl i64 %3, %sub2
   %or = or i64 %shl3, %shr
-  store i64 %or, ptr %dst.addr.038, align 8
-  %incdec.ptr = getelementptr i8, ptr %dst.addr.038, i64 8
-  %sub5 = add i64 %nbits.addr.040, -64
+  store i64 %or, ptr %dst.addr.040, align 8
+  %incdec.ptr = getelementptr i8, ptr %dst.addr.040, i64 8
+  %sub5 = add i64 %nbits.addr.038, -64
   %cmp = icmp ugt i64 %sub5, 63
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !21
 
 while.end:                                        ; preds = %while.body, %if.end
-  %dst.addr.0.lcssa = phi ptr [ %dst, %if.end ], [ %incdec.ptr, %while.body ]
-  %src.addr.0.lcssa = phi ptr [ %add.ptr, %if.end ], [ %arrayidx, %while.body ]
   %nbits.addr.0.lcssa = phi i64 [ %nbits, %if.end ], [ %sub5, %while.body ]
+  %src.addr.0.lcssa = phi ptr [ %add.ptr, %if.end ], [ %arrayidx, %while.body ]
+  %dst.addr.0.lcssa = phi ptr [ %dst, %if.end ], [ %incdec.ptr, %while.body ]
   %cmp7 = icmp ugt i64 %nbits.addr.0.lcssa, %sub2
   br i1 %cmp7, label %if.then8, label %if.else
 
@@ -975,28 +975,28 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %if.end, %while.body
   %3 = phi i64 [ %shr, %while.body ], [ %and, %if.end ]
-  %nbits.addr.044 = phi i64 [ %sub9, %while.body ], [ %nbits, %if.end ]
+  %dst.addr.044 = phi ptr [ %arrayidx, %while.body ], [ %add.ptr, %if.end ]
   %src.addr.043 = phi ptr [ %incdec.ptr8, %while.body ], [ %src, %if.end ]
-  %dst.addr.042 = phi ptr [ %arrayidx, %while.body ], [ %add.ptr, %if.end ]
+  %nbits.addr.042 = phi i64 [ %sub9, %while.body ], [ %nbits, %if.end ]
   %4 = load i64, ptr %src.addr.043, align 8
   %shl5 = shl i64 %4, %rem
   %or = or i64 %3, %shl5
-  store i64 %or, ptr %dst.addr.042, align 8
+  store i64 %or, ptr %dst.addr.044, align 8
   %5 = load i64, ptr %src.addr.043, align 8
   %and6 = and i64 %5, %notmask
   %shr = lshr i64 %and6, %sub
-  %arrayidx = getelementptr i8, ptr %dst.addr.042, i64 8
+  %arrayidx = getelementptr i8, ptr %dst.addr.044, i64 8
   store i64 %shr, ptr %arrayidx, align 8
   %incdec.ptr8 = getelementptr i8, ptr %src.addr.043, i64 8
-  %sub9 = add i64 %nbits.addr.044, -64
+  %sub9 = add i64 %nbits.addr.042, -64
   %cmp = icmp ugt i64 %sub9, 63
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !22
 
 while.end:                                        ; preds = %while.body, %if.end
   %6 = phi i64 [ %and, %if.end ], [ %shr, %while.body ]
-  %dst.addr.0.lcssa = phi ptr [ %add.ptr, %if.end ], [ %arrayidx, %while.body ]
-  %src.addr.0.lcssa = phi ptr [ %src, %if.end ], [ %incdec.ptr8, %while.body ]
   %nbits.addr.0.lcssa = phi i64 [ %nbits, %if.end ], [ %sub9, %while.body ]
+  %src.addr.0.lcssa = phi ptr [ %src, %if.end ], [ %incdec.ptr8, %while.body ]
+  %dst.addr.0.lcssa = phi ptr [ %add.ptr, %if.end ], [ %arrayidx, %while.body ]
   %cmp11 = icmp ugt i64 %nbits.addr.0.lcssa, %sub
   br i1 %cmp11, label %if.then12, label %if.else
 

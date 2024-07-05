@@ -3813,8 +3813,8 @@ define internal i32 @dissect_nfapi_ul_p7(ptr noundef %0, ptr noundef %1, ptr nou
   br label %47
 
 38:                                               ; preds = %36, %14
-  %.043 = phi ptr [ %31, %36 ], [ %0, %14 ]
-  %.042 = phi i32 [ 0, %36 ], [ 16, %14 ]
+  %.043 = phi i32 [ 0, %36 ], [ 16, %14 ]
+  %.042 = phi ptr [ %31, %36 ], [ %0, %14 ]
   %39 = and i32 %11, 255
   store i32 %39, ptr %10, align 8
   %.off = add i16 %8, -133
@@ -3824,7 +3824,7 @@ define internal i32 @dissect_nfapi_ul_p7(ptr noundef %0, ptr noundef %1, ptr nou
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %1, i64 408
   %42 = load ptr, ptr %41, align 8
-  %43 = call ptr @ptvcursor_new(ptr noundef %42, ptr noundef %2, ptr noundef %.043, i32 noundef %.042) #7
+  %43 = call ptr @ptvcursor_new(ptr noundef %42, ptr noundef %2, ptr noundef %.042, i32 noundef %.043) #7
   %44 = load i32, ptr @hf_nfapi_sfn_sf, align 4
   %45 = call ptr @ptvcursor_add(ptr noundef %43, i32 noundef %44, i32 noundef 2, i32 noundef 0) #7
   %46 = zext i16 %9 to i32
@@ -3833,8 +3833,8 @@ define internal i32 @dissect_nfapi_ul_p7(ptr noundef %0, ptr noundef %1, ptr nou
   br label %47
 
 47:                                               ; preds = %40, %38, %20, %18, %37
-  %.043.sink = phi ptr [ %0, %37 ], [ %0, %18 ], [ %0, %20 ], [ %.043, %38 ], [ %.043, %40 ]
-  %48 = call i32 @tvb_captured_length(ptr noundef %.043.sink) #7
+  %.042.sink = phi ptr [ %0, %37 ], [ %0, %18 ], [ %0, %20 ], [ %.042, %38 ], [ %.042, %40 ]
+  %48 = call i32 @tvb_captured_length(ptr noundef %.042.sink) #7
   ret i32 %48
 }
 
@@ -3896,8 +3896,8 @@ define internal i32 @dissect_nfapi_dl_p7(ptr noundef %0, ptr noundef %1, ptr nou
   br label %47
 
 38:                                               ; preds = %36, %14
-  %.043 = phi ptr [ %31, %36 ], [ %0, %14 ]
-  %.042 = phi i32 [ 0, %36 ], [ 16, %14 ]
+  %.043 = phi i32 [ 0, %36 ], [ 16, %14 ]
+  %.042 = phi ptr [ %31, %36 ], [ %0, %14 ]
   %39 = and i32 %11, 255
   store i32 %39, ptr %10, align 8
   switch i16 %8, label %47 [
@@ -3912,7 +3912,7 @@ define internal i32 @dissect_nfapi_dl_p7(ptr noundef %0, ptr noundef %1, ptr nou
 40:                                               ; preds = %38, %38, %38, %38, %38, %38
   %41 = getelementptr inbounds i8, ptr %1, i64 408
   %42 = load ptr, ptr %41, align 8
-  %43 = call ptr @ptvcursor_new(ptr noundef %42, ptr noundef %2, ptr noundef %.043, i32 noundef %.042) #7
+  %43 = call ptr @ptvcursor_new(ptr noundef %42, ptr noundef %2, ptr noundef %.042, i32 noundef %.043) #7
   %44 = load i32, ptr @hf_nfapi_sfn_sf, align 4
   %45 = call ptr @ptvcursor_add(ptr noundef %43, i32 noundef %44, i32 noundef 2, i32 noundef 0) #7
   %46 = zext i16 %9 to i32
@@ -3921,8 +3921,8 @@ define internal i32 @dissect_nfapi_dl_p7(ptr noundef %0, ptr noundef %1, ptr nou
   br label %47
 
 47:                                               ; preds = %38, %40, %20, %18, %37
-  %.043.sink = phi ptr [ %0, %37 ], [ %0, %18 ], [ %0, %20 ], [ %.043, %40 ], [ %.043, %38 ]
-  %48 = call i32 @tvb_captured_length(ptr noundef %.043.sink) #7
+  %.042.sink = phi ptr [ %0, %37 ], [ %0, %18 ], [ %0, %20 ], [ %.042, %40 ], [ %.042, %38 ]
+  %48 = call i32 @tvb_captured_length(ptr noundef %.042.sink) #7
   ret i32 %48
 }
 
@@ -9885,10 +9885,10 @@ define internal void @dissect_rx_indication_body_value(ptr noundef %0, ptr nound
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %116
-  %.06289 = phi i32 [ %.1, %116 ], [ %25, %.lr.ph.preheader ]
-  %.06388 = phi i32 [ %.16481, %116 ], [ 0, %.lr.ph.preheader ]
+  %.089 = phi i32 [ %.181, %116 ], [ 0, %.lr.ph.preheader ]
+  %.06288 = phi i32 [ %.163, %116 ], [ %25, %.lr.ph.preheader ]
   %26 = call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %27 = icmp slt i32 %26, %.06289
+  %27 = icmp slt i32 %26, %.06288
   br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %.lr.ph
@@ -9939,7 +9939,7 @@ define internal void @dissect_rx_indication_body_value(ptr noundef %0, ptr nound
   br label %look_up_tlv.exit
 
 52:                                               ; preds = %28
-  %.not72 = icmp eq i32 %.06388, 0
+  %.not72 = icmp eq i32 %.089, 0
   br i1 %.not72, label %look_up_tlv.exit.thread82, label %53
 
 53:                                               ; preds = %52
@@ -9948,8 +9948,8 @@ define internal void @dissect_rx_indication_body_value(ptr noundef %0, ptr nound
 
 look_up_tlv.exit.thread82:                        ; preds = %52, %53
   %54 = load i32, ptr @ett_nfapi_rx_indication_pdu_list, align 4
-  %55 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %54, ptr noundef nonnull @.str.2159, i32 noundef %.06388) #7
-  %56 = add i32 %.06388, 1
+  %55 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %54, ptr noundef nonnull @.str.2159, i32 noundef %.089) #7
+  %56 = add i32 %.089, 1
   br label %57
 
 look_up_tlv.exit:                                 ; preds = %49, %44, %39, %34
@@ -9958,7 +9958,7 @@ look_up_tlv.exit:                                 ; preds = %49, %44, %39, %34
   br i1 %.not73, label %look_up_tlv.exit.thread, label %57
 
 57:                                               ; preds = %look_up_tlv.exit.thread82, %look_up_tlv.exit
-  %.16487 = phi i32 [ %56, %look_up_tlv.exit.thread82 ], [ %.06388, %look_up_tlv.exit ]
+  %.187 = phi i32 [ %56, %look_up_tlv.exit.thread82 ], [ %.089, %look_up_tlv.exit ]
   %phi.call86 = phi ptr [ getelementptr inbounds (i8, ptr @p7_tags, i64 1344), %look_up_tlv.exit.thread82 ], [ %phi.call, %look_up_tlv.exit ]
   %58 = getelementptr inbounds i8, ptr %phi.call86, i64 8
   %59 = load ptr, ptr %58, align 8
@@ -9972,10 +9972,10 @@ look_up_tlv.exit:                                 ; preds = %49, %44, %39, %34
   br label %look_up_tlv.exit.thread
 
 look_up_tlv.exit.thread:                          ; preds = %47, %60, %57, %look_up_tlv.exit
-  %.16481 = phi i32 [ %.16487, %57 ], [ %.06388, %look_up_tlv.exit ], [ %.16487, %60 ], [ %.06388, %47 ]
-  %.0 = phi ptr [ @.str.1637, %57 ], [ @.str.1637, %look_up_tlv.exit ], [ %spec.select, %60 ], [ @.str.1637, %47 ]
+  %.181 = phi i32 [ %.187, %57 ], [ %.089, %look_up_tlv.exit ], [ %.187, %60 ], [ %.089, %47 ]
+  %.064 = phi ptr [ @.str.1637, %57 ], [ @.str.1637, %look_up_tlv.exit ], [ %spec.select, %60 ], [ @.str.1637, %47 ]
   %63 = load i32, ptr @ett_nfapi_rx_indication_pdu_list, align 4
-  %64 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %63, ptr noundef nonnull @.str.1839, ptr noundef nonnull %.0) #7
+  %64 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %63, ptr noundef nonnull @.str.1839, ptr noundef nonnull %.064) #7
   %65 = load i32, ptr @ett_nfapi_tl, align 4
   %66 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %65, ptr noundef nonnull @.str.2002) #7
   %67 = load i32, ptr @hf_nfapi_tl_tag, align 4
@@ -10005,7 +10005,7 @@ dissect_rx_ue_info_value.exit:                    ; preds = %71, %78
 
 80:                                               ; preds = %look_up_tlv.exit.thread
   %81 = icmp eq i16 %31, 8228
-  %82 = icmp ne i32 %.16481, 0
+  %82 = icmp ne i32 %.181, 0
   %or.cond = select i1 %81, i1 %82, i1 false
   br i1 %or.cond, label %83, label %107
 
@@ -10036,9 +10036,9 @@ dissect_rx_ue_info_value.exit:                    ; preds = %71, %78
   %102 = call i32 @tvb_reported_length_remaining(ptr noundef %100, i32 noundef %101) #7
   %103 = call i32 @ptvcursor_current_offset(ptr noundef %0) #7
   %104 = add i32 %103, %102
-  %105 = icmp eq i32 %.06289, %104
+  %105 = icmp eq i32 %.06288, %104
   %106 = add i32 %7, %99
-  %spec.select76 = select i1 %105, i32 %106, i32 %.06289
+  %spec.select76 = select i1 %105, i32 %106, i32 %.06288
   br label %116
 
 107:                                              ; preds = %80
@@ -10062,7 +10062,7 @@ dissect_rx_indication_rel9_value.exit:            ; preds = %109, %114
   br label %116
 
 116:                                              ; preds = %98, %83, %dissect_rx_indication_rel9_value.exit, %107, %dissect_rx_ue_info_value.exit
-  %.1 = phi i32 [ %.06289, %dissect_rx_ue_info_value.exit ], [ %.06289, %83 ], [ %.06289, %dissect_rx_indication_rel9_value.exit ], [ %.06289, %107 ], [ %spec.select76, %98 ]
+  %.163 = phi i32 [ %.06288, %dissect_rx_ue_info_value.exit ], [ %.06288, %83 ], [ %.06288, %dissect_rx_indication_rel9_value.exit ], [ %.06288, %107 ], [ %spec.select76, %98 ]
   call void @ptvcursor_pop_subtree(ptr noundef %0) #7
   %117 = call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
   %118 = call i32 @ptvcursor_current_offset(ptr noundef %0) #7
@@ -10734,10 +10734,10 @@ define internal void @dissect_rx_cqi_indication_body_value(ptr noundef %0, ptr n
 
 .lr.ph47:                                         ; preds = %10, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %10 ]
-  %.03744 = phi i32 [ %.138.lcssa, %._crit_edge ], [ %8, %10 ]
-  %17 = call zeroext i16 @tvb_get_ntohs(ptr noundef %7, i32 noundef %.03744) #7
+  %.03844 = phi i32 [ %.139.lcssa, %._crit_edge ], [ %8, %10 ]
+  %17 = call zeroext i16 @tvb_get_ntohs(ptr noundef %7, i32 noundef %.03844) #7
   %18 = zext i16 %17 to i32
-  %19 = add i32 %.03744, 2
+  %19 = add i32 %.03844, 2
   %20 = add i32 %19, %18
   %21 = icmp ult i32 %19, %20
   br i1 %21, label %.lr.ph, label %._crit_edge
@@ -10747,11 +10747,11 @@ define internal void @dissect_rx_cqi_indication_body_value(ptr noundef %0, ptr n
   br label %23
 
 23:                                               ; preds = %.lr.ph, %29
-  %.13843 = phi i32 [ %19, %.lr.ph ], [ %31, %29 ]
-  %24 = call zeroext i16 @tvb_get_ntohs(ptr noundef %7, i32 noundef %.13843) #7
-  %25 = add i32 %.13843, 2
+  %.13943 = phi i32 [ %19, %.lr.ph ], [ %31, %29 ]
+  %24 = call zeroext i16 @tvb_get_ntohs(ptr noundef %7, i32 noundef %.13943) #7
+  %25 = add i32 %.13943, 2
   %26 = call zeroext i16 @tvb_get_ntohs(ptr noundef %7, i32 noundef %25) #7
-  %27 = add i32 %.13843, 4
+  %27 = add i32 %.13943, 4
   %.off = add i16 %24, -8239
   %switch = icmp ult i16 %.off, 2
   br i1 %switch, label %.sink.split, label %29
@@ -10768,7 +10768,7 @@ define internal void @dissect_rx_cqi_indication_body_value(ptr noundef %0, ptr n
   br i1 %32, label %23, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %29, %.lr.ph47
-  %.138.lcssa = phi i32 [ %19, %.lr.ph47 ], [ %31, %29 ]
+  %.139.lcssa = phi i32 [ %19, %.lr.ph47 ], [ %31, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %4, align 4
   %34 = zext i32 %33 to i64

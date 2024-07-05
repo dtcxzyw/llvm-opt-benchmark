@@ -18,12 +18,12 @@ define i64 @mbsnrtowcs(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2,
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %17
-  %.047 = phi i64 [ %22, %17 ], [ 0, %.preheader ]
-  %.02746 = phi ptr [ %spec.select39, %17 ], [ %0, %.preheader ]
-  %.02945 = phi ptr [ %18, %17 ], [ %6, %.preheader ]
-  %.03144 = phi i64 [ %19, %17 ], [ %2, %.preheader ]
+  %.047 = phi i64 [ %19, %17 ], [ %2, %.preheader ]
+  %.02746 = phi i64 [ %22, %17 ], [ 0, %.preheader ]
+  %.02845 = phi ptr [ %spec.select39, %17 ], [ %0, %.preheader ]
+  %.03044 = phi ptr [ %18, %17 ], [ %6, %.preheader ]
   %.13343 = phi i64 [ %21, %17 ], [ %spec.select, %.preheader ]
-  %11 = tail call i64 @mbrtowc(ptr noundef %.02746, ptr noundef %.02945, i64 noundef %.03144, ptr noundef %4) #2
+  %11 = tail call i64 @mbrtowc(ptr noundef %.02845, ptr noundef %.03044, i64 noundef %.047, ptr noundef %4) #2
   %12 = icmp slt i64 %11, 1
   br i1 %12, label %13, label %17
 
@@ -34,32 +34,32 @@ define i64 @mbsnrtowcs(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2,
   ]
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.02945, i64 %.03144
+  %15 = getelementptr inbounds i8, ptr %.03044, i64 %.047
   br label %.loopexit
 
 16:                                               ; preds = %13
   br label %.loopexit
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.02945, i64 %11
-  %19 = sub i64 %.03144, %11
-  %.not37 = icmp eq ptr %.02746, null
-  %20 = getelementptr inbounds i8, ptr %.02746, i64 4
+  %18 = getelementptr inbounds i8, ptr %.03044, i64 %11
+  %19 = sub i64 %.047, %11
+  %.not37 = icmp eq ptr %.02845, null
+  %20 = getelementptr inbounds i8, ptr %.02845, i64 4
   %spec.select39 = select i1 %.not37, ptr null, ptr %20
   %21 = add i64 %.13343, -1
-  %22 = add nuw i64 %.047, 1
+  %22 = add nuw i64 %.02746, 1
   %23 = icmp ne i64 %21, 0
   %24 = icmp ne i64 %19, 0
   %25 = and i1 %23, %24
   br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %17, %.preheader, %13, %16, %14, %5
-  %.130 = phi ptr [ %15, %14 ], [ %.02945, %16 ], [ null, %5 ], [ null, %13 ], [ %6, %.preheader ], [ %18, %17 ]
-  %.1 = phi i64 [ %.047, %14 ], [ %11, %16 ], [ 0, %5 ], [ %.047, %13 ], [ 0, %.preheader ], [ %22, %17 ]
+  %.131 = phi ptr [ %15, %14 ], [ %.03044, %16 ], [ null, %5 ], [ null, %13 ], [ %6, %.preheader ], [ %18, %17 ]
+  %.1 = phi i64 [ %.02746, %14 ], [ %11, %16 ], [ 0, %5 ], [ %.02746, %13 ], [ 0, %.preheader ], [ %22, %17 ]
   br i1 %7, label %27, label %26
 
 26:                                               ; preds = %.loopexit
-  store ptr %.130, ptr %1, align 8
+  store ptr %.131, ptr %1, align 8
   br label %27
 
 27:                                               ; preds = %26, %.loopexit

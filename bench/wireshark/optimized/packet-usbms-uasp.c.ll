@@ -138,7 +138,7 @@ define internal range(i32 0, 256) i32 @dissect_uasp_descriptor(ptr noundef %0, p
   br label %9
 
 9:                                                ; preds = %6, %4
-  %.0 = phi ptr [ %8, %6 ], [ null, %4 ]
+  %.032 = phi ptr [ %8, %6 ], [ null, %4 ]
   %10 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %11 = icmp ult i32 %10, 2
   br i1 %11, label %46, label %12
@@ -162,12 +162,12 @@ define internal range(i32 0, 256) i32 @dissect_uasp_descriptor(ptr noundef %0, p
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 8
   %27 = icmp eq i16 %26, 0
-  %28 = icmp ne ptr %.0, null
+  %28 = icmp ne ptr %.032, null
   %or.cond = select i1 %27, i1 %28, i1 false
   br i1 %or.cond, label %29, label %46
 
 29:                                               ; preds = %15
-  %30 = getelementptr inbounds i8, ptr %.0, i64 40
+  %30 = getelementptr inbounds i8, ptr %.032, i64 40
   %31 = load ptr, ptr %30, align 8
   %.not37 = icmp eq ptr %31, null
   br i1 %.not37, label %46, label %32
@@ -209,8 +209,8 @@ define internal range(i32 0, 256) i32 @dissect_uasp_descriptor(ptr noundef %0, p
   br label %46
 
 46:                                               ; preds = %15, %29, %38, %39, %40, %42, %44, %32, %12, %9
-  %.032 = phi i32 [ 0, %9 ], [ 0, %12 ], [ %16, %32 ], [ %16, %44 ], [ %16, %42 ], [ %16, %40 ], [ %16, %39 ], [ %16, %38 ], [ %16, %29 ], [ %16, %15 ]
-  ret i32 %.032
+  %.0 = phi i32 [ 0, %9 ], [ 0, %12 ], [ %16, %32 ], [ %16, %44 ], [ %16, %42 ], [ %16, %40 ], [ %16, %39 ], [ %16, %38 ], [ %16, %29 ], [ %16, %15 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -245,7 +245,7 @@ define internal i32 @dissect_uasp_bulk(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %22, label %23, label %32
 
 23:                                               ; preds = %15, %19, %6, %11
-  %.0 = phi ptr [ @dissect_uasp_iu, %11 ], [ @dissect_uasp_iu, %6 ], [ @dissect_uasp_data, %19 ], [ @dissect_uasp_data, %15 ]
+  %.024 = phi ptr [ @dissect_uasp_iu, %11 ], [ @dissect_uasp_iu, %6 ], [ @dissect_uasp_data, %19 ], [ @dissect_uasp_data, %15 ]
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.44) #5
@@ -255,12 +255,12 @@ define internal i32 @dissect_uasp_bulk(ptr noundef %0, ptr noundef %1, ptr nound
   %28 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.43) #5
   %29 = load i32, ptr @ett_uasp, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
-  %31 = tail call i32 %.0(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %30, ptr noundef nonnull %3, ptr noundef nonnull %5) #5, !callees !4
+  %31 = tail call i32 %.024(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %30, ptr noundef nonnull %3, ptr noundef nonnull %5) #5, !callees !4
   br label %32
 
 32:                                               ; preds = %19, %4, %23
-  %.024 = phi i32 [ %31, %23 ], [ 0, %4 ], [ 0, %19 ]
-  ret i32 %.024
+  %.0 = phi i32 [ %31, %23 ], [ 0, %4 ], [ 0, %19 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

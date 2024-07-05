@@ -330,8 +330,8 @@ define i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr nocapture noundef re
   br label %33
 
 33:                                               ; preds = %.backedge, %17
-  %.0 = phi ptr [ %26, %17 ], [ %.0.be, %.backedge ]
-  %34 = load i8, ptr %.0, align 1
+  %.055 = phi ptr [ %26, %17 ], [ %.055.be, %.backedge ]
+  %34 = load i8, ptr %.055, align 1
   switch i8 %34, label %153 [
     i8 0, label %.loopexit
     i8 29, label %35
@@ -418,7 +418,7 @@ define i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr nocapture noundef re
   %37 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %.0, i64 %39
+  %40 = getelementptr inbounds i8, ptr %.055, i64 %39
   br i1 %.not, label %.backedge, label %41
 
 41:                                               ; preds = %35
@@ -441,7 +441,7 @@ define i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr nocapture noundef re
   %54 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds i8, ptr %.0, i64 %56
+  %57 = getelementptr inbounds i8, ptr %.055, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -1
   %59 = load i8, ptr %58, align 1
   %.off = add i8 %59, -15
@@ -451,19 +451,19 @@ define i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr nocapture noundef re
   br label %.backedge
 
 .backedge:                                        ; preds = %52, %35, %41, %45, %153, %145, %101, %70, %60
-  %.0.be = phi ptr [ %158, %153 ], [ %152, %145 ], [ %107, %101 ], [ %79, %70 ], [ %69, %60 ], [ %51, %45 ], [ %40, %41 ], [ %40, %35 ], [ %spec.select, %52 ]
+  %.055.be = phi ptr [ %158, %153 ], [ %152, %145 ], [ %107, %101 ], [ %79, %70 ], [ %69, %60 ], [ %51, %45 ], [ %40, %41 ], [ %40, %35 ], [ %spec.select, %52 ]
   br label %33
 
 60:                                               ; preds = %33
-  %61 = getelementptr inbounds i8, ptr %.0, i64 1
+  %61 = getelementptr inbounds i8, ptr %.055, i64 1
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i64
   %64 = shl nuw nsw i64 %63, 8
-  %65 = getelementptr inbounds i8, ptr %.0, i64 2
+  %65 = getelementptr inbounds i8, ptr %.055, i64 2
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i64
   %68 = or disjoint i64 %64, %67
-  %69 = getelementptr inbounds i8, ptr %.0, i64 %68
+  %69 = getelementptr inbounds i8, ptr %.055, i64 %68
   br label %.backedge
 
 70:                                               ; preds = %33, %33, %33, %33, %33
@@ -471,33 +471,33 @@ define i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr nocapture noundef re
   %72 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %71
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %.0, i64 1
+  %75 = getelementptr inbounds i8, ptr %.055, i64 1
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %76 to i64
   %78 = add nuw nsw i64 %77, %74
-  %79 = getelementptr inbounds i8, ptr %.0, i64 %78
+  %79 = getelementptr inbounds i8, ptr %.055, i64 %78
   br label %.backedge
 
 80:                                               ; preds = %33
-  %81 = getelementptr inbounds i8, ptr %.0, i64 1
+  %81 = getelementptr inbounds i8, ptr %.055, i64 1
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i64
   %84 = shl nuw nsw i64 %83, 8
-  %85 = getelementptr inbounds i8, ptr %.0, i64 2
+  %85 = getelementptr inbounds i8, ptr %.055, i64 2
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i64
   %88 = or disjoint i64 %84, %87
   store i64 %88, ptr %27, align 8
-  %89 = getelementptr inbounds i8, ptr %.0, i64 3
+  %89 = getelementptr inbounds i8, ptr %.055, i64 3
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i64
   %92 = shl nuw nsw i64 %91, 8
-  %93 = getelementptr inbounds i8, ptr %.0, i64 4
+  %93 = getelementptr inbounds i8, ptr %.055, i64 4
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i64
   %96 = or disjoint i64 %92, %95
   store i64 %96, ptr %28, align 8
-  %97 = getelementptr inbounds i8, ptr %.0, i64 5
+  %97 = getelementptr inbounds i8, ptr %.055, i64 5
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i32
   store i32 %99, ptr %29, align 8
@@ -507,55 +507,55 @@ define i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr nocapture noundef re
   br i1 %.not63, label %101, label %.loopexit
 
 101:                                              ; preds = %80
-  %102 = load i8, ptr %.0, align 1
+  %102 = load i8, ptr %.055, align 1
   %103 = zext i8 %102 to i64
   %104 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %103
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i64
-  %107 = getelementptr inbounds i8, ptr %.0, i64 %106
+  %107 = getelementptr inbounds i8, ptr %.055, i64 %106
   br label %.backedge
 
 108:                                              ; preds = %33
-  %109 = getelementptr inbounds i8, ptr %.0, i64 1
+  %109 = getelementptr inbounds i8, ptr %.055, i64 1
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i64
   %112 = shl nuw nsw i64 %111, 8
-  %113 = getelementptr inbounds i8, ptr %.0, i64 2
+  %113 = getelementptr inbounds i8, ptr %.055, i64 2
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i64
   %116 = or disjoint i64 %112, %115
   store i64 %116, ptr %27, align 8
-  %117 = getelementptr inbounds i8, ptr %.0, i64 3
+  %117 = getelementptr inbounds i8, ptr %.055, i64 3
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i64
   %120 = shl nuw nsw i64 %119, 8
-  %121 = getelementptr inbounds i8, ptr %.0, i64 4
+  %121 = getelementptr inbounds i8, ptr %.055, i64 4
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i64
   %124 = or disjoint i64 %120, %123
   store i64 %124, ptr %28, align 8
   store i32 0, ptr %29, align 8
-  %125 = getelementptr inbounds i8, ptr %.0, i64 7
+  %125 = getelementptr inbounds i8, ptr %.055, i64 7
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i64
   %128 = shl nuw nsw i64 %127, 8
-  %129 = getelementptr inbounds i8, ptr %.0, i64 8
+  %129 = getelementptr inbounds i8, ptr %.055, i64 8
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i64
   %132 = or disjoint i64 %128, %131
   store i64 %132, ptr %30, align 8
-  %133 = getelementptr inbounds i8, ptr %.0, i64 5
+  %133 = getelementptr inbounds i8, ptr %.055, i64 5
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i64
   %136 = shl nuw nsw i64 %135, 8
-  %137 = getelementptr inbounds i8, ptr %.0, i64 6
+  %137 = getelementptr inbounds i8, ptr %.055, i64 6
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i64
   %140 = or disjoint i64 %136, %139
   %141 = add nuw nsw i64 %140, 4294967285
   %142 = and i64 %141, 4294967295
   store i64 %142, ptr %31, align 8
-  %143 = getelementptr inbounds i8, ptr %.0, i64 10
+  %143 = getelementptr inbounds i8, ptr %.055, i64 10
   store ptr %143, ptr %32, align 8
   %144 = call i32 %1(ptr noundef nonnull %4, ptr noundef %2) #3
   %.not62 = icmp eq i32 %144, 0
@@ -568,7 +568,7 @@ define i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr nocapture noundef re
   %149 = load i8, ptr %137, align 1
   %150 = zext i8 %149 to i64
   %151 = or disjoint i64 %148, %150
-  %152 = getelementptr inbounds i8, ptr %.0, i64 %151
+  %152 = getelementptr inbounds i8, ptr %.055, i64 %151
   br label %.backedge
 
 153:                                              ; preds = %33
@@ -576,12 +576,12 @@ define i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr nocapture noundef re
   %155 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %154
   %156 = load i8, ptr %155, align 1
   %157 = zext i8 %156 to i64
-  %158 = getelementptr inbounds i8, ptr %.0, i64 %157
+  %158 = getelementptr inbounds i8, ptr %.055, i64 %157
   br label %.backedge
 
 .loopexit:                                        ; preds = %108, %80, %33, %12, %6, %3
-  %.055 = phi i32 [ -51, %3 ], [ -31, %6 ], [ -32, %12 ], [ %144, %108 ], [ %100, %80 ], [ 0, %33 ]
-  ret i32 %.055
+  %.0 = phi i32 [ -51, %3 ], [ -31, %6 ], [ -32, %12 ], [ %144, %108 ], [ %100, %80 ], [ 0, %33 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

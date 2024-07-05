@@ -236,8 +236,8 @@ define { ptr, i64 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h6822b2ba40c3
   br label %7
 
 7:                                                ; preds = %1, %3
-  %.sroa.3.0 = phi i64 [ %6, %3 ], [ undef, %1 ]
   %.sroa.0.0 = phi ptr [ %4, %3 ], [ null, %1 ]
+  %.sroa.3.0 = phi i64 [ %6, %3 ], [ undef, %1 ]
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %9

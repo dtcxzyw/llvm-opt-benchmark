@@ -229,8 +229,8 @@ define internal i64 @archive_write_odc_data(ptr noundef %0, ptr noundef %1, i64 
   store i64 %9, ptr %5, align 8
   %10 = sext i32 %7 to i64
   %11 = icmp slt i32 %7, 0
-  %.012 = select i1 %11, i64 %10, i64 %spec.select
-  ret i64 %.012
+  %.0 = select i1 %11, i64 %10, i64 %spec.select
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -337,7 +337,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br label %27
 
 27:                                               ; preds = %24, %get_sconv.exit
-  %.0 = phi i32 [ -20, %24 ], [ 0, %get_sconv.exit ]
+  %.049 = phi i32 [ -20, %24 ], [ 0, %get_sconv.exit ]
   %28 = load i64, ptr %6, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %5, i8 0, i64 76, i1 false)
   %29 = call fastcc i64 @format_octal_recursive(i64 noundef 29127, ptr noundef nonnull %5, i32 noundef 6)
@@ -540,7 +540,7 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
   br label %134
 
 134:                                              ; preds = %131, %124
-  %.1 = phi i32 [ -20, %131 ], [ %.0, %124 ]
+  %.1 = phi i32 [ -20, %131 ], [ %.049, %124 ]
   %135 = load i64, ptr %6, align 8
   %136 = icmp ne i64 %135, 0
   %137 = load ptr, ptr %3, align 8
@@ -566,8 +566,8 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
   %146 = getelementptr inbounds i8, ptr %5, i64 65
   %..i106 = call i64 @llvm.umin.i64(i64 %.sink117, i64 8589934591)
   %147 = call fastcc i64 @format_octal_recursive(i64 noundef %..i106, ptr noundef nonnull %146, i32 noundef 11)
-  %.049.in = icmp ult i64 %.sink117, 8589934592
-  br i1 %.049.in, label %149, label %148
+  %.0.in = icmp ult i64 %.sink117, 8589934592
+  br i1 %.0.in, label %149, label %148
 
 148:                                              ; preds = %145
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.15) #11

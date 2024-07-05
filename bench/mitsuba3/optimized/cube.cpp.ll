@@ -337,13 +337,13 @@ _ZNSt3__128__exception_guard_exceptionsINS_6vectorINS_5arrayIjLm3EEENS_9allocato
   %37 = phi <4 x float> [ %.promoted432, %.lr.ph ], [ %75, %36 ]
   %38 = phi <4 x float> [ %.promoted, %.lr.ph ], [ %74, %36 ]
   %39 = phi i32 [ 0, %.lr.ph ], [ %77, %36 ]
-  %.0176431 = phi i8 [ 0, %.lr.ph ], [ %76, %36 ]
+  %.0185431 = phi i8 [ 0, %.lr.ph ], [ %76, %36 ]
   %40 = mul nuw nsw i32 %39, 3
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds float, ptr %23, i64 %41
   %43 = shl nuw nsw i32 %39, 1
   %44 = zext nneg i32 %43 to i64
-  %45 = zext i8 %.0176431 to i64
+  %45 = zext i8 %.0185431 to i64
   %46 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %7, i64 %45
   %47 = load <4 x float>, ptr %46, align 16
   %48 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %10, i64 %45
@@ -382,7 +382,7 @@ _ZNSt3__128__exception_guard_exceptionsINS_6vectorINS_5arrayIjLm3EEENS_9allocato
   store i64 %73, ptr %62, align 1
   %74 = tail call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %54, <4 x float> %38)
   %75 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %54, <4 x float> %37)
-  %76 = add i8 %.0176431, 1
+  %76 = add i8 %.0185431, 1
   %77 = zext i8 %76 to i32
   %78 = icmp ugt i32 %19, %77
   br i1 %78, label %36, label %._crit_edge.loopexit, !llvm.loop !4

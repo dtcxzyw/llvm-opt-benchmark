@@ -7189,17 +7189,17 @@ for.body.lr.ph.i.i:                               ; preds = %entry
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %invoke.cont7.i.i, %for.body.lr.ph.i.i
-  %it.sroa.0.017.i.i = phi ptr [ %0, %for.body.lr.ph.i.i ], [ %spec.select10.i.i, %invoke.cont7.i.i ]
-  %it.sroa.5.016.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %spec.select.i.i, %invoke.cont7.i.i ]
-  %sep.sroa.0.015.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %separator.coerce0, %invoke.cont7.i.i ]
-  %sep.sroa.3.014.i.i = phi ptr [ @.str.66, %for.body.lr.ph.i.i ], [ %separator.coerce1, %invoke.cont7.i.i ]
-  %call4.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %sep.sroa.3.014.i.i, i64 noundef %sep.sroa.0.015.i.i)
+  %sep.sroa.3.017.i.i = phi ptr [ @.str.66, %for.body.lr.ph.i.i ], [ %separator.coerce1, %invoke.cont7.i.i ]
+  %it.sroa.0.016.i.i = phi ptr [ %0, %for.body.lr.ph.i.i ], [ %spec.select10.i.i, %invoke.cont7.i.i ]
+  %it.sroa.5.015.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %spec.select.i.i, %invoke.cont7.i.i ]
+  %sep.sroa.0.014.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %separator.coerce0, %invoke.cont7.i.i ]
+  %call4.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %sep.sroa.3.017.i.i, i64 noundef %sep.sroa.0.014.i.i)
           to label %invoke.cont5.i.i unwind label %lpad.i.i
 
 invoke.cont5.i.i:                                 ; preds = %for.body.i.i
-  %sh_prom.i.i.i = zext nneg i32 %it.sroa.5.016.i.i to i64
+  %sh_prom.i.i.i = zext nneg i32 %it.sroa.5.015.i.i to i64
   %shl.i.i.i = shl nuw i64 1, %sh_prom.i.i.i
-  %3 = load i64, ptr %it.sroa.0.017.i.i, align 8, !noalias !412
+  %3 = load i64, ptr %it.sroa.0.016.i.i, align 8, !noalias !412
   %and.i.i.i.i = and i64 %3, %shl.i.i.i
   %tobool.i.i.i.i = icmp ne i64 %and.i.i.i.i, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i.i), !noalias !412
@@ -7217,11 +7217,11 @@ call.i.i2.noexc.i.i:                              ; preds = %invoke.cont5.i.i
 
 invoke.cont7.i.i:                                 ; preds = %call.i.i2.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i), !noalias !412
-  %inc.i.i.i.i = add i32 %it.sroa.5.016.i.i, 1
-  %cmp.i.i5.i.i = icmp eq i32 %it.sroa.5.016.i.i, 63
+  %inc.i.i.i.i = add i32 %it.sroa.5.015.i.i, 1
+  %cmp.i.i5.i.i = icmp eq i32 %it.sroa.5.015.i.i, 63
   %spec.select.i.i = select i1 %cmp.i.i5.i.i, i32 0, i32 %inc.i.i.i.i
   %spec.select10.idx.i.i = select i1 %cmp.i.i5.i.i, i64 8, i64 0
-  %spec.select10.i.i = getelementptr inbounds i8, ptr %it.sroa.0.017.i.i, i64 %spec.select10.idx.i.i
+  %spec.select10.i.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i.i, i64 %spec.select10.idx.i.i
   %cmp.i.i.i.i = icmp ne ptr %spec.select10.i.i, %1
   %cmp3.i.i.i.i = icmp ne i32 %spec.select.i.i, %2
   %.not.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
@@ -16998,13 +16998,13 @@ entry:
 
 for.body.i.i.i:                                   ; preds = %invoke.cont7.i.i.i, %entry
   %sep.sroa.3.06.i.i.i = phi ptr [ @.str.66, %entry ], [ @.str.37, %invoke.cont7.i.i.i ]
-  %it.sroa.2.05.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i, %invoke.cont7.i.i.i ]
-  %sep.sroa.0.04.i.i.i = phi i64 [ 0, %entry ], [ 1, %invoke.cont7.i.i.i ]
-  %call4.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull %sep.sroa.3.06.i.i.i, i64 noundef %sep.sroa.0.04.i.i.i)
+  %sep.sroa.0.05.i.i.i = phi i64 [ 0, %entry ], [ 1, %invoke.cont7.i.i.i ]
+  %it.sroa.2.04.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i, %invoke.cont7.i.i.i ]
+  %call4.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull %sep.sroa.3.06.i.i.i, i64 noundef %sep.sroa.0.05.i.i.i)
           to label %invoke.cont5.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont5.i.i.i:                               ; preds = %for.body.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i2.i, i64 %it.sroa.2.05.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %call5.i.i.i.i2.i, i64 %it.sroa.2.04.i.i.i
   %_M_str.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %0 = load ptr, ptr %_M_str.i.i.i.i.i, align 8
   %1 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
@@ -17016,7 +17016,7 @@ invoke.cont5.i.i.i:                               ; preds = %for.body.i.i.i
 
 invoke.cont7.i.i.i:                               ; preds = %invoke.cont5.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i.i), !noalias !914
-  %inc.i.i.i.i = add nuw nsw i64 %it.sroa.2.05.i.i.i, 1
+  %inc.i.i.i.i = add nuw nsw i64 %it.sroa.2.04.i.i.i, 1
   %cmp.i.not.i.i.i = icmp eq i64 %inc.i.i.i.i, 3
   br i1 %cmp.i.not.i.i.i, label %invoke.cont9, label %for.body.i.i.i, !llvm.loop !921
 

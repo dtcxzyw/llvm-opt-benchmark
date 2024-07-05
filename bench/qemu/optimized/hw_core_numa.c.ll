@@ -1193,12 +1193,12 @@ for.cond2.preheader.preheader.i:                  ; preds = %if.then58
 
 for.cond2.preheader.i:                            ; preds = %for.inc55.i, %for.cond2.preheader.preheader.i
   %indvars.iv.i42 = phi i64 [ 0, %for.cond2.preheader.preheader.i ], [ %indvars.iv.next.i44, %for.inc55.i ]
-  %is_asymmetrical.010.i = phi i1 [ false, %for.cond2.preheader.preheader.i ], [ %is_asymmetrical.2.i, %for.inc55.i ]
+  %is_asymmetrical.09.i = phi i1 [ false, %for.cond2.preheader.preheader.i ], [ %is_asymmetrical.2.i, %for.inc55.i ]
   br label %for.body4.i
 
 for.body4.i:                                      ; preds = %for.inc.i43, %for.cond2.preheader.i
   %indvars.iv18.i = phi i64 [ %indvars.iv.i42, %for.cond2.preheader.i ], [ %indvars.iv.next19.i, %for.inc.i43 ]
-  %is_asymmetrical.16.i = phi i1 [ %is_asymmetrical.010.i, %for.cond2.preheader.i ], [ %is_asymmetrical.2.i, %for.inc.i43 ]
+  %is_asymmetrical.15.i = phi i1 [ %is_asymmetrical.09.i, %for.cond2.preheader.i ], [ %is_asymmetrical.2.i, %for.inc.i43 ]
   %arrayidx6.i = getelementptr %struct.NodeInfo, ptr %nodes.i41, i64 %indvars.iv.i42, i32 6, i64 %indvars.iv18.i
   %37 = load i8, ptr %arrayidx6.i, align 1
   %cmp7.i = icmp eq i8 %37, 0
@@ -1222,11 +1222,11 @@ if.then19.i:                                      ; preds = %land.lhs.true.i
 land.lhs.true29.i:                                ; preds = %for.body4.i
   %cmp51.not.i = icmp ne i8 %37, %38
   %or.cond38.not.i = and i1 %cmp15.i, %cmp51.not.i
-  %spec.select.i = select i1 %or.cond38.not.i, i1 true, i1 %is_asymmetrical.16.i
+  %spec.select.i = select i1 %or.cond38.not.i, i1 true, i1 %is_asymmetrical.15.i
   br label %for.inc.i43
 
 for.inc.i43:                                      ; preds = %land.lhs.true29.i, %land.lhs.true.i
-  %is_asymmetrical.2.i = phi i1 [ %spec.select.i, %land.lhs.true29.i ], [ %is_asymmetrical.16.i, %land.lhs.true.i ]
+  %is_asymmetrical.2.i = phi i1 [ %spec.select.i, %land.lhs.true29.i ], [ %is_asymmetrical.15.i, %land.lhs.true.i ]
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next19.i, %wide.trip.count20.i
   br i1 %exitcond.not.i, label %for.inc55.i, label %for.body4.i, !llvm.loop !13

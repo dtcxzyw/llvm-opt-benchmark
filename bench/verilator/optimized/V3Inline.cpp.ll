@@ -5797,7 +5797,7 @@ _ZN13AstNodeModule12unlinkFrBackEP10VNRelinker.exit: ; preds = %68
 
 _ZN13AstNodeModule9cloneTreeEb.exit:              ; preds = %._ZN13AstNodeModule9cloneTreeEb.exit_crit_edge, %_ZN13AstNodeModule12unlinkFrBackEP10VNRelinker.exit
   %71 = phi ptr [ %70, %_ZN13AstNodeModule12unlinkFrBackEP10VNRelinker.exit ], [ %.pre, %._ZN13AstNodeModule9cloneTreeEb.exit_crit_edge ]
-  %.065 = phi ptr [ %70, %_ZN13AstNodeModule12unlinkFrBackEP10VNRelinker.exit ], [ %67, %._ZN13AstNodeModule9cloneTreeEb.exit_crit_edge ]
+  %.064 = phi ptr [ %70, %_ZN13AstNodeModule12unlinkFrBackEP10VNRelinker.exit ], [ %67, %._ZN13AstNodeModule9cloneTreeEb.exit_crit_edge ]
   invoke void @_ZN7AstNode11foreachImplI7AstCellZN13InlineVisitor10inlineCellEPS1_EUlS3_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_b(ptr noundef nonnull %71, ptr noundef nonnull align 1 dereferenceable(1) %6, i1 noundef zeroext false)
           to label %_ZN7AstNode7foreachIZN13InlineVisitor10inlineCellEP7AstCellEUlS3_E_EEvOT_.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -5862,8 +5862,8 @@ _ZN13AstNodeModule11addInlinespEP7AstNode.exit:   ; preds = %88
   br i1 %.not70165, label %._crit_edge169, label %.lr.ph168
 
 .lr.ph168:                                        ; preds = %_ZN13AstNodeModule11addInlinespEP7AstNode.exit, %253
-  %.064166 = phi ptr [ %252, %253 ], [ %93, %_ZN13AstNodeModule11addInlinespEP7AstNode.exit ]
-  %94 = getelementptr inbounds i8, ptr %.064166, i64 24
+  %.065166 = phi ptr [ %252, %253 ], [ %93, %_ZN13AstNodeModule11addInlinespEP7AstNode.exit ]
+  %94 = getelementptr inbounds i8, ptr %.065166, i64 24
   %95 = load ptr, ptr %94, align 8
   %.not72 = icmp eq ptr %95, null
   br i1 %.not72, label %250, label %104
@@ -5923,7 +5923,7 @@ _ZN13AstNodeModule11addInlinespEP7AstNode.exit:   ; preds = %88
           to label %115 unwind label %126
 
 115:                                              ; preds = %113
-  %116 = getelementptr inbounds i8, ptr %.064166, i64 200
+  %116 = getelementptr inbounds i8, ptr %.065166, i64 200
   %117 = load ptr, ptr %116, align 8
   %.not.i95 = icmp eq ptr %117, null
   br i1 %.not.i95, label %118, label %120
@@ -5979,11 +5979,11 @@ _ZN7AstNode9privateIsI9AstVarRefKPS_EEbPKS_.exit.thread: ; preds = %_ZN7AstNode9
           to label %.noexc129.invoke unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .critedge:                                        ; preds = %_ZN7AstNode9privateIsI8AstConstKPS_EEbPKS_.exit, %_ZN7AstNode9privateIsI8AstConstKPS_EEbPKS_.exit
-  invoke void @_ZN6V3Inst16checkOutputShortEP6AstPin(ptr noundef nonnull %.064166)
+  invoke void @_ZN6V3Inst16checkOutputShortEP6AstPin(ptr noundef nonnull %.065166)
           to label %136 unwind label %.loopexit
 
 136:                                              ; preds = %.critedge
-  %137 = getelementptr inbounds i8, ptr %.064166, i64 200
+  %137 = getelementptr inbounds i8, ptr %.065166, i64 200
   %138 = load ptr, ptr %137, align 8
   br i1 %64, label %select.unfold, label %139
 
@@ -6223,7 +6223,7 @@ _ZlsRSoPK7AstNode.exit119:                        ; preds = %226
   br label %250
 
 250:                                              ; preds = %245, %.lr.ph168
-  %251 = getelementptr inbounds i8, ptr %.064166, i64 8
+  %251 = getelementptr inbounds i8, ptr %.065166, i64 8
   %252 = load ptr, ptr %251, align 8
   %cond171 = icmp eq ptr %252, null
   br i1 %cond171, label %._crit_edge169, label %253
@@ -6260,7 +6260,7 @@ _ZlsRSoPK7AstNode.exit119:                        ; preds = %226
           to label %.noexc129.invoke unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc129.invoke:                                 ; preds = %.noexc85, %.noexc128, %150, %134
-  %265 = phi ptr [ %.064166, %134 ], [ %138, %150 ], [ %252, %.noexc128 ], [ %40, %.noexc85 ]
+  %265 = phi ptr [ %.065166, %134 ], [ %138, %150 ], [ %252, %.noexc128 ], [ %40, %.noexc85 ]
   %266 = phi ptr [ %135, %134 ], [ %151, %150 ], [ %264, %.noexc128 ], [ %52, %.noexc85 ]
   invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %265, ptr noundef nonnull align 8 dereferenceable(112) %266) #23
           to label %.noexc129.cont unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -6288,10 +6288,10 @@ _ZlsRSoPK7AstNode.exit119:                        ; preds = %226
   store ptr %267, ptr %275, align 8
   %276 = getelementptr inbounds i8, ptr %12, i64 96
   store ptr %1, ptr %276, align 8
-  %277 = load ptr, ptr %.065, align 8
+  %277 = load ptr, ptr %.064, align 8
   %278 = getelementptr inbounds i8, ptr %277, i64 288
   %279 = load ptr, ptr %278, align 8
-  invoke void %279(ptr noundef nonnull align 8 dereferenceable(152) %.065, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  invoke void %279(ptr noundef nonnull align 8 dereferenceable(152) %.064, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %_ZN19InlineRelinkVisitorC2EP13AstNodeModuleS1_P7AstCell.exit unwind label %280
 
 280:                                              ; preds = %._crit_edge169
@@ -6303,7 +6303,7 @@ _ZlsRSoPK7AstNode.exit119:                        ; preds = %226
 
 _ZN19InlineRelinkVisitorC2EP13AstNodeModuleS1_P7AstCell.exit: ; preds = %._crit_edge169
   call void @_ZN19InlineRelinkVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %12) #21
-  %282 = getelementptr inbounds i8, ptr %.065, i64 32
+  %282 = getelementptr inbounds i8, ptr %.064, i64 32
   %283 = load ptr, ptr %282, align 8
   %.not71 = icmp eq ptr %283, null
   br i1 %.not71, label %_ZN13AstNodeModule9addStmtspEP7AstNode.exit, label %284
@@ -6318,7 +6318,7 @@ _ZN19InlineRelinkVisitorC2EP13AstNodeModuleS1_P7AstCell.exit: ; preds = %._crit_
           to label %_ZN13AstNodeModule9addStmtspEP7AstNode.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN13AstNodeModule9addStmtspEP7AstNode.exit:      ; preds = %286, %_ZN19InlineRelinkVisitorC2EP13AstNodeModuleS1_P7AstCell.exit
-  invoke void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %.065)
+  invoke void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %.064)
           to label %288 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 288:                                              ; preds = %_ZN13AstNodeModule9addStmtspEP7AstNode.exit

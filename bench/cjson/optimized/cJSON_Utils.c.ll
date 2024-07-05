@@ -44,14 +44,14 @@ define ptr @cJSONUtils_FindPointerFromObjectTo(ptr noundef %0, ptr noundef %1) l
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %.03345 = load ptr, ptr %12, align 8
-  %.not46 = icmp eq ptr %.03345, null
+  %.03445 = load ptr, ptr %12, align 8
+  %.not46 = icmp eq ptr %.03445, null
   br i1 %.not46, label %cJSONUtils_strdup.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %49
-  %.03348 = phi ptr [ %.033, %49 ], [ %.03345, %11 ]
-  %.03447 = phi i64 [ %50, %49 ], [ 0, %11 ]
-  %13 = tail call ptr @cJSONUtils_FindPointerFromObjectTo(ptr noundef nonnull %.03348, ptr noundef %1)
+  %.03448 = phi ptr [ %.034, %49 ], [ %.03445, %11 ]
+  %.03347 = phi i64 [ %50, %49 ], [ 0, %11 ]
+  %13 = tail call ptr @cJSONUtils_FindPointerFromObjectTo(ptr noundef nonnull %.03448, ptr noundef %1)
   %.not38 = icmp eq ptr %13, null
   br i1 %.not38, label %49, label %14
 
@@ -64,7 +64,7 @@ define ptr @cJSONUtils_FindPointerFromObjectTo(ptr noundef %0, ptr noundef %1) l
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #13
   %18 = add i64 %17, 22
   %19 = tail call ptr @cJSON_malloc(i64 noundef %18) #12
-  %20 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) @.str.1, i64 noundef %.03447, ptr noundef nonnull %13) #12
+  %20 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) @.str.1, i64 noundef %.03347, ptr noundef nonnull %13) #12
   tail call void @cJSON_free(ptr noundef nonnull %13) #12
   br label %cJSONUtils_strdup.exit
 
@@ -75,7 +75,7 @@ define ptr @cJSONUtils_FindPointerFromObjectTo(ptr noundef %0, ptr noundef %1) l
 
 23:                                               ; preds = %21
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #13
-  %25 = getelementptr inbounds i8, ptr %.03348, i64 56
+  %25 = getelementptr inbounds i8, ptr %.03448, i64 56
   %26 = load ptr, ptr %25, align 8
   br label %27
 
@@ -150,9 +150,9 @@ encode_string_as_pointer.exit:                    ; preds = %38
   br label %cJSONUtils_strdup.exit
 
 49:                                               ; preds = %.lr.ph
-  %50 = add i64 %.03447, 1
-  %.033 = load ptr, ptr %.03348, align 8
-  %.not = icmp eq ptr %.033, null
+  %50 = add i64 %.03347, 1
+  %.034 = load ptr, ptr %.03448, align 8
+  %.not = icmp eq ptr %.034, null
   br i1 %.not, label %cJSONUtils_strdup.exit, label %.lr.ph
 
 cJSONUtils_strdup.exit:                           ; preds = %49, %11, %10, %7, %2, %48, %encode_string_as_pointer.exit, %16
@@ -825,12 +825,12 @@ sub_0:                                            ; preds = %139
   br label %.thread187
 
 select.unfold185:                                 ; preds = %148, %decode_pointer_inplace.exit, %.tail.thread, %151, %decode_pointer_inplace.exit.thread
-  %.0 = phi i32 [ 9, %decode_pointer_inplace.exit ], [ 11, %.tail.thread ], [ 9, %151 ], [ 9, %decode_pointer_inplace.exit.thread ], [ 10, %148 ]
+  %.098 = phi i32 [ 9, %decode_pointer_inplace.exit ], [ 11, %.tail.thread ], [ 9, %151 ], [ 9, %decode_pointer_inplace.exit.thread ], [ 10, %148 ]
   tail call void @cJSON_Delete(ptr noundef nonnull %.3) #12
   br label %.thread187
 
 .thread187:                                       ; preds = %148, %156, %145, %select.unfold185
-  %.0193 = phi i32 [ %.0, %select.unfold185 ], [ 0, %148 ], [ 0, %156 ], [ 0, %145 ]
+  %.098193 = phi i32 [ %.098, %select.unfold185 ], [ 0, %148 ], [ 0, %156 ], [ 0, %145 ]
   br i1 %120, label %.thread187.thread, label %158
 
 158:                                              ; preds = %.thread187
@@ -838,8 +838,8 @@ select.unfold185:                                 ; preds = %148, %decode_pointe
   br label %.thread187.thread
 
 .thread187.thread:                                ; preds = %67, %53, %94, %30, %get_object_item.exit.i, %get_object_item.exit131, %get_object_item.exit, %68, %71, %77, %74, %.thread157, %87, %get_object_item.exit135, %95, %.thread172, %get_object_item.exit138, %112, %get_object_item.exit.thread, %.thread169, %158, %.thread187
-  %.0193197 = phi i32 [ %.0193, %158 ], [ %.0193, %.thread187 ], [ 3, %30 ], [ 3, %get_object_item.exit.i ], [ %41, %get_object_item.exit131 ], [ 2, %get_object_item.exit ], [ 7, %68 ], [ 8, %71 ], [ 0, %77 ], [ 0, %74 ], [ 13, %.thread157 ], [ 0, %87 ], [ 4, %get_object_item.exit135 ], [ 5, %95 ], [ 6, %.thread172 ], [ 7, %get_object_item.exit138 ], [ 8, %112 ], [ 2, %get_object_item.exit.thread ], [ 5, %.thread169 ], [ 5, %94 ], [ 0, %53 ], [ 0, %67 ]
-  ret i32 %.0193197
+  %.098193197 = phi i32 [ %.098193, %158 ], [ %.098193, %.thread187 ], [ 3, %30 ], [ 3, %get_object_item.exit.i ], [ %41, %get_object_item.exit131 ], [ 2, %get_object_item.exit ], [ 7, %68 ], [ 8, %71 ], [ 0, %77 ], [ 0, %74 ], [ 13, %.thread157 ], [ 0, %87 ], [ 4, %get_object_item.exit135 ], [ 5, %95 ], [ 6, %.thread172 ], [ 7, %get_object_item.exit138 ], [ 8, %112 ], [ 2, %get_object_item.exit.thread ], [ 5, %.thread169 ], [ 5, %94 ], [ 0, %53 ], [ 0, %67 ]
+  ret i32 %.098193197
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

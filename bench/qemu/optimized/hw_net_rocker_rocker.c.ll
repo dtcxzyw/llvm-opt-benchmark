@@ -2296,9 +2296,9 @@ land.lhs.true.i.lr.ph:                            ; preds = %if.end78
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true.i.lr.ph, %if.end104
   %indvars.iv = phi i64 [ 0, %land.lhs.true.i.lr.ph ], [ %indvars.iv.next, %if.end104 ]
-  %tlv_frag.051 = phi ptr [ %add.ptr.i, %land.lhs.true.i.lr.ph ], [ %add.ptr.i42, %if.end104 ]
+  %tlv_frag.052 = phi ptr [ %add.ptr.i, %land.lhs.true.i.lr.ph ], [ %add.ptr.i42, %if.end104 ]
   %rem.050 = phi i32 [ %sub.i34, %land.lhs.true.i.lr.ph ], [ %sub1.i, %if.end104 ]
-  %len.i = getelementptr i8, ptr %tlv_frag.051, i64 4
+  %len.i = getelementptr i8, ptr %tlv_frag.052, i64 4
   %17 = load i16, ptr %len.i, align 4
   %cmp1.i = icmp ult i16 %17, 8
   %conv5.i = zext i16 %17 to i32
@@ -2307,7 +2307,7 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true.i.lr.
   br i1 %or.cond47, label %for.end.loopexit, label %for.body
 
 for.body:                                         ; preds = %land.lhs.true.i
-  %tlv_frag.0.val = load i32, ptr %tlv_frag.051, align 8
+  %tlv_frag.0.val = load i32, ptr %tlv_frag.052, align 8
   %cmp.not = icmp eq i32 %tlv_frag.0.val, 1
   br i1 %cmp.not, label %if.end88, label %err_bad_attr
 
@@ -2318,7 +2318,7 @@ if.end88:                                         ; preds = %for.body
 
 land.lhs.true.i.i.preheader.i:                    ; preds = %if.end88
   %sub.i.i36 = add nsw i32 %conv5.i, -8
-  %add.ptr.i.i37 = getelementptr i8, ptr %tlv_frag.051, i64 8
+  %add.ptr.i.i37 = getelementptr i8, ptr %tlv_frag.052, i64 8
   br label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.inc.i.i, %land.lhs.true.i.i.preheader.i
@@ -2389,7 +2389,7 @@ if.end104:                                        ; preds = %if.end96
   %and.i41 = and i32 %sub.i40, 131064
   %sub1.i = sub nsw i32 %rem.050, %and.i41
   %idx.ext.i = zext nneg i32 %and.i41 to i64
-  %add.ptr.i42 = getelementptr i8, ptr %tlv_frag.051, i64 %idx.ext.i
+  %add.ptr.i42 = getelementptr i8, ptr %tlv_frag.052, i64 %idx.ext.i
   %cmp.i35 = icmp sgt i32 %sub1.i, 7
   br i1 %cmp.i35, label %land.lhs.true.i, label %for.end.loopexit, !llvm.loop !18
 

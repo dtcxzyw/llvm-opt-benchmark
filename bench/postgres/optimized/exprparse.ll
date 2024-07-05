@@ -75,38 +75,38 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   br label %7
 
 5:                                                ; preds = %578, %73
-  %.0279 = phi i32 [ %579, %578 ], [ %67, %73 ]
-  %.0263 = phi ptr [ %556, %578 ], [ %.2265, %73 ]
-  %.0254 = phi ptr [ %557, %578 ], [ %74, %73 ]
+  %.0275 = phi ptr [ %556, %578 ], [ %.2277, %73 ]
+  %.0266 = phi ptr [ %557, %578 ], [ %74, %73 ]
+  %.0249 = phi i32 [ %579, %578 ], [ %67, %73 ]
   %.0 = phi i32 [ %.5, %578 ], [ -2, %73 ]
-  %6 = getelementptr i8, ptr %.0263, i64 1
+  %6 = getelementptr i8, ptr %.0275, i64 1
   br label %7
 
 7:                                                ; preds = %5, %1
-  %.1280 = phi i32 [ 0, %1 ], [ %.0279, %5 ]
-  %.0274 = phi i64 [ 200, %1 ], [ %.1275, %5 ]
-  %.0270 = phi ptr [ %3, %1 ], [ %.1271, %5 ]
-  %.1264 = phi ptr [ %3, %1 ], [ %6, %5 ]
-  %.0261 = phi ptr [ %4, %1 ], [ %.1262, %5 ]
-  %.1255 = phi ptr [ %4, %1 ], [ %.0254, %5 ]
+  %.1276 = phi ptr [ %3, %1 ], [ %6, %5 ]
+  %.0273 = phi ptr [ %4, %1 ], [ %.1274, %5 ]
+  %.1267 = phi ptr [ %4, %1 ], [ %.0266, %5 ]
+  %.0257 = phi ptr [ %3, %1 ], [ %.1258, %5 ]
+  %.0255 = phi i64 [ 200, %1 ], [ %.1256, %5 ]
+  %.1250 = phi i32 [ 0, %1 ], [ %.0249, %5 ]
   %.1 = phi i32 [ -2, %1 ], [ %.0, %5 ]
-  %8 = trunc nsw i32 %.1280 to i8
-  store i8 %8, ptr %.1264, align 1
-  %9 = getelementptr i8, ptr %.0270, i64 %.0274
+  %8 = trunc nsw i32 %.1250 to i8
+  store i8 %8, ptr %.1276, align 1
+  %9 = getelementptr i8, ptr %.0257, i64 %.0255
   %10 = getelementptr i8, ptr %9, i64 -1
-  %.not = icmp ugt ptr %10, %.1264
+  %.not = icmp ugt ptr %10, %.1276
   br i1 %.not, label %34, label %11
 
 11:                                               ; preds = %7
-  %12 = ptrtoint ptr %.1264 to i64
-  %13 = ptrtoint ptr %.0270 to i64
+  %12 = ptrtoint ptr %.1276 to i64
+  %13 = ptrtoint ptr %.0257 to i64
   %14 = sub i64 %12, %13
   %15 = add i64 %14, 1
-  %16 = icmp sgt i64 %.0274, 9999
+  %16 = icmp sgt i64 %.0255, 9999
   br i1 %16, label %580, label %17
 
 17:                                               ; preds = %11
-  %18 = shl i64 %.0274, 1
+  %18 = shl i64 %.0255, 1
   %spec.store.select = call i64 @llvm.smin.i64(i64 %18, i64 10000)
   %19 = mul i64 %spec.store.select, 9
   %20 = add i64 %19, 7
@@ -115,17 +115,17 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   br i1 %.not294, label %580, label %22
 
 22:                                               ; preds = %17
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 1 %.0270, i64 %15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 1 %.0257, i64 %15, i1 false)
   %23 = add nsw i64 %spec.store.select, 7
   %24 = sdiv i64 %23, 8
   %25 = getelementptr %union.yyalloc, ptr %21, i64 %24
   %26 = shl i64 %15, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %.0261, i64 %26, i1 false)
-  %.not295 = icmp eq ptr %.0270, %3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %.0273, i64 %26, i1 false)
+  %.not295 = icmp eq ptr %.0257, %3
   br i1 %.not295, label %28, label %27
 
 27:                                               ; preds = %22
-  call void @free(ptr noundef %.0270) #9
+  call void @free(ptr noundef %.0257) #9
   br label %28
 
 28:                                               ; preds = %27, %22
@@ -138,16 +138,16 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   br i1 %.not296, label %34, label %.thread366.thread
 
 34:                                               ; preds = %28, %7
-  %.1275 = phi i64 [ %spec.store.select, %28 ], [ %.0274, %7 ]
-  %.1271 = phi ptr [ %21, %28 ], [ %.0270, %7 ]
-  %.2265 = phi ptr [ %30, %28 ], [ %.1264, %7 ]
-  %.1262 = phi ptr [ %25, %28 ], [ %.0261, %7 ]
-  %.2256 = phi ptr [ %32, %28 ], [ %.1255, %7 ]
-  %35 = icmp eq i32 %.1280, 25
+  %.2277 = phi ptr [ %30, %28 ], [ %.1276, %7 ]
+  %.1274 = phi ptr [ %25, %28 ], [ %.0273, %7 ]
+  %.2268 = phi ptr [ %32, %28 ], [ %.1267, %7 ]
+  %.1258 = phi ptr [ %21, %28 ], [ %.0257, %7 ]
+  %.1256 = phi i64 [ %spec.store.select, %28 ], [ %.0255, %7 ]
+  %35 = icmp eq i32 %.1250, 25
   br i1 %35, label %.thread366, label %36
 
 36:                                               ; preds = %34
-  %37 = sext i32 %.1280 to i64
+  %37 = sext i32 %.1250 to i64
   %38 = getelementptr [88 x i16], ptr @yypact, i64 0, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = sext i16 %39 to i32
@@ -183,9 +183,9 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   br label %57
 
 57:                                               ; preds = %52, %50, %46
-  %.0251 = phi i32 [ 0, %46 ], [ %56, %52 ], [ 2, %50 ]
+  %.0263 = phi i32 [ 0, %46 ], [ %56, %52 ], [ 2, %50 ]
   %.3 = phi i32 [ 0, %46 ], [ %.2, %52 ], [ %.2, %50 ]
-  %58 = add nsw i32 %.0251, %40
+  %58 = add nsw i32 %.0263, %40
   %or.cond3 = icmp ugt i32 %58, 320
   br i1 %or.cond3, label %76, label %59
 
@@ -194,7 +194,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   %61 = getelementptr [321 x i8], ptr @yycheck, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = sext i8 %62 to i32
-  %.not297 = icmp eq i32 %.0251, %63
+  %.not297 = icmp eq i32 %.0263, %63
   br i1 %.not297, label %64, label %76
 
 64:                                               ; preds = %59
@@ -213,7 +213,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   br label %81
 
 73:                                               ; preds = %64
-  %74 = getelementptr i8, ptr %.2256, i64 8
+  %74 = getelementptr i8, ptr %.2268, i64 8
   %75 = load i64, ptr %2, align 8
   store i64 %75, ptr %74, align 8
   br label %5
@@ -227,16 +227,16 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   br i1 %80, label %.thread, label %81
 
 81:                                               ; preds = %76, %71
-  %.0253 = phi i32 [ %79, %76 ], [ %72, %71 ]
+  %.0265 = phi i32 [ %79, %76 ], [ %72, %71 ]
   %.5 = phi i32 [ %.4, %76 ], [ %.3, %71 ]
-  %82 = sext i32 %.0253 to i64
+  %82 = sext i32 %.0265 to i64
   %83 = getelementptr [48 x i8], ptr @yyr2, i64 0, i64 %82
   %84 = load i8, ptr %83, align 1
   %85 = sext i8 %84 to i64
   %86 = sub nsw i64 1, %85
-  %87 = getelementptr %union.YYSTYPE, ptr %.2256, i64 %86
+  %87 = getelementptr %union.YYSTYPE, ptr %.2268, i64 %86
   %.sroa.0.0.copyload = load i64, ptr %87, align 8
-  switch i32 %.0253, label %553 [
+  switch i32 %.0265, label %553 [
     i32 2, label %88
     i32 3, label %90
     i32 4, label %91
@@ -286,7 +286,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   ]
 
 88:                                               ; preds = %81
-  %89 = load ptr, ptr %.2256, align 8
+  %89 = load ptr, ptr %.2268, align 8
   store ptr %89, ptr @expr_parse_result, align 8
   br label %553
 
@@ -294,7 +294,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   br label %553
 
 91:                                               ; preds = %81
-  %92 = load ptr, ptr %.2256, align 8
+  %92 = load ptr, ptr %.2268, align 8
   %93 = call ptr @pg_malloc(i64 noundef 16) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false)
   %94 = call ptr @pg_malloc(i64 noundef 16) #9
@@ -320,8 +320,8 @@ make_elist.exit:                                  ; preds = %91, %98
   br label %553
 
 104:                                              ; preds = %81
-  %105 = load ptr, ptr %.2256, align 8
-  %106 = getelementptr i8, ptr %.2256, i64 -16
+  %105 = load ptr, ptr %.2268, align 8
+  %106 = getelementptr i8, ptr %.2268, i64 -16
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %107, null
   br i1 %108, label %109, label %111
@@ -356,13 +356,13 @@ make_elist.exit304:                               ; preds = %111, %116
   br label %553
 
 122:                                              ; preds = %81
-  %123 = getelementptr i8, ptr %.2256, i64 -8
+  %123 = getelementptr i8, ptr %.2268, i64 -8
   %124 = load ptr, ptr %123, align 8
   %125 = ptrtoint ptr %124 to i64
   br label %553
 
 126:                                              ; preds = %81
-  %127 = load ptr, ptr %.2256, align 8
+  %127 = load ptr, ptr %.2268, align 8
   %128 = ptrtoint ptr %127 to i64
   br label %553
 
@@ -373,7 +373,7 @@ make_elist.exit304:                               ; preds = %111, %116
   store i32 2, ptr %131, align 8
   %132 = getelementptr inbounds i8, ptr %130, i64 16
   store i64 0, ptr %132, align 8
-  %133 = load ptr, ptr %.2256, align 8
+  %133 = load ptr, ptr %.2268, align 8
   %134 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %130, ptr noundef %133)
   %135 = ptrtoint ptr %134 to i64
   br label %553
@@ -395,13 +395,13 @@ make_elist.exit304:                               ; preds = %111, %116
   store i32 2, ptr %143, align 8
   %144 = getelementptr inbounds i8, ptr %142, i64 16
   store i64 -1, ptr %144, align 8
-  %145 = load ptr, ptr %.2256, align 8
+  %145 = load ptr, ptr %.2268, align 8
   %146 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %142, ptr noundef %145)
   %147 = ptrtoint ptr %146 to i64
   br label %553
 
 148:                                              ; preds = %81
-  %149 = load ptr, ptr %.2256, align 8
+  %149 = load ptr, ptr %.2268, align 8
   br label %150
 
 150:                                              ; preds = %154, %148
@@ -450,151 +450,151 @@ make_uop.exit:                                    ; preds = %find_func.exit.i, %
   br label %553
 
 171:                                              ; preds = %81
-  %172 = getelementptr i8, ptr %.2256, i64 -16
+  %172 = getelementptr i8, ptr %.2268, i64 -16
   %173 = load ptr, ptr %172, align 8
-  %174 = load ptr, ptr %.2256, align 8
+  %174 = load ptr, ptr %.2268, align 8
   %175 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %173, ptr noundef %174)
   %176 = ptrtoint ptr %175 to i64
   br label %553
 
 177:                                              ; preds = %81
-  %178 = getelementptr i8, ptr %.2256, i64 -16
+  %178 = getelementptr i8, ptr %.2268, i64 -16
   %179 = load ptr, ptr %178, align 8
-  %180 = load ptr, ptr %.2256, align 8
+  %180 = load ptr, ptr %.2268, align 8
   %181 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %179, ptr noundef %180)
   %182 = ptrtoint ptr %181 to i64
   br label %553
 
 183:                                              ; preds = %81
-  %184 = getelementptr i8, ptr %.2256, i64 -16
+  %184 = getelementptr i8, ptr %.2268, i64 -16
   %185 = load ptr, ptr %184, align 8
-  %186 = load ptr, ptr %.2256, align 8
+  %186 = load ptr, ptr %.2268, align 8
   %187 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %185, ptr noundef %186)
   %188 = ptrtoint ptr %187 to i64
   br label %553
 
 189:                                              ; preds = %81
-  %190 = getelementptr i8, ptr %.2256, i64 -16
+  %190 = getelementptr i8, ptr %.2268, i64 -16
   %191 = load ptr, ptr %190, align 8
-  %192 = load ptr, ptr %.2256, align 8
+  %192 = load ptr, ptr %.2268, align 8
   %193 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %191, ptr noundef %192)
   %194 = ptrtoint ptr %193 to i64
   br label %553
 
 195:                                              ; preds = %81
-  %196 = getelementptr i8, ptr %.2256, i64 -16
+  %196 = getelementptr i8, ptr %.2268, i64 -16
   %197 = load ptr, ptr %196, align 8
-  %198 = load ptr, ptr %.2256, align 8
+  %198 = load ptr, ptr %.2268, align 8
   %199 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %197, ptr noundef %198)
   %200 = ptrtoint ptr %199 to i64
   br label %553
 
 201:                                              ; preds = %81
-  %202 = getelementptr i8, ptr %.2256, i64 -16
+  %202 = getelementptr i8, ptr %.2268, i64 -16
   %203 = load ptr, ptr %202, align 8
-  %204 = load ptr, ptr %.2256, align 8
+  %204 = load ptr, ptr %.2268, align 8
   %205 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef %203, ptr noundef %204)
   %206 = ptrtoint ptr %205 to i64
   br label %553
 
 207:                                              ; preds = %81
-  %208 = getelementptr i8, ptr %.2256, i64 -16
+  %208 = getelementptr i8, ptr %.2268, i64 -16
   %209 = load ptr, ptr %208, align 8
-  %210 = load ptr, ptr %.2256, align 8
+  %210 = load ptr, ptr %.2268, align 8
   %211 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %209, ptr noundef %210)
   %212 = ptrtoint ptr %211 to i64
   br label %553
 
 213:                                              ; preds = %81
-  %214 = load ptr, ptr %.2256, align 8
-  %215 = getelementptr i8, ptr %.2256, i64 -16
+  %214 = load ptr, ptr %.2268, align 8
+  %215 = getelementptr i8, ptr %.2268, i64 -16
   %216 = load ptr, ptr %215, align 8
   %217 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef %214, ptr noundef %216)
   %218 = ptrtoint ptr %217 to i64
   br label %553
 
 219:                                              ; preds = %81
-  %220 = load ptr, ptr %.2256, align 8
-  %221 = getelementptr i8, ptr %.2256, i64 -16
+  %220 = load ptr, ptr %.2268, align 8
+  %221 = getelementptr i8, ptr %.2268, i64 -16
   %222 = load ptr, ptr %221, align 8
   %223 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %220, ptr noundef %222)
   %224 = ptrtoint ptr %223 to i64
   br label %553
 
 225:                                              ; preds = %81
-  %226 = getelementptr i8, ptr %.2256, i64 -16
+  %226 = getelementptr i8, ptr %.2268, i64 -16
   %227 = load ptr, ptr %226, align 8
-  %228 = load ptr, ptr %.2256, align 8
+  %228 = load ptr, ptr %.2268, align 8
   %229 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef %227, ptr noundef %228)
   %230 = ptrtoint ptr %229 to i64
   br label %553
 
 231:                                              ; preds = %81
-  %232 = getelementptr i8, ptr %.2256, i64 -16
+  %232 = getelementptr i8, ptr %.2268, i64 -16
   %233 = load ptr, ptr %232, align 8
-  %234 = load ptr, ptr %.2256, align 8
+  %234 = load ptr, ptr %.2268, align 8
   %235 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %233, ptr noundef %234)
   %236 = ptrtoint ptr %235 to i64
   br label %553
 
 237:                                              ; preds = %81
-  %238 = getelementptr i8, ptr %.2256, i64 -16
+  %238 = getelementptr i8, ptr %.2268, i64 -16
   %239 = load ptr, ptr %238, align 8
-  %240 = load ptr, ptr %.2256, align 8
+  %240 = load ptr, ptr %.2268, align 8
   %241 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %239, ptr noundef %240)
   %242 = ptrtoint ptr %241 to i64
   br label %553
 
 243:                                              ; preds = %81
-  %244 = getelementptr i8, ptr %.2256, i64 -16
+  %244 = getelementptr i8, ptr %.2268, i64 -16
   %245 = load ptr, ptr %244, align 8
-  %246 = load ptr, ptr %.2256, align 8
+  %246 = load ptr, ptr %.2268, align 8
   %247 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %245, ptr noundef %246)
   %248 = ptrtoint ptr %247 to i64
   br label %553
 
 249:                                              ; preds = %81
-  %250 = getelementptr i8, ptr %.2256, i64 -16
+  %250 = getelementptr i8, ptr %.2268, i64 -16
   %251 = load ptr, ptr %250, align 8
-  %252 = load ptr, ptr %.2256, align 8
+  %252 = load ptr, ptr %.2268, align 8
   %253 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %251, ptr noundef %252)
   %254 = ptrtoint ptr %253 to i64
   br label %553
 
 255:                                              ; preds = %81
-  %256 = getelementptr i8, ptr %.2256, i64 -16
+  %256 = getelementptr i8, ptr %.2268, i64 -16
   %257 = load ptr, ptr %256, align 8
-  %258 = load ptr, ptr %.2256, align 8
+  %258 = load ptr, ptr %.2268, align 8
   %259 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %257, ptr noundef %258)
   %260 = ptrtoint ptr %259 to i64
   br label %553
 
 261:                                              ; preds = %81
-  %262 = getelementptr i8, ptr %.2256, i64 -16
+  %262 = getelementptr i8, ptr %.2268, i64 -16
   %263 = load ptr, ptr %262, align 8
-  %264 = load ptr, ptr %.2256, align 8
+  %264 = load ptr, ptr %.2268, align 8
   %265 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef %263, ptr noundef %264)
   %266 = ptrtoint ptr %265 to i64
   br label %553
 
 267:                                              ; preds = %81
-  %268 = getelementptr i8, ptr %.2256, i64 -16
+  %268 = getelementptr i8, ptr %.2268, i64 -16
   %269 = load ptr, ptr %268, align 8
-  %270 = load ptr, ptr %.2256, align 8
+  %270 = load ptr, ptr %.2268, align 8
   %271 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %269, ptr noundef %270)
   %272 = ptrtoint ptr %271 to i64
   br label %553
 
 273:                                              ; preds = %81
-  %274 = getelementptr i8, ptr %.2256, i64 -16
+  %274 = getelementptr i8, ptr %.2268, i64 -16
   %275 = load ptr, ptr %274, align 8
-  %276 = load ptr, ptr %.2256, align 8
+  %276 = load ptr, ptr %.2268, align 8
   %277 = call fastcc ptr @make_op(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %275, ptr noundef %276)
   %278 = ptrtoint ptr %277 to i64
   br label %553
 
 279:                                              ; preds = %81
-  %280 = getelementptr i8, ptr %.2256, i64 -8
+  %280 = getelementptr i8, ptr %.2268, i64 -8
   %281 = load ptr, ptr %280, align 8
   %282 = call ptr @pg_malloc(i64 noundef 24) #9
   store i32 0, ptr %282, align 8
@@ -607,7 +607,7 @@ make_uop.exit:                                    ; preds = %find_func.exit.i, %
   br label %553
 
 287:                                              ; preds = %81
-  %288 = getelementptr i8, ptr %.2256, i64 -8
+  %288 = getelementptr i8, ptr %.2268, i64 -8
   %289 = load ptr, ptr %288, align 8
   %290 = call ptr @pg_malloc(i64 noundef 24) #9
   store i32 0, ptr %290, align 8
@@ -664,7 +664,7 @@ make_uop.exit310:                                 ; preds = %find_func.exit.i308
   br label %553
 
 315:                                              ; preds = %81
-  %316 = getelementptr i8, ptr %.2256, i64 -16
+  %316 = getelementptr i8, ptr %.2268, i64 -16
   %317 = load ptr, ptr %316, align 8
   %318 = call ptr @pg_malloc(i64 noundef 24) #9
   store i32 0, ptr %318, align 8
@@ -677,7 +677,7 @@ make_uop.exit310:                                 ; preds = %find_func.exit.i308
   br label %553
 
 323:                                              ; preds = %81
-  %324 = getelementptr i8, ptr %.2256, i64 -24
+  %324 = getelementptr i8, ptr %.2268, i64 -24
   %325 = load ptr, ptr %324, align 8
   %326 = call ptr @pg_malloc(i64 noundef 24) #9
   store i32 0, ptr %326, align 8
@@ -734,9 +734,9 @@ make_uop.exit316:                                 ; preds = %find_func.exit.i314
   br label %553
 
 351:                                              ; preds = %81
-  %352 = getelementptr i8, ptr %.2256, i64 -16
+  %352 = getelementptr i8, ptr %.2268, i64 -16
   %353 = load ptr, ptr %352, align 8
-  %354 = load i8, ptr %.2256, align 8
+  %354 = load i8, ptr %.2268, align 8
   %355 = and i8 %354, 1
   %356 = call ptr @pg_malloc(i64 noundef 24) #9
   store i32 0, ptr %356, align 8
@@ -749,9 +749,9 @@ make_uop.exit316:                                 ; preds = %find_func.exit.i314
   br label %553
 
 361:                                              ; preds = %81
-  %362 = getelementptr i8, ptr %.2256, i64 -24
+  %362 = getelementptr i8, ptr %.2268, i64 -24
   %363 = load ptr, ptr %362, align 8
-  %364 = load i8, ptr %.2256, align 8
+  %364 = load i8, ptr %.2268, align 8
   %365 = and i8 %364, 1
   %366 = call ptr @pg_malloc(i64 noundef 24) #9
   store i32 0, ptr %366, align 8
@@ -818,7 +818,7 @@ make_uop.exit322:                                 ; preds = %find_func.exit.i320
   br label %553
 
 396:                                              ; preds = %81
-  %397 = load i8, ptr %.2256, align 8
+  %397 = load i8, ptr %.2268, align 8
   %398 = and i8 %397, 1
   %399 = call ptr @pg_malloc(i64 noundef 24) #9
   store i32 0, ptr %399, align 8
@@ -830,7 +830,7 @@ make_uop.exit322:                                 ; preds = %find_func.exit.i320
   br label %553
 
 403:                                              ; preds = %81
-  %404 = load i64, ptr %.2256, align 8
+  %404 = load i64, ptr %.2268, align 8
   %405 = call ptr @pg_malloc(i64 noundef 24) #9
   store i32 0, ptr %405, align 8
   %406 = getelementptr inbounds i8, ptr %405, i64 8
@@ -841,7 +841,7 @@ make_uop.exit322:                                 ; preds = %find_func.exit.i320
   br label %553
 
 409:                                              ; preds = %81
-  %410 = load double, ptr %.2256, align 8
+  %410 = load double, ptr %.2268, align 8
   %411 = call ptr @pg_malloc(i64 noundef 24) #9
   store i32 0, ptr %411, align 8
   %412 = getelementptr inbounds i8, ptr %411, i64 8
@@ -852,7 +852,7 @@ make_uop.exit322:                                 ; preds = %find_func.exit.i320
   br label %553
 
 415:                                              ; preds = %81
-  %416 = load ptr, ptr %.2256, align 8
+  %416 = load ptr, ptr %.2268, align 8
   %417 = call noundef ptr @pg_malloc(i64 noundef 24) #9
   store i32 1, ptr %417, align 8
   %418 = getelementptr inbounds i8, ptr %417, i64 8
@@ -861,25 +861,25 @@ make_uop.exit322:                                 ; preds = %find_func.exit.i320
   br label %553
 
 420:                                              ; preds = %81
-  %421 = getelementptr i8, ptr %.2256, i64 -24
+  %421 = getelementptr i8, ptr %.2268, i64 -24
   %422 = load i64, ptr %421, align 8
   %423 = trunc i64 %422 to i32
-  %424 = getelementptr i8, ptr %.2256, i64 -8
+  %424 = getelementptr i8, ptr %.2268, i64 -8
   %425 = load ptr, ptr %424, align 8
   %426 = call fastcc ptr @make_func(ptr noundef %0, i32 noundef %423, ptr noundef %425)
   %427 = ptrtoint ptr %426 to i64
   br label %553
 
 428:                                              ; preds = %81
-  %429 = load ptr, ptr %.2256, align 8
+  %429 = load ptr, ptr %.2268, align 8
   %430 = ptrtoint ptr %429 to i64
   br label %553
 
 431:                                              ; preds = %81
-  %432 = load ptr, ptr %.2256, align 8
-  %433 = getelementptr i8, ptr %.2256, i64 -16
+  %432 = load ptr, ptr %.2268, align 8
+  %433 = getelementptr i8, ptr %.2268, i64 -16
   %434 = load ptr, ptr %433, align 8
-  %435 = getelementptr i8, ptr %.2256, i64 -32
+  %435 = getelementptr i8, ptr %.2268, i64 -32
   %436 = load ptr, ptr %435, align 8
   %437 = icmp eq ptr %436, null
   br i1 %437, label %438, label %440
@@ -931,8 +931,8 @@ make_elist.exit328:                               ; preds = %449, %455
   br label %553
 
 459:                                              ; preds = %81
-  %460 = load ptr, ptr %.2256, align 8
-  %461 = getelementptr i8, ptr %.2256, i64 -16
+  %460 = load ptr, ptr %.2268, align 8
+  %461 = getelementptr i8, ptr %.2268, i64 -16
   %462 = load ptr, ptr %461, align 8
   %463 = call ptr @pg_malloc(i64 noundef 16) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %463, i8 0, i64 16, i1 false)
@@ -976,7 +976,7 @@ make_elist.exit334:                               ; preds = %472, %478
   br label %553
 
 482:                                              ; preds = %81
-  %483 = getelementptr i8, ptr %.2256, i64 -8
+  %483 = getelementptr i8, ptr %.2268, i64 -8
   %484 = load ptr, ptr %483, align 8
   %485 = call ptr @pg_malloc(i64 noundef 24) #9
   store i32 0, ptr %485, align 8
@@ -1040,9 +1040,9 @@ make_case.exit:                                   ; preds = %499, %504
   br label %553
 
 512:                                              ; preds = %81
-  %513 = getelementptr i8, ptr %.2256, i64 -24
+  %513 = getelementptr i8, ptr %.2268, i64 -24
   %514 = load ptr, ptr %513, align 8
-  %515 = getelementptr i8, ptr %.2256, i64 -8
+  %515 = getelementptr i8, ptr %.2268, i64 -8
   %516 = load ptr, ptr %515, align 8
   br label %517
 
@@ -1100,7 +1100,7 @@ make_case.exit346:                                ; preds = %528, %533
   br label %553
 
 541:                                              ; preds = %81
-  %542 = load ptr, ptr %.2256, align 8
+  %542 = load ptr, ptr %.2268, align 8
   br label %543
 
 543:                                              ; preds = %547, %541
@@ -1124,15 +1124,15 @@ make_case.exit346:                                ; preds = %528, %533
 find_func.exit:                                   ; preds = %543
   %sext = shl i64 %indvars.iv.i, 32
   %551 = ashr exact i64 %sext, 32
-  %552 = load ptr, ptr %.2256, align 8
+  %552 = load ptr, ptr %.2268, align 8
   call void @pg_free(ptr noundef %552) #9
   br label %553
 
 553:                                              ; preds = %81, %find_func.exit, %make_case.exit346, %make_case.exit, %make_elist.exit334, %make_elist.exit328, %428, %420, %415, %409, %403, %396, %391, %make_uop.exit322, %351, %make_uop.exit316, %315, %make_uop.exit310, %279, %273, %267, %261, %255, %249, %243, %237, %231, %225, %219, %213, %207, %201, %195, %189, %183, %177, %171, %make_uop.exit, %141, %136, %129, %126, %122, %make_elist.exit304, %make_elist.exit, %90, %88
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %81 ], [ %551, %find_func.exit ], [ %540, %make_case.exit346 ], [ %511, %make_case.exit ], [ %481, %make_elist.exit334 ], [ %458, %make_elist.exit328 ], [ %430, %428 ], [ %427, %420 ], [ %419, %415 ], [ %414, %409 ], [ %408, %403 ], [ %402, %396 ], [ %395, %391 ], [ %390, %make_uop.exit322 ], [ %360, %351 ], [ %350, %make_uop.exit316 ], [ %322, %315 ], [ %314, %make_uop.exit310 ], [ %286, %279 ], [ %278, %273 ], [ %272, %267 ], [ %266, %261 ], [ %260, %255 ], [ %254, %249 ], [ %248, %243 ], [ %242, %237 ], [ %236, %231 ], [ %230, %225 ], [ %224, %219 ], [ %218, %213 ], [ %212, %207 ], [ %206, %201 ], [ %200, %195 ], [ %194, %189 ], [ %188, %183 ], [ %182, %177 ], [ %176, %171 ], [ %170, %make_uop.exit ], [ %147, %141 ], [ %140, %136 ], [ %135, %129 ], [ %128, %126 ], [ %125, %122 ], [ %121, %make_elist.exit304 ], [ %103, %make_elist.exit ], [ 0, %90 ], [ %.sroa.0.0.copyload, %88 ]
   %554 = sub nsw i64 0, %85
-  %555 = getelementptr %union.YYSTYPE, ptr %.2256, i64 %554
-  %556 = getelementptr i8, ptr %.2265, i64 %554
+  %555 = getelementptr %union.YYSTYPE, ptr %.2268, i64 %554
+  %556 = getelementptr i8, ptr %.2277, i64 %554
   %557 = getelementptr i8, ptr %555, i64 8
   store i64 %.sroa.0.0, ptr %557, align 8
   %558 = getelementptr [48 x i8], ptr @yyr1, i64 0, i64 %82
@@ -1178,19 +1178,19 @@ find_func.exit:                                   ; preds = %543
   unreachable
 
 .thread366:                                       ; preds = %34, %48
-  %.0252364 = phi i32 [ 1, %48 ], [ 0, %34 ]
-  %.not302 = icmp eq ptr %.1271, %3
+  %.0264362 = phi i32 [ 1, %48 ], [ 0, %34 ]
+  %.not302 = icmp eq ptr %.1258, %3
   br i1 %.not302, label %581, label %.thread366.thread
 
 .thread366.thread:                                ; preds = %28, %.thread366
-  %.3273358474 = phi ptr [ %.1271, %.thread366 ], [ %21, %28 ]
-  %.0252364472 = phi i32 [ %.0252364, %.thread366 ], [ 1, %28 ]
-  call void @free(ptr noundef %.3273358474) #9
+  %.0264362473 = phi i32 [ %.0264362, %.thread366 ], [ 1, %28 ]
+  %.3260364472 = phi ptr [ %.1258, %.thread366 ], [ %21, %28 ]
+  call void @free(ptr noundef %.3260364472) #9
   br label %581
 
 581:                                              ; preds = %.thread366.thread, %.thread366
-  %.0252364473 = phi i32 [ %.0252364472, %.thread366.thread ], [ %.0252364, %.thread366 ]
-  ret i32 %.0252364473
+  %.0264362474 = phi i32 [ %.0264362473, %.thread366.thread ], [ %.0264362, %.thread366 ]
+  ret i32 %.0264362474
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

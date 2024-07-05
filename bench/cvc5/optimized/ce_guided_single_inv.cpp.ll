@@ -17344,8 +17344,8 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %if.end, %entry
-  %__first.sroa.0.0 = phi ptr [ %__first.coerce, %entry ], [ %incdec.ptr.i20, %if.end ]
   %__last.sroa.0.0 = phi ptr [ %__last.coerce, %entry ], [ %__last.sroa.0.1, %if.end ]
+  %__first.sroa.0.0 = phi ptr [ %__first.coerce, %entry ], [ %incdec.ptr.i20, %if.end ]
   %0 = load i32, ptr %__first.sroa.0.0, align 4
   %1 = load i32, ptr %__pivot.coerce, align 4
   %conv.i.i33 = zext i32 %0 to i64

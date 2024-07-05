@@ -711,27 +711,27 @@ switch.lookup:                                    ; preds = %4
   br i1 %.not64.i, label %dissect_mtp3mg_test.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %239, %250
-  %.063.i = phi i32 [ %254, %250 ], [ 1, %239 ]
-  %.05962.i = phi i8 [ %255, %250 ], [ 0, %239 ]
+  %.063.i = phi i8 [ %255, %250 ], [ 0, %239 ]
+  %.05962.i = phi i32 [ %254, %250 ], [ 1, %239 ]
   %243 = load i32, ptr @hf_mtp3mg_japan_apc, align 4
-  %244 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %243, ptr noundef %99, i32 noundef %.063.i, i32 noundef 2, i32 noundef -2147483648) #2
+  %244 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %243, ptr noundef %99, i32 noundef %.05962.i, i32 noundef 2, i32 noundef -2147483648) #2
   %245 = tail call i32 @mtp3_pc_structured() #2
   %.not61.i = icmp eq i32 %245, 0
   br i1 %.not61.i, label %250, label %246
 
 246:                                              ; preds = %.lr.ph.i
-  %247 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %99, i32 noundef %.063.i) #2
+  %247 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %99, i32 noundef %.05962.i) #2
   %248 = zext i16 %247 to i32
   %249 = tail call ptr @mtp3_pc_to_str(i32 noundef %248) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %244, ptr noundef nonnull @.str.133, ptr noundef %249) #2
   br label %250
 
 250:                                              ; preds = %246, %.lr.ph.i
-  %251 = add nuw nsw i32 %.063.i, 2
+  %251 = add nuw nsw i32 %.05962.i, 2
   %252 = load i32, ptr @hf_mtp3mg_tfm_japan_spare, align 4
   %253 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %252, ptr noundef %99, i32 noundef %251, i32 noundef 2, i32 noundef -2147483648) #2
-  %254 = add nuw nsw i32 %.063.i, 4
-  %255 = add nuw i8 %.05962.i, 1
+  %254 = add nuw nsw i32 %.05962.i, 4
+  %255 = add nuw i8 %.063.i, 1
   %exitcond.not.i = icmp eq i8 %255, %242
   br i1 %exitcond.not.i, label %dissect_mtp3mg_test.exit, label %.lr.ph.i, !llvm.loop !4
 

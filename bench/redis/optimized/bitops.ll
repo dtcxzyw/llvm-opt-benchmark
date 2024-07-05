@@ -2577,11 +2577,11 @@ if.else126:                                       ; preds = %if.end4
 if.end128:                                        ; preds = %27, %if.then96, %if.end122
   %38 = phi i64 [ %shr108, %if.then96 ], [ %24, %27 ], [ %sub125, %if.end122 ]
   %39 = phi i64 [ %shr, %if.then96 ], [ %22, %27 ], [ 0, %if.end122 ]
-  %o.0 = phi ptr [ %call47, %if.then96 ], [ %call47, %27 ], [ %call118, %if.end122 ]
   %p.0 = phi ptr [ %call52, %if.then96 ], [ %call52, %27 ], [ %call124, %if.end122 ]
   %end_given.1 = phi i32 [ %end_given.0, %if.then96 ], [ %end_given.0, %27 ], [ 0, %if.end122 ]
   %first_byte_neg_mask.0 = phi i8 [ %conv101, %if.then96 ], [ 0, %27 ], [ 0, %if.end122 ]
   %last_byte_neg_mask.0 = phi i32 [ %32, %if.then96 ], [ 0, %27 ], [ 0, %if.end122 ]
+  %o.0 = phi ptr [ %call47, %if.then96 ], [ %call47, %27 ], [ %call118, %if.end122 ]
   %cmp129 = icmp eq ptr %o.0, null
   br i1 %cmp129, label %if.then131, label %if.end134
 
@@ -2764,11 +2764,11 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %24, %for.inc ]
   %j.0411 = phi i32 [ 2, %for.body.lr.ph ], [ %inc105, %for.inc ]
-  %highest_write_offset.0410 = phi i64 [ 0, %for.body.lr.ph ], [ %highest_write_offset.3, %for.inc ]
-  %readonly.0409 = phi i32 [ 1, %for.body.lr.ph ], [ %readonly.2, %for.inc ]
+  %numops.0410 = phi i32 [ 0, %for.body.lr.ph ], [ %numops.1, %for.inc ]
+  %ops.0409 = phi ptr [ null, %for.body.lr.ph ], [ %ops.1, %for.inc ]
   %owtype.0408 = phi i32 [ 0, %for.body.lr.ph ], [ %owtype.1, %for.inc ]
-  %ops.0407 = phi ptr [ null, %for.body.lr.ph ], [ %ops.1, %for.inc ]
-  %numops.0406 = phi i32 [ 0, %for.body.lr.ph ], [ %numops.1, %for.inc ]
+  %readonly.0407 = phi i32 [ 1, %for.body.lr.ph ], [ %readonly.2, %for.inc ]
+  %highest_write_offset.0406 = phi i64 [ 0, %for.body.lr.ph ], [ %highest_write_offset.3, %for.inc ]
   %2 = xor i32 %j.0411, -1
   %sub2 = add i32 %1, %2
   %3 = load ptr, ptr %argv, align 8
@@ -2827,13 +2827,13 @@ if.else32:                                        ; preds = %if.else28
 
 if.else36:                                        ; preds = %if.else32
   call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.27) #17
-  call void @zfree(ptr noundef %ops.0407) #17
+  call void @zfree(ptr noundef %ops.0409) #17
   br label %return
 
 if.else39:                                        ; preds = %if.else15
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 216), align 8
   call void @addReplyErrorObject(ptr noundef nonnull %c, ptr noundef %8) #17
-  call void @zfree(ptr noundef %ops.0407) #17
+  call void @zfree(ptr noundef %ops.0409) #17
   br label %return
 
 if.end42:                                         ; preds = %if.else9, %if.else, %for.body
@@ -2874,7 +2874,7 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.end
 if.then49:                                        ; preds = %if.end8.i, %if.end42
   call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %llbits.i)
-  call void @zfree(ptr noundef %ops.0407) #17
+  call void @zfree(ptr noundef %ops.0409) #17
   br label %return
 
 if.end50:                                         ; preds = %if.end8.i
@@ -2889,7 +2889,7 @@ if.end50:                                         ; preds = %if.end8.i
   br i1 %cmp56.not, label %if.end58, label %if.then57
 
 if.then57:                                        ; preds = %if.end50
-  call void @zfree(ptr noundef %ops.0407) #17
+  call void @zfree(ptr noundef %ops.0409) #17
   br label %return
 
 if.end58:                                         ; preds = %if.end50
@@ -2901,7 +2901,7 @@ if.then60:                                        ; preds = %if.end58
   %conv = ashr exact i64 %sext, 32
   %add61 = add nsw i64 %conv, -1
   %sub62 = add i64 %add61, %18
-  %spec.select = call i64 @llvm.umax.i64(i64 %highest_write_offset.0410, i64 %sub62)
+  %spec.select = call i64 @llvm.umax.i64(i64 %highest_write_offset.0406, i64 %sub62)
   %19 = load ptr, ptr %argv, align 8
   %20 = getelementptr ptr, ptr %19, i64 %idxprom
   %arrayidx73 = getelementptr i8, ptr %20, i64 24
@@ -2911,19 +2911,19 @@ if.then60:                                        ; preds = %if.end58
   br i1 %cmp75.not, label %if.end79, label %if.then77
 
 if.then77:                                        ; preds = %if.then60
-  call void @zfree(ptr noundef %ops.0407) #17
+  call void @zfree(ptr noundef %ops.0409) #17
   br label %return
 
 if.end79:                                         ; preds = %if.then60, %if.end58
   %sub103 = phi i32 [ 3, %if.then60 ], [ 2, %if.end58 ]
-  %readonly.1 = phi i32 [ 0, %if.then60 ], [ %readonly.0409, %if.end58 ]
-  %highest_write_offset.2 = phi i64 [ %spec.select, %if.then60 ], [ %highest_write_offset.0410, %if.end58 ]
-  %add80 = add nsw i32 %numops.0406, 1
+  %highest_write_offset.2 = phi i64 [ %spec.select, %if.then60 ], [ %highest_write_offset.0406, %if.end58 ]
+  %readonly.1 = phi i32 [ 0, %if.then60 ], [ %readonly.0407, %if.end58 ]
+  %add80 = add nsw i32 %numops.0410, 1
   %conv81 = sext i32 %add80 to i64
   %mul = shl nsw i64 %conv81, 5
-  %call82 = call ptr @zrealloc(ptr noundef %ops.0407, i64 noundef %mul) #21
+  %call82 = call ptr @zrealloc(ptr noundef %ops.0409, i64 noundef %mul) #21
   %22 = load i64, ptr %bitoffset, align 8
-  %idxprom83 = sext i32 %numops.0406 to i64
+  %idxprom83 = sext i32 %numops.0410 to i64
   %arrayidx84 = getelementptr inbounds %struct.bitfieldOp, ptr %call82, i64 %idxprom83
   store i64 %22, ptr %arrayidx84, align 8
   %23 = load i64, ptr %i64, align 8
@@ -2943,11 +2943,11 @@ if.end79:                                         ; preds = %if.then60, %if.end5
 
 for.inc:                                          ; preds = %if.else32, %if.else28, %if.then20, %if.end79
   %24 = phi i32 [ %.pre, %if.end79 ], [ %1, %if.then20 ], [ %1, %if.else28 ], [ %1, %if.else32 ]
-  %numops.1 = phi i32 [ %add80, %if.end79 ], [ %numops.0406, %if.then20 ], [ %numops.0406, %if.else28 ], [ %numops.0406, %if.else32 ]
-  %ops.1 = phi ptr [ %call82, %if.end79 ], [ %ops.0407, %if.then20 ], [ %ops.0407, %if.else28 ], [ %ops.0407, %if.else32 ]
+  %highest_write_offset.3 = phi i64 [ %highest_write_offset.2, %if.end79 ], [ %highest_write_offset.0406, %if.then20 ], [ %highest_write_offset.0406, %if.else28 ], [ %highest_write_offset.0406, %if.else32 ]
+  %readonly.2 = phi i32 [ %readonly.1, %if.end79 ], [ %readonly.0407, %if.then20 ], [ %readonly.0407, %if.else28 ], [ %readonly.0407, %if.else32 ]
   %owtype.1 = phi i32 [ %owtype.0408, %if.end79 ], [ 0, %if.then20 ], [ 1, %if.else28 ], [ 2, %if.else32 ]
-  %readonly.2 = phi i32 [ %readonly.1, %if.end79 ], [ %readonly.0409, %if.then20 ], [ %readonly.0409, %if.else28 ], [ %readonly.0409, %if.else32 ]
-  %highest_write_offset.3 = phi i64 [ %highest_write_offset.2, %if.end79 ], [ %highest_write_offset.0410, %if.then20 ], [ %highest_write_offset.0410, %if.else28 ], [ %highest_write_offset.0410, %if.else32 ]
+  %ops.1 = phi ptr [ %call82, %if.end79 ], [ %ops.0409, %if.then20 ], [ %ops.0409, %if.else28 ], [ %ops.0409, %if.else32 ]
+  %numops.1 = phi i32 [ %add80, %if.end79 ], [ %numops.0410, %if.then20 ], [ %numops.0410, %if.else28 ], [ %numops.0410, %if.else32 ]
   %j.1 = phi i32 [ %add104, %if.end79 ], [ %add, %if.then20 ], [ %add, %if.else28 ], [ %add, %if.else32 ]
   %inc105 = add nsw i32 %j.1, 1
   %cmp = icmp slt i32 %inc105, %24
@@ -2958,8 +2958,8 @@ for.end:                                          ; preds = %for.inc
   br i1 %25, label %if.else118, label %if.then107
 
 if.then107:                                       ; preds = %entry, %for.end
-  %ops.0.lcssa440 = phi ptr [ %ops.1, %for.end ], [ null, %entry ]
-  %numops.0.lcssa438 = phi i32 [ %numops.1, %for.end ], [ 0, %entry ]
+  %numops.0.lcssa440 = phi i32 [ %numops.1, %for.end ], [ 0, %entry ]
+  %ops.0.lcssa438 = phi ptr [ %ops.1, %for.end ], [ null, %entry ]
   %db = getelementptr inbounds i8, ptr %c, i64 32
   %26 = load ptr, ptr %db, align 8
   %argv108 = getelementptr inbounds i8, ptr %c, i64 96
@@ -2976,7 +2976,7 @@ land.lhs.true113:                                 ; preds = %if.then107
   br i1 %tobool115.not, label %if.end127, label %if.then116
 
 if.then116:                                       ; preds = %land.lhs.true113
-  call void @zfree(ptr noundef %ops.0.lcssa440) #17
+  call void @zfree(ptr noundef %ops.0.lcssa438) #17
   br label %return
 
 if.else118:                                       ; preds = %for.end
@@ -2999,25 +2999,25 @@ if.then125:                                       ; preds = %if.end121
   br label %return
 
 if.end127:                                        ; preds = %if.end121, %if.then107, %land.lhs.true113
-  %ops.0.lcssa439 = phi ptr [ %ops.0.lcssa440, %land.lhs.true113 ], [ %ops.0.lcssa440, %if.then107 ], [ %ops.1, %if.end121 ]
-  %numops.0.lcssa437 = phi i32 [ %numops.0.lcssa438, %land.lhs.true113 ], [ %numops.0.lcssa438, %if.then107 ], [ %numops.1, %if.end121 ]
+  %numops.0.lcssa439 = phi i32 [ %numops.0.lcssa440, %land.lhs.true113 ], [ %numops.0.lcssa440, %if.then107 ], [ %numops.1, %if.end121 ]
+  %ops.0.lcssa437 = phi ptr [ %ops.0.lcssa438, %land.lhs.true113 ], [ %ops.0.lcssa438, %if.then107 ], [ %ops.1, %if.end121 ]
   %o.0 = phi ptr [ %call110, %land.lhs.true113 ], [ null, %if.then107 ], [ %call122, %if.end121 ]
-  %conv128 = sext i32 %numops.0.lcssa437 to i64
+  %conv128 = sext i32 %numops.0.lcssa439 to i64
   call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %conv128) #17
-  %cmp130416 = icmp sgt i32 %numops.0.lcssa437, 0
+  %cmp130416 = icmp sgt i32 %numops.0.lcssa439, 0
   br i1 %cmp130416, label %for.body132.lr.ph, label %if.end307
 
 for.body132.lr.ph:                                ; preds = %if.end127
   %cmp245.not = icmp eq ptr %o.0, null
   %ptr13.i = getelementptr inbounds i8, ptr %o.0, i64 8
-  %wide.trip.count = zext nneg i32 %numops.0.lcssa437 to i64
+  %wide.trip.count = zext nneg i32 %numops.0.lcssa439 to i64
   br label %for.body132
 
 for.body132:                                      ; preds = %for.body132.lr.ph, %for.inc294
   %indvars.iv429 = phi i64 [ 0, %for.body132.lr.ph ], [ %indvars.iv.next430, %for.inc294 ]
   %changes.0418 = phi i32 [ 0, %for.body132.lr.ph ], [ %changes.1, %for.inc294 ]
   %wrapped.0417 = phi i64 [ undef, %for.body132.lr.ph ], [ %wrapped.4, %for.inc294 ]
-  %add.ptr = getelementptr inbounds %struct.bitfieldOp, ptr %ops.0.lcssa439, i64 %indvars.iv429
+  %add.ptr = getelementptr inbounds %struct.bitfieldOp, ptr %ops.0.lcssa437, i64 %indvars.iv429
   %opcode133 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %29 = load i32, ptr %opcode133, align 8
   %.off = add i32 %29, -1
@@ -3643,7 +3643,7 @@ if.then298:                                       ; preds = %for.end296
   br label %if.end307
 
 if.end307:                                        ; preds = %if.end127, %if.then298, %for.end296
-  call void @zfree(ptr noundef %ops.0.lcssa439) #17
+  call void @zfree(ptr noundef %ops.0.lcssa437) #17
   br label %return
 
 return:                                           ; preds = %if.end307, %if.then125, %if.then120, %if.then116, %if.then77, %if.then57, %if.then49, %if.else39, %if.else36

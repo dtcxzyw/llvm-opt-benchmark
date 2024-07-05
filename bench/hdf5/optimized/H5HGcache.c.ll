@@ -191,13 +191,13 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
   br label %85
 
 85:                                               ; preds = %.lr.ph, %278
-  %.0201266 = phi i64 [ 0, %.lr.ph ], [ %.2, %278 ]
-  %.0203265 = phi ptr [ %78, %.lr.ph ], [ %.2205, %278 ]
+  %.0199266 = phi ptr [ %78, %.lr.ph ], [ %.2, %278 ]
+  %.0203265 = phi i64 [ 0, %.lr.ph ], [ %.2205, %278 ]
   %86 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %2) #9
   %87 = zext i8 %86 to i64
   %88 = add nuw nsw i64 %87, 15
   %89 = and i64 %88, 504
-  %90 = getelementptr inbounds i8, ptr %.0203265, i64 %89
+  %90 = getelementptr inbounds i8, ptr %.0199266, i64 %89
   %91 = load ptr, ptr %15, align 8
   %92 = load i64, ptr %54, align 8
   %93 = getelementptr inbounds i8, ptr %91, i64 %92
@@ -219,24 +219,24 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
 
 103:                                              ; preds = %95
   %104 = ptrtoint ptr %93 to i64
-  %105 = ptrtoint ptr %.0203265 to i64
+  %105 = ptrtoint ptr %.0199266 to i64
   %106 = sub i64 %104, %105
   %107 = getelementptr inbounds i8, ptr %96, i64 8
   store i64 %106, ptr %107, align 8
   %108 = load ptr, ptr %68, align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 16
-  store ptr %.0203265, ptr %109, align 8
+  store ptr %.0199266, ptr %109, align 8
   %110 = load ptr, ptr %68, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 8
   %112 = load i64, ptr %111, align 8
   br label %278
 
 113:                                              ; preds = %85
-  %114 = icmp ugt ptr %.0203265, %23
+  %114 = icmp ugt ptr %.0199266, %23
   br i1 %114, label %120, label %115
 
 115:                                              ; preds = %113
-  %116 = ptrtoint ptr %.0203265 to i64
+  %116 = ptrtoint ptr %.0199266 to i64
   %117 = sub i64 %35, %116
   %118 = add nsw i64 %117, 1
   %119 = icmp ult i64 %118, 2
@@ -249,14 +249,14 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
   br label %307
 
 124:                                              ; preds = %115
-  %125 = load i8, ptr %.0203265, align 1
+  %125 = load i8, ptr %.0199266, align 1
   %126 = zext i8 %125 to i32
-  %127 = getelementptr inbounds i8, ptr %.0203265, i64 1
+  %127 = getelementptr inbounds i8, ptr %.0199266, i64 1
   %128 = load i8, ptr %127, align 1
   %129 = zext i8 %128 to i32
   %130 = shl nuw nsw i32 %129, 8
   %131 = or disjoint i32 %130, %126
-  %132 = getelementptr inbounds i8, ptr %.0203265, i64 2
+  %132 = getelementptr inbounds i8, ptr %.0199266, i64 2
   %133 = zext nneg i32 %131 to i64
   %134 = load i64, ptr %79, align 8
   %.not227 = icmp ugt i64 %134, %133
@@ -316,7 +316,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
   %168 = load ptr, ptr %68, align 8
   %169 = getelementptr inbounds %struct.H5HG_obj_t, ptr %168, i64 %133
   store i32 %167, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %.0203265, i64 3
+  %170 = getelementptr inbounds i8, ptr %.0199266, i64 3
   %171 = load i8, ptr %170, align 1
   %172 = zext i8 %171 to i32
   %173 = shl nuw nsw i32 %172, 8
@@ -325,7 +325,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
   %176 = load i32, ptr %175, align 8
   %177 = or i32 %176, %173
   store i32 %177, ptr %175, align 8
-  %178 = getelementptr inbounds i8, ptr %.0203265, i64 4
+  %178 = getelementptr inbounds i8, ptr %.0199266, i64 4
   %179 = icmp ugt ptr %178, %23
   %180 = ptrtoint ptr %178 to i64
   %181 = sub i64 %37, %180
@@ -340,7 +340,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
   br label %307
 
 187:                                              ; preds = %165
-  %188 = getelementptr inbounds i8, ptr %.0203265, i64 8
+  %188 = getelementptr inbounds i8, ptr %.0199266, i64 8
   %189 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %2) #9
   %.not230 = icmp eq i8 %189, 0
   br i1 %.not230, label %204, label %190
@@ -379,7 +379,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
   %209 = load ptr, ptr %68, align 8
   %210 = getelementptr inbounds %struct.H5HG_obj_t, ptr %209, i64 %133, i32 1
   store i64 %208, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %.0203265, i64 9
+  %211 = getelementptr inbounds i8, ptr %.0199266, i64 9
   %212 = load i8, ptr %211, align 1
   %213 = zext i8 %212 to i64
   %214 = shl nuw nsw i64 %213, 8
@@ -388,7 +388,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
   %217 = load i64, ptr %216, align 8
   %218 = or i64 %217, %214
   store i64 %218, ptr %216, align 8
-  %219 = getelementptr inbounds i8, ptr %.0203265, i64 10
+  %219 = getelementptr inbounds i8, ptr %.0199266, i64 10
   %220 = load i8, ptr %219, align 1
   %221 = zext i8 %220 to i64
   %222 = shl nuw nsw i64 %221, 16
@@ -403,17 +403,17 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
   %228 = load ptr, ptr %68, align 8
   %229 = getelementptr inbounds %struct.H5HG_obj_t, ptr %228, i64 %133, i32 1
   store i64 0, ptr %229, align 8
-  %230 = getelementptr inbounds i8, ptr %.0203265, i64 16
+  %230 = getelementptr inbounds i8, ptr %.0199266, i64 16
   br label %231
 
 231:                                              ; preds = %227, %231
   %.0264 = phi i64 [ 0, %227 ], [ %240, %231 ]
-  %.1204263 = phi ptr [ %230, %227 ], [ %236, %231 ]
+  %.1263 = phi ptr [ %230, %227 ], [ %236, %231 ]
   %232 = load ptr, ptr %68, align 8
   %233 = getelementptr inbounds %struct.H5HG_obj_t, ptr %232, i64 %133, i32 1
   %234 = load i64, ptr %233, align 8
   %235 = shl i64 %234, 8
-  %236 = getelementptr inbounds i8, ptr %.1204263, i64 -1
+  %236 = getelementptr inbounds i8, ptr %.1263, i64 -1
   %237 = load i8, ptr %236, align 1
   %238 = zext i8 %237 to i64
   %239 = or disjoint i64 %235, %238
@@ -433,7 +433,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
 .loopexit.sink.split:                             ; preds = %241, %206
   %.sink287 = phi i64 [ 11, %206 ], [ 9, %241 ]
   %.sink284 = phi i64 [ 24, %206 ], [ 8, %241 ]
-  %246 = getelementptr inbounds i8, ptr %.0203265, i64 %.sink287
+  %246 = getelementptr inbounds i8, ptr %.0199266, i64 %.sink287
   %247 = load i8, ptr %246, align 1
   %248 = zext i8 %247 to i64
   %249 = shl nuw nsw i64 %248, %.sink284
@@ -447,7 +447,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
 .loopexit:                                        ; preds = %231, %.loopexit.sink.split, %204
   %254 = load ptr, ptr %68, align 8
   %255 = getelementptr inbounds %struct.H5HG_obj_t, ptr %254, i64 %133, i32 2
-  store ptr %.0203265, ptr %255, align 8
+  store ptr %.0199266, ptr %255, align 8
   %.not231 = icmp eq i32 %131, 0
   br i1 %.not231, label %267, label %256
 
@@ -462,7 +462,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
   %264 = add i64 %263, 7
   %265 = and i64 %264, -8
   %266 = add i64 %265, %260
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %.0201266, i64 %133)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %.0203265, i64 %133)
   br label %271
 
 267:                                              ; preds = %.loopexit
@@ -473,9 +473,9 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
 
 271:                                              ; preds = %256, %267
   %272 = phi ptr [ %268, %267 ], [ %261, %256 ]
-  %.1202 = phi i64 [ %.0201266, %267 ], [ %spec.select, %256 ]
-  %.0199 = phi i64 [ %270, %267 ], [ %266, %256 ]
-  %273 = icmp ugt i64 %.0199, %118
+  %.1204 = phi i64 [ %.0203265, %267 ], [ %spec.select, %256 ]
+  %.0200 = phi i64 [ %270, %267 ], [ %266, %256 ]
+  %273 = icmp ugt i64 %.0200, %118
   br i1 %273, label %274, label %278
 
 274:                                              ; preds = %271
@@ -486,25 +486,25 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
 
 278:                                              ; preds = %271, %103
   %279 = phi ptr [ %110, %103 ], [ %272, %271 ]
-  %.pn = phi i64 [ %112, %103 ], [ %.0199, %271 ]
-  %.2 = phi i64 [ %.0201266, %103 ], [ %.1202, %271 ]
-  %.2205 = getelementptr inbounds i8, ptr %.0203265, i64 %.pn
+  %.2205 = phi i64 [ %.0203265, %103 ], [ %.1204, %271 ]
+  %.pn = phi i64 [ %112, %103 ], [ %.0200, %271 ]
+  %.2 = getelementptr inbounds i8, ptr %.0199266, i64 %.pn
   %280 = load ptr, ptr %15, align 8
   %281 = load i64, ptr %54, align 8
   %282 = getelementptr inbounds i8, ptr %280, i64 %281
-  %283 = icmp ult ptr %.2205, %282
+  %283 = icmp ult ptr %.2, %282
   br i1 %283, label %85, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %278
-  %284 = add nuw nsw i64 %.2, 1
+  %284 = add nuw nsw i64 %.2205, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %74
   %285 = phi ptr [ %67, %74 ], [ %279, %._crit_edge.loopexit ]
-  %.0203.lcssa = phi ptr [ %78, %74 ], [ %.2205, %._crit_edge.loopexit ]
-  %.0201.lcssa = phi i64 [ 1, %74 ], [ %284, %._crit_edge.loopexit ]
+  %.0203.lcssa = phi i64 [ 1, %74 ], [ %284, %._crit_edge.loopexit ]
+  %.0199.lcssa = phi ptr [ %78, %74 ], [ %.2, %._crit_edge.loopexit ]
   %.lcssa = phi ptr [ %82, %74 ], [ %282, %._crit_edge.loopexit ]
-  %.not = icmp eq ptr %.0203.lcssa, %.lcssa
+  %.not = icmp eq ptr %.0199.lcssa, %.lcssa
   br i1 %.not, label %290, label %286
 
 286:                                              ; preds = %._crit_edge
@@ -529,7 +529,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
 
 299:                                              ; preds = %290
   %300 = getelementptr inbounds i8, ptr %5, i64 280
-  store i64 %.0201.lcssa, ptr %300, align 8
+  store i64 %.0203.lcssa, ptr %300, align 8
   %301 = tail call i32 @H5F_cwfs_add(ptr noundef %2, ptr noundef nonnull %5) #9
   %302 = icmp slt i32 %301, 0
   br i1 %302, label %303, label %.thread
@@ -552,8 +552,8 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
   br label %.thread
 
 .thread:                                          ; preds = %7, %299, %307, %310
-  %.1 = phi ptr [ null, %310 ], [ null, %307 ], [ %5, %299 ], [ null, %7 ]
-  ret ptr %.1
+  %.1202 = phi ptr [ null, %310 ], [ null, %307 ], [ %5, %299 ], [ null, %7 ]
+  ret ptr %.1202
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

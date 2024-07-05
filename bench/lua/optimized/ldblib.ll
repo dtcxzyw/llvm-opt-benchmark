@@ -751,8 +751,8 @@ if.else:                                          ; preds = %getthread.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %count.0 = phi i32 [ 0, %if.then ], [ %conv, %if.else ]
   %func.0 = phi ptr [ null, %if.then ], [ @hookf, %if.else ]
+  %count.0 = phi i32 [ 0, %if.then ], [ %conv, %if.else ]
   %mask.0 = phi i32 [ 0, %if.then ], [ %mask.3.i, %if.else ]
   %call9 = tail call i32 @luaL_getsubtable(ptr noundef %L, i32 noundef -1001000, ptr noundef nonnull @.str.23) #6
   %tobool.not = icmp eq i32 %call9, 0

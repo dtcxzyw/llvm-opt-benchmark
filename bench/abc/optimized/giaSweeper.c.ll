@@ -4197,8 +4197,8 @@ Abc_Clock.exit61:                                 ; preds = %177, %180
   br label %194
 
 194:                                              ; preds = %Abc_Clock.exit61, %Abc_Clock.exit59, %Abc_Clock.exit57
-  %.044 = phi i32 [ 1, %Abc_Clock.exit57 ], [ 0, %Abc_Clock.exit59 ], [ -1, %Abc_Clock.exit61 ]
-  ret i32 %.044
+  %.0 = phi i32 [ 1, %Abc_Clock.exit57 ], [ 0, %Abc_Clock.exit59 ], [ -1, %Abc_Clock.exit61 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

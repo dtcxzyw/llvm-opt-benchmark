@@ -1781,8 +1781,8 @@ dissect_mip6_ba.exit:                             ; preds = %112, %132
   br label %dissect_mip6_hoti.exit
 
 dissect_mip6_hoti.exit:                           ; preds = %.lr.ph.i, %.sink.split.i, %245, %243, %241, %234, %233, %222, %221, %212, %211, %200, %195, %172, %171, %152, %151, %144, %143, %64, %63, %54, %53, %48, %47, %42, %41, %dissect_mip6_ba.exit, %141, %dissect_mip6_bu.exit, %110, %277, %187, %38
-  %.0143 = phi i32 [ %281, %277 ], [ 8, %187 ], [ 12, %141 ], [ 12, %dissect_mip6_ba.exit ], [ 12, %110 ], [ 12, %dissect_mip6_bu.exit ], [ 8, %38 ], [ 16, %41 ], [ 16, %42 ], [ 16, %47 ], [ 16, %48 ], [ 24, %53 ], [ 24, %54 ], [ 24, %63 ], [ 24, %64 ], [ 24, %143 ], [ 24, %144 ], [ 12, %151 ], [ 12, %152 ], [ 12, %171 ], [ 12, %172 ], [ %199, %195 ], [ %199, %200 ], [ 12, %211 ], [ 12, %212 ], [ 10, %221 ], [ 10, %222 ], [ 10, %233 ], [ 10, %234 ], [ 12, %241 ], [ 12, %243 ], [ 12, %245 ], [ 12, %.sink.split.i ], [ %199, %.lr.ph.i ]
-  %285 = icmp ult i32 %.0143, %12
+  %.0144 = phi i32 [ %281, %277 ], [ 8, %187 ], [ 12, %141 ], [ 12, %dissect_mip6_ba.exit ], [ 12, %110 ], [ 12, %dissect_mip6_bu.exit ], [ 8, %38 ], [ 16, %41 ], [ 16, %42 ], [ 16, %47 ], [ 16, %48 ], [ 24, %53 ], [ 24, %54 ], [ 24, %63 ], [ 24, %64 ], [ 24, %143 ], [ 24, %144 ], [ 12, %151 ], [ 12, %152 ], [ 12, %171 ], [ 12, %172 ], [ %199, %195 ], [ %199, %200 ], [ 12, %211 ], [ 12, %212 ], [ 10, %221 ], [ 10, %222 ], [ 10, %233 ], [ 10, %234 ], [ 12, %241 ], [ 12, %243 ], [ 12, %245 ], [ 12, %.sink.split.i ], [ %199, %.lr.ph.i ]
+  %285 = icmp ult i32 %.0144, %12
   br i1 %285, label %dissect_mip6_hoti.exit.thread, label %344
 
 dissect_mip6_hoti.exit.thread.sink.split:         ; preds = %268, %263
@@ -1792,10 +1792,10 @@ dissect_mip6_hoti.exit.thread.sink.split:         ; preds = %268, %263
   br label %dissect_mip6_hoti.exit.thread
 
 dissect_mip6_hoti.exit.thread:                    ; preds = %dissect_mip6_hoti.exit.thread.sink.split, %dissect_mip6_hoti.exit
-  %.0143164 = phi i32 [ %.0143, %dissect_mip6_hoti.exit ], [ 6, %dissect_mip6_hoti.exit.thread.sink.split ]
-  %288 = sub nsw i32 %12, %.0143164
+  %.0144164 = phi i32 [ %.0144, %dissect_mip6_hoti.exit ], [ 6, %dissect_mip6_hoti.exit.thread.sink.split ]
+  %288 = sub nsw i32 %12, %.0144164
   %289 = load i32, ptr @ett_mip6, align 4
-  %290 = tail call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %0, i32 noundef %.0143164, i32 noundef %288, i32 noundef %289, ptr noundef null, ptr noundef nonnull @.str.724) #5
+  %290 = tail call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %0, i32 noundef %.0144164, i32 noundef %288, i32 noundef %289, ptr noundef null, ptr noundef nonnull @.str.724) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %.old1.i.i = icmp sgt i32 %288, 0
   br i1 %.old1.i.i, label %.preheader.i.i, label %dissect_mip6_options.exit
@@ -1806,7 +1806,7 @@ dissect_mip6_hoti.exit.thread:                    ; preds = %dissect_mip6_hoti.e
 
 292:                                              ; preds = %342, %.preheader.i.i
   %.059.i.i = phi i32 [ %.160.i.i, %342 ], [ %288, %.preheader.i.i ]
-  %.0.i.i = phi i32 [ %.1.i.i, %342 ], [ %.0143164, %.preheader.i.i ]
+  %.0.i.i = phi i32 [ %.1.i.i, %342 ], [ %.0144164, %.preheader.i.i ]
   %293 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.i.i) #5
   %294 = add nsw i32 %.059.i.i, -1
   %295 = zext i8 %293 to i32
@@ -1894,8 +1894,8 @@ dissect_mip6_options.exit:                        ; preds = %342, %dissect_mip6_
   br label %344
 
 344:                                              ; preds = %dissect_mip6_options.exit, %dissect_mip6_hoti.exit
-  %.0143163 = phi i32 [ %.0143164, %dissect_mip6_options.exit ], [ %.0143, %dissect_mip6_hoti.exit ]
-  %.0144 = phi i32 [ %288, %dissect_mip6_options.exit ], [ %12, %dissect_mip6_hoti.exit ]
+  %.0144163 = phi i32 [ %.0144164, %dissect_mip6_options.exit ], [ %.0144, %dissect_mip6_hoti.exit ]
+  %.0143 = phi i32 [ %288, %dissect_mip6_options.exit ], [ %12, %dissect_mip6_hoti.exit ]
   %345 = icmp eq i8 %34, 10
   %346 = icmp eq i8 %13, 41
   %or.cond = select i1 %345, i1 %346, i1 false
@@ -1904,7 +1904,7 @@ dissect_mip6_options.exit:                        ; preds = %342, %dissect_mip6_
 347:                                              ; preds = %344
   %348 = load ptr, ptr %6, align 8
   call void @col_set_str(ptr noundef %348, i32 noundef 25, ptr noundef nonnull @.str.716) #5
-  %349 = add nsw i32 %.0144, 8
+  %349 = add nsw i32 %.0143, 8
   %350 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %349) #5
   call void @ipv6_dissect_next(i32 noundef 41, ptr noundef %350, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5
   br label %.thread173
@@ -1918,7 +1918,7 @@ dissect_mip6_options.exit:                        ; preds = %342, %dissect_mip6_
 354:                                              ; preds = %351
   %355 = load ptr, ptr %6, align 8
   call void @col_set_str(ptr noundef %355, i32 noundef 25, ptr noundef nonnull @.str.520) #5
-  %356 = add nsw i32 %.0144, %.0143163
+  %356 = add nsw i32 %.0143, %.0144163
   %357 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %356) #5
   call void @ipv6_dissect_next(i32 noundef 51, ptr noundef %357, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5
   br label %.thread173

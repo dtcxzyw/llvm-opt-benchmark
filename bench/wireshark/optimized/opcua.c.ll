@@ -353,10 +353,10 @@ define internal fastcc void @opcua_keylog_process_line(ptr nocapture noundef %0,
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
-  %.037 = phi ptr [ %11, %.lr.ph ], [ %9, %8 ]
+  %.02636 = phi ptr [ %11, %.lr.ph ], [ %9, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  store ptr %.037, ptr %10, align 8
+  store ptr %.02636, ptr %10, align 8
   %11 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull readonly @.str.34, ptr noundef nonnull %6) #11
   %12 = icmp ne ptr %11, null
   %13 = icmp ult i64 %indvars.iv, 3
@@ -788,16 +788,16 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
 
 132:                                              ; preds = %opcua_get_footer_info.exit, %130, %104, %116
   %.1194 = phi i32 [ 0, %130 ], [ 0, %opcua_get_footer_info.exit ], [ %112, %104 ], [ 0, %116 ]
-  %.1173 = phi i32 [ %131, %130 ], [ %129, %opcua_get_footer_info.exit ], [ %114, %104 ], [ 0, %116 ]
-  %.0170 = phi ptr [ null, %130 ], [ %0, %opcua_get_footer_info.exit ], [ %115, %104 ], [ null, %116 ]
+  %.1176 = phi i32 [ %131, %130 ], [ %129, %opcua_get_footer_info.exit ], [ %114, %104 ], [ 0, %116 ]
+  %.0169 = phi ptr [ null, %130 ], [ %0, %opcua_get_footer_info.exit ], [ %115, %104 ], [ null, %116 ]
   %.0167 = phi i1 [ false, %130 ], [ false, %opcua_get_footer_info.exit ], [ true, %104 ], [ false, %116 ]
-  %.0163 = phi ptr [ %0, %130 ], [ %0, %opcua_get_footer_info.exit ], [ %115, %104 ], [ %0, %116 ]
+  %.0161 = phi ptr [ %0, %130 ], [ %0, %opcua_get_footer_info.exit ], [ %115, %104 ], [ %0, %116 ]
   %133 = load i32, ptr %9, align 4
-  %134 = call i32 @tvb_get_letohl(ptr noundef %.0163, i32 noundef %133) #11
+  %134 = call i32 @tvb_get_letohl(ptr noundef %.0161, i32 noundef %133) #11
   %135 = load i32, ptr %9, align 4
   %136 = add i32 %135, 4
-  %137 = call i32 @tvb_get_letohl(ptr noundef %.0163, i32 noundef %136) #11
-  call void @parseSequenceHeader(ptr noundef %54, ptr noundef %.0163, ptr noundef nonnull %9, ptr noundef nonnull %8) #11
+  %137 = call i32 @tvb_get_letohl(ptr noundef %.0161, i32 noundef %136) #11
+  call void @parseSequenceHeader(ptr noundef %54, ptr noundef %.0161, ptr noundef nonnull %9, ptr noundef nonnull %8) #11
   %138 = icmp eq i8 %57, 65
   br i1 %138, label %139, label %145
 
@@ -808,8 +808,8 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
   %142 = load ptr, ptr %19, align 8
   call void @col_set_str(ptr noundef %142, i32 noundef 25, ptr noundef nonnull @.str.49) #11
   store i32 0, ptr %9, align 4
-  %143 = call i32 %.0164(ptr noundef %54, ptr noundef %.0163, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %8) #11
-  %144 = call i32 @parseAbort(ptr noundef %54, ptr noundef %.0163, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %8) #11
+  %143 = call i32 %.0164(ptr noundef %54, ptr noundef %.0161, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %8) #11
+  %144 = call i32 @parseAbort(ptr noundef %54, ptr noundef %.0161, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %8) #11
   br label %207
 
 145:                                              ; preds = %132
@@ -825,17 +825,17 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
   br i1 %or.cond4, label %.thread, label %169
 
 .thread:                                          ; preds = %145, %148
-  %.0169201 = phi ptr [ %149, %148 ], [ %146, %145 ]
+  %.0178201 = phi ptr [ %149, %148 ], [ %146, %145 ]
   %152 = getelementptr inbounds i8, ptr %1, i64 272
   %153 = load i32, ptr %152, align 8
   store i32 1, ptr %152, align 8
-  %154 = icmp eq ptr %.0169201, null
+  %154 = icmp eq ptr %.0178201, null
   %155 = icmp ne i8 %57, 70
   %156 = select i1 %154, i32 0, i32 %134
   %narrow = select i1 %154, i1 true, i1 %155
-  %.0162 = zext i1 %narrow to i32
+  %.0163 = zext i1 %narrow to i32
   %157 = load i32, ptr %9, align 4
-  %158 = call ptr @fragment_add_seq_check(ptr noundef nonnull @opcua_reassembly_table, ptr noundef %.0163, i32 noundef %157, ptr noundef nonnull %1, i32 noundef %137, ptr noundef null, i32 noundef %156, i32 noundef %.1173, i32 noundef %.0162) #11
+  %158 = call ptr @fragment_add_seq_check(ptr noundef nonnull @opcua_reassembly_table, ptr noundef %.0161, i32 noundef %157, ptr noundef nonnull %1, i32 noundef %137, ptr noundef null, i32 noundef %156, i32 noundef %.1176, i32 noundef %.0163) #11
   br i1 %154, label %159, label %160
 
 159:                                              ; preds = %.thread
@@ -844,7 +844,7 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
 
 160:                                              ; preds = %159, %.thread
   %161 = load i32, ptr %9, align 4
-  %162 = call ptr @process_reassembled_data(ptr noundef %.0163, i32 noundef %161, ptr noundef nonnull %1, ptr noundef nonnull @.str.50, ptr noundef %158, ptr noundef nonnull @opcua_frag_items, ptr noundef null, ptr noundef %54) #11
+  %162 = call ptr @process_reassembled_data(ptr noundef %.0161, i32 noundef %161, ptr noundef nonnull %1, ptr noundef nonnull @.str.50, ptr noundef %158, ptr noundef nonnull @opcua_frag_items, ptr noundef null, ptr noundef %54) #11
   %.not189 = icmp ne ptr %162, null
   br i1 %.not189, label %163, label %164
 
@@ -855,7 +855,7 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
 164:                                              ; preds = %160
   %165 = load ptr, ptr %19, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %165, i32 noundef 25, ptr noundef nonnull @.str.51, i32 noundef %134) #11
-  %166 = call ptr @tvb_new_subset_remaining(ptr noundef %.0163, i32 noundef 0) #11
+  %166 = call ptr @tvb_new_subset_remaining(ptr noundef %.0161, i32 noundef 0) #11
   br label %167
 
 167:                                              ; preds = %164, %163
@@ -865,13 +865,13 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
   br label %169
 
 169:                                              ; preds = %167, %148
-  %.1178 = phi i1 [ %.not189, %167 ], [ true, %148 ]
-  %.1176 = phi i1 [ %168, %167 ], [ true, %148 ]
-  %.2 = phi ptr [ %.1, %167 ], [ %.0163, %148 ]
+  %.1174 = phi i1 [ %168, %167 ], [ true, %148 ]
+  %.1172 = phi i1 [ %.not189, %167 ], [ true, %148 ]
+  %.2 = phi ptr [ %.1, %167 ], [ %.0161, %148 ]
   %170 = load i8, ptr %8, align 1
   %171 = trunc i8 %170 to i1
   %.not = xor i1 %171, true
-  %or.cond6 = and i1 %.1178, %.not
+  %or.cond6 = and i1 %.1172, %.not
   br i1 %or.cond6, label %172, label %.thread202
 
 172:                                              ; preds = %169
@@ -911,7 +911,7 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
 185:                                              ; preds = %183
   %186 = call ptr @val_to_str(i32 noundef %184, ptr noundef nonnull @g_requesttypes, ptr noundef nonnull @.str.54) #11
   %187 = load ptr, ptr %19, align 8
-  br i1 %.1176, label %188, label %189
+  br i1 %.1174, label %188, label %189
 
 188:                                              ; preds = %185
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %187, i32 noundef 25, ptr noundef nonnull @.str.56, ptr noundef %186) #11
@@ -932,17 +932,17 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
   br i1 %.0167, label %193, label %.thread202
 
 193:                                              ; preds = %192
-  %194 = add i32 %.1173, 8
+  %194 = add i32 %.1176, 8
   %195 = load i8, ptr %7, align 1
   %196 = zext i8 %195 to i32
-  call void @parseSecurityFooterSAE(ptr noundef %54, ptr noundef %.0170, i32 noundef %194, i32 noundef %.1194, i32 noundef %196) #11
+  call void @parseSecurityFooterSAE(ptr noundef %54, ptr noundef %.0169, i32 noundef %194, i32 noundef %.1194, i32 noundef %196) #11
   br label %.thread202
 
 197:                                              ; preds = %190
-  %198 = add i32 %.1173, 24
+  %198 = add i32 %.1176, 24
   %199 = load i8, ptr %7, align 1
   %200 = zext i8 %199 to i32
-  call void @parseSecurityFooterSO(ptr noundef %54, ptr noundef %.0170, i32 noundef %198, i32 noundef %200) #11
+  call void @parseSecurityFooterSO(ptr noundef %54, ptr noundef %.0169, i32 noundef %198, i32 noundef %200) #11
   br label %.thread202
 
 .thread202:                                       ; preds = %190, %192, %45, %193, %197, %169
@@ -963,7 +963,7 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
   br label %207
 
 207:                                              ; preds = %203, %.sink.split, %139, %41
-  %.2212.sink = phi ptr [ %.0163, %139 ], [ %0, %41 ], [ %.2212, %.sink.split ], [ %.2212, %203 ]
+  %.2212.sink = phi ptr [ %.0161, %139 ], [ %0, %41 ], [ %.2212, %.sink.split ], [ %.2212, %203 ]
   %208 = call i32 @tvb_reported_length(ptr noundef %.2212.sink) #11
   ret i32 %208
 }

@@ -1930,13 +1930,13 @@ call.i.i.i.i.i.i.noexc505:                        ; preds = %_ZN5eastl10VectorBa
   br i1 %cmp.i.not4.i.i.i.i.i.i, label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPN12_GLOBAL__N_111MovableTypeES3_S3_EET1_T_T0_S4_.exit.i.i.i, label %for.body.i.i.i.i.i.i496
 
 for.body.i.i.i.i.i.i496:                          ; preds = %call.i.i.i.i.i.i.noexc505, %for.body.i.i.i.i.i.i496
-  %first.sroa.0.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i496 ], [ %.pre28.i.i.i, %call.i.i.i.i.i.i.noexc505 ]
-  %retval.sroa.0.05.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i2.i.i.i.i.i.i, %for.body.i.i.i.i.i.i496 ], [ %call.i.i.i.i.i.i506, %call.i.i.i.i.i.i.noexc505 ]
-  %135 = load ptr, ptr %first.sroa.0.06.i.i.i.i.i.i, align 8
-  store ptr %135, ptr %retval.sroa.0.05.i.i.i.i.i.i, align 8
-  store ptr null, ptr %first.sroa.0.06.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i.i, i64 8
-  %incdec.ptr.i2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.05.i.i.i.i.i.i, i64 8
+  %retval.sroa.0.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i2.i.i.i.i.i.i, %for.body.i.i.i.i.i.i496 ], [ %call.i.i.i.i.i.i506, %call.i.i.i.i.i.i.noexc505 ]
+  %first.sroa.0.05.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i496 ], [ %.pre28.i.i.i, %call.i.i.i.i.i.i.noexc505 ]
+  %135 = load ptr, ptr %first.sroa.0.05.i.i.i.i.i.i, align 8
+  store ptr %135, ptr %retval.sroa.0.06.i.i.i.i.i.i, align 8
+  store ptr null, ptr %first.sroa.0.05.i.i.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.05.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i.i, i64 8
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %.pre29.i.i.i
   br i1 %cmp.i.not.i.i.i.i.i.i, label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPN12_GLOBAL__N_111MovableTypeES3_S3_EET1_T_T0_S4_.exit.i.i.i, label %for.body.i.i.i.i.i.i496, !llvm.loop !35
 
@@ -2443,13 +2443,13 @@ _ZN5eastl10VectorBaseIN12_GLOBAL__N_112AutoRefCountINS1_10RefCountedEEENS_9alloc
   br i1 %cmp.not.i.i.i618, label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPN12_GLOBAL__N_112AutoRefCountINS1_10RefCountedEEES5_S5_EET1_T_T0_S6_.exit.i.i, label %for.body.i.i.i.i.i623
 
 for.body.i.i.i.i.i623:                            ; preds = %_ZN5eastl10VectorBaseIN12_GLOBAL__N_112AutoRefCountINS1_10RefCountedEEENS_9allocatorEE10DoAllocateEm.exit.i.i, %for.body.i.i.i.i.i623
-  %first.sroa.0.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i624, %for.body.i.i.i.i.i623 ], [ %158, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_112AutoRefCountINS1_10RefCountedEEENS_9allocatorEE10DoAllocateEm.exit.i.i ]
-  %retval.sroa.0.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i2.i.i.i.i.i, %for.body.i.i.i.i.i623 ], [ %retval.0.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_112AutoRefCountINS1_10RefCountedEEENS_9allocatorEE10DoAllocateEm.exit.i.i ]
-  %159 = load ptr, ptr %first.sroa.0.06.i.i.i.i.i, align 8
-  store ptr %159, ptr %retval.sroa.0.05.i.i.i.i.i, align 8
-  store ptr null, ptr %first.sroa.0.06.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i624 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i.i, i64 8
-  %incdec.ptr.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.05.i.i.i.i.i, i64 8
+  %retval.sroa.0.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i2.i.i.i.i.i, %for.body.i.i.i.i.i623 ], [ %retval.0.i.i.i, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_112AutoRefCountINS1_10RefCountedEEENS_9allocatorEE10DoAllocateEm.exit.i.i ]
+  %first.sroa.0.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i624, %for.body.i.i.i.i.i623 ], [ %158, %_ZN5eastl10VectorBaseIN12_GLOBAL__N_112AutoRefCountINS1_10RefCountedEEENS_9allocatorEE10DoAllocateEm.exit.i.i ]
+  %159 = load ptr, ptr %first.sroa.0.05.i.i.i.i.i, align 8
+  store ptr %159, ptr %retval.sroa.0.06.i.i.i.i.i, align 8
+  store ptr null, ptr %first.sroa.0.05.i.i.i.i.i, align 8
+  %incdec.ptr.i.i.i.i.i.i624 = getelementptr inbounds i8, ptr %first.sroa.0.05.i.i.i.i.i, i64 8
+  %incdec.ptr.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.06.i.i.i.i.i, i64 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i624, %150
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPN12_GLOBAL__N_112AutoRefCountINS1_10RefCountedEEES5_S5_EET1_T_T0_S6_.exit.i.i, label %for.body.i.i.i.i.i623, !llvm.loop !49
 

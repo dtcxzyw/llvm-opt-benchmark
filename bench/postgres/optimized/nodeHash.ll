@@ -1201,11 +1201,11 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
 
 210:                                              ; preds = %210, %.lr.ph.i122
   %indvars.iv.i124 = phi i64 [ 0, %.lr.ph.i122 ], [ %indvars.iv.next.i125, %210 ]
-  %.07488.i = phi double [ 0.000000e+00, %.lr.ph.i122 ], [ %214, %210 ]
+  %.07588.i = phi double [ 0.000000e+00, %.lr.ph.i122 ], [ %214, %210 ]
   %211 = getelementptr float, ptr %209, i64 %indvars.iv.i124
   %212 = load float, ptr %211, align 4
   %213 = fpext float %212 to double
-  %214 = fadd double %.07488.i, %213
+  %214 = fadd double %.07588.i, %213
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i124, 1
   %exitcond.not.i126 = icmp eq i64 %indvars.iv.next.i125, %wide.trip.count.i123
   br i1 %exitcond.not.i126, label %._crit_edge.i, label %210, !llvm.loop !15
@@ -1389,12 +1389,12 @@ tailrecurse:                                      ; preds = %67, %9
   br label %34
 
 34:                                               ; preds = %28, %tailrecurse
-  %.080 = phi i64 [ %33, %28 ], [ %27, %tailrecurse ]
-  store i64 %.080, ptr %5, align 8
+  %.079 = phi i64 [ %33, %28 ], [ %27, %tailrecurse ]
+  store i64 %.079, ptr %5, align 8
   br i1 %2, label %35, label %43
 
 35:                                               ; preds = %34
-  %36 = udiv i64 %.080, %17
+  %36 = udiv i64 %.079, %17
   %37 = udiv i64 %36, 50
   %38 = tail call i64 @llvm.umin.i64(i64 %37, i64 2147483647)
   %39 = trunc nuw nsw i64 %38 to i32
@@ -1404,7 +1404,7 @@ tailrecurse:                                      ; preds = %67, %9
 
 40:                                               ; preds = %35
   %41 = mul nsw i64 %38, %17
-  %42 = sub i64 %.080, %41
+  %42 = sub i64 %.079, %41
   br label %44
 
 43:                                               ; preds = %34
@@ -1412,7 +1412,7 @@ tailrecurse:                                      ; preds = %67, %9
   br label %44
 
 44:                                               ; preds = %35, %40, %43
-  %.1 = phi i64 [ %42, %40 ], [ %.080, %35 ], [ %.080, %43 ]
+  %.1 = phi i64 [ %42, %40 ], [ %.079, %35 ], [ %.079, %43 ]
   %45 = lshr i64 %.1, 3
   %46 = tail call i64 @llvm.umin.i64(i64 %45, i64 134217727)
   %47 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %46, i1 true)
@@ -1457,8 +1457,8 @@ tailrecurse:                                      ; preds = %67, %9
   br label %77
 
 77:                                               ; preds = %68, %70
-  %.079 = phi i64 [ %.0.i87, %70 ], [ 1, %68 ]
-  %78 = tail call i64 @llvm.umin.i64(i64 %.079, i64 %49)
+  %.080 = phi i64 [ %.0.i87, %70 ], [ 1, %68 ]
+  %78 = tail call i64 @llvm.umin.i64(i64 %.080, i64 %49)
   %79 = trunc nuw nsw i64 %78 to i32
   %80 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %79)
   %81 = icmp ult i32 %80, 2
@@ -1485,10 +1485,10 @@ tailrecurse:                                      ; preds = %67, %9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %44, %77
-  %.082 = phi i32 [ %.0.i89, %77 ], [ 1, %44 ]
-  %.081 = phi i32 [ %.0.i88, %77 ], [ %.0.i, %44 ]
-  store i32 %.081, ptr %6, align 4
-  store i32 %.082, ptr %7, align 4
+  %.082 = phi i32 [ %.0.i88, %77 ], [ %.0.i, %44 ]
+  %.081 = phi i32 [ %.0.i89, %77 ], [ 1, %44 ]
+  store i32 %.082, ptr %6, align 4
+  store i32 %.081, ptr %7, align 4
   ret void
 }
 
@@ -2094,29 +2094,29 @@ define internal fastcc void @ExecHashIncreaseNumBatches(ptr noundef %0) unnamed_
   br label %57
 
 57:                                               ; preds = %.lr.ph93, %._crit_edge
-  %.07291 = phi ptr [ %53, %.lr.ph93 ], [ %59, %._crit_edge ]
-  %.07390 = phi i64 [ 0, %.lr.ph93 ], [ %.1.lcssa, %._crit_edge ]
-  %.07489 = phi i64 [ 0, %.lr.ph93 ], [ %.175.lcssa, %._crit_edge ]
-  %58 = getelementptr inbounds i8, ptr %.07291, i64 24
+  %.091 = phi i64 [ 0, %.lr.ph93 ], [ %.1.lcssa, %._crit_edge ]
+  %.07290 = phi i64 [ 0, %.lr.ph93 ], [ %.173.lcssa, %._crit_edge ]
+  %.07489 = phi ptr [ %53, %.lr.ph93 ], [ %59, %._crit_edge ]
+  %58 = getelementptr inbounds i8, ptr %.07489, i64 24
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %.07291, i64 16
+  %60 = getelementptr inbounds i8, ptr %.07489, i64 16
   %61 = load i64, ptr %60, align 8
   %.not97 = icmp eq i64 %61, 0
   br i1 %.not97, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %57
-  %62 = getelementptr i8, ptr %.07291, i64 32
+  %62 = getelementptr i8, ptr %.07489, i64 32
   br label %63
 
 63:                                               ; preds = %.lr.ph, %149
-  %.086 = phi i64 [ 0, %.lr.ph ], [ %146, %149 ]
-  %.185 = phi i64 [ %.07390, %.lr.ph ], [ %.2, %149 ]
-  %.17584 = phi i64 [ %.07489, %.lr.ph ], [ %68, %149 ]
-  %64 = getelementptr i8, ptr %62, i64 %.086
+  %.186 = phi i64 [ %.091, %.lr.ph ], [ %68, %149 ]
+  %.17385 = phi i64 [ %.07290, %.lr.ph ], [ %.2, %149 ]
+  %.07584 = phi i64 [ 0, %.lr.ph ], [ %146, %149 ]
+  %64 = getelementptr i8, ptr %62, i64 %.07584
   %65 = getelementptr i8, ptr %64, i64 16
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %66, 16
-  %68 = add i64 %.17584, 1
+  %68 = add i64 %.186, 1
   %69 = getelementptr inbounds i8, ptr %64, i64 8
   %70 = load i32, ptr %69, align 8
   %71 = load i32, ptr %0, align 8
@@ -2242,15 +2242,15 @@ dense_alloc.exit:                                 ; preds = %104, %116, %124
   %142 = load i64, ptr %55, align 8
   %143 = sub i64 %142, %141
   store i64 %143, ptr %55, align 8
-  %144 = add i64 %.185, 1
+  %144 = add i64 %.17385, 1
   %.pre100 = add nsw i64 %141, 7
   %.pre102 = and i64 %.pre100, -8
   br label %145
 
 145:                                              ; preds = %137, %dense_alloc.exit
   %.pre-phi103 = phi i64 [ %.pre102, %137 ], [ %88, %dense_alloc.exit ]
-  %.2 = phi i64 [ %144, %137 ], [ %.185, %dense_alloc.exit ]
-  %146 = add i64 %.pre-phi103, %.086
+  %.2 = phi i64 [ %144, %137 ], [ %.17385, %dense_alloc.exit ]
+  %146 = add i64 %.pre-phi103, %.07584
   %147 = load volatile i32, ptr @InterruptPending, align 4
   %.not82 = icmp eq i32 %147, 0
   br i1 %.not82, label %149, label %148
@@ -2265,15 +2265,15 @@ dense_alloc.exit:                                 ; preds = %104, %116, %124
   br i1 %151, label %63, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %149, %57
-  %.175.lcssa = phi i64 [ %.07489, %57 ], [ %68, %149 ]
-  %.1.lcssa = phi i64 [ %.07390, %57 ], [ %.2, %149 ]
-  tail call void @pfree(ptr noundef nonnull %.07291) #16
+  %.173.lcssa = phi i64 [ %.07290, %57 ], [ %.2, %149 ]
+  %.1.lcssa = phi i64 [ %.091, %57 ], [ %68, %149 ]
+  tail call void @pfree(ptr noundef nonnull %.07489) #16
   %.not81 = icmp eq ptr %59, null
   br i1 %.not81, label %._crit_edge94, label %57, !llvm.loop !22
 
 ._crit_edge94:                                    ; preds = %._crit_edge
-  %152 = icmp eq i64 %.1.lcssa, 0
-  %153 = icmp eq i64 %.1.lcssa, %.175.lcssa
+  %152 = icmp eq i64 %.173.lcssa, 0
+  %153 = icmp eq i64 %.173.lcssa, %.1.lcssa
   %or.cond = select i1 %152, i1 true, i1 %153
   br i1 %or.cond, label %._crit_edge94.thread, label %154
 
@@ -2538,7 +2538,7 @@ define internal fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef %0, i64 nound
 37:                                               ; preds = %29
   %38 = icmp ugt i64 %9, 8192
   %39 = add nuw nsw i64 %9, 32
-  %.0 = select i1 %38, i64 %39, i64 32768
+  %.078 = select i1 %38, i64 %39, i64 32768
   %.not84 = icmp eq i32 %33, 3
   br i1 %.not84, label %83, label %40
 
@@ -2554,7 +2554,7 @@ define internal fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef %0, i64 nound
   %47 = load ptr, ptr %42, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 56
   %49 = load i64, ptr %48, align 8
-  %50 = add i64 %49, %.0
+  %50 = add i64 %49, %.078
   %51 = getelementptr inbounds i8, ptr %5, i64 48
   %52 = load i64, ptr %51, align 8
   %53 = icmp ugt i64 %50, %52
@@ -2609,7 +2609,7 @@ define internal fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef %0, i64 nound
 83:                                               ; preds = %58, %62, %37
   %84 = getelementptr inbounds i8, ptr %0, i64 240
   %85 = load ptr, ptr %84, align 8
-  %86 = tail call i64 @dsa_allocate_extended(ptr noundef %85, i64 noundef %.0, i32 noundef 0) #16
+  %86 = tail call i64 @dsa_allocate_extended(ptr noundef %85, i64 noundef %.078, i32 noundef 0) #16
   %87 = getelementptr inbounds i8, ptr %0, i64 256
   %88 = load ptr, ptr %87, align 8
   %89 = sext i32 %7 to i64
@@ -2617,7 +2617,7 @@ define internal fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef %0, i64 nound
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 56
   %93 = load i64, ptr %92, align 8
-  %94 = add i64 %93, %.0
+  %94 = add i64 %93, %.078
   store i64 %94, ptr %92, align 8
   %95 = load ptr, ptr %87, align 8
   %96 = getelementptr %struct.ParallelHashJoinBatchAccessor, ptr %95, i64 %89, i32 6
@@ -2626,7 +2626,7 @@ define internal fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef %0, i64 nound
   %98 = tail call ptr @dsa_get_address(ptr noundef %97, i64 noundef %86) #16
   %99 = add i64 %86, 32
   store i64 %99, ptr %2, align 8
-  %100 = add nsw i64 %.0, -32
+  %100 = add nsw i64 %.078, -32
   %101 = getelementptr inbounds i8, ptr %98, i64 8
   store i64 %100, ptr %101, align 8
   %102 = getelementptr inbounds i8, ptr %98, i64 16
@@ -2657,8 +2657,8 @@ define internal fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef %0, i64 nound
   br label %117
 
 117:                                              ; preds = %35, %36, %115, %82, %54, %20
-  %.078 = phi ptr [ %27, %20 ], [ null, %54 ], [ null, %82 ], [ %116, %115 ], [ null, %36 ], [ null, %35 ]
-  ret ptr %.078
+  %.0 = phi ptr [ %27, %20 ], [ null, %54 ], [ null, %82 ], [ %116, %115 ], [ null, %36 ], [ null, %35 ]
+  ret ptr %.0
 }
 
 declare void @sts_puttuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -4091,8 +4091,8 @@ ExecParallelHashCloseBatchAccessors.exit:         ; preds = %.lr.ph.i, %11
   br label %60
 
 60:                                               ; preds = %58, %40
-  %.090 = phi i32 [ %.0.i, %40 ], [ %59, %58 ]
-  tail call fastcc void @ExecParallelHashJoinSetUpBatches(ptr noundef nonnull %0, i32 noundef %.090)
+  %.0 = phi i32 [ %.0.i, %40 ], [ %59, %58 ]
+  tail call fastcc void @ExecParallelHashJoinSetUpBatches(ptr noundef nonnull %0, i32 noundef %.0)
   %61 = load i32, ptr %19, align 4
   %62 = icmp eq i32 %61, 1
   br i1 %62, label %63, label %97
@@ -4102,7 +4102,7 @@ ExecParallelHashCloseBatchAccessors.exit:         ; preds = %.lr.ph.i, %11
   %65 = load i64, ptr %64, align 8
   %66 = uitofp i64 %65 to double
   %67 = fmul double %66, 2.000000e+00
-  %68 = sitofp i32 %.090 to double
+  %68 = sitofp i32 %.0 to double
   %69 = fdiv double %67, %68
   %70 = tail call double @llvm.ceil.f64(double %69)
   %71 = fcmp olt double %70, 0x4190000000000000
@@ -4630,8 +4630,8 @@ ExecParallelHashMergeCounters.exit:               ; preds = %.lr.ph.i107, %ExecP
 
 389:                                              ; preds = %.lr.ph137, %412
   %indvars.iv146 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next147, %412 ]
-  %.087134 = phi i1 [ false, %.lr.ph137 ], [ %.1, %412 ]
-  %.088133 = phi i1 [ false, %.lr.ph137 ], [ %.189, %412 ]
+  %.088134 = phi i1 [ false, %.lr.ph137 ], [ %.1, %412 ]
+  %.089133 = phi i1 [ false, %.lr.ph137 ], [ %.190, %412 ]
   %390 = getelementptr %struct.ParallelHashJoinBatchAccessor, ptr %386, i64 %indvars.iv146
   %391 = load ptr, ptr %390, align 8
   %392 = getelementptr inbounds i8, ptr %391, i64 88
@@ -4658,12 +4658,12 @@ ExecParallelHashMergeCounters.exit:               ; preds = %.lr.ph.i107, %ExecP
   %409 = getelementptr inbounds i8, ptr %408, i64 80
   %410 = load i64, ptr %409, align 8
   %411 = icmp eq i64 %405, %410
-  %spec.select = select i1 %411, i1 true, i1 %.087134
+  %spec.select = select i1 %411, i1 true, i1 %.088134
   br label %412
 
 412:                                              ; preds = %400, %395
-  %.189 = phi i1 [ %.088133, %395 ], [ true, %400 ]
-  %.1 = phi i1 [ %.087134, %395 ], [ %spec.select, %400 ]
+  %.190 = phi i1 [ %.089133, %395 ], [ true, %400 ]
+  %.1 = phi i1 [ %.088134, %395 ], [ %spec.select, %400 ]
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count148
   br i1 %exitcond149.not, label %._crit_edge138, label %389, !llvm.loop !42
@@ -4671,7 +4671,7 @@ ExecParallelHashMergeCounters.exit:               ; preds = %.lr.ph.i107, %ExecP
 ._crit_edge138:                                   ; preds = %412
   %413 = icmp sgt i32 %384, 1073741822
   %or.cond = or i1 %.1, %413
-  %brmerge = select i1 %or.cond, i1 true, i1 %.189
+  %brmerge = select i1 %or.cond, i1 true, i1 %.190
   %.mux = select i1 %or.cond, i32 3, i32 2
   br i1 %brmerge, label %414, label %.thread
 

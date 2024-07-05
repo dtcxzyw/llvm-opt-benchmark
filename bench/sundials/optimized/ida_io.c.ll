@@ -957,8 +957,8 @@ define range(i32 -22, 1) i32 @IDASetRootDirection(ptr noundef readonly %0, ptr n
   br i1 %exitcond.not, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %12, %.preheader, %11, %4
-  %.011 = phi i32 [ -20, %4 ], [ -22, %11 ], [ 0, %.preheader ], [ 0, %12 ]
-  ret i32 %.011
+  %.0 = phi i32 [ -20, %4 ], [ -22, %11 ], [ 0, %.preheader ], [ 0, %12 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1668,8 +1668,8 @@ define range(i32 -20, 1) i32 @IDAGetRootInfo(ptr noundef readonly %0, ptr nocapt
   br i1 %exitcond.not, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %10, %5, %4
-  %.010 = phi i32 [ -20, %4 ], [ 0, %5 ], [ 0, %10 ]
-  ret i32 %.010
+  %.0 = phi i32 [ -20, %4 ], [ 0, %5 ], [ 0, %10 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

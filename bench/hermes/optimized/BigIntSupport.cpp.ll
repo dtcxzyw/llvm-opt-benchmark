@@ -4034,10 +4034,10 @@ entry:
 define hidden noundef i32 @_ZN6hermes6bigint10bitwiseANDENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr nocapture %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp ugt i32 %lhs.coerce1, %rhs.coerce1
-  %rhs.coerce1.lhs.coerce1 = tail call i32 @llvm.umin.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
-  %rhs.coerce0.lhs.coerce0 = select i1 %cmp.not, ptr %rhs.coerce0, ptr %lhs.coerce0
   %lhs.coerce1.rhs.coerce1 = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   %lhs.coerce0.rhs.coerce0 = select i1 %cmp.not, ptr %lhs.coerce0, ptr %rhs.coerce0
+  %rhs.coerce0.lhs.coerce0 = select i1 %cmp.not, ptr %rhs.coerce0, ptr %lhs.coerce0
+  %rhs.coerce1.lhs.coerce1 = tail call i32 @llvm.umin.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   %0 = load i32, ptr %dst.coerce1, align 4
   %cmp.i = icmp ult i32 %0, %lhs.coerce1.rhs.coerce1
   br i1 %cmp.i, label %_ZN6hermes6bigint12_GLOBAL__N_117additiveOperationEPFmPmPKmmjEPFmS2_mjEPFvRNS0_16MutableBigIntRefEES9_NS0_18ImmutableBigIntRefESD_.exit, label %if.end.i
@@ -4151,10 +4151,10 @@ entry:
 define hidden noundef i32 @_ZN6hermes6bigint9bitwiseORENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr nocapture %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp ugt i32 %lhs.coerce1, %rhs.coerce1
-  %rhs.coerce1.lhs.coerce1 = tail call i32 @llvm.umin.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
-  %rhs.coerce0.lhs.coerce0 = select i1 %cmp.not, ptr %rhs.coerce0, ptr %lhs.coerce0
   %lhs.coerce1.rhs.coerce1 = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   %lhs.coerce0.rhs.coerce0 = select i1 %cmp.not, ptr %lhs.coerce0, ptr %rhs.coerce0
+  %rhs.coerce0.lhs.coerce0 = select i1 %cmp.not, ptr %rhs.coerce0, ptr %lhs.coerce0
+  %rhs.coerce1.lhs.coerce1 = tail call i32 @llvm.umin.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   %0 = load i32, ptr %dst.coerce1, align 4
   %cmp.i = icmp ult i32 %0, %lhs.coerce1.rhs.coerce1
   br i1 %cmp.i, label %_ZN6hermes6bigint12_GLOBAL__N_117additiveOperationEPFmPmPKmmjEPFmS2_mjEPFvRNS0_16MutableBigIntRefEES9_NS0_18ImmutableBigIntRefESD_.exit, label %if.end.i
@@ -4262,10 +4262,10 @@ entry:
 define hidden noundef i32 @_ZN6hermes6bigint10bitwiseXORENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr nocapture %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp ugt i32 %lhs.coerce1, %rhs.coerce1
-  %rhs.coerce1.lhs.coerce1 = tail call i32 @llvm.umin.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
-  %rhs.coerce0.lhs.coerce0 = select i1 %cmp.not, ptr %rhs.coerce0, ptr %lhs.coerce0
   %lhs.coerce1.rhs.coerce1 = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   %lhs.coerce0.rhs.coerce0 = select i1 %cmp.not, ptr %lhs.coerce0, ptr %rhs.coerce0
+  %rhs.coerce0.lhs.coerce0 = select i1 %cmp.not, ptr %rhs.coerce0, ptr %lhs.coerce0
+  %rhs.coerce1.lhs.coerce1 = tail call i32 @llvm.umin.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   %0 = load i32, ptr %dst.coerce1, align 4
   %cmp.i = icmp ult i32 %0, %lhs.coerce1.rhs.coerce1
   br i1 %cmp.i, label %_ZN6hermes6bigint12_GLOBAL__N_117additiveOperationEPFmPmPKmmjEPFmS2_mjEPFvRNS0_16MutableBigIntRefEES9_NS0_18ImmutableBigIntRefESD_.exit, label %if.end.i
@@ -4374,10 +4374,10 @@ entry:
 define hidden noundef i32 @_ZN6hermes6bigint3addENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr nocapture %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp ugt i32 %lhs.coerce1, %rhs.coerce1
-  %rhs.coerce1.lhs.coerce1 = tail call i32 @llvm.umin.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
-  %rhs.coerce0.lhs.coerce0 = select i1 %cmp.not, ptr %rhs.coerce0, ptr %lhs.coerce0
   %lhs.coerce1.rhs.coerce1 = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   %lhs.coerce0.rhs.coerce0 = select i1 %cmp.not, ptr %lhs.coerce0, ptr %rhs.coerce0
+  %rhs.coerce0.lhs.coerce0 = select i1 %cmp.not, ptr %rhs.coerce0, ptr %lhs.coerce0
+  %rhs.coerce1.lhs.coerce1 = tail call i32 @llvm.umin.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   %0 = load i32, ptr %dst.coerce1, align 4
   %cmp.i = icmp ult i32 %0, %lhs.coerce1.rhs.coerce1
   br i1 %cmp.i, label %_ZN6hermes6bigint12_GLOBAL__N_117additiveOperationEPFmPmPKmmjEPFmS2_mjEPFvRNS0_16MutableBigIntRefEES9_NS0_18ImmutableBigIntRefESD_.exit, label %if.end.i
@@ -4593,10 +4593,10 @@ define hidden noundef i32 @_ZN6hermes6bigint8subtractENS0_16MutableBigIntRefENS0
 entry:
   %dst.i = alloca %"struct.hermes::bigint::MutableBigIntRef", align 8
   %cmp.not = icmp ugt i32 %lhs.coerce1, %rhs.coerce1
-  %rhs.coerce0.lhs.coerce0 = select i1 %cmp.not, ptr %rhs.coerce0, ptr %lhs.coerce0
   %lhs.coerce1.rhs.coerce1 = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   %lhs.coerce0.rhs.coerce0 = select i1 %cmp.not, ptr %lhs.coerce0, ptr %rhs.coerce0
   %_ZN6hermes6bigint12_GLOBAL__N_127negateAdditiveOpPostProcessERNS0_16MutableBigIntRefE._ZN6hermes6bigint12_GLOBAL__N_125noopAdditiveOpPostProcessERNS0_16MutableBigIntRefE = select i1 %cmp.not, ptr @_ZN6hermes6bigint12_GLOBAL__N_127negateAdditiveOpPostProcessERNS0_16MutableBigIntRefE, ptr @_ZN6hermes6bigint12_GLOBAL__N_125noopAdditiveOpPostProcessERNS0_16MutableBigIntRefE
+  %rhs.coerce0.lhs.coerce0 = select i1 %cmp.not, ptr %rhs.coerce0, ptr %lhs.coerce0
   %rhs.coerce1.lhs.coerce1 = tail call i32 @llvm.umin.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dst.i)
   store ptr %dst.coerce0, ptr %dst.i, align 8
@@ -5332,8 +5332,8 @@ _ZN6hermes6bigint10TmpStorageC2Ej.exit:           ; preds = %if.end.i.i.i, %for.
   %idx.ext.i = zext i32 %add.i.i to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %18, i64 %idx.ext.i
   %add.i.i.cond35 = select i1 %cmp, i32 %add.i.i, i32 %cond35
-  %add.ptr.i.quoc.coerce0 = select i1 %cmp, ptr %add.ptr.i, ptr %quoc.coerce0
   %rem.coerce0.add.ptr.i = select i1 %cmp, ptr %rem.coerce0, ptr %add.ptr.i
+  %add.ptr.i.quoc.coerce0 = select i1 %cmp, ptr %add.ptr.i, ptr %quoc.coerce0
   %idx.ext.i36.pn = zext i32 %add.i.i.cond35 to i64
   %storemerge = getelementptr inbounds i64, ptr %add.ptr.i, i64 %idx.ext.i36.pn
   store ptr %storemerge, ptr %data_.i, align 8
@@ -6483,20 +6483,20 @@ for.body.lr.ph:                                   ; preds = %if.end22
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %exponent.addr.0.in219 = phi i32 [ %exponent, %for.body.lr.ph ], [ %exponent.addr.0220, %for.inc ]
-  %nextResult.sroa.0.0218 = phi ptr [ %tmpResult, %for.body.lr.ph ], [ %nextResult.sroa.0.1, %for.inc ]
-  %nextResult.sroa.8.0217 = phi i32 [ 1024, %for.body.lr.ph ], [ %nextResult.sroa.8.1, %for.inc ]
-  %result.sroa.0.0216 = phi ptr [ %dst, %for.body.lr.ph ], [ %result.sroa.0.1, %for.inc ]
-  %result.sroa.9.0215 = phi i32 [ %1, %for.body.lr.ph ], [ %result.sroa.9.1, %for.inc ]
-  %tmpRunningSquare.sroa.0.0214 = phi ptr [ %runningSquare1, %for.body.lr.ph ], [ %runningSquare.sroa.0.0212, %for.inc ]
-  %runningSquare.sroa.0.0212 = phi ptr [ %runningSquare0, %for.body.lr.ph ], [ %tmpRunningSquare.sroa.0.0214, %for.inc ]
+  %runningSquare.sroa.0.0217 = phi ptr [ %runningSquare0, %for.body.lr.ph ], [ %tmpRunningSquare.sroa.0.0212, %for.inc ]
+  %nextResult.sroa.0.0216 = phi ptr [ %tmpResult, %for.body.lr.ph ], [ %nextResult.sroa.0.1, %for.inc ]
+  %nextResult.sroa.8.0215 = phi i32 [ 1024, %for.body.lr.ph ], [ %nextResult.sroa.8.1, %for.inc ]
+  %result.sroa.0.0214 = phi ptr [ %dst, %for.body.lr.ph ], [ %result.sroa.0.1, %for.inc ]
+  %result.sroa.9.0213 = phi i32 [ %1, %for.body.lr.ph ], [ %result.sroa.9.1, %for.inc ]
+  %tmpRunningSquare.sroa.0.0212 = phi ptr [ %runningSquare1, %for.body.lr.ph ], [ %runningSquare.sroa.0.0217, %for.inc ]
   %exponent.addr.0220 = lshr i32 %exponent.addr.0.in219, 1
-  %23 = getelementptr i8, ptr %tmpRunningSquare.sroa.0.0214, i64 8
+  %23 = getelementptr i8, ptr %tmpRunningSquare.sroa.0.0212, i64 8
   %tmpRunningSquare.val21.val = load ptr, ptr %23, align 8
   store i32 1024, ptr %tmpRunningSquare.val21.val, align 4
-  %agg.tmp24.sroa.0.0.copyload = load ptr, ptr %tmpRunningSquare.sroa.0.0214, align 8
+  %agg.tmp24.sroa.0.0.copyload = load ptr, ptr %tmpRunningSquare.sroa.0.0212, align 8
   %agg.tmp24.sroa.2.0.copyload = load ptr, ptr %23, align 8
-  %runningSquare.val27.val = load ptr, ptr %runningSquare.sroa.0.0212, align 8
-  %24 = getelementptr i8, ptr %runningSquare.sroa.0.0212, i64 8
+  %runningSquare.val27.val = load ptr, ptr %runningSquare.sroa.0.0217, align 8
+  %24 = getelementptr i8, ptr %runningSquare.sroa.0.0217, i64 8
   %runningSquare.val27.val40 = load ptr, ptr %24, align 8
   %runningSquare.val27.val40.val = load i32, ptr %runningSquare.val27.val40, align 4
   %call30 = call noundef i32 @_ZN6hermes6bigint8multiplyENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %agg.tmp24.sroa.0.0.copyload, ptr %agg.tmp24.sroa.2.0.copyload, ptr %runningSquare.val27.val, i32 %runningSquare.val27.val40.val, ptr %runningSquare.val27.val, i32 %runningSquare.val27.val40.val)
@@ -6511,11 +6511,11 @@ if.end35:                                         ; preds = %for.body
   br i1 %cmp37.not, label %for.inc, label %if.then38
 
 if.then38:                                        ; preds = %if.end35
-  %26 = getelementptr i8, ptr %nextResult.sroa.0.0218, i64 8
+  %26 = getelementptr i8, ptr %nextResult.sroa.0.0216, i64 8
   %nextResult.val23.val = load ptr, ptr %26, align 8
-  store i32 %nextResult.sroa.8.0217, ptr %nextResult.val23.val, align 4
-  %result.val29.val = load ptr, ptr %result.sroa.0.0216, align 8
-  %27 = getelementptr i8, ptr %result.sroa.0.0216, i64 8
+  store i32 %nextResult.sroa.8.0215, ptr %nextResult.val23.val, align 4
+  %result.val29.val = load ptr, ptr %result.sroa.0.0214, align 8
+  %27 = getelementptr i8, ptr %result.sroa.0.0214, i64 8
   %result.val29.val38 = load ptr, ptr %27, align 8
   %result.val29.val38.val = load i32, ptr %result.val29.val38, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.addr.i)
@@ -6588,9 +6588,9 @@ _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit: ; preds = %_ZN6hermes
   br i1 %cmp42, label %if.then43, label %if.else49
 
 if.then43:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit
-  %agg.tmp44.sroa.0.0.copyload = load ptr, ptr %nextResult.sroa.0.0218, align 8
+  %agg.tmp44.sroa.0.0.copyload = load ptr, ptr %nextResult.sroa.0.0216, align 8
   %agg.tmp44.sroa.2.0.copyload = load ptr, ptr %26, align 8
-  %runningSquare.val30.val = load ptr, ptr %tmpRunningSquare.sroa.0.0214, align 8
+  %runningSquare.val30.val = load ptr, ptr %tmpRunningSquare.sroa.0.0212, align 8
   %runningSquare.val30.val37 = load ptr, ptr %23, align 8
   %runningSquare.val30.val37.val = load i32, ptr %runningSquare.val30.val37, align 4
   %mul.i115 = shl i32 %runningSquare.val30.val37.val, 3
@@ -6662,17 +6662,17 @@ _ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18Imm
   br label %if.end59
 
 if.else49:                                        ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit
-  %agg.tmp50.sroa.0.0.copyload = load ptr, ptr %nextResult.sroa.0.0218, align 8
+  %agg.tmp50.sroa.0.0.copyload = load ptr, ptr %nextResult.sroa.0.0216, align 8
   %agg.tmp50.sroa.2.0.copyload = load ptr, ptr %26, align 8
-  %result.val31.val = load ptr, ptr %result.sroa.0.0216, align 8
+  %result.val31.val = load ptr, ptr %result.sroa.0.0214, align 8
   %result.val31.val36 = load ptr, ptr %27, align 8
   %result.val31.val36.val = load i32, ptr %result.val31.val36, align 4
-  %runningSquare.val32.val = load ptr, ptr %tmpRunningSquare.sroa.0.0214, align 8
+  %runningSquare.val32.val = load ptr, ptr %tmpRunningSquare.sroa.0.0212, align 8
   %runningSquare.val32.val35 = load ptr, ptr %23, align 8
   %runningSquare.val32.val35.val = load i32, ptr %runningSquare.val32.val35, align 4
   %call56 = call noundef i32 @_ZN6hermes6bigint8multiplyENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %agg.tmp50.sroa.0.0.copyload, ptr %agg.tmp50.sroa.2.0.copyload, ptr %result.val31.val, i32 %result.val31.val36.val, ptr %runningSquare.val32.val, i32 %runningSquare.val32.val35.val)
   %cmp.i154 = icmp eq i32 %call56, 1
-  %cmp1.i155 = icmp ugt i32 %nextResult.sroa.8.0217, 1023
+  %cmp1.i155 = icmp ugt i32 %nextResult.sroa.8.0215, 1023
   %or.cond.i156 = and i1 %cmp1.i155, %cmp.i154
   br i1 %or.cond.i156, label %cleanup, label %if.end59
 
@@ -6682,10 +6682,10 @@ if.end59:                                         ; preds = %if.else49, %_ZN6her
   br i1 %cmp60.not, label %for.inc, label %cleanup
 
 for.inc:                                          ; preds = %if.end59, %if.end35
-  %result.sroa.9.1 = phi i32 [ %result.sroa.9.0215, %if.end35 ], [ %nextResult.sroa.8.0217, %if.end59 ]
-  %result.sroa.0.1 = phi ptr [ %result.sroa.0.0216, %if.end35 ], [ %nextResult.sroa.0.0218, %if.end59 ]
-  %nextResult.sroa.8.1 = phi i32 [ %nextResult.sroa.8.0217, %if.end35 ], [ %result.sroa.9.0215, %if.end59 ]
-  %nextResult.sroa.0.1 = phi ptr [ %nextResult.sroa.0.0218, %if.end35 ], [ %result.sroa.0.0216, %if.end59 ]
+  %result.sroa.9.1 = phi i32 [ %result.sroa.9.0213, %if.end35 ], [ %nextResult.sroa.8.0215, %if.end59 ]
+  %result.sroa.0.1 = phi ptr [ %result.sroa.0.0214, %if.end35 ], [ %nextResult.sroa.0.0216, %if.end59 ]
+  %nextResult.sroa.8.1 = phi i32 [ %nextResult.sroa.8.0215, %if.end35 ], [ %result.sroa.9.0213, %if.end59 ]
+  %nextResult.sroa.0.1 = phi ptr [ %nextResult.sroa.0.0216, %if.end35 ], [ %result.sroa.0.0214, %if.end59 ]
   %cmp23.not = icmp ult i32 %exponent.addr.0.in219, 4
   br i1 %cmp23.not, label %for.end, label %for.body, !llvm.loop !56
 

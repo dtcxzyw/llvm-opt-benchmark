@@ -72,10 +72,10 @@ define internal void @RescalerImportRowExpand_SSE2(ptr noundef %0, ptr noundef %
 36:                                               ; preds = %.lr.ph112, %51
   %37 = phi ptr [ %33, %.lr.ph112 ], [ %59, %51 ]
   %.0111 = phi ptr [ %34, %.lr.ph112 ], [ %.1, %51 ]
-  %.078110 = phi i32 [ %13, %.lr.ph112 ], [ %.179, %51 ]
+  %.075110 = phi i32 [ %13, %.lr.ph112 ], [ %.176, %51 ]
   %.sroa.0.0109 = phi <8 x i16> [ %29, %.lr.ph112 ], [ %.sroa.0.1, %51 ]
   %38 = load i32, ptr %35, align 8
-  %39 = sub nsw i32 %.078110, %38
+  %39 = sub nsw i32 %.075110, %38
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %51
 
@@ -94,11 +94,11 @@ define internal void @RescalerImportRowExpand_SSE2(ptr noundef %0, ptr noundef %
 
 51:                                               ; preds = %41, %36
   %.sroa.0.1 = phi <8 x i16> [ %48, %41 ], [ %.sroa.0.0109, %36 ]
-  %.179 = phi i32 [ %50, %41 ], [ %39, %36 ]
+  %.176 = phi i32 [ %50, %41 ], [ %39, %36 ]
   %.1 = phi ptr [ %49, %41 ], [ %.0111, %36 ]
-  %52 = sub nsw i32 %13, %.179
+  %52 = sub nsw i32 %13, %.176
   %53 = shl i32 %52, 16
-  %54 = or i32 %53, %.179
+  %54 = or i32 %53, %.176
   %55 = insertelement <4 x i32> poison, i32 %54, i64 0
   %56 = shufflevector <4 x i32> %55, <4 x i32> poison, <4 x i32> zeroinitializer
   %57 = bitcast <4 x i32> %56 to <8 x i16>
@@ -133,16 +133,16 @@ define internal void @RescalerImportRowExpand_SSE2(ptr noundef %0, ptr noundef %
 74:                                               ; preds = %.lr.ph, %98
   %75 = phi ptr [ %71, %.lr.ph ], [ %106, %98 ]
   %.2107 = phi ptr [ %72, %.lr.ph ], [ %.4, %98 ]
-  %.075106 = phi i32 [ 7, %.lr.ph ], [ %.277, %98 ]
-  %.280105 = phi i32 [ %13, %.lr.ph ], [ %.381, %98 ]
+  %.277106 = phi i32 [ %13, %.lr.ph ], [ %.378, %98 ]
+  %.079105 = phi i32 [ 7, %.lr.ph ], [ %.281, %98 ]
   %.sroa.0.2104 = phi <8 x i16> [ %67, %.lr.ph ], [ %.sroa.0.4, %98 ]
   %76 = load i32, ptr %73, align 8
-  %77 = sub nsw i32 %.280105, %76
+  %77 = sub nsw i32 %.277106, %76
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %79, label %98
 
 79:                                               ; preds = %74
-  %80 = add nsw i32 %.075106, -1
+  %80 = add nsw i32 %.079105, -1
   %.not91 = icmp eq i32 %80, 0
   br i1 %.not91, label %83, label %81
 
@@ -173,19 +173,19 @@ define internal void @RescalerImportRowExpand_SSE2(ptr noundef %0, ptr noundef %
 
 96:                                               ; preds = %84, %90, %81
   %.sroa.0.3 = phi <8 x i16> [ %95, %90 ], [ %88, %84 ], [ %82, %81 ]
-  %.176 = phi i32 [ 1, %90 ], [ 7, %84 ], [ %80, %81 ]
+  %.180 = phi i32 [ 1, %90 ], [ 7, %84 ], [ %80, %81 ]
   %.3 = phi ptr [ %92, %90 ], [ %89, %84 ], [ %.2107, %81 ]
   %97 = add nsw i32 %77, %13
   br label %98
 
 98:                                               ; preds = %96, %74
   %.sroa.0.4 = phi <8 x i16> [ %.sroa.0.3, %96 ], [ %.sroa.0.2104, %74 ]
-  %.381 = phi i32 [ %97, %96 ], [ %77, %74 ]
-  %.277 = phi i32 [ %.176, %96 ], [ %.075106, %74 ]
+  %.281 = phi i32 [ %.180, %96 ], [ %.079105, %74 ]
+  %.378 = phi i32 [ %97, %96 ], [ %77, %74 ]
   %.4 = phi ptr [ %.3, %96 ], [ %.2107, %74 ]
-  %99 = sub nsw i32 %13, %.381
+  %99 = sub nsw i32 %13, %.378
   %100 = shl i32 %99, 16
-  %101 = or i32 %100, %.381
+  %101 = or i32 %100, %.378
   %102 = insertelement <4 x i32> poison, i32 %101, i64 0
   %103 = bitcast <4 x i32> %102 to <8 x i16>
   %104 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %.sroa.0.4, <8 x i16> %103)

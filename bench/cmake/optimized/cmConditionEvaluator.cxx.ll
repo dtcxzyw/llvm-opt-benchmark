@@ -448,10 +448,10 @@ _ZN20cmConditionEvaluator14cmArgumentListCI2NSt7__cxx114listI25cmExpandedCommand
 
 31:                                               ; preds = %_ZN20cmConditionEvaluator14cmArgumentListCI2NSt7__cxx114listI25cmExpandedCommandArgumentSaIS3_EEEIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_S4_EEEvEET_SC_RKS4_.exit, %.critedge
   %32 = phi i64 [ %22, %_ZN20cmConditionEvaluator14cmArgumentListCI2NSt7__cxx114listI25cmExpandedCommandArgumentSaIS3_EEEIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_S4_EEEvEET_SC_RKS4_.exit ], [ %50, %.critedge ]
-  %.026.idx36 = phi i64 [ 0, %_ZN20cmConditionEvaluator14cmArgumentListCI2NSt7__cxx114listI25cmExpandedCommandArgumentSaIS3_EEEIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_S4_EEEvEET_SC_RKS4_.exit ], [ %.026.add, %.critedge ]
-  %.026.ptr = getelementptr inbounds i8, ptr %6, i64 %.026.idx36
-  %.unpack = load i64, ptr %.026.ptr, align 8
-  %.elt30 = getelementptr inbounds i8, ptr %.026.ptr, i64 8
+  %.028.idx36 = phi i64 [ 0, %_ZN20cmConditionEvaluator14cmArgumentListCI2NSt7__cxx114listI25cmExpandedCommandArgumentSaIS3_EEEIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_S4_EEEvEET_SC_RKS4_.exit ], [ %.028.add, %.critedge ]
+  %.028.ptr = getelementptr inbounds i8, ptr %6, i64 %.028.idx36
+  %.unpack = load i64, ptr %.028.ptr, align 8
+  %.elt30 = getelementptr inbounds i8, ptr %.028.ptr, i64 8
   %.unpack31 = load i64, ptr %.elt30, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 %.unpack31
   %34 = and i64 %.unpack, 1
@@ -511,8 +511,8 @@ _ZN20cmConditionEvaluator14cmArgumentListCI2NSt7__cxx114listI25cmExpandedCommand
 
 .critedge:                                        ; preds = %47, %38
   %50 = phi i64 [ %39, %38 ], [ %48, %47 ]
-  %.026.add = add nuw nsw i64 %.026.idx36, 16
-  %.not = icmp eq i64 %.026.add, 80
+  %.028.add = add nuw nsw i64 %.028.idx36, 16
+  %.not = icmp eq i64 %.028.add, 80
   br i1 %.not, label %51, label %31
 
 51:                                               ; preds = %.critedge

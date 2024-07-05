@@ -153,8 +153,8 @@ define internal range(i32 -1, 1) i32 @H5C__prefetched_entry_notify(i32 noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %.preheader, %2, %2, %2, %2, %2, %2, %2, %2, %2, %28, %12
-  %.0 = phi i32 [ -1, %28 ], [ -1, %12 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %.preheader ], [ 0, %24 ]
-  ret i32 %.0
+  %.013 = phi i32 [ -1, %28 ], [ -1, %12 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %.preheader ], [ 0, %24 ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable

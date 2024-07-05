@@ -99,8 +99,8 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   %33 = ptrtoint ptr %spec.select to i64
   %34 = xor i64 %33, 1
   %35 = inttoptr i64 %34 to ptr
-  %.184 = select i1 %.not, ptr %spec.select, ptr %35
-  %.182 = select i1 %.not, ptr %spec.select99, ptr %32
+  %.178 = select i1 %.not, ptr %spec.select, ptr %35
+  %.1 = select i1 %.not, ptr %spec.select99, ptr %32
   %36 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %40
@@ -111,9 +111,9 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   br label %107
 
 40:                                               ; preds = %12
-  store ptr %.182, ptr %36, align 8
+  store ptr %.1, ptr %36, align 8
   %41 = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %.184, ptr %41, align 8
+  store ptr %.178, ptr %41, align 8
   %42 = call i32 @st__lookup(ptr noundef %3, ptr noundef nonnull %36, ptr noundef nonnull %5) #7
   %.not95 = icmp eq i32 %42, 0
   br i1 %.not95, label %46, label %43
@@ -125,10 +125,10 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   br label %107
 
 46:                                               ; preds = %40
-  %47 = ptrtoint ptr %.184 to i64
+  %47 = ptrtoint ptr %.178 to i64
   %48 = and i64 %47, -2
   %49 = inttoptr i64 %48 to ptr
-  %50 = load i32, ptr %.182, align 8
+  %50 = load i32, ptr %.1, align 8
   %51 = icmp eq i32 %50, 2147483647
   br i1 %51, label %58, label %52
 
@@ -160,15 +160,15 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   br i1 %.not96, label %75, label %70
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %.182, i64 16
+  %71 = getelementptr inbounds i8, ptr %.1, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %.182, i64 24
+  %73 = getelementptr inbounds i8, ptr %.1, i64 24
   %74 = load ptr, ptr %73, align 8
   br label %75
 
 75:                                               ; preds = %68, %70
-  %.080 = phi ptr [ %72, %70 ], [ %.182, %68 ]
-  %.079 = phi ptr [ %74, %70 ], [ %.182, %68 ]
+  %.080 = phi ptr [ %74, %70 ], [ %.1, %68 ]
+  %.079 = phi ptr [ %72, %70 ], [ %.1, %68 ]
   %.not97 = icmp ugt i32 %69, %59
   br i1 %.not97, label %81, label %76
 
@@ -180,14 +180,14 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   br label %81
 
 81:                                               ; preds = %75, %76
-  %.077 = phi ptr [ %78, %76 ], [ %49, %75 ]
-  %.076 = phi ptr [ %80, %76 ], [ %49, %75 ]
-  %.not98 = icmp eq ptr %.184, %49
-  %82 = ptrtoint ptr %.077 to i64
+  %.083 = phi ptr [ %78, %76 ], [ %49, %75 ]
+  %.081 = phi ptr [ %80, %76 ], [ %49, %75 ]
+  %.not98 = icmp eq ptr %.178, %49
+  %82 = ptrtoint ptr %.083 to i64
   %83 = xor i64 %82, 1
   %84 = inttoptr i64 %83 to ptr
-  %.178 = select i1 %.not98, ptr %.077, ptr %84
-  %85 = call fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %.080, ptr noundef %.178, ptr noundef %3)
+  %.184 = select i1 %.not98, ptr %.083, ptr %84
+  %85 = call fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %.079, ptr noundef %.184, ptr noundef %3)
   %86 = fmul double %85, 5.000000e-01
   %87 = fcmp oeq double %86, -1.000000e+00
   br i1 %87, label %88, label %89
@@ -197,11 +197,11 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   br label %107
 
 89:                                               ; preds = %81
-  %90 = ptrtoint ptr %.076 to i64
+  %90 = ptrtoint ptr %.081 to i64
   %91 = xor i64 %90, 1
   %92 = inttoptr i64 %91 to ptr
-  %.1 = select i1 %.not98, ptr %.076, ptr %92
-  %93 = call fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %.079, ptr noundef %.1, ptr noundef %3)
+  %.182 = select i1 %.not98, ptr %.081, ptr %92
+  %93 = call fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %.080, ptr noundef %.182, ptr noundef %3)
   %94 = fmul double %93, 5.000000e-01
   %95 = fcmp oeq double %94, -1.000000e+00
   br i1 %95, label %96, label %97
@@ -319,8 +319,8 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   %34 = ptrtoint ptr %spec.select to i64
   %35 = xor i64 %34, 1
   %36 = inttoptr i64 %35 to ptr
-  %.193 = select i1 %.not, ptr %spec.select, ptr %36
-  %.191 = select i1 %.not, ptr %spec.select108, ptr %33
+  %.187 = select i1 %.not, ptr %spec.select, ptr %36
+  %.1 = select i1 %.not, ptr %spec.select108, ptr %33
   %37 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %41
@@ -331,9 +331,9 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   br label %113
 
 41:                                               ; preds = %13
-  store ptr %.191, ptr %37, align 8
+  store ptr %.1, ptr %37, align 8
   %42 = getelementptr inbounds i8, ptr %37, i64 8
-  store ptr %.193, ptr %42, align 8
+  store ptr %.187, ptr %42, align 8
   %43 = call i32 @st__lookup(ptr noundef %4, ptr noundef nonnull %37, ptr noundef nonnull %6) #7
   %.not104 = icmp eq i32 %43, 0
   br i1 %.not104, label %47, label %44
@@ -345,10 +345,10 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   br label %113
 
 47:                                               ; preds = %41
-  %48 = ptrtoint ptr %.193 to i64
+  %48 = ptrtoint ptr %.187 to i64
   %49 = and i64 %48, -2
   %50 = inttoptr i64 %49 to ptr
-  %51 = load i32, ptr %.191, align 8
+  %51 = load i32, ptr %.1, align 8
   %52 = icmp eq i32 %51, 2147483647
   br i1 %52, label %59, label %53
 
@@ -380,16 +380,16 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   br i1 %.not105, label %76, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %.191, i64 16
+  %72 = getelementptr inbounds i8, ptr %.1, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %.191, i64 24
+  %74 = getelementptr inbounds i8, ptr %.1, i64 24
   %75 = load ptr, ptr %74, align 8
   br label %76
 
 76:                                               ; preds = %69, %71
   %.084 = phi i32 [ %51, %71 ], [ %61, %69 ]
-  %.089 = phi ptr [ %73, %71 ], [ %.191, %69 ]
-  %.088 = phi ptr [ %75, %71 ], [ %.191, %69 ]
+  %.089 = phi ptr [ %75, %71 ], [ %.1, %69 ]
+  %.088 = phi ptr [ %73, %71 ], [ %.1, %69 ]
   %.not106 = icmp sgt i32 %70, %60
   br i1 %.not106, label %82, label %77
 
@@ -401,14 +401,14 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   br label %82
 
 82:                                               ; preds = %76, %77
-  %.086 = phi ptr [ %79, %77 ], [ %50, %76 ]
-  %.085 = phi ptr [ %81, %77 ], [ %50, %76 ]
-  %.not107 = icmp eq ptr %.193, %50
-  %83 = ptrtoint ptr %.086 to i64
+  %.092 = phi ptr [ %79, %77 ], [ %50, %76 ]
+  %.090 = phi ptr [ %81, %77 ], [ %50, %76 ]
+  %.not107 = icmp eq ptr %.187, %50
+  %83 = ptrtoint ptr %.092 to i64
   %84 = xor i64 %83, 1
   %85 = inttoptr i64 %84 to ptr
-  %.187 = select i1 %.not107, ptr %.086, ptr %85
-  %86 = call fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noundef %.089, ptr noundef %.187, ptr noundef %3, ptr noundef %4)
+  %.193 = select i1 %.not107, ptr %.092, ptr %85
+  %86 = call fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noundef %.088, ptr noundef %.193, ptr noundef %3, ptr noundef %4)
   %87 = sext i32 %.084 to i64
   %88 = getelementptr inbounds double, ptr %3, i64 %87
   %89 = load double, ptr %88, align 8
@@ -421,11 +421,11 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   br label %113
 
 93:                                               ; preds = %82
-  %94 = ptrtoint ptr %.085 to i64
+  %94 = ptrtoint ptr %.090 to i64
   %95 = xor i64 %94, 1
   %96 = inttoptr i64 %95 to ptr
-  %.1 = select i1 %.not107, ptr %.085, ptr %96
-  %97 = call fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noundef %.088, ptr noundef %.1, ptr noundef nonnull %3, ptr noundef %4)
+  %.191 = select i1 %.not107, ptr %.090, ptr %96
+  %97 = call fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noundef %.089, ptr noundef %.191, ptr noundef nonnull %3, ptr noundef %4)
   %98 = load double, ptr %88, align 8
   %99 = fsub double 1.000000e+00, %98
   %100 = fmul double %97, %99

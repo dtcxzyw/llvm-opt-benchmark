@@ -446,8 +446,8 @@ indent.exit:                                      ; preds = %.lr.ph.i, %8
   br label %76
 
 76:                                               ; preds = %.thread, %69, %73, %60, %58
+  %.0252 = phi ptr [ %66, %69 ], [ null, %73 ], [ null, %60 ], [ null, %58 ], [ null, %.thread ]
   %.0251 = phi ptr [ %65, %69 ], [ null, %73 ], [ null, %60 ], [ null, %58 ], [ null, %.thread ]
-  %.0250 = phi ptr [ %66, %69 ], [ null, %73 ], [ null, %60 ], [ null, %58 ], [ null, %.thread ]
   %77 = sext i32 %40 to i64
   %78 = call fastcc ptr @gv_calloc(i64 noundef %77, i64 noundef 32)
   %79 = call fastcc ptr @gv_calloc(i64 noundef %77, i64 noundef 8)
@@ -516,7 +516,7 @@ indent.exit:                                      ; preds = %.lr.ph.i, %8
 
 .lr.ph305:                                        ; preds = %109
   %111 = getelementptr inbounds i8, ptr %3, i64 32
-  %112 = icmp ne ptr %.0250, null
+  %112 = icmp ne ptr %.0252, null
   br label %113
 
 113:                                              ; preds = %.lr.ph305, %138
@@ -552,7 +552,7 @@ indent.exit:                                      ; preds = %.lr.ph.i, %8
   br i1 %or.cond5, label %131, label %135
 
 131:                                              ; preds = %118
-  %132 = call i32 @late_int(ptr noundef nonnull %.0249302, ptr noundef nonnull %.0250, i32 noundef 0, i32 noundef 0) #15
+  %132 = call i32 @late_int(ptr noundef nonnull %.0249302, ptr noundef nonnull %.0252, i32 noundef 0, i32 noundef 0) #15
   %133 = load ptr, ptr %111, align 8
   %134 = getelementptr inbounds i32, ptr %133, i64 %127
   store i32 %132, ptr %134, align 4
@@ -724,16 +724,16 @@ indent.exit268:                                   ; preds = %.lr.ph.i266, %190
   %234 = load i32, ptr %233, align 8
   %235 = uitofp i32 %234 to double
   %236 = fmul double %235, 5.000000e-01
-  %.0252 = select i1 %232, double %236, double 0.000000e+00
+  %.0250 = select i1 %232, double %236, double 0.000000e+00
   %237 = getelementptr inbounds i8, ptr %206, i64 72
   %238 = load double, ptr %237, align 8
-  %239 = fadd double %238, %.0252
-  %240 = insertelement <2 x double> poison, double %.0252, i64 0
+  %239 = fadd double %238, %.0250
+  %240 = insertelement <2 x double> poison, double %.0250, i64 0
   %241 = insertelement <2 x double> %240, double %239, i64 1
   %242 = fsub <2 x double> %230, %241
   %243 = getelementptr inbounds i8, ptr %206, i64 104
   %244 = load double, ptr %243, align 8
-  %245 = fadd double %244, %.0252
+  %245 = fadd double %244, %.0250
   %246 = insertelement <2 x double> %240, double %245, i64 1
   %247 = fadd <2 x double> %231, %246
   %248 = load i8, ptr @Verbose, align 1

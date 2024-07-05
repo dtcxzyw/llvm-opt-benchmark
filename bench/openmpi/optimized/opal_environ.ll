@@ -290,8 +290,8 @@ define range(i32 -13, 1) i32 @opal_unsetenv(ptr noundef %0, ptr nocapture nounde
   br label %36
 
 36:                                               ; preds = %6, %2, %.loopexit
-  %.020 = phi i32 [ %34, %.loopexit ], [ 0, %2 ], [ -2, %6 ]
-  ret i32 %.020
+  %.019 = phi i32 [ %34, %.loopexit ], [ 0, %2 ], [ -2, %6 ]
+  ret i32 %.019
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable

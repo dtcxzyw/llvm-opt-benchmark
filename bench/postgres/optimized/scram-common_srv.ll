@@ -75,7 +75,7 @@ define dso_local range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 
   br label %.lr.ph47.split.us
 
 .lr.ph47.split.us:                                ; preds = %.lr.ph47.split.us.preheader, %._crit_edge.us
-  %.03945.us = phi i32 [ %52, %._crit_edge.us ], [ 2, %.lr.ph47.split.us.preheader ]
+  %.04045.us = phi i32 [ %52, %._crit_edge.us ], [ 2, %.lr.ph47.split.us.preheader ]
   %36 = load volatile i32, ptr @InterruptPending, align 4
   %.not42.us = icmp eq i32 %36, 0
   br i1 %.not42.us, label %38, label %37
@@ -113,12 +113,12 @@ define dso_local range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 
 
 ._crit_edge.us:                                   ; preds = %.preheader.us
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 16 %10, i64 %29, i1 false)
-  %52 = add i32 %.03945.us, 1
+  %52 = add i32 %.04045.us, 1
   %.not.us = icmp sgt i32 %52, %5
   br i1 %.not.us, label %._crit_edge48, label %.lr.ph47.split.us, !llvm.loop !7
 
 .lr.ph47.split:                                   ; preds = %.lr.ph47, %.preheader
-  %.03945 = phi i32 [ %64, %.preheader ], [ 2, %.lr.ph47 ]
+  %.04045 = phi i32 [ %64, %.preheader ], [ 2, %.lr.ph47 ]
   %53 = load volatile i32, ptr @InterruptPending, align 4
   %.not42 = icmp eq i32 %53, 0
   br i1 %.not42, label %55, label %54
@@ -144,7 +144,7 @@ define dso_local range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 
 
 .preheader:                                       ; preds = %61
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 16 %10, i64 %29, i1 false)
-  %64 = add i32 %.03945, 1
+  %64 = add i32 %.04045, 1
   %.not = icmp sgt i32 %64, %5
   br i1 %.not, label %._crit_edge48, label %.lr.ph47.split, !llvm.loop !7
 
@@ -159,8 +159,8 @@ define dso_local range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 
   br label %66
 
 66:                                               ; preds = %._crit_edge48, %.split.us, %32, %15
-  %.040 = phi i32 [ -1, %15 ], [ -1, %32 ], [ -1, %.split.us ], [ 0, %._crit_edge48 ]
-  ret i32 %.040
+  %.0 = phi i32 [ -1, %15 ], [ -1, %32 ], [ -1, %.split.us ], [ 0, %._crit_edge48 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

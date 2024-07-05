@@ -316,8 +316,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_loca
   br label %"_ZN3std3sys12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h914f4890a33046eeE.exit"
 
 "_ZN3std3sys12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h914f4890a33046eeE.exit": ; preds = %4, %5
-  %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %4 ]
   %.sroa.02.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %4 ]
+  %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %4 ]
   store i64 1, ptr %0, align 8, !noalias !30
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !30
@@ -356,8 +356,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_loca
   br label %"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h662bb8758434b9d2E.llvm.10894476612218408692.exit"
 
 "_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h662bb8758434b9d2E.llvm.10894476612218408692.exit": ; preds = %6, %7
-  %.sroa.3.0.i.i.i = phi i64 [ %10, %7 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
   %.sroa.02.0.i.i.i = phi i64 [ %9, %7 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
+  %.sroa.3.0.i.i.i = phi i64 [ %10, %7 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
   store i64 1, ptr %0, align 8, !noalias !48
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !48

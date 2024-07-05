@@ -89,13 +89,13 @@ list_length.exit103:                              ; preds = %34, %35
   br label %44
 
 44:                                               ; preds = %list_length.exit, %29, %list_length.exit103
-  %.094 = phi i32 [ %24, %29 ], [ %24, %list_length.exit ], [ %38, %list_length.exit103 ]
+  %.089 = phi i32 [ %24, %29 ], [ %24, %list_length.exit ], [ %38, %list_length.exit103 ]
   call void @ExecInitResultTupleSlotTL(ptr noundef nonnull %5, ptr noundef nonnull @TTSOpsVirtual) #5
   %45 = getelementptr inbounds i8, ptr %5, i64 199
   store i8 1, ptr %45, align 1
   %46 = getelementptr inbounds i8, ptr %5, i64 195
   store i8 0, ptr %46, align 1
-  %47 = sext i32 %.094 to i64
+  %47 = sext i32 %.089 to i64
   %48 = shl nsw i64 %47, 3
   %49 = call ptr @palloc(i64 noundef %48) #5
   %50 = load ptr, ptr %4, align 8
@@ -111,10 +111,10 @@ list_length.exit103:                              ; preds = %34, %35
 
 56:                                               ; preds = %.lr.ph, %72
   %57 = phi i32 [ %51, %.lr.ph ], [ %80, %72 ]
-  %.0107 = phi i32 [ 0, %.lr.ph ], [ %76, %72 ]
-  %.090106 = phi i32 [ %.094, %.lr.ph ], [ %.191, %72 ]
-  %.092105 = phi i32 [ 0, %.lr.ph ], [ %.193, %72 ]
-  %.095104 = phi ptr [ null, %.lr.ph ], [ %.196, %72 ]
+  %.0107 = phi ptr [ null, %.lr.ph ], [ %.1, %72 ]
+  %.090106 = phi i32 [ 0, %.lr.ph ], [ %.191, %72 ]
+  %.092105 = phi i32 [ 0, %.lr.ph ], [ %76, %72 ]
+  %.095104 = phi i32 [ %.089, %.lr.ph ], [ %.196, %72 ]
   %58 = load ptr, ptr %53, align 8
   %59 = getelementptr i8, ptr %58, i64 16
   %.val = load ptr, ptr %59, align 8
@@ -132,20 +132,20 @@ list_length.exit103:                              ; preds = %34, %35
   br i1 %68, label %69, label %72
 
 69:                                               ; preds = %66
-  %70 = call ptr @bms_add_member(ptr noundef %.095104, i32 noundef %.0107) #5
-  %71 = add i32 %.092105, 1
+  %70 = call ptr @bms_add_member(ptr noundef %.0107, i32 noundef %.092105) #5
+  %71 = add i32 %.090106, 1
   br label %72
 
 72:                                               ; preds = %69, %66, %56
-  %.196 = phi ptr [ %70, %69 ], [ %.095104, %66 ], [ %.095104, %56 ]
-  %.193 = phi i32 [ %71, %69 ], [ %.092105, %66 ], [ %.092105, %56 ]
+  %.191 = phi i32 [ %71, %69 ], [ %.090106, %66 ], [ %.090106, %56 ]
+  %.1 = phi ptr [ %70, %69 ], [ %.0107, %66 ], [ %.0107, %56 ]
   %73 = load i32, ptr %55, align 4
   %.not.not = icmp slt i32 %57, %73
-  %74 = call i32 @llvm.smin.i32(i32 %.0107, i32 %.090106)
-  %.191 = select i1 %.not.not, i32 %.090106, i32 %74
+  %74 = call i32 @llvm.smin.i32(i32 %.092105, i32 %.095104)
+  %.196 = select i1 %.not.not, i32 %.095104, i32 %74
   %75 = call ptr @ExecInitNode(ptr noundef nonnull %62, ptr noundef %1, i32 noundef %2) #5
-  %76 = add i32 %.0107, 1
-  %77 = sext i32 %.0107 to i64
+  %76 = add i32 %.092105, 1
+  %77 = sext i32 %.092105 to i64
   %78 = getelementptr ptr, ptr %49, i64 %77
   store ptr %75, ptr %78, align 8
   %79 = load ptr, ptr %4, align 8
@@ -154,19 +154,19 @@ list_length.exit103:                              ; preds = %34, %35
   br i1 %81, label %56, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %72, %44
-  %.095.lcssa = phi ptr [ null, %44 ], [ %.196, %72 ]
-  %.092.lcssa = phi i32 [ 0, %44 ], [ %.193, %72 ]
-  %.090.lcssa = phi i32 [ %.094, %44 ], [ %.191, %72 ]
+  %.095.lcssa = phi i32 [ %.089, %44 ], [ %.196, %72 ]
+  %.090.lcssa = phi i32 [ 0, %44 ], [ %.191, %72 ]
+  %.0.lcssa = phi ptr [ null, %44 ], [ %.1, %72 ]
   %82 = getelementptr inbounds i8, ptr %5, i64 288
-  store i32 %.090.lcssa, ptr %82, align 8
+  store i32 %.095.lcssa, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %5, i64 200
   store ptr %49, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %5, i64 208
-  store i32 %.094, ptr %84, align 8
+  store i32 %.089, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %5, i64 224
-  store ptr %.095.lcssa, ptr %85, align 8
+  store ptr %.0.lcssa, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %5, i64 232
-  store i32 %.092.lcssa, ptr %86, align 8
+  store i32 %.090.lcssa, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %5, i64 240
   %88 = getelementptr inbounds i8, ptr %5, i64 248
   %89 = getelementptr inbounds i8, ptr %5, i64 264
@@ -174,7 +174,7 @@ list_length.exit103:                              ; preds = %34, %35
   %90 = getelementptr inbounds i8, ptr %5, i64 272
   %91 = getelementptr inbounds i8, ptr %5, i64 336
   store ptr null, ptr %91, align 8
-  %92 = icmp sgt i32 %.092.lcssa, 0
+  %92 = icmp sgt i32 %.090.lcssa, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %87, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   br i1 %92, label %93, label %classify_matching_subplans.exit
@@ -182,7 +182,7 @@ list_length.exit103:                              ; preds = %34, %35
 93:                                               ; preds = %._crit_edge
   %94 = call ptr @palloc0(i64 noundef %48) #5
   store ptr %94, ptr %87, align 8
-  %95 = call i32 @bms_next_member(ptr noundef %.095.lcssa, i32 noundef -1) #5
+  %95 = call i32 @bms_next_member(ptr noundef %.0.lcssa, i32 noundef -1) #5
   %96 = icmp sgt i32 %95, -1
   br i1 %96, label %.lr.ph111, label %._crit_edge112
 
@@ -206,12 +206,12 @@ list_length.exit103:                              ; preds = %34, %35
   %107 = load ptr, ptr %87, align 8
   %108 = getelementptr ptr, ptr %107, i64 %99
   store ptr %98, ptr %108, align 8
-  %109 = call i32 @bms_next_member(ptr noundef %.095.lcssa, i32 noundef %97) #5
+  %109 = call i32 @bms_next_member(ptr noundef %.0.lcssa, i32 noundef %97) #5
   %110 = icmp sgt i32 %109, -1
   br i1 %110, label %.lr.ph111, label %._crit_edge112, !llvm.loop !7
 
 ._crit_edge112:                                   ; preds = %.lr.ph111, %93
-  %111 = zext nneg i32 %.092.lcssa to i64
+  %111 = zext nneg i32 %.090.lcssa to i64
   %112 = shl nuw nsw i64 %111, 3
   %113 = call ptr @palloc0(i64 noundef %112) #5
   store ptr %113, ptr %88, align 8

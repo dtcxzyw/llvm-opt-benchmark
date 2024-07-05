@@ -331,7 +331,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_fini() local_unnamed_a
 
 .lr.ph:                                           ; preds = %33, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %33 ]
-  %.02549 = phi i32 [ %.1, %51 ], [ 0, %33 ]
+  %.050 = phi i32 [ %.1, %51 ], [ 0, %33 ]
   %36 = load ptr, ptr @g_context, align 8
   %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
@@ -359,7 +359,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_fini() local_unnamed_a
   br label %51
 
 51:                                               ; preds = %41, %44, %39, %.lr.ph
-  %.1 = phi i32 [ %.02549, %39 ], [ %.02549, %.lr.ph ], [ -1, %44 ], [ -1, %41 ]
+  %.1 = phi i32 [ %.050, %39 ], [ %.050, %.lr.ph ], [ -1, %44 ], [ -1, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr @g_context_num, align 4
   %53 = sext i32 %52 to i64
@@ -367,7 +367,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_fini() local_unnamed_a
   br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %51, %33
-  %.025.lcssa = phi i32 [ 0, %33 ], [ %.1, %51 ]
+  %.0.lcssa = phi i32 [ 0, %33 ], [ %.1, %51 ]
   tail call void @slurm_xfree(ptr noundef nonnull @ops) #8
   tail call void @slurm_xfree(ptr noundef nonnull @g_context) #8
   store i32 -1, ptr @g_context_num, align 4
@@ -382,7 +382,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_fini() local_unnamed_a
   unreachable
 
 58:                                               ; preds = %._crit_edge
-  ret i32 %.025.lcssa
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nounwind
@@ -571,7 +571,7 @@ define dso_local i32 @acct_gather_energy_g_update_node_energy() local_unnamed_ad
   %8 = phi i32 [ %4, %.lr.ph.preheader ], [ %18, %17 ]
   %9 = phi ptr [ %.pre20, %.lr.ph.preheader ], [ %19, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
-  %.01017 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1, %17 ]
+  %.01117 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1, %17 ]
   %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not16 = icmp eq ptr %11, null
@@ -589,14 +589,14 @@ define dso_local i32 @acct_gather_energy_g_update_node_energy() local_unnamed_ad
 17:                                               ; preds = %.lr.ph, %12
   %18 = phi i32 [ %.pre21, %12 ], [ %8, %.lr.ph ]
   %19 = phi ptr [ %.pre, %12 ], [ %9, %.lr.ph ]
-  %.1 = phi i32 [ %16, %12 ], [ %.01017, %.lr.ph ]
+  %.1 = phi i32 [ %16, %12 ], [ %.01117, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = sext i32 %18 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %17, %.preheader
-  %.010.lcssa = phi i32 [ -1, %.preheader ], [ %.1, %17 ]
+  %.011.lcssa = phi i32 [ -1, %.preheader ], [ %.1, %17 ]
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not15 = icmp eq i32 %22, 0
   br i1 %.not15, label %25, label %23
@@ -608,8 +608,8 @@ define dso_local i32 @acct_gather_energy_g_update_node_energy() local_unnamed_ad
   unreachable
 
 25:                                               ; preds = %._crit_edge, %0
-  %.011 = phi i32 [ 0, %0 ], [ %.010.lcssa, %._crit_edge ]
-  ret i32 %.011
+  %.0 = phi i32 [ 0, %0 ], [ %.011.lcssa, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -669,7 +669,7 @@ define dso_local i32 @acct_gather_energy_g_get_sum(i32 noundef %0, ptr noundef %
 
 31:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %.02540 = phi i32 [ -1, %.lr.ph ], [ %.1, %68 ]
+  %.02640 = phi i32 [ -1, %.lr.ph ], [ %.1, %68 ]
   %32 = load ptr, ptr @g_context, align 8
   %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
@@ -731,7 +731,7 @@ define dso_local i32 @acct_gather_energy_g_get_sum(i32 noundef %0, ptr noundef %
   br label %68
 
 68:                                               ; preds = %47, %._crit_edge43, %35, %42, %31
-  %.1 = phi i32 [ %41, %35 ], [ 0, %42 ], [ 0, %._crit_edge43 ], [ %.02540, %31 ], [ 0, %47 ]
+  %.1 = phi i32 [ %41, %35 ], [ 0, %42 ], [ 0, %._crit_edge43 ], [ %.02640, %31 ], [ 0, %47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i32, ptr @g_context_num, align 4
   %70 = sext i32 %69 to i64
@@ -739,7 +739,7 @@ define dso_local i32 @acct_gather_energy_g_get_sum(i32 noundef %0, ptr noundef %
   br i1 %71, label %31, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %68, %20
-  %.025.lcssa = phi i32 [ -1, %20 ], [ %.1, %68 ]
+  %.026.lcssa = phi i32 [ -1, %20 ], [ %.1, %68 ]
   %72 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not35 = icmp eq i32 %72, 0
   br i1 %.not35, label %75, label %73
@@ -759,8 +759,8 @@ define dso_local i32 @acct_gather_energy_g_get_sum(i32 noundef %0, ptr noundef %
   br label %77
 
 77:                                               ; preds = %12, %2, %75
-  %.026 = phi i32 [ %.025.lcssa, %75 ], [ 0, %2 ], [ %16, %12 ]
-  ret i32 %.026
+  %.0 = phi i32 [ %.026.lcssa, %75 ], [ 0, %2 ], [ %16, %12 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -831,7 +831,7 @@ define dso_local i32 @acct_gather_energy_g_set_data(i32 noundef %0, ptr noundef 
   %10 = phi i32 [ %6, %.lr.ph.preheader ], [ %20, %19 ]
   %11 = phi ptr [ %.pre21, %.lr.ph.preheader ], [ %21, %19 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %.01118 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1, %19 ]
+  %.01218 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1, %19 ]
   %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not17 = icmp eq ptr %13, null
@@ -849,14 +849,14 @@ define dso_local i32 @acct_gather_energy_g_set_data(i32 noundef %0, ptr noundef 
 19:                                               ; preds = %.lr.ph, %14
   %20 = phi i32 [ %.pre22, %14 ], [ %10, %.lr.ph ]
   %21 = phi ptr [ %.pre, %14 ], [ %11, %.lr.ph ]
-  %.1 = phi i32 [ %18, %14 ], [ %.01118, %.lr.ph ]
+  %.1 = phi i32 [ %18, %14 ], [ %.01218, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = sext i32 %20 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %19, %.preheader
-  %.011.lcssa = phi i32 [ -1, %.preheader ], [ %.1, %19 ]
+  %.012.lcssa = phi i32 [ -1, %.preheader ], [ %.1, %19 ]
   %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not16 = icmp eq i32 %24, 0
   br i1 %.not16, label %27, label %25
@@ -868,8 +868,8 @@ define dso_local i32 @acct_gather_energy_g_set_data(i32 noundef %0, ptr noundef 
   unreachable
 
 27:                                               ; preds = %._crit_edge, %2
-  %.012 = phi i32 [ 0, %2 ], [ %.011.lcssa, %._crit_edge ]
-  ret i32 %.012
+  %.0 = phi i32 [ 0, %2 ], [ %.012.lcssa, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1111,8 +1111,8 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_options(ptr noundef %0, 
 
 4:                                                ; preds = %2
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #8
-  %.not13 = icmp eq i32 %5, 0
-  br i1 %.not13, label %.preheader, label %8
+  %.not12 = icmp eq i32 %5, 0
+  br i1 %.not12, label %.preheader, label %8
 
 .preheader:                                       ; preds = %4
   %6 = load i32, ptr @g_context_num, align 4
@@ -1120,7 +1120,7 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_options(ptr noundef %0, 
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.pre18 = load ptr, ptr @g_context, align 8
+  %.pre17 = load ptr, ptr @g_context, align 8
   br label %.lr.ph
 
 8:                                                ; preds = %4
@@ -1131,12 +1131,12 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_options(ptr noundef %0, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %10 = phi i32 [ %6, %.lr.ph.preheader ], [ %19, %18 ]
-  %11 = phi ptr [ %.pre18, %.lr.ph.preheader ], [ %20, %18 ]
+  %11 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %20, %18 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
   %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
-  %.not15 = icmp eq ptr %13, null
-  br i1 %.not15, label %18, label %14
+  %.not14 = icmp eq ptr %13, null
+  br i1 %.not14, label %18, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = load ptr, ptr @ops, align 8
@@ -1144,11 +1144,11 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_options(ptr noundef %0, 
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef %0, ptr noundef %1) #8
   %.pre = load ptr, ptr @g_context, align 8
-  %.pre19 = load i32, ptr @g_context_num, align 4
+  %.pre18 = load i32, ptr @g_context_num, align 4
   br label %18
 
 18:                                               ; preds = %.lr.ph, %14
-  %19 = phi i32 [ %10, %.lr.ph ], [ %.pre19, %14 ]
+  %19 = phi i32 [ %10, %.lr.ph ], [ %.pre18, %14 ]
   %20 = phi ptr [ %11, %.lr.ph ], [ %.pre, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = sext i32 %19 to i64
@@ -1157,8 +1157,8 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_options(ptr noundef %0, 
 
 ._crit_edge:                                      ; preds = %18, %.preheader
   %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
-  %.not14 = icmp eq i32 %23, 0
-  br i1 %.not14, label %26, label %24
+  %.not13 = icmp eq i32 %23, 0
+  br i1 %.not13, label %26, label %24
 
 24:                                               ; preds = %._crit_edge
   %25 = tail call ptr @__errno_location() #9
@@ -1178,8 +1178,8 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_set(ptr noundef %0) loca
 
 3:                                                ; preds = %1
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #8
-  %.not13 = icmp eq i32 %4, 0
-  br i1 %.not13, label %.preheader, label %7
+  %.not12 = icmp eq i32 %4, 0
+  br i1 %.not12, label %.preheader, label %7
 
 .preheader:                                       ; preds = %3
   %5 = load i32, ptr @g_context_num, align 4
@@ -1187,7 +1187,7 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_set(ptr noundef %0) loca
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.pre18 = load ptr, ptr @g_context, align 8
+  %.pre17 = load ptr, ptr @g_context, align 8
   br label %.lr.ph
 
 7:                                                ; preds = %3
@@ -1198,12 +1198,12 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_set(ptr noundef %0) loca
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %19, %18 ]
-  %10 = phi ptr [ %.pre18, %.lr.ph.preheader ], [ %20, %18 ]
+  %10 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %20, %18 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
   %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %.not15 = icmp eq ptr %12, null
-  br i1 %.not15, label %18, label %13
+  %.not14 = icmp eq ptr %12, null
+  br i1 %.not14, label %18, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ops, align 8
@@ -1212,11 +1212,11 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_set(ptr noundef %0) loca
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void %16(i32 noundef %17, ptr noundef %0) #8
   %.pre = load ptr, ptr @g_context, align 8
-  %.pre19 = load i32, ptr @g_context_num, align 4
+  %.pre18 = load i32, ptr @g_context_num, align 4
   br label %18
 
 18:                                               ; preds = %.lr.ph, %13
-  %19 = phi i32 [ %9, %.lr.ph ], [ %.pre19, %13 ]
+  %19 = phi i32 [ %9, %.lr.ph ], [ %.pre18, %13 ]
   %20 = phi ptr [ %10, %.lr.ph ], [ %.pre, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = sext i32 %19 to i64
@@ -1225,8 +1225,8 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_set(ptr noundef %0) loca
 
 ._crit_edge:                                      ; preds = %18, %.preheader
   %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
-  %.not14 = icmp eq i32 %23, 0
-  br i1 %.not14, label %26, label %24
+  %.not13 = icmp eq i32 %23, 0
+  br i1 %.not13, label %26, label %24
 
 24:                                               ; preds = %._crit_edge
   %25 = tail call ptr @__errno_location() #9
@@ -1246,8 +1246,8 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_values(ptr noundef %0) l
 
 3:                                                ; preds = %1
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #8
-  %.not12 = icmp eq i32 %4, 0
-  br i1 %.not12, label %.preheader, label %7
+  %.not11 = icmp eq i32 %4, 0
+  br i1 %.not11, label %.preheader, label %7
 
 .preheader:                                       ; preds = %3
   %5 = load i32, ptr @g_context_num, align 4
@@ -1255,7 +1255,7 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_values(ptr noundef %0) l
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.pre17 = load ptr, ptr @g_context, align 8
+  %.pre16 = load ptr, ptr @g_context, align 8
   br label %.lr.ph
 
 7:                                                ; preds = %3
@@ -1266,12 +1266,12 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_values(ptr noundef %0) l
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %18, %17 ]
-  %10 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %19, %17 ]
+  %10 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %19, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %.not14 = icmp eq ptr %12, null
-  br i1 %.not14, label %17, label %13
+  %.not13 = icmp eq ptr %12, null
+  br i1 %.not13, label %17, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ops, align 8
@@ -1279,11 +1279,11 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_values(ptr noundef %0) l
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef %0) #8
   %.pre = load ptr, ptr @g_context, align 8
-  %.pre18 = load i32, ptr @g_context_num, align 4
+  %.pre17 = load i32, ptr @g_context_num, align 4
   br label %17
 
 17:                                               ; preds = %.lr.ph, %13
-  %18 = phi i32 [ %9, %.lr.ph ], [ %.pre18, %13 ]
+  %18 = phi i32 [ %9, %.lr.ph ], [ %.pre17, %13 ]
   %19 = phi ptr [ %10, %.lr.ph ], [ %.pre, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = sext i32 %18 to i64
@@ -1292,8 +1292,8 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_values(ptr noundef %0) l
 
 ._crit_edge:                                      ; preds = %17, %.preheader
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
-  %.not13 = icmp eq i32 %22, 0
-  br i1 %.not13, label %25, label %23
+  %.not12 = icmp eq i32 %22, 0
+  br i1 %.not12, label %25, label %23
 
 23:                                               ; preds = %._crit_edge
   %24 = tail call ptr @__errno_location() #9

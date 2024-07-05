@@ -59,7 +59,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 while.body:                                       ; preds = %while.body.preheader, %if.end25
   %indvars.iv = phi i64 [ 1, %while.body.preheader ], [ %indvars.iv.next, %if.end25 ]
   %ipv6.065 = phi i32 [ 0, %while.body.preheader ], [ %ipv6.1, %if.end25 ]
-  %trace.063 = phi i32 [ 0, %while.body.preheader ], [ %trace.1, %if.end25 ]
+  %trace.064 = phi i32 [ 0, %while.body.preheader ], [ %trace.1, %if.end25 ]
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load i8, ptr %1, align 1
@@ -97,7 +97,7 @@ if.else20:                                        ; preds = %if.else
   br label %end2
 
 if.end25:                                         ; preds = %if.else, %if.end7.tail
-  %trace.1 = phi i32 [ %trace.063, %if.end7.tail ], [ 1, %if.else ]
+  %trace.1 = phi i32 [ %trace.064, %if.end7.tail ], [ 1, %if.else ]
   %ipv6.1 = phi i32 [ 1, %if.end7.tail ], [ %ipv6.065, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -108,8 +108,8 @@ while.end.loopexit.split.loop.exit:               ; preds = %while.body
   br label %while.end
 
 while.end:                                        ; preds = %if.end25, %while.end.loopexit.split.loop.exit, %while.cond.preheader
-  %trace.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %trace.063, %while.end.loopexit.split.loop.exit ], [ %trace.1, %if.end25 ]
   %argnext.0.lcssa = phi i32 [ 1, %while.cond.preheader ], [ %12, %while.end.loopexit.split.loop.exit ], [ %argc, %if.end25 ]
+  %trace.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %trace.064, %while.end.loopexit.split.loop.exit ], [ %trace.1, %if.end25 ]
   %ipv6.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %ipv6.065, %while.end.loopexit.split.loop.exit ], [ %ipv6.1, %if.end25 ]
   %sub = sub nsw i32 %argc, %argnext.0.lcssa
   %cmp26.not = icmp eq i32 %sub, 4

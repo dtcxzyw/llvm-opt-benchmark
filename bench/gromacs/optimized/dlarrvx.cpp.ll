@@ -142,8 +142,8 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   br label %.split.loop.exit723
 
 .split.loop.exit723:                              ; preds = %87, %.split.loop.exit
-  %.0468.lcssa = phi i32 [ %94, %.split.loop.exit ], [ %smax, %87 ]
-  %95 = icmp slt i32 %.0468.lcssa, %.0449638
+  %.0483.lcssa = phi i32 [ %94, %.split.loop.exit ], [ %smax, %87 ]
+  %95 = icmp slt i32 %.0483.lcssa, %.0449638
   br i1 %95, label %._crit_edge630, label %96
 
 96:                                               ; preds = %.split.loop.exit723
@@ -163,7 +163,7 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %105 = zext nneg i32 %103 to i64
   %106 = getelementptr inbounds i32, ptr %49, i64 %105
   store i32 %.0451637, ptr %106, align 4
-  %107 = add nuw nsw i32 %.0468.lcssa, 1
+  %107 = add nuw nsw i32 %.0483.lcssa, 1
   br label %._crit_edge630
 
 108:                                              ; preds = %96
@@ -176,7 +176,7 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %113 = fcmp ogt double %112, 1.000000e-03
   %114 = select i1 %113, double 1.000000e-03, double %112
   store double %114, ptr %34, align 8
-  %reass.sub = sub i32 %.0468.lcssa, %.0449638
+  %reass.sub = sub i32 %.0483.lcssa, %.0449638
   %115 = add i32 %reass.sub, 1
   store i32 %115, ptr %25, align 4
   %116 = zext nneg i32 %.0449638 to i64
@@ -251,26 +251,26 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %.0620 = phi i32 [ 1, %.lr.ph622 ], [ %154, %._crit_edge612 ]
   %.1619 = phi double [ %.0445639, %.lr.ph622 ], [ %.2.lcssa, %._crit_edge612 ]
   %.0447618 = phi i32 [ 0, %.lr.ph622 ], [ %432, %._crit_edge612 ]
-  %.0453617 = phi i32 [ 1, %.lr.ph622 ], [ %.1454.lcssa, %._crit_edge612 ]
-  %.0458616 = phi i32 [ 0, %.lr.ph622 ], [ %.1459.lcssa, %._crit_edge612 ]
+  %.0457617 = phi i32 [ 1, %.lr.ph622 ], [ %.1458.lcssa, %._crit_edge612 ]
+  %.0472616 = phi i32 [ 0, %.lr.ph622 ], [ %.1473.lcssa, %._crit_edge612 ]
   %154 = sub nuw nsw i32 1, %.0620
   %155 = icmp eq i32 %.0620, 1
   %. = select i1 %155, i32 %53, i32 %54
   %.510 = select i1 %155, i32 %54, i32 %53
-  %.not495605 = icmp slt i32 %.0453617, 1
+  %.not495605 = icmp slt i32 %.0457617, 1
   br i1 %.not495605, label %._crit_edge612, label %.lr.ph611
 
 .lr.ph611:                                        ; preds = %152
   %.not496 = icmp eq i32 %.0447618, 0
-  %156 = add nuw i32 %.0453617, 1
+  %156 = add nuw i32 %.0457617, 1
   %wide.trip.count701 = zext i32 %156 to i64
   br label %157
 
 157:                                              ; preds = %.lr.ph611, %._crit_edge597
   %indvars.iv698 = phi i64 [ 1, %.lr.ph611 ], [ %indvars.iv.next699, %._crit_edge597 ]
   %.2609 = phi double [ %.1619, %.lr.ph611 ], [ %.3.lcssa, %._crit_edge597 ]
-  %.1454608 = phi i32 [ 0, %.lr.ph611 ], [ %.2455.lcssa, %._crit_edge597 ]
-  %.1459607 = phi i32 [ %.0458616, %.lr.ph611 ], [ %.2460.lcssa, %._crit_edge597 ]
+  %.1458607 = phi i32 [ 0, %.lr.ph611 ], [ %.2459.lcssa, %._crit_edge597 ]
+  %.1473606 = phi i32 [ %.0472616, %.lr.ph611 ], [ %.2474.lcssa, %._crit_edge597 ]
   %indvars.iv698.tr = trunc i64 %indvars.iv698 to i32
   %158 = shl i32 %indvars.iv698.tr, 1
   %159 = add nsw i32 %158, %.
@@ -310,22 +310,22 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   br label %.lr.ph534
 
 .lr.ph534:                                        ; preds = %.lr.ph534.preheader, %.lr.ph534
-  %indvars.iv654 = phi i64 [ 1, %.lr.ph534.preheader ], [ %indvars.iv.next655, %.lr.ph534 ]
-  %indvars.iv652 = phi i64 [ %143, %.lr.ph534.preheader ], [ %indvars.iv.next653, %.lr.ph534 ]
-  %180 = getelementptr inbounds double, ptr %39, i64 %indvars.iv652
+  %indvars.iv654 = phi i64 [ %143, %.lr.ph534.preheader ], [ %indvars.iv.next655, %.lr.ph534 ]
+  %indvars.iv652 = phi i64 [ 1, %.lr.ph534.preheader ], [ %indvars.iv.next653, %.lr.ph534 ]
+  %180 = getelementptr inbounds double, ptr %39, i64 %indvars.iv654
   %181 = load double, ptr %180, align 8
-  %182 = getelementptr inbounds double, ptr %40, i64 %indvars.iv652
+  %182 = getelementptr inbounds double, ptr %40, i64 %indvars.iv654
   %183 = load double, ptr %182, align 8
   %184 = fmul double %181, %183
-  %gep730 = getelementptr double, ptr %invariant.gep729, i64 %indvars.iv654
+  %gep730 = getelementptr double, ptr %invariant.gep729, i64 %indvars.iv652
   store double %184, ptr %gep730, align 8
   %185 = load double, ptr %182, align 8
   %186 = fmul double %184, %185
-  %gep732 = getelementptr double, ptr %invariant.gep731, i64 %indvars.iv654
+  %gep732 = getelementptr double, ptr %invariant.gep731, i64 %indvars.iv652
   store double %186, ptr %gep732, align 8
-  %indvars.iv.next653 = add nsw i64 %indvars.iv652, 1
-  %indvars.iv.next655 = add nuw nsw i64 %indvars.iv654, 1
-  %exitcond660.not = icmp eq i64 %indvars.iv.next655, %wide.trip.count659
+  %indvars.iv.next655 = add nsw i64 %indvars.iv654, 1
+  %indvars.iv.next653 = add nuw nsw i64 %indvars.iv652, 1
+  %exitcond660.not = icmp eq i64 %indvars.iv.next653, %wide.trip.count659
   br i1 %exitcond660.not, label %._crit_edge535, label %.lr.ph534, !llvm.loop !6
 
 ._crit_edge535:                                   ; preds = %.lr.ph534
@@ -373,8 +373,8 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %indvars.iv695 = phi i64 [ %202, %.lr.ph596.preheader ], [ %indvars.iv.next696, %426 ]
   %indvars.iv669.in = phi i32 [ %163, %.lr.ph596.preheader ], [ %indvars.iv669, %426 ]
   %.3594 = phi double [ %.2609, %.lr.ph596.preheader ], [ %.4, %426 ]
-  %.2455593 = phi i32 [ %.1454608, %.lr.ph596.preheader ], [ %.4457, %426 ]
-  %.2460592 = phi i32 [ %.1459607, %.lr.ph596.preheader ], [ %.6, %426 ]
+  %.2459593 = phi i32 [ %.1458607, %.lr.ph596.preheader ], [ %.4461, %426 ]
+  %.2474589 = phi i32 [ %.1473606, %.lr.ph596.preheader ], [ %.6, %426 ]
   %indvars.iv669 = add i32 %indvars.iv669.in, 1
   %206 = icmp eq i64 %indvars.iv695, %sext
   br i1 %206, label %215, label %207
@@ -476,7 +476,7 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   br label %259
 
 259:                                              ; preds = %._crit_edge585, %243
-  %260 = add nsw i32 %.2455593, 1
+  %260 = add nsw i32 %.2459593, 1
   %261 = shl i32 %260, 1
   %262 = add nsw i32 %261, %.510
   %263 = sext i32 %262 to i64
@@ -580,35 +580,35 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
 
 294:                                              ; preds = %._crit_edge580
   %295 = load i32, ptr %38, align 4
-  %296 = add nsw i32 %295, %.2460592
+  %296 = add nsw i32 %295, %.2474589
   br label %._crit_edge545.thread
 
 .preheader:                                       ; preds = %.preheader.preheader, %344
-  %indvars.iv664 = phi i64 [ %223, %.preheader.preheader ], [ %indvars.iv.next665, %344 ]
-  %indvars.iv662 = phi i64 [ %224, %.preheader.preheader ], [ %indvars.iv.next663, %344 ]
-  %.3461544 = phi i32 [ %.2460592, %.preheader.preheader ], [ %spec.select511, %344 ]
-  %297 = getelementptr inbounds double, ptr %50, i64 %indvars.iv664
-  %gep734 = getelementptr double, ptr %invariant.gep733, i64 %indvars.iv664
-  %298 = mul nsw i64 %indvars.iv662, %78
+  %indvars.iv664 = phi i64 [ %224, %.preheader.preheader ], [ %indvars.iv.next665, %344 ]
+  %indvars.iv662 = phi i64 [ %223, %.preheader.preheader ], [ %indvars.iv.next663, %344 ]
+  %.3475543 = phi i32 [ %.2474589, %.preheader.preheader ], [ %spec.select511, %344 ]
+  %297 = getelementptr inbounds double, ptr %50, i64 %indvars.iv662
+  %gep734 = getelementptr double, ptr %invariant.gep733, i64 %indvars.iv662
+  %298 = mul nsw i64 %indvars.iv664, %78
   %gep736 = getelementptr double, ptr %invariant.gep735, i64 %298
-  %gep738 = getelementptr i32, ptr %invariant.gep737, i64 %indvars.iv662
-  %299 = trunc nsw i64 %indvars.iv662 to i32
+  %gep738 = getelementptr i32, ptr %invariant.gep737, i64 %indvars.iv664
+  %299 = trunc nsw i64 %indvars.iv664 to i32
   %300 = shl i32 %299, 1
   %301 = sext i32 %300 to i64
   %302 = getelementptr i32, ptr %49, i64 %301
   %303 = getelementptr i8, ptr %302, i64 -4
-  %304 = icmp eq i64 %indvars.iv664, 1
-  %305 = add nsw i64 %indvars.iv664, %77
+  %304 = icmp eq i64 %indvars.iv662, 1
+  %305 = add nsw i64 %indvars.iv662, %77
   %306 = getelementptr double, ptr %50, i64 %305
   %307 = getelementptr i8, ptr %306, i64 -8
   %gep = getelementptr double, ptr %invariant.gep, i64 %305
   %.pre = load double, ptr %297, align 8
-  %308 = trunc nsw i64 %indvars.iv664 to i32
+  %308 = trunc nsw i64 %indvars.iv662 to i32
   br label %309
 
 309:                                              ; preds = %.preheader, %342
   %310 = phi double [ %343, %342 ], [ %.pre, %.preheader ]
-  %.0467 = phi i32 [ %332, %342 ], [ 0, %.preheader ]
+  %.0482 = phi i32 [ %332, %342 ], [ 0, %.preheader ]
   store double %310, ptr %32, align 8
   call void @dlar1vx_(ptr noundef nonnull %26, ptr noundef nonnull %21, ptr noundef nonnull %26, ptr noundef nonnull %32, ptr noundef nonnull %144, ptr noundef nonnull %145, ptr noundef nonnull %69, ptr noundef %gep602, ptr noundef %gep734, ptr noundef nonnull %149, ptr noundef %gep736, ptr noundef nonnull %28, ptr noundef nonnull %33, ptr noundef nonnull %gep738, ptr noundef %303, ptr noundef nonnull %76)
   %311 = load double, ptr %28, align 8
@@ -645,10 +645,10 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   br label %331
 
 331:                                              ; preds = %324, %326, %321
-  %.0470 = phi double [ %322, %321 ], [ %325, %324 ], [ %330, %326 ]
-  %332 = add nuw nsw i32 %.0467, 1
+  %.0471 = phi double [ %322, %321 ], [ %325, %324 ], [ %330, %326 ]
+  %332 = add nuw nsw i32 %.0482, 1
   %333 = load double, ptr %9, align 8
-  %334 = fmul double %.0470, %333
+  %334 = fmul double %.0471, %333
   %335 = fcmp ogt double %316, %334
   br i1 %335, label %336, label %344
 
@@ -667,12 +667,12 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   br i1 %exitcond661.not, label %344, label %309
 
 344:                                              ; preds = %342, %336, %331
-  %345 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv662
+  %345 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv664
   store i32 1, ptr %345, align 4
   %346 = load i32, ptr %38, align 4
   %347 = icmp eq i32 %346, 1
   %348 = zext i1 %347 to i32
-  %spec.select511 = add nsw i32 %.3461544, %348
+  %spec.select511 = add nsw i32 %.3475543, %348
   %349 = load i32, ptr %303, align 4
   %350 = load i32, ptr %302, align 4
   %reass.sub642 = sub i32 %350, %349
@@ -684,9 +684,9 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %355 = sext i32 %354 to i64
   %356 = getelementptr inbounds double, ptr %48, i64 %355
   call void @dscal_(ptr noundef nonnull %18, ptr noundef nonnull %36, ptr noundef %356, ptr noundef nonnull %21)
-  %indvars.iv.next663 = add nsw i64 %indvars.iv662, 1
   %indvars.iv.next665 = add nsw i64 %indvars.iv664, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next665 to i32
+  %indvars.iv.next663 = add nsw i64 %indvars.iv662, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next663 to i32
   %exitcond671.not = icmp eq i32 %indvars.iv669, %lftr.wideiv
   br i1 %exitcond671.not, label %._crit_edge545, label %.preheader, !llvm.loop !11
 
@@ -709,8 +709,8 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   br i1 %.not500551, label %.preheader512, label %.lr.ph556
 
 .preheader512:                                    ; preds = %._crit_edge550, %358
-  %.0465.lcssa = phi i32 [ %363, %358 ], [ %412, %._crit_edge550 ]
-  %.0464.lcssa = phi i32 [ %364, %358 ], [ %414, %._crit_edge550 ]
+  %.0480.lcssa = phi i32 [ %363, %358 ], [ %412, %._crit_edge550 ]
+  %.0479.lcssa = phi i32 [ %364, %358 ], [ %414, %._crit_edge550 ]
   %.not502559 = icmp sgt i32 %220, %366
   br i1 %.not502559, label %._crit_edge562, label %.lr.ph561.preheader
 
@@ -720,8 +720,8 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   br label %.lr.ph561
 
 .lr.ph556:                                        ; preds = %358, %._crit_edge550
-  %.0464554 = phi i32 [ %414, %._crit_edge550 ], [ %364, %358 ]
-  %.0465553 = phi i32 [ %412, %._crit_edge550 ], [ %363, %358 ]
+  %.0479554 = phi i32 [ %414, %._crit_edge550 ], [ %364, %358 ]
+  %.0480553 = phi i32 [ %412, %._crit_edge550 ], [ %363, %358 ]
   %storemerge552 = phi i32 [ %415, %._crit_edge550 ], [ %219, %358 ]
   %369 = add nsw i32 %storemerge552, -1
   store i32 %369, ptr %18, align 4
@@ -786,10 +786,10 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %409 = getelementptr i32, ptr %49, i64 %408
   %410 = getelementptr i8, ptr %409, i64 -4
   %411 = load i32, ptr %410, align 4
-  %412 = call i32 @llvm.smin.i32(i32 %.0465553, i32 %411)
-  store i32 %.0464554, ptr %18, align 4
+  %412 = call i32 @llvm.smin.i32(i32 %.0480553, i32 %411)
+  store i32 %.0479554, ptr %18, align 4
   %413 = load i32, ptr %409, align 4
-  %414 = call i32 @llvm.smax.i32(i32 %.0464554, i32 %413)
+  %414 = call i32 @llvm.smax.i32(i32 %.0479554, i32 %413)
   %415 = add nsw i32 %406, 1
   store i32 %415, ptr %23, align 4
   %.not500.not = icmp slt i32 %406, %366
@@ -802,8 +802,8 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %418 = sext i32 %417 to i64
   %419 = getelementptr i32, ptr %49, i64 %418
   %420 = getelementptr i8, ptr %419, i64 -4
-  store i32 %.0465.lcssa, ptr %420, align 4
-  store i32 %.0464.lcssa, ptr %419, align 4
+  store i32 %.0480.lcssa, ptr %420, align 4
+  store i32 %.0479.lcssa, ptr %419, align 4
   %indvars.iv.next673 = add nsw i64 %indvars.iv672, 1
   %.not502.not = icmp slt i64 %indvars.iv672, %368
   br i1 %.not502.not, label %.lr.ph561, label %._crit_edge562.loopexit, !llvm.loop !14
@@ -820,8 +820,8 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   br label %._crit_edge545.thread
 
 ._crit_edge545.thread:                            ; preds = %.preheader513, %._crit_edge545, %._crit_edge562, %259, %294, %266
-  %.5463 = phi i32 [ %.2460592, %259 ], [ %296, %294 ], [ %.2460592, %266 ], [ %423, %._crit_edge562 ], [ %spec.select511, %._crit_edge545 ], [ %.2460592, %.preheader513 ]
-  %.3456 = phi i32 [ %260, %259 ], [ %.2455593, %294 ], [ %.2455593, %266 ], [ %.2455593, %._crit_edge562 ], [ %.2455593, %._crit_edge545 ], [ %.2455593, %.preheader513 ]
+  %.5477 = phi i32 [ %.2474589, %259 ], [ %296, %294 ], [ %.2474589, %266 ], [ %423, %._crit_edge562 ], [ %spec.select511, %._crit_edge545 ], [ %.2474589, %.preheader513 ]
+  %.3460 = phi i32 [ %260, %259 ], [ %.2459593, %294 ], [ %.2459593, %266 ], [ %.2459593, %._crit_edge562 ], [ %.2459593, %._crit_edge545 ], [ %.2459593, %.preheader513 ]
   %424 = trunc i64 %indvars.iv695 to i32
   %425 = add i32 %424, 1
   store i32 %425, ptr %35, align 4
@@ -832,8 +832,8 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %427 = phi i32 [ %.pre714, %._crit_edge545.thread ], [ %203, %229 ], [ %203, %225 ]
   %428 = phi i32 [ %425, %._crit_edge545.thread ], [ %204, %229 ], [ %204, %225 ]
   %429 = phi i32 [ %425, %._crit_edge545.thread ], [ %205, %229 ], [ %205, %225 ]
-  %.6 = phi i32 [ %.5463, %._crit_edge545.thread ], [ %.2460592, %229 ], [ %.2460592, %225 ]
-  %.4457 = phi i32 [ %.3456, %._crit_edge545.thread ], [ %.2455593, %229 ], [ %.2455593, %225 ]
+  %.6 = phi i32 [ %.5477, %._crit_edge545.thread ], [ %.2474589, %229 ], [ %.2474589, %225 ]
+  %.4461 = phi i32 [ %.3460, %._crit_edge545.thread ], [ %.2459593, %229 ], [ %.2459593, %225 ]
   %.4 = phi double [ %.3594, %._crit_edge545.thread ], [ %231, %229 ], [ %226, %225 ]
   %indvars.iv.next696 = add nsw i64 %indvars.iv695, 1
   %430 = sext i32 %427 to i64
@@ -841,8 +841,8 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   br i1 %.not498.not, label %.lr.ph596, label %._crit_edge597, !llvm.loop !15
 
 ._crit_edge597:                                   ; preds = %426, %201
-  %.2460.lcssa = phi i32 [ %.1459607, %201 ], [ %.6, %426 ]
-  %.2455.lcssa = phi i32 [ %.1454608, %201 ], [ %.4457, %426 ]
+  %.2474.lcssa = phi i32 [ %.1473606, %201 ], [ %.6, %426 ]
+  %.2459.lcssa = phi i32 [ %.1458607, %201 ], [ %.4461, %426 ]
   %.3.lcssa = phi double [ %.2609, %201 ], [ %.4, %426 ]
   %indvars.iv.next699 = add nuw nsw i64 %indvars.iv698, 1
   %exitcond702.not = icmp eq i64 %indvars.iv.next699, %wide.trip.count701
@@ -854,32 +854,32 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
 
 ._crit_edge612:                                   ; preds = %._crit_edge612.loopexit, %152
   %431 = phi i32 [ %153, %152 ], [ %.pre715, %._crit_edge612.loopexit ]
-  %.1459.lcssa = phi i32 [ %.0458616, %152 ], [ %.2460.lcssa, %._crit_edge612.loopexit ]
-  %.1454.lcssa = phi i32 [ 0, %152 ], [ %.2455.lcssa, %._crit_edge612.loopexit ]
+  %.1473.lcssa = phi i32 [ %.0472616, %152 ], [ %.2474.lcssa, %._crit_edge612.loopexit ]
+  %.1458.lcssa = phi i32 [ 0, %152 ], [ %.2459.lcssa, %._crit_edge612.loopexit ]
   %.2.lcssa = phi double [ %.1619, %152 ], [ %.3.lcssa, %._crit_edge612.loopexit ]
   %432 = add nuw nsw i32 %.0447618, 1
-  %433 = icmp slt i32 %.1459.lcssa, %431
+  %433 = icmp slt i32 %.1473.lcssa, %431
   br i1 %433, label %152, label %.lr.ph629.preheader
 
 .lr.ph629.preheader:                              ; preds = %._crit_edge612, %._crit_edge529
   %.1.lcssa = phi double [ %.0445639, %._crit_edge529 ], [ %.2.lcssa, %._crit_edge612 ]
   %434 = shl i32 %.0449638, 1
   %435 = sext i32 %434 to i64
-  %436 = add i32 %.0468.lcssa, 1
+  %436 = add i32 %.0483.lcssa, 1
   %437 = insertelement <2 x i32> poison, i32 %109, i64 0
   %438 = shufflevector <2 x i32> %437, <2 x i32> poison, <2 x i32> zeroinitializer
   br label %.lr.ph629
 
 .lr.ph629:                                        ; preds = %.lr.ph629.preheader, %.lr.ph629
   %indvars.iv703 = phi i64 [ %435, %.lr.ph629.preheader ], [ %indvars.iv.next704, %.lr.ph629 ]
-  %.3483626 = phi i32 [ %.0449638, %.lr.ph629.preheader ], [ %441, %.lr.ph629 ]
+  %.3456627 = phi i32 [ %.0449638, %.lr.ph629.preheader ], [ %441, %.lr.ph629 ]
   %gep766 = getelementptr i32, ptr %invariant.gep765, i64 %indvars.iv703
   %439 = load <2 x i32>, ptr %gep766, align 4
   %440 = add nsw <2 x i32> %439, %438
   store <2 x i32> %440, ptr %gep766, align 4
   %indvars.iv.next704 = add nsw i64 %indvars.iv703, 2
-  %441 = add i32 %.3483626, 1
-  %exitcond706.not = icmp eq i32 %.3483626, %.0468.lcssa
+  %441 = add i32 %.3456627, 1
+  %exitcond706.not = icmp eq i32 %.3456627, %.0483.lcssa
   br i1 %exitcond706.not, label %._crit_edge630, label %.lr.ph629, !llvm.loop !17
 
 ._crit_edge630:                                   ; preds = %.lr.ph629, %.split.loop.exit723, %98

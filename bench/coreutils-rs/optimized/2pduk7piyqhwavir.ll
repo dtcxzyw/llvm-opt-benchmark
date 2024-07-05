@@ -196,9 +196,9 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %44
 71:                                               ; preds = %.noexc62, %.noexc61
   %.sroa.02.sroa.5.0.i = phi i64 [ %64, %.noexc61 ], [ undef, %.noexc62 ]
   %.sroa.02.sroa.0.sroa.0.0.i = phi i64 [ %66, %.noexc61 ], [ %.sroa.02.sroa.0.sroa.0.0.copyload66.i, %.noexc62 ]
+  %.sroa.53.0.i = phi i64 [ 0, %.noexc61 ], [ 2, %.noexc62 ]
   %.sroa.02.sroa.0.sroa.5.0.i = phi ptr [ %67, %.noexc61 ], [ %.sroa.02.sroa.0.sroa.5.0.copyload68.i, %.noexc62 ]
   %.sroa.02.sroa.0.sroa.6.0.i = phi i64 [ 1, %.noexc61 ], [ %.sroa.02.sroa.0.sroa.6.0.copyload70.i, %.noexc62 ]
-  %.sroa.53.0.i = phi i64 [ 0, %.noexc61 ], [ 2, %.noexc62 ]
   store i64 %.sroa.02.sroa.0.sroa.0.0.i, ptr %0, align 8, !alias.scope !5, !noalias !8
   %.sroa.02.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.02.sroa.0.sroa.5.0.i, ptr %.sroa.02.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !5, !noalias !8
@@ -834,8 +834,8 @@ define internal fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75
   br label %.thread131
 
 .thread131:                                       ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17habf7bd49184cc23aE.exit99", %17
-  %.151 = phi i64 [ 1, %17 ], [ %31, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17habf7bd49184cc23aE.exit99" ]
-  %.049 = phi i32 [ 16, %17 ], [ %spec.select144, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17habf7bd49184cc23aE.exit99" ]
+  %.051 = phi i32 [ 16, %17 ], [ %spec.select144, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17habf7bd49184cc23aE.exit99" ]
+  %.150 = phi i64 [ 1, %17 ], [ %31, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17habf7bd49184cc23aE.exit99" ]
   %.148 = phi i64 [ %18, %17 ], [ %.047.ph170175183, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17habf7bd49184cc23aE.exit99" ]
   %.1 = phi i64 [ %2, %17 ], [ %spec.select145, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17habf7bd49184cc23aE.exit99" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -845,8 +845,8 @@ define internal fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75
 52:                                               ; preds = %.thread131.thread, %.thread131
   %.1194 = phi i64 [ %.047.ph170175183, %.thread131.thread ], [ %.1, %.thread131 ]
   %.148192 = phi i64 [ %.047.ph170175183, %.thread131.thread ], [ %.148, %.thread131 ]
-  %.049191 = phi i32 [ 8, %.thread131.thread ], [ %.049, %.thread131 ]
-  %.151190 = phi i64 [ %31, %.thread131.thread ], [ %.151, %.thread131 ]
+  %.150191 = phi i64 [ %31, %.thread131.thread ], [ %.150, %.thread131 ]
+  %.051190 = phi i32 [ 8, %.thread131.thread ], [ %.051, %.thread131 ]
   %53 = icmp eq i64 %.148192, 0
   br i1 %53, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i104", label %54
 
@@ -891,12 +891,12 @@ define internal fastcc void @_ZN5uu_od12parse_inputs20parse_offset_operand17he75
 68:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i107", %62, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i104"
   %69 = getelementptr inbounds i8, ptr %1, i64 %.148192
   %70 = sub i64 %.1194, %.148192
-  call void @"_ZN4core3num21_$LT$impl$u20$u64$GT$14from_str_radix17hf41f6e5d064fa014E"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %69, i64 noundef %70, i32 noundef %.049191)
+  call void @"_ZN4core3num21_$LT$impl$u20$u64$GT$14from_str_radix17hf41f6e5d064fa014E"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %69, i64 noundef %70, i32 noundef %.051190)
   %71 = load i8, ptr %4, align 8, !range !124, !noundef !4
   %trunc = trunc nuw i8 %71 to i1
   %72 = getelementptr inbounds i8, ptr %4, i64 8
   %73 = load i64, ptr %72, align 8
-  %74 = mul i64 %73, %.151190
+  %74 = mul i64 %73, %.150191
   %.sink154 = select i1 %trunc, ptr @anon.13accb9a4f1adf839dc9dd6c82dc791e.52, ptr null
   %.sink = select i1 %trunc, i64 12, i64 %74
   store ptr %.sink154, ptr %0, align 8

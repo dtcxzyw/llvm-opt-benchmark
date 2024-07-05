@@ -608,8 +608,8 @@ line_segments_distance.exit:                      ; preds = %dist.exit.i70.i, %2
   br label %373
 
 373:                                              ; preds = %.preheader104, %365, %335, %323, %298, %371, %361, %350
-  %.089 = phi double [ %351, %350 ], [ %362, %361 ], [ %372, %371 ], [ %., %298 ], [ 0.000000e+00, %323 ], [ %331, %335 ], [ %331, %365 ], [ -2.000000e+00, %.preheader104 ]
-  ret double %.089
+  %.088 = phi double [ %351, %350 ], [ %362, %361 ], [ %372, %371 ], [ %., %298 ], [ 0.000000e+00, %323 ], [ %331, %335 ], [ %331, %365 ], [ -2.000000e+00, %.preheader104 ]
+  ret double %.088
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

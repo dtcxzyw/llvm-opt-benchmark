@@ -443,8 +443,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %282 = icmp eq i32 %248, %132
   %283 = select <8 x i1> %278, <8 x i32> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i243627262945, <8 x i32> zeroinitializer
   %284 = select <8 x i1> %280, <8 x i32> %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i243727272946, <8 x i32> zeroinitializer
-  %.sroa.6.0 = select i1 %282, <8 x i32> %284, <8 x i32> %281
   %.sroa.02226.0 = select i1 %282, <8 x i32> %283, <8 x i32> %279
+  %.sroa.6.0 = select i1 %282, <8 x i32> %284, <8 x i32> %281
   %285 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %272, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %286 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %277, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %287 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %285)
@@ -1209,8 +1209,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %833 = icmp eq i32 %799, %132
   %834 = select <8 x i1> %829, <8 x i32> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i243627262945, <8 x i32> zeroinitializer
   %835 = select <8 x i1> %831, <8 x i32> %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i243727272946, <8 x i32> zeroinitializer
-  %.sroa.62319.0 = select i1 %833, <8 x i32> %835, <8 x i32> %832
   %.sroa.02315.0 = select i1 %833, <8 x i32> %834, <8 x i32> %830
+  %.sroa.62319.0 = select i1 %833, <8 x i32> %835, <8 x i32> %832
   %836 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %823, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %837 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %828, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %838 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %836)

@@ -19,8 +19,8 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
   br label %8
 
 8:                                                ; preds = %.lr.ph, %63
-  %.04855 = phi i32 [ %3, %.lr.ph ], [ %64, %63 ]
-  %9 = zext nneg i32 %.04855 to i64
+  %.04955 = phi i32 [ %3, %.lr.ph ], [ %64, %63 ]
+  %9 = zext nneg i32 %.04955 to i64
   %10 = getelementptr inbounds %struct.varInfo, ptr %7, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
@@ -29,7 +29,7 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i32, ptr %6, i64 %15
   %17 = load i32, ptr %16, align 4
-  %18 = icmp sgt i32 %.04855, %17
+  %18 = icmp sgt i32 %.04955, %17
   br i1 %18, label %19, label %63
 
 19:                                               ; preds = %8
@@ -42,7 +42,7 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i32, ptr %21, i64 %25
   %27 = load i32, ptr %26, align 4
-  store i32 %.04855, ptr %26, align 4
+  store i32 %.04955, ptr %26, align 4
   %28 = load ptr, ptr %5, align 8
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds %struct.varInfo, ptr %29, i64 %9
@@ -63,19 +63,19 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
   %44 = getelementptr inbounds %struct.varInfo, ptr %37, i64 %43, i32 1
   store i32 %42, ptr %44, align 4
   %45 = load i32, ptr %2, align 8
-  %46 = icmp sgt i32 %45, %.04855
+  %46 = icmp sgt i32 %45, %.04955
   br i1 %46, label %.lr.ph57, label %._crit_edge
 
 .lr.ph57:                                         ; preds = %19, %.lr.ph57
-  %.056 = phi i32 [ %52, %.lr.ph57 ], [ %45, %19 ]
+  %.04856 = phi i32 [ %52, %.lr.ph57 ], [ %45, %19 ]
   %47 = load ptr, ptr %0, align 8
-  %48 = zext nneg i32 %.056 to i64
+  %48 = zext nneg i32 %.04856 to i64
   %49 = getelementptr inbounds %struct.varInfo, ptr %47, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = sub nsw i32 0, %50
   store i32 %51, ptr %49, align 4
-  %52 = add nsw i32 %.056, -1
-  %53 = icmp sgt i32 %52, %.04855
+  %52 = add nsw i32 %.04856, -1
+  %53 = icmp sgt i32 %52, %.04955
   br i1 %53, label %.lr.ph57, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph57, %19
@@ -93,13 +93,13 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
   br label %.loopexit
 
 63:                                               ; preds = %8
-  %64 = add nsw i32 %.04855, -1
-  %65 = icmp sgt i32 %.04855, 2
+  %64 = add nsw i32 %.04955, -1
+  %65 = icmp sgt i32 %.04955, 2
   br i1 %65, label %8, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %63, %1, %._crit_edge
-  %.049 = phi i32 [ 1, %._crit_edge ], [ 0, %1 ], [ 0, %63 ]
-  ret i32 %.049
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %1 ], [ 0, %63 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -156,8 +156,8 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
   br label %.lr.ph.i13
 
 .lr.ph.i13:                                       ; preds = %.lr.ph.i13.preheader, %48
-  %.04855.i = phi i32 [ %49, %48 ], [ %4, %.lr.ph.i13.preheader ]
-  %23 = zext nneg i32 %.04855.i to i64
+  %.04955.i = phi i32 [ %49, %48 ], [ %4, %.lr.ph.i13.preheader ]
+  %23 = zext nneg i32 %.04955.i to i64
   %24 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
@@ -166,7 +166,7 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i32, ptr %10, i64 %29
   %31 = load i32, ptr %30, align 4
-  %32 = icmp sgt i32 %.04855.i, %31
+  %32 = icmp sgt i32 %.04955.i, %31
   br i1 %32, label %33, label %48
 
 33:                                               ; preds = %.lr.ph.i13
@@ -174,30 +174,30 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
   %35 = getelementptr inbounds i32, ptr %10, i64 %29
   store i32 %28, ptr %34, align 4
   %36 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %23, i32 1
-  store i32 %.04855.i, ptr %35, align 4
+  store i32 %.04955.i, ptr %35, align 4
   %37 = sext i32 %26 to i64
   %38 = getelementptr inbounds i32, ptr %10, i64 %37
   store i32 %31, ptr %38, align 4
   %39 = sext i32 %31 to i64
   %40 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %39, i32 1
   store i32 %26, ptr %40, align 4
-  %41 = icmp sgt i32 %4, %.04855.i
+  %41 = icmp sgt i32 %4, %.04955.i
   br i1 %41, label %.lr.ph57.i, label %.loopexit
 
 .lr.ph57.i:                                       ; preds = %33, %.lr.ph57.i
-  %.056.i = phi i32 [ %46, %.lr.ph57.i ], [ %4, %33 ]
-  %42 = zext nneg i32 %.056.i to i64
+  %.04856.i = phi i32 [ %46, %.lr.ph57.i ], [ %4, %33 ]
+  %42 = zext nneg i32 %.04856.i to i64
   %43 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = sub nsw i32 0, %44
   store i32 %45, ptr %43, align 4
-  %46 = add nsw i32 %.056.i, -1
-  %47 = icmp sgt i32 %46, %.04855.i
+  %46 = add nsw i32 %.04856.i, -1
+  %47 = icmp sgt i32 %46, %.04955.i
   br i1 %47, label %.lr.ph57.i, label %.loopexit, !llvm.loop !4
 
 48:                                               ; preds = %.lr.ph.i13
-  %49 = add nsw i32 %.04855.i, -1
-  %50 = icmp sgt i32 %.04855.i, 2
+  %49 = add nsw i32 %.04955.i, -1
+  %50 = icmp sgt i32 %.04955.i, 2
   br i1 %50, label %.lr.ph.i13, label %.loopexit16, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph57.i, %33
@@ -586,12 +586,12 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0185 = phi i32 [ 0, %.lr.ph.preheader ], [ %17, %.lr.ph ]
+  %.0153184 = phi i32 [ 0, %.lr.ph.preheader ], [ %17, %.lr.ph ]
   %14 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
-  store i32 %.0185, ptr %14, align 4
+  store i32 %.0153184, ptr %14, align 4
   %15 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
-  %17 = add nsw i32 %16, %.0185
+  %17 = add nsw i32 %16, %.0153184
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -821,10 +821,10 @@ minWord3.exit:                                    ; preds = %minWord3.exit.sink.
   br label %126
 
 126:                                              ; preds = %109, %118
-  %.1 = phi i32 [ %125, %118 ], [ 0, %109 ]
+  %.1155 = phi i32 [ %125, %118 ], [ 0, %109 ]
   %127 = getelementptr inbounds i32, ptr %12, i64 %105
   %128 = load i32, ptr %127, align 4
-  %129 = add nsw i32 %128, %.1
+  %129 = add nsw i32 %128, %.1155
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %6, i32 noundef %129) #11
   br i1 %.not, label %140, label %130
 
@@ -891,11 +891,11 @@ minWord3.exit176:                                 ; preds = %minWord3.exit176.si
   br label %._crit_edge211
 
 ._crit_edge211:                                   ; preds = %._crit_edge211.loopexit, %._crit_edge207
-  %.2.lcssa = phi i32 [ %22, %._crit_edge207 ], [ %155, %._crit_edge211.loopexit ]
+  %.2156.lcssa = phi i32 [ %22, %._crit_edge207 ], [ %155, %._crit_edge211.loopexit ]
   %.lcssa182 = phi i64 [ %50, %._crit_edge207 ], [ %indvars.iv.next246, %._crit_edge211.loopexit ]
   %.lcssa181 = phi ptr [ %51, %._crit_edge207 ], [ %149, %._crit_edge211.loopexit ]
   %.lcssa = phi i32 [ %143, %._crit_edge207 ], [ %150, %._crit_edge211.loopexit ]
-  %156 = icmp eq i32 %.2.lcssa, 0
+  %156 = icmp eq i32 %.2156.lcssa, 0
   br i1 %156, label %160, label %157
 
 157:                                              ; preds = %._crit_edge211

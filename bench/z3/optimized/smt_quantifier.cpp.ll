@@ -3588,9 +3588,9 @@ _ZN6vectorIP10quantifierLb0EjE3endEv.exit21:      ; preds = %if.end53
   br i1 %cmp63.not47, label %for.end75, label %for.body64
 
 for.body64:                                       ; preds = %_ZN6vectorIP10quantifierLb0EjE3endEv.exit21, %for.inc73
-  %__begin256.049 = phi ptr [ %incdec.ptr74, %for.inc73 ], [ %15, %_ZN6vectorIP10quantifierLb0EjE3endEv.exit21 ]
-  %result.248 = phi i8 [ %result.3, %for.inc73 ], [ %result.0.lcssa, %_ZN6vectorIP10quantifierLb0EjE3endEv.exit21 ]
-  %18 = load ptr, ptr %__begin256.049, align 8
+  %result.249 = phi i8 [ %result.3, %for.inc73 ], [ %result.0.lcssa, %_ZN6vectorIP10quantifierLb0EjE3endEv.exit21 ]
+  %__begin256.048 = phi ptr [ %incdec.ptr74, %for.inc73 ], [ %15, %_ZN6vectorIP10quantifierLb0EjE3endEv.exit21 ]
+  %18 = load ptr, ptr %__begin256.048, align 8
   %19 = load ptr, ptr %m_context, align 8
   %call.i.i.i31 = invoke noundef i32 @_ZNK3smt7context13relevancy_lvlEv(ptr noundef nonnull align 8 dereferenceable(11616) %19)
           to label %call.i.i.i.noexc30 unwind label %lpad.loopexit
@@ -3625,12 +3625,12 @@ land.lhs.true68:                                  ; preds = %invoke.cont66
           to label %invoke.cont69 unwind label %lpad.loopexit
 
 invoke.cont69:                                    ; preds = %land.lhs.true68
-  %spec.select11 = select i1 %call70, i8 0, i8 %result.248
+  %spec.select11 = select i1 %call70, i8 0, i8 %result.249
   br label %for.inc73
 
 for.inc73:                                        ; preds = %call2.i.i.i.noexc32, %invoke.cont69, %invoke.cont66
-  %result.3 = phi i8 [ %result.248, %invoke.cont66 ], [ %spec.select11, %invoke.cont69 ], [ %result.248, %call2.i.i.i.noexc32 ]
-  %incdec.ptr74 = getelementptr inbounds i8, ptr %__begin256.049, i64 8
+  %result.3 = phi i8 [ %result.249, %invoke.cont66 ], [ %spec.select11, %invoke.cont69 ], [ %result.249, %call2.i.i.i.noexc32 ]
+  %incdec.ptr74 = getelementptr inbounds i8, ptr %__begin256.048, i64 8
   %cmp63.not = icmp eq ptr %incdec.ptr74, %add.ptr.i20
   br i1 %cmp63.not, label %for.end75, label %for.body64
 

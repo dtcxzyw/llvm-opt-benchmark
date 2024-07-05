@@ -230,7 +230,7 @@ pk_write_ec_param.exit:                           ; preds = %36, %42
   br label %49
 
 49:                                               ; preds = %47, %29
-  %.0 = phi i64 [ %48, %47 ], [ 0, %29 ]
+  %.043 = phi i64 [ %48, %47 ], [ 0, %29 ]
   %50 = call i32 @mbedtls_oid_get_oid_by_pk_alg(i32 noundef %34, ptr noundef nonnull %9, ptr noundef nonnull %8) #5
   %.not = icmp eq i32 %50, 0
   br i1 %.not, label %51, label %68
@@ -238,7 +238,7 @@ pk_write_ec_param.exit:                           ; preds = %36, %42
 51:                                               ; preds = %49
   %52 = load ptr, ptr %9, align 8
   %53 = load i64, ptr %8, align 8
-  %54 = call i32 @mbedtls_asn1_write_algorithm_identifier(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %52, i64 noundef %53, i64 noundef %.0) #5
+  %54 = call i32 @mbedtls_asn1_write_algorithm_identifier(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %52, i64 noundef %53, i64 noundef %.043) #5
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %68, label %56
 
@@ -261,8 +261,8 @@ pk_write_ec_param.exit:                           ; preds = %36, %42
   br label %68
 
 68:                                               ; preds = %61, %56, %51, %49, %pk_write_ec_param.exit, %26, %21, %15, %11, %3, %64
-  %.043 = phi i32 [ %67, %64 ], [ -108, %3 ], [ %13, %11 ], [ -108, %15 ], [ %24, %21 ], [ %27, %26 ], [ %.0.i59, %pk_write_ec_param.exit ], [ %50, %49 ], [ %54, %51 ], [ %59, %56 ], [ %62, %61 ]
-  ret i32 %.043
+  %.0 = phi i32 [ %67, %64 ], [ -108, %3 ], [ %13, %11 ], [ -108, %15 ], [ %24, %21 ], [ %27, %26 ], [ %.0.i59, %pk_write_ec_param.exit ], [ %50, %49 ], [ %54, %51 ], [ %59, %56 ], [ %62, %61 ]
+  ret i32 %.0
 }
 
 declare i32 @mbedtls_asn1_write_len(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -425,21 +425,21 @@ define hidden i32 @mbedtls_pk_write_key_der(ptr noundef %0, ptr noundef %1, i64 
   br label %173
 
 73:                                               ; preds = %64, %57, %50, %43, %36, %30, %24, %15
+  %.0117 = phi i64 [ 0, %15 ], [ %25, %24 ], [ %31, %30 ], [ %38, %36 ], [ %45, %43 ], [ %52, %50 ], [ %59, %57 ], [ %66, %64 ]
   %.0116 = phi i32 [ %20, %15 ], [ %26, %24 ], [ %32, %30 ], [ %39, %36 ], [ %46, %43 ], [ %53, %50 ], [ %60, %57 ], [ %67, %64 ]
-  %.0 = phi i64 [ 0, %15 ], [ %25, %24 ], [ %31, %30 ], [ %38, %36 ], [ %45, %43 ], [ %52, %50 ], [ %59, %57 ], [ %66, %64 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %9) #5
   %74 = icmp slt i32 %.0116, 0
   br i1 %74, label %173, label %75
 
 75:                                               ; preds = %.thread186, %73
-  %.0189 = phi i64 [ %72, %.thread186 ], [ %.0, %73 ]
+  %.0117189 = phi i64 [ %72, %.thread186 ], [ %.0117, %73 ]
   %76 = call i32 @mbedtls_asn1_write_int(ptr noundef nonnull %8, ptr noundef %1, i32 noundef 0) #5
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %173, label %78
 
 78:                                               ; preds = %75
   %79 = zext nneg i32 %76 to i64
-  %80 = add nuw nsw i64 %.0189, %79
+  %80 = add nuw nsw i64 %.0117189, %79
   %81 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %8, ptr noundef %1, i64 noundef %80) #5
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %173, label %83
@@ -604,8 +604,8 @@ pk_write_ec_pubkey.exit:                          ; preds = %89, %105
   br label %173
 
 173:                                              ; preds = %pk_write_ec_pubkey.exit.thread, %.thread, %86, %166, %153, %150, %147, %144, %140, %135, %132, %125, %122, %117, %111, %pk_write_ec_pubkey.exit, %83, %78, %75, %73, %3, %169
-  %.0117 = phi i32 [ %172, %169 ], [ -108, %3 ], [ %.0116, %73 ], [ %76, %75 ], [ %81, %78 ], [ %84, %83 ], [ %.0.i183, %pk_write_ec_pubkey.exit ], [ -108, %111 ], [ %120, %117 ], [ %123, %122 ], [ %130, %125 ], [ %133, %132 ], [ %138, %135 ], [ %142, %140 ], [ %145, %144 ], [ %148, %147 ], [ %151, %150 ], [ %164, %153 ], [ %167, %166 ], [ -14720, %86 ], [ %.0116.ph, %.thread ], [ -108, %pk_write_ec_pubkey.exit.thread ]
-  ret i32 %.0117
+  %.0 = phi i32 [ %172, %169 ], [ -108, %3 ], [ %.0116, %73 ], [ %76, %75 ], [ %81, %78 ], [ %84, %83 ], [ %.0.i183, %pk_write_ec_pubkey.exit ], [ -108, %111 ], [ %120, %117 ], [ %123, %122 ], [ %130, %125 ], [ %133, %132 ], [ %138, %135 ], [ %142, %140 ], [ %145, %144 ], [ %148, %147 ], [ %151, %150 ], [ %164, %153 ], [ %167, %166 ], [ -14720, %86 ], [ %.0116.ph, %.thread ], [ -108, %pk_write_ec_pubkey.exit.thread ]
+  ret i32 %.0
 }
 
 declare void @mbedtls_mpi_init(ptr noundef) local_unnamed_addr #1

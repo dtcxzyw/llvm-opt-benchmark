@@ -86,22 +86,22 @@ define i64 @Xz_GetUnpackSize(ptr nocapture noundef readonly %0) local_unnamed_ad
   br label %8
 
 6:                                                ; preds = %8
-  %7 = add nuw i64 %.014, 1
+  %7 = add nuw i64 %.01014, 1
   %exitcond.not = icmp eq i64 %7, %3
   br i1 %exitcond.not, label %._crit_edge, label %8
 
 8:                                                ; preds = %.lr.ph, %6
-  %.014 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
-  %.01013 = phi i64 [ 0, %.lr.ph ], [ %11, %6 ]
-  %9 = getelementptr inbounds %struct.CXzBlockSizes, ptr %5, i64 %.014
+  %.01014 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
+  %.01113 = phi i64 [ 0, %.lr.ph ], [ %11, %6 ]
+  %9 = getelementptr inbounds %struct.CXzBlockSizes, ptr %5, i64 %.01014
   %10 = load i64, ptr %9, align 8
-  %11 = add i64 %10, %.01013
-  %12 = icmp ult i64 %11, %.01013
+  %11 = add i64 %10, %.01113
+  %12 = icmp ult i64 %11, %.01113
   br i1 %12, label %._crit_edge, label %6
 
 ._crit_edge:                                      ; preds = %8, %6, %1
-  %.011 = phi i64 [ 0, %1 ], [ %11, %6 ], [ -1, %8 ]
-  ret i64 %.011
+  %.0 = phi i64 [ 0, %1 ], [ %11, %6 ], [ -1, %8 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -117,24 +117,24 @@ define i64 @Xz_GetPackSize(ptr nocapture noundef readonly %0) local_unnamed_addr
   br label %8
 
 6:                                                ; preds = %8
-  %7 = add nuw i64 %.014, 1
+  %7 = add nuw i64 %.01014, 1
   %exitcond.not = icmp eq i64 %7, %3
   br i1 %exitcond.not, label %._crit_edge, label %8
 
 8:                                                ; preds = %.lr.ph, %6
-  %.014 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
-  %.01013 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
-  %9 = getelementptr inbounds %struct.CXzBlockSizes, ptr %5, i64 %.014, i32 1
+  %.01014 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
+  %.01113 = phi i64 [ 0, %.lr.ph ], [ %13, %6 ]
+  %9 = getelementptr inbounds %struct.CXzBlockSizes, ptr %5, i64 %.01014, i32 1
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 3
   %12 = and i64 %11, -4
-  %13 = add i64 %12, %.01013
-  %14 = icmp ult i64 %13, %.01013
+  %13 = add i64 %12, %.01113
+  %14 = icmp ult i64 %13, %.01113
   br i1 %14, label %._crit_edge, label %6
 
 ._crit_edge:                                      ; preds = %8, %6, %1
-  %.011 = phi i64 [ 0, %1 ], [ %13, %6 ], [ -1, %8 ]
-  ret i64 %.011
+  %.0 = phi i64 [ 0, %1 ], [ %13, %6 ], [ -1, %8 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -213,14 +213,14 @@ define i64 @Xzs_GetUnpackSize(ptr nocapture noundef readonly %0) local_unnamed_a
   br label %7
 
 5:                                                ; preds = %Xz_GetUnpackSize.exit
-  %6 = add nuw i64 %.014, 1
+  %6 = add nuw i64 %.01014, 1
   %exitcond.not = icmp eq i64 %6, %2
   br i1 %exitcond.not, label %._crit_edge, label %7
 
 7:                                                ; preds = %.lr.ph, %5
-  %.014 = phi i64 [ 0, %.lr.ph ], [ %6, %5 ]
-  %.01013 = phi i64 [ 0, %.lr.ph ], [ %20, %5 ]
-  %8 = getelementptr inbounds %struct.CXzStream, ptr %4, i64 %.014
+  %.01014 = phi i64 [ 0, %.lr.ph ], [ %6, %5 ]
+  %.01113 = phi i64 [ 0, %.lr.ph ], [ %20, %5 ]
+  %8 = getelementptr inbounds %struct.CXzStream, ptr %4, i64 %.01014
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
   %.not.i = icmp eq i64 %10, 0
@@ -232,28 +232,28 @@ define i64 @Xzs_GetUnpackSize(ptr nocapture noundef readonly %0) local_unnamed_a
   br label %15
 
 13:                                               ; preds = %15
-  %14 = add nuw i64 %.014.i, 1
+  %14 = add nuw i64 %.01014.i, 1
   %exitcond.not.i = icmp eq i64 %14, %10
   br i1 %exitcond.not.i, label %Xz_GetUnpackSize.exit, label %15
 
 15:                                               ; preds = %13, %.lr.ph.i
-  %.014.i = phi i64 [ 0, %.lr.ph.i ], [ %14, %13 ]
-  %.01013.i = phi i64 [ 0, %.lr.ph.i ], [ %18, %13 ]
-  %16 = getelementptr inbounds %struct.CXzBlockSizes, ptr %12, i64 %.014.i
+  %.01014.i = phi i64 [ 0, %.lr.ph.i ], [ %14, %13 ]
+  %.01113.i = phi i64 [ 0, %.lr.ph.i ], [ %18, %13 ]
+  %16 = getelementptr inbounds %struct.CXzBlockSizes, ptr %12, i64 %.01014.i
   %17 = load i64, ptr %16, align 8
-  %18 = add i64 %17, %.01013.i
-  %19 = icmp ult i64 %18, %.01013.i
+  %18 = add i64 %17, %.01113.i
+  %19 = icmp ult i64 %18, %.01113.i
   br i1 %19, label %Xz_GetUnpackSize.exit, label %13
 
 Xz_GetUnpackSize.exit:                            ; preds = %13, %15, %7
-  %.011.i = phi i64 [ 0, %7 ], [ -1, %15 ], [ %18, %13 ]
-  %20 = add i64 %.011.i, %.01013
-  %21 = icmp ult i64 %20, %.01013
+  %.0.i = phi i64 [ 0, %7 ], [ -1, %15 ], [ %18, %13 ]
+  %20 = add i64 %.0.i, %.01113
+  %21 = icmp ult i64 %20, %.01113
   br i1 %21, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %Xz_GetUnpackSize.exit, %5, %1
-  %.011 = phi i64 [ 0, %1 ], [ %20, %5 ], [ -1, %Xz_GetUnpackSize.exit ]
-  ret i64 %.011
+  %.0 = phi i64 [ 0, %1 ], [ %20, %5 ], [ -1, %Xz_GetUnpackSize.exit ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -325,16 +325,16 @@ define i32 @Xzs_ReadBackward(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   br label %40
 
 40:                                               ; preds = %55, %37
-  %.081.i = phi i64 [ 0, %37 ], [ %45, %55 ]
+  %.080.i = phi i64 [ 0, %37 ], [ %45, %55 ]
   %41 = load i64, ptr %2, align 8
   %42 = icmp slt i64 %41, 12
-  %43 = icmp ugt i64 %.081.i, 65536
+  %43 = icmp ugt i64 %.080.i, 65536
   %or.cond.i = select i1 %42, i1 true, i1 %43
   br i1 %or.cond.i, label %Xz_ReadBackward.exit.thread, label %44
 
 44:                                               ; preds = %40
   %spec.select.i = call i64 @llvm.umin.i64(i64 %41, i64 1024)
-  %45 = add nuw nsw i64 %spec.select.i, %.081.i
+  %45 = add nuw nsw i64 %spec.select.i, %.080.i
   %46 = sub nsw i64 0, %spec.select.i
   store i64 %46, ptr %2, align 8
   %47 = load ptr, ptr %12, align 8
@@ -439,27 +439,27 @@ define i32 @Xzs_ReadBackward(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   br label %95
 
 93:                                               ; preds = %95
-  %94 = add nuw i64 %.014.i.i, 1
+  %94 = add nuw i64 %.01014.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %94, %91
   br i1 %exitcond.not.i.i, label %Xz_GetPackSize.exit.i, label %95
 
 95:                                               ; preds = %93, %.lr.ph.i.i
-  %.014.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %94, %93 ]
-  %.01013.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %100, %93 ]
-  %96 = getelementptr inbounds %struct.CXzBlockSizes, ptr %92, i64 %.014.i.i, i32 1
+  %.01014.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %94, %93 ]
+  %.01113.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %100, %93 ]
+  %96 = getelementptr inbounds %struct.CXzBlockSizes, ptr %92, i64 %.01014.i.i, i32 1
   %97 = load i64, ptr %96, align 8
   %98 = add i64 %97, 3
   %99 = and i64 %98, -4
-  %100 = add i64 %99, %.01013.i.i
-  %101 = icmp ult i64 %100, %.01013.i.i
+  %100 = add i64 %99, %.01113.i.i
+  %101 = icmp ult i64 %100, %.01113.i.i
   br i1 %101, label %Xz_ReadBackward.exit.thread, label %93
 
 Xz_GetPackSize.exit.i:                            ; preds = %93, %90
-  %.011.i.i = phi i64 [ 0, %90 ], [ %100, %93 ]
+  %.0.i.i = phi i64 [ 0, %90 ], [ %100, %93 ]
   %102 = add nsw i64 %83, 16
-  %103 = add i64 %102, %.011.i.i
+  %103 = add i64 %102, %.0.i.i
   %104 = icmp slt i64 %103, 0
-  %105 = icmp slt i64 %.011.i.i, 0
+  %105 = icmp slt i64 %.0.i.i, 0
   %or.cond5.i = select i1 %105, i1 true, i1 %104
   br i1 %or.cond5.i, label %Xz_ReadBackward.exit.thread, label %106
 
@@ -656,12 +656,12 @@ define internal fastcc i32 @Xz_ReadIndex(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %42, label %Xz_ReadIndex2.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %35, %60
-  %.05875.i = phi i64 [ %62, %60 ], [ %30, %35 ]
-  %.05974.i = phi i64 [ %63, %60 ], [ 0, %35 ]
+  %.05875.i = phi i64 [ %63, %60 ], [ 0, %35 ]
+  %.05974.i = phi i64 [ %62, %60 ], [ %30, %35 ]
   %43 = load ptr, ptr %41, align 8
-  %44 = getelementptr inbounds %struct.CXzBlockSizes, ptr %43, i64 %.05974.i
-  %45 = getelementptr inbounds i8, ptr %9, i64 %.05875.i
-  %46 = sub i64 %19, %.05875.i
+  %44 = getelementptr inbounds %struct.CXzBlockSizes, ptr %43, i64 %.05875.i
+  %45 = getelementptr inbounds i8, ptr %9, i64 %.05974.i
+  %46 = sub i64 %19, %.05974.i
   %47 = getelementptr inbounds i8, ptr %44, i64 8
   %48 = call i32 @Xz_ReadVarInt(ptr noundef nonnull %45, i64 noundef %46, ptr noundef nonnull %47) #9
   %49 = icmp eq i32 %48, 0
@@ -669,7 +669,7 @@ define internal fastcc i32 @Xz_ReadIndex(ptr noundef %0, ptr noundef %1, i64 nou
 
 50:                                               ; preds = %.preheader.i
   %51 = zext i32 %48 to i64
-  %52 = add i64 %.05875.i, %51
+  %52 = add i64 %.05974.i, %51
   %53 = getelementptr inbounds i8, ptr %9, i64 %52
   %54 = sub i64 %19, %52
   %55 = call i32 @Xz_ReadVarInt(ptr noundef nonnull %53, i64 noundef %54, ptr noundef %44) #9
@@ -684,7 +684,7 @@ define internal fastcc i32 @Xz_ReadIndex(ptr noundef %0, ptr noundef %1, i64 nou
 60:                                               ; preds = %57
   %61 = zext i32 %55 to i64
   %62 = add i64 %52, %61
-  %63 = add nuw i64 %.05974.i, 1
+  %63 = add nuw i64 %.05875.i, 1
   %exitcond.not.i = icmp eq i64 %63, %31
   br i1 %exitcond.not.i, label %.loopexit70.i.preheader, label %.preheader.i
 
@@ -716,15 +716,15 @@ Xz_ReadIndex2.exit:                               ; preds = %.preheader.i, %50, 
   br label %72
 
 72:                                               ; preds = %Xz_ReadIndex2.exit, %11
-  %.0 = phi i32 [ %.0.i, %Xz_ReadIndex2.exit ], [ %12, %11 ]
+  %.020 = phi i32 [ %.0.i, %Xz_ReadIndex2.exit ], [ %12, %11 ]
   %73 = getelementptr inbounds i8, ptr %3, i64 8
   %74 = load ptr, ptr %73, align 8
   call void %74(ptr noundef nonnull %3, ptr noundef nonnull %9) #9
   br label %75
 
 75:                                               ; preds = %7, %4, %72
-  %.020 = phi i32 [ %.0, %72 ], [ 4, %4 ], [ 2, %7 ]
-  ret i32 %.020
+  %.0 = phi i32 [ %.020, %72 ], [ 4, %4 ], [ 2, %7 ]
+  ret i32 %.0
 }
 
 declare void @SecToRead_CreateVTable(ptr noundef) local_unnamed_addr #1

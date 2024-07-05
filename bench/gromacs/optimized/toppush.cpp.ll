@@ -6693,10 +6693,10 @@ define void @_Z13push_cmaptype9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEEiP2
   br label %.preheader164
 
 .preheader164:                                    ; preds = %.preheader164.lr.ph, %134
-  %.081171 = phi i32 [ 0, %.preheader164.lr.ph ], [ %135, %134 ]
-  %.087170 = phi i32 [ 0, %.preheader164.lr.ph ], [ %.188, %134 ]
-  %.089169 = phi i64 [ 0, %.preheader164.lr.ph ], [ %92, %134 ]
-  %sext = shl i64 %.089169, 32
+  %.0171 = phi i32 [ 0, %.preheader164.lr.ph ], [ %.1, %134 ]
+  %.080170 = phi i64 [ 0, %.preheader164.lr.ph ], [ %92, %134 ]
+  %.090169 = phi i32 [ 0, %.preheader164.lr.ph ], [ %135, %134 ]
+  %sext = shl i64 %.080170, 32
   %82 = ashr exact i64 %sext, 32
   br label %83
 
@@ -6790,7 +6790,7 @@ _ZNSt6vectorIfSaIfEE12emplace_backIJdEEERfDpOT_.exit: ; preds = %96, %_ZNSt6vect
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %_ZNSt6vectorIfSaIfEE12emplace_backIJdEEERfDpOT_.exit
-  %126 = add nsw i32 %.087170, 1
+  %126 = add nsw i32 %.0171, 1
   br label %134
 
 127:                                              ; preds = %_ZNSt6vectorIfSaIfEE12emplace_backIJdEEERfDpOT_.exit
@@ -6812,13 +6812,13 @@ _ZNSt6vectorIfSaIfEE12emplace_backIJdEEERfDpOT_.exit: ; preds = %96, %_ZNSt6vect
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit138
 
 134:                                              ; preds = %125, %131
-  %.188 = phi i32 [ %126, %125 ], [ %.087170, %131 ]
-  %135 = add nuw nsw i32 %.081171, 1
+  %.1 = phi i32 [ %126, %125 ], [ %.0171, %131 ]
+  %135 = add nuw nsw i32 %.090169, 1
   %exitcond.not = icmp eq i32 %135, %65
   br i1 %exitcond.not, label %._crit_edge, label %.preheader164, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %134
-  %136 = icmp eq i32 %.188, %70
+  %136 = icmp eq i32 %.1, %70
   br i1 %136, label %.preheader, label %173
 
 ._crit_edge.thread:                               ; preds = %64
@@ -6908,8 +6908,8 @@ _ZNSt6vectorIfSaIfEE12emplace_backIJRfEEES3_DpOT_.exit: ; preds = %146, %_ZNSt6v
   br i1 %exitcond181.not, label %.loopexit163, label %141, !llvm.loop !93
 
 173:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %.087.lcssa190 = phi i32 [ 0, %._crit_edge.thread ], [ %.188, %._crit_edge ]
-  %174 = icmp slt i32 %.087.lcssa190, %70
+  %.0.lcssa190 = phi i32 [ 0, %._crit_edge.thread ], [ %.1, %._crit_edge ]
+  %174 = icmp slt i32 %.0.lcssa190, %70
   br i1 %174, label %175, label %176
 
 175:                                              ; preds = %173
@@ -6917,8 +6917,8 @@ _ZNSt6vectorIfSaIfEE12emplace_backIJRfEEES3_DpOT_.exit: ; preds = %146, %_ZNSt6v
   br label %.loopexit163
 
 176:                                              ; preds = %173
-  %177 = icmp sgt i32 %.087.lcssa190, %70
-  %178 = icmp slt i32 %.087.lcssa190, %75
+  %177 = icmp sgt i32 %.0.lcssa190, %70
+  %178 = icmp slt i32 %.0.lcssa190, %75
   %or.cond = select i1 %177, i1 %178, i1 false
   br i1 %or.cond, label %179, label %180
 
@@ -6927,7 +6927,7 @@ _ZNSt6vectorIfSaIfEE12emplace_backIJRfEEES3_DpOT_.exit: ; preds = %146, %_ZNSt6v
   br label %.loopexit163
 
 180:                                              ; preds = %176
-  %181 = icmp sgt i32 %.087.lcssa190, %75
+  %181 = icmp sgt i32 %.0.lcssa190, %75
   br i1 %181, label %182, label %.loopexit163
 
 182:                                              ; preds = %180
@@ -7573,9 +7573,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59: ; 
 _ZSteqIiiENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit: ; preds = %70, %98, %107, %110, %103, %73, %62
   %.sroa.066.0 = phi i32 [ %.sroa.082.0.extract.trunc, %70 ], [ %.sroa.066.0.extract.trunc, %98 ], [ %.sroa.066.0.extract.trunc, %107 ], [ %.sroa.066.0.extract.trunc, %110 ], [ %.sroa.066.0.extract.trunc, %103 ], [ %.sroa.082.0.extract.trunc, %73 ], [ %.sroa.082.0.extract.trunc, %62 ]
   %.sroa.6.0.in = phi i64 [ %.sroa.8.0.extract.shift89, %70 ], [ %.sroa.6.0.extract.shift, %98 ], [ %.sroa.6.0.extract.shift, %107 ], [ %.sroa.6.0.extract.shift, %110 ], [ %.sroa.6.0.extract.shift, %103 ], [ %.sroa.8.0.extract.shift89, %73 ], [ %.sroa.8.0.extract.shift89, %62 ]
-  %.040 = phi float [ %72, %70 ], [ %72, %98 ], [ %72, %107 ], [ %72, %110 ], [ %72, %103 ], [ %72, %73 ], [ %65, %62 ]
-  %.039 = phi float [ %67, %70 ], [ %102, %98 ], [ %109, %107 ], [ %109, %110 ], [ %102, %103 ], [ %75, %73 ], [ %67, %62 ]
-  %.038 = phi float [ %72, %70 ], [ %100, %98 ], [ %105, %107 ], [ %105, %110 ], [ %105, %103 ], [ %72, %73 ], [ %65, %62 ]
+  %.040 = phi float [ %67, %70 ], [ %102, %98 ], [ %109, %107 ], [ %109, %110 ], [ %102, %103 ], [ %75, %73 ], [ %67, %62 ]
+  %.039 = phi float [ %72, %70 ], [ %100, %98 ], [ %105, %107 ], [ %105, %110 ], [ %105, %103 ], [ %72, %73 ], [ %65, %62 ]
+  %.032 = phi float [ %72, %70 ], [ %72, %98 ], [ %72, %107 ], [ %72, %110 ], [ %72, %103 ], [ %72, %73 ], [ %65, %62 ]
   %.0 = phi float [ %67, %70 ], [ %75, %98 ], [ %75, %107 ], [ %75, %110 ], [ %75, %103 ], [ %75, %73 ], [ %67, %62 ]
   %111 = load i32, ptr %11, align 4
   %112 = call i64 @_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %.sroa.082.0.extract.trunc)
@@ -7675,7 +7675,7 @@ _ZSteqIiiENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3std
   br label %200
 
 151:                                              ; preds = %138, %128
-  %.0105.i = phi i8 [ %134, %138 ], [ 32, %128 ]
+  %.0108.i = phi i8 [ %134, %138 ], [ 32, %128 ]
   %152 = call i64 @strtol(ptr nocapture noundef nonnull %15, ptr noundef null, i32 noundef 10) #25
   %153 = trunc i64 %152 to i32
   %154 = icmp sgt i32 %116, 0
@@ -7699,10 +7699,10 @@ _ZSteqIiiENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3std
   br label %.critedge.i
 
 162:                                              ; preds = %161, %.thread.i
-  %.0106124.i = phi i32 [ %160, %.thread.i ], [ 0, %161 ]
+  %.0105124.i = phi i32 [ %160, %.thread.i ], [ 0, %161 ]
   %163 = getelementptr inbounds i8, ptr %1, i64 48
   %164 = load ptr, ptr %163, align 8
-  %165 = sext i32 %.0106124.i to i64
+  %165 = sext i32 %.0105124.i to i64
   %166 = getelementptr inbounds %struct.t_resinfo, ptr %164, i64 %165
   %167 = load ptr, ptr %166, align 8
   %168 = load ptr, ptr %167, align 8
@@ -7719,17 +7719,17 @@ _ZSteqIiiENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3std
 173:                                              ; preds = %170
   %174 = getelementptr inbounds i8, ptr %166, i64 12
   %175 = load i8, ptr %174, align 4
-  %.not118.i = icmp eq i8 %.0105.i, %175
+  %.not118.i = icmp eq i8 %.0108.i, %175
   br i1 %.not118.i, label %192, label %176
 
 176:                                              ; preds = %173, %170, %162
-  %177 = add nsw i32 %.0106124.i, 1
+  %177 = add nsw i32 %.0105124.i, 1
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %176, %..critedge_crit_edge.i
   %178 = phi ptr [ %.pre.i, %..critedge_crit_edge.i ], [ %164, %176 ]
-  %.1107.i = phi i32 [ 0, %..critedge_crit_edge.i ], [ %177, %176 ]
-  %179 = add nsw i32 %.1107.i, 1
+  %.1106.i = phi i32 [ 0, %..critedge_crit_edge.i ], [ %177, %176 ]
+  %179 = add nsw i32 %.1106.i, 1
   %180 = getelementptr inbounds i8, ptr %1, i64 40
   store i32 %179, ptr %180, align 8
   %181 = getelementptr inbounds i8, ptr %1, i64 48
@@ -7738,7 +7738,7 @@ _ZSteqIiiENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3std
   store ptr %183, ptr %181, align 8
   %184 = call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef %0, ptr noundef nonnull %16)
   %185 = load ptr, ptr %181, align 8
-  %186 = sext i32 %.1107.i to i64
+  %186 = sext i32 %.1106.i to i64
   %187 = getelementptr inbounds %struct.t_resinfo, ptr %185, i64 %186
   store ptr %184, ptr %187, align 8
   %188 = load ptr, ptr %181, align 8
@@ -7746,7 +7746,7 @@ _ZSteqIiiENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3std
   store i32 %153, ptr %189, align 8
   %190 = load ptr, ptr %181, align 8
   %191 = getelementptr inbounds %struct.t_resinfo, ptr %190, i64 %186, i32 2
-  store i8 %.0105.i, ptr %191, align 4
+  store i8 %.0108.i, ptr %191, align 4
   %.phi.trans.insert125.i = getelementptr inbounds i8, ptr %1, i64 8
   %.pre126.i = load ptr, ptr %.phi.trans.insert125.i, align 8
   br label %_ZL13push_atom_nowP8t_symtabP7t_atomsiiiPc12ParticleTypeS3_S3_S3_ffiS3_ffP14WarningHandler.exit
@@ -7773,7 +7773,7 @@ common.resume:                                    ; preds = %38, %.body, %61, %.
 
 _ZL13push_atom_nowP8t_symtabP7t_atomsiiiPc12ParticleTypeS3_S3_S3_ffiS3_ffP14WarningHandler.exit: ; preds = %.critedge.i, %192
   %201 = phi ptr [ %.pre126.i, %.critedge.i ], [ %194, %192 ]
-  %.2108.i = phi i32 [ %.1107.i, %.critedge.i ], [ %199, %192 ]
+  %.2107.i = phi i32 [ %.1106.i, %.critedge.i ], [ %199, %192 ]
   %202 = getelementptr inbounds i8, ptr %1, i64 8
   %203 = sext i32 %120 to i64
   %204 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.9, i32 noundef 1395, ptr noundef %201, i64 noundef %203, i64 noundef 36)
@@ -7800,7 +7800,7 @@ _ZL13push_atom_nowP8t_symtabP7t_atomsiiiPc12ParticleTypeS3_S3_S3_ffiS3_ffP14Warn
   store i32 %.sroa.080.0.extract.trunc, ptr %219, align 4
   %220 = load ptr, ptr %202, align 8
   %221 = getelementptr inbounds %struct.t_atom, ptr %220, i64 %216, i32 1
-  store float %.040, ptr %221, align 4
+  store float %.032, ptr %221, align 4
   %222 = load ptr, ptr %202, align 8
   %223 = getelementptr inbounds %struct.t_atom, ptr %222, i64 %216
   store float %.0, ptr %223, align 4
@@ -7810,13 +7810,13 @@ _ZL13push_atom_nowP8t_symtabP7t_atomsiiiPc12ParticleTypeS3_S3_S3_ffiS3_ffP14Warn
   store i16 %224, ptr %226, align 2
   %227 = load ptr, ptr %202, align 8
   %228 = getelementptr inbounds %struct.t_atom, ptr %227, i64 %216, i32 3
-  store float %.038, ptr %228, align 4
+  store float %.039, ptr %228, align 4
   %229 = load ptr, ptr %202, align 8
   %230 = getelementptr inbounds %struct.t_atom, ptr %229, i64 %216, i32 2
-  store float %.039, ptr %230, align 4
+  store float %.040, ptr %230, align 4
   %231 = load ptr, ptr %202, align 8
   %232 = getelementptr inbounds %struct.t_atom, ptr %231, i64 %216, i32 7
-  store i32 %.2108.i, ptr %232, align 4
+  store i32 %.2107.i, ptr %232, align 4
   %233 = load ptr, ptr %202, align 8
   %234 = getelementptr inbounds %struct.t_atom, ptr %233, i64 %216, i32 8
   store i32 %.sroa.0.0.extract.trunc, ptr %234, align 4
@@ -8825,9 +8825,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc300
   br label %164
 
 164:                                              ; preds = %"_ZZ9push_bond9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEES3_P7t_atomsP22PreprocessingAtomTypesPcbbfbPbP14WarningHandlerENK3$_0clEi.exit.i", %.lr.ph.i
-  %.sroa.05.012.i = phi ptr [ %158, %.lr.ph.i ], [ %174, %"_ZZ9push_bond9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEES3_P7t_atomsP22PreprocessingAtomTypesPcbbfbPbP14WarningHandlerENK3$_0clEi.exit.i" ]
-  %.sroa.07.011.i = phi ptr [ %17, %.lr.ph.i ], [ %173, %"_ZZ9push_bond9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEES3_P7t_atomsP22PreprocessingAtomTypesPcbbfbPbP14WarningHandlerENK3$_0clEi.exit.i" ]
-  %165 = load i32, ptr %.sroa.07.011.i, align 4
+  %.sroa.07.012.i = phi ptr [ %17, %.lr.ph.i ], [ %173, %"_ZZ9push_bond9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEES3_P7t_atomsP22PreprocessingAtomTypesPcbbfbPbP14WarningHandlerENK3$_0clEi.exit.i" ]
+  %.sroa.05.011.i = phi ptr [ %158, %.lr.ph.i ], [ %174, %"_ZZ9push_bond9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEES3_P7t_atomsP22PreprocessingAtomTypesPcbbfbPbP14WarningHandlerENK3$_0clEi.exit.i" ]
+  %165 = load i32, ptr %.sroa.07.012.i, align 4
   %.val.val.i = load ptr, ptr %163, align 8
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds %struct.t_atom, ptr %.val.val.i, i64 %166, i32 4
@@ -8850,9 +8850,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc300
 
 "_ZZ9push_bond9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEES3_P7t_atomsP22PreprocessingAtomTypesPcbbfbPbP14WarningHandlerENK3$_0clEi.exit.i": ; preds = %.noexc303
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %170 to i32
-  store i32 %.sroa.0.0.extract.trunc.i.i, ptr %.sroa.05.012.i, align 4
-  %173 = getelementptr inbounds i8, ptr %.sroa.07.011.i, i64 4
-  %174 = getelementptr inbounds i8, ptr %.sroa.05.012.i, i64 4
+  store i32 %.sroa.0.0.extract.trunc.i.i, ptr %.sroa.05.011.i, align 4
+  %173 = getelementptr inbounds i8, ptr %.sroa.07.012.i, i64 4
+  %174 = getelementptr inbounds i8, ptr %.sroa.05.011.i, i64 4
   %.not.i = icmp eq ptr %173, %156
   br i1 %.not.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i306, label %164, !llvm.loop !112
 
@@ -8881,9 +8881,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i308: ; preds = %.noexc312
   br label %182
 
 182:                                              ; preds = %"_ZZ9push_bond9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEES3_P7t_atomsP22PreprocessingAtomTypesPcbbfbPbP14WarningHandlerENK3$_1clEi.exit.i", %.lr.ph.i317
-  %.sroa.05.012.i318 = phi ptr [ %176, %.lr.ph.i317 ], [ %192, %"_ZZ9push_bond9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEES3_P7t_atomsP22PreprocessingAtomTypesPcbbfbPbP14WarningHandlerENK3$_1clEi.exit.i" ]
-  %.sroa.07.011.i319 = phi ptr [ %17, %.lr.ph.i317 ], [ %191, %"_ZZ9push_bond9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEES3_P7t_atomsP22PreprocessingAtomTypesPcbbfbPbP14WarningHandlerENK3$_1clEi.exit.i" ]
-  %183 = load i32, ptr %.sroa.07.011.i319, align 4
+  %.sroa.07.012.i318 = phi ptr [ %17, %.lr.ph.i317 ], [ %191, %"_ZZ9push_bond9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEES3_P7t_atomsP22PreprocessingAtomTypesPcbbfbPbP14WarningHandlerENK3$_1clEi.exit.i" ]
+  %.sroa.05.011.i319 = phi ptr [ %176, %.lr.ph.i317 ], [ %192, %"_ZZ9push_bond9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEES3_P7t_atomsP22PreprocessingAtomTypesPcbbfbPbP14WarningHandlerENK3$_1clEi.exit.i" ]
+  %183 = load i32, ptr %.sroa.07.012.i318, align 4
   %.val.val.i320 = load ptr, ptr %181, align 8
   %184 = sext i32 %183 to i64
   %185 = getelementptr inbounds %struct.t_atom, ptr %.val.val.i320, i64 %184, i32 5
@@ -8906,9 +8906,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i308: ; preds = %.noexc312
 
 "_ZZ9push_bond9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEES3_P7t_atomsP22PreprocessingAtomTypesPcbbfbPbP14WarningHandlerENK3$_1clEi.exit.i": ; preds = %.noexc325
   %.sroa.0.0.extract.trunc.i.i322 = trunc i64 %188 to i32
-  store i32 %.sroa.0.0.extract.trunc.i.i322, ptr %.sroa.05.012.i318, align 4
-  %191 = getelementptr inbounds i8, ptr %.sroa.07.011.i319, i64 4
-  %192 = getelementptr inbounds i8, ptr %.sroa.05.012.i318, i64 4
+  store i32 %.sroa.0.0.extract.trunc.i.i322, ptr %.sroa.05.011.i319, align 4
+  %191 = getelementptr inbounds i8, ptr %.sroa.07.012.i318, i64 4
+  %192 = getelementptr inbounds i8, ptr %.sroa.05.011.i319, i64 4
   %.not.i323 = icmp eq ptr %191, %156
   br i1 %.not.i323, label %.loopexit471, label %182, !llvm.loop !113
 
@@ -10023,10 +10023,10 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %31, %37
   %.04.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i, %37 ], [ 0, %31 ]
-  %.sroa.03.010.i.i.i.i.i.i.i = phi ptr [ %39, %37 ], [ %2, %31 ]
-  %.sroa.05.09.i.i.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.val2.i.i.i.i, %31 ]
-  %32 = load i32, ptr %.sroa.05.09.i.i.i.i.i.i.i, align 4
-  %33 = load i32, ptr %.sroa.03.010.i.i.i.i.i.i.i, align 4
+  %.sroa.05.010.i.i.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.val2.i.i.i.i, %31 ]
+  %.sroa.03.09.i.i.i.i.i.i.i = phi ptr [ %39, %37 ], [ %2, %31 ]
+  %32 = load i32, ptr %.sroa.05.010.i.i.i.i.i.i.i, align 4
+  %33 = load i32, ptr %.sroa.03.09.i.i.i.i.i.i.i, align 4
   %34 = icmp eq i32 %32, %33
   br i1 %34, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i.i.i.i"
 
@@ -10040,8 +10040,8 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 37:                                               ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i.i.i.i"
   %.1.i.i.i.i.i.i = phi i32 [ %35, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i.i.i.i" ], [ %.04.i.i.i.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i.i.i.i" ]
-  %38 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i.i.i.i, i64 4
-  %39 = getelementptr inbounds i8, ptr %.sroa.03.010.i.i.i.i.i.i.i, i64 4
+  %38 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i.i.i.i.i.i, i64 4
+  %39 = getelementptr inbounds i8, ptr %.sroa.03.09.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i = icmp eq ptr %38, %.val3.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !124
 
@@ -10071,10 +10071,10 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 .lr.ph.i.i.i.i39.i.i.i:                           ; preds = %50, %56
   %.04.i.i.i40.i.i.i = phi i32 [ %.1.i.i.i44.i.i.i, %56 ], [ 0, %50 ]
-  %.sroa.03.010.i.i.i.i41.i.i.i = phi ptr [ %58, %56 ], [ %2, %50 ]
-  %.sroa.05.09.i.i.i.i42.i.i.i = phi ptr [ %57, %56 ], [ %.val2.i36.i.i.i, %50 ]
-  %51 = load i32, ptr %.sroa.05.09.i.i.i.i42.i.i.i, align 4
-  %52 = load i32, ptr %.sroa.03.010.i.i.i.i41.i.i.i, align 4
+  %.sroa.05.010.i.i.i.i41.i.i.i = phi ptr [ %57, %56 ], [ %.val2.i36.i.i.i, %50 ]
+  %.sroa.03.09.i.i.i.i42.i.i.i = phi ptr [ %58, %56 ], [ %2, %50 ]
+  %51 = load i32, ptr %.sroa.05.010.i.i.i.i41.i.i.i, align 4
+  %52 = load i32, ptr %.sroa.03.09.i.i.i.i42.i.i.i, align 4
   %53 = icmp eq i32 %51, %52
   br i1 %53, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i46.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i43.i.i.i"
 
@@ -10088,8 +10088,8 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 56:                                               ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i43.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i46.i.i.i"
   %.1.i.i.i44.i.i.i = phi i32 [ %54, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i46.i.i.i" ], [ %.04.i.i.i40.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i43.i.i.i" ]
-  %57 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i42.i.i.i, i64 4
-  %58 = getelementptr inbounds i8, ptr %.sroa.03.010.i.i.i.i41.i.i.i, i64 4
+  %57 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i.i.i41.i.i.i, i64 4
+  %58 = getelementptr inbounds i8, ptr %.sroa.03.09.i.i.i.i42.i.i.i, i64 4
   %.not.i.i.i.i45.i.i.i = icmp eq ptr %57, %.val3.i37.i.i.i
   br i1 %.not.i.i.i.i45.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit47.i.i.i", label %.lr.ph.i.i.i.i39.i.i.i, !llvm.loop !124
 
@@ -10119,10 +10119,10 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 .lr.ph.i.i.i.i51.i.i.i:                           ; preds = %69, %75
   %.04.i.i.i52.i.i.i = phi i32 [ %.1.i.i.i56.i.i.i, %75 ], [ 0, %69 ]
-  %.sroa.03.010.i.i.i.i53.i.i.i = phi ptr [ %77, %75 ], [ %2, %69 ]
-  %.sroa.05.09.i.i.i.i54.i.i.i = phi ptr [ %76, %75 ], [ %.val2.i48.i.i.i, %69 ]
-  %70 = load i32, ptr %.sroa.05.09.i.i.i.i54.i.i.i, align 4
-  %71 = load i32, ptr %.sroa.03.010.i.i.i.i53.i.i.i, align 4
+  %.sroa.05.010.i.i.i.i53.i.i.i = phi ptr [ %76, %75 ], [ %.val2.i48.i.i.i, %69 ]
+  %.sroa.03.09.i.i.i.i54.i.i.i = phi ptr [ %77, %75 ], [ %2, %69 ]
+  %70 = load i32, ptr %.sroa.05.010.i.i.i.i53.i.i.i, align 4
+  %71 = load i32, ptr %.sroa.03.09.i.i.i.i54.i.i.i, align 4
   %72 = icmp eq i32 %70, %71
   br i1 %72, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i58.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i55.i.i.i"
 
@@ -10136,8 +10136,8 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 75:                                               ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i55.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i58.i.i.i"
   %.1.i.i.i56.i.i.i = phi i32 [ %73, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i58.i.i.i" ], [ %.04.i.i.i52.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i55.i.i.i" ]
-  %76 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i54.i.i.i, i64 4
-  %77 = getelementptr inbounds i8, ptr %.sroa.03.010.i.i.i.i53.i.i.i, i64 4
+  %76 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i.i.i53.i.i.i, i64 4
+  %77 = getelementptr inbounds i8, ptr %.sroa.03.09.i.i.i.i54.i.i.i, i64 4
   %.not.i.i.i.i57.i.i.i = icmp eq ptr %76, %.val3.i49.i.i.i
   br i1 %.not.i.i.i.i57.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit59.i.i.i", label %.lr.ph.i.i.i.i51.i.i.i, !llvm.loop !124
 
@@ -10167,10 +10167,10 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 .lr.ph.i.i.i.i63.i.i.i:                           ; preds = %88, %94
   %.04.i.i.i64.i.i.i = phi i32 [ %.1.i.i.i68.i.i.i, %94 ], [ 0, %88 ]
-  %.sroa.03.010.i.i.i.i65.i.i.i = phi ptr [ %96, %94 ], [ %2, %88 ]
-  %.sroa.05.09.i.i.i.i66.i.i.i = phi ptr [ %95, %94 ], [ %.val2.i60.i.i.i, %88 ]
-  %89 = load i32, ptr %.sroa.05.09.i.i.i.i66.i.i.i, align 4
-  %90 = load i32, ptr %.sroa.03.010.i.i.i.i65.i.i.i, align 4
+  %.sroa.05.010.i.i.i.i65.i.i.i = phi ptr [ %95, %94 ], [ %.val2.i60.i.i.i, %88 ]
+  %.sroa.03.09.i.i.i.i66.i.i.i = phi ptr [ %96, %94 ], [ %2, %88 ]
+  %89 = load i32, ptr %.sroa.05.010.i.i.i.i65.i.i.i, align 4
+  %90 = load i32, ptr %.sroa.03.09.i.i.i.i66.i.i.i, align 4
   %91 = icmp eq i32 %89, %90
   br i1 %91, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i70.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i67.i.i.i"
 
@@ -10184,8 +10184,8 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 94:                                               ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i67.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i70.i.i.i"
   %.1.i.i.i68.i.i.i = phi i32 [ %92, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i70.i.i.i" ], [ %.04.i.i.i64.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i67.i.i.i" ]
-  %95 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i66.i.i.i, i64 4
-  %96 = getelementptr inbounds i8, ptr %.sroa.03.010.i.i.i.i65.i.i.i, i64 4
+  %95 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i.i.i65.i.i.i, i64 4
+  %96 = getelementptr inbounds i8, ptr %.sroa.03.09.i.i.i.i66.i.i.i, i64 4
   %.not.i.i.i.i69.i.i.i = icmp eq ptr %95, %.val3.i61.i.i.i
   br i1 %.not.i.i.i.i69.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit71.i.i.i", label %.lr.ph.i.i.i.i63.i.i.i, !llvm.loop !124
 
@@ -10237,10 +10237,10 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 .lr.ph.i.i.i.i75.i.i.i:                           ; preds = %113, %119
   %.04.i.i.i76.i.i.i = phi i32 [ %.1.i.i.i80.i.i.i, %119 ], [ 0, %113 ]
-  %.sroa.03.010.i.i.i.i77.i.i.i = phi ptr [ %121, %119 ], [ %2, %113 ]
-  %.sroa.05.09.i.i.i.i78.i.i.i = phi ptr [ %120, %119 ], [ %.val2.i72.i.i.i, %113 ]
-  %114 = load i32, ptr %.sroa.05.09.i.i.i.i78.i.i.i, align 4
-  %115 = load i32, ptr %.sroa.03.010.i.i.i.i77.i.i.i, align 4
+  %.sroa.05.010.i.i.i.i77.i.i.i = phi ptr [ %120, %119 ], [ %.val2.i72.i.i.i, %113 ]
+  %.sroa.03.09.i.i.i.i78.i.i.i = phi ptr [ %121, %119 ], [ %2, %113 ]
+  %114 = load i32, ptr %.sroa.05.010.i.i.i.i77.i.i.i, align 4
+  %115 = load i32, ptr %.sroa.03.09.i.i.i.i78.i.i.i, align 4
   %116 = icmp eq i32 %114, %115
   br i1 %116, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i82.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i79.i.i.i"
 
@@ -10254,8 +10254,8 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 119:                                              ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i79.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i82.i.i.i"
   %.1.i.i.i80.i.i.i = phi i32 [ %117, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i82.i.i.i" ], [ %.04.i.i.i76.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i79.i.i.i" ]
-  %120 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i78.i.i.i, i64 4
-  %121 = getelementptr inbounds i8, ptr %.sroa.03.010.i.i.i.i77.i.i.i, i64 4
+  %120 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i.i.i77.i.i.i, i64 4
+  %121 = getelementptr inbounds i8, ptr %.sroa.03.09.i.i.i.i78.i.i.i, i64 4
   %.not.i.i.i.i81.i.i.i = icmp eq ptr %120, %.val3.i73.i.i.i
   br i1 %.not.i.i.i.i81.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit83.i.i.i", label %.lr.ph.i.i.i.i75.i.i.i, !llvm.loop !124
 
@@ -10296,10 +10296,10 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 .lr.ph.i.i.i.i87.i.i.i:                           ; preds = %134, %140
   %.04.i.i.i88.i.i.i = phi i32 [ %.1.i.i.i92.i.i.i, %140 ], [ 0, %134 ]
-  %.sroa.03.010.i.i.i.i89.i.i.i = phi ptr [ %142, %140 ], [ %2, %134 ]
-  %.sroa.05.09.i.i.i.i90.i.i.i = phi ptr [ %141, %140 ], [ %.val2.i84.i.i.i, %134 ]
-  %135 = load i32, ptr %.sroa.05.09.i.i.i.i90.i.i.i, align 4
-  %136 = load i32, ptr %.sroa.03.010.i.i.i.i89.i.i.i, align 4
+  %.sroa.05.010.i.i.i.i89.i.i.i = phi ptr [ %141, %140 ], [ %.val2.i84.i.i.i, %134 ]
+  %.sroa.03.09.i.i.i.i90.i.i.i = phi ptr [ %142, %140 ], [ %2, %134 ]
+  %135 = load i32, ptr %.sroa.05.010.i.i.i.i89.i.i.i, align 4
+  %136 = load i32, ptr %.sroa.03.09.i.i.i.i90.i.i.i, align 4
   %137 = icmp eq i32 %135, %136
   br i1 %137, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i94.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i91.i.i.i"
 
@@ -10313,8 +10313,8 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 140:                                              ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i91.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i94.i.i.i"
   %.1.i.i.i92.i.i.i = phi i32 [ %138, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i94.i.i.i" ], [ %.04.i.i.i88.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i91.i.i.i" ]
-  %141 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i90.i.i.i, i64 4
-  %142 = getelementptr inbounds i8, ptr %.sroa.03.010.i.i.i.i89.i.i.i, i64 4
+  %141 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i.i.i89.i.i.i, i64 4
+  %142 = getelementptr inbounds i8, ptr %.sroa.03.09.i.i.i.i90.i.i.i, i64 4
   %.not.i.i.i.i93.i.i.i = icmp eq ptr %141, %.val3.i85.i.i.i
   br i1 %.not.i.i.i.i93.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit95.i.i.i", label %.lr.ph.i.i.i.i87.i.i.i, !llvm.loop !124
 
@@ -10355,10 +10355,10 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 .lr.ph.i.i.i.i99.i.i.i:                           ; preds = %155, %161
   %.04.i.i.i100.i.i.i = phi i32 [ %.1.i.i.i104.i.i.i, %161 ], [ 0, %155 ]
-  %.sroa.03.010.i.i.i.i101.i.i.i = phi ptr [ %163, %161 ], [ %2, %155 ]
-  %.sroa.05.09.i.i.i.i102.i.i.i = phi ptr [ %162, %161 ], [ %.val2.i96.i.i.i, %155 ]
-  %156 = load i32, ptr %.sroa.05.09.i.i.i.i102.i.i.i, align 4
-  %157 = load i32, ptr %.sroa.03.010.i.i.i.i101.i.i.i, align 4
+  %.sroa.05.010.i.i.i.i101.i.i.i = phi ptr [ %162, %161 ], [ %.val2.i96.i.i.i, %155 ]
+  %.sroa.03.09.i.i.i.i102.i.i.i = phi ptr [ %163, %161 ], [ %2, %155 ]
+  %156 = load i32, ptr %.sroa.05.010.i.i.i.i101.i.i.i, align 4
+  %157 = load i32, ptr %.sroa.03.09.i.i.i.i102.i.i.i, align 4
   %158 = icmp eq i32 %156, %157
   br i1 %158, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i106.i.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i103.i.i.i"
 
@@ -10372,8 +10372,8 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 161:                                              ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i103.i.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i106.i.i.i"
   %.1.i.i.i104.i.i.i = phi i32 [ %159, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i.i.i106.i.i.i" ], [ %.04.i.i.i100.i.i.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i.i.i103.i.i.i" ]
-  %162 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i102.i.i.i, i64 4
-  %163 = getelementptr inbounds i8, ptr %.sroa.03.010.i.i.i.i101.i.i.i, i64 4
+  %162 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i.i.i101.i.i.i, i64 4
+  %163 = getelementptr inbounds i8, ptr %.sroa.03.09.i.i.i.i102.i.i.i, i64 4
   %.not.i.i.i.i105.i.i.i = icmp eq ptr %162, %.val3.i97.i.i.i
   br i1 %.not.i.i.i.i105.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18InteractionsOfTypeEENS3_IKiEEPiE3$_1EclINS_17__normal_iteratorIP17InteractionOfTypeSt6vectorISD_SaISD_EEEEEEbT_.exit107.i.i.i", label %.lr.ph.i.i.i.i99.i.i.i, !llvm.loop !124
 
@@ -10427,10 +10427,10 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 .lr.ph.i.i:                                       ; preds = %178, %184
   %.04.i = phi i32 [ %.1.i, %184 ], [ 0, %178 ]
-  %.sroa.03.010.i.i = phi ptr [ %186, %184 ], [ %2, %178 ]
-  %.sroa.05.09.i.i = phi ptr [ %185, %184 ], [ %.val, %178 ]
-  %179 = load i32, ptr %.sroa.05.09.i.i, align 4
-  %180 = load i32, ptr %.sroa.03.010.i.i, align 4
+  %.sroa.05.010.i.i = phi ptr [ %185, %184 ], [ %.val, %178 ]
+  %.sroa.03.09.i.i = phi ptr [ %186, %184 ], [ %2, %178 ]
+  %179 = load i32, ptr %.sroa.05.010.i.i, align 4
+  %180 = load i32, ptr %.sroa.03.09.i.i, align 4
   %181 = icmp eq i32 %179, %180
   br i1 %181, label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i", label %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i"
 
@@ -10444,8 +10444,8 @@ define internal fastcc ptr @_ZL25defaultInteractionsOfTypeiN3gmx8ArrayRefI18Inte
 
 184:                                              ; preds = %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i", %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i"
   %.1.i = phi i32 [ %182, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.thread.i.i" ], [ %.04.i, %"_ZZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEEENK3$_0clEii.exit.i.i" ]
-  %185 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i, i64 4
-  %186 = getelementptr inbounds i8, ptr %.sroa.03.010.i.i, i64 4
+  %185 = getelementptr inbounds i8, ptr %.sroa.05.010.i.i, i64 4
+  %186 = getelementptr inbounds i8, ptr %.sroa.03.09.i.i, i64 4
   %.not.i.i = icmp eq ptr %185, %.val40
   br i1 %.not.i.i, label %_ZL31findNumberOfDihedralAtomMatchesRK17InteractionOfTypeN3gmx8ArrayRefIKiEE.exit, label %.lr.ph.i.i, !llvm.loop !124
 
@@ -11433,8 +11433,8 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   br i1 %335, label %.lr.ph, label %.loopexit
 
 .thread117:                                       ; preds = %72, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit"
-  %.168120 = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit" ], [ %52, %72 ]
-  %336 = getelementptr inbounds i8, ptr %.168120, i64 24
+  %.170120 = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit" ], [ %52, %72 ]
+  %336 = getelementptr inbounds i8, ptr %.170120, i64 24
   br i1 %4, label %339, label %.preheader121
 
 .preheader121:                                    ; preds = %.thread117
@@ -11727,13 +11727,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %37, %40
 
 .lr.ph137:                                        ; preds = %.lr.ph137.preheader, %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit
   %indvars.iv152 = phi i64 [ 0, %.lr.ph137.preheader ], [ %indvars.iv.next153, %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit ]
-  %.sroa.11.0135 = phi ptr [ null, %.lr.ph137.preheader ], [ %.sroa.11.1, %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit ]
+  %.sroa.099.0135 = phi ptr [ null, %.lr.ph137.preheader ], [ %.sroa.099.1, %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit ]
   %.sroa.6.0134 = phi ptr [ null, %.lr.ph137.preheader ], [ %.sroa.6.1, %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit ]
-  %.sroa.099.0133 = phi ptr [ null, %.lr.ph137.preheader ], [ %.sroa.099.1, %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit ]
+  %.sroa.11.0133 = phi ptr [ null, %.lr.ph137.preheader ], [ %.sroa.11.1, %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit ]
   %83 = getelementptr inbounds [7 x i32], ptr %12, i64 0, i64 %indvars.iv152
   %84 = load i32, ptr %83, align 4
   %85 = add nsw i32 %84, -1
-  %.not.i = icmp eq ptr %.sroa.6.0134, %.sroa.11.0135
+  %.not.i = icmp eq ptr %.sroa.6.0134, %.sroa.11.0133
   br i1 %.not.i, label %87, label %86
 
 86:                                               ; preds = %.lr.ph137
@@ -11741,8 +11741,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %37, %40
   br label %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit
 
 87:                                               ; preds = %.lr.ph137
-  %88 = ptrtoint ptr %.sroa.11.0135 to i64
-  %89 = ptrtoint ptr %.sroa.099.0133 to i64
+  %88 = ptrtoint ptr %.sroa.6.0134 to i64
+  %89 = ptrtoint ptr %.sroa.099.0135 to i64
   %90 = sub i64 %88, %89
   %91 = icmp eq i64 %90, 9223372036854775804
   br i1 %91, label %92, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -11777,16 +11777,16 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %98, %_ZNKSt6vect
   br i1 %103, label %104, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
 
 104:                                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %101, ptr align 4 %.sroa.099.0133, i64 %90, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %101, ptr align 4 %.sroa.099.0135, i64 %90, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %104, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %105 = getelementptr inbounds i8, ptr %101, i64 %90
-  %.not.i17.i.i = icmp eq ptr %.sroa.099.0133, null
+  %.not.i17.i.i = icmp eq ptr %.sroa.099.0135, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %106
 
 106:                                              ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.099.0133) #27
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.099.0135) #27
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %106, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
@@ -11794,9 +11794,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit
 
 _ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit: ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %86
-  %.sroa.099.1 = phi ptr [ %101, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.099.0133, %86 ]
+  %.sroa.11.1 = phi ptr [ %107, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.11.0133, %86 ]
   %.pn111 = phi ptr [ %105, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.6.0134, %86 ]
-  %.sroa.11.1 = phi ptr [ %107, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.11.0135, %86 ]
+  %.sroa.099.1 = phi ptr [ %101, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.099.0135, %86 ]
   %.sroa.6.1 = getelementptr inbounds i8, ptr %.pn111, i64 4
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
@@ -11813,8 +11813,8 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit: ; preds = %_ZNSt6vectorIiS
   br label %258
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit, %47, %.preheader
-  %.sroa.099.0.lcssa = phi ptr [ null, %.preheader ], [ null, %47 ], [ %.sroa.099.1, %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit ]
   %.sroa.6.0.lcssa = phi ptr [ null, %.preheader ], [ null, %47 ], [ %.sroa.6.1, %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit ]
+  %.sroa.099.0.lcssa = phi ptr [ null, %.preheader ], [ null, %47 ], [ %.sroa.099.1, %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %17, i8 0, i64 48, i1 false)
   %108 = ptrtoint ptr %.sroa.6.0.lcssa to i64
   %109 = ptrtoint ptr %.sroa.099.0.lcssa to i64
@@ -12137,13 +12137,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %257, %_ZN17Interact
   br label %258
 
 258:                                              ; preds = %.loopexit112, %.loopexit.split-lp113, %.body89, %.body
-  %.sroa.099.0122 = phi ptr [ %.sroa.099.0.lcssa, %.body89 ], [ %.sroa.099.0.lcssa, %.body ], [ %.sroa.099.0133, %.loopexit112 ], [ %.sroa.099.0133, %.loopexit.split-lp113 ]
+  %.sroa.099.0120 = phi ptr [ %.sroa.099.0.lcssa, %.body89 ], [ %.sroa.099.0.lcssa, %.body ], [ %.sroa.099.0135, %.loopexit112 ], [ %.sroa.099.0135, %.loopexit.split-lp113 ]
   %.pn62 = phi { ptr, i32 } [ %.pn60, %.body89 ], [ %.pn, %.body ], [ %lpad.loopexit114, %.loopexit112 ], [ %lpad.loopexit.split-lp115, %.loopexit.split-lp113 ]
-  %.not.i.i.i92 = icmp eq ptr %.sroa.099.0122, null
+  %.not.i.i.i92 = icmp eq ptr %.sroa.099.0120, null
   br i1 %.not.i.i.i92, label %_ZNSt6vectorIiSaIiEED2Ev.exit93, label %259
 
 259:                                              ; preds = %258
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.099.0122) #27
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.099.0120) #27
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit93
 
 _ZNSt6vectorIiSaIiEED2Ev.exit93:                  ; preds = %259, %258, %80, %67, %41
@@ -12224,7 +12224,7 @@ define void @_Z12push_vsitesn9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_
   %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 0, %34 ]
   %.0112 = phi ptr [ %.1113, %101 ], [ null, %34 ]
   %.0109 = phi ptr [ %.1110, %101 ], [ null, %34 ]
-  %.061 = phi double [ %103, %101 ], [ 0.000000e+00, %34 ]
+  %.063 = phi double [ %103, %101 ], [ 0.000000e+00, %34 ]
   %.0 = phi ptr [ %.1, %101 ], [ %41, %34 ]
   %48 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.0, ptr noundef nonnull @.str.158, ptr noundef nonnull %9, ptr noundef nonnull %8) #25
   %49 = load i32, ptr %8, align 4
@@ -12241,16 +12241,16 @@ define void @_Z12push_vsitesn9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_
 
 57:                                               ; preds = %53
   %58 = add nuw nsw i64 %indvars.iv, 20
-  %59 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.9, i32 noundef 2431, ptr noundef %.0112, i64 noundef %58, i64 noundef 4)
-  %60 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.9, i32 noundef 2432, ptr noundef %.0109, i64 noundef %58, i64 noundef 8)
+  %59 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.9, i32 noundef 2431, ptr noundef %.0109, i64 noundef %58, i64 noundef 4)
+  %60 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.9, i32 noundef 2432, ptr noundef %.0112, i64 noundef %58, i64 noundef 8)
   br label %61
 
 61:                                               ; preds = %57, %53
-  %.1113 = phi ptr [ %59, %57 ], [ %.0112, %53 ]
-  %.1110 = phi ptr [ %60, %57 ], [ %.0109, %53 ]
+  %.1113 = phi ptr [ %60, %57 ], [ %.0112, %53 ]
+  %.1110 = phi ptr [ %59, %57 ], [ %.0109, %53 ]
   %62 = load i32, ptr %9, align 4
   %63 = add nsw i32 %62, -1
-  %64 = getelementptr inbounds i32, ptr %.1113, i64 %indvars.iv
+  %64 = getelementptr inbounds i32, ptr %.1110, i64 %indvars.iv
   store i32 %63, ptr %64, align 4
   %65 = load i32, ptr %7, align 4
   switch i32 %65, label %92 [
@@ -12268,7 +12268,7 @@ define void @_Z12push_vsitesn9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_
   br label %.sink.split
 
 72:                                               ; preds = %61
-  %73 = getelementptr inbounds double, ptr %.1110, i64 %indvars.iv
+  %73 = getelementptr inbounds double, ptr %.1113, i64 %indvars.iv
   store double -1.000000e+00, ptr %73, align 8
   %74 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %51, ptr noundef nonnull @.str.162, ptr noundef nonnull %73, ptr noundef nonnull %8) #25
   %75 = load i32, ptr %8, align 4
@@ -12279,7 +12279,7 @@ define void @_Z12push_vsitesn9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_
   br i1 %79, label %80, label %101
 
 80:                                               ; preds = %72
-  %81 = getelementptr inbounds i32, ptr %.1113, i64 %indvars.iv
+  %81 = getelementptr inbounds i32, ptr %.1110, i64 %indvars.iv
   %82 = add nuw nsw i32 %54, 1
   %83 = load i32, ptr %81, align 4
   %84 = add nsw i32 %83, 1
@@ -12340,7 +12340,7 @@ define void @_Z12push_vsitesn9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_
 
 .sink.split:                                      ; preds = %61, %66
   %.sink = phi double [ %71, %66 ], [ 1.000000e+00, %61 ]
-  %100 = getelementptr inbounds double, ptr %.1110, i64 %indvars.iv
+  %100 = getelementptr inbounds double, ptr %.1113, i64 %indvars.iv
   store double %.sink, ptr %100, align 8
   br label %101
 
@@ -12348,7 +12348,7 @@ define void @_Z12push_vsitesn9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_
   %102 = phi double [ %78, %72 ], [ %.sink, %.sink.split ]
   %.048 = phi i32 [ %74, %72 ], [ %48, %.sink.split ]
   %.1 = phi ptr [ %77, %72 ], [ %51, %.sink.split ]
-  %103 = fadd double %.061, %102
+  %103 = fadd double %.063, %102
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %104 = icmp sgt i32 %.048, 0
   br i1 %104, label %47, label %.thread125, !llvm.loop !139
@@ -12389,24 +12389,24 @@ define void @_Z12push_vsitesn9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_
 .thread125:                                       ; preds = %101, %105
   %.2114121133 = phi ptr [ %.0112, %105 ], [ %.1113, %101 ]
   %.2111122132 = phi ptr [ %.0109, %105 ], [ %.1110, %101 ]
-  %.164123131.in = phi i64 [ %indvars.iv, %105 ], [ %indvars.iv.next, %101 ]
-  %.162124130 = phi double [ %.061, %105 ], [ %103, %101 ]
-  %.164123131 = trunc i64 %.164123131.in to i32
-  %116 = fcmp oeq double %.162124130, 0.000000e+00
+  %.164123131 = phi double [ %.063, %105 ], [ %103, %101 ]
+  %.152124130.in = phi i64 [ %indvars.iv, %105 ], [ %indvars.iv.next, %101 ]
+  %.152124130 = trunc i64 %.152124130.in to i32
+  %116 = fcmp oeq double %.164123131, 0.000000e+00
   br i1 %116, label %124, label %.preheader
 
 .preheader:                                       ; preds = %.thread125
-  %117 = icmp sgt i32 %.164123131, 0
+  %117 = icmp sgt i32 %.152124130, 0
   br i1 %117, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %118 = uitofp nneg i32 %.164123131 to float
+  %118 = uitofp nneg i32 %.152124130 to float
   %119 = getelementptr inbounds i8, ptr %10, i64 4
   %120 = sext i32 %43 to i64
   %121 = getelementptr inbounds %struct.InteractionsOfType, ptr %1, i64 %120
   %122 = getelementptr inbounds i8, ptr %10, i64 48
   %123 = getelementptr inbounds i8, ptr %20, i64 72
-  %wide.trip.count = and i64 %.164123131.in, 2147483647
+  %wide.trip.count = and i64 %.152124130.in, 2147483647
   br label %128
 
 124:                                              ; preds = %.thread125
@@ -12425,7 +12425,7 @@ define void @_Z12push_vsitesn9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_
 
 128:                                              ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %indvars.iv192 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next193, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %129 = getelementptr inbounds i32, ptr %.2114121133, i64 %indvars.iv192
+  %129 = getelementptr inbounds i32, ptr %.2111122132, i64 %indvars.iv192
   %130 = load i32, ptr %129, align 4
   %131 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
   %132 = getelementptr inbounds i8, ptr %131, i64 8
@@ -12433,9 +12433,9 @@ define void @_Z12push_vsitesn9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_
   %.sroa.288.0..sroa_idx = getelementptr inbounds i8, ptr %131, i64 4
   store i32 %130, ptr %.sroa.288.0..sroa_idx, align 4
   store float %118, ptr %10, align 4
-  %133 = getelementptr inbounds double, ptr %.2111122132, i64 %indvars.iv192
+  %133 = getelementptr inbounds double, ptr %.2114121133, i64 %indvars.iv192
   %134 = load double, ptr %133, align 8
-  %135 = fdiv double %134, %.162124130
+  %135 = fdiv double %134, %.164123131
   %136 = fptrunc double %135 to float
   store float %136, ptr %119, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #25
@@ -12510,8 +12510,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit84:                  ; preds = %144, %138, %150
   br label %.body
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %.preheader
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.9, i32 noundef 2488, ptr noundef %.2114121133)
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.9, i32 noundef 2489, ptr noundef %.2111122132)
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.9, i32 noundef 2488, ptr noundef %.2111122132)
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.9, i32 noundef 2489, ptr noundef %.2114121133)
   ret void
 
 .body:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit84, %126, %115, %99, %91, %33
@@ -12564,23 +12564,23 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %15, %18
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.02954 = phi i32 [ %spec.select43, %.lr.ph ], [ 0, %.preheader ]
   %.03153 = phi i32 [ %.132, %.lr.ph ], [ 0, %.preheader ]
-  %.03352 = phi i32 [ %29, %.lr.ph ], [ 0, %.preheader ]
-  %.03451 = phi i32 [ %spec.select, %.lr.ph ], [ -1, %.preheader ]
-  %.03650 = phi i32 [ %.137, %.lr.ph ], [ -1, %.preheader ]
+  %.03352 = phi i32 [ %.134, %.lr.ph ], [ -1, %.preheader ]
+  %.03551 = phi i32 [ %29, %.lr.ph ], [ 0, %.preheader ]
+  %.03650 = phi i32 [ %spec.select, %.lr.ph ], [ -1, %.preheader ]
   %.sroa.0.049 = phi ptr [ %30, %.lr.ph ], [ %0, %.preheader ]
   %21 = load ptr, ptr %.sroa.0.049, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %22) #29
   %24 = icmp eq i32 %23, 0
-  %spec.select = select i1 %24, i32 %.03352, i32 %.03451
+  %spec.select = select i1 %24, i32 %.03551, i32 %.03650
   %25 = zext i1 %24 to i32
   %spec.select43 = add nuw nsw i32 %.02954, %25
   %26 = call noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef nonnull %7, ptr noundef %22)
   %27 = icmp eq i32 %26, 0
-  %.137 = select i1 %27, i32 %.03352, i32 %.03650
+  %.134 = select i1 %27, i32 %.03551, i32 %.03352
   %28 = zext i1 %27 to i32
   %.132 = add nuw nsw i32 %.03153, %28
-  %29 = add nuw nsw i32 %.03352, 1
+  %29 = add nuw nsw i32 %.03551, 1
   %30 = getelementptr inbounds i8, ptr %.sroa.0.049, i64 7680
   %.not47 = icmp eq ptr %30, %1
   br i1 %.not47, label %._crit_edge, label %.lr.ph
@@ -12630,7 +12630,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %15, %18
   br i1 %44, label %45, label %.thread70
 
 45:                                               ; preds = %43
-  store i32 %.137, ptr %3, align 4
+  store i32 %.134, ptr %3, align 4
   br label %53
 
 .thread70:                                        ; preds = %.preheader, %43
@@ -13348,12 +13348,12 @@ _ZL23convert_pairs_to_pairsQN3gmx8ArrayRefI18InteractionsOfTypeEEfP7t_atoms.exit
   br label %.lr.ph.us.us.i
 
 .lr.ph.us.us.i:                                   ; preds = %.lr.ph.us.us.i, %.lr.ph.us.us.preheader.i
-  %.052151.us.us.i = phi i1 [ %spec.select.us.us.i, %.lr.ph.us.us.i ], [ false, %.lr.ph.us.us.preheader.i ]
+  %.046151.us.us.i = phi i1 [ %spec.select.us.us.i, %.lr.ph.us.us.i ], [ false, %.lr.ph.us.us.preheader.i ]
   %.sroa.093.0150.us.us.i = phi ptr [ %140, %.lr.ph.us.us.i ], [ %136, %.lr.ph.us.us.preheader.i ]
   %137 = load i32, ptr %.sroa.093.0150.us.us.i, align 4
   %138 = zext i32 %137 to i64
   %139 = icmp eq i64 %indvars.iv250.i, %138
-  %spec.select.us.us.i = select i1 %139, i1 true, i1 %.052151.us.us.i
+  %spec.select.us.us.i = select i1 %139, i1 true, i1 %.046151.us.us.i
   %140 = getelementptr inbounds i8, ptr %.sroa.093.0150.us.us.i, i64 4
   %.not97.us.us.i = icmp eq ptr %140, %134
   br i1 %.not97.us.us.i, label %._crit_edge.us.us.i, label %.lr.ph.us.us.i
@@ -13537,15 +13537,15 @@ _ZNSt12_Vector_baseIfSaIfEED2Ev.exit.i.split.us.split.us.i: ; preds = %171
   br label %.lr.ph.i16
 
 .lr.ph.i16:                                       ; preds = %219, %.lr.ph.preheader.i
-  %.051158.i = phi i32 [ %220, %219 ], [ %206, %.lr.ph.preheader.i ]
+  %.045158.i = phi i32 [ %220, %219 ], [ %206, %.lr.ph.preheader.i ]
   br label %207
 
 207:                                              ; preds = %207, %.lr.ph.i16
-  %.052151.i = phi i1 [ false, %.lr.ph.i16 ], [ %spec.select.i, %207 ]
+  %.046151.i = phi i1 [ false, %.lr.ph.i16 ], [ %spec.select.i, %207 ]
   %.sroa.093.0150.i = phi ptr [ %201, %.lr.ph.i16 ], [ %210, %207 ]
   %208 = load i32, ptr %.sroa.093.0150.i, align 4
-  %209 = icmp eq i32 %208, %.051158.i
-  %spec.select.i = select i1 %209, i1 true, i1 %.052151.i
+  %209 = icmp eq i32 %208, %.045158.i
+  %spec.select.i = select i1 %209, i1 true, i1 %.046151.i
   %210 = getelementptr inbounds i8, ptr %.sroa.093.0150.i, i64 4
   %.not97.i = icmp eq ptr %210, %205
   br i1 %.not97.i, label %._crit_edge.i17, label %207
@@ -13598,7 +13598,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit76.i:                ; preds = %_ZNSt6vectorIfSaIfE
   br label %common.resume
 
 219:                                              ; preds = %._crit_edge.i17
-  %220 = add nuw nsw i32 %.051158.i, 1
+  %220 = add nuw nsw i32 %.045158.i, 1
   %exitcond.not.i = icmp eq i32 %220, %103
   br i1 %exitcond.not.i, label %.loopexit.i15, label %.lr.ph.i16, !llvm.loop !143
 

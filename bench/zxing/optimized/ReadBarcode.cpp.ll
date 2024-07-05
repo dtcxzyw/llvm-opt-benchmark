@@ -3433,18 +3433,18 @@ _ZNSt6vectorItSaItEE5clearEv.exit.._crit_edge_crit_edge: ; preds = %_ZNSt6vector
 
 34:                                               ; preds = %.lr.ph, %_ZNSt6vectorItSaItEE9push_backEOt.exit
   %35 = phi ptr [ %30, %.lr.ph ], [ %73, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
-  %.063 = phi ptr [ %20, %.lr.ph ], [ %74, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
-  %.02762 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
-  %.02861 = phi ptr [ %20, %.lr.ph ], [ %.129, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
-  %36 = load i8, ptr %.063, align 1
+  %.063 = phi ptr [ %20, %.lr.ph ], [ %.1, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
+  %.02762 = phi ptr [ %20, %.lr.ph ], [ %74, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
+  %.02861 = phi i1 [ false, %.lr.ph ], [ %.129, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
+  %36 = load i8, ptr %.02762, align 1
   %37 = load i8, ptr %31, align 8
   %38 = icmp ule i8 %36, %37
-  %39 = xor i1 %.02762, %38
+  %39 = xor i1 %.02861, %38
   br i1 %39, label %40, label %_ZNSt6vectorItSaItEE9push_backEOt.exit
 
 40:                                               ; preds = %34
-  %41 = ptrtoint ptr %.063 to i64
-  %42 = ptrtoint ptr %.02861 to i64
+  %41 = ptrtoint ptr %.02762 to i64
+  %42 = ptrtoint ptr %.063 to i64
   %43 = sub i64 %41, %42
   %44 = sdiv i64 %43, %32
   %45 = trunc i64 %44 to i16
@@ -3516,18 +3516,18 @@ _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS
 
 _ZNSt6vectorItSaItEE9push_backEOt.exit:           ; preds = %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i, %47, %34
   %73 = phi ptr [ %35, %34 ], [ %49, %47 ], [ %70, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ]
-  %.129 = phi ptr [ %.02861, %34 ], [ %.063, %47 ], [ %.063, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ]
-  %.1 = phi i1 [ %.02762, %34 ], [ %38, %47 ], [ %38, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ]
-  %74 = getelementptr inbounds i8, ptr %.063, i64 %32
+  %.129 = phi i1 [ %.02861, %34 ], [ %38, %47 ], [ %38, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ]
+  %.1 = phi ptr [ %.063, %34 ], [ %.02762, %47 ], [ %.02762, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ]
+  %74 = getelementptr inbounds i8, ptr %.02762, i64 %32
   %.not = icmp eq ptr %74, %25
   br i1 %.not, label %._crit_edge, label %34, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorItSaItEE9push_backEOt.exit, %_ZNSt6vectorItSaItEE5clearEv.exit.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %_ZNSt6vectorItSaItEE5clearEv.exit.._crit_edge_crit_edge ], [ %32, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
   %75 = phi ptr [ %30, %_ZNSt6vectorItSaItEE5clearEv.exit.._crit_edge_crit_edge ], [ %73, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
-  %.028.lcssa = phi ptr [ %20, %_ZNSt6vectorItSaItEE5clearEv.exit.._crit_edge_crit_edge ], [ %.129, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
+  %.0.lcssa = phi ptr [ %20, %_ZNSt6vectorItSaItEE5clearEv.exit.._crit_edge_crit_edge ], [ %.1, %_ZNSt6vectorItSaItEE9push_backEOt.exit ]
   %76 = ptrtoint ptr %25 to i64
-  %77 = ptrtoint ptr %.028.lcssa to i64
+  %77 = ptrtoint ptr %.0.lcssa to i64
   %78 = sub i64 %76, %77
   %79 = sdiv i64 %78, %.pre-phi
   %80 = trunc i64 %79 to i16

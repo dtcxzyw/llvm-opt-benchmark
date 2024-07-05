@@ -38,8 +38,8 @@ define range(i32 -74, 1) i32 @pmix_util_check_context_cwd(ptr noundef %0, i1 nou
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %5, %14, %10, %12, %3
-  %.014 = phi i32 [ -27, %3 ], [ 0, %5 ], [ -74, %12 ], [ 0, %10 ], [ 0, %14 ], [ %.mux, %8 ]
-  ret i32 %.014
+  %.0 = phi i32 [ -27, %3 ], [ 0, %5 ], [ -74, %12 ], [ 0, %10 ], [ 0, %14 ], [ %.mux, %8 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind

@@ -1575,9 +1575,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %d.042 = phi ptr [ %data, %entry ], [ %d.4, %for.body ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %d.042, i64 1
-  %0 = load i8, ptr %d.042, align 1
+  %d.041 = phi ptr [ %data, %entry ], [ %d.4, %for.body ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %d.041, i64 1
+  %0 = load i8, ptr %d.041, align 1
   %conv = zext i8 %0 to i32
   %cmp2.not = icmp ult ptr %incdec.ptr, %arrayidx
   %spec.select = select i1 %cmp2.not, ptr %incdec.ptr, ptr %data

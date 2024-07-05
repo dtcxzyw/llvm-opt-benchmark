@@ -46,13 +46,13 @@ define i64 @f64_sqrt(i64 %0) local_unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %15, %13
-  %.055 = phi i64 [ %4, %13 ], [ %18, %15 ]
-  %.053 = phi i64 [ %3, %13 ], [ %17, %15 ]
-  %20 = add nsw i64 %.053, -1023
+  %.053 = phi i64 [ %4, %13 ], [ %18, %15 ]
+  %.0 = phi i64 [ %3, %13 ], [ %17, %15 ]
+  %20 = add nsw i64 %.0, -1023
   %21 = ashr i64 %20, 1
   %22 = add nsw i64 %21, 1022
-  %23 = and i64 %.053, 1
-  %24 = or i64 %.055, 4503599627370496
+  %23 = and i64 %.0, 1
+  %24 = or i64 %.053, 4503599627370496
   %25 = lshr i64 %24, 21
   %26 = trunc i64 %25 to i32
   %27 = trunc nuw nsw i64 %23 to i32
@@ -62,10 +62,10 @@ define i64 @f64_sqrt(i64 %0) local_unnamed_addr #0 {
   %31 = mul nuw i64 %29, %30
   %32 = lshr i64 %31, 32
   %33 = trunc nuw i64 %32 to i32
+  %.056 = lshr i32 %33, %27
   %.1.v = xor i64 %23, 9
   %.1 = shl i64 %24, %.1.v
-  %.054 = lshr i32 %33, %27
-  %34 = zext i32 %.054 to i64
+  %34 = zext i32 %.056 to i64
   %35 = mul nuw i64 %34, %34
   %36 = sub i64 %.1, %35
   %37 = lshr i64 %36, 2
@@ -100,8 +100,8 @@ define i64 @f64_sqrt(i64 %0) local_unnamed_addr #0 {
   br label %57
 
 57:                                               ; preds = %55, %53, %19
-  %.0 = phi i64 [ %54, %53 ], [ %44, %19 ], [ %spec.select, %55 ]
-  %58 = tail call i64 @softfloat_roundPackToF64(i1 noundef zeroext false, i64 noundef %22, i64 noundef %.0) #2
+  %.055 = phi i64 [ %54, %53 ], [ %44, %19 ], [ %spec.select, %55 ]
+  %58 = tail call i64 @softfloat_roundPackToF64(i1 noundef zeroext false, i64 noundef %22, i64 noundef %.055) #2
   br label %60
 
 59:                                               ; preds = %11, %9

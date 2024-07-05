@@ -754,7 +754,7 @@ proto_item_set_generated.exit:                    ; preds = %156, %153, %proto_i
 
 168:                                              ; preds = %162, %decode_xmcp_attr_value.exit
   %169 = phi i32 [ 20, %162 ], [ %518, %decode_xmcp_attr_value.exit ]
-  %.0144180 = phi i32 [ 20, %162 ], [ %517, %decode_xmcp_attr_value.exit ]
+  %.0145180 = phi i32 [ 20, %162 ], [ %517, %decode_xmcp_attr_value.exit ]
   %170 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %169) #7
   %171 = add nuw nsw i32 %169, 2
   %172 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %171) #7
@@ -774,7 +774,7 @@ proto_item_set_generated.exit:                    ; preds = %156, %153, %proto_i
   %186 = load i32, ptr @hf_xmcp_attr_length, align 4
   %187 = and i32 %171, 65535
   %188 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %186, ptr noundef %0, i32 noundef %187, i32 noundef 2, i32 noundef 0) #7
-  %189 = trunc i32 %.0144180 to i16
+  %189 = trunc i32 %.0145180 to i16
   %190 = add i16 %189, 4
   %191 = zext i16 %190 to i32
   %192 = add nuw nsw i32 %180, %191
@@ -1539,8 +1539,8 @@ proto_item_set_generated.exit178:                 ; preds = %521, %524, %527
   br label %558
 
 558:                                              ; preds = %.sink.split187, %14, %12, %4
-  %.0145 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %14 ], [ %557, %.sink.split187 ]
-  ret i32 %.0145
+  %.0144 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %14 ], [ %557, %.sink.split187 ]
+  ret i32 %.0144
 }
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1

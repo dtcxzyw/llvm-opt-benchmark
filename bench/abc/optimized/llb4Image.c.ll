@@ -89,7 +89,7 @@ define noundef ptr @Llb_Nonlin4CreateCube1(ptr nocapture noundef readonly %0, pt
 13:                                               ; preds = %.lr.ph, %30
   %14 = phi ptr [ %9, %.lr.ph ], [ %31, %30 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %.02126 = phi ptr [ %7, %.lr.ph ], [ %.1, %30 ]
+  %.027 = phi ptr [ %7, %.lr.ph ], [ %.1, %30 ]
   %15 = getelementptr i8, ptr %14, i64 8
   %.val23 = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds i32, ptr %.val23, i64 %indvars.iv
@@ -109,16 +109,16 @@ define noundef ptr @Llb_Nonlin4CreateCube1(ptr nocapture noundef readonly %0, pt
   %25 = load ptr, ptr %0, align 8
   %26 = load i32, ptr %20, align 8
   %27 = tail call ptr @Cudd_bddIthVar(ptr noundef %25, i32 noundef %26) #14
-  %28 = tail call ptr @Cudd_bddAnd(ptr noundef %25, ptr noundef %.02126, ptr noundef %27) #14
+  %28 = tail call ptr @Cudd_bddAnd(ptr noundef %25, ptr noundef %.027, ptr noundef %27) #14
   tail call void @Cudd_Ref(ptr noundef %28) #14
   %29 = load ptr, ptr %0, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %29, ptr noundef %.02126) #14
+  tail call void @Cudd_RecursiveDeref(ptr noundef %29, ptr noundef %.027) #14
   %.pre = load ptr, ptr %8, align 8
   br label %30
 
 30:                                               ; preds = %13, %24
   %31 = phi ptr [ %14, %13 ], [ %.pre, %24 ]
-  %.1 = phi ptr [ %.02126, %13 ], [ %28, %24 ]
+  %.1 = phi ptr [ %.027, %13 ], [ %28, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = getelementptr i8, ptr %31, i64 4
   %.val = load i32, ptr %32, align 4
@@ -127,12 +127,12 @@ define noundef ptr @Llb_Nonlin4CreateCube1(ptr nocapture noundef readonly %0, pt
   br i1 %34, label %13, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %30, %2
-  %.021.lcssa = phi ptr [ %7, %2 ], [ %.1, %30 ]
-  tail call void @Cudd_Deref(ptr noundef %.021.lcssa) #14
+  %.0.lcssa = phi ptr [ %7, %2 ], [ %.1, %30 ]
+  tail call void @Cudd_Deref(ptr noundef %.0.lcssa) #14
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 752
   store i64 %5, ptr %36, align 8
-  ret ptr %.021.lcssa
+  ret ptr %.0.lcssa
 }
 
 declare ptr @Cudd_ReadOne(ptr noundef) local_unnamed_addr #3
@@ -168,7 +168,7 @@ define noundef ptr @Llb_Nonlin4CreateCube2(ptr nocapture noundef readonly %0, pt
 14:                                               ; preds = %.lr.ph, %46
   %15 = phi ptr [ %10, %.lr.ph ], [ %47, %46 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %.02938 = phi ptr [ %8, %.lr.ph ], [ %.1, %46 ]
+  %.039 = phi ptr [ %8, %.lr.ph ], [ %.1, %46 ]
   %16 = getelementptr i8, ptr %15, i64 8
   %.val35 = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds i32, ptr %.val35, i64 %indvars.iv
@@ -213,16 +213,16 @@ define noundef ptr @Llb_Nonlin4CreateCube2(ptr nocapture noundef readonly %0, pt
   %41 = load ptr, ptr %0, align 8
   %42 = load i32, ptr %21, align 8
   %43 = tail call ptr @Cudd_bddIthVar(ptr noundef %41, i32 noundef %42) #14
-  %44 = tail call ptr @Cudd_bddAnd(ptr noundef %41, ptr noundef %.02938, ptr noundef %43) #14
+  %44 = tail call ptr @Cudd_bddAnd(ptr noundef %41, ptr noundef %.039, ptr noundef %43) #14
   tail call void @Cudd_Ref(ptr noundef %44) #14
   %45 = load ptr, ptr %0, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %45, ptr noundef %.02938) #14
+  tail call void @Cudd_RecursiveDeref(ptr noundef %45, ptr noundef %.039) #14
   %.pre41 = load ptr, ptr %9, align 8
   br label %46
 
 46:                                               ; preds = %34, %36, %40, %14
   %47 = phi ptr [ %15, %14 ], [ %.pre41, %40 ], [ %15, %36 ], [ %15, %34 ]
-  %.1 = phi ptr [ %.02938, %14 ], [ %44, %40 ], [ %.02938, %36 ], [ %.02938, %34 ]
+  %.1 = phi ptr [ %.039, %14 ], [ %44, %40 ], [ %.039, %36 ], [ %.039, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = getelementptr i8, ptr %47, i64 4
   %.val30 = load i32, ptr %48, align 4
@@ -231,12 +231,12 @@ define noundef ptr @Llb_Nonlin4CreateCube2(ptr nocapture noundef readonly %0, pt
   br i1 %50, label %14, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %46, %3
-  %.029.lcssa = phi ptr [ %8, %3 ], [ %.1, %46 ]
-  tail call void @Cudd_Deref(ptr noundef %.029.lcssa) #14
+  %.0.lcssa = phi ptr [ %8, %3 ], [ %.1, %46 ]
+  tail call void @Cudd_Deref(ptr noundef %.0.lcssa) #14
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 752
   store i64 %6, ptr %52, align 8
-  ret ptr %.029.lcssa
+  ret ptr %.0.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -2018,7 +2018,7 @@ define range(i32 0, 2) i32 @Llb_Nonlin4NextPartitions(ptr nocapture noundef read
 
 9:                                                ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %.04352 = phi ptr [ null, %.lr.ph ], [ %.144, %28 ]
+  %.04452 = phi ptr [ null, %.lr.ph ], [ %.145, %28 ]
   %10 = getelementptr inbounds ptr, ptr %.val50, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -2036,11 +2036,11 @@ define range(i32 0, 2) i32 @Llb_Nonlin4NextPartitions(ptr nocapture noundef read
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %15, %13
-  %20 = icmp eq ptr %.04352, null
+  %20 = icmp eq ptr %.04452, null
   br i1 %20, label %27, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %.04352, i64 4
+  %22 = getelementptr inbounds i8, ptr %.04452, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds i8, ptr %11, i64 4
   %25 = load i32, ptr %24, align 4
@@ -2051,17 +2051,17 @@ define range(i32 0, 2) i32 @Llb_Nonlin4NextPartitions(ptr nocapture noundef read
   br label %28
 
 28:                                               ; preds = %9, %27, %21, %15
-  %.144 = phi ptr [ %.04352, %9 ], [ %.04352, %15 ], [ %11, %27 ], [ %.04352, %21 ]
+  %.145 = phi ptr [ %.04452, %9 ], [ %.04452, %15 ], [ %11, %27 ], [ %.04452, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !27
 
 .critedge:                                        ; preds = %28
-  %29 = icmp eq ptr %.144, null
+  %29 = icmp eq ptr %.145, null
   br i1 %29, label %.critedge.thread, label %.preheader
 
 .preheader:                                       ; preds = %.critedge
-  %30 = getelementptr inbounds i8, ptr %.144, i64 8
+  %30 = getelementptr inbounds i8, ptr %.145, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr i8, ptr %31, i64 4
   %.val = load i32, ptr %32, align 4
@@ -2125,8 +2125,8 @@ define range(i32 0, 2) i32 @Llb_Nonlin4NextPartitions(ptr nocapture noundef read
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %3, %.critedge, %.critedge2
-  %.045 = phi i32 [ 1, %.critedge2 ], [ 0, %.critedge ], [ 0, %3 ]
-  ret i32 %.045
+  %.043 = phi i32 [ 1, %.critedge2 ], [ 0, %.critedge ], [ 0, %3 ]
+  ret i32 %.043
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2615,7 +2615,7 @@ Llb_Nonlin4RecomputeScores.exit:                  ; preds = %.critedge4.i
 
 77:                                               ; preds = %96, %.lr.ph.i53
   %indvars.iv.i55 = phi i64 [ 0, %.lr.ph.i53 ], [ %indvars.iv.next.i56, %96 ]
-  %.04352.i = phi ptr [ null, %.lr.ph.i53 ], [ %.144.i, %96 ]
+  %.04452.i = phi ptr [ null, %.lr.ph.i53 ], [ %.145.i, %96 ]
   %78 = getelementptr inbounds ptr, ptr %.val50.i, i64 %indvars.iv.i55
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
@@ -2633,11 +2633,11 @@ Llb_Nonlin4RecomputeScores.exit:                  ; preds = %.critedge4.i
   br i1 %86, label %96, label %87
 
 87:                                               ; preds = %83, %81
-  %88 = icmp eq ptr %.04352.i, null
+  %88 = icmp eq ptr %.04452.i, null
   br i1 %88, label %95, label %89
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds i8, ptr %.04352.i, i64 4
+  %90 = getelementptr inbounds i8, ptr %.04452.i, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = getelementptr inbounds i8, ptr %79, i64 4
   %93 = load i32, ptr %92, align 4
@@ -2648,17 +2648,17 @@ Llb_Nonlin4RecomputeScores.exit:                  ; preds = %.critedge4.i
   br label %96
 
 96:                                               ; preds = %95, %89, %83, %77
-  %.144.i = phi ptr [ %.04352.i, %77 ], [ %.04352.i, %83 ], [ %79, %95 ], [ %.04352.i, %89 ]
+  %.145.i = phi ptr [ %.04452.i, %77 ], [ %.04452.i, %83 ], [ %79, %95 ], [ %.04452.i, %89 ]
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i55, 1
   %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, %wide.trip.count.i54
   br i1 %exitcond.not.i57, label %.critedge.i, label %77, !llvm.loop !27
 
 .critedge.i:                                      ; preds = %96
-  %97 = icmp eq ptr %.144.i, null
+  %97 = icmp eq ptr %.145.i, null
   br i1 %97, label %.critedge.i._crit_edge, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge.i
-  %98 = getelementptr inbounds i8, ptr %.144.i, i64 8
+  %98 = getelementptr inbounds i8, ptr %.145.i, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr i8, ptr %99, i64 4
   %.val.i58 = load i32, ptr %100, align 4
@@ -2873,8 +2873,8 @@ Llb_Nonlin4RecomputeScores.exit80:                ; preds = %.critedge4.i66, %.L
   br label %188
 
 188:                                              ; preds = %.critedge2, %123
-  %.041 = phi ptr [ null, %123 ], [ %.042.lcssa, %.critedge2 ]
-  ret ptr %.041
+  %.0 = phi ptr [ null, %123 ], [ %.042.lcssa, %.critedge2 ]
+  ret ptr %.0
 }
 
 declare i32 @Cudd_ReadReorderings(ptr noundef) local_unnamed_addr #3
@@ -3049,7 +3049,7 @@ Llb_Nonlin4RecomputeScores.exit:                  ; preds = %.critedge4.i
 
 77:                                               ; preds = %96, %.lr.ph.i46
   %indvars.iv.i48 = phi i64 [ 0, %.lr.ph.i46 ], [ %indvars.iv.next.i49, %96 ]
-  %.04352.i = phi ptr [ null, %.lr.ph.i46 ], [ %.144.i, %96 ]
+  %.04452.i = phi ptr [ null, %.lr.ph.i46 ], [ %.145.i, %96 ]
   %78 = getelementptr inbounds ptr, ptr %.val50.i, i64 %indvars.iv.i48
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
@@ -3067,11 +3067,11 @@ Llb_Nonlin4RecomputeScores.exit:                  ; preds = %.critedge4.i
   br i1 %86, label %96, label %87
 
 87:                                               ; preds = %83, %81
-  %88 = icmp eq ptr %.04352.i, null
+  %88 = icmp eq ptr %.04452.i, null
   br i1 %88, label %95, label %89
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds i8, ptr %.04352.i, i64 4
+  %90 = getelementptr inbounds i8, ptr %.04452.i, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = getelementptr inbounds i8, ptr %79, i64 4
   %93 = load i32, ptr %92, align 4
@@ -3082,17 +3082,17 @@ Llb_Nonlin4RecomputeScores.exit:                  ; preds = %.critedge4.i
   br label %96
 
 96:                                               ; preds = %95, %89, %83, %77
-  %.144.i = phi ptr [ %.04352.i, %77 ], [ %.04352.i, %83 ], [ %79, %95 ], [ %.04352.i, %89 ]
+  %.145.i = phi ptr [ %.04452.i, %77 ], [ %.04452.i, %83 ], [ %79, %95 ], [ %.04452.i, %89 ]
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, %wide.trip.count.i47
   br i1 %exitcond.not.i50, label %.critedge.i, label %77, !llvm.loop !27
 
 .critedge.i:                                      ; preds = %96
-  %97 = icmp eq ptr %.144.i, null
+  %97 = icmp eq ptr %.145.i, null
   br i1 %97, label %.critedge.i._crit_edge.loopexit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge.i
-  %98 = getelementptr inbounds i8, ptr %.144.i, i64 8
+  %98 = getelementptr inbounds i8, ptr %.145.i, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr i8, ptr %99, i64 4
   %.val.i51 = load i32, ptr %100, align 4
@@ -3377,8 +3377,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %221
 
 221:                                              ; preds = %.critedge2, %123
-  %.036 = phi ptr [ null, %123 ], [ %169, %.critedge2 ]
-  ret ptr %.036
+  %.0 = phi ptr [ null, %123 ], [ %169, %.critedge2 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)

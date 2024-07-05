@@ -312,8 +312,8 @@ RemoveHead.exit:                                  ; preds = %37, %.thread.i.i
 
 49:                                               ; preds = %.lr.ph216, %104
   %indvars.iv243 = phi i64 [ %48, %.lr.ph216 ], [ %indvars.iv.next244, %104 ]
-  %.0106214 = phi i32 [ %23, %.lr.ph216 ], [ %.1107, %104 ]
-  %.0108213 = phi ptr [ %21, %.lr.ph216 ], [ %.1109, %104 ]
+  %.0107214 = phi i32 [ %23, %.lr.ph216 ], [ %.1108, %104 ]
+  %.0109213 = phi ptr [ %21, %.lr.ph216 ], [ %.1110, %104 ]
   %50 = load ptr, ptr %47, align 8
   %51 = getelementptr i32, ptr %50, i64 %indvars.iv243
   %52 = load i32, ptr %51, align 4
@@ -325,8 +325,8 @@ RemoveHead.exit:                                  ; preds = %37, %.thread.i.i
   %55 = getelementptr inbounds i8, ptr %53, i64 72
   %56 = load ptr, ptr %55, align 8
   %57 = ptrtoint ptr %56 to i64
-  %58 = ptrtoint ptr %.0108213 to i64
-  %59 = sext i32 %.0106214 to i64
+  %58 = ptrtoint ptr %.0109213 to i64
+  %59 = sext i32 %.0107214 to i64
   %60 = tail call i64 @FunctionCall4Coll(ptr noundef nonnull %54, i32 noundef 0, i64 noundef %57, i64 noundef %58, i64 noundef %59, i64 noundef %7) #7
   %61 = inttoptr i64 %60 to ptr
   %62 = load i8, ptr %6, align 1
@@ -446,8 +446,8 @@ RemoveHead.exit139:                               ; preds = %93, %.thread.i.i138
   br i1 %.not11.i, label %setCorrLex.exit, label %.lr.ph.i141, !llvm.loop !11
 
 104:                                              ; preds = %81, %86
-  %.1109 = phi ptr [ %88, %86 ], [ %.0108213, %81 ]
-  %.1107 = phi i32 [ %90, %86 ], [ %.0106214, %81 ]
+  %.1110 = phi ptr [ %88, %86 ], [ %.0109213, %81 ]
+  %.1108 = phi i32 [ %90, %86 ], [ %.0107214, %81 ]
   %indvars.iv.next244 = add nsw i64 %indvars.iv243, 1
   %105 = load i32, ptr %29, align 8
   %106 = sext i32 %105 to i64
@@ -677,7 +677,7 @@ RemoveHead.exit.i:                                ; preds = %.thread.i.i.i, %187
   br label %moveToWaste.exit
 
 moveToWaste.exit:                                 ; preds = %RemoveHead.exit.i, %.critedge, %196
-  %.0110 = phi ptr [ %178, %196 ], [ %161, %.critedge ], [ %161, %RemoveHead.exit.i ]
+  %.0113 = phi ptr [ %178, %196 ], [ %161, %.critedge ], [ %161, %RemoveHead.exit.i ]
   store i32 0, ptr %3, align 8
   store i32 0, ptr %11, align 4
   %.not.i160 = icmp eq ptr %1, null
@@ -720,14 +720,14 @@ moveToWaste.exit:                                 ; preds = %RemoveHead.exit.i, 
 
 setCorrLex.exit.sink.split:                       ; preds = %.loopexit, %moveToWaste.exit, %RemoveHead.exit139
   %.sink268 = phi ptr [ %100, %RemoveHead.exit139 ], [ %198, %moveToWaste.exit ], [ %203, %.loopexit ]
-  %.0113.ph = phi ptr [ %61, %RemoveHead.exit139 ], [ %.0110, %moveToWaste.exit ], [ null, %.loopexit ]
+  %.0106.ph = phi ptr [ %61, %RemoveHead.exit139 ], [ %.0113, %moveToWaste.exit ], [ null, %.loopexit ]
   store ptr %.sink268, ptr %1, align 8
   br label %setCorrLex.exit
 
 setCorrLex.exit:                                  ; preds = %.lr.ph.i162, %.lr.ph.i141, %.lr.ph.i168, %setCorrLex.exit.sink.split, %204, %199, %101
-  %.0113 = phi ptr [ %61, %101 ], [ %.0110, %199 ], [ null, %204 ], [ %.0113.ph, %setCorrLex.exit.sink.split ], [ null, %.lr.ph.i168 ], [ %61, %.lr.ph.i141 ], [ %.0110, %.lr.ph.i162 ]
+  %.0106 = phi ptr [ %61, %101 ], [ %.0113, %199 ], [ null, %204 ], [ %.0106.ph, %setCorrLex.exit.sink.split ], [ null, %.lr.ph.i168 ], [ %61, %.lr.ph.i141 ], [ %.0113, %.lr.ph.i162 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  ret ptr %.0113
+  ret ptr %.0106
 }
 
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -1070,9 +1070,9 @@ hladdword.exit:                                   ; preds = %13, %20
 
 94:                                               ; preds = %133, %.lr.ph46.i
   %95 = phi i32 [ %91, %.lr.ph46.i ], [ %136, %133 ]
-  %.044.i = phi ptr [ %8, %.lr.ph46.i ], [ %134, %133 ]
-  %.03643.i = phi i32 [ 0, %.lr.ph46.i ], [ %135, %133 ]
-  %96 = load i8, ptr %.044.i, align 4
+  %.044.i = phi i32 [ 0, %.lr.ph46.i ], [ %135, %133 ]
+  %.03643.i = phi ptr [ %8, %.lr.ph46.i ], [ %134, %133 ]
+  %96 = load i8, ptr %.03643.i, align 4
   %97 = icmp eq i8 %96, 1
   br i1 %97, label %98, label %133
 
@@ -1080,13 +1080,13 @@ hladdword.exit:                                   ; preds = %13, %20
   %99 = sext i32 %95 to i64
   %100 = mul nsw i64 %99, 12
   %101 = getelementptr i8, ptr %8, i64 %100
-  %102 = getelementptr inbounds i8, ptr %.044.i, i64 8
+  %102 = getelementptr inbounds i8, ptr %.03643.i, i64 8
   %103 = load i32, ptr %102, align 4
   %104 = lshr i32 %103, 12
   %105 = zext nneg i32 %104 to i64
   %106 = getelementptr i8, ptr %101, i64 %105
   %107 = and i32 %103, 4095
-  %108 = getelementptr inbounds i8, ptr %.044.i, i64 2
+  %108 = getelementptr inbounds i8, ptr %.03643.i, i64 2
   %109 = load i8, ptr %108, align 2
   %110 = trunc i8 %109 to i1
   %111 = tail call i32 @tsCompareString(ptr noundef %106, i32 noundef %107, ptr noundef nonnull %62, i32 noundef %69, i1 noundef zeroext %110) #7
@@ -1108,7 +1108,7 @@ hladdword.exit:                                   ; preds = %13, %20
   %121 = load i32, ptr %5, align 4
   %122 = sext i32 %121 to i64
   %123 = getelementptr %struct.HeadlineWordEntry, ptr %120, i64 %122, i32 3
-  store ptr %.044.i, ptr %123, align 8
+  store ptr %.03643.i, ptr %123, align 8
   %124 = load ptr, ptr %0, align 8
   %125 = load i32, ptr %5, align 4
   %126 = sext i32 %125 to i64
@@ -1122,12 +1122,12 @@ hladdword.exit:                                   ; preds = %13, %20
   br label %133
 
 132:                                              ; preds = %113
-  store ptr %.044.i, ptr %93, align 8
+  store ptr %.03643.i, ptr %93, align 8
   br label %133
 
 133:                                              ; preds = %132, %115, %98, %94
-  %134 = getelementptr i8, ptr %.044.i, i64 12
-  %135 = add nuw nsw i32 %.03643.i, 1
+  %134 = getelementptr i8, ptr %.03643.i, i64 12
+  %135 = add nuw nsw i32 %.044.i, 1
   %136 = load i32, ptr %9, align 4
   %137 = icmp slt i32 %135, %136
   br i1 %137, label %94, label %hlfinditem.exit, !llvm.loop !20

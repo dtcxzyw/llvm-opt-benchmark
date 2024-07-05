@@ -70,18 +70,18 @@ if.else:                                          ; preds = %if.end15
   br label %if.end40
 
 if.end40:                                         ; preds = %if.else, %if.then25
-  %mac_secret.0 = phi ptr [ %3, %if.then25 ], [ %arrayidx32, %if.else ]
-  %add.pn = phi i64 [ %add, %if.then25 ], [ %add34, %if.else ]
   %add28.pn = phi i64 [ %add28, %if.then25 ], [ %add37, %if.else ]
   %n.0 = phi i64 [ %add31, %if.then25 ], [ %add39, %if.else ]
+  %add.pn = phi i64 [ %add, %if.then25 ], [ %add34, %if.else ]
+  %mac_secret.0 = phi ptr [ %3, %if.then25 ], [ %arrayidx32, %if.else ]
   %key_block_length = getelementptr inbounds i8, ptr %s, i64 744
   %4 = load i64, ptr %key_block_length, align 8
   %cmp43 = icmp ugt i64 %n.0, %4
   br i1 %cmp43, label %err.sink.split, label %if.end46
 
 if.end46:                                         ; preds = %if.end40
-  %iv.0 = getelementptr inbounds i8, ptr %3, i64 %add28.pn
   %key.0 = getelementptr inbounds i8, ptr %3, i64 %add.pn
+  %iv.0 = getelementptr inbounds i8, ptr %3, i64 %add28.pn
   %call47 = tail call i32 @ssl_set_new_record_layer(ptr noundef nonnull %s, i32 noundef 768, i32 noundef %cond, i32 noundef 3, ptr noundef null, i64 noundef 0, ptr noundef %key.0, i64 noundef %conv18, ptr noundef %iv.0, i64 noundef %conv20, ptr noundef %mac_secret.0, i64 noundef %conv16, ptr noundef %0, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null) #8
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %err, label %return

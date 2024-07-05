@@ -1543,8 +1543,8 @@ if.then.i:                                        ; preds = %_ZN4absl15cordrep_t
 
 if.end.i:                                         ; preds = %if.then.i, %_ZN4absl15cordrep_testing12MakeExternalESt17basic_string_viewIcSt11char_traitsIcEE.exit
   %5 = phi i8 [ %.pre.i, %if.then.i ], [ %2, %_ZN4absl15cordrep_testing12MakeExternalESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
-  %edge.addr.0.i = phi ptr [ %4, %if.then.i ], [ %call.i, %_ZN4absl15cordrep_testing12MakeExternalESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
   %offset.0.i = phi i64 [ %3, %if.then.i ], [ 0, %_ZN4absl15cordrep_testing12MakeExternalESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
+  %edge.addr.0.i = phi ptr [ %4, %if.then.i ], [ %call.i, %_ZN4absl15cordrep_testing12MakeExternalESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
   %cmp.i = icmp ugt i8 %5, 5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 

@@ -1815,7 +1815,7 @@ WebPDataClear.exit:                               ; preds = %100
   br label %107
 
 107:                                              ; preds = %FrameToFullCanvas.exit, %100, %WebPDataClear.exit, %98, %96, %20, %14
-  %.0 = phi i32 [ %15, %14 ], [ %21, %20 ], [ %97, %96 ], [ %99, %98 ], [ 1, %WebPDataClear.exit ], [ 1, %100 ], [ -2, %FrameToFullCanvas.exit ]
+  %.018 = phi i32 [ %15, %14 ], [ %21, %20 ], [ %97, %96 ], [ %99, %98 ], [ 1, %WebPDataClear.exit ], [ 1, %100 ], [ -2, %FrameToFullCanvas.exit ]
   %108 = load ptr, ptr %9, align 8
   call void @WebPFree(ptr noundef %108) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -1828,8 +1828,8 @@ WebPDataClear.exit:                               ; preds = %100
   br label %111
 
 111:                                              ; preds = %2, %107
-  %.018 = phi i32 [ %.0, %107 ], [ -2, %2 ]
-  ret i32 %.018
+  %.0 = phi i32 [ %.018, %107 ], [ -2, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2835,16 +2835,16 @@ CopyCurrentCanvas.exit80:                         ; preds = %.thread101, %158
   %184 = phi i32 [ %.pre.i, %.lr.ph32.i ], [ %216, %._crit_edge.i ]
   %185 = phi i32 [ %.pre36.i, %.lr.ph32.i ], [ %217, %._crit_edge.i ]
   %186 = phi i32 [ %.pre.i, %.lr.ph32.i ], [ %218, %._crit_edge.i ]
-  %.030.i = phi i32 [ 0, %.lr.ph32.i ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %.02429.i = phi i32 [ %174, %.lr.ph32.i ], [ %219, %._crit_edge.i ]
+  %.02430.i = phi i32 [ %174, %.lr.ph32.i ], [ %219, %._crit_edge.i ]
+  %.02529.i = phi i32 [ 0, %.lr.ph32.i ], [ %.1.lcssa.i, %._crit_edge.i ]
   %187 = load ptr, ptr %175, align 8
   %188 = load i32, ptr %176, align 8
-  %189 = mul nsw i32 %188, %.02429.i
+  %189 = mul nsw i32 %188, %.02430.i
   %190 = sext i32 %189 to i64
   %191 = getelementptr inbounds i32, ptr %187, i64 %190
   %192 = load ptr, ptr %177, align 8
   %193 = load i32, ptr %178, align 8
-  %194 = mul nsw i32 %193, %.02429.i
+  %194 = mul nsw i32 %193, %.02430.i
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds i32, ptr %192, i64 %195
   %197 = icmp sgt i32 %185, 0
@@ -2858,7 +2858,7 @@ CopyCurrentCanvas.exit80:                         ; preds = %.thread101, %158
   %199 = phi i32 [ %183, %.lr.ph.preheader.i ], [ %208, %207 ]
   %200 = phi i32 [ %184, %.lr.ph.preheader.i ], [ %209, %207 ]
   %indvars.iv.i81 = phi i64 [ %198, %.lr.ph.preheader.i ], [ %indvars.iv.next.i83, %207 ]
-  %.128.i = phi i32 [ %.030.i, %.lr.ph.preheader.i ], [ %.2.i, %207 ]
+  %.127.i = phi i32 [ %.02529.i, %.lr.ph.preheader.i ], [ %.2.i, %207 ]
   %201 = getelementptr inbounds i32, ptr %191, i64 %indvars.iv.i81
   %202 = load i32, ptr %201, align 4
   %203 = getelementptr inbounds i32, ptr %196, i64 %indvars.iv.i81
@@ -2877,7 +2877,7 @@ CopyCurrentCanvas.exit80:                         ; preds = %.thread101, %158
 207:                                              ; preds = %206, %.lr.ph.i
   %208 = phi i32 [ %.pre38.i, %206 ], [ %199, %.lr.ph.i ]
   %209 = phi i32 [ %.pre37.i, %206 ], [ %200, %.lr.ph.i ]
-  %.2.i = phi i32 [ 1, %206 ], [ %.128.i, %.lr.ph.i ]
+  %.2.i = phi i32 [ 1, %206 ], [ %.127.i, %.lr.ph.i ]
   %indvars.iv.next.i83 = add nsw i64 %indvars.iv.i81, 1
   %210 = add nsw i32 %209, %208
   %211 = sext i32 %210 to i64
@@ -2896,15 +2896,15 @@ CopyCurrentCanvas.exit80:                         ; preds = %.thread101, %158
   %216 = phi i32 [ %184, %180 ], [ %209, %._crit_edge.loopexit.i ]
   %217 = phi i32 [ %185, %180 ], [ %208, %._crit_edge.loopexit.i ]
   %218 = phi i32 [ %186, %180 ], [ %209, %._crit_edge.loopexit.i ]
-  %.1.lcssa.i = phi i32 [ %.030.i, %180 ], [ %.2.i, %._crit_edge.loopexit.i ]
-  %219 = add nsw i32 %.02429.i, 1
+  %.1.lcssa.i = phi i32 [ %.02529.i, %180 ], [ %.2.i, %._crit_edge.loopexit.i ]
+  %219 = add nsw i32 %.02430.i, 1
   %220 = add nsw i32 %214, %213
   %221 = icmp slt i32 %219, %220
   br i1 %221, label %180, label %IncreaseTransparency.exit, !llvm.loop !24
 
 IncreaseTransparency.exit:                        ; preds = %._crit_edge.i, %168
-  %.0.lcssa.i = phi i32 [ 0, %168 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  store i32 %.0.lcssa.i, ptr %16, align 8
+  %.025.lcssa.i = phi i32 [ 0, %168 ], [ %.1.lcssa.i, %._crit_edge.i ]
+  store i32 %.025.lcssa.i, ptr %16, align 8
   br label %222
 
 222:                                              ; preds = %IncreaseTransparency.exit, %CopyCurrentCanvas.exit80
@@ -3019,8 +3019,8 @@ CopyCurrentCanvas.exit87:                         ; preds = %251, %253
   %279 = load i32, ptr %278, align 4
   %280 = add nsw i32 %279, %277
   %281 = and i32 %280, -8
-  %.076100.i = add nsw i32 %272, 8
-  %282 = icmp slt i32 %.076100.i, %276
+  %.062100.i = add nsw i32 %272, 8
+  %282 = icmp slt i32 %.062100.i, %276
   br i1 %282, label %.preheader83.lr.ph.i, label %FlattenSimilarBlocks.exit
 
 .preheader83.lr.ph.i:                             ; preds = %263
@@ -3029,8 +3029,8 @@ CopyCurrentCanvas.exit87:                         ; preds = %251, %253
   %285 = call double @llvm.fmuladd.f64(double %284, double 3.100000e+01, double %269)
   %286 = fadd double %285, 5.000000e-01
   %287 = fptosi double %286 to i32
-  %.07597.i = add nsw i32 %283, 8
-  %288 = icmp slt i32 %.07597.i, %281
+  %.097.i = add nsw i32 %283, 8
+  %288 = icmp slt i32 %.097.i, %281
   %289 = getelementptr inbounds i8, ptr %15, i64 72
   %290 = getelementptr inbounds i8, ptr %15, i64 80
   %291 = getelementptr inbounds i8, ptr %0, i64 384
@@ -3039,27 +3039,27 @@ CopyCurrentCanvas.exit87:                         ; preds = %251, %253
   br i1 %288, label %.preheader83.us.preheader.i, label %FlattenSimilarBlocks.exit
 
 .preheader83.us.preheader.i:                      ; preds = %.preheader83.lr.ph.i
-  %294 = sext i32 %.07597.i to i64
+  %294 = sext i32 %.097.i to i64
   %295 = sext i32 %281 to i64
   br label %.preheader83.us.i
 
 .preheader83.us.i:                                ; preds = %..loopexit84_crit_edge.us.i, %.preheader83.us.preheader.i
-  %.076102.us.i = phi i32 [ %.076.us.i, %..loopexit84_crit_edge.us.i ], [ %.076100.i, %.preheader83.us.preheader.i ]
-  %.077101.us.i = phi i32 [ %.279.us.i, %..loopexit84_crit_edge.us.i ], [ 0, %.preheader83.us.preheader.i ]
+  %.062102.us.i = phi i32 [ %.062.us.i, %..loopexit84_crit_edge.us.i ], [ %.062100.i, %.preheader83.us.preheader.i ]
+  %.063101.us.i = phi i32 [ %.2.us.i, %..loopexit84_crit_edge.us.i ], [ 0, %.preheader83.us.preheader.i ]
   br label %296
 
 296:                                              ; preds = %.loopexit.us.i, %.preheader83.us.i
   %indvars.iv112.i = phi i64 [ %294, %.preheader83.us.i ], [ %indvars.iv.next113.i, %.loopexit.us.i ]
-  %.17898.us.i = phi i32 [ %.077101.us.i, %.preheader83.us.i ], [ %.279.us.i, %.loopexit.us.i ]
+  %.198.us.i = phi i32 [ %.063101.us.i, %.preheader83.us.i ], [ %.2.us.i, %.loopexit.us.i ]
   %297 = load ptr, ptr %289, align 8
   %298 = load i32, ptr %290, align 8
-  %299 = mul nsw i32 %298, %.076102.us.i
+  %299 = mul nsw i32 %298, %.062102.us.i
   %300 = sext i32 %299 to i64
   %301 = getelementptr inbounds i32, ptr %297, i64 %300
   %302 = getelementptr inbounds i32, ptr %301, i64 %indvars.iv112.i
   %303 = load ptr, ptr %291, align 8
   %304 = load i32, ptr %292, align 8
-  %305 = mul nsw i32 %304, %.076102.us.i
+  %305 = mul nsw i32 %304, %.062102.us.i
   %306 = sext i32 %305 to i64
   %307 = getelementptr inbounds i32, ptr %303, i64 %306
   %308 = getelementptr inbounds i32, ptr %307, i64 %indvars.iv112.i
@@ -3068,39 +3068,39 @@ CopyCurrentCanvas.exit87:                         ; preds = %251, %253
   br label %.preheader82.us.i
 
 311:                                              ; preds = %331
-  %312 = icmp eq i32 %.274.us.i, 64
+  %312 = icmp eq i32 %.266.us.i, 64
   br i1 %312, label %313, label %.loopexit.us.i
 
 313:                                              ; preds = %311
-  %314 = sdiv i32 %.271.us.i, 64
+  %314 = sdiv i32 %.269.us.i, 64
   %315 = shl i32 %314, 16
-  %316 = sdiv i32 %.268.us.i, 64
+  %316 = sdiv i32 %.279.us.i, 64
   %317 = shl i32 %316, 8
-  %318 = or i32 %317, %315
-  %319 = sdiv i32 %.2.us.i, 64
-  %320 = or i32 %318, %319
+  %318 = sdiv i32 %.276.us.i, 64
+  %319 = or i32 %318, %317
+  %320 = or i32 %319, %315
   br label %.preheader.us.i
 
 .loopexit.us.i:                                   ; preds = %322, %311
-  %.279.us.i = phi i32 [ %.17898.us.i, %311 ], [ 1, %322 ]
+  %.2.us.i = phi i32 [ %.198.us.i, %311 ], [ 1, %322 ]
   %indvars.iv.next113.i = add nsw i64 %indvars.iv112.i, 8
   %321 = icmp slt i64 %indvars.iv.next113.i, %295
   br i1 %321, label %296, label %..loopexit84_crit_edge.us.i, !llvm.loop !25
 
 322:                                              ; preds = %324
-  %323 = add nuw nsw i32 %.196.us.i, 1
+  %323 = add nuw nsw i32 %.17196.us.i, 1
   %exitcond111.not.i = icmp eq i32 %323, 8
   br i1 %exitcond111.not.i, label %.loopexit.us.i, label %.preheader.us.i, !llvm.loop !26
 
 324:                                              ; preds = %.preheader.us.i, %324
-  %.16395.us.i = phi i32 [ 0, %.preheader.us.i ], [ %330, %324 ]
+  %.17395.us.i = phi i32 [ 0, %.preheader.us.i ], [ %330, %324 ]
   %325 = load i32, ptr %292, align 8
-  %326 = mul nsw i32 %325, %.196.us.i
-  %327 = add nsw i32 %326, %.16395.us.i
+  %326 = mul nsw i32 %325, %.17196.us.i
+  %327 = add nsw i32 %326, %.17395.us.i
   %328 = sext i32 %327 to i64
   %329 = getelementptr inbounds i32, ptr %308, i64 %328
   store i32 %320, ptr %329, align 4
-  %330 = add nuw nsw i32 %.16395.us.i, 1
+  %330 = add nuw nsw i32 %.17395.us.i, 1
   %exitcond110.not.i = icmp eq i32 %330, 8
   br i1 %exitcond110.not.i, label %322, label %324, !llvm.loop !27
 
@@ -3111,10 +3111,10 @@ CopyCurrentCanvas.exit87:                         ; preds = %251, %253
 
 332:                                              ; preds = %.preheader82.us.i, %PixelsAreSimilar.exit.thread.us.i
   %indvars.iv.i89 = phi i64 [ 0, %.preheader82.us.i ], [ %indvars.iv.next.i90, %PixelsAreSimilar.exit.thread.us.i ]
-  %.16588.us.i = phi i32 [ %.06493.us.i, %.preheader82.us.i ], [ %.2.us.i, %PixelsAreSimilar.exit.thread.us.i ]
-  %.16787.us.i = phi i32 [ %.06692.us.i, %.preheader82.us.i ], [ %.268.us.i, %PixelsAreSimilar.exit.thread.us.i ]
-  %.17086.us.i = phi i32 [ %.06991.us.i, %.preheader82.us.i ], [ %.271.us.i, %PixelsAreSimilar.exit.thread.us.i ]
-  %.17385.us.i = phi i32 [ %.07290.us.i, %.preheader82.us.i ], [ %.274.us.i, %PixelsAreSimilar.exit.thread.us.i ]
+  %.16589.us.i = phi i32 [ %.06494.us.i, %.preheader82.us.i ], [ %.266.us.i, %PixelsAreSimilar.exit.thread.us.i ]
+  %.16888.us.i = phi i32 [ %.06793.us.i, %.preheader82.us.i ], [ %.269.us.i, %PixelsAreSimilar.exit.thread.us.i ]
+  %.17586.us.i = phi i32 [ %.07491.us.i, %.preheader82.us.i ], [ %.276.us.i, %PixelsAreSimilar.exit.thread.us.i ]
+  %.17885.us.i = phi i32 [ %.07790.us.i, %.preheader82.us.i ], [ %.279.us.i, %PixelsAreSimilar.exit.thread.us.i ]
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i89
   %333 = load i32, ptr %gep.i, align 4
   %334 = icmp ugt i32 %333, -16777217
@@ -3158,31 +3158,31 @@ PixelsAreSimilar.exit.us.i93:                     ; preds = %352
   br i1 %.not81.us.i, label %PixelsAreSimilar.exit.thread.us.i, label %359
 
 359:                                              ; preds = %PixelsAreSimilar.exit.us.i93
-  %360 = add nsw i32 %.17385.us.i, 1
-  %361 = add i32 %348, %.17086.us.i
-  %362 = add i32 %338, %.16787.us.i
-  %363 = add i32 %339, %.16588.us.i
+  %360 = add nsw i32 %.16589.us.i, 1
+  %361 = add i32 %348, %.16888.us.i
+  %362 = add i32 %338, %.17885.us.i
+  %363 = add i32 %339, %.17586.us.i
   br label %PixelsAreSimilar.exit.thread.us.i
 
 PixelsAreSimilar.exit.thread.us.i:                ; preds = %359, %PixelsAreSimilar.exit.us.i93, %352, %344, %335, %332
-  %.274.us.i = phi i32 [ %360, %359 ], [ %.17385.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.17385.us.i, %332 ], [ %.17385.us.i, %352 ], [ %.17385.us.i, %344 ], [ %.17385.us.i, %335 ]
-  %.271.us.i = phi i32 [ %361, %359 ], [ %.17086.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.17086.us.i, %332 ], [ %.17086.us.i, %352 ], [ %.17086.us.i, %344 ], [ %.17086.us.i, %335 ]
-  %.268.us.i = phi i32 [ %362, %359 ], [ %.16787.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.16787.us.i, %332 ], [ %.16787.us.i, %352 ], [ %.16787.us.i, %344 ], [ %.16787.us.i, %335 ]
-  %.2.us.i = phi i32 [ %363, %359 ], [ %.16588.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.16588.us.i, %332 ], [ %.16588.us.i, %352 ], [ %.16588.us.i, %344 ], [ %.16588.us.i, %335 ]
+  %.279.us.i = phi i32 [ %362, %359 ], [ %.17885.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.17885.us.i, %332 ], [ %.17885.us.i, %352 ], [ %.17885.us.i, %344 ], [ %.17885.us.i, %335 ]
+  %.276.us.i = phi i32 [ %363, %359 ], [ %.17586.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.17586.us.i, %332 ], [ %.17586.us.i, %352 ], [ %.17586.us.i, %344 ], [ %.17586.us.i, %335 ]
+  %.269.us.i = phi i32 [ %361, %359 ], [ %.16888.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.16888.us.i, %332 ], [ %.16888.us.i, %352 ], [ %.16888.us.i, %344 ], [ %.16888.us.i, %335 ]
+  %.266.us.i = phi i32 [ %360, %359 ], [ %.16589.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.16589.us.i, %332 ], [ %.16589.us.i, %352 ], [ %.16589.us.i, %344 ], [ %.16589.us.i, %335 ]
   %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i89, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i90, 8
   br i1 %exitcond.not.i, label %331, label %332, !llvm.loop !29
 
 .preheader.us.i:                                  ; preds = %322, %313
-  %.196.us.i = phi i32 [ 0, %313 ], [ %323, %322 ]
+  %.17196.us.i = phi i32 [ 0, %313 ], [ %323, %322 ]
   br label %324
 
 .preheader82.us.i:                                ; preds = %331, %296
   %indvars.iv106.i = phi i64 [ %indvars.iv.next107.i, %331 ], [ 0, %296 ]
-  %.06493.us.i = phi i32 [ %.2.us.i, %331 ], [ 0, %296 ]
-  %.06692.us.i = phi i32 [ %.268.us.i, %331 ], [ 0, %296 ]
-  %.06991.us.i = phi i32 [ %.271.us.i, %331 ], [ 0, %296 ]
-  %.07290.us.i = phi i32 [ %.274.us.i, %331 ], [ 0, %296 ]
+  %.06494.us.i = phi i32 [ %.266.us.i, %331 ], [ 0, %296 ]
+  %.06793.us.i = phi i32 [ %.269.us.i, %331 ], [ 0, %296 ]
+  %.07491.us.i = phi i32 [ %.276.us.i, %331 ], [ 0, %296 ]
+  %.07790.us.i = phi i32 [ %.279.us.i, %331 ], [ 0, %296 ]
   %364 = mul nsw i64 %indvars.iv106.i, %309
   %365 = mul nsw i64 %indvars.iv106.i, %310
   %invariant.gep.i = getelementptr i32, ptr %302, i64 %364
@@ -3190,13 +3190,13 @@ PixelsAreSimilar.exit.thread.us.i:                ; preds = %359, %PixelsAreSimi
   br label %332
 
 ..loopexit84_crit_edge.us.i:                      ; preds = %.loopexit.us.i
-  %.076.us.i = add nsw i32 %.076102.us.i, 8
-  %366 = icmp slt i32 %.076.us.i, %276
+  %.062.us.i = add nsw i32 %.062102.us.i, 8
+  %366 = icmp slt i32 %.062.us.i, %276
   br i1 %366, label %.preheader83.us.i, label %FlattenSimilarBlocks.exit, !llvm.loop !30
 
 FlattenSimilarBlocks.exit:                        ; preds = %..loopexit84_crit_edge.us.i, %263, %.preheader83.lr.ph.i
-  %.077.lcssa.i = phi i32 [ 0, %263 ], [ 0, %.preheader83.lr.ph.i ], [ %.279.us.i, %..loopexit84_crit_edge.us.i ]
-  store i32 %.077.lcssa.i, ptr %16, align 8
+  %.063.lcssa.i = phi i32 [ 0, %263 ], [ 0, %.preheader83.lr.ph.i ], [ %.2.us.i, %..loopexit84_crit_edge.us.i ]
+  store i32 %.063.lcssa.i, ptr %16, align 8
   br label %367
 
 367:                                              ; preds = %FlattenSimilarBlocks.exit, %CopyCurrentCanvas.exit87

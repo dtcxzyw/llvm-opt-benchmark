@@ -222,13 +222,13 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %detach.0387 = phi i32 [ 0, %for.body.preheader ], [ %detach.1, %for.inc ]
-  %group_name.0386 = phi ptr [ null, %for.body.preheader ], [ %group_name.1, %for.inc ]
-  %user_name.0385 = phi ptr [ null, %for.body.preheader ], [ %user_name.1, %for.inc ]
-  %pid_file.0384 = phi ptr [ null, %for.body.preheader ], [ %pid_file.1, %for.inc ]
-  %inetd_mode.0383 = phi i32 [ 0, %for.body.preheader ], [ %inetd_mode.1, %for.inc ]
-  %serve_mode.0382 = phi i32 [ 0, %for.body.preheader ], [ %serve_mode.1, %for.inc ]
-  %listen_port.0381 = phi i32 [ 0, %for.body.preheader ], [ %listen_port.1, %for.inc ]
+  %listen_port.0388 = phi i32 [ 0, %for.body.preheader ], [ %listen_port.1, %for.inc ]
+  %serve_mode.0387 = phi i32 [ 0, %for.body.preheader ], [ %serve_mode.1, %for.inc ]
+  %detach.0385 = phi i32 [ 0, %for.body.preheader ], [ %detach.1, %for.inc ]
+  %group_name.0384 = phi ptr [ null, %for.body.preheader ], [ %group_name.1, %for.inc ]
+  %user_name.0383 = phi ptr [ null, %for.body.preheader ], [ %user_name.1, %for.inc ]
+  %pid_file.0382 = phi ptr [ null, %for.body.preheader ], [ %pid_file.1, %for.inc ]
+  %inetd_mode.0381 = phi i32 [ 0, %for.body.preheader ], [ %inetd_mode.1, %for.inc ]
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %scevgep = getelementptr i8, ptr %1, i64 9
@@ -765,13 +765,13 @@ if.end136:                                        ; preds = %if.else127
   unreachable
 
 for.inc:                                          ; preds = %do.body.i153, %do.body.i163, %do.body.i173, %if.end91, %if.end14, %if.end10, %if.then120, %if.then116, %if.then112, %if.then109, %if.then106, %if.then103, %if.then87, %if.then84, %if.then80, %if.then76, %if.then73, %if.then69, %if.then66, %if.then57, %if.then53, %if.then49, %if.then46, %if.then43, %if.then38, %if.then34, %if.then31, %if.then25, %if.then21, %if.then7, %if.then
-  %listen_port.1 = phi i32 [ %listen_port.0381, %if.then ], [ %listen_port.0381, %if.end10 ], [ %listen_port.0381, %if.end14 ], [ %listen_port.0381, %if.then21 ], [ %listen_port.0381, %if.then25 ], [ %listen_port.0381, %if.then31 ], [ %listen_port.0381, %if.then34 ], [ %listen_port.0381, %if.then38 ], [ %listen_port.0381, %if.then43 ], [ %listen_port.0381, %if.then46 ], [ %listen_port.0381, %if.then49 ], [ %listen_port.0381, %if.then53 ], [ %listen_port.0381, %if.then57 ], [ %listen_port.0381, %if.then66 ], [ %listen_port.0381, %if.then69 ], [ %listen_port.0381, %if.then73 ], [ %listen_port.0381, %if.then76 ], [ %listen_port.0381, %if.then80 ], [ %listen_port.0381, %if.then84 ], [ %listen_port.0381, %if.then87 ], [ %listen_port.0381, %if.end91 ], [ %listen_port.0381, %if.then103 ], [ %listen_port.0381, %if.then106 ], [ %listen_port.0381, %if.then109 ], [ %listen_port.0381, %if.then112 ], [ %listen_port.0381, %if.then116 ], [ %listen_port.0381, %if.then120 ], [ %conv8, %if.then7 ], [ %listen_port.0381, %do.body.i173 ], [ %listen_port.0381, %do.body.i163 ], [ %listen_port.0381, %do.body.i153 ]
-  %serve_mode.1 = phi i32 [ %serve_mode.0382, %if.then ], [ 1, %if.end10 ], [ %serve_mode.0382, %if.end14 ], [ %serve_mode.0382, %if.then21 ], [ %serve_mode.0382, %if.then25 ], [ %serve_mode.0382, %if.then31 ], [ %serve_mode.0382, %if.then34 ], [ %serve_mode.0382, %if.then38 ], [ %serve_mode.0382, %if.then43 ], [ %serve_mode.0382, %if.then46 ], [ %serve_mode.0382, %if.then49 ], [ %serve_mode.0382, %if.then53 ], [ %serve_mode.0382, %if.then57 ], [ %serve_mode.0382, %if.then66 ], [ %serve_mode.0382, %if.then69 ], [ %serve_mode.0382, %if.then73 ], [ %serve_mode.0382, %if.then76 ], [ %serve_mode.0382, %if.then80 ], [ %serve_mode.0382, %if.then84 ], [ %serve_mode.0382, %if.then87 ], [ %serve_mode.0382, %if.end91 ], [ %serve_mode.0382, %if.then103 ], [ %serve_mode.0382, %if.then106 ], [ %serve_mode.0382, %if.then109 ], [ %serve_mode.0382, %if.then112 ], [ %serve_mode.0382, %if.then116 ], [ %serve_mode.0382, %if.then120 ], [ %serve_mode.0382, %if.then7 ], [ %serve_mode.0382, %do.body.i173 ], [ %serve_mode.0382, %do.body.i163 ], [ %serve_mode.0382, %do.body.i153 ]
-  %inetd_mode.1 = phi i32 [ %inetd_mode.0383, %if.then ], [ %inetd_mode.0383, %if.end10 ], [ 1, %if.end14 ], [ %inetd_mode.0383, %if.then21 ], [ %inetd_mode.0383, %if.then25 ], [ %inetd_mode.0383, %if.then31 ], [ %inetd_mode.0383, %if.then34 ], [ %inetd_mode.0383, %if.then38 ], [ %inetd_mode.0383, %if.then43 ], [ %inetd_mode.0383, %if.then46 ], [ %inetd_mode.0383, %if.then49 ], [ %inetd_mode.0383, %if.then53 ], [ %inetd_mode.0383, %if.then57 ], [ %inetd_mode.0383, %if.then66 ], [ %inetd_mode.0383, %if.then69 ], [ %inetd_mode.0383, %if.then73 ], [ %inetd_mode.0383, %if.then76 ], [ %inetd_mode.0383, %if.then80 ], [ %inetd_mode.0383, %if.then84 ], [ %inetd_mode.0383, %if.then87 ], [ %inetd_mode.0383, %if.end91 ], [ %inetd_mode.0383, %if.then103 ], [ %inetd_mode.0383, %if.then106 ], [ %inetd_mode.0383, %if.then109 ], [ %inetd_mode.0383, %if.then112 ], [ %inetd_mode.0383, %if.then116 ], [ %inetd_mode.0383, %if.then120 ], [ %inetd_mode.0383, %if.then7 ], [ %inetd_mode.0383, %do.body.i173 ], [ %inetd_mode.0383, %do.body.i163 ], [ %inetd_mode.0383, %do.body.i153 ]
-  %pid_file.1 = phi ptr [ %pid_file.0384, %if.then ], [ %pid_file.0384, %if.end10 ], [ %pid_file.0384, %if.end14 ], [ %pid_file.0384, %if.then21 ], [ %pid_file.0384, %if.then25 ], [ %pid_file.0384, %if.then31 ], [ %pid_file.0384, %if.then34 ], [ %pid_file.0384, %if.then38 ], [ %pid_file.0384, %if.then43 ], [ %pid_file.0384, %if.then46 ], [ %pid_file.0384, %if.then49 ], [ %pid_file.0384, %if.then53 ], [ %pid_file.0384, %if.then57 ], [ %pid_file.0384, %if.then66 ], [ %pid_file.0384, %if.then69 ], [ %pid_file.0384, %if.then73 ], [ %pid_file.0384, %if.then76 ], [ %pid_file.0384, %if.then80 ], [ %pid_file.0384, %if.then84 ], [ %pid_file.0384, %if.then87 ], [ %pid_file.0384, %if.end91 ], [ %pid_file.0384, %if.then103 ], [ %pid_file.0384, %if.then106 ], [ %pid_file.0384, %if.then109 ], [ %pid_file.0384, %if.then112 ], [ %pid_file.0384, %if.then116 ], [ %pid_file.0384, %if.then120 ], [ %pid_file.0384, %if.then7 ], [ %pid_file.0384, %do.body.i173 ], [ %pid_file.0384, %do.body.i163 ], [ %scevgep462, %do.body.i153 ]
-  %user_name.1 = phi ptr [ %user_name.0385, %if.then ], [ %user_name.0385, %if.end10 ], [ %user_name.0385, %if.end14 ], [ %user_name.0385, %if.then21 ], [ %user_name.0385, %if.then25 ], [ %user_name.0385, %if.then31 ], [ %user_name.0385, %if.then34 ], [ %user_name.0385, %if.then38 ], [ %user_name.0385, %if.then43 ], [ %user_name.0385, %if.then46 ], [ %user_name.0385, %if.then49 ], [ %user_name.0385, %if.then53 ], [ %user_name.0385, %if.then57 ], [ %user_name.0385, %if.then66 ], [ %user_name.0385, %if.then69 ], [ %user_name.0385, %if.then73 ], [ %user_name.0385, %if.then76 ], [ %user_name.0385, %if.then80 ], [ %user_name.0385, %if.then84 ], [ %user_name.0385, %if.then87 ], [ %user_name.0385, %if.end91 ], [ %user_name.0385, %if.then103 ], [ %user_name.0385, %if.then106 ], [ %user_name.0385, %if.then109 ], [ %user_name.0385, %if.then112 ], [ %user_name.0385, %if.then116 ], [ %user_name.0385, %if.then120 ], [ %user_name.0385, %if.then7 ], [ %user_name.0385, %do.body.i173 ], [ %scevgep444, %do.body.i163 ], [ %user_name.0385, %do.body.i153 ]
-  %group_name.1 = phi ptr [ %group_name.0386, %if.then ], [ %group_name.0386, %if.end10 ], [ %group_name.0386, %if.end14 ], [ %group_name.0386, %if.then21 ], [ %group_name.0386, %if.then25 ], [ %group_name.0386, %if.then31 ], [ %group_name.0386, %if.then34 ], [ %group_name.0386, %if.then38 ], [ %group_name.0386, %if.then43 ], [ %group_name.0386, %if.then46 ], [ %group_name.0386, %if.then49 ], [ %group_name.0386, %if.then53 ], [ %group_name.0386, %if.then57 ], [ %group_name.0386, %if.then66 ], [ %group_name.0386, %if.then69 ], [ %group_name.0386, %if.then73 ], [ %group_name.0386, %if.then76 ], [ %group_name.0386, %if.then80 ], [ %group_name.0386, %if.then84 ], [ %group_name.0386, %if.then87 ], [ %group_name.0386, %if.end91 ], [ %group_name.0386, %if.then103 ], [ %group_name.0386, %if.then106 ], [ %group_name.0386, %if.then109 ], [ %group_name.0386, %if.then112 ], [ %group_name.0386, %if.then116 ], [ %group_name.0386, %if.then120 ], [ %group_name.0386, %if.then7 ], [ %scevgep466, %do.body.i173 ], [ %group_name.0386, %do.body.i163 ], [ %group_name.0386, %do.body.i153 ]
-  %detach.1 = phi i32 [ %detach.0387, %if.then ], [ %detach.0387, %if.end10 ], [ %detach.0387, %if.end14 ], [ %detach.0387, %if.then21 ], [ %detach.0387, %if.then25 ], [ %detach.0387, %if.then31 ], [ %detach.0387, %if.then34 ], [ %detach.0387, %if.then38 ], [ %detach.0387, %if.then43 ], [ %detach.0387, %if.then46 ], [ %detach.0387, %if.then49 ], [ %detach.0387, %if.then53 ], [ %detach.0387, %if.then57 ], [ %detach.0387, %if.then66 ], [ %detach.0387, %if.then69 ], [ %detach.0387, %if.then73 ], [ %detach.0387, %if.then76 ], [ %detach.0387, %if.then80 ], [ %detach.0387, %if.then84 ], [ %detach.0387, %if.then87 ], [ 1, %if.end91 ], [ %detach.0387, %if.then103 ], [ %detach.0387, %if.then106 ], [ %detach.0387, %if.then109 ], [ %detach.0387, %if.then112 ], [ %detach.0387, %if.then116 ], [ %detach.0387, %if.then120 ], [ %detach.0387, %if.then7 ], [ %detach.0387, %do.body.i173 ], [ %detach.0387, %do.body.i163 ], [ %detach.0387, %do.body.i153 ]
+  %inetd_mode.1 = phi i32 [ %inetd_mode.0381, %if.then ], [ %inetd_mode.0381, %if.end10 ], [ 1, %if.end14 ], [ %inetd_mode.0381, %if.then21 ], [ %inetd_mode.0381, %if.then25 ], [ %inetd_mode.0381, %if.then31 ], [ %inetd_mode.0381, %if.then34 ], [ %inetd_mode.0381, %if.then38 ], [ %inetd_mode.0381, %if.then43 ], [ %inetd_mode.0381, %if.then46 ], [ %inetd_mode.0381, %if.then49 ], [ %inetd_mode.0381, %if.then53 ], [ %inetd_mode.0381, %if.then57 ], [ %inetd_mode.0381, %if.then66 ], [ %inetd_mode.0381, %if.then69 ], [ %inetd_mode.0381, %if.then73 ], [ %inetd_mode.0381, %if.then76 ], [ %inetd_mode.0381, %if.then80 ], [ %inetd_mode.0381, %if.then84 ], [ %inetd_mode.0381, %if.then87 ], [ %inetd_mode.0381, %if.end91 ], [ %inetd_mode.0381, %if.then103 ], [ %inetd_mode.0381, %if.then106 ], [ %inetd_mode.0381, %if.then109 ], [ %inetd_mode.0381, %if.then112 ], [ %inetd_mode.0381, %if.then116 ], [ %inetd_mode.0381, %if.then120 ], [ %inetd_mode.0381, %if.then7 ], [ %inetd_mode.0381, %do.body.i173 ], [ %inetd_mode.0381, %do.body.i163 ], [ %inetd_mode.0381, %do.body.i153 ]
+  %pid_file.1 = phi ptr [ %pid_file.0382, %if.then ], [ %pid_file.0382, %if.end10 ], [ %pid_file.0382, %if.end14 ], [ %pid_file.0382, %if.then21 ], [ %pid_file.0382, %if.then25 ], [ %pid_file.0382, %if.then31 ], [ %pid_file.0382, %if.then34 ], [ %pid_file.0382, %if.then38 ], [ %pid_file.0382, %if.then43 ], [ %pid_file.0382, %if.then46 ], [ %pid_file.0382, %if.then49 ], [ %pid_file.0382, %if.then53 ], [ %pid_file.0382, %if.then57 ], [ %pid_file.0382, %if.then66 ], [ %pid_file.0382, %if.then69 ], [ %pid_file.0382, %if.then73 ], [ %pid_file.0382, %if.then76 ], [ %pid_file.0382, %if.then80 ], [ %pid_file.0382, %if.then84 ], [ %pid_file.0382, %if.then87 ], [ %pid_file.0382, %if.end91 ], [ %pid_file.0382, %if.then103 ], [ %pid_file.0382, %if.then106 ], [ %pid_file.0382, %if.then109 ], [ %pid_file.0382, %if.then112 ], [ %pid_file.0382, %if.then116 ], [ %pid_file.0382, %if.then120 ], [ %pid_file.0382, %if.then7 ], [ %pid_file.0382, %do.body.i173 ], [ %pid_file.0382, %do.body.i163 ], [ %scevgep462, %do.body.i153 ]
+  %user_name.1 = phi ptr [ %user_name.0383, %if.then ], [ %user_name.0383, %if.end10 ], [ %user_name.0383, %if.end14 ], [ %user_name.0383, %if.then21 ], [ %user_name.0383, %if.then25 ], [ %user_name.0383, %if.then31 ], [ %user_name.0383, %if.then34 ], [ %user_name.0383, %if.then38 ], [ %user_name.0383, %if.then43 ], [ %user_name.0383, %if.then46 ], [ %user_name.0383, %if.then49 ], [ %user_name.0383, %if.then53 ], [ %user_name.0383, %if.then57 ], [ %user_name.0383, %if.then66 ], [ %user_name.0383, %if.then69 ], [ %user_name.0383, %if.then73 ], [ %user_name.0383, %if.then76 ], [ %user_name.0383, %if.then80 ], [ %user_name.0383, %if.then84 ], [ %user_name.0383, %if.then87 ], [ %user_name.0383, %if.end91 ], [ %user_name.0383, %if.then103 ], [ %user_name.0383, %if.then106 ], [ %user_name.0383, %if.then109 ], [ %user_name.0383, %if.then112 ], [ %user_name.0383, %if.then116 ], [ %user_name.0383, %if.then120 ], [ %user_name.0383, %if.then7 ], [ %user_name.0383, %do.body.i173 ], [ %scevgep444, %do.body.i163 ], [ %user_name.0383, %do.body.i153 ]
+  %group_name.1 = phi ptr [ %group_name.0384, %if.then ], [ %group_name.0384, %if.end10 ], [ %group_name.0384, %if.end14 ], [ %group_name.0384, %if.then21 ], [ %group_name.0384, %if.then25 ], [ %group_name.0384, %if.then31 ], [ %group_name.0384, %if.then34 ], [ %group_name.0384, %if.then38 ], [ %group_name.0384, %if.then43 ], [ %group_name.0384, %if.then46 ], [ %group_name.0384, %if.then49 ], [ %group_name.0384, %if.then53 ], [ %group_name.0384, %if.then57 ], [ %group_name.0384, %if.then66 ], [ %group_name.0384, %if.then69 ], [ %group_name.0384, %if.then73 ], [ %group_name.0384, %if.then76 ], [ %group_name.0384, %if.then80 ], [ %group_name.0384, %if.then84 ], [ %group_name.0384, %if.then87 ], [ %group_name.0384, %if.end91 ], [ %group_name.0384, %if.then103 ], [ %group_name.0384, %if.then106 ], [ %group_name.0384, %if.then109 ], [ %group_name.0384, %if.then112 ], [ %group_name.0384, %if.then116 ], [ %group_name.0384, %if.then120 ], [ %group_name.0384, %if.then7 ], [ %scevgep466, %do.body.i173 ], [ %group_name.0384, %do.body.i163 ], [ %group_name.0384, %do.body.i153 ]
+  %detach.1 = phi i32 [ %detach.0385, %if.then ], [ %detach.0385, %if.end10 ], [ %detach.0385, %if.end14 ], [ %detach.0385, %if.then21 ], [ %detach.0385, %if.then25 ], [ %detach.0385, %if.then31 ], [ %detach.0385, %if.then34 ], [ %detach.0385, %if.then38 ], [ %detach.0385, %if.then43 ], [ %detach.0385, %if.then46 ], [ %detach.0385, %if.then49 ], [ %detach.0385, %if.then53 ], [ %detach.0385, %if.then57 ], [ %detach.0385, %if.then66 ], [ %detach.0385, %if.then69 ], [ %detach.0385, %if.then73 ], [ %detach.0385, %if.then76 ], [ %detach.0385, %if.then80 ], [ %detach.0385, %if.then84 ], [ %detach.0385, %if.then87 ], [ 1, %if.end91 ], [ %detach.0385, %if.then103 ], [ %detach.0385, %if.then106 ], [ %detach.0385, %if.then109 ], [ %detach.0385, %if.then112 ], [ %detach.0385, %if.then116 ], [ %detach.0385, %if.then120 ], [ %detach.0385, %if.then7 ], [ %detach.0385, %do.body.i173 ], [ %detach.0385, %do.body.i163 ], [ %detach.0385, %do.body.i153 ]
+  %serve_mode.1 = phi i32 [ %serve_mode.0387, %if.then ], [ 1, %if.end10 ], [ %serve_mode.0387, %if.end14 ], [ %serve_mode.0387, %if.then21 ], [ %serve_mode.0387, %if.then25 ], [ %serve_mode.0387, %if.then31 ], [ %serve_mode.0387, %if.then34 ], [ %serve_mode.0387, %if.then38 ], [ %serve_mode.0387, %if.then43 ], [ %serve_mode.0387, %if.then46 ], [ %serve_mode.0387, %if.then49 ], [ %serve_mode.0387, %if.then53 ], [ %serve_mode.0387, %if.then57 ], [ %serve_mode.0387, %if.then66 ], [ %serve_mode.0387, %if.then69 ], [ %serve_mode.0387, %if.then73 ], [ %serve_mode.0387, %if.then76 ], [ %serve_mode.0387, %if.then80 ], [ %serve_mode.0387, %if.then84 ], [ %serve_mode.0387, %if.then87 ], [ %serve_mode.0387, %if.end91 ], [ %serve_mode.0387, %if.then103 ], [ %serve_mode.0387, %if.then106 ], [ %serve_mode.0387, %if.then109 ], [ %serve_mode.0387, %if.then112 ], [ %serve_mode.0387, %if.then116 ], [ %serve_mode.0387, %if.then120 ], [ %serve_mode.0387, %if.then7 ], [ %serve_mode.0387, %do.body.i173 ], [ %serve_mode.0387, %do.body.i163 ], [ %serve_mode.0387, %do.body.i153 ]
+  %listen_port.1 = phi i32 [ %listen_port.0388, %if.then ], [ %listen_port.0388, %if.end10 ], [ %listen_port.0388, %if.end14 ], [ %listen_port.0388, %if.then21 ], [ %listen_port.0388, %if.then25 ], [ %listen_port.0388, %if.then31 ], [ %listen_port.0388, %if.then34 ], [ %listen_port.0388, %if.then38 ], [ %listen_port.0388, %if.then43 ], [ %listen_port.0388, %if.then46 ], [ %listen_port.0388, %if.then49 ], [ %listen_port.0388, %if.then53 ], [ %listen_port.0388, %if.then57 ], [ %listen_port.0388, %if.then66 ], [ %listen_port.0388, %if.then69 ], [ %listen_port.0388, %if.then73 ], [ %listen_port.0388, %if.then76 ], [ %listen_port.0388, %if.then80 ], [ %listen_port.0388, %if.then84 ], [ %listen_port.0388, %if.then87 ], [ %listen_port.0388, %if.end91 ], [ %listen_port.0388, %if.then103 ], [ %listen_port.0388, %if.then106 ], [ %listen_port.0388, %if.then109 ], [ %listen_port.0388, %if.then112 ], [ %listen_port.0388, %if.then116 ], [ %listen_port.0388, %if.then120 ], [ %conv8, %if.then7 ], [ %listen_port.0388, %do.body.i173 ], [ %listen_port.0388, %do.body.i163 ], [ %listen_port.0388, %do.body.i153 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond477.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond477.not, label %for.end, label %for.body, !llvm.loop !7
@@ -782,13 +782,13 @@ for.end.sink.split:                               ; preds = %if.else127, %if.the
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.sink.split, %entry
-  %listen_port.0375 = phi i32 [ 0, %entry ], [ %listen_port.0381, %for.end.sink.split ], [ %listen_port.1, %for.inc ]
-  %serve_mode.0372 = phi i32 [ 0, %entry ], [ %serve_mode.0382, %for.end.sink.split ], [ %serve_mode.1, %for.inc ]
-  %inetd_mode.0369 = phi i32 [ 0, %entry ], [ %inetd_mode.0383, %for.end.sink.split ], [ %inetd_mode.1, %for.inc ]
-  %pid_file.0366 = phi ptr [ null, %entry ], [ %pid_file.0384, %for.end.sink.split ], [ %pid_file.1, %for.inc ]
-  %user_name.0363 = phi ptr [ null, %entry ], [ %user_name.0385, %for.end.sink.split ], [ %user_name.1, %for.inc ]
-  %group_name.0360 = phi ptr [ null, %entry ], [ %group_name.0386, %for.end.sink.split ], [ %group_name.1, %for.inc ]
-  %detach.0357 = phi i32 [ 0, %entry ], [ %detach.0387, %for.end.sink.split ], [ %detach.1, %for.inc ]
+  %inetd_mode.0375 = phi i32 [ 0, %entry ], [ %inetd_mode.0381, %for.end.sink.split ], [ %inetd_mode.1, %for.inc ]
+  %pid_file.0372 = phi ptr [ null, %entry ], [ %pid_file.0382, %for.end.sink.split ], [ %pid_file.1, %for.inc ]
+  %user_name.0369 = phi ptr [ null, %entry ], [ %user_name.0383, %for.end.sink.split ], [ %user_name.1, %for.inc ]
+  %group_name.0366 = phi ptr [ null, %entry ], [ %group_name.0384, %for.end.sink.split ], [ %group_name.1, %for.inc ]
+  %detach.0363 = phi i32 [ 0, %entry ], [ %detach.0385, %for.end.sink.split ], [ %detach.1, %for.inc ]
+  %serve_mode.0360 = phi i32 [ 0, %entry ], [ %serve_mode.0387, %for.end.sink.split ], [ %serve_mode.1, %for.inc ]
+  %listen_port.0357 = phi i32 [ 0, %entry ], [ %listen_port.0388, %for.end.sink.split ], [ %listen_port.1, %for.inc ]
   %50 = load i32, ptr @log_destination, align 4
   switch i32 %50, label %if.else149 [
     i32 -1, label %if.then139
@@ -796,8 +796,8 @@ for.end:                                          ; preds = %for.inc, %for.end.s
   ]
 
 if.then139:                                       ; preds = %for.end
-  %tobool140 = icmp ne i32 %inetd_mode.0369, 0
-  %tobool141 = icmp ne i32 %detach.0357, 0
+  %tobool140 = icmp ne i32 %inetd_mode.0375, 0
+  %tobool141 = icmp ne i32 %detach.0363, 0
   %or.cond = select i1 %tobool140, i1 true, i1 %tobool141
   br i1 %or.cond, label %if.end145.thread, label %if.end145.thread315
 
@@ -820,13 +820,13 @@ if.else149:                                       ; preds = %for.end, %if.end145
   br label %if.end151
 
 if.end151:                                        ; preds = %if.else149, %if.then148
-  %tobool152 = icmp ne i32 %inetd_mode.0369, 0
-  %tobool158 = icmp ne ptr %user_name.0363, null
+  %tobool152 = icmp ne i32 %inetd_mode.0375, 0
+  %tobool158 = icmp ne ptr %user_name.0369, null
   br i1 %tobool152, label %land.lhs.true153, label %if.else168
 
 land.lhs.true153:                                 ; preds = %if.end151
-  %tobool154 = icmp ne i32 %detach.0357, 0
-  %tobool156 = icmp ne ptr %group_name.0360, null
+  %tobool154 = icmp ne i32 %detach.0363, 0
+  %tobool156 = icmp ne ptr %group_name.0366, null
   %or.cond1 = select i1 %tobool154, i1 true, i1 %tobool156
   %or.cond2 = select i1 %or.cond1, i1 true, i1 %tobool158
   br i1 %or.cond2, label %if.then159, label %land.lhs.true162
@@ -836,7 +836,7 @@ if.then159:                                       ; preds = %land.lhs.true153
   unreachable
 
 land.lhs.true162:                                 ; preds = %land.lhs.true153
-  %tobool163 = icmp ne i32 %listen_port.0375, 0
+  %tobool163 = icmp ne i32 %listen_port.0357, 0
   %nr = getelementptr inbounds i8, ptr %listen_addr, i64 8
   %52 = load i64, ptr %nr, align 8
   %cmp165 = icmp ne i64 %52, 0
@@ -848,9 +848,9 @@ if.then167:                                       ; preds = %land.lhs.true162
   unreachable
 
 if.else168:                                       ; preds = %if.end151
-  %cmp169 = icmp eq i32 %listen_port.0375, 0
-  %spec.store.select4 = select i1 %cmp169, i32 9418, i32 %listen_port.0375
-  %tobool174 = icmp eq ptr %group_name.0360, null
+  %cmp169 = icmp eq i32 %listen_port.0357, 0
+  %spec.store.select4 = select i1 %cmp169, i32 9418, i32 %listen_port.0357
+  %tobool174 = icmp eq ptr %group_name.0366, null
   %or.cond5 = select i1 %tobool174, i1 true, i1 %tobool158
   br i1 %or.cond5, label %if.end178, label %if.then177
 
@@ -862,13 +862,13 @@ if.end178:                                        ; preds = %if.else168
   br i1 %tobool158, label %if.then180, label %if.end182
 
 if.then180:                                       ; preds = %if.end178
-  %call.i = call ptr @getpwnam(ptr noundef nonnull %user_name.0363)
+  %call.i = call ptr @getpwnam(ptr noundef nonnull %user_name.0369)
   store ptr %call.i, ptr @prepare_credentials.c, align 8
   %tobool.not.i223 = icmp eq ptr %call.i, null
   br i1 %tobool.not.i223, label %if.then.i224, label %if.end.i
 
 if.then.i224:                                     ; preds = %if.then180
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.64, ptr noundef nonnull %user_name.0363) #21
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.64, ptr noundef nonnull %user_name.0369) #21
   unreachable
 
 if.end.i:                                         ; preds = %if.then180
@@ -879,12 +879,12 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %prepare_credentials.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %call3.i = call ptr @getgrnam(ptr noundef nonnull %group_name.0360) #19
+  %call3.i = call ptr @getgrnam(ptr noundef nonnull %group_name.0366) #19
   %tobool4.not.i = icmp eq ptr %call3.i, null
   br i1 %tobool4.not.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.65, ptr noundef nonnull %group_name.0360) #21
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.65, ptr noundef nonnull %group_name.0366) #21
   unreachable
 
 if.end6.i:                                        ; preds = %if.else.i
@@ -949,7 +949,7 @@ if.then201:                                       ; preds = %if.then198
   unreachable
 
 if.end203:                                        ; preds = %if.then198, %if.end195
-  %tobool206 = icmp ne i32 %serve_mode.0372, 0
+  %tobool206 = icmp ne i32 %serve_mode.0360, 0
   %or.cond6 = select i1 %tobool152, i1 true, i1 %tobool206
   br i1 %or.cond6, label %if.then207, label %if.else209
 
@@ -1597,8 +1597,8 @@ if.then86.i.i.i:                                  ; preds = %if.end79.i.i.i
   br label %if.end88.i.i.i
 
 if.end88.i.i.i:                                   ; preds = %if.then86.i.i.i, %if.end79.i.i.i
-  %path.0.i.i.i = phi ptr [ %call87.i.i.i, %if.then86.i.i.i ], [ %call80.i.i.i, %if.end79.i.i.i ]
   %dir.1.i.i.i = phi ptr [ %incdec.ptr.le.i, %if.then86.i.i.i ], [ %dir.0.i.i.i, %if.end79.i.i.i ]
+  %path.0.i.i.i = phi ptr [ %call87.i.i.i, %if.then86.i.i.i ], [ %call80.i.i.i, %if.end79.i.i.i ]
   %tobool89.not.i.i.i = icmp eq ptr %path.0.i.i.i, null
   br i1 %tobool89.not.i.i.i, label %if.then90.i.i.i, label %if.end91.i.i.i
 
@@ -1915,7 +1915,7 @@ execute.exit:                                     ; preds = %run_service.exit.i,
   ret i32 %retval.0.i
 
 if.else209:                                       ; preds = %if.end203
-  %tobool210.not = icmp eq i32 %detach.0357, 0
+  %tobool210.not = icmp eq i32 %detach.0363, 0
   br i1 %tobool210.not, label %if.end216, label %if.then211
 
 if.then211:                                       ; preds = %if.else209
@@ -1928,13 +1928,13 @@ if.then214:                                       ; preds = %if.then211
   unreachable
 
 if.end216:                                        ; preds = %if.then211, %if.else209
-  %tobool217.not = icmp eq ptr %pid_file.0366, null
+  %tobool217.not = icmp eq ptr %pid_file.0372, null
   br i1 %tobool217.not, label %if.end221, label %if.then218
 
 if.then218:                                       ; preds = %if.end216
   %call219 = call i32 @getpid() #19
   %conv220 = sext i32 %call219 to i64
-  call void (ptr, ptr, ...) @write_file(ptr noundef nonnull %pid_file.0366, ptr noundef nonnull @.str.45, i64 noundef %conv220) #19
+  call void (ptr, ptr, ...) @write_file(ptr noundef nonnull %pid_file.0372, ptr noundef nonnull @.str.45, i64 noundef %conv220) #19
   br label %if.end221
 
 if.end221:                                        ; preds = %if.then218, %if.end216

@@ -268,8 +268,8 @@ if.end103:                                        ; preds = %if.end97
   br label %return
 
 err:                                              ; preds = %if.end97, %if.end88, %if.then81, %if.then68, %if.end61, %if.end49
-  %tobool113.not = phi i1 [ false, %if.end97 ], [ false, %if.end88 ], [ false, %if.then81 ], [ false, %if.then68 ], [ true, %if.end61 ], [ true, %if.end49 ]
   %have_ks1.1 = phi i32 [ %have_ks1.0, %if.end97 ], [ 1, %if.end88 ], [ 0, %if.then81 ], [ 0, %if.then68 ], [ 0, %if.end61 ], [ 0, %if.end49 ]
+  %tobool113.not = phi i1 [ false, %if.end97 ], [ false, %if.end88 ], [ false, %if.then81 ], [ false, %if.then68 ], [ true, %if.end61 ], [ true, %if.end49 ]
   store i32 0, ptr %suite_id53, align 8
   store ptr null, ptr %md52, align 8
   call void @OPENSSL_cleanse(ptr noundef nonnull %hpr_key, i64 noundef 64) #5

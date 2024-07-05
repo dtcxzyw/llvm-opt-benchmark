@@ -154,8 +154,8 @@ define internal range(i32 0, 2) i32 @Reset(ptr noundef %0) #4 {
   br label %Sync.exit
 
 Sync.exit:                                        ; preds = %._crit_edge.i.i, %25, %19, %1, %5, %24
-  %.022 = phi i32 [ 0, %24 ], [ 0, %5 ], [ 1, %19 ], [ %4, %1 ], [ 1, %25 ], [ %36, %._crit_edge.i.i ]
-  ret i32 %.022
+  %.0 = phi i32 [ 0, %24 ], [ 0, %5 ], [ 1, %19 ], [ %4, %1 ], [ 1, %25 ], [ %36, %._crit_edge.i.i ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

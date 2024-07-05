@@ -1140,7 +1140,7 @@ for.body132.preheader:                            ; preds = %for.end126
 
 for.body132:                                      ; preds = %for.body132.preheader, %for.inc151
   %indvars.iv237 = phi i64 [ 1, %for.body132.preheader ], [ %indvars.iv.next238, %for.inc151 ]
-  %lowStart.4199 = phi i32 [ %lowStart.3.ph, %for.body132.preheader ], [ %lowStart.6, %for.inc151 ]
+  %lowStart.4200 = phi i32 [ %lowStart.3.ph, %for.body132.preheader ], [ %lowStart.6, %for.inc151 ]
   %arrayidx134 = getelementptr inbounds [256 x i8], ptr %table, i64 0, i64 %indvars.iv237
   %46 = load i8, ptr %arrayidx134, align 1
   %cmp136.not = icmp eq i8 %46, 0
@@ -1150,8 +1150,8 @@ if.end138:                                        ; preds = %for.body132
   %arrayidx142 = getelementptr inbounds i16, ptr %10, i64 %indvars.iv237
   %47 = load i16, ptr %arrayidx142, align 2
   %conv143 = zext i16 %47 to i32
-  %48 = tail call i32 @llvm.smax.i32(i32 %lowStart.4199, i32 %conv143)
-  %lowStart.5 = select i1 %cmp81.not.not252, i32 %lowStart.4199, i32 %48
+  %48 = tail call i32 @llvm.smax.i32(i32 %lowStart.4200, i32 %conv143)
+  %lowStart.5 = select i1 %cmp81.not.not252, i32 %lowStart.4200, i32 %48
   %and.i138 = and i32 %conv143, 255
   %and2.i139 = and i32 %lowStart.5, 255
   %cmp.i140 = icmp ult i32 %and.i138, %and2.i139
@@ -1173,7 +1173,7 @@ if.end138:                                        ; preds = %for.body132
   br label %for.inc151
 
 for.inc151:                                       ; preds = %for.body132, %if.end138
-  %lowStart.6 = phi i32 [ %lowStart.4199, %for.body132 ], [ %or.i154, %if.end138 ]
+  %lowStart.6 = phi i32 [ %lowStart.4200, %for.body132 ], [ %or.i154, %if.end138 ]
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %exitcond241.not = icmp eq i64 %indvars.iv.next238, %wide.trip.count240
   br i1 %exitcond241.not, label %for.end153, label %for.body132, !llvm.loop !14

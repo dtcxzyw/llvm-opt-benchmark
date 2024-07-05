@@ -788,7 +788,7 @@ Bac_BoxBoNtk.exit:                                ; preds = %73, %Bac_ManNtkIsOk
   br i1 %exitcond.not, label %.critedge, label %109, !llvm.loop !7
 
 .critedge:                                        ; preds = %115, %109, %.preheader
-  %.0132.lcssa = phi i32 [ 0, %.preheader ], [ %114, %109 ], [ %66, %115 ]
+  %.0133.lcssa = phi i32 [ 0, %.preheader ], [ %114, %109 ], [ %66, %115 ]
   %121 = load ptr, ptr %1, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 136
   %123 = load ptr, ptr %122, align 8
@@ -803,9 +803,9 @@ Bac_BoxBoNtk.exit:                                ; preds = %73, %Bac_ManNtkIsOk
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds ptr, ptr %123, i64 %128
   %130 = load ptr, ptr %129, align 8
-  store i32 %.0132.lcssa, ptr %7, align 8
+  store i32 %.0133.lcssa, ptr %7, align 8
   %131 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %.0132.lcssa, ptr %131, align 4
+  store i32 %.0133.lcssa, ptr %131, align 4
   %132 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %132, align 8
   %133 = call i32 @Gia_ManFactorGraph(ptr noundef %0, ptr noundef %130, ptr noundef nonnull %7) #17
@@ -816,7 +816,7 @@ Bac_BoxBoNtk.exit:                                ; preds = %73, %Bac_ManNtkIsOk
   %135 = getelementptr inbounds i8, ptr %.val147, i64 %67
   %136 = load i8, ptr %135, align 1
   %137 = lshr i8 %136, 1
-  switch i32 %.0132.lcssa, label %228 [
+  switch i32 %.0133.lcssa, label %228 [
     i32 0, label %138
     i32 1, label %140
     i32 2, label %146
@@ -978,17 +978,17 @@ Bac_BoxBoNtk.exit:                                ; preds = %73, %Bac_ManNtkIsOk
   br label %228
 
 228:                                              ; preds = %23, %192, %134, %146, %140, %138, %.fold.split, %43, %Bac_NtkHostNtk.exit, %91, %Bac_BoxBoNtk.exit, %139, %152, %163, %174, %186, %180, %169, %158, %147, %193, %224, %220, %215, %200, %141, %143, %18
-  %.0133 = phi i32 [ %22, %18 ], [ %60, %43 ], [ %42, %Bac_NtkHostNtk.exit ], [ %108, %91 ], [ %90, %Bac_BoxBoNtk.exit ], [ 1, %139 ], [ %142, %141 ], [ %145, %143 ], [ %151, %147 ], [ %157, %152 ], [ %162, %158 ], [ %168, %163 ], [ %173, %169 ], [ %179, %174 ], [ %185, %180 ], [ %191, %186 ], [ %199, %193 ], [ %206, %200 ], [ %219, %215 ], [ %227, %224 ], [ %11, %220 ], [ 0, %138 ], [ %11, %.fold.split ], [ %11, %140 ], [ %11, %146 ], [ %11, %134 ], [ %11, %192 ], [ %11, %23 ]
+  %.0132 = phi i32 [ %22, %18 ], [ %60, %43 ], [ %42, %Bac_NtkHostNtk.exit ], [ %108, %91 ], [ %90, %Bac_BoxBoNtk.exit ], [ 1, %139 ], [ %142, %141 ], [ %145, %143 ], [ %151, %147 ], [ %157, %152 ], [ %162, %158 ], [ %168, %163 ], [ %173, %169 ], [ %179, %174 ], [ %185, %180 ], [ %191, %186 ], [ %199, %193 ], [ %206, %200 ], [ %219, %215 ], [ %227, %224 ], [ %11, %220 ], [ 0, %138 ], [ %11, %.fold.split ], [ %11, %140 ], [ %11, %146 ], [ %11, %134 ], [ %11, %192 ], [ %11, %23 ]
   %229 = getelementptr inbounds i8, ptr %1, i64 160
   %230 = add nsw i32 %2, 1
   tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %229, i32 noundef %230, i32 noundef 0)
   %.val.i.i = load ptr, ptr %8, align 8
   %231 = getelementptr inbounds i32, ptr %.val.i.i, i64 %9
-  store i32 %.0133, ptr %231, align 4
+  store i32 %.0132, ptr %231, align 4
   br label %232
 
 232:                                              ; preds = %5, %228, %124
-  %.0 = phi i32 [ %.0133, %228 ], [ %133, %124 ], [ %11, %5 ]
+  %.0 = phi i32 [ %.0132, %228 ], [ %133, %124 ], [ %11, %5 ]
   ret i32 %.0
 }
 
@@ -5298,9 +5298,9 @@ Bac_BoxNtk.exit.thread.i.i:                       ; preds = %Vec_IntFillExtra.ex
   br i1 %.not103.i.i, label %.lr.ph, label %Bac_BoxDup.exit.i, !llvm.loop !41
 
 .lr.ph:                                           ; preds = %.lr.ph112.i.i.preheader, %.lr.ph112.i.i
-  %.1.in110.i.i224.in = phi i64 [ %indvars.iv116.i.i223, %.lr.ph112.i.i ], [ %indvars.iv167.i, %.lr.ph112.i.i.preheader ]
+  %.139.in110.i.i224.in = phi i64 [ %indvars.iv116.i.i223, %.lr.ph112.i.i ], [ %indvars.iv167.i, %.lr.ph112.i.i.preheader ]
   %indvars.iv116.i.i223 = phi i64 [ %indvars.iv.next117.i.i, %.lr.ph112.i.i ], [ %472, %.lr.ph112.i.i.preheader ]
-  %.1.in110.i.i224 = trunc i64 %.1.in110.i.i224.in to i32
+  %.139.in110.i.i224 = trunc i64 %.139.in110.i.i224.in to i32
   %.val.i104.i = load i32, ptr %249, align 4
   %576 = load i32, ptr %96, align 8
   %577 = icmp eq i32 %.val.i104.i, %576
@@ -5503,7 +5503,7 @@ Vec_IntFillExtra.exit83:                          ; preds = %Bac_ObjName.exit.i9
   br label %Bac_ObjDup.exit97.i.i
 
 Bac_ObjDup.exit97.i.i:                            ; preds = %Vec_IntFillExtra.exit83, %631, %630, %Bac_ObjAlloc.exit.i
-  %651 = add nuw nsw i32 %.1.in110.i.i224, 2
+  %651 = add nuw nsw i32 %.139.in110.i.i224, 2
   %652 = load i32, ptr %156, align 4
   %.not.i96.i = icmp slt i32 %652, %651
   br i1 %.not.i96.i, label %653, label %Vec_IntFillExtra.exit.i

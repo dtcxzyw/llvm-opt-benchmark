@@ -59,9 +59,9 @@ entry:
   br i1 %cmp, label %_test_eof, label %_resume
 
 _resume:                                          ; preds = %while.end207, %entry
-  %ts.0 = phi ptr [ %ts.4.lcssa, %while.end207 ], [ null, %entry ]
-  %te.0 = phi ptr [ %te.4, %while.end207 ], [ null, %entry ]
   %cs.0 = phi i32 [ %conv100, %while.end207 ], [ 75, %entry ]
+  %te.0 = phi ptr [ %te.4, %while.end207 ], [ null, %entry ]
+  %ts.0 = phi ptr [ %ts.4.lcssa, %while.end207 ], [ null, %entry ]
   %p.0 = phi ptr [ %incdec.ptr208, %while.end207 ], [ %ptr, %entry ]
   %idxprom = sext i32 %cs.0 to i64
   %arrayidx = getelementptr inbounds [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE32_ControlVerbs_from_state_actions, i64 0, i64 %idxprom
@@ -77,14 +77,14 @@ while.body.preheader:                             ; preds = %_resume
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
-  %_nacts.0128 = phi i32 [ %dec, %while.body ], [ %conv1, %while.body.preheader ]
-  %add.ptr.pn127 = phi ptr [ %_acts.0, %while.body ], [ %add.ptr, %while.body.preheader ]
-  %ts.1126 = phi ptr [ %spec.select, %while.body ], [ %ts.0, %while.body.preheader ]
-  %dec = add i32 %_nacts.0128, -1
-  %_acts.0 = getelementptr inbounds i8, ptr %add.ptr.pn127, i64 1
+  %ts.1128 = phi ptr [ %spec.select, %while.body ], [ %ts.0, %while.body.preheader ]
+  %_nacts.0127 = phi i32 [ %dec, %while.body ], [ %conv1, %while.body.preheader ]
+  %add.ptr.pn126 = phi ptr [ %_acts.0, %while.body ], [ %add.ptr, %while.body.preheader ]
+  %dec = add i32 %_nacts.0127, -1
+  %_acts.0 = getelementptr inbounds i8, ptr %add.ptr.pn126, i64 1
   %2 = load i8, ptr %_acts.0, align 1
   %cond1 = icmp eq i8 %2, 1
-  %spec.select = select i1 %cond1, ptr %p.0, ptr %ts.1126
+  %spec.select = select i1 %cond1, ptr %p.0, ptr %ts.1128
   %cmp2.not = icmp eq i32 %dec, 0
   br i1 %cmp2.not, label %while.end, label %while.body, !llvm.loop !5
 
@@ -223,10 +223,10 @@ _match:                                           ; preds = %while.end44, %while
   br label %_eof_trans
 
 _eof_trans:                                       ; preds = %if.then218, %_match
-  %ts.3 = phi ptr [ %ts.6, %if.then218 ], [ %ts.1.lcssa, %_match ]
-  %te.1 = phi ptr [ %te.5, %if.then218 ], [ %te.0, %_match ]
-  %p.1 = phi ptr [ %p.2, %if.then218 ], [ %p.0, %_match ]
   %_trans.2 = phi i64 [ %sub, %if.then218 ], [ %conv97, %_match ]
+  %te.1 = phi ptr [ %te.5, %if.then218 ], [ %te.0, %_match ]
+  %ts.3 = phi ptr [ %ts.6, %if.then218 ], [ %ts.1.lcssa, %_match ]
+  %p.1 = phi ptr [ %p.2, %if.then218 ], [ %p.0, %_match ]
   %idxprom98 = and i64 %_trans.2, 4294967295
   %arrayidx99 = getelementptr inbounds [83 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE25_ControlVerbs_trans_targs, i64 0, i64 %idxprom98
   %13 = load i8, ptr %arrayidx99, align 1
@@ -512,14 +512,14 @@ while.body202.preheader:                          ; preds = %_again
   br label %while.body202
 
 while.body202:                                    ; preds = %while.body202.preheader, %while.body202
-  %_nacts.2123 = phi i32 [ %dec200, %while.body202 ], [ %conv198, %while.body202.preheader ]
-  %add.ptr196.pn122 = phi ptr [ %_acts.2, %while.body202 ], [ %add.ptr196, %while.body202.preheader ]
-  %ts.4121 = phi ptr [ %spec.select97, %while.body202 ], [ %ts.3, %while.body202.preheader ]
-  %dec200 = add i32 %_nacts.2123, -1
-  %_acts.2 = getelementptr inbounds i8, ptr %add.ptr196.pn122, i64 1
+  %ts.4123 = phi ptr [ %spec.select97, %while.body202 ], [ %ts.3, %while.body202.preheader ]
+  %_nacts.2122 = phi i32 [ %dec200, %while.body202 ], [ %conv198, %while.body202.preheader ]
+  %add.ptr196.pn121 = phi ptr [ %_acts.2, %while.body202 ], [ %add.ptr196, %while.body202.preheader ]
+  %dec200 = add i32 %_nacts.2122, -1
+  %_acts.2 = getelementptr inbounds i8, ptr %add.ptr196.pn121, i64 1
   %35 = load i8, ptr %_acts.2, align 1
   %cond = icmp eq i8 %35, 0
-  %spec.select97 = select i1 %cond, ptr null, ptr %ts.4121
+  %spec.select97 = select i1 %cond, ptr null, ptr %ts.4123
   %cmp201.not = icmp eq i32 %dec200, 0
   br i1 %cmp201.not, label %while.end207, label %while.body202, !llvm.loop !10
 
@@ -530,9 +530,9 @@ while.end207:                                     ; preds = %while.body202, %_ag
   br i1 %cmp209.not, label %_test_eof, label %_resume
 
 _test_eof:                                        ; preds = %while.end207, %entry
-  %ts.6 = phi ptr [ null, %entry ], [ %ts.4.lcssa, %while.end207 ]
-  %te.5 = phi ptr [ null, %entry ], [ %te.4, %while.end207 ]
   %cs.1 = phi i32 [ 75, %entry ], [ %conv100, %while.end207 ]
+  %te.5 = phi ptr [ null, %entry ], [ %te.4, %while.end207 ]
+  %ts.6 = phi ptr [ null, %entry ], [ %ts.4.lcssa, %while.end207 ]
   %p.2 = phi ptr [ %ptr, %entry ], [ %incdec.ptr208, %while.end207 ]
   %cmp212 = icmp ne ptr %p.2, %end
   %cmp217.not = icmp eq i32 %cs.1, 75

@@ -1256,8 +1256,8 @@ define ptr @Abc_NtkNameMan(ptr nocapture noundef readonly %0, i32 noundef %1) lo
   br i1 %40, label %.lr.ph37, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph37, %3, %22
-  %.021 = phi ptr [ %25, %22 ], [ %6, %3 ], [ %25, %.lr.ph37 ], [ %6, %.lr.ph ]
-  ret ptr %.021
+  %.0 = phi ptr [ %25, %22 ], [ %6, %3 ], [ %25, %.lr.ph37 ], [ %6, %.lr.ph ]
+  ret ptr %.0
 }
 
 declare ptr @Abc_NamStart(i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -2219,7 +2219,7 @@ define void @Abc_NtkRedirectCiCo(ptr nocapture noundef readonly %0) local_unname
 7:                                                ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %.val33 = phi ptr [ %.val29, %.lr.ph ], [ %.val, %38 ]
-  %.032 = phi i32 [ 0, %.lr.ph ], [ %.1, %38 ]
+  %.02031 = phi i32 [ 0, %.lr.ph ], [ %.1, %38 ]
   %8 = getelementptr i8, ptr %.val33, i64 8
   %.val24.val = load ptr, ptr %8, align 8
   %9 = getelementptr inbounds ptr, ptr %.val24.val, i64 %indvars.iv
@@ -2268,11 +2268,11 @@ define void @Abc_NtkRedirectCiCo(ptr nocapture noundef readonly %0) local_unname
   br label %36
 
 36:                                               ; preds = %35, %32
-  %37 = add nsw i32 %.032, 1
+  %37 = add nsw i32 %.02031, 1
   br label %38
 
 38:                                               ; preds = %20, %7, %36
-  %.1 = phi i32 [ %.032, %7 ], [ %.032, %20 ], [ %37, %36 ]
+  %.1 = phi i32 [ %.02031, %7 ], [ %.02031, %20 ], [ %37, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load ptr, ptr %2, align 8
   %39 = getelementptr i8, ptr %.val, i64 4

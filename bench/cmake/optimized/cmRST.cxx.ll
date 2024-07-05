@@ -2750,7 +2750,7 @@ _ZN5cmsys17RegularExpression4findEPKc.exit:       ; preds = %48
   br label %.body
 
 58:                                               ; preds = %52, %_ZN5cmsys17RegularExpression4findEPKc.exit
-  %.036 = phi ptr [ %10, %52 ], [ null, %_ZN5cmsys17RegularExpression4findEPKc.exit ]
+  %.029 = phi ptr [ %10, %52 ], [ null, %_ZN5cmsys17RegularExpression4findEPKc.exit ]
   %59 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   %60 = getelementptr inbounds i8, ptr %59, i64 %.0
   %61 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %31, ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(520) %31)
@@ -2766,11 +2766,11 @@ _ZN5cmsys17RegularExpression4findEPKc.exit45:     ; preds = %58
   %66 = ptrtoint ptr %64 to i64
   %67 = sub i64 %65, %66
   store i64 %67, ptr %11, align 8
-  %.not = icmp eq ptr %.036, null
+  %.not = icmp eq ptr %.029, null
   br i1 %.not, label %71, label %68
 
 68:                                               ; preds = %62
-  %69 = load i64, ptr %.036, align 8
+  %69 = load i64, ptr %.029, align 8
   %70 = icmp ult i64 %67, %69
   br i1 %70, label %71, label %72
 
@@ -2778,7 +2778,7 @@ _ZN5cmsys17RegularExpression4findEPKc.exit45:     ; preds = %58
   br label %72
 
 72:                                               ; preds = %68, %71, %_ZN5cmsys17RegularExpression4findEPKc.exit45
-  %.137 = phi ptr [ %11, %71 ], [ %.036, %68 ], [ %.036, %_ZN5cmsys17RegularExpression4findEPKc.exit45 ]
+  %.130 = phi ptr [ %11, %71 ], [ %.029, %68 ], [ %.029, %_ZN5cmsys17RegularExpression4findEPKc.exit45 ]
   %73 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   %74 = getelementptr inbounds i8, ptr %73, i64 %.0
   %75 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %33, ptr noundef %74, ptr noundef nonnull align 8 dereferenceable(520) %33)
@@ -2793,16 +2793,16 @@ _ZN5cmsys17RegularExpression4findEPKc.exit46:     ; preds = %72
   %79 = ptrtoint ptr %77 to i64
   %80 = ptrtoint ptr %78 to i64
   %81 = sub i64 %79, %80
-  %.not41 = icmp eq ptr %.137, null
+  %.not41 = icmp eq ptr %.130, null
   br i1 %.not41, label %.thread69, label %82
 
 82:                                               ; preds = %76
-  %83 = load i64, ptr %.137, align 8
+  %83 = load i64, ptr %.130, align 8
   %84 = icmp ult i64 %81, %83
   br i1 %84, label %.thread69, label %85
 
 85:                                               ; preds = %82, %_ZN5cmsys17RegularExpression4findEPKc.exit46
-  %86 = icmp eq ptr %.137, %10
+  %86 = icmp eq ptr %.130, %10
   br i1 %86, label %87, label %154
 
 87:                                               ; preds = %85
@@ -2973,7 +2973,7 @@ _ZN5cmsys17RegularExpression4findEPKc.exit46:     ; preds = %72
   br label %.body
 
 154:                                              ; preds = %85
-  %155 = icmp eq ptr %.137, %11
+  %155 = icmp eq ptr %.130, %11
   %156 = load ptr, ptr %0, align 8
   br i1 %155, label %157, label %223
 
@@ -3094,12 +3094,12 @@ _ZN5cmsys17RegularExpression4findEPKc.exit46:     ; preds = %72
   br i1 %.not7184, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %204, %215
-  %.02986 = phi i1 [ %or.cond.not.not, %215 ], [ false, %204 ]
+  %.03186 = phi i1 [ %or.cond.not.not, %215 ], [ false, %204 ]
   %.sroa.059.085 = phi ptr [ %216, %215 ], [ %205, %204 ]
-  %.02986.not = xor i1 %.02986, true
+  %.03186.not = xor i1 %.03186, true
   %207 = load i8, ptr %.sroa.059.085, align 1
   %208 = icmp eq i8 %207, 92
-  %or.cond.not.not = select i1 %.02986.not, i1 %208, i1 false
+  %or.cond.not.not = select i1 %.03186.not, i1 %208, i1 false
   br i1 %or.cond.not.not, label %215, label %.invoke
 
 209:                                              ; preds = %190

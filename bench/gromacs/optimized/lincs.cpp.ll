@@ -2327,11 +2327,11 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit17
   br label %385
 
 385:                                              ; preds = %383, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit179
-  %.0120 = phi i32 [ %97, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit179 ], [ %384, %383 ]
+  %.0115 = phi i32 [ %97, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit179 ], [ %384, %383 ]
   %386 = load ptr, ptr %14, align 8
   %387 = getelementptr inbounds i8, ptr %386, i64 344
   %388 = load i32, ptr %387, align 8
-  %389 = add i32 %.0120, -1
+  %389 = add i32 %.0115, -1
   %390 = add i32 %389, %388
   %391 = sdiv i32 %390, %388
   %392 = icmp sgt i32 %96, 2
@@ -2375,8 +2375,8 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit17
   %indvars.iv316 = phi i64 [ 0, %.lr.ph288 ], [ %indvars.iv.next317, %783 ]
   %403 = phi i32 [ %393, %.lr.ph288 ], [ %786, %783 ]
   %404 = phi ptr [ %394, %.lr.ph288 ], [ %784, %783 ]
-  %.0116286 = phi i32 [ 0, %.lr.ph288 ], [ %.1.lcssa, %783 ]
-  %.0118285 = phi i32 [ %391, %.lr.ph288 ], [ %.1119, %783 ]
+  %.0116287 = phi i32 [ %391, %.lr.ph288 ], [ %.1, %783 ]
+  %.0118286 = phi i32 [ 0, %.lr.ph288 ], [ %.1119.lcssa, %783 ]
   %405 = getelementptr inbounds i8, ptr %404, i64 352
   %.val132 = load ptr, ptr %405, align 8
   %406 = getelementptr inbounds %"struct.(anonymous namespace)::Task", ptr %.val132, i64 %indvars.iv316
@@ -2388,7 +2388,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit17
 410:                                              ; preds = %402
   %411 = trunc i64 %indvars.iv316 to i32
   %412 = add i32 %411, 1
-  %413 = mul i32 %412, %.0120
+  %413 = mul i32 %412, %.0115
   %414 = sdiv i32 %413, %403
   %415 = getelementptr inbounds i8, ptr %404, i64 24
   %416 = load i32, ptr %415, align 8
@@ -2398,17 +2398,17 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit17
   br label %420
 
 420:                                              ; preds = %410, %402
-  %.1119 = phi i32 [ %419, %410 ], [ %.0118285, %402 ]
+  %.1 = phi i32 [ %419, %410 ], [ %.0116287, %402 ]
   %421 = getelementptr inbounds i8, ptr %404, i64 28
   %422 = load i32, ptr %421, align 4
   store i32 %422, ptr %406, align 8
   %423 = load ptr, ptr %0, align 8
   %424 = load ptr, ptr %423, align 8
-  %425 = icmp slt i32 %.0116286, %97
+  %425 = icmp slt i32 %.0118286, %97
   br i1 %425, label %.lr.ph277.preheader, label %.critedge
 
 .lr.ph277.preheader:                              ; preds = %420
-  %426 = sext i32 %.0116286 to i64
+  %426 = sext i32 %.0118286 to i64
   br label %.lr.ph277
 
 .lr.ph277:                                        ; preds = %.lr.ph277.preheader, %_ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefinitionsbiiRKNS_11ListOfListsIiEE.exit.thread368
@@ -2418,7 +2418,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit17
   %429 = load i32, ptr %428, align 4
   %430 = load i32, ptr %406, align 8
   %431 = sub nsw i32 %429, %430
-  %432 = icmp slt i32 %431, %.1119
+  %432 = icmp slt i32 %431, %.1
   %433 = trunc nsw i64 %indvars.iv309 to i32
   br i1 %432, label %434, label %.critedge
 
@@ -2908,7 +2908,7 @@ _ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefi
   br i1 %exitcond312.not, label %.critedge, label %.lr.ph277, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph277, %_ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefinitionsbiiRKNS_11ListOfListsIiEE.exit.thread368, %420
-  %.1.lcssa = phi i32 [ %.0116286, %420 ], [ %97, %_ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefinitionsbiiRKNS_11ListOfListsIiEE.exit.thread368 ], [ %433, %.lr.ph277 ]
+  %.1119.lcssa = phi i32 [ %.0118286, %420 ], [ %97, %_ZN3gmxL22check_assign_connectedEPNS_5LincsENS_8ArrayRefIKiEERK22InteractionDefinitionsbiiRKNS_11ListOfListsIiEE.exit.thread368 ], [ %433, %.lr.ph277 ]
   %722 = load ptr, ptr %14, align 8
   %723 = getelementptr inbounds i8, ptr %722, i64 28
   %724 = load i32, ptr %723, align 4
@@ -6607,11 +6607,11 @@ define internal void @_ZN3gmxL16set_lincs_matrixEPNS_5LincsENS_8ArrayRefIKfEEf.o
   br label %.thread.i
 
 .thread.i:                                        ; preds = %78, %.lr.ph136.i
-  %.0102125.i = phi i32 [ %spec.select.i, %78 ], [ -1, %.lr.ph136.i ]
-  %.0101.i = phi i32 [ %spec.select115.i, %78 ], [ %59, %.lr.ph136.i ]
-  %.0100.i = phi i32 [ %spec.select116.i, %78 ], [ %61, %.lr.ph136.i ]
-  %83 = sitofp i32 %.0102125.i to float
-  %84 = sext i32 %.0101.i to i64
+  %.0100125.i = phi i32 [ %spec.select.i, %78 ], [ -1, %.lr.ph136.i ]
+  %.0103.i = phi i32 [ %spec.select115.i, %78 ], [ %59, %.lr.ph136.i ]
+  %.0102.i = phi i32 [ %spec.select116.i, %78 ], [ %61, %.lr.ph136.i ]
+  %83 = sitofp i32 %.0100125.i to float
+  %84 = sext i32 %.0103.i to i64
   %85 = getelementptr inbounds float, ptr %31, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = fmul float %86, %83
@@ -6625,7 +6625,7 @@ define internal void @_ZN3gmxL16set_lincs_matrixEPNS_5LincsENS_8ArrayRefIKfEEf.o
   %95 = load ptr, ptr %41, align 8
   %96 = getelementptr inbounds float, ptr %95, i64 %indvars.iv143.i
   store float %94, ptr %96, align 4
-  %97 = sitofp i32 %.0102125.i to double
+  %97 = sitofp i32 %.0100125.i to double
   %98 = fmul double %97, 5.000000e-01
   %99 = fptrunc double %98 to float
   %100 = load ptr, ptr %42, align 8
@@ -6667,13 +6667,13 @@ define internal void @_ZN3gmxL16set_lincs_matrixEPNS_5LincsENS_8ArrayRefIKfEEf.o
   %.val117.i = load ptr, ptr %37, align 8
   %119 = getelementptr inbounds %"struct.(anonymous namespace)::AtomPair", ptr %.val117.i, i64 %118
   %120 = load i32, ptr %119, align 4
-  %121 = icmp eq i32 %120, %.0100.i
+  %121 = icmp eq i32 %120, %.0102.i
   br i1 %121, label %126, label %122
 
 122:                                              ; preds = %117
   %123 = getelementptr inbounds i8, ptr %119, i64 4
   %124 = load i32, ptr %123, align 4
-  %125 = icmp eq i32 %124, %.0100.i
+  %125 = icmp eq i32 %124, %.0102.i
   br i1 %125, label %126, label %179
 
 126:                                              ; preds = %122, %117
@@ -9066,22 +9066,22 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
 
 712:                                              ; preds = %712, %.lr.ph123.i
   %indvars.iv146.i = phi i64 [ %711, %.lr.ph123.i ], [ %indvars.iv.next147.i, %712 ]
-  %.0156121.i = phi float [ 0.000000e+00, %.lr.ph123.i ], [ %718, %712 ]
+  %.0158121.i = phi float [ 0.000000e+00, %.lr.ph123.i ], [ %718, %712 ]
   %713 = getelementptr inbounds float, ptr %708, i64 %indvars.iv146.i
   %714 = load float, ptr %713, align 4
   %715 = getelementptr inbounds float, ptr %710, i64 %indvars.iv146.i
   %716 = load float, ptr %715, align 4
   %717 = fneg float %714
-  %718 = call float @llvm.fmuladd.f32(float %717, float %716, float %.0156121.i)
+  %718 = call float @llvm.fmuladd.f32(float %717, float %716, float %.0158121.i)
   %indvars.iv.next147.i = add nsw i64 %indvars.iv146.i, 1
   %exitcond150.not.i = icmp eq i64 %indvars.iv.next147.i, %wide.trip.count149.i
   br i1 %exitcond150.not.i, label %._crit_edge124.i, label %712, !llvm.loop !137
 
 ._crit_edge124.i:                                 ; preds = %712, %.preheader100.i, %.loopexit101.thread.i
-  %.0156.lcssa.i = phi float [ 0.000000e+00, %.preheader100.i ], [ 0.000000e+00, %.loopexit101.thread.i ], [ %718, %712 ]
+  %.0158.lcssa.i = phi float [ 0.000000e+00, %.preheader100.i ], [ 0.000000e+00, %.loopexit101.thread.i ], [ %718, %712 ]
   %.val.i = load ptr, ptr %64, align 8
   %719 = getelementptr inbounds %"struct.(anonymous namespace)::Task", ptr %.val.i, i64 %30, i32 9
-  store float %.0156.lcssa.i, ptr %719, align 4
+  store float %.0158.lcssa.i, ptr %719, align 4
   br label %720
 
 720:                                              ; preds = %._crit_edge124.i, %.loopexit101.i
@@ -9943,22 +9943,22 @@ _ZN3gmxL16calc_dr_x_f_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_P
 
 433:                                              ; preds = %433, %.lr.ph72.i
   %indvars.iv93.i = phi i64 [ %432, %.lr.ph72.i ], [ %indvars.iv.next94.i, %433 ]
-  %.09270.i = phi float [ 0.000000e+00, %.lr.ph72.i ], [ %439, %433 ]
+  %.09470.i = phi float [ 0.000000e+00, %.lr.ph72.i ], [ %439, %433 ]
   %434 = getelementptr inbounds float, ptr %76, i64 %indvars.iv93.i
   %435 = load float, ptr %434, align 4
   %436 = getelementptr inbounds float, ptr %431, i64 %indvars.iv93.i
   %437 = load float, ptr %436, align 4
   %438 = fneg float %435
-  %439 = call float @llvm.fmuladd.f32(float %438, float %437, float %.09270.i)
+  %439 = call float @llvm.fmuladd.f32(float %438, float %437, float %.09470.i)
   %indvars.iv.next94.i = add nsw i64 %indvars.iv93.i, 1
   %exitcond97.not.i = icmp eq i64 %indvars.iv.next94.i, %wide.trip.count96.i
   br i1 %exitcond97.not.i, label %._crit_edge73.i, label %433, !llvm.loop !172
 
 ._crit_edge73.i:                                  ; preds = %433, %._crit_edge69.i.thread, %.preheader57.i
-  %.092.lcssa.i = phi float [ 0.000000e+00, %.preheader57.i ], [ 0.000000e+00, %._crit_edge69.i.thread ], [ %439, %433 ]
+  %.094.lcssa.i = phi float [ 0.000000e+00, %.preheader57.i ], [ 0.000000e+00, %._crit_edge69.i.thread ], [ %439, %433 ]
   %.val.i = load ptr, ptr %47, align 8
   %440 = getelementptr inbounds %"struct.(anonymous namespace)::Task", ptr %.val.i, i64 %.pre-phi, i32 9
-  store float %.092.lcssa.i, ptr %440, align 4
+  store float %.094.lcssa.i, ptr %440, align 4
   br label %441
 
 441:                                              ; preds = %._crit_edge73.i, %._crit_edge69.i
@@ -10081,7 +10081,7 @@ define internal fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLO
 
 22:                                               ; preds = %.lr.ph37, %._crit_edge32
   %.sroa.7.03441 = phi ptr [ %.sroa.7.0..sroa_idx14.promoted, %.lr.ph37 ], [ %.sroa.7.034, %._crit_edge32 ]
-  %.06035 = phi i32 [ 0, %.lr.ph37 ], [ %48, %._crit_edge32 ]
+  %.05535 = phi i32 [ 0, %.lr.ph37 ], [ %48, %._crit_edge32 ]
   %.sroa.7.034 = phi ptr [ %4, %.lr.ph37 ], [ %.sroa.7.03441, %._crit_edge32 ]
   %.sroa.09.033 = phi ptr [ %3, %.lr.ph37 ], [ %.sroa.09.0.copyload11, %._crit_edge32 ]
   %23 = load i8, ptr %18, align 8
@@ -10121,7 +10121,7 @@ define internal fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLO
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %35, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.05826 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %43, %.lr.ph ]
+  %.05727 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %43, %.lr.ph ]
   %36 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
   %37 = load float, ptr %36, align 4
   %38 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
@@ -10129,18 +10129,18 @@ define internal fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLO
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds float, ptr %.sroa.09.033, i64 %40
   %42 = load float, ptr %41, align 4
-  %43 = tail call float @llvm.fmuladd.f32(float %37, float %42, float %.05826)
+  %43 = tail call float @llvm.fmuladd.f32(float %37, float %42, float %.05727)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !176
 
 ._crit_edge:                                      ; preds = %.lr.ph, %29
-  %.058.lcssa = phi float [ 0.000000e+00, %29 ], [ %43, %.lr.ph ]
+  %.057.lcssa = phi float [ 0.000000e+00, %29 ], [ %43, %.lr.ph ]
   %44 = getelementptr inbounds float, ptr %28, i64 %indvars.iv58
-  store float %.058.lcssa, ptr %44, align 4
+  store float %.057.lcssa, ptr %44, align 4
   %45 = getelementptr inbounds float, ptr %20, i64 %indvars.iv58
   %46 = load float, ptr %45, align 4
-  %47 = fadd float %.058.lcssa, %46
+  %47 = fadd float %.057.lcssa, %46
   store float %47, ptr %45, align 4
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
   br i1 %exitcond62.not, label %._crit_edge32, label %29, !llvm.loop !177
@@ -10148,7 +10148,7 @@ define internal fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLO
 ._crit_edge32:                                    ; preds = %._crit_edge, %.._crit_edge32_crit_edge
   %.sroa.09.0.copyload11 = phi ptr [ %.sroa.09.0.copyload11.pre, %.._crit_edge32_crit_edge ], [ %28, %._crit_edge ]
   store ptr %.sroa.09.033, ptr %5, align 8
-  %48 = add nuw nsw i32 %.06035, 1
+  %48 = add nuw nsw i32 %.05535, 1
   %exitcond63.not = icmp eq i32 %48, %13
   br i1 %exitcond63.not, label %._crit_edge38, label %22, !llvm.loop !178
 
@@ -10197,7 +10197,7 @@ define internal fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLO
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge50
   %67 = phi i32 [ %103, %._crit_edge50 ], [ %65, %.preheader.preheader ]
   %.sroa.7.15255 = phi ptr [ %.sroa.7.152, %._crit_edge50 ], [ %.sroa.7.0..sroa_idx18.promoted, %.preheader.preheader ]
-  %.05653 = phi i32 [ %104, %._crit_edge50 ], [ 0, %.preheader.preheader ]
+  %.06053 = phi i32 [ %104, %._crit_edge50 ], [ 0, %.preheader.preheader ]
   %.sroa.7.152 = phi ptr [ %.sroa.7.15255, %._crit_edge50 ], [ %.sroa.7.0.lcssa, %.preheader.preheader ]
   %.sroa.09.151 = phi ptr [ %.sroa.09.0.copyload13, %._crit_edge50 ], [ %.sroa.09.0.lcssa, %.preheader.preheader ]
   %68 = icmp sgt i32 %67, 0
@@ -10277,7 +10277,7 @@ define internal fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLO
   %103 = phi i32 [ %67, %.preheader.._crit_edge50_crit_edge ], [ %100, %._crit_edge46 ]
   store ptr %.sroa.09.151, ptr %5, align 8
   store ptr %.sroa.7.152, ptr %.sroa.7.0..sroa_idx18, align 8
-  %104 = add nuw nsw i32 %.05653, 1
+  %104 = add nuw nsw i32 %.06053, 1
   %exitcond73.not = icmp eq i32 %104, %13
   br i1 %exitcond73.not, label %._crit_edge54, label %.preheader, !llvm.loop !181
 

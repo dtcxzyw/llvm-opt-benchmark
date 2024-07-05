@@ -3878,9 +3878,9 @@ define internal range(i32 0, 2) i32 @h225_stat_packet(ptr nocapture noundef read
   br label %64
 
 64:                                               ; preds = %56, %59, %55, %49, %19, %22, %25, %28, %31, %34, %37, %40, %43, %46, %18, %11, %62
-  %.051 = phi i32 [ %63, %62 ], [ %51, %49 ], [ %51, %55 ], [ %51, %59 ], [ %51, %56 ], [ %14, %11 ], [ %14, %18 ], [ %14, %46 ], [ %14, %43 ], [ %14, %40 ], [ %14, %37 ], [ %14, %34 ], [ %14, %31 ], [ %14, %28 ], [ %14, %25 ], [ %14, %22 ], [ %14, %19 ]
-  %.0 = phi i32 [ -1, %62 ], [ -1, %49 ], [ -1, %55 ], [ %61, %59 ], [ %58, %56 ], [ -1, %11 ], [ -1, %18 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ]
-  %65 = icmp sgt i32 %.051, -1
+  %.052 = phi i32 [ %63, %62 ], [ %51, %49 ], [ %51, %55 ], [ %51, %59 ], [ %51, %56 ], [ %14, %11 ], [ %14, %18 ], [ %14, %46 ], [ %14, %43 ], [ %14, %40 ], [ %14, %37 ], [ %14, %34 ], [ %14, %31 ], [ %14, %28 ], [ %14, %25 ], [ %14, %22 ], [ %14, %19 ]
+  %.051 = phi i32 [ -1, %62 ], [ -1, %49 ], [ -1, %55 ], [ %61, %59 ], [ %58, %56 ], [ -1, %11 ], [ -1, %18 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ]
+  %65 = icmp sgt i32 %.052, -1
   br i1 %65, label %66, label %82
 
 66:                                               ; preds = %64
@@ -3889,27 +3889,27 @@ define internal range(i32 0, 2) i32 @h225_stat_packet(ptr nocapture noundef read
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call ptr @stat_tap_get_field_data(ptr noundef %71, i32 noundef %.051, i32 noundef 1) #10
+  %72 = tail call ptr @stat_tap_get_field_data(ptr noundef %71, i32 noundef %.052, i32 noundef 1) #10
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load i32, ptr %73, align 8
   %75 = add i32 %74, 1
   store i32 %75, ptr %73, align 8
-  tail call void @stat_tap_set_field_data(ptr noundef %71, i32 noundef %.051, i32 noundef 1, ptr noundef %72) #10
-  %76 = icmp sgt i32 %.0, -1
+  tail call void @stat_tap_set_field_data(ptr noundef %71, i32 noundef %.052, i32 noundef 1, ptr noundef %72) #10
+  %76 = icmp sgt i32 %.051, -1
   br i1 %76, label %77, label %82
 
 77:                                               ; preds = %66
-  %78 = tail call ptr @stat_tap_get_field_data(ptr noundef %71, i32 noundef %.0, i32 noundef 1) #10
+  %78 = tail call ptr @stat_tap_get_field_data(ptr noundef %71, i32 noundef %.051, i32 noundef 1) #10
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 8
   %81 = add i32 %80, 1
   store i32 %81, ptr %79, align 8
-  tail call void @stat_tap_set_field_data(ptr noundef %71, i32 noundef %.0, i32 noundef 1, ptr noundef %78) #10
+  tail call void @stat_tap_set_field_data(ptr noundef %71, i32 noundef %.051, i32 noundef 1, ptr noundef %78) #10
   br label %82
 
 82:                                               ; preds = %64, %66, %77, %5
-  %.052 = phi i32 [ 0, %5 ], [ 1, %77 ], [ 1, %66 ], [ 0, %64 ]
-  ret i32 %.052
+  %.0 = phi i32 [ 0, %5 ], [ 1, %77 ], [ 1, %66 ], [ 0, %64 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

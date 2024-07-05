@@ -1150,7 +1150,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit84: ; preds = %73, %75
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %105
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %105 ]
-  %.074105 = phi i64 [ %82, %.lr.ph.preheader ], [ %106, %105 ]
+  %.073104 = phi i64 [ %82, %.lr.ph.preheader ], [ %106, %105 ]
   %84 = sub nsw i64 0, %indvars.iv
   %85 = getelementptr inbounds %struct.lua_TValue, ptr %19, i64 %84
   %86 = getelementptr inbounds i8, ptr %85, i64 -16
@@ -1185,7 +1185,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %90
   %99 = getelementptr inbounds i8, ptr %98, i64 20
   %100 = load i32, ptr %99, align 4
   %101 = zext i32 %100 to i64
-  %102 = sub i64 1073741824, %.074105
+  %102 = sub i64 1073741824, %.073104
   %103 = icmp ult i64 %102, %101
   br i1 %103, label %104, label %105
 
@@ -1194,41 +1194,41 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %90
   unreachable
 
 105:                                              ; preds = %.critedge2
-  %106 = add i64 %.074105, %101
+  %106 = add i64 %.073104, %101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !8
 
 .critedge:                                        ; preds = %105, %81, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit86.thread
-  %.07598 = phi i32 [ %92, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit86.thread ], [ 1, %81 ], [ %.0, %105 ]
-  %.07495 = phi i64 [ %.074105, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit86.thread ], [ %82, %81 ], [ %106, %105 ]
-  %107 = icmp ult i64 %.07495, 512
+  %.07398 = phi i64 [ %.073104, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit86.thread ], [ %82, %81 ], [ %106, %105 ]
+  %.07195 = phi i32 [ %92, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit86.thread ], [ 1, %81 ], [ %.0, %105 ]
+  %107 = icmp ult i64 %.07398, 512
   br i1 %107, label %111, label %108
 
 108:                                              ; preds = %.critedge
-  %109 = call noundef ptr @_Z13luaS_bufstartP9lua_Statem(ptr noundef %0, i64 noundef %.07495)
+  %109 = call noundef ptr @_Z13luaS_bufstartP9lua_Statem(ptr noundef %0, i64 noundef %.07398)
   %110 = getelementptr inbounds i8, ptr %109, i64 24
   br label %111
 
 111:                                              ; preds = %.critedge, %108
-  %.073 = phi ptr [ %110, %108 ], [ %7, %.critedge ]
-  %.071 = phi ptr [ %109, %108 ], [ null, %.critedge ]
-  %112 = zext i32 %.07598 to i64
+  %.076 = phi ptr [ %110, %108 ], [ %7, %.critedge ]
+  %.072 = phi ptr [ %109, %108 ], [ null, %.critedge ]
+  %112 = zext i32 %.07195 to i64
   br label %113
 
 113:                                              ; preds = %111, %113
   %indvars.iv122 = phi i64 [ %112, %111 ], [ %indvars.iv.next123, %113 ]
-  %.1107 = phi i64 [ 0, %111 ], [ %122, %113 ]
+  %.174108 = phi i64 [ 0, %111 ], [ %122, %113 ]
   %114 = sub nsw i64 0, %indvars.iv122
   %115 = getelementptr inbounds %struct.lua_TValue, ptr %19, i64 %114
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 20
   %118 = load i32, ptr %117, align 4
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds i8, ptr %.073, i64 %.1107
+  %120 = getelementptr inbounds i8, ptr %.076, i64 %.174108
   %121 = getelementptr inbounds i8, ptr %116, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %120, ptr nonnull align 8 %121, i64 %119, i1 false)
-  %122 = add i64 %.1107, %119
+  %122 = add i64 %.174108, %119
   %indvars.iv.next123 = add nsw i64 %indvars.iv122, -1
   %123 = trunc nuw i64 %indvars.iv122 to i32
   %124 = icmp sgt i32 %123, 1
@@ -1242,20 +1242,20 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %90
   br i1 %126, label %130, label %132
 
 130:                                              ; preds = %125
-  %131 = call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %.073, i64 noundef %122)
+  %131 = call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %.076, i64 noundef %122)
   store ptr %131, ptr %128, align 8
   store i32 5, ptr %129, align 4
   br label %134
 
 132:                                              ; preds = %125
-  %133 = call noundef ptr @_Z14luaS_buffinishP9lua_StateP7TString(ptr noundef %0, ptr noundef %.071)
+  %133 = call noundef ptr @_Z14luaS_buffinishP9lua_StateP7TString(ptr noundef %0, ptr noundef %.072)
   store ptr %133, ptr %128, align 8
   store i32 5, ptr %129, align 4
   br label %134
 
 134:                                              ; preds = %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84, %70, %132, %130
-  %.176 = phi i32 [ 2, %70 ], [ 2, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84 ], [ %.07598, %130 ], [ %.07598, %132 ], [ 2, %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit ]
-  %135 = add nsw i32 %.176, -1
+  %.1 = phi i32 [ 2, %70 ], [ 2, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84 ], [ %.07195, %130 ], [ %.07195, %132 ], [ 2, %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit ]
+  %135 = add nsw i32 %.1, -1
   %136 = sub nsw i32 %.0, %135
   %137 = sub nsw i32 %.070, %135
   %138 = icmp sgt i32 %136, 1

@@ -200,8 +200,8 @@ define dso_local void @tbm_add_tuples(ptr noundef %0, ptr nocapture noundef read
 
 16:                                               ; preds = %.lr.ph, %tbm_lossify.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %tbm_lossify.exit ]
-  %.03254 = phi ptr [ null, %.lr.ph ], [ %.246, %tbm_lossify.exit ]
-  %.03353 = phi i32 [ -1, %.lr.ph ], [ %.235, %tbm_lossify.exit ]
+  %.03156 = phi i32 [ -1, %.lr.ph ], [ %.2, %tbm_lossify.exit ]
+  %.03255 = phi ptr [ null, %.lr.ph ], [ %.23447, %tbm_lossify.exit ]
   %17 = getelementptr %struct.ItemPointerData, ptr %1, i64 %indvars.iv
   %.val = load i16, ptr %17, align 2
   %18 = getelementptr i8, ptr %17, i64 2
@@ -225,7 +225,7 @@ define dso_local void @tbm_add_tuples(ptr noundef %0, ptr nocapture noundef read
   unreachable
 
 29:                                               ; preds = %16
-  %.not = icmp eq i32 %22, %.03353
+  %.not = icmp eq i32 %22, %.03156
   br i1 %.not, label %tbm_page_is_lossy.exit, label %30
 
 30:                                               ; preds = %29
@@ -257,13 +257,13 @@ define dso_local void @tbm_add_tuples(ptr noundef %0, ptr nocapture noundef read
 
 .lr.ph.i.i.i:                                     ; preds = %33, %54
   %51 = phi ptr [ %58, %54 ], [ %47, %33 ]
-  %.014.i.i.i = phi i32 [ %56, %54 ], [ %45, %33 ]
+  %.01214.i.i.i = phi i32 [ %56, %54 ], [ %45, %33 ]
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, %34
   br i1 %53, label %pagetable_lookup.exit.i, label %54
 
 54:                                               ; preds = %.lr.ph.i.i.i
-  %55 = add i32 %.014.i.i.i, 1
+  %55 = add i32 %.01214.i.i.i, 1
   %56 = and i32 %55, %.val.i
   %57 = zext i32 %56 to i64
   %58 = getelementptr %struct.PagetableEntry, ptr %.val15.i, i64 %57
@@ -362,18 +362,18 @@ pagetable_lookup.exit.thread.i:                   ; preds = %54, %33, %pagetable
   br label %tbm_get_pageentry.exit
 
 tbm_get_pageentry.exit:                           ; preds = %77, %81, %.loopexit.i
-  %.036.i = phi ptr [ %10, %77 ], [ %.03741.i, %.loopexit.i ], [ %83, %81 ]
+  %.0.i40 = phi ptr [ %10, %77 ], [ %.03741.i, %.loopexit.i ], [ %83, %81 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   br label %tbm_page_is_lossy.exit
 
 tbm_page_is_lossy.exit:                           ; preds = %tbm_get_pageentry.exit, %29
-  %.134 = phi i32 [ %.03353, %29 ], [ %22, %tbm_get_pageentry.exit ]
-  %.2 = phi ptr [ %.03254, %29 ], [ %.036.i, %tbm_get_pageentry.exit ]
-  %106 = icmp eq ptr %.2, null
+  %.234 = phi ptr [ %.03255, %29 ], [ %.0.i40, %tbm_get_pageentry.exit ]
+  %.1 = phi i32 [ %.03156, %29 ], [ %22, %tbm_get_pageentry.exit ]
+  %106 = icmp eq ptr %.234, null
   br i1 %106, label %tbm_lossify.exit, label %107
 
 107:                                              ; preds = %tbm_page_is_lossy.exit
-  %108 = getelementptr inbounds i8, ptr %.2, i64 5
+  %108 = getelementptr inbounds i8, ptr %.234, i64 5
   %109 = load i8, ptr %108, align 1
   %110 = trunc i8 %109 to i1
   %111 = add nsw i32 %24, -1
@@ -383,13 +383,13 @@ tbm_page_is_lossy.exit:                           ; preds = %tbm_get_pageentry.e
   %115 = zext nneg i32 %113 to i64
   %116 = shl nuw i64 1, %115
   %117 = select i1 %110, i64 1, i64 %116
-  %118 = getelementptr inbounds i8, ptr %.2, i64 8
+  %118 = getelementptr inbounds i8, ptr %.234, i64 8
   %119 = select i1 %110, i64 0, i64 %114
   %120 = getelementptr [5 x i64], ptr %118, i64 0, i64 %119
   %121 = load i64, ptr %120, align 8
   %122 = or i64 %117, %121
   store i64 %122, ptr %120, align 8
-  %123 = getelementptr inbounds i8, ptr %.2, i64 6
+  %123 = getelementptr inbounds i8, ptr %.234, i64 6
   %124 = load i8, ptr %123, align 2
   %125 = and i8 %124, 1
   %126 = or i8 %125, %13
@@ -403,13 +403,13 @@ tbm_page_is_lossy.exit:                           ; preds = %tbm_get_pageentry.e
   %131 = load ptr, ptr %8, align 8
   %132 = load i32, ptr %15, align 4
   %133 = getelementptr i8, ptr %131, i64 12
-  %.val.i40 = load i32, ptr %133, align 4
-  %134 = and i32 %.val.i40, %132
+  %.val.i41 = load i32, ptr %133, align 4
+  %134 = and i32 %.val.i41, %132
   br label %.backedge.i.outer
 
 .backedge.i.outer:                                ; preds = %..backedge_crit_edge.i, %130
   %.ph = phi i32 [ %162, %..backedge_crit_edge.i ], [ %128, %130 ]
-  %.ph95 = phi i32 [ %161, %..backedge_crit_edge.i ], [ %127, %130 ]
+  %.ph96 = phi i32 [ %161, %..backedge_crit_edge.i ], [ %127, %130 ]
   %.pre30.i.ph = phi ptr [ %.pre.pre.i, %..backedge_crit_edge.i ], [ %131, %130 ]
   %.sroa.6.0.i.ph = phi i1 [ %spec.select22.i, %..backedge_crit_edge.i ], [ false, %130 ]
   %.sroa.0.0.i.ph = phi i32 [ %145, %..backedge_crit_edge.i ], [ %134, %130 ]
@@ -481,7 +481,7 @@ pagetable_iterate.exit.i:                         ; preds = %139
 
 pagetable_iterate.exit.thread.i:                  ; preds = %pagetable_iterate.exit.i, %137, %164
   %165 = phi i32 [ %162, %164 ], [ %.ph, %137 ], [ %.ph, %pagetable_iterate.exit.i ]
-  %166 = phi i32 [ %161, %164 ], [ %.ph95, %137 ], [ %.ph95, %pagetable_iterate.exit.i ]
+  %166 = phi i32 [ %161, %164 ], [ %.ph96, %137 ], [ %.ph96, %pagetable_iterate.exit.i ]
   %167 = sdiv i32 %165, 2
   %168 = icmp sgt i32 %166, %167
   br i1 %168, label %169, label %tbm_lossify.exit
@@ -494,8 +494,8 @@ pagetable_iterate.exit.thread.i:                  ; preds = %pagetable_iterate.e
   br label %tbm_lossify.exit
 
 tbm_lossify.exit:                                 ; preds = %65, %169, %pagetable_iterate.exit.thread.i, %107, %tbm_page_is_lossy.exit
-  %.246 = phi ptr [ null, %tbm_page_is_lossy.exit ], [ %.2, %107 ], [ %.2, %pagetable_iterate.exit.thread.i ], [ %.2, %169 ], [ null, %65 ]
-  %.235 = phi i32 [ %.134, %tbm_page_is_lossy.exit ], [ %.134, %107 ], [ -1, %pagetable_iterate.exit.thread.i ], [ -1, %169 ], [ %22, %65 ]
+  %.23447 = phi ptr [ null, %tbm_page_is_lossy.exit ], [ %.234, %107 ], [ %.234, %pagetable_iterate.exit.thread.i ], [ %.234, %169 ], [ null, %65 ]
+  %.2 = phi i32 [ %.1, %tbm_page_is_lossy.exit ], [ %.1, %107 ], [ -1, %pagetable_iterate.exit.thread.i ], [ -1, %169 ], [ %22, %65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !8
@@ -654,8 +654,8 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
   %.val.i = load i32, ptr %21, align 4
   %22 = getelementptr inbounds i8, ptr %12, i64 24
   %23 = load ptr, ptr %22, align 8
-  %.03347.i = and i32 %.val.i, %20
-  %24 = zext i32 %.03347.i to i64
+  %.03247.i = and i32 %.val.i, %20
+  %24 = zext i32 %.03247.i to i64
   %25 = getelementptr %struct.PagetableEntry, ptr %23, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 4
   %27 = load i8, ptr %26, align 4
@@ -665,7 +665,7 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
 .lr.ph.i:                                         ; preds = %10, %64
   %28 = phi i8 [ %69, %64 ], [ %27, %10 ]
   %29 = phi ptr [ %67, %64 ], [ %25, %10 ]
-  %.03348.i = phi i32 [ %.033.i, %64 ], [ %.03347.i, %10 ]
+  %.03248.i = phi i32 [ %.032.i, %64 ], [ %.03247.i, %10 ]
   %30 = icmp eq i8 %28, 1
   br i1 %30, label %31, label %64
 
@@ -679,7 +679,7 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
   %36 = load i32, ptr %35, align 8
   %37 = add i32 %36, -1
   store i32 %37, ptr %35, align 8
-  %38 = add i32 %.03348.i, 1
+  %38 = add i32 %.03248.i, 1
   %39 = and i32 %38, %.val.i
   %40 = zext i32 %39 to i64
   %41 = getelementptr %struct.PagetableEntry, ptr %23, i64 %40
@@ -692,7 +692,7 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
   %44 = phi ptr [ %61, %56 ], [ %41, %34 ]
   %45 = phi i32 [ %58, %56 ], [ %39, %34 ]
   %.val3752.i = phi i32 [ %.val37.i, %56 ], [ %.val.i, %34 ]
-  %.03251.i = phi ptr [ %44, %56 ], [ %29, %34 ]
+  %.03351.i = phi ptr [ %44, %56 ], [ %29, %34 ]
   %.val39.i = load i32, ptr %44, align 8
   %46 = lshr i32 %.val39.i, 16
   %47 = xor i32 %46, %.val39.i
@@ -707,7 +707,7 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
   br i1 %55, label %.loopexit72, label %56
 
 56:                                               ; preds = %.lr.ph53.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.03251.i, ptr noundef nonnull align 8 dereferenceable(48) %44, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.03351.i, ptr noundef nonnull align 8 dereferenceable(48) %44, i64 48, i1 false)
   %.val37.i = load i32, ptr %21, align 4
   %57 = add i32 %45, 1
   %58 = and i32 %.val37.i, %57
@@ -720,9 +720,9 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
   br i1 %.not.i, label %.lr.ph53.i, label %.loopexit72
 
 64:                                               ; preds = %31, %.lr.ph.i
-  %65 = add i32 %.03348.i, 1
-  %.033.i = and i32 %65, %.val.i
-  %66 = zext i32 %.033.i to i64
+  %65 = add i32 %.03248.i, 1
+  %.032.i = and i32 %65, %.val.i
+  %66 = zext i32 %.032.i to i64
   %67 = getelementptr %struct.PagetableEntry, ptr %23, i64 %66
   %68 = getelementptr inbounds i8, ptr %67, i64 4
   %69 = load i8, ptr %68, align 4
@@ -730,8 +730,8 @@ define internal fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %1)
   br i1 %.not63.i, label %pagetable_delete.exit.thread, label %.lr.ph.i
 
 .loopexit72:                                      ; preds = %56, %.lr.ph53.i, %34
-  %.032.lcssa.sink.i = phi ptr [ %29, %34 ], [ %.03251.i, %.lr.ph53.i ], [ %44, %56 ]
-  %70 = getelementptr inbounds i8, ptr %.032.lcssa.sink.i, i64 4
+  %.033.lcssa.sink.i = phi ptr [ %29, %34 ], [ %.03351.i, %.lr.ph53.i ], [ %44, %56 ]
+  %70 = getelementptr inbounds i8, ptr %.033.lcssa.sink.i, i64 4
   store i8 0, ptr %70, align 4
   %71 = getelementptr inbounds i8, ptr %0, i64 32
   %72 = load i32, ptr %71, align 8
@@ -960,40 +960,40 @@ define internal fastcc void @tbm_union_page(ptr noundef %0, ptr nocapture nounde
   br label %8
 
 8:                                                ; preds = %.preheader, %.loopexit
-  %indvars.iv55 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next56, %.loopexit ]
-  %9 = getelementptr [5 x i64], ptr %7, i64 0, i64 %indvars.iv55
+  %indvars.iv56 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next57, %.loopexit ]
+  %9 = getelementptr [5 x i64], ptr %7, i64 0, i64 %indvars.iv56
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %.loopexit, label %11
 
 11:                                               ; preds = %8
   %12 = load i32, ptr %1, align 8
-  %indvars.iv55.tr = trunc i64 %indvars.iv55 to i32
-  %13 = shl i32 %indvars.iv55.tr, 6
+  %indvars.iv56.tr = trunc i64 %indvars.iv56 to i32
+  %13 = shl i32 %indvars.iv56.tr, 6
   %14 = add i32 %12, %13
   br label %15
 
 15:                                               ; preds = %11, %18
-  %.047 = phi i32 [ %14, %11 ], [ %19, %18 ]
-  %.03046 = phi i64 [ %10, %11 ], [ %20, %18 ]
-  %16 = and i64 %.03046, 1
+  %.048 = phi i32 [ %14, %11 ], [ %19, %18 ]
+  %.03047 = phi i64 [ %10, %11 ], [ %20, %18 ]
+  %16 = and i64 %.03047, 1
   %.not34 = icmp eq i64 %16, 0
   br i1 %.not34, label %18, label %17
 
 17:                                               ; preds = %15
-  tail call fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %.047)
+  tail call fastcc void @tbm_mark_page_lossy(ptr noundef %0, i32 noundef %.048)
   br label %18
 
 18:                                               ; preds = %17, %15
-  %19 = add i32 %.047, 1
-  %20 = lshr i64 %.03046, 1
-  %.not33 = icmp ult i64 %.03046, 2
+  %19 = add i32 %.048, 1
+  %20 = lshr i64 %.03047, 1
+  %.not33 = icmp ult i64 %.03047, 2
   br i1 %.not33, label %.loopexit, label %15, !llvm.loop !11
 
 .loopexit:                                        ; preds = %18, %8
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next56, 4
-  br i1 %exitcond58.not, label %.loopexit39, label %8, !llvm.loop !12
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond59.not = icmp eq i64 %indvars.iv.next57, 4
+  br i1 %exitcond59.not, label %.loopexit40, label %8, !llvm.loop !12
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %1, align 8
@@ -1028,13 +1028,13 @@ define internal fastcc void @tbm_union_page(ptr noundef %0, ptr nocapture nounde
 
 .lr.ph.i.i.i:                                     ; preds = %26, %49
   %46 = phi ptr [ %53, %49 ], [ %42, %26 ]
-  %.014.i.i.i = phi i32 [ %51, %49 ], [ %40, %26 ]
+  %.01214.i.i.i = phi i32 [ %51, %49 ], [ %40, %26 ]
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, %27
   br i1 %48, label %pagetable_lookup.exit.i, label %49
 
 49:                                               ; preds = %.lr.ph.i.i.i
-  %50 = add i32 %.014.i.i.i, 1
+  %50 = add i32 %.01214.i.i.i, 1
   %51 = and i32 %50, %.val.i
   %52 = zext i32 %51 to i64
   %53 = getelementptr %struct.PagetableEntry, ptr %.val15.i, i64 %52
@@ -1139,27 +1139,27 @@ pagetable_lookup.exit.thread.i:                   ; preds = %49, %26, %pagetable
   br label %tbm_get_pageentry.exit
 
 tbm_get_pageentry.exit:                           ; preds = %74, %79, %.loopexit.i
-  %.036.i = phi ptr [ %75, %74 ], [ %.03741.i, %.loopexit.i ], [ %82, %79 ]
+  %.0.i35 = phi ptr [ %75, %74 ], [ %.03741.i, %.loopexit.i ], [ %82, %79 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %107 = getelementptr inbounds i8, ptr %.036.i, i64 5
+  %107 = getelementptr inbounds i8, ptr %.0.i35, i64 5
   %108 = load i8, ptr %107, align 1
   %109 = trunc i8 %108 to i1
-  br i1 %109, label %112, label %.preheader40
+  br i1 %109, label %112, label %.preheader41
 
-.preheader40:                                     ; preds = %tbm_get_pageentry.exit
+.preheader41:                                     ; preds = %tbm_get_pageentry.exit
   %110 = getelementptr inbounds i8, ptr %1, i64 8
-  %111 = getelementptr inbounds i8, ptr %.036.i, i64 8
+  %111 = getelementptr inbounds i8, ptr %.0.i35, i64 8
   br label %116
 
 112:                                              ; preds = %tbm_get_pageentry.exit
-  %113 = getelementptr inbounds i8, ptr %.036.i, i64 8
+  %113 = getelementptr inbounds i8, ptr %.0.i35, i64 8
   %114 = load i64, ptr %113, align 8
   %115 = or i64 %114, 1
   store i64 %115, ptr %113, align 8
-  br label %.loopexit39
+  br label %.loopexit40
 
-116:                                              ; preds = %.preheader40, %116
-  %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %116 ]
+116:                                              ; preds = %.preheader41, %116
+  %indvars.iv = phi i64 [ 0, %.preheader41 ], [ %indvars.iv.next, %116 ]
   %117 = getelementptr [5 x i64], ptr %110, i64 0, i64 %indvars.iv
   %118 = load i64, ptr %117, align 8
   %119 = getelementptr [5 x i64], ptr %111, i64 0, i64 %indvars.iv
@@ -1173,14 +1173,14 @@ tbm_get_pageentry.exit:                           ; preds = %74, %79, %.loopexit
 122:                                              ; preds = %116
   %123 = getelementptr inbounds i8, ptr %1, i64 6
   %124 = load i8, ptr %123, align 2
-  %125 = getelementptr inbounds i8, ptr %.036.i, i64 6
+  %125 = getelementptr inbounds i8, ptr %.0.i35, i64 6
   %126 = load i8, ptr %125, align 2
   %127 = or i8 %126, %124
   %128 = and i8 %127, 1
   store i8 %128, ptr %125, align 2
-  br label %.loopexit39
+  br label %.loopexit40
 
-.loopexit39:                                      ; preds = %.loopexit, %122, %112
+.loopexit40:                                      ; preds = %.loopexit, %122, %112
   %129 = getelementptr inbounds i8, ptr %0, i64 32
   %130 = load i32, ptr %129, align 8
   %131 = getelementptr inbounds i8, ptr %0, i64 36
@@ -1188,19 +1188,19 @@ tbm_get_pageentry.exit:                           ; preds = %74, %79, %.loopexit
   %133 = icmp sgt i32 %130, %132
   br i1 %133, label %134, label %tbm_page_is_lossy.exit
 
-134:                                              ; preds = %.loopexit39
+134:                                              ; preds = %.loopexit40
   %135 = getelementptr inbounds i8, ptr %0, i64 24
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %0, i64 52
   %138 = load i32, ptr %137, align 4
   %139 = getelementptr i8, ptr %136, i64 12
-  %.val.i35 = load i32, ptr %139, align 4
-  %140 = and i32 %.val.i35, %138
+  %.val.i36 = load i32, ptr %139, align 4
+  %140 = and i32 %.val.i36, %138
   br label %.backedge.i.outer
 
 .backedge.i.outer:                                ; preds = %..backedge_crit_edge.i, %134
   %.ph = phi i32 [ %168, %..backedge_crit_edge.i ], [ %132, %134 ]
-  %.ph86 = phi i32 [ %167, %..backedge_crit_edge.i ], [ %130, %134 ]
+  %.ph87 = phi i32 [ %167, %..backedge_crit_edge.i ], [ %130, %134 ]
   %.pre30.i.ph = phi ptr [ %.pre.pre.i, %..backedge_crit_edge.i ], [ %136, %134 ]
   %.sroa.6.0.i.ph = phi i1 [ %spec.select22.i, %..backedge_crit_edge.i ], [ false, %134 ]
   %.sroa.0.0.i.ph = phi i32 [ %151, %..backedge_crit_edge.i ], [ %140, %134 ]
@@ -1272,7 +1272,7 @@ pagetable_iterate.exit.i:                         ; preds = %145
 
 pagetable_iterate.exit.thread.i:                  ; preds = %pagetable_iterate.exit.i, %143, %170
   %171 = phi i32 [ %168, %170 ], [ %.ph, %143 ], [ %.ph, %pagetable_iterate.exit.i ]
-  %172 = phi i32 [ %167, %170 ], [ %.ph86, %143 ], [ %.ph86, %pagetable_iterate.exit.i ]
+  %172 = phi i32 [ %167, %170 ], [ %.ph87, %143 ], [ %.ph87, %pagetable_iterate.exit.i ]
   %173 = sdiv i32 %171, 2
   %174 = icmp sgt i32 %172, %173
   br i1 %174, label %175, label %tbm_page_is_lossy.exit
@@ -1284,7 +1284,7 @@ pagetable_iterate.exit.thread.i:                  ; preds = %pagetable_iterate.e
   store i32 %spec.select.i, ptr %131, align 4
   br label %tbm_page_is_lossy.exit
 
-tbm_page_is_lossy.exit:                           ; preds = %175, %pagetable_iterate.exit.thread.i, %60, %.loopexit39
+tbm_page_is_lossy.exit:                           ; preds = %175, %pagetable_iterate.exit.thread.i, %60, %.loopexit40
   ret void
 }
 
@@ -1423,8 +1423,8 @@ pagetable_iterate.exit:                           ; preds = %41
   %.val.i = load i32, ptr %79, align 4
   %80 = getelementptr inbounds i8, ptr %69, i64 24
   %81 = load ptr, ptr %80, align 8
-  %.03347.i = and i32 %78, %.val.i
-  %82 = zext i32 %.03347.i to i64
+  %.03247.i = and i32 %78, %.val.i
+  %82 = zext i32 %.03247.i to i64
   %83 = getelementptr %struct.PagetableEntry, ptr %81, i64 %82
   %84 = getelementptr inbounds i8, ptr %83, i64 4
   %85 = load i8, ptr %84, align 4
@@ -1434,7 +1434,7 @@ pagetable_iterate.exit:                           ; preds = %41
 .lr.ph.i20:                                       ; preds = %66, %122
   %86 = phi i8 [ %127, %122 ], [ %85, %66 ]
   %87 = phi ptr [ %125, %122 ], [ %83, %66 ]
-  %.03348.i = phi i32 [ %.033.i, %122 ], [ %.03347.i, %66 ]
+  %.03248.i = phi i32 [ %.032.i, %122 ], [ %.03247.i, %66 ]
   %88 = icmp eq i8 %86, 1
   br i1 %88, label %89, label %122
 
@@ -1448,7 +1448,7 @@ pagetable_iterate.exit:                           ; preds = %41
   %94 = load i32, ptr %93, align 8
   %95 = add i32 %94, -1
   store i32 %95, ptr %93, align 8
-  %96 = add i32 %.03348.i, 1
+  %96 = add i32 %.03248.i, 1
   %97 = and i32 %96, %.val.i
   %98 = zext i32 %97 to i64
   %99 = getelementptr %struct.PagetableEntry, ptr %81, i64 %98
@@ -1461,7 +1461,7 @@ pagetable_iterate.exit:                           ; preds = %41
   %102 = phi ptr [ %119, %114 ], [ %99, %92 ]
   %103 = phi i32 [ %116, %114 ], [ %97, %92 ]
   %.val3752.i = phi i32 [ %.val37.i, %114 ], [ %.val.i, %92 ]
-  %.03251.i = phi ptr [ %102, %114 ], [ %87, %92 ]
+  %.03351.i = phi ptr [ %102, %114 ], [ %87, %92 ]
   %.val39.i = load i32, ptr %102, align 8
   %104 = lshr i32 %.val39.i, 16
   %105 = xor i32 %104, %.val39.i
@@ -1476,7 +1476,7 @@ pagetable_iterate.exit:                           ; preds = %41
   br i1 %113, label %pagetable_delete.exit, label %114
 
 114:                                              ; preds = %.lr.ph53.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.03251.i, ptr noundef nonnull align 8 dereferenceable(48) %102, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.03351.i, ptr noundef nonnull align 8 dereferenceable(48) %102, i64 48, i1 false)
   %.val37.i = load i32, ptr %79, align 4
   %115 = add i32 %103, 1
   %116 = and i32 %.val37.i, %115
@@ -1489,9 +1489,9 @@ pagetable_iterate.exit:                           ; preds = %41
   br i1 %.not.i21, label %.lr.ph53.i, label %pagetable_delete.exit
 
 122:                                              ; preds = %89, %.lr.ph.i20
-  %123 = add i32 %.03348.i, 1
-  %.033.i = and i32 %123, %.val.i
-  %124 = zext i32 %.033.i to i64
+  %123 = add i32 %.03248.i, 1
+  %.032.i = and i32 %123, %.val.i
+  %124 = zext i32 %.032.i to i64
   %125 = getelementptr %struct.PagetableEntry, ptr %81, i64 %124
   %126 = getelementptr inbounds i8, ptr %125, i64 4
   %127 = load i8, ptr %126, align 4
@@ -1499,8 +1499,8 @@ pagetable_iterate.exit:                           ; preds = %41
   br i1 %.not63.i, label %.loopexit, label %.lr.ph.i20
 
 pagetable_delete.exit:                            ; preds = %.lr.ph53.i, %114, %92
-  %.032.lcssa.sink.i = phi ptr [ %87, %92 ], [ %.03251.i, %.lr.ph53.i ], [ %102, %114 ]
-  %128 = getelementptr inbounds i8, ptr %.032.lcssa.sink.i, i64 4
+  %.033.lcssa.sink.i = phi ptr [ %87, %92 ], [ %.03351.i, %.lr.ph53.i ], [ %102, %114 ]
+  %128 = getelementptr inbounds i8, ptr %.033.lcssa.sink.i, i64 4
   store i8 0, ptr %128, align 4
   br label %131
 
@@ -1589,13 +1589,13 @@ define internal fastcc zeroext i1 @tbm_intersect_page(ptr nocapture noundef %0, 
 
 .lr.ph.i.i.i:                                     ; preds = %24, %46
   %43 = phi ptr [ %50, %46 ], [ %39, %24 ]
-  %.014.i.i.i = phi i32 [ %48, %46 ], [ %37, %24 ]
+  %.01214.i.i.i = phi i32 [ %48, %46 ], [ %37, %24 ]
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, %25
   br i1 %45, label %pagetable_lookup.exit.i, label %46
 
 46:                                               ; preds = %.lr.ph.i.i.i
-  %47 = add i32 %.014.i.i.i, 1
+  %47 = add i32 %.01214.i.i.i, 1
   %48 = and i32 %47, %.val.i
   %49 = zext i32 %48 to i64
   %50 = getelementptr %struct.PagetableEntry, ptr %.val15.i, i64 %49
@@ -1663,13 +1663,13 @@ pagetable_lookup.exit.thread.i:                   ; preds = %46, %24, %pagetable
 
 .lr.ph.i.i.i61:                                   ; preds = %75, %96
   %93 = phi ptr [ %100, %96 ], [ %89, %75 ]
-  %.014.i.i.i62 = phi i32 [ %98, %96 ], [ %87, %75 ]
+  %.01214.i.i.i62 = phi i32 [ %98, %96 ], [ %87, %75 ]
   %94 = load i32, ptr %93, align 8
   %95 = icmp eq i32 %94, %.04321
   br i1 %95, label %pagetable_lookup.exit.i65, label %96
 
 96:                                               ; preds = %.lr.ph.i.i.i61
-  %97 = add i32 %.014.i.i.i62, 1
+  %97 = add i32 %.01214.i.i.i62, 1
   %98 = and i32 %97, %.val.i60
   %99 = zext i32 %98 to i64
   %100 = getelementptr %struct.PagetableEntry, ptr %.val13.i, i64 %99
@@ -1742,13 +1742,13 @@ tbm_page_is_lossy.exit:                           ; preds = %73, %pagetable_look
 
 .lr.ph.i.i.i68:                                   ; preds = %118, %141
   %138 = phi ptr [ %145, %141 ], [ %134, %118 ]
-  %.014.i.i.i69 = phi i32 [ %143, %141 ], [ %132, %118 ]
+  %.01214.i.i.i69 = phi i32 [ %143, %141 ], [ %132, %118 ]
   %139 = load i32, ptr %138, align 8
   %140 = icmp eq i32 %139, %119
   br i1 %140, label %pagetable_lookup.exit.i72, label %141
 
 141:                                              ; preds = %.lr.ph.i.i.i68
-  %142 = add i32 %.014.i.i.i69, 1
+  %142 = add i32 %.01214.i.i.i69, 1
   %143 = and i32 %142, %.val.i66
   %144 = zext i32 %143 to i64
   %145 = getelementptr %struct.PagetableEntry, ptr %.val15.i67, i64 %144
@@ -1825,13 +1825,13 @@ pagetable_lookup.exit.thread.i70:                 ; preds = %141, %118, %pagetab
 
 .lr.ph.i.i.i77:                                   ; preds = %174, %196
   %193 = phi ptr [ %200, %196 ], [ %189, %174 ]
-  %.014.i.i.i78 = phi i32 [ %198, %196 ], [ %187, %174 ]
+  %.01214.i.i.i78 = phi i32 [ %198, %196 ], [ %187, %174 ]
   %194 = load i32, ptr %193, align 8
   %195 = icmp eq i32 %194, %115
   br i1 %195, label %pagetable_lookup.exit.i81, label %196
 
 196:                                              ; preds = %.lr.ph.i.i.i77
-  %197 = add i32 %.014.i.i.i78, 1
+  %197 = add i32 %.01214.i.i.i78, 1
   %198 = and i32 %197, %.val.i75
   %199 = zext i32 %198 to i64
   %200 = getelementptr %struct.PagetableEntry, ptr %.val13.i76, i64 %199
@@ -2143,7 +2143,7 @@ define dso_local noundef i64 @tbm_prepare_shared_iterate(ptr nocapture noundef %
   br label %34
 
 34:                                               ; preds = %25, %22
-  %.084 = phi ptr [ %33, %25 ], [ null, %22 ]
+  %.086 = phi ptr [ %33, %25 ], [ null, %22 ]
   %35 = getelementptr inbounds i8, ptr %0, i64 16
   %36 = load i32, ptr %35, align 8
   switch i32 %36, label %.thread126 [
@@ -2243,7 +2243,7 @@ pagetable_iterate.exit:                           ; preds = %63
 
 88:                                               ; preds = %86, %84
   %.081.sink = phi i32 [ %.081, %86 ], [ %.0, %84 ]
-  %.085.pn = phi ptr [ %.085, %86 ], [ %.084, %84 ]
+  %.085.pn = phi ptr [ %.085, %86 ], [ %.086, %84 ]
   %.182 = phi i32 [ %87, %86 ], [ %.081, %84 ]
   %.1 = phi i32 [ %.0, %86 ], [ %85, %84 ]
   %.sink148 = getelementptr inbounds i8, ptr %.085.pn, i64 4
@@ -2274,21 +2274,21 @@ pagetable_iterate.exit.thread:                    ; preds = %pagetable_iterate.e
 99:                                               ; preds = %.thread112, %pagetable_iterate.exit.thread
   %.2119 = phi i32 [ 0, %.thread112 ], [ %.0, %pagetable_iterate.exit.thread ]
   %.283118 = phi i32 [ 0, %.thread112 ], [ %.081, %pagetable_iterate.exit.thread ]
-  %.086117 = phi ptr [ %95, %.thread112 ], [ %41, %pagetable_iterate.exit.thread ]
-  store volatile i32 0, ptr %.086117, align 4
+  %.084117 = phi ptr [ %95, %.thread112 ], [ %41, %pagetable_iterate.exit.thread ]
+  store volatile i32 0, ptr %.084117, align 4
   br label %100
 
 100:                                              ; preds = %99, %pagetable_iterate.exit.thread
   %.2111 = phi i32 [ %.2119, %99 ], [ %.0, %pagetable_iterate.exit.thread ]
   %.283110 = phi i32 [ %.283118, %99 ], [ %.081, %pagetable_iterate.exit.thread ]
-  %.086109 = phi ptr [ %.086117, %99 ], [ null, %pagetable_iterate.exit.thread ]
+  %.084109 = phi ptr [ %.084117, %99 ], [ null, %pagetable_iterate.exit.thread ]
   %101 = icmp sgt i32 %.283110, 1
   br i1 %101, label %102, label %106
 
 102:                                              ; preds = %100
   %103 = getelementptr inbounds i8, ptr %.085, i64 4
   %104 = zext nneg i32 %.283110 to i64
-  %105 = getelementptr inbounds i8, ptr %.086109, i64 8
+  %105 = getelementptr inbounds i8, ptr %.084109, i64 8
   tail call void @qsort_arg(ptr noundef nonnull %103, i64 noundef %104, i64 noundef 4, ptr noundef nonnull @tbm_shared_comparator, ptr noundef nonnull %105) #14
   br label %106
 
@@ -2297,9 +2297,9 @@ pagetable_iterate.exit.thread:                    ; preds = %pagetable_iterate.e
   br i1 %107, label %108, label %.thread126
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds i8, ptr %.084, i64 4
+  %109 = getelementptr inbounds i8, ptr %.086, i64 4
   %110 = zext nneg i32 %.2111 to i64
-  %111 = getelementptr inbounds i8, ptr %.086109, i64 8
+  %111 = getelementptr inbounds i8, ptr %.084109, i64 8
   tail call void @qsort_arg(ptr noundef nonnull %109, i64 noundef %110, i64 noundef 4, ptr noundef nonnull @tbm_shared_comparator, ptr noundef nonnull %111) #14
   br label %.thread126
 
@@ -2630,12 +2630,12 @@ define dso_local ptr @tbm_shared_iterate(ptr noundef %0) local_unnamed_addr #0 {
   %8 = load ptr, ptr %7, align 8
   %.not67 = icmp eq ptr %8, null
   %9 = getelementptr inbounds i8, ptr %8, i64 4
-  %.058 = select i1 %.not67, ptr null, ptr %9
+  %.057 = select i1 %.not67, ptr null, ptr %9
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not68 = icmp eq ptr %11, null
   %12 = getelementptr inbounds i8, ptr %11, i64 4
-  %.057 = select i1 %.not68, ptr null, ptr %12
+  %.058 = select i1 %.not68, ptr null, ptr %12
   %13 = getelementptr inbounds i8, ptr %3, i64 40
   %14 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 0) #14
   %15 = getelementptr inbounds i8, ptr %3, i64 60
@@ -2660,7 +2660,7 @@ define dso_local ptr @tbm_shared_iterate(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %24, label %.lr.ph.i, label %tbm_advance_schunkbit.exit.thread
 
 .lr.ph.i:                                         ; preds = %21
-  %25 = getelementptr i32, ptr %.057, i64 %indvars.iv
+  %25 = getelementptr i32, ptr %.058, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   br label %28
@@ -2713,7 +2713,7 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %37, %21, %tbm_advan
 
 44:                                               ; preds = %.loopexit
   %45 = sext i32 %42 to i64
-  %46 = getelementptr i32, ptr %.057, i64 %45
+  %46 = getelementptr i32, ptr %.058, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
   %49 = getelementptr %struct.PagetableEntry, ptr %spec.select, i64 %48
@@ -2730,7 +2730,7 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %37, %21, %tbm_advan
 
 58:                                               ; preds = %44
   %59 = sext i32 %55 to i64
-  %60 = getelementptr i32, ptr %.058, i64 %59
+  %60 = getelementptr i32, ptr %.057, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = sext i32 %61 to i64
   %63 = getelementptr %struct.PagetableEntry, ptr %spec.select, i64 %62
@@ -2755,7 +2755,7 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %37, %21, %tbm_advan
 
 74:                                               ; preds = %69
   %75 = sext i32 %71 to i64
-  %76 = getelementptr i32, ptr %.058, i64 %75
+  %76 = getelementptr i32, ptr %.057, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
   %79 = getelementptr %struct.PagetableEntry, ptr %spec.select, i64 %78
@@ -2968,11 +2968,11 @@ define internal fastcc noundef ptr @pagetable_insert(ptr nocapture noundef %0, i
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   %17 = getelementptr i8, ptr %0, i64 12
   %.pre.i = load i32, ptr %12, align 8
-  %.pre175.i = load i32, ptr %13, align 8
+  %.pre174.i = load i32, ptr %13, align 8
   br label %18
 
 18:                                               ; preds = %.backedge.i, %3
-  %19 = phi i32 [ 0, %.backedge.i ], [ %.pre175.i, %3 ]
+  %19 = phi i32 [ 0, %.backedge.i ], [ %.pre174.i, %3 ]
   %20 = phi i32 [ %172, %.backedge.i ], [ %.pre.i, %3 ]
   %.not.i = icmp ult i32 %20, %19
   br i1 %.not.i, label %pagetable_grow.exit.i, label %21
@@ -3072,7 +3072,7 @@ pagetable_update_parameters.exit.i.i:             ; preds = %pagetable_allocate.
 
 .lr.ph.i.i:                                       ; preds = %pagetable_update_parameters.exit.i.i, %89
   %74 = phi i64 [ %91, %89 ], [ 0, %pagetable_update_parameters.exit.i.i ]
-  %.04958.i.i = phi i32 [ %90, %89 ], [ 0, %pagetable_update_parameters.exit.i.i ]
+  %.058.i.i = phi i32 [ %90, %89 ], [ 0, %pagetable_update_parameters.exit.i.i ]
   %75 = getelementptr %struct.PagetableEntry, ptr %29, i64 %74
   %76 = getelementptr inbounds i8, ptr %75, i64 4
   %77 = load i8, ptr %76, align 4
@@ -3090,23 +3090,23 @@ pagetable_update_parameters.exit.i.i:             ; preds = %pagetable_allocate.
   %85 = lshr i32 %84, 16
   %86 = xor i32 %85, %84
   %87 = and i32 %86, %69
-  %88 = icmp eq i32 %87, %.04958.i.i
+  %88 = icmp eq i32 %87, %.058.i.i
   br i1 %88, label %.lr.ph66.i.i.preheader, label %89
 
 89:                                               ; preds = %78
-  %90 = add i32 %.04958.i.i, 1
+  %90 = add i32 %.058.i.i, 1
   %91 = zext i32 %90 to i64
   %92 = icmp ugt i64 %22, %91
   br i1 %92, label %.lr.ph.i.i, label %.lr.ph66.i.i.preheader, !llvm.loop !26
 
 .lr.ph66.i.i.preheader:                           ; preds = %89, %78, %.lr.ph.i.i
-  %.04764.i.i.ph = phi i32 [ 0, %89 ], [ %.04958.i.i, %.lr.ph.i.i ], [ %.04958.i.i, %78 ]
+  %.04963.i.i.ph = phi i32 [ %.058.i.i, %.lr.ph.i.i ], [ %.058.i.i, %78 ], [ 0, %89 ]
   br label %.lr.ph66.i.i
 
 .lr.ph66.i.i:                                     ; preds = %.lr.ph66.i.i.preheader, %115
-  %.04764.i.i = phi i32 [ %spec.store.select.i.i, %115 ], [ %.04764.i.i.ph, %.lr.ph66.i.i.preheader ]
-  %.163.i.i = phi i32 [ %118, %115 ], [ 0, %.lr.ph66.i.i.preheader ]
-  %93 = zext i32 %.04764.i.i to i64
+  %.164.i.i = phi i32 [ %118, %115 ], [ 0, %.lr.ph66.i.i.preheader ]
+  %.04963.i.i = phi i32 [ %spec.store.select.i.i, %115 ], [ %.04963.i.i.ph, %.lr.ph66.i.i.preheader ]
+  %93 = zext i32 %.04963.i.i to i64
   %94 = getelementptr %struct.PagetableEntry, ptr %29, i64 %93
   %95 = getelementptr inbounds i8, ptr %94, i64 4
   %96 = load i8, ptr %95, align 4
@@ -3128,13 +3128,13 @@ pagetable_update_parameters.exit.i.i:             ; preds = %pagetable_allocate.
 
 107:                                              ; preds = %107, %98
   %.pn.i.i = phi i32 [ %106, %98 ], [ %113, %107 ]
-  %.0.i.i = and i32 %.pn.i.i, %.val53.i.i
-  %108 = zext i32 %.0.i.i to i64
+  %.047.i.i = and i32 %.pn.i.i, %.val53.i.i
+  %108 = zext i32 %.047.i.i to i64
   %109 = getelementptr %struct.PagetableEntry, ptr %.0.i.i.i, i64 %108
   %110 = getelementptr inbounds i8, ptr %109, i64 4
   %111 = load i8, ptr %110, align 4
   %112 = icmp eq i8 %111, 0
-  %113 = add i32 %.0.i.i, 1
+  %113 = add i32 %.047.i.i, 1
   br i1 %112, label %114, label %107
 
 114:                                              ; preds = %107
@@ -3142,11 +3142,11 @@ pagetable_update_parameters.exit.i.i:             ; preds = %pagetable_allocate.
   br label %115
 
 115:                                              ; preds = %114, %.lr.ph66.i.i
-  %116 = add i32 %.04764.i.i, 1
+  %116 = add i32 %.04963.i.i, 1
   %117 = zext i32 %116 to i64
   %.not52.i.i = icmp ugt i64 %22, %117
   %spec.store.select.i.i = select i1 %.not52.i.i, i32 %116, i32 0
-  %118 = add i32 %.163.i.i, 1
+  %118 = add i32 %.164.i.i, 1
   %119 = zext i32 %118 to i64
   %120 = icmp ugt i64 %22, %119
   br i1 %120, label %.lr.ph66.i.i, label %._crit_edge67.i.i, !llvm.loop !27
@@ -3185,14 +3185,14 @@ pagetable_grow.exit.i:                            ; preds = %128, %125, %124, %1
   br i1 %135, label %pagetable_grow.exit._crit_edge.i, label %.lr.ph.i
 
 pagetable_grow.exit._crit_edge.i:                 ; preds = %pagetable_grow.exit.i, %195
-  %.lcssa114.i = phi ptr [ %197, %195 ], [ %132, %pagetable_grow.exit.i ]
-  %136 = getelementptr inbounds i8, ptr %.lcssa114.i, i64 4
+  %.lcssa113.i = phi ptr [ %197, %195 ], [ %132, %pagetable_grow.exit.i ]
+  %136 = getelementptr inbounds i8, ptr %.lcssa113.i, i64 4
   br label %.sink.split.i
 
 .lr.ph.i:                                         ; preds = %pagetable_grow.exit.i, %195
   %137 = phi ptr [ %197, %195 ], [ %132, %pagetable_grow.exit.i ]
-  %.073116.i = phi i32 [ %156, %195 ], [ %130, %pagetable_grow.exit.i ]
-  %.074115.i = phi i32 [ %186, %195 ], [ 0, %pagetable_grow.exit.i ]
+  %.069115.i = phi i32 [ %156, %195 ], [ %130, %pagetable_grow.exit.i ]
+  %.074114.i = phi i32 [ %186, %195 ], [ 0, %pagetable_grow.exit.i ]
   %138 = load i32, ptr %137, align 8
   %139 = icmp eq i32 %138, %1
   br i1 %139, label %pagetable_insert_hash_internal.exit, label %140
@@ -3207,46 +3207,46 @@ pagetable_grow.exit._crit_edge.i:                 ; preds = %pagetable_grow.exit
   %147 = lshr i32 %146, 16
   %148 = xor i32 %147, %146
   %149 = and i32 %148, %.val77.i
-  %.not.i82.i = icmp ugt i32 %149, %.073116.i
+  %.not.i82.i = icmp ugt i32 %149, %.069115.i
   br i1 %.not.i82.i, label %150, label %pagetable_distance.exit.i
 
 150:                                              ; preds = %140
   %151 = load i64, ptr %0, align 8
   %152 = trunc i64 %151 to i32
-  %153 = add i32 %.073116.i, %152
+  %153 = add i32 %.069115.i, %152
   br label %pagetable_distance.exit.i
 
 pagetable_distance.exit.i:                        ; preds = %150, %140
-  %.pn.i83.i = phi i32 [ %153, %150 ], [ %.073116.i, %140 ]
-  %.0.i84.i = sub i32 %.pn.i83.i, %149
-  %154 = icmp ugt i32 %.074115.i, %.0.i84.i
-  %155 = add i32 %.073116.i, 1
+  %.pn.i83.i = phi i32 [ %153, %150 ], [ %.069115.i, %140 ]
+  %.0.i.i = sub i32 %.pn.i83.i, %149
+  %154 = icmp ugt i32 %.074114.i, %.0.i.i
+  %155 = add i32 %.069115.i, 1
   %156 = and i32 %155, %.val77.i
-  br i1 %154, label %.preheader85.i, label %185
+  br i1 %154, label %.preheader84.i, label %185
 
-.preheader85.i:                                   ; preds = %pagetable_distance.exit.i
+.preheader84.i:                                   ; preds = %pagetable_distance.exit.i
   %157 = zext i32 %156 to i64
   %158 = getelementptr %struct.PagetableEntry, ptr %129, i64 %157
   %159 = getelementptr inbounds i8, ptr %158, i64 4
   %160 = load i8, ptr %159, align 4
   %161 = icmp eq i8 %160, 0
-  br i1 %161, label %.preheader.i, label %.lr.ph123.i
+  br i1 %161, label %.preheader.i, label %.lr.ph122.i
 
-.preheader.i:                                     ; preds = %.preheader85.i, %173
-  %.lcssa99.i = phi i32 [ %175, %173 ], [ %156, %.preheader85.i ]
-  %.lcssa97.i = phi ptr [ %177, %173 ], [ %158, %.preheader85.i ]
-  %.lcssa88.lcssa.i = getelementptr inbounds i8, ptr %137, i64 4
-  %.not76141.i = icmp eq i32 %.lcssa99.i, %.073116.i
-  br i1 %.not76141.i, label %.sink.split.i, label %.lr.ph144.i
+.preheader.i:                                     ; preds = %.preheader84.i, %173
+  %.lcssa98.i = phi i32 [ %175, %173 ], [ %156, %.preheader84.i ]
+  %.lcssa96.i = phi ptr [ %177, %173 ], [ %158, %.preheader84.i ]
+  %.lcssa87.lcssa.i = getelementptr inbounds i8, ptr %137, i64 4
+  %.not76140.i = icmp eq i32 %.lcssa98.i, %.069115.i
+  br i1 %.not76140.i, label %.sink.split.i, label %.lr.ph143.i
 
-.lr.ph123.i:                                      ; preds = %.preheader85.i, %173
-  %162 = phi i32 [ %175, %173 ], [ %156, %.preheader85.i ]
-  %.069122.i = phi i32 [ %163, %173 ], [ 0, %.preheader85.i ]
-  %163 = add i32 %.069122.i, 1
+.lr.ph122.i:                                      ; preds = %.preheader84.i, %173
+  %162 = phi i32 [ %175, %173 ], [ %156, %.preheader84.i ]
+  %.070121.i = phi i32 [ %163, %173 ], [ 0, %.preheader84.i ]
+  %163 = add i32 %.070121.i, 1
   %164 = icmp sgt i32 %163, 150
   br i1 %164, label %165, label %173
 
-165:                                              ; preds = %.lr.ph123.i
+165:                                              ; preds = %.lr.ph122.i
   %166 = load i32, ptr %12, align 8
   %167 = uitofp i32 %166 to double
   %168 = load i64, ptr %0, align 8
@@ -3260,7 +3260,7 @@ pagetable_distance.exit.i:                        ; preds = %150, %140
   store i32 0, ptr %13, align 8
   br label %18
 
-173:                                              ; preds = %165, %.lr.ph123.i
+173:                                              ; preds = %165, %.lr.ph122.i
   %174 = add i32 %162, 1
   %175 = and i32 %174, %.val77.i
   %176 = zext i32 %175 to i64
@@ -3268,22 +3268,22 @@ pagetable_distance.exit.i:                        ; preds = %150, %140
   %178 = getelementptr inbounds i8, ptr %177, i64 4
   %179 = load i8, ptr %178, align 4
   %180 = icmp eq i8 %179, 0
-  br i1 %180, label %.preheader.i, label %.lr.ph123.i
+  br i1 %180, label %.preheader.i, label %.lr.ph122.i
 
-.lr.ph144.i:                                      ; preds = %.preheader.i, %.lr.ph144.i
-  %.070143.i = phi i32 [ %182, %.lr.ph144.i ], [ %.lcssa99.i, %.preheader.i ]
-  %.072142.i = phi ptr [ %184, %.lr.ph144.i ], [ %.lcssa97.i, %.preheader.i ]
+.lr.ph143.i:                                      ; preds = %.preheader.i, %.lr.ph143.i
+  %.071142.i = phi i32 [ %182, %.lr.ph143.i ], [ %.lcssa98.i, %.preheader.i ]
+  %.073141.i = phi ptr [ %184, %.lr.ph143.i ], [ %.lcssa96.i, %.preheader.i ]
   %.val81.i = load i32, ptr %17, align 4
-  %181 = add i32 %.070143.i, -1
+  %181 = add i32 %.071142.i, -1
   %182 = and i32 %.val81.i, %181
   %183 = zext i32 %182 to i64
   %184 = getelementptr %struct.PagetableEntry, ptr %129, i64 %183
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.072142.i, ptr noundef nonnull align 8 dereferenceable(48) %184, i64 48, i1 false)
-  %.not76.i = icmp eq i32 %182, %.073116.i
-  br i1 %.not76.i, label %.sink.split.i, label %.lr.ph144.i, !llvm.loop !28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.073141.i, ptr noundef nonnull align 8 dereferenceable(48) %184, i64 48, i1 false)
+  %.not76.i = icmp eq i32 %182, %.069115.i
+  br i1 %.not76.i, label %.sink.split.i, label %.lr.ph143.i, !llvm.loop !28
 
 185:                                              ; preds = %pagetable_distance.exit.i
-  %186 = add i32 %.074115.i, 1
+  %186 = add i32 %.074114.i, 1
   %187 = icmp ugt i32 %186, 25
   br i1 %187, label %188, label %195
 
@@ -3304,19 +3304,19 @@ pagetable_distance.exit.i:                        ; preds = %150, %140
   %200 = icmp eq i8 %199, 0
   br i1 %200, label %pagetable_grow.exit._crit_edge.i, label %.lr.ph.i
 
-.sink.split.i:                                    ; preds = %.lr.ph144.i, %.preheader.i, %pagetable_grow.exit._crit_edge.i
-  %.lcssa186190.sink.i = phi ptr [ %.lcssa114.i, %pagetable_grow.exit._crit_edge.i ], [ %137, %.preheader.i ], [ %137, %.lr.ph144.i ]
-  %.lcssa88.lcssa.sink.i = phi ptr [ %136, %pagetable_grow.exit._crit_edge.i ], [ %.lcssa88.lcssa.i, %.preheader.i ], [ %.lcssa88.lcssa.i, %.lr.ph144.i ]
+.sink.split.i:                                    ; preds = %.lr.ph143.i, %.preheader.i, %pagetable_grow.exit._crit_edge.i
+  %.lcssa185189.sink.i = phi ptr [ %.lcssa113.i, %pagetable_grow.exit._crit_edge.i ], [ %137, %.preheader.i ], [ %137, %.lr.ph143.i ]
+  %.lcssa87.lcssa.sink.i = phi ptr [ %136, %pagetable_grow.exit._crit_edge.i ], [ %.lcssa87.lcssa.i, %.preheader.i ], [ %.lcssa87.lcssa.i, %.lr.ph143.i ]
   %201 = load i32, ptr %12, align 8
   %202 = add i32 %201, 1
   store i32 %202, ptr %12, align 8
-  store i32 %1, ptr %.lcssa186190.sink.i, align 8
-  store i8 1, ptr %.lcssa88.lcssa.sink.i, align 4
+  store i32 %1, ptr %.lcssa185189.sink.i, align 8
+  store i8 1, ptr %.lcssa87.lcssa.sink.i, align 4
   br label %pagetable_insert_hash_internal.exit
 
 pagetable_insert_hash_internal.exit:              ; preds = %.lr.ph.i, %.sink.split.i
   %.sink.i = phi i8 [ 0, %.sink.split.i ], [ 1, %.lr.ph.i ]
-  %203 = phi ptr [ %.lcssa186190.sink.i, %.sink.split.i ], [ %137, %.lr.ph.i ]
+  %203 = phi ptr [ %.lcssa185189.sink.i, %.sink.split.i ], [ %137, %.lr.ph.i ]
   store i8 %.sink.i, ptr %2, align 1
   ret ptr %203
 }

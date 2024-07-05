@@ -2407,8 +2407,8 @@ decode_key_number.exit:                           ; preds = %108, %32, %59, %64,
   br label %290
 
 290:                                              ; preds = %4, %decode_key_number.exit
-  %.0293 = phi i32 [ %289, %decode_key_number.exit ], [ 0, %4 ]
-  ret i32 %.0293
+  %.0 = phi i32 [ %289, %decode_key_number.exit ], [ 0, %4 ]
+  ret i32 %.0
 }
 
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -2745,7 +2745,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %87 = phi i32 [ 0, %.lr.ph856 ], [ %136, %134 ]
   %.0700854 = phi i32 [ 5, %.lr.ph856 ], [ %.1701, %134 ]
   %.0704853 = phi i32 [ %81, %.lr.ph856 ], [ %.1705, %134 ]
-  %.0728852 = phi i32 [ 0, %.lr.ph856 ], [ %.3731, %134 ]
+  %.0727852 = phi i32 [ 0, %.lr.ph856 ], [ %.3730, %134 ]
   %88 = phi i32 [ 0, %.lr.ph856 ], [ %137, %134 ]
   %89 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0700854) #9
   %90 = zext i8 %89 to i32
@@ -2826,7 +2826,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   br label %124
 
 124:                                              ; preds = %106, %121
-  %.1729 = phi i32 [ %123, %121 ], [ %.0728852, %106 ]
+  %.1728 = phi i32 [ %123, %121 ], [ %.0727852, %106 ]
   %125 = icmp ult i8 %92, 9
   %hf_ua3g_ip_device_routing_start_rtp_parameter_uint.hf_ua3g_ip_device_routing_start_rtp_parameter_value = select i1 %125, ptr @hf_ua3g_ip_device_routing_start_rtp_parameter_uint, ptr @hf_ua3g_ip_device_routing_start_rtp_parameter_value
   br label %.sink.split
@@ -2837,7 +2837,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %.ph = phi ptr [ %86, %106 ], [ %86, %106 ], [ %108, %107 ], [ %86, %109 ], [ %86, %111 ], [ %86, %113 ], [ %86, %115 ], [ %86, %117 ], [ %86, %119 ], [ %86, %124 ]
   %.ph907 = phi i32 [ %87, %106 ], [ %87, %106 ], [ 4, %107 ], [ %87, %109 ], [ %87, %111 ], [ %87, %113 ], [ %87, %115 ], [ %87, %117 ], [ %87, %119 ], [ %87, %124 ]
   %.ph908 = phi i32 [ %88, %106 ], [ %88, %106 ], [ 2, %107 ], [ %88, %109 ], [ %88, %111 ], [ %88, %113 ], [ %88, %115 ], [ %88, %117 ], [ %88, %119 ], [ %88, %124 ]
-  %.2730.ph = phi i32 [ %.0728852, %106 ], [ %.0728852, %106 ], [ %.0728852, %107 ], [ %.0728852, %109 ], [ %.0728852, %111 ], [ %.0728852, %113 ], [ %.0728852, %115 ], [ %.0728852, %117 ], [ %.0728852, %119 ], [ %.1729, %124 ]
+  %.2729.ph = phi i32 [ %.0727852, %106 ], [ %.0727852, %106 ], [ %.0727852, %107 ], [ %.0727852, %109 ], [ %.0727852, %111 ], [ %.0727852, %113 ], [ %.0727852, %115 ], [ %.0727852, %117 ], [ %.0727852, %119 ], [ %.1728, %124 ]
   %126 = load i32, ptr %hf_ua3g_ip_device_routing_start_rtp_parameter_uint.sink, align 4
   %127 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %126, ptr noundef %1, i32 noundef %104, i32 noundef %.sink909, i32 noundef 0) #9
   br label %128
@@ -2846,7 +2846,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %129 = phi ptr [ %86, %106 ], [ %86, %106 ], [ %.ph, %.sink.split ]
   %130 = phi i32 [ %87, %106 ], [ %87, %106 ], [ %.ph907, %.sink.split ]
   %131 = phi i32 [ %88, %106 ], [ %88, %106 ], [ %.ph908, %.sink.split ]
-  %.2730 = phi i32 [ %.0728852, %106 ], [ %.0728852, %106 ], [ %.2730.ph, %.sink.split ]
+  %.2729 = phi i32 [ %.0727852, %106 ], [ %.0727852, %106 ], [ %.2729.ph, %.sink.split ]
   %132 = add i32 %104, %93
   %133 = sub i32 %105, %93
   br label %134
@@ -2855,7 +2855,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %135 = phi ptr [ %129, %128 ], [ %86, %85 ]
   %136 = phi i32 [ %130, %128 ], [ %87, %85 ]
   %137 = phi i32 [ %131, %128 ], [ %88, %85 ]
-  %.3731 = phi i32 [ %.2730, %128 ], [ %.0728852, %85 ]
+  %.3730 = phi i32 [ %.2729, %128 ], [ %.0727852, %85 ]
   %.1705 = phi i32 [ %133, %128 ], [ %105, %85 ]
   %.1701 = phi i32 [ %132, %128 ], [ %104, %85 ]
   %.not767 = icmp eq i32 %.1705, 0
@@ -2871,11 +2871,11 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 139:                                              ; preds = %._crit_edge857, %78
   %140 = phi i1 [ %138, %._crit_edge857 ], [ false, %78 ]
   %.lcssa850 = phi i32 [ %137, %._crit_edge857 ], [ 0, %78 ]
-  %.0728.lcssa = phi i32 [ %.3731, %._crit_edge857 ], [ 0, %78 ]
+  %.0727.lcssa = phi i32 [ %.3730, %._crit_edge857 ], [ 0, %78 ]
   store i32 %.lcssa850, ptr %5, align 8
   %141 = load i32, ptr @setup_conversations_enabled, align 4
   %.not768 = icmp ne i32 %141, 0
-  %142 = icmp ne i32 %.0728.lcssa, 0
+  %142 = icmp ne i32 %.0727.lcssa, 0
   %143 = select i1 %.not768, i1 %140, i1 false
   %or.cond910 = select i1 %143, i1 %142, i1 false
   br i1 %or.cond910, label %144, label %.loopexit
@@ -2883,8 +2883,8 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 144:                                              ; preds = %139
   %145 = getelementptr inbounds i8, ptr %2, i64 20
   %146 = load i32, ptr %145, align 4
-  call void @rtp_add_address(ptr noundef %2, i32 noundef 3, ptr noundef nonnull %5, i32 noundef %.0728.lcssa, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %146, i32 noundef 0, ptr noundef null) #9
-  %147 = add nuw nsw i32 %.0728.lcssa, 1
+  call void @rtp_add_address(ptr noundef %2, i32 noundef 3, ptr noundef nonnull %5, i32 noundef %.0727.lcssa, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %146, i32 noundef 0, ptr noundef null) #9
+  %147 = add nuw nsw i32 %.0727.lcssa, 1
   %148 = load i32, ptr %145, align 4
   call void @rtcp_add_address(ptr noundef %2, ptr noundef nonnull %5, i32 noundef %147, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %148) #9
   br label %.loopexit
@@ -3004,7 +3004,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 
 210:                                              ; preds = %.preheader779, %210
   %.7838 = phi i32 [ %.6840, %.preheader779 ], [ %234, %210 ]
-  %.0727836 = phi i32 [ 1, %.preheader779 ], [ %235, %210 ]
+  %.0731836 = phi i32 [ 1, %.preheader779 ], [ %235, %210 ]
   %211 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.7838) #9
   %212 = add i32 %.7838, 2
   %213 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %212) #9
@@ -3019,7 +3019,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %222 = sext i8 %214 to i32
   %223 = zext i16 %216 to i32
   %224 = sext i8 %219 to i32
-  %225 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.7838, i32 noundef 6, i32 noundef %220, ptr noundef null, ptr noundef nonnull @.str.1150, i32 noundef %.0727836, i32 noundef %221, i32 noundef %222, i32 noundef %223, i32 noundef %224) #9
+  %225 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.7838, i32 noundef 6, i32 noundef %220, ptr noundef null, ptr noundef nonnull @.str.1150, i32 noundef %.0731836, i32 noundef %221, i32 noundef %222, i32 noundef %223, i32 noundef %224) #9
   %226 = load i32, ptr @hf_ua3g_ip_device_routing_def_tones_frequency_1, align 4
   %227 = tail call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %226, ptr noundef %1, i32 noundef %.7838, i32 noundef 2, i32 noundef 0) #9
   %228 = load i32, ptr @hf_ua3g_ip_device_routing_def_tones_level_1, align 4
@@ -3029,8 +3029,8 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %232 = load i32, ptr @hf_ua3g_ip_device_routing_def_tones_level_2, align 4
   %233 = tail call ptr @proto_tree_add_int(ptr noundef %225, i32 noundef %232, ptr noundef %1, i32 noundef %217, i32 noundef 1, i32 noundef %224) #9
   %234 = add i32 %.7838, 6
-  %235 = add nuw nsw i32 %.0727836, 1
-  %exitcond.not = icmp eq i32 %.0727836, %207
+  %235 = add nuw nsw i32 %.0731836, 1
+  %exitcond.not = icmp eq i32 %.0731836, %207
   br i1 %exitcond.not, label %.loopexit780, label %210, !llvm.loop !10
 
 236:                                              ; preds = %13
@@ -3963,7 +3963,7 @@ define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr noc
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.0114 = phi i32 [ %26, %.lr.ph ], [ 5, %13 ]
-  %.094113 = phi i32 [ %27, %.lr.ph ], [ %16, %13 ]
+  %.093113 = phi i32 [ %27, %.lr.ph ], [ %16, %13 ]
   %.097112 = phi i32 [ %17, %.lr.ph ], [ 0, %13 ]
   %17 = add nuw i32 %.097112, 1
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0114) #9
@@ -3975,7 +3975,7 @@ define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr noc
   %24 = zext i8 %20 to i32
   %25 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %23, ptr noundef %1, i32 noundef %.0114, i32 noundef 1, i32 noundef %24, ptr noundef nonnull @.str.1157, i32 noundef %17, i32 noundef %24) #9
   %26 = add i32 %.0114, 1
-  %27 = add i32 %.094113, -1
+  %27 = add i32 %.093113, -1
   %.not101 = icmp eq i32 %27, 0
   br i1 %.not101, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
@@ -4012,24 +4012,24 @@ define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr noc
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %.preheader.us
   %.1110.us = phi i32 [ %47, %.preheader.us ], [ 6, %.preheader.lr.ph ]
-  %.195109.us = phi i32 [ %48, %.preheader.us ], [ %43, %.preheader.lr.ph ]
+  %.194109.us = phi i32 [ %48, %.preheader.us ], [ %43, %.preheader.lr.ph ]
   %45 = load i32, ptr @hf_ua3g_beep_terminator, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %45, ptr noundef %1, i32 noundef %.1110.us, i32 noundef 1, i32 noundef 0) #9
   %47 = add i32 %.1110.us, 1
-  %48 = add i32 %.195109.us, -1
+  %48 = add i32 %.194109.us, -1
   %.not99.us = icmp eq i32 %48, 0
   br i1 %.not99.us, label %.loopexit, label %.preheader.us, !llvm.loop !23
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %.1110 = phi i32 [ %75, %._crit_edge ], [ 6, %.preheader.preheader ]
-  %.195109 = phi i32 [ %76, %._crit_edge ], [ %43, %.preheader.preheader ]
+  %.194109 = phi i32 [ %76, %._crit_edge ], [ %43, %.preheader.preheader ]
   br label %49
 
 49:                                               ; preds = %.preheader, %49
   %.2106 = phi i32 [ %.1110, %.preheader ], [ %70, %49 ]
-  %.093105 = phi i32 [ 1, %.preheader ], [ %71, %49 ]
+  %.096104 = phi i32 [ 1, %.preheader ], [ %71, %49 ]
   %50 = load i32, ptr @ett_ua3g_note, align 4
-  %51 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %.2106, i32 noundef 3, i32 noundef %50, ptr noundef null, ptr noundef nonnull @.str.1158, i32 noundef %.093105) #9
+  %51 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %.2106, i32 noundef 3, i32 noundef %50, ptr noundef null, ptr noundef nonnull @.str.1158, i32 noundef %.096104) #9
   %52 = load i32, ptr @hf_ua3g_beep_freq_sample, align 4
   %53 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2106) #9
   %54 = zext i8 %53 to i32
@@ -4049,12 +4049,12 @@ define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr noc
   %68 = zext i8 %67 to i32
   %69 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %51, i32 noundef %63, ptr noundef %1, i32 noundef %62, i32 noundef 1, i32 noundef %65, ptr noundef nonnull @.str.1160, ptr noundef %66, i32 noundef %68) #9
   %70 = add i32 %.2106, 3
-  %71 = add nuw nsw i32 %.093105, 1
-  %exitcond.not = icmp eq i32 %.093105, %40
+  %71 = add nuw nsw i32 %.096104, 1
+  %exitcond.not = icmp eq i32 %.096104, %40
   br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %49
-  %72 = add i32 %44, %.195109
+  %72 = add i32 %44, %.194109
   %73 = load i32, ptr @hf_ua3g_beep_terminator, align 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %73, ptr noundef %1, i32 noundef %70, i32 noundef 1, i32 noundef 0) #9
   %75 = add i32 %.2106, 4
@@ -4268,17 +4268,17 @@ define internal fastcc void @decode_audio_config(ptr noundef %0, ptr noundef %1,
   br label %.loopexit.sink.split
 
 .preheader:                                       ; preds = %10, %.preheader
-  %.0136155 = phi i32 [ %27, %.preheader ], [ 1, %10 ]
-  %.0138154 = phi i32 [ %26, %.preheader ], [ 4, %10 ]
+  %.0136155 = phi i32 [ %26, %.preheader ], [ 4, %10 ]
+  %.0139154 = phi i32 [ %27, %.preheader ], [ 1, %10 ]
   %20 = load i32, ptr @hf_ua3g_audio_config_volume_level, align 4
-  %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0138154) #9
+  %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0136155) #9
   %22 = zext i8 %21 to i32
-  %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0138154) #9
+  %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0136155) #9
   %24 = zext i8 %23 to i32
-  %25 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %0, i32 noundef %20, ptr noundef %1, i32 noundef %.0138154, i32 noundef 1, i32 noundef %22, ptr noundef nonnull @.str.1171, i32 noundef %.0136155, i32 noundef %24) #9
-  %26 = add nuw nsw i32 %.0138154, 1
-  %27 = add nuw nsw i32 %.0136155, 1
-  %exitcond158.not = icmp eq i32 %27, 8
+  %25 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %0, i32 noundef %20, ptr noundef %1, i32 noundef %.0136155, i32 noundef 1, i32 noundef %22, ptr noundef nonnull @.str.1171, i32 noundef %.0139154, i32 noundef %24) #9
+  %26 = add nuw nsw i32 %.0136155, 1
+  %27 = add nuw nsw i32 %.0139154, 1
+  %exitcond158.not = icmp eq i32 %26, 11
   br i1 %exitcond158.not, label %.loopexit, label %.preheader, !llvm.loop !27
 
 28:                                               ; preds = %10
@@ -4328,15 +4328,15 @@ define internal fastcc void @decode_audio_config(ptr noundef %0, ptr noundef %1,
   %66 = getelementptr inbounds i8, ptr %2, i64 408
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %67, ptr noundef nonnull @.str.1153) #9
-  %.1149 = add i32 %3, -1
-  %.not142150 = icmp eq i32 %.1149, 0
+  %.1138149 = add i32 %3, -1
+  %.not142150 = icmp eq i32 %.1138149, 0
   br i1 %.not142150, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %65, %.loopexit146
-  %.1153 = phi i32 [ %.1, %.loopexit146 ], [ %.1149, %65 ]
+  %.1138153 = phi i32 [ %.1138, %.loopexit146 ], [ %.1138149, %65 ]
   %.0152 = phi i32 [ %84, %.loopexit146 ], [ 0, %65 ]
-  %.1139151 = phi i32 [ %83, %.loopexit146 ], [ 4, %65 ]
-  %69 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1139151) #9
+  %.1151 = phi i32 [ %83, %.loopexit146 ], [ 4, %65 ]
+  %69 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1151) #9
   tail call void @wmem_strbuf_truncate(ptr noundef %68, i64 noundef 0) #9
   %70 = zext i8 %69 to i32
   %.not143 = icmp eq i8 %69, 0
@@ -4369,11 +4369,11 @@ define internal fastcc void @decode_audio_config(ptr noundef %0, ptr noundef %1,
   %79 = load i32, ptr @hf_ua3g_device_configuration, align 4
   %80 = tail call ptr @val_to_str_const(i32 noundef %.0152, ptr noundef nonnull @str_device_configuration, ptr noundef nonnull @.str.1143) #9
   %81 = tail call ptr @wmem_strbuf_get_str(ptr noundef %68) #9
-  %82 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %0, i32 noundef %79, ptr noundef %1, i32 noundef %.1139151, i32 noundef 1, i32 noundef %70, ptr noundef nonnull @.str.1178, ptr noundef %80, ptr noundef %81) #9
-  %83 = add i32 %.1139151, 1
+  %82 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %0, i32 noundef %79, ptr noundef %1, i32 noundef %.1151, i32 noundef 1, i32 noundef %70, ptr noundef nonnull @.str.1178, ptr noundef %80, ptr noundef %81) #9
+  %83 = add i32 %.1151, 1
   %84 = add nuw i32 %.0152, 1
-  %.1 = add i32 %.1153, -1
-  %.not142 = icmp eq i32 %.1, 0
+  %.1138 = add i32 %.1138153, -1
+  %.not142 = icmp eq i32 %.1138, 0
   br i1 %.not142, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit.sink.split:                             ; preds = %10, %13, %28, %45, %46

@@ -472,13 +472,13 @@ if.then161:                                       ; preds = %do.body, %do.body.u
   br label %if.end162
 
 if.end162:                                        ; preds = %err, %if.then161
-  %ret.06 = phi i32 [ 0, %if.then161 ], [ 1, %err ]
-  %ctx.14 = phi ptr [ %ctx.1.ph, %if.then161 ], [ %ctx.0, %err ]
-  %cmp163.not = icmp eq ptr %ctx.14, %ctx_in
+  %ctx.16 = phi ptr [ %ctx.1.ph, %if.then161 ], [ %ctx.0, %err ]
+  %ret.04 = phi i32 [ 0, %if.then161 ], [ 1, %err ]
+  %cmp163.not = icmp eq ptr %ctx.16, %ctx_in
   br i1 %cmp163.not, label %if.end166, label %if.then165
 
 if.then165:                                       ; preds = %if.end162
-  tail call void @BN_CTX_free(ptr noundef %ctx.14) #7
+  tail call void @BN_CTX_free(ptr noundef %ctx.16) #7
   br label %if.end166
 
 if.end166:                                        ; preds = %if.then165, %if.end162
@@ -487,7 +487,7 @@ if.end166:                                        ; preds = %if.then165, %if.end
   br label %return
 
 return:                                           ; preds = %if.end166, %if.then36, %if.then34, %if.then
-  %retval.0 = phi i32 [ 0, %if.then34 ], [ 0, %if.then36 ], [ %ret.06, %if.end166 ], [ 0, %if.then ]
+  %retval.0 = phi i32 [ 0, %if.then34 ], [ 0, %if.then36 ], [ %ret.04, %if.end166 ], [ 0, %if.then ]
   ret i32 %retval.0
 }
 

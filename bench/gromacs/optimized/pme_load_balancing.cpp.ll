@@ -1260,8 +1260,8 @@ _ZL20continue_pme_loadbalP20pme_load_balancing_tb.exit: ; preds = %._crit_edge.i
   br label %350
 
 350:                                              ; preds = %353, %346
-  %.040.i.i = phi float [ 1.000000e+00, %346 ], [ %355, %353 ]
-  %351 = fpext float %.040.i.i to double
+  %.039.i.i = phi float [ 1.000000e+00, %346 ], [ %355, %353 ]
+  %351 = fpext float %.039.i.i to double
   %352 = fcmp ule double %351, 2.100000e+00
   br i1 %352, label %353, label %473
 

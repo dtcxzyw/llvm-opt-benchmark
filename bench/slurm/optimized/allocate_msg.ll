@@ -97,8 +97,8 @@ define ptr @slurm_allocation_msg_thr_create(ptr noundef %0, ptr noundef readonly
   br label %19
 
 19:                                               ; preds = %17, %15
-  %.0 = phi i32 [ %16, %15 ], [ %18, %17 ]
-  %20 = icmp slt i32 %.0, 0
+  %.025 = phi i32 [ %16, %15 ], [ %18, %17 ]
+  %20 = icmp slt i32 %.025, 0
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
@@ -232,8 +232,8 @@ define ptr @slurm_allocation_msg_thr_create(ptr noundef %0, ptr noundef readonly
   br label %81
 
 81:                                               ; preds = %79, %37, %21
-  %.025 = phi ptr [ null, %21 ], [ %80, %79 ], [ null, %37 ]
-  ret ptr %.025
+  %.0 = phi ptr [ null, %21 ], [ %80, %79 ], [ null, %37 ]
+  ret ptr %.0
 }
 
 declare i32 @get_log_level() local_unnamed_addr #1

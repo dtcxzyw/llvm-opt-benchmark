@@ -6369,7 +6369,7 @@ define internal fastcc noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_t
   unreachable
 
 .thread68.i:                                      ; preds = %.thread61.i
-  br i1 %.12865.i, label %121, label %.body23
+  br i1 %.12565.i, label %121, label %.body23
 
 71:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -6516,7 +6516,7 @@ _ZN5tokio7runtime4task3raw7RawTask4poll17h1e6c599c93371073E.exit.i: ; preds = %"
 
 .thread61.i:                                      ; preds = %.body.i, %102, %85
   %.pn66.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %85 ], [ %107, %.body.i ], [ %103, %102 ]
-  %.12865.i = phi i1 [ true, %85 ], [ false, %.body.i ], [ false, %102 ]
+  %.12565.i = phi i1 [ true, %85 ], [ false, %.body.i ], [ false, %102 ]
   invoke void @"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h00c58693331cd200E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #26
           to label %.thread68.i unwind label %118
 
@@ -10266,7 +10266,7 @@ _ZN5tokio4task5local8LocalSet9pop_local17h3fc509218abe4c66E.exit.i: ; preds = %3
   br label %_ZN4core3ops8function6FnOnce9call_once17h65dde83566e07db4E.exit.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h65dde83566e07db4E.exit.i.i.i: ; preds = %60, %56, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9993772341007493287.exit.i.i.i"
-  %.0.i.i.i = phi ptr [ null, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9993772341007493287.exit.i.i.i" ], [ %69, %60 ], [ null, %56 ]
+  %.06.i.i.i = phi ptr [ null, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9993772341007493287.exit.i.i.i" ], [ %69, %60 ], [ null, %56 ]
   %70 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h5ccce900420b99d6E.llvm.700930863383756518(ptr noundef nonnull %49, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
           to label %.noexc3.i.i unwind label %74
 
@@ -10325,7 +10325,7 @@ common.resume:                                    ; preds = %163, %153, %156, %7
   unreachable
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h6f97d2e368747d34E.exit.i": ; preds = %83, %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i.i, %76, %_ZN5tokio4task5local8LocalSet9pop_local17h3fc509218abe4c66E.exit.i
-  %.06.i.i = phi ptr [ %47, %_ZN5tokio4task5local8LocalSet9pop_local17h3fc509218abe4c66E.exit.i ], [ %.0.i.i.i, %76 ], [ %.0.i.i.i, %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i.i ], [ %.0.i.i.i, %83 ]
+  %.06.i.i = phi ptr [ %47, %_ZN5tokio4task5local8LocalSet9pop_local17h3fc509218abe4c66E.exit.i ], [ %.06.i.i.i, %76 ], [ %.06.i.i.i, %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i.i ], [ %.06.i.i.i, %83 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %"_ZN4core3ptr233drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$$GT$$GT$$GT$17haee8157e2ab4cddfE.exit.i"
 
@@ -10341,16 +10341,16 @@ common.resume:                                    ; preds = %163, %153, %156, %7
   %96 = add i64 %95, 1
   %.not.i.i.i = icmp ult i64 %96, %31
   %97 = select i1 %.not.i.i.i, i64 0, i64 %31
-  %.0.i.i12.i = sub i64 %96, %97
-  store i64 %.0.i.i12.i, ptr %94, align 8, !alias.scope !1687
+  %.0.i.i.i = sub i64 %96, %97
+  store i64 %.0.i.i.i, ptr %94, align 8, !alias.scope !1687
   %98 = add i64 %92, -1
   store i64 %98, ptr %91, align 8, !alias.scope !1687
   %99 = getelementptr inbounds i8, ptr %24, i64 104
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h098665c6f1d30bc8E.exit.sink.split.i"
 
 100:                                              ; preds = %90, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9993772341007493287.exit.i"
-  %.val.i13.i = load ptr, ptr %0, align 8, !nonnull !19, !noundef !19
-  %101 = getelementptr inbounds i8, ptr %.val.i13.i, i64 16
+  %.val.i12.i = load ptr, ptr %0, align 8, !nonnull !19, !noundef !19
+  %101 = getelementptr inbounds i8, ptr %.val.i12.i, i64 16
   %102 = load ptr, ptr %101, align 8, !nonnull !19, !noundef !19
   %103 = getelementptr inbounds i8, ptr %102, i64 80
   %104 = load i64, ptr %103, align 8, !alias.scope !1690, !noundef !19
@@ -10363,8 +10363,8 @@ common.resume:                                    ; preds = %163, %153, %156, %7
   %109 = load i64, ptr %108, align 8, !alias.scope !1690, !noundef !19
   %110 = add i64 %109, 1
   %111 = load i64, ptr %107, align 8, !alias.scope !1693, !noundef !19
-  %.not.i.i.i.i.i.i14.i = icmp ult i64 %110, %111
-  %112 = select i1 %.not.i.i.i.i.i.i14.i, i64 0, i64 %111
+  %.not.i.i.i.i.i.i13.i = icmp ult i64 %110, %111
+  %112 = select i1 %.not.i.i.i.i.i.i13.i, i64 0, i64 %111
   %.0.i.i.i.i.i.i.i = sub i64 %110, %112
   store i64 %.0.i.i.i.i.i.i.i, ptr %108, align 8, !alias.scope !1690
   %113 = add i64 %104, -1
@@ -10374,9 +10374,9 @@ common.resume:                                    ; preds = %163, %153, %156, %7
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h098665c6f1d30bc8E.exit.sink.split.i": ; preds = %106, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hfd479b7c387c5fc6E.exit.i"
   %.sink.i = phi ptr [ %114, %106 ], [ %99, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hfd479b7c387c5fc6E.exit.i" ]
-  %.sink18.i = phi i64 [ %109, %106 ], [ %95, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hfd479b7c387c5fc6E.exit.i" ]
+  %.sink17.i = phi i64 [ %109, %106 ], [ %95, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hfd479b7c387c5fc6E.exit.i" ]
   %115 = load ptr, ptr %.sink.i, align 8, !nonnull !19, !noundef !19
-  %116 = getelementptr inbounds ptr, ptr %115, i64 %.sink18.i
+  %116 = getelementptr inbounds ptr, ptr %115, i64 %.sink17.i
   %117 = load ptr, ptr %116, align 8, !noalias !19, !nonnull !19, !noundef !19
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h098665c6f1d30bc8E.exit.i"
 
@@ -11437,8 +11437,8 @@ define internal fastcc { ptr, i64 } @"_ZN5tokio4time5clock6resume28_$u7b$$u7b$cl
   br i1 %.not, label %18, label %13
 
 10:                                               ; preds = %1, %"_ZN4core3ptr95drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..time..clock..Inner$GT$$GT$17h2bd3914827aba83aE.exit9", %"_ZN4core3ptr95drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..time..clock..Inner$GT$$GT$17h2bd3914827aba83aE.exit"
-  %.sroa.4.0 = phi i64 [ 18, %"_ZN4core3ptr95drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..time..clock..Inner$GT$$GT$17h2bd3914827aba83aE.exit" ], [ undef, %"_ZN4core3ptr95drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..time..clock..Inner$GT$$GT$17h2bd3914827aba83aE.exit9" ], [ 52, %1 ]
   %.sroa.0.0 = phi ptr [ @anon.3f5780a7fef518180bd2fb61a12abd81.108, %"_ZN4core3ptr95drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..time..clock..Inner$GT$$GT$17h2bd3914827aba83aE.exit" ], [ null, %"_ZN4core3ptr95drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..time..clock..Inner$GT$$GT$17h2bd3914827aba83aE.exit9" ], [ @anon.3f5780a7fef518180bd2fb61a12abd81.107, %1 ]
+  %.sroa.4.0 = phi i64 [ 18, %"_ZN4core3ptr95drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..time..clock..Inner$GT$$GT$17h2bd3914827aba83aE.exit" ], [ undef, %"_ZN4core3ptr95drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..time..clock..Inner$GT$$GT$17h2bd3914827aba83aE.exit9" ], [ 52, %1 ]
   %11 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %12 = insertvalue { ptr, i64 } %11, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %12

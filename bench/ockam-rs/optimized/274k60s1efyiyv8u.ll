@@ -1671,14 +1671,14 @@ define hidden noundef zeroext i1 @"_ZN4hkdf17Hkdf$LT$H$C$I$GT$17expand_multi_inf
   br label %41
 
 "_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2e1df9a069d68a9E.exit.i": ; preds = %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2e1df9a069d68a9E.exit.i.lr.ph", %"_ZN13generic_array25GenericArray$LT$T$C$N$GT$16clone_from_slice17hdc82163ea053f3f1E.exit"
-  %.sroa.0.062 = phi ptr [ %3, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2e1df9a069d68a9E.exit.i.lr.ph" ], [ %33, %"_ZN13generic_array25GenericArray$LT$T$C$N$GT$16clone_from_slice17hdc82163ea053f3f1E.exit" ]
+  %.sroa.10.062 = phi i8 [ 0, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2e1df9a069d68a9E.exit.i.lr.ph" ], [ %35, %"_ZN13generic_array25GenericArray$LT$T$C$N$GT$16clone_from_slice17hdc82163ea053f3f1E.exit" ]
   %.sroa.536.061 = phi i64 [ %4, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2e1df9a069d68a9E.exit.i.lr.ph" ], [ %34, %"_ZN13generic_array25GenericArray$LT$T$C$N$GT$16clone_from_slice17hdc82163ea053f3f1E.exit" ]
-  %.sroa.10.060 = phi i8 [ 0, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2e1df9a069d68a9E.exit.i.lr.ph" ], [ %35, %"_ZN13generic_array25GenericArray$LT$T$C$N$GT$16clone_from_slice17hdc82163ea053f3f1E.exit" ]
+  %.sroa.0.060 = phi ptr [ %3, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2e1df9a069d68a9E.exit.i.lr.ph" ], [ %33, %"_ZN13generic_array25GenericArray$LT$T$C$N$GT$16clone_from_slice17hdc82163ea053f3f1E.exit" ]
   %32 = phi i1 [ false, %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2e1df9a069d68a9E.exit.i.lr.ph" ], [ true, %"_ZN13generic_array25GenericArray$LT$T$C$N$GT$16clone_from_slice17hdc82163ea053f3f1E.exit" ]
   %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.536.061, i64 32)
-  %33 = getelementptr inbounds i8, ptr %.sroa.0.062, i64 %.0.sroa.speculated.i.i.i
+  %33 = getelementptr inbounds i8, ptr %.sroa.0.060, i64 %.0.sroa.speculated.i.i.i
   %34 = sub i64 %.sroa.536.061, %.0.sroa.speculated.i.i.i
-  %35 = add i8 %.sroa.10.060, 1
+  %35 = add i8 %.sroa.10.062, 1
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !494)
   call void @llvm.experimental.noalias.scope.decl(metadata !497)
@@ -1798,7 +1798,7 @@ define hidden noundef zeroext i1 @"_ZN4hkdf17Hkdf$LT$H$C$I$GT$17expand_multi_inf
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %7), !noalias !562
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !557
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.062, ptr nonnull readonly align 8 %.sroa.064, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !568
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.060, ptr nonnull readonly align 8 %.sroa.064, i64 %.0.sroa.speculated.i.i.i, i1 false), !alias.scope !568
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.064, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %13)
   %57 = icmp eq i64 %34, 0

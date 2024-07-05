@@ -81,7 +81,7 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
   br label %42
 
 .preheader:                                       ; preds = %145, %24
-  %.097.lcssa = phi ptr [ null, %24 ], [ %.198, %145 ]
+  %.096.lcssa = phi ptr [ null, %24 ], [ %.197, %145 ]
   %.0.lcssa = phi i1 [ true, %24 ], [ %.2, %145 ]
   %38 = getelementptr inbounds i8, ptr %32, i64 64
   %39 = load i32, ptr %38, align 8
@@ -95,7 +95,7 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
 42:                                               ; preds = %.lr.ph, %145
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %145 ]
   %.0129 = phi i1 [ true, %.lr.ph ], [ %.2, %145 ]
-  %.097127 = phi ptr [ null, %.lr.ph ], [ %.198, %145 ]
+  %.096128 = phi ptr [ null, %.lr.ph ], [ %.197, %145 ]
   %43 = getelementptr [0 x ptr], ptr %37, i64 0, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 80
@@ -180,7 +180,7 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
   br label %92
 
 92:                                               ; preds = %91, %88
-  %.055.i = phi i1 [ false, %91 ], [ true, %88 ]
+  %.0.i = phi i1 [ false, %91 ], [ true, %88 ]
   %93 = getelementptr inbounds i8, ptr %81, i64 136
   %94 = load i32, ptr %93, align 4
   %95 = tail call zeroext i1 @IsBinaryCoercible(i32 noundef %69, i32 noundef %94) #4
@@ -229,11 +229,11 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
   %or.cond19.i = or i1 %111, %112
   %113 = icmp eq i32 %69, 17
   %or.cond21.i = and i1 %or.cond19.i, %113
-  %spec.select.i = and i1 %or.cond21.i, %.055.i
+  %spec.select.i = and i1 %or.cond21.i, %.0.i
   br label %114
 
 114:                                              ; preds = %110, %106, %102, %98, %97, %97, %97, %92
-  %.1.i = phi i1 [ %.055.i, %92 ], [ %.055.i, %97 ], [ %.055.i, %98 ], [ %.055.i, %102 ], [ %.055.i, %106 ], [ %.055.i, %97 ], [ %.055.i, %97 ], [ %spec.select.i, %110 ]
+  %.1.i = phi i1 [ %.0.i, %92 ], [ %.0.i, %97 ], [ %.0.i, %98 ], [ %.0.i, %102 ], [ %.0.i, %106 ], [ %.0.i, %97 ], [ %.0.i, %97 ], [ %spec.select.i, %110 ]
   %115 = icmp eq i16 %65, 2
   br i1 %115, label %116, label %check_hash_func_signature.exit
 
@@ -265,7 +265,7 @@ check_hash_func_signature.exit:                   ; preds = %114
 
 128:                                              ; preds = %116, %check_hash_func_signature.exit
   %129 = load i32, ptr %51, align 4
-  %130 = tail call ptr @list_append_unique_oid(ptr noundef %.097127, i32 noundef %129) #4
+  %130 = tail call ptr @list_append_unique_oid(ptr noundef %.096128, i32 noundef %129) #4
   br label %145
 
 131:                                              ; preds = %63
@@ -291,7 +291,7 @@ check_hash_func_signature.exit:                   ; preds = %114
   br label %145
 
 145:                                              ; preds = %131, %137, %135, %121, %119, %128
-  %.198 = phi ptr [ %130, %128 ], [ %.097127, %119 ], [ %.097127, %121 ], [ %.097127, %131 ], [ %.097127, %135 ], [ %.097127, %137 ]
+  %.197 = phi ptr [ %130, %128 ], [ %.096128, %119 ], [ %.096128, %121 ], [ %.096128, %131 ], [ %.096128, %135 ], [ %.096128, %137 ]
   %.2 = phi i1 [ %.1, %128 ], [ false, %119 ], [ false, %121 ], [ %spec.select, %131 ], [ false, %135 ], [ false, %137 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %146 = load i32, ptr %34, align 8
@@ -382,12 +382,12 @@ check_hash_func_signature.exit:                   ; preds = %114
 199:                                              ; preds = %194, %192, %184
   %.6 = phi i1 [ %.5, %184 ], [ false, %192 ], [ false, %194 ]
   %200 = load i32, ptr %187, align 4
-  %201 = tail call zeroext i1 @list_member_oid(ptr noundef %.097.lcssa, i32 noundef %200) #4
+  %201 = tail call zeroext i1 @list_member_oid(ptr noundef %.096.lcssa, i32 noundef %200) #4
   br i1 %201, label %202, label %205
 
 202:                                              ; preds = %199
   %203 = load i32, ptr %189, align 4
-  %204 = tail call zeroext i1 @list_member_oid(ptr noundef %.097.lcssa, i32 noundef %203) #4
+  %204 = tail call zeroext i1 @list_member_oid(ptr noundef %.096.lcssa, i32 noundef %203) #4
   br i1 %204, label %212, label %205
 
 205:                                              ; preds = %202, %199
@@ -425,8 +425,8 @@ check_hash_func_signature.exit:                   ; preds = %114
 
 .lr.ph156:                                        ; preds = %.lr.ph139, %243
   %indvars.iv162 = phi i64 [ %indvars.iv.next163, %243 ], [ 0, %.lr.ph139 ]
-  %.099135155 = phi ptr [ %.1100, %243 ], [ null, %.lr.ph139 ]
-  %.8136154 = phi i1 [ %.9, %243 ], [ %.3.lcssa, %.lr.ph139 ]
+  %.094136154 = phi ptr [ %.195, %243 ], [ null, %.lr.ph139 ]
+  %.8137153 = phi i1 [ %.9, %243 ], [ %.3.lcssa, %.lr.ph139 ]
   %221 = load ptr, ptr %218, align 8
   %222 = getelementptr %union.ListCell, ptr %221, i64 %indvars.iv162
   %223 = load ptr, ptr %222, align 8
@@ -438,11 +438,11 @@ check_hash_func_signature.exit:                   ; preds = %114
   %227 = getelementptr inbounds i8, ptr %223, i64 4
   %228 = load i32, ptr %227, align 4
   %229 = icmp eq i32 %228, %17
-  %spec.select116 = select i1 %229, ptr %223, ptr %.099135155
+  %spec.select116 = select i1 %229, ptr %223, ptr %.094136154
   br label %230
 
 230:                                              ; preds = %226, %.lr.ph156
-  %.1100 = phi ptr [ %.099135155, %.lr.ph156 ], [ %spec.select116, %226 ]
+  %.195 = phi ptr [ %.094136154, %.lr.ph156 ], [ %spec.select116, %226 ]
   %231 = getelementptr inbounds i8, ptr %223, i64 8
   %232 = load i64, ptr %231, align 8
   %.not111 = icmp eq i64 %232, 2
@@ -464,7 +464,7 @@ check_hash_func_signature.exit:                   ; preds = %114
   br label %243
 
 243:                                              ; preds = %235, %233, %230
-  %.9 = phi i1 [ %.8136154, %230 ], [ false, %233 ], [ false, %235 ]
+  %.9 = phi i1 [ %.8137153, %230 ], [ false, %233 ], [ false, %235 ]
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %244 = load i32, ptr %217, align 4
   %245 = sext i32 %244 to i64
@@ -472,7 +472,7 @@ check_hash_func_signature.exit:                   ; preds = %114
   br i1 %246, label %.lr.ph156, label %._crit_edge140
 
 ._crit_edge140:                                   ; preds = %243
-  %247 = icmp eq ptr %.1100, null
+  %247 = icmp eq ptr %.195, null
   br i1 %247, label %._crit_edge140.thread, label %.thread
 
 ._crit_edge140.thread:                            ; preds = %.lr.ph139, %._crit_edge, %._crit_edge140
@@ -496,11 +496,11 @@ check_hash_func_signature.exit:                   ; preds = %114
 list_length.exit:                                 ; preds = %252, %.thread
   %.10168 = phi i1 [ %.10167, %.thread ], [ false, %252 ]
   %254 = phi i32 [ %253, %.thread ], [ 0, %252 ]
-  %.not.i118 = icmp eq ptr %.097.lcssa, null
+  %.not.i118 = icmp eq ptr %.096.lcssa, null
   br i1 %.not.i118, label %list_length.exit121, label %255
 
 255:                                              ; preds = %list_length.exit
-  %256 = getelementptr inbounds i8, ptr %.097.lcssa, i64 4
+  %256 = getelementptr inbounds i8, ptr %.096.lcssa, i64 4
   %257 = load i32, ptr %256, align 4
   br label %list_length.exit121
 
@@ -591,8 +591,8 @@ define dso_local void @hashadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
 
 .lr.ph56:                                         ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %.lr.ph ]
-  %.0354955 = phi i32 [ %.237, %43 ], [ %1, %.lr.ph ]
-  %.15054 = phi i32 [ %.3, %43 ], [ %.034, %.lr.ph ]
+  %.1355054 = phi i32 [ %.3, %43 ], [ %.034, %.lr.ph ]
+  %.05153 = phi i32 [ %.2, %43 ], [ %1, %.lr.ph ]
   %13 = load ptr, ptr %10, align 8
   %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
@@ -633,7 +633,7 @@ define dso_local void @hashadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
   br label %43
 
 34:                                               ; preds = %25
-  %.not45 = icmp eq i32 %27, %.15054
+  %.not45 = icmp eq i32 %27, %.1355054
   br i1 %.not45, label %37, label %35
 
 35:                                               ; preds = %34
@@ -641,9 +641,9 @@ define dso_local void @hashadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
   br label %37
 
 37:                                               ; preds = %35, %34
-  %.136 = phi i32 [ %36, %35 ], [ %.0354955, %34 ]
-  %.2 = phi i32 [ %27, %35 ], [ %.15054, %34 ]
-  %.not46 = icmp eq i32 %.136, 0
+  %.236 = phi i32 [ %27, %35 ], [ %.1355054, %34 ]
+  %.1 = phi i32 [ %36, %35 ], [ %.05153, %34 ]
+  %.not46 = icmp eq i32 %.1, 0
   %38 = getelementptr inbounds i8, ptr %15, i64 24
   %39 = getelementptr inbounds i8, ptr %15, i64 25
   %40 = getelementptr inbounds i8, ptr %15, i64 28
@@ -652,7 +652,7 @@ define dso_local void @hashadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
 41:                                               ; preds = %37
   store i8 1, ptr %38, align 4
   store i8 0, ptr %39, align 1
-  store i32 %.136, ptr %40, align 4
+  store i32 %.1, ptr %40, align 4
   br label %43
 
 42:                                               ; preds = %37
@@ -662,8 +662,8 @@ define dso_local void @hashadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
   br label %43
 
 43:                                               ; preds = %21, %41, %42, %30
-  %.237 = phi i32 [ %.0354955, %21 ], [ %.0354955, %30 ], [ %.136, %41 ], [ 0, %42 ]
-  %.3 = phi i32 [ %.15054, %21 ], [ %.15054, %30 ], [ %.2, %41 ], [ %.2, %42 ]
+  %.3 = phi i32 [ %.1355054, %21 ], [ %.1355054, %30 ], [ %.236, %41 ], [ %.236, %42 ]
+  %.2 = phi i32 [ %.05153, %21 ], [ %.05153, %30 ], [ %.1, %41 ], [ 0, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i32, ptr %9, align 4
   %45 = sext i32 %44 to i64

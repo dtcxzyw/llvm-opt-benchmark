@@ -826,9 +826,9 @@ if.then69:                                        ; preds = %if.end65
   br label %return
 
 if.end71:                                         ; preds = %if.end65, %lor.lhs.false47
-  %pHeader.0 = phi ptr [ %buffer, %lor.lhs.false47 ], [ %call62, %if.end65 ]
   %swapped.0 = phi ptr [ null, %lor.lhs.false47 ], [ %call62, %if.end65 ]
-  %13 = load i16, ptr %pHeader.0, align 2
+  %p.0 = phi ptr [ %buffer, %lor.lhs.false47 ], [ %call62, %if.end65 ]
+  %13 = load i16, ptr %p.0, align 2
   %conv73 = zext i16 %13 to i32
   %add = add nuw nsw i32 %conv73, 64
   %cmp74 = icmp ugt i32 %add, %length
@@ -841,7 +841,7 @@ if.then75:                                        ; preds = %if.end71
 
 if.end76:                                         ; preds = %if.end71
   %idx.ext = zext i16 %13 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %pHeader.0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %p.0, i64 %idx.ext
   %sub = sub nsw i32 %length, %conv73
   %arrayidx83 = getelementptr inbounds i8, ptr %add.ptr, i64 60
   %14 = load i32, ptr %arrayidx83, align 4

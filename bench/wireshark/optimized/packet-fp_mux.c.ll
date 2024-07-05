@@ -137,18 +137,18 @@ define internal i32 @dissect_fp_mux(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 29:                                               ; preds = %.lr.ph, %dissect_payload.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %dissect_payload.exit ]
-  %.091112 = phi i32 [ 0, %.lr.ph ], [ %125, %dissect_payload.exit ]
-  %30 = add i32 %.091112, 2
+  %.092112 = phi i32 [ 0, %.lr.ph ], [ %125, %dissect_payload.exit ]
+  %30 = add i32 %.092112, 2
   %31 = shl i32 %30, 3
   %32 = call i32 @tvb_get_bits(ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef 0) #3
   %33 = icmp eq i32 %32, 1
   %34 = select i1 %33, i32 4, i32 3
   %35 = load i32, ptr @proto_fp_mux, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %.091112, i32 noundef %34, i32 noundef 0) #3
+  %36 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %.092112, i32 noundef %34, i32 noundef 0) #3
   %37 = load i32, ptr @ett_fpmux, align 4
   %38 = call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37) #3
   %39 = load i32, ptr @hf_fpmux_uid, align 4
-  %40 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %.091112, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #3
+  %40 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %.092112, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #3
   %41 = load i32, ptr %6, align 4
   %42 = load i32, ptr @fp_mux_uid_in_tree, align 4
   %.not100 = icmp eq i32 %42, 0
@@ -179,16 +179,16 @@ define internal i32 @dissect_fp_mux(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %57
 
 57:                                               ; preds = %53, %50
-  %.094 = phi i32 [ 2, %50 ], [ 1, %53 ]
-  %.093 = phi i16 [ %52, %50 ], [ %56, %53 ]
+  %.094 = phi i16 [ %52, %50 ], [ %56, %53 ]
+  %.093 = phi i32 [ 2, %50 ], [ 1, %53 ]
   %58 = load i32, ptr @hf_fpmux_length, align 4
-  %59 = zext nneg i16 %.093 to i32
-  %60 = call ptr @proto_tree_add_uint(ptr noundef %38, i32 noundef %58, ptr noundef %0, i32 noundef %30, i32 noundef %.094, i32 noundef %59) #3
-  %61 = icmp eq i16 %.093, 0
+  %59 = zext nneg i16 %.094 to i32
+  %60 = call ptr @proto_tree_add_uint(ptr noundef %38, i32 noundef %58, ptr noundef %0, i32 noundef %30, i32 noundef %.093, i32 noundef %59) #3
+  %61 = icmp eq i16 %.094, 0
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %57
-  %63 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef nonnull %1, ptr noundef nonnull @ei_fpm_bad_length, ptr noundef %0, i32 noundef %30, i32 noundef %.094, ptr noundef nonnull @.str.32) #3
+  %63 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef nonnull %1, ptr noundef nonnull @ei_fpm_bad_length, ptr noundef %0, i32 noundef %30, i32 noundef %.093, ptr noundef nonnull @.str.32) #3
   br label %.loopexit
 
 64:                                               ; preds = %57
@@ -197,20 +197,20 @@ define internal i32 @dissect_fp_mux(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %64
-  %68 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef nonnull %1, ptr noundef nonnull @ei_fpm_bad_length, ptr noundef %0, i32 noundef %30, i32 noundef %.094, ptr noundef nonnull @.str.33, i32 noundef %65) #3
+  %68 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %38, ptr noundef nonnull %1, ptr noundef nonnull @ei_fpm_bad_length, ptr noundef %0, i32 noundef %30, i32 noundef %.093, ptr noundef nonnull @.str.33, i32 noundef %65) #3
   br label %.loopexit
 
 69:                                               ; preds = %64
-  %70 = icmp ult i16 %.093, 128
+  %70 = icmp ult i16 %.094, 128
   %or.cond = and i1 %33, %70
   br i1 %or.cond, label %71, label %73
 
 71:                                               ; preds = %69
-  %72 = call ptr @proto_tree_add_expert(ptr noundef %38, ptr noundef %1, ptr noundef nonnull @ei_fpm_length_needlessly_extended, ptr noundef %0, i32 noundef %30, i32 noundef %.094) #3
+  %72 = call ptr @proto_tree_add_expert(ptr noundef %38, ptr noundef %1, ptr noundef nonnull @ei_fpm_length_needlessly_extended, ptr noundef %0, i32 noundef %30, i32 noundef %.093) #3
   br label %73
 
 73:                                               ; preds = %71, %69
-  %74 = add i32 %.094, %30
+  %74 = add i32 %.093, %30
   %75 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %74, i32 noundef %59) #3
   %exitcond = icmp eq i64 %indvars.iv, 64
   br i1 %exitcond, label %76, label %78
@@ -372,9 +372,9 @@ define internal range(i32 0, 2) i32 @heur_dissect_fp_mux(ptr noundef %0, ptr nou
   br label %.loopexit
 
 .preheader:                                       ; preds = %7, %41
-  %.04355 = phi i32 [ %45, %41 ], [ 0, %7 ]
-  %.04454 = phi i32 [ %44, %41 ], [ 0, %7 ]
-  %24 = add i32 %.04454, 2
+  %.04455 = phi i32 [ %45, %41 ], [ 0, %7 ]
+  %.04554 = phi i32 [ %44, %41 ], [ 0, %7 ]
+  %24 = add i32 %.04554, 2
   %25 = icmp ult i32 %5, %24
   br i1 %25, label %.loopexit, label %26
 
@@ -382,7 +382,7 @@ define internal range(i32 0, 2) i32 @heur_dissect_fp_mux(ptr noundef %0, ptr nou
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %24) #3
   %.not51 = icmp sgt i8 %27, -1
   %28 = select i1 %.not51, i32 3, i32 4
-  %29 = add i32 %28, %.04454
+  %29 = add i32 %28, %.04554
   %30 = icmp ult i32 %5, %29
   br i1 %30, label %.loopexit, label %31
 
@@ -401,22 +401,22 @@ define internal range(i32 0, 2) i32 @heur_dissect_fp_mux(ptr noundef %0, ptr nou
   br label %39
 
 39:                                               ; preds = %35, %32
-  %.046 = phi i32 [ 2, %32 ], [ 1, %35 ]
-  %.045 = phi i16 [ %34, %32 ], [ %38, %35 ]
-  %40 = icmp ult i16 %.045, 3
+  %.046 = phi i16 [ %34, %32 ], [ %38, %35 ]
+  %.043 = phi i32 [ 2, %32 ], [ 1, %35 ]
+  %40 = icmp ult i16 %.046, 3
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %39
-  %42 = zext nneg i16 %.045 to i32
-  %43 = add i32 %.046, %24
+  %42 = zext nneg i16 %.046 to i32
+  %43 = add i32 %.043, %24
   %44 = add i32 %43, %42
-  %45 = add i32 %.04355, 1
+  %45 = add i32 %.04455, 1
   %46 = icmp ult i32 %44, %5
   br i1 %46, label %.preheader, label %47, !llvm.loop !6
 
 47:                                               ; preds = %41
   %48 = icmp ugt i32 %44, %5
-  %49 = icmp eq i32 %.04355, 0
+  %49 = icmp eq i32 %.04455, 0
   %or.cond = select i1 %48, i1 true, i1 %49
   br i1 %or.cond, label %.loopexit, label %50
 

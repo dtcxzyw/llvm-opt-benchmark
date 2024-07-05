@@ -103,21 +103,21 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNK3sat3cutixEj.exit28.i, %for.body.lr.ph.i
-  %__begin2.035.i = phi ptr [ %m_elems.i12.ptr.i, %for.body.lr.ph.i ], [ %incdec.ptr.i, %_ZNK3sat3cutixEj.exit28.i ]
-  %i.034.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc12.i, %_ZNK3sat3cutixEj.exit28.i ]
+  %i.035.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc12.i, %_ZNK3sat3cutixEj.exit28.i ]
+  %__begin2.034.i = phi ptr [ %m_elems.i12.ptr.i, %for.body.lr.ph.i ], [ %incdec.ptr.i, %_ZNK3sat3cutixEj.exit28.i ]
   %other_id.033.i = phi i32 [ %cond.i.i, %for.body.lr.ph.i ], [ %cond.i23.i, %_ZNK3sat3cutixEj.exit28.i ]
-  %8 = load i32, ptr %__begin2.035.i, align 4
+  %8 = load i32, ptr %__begin2.034.i, align 4
   %cmp729.i = icmp ugt i32 %8, %other_id.033.i
   br i1 %cmp729.i, label %while.body.i.preheader, label %while.end.i
 
 while.body.i.preheader:                           ; preds = %for.body.i
-  %9 = add i32 %i.034.i, 1
+  %9 = add i32 %i.035.i, 1
   %umax = tail call i32 @llvm.umax.i32(i32 %4, i32 %9)
   %10 = add i32 %umax, -1
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %_ZNK3sat3cutixEj.exit20.i
-  %i.130.i = phi i32 [ %inc.i, %_ZNK3sat3cutixEj.exit20.i ], [ %i.034.i, %while.body.i.preheader ]
+  %i.130.i = phi i32 [ %inc.i, %_ZNK3sat3cutixEj.exit20.i ], [ %i.035.i, %while.body.i.preheader ]
   %exitcond.not = icmp eq i32 %i.130.i, %10
   br i1 %exitcond.not, label %while.end.i, label %_ZNK3sat3cutixEj.exit20.i
 
@@ -131,7 +131,7 @@ _ZNK3sat3cutixEj.exit20.i:                        ; preds = %while.body.i
 
 while.end.i:                                      ; preds = %_ZNK3sat3cutixEj.exit20.i, %while.body.i, %for.body.i
   %other_id.1.lcssa.i = phi i32 [ %other_id.033.i, %for.body.i ], [ %11, %_ZNK3sat3cutixEj.exit20.i ], [ -1, %while.body.i ]
-  %i.1.lcssa.i = phi i32 [ %i.034.i, %for.body.i ], [ %inc.i, %_ZNK3sat3cutixEj.exit20.i ], [ %umax, %while.body.i ]
+  %i.1.lcssa.i = phi i32 [ %i.035.i, %for.body.i ], [ %inc.i, %_ZNK3sat3cutixEj.exit20.i ], [ %umax, %while.body.i ]
   %cmp9.not.i = icmp eq i32 %8, %other_id.1.lcssa.i
   br i1 %cmp9.not.i, label %if.end11.i, label %if.end
 
@@ -148,7 +148,7 @@ cond.false.i24.i:                                 ; preds = %if.end11.i
 
 _ZNK3sat3cutixEj.exit28.i:                        ; preds = %cond.false.i24.i, %if.end11.i
   %cond.i23.i = phi i32 [ %12, %cond.false.i24.i ], [ -1, %if.end11.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.035.i, i64 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.034.i, i64 4
   %cmp6.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr.i
   br i1 %cmp6.not.i, label %return, label %for.body.i
 
@@ -174,21 +174,21 @@ for.body.lr.ph.i20:                               ; preds = %if.end.i13
   br label %for.body.i25
 
 for.body.i25:                                     ; preds = %_ZNK3sat3cutixEj.exit28.i37, %for.body.lr.ph.i20
-  %__begin2.035.i26 = phi ptr [ %invariant.gep, %for.body.lr.ph.i20 ], [ %incdec.ptr.i39, %_ZNK3sat3cutixEj.exit28.i37 ]
-  %i.034.i27 = phi i32 [ 0, %for.body.lr.ph.i20 ], [ %inc12.i35, %_ZNK3sat3cutixEj.exit28.i37 ]
+  %i.035.i26 = phi i32 [ 0, %for.body.lr.ph.i20 ], [ %inc12.i35, %_ZNK3sat3cutixEj.exit28.i37 ]
+  %__begin2.034.i27 = phi ptr [ %invariant.gep, %for.body.lr.ph.i20 ], [ %incdec.ptr.i39, %_ZNK3sat3cutixEj.exit28.i37 ]
   %other_id.033.i28 = phi i32 [ %cond.i.i24, %for.body.lr.ph.i20 ], [ %cond.i23.i38, %_ZNK3sat3cutixEj.exit28.i37 ]
-  %16 = load i32, ptr %__begin2.035.i26, align 4
+  %16 = load i32, ptr %__begin2.034.i27, align 4
   %cmp729.i29 = icmp ugt i32 %16, %other_id.033.i28
   br i1 %cmp729.i29, label %while.body.i44.preheader, label %while.end.i30
 
 while.body.i44.preheader:                         ; preds = %for.body.i25
-  %17 = add i32 %i.034.i27, 1
+  %17 = add i32 %i.035.i26, 1
   %umax77 = tail call i32 @llvm.umax.i32(i32 %13, i32 %17)
   %18 = add i32 %umax77, -1
   br label %while.body.i44
 
 while.body.i44:                                   ; preds = %while.body.i44.preheader, %_ZNK3sat3cutixEj.exit20.i48
-  %i.130.i45 = phi i32 [ %inc.i46, %_ZNK3sat3cutixEj.exit20.i48 ], [ %i.034.i27, %while.body.i44.preheader ]
+  %i.130.i45 = phi i32 [ %inc.i46, %_ZNK3sat3cutixEj.exit20.i48 ], [ %i.035.i26, %while.body.i44.preheader ]
   %exitcond78.not = icmp eq i32 %i.130.i45, %18
   br i1 %exitcond78.not, label %while.end.i30, label %_ZNK3sat3cutixEj.exit20.i48
 
@@ -202,7 +202,7 @@ _ZNK3sat3cutixEj.exit20.i48:                      ; preds = %while.body.i44
 
 while.end.i30:                                    ; preds = %_ZNK3sat3cutixEj.exit20.i48, %while.body.i44, %for.body.i25
   %other_id.1.lcssa.i31 = phi i32 [ %other_id.033.i28, %for.body.i25 ], [ %19, %_ZNK3sat3cutixEj.exit20.i48 ], [ -1, %while.body.i44 ]
-  %i.1.lcssa.i32 = phi i32 [ %i.034.i27, %for.body.i25 ], [ %inc.i46, %_ZNK3sat3cutixEj.exit20.i48 ], [ %umax77, %while.body.i44 ]
+  %i.1.lcssa.i32 = phi i32 [ %i.035.i26, %for.body.i25 ], [ %inc.i46, %_ZNK3sat3cutixEj.exit20.i48 ], [ %umax77, %while.body.i44 ]
   %cmp9.not.i33 = icmp eq i32 %16, %other_id.1.lcssa.i31
   br i1 %cmp9.not.i33, label %if.end11.i34, label %for.inc
 
@@ -219,7 +219,7 @@ cond.false.i24.i41:                               ; preds = %if.end11.i34
 
 _ZNK3sat3cutixEj.exit28.i37:                      ; preds = %cond.false.i24.i41, %if.end11.i34
   %cond.i23.i38 = phi i32 [ %20, %cond.false.i24.i41 ], [ -1, %if.end11.i34 ]
-  %incdec.ptr.i39 = getelementptr inbounds i8, ptr %__begin2.035.i26, i64 4
+  %incdec.ptr.i39 = getelementptr inbounds i8, ptr %__begin2.034.i27, i64 4
   %cmp6.not.i40 = icmp eq ptr %incdec.ptr.i39, %gep
   br i1 %cmp6.not.i40, label %if.then4, label %for.body.i25
 

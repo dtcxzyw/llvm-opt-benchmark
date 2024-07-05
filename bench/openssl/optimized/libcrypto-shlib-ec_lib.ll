@@ -1571,15 +1571,15 @@ if.end17:                                         ; preds = %if.end13
   br i1 %cmp18, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end13, %if.end17
-  %ctx_new.056 = phi ptr [ %call16, %if.end17 ], [ null, %if.end13 ]
-  %ctx.addr.055 = phi ptr [ %call16, %if.end17 ], [ %ctx, %if.end13 ]
-  tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.055) #9
-  %call21 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.055) #9
-  %call22 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.055) #9
-  %call23 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.055) #9
-  %call24 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.055) #9
-  %call25 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.055) #9
-  %call26 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.055) #9
+  %ctx.addr.056 = phi ptr [ %call16, %if.end17 ], [ %ctx, %if.end13 ]
+  %ctx_new.055 = phi ptr [ %call16, %if.end17 ], [ null, %if.end13 ]
+  tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.056) #9
+  %call21 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.056) #9
+  %call22 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.056) #9
+  %call23 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.056) #9
+  %call24 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.056) #9
+  %call25 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.056) #9
+  %call26 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.056) #9
   %cmp27 = icmp eq ptr %call26, null
   br i1 %cmp27, label %return.sink.split, label %if.end29
 
@@ -1587,7 +1587,7 @@ if.end29:                                         ; preds = %if.end20
   %7 = load ptr, ptr %a, align 8
   %group_get_curve = getelementptr inbounds i8, ptr %7, i64 48
   %8 = load ptr, ptr %group_get_curve, align 8
-  %call31 = tail call i32 %8(ptr noundef nonnull %a, ptr noundef %call21, ptr noundef %call22, ptr noundef %call23, ptr noundef nonnull %ctx.addr.055) #9
+  %call31 = tail call i32 %8(ptr noundef nonnull %a, ptr noundef %call21, ptr noundef %call22, ptr noundef %call23, ptr noundef nonnull %ctx.addr.056) #9
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %return.sink.split, label %lor.lhs.false
 
@@ -1595,7 +1595,7 @@ lor.lhs.false:                                    ; preds = %if.end29
   %9 = load ptr, ptr %b, align 8
   %group_get_curve34 = getelementptr inbounds i8, ptr %9, i64 48
   %10 = load ptr, ptr %group_get_curve34, align 8
-  %call35 = tail call i32 %10(ptr noundef nonnull %b, ptr noundef %call24, ptr noundef %call25, ptr noundef nonnull %call26, ptr noundef nonnull %ctx.addr.055) #9
+  %call35 = tail call i32 %10(ptr noundef nonnull %b, ptr noundef %call24, ptr noundef %call25, ptr noundef nonnull %call26, ptr noundef nonnull %ctx.addr.056) #9
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %return.sink.split, label %lor.lhs.false40.critedge
 
@@ -1619,7 +1619,7 @@ lor.lhs.false52:                                  ; preds = %lor.lhs.false46
   %11 = load ptr, ptr %generator.i, align 8
   %generator.i49 = getelementptr inbounds i8, ptr %b, i64 8
   %12 = load ptr, ptr %generator.i49, align 8
-  %call55 = tail call i32 @EC_POINT_cmp(ptr noundef nonnull %a, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %ctx.addr.055)
+  %call55 = tail call i32 @EC_POINT_cmp(ptr noundef nonnull %a, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %ctx.addr.056)
   %cmp56.not = icmp eq i32 %call55, 0
   br i1 %cmp56.not, label %if.then60, label %return.sink.split
 
@@ -1660,8 +1660,8 @@ land.lhs.true79:                                  ; preds = %land.lhs.true76
 
 return.sink.split:                                ; preds = %if.end71, %land.lhs.true76, %if.then60, %if.end67, %lor.lhs.false40.critedge, %lor.lhs.false43, %lor.lhs.false46, %lor.lhs.false, %if.end29, %lor.lhs.false52, %land.lhs.true79, %if.end20
   %retval.0.ph = phi i32 [ -1, %if.end20 ], [ 0, %if.end71 ], [ 0, %land.lhs.true76 ], [ -1, %if.then60 ], [ 1, %if.end67 ], [ %spec.select, %land.lhs.true79 ], [ 1, %lor.lhs.false40.critedge ], [ 1, %lor.lhs.false43 ], [ 1, %lor.lhs.false46 ], [ 1, %lor.lhs.false ], [ 1, %if.end29 ], [ 1, %lor.lhs.false52 ]
-  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.055) #9
-  tail call void @BN_CTX_free(ptr noundef %ctx_new.056) #9
+  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.056) #9
+  tail call void @BN_CTX_free(ptr noundef %ctx_new.055) #9
   br label %return
 
 return:                                           ; preds = %return.sink.split, %land.lhs.true, %if.end17, %if.end10, %entry

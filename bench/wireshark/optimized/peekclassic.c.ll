@@ -652,8 +652,8 @@ define internal fastcc i32 @peekclassic_read_packet_v56(ptr nocapture noundef re
   br label %70
 
 70:                                               ; preds = %6, %68
-  %.034 = phi i32 [ %69, %68 ], [ 0, %6 ]
-  ret i32 %.034
+  %.033 = phi i32 [ %69, %68 ], [ 0, %6 ]
+  ret i32 %.033
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

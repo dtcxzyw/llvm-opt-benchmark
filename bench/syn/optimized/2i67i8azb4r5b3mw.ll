@@ -11619,8 +11619,8 @@ define hidden void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_token
 
 18:                                               ; preds = %15, %13
   %.sroa.65.2.ph.i = phi ptr [ %.sroa.0.0.i, %15 ], [ %.sroa.6.0.i, %13 ]
-  %.sroa.9.2.ph.i = phi ptr [ %17, %15 ], [ null, %13 ]
   %.sroa.6.1.ph.i = phi ptr [ %.sroa.6.0.i, %15 ], [ null, %13 ]
+  %.sroa.9.2.ph.i = phi ptr [ %17, %15 ], [ null, %13 ]
   %.sroa.0.1.ph.i = phi ptr [ %16, %15 ], [ %.sroa.0.0.i, %13 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2354
   store ptr %.sroa.65.2.ph.i, ptr %3, align 8, !noalias !2354

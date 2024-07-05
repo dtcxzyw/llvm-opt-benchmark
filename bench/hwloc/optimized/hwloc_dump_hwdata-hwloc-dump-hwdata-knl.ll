@@ -170,22 +170,22 @@ sub_2:                                            ; preds = %sub_1
   br label %56
 
 56:                                               ; preds = %64, %.preheader.i.i
-  %.0.i.i.i = phi ptr [ %55, %.preheader.i.i ], [ %65, %64 ]
-  %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i.i) #13
+  %.013.i.i.i = phi ptr [ %55, %.preheader.i.i ], [ %65, %64 ]
+  %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.013.i.i.i) #13
   %58 = and i64 %57, 4294967295
   %59 = icmp eq i64 %58, 0
   br i1 %59, label %67, label %60
 
 60:                                               ; preds = %56
-  %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef %52, ptr noundef %.0.i.i.i)
+  %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef %52, ptr noundef %.013.i.i.i)
   %sext.i.i.i = shl i64 %57, 32
   %62 = ashr exact i64 %sext.i.i.i, 32
-  %63 = call i32 @strncmp(ptr noundef %.0.i.i.i, ptr noundef %52, i64 noundef %62) #13
+  %63 = call i32 @strncmp(ptr noundef %.013.i.i.i, ptr noundef %52, i64 noundef %62) #13
   %.not.i.i.i = icmp eq i32 %63, 0
   br i1 %.not.i.i.i, label %is_phi_group.exit.i, label %64
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 %62
+  %65 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 %62
   %66 = icmp ult ptr %65, %46
   br i1 %66, label %56, label %67, !llvm.loop !5
 

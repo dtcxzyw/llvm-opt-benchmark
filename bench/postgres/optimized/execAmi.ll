@@ -814,8 +814,8 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph45, %22, %6, %6, %6, %6, %6, %6, %6, %6, %.thread.loopexit67, %1, %15, %.lr.ph37, %42, %11, %34, %30
-  %.018 = phi i1 [ %37, %34 ], [ %33, %30 ], [ false, %11 ], [ %.not, %42 ], [ true, %15 ], [ true, %.lr.ph37 ], [ false, %1 ], [ false, %.thread.loopexit67 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ %29, %22 ], [ %29, %.lr.ph45 ]
-  ret i1 %.018
+  %.0 = phi i1 [ %37, %34 ], [ %33, %30 ], [ false, %11 ], [ %.not, %42 ], [ true, %15 ], [ true, %.lr.ph37 ], [ false, %1 ], [ false, %.thread.loopexit67 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ %29, %22 ], [ %29, %.lr.ph45 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable

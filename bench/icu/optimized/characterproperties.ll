@@ -798,14 +798,14 @@ for.cond.preheader.i:                             ; preds = %if.end6.i
   br i1 %cmp949.i, label %for.body.i, label %for.end30.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc28.i
-  %i.052.i = phi i32 [ %inc29.i, %for.inc28.i ], [ 0, %for.cond.preheader.i ]
-  %value.051.i = phi i32 [ %value.1.lcssa.i, %for.inc28.i ], [ %cond.i, %for.cond.preheader.i ]
-  %start.050.i = phi i32 [ %start.1.lcssa.i, %for.inc28.i ], [ 0, %for.cond.preheader.i ]
-  %call11.i = invoke noundef i32 @_ZNK6icu_7510UnicodeSet11getRangeEndEi(ptr noundef nonnull align 8 dereferenceable(200) %call2.i, i32 noundef %i.052.i)
+  %start.052.i = phi i32 [ %start.1.lcssa.i, %for.inc28.i ], [ 0, %for.cond.preheader.i ]
+  %i.051.i = phi i32 [ %inc29.i, %for.inc28.i ], [ 0, %for.cond.preheader.i ]
+  %value.050.i = phi i32 [ %value.1.lcssa.i, %for.inc28.i ], [ %cond.i, %for.cond.preheader.i ]
+  %call11.i = invoke noundef i32 @_ZNK6icu_7510UnicodeSet11getRangeEndEi(ptr noundef nonnull align 8 dereferenceable(200) %call2.i, i32 noundef %i.051.i)
           to label %invoke.cont10.i unwind label %lpad.loopexit.split-lp.loopexit.i
 
 invoke.cont10.i:                                  ; preds = %for.body.i
-  %call13.i = invoke noundef i32 @_ZNK6icu_7510UnicodeSet13getRangeStartEi(ptr noundef nonnull align 8 dereferenceable(200) %call2.i, i32 noundef %i.052.i)
+  %call13.i = invoke noundef i32 @_ZNK6icu_7510UnicodeSet13getRangeStartEi(ptr noundef nonnull align 8 dereferenceable(200) %call2.i, i32 noundef %i.051.i)
           to label %for.cond14.preheader.i unwind label %lpad.loopexit.split-lp.loopexit.i
 
 for.cond14.preheader.i:                           ; preds = %invoke.cont10.i
@@ -814,41 +814,41 @@ for.cond14.preheader.i:                           ; preds = %invoke.cont10.i
 
 for.body16.i:                                     ; preds = %for.cond14.preheader.i, %for.inc.i
   %c.047.i = phi i32 [ %inc.i, %for.inc.i ], [ %call13.i, %for.cond14.preheader.i ]
-  %value.146.i = phi i32 [ %value.2.i, %for.inc.i ], [ %value.051.i, %for.cond14.preheader.i ]
-  %start.145.i = phi i32 [ %start.2.i, %for.inc.i ], [ %start.050.i, %for.cond14.preheader.i ]
+  %start.146.i = phi i32 [ %start.2.i, %for.inc.i ], [ %start.052.i, %for.cond14.preheader.i ]
+  %value.145.i = phi i32 [ %value.2.i, %for.inc.i ], [ %value.050.i, %for.cond14.preheader.i ]
   %call18.i = invoke i32 @u_getIntPropertyValue_75(i32 noundef %c.047.i, i32 noundef %property)
           to label %invoke.cont17.i unwind label %lpad.loopexit.i
 
 invoke.cont17.i:                                  ; preds = %for.body16.i
-  %cmp19.not.i = icmp eq i32 %value.146.i, %call18.i
+  %cmp19.not.i = icmp eq i32 %value.145.i, %call18.i
   br i1 %cmp19.not.i, label %for.inc.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %invoke.cont17.i
-  %cmp21.not.i = icmp eq i32 %value.146.i, %cond.i
+  %cmp21.not.i = icmp eq i32 %value.145.i, %cond.i
   br i1 %cmp21.not.i, label %for.inc.i, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.then20.i
   %sub.i = add nsw i32 %c.047.i, -1
-  invoke void @umutablecptrie_setRange_75(ptr noundef %call1.i9, i32 noundef %start.145.i, i32 noundef %sub.i, i32 noundef %value.146.i, ptr noundef nonnull %pErrorCode)
+  invoke void @umutablecptrie_setRange_75(ptr noundef %call1.i9, i32 noundef %start.146.i, i32 noundef %sub.i, i32 noundef %value.145.i, ptr noundef nonnull %pErrorCode)
           to label %for.inc.i unwind label %lpad.loopexit.i
 
 for.inc.i:                                        ; preds = %if.then22.i, %if.then20.i, %invoke.cont17.i
-  %start.2.i = phi i32 [ %start.145.i, %invoke.cont17.i ], [ %c.047.i, %if.then22.i ], [ %c.047.i, %if.then20.i ]
-  %value.2.i = phi i32 [ %value.146.i, %invoke.cont17.i ], [ %call18.i, %if.then22.i ], [ %call18.i, %if.then20.i ]
+  %value.2.i = phi i32 [ %value.145.i, %invoke.cont17.i ], [ %call18.i, %if.then22.i ], [ %call18.i, %if.then20.i ]
+  %start.2.i = phi i32 [ %start.146.i, %invoke.cont17.i ], [ %c.047.i, %if.then22.i ], [ %c.047.i, %if.then20.i ]
   %inc.i = add i32 %c.047.i, 1
   %exitcond.not.i = icmp eq i32 %c.047.i, %call11.i
   br i1 %exitcond.not.i, label %for.inc28.i, label %for.body16.i, !llvm.loop !9
 
 for.inc28.i:                                      ; preds = %for.inc.i, %for.cond14.preheader.i
-  %start.1.lcssa.i = phi i32 [ %start.050.i, %for.cond14.preheader.i ], [ %start.2.i, %for.inc.i ]
-  %value.1.lcssa.i = phi i32 [ %value.051.i, %for.cond14.preheader.i ], [ %value.2.i, %for.inc.i ]
-  %inc29.i = add nuw nsw i32 %i.052.i, 1
+  %value.1.lcssa.i = phi i32 [ %value.050.i, %for.cond14.preheader.i ], [ %value.2.i, %for.inc.i ]
+  %start.1.lcssa.i = phi i32 [ %start.052.i, %for.cond14.preheader.i ], [ %start.2.i, %for.inc.i ]
+  %inc29.i = add nuw nsw i32 %i.051.i, 1
   %exitcond55.not.i = icmp eq i32 %inc29.i, %call8.i
   br i1 %exitcond55.not.i, label %for.end30.i, label %for.body.i, !llvm.loop !10
 
 for.end30.i:                                      ; preds = %for.inc28.i, %for.cond.preheader.i
-  %start.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %start.1.lcssa.i, %for.inc28.i ]
   %value.0.lcssa.i = phi i32 [ %cond.i, %for.cond.preheader.i ], [ %value.1.lcssa.i, %for.inc28.i ]
+  %start.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %start.1.lcssa.i, %for.inc28.i ]
   %cmp31.not.i = icmp eq i32 %value.0.lcssa.i, 0
   br i1 %cmp31.not.i, label %if.end36.i, label %if.then32.i
 

@@ -6052,25 +6052,25 @@ if.then114:                                       ; preds = %if.end112
 
 for.body128:                                      ; preds = %if.then114, %for.inc136
   %rgbSpectrumDensity118.sroa.0.0486 = phi ptr [ null, %if.then114 ], [ %rgbSpectrumDensity118.sroa.0.1, %for.inc136 ]
-  %__begin2120.sroa.0.0485 = phi ptr [ %46, %if.then114 ], [ %incdec.ptr.i202, %for.inc136 ]
+  %rgbSpectrumDensity118.sroa.6.0485 = phi ptr [ null, %if.then114 ], [ %rgbSpectrumDensity118.sroa.6.1, %for.inc136 ]
   %rgbSpectrumDensity118.sroa.11.0484 = phi ptr [ null, %if.then114 ], [ %rgbSpectrumDensity118.sroa.11.1, %for.inc136 ]
-  %rgbSpectrumDensity118.sroa.6.0483 = phi ptr [ null, %if.then114 ], [ %rgbSpectrumDensity118.sroa.6.1, %for.inc136 ]
-  %rgb129.sroa.0.0.copyload = load <2 x float>, ptr %__begin2120.sroa.0.0485, align 4
-  %rgb129.sroa.2.0.call130.sroa_idx = getelementptr inbounds i8, ptr %__begin2120.sroa.0.0485, i64 8
+  %__begin2120.sroa.0.0483 = phi ptr [ %46, %if.then114 ], [ %incdec.ptr.i202, %for.inc136 ]
+  %rgb129.sroa.0.0.copyload = load <2 x float>, ptr %__begin2120.sroa.0.0483, align 4
+  %rgb129.sroa.2.0.call130.sroa_idx = getelementptr inbounds i8, ptr %__begin2120.sroa.0.0483, i64 8
   %rgb129.sroa.2.0.copyload = load float, ptr %rgb129.sroa.2.0.call130.sroa_idx, align 4
   invoke void @_ZN4pbrt20RGBUnboundedSpectrumC1ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp131, ptr noundef nonnull align 8 dereferenceable(152) %48, <2 x float> %rgb129.sroa.0.0.copyload, float %rgb129.sroa.2.0.copyload)
           to label %invoke.cont134 unwind label %lpad133.loopexit
 
 invoke.cont134:                                   ; preds = %for.body128
-  %cmp.not.i.i163 = icmp eq ptr %rgbSpectrumDensity118.sroa.6.0483, %rgbSpectrumDensity118.sroa.11.0484
+  %cmp.not.i.i163 = icmp eq ptr %rgbSpectrumDensity118.sroa.6.0485, %rgbSpectrumDensity118.sroa.11.0484
   br i1 %cmp.not.i.i163, label %if.else.i.i166, label %if.then.i.i164
 
 if.then.i.i164:                                   ; preds = %invoke.cont134
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %rgbSpectrumDensity118.sroa.6.0483, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp131, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %rgbSpectrumDensity118.sroa.6.0485, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp131, i64 16, i1 false)
   br label %for.inc136
 
 if.else.i.i166:                                   ; preds = %invoke.cont134
-  %sub.ptr.lhs.cast.i.i.i.i.i167 = ptrtoint ptr %rgbSpectrumDensity118.sroa.11.0484 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i167 = ptrtoint ptr %rgbSpectrumDensity118.sroa.6.0485 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i168 = ptrtoint ptr %rgbSpectrumDensity118.sroa.0.0486 to i64
   %sub.ptr.sub.i.i.i.i.i169 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i167, %sub.ptr.rhs.cast.i.i.i.i.i168
   %cmp.i.i.i.i170 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i169, 9223372036854775792
@@ -6102,7 +6102,7 @@ _ZNSt12_Vector_baseIN4pbrt20RGBUnboundedSpectrumESaIS1_EE11_M_allocateEm.exit.i.
   %cond.i10.i.i.i181 = phi ptr [ null, %_ZNKSt6vectorIN4pbrt20RGBUnboundedSpectrumESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i171 ], [ %call5.i.i.i.i.i.i200, %cond.true.i.i.i.i178 ]
   %add.ptr.i.i.i182 = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %cond.i10.i.i.i181, i64 %sub.ptr.div.i.i.i.i.i172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %add.ptr.i.i.i182, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp131, i64 16, i1 false)
-  %cmp.not5.i.i.i.i.i.i183 = icmp eq ptr %rgbSpectrumDensity118.sroa.0.0486, %rgbSpectrumDensity118.sroa.11.0484
+  %cmp.not5.i.i.i.i.i.i183 = icmp eq ptr %rgbSpectrumDensity118.sroa.0.0486, %rgbSpectrumDensity118.sroa.6.0485
   br i1 %cmp.not5.i.i.i.i.i.i183, label %_ZNSt6vectorIN4pbrt20RGBUnboundedSpectrumESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i190, label %for.body.i.i.i.i.i.i184
 
 for.body.i.i.i.i.i.i184:                          ; preds = %_ZNSt12_Vector_baseIN4pbrt20RGBUnboundedSpectrumESaIS1_EE11_M_allocateEm.exit.i.i.i180, %for.body.i.i.i.i.i.i184
@@ -6111,7 +6111,7 @@ for.body.i.i.i.i.i.i184:                          ; preds = %_ZNSt12_Vector_base
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__cur.07.i.i.i.i.i.i185, ptr noundef nonnull align 4 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i186, i64 16, i1 false), !alias.scope !36
   %incdec.ptr.i.i.i.i.i.i187 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i186, i64 16
   %incdec.ptr1.i.i.i.i.i.i188 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i185, i64 16
-  %cmp.not.i.i.i.i.i.i189 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i187, %rgbSpectrumDensity118.sroa.11.0484
+  %cmp.not.i.i.i.i.i.i189 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i187, %rgbSpectrumDensity118.sroa.6.0485
   br i1 %cmp.not.i.i.i.i.i.i189, label %_ZNSt6vectorIN4pbrt20RGBUnboundedSpectrumESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i190, label %for.body.i.i.i.i.i.i184, !llvm.loop !35
 
 _ZNSt6vectorIN4pbrt20RGBUnboundedSpectrumESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i190: ; preds = %for.body.i.i.i.i.i.i184, %_ZNSt12_Vector_baseIN4pbrt20RGBUnboundedSpectrumESaIS1_EE11_M_allocateEm.exit.i.i.i180
@@ -6128,11 +6128,11 @@ _ZNSt6vectorIN4pbrt20RGBUnboundedSpectrumESaIS1_EE17_M_realloc_insertIJS1_EEEvN9
   br label %for.inc136
 
 for.inc136:                                       ; preds = %_ZNSt6vectorIN4pbrt20RGBUnboundedSpectrumESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i195, %if.then.i.i164
-  %__cur.0.lcssa.i.i.i.i.i.i191.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i191, %_ZNSt6vectorIN4pbrt20RGBUnboundedSpectrumESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i195 ], [ %rgbSpectrumDensity118.sroa.6.0483, %if.then.i.i164 ]
   %rgbSpectrumDensity118.sroa.11.1 = phi ptr [ %add.ptr19.i.i.i196, %_ZNSt6vectorIN4pbrt20RGBUnboundedSpectrumESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i195 ], [ %rgbSpectrumDensity118.sroa.11.0484, %if.then.i.i164 ]
+  %__cur.0.lcssa.i.i.i.i.i.i191.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i191, %_ZNSt6vectorIN4pbrt20RGBUnboundedSpectrumESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i195 ], [ %rgbSpectrumDensity118.sroa.6.0485, %if.then.i.i164 ]
   %rgbSpectrumDensity118.sroa.0.1 = phi ptr [ %cond.i10.i.i.i181, %_ZNSt6vectorIN4pbrt20RGBUnboundedSpectrumESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i195 ], [ %rgbSpectrumDensity118.sroa.0.0486, %if.then.i.i164 ]
   %rgbSpectrumDensity118.sroa.6.1 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i191.pn, i64 16
-  %incdec.ptr.i202 = getelementptr inbounds i8, ptr %__begin2120.sroa.0.0485, i64 12
+  %incdec.ptr.i202 = getelementptr inbounds i8, ptr %__begin2120.sroa.0.0483, i64 12
   %cmp.i160.not = icmp eq ptr %incdec.ptr.i202, %47
   br i1 %cmp.i160.not, label %for.end138, label %for.body128
 

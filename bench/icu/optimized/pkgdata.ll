@@ -2117,10 +2117,10 @@ if.then11.i.i:                                    ; preds = %if.else.i189.i
   br label %_ZL29pkg_createWithoutAssemblyCodeP12UPKGOptions_PKcc.exit.i
 
 for.body.i191.i:                                  ; preds = %for.cond.preheader.i190.i, %for.inc123.i.i
-  %i.053.i.i = phi i32 [ %inc124.i.i, %for.inc123.i.i ], [ 0, %for.cond.preheader.i190.i ]
-  %list.052.i.i = phi ptr [ %list.1.i.i, %for.inc123.i.i ], [ %o.sroa.8.5.ph, %for.cond.preheader.i190.i ]
-  %listNames.051.i.i = phi ptr [ %listNames.1.i.i, %for.inc123.i.i ], [ %o.sroa.12.5.ph, %for.cond.preheader.i190.i ]
-  %cmp17.i.i = icmp eq i32 %i.053.i.i, 0
+  %list.053.i.i = phi ptr [ %list.1.i.i, %for.inc123.i.i ], [ %o.sroa.8.5.ph, %for.cond.preheader.i190.i ]
+  %listNames.052.i.i = phi ptr [ %listNames.1.i.i, %for.inc123.i.i ], [ %o.sroa.12.5.ph, %for.cond.preheader.i190.i ]
+  %i.051.i.i = phi i32 [ %inc124.i.i, %for.inc123.i.i ], [ 0, %for.cond.preheader.i190.i ]
+  %cmp17.i.i = icmp eq i32 %i.051.i.i, 0
   br i1 %cmp17.i.i, label %if.then18.i.i, label %if.else19.i192.i
 
 if.then18.i.i:                                    ; preds = %for.body.i191.i
@@ -2130,8 +2130,8 @@ if.then18.i.i:                                    ; preds = %for.body.i191.i
   br label %if.end99.i.i
 
 if.else19.i192.i:                                 ; preds = %for.body.i191.i
-  %221 = load ptr, ptr %list.052.i.i, align 8
-  %222 = load ptr, ptr %listNames.051.i.i, align 8
+  %221 = load ptr, ptr %list.053.i.i, align 8
+  %222 = load ptr, ptr %listNames.052.i.i, align 8
   store i8 0, ptr %dataName.i.i, align 16
   store i8 0, ptr %newName.i.i, align 16
   br label %for.body26.i.i
@@ -2242,17 +2242,17 @@ if.end115.i.i:                                    ; preds = %normal_command_mode
   br i1 %cmp17.i.i, label %for.inc123.i.i, label %if.then120.i.i
 
 if.then120.i.i:                                   ; preds = %if.end115.i.i
-  %next.i.i = getelementptr inbounds i8, ptr %list.052.i.i, i64 8
+  %next.i.i = getelementptr inbounds i8, ptr %list.053.i.i, i64 8
   %234 = load ptr, ptr %next.i.i, align 8
-  %next121.i.i = getelementptr inbounds i8, ptr %listNames.051.i.i, i64 8
+  %next121.i.i = getelementptr inbounds i8, ptr %listNames.052.i.i, i64 8
   %235 = load ptr, ptr %next121.i.i, align 8
   br label %for.inc123.i.i
 
 for.inc123.i.i:                                   ; preds = %if.then120.i.i, %if.end115.i.i
-  %listNames.1.i.i = phi ptr [ %235, %if.then120.i.i ], [ %listNames.051.i.i, %if.end115.i.i ]
-  %list.1.i.i = phi ptr [ %234, %if.then120.i.i ], [ %list.052.i.i, %if.end115.i.i ]
-  %inc124.i.i = add nuw i32 %i.053.i.i, 1
-  %exitcond.not.i211.i = icmp eq i32 %i.053.i.i, %call.i181.i
+  %listNames.1.i.i = phi ptr [ %235, %if.then120.i.i ], [ %listNames.052.i.i, %if.end115.i.i ]
+  %list.1.i.i = phi ptr [ %234, %if.then120.i.i ], [ %list.053.i.i, %if.end115.i.i ]
+  %inc124.i.i = add nuw i32 %i.051.i.i, 1
+  %exitcond.not.i211.i = icmp eq i32 %i.051.i.i, %call.i181.i
   br i1 %exitcond.not.i211.i, label %if.then127.i.i, label %for.body.i191.i, !llvm.loop !25
 
 if.then127.i.i:                                   ; preds = %for.inc123.i.i, %for.cond.preheader.i190.i

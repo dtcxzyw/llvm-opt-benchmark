@@ -3786,13 +3786,13 @@ define internal i32 @dissect_qsig_arg(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %41, label %get_op.exit, label %35
 
 get_op.exit:                                      ; preds = %37, %21
+  %.05989 = phi i32 [ %18, %21 ], [ %34, %37 ]
   %42 = phi i64 [ %22, %21 ], [ %38, %37 ]
-  %.05888 = phi i32 [ %18, %21 ], [ %34, %37 ]
-  %or.cond.i = icmp ugt i32 %.05888, 120
+  %or.cond.i = icmp ugt i32 %.05989, 120
   br i1 %or.cond.i, label %get_service.exit, label %43
 
 43:                                               ; preds = %get_op.exit
-  %44 = zext nneg i32 %.05888 to i64
+  %44 = zext nneg i32 %.05989 to i64
   %45 = getelementptr [121 x i32], ptr @op2srv_tab, i64 0, i64 %44
   %46 = load i32, ptr %45, align 4
   br label %get_service.exit
@@ -3805,8 +3805,8 @@ get_service.exit:                                 ; preds = %get_op.exit, %43
   %50 = load i32, ptr @ett_qsig, align 4
   %51 = call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50) #4
   %52 = load i32, ptr @hf_qsig_operation, align 4
-  %53 = call ptr @proto_tree_add_uint(ptr noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.05888) #4
-  %54 = call ptr @try_val_to_str(i32 noundef %.05888, ptr noundef nonnull @qsig_str_operation) #4
+  %53 = call ptr @proto_tree_add_uint(ptr noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.05989) #4
+  %54 = call ptr @try_val_to_str(i32 noundef %.05989, ptr noundef nonnull @qsig_str_operation) #4
   %.not72 = icmp eq ptr %54, null
   br i1 %.not72, label %65, label %55
 
@@ -3845,8 +3845,8 @@ get_service.exit:                                 ; preds = %get_op.exit, %43
   br label %get_op.exit.thread
 
 get_op.exit.thread:                               ; preds = %35, %19, %26, %30, %70, %13, %10, %4
-  %.060 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %13 ], [ %73, %70 ], [ 0, %30 ], [ 0, %26 ], [ 0, %19 ], [ 0, %35 ]
-  ret i32 %.060
+  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %13 ], [ %73, %70 ], [ 0, %30 ], [ 0, %26 ], [ 0, %19 ], [ 0, %35 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3965,8 +3965,8 @@ get_service.exit:                                 ; preds = %get_op.exit, %25
   br label %get_op.exit.thread
 
 get_op.exit.thread:                               ; preds = %18, %55, %60, %57, %12, %9, %4
-  %.052 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %56, %55 ], [ %62, %60 ], [ 0, %57 ], [ 0, %18 ]
-  ret i32 %.052
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %56, %55 ], [ %62, %60 ], [ 0, %57 ], [ 0, %18 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4063,8 +4063,8 @@ get_err.exit:                                     ; preds = %20
   br label %get_err.exit.thread
 
 get_err.exit.thread:                              ; preds = %18, %46, %51, %48, %12, %9, %4
-  %.044 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %47, %46 ], [ %53, %51 ], [ 0, %48 ], [ 0, %18 ]
-  ret i32 %.044
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %47, %46 ], [ %53, %51 ], [ 0, %48 ], [ 0, %18 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

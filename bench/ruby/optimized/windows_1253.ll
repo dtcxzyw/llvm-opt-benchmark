@@ -100,7 +100,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 .lr.ph:                                           ; preds = %6, %57
   %12 = phi ptr [ %61, %57 ], [ %8, %6 ]
   %.069 = phi i32 [ %spec.select67, %57 ], [ %7, %6 ]
-  %.05168 = phi ptr [ %58, %57 ], [ %3, %6 ]
+  %.05068 = phi ptr [ %58, %57 ], [ %3, %6 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 1
   store ptr %13, ptr %1, align 8
   %14 = load i8, ptr %12, align 1
@@ -203,10 +203,10 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
   br label %57
 
 57:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %26, %19, %49, %42, %24, %35, %55, %53, %47, %39, %17
-  %.050 = phi i8 [ -45, %17 ], [ -52, %24 ], [ %38, %35 ], [ %48, %47 ], [ %54, %53 ], [ %56, %55 ], [ %14, %39 ], [ %spec.select, %19 ], [ %spec.select64, %26 ], [ -94, %42 ], [ -68, %49 ], [ %14, %.lr.ph ], [ %14, %.lr.ph ], [ %14, %.lr.ph ]
+  %.051 = phi i8 [ -45, %17 ], [ -52, %24 ], [ %38, %35 ], [ %48, %47 ], [ %54, %53 ], [ %56, %55 ], [ %14, %39 ], [ %spec.select, %19 ], [ %spec.select64, %26 ], [ -94, %42 ], [ -68, %49 ], [ %14, %.lr.ph ], [ %14, %.lr.ph ], [ %14, %.lr.ph ]
   %.1 = phi i32 [ %18, %17 ], [ %25, %24 ], [ %36, %35 ], [ %43, %47 ], [ %43, %53 ], [ %43, %55 ], [ %.069, %39 ], [ %spec.select63, %19 ], [ %spec.select65, %26 ], [ %43, %42 ], [ %43, %49 ], [ %.069, %.lr.ph ], [ %.069, %.lr.ph ], [ %.069, %.lr.ph ]
-  %58 = getelementptr inbounds i8, ptr %.05168, i64 1
-  store i8 %.050, ptr %.05168, align 1
+  %58 = getelementptr inbounds i8, ptr %.05068, i64 1
+  store i8 %.051, ptr %.05068, align 1
   %59 = and i32 %.1, 32768
   %.not62 = icmp eq i32 %59, 0
   %60 = xor i32 %.1, 57344
@@ -218,10 +218,10 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
   br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %57, %6
-  %.051.lcssa = phi ptr [ %3, %6 ], [ %58, %57 ]
+  %.050.lcssa = phi ptr [ %3, %6 ], [ %58, %57 ]
   %.0.lcssa = phi i32 [ %7, %6 ], [ %spec.select67, %57 ]
   store i32 %.0.lcssa, ptr %0, align 4
-  %65 = ptrtoint ptr %.051.lcssa to i64
+  %65 = ptrtoint ptr %.050.lcssa to i64
   %66 = ptrtoint ptr %3 to i64
   %67 = sub i64 %65, %66
   %68 = trunc i64 %67 to i32

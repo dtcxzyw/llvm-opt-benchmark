@@ -45,7 +45,7 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
 
 18:                                               ; preds = %13, %27
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %27 ]
-  %.05683 = phi ptr [ %15, %13 ], [ %28, %27 ]
+  %.05783 = phi ptr [ %15, %13 ], [ %28, %27 ]
   %.sroa.0.082 = phi i64 [ 2147483647, %13 ], [ %.sroa.0.2, %27 ]
   %.sroa.6.081 = phi i64 [ 2147483647, %13 ], [ %.sroa.6.2, %27 ]
   %.sroa.9.080 = phi i64 [ -2147483647, %13 ], [ %.sroa.9.2, %27 ]
@@ -54,10 +54,10 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
   %.sroa.4.077 = phi i64 [ 2147483647, %13 ], [ %.sroa.4.1, %27 ]
   %.sroa.7.076 = phi i64 [ -2147483647, %13 ], [ %.sroa.7.1, %27 ]
   %.sroa.10.075 = phi i64 [ -2147483647, %13 ], [ %.sroa.10.1, %27 ]
-  %19 = load i64, ptr %.05683, align 8
+  %19 = load i64, ptr %.05783, align 8
   %spec.select = tail call i64 @llvm.smin.i64(i64 %19, i64 %.sroa.036.078)
   %.sroa.7.1 = tail call i64 @llvm.smax.i64(i64 %19, i64 %.sroa.7.076)
-  %20 = getelementptr inbounds i8, ptr %.05683, i64 8
+  %20 = getelementptr inbounds i8, ptr %.05783, i64 8
   %21 = load i64, ptr %20, align 8
   %.sroa.4.1 = tail call i64 @llvm.smin.i64(i64 %21, i64 %.sroa.4.077)
   %.sroa.10.1 = tail call i64 @llvm.smax.i64(i64 %21, i64 %.sroa.10.075)
@@ -79,7 +79,7 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
   %.sroa.9.2 = phi i64 [ %.sroa.9.080, %18 ], [ %.sroa.9.1, %26 ]
   %.sroa.6.2 = phi i64 [ %.sroa.6.081, %18 ], [ %.sroa.6.1, %26 ]
   %.sroa.0.2 = phi i64 [ %.sroa.0.082, %18 ], [ %spec.select71, %26 ]
-  %28 = getelementptr inbounds i8, ptr %.05683, i64 16
+  %28 = getelementptr inbounds i8, ptr %.05783, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %29, label %18, !llvm.loop !4
@@ -122,8 +122,8 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
   br label %39
 
 39:                                               ; preds = %37, %38, %34, %4, %2, %12
-  %.057 = phi i32 [ 0, %12 ], [ 6, %2 ], [ 20, %4 ], [ %36, %34 ], [ 0, %38 ], [ 0, %37 ]
-  ret i32 %.057
+  %.0 = phi i32 [ 0, %12 ], [ 6, %2 ], [ 20, %4 ], [ %36, %34 ], [ 0, %38 ], [ 0, %37 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

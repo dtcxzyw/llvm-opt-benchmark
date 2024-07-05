@@ -384,7 +384,7 @@ define i32 @Aig_ManRegFindBestVar(ptr nocapture noundef readonly %0) local_unnam
 12:                                               ; preds = %.lr.ph43, %38
   %indvars.iv47 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next48, %38 ]
   %.02741 = phi i32 [ -1, %.lr.ph43 ], [ %spec.select33, %38 ]
-  %.02840 = phi i32 [ 1000000000, %.lr.ph43 ], [ %spec.select, %38 ]
+  %.03140 = phi i32 [ 1000000000, %.lr.ph43 ], [ %spec.select, %38 ]
   %13 = getelementptr inbounds i32, ptr %.val37, i64 %indvars.iv47
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
@@ -404,7 +404,7 @@ define i32 @Aig_ManRegFindBestVar(ptr nocapture noundef readonly %0) local_unnam
 
 22:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %.03038 = phi i32 [ 0, %.lr.ph ], [ %.131, %36 ]
+  %.02938 = phi i32 [ 0, %.lr.ph ], [ %.130, %36 ]
   %23 = getelementptr inbounds i32, ptr %.val36, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
@@ -419,31 +419,31 @@ define i32 @Aig_ManRegFindBestVar(ptr nocapture noundef readonly %0) local_unnam
   %31 = load i8, ptr %30, align 1
   %32 = sext i8 %31 to i32
   %33 = mul nsw i32 %32, 3
-  %34 = add i32 %.03038, 1
+  %34 = add i32 %.02938, 1
   %35 = add i32 %34, %33
   br label %36
 
 36:                                               ; preds = %22, %28
-  %.131 = phi i32 [ %.03038, %22 ], [ %35, %28 ]
+  %.130 = phi i32 [ %.02938, %22 ], [ %35, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2, label %22, !llvm.loop !8
 
 .critedge2:                                       ; preds = %36
-  %37 = icmp eq i32 %.131, 0
+  %37 = icmp eq i32 %.130, 0
   br i1 %37, label %.critedge, label %38
 
 38:                                               ; preds = %.critedge2
-  %39 = icmp sgt i32 %.02840, %.131
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %.02840, i32 %.131)
+  %39 = icmp sgt i32 %.03140, %.130
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.03140, i32 %.130)
   %spec.select33 = select i1 %39, i32 %14, i32 %.02741
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
   br i1 %exitcond51.not, label %.critedge, label %12, !llvm.loop !9
 
 .critedge:                                        ; preds = %12, %.critedge2, %38, %1
-  %.032 = phi i32 [ -1, %1 ], [ %14, %12 ], [ %spec.select33, %38 ], [ %14, %.critedge2 ]
-  ret i32 %.032
+  %.028 = phi i32 [ -1, %1 ], [ %14, %12 ], [ %spec.select33, %38 ], [ %14, %.critedge2 ]
+  ret i32 %.028
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1962,7 +1962,7 @@ Aig_ManRegFindSeed.exit:                          ; preds = %39
 60:                                               ; preds = %84, %.lr.ph43.i
   %indvars.iv47.i = phi i64 [ 0, %.lr.ph43.i ], [ %indvars.iv.next48.i, %84 ]
   %.02741.i = phi i32 [ -1, %.lr.ph43.i ], [ %spec.select33.i, %84 ]
-  %.02840.i = phi i32 [ 1000000000, %.lr.ph43.i ], [ %spec.select.i49, %84 ]
+  %.03140.i = phi i32 [ 1000000000, %.lr.ph43.i ], [ %spec.select.i49, %84 ]
   %61 = getelementptr inbounds i32, ptr %.val37.i, i64 %indvars.iv47.i
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
@@ -1981,7 +1981,7 @@ Aig_ManRegFindSeed.exit:                          ; preds = %39
 
 69:                                               ; preds = %82, %.lr.ph.i43
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.i43 ], [ %indvars.iv.next.i47, %82 ]
-  %.03038.i = phi i32 [ 0, %.lr.ph.i43 ], [ %.131.i, %82 ]
+  %.02938.i = phi i32 [ 0, %.lr.ph.i43 ], [ %.130.i, %82 ]
   %70 = getelementptr inbounds i32, ptr %.val36.i, i64 %indvars.iv.i45
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
@@ -1995,35 +1995,35 @@ Aig_ManRegFindSeed.exit:                          ; preds = %39
   %77 = load i8, ptr %76, align 1
   %78 = sext i8 %77 to i32
   %79 = mul nsw i32 %78, 3
-  %80 = add i32 %.03038.i, 1
+  %80 = add i32 %.02938.i, 1
   %81 = add i32 %80, %79
   br label %82
 
 82:                                               ; preds = %75, %69
-  %.131.i = phi i32 [ %.03038.i, %69 ], [ %81, %75 ]
+  %.130.i = phi i32 [ %.02938.i, %69 ], [ %81, %75 ]
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, %wide.trip.count.i44
   br i1 %exitcond.not.i48, label %.critedge2.i, label %69, !llvm.loop !8
 
 .critedge2.i:                                     ; preds = %82
-  %83 = icmp eq i32 %.131.i, 0
+  %83 = icmp eq i32 %.130.i, 0
   br i1 %83, label %Aig_ManRegFindBestVar.exit, label %84
 
 84:                                               ; preds = %.critedge2.i
-  %85 = icmp sgt i32 %.02840.i, %.131.i
-  %spec.select.i49 = tail call i32 @llvm.smin.i32(i32 %.02840.i, i32 %.131.i)
+  %85 = icmp sgt i32 %.03140.i, %.130.i
+  %spec.select.i49 = tail call i32 @llvm.smin.i32(i32 %.03140.i, i32 %.130.i)
   %spec.select33.i = select i1 %85, i32 %62, i32 %.02741.i
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count50.i
   br i1 %exitcond51.not.i, label %Aig_ManRegFindBestVar.exit, label %60, !llvm.loop !9
 
 Aig_ManRegFindBestVar.exit:                       ; preds = %60, %.critedge2.i, %84
-  %.032.i = phi i32 [ %62, %60 ], [ %spec.select33.i, %84 ], [ %62, %.critedge2.i ]
-  %86 = icmp eq i32 %.032.i, -1
+  %.028.i = phi i32 [ %62, %60 ], [ %spec.select33.i, %84 ], [ %62, %.critedge2.i ]
+  %86 = icmp eq i32 %.028.i, -1
   br i1 %86, label %.loopexit, label %87
 
 87:                                               ; preds = %Aig_ManRegFindBestVar.exit
-  tail call void @Aig_ManRegPartitionAdd(ptr noundef nonnull %3, i32 noundef %.032.i)
+  tail call void @Aig_ManRegPartitionAdd(ptr noundef nonnull %3, i32 noundef %.028.i)
   %.val39 = load i32, ptr %47, align 4
   %88 = icmp eq i32 %.val39, 0
   br i1 %88, label %.thread-pre-split_crit_edge, label %54, !llvm.loop !28

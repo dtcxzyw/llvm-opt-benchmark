@@ -433,10 +433,10 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
   br i1 %.not.i.i, label %39, label %43
 
 .lr.ph.i.i:                                       ; preds = %20, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h4bdd16d595de278bE.exit.backedge.i.i"
-  %.038.i.i = phi i16 [ %25, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h4bdd16d595de278bE.exit.backedge.i.i" ], [ %23, %20 ]
-  %24 = add i16 %.038.i.i, -1
-  %25 = and i16 %24, %.038.i.i
-  %26 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.038.i.i, i1 true)
+  %.02638.i.i = phi i16 [ %25, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h4bdd16d595de278bE.exit.backedge.i.i" ], [ %23, %20 ]
+  %24 = add i16 %.02638.i.i, -1
+  %25 = and i16 %24, %.02638.i.i
+  %26 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02638.i.i, i1 true)
   %27 = zext nneg i16 %26 to i64
   %28 = add i64 %.sroa.0.025.i.i, %27
   %29 = and i64 %28, %.val5.i

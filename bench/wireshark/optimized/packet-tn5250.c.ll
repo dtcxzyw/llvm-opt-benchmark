@@ -3103,14 +3103,14 @@ dissect_tn5250_header.exit:                       ; preds = %29, %71
   br i1 %.not77.i, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %dissect_inbound_stream.exit.us.us
-  %.03745.us.us = phi i32 [ %.1.us.us, %dissect_inbound_stream.exit.us.us ], [ %69, %.lr.ph.split.us ]
+  %.03845.us.us = phi i32 [ %.1.us.us, %dissect_inbound_stream.exit.us.us ], [ %69, %.lr.ph.split.us ]
   %303 = load i32, ptr %23, align 4
   %304 = load i32, ptr %25, align 8
   %305 = icmp eq i32 %303, %304
   br i1 %305, label %357, label %306
 
 306:                                              ; preds = %.lr.ph.split.us.split.us
-  %307 = add i32 %.03745.us.us, 2
+  %307 = add i32 %.03845.us.us, 2
   %308 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %307) #5
   switch i8 %308, label %331 [
     i8 -67, label %tn5250_is_valid_aid.exit.i.us.us
@@ -3162,21 +3162,21 @@ tn5250_is_valid_aid.exit.i.us.us:                 ; preds = %306, %306, %306, %3
 
 309:                                              ; preds = %tn5250_is_valid_aid.exit.i.us.us
   %310 = load i32, ptr @hf_tn5250_buffer_x, align 4
-  %311 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %310, ptr noundef %0, i32 noundef %.03745.us.us, i32 noundef 1, i32 noundef 0) #5
-  %312 = add i32 %.03745.us.us, 1
+  %311 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %310, ptr noundef %0, i32 noundef %.03845.us.us, i32 noundef 1, i32 noundef 0) #5
+  %312 = add i32 %.03845.us.us, 1
   %313 = load i32, ptr @hf_tn5250_buffer_y, align 4
   %314 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %313, ptr noundef %0, i32 noundef %312, i32 noundef 1, i32 noundef 0) #5
   br label %318
 
 315:                                              ; preds = %tn5250_is_valid_aid.exit.i.us.us
   %316 = load i32, ptr @hf_tn5250_image_fax_error, align 4
-  %317 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %316, ptr noundef %0, i32 noundef %.03745.us.us, i32 noundef 2, i32 noundef 0) #5
+  %317 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %316, ptr noundef %0, i32 noundef %.03845.us.us, i32 noundef 2, i32 noundef 0) #5
   br label %318
 
 318:                                              ; preds = %315, %309
   %319 = load i32, ptr @hf_tn5250_aid, align 4
   %320 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %319, ptr noundef %0, i32 noundef %307, i32 noundef 1, i32 noundef 0) #5
-  %321 = add i32 %.03745.us.us, 3
+  %321 = add i32 %.03845.us.us, 3
   %322 = icmp eq i8 %308, -120
   br i1 %322, label %326, label %323
 
@@ -3421,17 +3421,17 @@ tn5250_is_valid_aid.exit.i.us.us:                 ; preds = %306, %306, %306, %3
   br label %dissect_inbound_stream.exit.us.us
 
 331:                                              ; preds = %306
-  %332 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.03745.us.us) #5
+  %332 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.03845.us.us) #5
   %333 = icmp eq i8 %332, 4
   br i1 %333, label %334, label %347
 
 334:                                              ; preds = %331
-  %335 = tail call fastcc i32 @dissect_outbound_stream(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.03745.us.us)
+  %335 = tail call fastcc i32 @dissect_outbound_stream(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.03845.us.us)
   %.not79.i.us.us = icmp eq i32 %335, 0
   br i1 %.not79.i.us.us, label %347, label %336
 
 336:                                              ; preds = %334
-  %337 = add i32 %335, %.03745.us.us
+  %337 = add i32 %335, %.03845.us.us
   %338 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %337) #5
   %.not80.i.us.us = icmp eq i32 %338, 0
   br i1 %.not80.i.us.us, label %345, label %339
@@ -3446,11 +3446,11 @@ tn5250_is_valid_aid.exit.i.us.us:                 ; preds = %306, %306, %306, %3
 
 345:                                              ; preds = %339, %336
   %.1.i.us.us = phi i32 [ %344, %339 ], [ %337, %336 ]
-  %346 = sub i32 %.1.i.us.us, %.03745.us.us
+  %346 = sub i32 %.1.i.us.us, %.03845.us.us
   br label %dissect_inbound_stream.exit.us.us
 
 347:                                              ; preds = %334, %331, %323
-  %.2.i.us.us = phi i32 [ %325, %323 ], [ %.03745.us.us, %334 ], [ %.03745.us.us, %331 ]
+  %.2.i.us.us = phi i32 [ %325, %323 ], [ %.03845.us.us, %334 ], [ %.03845.us.us, %331 ]
   %348 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i.us.us) #5
   %.not81.i.us.us = icmp eq i32 %348, 0
   br i1 %.not81.i.us.us, label %355, label %349
@@ -3465,22 +3465,22 @@ tn5250_is_valid_aid.exit.i.us.us:                 ; preds = %306, %306, %306, %3
 
 355:                                              ; preds = %349, %347
   %.3.i.us.us = phi i32 [ %354, %349 ], [ %.2.i.us.us, %347 ]
-  %356 = sub i32 %.3.i.us.us, %.03745.us.us
+  %356 = sub i32 %.3.i.us.us, %.03845.us.us
   br label %dissect_inbound_stream.exit.us.us
 
 357:                                              ; preds = %.lr.ph.split.us.split.us
-  %358 = tail call fastcc i32 @dissect_outbound_stream(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.03745.us.us)
+  %358 = tail call fastcc i32 @dissect_outbound_stream(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.03845.us.us)
   br label %dissect_inbound_stream.exit.us.us
 
 dissect_inbound_stream.exit.us.us:                ; preds = %357, %355, %345, %326
   %.pn.us.us = phi i32 [ %358, %357 ], [ %330, %326 ], [ %356, %355 ], [ %346, %345 ]
-  %.1.us.us = add i32 %.pn.us.us, %.03745.us.us
+  %.1.us.us = add i32 %.pn.us.us, %.03845.us.us
   %359 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.us.us) #5
   %360 = icmp sgt i32 %359, 0
   br i1 %360, label %.lr.ph.split.us.split.us, label %.loopexit, !llvm.loop !4
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %dissect_inbound_stream.exit.us
-  %.03745.us = phi i32 [ %.1.us, %dissect_inbound_stream.exit.us ], [ %69, %.lr.ph.split.us ]
+  %.03845.us = phi i32 [ %.1.us, %dissect_inbound_stream.exit.us ], [ %69, %.lr.ph.split.us ]
   %361 = load i32, ptr %23, align 4
   %362 = load i32, ptr %25, align 8
   %363 = icmp eq i32 %361, %362
@@ -3488,39 +3488,39 @@ dissect_inbound_stream.exit.us.us:                ; preds = %357, %355, %345, %3
 
 364:                                              ; preds = %.lr.ph.split.us.split
   %365 = load i32, ptr @hf_tn5250_negative_response, align 4
-  %366 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %365, ptr noundef %0, i32 noundef %.03745.us, i32 noundef 4, i32 noundef 0) #5
+  %366 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %365, ptr noundef %0, i32 noundef %.03845.us, i32 noundef 4, i32 noundef 0) #5
   br label %dissect_inbound_stream.exit.us
 
 367:                                              ; preds = %.lr.ph.split.us.split
-  %368 = tail call fastcc i32 @dissect_outbound_stream(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.03745.us)
+  %368 = tail call fastcc i32 @dissect_outbound_stream(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.03845.us)
   br label %dissect_inbound_stream.exit.us
 
 dissect_inbound_stream.exit.us:                   ; preds = %367, %364
   %.pn.us = phi i32 [ %368, %367 ], [ 4, %364 ]
-  %.1.us = add i32 %.pn.us, %.03745.us
+  %.1.us = add i32 %.pn.us, %.03845.us
   %369 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.us) #5
   %370 = icmp sgt i32 %369, 0
   br i1 %370, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_inbound_stream.exit
-  %.03745 = phi i32 [ %.1, %dissect_inbound_stream.exit ], [ %69, %.lr.ph ]
+  %.03845 = phi i32 [ %.1, %dissect_inbound_stream.exit ], [ %69, %.lr.ph ]
   %371 = load i32, ptr %23, align 4
   %372 = load i32, ptr %25, align 8
   %373 = icmp eq i32 %371, %372
   br i1 %373, label %374, label %376
 
 374:                                              ; preds = %.lr.ph.split
-  %375 = tail call fastcc i32 @dissect_outbound_stream(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.03745)
+  %375 = tail call fastcc i32 @dissect_outbound_stream(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.03845)
   br label %dissect_inbound_stream.exit
 
 376:                                              ; preds = %.lr.ph.split
   %377 = load i32, ptr @hf_tn5250_error_code, align 4
-  %378 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %377, ptr noundef %0, i32 noundef %.03745, i32 noundef 2, i32 noundef 0) #5
+  %378 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %377, ptr noundef %0, i32 noundef %.03845, i32 noundef 2, i32 noundef 0) #5
   br label %dissect_inbound_stream.exit
 
 dissect_inbound_stream.exit:                      ; preds = %376, %374
   %.pn = phi i32 [ %375, %374 ], [ 2, %376 ]
-  %.1 = add i32 %.pn, %.03745
+  %.1 = add i32 %.pn, %.03845
   %379 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #5
   %380 = icmp sgt i32 %379, 0
   br i1 %380, label %.lr.ph.split, label %.loopexit, !llvm.loop !4
@@ -3530,8 +3530,8 @@ dissect_inbound_stream.exit:                      ; preds = %376, %374
   br label %.thread
 
 .thread:                                          ; preds = %4, %8, %.loopexit
-  %.038 = phi i32 [ %381, %.loopexit ], [ 0, %8 ], [ 0, %4 ]
-  ret i32 %.038
+  %.0 = phi i32 [ %381, %.loopexit ], [ 0, %8 ], [ 0, %4 ]
+  ret i32 %.0
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -4763,8 +4763,8 @@ dissect_erase_to_address.exit.thread:             ; preds = %780
   br i1 %796, label %.lr.ph.i, label %._crit_edge._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %783, %799
-  %.01619.i = phi i32 [ %800, %799 ], [ %794, %783 ]
-  %797 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.01619.i) #5
+  %.019.i = phi i32 [ %800, %799 ], [ %794, %783 ]
+  %797 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.019.i) #5
   switch i8 %797, label %799 [
     i8 19, label %.thread.i
     i8 20, label %.thread.i
@@ -4780,28 +4780,28 @@ dissect_erase_to_address.exit.thread:             ; preds = %780
   ]
 
 .thread.i:                                        ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %798 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.01619.i) #5
+  %798 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.019.i) #5
   br label %._crit_edge.i
 
 799:                                              ; preds = %.lr.ph.i
-  %800 = add i32 %.01619.i, 1
+  %800 = add i32 %.019.i, 1
   %801 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %800) #5
   %802 = icmp sgt i32 %801, 0
   br i1 %802, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %799, %.thread.i
-  %.016.lcssa.i = phi i32 [ %.01619.i, %.thread.i ], [ %800, %799 ]
-  %803 = icmp sgt i32 %.016.lcssa.i, %794
+  %.0.lcssa.i = phi i32 [ %.019.i, %.thread.i ], [ %800, %799 ]
+  %803 = icmp sgt i32 %.0.lcssa.i, %794
   br i1 %803, label %804, label %._crit_edge._crit_edge.i
 
 ._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i, %783
-  %.016.lcssa24.i = phi i32 [ %.016.lcssa.i, %._crit_edge.i ], [ %794, %783 ]
-  %.pre.i = sub i32 %.016.lcssa24.i, %794
+  %.0.lcssa24.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %794, %783 ]
+  %.pre.i = sub i32 %.0.lcssa24.i, %794
   br label %dissect_tn5250_ra_data.exit
 
 804:                                              ; preds = %._crit_edge.i
   %805 = load i32, ptr @hf_tn5250_repeated_character, align 4
-  %806 = sub i32 %.016.lcssa.i, %794
+  %806 = sub i32 %.0.lcssa.i, %794
   %807 = tail call ptr @proto_tree_add_item(ptr noundef %788, i32 noundef %805, ptr noundef %1, i32 noundef %794, i32 noundef %806, i32 noundef 46) #5
   br label %dissect_tn5250_ra_data.exit
 
@@ -4827,8 +4827,8 @@ dissect_tn5250_ra_data.exit:                      ; preds = %._crit_edge._crit_e
   br i1 %822, label %.lr.ph.i98, label %._crit_edge._crit_edge.i94
 
 .lr.ph.i98:                                       ; preds = %809, %825
-  %.01619.i99 = phi i32 [ %826, %825 ], [ %820, %809 ]
-  %823 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.01619.i99) #5
+  %.019.i99 = phi i32 [ %826, %825 ], [ %820, %809 ]
+  %823 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.019.i99) #5
   switch i8 %823, label %825 [
     i8 19, label %.thread.i100
     i8 20, label %.thread.i100
@@ -4844,28 +4844,28 @@ dissect_tn5250_ra_data.exit:                      ; preds = %._crit_edge._crit_e
   ]
 
 .thread.i100:                                     ; preds = %.lr.ph.i98, %.lr.ph.i98, %.lr.ph.i98, %.lr.ph.i98, %.lr.ph.i98, %.lr.ph.i98, %.lr.ph.i98, %.lr.ph.i98, %.lr.ph.i98, %.lr.ph.i98, %.lr.ph.i98
-  %824 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.01619.i99) #5
+  %824 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.019.i99) #5
   br label %._crit_edge.i101
 
 825:                                              ; preds = %.lr.ph.i98
-  %826 = add i32 %.01619.i99, 1
+  %826 = add i32 %.019.i99, 1
   %827 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %826) #5
   %828 = icmp sgt i32 %827, 0
   br i1 %828, label %.lr.ph.i98, label %._crit_edge.i101, !llvm.loop !8
 
 ._crit_edge.i101:                                 ; preds = %825, %.thread.i100
-  %.016.lcssa.i102 = phi i32 [ %.01619.i99, %.thread.i100 ], [ %826, %825 ]
-  %829 = icmp sgt i32 %.016.lcssa.i102, %820
+  %.0.lcssa.i102 = phi i32 [ %.019.i99, %.thread.i100 ], [ %826, %825 ]
+  %829 = icmp sgt i32 %.0.lcssa.i102, %820
   br i1 %829, label %830, label %._crit_edge._crit_edge.i94
 
 ._crit_edge._crit_edge.i94:                       ; preds = %._crit_edge.i101, %809
-  %.016.lcssa24.i95 = phi i32 [ %.016.lcssa.i102, %._crit_edge.i101 ], [ %820, %809 ]
-  %.pre.i96 = sub i32 %.016.lcssa24.i95, %820
+  %.0.lcssa24.i95 = phi i32 [ %.0.lcssa.i102, %._crit_edge.i101 ], [ %820, %809 ]
+  %.pre.i96 = sub i32 %.0.lcssa24.i95, %820
   br label %dissect_tn5250_ra_data.exit103
 
 830:                                              ; preds = %._crit_edge.i101
   %831 = load i32, ptr @hf_tn5250_repeated_character, align 4
-  %832 = sub i32 %.016.lcssa.i102, %820
+  %832 = sub i32 %.0.lcssa.i102, %820
   %833 = tail call ptr @proto_tree_add_item(ptr noundef %814, i32 noundef %831, ptr noundef %1, i32 noundef %820, i32 noundef %832, i32 noundef 46) #5
   br label %dissect_tn5250_ra_data.exit103
 
@@ -5118,8 +5118,8 @@ dissect_start_of_field.exit:                      ; preds = %936, %940
   br i1 %947, label %.lr.ph.i113, label %._crit_edge._crit_edge.i109
 
 .lr.ph.i113:                                      ; preds = %dissect_start_of_field.exit, %950
-  %.01619.i114 = phi i32 [ %951, %950 ], [ %945, %dissect_start_of_field.exit ]
-  %948 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.01619.i114) #5
+  %.019.i114 = phi i32 [ %951, %950 ], [ %945, %dissect_start_of_field.exit ]
+  %948 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.019.i114) #5
   switch i8 %948, label %950 [
     i8 19, label %.thread.i115
     i8 20, label %.thread.i115
@@ -5135,28 +5135,28 @@ dissect_start_of_field.exit:                      ; preds = %936, %940
   ]
 
 .thread.i115:                                     ; preds = %.lr.ph.i113, %.lr.ph.i113, %.lr.ph.i113, %.lr.ph.i113, %.lr.ph.i113, %.lr.ph.i113, %.lr.ph.i113, %.lr.ph.i113, %.lr.ph.i113, %.lr.ph.i113, %.lr.ph.i113
-  %949 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.01619.i114) #5
+  %949 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.019.i114) #5
   br label %._crit_edge.i116
 
 950:                                              ; preds = %.lr.ph.i113
-  %951 = add i32 %.01619.i114, 1
+  %951 = add i32 %.019.i114, 1
   %952 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %951) #5
   %953 = icmp sgt i32 %952, 0
   br i1 %953, label %.lr.ph.i113, label %._crit_edge.i116, !llvm.loop !8
 
 ._crit_edge.i116:                                 ; preds = %950, %.thread.i115
-  %.016.lcssa.i117 = phi i32 [ %.01619.i114, %.thread.i115 ], [ %951, %950 ]
-  %954 = icmp sgt i32 %.016.lcssa.i117, %945
+  %.0.lcssa.i117 = phi i32 [ %.019.i114, %.thread.i115 ], [ %951, %950 ]
+  %954 = icmp sgt i32 %.0.lcssa.i117, %945
   br i1 %954, label %955, label %._crit_edge._crit_edge.i109
 
 ._crit_edge._crit_edge.i109:                      ; preds = %._crit_edge.i116, %dissect_start_of_field.exit
-  %.016.lcssa24.i110 = phi i32 [ %.016.lcssa.i117, %._crit_edge.i116 ], [ %945, %dissect_start_of_field.exit ]
-  %.pre.i111 = sub i32 %.016.lcssa24.i110, %945
+  %.0.lcssa24.i110 = phi i32 [ %.0.lcssa.i117, %._crit_edge.i116 ], [ %945, %dissect_start_of_field.exit ]
+  %.pre.i111 = sub i32 %.0.lcssa24.i110, %945
   br label %dissect_tn5250_ra_data.exit118
 
 955:                                              ; preds = %._crit_edge.i116
   %956 = load i32, ptr @hf_tn5250_repeated_character, align 4
-  %957 = sub i32 %.016.lcssa.i117, %945
+  %957 = sub i32 %.0.lcssa.i117, %945
   %958 = tail call ptr @proto_tree_add_item(ptr noundef %917, i32 noundef %956, ptr noundef %1, i32 noundef %945, i32 noundef %957, i32 noundef 46) #5
   br label %dissect_tn5250_ra_data.exit118
 
@@ -5865,8 +5865,8 @@ dissect_create_window.exit.i:                     ; preds = %1007, %.thread.i.i,
   br i1 %1032, label %.lr.ph.i93.i, label %dissect_define_selection.exit.i
 
 .lr.ph.i93.i:                                     ; preds = %1022, %1070
-  %.06066.i.i = phi i32 [ %.2.i.i, %1070 ], [ %1030, %1022 ]
-  %1033 = add i32 %.06066.i.i, 1
+  %.066.i.i = phi i32 [ %.2.i.i, %1070 ], [ %1030, %1022 ]
+  %1033 = add i32 %.066.i.i, 1
   %1034 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %1033) #5
   switch i8 %1034, label %.thread.i94.i [
     i8 16, label %1036
@@ -5877,17 +5877,17 @@ dissect_create_window.exit.i:                     ; preds = %1007, %.thread.i.i,
   ]
 
 .thread.i94.i:                                    ; preds = %.lr.ph.i93.i
-  %1035 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.06066.i.i) #5
+  %1035 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.066.i.i) #5
   br label %dissect_define_selection.exit.i
 
 1036:                                             ; preds = %.lr.ph.i93.i
-  %1037 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.06066.i.i) #5
+  %1037 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.066.i.i) #5
   %1038 = zext i8 %1037 to i32
-  %1039 = add i32 %.06066.i.i, 2
+  %1039 = add i32 %.066.i.i, 2
   %1040 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %1039) #5
   %1041 = zext i8 %1040 to i32
-  %1042 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.06066.i.i, ptr noundef nonnull %9)
-  %1043 = add i32 %1042, %.06066.i.i
+  %1042 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.066.i.i, ptr noundef nonnull %9)
+  %1043 = add i32 %1042, %.066.i.i
   %1044 = and i32 %1041, 1
   %.not64.i.i = icmp eq i32 %1044, 0
   br i1 %.not64.i.i, label %1045, label %.sink.split.i.i
@@ -5906,46 +5906,46 @@ dissect_create_window.exit.i:                     ; preds = %1007, %.thread.i.i,
   br label %1050
 
 1050:                                             ; preds = %.sink.split.i.i, %1045
-  %.161.i.i = phi i32 [ %1043, %1045 ], [ %1049, %.sink.split.i.i ]
-  %1051 = sub i32 %.161.i.i, %.06066.i.i
+  %.1.i.i = phi i32 [ %1043, %1045 ], [ %1049, %.sink.split.i.i ]
+  %1051 = sub i32 %.1.i.i, %.066.i.i
   %1052 = icmp sgt i32 %1051, %1038
   br i1 %1052, label %1070, label %1053
 
 1053:                                             ; preds = %1050
   %1054 = load i32, ptr @hf_tn5250_wdsf_ds_ct_text, align 4
   %1055 = sub i32 %1038, %1051
-  %1056 = tail call ptr @proto_tree_add_item(ptr noundef %965, i32 noundef %1054, ptr noundef %1, i32 noundef %.161.i.i, i32 noundef %1055, i32 noundef 46) #5
-  %1057 = add i32 %1055, %.161.i.i
+  %1056 = tail call ptr @proto_tree_add_item(ptr noundef %965, i32 noundef %1054, ptr noundef %1, i32 noundef %.1.i.i, i32 noundef %1055, i32 noundef 46) #5
+  %1057 = add i32 %1055, %.1.i.i
   br label %1070
 
 1058:                                             ; preds = %.lr.ph.i93.i
-  %1059 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.06066.i.i, ptr noundef nonnull %10)
-  %1060 = add i32 %1059, %.06066.i.i
+  %1059 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.066.i.i, ptr noundef nonnull %10)
+  %1060 = add i32 %1059, %.066.i.i
   br label %1070
 
 1061:                                             ; preds = %.lr.ph.i93.i
-  %1062 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.06066.i.i, ptr noundef nonnull %11)
-  %1063 = add i32 %1062, %.06066.i.i
+  %1062 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.066.i.i, ptr noundef nonnull %11)
+  %1063 = add i32 %1062, %.066.i.i
   br label %1070
 
 1064:                                             ; preds = %.lr.ph.i93.i
-  %1065 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.06066.i.i, ptr noundef nonnull %12)
-  %1066 = add i32 %1065, %.06066.i.i
+  %1065 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.066.i.i, ptr noundef nonnull %12)
+  %1066 = add i32 %1065, %.066.i.i
   br label %1070
 
 1067:                                             ; preds = %.lr.ph.i93.i
-  %1068 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.06066.i.i, ptr noundef nonnull %13)
-  %1069 = add i32 %1068, %.06066.i.i
+  %1068 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %965, ptr noundef %1, i32 noundef %.066.i.i, ptr noundef nonnull %13)
+  %1069 = add i32 %1068, %.066.i.i
   br label %1070
 
 1070:                                             ; preds = %1067, %1064, %1061, %1058, %1053, %1050
-  %.2.i.i = phi i32 [ %1069, %1067 ], [ %1066, %1064 ], [ %1063, %1061 ], [ %1060, %1058 ], [ %.161.i.i, %1050 ], [ %1057, %1053 ]
+  %.2.i.i = phi i32 [ %1069, %1067 ], [ %1066, %1064 ], [ %1063, %1061 ], [ %1060, %1058 ], [ %.1.i.i, %1050 ], [ %1057, %1053 ]
   %1071 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.2.i.i) #5
   %1072 = icmp sgt i32 %1071, 0
   br i1 %1072, label %.lr.ph.i93.i, label %dissect_define_selection.exit.i, !llvm.loop !12
 
 dissect_define_selection.exit.i:                  ; preds = %1070, %.thread.i94.i, %1022
-  %.060.lcssa.i.i = phi i32 [ %1030, %1022 ], [ %.06066.i.i, %.thread.i94.i ], [ %.2.i.i, %1070 ]
+  %.0.lcssa.i.i = phi i32 [ %1030, %1022 ], [ %.066.i.i, %.thread.i94.i ], [ %.2.i.i, %1070 ]
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %10)
@@ -6234,7 +6234,7 @@ dissect_draw_erase_gridlines.exit.i:              ; preds = %1120, %.thread.i100
   br label %.loopexit.i120
 
 .loopexit.i120:                                   ; preds = %.lr.ph.i122, %1125, %dissect_draw_erase_gridlines.exit.i, %1103, %1095, %1091, %1088, %dissect_define_scrollbar.exit.i, %dissect_define_selection.exit.i, %1019, %1016, %1010, %dissect_create_window.exit.i
-  %.2.i121 = phi i32 [ %1127, %1125 ], [ %.016.lcssa.i97.i, %dissect_draw_erase_gridlines.exit.i ], [ %1100, %1095 ], [ %1090, %1088 ], [ %1094, %1091 ], [ %.016.lcssa.i.i, %dissect_define_scrollbar.exit.i ], [ %.060.lcssa.i.i, %dissect_define_selection.exit.i ], [ %1021, %1019 ], [ %1018, %1016 ], [ %1015, %1010 ], [ %.029.lcssa.i.i, %dissect_create_window.exit.i ], [ %1100, %1103 ], [ %1107, %.lr.ph.i122 ]
+  %.2.i121 = phi i32 [ %1127, %1125 ], [ %.016.lcssa.i97.i, %dissect_draw_erase_gridlines.exit.i ], [ %1100, %1095 ], [ %1090, %1088 ], [ %1094, %1091 ], [ %.016.lcssa.i.i, %dissect_define_scrollbar.exit.i ], [ %.0.lcssa.i.i, %dissect_define_selection.exit.i ], [ %1021, %1019 ], [ %1018, %1016 ], [ %1015, %1010 ], [ %.029.lcssa.i.i, %dissect_create_window.exit.i ], [ %1100, %1103 ], [ %1107, %.lr.ph.i122 ]
   %1128 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.2.i121) #5
   %1129 = icmp sgt i32 %1128, 0
   br i1 %1129, label %980, label %._crit_edge.i119, !llvm.loop !16
@@ -7308,12 +7308,12 @@ define internal fastcc i32 @dissect_write_structured_field(ptr noundef %0, ptr n
   br i1 %271, label %.lr.ph239, label %._crit_edge
 
 .lr.ph239:                                        ; preds = %3, %dissect_unknown_data.exit.thread
-  %.0188237 = phi i32 [ %.8, %dissect_unknown_data.exit.thread ], [ %2, %3 ]
-  %272 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.0188237) #5
-  %273 = add i32 %.0188237, 3
+  %.0238 = phi i32 [ %.8, %dissect_unknown_data.exit.thread ], [ %2, %3 ]
+  %272 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.0238) #5
+  %273 = add i32 %.0238, 3
   %274 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %273) #5
-  %275 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.0188237, ptr noundef nonnull @__const.dissect_write_structured_field.standard_fields)
-  %276 = add i32 %275, %.0188237
+  %275 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.0238, ptr noundef nonnull @__const.dissect_write_structured_field.standard_fields)
+  %276 = add i32 %275, %.0238
   switch i8 %274, label %dissect_unknown_data.exit.thread.thread [
     i8 63, label %278
     i8 112, label %283
@@ -7364,10 +7364,10 @@ dissect_unknown_data.exit.thread.thread:          ; preds = %.lr.ph239
   br i1 %296, label %.lr.ph233, label %dissect_unknown_data.exit.thread
 
 .lr.ph233:                                        ; preds = %290, %301
-  %.1189232 = phi i32 [ %306, %301 ], [ %293, %290 ]
-  %297 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1189232) #5
-  %298 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.1189232, ptr noundef nonnull @__const.dissect_write_structured_field.dawt_fields)
-  %299 = add i32 %298, %.1189232
+  %.1232 = phi i32 [ %306, %301 ], [ %293, %290 ]
+  %297 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1232) #5
+  %298 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %.1232, ptr noundef nonnull @__const.dissect_write_structured_field.dawt_fields)
+  %299 = add i32 %298, %.1232
   %300 = icmp ult i8 %297, 2
   br i1 %300, label %dissect_unknown_data.exit.thread, label %301
 
@@ -7616,7 +7616,7 @@ dissect_unknown_data.exit:                        ; preds = %440
   br i1 %448, label %.lr.ph, label %dissect_unknown_data.exit.thread, !llvm.loop !25
 
 dissect_unknown_data.exit.thread:                 ; preds = %446, %440, %.lr.ph217, %.lr.ph220, %404, %tn5250_add_hf_items.exit.loopexit, %.lr.ph228, %320, %.lr.ph233, %301, %427, %412, %393, %337, %309, %290, %378, %390, %386, %334, %331, %328, %287, %283, %278
-  %.8 = phi i32 [ %392, %390 ], [ %384, %378 ], [ %384, %386 ], [ %336, %334 ], [ %333, %331 ], [ %330, %328 ], [ %289, %287 ], [ %286, %283 ], [ %.neg202, %278 ], [ %293, %290 ], [ %312, %309 ], [ %339, %337 ], [ %396, %393 ], [ %415, %412 ], [ %429, %427 ], [ %299, %.lr.ph233 ], [ %306, %301 ], [ %318, %.lr.ph228 ], [ %325, %320 ], [ %371, %tn5250_add_hf_items.exit.loopexit ], [ %402, %.lr.ph220 ], [ %409, %404 ], [ %424, %.lr.ph217 ], [ %.7, %446 ], [ %.6213, %440 ]
+  %.8 = phi i32 [ %392, %390 ], [ %384, %378 ], [ %384, %386 ], [ %336, %334 ], [ %333, %331 ], [ %330, %328 ], [ %289, %287 ], [ %286, %283 ], [ %.neg202, %278 ], [ %293, %290 ], [ %312, %309 ], [ %339, %337 ], [ %396, %393 ], [ %415, %412 ], [ %429, %427 ], [ %306, %301 ], [ %299, %.lr.ph233 ], [ %325, %320 ], [ %318, %.lr.ph228 ], [ %371, %tn5250_add_hf_items.exit.loopexit ], [ %409, %404 ], [ %402, %.lr.ph220 ], [ %424, %.lr.ph217 ], [ %.6213, %440 ], [ %.7, %446 ]
   %449 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.8) #5
   %450 = icmp sgt i32 %449, 0
   br i1 %450, label %.lr.ph239, label %._crit_edge.loopexit, !llvm.loop !26
@@ -7627,21 +7627,21 @@ dissect_unknown_data.exit.thread:                 ; preds = %446, %440, %.lr.ph2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.0188.lcssa = phi i32 [ %2, %3 ], [ %.8256, %._crit_edge.loopexit ]
-  %.0187.lcssa = phi i32 [ 0, %3 ], [ %451, %._crit_edge.loopexit ]
-  %.neg.i197 = sub i32 %2, %.0188.lcssa
-  %452 = add i32 %.neg.i197, %.0187.lcssa
+  %.0189.lcssa = phi i32 [ 0, %3 ], [ %451, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ %2, %3 ], [ %.8256, %._crit_edge.loopexit ]
+  %.neg.i197 = sub i32 %2, %.0.lcssa
+  %452 = add i32 %.neg.i197, %.0189.lcssa
   %453 = icmp sgt i32 %452, 0
   br i1 %453, label %454, label %dissect_unknown_data.exit199
 
 454:                                              ; preds = %._crit_edge
   %455 = load i32, ptr @hf_tn5250_unknown_data, align 4
-  %456 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %455, ptr noundef %1, i32 noundef %.0188.lcssa, i32 noundef %452, i32 noundef 0) #5
+  %456 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %455, ptr noundef %1, i32 noundef %.0.lcssa, i32 noundef %452, i32 noundef 0) #5
   br label %dissect_unknown_data.exit199
 
 dissect_unknown_data.exit199:                     ; preds = %._crit_edge, %454
   %.0.i198 = phi i32 [ %452, %454 ], [ 0, %._crit_edge ]
-  %457 = sub i32 %.0188.lcssa, %2
+  %457 = sub i32 %.0.lcssa, %2
   %458 = add i32 %457, %.0.i198
   ret i32 %458
 }

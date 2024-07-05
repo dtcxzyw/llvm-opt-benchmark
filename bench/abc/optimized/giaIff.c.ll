@@ -1269,9 +1269,9 @@ define noalias noundef ptr @Gia_ManIffPerform(ptr noundef %0, ptr noundef %1, pt
 23:                                               ; preds = %.lr.ph, %114
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %114 ]
   %.0122 = phi float [ -1.000000e+09, %.lr.ph ], [ %.1, %114 ]
-  %.081121 = phi i32 [ 0, %.lr.ph ], [ %.182, %114 ]
-  %.083120 = phi i32 [ 0, %.lr.ph ], [ %.184, %114 ]
-  %.085119 = phi i32 [ 0, %.lr.ph ], [ %.186, %114 ]
+  %.082120 = phi i32 [ 0, %.lr.ph ], [ %.183, %114 ]
+  %.084119 = phi i32 [ 0, %.lr.ph ], [ %.185, %114 ]
+  %.086118 = phi i32 [ 0, %.lr.ph ], [ %.187, %114 ]
   %.val96 = load ptr, ptr %18, align 8
   %24 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val96, i64 %indvars.iv
   %.val101 = load i64, ptr %24, align 4
@@ -1292,7 +1292,7 @@ define noalias noundef ptr @Gia_ManIffPerform(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not, label %114, label %32
 
 32:                                               ; preds = %28
-  %33 = add nsw i32 %.085119, 1
+  %33 = add nsw i32 %.082120, 1
   %34 = sext i32 %31 to i64
   %35 = getelementptr inbounds i32, ptr %.val102.val, i64 %34
   %36 = load i32, ptr %35, align 4
@@ -1356,7 +1356,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
   %.val.i = load ptr, ptr %61, align 8
   %62 = getelementptr inbounds i32, ptr %.val.i, i64 %indvars.iv
   store i32 %59, ptr %62, align 4
-  %63 = add nsw i32 %.083120, 1
+  %63 = add nsw i32 %.086118, 1
   br label %114
 
 64:                                               ; preds = %Gia_IffObjTimeOne.exit
@@ -1378,7 +1378,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
 73:                                               ; preds = %68
   %74 = load i32, ptr %6, align 4
   store i32 %74, ptr %72, align 4
-  %75 = add nsw i32 %.083120, 1
+  %75 = add nsw i32 %.086118, 1
   br label %114
 
 76:                                               ; preds = %68
@@ -1390,7 +1390,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
   %.val.i113 = load ptr, ptr %80, align 8
   %81 = getelementptr inbounds i32, ptr %.val.i113, i64 %indvars.iv
   store i32 %78, ptr %81, align 4
-  %82 = add nsw i32 %.081121, 1
+  %82 = add nsw i32 %.084119, 1
   br label %114
 
 83:                                               ; preds = %23
@@ -1447,9 +1447,9 @@ Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
   br label %114
 
 114:                                              ; preds = %Gia_IffObjTimeOne.exit, %76, %73, %55, %58, %97, %96, %85, %64, %28
-  %.186 = phi i32 [ %33, %58 ], [ %33, %55 ], [ %33, %64 ], [ %33, %73 ], [ %33, %76 ], [ %.085119, %28 ], [ %.085119, %85 ], [ %.085119, %97 ], [ %.085119, %96 ], [ %33, %Gia_IffObjTimeOne.exit ]
-  %.184 = phi i32 [ %63, %58 ], [ %.083120, %55 ], [ %.083120, %64 ], [ %75, %73 ], [ %.083120, %76 ], [ %.083120, %28 ], [ %.083120, %85 ], [ %.083120, %97 ], [ %.083120, %96 ], [ %.083120, %Gia_IffObjTimeOne.exit ]
-  %.182 = phi i32 [ %.081121, %58 ], [ %.081121, %55 ], [ %.081121, %64 ], [ %.081121, %73 ], [ %82, %76 ], [ %.081121, %28 ], [ %.081121, %85 ], [ %.081121, %97 ], [ %.081121, %96 ], [ %.081121, %Gia_IffObjTimeOne.exit ]
+  %.187 = phi i32 [ %63, %58 ], [ %.086118, %55 ], [ %.086118, %64 ], [ %75, %73 ], [ %.086118, %76 ], [ %.086118, %28 ], [ %.086118, %85 ], [ %.086118, %97 ], [ %.086118, %96 ], [ %.086118, %Gia_IffObjTimeOne.exit ]
+  %.185 = phi i32 [ %.084119, %58 ], [ %.084119, %55 ], [ %.084119, %64 ], [ %.084119, %73 ], [ %82, %76 ], [ %.084119, %28 ], [ %.084119, %85 ], [ %.084119, %97 ], [ %.084119, %96 ], [ %.084119, %Gia_IffObjTimeOne.exit ]
+  %.183 = phi i32 [ %33, %58 ], [ %33, %55 ], [ %33, %64 ], [ %33, %73 ], [ %33, %76 ], [ %.082120, %28 ], [ %.082120, %85 ], [ %.082120, %97 ], [ %.082120, %96 ], [ %33, %Gia_IffObjTimeOne.exit ]
   %.1 = phi float [ %.0122, %58 ], [ %.0122, %55 ], [ %.0122, %64 ], [ %.0122, %73 ], [ %.0122, %76 ], [ %.0122, %28 ], [ %.0122, %85 ], [ %113, %97 ], [ %.0122, %96 ], [ %.0122, %Gia_IffObjTimeOne.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = load i32, ptr %15, align 8
@@ -1462,13 +1462,13 @@ Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %5
-  %.085.lcssa = phi i32 [ 0, %5 ], [ %.186, %.critedge.loopexit ]
-  %.083.lcssa = phi i32 [ 0, %5 ], [ %.184, %.critedge.loopexit ]
-  %.081.lcssa = phi i32 [ 0, %5 ], [ %.182, %.critedge.loopexit ]
+  %.086.lcssa = phi i32 [ 0, %5 ], [ %.187, %.critedge.loopexit ]
+  %.084.lcssa = phi i32 [ 0, %5 ], [ %.185, %.critedge.loopexit ]
+  %.082.lcssa = phi i32 [ 0, %5 ], [ %.183, %.critedge.loopexit ]
   %.0.lcssa = phi double [ -1.000000e+09, %5 ], [ %118, %.critedge.loopexit ]
-  %119 = add i32 %.083.lcssa, %.081.lcssa
-  %120 = sub i32 %.085.lcssa, %119
-  %121 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %.0.lcssa, i32 noundef %120, i32 noundef %.083.lcssa, i32 noundef %.081.lcssa)
+  %119 = add i32 %.084.lcssa, %.086.lcssa
+  %120 = sub i32 %.082.lcssa, %119
+  %121 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %.0.lcssa, i32 noundef %120, i32 noundef %.086.lcssa, i32 noundef %.084.lcssa)
   ret ptr %9
 }
 

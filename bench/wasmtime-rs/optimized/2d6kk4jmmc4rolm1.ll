@@ -110,9 +110,9 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br label %57
 
 57:                                               ; preds = %55, %53, %51
-  %.012.i = phi i64 [ 1, %51 ], [ %..i, %55 ], [ 2, %53 ]
+  %.013.i = phi i64 [ 1, %51 ], [ %..i, %55 ], [ 2, %53 ]
   %58 = load i64, ptr %10, align 8, !noalias !6, !noundef !4
-  %59 = add i64 %58, %.012.i
+  %59 = add i64 %58, %.013.i
   store i64 %59, ptr %10, align 8, !noalias !6
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hba94781cb27bc56fE.exit.thread5"
 
@@ -132,16 +132,16 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br label %70
 
 70:                                               ; preds = %70, %68
-  %.013.i = phi i64 [ %69, %68 ], [ %74, %70 ]
+  %.012.i = phi i64 [ %69, %68 ], [ %74, %70 ]
   %71 = load ptr, ptr %8, align 8, !noalias !6, !nonnull !4, !align !9, !noundef !4
   %72 = load i64, ptr %9, align 8, !noalias !6, !noundef !4
-  %73 = call zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h61fdbad3c6767d9fE"(ptr nonnull align 1 %71, i64 %72, i64 %.013.i), !noalias !6
-  %74 = add i64 %.013.i, 1
+  %73 = call zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h61fdbad3c6767d9fE"(ptr nonnull align 1 %71, i64 %72, i64 %.012.i), !noalias !6
+  %74 = add i64 %.012.i, 1
   br i1 %73, label %75, label %70
 
 75:                                               ; preds = %70
   %76 = load i64, ptr %7, align 8, !noalias !6, !noundef !4
-  %77 = call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %.013.i, i64 %76), !noalias !6
+  %77 = call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %.012.i, i64 %76), !noalias !6
   store i64 %77, ptr %7, align 8, !noalias !6
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hba94781cb27bc56fE.exit.thread5"
 

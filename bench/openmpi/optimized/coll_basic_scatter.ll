@@ -66,12 +66,12 @@ ompi_comm_remote_size.exit:                       ; preds = %9, %13
 .lr.ph:                                           ; preds = %32, %59
   %.065 = phi ptr [ %38, %59 ], [ %30, %32 ]
   %.03564 = phi ptr [ %60, %59 ], [ %0, %32 ]
-  %.03763 = phi i32 [ %40, %59 ], [ 0, %32 ]
+  %.03863 = phi i32 [ %40, %59 ], [ 0, %32 ]
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %38 = getelementptr inbounds i8, ptr %.065, i64 8
-  %39 = tail call i32 %37(ptr noundef %.03564, i64 noundef %34, ptr noundef %2, i32 noundef %.03763, i32 noundef -25, i32 noundef 4, ptr noundef %7, ptr noundef nonnull %.065) #2
+  %39 = tail call i32 %37(ptr noundef %.03564, i64 noundef %34, ptr noundef %2, i32 noundef %.03863, i32 noundef -25, i32 noundef 4, ptr noundef %7, ptr noundef nonnull %.065) #2
   %.not45 = icmp eq i32 %39, 0
-  %40 = add nuw nsw i32 %.03763, 1
+  %40 = add nuw nsw i32 %.03863, 1
   br i1 %.not45, label %59, label %41
 
 41:                                               ; preds = %.lr.ph
@@ -177,8 +177,8 @@ ompi_request_cancel.exit.i56:                     ; preds = %72, %69
   br i1 %exitcond.not.i54, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i48, !llvm.loop !4
 
 ompi_coll_base_free_reqs.exit:                    ; preds = %58, %80, %._crit_edge, %19, %ompi_comm_remote_size.exit, %23
-  %.038 = phi i32 [ -2, %23 ], [ %22, %19 ], [ %63, %._crit_edge ], [ 0, %ompi_comm_remote_size.exit ], [ %63, %80 ], [ %39, %58 ]
-  ret i32 %.038
+  %.037 = phi i32 [ -2, %23 ], [ %22, %19 ], [ %63, %._crit_edge ], [ 0, %ompi_comm_remote_size.exit ], [ %63, %80 ], [ %39, %58 ]
+  ret i32 %.037
 }
 
 declare ptr @ompi_coll_base_comm_get_reqs(ptr noundef, i32 noundef) local_unnamed_addr #1

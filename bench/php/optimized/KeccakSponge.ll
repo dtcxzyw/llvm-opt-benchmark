@@ -38,27 +38,27 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_Sponge(i32 noundef %0, i32 no
   br label %24
 
 24:                                               ; preds = %19, %15
-  %.051 = phi i64 [ %23, %19 ], [ %3, %15 ]
-  %.049 = phi ptr [ %22, %19 ], [ %2, %15 ]
-  %.not6168 = icmp ult i64 %.051, %18
+  %.050 = phi ptr [ %22, %19 ], [ %2, %15 ]
+  %.048 = phi i64 [ %23, %19 ], [ %3, %15 ]
+  %.not6168 = icmp ult i64 %.048, %18
   br i1 %.not6168, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
-  %.170 = phi ptr [ %25, %.lr.ph ], [ %.049, %24 ]
-  %.15269 = phi i64 [ %26, %.lr.ph ], [ %.051, %24 ]
-  call void @KeccakP1600_AddBytes(ptr noundef nonnull %8, ptr noundef %.170, i32 noundef 0, i32 noundef %9) #2
+  %.170 = phi i64 [ %26, %.lr.ph ], [ %.048, %24 ]
+  %.15169 = phi ptr [ %25, %.lr.ph ], [ %.050, %24 ]
+  call void @KeccakP1600_AddBytes(ptr noundef nonnull %8, ptr noundef %.15169, i32 noundef 0, i32 noundef %9) #2
   call void @KeccakP1600_Permute_24rounds(ptr noundef nonnull %8) #2
-  %25 = getelementptr inbounds i8, ptr %.170, i64 %18
-  %26 = sub i64 %.15269, %18
+  %25 = getelementptr inbounds i8, ptr %.15169, i64 %18
+  %26 = sub i64 %.170, %18
   %.not61 = icmp ult i64 %26, %18
   br i1 %.not61, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
-  %.152.lcssa = phi i64 [ %.051, %24 ], [ %26, %.lr.ph ]
-  %.1.lcssa = phi ptr [ %.049, %24 ], [ %25, %.lr.ph ]
-  %27 = trunc nuw nsw i64 %.152.lcssa to i32
-  call void @KeccakP1600_AddBytes(ptr noundef nonnull %8, ptr noundef %.1.lcssa, i32 noundef 0, i32 noundef %27) #2
-  %28 = and i64 %.152.lcssa, 4294967295
+  %.151.lcssa = phi ptr [ %.050, %24 ], [ %25, %.lr.ph ]
+  %.1.lcssa = phi i64 [ %.048, %24 ], [ %26, %.lr.ph ]
+  %27 = trunc nuw nsw i64 %.1.lcssa to i32
+  call void @KeccakP1600_AddBytes(ptr noundef nonnull %8, ptr noundef %.151.lcssa, i32 noundef 0, i32 noundef %27) #2
+  %28 = and i64 %.1.lcssa, 4294967295
   %29 = getelementptr inbounds i8, ptr %8, i64 %28
   %30 = load i8, ptr %29, align 1
   %31 = xor i8 %30, %4
@@ -84,20 +84,20 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_Sponge(i32 noundef %0, i32 no
   br i1 %41, label %.lr.ph75, label %._crit_edge76
 
 .lr.ph75:                                         ; preds = %36, %.lr.ph75
-  %.04873 = phi ptr [ %42, %.lr.ph75 ], [ %5, %36 ]
-  %.05072 = phi i64 [ %43, %.lr.ph75 ], [ %6, %36 ]
-  call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %8, ptr noundef %.04873, i32 noundef 0, i32 noundef %9) #2
+  %.04973 = phi ptr [ %42, %.lr.ph75 ], [ %5, %36 ]
+  %.05272 = phi i64 [ %43, %.lr.ph75 ], [ %6, %36 ]
+  call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %8, ptr noundef %.04973, i32 noundef 0, i32 noundef %9) #2
   call void @KeccakP1600_Permute_24rounds(ptr noundef nonnull %8) #2
-  %42 = getelementptr inbounds i8, ptr %.04873, i64 %18
-  %43 = sub i64 %.05072, %18
+  %42 = getelementptr inbounds i8, ptr %.04973, i64 %18
+  %43 = sub i64 %.05272, %18
   %44 = icmp ugt i64 %43, %18
   br i1 %44, label %.lr.ph75, label %._crit_edge76
 
 ._crit_edge76:                                    ; preds = %.lr.ph75, %36
-  %.050.lcssa = phi i64 [ %6, %36 ], [ %43, %.lr.ph75 ]
-  %.048.lcssa = phi ptr [ %5, %36 ], [ %42, %.lr.ph75 ]
-  %45 = trunc nuw nsw i64 %.050.lcssa to i32
-  call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %8, ptr noundef %.048.lcssa, i32 noundef 0, i32 noundef %45) #2
+  %.052.lcssa = phi i64 [ %6, %36 ], [ %43, %.lr.ph75 ]
+  %.049.lcssa = phi ptr [ %5, %36 ], [ %42, %.lr.ph75 ]
+  %45 = trunc nuw nsw i64 %.052.lcssa to i32
+  call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %8, ptr noundef %.049.lcssa, i32 noundef 0, i32 noundef %45) #2
   br label %46
 
 46:                                               ; preds = %11, %7, %._crit_edge76
@@ -168,19 +168,19 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %0, 
   br i1 %12, label %.lr.ph73.split.us, label %.lr.ph73.split
 
 .lr.ph73.split.us:                                ; preds = %.lr.ph73, %32
-  %.072.us = phi ptr [ %.2.us, %32 ], [ %1, %.lr.ph73 ]
-  %.05771.us = phi i64 [ %.158.us, %32 ], [ 0, %.lr.ph73 ]
+  %.05572.us = phi ptr [ %.2.us, %32 ], [ %1, %.lr.ph73 ]
+  %.05871.us = phi i64 [ %.159.us, %32 ], [ 0, %.lr.ph73 ]
   %14 = load i32, ptr %9, align 4
   %15 = icmp ne i32 %14, 0
-  %16 = sub i64 %2, %.05771.us
+  %16 = sub i64 %2, %.05871.us
   %.not64.us = icmp ult i64 %16, %10
   %or.cond80 = select i1 %15, i1 true, i1 %.not64.us
   br i1 %or.cond80, label %.lr.ph73.split.us._crit_edge, label %17
 
 17:                                               ; preds = %.lr.ph73.split.us
-  %18 = tail call i64 @KeccakF1600_FastLoop_Absorb(ptr noundef nonnull %0, i32 noundef %13, ptr noundef %.072.us, i64 noundef %16) #2
-  %19 = add i64 %18, %.05771.us
-  %20 = getelementptr inbounds i8, ptr %.072.us, i64 %18
+  %18 = tail call i64 @KeccakF1600_FastLoop_Absorb(ptr noundef nonnull %0, i32 noundef %13, ptr noundef %.05572.us, i64 noundef %16) #2
+  %19 = add i64 %18, %.05871.us
+  %20 = getelementptr inbounds i8, ptr %.05572.us, i64 %18
   br label %32
 
 .lr.ph73.split.us._crit_edge:                     ; preds = %.lr.ph73.split.us
@@ -188,13 +188,13 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %0, 
   %22 = zext i32 %21 to i64
   %23 = icmp ugt i64 %16, %22
   %24 = trunc nuw i64 %16 to i32
-  %.055.us = select i1 %23, i32 %21, i32 %24
-  %25 = zext i32 %.055.us to i64
-  %26 = add i64 %.05771.us, %25
-  tail call void @KeccakP1600_AddBytes(ptr noundef nonnull %0, ptr noundef %.072.us, i32 noundef %14, i32 noundef %.055.us) #2
-  %27 = getelementptr inbounds i8, ptr %.072.us, i64 %25
+  %.056.us = select i1 %23, i32 %21, i32 %24
+  %25 = zext i32 %.056.us to i64
+  %26 = add i64 %.05871.us, %25
+  tail call void @KeccakP1600_AddBytes(ptr noundef nonnull %0, ptr noundef %.05572.us, i32 noundef %14, i32 noundef %.056.us) #2
+  %27 = getelementptr inbounds i8, ptr %.05572.us, i64 %25
   %28 = load i32, ptr %9, align 4
-  %29 = add i32 %28, %.055.us
+  %29 = add i32 %28, %.056.us
   store i32 %29, ptr %9, align 4
   %30 = icmp eq i32 %29, %6
   br i1 %30, label %31, label %32
@@ -205,28 +205,28 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %0, 
   br label %32
 
 32:                                               ; preds = %31, %.lr.ph73.split.us._crit_edge, %17
-  %.158.us = phi i64 [ %19, %17 ], [ %26, %31 ], [ %26, %.lr.ph73.split.us._crit_edge ]
+  %.159.us = phi i64 [ %19, %17 ], [ %26, %31 ], [ %26, %.lr.ph73.split.us._crit_edge ]
   %.2.us = phi ptr [ %20, %17 ], [ %27, %31 ], [ %27, %.lr.ph73.split.us._crit_edge ]
-  %33 = icmp ult i64 %.158.us, %2
+  %33 = icmp ult i64 %.159.us, %2
   br i1 %33, label %.lr.ph73.split.us, label %.loopexit
 
 .lr.ph73.split:                                   ; preds = %.lr.ph73, %52
-  %.072 = phi ptr [ %.2, %52 ], [ %1, %.lr.ph73 ]
-  %.05771 = phi i64 [ %.158, %52 ], [ 0, %.lr.ph73 ]
+  %.05572 = phi ptr [ %.2, %52 ], [ %1, %.lr.ph73 ]
+  %.05871 = phi i64 [ %.159, %52 ], [ 0, %.lr.ph73 ]
   %34 = load i32, ptr %9, align 4
   %35 = icmp ne i32 %34, 0
-  %36 = sub i64 %2, %.05771
+  %36 = sub i64 %2, %.05871
   %.not64 = icmp ult i64 %36, %10
   %or.cond = select i1 %35, i1 true, i1 %.not64
   br i1 %or.cond, label %40, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph73.split, %.lr.ph
-  %.169 = phi ptr [ %37, %.lr.ph ], [ %.072, %.lr.ph73.split ]
-  %.05668 = phi i64 [ %38, %.lr.ph ], [ %36, %.lr.ph73.split ]
+  %.169 = phi ptr [ %37, %.lr.ph ], [ %.05572, %.lr.ph73.split ]
+  %.05768 = phi i64 [ %38, %.lr.ph ], [ %36, %.lr.ph73.split ]
   tail call void @KeccakP1600_AddBytes(ptr noundef %0, ptr noundef %.169, i32 noundef 0, i32 noundef %6) #2
   tail call void @KeccakP1600_Permute_24rounds(ptr noundef %0) #2
   %37 = getelementptr inbounds i8, ptr %.169, i64 %10
-  %38 = sub i64 %.05668, %10
+  %38 = sub i64 %.05768, %10
   %.not65 = icmp ult i64 %38, %10
   br i1 %.not65, label %._crit_edge, label %.lr.ph
 
@@ -239,13 +239,13 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %0, 
   %42 = zext i32 %41 to i64
   %43 = icmp ugt i64 %36, %42
   %44 = trunc nuw i64 %36 to i32
-  %.055 = select i1 %43, i32 %41, i32 %44
-  %45 = zext i32 %.055 to i64
-  %46 = add i64 %.05771, %45
-  tail call void @KeccakP1600_AddBytes(ptr noundef nonnull %0, ptr noundef %.072, i32 noundef %34, i32 noundef %.055) #2
-  %47 = getelementptr inbounds i8, ptr %.072, i64 %45
+  %.056 = select i1 %43, i32 %41, i32 %44
+  %45 = zext i32 %.056 to i64
+  %46 = add i64 %.05871, %45
+  tail call void @KeccakP1600_AddBytes(ptr noundef nonnull %0, ptr noundef %.05572, i32 noundef %34, i32 noundef %.056) #2
+  %47 = getelementptr inbounds i8, ptr %.05572, i64 %45
   %48 = load i32, ptr %9, align 4
-  %49 = add i32 %48, %.055
+  %49 = add i32 %48, %.056
   store i32 %49, ptr %9, align 4
   %50 = icmp eq i32 %49, %6
   br i1 %50, label %51, label %52
@@ -256,14 +256,14 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_SpongeAbsorb(ptr noundef %0, 
   br label %52
 
 52:                                               ; preds = %40, %51, %._crit_edge
-  %.158 = phi i64 [ %39, %._crit_edge ], [ %46, %51 ], [ %46, %40 ]
+  %.159 = phi i64 [ %39, %._crit_edge ], [ %46, %51 ], [ %46, %40 ]
   %.2 = phi ptr [ %37, %._crit_edge ], [ %47, %51 ], [ %47, %40 ]
-  %53 = icmp ult i64 %.158, %2
+  %53 = icmp ult i64 %.159, %2
   br i1 %53, label %.lr.ph73.split, label %.loopexit
 
 .loopexit:                                        ; preds = %52, %32, %.preheader66, %3
-  %.059 = phi i32 [ 1, %3 ], [ 0, %.preheader66 ], [ 0, %32 ], [ 0, %52 ]
-  ret i32 %.059
+  %.0 = phi i32 [ 1, %3 ], [ 0, %.preheader66 ], [ 0, %32 ], [ 0, %52 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -362,10 +362,10 @@ KeccakWidth1600_SpongeAbsorbLastFewBits.exit:     ; preds = %3
 
 22:                                               ; preds = %.lr.ph, %42
   %.060 = phi ptr [ %1, %.lr.ph ], [ %.2, %42 ]
-  %.04859 = phi i64 [ 0, %.lr.ph ], [ %.149, %42 ]
+  %.04659 = phi i64 [ 0, %.lr.ph ], [ %.147, %42 ]
   %23 = load i32, ptr %20, align 4
   %24 = icmp eq i32 %23, %6
-  %25 = sub i64 %2, %.04859
+  %25 = sub i64 %2, %.04659
   br i1 %24, label %26, label %._crit_edge63
 
 26:                                               ; preds = %22
@@ -374,11 +374,11 @@ KeccakWidth1600_SpongeAbsorbLastFewBits.exit:     ; preds = %3
 
 .preheader:                                       ; preds = %26, %.preheader
   %.158 = phi ptr [ %27, %.preheader ], [ %.060, %26 ]
-  %.04757 = phi i64 [ %28, %.preheader ], [ %25, %26 ]
+  %.04957 = phi i64 [ %28, %.preheader ], [ %25, %26 ]
   tail call void @KeccakP1600_Permute_24rounds(ptr noundef %0) #2
   tail call void @KeccakP1600_ExtractBytes(ptr noundef %0, ptr noundef %.158, i32 noundef 0, i32 noundef %6) #2
   %27 = getelementptr inbounds i8, ptr %.158, i64 %21
-  %28 = sub i64 %.04757, %21
+  %28 = sub i64 %.04957, %21
   %.not56 = icmp ult i64 %28, %21
   br i1 %.not56, label %29, label %.preheader
 
@@ -397,20 +397,20 @@ KeccakWidth1600_SpongeAbsorbLastFewBits.exit:     ; preds = %3
   %34 = zext i32 %33 to i64
   %35 = icmp ugt i64 %25, %34
   %36 = trunc nuw i64 %25 to i32
-  %.046 = select i1 %35, i32 %33, i32 %36
-  %37 = zext i32 %.046 to i64
-  %38 = add i64 %.04859, %37
-  tail call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %0, ptr noundef %.060, i32 noundef %32, i32 noundef %.046) #2
+  %.048 = select i1 %35, i32 %33, i32 %36
+  %37 = zext i32 %.048 to i64
+  %38 = add i64 %.04659, %37
+  tail call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %0, ptr noundef %.060, i32 noundef %32, i32 noundef %.048) #2
   %39 = getelementptr inbounds i8, ptr %.060, i64 %37
   %40 = load i32, ptr %20, align 4
-  %41 = add i32 %.046, %40
+  %41 = add i32 %.048, %40
   store i32 %41, ptr %20, align 4
   br label %42
 
 42:                                               ; preds = %._crit_edge63, %29
-  %.149 = phi i64 [ %30, %29 ], [ %38, %._crit_edge63 ]
+  %.147 = phi i64 [ %30, %29 ], [ %38, %._crit_edge63 ]
   %.2 = phi ptr [ %27, %29 ], [ %39, %._crit_edge63 ]
-  %43 = icmp ult i64 %.149, %2
+  %43 = icmp ult i64 %.147, %2
   br i1 %43, label %22, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %42, %19
@@ -442,20 +442,20 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_12rounds_Sponge(i32 noundef %
   br i1 %.not4652, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
-  %.03854 = phi ptr [ %17, %.lr.ph ], [ %2, %15 ]
+  %.03954 = phi ptr [ %17, %.lr.ph ], [ %2, %15 ]
   %.04153 = phi i64 [ %18, %.lr.ph ], [ %3, %15 ]
-  call void @KeccakP1600_AddBytes(ptr noundef nonnull %8, ptr noundef %.03854, i32 noundef 0, i32 noundef %9) #2
+  call void @KeccakP1600_AddBytes(ptr noundef nonnull %8, ptr noundef %.03954, i32 noundef 0, i32 noundef %9) #2
   call void @KeccakP1600_Permute_12rounds(ptr noundef nonnull %8) #2
-  %17 = getelementptr inbounds i8, ptr %.03854, i64 %16
+  %17 = getelementptr inbounds i8, ptr %.03954, i64 %16
   %18 = sub i64 %.04153, %16
   %.not46 = icmp ult i64 %18, %16
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %.041.lcssa = phi i64 [ %3, %15 ], [ %18, %.lr.ph ]
-  %.038.lcssa = phi ptr [ %2, %15 ], [ %17, %.lr.ph ]
+  %.039.lcssa = phi ptr [ %2, %15 ], [ %17, %.lr.ph ]
   %19 = trunc nuw nsw i64 %.041.lcssa to i32
-  call void @KeccakP1600_AddBytes(ptr noundef nonnull %8, ptr noundef %.038.lcssa, i32 noundef 0, i32 noundef %19) #2
+  call void @KeccakP1600_AddBytes(ptr noundef nonnull %8, ptr noundef %.039.lcssa, i32 noundef 0, i32 noundef %19) #2
   %20 = getelementptr inbounds i8, ptr %8, i64 %.041.lcssa
   %21 = load i8, ptr %20, align 1
   %22 = xor i8 %21, %4
@@ -481,25 +481,25 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_12rounds_Sponge(i32 noundef %
   br i1 %32, label %.lr.ph60, label %._crit_edge61
 
 .lr.ph60:                                         ; preds = %27, %.lr.ph60
-  %.058 = phi ptr [ %33, %.lr.ph60 ], [ %5, %27 ]
-  %.03957 = phi i64 [ %34, %.lr.ph60 ], [ %6, %27 ]
-  call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %8, ptr noundef %.058, i32 noundef 0, i32 noundef %9) #2
+  %.03858 = phi ptr [ %33, %.lr.ph60 ], [ %5, %27 ]
+  %.04057 = phi i64 [ %34, %.lr.ph60 ], [ %6, %27 ]
+  call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %8, ptr noundef %.03858, i32 noundef 0, i32 noundef %9) #2
   call void @KeccakP1600_Permute_12rounds(ptr noundef nonnull %8) #2
-  %33 = getelementptr inbounds i8, ptr %.058, i64 %16
-  %34 = sub i64 %.03957, %16
+  %33 = getelementptr inbounds i8, ptr %.03858, i64 %16
+  %34 = sub i64 %.04057, %16
   %35 = icmp ugt i64 %34, %16
   br i1 %35, label %.lr.ph60, label %._crit_edge61
 
 ._crit_edge61:                                    ; preds = %.lr.ph60, %27
-  %.039.lcssa = phi i64 [ %6, %27 ], [ %34, %.lr.ph60 ]
-  %.0.lcssa = phi ptr [ %5, %27 ], [ %33, %.lr.ph60 ]
-  %36 = trunc nuw nsw i64 %.039.lcssa to i32
-  call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %8, ptr noundef %.0.lcssa, i32 noundef 0, i32 noundef %36) #2
+  %.040.lcssa = phi i64 [ %6, %27 ], [ %34, %.lr.ph60 ]
+  %.038.lcssa = phi ptr [ %5, %27 ], [ %33, %.lr.ph60 ]
+  %36 = trunc nuw nsw i64 %.040.lcssa to i32
+  call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %8, ptr noundef %.038.lcssa, i32 noundef 0, i32 noundef %36) #2
   br label %37
 
 37:                                               ; preds = %11, %7, %._crit_edge61
-  %.040 = phi i32 [ 0, %._crit_edge61 ], [ 1, %7 ], [ 1, %11 ]
-  ret i32 %.040
+  %.0 = phi i32 [ 0, %._crit_edge61 ], [ 1, %7 ], [ 1, %11 ]
+  ret i32 %.0
 }
 
 declare void @KeccakP1600_Permute_12rounds(ptr noundef) local_unnamed_addr #1
@@ -553,22 +553,22 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr nou
   br label %11
 
 11:                                               ; preds = %.lr.ph, %31
-  %.060 = phi ptr [ %1, %.lr.ph ], [ %.2, %31 ]
-  %.04759 = phi i64 [ 0, %.lr.ph ], [ %.148, %31 ]
+  %.04560 = phi ptr [ %1, %.lr.ph ], [ %.2, %31 ]
+  %.04859 = phi i64 [ 0, %.lr.ph ], [ %.149, %31 ]
   %12 = load i32, ptr %9, align 4
   %13 = icmp ne i32 %12, 0
-  %14 = sub i64 %2, %.04759
+  %14 = sub i64 %2, %.04859
   %.not54 = icmp ult i64 %14, %10
   %or.cond = select i1 %13, i1 true, i1 %.not54
   br i1 %or.cond, label %19, label %.preheader
 
 .preheader:                                       ; preds = %11, %.preheader
-  %.158 = phi ptr [ %15, %.preheader ], [ %.060, %11 ]
-  %.04657 = phi i64 [ %16, %.preheader ], [ %14, %11 ]
+  %.158 = phi ptr [ %15, %.preheader ], [ %.04560, %11 ]
+  %.04757 = phi i64 [ %16, %.preheader ], [ %14, %11 ]
   tail call void @KeccakP1600_AddBytes(ptr noundef %0, ptr noundef %.158, i32 noundef 0, i32 noundef %6) #2
   tail call void @KeccakP1600_Permute_12rounds(ptr noundef %0) #2
   %15 = getelementptr inbounds i8, ptr %.158, i64 %10
-  %16 = sub i64 %.04657, %10
+  %16 = sub i64 %.04757, %10
   %.not55 = icmp ult i64 %16, %10
   br i1 %.not55, label %17, label %.preheader
 
@@ -581,13 +581,13 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr nou
   %21 = zext i32 %20 to i64
   %22 = icmp ugt i64 %14, %21
   %23 = trunc nuw i64 %14 to i32
-  %.045 = select i1 %22, i32 %20, i32 %23
-  %24 = zext i32 %.045 to i64
-  %25 = add i64 %.04759, %24
-  tail call void @KeccakP1600_AddBytes(ptr noundef nonnull %0, ptr noundef %.060, i32 noundef %12, i32 noundef %.045) #2
-  %26 = getelementptr inbounds i8, ptr %.060, i64 %24
+  %.046 = select i1 %22, i32 %20, i32 %23
+  %24 = zext i32 %.046 to i64
+  %25 = add i64 %.04859, %24
+  tail call void @KeccakP1600_AddBytes(ptr noundef nonnull %0, ptr noundef %.04560, i32 noundef %12, i32 noundef %.046) #2
+  %26 = getelementptr inbounds i8, ptr %.04560, i64 %24
   %27 = load i32, ptr %9, align 4
-  %28 = add i32 %27, %.045
+  %28 = add i32 %27, %.046
   store i32 %28, ptr %9, align 4
   %29 = icmp eq i32 %28, %6
   br i1 %29, label %30, label %31
@@ -598,14 +598,14 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr nou
   br label %31
 
 31:                                               ; preds = %19, %30, %17
-  %.148 = phi i64 [ %18, %17 ], [ %25, %30 ], [ %25, %19 ]
+  %.149 = phi i64 [ %18, %17 ], [ %25, %30 ], [ %25, %19 ]
   %.2 = phi ptr [ %15, %17 ], [ %26, %30 ], [ %26, %19 ]
-  %32 = icmp ult i64 %.148, %2
+  %32 = icmp ult i64 %.149, %2
   br i1 %32, label %11, label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.preheader56, %3
-  %.049 = phi i32 [ 1, %3 ], [ 0, %.preheader56 ], [ 0, %31 ]
-  ret i32 %.049
+  %.0 = phi i32 [ 1, %3 ], [ 0, %.preheader56 ], [ 0, %31 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -704,10 +704,10 @@ KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits.exit: ; preds = %3
 
 22:                                               ; preds = %.lr.ph, %42
   %.060 = phi ptr [ %1, %.lr.ph ], [ %.2, %42 ]
-  %.04859 = phi i64 [ 0, %.lr.ph ], [ %.149, %42 ]
+  %.04659 = phi i64 [ 0, %.lr.ph ], [ %.147, %42 ]
   %23 = load i32, ptr %20, align 4
   %24 = icmp eq i32 %23, %6
-  %25 = sub i64 %2, %.04859
+  %25 = sub i64 %2, %.04659
   br i1 %24, label %26, label %._crit_edge63
 
 26:                                               ; preds = %22
@@ -716,11 +716,11 @@ KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits.exit: ; preds = %3
 
 .preheader:                                       ; preds = %26, %.preheader
   %.158 = phi ptr [ %27, %.preheader ], [ %.060, %26 ]
-  %.04757 = phi i64 [ %28, %.preheader ], [ %25, %26 ]
+  %.04957 = phi i64 [ %28, %.preheader ], [ %25, %26 ]
   tail call void @KeccakP1600_Permute_12rounds(ptr noundef %0) #2
   tail call void @KeccakP1600_ExtractBytes(ptr noundef %0, ptr noundef %.158, i32 noundef 0, i32 noundef %6) #2
   %27 = getelementptr inbounds i8, ptr %.158, i64 %21
-  %28 = sub i64 %.04757, %21
+  %28 = sub i64 %.04957, %21
   %.not56 = icmp ult i64 %28, %21
   br i1 %.not56, label %29, label %.preheader
 
@@ -739,20 +739,20 @@ KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits.exit: ; preds = %3
   %34 = zext i32 %33 to i64
   %35 = icmp ugt i64 %25, %34
   %36 = trunc nuw i64 %25 to i32
-  %.046 = select i1 %35, i32 %33, i32 %36
-  %37 = zext i32 %.046 to i64
-  %38 = add i64 %.04859, %37
-  tail call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %0, ptr noundef %.060, i32 noundef %32, i32 noundef %.046) #2
+  %.048 = select i1 %35, i32 %33, i32 %36
+  %37 = zext i32 %.048 to i64
+  %38 = add i64 %.04659, %37
+  tail call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %0, ptr noundef %.060, i32 noundef %32, i32 noundef %.048) #2
   %39 = getelementptr inbounds i8, ptr %.060, i64 %37
   %40 = load i32, ptr %20, align 4
-  %41 = add i32 %.046, %40
+  %41 = add i32 %.048, %40
   store i32 %41, ptr %20, align 4
   br label %42
 
 42:                                               ; preds = %._crit_edge63, %29
-  %.149 = phi i64 [ %30, %29 ], [ %38, %._crit_edge63 ]
+  %.147 = phi i64 [ %30, %29 ], [ %38, %._crit_edge63 ]
   %.2 = phi ptr [ %27, %29 ], [ %39, %._crit_edge63 ]
-  %43 = icmp ult i64 %.149, %2
+  %43 = icmp ult i64 %.147, %2
   br i1 %43, label %22, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %42, %19

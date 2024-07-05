@@ -3838,8 +3838,8 @@ while.body.lr.ph:                                 ; preds = %invoke.cont8
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end96
   %nrvo.0206 = phi i1 [ false, %while.body.lr.ph ], [ %nrvo.1, %if.end96 ]
-  %left.0205 = phi i64 [ %size, %while.body.lr.ph ], [ %sub, %if.end96 ]
-  %src.0204 = phi ptr [ %data, %while.body.lr.ph ], [ %add.ptr, %if.end96 ]
+  %src.0205 = phi ptr [ %data, %while.body.lr.ph ], [ %add.ptr, %if.end96 ]
+  %left.0204 = phi i64 [ %size, %while.body.lr.ph ], [ %sub, %if.end96 ]
   %8 = load ptr, ptr %rate_limiter_, align 8
   %cmp9 = icmp ne ptr %8, null
   %or.cond = and i1 %cmp10, %cmp9
@@ -3850,7 +3850,7 @@ if.then11:                                        ; preds = %while.body
   %vtable13 = load ptr, ptr %8, align 8
   %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 56
   %10 = load ptr, ptr %vfn14, align 8
-  %call17 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(12) %8, i64 noundef %left.0205, i64 noundef 0, i32 noundef %retval.0.i25, ptr noundef %9, i32 noundef 1)
+  %call17 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(12) %8, i64 noundef %left.0204, i64 noundef 0, i32 noundef %retval.0.i25, ptr noundef %9, i32 noundef 1)
           to label %if.end18 unwind label %lpad15
 
 lpad:                                             ; preds = %invoke.cont2
@@ -3864,7 +3864,7 @@ lpad15:                                           ; preds = %cond.true.i, %14, %
   br label %ehcleanup109
 
 if.end18:                                         ; preds = %if.then11, %while.body
-  %allowed.0 = phi i64 [ %left.0205, %while.body ], [ %call17, %if.then11 ]
+  %allowed.0 = phi i64 [ %left.0204, %while.body ], [ %call17, %if.then11 ]
   br i1 %.not.i, label %_ZTWN7rocksdb15iostats_contextE.exit, label %13
 
 13:                                               ; preds = %if.end18
@@ -4031,7 +4031,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39, %cal
   br i1 %tobool, label %if.then42, label %if.else
 
 if.then42:                                        ; preds = %invoke.cont41
-  %call.i8081 = invoke noundef i32 @_ZN7rocksdb6crc32c6ExtendEjPKcm(i32 noundef 0, ptr noundef %src.0204, i64 noundef %allowed.0)
+  %call.i8081 = invoke noundef i32 @_ZN7rocksdb6crc32c6ExtendEjPKcm(i32 noundef 0, ptr noundef %src.0205, i64 noundef %allowed.0)
           to label %invoke.cont43 unwind label %lpad40
 
 invoke.cont43:                                    ; preds = %if.then42
@@ -4056,7 +4056,7 @@ if.else.i86:                                      ; preds = %land.lhs.true.i83, 
 invoke.cont49:                                    ; preds = %land.lhs.true.i83, %if.else.i86
   %retval.0.in.i89 = phi ptr [ %target_.i.i88, %if.else.i86 ], [ %fs_tracer_.i44, %land.lhs.true.i83 ]
   %retval.0.i90 = load ptr, ptr %retval.0.in.i89, align 8
-  store ptr %src.0204, ptr %ref.tmp51, align 8
+  store ptr %src.0205, ptr %ref.tmp51, align 8
   store i64 %allowed.0, ptr %size_.i94, align 8
   %vtable53 = load ptr, ptr %retval.0.i90, align 8
   %vfn54 = getelementptr inbounds i8, ptr %vtable53, i64 24
@@ -4125,7 +4125,7 @@ if.else.i101:                                     ; preds = %land.lhs.true.i98, 
 invoke.cont59:                                    ; preds = %land.lhs.true.i98, %if.else.i101
   %retval.0.in.i104 = phi ptr [ %target_.i.i103, %if.else.i101 ], [ %fs_tracer_.i44, %land.lhs.true.i98 ]
   %retval.0.i105 = load ptr, ptr %retval.0.in.i104, align 8
-  store ptr %src.0204, ptr %ref.tmp61, align 8
+  store ptr %src.0205, ptr %ref.tmp61, align 8
   store i64 %allowed.0, ptr %size_.i109, align 8
   %vtable63 = load ptr, ptr %retval.0.i105, align 8
   %vfn64 = getelementptr inbounds i8, ptr %vtable63, i64 16
@@ -4334,8 +4334,8 @@ ehcleanup:                                        ; preds = %lpad85, %lpad40, %l
   br label %ehcleanup109
 
 if.end96:                                         ; preds = %_ZTWN7rocksdb15iostats_contextE.exit167.thread, %_ZTWN7rocksdb15iostats_contextE.exit169, %_ZTWN7rocksdb15iostats_contextE.exit167
-  %sub = sub i64 %left.0205, %allowed.0
-  %add.ptr = getelementptr inbounds i8, ptr %src.0204, i64 %allowed.0
+  %sub = sub i64 %left.0204, %allowed.0
+  %add.ptr = getelementptr inbounds i8, ptr %src.0205, i64 %allowed.0
   %77 = load atomic i64, ptr %flushed_size_ acquire, align 8
   %add99 = add i64 %77, %allowed.0
   store atomic i64 %add99, ptr %flushed_size_ release, align 8
@@ -7075,10 +7075,10 @@ while.body.lr.ph:                                 ; preds = %invoke.cont27
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end104
-  %left.0160 = phi i64 [ %7, %while.body.lr.ph ], [ %sub105, %if.end104 ]
-  %write_offset.0158 = phi i64 [ %9, %while.body.lr.ph ], [ %add106, %if.end104 ]
-  %src.0157 = phi ptr [ %8, %while.body.lr.ph ], [ %add.ptr, %if.end104 ]
-  %nrvo.0156 = phi i1 [ false, %while.body.lr.ph ], [ %nrvo.1, %if.end104 ]
+  %nrvo.0160 = phi i1 [ false, %while.body.lr.ph ], [ %nrvo.1, %if.end104 ]
+  %left.0159 = phi i64 [ %7, %while.body.lr.ph ], [ %sub105, %if.end104 ]
+  %write_offset.0157 = phi i64 [ %9, %while.body.lr.ph ], [ %add106, %if.end104 ]
+  %src.0156 = phi ptr [ %8, %while.body.lr.ph ], [ %add.ptr, %if.end104 ]
   %16 = load ptr, ptr %rate_limiter_, align 8
   %cmp28 = icmp ne ptr %16, null
   %or.cond = and i1 %cmp29, %cmp28
@@ -7090,7 +7090,7 @@ if.then30:                                        ; preds = %while.body
   %vtable36 = load ptr, ptr %16, align 8
   %vfn37 = getelementptr inbounds i8, ptr %vtable36, i64 56
   %19 = load ptr, ptr %vfn37, align 8
-  %call39 = invoke noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(12) %16, i64 noundef %left.0160, i64 noundef %17, i32 noundef %retval.0.i40, ptr noundef %18, i32 noundef 1)
+  %call39 = invoke noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(12) %16, i64 noundef %left.0159, i64 noundef %17, i32 noundef %retval.0.i40, ptr noundef %18, i32 noundef 1)
           to label %if.end40 unwind label %lpad33
 
 lpad:                                             ; preds = %invoke.cont21
@@ -7104,7 +7104,7 @@ lpad33:                                           ; preds = %cond.true.i, %23, %
   br label %ehcleanup121
 
 if.end40:                                         ; preds = %if.then30, %while.body
-  %size.0 = phi i64 [ %left.0160, %while.body ], [ %call39, %if.then30 ]
+  %size.0 = phi i64 [ %left.0159, %while.body ], [ %call39, %if.then30 ]
   br i1 %.not.i, label %_ZTWN7rocksdb15iostats_contextE.exit, label %22
 
 22:                                               ; preds = %if.end40
@@ -7180,7 +7180,7 @@ if.end52:                                         ; preds = %invoke.cont49, %inv
   br i1 %tobool, label %if.then53, label %if.else
 
 if.then53:                                        ; preds = %if.end52
-  %call.i5152 = invoke noundef i32 @_ZN7rocksdb6crc32c6ExtendEjPKcm(i32 noundef 0, ptr noundef %src.0157, i64 noundef %size.0)
+  %call.i5152 = invoke noundef i32 @_ZN7rocksdb6crc32c6ExtendEjPKcm(i32 noundef 0, ptr noundef %src.0156, i64 noundef %size.0)
           to label %invoke.cont54 unwind label %lpad42
 
 invoke.cont54:                                    ; preds = %if.then53
@@ -7205,12 +7205,12 @@ if.else.i58:                                      ; preds = %land.lhs.true.i55, 
 invoke.cont60:                                    ; preds = %land.lhs.true.i55, %if.else.i58
   %retval.0.in.i61 = phi ptr [ %target_.i.i60, %if.else.i58 ], [ %fs_tracer_.i79, %land.lhs.true.i55 ]
   %retval.0.i62 = load ptr, ptr %retval.0.in.i61, align 8
-  store ptr %src.0157, ptr %ref.tmp62, align 8
+  store ptr %src.0156, ptr %ref.tmp62, align 8
   store i64 %size.0, ptr %size_.i66, align 8
   %vtable64 = load ptr, ptr %retval.0.i62, align 8
   %vfn65 = getelementptr inbounds i8, ptr %vtable64, i64 40
   %36 = load ptr, ptr %vfn65, align 8
-  invoke void %36(ptr nonnull sret(%"class.rocksdb::IOStatus") align 8 %ref.tmp58, ptr noundef nonnull align 8 dereferenceable(33) %retval.0.i62, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp62, i64 noundef %write_offset.0158, ptr noundef nonnull align 8 dereferenceable(83) %io_options, ptr noundef nonnull align 8 dereferenceable(16) %v_info, ptr noundef null)
+  invoke void %36(ptr nonnull sret(%"class.rocksdb::IOStatus") align 8 %ref.tmp58, ptr noundef nonnull align 8 dereferenceable(33) %retval.0.i62, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp62, i64 noundef %write_offset.0157, ptr noundef nonnull align 8 dereferenceable(83) %io_options, ptr noundef nonnull align 8 dereferenceable(16) %v_info, ptr noundef null)
           to label %invoke.cont66 unwind label %lpad42
 
 invoke.cont66:                                    ; preds = %invoke.cont60
@@ -7268,12 +7268,12 @@ if.else.i73:                                      ; preds = %land.lhs.true.i70, 
 invoke.cont70:                                    ; preds = %land.lhs.true.i70, %if.else.i73
   %retval.0.in.i76 = phi ptr [ %target_.i.i75, %if.else.i73 ], [ %fs_tracer_.i79, %land.lhs.true.i70 ]
   %retval.0.i77 = load ptr, ptr %retval.0.in.i76, align 8
-  store ptr %src.0157, ptr %ref.tmp72, align 8
+  store ptr %src.0156, ptr %ref.tmp72, align 8
   store i64 %size.0, ptr %size_.i81, align 8
   %vtable74 = load ptr, ptr %retval.0.i77, align 8
   %vfn75 = getelementptr inbounds i8, ptr %vtable74, i64 32
   %47 = load ptr, ptr %vfn75, align 8
-  invoke void %47(ptr nonnull sret(%"class.rocksdb::IOStatus") align 8 %ref.tmp68, ptr noundef nonnull align 8 dereferenceable(33) %retval.0.i77, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp72, i64 noundef %write_offset.0158, ptr noundef nonnull align 8 dereferenceable(83) %io_options, ptr noundef null)
+  invoke void %47(ptr nonnull sret(%"class.rocksdb::IOStatus") align 8 %ref.tmp68, ptr noundef nonnull align 8 dereferenceable(33) %retval.0.i77, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp72, i64 noundef %write_offset.0157, ptr noundef nonnull align 8 dereferenceable(83) %io_options, ptr noundef null)
           to label %invoke.cont76 unwind label %lpad42
 
 invoke.cont76:                                    ; preds = %invoke.cont70
@@ -7329,7 +7329,7 @@ if.end78:                                         ; preds = %if.end78.sink.split
 if.then81:                                        ; preds = %if.end78
   %call82 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
   store i64 %call82, ptr %finish_ts, align 8
-  invoke void @_ZN7rocksdb18WritableFileWriter23NotifyOnFileWriteFinishEmmRKSt4pairINSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEENS3_INS4_12steady_clockES9_EEERKSC_RKNS_8IOStatusE(ptr noundef nonnull align 8 dereferenceable(218) %this, i64 noundef %write_offset.0158, i64 noundef %size.0, ptr noundef nonnull align 8 dereferenceable(16) %start_ts, ptr noundef nonnull align 8 dereferenceable(8) %finish_ts, ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
+  invoke void @_ZN7rocksdb18WritableFileWriter23NotifyOnFileWriteFinishEmmRKSt4pairINSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEENS3_INS4_12steady_clockES9_EEERKSC_RKNS_8IOStatusE(ptr noundef nonnull align 8 dereferenceable(218) %this, i64 noundef %write_offset.0157, i64 noundef %size.0, ptr noundef nonnull align 8 dereferenceable(16) %start_ts, ptr noundef nonnull align 8 dereferenceable(8) %finish_ts, ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
           to label %invoke.cont85 unwind label %lpad42
 
 invoke.cont85:                                    ; preds = %if.then81
@@ -7342,7 +7342,7 @@ if.then87:                                        ; preds = %invoke.cont85
           to label %invoke.cont89 unwind label %lpad42
 
 invoke.cont89:                                    ; preds = %if.then87
-  invoke void @_ZN7rocksdb18WritableFileWriter15NotifyOnIOErrorERKNS_8IOStatusENS_17FileOperationTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm(ptr noundef nonnull align 8 dereferenceable(218) %this, ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i32 noundef 9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88, i64 noundef %size.0, i64 noundef %write_offset.0158)
+  invoke void @_ZN7rocksdb18WritableFileWriter15NotifyOnIOErrorERKNS_8IOStatusENS_17FileOperationTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm(ptr noundef nonnull align 8 dereferenceable(218) %this, ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i32 noundef 9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88, i64 noundef %size.0, i64 noundef %write_offset.0157)
           to label %invoke.cont91 unwind label %lpad90
 
 invoke.cont91:                                    ; preds = %invoke.cont89
@@ -7367,7 +7367,7 @@ if.then96:                                        ; preds = %invoke.cont94
 
 cleanup:                                          ; preds = %invoke.cont85, %invoke.cont94, %if.then96
   %cmp.i108151 = phi i1 [ false, %if.then96 ], [ true, %invoke.cont94 ], [ true, %invoke.cont85 ]
-  %nrvo.1 = phi i1 [ true, %if.then96 ], [ %nrvo.0156, %invoke.cont94 ], [ %nrvo.0156, %invoke.cont85 ]
+  %nrvo.1 = phi i1 [ true, %if.then96 ], [ %nrvo.0160, %invoke.cont94 ], [ %nrvo.0160, %invoke.cont85 ]
   %tobool.not.i.i = icmp eq i64 %28, 0
   br i1 %tobool.not.i.i, label %_ZN7rocksdb13PerfStepTimerD2Ev.exit, label %if.then.i.i
 
@@ -7432,9 +7432,9 @@ ehcleanup:                                        ; preds = %lpad90, %lpad42
   br label %ehcleanup121
 
 if.end104:                                        ; preds = %_ZTWN7rocksdb15iostats_contextE.exit115.thread, %_ZTWN7rocksdb15iostats_contextE.exit117, %_ZTWN7rocksdb15iostats_contextE.exit115
-  %sub105 = sub i64 %left.0160, %size.0
-  %add.ptr = getelementptr inbounds i8, ptr %src.0157, i64 %size.0
-  %add106 = add i64 %size.0, %write_offset.0158
+  %sub105 = sub i64 %left.0159, %size.0
+  %add.ptr = getelementptr inbounds i8, ptr %src.0156, i64 %size.0
+  %add106 = add i64 %size.0, %write_offset.0157
   %67 = load atomic i64, ptr %flushed_size_ acquire, align 8
   %add109 = add i64 %67, %size.0
   store atomic i64 %add109, ptr %flushed_size_ release, align 8

@@ -1487,7 +1487,7 @@ define internal fastcc void @pqTraceOutputNchar(ptr noundef %0, i32 noundef %1, 
 
 11:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.pre-phi, %31 ]
-  %.029 = phi i32 [ 0, %.lr.ph ], [ %.1, %31 ]
+  %.02628 = phi i32 [ 0, %.lr.ph ], [ %.1, %31 ]
   %12 = load ptr, ptr %10, align 8
   %13 = getelementptr i8, ptr %7, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
@@ -1503,10 +1503,10 @@ define internal fastcc void @pqTraceOutputNchar(ptr noundef %0, i32 noundef %1, 
   br label %31
 
 19:                                               ; preds = %11
-  %20 = sext i32 %.029 to i64
+  %20 = sext i32 %.02628 to i64
   %21 = getelementptr i8, ptr %7, i64 %20
   %22 = trunc nuw nsw i64 %indvars.iv to i32
-  %23 = sub i32 %22, %.029
+  %23 = sub i32 %22, %.02628
   %24 = sext i32 %23 to i64
   %25 = tail call i64 @fwrite(ptr noundef %21, i64 noundef 1, i64 noundef %24, ptr noundef %0)
   %26 = load i8, ptr %13, align 1
@@ -1518,19 +1518,19 @@ define internal fastcc void @pqTraceOutputNchar(ptr noundef %0, i32 noundef %1, 
 
 31:                                               ; preds = %._crit_edge31, %19
   %indvars.iv.next.pre-phi = phi i64 [ %.pre, %._crit_edge31 ], [ %29, %19 ]
-  %.1 = phi i32 [ %.029, %._crit_edge31 ], [ %30, %19 ]
+  %.1 = phi i32 [ %.02628, %._crit_edge31 ], [ %30, %19 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %31, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %.1, %31 ]
-  %32 = icmp slt i32 %.0.lcssa, %1
+  %.026.lcssa = phi i32 [ 0, %4 ], [ %.1, %31 ]
+  %32 = icmp slt i32 %.026.lcssa, %1
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %._crit_edge
-  %34 = sext i32 %.0.lcssa to i64
+  %34 = sext i32 %.026.lcssa to i64
   %35 = getelementptr i8, ptr %7, i64 %34
-  %36 = sub i32 %1, %.0.lcssa
+  %36 = sub i32 %1, %.026.lcssa
   %37 = sext i32 %36 to i64
   %38 = tail call i64 @fwrite(ptr noundef %35, i64 noundef 1, i64 noundef %37, ptr noundef %0)
   br label %39

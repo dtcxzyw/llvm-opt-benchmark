@@ -442,8 +442,8 @@ if.end:                                           ; preds = %entry, %if.else
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end25, %if.end
-  %bestPosn.0 = phi i64 [ -1, %if.end ], [ %bestPosn.1, %if.end25 ]
   %bestValue.0 = phi i32 [ -1, %if.end ], [ %bestValue.1, %if.end25 ]
+  %bestPosn.0 = phi i64 [ -1, %if.end ], [ %bestPosn.1, %if.end25 ]
   %7 = load ptr, ptr %fText, align 8
   %call12 = invoke i32 @utext_previous32_75(ptr noundef %7)
           to label %invoke.cont11 unwind label %lpad
@@ -540,15 +540,15 @@ lpad:                                             ; preds = %if.then17, %while.b
   br label %eh.resume
 
 if.end25:                                         ; preds = %if.else4.i.i, %if.then2.i9.i, %if.then.i.i, %if.end9.sink.split.i.i, %cond.true.i, %invoke.cont14
-  %bestPosn.1 = phi i64 [ %bestPosn.0, %invoke.cont14 ], [ %call22, %cond.true.i ], [ %call22, %if.end9.sink.split.i.i ], [ %call22, %if.then.i.i ], [ %call22, %if.then2.i9.i ], [ %call22, %if.else4.i.i ]
   %bestValue.1 = phi i32 [ %bestValue.0, %invoke.cont14 ], [ %and2.i, %cond.true.i ], [ %or.i.i, %if.end9.sink.split.i.i ], [ %sub.i13.i, %if.then.i.i ], [ %or.i12.i, %if.then2.i9.i ], [ %or9.i.i, %if.else4.i.i ]
+  %bestPosn.1 = phi i64 [ %bestPosn.0, %invoke.cont14 ], [ %call22, %cond.true.i ], [ %call22, %if.end9.sink.split.i.i ], [ %call22, %if.then.i.i ], [ %call22, %if.then2.i9.i ], [ %call22, %if.else4.i.i ]
   %and = and i32 %call15, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end25, %invoke.cont11
-  %bestPosn.2 = phi i64 [ %bestPosn.1, %if.end25 ], [ %bestPosn.0, %invoke.cont11 ]
   %bestValue.2 = phi i32 [ %bestValue.1, %if.end25 ], [ %bestValue.0, %invoke.cont11 ]
+  %bestPosn.2 = phi i64 [ %bestPosn.1, %if.end25 ], [ %bestPosn.0, %invoke.cont11 ]
   call void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %iter) #13
   %cmp28 = icmp sgt i64 %bestPosn.2, -1
   br i1 %cmp28, label %if.then29, label %return

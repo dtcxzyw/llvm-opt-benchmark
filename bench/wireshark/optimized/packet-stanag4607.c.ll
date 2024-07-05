@@ -772,38 +772,38 @@ define internal i32 @dissect_stanag4607(ptr noundef %0, ptr noundef %1, ptr noun
   br label %51
 
 51:                                               ; preds = %26, %25
-  %.093 = phi ptr [ %34, %26 ], [ null, %25 ]
-  %.092 = phi ptr [ %30, %26 ], [ null, %25 ]
+  %.095 = phi ptr [ %34, %26 ], [ null, %25 ]
+  %.094 = phi ptr [ %30, %26 ], [ null, %25 ]
   %52 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 2) #6
   %53 = call i32 @tvb_reported_length(ptr noundef %0) #6
   %.not99 = icmp eq i32 %53, %52
   br i1 %.not99, label %57, label %54
 
 54:                                               ; preds = %51
-  %55 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.093, ptr noundef nonnull @ei_bad_packet_size) #6
+  %55 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.095, ptr noundef nonnull @ei_bad_packet_size) #6
   %56 = call i32 @tvb_reported_length(ptr noundef %0) #6
   br label %57
 
 57:                                               ; preds = %54, %51
-  %.094 = phi i32 [ %56, %54 ], [ %52, %51 ]
+  %.093 = phi i32 [ %56, %54 ], [ %52, %51 ]
   br label %58
 
 58:                                               ; preds = %dissect_dwell.exit, %57
-  %.095 = phi i32 [ 32, %57 ], [ %.1, %dissect_dwell.exit ]
-  %59 = icmp ult i32 %.095, %.094
+  %.091 = phi i32 [ 32, %57 ], [ %.1, %dissect_dwell.exit ]
+  %59 = icmp ult i32 %.091, %.093
   br i1 %59, label %60, label %427
 
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_4607_segment_type, align 4
-  %62 = call ptr @proto_tree_add_item(ptr noundef %.092, i32 noundef %61, ptr noundef %0, i32 noundef %.095, i32 noundef 1, i32 noundef 0) #6
-  %63 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.095) #6
-  %64 = add nuw i32 %.095, 1
+  %62 = call ptr @proto_tree_add_item(ptr noundef %.094, i32 noundef %61, ptr noundef %0, i32 noundef %.091, i32 noundef 1, i32 noundef 0) #6
+  %63 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.091) #6
+  %64 = add nuw i32 %.091, 1
   %65 = load i32, ptr @ett_4607_seg, align 4
   %66 = call ptr @proto_item_add_subtree(ptr noundef %62, i32 noundef %65) #6
   %67 = load i32, ptr @hf_4607_segment_size, align 4
   %68 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %67, ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef 0) #6
   %69 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %64) #6
-  %70 = add i32 %.095, 5
+  %70 = add i32 %.091, 5
   %71 = icmp ult i32 %69, 14
   br i1 %71, label %72, label %75
 
@@ -814,7 +814,7 @@ define internal i32 @dissect_stanag4607(ptr noundef %0, ptr noundef %1, ptr noun
   br label %75
 
 75:                                               ; preds = %72, %60
-  %.0 = phi i32 [ 14, %72 ], [ %69, %60 ]
+  %.092 = phi i32 [ 14, %72 ], [ %69, %60 ]
   switch i8 %63, label %424 [
     i8 1, label %76
     i8 2, label %102
@@ -823,7 +823,7 @@ define internal i32 @dissect_stanag4607(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 76:                                               ; preds = %75
-  %.not102 = icmp eq i32 %.0, 44
+  %.not102 = icmp eq i32 %.092, 44
   br i1 %.not102, label %80, label %77
 
 77:                                               ; preds = %76
@@ -835,58 +835,58 @@ define internal i32 @dissect_stanag4607(ptr noundef %0, ptr noundef %1, ptr noun
 80:                                               ; preds = %77, %76
   %81 = load i32, ptr @hf_4607_mission_plan, align 4
   %82 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %81, ptr noundef %0, i32 noundef %70, i32 noundef 12, i32 noundef 0) #6
-  %83 = add i32 %.095, 17
+  %83 = add i32 %.091, 17
   %84 = load i32, ptr @hf_4607_mission_flight_plan, align 4
   %85 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %84, ptr noundef %0, i32 noundef %83, i32 noundef 12, i32 noundef 0) #6
-  %86 = add i32 %.095, 29
+  %86 = add i32 %.091, 29
   %87 = load i32, ptr @hf_4607_mission_platform, align 4
   %88 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %87, ptr noundef %0, i32 noundef %86, i32 noundef 1, i32 noundef 0) #6
-  %89 = add i32 %.095, 30
+  %89 = add i32 %.091, 30
   %90 = load i32, ptr @hf_4607_mission_platform_config, align 4
   %91 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %90, ptr noundef %0, i32 noundef %89, i32 noundef 10, i32 noundef 0) #6
-  %92 = add i32 %.095, 40
+  %92 = add i32 %.091, 40
   %93 = load i32, ptr @hf_4607_mission_time_year, align 4
   %94 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %93, ptr noundef %0, i32 noundef %92, i32 noundef 2, i32 noundef 0) #6
-  %95 = add i32 %.095, 42
+  %95 = add i32 %.091, 42
   %96 = load i32, ptr @hf_4607_mission_time_month, align 4
   %97 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %96, ptr noundef %0, i32 noundef %95, i32 noundef 1, i32 noundef 0) #6
-  %98 = add i32 %.095, 43
+  %98 = add i32 %.091, 43
   %99 = load i32, ptr @hf_4607_mission_time_day, align 4
   %100 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %99, ptr noundef %0, i32 noundef %98, i32 noundef 1, i32 noundef 0) #6
-  %101 = add i32 %.095, 44
+  %101 = add i32 %.091, 44
   br label %dissect_dwell.exit
 
 102:                                              ; preds = %75
   %103 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %70) #6
   %104 = load i32, ptr @hf_4607_dwell_mask, align 4
   %105 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %104, ptr noundef %0, i32 noundef %70, i32 noundef 8, i32 noundef 0) #6
-  %106 = add i32 %.095, 13
+  %106 = add i32 %.091, 13
   %107 = load i32, ptr @hf_4607_dwell_revisit_index, align 4
   %108 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %107, ptr noundef %0, i32 noundef %106, i32 noundef 2, i32 noundef 0) #6
-  %109 = add i32 %.095, 15
+  %109 = add i32 %.091, 15
   %110 = load i32, ptr @hf_4607_dwell_dwell_index, align 4
   %111 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %110, ptr noundef %0, i32 noundef %109, i32 noundef 2, i32 noundef 0) #6
-  %112 = add i32 %.095, 17
+  %112 = add i32 %.091, 17
   %113 = load i32, ptr @hf_4607_dwell_last_dwell, align 4
   %114 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %113, ptr noundef %0, i32 noundef %112, i32 noundef 1, i32 noundef 0) #6
-  %115 = add i32 %.095, 18
+  %115 = add i32 %.091, 18
   %116 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %115) #6
   %117 = zext i16 %116 to i32
   %118 = load i32, ptr @hf_4607_dwell_count, align 4
   %119 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %118, ptr noundef %0, i32 noundef %115, i32 noundef 2, i32 noundef 0) #6
-  %120 = add i32 %.095, 20
+  %120 = add i32 %.091, 20
   %121 = load i32, ptr @hf_4607_dwell_time, align 4
   %122 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %121, ptr noundef %0, i32 noundef %120, i32 noundef 4, i32 noundef 0) #6
-  %123 = add i32 %.095, 24
+  %123 = add i32 %.091, 24
   %124 = load i32, ptr @hf_4607_dwell_sensor_lat, align 4
   %125 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %124, ptr noundef %0, i32 noundef %123, i32 noundef 4, i32 noundef 0) #6
-  %126 = add i32 %.095, 28
+  %126 = add i32 %.091, 28
   %127 = load i32, ptr @hf_4607_dwell_sensor_lon, align 4
   %128 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %127, ptr noundef %0, i32 noundef %126, i32 noundef 4, i32 noundef 0) #6
-  %129 = add i32 %.095, 32
+  %129 = add i32 %.091, 32
   %130 = load i32, ptr @hf_4607_dwell_sensor_alt, align 4
   %131 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %130, ptr noundef %0, i32 noundef %129, i32 noundef 4, i32 noundef 0) #6
-  %132 = add i32 %.095, 36
+  %132 = add i32 %.091, 36
   %133 = and i64 %103, 36028797018963968
   %.not.i = icmp eq i64 %133, 0
   br i1 %.not.i, label %141, label %134
@@ -894,10 +894,10 @@ define internal i32 @dissect_stanag4607(ptr noundef %0, ptr noundef %1, ptr noun
 134:                                              ; preds = %102
   %135 = load i32, ptr @hf_4607_dwell_scale_lat, align 4
   %136 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %135, ptr noundef %0, i32 noundef %132, i32 noundef 4, i32 noundef 0) #6
-  %137 = add i32 %.095, 40
+  %137 = add i32 %.091, 40
   %138 = load i32, ptr @hf_4607_dwell_scale_lon, align 4
   %139 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %138, ptr noundef %0, i32 noundef %137, i32 noundef 4, i32 noundef 0) #6
-  %140 = add i32 %.095, 44
+  %140 = add i32 %.091, 44
   br label %141
 
 141:                                              ; preds = %134, %102
@@ -1198,7 +1198,7 @@ dissect_target.exit.i:                            ; preds = %305, %304
   br i1 %.not150.i, label %dissect_dwell.exit, label %235, !llvm.loop !4
 
 309:                                              ; preds = %75
-  %.not101 = icmp eq i32 %.0, 73
+  %.not101 = icmp eq i32 %.092, 73
   br i1 %.not101, label %313, label %310
 
 310:                                              ; preds = %309
@@ -1210,92 +1210,92 @@ dissect_target.exit.i:                            ; preds = %305, %304
 313:                                              ; preds = %310, %309
   %314 = load i32, ptr @hf_4607_jobdef_job_id, align 4
   %315 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %314, ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef 0) #6
-  %316 = add i32 %.095, 9
+  %316 = add i32 %.091, 9
   %317 = load i32, ptr @hf_4607_jobdef_sensor_type, align 4
   %318 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %317, ptr noundef %0, i32 noundef %316, i32 noundef 1, i32 noundef 0) #6
-  %319 = add i32 %.095, 10
+  %319 = add i32 %.091, 10
   %320 = load i32, ptr @hf_4607_jobdef_sensor_model, align 4
   %321 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %320, ptr noundef %0, i32 noundef %319, i32 noundef 6, i32 noundef 0) #6
-  %322 = add i32 %.095, 16
+  %322 = add i32 %.091, 16
   %323 = load i32, ptr @hf_4607_jobdef_filter, align 4
   %324 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %323, ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0) #6
-  %325 = add i32 %.095, 17
+  %325 = add i32 %.091, 17
   %326 = load i32, ptr @hf_4607_jobdef_priority, align 4
   %327 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %326, ptr noundef %0, i32 noundef %325, i32 noundef 1, i32 noundef 0) #6
-  %328 = add i32 %.095, 18
+  %328 = add i32 %.091, 18
   %329 = load i32, ptr @hf_4607_jobdef_ba_lat_a, align 4
   %330 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %329, ptr noundef %0, i32 noundef %328, i32 noundef 4, i32 noundef 0) #6
-  %331 = add i32 %.095, 22
+  %331 = add i32 %.091, 22
   %332 = load i32, ptr @hf_4607_jobdef_ba_lon_a, align 4
   %333 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %332, ptr noundef %0, i32 noundef %331, i32 noundef 4, i32 noundef 0) #6
-  %334 = add i32 %.095, 26
+  %334 = add i32 %.091, 26
   %335 = load i32, ptr @hf_4607_jobdef_ba_lat_b, align 4
   %336 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %335, ptr noundef %0, i32 noundef %334, i32 noundef 4, i32 noundef 0) #6
-  %337 = add i32 %.095, 30
+  %337 = add i32 %.091, 30
   %338 = load i32, ptr @hf_4607_jobdef_ba_lon_b, align 4
   %339 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %338, ptr noundef %0, i32 noundef %337, i32 noundef 4, i32 noundef 0) #6
-  %340 = add i32 %.095, 34
+  %340 = add i32 %.091, 34
   %341 = load i32, ptr @hf_4607_jobdef_ba_lat_c, align 4
   %342 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %341, ptr noundef %0, i32 noundef %340, i32 noundef 4, i32 noundef 0) #6
-  %343 = add i32 %.095, 38
+  %343 = add i32 %.091, 38
   %344 = load i32, ptr @hf_4607_jobdef_ba_lon_c, align 4
   %345 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %344, ptr noundef %0, i32 noundef %343, i32 noundef 4, i32 noundef 0) #6
-  %346 = add i32 %.095, 42
+  %346 = add i32 %.091, 42
   %347 = load i32, ptr @hf_4607_jobdef_ba_lat_d, align 4
   %348 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %347, ptr noundef %0, i32 noundef %346, i32 noundef 4, i32 noundef 0) #6
-  %349 = add i32 %.095, 46
+  %349 = add i32 %.091, 46
   %350 = load i32, ptr @hf_4607_jobdef_ba_lon_d, align 4
   %351 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %350, ptr noundef %0, i32 noundef %349, i32 noundef 4, i32 noundef 0) #6
-  %352 = add i32 %.095, 50
+  %352 = add i32 %.091, 50
   %353 = load i32, ptr @hf_4607_jobdef_radar_mode, align 4
   %354 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %353, ptr noundef %0, i32 noundef %352, i32 noundef 1, i32 noundef 0) #6
-  %355 = add i32 %.095, 51
+  %355 = add i32 %.091, 51
   %356 = load i32, ptr @hf_4607_jobdef_revisit_interval, align 4
   %357 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %356, ptr noundef %0, i32 noundef %355, i32 noundef 2, i32 noundef 0) #6
-  %358 = add i32 %.095, 53
+  %358 = add i32 %.091, 53
   %359 = load i32, ptr @hf_4607_jobdef_unc_along, align 4
   %360 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %359, ptr noundef %0, i32 noundef %358, i32 noundef 2, i32 noundef 0) #6
-  %361 = add i32 %.095, 55
+  %361 = add i32 %.091, 55
   %362 = load i32, ptr @hf_4607_jobdef_unc_cross, align 4
   %363 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %362, ptr noundef %0, i32 noundef %361, i32 noundef 2, i32 noundef 0) #6
-  %364 = add i32 %.095, 57
+  %364 = add i32 %.091, 57
   %365 = load i32, ptr @hf_4607_jobdef_unc_alt, align 4
   %366 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %365, ptr noundef %0, i32 noundef %364, i32 noundef 2, i32 noundef 0) #6
-  %367 = add i32 %.095, 59
+  %367 = add i32 %.091, 59
   %368 = load i32, ptr @hf_4607_jobdef_unc_heading, align 4
   %369 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %368, ptr noundef %0, i32 noundef %367, i32 noundef 1, i32 noundef 0) #6
-  %370 = add i32 %.095, 60
+  %370 = add i32 %.091, 60
   %371 = load i32, ptr @hf_4607_jobdef_unc_speed, align 4
   %372 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %371, ptr noundef %0, i32 noundef %370, i32 noundef 2, i32 noundef 0) #6
-  %373 = add i32 %.095, 62
+  %373 = add i32 %.091, 62
   %374 = load i32, ptr @hf_4607_jobdef_sense_slant, align 4
   %375 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %374, ptr noundef %0, i32 noundef %373, i32 noundef 2, i32 noundef 0) #6
-  %376 = add i32 %.095, 64
+  %376 = add i32 %.091, 64
   %377 = load i32, ptr @hf_4607_jobdef_sense_cross, align 4
   %378 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %377, ptr noundef %0, i32 noundef %376, i32 noundef 2, i32 noundef 0) #6
-  %379 = add i32 %.095, 66
+  %379 = add i32 %.091, 66
   %380 = load i32, ptr @hf_4607_jobdef_sense_vlos, align 4
   %381 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %380, ptr noundef %0, i32 noundef %379, i32 noundef 2, i32 noundef 0) #6
-  %382 = add i32 %.095, 68
+  %382 = add i32 %.091, 68
   %383 = load i32, ptr @hf_4607_jobdef_sense_mdv, align 4
   %384 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %383, ptr noundef %0, i32 noundef %382, i32 noundef 1, i32 noundef 0) #6
-  %385 = add i32 %.095, 69
+  %385 = add i32 %.091, 69
   %386 = load i32, ptr @hf_4607_jobdef_sense_prob, align 4
   %387 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %386, ptr noundef %0, i32 noundef %385, i32 noundef 1, i32 noundef 0) #6
-  %388 = add i32 %.095, 70
+  %388 = add i32 %.091, 70
   %389 = load i32, ptr @hf_4607_jobdef_sense_alarm, align 4
   %390 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %389, ptr noundef %0, i32 noundef %388, i32 noundef 1, i32 noundef 0) #6
-  %391 = add i32 %.095, 71
+  %391 = add i32 %.091, 71
   %392 = load i32, ptr @hf_4607_jobdef_terrain_model, align 4
   %393 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %392, ptr noundef %0, i32 noundef %391, i32 noundef 1, i32 noundef 0) #6
-  %394 = add i32 %.095, 72
+  %394 = add i32 %.091, 72
   %395 = load i32, ptr @hf_4607_jobdef_geoid_model, align 4
   %396 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %395, ptr noundef %0, i32 noundef %394, i32 noundef 1, i32 noundef 0) #6
-  %397 = add i32 %.095, 73
+  %397 = add i32 %.091, 73
   br label %dissect_dwell.exit
 
 398:                                              ; preds = %75
-  %.not100 = icmp eq i32 %.0, 28
+  %.not100 = icmp eq i32 %.092, 28
   br i1 %.not100, label %402, label %399
 
 399:                                              ; preds = %398
@@ -1307,34 +1307,34 @@ dissect_target.exit.i:                            ; preds = %305, %304
 402:                                              ; preds = %399, %398
   %403 = load i32, ptr @hf_4607_platloc_time, align 4
   %404 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %403, ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef 0) #6
-  %405 = add i32 %.095, 9
+  %405 = add i32 %.091, 9
   %406 = load i32, ptr @hf_4607_platloc_latitude, align 4
   %407 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %406, ptr noundef %0, i32 noundef %405, i32 noundef 4, i32 noundef 0) #6
-  %408 = add i32 %.095, 13
+  %408 = add i32 %.091, 13
   %409 = load i32, ptr @hf_4607_platloc_longitude, align 4
   %410 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %409, ptr noundef %0, i32 noundef %408, i32 noundef 4, i32 noundef 0) #6
-  %411 = add i32 %.095, 17
+  %411 = add i32 %.091, 17
   %412 = load i32, ptr @hf_4607_platloc_altitude, align 4
   %413 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %412, ptr noundef %0, i32 noundef %411, i32 noundef 4, i32 noundef 0) #6
-  %414 = add i32 %.095, 21
+  %414 = add i32 %.091, 21
   %415 = load i32, ptr @hf_4607_platloc_track, align 4
   %416 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %415, ptr noundef %0, i32 noundef %414, i32 noundef 2, i32 noundef 0) #6
-  %417 = add i32 %.095, 23
+  %417 = add i32 %.091, 23
   %418 = load i32, ptr @hf_4607_platloc_speed, align 4
   %419 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %418, ptr noundef %0, i32 noundef %417, i32 noundef 4, i32 noundef 0) #6
-  %420 = add i32 %.095, 27
+  %420 = add i32 %.091, 27
   %421 = load i32, ptr @hf_4607_platloc_vertical_velocity, align 4
   %422 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %421, ptr noundef %0, i32 noundef %420, i32 noundef 1, i32 noundef 0) #6
-  %423 = add i32 %.095, 28
+  %423 = add i32 %.091, 28
   br label %dissect_dwell.exit
 
 424:                                              ; preds = %75
-  %425 = add i32 %.0, %.095
+  %425 = add i32 %.092, %.091
   br label %dissect_dwell.exit
 
 dissect_dwell.exit:                               ; preds = %dissect_target.exit.i, %224, %424, %402, %313, %80
   %.1 = phi i32 [ %425, %424 ], [ %423, %402 ], [ %397, %313 ], [ %101, %80 ], [ %.7.i, %224 ], [ %.9.i.i, %dissect_target.exit.i ]
-  %426 = icmp ult i32 %.1, %.095
+  %426 = icmp ult i32 %.1, %.091
   br i1 %426, label %427, label %58, !llvm.loop !6
 
 427:                                              ; preds = %dissect_dwell.exit, %58
@@ -1342,8 +1342,8 @@ dissect_dwell.exit:                               ; preds = %dissect_target.exit
   br label %429
 
 429:                                              ; preds = %4, %427
-  %.091 = phi i32 [ %428, %427 ], [ 0, %4 ]
-  ret i32 %.091
+  %.0 = phi i32 [ %428, %427 ], [ 0, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

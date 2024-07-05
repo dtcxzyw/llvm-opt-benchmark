@@ -188,8 +188,8 @@ define dso_local zeroext i1 @rate_limit_exceeded(ptr nocapture noundef readonly 
   br label %17
 
 17:                                               ; preds = %21, %11
-  %.048 = phi i32 [ %15, %11 ], [ %spec.store.select, %21 ]
-  %18 = sext i32 %.048 to i64
+  %.049 = phi i32 [ %15, %11 ], [ %spec.store.select, %21 ]
+  %18 = sext i32 %.049 to i64
   %19 = getelementptr inbounds %struct.user_bucket_t, ptr %16, i64 %18, i32 3
   %20 = load i32, ptr %19, align 4
   %.not61 = icmp eq i32 %20, 0
@@ -198,7 +198,7 @@ define dso_local zeroext i1 @rate_limit_exceeded(ptr nocapture noundef readonly 
   br i1 %or.cond71, label %.critedge, label %21
 
 21:                                               ; preds = %17
-  %22 = add nsw i32 %.048, 1
+  %22 = add nsw i32 %.049, 1
   %23 = icmp eq i32 %22, %14
   %spec.store.select = select i1 %23, i32 0, i32 %22
   %24 = icmp eq i32 %spec.store.select, %15
@@ -275,7 +275,7 @@ define dso_local zeroext i1 @rate_limit_exceeded(ptr nocapture noundef readonly 
   br label %66
 
 66:                                               ; preds = %60, %64
-  %.049 = phi i8 [ 0, %64 ], [ 1, %60 ]
+  %.048 = phi i8 [ 0, %64 ], [ 1, %60 ]
   %67 = tail call i32 @get_log_level() #7
   %68 = icmp sgt i32 %67, 6
   br i1 %68, label %69, label %76
@@ -285,14 +285,14 @@ define dso_local zeroext i1 @rate_limit_exceeded(ptr nocapture noundef readonly 
   %71 = load ptr, ptr @user_buckets, align 8
   %72 = getelementptr inbounds %struct.user_bucket_t, ptr %71, i64 %18, i32 2
   %73 = load i32, ptr %72, align 8
-  %74 = trunc nuw i8 %.049 to i1
+  %74 = trunc nuw i8 %.048 to i1
   %75 = select i1 %74, ptr @.str.13, ptr @.str.14
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.rate_limit_exceeded, i32 noundef %70, i32 noundef %.048, i32 noundef %73, ptr noundef nonnull %75) #7
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.rate_limit_exceeded, i32 noundef %70, i32 noundef %.049, i32 noundef %73, ptr noundef nonnull %75) #7
   br label %76
 
 76:                                               ; preds = %.critedge.thread, %66, %69, %27, %40
-  %.169 = phi i32 [ %14, %.critedge.thread ], [ %.048, %69 ], [ %.048, %66 ], [ %.048, %40 ], [ %.048, %27 ]
-  %.150 = phi i8 [ 0, %.critedge.thread ], [ %.049, %69 ], [ %.049, %66 ], [ 0, %40 ], [ 0, %27 ]
+  %.15069 = phi i32 [ %14, %.critedge.thread ], [ %.049, %69 ], [ %.049, %66 ], [ %.049, %40 ], [ %.049, %27 ]
+  %.1 = phi i8 [ 0, %.critedge.thread ], [ %.048, %69 ], [ %.048, %66 ], [ 0, %40 ], [ 0, %27 ]
   %77 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @rate_limit_mutex) #7
   %.not66 = icmp eq i32 %77, 0
   br i1 %.not66, label %80, label %78
@@ -304,7 +304,7 @@ define dso_local zeroext i1 @rate_limit_exceeded(ptr nocapture noundef readonly 
   unreachable
 
 80:                                               ; preds = %76
-  %81 = trunc nuw i8 %.150 to i1
+  %81 = trunc nuw i8 %.1 to i1
   %82 = load i32, ptr @log_freq, align 4
   %83 = icmp ne i32 %82, -1
   %or.cond = select i1 %81, i1 %83, i1 false
@@ -312,7 +312,7 @@ define dso_local zeroext i1 @rate_limit_exceeded(ptr nocapture noundef readonly 
 
 84:                                               ; preds = %80
   %85 = load ptr, ptr @user_buckets, align 8
-  %86 = sext i32 %.169 to i64
+  %86 = sext i32 %.15069 to i64
   %87 = getelementptr inbounds %struct.user_bucket_t, ptr %85, i64 %86, i32 1
   %88 = load i64, ptr %87, align 8
   %89 = sext i32 %82 to i64

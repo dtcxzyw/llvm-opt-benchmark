@@ -280,15 +280,15 @@ sub_0:                                            ; preds = %3
   %48 = load i8, ptr %47, align 1
   %.not43 = icmp eq i8 %48, 58
   %49 = sext i1 %.not43 to i32
-  %.2 = add i32 %46, %49
-  %50 = icmp sgt i32 %.2, 0
+  %.236 = add i32 %46, %49
+  %50 = icmp sgt i32 %.236, 0
   br i1 %50, label %51, label %.thread
 
 51:                                               ; preds = %45
-  %.236.idx = zext i1 %.not43 to i64
-  %.236 = getelementptr i8, ptr %47, i64 %.236.idx
+  %.2.idx = zext i1 %.not43 to i64
+  %.2 = getelementptr i8, ptr %47, i64 %.2.idx
   %52 = load ptr, ptr @stderr, align 8
-  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.8, i32 noundef %.2, ptr noundef %.236) #8
+  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.8, i32 noundef %.236, ptr noundef %.2) #8
   br label %.thread
 
 .thread:                                          ; preds = %sub_0, %43, %.tail, %11, %.thread45, %20, %22, %.thread46, %.thread47, %45, %51, %19, %14, %9

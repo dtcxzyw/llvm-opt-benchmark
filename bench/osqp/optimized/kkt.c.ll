@@ -246,10 +246,10 @@ _kkt_colcount_to_colptr.exit.i:                   ; preds = %123, %_kkt_colcount
 .lr.ph42.split.us.split.us.i.i:                   ; preds = %.lr.ph42.i.i, %.loopexit.us.us.i.i
   %137 = phi i64 [ %145, %.loopexit.us.us.i.i ], [ %130, %.lr.ph42.i.i ]
   %138 = phi ptr [ %146, %.loopexit.us.us.i.i ], [ %.pre54.i.i, %.lr.ph42.i.i ]
-  %.03441.us.us.i.i = phi i64 [ %141, %.loopexit.us.us.i.i ], [ 0, %.lr.ph42.i.i ]
-  %139 = getelementptr inbounds i64, ptr %138, i64 %.03441.us.us.i.i
+  %.041.us.us.i.i = phi i64 [ %141, %.loopexit.us.us.i.i ], [ 0, %.lr.ph42.i.i ]
+  %139 = getelementptr inbounds i64, ptr %138, i64 %.041.us.us.i.i
   %140 = load i64, ptr %139, align 8
-  %141 = add nuw nsw i64 %.03441.us.us.i.i, 1
+  %141 = add nuw nsw i64 %.041.us.us.i.i, 1
   %142 = getelementptr inbounds i64, ptr %138, i64 %141
   %143 = load i64, ptr %142, align 8
   %144 = icmp slt i64 %140, %143
@@ -266,12 +266,12 @@ _kkt_colcount_to_colptr.exit.i:                   ; preds = %123, %_kkt_colcount
   br i1 %147, label %.lr.ph42.split.us.split.us.i.i, label %_kkt_fill_block.exit.i, !llvm.loop !12
 
 .lr.ph.us.us.i.i:                                 ; preds = %.lr.ph42.split.us.split.us.i.i, %.lr.ph.us.us.i.i
-  %.03337.us.us.us.us.i.i = phi i64 [ %162, %.lr.ph.us.us.i.i ], [ %140, %.lr.ph42.split.us.split.us.i.i ]
+  %.03437.us.us.us.us.i.i = phi i64 [ %162, %.lr.ph.us.us.i.i ], [ %140, %.lr.ph42.split.us.split.us.i.i ]
   %148 = load ptr, ptr %132, align 8
-  %149 = getelementptr inbounds i64, ptr %148, i64 %.03337.us.us.us.us.i.i
+  %149 = getelementptr inbounds i64, ptr %148, i64 %.03437.us.us.us.us.i.i
   %150 = load i64, ptr %149, align 8
   %151 = load ptr, ptr %133, align 8
-  %152 = getelementptr i64, ptr %151, i64 %.03441.us.us.i.i
+  %152 = getelementptr i64, ptr %151, i64 %.041.us.us.i.i
   %153 = load i64, ptr %152, align 8
   %154 = add nsw i64 %153, 1
   store i64 %154, ptr %152, align 8
@@ -279,12 +279,12 @@ _kkt_colcount_to_colptr.exit.i:                   ; preds = %123, %_kkt_colcount
   %156 = getelementptr inbounds i64, ptr %155, i64 %153
   store i64 %150, ptr %156, align 8
   %157 = load ptr, ptr %135, align 8
-  %158 = getelementptr inbounds double, ptr %157, i64 %.03337.us.us.us.us.i.i
+  %158 = getelementptr inbounds double, ptr %157, i64 %.03437.us.us.us.us.i.i
   %159 = load double, ptr %158, align 8
   %160 = load ptr, ptr %136, align 8
   %161 = getelementptr inbounds double, ptr %160, i64 %153
   store double %159, ptr %161, align 8
-  %162 = add nsw i64 %.03337.us.us.us.us.i.i, 1
+  %162 = add nsw i64 %.03437.us.us.us.us.i.i, 1
   %163 = load ptr, ptr %31, align 8
   %164 = getelementptr inbounds i64, ptr %163, i64 %141
   %165 = load i64, ptr %164, align 8
@@ -294,10 +294,10 @@ _kkt_colcount_to_colptr.exit.i:                   ; preds = %123, %_kkt_colcount
 .lr.ph42.split.us.split.i.i:                      ; preds = %.lr.ph42.i.i, %.loopexit.us.i.i
   %167 = phi i64 [ %175, %.loopexit.us.i.i ], [ %130, %.lr.ph42.i.i ]
   %168 = phi ptr [ %176, %.loopexit.us.i.i ], [ %.pre54.i.i, %.lr.ph42.i.i ]
-  %.03441.us.i.i = phi i64 [ %171, %.loopexit.us.i.i ], [ 0, %.lr.ph42.i.i ]
-  %169 = getelementptr inbounds i64, ptr %168, i64 %.03441.us.i.i
+  %.041.us.i.i = phi i64 [ %171, %.loopexit.us.i.i ], [ 0, %.lr.ph42.i.i ]
+  %169 = getelementptr inbounds i64, ptr %168, i64 %.041.us.i.i
   %170 = load i64, ptr %169, align 8
-  %171 = add nuw nsw i64 %.03441.us.i.i, 1
+  %171 = add nuw nsw i64 %.041.us.i.i, 1
   %172 = getelementptr inbounds i64, ptr %168, i64 %171
   %173 = load i64, ptr %172, align 8
   %174 = icmp slt i64 %170, %173
@@ -314,12 +314,12 @@ _kkt_colcount_to_colptr.exit.i:                   ; preds = %123, %_kkt_colcount
   br i1 %177, label %.lr.ph42.split.us.split.i.i, label %_kkt_fill_block.exit.i, !llvm.loop !12
 
 .lr.ph.us.i.i:                                    ; preds = %.lr.ph42.split.us.split.i.i, %.lr.ph.us.i.i
-  %.03337.us.us.i.i = phi i64 [ %193, %.lr.ph.us.i.i ], [ %170, %.lr.ph42.split.us.split.i.i ]
+  %.03437.us.us.i.i = phi i64 [ %193, %.lr.ph.us.i.i ], [ %170, %.lr.ph42.split.us.split.i.i ]
   %178 = load ptr, ptr %132, align 8
-  %179 = getelementptr inbounds i64, ptr %178, i64 %.03337.us.us.i.i
+  %179 = getelementptr inbounds i64, ptr %178, i64 %.03437.us.us.i.i
   %180 = load i64, ptr %179, align 8
   %181 = load ptr, ptr %133, align 8
-  %182 = getelementptr i64, ptr %181, i64 %.03441.us.i.i
+  %182 = getelementptr i64, ptr %181, i64 %.041.us.i.i
   %183 = load i64, ptr %182, align 8
   %184 = add nsw i64 %183, 1
   store i64 %184, ptr %182, align 8
@@ -327,14 +327,14 @@ _kkt_colcount_to_colptr.exit.i:                   ; preds = %123, %_kkt_colcount
   %186 = getelementptr inbounds i64, ptr %185, i64 %183
   store i64 %180, ptr %186, align 8
   %187 = load ptr, ptr %135, align 8
-  %188 = getelementptr inbounds double, ptr %187, i64 %.03337.us.us.i.i
+  %188 = getelementptr inbounds double, ptr %187, i64 %.03437.us.us.i.i
   %189 = load double, ptr %188, align 8
   %190 = load ptr, ptr %136, align 8
   %191 = getelementptr inbounds double, ptr %190, i64 %183
   store double %189, ptr %191, align 8
-  %192 = getelementptr inbounds i64, ptr %6, i64 %.03337.us.us.i.i
+  %192 = getelementptr inbounds i64, ptr %6, i64 %.03437.us.us.i.i
   store i64 %183, ptr %192, align 8
-  %193 = add nsw i64 %.03337.us.us.i.i, 1
+  %193 = add nsw i64 %.03437.us.us.i.i, 1
   %194 = load ptr, ptr %31, align 8
   %195 = getelementptr inbounds i64, ptr %194, i64 %171
   %196 = load i64, ptr %195, align 8
@@ -407,10 +407,10 @@ _kkt_fill_missing_diag_zeros.exit.i:              ; preds = %224, %_kkt_fill_blo
 .lr.ph42.split.split.us.i.i:                      ; preds = %.lr.ph42.i39.i, %.loopexit.us44.i.i
   %234 = phi i64 [ %242, %.loopexit.us44.i.i ], [ %227, %.lr.ph42.i39.i ]
   %235 = phi ptr [ %243, %.loopexit.us44.i.i ], [ %.pre54.i41.i, %.lr.ph42.i39.i ]
-  %.03441.us43.i.i = phi i64 [ %238, %.loopexit.us44.i.i ], [ 0, %.lr.ph42.i39.i ]
-  %236 = getelementptr inbounds i64, ptr %235, i64 %.03441.us43.i.i
+  %.041.us43.i.i = phi i64 [ %238, %.loopexit.us44.i.i ], [ 0, %.lr.ph42.i39.i ]
+  %236 = getelementptr inbounds i64, ptr %235, i64 %.041.us43.i.i
   %237 = load i64, ptr %236, align 8
-  %238 = add nuw nsw i64 %.03441.us43.i.i, 1
+  %238 = add nuw nsw i64 %.041.us43.i.i, 1
   %239 = getelementptr inbounds i64, ptr %235, i64 %238
   %240 = load i64, ptr %239, align 8
   %241 = icmp slt i64 %237, %240
@@ -427,9 +427,9 @@ _kkt_fill_missing_diag_zeros.exit.i:              ; preds = %224, %_kkt_fill_blo
   br i1 %244, label %.lr.ph42.split.split.us.i.i, label %_kkt_fill_block.exit43.i, !llvm.loop !12
 
 .lr.ph.us45.i.i:                                  ; preds = %.lr.ph42.split.split.us.i.i, %.lr.ph.us45.i.i
-  %.03337.us38.us.i.i = phi i64 [ %260, %.lr.ph.us45.i.i ], [ %237, %.lr.ph42.split.split.us.i.i ]
+  %.03437.us38.us.i.i = phi i64 [ %260, %.lr.ph.us45.i.i ], [ %237, %.lr.ph42.split.split.us.i.i ]
   %245 = load ptr, ptr %229, align 8
-  %246 = getelementptr inbounds i64, ptr %245, i64 %.03337.us38.us.i.i
+  %246 = getelementptr inbounds i64, ptr %245, i64 %.03437.us38.us.i.i
   %247 = load i64, ptr %246, align 8
   %248 = load ptr, ptr %230, align 8
   %249 = getelementptr i64, ptr %248, i64 %247
@@ -439,14 +439,14 @@ _kkt_fill_missing_diag_zeros.exit.i:              ; preds = %224, %_kkt_fill_blo
   store i64 %252, ptr %250, align 8
   %253 = load ptr, ptr %231, align 8
   %254 = getelementptr inbounds i64, ptr %253, i64 %251
-  store i64 %.03441.us43.i.i, ptr %254, align 8
+  store i64 %.041.us43.i.i, ptr %254, align 8
   %255 = load ptr, ptr %232, align 8
-  %256 = getelementptr inbounds double, ptr %255, i64 %.03337.us38.us.i.i
+  %256 = getelementptr inbounds double, ptr %255, i64 %.03437.us38.us.i.i
   %257 = load double, ptr %256, align 8
   %258 = load ptr, ptr %233, align 8
   %259 = getelementptr inbounds double, ptr %258, i64 %251
   store double %257, ptr %259, align 8
-  %260 = add nsw i64 %.03337.us38.us.i.i, 1
+  %260 = add nsw i64 %.03437.us38.us.i.i, 1
   %261 = load ptr, ptr %34, align 8
   %262 = getelementptr inbounds i64, ptr %261, i64 %238
   %263 = load i64, ptr %262, align 8
@@ -466,19 +466,19 @@ _kkt_fill_missing_diag_zeros.exit.i:              ; preds = %224, %_kkt_fill_blo
 .lr.ph42.split.split.i.i:                         ; preds = %.lr.ph42.i39.i, %.loopexit.i.i
   %268 = phi i64 [ %265, %.loopexit.i.i ], [ %227, %.lr.ph42.i39.i ]
   %269 = phi ptr [ %266, %.loopexit.i.i ], [ %.pre54.i41.i, %.lr.ph42.i39.i ]
-  %.03441.i.i = phi i64 [ %272, %.loopexit.i.i ], [ 0, %.lr.ph42.i39.i ]
-  %270 = getelementptr inbounds i64, ptr %269, i64 %.03441.i.i
+  %.041.i.i = phi i64 [ %272, %.loopexit.i.i ], [ 0, %.lr.ph42.i39.i ]
+  %270 = getelementptr inbounds i64, ptr %269, i64 %.041.i.i
   %271 = load i64, ptr %270, align 8
-  %272 = add nuw nsw i64 %.03441.i.i, 1
+  %272 = add nuw nsw i64 %.041.i.i, 1
   %273 = getelementptr inbounds i64, ptr %269, i64 %272
   %274 = load i64, ptr %273, align 8
   %275 = icmp slt i64 %271, %274
   br i1 %275, label %.lr.ph.i42.i, label %.loopexit.i.i
 
 .lr.ph.i42.i:                                     ; preds = %.lr.ph42.split.split.i.i, %.lr.ph.i42.i
-  %.03337.i.i = phi i64 [ %292, %.lr.ph.i42.i ], [ %271, %.lr.ph42.split.split.i.i ]
+  %.03437.i.i = phi i64 [ %292, %.lr.ph.i42.i ], [ %271, %.lr.ph42.split.split.i.i ]
   %276 = load ptr, ptr %229, align 8
-  %277 = getelementptr inbounds i64, ptr %276, i64 %.03337.i.i
+  %277 = getelementptr inbounds i64, ptr %276, i64 %.03437.i.i
   %278 = load i64, ptr %277, align 8
   %279 = load ptr, ptr %230, align 8
   %280 = getelementptr i64, ptr %279, i64 %278
@@ -488,16 +488,16 @@ _kkt_fill_missing_diag_zeros.exit.i:              ; preds = %224, %_kkt_fill_blo
   store i64 %283, ptr %281, align 8
   %284 = load ptr, ptr %231, align 8
   %285 = getelementptr inbounds i64, ptr %284, i64 %282
-  store i64 %.03441.i.i, ptr %285, align 8
+  store i64 %.041.i.i, ptr %285, align 8
   %286 = load ptr, ptr %232, align 8
-  %287 = getelementptr inbounds double, ptr %286, i64 %.03337.i.i
+  %287 = getelementptr inbounds double, ptr %286, i64 %.03437.i.i
   %288 = load double, ptr %287, align 8
   %289 = load ptr, ptr %233, align 8
   %290 = getelementptr inbounds double, ptr %289, i64 %282
   store double %288, ptr %290, align 8
-  %291 = getelementptr inbounds i64, ptr %7, i64 %.03337.i.i
+  %291 = getelementptr inbounds i64, ptr %7, i64 %.03437.i.i
   store i64 %282, ptr %291, align 8
-  %292 = add nsw i64 %.03337.i.i, 1
+  %292 = add nsw i64 %.03437.i.i, 1
   %293 = load ptr, ptr %34, align 8
   %294 = getelementptr inbounds i64, ptr %293, i64 %272
   %295 = load i64, ptr %294, align 8
@@ -890,10 +890,10 @@ _kkt_fill_missing_diag_zeros.exit.i96:            ; preds = %497
 .lr.ph42.split.split.us.i.i106:                   ; preds = %.lr.ph42.i.i97, %.loopexit.us44.i.i108
   %501 = phi i64 [ %509, %.loopexit.us44.i.i108 ], [ %.pr.i95, %.lr.ph42.i.i97 ]
   %502 = phi ptr [ %510, %.loopexit.us44.i.i108 ], [ %.pre54.i.i99, %.lr.ph42.i.i97 ]
-  %.03441.us43.i.i107 = phi i64 [ %505, %.loopexit.us44.i.i108 ], [ 0, %.lr.ph42.i.i97 ]
-  %503 = getelementptr inbounds i64, ptr %502, i64 %.03441.us43.i.i107
+  %.041.us43.i.i107 = phi i64 [ %505, %.loopexit.us44.i.i108 ], [ 0, %.lr.ph42.i.i97 ]
+  %503 = getelementptr inbounds i64, ptr %502, i64 %.041.us43.i.i107
   %504 = load i64, ptr %503, align 8
-  %505 = add nuw nsw i64 %.03441.us43.i.i107, 1
+  %505 = add nuw nsw i64 %.041.us43.i.i107, 1
   %506 = getelementptr inbounds i64, ptr %502, i64 %505
   %507 = load i64, ptr %506, align 8
   %508 = icmp slt i64 %504, %507
@@ -910,9 +910,9 @@ _kkt_fill_missing_diag_zeros.exit.i96:            ; preds = %497
   br i1 %511, label %.lr.ph42.split.split.us.i.i106, label %_kkt_fill_block.exit.i67, !llvm.loop !12
 
 .lr.ph.us45.i.i109:                               ; preds = %.lr.ph42.split.split.us.i.i106, %.lr.ph.us45.i.i109
-  %.03337.us38.us.i.i110 = phi i64 [ %526, %.lr.ph.us45.i.i109 ], [ %504, %.lr.ph42.split.split.us.i.i106 ]
+  %.03437.us38.us.i.i110 = phi i64 [ %526, %.lr.ph.us45.i.i109 ], [ %504, %.lr.ph42.split.split.us.i.i106 ]
   %512 = load ptr, ptr %467, align 8
-  %513 = getelementptr inbounds i64, ptr %512, i64 %.03337.us38.us.i.i110
+  %513 = getelementptr inbounds i64, ptr %512, i64 %.03437.us38.us.i.i110
   %514 = load i64, ptr %513, align 8
   %515 = load ptr, ptr %468, align 8
   %516 = getelementptr i64, ptr %515, i64 %514
@@ -921,14 +921,14 @@ _kkt_fill_missing_diag_zeros.exit.i96:            ; preds = %497
   store i64 %518, ptr %516, align 8
   %519 = load ptr, ptr %469, align 8
   %520 = getelementptr inbounds i64, ptr %519, i64 %517
-  store i64 %.03441.us43.i.i107, ptr %520, align 8
+  store i64 %.041.us43.i.i107, ptr %520, align 8
   %521 = load ptr, ptr %500, align 8
-  %522 = getelementptr inbounds double, ptr %521, i64 %.03337.us38.us.i.i110
+  %522 = getelementptr inbounds double, ptr %521, i64 %.03437.us38.us.i.i110
   %523 = load double, ptr %522, align 8
   %524 = load ptr, ptr %470, align 8
   %525 = getelementptr inbounds double, ptr %524, i64 %517
   store double %523, ptr %525, align 8
-  %526 = add nsw i64 %.03337.us38.us.i.i110, 1
+  %526 = add nsw i64 %.03437.us38.us.i.i110, 1
   %527 = load ptr, ptr %31, align 8
   %528 = getelementptr inbounds i64, ptr %527, i64 %505
   %529 = load i64, ptr %528, align 8
@@ -948,19 +948,19 @@ _kkt_fill_missing_diag_zeros.exit.i96:            ; preds = %497
 .lr.ph42.split.split.i.i100:                      ; preds = %.lr.ph42.i.i97, %.loopexit.i.i102
   %534 = phi i64 [ %531, %.loopexit.i.i102 ], [ %.pr.i95, %.lr.ph42.i.i97 ]
   %535 = phi ptr [ %532, %.loopexit.i.i102 ], [ %.pre54.i.i99, %.lr.ph42.i.i97 ]
-  %.03441.i.i101 = phi i64 [ %538, %.loopexit.i.i102 ], [ 0, %.lr.ph42.i.i97 ]
-  %536 = getelementptr inbounds i64, ptr %535, i64 %.03441.i.i101
+  %.041.i.i101 = phi i64 [ %538, %.loopexit.i.i102 ], [ 0, %.lr.ph42.i.i97 ]
+  %536 = getelementptr inbounds i64, ptr %535, i64 %.041.i.i101
   %537 = load i64, ptr %536, align 8
-  %538 = add nuw nsw i64 %.03441.i.i101, 1
+  %538 = add nuw nsw i64 %.041.i.i101, 1
   %539 = getelementptr inbounds i64, ptr %535, i64 %538
   %540 = load i64, ptr %539, align 8
   %541 = icmp slt i64 %537, %540
   br i1 %541, label %.lr.ph.i38.i, label %.loopexit.i.i102
 
 .lr.ph.i38.i:                                     ; preds = %.lr.ph42.split.split.i.i100, %.lr.ph.i38.i
-  %.03337.i.i103 = phi i64 [ %557, %.lr.ph.i38.i ], [ %537, %.lr.ph42.split.split.i.i100 ]
+  %.03437.i.i103 = phi i64 [ %557, %.lr.ph.i38.i ], [ %537, %.lr.ph42.split.split.i.i100 ]
   %542 = load ptr, ptr %467, align 8
-  %543 = getelementptr inbounds i64, ptr %542, i64 %.03337.i.i103
+  %543 = getelementptr inbounds i64, ptr %542, i64 %.03437.i.i103
   %544 = load i64, ptr %543, align 8
   %545 = load ptr, ptr %468, align 8
   %546 = getelementptr i64, ptr %545, i64 %544
@@ -969,16 +969,16 @@ _kkt_fill_missing_diag_zeros.exit.i96:            ; preds = %497
   store i64 %548, ptr %546, align 8
   %549 = load ptr, ptr %469, align 8
   %550 = getelementptr inbounds i64, ptr %549, i64 %547
-  store i64 %.03441.i.i101, ptr %550, align 8
+  store i64 %.041.i.i101, ptr %550, align 8
   %551 = load ptr, ptr %500, align 8
-  %552 = getelementptr inbounds double, ptr %551, i64 %.03337.i.i103
+  %552 = getelementptr inbounds double, ptr %551, i64 %.03437.i.i103
   %553 = load double, ptr %552, align 8
   %554 = load ptr, ptr %470, align 8
   %555 = getelementptr inbounds double, ptr %554, i64 %547
   store double %553, ptr %555, align 8
-  %556 = getelementptr inbounds i64, ptr %6, i64 %.03337.i.i103
+  %556 = getelementptr inbounds i64, ptr %6, i64 %.03437.i.i103
   store i64 %547, ptr %556, align 8
-  %557 = add nsw i64 %.03337.i.i103, 1
+  %557 = add nsw i64 %.03437.i.i103, 1
   %558 = load ptr, ptr %31, align 8
   %559 = getelementptr inbounds i64, ptr %558, i64 %538
   %560 = load i64, ptr %559, align 8
@@ -1003,10 +1003,10 @@ _kkt_fill_block.exit.i67:                         ; preds = %.loopexit.i.i102, %
 .lr.ph42.split.us.split.us.i.i86:                 ; preds = %.lr.ph42.i39.i76, %.loopexit.us.us.i.i88
   %569 = phi i64 [ %577, %.loopexit.us.us.i.i88 ], [ %562, %.lr.ph42.i39.i76 ]
   %570 = phi ptr [ %578, %.loopexit.us.us.i.i88 ], [ %.pre54.i41.i78, %.lr.ph42.i39.i76 ]
-  %.03441.us.us.i.i87 = phi i64 [ %573, %.loopexit.us.us.i.i88 ], [ 0, %.lr.ph42.i39.i76 ]
-  %571 = getelementptr inbounds i64, ptr %570, i64 %.03441.us.us.i.i87
+  %.041.us.us.i.i87 = phi i64 [ %573, %.loopexit.us.us.i.i88 ], [ 0, %.lr.ph42.i39.i76 ]
+  %571 = getelementptr inbounds i64, ptr %570, i64 %.041.us.us.i.i87
   %572 = load i64, ptr %571, align 8
-  %573 = add nuw nsw i64 %.03441.us.us.i.i87, 1
+  %573 = add nuw nsw i64 %.041.us.us.i.i87, 1
   %574 = getelementptr inbounds i64, ptr %570, i64 %573
   %575 = load i64, ptr %574, align 8
   %576 = icmp slt i64 %572, %575
@@ -1023,26 +1023,26 @@ _kkt_fill_block.exit.i67:                         ; preds = %.loopexit.i.i102, %
   br i1 %579, label %.lr.ph42.split.us.split.us.i.i86, label %_kkt_fill_block.exit42.i, !llvm.loop !12
 
 .lr.ph.us.us.i.i89:                               ; preds = %.lr.ph42.split.us.split.us.i.i86, %.lr.ph.us.us.i.i89
-  %.03337.us.us.us.us.i.i90 = phi i64 [ %594, %.lr.ph.us.us.i.i89 ], [ %572, %.lr.ph42.split.us.split.us.i.i86 ]
+  %.03437.us.us.us.us.i.i90 = phi i64 [ %594, %.lr.ph.us.us.i.i89 ], [ %572, %.lr.ph42.split.us.split.us.i.i86 ]
   %580 = load ptr, ptr %564, align 8
-  %581 = getelementptr inbounds i64, ptr %580, i64 %.03337.us.us.us.us.i.i90
+  %581 = getelementptr inbounds i64, ptr %580, i64 %.03437.us.us.us.us.i.i90
   %582 = load i64, ptr %581, align 8
-  %.032.us.us.us.us.i.i = add nsw i64 %582, %45
+  %.033.us.us.us.us.i.i = add nsw i64 %582, %45
   %583 = load ptr, ptr %565, align 8
-  %584 = getelementptr i64, ptr %583, i64 %.03441.us.us.i.i87
+  %584 = getelementptr i64, ptr %583, i64 %.041.us.us.i.i87
   %585 = load i64, ptr %584, align 8
   %586 = add nsw i64 %585, 1
   store i64 %586, ptr %584, align 8
   %587 = load ptr, ptr %566, align 8
   %588 = getelementptr inbounds i64, ptr %587, i64 %585
-  store i64 %.032.us.us.us.us.i.i, ptr %588, align 8
+  store i64 %.033.us.us.us.us.i.i, ptr %588, align 8
   %589 = load ptr, ptr %567, align 8
-  %590 = getelementptr inbounds double, ptr %589, i64 %.03337.us.us.us.us.i.i90
+  %590 = getelementptr inbounds double, ptr %589, i64 %.03437.us.us.us.us.i.i90
   %591 = load double, ptr %590, align 8
   %592 = load ptr, ptr %568, align 8
   %593 = getelementptr inbounds double, ptr %592, i64 %585
   store double %591, ptr %593, align 8
-  %594 = add nsw i64 %.03337.us.us.us.us.i.i90, 1
+  %594 = add nsw i64 %.03437.us.us.us.us.i.i90, 1
   %595 = load ptr, ptr %34, align 8
   %596 = getelementptr inbounds i64, ptr %595, i64 %573
   %597 = load i64, ptr %596, align 8
@@ -1052,10 +1052,10 @@ _kkt_fill_block.exit.i67:                         ; preds = %.loopexit.i.i102, %
 .lr.ph42.split.us.split.i.i79:                    ; preds = %.lr.ph42.i39.i76, %.loopexit.us.i.i81
   %599 = phi i64 [ %607, %.loopexit.us.i.i81 ], [ %562, %.lr.ph42.i39.i76 ]
   %600 = phi ptr [ %608, %.loopexit.us.i.i81 ], [ %.pre54.i41.i78, %.lr.ph42.i39.i76 ]
-  %.03441.us.i.i80 = phi i64 [ %603, %.loopexit.us.i.i81 ], [ 0, %.lr.ph42.i39.i76 ]
-  %601 = getelementptr inbounds i64, ptr %600, i64 %.03441.us.i.i80
+  %.041.us.i.i80 = phi i64 [ %603, %.loopexit.us.i.i81 ], [ 0, %.lr.ph42.i39.i76 ]
+  %601 = getelementptr inbounds i64, ptr %600, i64 %.041.us.i.i80
   %602 = load i64, ptr %601, align 8
-  %603 = add nuw nsw i64 %.03441.us.i.i80, 1
+  %603 = add nuw nsw i64 %.041.us.i.i80, 1
   %604 = getelementptr inbounds i64, ptr %600, i64 %603
   %605 = load i64, ptr %604, align 8
   %606 = icmp slt i64 %602, %605
@@ -1072,28 +1072,28 @@ _kkt_fill_block.exit.i67:                         ; preds = %.loopexit.i.i102, %
   br i1 %609, label %.lr.ph42.split.us.split.i.i79, label %_kkt_fill_block.exit42.i, !llvm.loop !12
 
 .lr.ph.us.i.i82:                                  ; preds = %.lr.ph42.split.us.split.i.i79, %.lr.ph.us.i.i82
-  %.03337.us.us.i.i83 = phi i64 [ %625, %.lr.ph.us.i.i82 ], [ %602, %.lr.ph42.split.us.split.i.i79 ]
+  %.03437.us.us.i.i83 = phi i64 [ %625, %.lr.ph.us.i.i82 ], [ %602, %.lr.ph42.split.us.split.i.i79 ]
   %610 = load ptr, ptr %564, align 8
-  %611 = getelementptr inbounds i64, ptr %610, i64 %.03337.us.us.i.i83
+  %611 = getelementptr inbounds i64, ptr %610, i64 %.03437.us.us.i.i83
   %612 = load i64, ptr %611, align 8
-  %.032.us.us.i.i = add nsw i64 %612, %45
+  %.033.us.us.i.i = add nsw i64 %612, %45
   %613 = load ptr, ptr %565, align 8
-  %614 = getelementptr i64, ptr %613, i64 %.03441.us.i.i80
+  %614 = getelementptr i64, ptr %613, i64 %.041.us.i.i80
   %615 = load i64, ptr %614, align 8
   %616 = add nsw i64 %615, 1
   store i64 %616, ptr %614, align 8
   %617 = load ptr, ptr %566, align 8
   %618 = getelementptr inbounds i64, ptr %617, i64 %615
-  store i64 %.032.us.us.i.i, ptr %618, align 8
+  store i64 %.033.us.us.i.i, ptr %618, align 8
   %619 = load ptr, ptr %567, align 8
-  %620 = getelementptr inbounds double, ptr %619, i64 %.03337.us.us.i.i83
+  %620 = getelementptr inbounds double, ptr %619, i64 %.03437.us.us.i.i83
   %621 = load double, ptr %620, align 8
   %622 = load ptr, ptr %568, align 8
   %623 = getelementptr inbounds double, ptr %622, i64 %615
   store double %621, ptr %623, align 8
-  %624 = getelementptr inbounds i64, ptr %7, i64 %.03337.us.us.i.i83
+  %624 = getelementptr inbounds i64, ptr %7, i64 %.03437.us.us.i.i83
   store i64 %615, ptr %624, align 8
-  %625 = add nsw i64 %.03337.us.us.i.i83, 1
+  %625 = add nsw i64 %.03437.us.us.i.i83, 1
   %626 = load ptr, ptr %34, align 8
   %627 = getelementptr inbounds i64, ptr %626, i64 %603
   %628 = load i64, ptr %627, align 8

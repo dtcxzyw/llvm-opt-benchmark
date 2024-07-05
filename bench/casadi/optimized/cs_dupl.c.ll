@@ -51,7 +51,7 @@ define i32 @cs_dupl(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %._crit_edge
   %22 = phi i32 [ %.pre, %.lr.ph70.preheader ], [ %51, %._crit_edge ]
   %indvars.iv75 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next76, %._crit_edge ]
-  %.069 = phi i32 [ 0, %.lr.ph70.preheader ], [ %.1.lcssa, %._crit_edge ]
+  %.05568 = phi i32 [ 0, %.lr.ph70.preheader ], [ %.1.lcssa, %._crit_edge ]
   %23 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv75
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %24 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.next76
@@ -65,13 +65,13 @@ define i32 @cs_dupl(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %47
   %indvars.iv = phi i64 [ %27, %.lr.ph66.preheader ], [ %indvars.iv.next, %47 ]
-  %.165 = phi i32 [ %.069, %.lr.ph66.preheader ], [ %.2, %47 ]
+  %.164 = phi i32 [ %.05568, %.lr.ph66.preheader ], [ %.2, %47 ]
   %28 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i32, ptr %17, i64 %30
   %32 = load i32, ptr %31, align 4
-  %.not61 = icmp slt i32 %32, %.069
+  %.not61 = icmp slt i32 %32, %.05568
   br i1 %.not61, label %40, label %33
 
 33:                                               ; preds = %.lr.ph66
@@ -85,19 +85,19 @@ define i32 @cs_dupl(ptr noundef %0) local_unnamed_addr #0 {
   br label %47
 
 40:                                               ; preds = %.lr.ph66
-  store i32 %.165, ptr %31, align 4
-  %41 = sext i32 %.165 to i64
+  store i32 %.164, ptr %31, align 4
+  %41 = sext i32 %.164 to i64
   %42 = getelementptr inbounds i32, ptr %14, i64 %41
   store i32 %29, ptr %42, align 4
   %43 = getelementptr inbounds double, ptr %16, i64 %indvars.iv
   %44 = load double, ptr %43, align 8
-  %45 = add nsw i32 %.165, 1
+  %45 = add nsw i32 %.164, 1
   %46 = getelementptr inbounds double, ptr %16, i64 %41
   store double %44, ptr %46, align 8
   br label %47
 
 47:                                               ; preds = %33, %40
-  %.2 = phi i32 [ %.165, %33 ], [ %45, %40 ]
+  %.2 = phi i32 [ %.164, %33 ], [ %45, %40 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %24, align 4
   %49 = sext i32 %48 to i64
@@ -106,23 +106,23 @@ define i32 @cs_dupl(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %47, %.lr.ph70
   %51 = phi i32 [ %25, %.lr.ph70 ], [ %48, %47 ]
-  %.1.lcssa = phi i32 [ %.069, %.lr.ph70 ], [ %.2, %47 ]
-  store i32 %.069, ptr %23, align 4
+  %.1.lcssa = phi i32 [ %.05568, %.lr.ph70 ], [ %.2, %47 ]
+  store i32 %.05568, ptr %23, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !6
 
 ._crit_edge71:                                    ; preds = %._crit_edge, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1.lcssa, %._crit_edge ]
+  %.055.lcssa = phi i32 [ 0, %.preheader ], [ %.1.lcssa, %._crit_edge ]
   %52 = sext i32 %10 to i64
   %53 = getelementptr inbounds i32, ptr %12, i64 %52
-  store i32 %.0.lcssa, ptr %53, align 4
+  store i32 %.055.lcssa, ptr %53, align 4
   %54 = tail call ptr @cs_free(ptr noundef nonnull %17) #3
   %55 = tail call i32 @cs_sprealloc(ptr noundef nonnull %0, i32 noundef 0) #3
   br label %56
 
 56:                                               ; preds = %6, %1, %2, %._crit_edge71
-  %.055 = phi i32 [ %55, %._crit_edge71 ], [ 0, %2 ], [ 0, %1 ], [ 0, %6 ]
-  ret i32 %.055
+  %.0 = phi i32 [ %55, %._crit_edge71 ], [ 0, %2 ], [ 0, %1 ], [ 0, %6 ]
+  ret i32 %.0
 }
 
 declare ptr @cs_malloc(i32 noundef, i64 noundef) local_unnamed_addr #1

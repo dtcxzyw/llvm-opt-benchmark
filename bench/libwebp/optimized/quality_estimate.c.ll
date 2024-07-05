@@ -33,15 +33,15 @@ define dso_local i32 @VP8EstimateQuality(ptr noundef %0, i64 noundef %1) local_u
 
 .preheader430:                                    ; preds = %12, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 42, %12 ]
-  %.099 = phi i64 [ %19, %17 ], [ 0, %12 ]
-  %.098 = phi i64 [ %24, %17 ], [ 0, %12 ]
-  %exitcond.not = icmp eq i64 %.099, %1
+  %.095 = phi i64 [ %24, %17 ], [ 0, %12 ]
+  %.094 = phi i64 [ %19, %17 ], [ 0, %12 ]
+  %exitcond.not = icmp eq i64 %.094, %1
   br i1 %exitcond.not, label %GetBit.exit350.thread, label %17
 
 17:                                               ; preds = %.preheader430
-  %18 = lshr i64 %.098, 8
-  %19 = add i64 %.099, 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 %.099
+  %18 = lshr i64 %.095, 8
+  %19 = add i64 %.094, 1
+  %20 = getelementptr inbounds i8, ptr %0, i64 %.094
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
   %23 = shl nuw nsw i64 %22, 40
@@ -52,7 +52,7 @@ define dso_local i32 @VP8EstimateQuality(ptr noundef %0, i64 noundef %1) local_u
   br i1 %25, label %26, label %.preheader430, !llvm.loop !5
 
 26:                                               ; preds = %17
-  %27 = add i64 %.099, 5
+  %27 = add i64 %.094, 5
   %28 = icmp ugt i64 %27, %1
   br i1 %28, label %GetBit.exit350.thread, label %GetBit.exit
 
@@ -221,7 +221,7 @@ GetBit.exit166.thread:                            ; preds = %GetBit.exit174, %74
   br label %115
 
 115:                                              ; preds = %113, %GetBit.exit198
-  %.1493 = phi i32 [ 0, %113 ], [ %127, %GetBit.exit198 ]
+  %.197493 = phi i32 [ 0, %113 ], [ %127, %GetBit.exit198 ]
   %.10492 = phi i64 [ %.9, %113 ], [ %.13, %GetBit.exit198 ]
   %116 = add i64 %.10492, 1
   %.not.i183 = icmp ugt i64 %116, %31
@@ -247,7 +247,7 @@ GetBit.exit166.thread:                            ; preds = %GetBit.exit174, %74
 
 GetBit.exit198:                                   ; preds = %125, %115, %.lr.ph.i185.preheader
   %.13 = phi i64 [ %116, %.lr.ph.i185.preheader ], [ -9223372036854775808, %115 ], [ %spec.select583, %125 ]
-  %127 = add nuw nsw i32 %.1493, 1
+  %127 = add nuw nsw i32 %.197493, 1
   %exitcond562.not = icmp eq i32 %127, 4
   br i1 %exitcond562.not, label %GetBit.exit150.thread.loopexit, label %115, !llvm.loop !9
 
@@ -258,7 +258,7 @@ GetBit.exit150.thread.loopexit:                   ; preds = %GetBit.exit198
 
 GetBit.exit150.thread:                            ; preds = %GetBit.exit150.thread.loopexit, %GetBit.exit142, %.lr.ph.i145.preheader
   %.14 = phi i64 [ %53, %.lr.ph.i145.preheader ], [ -9223372036854775808, %GetBit.exit142 ], [ %.13, %GetBit.exit150.thread.loopexit ]
-  %.195 = phi i32 [ -1, %.lr.ph.i145.preheader ], [ -1, %GetBit.exit142 ], [ %spec.select, %GetBit.exit150.thread.loopexit ]
+  %.199 = phi i32 [ -1, %.lr.ph.i145.preheader ], [ -1, %GetBit.exit142 ], [ %spec.select, %GetBit.exit150.thread.loopexit ]
   %.not113 = icmp eq i32 %.1.i141, 0
   br i1 %.not113, label %GetBit.exit134.thread, label %.preheader429
 
@@ -295,7 +295,7 @@ GetBit.exit214:                                   ; preds = %137, %.preheader429
 
 GetBit.exit134.thread:                            ; preds = %GetBit.exit214, %GetBit.exit, %GetBit.exit150.thread, %.lr.ph.i129.preheader
   %.19 = phi i64 [ %32, %.lr.ph.i129.preheader ], [ %.14, %GetBit.exit150.thread ], [ -9223372036854775808, %GetBit.exit ], [ %.18, %GetBit.exit214 ]
-  %.296 = phi i32 [ -1, %.lr.ph.i129.preheader ], [ %.195, %GetBit.exit150.thread ], [ -1, %GetBit.exit ], [ %.195, %GetBit.exit214 ]
+  %.2100 = phi i32 [ -1, %.lr.ph.i129.preheader ], [ %.199, %GetBit.exit150.thread ], [ -1, %GetBit.exit ], [ %.199, %GetBit.exit214 ]
   %140 = add i64 %.19, 10
   %.not.i215 = icmp ugt i64 %140, %31
   %spec.select585 = select i1 %.not.i215, i64 -9223372036854775808, i64 %140
@@ -333,7 +333,7 @@ GetBit.exit134.thread:                            ; preds = %GetBit.exit214, %Ge
   br i1 %.not572, label %GetBit.exit230.thread, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph.i233.preheader, %GetBit.exit254
-  %.0497 = phi i32 [ %171, %GetBit.exit254 ], [ 0, %.lr.ph.i233.preheader ]
+  %.093497 = phi i32 [ %171, %GetBit.exit254 ], [ 0, %.lr.ph.i233.preheader ]
   %.23496 = phi i64 [ %.26, %GetBit.exit254 ], [ %151, %.lr.ph.i233.preheader ]
   %160 = add i64 %.23496, 1
   %.not.i239 = icmp ugt i64 %160, %31
@@ -359,7 +359,7 @@ GetBit.exit134.thread:                            ; preds = %GetBit.exit214, %Ge
 
 GetBit.exit254:                                   ; preds = %169, %.preheader, %.lr.ph.i241.preheader
   %.26 = phi i64 [ %160, %.lr.ph.i241.preheader ], [ -9223372036854775808, %.preheader ], [ %spec.select586, %169 ]
-  %171 = add nuw nsw i32 %.0497, 1
+  %171 = add nuw nsw i32 %.093497, 1
   %exitcond564.not = icmp eq i32 %171, 8
   br i1 %exitcond564.not, label %GetBit.exit230.thread, label %.preheader, !llvm.loop !11
 
@@ -519,8 +519,8 @@ GetBit.exit350:                                   ; preds = %242, %.lr.ph.i337.p
   br i1 %244, label %GetBit.exit350.thread, label %245
 
 245:                                              ; preds = %GetBit.exit350
-  %246 = icmp slt i32 %.296, 0
-  %spec.select126 = select i1 %246, i32 %.1.i269, i32 %.296
+  %246 = icmp slt i32 %.2100, 0
+  %spec.select126 = select i1 %246, i32 %.1.i269, i32 %.2100
   %247 = sub nsw i32 127, %spec.select126
   %248 = mul nsw i32 %247, 100
   %249 = sdiv i32 %248, 127
@@ -536,8 +536,8 @@ GetBit.exit350:                                   ; preds = %242, %.lr.ph.i337.p
   br label %GetBit.exit350.thread
 
 GetBit.exit350.thread:                            ; preds = %.preheader430, %GetBit.exit334, %242, %245, %251, %GetBit.exit350, %26, %12, %8, %6, %2
-  %.0101 = phi i32 [ -1, %2 ], [ -1, %6 ], [ 101, %8 ], [ -1, %12 ], [ -1, %26 ], [ -1, %GetBit.exit350 ], [ %256, %251 ], [ %249, %245 ], [ -1, %242 ], [ -1, %GetBit.exit334 ], [ -1, %.preheader430 ]
-  ret i32 %.0101
+  %.0 = phi i32 [ -1, %2 ], [ -1, %6 ], [ 101, %8 ], [ -1, %12 ], [ -1, %26 ], [ -1, %GetBit.exit350 ], [ %256, %251 ], [ %249, %245 ], [ -1, %242 ], [ -1, %GetBit.exit334 ], [ -1, %.preheader430 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

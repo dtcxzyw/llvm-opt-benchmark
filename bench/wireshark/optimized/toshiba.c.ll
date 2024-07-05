@@ -118,8 +118,8 @@ define internal range(i32 0, 2) i32 @toshiba_read(ptr nocapture noundef readonly
 
 .lr.ph.i:                                         ; preds = %6, %25
   %9 = phi i32 [ %27, %25 ], [ %8, %6 ]
-  %.018.i = phi i32 [ %.1.i, %25 ], [ 0, %6 ]
-  %10 = zext nneg i32 %.018.i to i64
+  %.01418.i = phi i32 [ %.1.i, %25 ], [ 0, %6 ]
+  %10 = zext nneg i32 %.01418.i to i64
   %11 = getelementptr [4 x i8], ptr @toshiba_rec_magic, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i32
@@ -127,8 +127,8 @@ define internal range(i32 0, 2) i32 @toshiba_read(ptr nocapture noundef readonly
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = add nuw nsw i32 %.018.i, 1
-  %17 = icmp ugt i32 %.018.i, 2
+  %16 = add nuw nsw i32 %.01418.i, 1
+  %17 = icmp ugt i32 %.01418.i, 2
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %15
@@ -470,8 +470,8 @@ parse_single_hex_dump_line.exit:                  ; preds = %.preheader.i
   br i1 %exitcond.not, label %.loopexit, label %96, !llvm.loop !11
 
 .loopexit:                                        ; preds = %parse_single_hex_dump_line.exit, %82, %123, %99, %46, %42, %37, %30, %25, %19
-  %.054 = phi i32 [ 0, %19 ], [ 0, %25 ], [ 0, %30 ], [ 0, %37 ], [ 0, %42 ], [ 0, %46 ], [ 0, %99 ], [ 0, %123 ], [ 1, %82 ], [ 1, %parse_single_hex_dump_line.exit ]
-  ret i32 %.054
+  %.0 = phi i32 [ 0, %19 ], [ 0, %25 ], [ 0, %30 ], [ 0, %37 ], [ 0, %42 ], [ 0, %46 ], [ 0, %99 ], [ 0, %123 ], [ 1, %82 ], [ 1, %parse_single_hex_dump_line.exit ]
+  ret i32 %.0
 }
 
 declare i32 @file_getc(ptr noundef) local_unnamed_addr #1

@@ -488,7 +488,7 @@ define internal fastcc void @sfdpLayout(ptr noundef %0, ptr noundef %1, double %
   br label %20
 
 20:                                               ; preds = %4, %16, %18
-  %.027 = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %4 ]
+  %.0 = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %4 ]
   %21 = load i32, ptr @Ndim, align 4
   %22 = call i32 @agnnodes(ptr noundef %0) #12
   %23 = mul nsw i32 %22, %21
@@ -523,21 +523,21 @@ gv_calloc.exit.i:                                 ; preds = %28
 
 38:                                               ; preds = %gv_calloc.exit.i
   %39 = call ptr @agfstnode(ptr noundef %0) #12
-  %.not23.i = icmp eq ptr %39, null
-  br i1 %.not23.i, label %getPos.exit, label %.lr.ph25.i
+  %.not22.i = icmp eq ptr %39, null
+  br i1 %.not22.i, label %getPos.exit, label %.lr.ph24.i
 
-.lr.ph25.i:                                       ; preds = %38, %.loopexit.i
-  %.01724.i = phi ptr [ %55, %.loopexit.i ], [ %39, %38 ]
-  %40 = getelementptr inbounds i8, ptr %.01724.i, i64 16
+.lr.ph24.i:                                       ; preds = %38, %.loopexit.i
+  %.01823.i = phi ptr [ %55, %.loopexit.i ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %.01823.i, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 164
   %43 = load i32, ptr %42, align 4
   %44 = getelementptr inbounds i8, ptr %41, i64 163
   %45 = load i8, ptr %44, align 1
-  %.not20.i = icmp eq i8 %45, 0
-  br i1 %.not20.i, label %.loopexit.i, label %.preheader.i
+  %.not19.i = icmp eq i8 %45, 0
+  br i1 %.not19.i, label %.loopexit.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.lr.ph25.i
+.preheader.i:                                     ; preds = %.lr.ph24.i
   %46 = load i32, ptr @Ndim, align 4
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph.i, label %.loopexit.i
@@ -554,16 +554,16 @@ gv_calloc.exit.i:                                 ; preds = %28
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep.i, ptr align 8 %49, i64 %54, i1 false)
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.lr.ph.i, %.preheader.i, %.lr.ph25.i
-  %55 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01724.i) #12
+.loopexit.i:                                      ; preds = %.lr.ph.i, %.preheader.i, %.lr.ph24.i
+  %55 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01823.i) #12
   %.not.i = icmp eq ptr %55, null
-  br i1 %.not.i, label %getPos.exit, label %.lr.ph25.i
+  br i1 %.not.i, label %getPos.exit, label %.lr.ph24.i
 
 getPos.exit:                                      ; preds = %.loopexit.i, %gv_calloc.exit.i, %38
   %56 = load i32, ptr @Ndim, align 4
   %57 = load i32, ptr %6, align 4
   %58 = load ptr, ptr %7, align 8
-  call void @multilevel_spring_electrical_embedding(i32 noundef %56, ptr noundef %8, ptr noundef %1, ptr noundef %.027, ptr noundef %30, i32 noundef %57, ptr noundef %58, ptr noundef nonnull %5) #12
+  call void @multilevel_spring_electrical_embedding(i32 noundef %56, ptr noundef %8, ptr noundef %1, ptr noundef %.0, ptr noundef %30, i32 noundef %57, ptr noundef %58, ptr noundef nonnull %5) #12
   %59 = call ptr @agfstnode(ptr noundef %0) #12
   %.not29 = icmp eq ptr %59, null
   br i1 %.not29, label %._crit_edge32, label %.lr.ph31
@@ -602,7 +602,7 @@ getPos.exit:                                      ; preds = %.loopexit.i, %gv_ca
   br i1 %.not, label %._crit_edge32, label %.lr.ph31
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %getPos.exit
-  call void @free(ptr noundef %.027) #12
+  call void @free(ptr noundef %.0) #12
   call void @free(ptr noundef %30) #12
   call void @SparseMatrix_delete(ptr noundef %8) #12
   %79 = load ptr, ptr %7, align 8

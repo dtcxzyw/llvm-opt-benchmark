@@ -2107,14 +2107,14 @@ entry:
   br i1 %cmp13.i, label %for.body.i, label %_ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE.exit
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
-  %s.015.i = phi ptr [ %incdec.ptr12.i, %for.inc.i ], [ %rewrite.coerce0, %entry ]
-  %max.014.i = phi i32 [ %max.1.i, %for.inc.i ], [ 0, %entry ]
-  %0 = load i8, ptr %s.015.i, align 1
+  %max.015.i = phi i32 [ %max.1.i, %for.inc.i ], [ 0, %entry ]
+  %s.014.i = phi ptr [ %incdec.ptr12.i, %for.inc.i ], [ %rewrite.coerce0, %entry ]
+  %0 = load i8, ptr %s.014.i, align 1
   %cmp2.i = icmp eq i8 %0, 92
   br i1 %cmp2.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.015.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.014.i, i64 1
   %cmp3.i = icmp ult ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp3.i, label %cond.end.i, label %for.inc.i
 
@@ -2126,12 +2126,12 @@ cond.end.i:                                       ; preds = %if.then.i
 
 if.then7.i:                                       ; preds = %cond.end.i
   %sub.i = zext nneg i8 %2 to i32
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %max.014.i, i32 %sub.i)
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %max.015.i, i32 %sub.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then7.i, %cond.end.i, %if.then.i, %for.body.i
-  %max.1.i = phi i32 [ %max.014.i, %cond.end.i ], [ %max.014.i, %for.body.i ], [ %spec.select.i, %if.then7.i ], [ %max.014.i, %if.then.i ]
-  %s.1.i = phi ptr [ %incdec.ptr.i, %cond.end.i ], [ %s.015.i, %for.body.i ], [ %incdec.ptr.i, %if.then7.i ], [ %incdec.ptr.i, %if.then.i ]
+  %s.1.i = phi ptr [ %incdec.ptr.i, %cond.end.i ], [ %s.014.i, %for.body.i ], [ %incdec.ptr.i, %if.then7.i ], [ %incdec.ptr.i, %if.then.i ]
+  %max.1.i = phi i32 [ %max.015.i, %cond.end.i ], [ %max.015.i, %for.body.i ], [ %spec.select.i, %if.then7.i ], [ %max.015.i, %if.then.i ]
   %incdec.ptr12.i = getelementptr inbounds i8, ptr %s.1.i, i64 1
   %cmp.i = icmp ult ptr %incdec.ptr12.i, %add.ptr.i
   br i1 %cmp.i, label %for.body.i, label %_ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE.exit, !llvm.loop !19
@@ -2203,14 +2203,14 @@ entry:
   br i1 %cmp13, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.inc
-  %s.015 = phi ptr [ %incdec.ptr12, %for.inc ], [ %rewrite.coerce0, %entry ]
-  %max.014 = phi i32 [ %max.1, %for.inc ], [ 0, %entry ]
-  %0 = load i8, ptr %s.015, align 1
+  %max.015 = phi i32 [ %max.1, %for.inc ], [ 0, %entry ]
+  %s.014 = phi ptr [ %incdec.ptr12, %for.inc ], [ %rewrite.coerce0, %entry ]
+  %0 = load i8, ptr %s.014, align 1
   %cmp2 = icmp eq i8 %0, 92
   br i1 %cmp2, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.015, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %s.014, i64 1
   %cmp3 = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp3, label %cond.end, label %for.inc
 
@@ -2222,12 +2222,12 @@ cond.end:                                         ; preds = %if.then
 
 if.then7:                                         ; preds = %cond.end
   %sub = zext nneg i8 %2 to i32
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %max.014, i32 %sub)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %max.015, i32 %sub)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.then7, %for.body, %cond.end
-  %max.1 = phi i32 [ %max.014, %cond.end ], [ %max.014, %for.body ], [ %spec.select, %if.then7 ], [ %max.014, %if.then ]
-  %s.1 = phi ptr [ %incdec.ptr, %cond.end ], [ %s.015, %for.body ], [ %incdec.ptr, %if.then7 ], [ %incdec.ptr, %if.then ]
+  %s.1 = phi ptr [ %incdec.ptr, %cond.end ], [ %s.014, %for.body ], [ %incdec.ptr, %if.then7 ], [ %incdec.ptr, %if.then ]
+  %max.1 = phi i32 [ %max.015, %cond.end ], [ %max.015, %for.body ], [ %spec.select, %if.then7 ], [ %max.015, %if.then ]
   %incdec.ptr12 = getelementptr inbounds i8, ptr %s.1, i64 1
   %cmp = icmp ult ptr %incdec.ptr12, %add.ptr
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
@@ -2467,10 +2467,10 @@ if.then86:                                        ; preds = %if.end85
   br i1 %cmp10.i, label %for.body.i, label %_ZN4absl7debian211string_view13remove_prefixEm.exit113
 
 for.body.i:                                       ; preds = %if.then86, %for.inc.i
-  %b.addr.012.i = phi ptr [ %incdec.ptr13.i, %for.inc.i ], [ %add.ptr.i, %if.then86 ]
-  %a.addr.011.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %call96, %if.then86 ]
-  %11 = load i8, ptr %a.addr.011.i, align 1
-  %12 = load i8, ptr %b.addr.012.i, align 1
+  %a.addr.012.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %call96, %if.then86 ]
+  %b.addr.011.i = phi ptr [ %incdec.ptr13.i, %for.inc.i ], [ %add.ptr.i, %if.then86 ]
+  %11 = load i8, ptr %a.addr.012.i, align 1
+  %12 = load i8, ptr %b.addr.011.i, align 1
   %13 = add i8 %12, -65
   %or.cond.i = icmp ult i8 %13, 26
   %14 = or disjoint i8 %12, 32
@@ -2479,8 +2479,8 @@ for.body.i:                                       ; preds = %if.then86, %for.inc
   br i1 %cmp8.not.i, label %for.inc.i, label %return
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %a.addr.011.i, i64 1
-  %incdec.ptr13.i = getelementptr inbounds i8, ptr %b.addr.012.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %a.addr.012.i, i64 1
+  %incdec.ptr13.i = getelementptr inbounds i8, ptr %b.addr.011.i, i64 1
   %cmp.i107 = icmp ult ptr %incdec.ptr.i, %add.ptr.i105
   br i1 %cmp.i107, label %for.body.i, label %_ZN4absl7debian211string_view13remove_prefixEm.exit113, !llvm.loop !20
 
@@ -2497,8 +2497,8 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit113: ; preds = %for.inc.i, %i
   br label %if.end106
 
 if.end106:                                        ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit113, %if.end74
-  %subtext.sroa.11.0 = phi i64 [ %sub.i95, %if.end74 ], [ %sub.i111, %_ZN4absl7debian211string_view13remove_prefixEm.exit113 ]
   %subtext.sroa.0.0 = phi ptr [ %add.ptr.i, %if.end74 ], [ %add.ptr.i110, %_ZN4absl7debian211string_view13remove_prefixEm.exit113 ]
+  %subtext.sroa.11.0 = phi i64 [ %sub.i95, %if.end74 ], [ %sub.i111, %_ZN4absl7debian211string_view13remove_prefixEm.exit113 ]
   %prefixlen.0 = phi i64 [ 0, %if.end74 ], [ %call81, %_ZN4absl7debian211string_view13remove_prefixEm.exit113 ]
   %re_anchor.addr.1 = phi i32 [ %re_anchor.addr.0, %if.end74 ], [ %spec.select227, %_ZN4absl7debian211string_view13remove_prefixEm.exit113 ]
   %bf.load107 = load i32, ptr %error_code_.i.i, align 4
@@ -3297,14 +3297,14 @@ entry:
   br i1 %cmp13.i, label %for.body.i, label %_ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE.exit
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
-  %s.015.i = phi ptr [ %incdec.ptr12.i, %for.inc.i ], [ %rewrite.coerce0, %entry ]
-  %max.014.i = phi i32 [ %max.1.i, %for.inc.i ], [ 0, %entry ]
-  %0 = load i8, ptr %s.015.i, align 1
+  %max.015.i = phi i32 [ %max.1.i, %for.inc.i ], [ 0, %entry ]
+  %s.014.i = phi ptr [ %incdec.ptr12.i, %for.inc.i ], [ %rewrite.coerce0, %entry ]
+  %0 = load i8, ptr %s.014.i, align 1
   %cmp2.i = icmp eq i8 %0, 92
   br i1 %cmp2.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.015.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.014.i, i64 1
   %cmp3.i = icmp ult ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp3.i, label %cond.end.i, label %for.inc.i
 
@@ -3316,12 +3316,12 @@ cond.end.i:                                       ; preds = %if.then.i
 
 if.then7.i:                                       ; preds = %cond.end.i
   %sub.i = zext nneg i8 %2 to i32
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %max.014.i, i32 %sub.i)
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %max.015.i, i32 %sub.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then7.i, %cond.end.i, %if.then.i, %for.body.i
-  %max.1.i = phi i32 [ %max.014.i, %cond.end.i ], [ %max.014.i, %for.body.i ], [ %spec.select.i, %if.then7.i ], [ %max.014.i, %if.then.i ]
-  %s.1.i = phi ptr [ %incdec.ptr.i, %cond.end.i ], [ %s.015.i, %for.body.i ], [ %incdec.ptr.i, %if.then7.i ], [ %incdec.ptr.i, %if.then.i ]
+  %s.1.i = phi ptr [ %incdec.ptr.i, %cond.end.i ], [ %s.014.i, %for.body.i ], [ %incdec.ptr.i, %if.then7.i ], [ %incdec.ptr.i, %if.then.i ]
+  %max.1.i = phi i32 [ %max.015.i, %cond.end.i ], [ %max.015.i, %for.body.i ], [ %spec.select.i, %if.then7.i ], [ %max.015.i, %if.then.i ]
   %incdec.ptr12.i = getelementptr inbounds i8, ptr %s.1.i, i64 1
   %cmp.i = icmp ult ptr %incdec.ptr12.i, %add.ptr.i
   br i1 %cmp.i, label %for.body.i, label %_ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE.exit, !llvm.loop !19
@@ -3351,16 +3351,16 @@ while.body.lr.ph.lr.ph:                           ; preds = %if.end5
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %invoke.cont74
-  %count.0.ph70 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %inc, %invoke.cont74 ]
+  %p.0.ph70 = phi ptr [ %call6, %while.body.lr.ph.lr.ph ], [ %add.ptr80, %invoke.cont74 ]
   %lastend.0.ph69 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %add.ptr80, %invoke.cont74 ]
-  %p.0.ph68 = phi ptr [ %call6, %while.body.lr.ph.lr.ph ], [ %add.ptr80, %invoke.cont74 ]
+  %count.0.ph68 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %inc, %invoke.cont74 ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %p.059 = phi ptr [ %p.0.ph68, %while.body.lr.ph ], [ %add.ptr63, %while.cond.backedge ]
+  %p.059 = phi ptr [ %p.0.ph70, %while.body.lr.ph ], [ %add.ptr63, %while.cond.backedge ]
   %5 = load i32, ptr @_ZN3re2L28maximum_global_replace_countE, align 4
   %cmp9.not = icmp eq i32 %5, -1
-  %cmp10.not = icmp slt i32 %count.0.ph70, %5
+  %cmp10.not = icmp slt i32 %count.0.ph68, %5
   %or.cond39 = select i1 %cmp9.not, i1 true, i1 %cmp10.not
   br i1 %or.cond39, label %if.end12, label %while.end
 
@@ -3493,18 +3493,18 @@ invoke.cont74:                                    ; preds = %if.end71
   %12 = load ptr, ptr %vec, align 16
   %13 = load i64, ptr %length_.i, align 8
   %add.ptr80 = getelementptr inbounds i8, ptr %12, i64 %13
-  %inc = add nuw nsw i32 %count.0.ph70, 1
+  %inc = add nuw nsw i32 %count.0.ph68, 1
   %cmp8.not58 = icmp ugt ptr %add.ptr80, %add.ptr
   br i1 %cmp8.not58, label %if.end83, label %while.body.lr.ph, !llvm.loop !23
 
 while.end:                                        ; preds = %while.cond.backedge, %invoke.cont, %while.body
   %p.0.lcssa = phi ptr [ %add.ptr63, %while.cond.backedge ], [ %p.059, %invoke.cont ], [ %p.059, %while.body ]
-  %cmp81 = icmp eq i32 %count.0.ph70, 0
+  %cmp81 = icmp eq i32 %count.0.ph68, 0
   br i1 %cmp81, label %cleanup, label %if.end83
 
 if.end83:                                         ; preds = %invoke.cont74, %while.end
   %p.0.lcssa87 = phi ptr [ %p.0.lcssa, %while.end ], [ %add.ptr80, %invoke.cont74 ]
-  %count.0.ph.lcssa86 = phi i32 [ %count.0.ph70, %while.end ], [ %inc, %invoke.cont74 ]
+  %count.0.ph.lcssa86 = phi i32 [ %count.0.ph68, %while.end ], [ %inc, %invoke.cont74 ]
   %cmp84 = icmp ult ptr %p.0.lcssa87, %add.ptr
   br i1 %cmp84, label %if.then85, label %if.end91
 
@@ -3545,14 +3545,14 @@ entry:
   br i1 %cmp13.i, label %for.body.i, label %_ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE.exit
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
-  %s.015.i = phi ptr [ %incdec.ptr12.i, %for.inc.i ], [ %rewrite.coerce0, %entry ]
-  %max.014.i = phi i32 [ %max.1.i, %for.inc.i ], [ 0, %entry ]
-  %0 = load i8, ptr %s.015.i, align 1
+  %max.015.i = phi i32 [ %max.1.i, %for.inc.i ], [ 0, %entry ]
+  %s.014.i = phi ptr [ %incdec.ptr12.i, %for.inc.i ], [ %rewrite.coerce0, %entry ]
+  %0 = load i8, ptr %s.014.i, align 1
   %cmp2.i = icmp eq i8 %0, 92
   br i1 %cmp2.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.015.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.014.i, i64 1
   %cmp3.i = icmp ult ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp3.i, label %cond.end.i, label %for.inc.i
 
@@ -3564,12 +3564,12 @@ cond.end.i:                                       ; preds = %if.then.i
 
 if.then7.i:                                       ; preds = %cond.end.i
   %sub.i = zext nneg i8 %2 to i32
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %max.014.i, i32 %sub.i)
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %max.015.i, i32 %sub.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then7.i, %cond.end.i, %if.then.i, %for.body.i
-  %max.1.i = phi i32 [ %max.014.i, %cond.end.i ], [ %max.014.i, %for.body.i ], [ %spec.select.i, %if.then7.i ], [ %max.014.i, %if.then.i ]
-  %s.1.i = phi ptr [ %incdec.ptr.i, %cond.end.i ], [ %s.015.i, %for.body.i ], [ %incdec.ptr.i, %if.then7.i ], [ %incdec.ptr.i, %if.then.i ]
+  %s.1.i = phi ptr [ %incdec.ptr.i, %cond.end.i ], [ %s.014.i, %for.body.i ], [ %incdec.ptr.i, %if.then7.i ], [ %incdec.ptr.i, %if.then.i ]
+  %max.1.i = phi i32 [ %max.015.i, %cond.end.i ], [ %max.015.i, %for.body.i ], [ %spec.select.i, %if.then7.i ], [ %max.015.i, %if.then.i ]
   %incdec.ptr12.i = getelementptr inbounds i8, ptr %s.1.i, i64 1
   %cmp.i = icmp ult ptr %incdec.ptr12.i, %add.ptr.i
   br i1 %cmp.i, label %for.body.i, label %_ZN3re23RE211MaxSubmatchEN4absl7debian211string_viewE.exit, !llvm.loop !19

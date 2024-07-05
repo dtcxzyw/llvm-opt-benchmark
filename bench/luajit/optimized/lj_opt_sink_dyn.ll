@@ -482,13 +482,13 @@ do.body.i:                                        ; preds = %sink_mark_ins.exit,
   br i1 %cmp20.i, label %for.body.i24, label %if.end23
 
 for.body.i24:                                     ; preds = %do.body.i, %for.inc.i32
-  %remark.022.i = phi i32 [ %remark.1.i, %for.inc.i32 ], [ 0, %do.body.i ]
-  %ir.021.i = phi ptr [ %incdec.ptr.i33, %for.inc.i32 ], [ %arrayidx.i23, %do.body.i ]
+  %ir.022.i = phi ptr [ %incdec.ptr.i33, %for.inc.i32 ], [ %arrayidx.i23, %do.body.i ]
+  %remark.021.i = phi i32 [ %remark.1.i, %for.inc.i32 ], [ 0, %do.body.i ]
   %87 = load ptr, ptr %ir1.i, align 8
-  %88 = load i16, ptr %ir.021.i, align 8
+  %88 = load i16, ptr %ir.022.i, align 8
   %idxprom6.i25 = zext i16 %88 to i64
   %arrayidx7.i26 = getelementptr inbounds %union.IRIns, ptr %87, i64 %idxprom6.i25
-  %op2.i27 = getelementptr inbounds i8, ptr %ir.021.i, i64 2
+  %op2.i27 = getelementptr inbounds i8, ptr %ir.022.i, i64 2
   %89 = load i16, ptr %op2.i27, align 2
   %idxprom10.i = zext i16 %89 to i64
   %arrayidx11.i = getelementptr inbounds %union.IRIns, ptr %87, i64 %idxprom10.i
@@ -514,7 +514,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i36, 
   %95 = and i8 %and2717.i, %91
   %96 = xor i8 %95, 32
   %and28.i = zext nneg i8 %96 to i32
-  %or.i = or i32 %remark.022.i, %and28.i
+  %or.i = or i32 %remark.021.i, %and28.i
   %97 = or i8 %90, 32
   store i8 %97, ptr %t.i28, align 4
   %98 = load ptr, ptr %ir1.i, align 8
@@ -528,9 +528,9 @@ if.end.i:                                         ; preds = %land.lhs.true.i36, 
   br label %for.inc.i32
 
 for.inc.i32:                                      ; preds = %if.end.i, %land.lhs.true.i36
-  %remark.1.i = phi i32 [ %or.i, %if.end.i ], [ %remark.022.i, %land.lhs.true.i36 ]
-  %incdec.ptr.i33 = getelementptr inbounds i8, ptr %ir.021.i, i64 -8
-  %o.i34 = getelementptr inbounds i8, ptr %ir.021.i, i64 -3
+  %remark.1.i = phi i32 [ %or.i, %if.end.i ], [ %remark.021.i, %land.lhs.true.i36 ]
+  %incdec.ptr.i33 = getelementptr inbounds i8, ptr %ir.022.i, i64 -8
+  %o.i34 = getelementptr inbounds i8, ptr %ir.022.i, i64 -3
   %102 = load i8, ptr %o.i34, align 1
   %cmp.i35 = icmp eq i8 %102, 19
   br i1 %cmp.i35, label %for.body.i24, label %do.cond.i, !llvm.loop !5

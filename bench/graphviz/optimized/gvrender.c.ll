@@ -813,8 +813,8 @@ gvrender_ptf.exit:                                ; preds = %31, %36
   br label %41
 
 41:                                               ; preds = %16, %gvrender_ptf.exit
-  %.sroa.3.0 = phi double [ %.sroa.317.0.i, %gvrender_ptf.exit ], [ %2, %16 ]
   %.sroa.01.0 = phi double [ %.sroa.016.0.i, %gvrender_ptf.exit ], [ %1, %16 ]
+  %.sroa.3.0 = phi double [ %.sroa.317.0.i, %gvrender_ptf.exit ], [ %2, %16 ]
   %.not22 = icmp eq ptr %6, null
   br i1 %.not22, label %46, label %42
 

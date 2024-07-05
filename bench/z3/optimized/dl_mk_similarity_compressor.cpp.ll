@@ -5344,25 +5344,25 @@ _ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit24:   ; preds = %_ZSt4sortIPPN7datal
   br i1 %cmp12.not640, label %while.end, label %while.body
 
 while.body:                                       ; preds = %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit24, %if.end
-  %cl_begin.0642 = phi ptr [ %cl_begin.1, %if.end ], [ %.pr, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit24 ]
-  %it.0641 = phi ptr [ %incdec.ptr, %if.end ], [ %.pr, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit24 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %it.0641, i64 8
+  %it.0642 = phi ptr [ %incdec.ptr, %if.end ], [ %.pr, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit24 ]
+  %cl_begin.0641 = phi ptr [ %cl_begin.1, %if.end ], [ %.pr, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit24 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.0642, i64 8
   %cmp13 = icmp eq ptr %incdec.ptr, %add.ptr.i23
   br i1 %cmp13, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.body
-  %209 = load ptr, ptr %it.0641, align 8
+  %209 = load ptr, ptr %it.0642, align 8
   %210 = load ptr, ptr %incdec.ptr, align 8
   %call14 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef %209, ptr noundef %210)
   %cmp15.not = icmp eq i32 %call14, 0
   br i1 %cmp15.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %while.body
-  tail call void @_ZN7datalog24mk_similarity_compressor13process_classERKNS_8rule_setEPPNS_4ruleES6_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(248) %source, ptr noundef %cl_begin.0642, ptr noundef nonnull %incdec.ptr)
+  tail call void @_ZN7datalog24mk_similarity_compressor13process_classERKNS_8rule_setEPPNS_4ruleES6_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(248) %source, ptr noundef %cl_begin.0641, ptr noundef nonnull %incdec.ptr)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false
-  %cl_begin.1 = phi ptr [ %incdec.ptr, %if.then ], [ %cl_begin.0642, %lor.lhs.false ]
+  %cl_begin.1 = phi ptr [ %incdec.ptr, %if.then ], [ %cl_begin.0641, %lor.lhs.false ]
   br i1 %cmp13, label %while.end, label %while.body, !llvm.loop !44
 
 while.end:                                        ; preds = %if.end, %for.end, %_ZSt4sortIPPN7datalog4ruleEPFbS2_S2_EEvT_S6_T0_.exit, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit24

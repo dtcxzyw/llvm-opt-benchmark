@@ -260,13 +260,13 @@ define internal range(i32 0, 2) i32 @dissect_esl_heur(ptr noundef %0, ptr nounde
   br label %42
 
 42:                                               ; preds = %.sink.split, %30
-  %.0 = phi i32 [ 0, %30 ], [ 1, %.sink.split ]
+  %.032 = phi i32 [ 0, %30 ], [ 1, %.sink.split ]
   store i1 false, ptr @dissect_esl_heur.in_heur, align 4
   br label %43
 
 43:                                               ; preds = %19, %4, %42
-  %.032 = phi i32 [ %.0, %42 ], [ 0, %4 ], [ 0, %19 ]
-  ret i32 %.032
+  %.0 = phi i32 [ %.032, %42 ], [ 0, %4 ], [ 0, %19 ]
+  ret i32 %.0
 }
 
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1

@@ -1412,10 +1412,10 @@ define dso_local range(i32 0, 28) i32 @Curl_ssl_addsessionid(ptr nocapture nound
   br label %59
 
 59:                                               ; preds = %.lr.ph, %63
-  %.06689 = phi i64 [ %19, %.lr.ph ], [ %spec.select86, %63 ]
-  %.06788 = phi ptr [ %16, %.lr.ph ], [ %spec.select, %63 ]
-  %.06987 = phi i64 [ 1, %.lr.ph ], [ %67, %63 ]
-  %60 = getelementptr inbounds %struct.Curl_ssl_session, ptr %58, i64 %.06987
+  %.06789 = phi i64 [ %19, %.lr.ph ], [ %spec.select86, %63 ]
+  %.06888 = phi ptr [ %16, %.lr.ph ], [ %spec.select, %63 ]
+  %.07087 = phi i64 [ 1, %.lr.ph ], [ %67, %63 ]
+  %60 = getelementptr inbounds %struct.Curl_ssl_session, ptr %58, i64 %.07087
   %61 = getelementptr inbounds i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
   %.not85 = icmp eq ptr %62, null
@@ -1424,31 +1424,31 @@ define dso_local range(i32 0, 28) i32 @Curl_ssl_addsessionid(ptr nocapture nound
 63:                                               ; preds = %59
   %64 = getelementptr inbounds i8, ptr %60, i64 40
   %65 = load i64, ptr %64, align 8
-  %66 = icmp slt i64 %65, %.06689
-  %spec.select = select i1 %66, ptr %60, ptr %.06788
-  %spec.select86 = tail call i64 @llvm.smin.i64(i64 %65, i64 %.06689)
-  %67 = add nuw i64 %.06987, 1
+  %66 = icmp slt i64 %65, %.06789
+  %spec.select = select i1 %66, ptr %60, ptr %.06888
+  %spec.select86 = tail call i64 @llvm.smin.i64(i64 %65, i64 %.06789)
+  %67 = add nuw i64 %.07087, 1
   %exitcond.not = icmp eq i64 %67, %56
   br i1 %exitcond.not, label %.critedge.thread, label %59, !llvm.loop !9
 
 .critedge:                                        ; preds = %59, %54
-  %.069.lcssa = phi i64 [ 1, %54 ], [ %.06987, %59 ]
-  %.067.lcssa = phi ptr [ %16, %54 ], [ %.06788, %59 ]
-  %68 = icmp eq i64 %.069.lcssa, %56
+  %.070.lcssa = phi i64 [ 1, %54 ], [ %.07087, %59 ]
+  %.068.lcssa = phi ptr [ %16, %54 ], [ %.06888, %59 ]
+  %68 = icmp eq i64 %.070.lcssa, %56
   br i1 %68, label %.critedge.thread, label %69
 
 .critedge.thread:                                 ; preds = %63, %.critedge
-  %.067.lcssa99 = phi ptr [ %.067.lcssa, %.critedge ], [ %spec.select, %63 ]
-  tail call void @Curl_ssl_kill_session(ptr noundef %.067.lcssa99)
+  %.068.lcssa99 = phi ptr [ %.068.lcssa, %.critedge ], [ %spec.select, %63 ]
+  tail call void @Curl_ssl_kill_session(ptr noundef %.068.lcssa99)
   br label %72
 
 69:                                               ; preds = %.critedge
   %70 = load ptr, ptr %15, align 8
-  %71 = getelementptr inbounds %struct.Curl_ssl_session, ptr %70, i64 %.069.lcssa
+  %71 = getelementptr inbounds %struct.Curl_ssl_session, ptr %70, i64 %.070.lcssa
   br label %72
 
 72:                                               ; preds = %69, %.critedge.thread
-  %.2 = phi ptr [ %.067.lcssa99, %.critedge.thread ], [ %71, %69 ]
+  %.2 = phi ptr [ %.068.lcssa99, %.critedge.thread ], [ %71, %69 ]
   %73 = getelementptr inbounds i8, ptr %.2, i64 24
   store ptr %2, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %.2, i64 32
@@ -1556,8 +1556,8 @@ define dso_local range(i32 0, 28) i32 @Curl_ssl_addsessionid(ptr nocapture nound
   br label %133
 
 133:                                              ; preds = %131, %132, %17, %14, %93, %34
-  %.070 = phi i32 [ 27, %93 ], [ 27, %34 ], [ 0, %14 ], [ 27, %17 ], [ 0, %132 ], [ 0, %131 ]
-  ret i32 %.070
+  %.066 = phi i32 [ 27, %93 ], [ 27, %34 ], [ 0, %14 ], [ 27, %17 ], [ 0, %132 ], [ 0, %131 ]
+  ret i32 %.066
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1991,14 +1991,14 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
   br label %94
 
 .preheader:                                       ; preds = %38, %.thread121
-  %.068 = phi ptr [ %58, %.thread121 ], [ %40, %38 ]
-  %44 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.068, ptr noundef nonnull dereferenceable(1) @.str.3) #19
+  %.070 = phi ptr [ %58, %.thread121 ], [ %40, %38 ]
+  %44 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.070, ptr noundef nonnull dereferenceable(1) @.str.3) #19
   %.not114 = icmp eq ptr %44, null
   br i1 %.not114, label %45, label %.thread120
 
 45:                                               ; preds = %.preheader
   %46 = load i64, ptr %6, align 8
-  %47 = getelementptr inbounds i8, ptr %.068, i64 8
+  %47 = getelementptr inbounds i8, ptr %.070, i64 8
   %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #19
   %49 = icmp eq i64 %46, %48
   br i1 %49, label %54, label %.thread111.loopexit
@@ -2006,7 +2006,7 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
 .thread120:                                       ; preds = %.preheader
   store i8 0, ptr %44, align 1
   %50 = load i64, ptr %6, align 8
-  %51 = getelementptr inbounds i8, ptr %.068, i64 8
+  %51 = getelementptr inbounds i8, ptr %.070, i64 8
   %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #19
   %53 = icmp eq i64 %50, %52
   br i1 %53, label %54, label %.thread121
@@ -2036,7 +2036,7 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
 
 .thread111:                                       ; preds = %.thread111.loopexit, %.thread111.split.loop.exit
   %59 = phi ptr [ %57, %.thread111.split.loop.exit ], [ %.pre, %.thread111.loopexit ]
-  %.070 = phi i32 [ %.mux.le, %.thread111.split.loop.exit ], [ 90, %.thread111.loopexit ]
+  %.068 = phi i32 [ %.mux.le, %.thread111.split.loop.exit ], [ 90, %.thread111.loopexit ]
   %60 = load ptr, ptr @Curl_cfree, align 8
   call void %60(ptr noundef %59) #18
   store ptr null, ptr %7, align 8
@@ -2108,7 +2108,7 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
   br label %89
 
 89:                                               ; preds = %87, %81, %64, %66, %69, %72, %76, %82
-  %.171 = phi i32 [ 90, %64 ], [ 90, %66 ], [ 90, %69 ], [ 90, %76 ], [ 90, %82 ], [ 90, %72 ], [ %spec.select, %81 ], [ %spec.select108, %87 ]
+  %.1 = phi i32 [ 90, %64 ], [ 90, %66 ], [ 90, %69 ], [ 90, %76 ], [ 90, %82 ], [ 90, %72 ], [ %spec.select, %81 ], [ %spec.select108, %87 ]
   %.067 = phi ptr [ null, %64 ], [ null, %66 ], [ null, %69 ], [ %75, %76 ], [ %75, %82 ], [ null, %72 ], [ %75, %81 ], [ %75, %87 ]
   %90 = load ptr, ptr @Curl_cfree, align 8
   call void %90(ptr noundef %.067) #18
@@ -2120,7 +2120,7 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
   br label %94
 
 94:                                               ; preds = %.thread, %62, %28, %19, %15, %9, %4, %89, %.thread111, %41
-  %.0 = phi i32 [ %.070, %.thread111 ], [ 27, %41 ], [ %.171, %89 ], [ 0, %4 ], [ 90, %9 ], [ 90, %15 ], [ 27, %19 ], [ %29, %28 ], [ 90, %62 ], [ %26, %.thread ]
+  %.0 = phi i32 [ %.068, %.thread111 ], [ 27, %41 ], [ %.1, %89 ], [ 0, %4 ], [ 90, %9 ], [ 90, %15 ], [ 27, %19 ], [ %29, %28 ], [ 90, %62 ], [ %26, %.thread ]
   ret i32 %.0
 }
 
@@ -3624,43 +3624,43 @@ define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_buf(ptr nocapture nound
   br i1 %.not36, label %.critedge, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %.lr.ph, %12
-  %.0232834 = phi i64 [ %20, %12 ], [ 0, %.lr.ph ]
-  %.02933 = phi i32 [ %19, %12 ], [ 0, %.lr.ph ]
-  %5 = getelementptr inbounds [3 x [10 x i8]], ptr %1, i64 0, i64 %.0232834
+  %.0242834 = phi i64 [ %20, %12 ], [ 0, %.lr.ph ]
+  %.0232933 = phi i32 [ %19, %12 ], [ 0, %.lr.ph ]
+  %5 = getelementptr inbounds [3 x [10 x i8]], ptr %1, i64 0, i64 %.0242834
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #19
   %7 = icmp ugt i64 %6, 9
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %.lr.ph35
   %9 = trunc nuw i64 %6 to i32
-  %10 = add nsw i32 %.02933, %9
+  %10 = add nsw i32 %.0232933, %9
   %11 = icmp sgt i32 %10, 31
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %8
   %13 = trunc nuw nsw i64 %6 to i8
-  %14 = add nsw i32 %.02933, 1
-  %15 = sext i32 %.02933 to i64
+  %14 = add nsw i32 %.0232933, 1
+  %15 = sext i32 %.0232933 to i64
   %16 = getelementptr inbounds [33 x i8], ptr %0, i64 0, i64 %15
   store i8 %13, ptr %16, align 1
   %17 = sext i32 %14 to i64
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr nonnull align 2 %5, i64 %6, i1 false)
   %19 = add nsw i32 %14, %9
-  %20 = add nuw i64 %.0232834, 1
+  %20 = add nuw i64 %.0242834, 1
   %21 = load i64, ptr %3, align 8
   %22 = icmp ult i64 %20, %21
   br i1 %22, label %.lr.ph35, label %.critedge
 
 .critedge:                                        ; preds = %12, %.lr.ph, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ 0, %.lr.ph ], [ %19, %12 ]
+  %.023.lcssa = phi i32 [ 0, %2 ], [ 0, %.lr.ph ], [ %19, %12 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 %.0.lcssa, ptr %23, align 4
+  store i32 %.023.lcssa, ptr %23, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph35, %8, %.critedge
-  %.024 = phi i32 [ 0, %.critedge ], [ 2, %8 ], [ 2, %.lr.ph35 ]
-  ret i32 %.024
+  %.0 = phi i32 [ 0, %.critedge ], [ 2, %8 ], [ 2, %.lr.ph35 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -3679,9 +3679,9 @@ define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_str(ptr nocapture nound
   br i1 %.not38, label %.critedge, label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %.lr.ph, %16
-  %.0243036 = phi i64 [ %19, %16 ], [ 0, %.lr.ph ]
+  %.0253036 = phi i64 [ %19, %16 ], [ 0, %.lr.ph ]
   %.03135 = phi i64 [ %18, %16 ], [ 0, %.lr.ph ]
-  %5 = getelementptr inbounds [3 x [10 x i8]], ptr %1, i64 0, i64 %.0243036
+  %5 = getelementptr inbounds [3 x [10 x i8]], ptr %1, i64 0, i64 %.0253036
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #19
   %7 = icmp ugt i64 %6, 9
   br i1 %7, label %.loopexit, label %8
@@ -3707,7 +3707,7 @@ define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_str(ptr nocapture nound
   %17 = getelementptr inbounds i8, ptr %0, i64 %.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr nonnull align 2 %5, i64 %6, i1 false)
   %18 = add i64 %.1, %6
-  %19 = add nuw i64 %.0243036, 1
+  %19 = add nuw i64 %.0253036, 1
   %20 = load i64, ptr %3, align 8
   %21 = icmp ult i64 %19, %20
   br i1 %21, label %.lr.ph37, label %.critedge
@@ -3722,8 +3722,8 @@ define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_str(ptr nocapture nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph37, %8, %.critedge
-  %.025 = phi i32 [ 0, %.critedge ], [ 2, %8 ], [ 2, %.lr.ph37 ]
-  ret i32 %.025
+  %.024 = phi i32 [ 0, %.critedge ], [ 2, %8 ], [ 2, %.lr.ph37 ]
+  ret i32 %.024
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3950,7 +3950,7 @@ define internal noundef i64 @multissl_version(ptr noundef %0, i64 noundef %1) #2
 .lr.ph:                                           ; preds = %9, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %9 ]
   %10 = phi ptr [ %26, %24 ], [ %6, %9 ]
-  %.01727 = phi ptr [ %.1, %24 ], [ @multissl_version.backends, %9 ]
+  %.028 = phi ptr [ %.1, %24 ], [ @multissl_version.backends, %9 ]
   %11 = load ptr, ptr @multissl_version.selected, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 48
   %13 = load ptr, ptr %12, align 8
@@ -3960,19 +3960,19 @@ define internal noundef i64 @multissl_version(ptr noundef %0, i64 noundef %1) #2
 
 15:                                               ; preds = %.lr.ph
   %.not23 = icmp eq ptr %11, %10
-  %16 = ptrtoint ptr %.01727 to i64
+  %16 = ptrtoint ptr %.028 to i64
   %17 = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @multissl_version.backends, i64 200) to i64), %16
-  %.not25 = icmp eq ptr %.01727, @multissl_version.backends
+  %.not25 = icmp eq ptr %.028, @multissl_version.backends
   %18 = select i1 %.not25, ptr @.str.18, ptr @.str.17
   %19 = select i1 %.not23, ptr @.str.18, ptr @.str.19
   %20 = select i1 %.not23, ptr @.str.18, ptr @.str.20
-  %21 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %.01727, i64 noundef %17, ptr noundef nonnull @.str.16, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %3, ptr noundef nonnull %20) #18
+  %21 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %.028, i64 noundef %17, ptr noundef nonnull @.str.16, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %3, ptr noundef nonnull %20) #18
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %.01727, i64 %22
+  %23 = getelementptr inbounds i8, ptr %.028, i64 %22
   br label %24
 
 24:                                               ; preds = %.lr.ph, %15
-  %.1 = phi ptr [ %23, %15 ], [ %.01727, %.lr.ph ]
+  %.1 = phi ptr [ %23, %15 ], [ %.028, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next
   %26 = load ptr, ptr %25, align 8
@@ -3980,8 +3980,8 @@ define internal noundef i64 @multissl_version(ptr noundef %0, i64 noundef %1) #2
   br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %24, %9
-  %.017.lcssa = phi ptr [ @multissl_version.backends, %9 ], [ %.1, %24 ]
-  %27 = ptrtoint ptr %.017.lcssa to i64
+  %.0.lcssa = phi ptr [ @multissl_version.backends, %9 ], [ %.1, %24 ]
+  %27 = ptrtoint ptr %.0.lcssa to i64
   %28 = sub i64 %27, ptrtoint (ptr @multissl_version.backends to i64)
   store i64 %28, ptr @multissl_version.backends_len, align 8
   br label %29

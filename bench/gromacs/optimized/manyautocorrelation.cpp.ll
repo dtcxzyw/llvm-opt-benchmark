@@ -683,14 +683,14 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit39:          ; preds = %56, %58, %60, %62
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader48, %.lr.ph
-  %.03549 = phi i64 [ %79, %.lr.ph ], [ 0, %.preheader48 ]
+  %.03649 = phi i64 [ %79, %.lr.ph ], [ 0, %.preheader48 ]
   %67 = load ptr, ptr %5, align 8
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds %"class.std::vector.8", ptr %68, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds float, ptr %70, i64 %.03549
+  %71 = getelementptr inbounds float, ptr %70, i64 %.03649
   %72 = load float, ptr %71, align 4
-  %73 = shl i64 %.03549, 1
+  %73 = shl i64 %.03649, 1
   %74 = load ptr, ptr %8, align 8
   %75 = getelementptr inbounds float, ptr %74, i64 %73
   store float %72, ptr %75, align 4
@@ -698,7 +698,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit39:          ; preds = %56, %58, %60, %62
   %77 = load ptr, ptr %8, align 8
   %78 = getelementptr inbounds float, ptr %77, i64 %76
   store float 0.000000e+00, ptr %78, align 4
-  %79 = add nuw i64 %.03549, 1
+  %79 = add nuw i64 %.03649, 1
   %80 = load i64, ptr %4, align 8
   %81 = icmp ult i64 %79, %80
   br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !7
@@ -763,8 +763,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit41:                  ; preds = %_ZNSt6vectorIfSaIfE
 
 .lr.ph51:                                         ; preds = %.preheader47, %.lr.ph51
   %99 = phi i64 [ %116, %.lr.ph51 ], [ %98, %.preheader47 ]
-  %.03450 = phi i64 [ %115, %.lr.ph51 ], [ 0, %.preheader47 ]
-  %100 = shl i64 %.03450, 1
+  %.03550 = phi i64 [ %115, %.lr.ph51 ], [ 0, %.preheader47 ]
+  %100 = shl i64 %.03550, 1
   %101 = load ptr, ptr %9, align 8
   %102 = getelementptr inbounds float, ptr %101, i64 %100
   %103 = load float, ptr %102, align 4
@@ -781,7 +781,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit41:                  ; preds = %_ZNSt6vectorIfSaIfE
   %113 = load ptr, ptr %8, align 8
   %114 = getelementptr inbounds float, ptr %113, i64 %104
   store float 0.000000e+00, ptr %114, align 4
-  %115 = add nuw i64 %.03450, 1
+  %115 = add nuw i64 %.03550, 1
   %116 = load i64, ptr %3, align 8
   %117 = icmp ult i64 %115, %116
   br i1 %117, label %.lr.ph51, label %._crit_edge52, !llvm.loop !8
@@ -799,18 +799,18 @@ _ZNSt6vectorIfSaIfEED2Ev.exit41:                  ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %.not59, label %._crit_edge55, label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %.preheader, %.lr.ph54
-  %.053 = phi i64 [ %131, %.lr.ph54 ], [ 0, %.preheader ]
+  %.03453 = phi i64 [ %131, %.lr.ph54 ], [ 0, %.preheader ]
   %123 = load ptr, ptr %9, align 8
-  %.idx = shl i64 %.053, 3
+  %.idx = shl i64 %.03453, 3
   %124 = getelementptr inbounds i8, ptr %123, i64 %.idx
   %125 = load float, ptr %124, align 4
   %126 = load ptr, ptr %5, align 8
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds %"class.std::vector.8", ptr %127, i64 %indvars.iv
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds float, ptr %129, i64 %.053
+  %130 = getelementptr inbounds float, ptr %129, i64 %.03453
   store float %125, ptr %130, align 4
-  %131 = add nuw i64 %.053, 1
+  %131 = add nuw i64 %.03453, 1
   %132 = load i64, ptr %3, align 8
   %133 = icmp ult i64 %131, %132
   br i1 %133, label %.lr.ph54, label %._crit_edge55, !llvm.loop !9

@@ -455,7 +455,7 @@ define noundef ptr @phpdbg_get_function(ptr nocapture noundef readonly %0, ptr n
   br label %69
 
 69:                                               ; preds = %.sink.split, %65, %62, %61
-  %.0 = phi ptr [ null, %61 ], [ null, %62 ], [ null, %65 ], [ %68, %.sink.split ]
+  %.0176 = phi ptr [ null, %61 ], [ null, %62 ], [ null, %65 ], [ %68, %.sink.split ]
   %70 = getelementptr inbounds i8, ptr %12, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, 64
@@ -485,7 +485,7 @@ define noundef ptr @phpdbg_get_function(ptr nocapture noundef readonly %0, ptr n
   br label %82
 
 82:                                               ; preds = %73, %81, %80, %69
-  ret ptr %.0
+  ret ptr %.0176
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -898,8 +898,8 @@ define hidden range(i32 -1, 1) i32 @phpdbg_safe_class_lookup(ptr noundef %0, i32
   br label %27
 
 27:                                               ; preds = %20, %25
-  %.0121 = phi ptr [ %26, %25 ], [ null, %20 ]
-  store ptr %.0121, ptr %2, align 8
+  %.0 = phi ptr [ %26, %25 ], [ null, %20 ]
+  store ptr %.0, ptr %2, align 8
   br label %31
 
 28:                                               ; preds = %10
@@ -941,8 +941,8 @@ define hidden range(i32 -1, 1) i32 @phpdbg_safe_class_lookup(ptr noundef %0, i32
   br label %46
 
 46:                                               ; preds = %7, %43
-  %.0122 = phi i32 [ %45, %43 ], [ -1, %7 ]
-  ret i32 %.0122
+  %.0120 = phi i32 [ %45, %43 ], [ -1, %7 ]
+  ret i32 %.0120
 }
 
 ; Function Attrs: allocsize(0)
@@ -1008,7 +1008,7 @@ define range(i32 -1, 1) i32 @phpdbg_parse_variable_with_arg(ptr noundef %0, i64 
   %.0333477 = phi i32 [ -1, %.lr.ph480 ], [ %.12, %243 ]
   %.0336476 = phi i8 [ 1, %.lr.ph480 ], [ %.2338, %243 ]
   %.0339475 = phi ptr [ null, %.lr.ph480 ], [ %.2341, %243 ]
-  %.0343474 = phi i64 [ 0, %.lr.ph480 ], [ %.2345, %243 ]
+  %.0342474 = phi i64 [ 0, %.lr.ph480 ], [ %.2344, %243 ]
   %16 = add nuw i64 %.0332478, 1
   %17 = icmp eq i64 %16, %1
   br i1 %17, label %35, label %18
@@ -1030,11 +1030,11 @@ define range(i32 -1, 1) i32 @phpdbg_parse_variable_with_arg(ptr noundef %0, i64 
   br i1 %.not378, label %.loopexit431, label %23
 
 23:                                               ; preds = %22
-  %24 = add i64 %.0343474, -1
+  %24 = add i64 %.0342474, -1
   %25 = getelementptr inbounds i8, ptr %.0339475, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 45
-  %spec.select = select i1 %27, i64 %24, i64 %.0343474
+  %spec.select = select i1 %27, i64 %24, i64 %.0342474
   %spec.select414 = select i1 %27, i8 1, i8 %.0336476
   br label %35
 
@@ -1048,15 +1048,15 @@ define range(i32 -1, 1) i32 @phpdbg_parse_variable_with_arg(ptr noundef %0, i64 
   %33 = trunc nuw i8 %.0336476 to i1
   %spec.select416 = select i1 %33, i8 0, i8 %.0336476
   %spec.select415 = select i1 %33, ptr %19, ptr %.0339475
-  %34 = add i64 %.0343474, 1
+  %34 = add i64 %.0342474, 1
   br label %35
 
 35:                                               ; preds = %23, %15, %21, %32, %18
-  %.1344 = phi i64 [ %34, %32 ], [ %.0343474, %18 ], [ %.0343474, %21 ], [ %.0343474, %15 ], [ %spec.select, %23 ]
+  %.1343 = phi i64 [ %34, %32 ], [ %.0342474, %18 ], [ %.0342474, %21 ], [ %.0342474, %15 ], [ %spec.select, %23 ]
   %.2341 = phi ptr [ %spec.select415, %32 ], [ %.0339475, %18 ], [ %.0339475, %21 ], [ %.0339475, %15 ], [ %.0339475, %23 ]
   %.2338 = phi i8 [ %spec.select416, %32 ], [ %.0336476, %18 ], [ 1, %21 ], [ 1, %15 ], [ %spec.select414, %23 ]
   %36 = trunc nuw i8 %.2338 to i1
-  %37 = icmp eq i64 %.1344, 0
+  %37 = icmp eq i64 %.1343, 0
   %or.cond = select i1 %36, i1 %37, i1 false
   br i1 %or.cond, label %38, label %153
 
@@ -1081,43 +1081,43 @@ define range(i32 -1, 1) i32 @phpdbg_parse_variable_with_arg(ptr noundef %0, i64 
 
 51:                                               ; preds = %.lr.ph499, %.loopexit
   %.1334497 = phi i32 [ %.0333477, %.lr.ph499 ], [ %.6, %.loopexit ]
-  %.0352496 = phi i32 [ %41, %.lr.ph499 ], [ %152, %.loopexit ]
-  %.0353495 = phi ptr [ %43, %.lr.ph499 ], [ %.1354, %.loopexit ]
-  %.0355494 = phi i32 [ 0, %.lr.ph499 ], [ %.1356, %.loopexit ]
-  %.0357493 = phi ptr [ null, %.lr.ph499 ], [ %.1358, %.loopexit ]
+  %.0351496 = phi ptr [ null, %.lr.ph499 ], [ %.1352, %.loopexit ]
+  %.0353495 = phi i32 [ 0, %.lr.ph499 ], [ %.1354, %.loopexit ]
+  %.0355494 = phi ptr [ %43, %.lr.ph499 ], [ %.1356, %.loopexit ]
+  %.0357493 = phi i32 [ %41, %.lr.ph499 ], [ %152, %.loopexit ]
   %52 = load i32, ptr %39, align 8
   %53 = and i32 %52, 4
   %.not397 = icmp eq i32 %53, 0
   br i1 %.not397, label %58, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %.0353495, i64 16
-  %56 = zext i32 %.0355494 to i64
-  %57 = add i32 %.0355494, 1
+  %55 = getelementptr inbounds i8, ptr %.0355494, i64 16
+  %56 = zext i32 %.0353495 to i64
+  %57 = add i32 %.0353495, 1
   br label %69
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds i8, ptr %.0353495, i64 32
-  %60 = getelementptr inbounds i8, ptr %.0353495, i64 16
+  %59 = getelementptr inbounds i8, ptr %.0355494, i64 32
+  %60 = getelementptr inbounds i8, ptr %.0355494, i64 16
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.0353495, i64 24
+  %62 = getelementptr inbounds i8, ptr %.0355494, i64 24
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %.0353495, i64 8
+  %64 = getelementptr inbounds i8, ptr %.0355494, i64 8
   %65 = load i8, ptr %64, align 8
   %66 = icmp eq i8 %65, 12
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %58
-  %68 = load ptr, ptr %.0353495, align 8
+  %68 = load ptr, ptr %.0355494, align 8
   br label %69
 
 69:                                               ; preds = %58, %67, %54
-  %.0359 = phi i64 [ %56, %54 ], [ %61, %67 ], [ %61, %58 ]
-  %.1358 = phi ptr [ %.0357493, %54 ], [ %63, %67 ], [ %63, %58 ]
-  %.1356 = phi i32 [ %57, %54 ], [ %.0355494, %67 ], [ %.0355494, %58 ]
-  %.1354 = phi ptr [ %55, %54 ], [ %59, %67 ], [ %59, %58 ]
-  %.0351 = phi ptr [ %.0353495, %54 ], [ %68, %67 ], [ %.0353495, %58 ]
-  %70 = getelementptr inbounds i8, ptr %.0351, i64 8
+  %.0358 = phi ptr [ %.0355494, %54 ], [ %68, %67 ], [ %.0355494, %58 ]
+  %.1356 = phi ptr [ %55, %54 ], [ %59, %67 ], [ %59, %58 ]
+  %.1354 = phi i32 [ %57, %54 ], [ %.0353495, %67 ], [ %.0353495, %58 ]
+  %.1352 = phi ptr [ %.0351496, %54 ], [ %63, %67 ], [ %63, %58 ]
+  %.0350 = phi i64 [ %56, %54 ], [ %61, %67 ], [ %61, %58 ]
+  %70 = getelementptr inbounds i8, ptr %.0358, i64 8
   %71 = load i8, ptr %70, align 8
   %72 = icmp eq i8 %71, 0
   br i1 %72, label %.loopexit, label %73
@@ -1135,24 +1135,24 @@ define range(i32 -1, 1) i32 @phpdbg_parse_variable_with_arg(ptr noundef %0, i64 
 
 78:                                               ; preds = %75, %73
   %79 = call noalias ptr @_estrndup(ptr noundef %.2341, i64 noundef 0) #25
-  %.not410 = icmp eq ptr %.1358, null
+  %.not410 = icmp eq ptr %.1352, null
   br i1 %.not410, label %84, label %80
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %.1358, i64 24
+  %81 = getelementptr inbounds i8, ptr %.1352, i64 24
   store ptr %81, ptr %10, align 8
-  %82 = getelementptr inbounds i8, ptr %.1358, i64 16
+  %82 = getelementptr inbounds i8, ptr %.1352, i64 16
   %83 = load i64, ptr %82, align 8
   br label %86
 
 84:                                               ; preds = %78
-  %85 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %10, i64 noundef 0, ptr noundef nonnull @.str.12, i64 noundef %.0359) #25
+  %85 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %10, i64 noundef 0, ptr noundef nonnull @.str.12, i64 noundef %.0350) #25
   %.pre555 = load ptr, ptr %10, align 8
   br label %86
 
 86:                                               ; preds = %84, %80
   %87 = phi ptr [ %81, %80 ], [ %.pre555, %84 ]
-  %.0342 = phi i64 [ %83, %80 ], [ %85, %84 ]
+  %.0359 = phi i64 [ %83, %80 ], [ %85, %84 ]
   %88 = load i8, ptr %87, align 1
   %.not.i = icmp eq i8 %88, 0
   br i1 %.not.i, label %89, label %phpdbg_get_property_key.exit
@@ -1166,12 +1166,12 @@ define range(i32 -1, 1) i32 @phpdbg_parse_variable_with_arg(ptr noundef %0, i64 
 
 phpdbg_get_property_key.exit:                     ; preds = %89, %86
   %.0.i = phi ptr [ %91, %89 ], [ %87, %86 ]
-  %92 = add i64 %47, %.0342
+  %92 = add i64 %47, %.0359
   %93 = call noalias ptr @_emalloc(i64 noundef %92) #26
   %94 = load ptr, ptr %10, align 8
   %95 = ptrtoint ptr %.0.i to i64
   %96 = ptrtoint ptr %94 to i64
-  %.neg = sub i64 %.0342, %95
+  %.neg = sub i64 %.0359, %95
   %97 = add i64 %.neg, %96
   %98 = trunc i64 %97 to i32
   %99 = load i8, ptr %50, align 1
@@ -1187,7 +1187,7 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
   br label %106
 
 106:                                              ; preds = %104, %phpdbg_get_property_key.exit
-  %107 = call i32 %4(ptr noundef %93, i64 noundef %103, ptr noundef %79, i64 noundef 0, ptr noundef nonnull %.0331479, ptr noundef nonnull %.0351, ptr noundef %7) #25
+  %107 = call i32 %4(ptr noundef %93, i64 noundef %103, ptr noundef %79, i64 noundef 0, ptr noundef nonnull %.0331479, ptr noundef nonnull %.0358, ptr noundef %7) #25
   %108 = icmp ne i32 %107, 0
   %109 = icmp ne i32 %.1334497, 0
   %.not413 = select i1 %108, i1 %109, i1 false
@@ -1199,7 +1199,7 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
 
 .split482.us:                                     ; preds = %111, %.thread.us
   %112 = phi i8 [ %.pre554, %.thread.us ], [ %71, %111 ]
-  %.0346.us = phi ptr [ %114, %.thread.us ], [ %.0351, %111 ]
+  %.0345.us = phi ptr [ %114, %.thread.us ], [ %.0358, %111 ]
   switch i8 %112, label %.loopexit [
     i8 8, label %.split485.us
     i8 7, label %.split489.us
@@ -1207,7 +1207,7 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
   ]
 
 .thread.us:                                       ; preds = %.split482.us
-  %113 = load ptr, ptr %.0346.us, align 8
+  %113 = load ptr, ptr %.0345.us, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 8
   %.phi.trans.insert553 = getelementptr inbounds i8, ptr %113, i64 16
   %.pre554 = load i8, ptr %.phi.trans.insert553, align 8
@@ -1223,7 +1223,7 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
   ]
 
 .split485.us:                                     ; preds = %.split482, %.split482.us
-  %.us-phi486 = phi ptr [ %.0346.us, %.split482.us ], [ %.0346.ph, %.split482 ]
+  %.us-phi486 = phi ptr [ %.0345.us, %.split482.us ], [ %.0345.ph, %.split482 ]
   %.us-phi487 = phi i32 [ %.1334497, %.split482.us ], [ %.2335, %.split482 ]
   br i1 %.not381, label %123, label %116
 
@@ -1249,7 +1249,7 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
   br label %.loopexit
 
 .split489.us:                                     ; preds = %.split482, %.split482.us
-  %.us-phi490 = phi ptr [ %.0346.us, %.split482.us ], [ %.0346.ph, %.split482 ]
+  %.us-phi490 = phi ptr [ %.0345.us, %.split482.us ], [ %.0345.ph, %.split482 ]
   %.us-phi491 = phi i32 [ %.1334497, %.split482.us ], [ %.2335, %.split482 ]
   br i1 %.not381, label %.split, label %.split361
 
@@ -1273,7 +1273,7 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
 141:                                              ; preds = %.split482
   %142 = call noalias ptr @_estrndup(ptr noundef nonnull %0, i64 noundef %16) #25
   %143 = call noalias ptr @_estrndup(ptr noundef %.2341, i64 noundef 0) #25
-  %144 = call i32 %5(ptr noundef %142, i64 noundef %16, ptr noundef %143, i64 noundef 0, ptr noundef %.0331479, ptr noundef nonnull %.0346.ph, ptr noundef %7) #25
+  %144 = call i32 %5(ptr noundef %142, i64 noundef %16, ptr noundef %143, i64 noundef 0, ptr noundef %.0331479, ptr noundef nonnull %.0345.ph, ptr noundef %7) #25
   %145 = icmp ne i32 %144, 0
   %146 = icmp ne i32 %.2335, 0
   %.not401 = select i1 %145, i1 %146, i1 false
@@ -1283,7 +1283,7 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
   br i1 %148, label %.thread, label %.split482
 
 .thread:                                          ; preds = %141
-  %149 = load ptr, ptr %.0346.ph, align 8
+  %149 = load ptr, ptr %.0345.ph, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 8
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %149, i64 16
   %.pre.pre = load i8, ptr %.phi.trans.insert.phi.trans.insert, align 8
@@ -1291,14 +1291,14 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
 
 .split482.outer:                                  ; preds = %111, %.thread
   %.ph = phi i8 [ %.pre.pre, %.thread ], [ %71, %111 ]
-  %.0346.ph = phi ptr [ %150, %.thread ], [ %.0351, %111 ]
+  %.0345.ph = phi ptr [ %150, %.thread ], [ %.0358, %111 ]
   %.2335.ph = phi i32 [ %147, %.thread ], [ %.1334497, %111 ]
-  %151 = getelementptr inbounds i8, ptr %.0346.ph, i64 8
+  %151 = getelementptr inbounds i8, ptr %.0345.ph, i64 8
   br label %.split482
 
 .loopexit:                                        ; preds = %.split482, %.split482.us, %.split361, %.split, %106, %123, %69
   %.6 = phi i32 [ %.1334497, %69 ], [ %110, %106 ], [ %.3, %123 ], [ %138, %.split361 ], [ %.us-phi491, %.split ], [ %.1334497, %.split482.us ], [ %.2335, %.split482 ]
-  %152 = add i32 %.0352496, -1
+  %152 = add i32 %.0357493, -1
   %.not396 = icmp eq i32 %152, 0
   br i1 %.not396, label %.loopexit427, label %51
 
@@ -1306,7 +1306,7 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
   br i1 %36, label %154, label %243
 
 154:                                              ; preds = %153
-  %155 = getelementptr inbounds i8, ptr %.2341, i64 %.1344
+  %155 = getelementptr inbounds i8, ptr %.2341, i64 %.1343
   %156 = load i8, ptr %155, align 1
   store i8 0, ptr %155, align 1
   %157 = load i8, ptr %.2341, align 1
@@ -1329,7 +1329,7 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
   br i1 %or.cond417, label %.critedge, label %166
 
 166:                                              ; preds = %162, %159
-  %167 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %.2341, i64 noundef %.1344, ptr noundef nonnull %9) #25
+  %167 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %.2341, i64 noundef %.1343, ptr noundef nonnull %9) #25
   br i1 %167, label %168, label %.critedge
 
 168:                                              ; preds = %166
@@ -1338,7 +1338,7 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
   br label %172
 
 .critedge:                                        ; preds = %154, %161, %162, %166
-  %171 = call ptr @zend_hash_str_find(ptr noundef %.0331479, ptr noundef nonnull %.2341, i64 noundef %.1344) #25
+  %171 = call ptr @zend_hash_str_find(ptr noundef %.0331479, ptr noundef nonnull %.2341, i64 noundef %.1343) #25
   br label %172
 
 172:                                              ; preds = %.critedge, %168
@@ -1367,15 +1367,15 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
   br label %.loopexit427
 
 .lr.ph:                                           ; preds = %.preheader428, %.lr.ph
-  %.2348462 = phi ptr [ %186, %.lr.ph ], [ %.0329, %.preheader428 ]
-  %186 = load ptr, ptr %.2348462, align 8
+  %.2347462 = phi ptr [ %186, %.lr.ph ], [ %.0329, %.preheader428 ]
+  %186 = load ptr, ptr %.2347462, align 8
   %187 = getelementptr inbounds i8, ptr %186, i64 8
   %188 = load i8, ptr %187, align 8
   %189 = icmp eq i8 %188, 12
   br i1 %189, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader428
-  %.2348.lcssa = phi ptr [ %.0329, %.preheader428 ], [ %186, %.lr.ph ]
+  %.2347.lcssa = phi ptr [ %.0329, %.preheader428 ], [ %186, %.lr.ph ]
   store i8 %156, ptr %155, align 1
   br i1 %17, label %194, label %.preheader
 
@@ -1383,8 +1383,8 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
   br i1 %.not381, label %.preheader.split.us, label %.preheader.split.outer
 
 .preheader.split.us:                              ; preds = %.preheader, %.thread422.us
-  %.3349.us = phi ptr [ %193, %.thread422.us ], [ %.2348.lcssa, %.preheader ]
-  %190 = getelementptr inbounds i8, ptr %.3349.us, i64 8
+  %.3348.us = phi ptr [ %193, %.thread422.us ], [ %.2347.lcssa, %.preheader ]
+  %190 = getelementptr inbounds i8, ptr %.3348.us, i64 8
   %191 = load i8, ptr %190, align 8
   switch i8 %191, label %.split464.us [
     i8 8, label %.split467.us
@@ -1393,14 +1393,14 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
   ]
 
 .thread422.us:                                    ; preds = %.preheader.split.us
-  %192 = load ptr, ptr %.3349.us, align 8
+  %192 = load ptr, ptr %.3348.us, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 8
   br label %.preheader.split.us
 
 194:                                              ; preds = %._crit_edge
   %195 = call noalias ptr @_estrndup(ptr noundef nonnull %0, i64 noundef %1) #25
-  %196 = call noalias ptr @_estrndup(ptr noundef nonnull %.2341, i64 noundef %.1344) #25
-  %197 = call i32 %4(ptr noundef %195, i64 noundef %1, ptr noundef %196, i64 noundef %.1344, ptr noundef %.0331479, ptr noundef nonnull %.2348.lcssa, ptr noundef %7) #25
+  %196 = call noalias ptr @_estrndup(ptr noundef nonnull %.2341, i64 noundef %.1343) #25
+  %197 = call i32 %4(ptr noundef %195, i64 noundef %1, ptr noundef %196, i64 noundef %.1343, ptr noundef %.0331479, ptr noundef nonnull %.2347.lcssa, ptr noundef %7) #25
   %198 = icmp ne i32 %197, 0
   %199 = icmp ne i32 %.0333477, 0
   %.not395 = select i1 %198, i1 %199, i1 false
@@ -1417,14 +1417,14 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
   ]
 
 .split467.us:                                     ; preds = %.preheader.split, %.preheader.split.us
-  %.us-phi468 = phi ptr [ %.3349.us, %.preheader.split.us ], [ %.3349.ph, %.preheader.split ]
+  %.us-phi468 = phi ptr [ %.3348.us, %.preheader.split.us ], [ %.3348.ph, %.preheader.split ]
   %.us-phi469 = phi i32 [ %.0333477, %.preheader.split.us ], [ %.7, %.preheader.split ]
   br i1 %.not381, label %209, label %202
 
 202:                                              ; preds = %.split467.us
   %203 = call noalias ptr @_estrndup(ptr noundef nonnull %0, i64 noundef %16) #25
-  %204 = call noalias ptr @_estrndup(ptr noundef nonnull %.2341, i64 noundef %.1344) #25
-  %205 = call i32 %5(ptr noundef %203, i64 noundef %16, ptr noundef %204, i64 noundef %.1344, ptr noundef %.0331479, ptr noundef nonnull %.us-phi468, ptr noundef %7) #25
+  %204 = call noalias ptr @_estrndup(ptr noundef nonnull %.2341, i64 noundef %.1343) #25
+  %205 = call i32 %5(ptr noundef %203, i64 noundef %16, ptr noundef %204, i64 noundef %.1343, ptr noundef %.0331479, ptr noundef nonnull %.us-phi468, ptr noundef %7) #25
   %206 = icmp ne i32 %205, 0
   %207 = icmp ne i32 %.us-phi469, 0
   %.not392 = select i1 %206, i1 %207, i1 false
@@ -1442,14 +1442,14 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
   br label %243
 
 .split471.us:                                     ; preds = %.preheader.split, %.preheader.split.us
-  %.us-phi472 = phi ptr [ %.3349.us, %.preheader.split.us ], [ %.3349.ph, %.preheader.split ]
+  %.us-phi472 = phi ptr [ %.3348.us, %.preheader.split.us ], [ %.3348.ph, %.preheader.split ]
   %.us-phi473 = phi i32 [ %.0333477, %.preheader.split.us ], [ %.7, %.preheader.split ]
   br i1 %.not381, label %223, label %216
 
 216:                                              ; preds = %.split471.us
   %217 = call noalias ptr @_estrndup(ptr noundef nonnull %0, i64 noundef %16) #25
-  %218 = call noalias ptr @_estrndup(ptr noundef nonnull %.2341, i64 noundef %.1344) #25
-  %219 = call i32 %5(ptr noundef %217, i64 noundef %16, ptr noundef %218, i64 noundef %.1344, ptr noundef %.0331479, ptr noundef nonnull %.us-phi472, ptr noundef %7) #25
+  %218 = call noalias ptr @_estrndup(ptr noundef nonnull %.2341, i64 noundef %.1343) #25
+  %219 = call i32 %5(ptr noundef %217, i64 noundef %16, ptr noundef %218, i64 noundef %.1343, ptr noundef %.0331479, ptr noundef nonnull %.us-phi472, ptr noundef %7) #25
   %220 = icmp ne i32 %219, 0
   %221 = icmp ne i32 %.us-phi473, 0
   %.not388 = select i1 %220, i1 %221, i1 false
@@ -1463,8 +1463,8 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
 
 225:                                              ; preds = %.preheader.split
   %226 = call noalias ptr @_estrndup(ptr noundef nonnull %0, i64 noundef %16) #25
-  %227 = call noalias ptr @_estrndup(ptr noundef nonnull %.2341, i64 noundef %.1344) #25
-  %228 = call i32 %5(ptr noundef %226, i64 noundef %16, ptr noundef %227, i64 noundef %.1344, ptr noundef %.0331479, ptr noundef nonnull %.3349.ph, ptr noundef %7) #25
+  %227 = call noalias ptr @_estrndup(ptr noundef nonnull %.2341, i64 noundef %.1343) #25
+  %228 = call i32 %5(ptr noundef %226, i64 noundef %16, ptr noundef %227, i64 noundef %.1343, ptr noundef %.0331479, ptr noundef nonnull %.3348.ph, ptr noundef %7) #25
   %229 = icmp ne i32 %228, 0
   %230 = icmp ne i32 %.7, 0
   %.not384 = select i1 %229, i1 %230, i1 false
@@ -1474,14 +1474,14 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
   br i1 %232, label %.thread422, label %.preheader.split
 
 .thread422:                                       ; preds = %225
-  %233 = load ptr, ptr %.3349.ph, align 8
+  %233 = load ptr, ptr %.3348.ph, align 8
   %234 = getelementptr inbounds i8, ptr %233, i64 8
   br label %.preheader.split.outer
 
 .preheader.split.outer:                           ; preds = %.preheader, %.thread422
-  %.3349.ph = phi ptr [ %234, %.thread422 ], [ %.2348.lcssa, %.preheader ]
+  %.3348.ph = phi ptr [ %234, %.thread422 ], [ %.2347.lcssa, %.preheader ]
   %.7.ph = phi i32 [ %231, %.thread422 ], [ %.0333477, %.preheader ]
-  %235 = getelementptr inbounds i8, ptr %.3349.ph, i64 8
+  %235 = getelementptr inbounds i8, ptr %.3348.ph, i64 8
   br label %.preheader.split
 
 .split464.us:                                     ; preds = %.preheader.split, %.preheader.split.us
@@ -1495,7 +1495,7 @@ phpdbg_get_property_key.exit:                     ; preds = %89, %86
   br label %.loopexit427
 
 243:                                              ; preds = %194, %223, %209, %153
-  %.2345 = phi i64 [ %.1344, %153 ], [ 0, %209 ], [ 0, %223 ], [ 0, %194 ]
+  %.2344 = phi i64 [ %.1343, %153 ], [ 0, %209 ], [ 0, %223 ], [ 0, %194 ]
   %.12 = phi i32 [ %.0333477, %153 ], [ %.8, %209 ], [ %.9, %223 ], [ %200, %194 ]
   %.2 = phi ptr [ %.0331479, %153 ], [ %215, %209 ], [ %224, %223 ], [ %.0331479, %194 ]
   %exitcond.not = icmp eq i64 %16, %1
@@ -1596,9 +1596,9 @@ define zeroext i1 @phpdbg_check_caught_ex(ptr nocapture noundef readonly %0, ptr
   br label %34
 
 34:                                               ; preds = %65, %29
-  %.048 = phi ptr [ %31, %29 ], [ %69, %65 ]
+  %.049 = phi ptr [ %31, %29 ], [ %69, %65 ]
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %.048, i64 20
+  %36 = getelementptr inbounds i8, ptr %.049, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, -2
   %39 = zext i32 %38 to i64
@@ -1608,10 +1608,10 @@ define zeroext i1 @phpdbg_check_caught_ex(ptr nocapture noundef readonly %0, ptr
   br i1 %.not61, label %42, label %56
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %.048, i64 8
+  %43 = getelementptr inbounds i8, ptr %.049, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %.048, i64 %45
+  %46 = getelementptr inbounds i8, ptr %.049, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %46, i64 16
   %49 = load ptr, ptr %48, align 8
@@ -1645,10 +1645,10 @@ define zeroext i1 @phpdbg_check_caught_ex(ptr nocapture noundef readonly %0, ptr
   br i1 %.not63, label %65, label %.critedge2
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %.048, i64 12
+  %66 = getelementptr inbounds i8, ptr %.049, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i8, ptr %.048, i64 %68
+  %69 = getelementptr inbounds i8, ptr %.049, i64 %68
   br label %34
 
 .critedge:                                        ; preds = %20, %19, %2
@@ -1658,8 +1658,8 @@ define zeroext i1 @phpdbg_check_caught_ex(ptr nocapture noundef readonly %0, ptr
   br label %.critedge2
 
 .critedge2:                                       ; preds = %62, %56, %60, %28, %.critedge
-  %.050 = phi i1 [ %72, %.critedge ], [ true, %28 ], [ false, %62 ], [ true, %56 ], [ true, %60 ]
-  ret i1 %.050
+  %.047 = phi i1 [ %72, %.critedge ], [ true, %28 ], [ false, %62 ], [ true, %56 ], [ true, %60 ]
+  ret i1 %.047
 }
 
 declare ptr @zend_fetch_class_by_name(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5

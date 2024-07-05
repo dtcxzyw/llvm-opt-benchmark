@@ -68,13 +68,13 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_int(ptr nocapture noun
   br label %30
 
 30:                                               ; preds = %14, %29, %25, %23
-  %.0 = phi i32 [ -1, %23 ], [ 0, %29 ], [ 0, %25 ], [ 0, %14 ]
+  %.022 = phi i32 [ -1, %23 ], [ 0, %29 ], [ 0, %25 ], [ 0, %14 ]
   call void @ADIOI_Free_fn(ptr noundef nonnull %9, i32 noundef 44, ptr noundef nonnull @.str) #4
   br label %31
 
 31:                                               ; preds = %30, %11
-  %.022 = phi i32 [ -1, %11 ], [ %.0, %30 ]
-  ret i32 %.022
+  %.0 = phi i32 [ -1, %11 ], [ %.022, %30 ]
+  ret i32 %.0
 }
 
 declare ptr @ADIOI_Malloc_fn(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -184,13 +184,13 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_enabled(ptr nocapture 
   br label %50
 
 50:                                               ; preds = %14, %41, %48
-  %.0 = phi i32 [ -1, %48 ], [ 0, %41 ], [ 0, %14 ]
+  %.033 = phi i32 [ -1, %48 ], [ 0, %41 ], [ 0, %14 ]
   call void @ADIOI_Free_fn(ptr noundef nonnull %9, i32 noundef 87, ptr noundef nonnull @.str) #4
   br label %51
 
 51:                                               ; preds = %50, %11
-  %.033 = phi i32 [ -1, %11 ], [ %.0, %50 ]
-  ret i32 %.033
+  %.0 = phi i32 [ -1, %11 ], [ %.033, %50 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -271,13 +271,13 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_true(ptr nocapture nou
   br label %42
 
 42:                                               ; preds = %14, %33, %40
-  %.0 = phi i32 [ -1, %40 ], [ 0, %33 ], [ 0, %14 ]
+  %.027 = phi i32 [ -1, %40 ], [ 0, %33 ], [ 0, %14 ]
   call void @ADIOI_Free_fn(ptr noundef nonnull %9, i32 noundef 126, ptr noundef nonnull @.str) #4
   br label %43
 
 43:                                               ; preds = %42, %11
-  %.027 = phi i32 [ -1, %11 ], [ %.0, %42 ]
-  ret i32 %.027
+  %.0 = phi i32 [ -1, %11 ], [ %.027, %42 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -321,13 +321,13 @@ define range(i32 -1, 1) i32 @ADIOI_Info_check_and_install_str(ptr nocapture noun
   br label %29
 
 29:                                               ; preds = %13, %27, %24
-  %.0 = phi i32 [ -1, %24 ], [ 0, %27 ], [ 0, %13 ]
+  %.022 = phi i32 [ -1, %24 ], [ 0, %27 ], [ 0, %13 ]
   call void @ADIOI_Free_fn(ptr noundef nonnull %8, i32 noundef 164, ptr noundef nonnull @.str) #4
   br label %30
 
 30:                                               ; preds = %29, %10
-  %.022 = phi i32 [ -1, %10 ], [ %.0, %29 ]
-  ret i32 %.022
+  %.0 = phi i32 [ -1, %10 ], [ %.022, %29 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

@@ -299,8 +299,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 43:                                               ; preds = %.lr.ph, %157
   %.0118 = phi i32 [ 0, %.lr.ph ], [ %.2102, %157 ]
-  %.050117 = phi i32 [ 1, %.lr.ph ], [ %158, %157 ]
-  %44 = sext i32 %.050117 to i64
+  %.048117 = phi i32 [ 1, %.lr.ph ], [ %158, %157 ]
+  %44 = sext i32 %.048117 to i64
   %45 = getelementptr inbounds ptr, ptr %1, i64 %44
   %46 = load ptr, ptr %45, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #21
@@ -355,7 +355,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit71: ; 
   br i1 %59, label %60, label %85
 
 60:                                               ; preds = %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit71
-  %61 = add nsw i32 %.050117, 1
+  %61 = add nsw i32 %.048117, 1
   %.not = icmp slt i32 %61, %0
   br i1 %.not, label %79, label %.invoke129
 
@@ -618,7 +618,7 @@ _ZN10filesystem4pathD2Ev.exit81.thread:           ; preds = %.invoke
   br label %.loopexit112
 
 _ZN10filesystem4pathD2Ev.exit81.thread97:         ; preds = %88, %79
-  %.151.ph = phi i32 [ %61, %79 ], [ %.050117, %88 ]
+  %.149.ph = phi i32 [ %61, %79 ], [ %.048117, %88 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #21
   br label %157
 
@@ -628,8 +628,8 @@ _ZN10filesystem4pathD2Ev.exit81:                  ; preds = %156, %_ZSt8_Destroy
 
 157:                                              ; preds = %_ZN10filesystem4pathD2Ev.exit81, %_ZN10filesystem4pathD2Ev.exit81.thread97
   %.2102 = phi i32 [ %.0118, %_ZN10filesystem4pathD2Ev.exit81.thread97 ], [ %.1, %_ZN10filesystem4pathD2Ev.exit81 ]
-  %.151101 = phi i32 [ %.151.ph, %_ZN10filesystem4pathD2Ev.exit81.thread97 ], [ %.050117, %_ZN10filesystem4pathD2Ev.exit81 ]
-  %158 = add nsw i32 %.151101, 1
+  %.149101 = phi i32 [ %.149.ph, %_ZN10filesystem4pathD2Ev.exit81.thread97 ], [ %.048117, %_ZN10filesystem4pathD2Ev.exit81 ]
+  %158 = add nsw i32 %.149101, 1
   %159 = icmp slt i32 %158, %0
   br i1 %159, label %43, label %._crit_edge, !llvm.loop !7
 

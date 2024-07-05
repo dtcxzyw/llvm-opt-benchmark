@@ -1464,14 +1464,14 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   br i1 %870, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %866, %.lr.ph.i
-  %.0133163.i = phi i32 [ %874, %.lr.ph.i ], [ 0, %866 ]
-  %.0134162.i = phi ptr [ %871, %.lr.ph.i ], [ %853, %866 ]
-  %.0135161.i = phi ptr [ %873, %.lr.ph.i ], [ %835, %866 ]
-  %871 = getelementptr inbounds i8, ptr %.0134162.i, i64 1
-  %872 = load i8, ptr %.0134162.i, align 1
-  %873 = getelementptr inbounds i8, ptr %.0135161.i, i64 1
-  store i8 %872, ptr %.0135161.i, align 1
-  %874 = add nuw nsw i32 %.0133163.i, 1
+  %.0131163.i = phi ptr [ %873, %.lr.ph.i ], [ %835, %866 ]
+  %.0132162.i = phi ptr [ %871, %.lr.ph.i ], [ %853, %866 ]
+  %.0133161.i = phi i32 [ %874, %.lr.ph.i ], [ 0, %866 ]
+  %871 = getelementptr inbounds i8, ptr %.0132162.i, i64 1
+  %872 = load i8, ptr %.0132162.i, align 1
+  %873 = getelementptr inbounds i8, ptr %.0131163.i, i64 1
+  store i8 %872, ptr %.0131163.i, align 1
+  %874 = add nuw nsw i32 %.0133161.i, 1
   %exitcond.not.i = icmp eq i32 %874, %869
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
@@ -1500,8 +1500,8 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %884 = xor i32 %869, -1
   %.pn.in164.i = getelementptr inbounds i8, ptr %875, i64 24
   %.pn165.i = load i32, ptr %.pn.in164.i, align 8
-  %.0131166.i = add i32 %.pn165.i, %884
-  %885 = icmp slt i32 %.0131166.i, 1
+  %.0134166.i = add i32 %.pn165.i, %884
+  %885 = icmp slt i32 %.0134166.i, 1
   br i1 %885, label %.lr.ph168.preheader.i, label %._crit_edge169.i
 
 .lr.ph168.preheader.i:                            ; preds = %883
@@ -1557,14 +1557,14 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %911 = load ptr, ptr %910, align 8
   %.pn.in.i = getelementptr inbounds i8, ptr %911, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
-  %.0131.i = add i32 %.pn.i, %884
-  %912 = icmp slt i32 %.0131.i, 1
+  %.0134.i = add i32 %.pn.i, %884
+  %912 = icmp slt i32 %.0134.i, 1
   br i1 %912, label %.lr.ph168.i, label %._crit_edge169.i, !llvm.loop !8
 
 ._crit_edge169.i:                                 ; preds = %905, %883
   %913 = phi ptr [ %875, %883 ], [ %911, %905 ]
-  %.0131.lcssa.i = phi i32 [ %.0131166.i, %883 ], [ %.0131.i, %905 ]
-  %914 = tail call i32 @llvm.umin.i32(i32 %.0131.lcssa.i, i32 8192)
+  %.0134.lcssa.i = phi i32 [ %.0134166.i, %883 ], [ %.0134.i, %905 ]
+  %914 = tail call i32 @llvm.umin.i32(i32 %.0134.lcssa.i, i32 8192)
   %915 = getelementptr inbounds i8, ptr %913, i64 36
   %916 = load i32, ptr %915, align 4
   %.not.i559 = icmp eq i32 %916, 0
@@ -1605,7 +1605,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %921, %.critedge.split.loop.exit.i
-  %.0.lcssa.i = phi i32 [ %931, %.critedge.split.loop.exit.i ], [ %914, %921 ]
+  %.0128.lcssa.i = phi i32 [ %931, %.critedge.split.loop.exit.i ], [ %914, %921 ]
   switch i32 %920, label %946 [
     i32 10, label %.thread154.i
     i32 -1, label %942
@@ -1619,8 +1619,8 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %936 = getelementptr inbounds i8, ptr %935, i64 8
   %937 = load ptr, ptr %936, align 8
   %938 = getelementptr inbounds i8, ptr %937, i64 %917
-  %939 = add nuw nsw i32 %.0.lcssa.i, 1
-  %940 = zext nneg i32 %.0.lcssa.i to i64
+  %939 = add nuw nsw i32 %.0128.lcssa.i, 1
+  %940 = zext nneg i32 %.0128.lcssa.i to i64
   %941 = getelementptr inbounds i8, ptr %938, i64 %940
   store i8 10, ptr %941, align 1
   br label %946
@@ -1636,7 +1636,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   unreachable
 
 946:                                              ; preds = %942, %.thread154.i, %.critedge.i
-  %.1156.i = phi i32 [ %939, %.thread154.i ], [ %.0.lcssa.i, %942 ], [ %.0.lcssa.i, %.critedge.i ]
+  %.1156.i = phi i32 [ %939, %.thread154.i ], [ %.0128.lcssa.i, %942 ], [ %.0128.lcssa.i, %.critedge.i ]
   store i32 %.1156.i, ptr %88, align 4
   br label %.critedge2.i
 
@@ -1729,7 +1729,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   br label %999
 
 999:                                              ; preds = %993, %991, %984
-  %.0132.i = phi i32 [ 1, %991 ], [ 2, %993 ], [ 0, %984 ]
+  %.0135.i = phi i32 [ 1, %991 ], [ 2, %993 ], [ 0, %984 ]
   %1000 = load i32, ptr %88, align 4
   %1001 = add nsw i32 %1000, %869
   %1002 = load ptr, ptr %86, align 8
@@ -1807,7 +1807,7 @@ yy_get_next_buffer.exit:                          ; preds = %999, %1028
   %1053 = getelementptr inbounds i8, ptr %1052, i64 8
   %1054 = load ptr, ptr %1053, align 8
   store ptr %1054, ptr %84, align 8
-  switch i32 %.0132.i, label %default.unreachable917 [
+  switch i32 %.0135.i, label %default.unreachable917 [
     i32 1, label %yy_get_next_buffer.exit.thread
     i32 0, label %1061
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread561_crit_edge
@@ -2169,9 +2169,9 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   br label %11
 
 11:                                               ; preds = %.lr.ph31, %._crit_edge
-  %.02129 = phi ptr [ %5, %.lr.ph31 ], [ %52, %._crit_edge ]
-  %.02228 = phi i32 [ %3, %.lr.ph31 ], [ %51, %._crit_edge ]
-  %12 = load i8, ptr %.02129, align 1
+  %.02129 = phi i32 [ %3, %.lr.ph31 ], [ %51, %._crit_edge ]
+  %.02328 = phi ptr [ %5, %.lr.ph31 ], [ %52, %._crit_edge ]
+  %12 = load i8, ptr %.02328, align 1
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %17, label %13
 
@@ -2183,15 +2183,15 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
 
 17:                                               ; preds = %11, %13
   %18 = phi i8 [ %16, %13 ], [ 1, %11 ]
-  %19 = sext i32 %.02228 to i64
+  %19 = sext i32 %.02129 to i64
   %20 = getelementptr inbounds [168 x i16], ptr @yy_accept, i64 0, i64 %19
   %21 = load i16, ptr %20, align 2
   %.not24 = icmp eq i16 %21, 0
   br i1 %.not24, label %23, label %22
 
 22:                                               ; preds = %17
-  store i32 %.02228, ptr %9, align 8
-  store ptr %.02129, ptr %10, align 8
+  store i32 %.02129, ptr %9, align 8
+  store ptr %.02328, ptr %10, align 8
   br label %23
 
 23:                                               ; preds = %22, %17
@@ -2203,7 +2203,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   %29 = getelementptr inbounds [385 x i16], ptr @yy_chk, i64 0, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = sext i16 %30 to i32
-  %.not2526 = icmp eq i32 %.02228, %31
+  %.not2526 = icmp eq i32 %.02129, %31
   br i1 %.not2526, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %40
@@ -2238,13 +2238,13 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   %49 = getelementptr inbounds [385 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
   %50 = load i16, ptr %49, align 2
   %51 = sext i16 %50 to i32
-  %52 = getelementptr inbounds i8, ptr %.02129, i64 1
+  %52 = getelementptr inbounds i8, ptr %.02328, i64 1
   %exitcond.not = icmp eq ptr %52, %7
   br i1 %exitcond.not, label %._crit_edge32, label %11, !llvm.loop !12
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %1
-  %.022.lcssa = phi i32 [ %3, %1 ], [ %51, %._crit_edge ]
-  ret i32 %.022.lcssa
+  %.021.lcssa = phi i32 [ %3, %1 ], [ %51, %._crit_edge ]
+  ret i32 %.021.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

@@ -86,7 +86,7 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
   br label %55
 
 55:                                               ; preds = %32, %53
-  %.0182 = phi ptr [ %54, %53 ], [ null, %32 ]
+  %.0 = phi ptr [ %54, %53 ], [ null, %32 ]
   %56 = icmp sgt i32 %18, 0
   br i1 %56, label %57, label %89
 
@@ -181,11 +181,11 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
   br label %89
 
 89:                                               ; preds = %55, %._crit_edge228, %87
-  %.0181 = phi ptr [ %66, %87 ], [ %66, %._crit_edge228 ], [ null, %55 ]
-  %.0180 = phi ptr [ %71, %87 ], [ %71, %._crit_edge228 ], [ null, %55 ]
-  %.0179 = phi ptr [ %76, %87 ], [ %76, %._crit_edge228 ], [ null, %55 ]
-  %.0178 = phi ptr [ %81, %87 ], [ %81, %._crit_edge228 ], [ null, %55 ]
-  %.0176 = phi ptr [ %88, %87 ], [ null, %._crit_edge228 ], [ null, %55 ]
+  %.0181 = phi ptr [ %88, %87 ], [ null, %._crit_edge228 ], [ null, %55 ]
+  %.0179 = phi ptr [ %81, %87 ], [ %81, %._crit_edge228 ], [ null, %55 ]
+  %.0178 = phi ptr [ %76, %87 ], [ %76, %._crit_edge228 ], [ null, %55 ]
+  %.0177 = phi ptr [ %71, %87 ], [ %71, %._crit_edge228 ], [ null, %55 ]
+  %.0176 = phi ptr [ %66, %87 ], [ %66, %._crit_edge228 ], [ null, %55 ]
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %99, label %90
 
@@ -215,7 +215,7 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
   br label %99
 
 99:                                               ; preds = %89, %._crit_edge233
-  %.0177 = phi ptr [ %98, %._crit_edge233 ], [ null, %89 ]
+  %.0182 = phi ptr [ %98, %._crit_edge233 ], [ null, %89 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(27) %33, i8 0, i64 27, i1 false)
   %100 = getelementptr inbounds i8, ptr %34, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(216) %100, i8 0, i64 72, i1 false)
@@ -278,11 +278,11 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
   %138 = zext i1 %30 to i64
   %139 = getelementptr inbounds i8, ptr %34, i64 144
   store i64 %138, ptr %139, align 16
-  %.not199 = icmp eq ptr %.0182, null
+  %.not199 = icmp eq ptr %.0, null
   br i1 %.not199, label %143, label %140
 
 140:                                              ; preds = %99
-  %141 = ptrtoint ptr %.0182 to i64
+  %141 = ptrtoint ptr %.0 to i64
   %142 = getelementptr inbounds i8, ptr %34, i64 152
   store i64 %141, ptr %142, align 8
   br label %145
@@ -293,11 +293,11 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
   br label %145
 
 145:                                              ; preds = %143, %140
-  %.not200 = icmp eq ptr %.0181, null
+  %.not200 = icmp eq ptr %.0176, null
   br i1 %.not200, label %149, label %146
 
 146:                                              ; preds = %145
-  %147 = ptrtoint ptr %.0181 to i64
+  %147 = ptrtoint ptr %.0176 to i64
   %148 = getelementptr inbounds i8, ptr %34, i64 160
   store i64 %147, ptr %148, align 16
   br label %151
@@ -308,11 +308,11 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
   br label %151
 
 151:                                              ; preds = %149, %146
-  %.not201 = icmp eq ptr %.0180, null
+  %.not201 = icmp eq ptr %.0177, null
   br i1 %.not201, label %155, label %152
 
 152:                                              ; preds = %151
-  %153 = ptrtoint ptr %.0180 to i64
+  %153 = ptrtoint ptr %.0177 to i64
   %154 = getelementptr inbounds i8, ptr %34, i64 168
   store i64 %153, ptr %154, align 8
   br label %157
@@ -323,11 +323,11 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
   br label %157
 
 157:                                              ; preds = %155, %152
-  %.not202 = icmp eq ptr %.0179, null
+  %.not202 = icmp eq ptr %.0178, null
   br i1 %.not202, label %161, label %158
 
 158:                                              ; preds = %157
-  %159 = ptrtoint ptr %.0179 to i64
+  %159 = ptrtoint ptr %.0178 to i64
   %160 = getelementptr inbounds i8, ptr %34, i64 176
   store i64 %159, ptr %160, align 16
   br label %163
@@ -338,11 +338,11 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
   br label %163
 
 163:                                              ; preds = %161, %158
-  %.not203 = icmp eq ptr %.0178, null
+  %.not203 = icmp eq ptr %.0179, null
   br i1 %.not203, label %167, label %164
 
 164:                                              ; preds = %163
-  %165 = ptrtoint ptr %.0178 to i64
+  %165 = ptrtoint ptr %.0179 to i64
   %166 = getelementptr inbounds i8, ptr %34, i64 184
   store i64 %165, ptr %166, align 8
   br label %169
@@ -353,11 +353,11 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
   br label %169
 
 169:                                              ; preds = %167, %164
-  %.not204 = icmp eq ptr %.0176, null
+  %.not204 = icmp eq ptr %.0181, null
   br i1 %.not204, label %173, label %170
 
 170:                                              ; preds = %169
-  %171 = ptrtoint ptr %.0176 to i64
+  %171 = ptrtoint ptr %.0181 to i64
   %172 = getelementptr inbounds i8, ptr %34, i64 192
   store i64 %171, ptr %172, align 16
   br label %175
@@ -368,11 +368,11 @@ define dso_local i32 @CreateConstraintEntry(ptr noundef %0, i32 noundef %1, i8 n
   br label %175
 
 175:                                              ; preds = %173, %170
-  %.not205 = icmp eq ptr %.0177, null
+  %.not205 = icmp eq ptr %.0182, null
   br i1 %.not205, label %179, label %176
 
 176:                                              ; preds = %175
-  %177 = ptrtoint ptr %.0177 to i64
+  %177 = ptrtoint ptr %.0182 to i64
   %178 = getelementptr inbounds i8, ptr %34, i64 200
   store i64 %177, ptr %178, align 8
   br label %181
@@ -673,7 +673,7 @@ define dso_local ptr @ChooseConstraintName(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %.split.us, label %.lr.ph
 
 .split.us:                                        ; preds = %5, %.thread29.us
-  %.022.us = phi i32 [ %18, %.thread29.us ], [ 0, %5 ]
+  %.0.us = phi i32 [ %18, %.thread29.us ], [ 0, %5 ]
   %14 = call ptr @makeObjectName(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6) #10
   %15 = ptrtoint ptr %14 to i64
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %15) #10
@@ -686,12 +686,12 @@ define dso_local ptr @ChooseConstraintName(ptr noundef %0, ptr noundef %1, ptr n
 
 .thread29.us:                                     ; preds = %.split.us
   call void @pfree(ptr noundef %14) #10
-  %18 = add i32 %.022.us, 1
+  %18 = add i32 %.0.us, 1
   %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef %2, i32 noundef %18) #10
   br label %.split.us
 
 .lr.ph:                                           ; preds = %5, %.thread29
-  %.022 = phi i32 [ %33, %.thread29 ], [ 0, %5 ]
+  %.0 = phi i32 [ %33, %.thread29 ], [ 0, %5 ]
   %20 = call ptr @makeObjectName(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6) #10
   %21 = load i32, ptr %10, align 4
   %22 = icmp sgt i32 %21, 0
@@ -727,7 +727,7 @@ define dso_local ptr @ChooseConstraintName(ptr noundef %0, ptr noundef %1, ptr n
 
 .thread29:                                        ; preds = %25, %._crit_edge.split
   call void @pfree(ptr noundef %20) #10
-  %33 = add i32 %.022, 1
+  %33 = add i32 %.0, 1
   %34 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef %2, i32 noundef %33) #10
   br label %.lr.ph
 
@@ -2454,7 +2454,7 @@ define dso_local noundef zeroext i1 @check_functional_grouping(i32 noundef %0, i
 .lr.ph33:                                         ; preds = %.lr.ph, %33
   %13 = phi i32 [ %34, %33 ], [ %11, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.lr.ph ]
-  %.0192632 = phi ptr [ %.1, %33 ], [ null, %.lr.ph ]
+  %.0192731 = phi ptr [ %.1, %33 ], [ null, %.lr.ph ]
   %14 = load ptr, ptr %10, align 8
   %15 = getelementptr %union.ListCell, ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
@@ -2479,13 +2479,13 @@ define dso_local noundef zeroext i1 @check_functional_grouping(i32 noundef %0, i
   %29 = load i16, ptr %28, align 8
   %30 = sext i16 %29 to i32
   %31 = add nsw i32 %30, 7
-  %32 = tail call ptr @bms_add_member(ptr noundef %.0192632, i32 noundef %31) #10
+  %32 = tail call ptr @bms_add_member(ptr noundef %.0192731, i32 noundef %31) #10
   %.pre = load i32, ptr %9, align 4
   br label %33
 
 33:                                               ; preds = %.lr.ph33, %19, %23, %27
   %34 = phi i32 [ %.pre, %27 ], [ %13, %23 ], [ %13, %19 ], [ %13, %.lr.ph33 ]
-  %.1 = phi ptr [ %32, %27 ], [ %.0192632, %23 ], [ %.0192632, %19 ], [ %.0192632, %.lr.ph33 ]
+  %.1 = phi ptr [ %32, %27 ], [ %.0192731, %23 ], [ %.0192731, %19 ], [ %.0192731, %.lr.ph33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
@@ -2504,8 +2504,8 @@ define dso_local noundef zeroext i1 @check_functional_grouping(i32 noundef %0, i
   br label %42
 
 42:                                               ; preds = %._crit_edge, %5, %38
-  %.020 = phi i1 [ true, %38 ], [ false, %5 ], [ false, %._crit_edge ]
-  ret i1 %.020
+  %.0 = phi i1 [ true, %38 ], [ false, %5 ], [ false, %._crit_edge ]
+  ret i1 %.0
 }
 
 declare zeroext i1 @bms_is_subset(ptr noundef, ptr noundef) local_unnamed_addr #1

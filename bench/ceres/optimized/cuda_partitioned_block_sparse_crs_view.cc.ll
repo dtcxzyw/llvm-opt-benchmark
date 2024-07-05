@@ -799,13 +799,13 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
 
 154:                                              ; preds = %224, %.lr.ph.i
   %155 = phi i32 [ %139, %.lr.ph.i ], [ %234, %224 ]
-  %.042100.i = phi i32 [ 0, %.lr.ph.i ], [ %235, %224 ]
-  %.04399.i = phi i32 [ 0, %.lr.ph.i ], [ %233, %224 ]
-  %156 = sub nsw i32 %101, %.042100.i
+  %.043100.i = phi i32 [ 0, %.lr.ph.i ], [ %233, %224 ]
+  %.04499.i = phi i32 [ 0, %.lr.ph.i ], [ %235, %224 ]
+  %156 = sub nsw i32 %101, %.04499.i
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %155, i32 %156)
-  %157 = sext i32 %.042100.i to i64
+  %157 = sext i32 %.04499.i to i64
   %158 = getelementptr inbounds double, ptr %99, i64 %157
-  %159 = zext nneg i32 %.04399.i to i64
+  %159 = zext nneg i32 %.043100.i to i64
   %160 = getelementptr inbounds [2 x ptr], ptr %11, i64 0, i64 %159
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds ptr, ptr %145, i64 %159
@@ -882,10 +882,10 @@ _ZSt8__copy_nIPKdiPdET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i: ; preds
   br label %_ZSt6copy_nIPKdiPdET1_T_T0_S3_.exit.i
 
 _ZSt6copy_nIPKdiPdET1_T_T0_S3_.exit.i:            ; preds = %_ZSt8__copy_nIPKdiPdET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i, %183, %154
-  %.041.i = phi ptr [ %158, %154 ], [ %185, %183 ], [ %185, %_ZSt8__copy_nIPKdiPdET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i ]
+  %.042.i = phi ptr [ %158, %154 ], [ %185, %183 ], [ %185, %_ZSt8__copy_nIPKdiPdET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i ]
   %188 = sext i32 %.sroa.speculated.i to i64
   %189 = shl nsw i64 %188, 3
-  %190 = call i32 @cudaMemcpyAsync(ptr noundef %161, ptr noundef %.041.i, i64 noundef %189, i32 noundef 1, ptr noundef %163)
+  %190 = call i32 @cudaMemcpyAsync(ptr noundef %161, ptr noundef %.042.i, i64 noundef %189, i32 noundef 1, ptr noundef %163)
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit56.thread.i, label %192
 
@@ -998,7 +998,7 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 224:                                              ; preds = %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit61.i, %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit61.thread.i, %206
-  %225 = add nsw i32 %.042100.i, %106
+  %225 = add nsw i32 %.04499.i, %106
   %226 = load i32, ptr %148, align 4
   %227 = load ptr, ptr %149, align 8
   %228 = load ptr, ptr %150, align 8
@@ -1006,10 +1006,10 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   %230 = load ptr, ptr %152, align 8
   %231 = load ptr, ptr %153, align 8
   call void @_ZN5ceres8internal24PermuteToCRSPartitionedFEiiiiPKiS2_PKNS0_4CellEPKNS0_5BlockES8_S2_PKdPdP11CUstream_st(i32 noundef %225, i32 noundef %.sroa.speculated.i, i32 noundef %226, i32 noundef %108, ptr noundef %227, ptr noundef %228, ptr noundef %229, ptr noundef %230, ptr noundef %231, ptr noundef %114, ptr noundef %161, ptr noundef %112, ptr noundef %163)
-  %232 = and i32 %.04399.i, 1
+  %232 = and i32 %.043100.i, 1
   %233 = xor i32 %232, 1
   %234 = load i32, ptr %97, align 8
-  %235 = add nsw i32 %234, %.042100.i
+  %235 = add nsw i32 %234, %.04499.i
   %236 = icmp slt i32 %235, %101
   br i1 %236, label %154, label %.preheader.i.preheader, !llvm.loop !16
 

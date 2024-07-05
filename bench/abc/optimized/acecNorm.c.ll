@@ -1515,7 +1515,7 @@ Vec_IntFree.exit:                                 ; preds = %98, %107
   br label %108
 
 108:                                              ; preds = %Vec_IntFree.exit, %94
-  %.073 = phi ptr [ %97, %94 ], [ %104, %Vec_IntFree.exit ]
+  %.0 = phi ptr [ %97, %94 ], [ %104, %Vec_IntFree.exit ]
   %109 = getelementptr inbounds i8, ptr %0, i64 24
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr i8, ptr %110, i64 4
@@ -1524,7 +1524,7 @@ Vec_IntFree.exit:                                 ; preds = %98, %107
   br i1 %112, label %.lr.ph118, label %.critedge2
 
 .lr.ph118:                                        ; preds = %108
-  %113 = getelementptr i8, ptr %.073, i64 8
+  %113 = getelementptr i8, ptr %.0, i64 8
   br label %114
 
 114:                                              ; preds = %.lr.ph118, %.critedge4
@@ -1554,8 +1554,8 @@ Vec_IntFree.exit:                                 ; preds = %98, %107
   br i1 %.not80, label %126, label %129
 
 126:                                              ; preds = %121
-  %.073.val = load ptr, ptr %113, align 8
-  %127 = getelementptr inbounds i32, ptr %.073.val, i64 %indvars.iv131
+  %.0.val = load ptr, ptr %113, align 8
+  %127 = getelementptr inbounds i32, ptr %.0.val, i64 %indvars.iv131
   %128 = load i32, ptr %127, align 4
   br label %129
 
@@ -1585,7 +1585,7 @@ Vec_IntFree.exit:                                 ; preds = %98, %107
   br i1 %139, label %114, label %.critedge2, !llvm.loop !14
 
 .critedge2:                                       ; preds = %.critedge4, %108
-  %140 = getelementptr inbounds i8, ptr %.073, i64 8
+  %140 = getelementptr inbounds i8, ptr %.0, i64 8
   %141 = load ptr, ptr %140, align 8
   %.not.i100 = icmp eq ptr %141, null
   br i1 %.not.i100, label %Vec_IntFree.exit101, label %142
@@ -1595,7 +1595,7 @@ Vec_IntFree.exit:                                 ; preds = %98, %107
   br label %Vec_IntFree.exit101
 
 Vec_IntFree.exit101:                              ; preds = %.critedge2, %142
-  tail call void @free(ptr noundef nonnull %.073) #13
+  tail call void @free(ptr noundef nonnull %.0) #13
   %143 = getelementptr inbounds i8, ptr %3, i64 72
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr i8, ptr %144, i64 4

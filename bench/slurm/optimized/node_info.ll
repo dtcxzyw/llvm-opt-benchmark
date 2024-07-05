@@ -1005,7 +1005,7 @@ define range(i32 -1, 1) i32 @slurm_load_node(i64 noundef %0, ptr nocapture nound
 .lr.ph.i:                                         ; preds = %32, %.outer.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.outer.i ], [ 0, %32 ]
   %43 = phi ptr [ %83, %.outer.i ], [ %42, %32 ]
-  %indvars37.i = trunc i64 %indvars.iv.i to i32
+  %indvars35.i = trunc i64 %indvars.iv.i to i32
   br label %44
 
 44:                                               ; preds = %52, %.lr.ph.i
@@ -1030,7 +1030,7 @@ define range(i32 -1, 1) i32 @slurm_load_node(i64 noundef %0, ptr nocapture nound
   store ptr %45, ptr %55, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %56 = getelementptr inbounds i8, ptr %55, i64 8
-  store i32 %indvars37.i, ptr %56, align 8
+  store i32 %indvars35.i, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %55, i64 16
   store ptr %8, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %55, i64 24
@@ -1102,13 +1102,13 @@ define range(i32 -1, 1) i32 @slurm_load_node(i64 noundef %0, ptr nocapture nound
   br label %.outer._crit_edge.i
 
 .outer._crit_edge.i:                              ; preds = %52, %.outer._crit_edge.loopexit24.i
-  %.059.ph.lcssa7.i = phi i32 [ %84, %.outer._crit_edge.loopexit24.i ], [ %indvars37.i, %52 ]
+  %.062.ph.lcssa7.i = phi i32 [ %84, %.outer._crit_edge.loopexit24.i ], [ %indvars35.i, %52 ]
   call void @list_iterator_destroy(ptr noundef %41) #14
-  %85 = icmp sgt i32 %.059.ph.lcssa7.i, 0
+  %85 = icmp sgt i32 %.062.ph.lcssa7.i, 0
   br i1 %85, label %.lr.ph16.preheader.i, label %._crit_edge17.i
 
 .lr.ph16.preheader.i:                             ; preds = %.outer._crit_edge.i
-  %wide.trip.count.i = zext nneg i32 %.059.ph.lcssa7.i to i64
+  %wide.trip.count.i = zext nneg i32 %.062.ph.lcssa7.i to i64
   br label %.lr.ph16.i
 
 .lr.ph16.i:                                       ; preds = %.thread.i, %.lr.ph16.preheader.i
@@ -1146,11 +1146,11 @@ define range(i32 -1, 1) i32 @slurm_load_node(i64 noundef %0, ptr nocapture nound
 
 .lr.ph21.i:                                       ; preds = %._crit_edge17.i, %126
   %95 = phi ptr [ %127, %126 ], [ %94, %._crit_edge17.i ]
-  %.06119.i = phi ptr [ %.1.i, %126 ], [ null, %._crit_edge17.i ]
+  %.06319.i = phi ptr [ %.1.i, %126 ], [ null, %._crit_edge17.i ]
   %96 = getelementptr inbounds i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8
   store ptr %97, ptr %5, align 8
-  %.not79.i = icmp eq ptr %.06119.i, null
+  %.not79.i = icmp eq ptr %.06319.i, null
   br i1 %.not79.i, label %98, label %99
 
 98:                                               ; preds = %.lr.ph21.i
@@ -1158,10 +1158,10 @@ define range(i32 -1, 1) i32 @slurm_load_node(i64 noundef %0, ptr nocapture nound
   br label %126
 
 99:                                               ; preds = %.lr.ph21.i
-  %100 = load i64, ptr %.06119.i, align 8
+  %100 = load i64, ptr %.06319.i, align 8
   %101 = load i64, ptr %97, align 8
   %..i = call i64 @llvm.smin.i64(i64 %100, i64 %101)
-  store i64 %..i, ptr %.06119.i, align 8
+  store i64 %..i, ptr %.06319.i, align 8
   %102 = load ptr, ptr %5, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 8
   %104 = load i32, ptr %103, align 8
@@ -1169,10 +1169,10 @@ define range(i32 -1, 1) i32 @slurm_load_node(i64 noundef %0, ptr nocapture nound
   br i1 %.not80.i, label %123, label %105
 
 105:                                              ; preds = %99
-  %106 = getelementptr inbounds i8, ptr %.06119.i, i64 8
+  %106 = getelementptr inbounds i8, ptr %.06319.i, i64 8
   %107 = load i32, ptr %106, align 8
   %108 = add i32 %107, %104
-  %109 = getelementptr inbounds i8, ptr %.06119.i, i64 16
+  %109 = getelementptr inbounds i8, ptr %.06319.i, i64 16
   %110 = zext i32 %108 to i64
   %111 = mul nuw nsw i64 %110, 368
   %112 = call ptr @slurm_xrecalloc(ptr noundef nonnull %109, i64 noundef 1, i64 noundef %111, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.70, i32 noundef 685, ptr noundef nonnull @__func__._load_fed_nodes) #14
@@ -1200,7 +1200,7 @@ define range(i32 -1, 1) i32 @slurm_load_node(i64 noundef %0, ptr nocapture nound
   br label %126
 
 126:                                              ; preds = %123, %98
-  %.1.i = phi ptr [ %.06119.i, %123 ], [ %97, %98 ]
+  %.1.i = phi ptr [ %.06319.i, %123 ], [ %97, %98 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #14
   %127 = call ptr @list_next(ptr noundef %93) #14
   store ptr %127, ptr %4, align 8
@@ -1212,7 +1212,7 @@ define range(i32 -1, 1) i32 @slurm_load_node(i64 noundef %0, ptr nocapture nound
   br label %._crit_edge22.i
 
 ._crit_edge22.i:                                  ; preds = %._crit_edge22.loopexit.i, %._crit_edge17.i
-  %.061.lcssa.i = phi i1 [ true, %._crit_edge17.i ], [ %128, %._crit_edge22.loopexit.i ]
+  %.063.lcssa.i = phi i1 [ true, %._crit_edge17.i ], [ %128, %._crit_edge22.loopexit.i ]
   call void @list_iterator_destroy(ptr noundef %93) #14
   %.not77.i = icmp eq ptr %33, null
   br i1 %.not77.i, label %130, label %129
@@ -1222,14 +1222,14 @@ define range(i32 -1, 1) i32 @slurm_load_node(i64 noundef %0, ptr nocapture nound
   br label %130
 
 130:                                              ; preds = %129, %._crit_edge22.i
-  br i1 %.061.lcssa.i, label %131, label %_load_fed_nodes.exit
+  br i1 %.063.lcssa.i, label %131, label %_load_fed_nodes.exit
 
 131:                                              ; preds = %130
   call void @slurm_seterrno(i32 noundef -1) #14
   br label %_load_fed_nodes.exit
 
 _load_fed_nodes.exit:                             ; preds = %130, %131
-  %.060.i = phi i32 [ -1, %131 ], [ 0, %130 ]
+  %.059.i = phi i32 [ -1, %131 ], [ 0, %130 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -1242,7 +1242,7 @@ _load_fed_nodes.exit:                             ; preds = %130, %131
   br label %135
 
 135:                                              ; preds = %132, %_load_fed_nodes.exit
-  %.0 = phi i32 [ %.060.i, %_load_fed_nodes.exit ], [ %134, %132 ]
+  %.0 = phi i32 [ %.059.i, %_load_fed_nodes.exit ], [ %134, %132 ]
   %136 = load ptr, ptr %10, align 8
   %.not24 = icmp eq ptr %136, null
   br i1 %.not24, label %138, label %137

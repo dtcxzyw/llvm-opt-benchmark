@@ -443,10 +443,10 @@ define range(i32 -1, 1) i32 @H5C__tag_entry(ptr nocapture noundef %0, ptr nounde
   br i1 %.not590639, label %._crit_edge, label %.lr.ph641
 
 .lr.ph641:                                        ; preds = %.lr.ph644, %314
-  %.0505640 = phi ptr [ %279, %314 ], [ %277, %.lr.ph644 ]
-  %278 = getelementptr inbounds i8, ptr %.0505640, i64 32
+  %.0533640 = phi ptr [ %279, %314 ], [ %277, %.lr.ph644 ]
+  %278 = getelementptr inbounds i8, ptr %.0533640, i64 32
   %279 = load ptr, ptr %278, align 8
-  %280 = getelementptr inbounds i8, ptr %.0505640, i64 52
+  %280 = getelementptr inbounds i8, ptr %.0533640, i64 52
   %281 = load i32, ptr %280, align 4
   %282 = load ptr, ptr %184, align 8
   %283 = getelementptr inbounds i8, ptr %282, i64 8
@@ -485,7 +485,7 @@ define range(i32 -1, 1) i32 @H5C__tag_entry(ptr nocapture noundef %0, ptr nounde
   br label %309
 
 309:                                              ; preds = %296, %307, %.lr.ph641
-  %310 = getelementptr inbounds i8, ptr %.0505640, i64 24
+  %310 = getelementptr inbounds i8, ptr %.0533640, i64 24
   store ptr null, ptr %310, align 8
   %311 = load ptr, ptr %289, align 8
   store ptr %311, ptr %278, align 8
@@ -494,11 +494,11 @@ define range(i32 -1, 1) i32 @H5C__tag_entry(ptr nocapture noundef %0, ptr nounde
 
 312:                                              ; preds = %309
   %313 = getelementptr inbounds i8, ptr %311, i64 24
-  store ptr %.0505640, ptr %313, align 8
+  store ptr %.0533640, ptr %313, align 8
   br label %314
 
 314:                                              ; preds = %312, %309
-  store ptr %.0505640, ptr %289, align 8
+  store ptr %.0533640, ptr %289, align 8
   %.not590 = icmp eq ptr %279, null
   br i1 %.not590, label %._crit_edge.loopexit, label %.lr.ph641
 
@@ -1144,27 +1144,27 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__iter_tagged_entries_real(ptr r
   br label %77
 
 77:                                               ; preds = %92, %.lr.ph
-  %.119521 = phi ptr [ %75, %.lr.ph ], [ %95, %92 ]
-  %78 = getelementptr inbounds i8, ptr %.119521, i64 84
+  %.121 = phi ptr [ %75, %.lr.ph ], [ %95, %92 ]
+  %78 = getelementptr inbounds i8, ptr %.121, i64 84
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, %61
   br i1 %80, label %81, label %89
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %.119521, i64 80
+  %82 = getelementptr inbounds i8, ptr %.121, i64 80
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %83, 8
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %.119521, i64 72
+  %86 = getelementptr inbounds i8, ptr %.121, i64 72
   %87 = load ptr, ptr %86, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %87, ptr noundef nonnull dereferenceable(8) %4, i64 8)
   %88 = icmp eq i32 %bcmp, 0
   br i1 %88, label %96, label %89
 
 89:                                               ; preds = %85, %81, %77
-  %90 = getelementptr inbounds i8, ptr %.119521, i64 64
+  %90 = getelementptr inbounds i8, ptr %.121, i64 64
   %91 = load ptr, ptr %90, align 8
   %.not204 = icmp eq ptr %91, null
   br i1 %.not204, label %.thread, label %92
@@ -1176,19 +1176,19 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__iter_tagged_entries_real(ptr r
   br label %77
 
 96:                                               ; preds = %85
-  %97 = getelementptr inbounds i8, ptr %.119521, i64 8
+  %97 = getelementptr inbounds i8, ptr %.121, i64 8
   %98 = load ptr, ptr %97, align 8
   br label %99
 
 99:                                               ; preds = %100, %96
-  %.0 = phi ptr [ %98, %96 ], [ %102, %100 ]
-  %.not206 = icmp eq ptr %.0, null
+  %.0176 = phi ptr [ %98, %96 ], [ %102, %100 ]
+  %.not206 = icmp eq ptr %.0176, null
   br i1 %.not206, label %.thread, label %100
 
 100:                                              ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %.0, i64 224
+  %101 = getelementptr inbounds i8, ptr %.0176, i64 224
   %102 = load ptr, ptr %101, align 8
-  %103 = tail call i32 %1(ptr noundef nonnull %.0, ptr noundef %2) #10
+  %103 = tail call i32 %1(ptr noundef nonnull %.0176, ptr noundef %2) #10
   %.not207 = icmp eq i32 %103, 0
   br i1 %.not207, label %99, label %104
 
@@ -1199,8 +1199,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__iter_tagged_entries_real(ptr r
   br label %.thread
 
 .thread:                                          ; preds = %89, %99, %5, %3, %104
-  %.0193 = phi i32 [ -1, %104 ], [ 0, %3 ], [ 0, %5 ], [ 0, %99 ], [ 0, %89 ]
-  ret i32 %.0193
+  %.0177 = phi i32 [ -1, %104 ], [ 0, %3 ], [ 0, %5 ], [ 0, %99 ], [ 0, %89 ]
+  ret i32 %.0177
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2005,10 +2005,10 @@ define noundef i32 @H5C_retag_entries(ptr nocapture noundef %0, i64 noundef %1, 
   br i1 %.not619668, label %._crit_edge, label %.lr.ph670
 
 .lr.ph670:                                        ; preds = %.lr.ph673, %379
-  %.0541669 = phi ptr [ %343, %379 ], [ %341, %.lr.ph673 ]
-  %342 = getelementptr inbounds i8, ptr %.0541669, i64 32
+  %.0569669 = phi ptr [ %343, %379 ], [ %341, %.lr.ph673 ]
+  %342 = getelementptr inbounds i8, ptr %.0569669, i64 32
   %343 = load ptr, ptr %342, align 8
-  %344 = getelementptr inbounds i8, ptr %.0541669, i64 52
+  %344 = getelementptr inbounds i8, ptr %.0569669, i64 52
   %345 = load i32, ptr %344, align 4
   %346 = load ptr, ptr %102, align 8
   %347 = getelementptr inbounds i8, ptr %346, i64 8
@@ -2048,7 +2048,7 @@ define noundef i32 @H5C_retag_entries(ptr nocapture noundef %0, i64 noundef %1, 
   br label %374
 
 374:                                              ; preds = %361, %372, %.lr.ph670
-  %375 = getelementptr inbounds i8, ptr %.0541669, i64 24
+  %375 = getelementptr inbounds i8, ptr %.0569669, i64 24
   store ptr null, ptr %375, align 8
   %376 = load ptr, ptr %353, align 8
   store ptr %376, ptr %342, align 8
@@ -2057,11 +2057,11 @@ define noundef i32 @H5C_retag_entries(ptr nocapture noundef %0, i64 noundef %1, 
 
 377:                                              ; preds = %374
   %378 = getelementptr inbounds i8, ptr %376, i64 24
-  store ptr %.0541669, ptr %378, align 8
+  store ptr %.0569669, ptr %378, align 8
   br label %379
 
 379:                                              ; preds = %377, %374
-  store ptr %.0541669, ptr %353, align 8
+  store ptr %.0569669, ptr %353, align 8
   %.not619 = icmp eq ptr %343, null
   br i1 %.not619, label %._crit_edge.loopexit, label %.lr.ph670
 

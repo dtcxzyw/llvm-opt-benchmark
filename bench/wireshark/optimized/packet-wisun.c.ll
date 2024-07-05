@@ -2393,7 +2393,7 @@ define internal fastcc void @dissect_wisun_schedule_common(ptr noundef %0, ptr n
   %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %31) #3
   %40 = load i32, ptr @hf_wisun_usie_hop_count, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %40, ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef -2147483648) #3
-  %.18387 = add i32 %31, 1
+  %.187 = add i32 %31, 1
   %.not8488 = icmp eq i8 %39, 0
   br i1 %.not8488, label %.loopexit86, label %.lr.ph.preheader
 
@@ -2402,17 +2402,17 @@ define internal fastcc void @dissect_wisun_schedule_common(ptr noundef %0, ptr n
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.18390 = phi i32 [ %.183, %.lr.ph ], [ %.18387, %.lr.ph.preheader ]
-  %.089 = phi i32 [ %43, %.lr.ph ], [ %42, %.lr.ph.preheader ]
-  %43 = add nsw i32 %.089, -1
+  %.190 = phi i32 [ %.1, %.lr.ph ], [ %.187, %.lr.ph.preheader ]
+  %.08289 = phi i32 [ %43, %.lr.ph ], [ %42, %.lr.ph.preheader ]
+  %43 = add nsw i32 %.08289, -1
   %44 = load i32, ptr @hf_wisun_usie_hop_list, align 4
-  %45 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %44, ptr noundef %0, i32 noundef %.18390, i32 noundef 1, i32 noundef -2147483648) #3
-  %.183 = add i32 %.18390, 1
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %44, ptr noundef %0, i32 noundef %.190, i32 noundef 1, i32 noundef -2147483648) #3
+  %.1 = add i32 %.190, 1
   %.not84 = icmp eq i32 %43, 0
   br i1 %.not84, label %.loopexit86, label %.lr.ph, !llvm.loop !9
 
 .loopexit86:                                      ; preds = %.lr.ph, %38, %27, %34
-  %.2 = phi i32 [ %31, %27 ], [ %37, %34 ], [ %.18387, %38 ], [ %.183, %.lr.ph ]
+  %.2 = phi i32 [ %31, %27 ], [ %37, %34 ], [ %.187, %38 ], [ %.1, %.lr.ph ]
   %46 = lshr i32 %9, 6
   switch i32 %46, label %.loopexit [
     i32 1, label %47
@@ -2432,15 +2432,15 @@ define internal fastcc void @dissect_wisun_schedule_common(ptr noundef %0, ptr n
   br label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %.lr.ph94.preheader, %.lr.ph94
-  %.193 = phi i32 [ %59, %.lr.ph94 ], [ %52, %.lr.ph94.preheader ]
-  %.392 = phi i32 [ %58, %.lr.ph94 ], [ %51, %.lr.ph94.preheader ]
+  %.393 = phi i32 [ %58, %.lr.ph94 ], [ %51, %.lr.ph94.preheader ]
+  %.18392 = phi i32 [ %59, %.lr.ph94 ], [ %52, %.lr.ph94.preheader ]
   %53 = load i32, ptr @hf_wisun_usie_exclude_range_start, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %53, ptr noundef %0, i32 noundef %.392, i32 noundef 2, i32 noundef -2147483648) #3
-  %55 = add i32 %.392, 2
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %53, ptr noundef %0, i32 noundef %.393, i32 noundef 2, i32 noundef -2147483648) #3
+  %55 = add i32 %.393, 2
   %56 = load i32, ptr @hf_wisun_usie_exclude_range_end, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 2, i32 noundef -2147483648) #3
-  %58 = add i32 %.392, 4
-  %59 = add nsw i32 %.193, -1
+  %58 = add i32 %.393, 4
+  %59 = add nsw i32 %.18392, -1
   %.not85 = icmp eq i32 %59, 0
   br i1 %.not85, label %.loopexit, label %.lr.ph94, !llvm.loop !10
 

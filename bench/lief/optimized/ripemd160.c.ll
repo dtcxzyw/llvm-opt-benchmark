@@ -1917,34 +1917,34 @@ define hidden noundef i32 @mbedtls_ripemd160_update(ptr nocapture noundef %0, pt
   br label %26
 
 26:                                               ; preds = %19, %17
-  %.035 = phi ptr [ %24, %19 ], [ %1, %17 ]
-  %.034 = phi i64 [ %25, %19 ], [ %2, %17 ]
-  %27 = icmp ugt i64 %.034, 63
+  %.036 = phi ptr [ %24, %19 ], [ %1, %17 ]
+  %.035 = phi i64 [ %25, %19 ], [ %2, %17 ]
+  %27 = icmp ugt i64 %.035, 63
   br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
-  %.147 = phi i64 [ %30, %.lr.ph ], [ %.034, %26 ]
-  %.13646 = phi ptr [ %29, %.lr.ph ], [ %.035, %26 ]
-  %28 = tail call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %0, ptr noundef %.13646)
-  %29 = getelementptr inbounds i8, ptr %.13646, i64 64
+  %.147 = phi i64 [ %30, %.lr.ph ], [ %.035, %26 ]
+  %.13746 = phi ptr [ %29, %.lr.ph ], [ %.036, %26 ]
+  %28 = tail call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %0, ptr noundef %.13746)
+  %29 = getelementptr inbounds i8, ptr %.13746, i64 64
   %30 = add i64 %.147, -64
   %31 = icmp ugt i64 %30, 63
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %26
-  %.136.lcssa = phi ptr [ %.035, %26 ], [ %29, %.lr.ph ]
-  %.1.lcssa = phi i64 [ %.034, %26 ], [ %30, %.lr.ph ]
+  %.137.lcssa = phi ptr [ %.036, %26 ], [ %29, %.lr.ph ]
+  %.1.lcssa = phi i64 [ %.035, %26 ], [ %30, %.lr.ph ]
   %.not45 = icmp eq i64 %.1.lcssa, 0
   br i1 %.not45, label %35, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %18, %._crit_edge
   %.1.lcssa60 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %2, %18 ]
-  %.136.lcssa59 = phi ptr [ %.136.lcssa, %._crit_edge ], [ %1, %18 ]
+  %.137.lcssa59 = phi ptr [ %.137.lcssa, %._crit_edge ], [ %1, %18 ]
   %.05358 = phi i32 [ 0, %._crit_edge ], [ %7, %18 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 28
   %33 = zext nneg i32 %.05358 to i64
   %34 = getelementptr inbounds i8, ptr %32, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.136.lcssa59, i64 %.1.lcssa60, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.137.lcssa59, i64 %.1.lcssa60, i1 false)
   br label %35
 
 35:                                               ; preds = %._crit_edge, %._crit_edge.thread, %3
@@ -2024,34 +2024,34 @@ define hidden noundef i32 @mbedtls_ripemd160_finish(ptr nocapture noundef %0, pt
   br label %49
 
 49:                                               ; preds = %42, %40
-  %.035.i = phi ptr [ %47, %42 ], [ @ripemd160_padding, %40 ]
-  %.034.i = phi i64 [ %48, %42 ], [ %33, %40 ]
-  %50 = icmp ugt i64 %.034.i, 63
+  %.036.i = phi ptr [ %47, %42 ], [ @ripemd160_padding, %40 ]
+  %.035.i = phi i64 [ %48, %42 ], [ %33, %40 ]
+  %50 = icmp ugt i64 %.035.i, 63
   br i1 %50, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %49, %.lr.ph.i
-  %.147.i = phi i64 [ %53, %.lr.ph.i ], [ %.034.i, %49 ]
-  %.13646.i = phi ptr [ %52, %.lr.ph.i ], [ %.035.i, %49 ]
-  %51 = tail call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %0, ptr noundef %.13646.i)
-  %52 = getelementptr inbounds i8, ptr %.13646.i, i64 64
+  %.147.i = phi i64 [ %53, %.lr.ph.i ], [ %.035.i, %49 ]
+  %.13746.i = phi ptr [ %52, %.lr.ph.i ], [ %.036.i, %49 ]
+  %51 = tail call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %0, ptr noundef %.13746.i)
+  %52 = getelementptr inbounds i8, ptr %.13746.i, i64 64
   %53 = add i64 %.147.i, -64
   %54 = icmp ugt i64 %53, 63
   br i1 %54, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %49
-  %.136.lcssa.i = phi ptr [ %.035.i, %49 ], [ %52, %.lr.ph.i ]
-  %.1.lcssa.i = phi i64 [ %.034.i, %49 ], [ %53, %.lr.ph.i ]
+  %.137.lcssa.i = phi ptr [ %.036.i, %49 ], [ %52, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ %.035.i, %49 ], [ %53, %.lr.ph.i ]
   %.not45.i = icmp eq i64 %.1.lcssa.i, 0
   br i1 %.not45.i, label %mbedtls_ripemd160_update.exit, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %41
   %.1.lcssa60.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %33, %41 ]
-  %.136.lcssa59.i = phi ptr [ %.136.lcssa.i, %._crit_edge.i ], [ @ripemd160_padding, %41 ]
+  %.137.lcssa59.i = phi ptr [ %.137.lcssa.i, %._crit_edge.i ], [ @ripemd160_padding, %41 ]
   %.05358.i = phi i32 [ 0, %._crit_edge.i ], [ %30, %41 ]
   %55 = getelementptr inbounds i8, ptr %0, i64 28
   %56 = zext nneg i32 %.05358.i to i64
   %57 = getelementptr inbounds i8, ptr %55, i64 %56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr align 1 %.136.lcssa59.i, i64 %.1.lcssa60.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr align 1 %.137.lcssa59.i, i64 %.1.lcssa60.i, i1 false)
   br label %mbedtls_ripemd160_update.exit
 
 mbedtls_ripemd160_update.exit:                    ; preds = %._crit_edge.i, %._crit_edge.thread.i
@@ -2091,12 +2091,12 @@ mbedtls_ripemd160_update.exit:                    ; preds = %._crit_edge.i, %._c
 
 ._crit_edge.thread.i72:                           ; preds = %67, %._crit_edge.i68, %68
   %.1.lcssa60.i73 = phi i64 [ %74, %._crit_edge.i68 ], [ 8, %68 ], [ 8, %67 ]
-  %.136.lcssa59.i74 = phi ptr [ %73, %._crit_edge.i68 ], [ %3, %68 ], [ %3, %67 ]
+  %.137.lcssa59.i74 = phi ptr [ %73, %._crit_edge.i68 ], [ %3, %68 ], [ %3, %67 ]
   %.05358.i75 = phi i32 [ 0, %._crit_edge.i68 ], [ %59, %68 ], [ 0, %67 ]
   %75 = getelementptr inbounds i8, ptr %0, i64 28
   %76 = zext nneg i32 %.05358.i75 to i64
   %77 = getelementptr inbounds i8, ptr %75, i64 %76
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr align 1 %.136.lcssa59.i74, i64 %.1.lcssa60.i73, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr align 1 %.137.lcssa59.i74, i64 %.1.lcssa60.i73, i1 false)
   br label %mbedtls_ripemd160_update.exit79
 
 mbedtls_ripemd160_update.exit79:                  ; preds = %._crit_edge.i68, %._crit_edge.thread.i72
@@ -2221,9 +2221,9 @@ define hidden noundef i32 @mbedtls_ripemd160(ptr nocapture noundef readonly %0, 
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
   %.147.i = phi i64 [ %13, %.lr.ph.i ], [ %1, %8 ]
-  %.13646.i = phi ptr [ %12, %.lr.ph.i ], [ %0, %8 ]
-  %11 = call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %4, ptr noundef %.13646.i)
-  %12 = getelementptr inbounds i8, ptr %.13646.i, i64 64
+  %.13746.i = phi ptr [ %12, %.lr.ph.i ], [ %0, %8 ]
+  %11 = call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %4, ptr noundef %.13746.i)
+  %12 = getelementptr inbounds i8, ptr %.13746.i, i64 64
   %13 = add i64 %.147.i, -64
   %14 = icmp ugt i64 %13, 63
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
@@ -2234,9 +2234,9 @@ define hidden noundef i32 @mbedtls_ripemd160(ptr nocapture noundef readonly %0, 
 
 ._crit_edge.thread.i:                             ; preds = %8, %._crit_edge.i
   %.1.lcssa.i9 = phi i64 [ %13, %._crit_edge.i ], [ %1, %8 ]
-  %.136.lcssa.i8 = phi ptr [ %12, %._crit_edge.i ], [ %0, %8 ]
+  %.137.lcssa.i8 = phi ptr [ %12, %._crit_edge.i ], [ %0, %8 ]
   %15 = getelementptr inbounds i8, ptr %4, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %15, ptr align 1 %.136.lcssa.i8, i64 %.1.lcssa.i9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %15, ptr align 1 %.137.lcssa.i8, i64 %.1.lcssa.i9, i1 false)
   br label %mbedtls_ripemd160_update.exit
 
 mbedtls_ripemd160_update.exit:                    ; preds = %3, %._crit_edge.i, %._crit_edge.thread.i
@@ -2276,9 +2276,9 @@ define hidden range(i32 0, 2) i32 @mbedtls_ripemd160_self_test(i32 noundef %0) l
 
 .lr.ph.i.i.us:                                    ; preds = %10, %.lr.ph.i.i.us
   %.147.i.i.us = phi i64 [ %16, %.lr.ph.i.i.us ], [ %8, %10 ]
-  %.13646.i.i.us = phi ptr [ %15, %.lr.ph.i.i.us ], [ %11, %10 ]
-  %14 = call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %2, ptr noundef nonnull %.13646.i.i.us)
-  %15 = getelementptr inbounds i8, ptr %.13646.i.i.us, i64 64
+  %.13746.i.i.us = phi ptr [ %15, %.lr.ph.i.i.us ], [ %11, %10 ]
+  %14 = call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %2, ptr noundef nonnull %.13746.i.i.us)
+  %15 = getelementptr inbounds i8, ptr %.13746.i.i.us, i64 64
   %16 = add i64 %.147.i.i.us, -64
   %17 = icmp ugt i64 %16, 63
   br i1 %17, label %.lr.ph.i.i.us, label %._crit_edge.i.i.us, !llvm.loop !4
@@ -2289,8 +2289,8 @@ define hidden range(i32 0, 2) i32 @mbedtls_ripemd160_self_test(i32 noundef %0) l
 
 ._crit_edge.thread.i.i.us:                        ; preds = %._crit_edge.i.i.us, %10
   %.1.lcssa.i9.i.us = phi i64 [ %16, %._crit_edge.i.i.us ], [ %8, %10 ]
-  %.136.lcssa.i8.i.us = phi ptr [ %15, %._crit_edge.i.i.us ], [ %11, %10 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %6, ptr nonnull align 1 %.136.lcssa.i8.i.us, i64 %.1.lcssa.i9.i.us, i1 false)
+  %.137.lcssa.i8.i.us = phi ptr [ %15, %._crit_edge.i.i.us ], [ %11, %10 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %6, ptr nonnull align 1 %.137.lcssa.i8.i.us, i64 %.1.lcssa.i9.i.us, i1 false)
   br label %mbedtls_ripemd160.exit.us
 
 mbedtls_ripemd160.exit.us:                        ; preds = %._crit_edge.thread.i.i.us, %._crit_edge.i.i.us, %.split.us
@@ -2330,9 +2330,9 @@ mbedtls_ripemd160.exit.us:                        ; preds = %._crit_edge.thread.
 
 .lr.ph.i.i:                                       ; preds = %26, %.lr.ph.i.i
   %.147.i.i = phi i64 [ %32, %.lr.ph.i.i ], [ %24, %26 ]
-  %.13646.i.i = phi ptr [ %31, %.lr.ph.i.i ], [ %27, %26 ]
-  %30 = call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %2, ptr noundef nonnull %.13646.i.i)
-  %31 = getelementptr inbounds i8, ptr %.13646.i.i, i64 64
+  %.13746.i.i = phi ptr [ %31, %.lr.ph.i.i ], [ %27, %26 ]
+  %30 = call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %2, ptr noundef nonnull %.13746.i.i)
+  %31 = getelementptr inbounds i8, ptr %.13746.i.i, i64 64
   %32 = add i64 %.147.i.i, -64
   %33 = icmp ugt i64 %32, 63
   br i1 %33, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4
@@ -2343,8 +2343,8 @@ mbedtls_ripemd160.exit.us:                        ; preds = %._crit_edge.thread.
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %26
   %.1.lcssa.i9.i = phi i64 [ %32, %._crit_edge.i.i ], [ %24, %26 ]
-  %.136.lcssa.i8.i = phi ptr [ %31, %._crit_edge.i.i ], [ %27, %26 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %6, ptr nonnull align 1 %.136.lcssa.i8.i, i64 %.1.lcssa.i9.i, i1 false)
+  %.137.lcssa.i8.i = phi ptr [ %31, %._crit_edge.i.i ], [ %27, %26 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %6, ptr nonnull align 1 %.137.lcssa.i8.i, i64 %.1.lcssa.i9.i, i1 false)
   br label %mbedtls_ripemd160.exit
 
 mbedtls_ripemd160.exit:                           ; preds = %.split, %._crit_edge.i.i, %._crit_edge.thread.i.i

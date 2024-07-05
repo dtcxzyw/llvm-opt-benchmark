@@ -393,13 +393,13 @@ opal_thread_add_fetch_32.exit126:                 ; preds = %165, %168
 
 opal_obj_new.exit.thread.sink.split:              ; preds = %.lr.ph.i, %.lr.ph.i114, %.lr.ph.i121, %.lr.ph.i128, %173, %152, %131, %50, %99
   %.sink = phi ptr [ %100, %99 ], [ %24, %50 ], [ %24, %131 ], [ %24, %152 ], [ %24, %173 ], [ %24, %.lr.ph.i128 ], [ %24, %.lr.ph.i121 ], [ %24, %.lr.ph.i114 ], [ %24, %.lr.ph.i ]
-  %.078.ph = phi i32 [ %71, %99 ], [ %36, %50 ], [ %114, %131 ], [ %140, %152 ], [ %161, %173 ], [ %161, %.lr.ph.i128 ], [ %140, %.lr.ph.i121 ], [ %114, %.lr.ph.i114 ], [ %36, %.lr.ph.i ]
+  %.077.ph = phi i32 [ %71, %99 ], [ %36, %50 ], [ %114, %131 ], [ %140, %152 ], [ %161, %173 ], [ %161, %.lr.ph.i128 ], [ %140, %.lr.ph.i121 ], [ %114, %.lr.ph.i114 ], [ %36, %.lr.ph.i ]
   call void @free(ptr noundef %.sink) #4
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %opal_obj_new.exit.thread.sink.split, %28, %160, %opal_thread_add_fetch_32.exit126, %opal_thread_add_fetch_32.exit119, %opal_thread_add_fetch_32.exit112, %opal_thread_add_fetch_32.exit
-  %.078 = phi i32 [ %36, %opal_thread_add_fetch_32.exit ], [ %114, %opal_thread_add_fetch_32.exit112 ], [ %140, %opal_thread_add_fetch_32.exit119 ], [ %161, %opal_thread_add_fetch_32.exit126 ], [ 0, %160 ], [ -2, %28 ], [ %.078.ph, %opal_obj_new.exit.thread.sink.split ]
-  ret i32 %.078
+  %.077 = phi i32 [ %36, %opal_thread_add_fetch_32.exit ], [ %114, %opal_thread_add_fetch_32.exit112 ], [ %140, %opal_thread_add_fetch_32.exit119 ], [ %161, %opal_thread_add_fetch_32.exit126 ], [ 0, %160 ], [ -2, %28 ], [ %.077.ph, %opal_obj_new.exit.thread.sink.split ]
+  ret i32 %.077
 }
 
 declare i32 @NBC_Start(ptr noundef) local_unnamed_addr #1

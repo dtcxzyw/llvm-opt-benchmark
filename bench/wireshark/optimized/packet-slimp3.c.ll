@@ -319,7 +319,7 @@ define internal i32 @dissect_slimp3(ptr noundef %0, ptr nocapture noundef readon
   br label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %42, %38, %43
-  %.0303 = phi i32 [ %spec.select323, %43 ], [ 0, %42 ], [ 1, %38 ]
+  %.0294 = phi i32 [ %spec.select323, %43 ], [ 0, %42 ], [ 1, %38 ]
   %44 = load i32, ptr %22, align 8
   %45 = icmp eq i32 %44, 1069
   br i1 %45, label %50, label %46
@@ -328,12 +328,12 @@ addresses_equal.exit:                             ; preds = %42, %38, %43
   %47 = getelementptr inbounds i8, ptr %1, i64 284
   %48 = load i32, ptr %47, align 4
   %49 = icmp ne i32 %48, 1069
-  %spec.select = select i1 %49, i32 %.0303, i32 0
+  %spec.select321 = select i1 %49, i32 %.0294, i32 0
   br label %50
 
 50:                                               ; preds = %46, %addresses_equal.exit
-  %.1304 = phi i32 [ 1, %addresses_equal.exit ], [ %spec.select, %46 ]
   %.not308 = phi i1 [ false, %addresses_equal.exit ], [ %49, %46 ]
+  %.1295 = phi i32 [ 1, %addresses_equal.exit ], [ %spec.select321, %46 ]
   switch i8 %8, label %298 [
     i8 105, label %51
     i8 108, label %87
@@ -419,8 +419,8 @@ addresses_equal.exit:                             ; preds = %42, %38, %43
 91:                                               ; preds = %.lr.ph, %129
   %.0290327 = phi ptr [ %17, %.lr.ph ], [ %.2, %129 ]
   %.0291326 = phi i32 [ 18, %.lr.ph ], [ %.2293, %129 ]
-  %.0294325 = phi i32 [ 0, %.lr.ph ], [ %.2296, %129 ]
-  %.0299324 = phi i32 [ 0, %.lr.ph ], [ %.2301, %129 ]
+  %.0297325 = phi i32 [ 0, %.lr.ph ], [ %.2299, %129 ]
+  %.0302324 = phi i32 [ 0, %.lr.ph ], [ %.2304, %129 ]
   %92 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0291326) #3
   switch i8 %92, label %126 [
     i8 0, label %93
@@ -443,13 +443,13 @@ addresses_equal.exit:                             ; preds = %42, %38, %43
   %.not318 = icmp eq i16 %102, 0
   %103 = zext i8 %98 to i32
   %104 = icmp ne ptr %.0290327, null
-  %105 = icmp ne i32 %.0299324, 0
+  %105 = icmp ne i32 %.0302324, 0
   %or.cond = select i1 %104, i1 %105, i1 false
   %106 = select i1 %.not318, i32 46, i32 %103
   br i1 %or.cond, label %107, label %109
 
 107:                                              ; preds = %96
-  %108 = add i32 %.0294325, 2
+  %108 = add i32 %.0297325, 2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0290327, ptr noundef nonnull @.str.161, i32 noundef %106) #3
   tail call void @proto_item_set_len(ptr noundef nonnull %.0290327, i32 noundef %108) #3
   br label %129
@@ -484,8 +484,8 @@ addresses_equal.exit:                             ; preds = %42, %38, %43
   br label %129
 
 129:                                              ; preds = %112, %121, %107, %109, %126, %93
-  %.2301 = phi i32 [ %.0299324, %126 ], [ 0, %93 ], [ 1, %109 ], [ 1, %107 ], [ 0, %121 ], [ 0, %112 ]
-  %.2296 = phi i32 [ %.0294325, %126 ], [ 0, %93 ], [ 2, %109 ], [ %108, %107 ], [ 0, %121 ], [ 0, %112 ]
+  %.2304 = phi i32 [ %.0302324, %126 ], [ 0, %93 ], [ 1, %109 ], [ 1, %107 ], [ 0, %121 ], [ 0, %112 ]
+  %.2299 = phi i32 [ %.0297325, %126 ], [ 0, %93 ], [ 2, %109 ], [ %108, %107 ], [ 0, %121 ], [ 0, %112 ]
   %.2293.in = phi i32 [ %.0291326, %126 ], [ %.0291326, %93 ], [ %.0291326, %109 ], [ %.0291326, %107 ], [ %122, %121 ], [ %.0291326, %112 ]
   %.2 = phi ptr [ %.0290327, %126 ], [ %.0290327, %93 ], [ %111, %109 ], [ %.0290327, %107 ], [ %117, %121 ], [ %117, %112 ]
   %.2293 = add i32 %.2293.in, 2
@@ -508,7 +508,7 @@ addresses_equal.exit:                             ; preds = %42, %38, %43
 
 134:                                              ; preds = %.lr.ph330, %173
   %.3329 = phi i32 [ 18, %.lr.ph330 ], [ %174, %173 ]
-  %.3297328 = phi i32 [ 0, %.lr.ph330 ], [ %.4298, %173 ]
+  %.3300328 = phi i32 [ 0, %.lr.ph330 ], [ %.4301, %173 ]
   %135 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3329) #3
   switch i8 %135, label %173 [
     i8 0, label %136
@@ -517,15 +517,15 @@ addresses_equal.exit:                             ; preds = %42, %38, %43
   ]
 
 136:                                              ; preds = %134
-  %137 = add nsw i32 %.3297328, 1
-  %138 = sext i32 %.3297328 to i64
+  %137 = add nsw i32 %.3300328, 1
+  %138 = sext i32 %.3300328 to i64
   %139 = getelementptr [129 x i8], ptr %5, i64 0, i64 %138
   store i8 46, ptr %139, align 1
   br label %173
 
 140:                                              ; preds = %134
-  %141 = add nsw i32 %.3297328, 1
-  %142 = sext i32 %.3297328 to i64
+  %141 = add nsw i32 %.3300328, 1
+  %142 = sext i32 %.3300328 to i64
   %143 = getelementptr [129 x i8], ptr %5, i64 0, i64 %142
   store i8 124, ptr %143, align 1
   %144 = add i32 %.3329, 1
@@ -548,11 +548,11 @@ addresses_equal.exit:                             ; preds = %42, %38, %43
   br i1 %.not313, label %173, label %154
 
 154:                                              ; preds = %151
-  %155 = icmp slt i32 %.3297328, 1
+  %155 = icmp slt i32 %.3300328, 1
   br i1 %155, label %163, label %156
 
 156:                                              ; preds = %154
-  %157 = add nsw i32 %.3297328, -1
+  %157 = add nsw i32 %.3300328, -1
   %158 = zext nneg i32 %157 to i64
   %159 = getelementptr [129 x i8], ptr %5, i64 0, i64 %158
   %160 = load i8, ptr %159, align 1
@@ -572,27 +572,27 @@ addresses_equal.exit:                             ; preds = %42, %38, %43
   %168 = and i16 %167, 64
   %.not316 = icmp eq i16 %168, 0
   %169 = select i1 %.not316, i8 46, i8 %164
-  %170 = add nsw i32 %.3297328, 1
-  %171 = sext i32 %.3297328 to i64
+  %170 = add nsw i32 %.3300328, 1
+  %171 = sext i32 %.3300328 to i64
   %172 = getelementptr [129 x i8], ptr %5, i64 0, i64 %171
   store i8 %169, ptr %172, align 1
   br label %173
 
 173:                                              ; preds = %146, %151, %163, %161, %140, %136, %134
-  %.4298 = phi i32 [ %.3297328, %134 ], [ %170, %163 ], [ %.3297328, %161 ], [ %.3297328, %151 ], [ %141, %140 ], [ %137, %136 ], [ %141, %146 ]
+  %.4301 = phi i32 [ %.3300328, %134 ], [ %170, %163 ], [ %.3300328, %161 ], [ %.3300328, %151 ], [ %141, %140 ], [ %137, %136 ], [ %141, %146 ]
   %.4 = phi i32 [ %.3329, %134 ], [ %.3329, %163 ], [ %.3329, %161 ], [ %.3329, %151 ], [ %.3329, %140 ], [ %.3329, %136 ], [ %spec.select322, %146 ]
   %174 = add i32 %.4, 2
   %175 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %174) #3
   %176 = icmp ne i32 %175, 0
-  %177 = icmp slt i32 %.4298, 128
+  %177 = icmp slt i32 %.4301, 128
   %178 = select i1 %176, i1 %177, i1 false
   br i1 %178, label %134, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %173
-  %179 = sext i32 %.4298 to i64
+  %179 = sext i32 %.4301 to i64
   %180 = getelementptr [129 x i8], ptr %5, i64 0, i64 %179
   store i8 0, ptr %180, align 1
-  %181 = icmp sgt i32 %.4298, 0
+  %181 = icmp sgt i32 %.4301, 0
   br i1 %181, label %182, label %302
 
 182:                                              ; preds = %._crit_edge
@@ -615,7 +615,7 @@ addresses_equal.exit:                             ; preds = %42, %38, %43
   br i1 %.not310, label %302, label %192
 
 192:                                              ; preds = %191
-  %.not311 = icmp eq i32 %.1304, 0
+  %.not311 = icmp eq i32 %.1295, 0
   br i1 %.not311, label %204, label %193
 
 193:                                              ; preds = %192
@@ -637,7 +637,7 @@ addresses_equal.exit:                             ; preds = %42, %38, %43
   br label %302
 
 207:                                              ; preds = %50
-  %.not309 = icmp eq i32 %.1304, 0
+  %.not309 = icmp eq i32 %.1295, 0
   br i1 %.not309, label %212, label %208
 
 208:                                              ; preds = %207

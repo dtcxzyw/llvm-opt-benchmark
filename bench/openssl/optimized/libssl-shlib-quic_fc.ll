@@ -98,8 +98,8 @@ entry:
   %swm.i = getelementptr inbounds i8, ptr %txfc, i64 8
   %1 = load i64, ptr %swm.i, align 8
   %sub.i = sub i64 %0, %1
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %num_bytes)
-  %cmp1.not = icmp ne i64 %spec.select, 0
+  %spec.select8 = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %num_bytes)
+  %cmp1.not = icmp ne i64 %spec.select8, 0
   %cmp2 = icmp ule i64 %sub.i, %num_bytes
   %or.cond = and i1 %cmp2, %cmp1.not
   br i1 %or.cond, label %if.then3, label %if.end4
@@ -111,10 +111,10 @@ if.then3:                                         ; preds = %entry
 
 if.end4:                                          ; preds = %if.then3, %entry
   %cmp = icmp uge i64 %sub.i, %num_bytes
-  %spec.select8 = zext i1 %cmp to i32
-  %add = add i64 %spec.select, %1
+  %spec.select = zext i1 %cmp to i32
+  %add = add i64 %spec.select8, %1
   store i64 %add, ptr %swm.i, align 8
-  ret i32 %spec.select8
+  ret i32 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -125,8 +125,8 @@ entry:
   %swm.i.i = getelementptr inbounds i8, ptr %txfc, i64 8
   %1 = load i64, ptr %swm.i.i, align 8
   %sub.i.i = sub i64 %0, %1
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %num_bytes)
-  %cmp1.not.i = icmp ne i64 %spec.select.i, 0
+  %spec.select8.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %num_bytes)
+  %cmp1.not.i = icmp ne i64 %spec.select8.i, 0
   %cmp2.i = icmp ule i64 %sub.i.i, %num_bytes
   %or.cond.i = and i1 %cmp2.i, %cmp1.not.i
   br i1 %or.cond.i, label %if.then3.i, label %ossl_quic_txfc_consume_credit_local.exit
@@ -138,8 +138,8 @@ if.then3.i:                                       ; preds = %entry
 
 ossl_quic_txfc_consume_credit_local.exit:         ; preds = %entry, %if.then3.i
   %cmp.i = icmp uge i64 %sub.i.i, %num_bytes
-  %spec.select8.i = zext i1 %cmp.i to i32
-  %add.i = add i64 %spec.select.i, %1
+  %spec.select.i = zext i1 %cmp.i to i32
+  %add.i = add i64 %spec.select8.i, %1
   store i64 %add.i, ptr %swm.i.i, align 8
   %2 = load ptr, ptr %txfc, align 8
   %cmp.not = icmp eq ptr %2, null
@@ -151,8 +151,8 @@ if.then:                                          ; preds = %ossl_quic_txfc_cons
   %swm.i.i5 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %swm.i.i5, align 8
   %sub.i.i6 = sub i64 %3, %4
-  %spec.select.i7 = tail call i64 @llvm.umin.i64(i64 %sub.i.i6, i64 %num_bytes)
-  %cmp1.not.i8 = icmp ne i64 %spec.select.i7, 0
+  %spec.select8.i7 = tail call i64 @llvm.umin.i64(i64 %sub.i.i6, i64 %num_bytes)
+  %cmp1.not.i8 = icmp ne i64 %spec.select8.i7, 0
   %cmp2.i9 = icmp ule i64 %sub.i.i6, %num_bytes
   %or.cond.i10 = and i1 %cmp2.i9, %cmp1.not.i8
   br i1 %or.cond.i10, label %if.then3.i14, label %ossl_quic_txfc_consume_credit_local.exit16
@@ -164,7 +164,7 @@ if.then3.i14:                                     ; preds = %if.then
 
 ossl_quic_txfc_consume_credit_local.exit16:       ; preds = %if.then, %if.then3.i14
   %cmp.i11.not = icmp ult i64 %sub.i.i6, %num_bytes
-  %add.i13 = add i64 %spec.select.i7, %4
+  %add.i13 = add i64 %spec.select8.i7, %4
   store i64 %add.i13, ptr %swm.i.i5, align 8
   br i1 %cmp.i11.not, label %return, label %if.end4
 
@@ -172,7 +172,7 @@ if.end4:                                          ; preds = %ossl_quic_txfc_cons
   br label %return
 
 return:                                           ; preds = %ossl_quic_txfc_consume_credit_local.exit16, %if.end4
-  %retval.0 = phi i32 [ %spec.select8.i, %if.end4 ], [ 0, %ossl_quic_txfc_consume_credit_local.exit16 ]
+  %retval.0 = phi i32 [ %spec.select.i, %if.end4 ], [ 0, %ossl_quic_txfc_consume_credit_local.exit16 ]
   ret i32 %retval.0
 }
 
@@ -392,8 +392,8 @@ if.then.i30:                                      ; preds = %if.then26
   br label %on_rx_controlled_bytes.exit32
 
 on_rx_controlled_bytes.exit32:                    ; preds = %if.then26, %if.then.i30
-  %num_bytes.addr.0.i27 = phi i64 [ %sub.i25, %if.then.i30 ], [ %sub, %if.then26 ]
-  %add.i29 = add i64 %num_bytes.addr.0.i27, %8
+  %num_bytes.addr.0.i28 = phi i64 [ %sub.i25, %if.then.i30 ], [ %sub, %if.then26 ]
+  %add.i29 = add i64 %num_bytes.addr.0.i28, %8
   store i64 %add.i29, ptr %swm.i24, align 8
   br label %return
 

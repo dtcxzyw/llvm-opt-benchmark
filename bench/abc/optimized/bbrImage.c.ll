@@ -656,12 +656,12 @@ Bbr_FindBestVariable.exit.thread128.i:            ; preds = %Bbr_FindBestVariabl
   br i1 %.not29.i.i, label %Bbr_FindBestPartitions.exit.i, label %.lr.ph.i117.i
 
 .lr.ph.i117.i:                                    ; preds = %298, %311
-  %.034.i.i = phi i32 [ %.1.i.i, %311 ], [ 1000000, %298 ]
-  %.01933.i.i = phi i32 [ %.120.i.i, %311 ], [ 1000000, %298 ]
-  %.02132.i.i = phi i32 [ %.122.i.i, %311 ], [ -1, %298 ]
-  %.02331.i.i = phi i32 [ %.124.i.i, %311 ], [ -1, %298 ]
-  %.02530.i.i = phi ptr [ %313, %311 ], [ %256, %298 ]
-  %300 = load i32, ptr %.02530.i.i, align 8
+  %.034.i.i = phi ptr [ %313, %311 ], [ %256, %298 ]
+  %.01933.i.i = phi i32 [ %.1.i.i, %311 ], [ 1000000, %298 ]
+  %.02032.i.i = phi i32 [ %.121.i.i, %311 ], [ 1000000, %298 ]
+  %.02231.i.i = phi i32 [ %.123.i.i, %311 ], [ -1, %298 ]
+  %.02430.i.i = phi i32 [ %.125.i.i, %311 ], [ -1, %298 ]
+  %300 = load i32, ptr %.034.i.i, align 8
   %301 = zext i32 %300 to i64
   %302 = getelementptr inbounds ptr, ptr %127, i64 %301
   %303 = load ptr, ptr %302, align 8
@@ -669,43 +669,43 @@ Bbr_FindBestVariable.exit.thread128.i:            ; preds = %Bbr_FindBestVariabl
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds i8, ptr %305, i64 16
   %307 = load i32, ptr %306, align 8
-  %308 = icmp sgt i32 %.01933.i.i, %307
+  %308 = icmp sgt i32 %.02032.i.i, %307
   br i1 %308, label %311, label %309
 
 309:                                              ; preds = %.lr.ph.i117.i
-  %310 = icmp sgt i32 %.034.i.i, %307
-  %spec.select.i.i = select i1 %310, i32 %300, i32 %.02132.i.i
-  %spec.select28.i.i = tail call i32 @llvm.smin.i32(i32 %.034.i.i, i32 %307)
+  %310 = icmp sgt i32 %.01933.i.i, %307
+  %spec.select.i.i = select i1 %310, i32 %300, i32 %.02231.i.i
+  %spec.select28.i.i = tail call i32 @llvm.smin.i32(i32 %.01933.i.i, i32 %307)
   br label %311
 
 311:                                              ; preds = %309, %.lr.ph.i117.i
-  %.124.i.i = phi i32 [ %300, %.lr.ph.i117.i ], [ %.02331.i.i, %309 ]
-  %.122.i.i = phi i32 [ %.02331.i.i, %.lr.ph.i117.i ], [ %spec.select.i.i, %309 ]
-  %.120.i.i = phi i32 [ %307, %.lr.ph.i117.i ], [ %.01933.i.i, %309 ]
-  %.1.i.i = phi i32 [ %.01933.i.i, %.lr.ph.i117.i ], [ %spec.select28.i.i, %309 ]
-  %312 = getelementptr inbounds i8, ptr %.02530.i.i, i64 16
+  %.125.i.i = phi i32 [ %300, %.lr.ph.i117.i ], [ %.02430.i.i, %309 ]
+  %.123.i.i = phi i32 [ %.02430.i.i, %.lr.ph.i117.i ], [ %spec.select.i.i, %309 ]
+  %.121.i.i = phi i32 [ %307, %.lr.ph.i117.i ], [ %.02032.i.i, %309 ]
+  %.1.i.i = phi i32 [ %.02032.i.i, %.lr.ph.i117.i ], [ %spec.select28.i.i, %309 ]
+  %312 = getelementptr inbounds i8, ptr %.034.i.i, i64 16
   %313 = load ptr, ptr %312, align 8
   %.not.i118.i = icmp eq ptr %313, %299
   br i1 %.not.i118.i, label %Bbr_FindBestPartitions.exit.loopexit.i, label %.lr.ph.i117.i, !llvm.loop !20
 
 Bbr_FindBestPartitions.exit.loopexit.i:           ; preds = %311
-  %314 = sext i32 %.124.i.i to i64
-  %315 = sext i32 %.122.i.i to i64
+  %314 = sext i32 %.125.i.i to i64
+  %315 = sext i32 %.123.i.i to i64
   br label %Bbr_FindBestPartitions.exit.i
 
 Bbr_FindBestPartitions.exit.i:                    ; preds = %Bbr_FindBestPartitions.exit.loopexit.i, %298
-  %.023.lcssa.i.i = phi i64 [ -1, %298 ], [ %314, %Bbr_FindBestPartitions.exit.loopexit.i ]
-  %.021.lcssa.i.i = phi i64 [ -1, %298 ], [ %315, %Bbr_FindBestPartitions.exit.loopexit.i ]
-  %316 = getelementptr inbounds ptr, ptr %127, i64 %.023.lcssa.i.i
+  %.024.lcssa.i.i = phi i64 [ -1, %298 ], [ %314, %Bbr_FindBestPartitions.exit.loopexit.i ]
+  %.022.lcssa.i.i = phi i64 [ -1, %298 ], [ %315, %Bbr_FindBestPartitions.exit.loopexit.i ]
+  %316 = getelementptr inbounds ptr, ptr %127, i64 %.024.lcssa.i.i
   %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr inbounds ptr, ptr %127, i64 %.021.lcssa.i.i
+  %318 = getelementptr inbounds ptr, ptr %127, i64 %.022.lcssa.i.i
   %319 = load ptr, ptr %318, align 8
   %320 = tail call fastcc ptr @Bbr_CombineTwoNodes(ptr noundef %0, ptr noundef %299, ptr noundef %317, ptr noundef %319)
   br label %321
 
 321:                                              ; preds = %Bbr_FindBestPartitions.exit.i, %293
-  %.pre-phi142.i = phi i64 [ %.021.lcssa.i.i, %Bbr_FindBestPartitions.exit.i ], [ %264, %293 ]
-  %.pre-phi.i = phi i64 [ %.023.lcssa.i.i, %Bbr_FindBestPartitions.exit.i ], [ %261, %293 ]
+  %.pre-phi142.i = phi i64 [ %.022.lcssa.i.i, %Bbr_FindBestPartitions.exit.i ], [ %264, %293 ]
+  %.pre-phi.i = phi i64 [ %.024.lcssa.i.i, %Bbr_FindBestPartitions.exit.i ], [ %261, %293 ]
   %.0107.i = phi ptr [ %319, %Bbr_FindBestPartitions.exit.i ], [ %266, %293 ]
   %.0106.i = phi ptr [ %320, %Bbr_FindBestPartitions.exit.i ], [ %297, %293 ]
   %322 = getelementptr inbounds ptr, ptr %127, i64 %.pre-phi.i

@@ -327,21 +327,21 @@ define noundef i64 @arrowEndClip(ptr noundef %0, ptr nocapture noundef %1, i64 n
   br i1 %14, label %arrow_length.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %6, %.loopexit.i
-  %.02228.i = phi i32 [ %32, %.loopexit.i ], [ 0, %6 ]
-  %.02327.i = phi double [ %.1.i, %.loopexit.i ], [ 0.000000e+00, %6 ]
-  %15 = shl nuw nsw i32 %.02228.i, 3
+  %.02128.i = phi double [ %.1.i, %.loopexit.i ], [ 0.000000e+00, %6 ]
+  %.02327.i = phi i32 [ %32, %.loopexit.i ], [ 0, %6 ]
+  %15 = shl nuw nsw i32 %.02327.i, 3
   %16 = lshr i32 %5, %15
   %17 = and i32 %16, 15
   br label %20
 
 18:                                               ; preds = %20
-  %19 = add nuw nsw i64 %.02126.i, 1
+  %19 = add nuw nsw i64 %.02226.i, 1
   %exitcond.not.i = icmp eq i64 %19, 8
   br i1 %exitcond.not.i, label %.loopexit.i, label %20
 
 20:                                               ; preds = %18, %.preheader.i
-  %.02126.i = phi i64 [ 0, %.preheader.i ], [ %19, %18 ]
-  %21 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02126.i
+  %.02226.i = phi i64 [ 0, %.preheader.i ], [ %19, %18 ]
+  %21 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i
   %22 = load i32, ptr %21, align 16
   %23 = icmp eq i32 %17, %22
   br i1 %23, label %24, label %18
@@ -353,12 +353,12 @@ define noundef i64 @arrowEndClip(ptr noundef %0, ptr nocapture noundef %1, i64 n
   %28 = getelementptr inbounds i8, ptr %21, i64 8
   %29 = load double, ptr %28, align 8
   %30 = tail call double %27(double noundef %29, double noundef %13, double noundef %11, i32 noundef %25) #11
-  %31 = fadd double %.02327.i, %30
+  %31 = fadd double %.02128.i, %30
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %18, %24
-  %.1.i = phi double [ %31, %24 ], [ %.02327.i, %18 ]
-  %32 = add nuw nsw i32 %.02228.i, 1
+  %.1.i = phi double [ %31, %24 ], [ %.02128.i, %18 ]
+  %32 = add nuw nsw i32 %.02327.i, 1
   %exitcond30.not.i = icmp eq i32 %32, 4
   br i1 %exitcond30.not.i, label %arrow_length.exit, label %.preheader.i
 
@@ -462,21 +462,21 @@ define noundef i64 @arrowStartClip(ptr noundef %0, ptr nocapture noundef %1, i64
   br i1 %14, label %arrow_length.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %6, %.loopexit.i
-  %.02228.i = phi i32 [ %32, %.loopexit.i ], [ 0, %6 ]
-  %.02327.i = phi double [ %.1.i, %.loopexit.i ], [ 0.000000e+00, %6 ]
-  %15 = shl nuw nsw i32 %.02228.i, 3
+  %.02128.i = phi double [ %.1.i, %.loopexit.i ], [ 0.000000e+00, %6 ]
+  %.02327.i = phi i32 [ %32, %.loopexit.i ], [ 0, %6 ]
+  %15 = shl nuw nsw i32 %.02327.i, 3
   %16 = lshr i32 %5, %15
   %17 = and i32 %16, 15
   br label %20
 
 18:                                               ; preds = %20
-  %19 = add nuw nsw i64 %.02126.i, 1
+  %19 = add nuw nsw i64 %.02226.i, 1
   %exitcond.not.i = icmp eq i64 %19, 8
   br i1 %exitcond.not.i, label %.loopexit.i, label %20
 
 20:                                               ; preds = %18, %.preheader.i
-  %.02126.i = phi i64 [ 0, %.preheader.i ], [ %19, %18 ]
-  %21 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02126.i
+  %.02226.i = phi i64 [ 0, %.preheader.i ], [ %19, %18 ]
+  %21 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i
   %22 = load i32, ptr %21, align 16
   %23 = icmp eq i32 %17, %22
   br i1 %23, label %24, label %18
@@ -488,12 +488,12 @@ define noundef i64 @arrowStartClip(ptr noundef %0, ptr nocapture noundef %1, i64
   %28 = getelementptr inbounds i8, ptr %21, i64 8
   %29 = load double, ptr %28, align 8
   %30 = tail call double %27(double noundef %29, double noundef %13, double noundef %11, i32 noundef %25) #11
-  %31 = fadd double %.02327.i, %30
+  %31 = fadd double %.02128.i, %30
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %18, %24
-  %.1.i = phi double [ %31, %24 ], [ %.02327.i, %18 ]
-  %32 = add nuw nsw i32 %.02228.i, 1
+  %.1.i = phi double [ %31, %24 ], [ %.02128.i, %18 ]
+  %32 = add nuw nsw i32 %.02327.i, 1
   %exitcond30.not.i = icmp eq i32 %32, 4
   br i1 %exitcond30.not.i, label %arrow_length.exit, label %.preheader.i
 
@@ -583,21 +583,21 @@ define void @arrowOrthoClip(ptr noundef %0, ptr nocapture noundef %1, i64 nounde
   br i1 %20, label %arrow_length.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %12, %.loopexit.i
-  %.02228.i = phi i32 [ %38, %.loopexit.i ], [ 0, %12 ]
-  %.02327.i = phi double [ %.1.i, %.loopexit.i ], [ 0.000000e+00, %12 ]
-  %21 = shl nuw nsw i32 %.02228.i, 3
+  %.02128.i = phi double [ %.1.i, %.loopexit.i ], [ 0.000000e+00, %12 ]
+  %.02327.i = phi i32 [ %38, %.loopexit.i ], [ 0, %12 ]
+  %21 = shl nuw nsw i32 %.02327.i, 3
   %22 = lshr i32 %5, %21
   %23 = and i32 %22, 15
   br label %26
 
 24:                                               ; preds = %26
-  %25 = add nuw nsw i64 %.02126.i, 1
+  %25 = add nuw nsw i64 %.02226.i, 1
   %exitcond.not.i = icmp eq i64 %25, 8
   br i1 %exitcond.not.i, label %.loopexit.i, label %26
 
 26:                                               ; preds = %24, %.preheader.i
-  %.02126.i = phi i64 [ 0, %.preheader.i ], [ %25, %24 ]
-  %27 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02126.i
+  %.02226.i = phi i64 [ 0, %.preheader.i ], [ %25, %24 ]
+  %27 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i
   %28 = load i32, ptr %27, align 16
   %29 = icmp eq i32 %23, %28
   br i1 %29, label %30, label %24
@@ -609,12 +609,12 @@ define void @arrowOrthoClip(ptr noundef %0, ptr nocapture noundef %1, i64 nounde
   %34 = getelementptr inbounds i8, ptr %27, i64 8
   %35 = load double, ptr %34, align 8
   %36 = tail call double %33(double noundef %35, double noundef %19, double noundef %17, i32 noundef %31) #11
-  %37 = fadd double %.02327.i, %36
+  %37 = fadd double %.02128.i, %36
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %24, %30
-  %.1.i = phi double [ %37, %30 ], [ %.02327.i, %24 ]
-  %38 = add nuw nsw i32 %.02228.i, 1
+  %.1.i = phi double [ %37, %30 ], [ %.02128.i, %24 ]
+  %38 = add nuw nsw i32 %.02327.i, 1
   %exitcond30.not.i = icmp eq i32 %38, 4
   br i1 %exitcond30.not.i, label %arrow_length.exit, label %.preheader.i
 
@@ -628,21 +628,21 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %12
   br i1 %43, label %arrow_length.exit206, label %.preheader.i197
 
 .preheader.i197:                                  ; preds = %arrow_length.exit, %.loopexit.i202
-  %.02228.i198 = phi i32 [ %61, %.loopexit.i202 ], [ 0, %arrow_length.exit ]
-  %.02327.i199 = phi double [ %.1.i203, %.loopexit.i202 ], [ 0.000000e+00, %arrow_length.exit ]
-  %44 = shl nuw nsw i32 %.02228.i198, 3
+  %.02128.i198 = phi double [ %.1.i203, %.loopexit.i202 ], [ 0.000000e+00, %arrow_length.exit ]
+  %.02327.i199 = phi i32 [ %61, %.loopexit.i202 ], [ 0, %arrow_length.exit ]
+  %44 = shl nuw nsw i32 %.02327.i199, 3
   %45 = lshr i32 %6, %44
   %46 = and i32 %45, 15
   br label %49
 
 47:                                               ; preds = %49
-  %48 = add nuw nsw i64 %.02126.i200, 1
+  %48 = add nuw nsw i64 %.02226.i200, 1
   %exitcond.not.i201 = icmp eq i64 %48, 8
   br i1 %exitcond.not.i201, label %.loopexit.i202, label %49
 
 49:                                               ; preds = %47, %.preheader.i197
-  %.02126.i200 = phi i64 [ 0, %.preheader.i197 ], [ %48, %47 ]
-  %50 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02126.i200
+  %.02226.i200 = phi i64 [ 0, %.preheader.i197 ], [ %48, %47 ]
+  %50 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i200
   %51 = load i32, ptr %50, align 16
   %52 = icmp eq i32 %46, %51
   br i1 %52, label %53, label %47
@@ -654,12 +654,12 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %12
   %57 = getelementptr inbounds i8, ptr %50, i64 8
   %58 = load double, ptr %57, align 8
   %59 = tail call double %56(double noundef %58, double noundef %42, double noundef %40, i32 noundef %54) #11
-  %60 = fadd double %.02327.i199, %59
+  %60 = fadd double %.02128.i198, %59
   br label %.loopexit.i202
 
 .loopexit.i202:                                   ; preds = %47, %53
-  %.1.i203 = phi double [ %60, %53 ], [ %.02327.i199, %47 ]
-  %61 = add nuw nsw i32 %.02228.i198, 1
+  %.1.i203 = phi double [ %60, %53 ], [ %.02128.i198, %47 ]
+  %61 = add nuw nsw i32 %.02327.i199, 1
   %exitcond30.not.i204 = icmp eq i32 %61, 4
   br i1 %exitcond30.not.i204, label %arrow_length.exit206, label %.preheader.i197
 
@@ -742,21 +742,21 @@ arrow_length.exit206:                             ; preds = %.loopexit.i202, %ar
   br i1 %100, label %arrow_length.exit216, label %.preheader.i207
 
 .preheader.i207:                                  ; preds = %95, %.loopexit.i212
-  %.02228.i208 = phi i32 [ %118, %.loopexit.i212 ], [ 0, %95 ]
-  %.02327.i209 = phi double [ %.1.i213, %.loopexit.i212 ], [ 0.000000e+00, %95 ]
-  %101 = shl nuw nsw i32 %.02228.i208, 3
+  %.02128.i208 = phi double [ %.1.i213, %.loopexit.i212 ], [ 0.000000e+00, %95 ]
+  %.02327.i209 = phi i32 [ %118, %.loopexit.i212 ], [ 0, %95 ]
+  %101 = shl nuw nsw i32 %.02327.i209, 3
   %102 = lshr i32 %6, %101
   %103 = and i32 %102, 15
   br label %106
 
 104:                                              ; preds = %106
-  %105 = add nuw nsw i64 %.02126.i210, 1
+  %105 = add nuw nsw i64 %.02226.i210, 1
   %exitcond.not.i211 = icmp eq i64 %105, 8
   br i1 %exitcond.not.i211, label %.loopexit.i212, label %106
 
 106:                                              ; preds = %104, %.preheader.i207
-  %.02126.i210 = phi i64 [ 0, %.preheader.i207 ], [ %105, %104 ]
-  %107 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02126.i210
+  %.02226.i210 = phi i64 [ 0, %.preheader.i207 ], [ %105, %104 ]
+  %107 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i210
   %108 = load i32, ptr %107, align 16
   %109 = icmp eq i32 %103, %108
   br i1 %109, label %110, label %104
@@ -768,12 +768,12 @@ arrow_length.exit206:                             ; preds = %.loopexit.i202, %ar
   %114 = getelementptr inbounds i8, ptr %107, i64 8
   %115 = load double, ptr %114, align 8
   %116 = tail call double %113(double noundef %115, double noundef %99, double noundef %97, i32 noundef %111) #11
-  %117 = fadd double %.02327.i209, %116
+  %117 = fadd double %.02128.i208, %116
   br label %.loopexit.i212
 
 .loopexit.i212:                                   ; preds = %104, %110
-  %.1.i213 = phi double [ %117, %110 ], [ %.02327.i209, %104 ]
-  %118 = add nuw nsw i32 %.02228.i208, 1
+  %.1.i213 = phi double [ %117, %110 ], [ %.02128.i208, %104 ]
+  %118 = add nuw nsw i32 %.02327.i209, 1
   %exitcond30.not.i214 = icmp eq i32 %118, 4
   br i1 %exitcond30.not.i214, label %arrow_length.exit216, label %.preheader.i207
 
@@ -851,21 +851,21 @@ arrow_length.exit216:                             ; preds = %.loopexit.i212, %95
   br i1 %157, label %arrow_length.exit226, label %.preheader.i217
 
 .preheader.i217:                                  ; preds = %152, %.loopexit.i222
-  %.02228.i218 = phi i32 [ %175, %.loopexit.i222 ], [ 0, %152 ]
-  %.02327.i219 = phi double [ %.1.i223, %.loopexit.i222 ], [ 0.000000e+00, %152 ]
-  %158 = shl nuw nsw i32 %.02228.i218, 3
+  %.02128.i218 = phi double [ %.1.i223, %.loopexit.i222 ], [ 0.000000e+00, %152 ]
+  %.02327.i219 = phi i32 [ %175, %.loopexit.i222 ], [ 0, %152 ]
+  %158 = shl nuw nsw i32 %.02327.i219, 3
   %159 = lshr i32 %5, %158
   %160 = and i32 %159, 15
   br label %163
 
 161:                                              ; preds = %163
-  %162 = add nuw nsw i64 %.02126.i220, 1
+  %162 = add nuw nsw i64 %.02226.i220, 1
   %exitcond.not.i221 = icmp eq i64 %162, 8
   br i1 %exitcond.not.i221, label %.loopexit.i222, label %163
 
 163:                                              ; preds = %161, %.preheader.i217
-  %.02126.i220 = phi i64 [ 0, %.preheader.i217 ], [ %162, %161 ]
-  %164 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02126.i220
+  %.02226.i220 = phi i64 [ 0, %.preheader.i217 ], [ %162, %161 ]
+  %164 = getelementptr inbounds [8 x %struct.arrowtype_t], ptr @Arrowtypes, i64 0, i64 %.02226.i220
   %165 = load i32, ptr %164, align 16
   %166 = icmp eq i32 %160, %165
   br i1 %166, label %167, label %161
@@ -877,12 +877,12 @@ arrow_length.exit216:                             ; preds = %.loopexit.i212, %95
   %171 = getelementptr inbounds i8, ptr %164, i64 8
   %172 = load double, ptr %171, align 8
   %173 = tail call double %170(double noundef %172, double noundef %156, double noundef %154, i32 noundef %168) #11
-  %174 = fadd double %.02327.i219, %173
+  %174 = fadd double %.02128.i218, %173
   br label %.loopexit.i222
 
 .loopexit.i222:                                   ; preds = %161, %167
-  %.1.i223 = phi double [ %174, %167 ], [ %.02327.i219, %161 ]
-  %175 = add nuw nsw i32 %.02228.i218, 1
+  %.1.i223 = phi double [ %174, %167 ], [ %.02128.i218, %161 ]
+  %175 = add nuw nsw i32 %.02327.i219, 1
   %exitcond30.not.i224 = icmp eq i32 %175, 4
   br i1 %exitcond30.not.i224, label %arrow_length.exit226, label %.preheader.i217
 
@@ -1481,8 +1481,8 @@ define internal { double, double } @arrow_type_diamond(ptr noundef %0, double %1
   %.sroa.328.0.i = select i1 %.not.i, double %19, double 0.000000e+00
   %23 = and i32 %7, 64
   %.not83.i = icmp eq i32 %23, 0
-  %.sroa.323.0.i = select i1 %.not83.i, double %21, double 0.000000e+00
   %.sroa.021.0.i = select i1 %.not83.i, double %20, double 0.000000e+00
+  %.sroa.323.0.i = select i1 %.not83.i, double %21, double 0.000000e+00
   %24 = insertelement <2 x double> poison, double %1, i64 0
   %25 = insertelement <2 x double> %24, double %2, i64 1
   %26 = insertelement <2 x double> poison, double %3, i64 0
@@ -1558,8 +1558,8 @@ define internal double @arrow_length_diamond(double noundef %0, double noundef %
   %.sroa.328.0.i = select i1 %.not.i, double %11, double 0.000000e+00
   %13 = and i32 %3, 64
   %.not83.i = icmp eq i32 %13, 0
-  %.sroa.323.0.i = select i1 %.not83.i, double %8, double 0.000000e+00
   %.sroa.021.0.i = select i1 %.not83.i, double %9, double 0.000000e+00
+  %.sroa.323.0.i = select i1 %.not83.i, double %8, double 0.000000e+00
   %14 = fadd double %7, 0.000000e+00
   %15 = fmul double %7, 5.000000e-01
   %16 = fadd double %15, 0.000000e+00

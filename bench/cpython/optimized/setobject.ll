@@ -1434,16 +1434,16 @@ if.end10:                                         ; preds = %if.end10.sink.split
   br i1 %cmp1122, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.end10, %for.inc
-  %used.024 = phi i64 [ %used.1, %for.inc ], [ %1, %if.end10 ]
-  %entry1.023 = phi ptr [ %incdec.ptr, %for.inc ], [ %table.0, %if.end10 ]
-  %3 = load ptr, ptr %entry1.023, align 8
+  %entry1.024 = phi ptr [ %incdec.ptr, %for.inc ], [ %table.0, %if.end10 ]
+  %used.023 = phi i64 [ %used.1, %for.inc ], [ %1, %if.end10 ]
+  %3 = load ptr, ptr %entry1.024, align 8
   %tobool13.not = icmp eq ptr %3, null
   %cmp15.not = icmp eq ptr %3, @_dummy_struct
   %or.cond = or i1 %tobool13.not, %cmp15.not
   br i1 %or.cond, label %for.inc, label %if.then17
 
 if.then17:                                        ; preds = %for.body
-  %dec = add nsw i64 %used.024, -1
+  %dec = add nsw i64 %used.023, -1
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i24.not = icmp eq i64 %5, 0
@@ -1460,8 +1460,8 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then17, %if.then1.i, %if.end.i
-  %used.1 = phi i64 [ %dec, %if.then17 ], [ %dec, %if.then1.i ], [ %dec, %if.end.i ], [ %used.024, %for.body ]
-  %incdec.ptr = getelementptr i8, ptr %entry1.023, i64 16
+  %used.1 = phi i64 [ %dec, %if.then17 ], [ %dec, %if.then1.i ], [ %dec, %if.end.i ], [ %used.023, %for.body ]
+  %incdec.ptr = getelementptr i8, ptr %entry1.024, i64 16
   %cmp11 = icmp sgt i64 %used.1, 0
   br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !10
 
@@ -1762,16 +1762,16 @@ if.end10.i:                                       ; preds = %if.end10.sink.split
   br i1 %cmp1122.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.end10.i, %for.inc.i
-  %used.024.i = phi i64 [ %used.1.i, %for.inc.i ], [ %4, %if.end10.i ]
-  %entry1.023.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %table.0.i, %if.end10.i ]
-  %5 = load ptr, ptr %entry1.023.i, align 8
+  %entry1.024.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %table.0.i, %if.end10.i ]
+  %used.023.i = phi i64 [ %used.1.i, %for.inc.i ], [ %4, %if.end10.i ]
+  %5 = load ptr, ptr %entry1.024.i, align 8
   %tobool13.not.i = icmp eq ptr %5, null
   %cmp15.not.i = icmp eq ptr %5, @_dummy_struct
   %or.cond.i = or i1 %tobool13.not.i, %cmp15.not.i
   br i1 %or.cond.i, label %for.inc.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %for.body.i
-  %dec.i = add nsw i64 %used.024.i, -1
+  %dec.i = add nsw i64 %used.023.i, -1
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 2147483648
   %cmp.i24.not.i = icmp eq i64 %7, 0
@@ -1788,8 +1788,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then1.i.i, %if.end.i.i, %if.then17.i, %for.body.i
-  %used.1.i = phi i64 [ %dec.i, %if.then17.i ], [ %dec.i, %if.then1.i.i ], [ %dec.i, %if.end.i.i ], [ %used.024.i, %for.body.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %entry1.023.i, i64 16
+  %used.1.i = phi i64 [ %dec.i, %if.then17.i ], [ %dec.i, %if.then1.i.i ], [ %dec.i, %if.end.i.i ], [ %used.023.i, %for.body.i ]
+  %incdec.ptr.i = getelementptr i8, ptr %entry1.024.i, i64 16
   %cmp11.i = icmp sgt i64 %used.1.i, 0
   br i1 %cmp11.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
@@ -2302,16 +2302,16 @@ if.end10.i:                                       ; preds = %if.end10.sink.split
   br i1 %cmp1122.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.end10.i, %for.inc.i
-  %used.024.i = phi i64 [ %used.1.i, %for.inc.i ], [ %2, %if.end10.i ]
-  %entry1.023.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %table.0.i, %if.end10.i ]
-  %4 = load ptr, ptr %entry1.023.i, align 8
+  %entry1.024.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %table.0.i, %if.end10.i ]
+  %used.023.i = phi i64 [ %used.1.i, %for.inc.i ], [ %2, %if.end10.i ]
+  %4 = load ptr, ptr %entry1.024.i, align 8
   %tobool13.not.i = icmp eq ptr %4, null
   %cmp15.not.i = icmp eq ptr %4, @_dummy_struct
   %or.cond.i = or i1 %tobool13.not.i, %cmp15.not.i
   br i1 %or.cond.i, label %for.inc.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %for.body.i
-  %dec.i = add nsw i64 %used.024.i, -1
+  %dec.i = add nsw i64 %used.023.i, -1
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i24.not.i = icmp eq i64 %6, 0
@@ -2328,8 +2328,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then1.i.i, %if.end.i.i, %if.then17.i, %for.body.i
-  %used.1.i = phi i64 [ %dec.i, %if.then17.i ], [ %dec.i, %if.then1.i.i ], [ %dec.i, %if.end.i.i ], [ %used.024.i, %for.body.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %entry1.023.i, i64 16
+  %used.1.i = phi i64 [ %dec.i, %if.then17.i ], [ %dec.i, %if.then1.i.i ], [ %dec.i, %if.end.i.i ], [ %used.023.i, %for.body.i ]
+  %incdec.ptr.i = getelementptr i8, ptr %entry1.024.i, i64 16
   %cmp11.i = icmp sgt i64 %used.1.i, 0
   br i1 %cmp11.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
@@ -4423,10 +4423,10 @@ restart:                                          ; preds = %restart.loopexit, %
 
 while.body:                                       ; preds = %do.end, %restart
   %3 = phi ptr [ %.pre, %restart ], [ %16, %do.end ]
-  %freeslot.0 = phi ptr [ null, %restart ], [ %freeslot.2, %do.end ]
   %perturb.0 = phi i64 [ %hash, %restart ], [ %shr, %do.end ]
   %mask.0 = phi i64 [ %2, %restart ], [ %mask.2, %do.end ]
   %i.0 = phi i64 [ %and, %restart ], [ %and47, %do.end ]
+  %freeslot.0 = phi ptr [ null, %restart ], [ %freeslot.2, %do.end ]
   %arrayidx = getelementptr %struct.setentry, ptr %3, i64 %i.0
   %add = add i64 %i.0, 9
   %cmp4.not = icmp ugt i64 %add, %mask.0
@@ -4435,10 +4435,10 @@ while.body:                                       ; preds = %do.end, %restart
 
 do.body:                                          ; preds = %if.end43, %while.body
   %4 = phi ptr [ %3, %while.body ], [ %16, %if.end43 ]
-  %freeslot.1 = phi ptr [ %freeslot.0, %while.body ], [ %freeslot.2, %if.end43 ]
   %entry1.0 = phi ptr [ %arrayidx, %while.body ], [ %incdec.ptr, %if.end43 ]
   %mask.1 = phi i64 [ %mask.0, %while.body ], [ %mask.2, %if.end43 ]
   %probes.0 = phi i32 [ %cond, %while.body ], [ %dec, %if.end43 ]
+  %freeslot.1 = phi ptr [ %freeslot.0, %while.body ], [ %freeslot.2, %if.end43 ]
   %hash5 = getelementptr inbounds i8, ptr %entry1.0, i64 8
   %5 = load i64, ptr %hash5, align 8
   %cmp6 = icmp eq i64 %5, 0
@@ -4535,8 +4535,8 @@ if.else:                                          ; preds = %if.end
 
 if.end43:                                         ; preds = %if.else, %if.end37
   %16 = phi ptr [ %13, %if.end37 ], [ %4, %if.else ]
-  %freeslot.2 = phi ptr [ %freeslot.1, %if.end37 ], [ %spec.select, %if.else ]
   %mask.2 = phi i64 [ %15, %if.end37 ], [ %mask.1, %if.else ]
+  %freeslot.2 = phi ptr [ %freeslot.1, %if.end37 ], [ %spec.select, %if.else ]
   %incdec.ptr = getelementptr i8, ptr %entry1.0, i64 16
   %dec = add nsw i32 %probes.0, -1
   %tobool44.not = icmp eq i32 %probes.0, 0
@@ -4737,16 +4737,16 @@ if.end10.i:                                       ; preds = %if.end10.sink.split
   br i1 %cmp1122.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.end10.i, %for.inc.i
-  %used.024.i = phi i64 [ %used.1.i, %for.inc.i ], [ %1, %if.end10.i ]
-  %entry1.023.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %table.0.i, %if.end10.i ]
-  %3 = load ptr, ptr %entry1.023.i, align 8
+  %entry1.024.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %table.0.i, %if.end10.i ]
+  %used.023.i = phi i64 [ %used.1.i, %for.inc.i ], [ %1, %if.end10.i ]
+  %3 = load ptr, ptr %entry1.024.i, align 8
   %tobool13.not.i = icmp eq ptr %3, null
   %cmp15.not.i = icmp eq ptr %3, @_dummy_struct
   %or.cond.i = or i1 %tobool13.not.i, %cmp15.not.i
   br i1 %or.cond.i, label %for.inc.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %for.body.i
-  %dec.i59 = add nsw i64 %used.024.i, -1
+  %dec.i59 = add nsw i64 %used.023.i, -1
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i24.not.i = icmp eq i64 %5, 0
@@ -4763,8 +4763,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then1.i.i, %if.end.i.i, %if.then17.i, %for.body.i
-  %used.1.i = phi i64 [ %dec.i59, %if.then17.i ], [ %dec.i59, %if.then1.i.i ], [ %dec.i59, %if.end.i.i ], [ %used.024.i, %for.body.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %entry1.023.i, i64 16
+  %used.1.i = phi i64 [ %dec.i59, %if.then17.i ], [ %dec.i59, %if.then1.i.i ], [ %dec.i59, %if.end.i.i ], [ %used.023.i, %for.body.i ]
+  %incdec.ptr.i = getelementptr i8, ptr %entry1.024.i, i64 16
   %cmp11.i = icmp sgt i64 %used.1.i, 0
   br i1 %cmp11.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
@@ -5244,22 +5244,22 @@ if.then17:                                        ; preds = %lor.lhs.false13, %l
   %7 = getelementptr i8, ptr %so, i64 24
   %so.val81 = load i64, ptr %7, align 8
   %cmp21 = icmp sgt i64 %other.val82, %so.val81
-  %spec.select = select i1 %cmp21, ptr %other, ptr %so
-  %spec.select75 = select i1 %cmp21, ptr %so, ptr %other
-  %8 = getelementptr i8, ptr %spec.select75, i64 32
-  %spec.select75.val125 = load i64, ptr %8, align 8
-  %cmp.not4.i126 = icmp slt i64 %spec.select75.val125, 0
+  %spec.select = select i1 %cmp21, ptr %so, ptr %other
+  %spec.select75 = select i1 %cmp21, ptr %other, ptr %so
+  %8 = getelementptr i8, ptr %spec.select, i64 32
+  %spec.select.val125 = load i64, ptr %8, align 8
+  %cmp.not4.i126 = icmp slt i64 %spec.select.val125, 0
   br i1 %cmp.not4.i126, label %return, label %land.rhs.preheader.i.lr.ph
 
 land.rhs.preheader.i.lr.ph:                       ; preds = %if.then17
-  %9 = getelementptr i8, ptr %spec.select75, i64 40
+  %9 = getelementptr i8, ptr %spec.select, i64 40
   br label %land.rhs.preheader.i
 
 land.rhs.preheader.i:                             ; preds = %land.rhs.preheader.i.lr.ph, %Py_DECREF.exit144
-  %spec.select75.val128 = phi i64 [ %spec.select75.val125, %land.rhs.preheader.i.lr.ph ], [ %spec.select75.val, %Py_DECREF.exit144 ]
+  %spec.select.val128 = phi i64 [ %spec.select.val125, %land.rhs.preheader.i.lr.ph ], [ %spec.select.val, %Py_DECREF.exit144 ]
   %pos.0127 = phi i64 [ 0, %land.rhs.preheader.i.lr.ph ], [ %inc.i, %Py_DECREF.exit144 ]
-  %spec.select75.val79 = load ptr, ptr %9, align 8
-  %arrayidx.i = getelementptr %struct.setentry, ptr %spec.select75.val79, i64 %pos.0127
+  %spec.select.val79 = load ptr, ptr %9, align 8
+  %arrayidx.i = getelementptr %struct.setentry, ptr %spec.select.val79, i64 %pos.0127
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.preheader.i
@@ -5274,7 +5274,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr i8, ptr %entry1.06.i, i64 16
-  %cmp.not.i = icmp sgt i64 %inc.i, %spec.select75.val128
+  %cmp.not.i = icmp sgt i64 %inc.i, %spec.select.val128
   br i1 %cmp.not.i, label %return, label %land.rhs.i, !llvm.loop !8
 
 while.body:                                       ; preds = %land.rhs.i
@@ -5290,7 +5290,7 @@ if.end.i233:                                      ; preds = %while.body
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %while.body, %if.end.i233
-  %call.i93 = tail call fastcc ptr @set_lookkey(ptr noundef readonly %spec.select, ptr noundef nonnull %10, i64 noundef %11)
+  %call.i93 = tail call fastcc ptr @set_lookkey(ptr noundef readonly %spec.select75, ptr noundef nonnull %10, i64 noundef %11)
   %cmp.not.i94 = icmp eq ptr %call.i93, null
   br i1 %cmp.not.i94, label %if.then30, label %set_contains_entry.exit
 
@@ -5377,8 +5377,8 @@ if.then1.i142:                                    ; preds = %if.end.i139
   br label %Py_DECREF.exit144
 
 Py_DECREF.exit144:                                ; preds = %if.end38, %if.then1.i142, %if.end.i139
-  %spec.select75.val = load i64, ptr %8, align 8
-  %cmp.not4.i = icmp sgt i64 %inc.i, %spec.select75.val
+  %spec.select.val = load i64, ptr %8, align 8
+  %cmp.not4.i = icmp sgt i64 %inc.i, %spec.select.val
   br i1 %cmp.not4.i, label %return, label %land.rhs.preheader.i, !llvm.loop !24
 
 if.end39:                                         ; preds = %lor.lhs.false13
@@ -5617,8 +5617,8 @@ if.then20:                                        ; preds = %if.else, %cond.end
   br label %return
 
 if.end23:                                         ; preds = %cond.end, %if.then, %if.end
-  %oldtable.0 = phi ptr [ %small_copy, %if.end ], [ %1, %if.then ], [ %1, %cond.end ]
   %newtable.0 = phi ptr [ %smalltable, %if.end ], [ %smalltable, %if.then ], [ %call, %cond.end ]
+  %oldtable.0 = phi ptr [ %small_copy, %if.end ], [ %1, %if.then ], [ %1, %cond.end ]
   %mul24 = shl nuw nsw i64 %newsize.0, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %newtable.0, i8 0, i64 %mul24, i1 false)
   %sub = add nsw i64 %newsize.0, -1
@@ -5807,9 +5807,9 @@ while.body:                                       ; preds = %do.end, %tailrecurs
 
 do.body:                                          ; preds = %if.end40, %while.body
   %3 = phi ptr [ %2, %while.body ], [ %15, %if.end40 ]
-  %entry1.0 = phi ptr [ %arrayidx, %while.body ], [ %incdec.ptr, %if.end40 ]
   %mask.1 = phi i64 [ %mask.0, %while.body ], [ %mask.2, %if.end40 ]
   %probes.0 = phi i32 [ %cond, %while.body ], [ %dec, %if.end40 ]
+  %entry1.0 = phi ptr [ %arrayidx, %while.body ], [ %incdec.ptr, %if.end40 ]
   %hash5 = getelementptr inbounds i8, ptr %entry1.0, i64 8
   %4 = load i64, ptr %hash5, align 8
   %cmp6 = icmp eq i64 %4, 0
@@ -6084,16 +6084,16 @@ if.end10.i.i:                                     ; preds = %if.end10.sink.split
   br i1 %cmp1122.i.i, label %for.body.i.i, label %for.end.i.i
 
 for.body.i.i:                                     ; preds = %if.end10.i.i, %for.inc.i.i
-  %used.024.i.i = phi i64 [ %used.1.i.i, %for.inc.i.i ], [ %1, %if.end10.i.i ]
-  %entry1.023.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %table.0.i.i, %if.end10.i.i ]
-  %3 = load ptr, ptr %entry1.023.i.i, align 8
+  %entry1.024.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %table.0.i.i, %if.end10.i.i ]
+  %used.023.i.i = phi i64 [ %used.1.i.i, %for.inc.i.i ], [ %1, %if.end10.i.i ]
+  %3 = load ptr, ptr %entry1.024.i.i, align 8
   %tobool13.not.i.i = icmp eq ptr %3, null
   %cmp15.not.i.i = icmp eq ptr %3, @_dummy_struct
   %or.cond.i.i = or i1 %tobool13.not.i.i, %cmp15.not.i.i
   br i1 %or.cond.i.i, label %for.inc.i.i, label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %for.body.i.i
-  %dec.i.i = add nsw i64 %used.024.i.i, -1
+  %dec.i.i = add nsw i64 %used.023.i.i, -1
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i24.not.i.i = icmp eq i64 %5, 0
@@ -6110,8 +6110,8 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then17.i.i, %for.body.i.i
-  %used.1.i.i = phi i64 [ %dec.i.i, %if.then17.i.i ], [ %dec.i.i, %if.then1.i.i.i ], [ %dec.i.i, %if.end.i.i.i ], [ %used.024.i.i, %for.body.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %entry1.023.i.i, i64 16
+  %used.1.i.i = phi i64 [ %dec.i.i, %if.then17.i.i ], [ %dec.i.i, %if.then1.i.i.i ], [ %dec.i.i, %if.end.i.i.i ], [ %used.023.i.i, %for.body.i.i ]
+  %incdec.ptr.i.i = getelementptr i8, ptr %entry1.024.i.i, i64 16
   %cmp11.i.i = icmp sgt i64 %used.1.i.i, 0
   br i1 %cmp11.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !10
 
@@ -6519,16 +6519,16 @@ if.end10.i:                                       ; preds = %if.end10.sink.split
   br i1 %cmp1122.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.end10.i, %for.inc.i
-  %used.024.i = phi i64 [ %used.1.i, %for.inc.i ], [ %1, %if.end10.i ]
-  %entry1.023.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %table.0.i, %if.end10.i ]
-  %3 = load ptr, ptr %entry1.023.i, align 8
+  %entry1.024.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %table.0.i, %if.end10.i ]
+  %used.023.i = phi i64 [ %used.1.i, %for.inc.i ], [ %1, %if.end10.i ]
+  %3 = load ptr, ptr %entry1.024.i, align 8
   %tobool13.not.i = icmp eq ptr %3, null
   %cmp15.not.i = icmp eq ptr %3, @_dummy_struct
   %or.cond.i = or i1 %tobool13.not.i, %cmp15.not.i
   br i1 %or.cond.i, label %for.inc.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %for.body.i
-  %dec.i = add nsw i64 %used.024.i, -1
+  %dec.i = add nsw i64 %used.023.i, -1
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i24.not.i = icmp eq i64 %5, 0
@@ -6545,8 +6545,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then1.i.i, %if.end.i.i, %if.then17.i, %for.body.i
-  %used.1.i = phi i64 [ %dec.i, %if.then17.i ], [ %dec.i, %if.then1.i.i ], [ %dec.i, %if.end.i.i ], [ %used.024.i, %for.body.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %entry1.023.i, i64 16
+  %used.1.i = phi i64 [ %dec.i, %if.then17.i ], [ %dec.i, %if.then1.i.i ], [ %dec.i, %if.end.i.i ], [ %used.023.i, %for.body.i ]
+  %incdec.ptr.i = getelementptr i8, ptr %entry1.024.i, i64 16
   %cmp11.i = icmp sgt i64 %used.1.i, 0
   br i1 %cmp11.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
@@ -7651,21 +7651,21 @@ if.then6:                                         ; preds = %if.end
   %3 = getelementptr i8, ptr %so, i64 24
   %so.val = load i64, ptr %3, align 8
   %cmp10 = icmp sgt i64 %other.val37, %so.val
-  %spec.select = select i1 %cmp10, ptr %other, ptr %so
-  %spec.select34 = select i1 %cmp10, ptr %so, ptr %other
-  %4 = getelementptr i8, ptr %spec.select34, i64 32
-  %5 = getelementptr i8, ptr %spec.select34, i64 40
+  %spec.select = select i1 %cmp10, ptr %so, ptr %other
+  %spec.select34 = select i1 %cmp10, ptr %other, ptr %so
+  %4 = getelementptr i8, ptr %spec.select, i64 32
+  %5 = getelementptr i8, ptr %spec.select, i64 40
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end20, %if.then6
   %pos.0 = phi i64 [ 0, %if.then6 ], [ %inc.i, %if.end20 ]
-  %spec.select34.val = load i64, ptr %4, align 8
-  %cmp.not4.i = icmp sgt i64 %pos.0, %spec.select34.val
+  %spec.select.val = load i64, ptr %4, align 8
+  %cmp.not4.i = icmp sgt i64 %pos.0, %spec.select.val
   br i1 %cmp.not4.i, label %return, label %land.rhs.preheader.i
 
 land.rhs.preheader.i:                             ; preds = %while.cond
-  %spec.select34.val36 = load ptr, ptr %5, align 8
-  %arrayidx.i = getelementptr %struct.setentry, ptr %spec.select34.val36, i64 %pos.0
+  %spec.select.val36 = load ptr, ptr %5, align 8
+  %arrayidx.i = getelementptr %struct.setentry, ptr %spec.select.val36, i64 %pos.0
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.preheader.i
@@ -7680,7 +7680,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 while.body.i:                                     ; preds = %land.rhs.i
   %incdec.ptr.i = getelementptr i8, ptr %entry1.06.i, i64 16
-  %cmp.not.i = icmp sgt i64 %inc.i, %spec.select34.val
+  %cmp.not.i = icmp sgt i64 %inc.i, %spec.select.val
   br i1 %cmp.not.i, label %return, label %land.rhs.i, !llvm.loop !8
 
 while.body:                                       ; preds = %land.rhs.i
@@ -7696,7 +7696,7 @@ if.end.i101:                                      ; preds = %while.body
 Py_INCREF.exit:                                   ; preds = %while.body, %if.end.i101
   %hash = getelementptr inbounds i8, ptr %entry1.06.i, i64 8
   %8 = load i64, ptr %hash, align 8
-  %call.i = tail call fastcc ptr @set_lookkey(ptr noundef readonly %spec.select, ptr noundef nonnull %6, i64 noundef %8)
+  %call.i = tail call fastcc ptr @set_lookkey(ptr noundef readonly %spec.select34, ptr noundef nonnull %6, i64 noundef %8)
   %cmp.not.i44 = icmp eq ptr %call.i, null
   br i1 %cmp.not.i44, label %set_contains_entry.exit, label %if.then.i
 

@@ -337,15 +337,15 @@ Io_ReadFileRemoveComments.exit:                   ; preds = %15
   br label %.lr.ph.lr.ph.i
 
 .lr.ph.lr.ph.i:                                   ; preds = %.outer.outer.i, %.lr.ph.lr.ph.lr.ph.i
-  %.0.ph.ph137.i = phi i32 [ 0, %.lr.ph.lr.ph.lr.ph.i ], [ %.1.i, %.outer.outer.i ]
-  %.038.ph.ph136.i = phi i32 [ 0, %.lr.ph.lr.ph.lr.ph.i ], [ %.139.i, %.outer.outer.i ]
-  %.040.ph.ph135.i = phi ptr [ %28, %.lr.ph.lr.ph.lr.ph.i ], [ %.141.i, %.outer.outer.i ]
+  %.038.ph.ph137.i = phi i32 [ 0, %.lr.ph.lr.ph.lr.ph.i ], [ %.1.i, %.outer.outer.i ]
+  %.039.ph.ph136.i = phi i32 [ 0, %.lr.ph.lr.ph.lr.ph.i ], [ %.140.i, %.outer.outer.i ]
+  %.041.ph.ph135.i = phi ptr [ %28, %.lr.ph.lr.ph.lr.ph.i ], [ %.142.i, %.outer.outer.i ]
   %.066.ph.ph134.i = phi ptr [ %29, %.lr.ph.lr.ph.lr.ph.i ], [ %.025.i73.i, %.outer.outer.i ]
   br label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %.outer.i, %.lr.ph.lr.ph.i
-  %.038.ph126.i = phi i32 [ %.038.ph.ph136.i, %.lr.ph.lr.ph.i ], [ %164, %.outer.i ]
-  %.040.ph125.i = phi ptr [ %.040.ph.ph135.i, %.lr.ph.lr.ph.i ], [ %163, %.outer.i ]
+  %.039.ph126.i = phi i32 [ %.039.ph.ph136.i, %.lr.ph.lr.ph.i ], [ %164, %.outer.i ]
+  %.041.ph125.i = phi ptr [ %.041.ph.ph135.i, %.lr.ph.lr.ph.i ], [ %163, %.outer.i ]
   %.066.ph124.i = phi ptr [ %.066.ph.ph134.i, %.lr.ph.lr.ph.i ], [ %.025.i73.i, %.outer.i ]
   br label %30
 
@@ -620,13 +620,13 @@ Mio_LibraryReadGate.exit.thread70.i:              ; preds = %146, %.lr.ph.i.i, %
 
 160:                                              ; preds = %157
   tail call void @Mio_GateDelete(ptr noundef nonnull %47) #17
-  %161 = add nsw i32 %.0.ph.ph137.i, 1
+  %161 = add nsw i32 %.038.ph.ph137.i, 1
   br label %.outer.outer.i
 
 162:                                              ; preds = %157, %155
-  store ptr %47, ptr %.040.ph125.i, align 8
+  store ptr %47, ptr %.041.ph125.i, align 8
   %163 = getelementptr inbounds i8, ptr %47, i64 48
-  %164 = add nsw i32 %.038.ph126.i, 1
+  %164 = add nsw i32 %.039.ph126.i, 1
   %165 = load ptr, ptr %7, align 8
   %166 = load ptr, ptr %47, align 8
   %167 = tail call i32 @st__lookup(ptr noundef %165, ptr noundef %166, ptr noundef null) #17
@@ -660,17 +660,17 @@ Mio_LibraryReadGate.exit.thread70.i:              ; preds = %146, %.lr.ph.i.i, %
   br label %.outer.outer.i
 
 .outer.outer.i:                                   ; preds = %177, %168, %160
-  %.141.i = phi ptr [ %.040.ph125.i, %160 ], [ %163, %177 ], [ %163, %168 ]
-  %.139.i = phi i32 [ %.038.ph126.i, %160 ], [ %164, %177 ], [ %164, %168 ]
-  %.1.i = phi i32 [ %161, %160 ], [ %.0.ph.ph137.i, %177 ], [ %.0.ph.ph137.i, %168 ]
+  %.142.i = phi ptr [ %.041.ph125.i, %160 ], [ %163, %177 ], [ %163, %168 ]
+  %.140.i = phi i32 [ %.039.ph126.i, %160 ], [ %164, %177 ], [ %164, %168 ]
+  %.1.i = phi i32 [ %161, %160 ], [ %.038.ph.ph137.i, %177 ], [ %.038.ph.ph137.i, %168 ]
   %.not107123.i = icmp eq ptr %.025.i73.i, null
   br i1 %.not107123.i, label %.critedge.i, label %.lr.ph.lr.ph.i, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %.outer.outer.i, %.outer.i, %154, %33, %.backedge.i, %39
-  %.0.ph.ph105.i = phi i32 [ %.0.ph.ph137.i, %39 ], [ %.0.ph.ph137.i, %.backedge.i ], [ %.0.ph.ph137.i, %33 ], [ %.0.ph.ph137.i, %154 ], [ %.0.ph.ph137.i, %.outer.i ], [ %.1.i, %.outer.outer.i ]
-  %.038.ph97.i = phi i32 [ %.038.ph126.i, %39 ], [ %.038.ph126.i, %.backedge.i ], [ %.038.ph126.i, %33 ], [ %.038.ph126.i, %154 ], [ %164, %.outer.i ], [ %.139.i, %.outer.outer.i ]
+  %.038.ph.ph105.i = phi i32 [ %.038.ph.ph137.i, %39 ], [ %.038.ph.ph137.i, %.backedge.i ], [ %.038.ph.ph137.i, %33 ], [ %.038.ph.ph137.i, %154 ], [ %.038.ph.ph137.i, %.outer.i ], [ %.1.i, %.outer.outer.i ]
+  %.039.ph97.i = phi i32 [ %.039.ph126.i, %39 ], [ %.039.ph126.i, %.backedge.i ], [ %.039.ph126.i, %33 ], [ %.039.ph126.i, %154 ], [ %164, %.outer.i ], [ %.140.i, %.outer.outer.i ]
   %.2.i = phi ptr [ null, %.backedge.i ], [ %.167106.i, %39 ], [ null, %154 ], [ %.066108.i, %33 ], [ null, %.outer.i ], [ null, %.outer.outer.i ]
-  %180 = icmp eq i32 %.038.ph97.i, 0
+  %180 = icmp eq i32 %.039.ph97.i, 0
   br i1 %180, label %.critedge.thread.i, label %181
 
 .critedge.thread.i:                               ; preds = %.critedge.i, %Io_ReadFileRemoveComments.exit
@@ -687,11 +687,11 @@ Mio_LibraryReadGate.exit.thread70.i:              ; preds = %146, %.lr.ph.i.i, %
   br i1 %.not54.i, label %184, label %187
 
 184:                                              ; preds = %182, %181
-  %.not55.i = icmp eq i32 %.0.ph.ph105.i, 0
+  %.not55.i = icmp eq i32 %.038.ph.ph105.i, 0
   br i1 %.not55.i, label %Mio_LibraryReadInternal.exit, label %185
 
 185:                                              ; preds = %184
-  %186 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %.0.ph.ph105.i)
+  %186 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %.038.ph.ph105.i)
   br label %Mio_LibraryReadInternal.exit
 
 187:                                              ; preds = %.critedge.thread.i, %182, %Mio_LibraryReadGate.exit.thread.i
@@ -1103,8 +1103,8 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %2
 
 8:                                                ; preds = %24, %Abc_UtilStrsav.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %Abc_UtilStrsav.exit ]
-  %.040 = phi i32 [ %.3, %24 ], [ 0, %Abc_UtilStrsav.exit ]
-  %.0 = phi i32 [ %.2, %24 ], [ 0, %Abc_UtilStrsav.exit ]
+  %.041 = phi i32 [ %.3, %24 ], [ 0, %Abc_UtilStrsav.exit ]
+  %.040 = phi i32 [ %.2, %24 ], [ 0, %Abc_UtilStrsav.exit ]
   %9 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   switch i8 %10, label %11 [
@@ -1125,12 +1125,12 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %2
   ]
 
 11:                                               ; preds = %8
-  %12 = icmp eq i32 %.0, 2
+  %12 = icmp eq i32 %.040, 2
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11
-  %14 = add nsw i32 %.040, 1
-  %15 = sext i32 %.040 to i64
+  %14 = add nsw i32 %.041, 1
+  %15 = sext i32 %.041 to i64
   %16 = getelementptr inbounds i8, ptr %7, i64 %15
   store i8 32, ptr %16, align 1
   %.pre = load i8, ptr %9, align 1
@@ -1138,27 +1138,27 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %2
 
 17:                                               ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %11, %13
   %18 = phi i8 [ %.pre, %13 ], [ %10, %11 ], [ %10, %8 ], [ %10, %8 ], [ %10, %8 ], [ %10, %8 ], [ %10, %8 ], [ %10, %8 ], [ %10, %8 ], [ %10, %8 ], [ %10, %8 ]
-  %.242 = phi i32 [ %14, %13 ], [ %.040, %11 ], [ %.040, %8 ], [ %.040, %8 ], [ %.040, %8 ], [ %.040, %8 ], [ %.040, %8 ], [ %.040, %8 ], [ %.040, %8 ], [ %.040, %8 ], [ %.040, %8 ]
+  %.243 = phi i32 [ %14, %13 ], [ %.041, %11 ], [ %.041, %8 ], [ %.041, %8 ], [ %.041, %8 ], [ %.041, %8 ], [ %.041, %8 ], [ %.041, %8 ], [ %.041, %8 ], [ %.041, %8 ], [ %.041, %8 ]
   %.1 = phi i32 [ 1, %13 ], [ 1, %11 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ]
-  %19 = add nsw i32 %.242, 1
-  %20 = sext i32 %.242 to i64
+  %19 = add nsw i32 %.243, 1
+  %20 = sext i32 %.243 to i64
   %21 = getelementptr inbounds i8, ptr %7, i64 %20
   store i8 %18, ptr %21, align 1
   br label %24
 
 22:                                               ; preds = %8, %8, %8, %8
-  %.not50 = icmp eq i32 %.0, 0
+  %.not50 = icmp eq i32 %.040, 0
   %23 = select i1 %.not50, i32 0, i32 2
   br label %24
 
 24:                                               ; preds = %17, %22
-  %.3 = phi i32 [ %19, %17 ], [ %.040, %22 ]
+  %.3 = phi i32 [ %19, %17 ], [ %.041, %22 ]
   %.2 = phi i32 [ %.1, %17 ], [ %23, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %8, !llvm.loop !16
 
 25:                                               ; preds = %8
-  %26 = sext i32 %.040 to i64
+  %26 = sext i32 %.041 to i64
   %27 = getelementptr inbounds i8, ptr %7, i64 %26
   store i8 0, ptr %27, align 1
   ret ptr %7

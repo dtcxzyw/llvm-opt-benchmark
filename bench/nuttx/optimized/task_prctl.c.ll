@@ -111,15 +111,15 @@ define range(i32 -1, 1) i32 @prctl(i32 noundef %0, ...) local_unnamed_addr #0 {
   br label %56
 
 54:                                               ; preds = %1, %42, %40
-  %.020 = phi i32 [ 3, %40 ], [ 14, %42 ], [ 22, %1 ]
+  %.021 = phi i32 [ 3, %40 ], [ 14, %42 ], [ 22, %1 ]
   call void @llvm.va_end.p0(ptr nonnull %2)
   %55 = call ptr @__errno() #4
-  store i32 %.020, ptr %55, align 4
+  store i32 %.021, ptr %55, align 4
   br label %56
 
 56:                                               ; preds = %54, %53
-  %.021 = phi i32 [ -1, %54 ], [ 0, %53 ]
-  ret i32 %.021
+  %.020 = phi i32 [ -1, %54 ], [ 0, %53 ]
+  ret i32 %.020
 }
 
 declare ptr @nxsched_get_tcb(i32 noundef) local_unnamed_addr #1

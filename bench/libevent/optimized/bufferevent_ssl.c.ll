@@ -1936,14 +1936,14 @@ for.body.lr.ph.lr.ph:                             ; preds = %if.end15
 
 for.body.lr.ph:                                   ; preds = %for.body.lr.ph.lr.ph, %if.end49
   %result.0.ph88 = phi i32 [ 0, %for.body.lr.ph.lr.ph ], [ 1, %if.end49 ]
-  %n_written.0.ph87 = phi i32 [ 0, %for.body.lr.ph.lr.ph ], [ %add, %if.end49 ]
-  %i.0.ph86 = phi i32 [ 0, %for.body.lr.ph.lr.ph ], [ %spec.select, %if.end49 ]
+  %i.0.ph87 = phi i32 [ 0, %for.body.lr.ph.lr.ph ], [ %spec.select, %if.end49 ]
+  %n_written.0.ph86 = phi i32 [ 0, %for.body.lr.ph.lr.ph ], [ %add, %if.end49 ]
   %5 = load i16, ptr %write_suspended, align 2
   %tobool23.not = icmp eq i16 %5, 0
   br i1 %tobool23.not, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %for.body.lr.ph
-  %6 = sext i32 %i.0.ph86 to i64
+  %6 = sext i32 %i.0.ph87 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.then28
@@ -1988,7 +1988,7 @@ if.then42:                                        ; preds = %if.then39
   br i1 %cmp44, label %return, label %if.end49
 
 if.end49:                                         ; preds = %if.then42, %if.then39
-  %add = add nuw nsw i32 %call36, %n_written.0.ph87
+  %add = add nuw nsw i32 %call36, %n_written.0.ph86
   store i64 -1, ptr %last_write, align 8
   %17 = load ptr, ptr %ssl_ops, align 8
   %decrement_buckets = getelementptr inbounds i8, ptr %17, i64 152
@@ -2085,12 +2085,12 @@ if.end124:                                        ; preds = %if.end115, %if.else
 
 for.end:                                          ; preds = %for.body.lr.ph, %if.then28, %if.end124
   %result.1 = phi i32 [ %or125, %if.end124 ], [ %result.0.ph88, %if.then28 ], [ %result.0.ph88, %for.body.lr.ph ]
-  %tobool127.not = icmp eq i32 %n_written.0.ph87, 0
+  %tobool127.not = icmp eq i32 %n_written.0.ph86, 0
   br i1 %tobool127.not, label %return, label %if.then128
 
 if.then128:                                       ; preds = %if.end49, %for.end
   %result.1111 = phi i32 [ %result.1, %for.end ], [ 1, %if.end49 ]
-  %n_written.0.ph76110 = phi i32 [ %n_written.0.ph87, %for.end ], [ %add, %if.end49 ]
+  %n_written.0.ph76110 = phi i32 [ %n_written.0.ph86, %for.end ], [ %add, %if.end49 ]
   %conv129 = zext nneg i32 %n_written.0.ph76110 to i64
   %call130 = call i32 @evbuffer_drain(ptr noundef %0, i64 noundef %conv129) #7
   %tobool131.not = icmp eq i32 %call130, 0

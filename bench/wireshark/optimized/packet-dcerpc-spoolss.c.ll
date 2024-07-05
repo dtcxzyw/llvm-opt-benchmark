@@ -2831,7 +2831,7 @@ define internal i32 @dissect_NOTIFY_OPTION_DATA(ptr noundef %0, i32 noundef %1, 
   br i1 %.not24, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %dissect_notify_field.exit
-  %.023 = phi i32 [ %31, %dissect_notify_field.exit ], [ 0, %11 ]
+  %.02023 = phi i32 [ %31, %dissect_notify_field.exit ], [ 0, %11 ]
   %.02122 = phi i32 [ %22, %dissect_notify_field.exit ], [ %15, %11 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   %21 = load i32, ptr @hf_notify_field, align 4
@@ -2859,14 +2859,14 @@ dissect_notify_field.exit:                        ; preds = %.lr.ph, %.sink.spli
   %29 = zext i16 %28 to i32
   %30 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %26, ptr noundef %0, i32 noundef %27, i32 noundef 2, i32 noundef %29, ptr noundef nonnull @.str.760, ptr noundef %.0.i, i32 noundef %29) #5
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
-  %31 = add nuw i32 %.023, 1
+  %31 = add nuw i32 %.02023, 1
   %32 = load i32, ptr %8, align 4
   %33 = icmp ult i32 %31, %32
   br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %dissect_notify_field.exit, %11, %6
-  %.020 = phi i32 [ %1, %6 ], [ %15, %11 ], [ %22, %dissect_notify_field.exit ]
-  ret i32 %.020
+  %.0 = phi i32 [ %1, %6 ], [ %15, %11 ], [ %22, %dissect_notify_field.exit ]
+  ret i32 %.0
 }
 
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -2923,13 +2923,13 @@ define internal void @cb_notify_str_postprocess(ptr nocapture noundef readonly %
   %.not = icmp eq i32 %11, 0
   %reass.sub = add i32 %5, 4
   %12 = sub i32 %reass.sub, %11
-  %.040 = select i1 %.not, i32 %5, i32 %12
-  %13 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %.040) #5
+  %.039 = select i1 %.not, i32 %5, i32 %12
+  %13 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %.039) #5
   %14 = getelementptr inbounds i8, ptr %0, i64 408
   %15 = load ptr, ptr %14, align 8
-  %16 = add i32 %.040, 4
+  %16 = add i32 %.039, 4
   %17 = add i32 %6, -4
-  %18 = sub i32 %17, %.040
+  %18 = sub i32 %17, %.039
   %19 = tail call ptr @tvb_get_string_enc(ptr noundef %15, ptr noundef %4, i32 noundef %16, i32 noundef %18, i32 noundef -2147483644) #5
   %20 = icmp ne ptr %2, null
   %21 = icmp ne ptr %19, null
@@ -2953,7 +2953,7 @@ define internal void @cb_notify_str_postprocess(ptr nocapture noundef readonly %
   br i1 %28, label %29, label %proto_item_set_hidden.exit
 
 29:                                               ; preds = %27
-  %30 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %10, ptr noundef %4, i32 noundef %.040, i32 noundef %13, ptr noundef %19) #5
+  %30 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %10, ptr noundef %4, i32 noundef %.039, i32 noundef %13, ptr noundef %19) #5
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %31
 

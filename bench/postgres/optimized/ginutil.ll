@@ -987,8 +987,8 @@ cmpEntries.exit:                                  ; preds = %82, %84
   br i1 %130, label %.lr.ph98, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph98, %116, %28, %9
-  %.080 = phi ptr [ %10, %9 ], [ %29, %28 ], [ %23, %116 ], [ %23, %.lr.ph98 ]
-  ret ptr %.080
+  %.078 = phi ptr [ %10, %9 ], [ %29, %28 ], [ %23, %116 ], [ %23, %.lr.ph98 ]
+  ret ptr %.078
 }
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1

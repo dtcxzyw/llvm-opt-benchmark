@@ -1870,12 +1870,12 @@ if.then48.i:                                      ; preds = %if.then40.i, %if.th
 
 if.end49.i:                                       ; preds = %if.then48.i, %err.i31
   %ctx.042.i = phi ptr [ %ctx.0.ph.i, %if.then48.i ], [ %call24.i28, %err.i31 ]
-  %r.040.i = phi i32 [ 0, %if.then48.i ], [ 1, %err.i31 ]
+  %r.039.i = phi i32 [ 0, %if.then48.i ], [ 1, %err.i31 ]
   call void @EVP_CIPHER_CTX_free(ptr noundef %ctx.042.i) #6
   br label %cms_RecipientInfo_kekri_decrypt.exit
 
 cms_RecipientInfo_kekri_decrypt.exit:             ; preds = %cms_get_enveloped_type.exit.thread.i.i36, %sw.bb.i.i33, %sw.bb2.i.i13, %ossl_cms_get0_env_enc_content.exit.i16, %if.then2.i, %if.then7.i, %if.end49.i
-  %retval.0.i24 = phi i32 [ 0, %if.then7.i ], [ %r.040.i, %if.end49.i ], [ 0, %if.then2.i ], [ 0, %ossl_cms_get0_env_enc_content.exit.i16 ], [ 0, %sw.bb.i.i33 ], [ 0, %sw.bb2.i.i13 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i36 ]
+  %retval.0.i24 = phi i32 [ 0, %if.then7.i ], [ %r.039.i, %if.end49.i ], [ 0, %if.then2.i ], [ 0, %ossl_cms_get0_env_enc_content.exit.i16 ], [ 0, %sw.bb.i.i33 ], [ 0, %sw.bb2.i.i13 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i36 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ukeylen.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %outlen.i)
   br label %return

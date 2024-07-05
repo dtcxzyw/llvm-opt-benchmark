@@ -90,8 +90,8 @@ define i64 @f64_mul(i64 %0, i64 %1) local_unnamed_addr #0 {
   %.064.v = select i1 %46, i64 -1024, i64 -1023
   %.064 = add nsw i64 %35, %.064.v
   %47 = zext i1 %46 to i64
-  %.062 = shl nuw nsw i64 %45, %47
-  %48 = tail call i64 @softfloat_roundPackToF64(i1 noundef zeroext %9, i64 noundef %.064, i64 noundef %.062) #2
+  %.063 = shl nuw nsw i64 %45, %47
+  %48 = tail call i64 @softfloat_roundPackToF64(i1 noundef zeroext %9, i64 noundef %.064, i64 noundef %.063) #2
   br label %56
 
 49:                                               ; preds = %19, %11, %12
@@ -99,8 +99,8 @@ define i64 @f64_mul(i64 %0, i64 %1) local_unnamed_addr #0 {
   br label %56
 
 51:                                               ; preds = %20, %15
-  %.063 = phi i64 [ %16, %15 ], [ %21, %20 ]
-  %.not77 = icmp eq i64 %.063, 0
+  %.061 = phi i64 [ %16, %15 ], [ %21, %20 ]
+  %.not77 = icmp eq i64 %.061, 0
   br i1 %.not77, label %52, label %53
 
 52:                                               ; preds = %51

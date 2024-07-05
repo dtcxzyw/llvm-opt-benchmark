@@ -833,12 +833,12 @@ if.end34:                                         ; preds = %if.then26, %invoke.
   br i1 %cmp.i35.not56, label %invoke.cont51, label %for.body40
 
 for.body40:                                       ; preds = %if.end34, %invoke.cont47
-  %__begin5.sroa.0.059 = phi ptr [ %incdec.ptr.i, %invoke.cont47 ], [ %16, %if.end34 ]
-  %arg_sep.sroa.4.158 = phi ptr [ @.str.70, %invoke.cont47 ], [ %arg_sep.sroa.4.0, %if.end34 ]
-  %arg_sep.sroa.0.157 = phi i64 [ 2, %invoke.cont47 ], [ %arg_sep.sroa.0.0, %if.end34 ]
-  store i64 %arg_sep.sroa.0.157, ptr %ref.tmp42, align 8
-  store ptr %arg_sep.sroa.4.158, ptr %pc.sroa.2.0.piece_.sroa_idx.i36, align 8
-  %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin5.sroa.0.059) #19
+  %arg_sep.sroa.4.159 = phi ptr [ @.str.70, %invoke.cont47 ], [ %arg_sep.sroa.4.0, %if.end34 ]
+  %arg_sep.sroa.0.158 = phi i64 [ 2, %invoke.cont47 ], [ %arg_sep.sroa.0.0, %if.end34 ]
+  %__begin5.sroa.0.057 = phi ptr [ %incdec.ptr.i, %invoke.cont47 ], [ %16, %if.end34 ]
+  store i64 %arg_sep.sroa.0.158, ptr %ref.tmp42, align 8
+  store ptr %arg_sep.sroa.4.159, ptr %pc.sroa.2.0.piece_.sroa_idx.i36, align 8
+  %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin5.sroa.0.057) #19
   %18 = extractvalue { i64, ptr } %call.i, 0
   store i64 %18, ptr %ref.tmp45, align 8
   %19 = extractvalue { i64, ptr } %call.i, 1
@@ -847,7 +847,7 @@ for.body40:                                       ; preds = %if.end34, %invoke.c
           to label %invoke.cont47 unwind label %lpad.loopexit
 
 invoke.cont47:                                    ; preds = %for.body40
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.059, i64 32
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin5.sroa.0.057, i64 32
   %cmp.i35.not = icmp eq ptr %incdec.ptr.i, %17
   br i1 %cmp.i35.not, label %invoke.cont51, label %for.body40
 

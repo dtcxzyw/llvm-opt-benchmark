@@ -741,8 +741,8 @@ lpad9:                                            ; preds = %invoke.cont7
 catch.dispatch:                                   ; preds = %lpad6, %lpad.i, %lpad9
   %.pn = phi { ptr, i32 } [ %14, %lpad9 ], [ %13, %lpad6 ], [ %10, %lpad.i ]
   %is.1 = phi ptr [ null, %lpad9 ], [ %is.0, %lpad6 ], [ %call8, %lpad.i ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   %15 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7Iex_3_27BaseExcE) #21
   %matches = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches, label %catch, label %catch63

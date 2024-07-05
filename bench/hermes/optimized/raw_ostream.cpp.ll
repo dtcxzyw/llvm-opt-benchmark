@@ -2782,20 +2782,20 @@ for.body.preheader:                               ; preds = %if.end40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end52
-  %I.0259 = phi i64 [ %inc57, %if.end52 ], [ 0, %for.body.preheader ]
-  %CharsPrinted.0258 = phi i32 [ %add58, %if.end52 ], [ 0, %for.body.preheader ]
-  %tobool46.not = icmp eq i64 %I.0259, 0
+  %CharsPrinted.0259 = phi i32 [ %add58, %if.end52 ], [ 0, %for.body.preheader ]
+  %I.0258 = phi i64 [ %inc57, %if.end52 ], [ 0, %for.body.preheader ]
+  %tobool46.not = icmp eq i64 %I.0258, 0
   br i1 %tobool46.not, label %if.end52, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
   %21 = load i8, ptr %ByteGroupSize, align 8
   %conv48 = zext i8 %21 to i64
-  %rem = urem i64 %I.0259, %conv48
+  %rem = urem i64 %I.0258, %conv48
   %cmp49 = icmp eq i64 %rem, 0
   br i1 %cmp49, label %if.then50, label %if.end52
 
 if.then50:                                        ; preds = %land.lhs.true
-  %inc = add i32 %CharsPrinted.0258, 1
+  %inc = add i32 %CharsPrinted.0259, 1
   %22 = load ptr, ptr %OutBufEnd.i5.i, align 8
   %23 = load ptr, ptr %OutBufCur.i6.i, align 8
   %cmp.i.i53 = icmp eq ptr %22, %23
@@ -2813,12 +2813,12 @@ if.then4.i.i56:                                   ; preds = %if.then50
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then4.i.i56, %if.then.i.i58, %land.lhs.true, %for.body
-  %CharsPrinted.1 = phi i32 [ %CharsPrinted.0258, %land.lhs.true ], [ %CharsPrinted.0258, %for.body ], [ %inc, %if.then.i.i58 ], [ %inc, %if.then4.i.i56 ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %Bytes2.sroa.0.0262, i64 %I.0259
+  %CharsPrinted.1 = phi i32 [ %CharsPrinted.0259, %land.lhs.true ], [ %CharsPrinted.0259, %for.body ], [ %inc, %if.then.i.i58 ], [ %inc, %if.then4.i.i56 ]
+  %arrayidx.i = getelementptr inbounds i8, ptr %Bytes2.sroa.0.0262, i64 %I.0258
   %25 = load i8, ptr %arrayidx.i, align 1
   %conv54 = zext i8 %25 to i64
   call void @_ZN4llvh9write_hexERNS_11raw_ostreamEmNS_13HexPrintStyleENS_8OptionalImEE(ptr noundef nonnull align 8 dereferenceable(36) %this, i64 noundef %conv54, i32 noundef %cond, i64 2, i8 1) #26
-  %inc57 = add nuw nsw i64 %I.0259, 1
+  %inc57 = add nuw nsw i64 %I.0258, 1
   %add58 = add i32 %CharsPrinted.1, 2
   %exitcond.not = icmp eq i64 %inc57, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11

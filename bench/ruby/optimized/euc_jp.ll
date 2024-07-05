@@ -183,12 +183,12 @@ mbc_enc_len.exit:                                 ; preds = %26, %13
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.01826 = phi ptr [ %.018, %.lr.ph ], [ %4, %.preheader ]
   %.025 = phi i32 [ %47, %.lr.ph ], [ %42, %.preheader ]
-  %.01624 = phi i32 [ %48, %.lr.ph ], [ 1, %.preheader ]
+  %.01724 = phi i32 [ %48, %.lr.ph ], [ 1, %.preheader ]
   %44 = load i8, ptr %.01826, align 1
   %45 = zext i8 %44 to i32
   %46 = shl i32 %.025, 8
   %47 = or disjoint i32 %46, %45
-  %48 = add nuw nsw i32 %.01624, 1
+  %48 = add nuw nsw i32 %.01724, 1
   %.018 = getelementptr inbounds i8, ptr %.01826, i64 1
   %49 = icmp slt i32 %48, %.0.i29
   %.not = icmp ult ptr %.018, %1
@@ -196,8 +196,8 @@ mbc_enc_len.exit:                                 ; preds = %26, %13
   br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %mbc_enc_len.exit.thread, %mbc_enc_len.exit
-  %.017 = phi i32 [ %40, %mbc_enc_len.exit ], [ %35, %mbc_enc_len.exit.thread ], [ %42, %.preheader ], [ %47, %.lr.ph ]
-  ret i32 %.017
+  %.016 = phi i32 [ %40, %mbc_enc_len.exit ], [ %35, %mbc_enc_len.exit.thread ], [ %42, %.preheader ], [ %47, %.lr.ph ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -414,12 +414,12 @@ mbc_enc_len.exit.i:                               ; preds = %37, %22
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.01826.i = phi ptr [ %.018.i, %.lr.ph.i ], [ %16, %.preheader.i ]
   %.025.i = phi i32 [ %58, %.lr.ph.i ], [ %53, %.preheader.i ]
-  %.01624.i = phi i32 [ %59, %.lr.ph.i ], [ 1, %.preheader.i ]
+  %.01724.i = phi i32 [ %59, %.lr.ph.i ], [ 1, %.preheader.i ]
   %55 = load i8, ptr %.01826.i, align 1
   %56 = zext i8 %55 to i32
   %57 = shl i32 %.025.i, 8
   %58 = or disjoint i32 %57, %56
-  %59 = add nuw nsw i32 %.01624.i, 1
+  %59 = add nuw nsw i32 %.01724.i, 1
   %.018.i = getelementptr inbounds i8, ptr %.01826.i, i64 1
   %60 = icmp slt i32 %59, %.0.i29.i
   %.not.i = icmp ult ptr %.018.i, %2
@@ -427,29 +427,29 @@ mbc_enc_len.exit.i:                               ; preds = %37, %22
   br i1 %or.cond.i, label %.lr.ph.i, label %mbc_to_code.exit, !llvm.loop !6
 
 mbc_to_code.exit:                                 ; preds = %.lr.ph.i, %mbc_enc_len.exit.thread.i, %mbc_enc_len.exit.i, %.preheader.i
-  %.017.i = phi i32 [ %51, %mbc_enc_len.exit.i ], [ %46, %mbc_enc_len.exit.thread.i ], [ %53, %.preheader.i ], [ %58, %.lr.ph.i ]
-  %61 = add i32 %.017.i, -41921
+  %.016.i = phi i32 [ %51, %mbc_enc_len.exit.i ], [ %46, %mbc_enc_len.exit.thread.i ], [ %53, %.preheader.i ], [ %58, %.lr.ph.i ]
+  %61 = add i32 %.016.i, -41921
   %62 = icmp ult i32 %61, 26
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %mbc_to_code.exit
-  %64 = or disjoint i32 %.017.i, 32
+  %64 = or disjoint i32 %.016.i, 32
   br label %get_lower_case.exit
 
 65:                                               ; preds = %mbc_to_code.exit
-  %66 = add i32 %.017.i, -42657
+  %66 = add i32 %.016.i, -42657
   %67 = icmp ult i32 %66, 24
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %65
-  %69 = add nuw nsw i32 %.017.i, 32
+  %69 = add nuw nsw i32 %.016.i, 32
   br label %get_lower_case.exit
 
 70:                                               ; preds = %65
-  %71 = add i32 %.017.i, -42913
+  %71 = add i32 %.016.i, -42913
   %72 = icmp ult i32 %71, 33
-  %73 = add nuw nsw i32 %.017.i, 48
-  %spec.select.i = select i1 %72, i32 %73, i32 %.017.i
+  %73 = add nuw nsw i32 %.016.i, 48
+  %spec.select.i = select i1 %72, i32 %73, i32 %.016.i
   br label %get_lower_case.exit
 
 get_lower_case.exit:                              ; preds = %63, %68, %70
@@ -547,9 +547,9 @@ code_to_mbc.exit:                                 ; preds = %92, %97, %109, %114
   %125 = sext i32 %.0.i.i to i64
   %.not19.i = icmp eq i64 %.1.add.i, %125
   %126 = trunc nuw nsw i64 %.1.add.i to i32
-  %.016.i = select i1 %.not19.i, i32 %126, i32 -400
-  %127 = icmp eq i32 %.016.i, -400
-  %spec.store.select = select i1 %127, i32 1, i32 %.016.i
+  %.016.i21 = select i1 %.not19.i, i32 %126, i32 -400
+  %127 = icmp eq i32 %.016.i21, -400
+  %spec.store.select = select i1 %127, i32 1, i32 %.016.i21
   %128 = load ptr, ptr %1, align 8
   %129 = sext i32 %spec.store.select to i64
   %130 = getelementptr inbounds i8, ptr %128, i64 %129
@@ -640,12 +640,12 @@ mbc_enc_len.exit.i:                               ; preds = %28, %15
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.01826.i = phi ptr [ %.018.i, %.lr.ph.i ], [ %6, %.preheader.i ]
   %.025.i = phi i32 [ %48, %.lr.ph.i ], [ %43, %.preheader.i ]
-  %.01624.i = phi i32 [ %49, %.lr.ph.i ], [ 1, %.preheader.i ]
+  %.01724.i = phi i32 [ %49, %.lr.ph.i ], [ 1, %.preheader.i ]
   %45 = load i8, ptr %.01826.i, align 1
   %46 = zext i8 %45 to i32
   %47 = shl i32 %.025.i, 8
   %48 = or disjoint i32 %47, %46
-  %49 = add nuw nsw i32 %.01624.i, 1
+  %49 = add nuw nsw i32 %.01724.i, 1
   %.018.i = getelementptr inbounds i8, ptr %.01826.i, i64 1
   %50 = icmp slt i32 %49, %.0.i29.i
   %.not.i = icmp ult ptr %.018.i, %2
@@ -653,8 +653,8 @@ mbc_enc_len.exit.i:                               ; preds = %28, %15
   br i1 %or.cond.i, label %.lr.ph.i, label %mbc_to_code.exit, !llvm.loop !6
 
 mbc_to_code.exit:                                 ; preds = %.lr.ph.i, %.preheader.i
-  %.017.i = phi i32 [ %43, %.preheader.i ], [ %48, %.lr.ph.i ]
-  %51 = icmp ult i32 %.017.i, 128
+  %.016.i = phi i32 [ %43, %.preheader.i ], [ %48, %.lr.ph.i ]
+  %51 = icmp ult i32 %.016.i, 128
   br i1 %51, label %55, label %57
 
 mbc_to_code.exit.thread40:                        ; preds = %13
@@ -674,13 +674,13 @@ mbc_to_code.exit.thread:                          ; preds = %mbc_enc_len.exit.i
   br i1 %12, label %.thread42, label %.thread
 
 .thread42:                                        ; preds = %mbc_to_code.exit.thread40, %57
-  %.017.i3644 = phi i32 [ %.017.i, %57 ], [ %52, %mbc_to_code.exit.thread40 ]
+  %.016.i3644 = phi i32 [ %.016.i, %57 ], [ %52, %mbc_to_code.exit.thread40 ]
   %58 = icmp eq i8 %10, -1
   %59 = select i1 %58, i32 1, i32 -1
   br label %mbc_enc_len.exit
 
 .thread:                                          ; preds = %mbc_to_code.exit.thread, %57
-  %.017.i3639 = phi i32 [ %.017.i, %57 ], [ %41, %mbc_to_code.exit.thread ]
+  %.016.i3639 = phi i32 [ %.016.i, %57 ], [ %41, %mbc_to_code.exit.thread ]
   %60 = icmp eq ptr %6, %2
   br i1 %60, label %61, label %65
 
@@ -725,59 +725,59 @@ mbc_to_code.exit.thread:                          ; preds = %mbc_enc_len.exit.i
   br label %mbc_enc_len.exit
 
 mbc_enc_len.exit:                                 ; preds = %.thread42, %61, %73, %78, %82
-  %.017.i3638 = phi i32 [ %.017.i3644, %.thread42 ], [ %.017.i3639, %61 ], [ %.017.i3639, %73 ], [ %.017.i3639, %78 ], [ %.017.i3639, %82 ]
+  %.016.i3638 = phi i32 [ %.016.i3644, %.thread42 ], [ %.016.i3639, %61 ], [ %.016.i3639, %73 ], [ %.016.i3639, %78 ], [ %.016.i3639, %82 ]
   %.0.i = phi i32 [ %59, %.thread42 ], [ %64, %61 ], [ %75, %73 ], [ %81, %78 ], [ %88, %82 ]
-  %89 = add i32 %.017.i3638, -41921
+  %89 = add i32 %.016.i3638, -41921
   %90 = icmp ult i32 %89, 26
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %mbc_enc_len.exit
-  %92 = or disjoint i32 %.017.i3638, 32
+  %92 = or disjoint i32 %.016.i3638, 32
   br label %.thread48
 
 93:                                               ; preds = %mbc_enc_len.exit
-  %94 = add i32 %.017.i3638, -42657
+  %94 = add i32 %.016.i3638, -42657
   %95 = icmp ult i32 %94, 24
   br i1 %95, label %96, label %get_lower_case.exit
 
 96:                                               ; preds = %93
-  %97 = add nuw nsw i32 %.017.i3638, 32
+  %97 = add nuw nsw i32 %.016.i3638, 32
   br label %.thread48
 
 get_lower_case.exit:                              ; preds = %93
-  %98 = add i32 %.017.i3638, -42913
+  %98 = add i32 %.016.i3638, -42913
   %99 = icmp ult i32 %98, 33
-  %100 = add nuw nsw i32 %.017.i3638, 48
-  %spec.select.i = select i1 %99, i32 %100, i32 %.017.i3638
-  %101 = add i32 %.017.i3638, -41953
+  %100 = add nuw nsw i32 %.016.i3638, 48
+  %spec.select.i = select i1 %99, i32 %100, i32 %.016.i3638
+  %101 = add i32 %.016.i3638, -41953
   %102 = icmp ult i32 %101, 26
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %get_lower_case.exit
-  %104 = add nsw i32 %.017.i3638, -32
+  %104 = add nsw i32 %.016.i3638, -32
   br label %get_upper_case.exit
 
 105:                                              ; preds = %get_lower_case.exit
-  %106 = add i32 %.017.i3638, -42689
+  %106 = add i32 %.016.i3638, -42689
   %107 = icmp ult i32 %106, 24
   br i1 %107, label %108, label %.thread48
 
 108:                                              ; preds = %105
-  %109 = add nsw i32 %.017.i3638, -32
+  %109 = add nsw i32 %.016.i3638, -32
   br label %get_upper_case.exit
 
 .thread48:                                        ; preds = %91, %96, %105
   %.0.i324750 = phi i32 [ %spec.select.i, %105 ], [ %97, %96 ], [ %92, %91 ]
-  %110 = add i32 %.017.i3638, -42961
+  %110 = add i32 %.016.i3638, -42961
   %111 = icmp ult i32 %110, 33
-  %112 = add nsw i32 %.017.i3638, -48
-  %spec.select.i33 = select i1 %111, i32 %112, i32 %.017.i3638
+  %112 = add nsw i32 %.016.i3638, -48
+  %spec.select.i33 = select i1 %111, i32 %112, i32 %.016.i3638
   br label %get_upper_case.exit
 
 get_upper_case.exit:                              ; preds = %103, %108, %.thread48
   %.0.i3246 = phi i32 [ %spec.select.i, %103 ], [ %spec.select.i, %108 ], [ %.0.i324750, %.thread48 ]
   %.0.i34 = phi i32 [ %104, %103 ], [ %109, %108 ], [ %spec.select.i33, %.thread48 ]
-  %.not = icmp eq i32 %.017.i3638, %.0.i3246
+  %.not = icmp eq i32 %.016.i3638, %.0.i3246
   br i1 %.not, label %116, label %113
 
 113:                                              ; preds = %get_upper_case.exit
@@ -789,7 +789,7 @@ get_upper_case.exit:                              ; preds = %103, %108, %.thread
   br label %120
 
 116:                                              ; preds = %get_upper_case.exit
-  %.not31 = icmp eq i32 %.017.i3638, %.0.i34
+  %.not31 = icmp eq i32 %.016.i3638, %.0.i34
   br i1 %.not31, label %120, label %117
 
 117:                                              ; preds = %116
@@ -960,17 +960,17 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   br i1 %.not, label %.preheader, label %60
 
 .preheader:                                       ; preds = %4, %.preheader
-  %.0 = phi ptr [ %10, %.preheader ], [ %1, %4 ]
-  %5 = load i8, ptr %.0, align 1
+  %.020 = phi ptr [ %10, %.preheader ], [ %1, %4 ]
+  %5 = load i8, ptr %.020, align 1
   %6 = add i8 %5, 95
   %7 = icmp ult i8 %6, 94
-  %8 = icmp ugt ptr %.0, %0
+  %8 = icmp ugt ptr %.020, %0
   %9 = and i1 %8, %7
-  %10 = getelementptr inbounds i8, ptr %.0, i64 -1
+  %10 = getelementptr inbounds i8, ptr %.020, i64 -1
   br i1 %9, label %.preheader, label %11, !llvm.loop !8
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %.0, i64 1
+  %12 = getelementptr inbounds i8, ptr %.020, i64 1
   %13 = zext i8 %5 to i64
   %14 = getelementptr inbounds [256 x i8], ptr @trans, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -994,7 +994,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   br label %mbc_enc_len.exit
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %.0, i64 2
+  %28 = getelementptr inbounds i8, ptr %.020, i64 2
   %29 = load i8, ptr %12, align 1
   %30 = zext i8 %29 to i64
   %31 = getelementptr inbounds [3 x [256 x i8]], ptr @trans, i64 0, i64 %16, i64 %30
@@ -1030,7 +1030,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
 mbc_enc_len.exit:                                 ; preds = %18, %23, %35, %40, %44
   %.0.i = phi i32 [ %20, %18 ], [ %26, %23 ], [ %37, %35 ], [ %43, %40 ], [ %50, %44 ]
   %51 = sext i32 %.0.i to i64
-  %52 = getelementptr inbounds i8, ptr %.0, i64 %51
+  %52 = getelementptr inbounds i8, ptr %.020, i64 %51
   %53 = icmp ugt ptr %52, %1
   br i1 %53, label %60, label %54
 
@@ -1043,8 +1043,8 @@ mbc_enc_len.exit:                                 ; preds = %18, %23, %35, %40, 
   br label %60
 
 60:                                               ; preds = %mbc_enc_len.exit, %4, %54
-  %.020 = phi ptr [ %59, %54 ], [ %1, %4 ], [ %.0, %mbc_enc_len.exit ]
-  ret ptr %.020
+  %.0 = phi ptr [ %59, %54 ], [ %1, %4 ], [ %.020, %mbc_enc_len.exit ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

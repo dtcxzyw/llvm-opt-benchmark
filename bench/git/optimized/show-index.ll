@@ -263,7 +263,7 @@ for.inc118:                                       ; preds = %for.body110
 
 for.body124:                                      ; preds = %for.body124.lr.ph, %if.end153
   %indvars.iv123 = phi i64 [ 0, %for.body124.lr.ph ], [ %indvars.iv.next124, %if.end153 ]
-  %off64_nr.099 = phi i32 [ 0, %for.body124.lr.ph ], [ %off64_nr.1, %if.end153 ]
+  %off64_nr.098 = phi i32 [ 0, %for.body124.lr.ph ], [ %off64_nr.1, %if.end153 ]
   %arrayidx128 = getelementptr inbounds %struct.anon, ptr %call71, i64 %indvars.iv123
   %off129 = getelementptr inbounds i8, ptr %arrayidx128, i64 40
   %24 = load i32, ptr %off129, align 4
@@ -277,7 +277,7 @@ if.then132:                                       ; preds = %for.body124
 
 if.else134:                                       ; preds = %for.body124
   %and135 = and i32 %25, 2147483647
-  %cmp136.not = icmp eq i32 %and135, %off64_nr.099
+  %cmp136.not = icmp eq i32 %and135, %off64_nr.098
   br i1 %cmp136.not, label %if.end139, label %if.then138
 
 if.then138:                                       ; preds = %if.else134
@@ -291,7 +291,7 @@ if.end139:                                        ; preds = %if.else134
   br i1 %cmp142.not, label %if.else.i65, label %if.then144
 
 if.then144:                                       ; preds = %if.end139
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.14, i32 noundef %off64_nr.099) #8
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.14, i32 noundef %off64_nr.098) #8
   unreachable
 
 if.else.i65:                                      ; preds = %if.end139
@@ -303,11 +303,11 @@ if.else.i65:                                      ; preds = %if.end139
   %30 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %29) #9, !srcloc !5
   %conv151 = zext i32 %30 to i64
   %or = or disjoint i64 %shl, %conv151
-  %inc152 = add nuw i32 %off64_nr.099, 1
+  %inc152 = add nuw i32 %off64_nr.098, 1
   br label %if.end153
 
 if.end153:                                        ; preds = %if.else.i65, %if.then132
-  %off64_nr.1 = phi i32 [ %inc152, %if.else.i65 ], [ %off64_nr.099, %if.then132 ]
+  %off64_nr.1 = phi i32 [ %inc152, %if.else.i65 ], [ %off64_nr.098, %if.then132 ]
   %offset125.0 = phi i64 [ %or, %if.else.i65 ], [ %conv133, %if.then132 ]
   %call157 = call ptr @oid_to_hex(ptr noundef nonnull %arrayidx128) #7
   %crc160 = getelementptr inbounds i8, ptr %arrayidx128, i64 36

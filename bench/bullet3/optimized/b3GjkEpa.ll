@@ -1600,14 +1600,14 @@ for.body.preheader.i:                             ; preds = %if.then72
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %f.014.i = phi ptr [ %f.0.i, %for.body.i ], [ %f.010.i, %for.body.preheader.i ]
-  %mind.013.i = phi float [ %mind.1.i, %for.body.i ], [ %mul.i88, %for.body.preheader.i ]
-  %minf.012.i = phi ptr [ %minf.1.i, %for.body.i ], [ %50, %for.body.preheader.i ]
+  %minf.013.i = phi ptr [ %minf.1.i, %for.body.i ], [ %50, %for.body.preheader.i ]
+  %mind.012.i = phi float [ %mind.1.i, %for.body.i ], [ %mul.i88, %for.body.preheader.i ]
   %d3.i = getelementptr inbounds i8, ptr %f.014.i, i64 16
   %52 = load float, ptr %d3.i, align 16
   %mul5.i = fmul float %52, %52
-  %cmp.i89 = fcmp olt float %mul5.i, %mind.013.i
-  %minf.1.i = select i1 %cmp.i89, ptr %f.014.i, ptr %minf.012.i
-  %mind.1.i = select i1 %cmp.i89, float %mul5.i, float %mind.013.i
+  %cmp.i89 = fcmp olt float %mul5.i, %mind.012.i
+  %mind.1.i = select i1 %cmp.i89, float %mul5.i, float %mind.012.i
+  %minf.1.i = select i1 %cmp.i89, ptr %f.014.i, ptr %minf.013.i
   %f.0.in.i = getelementptr inbounds i8, ptr %f.014.i, i64 80
   %f.0.i = load ptr, ptr %f.0.in.i, align 8
   %tobool.not.i90 = icmp eq ptr %f.0.i, null
@@ -1959,21 +1959,21 @@ for.body.preheader.i168:                          ; preds = %_ZN13gjkepa2_impl25
 
 for.body.i171:                                    ; preds = %for.body.i171, %for.body.preheader.i168
   %f.014.i172 = phi ptr [ %f.0.i181, %for.body.i171 ], [ %f.010.i166, %for.body.preheader.i168 ]
-  %mind.013.i173 = phi float [ %mind.1.i179, %for.body.i171 ], [ %mul.i170, %for.body.preheader.i168 ]
-  %minf.012.i174 = phi ptr [ %minf.1.i178, %for.body.i171 ], [ %119, %for.body.preheader.i168 ]
+  %minf.013.i173 = phi ptr [ %minf.1.i179, %for.body.i171 ], [ %119, %for.body.preheader.i168 ]
+  %mind.012.i174 = phi float [ %mind.1.i178, %for.body.i171 ], [ %mul.i170, %for.body.preheader.i168 ]
   %d3.i175 = getelementptr inbounds i8, ptr %f.014.i172, i64 16
   %121 = load float, ptr %d3.i175, align 16
   %mul5.i176 = fmul float %121, %121
-  %cmp.i177 = fcmp olt float %mul5.i176, %mind.013.i173
-  %minf.1.i178 = select i1 %cmp.i177, ptr %f.014.i172, ptr %minf.012.i174
-  %mind.1.i179 = select i1 %cmp.i177, float %mul5.i176, float %mind.013.i173
+  %cmp.i177 = fcmp olt float %mul5.i176, %mind.012.i174
+  %mind.1.i178 = select i1 %cmp.i177, float %mul5.i176, float %mind.012.i174
+  %minf.1.i179 = select i1 %cmp.i177, ptr %f.014.i172, ptr %minf.013.i173
   %f.0.in.i180 = getelementptr inbounds i8, ptr %f.014.i172, i64 80
   %f.0.i181 = load ptr, ptr %f.0.in.i180, align 8
   %tobool.not.i182 = icmp eq ptr %f.0.i181, null
   br i1 %tobool.not.i182, label %_ZN13gjkepa2_impl25b3EPA8findbestEv.exit184, label %for.body.i171, !llvm.loop !23
 
 _ZN13gjkepa2_impl25b3EPA8findbestEv.exit184:      ; preds = %for.body.i171, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit163
-  %minf.0.lcssa.i183 = phi ptr [ %119, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit163 ], [ %minf.1.i178, %for.body.i171 ]
+  %minf.0.lcssa.i183 = phi ptr [ %119, %_ZN13gjkepa2_impl25b3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit163 ], [ %minf.1.i179, %for.body.i171 ]
   %122 = load <4 x float>, ptr %minf.0.lcssa.i183, align 16
   %outer.sroa.6354.0.minf.0.lcssa.i183.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i183, i64 16
   %outer.sroa.6354.0.copyload355 = load float, ptr %outer.sroa.6354.0.minf.0.lcssa.i183.sroa_idx, align 16

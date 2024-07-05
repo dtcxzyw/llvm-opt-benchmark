@@ -141,28 +141,28 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
   br i1 %.not.i77, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %32, %47
-  %.05190.us = phi i32 [ %48, %47 ], [ 0, %32 ]
-  %.05389.us = phi float [ %.158.us, %47 ], [ %.0.i, %32 ]
-  %.05787.us = phi float [ %.158.us, %47 ], [ 0x47EFFFFFE0000000, %32 ]
+  %.05191.us = phi i32 [ %48, %47 ], [ 0, %32 ]
+  %.05390.us = phi float [ %.158.us, %47 ], [ %.0.i, %32 ]
+  %.05788.us = phi float [ %.158.us, %47 ], [ 0x47EFFFFFE0000000, %32 ]
   store i64 0, ptr %9, align 8
   store i64 0, ptr %10, align 8
   br label %.lr.ph.i.us
 
 47:                                               ; preds = %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit.us
-  %48 = add nuw nsw i32 %.05190.us, 1
-  %exitcond97.not = icmp eq i32 %48, 200
-  br i1 %exitcond97.not, label %.split92.us, label %.split.us, !llvm.loop !5
+  %48 = add nuw nsw i32 %.05191.us, 1
+  %exitcond98.not = icmp eq i32 %48, 200
+  br i1 %exitcond98.not, label %.split93.us, label %.split.us, !llvm.loop !5
 
 .lr.ph.i.us:                                      ; preds = %56, %.split.us
-  %.013.i.us = phi i64 [ %57, %56 ], [ 0, %.split.us ]
-  %.01112.i.us = phi ptr [ %49, %56 ], [ %0, %.split.us ]
-  %49 = getelementptr inbounds i8, ptr %.01112.i.us, i64 4
-  %50 = load float, ptr %.01112.i.us, align 4
-  %51 = fcmp ogt float %50, %.05389.us
+  %.013.i.us = phi ptr [ %49, %56 ], [ %0, %.split.us ]
+  %.01112.i.us = phi i64 [ %57, %56 ], [ 0, %.split.us ]
+  %49 = getelementptr inbounds i8, ptr %.013.i.us, i64 4
+  %50 = load float, ptr %.013.i.us, align 4
+  %51 = fcmp ogt float %50, %.05390.us
   br i1 %51, label %.sink.split.i.us, label %52
 
 52:                                               ; preds = %.lr.ph.i.us
-  %53 = fcmp oeq float %50, %.05389.us
+  %53 = fcmp oeq float %50, %.05390.us
   br i1 %53, label %.sink.split.i.us, label %56
 
 .sink.split.i.us:                                 ; preds = %52, %.lr.ph.i.us
@@ -173,7 +173,7 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
   br label %56
 
 56:                                               ; preds = %.sink.split.i.us, %52
-  %57 = add nuw i64 %.013.i.us, 1
+  %57 = add nuw i64 %.01112.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %57, %2
   br i1 %exitcond.not.i.us, label %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit.us, label %.lr.ph.i.us, !llvm.loop !7
 
@@ -183,44 +183,44 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit.
   br i1 %.not71.us, label %60, label %58
 
 58:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit.us
-  %.0..0..0.86.us = load i64, ptr %9, align 8
-  %59 = add i64 %.0..0..0.86.us, %.0..0..0..us
+  %.0..0..0.87.us = load i64, ptr %9, align 8
+  %59 = add i64 %.0..0..0.87.us, %.0..0..0..us
   %.not73.us = icmp ult i64 %59, %3
-  br i1 %.not73.us, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit.us, label %.split92.us
+  br i1 %.not73.us, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit.us, label %.split93.us
 
 60:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit.us
   %.not72.us = icmp ugt i64 %.0..0..0..us, %4
-  br i1 %.not72.us, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit.us, label %.split92.us
+  br i1 %.not72.us, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit.us, label %.split93.us
 
 _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit.us: ; preds = %60, %58
-  %.158.us = phi float [ %.05389.us, %58 ], [ %.05787.us, %60 ]
+  %.158.us = phi float [ %.05390.us, %58 ], [ %.05788.us, %60 ]
   %61 = fcmp ord float %.158.us, 0.000000e+00
-  br i1 %61, label %.split92.us, label %47
+  br i1 %61, label %.split93.us, label %47
 
 62:                                               ; preds = %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit
-  %63 = add nuw nsw i32 %.05190, 1
+  %63 = add nuw nsw i32 %.05191, 1
   %exitcond.not = icmp eq i32 %63, 200
-  br i1 %exitcond.not, label %.split92.us, label %.split, !llvm.loop !5
+  br i1 %exitcond.not, label %.split93.us, label %.split, !llvm.loop !5
 
 .split:                                           ; preds = %32, %62
-  %.05190 = phi i32 [ %63, %62 ], [ 0, %32 ]
-  %.05389 = phi float [ %.018.i, %62 ], [ %.0.i, %32 ]
-  %.05588 = phi float [ %.156, %62 ], [ 0xC7EFFFFFE0000000, %32 ]
-  %.05787 = phi float [ %.158, %62 ], [ 0x47EFFFFFE0000000, %32 ]
+  %.05191 = phi i32 [ %63, %62 ], [ 0, %32 ]
+  %.05390 = phi float [ %.0.i80, %62 ], [ %.0.i, %32 ]
+  %.05589 = phi float [ %.156, %62 ], [ 0xC7EFFFFFE0000000, %32 ]
+  %.05788 = phi float [ %.158, %62 ], [ 0x47EFFFFFE0000000, %32 ]
   store i64 0, ptr %9, align 8
   store i64 0, ptr %10, align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split, %71
-  %.013.i = phi i64 [ %72, %71 ], [ 0, %.split ]
-  %.01112.i = phi ptr [ %64, %71 ], [ %0, %.split ]
-  %64 = getelementptr inbounds i8, ptr %.01112.i, i64 4
-  %65 = load float, ptr %.01112.i, align 4
-  %66 = fcmp ogt float %65, %.05389
+  %.013.i = phi ptr [ %64, %71 ], [ %0, %.split ]
+  %.01112.i = phi i64 [ %72, %71 ], [ 0, %.split ]
+  %64 = getelementptr inbounds i8, ptr %.013.i, i64 4
+  %65 = load float, ptr %.013.i, align 4
+  %66 = fcmp ogt float %65, %.05390
   br i1 %66, label %.sink.split.i, label %67
 
 67:                                               ; preds = %.lr.ph.i
-  %68 = fcmp oeq float %65, %.05389
+  %68 = fcmp oeq float %65, %.05390
   br i1 %68, label %.sink.split.i, label %71
 
 .sink.split.i:                                    ; preds = %67, %.lr.ph.i
@@ -231,7 +231,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_
   br label %71
 
 71:                                               ; preds = %.sink.split.i, %67
-  %72 = add nuw i64 %.013.i, 1
+  %72 = add nuw i64 %.01112.i, 1
   %exitcond.not.i = icmp eq i64 %72, %2
   br i1 %exitcond.not.i, label %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit, label %.lr.ph.i, !llvm.loop !7
 
@@ -241,25 +241,25 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %.not71, label %75, label %73
 
 73:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit
-  %.0..0..0.86 = load i64, ptr %9, align 8
-  %74 = add i64 %.0..0..0.86, %.0..0..0.
+  %.0..0..0.87 = load i64, ptr %9, align 8
+  %74 = add i64 %.0..0..0.87, %.0..0..0.
   %.not73 = icmp ult i64 %74, %3
-  br i1 %.not73, label %.lr.ph.i78.preheader, label %.split92.us
+  br i1 %.not73, label %.lr.ph.i78.preheader, label %.split93.us
 
 75:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit
   %.not72 = icmp ugt i64 %.0..0..0., %4
-  br i1 %.not72, label %.lr.ph.i78.preheader, label %.split92.us
+  br i1 %.not72, label %.lr.ph.i78.preheader, label %.split93.us
 
 .lr.ph.i78.preheader:                             ; preds = %75, %73
-  %.158 = phi float [ %.05389, %73 ], [ %.05787, %75 ]
-  %.156 = phi float [ %.05588, %73 ], [ %.05389, %75 ]
+  %.158 = phi float [ %.05390, %73 ], [ %.05788, %75 ]
+  %.156 = phi float [ %.05589, %73 ], [ %.05390, %75 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
   br label %.lr.ph.i78
 
 .lr.ph.i78:                                       ; preds = %.lr.ph.i78.preheader, %87
-  %.025.i = phi i64 [ %88, %87 ], [ 0, %.lr.ph.i78.preheader ]
-  %.01724.i = phi i32 [ %.1.i, %87 ], [ 0, %.lr.ph.i78.preheader ]
-  %76 = mul i64 %.025.i, 6700417
+  %.01725.i = phi i64 [ %88, %87 ], [ 0, %.lr.ph.i78.preheader ]
+  %.01824.i = phi i32 [ %.1.i, %87 ], [ 0, %.lr.ph.i78.preheader ]
+  %76 = mul i64 %.01725.i, 6700417
   %77 = urem i64 %76, %43
   %78 = getelementptr inbounds float, ptr %0, i64 %77
   %79 = load float, ptr %78, align 4
@@ -269,16 +269,16 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %or.cond.i, label %82, label %87
 
 82:                                               ; preds = %.lr.ph.i78
-  %83 = add nsw i32 %.01724.i, 1
-  %84 = sext i32 %.01724.i to i64
+  %83 = add nsw i32 %.01824.i, 1
+  %84 = sext i32 %.01824.i to i64
   %85 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 %84
   store float %79, ptr %85, align 4
   %86 = icmp eq i32 %83, 3
   br i1 %86, label %.thread.i, label %87
 
 87:                                               ; preds = %82, %.lr.ph.i78
-  %.1.i = phi i32 [ %83, %82 ], [ %.01724.i, %.lr.ph.i78 ]
-  %88 = add nuw i64 %.025.i, 1
+  %.1.i = phi i32 [ %83, %82 ], [ %.01824.i, %.lr.ph.i78 ]
+  %88 = add nuw i64 %.01725.i, 1
   %exitcond.not.i79 = icmp eq i64 %88, %43
   br i1 %exitcond.not.i79, label %._crit_edge.i, label %.lr.ph.i78, !llvm.loop !8
 
@@ -306,39 +306,39 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinIflEEEEvPKNT_1TEmS5_RmS8_.exit:
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit
 
 _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit: ; preds = %._crit_edge.i, %.thread.i, %95
-  %.018.i = phi float [ %.0.i.i, %.thread.i ], [ %96, %95 ], [ %.158, %._crit_edge.i ]
+  %.0.i80 = phi float [ %.0.i.i, %.thread.i ], [ %96, %95 ], [ %.158, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
-  %97 = fcmp oeq float %.018.i, %.158
-  br i1 %97, label %.split92.us, label %62
+  %97 = fcmp oeq float %.0.i80, %.158
+  br i1 %97, label %.split93.us, label %62
 
-.split92.us:                                      ; preds = %62, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit, %73, %75, %47, %58, %60, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit.us
-  %.0..0.85 = phi i64 [ %.0..0..0..us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit.us ], [ %.0..0..0..us, %60 ], [ %.0..0..0..us, %58 ], [ %.0..0..0..us, %47 ], [ %.0..0..0., %75 ], [ %.0..0..0., %73 ], [ %.0..0..0., %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.0..0..0., %62 ]
-  %.us-phi = phi float [ %.158.us, %47 ], [ %.05389.us, %58 ], [ %.05389.us, %60 ], [ %.05389.us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit.us ], [ %.018.i, %62 ], [ %.05389, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.05389, %73 ], [ %.05389, %75 ]
-  %.us-phi93 = phi i64 [ 0, %47 ], [ %3, %58 ], [ %.0..0..0..us, %60 ], [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit.us ], [ 0, %62 ], [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit ], [ %3, %73 ], [ %.0..0..0., %75 ]
-  %98 = sub i64 %.us-phi93, %.0..0.85
+.split93.us:                                      ; preds = %62, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit, %73, %75, %47, %58, %60, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit.us
+  %.0..0.86 = phi i64 [ %.0..0..0..us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit.us ], [ %.0..0..0..us, %60 ], [ %.0..0..0..us, %58 ], [ %.0..0..0..us, %47 ], [ %.0..0..0., %75 ], [ %.0..0..0., %73 ], [ %.0..0..0., %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.0..0..0., %62 ]
+  %.us-phi = phi float [ %.158.us, %47 ], [ %.05390.us, %58 ], [ %.05390.us, %60 ], [ %.05390.us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit.us ], [ %.0.i80, %62 ], [ %.05390, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.05390, %73 ], [ %.05390, %75 ]
+  %.us-phi94 = phi i64 [ 0, %47 ], [ %3, %58 ], [ %.0..0..0..us, %60 ], [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit.us ], [ 0, %62 ], [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_S5_.exit ], [ %3, %73 ], [ %.0..0..0., %75 ]
+  %98 = sub i64 %.us-phi94, %.0..0.86
   %99 = icmp slt i64 %98, 0
   br i1 %99, label %100, label %102
 
-100:                                              ; preds = %.split92.us
+100:                                              ; preds = %.split93.us
   %101 = tail call noundef float @nextafterf(float noundef %.us-phi, float noundef 0x7FF0000000000000) #11
   br label %102
 
-102:                                              ; preds = %.split92.us, %100
-  %.154 = phi float [ %101, %100 ], [ %.us-phi, %.split92.us ]
-  %.1 = phi i64 [ %3, %100 ], [ %.us-phi93, %.split92.us ]
-  %.049 = phi i64 [ %3, %100 ], [ %98, %.split92.us ]
-  br label %.lr.ph.i80
+102:                                              ; preds = %.split93.us, %100
+  %.154 = phi float [ %101, %100 ], [ %.us-phi, %.split93.us ]
+  %.1 = phi i64 [ %3, %100 ], [ %.us-phi94, %.split93.us ]
+  %.049 = phi i64 [ %3, %100 ], [ %98, %.split93.us ]
+  br label %.lr.ph.i81
 
-.lr.ph.i80:                                       ; preds = %102, %122
+.lr.ph.i81:                                       ; preds = %102, %122
   %.035.i = phi i64 [ %123, %122 ], [ 0, %102 ]
-  %.02934.i = phi i64 [ %.1.i82, %122 ], [ 0, %102 ]
+  %.02934.i = phi i64 [ %.1.i83, %122 ], [ 0, %102 ]
   %.03033.i = phi i64 [ %.131.i, %122 ], [ %.049, %102 ]
   %103 = getelementptr inbounds float, ptr %0, i64 %.035.i
   %104 = load float, ptr %103, align 4
   %105 = fcmp ogt float %104, %.154
   br i1 %105, label %106, label %112
 
-106:                                              ; preds = %.lr.ph.i80
+106:                                              ; preds = %.lr.ph.i81
   %107 = getelementptr inbounds float, ptr %0, i64 %.02934.i
   store float %104, ptr %107, align 4
   %108 = getelementptr inbounds i64, ptr %1, i64 %.035.i
@@ -348,9 +348,9 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_
   %111 = add i64 %.02934.i, 1
   br label %122
 
-112:                                              ; preds = %.lr.ph.i80
-  %.not.i81 = icmp eq i64 %.03033.i, 0
-  br i1 %.not.i81, label %122, label %113
+112:                                              ; preds = %.lr.ph.i81
+  %.not.i82 = icmp eq i64 %.03033.i, 0
+  br i1 %.not.i82, label %122, label %113
 
 113:                                              ; preds = %112
   %114 = fcmp oeq float %104, %.154
@@ -369,10 +369,10 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinIflEEEENT_1TEPKS5_iS5_
 
 122:                                              ; preds = %115, %113, %112, %106
   %.131.i = phi i64 [ %.03033.i, %106 ], [ %121, %115 ], [ %.03033.i, %113 ], [ 0, %112 ]
-  %.1.i82 = phi i64 [ %111, %106 ], [ %120, %115 ], [ %.02934.i, %113 ], [ %.02934.i, %112 ]
+  %.1.i83 = phi i64 [ %111, %106 ], [ %120, %115 ], [ %.02934.i, %113 ], [ %.02934.i, %112 ]
   %123 = add nuw i64 %.035.i, 1
-  %exitcond.not.i83 = icmp eq i64 %123, %2
-  br i1 %exitcond.not.i83, label %_ZN5faiss12partitioning14compress_arrayINS_4CMinIflEEEEmPNT_1TEPNS4_2TIEmS5_m.exit, label %.lr.ph.i80, !llvm.loop !9
+  %exitcond.not.i84 = icmp eq i64 %123, %2
+  br i1 %exitcond.not.i84, label %_ZN5faiss12partitioning14compress_arrayINS_4CMinIflEEEEmPNT_1TEPNS4_2TIEmS5_m.exit, label %.lr.ph.i81, !llvm.loop !9
 
 _ZN5faiss12partitioning14compress_arrayINS_4CMinIflEEEEmPNT_1TEPNS4_2TIEmS5_m.exit: ; preds = %122
   %.not74 = icmp eq ptr %5, null
@@ -523,28 +523,28 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
   br i1 %.not.i77, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %32, %47
-  %.05190.us = phi i32 [ %48, %47 ], [ 0, %32 ]
-  %.05389.us = phi float [ %.158.us, %47 ], [ %.0.i, %32 ]
-  %.05787.us = phi float [ %.158.us, %47 ], [ 0xC7EFFFFFE0000000, %32 ]
+  %.05191.us = phi i32 [ %48, %47 ], [ 0, %32 ]
+  %.05390.us = phi float [ %.158.us, %47 ], [ %.0.i, %32 ]
+  %.05788.us = phi float [ %.158.us, %47 ], [ 0xC7EFFFFFE0000000, %32 ]
   store i64 0, ptr %9, align 8
   store i64 0, ptr %10, align 8
   br label %.lr.ph.i.us
 
 47:                                               ; preds = %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit.us
-  %48 = add nuw nsw i32 %.05190.us, 1
-  %exitcond97.not = icmp eq i32 %48, 200
-  br i1 %exitcond97.not, label %.split92.us, label %.split.us, !llvm.loop !10
+  %48 = add nuw nsw i32 %.05191.us, 1
+  %exitcond98.not = icmp eq i32 %48, 200
+  br i1 %exitcond98.not, label %.split93.us, label %.split.us, !llvm.loop !10
 
 .lr.ph.i.us:                                      ; preds = %56, %.split.us
-  %.013.i.us = phi i64 [ %57, %56 ], [ 0, %.split.us ]
-  %.01112.i.us = phi ptr [ %49, %56 ], [ %0, %.split.us ]
-  %49 = getelementptr inbounds i8, ptr %.01112.i.us, i64 4
-  %50 = load float, ptr %.01112.i.us, align 4
-  %51 = fcmp olt float %50, %.05389.us
+  %.013.i.us = phi ptr [ %49, %56 ], [ %0, %.split.us ]
+  %.01112.i.us = phi i64 [ %57, %56 ], [ 0, %.split.us ]
+  %49 = getelementptr inbounds i8, ptr %.013.i.us, i64 4
+  %50 = load float, ptr %.013.i.us, align 4
+  %51 = fcmp olt float %50, %.05390.us
   br i1 %51, label %.sink.split.i.us, label %52
 
 52:                                               ; preds = %.lr.ph.i.us
-  %53 = fcmp oeq float %50, %.05389.us
+  %53 = fcmp oeq float %50, %.05390.us
   br i1 %53, label %.sink.split.i.us, label %56
 
 .sink.split.i.us:                                 ; preds = %52, %.lr.ph.i.us
@@ -555,7 +555,7 @@ define linkonce_odr noundef float @_ZN5faiss12partitioning23partition_fuzzy_medi
   br label %56
 
 56:                                               ; preds = %.sink.split.i.us, %52
-  %57 = add nuw i64 %.013.i.us, 1
+  %57 = add nuw i64 %.01112.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %57, %2
   br i1 %exitcond.not.i.us, label %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit.us, label %.lr.ph.i.us, !llvm.loop !11
 
@@ -565,44 +565,44 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit.
   br i1 %.not71.us, label %60, label %58
 
 58:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit.us
-  %.0..0..0.86.us = load i64, ptr %9, align 8
-  %59 = add i64 %.0..0..0.86.us, %.0..0..0..us
+  %.0..0..0.87.us = load i64, ptr %9, align 8
+  %59 = add i64 %.0..0..0.87.us, %.0..0..0..us
   %.not73.us = icmp ult i64 %59, %3
-  br i1 %.not73.us, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit.us, label %.split92.us
+  br i1 %.not73.us, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit.us, label %.split93.us
 
 60:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit.us
   %.not72.us = icmp ugt i64 %.0..0..0..us, %4
-  br i1 %.not72.us, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit.us, label %.split92.us
+  br i1 %.not72.us, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit.us, label %.split93.us
 
 _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit.us: ; preds = %60, %58
-  %.158.us = phi float [ %.05389.us, %58 ], [ %.05787.us, %60 ]
+  %.158.us = phi float [ %.05390.us, %58 ], [ %.05788.us, %60 ]
   %61 = fcmp ord float %.158.us, 0.000000e+00
-  br i1 %61, label %.split92.us, label %47
+  br i1 %61, label %.split93.us, label %47
 
 62:                                               ; preds = %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit
-  %63 = add nuw nsw i32 %.05190, 1
+  %63 = add nuw nsw i32 %.05191, 1
   %exitcond.not = icmp eq i32 %63, 200
-  br i1 %exitcond.not, label %.split92.us, label %.split, !llvm.loop !10
+  br i1 %exitcond.not, label %.split93.us, label %.split, !llvm.loop !10
 
 .split:                                           ; preds = %32, %62
-  %.05190 = phi i32 [ %63, %62 ], [ 0, %32 ]
-  %.05389 = phi float [ %.018.i, %62 ], [ %.0.i, %32 ]
-  %.05588 = phi float [ %.156, %62 ], [ 0x47EFFFFFE0000000, %32 ]
-  %.05787 = phi float [ %.158, %62 ], [ 0xC7EFFFFFE0000000, %32 ]
+  %.05191 = phi i32 [ %63, %62 ], [ 0, %32 ]
+  %.05390 = phi float [ %.0.i80, %62 ], [ %.0.i, %32 ]
+  %.05589 = phi float [ %.156, %62 ], [ 0x47EFFFFFE0000000, %32 ]
+  %.05788 = phi float [ %.158, %62 ], [ 0xC7EFFFFFE0000000, %32 ]
   store i64 0, ptr %9, align 8
   store i64 0, ptr %10, align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split, %71
-  %.013.i = phi i64 [ %72, %71 ], [ 0, %.split ]
-  %.01112.i = phi ptr [ %64, %71 ], [ %0, %.split ]
-  %64 = getelementptr inbounds i8, ptr %.01112.i, i64 4
-  %65 = load float, ptr %.01112.i, align 4
-  %66 = fcmp olt float %65, %.05389
+  %.013.i = phi ptr [ %64, %71 ], [ %0, %.split ]
+  %.01112.i = phi i64 [ %72, %71 ], [ 0, %.split ]
+  %64 = getelementptr inbounds i8, ptr %.013.i, i64 4
+  %65 = load float, ptr %.013.i, align 4
+  %66 = fcmp olt float %65, %.05390
   br i1 %66, label %.sink.split.i, label %67
 
 67:                                               ; preds = %.lr.ph.i
-  %68 = fcmp oeq float %65, %.05389
+  %68 = fcmp oeq float %65, %.05390
   br i1 %68, label %.sink.split.i, label %71
 
 .sink.split.i:                                    ; preds = %67, %.lr.ph.i
@@ -613,7 +613,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_
   br label %71
 
 71:                                               ; preds = %.sink.split.i, %67
-  %72 = add nuw i64 %.013.i, 1
+  %72 = add nuw i64 %.01112.i, 1
   %exitcond.not.i = icmp eq i64 %72, %2
   br i1 %exitcond.not.i, label %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit, label %.lr.ph.i, !llvm.loop !11
 
@@ -623,25 +623,25 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %.not71, label %75, label %73
 
 73:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit
-  %.0..0..0.86 = load i64, ptr %9, align 8
-  %74 = add i64 %.0..0..0.86, %.0..0..0.
+  %.0..0..0.87 = load i64, ptr %9, align 8
+  %74 = add i64 %.0..0..0.87, %.0..0..0.
   %.not73 = icmp ult i64 %74, %3
-  br i1 %.not73, label %.lr.ph.i78.preheader, label %.split92.us
+  br i1 %.not73, label %.lr.ph.i78.preheader, label %.split93.us
 
 75:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit
   %.not72 = icmp ugt i64 %.0..0..0., %4
-  br i1 %.not72, label %.lr.ph.i78.preheader, label %.split92.us
+  br i1 %.not72, label %.lr.ph.i78.preheader, label %.split93.us
 
 .lr.ph.i78.preheader:                             ; preds = %75, %73
-  %.158 = phi float [ %.05389, %73 ], [ %.05787, %75 ]
-  %.156 = phi float [ %.05588, %73 ], [ %.05389, %75 ]
+  %.158 = phi float [ %.05390, %73 ], [ %.05788, %75 ]
+  %.156 = phi float [ %.05589, %73 ], [ %.05390, %75 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
   br label %.lr.ph.i78
 
 .lr.ph.i78:                                       ; preds = %.lr.ph.i78.preheader, %87
-  %.025.i = phi i64 [ %88, %87 ], [ 0, %.lr.ph.i78.preheader ]
-  %.01724.i = phi i32 [ %.1.i, %87 ], [ 0, %.lr.ph.i78.preheader ]
-  %76 = mul i64 %.025.i, 6700417
+  %.01725.i = phi i64 [ %88, %87 ], [ 0, %.lr.ph.i78.preheader ]
+  %.01824.i = phi i32 [ %.1.i, %87 ], [ 0, %.lr.ph.i78.preheader ]
+  %76 = mul i64 %.01725.i, 6700417
   %77 = urem i64 %76, %43
   %78 = getelementptr inbounds float, ptr %0, i64 %77
   %79 = load float, ptr %78, align 4
@@ -651,16 +651,16 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %or.cond.i, label %82, label %87
 
 82:                                               ; preds = %.lr.ph.i78
-  %83 = add nsw i32 %.01724.i, 1
-  %84 = sext i32 %.01724.i to i64
+  %83 = add nsw i32 %.01824.i, 1
+  %84 = sext i32 %.01824.i to i64
   %85 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 %84
   store float %79, ptr %85, align 4
   %86 = icmp eq i32 %83, 3
   br i1 %86, label %.thread.i, label %87
 
 87:                                               ; preds = %82, %.lr.ph.i78
-  %.1.i = phi i32 [ %83, %82 ], [ %.01724.i, %.lr.ph.i78 ]
-  %88 = add nuw i64 %.025.i, 1
+  %.1.i = phi i32 [ %83, %82 ], [ %.01824.i, %.lr.ph.i78 ]
+  %88 = add nuw i64 %.01725.i, 1
   %exitcond.not.i79 = icmp eq i64 %88, %43
   br i1 %exitcond.not.i79, label %._crit_edge.i, label %.lr.ph.i78, !llvm.loop !12
 
@@ -688,39 +688,39 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxIflEEEEvPKNT_1TEmS5_RmS8_.exit:
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit
 
 _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit: ; preds = %._crit_edge.i, %.thread.i, %95
-  %.018.i = phi float [ %.0.i.i, %.thread.i ], [ %96, %95 ], [ %.158, %._crit_edge.i ]
+  %.0.i80 = phi float [ %.0.i.i, %.thread.i ], [ %96, %95 ], [ %.158, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
-  %97 = fcmp oeq float %.018.i, %.158
-  br i1 %97, label %.split92.us, label %62
+  %97 = fcmp oeq float %.0.i80, %.158
+  br i1 %97, label %.split93.us, label %62
 
-.split92.us:                                      ; preds = %62, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit, %73, %75, %47, %58, %60, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit.us
-  %.0..0.85 = phi i64 [ %.0..0..0..us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit.us ], [ %.0..0..0..us, %60 ], [ %.0..0..0..us, %58 ], [ %.0..0..0..us, %47 ], [ %.0..0..0., %75 ], [ %.0..0..0., %73 ], [ %.0..0..0., %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.0..0..0., %62 ]
-  %.us-phi = phi float [ %.158.us, %47 ], [ %.05389.us, %58 ], [ %.05389.us, %60 ], [ %.05389.us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit.us ], [ %.018.i, %62 ], [ %.05389, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.05389, %73 ], [ %.05389, %75 ]
-  %.us-phi93 = phi i64 [ 0, %47 ], [ %3, %58 ], [ %.0..0..0..us, %60 ], [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit.us ], [ 0, %62 ], [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit ], [ %3, %73 ], [ %.0..0..0., %75 ]
-  %98 = sub i64 %.us-phi93, %.0..0.85
+.split93.us:                                      ; preds = %62, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit, %73, %75, %47, %58, %60, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit.us
+  %.0..0.86 = phi i64 [ %.0..0..0..us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit.us ], [ %.0..0..0..us, %60 ], [ %.0..0..0..us, %58 ], [ %.0..0..0..us, %47 ], [ %.0..0..0., %75 ], [ %.0..0..0., %73 ], [ %.0..0..0., %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.0..0..0., %62 ]
+  %.us-phi = phi float [ %.158.us, %47 ], [ %.05390.us, %58 ], [ %.05390.us, %60 ], [ %.05390.us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit.us ], [ %.0.i80, %62 ], [ %.05390, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.05390, %73 ], [ %.05390, %75 ]
+  %.us-phi94 = phi i64 [ 0, %47 ], [ %3, %58 ], [ %.0..0..0..us, %60 ], [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit.us ], [ 0, %62 ], [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_S5_.exit ], [ %3, %73 ], [ %.0..0..0., %75 ]
+  %98 = sub i64 %.us-phi94, %.0..0.86
   %99 = icmp slt i64 %98, 0
   br i1 %99, label %100, label %102
 
-100:                                              ; preds = %.split92.us
+100:                                              ; preds = %.split93.us
   %101 = tail call noundef float @nextafterf(float noundef %.us-phi, float noundef 0xFFF0000000000000) #11
   br label %102
 
-102:                                              ; preds = %.split92.us, %100
-  %.154 = phi float [ %101, %100 ], [ %.us-phi, %.split92.us ]
-  %.1 = phi i64 [ %3, %100 ], [ %.us-phi93, %.split92.us ]
-  %.049 = phi i64 [ %3, %100 ], [ %98, %.split92.us ]
-  br label %.lr.ph.i80
+102:                                              ; preds = %.split93.us, %100
+  %.154 = phi float [ %101, %100 ], [ %.us-phi, %.split93.us ]
+  %.1 = phi i64 [ %3, %100 ], [ %.us-phi94, %.split93.us ]
+  %.049 = phi i64 [ %3, %100 ], [ %98, %.split93.us ]
+  br label %.lr.ph.i81
 
-.lr.ph.i80:                                       ; preds = %102, %122
+.lr.ph.i81:                                       ; preds = %102, %122
   %.035.i = phi i64 [ %123, %122 ], [ 0, %102 ]
-  %.02934.i = phi i64 [ %.1.i82, %122 ], [ 0, %102 ]
+  %.02934.i = phi i64 [ %.1.i83, %122 ], [ 0, %102 ]
   %.03033.i = phi i64 [ %.131.i, %122 ], [ %.049, %102 ]
   %103 = getelementptr inbounds float, ptr %0, i64 %.035.i
   %104 = load float, ptr %103, align 4
   %105 = fcmp olt float %104, %.154
   br i1 %105, label %106, label %112
 
-106:                                              ; preds = %.lr.ph.i80
+106:                                              ; preds = %.lr.ph.i81
   %107 = getelementptr inbounds float, ptr %0, i64 %.02934.i
   store float %104, ptr %107, align 4
   %108 = getelementptr inbounds i64, ptr %1, i64 %.035.i
@@ -730,9 +730,9 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_
   %111 = add i64 %.02934.i, 1
   br label %122
 
-112:                                              ; preds = %.lr.ph.i80
-  %.not.i81 = icmp eq i64 %.03033.i, 0
-  br i1 %.not.i81, label %122, label %113
+112:                                              ; preds = %.lr.ph.i81
+  %.not.i82 = icmp eq i64 %.03033.i, 0
+  br i1 %.not.i82, label %122, label %113
 
 113:                                              ; preds = %112
   %114 = fcmp oeq float %104, %.154
@@ -751,10 +751,10 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxIflEEEENT_1TEPKS5_iS5_
 
 122:                                              ; preds = %115, %113, %112, %106
   %.131.i = phi i64 [ %.03033.i, %106 ], [ %121, %115 ], [ %.03033.i, %113 ], [ 0, %112 ]
-  %.1.i82 = phi i64 [ %111, %106 ], [ %120, %115 ], [ %.02934.i, %113 ], [ %.02934.i, %112 ]
+  %.1.i83 = phi i64 [ %111, %106 ], [ %120, %115 ], [ %.02934.i, %113 ], [ %.02934.i, %112 ]
   %123 = add nuw i64 %.035.i, 1
-  %exitcond.not.i83 = icmp eq i64 %123, %2
-  br i1 %exitcond.not.i83, label %_ZN5faiss12partitioning14compress_arrayINS_4CMaxIflEEEEmPNT_1TEPNS4_2TIEmS5_m.exit, label %.lr.ph.i80, !llvm.loop !13
+  %exitcond.not.i84 = icmp eq i64 %123, %2
+  br i1 %exitcond.not.i84, label %_ZN5faiss12partitioning14compress_arrayINS_4CMaxIflEEEEmPNT_1TEPNS4_2TIEmS5_m.exit, label %.lr.ph.i81, !llvm.loop !13
 
 _ZN5faiss12partitioning14compress_arrayINS_4CMaxIflEEEEmPNT_1TEPNS4_2TIEmS5_m.exit: ; preds = %122
   %.not74 = icmp eq ptr %5, null
@@ -871,10 +871,10 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %53, %.split.us
-  %.013.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
-  %.01112.i.us = phi ptr [ %46, %53 ], [ %0, %.split.us ]
-  %46 = getelementptr inbounds i8, ptr %.01112.i.us, i64 2
-  %47 = load i16, ptr %.01112.i.us, align 2
+  %.013.i.us = phi ptr [ %46, %53 ], [ %0, %.split.us ]
+  %.01112.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
+  %46 = getelementptr inbounds i8, ptr %.013.i.us, i64 2
+  %47 = load i16, ptr %.013.i.us, align 2
   %48 = icmp ugt i16 %47, %.0.i
   br i1 %48, label %.sink.split.i.us, label %49
 
@@ -890,7 +890,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   br label %53
 
 53:                                               ; preds = %.sink.split.i.us, %49
-  %54 = add nuw i64 %.013.i.us, 1
+  %54 = add nuw i64 %.01112.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %54, %2
   br i1 %exitcond.not.i.us, label %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItlEEEEvPKNT_1TEmS5_RmS8_.exit.us, label %.lr.ph.i.us, !llvm.loop !14
 
@@ -900,8 +900,8 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItlEEEEvPKNT_1TEmS5_RmS8_.exit.
   br i1 %.not70.us, label %57, label %55
 
 55:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItlEEEEvPKNT_1TEmS5_RmS8_.exit.us
-  %.0..0..0.85.us = load i64, ptr %9, align 8
-  %56 = add i64 %.0..0..0.85.us, %.0..0..0..us
+  %.0..0..0.86.us = load i64, ptr %9, align 8
+  %56 = add i64 %.0..0..0.86.us, %.0..0..0..us
   %.not72.us = icmp ult i64 %56, %3
   br i1 %.not72.us, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us, label %.loopexit
 
@@ -914,29 +914,29 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread
 
 58:                                               ; preds = %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit
-  %59 = add nuw nsw i32 %.05192, 1
+  %59 = add nuw nsw i32 %.05193, 1
   %exitcond.not = icmp eq i32 %59, 200
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !15
 
 .split:                                           ; preds = %33, %58
-  %.05192 = phi i32 [ %59, %58 ], [ 0, %33 ]
-  %.05391 = phi i16 [ %.018.i, %58 ], [ %.0.i, %33 ]
-  %.05590 = phi i16 [ %.156, %58 ], [ 0, %33 ]
-  %.05789 = phi i16 [ %.158, %58 ], [ -1, %33 ]
+  %.05193 = phi i32 [ %59, %58 ], [ 0, %33 ]
+  %.05392 = phi i16 [ %.0.i79, %58 ], [ %.0.i, %33 ]
+  %.05591 = phi i16 [ %.156, %58 ], [ 0, %33 ]
+  %.05790 = phi i16 [ %.158, %58 ], [ -1, %33 ]
   store i64 0, ptr %9, align 8
   store i64 0, ptr %10, align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split, %67
-  %.013.i = phi i64 [ %68, %67 ], [ 0, %.split ]
-  %.01112.i = phi ptr [ %60, %67 ], [ %0, %.split ]
-  %60 = getelementptr inbounds i8, ptr %.01112.i, i64 2
-  %61 = load i16, ptr %.01112.i, align 2
-  %62 = icmp ugt i16 %61, %.05391
+  %.013.i = phi ptr [ %60, %67 ], [ %0, %.split ]
+  %.01112.i = phi i64 [ %68, %67 ], [ 0, %.split ]
+  %60 = getelementptr inbounds i8, ptr %.013.i, i64 2
+  %61 = load i16, ptr %.013.i, align 2
+  %62 = icmp ugt i16 %61, %.05392
   br i1 %62, label %.sink.split.i, label %63
 
 63:                                               ; preds = %.lr.ph.i
-  %64 = icmp eq i16 %61, %.05391
+  %64 = icmp eq i16 %61, %.05392
   br i1 %64, label %.sink.split.i, label %67
 
 .sink.split.i:                                    ; preds = %63, %.lr.ph.i
@@ -947,7 +947,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_
   br label %67
 
 67:                                               ; preds = %.sink.split.i, %63
-  %68 = add nuw i64 %.013.i, 1
+  %68 = add nuw i64 %.01112.i, 1
   %exitcond.not.i = icmp eq i64 %68, %2
   br i1 %exitcond.not.i, label %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItlEEEEvPKNT_1TEmS5_RmS8_.exit, label %.lr.ph.i, !llvm.loop !14
 
@@ -957,8 +957,8 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %.not70, label %71, label %69
 
 69:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItlEEEEvPKNT_1TEmS5_RmS8_.exit
-  %.0..0..0.85 = load i64, ptr %9, align 8
-  %70 = add i64 %.0..0..0.85, %.0..0..0.
+  %.0..0..0.86 = load i64, ptr %9, align 8
+  %70 = add i64 %.0..0..0.86, %.0..0..0.
   %.not72 = icmp ult i64 %70, %3
   br i1 %.not72, label %.lr.ph.i77.preheader, label %.loopexit
 
@@ -967,15 +967,15 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %.not71, label %.lr.ph.i77.preheader, label %.loopexit
 
 .lr.ph.i77.preheader:                             ; preds = %71, %69
-  %.158 = phi i16 [ %.05391, %69 ], [ %.05789, %71 ]
-  %.156 = phi i16 [ %.05590, %69 ], [ %.05391, %71 ]
+  %.158 = phi i16 [ %.05392, %69 ], [ %.05790, %71 ]
+  %.156 = phi i16 [ %.05591, %69 ], [ %.05392, %71 ]
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7)
   br label %.lr.ph.i77
 
 .lr.ph.i77:                                       ; preds = %.lr.ph.i77.preheader, %83
-  %.025.i = phi i64 [ %84, %83 ], [ 0, %.lr.ph.i77.preheader ]
-  %.01724.i = phi i32 [ %.1.i, %83 ], [ 0, %.lr.ph.i77.preheader ]
-  %72 = mul i64 %.025.i, 6700417
+  %.01725.i = phi i64 [ %84, %83 ], [ 0, %.lr.ph.i77.preheader ]
+  %.01824.i = phi i32 [ %.1.i, %83 ], [ 0, %.lr.ph.i77.preheader ]
+  %72 = mul i64 %.01725.i, 6700417
   %73 = urem i64 %72, %42
   %74 = getelementptr inbounds i16, ptr %0, i64 %73
   %75 = load i16, ptr %74, align 2
@@ -985,16 +985,16 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %or.cond.i, label %78, label %83
 
 78:                                               ; preds = %.lr.ph.i77
-  %79 = add nsw i32 %.01724.i, 1
-  %80 = sext i32 %.01724.i to i64
+  %79 = add nsw i32 %.01824.i, 1
+  %80 = sext i32 %.01824.i to i64
   %81 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %80
   store i16 %75, ptr %81, align 2
   %82 = icmp eq i32 %79, 3
   br i1 %82, label %.thread.i, label %83
 
 83:                                               ; preds = %78, %.lr.ph.i77
-  %.1.i = phi i32 [ %79, %78 ], [ %.01724.i, %.lr.ph.i77 ]
-  %84 = add nuw i64 %.025.i, 1
+  %.1.i = phi i32 [ %79, %78 ], [ %.01824.i, %.lr.ph.i77 ]
+  %84 = add nuw i64 %.01725.i, 1
   %exitcond.not.i78 = icmp eq i64 %84, %42
   br i1 %exitcond.not.i78, label %._crit_edge.i, label %.lr.ph.i77, !llvm.loop !16
 
@@ -1020,39 +1020,39 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit
 
 _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread: ; preds = %._crit_edge.i, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us
-  %.0..0.8497 = phi i64 [ %.0..0..0..us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.0..0..0., %._crit_edge.i ]
-  %.us-phi94 = phi i16 [ %.0.i, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.05391, %._crit_edge.i ]
+  %.0..0.8598 = phi i64 [ %.0..0..0..us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.0..0..0., %._crit_edge.i ]
+  %.us-phi95 = phi i16 [ %.0.i, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.05392, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7)
   br label %.loopexit
 
 _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit: ; preds = %.thread.i, %89
-  %.018.i = phi i16 [ %.0.i.i, %.thread.i ], [ %90, %89 ]
+  %.0.i79 = phi i16 [ %.0.i.i, %.thread.i ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7)
-  %91 = icmp eq i16 %.018.i, %.158
+  %91 = icmp eq i16 %.0.i79, %.158
   br i1 %91, label %.loopexit, label %58
 
 .loopexit:                                        ; preds = %58, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit, %69, %71, %57, %55, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread
-  %.0..0.84 = phi i64 [ %.0..0.8497, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0..0..0..us, %55 ], [ %.0..0..0..us, %57 ], [ %.0..0..0., %71 ], [ %.0..0..0., %69 ], [ %.0..0..0., %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.0..0..0., %58 ]
-  %.05388 = phi i16 [ %.us-phi94, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0.i, %55 ], [ %.0.i, %57 ], [ %.018.i, %58 ], [ %.05391, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.05391, %69 ], [ %.05391, %71 ]
+  %.0..0.85 = phi i64 [ %.0..0.8598, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0..0..0..us, %55 ], [ %.0..0..0..us, %57 ], [ %.0..0..0., %71 ], [ %.0..0..0., %69 ], [ %.0..0..0., %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.0..0..0., %58 ]
+  %.05389 = phi i16 [ %.us-phi95, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0.i, %55 ], [ %.0.i, %57 ], [ %.0.i79, %58 ], [ %.05392, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.05392, %69 ], [ %.05392, %71 ]
   %.052 = phi i64 [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %3, %55 ], [ %.0..0..0..us, %57 ], [ 0, %58 ], [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_S5_.exit ], [ %3, %69 ], [ %.0..0..0., %71 ]
-  %92 = sub i64 %.052, %.0..0.84
+  %92 = sub i64 %.052, %.0..0.85
   %93 = icmp slt i64 %92, 0
   %.lobit = lshr i64 %92, 63
   %94 = trunc nuw nsw i64 %.lobit to i16
-  %.154 = add i16 %.05388, %94
+  %.154 = add i16 %.05389, %94
   %.049 = select i1 %93, i64 %3, i64 %92
-  br label %.lr.ph.i79
+  br label %.lr.ph.i80
 
-.lr.ph.i79:                                       ; preds = %.loopexit, %114
+.lr.ph.i80:                                       ; preds = %.loopexit, %114
   %.034.i = phi i64 [ %115, %114 ], [ 0, %.loopexit ]
-  %.02933.i = phi i64 [ %.1.i81, %114 ], [ 0, %.loopexit ]
+  %.02933.i = phi i64 [ %.1.i82, %114 ], [ 0, %.loopexit ]
   %.03032.i = phi i64 [ %.131.i, %114 ], [ %.049, %.loopexit ]
   %95 = getelementptr inbounds i16, ptr %0, i64 %.034.i
   %96 = load i16, ptr %95, align 2
   %97 = icmp ugt i16 %96, %.154
   br i1 %97, label %98, label %104
 
-98:                                               ; preds = %.lr.ph.i79
+98:                                               ; preds = %.lr.ph.i80
   %99 = getelementptr inbounds i16, ptr %0, i64 %.02933.i
   store i16 %96, ptr %99, align 2
   %100 = getelementptr inbounds i64, ptr %1, i64 %.034.i
@@ -1062,9 +1062,9 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_
   %103 = add i64 %.02933.i, 1
   br label %114
 
-104:                                              ; preds = %.lr.ph.i79
-  %.not.i80 = icmp eq i64 %.03032.i, 0
-  br i1 %.not.i80, label %114, label %105
+104:                                              ; preds = %.lr.ph.i80
+  %.not.i81 = icmp eq i64 %.03032.i, 0
+  br i1 %.not.i81, label %114, label %105
 
 105:                                              ; preds = %104
   %106 = icmp eq i16 %96, %.154
@@ -1083,10 +1083,10 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItlEEEENT_1TEPKS5_iS5_
 
 114:                                              ; preds = %107, %105, %104, %98
   %.131.i = phi i64 [ %.03032.i, %98 ], [ %113, %107 ], [ %.03032.i, %105 ], [ 0, %104 ]
-  %.1.i81 = phi i64 [ %103, %98 ], [ %112, %107 ], [ %.02933.i, %105 ], [ %.02933.i, %104 ]
+  %.1.i82 = phi i64 [ %103, %98 ], [ %112, %107 ], [ %.02933.i, %105 ], [ %.02933.i, %104 ]
   %115 = add nuw i64 %.034.i, 1
-  %exitcond.not.i82 = icmp eq i64 %115, %2
-  br i1 %exitcond.not.i82, label %_ZN5faiss12partitioning14compress_arrayINS_4CMinItlEEEEmPNT_1TEPNS4_2TIEmS5_m.exit, label %.lr.ph.i79, !llvm.loop !17
+  %exitcond.not.i83 = icmp eq i64 %115, %2
+  br i1 %exitcond.not.i83, label %_ZN5faiss12partitioning14compress_arrayINS_4CMinItlEEEEmPNT_1TEPNS4_2TIEmS5_m.exit, label %.lr.ph.i80, !llvm.loop !17
 
 _ZN5faiss12partitioning14compress_arrayINS_4CMinItlEEEEmPNT_1TEPNS4_2TIEmS5_m.exit: ; preds = %114
   %.not73 = icmp eq ptr %5, null
@@ -1207,10 +1207,10 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %53, %.split.us
-  %.013.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
-  %.01112.i.us = phi ptr [ %46, %53 ], [ %0, %.split.us ]
-  %46 = getelementptr inbounds i8, ptr %.01112.i.us, i64 2
-  %47 = load i16, ptr %.01112.i.us, align 2
+  %.013.i.us = phi ptr [ %46, %53 ], [ %0, %.split.us ]
+  %.01112.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
+  %46 = getelementptr inbounds i8, ptr %.013.i.us, i64 2
+  %47 = load i16, ptr %.013.i.us, align 2
   %48 = icmp ult i16 %47, %.0.i
   br i1 %48, label %.sink.split.i.us, label %49
 
@@ -1226,7 +1226,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   br label %53
 
 53:                                               ; preds = %.sink.split.i.us, %49
-  %54 = add nuw i64 %.013.i.us, 1
+  %54 = add nuw i64 %.01112.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %54, %2
   br i1 %exitcond.not.i.us, label %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItlEEEEvPKNT_1TEmS5_RmS8_.exit.us, label %.lr.ph.i.us, !llvm.loop !18
 
@@ -1236,8 +1236,8 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItlEEEEvPKNT_1TEmS5_RmS8_.exit.
   br i1 %.not70.us, label %57, label %55
 
 55:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItlEEEEvPKNT_1TEmS5_RmS8_.exit.us
-  %.0..0..0.85.us = load i64, ptr %9, align 8
-  %56 = add i64 %.0..0..0.85.us, %.0..0..0..us
+  %.0..0..0.86.us = load i64, ptr %9, align 8
+  %56 = add i64 %.0..0..0.86.us, %.0..0..0..us
   %.not72.us = icmp ult i64 %56, %3
   br i1 %.not72.us, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us, label %.loopexit
 
@@ -1250,29 +1250,29 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread
 
 58:                                               ; preds = %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit
-  %59 = add nuw nsw i32 %.05192, 1
+  %59 = add nuw nsw i32 %.05193, 1
   %exitcond.not = icmp eq i32 %59, 200
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !19
 
 .split:                                           ; preds = %33, %58
-  %.05192 = phi i32 [ %59, %58 ], [ 0, %33 ]
-  %.05391 = phi i16 [ %.018.i, %58 ], [ %.0.i, %33 ]
-  %.05590 = phi i16 [ %.156, %58 ], [ -1, %33 ]
-  %.05789 = phi i16 [ %.158, %58 ], [ 0, %33 ]
+  %.05193 = phi i32 [ %59, %58 ], [ 0, %33 ]
+  %.05392 = phi i16 [ %.0.i79, %58 ], [ %.0.i, %33 ]
+  %.05591 = phi i16 [ %.156, %58 ], [ -1, %33 ]
+  %.05790 = phi i16 [ %.158, %58 ], [ 0, %33 ]
   store i64 0, ptr %9, align 8
   store i64 0, ptr %10, align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split, %67
-  %.013.i = phi i64 [ %68, %67 ], [ 0, %.split ]
-  %.01112.i = phi ptr [ %60, %67 ], [ %0, %.split ]
-  %60 = getelementptr inbounds i8, ptr %.01112.i, i64 2
-  %61 = load i16, ptr %.01112.i, align 2
-  %62 = icmp ult i16 %61, %.05391
+  %.013.i = phi ptr [ %60, %67 ], [ %0, %.split ]
+  %.01112.i = phi i64 [ %68, %67 ], [ 0, %.split ]
+  %60 = getelementptr inbounds i8, ptr %.013.i, i64 2
+  %61 = load i16, ptr %.013.i, align 2
+  %62 = icmp ult i16 %61, %.05392
   br i1 %62, label %.sink.split.i, label %63
 
 63:                                               ; preds = %.lr.ph.i
-  %64 = icmp eq i16 %61, %.05391
+  %64 = icmp eq i16 %61, %.05392
   br i1 %64, label %.sink.split.i, label %67
 
 .sink.split.i:                                    ; preds = %63, %.lr.ph.i
@@ -1283,7 +1283,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_
   br label %67
 
 67:                                               ; preds = %.sink.split.i, %63
-  %68 = add nuw i64 %.013.i, 1
+  %68 = add nuw i64 %.01112.i, 1
   %exitcond.not.i = icmp eq i64 %68, %2
   br i1 %exitcond.not.i, label %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItlEEEEvPKNT_1TEmS5_RmS8_.exit, label %.lr.ph.i, !llvm.loop !18
 
@@ -1293,8 +1293,8 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %.not70, label %71, label %69
 
 69:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItlEEEEvPKNT_1TEmS5_RmS8_.exit
-  %.0..0..0.85 = load i64, ptr %9, align 8
-  %70 = add i64 %.0..0..0.85, %.0..0..0.
+  %.0..0..0.86 = load i64, ptr %9, align 8
+  %70 = add i64 %.0..0..0.86, %.0..0..0.
   %.not72 = icmp ult i64 %70, %3
   br i1 %.not72, label %.lr.ph.i77.preheader, label %.loopexit
 
@@ -1303,15 +1303,15 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %.not71, label %.lr.ph.i77.preheader, label %.loopexit
 
 .lr.ph.i77.preheader:                             ; preds = %71, %69
-  %.158 = phi i16 [ %.05391, %69 ], [ %.05789, %71 ]
-  %.156 = phi i16 [ %.05590, %69 ], [ %.05391, %71 ]
+  %.158 = phi i16 [ %.05392, %69 ], [ %.05790, %71 ]
+  %.156 = phi i16 [ %.05591, %69 ], [ %.05392, %71 ]
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7)
   br label %.lr.ph.i77
 
 .lr.ph.i77:                                       ; preds = %.lr.ph.i77.preheader, %83
-  %.025.i = phi i64 [ %84, %83 ], [ 0, %.lr.ph.i77.preheader ]
-  %.01724.i = phi i32 [ %.1.i, %83 ], [ 0, %.lr.ph.i77.preheader ]
-  %72 = mul i64 %.025.i, 6700417
+  %.01725.i = phi i64 [ %84, %83 ], [ 0, %.lr.ph.i77.preheader ]
+  %.01824.i = phi i32 [ %.1.i, %83 ], [ 0, %.lr.ph.i77.preheader ]
+  %72 = mul i64 %.01725.i, 6700417
   %73 = urem i64 %72, %42
   %74 = getelementptr inbounds i16, ptr %0, i64 %73
   %75 = load i16, ptr %74, align 2
@@ -1321,16 +1321,16 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %or.cond.i, label %78, label %83
 
 78:                                               ; preds = %.lr.ph.i77
-  %79 = add nsw i32 %.01724.i, 1
-  %80 = sext i32 %.01724.i to i64
+  %79 = add nsw i32 %.01824.i, 1
+  %80 = sext i32 %.01824.i to i64
   %81 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %80
   store i16 %75, ptr %81, align 2
   %82 = icmp eq i32 %79, 3
   br i1 %82, label %.thread.i, label %83
 
 83:                                               ; preds = %78, %.lr.ph.i77
-  %.1.i = phi i32 [ %79, %78 ], [ %.01724.i, %.lr.ph.i77 ]
-  %84 = add nuw i64 %.025.i, 1
+  %.1.i = phi i32 [ %79, %78 ], [ %.01824.i, %.lr.ph.i77 ]
+  %84 = add nuw i64 %.01725.i, 1
   %exitcond.not.i78 = icmp eq i64 %84, %42
   br i1 %exitcond.not.i78, label %._crit_edge.i, label %.lr.ph.i77, !llvm.loop !20
 
@@ -1356,39 +1356,39 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItlEEEEvPKNT_1TEmS5_RmS8_.exit:
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit
 
 _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread: ; preds = %._crit_edge.i, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us
-  %.0..0.8497 = phi i64 [ %.0..0..0..us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.0..0..0., %._crit_edge.i ]
-  %.us-phi94 = phi i16 [ %.0.i, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.05391, %._crit_edge.i ]
+  %.0..0.8598 = phi i64 [ %.0..0..0..us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.0..0..0., %._crit_edge.i ]
+  %.us-phi95 = phi i16 [ %.0.i, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.05392, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7)
   br label %.loopexit
 
 _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit: ; preds = %.thread.i, %89
-  %.018.i = phi i16 [ %.0.i.i, %.thread.i ], [ %90, %89 ]
+  %.0.i79 = phi i16 [ %.0.i.i, %.thread.i ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7)
-  %91 = icmp eq i16 %.018.i, %.158
+  %91 = icmp eq i16 %.0.i79, %.158
   br i1 %91, label %.loopexit, label %58
 
 .loopexit:                                        ; preds = %58, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit, %69, %71, %57, %55, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread
-  %.0..0.84 = phi i64 [ %.0..0.8497, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0..0..0..us, %55 ], [ %.0..0..0..us, %57 ], [ %.0..0..0., %71 ], [ %.0..0..0., %69 ], [ %.0..0..0., %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.0..0..0., %58 ]
-  %.05388 = phi i16 [ %.us-phi94, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0.i, %55 ], [ %.0.i, %57 ], [ %.018.i, %58 ], [ %.05391, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.05391, %69 ], [ %.05391, %71 ]
+  %.0..0.85 = phi i64 [ %.0..0.8598, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0..0..0..us, %55 ], [ %.0..0..0..us, %57 ], [ %.0..0..0., %71 ], [ %.0..0..0., %69 ], [ %.0..0..0., %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.0..0..0., %58 ]
+  %.05389 = phi i16 [ %.us-phi95, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0.i, %55 ], [ %.0.i, %57 ], [ %.0.i79, %58 ], [ %.05392, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.05392, %69 ], [ %.05392, %71 ]
   %.052 = phi i64 [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %3, %55 ], [ %.0..0..0..us, %57 ], [ 0, %58 ], [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_S5_.exit ], [ %3, %69 ], [ %.0..0..0., %71 ]
-  %92 = sub i64 %.052, %.0..0.84
+  %92 = sub i64 %.052, %.0..0.85
   %93 = icmp slt i64 %92, 0
   %.lobit = ashr i64 %92, 63
   %94 = trunc nsw i64 %.lobit to i16
-  %.154 = add i16 %.05388, %94
+  %.154 = add i16 %.05389, %94
   %.049 = select i1 %93, i64 %3, i64 %92
-  br label %.lr.ph.i79
+  br label %.lr.ph.i80
 
-.lr.ph.i79:                                       ; preds = %.loopexit, %114
+.lr.ph.i80:                                       ; preds = %.loopexit, %114
   %.034.i = phi i64 [ %115, %114 ], [ 0, %.loopexit ]
-  %.02933.i = phi i64 [ %.1.i81, %114 ], [ 0, %.loopexit ]
+  %.02933.i = phi i64 [ %.1.i82, %114 ], [ 0, %.loopexit ]
   %.03032.i = phi i64 [ %.131.i, %114 ], [ %.049, %.loopexit ]
   %95 = getelementptr inbounds i16, ptr %0, i64 %.034.i
   %96 = load i16, ptr %95, align 2
   %97 = icmp ult i16 %96, %.154
   br i1 %97, label %98, label %104
 
-98:                                               ; preds = %.lr.ph.i79
+98:                                               ; preds = %.lr.ph.i80
   %99 = getelementptr inbounds i16, ptr %0, i64 %.02933.i
   store i16 %96, ptr %99, align 2
   %100 = getelementptr inbounds i64, ptr %1, i64 %.034.i
@@ -1398,9 +1398,9 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_
   %103 = add i64 %.02933.i, 1
   br label %114
 
-104:                                              ; preds = %.lr.ph.i79
-  %.not.i80 = icmp eq i64 %.03032.i, 0
-  br i1 %.not.i80, label %114, label %105
+104:                                              ; preds = %.lr.ph.i80
+  %.not.i81 = icmp eq i64 %.03032.i, 0
+  br i1 %.not.i81, label %114, label %105
 
 105:                                              ; preds = %104
   %106 = icmp eq i16 %96, %.154
@@ -1419,10 +1419,10 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItlEEEENT_1TEPKS5_iS5_
 
 114:                                              ; preds = %107, %105, %104, %98
   %.131.i = phi i64 [ %.03032.i, %98 ], [ %113, %107 ], [ %.03032.i, %105 ], [ 0, %104 ]
-  %.1.i81 = phi i64 [ %103, %98 ], [ %112, %107 ], [ %.02933.i, %105 ], [ %.02933.i, %104 ]
+  %.1.i82 = phi i64 [ %103, %98 ], [ %112, %107 ], [ %.02933.i, %105 ], [ %.02933.i, %104 ]
   %115 = add nuw i64 %.034.i, 1
-  %exitcond.not.i82 = icmp eq i64 %115, %2
-  br i1 %exitcond.not.i82, label %_ZN5faiss12partitioning14compress_arrayINS_4CMaxItlEEEEmPNT_1TEPNS4_2TIEmS5_m.exit, label %.lr.ph.i79, !llvm.loop !21
+  %exitcond.not.i83 = icmp eq i64 %115, %2
+  br i1 %exitcond.not.i83, label %_ZN5faiss12partitioning14compress_arrayINS_4CMaxItlEEEEmPNT_1TEPNS4_2TIEmS5_m.exit, label %.lr.ph.i80, !llvm.loop !21
 
 _ZN5faiss12partitioning14compress_arrayINS_4CMaxItlEEEEmPNT_1TEPNS4_2TIEmS5_m.exit: ; preds = %114
   %.not73 = icmp eq ptr %5, null
@@ -1543,10 +1543,10 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %53, %.split.us
-  %.013.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
-  %.01112.i.us = phi ptr [ %46, %53 ], [ %0, %.split.us ]
-  %46 = getelementptr inbounds i8, ptr %.01112.i.us, i64 2
-  %47 = load i16, ptr %.01112.i.us, align 2
+  %.013.i.us = phi ptr [ %46, %53 ], [ %0, %.split.us ]
+  %.01112.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
+  %46 = getelementptr inbounds i8, ptr %.013.i.us, i64 2
+  %47 = load i16, ptr %.013.i.us, align 2
   %48 = icmp ugt i16 %47, %.0.i
   br i1 %48, label %.sink.split.i.us, label %49
 
@@ -1562,7 +1562,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   br label %53
 
 53:                                               ; preds = %.sink.split.i.us, %49
-  %54 = add nuw i64 %.013.i.us, 1
+  %54 = add nuw i64 %.01112.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %54, %2
   br i1 %exitcond.not.i.us, label %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItiEEEEvPKNT_1TEmS5_RmS8_.exit.us, label %.lr.ph.i.us, !llvm.loop !22
 
@@ -1572,8 +1572,8 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItiEEEEvPKNT_1TEmS5_RmS8_.exit.
   br i1 %.not70.us, label %57, label %55
 
 55:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItiEEEEvPKNT_1TEmS5_RmS8_.exit.us
-  %.0..0..0.85.us = load i64, ptr %9, align 8
-  %56 = add i64 %.0..0..0.85.us, %.0..0..0..us
+  %.0..0..0.86.us = load i64, ptr %9, align 8
+  %56 = add i64 %.0..0..0.86.us, %.0..0..0..us
   %.not72.us = icmp ult i64 %56, %3
   br i1 %.not72.us, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us, label %.loopexit
 
@@ -1586,29 +1586,29 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread
 
 58:                                               ; preds = %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit
-  %59 = add nuw nsw i32 %.05192, 1
+  %59 = add nuw nsw i32 %.05193, 1
   %exitcond.not = icmp eq i32 %59, 200
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !23
 
 .split:                                           ; preds = %33, %58
-  %.05192 = phi i32 [ %59, %58 ], [ 0, %33 ]
-  %.05391 = phi i16 [ %.018.i, %58 ], [ %.0.i, %33 ]
-  %.05590 = phi i16 [ %.156, %58 ], [ 0, %33 ]
-  %.05789 = phi i16 [ %.158, %58 ], [ -1, %33 ]
+  %.05193 = phi i32 [ %59, %58 ], [ 0, %33 ]
+  %.05392 = phi i16 [ %.0.i79, %58 ], [ %.0.i, %33 ]
+  %.05591 = phi i16 [ %.156, %58 ], [ 0, %33 ]
+  %.05790 = phi i16 [ %.158, %58 ], [ -1, %33 ]
   store i64 0, ptr %9, align 8
   store i64 0, ptr %10, align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split, %67
-  %.013.i = phi i64 [ %68, %67 ], [ 0, %.split ]
-  %.01112.i = phi ptr [ %60, %67 ], [ %0, %.split ]
-  %60 = getelementptr inbounds i8, ptr %.01112.i, i64 2
-  %61 = load i16, ptr %.01112.i, align 2
-  %62 = icmp ugt i16 %61, %.05391
+  %.013.i = phi ptr [ %60, %67 ], [ %0, %.split ]
+  %.01112.i = phi i64 [ %68, %67 ], [ 0, %.split ]
+  %60 = getelementptr inbounds i8, ptr %.013.i, i64 2
+  %61 = load i16, ptr %.013.i, align 2
+  %62 = icmp ugt i16 %61, %.05392
   br i1 %62, label %.sink.split.i, label %63
 
 63:                                               ; preds = %.lr.ph.i
-  %64 = icmp eq i16 %61, %.05391
+  %64 = icmp eq i16 %61, %.05392
   br i1 %64, label %.sink.split.i, label %67
 
 .sink.split.i:                                    ; preds = %63, %.lr.ph.i
@@ -1619,7 +1619,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_
   br label %67
 
 67:                                               ; preds = %.sink.split.i, %63
-  %68 = add nuw i64 %.013.i, 1
+  %68 = add nuw i64 %.01112.i, 1
   %exitcond.not.i = icmp eq i64 %68, %2
   br i1 %exitcond.not.i, label %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItiEEEEvPKNT_1TEmS5_RmS8_.exit, label %.lr.ph.i, !llvm.loop !22
 
@@ -1629,8 +1629,8 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %.not70, label %71, label %69
 
 69:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItiEEEEvPKNT_1TEmS5_RmS8_.exit
-  %.0..0..0.85 = load i64, ptr %9, align 8
-  %70 = add i64 %.0..0..0.85, %.0..0..0.
+  %.0..0..0.86 = load i64, ptr %9, align 8
+  %70 = add i64 %.0..0..0.86, %.0..0..0.
   %.not72 = icmp ult i64 %70, %3
   br i1 %.not72, label %.lr.ph.i77.preheader, label %.loopexit
 
@@ -1639,15 +1639,15 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %.not71, label %.lr.ph.i77.preheader, label %.loopexit
 
 .lr.ph.i77.preheader:                             ; preds = %71, %69
-  %.158 = phi i16 [ %.05391, %69 ], [ %.05789, %71 ]
-  %.156 = phi i16 [ %.05590, %69 ], [ %.05391, %71 ]
+  %.158 = phi i16 [ %.05392, %69 ], [ %.05790, %71 ]
+  %.156 = phi i16 [ %.05591, %69 ], [ %.05392, %71 ]
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7)
   br label %.lr.ph.i77
 
 .lr.ph.i77:                                       ; preds = %.lr.ph.i77.preheader, %83
-  %.025.i = phi i64 [ %84, %83 ], [ 0, %.lr.ph.i77.preheader ]
-  %.01724.i = phi i32 [ %.1.i, %83 ], [ 0, %.lr.ph.i77.preheader ]
-  %72 = mul i64 %.025.i, 6700417
+  %.01725.i = phi i64 [ %84, %83 ], [ 0, %.lr.ph.i77.preheader ]
+  %.01824.i = phi i32 [ %.1.i, %83 ], [ 0, %.lr.ph.i77.preheader ]
+  %72 = mul i64 %.01725.i, 6700417
   %73 = urem i64 %72, %42
   %74 = getelementptr inbounds i16, ptr %0, i64 %73
   %75 = load i16, ptr %74, align 2
@@ -1657,16 +1657,16 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %or.cond.i, label %78, label %83
 
 78:                                               ; preds = %.lr.ph.i77
-  %79 = add nsw i32 %.01724.i, 1
-  %80 = sext i32 %.01724.i to i64
+  %79 = add nsw i32 %.01824.i, 1
+  %80 = sext i32 %.01824.i to i64
   %81 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %80
   store i16 %75, ptr %81, align 2
   %82 = icmp eq i32 %79, 3
   br i1 %82, label %.thread.i, label %83
 
 83:                                               ; preds = %78, %.lr.ph.i77
-  %.1.i = phi i32 [ %79, %78 ], [ %.01724.i, %.lr.ph.i77 ]
-  %84 = add nuw i64 %.025.i, 1
+  %.1.i = phi i32 [ %79, %78 ], [ %.01824.i, %.lr.ph.i77 ]
+  %84 = add nuw i64 %.01725.i, 1
   %exitcond.not.i78 = icmp eq i64 %84, %42
   br i1 %exitcond.not.i78, label %._crit_edge.i, label %.lr.ph.i77, !llvm.loop !24
 
@@ -1692,39 +1692,39 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMinItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit
 
 _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread: ; preds = %._crit_edge.i, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us
-  %.0..0.8497 = phi i64 [ %.0..0..0..us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.0..0..0., %._crit_edge.i ]
-  %.us-phi94 = phi i16 [ %.0.i, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.05391, %._crit_edge.i ]
+  %.0..0.8598 = phi i64 [ %.0..0..0..us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.0..0..0., %._crit_edge.i ]
+  %.us-phi95 = phi i16 [ %.0.i, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.05392, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7)
   br label %.loopexit
 
 _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit: ; preds = %.thread.i, %89
-  %.018.i = phi i16 [ %.0.i.i, %.thread.i ], [ %90, %89 ]
+  %.0.i79 = phi i16 [ %.0.i.i, %.thread.i ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7)
-  %91 = icmp eq i16 %.018.i, %.158
+  %91 = icmp eq i16 %.0.i79, %.158
   br i1 %91, label %.loopexit, label %58
 
 .loopexit:                                        ; preds = %58, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit, %69, %71, %57, %55, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread
-  %.0..0.84 = phi i64 [ %.0..0.8497, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0..0..0..us, %55 ], [ %.0..0..0..us, %57 ], [ %.0..0..0., %71 ], [ %.0..0..0., %69 ], [ %.0..0..0., %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.0..0..0., %58 ]
-  %.05388 = phi i16 [ %.us-phi94, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0.i, %55 ], [ %.0.i, %57 ], [ %.018.i, %58 ], [ %.05391, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.05391, %69 ], [ %.05391, %71 ]
+  %.0..0.85 = phi i64 [ %.0..0.8598, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0..0..0..us, %55 ], [ %.0..0..0..us, %57 ], [ %.0..0..0., %71 ], [ %.0..0..0., %69 ], [ %.0..0..0., %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.0..0..0., %58 ]
+  %.05389 = phi i16 [ %.us-phi95, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0.i, %55 ], [ %.0.i, %57 ], [ %.0.i79, %58 ], [ %.05392, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.05392, %69 ], [ %.05392, %71 ]
   %.052 = phi i64 [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %3, %55 ], [ %.0..0..0..us, %57 ], [ 0, %58 ], [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_S5_.exit ], [ %3, %69 ], [ %.0..0..0., %71 ]
-  %92 = sub i64 %.052, %.0..0.84
+  %92 = sub i64 %.052, %.0..0.85
   %93 = icmp slt i64 %92, 0
   %.lobit = lshr i64 %92, 63
   %94 = trunc nuw nsw i64 %.lobit to i16
-  %.154 = add i16 %.05388, %94
+  %.154 = add i16 %.05389, %94
   %.049 = select i1 %93, i64 %3, i64 %92
-  br label %.lr.ph.i79
+  br label %.lr.ph.i80
 
-.lr.ph.i79:                                       ; preds = %.loopexit, %114
+.lr.ph.i80:                                       ; preds = %.loopexit, %114
   %.034.i = phi i64 [ %115, %114 ], [ 0, %.loopexit ]
-  %.02933.i = phi i64 [ %.1.i81, %114 ], [ 0, %.loopexit ]
+  %.02933.i = phi i64 [ %.1.i82, %114 ], [ 0, %.loopexit ]
   %.03032.i = phi i64 [ %.131.i, %114 ], [ %.049, %.loopexit ]
   %95 = getelementptr inbounds i16, ptr %0, i64 %.034.i
   %96 = load i16, ptr %95, align 2
   %97 = icmp ugt i16 %96, %.154
   br i1 %97, label %98, label %104
 
-98:                                               ; preds = %.lr.ph.i79
+98:                                               ; preds = %.lr.ph.i80
   %99 = getelementptr inbounds i16, ptr %0, i64 %.02933.i
   store i16 %96, ptr %99, align 2
   %100 = getelementptr inbounds i32, ptr %1, i64 %.034.i
@@ -1734,9 +1734,9 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_
   %103 = add i64 %.02933.i, 1
   br label %114
 
-104:                                              ; preds = %.lr.ph.i79
-  %.not.i80 = icmp eq i64 %.03032.i, 0
-  br i1 %.not.i80, label %114, label %105
+104:                                              ; preds = %.lr.ph.i80
+  %.not.i81 = icmp eq i64 %.03032.i, 0
+  br i1 %.not.i81, label %114, label %105
 
 105:                                              ; preds = %104
   %106 = icmp eq i16 %96, %.154
@@ -1755,10 +1755,10 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMinItiEEEENT_1TEPKS5_iS5_
 
 114:                                              ; preds = %107, %105, %104, %98
   %.131.i = phi i64 [ %.03032.i, %98 ], [ %113, %107 ], [ %.03032.i, %105 ], [ 0, %104 ]
-  %.1.i81 = phi i64 [ %103, %98 ], [ %112, %107 ], [ %.02933.i, %105 ], [ %.02933.i, %104 ]
+  %.1.i82 = phi i64 [ %103, %98 ], [ %112, %107 ], [ %.02933.i, %105 ], [ %.02933.i, %104 ]
   %115 = add nuw i64 %.034.i, 1
-  %exitcond.not.i82 = icmp eq i64 %115, %2
-  br i1 %exitcond.not.i82, label %_ZN5faiss12partitioning14compress_arrayINS_4CMinItiEEEEmPNT_1TEPNS4_2TIEmS5_m.exit, label %.lr.ph.i79, !llvm.loop !25
+  %exitcond.not.i83 = icmp eq i64 %115, %2
+  br i1 %exitcond.not.i83, label %_ZN5faiss12partitioning14compress_arrayINS_4CMinItiEEEEmPNT_1TEPNS4_2TIEmS5_m.exit, label %.lr.ph.i80, !llvm.loop !25
 
 _ZN5faiss12partitioning14compress_arrayINS_4CMinItiEEEEmPNT_1TEPNS4_2TIEmS5_m.exit: ; preds = %114
   %.not73 = icmp eq ptr %5, null
@@ -1879,10 +1879,10 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %53, %.split.us
-  %.013.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
-  %.01112.i.us = phi ptr [ %46, %53 ], [ %0, %.split.us ]
-  %46 = getelementptr inbounds i8, ptr %.01112.i.us, i64 2
-  %47 = load i16, ptr %.01112.i.us, align 2
+  %.013.i.us = phi ptr [ %46, %53 ], [ %0, %.split.us ]
+  %.01112.i.us = phi i64 [ %54, %53 ], [ 0, %.split.us ]
+  %46 = getelementptr inbounds i8, ptr %.013.i.us, i64 2
+  %47 = load i16, ptr %.013.i.us, align 2
   %48 = icmp ult i16 %47, %.0.i
   br i1 %48, label %.sink.split.i.us, label %49
 
@@ -1898,7 +1898,7 @@ define linkonce_odr noundef zeroext i16 @_ZN5faiss12partitioning23partition_fuzz
   br label %53
 
 53:                                               ; preds = %.sink.split.i.us, %49
-  %54 = add nuw i64 %.013.i.us, 1
+  %54 = add nuw i64 %.01112.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %54, %2
   br i1 %exitcond.not.i.us, label %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItiEEEEvPKNT_1TEmS5_RmS8_.exit.us, label %.lr.ph.i.us, !llvm.loop !26
 
@@ -1908,8 +1908,8 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItiEEEEvPKNT_1TEmS5_RmS8_.exit.
   br i1 %.not70.us, label %57, label %55
 
 55:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItiEEEEvPKNT_1TEmS5_RmS8_.exit.us
-  %.0..0..0.85.us = load i64, ptr %9, align 8
-  %56 = add i64 %.0..0..0.85.us, %.0..0..0..us
+  %.0..0..0.86.us = load i64, ptr %9, align 8
+  %56 = add i64 %.0..0..0.86.us, %.0..0..0..us
   %.not72.us = icmp ult i64 %56, %3
   br i1 %.not72.us, label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us, label %.loopexit
 
@@ -1922,29 +1922,29 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread
 
 58:                                               ; preds = %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit
-  %59 = add nuw nsw i32 %.05192, 1
+  %59 = add nuw nsw i32 %.05193, 1
   %exitcond.not = icmp eq i32 %59, 200
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !27
 
 .split:                                           ; preds = %33, %58
-  %.05192 = phi i32 [ %59, %58 ], [ 0, %33 ]
-  %.05391 = phi i16 [ %.018.i, %58 ], [ %.0.i, %33 ]
-  %.05590 = phi i16 [ %.156, %58 ], [ -1, %33 ]
-  %.05789 = phi i16 [ %.158, %58 ], [ 0, %33 ]
+  %.05193 = phi i32 [ %59, %58 ], [ 0, %33 ]
+  %.05392 = phi i16 [ %.0.i79, %58 ], [ %.0.i, %33 ]
+  %.05591 = phi i16 [ %.156, %58 ], [ -1, %33 ]
+  %.05790 = phi i16 [ %.158, %58 ], [ 0, %33 ]
   store i64 0, ptr %9, align 8
   store i64 0, ptr %10, align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split, %67
-  %.013.i = phi i64 [ %68, %67 ], [ 0, %.split ]
-  %.01112.i = phi ptr [ %60, %67 ], [ %0, %.split ]
-  %60 = getelementptr inbounds i8, ptr %.01112.i, i64 2
-  %61 = load i16, ptr %.01112.i, align 2
-  %62 = icmp ult i16 %61, %.05391
+  %.013.i = phi ptr [ %60, %67 ], [ %0, %.split ]
+  %.01112.i = phi i64 [ %68, %67 ], [ 0, %.split ]
+  %60 = getelementptr inbounds i8, ptr %.013.i, i64 2
+  %61 = load i16, ptr %.013.i, align 2
+  %62 = icmp ult i16 %61, %.05392
   br i1 %62, label %.sink.split.i, label %63
 
 63:                                               ; preds = %.lr.ph.i
-  %64 = icmp eq i16 %61, %.05391
+  %64 = icmp eq i16 %61, %.05392
   br i1 %64, label %.sink.split.i, label %67
 
 .sink.split.i:                                    ; preds = %63, %.lr.ph.i
@@ -1955,7 +1955,7 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_
   br label %67
 
 67:                                               ; preds = %.sink.split.i, %63
-  %68 = add nuw i64 %.013.i, 1
+  %68 = add nuw i64 %.01112.i, 1
   %exitcond.not.i = icmp eq i64 %68, %2
   br i1 %exitcond.not.i, label %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItiEEEEvPKNT_1TEmS5_RmS8_.exit, label %.lr.ph.i, !llvm.loop !26
 
@@ -1965,8 +1965,8 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %.not70, label %71, label %69
 
 69:                                               ; preds = %_ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItiEEEEvPKNT_1TEmS5_RmS8_.exit
-  %.0..0..0.85 = load i64, ptr %9, align 8
-  %70 = add i64 %.0..0..0.85, %.0..0..0.
+  %.0..0..0.86 = load i64, ptr %9, align 8
+  %70 = add i64 %.0..0..0.86, %.0..0..0.
   %.not72 = icmp ult i64 %70, %3
   br i1 %.not72, label %.lr.ph.i77.preheader, label %.loopexit
 
@@ -1975,15 +1975,15 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %.not71, label %.lr.ph.i77.preheader, label %.loopexit
 
 .lr.ph.i77.preheader:                             ; preds = %71, %69
-  %.158 = phi i16 [ %.05391, %69 ], [ %.05789, %71 ]
-  %.156 = phi i16 [ %.05590, %69 ], [ %.05391, %71 ]
+  %.158 = phi i16 [ %.05392, %69 ], [ %.05790, %71 ]
+  %.156 = phi i16 [ %.05591, %69 ], [ %.05392, %71 ]
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7)
   br label %.lr.ph.i77
 
 .lr.ph.i77:                                       ; preds = %.lr.ph.i77.preheader, %83
-  %.025.i = phi i64 [ %84, %83 ], [ 0, %.lr.ph.i77.preheader ]
-  %.01724.i = phi i32 [ %.1.i, %83 ], [ 0, %.lr.ph.i77.preheader ]
-  %72 = mul i64 %.025.i, 6700417
+  %.01725.i = phi i64 [ %84, %83 ], [ 0, %.lr.ph.i77.preheader ]
+  %.01824.i = phi i32 [ %.1.i, %83 ], [ 0, %.lr.ph.i77.preheader ]
+  %72 = mul i64 %.01725.i, 6700417
   %73 = urem i64 %72, %42
   %74 = getelementptr inbounds i16, ptr %0, i64 %73
   %75 = load i16, ptr %74, align 2
@@ -1993,16 +1993,16 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   br i1 %or.cond.i, label %78, label %83
 
 78:                                               ; preds = %.lr.ph.i77
-  %79 = add nsw i32 %.01724.i, 1
-  %80 = sext i32 %.01724.i to i64
+  %79 = add nsw i32 %.01824.i, 1
+  %80 = sext i32 %.01824.i to i64
   %81 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %80
   store i16 %75, ptr %81, align 2
   %82 = icmp eq i32 %79, 3
   br i1 %82, label %.thread.i, label %83
 
 83:                                               ; preds = %78, %.lr.ph.i77
-  %.1.i = phi i32 [ %79, %78 ], [ %.01724.i, %.lr.ph.i77 ]
-  %84 = add nuw i64 %.025.i, 1
+  %.1.i = phi i32 [ %79, %78 ], [ %.01824.i, %.lr.ph.i77 ]
+  %84 = add nuw i64 %.01725.i, 1
   %exitcond.not.i78 = icmp eq i64 %84, %42
   br i1 %exitcond.not.i78, label %._crit_edge.i, label %.lr.ph.i77, !llvm.loop !28
 
@@ -2028,39 +2028,39 @@ _ZN5faiss12partitioning15count_lt_and_eqINS_4CMaxItiEEEEvPKNT_1TEmS5_RmS8_.exit:
   br label %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit
 
 _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread: ; preds = %._crit_edge.i, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us
-  %.0..0.8497 = phi i64 [ %.0..0..0..us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.0..0..0., %._crit_edge.i ]
-  %.us-phi94 = phi i16 [ %.0.i, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.05391, %._crit_edge.i ]
+  %.0..0.8598 = phi i64 [ %.0..0..0..us, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.0..0..0., %._crit_edge.i ]
+  %.us-phi95 = phi i16 [ %.0.i, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread.split.us ], [ %.05392, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7)
   br label %.loopexit
 
 _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit: ; preds = %.thread.i, %89
-  %.018.i = phi i16 [ %.0.i.i, %.thread.i ], [ %90, %89 ]
+  %.0.i79 = phi i16 [ %.0.i.i, %.thread.i ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7)
-  %91 = icmp eq i16 %.018.i, %.158
+  %91 = icmp eq i16 %.0.i79, %.158
   br i1 %91, label %.loopexit, label %58
 
 .loopexit:                                        ; preds = %58, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit, %69, %71, %57, %55, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread
-  %.0..0.84 = phi i64 [ %.0..0.8497, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0..0..0..us, %55 ], [ %.0..0..0..us, %57 ], [ %.0..0..0., %71 ], [ %.0..0..0., %69 ], [ %.0..0..0., %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.0..0..0., %58 ]
-  %.05388 = phi i16 [ %.us-phi94, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0.i, %55 ], [ %.0.i, %57 ], [ %.018.i, %58 ], [ %.05391, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.05391, %69 ], [ %.05391, %71 ]
+  %.0..0.85 = phi i64 [ %.0..0.8598, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0..0..0..us, %55 ], [ %.0..0..0..us, %57 ], [ %.0..0..0., %71 ], [ %.0..0..0., %69 ], [ %.0..0..0., %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.0..0..0., %58 ]
+  %.05389 = phi i16 [ %.us-phi95, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %.0.i, %55 ], [ %.0.i, %57 ], [ %.0.i79, %58 ], [ %.05392, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit ], [ %.05392, %69 ], [ %.05392, %71 ]
   %.052 = phi i64 [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit.thread ], [ %3, %55 ], [ %.0..0..0..us, %57 ], [ 0, %58 ], [ 0, %_ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_S5_.exit ], [ %3, %69 ], [ %.0..0..0., %71 ]
-  %92 = sub i64 %.052, %.0..0.84
+  %92 = sub i64 %.052, %.0..0.85
   %93 = icmp slt i64 %92, 0
   %.lobit = ashr i64 %92, 63
   %94 = trunc nsw i64 %.lobit to i16
-  %.154 = add i16 %.05388, %94
+  %.154 = add i16 %.05389, %94
   %.049 = select i1 %93, i64 %3, i64 %92
-  br label %.lr.ph.i79
+  br label %.lr.ph.i80
 
-.lr.ph.i79:                                       ; preds = %.loopexit, %114
+.lr.ph.i80:                                       ; preds = %.loopexit, %114
   %.034.i = phi i64 [ %115, %114 ], [ 0, %.loopexit ]
-  %.02933.i = phi i64 [ %.1.i81, %114 ], [ 0, %.loopexit ]
+  %.02933.i = phi i64 [ %.1.i82, %114 ], [ 0, %.loopexit ]
   %.03032.i = phi i64 [ %.131.i, %114 ], [ %.049, %.loopexit ]
   %95 = getelementptr inbounds i16, ptr %0, i64 %.034.i
   %96 = load i16, ptr %95, align 2
   %97 = icmp ult i16 %96, %.154
   br i1 %97, label %98, label %104
 
-98:                                               ; preds = %.lr.ph.i79
+98:                                               ; preds = %.lr.ph.i80
   %99 = getelementptr inbounds i16, ptr %0, i64 %.02933.i
   store i16 %96, ptr %99, align 2
   %100 = getelementptr inbounds i32, ptr %1, i64 %.034.i
@@ -2070,9 +2070,9 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_
   %103 = add i64 %.02933.i, 1
   br label %114
 
-104:                                              ; preds = %.lr.ph.i79
-  %.not.i80 = icmp eq i64 %.03032.i, 0
-  br i1 %.not.i80, label %114, label %105
+104:                                              ; preds = %.lr.ph.i80
+  %.not.i81 = icmp eq i64 %.03032.i, 0
+  br i1 %.not.i81, label %114, label %105
 
 105:                                              ; preds = %104
   %106 = icmp eq i16 %96, %.154
@@ -2091,10 +2091,10 @@ _ZN5faiss12partitioning24sample_threshold_median3INS_4CMaxItiEEEENT_1TEPKS5_iS5_
 
 114:                                              ; preds = %107, %105, %104, %98
   %.131.i = phi i64 [ %.03032.i, %98 ], [ %113, %107 ], [ %.03032.i, %105 ], [ 0, %104 ]
-  %.1.i81 = phi i64 [ %103, %98 ], [ %112, %107 ], [ %.02933.i, %105 ], [ %.02933.i, %104 ]
+  %.1.i82 = phi i64 [ %103, %98 ], [ %112, %107 ], [ %.02933.i, %105 ], [ %.02933.i, %104 ]
   %115 = add nuw i64 %.034.i, 1
-  %exitcond.not.i82 = icmp eq i64 %115, %2
-  br i1 %exitcond.not.i82, label %_ZN5faiss12partitioning14compress_arrayINS_4CMaxItiEEEEmPNT_1TEPNS4_2TIEmS5_m.exit, label %.lr.ph.i79, !llvm.loop !29
+  %exitcond.not.i83 = icmp eq i64 %115, %2
+  br i1 %exitcond.not.i83, label %_ZN5faiss12partitioning14compress_arrayINS_4CMaxItiEEEEmPNT_1TEPNS4_2TIEmS5_m.exit, label %.lr.ph.i80, !llvm.loop !29
 
 _ZN5faiss12partitioning14compress_arrayINS_4CMaxItiEEEEmPNT_1TEPNS4_2TIEmS5_m.exit: ; preds = %114
   %.not73 = icmp eq ptr %5, null

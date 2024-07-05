@@ -19558,16 +19558,16 @@ for.body:                                         ; preds = %if.then3, %_ZN7open
   %this_bbox.sroa.35.066 = phi i32 [ %17, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
   %this_bbox.sroa.29.065 = phi i32 [ %16, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
   %iter.sroa.1.064 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ %add.i.i.i, %if.then3 ]
-  %this_bbox.sroa.14.063 = phi i32 [ %14, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
-  %this_bbox.sroa.21.062 = phi i32 [ %15, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
+  %this_bbox.sroa.21.063 = phi i32 [ %15, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
+  %this_bbox.sroa.14.062 = phi i32 [ %14, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIfLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
   %shr.i = lshr i32 %iter.sroa.1.064, 6
   %and.i = lshr i32 %iter.sroa.1.064, 3
   %shr1.i = and i32 %and.i, 7
   %and3.i = and i32 %iter.sroa.1.064, 7
   %12 = tail call i32 @llvm.smin.i32(i32 %shr.i, i32 %this_bbox.sroa.0.sroa.0.067)
   %13 = tail call i32 @llvm.smin.i32(i32 %shr1.i, i32 %this_bbox.sroa.0.sroa.8.068)
-  %14 = tail call i32 @llvm.smin.i32(i32 %and3.i, i32 %this_bbox.sroa.14.063)
-  %15 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.21.062, i32 %shr.i)
+  %14 = tail call i32 @llvm.smin.i32(i32 %and3.i, i32 %this_bbox.sroa.14.062)
+  %15 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.21.063, i32 %shr.i)
   %16 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.29.065, i32 %shr1.i)
   %17 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.35.066, i32 %and3.i)
   %add.i.i.i7 = add i32 %iter.sroa.1.064, 1
@@ -19632,8 +19632,8 @@ for.end:                                          ; preds = %for.body, %_ZN7open
   br label %if.end11
 
 if.end11:                                         ; preds = %for.end, %if.then3
-  %this_bbox.sroa.21.1 = phi i32 [ %add.i2.i, %for.end ], [ %add.i.i.i.i, %if.then3 ]
   %this_bbox.sroa.14.1 = phi i32 [ %add10.i.i, %for.end ], [ %2, %if.then3 ]
+  %this_bbox.sroa.21.1 = phi i32 [ %add.i2.i, %for.end ], [ %add.i.i.i.i, %if.then3 ]
   %this_bbox.sroa.29.1 = phi i32 [ %add6.i5.i, %for.end ], [ %add4.i.i.i.i, %if.then3 ]
   %this_bbox.sroa.35.1 = phi i32 [ %add10.i8.i, %for.end ], [ %add7.i.i.i.i, %if.then3 ]
   %this_bbox.sroa.0.sroa.0.1 = phi i32 [ %add.i.i, %for.end ], [ %this_bbox.sroa.0.sroa.0.0.extract.trunc, %if.then3 ]
@@ -65825,8 +65825,8 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.sroa.0.019 = phi ptr [ %0, %for.body.lr.ph ], [ %call.i, %for.inc ]
-  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.019, i64 48
+  %i.sroa.0.018 = phi ptr [ %0, %for.body.lr.ph ], [ %call.i, %for.inc ]
+  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.018, i64 48
   %1 = load ptr, ptr %second.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %for.inc, label %if.end
@@ -65901,7 +65901,7 @@ if.then11:                                        ; preds = %for.cond.i
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs.i.i, %land.rhs.i5.i, %for.body.i, %lor.lhs.false.i, %if.then11, %for.body
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.019) #28
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.018) #28
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !800
 
@@ -99783,16 +99783,16 @@ for.body:                                         ; preds = %if.then3, %_ZN7open
   %this_bbox.sroa.35.066 = phi i32 [ %17, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
   %this_bbox.sroa.29.065 = phi i32 [ %16, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
   %iter.sroa.1.064 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ %add.i.i.i, %if.then3 ]
-  %this_bbox.sroa.14.063 = phi i32 [ %14, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
-  %this_bbox.sroa.21.062 = phi i32 [ %15, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
+  %this_bbox.sroa.21.063 = phi i32 [ %15, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ -2147483648, %if.then3 ]
+  %this_bbox.sroa.14.062 = phi i32 [ %14, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj3EEEEEKNS1_8LeafNodeIdLj3EEEEppEv.exit ], [ 2147483647, %if.then3 ]
   %shr.i = lshr i32 %iter.sroa.1.064, 6
   %and.i = lshr i32 %iter.sroa.1.064, 3
   %shr1.i = and i32 %and.i, 7
   %and3.i = and i32 %iter.sroa.1.064, 7
   %12 = tail call i32 @llvm.smin.i32(i32 %shr.i, i32 %this_bbox.sroa.0.sroa.0.067)
   %13 = tail call i32 @llvm.smin.i32(i32 %shr1.i, i32 %this_bbox.sroa.0.sroa.8.068)
-  %14 = tail call i32 @llvm.smin.i32(i32 %and3.i, i32 %this_bbox.sroa.14.063)
-  %15 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.21.062, i32 %shr.i)
+  %14 = tail call i32 @llvm.smin.i32(i32 %and3.i, i32 %this_bbox.sroa.14.062)
+  %15 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.21.063, i32 %shr.i)
   %16 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.29.065, i32 %shr1.i)
   %17 = tail call i32 @llvm.smax.i32(i32 %this_bbox.sroa.35.066, i32 %and3.i)
   %add.i.i.i7 = add i32 %iter.sroa.1.064, 1
@@ -99857,8 +99857,8 @@ for.end:                                          ; preds = %for.body, %_ZN7open
   br label %if.end11
 
 if.end11:                                         ; preds = %for.end, %if.then3
-  %this_bbox.sroa.21.1 = phi i32 [ %add.i2.i, %for.end ], [ %add.i.i.i.i, %if.then3 ]
   %this_bbox.sroa.14.1 = phi i32 [ %add10.i.i, %for.end ], [ %2, %if.then3 ]
+  %this_bbox.sroa.21.1 = phi i32 [ %add.i2.i, %for.end ], [ %add.i.i.i.i, %if.then3 ]
   %this_bbox.sroa.29.1 = phi i32 [ %add6.i5.i, %for.end ], [ %add4.i.i.i.i, %if.then3 ]
   %this_bbox.sroa.35.1 = phi i32 [ %add10.i8.i, %for.end ], [ %add7.i.i.i.i, %if.then3 ]
   %this_bbox.sroa.0.sroa.0.1 = phi i32 [ %add.i.i, %for.end ], [ %this_bbox.sroa.0.sroa.0.0.extract.trunc, %if.then3 ]
@@ -145648,8 +145648,8 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.sroa.0.019 = phi ptr [ %0, %for.body.lr.ph ], [ %call.i, %for.inc ]
-  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.019, i64 48
+  %i.sroa.0.018 = phi ptr [ %0, %for.body.lr.ph ], [ %call.i, %for.inc ]
+  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.018, i64 48
   %1 = load ptr, ptr %second.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %for.inc, label %if.end
@@ -145724,7 +145724,7 @@ if.then11:                                        ; preds = %for.cond.i
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs.i.i, %land.rhs.i5.i, %for.body.i, %lor.lhs.false.i, %if.then11, %for.body
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.019) #28
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.018) #28
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !1827
 

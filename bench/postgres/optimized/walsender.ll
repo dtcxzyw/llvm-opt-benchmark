@@ -932,10 +932,10 @@ ReadReplicationSlot.exit:                         ; preds = %138, %152, %156, %1
   br i1 %190, label %.lr.ph.i, label %parseCreateReplSlotOptions.exit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i, %262
-  %.03756.i88.i = phi i1 [ %.138.i.i, %262 ], [ false, %.lr.ph.i.i ]
-  %.03557.i87.i = phi i1 [ %.136.i.i, %262 ], [ false, %.lr.ph.i.i ]
-  %.03358.i86.i = phi i1 [ %.134.i.i, %262 ], [ false, %.lr.ph.i.i ]
-  %.059.i85.i = phi i1 [ %.1.i.i, %262 ], [ false, %.lr.ph.i.i ]
+  %.03856.i88.i = phi i1 [ %.139.i.i, %262 ], [ false, %.lr.ph.i.i ]
+  %.03657.i87.i = phi i1 [ %.137.i.i, %262 ], [ false, %.lr.ph.i.i ]
+  %.03459.i86.i = phi i1 [ %.135.i.i, %262 ], [ false, %.lr.ph.i.i ]
+  %.03360.i85.i = phi i1 [ %.1.i.i, %262 ], [ false, %.lr.ph.i.i ]
   %indvars.iv.i84.i = phi i64 [ %indvars.iv.next.i.i, %262 ], [ 0, %.lr.ph.i.i ]
   %.03783.i = phi i32 [ %.138.i, %262 ], [ 0, %.lr.ph.i.i ]
   %.03982.i = phi i1 [ %.140.i, %262 ], [ false, %.lr.ph.i.i ]
@@ -951,7 +951,7 @@ ReadReplicationSlot.exit:                         ; preds = %138, %152, %156, %1
   br i1 %197, label %198, label %221
 
 198:                                              ; preds = %.lr.ph.i
-  br i1 %.03756.i88.i, label %201, label %199
+  br i1 %.03360.i85.i, label %201, label %199
 
 199:                                              ; preds = %198
   %200 = load i32, ptr %188, align 8
@@ -998,7 +998,7 @@ ReadReplicationSlot.exit:                         ; preds = %138, %152, %156, %1
   br i1 %223, label %224, label %233
 
 224:                                              ; preds = %221
-  br i1 %.03557.i87.i, label %227, label %225
+  br i1 %.03459.i86.i, label %227, label %225
 
 225:                                              ; preds = %224
   %226 = load i32, ptr %188, align 8
@@ -1023,7 +1023,7 @@ ReadReplicationSlot.exit:                         ; preds = %138, %152, %156, %1
   br i1 %235, label %236, label %245
 
 236:                                              ; preds = %233
-  br i1 %.03358.i86.i, label %239, label %237
+  br i1 %.03856.i88.i, label %239, label %237
 
 237:                                              ; preds = %236
   %238 = load i32, ptr %188, align 8
@@ -1048,7 +1048,7 @@ ReadReplicationSlot.exit:                         ; preds = %138, %152, %156, %1
   br i1 %247, label %248, label %257
 
 248:                                              ; preds = %245
-  br i1 %.059.i85.i, label %251, label %249
+  br i1 %.03657.i87.i, label %251, label %249
 
 249:                                              ; preds = %248
   %250 = load i32, ptr %188, align 8
@@ -1081,10 +1081,10 @@ ReadReplicationSlot.exit:                         ; preds = %138, %152, %156, %1
   %.143.i = phi i1 [ %.04281.i, %231 ], [ %244, %243 ], [ %.04281.i, %255 ], [ %.04281.i, %205 ], [ %.04281.i, %209 ], [ %.04281.i, %212 ]
   %.140.i = phi i1 [ %.03982.i, %231 ], [ %.03982.i, %243 ], [ %256, %255 ], [ %.03982.i, %205 ], [ %.03982.i, %209 ], [ %.03982.i, %212 ]
   %.138.i = phi i32 [ %.03783.i, %231 ], [ %.03783.i, %243 ], [ %.03783.i, %255 ], [ 0, %205 ], [ 1, %209 ], [ 2, %212 ]
-  %.138.i.i = phi i1 [ %.03756.i88.i, %231 ], [ %.03756.i88.i, %243 ], [ %.03756.i88.i, %255 ], [ true, %205 ], [ true, %209 ], [ true, %212 ]
-  %.136.i.i = phi i1 [ true, %231 ], [ %.03557.i87.i, %243 ], [ %.03557.i87.i, %255 ], [ %.03557.i87.i, %205 ], [ %.03557.i87.i, %209 ], [ %.03557.i87.i, %212 ]
-  %.134.i.i = phi i1 [ %.03358.i86.i, %231 ], [ true, %243 ], [ %.03358.i86.i, %255 ], [ %.03358.i86.i, %205 ], [ %.03358.i86.i, %209 ], [ %.03358.i86.i, %212 ]
-  %.1.i.i = phi i1 [ %.059.i85.i, %231 ], [ %.059.i85.i, %243 ], [ true, %255 ], [ %.059.i85.i, %205 ], [ %.059.i85.i, %209 ], [ %.059.i85.i, %212 ]
+  %.139.i.i = phi i1 [ %.03856.i88.i, %231 ], [ true, %243 ], [ %.03856.i88.i, %255 ], [ %.03856.i88.i, %205 ], [ %.03856.i88.i, %209 ], [ %.03856.i88.i, %212 ]
+  %.137.i.i = phi i1 [ %.03657.i87.i, %231 ], [ %.03657.i87.i, %243 ], [ true, %255 ], [ %.03657.i87.i, %205 ], [ %.03657.i87.i, %209 ], [ %.03657.i87.i, %212 ]
+  %.135.i.i = phi i1 [ true, %231 ], [ %.03459.i86.i, %243 ], [ %.03459.i86.i, %255 ], [ %.03459.i86.i, %205 ], [ %.03459.i86.i, %209 ], [ %.03459.i86.i, %212 ]
+  %.1.i.i = phi i1 [ %.03360.i85.i, %231 ], [ %.03360.i85.i, %243 ], [ %.03360.i85.i, %255 ], [ true, %205 ], [ true, %209 ], [ true, %212 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i84.i, 1
   %263 = load i32, ptr %186, align 4
   %264 = sext i32 %263 to i64
@@ -3010,8 +3010,8 @@ define internal i32 @logical_read_xlog_page(ptr noundef %0, i64 noundef %1, i32 
   %9 = add i64 %8, %1
   %10 = load i64, ptr @WalSndWaitForWal.RecentFlushPtr, align 8
   %.not.i = icmp eq i64 %10, 0
-  %.not11.i = icmp ult i64 %10, %9
-  %or.cond.i = or i1 %.not.i, %.not11.i
+  %.not12.i = icmp ult i64 %10, %9
+  %or.cond.i = or i1 %.not.i, %.not12.i
   br i1 %or.cond.i, label %11, label %WalSndWaitForWal.exit
 
 11:                                               ; preds = %5
@@ -3035,8 +3035,8 @@ define internal i32 @logical_read_xlog_page(ptr noundef %0, i64 noundef %1, i32 
   %19 = load ptr, ptr @MyLatch, align 8
   tail call void @ResetLatch(ptr noundef %19) #16
   %20 = load volatile i32, ptr @InterruptPending, align 4
-  %.not12.i = icmp eq i32 %20, 0
-  br i1 %.not12.i, label %22, label %21
+  %.not13.i = icmp eq i32 %20, 0
+  br i1 %.not13.i, label %22, label %21
 
 21:                                               ; preds = %18
   tail call void @ProcessInterrupts() #16
@@ -3044,8 +3044,8 @@ define internal i32 @logical_read_xlog_page(ptr noundef %0, i64 noundef %1, i32 
 
 22:                                               ; preds = %21, %18
   %23 = load volatile i32, ptr @ConfigReloadPending, align 4
-  %.not13.i = icmp eq i32 %23, 0
-  br i1 %.not13.i, label %25, label %24
+  %.not14.i = icmp eq i32 %23, 0
+  br i1 %.not14.i, label %25, label %24
 
 24:                                               ; preds = %22
   store volatile i32 0, ptr @ConfigReloadPending, align 4
@@ -3056,8 +3056,8 @@ define internal i32 @logical_read_xlog_page(ptr noundef %0, i64 noundef %1, i32 
 25:                                               ; preds = %24, %22
   tail call fastcc void @ProcessRepliesIfAny()
   %26 = load volatile i32, ptr @got_STOPPING, align 4
-  %.not14.i = icmp eq i32 %26, 0
-  br i1 %.not14.i, label %29, label %27
+  %.not15.i = icmp eq i32 %26, 0
+  br i1 %.not15.i, label %29, label %27
 
 27:                                               ; preds = %25
   %28 = tail call zeroext i1 @XLogBackgroundFlush() #16
@@ -3076,11 +3076,11 @@ define internal i32 @logical_read_xlog_page(ptr noundef %0, i64 noundef %1, i32 
   br label %35
 
 35:                                               ; preds = %33, %31
-  %storemerge15.i = phi i64 [ %32, %31 ], [ %34, %33 ]
-  store i64 %storemerge15.i, ptr @WalSndWaitForWal.RecentFlushPtr, align 8
+  %storemerge16.i = phi i64 [ %32, %31 ], [ %34, %33 ]
+  store i64 %storemerge16.i, ptr @WalSndWaitForWal.RecentFlushPtr, align 8
   %36 = load volatile i32, ptr @got_STOPPING, align 4
-  %.not16.i = icmp eq i32 %36, 0
-  br i1 %.not16.i, label %37, label %103
+  %.not17.i = icmp eq i32 %36, 0
+  br i1 %.not17.i, label %37, label %103
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr @MyWalSnd, align 8
@@ -3097,8 +3097,8 @@ define internal i32 @logical_read_xlog_page(ptr noundef %0, i64 noundef %1, i32 
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %43
-  %.b17.i = load i1, ptr @waiting_for_ping_response, align 1
-  br i1 %.b17.i, label %49, label %48
+  %.b18.i = load i1, ptr @waiting_for_ping_response, align 1
+  br i1 %.b18.i, label %49, label %48
 
 48:                                               ; preds = %47
   tail call fastcc void @WalSndKeepalive(i1 noundef zeroext false, i64 noundef 0)
@@ -3106,9 +3106,9 @@ define internal i32 @logical_read_xlog_page(ptr noundef %0, i64 noundef %1, i32 
   br label %49
 
 49:                                               ; preds = %48, %47, %43, %37
-  %50 = phi i64 [ %.pre.i, %48 ], [ %storemerge15.i, %47 ], [ %storemerge15.i, %43 ], [ %storemerge15.i, %37 ]
-  %.not18.i = icmp ult i64 %50, %9
-  br i1 %.not18.i, label %51, label %103
+  %50 = phi i64 [ %.pre.i, %48 ], [ %storemerge16.i, %47 ], [ %storemerge16.i, %43 ], [ %storemerge16.i, %37 ]
+  %.not19.i = icmp ult i64 %50, %9
+  br i1 %.not19.i, label %51, label %103
 
 51:                                               ; preds = %49
   store i1 true, ptr @WalSndCaughtUp, align 1
@@ -3116,20 +3116,20 @@ define internal i32 @logical_read_xlog_page(ptr noundef %0, i64 noundef %1, i32 
   %53 = getelementptr inbounds i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 %54() #16
-  %.not19.i = icmp eq i32 %55, 0
-  br i1 %.not19.i, label %57, label %56
+  %.not20.i = icmp eq i32 %55, 0
+  br i1 %.not20.i, label %57, label %56
 
 56:                                               ; preds = %51
   tail call fastcc void @WalSndShutdown() #20
   unreachable
 
 57:                                               ; preds = %51
-  %.b920.i = load i1, ptr @streamingDoneReceiving, align 1
-  br i1 %.b920.i, label %58, label %64
+  %.b1021.i = load i1, ptr @streamingDoneReceiving, align 1
+  br i1 %.b1021.i, label %58, label %64
 
 58:                                               ; preds = %57
-  %.b1021.i = load i1, ptr @streamingDoneSending, align 1
-  br i1 %.b1021.i, label %59, label %64
+  %.b1122.i = load i1, ptr @streamingDoneSending, align 1
+  br i1 %.b1122.i, label %59, label %64
 
 59:                                               ; preds = %58
   %60 = load ptr, ptr @PqCommMethods, align 8
@@ -3178,8 +3178,8 @@ WalSndCheckTimeOut.exit.i:                        ; preds = %70
   %82 = zext nneg i32 %81 to i64
   %83 = mul nuw nsw i64 %82, 1000
   %84 = add nuw i64 %83, %65
-  %.not.i22.i = icmp slt i64 %74, %84
-  br i1 %.not.i22.i, label %WalSndKeepaliveIfNecessary.exit.i, label %85
+  %.not.i23.i = icmp slt i64 %74, %84
+  br i1 %.not.i23.i, label %WalSndKeepaliveIfNecessary.exit.i, label %85
 
 85:                                               ; preds = %80
   tail call fastcc void @WalSndKeepalive(i1 noundef zeroext true, i64 noundef 0)
@@ -3200,8 +3200,8 @@ WalSndKeepaliveIfNecessary.exit.i:                ; preds = %85, %80, %WalSndChe
   %93 = icmp sgt i32 %92, 0
   %94 = load i64, ptr @last_reply_timestamp, align 8
   %95 = icmp sgt i64 %94, 0
-  %or.cond.i23.i = select i1 %93, i1 %95, i1 false
-  br i1 %or.cond.i23.i, label %96, label %WalSndComputeSleeptime.exit.i
+  %or.cond.i24.i = select i1 %93, i1 %95, i1 false
+  br i1 %or.cond.i24.i, label %96, label %WalSndComputeSleeptime.exit.i
 
 96:                                               ; preds = %WalSndKeepaliveIfNecessary.exit.i
   %.b7.i.i = load i1, ptr @waiting_for_ping_response, align 1
@@ -3231,7 +3231,7 @@ WalSndComputeSleeptime.exit.i:                    ; preds = %96, %WalSndKeepaliv
   br label %WalSndWaitForWal.exit
 
 WalSndWaitForWal.exit:                            ; preds = %5, %103
-  %.06.i = phi i64 [ %105, %103 ], [ %10, %5 ]
+  %.0.i = phi i64 [ %105, %103 ], [ %10, %5 ]
   %106 = tail call zeroext i1 @RecoveryInProgress() #16
   %107 = zext i1 %106 to i8
   store i8 %107, ptr @am_cascading_walsender, align 1
@@ -3263,13 +3263,13 @@ WalSndWaitForWal.exit:                            ; preds = %5, %103
   %121 = getelementptr inbounds i8, ptr %0, i64 1280
   %122 = load i32, ptr %121, align 8
   store i32 %122, ptr @sendTimeLineNextTLI, align 4
-  %123 = icmp ult i64 %.06.i, %9
+  %123 = icmp ult i64 %.0.i, %9
   br i1 %123, label %138, label %124
 
 124:                                              ; preds = %112
   %125 = add i64 %1, 8192
-  %.not = icmp ugt i64 %125, %.06.i
-  %126 = sub i64 %.06.i, %1
+  %.not = icmp ugt i64 %125, %.0.i
+  %126 = sub i64 %.0.i, %1
   %127 = trunc i64 %126 to i32
   %.025 = select i1 %.not, i32 %127, i32 8192
   %128 = sext i32 %.025 to i64

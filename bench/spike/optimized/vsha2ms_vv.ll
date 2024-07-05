@@ -408,15 +408,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %166, label %.lr.ph287, label %._crit_edge288
 
 .lr.ph287:                                        ; preds = %153, %.lr.ph287
-  %.0203285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
-  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203285, i1 noundef zeroext true)
-  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203285, i1 noundef zeroext false)
+  %.0202285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
+  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202285, i1 noundef zeroext true)
+  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0242.0.copyload = load i32, ptr %168, align 4
   %.sroa.2244.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 8
   %.sroa.2244.0.copyload = load i32, ptr %.sroa.2244.0..sroa_idx, align 4
   %.sroa.3245.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 12
   %.sroa.3245.0.copyload = load i32, ptr %.sroa.3245.0..sroa_idx, align 4
-  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203285, i1 noundef zeroext false)
+  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0238.0.copyload = load i32, ptr %169, align 4
   %.sroa.2239.0..sroa_idx = getelementptr inbounds i8, ptr %169, i64 4
   %.sroa.2239.0.copyload = load i32, ptr %.sroa.2239.0..sroa_idx, align 4
@@ -487,7 +487,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i32 %202, ptr %171, align 4
   store i32 %215, ptr %173, align 4
   store i32 %228, ptr %175, align 4
-  %229 = add nuw nsw i64 %.0203285, 1
+  %229 = add nuw nsw i64 %.0202285, 1
   %exitcond291.not = icmp eq i64 %229, %165
   br i1 %exitcond291.not, label %._crit_edge288, label %.lr.ph287, !llvm.loop !6
 
@@ -752,15 +752,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %366, label %.lr.ph, label %._crit_edge288
 
 .lr.ph:                                           ; preds = %353, %.lr.ph
-  %.0202284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
-  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202284, i1 noundef zeroext true)
-  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202284, i1 noundef zeroext false)
+  %.0203284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
+  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203284, i1 noundef zeroext true)
+  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0234.0.copyload = load i64, ptr %368, align 8
   %.sroa.2236.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 16
   %.sroa.2236.0.copyload = load i64, ptr %.sroa.2236.0..sroa_idx, align 8
   %.sroa.3237.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 24
   %.sroa.3237.0.copyload = load i64, ptr %.sroa.3237.0..sroa_idx, align 8
-  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202284, i1 noundef zeroext false)
+  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0.0.copyload232 = load i64, ptr %369, align 8
   %.sroa.2.0..sroa_idx233 = getelementptr inbounds i8, ptr %369, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx233, align 8
@@ -831,7 +831,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %402, ptr %371, align 8
   store i64 %415, ptr %373, align 8
   store i64 %428, ptr %375, align 8
-  %429 = add nuw nsw i64 %.0202284, 1
+  %429 = add nuw nsw i64 %.0203284, 1
   %exitcond.not = icmp eq i64 %429, %365
   br i1 %exitcond.not, label %._crit_edge288, label %.lr.ph, !llvm.loop !7
 
@@ -1215,15 +1215,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %166, label %.lr.ph287, label %._crit_edge288
 
 .lr.ph287:                                        ; preds = %153, %.lr.ph287
-  %.0203285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
-  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203285, i1 noundef zeroext true)
-  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203285, i1 noundef zeroext false)
+  %.0202285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
+  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202285, i1 noundef zeroext true)
+  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0242.0.copyload = load i32, ptr %168, align 4
   %.sroa.2244.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 8
   %.sroa.2244.0.copyload = load i32, ptr %.sroa.2244.0..sroa_idx, align 4
   %.sroa.3245.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 12
   %.sroa.3245.0.copyload = load i32, ptr %.sroa.3245.0..sroa_idx, align 4
-  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203285, i1 noundef zeroext false)
+  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0238.0.copyload = load i32, ptr %169, align 4
   %.sroa.2239.0..sroa_idx = getelementptr inbounds i8, ptr %169, i64 4
   %.sroa.2239.0.copyload = load i32, ptr %.sroa.2239.0..sroa_idx, align 4
@@ -1294,7 +1294,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i32 %202, ptr %171, align 4
   store i32 %215, ptr %173, align 4
   store i32 %228, ptr %175, align 4
-  %229 = add nuw nsw i64 %.0203285, 1
+  %229 = add nuw nsw i64 %.0202285, 1
   %exitcond291.not = icmp eq i64 %229, %165
   br i1 %exitcond291.not, label %._crit_edge288, label %.lr.ph287, !llvm.loop !8
 
@@ -1559,15 +1559,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %366, label %.lr.ph, label %._crit_edge288
 
 .lr.ph:                                           ; preds = %353, %.lr.ph
-  %.0202284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
-  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202284, i1 noundef zeroext true)
-  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202284, i1 noundef zeroext false)
+  %.0203284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
+  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203284, i1 noundef zeroext true)
+  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0234.0.copyload = load i64, ptr %368, align 8
   %.sroa.2236.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 16
   %.sroa.2236.0.copyload = load i64, ptr %.sroa.2236.0..sroa_idx, align 8
   %.sroa.3237.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 24
   %.sroa.3237.0.copyload = load i64, ptr %.sroa.3237.0..sroa_idx, align 8
-  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202284, i1 noundef zeroext false)
+  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0.0.copyload232 = load i64, ptr %369, align 8
   %.sroa.2.0..sroa_idx233 = getelementptr inbounds i8, ptr %369, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx233, align 8
@@ -1638,7 +1638,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %402, ptr %371, align 8
   store i64 %415, ptr %373, align 8
   store i64 %428, ptr %375, align 8
-  %429 = add nuw nsw i64 %.0202284, 1
+  %429 = add nuw nsw i64 %.0203284, 1
   %exitcond.not = icmp eq i64 %429, %365
   br i1 %exitcond.not, label %._crit_edge288, label %.lr.ph, !llvm.loop !9
 
@@ -1995,15 +1995,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %166, label %.lr.ph287, label %._crit_edge288
 
 .lr.ph287:                                        ; preds = %153, %.lr.ph287
-  %.0203285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
-  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203285, i1 noundef zeroext true)
-  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203285, i1 noundef zeroext false)
+  %.0202285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
+  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202285, i1 noundef zeroext true)
+  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0242.0.copyload = load i32, ptr %168, align 4
   %.sroa.2244.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 8
   %.sroa.2244.0.copyload = load i32, ptr %.sroa.2244.0..sroa_idx, align 4
   %.sroa.3245.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 12
   %.sroa.3245.0.copyload = load i32, ptr %.sroa.3245.0..sroa_idx, align 4
-  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203285, i1 noundef zeroext false)
+  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0238.0.copyload = load i32, ptr %169, align 4
   %.sroa.2239.0..sroa_idx = getelementptr inbounds i8, ptr %169, i64 4
   %.sroa.2239.0.copyload = load i32, ptr %.sroa.2239.0..sroa_idx, align 4
@@ -2074,7 +2074,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i32 %202, ptr %171, align 4
   store i32 %215, ptr %173, align 4
   store i32 %228, ptr %175, align 4
-  %229 = add nuw nsw i64 %.0203285, 1
+  %229 = add nuw nsw i64 %.0202285, 1
   %exitcond291.not = icmp eq i64 %229, %165
   br i1 %exitcond291.not, label %._crit_edge288, label %.lr.ph287, !llvm.loop !10
 
@@ -2339,15 +2339,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %366, label %.lr.ph, label %._crit_edge288
 
 .lr.ph:                                           ; preds = %353, %.lr.ph
-  %.0202284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
-  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202284, i1 noundef zeroext true)
-  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202284, i1 noundef zeroext false)
+  %.0203284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
+  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203284, i1 noundef zeroext true)
+  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0234.0.copyload = load i64, ptr %368, align 8
   %.sroa.2236.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 16
   %.sroa.2236.0.copyload = load i64, ptr %.sroa.2236.0..sroa_idx, align 8
   %.sroa.3237.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 24
   %.sroa.3237.0.copyload = load i64, ptr %.sroa.3237.0..sroa_idx, align 8
-  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202284, i1 noundef zeroext false)
+  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0.0.copyload232 = load i64, ptr %369, align 8
   %.sroa.2.0..sroa_idx233 = getelementptr inbounds i8, ptr %369, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx233, align 8
@@ -2418,7 +2418,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %402, ptr %371, align 8
   store i64 %415, ptr %373, align 8
   store i64 %428, ptr %375, align 8
-  %429 = add nuw nsw i64 %.0202284, 1
+  %429 = add nuw nsw i64 %.0203284, 1
   %exitcond.not = icmp eq i64 %429, %365
   br i1 %exitcond.not, label %._crit_edge288, label %.lr.ph, !llvm.loop !11
 
@@ -2777,15 +2777,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %166, label %.lr.ph287, label %._crit_edge288
 
 .lr.ph287:                                        ; preds = %153, %.lr.ph287
-  %.0203285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
-  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203285, i1 noundef zeroext true)
-  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203285, i1 noundef zeroext false)
+  %.0202285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
+  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202285, i1 noundef zeroext true)
+  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0242.0.copyload = load i32, ptr %168, align 4
   %.sroa.2244.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 8
   %.sroa.2244.0.copyload = load i32, ptr %.sroa.2244.0..sroa_idx, align 4
   %.sroa.3245.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 12
   %.sroa.3245.0.copyload = load i32, ptr %.sroa.3245.0..sroa_idx, align 4
-  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203285, i1 noundef zeroext false)
+  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0238.0.copyload = load i32, ptr %169, align 4
   %.sroa.2239.0..sroa_idx = getelementptr inbounds i8, ptr %169, i64 4
   %.sroa.2239.0.copyload = load i32, ptr %.sroa.2239.0..sroa_idx, align 4
@@ -2856,7 +2856,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i32 %202, ptr %171, align 4
   store i32 %215, ptr %173, align 4
   store i32 %228, ptr %175, align 4
-  %229 = add nuw nsw i64 %.0203285, 1
+  %229 = add nuw nsw i64 %.0202285, 1
   %exitcond291.not = icmp eq i64 %229, %165
   br i1 %exitcond291.not, label %._crit_edge288, label %.lr.ph287, !llvm.loop !12
 
@@ -3121,15 +3121,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %366, label %.lr.ph, label %._crit_edge288
 
 .lr.ph:                                           ; preds = %353, %.lr.ph
-  %.0202284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
-  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202284, i1 noundef zeroext true)
-  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202284, i1 noundef zeroext false)
+  %.0203284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
+  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203284, i1 noundef zeroext true)
+  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0234.0.copyload = load i64, ptr %368, align 8
   %.sroa.2236.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 16
   %.sroa.2236.0.copyload = load i64, ptr %.sroa.2236.0..sroa_idx, align 8
   %.sroa.3237.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 24
   %.sroa.3237.0.copyload = load i64, ptr %.sroa.3237.0..sroa_idx, align 8
-  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202284, i1 noundef zeroext false)
+  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0.0.copyload232 = load i64, ptr %369, align 8
   %.sroa.2.0..sroa_idx233 = getelementptr inbounds i8, ptr %369, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx233, align 8
@@ -3200,7 +3200,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %402, ptr %371, align 8
   store i64 %415, ptr %373, align 8
   store i64 %428, ptr %375, align 8
-  %429 = add nuw nsw i64 %.0202284, 1
+  %429 = add nuw nsw i64 %.0203284, 1
   %exitcond.not = icmp eq i64 %429, %365
   br i1 %exitcond.not, label %._crit_edge288, label %.lr.ph, !llvm.loop !13
 
@@ -3557,15 +3557,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %166, label %.lr.ph287, label %._crit_edge288
 
 .lr.ph287:                                        ; preds = %153, %.lr.ph287
-  %.0203285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
-  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203285, i1 noundef zeroext true)
-  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203285, i1 noundef zeroext false)
+  %.0202285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
+  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202285, i1 noundef zeroext true)
+  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0242.0.copyload = load i32, ptr %168, align 4
   %.sroa.2244.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 8
   %.sroa.2244.0.copyload = load i32, ptr %.sroa.2244.0..sroa_idx, align 4
   %.sroa.3245.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 12
   %.sroa.3245.0.copyload = load i32, ptr %.sroa.3245.0..sroa_idx, align 4
-  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203285, i1 noundef zeroext false)
+  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0238.0.copyload = load i32, ptr %169, align 4
   %.sroa.2239.0..sroa_idx = getelementptr inbounds i8, ptr %169, i64 4
   %.sroa.2239.0.copyload = load i32, ptr %.sroa.2239.0..sroa_idx, align 4
@@ -3636,7 +3636,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i32 %202, ptr %171, align 4
   store i32 %215, ptr %173, align 4
   store i32 %228, ptr %175, align 4
-  %229 = add nuw nsw i64 %.0203285, 1
+  %229 = add nuw nsw i64 %.0202285, 1
   %exitcond291.not = icmp eq i64 %229, %165
   br i1 %exitcond291.not, label %._crit_edge288, label %.lr.ph287, !llvm.loop !14
 
@@ -3901,15 +3901,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %366, label %.lr.ph, label %._crit_edge288
 
 .lr.ph:                                           ; preds = %353, %.lr.ph
-  %.0202284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
-  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202284, i1 noundef zeroext true)
-  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202284, i1 noundef zeroext false)
+  %.0203284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
+  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203284, i1 noundef zeroext true)
+  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0234.0.copyload = load i64, ptr %368, align 8
   %.sroa.2236.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 16
   %.sroa.2236.0.copyload = load i64, ptr %.sroa.2236.0..sroa_idx, align 8
   %.sroa.3237.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 24
   %.sroa.3237.0.copyload = load i64, ptr %.sroa.3237.0..sroa_idx, align 8
-  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202284, i1 noundef zeroext false)
+  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0.0.copyload232 = load i64, ptr %369, align 8
   %.sroa.2.0..sroa_idx233 = getelementptr inbounds i8, ptr %369, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx233, align 8
@@ -3980,7 +3980,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %402, ptr %371, align 8
   store i64 %415, ptr %373, align 8
   store i64 %428, ptr %375, align 8
-  %429 = add nuw nsw i64 %.0202284, 1
+  %429 = add nuw nsw i64 %.0203284, 1
   %exitcond.not = icmp eq i64 %429, %365
   br i1 %exitcond.not, label %._crit_edge288, label %.lr.ph, !llvm.loop !15
 
@@ -4339,15 +4339,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %166, label %.lr.ph287, label %._crit_edge288
 
 .lr.ph287:                                        ; preds = %153, %.lr.ph287
-  %.0203285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
-  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203285, i1 noundef zeroext true)
-  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203285, i1 noundef zeroext false)
+  %.0202285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
+  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202285, i1 noundef zeroext true)
+  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0242.0.copyload = load i32, ptr %168, align 4
   %.sroa.2244.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 8
   %.sroa.2244.0.copyload = load i32, ptr %.sroa.2244.0..sroa_idx, align 4
   %.sroa.3245.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 12
   %.sroa.3245.0.copyload = load i32, ptr %.sroa.3245.0..sroa_idx, align 4
-  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203285, i1 noundef zeroext false)
+  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0238.0.copyload = load i32, ptr %169, align 4
   %.sroa.2239.0..sroa_idx = getelementptr inbounds i8, ptr %169, i64 4
   %.sroa.2239.0.copyload = load i32, ptr %.sroa.2239.0..sroa_idx, align 4
@@ -4418,7 +4418,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i32 %202, ptr %171, align 4
   store i32 %215, ptr %173, align 4
   store i32 %228, ptr %175, align 4
-  %229 = add nuw nsw i64 %.0203285, 1
+  %229 = add nuw nsw i64 %.0202285, 1
   %exitcond291.not = icmp eq i64 %229, %165
   br i1 %exitcond291.not, label %._crit_edge288, label %.lr.ph287, !llvm.loop !16
 
@@ -4683,15 +4683,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %366, label %.lr.ph, label %._crit_edge288
 
 .lr.ph:                                           ; preds = %353, %.lr.ph
-  %.0202284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
-  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202284, i1 noundef zeroext true)
-  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202284, i1 noundef zeroext false)
+  %.0203284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
+  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203284, i1 noundef zeroext true)
+  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0234.0.copyload = load i64, ptr %368, align 8
   %.sroa.2236.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 16
   %.sroa.2236.0.copyload = load i64, ptr %.sroa.2236.0..sroa_idx, align 8
   %.sroa.3237.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 24
   %.sroa.3237.0.copyload = load i64, ptr %.sroa.3237.0..sroa_idx, align 8
-  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202284, i1 noundef zeroext false)
+  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0.0.copyload232 = load i64, ptr %369, align 8
   %.sroa.2.0..sroa_idx233 = getelementptr inbounds i8, ptr %369, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx233, align 8
@@ -4762,7 +4762,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %402, ptr %371, align 8
   store i64 %415, ptr %373, align 8
   store i64 %428, ptr %375, align 8
-  %429 = add nuw nsw i64 %.0202284, 1
+  %429 = add nuw nsw i64 %.0203284, 1
   %exitcond.not = icmp eq i64 %429, %365
   br i1 %exitcond.not, label %._crit_edge288, label %.lr.ph, !llvm.loop !17
 
@@ -5119,15 +5119,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %166, label %.lr.ph287, label %._crit_edge288
 
 .lr.ph287:                                        ; preds = %153, %.lr.ph287
-  %.0203285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
-  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203285, i1 noundef zeroext true)
-  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203285, i1 noundef zeroext false)
+  %.0202285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
+  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202285, i1 noundef zeroext true)
+  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0242.0.copyload = load i32, ptr %168, align 4
   %.sroa.2244.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 8
   %.sroa.2244.0.copyload = load i32, ptr %.sroa.2244.0..sroa_idx, align 4
   %.sroa.3245.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 12
   %.sroa.3245.0.copyload = load i32, ptr %.sroa.3245.0..sroa_idx, align 4
-  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203285, i1 noundef zeroext false)
+  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0238.0.copyload = load i32, ptr %169, align 4
   %.sroa.2239.0..sroa_idx = getelementptr inbounds i8, ptr %169, i64 4
   %.sroa.2239.0.copyload = load i32, ptr %.sroa.2239.0..sroa_idx, align 4
@@ -5198,7 +5198,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i32 %202, ptr %171, align 4
   store i32 %215, ptr %173, align 4
   store i32 %228, ptr %175, align 4
-  %229 = add nuw nsw i64 %.0203285, 1
+  %229 = add nuw nsw i64 %.0202285, 1
   %exitcond291.not = icmp eq i64 %229, %165
   br i1 %exitcond291.not, label %._crit_edge288, label %.lr.ph287, !llvm.loop !18
 
@@ -5463,15 +5463,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %366, label %.lr.ph, label %._crit_edge288
 
 .lr.ph:                                           ; preds = %353, %.lr.ph
-  %.0202284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
-  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202284, i1 noundef zeroext true)
-  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202284, i1 noundef zeroext false)
+  %.0203284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
+  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203284, i1 noundef zeroext true)
+  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0234.0.copyload = load i64, ptr %368, align 8
   %.sroa.2236.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 16
   %.sroa.2236.0.copyload = load i64, ptr %.sroa.2236.0..sroa_idx, align 8
   %.sroa.3237.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 24
   %.sroa.3237.0.copyload = load i64, ptr %.sroa.3237.0..sroa_idx, align 8
-  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202284, i1 noundef zeroext false)
+  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0.0.copyload232 = load i64, ptr %369, align 8
   %.sroa.2.0..sroa_idx233 = getelementptr inbounds i8, ptr %369, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx233, align 8
@@ -5542,7 +5542,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %402, ptr %371, align 8
   store i64 %415, ptr %373, align 8
   store i64 %428, ptr %375, align 8
-  %429 = add nuw nsw i64 %.0202284, 1
+  %429 = add nuw nsw i64 %.0203284, 1
   %exitcond.not = icmp eq i64 %429, %365
   br i1 %exitcond.not, label %._crit_edge288, label %.lr.ph, !llvm.loop !19
 
@@ -5901,15 +5901,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %166, label %.lr.ph287, label %._crit_edge288
 
 .lr.ph287:                                        ; preds = %153, %.lr.ph287
-  %.0203285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
-  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203285, i1 noundef zeroext true)
-  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203285, i1 noundef zeroext false)
+  %.0202285 = phi i64 [ %229, %.lr.ph287 ], [ %159, %153 ]
+  %167 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202285, i1 noundef zeroext true)
+  %168 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0242.0.copyload = load i32, ptr %168, align 4
   %.sroa.2244.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 8
   %.sroa.2244.0.copyload = load i32, ptr %.sroa.2244.0..sroa_idx, align 4
   %.sroa.3245.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 12
   %.sroa.3245.0.copyload = load i32, ptr %.sroa.3245.0..sroa_idx, align 4
-  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203285, i1 noundef zeroext false)
+  %169 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIjLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202285, i1 noundef zeroext false)
   %.sroa.0238.0.copyload = load i32, ptr %169, align 4
   %.sroa.2239.0..sroa_idx = getelementptr inbounds i8, ptr %169, i64 4
   %.sroa.2239.0.copyload = load i32, ptr %.sroa.2239.0..sroa_idx, align 4
@@ -5980,7 +5980,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i32 %202, ptr %171, align 4
   store i32 %215, ptr %173, align 4
   store i32 %228, ptr %175, align 4
-  %229 = add nuw nsw i64 %.0203285, 1
+  %229 = add nuw nsw i64 %.0202285, 1
   %exitcond291.not = icmp eq i64 %229, %165
   br i1 %exitcond291.not, label %._crit_edge288, label %.lr.ph287, !llvm.loop !20
 
@@ -6245,15 +6245,15 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %366, label %.lr.ph, label %._crit_edge288
 
 .lr.ph:                                           ; preds = %353, %.lr.ph
-  %.0202284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
-  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0202284, i1 noundef zeroext true)
-  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0202284, i1 noundef zeroext false)
+  %.0203284 = phi i64 [ %429, %.lr.ph ], [ %359, %353 ]
+  %367 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %14, i64 noundef %.0203284, i1 noundef zeroext true)
+  %368 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %16, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0234.0.copyload = load i64, ptr %368, align 8
   %.sroa.2236.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 16
   %.sroa.2236.0.copyload = load i64, ptr %.sroa.2236.0..sroa_idx, align 8
   %.sroa.3237.0..sroa_idx = getelementptr inbounds i8, ptr %368, i64 24
   %.sroa.3237.0.copyload = load i64, ptr %.sroa.3237.0..sroa_idx, align 8
-  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0202284, i1 noundef zeroext false)
+  %369 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayImLm4EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %4, i64 noundef %24, i64 noundef %.0203284, i1 noundef zeroext false)
   %.sroa.0.0.copyload232 = load i64, ptr %369, align 8
   %.sroa.2.0..sroa_idx233 = getelementptr inbounds i8, ptr %369, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx233, align 8
@@ -6324,7 +6324,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i64 %402, ptr %371, align 8
   store i64 %415, ptr %373, align 8
   store i64 %428, ptr %375, align 8
-  %429 = add nuw nsw i64 %.0202284, 1
+  %429 = add nuw nsw i64 %.0203284, 1
   %exitcond.not = icmp eq i64 %429, %365
   br i1 %exitcond.not, label %._crit_edge288, label %.lr.ph, !llvm.loop !21
 

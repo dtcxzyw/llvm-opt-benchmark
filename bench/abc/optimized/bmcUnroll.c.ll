@@ -2310,7 +2310,7 @@ define ptr @Unr_ManUnrollFrame(ptr nocapture noundef readonly %0, i32 noundef %1
   br label %10
 
 10:                                               ; preds = %.lr.ph, %Vec_IntPush.exit
-  %.04275 = phi i32 [ 0, %.lr.ph ], [ %45, %Vec_IntPush.exit ]
+  %.075 = phi i32 [ 0, %.lr.ph ], [ %45, %Vec_IntPush.exit ]
   %11 = load ptr, ptr %8, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef %12)
@@ -2380,7 +2380,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %43 = sext i32 %41 to i64
   %44 = getelementptr inbounds i32, ptr %40, i64 %43
   store i32 %13, ptr %44, align 4
-  %45 = add nuw nsw i32 %.04275, 1
+  %45 = add nuw nsw i32 %.075, 1
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr i8, ptr %46, i64 16
   %.val51 = load i32, ptr %47, align 8
@@ -2422,7 +2422,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 71:                                               ; preds = %.lr.ph78, %201
   %72 = phi ptr [ %66, %.lr.ph78 ], [ %209, %201 ]
   %73 = phi ptr [ %64, %.lr.ph78 ], [ %207, %201 ]
-  %.076 = phi i32 [ %61, %.lr.ph78 ], [ %206, %201 ]
+  %.04276 = phi i32 [ %61, %.lr.ph78 ], [ %206, %201 ]
   %74 = getelementptr inbounds i8, ptr %72, i64 8
   %75 = load i64, ptr %74, align 4
   %76 = and i64 %75, 131068
@@ -2596,7 +2596,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %202 = lshr i64 %.val56, 34
   %203 = trunc nuw nsw i64 %202 to i32
   %204 = and i32 %203, 32766
-  %205 = add i32 %.076, 6
+  %205 = add i32 %.04276, 6
   %206 = add i32 %205, %204
   %207 = load ptr, ptr %62, align 8
   %208 = sext i32 %206 to i64

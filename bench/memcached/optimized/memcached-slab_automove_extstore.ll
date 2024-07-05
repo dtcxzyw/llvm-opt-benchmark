@@ -143,9 +143,9 @@ memcheck.exit:                                    ; preds = %for.body.i
 
 for.body:                                         ; preds = %memcheck.exit, %for.inc
   %indvars.iv = phi i64 [ 1, %memcheck.exit ], [ %indvars.iv.next, %for.inc ]
-  %too_free.088 = phi i1 [ false, %memcheck.exit ], [ %too_free.184, %for.inc ]
-  %oldest_age.087 = phi i64 [ 0, %memcheck.exit ], [ %oldest_age.1, %for.inc ]
-  %oldest.086 = phi i32 [ -1, %memcheck.exit ], [ %oldest.1, %for.inc ]
+  %oldest.087 = phi i32 [ -1, %memcheck.exit ], [ %oldest.1, %for.inc ]
+  %oldest_age.086 = phi i64 [ 0, %memcheck.exit ], [ %oldest_age.1, %for.inc ]
+  %too_free.085 = phi i1 [ false, %memcheck.exit ], [ %too_free.184, %for.inc ]
   %arrayidx = getelementptr inbounds [64 x %struct.slab_stats_automove], ptr %sam_before, i64 0, i64 %indvars.iv
   %chunk_size = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %8 = load i32, ptr %chunk_size, align 4
@@ -284,22 +284,22 @@ if.then87:                                        ; preds = %land.lhs.true82
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then87, %land.lhs.true82, %window_sum.exit
-  %too_free.1 = phi i1 [ true, %if.then87 ], [ %too_free.088, %land.lhs.true82 ], [ %too_free.088, %window_sum.exit ]
-  %cmp93 = icmp ugt i64 %div, %oldest_age.087
+  %too_free.1 = phi i1 [ true, %if.then87 ], [ %too_free.085, %land.lhs.true82 ], [ %too_free.085, %window_sum.exit ]
+  %cmp93 = icmp ugt i64 %div, %oldest_age.086
   %or.cond67 = select i1 %cmp2, i1 %cmp93, i1 false
   br i1 %or.cond67, label %land.lhs.true95, label %for.inc
 
 land.lhs.true95:                                  ; preds = %if.end90
   %34 = load i64, ptr %total_pages, align 8
   %cmp100 = icmp sgt i64 %34, 2
-  %spec.select = select i1 %cmp100, i32 %11, i32 %oldest.086
-  %spec.select68 = select i1 %cmp100, i64 %div, i64 %oldest_age.087
+  %spec.select = select i1 %cmp100, i64 %div, i64 %oldest_age.086
+  %spec.select68 = select i1 %cmp100, i32 %11, i32 %oldest.087
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end90.thread, %land.lhs.true95, %if.end90
   %too_free.184 = phi i1 [ %too_free.1, %if.end90 ], [ %too_free.1, %land.lhs.true95 ], [ true, %if.end90.thread ]
-  %oldest.1 = phi i32 [ %oldest.086, %if.end90 ], [ %spec.select, %land.lhs.true95 ], [ %oldest.086, %if.end90.thread ]
-  %oldest_age.1 = phi i64 [ %oldest_age.087, %if.end90 ], [ %spec.select68, %land.lhs.true95 ], [ %oldest_age.087, %if.end90.thread ]
+  %oldest_age.1 = phi i64 [ %oldest_age.086, %if.end90 ], [ %spec.select, %land.lhs.true95 ], [ %oldest_age.086, %if.end90.thread ]
+  %oldest.1 = phi i32 [ %oldest.087, %if.end90 ], [ %spec.select68, %land.lhs.true95 ], [ %oldest.087, %if.end90.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8

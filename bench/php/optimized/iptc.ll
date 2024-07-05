@@ -142,11 +142,11 @@ thread-pre-split:                                 ; preds = %40
   br i1 %59, label %.thread436, label %.thread421
 
 .thread421:                                       ; preds = %58, %40, %44, %28, %21
-  %.0433 = phi i32 [ 9, %40 ], [ 9, %44 ], [ 9, %28 ], [ 1, %21 ], [ 9, %58 ]
-  %.0304432 = phi i32 [ 16, %40 ], [ 16, %44 ], [ 4, %28 ], [ 0, %21 ], [ 0, %58 ]
-  %.0305431 = phi ptr [ %35, %40 ], [ %35, %44 ], [ %23, %28 ], [ null, %21 ], [ %53, %58 ]
-  %.0306430 = phi i32 [ 2, %40 ], [ 2, %44 ], [ 1, %28 ], [ 0, %21 ], [ 3, %58 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0433, i32 noundef %.0306430, ptr noundef null, i32 noundef %.0304432, ptr noundef %.0305431) #10
+  %.0304433 = phi i32 [ 9, %40 ], [ 9, %44 ], [ 9, %28 ], [ 1, %21 ], [ 9, %58 ]
+  %.0306432 = phi i32 [ 16, %40 ], [ 16, %44 ], [ 4, %28 ], [ 0, %21 ], [ 0, %58 ]
+  %.0307431 = phi ptr [ %35, %40 ], [ %35, %44 ], [ %23, %28 ], [ null, %21 ], [ %53, %58 ]
+  %.0308430 = phi i32 [ 2, %40 ], [ 2, %44 ], [ 1, %28 ], [ 0, %21 ], [ 3, %58 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0304433, i32 noundef %.0308430, ptr noundef null, i32 noundef %.0306432, ptr noundef %.0307431) #10
   br label %328
 
 .thread436:                                       ; preds = %58, %.thread415, %49
@@ -225,7 +225,7 @@ thread-pre-split448:                              ; preds = %73
 93:                                               ; preds = %thread-pre-split448, %81
   %94 = phi i64 [ %74, %thread-pre-split448 ], [ %.pre501, %81 ]
   %95 = phi ptr [ %.pr449, %thread-pre-split448 ], [ %92, %81 ]
-  %.0309 = phi ptr [ null, %thread-pre-split448 ], [ %87, %81 ]
+  %.0314 = phi ptr [ null, %thread-pre-split448 ], [ %87, %81 ]
   %.not356 = icmp eq ptr %95, null
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   %96 = call i32 @getc(ptr noundef nonnull %69)
@@ -265,11 +265,11 @@ php_iptc_get1.exit:                               ; preds = %104, %105
 
 109:                                              ; preds = %php_iptc_get1.exit.thread, %php_iptc_get1.exit
   %110 = call i32 @fclose(ptr noundef nonnull %69)
-  %.not376 = icmp eq ptr %.0309, null
+  %.not376 = icmp eq ptr %.0314, null
   br i1 %.not376, label %112, label %111
 
 111:                                              ; preds = %109
-  call void @_efree(ptr noundef nonnull %.0309) #10
+  call void @_efree(ptr noundef nonnull %.0314) #10
   br label %112
 
 112:                                              ; preds = %111, %109
@@ -332,11 +332,11 @@ php_iptc_get1.exit379:                            ; preds = %125, %126
 
 134:                                              ; preds = %php_iptc_get1.exit379.thread, %php_iptc_get1.exit379
   %135 = call i32 @fclose(ptr noundef nonnull %69)
-  %.not375 = icmp eq ptr %.0309, null
+  %.not375 = icmp eq ptr %.0314, null
   br i1 %.not375, label %137, label %136
 
 136:                                              ; preds = %134
-  call void @_efree(ptr noundef nonnull %.0309) #10
+  call void @_efree(ptr noundef nonnull %.0314) #10
   br label %137
 
 137:                                              ; preds = %136, %134
@@ -354,7 +354,7 @@ php_iptc_get1.exit.thread.i:                      ; preds = %.loopexit, %.prehea
   %.not361552 = phi i1 [ %.not361548, %.lr.ph554 ], [ %.not361, %.loopexit ]
   %141 = phi i64 [ %130, %.lr.ph554 ], [ %278, %.loopexit ]
   %.3341476551 = phi i64 [ %33, %.lr.ph554 ], [ %.5343, %.loopexit ]
-  %.0307478550 = phi i1 [ false, %.lr.ph554 ], [ %.1308, %.loopexit ]
+  %.0312478550 = phi i1 [ false, %.lr.ph554 ], [ %.1313, %.loopexit ]
   %142 = trunc i64 %141 to i32
   %143 = icmp sgt i32 %142, 0
   br i1 %143, label %144, label %147
@@ -599,7 +599,7 @@ php_iptc_skip_variable.exit:                      ; preds = %.lr.ph.split.split.
   br label %php_iptc_next_marker.exit.thread
 
 210:                                              ; preds = %php_iptc_put1.exit, %php_iptc_put1.exit
-  br i1 %.0307478550, label %.loopexit, label %211
+  br i1 %.0312478550, label %.loopexit, label %211
 
 211:                                              ; preds = %210
   %212 = load i64, ptr %15, align 8
@@ -619,10 +619,10 @@ php_iptc_skip_variable.exit:                      ; preds = %.lr.ph.split.split.
   br label %220
 
 220:                                              ; preds = %211, %php_iptc_put1.exit388
-  %.0310474 = phi i64 [ 0, %211 ], [ %233, %php_iptc_put1.exit388 ]
+  %.0315474 = phi i64 [ 0, %211 ], [ %233, %php_iptc_put1.exit388 ]
   %221 = load i64, ptr %15, align 8
   %222 = trunc i64 %221 to i32
-  %223 = getelementptr inbounds [29 x i8], ptr @psheader, i64 0, i64 %.0310474
+  %223 = getelementptr inbounds [29 x i8], ptr @psheader, i64 0, i64 %.0315474
   %224 = load i8, ptr %223, align 1
   %225 = load ptr, ptr %16, align 8
   %.not370 = icmp eq ptr %225, null
@@ -649,7 +649,7 @@ php_iptc_skip_variable.exit:                      ; preds = %.lr.ph.split.split.
 
 php_iptc_put1.exit388:                            ; preds = %229, %230
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %233 = add nuw nsw i64 %.0310474, 1
+  %233 = add nuw nsw i64 %.0315474, 1
   %exitcond.not = icmp eq i64 %233, 28
   br i1 %exitcond.not, label %234, label %220
 
@@ -717,10 +717,10 @@ php_iptc_put1.exit396:                            ; preds = %253, %254
   br i1 %.not479, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %php_iptc_put1.exit396, %php_iptc_put1.exit400
-  %.1311475 = phi i64 [ %269, %php_iptc_put1.exit400 ], [ 0, %php_iptc_put1.exit396 ]
+  %.1316475 = phi i64 [ %269, %php_iptc_put1.exit400 ], [ 0, %php_iptc_put1.exit396 ]
   %257 = load i64, ptr %15, align 8
   %258 = trunc i64 %257 to i32
-  %259 = getelementptr inbounds i8, ptr %34, i64 %.1311475
+  %259 = getelementptr inbounds i8, ptr %34, i64 %.1316475
   %260 = load i8, ptr %259, align 1
   %261 = load ptr, ptr %16, align 8
   %.not369 = icmp eq ptr %261, null
@@ -747,7 +747,7 @@ php_iptc_put1.exit396:                            ; preds = %253, %254
 
 php_iptc_put1.exit400:                            ; preds = %265, %266
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %269 = add nuw i64 %.1311475, 1
+  %269 = add nuw i64 %.1316475, 1
   %exitcond500.not = icmp eq i64 %269, %spec.select
   br i1 %exitcond500.not, label %.loopexit, label %.lr.ph
 
@@ -771,7 +771,7 @@ php_iptc_put1.exit400:                            ; preds = %265, %266
 
 .loopexit:                                        ; preds = %php_iptc_put1.exit400, %php_iptc_put1.exit396, %210, %274
   %.5343 = phi i64 [ %.3341476551, %274 ], [ %.3341476551, %210 ], [ 0, %php_iptc_put1.exit396 ], [ %spec.select, %php_iptc_put1.exit400 ]
-  %.1308 = phi i1 [ %.0307478550, %274 ], [ true, %210 ], [ true, %php_iptc_put1.exit396 ], [ true, %php_iptc_put1.exit400 ]
+  %.1313 = phi i1 [ %.0312478550, %274 ], [ true, %210 ], [ true, %php_iptc_put1.exit396 ], [ true, %php_iptc_put1.exit400 ]
   %278 = load i64, ptr %15, align 8
   %279 = load ptr, ptr %16, align 8
   %.not361 = icmp eq ptr %279, null
@@ -789,29 +789,29 @@ php_iptc_next_marker.exit.thread:                 ; preds = %php_iptc_next_marke
 
 285:                                              ; preds = %php_iptc_next_marker.exit.thread
   %286 = load ptr, ptr %16, align 8
-  %287 = getelementptr inbounds i8, ptr %.0309, i64 24
+  %287 = getelementptr inbounds i8, ptr %.0314, i64 24
   %288 = ptrtoint ptr %286 to i64
   %289 = ptrtoint ptr %287 to i64
   %290 = sub i64 %288, %289
-  %291 = getelementptr inbounds i8, ptr %.0309, i64 16
+  %291 = getelementptr inbounds i8, ptr %.0314, i64 16
   %292 = load i64, ptr %291, align 8
   %293 = icmp ule i64 %290, %292
   call void @llvm.assume(i1 %293)
-  %294 = getelementptr inbounds i8, ptr %.0309, i64 4
+  %294 = getelementptr inbounds i8, ptr %.0314, i64 4
   %295 = load i32, ptr %294, align 4
   %296 = and i32 %295, 64
   %.not373 = icmp eq i32 %296, 0
   br i1 %.not373, label %297, label %309
 
 297:                                              ; preds = %285
-  %298 = load i32, ptr %.0309, align 4
+  %298 = load i32, ptr %.0314, align 4
   %299 = icmp eq i32 %298, 1
   br i1 %299, label %300, label %309
 
 300:                                              ; preds = %297
   %301 = and i64 %290, -8
   %302 = add i64 %301, 32
-  %303 = call ptr @_erealloc(ptr noundef nonnull %.0309, i64 noundef %302) #12
+  %303 = call ptr @_erealloc(ptr noundef nonnull %.0314, i64 noundef %302) #12
   %304 = getelementptr inbounds i8, ptr %303, i64 16
   store i64 %290, ptr %304, align 8
   %305 = getelementptr inbounds i8, ptr %303, i64 8
@@ -842,16 +842,16 @@ php_iptc_next_marker.exit.thread:                 ; preds = %php_iptc_next_marke
   br i1 %.not374, label %320, label %324
 
 320:                                              ; preds = %309
-  %321 = load i32, ptr %.0309, align 4
+  %321 = load i32, ptr %.0314, align 4
   %322 = icmp ne i32 %321, 0
   call void @llvm.assume(i1 %322)
   %323 = add i32 %321, -1
-  store i32 %323, ptr %.0309, align 4
+  store i32 %323, ptr %.0314, align 4
   br label %324
 
 324:                                              ; preds = %309, %320, %300
-  %.0319 = phi ptr [ %303, %300 ], [ %312, %320 ], [ %312, %309 ]
-  store ptr %.0319, ptr %1, align 8
+  %.0310 = phi ptr [ %303, %300 ], [ %312, %320 ], [ %312, %309 ]
+  store ptr %.0310, ptr %1, align 8
   %325 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 262, ptr %325, align 8
   br label %328
@@ -1171,39 +1171,39 @@ define hidden void @zif_iptcparse(ptr noundef %0, ptr nocapture noundef %1) loca
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .thread165:                                       ; preds = %14, %.thread153
-  %.0116164 = phi i32 [ 1, %.thread153 ], [ 9, %14 ]
-  %.0119163 = phi i32 [ 0, %.thread153 ], [ 4, %14 ]
-  %.0120162 = phi ptr [ null, %.thread153 ], [ %9, %14 ]
-  %.0121161 = phi i32 [ 0, %.thread153 ], [ 1, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0116164, i32 noundef %.0121161, ptr noundef null, i32 noundef %.0119163, ptr noundef %.0120162) #10
+  %.0119164 = phi i32 [ 1, %.thread153 ], [ 9, %14 ]
+  %.0122163 = phi i32 [ 0, %.thread153 ], [ 1, %14 ]
+  %.0123162 = phi i32 [ 0, %.thread153 ], [ 4, %14 ]
+  %.0124161 = phi ptr [ null, %.thread153 ], [ %9, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0119164, i32 noundef %.0122163, ptr noundef null, i32 noundef %.0123162, ptr noundef %.0124161) #10
   br label %91
 
 .lr.ph:                                           ; preds = %16, %26
-  %.0118171 = phi i64 [ %27, %26 ], [ 0, %16 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 %.0118171
+  %.0117171 = phi i64 [ %27, %26 ], [ 0, %16 ]
+  %21 = getelementptr inbounds i8, ptr %20, i64 %.0117171
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 28
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0118171
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0117171
   %25 = load i8, ptr %gep, align 1
   %.off = add i8 %25, -1
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %._crit_edge, label %26
 
 26:                                               ; preds = %24, %.lr.ph
-  %27 = add nuw i64 %.0118171, 1
+  %27 = add nuw i64 %.0117171, 1
   %exitcond.not = icmp eq i64 %27, %19
   br i1 %exitcond.not, label %._crit_edge192.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %24, %16
-  %.0118.lcssa = phi i64 [ 0, %16 ], [ %.0118171, %24 ]
+  %.0117.lcssa = phi i64 [ 0, %16 ], [ %.0117171, %24 ]
   %invariant.gep176 = getelementptr i8, ptr %17, i64 26
   %invariant.gep178 = getelementptr i8, ptr %17, i64 27
   %invariant.gep180 = getelementptr i8, ptr %17, i64 30
   %invariant.gep182 = getelementptr i8, ptr %17, i64 31
-  %28 = icmp ult i64 %.0118.lcssa, %19
+  %28 = icmp ult i64 %.0117.lcssa, %19
   br i1 %28, label %.lr.ph191, label %._crit_edge192.thread
 
 .lr.ph191:                                        ; preds = %._crit_edge
@@ -1212,8 +1212,8 @@ define hidden void @zif_iptcparse(ptr noundef %0, ptr nocapture noundef %1) loca
   br label %31
 
 31:                                               ; preds = %.lr.ph191, %84
-  %.1189 = phi i64 [ %.0118.lcssa, %.lr.ph191 ], [ %65, %84 ]
-  %.0123188 = phi i32 [ 0, %.lr.ph191 ], [ %87, %84 ]
+  %.1189 = phi i64 [ %.0117.lcssa, %.lr.ph191 ], [ %65, %84 ]
+  %.0120188 = phi i32 [ 0, %.lr.ph191 ], [ %87, %84 ]
   %32 = getelementptr inbounds i8, ptr %20, i64 %.1189
   %33 = load i8, ptr %32, align 1
   %.not143 = icmp eq i8 %33, 28
@@ -1280,7 +1280,7 @@ define hidden void @zif_iptcparse(ptr noundef %0, ptr nocapture noundef %1) loca
   %68 = zext i8 %36 to i32
   %69 = zext i8 %37 to i32
   %70 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %4, i64 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %68, i32 noundef %69) #10
-  %71 = icmp eq i32 %.0123188, 0
+  %71 = icmp eq i32 %.0120188, 0
   br i1 %71, label %72, label %._crit_edge203
 
 ._crit_edge203:                                   ; preds = %67
@@ -1310,16 +1310,16 @@ define hidden void @zif_iptcparse(ptr noundef %0, ptr nocapture noundef %1) loca
   br label %84
 
 84:                                               ; preds = %79, %74
-  %.0124 = phi ptr [ %83, %79 ], [ %77, %74 ]
+  %.0121 = phi ptr [ %83, %79 ], [ %77, %74 ]
   %85 = getelementptr inbounds i8, ptr %20, i64 %.2
-  %86 = call i32 @add_next_index_stringl(ptr noundef %.0124, ptr noundef nonnull %85, i64 noundef %62) #10
-  %87 = add i32 %.0123188, 1
+  %86 = call i32 @add_next_index_stringl(ptr noundef %.0121, ptr noundef nonnull %85, i64 noundef %62) #10
+  %87 = add i32 %.0120188, 1
   %88 = icmp ult i64 %65, %19
   br i1 %88, label %31, label %._crit_edge192
 
 ._crit_edge192:                                   ; preds = %84, %31, %39, %64, %57
-  %.0123.lcssa.ph = phi i32 [ %87, %84 ], [ %.0123188, %31 ], [ %.0123188, %39 ], [ %.0123188, %64 ], [ %.0123188, %57 ]
-  %89 = icmp eq i32 %.0123.lcssa.ph, 0
+  %.0120.lcssa.ph = phi i32 [ %87, %84 ], [ %.0120188, %31 ], [ %.0120188, %39 ], [ %.0120188, %64 ], [ %.0120188, %57 ]
+  %89 = icmp eq i32 %.0120.lcssa.ph, 0
   br i1 %89, label %._crit_edge192.thread, label %91
 
 ._crit_edge192.thread:                            ; preds = %26, %._crit_edge, %._crit_edge192

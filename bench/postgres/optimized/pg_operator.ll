@@ -144,8 +144,8 @@ OperatorGet.exit:                                 ; preds = %21
   br label %57
 
 57:                                               ; preds = %50, %52, %55, %.thread
-  %.0100 = phi i32 [ 0, %.thread ], [ %51, %55 ], [ %51, %52 ], [ 0, %50 ]
-  %.098 = phi i1 [ false, %.thread ], [ false, %55 ], [ false, %52 ], [ true, %50 ]
+  %.099 = phi i1 [ false, %.thread ], [ false, %55 ], [ false, %52 ], [ true, %50 ]
+  %.097 = phi i32 [ 0, %.thread ], [ %51, %55 ], [ %51, %52 ], [ 0, %50 ]
   br i1 %24, label %58, label %70
 
 58:                                               ; preds = %57
@@ -176,7 +176,7 @@ OperatorGet.exit:                                 ; preds = %21
   unreachable
 
 70:                                               ; preds = %57, %65
-  %.099 = phi i32 [ %59, %65 ], [ 0, %57 ]
+  %.098 = phi i32 [ %59, %65 ], [ 0, %57 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %14, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %13, i8 1, i64 15, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %12, i8 0, i64 15, i1 false)
@@ -207,10 +207,10 @@ OperatorGet.exit:                                 ; preds = %21
   %85 = zext i32 %22 to i64
   %86 = getelementptr inbounds i8, ptr %14, i64 72
   store i64 %85, ptr %86, align 8
-  %87 = zext i32 %.0100 to i64
+  %87 = zext i32 %.097 to i64
   %88 = getelementptr inbounds i8, ptr %14, i64 80
   store i64 %87, ptr %88, align 16
-  %89 = zext i32 %.099 to i64
+  %89 = zext i32 %.098 to i64
   %90 = getelementptr inbounds i8, ptr %14, i64 88
   store i64 %89, ptr %90, align 8
   %91 = zext i32 %4 to i64
@@ -261,13 +261,13 @@ OperatorGet.exit:                                 ; preds = %21
   %.096 = phi i32 [ %.0.i120123, %104 ], [ %110, %109 ]
   %.0 = phi ptr [ %107, %104 ], [ %114, %109 ]
   %116 = call { i64, i32 } @makeOperatorDependencies(ptr noundef %.0, i1 noundef zeroext true, i1 noundef zeroext %.not124)
-  %spec.select116 = select i1 %.098, i32 %.096, i32 %.0100
-  %117 = or i32 %spec.select116, %.099
+  %spec.select116 = select i1 %.099, i32 %.096, i32 %.097
+  %117 = or i32 %spec.select116, %.098
   %or.cond.not = icmp eq i32 %117, 0
   br i1 %or.cond.not, label %119, label %118
 
 118:                                              ; preds = %115
-  call void @OperatorUpd(i32 noundef %.096, i32 noundef %spec.select116, i32 noundef %.099, i1 noundef zeroext false)
+  call void @OperatorUpd(i32 noundef %.096, i32 noundef %spec.select116, i32 noundef %.098, i1 noundef zeroext false)
   br label %119
 
 119:                                              ; preds = %118, %115

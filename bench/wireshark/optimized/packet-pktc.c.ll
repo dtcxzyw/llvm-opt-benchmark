@@ -492,8 +492,8 @@ define internal i32 @dissect_pktc_mtafqdn(ptr noundef %0, ptr noundef %1, ptr no
   br label %38
 
 38:                                               ; preds = %36, %33
-  %.0 = phi i32 [ %35, %33 ], [ %26, %36 ]
-  call void @proto_item_set_len(ptr noundef %11, i32 noundef %.0) #4
+  %.030 = phi i32 [ %35, %33 ], [ %26, %36 ]
+  call void @proto_item_set_len(ptr noundef %11, i32 noundef %.030) #4
   br label %39
 
 39:                                               ; preds = %38, %31

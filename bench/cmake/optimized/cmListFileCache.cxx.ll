@@ -1374,7 +1374,7 @@ define dso_local noundef zeroext i1 @_ZN16cmListFileParser5ParseEv(ptr noundef n
 
 18:                                               ; preds = %.lr.ph, %_ZNSt6vectorI18cmListFileFunctionSaIS0_EE12emplace_backIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERlSA_S_I18cmListFileArgumentSaISB_EEEEERS0_DpOT_.exit
   %19 = phi ptr [ %13, %.lr.ph ], [ %90, %_ZNSt6vectorI18cmListFileFunctionSaIS0_EE12emplace_backIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERlSA_S_I18cmListFileArgumentSaISB_EEEEERS0_DpOT_.exit ]
-  %.02349 = phi i1 [ true, %.lr.ph ], [ %.124, %_ZNSt6vectorI18cmListFileFunctionSaIS0_EE12emplace_backIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERlSA_S_I18cmListFileArgumentSaISB_EEEEERS0_DpOT_.exit ]
+  %.02549 = phi i1 [ true, %.lr.ph ], [ %.126, %_ZNSt6vectorI18cmListFileFunctionSaIS0_EE12emplace_backIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERlSA_S_I18cmListFileArgumentSaISB_EEEEERS0_DpOT_.exit ]
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %65 [
     i32 1, label %_ZNSt6vectorI18cmListFileFunctionSaIS0_EE12emplace_backIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERlSA_S_I18cmListFileArgumentSaISB_EEEEERS0_DpOT_.exit
@@ -1390,7 +1390,7 @@ define dso_local noundef zeroext i1 @_ZN16cmListFileParser5ParseEv(ptr noundef n
   br label %_ZNSt6vectorI18cmListFileFunctionSaIS0_EE12emplace_backIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERlSA_S_I18cmListFileArgumentSaISB_EEEEERS0_DpOT_.exit
 
 23:                                               ; preds = %18
-  br i1 %.02349, label %24, label %41
+  br i1 %.02549, label %24, label %41
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds i8, ptr %19, i64 8
@@ -1538,7 +1538,7 @@ define dso_local noundef zeroext i1 @_ZN16cmListFileParser5ParseEv(ptr noundef n
   br label %179
 
 _ZNSt6vectorI18cmListFileFunctionSaIS0_EE12emplace_backIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERlSA_S_I18cmListFileArgumentSaISB_EEEEERS0_DpOT_.exit: ; preds = %40, %37, %18, %21, %22
-  %.124 = phi i1 [ %.02349, %18 ], [ true, %21 ], [ false, %22 ], [ false, %37 ], [ false, %40 ]
+  %.126 = phi i1 [ %.02549, %18 ], [ true, %21 ], [ false, %22 ], [ false, %37 ], [ false, %40 ]
   %89 = load ptr, ptr %11, align 8
   %90 = tail call ptr @cmListFileLexer_Scan(ptr noundef %89)
   %.not = icmp eq ptr %90, null
@@ -1789,8 +1789,8 @@ _ZNSt8optionalI17cmListFileContextED2Ev.exit:     ; preds = %169, %_ZNSt22_Optio
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %_ZNSt8optionalI17cmListFileContextED2Ev.exit, %83, %59
-  %.126 = phi i1 [ false, %59 ], [ false, %83 ], [ %switch, %_ZNSt8optionalI17cmListFileContextED2Ev.exit ], [ false, %24 ]
-  ret i1 %.126
+  %.124 = phi i1 [ false, %59 ], [ false, %83 ], [ %switch, %_ZNSt8optionalI17cmListFileContextED2Ev.exit ], [ false, %24 ]
+  ret i1 %.124
 
 179:                                              ; preds = %.body, %88, %64
   %.pn34.pn = phi { ptr, i32 } [ %.pn34, %64 ], [ %.pn32, %88 ], [ %.pn.pn.pn, %.body ]

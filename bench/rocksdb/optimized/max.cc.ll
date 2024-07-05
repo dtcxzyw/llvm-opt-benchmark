@@ -198,21 +198,21 @@ for.body:                                         ; preds = %for.body.preheader,
   %max.sroa.4.024 = phi i64 [ %spec.select17, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ 0, %for.body.preheader ]
   %max.sroa.0.023 = phi ptr [ %spec.select, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ @.str, %for.body.preheader ]
   %__begin1.sroa.11.022 = phi ptr [ %__begin1.sroa.11.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %4, %for.body.preheader ]
-  %__begin1.sroa.0.021 = phi ptr [ %__begin1.sroa.0.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %2, %for.body.preheader ]
-  %__begin1.sroa.8.020 = phi ptr [ %__begin1.sroa.8.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %5, %for.body.preheader ]
-  %size_2.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.021, i64 8
+  %__begin1.sroa.8.021 = phi ptr [ %__begin1.sroa.8.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %5, %for.body.preheader ]
+  %__begin1.sroa.0.020 = phi ptr [ %__begin1.sroa.0.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %2, %for.body.preheader ]
+  %size_2.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.020, i64 8
   %6 = load i64, ptr %size_2.i, align 8
   %cmp.i = icmp ult i64 %max.sroa.4.024, %6
   %..i = tail call i64 @llvm.umin.i64(i64 %max.sroa.4.024, i64 %6)
-  %7 = load ptr, ptr %__begin1.sroa.0.021, align 8
+  %7 = load ptr, ptr %__begin1.sroa.0.020, align 8
   %call.i = tail call i32 @memcmp(ptr noundef %max.sroa.0.023, ptr noundef %7, i64 noundef %..i) #13
   %cmp6.not.i = icmp eq i32 %call.i, 0
   %cmp18 = icmp slt i32 %call.i, 0
   %cmp = select i1 %cmp6.not.i, i1 %cmp.i, i1 %cmp18
   %spec.select = select i1 %cmp, ptr %7, ptr %max.sroa.0.023
   %spec.select17 = select i1 %cmp, i64 %6, i64 %max.sroa.4.024
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.021, i64 16
-  %cmp.i10 = icmp eq ptr %incdec.ptr.i, %__begin1.sroa.8.020
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.020, i64 16
+  %cmp.i10 = icmp eq ptr %incdec.ptr.i, %__begin1.sroa.8.021
   br i1 %cmp.i10, label %if.then.i, label %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit
 
 if.then.i:                                        ; preds = %for.body
@@ -222,8 +222,8 @@ if.then.i:                                        ; preds = %for.body
   br label %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit
 
 _ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit: ; preds = %for.body, %if.then.i
-  %__begin1.sroa.8.1 = phi ptr [ %add.ptr.i.i, %if.then.i ], [ %__begin1.sroa.8.020, %for.body ]
   %__begin1.sroa.0.1 = phi ptr [ %8, %if.then.i ], [ %incdec.ptr.i, %for.body ]
+  %__begin1.sroa.8.1 = phi ptr [ %add.ptr.i.i, %if.then.i ], [ %__begin1.sroa.8.021, %for.body ]
   %__begin1.sroa.11.1 = phi ptr [ %add.ptr.i, %if.then.i ], [ %__begin1.sroa.11.022, %for.body ]
   %cmp.i.i.not = icmp eq ptr %__begin1.sroa.0.1, %3
   br i1 %cmp.i.i.not, label %for.end, label %for.body

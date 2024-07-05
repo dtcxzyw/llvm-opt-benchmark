@@ -159,8 +159,8 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %37 = phi i1 [ true, %.lr.ph.lr.ph ], [ %595, %.outer ]
-  %.0461.ph735 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %594, %.outer ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 %.0461.ph735
+  %.0460.ph735 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %594, %.outer ]
+  %38 = getelementptr inbounds i8, ptr %0, i64 %.0460.ph735
   br i1 %37, label %.lr.ph.split.us, label %.lr.ph.split, !llvm.loop !5
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %60
@@ -348,8 +348,8 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
   br label %96
 
 96:                                               ; preds = %.critedge, %94
-  %.0 = phi ptr [ %95, %94 ], [ %99, %.critedge ]
-  %97 = load i8, ptr %.0, align 1
+  %.0461 = phi ptr [ %95, %94 ], [ %99, %.critedge ]
+  %97 = load i8, ptr %.0461, align 1
   switch i8 %97, label %.preheader [
     i8 32, label %.critedge
     i8 9, label %.critedge
@@ -361,11 +361,11 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr nocapture noundef readonly 
   br i1 %or.cond524732, label %.lr.ph734, label %.critedge3
 
 .critedge:                                        ; preds = %96, %96
-  %99 = getelementptr inbounds i8, ptr %.0, i64 1
+  %99 = getelementptr inbounds i8, ptr %.0461, i64 1
   br label %96, !llvm.loop !7
 
 .lr.ph734:                                        ; preds = %.preheader, %.lr.ph734
-  %.1733 = phi ptr [ %100, %.lr.ph734 ], [ %.0, %.preheader ]
+  %.1733 = phi ptr [ %100, %.lr.ph734 ], [ %.0461, %.preheader ]
   %100 = getelementptr inbounds i8, ptr %.1733, i64 1
   %.pr = load i8, ptr %100, align 1
   %101 = add i8 %.pr, -48
@@ -1642,13 +1642,13 @@ switch.early.test:                                ; preds = %394
   br label %596
 
 .outer:                                           ; preds = %55, %53, %77, %75, %434, %576, %519, %519, %472, %405, %switch.early.test, %switch.early.test, %.split686.us, %420, %410, %.split632.us, %501, %512, %525, %531, %521, %515, %540, %565, %536, %538, %534, %580, %583, %572, %574, %590, %570, %114, %87, %103, %.split692.us, %123, %198, %119, %240, %241, %207, %211, %.split646.us, %249, %254, %245, %247, %.split652.us, %266, %271, %262, %264, %.split657.us, %314, %291, %315, %279, %283, %.split662.us, %393, %392, %394, %366, %375, %358, %362, %359, %342, %351, %334, %338, %335, %319, %326, %.split668.us, %409, %401, %403, %.split674.us, %476, %477, %458, %466, %451, %453, %444, %446, %438, %430, %432, %487, %469, %.split680.us
-  %594 = add nuw i64 %.0461.ph735, 1
+  %594 = add nuw i64 %.0460.ph735, 1
   %595 = icmp ult i64 %594, %10
   %exitcond.not = icmp eq i64 %594, %10
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
 
 596:                                              ; preds = %4, %.split630.us, %592, %561, %533, %514, %513, %506, %495, %471, %465, %452, %445, %439, %428, %399, %376, %365, %352, %341, %328, %317, %285, %243, %213, %ftp_pl_get_permission.exit.thread, %127, %122, %113, %104, %102, %.split628.us, %.split.us
-  %.0460 = phi i64 [ %10, %4 ], [ %10, %.split628.us ], [ %593, %.split630.us ], [ %10, %592 ], [ %10, %561 ], [ %10, %533 ], [ %10, %506 ], [ %10, %513 ], [ %10, %514 ], [ %10, %495 ], [ %10, %471 ], [ %10, %465 ], [ %10, %452 ], [ %10, %445 ], [ %10, %439 ], [ %10, %428 ], [ %10, %399 ], [ %10, %376 ], [ %10, %365 ], [ %10, %352 ], [ %10, %341 ], [ %10, %328 ], [ %10, %317 ], [ %10, %285 ], [ %10, %243 ], [ %10, %213 ], [ %10, %122 ], [ %10, %127 ], [ %10, %ftp_pl_get_permission.exit.thread ], [ %10, %113 ], [ %10, %104 ], [ %10, %102 ], [ %10, %.split.us ]
+  %.0462 = phi i64 [ %10, %4 ], [ %10, %.split628.us ], [ %593, %.split630.us ], [ %10, %592 ], [ %10, %561 ], [ %10, %533 ], [ %10, %506 ], [ %10, %513 ], [ %10, %514 ], [ %10, %495 ], [ %10, %471 ], [ %10, %465 ], [ %10, %452 ], [ %10, %445 ], [ %10, %439 ], [ %10, %428 ], [ %10, %399 ], [ %10, %376 ], [ %10, %365 ], [ %10, %352 ], [ %10, %341 ], [ %10, %328 ], [ %10, %317 ], [ %10, %285 ], [ %10, %243 ], [ %10, %213 ], [ %10, %122 ], [ %10, %127 ], [ %10, %ftp_pl_get_permission.exit.thread ], [ %10, %113 ], [ %10, %104 ], [ %10, %102 ], [ %10, %.split.us ]
   %597 = getelementptr inbounds i8, ptr %15, i64 16
   %598 = load ptr, ptr %597, align 8
   %.not523 = icmp eq ptr %598, null
@@ -1660,8 +1660,8 @@ switch.early.test:                                ; preds = %394
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer, %..loopexit_crit_edge, %25, %596, %599
-  %.0462 = phi i64 [ %.0460, %599 ], [ %.0460, %596 ], [ 0, %25 ], [ %10, %..loopexit_crit_edge ], [ %10, %.outer ]
-  ret i64 %.0462
+  %.0 = phi i64 [ %.0462, %599 ], [ %.0462, %596 ], [ 0, %25 ], [ %10, %..loopexit_crit_edge ], [ %10, %.outer ]
+  ret i64 %.0
 }
 
 declare ptr @Curl_fileinfo_alloc() local_unnamed_addr #1

@@ -534,10 +534,10 @@ VP8SetError.exit127:                              ; preds = %40, %43, %VP8CheckS
 
 98:                                               ; preds = %49, %34
   %99 = phi i32 [ %.pre, %49 ], [ %30, %34 ]
-  %.0108 = phi ptr [ %73, %49 ], [ %35, %34 ]
-  %.0107 = phi i64 [ %74, %49 ], [ %36, %34 ]
+  %.0108 = phi i64 [ %74, %49 ], [ %36, %34 ]
+  %.0107 = phi ptr [ %73, %49 ], [ %35, %34 ]
   %100 = zext i32 %99 to i64
-  %101 = icmp ult i64 %.0107, %100
+  %101 = icmp ult i64 %.0108, %100
   br i1 %101, label %102, label %106
 
 102:                                              ; preds = %98
@@ -552,11 +552,11 @@ VP8SetError.exit127:                              ; preds = %40, %43, %VP8CheckS
 
 106:                                              ; preds = %98
   %107 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @VP8InitBitReader(ptr noundef nonnull %107, ptr noundef nonnull %.0108, i64 noundef %100) #13
+  tail call void @VP8InitBitReader(ptr noundef nonnull %107, ptr noundef nonnull %.0107, i64 noundef %100) #13
   %108 = load i32, ptr %31, align 4
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr %.0108, i64 %109
-  %111 = sub i64 %.0107, %109
+  %110 = getelementptr inbounds i8, ptr %.0107, i64 %109
+  %111 = sub i64 %.0108, %109
   %112 = load i8, ptr %21, align 4
   %.not118 = icmp eq i8 %112, 0
   br i1 %.not118, label %120, label %113
@@ -871,33 +871,33 @@ define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef %0, ptr 
 
 16:                                               ; preds = %.lr.ph, %16
   %.03951 = phi i64 [ 0, %.lr.ph ], [ %28, %16 ]
-  %.04050 = phi i64 [ %14, %.lr.ph ], [ %26, %16 ]
-  %.04149 = phi ptr [ %13, %.lr.ph ], [ %25, %16 ]
-  %.04248 = phi ptr [ %1, %.lr.ph ], [ %27, %16 ]
-  %17 = load i16, ptr %.04248, align 1
+  %.04150 = phi i64 [ %14, %.lr.ph ], [ %26, %16 ]
+  %.04249 = phi ptr [ %13, %.lr.ph ], [ %25, %16 ]
+  %.04348 = phi ptr [ %1, %.lr.ph ], [ %27, %16 ]
+  %17 = load i16, ptr %.04348, align 1
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %.04248, i64 2
+  %19 = getelementptr inbounds i8, ptr %.04348, i64 2
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 16
   %23 = or disjoint i64 %22, %18
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %23, i64 %.04050)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %23, i64 %.04150)
   %24 = getelementptr inbounds %struct.VP8BitReader, ptr %15, i64 %.03951
-  tail call void @VP8InitBitReader(ptr noundef nonnull %24, ptr noundef %.04149, i64 noundef %spec.select) #13
-  %25 = getelementptr inbounds i8, ptr %.04149, i64 %spec.select
-  %26 = sub i64 %.04050, %spec.select
-  %27 = getelementptr inbounds i8, ptr %.04248, i64 3
+  tail call void @VP8InitBitReader(ptr noundef nonnull %24, ptr noundef %.04249, i64 noundef %spec.select) #13
+  %25 = getelementptr inbounds i8, ptr %.04249, i64 %spec.select
+  %26 = sub i64 %.04150, %spec.select
+  %27 = getelementptr inbounds i8, ptr %.04348, i64 3
   %28 = add nuw nsw i64 %.03951, 1
   %exitcond.not = icmp eq i64 %28, %umax
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %16, %12
-  %.041.lcssa = phi ptr [ %13, %12 ], [ %25, %16 ]
-  %.040.lcssa = phi i64 [ %14, %12 ], [ %26, %16 ]
+  %.042.lcssa = phi ptr [ %13, %12 ], [ %25, %16 ]
+  %.041.lcssa = phi i64 [ %14, %12 ], [ %26, %16 ]
   %29 = getelementptr inbounds i8, ptr %0, i64 440
   %30 = getelementptr inbounds %struct.VP8BitReader, ptr %29, i64 %9
-  tail call void @VP8InitBitReader(ptr noundef nonnull %30, ptr noundef %.041.lcssa, i64 noundef %.040.lcssa) #13
-  %31 = icmp ult ptr %.041.lcssa, %5
+  tail call void @VP8InitBitReader(ptr noundef nonnull %30, ptr noundef %.042.lcssa, i64 noundef %.041.lcssa) #13
+  %31 = icmp ult ptr %.042.lcssa, %5
   br i1 %31, label %36, label %32
 
 32:                                               ; preds = %._crit_edge
@@ -908,8 +908,8 @@ define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef %0, ptr 
   br label %36
 
 36:                                               ; preds = %._crit_edge, %3, %32
-  %.043 = phi i32 [ %35, %32 ], [ 7, %3 ], [ 0, %._crit_edge ]
-  ret i32 %.043
+  %.040 = phi i32 [ %35, %32 ], [ 7, %3 ], [ 0, %._crit_edge ]
+  ret i32 %.040
 }
 
 declare void @VP8ParseQuant(ptr noundef) local_unnamed_addr #4
@@ -1000,7 +1000,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %51, %54, %43
-  %.0113.i = phi i32 [ 0, %54 ], [ 1, %43 ], [ 1, %51 ]
+  %.0123.i = phi i32 [ 0, %54 ], [ 1, %43 ], [ 1, %51 ]
   %.0.i = phi ptr [ %55, %54 ], [ %20, %43 ], [ %20, %51 ]
   %56 = load i8, ptr %10, align 1
   %57 = and i8 %56, 15
@@ -1009,52 +1009,52 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   br label %60
 
 60:                                               ; preds = %84, %.loopexit.i
-  %.0111142.i = phi ptr [ %13, %.loopexit.i ], [ %82, %84 ]
-  %.0117141.i = phi i32 [ 0, %.loopexit.i ], [ %90, %84 ]
-  %.0122140.i = phi i32 [ 0, %.loopexit.i ], [ %89, %84 ]
-  %.0123139.i = phi i8 [ %59, %.loopexit.i ], [ %87, %84 ]
-  %.0125138.i = phi i8 [ %57, %.loopexit.i ], [ %85, %84 ]
-  %61 = and i8 %.0123139.i, 1
+  %.0106142.i = phi ptr [ %13, %.loopexit.i ], [ %82, %84 ]
+  %.0110141.i = phi i8 [ %57, %.loopexit.i ], [ %85, %84 ]
+  %.0114140.i = phi i8 [ %59, %.loopexit.i ], [ %87, %84 ]
+  %.0118139.i = phi i32 [ 0, %.loopexit.i ], [ %89, %84 ]
+  %.0127138.i = phi i32 [ 0, %.loopexit.i ], [ %90, %84 ]
+  %61 = and i8 %.0114140.i, 1
   %62 = zext nneg i8 %61 to i32
   br label %63
 
 63:                                               ; preds = %63, %60
-  %.0108137.i = phi i32 [ 0, %60 ], [ %81, %63 ]
-  %.0109136.i = phi i32 [ %62, %60 ], [ %70, %63 ]
-  %.1112135.i = phi ptr [ %.0111142.i, %60 ], [ %82, %63 ]
-  %.0119134.i = phi i32 [ 0, %60 ], [ %83, %63 ]
-  %.1126133.i = phi i8 [ %.0125138.i, %60 ], [ %73, %63 ]
-  %64 = and i8 %.1126133.i, 1
+  %.1137.i = phi ptr [ %.0106142.i, %60 ], [ %82, %63 ]
+  %.1111136.i = phi i8 [ %.0110141.i, %60 ], [ %73, %63 ]
+  %.0116135.i = phi i32 [ 0, %60 ], [ %81, %63 ]
+  %.0117134.i = phi i32 [ %62, %60 ], [ %70, %63 ]
+  %.0121133.i = phi i32 [ 0, %60 ], [ %83, %63 ]
+  %64 = and i8 %.1111136.i, 1
   %65 = zext nneg i8 %64 to i32
-  %66 = add nuw nsw i32 %.0109136.i, %65
+  %66 = add nuw nsw i32 %.0117134.i, %65
   %67 = load volatile ptr, ptr @GetCoeffs, align 8
-  %68 = call i32 %67(ptr noundef %1, ptr noundef nonnull %.0.i, i32 noundef %66, ptr noundef nonnull %25, i32 noundef %.0113.i, ptr noundef nonnull %.1112135.i) #13
-  %69 = icmp sgt i32 %68, %.0113.i
+  %68 = call i32 %67(ptr noundef %1, ptr noundef nonnull %.0.i, i32 noundef %66, ptr noundef nonnull %25, i32 noundef %.0123.i, ptr noundef nonnull %.1137.i) #13
+  %69 = icmp sgt i32 %68, %.0123.i
   %70 = zext i1 %69 to i32
-  %71 = lshr i8 %.1126133.i, 1
+  %71 = lshr i8 %.1111136.i, 1
   %72 = select i1 %69, i8 -128, i8 0
   %73 = or disjoint i8 %72, %71
-  %74 = load i16, ptr %.1112135.i, align 2
+  %74 = load i16, ptr %.1137.i, align 2
   %75 = icmp ne i16 %74, 0
   %76 = zext i1 %75 to i32
-  %77 = shl i32 %.0108137.i, 2
+  %77 = shl i32 %.0116135.i, 2
   %78 = icmp sgt i32 %68, 3
   %.inv.i.i = icmp slt i32 %68, 2
   %79 = select i1 %.inv.i.i, i32 %76, i32 2
   %80 = select i1 %78, i32 3, i32 %79
   %81 = or disjoint i32 %80, %77
-  %82 = getelementptr inbounds i8, ptr %.1112135.i, i64 32
-  %83 = add nuw nsw i32 %.0119134.i, 1
+  %82 = getelementptr inbounds i8, ptr %.1137.i, i64 32
+  %83 = add nuw nsw i32 %.0121133.i, 1
   %exitcond.not.i = icmp eq i32 %83, 4
   br i1 %exitcond.not.i, label %84, label %63, !llvm.loop !12
 
 84:                                               ; preds = %63
   %85 = lshr i8 %73, 4
-  %86 = lshr i8 %.0123139.i, 1
+  %86 = lshr i8 %.0114140.i, 1
   %87 = or disjoint i8 %72, %86
-  %88 = shl i32 %.0122140.i, 8
+  %88 = shl i32 %.0118139.i, 8
   %89 = or i32 %81, %88
-  %90 = add nuw nsw i32 %.0117141.i, 1
+  %90 = add nuw nsw i32 %.0127138.i, 1
   %exitcond174.not.i = icmp eq i32 %90, 4
   br i1 %exitcond174.not.i, label %91, label %60, !llvm.loop !13
 
@@ -1068,14 +1068,14 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
 
 97:                                               ; preds = %136, %91
   %.2157.i = phi ptr [ %82, %91 ], [ %129, %136 ]
-  %.0114156.i = phi i32 [ %94, %91 ], [ %145, %136 ]
-  %.0115155.i = phi i32 [ %92, %91 ], [ %142, %136 ]
+  %.0120156.i = phi i32 [ 0, %91 ], [ %139, %136 ]
+  %.0124155.i = phi i32 [ %94, %91 ], [ %145, %136 ]
+  %.0125154.i = phi i32 [ %92, %91 ], [ %142, %136 ]
   %98 = phi i1 [ true, %91 ], [ false, %136 ]
-  %.0116154.i = phi i32 [ 0, %91 ], [ 2, %136 ]
-  %.0121153.i = phi i32 [ 0, %91 ], [ %139, %136 ]
+  %.0126153.i = phi i32 [ 0, %91 ], [ 2, %136 ]
   %99 = load i8, ptr %10, align 1
   %100 = zext i8 %99 to i32
-  %101 = or disjoint i32 %.0116154.i, 4
+  %101 = or disjoint i32 %.0126153.i, 4
   %102 = lshr i32 %100, %101
   %103 = load i8, ptr %6, align 1
   %104 = zext i8 %103 to i32
@@ -1083,60 +1083,60 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   br label %106
 
 106:                                              ; preds = %130, %97
-  %.0107152.i = phi i32 [ 0, %97 ], [ %128, %130 ]
-  %.3151.i = phi ptr [ %.2157.i, %97 ], [ %129, %130 ]
+  %.3152.i = phi ptr [ %.2157.i, %97 ], [ %129, %130 ]
+  %.0108151.i = phi i32 [ 0, %97 ], [ %128, %130 ]
+  %.2112.in150.i = phi i32 [ %102, %97 ], [ %131, %130 ]
+  %.1115.in149.i = phi i32 [ %105, %97 ], [ %135, %130 ]
   %107 = phi i1 [ true, %97 ], [ false, %130 ]
-  %.1124.in149.i = phi i32 [ %105, %97 ], [ %135, %130 ]
-  %.2127.in148.i = phi i32 [ %102, %97 ], [ %131, %130 ]
-  %108 = and i32 %.1124.in149.i, 1
+  %108 = and i32 %.1115.in149.i, 1
   br label %109
 
 109:                                              ; preds = %109, %106
-  %.0106147.i = phi i32 [ %108, %106 ], [ %116, %109 ]
-  %.1146.i = phi i32 [ %.0107152.i, %106 ], [ %128, %109 ]
-  %.4145.i = phi ptr [ %.3151.i, %106 ], [ %129, %109 ]
+  %.4147.i = phi ptr [ %.3152.i, %106 ], [ %129, %109 ]
+  %.0107146.i = phi i32 [ %108, %106 ], [ %116, %109 ]
+  %.1109145.i = phi i32 [ %.0108151.i, %106 ], [ %128, %109 ]
+  %.3113.in144.i = phi i32 [ %.2112.in150.i, %106 ], [ %120, %109 ]
   %110 = phi i1 [ true, %106 ], [ false, %109 ]
-  %.3128.in143.i = phi i32 [ %.2127.in148.i, %106 ], [ %120, %109 ]
-  %111 = and i32 %.3128.in143.i, 1
-  %112 = add nuw nsw i32 %111, %.0106147.i
+  %111 = and i32 %.3113.in144.i, 1
+  %112 = add nuw nsw i32 %111, %.0107146.i
   %113 = load volatile ptr, ptr @GetCoeffs, align 8
-  %114 = call i32 %113(ptr noundef %1, ptr noundef nonnull %95, i32 noundef %112, ptr noundef nonnull %96, i32 noundef 0, ptr noundef nonnull %.4145.i) #13
+  %114 = call i32 %113(ptr noundef %1, ptr noundef nonnull %95, i32 noundef %112, ptr noundef nonnull %96, i32 noundef 0, ptr noundef nonnull %.4147.i) #13
   %115 = icmp sgt i32 %114, 0
   %116 = zext i1 %115 to i32
-  %117 = lshr i32 %.3128.in143.i, 1
+  %117 = lshr i32 %.3113.in144.i, 1
   %118 = and i32 %117, 127
   %119 = select i1 %115, i32 8, i32 0
   %120 = or i32 %119, %118
-  %121 = load i16, ptr %.4145.i, align 2
+  %121 = load i16, ptr %.4147.i, align 2
   %122 = icmp ne i16 %121, 0
   %123 = zext i1 %122 to i32
-  %124 = shl i32 %.1146.i, 2
+  %124 = shl i32 %.1109145.i, 2
   %125 = icmp sgt i32 %114, 3
   %.inv.i131.i = icmp slt i32 %114, 2
   %126 = select i1 %.inv.i131.i, i32 %123, i32 2
   %127 = select i1 %125, i32 3, i32 %126
   %128 = or disjoint i32 %127, %124
-  %129 = getelementptr inbounds i8, ptr %.4145.i, i64 32
+  %129 = getelementptr inbounds i8, ptr %.4147.i, i64 32
   br i1 %110, label %109, label %130, !llvm.loop !14
 
 130:                                              ; preds = %109
   %131 = lshr i32 %120, 2
-  %132 = lshr i32 %.1124.in149.i, 1
+  %132 = lshr i32 %.1115.in149.i, 1
   %133 = and i32 %132, 127
   %134 = select i1 %115, i32 32, i32 0
   %135 = or i32 %134, %133
   br i1 %107, label %106, label %136, !llvm.loop !15
 
 136:                                              ; preds = %130
-  %137 = shl nuw nsw i32 %.0116154.i, 2
+  %137 = shl nuw nsw i32 %.0126153.i, 2
   %138 = shl i32 %128, %137
-  %139 = or i32 %138, %.0121153.i
+  %139 = or i32 %138, %.0120156.i
   %140 = shl nuw nsw i32 %131, 4
-  %141 = shl nuw nsw i32 %140, %.0116154.i
-  %142 = or i32 %141, %.0115155.i
+  %141 = shl nuw nsw i32 %140, %.0126153.i
+  %142 = or i32 %141, %.0125154.i
   %143 = and i32 %135, 112
-  %144 = shl nuw nsw i32 %143, %.0116154.i
-  %145 = or i32 %144, %.0114156.i
+  %144 = shl nuw nsw i32 %143, %.0126153.i
+  %145 = or i32 %144, %.0124155.i
   br i1 %98, label %97, label %146, !llvm.loop !16
 
 146:                                              ; preds = %136
@@ -1471,9 +1471,9 @@ define internal range(i32 -2147483648, 17) i32 @GetCoeffsAlt(ptr noundef %0, ptr
   br label %17
 
 17:                                               ; preds = %.lr.ph, %VP8GetSigned.exit
-  %.02758 = phi ptr [ %12, %.lr.ph ], [ %.2, %VP8GetSigned.exit ]
+  %.02858 = phi ptr [ %12, %.lr.ph ], [ %.2, %VP8GetSigned.exit ]
   %.02957 = phi i32 [ %4, %.lr.ph ], [ %110, %VP8GetSigned.exit ]
-  %18 = load i8, ptr %.02758, align 1
+  %18 = load i8, ptr %.02858, align 1
   %19 = zext i8 %18 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %20 = load i32, ptr %13, align 8, !alias.scope !19
@@ -1558,7 +1558,7 @@ VP8GetBitAlt.exit:                                ; preds = %47, %50
   %62 = phi i32 [ %59, %.preheader.preheader ], [ %103, %104 ]
   %63 = phi i32 [ %.1.i, %.preheader.preheader ], [ %.1.i37, %104 ]
   %indvars.iv = phi i64 [ %60, %.preheader.preheader ], [ %indvars.iv.next, %104 ]
-  %.1 = phi ptr [ %.02758, %.preheader.preheader ], [ %106, %104 ]
+  %.1 = phi ptr [ %.02858, %.preheader.preheader ], [ %106, %104 ]
   %64 = getelementptr inbounds i8, ptr %.1, i64 1
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
@@ -1802,8 +1802,8 @@ VP8GetSigned.exit:                                ; preds = %158, %165, %171
   br i1 %202, label %17, label %.loopexit, !llvm.loop !48
 
 .loopexit:                                        ; preds = %VP8GetBitAlt.exit, %VP8GetSigned.exit, %104, %6
-  %.028 = phi i32 [ 16, %6 ], [ 16, %104 ], [ %.02957, %VP8GetBitAlt.exit ], [ 16, %VP8GetSigned.exit ]
-  ret i32 %.028
+  %.027 = phi i32 [ 16, %6 ], [ 16, %104 ], [ %.02957, %VP8GetBitAlt.exit ], [ 16, %VP8GetSigned.exit ]
+  ret i32 %.027
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1824,9 +1824,9 @@ define internal range(i32 -2147483648, 17) i32 @GetCoeffsFast(ptr noundef %0, pt
   br label %17
 
 17:                                               ; preds = %.lr.ph, %VP8GetSigned.exit
-  %.02756 = phi ptr [ %12, %.lr.ph ], [ %.2, %VP8GetSigned.exit ]
+  %.02856 = phi ptr [ %12, %.lr.ph ], [ %.2, %VP8GetSigned.exit ]
   %.02955 = phi i32 [ %4, %.lr.ph ], [ %100, %VP8GetSigned.exit ]
-  %18 = load i8, ptr %.02756, align 1
+  %18 = load i8, ptr %.02856, align 1
   %19 = zext i8 %18 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %20 = load i32, ptr %13, align 8, !alias.scope !49
@@ -1902,7 +1902,7 @@ VP8GetBit.exit:                                   ; preds = %41, %47
   %57 = phi i32 [ %53, %.preheader.preheader ], [ %92, %94 ]
   %58 = phi i32 [ %54, %.preheader.preheader ], [ %93, %94 ]
   %indvars.iv = phi i64 [ %55, %.preheader.preheader ], [ %indvars.iv.next, %94 ]
-  %.1 = phi ptr [ %.02756, %.preheader.preheader ], [ %96, %94 ]
+  %.1 = phi ptr [ %.02856, %.preheader.preheader ], [ %96, %94 ]
   %59 = getelementptr inbounds i8, ptr %.1, i64 1
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
@@ -2128,8 +2128,8 @@ VP8GetSigned.exit:                                ; preds = %143, %150, %156
   br i1 %187, label %17, label %.loopexit, !llvm.loop !78
 
 .loopexit:                                        ; preds = %VP8GetBit.exit, %VP8GetSigned.exit, %94, %6
-  %.028 = phi i32 [ 16, %6 ], [ 16, %94 ], [ %.02955, %VP8GetBit.exit ], [ 16, %VP8GetSigned.exit ]
-  ret i32 %.028
+  %.027 = phi i32 [ 16, %6 ], [ 16, %94 ], [ %.02955, %VP8GetBit.exit ], [ 16, %VP8GetSigned.exit ]
+  ret i32 %.027
 }
 
 ; Function Attrs: nounwind uwtable

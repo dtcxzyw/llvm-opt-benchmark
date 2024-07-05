@@ -7826,8 +7826,8 @@ entry:
   br i1 %cmp27, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit
-  %__secondChild.028 = phi i64 [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__secondChild.028, 1
+  %__holeIndex.addr.028 = phi i64 [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.028, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %mul
   %sub1 = or disjoint i64 %add, 1
@@ -7863,7 +7863,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symb
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i)
   %spec.select = select i1 %cmp.i.i.i, i64 %sub1, i64 %mul
   %add.ptr3 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %spec.select
-  %add.ptr4 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__secondChild.028
+  %add.ptr4 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.028
   %3 = load i64, ptr %add.ptr3, align 8
   store i64 %3, ptr %add.ptr4, align 8
   %second.i = getelementptr inbounds i8, ptr %add.ptr3, i64 8
@@ -7874,7 +7874,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symb
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !20
 
 while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit, %entry
-  %__secondChild.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit ]
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN8help_cmd12named_cmd_ltEEclIPSt4pairI6symbolP3cmdESB_EEbT_T0_.exit ]
   %and = and i64 %__len, 1
   %cmp6 = icmp eq i64 %and, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end18
@@ -7882,14 +7882,14 @@ while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops
 land.lhs.true:                                    ; preds = %while.end
   %sub7 = add nsw i64 %__len, -2
   %div8 = ashr exact i64 %sub7, 1
-  %cmp9 = icmp eq i64 %__secondChild.0.lcssa, %div8
+  %cmp9 = icmp eq i64 %__holeIndex.addr.0.lcssa, %div8
   br i1 %cmp9, label %if.then10, label %if.end18
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
+  %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %sub13
-  %add.ptr15 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__secondChild.0.lcssa
+  %add.ptr15 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa
   %5 = load i64, ptr %add.ptr14, align 8
   store i64 %5, ptr %add.ptr15, align 8
   %second.i23 = getelementptr inbounds i8, ptr %add.ptr14, i64 8
@@ -7899,7 +7899,7 @@ if.then10:                                        ; preds = %land.lhs.true
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then10, %land.lhs.true, %while.end
-  %__holeIndex.addr.1 = phi i64 [ %sub13, %if.then10 ], [ %__secondChild.0.lcssa, %land.lhs.true ], [ %__secondChild.0.lcssa, %while.end ]
+  %__holeIndex.addr.1 = phi i64 [ %sub13, %if.then10 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
   call void @_ZSt11__push_heapIPSt4pairI6symbolP3cmdElS4_N9__gnu_cxx5__ops14_Iter_comp_valIN8help_cmd12named_cmd_ltEEEEvT_T0_SD_T1_RT2_(ptr noundef %__first, i64 noundef %__holeIndex.addr.1, i64 noundef %__holeIndex, ptr %__value.coerce0, ptr %__value.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %__cmp)
   ret void
 }

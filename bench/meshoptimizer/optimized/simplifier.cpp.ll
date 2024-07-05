@@ -2423,9 +2423,9 @@ for.body.i695.preheader:                          ; preds = %for.inc.i689, %if.e
   br label %for.body.i695
 
 for.body.i695:                                    ; preds = %for.body.i695.preheader, %for.inc.i709
-  %i.027.i = phi i64 [ %add21.i, %for.inc.i709 ], [ 0, %for.body.i695.preheader ]
-  %write.026.i = phi i64 [ %write.1.i, %for.inc.i709 ], [ 0, %for.body.i695.preheader ]
-  %arrayidx.i696 = getelementptr inbounds i32, ptr %destination, i64 %i.027.i
+  %write.027.i = phi i64 [ %write.1.i, %for.inc.i709 ], [ 0, %for.body.i695.preheader ]
+  %i.026.i = phi i64 [ %add21.i, %for.inc.i709 ], [ 0, %for.body.i695.preheader ]
+  %arrayidx.i696 = getelementptr inbounds i32, ptr %destination, i64 %i.026.i
   %680 = load i32, ptr %arrayidx.i696, align 4
   %idxprom.i697 = zext i32 %680 to i64
   %arrayidx1.i698 = getelementptr inbounds i32, ptr %call.i430, i64 %idxprom.i697
@@ -2448,18 +2448,18 @@ for.body.i695:                                    ; preds = %for.body.i695.prehe
   br i1 %or.cond24.i, label %for.inc.i709, label %if.then.i705
 
 if.then.i705:                                     ; preds = %for.body.i695
-  %arrayidx15.i706 = getelementptr inbounds i32, ptr %destination, i64 %write.026.i
+  %arrayidx15.i706 = getelementptr inbounds i32, ptr %destination, i64 %write.027.i
   store i32 %681, ptr %arrayidx15.i706, align 4
   %arrayidx17.i707 = getelementptr i8, ptr %arrayidx15.i706, i64 4
   store i32 %683, ptr %arrayidx17.i707, align 4
   %arrayidx19.i708 = getelementptr i8, ptr %arrayidx15.i706, i64 8
   store i32 %685, ptr %arrayidx19.i708, align 4
-  %add20.i = add i64 %write.026.i, 3
+  %add20.i = add i64 %write.027.i, 3
   br label %for.inc.i709
 
 for.inc.i709:                                     ; preds = %if.then.i705, %for.body.i695
-  %write.1.i = phi i64 [ %add20.i, %if.then.i705 ], [ %write.026.i, %for.body.i695 ]
-  %add21.i = add i64 %i.027.i, 3
+  %write.1.i = phi i64 [ %add20.i, %if.then.i705 ], [ %write.027.i, %for.body.i695 ]
+  %add21.i = add i64 %i.026.i, 3
   %cmp.i710 = icmp ult i64 %add21.i, %result_count.0759
   br i1 %cmp.i710, label %for.body.i695, label %_ZN7meshoptL16remapIndexBufferEPjmPKj.exit, !llvm.loop !40
 
@@ -3488,9 +3488,9 @@ if.then28.i:                                      ; preds = %if.else.i265
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.then28.i, %if.else.i265, %if.then.i262
-  %a.0.i = phi i32 [ %178, %if.then28.i ], [ %176, %if.else.i265 ], [ %177, %if.then.i262 ]
   %b.0.i = phi i32 [ %176, %if.then28.i ], [ %177, %if.else.i265 ], [ %178, %if.then.i262 ]
   %c.0.i = phi i32 [ %177, %if.then28.i ], [ %178, %if.else.i265 ], [ %176, %if.then.i262 ]
+  %a.0.i = phi i32 [ %178, %if.then28.i ], [ %176, %if.else.i265 ], [ %177, %if.then.i262 ]
   %arrayidx33.idx.i = mul i64 %result.063.i, 12
   %arrayidx33.i = getelementptr inbounds i8, ptr %destination, i64 %arrayidx33.idx.i
   store i32 %a.0.i, ptr %arrayidx33.i, align 4

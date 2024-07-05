@@ -307,8 +307,8 @@ if.then16:                                        ; preds = %if.end13
   br label %if.then158
 
 if.end18:                                         ; preds = %if.end13, %lor.lhs.false
-  %new_ctx.1 = phi ptr [ null, %lor.lhs.false ], [ %new_ctx.0, %if.end13 ]
   %ctx_started.0 = phi i32 [ 0, %lor.lhs.false ], [ 1, %if.end13 ]
+  %new_ctx.1 = phi ptr [ null, %lor.lhs.false ], [ %new_ctx.0, %if.end13 ]
   %ctx.addr.1 = phi ptr [ %ctx, %lor.lhs.false ], [ %ctx.addr.0, %if.end13 ]
   %g_scalar.addr.0 = phi ptr [ %g_scalar, %lor.lhs.false ], [ %call10, %if.end13 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %p_str, i8 0, i64 33, i1 false)
@@ -488,8 +488,8 @@ for.body90:                                       ; preds = %for.end72, %for.bod
   br i1 %exitcond.not, label %if.end122, label %for.body90, !llvm.loop !16
 
 if.end122:                                        ; preds = %for.body90, %entry
-  %new_ctx.2 = phi ptr [ null, %entry ], [ %new_ctx.1, %for.body90 ]
   %ctx_started.1 = phi i32 [ 0, %entry ], [ %ctx_started.0, %for.body90 ]
+  %new_ctx.2 = phi ptr [ null, %entry ], [ %new_ctx.1, %for.body90 ]
   %ctx.addr.2 = phi ptr [ %ctx, %entry ], [ %ctx.addr.1, %for.body90 ]
   %cmp125.not = icmp eq ptr %p_scalar, null
   br i1 %cmp125.not, label %if.end138, label %if.then127
@@ -550,8 +550,8 @@ if.then14.i:                                      ; preds = %if.end11.i
   br label %if.then185.i
 
 if.end16.i:                                       ; preds = %if.end11.i, %lor.lhs.false.i
-  %new_ctx.1.i = phi ptr [ null, %lor.lhs.false.i ], [ %new_ctx.0.i, %if.end11.i ]
   %tobool184.not.i = phi i1 [ true, %lor.lhs.false.i ], [ false, %if.end11.i ]
+  %new_ctx.1.i = phi ptr [ null, %lor.lhs.false.i ], [ %new_ctx.0.i, %if.end11.i ]
   %ctx.addr.1.i = phi ptr [ %ctx.addr.2, %lor.lhs.false.i ], [ %ctx.addr.0.i, %if.end11.i ]
   %p_scalar.addr.0.i = phi ptr [ %p_scalar, %lor.lhs.false.i ], [ %call8.i, %if.end11.i ]
   %top.i = getelementptr inbounds i8, ptr %p_scalar.addr.0.i, i64 8
@@ -871,19 +871,19 @@ err:                                              ; preds = %ecp_nistz256_window
 
 if.then158:                                       ; preds = %if.then16, %if.end9, %err
   %ctx.addr.3107 = phi ptr [ %ctx.addr.2, %err ], [ %ctx.addr.0, %if.end9 ], [ %ctx.addr.0, %if.then16 ]
-  %new_ctx.3105 = phi ptr [ %new_ctx.2, %err ], [ %new_ctx.0, %if.end9 ], [ %new_ctx.0, %if.then16 ]
-  %ret.0103 = phi i32 [ %ret.0, %err ], [ 0, %if.end9 ], [ 0, %if.then16 ]
+  %ret.0105 = phi i32 [ %ret.0, %err ], [ 0, %if.end9 ], [ 0, %if.then16 ]
+  %new_ctx.3103 = phi ptr [ %new_ctx.2, %err ], [ %new_ctx.0, %if.end9 ], [ %new_ctx.0, %if.then16 ]
   call void @BN_CTX_end(ptr noundef %ctx.addr.3107) #6
   br label %if.end159
 
 if.end159:                                        ; preds = %if.then5, %if.then158, %err
-  %new_ctx.3106 = phi ptr [ %new_ctx.3105, %if.then158 ], [ %new_ctx.2, %err ], [ null, %if.then5 ]
-  %ret.0104 = phi i32 [ %ret.0103, %if.then158 ], [ %ret.0, %err ], [ 0, %if.then5 ]
-  call void @BN_CTX_free(ptr noundef %new_ctx.3106) #6
+  %ret.0106 = phi i32 [ %ret.0105, %if.then158 ], [ %ret.0, %err ], [ 0, %if.then5 ]
+  %new_ctx.3104 = phi ptr [ %new_ctx.3103, %if.then158 ], [ %new_ctx.2, %err ], [ null, %if.then5 ]
+  call void @BN_CTX_free(ptr noundef %new_ctx.3104) #6
   br label %return
 
 return:                                           ; preds = %if.end138, %lor.lhs.false143, %lor.lhs.false149, %if.end159
-  %retval.0 = phi i32 [ %ret.0104, %if.end159 ], [ 0, %lor.lhs.false149 ], [ 0, %lor.lhs.false143 ], [ 0, %if.end138 ]
+  %retval.0 = phi i32 [ %ret.0106, %if.end159 ], [ 0, %lor.lhs.false149 ], [ 0, %lor.lhs.false143 ], [ 0, %if.end138 ]
   ret i32 %retval.0
 }
 

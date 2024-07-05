@@ -1804,7 +1804,7 @@ define void @Wlc_NtkCreateLevels_rec(ptr nocapture noundef readonly %0, ptr noun
 
 Wlc_ObjHasArray.exit.thread.i.i49.us:             ; preds = %.critedge.us, %.lr.ph57.split.us
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %.critedge.us ], [ 0, %.lr.ph57.split.us ]
-  %.056.us = phi i32 [ %.1.us, %.critedge.us ], [ 0, %.lr.ph57.split.us ]
+  %.03155.us = phi i32 [ %.132.us, %.critedge.us ], [ 0, %.lr.ph57.split.us ]
   %29 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv81
   %30 = load i32, ptr %29, align 4
   %.not36.us = icmp eq i32 %30, 0
@@ -1815,11 +1815,11 @@ Wlc_ObjHasArray.exit.thread.i.i49.us:             ; preds = %.critedge.us, %.lr.
   %32 = sext i32 %30 to i64
   %33 = getelementptr inbounds i32, ptr %.val44.us, i64 %32
   %34 = load i32, ptr %33, align 4
-  %35 = tail call noundef i32 @llvm.smax.i32(i32 %.056.us, i32 %34)
+  %35 = tail call noundef i32 @llvm.smax.i32(i32 %.03155.us, i32 %34)
   br label %.critedge.us
 
 .critedge.us:                                     ; preds = %31, %Wlc_ObjHasArray.exit.thread.i.i49.us
-  %.1.us = phi i32 [ %35, %31 ], [ %.056.us, %Wlc_ObjHasArray.exit.thread.i.i49.us ]
+  %.132.us = phi i32 [ %35, %31 ], [ %.03155.us, %Wlc_ObjHasArray.exit.thread.i.i49.us ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
   br i1 %exitcond85.not, label %.critedge2, label %Wlc_ObjHasArray.exit.thread.i.i49.us, !llvm.loop !14
@@ -1843,7 +1843,7 @@ Wlc_ObjFaninId.exit50.preheader:                  ; preds = %.lr.ph57.split
 
 Wlc_ObjHasArray.exit.thread.i.i49.us61:           ; preds = %.critedge.us65, %.lr.ph57.split.split.us
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %.critedge.us65 ], [ 0, %.lr.ph57.split.split.us ]
-  %.056.us59 = phi i32 [ %.1.us66, %.critedge.us65 ], [ 0, %.lr.ph57.split.split.us ]
+  %.03155.us60 = phi i32 [ %.132.us66, %.critedge.us65 ], [ 0, %.lr.ph57.split.split.us ]
   %39 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv73
   %40 = load i32, ptr %39, align 4
   %.not36.us63 = icmp eq i32 %40, 0
@@ -1854,11 +1854,11 @@ Wlc_ObjHasArray.exit.thread.i.i49.us61:           ; preds = %.critedge.us65, %.l
   %42 = sext i32 %40 to i64
   %43 = getelementptr inbounds i32, ptr %.val44.us64, i64 %42
   %44 = load i32, ptr %43, align 4
-  %45 = tail call noundef i32 @llvm.smax.i32(i32 %.056.us59, i32 %44)
+  %45 = tail call noundef i32 @llvm.smax.i32(i32 %.03155.us60, i32 %44)
   br label %.critedge.us65
 
 .critedge.us65:                                   ; preds = %41, %Wlc_ObjHasArray.exit.thread.i.i49.us61
-  %.1.us66 = phi i32 [ %45, %41 ], [ %.056.us59, %Wlc_ObjHasArray.exit.thread.i.i49.us61 ]
+  %.132.us66 = phi i32 [ %45, %41 ], [ %.03155.us60, %Wlc_ObjHasArray.exit.thread.i.i49.us61 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2, label %Wlc_ObjHasArray.exit.thread.i.i49.us61, !llvm.loop !14
@@ -1905,7 +1905,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %48, %Wlc_ObjHasArra
 
 Wlc_ObjFaninId.exit50:                            ; preds = %Wlc_ObjFaninId.exit50.preheader, %.critedge
   %indvars.iv76 = phi i64 [ 0, %Wlc_ObjFaninId.exit50.preheader ], [ %indvars.iv.next77, %.critedge ]
-  %.056 = phi i32 [ 0, %Wlc_ObjFaninId.exit50.preheader ], [ %.1, %.critedge ]
+  %.03155 = phi i32 [ 0, %Wlc_ObjFaninId.exit50.preheader ], [ %.132, %.critedge ]
   %61 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv76
   %62 = load i32, ptr %61, align 4
   %.not36 = icmp eq i32 %62, 0
@@ -1916,22 +1916,22 @@ Wlc_ObjFaninId.exit50:                            ; preds = %Wlc_ObjFaninId.exit
   %64 = sext i32 %62 to i64
   %65 = getelementptr inbounds i32, ptr %.val44, i64 %64
   %66 = load i32, ptr %65, align 4
-  %67 = tail call noundef i32 @llvm.smax.i32(i32 %.056, i32 %66)
+  %67 = tail call noundef i32 @llvm.smax.i32(i32 %.03155, i32 %66)
   br label %.critedge
 
 .critedge:                                        ; preds = %Wlc_ObjFaninId.exit50, %63
-  %.1 = phi i32 [ %67, %63 ], [ %.056, %Wlc_ObjFaninId.exit50 ]
+  %.132 = phi i32 [ %67, %63 ], [ %.03155, %Wlc_ObjFaninId.exit50 ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
   br i1 %exitcond80.not, label %.critedge2, label %Wlc_ObjFaninId.exit50, !llvm.loop !14
 
 .critedge2:                                       ; preds = %.critedge.us65, %.critedge, %.critedge.us, %.preheader, %.critedge.preheader
-  %.0.lcssa = phi i32 [ 0, %.critedge.preheader ], [ 0, %.preheader ], [ %.1.us, %.critedge.us ], [ %.1, %.critedge ], [ %.1.us66, %.critedge.us65 ]
+  %.031.lcssa = phi i32 [ 0, %.critedge.preheader ], [ 0, %.preheader ], [ %.132.us, %.critedge.us ], [ %.132, %.critedge ], [ %.132.us66, %.critedge.us65 ]
   %.val = load ptr, ptr %3, align 8
   %68 = ptrtoint ptr %.val to i64
   %69 = sub i64 %4, %68
   %70 = sdiv exact i64 %69, 24
-  %71 = add nuw nsw i32 %.0.lcssa, 1
+  %71 = add nuw nsw i32 %.031.lcssa, 1
   %.val45 = load ptr, ptr %18, align 8
   %sext51 = shl i64 %70, 32
   %72 = ashr exact i64 %sext51, 30
@@ -2257,20 +2257,20 @@ Wlc_ObjFaninId.exit:                              ; preds = %40, %Wlc_ObjHasArra
 
 59:                                               ; preds = %.lr.ph100, %.critedge
   %indvars.iv108 = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next109, %.critedge ]
-  %.099 = phi i32 [ 0, %.lr.ph100 ], [ %.1, %.critedge ]
+  %.05798 = phi i32 [ 0, %.lr.ph100 ], [ %.158, %.critedge ]
   %60 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv108
   %61 = load i32, ptr %60, align 4
   %.not60 = icmp eq i32 %61, 0
   br i1 %.not60, label %.critedge, label %62
 
 62:                                               ; preds = %59
-  %63 = add nsw i32 %.099, 1
+  %63 = add nsw i32 %.05798, 1
   %64 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv108
-  store i32 %.099, ptr %64, align 4
+  store i32 %.05798, ptr %64, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %59, %62
-  %.1 = phi i32 [ %63, %62 ], [ %.099, %59 ]
+  %.158 = phi i32 [ %63, %62 ], [ %.05798, %59 ]
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count
   br i1 %exitcond.not, label %.critedge4.preheader, label %59, !llvm.loop !22
@@ -2924,9 +2924,9 @@ Wlc_NtkCollectStats.exit:                         ; preds = %.critedge.i.thread,
 
 53:                                               ; preds = %.lr.ph, %1294
   %indvars.iv891 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next892, %1294 ]
-  %.0329870 = phi i64 [ 0, %.lr.ph ], [ %.1330, %1294 ]
-  %.0331869 = phi i32 [ 0, %.lr.ph ], [ %.1332, %1294 ]
-  %.0333868 = phi ptr [ null, %.lr.ph ], [ %.2335, %1294 ]
+  %.0327872 = phi ptr [ null, %.lr.ph ], [ %.2, %1294 ]
+  %.0328871 = phi i32 [ 0, %.lr.ph ], [ %.1329, %1294 ]
+  %.0334868 = phi i64 [ 0, %.lr.ph ], [ %.1335, %1294 ]
   %.val359 = load ptr, ptr %44, align 8
   %54 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val359, i64 %indvars.iv891
   %55 = getelementptr i8, ptr %54, i64 8
@@ -2958,11 +2958,11 @@ Wlc_NtkCollectStats.exit:                         ; preds = %.critedge.i.thread,
   %.val360 = phi i16 [ %.val360.pre, %66 ], [ %.val3.i, %53 ]
   %72 = phi i32 [ %.pre, %66 ], [ %.val2.i, %53 ]
   %.not349 = icmp ne i32 %72, 0
-  %73 = icmp eq ptr %.0333868, null
-  %74 = select i1 %.not349, i1 %73, i1 false
-  %.2335 = select i1 %74, ptr %54, ptr %.0333868
-  %75 = zext i1 %.not349 to i32
-  %.1332 = add nuw nsw i32 %.0331869, %75
+  %73 = icmp eq ptr %.0327872, null
+  %74 = zext i1 %.not349 to i32
+  %.1329 = add nuw nsw i32 %.0328871, %74
+  %75 = select i1 %.not349, i1 %73, i1 false
+  %.2 = select i1 %75, ptr %54, ptr %.0327872
   %76 = and i16 %.val360, 61
   %narrow.i.not = icmp eq i16 %76, 1
   br i1 %narrow.i.not, label %79, label %77
@@ -3282,7 +3282,7 @@ Wlc_ObjFanin1.exit:                               ; preds = %Wlc_ObjHasArray.exi
 
 245:                                              ; preds = %Wlc_ObjFanin0.exit, %Wlc_ObjFanin0.exit577, %235, %Wlc_ObjName.exit, %79
   %246 = phi i16 [ %.val360, %79 ], [ %.val360, %Wlc_ObjFanin0.exit ], [ %.pre905, %Wlc_ObjName.exit ], [ %.val360, %Wlc_ObjFanin0.exit577 ], [ %.val360, %235 ]
-  %.1330 = phi i64 [ %88, %79 ], [ %120, %Wlc_ObjFanin0.exit ], [ %.0329870, %Wlc_ObjName.exit ], [ %165, %Wlc_ObjFanin0.exit577 ], [ %244, %235 ]
+  %.1335 = phi i64 [ %88, %79 ], [ %120, %Wlc_ObjFanin0.exit ], [ %.0334868, %Wlc_ObjName.exit ], [ %165, %Wlc_ObjFanin0.exit577 ], [ %244, %235 ]
   %247 = and i16 %246, 63
   %.val556 = load ptr, ptr %32, align 8
   %.val557 = load ptr, ptr %35, align 8
@@ -3311,7 +3311,7 @@ Wlc_ObjFanin1.exit:                               ; preds = %Wlc_ObjHasArray.exi
   %indvars.iv.i601 = phi i64 [ 0, %.lr.ph.i599 ], [ %indvars.iv.next.i602, %256 ]
   %258 = getelementptr inbounds i64, ptr %.val17.i600, i64 %indvars.iv.i601
   %259 = load i64, ptr %258, align 8
-  %260 = icmp eq i64 %259, %.1330
+  %260 = icmp eq i64 %259, %.1335
   br i1 %260, label %261, label %256
 
 261:                                              ; preds = %257
@@ -3387,7 +3387,7 @@ Vec_WrdPush.exit.i:                               ; preds = %288, %Vec_WrdGrow.e
   store i32 %292, ptr %253, align 4
   %293 = sext i32 %291 to i64
   %294 = getelementptr inbounds i64, ptr %290, i64 %293
-  store i64 %.1330, ptr %294, align 8
+  store i64 %.1335, ptr %294, align 8
   %295 = getelementptr inbounds i8, ptr %252, i64 4
   %296 = load i32, ptr %295, align 4
   %297 = load i32, ptr %252, align 8
@@ -5185,7 +5185,7 @@ Wlc_ObjFanin1.exit801:                            ; preds = %Wlc_ObjFanin0.exit7
   br i1 %1296, label %53, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %1294
-  %.not342 = icmp eq i32 %.1332, 0
+  %.not342 = icmp eq i32 %.1329, 0
   br i1 %.not342, label %.critedge.thread, label %1297
 
 1297:                                             ; preds = %.critedge
@@ -5195,10 +5195,10 @@ Wlc_ObjFanin1.exit801:                            ; preds = %Wlc_ObjFanin0.exit7
   br i1 %1299, label %1300, label %.critedge.thread
 
 1300:                                             ; preds = %1297
-  %1301 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.1332)
+  %1301 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.1329)
   %1302 = getelementptr i8, ptr %0, i64 640
   %.val357 = load ptr, ptr %1302, align 8
-  %1303 = ptrtoint ptr %.2335 to i64
+  %1303 = ptrtoint ptr %.2 to i64
   %1304 = ptrtoint ptr %.val357 to i64
   %1305 = sub i64 %1303, %1304
   %1306 = sdiv exact i64 %1305, 24
@@ -5212,14 +5212,14 @@ Wlc_ObjFanin1.exit801:                            ; preds = %Wlc_ObjFanin0.exit7
   %1312 = getelementptr inbounds i8, ptr %.val361, i64 %1311
   %1313 = load i32, ptr %1312, align 4
   %1314 = tail call ptr @Abc_NamStr(ptr noundef %1309, i32 noundef %1313) #25
-  %1315 = getelementptr i8, ptr %.2335, i64 8
-  %.0333.val = load i32, ptr %1315, align 8
-  %1316 = getelementptr i8, ptr %.2335, i64 12
-  %.0333.val553 = load i32, ptr %1316, align 4
-  %1317 = sub nsw i32 %.0333.val, %.0333.val553
+  %1315 = getelementptr i8, ptr %.2, i64 8
+  %.0327.val = load i32, ptr %1315, align 8
+  %1316 = getelementptr i8, ptr %.2, i64 12
+  %.0327.val553 = load i32, ptr %1316, align 4
+  %1317 = sub nsw i32 %.0327.val, %.0327.val553
   %1318 = tail call i32 @llvm.abs.i32(i32 %1317, i1 true)
   %1319 = add nuw nsw i32 %1318, 1
-  %1320 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %1307, ptr noundef %1314, i32 noundef %1319, i32 noundef %.0333.val, i32 noundef %.0333.val553)
+  %1320 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %1307, ptr noundef %1314, i32 noundef %1319, i32 noundef %.0327.val, i32 noundef %.0327.val553)
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.preheader, %1300, %1297, %.critedge
@@ -9875,8 +9875,8 @@ define i32 @Wlc_NtkDcFlopNum(ptr nocapture noundef readonly %0) local_unnamed_ad
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !84
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %1
-  %.012 = phi i32 [ 0, %1 ], [ 0, %5 ], [ %13, %.lr.ph ]
-  ret i32 %.012
+  %.011 = phi i32 [ 0, %1 ], [ 0, %5 ], [ %13, %.lr.ph ]
+  ret i32 %.011
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

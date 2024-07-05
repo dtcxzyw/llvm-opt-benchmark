@@ -1718,10 +1718,10 @@ entry:
   br i1 %4, label %for.body, label %for.end33
 
 for.body:                                         ; preds = %entry, %for.inc30
-  %i2.033 = phi i64 [ %dec32.pre-phi, %for.inc30 ], [ %3, %entry ]
-  %i1.032 = phi i64 [ %dec31.pre-phi, %for.inc30 ], [ %2, %entry ]
-  %cscr.031 = phi ptr [ %cscr.1, %for.inc30 ], [ null, %entry ]
-  %gep26 = getelementptr i8, ptr %invariant.gep25, i64 %i1.032
+  %cscr.033 = phi ptr [ %cscr.1, %for.inc30 ], [ null, %entry ]
+  %i2.032 = phi i64 [ %dec32.pre-phi, %for.inc30 ], [ %3, %entry ]
+  %i1.031 = phi i64 [ %dec31.pre-phi, %for.inc30 ], [ %2, %entry ]
+  %gep26 = getelementptr i8, ptr %invariant.gep25, i64 %i1.031
   %5 = load i8, ptr %gep26, align 1
   %tobool.not = icmp eq i8 %5, 0
   br i1 %tobool.not, label %lor.lhs.false, label %for.cond12.preheader
@@ -1730,18 +1730,18 @@ for.cond12.preheader:                             ; preds = %lor.lhs.false, %for
   br label %for.cond12
 
 lor.lhs.false:                                    ; preds = %for.body
-  %gep28 = getelementptr i8, ptr %invariant.gep27, i64 %i2.033
+  %gep28 = getelementptr i8, ptr %invariant.gep27, i64 %i2.032
   %6 = load i8, ptr %gep28, align 1
   %tobool11.not = icmp eq i8 %6, 0
   br i1 %tobool11.not, label %lor.lhs.false.for.inc30_crit_edge, label %for.cond12.preheader
 
 lor.lhs.false.for.inc30_crit_edge:                ; preds = %lor.lhs.false
-  %.pre = add nsw i64 %i1.032, -1
-  %.pre35 = add nsw i64 %i2.033, -1
+  %.pre = add nsw i64 %i1.031, -1
+  %.pre35 = add nsw i64 %i2.032, -1
   br label %for.inc30
 
 for.cond12:                                       ; preds = %for.cond12.preheader, %for.cond12
-  %i1.1 = phi i64 [ %dec, %for.cond12 ], [ %i1.032, %for.cond12.preheader ]
+  %i1.1 = phi i64 [ %dec, %for.cond12 ], [ %i1.031, %for.cond12.preheader ]
   %gep = getelementptr i8, ptr %invariant.gep25, i64 %i1.1
   %7 = load i8, ptr %gep, align 1
   %tobool15.not = icmp eq i8 %7, 0
@@ -1749,7 +1749,7 @@ for.cond12:                                       ; preds = %for.cond12.preheade
   br i1 %tobool15.not, label %for.cond17, label %for.cond12, !llvm.loop !33
 
 for.cond17:                                       ; preds = %for.cond12, %for.cond17
-  %i2.1 = phi i64 [ %dec23, %for.cond17 ], [ %i2.033, %for.cond12 ]
+  %i2.1 = phi i64 [ %dec23, %for.cond17 ], [ %i2.032, %for.cond12 ]
   %gep24 = getelementptr i8, ptr %invariant.gep27, i64 %i2.1
   %8 = load i8, ptr %gep24, align 1
   %tobool20.not = icmp eq i8 %8, 0
@@ -1762,9 +1762,9 @@ for.end24:                                        ; preds = %for.cond17
   br i1 %tobool.not.i, label %if.then28, label %xdl_add_change.exit
 
 xdl_add_change.exit:                              ; preds = %for.end24
-  %sub26 = sub nsw i64 %i2.033, %i2.1
-  %sub25 = sub nsw i64 %i1.032, %i1.1
-  store ptr %cscr.031, ptr %call.i, align 8
+  %sub26 = sub nsw i64 %i2.032, %i2.1
+  %sub25 = sub nsw i64 %i1.031, %i1.1
+  store ptr %cscr.033, ptr %call.i, align 8
   %i11.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %i1.1, ptr %i11.i, align 8
   %i22.i = getelementptr inbounds i8, ptr %call.i, i64 16
@@ -1778,11 +1778,11 @@ xdl_add_change.exit:                              ; preds = %for.end24
   br label %for.inc30
 
 if.then28:                                        ; preds = %for.end24
-  %cmp.not2.i = icmp eq ptr %cscr.031, null
+  %cmp.not2.i = icmp eq ptr %cscr.033, null
   br i1 %cmp.not2.i, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then28, %while.body.i
-  %xscr.addr.03.i = phi ptr [ %9, %while.body.i ], [ %cscr.031, %if.then28 ]
+  %xscr.addr.03.i = phi ptr [ %9, %while.body.i ], [ %cscr.033, %if.then28 ]
   %9 = load ptr, ptr %xscr.addr.03.i, align 8
   tail call void @free(ptr noundef nonnull %xscr.addr.03.i) #8
   %cmp.not.i = icmp eq ptr %9, null
@@ -1791,9 +1791,9 @@ while.body.i:                                     ; preds = %if.then28, %while.b
 for.inc30:                                        ; preds = %lor.lhs.false.for.inc30_crit_edge, %xdl_add_change.exit
   %dec32.pre-phi = phi i64 [ %.pre35, %lor.lhs.false.for.inc30_crit_edge ], [ %dec23, %xdl_add_change.exit ]
   %dec31.pre-phi = phi i64 [ %.pre, %lor.lhs.false.for.inc30_crit_edge ], [ %dec, %xdl_add_change.exit ]
-  %cscr.1 = phi ptr [ %cscr.031, %lor.lhs.false.for.inc30_crit_edge ], [ %call.i, %xdl_add_change.exit ]
-  %i1.2 = phi i64 [ %i1.032, %lor.lhs.false.for.inc30_crit_edge ], [ %i1.1, %xdl_add_change.exit ]
-  %i2.2 = phi i64 [ %i2.033, %lor.lhs.false.for.inc30_crit_edge ], [ %i2.1, %xdl_add_change.exit ]
+  %i1.2 = phi i64 [ %i1.031, %lor.lhs.false.for.inc30_crit_edge ], [ %i1.1, %xdl_add_change.exit ]
+  %i2.2 = phi i64 [ %i2.032, %lor.lhs.false.for.inc30_crit_edge ], [ %i2.1, %xdl_add_change.exit ]
+  %cscr.1 = phi ptr [ %cscr.033, %lor.lhs.false.for.inc30_crit_edge ], [ %call.i, %xdl_add_change.exit ]
   %cmp = icmp sgt i64 %i1.2, 0
   %cmp7 = icmp sgt i64 %i2.2, 0
   %10 = select i1 %cmp, i1 true, i1 %cmp7
@@ -1862,10 +1862,10 @@ if.end:                                           ; preds = %entry
   br i1 %7, label %for.body.i, label %return.sink.split
 
 for.body.i:                                       ; preds = %if.end, %for.inc30.i
-  %i2.033.i = phi i64 [ %dec32.pre-phi.i, %for.inc30.i ], [ %6, %if.end ]
-  %i1.032.i = phi i64 [ %dec31.pre-phi.i, %for.inc30.i ], [ %5, %if.end ]
-  %cscr.031.i = phi ptr [ %cscr.1.i, %for.inc30.i ], [ null, %if.end ]
-  %gep26.i = getelementptr i8, ptr %invariant.gep25.i, i64 %i1.032.i
+  %cscr.033.i = phi ptr [ %cscr.1.i, %for.inc30.i ], [ null, %if.end ]
+  %i2.032.i = phi i64 [ %dec32.pre-phi.i, %for.inc30.i ], [ %6, %if.end ]
+  %i1.031.i = phi i64 [ %dec31.pre-phi.i, %for.inc30.i ], [ %5, %if.end ]
+  %gep26.i = getelementptr i8, ptr %invariant.gep25.i, i64 %i1.031.i
   %8 = load i8, ptr %gep26.i, align 1
   %tobool.not.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %for.cond12.i.preheader
@@ -1874,18 +1874,18 @@ for.cond12.i.preheader:                           ; preds = %lor.lhs.false.i, %f
   br label %for.cond12.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %gep28.i = getelementptr i8, ptr %invariant.gep27.i, i64 %i2.033.i
+  %gep28.i = getelementptr i8, ptr %invariant.gep27.i, i64 %i2.032.i
   %9 = load i8, ptr %gep28.i, align 1
   %tobool11.not.i = icmp eq i8 %9, 0
   br i1 %tobool11.not.i, label %lor.lhs.false.for.inc30_crit_edge.i, label %for.cond12.i.preheader
 
 lor.lhs.false.for.inc30_crit_edge.i:              ; preds = %lor.lhs.false.i
-  %.pre.i = add nsw i64 %i1.032.i, -1
-  %.pre35.i = add nsw i64 %i2.033.i, -1
+  %.pre.i = add nsw i64 %i1.031.i, -1
+  %.pre35.i = add nsw i64 %i2.032.i, -1
   br label %for.inc30.i
 
 for.cond12.i:                                     ; preds = %for.cond12.i.preheader, %for.cond12.i
-  %i1.1.i = phi i64 [ %dec.i, %for.cond12.i ], [ %i1.032.i, %for.cond12.i.preheader ]
+  %i1.1.i = phi i64 [ %dec.i, %for.cond12.i ], [ %i1.031.i, %for.cond12.i.preheader ]
   %gep.i = getelementptr i8, ptr %invariant.gep25.i, i64 %i1.1.i
   %10 = load i8, ptr %gep.i, align 1
   %tobool15.not.i = icmp eq i8 %10, 0
@@ -1893,7 +1893,7 @@ for.cond12.i:                                     ; preds = %for.cond12.i.prehea
   br i1 %tobool15.not.i, label %for.cond17.i, label %for.cond12.i, !llvm.loop !33
 
 for.cond17.i:                                     ; preds = %for.cond12.i, %for.cond17.i
-  %i2.1.i = phi i64 [ %dec23.i, %for.cond17.i ], [ %i2.033.i, %for.cond12.i ]
+  %i2.1.i = phi i64 [ %dec23.i, %for.cond17.i ], [ %i2.032.i, %for.cond12.i ]
   %gep24.i = getelementptr i8, ptr %invariant.gep27.i, i64 %i2.1.i
   %11 = load i8, ptr %gep24.i, align 1
   %tobool20.not.i = icmp eq i8 %11, 0
@@ -1906,9 +1906,9 @@ for.end24.i:                                      ; preds = %for.cond17.i
   br i1 %tobool.not.i.i, label %if.then28.i, label %xdl_add_change.exit.i
 
 xdl_add_change.exit.i:                            ; preds = %for.end24.i
-  %sub26.i = sub nsw i64 %i2.033.i, %i2.1.i
-  %sub25.i = sub nsw i64 %i1.032.i, %i1.1.i
-  store ptr %cscr.031.i, ptr %call.i.i, align 8
+  %sub26.i = sub nsw i64 %i2.032.i, %i2.1.i
+  %sub25.i = sub nsw i64 %i1.031.i, %i1.1.i
+  store ptr %cscr.033.i, ptr %call.i.i, align 8
   %i11.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 %i1.1.i, ptr %i11.i.i, align 8
   %i22.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
@@ -1922,11 +1922,11 @@ xdl_add_change.exit.i:                            ; preds = %for.end24.i
   br label %for.inc30.i
 
 if.then28.i:                                      ; preds = %for.end24.i
-  %cmp.not2.i.i = icmp eq ptr %cscr.031.i, null
+  %cmp.not2.i.i = icmp eq ptr %cscr.033.i, null
   br i1 %cmp.not2.i.i, label %return.sink.split, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then28.i, %while.body.i.i
-  %xscr.addr.03.i.i = phi ptr [ %12, %while.body.i.i ], [ %cscr.031.i, %if.then28.i ]
+  %xscr.addr.03.i.i = phi ptr [ %12, %while.body.i.i ], [ %cscr.033.i, %if.then28.i ]
   %12 = load ptr, ptr %xscr.addr.03.i.i, align 8
   call void @free(ptr noundef nonnull %xscr.addr.03.i.i) #8
   %cmp.not.i.i = icmp eq ptr %12, null
@@ -1935,9 +1935,9 @@ while.body.i.i:                                   ; preds = %if.then28.i, %while
 for.inc30.i:                                      ; preds = %xdl_add_change.exit.i, %lor.lhs.false.for.inc30_crit_edge.i
   %dec32.pre-phi.i = phi i64 [ %.pre35.i, %lor.lhs.false.for.inc30_crit_edge.i ], [ %dec23.i, %xdl_add_change.exit.i ]
   %dec31.pre-phi.i = phi i64 [ %.pre.i, %lor.lhs.false.for.inc30_crit_edge.i ], [ %dec.i, %xdl_add_change.exit.i ]
-  %cscr.1.i = phi ptr [ %cscr.031.i, %lor.lhs.false.for.inc30_crit_edge.i ], [ %call.i.i, %xdl_add_change.exit.i ]
-  %i1.2.i = phi i64 [ %i1.032.i, %lor.lhs.false.for.inc30_crit_edge.i ], [ %i1.1.i, %xdl_add_change.exit.i ]
-  %i2.2.i = phi i64 [ %i2.033.i, %lor.lhs.false.for.inc30_crit_edge.i ], [ %i2.1.i, %xdl_add_change.exit.i ]
+  %i1.2.i = phi i64 [ %i1.031.i, %lor.lhs.false.for.inc30_crit_edge.i ], [ %i1.1.i, %xdl_add_change.exit.i ]
+  %i2.2.i = phi i64 [ %i2.032.i, %lor.lhs.false.for.inc30_crit_edge.i ], [ %i2.1.i, %xdl_add_change.exit.i ]
+  %cscr.1.i = phi ptr [ %cscr.033.i, %lor.lhs.false.for.inc30_crit_edge.i ], [ %call.i.i, %xdl_add_change.exit.i ]
   %cmp.i = icmp sgt i64 %i1.2.i, 0
   %cmp7.i = icmp sgt i64 %i2.2.i, 0
   %13 = select i1 %cmp.i, i1 true, i1 %cmp7.i

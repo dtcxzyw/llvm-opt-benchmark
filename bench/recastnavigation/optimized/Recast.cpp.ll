@@ -1105,14 +1105,14 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge220.us
   %indvars.iv246 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next247, %._crit_edge220.us ]
-  %.0166222.us = phi i32 [ 0, %.preheader.us.preheader ], [ %.2.lcssa.us, %._crit_edge220.us ]
+  %.0165223.us = phi i32 [ 0, %.preheader.us.preheader ], [ %.2167.lcssa.us, %._crit_edge220.us ]
   %97 = mul nuw nsw i64 %indvars.iv246, %96
   %98 = trunc nuw nsw i64 %indvars.iv246 to i32
   br label %99
 
 99:                                               ; preds = %.preheader.us, %._crit_edge.us
   %indvars.iv241 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next242, %._crit_edge.us ]
-  %.1217.us = phi i32 [ %.0166222.us, %.preheader.us ], [ %.2.lcssa.us, %._crit_edge.us ]
+  %.1166218.us = phi i32 [ %.0165223.us, %.preheader.us ], [ %.2167.lcssa.us, %._crit_edge.us ]
   %100 = load ptr, ptr %68, align 8
   %101 = getelementptr inbounds %struct.rcCompactCell, ptr %100, i64 %indvars.iv241
   %102 = getelementptr inbounds %struct.rcCompactCell, ptr %101, i64 %97
@@ -1131,14 +1131,14 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   br label %.lr.ph215.us
 
 ._crit_edge.us:                                   ; preds = %114, %99
-  %.2.lcssa.us = phi i32 [ %.1217.us, %99 ], [ %.6.us, %114 ]
+  %.2167.lcssa.us = phi i32 [ %.1166218.us, %99 ], [ %.6.us, %114 ]
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %96
   br i1 %exitcond245.not, label %._crit_edge220.us, label %99, !llvm.loop !13
 
 .lr.ph215.us:                                     ; preds = %.lr.ph215.us.preheader, %114
   %indvars.iv238 = phi i64 [ %108, %.lr.ph215.us.preheader ], [ %indvars.iv.next239, %114 ]
-  %.2213.us = phi i32 [ %.1217.us, %.lr.ph215.us.preheader ], [ %.6.us, %114 ]
+  %.2167214.us = phi i32 [ %.1166218.us, %.lr.ph215.us.preheader ], [ %.6.us, %114 ]
   %111 = load ptr, ptr %85, align 8
   %112 = getelementptr inbounds %struct.rcCompactSpan, ptr %111, i64 %indvars.iv238
   %113 = getelementptr inbounds i8, ptr %112, i64 4
@@ -1153,7 +1153,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 116:                                              ; preds = %.loopexit.us, %.lr.ph215.us
   %117 = phi i32 [ %164, %.loopexit.us ], [ %.pre, %.lr.ph215.us ]
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %.loopexit.us ], [ 0, %.lr.ph215.us ]
-  %.3211.us = phi i32 [ %.6.us, %.loopexit.us ], [ %.2213.us, %.lr.ph215.us ]
+  %.3168212.us = phi i32 [ %.6.us, %.loopexit.us ], [ %.2167214.us, %.lr.ph215.us ]
   %118 = trunc i64 %indvars.iv234 to i32
   %119 = mul i32 %118, 6
   %120 = shl nuw nsw i32 63, %119
@@ -1189,7 +1189,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 
 140:                                              ; preds = %.lr.ph210.us, %167
   %indvars.iv231 = phi i64 [ %178, %.lr.ph210.us ], [ %indvars.iv.next232, %167 ]
-  %.4208.us = phi i32 [ %.3211.us, %.lr.ph210.us ], [ %.5.us, %167 ]
+  %.4208.us = phi i32 [ %.3168212.us, %.lr.ph210.us ], [ %.5.us, %167 ]
   %141 = getelementptr inbounds %struct.rcCompactSpan, ptr %172, i64 %indvars.iv231
   %142 = load i16, ptr %141, align 4
   %143 = tail call noundef i16 @llvm.umax.i16(i16 %173, i16 %142)
@@ -1227,7 +1227,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 
 .loopexit.us:                                     ; preds = %167, %133, %158, %116
   %164 = phi i32 [ %124, %116 ], [ %163, %158 ], [ %124, %133 ], [ %124, %167 ]
-  %.6.us = phi i32 [ %.3211.us, %116 ], [ %.4208.us, %158 ], [ %.3211.us, %133 ], [ %.5.us, %167 ]
+  %.6.us = phi i32 [ %.3168212.us, %116 ], [ %.4208.us, %158 ], [ %.3168212.us, %133 ], [ %.5.us, %167 ]
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond237.not = icmp eq i64 %indvars.iv.next235, 4
   br i1 %exitcond237.not, label %114, label %116, !llvm.loop !15
@@ -1264,7 +1264,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 
 181:                                              ; preds = %.lr.ph, %.loopexit202
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit202 ]
-  %.0167207 = phi i32 [ 0, %.lr.ph ], [ %.3170, %.loopexit202 ]
+  %.0161207 = phi i32 [ 0, %.lr.ph ], [ %.3, %.loopexit202 ]
   %182 = load ptr, ptr %93, align 8
   %183 = getelementptr inbounds ptr, ptr %182, i64 %indvars.iv
   %184 = load ptr, ptr %183, align 8
@@ -1274,21 +1274,21 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 186:                                              ; preds = %181
   %187 = load ptr, ptr %68, align 8
   %188 = getelementptr inbounds %struct.rcCompactCell, ptr %187, i64 %indvars.iv
-  %189 = and i32 %.0167207, 16777215
+  %189 = and i32 %.0161207, 16777215
   store i32 %189, ptr %188, align 4
   br label %190
 
 190:                                              ; preds = %186, %226
-  %.1168205 = phi i32 [ %.0167207, %186 ], [ %.2169, %226 ]
-  %.0171204 = phi ptr [ %184, %186 ], [ %228, %226 ]
-  %191 = load i32, ptr %.0171204, align 8
+  %.1205 = phi i32 [ %.0161207, %186 ], [ %.2, %226 ]
+  %.0163204 = phi ptr [ %184, %186 ], [ %228, %226 ]
+  %191 = load i32, ptr %.0163204, align 8
   %.not191 = icmp ult i32 %191, 67108864
   br i1 %.not191, label %226, label %192
 
 192:                                              ; preds = %190
   %193 = lshr i32 %191, 13
   %194 = and i32 %193, 8191
-  %195 = getelementptr inbounds i8, ptr %.0171204, i64 8
+  %195 = getelementptr inbounds i8, ptr %.0163204, i64 8
   %196 = load ptr, ptr %195, align 8
   %.not192 = icmp eq ptr %196, null
   br i1 %.not192, label %200, label %197
@@ -1302,7 +1302,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %201 = phi i32 [ %199, %197 ], [ 65535, %192 ]
   %202 = trunc nuw nsw i32 %194 to i16
   %203 = load ptr, ptr %85, align 8
-  %204 = sext i32 %.1168205 to i64
+  %204 = sext i32 %.1205 to i64
   %205 = getelementptr inbounds %struct.rcCompactSpan, ptr %203, i64 %204
   store i16 %202, ptr %205, align 4
   %206 = sub nsw i32 %201, %194
@@ -1315,13 +1315,13 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %213 = and i32 %211, 16777215
   %214 = or disjoint i32 %213, %212
   store i32 %214, ptr %210, align 4
-  %215 = load i32, ptr %.0171204, align 8
+  %215 = load i32, ptr %.0163204, align 8
   %216 = lshr i32 %215, 26
   %217 = trunc nuw nsw i32 %216 to i8
   %218 = load ptr, ptr %89, align 8
   %219 = getelementptr inbounds i8, ptr %218, i64 %204
   store i8 %217, ptr %219, align 1
-  %220 = add nsw i32 %.1168205, 1
+  %220 = add nsw i32 %.1205, 1
   %221 = load i32, ptr %188, align 4
   %222 = and i32 %221, -16777216
   %223 = add i32 %222, 16777216
@@ -1331,24 +1331,24 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   br label %226
 
 226:                                              ; preds = %190, %200
-  %.2169 = phi i32 [ %220, %200 ], [ %.1168205, %190 ]
-  %227 = getelementptr inbounds i8, ptr %.0171204, i64 8
+  %.2 = phi i32 [ %220, %200 ], [ %.1205, %190 ]
+  %227 = getelementptr inbounds i8, ptr %.0163204, i64 8
   %228 = load ptr, ptr %227, align 8
   %.not190 = icmp eq ptr %228, null
   br i1 %.not190, label %.loopexit202, label %190, !llvm.loop !18
 
 .loopexit202:                                     ; preds = %226, %181
-  %.3170 = phi i32 [ %.0167207, %181 ], [ %.2169, %226 ]
+  %.3 = phi i32 [ %.0161207, %181 ], [ %.2, %226 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader201, label %181, !llvm.loop !19
 
 ._crit_edge224:                                   ; preds = %._crit_edge220.us
-  %229 = icmp sgt i32 %.2.lcssa.us, 62
+  %229 = icmp sgt i32 %.2167.lcssa.us, 62
   br i1 %229, label %230, label %._crit_edge224.thread
 
 230:                                              ; preds = %._crit_edge224
-  invoke void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull @.str.6, i32 noundef %.2.lcssa.us, i32 noundef 62)
+  invoke void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull @.str.6, i32 noundef %.2167.lcssa.us, i32 noundef 62)
           to label %._crit_edge224.thread unwind label %69
 
 ._crit_edge224.thread:                            ; preds = %.invoke, %.preheader201, %._crit_edge224, %230

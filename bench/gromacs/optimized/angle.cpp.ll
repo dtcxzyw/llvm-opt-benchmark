@@ -2251,13 +2251,13 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Angle12initAnalysis
   br label %.sink.split.i
 
 59:                                               ; preds = %56, %54
-  %.039.i = phi i1 [ false, %56 ], [ true, %54 ]
+  %.056.i = phi i1 [ false, %56 ], [ true, %54 ]
   %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   call void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #22
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #22
-  br i1 %.039.i, label %.sink.split.i, label %common.resume
+  br i1 %.056.i, label %.sink.split.i, label %common.resume
 
 .critedge.i:                                      ; preds = %3
   %61 = getelementptr inbounds i8, ptr %0, i64 272
@@ -2279,7 +2279,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Angle12initAnalysis
 67:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i, %.lr.ph.i
   %.val84.val.i = phi ptr [ %41, %.lr.ph.i ], [ %188, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %.val.val.i = phi ptr [ %34, %.lr.ph.i ], [ %181, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
-  %.038192.i = phi i32 [ 0, %.lr.ph.i ], [ %179, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
+  %.055192.i = phi i32 [ 0, %.lr.ph.i ], [ %179, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %.sroa.4129.0191.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %.sroa.4125.0190.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.4125.1.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %68 = zext nneg i32 %.sroa.4129.0191.i to i64
@@ -2298,7 +2298,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Angle12initAnalysis
 
 77:                                               ; preds = %75
   %78 = tail call ptr @__cxa_allocate_exception(i64 24) #22
-  %79 = add nuw nsw i32 %.038192.i, 1
+  %79 = add nuw nsw i32 %.055192.i, 1
   %80 = load i32, ptr %61, align 8
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @.str.92, i32 noundef %79, i32 noundef %80)
           to label %81 unwind label %.thread153.i
@@ -2346,7 +2346,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Angle12initAnalysis
   br label %93
 
 91:                                               ; preds = %86, %84
-  %.034.i = phi i1 [ false, %86 ], [ true, %84 ]
+  %.038.i = phi i1 [ false, %86 ], [ true, %84 ]
   %92 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
@@ -2355,10 +2355,10 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Angle12initAnalysis
 
 93:                                               ; preds = %91, %89
   %.pn75.i = phi { ptr, i32 } [ %92, %91 ], [ %90, %89 ]
-  %.135.i = phi i1 [ %.034.i, %91 ], [ true, %89 ]
+  %.139.i = phi i1 [ %.038.i, %91 ], [ true, %89 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
-  br i1 %.135.i, label %.sink.split.i, label %common.resume
+  br i1 %.139.i, label %.sink.split.i, label %common.resume
 
 94:                                               ; preds = %75, %67
   %95 = sdiv i32 %72, %73
@@ -2381,7 +2381,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15Angle12initAnalysis
 
 106:                                              ; preds = %104
   %107 = tail call ptr @__cxa_allocate_exception(i64 24) #22
-  %108 = add nuw nsw i32 %.038192.i, 1
+  %108 = add nuw nsw i32 %.055192.i, 1
   %109 = load i32, ptr %47, align 4
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull @.str.93, i32 noundef %108, i32 noundef %109)
           to label %110 unwind label %.thread160.i
@@ -2620,7 +2620,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %152
   %178 = phi ptr [ %175, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %154, %152 ]
-  %179 = add nuw nsw i32 %.038192.i, 1
+  %179 = add nuw nsw i32 %.055192.i, 1
   %180 = load ptr, ptr %32, align 8
   %181 = load ptr, ptr %30, align 8
   %182 = ptrtoint ptr %180 to i64

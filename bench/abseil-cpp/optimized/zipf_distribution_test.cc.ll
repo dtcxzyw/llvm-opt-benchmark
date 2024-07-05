@@ -2050,7 +2050,7 @@ for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIdSaIdE
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit.i
-  %inc.i = add nuw i64 %i.027.i, 1
+  %inc.i = add nuw i64 %i.026.i, 1
   %6 = load i64, ptr %add.ptr, align 8
   %cmp.i = icmp ult i64 %inc.i, %6
   br i1 %cmp.i, label %for.bodythread-pre-split.i, label %for.end.loopexit.i, !llvm.loop !16
@@ -2061,17 +2061,17 @@ for.bodythread-pre-split.i:                       ; preds = %for.cond.i
 
 for.body.i:                                       ; preds = %for.bodythread-pre-split.i, %for.body.lr.ph.i
   %7 = phi double [ %.pr33.i, %for.bodythread-pre-split.i ], [ %5, %for.body.lr.ph.i ]
-  %i.027.i = phi i64 [ %inc.i, %for.bodythread-pre-split.i ], [ 0, %for.body.lr.ph.i ]
-  %sum_hnq_m1.026.i = phi double [ %add1637.i, %for.bodythread-pre-split.i ], [ 0.000000e+00, %for.body.lr.ph.i ]
+  %sum_hnq_m1.027.i = phi double [ %add1637.i, %for.bodythread-pre-split.i ], [ 0.000000e+00, %for.body.lr.ph.i ]
+  %i.026.i = phi i64 [ %inc.i, %for.bodythread-pre-split.i ], [ 0, %for.body.lr.ph.i ]
   %8 = load double, ptr %v_.i, align 8
-  %conv.i = uitofp i64 %i.027.i to double
+  %conv.i = uitofp i64 %i.026.i to double
   %add.i = fadd double %8, %conv.i
   %cmp7.i = fcmp oeq double %7, 2.000000e+00
   br i1 %cmp7.i, label %cond.end14.thread.i, label %cond.false.i
 
 cond.end14.thread.i:                              ; preds = %for.body.i
   %div.i = fdiv double 1.000000e+00, %add.i
-  %add1635.i = fadd double %sum_hnq_m1.026.i, %div.i
+  %add1635.i = fadd double %sum_hnq_m1.027.i, %div.i
   br label %cond.true19.i
 
 cond.false.i:                                     ; preds = %for.body.i
@@ -2081,13 +2081,13 @@ cond.false.i:                                     ; preds = %for.body.i
 cond.false22.thread.i:                            ; preds = %cond.false.i
   %mul.i = fmul double %add.i, %add.i
   %div11.i = fdiv double 1.000000e+00, %mul.i
-  %add1641.i = fadd double %sum_hnq_m1.026.i, %div11.i
+  %add1641.i = fadd double %sum_hnq_m1.027.i, %div11.i
   br label %cond.true25.i
 
 cond.end14.i:                                     ; preds = %cond.false.i
   %call13.i = tail call double @pow(double noundef %add.i, double noundef %fneg.i) #28
   %.pr.pre.i = load double, ptr %q_.i, align 16
-  %add16.i = fadd double %sum_hnq_m1.026.i, %call13.i
+  %add16.i = fadd double %sum_hnq_m1.027.i, %call13.i
   %cmp18.i = fcmp oeq double %.pr.pre.i, 2.000000e+00
   br i1 %cmp18.i, label %cond.true19.i, label %cond.false22.i
 
@@ -2191,7 +2191,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit.i
 
 _ZNSt6vectorIdSaIdEE9push_backERKd.exit.i:        ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i, %if.then.i19.i
-  %cmp40.i = icmp ugt i64 %i.027.i, 1000
+  %cmp40.i = icmp ugt i64 %i.026.i, 1000
   %cmp41.i = fcmp ole double %cond36.i, 1.000000e-10
   %or.cond.i = select i1 %cmp40.i, i1 %cmp41.i, i1 false
   br i1 %or.cond.i, label %for.end.loopexit.i, label %for.cond.i
@@ -2219,8 +2219,8 @@ for.body:                                         ; preds = %_ZN12_GLOBAL__N_19Z
   %points.sroa.13.0482 = phi ptr [ null, %_ZN12_GLOBAL__N_19ZipfModel4InitEv.exit ], [ %points.sroa.13.2, %for.inc ]
   %points.sroa.27.0481 = phi ptr [ null, %_ZN12_GLOBAL__N_19ZipfModel4InitEv.exit ], [ %points.sroa.27.2, %for.inc ]
   %expected.sroa.0.0480 = phi ptr [ null, %_ZN12_GLOBAL__N_19ZipfModel4InitEv.exit ], [ %expected.sroa.0.3, %for.inc ]
-  %expected.sroa.25.0479 = phi ptr [ null, %_ZN12_GLOBAL__N_19ZipfModel4InitEv.exit ], [ %expected.sroa.25.2, %for.inc ]
-  %expected.sroa.12.0478 = phi ptr [ null, %_ZN12_GLOBAL__N_19ZipfModel4InitEv.exit ], [ %expected.sroa.12.2, %for.inc ]
+  %expected.sroa.12.0479 = phi ptr [ null, %_ZN12_GLOBAL__N_19ZipfModel4InitEv.exit ], [ %expected.sroa.12.2, %for.inc ]
+  %expected.sroa.25.0478 = phi ptr [ null, %_ZN12_GLOBAL__N_19ZipfModel4InitEv.exit ], [ %expected.sroa.25.2, %for.inc ]
   %16 = load ptr, ptr %_M_finish.i.i.i, align 16
   %17 = load ptr, ptr %hnq_.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %16 to i64
@@ -2331,15 +2331,15 @@ invoke.cont13:                                    ; preds = %_ZNSt6vectorImSaImE
   %points.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %points.sroa.0.0483, %if.then.i ]
   %points.sroa.13.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
   %sub = fsub double %retval.0.i, %last_cdf.0486
-  %cmp.not.i66 = icmp eq ptr %expected.sroa.12.0478, %expected.sroa.25.0479
+  %cmp.not.i66 = icmp eq ptr %expected.sroa.12.0479, %expected.sroa.25.0478
   br i1 %cmp.not.i66, label %if.else.i69, label %if.then.i67
 
 if.then.i67:                                      ; preds = %invoke.cont13
-  store double %sub, ptr %expected.sroa.12.0478, align 8
+  store double %sub, ptr %expected.sroa.12.0479, align 8
   br label %invoke.cont14
 
 if.else.i69:                                      ; preds = %invoke.cont13
-  %sub.ptr.lhs.cast.i.i.i.i70 = ptrtoint ptr %expected.sroa.25.0479 to i64
+  %sub.ptr.lhs.cast.i.i.i.i70 = ptrtoint ptr %expected.sroa.12.0479 to i64
   %sub.ptr.rhs.cast.i.i.i.i71 = ptrtoint ptr %expected.sroa.0.0480 to i64
   %sub.ptr.sub.i.i.i.i72 = sub i64 %sub.ptr.lhs.cast.i.i.i.i70, %sub.ptr.rhs.cast.i.i.i.i71
   %cmp.i.i.i73 = icmp eq i64 %sub.ptr.sub.i.i.i.i72, 9223372036854775800
@@ -2392,8 +2392,8 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i, %if.then.i67
-  %add.ptr.i.i.i.i.i86.pn = phi ptr [ %add.ptr.i.i.i.i.i86, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %expected.sroa.12.0478, %if.then.i67 ]
-  %expected.sroa.25.1 = phi ptr [ %add.ptr19.i.i90, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %expected.sroa.25.0479, %if.then.i67 ]
+  %expected.sroa.25.1 = phi ptr [ %add.ptr19.i.i90, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %expected.sroa.25.0478, %if.then.i67 ]
+  %add.ptr.i.i.i.i.i86.pn = phi ptr [ %add.ptr.i.i.i.i.i86, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %expected.sroa.12.0479, %if.then.i67 ]
   %expected.sroa.0.1 = phi ptr [ %cond.i10.i.i83, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %expected.sroa.0.0480, %if.then.i67 ]
   %expected.sroa.12.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i86.pn, i64 8
   %cmp15 = fcmp olt double %sub, %min_p.0485
@@ -2416,8 +2416,8 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i62, %i
   br label %ehcleanup327
 
 for.inc:                                          ; preds = %lor.lhs.false, %if.then16, %invoke.cont14
-  %expected.sroa.12.2 = phi ptr [ %expected.sroa.12.1, %if.then16 ], [ %expected.sroa.12.1, %invoke.cont14 ], [ %expected.sroa.12.0478, %lor.lhs.false ]
-  %expected.sroa.25.2 = phi ptr [ %expected.sroa.25.1, %if.then16 ], [ %expected.sroa.25.1, %invoke.cont14 ], [ %expected.sroa.25.0479, %lor.lhs.false ]
+  %expected.sroa.25.2 = phi ptr [ %expected.sroa.25.1, %if.then16 ], [ %expected.sroa.25.1, %invoke.cont14 ], [ %expected.sroa.25.0478, %lor.lhs.false ]
+  %expected.sroa.12.2 = phi ptr [ %expected.sroa.12.1, %if.then16 ], [ %expected.sroa.12.1, %invoke.cont14 ], [ %expected.sroa.12.0479, %lor.lhs.false ]
   %expected.sroa.0.3 = phi ptr [ %expected.sroa.0.1, %if.then16 ], [ %expected.sroa.0.1, %invoke.cont14 ], [ %expected.sroa.0.0480, %lor.lhs.false ]
   %points.sroa.27.2 = phi ptr [ %points.sroa.27.1, %if.then16 ], [ %points.sroa.27.1, %invoke.cont14 ], [ %points.sroa.27.0481, %lor.lhs.false ]
   %points.sroa.13.2 = phi ptr [ %points.sroa.13.1, %if.then16 ], [ %points.sroa.13.1, %invoke.cont14 ], [ %points.sroa.13.0482, %lor.lhs.false ]
@@ -2504,7 +2504,7 @@ if.then.i127:                                     ; preds = %invoke.cont21
   br label %invoke.cont24
 
 if.else.i129:                                     ; preds = %invoke.cont21
-  %sub.ptr.lhs.cast.i.i.i.i130 = ptrtoint ptr %expected.sroa.12.2 to i64
+  %sub.ptr.lhs.cast.i.i.i.i130 = ptrtoint ptr %expected.sroa.25.2 to i64
   %sub.ptr.rhs.cast.i.i.i.i131 = ptrtoint ptr %expected.sroa.0.3 to i64
   %sub.ptr.sub.i.i.i.i132 = sub i64 %sub.ptr.lhs.cast.i.i.i.i130, %sub.ptr.rhs.cast.i.i.i.i131
   %cmp.i.i.i133 = icmp eq i64 %sub.ptr.sub.i.i.i.i132, 9223372036854775800
@@ -3067,10 +3067,10 @@ invoke.cont164:                                   ; preds = %for.end160
 
 for.body.i282:                                    ; preds = %invoke.cont164, %for.body.i282
   %chi_square.017.i = phi double [ %chi_square.1.i, %for.body.i282 ], [ 0.000000e+00, %invoke.cont164 ]
-  %eit.sroa.0.016.i = phi ptr [ %incdec.ptr.i5.i, %for.body.i282 ], [ %expected.sroa.0.5, %invoke.cont164 ]
-  %it.sroa.0.015.i = phi ptr [ %incdec.ptr.i.i289, %for.body.i282 ], [ %buckets.sroa.0.0, %invoke.cont164 ]
-  %70 = load double, ptr %eit.sroa.0.016.i, align 8
-  %71 = load i64, ptr %it.sroa.0.015.i, align 8
+  %it.sroa.0.016.i = phi ptr [ %incdec.ptr.i.i289, %for.body.i282 ], [ %buckets.sroa.0.0, %invoke.cont164 ]
+  %eit.sroa.0.015.i = phi ptr [ %incdec.ptr.i5.i, %for.body.i282 ], [ %expected.sroa.0.5, %invoke.cont164 ]
+  %70 = load double, ptr %eit.sroa.0.015.i, align 8
+  %71 = load i64, ptr %it.sroa.0.016.i, align 8
   %conv.i283 = sitofp i64 %71 to double
   %sub.i284 = fsub double %conv.i283, %70
   %cmp9.i285 = fcmp une double %sub.i284, 0.000000e+00
@@ -3078,8 +3078,8 @@ for.body.i282:                                    ; preds = %invoke.cont164, %fo
   %div.i287 = fdiv double %mul.i286, %70
   %add.i288 = fadd double %chi_square.017.i, %div.i287
   %chi_square.1.i = select i1 %cmp9.i285, double %add.i288, double %chi_square.017.i
-  %incdec.ptr.i.i289 = getelementptr inbounds i8, ptr %it.sroa.0.015.i, i64 8
-  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %eit.sroa.0.016.i, i64 8
+  %incdec.ptr.i.i289 = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 8
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %eit.sroa.0.015.i, i64 8
   %cmp.i.i290 = icmp ne ptr %incdec.ptr.i.i289, %retval.0.i.i.i.i.i.i.i
   %cmp.i4.i = icmp ne ptr %incdec.ptr.i5.i, %expected.sroa.12.4
   %or.cond.i291 = select i1 %cmp.i.i290, i1 %cmp.i4.i, i1 false

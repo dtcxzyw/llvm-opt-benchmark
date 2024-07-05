@@ -480,10 +480,10 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr nocapture noundef 
 
 .lr.ph:                                           ; preds = %9, %.backedge
   %.05928 = phi ptr [ %.059.be, %.backedge ], [ %0, %9 ]
-  %.06027 = phi i32 [ %.060.be, %.backedge ], [ %3, %9 ]
-  %.06426 = phi ptr [ %.064.be, %.backedge ], [ %2, %9 ]
-  %.06925 = phi i32 [ %.069.be, %.backedge ], [ %1, %9 ]
-  %13 = load i8, ptr %.06426, align 1
+  %.06027 = phi i32 [ %.060.be, %.backedge ], [ %1, %9 ]
+  %.06426 = phi i32 [ %.064.be, %.backedge ], [ %3, %9 ]
+  %.06825 = phi ptr [ %.068.be, %.backedge ], [ %2, %9 ]
+  %13 = load i8, ptr %.06825, align 1
   switch i8 %13, label %55 [
     i8 92, label %15
     i8 37, label %.preheader
@@ -491,11 +491,11 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr nocapture noundef 
   ]
 
 .preheader:                                       ; preds = %.lr.ph
-  %14 = icmp ugt i32 %.06027, 1
+  %14 = icmp ugt i32 %.06426, 1
   br i1 %14, label %.lr.ph44, label %.thread
 
 15:                                               ; preds = %.lr.ph
-  %16 = icmp ult i32 %.06027, 2
+  %16 = icmp ult i32 %.06426, 2
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %15
@@ -507,21 +507,21 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr nocapture noundef 
   unreachable
 
 21:                                               ; preds = %15
-  %22 = add nsw i32 %.06027, -1
-  %23 = getelementptr i8, ptr %.06426, i64 1
+  %22 = add nsw i32 %.06426, -1
+  %23 = getelementptr i8, ptr %.06825, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = load i8, ptr %.05928, align 1
   %.not78 = icmp eq i8 %24, %25
   br i1 %.not78, label %.backedge, label %.thread
 
 .lr.ph44:                                         ; preds = %.preheader, %32
-  %.16142.in = phi i32 [ %.16142, %32 ], [ %.06027, %.preheader ]
+  %.16542.in = phi i32 [ %.16542, %32 ], [ %.06426, %.preheader ]
   %.141 = phi ptr [ %.2, %32 ], [ %.05928, %.preheader ]
-  %.064.pn40 = phi ptr [ %.16543, %32 ], [ %.06426, %.preheader ]
-  %.17039 = phi i32 [ %.271, %32 ], [ %.06925, %.preheader ]
-  %.16142 = add nsw i32 %.16142.in, -1
-  %.16543 = getelementptr i8, ptr %.064.pn40, i64 1
-  %26 = load i8, ptr %.16543, align 1
+  %.16140 = phi i32 [ %.262, %32 ], [ %.06027, %.preheader ]
+  %.068.pn39 = phi ptr [ %.16943, %32 ], [ %.06825, %.preheader ]
+  %.16542 = add nsw i32 %.16542.in, -1
+  %.16943 = getelementptr i8, ptr %.068.pn39, i64 1
+  %26 = load i8, ptr %.16943, align 1
   switch i8 %26, label %.loopexit [
     i8 37, label %32
     i8 95, label %27
@@ -529,22 +529,22 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr nocapture noundef 
   ]
 
 27:                                               ; preds = %.lr.ph44
-  %28 = icmp slt i32 %.17039, 1
+  %28 = icmp slt i32 %.16140, 1
   br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr i8, ptr %.141, i64 1
-  %31 = add nsw i32 %.17039, -1
+  %31 = add nsw i32 %.16140, -1
   br label %32
 
 32:                                               ; preds = %.lr.ph44, %29
-  %.271 = phi i32 [ %31, %29 ], [ %.17039, %.lr.ph44 ]
+  %.262 = phi i32 [ %31, %29 ], [ %.16140, %.lr.ph44 ]
   %.2 = phi ptr [ %30, %29 ], [ %.141, %.lr.ph44 ]
-  %33 = icmp ugt i32 %.16142.in, 2
+  %33 = icmp ugt i32 %.16542.in, 2
   br i1 %33, label %.lr.ph44, label %.thread, !llvm.loop !5
 
 34:                                               ; preds = %.lr.ph44
-  %35 = icmp eq i32 %.16142, 1
+  %35 = icmp eq i32 %.16542, 1
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %34
@@ -556,42 +556,42 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr nocapture noundef 
   unreachable
 
 40:                                               ; preds = %34
-  %41 = getelementptr i8, ptr %.064.pn40, i64 2
+  %41 = getelementptr i8, ptr %.068.pn39, i64 2
   %42 = load i8, ptr %41, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph44, %40
-  %.0 = phi i8 [ %42, %40 ], [ %26, %.lr.ph44 ]
-  %43 = icmp sgt i32 %.17039, 0
+  %.058 = phi i8 [ %42, %40 ], [ %26, %.lr.ph44 ]
+  %43 = icmp sgt i32 %.16140, 0
   br i1 %43, label %.lr.ph51, label %.thread
 
 .lr.ph51:                                         ; preds = %.loopexit, %48
   %.349 = phi ptr [ %49, %48 ], [ %.141, %.loopexit ]
-  %.37248 = phi i32 [ %50, %48 ], [ %.17039, %.loopexit ]
+  %.36348 = phi i32 [ %50, %48 ], [ %.16140, %.loopexit ]
   %44 = load i8, ptr %.349, align 1
-  %45 = icmp eq i8 %44, %.0
+  %45 = icmp eq i8 %44, %.058
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %.lr.ph51
-  %47 = tail call fastcc i32 @SB_MatchText(ptr noundef nonnull %.349, i32 noundef %.37248, ptr noundef nonnull %.16543, i32 noundef %.16142)
+  %47 = tail call fastcc i32 @SB_MatchText(ptr noundef nonnull %.349, i32 noundef %.36348, ptr noundef nonnull %.16943, i32 noundef %.16542)
   %.not77 = icmp eq i32 %47, 0
   br i1 %.not77, label %48, label %.thread
 
 48:                                               ; preds = %46, %.lr.ph51
   %49 = getelementptr i8, ptr %.349, i64 1
-  %50 = add nsw i32 %.37248, -1
-  %51 = icmp sgt i32 %.37248, 1
+  %50 = add nsw i32 %.36348, -1
+  %51 = icmp sgt i32 %.36348, 1
   br i1 %51, label %.lr.ph51, label %.thread, !llvm.loop !7
 
 .backedge:                                        ; preds = %21, %55, %.lr.ph
-  %.367.pn = phi ptr [ %.06426, %.lr.ph ], [ %23, %21 ], [ %.06426, %55 ]
-  %.060.be.in = phi i32 [ %.06027, %.lr.ph ], [ %22, %21 ], [ %.06027, %55 ]
+  %.371.pn = phi ptr [ %.06825, %.lr.ph ], [ %23, %21 ], [ %.06825, %55 ]
+  %.064.be.in = phi i32 [ %.06426, %.lr.ph ], [ %22, %21 ], [ %.06426, %55 ]
   %.059.be = getelementptr i8, ptr %.05928, i64 1
-  %.060.be = add nsw i32 %.060.be.in, -1
-  %.064.be = getelementptr i8, ptr %.367.pn, i64 1
-  %.069.be = add nsw i32 %.06925, -1
-  %52 = icmp sgt i32 %.06925, 1
-  %53 = icmp sgt i32 %.060.be.in, 1
+  %.060.be = add nsw i32 %.06027, -1
+  %.064.be = add nsw i32 %.064.be.in, -1
+  %.068.be = getelementptr i8, ptr %.371.pn, i64 1
+  %52 = icmp sgt i32 %.06027, 1
+  %53 = icmp sgt i32 %.064.be.in, 1
   %54 = select i1 %52, i1 %53, i1 false
   br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
@@ -601,31 +601,31 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr nocapture noundef 
   br i1 %.not, label %.backedge, label %.thread
 
 ._crit_edge:                                      ; preds = %.backedge, %9
-  %.064.lcssa = phi ptr [ %2, %9 ], [ %.064.be, %.backedge ]
-  %.060.lcssa = phi i32 [ %3, %9 ], [ %.060.be, %.backedge ]
+  %.068.lcssa = phi ptr [ %2, %9 ], [ %.068.be, %.backedge ]
+  %.064.lcssa = phi i32 [ %3, %9 ], [ %.064.be, %.backedge ]
   %.lcssa = phi i1 [ %10, %9 ], [ %52, %.backedge ]
   br i1 %.lcssa, label %.thread, label %.preheader3
 
 .preheader3:                                      ; preds = %._crit_edge
-  %57 = icmp sgt i32 %.060.lcssa, 0
+  %57 = icmp sgt i32 %.064.lcssa, 0
   br i1 %57, label %.lr.ph33, label %.thread
 
 .lr.ph33:                                         ; preds = %.preheader3, %60
-  %.432 = phi i32 [ %62, %60 ], [ %.060.lcssa, %.preheader3 ]
-  %.46831 = phi ptr [ %61, %60 ], [ %.064.lcssa, %.preheader3 ]
-  %58 = load i8, ptr %.46831, align 1
+  %.432 = phi i32 [ %62, %60 ], [ %.064.lcssa, %.preheader3 ]
+  %.47231 = phi ptr [ %61, %60 ], [ %.068.lcssa, %.preheader3 ]
+  %58 = load i8, ptr %.47231, align 1
   %59 = icmp eq i8 %58, 37
   br i1 %59, label %60, label %.thread
 
 60:                                               ; preds = %.lr.ph33
-  %61 = getelementptr i8, ptr %.46831, i64 1
+  %61 = getelementptr i8, ptr %.47231, i64 1
   %62 = add nsw i32 %.432, -1
   %63 = icmp sgt i32 %.432, 1
   br i1 %63, label %.lr.ph33, label %.thread, !llvm.loop !9
 
 .thread:                                          ; preds = %55, %21, %27, %32, %46, %48, %60, %.lr.ph33, %.preheader3, %.preheader, %.loopexit, %._crit_edge, %6
-  %.058 = phi i32 [ 1, %6 ], [ 0, %._crit_edge ], [ -1, %.loopexit ], [ 1, %.preheader ], [ 1, %.preheader3 ], [ 1, %60 ], [ -1, %.lr.ph33 ], [ %47, %46 ], [ -1, %48 ], [ -1, %27 ], [ 1, %32 ], [ 0, %21 ], [ 0, %55 ]
-  ret i32 %.058
+  %.0 = phi i32 [ 1, %6 ], [ 0, %._crit_edge ], [ -1, %.loopexit ], [ 1, %.preheader ], [ 1, %.preheader3 ], [ 1, %60 ], [ -1, %.lr.ph33 ], [ %47, %46 ], [ -1, %48 ], [ -1, %27 ], [ 1, %32 ], [ 0, %21 ], [ 0, %55 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1634,10 +1634,10 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
 
 .lr.ph:                                           ; preds = %9, %.backedge
   %.07135 = phi ptr [ %.071.be, %.backedge ], [ %0, %9 ]
-  %.07234 = phi i32 [ %.072.be, %.backedge ], [ %3, %9 ]
-  %.07733 = phi ptr [ %.077.be, %.backedge ], [ %2, %9 ]
-  %.08232 = phi i32 [ %.082.be, %.backedge ], [ %1, %9 ]
-  %13 = load i8, ptr %.07733, align 1
+  %.07234 = phi i32 [ %.072.be, %.backedge ], [ %1, %9 ]
+  %.07933 = phi i32 [ %.079.be, %.backedge ], [ %3, %9 ]
+  %.08432 = phi ptr [ %.084.be, %.backedge ], [ %2, %9 ]
+  %13 = load i8, ptr %.08432, align 1
   switch i8 %13, label %72 [
     i8 92, label %15
     i8 37, label %.preheader1
@@ -1645,11 +1645,11 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
   ]
 
 .preheader1:                                      ; preds = %.lr.ph
-  %14 = icmp ugt i32 %.07234, 1
+  %14 = icmp ugt i32 %.07933, 1
   br i1 %14, label %.lr.ph51, label %.thread
 
 15:                                               ; preds = %.lr.ph
-  %16 = icmp ult i32 %.07234, 2
+  %16 = icmp ult i32 %.07933, 2
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %15
@@ -1661,21 +1661,21 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
   unreachable
 
 21:                                               ; preds = %15
-  %22 = add nsw i32 %.07234, -1
-  %23 = getelementptr i8, ptr %.07733, i64 1
+  %22 = add nsw i32 %.07933, -1
+  %23 = getelementptr i8, ptr %.08432, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = load i8, ptr %.07135, align 1
   %.not97 = icmp eq i8 %24, %25
   br i1 %.not97, label %74, label %.thread
 
 .lr.ph51:                                         ; preds = %.preheader1, %.critedge
-  %.17349.in = phi i32 [ %.17349, %.critedge ], [ %.07234, %.preheader1 ]
+  %.18049.in = phi i32 [ %.18049, %.critedge ], [ %.07933, %.preheader1 ]
   %.148 = phi ptr [ %.3, %.critedge ], [ %.07135, %.preheader1 ]
-  %.077.pn47 = phi ptr [ %.17850, %.critedge ], [ %.07733, %.preheader1 ]
-  %.18346 = phi i32 [ %.385, %.critedge ], [ %.08232, %.preheader1 ]
-  %.17349 = add nsw i32 %.17349.in, -1
-  %.17850 = getelementptr i8, ptr %.077.pn47, i64 1
-  %26 = load i8, ptr %.17850, align 1
+  %.17347 = phi i32 [ %.375, %.critedge ], [ %.07234, %.preheader1 ]
+  %.084.pn46 = phi ptr [ %.18550, %.critedge ], [ %.08432, %.preheader1 ]
+  %.18049 = add nsw i32 %.18049.in, -1
+  %.18550 = getelementptr i8, ptr %.084.pn46, i64 1
+  %26 = load i8, ptr %.18550, align 1
   switch i8 %26, label %.loopexit [
     i8 37, label %.critedge
     i8 95, label %27
@@ -1683,38 +1683,38 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
   ]
 
 27:                                               ; preds = %.lr.ph51
-  %28 = icmp slt i32 %.18346, 1
+  %28 = icmp slt i32 %.17347, 1
   br i1 %28, label %.thread, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %27
   %scevgep = getelementptr i8, ptr %.148, i64 1
-  %29 = zext nneg i32 %.18346 to i64
+  %29 = zext nneg i32 %.17347 to i64
   %30 = getelementptr i8, ptr %scevgep, i64 %29
   %scevgep87 = getelementptr i8, ptr %30, i64 -1
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %32
-  %.284 = phi i32 [ %34, %32 ], [ %.18346, %.preheader.preheader ]
+  %.274 = phi i32 [ %34, %32 ], [ %.17347, %.preheader.preheader ]
   %.2 = phi ptr [ %33, %32 ], [ %.148, %.preheader.preheader ]
-  %31 = icmp ugt i32 %.284, 1
+  %31 = icmp ugt i32 %.274, 1
   br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %.preheader
   %33 = getelementptr i8, ptr %.2, i64 1
-  %34 = add nsw i32 %.284, -1
+  %34 = add nsw i32 %.274, -1
   %35 = load i8, ptr %33, align 1
   %36 = and i8 %35, -64
   %37 = icmp eq i8 %36, -128
   br i1 %37, label %.preheader, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %32, %.preheader, %.lr.ph51
-  %.385 = phi i32 [ %.18346, %.lr.ph51 ], [ %34, %32 ], [ 0, %.preheader ]
+  %.375 = phi i32 [ %.17347, %.lr.ph51 ], [ %34, %32 ], [ 0, %.preheader ]
   %.3 = phi ptr [ %.148, %.lr.ph51 ], [ %33, %32 ], [ %scevgep87, %.preheader ]
-  %38 = icmp sgt i32 %.17349.in, 2
+  %38 = icmp sgt i32 %.18049.in, 2
   br i1 %38, label %.lr.ph51, label %.thread, !llvm.loop !18
 
 39:                                               ; preds = %.lr.ph51
-  %40 = icmp eq i32 %.17349, 1
+  %40 = icmp eq i32 %.18049, 1
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %39
@@ -1726,24 +1726,24 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
   unreachable
 
 45:                                               ; preds = %39
-  %46 = getelementptr i8, ptr %.077.pn47, i64 2
+  %46 = getelementptr i8, ptr %.084.pn46, i64 2
   %47 = load i8, ptr %46, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph51, %45
-  %.0 = phi i8 [ %47, %45 ], [ %26, %.lr.ph51 ]
-  %48 = icmp sgt i32 %.18346, 0
+  %.070 = phi i8 [ %47, %45 ], [ %26, %.lr.ph51 ]
+  %48 = icmp sgt i32 %.17347, 0
   br i1 %48, label %.lr.ph58, label %.thread
 
 .lr.ph58:                                         ; preds = %.loopexit, %.critedge2
   %.456 = phi ptr [ %56, %.critedge2 ], [ %.148, %.loopexit ]
-  %.48655 = phi i32 [ %57, %.critedge2 ], [ %.18346, %.loopexit ]
+  %.47655 = phi i32 [ %57, %.critedge2 ], [ %.17347, %.loopexit ]
   %49 = load i8, ptr %.456, align 1
-  %50 = icmp eq i8 %49, %.0
+  %50 = icmp eq i8 %49, %.070
   br i1 %50, label %51, label %.preheader31
 
 51:                                               ; preds = %.lr.ph58
-  %52 = tail call fastcc i32 @UTF8_MatchText(ptr noundef nonnull %.456, i32 noundef %.48655, ptr noundef nonnull %.17850, i32 noundef %.17349)
+  %52 = tail call fastcc i32 @UTF8_MatchText(ptr noundef nonnull %.456, i32 noundef %.47655, ptr noundef nonnull %.18550, i32 noundef %.18049)
   %.not96 = icmp eq i32 %52, 0
   br i1 %.not96, label %.preheader31, label %.thread
 
@@ -1751,46 +1751,46 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
   br label %53
 
 53:                                               ; preds = %.preheader31, %55
-  %.587 = phi i32 [ %57, %55 ], [ %.48655, %.preheader31 ]
+  %.577 = phi i32 [ %57, %55 ], [ %.47655, %.preheader31 ]
   %.5 = phi ptr [ %56, %55 ], [ %.456, %.preheader31 ]
-  %54 = icmp ugt i32 %.587, 1
+  %54 = icmp ugt i32 %.577, 1
   br i1 %54, label %55, label %.thread
 
 55:                                               ; preds = %53
   %56 = getelementptr i8, ptr %.5, i64 1
-  %57 = add nsw i32 %.587, -1
+  %57 = add nsw i32 %.577, -1
   %58 = load i8, ptr %56, align 1
   %59 = and i8 %58, -64
   %60 = icmp eq i8 %59, -128
   br i1 %60, label %53, label %.critedge2, !llvm.loop !19
 
 .critedge2:                                       ; preds = %55
-  %61 = icmp sgt i32 %.587, 1
+  %61 = icmp sgt i32 %.577, 1
   br i1 %61, label %.lr.ph58, label %.thread, !llvm.loop !20
 
 .preheader5:                                      ; preds = %.lr.ph, %64
-  %.688 = phi i32 [ %65, %64 ], [ %.08232, %.lr.ph ]
+  %.678 = phi i32 [ %65, %64 ], [ %.07234, %.lr.ph ]
   %.6 = phi ptr [ %62, %64 ], [ %.07135, %.lr.ph ]
   %62 = getelementptr i8, ptr %.6, i64 1
-  %63 = icmp sgt i32 %.688, 1
+  %63 = icmp sgt i32 %.678, 1
   br i1 %63, label %64, label %.backedge
 
 64:                                               ; preds = %.preheader5
-  %65 = add nsw i32 %.688, -1
+  %65 = add nsw i32 %.678, -1
   %66 = load i8, ptr %62, align 1
   %67 = and i8 %66, -64
   %68 = icmp eq i8 %67, -128
   br i1 %68, label %.preheader5, label %.backedge, !llvm.loop !21
 
 .backedge:                                        ; preds = %64, %.preheader5, %74
-  %.082.be = phi i32 [ %76, %74 ], [ %65, %64 ], [ 0, %.preheader5 ]
-  %.380.pn = phi ptr [ %.380, %74 ], [ %.07733, %.preheader5 ], [ %.07733, %64 ]
-  %.072.be.in = phi i32 [ %.375, %74 ], [ %.07234, %.preheader5 ], [ %.07234, %64 ]
+  %.387.pn = phi ptr [ %.387, %74 ], [ %.08432, %.preheader5 ], [ %.08432, %64 ]
+  %.079.be.in = phi i32 [ %.382, %74 ], [ %.07933, %.preheader5 ], [ %.07933, %64 ]
+  %.072.be = phi i32 [ %76, %74 ], [ %65, %64 ], [ 0, %.preheader5 ]
   %.071.be = phi ptr [ %75, %74 ], [ %62, %.preheader5 ], [ %62, %64 ]
-  %.072.be = add nsw i32 %.072.be.in, -1
-  %.077.be = getelementptr i8, ptr %.380.pn, i64 1
-  %69 = icmp sgt i32 %.082.be, 0
-  %70 = icmp sgt i32 %.072.be.in, 1
+  %.079.be = add nsw i32 %.079.be.in, -1
+  %.084.be = getelementptr i8, ptr %.387.pn, i64 1
+  %69 = icmp sgt i32 %.072.be, 0
+  %70 = icmp sgt i32 %.079.be.in, 1
   %71 = select i1 %69, i1 %70, i1 false
   br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
@@ -1800,38 +1800,38 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
   br i1 %.not, label %74, label %.thread
 
 74:                                               ; preds = %72, %21
-  %.380 = phi ptr [ %23, %21 ], [ %.07733, %72 ]
-  %.375 = phi i32 [ %22, %21 ], [ %.07234, %72 ]
+  %.387 = phi ptr [ %23, %21 ], [ %.08432, %72 ]
+  %.382 = phi i32 [ %22, %21 ], [ %.07933, %72 ]
   %75 = getelementptr i8, ptr %.07135, i64 1
-  %76 = add nsw i32 %.08232, -1
+  %76 = add nsw i32 %.07234, -1
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %9
-  %.077.lcssa = phi ptr [ %2, %9 ], [ %.077.be, %.backedge ]
-  %.072.lcssa = phi i32 [ %3, %9 ], [ %.072.be, %.backedge ]
+  %.084.lcssa = phi ptr [ %2, %9 ], [ %.084.be, %.backedge ]
+  %.079.lcssa = phi i32 [ %3, %9 ], [ %.079.be, %.backedge ]
   %.lcssa16 = phi i1 [ %10, %9 ], [ %69, %.backedge ]
   br i1 %.lcssa16, label %.thread, label %.preheader4
 
 .preheader4:                                      ; preds = %._crit_edge
-  %77 = icmp sgt i32 %.072.lcssa, 0
+  %77 = icmp sgt i32 %.079.lcssa, 0
   br i1 %77, label %.lr.ph40, label %.thread
 
 .lr.ph40:                                         ; preds = %.preheader4, %80
-  %.47639 = phi i32 [ %82, %80 ], [ %.072.lcssa, %.preheader4 ]
-  %.48138 = phi ptr [ %81, %80 ], [ %.077.lcssa, %.preheader4 ]
-  %78 = load i8, ptr %.48138, align 1
+  %.48339 = phi i32 [ %82, %80 ], [ %.079.lcssa, %.preheader4 ]
+  %.48838 = phi ptr [ %81, %80 ], [ %.084.lcssa, %.preheader4 ]
+  %78 = load i8, ptr %.48838, align 1
   %79 = icmp eq i8 %78, 37
   br i1 %79, label %80, label %.thread
 
 80:                                               ; preds = %.lr.ph40
-  %81 = getelementptr i8, ptr %.48138, i64 1
-  %82 = add nsw i32 %.47639, -1
-  %83 = icmp sgt i32 %.47639, 1
+  %81 = getelementptr i8, ptr %.48838, i64 1
+  %82 = add nsw i32 %.48339, -1
+  %83 = icmp sgt i32 %.48339, 1
   br i1 %83, label %.lr.ph40, label %.thread, !llvm.loop !23
 
 .thread:                                          ; preds = %72, %21, %27, %.critedge, %51, %.critedge2, %53, %80, %.lr.ph40, %.preheader4, %.preheader1, %.loopexit, %._crit_edge, %6
-  %.070 = phi i32 [ 1, %6 ], [ 0, %._crit_edge ], [ -1, %.loopexit ], [ 1, %.preheader1 ], [ 1, %.preheader4 ], [ 1, %80 ], [ -1, %.lr.ph40 ], [ -1, %53 ], [ %52, %51 ], [ -1, %.critedge2 ], [ -1, %27 ], [ 1, %.critedge ], [ 0, %21 ], [ 0, %72 ]
-  ret i32 %.070
+  %.0 = phi i32 [ 1, %6 ], [ 0, %._crit_edge ], [ -1, %.loopexit ], [ 1, %.preheader1 ], [ 1, %.preheader4 ], [ 1, %80 ], [ -1, %.lr.ph40 ], [ -1, %53 ], [ %52, %51 ], [ -1, %.critedge2 ], [ -1, %27 ], [ 1, %.critedge ], [ 0, %21 ], [ 0, %72 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1854,9 +1854,9 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
 .lr.ph:                                           ; preds = %9, %.backedge
   %.06728 = phi ptr [ %.067.be, %.backedge ], [ %0, %9 ]
   %.06827 = phi i32 [ %.068.be, %.backedge ], [ %1, %9 ]
-  %.07326 = phi ptr [ %.073.be, %.backedge ], [ %2, %9 ]
+  %.07226 = phi ptr [ %.072.be, %.backedge ], [ %2, %9 ]
   %.07725 = phi i32 [ %.077.be, %.backedge ], [ %3, %9 ]
-  %13 = load i8, ptr %.07326, align 1
+  %13 = load i8, ptr %.07226, align 1
   switch i8 %13, label %64 [
     i8 92, label %15
     i8 37, label %.preheader
@@ -1881,7 +1881,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
 
 21:                                               ; preds = %15
   %22 = add nsw i32 %.07725, -1
-  %23 = getelementptr i8, ptr %.07326, i64 1
+  %23 = getelementptr i8, ptr %.07226, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = load i8, ptr %.06728, align 1
   %.not87 = icmp eq i8 %24, %25
@@ -1891,10 +1891,10 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   %.17843.in = phi i32 [ %.17843, %34 ], [ %.07725, %.preheader ]
   %.141 = phi ptr [ %.2, %34 ], [ %.06728, %.preheader ]
   %.16940 = phi i32 [ %.270, %34 ], [ %.06827, %.preheader ]
-  %.073.pn39 = phi ptr [ %.17442, %34 ], [ %.07326, %.preheader ]
-  %.17442 = getelementptr i8, ptr %.073.pn39, i64 1
+  %.072.pn39 = phi ptr [ %.17342, %34 ], [ %.07226, %.preheader ]
+  %.17342 = getelementptr i8, ptr %.072.pn39, i64 1
   %.17843 = add nsw i32 %.17843.in, -1
-  %26 = load i8, ptr %.17442, align 1
+  %26 = load i8, ptr %.17342, align 1
   switch i8 %26, label %.loopexit [
     i8 37, label %34
     i8 95, label %27
@@ -1931,12 +1931,12 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   unreachable
 
 42:                                               ; preds = %36
-  %43 = getelementptr i8, ptr %.073.pn39, i64 2
+  %43 = getelementptr i8, ptr %.072.pn39, i64 2
   %44 = load i8, ptr %43, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph44, %42
-  %.072 = phi i8 [ %44, %42 ], [ %26, %.lr.ph44 ]
+  %.076 = phi i8 [ %44, %42 ], [ %26, %.lr.ph44 ]
   %45 = icmp sgt i32 %.16940, 0
   br i1 %45, label %.lr.ph51, label %.thread
 
@@ -1944,11 +1944,11 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   %.349 = phi ptr [ %53, %50 ], [ %.141, %.loopexit ]
   %.37148 = phi i32 [ %54, %50 ], [ %.16940, %.loopexit ]
   %46 = load i8, ptr %.349, align 1
-  %47 = icmp eq i8 %46, %.072
+  %47 = icmp eq i8 %46, %.076
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %.lr.ph51
-  %49 = tail call fastcc i32 @MB_MatchText(ptr noundef nonnull %.349, i32 noundef %.37148, ptr noundef nonnull %.17442, i32 noundef %.17843)
+  %49 = tail call fastcc i32 @MB_MatchText(ptr noundef nonnull %.349, i32 noundef %.37148, ptr noundef nonnull %.17342, i32 noundef %.17843)
   %.not86 = icmp eq i32 %49, 0
   br i1 %.not86, label %50, label %.thread
 
@@ -1969,10 +1969,10 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
 
 .backedge:                                        ; preds = %56, %66
   %.077.be.in = phi i32 [ %.380, %66 ], [ %.07725, %56 ]
-  %.376.pn = phi ptr [ %.376, %66 ], [ %.07326, %56 ]
+  %.375.pn = phi ptr [ %.375, %66 ], [ %.07226, %56 ]
   %.068.be = phi i32 [ %68, %66 ], [ %60, %56 ]
   %.067.be = phi ptr [ %67, %66 ], [ %59, %56 ]
-  %.073.be = getelementptr i8, ptr %.376.pn, i64 1
+  %.072.be = getelementptr i8, ptr %.375.pn, i64 1
   %.077.be = add nsw i32 %.077.be.in, -1
   %61 = icmp sgt i32 %.068.be, 0
   %62 = icmp sgt i32 %.077.be.in, 1
@@ -1986,14 +1986,14 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
 
 66:                                               ; preds = %64, %21
   %.380 = phi i32 [ %22, %21 ], [ %.07725, %64 ]
-  %.376 = phi ptr [ %23, %21 ], [ %.07326, %64 ]
+  %.375 = phi ptr [ %23, %21 ], [ %.07226, %64 ]
   %67 = getelementptr i8, ptr %.06728, i64 1
   %68 = add nsw i32 %.06827, -1
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %9
   %.077.lcssa = phi i32 [ %3, %9 ], [ %.077.be, %.backedge ]
-  %.073.lcssa = phi ptr [ %2, %9 ], [ %.073.be, %.backedge ]
+  %.072.lcssa = phi ptr [ %2, %9 ], [ %.072.be, %.backedge ]
   %.lcssa = phi i1 [ %10, %9 ], [ %61, %.backedge ]
   br i1 %.lcssa, label %.thread, label %.preheader3
 
@@ -2002,7 +2002,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %69, label %.lr.ph33, label %.thread
 
 .lr.ph33:                                         ; preds = %.preheader3, %72
-  %.432 = phi ptr [ %73, %72 ], [ %.073.lcssa, %.preheader3 ]
+  %.432 = phi ptr [ %73, %72 ], [ %.072.lcssa, %.preheader3 ]
   %.48131 = phi i32 [ %74, %72 ], [ %.077.lcssa, %.preheader3 ]
   %70 = load i8, ptr %.432, align 1
   %71 = icmp eq i8 %70, 37
@@ -2051,10 +2051,10 @@ define internal fastcc range(i32 -1, 2) i32 @SB_IMatchText(ptr nocapture noundef
 
 16:                                               ; preds = %.lr.ph, %.backedge
   %.073152 = phi ptr [ %0, %.lr.ph ], [ %.073.be, %.backedge ]
-  %.074151 = phi i32 [ %3, %.lr.ph ], [ %.074.be, %.backedge ]
-  %.078150 = phi ptr [ %2, %.lr.ph ], [ %.078.be, %.backedge ]
-  %.083149 = phi i32 [ %1, %.lr.ph ], [ %.083.be, %.backedge ]
-  %17 = load i8, ptr %.078150, align 1
+  %.074151 = phi i32 [ %1, %.lr.ph ], [ %.074.be, %.backedge ]
+  %.078150 = phi i32 [ %3, %.lr.ph ], [ %.078.be, %.backedge ]
+  %.082149 = phi ptr [ %2, %.lr.ph ], [ %.082.be, %.backedge ]
+  %17 = load i8, ptr %.082149, align 1
   switch i8 %17, label %120 [
     i8 92, label %19
     i8 37, label %.preheader
@@ -2062,11 +2062,11 @@ define internal fastcc range(i32 -1, 2) i32 @SB_IMatchText(ptr nocapture noundef
   ]
 
 .preheader:                                       ; preds = %16
-  %18 = icmp ugt i32 %.074151, 1
+  %18 = icmp ugt i32 %.078150, 1
   br i1 %18, label %.lr.ph169, label %.thread117
 
 19:                                               ; preds = %16
-  %20 = icmp ult i32 %.074151, 2
+  %20 = icmp ult i32 %.078150, 2
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %19
@@ -2078,8 +2078,8 @@ define internal fastcc range(i32 -1, 2) i32 @SB_IMatchText(ptr nocapture noundef
   unreachable
 
 25:                                               ; preds = %19
-  %26 = add nsw i32 %.074151, -1
-  %27 = getelementptr i8, ptr %.078150, i64 1
+  %26 = add nsw i32 %.078150, -1
+  %27 = getelementptr i8, ptr %.082149, i64 1
   %28 = load i8, ptr %27, align 1
   br i1 %5, label %30, label %29
 
@@ -2117,13 +2117,13 @@ SB_lower_char.exit95:                             ; preds = %30, %34, %44
   br i1 %.not92, label %.backedge, label %.thread117
 
 .lr.ph169:                                        ; preds = %.preheader, %54
-  %.175167.in = phi i32 [ %.175167, %54 ], [ %.074151, %.preheader ]
+  %.179167.in = phi i32 [ %.179167, %54 ], [ %.078150, %.preheader ]
   %.1166 = phi ptr [ %.2, %54 ], [ %.073152, %.preheader ]
-  %.078.pn165 = phi ptr [ %.179168, %54 ], [ %.078150, %.preheader ]
-  %.184164 = phi i32 [ %.285, %54 ], [ %.083149, %.preheader ]
-  %.175167 = add nsw i32 %.175167.in, -1
-  %.179168 = getelementptr i8, ptr %.078.pn165, i64 1
-  %48 = load i8, ptr %.179168, align 1
+  %.175165 = phi i32 [ %.276, %54 ], [ %.074151, %.preheader ]
+  %.082.pn164 = phi ptr [ %.183168, %54 ], [ %.082149, %.preheader ]
+  %.179167 = add nsw i32 %.179167.in, -1
+  %.183168 = getelementptr i8, ptr %.082.pn164, i64 1
+  %48 = load i8, ptr %.183168, align 1
   switch i8 %48, label %75 [
     i8 37, label %54
     i8 95, label %49
@@ -2131,22 +2131,22 @@ SB_lower_char.exit95:                             ; preds = %30, %34, %44
   ]
 
 49:                                               ; preds = %.lr.ph169
-  %50 = icmp slt i32 %.184164, 1
+  %50 = icmp slt i32 %.175165, 1
   br i1 %50, label %.thread117, label %51
 
 51:                                               ; preds = %49
   %52 = getelementptr i8, ptr %.1166, i64 1
-  %53 = add nsw i32 %.184164, -1
+  %53 = add nsw i32 %.175165, -1
   br label %54
 
 54:                                               ; preds = %.lr.ph169, %51
-  %.285 = phi i32 [ %53, %51 ], [ %.184164, %.lr.ph169 ]
+  %.276 = phi i32 [ %53, %51 ], [ %.175165, %.lr.ph169 ]
   %.2 = phi ptr [ %52, %51 ], [ %.1166, %.lr.ph169 ]
-  %55 = icmp ugt i32 %.175167.in, 2
+  %55 = icmp ugt i32 %.179167.in, 2
   br i1 %55, label %.lr.ph169, label %.thread117, !llvm.loop !28
 
 56:                                               ; preds = %.lr.ph169
-  %57 = icmp eq i32 %.175167, 1
+  %57 = icmp eq i32 %.179167, 1
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %56
@@ -2158,7 +2158,7 @@ SB_lower_char.exit95:                             ; preds = %30, %34, %44
   unreachable
 
 62:                                               ; preds = %56
-  %63 = getelementptr i8, ptr %.078.pn165, i64 2
+  %63 = getelementptr i8, ptr %.082.pn164, i64 2
   %64 = load i8, ptr %63, align 1
   br i1 %5, label %65, label %67
 
@@ -2202,8 +2202,8 @@ SB_lower_char.exit95:                             ; preds = %30, %34, %44
   br label %SB_lower_char.exit98
 
 SB_lower_char.exit98:                             ; preds = %84, %79, %76, %73, %68, %65
-  %.0 = phi i8 [ %66, %65 ], [ %72, %68 ], [ %74, %73 ], [ %77, %76 ], [ %83, %79 ], [ %85, %84 ]
-  %86 = icmp sgt i32 %.184164, 0
+  %.072 = phi i8 [ %66, %65 ], [ %72, %68 ], [ %74, %73 ], [ %77, %76 ], [ %83, %79 ], [ %85, %84 ]
+  %86 = icmp sgt i32 %.175165, 0
   br i1 %86, label %.lr.ph175, label %.thread117
 
 .lr.ph175:                                        ; preds = %SB_lower_char.exit98
@@ -2211,21 +2211,21 @@ SB_lower_char.exit98:                             ; preds = %84, %79, %76, %73, 
 
 SB_lower_char.exit104.us:                         ; preds = %.lr.ph175, %92
   %.3174.us = phi ptr [ %93, %92 ], [ %.1166, %.lr.ph175 ]
-  %.386173.us = phi i32 [ %94, %92 ], [ %.184164, %.lr.ph175 ]
+  %.377173.us = phi i32 [ %94, %92 ], [ %.175165, %.lr.ph175 ]
   %87 = load i8, ptr %.3174.us, align 1
   %88 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %87) #7
-  %89 = icmp eq i8 %88, %.0
+  %89 = icmp eq i8 %88, %.072
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %SB_lower_char.exit104.us
-  %91 = tail call fastcc i32 @SB_IMatchText(ptr noundef nonnull %.3174.us, i32 noundef %.386173.us, ptr noundef nonnull %.179168, i32 noundef %.175167, ptr noundef %4, i1 noundef zeroext true)
+  %91 = tail call fastcc i32 @SB_IMatchText(ptr noundef nonnull %.3174.us, i32 noundef %.377173.us, ptr noundef nonnull %.183168, i32 noundef %.179167, ptr noundef %4, i1 noundef zeroext true)
   %.not91.us = icmp eq i32 %91, 0
   br i1 %.not91.us, label %92, label %.thread117
 
 92:                                               ; preds = %90, %SB_lower_char.exit104.us
   %93 = getelementptr i8, ptr %.3174.us, i64 1
-  %94 = add nsw i32 %.386173.us, -1
-  %95 = icmp sgt i32 %.386173.us, 1
+  %94 = add nsw i32 %.377173.us, -1
+  %95 = icmp sgt i32 %.377173.us, 1
   br i1 %95, label %SB_lower_char.exit104.us, label %.thread117, !llvm.loop !29
 
 .lr.ph175.split:                                  ; preds = %.lr.ph175
@@ -2233,54 +2233,54 @@ SB_lower_char.exit104.us:                         ; preds = %.lr.ph175, %92
 
 SB_lower_char.exit104.us182:                      ; preds = %.lr.ph175.split, %101
   %.3174.us180 = phi ptr [ %102, %101 ], [ %.1166, %.lr.ph175.split ]
-  %.386173.us181 = phi i32 [ %103, %101 ], [ %.184164, %.lr.ph175.split ]
+  %.377173.us181 = phi i32 [ %103, %101 ], [ %.175165, %.lr.ph175.split ]
   %96 = load i8, ptr %.3174.us180, align 1
   %97 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %96) #7
-  %98 = icmp eq i8 %97, %.0
+  %98 = icmp eq i8 %97, %.072
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %SB_lower_char.exit104.us182
-  %100 = tail call fastcc i32 @SB_IMatchText(ptr noundef nonnull %.3174.us180, i32 noundef %.386173.us181, ptr noundef nonnull %.179168, i32 noundef %.175167, ptr noundef null, i1 noundef zeroext false)
+  %100 = tail call fastcc i32 @SB_IMatchText(ptr noundef nonnull %.3174.us180, i32 noundef %.377173.us181, ptr noundef nonnull %.183168, i32 noundef %.179167, ptr noundef null, i1 noundef zeroext false)
   %.not91.us184 = icmp eq i32 %100, 0
   br i1 %.not91.us184, label %101, label %.thread117
 
 101:                                              ; preds = %99, %SB_lower_char.exit104.us182
   %102 = getelementptr i8, ptr %.3174.us180, i64 1
-  %103 = add nsw i32 %.386173.us181, -1
-  %104 = icmp sgt i32 %.386173.us181, 1
+  %103 = add nsw i32 %.377173.us181, -1
+  %104 = icmp sgt i32 %.377173.us181, 1
   br i1 %104, label %SB_lower_char.exit104.us182, label %.thread117, !llvm.loop !29
 
 SB_lower_char.exit104:                            ; preds = %.lr.ph175.split, %113
   %.3174 = phi ptr [ %114, %113 ], [ %.1166, %.lr.ph175.split ]
-  %.386173 = phi i32 [ %115, %113 ], [ %.184164, %.lr.ph175.split ]
+  %.377173 = phi i32 [ %115, %113 ], [ %.175165, %.lr.ph175.split ]
   %105 = load i8, ptr %.3174, align 1
   %106 = zext i8 %105 to i32
   %107 = load ptr, ptr %15, align 8
   %108 = tail call i32 @tolower_l(i32 noundef %106, ptr noundef %107) #7
   %109 = trunc i32 %108 to i8
-  %110 = icmp eq i8 %.0, %109
+  %110 = icmp eq i8 %.072, %109
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %SB_lower_char.exit104
-  %112 = tail call fastcc i32 @SB_IMatchText(ptr noundef nonnull %.3174, i32 noundef %.386173, ptr noundef nonnull %.179168, i32 noundef %.175167, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %112 = tail call fastcc i32 @SB_IMatchText(ptr noundef nonnull %.3174, i32 noundef %.377173, ptr noundef nonnull %.183168, i32 noundef %.179167, ptr noundef nonnull %4, i1 noundef zeroext false)
   %.not91 = icmp eq i32 %112, 0
   br i1 %.not91, label %113, label %.thread117
 
 113:                                              ; preds = %111, %SB_lower_char.exit104
   %114 = getelementptr i8, ptr %.3174, i64 1
-  %115 = add nsw i32 %.386173, -1
-  %116 = icmp sgt i32 %.386173, 1
+  %115 = add nsw i32 %.377173, -1
+  %116 = icmp sgt i32 %.377173, 1
   br i1 %116, label %SB_lower_char.exit104, label %.thread117, !llvm.loop !29
 
 .backedge:                                        ; preds = %SB_lower_char.exit95, %SB_lower_char.exit110, %16
-  %.381.pn = phi ptr [ %.078150, %16 ], [ %27, %SB_lower_char.exit95 ], [ %.078150, %SB_lower_char.exit110 ]
-  %.074.be.in = phi i32 [ %.074151, %16 ], [ %26, %SB_lower_char.exit95 ], [ %.074151, %SB_lower_char.exit110 ]
+  %.385.pn = phi ptr [ %.082149, %16 ], [ %27, %SB_lower_char.exit95 ], [ %.082149, %SB_lower_char.exit110 ]
+  %.078.be.in = phi i32 [ %.078150, %16 ], [ %26, %SB_lower_char.exit95 ], [ %.078150, %SB_lower_char.exit110 ]
   %.073.be = getelementptr i8, ptr %.073152, i64 1
-  %.074.be = add nsw i32 %.074.be.in, -1
-  %.078.be = getelementptr i8, ptr %.381.pn, i64 1
-  %.083.be = add nsw i32 %.083149, -1
-  %117 = icmp sgt i32 %.083149, 1
-  %118 = icmp sgt i32 %.074.be.in, 1
+  %.074.be = add nsw i32 %.074151, -1
+  %.078.be = add nsw i32 %.078.be.in, -1
+  %.082.be = getelementptr i8, ptr %.385.pn, i64 1
+  %117 = icmp sgt i32 %.074151, 1
+  %118 = icmp sgt i32 %.078.be.in, 1
   %119 = select i1 %117, i1 %118, i1 false
   br i1 %119, label %16, label %._crit_edge, !llvm.loop !30
 
@@ -2321,31 +2321,31 @@ SB_lower_char.exit110:                            ; preds = %122, %126, %136
   br i1 %.not, label %.backedge, label %.thread117
 
 ._crit_edge:                                      ; preds = %.backedge, %11
-  %.078.lcssa = phi ptr [ %2, %11 ], [ %.078.be, %.backedge ]
-  %.074.lcssa = phi i32 [ %3, %11 ], [ %.074.be, %.backedge ]
+  %.082.lcssa = phi ptr [ %2, %11 ], [ %.082.be, %.backedge ]
+  %.078.lcssa = phi i32 [ %3, %11 ], [ %.078.be, %.backedge ]
   %.lcssa = phi i1 [ %12, %11 ], [ %117, %.backedge ]
   br i1 %.lcssa, label %.thread117, label %.preheader127
 
 .preheader127:                                    ; preds = %._crit_edge
-  %140 = icmp sgt i32 %.074.lcssa, 0
+  %140 = icmp sgt i32 %.078.lcssa, 0
   br i1 %140, label %.lr.ph158, label %.thread117
 
 .lr.ph158:                                        ; preds = %.preheader127, %143
-  %.4157 = phi i32 [ %145, %143 ], [ %.074.lcssa, %.preheader127 ]
-  %.482156 = phi ptr [ %144, %143 ], [ %.078.lcssa, %.preheader127 ]
-  %141 = load i8, ptr %.482156, align 1
+  %.4157 = phi i32 [ %145, %143 ], [ %.078.lcssa, %.preheader127 ]
+  %.486156 = phi ptr [ %144, %143 ], [ %.082.lcssa, %.preheader127 ]
+  %141 = load i8, ptr %.486156, align 1
   %142 = icmp eq i8 %141, 37
   br i1 %142, label %143, label %.thread117
 
 143:                                              ; preds = %.lr.ph158
-  %144 = getelementptr i8, ptr %.482156, i64 1
+  %144 = getelementptr i8, ptr %.486156, i64 1
   %145 = add nsw i32 %.4157, -1
   %146 = icmp sgt i32 %.4157, 1
   br i1 %146, label %.lr.ph158, label %.thread117, !llvm.loop !31
 
 .thread117:                                       ; preds = %SB_lower_char.exit110, %SB_lower_char.exit95, %49, %54, %111, %113, %99, %101, %90, %92, %143, %.lr.ph158, %.preheader127, %.preheader, %SB_lower_char.exit98, %._crit_edge, %8
-  %.072 = phi i32 [ 1, %8 ], [ 0, %._crit_edge ], [ -1, %SB_lower_char.exit98 ], [ 1, %.preheader ], [ 1, %.preheader127 ], [ 1, %143 ], [ -1, %.lr.ph158 ], [ %91, %90 ], [ -1, %92 ], [ %100, %99 ], [ -1, %101 ], [ %112, %111 ], [ -1, %113 ], [ -1, %49 ], [ 1, %54 ], [ 0, %SB_lower_char.exit95 ], [ 0, %SB_lower_char.exit110 ]
-  ret i32 %.072
+  %.0 = phi i32 [ 1, %8 ], [ 0, %._crit_edge ], [ -1, %SB_lower_char.exit98 ], [ 1, %.preheader ], [ 1, %.preheader127 ], [ 1, %143 ], [ -1, %.lr.ph158 ], [ %91, %90 ], [ -1, %92 ], [ %100, %99 ], [ -1, %101 ], [ %112, %111 ], [ -1, %113 ], [ -1, %49 ], [ 1, %54 ], [ 0, %SB_lower_char.exit95 ], [ 0, %SB_lower_char.exit110 ]
+  ret i32 %.0
 }
 
 declare zeroext i8 @pg_ascii_tolower(i8 noundef zeroext) local_unnamed_addr #1

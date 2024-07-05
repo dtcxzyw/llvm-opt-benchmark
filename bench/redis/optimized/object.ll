@@ -2749,9 +2749,9 @@ if.else:                                          ; preds = %if.end
   br label %if.end21
 
 if.end21:                                         ; preds = %sw.bb13.i, %sw.bb9.i, %sw.bb5.i, %sw.bb3.i, %sw.bb.i, %if.then16, %if.else
-  %bf.load22 = phi i32 [ %bf.load22.pre, %if.else ], [ %bf.load1, %if.then16 ], [ %bf.load1, %sw.bb.i ], [ %bf.load1, %sw.bb3.i ], [ %bf.load1, %sw.bb5.i ], [ %bf.load1, %sw.bb9.i ], [ %bf.load1, %sw.bb13.i ]
-  %astr.0 = phi ptr [ %bufa, %if.else ], [ %0, %if.then16 ], [ %0, %sw.bb.i ], [ %0, %sw.bb3.i ], [ %0, %sw.bb5.i ], [ %0, %sw.bb9.i ], [ %0, %sw.bb13.i ]
-  %alen.0 = phi i64 [ %conv19, %if.else ], [ 0, %if.then16 ], [ %conv2.i, %sw.bb.i ], [ %conv4.i, %sw.bb3.i ], [ %conv8.i, %sw.bb5.i ], [ %conv12.i, %sw.bb9.i ], [ %5, %sw.bb13.i ]
+  %bf.load22 = phi i32 [ %bf.load22.pre, %if.else ], [ %bf.load1, %sw.bb13.i ], [ %bf.load1, %sw.bb9.i ], [ %bf.load1, %sw.bb5.i ], [ %bf.load1, %sw.bb3.i ], [ %bf.load1, %sw.bb.i ], [ %bf.load1, %if.then16 ]
+  %alen.0 = phi i64 [ %conv19, %if.else ], [ %5, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.then16 ]
+  %astr.0 = phi ptr [ %bufa, %if.else ], [ %0, %sw.bb13.i ], [ %0, %sw.bb9.i ], [ %0, %sw.bb5.i ], [ %0, %sw.bb3.i ], [ %0, %sw.bb.i ], [ %0, %if.then16 ]
   %bf.lshr23 = lshr i32 %bf.load22, 4
   %bf.clear24 = and i32 %bf.lshr23, 15
   switch i32 %bf.clear24, label %if.else36 [
@@ -3635,8 +3635,8 @@ if.then29:                                        ; preds = %if.then24
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.then29
-  %elesize.0 = phi i64 [ 0, %if.then29 ], [ %add34, %do.body ]
   %samples.0 = phi i64 [ 0, %if.then29 ], [ %inc, %do.body ]
+  %elesize.0 = phi i64 [ 0, %if.then29 ], [ %add34, %do.body ]
   %node.0 = phi ptr [ %2, %if.then29 ], [ %4, %do.body ]
   %entry31 = getelementptr inbounds i8, ptr %node.0, i64 16
   %3 = load ptr, ptr %entry31, align 8
@@ -3716,14 +3716,14 @@ while.end.thread:                                 ; preds = %if.then64
 
 while.body:                                       ; preds = %if.then64, %while.body
   %call89165 = phi ptr [ %call89, %while.body ], [ %call89160, %if.then64 ]
-  %samples.1164 = phi i64 [ %inc101, %while.body ], [ 0, %if.then64 ]
-  %elesize.1163 = phi i64 [ %add100, %while.body ], [ 0, %if.then64 ]
+  %elesize.1164 = phi i64 [ %add100, %while.body ], [ 0, %if.then64 ]
+  %samples.1163 = phi i64 [ %inc101, %while.body ], [ 0, %if.then64 ]
   %call96 = tail call ptr @dictGetKey(ptr noundef nonnull %call89165) #17
   %call97 = tail call i64 @dictEntryMemUsage() #17
   %call98 = tail call i64 @sdsZmallocSize(ptr noundef %call96) #17
-  %add99 = add i64 %call97, %elesize.1163
+  %add99 = add i64 %call97, %elesize.1164
   %add100 = add i64 %add99, %call98
-  %inc101 = add nuw i64 %samples.1164, 1
+  %inc101 = add nuw i64 %samples.1163, 1
   %call89 = tail call ptr @dictNext(ptr noundef %call66) #17
   %cmp90 = icmp ne ptr %call89, null
   %cmp93 = icmp ult i64 %inc101, %sample_size
@@ -3815,16 +3815,16 @@ if.then161:                                       ; preds = %if.then145
 
 while.body207:                                    ; preds = %if.then161, %while.body207
   %znode.0157 = phi ptr [ %30, %while.body207 ], [ %25, %if.then161 ]
-  %samples.2156 = phi i64 [ %inc215, %while.body207 ], [ 0, %if.then161 ]
-  %elesize.2155 = phi i64 [ %add214, %while.body207 ], [ 0, %if.then161 ]
+  %elesize.2156 = phi i64 [ %add214, %while.body207 ], [ 0, %if.then161 ]
+  %samples.2155 = phi i64 [ %inc215, %while.body207 ], [ 0, %if.then161 ]
   %29 = load ptr, ptr %znode.0157, align 8
   %call209 = tail call i64 @sdsZmallocSize(ptr noundef %29) #17
   %call211 = tail call i64 @dictEntryMemUsage() #17
   %call212 = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %znode.0157) #17
-  %add213 = add i64 %call209, %elesize.2155
+  %add213 = add i64 %call209, %elesize.2156
   %add210 = add i64 %add213, %call211
   %add214 = add i64 %add210, %call212
-  %inc215 = add nuw i64 %samples.2156, 1
+  %inc215 = add nuw i64 %samples.2155, 1
   %level216 = getelementptr inbounds i8, ptr %znode.0157, i64 24
   %30 = load ptr, ptr %level216, align 8
   %cmp201 = icmp ne ptr %30, null
@@ -3900,17 +3900,17 @@ while.end311.thread:                              ; preds = %if.then259
 
 while.body301:                                    ; preds = %if.then259, %while.body301
   %call294150 = phi ptr [ %call294, %while.body301 ], [ %call294145, %if.then259 ]
-  %samples.3149 = phi i64 [ %inc310, %while.body301 ], [ 0, %if.then259 ]
-  %elesize.3148 = phi i64 [ %add309, %while.body301 ], [ 0, %if.then259 ]
+  %elesize.3149 = phi i64 [ %add309, %while.body301 ], [ 0, %if.then259 ]
+  %samples.3148 = phi i64 [ %inc310, %while.body301 ], [ 0, %if.then259 ]
   %call302 = tail call ptr @dictGetKey(ptr noundef nonnull %call294150) #17
   %call303 = tail call ptr @dictGetVal(ptr noundef nonnull %call294150) #17
   %call304 = tail call i64 @sdsZmallocSize(ptr noundef %call302) #17
   %call305 = tail call i64 @sdsZmallocSize(ptr noundef %call303) #17
   %call308 = tail call i64 @dictEntryMemUsage() #17
-  %add306 = add i64 %call304, %elesize.3148
+  %add306 = add i64 %call304, %elesize.3149
   %add307 = add i64 %add306, %call305
   %add309 = add i64 %add307, %call308
-  %inc310 = add nuw i64 %samples.3149, 1
+  %inc310 = add nuw i64 %samples.3148, 1
   %call294 = tail call ptr @dictNext(ptr noundef %call261) #17
   %cmp295 = icmp ne ptr %call294, null
   %cmp298 = icmp ult i64 %inc310, %sample_size
@@ -4309,7 +4309,7 @@ for.body.lr.ph:                                   ; preds = %if.end43
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %mem_total.085 = phi i64 [ %add49, %for.body.lr.ph ], [ %mem_total.1, %for.inc ]
+  %mem_total.084 = phi i64 [ %add49, %for.body.lr.ph ], [ %mem_total.1, %for.inc ]
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 64), align 8
   %add.ptr = getelementptr inbounds %struct.redisDb, ptr %21, i64 %indvars.iv
   %call52 = tail call i64 @dbSize(ptr noundef %add.ptr, i32 noundef 0) #17
@@ -4331,7 +4331,7 @@ if.end56:                                         ; preds = %for.body
   %call66 = tail call i64 @dbMemUsage(ptr noundef %add.ptr, i32 noundef 0) #17
   %overhead_ht_main = getelementptr inbounds %struct.anon.0, ptr %call61, i64 %24, i32 1
   store i64 %call66, ptr %overhead_ht_main, align 8
-  %add70 = add i64 %call66, %mem_total.085
+  %add70 = add i64 %call66, %mem_total.084
   %call71 = tail call i64 @dbMemUsage(ptr noundef %add.ptr, i32 noundef 1) #17
   %overhead_ht_expires = getelementptr inbounds %struct.anon.0, ptr %call61, i64 %24, i32 2
   store i64 %call71, ptr %overhead_ht_expires, align 8
@@ -4341,7 +4341,7 @@ if.end56:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end56
-  %mem_total.1 = phi i64 [ %mem_total.085, %for.body ], [ %add75, %if.end56 ]
+  %mem_total.1 = phi i64 [ %mem_total.084, %for.body ], [ %add75, %if.end56 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
   %27 = sext i32 %26 to i64
@@ -4428,7 +4428,7 @@ if.else:                                          ; preds = %entry
   %conv2 = uitofp i64 %0 to float
   %div = fdiv float %conv, %conv2
   %cmp4 = fcmp ogt float %div, 1.500000e+00
-  %num_reports.0 = zext i1 %cmp4 to i32
+  %big_peak.0 = zext i1 %cmp4 to i32
   %total_frag = getelementptr inbounds i8, ptr %call, i64 120
   %2 = load float, ptr %total_frag, align 8
   %conv8 = fpext float %2 to double
@@ -4440,12 +4440,12 @@ land.lhs.true:                                    ; preds = %if.else
   %3 = load i64, ptr %total_frag_bytes, align 8
   %cmp11 = icmp slt i64 %3, 10485761
   %inc14 = select i1 %cmp4, i32 2, i32 1
-  %spec.select33 = select i1 %cmp11, i32 %num_reports.0, i32 %inc14
+  %spec.select = select i1 %cmp11, i32 %big_peak.0, i32 %inc14
   br label %if.end15
 
 if.end15:                                         ; preds = %land.lhs.true, %if.else
+  %num_reports.1 = phi i32 [ %big_peak.0, %if.else ], [ %spec.select, %land.lhs.true ]
   %high_frag.0 = phi i1 [ true, %if.else ], [ %cmp11, %land.lhs.true ]
-  %num_reports.1 = phi i32 [ %num_reports.0, %if.else ], [ %spec.select33, %land.lhs.true ]
   %allocator_frag = getelementptr inbounds i8, ptr %call, i64 136
   %4 = load float, ptr %allocator_frag, align 8
   %conv16 = fpext float %4 to double

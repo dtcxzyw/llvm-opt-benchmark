@@ -872,35 +872,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
+  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
+  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.021.i, 1
+  %add.i = add i32 %__n.020.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.021.i, 2
+  %add8.i = add i32 %__n.020.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.021.i, 3
+  %add13.i = add i32 %__n.020.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.020.i, 10000
-  %add17.i = add i32 %__n.021.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
+  %0 = udiv i32 %__value.addr.021.i, 10000
+  %add17.i = add i32 %__n.020.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !8
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
@@ -12008,10 +12008,10 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end25
-  %__first2.sroa.0.017 = phi ptr [ %__first2.coerce, %while.body.lr.ph ], [ %__first2.sroa.0.1, %if.end25 ]
-  %__first1.sroa.0.016 = phi ptr [ %__first1.coerce, %while.body.lr.ph ], [ %__first1.sroa.0.1, %if.end25 ]
-  %0 = load i32, ptr %__first1.sroa.0.016, align 4
-  %1 = load i32, ptr %__first2.sroa.0.017, align 4
+  %__first1.sroa.0.017 = phi ptr [ %__first1.coerce, %while.body.lr.ph ], [ %__first1.sroa.0.1, %if.end25 ]
+  %__first2.sroa.0.016 = phi ptr [ %__first2.coerce, %while.body.lr.ph ], [ %__first2.sroa.0.1, %if.end25 ]
+  %0 = load i32, ptr %__first1.sroa.0.017, align 4
+  %1 = load i32, ptr %__first2.sroa.0.016, align 4
   %cmp.i2 = icmp ult i32 %0, %1
   br i1 %cmp.i2, label %if.then, label %if.else
 
@@ -12053,7 +12053,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
 cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 2
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #17
-  %.pre = load i32, ptr %__first1.sroa.0.016, align 4
+  %.pre = load i32, ptr %__first1.sroa.0.017, align 4
   br label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
@@ -12086,7 +12086,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSERKj.exit
 
 _ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSERKj.exit: ; preds = %if.then.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first1.sroa.0.016, i64 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first1.sroa.0.017, i64 4
   br label %if.end25
 
 if.else:                                          ; preds = %while.body
@@ -12094,17 +12094,17 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp.i3, label %if.then20, label %if.else22
 
 if.then20:                                        ; preds = %if.else
-  %incdec.ptr.i4 = getelementptr inbounds i8, ptr %__first2.sroa.0.017, i64 4
+  %incdec.ptr.i4 = getelementptr inbounds i8, ptr %__first2.sroa.0.016, i64 4
   br label %if.end25
 
 if.else22:                                        ; preds = %if.else
-  %incdec.ptr.i5 = getelementptr inbounds i8, ptr %__first1.sroa.0.016, i64 4
-  %incdec.ptr.i6 = getelementptr inbounds i8, ptr %__first2.sroa.0.017, i64 4
+  %incdec.ptr.i5 = getelementptr inbounds i8, ptr %__first1.sroa.0.017, i64 4
+  %incdec.ptr.i6 = getelementptr inbounds i8, ptr %__first2.sroa.0.016, i64 4
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then20, %if.else22, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSERKj.exit
-  %__first1.sroa.0.1 = phi ptr [ %incdec.ptr.i, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSERKj.exit ], [ %__first1.sroa.0.016, %if.then20 ], [ %incdec.ptr.i5, %if.else22 ]
-  %__first2.sroa.0.1 = phi ptr [ %__first2.sroa.0.017, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSERKj.exit ], [ %incdec.ptr.i4, %if.then20 ], [ %incdec.ptr.i6, %if.else22 ]
+  %__first2.sroa.0.1 = phi ptr [ %__first2.sroa.0.016, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSERKj.exit ], [ %incdec.ptr.i4, %if.then20 ], [ %incdec.ptr.i6, %if.else22 ]
+  %__first1.sroa.0.1 = phi ptr [ %incdec.ptr.i, %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSERKj.exit ], [ %__first1.sroa.0.017, %if.then20 ], [ %incdec.ptr.i5, %if.else22 ]
   %cmp.i = icmp ne ptr %__first1.sroa.0.1, %__last1.coerce
   %cmp.i1 = icmp ne ptr %__first2.sroa.0.1, %__last2.coerce
   %or.cond = select i1 %cmp.i, i1 %cmp.i1, i1 false

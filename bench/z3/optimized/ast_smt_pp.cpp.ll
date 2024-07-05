@@ -7885,10 +7885,10 @@ for.body78.lr.ph:                                 ; preds = %_ZN6vectorIPN8datat
   br label %for.body78
 
 for.body78:                                       ; preds = %for.body78.lr.ph, %for.inc204
-  %__begin170.0176 = phi ptr [ %30, %for.body78.lr.ph ], [ %incdec.ptr205, %for.inc204 ]
-  %first_sort.0175 = phi i1 [ true, %for.body78.lr.ph ], [ false, %for.inc204 ]
-  %33 = load ptr, ptr %__begin170.0176, align 8
-  br i1 %first_sort.0175, label %if.end86, label %if.then81
+  %first_sort.0176 = phi i1 [ true, %for.body78.lr.ph ], [ false, %for.inc204 ]
+  %__begin170.0175 = phi ptr [ %30, %for.body78.lr.ph ], [ %incdec.ptr205, %for.inc204 ]
+  %33 = load ptr, ptr %__begin170.0175, align 8
+  br i1 %first_sort.0176, label %if.end86, label %if.then81
 
 if.then81:                                        ; preds = %for.body78
   %34 = load ptr, ptr %this, align 8
@@ -7926,10 +7926,10 @@ _ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   br i1 %cmp102.not166, label %for.end115, label %for.body103
 
 for.body103:                                      ; preds = %_ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %for.inc113
-  %__begin3.0168 = phi ptr [ %incdec.ptr114, %for.inc113 ], [ %38, %_ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
-  %first_param.0167 = phi i1 [ false, %for.inc113 ], [ true, %_ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
-  %41 = load ptr, ptr %__begin3.0168, align 8
-  br i1 %first_param.0167, label %if.end111, label %if.then106
+  %first_param.0168 = phi i1 [ false, %for.inc113 ], [ true, %_ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
+  %__begin3.0167 = phi ptr [ %incdec.ptr114, %for.inc113 ], [ %38, %_ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
+  %41 = load ptr, ptr %__begin3.0167, align 8
+  br i1 %first_param.0168, label %if.end111, label %if.then106
 
 if.then106:                                       ; preds = %for.body103
   %42 = load ptr, ptr %this, align 8
@@ -7941,7 +7941,7 @@ if.end111:                                        ; preds = %for.body103, %if.th
           to label %for.inc113 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc113:                                       ; preds = %if.end111
-  %incdec.ptr114 = getelementptr inbounds i8, ptr %__begin3.0168, i64 8
+  %incdec.ptr114 = getelementptr inbounds i8, ptr %__begin3.0167, i64 8
   %cmp102.not = icmp eq ptr %incdec.ptr114, %add.ptr.i56
   br i1 %cmp102.not, label %for.end115, label %for.body103
 
@@ -8115,7 +8115,7 @@ if.end200:                                        ; preds = %for.end191, %if.the
           to label %for.inc204 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc204:                                       ; preds = %if.end200
-  %incdec.ptr205 = getelementptr inbounds i8, ptr %__begin170.0176, i64 8
+  %incdec.ptr205 = getelementptr inbounds i8, ptr %__begin170.0175, i64 8
   %cmp77.not = icmp eq ptr %incdec.ptr205, %add.ptr.i46
   br i1 %cmp77.not, label %for.end206, label %for.body78
 

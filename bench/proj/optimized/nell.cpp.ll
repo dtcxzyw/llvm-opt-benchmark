@@ -84,18 +84,18 @@ define internal { double, double } @_ZL14nell_s_forward5PJ_LPP8PJconsts(double %
   br label %10
 
 10:                                               ; preds = %10, %3
-  %.017 = phi i32 [ 10, %3 ], [ %20, %10 ]
-  %.sroa.2.016 = phi double [ %9, %3 ], [ %17, %10 ]
-  %11 = tail call double @sin(double noundef %.sroa.2.016) #6
-  %12 = fadd double %.sroa.2.016, %11
+  %.sroa.2.017 = phi double [ %9, %3 ], [ %17, %10 ]
+  %.016 = phi i32 [ 10, %3 ], [ %20, %10 ]
+  %11 = tail call double @sin(double noundef %.sroa.2.017) #6
+  %12 = fadd double %.sroa.2.017, %11
   %13 = fsub double %12, %5
-  %14 = tail call double @cos(double noundef %.sroa.2.016) #6
+  %14 = tail call double @cos(double noundef %.sroa.2.017) #6
   %15 = fadd double %14, 1.000000e+00
   %16 = fdiv double %13, %15
-  %17 = fsub double %.sroa.2.016, %16
+  %17 = fsub double %.sroa.2.017, %16
   %18 = tail call double @llvm.fabs.f64(double %16)
   %19 = fcmp olt double %18, 0x3E7AD7F29ABCAF48
-  %20 = add nsw i32 %.017, -1
+  %20 = add nsw i32 %.016, -1
   %.not = icmp eq i32 %20, 0
   %or.cond = select i1 %19, i1 true, i1 %.not
   br i1 %or.cond, label %21, label %10, !llvm.loop !4

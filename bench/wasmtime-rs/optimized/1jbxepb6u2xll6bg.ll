@@ -523,7 +523,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h4c342fdc0b8a192dE.exit: ; preds = %.
   br i1 %or.cond416.i, label %.lr.ph.i54, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h2ac7f7983cf9187cE.exit"
 
 .lr.ph25.i:                                       ; preds = %194, %.lr.ph25.i
-  %.02824.i = phi ptr [ %213, %.lr.ph25.i ], [ %191, %194 ]
+  %.02724.i = phi ptr [ %213, %.lr.ph25.i ], [ %191, %194 ]
   %.sroa.10.023.i = phi ptr [ %212, %.lr.ph25.i ], [ %196, %194 ]
   %.sroa.18.022.i = phi ptr [ %211, %.lr.ph25.i ], [ %190, %194 ]
   %202 = getelementptr inbounds i8, ptr %.sroa.10.023.i, i64 -16
@@ -545,36 +545,36 @@ _ZN4core5slice4sort20provide_sorted_batch17h4c342fdc0b8a192dE.exit: ; preds = %.
   %211 = getelementptr inbounds { ptr, i64 }, ptr %.sroa.18.022.i, i64 %spec.store.select.i.i.i.i.i.lobit.i
   %.neg34.i = sext i1 %210 to i64
   %212 = getelementptr inbounds { ptr, i64 }, ptr %.sroa.10.023.i, i64 %.neg34.i
-  %.027.i = select i1 %210, ptr %212, ptr %211
-  %213 = getelementptr inbounds i8, ptr %.02824.i, i64 -16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %213, ptr noundef nonnull align 8 dereferenceable(16) %.027.i, i64 16, i1 false)
+  %.026.i = select i1 %210, ptr %212, ptr %211
+  %213 = getelementptr inbounds i8, ptr %.02724.i, i64 -16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %213, ptr noundef nonnull align 8 dereferenceable(16) %.026.i, i64 16, i1 false)
   %214 = icmp ugt ptr %211, %189
   %215 = icmp ugt ptr %212, %14
   %or.cond.i63 = select i1 %214, i1 %215, i1 false
   br i1 %or.cond.i63, label %.lr.ph25.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h2ac7f7983cf9187cE.exit"
 
 .lr.ph.i54:                                       ; preds = %198, %.lr.ph.i54
-  %.02619.i = phi ptr [ %224, %.lr.ph.i54 ], [ %190, %198 ]
+  %.02819.i = phi ptr [ %224, %.lr.ph.i54 ], [ %190, %198 ]
   %.sroa.0.118.i = phi ptr [ %226, %.lr.ph.i54 ], [ %14, %198 ]
   %.sroa.18.217.i = phi ptr [ %223, %.lr.ph.i54 ], [ %189, %198 ]
-  %.026.val.i = load ptr, ptr %.02619.i, align 8, !alias.scope !77, !nonnull !14, !align !25, !noundef !14
-  %216 = getelementptr i8, ptr %.02619.i, i64 8
-  %.026.val35.i = load i64, ptr %216, align 8, !alias.scope !77, !noundef !14
+  %.028.val.i = load ptr, ptr %.02819.i, align 8, !alias.scope !77, !nonnull !14, !align !25, !noundef !14
+  %216 = getelementptr i8, ptr %.02819.i, i64 8
+  %.028.val35.i = load i64, ptr %216, align 8, !alias.scope !77, !noundef !14
   %.val.i55 = load ptr, ptr %.sroa.0.118.i, align 8, !noalias !77, !nonnull !14, !align !25, !noundef !14
   %217 = getelementptr i8, ptr %.sroa.0.118.i, i64 8
   %.val36.i56 = load i64, ptr %217, align 8, !noalias !77, !noundef !14
-  %218 = sub i64 %.026.val35.i, %.val36.i56
-  %..i.i.i.i.i41.i57 = tail call i64 @llvm.umin.i64(i64 %.026.val35.i, i64 %.val36.i56)
-  %219 = tail call i32 @memcmp(ptr nonnull readonly %.026.val.i, ptr nonnull readonly %.val.i55, i64 %..i.i.i.i.i41.i57), !alias.scope !90
+  %218 = sub i64 %.028.val35.i, %.val36.i56
+  %..i.i.i.i.i41.i57 = tail call i64 @llvm.umin.i64(i64 %.028.val35.i, i64 %.val36.i56)
+  %219 = tail call i32 @memcmp(ptr nonnull readonly %.028.val.i, ptr nonnull readonly %.val.i55, i64 %..i.i.i.i.i41.i57), !alias.scope !90
   %220 = sext i32 %219 to i64
   %221 = icmp eq i32 %219, 0
   %spec.store.select.i.i.i.i.i42.i58 = select i1 %221, i64 %218, i64 %220
   %222 = icmp sgt i64 %spec.store.select.i.i.i.i.i42.i58, -1
-  %.029.i = select i1 %222, ptr %.sroa.0.118.i, ptr %.02619.i
+  %.029.i = select i1 %222, ptr %.sroa.0.118.i, ptr %.02819.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.18.217.i, ptr noundef nonnull align 8 dereferenceable(16) %.029.i, i64 16, i1 false)
   %223 = getelementptr inbounds i8, ptr %.sroa.18.217.i, i64 16
   %spec.store.select.i.i.i.i.i42.lobit.i = lshr i64 %spec.store.select.i.i.i.i.i42.i58, 63
-  %224 = getelementptr inbounds { ptr, i64 }, ptr %.02619.i, i64 %spec.store.select.i.i.i.i.i42.lobit.i
+  %224 = getelementptr inbounds { ptr, i64 }, ptr %.02819.i, i64 %spec.store.select.i.i.i.i.i42.lobit.i
   %225 = zext i1 %222 to i64
   %226 = getelementptr inbounds { ptr, i64 }, ptr %.sroa.0.118.i, i64 %225
   %227 = icmp ult ptr %226, %200

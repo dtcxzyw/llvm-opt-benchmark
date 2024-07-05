@@ -1532,12 +1532,12 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   br label %13
 
 13:                                               ; preds = %.lr.ph, %select.unfold
-  %.03976 = phi i64 [ %1, %.lr.ph ], [ %spec.select70, %select.unfold ]
-  %.04075 = phi ptr [ %0, %.lr.ph ], [ %spec.select, %select.unfold ]
-  %.04274 = phi i32 [ 3, %.lr.ph ], [ %.143, %select.unfold ]
+  %.03976 = phi i32 [ 3, %.lr.ph ], [ %.1, %select.unfold ]
+  %.04075 = phi ptr [ %0, %.lr.ph ], [ %spec.select70, %select.unfold ]
+  %.04274 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %select.unfold ]
   %14 = icmp eq ptr %.04075, null
-  %15 = icmp ult i64 %.03976, 8
-  %or.cond.i = or i1 %14, %15
+  %15 = icmp ult i64 %.04274, 8
+  %or.cond.i = or i1 %15, %14
   br i1 %or.cond.i, label %.loopexit.sink.split, label %16
 
 16:                                               ; preds = %13
@@ -1586,7 +1586,7 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   br label %32
 
 32:                                               ; preds = %31, %30
-  %33 = add i64 %.03976, -8
+  %33 = add i64 %.04274, -8
   %34 = icmp ult i64 %33, 36
   br i1 %34, label %35, label %36
 
@@ -1598,7 +1598,7 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   %37 = getelementptr inbounds i8, ptr %.04075, i64 41
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i64
-  %40 = add i64 %.03976, -44
+  %40 = add i64 %.04274, -44
   %41 = icmp ult i64 %40, %39
   br i1 %41, label %42, label %43
 
@@ -1678,7 +1678,7 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
 
 75:                                               ; preds = %73
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1154) #10
-  %76 = call i32 @process_blip_record(ptr noundef nonnull %4, ptr noundef nonnull %.04075, i64 noundef %.03976, ptr noundef %2)
+  %76 = call i32 @process_blip_record(ptr noundef nonnull %4, ptr noundef nonnull %.04075, i64 noundef %.04274, ptr noundef %2)
   %.not58 = icmp eq i32 %76, 0
   br i1 %.not58, label %select.unfold, label %.loopexit
 
@@ -1688,14 +1688,14 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
 
 select.unfold:                                    ; preds = %.select.unfold_crit_edge, %77, %75, %35, %42
   %78 = phi i32 [ %23, %35 ], [ %23, %42 ], [ %.pre82, %.select.unfold_crit_edge ], [ %23, %75 ], [ %23, %77 ]
-  %.143 = phi i32 [ %.04274, %35 ], [ %.04274, %42 ], [ 0, %.select.unfold_crit_edge ], [ 0, %75 ], [ %.04274, %77 ]
+  %.1 = phi i32 [ %.03976, %35 ], [ %.03976, %42 ], [ 0, %.select.unfold_crit_edge ], [ 0, %75 ], [ %.03976, %77 ]
   %79 = zext i32 %78 to i64
   %80 = add nuw nsw i64 %79, 8
-  %81 = icmp ult i64 %.03976, %80
-  %spec.select.idx = select i1 %81, i64 0, i64 %80
-  %spec.select = getelementptr inbounds i8, ptr %.04075, i64 %spec.select.idx
-  %spec.select70 = call i64 @llvm.usub.sat.i64(i64 %.03976, i64 %80)
-  %.not.not = icmp ugt i64 %.03976, %80
+  %81 = icmp ult i64 %.04274, %80
+  %spec.select = call i64 @llvm.usub.sat.i64(i64 %.04274, i64 %80)
+  %spec.select70.idx = select i1 %81, i64 0, i64 %80
+  %spec.select70 = getelementptr inbounds i8, ptr %.04075, i64 %spec.select70.idx
+  %.not.not = icmp ugt i64 %.04274, %80
   br i1 %.not.not, label %13, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %59, %13
@@ -1703,7 +1703,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %75, %select.unfold, %.loopexit.sink.split, %3
-  %.2 = phi i32 [ 0, %3 ], [ %.04274, %.loopexit.sink.split ], [ %72, %61 ], [ %76, %75 ], [ 0, %select.unfold ]
+  %.2 = phi i32 [ 0, %3 ], [ %.03976, %.loopexit.sink.split ], [ %72, %61 ], [ %76, %75 ], [ 0, %select.unfold ]
   ret i32 %.2
 }
 
@@ -1766,19 +1766,19 @@ define i32 @cli_extract_images_from_drawing_group(ptr noundef %0, i64 noundef %1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %select.unfold86
-  %.1103 = phi i64 [ %spec.select98, %select.unfold86 ], [ %25, %.lr.ph.preheader ]
-  %.141102 = phi ptr [ %spec.select, %select.unfold86 ], [ %26, %.lr.ph.preheader ]
-  %.043101 = phi i32 [ %.144, %select.unfold86 ], [ 3, %.lr.ph.preheader ]
-  %27 = icmp ult i64 %.1103, 8
+  %.039103 = phi i32 [ %.1, %select.unfold86 ], [ 3, %.lr.ph.preheader ]
+  %.141102 = phi i64 [ %spec.select98, %select.unfold86 ], [ %25, %.lr.ph.preheader ]
+  %.144101 = phi ptr [ %spec.select, %select.unfold86 ], [ %26, %.lr.ph.preheader ]
+  %27 = icmp ult i64 %.141102, 8
   br i1 %27, label %.loopexit.sink.split, label %28
 
 28:                                               ; preds = %.lr.ph
-  %29 = load i16, ptr %.141102, align 1
+  %29 = load i16, ptr %.144101, align 1
   %30 = and i16 %29, 15
   %31 = lshr i16 %29, 4
-  %32 = getelementptr inbounds i8, ptr %.141102, i64 2
+  %32 = getelementptr inbounds i8, ptr %.144101, i64 2
   %33 = load i16, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %.141102, i64 4
+  %34 = getelementptr inbounds i8, ptr %.144101, i64 4
   %35 = load i32, ptr %34, align 1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1218) #10
   %36 = zext nneg i16 %30 to i32
@@ -1798,8 +1798,8 @@ define i32 @cli_extract_images_from_drawing_group(ptr noundef %0, i64 noundef %1
   br label %select.unfold86
 
 41:                                               ; preds = %28
-  %42 = getelementptr inbounds i8, ptr %.141102, i64 8
-  %43 = add i64 %.1103, -8
+  %42 = getelementptr inbounds i8, ptr %.144101, i64 8
+  %43 = add i64 %.141102, -8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1164) #10
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1165, i32 noundef %35, i32 noundef %37) #10
   %44 = zext i32 %35 to i64
@@ -1819,24 +1819,24 @@ define i32 @cli_extract_images_from_drawing_group(ptr noundef %0, i64 noundef %1
 
 select.unfold86:                                  ; preds = %.select.unfold86_crit_edge, %47
   %.pre-phi = phi i64 [ %.pre, %.select.unfold86_crit_edge ], [ %44, %47 ]
-  %.144 = phi i32 [ %.043101, %.select.unfold86_crit_edge ], [ 0, %47 ]
+  %.1 = phi i32 [ %.039103, %.select.unfold86_crit_edge ], [ 0, %47 ]
   %49 = add nuw nsw i64 %.pre-phi, 8
-  %50 = icmp ult i64 %.1103, %49
+  %50 = icmp ult i64 %.141102, %49
   %spec.select.idx = select i1 %50, i64 0, i64 %49
-  %spec.select = getelementptr inbounds i8, ptr %.141102, i64 %spec.select.idx
-  %spec.select98 = tail call i64 @llvm.usub.sat.i64(i64 %.1103, i64 %49)
-  %.not53.not = icmp ugt i64 %.1103, %49
+  %spec.select = getelementptr inbounds i8, ptr %.144101, i64 %spec.select.idx
+  %spec.select98 = tail call i64 @llvm.usub.sat.i64(i64 %.141102, i64 %49)
+  %.not53.not = icmp ugt i64 %.141102, %49
   br i1 %.not53.not, label %.lr.ph, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %8, %6, %3
   %.str.1162.sink = phi ptr [ @.str.1156, %3 ], [ @.str.1157, %6 ], [ @.str.1158, %8 ], [ @.str.1162, %.lr.ph ]
-  %.245.ph = phi i32 [ 3, %3 ], [ 3, %6 ], [ 3, %8 ], [ %.043101, %.lr.ph ]
+  %.2.ph = phi i32 [ 3, %3 ], [ 3, %6 ], [ 3, %8 ], [ %.039103, %.lr.ph ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.1162.sink) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %47, %select.unfold86, %.loopexit.sink.split, %24
-  %.245 = phi i32 [ 0, %24 ], [ %.245.ph, %.loopexit.sink.split ], [ %48, %47 ], [ 0, %select.unfold86 ]
-  ret i32 %.245
+  %.2 = phi i32 [ 0, %24 ], [ %.2.ph, %.loopexit.sink.split ], [ %48, %47 ], [ 0, %select.unfold86 ]
+  ret i32 %.2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1909,9 +1909,9 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
   br label %46
 
 46:                                               ; preds = %.lr.ph, %230
-  %.0118255 = phi i32 [ 0, %.lr.ph ], [ %spec.select174, %230 ]
-  %.0119254 = phi i64 [ 0, %.lr.ph ], [ %.1120, %230 ]
-  %.0121253 = phi ptr [ null, %.lr.ph ], [ %.1122, %230 ]
+  %.0120255 = phi ptr [ null, %.lr.ph ], [ %.1, %230 ]
+  %.0121254 = phi i64 [ 0, %.lr.ph ], [ %.1122, %230 ]
+  %.0123253 = phi i32 [ 0, %.lr.ph ], [ %spec.select174, %230 ]
   %47 = load i16, ptr %8, align 2
   %48 = icmp ult i16 %47, 2251
   br i1 %48, label %49, label %53
@@ -1923,12 +1923,12 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
   br label %53
 
 53:                                               ; preds = %46, %49
-  %.0117 = phi ptr [ %52, %49 ], [ null, %46 ]
+  %.0116 = phi ptr [ %52, %49 ], [ null, %46 ]
   %54 = zext i16 %47 to i32
   %55 = load i16, ptr %34, align 2
   %56 = zext i16 %55 to i32
-  %57 = icmp eq ptr %.0117, null
-  %58 = select i1 %57, ptr @.str.1178, ptr %.0117
+  %57 = icmp eq ptr %.0116, null
+  %58 = select i1 %57, ptr @.str.1178, ptr %.0116
   %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %22, ptr noundef nonnull @.str.1177, i32 noundef %54, i32 noundef %56, ptr noundef nonnull %58) #10
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %.sink.split, label %61
@@ -2052,8 +2052,8 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
   br label %129
 
 129:                                              ; preds = %115, %112
-  %.0124 = phi i32 [ %114, %112 ], [ %128, %115 ]
-  %130 = icmp slt i32 %.0124, 0
+  %.0119 = phi i32 [ %114, %112 ], [ %128, %115 ]
+  %130 = icmp slt i32 %.0119, 0
   br i1 %130, label %131, label %227
 
 131:                                              ; preds = %129
@@ -2066,7 +2066,7 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
   br label %227
 
 134:                                              ; preds = %69
-  %135 = icmp eq ptr %.0121253, null
+  %135 = icmp eq ptr %.0120255, null
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %134
@@ -2075,8 +2075,8 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
   br label %227
 
 138:                                              ; preds = %134
-  %139 = add i64 %.0119254, %66
-  %140 = call ptr @cli_max_realloc(ptr noundef nonnull %.0121253, i64 noundef %139) #10
+  %139 = add i64 %.0121254, %66
+  %140 = call ptr @cli_max_realloc(ptr noundef nonnull %.0120255, i64 noundef %139) #10
   %141 = icmp eq ptr %140, null
   br i1 %141, label %.thread185, label %142
 
@@ -2089,14 +2089,14 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
   br label %227
 
 147:                                              ; preds = %69
-  %148 = icmp eq i32 %.0118255, 235
-  %149 = icmp ne ptr %.0121253, null
+  %148 = icmp eq i32 %.0123253, 235
+  %149 = icmp ne ptr %.0120255, null
   %or.cond = select i1 %148, i1 %149, i1 false
   br i1 %or.cond, label %150, label %227
 
 150:                                              ; preds = %147
-  %151 = add i64 %.0119254, %66
-  %152 = call ptr @cli_max_realloc(ptr noundef nonnull %.0121253, i64 noundef %151) #10
+  %151 = add i64 %.0121254, %66
+  %152 = call ptr @cli_max_realloc(ptr noundef nonnull %.0120255, i64 noundef %151) #10
   %153 = icmp eq ptr %152, null
   br i1 %153, label %.thread185, label %154
 
@@ -2124,7 +2124,7 @@ switch.lookup:                                    ; preds = %161
   br label %165
 
 165:                                              ; preds = %161, %switch.lookup
-  %.0112 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.1195, %161 ]
+  %.0113 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.1195, %161 ]
   %166 = load i8, ptr %40, align 1
   %167 = icmp ult i8 %166, 7
   br i1 %167, label %switch.lookup313, label %169
@@ -2136,8 +2136,8 @@ switch.lookup313:                                 ; preds = %165
   br label %169
 
 169:                                              ; preds = %165, %switch.lookup313
-  %.0113 = phi ptr [ %switch.load315, %switch.lookup313 ], [ @.str.1200, %165 ]
-  %170 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %22, ptr noundef nonnull @.str.1201, ptr noundef nonnull %.0113, ptr noundef nonnull %.0112) #10
+  %.0114 = phi ptr [ %switch.load315, %switch.lookup313 ], [ @.str.1200, %165 ]
+  %170 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %22, ptr noundef nonnull @.str.1201, ptr noundef nonnull %.0114, ptr noundef nonnull %.0113) #10
   %171 = icmp slt i32 %170, 0
   br i1 %171, label %172, label %227
 
@@ -2247,8 +2247,8 @@ switch.lookup313:                                 ; preds = %165
   br label %227
 
 227:                                              ; preds = %69, %216, %214, %222, %193, %173, %169, %147, %154, %136, %142, %132, %129, %71, %97, %225, %203, %199, %172, %131, %102, %96
-  %.1122 = phi ptr [ %.0121253, %69 ], [ %.0121253, %203 ], [ %.0121253, %216 ], [ %.0121253, %214 ], [ %.0121253, %222 ], [ %.0121253, %199 ], [ %.0121253, %193 ], [ %.0121253, %225 ], [ %.0121253, %172 ], [ %.0121253, %169 ], [ %.0121253, %173 ], [ %152, %154 ], [ %.0121253, %147 ], [ %137, %136 ], [ %140, %142 ], [ %.0121253, %131 ], [ %.0121253, %129 ], [ %.0121253, %132 ], [ %.0121253, %96 ], [ %.0121253, %102 ], [ %.0121253, %97 ], [ %.0121253, %71 ]
-  %.1120 = phi i64 [ %.0119254, %69 ], [ %.0119254, %203 ], [ %.0119254, %216 ], [ %.0119254, %214 ], [ %.0119254, %222 ], [ %.0119254, %199 ], [ %.0119254, %193 ], [ %.0119254, %225 ], [ %.0119254, %172 ], [ %.0119254, %169 ], [ %.0119254, %173 ], [ %151, %154 ], [ %.0119254, %147 ], [ %66, %136 ], [ %139, %142 ], [ %.0119254, %131 ], [ %.0119254, %129 ], [ %.0119254, %132 ], [ %.0119254, %96 ], [ %.0119254, %102 ], [ %.0119254, %97 ], [ %.0119254, %71 ]
+  %.1122 = phi i64 [ %.0121254, %69 ], [ %.0121254, %203 ], [ %.0121254, %216 ], [ %.0121254, %214 ], [ %.0121254, %222 ], [ %.0121254, %199 ], [ %.0121254, %193 ], [ %.0121254, %225 ], [ %.0121254, %172 ], [ %.0121254, %169 ], [ %.0121254, %173 ], [ %151, %154 ], [ %.0121254, %147 ], [ %66, %136 ], [ %139, %142 ], [ %.0121254, %131 ], [ %.0121254, %129 ], [ %.0121254, %132 ], [ %.0121254, %96 ], [ %.0121254, %102 ], [ %.0121254, %97 ], [ %.0121254, %71 ]
+  %.1 = phi ptr [ %.0120255, %69 ], [ %.0120255, %203 ], [ %.0120255, %216 ], [ %.0120255, %214 ], [ %.0120255, %222 ], [ %.0120255, %199 ], [ %.0120255, %193 ], [ %.0120255, %225 ], [ %.0120255, %172 ], [ %.0120255, %169 ], [ %.0120255, %173 ], [ %152, %154 ], [ %.0120255, %147 ], [ %137, %136 ], [ %140, %142 ], [ %.0120255, %131 ], [ %.0120255, %129 ], [ %.0120255, %132 ], [ %.0120255, %96 ], [ %.0120255, %102 ], [ %.0120255, %97 ], [ %.0120255, %71 ]
   %228 = call i32 @fputc(i32 noundef 10, ptr noundef nonnull %22)
   %229 = icmp eq i32 %228, -1
   br i1 %229, label %.sink.split, label %230
@@ -2257,14 +2257,14 @@ switch.lookup313:                                 ; preds = %165
   %231 = load i16, ptr %8, align 2
   %.not163 = icmp eq i16 %231, 60
   %232 = zext i16 %231 to i32
-  %spec.select174 = select i1 %.not163, i32 %.0118255, i32 %232
+  %spec.select174 = select i1 %.not163, i32 %.0123253, i32 %232
   %233 = call i64 @cli_readn(i32 noundef %14, ptr noundef nonnull %8, i64 noundef 4) #10
   %234 = icmp eq i64 %233, 4
   br i1 %234, label %46, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %230, %30
-  %.0121.lcssa = phi ptr [ null, %30 ], [ %.1122, %230 ]
-  %.0119.lcssa = phi i64 [ 0, %30 ], [ %.1120, %230 ]
+  %.0121.lcssa = phi i64 [ 0, %30 ], [ %.1122, %230 ]
+  %.0120.lcssa = phi ptr [ null, %30 ], [ %.1, %230 ]
   %.lcssa = phi i64 [ %32, %30 ], [ %233, %230 ]
   %235 = load i32, ptr %6, align 4
   %236 = call i64 @lseek(i32 noundef %235, i64 noundef 0, i32 noundef 0) #10
@@ -2282,30 +2282,30 @@ switch.lookup313:                                 ; preds = %165
   br i1 %242, label %.sink.split, label %243
 
 243:                                              ; preds = %241
-  %.not150 = icmp eq ptr %.0121.lcssa, null
+  %.not150 = icmp eq ptr %.0120.lcssa, null
   br i1 %.not150, label %248, label %244
 
 244:                                              ; preds = %243
-  %245 = call i32 @cli_extract_images_from_drawing_group(ptr noundef nonnull %.0121.lcssa, i64 noundef %.0119.lcssa, ptr noundef %1)
+  %245 = call i32 @cli_extract_images_from_drawing_group(ptr noundef nonnull %.0120.lcssa, i64 noundef %.0121.lcssa, ptr noundef %1)
   br label %.thread185
 
 .sink.split:                                      ; preds = %227, %222, %216, %64, %61, %53, %241, %._crit_edge
   %.str.1179.sink = phi ptr [ @.str.1216, %._crit_edge ], [ @.str.1217, %241 ], [ @.str.1179, %53 ], [ @.str.1180, %61 ], [ @.str.1181, %64 ], [ @.str.1210, %216 ], [ @.str.1213, %222 ], [ @.str.1215, %227 ]
-  %.2.ph = phi ptr [ %.0121.lcssa, %._crit_edge ], [ %.0121.lcssa, %241 ], [ %.0121253, %53 ], [ %.0121253, %61 ], [ %.0121253, %64 ], [ %.0121253, %216 ], [ %.0121253, %222 ], [ %.1122, %227 ]
-  %.0114.ph = phi i32 [ 13, %._crit_edge ], [ 12, %241 ], [ 26, %53 ], [ 26, %61 ], [ 12, %64 ], [ 0, %216 ], [ 0, %222 ], [ 0, %227 ]
+  %.2.ph = phi ptr [ %.0120.lcssa, %._crit_edge ], [ %.0120.lcssa, %241 ], [ %.0120255, %53 ], [ %.0120255, %61 ], [ %.0120255, %64 ], [ %.0120255, %216 ], [ %.0120255, %222 ], [ %.1, %227 ]
+  %.0.ph = phi i32 [ 13, %._crit_edge ], [ 12, %241 ], [ 26, %53 ], [ 26, %61 ], [ 12, %64 ], [ 0, %216 ], [ 0, %222 ], [ 0, %227 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.1179.sink) #10
   br label %246
 
 246:                                              ; preds = %.sink.split, %237
-  %.2 = phi ptr [ %.0121.lcssa, %237 ], [ %.2.ph, %.sink.split ]
-  %.0114 = phi i32 [ 1, %237 ], [ %.0114.ph, %.sink.split ]
+  %.2 = phi ptr [ %.0120.lcssa, %237 ], [ %.2.ph, %.sink.split ]
+  %.0 = phi i32 [ 1, %237 ], [ %.0.ph, %.sink.split ]
   %.not164 = icmp eq ptr %.2, null
   br i1 %.not164, label %248, label %.thread185
 
 .thread185:                                       ; preds = %150, %138, %244, %246
-  %.0114194 = phi i32 [ %.0114, %246 ], [ %245, %244 ], [ 20, %138 ], [ 20, %150 ]
-  %.2192 = phi ptr [ %.2, %246 ], [ %.0121.lcssa, %244 ], [ %.0121253, %138 ], [ %.0121253, %150 ]
-  call void @free(ptr noundef nonnull %.2192) #10
+  %.0194 = phi i32 [ %.0, %246 ], [ %245, %244 ], [ 20, %138 ], [ 20, %150 ]
+  %.2191 = phi ptr [ %.2, %246 ], [ %.0120.lcssa, %244 ], [ %.0120255, %138 ], [ %.0120255, %150 ]
+  call void @free(ptr noundef nonnull %.2191) #10
   br label %248
 
 .thread270:                                       ; preds = %20, %16
@@ -2318,12 +2318,12 @@ switch.lookup313:                                 ; preds = %165
 
 .thread279:                                       ; preds = %27, %24
   %.str.1174.sink = phi ptr [ @.str.1174, %24 ], [ @.str.1175, %27 ]
-  %.0114182212.ph278 = phi i32 [ 20, %24 ], [ 14, %27 ]
+  %.0182212.ph278 = phi i32 [ 20, %24 ], [ 14, %27 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.1174.sink) #10
   br label %248
 
 248:                                              ; preds = %.thread185, %246, %243, %.thread279
-  %.0114182212286 = phi i32 [ %.0114182212.ph278, %.thread279 ], [ %.0114, %246 ], [ %.0114194, %.thread185 ], [ 0, %243 ]
+  %.0182212286 = phi i32 [ %.0182212.ph278, %.thread279 ], [ %.0, %246 ], [ %.0194, %.thread185 ], [ 0, %243 ]
   %249 = call i32 @close(i32 noundef %14) #10
   %250 = call i32 @fclose(ptr noundef nonnull %22)
   br label %253
@@ -2334,17 +2334,17 @@ switch.lookup313:                                 ; preds = %165
   br label %253
 
 253:                                              ; preds = %248, %251, %.thread270
-  %.0114182213229 = phi i32 [ %.0114182212286, %248 ], [ %19, %251 ], [ %19, %.thread270 ]
-  %.0123180217227 = phi ptr [ %25, %248 ], [ null, %251 ], [ null, %.thread270 ]
-  %.not168 = icmp eq ptr %.0123180217227, null
+  %.0182213229 = phi i32 [ %.0182212286, %248 ], [ %19, %251 ], [ %19, %.thread270 ]
+  %.0118180217227 = phi ptr [ %25, %248 ], [ null, %251 ], [ null, %.thread270 ]
+  %.not168 = icmp eq ptr %.0118180217227, null
   br i1 %.not168, label %255, label %254
 
 254:                                              ; preds = %253
-  call void @free(ptr noundef nonnull %.0123180217227) #10
+  call void @free(ptr noundef nonnull %.0118180217227) #10
   br label %255
 
 255:                                              ; preds = %.thread291, %253, %254
-  %.0114182213229295 = phi i32 [ 0, %.thread291 ], [ %.0114182213229, %253 ], [ %.0114182213229, %254 ]
+  %.0182213229295 = phi i32 [ 0, %.thread291 ], [ %.0182213229, %253 ], [ %.0182213229, %254 ]
   %256 = load ptr, ptr %7, align 8
   %.not169 = icmp eq ptr %256, null
   br i1 %.not169, label %.thread195, label %257
@@ -2369,7 +2369,7 @@ switch.lookup313:                                 ; preds = %165
   br label %.thread195
 
 .thread195:                                       ; preds = %255, %262, %.thread296
-  ret i32 %.0114182213229295
+  ret i32 %.0182213229295
 }
 
 ; Function Attrs: nofree nounwind

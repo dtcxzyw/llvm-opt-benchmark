@@ -44,11 +44,11 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %0 = phi i16 [ 0, %for.body.lr.ph ], [ %13, %for.inc ]
-  %found_at.087 = phi i32 [ 0, %for.body.lr.ph ], [ %found_at.3, %for.inc ]
-  %old_uf.085 = phi i32 [ 7, %for.body.lr.ph ], [ %old_uf.1, %for.inc ]
-  %p.084 = phi ptr [ %buf, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %s.083 = phi i32 [ %cond, %for.body.lr.ph ], [ %retval.0.i47, %for.inc ]
-  %1 = load i8, ptr %p.084, align 1
+  %s.087 = phi i32 [ %cond, %for.body.lr.ph ], [ %retval.0.i47, %for.inc ]
+  %p.086 = phi ptr [ %buf, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %found_at.085 = phi i32 [ 0, %for.body.lr.ph ], [ %found_at.3, %for.inc ]
+  %old_uf.083 = phi i32 [ 7, %for.body.lr.ph ], [ %old_uf.1, %for.inc ]
+  %1 = load i8, ptr %p.086, align 1
   switch i8 %1, label %if.end17.i [
     i8 32, label %return
     i8 13, label %return
@@ -58,7 +58,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   ]
 
 if.end17.i:                                       ; preds = %for.body
-  switch i32 %s.083, label %default.unreachable [
+  switch i32 %s.087, label %default.unreachable [
     i32 20, label %sw.bb.i
     i32 21, label %sw.bb40.i
     i32 22, label %sw.bb61.i
@@ -263,12 +263,12 @@ sw.default:                                       ; preds = %parse_url_char.exit
 sw.epilog:                                        ; preds = %if.end250.i, %if.end250.i, %if.end216.i, %sw.bb204.i, %if.end94.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %sw.bb40.i, %if.end26.i, %if.end233.i, %sw.bb238.i, %sw.bb221.i, %sw.bb79.i, %parse_url_char.exit.thread57, %sw.bb4, %parse_url_char.exit, %sw.bb7, %sw.bb6, %sw.bb5
   %retval.0.i55 = phi i32 [ %retval.0.i, %parse_url_char.exit ], [ %retval.0.i, %sw.bb4 ], [ %retval.0.i, %sw.bb5 ], [ 27, %parse_url_char.exit.thread57 ], [ %retval.0.i, %sw.bb6 ], [ %retval.0.i, %sw.bb7 ], [ 26, %sw.bb79.i ], [ 31, %sw.bb221.i ], [ 31, %sw.bb238.i ], [ 31, %if.end233.i ], [ 31, %if.end250.i ], [ 21, %if.end26.i ], [ 21, %sw.bb40.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %switch.early.test.i ], [ 25, %if.end94.i ], [ 29, %sw.bb204.i ], [ 29, %if.end216.i ], [ 31, %if.end250.i ]
   %uf.0 = phi i32 [ 0, %parse_url_char.exit ], [ 1, %sw.bb4 ], [ 1, %sw.bb5 ], [ 3, %parse_url_char.exit.thread57 ], [ 3, %sw.bb6 ], [ 4, %sw.bb7 ], [ 1, %sw.bb79.i ], [ 5, %sw.bb221.i ], [ 5, %sw.bb238.i ], [ 5, %if.end233.i ], [ 5, %if.end250.i ], [ 0, %if.end26.i ], [ 0, %sw.bb40.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %if.end94.i ], [ 4, %sw.bb204.i ], [ 4, %if.end216.i ], [ 5, %if.end250.i ]
-  %found_at.2 = phi i32 [ %found_at.087, %parse_url_char.exit ], [ 1, %sw.bb4 ], [ %found_at.087, %sw.bb5 ], [ %found_at.087, %parse_url_char.exit.thread57 ], [ %found_at.087, %sw.bb6 ], [ %found_at.087, %sw.bb7 ], [ 1, %sw.bb79.i ], [ %found_at.087, %sw.bb221.i ], [ %found_at.087, %sw.bb238.i ], [ %found_at.087, %if.end233.i ], [ %found_at.087, %if.end250.i ], [ %found_at.087, %if.end26.i ], [ %found_at.087, %sw.bb40.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %switch.early.test.i ], [ %found_at.087, %if.end94.i ], [ %found_at.087, %sw.bb204.i ], [ %found_at.087, %if.end216.i ], [ %found_at.087, %if.end250.i ]
-  %cmp9 = icmp eq i32 %uf.0, %old_uf.085
+  %found_at.2 = phi i32 [ %found_at.085, %parse_url_char.exit ], [ 1, %sw.bb4 ], [ %found_at.085, %sw.bb5 ], [ %found_at.085, %parse_url_char.exit.thread57 ], [ %found_at.085, %sw.bb6 ], [ %found_at.085, %sw.bb7 ], [ 1, %sw.bb79.i ], [ %found_at.085, %sw.bb221.i ], [ %found_at.085, %sw.bb238.i ], [ %found_at.085, %if.end233.i ], [ %found_at.085, %if.end250.i ], [ %found_at.085, %if.end26.i ], [ %found_at.085, %sw.bb40.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %switch.early.test.i ], [ %found_at.085, %if.end94.i ], [ %found_at.085, %sw.bb204.i ], [ %found_at.085, %if.end216.i ], [ %found_at.085, %if.end250.i ]
+  %cmp9 = icmp eq i32 %uf.0, %old_uf.083
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %sw.epilog
-  %idxprom = zext nneg i32 %old_uf.085 to i64
+  %idxprom = zext nneg i32 %old_uf.083 to i64
   %len = getelementptr inbounds [7 x %struct.anon], ptr %field_data12, i64 0, i64 %idxprom, i32 1
   %11 = load i16, ptr %len, align 2
   %inc = add i16 %11, 1
@@ -276,7 +276,7 @@ if.then10:                                        ; preds = %sw.epilog
   br label %for.inc
 
 if.end11:                                         ; preds = %sw.epilog
-  %sub.ptr.lhs.cast = ptrtoint ptr %p.084 to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %p.086 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i16
   %idxprom13 = zext nneg i32 %uf.0 to i64
@@ -293,9 +293,9 @@ if.end11:                                         ; preds = %sw.epilog
 for.inc:                                          ; preds = %if.end200.i, %sw.bb73.i, %sw.bb79.i, %sw.bb67.i, %sw.bb61.i, %if.end55.i, %parse_url_char.exit, %parse_url_char.exit, %parse_url_char.exit, %parse_url_char.exit, %parse_url_char.exit, %if.end11, %if.then10
   %13 = phi i16 [ %0, %if.then10 ], [ %conv21, %if.end11 ], [ %0, %parse_url_char.exit ], [ %0, %parse_url_char.exit ], [ %0, %parse_url_char.exit ], [ %0, %parse_url_char.exit ], [ %0, %parse_url_char.exit ], [ %0, %sw.bb67.i ], [ %0, %sw.bb61.i ], [ %0, %if.end55.i ], [ %0, %sw.bb79.i ], [ %0, %sw.bb73.i ], [ %0, %if.end200.i ]
   %retval.0.i47 = phi i32 [ %retval.0.i55, %if.then10 ], [ %retval.0.i55, %if.end11 ], [ %retval.0.i, %parse_url_char.exit ], [ %retval.0.i, %parse_url_char.exit ], [ %retval.0.i, %parse_url_char.exit ], [ %retval.0.i, %parse_url_char.exit ], [ %retval.0.i, %parse_url_char.exit ], [ 24, %sw.bb67.i ], [ 23, %sw.bb61.i ], [ 22, %if.end55.i ], [ 28, %sw.bb79.i ], [ 28, %sw.bb73.i ], [ 28, %if.end200.i ]
-  %old_uf.1 = phi i32 [ %old_uf.085, %if.then10 ], [ %uf.0, %if.end11 ], [ %old_uf.085, %parse_url_char.exit ], [ %old_uf.085, %parse_url_char.exit ], [ %old_uf.085, %parse_url_char.exit ], [ %old_uf.085, %parse_url_char.exit ], [ %old_uf.085, %parse_url_char.exit ], [ %old_uf.085, %sw.bb67.i ], [ %old_uf.085, %sw.bb61.i ], [ %old_uf.085, %if.end55.i ], [ %old_uf.085, %sw.bb79.i ], [ %old_uf.085, %sw.bb73.i ], [ %old_uf.085, %if.end200.i ]
-  %found_at.3 = phi i32 [ %found_at.2, %if.then10 ], [ %found_at.2, %if.end11 ], [ %found_at.087, %parse_url_char.exit ], [ %found_at.087, %parse_url_char.exit ], [ %found_at.087, %parse_url_char.exit ], [ %found_at.087, %parse_url_char.exit ], [ %found_at.087, %parse_url_char.exit ], [ %found_at.087, %sw.bb67.i ], [ %found_at.087, %sw.bb61.i ], [ %found_at.087, %if.end55.i ], [ %found_at.087, %sw.bb79.i ], [ %found_at.087, %sw.bb73.i ], [ %found_at.087, %if.end200.i ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.084, i64 1
+  %old_uf.1 = phi i32 [ %old_uf.083, %if.then10 ], [ %uf.0, %if.end11 ], [ %old_uf.083, %parse_url_char.exit ], [ %old_uf.083, %parse_url_char.exit ], [ %old_uf.083, %parse_url_char.exit ], [ %old_uf.083, %parse_url_char.exit ], [ %old_uf.083, %parse_url_char.exit ], [ %old_uf.083, %sw.bb67.i ], [ %old_uf.083, %sw.bb61.i ], [ %old_uf.083, %if.end55.i ], [ %old_uf.083, %sw.bb79.i ], [ %old_uf.083, %sw.bb73.i ], [ %old_uf.083, %if.end200.i ]
+  %found_at.3 = phi i32 [ %found_at.2, %if.then10 ], [ %found_at.2, %if.end11 ], [ %found_at.085, %parse_url_char.exit ], [ %found_at.085, %parse_url_char.exit ], [ %found_at.085, %parse_url_char.exit ], [ %found_at.085, %parse_url_char.exit ], [ %found_at.085, %parse_url_char.exit ], [ %found_at.085, %sw.bb67.i ], [ %found_at.085, %sw.bb61.i ], [ %found_at.085, %if.end55.i ], [ %found_at.085, %sw.bb79.i ], [ %found_at.085, %sw.bb73.i ], [ %found_at.085, %if.end200.i ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.086, i64 1
   %cmp1 = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !4
 
@@ -335,10 +335,10 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
 for.body.i:                                       ; preds = %sw.epilog.i, %for.body.lr.ph.i
   %20 = phi i16 [ 0, %for.body.lr.ph.i ], [ %43, %sw.epilog.i ]
   %21 = phi i16 [ %13, %for.body.lr.ph.i ], [ %44, %sw.epilog.i ]
-  %p.061.i = phi ptr [ %add.ptr.i, %for.body.lr.ph.i ], [ %incdec.ptr.i, %sw.epilog.i ]
-  %s.060.i = phi i32 [ %15, %for.body.lr.ph.i ], [ %retval.0.i37.i, %sw.epilog.i ]
-  %22 = load i8, ptr %p.061.i, align 1
-  switch i32 %s.060.i, label %default.unreachable.i [
+  %s.061.i = phi i32 [ %15, %for.body.lr.ph.i ], [ %retval.0.i37.i, %sw.epilog.i ]
+  %p.060.i = phi ptr [ %add.ptr.i, %for.body.lr.ph.i ], [ %incdec.ptr.i, %sw.epilog.i ]
+  %22 = load i8, ptr %p.060.i, align 1
+  switch i32 %s.061.i, label %default.unreachable.i [
     i32 3, label %sw.bb.i.i
     i32 2, label %sw.bb.i.i
     i32 4, label %sw.bb90.i.i
@@ -447,7 +447,7 @@ lor.lhs.false193.i.i:                             ; preds = %lor.lhs.false179.i.
   ]
 
 if.end202.i.i:                                    ; preds = %lor.lhs.false193.i.i, %land.lhs.true186.i.i
-  %cmp203.i.i = icmp eq i32 %s.060.i, 7
+  %cmp203.i.i = icmp eq i32 %s.061.i, 7
   %cmp207.i.i = icmp eq i8 %22, 37
   %or.cond27.i.i = and i1 %cmp203.i.i, %cmp207.i.i
   br i1 %or.cond27.i.i, label %sw.bb47.i, label %return
@@ -480,7 +480,7 @@ sw.bb261.i.i:                                     ; preds = %for.body.i, %for.bo
   br i1 %or.cond41.i.i, label %sw.bb52.i, label %return
 
 if.then22.i:                                      ; preds = %lor.lhs.false109.i.i, %if.end95.i.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %p.061.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %p.060.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast57.i
   %conv23.i = trunc i64 %sub.ptr.sub.i to i16
   store i16 %conv23.i, ptr %arrayidx.i40, align 2
@@ -492,11 +492,11 @@ if.end27.i:                                       ; preds = %if.then22.i, %lor.l
   br label %sw.epilog.i
 
 sw.bb31.i:                                        ; preds = %lor.lhs.false193.i.i, %lor.lhs.false193.i.i, %land.lhs.true186.i.i, %sw.bb171.i.i
-  %cmp32.not.i = icmp eq i32 %s.060.i, 7
+  %cmp32.not.i = icmp eq i32 %s.061.i, 7
   br i1 %cmp32.not.i, label %if.end42.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %sw.bb31.i
-  %sub.ptr.lhs.cast35.i = ptrtoint ptr %p.061.i to i64
+  %sub.ptr.lhs.cast35.i = ptrtoint ptr %p.060.i to i64
   %sub.ptr.sub37.i = sub i64 %sub.ptr.lhs.cast35.i, %sub.ptr.rhs.cast57.i
   %conv38.i = trunc i64 %sub.ptr.sub37.i to i16
   store i16 %conv38.i, ptr %arrayidx.i40, align 2
@@ -514,7 +514,7 @@ sw.bb47.i:                                        ; preds = %switch.early.test10
   br label %sw.epilog.i
 
 sw.bb52.i:                                        ; preds = %sw.bb261.i.i
-  %cmp53.not.i = icmp eq i32 %s.060.i, 12
+  %cmp53.not.i = icmp eq i32 %s.061.i, 12
   br i1 %cmp53.not.i, label %sw.bb52.if.end69_crit_edge.i, label %if.then55.i
 
 sw.bb52.if.end69_crit_edge.i:                     ; preds = %sw.bb52.i
@@ -522,7 +522,7 @@ sw.bb52.if.end69_crit_edge.i:                     ; preds = %sw.bb52.i
   br label %if.end69.i
 
 if.then55.i:                                      ; preds = %sw.bb52.i
-  %sub.ptr.lhs.cast56.i = ptrtoint ptr %p.061.i to i64
+  %sub.ptr.lhs.cast56.i = ptrtoint ptr %p.060.i to i64
   %sub.ptr.sub58.i = sub i64 %sub.ptr.lhs.cast56.i, %sub.ptr.rhs.cast57.i
   %conv59.i = trunc i64 %sub.ptr.sub58.i to i16
   store i16 %conv59.i, ptr %arrayidx61.i, align 2
@@ -538,7 +538,7 @@ if.end69.i:                                       ; preds = %if.then55.i, %sw.bb
   br label %sw.epilog.i
 
 sw.bb74.i:                                        ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %if.end.i.i
-  %cmp75.not.i = icmp eq i32 %s.060.i, 3
+  %cmp75.not.i = icmp eq i32 %s.061.i, 3
   br i1 %cmp75.not.i, label %sw.bb74.if.end92_crit_edge.i, label %if.then77.i
 
 sw.bb74.if.end92_crit_edge.i:                     ; preds = %sw.bb74.i
@@ -546,7 +546,7 @@ sw.bb74.if.end92_crit_edge.i:                     ; preds = %sw.bb74.i
   br label %if.end92.i
 
 if.then77.i:                                      ; preds = %sw.bb74.i
-  %sub.ptr.lhs.cast78.i = ptrtoint ptr %p.061.i to i64
+  %sub.ptr.lhs.cast78.i = ptrtoint ptr %p.060.i to i64
   %sub.ptr.sub80.i = sub i64 %sub.ptr.lhs.cast78.i, %sub.ptr.rhs.cast57.i
   %conv81.i = trunc i64 %sub.ptr.sub80.i to i16
   store i16 %conv81.i, ptr %arrayidx83.i, align 2
@@ -565,7 +565,7 @@ sw.epilog.i:                                      ; preds = %if.end92.i, %if.end
   %43 = phi i16 [ %20, %if.end92.i ], [ %20, %if.end69.i ], [ %inc51.i, %sw.bb47.i ], [ %inc46.i, %if.end42.i ], [ %inc.i, %if.end27.i ], [ %20, %sw.bb211.i.i ], [ %20, %sw.bb165.i.i ], [ %20, %sw.bb159.i.i ], [ %20, %sw.bb90.i.i ], [ %20, %sw.bb.i.i ]
   %44 = phi i16 [ %42, %if.end92.i ], [ %39, %if.end69.i ], [ %21, %sw.bb47.i ], [ %21, %if.end42.i ], [ %21, %if.end27.i ], [ %21, %sw.bb211.i.i ], [ %21, %sw.bb165.i.i ], [ %21, %sw.bb159.i.i ], [ %21, %sw.bb90.i.i ], [ %21, %sw.bb.i.i ]
   %retval.0.i37.i = phi i32 [ 3, %if.end92.i ], [ 12, %if.end69.i ], [ %retval.0.i.ph47.i, %sw.bb47.i ], [ 7, %if.end42.i ], [ 6, %if.end27.i ], [ 8, %sw.bb211.i.i ], [ 8, %sw.bb165.i.i ], [ 11, %sw.bb159.i.i ], [ 5, %sw.bb90.i.i ], [ 4, %sw.bb.i.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.061.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.060.i, i64 1
   %cmp.i = icmp ult ptr %incdec.ptr.i, %add.ptr14.i
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !6
 

@@ -473,7 +473,7 @@ rb_num2int_inline.exit:                           ; preds = %32, %34
   br label %37
 
 37:                                               ; preds = %rb_num2int_inline.exit, %28
-  %.09 = phi i32 [ %36, %rb_num2int_inline.exit ], [ -1, %28 ]
+  %.0 = phi i32 [ %36, %rb_num2int_inline.exit ], [ -1, %28 ]
   %38 = getelementptr inbounds i8, ptr %8, i64 8
   %39 = load i64, ptr %38, align 8
   %.not14 = icmp eq i64 %39, 36
@@ -498,7 +498,7 @@ rb_num2int_inline.exit20:                         ; preds = %42, %44
   br label %47
 
 47:                                               ; preds = %37, %rb_num2int_inline.exit20
-  %.0 = phi i32 [ %46, %rb_num2int_inline.exit20 ], [ 0, %37 ]
+  %.09 = phi i32 [ %46, %rb_num2int_inline.exit20 ], [ 0, %37 ]
   %48 = call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_x509name_type) #9
   %.not15 = icmp eq ptr %48, null
   br i1 %.not15, label %49, label %51
@@ -551,7 +551,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_num2int_inline.e
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
   %69 = trunc i64 %66 to i32
-  %70 = call i32 @X509_NAME_add_entry_by_txt(ptr noundef nonnull %48, ptr noundef %17, i32 noundef %58, ptr noundef %.sroa.2.0.i, i32 noundef %69, i32 noundef %.09, i32 noundef %.0) #9
+  %70 = call i32 @X509_NAME_add_entry_by_txt(ptr noundef nonnull %48, ptr noundef %17, i32 noundef %58, ptr noundef %.sroa.2.0.i, i32 noundef %69, i32 noundef %.0, i32 noundef %.09) #9
   %.not16 = icmp eq i32 %70, 0
   br i1 %.not16, label %71, label %73
 
@@ -701,8 +701,8 @@ define internal i64 @ossl_x509name_to_a(i64 noundef %0) #0 {
   br i1 %.not30, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21, %40
-  %.02229 = phi i32 [ %50, %40 ], [ 0, %21 ]
-  %24 = call ptr @X509_NAME_get_entry(ptr noundef nonnull %3, i32 noundef %.02229) #9
+  %.02129 = phi i32 [ %50, %40 ], [ 0, %21 ]
+  %24 = call ptr @X509_NAME_get_entry(ptr noundef nonnull %3, i32 noundef %.02129) #9
   %.not27 = icmp eq ptr %24, null
   br i1 %.not27, label %25, label %27
 
@@ -737,7 +737,7 @@ define internal i64 @ossl_x509name_to_a(i64 noundef %0) #0 {
   br label %40
 
 40:                                               ; preds = %37, %35
-  %.021 = phi i64 [ %36, %35 ], [ %39, %37 ]
+  %.022 = phi i64 [ %36, %35 ], [ %39, %37 ]
   %41 = call ptr @X509_NAME_ENTRY_get_data(ptr noundef nonnull %24) #9
   %42 = call i64 @asn1str_to_str(ptr noundef %41) #9
   %43 = getelementptr inbounds i8, ptr %41, i64 4
@@ -745,9 +745,9 @@ define internal i64 @ossl_x509name_to_a(i64 noundef %0) #0 {
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 1
   %47 = or disjoint i64 %46, 1
-  %48 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %.021, i64 noundef %42, i64 noundef %47) #9
+  %48 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %.022, i64 noundef %42, i64 noundef %47) #9
   %49 = call i64 @rb_ary_push(i64 noundef %23, i64 noundef %48) #9
-  %50 = add nuw nsw i32 %.02229, 1
+  %50 = add nuw nsw i32 %.02129, 1
   %exitcond.not = icmp eq i32 %50, %7
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 

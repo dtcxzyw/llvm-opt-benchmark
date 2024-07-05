@@ -4883,24 +4883,24 @@ if.then.i.i:                                      ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %mappedFreeCount.022 = phi i32 [ 0, %for.body.lr.ph ], [ %add13, %for.body ]
-  %mappedCount.021 = phi i32 [ 0, %for.body.lr.ph ], [ %add5, %for.body ]
-  %count.020 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
+  %count.023 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
+  %mappedFreeCount.021 = phi i32 [ 0, %for.body.lr.ph ], [ %add13, %for.body ]
+  %mappedCount.020 = phi i32 [ 0, %for.body.lr.ph ], [ %add5, %for.body ]
   %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
   %3 = load i64, ptr %add.ptr.i, align 8
   %4 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
   %cast = trunc nuw nsw i64 %4 to i32
-  %add = add nuw nsw i32 %count.020, %cast
+  %add = add nuw nsw i32 %count.023, %cast
   %add.ptr.i13 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
   %5 = load i64, ptr %add.ptr.i13, align 8
   %6 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %5)
   %cast4 = trunc nuw nsw i64 %6 to i32
-  %add5 = add nuw nsw i32 %mappedCount.021, %cast4
+  %add5 = add nuw nsw i32 %mappedCount.020, %cast4
   %not = xor i64 %3, -1
   %and = and i64 %5, %not
   %7 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and)
   %cast12 = trunc nuw nsw i64 %7 to i32
-  %add13 = add nuw nsw i32 %mappedFreeCount.022, %cast12
+  %add13 = add nuw nsw i32 %mappedFreeCount.021, %cast12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !56
@@ -4911,9 +4911,9 @@ lpad:                                             ; preds = %if.then.i.i, %invok
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %count.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %add, %for.body ]
   %mappedCount.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %add5, %for.body ]
   %mappedFreeCount.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %add13, %for.body ]
+  %count.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %add, %for.body ]
   %conv14 = zext nneg i32 %count.0.lcssa to i64
   %unitSize_ = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load i64, ptr %unitSize_, align 8
@@ -5145,9 +5145,9 @@ for.body.lr.ph.i:                                 ; preds = %if.then34
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.body.lr.ph.i
-  %i.017.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %if.end.i ]
-  %freeBits.016.i = phi i64 [ %not.i, %for.body.lr.ph.i ], [ %and16.i, %if.end.i ]
-  %12 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %freeBits.016.i, i1 true)
+  %freeBits.017.i = phi i64 [ %not.i, %for.body.lr.ph.i ], [ %and16.i, %if.end.i ]
+  %i.016.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %if.end.i ]
+  %12 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %freeBits.017.i, i1 true)
   %cast3.i = trunc nuw nsw i64 %12 to i32
   %13 = load ptr, ptr %pageAllocated_, align 8
   %add.ptr.i12.i = getelementptr inbounds i64, ptr %13, i64 %conv.i15
@@ -5190,9 +5190,9 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %add.ptr.i16 = getelementptr inbounds i8, ptr %21, i64 %mul13.i
   %conv15.i = trunc i64 %22 to i32
   tail call void @_ZN8facebook5velox6memory10Allocation6appendEPhi(ptr noundef nonnull align 8 dereferenceable(36) %out, ptr noundef %add.ptr.i16, i32 noundef %conv15.i)
-  %sub.i = add i64 %freeBits.016.i, -1
-  %and16.i = and i64 %sub.i, %freeBits.016.i
-  %inc.i = add nuw nsw i32 %i.017.i, 1
+  %sub.i = add i64 %freeBits.017.i, -1
+  %and16.i = and i64 %sub.i, %freeBits.017.i
+  %inc.i = add nuw nsw i32 %i.016.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %.sroa.speculated.i
   br i1 %exitcond.not.i, label %_ZN8facebook5velox6memory13MmapAllocator9SizeClass11allocateAnyEiRiRmRNS1_10AllocationE.exit, label %for.body.i, !llvm.loop !57
 
@@ -5453,9 +5453,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
-  %i.017 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end ]
-  %freeBits.016 = phi i64 [ %not, %for.body.lr.ph ], [ %and16, %if.end ]
-  %4 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %freeBits.016, i1 true)
+  %freeBits.017 = phi i64 [ %not, %for.body.lr.ph ], [ %and16, %if.end ]
+  %i.016 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end ]
+  %4 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %freeBits.017, i1 true)
   %cast3 = trunc nuw nsw i64 %4 to i32
   %5 = load ptr, ptr %pageAllocated_, align 8
   %add.ptr.i12 = getelementptr inbounds i64, ptr %5, i64 %conv
@@ -5498,9 +5498,9 @@ if.end:                                           ; preds = %if.else, %if.then
   %add.ptr = getelementptr inbounds i8, ptr %13, i64 %mul13
   %conv15 = trunc i64 %14 to i32
   tail call void @_ZN8facebook5velox6memory10Allocation6appendEPhi(ptr noundef nonnull align 8 dereferenceable(36) %allocation, ptr noundef %add.ptr, i32 noundef %conv15)
-  %sub = add i64 %freeBits.016, -1
-  %and16 = and i64 %sub, %freeBits.016
-  %inc = add nuw nsw i32 %i.017, 1
+  %sub = add i64 %freeBits.017, -1
+  %and16 = and i64 %sub, %freeBits.017
+  %inc = add nuw nsw i32 %i.016, 1
   %exitcond.not = icmp eq i32 %inc, %.sroa.speculated
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !57
 

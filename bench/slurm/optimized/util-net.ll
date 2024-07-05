@@ -148,19 +148,19 @@ define noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef
   %49 = phi ptr [ %59, %52 ], [ %37, %.lr.ph119.preheader.i ]
   %.2117.i = phi ptr [ %58, %52 ], [ %33, %.lr.ph119.preheader.i ]
   %.270116.i = phi ptr [ %57, %52 ], [ %36, %.lr.ph119.preheader.i ]
-  %.074115.i = phi i32 [ %50, %52 ], [ %43, %.lr.ph119.preheader.i ]
-  %.076114.i = phi ptr [ %56, %52 ], [ %47, %.lr.ph119.preheader.i ]
-  %50 = sub nsw i32 %.074115.i, %48
+  %.075115.i = phi i32 [ %50, %52 ], [ %43, %.lr.ph119.preheader.i ]
+  %.077114.i = phi ptr [ %56, %52 ], [ %47, %.lr.ph119.preheader.i ]
+  %50 = sub nsw i32 %.075115.i, %48
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %copy_hostent.exit, label %52
 
 52:                                               ; preds = %.lr.ph119.i
   %53 = sext i32 %48 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.076114.i, ptr nonnull align 1 %49, i64 %53, i1 false)
-  store ptr %.076114.i, ptr %.2117.i, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.077114.i, ptr nonnull align 1 %49, i64 %53, i1 false)
+  store ptr %.077114.i, ptr %.2117.i, align 8
   %54 = load i32, ptr %17, align 4
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i8, ptr %.076114.i, i64 %55
+  %56 = getelementptr inbounds i8, ptr %.077114.i, i64 %55
   %57 = getelementptr inbounds i8, ptr %.270116.i, i64 8
   %58 = getelementptr inbounds i8, ptr %.2117.i, i64 8
   %59 = load ptr, ptr %57, align 8
@@ -168,8 +168,8 @@ define noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not87.i, label %._crit_edge120.i, label %.lr.ph119.i, !llvm.loop !9
 
 ._crit_edge120.i:                                 ; preds = %52, %.thread.i
-  %.076.lcssa.i = phi ptr [ %46, %.thread.i ], [ %56, %52 ]
-  %.074.lcssa.i = phi i32 [ %.neg91145.i, %.thread.i ], [ %50, %52 ]
+  %.077.lcssa.i = phi ptr [ %46, %.thread.i ], [ %56, %52 ]
+  %.075.lcssa.i = phi i32 [ %.neg91145.i, %.thread.i ], [ %50, %52 ]
   %.2.lcssa.i = phi ptr [ %33, %.thread.i ], [ %58, %52 ]
   store ptr null, ptr %.2.lcssa.i, align 8
   %60 = load ptr, ptr %22, align 8
@@ -182,20 +182,20 @@ define noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef
   %63 = phi ptr [ %75, %70 ], [ %62, %._crit_edge120.i ]
   %.3128.i = phi ptr [ %74, %70 ], [ %61, %._crit_edge120.i ]
   %.371127.i = phi ptr [ %73, %70 ], [ %60, %._crit_edge120.i ]
-  %.175126.i = phi i32 [ %68, %70 ], [ %.074.lcssa.i, %._crit_edge120.i ]
-  %.177125.i = phi ptr [ %72, %70 ], [ %.076.lcssa.i, %._crit_edge120.i ]
-  %64 = zext nneg i32 %.175126.i to i64
-  %65 = tail call i64 @strlcpy(ptr noundef %.177125.i, ptr noundef nonnull dereferenceable(1) %63, i64 noundef %64) #13
+  %.176126.i = phi i32 [ %68, %70 ], [ %.075.lcssa.i, %._crit_edge120.i ]
+  %.178125.i = phi ptr [ %72, %70 ], [ %.077.lcssa.i, %._crit_edge120.i ]
+  %64 = zext nneg i32 %.176126.i to i64
+  %65 = tail call i64 @strlcpy(ptr noundef %.178125.i, ptr noundef nonnull dereferenceable(1) %63, i64 noundef %64) #13
   %66 = trunc i64 %65 to i32
-  store ptr %.177125.i, ptr %.3128.i, align 8
+  store ptr %.178125.i, ptr %.3128.i, align 8
   %67 = add nsw i32 %66, 1
-  %68 = sub nsw i32 %.175126.i, %67
+  %68 = sub nsw i32 %.176126.i, %67
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %copy_hostent.exit, label %70
 
 70:                                               ; preds = %.lr.ph130.i
   %71 = sext i32 %67 to i64
-  %72 = getelementptr inbounds i8, ptr %.177125.i, i64 %71
+  %72 = getelementptr inbounds i8, ptr %.178125.i, i64 %71
   %73 = getelementptr inbounds i8, ptr %.371127.i, i64 8
   %74 = getelementptr inbounds i8, ptr %.3128.i, i64 8
   %75 = load ptr, ptr %73, align 8
@@ -203,21 +203,21 @@ define noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not88.i, label %._crit_edge131.i, label %.lr.ph130.i, !llvm.loop !10
 
 ._crit_edge131.i:                                 ; preds = %70, %._crit_edge120.i
-  %.177.lcssa.i = phi ptr [ %.076.lcssa.i, %._crit_edge120.i ], [ %72, %70 ]
-  %.175.lcssa.i = phi i32 [ %.074.lcssa.i, %._crit_edge120.i ], [ %68, %70 ]
+  %.178.lcssa.i = phi ptr [ %.077.lcssa.i, %._crit_edge120.i ], [ %72, %70 ]
+  %.176.lcssa.i = phi i32 [ %.075.lcssa.i, %._crit_edge120.i ], [ %68, %70 ]
   %.3.lcssa.i = phi ptr [ %61, %._crit_edge120.i ], [ %74, %70 ]
   store ptr null, ptr %.3.lcssa.i, align 8
-  store ptr %.177.lcssa.i, ptr %1, align 8
+  store ptr %.178.lcssa.i, ptr %1, align 8
   %76 = load ptr, ptr %9, align 8
-  %77 = zext nneg i32 %.175.lcssa.i to i64
-  %78 = tail call i64 @strlcpy(ptr noundef %.177.lcssa.i, ptr noundef nonnull dereferenceable(1) %76, i64 noundef %77) #13
+  %77 = zext nneg i32 %.176.lcssa.i to i64
+  %78 = tail call i64 @strlcpy(ptr noundef %.178.lcssa.i, ptr noundef nonnull dereferenceable(1) %76, i64 noundef %77) #13
   %79 = trunc i64 %78 to i32
-  %80 = sub i32 %79, %.175.lcssa.i
+  %80 = sub i32 %79, %.176.lcssa.i
   %81 = icmp sgt i32 %80, -1
   br label %copy_hostent.exit
 
 copy_hostent.exit:                                ; preds = %.lr.ph119.i, %.lr.ph130.i, %._crit_edge131.i, %._crit_edge110.thread.i, %._crit_edge110.i, %._crit_edge.i, %10, %8
-  %.0 = phi i1 [ false, %8 ], [ true, %10 ], [ true, %._crit_edge.i ], [ true, %._crit_edge110.i ], [ %81, %._crit_edge131.i ], [ true, %._crit_edge110.thread.i ], [ true, %.lr.ph130.i ], [ true, %.lr.ph119.i ]
+  %.013 = phi i1 [ false, %8 ], [ true, %10 ], [ true, %._crit_edge.i ], [ true, %._crit_edge110.i ], [ %81, %._crit_edge131.i ], [ true, %._crit_edge110.thread.i ], [ true, %.lr.ph130.i ], [ true, %.lr.ph119.i ]
   %.not19 = icmp eq ptr %3, null
   br i1 %.not19, label %85, label %82
 
@@ -239,7 +239,7 @@ copy_hostent.exit:                                ; preds = %.lr.ph119.i, %.lr.p
   unreachable
 
 89:                                               ; preds = %85
-  br i1 %.0, label %90, label %92
+  br i1 %.013, label %90, label %92
 
 90:                                               ; preds = %89
   %91 = tail call ptr @__errno_location() #14
@@ -251,8 +251,8 @@ copy_hostent.exit:                                ; preds = %.lr.ph119.i, %.lr.p
   br label %94
 
 94:                                               ; preds = %92, %90
-  %.013 = phi ptr [ null, %90 ], [ %93, %92 ]
-  ret ptr %.013
+  %.0 = phi ptr [ null, %90 ], [ %93, %92 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind
@@ -639,8 +639,8 @@ define ptr @xgetnameinfo(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   unreachable
 
 71:                                               ; preds = %67, %39, %35, %32, %29, %4
-  %.037 = phi ptr [ %5, %4 ], [ %25, %29 ], [ %25, %32 ], [ %25, %35 ], [ null, %39 ], [ %46, %67 ]
-  ret ptr %.037
+  %.0 = phi ptr [ %5, %4 ], [ %25, %29 ], [ %25, %32 ], [ %25, %35 ], [ null, %39 ], [ %46, %67 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

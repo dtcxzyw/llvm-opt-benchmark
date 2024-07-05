@@ -516,13 +516,13 @@ define hidden void @extcap_free_arg_list(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define hidden ptr @extcap_parse_args(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc ptr @extcap_tokenize_sentences(ptr noundef %0)
-  %.not27 = icmp eq ptr %2, null
-  br i1 %.not27, label %extcap_free_tokenized_sentences.exit, label %.lr.ph
+  %.not28 = icmp eq ptr %2, null
+  br i1 %.not28, label %extcap_free_tokenized_sentences.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %extcap_parse_arg_sentence.exit.thread
-  %.029 = phi ptr [ %.1, %extcap_parse_arg_sentence.exit.thread ], [ null, %1 ]
-  %.01228 = phi ptr [ %200, %extcap_parse_arg_sentence.exit.thread ], [ %2, %1 ]
-  %3 = load ptr, ptr %.01228, align 8
+  %.030 = phi ptr [ %.1, %extcap_parse_arg_sentence.exit.thread ], [ null, %1 ]
+  %.01229 = phi ptr [ %200, %extcap_parse_arg_sentence.exit.thread ], [ %2, %1 ]
+  %3 = load ptr, ptr %.01229, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %extcap_parse_arg_sentence.exit.thread, label %5
 
@@ -624,20 +624,20 @@ define hidden ptr @extcap_parse_args(ptr noundef %0) local_unnamed_addr #0 {
 
 53:                                               ; preds = %50
   %54 = tail call i32 @g_utf8_validate(ptr noundef nonnull %52, i64 noundef -1, ptr noundef null) #9
-  %.not.i22 = icmp eq i32 %54, 0
-  br i1 %.not.i22, label %matches_regex.exit24, label %55
+  %.not.i23 = icmp eq i32 %54, 0
+  br i1 %.not.i23, label %matches_regex.exit25, label %55
 
 55:                                               ; preds = %53
   %56 = tail call i32 @g_regex_match_simple(ptr noundef nonnull @.str.1, ptr noundef nonnull %52, i32 noundef 1, i32 noundef 0) #9
-  br label %matches_regex.exit24
+  br label %matches_regex.exit25
 
-matches_regex.exit24:                             ; preds = %53, %55
-  %.0.i23 = phi i32 [ %56, %55 ], [ 0, %53 ]
+matches_regex.exit25:                             ; preds = %53, %55
+  %.0.i24 = phi i32 [ %56, %55 ], [ 0, %53 ]
   %57 = getelementptr inbounds i8, ptr %10, i64 48
-  store i32 %.0.i23, ptr %57, align 8
+  store i32 %.0.i24, ptr %57, align 8
   br label %58
 
-58:                                               ; preds = %matches_regex.exit24, %50
+58:                                               ; preds = %matches_regex.exit25, %50
   %59 = load ptr, ptr %13, align 8
   %60 = tail call ptr @g_hash_table_lookup(ptr noundef %59, ptr noundef nonnull inttoptr (i64 14 to ptr)) #9
   %.not138.i = icmp eq ptr %60, null
@@ -681,20 +681,20 @@ matches_regex.exit24:                             ; preds = %53, %55
 
 79:                                               ; preds = %76
   %80 = tail call i32 @g_utf8_validate(ptr noundef nonnull %78, i64 noundef -1, ptr noundef null) #9
-  %.not.i19 = icmp eq i32 %80, 0
-  br i1 %.not.i19, label %matches_regex.exit21, label %81
+  %.not.i20 = icmp eq i32 %80, 0
+  br i1 %.not.i20, label %matches_regex.exit22, label %81
 
 81:                                               ; preds = %79
   %82 = tail call i32 @g_regex_match_simple(ptr noundef nonnull @.str.1, ptr noundef nonnull %78, i32 noundef 1, i32 noundef 0) #9
-  br label %matches_regex.exit21
+  br label %matches_regex.exit22
 
-matches_regex.exit21:                             ; preds = %79, %81
-  %.0.i20 = phi i32 [ %82, %81 ], [ 0, %79 ]
+matches_regex.exit22:                             ; preds = %79, %81
+  %.0.i21 = phi i32 [ %82, %81 ], [ 0, %79 ]
   %83 = getelementptr inbounds i8, ptr %10, i64 52
-  store i32 %.0.i20, ptr %83, align 4
+  store i32 %.0.i21, ptr %83, align 4
   br label %84
 
-84:                                               ; preds = %matches_regex.exit21, %76
+84:                                               ; preds = %matches_regex.exit22, %76
   %85 = load ptr, ptr %13, align 8
   %86 = tail call ptr @g_hash_table_lookup(ptr noundef %85, ptr noundef nonnull inttoptr (i64 4 to ptr)) #9
   %87 = icmp eq ptr %86, null
@@ -789,19 +789,19 @@ matches_regex.exit21:                             ; preds = %79, %81
 
 136:                                              ; preds = %133
   %137 = tail call i32 @g_utf8_validate(ptr noundef nonnull %135, i64 noundef -1, ptr noundef null) #9
-  %.not.i16 = icmp eq i32 %137, 0
-  br i1 %.not.i16, label %matches_regex.exit18, label %138
+  %.not.i17 = icmp eq i32 %137, 0
+  br i1 %.not.i17, label %matches_regex.exit19, label %138
 
 138:                                              ; preds = %136
   %139 = tail call i32 @g_regex_match_simple(ptr noundef nonnull @.str.1, ptr noundef nonnull %135, i32 noundef 1, i32 noundef 0) #9
-  br label %matches_regex.exit18
+  br label %matches_regex.exit19
 
-matches_regex.exit18:                             ; preds = %136, %138
-  %.0.i17 = phi i32 [ %139, %138 ], [ 0, %136 ]
-  store i32 %.0.i17, ptr %12, align 8
+matches_regex.exit19:                             ; preds = %136, %138
+  %.0.i18 = phi i32 [ %139, %138 ], [ 0, %136 ]
+  store i32 %.0.i18, ptr %12, align 8
   br label %140
 
-140:                                              ; preds = %matches_regex.exit18, %133
+140:                                              ; preds = %matches_regex.exit19, %133
   %141 = load ptr, ptr %13, align 8
   %142 = tail call ptr @g_hash_table_lookup(ptr noundef %141, ptr noundef nonnull inttoptr (i64 18 to ptr)) #9
   %.not143.i = icmp eq ptr %142, null
@@ -817,9 +817,9 @@ matches_regex.exit18:                             ; preds = %136, %138
   br label %matches_regex.exit
 
 matches_regex.exit:                               ; preds = %143, %145
-  %.0.i = phi i32 [ %146, %145 ], [ 0, %143 ]
+  %.0.i16 = phi i32 [ %146, %145 ], [ 0, %143 ]
   %147 = getelementptr inbounds i8, ptr %10, i64 60
-  store i32 %.0.i, ptr %147, align 4
+  store i32 %.0.i16, ptr %147, align 4
   br label %148
 
 148:                                              ; preds = %matches_regex.exit, %140
@@ -893,7 +893,7 @@ matches_regex.exit:                               ; preds = %143, %145
   br i1 %184, label %extcap_parse_arg_sentence.exit.thread, label %185
 
 185:                                              ; preds = %182
-  %186 = tail call ptr @g_list_find_custom(ptr noundef %.029, ptr noundef nonnull %183, ptr noundef nonnull @glist_find_numbered_arg) #9
+  %186 = tail call ptr @g_list_find_custom(ptr noundef %.030, ptr noundef nonnull %183, ptr noundef nonnull @glist_find_numbered_arg) #9
   %187 = icmp eq ptr %186, null
   br i1 %187, label %188, label %191
 
@@ -913,18 +913,18 @@ matches_regex.exit:                               ; preds = %143, %145
   br label %extcap_parse_arg_sentence.exit.thread
 
 extcap_parse_arg_sentence.exit:                   ; preds = %171, %171, %168, %173
-  %198 = tail call ptr @g_list_append(ptr noundef %.029, ptr noundef nonnull %10) #9
+  %198 = tail call ptr @g_list_append(ptr noundef %.030, ptr noundef nonnull %10) #9
   br label %extcap_parse_arg_sentence.exit.thread
 
 extcap_parse_arg_sentence.exit.thread:            ; preds = %178, %182, %.lr.ph, %191, %188, %131, %154, %88, %35, %30, %25, %20, %17, %extcap_parse_arg_sentence.exit
-  %.1 = phi ptr [ %198, %extcap_parse_arg_sentence.exit ], [ %.029, %17 ], [ %.029, %20 ], [ %.029, %25 ], [ %.029, %30 ], [ %.029, %35 ], [ %.029, %88 ], [ %.029, %154 ], [ %.029, %131 ], [ %.029, %188 ], [ %.029, %191 ], [ %.029, %.lr.ph ], [ %.029, %182 ], [ %.029, %178 ]
-  %199 = getelementptr inbounds i8, ptr %.01228, i64 8
+  %.1 = phi ptr [ %198, %extcap_parse_arg_sentence.exit ], [ %.030, %17 ], [ %.030, %20 ], [ %.030, %25 ], [ %.030, %30 ], [ %.030, %35 ], [ %.030, %88 ], [ %.030, %154 ], [ %.030, %131 ], [ %.030, %188 ], [ %.030, %191 ], [ %.030, %.lr.ph ], [ %.030, %182 ], [ %.030, %178 ]
+  %199 = getelementptr inbounds i8, ptr %.01229, i64 8
   %200 = load ptr, ptr %199, align 8
   %.not = icmp eq ptr %200, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %extcap_parse_arg_sentence.exit.thread
-  br i1 %.not27, label %extcap_free_tokenized_sentences.exit, label %201
+  br i1 %.not28, label %extcap_free_tokenized_sentences.exit, label %201
 
 201:                                              ; preds = %._crit_edge
   tail call void @g_list_foreach(ptr noundef nonnull %2, ptr noundef nonnull @extcap_free_tokenized_sentence, ptr noundef null) #9
@@ -932,8 +932,8 @@ extcap_parse_arg_sentence.exit.thread:            ; preds = %178, %182, %.lr.ph,
   br label %extcap_free_tokenized_sentences.exit
 
 extcap_free_tokenized_sentences.exit:             ; preds = %1, %._crit_edge, %201
-  %.0.lcssa31 = phi ptr [ %.1, %._crit_edge ], [ %.1, %201 ], [ null, %1 ]
-  ret ptr %.0.lcssa31
+  %.0.lcssa32 = phi ptr [ %.1, %._crit_edge ], [ %.1, %201 ], [ null, %1 ]
+  ret ptr %.0.lcssa32
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1140,8 +1140,8 @@ extcap_tokenize_sentence.exit.thread15:           ; preds = %20
   br label %105
 
 105:                                              ; preds = %102, %99, %96, %93, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %31
-  %.0.i = phi i64 [ 1, %31 ], [ 2, %36 ], [ 3, %39 ], [ 4, %42 ], [ 5, %45 ], [ 6, %48 ], [ 7, %51 ], [ 8, %54 ], [ 9, %57 ], [ 10, %60 ], [ 13, %63 ], [ 14, %66 ], [ 15, %69 ], [ 11, %72 ], [ 12, %75 ], [ 16, %78 ], [ 18, %81 ], [ 17, %84 ], [ 19, %87 ], [ 20, %90 ], [ 21, %93 ], [ 22, %96 ], [ 23, %99 ], [ %..i, %102 ]
-  %106 = inttoptr i64 %.0.i to ptr
+  %.043.i = phi i64 [ 1, %31 ], [ 2, %36 ], [ 3, %39 ], [ 4, %42 ], [ 5, %45 ], [ 6, %48 ], [ 7, %51 ], [ 8, %54 ], [ 9, %57 ], [ 10, %60 ], [ 13, %63 ], [ 14, %66 ], [ 15, %69 ], [ 11, %72 ], [ 12, %75 ], [ 16, %78 ], [ 18, %81 ], [ 17, %84 ], [ 19, %87 ], [ 20, %90 ], [ 21, %93 ], [ 22, %96 ], [ 23, %99 ], [ %..i, %102 ]
+  %106 = inttoptr i64 %.043.i to ptr
   %107 = call i32 @g_hash_table_insert(ptr noundef %21, ptr noundef %106, ptr noundef %33) #9
   %108 = load ptr, ptr %2, align 8
   %109 = call i32 @g_match_info_next(ptr noundef %108, ptr noundef nonnull %3) #9
@@ -1345,9 +1345,9 @@ define hidden ptr @extcap_parse_interfaces(ptr noundef %0, ptr noundef %1) local
   br label %5
 
 5:                                                ; preds = %.lr.ph, %extcap_parse_interface_sentence.exit.thread
-  %.043 = phi ptr [ %4, %.lr.ph ], [ %216, %extcap_parse_interface_sentence.exit.thread ]
-  %.02242 = phi ptr [ null, %.lr.ph ], [ %.1, %extcap_parse_interface_sentence.exit.thread ]
-  %6 = load ptr, ptr %.043, align 8
+  %.043 = phi ptr [ null, %.lr.ph ], [ %.1, %extcap_parse_interface_sentence.exit.thread ]
+  %.02242 = phi ptr [ %4, %.lr.ph ], [ %216, %extcap_parse_interface_sentence.exit.thread ]
+  %6 = load ptr, ptr %.02242, align 8
   %.not27 = icmp eq ptr %6, null
   br i1 %.not27, label %extcap_parse_interface_sentence.exit.thread, label %7
 
@@ -1436,7 +1436,7 @@ define hidden ptr @extcap_parse_interfaces(ptr noundef %0, ptr noundef %1) local
   br label %extcap_parse_interface_sentence.exit
 
 extcap_parse_interface_sentence.exit:             ; preds = %47, %44
-  %50 = call ptr @g_list_append(ptr noundef %.02242, ptr noundef nonnull %22) #9
+  %50 = call ptr @g_list_append(ptr noundef %.043, ptr noundef nonnull %22) #9
   br label %extcap_parse_interface_sentence.exit.thread
 
 51:                                               ; preds = %11
@@ -1588,7 +1588,7 @@ matches_regex.exit.i:                             ; preds = %98, %96
   %.sink.i = phi i32 [ 1, %114 ], [ 2, %117 ], [ 3, %120 ], [ 4, %123 ]
   %129 = phi i1 [ true, %114 ], [ false, %117 ], [ false, %120 ], [ true, %123 ]
   %130 = phi i1 [ false, %114 ], [ false, %117 ], [ false, %120 ], [ true, %123 ]
-  %.0.i = phi i32 [ 5, %114 ], [ 0, %117 ], [ 0, %120 ], [ 7, %123 ]
+  %.097.i = phi i32 [ 5, %114 ], [ 0, %117 ], [ 0, %120 ], [ 7, %123 ]
   store i32 %.sink.i, ptr %70, align 4
   %131 = load ptr, ptr %71, align 8
   %132 = call ptr @g_hash_table_lookup(ptr noundef %131, ptr noundef nonnull inttoptr (i64 24 to ptr)) #9
@@ -1634,7 +1634,7 @@ matches_regex.exit.i:                             ; preds = %98, %96
   %154 = call noalias ptr @g_strdup(ptr noundef nonnull %150) #9
   %155 = getelementptr inbounds i8, ptr %153, i64 8
   store ptr %154, ptr %155, align 8
-  store i32 %.0.i, ptr %153, align 8
+  store i32 %.097.i, ptr %153, align 8
   br i1 %116, label %156, label %159
 
 156:                                              ; preds = %152
@@ -1764,8 +1764,8 @@ extcap_parse_control_sentence.exit.thread:        ; preds = %75, %84, %113, %126
   br label %extcap_parse_interface_sentence.exit.thread
 
 extcap_parse_interface_sentence.exit.thread:      ; preds = %19, %34, %28, %extcap_parse_control_sentence.exit.thread, %extcap_parse_interface_sentence.exit, %212, %56, %51, %5
-  %.1 = phi ptr [ %50, %extcap_parse_interface_sentence.exit ], [ %.02242, %212 ], [ %.02242, %56 ], [ %.02242, %51 ], [ %.02242, %5 ], [ %.02242, %extcap_parse_control_sentence.exit.thread ], [ %.02242, %28 ], [ %.02242, %34 ], [ %.02242, %19 ]
-  %215 = getelementptr inbounds i8, ptr %.043, i64 8
+  %.1 = phi ptr [ %50, %extcap_parse_interface_sentence.exit ], [ %.043, %212 ], [ %.043, %56 ], [ %.043, %51 ], [ %.043, %5 ], [ %.043, %extcap_parse_control_sentence.exit.thread ], [ %.043, %28 ], [ %.043, %34 ], [ %.043, %19 ]
+  %215 = getelementptr inbounds i8, ptr %.02242, i64 8
   %216 = load ptr, ptr %215, align 8
   %.not = icmp eq ptr %216, null
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !9
@@ -1779,8 +1779,8 @@ extcap_parse_interface_sentence.exit.thread:      ; preds = %19, %34, %28, %extc
   br label %extcap_free_tokenized_sentences.exit
 
 extcap_free_tokenized_sentences.exit:             ; preds = %2, %._crit_edge, %217
-  %.022.lcssa45 = phi ptr [ %.1, %._crit_edge ], [ %.1, %217 ], [ null, %2 ]
-  ret ptr %.022.lcssa45
+  %.0.lcssa45 = phi ptr [ %.1, %._crit_edge ], [ %.1, %217 ], [ null, %2 ]
+  ret ptr %.0.lcssa45
 }
 
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2

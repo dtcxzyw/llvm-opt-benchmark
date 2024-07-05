@@ -1111,8 +1111,8 @@ for.end36.i.i:                                    ; preds = %indent.exit62.i.i, 
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.end52.i.i, %for.end36.i.i
-  %day.0.i.i = phi i32 [ %call37.i.i, %for.end36.i.i ], [ %call53.i60.i, %if.end52.i.i ]
   %current.1.i.i = phi i32 [ %spec.select.i.i, %for.end36.i.i ], [ %rem.i59.i, %if.end52.i.i ]
+  %day.0.i.i = phi i32 [ %call37.i.i, %for.end36.i.i ], [ %call53.i60.i, %if.end52.i.i ]
   %call39.i.i = call i32 @unum_format_75(ptr noundef %call21.i.i, i32 noundef %day.0.i.i, ptr noundef nonnull %s.i20.i, i32 noundef 64, ptr noundef null, ptr noundef nonnull %status) #10
   %idxprom40.i.i = sext i32 %current.1.i.i to i64
   %arrayidx41.i.i = getelementptr inbounds [7 x i32], ptr %lens.i19.i, i64 0, i64 %idxprom40.i.i

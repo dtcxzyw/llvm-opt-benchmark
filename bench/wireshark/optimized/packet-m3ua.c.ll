@@ -2357,11 +2357,11 @@ define internal fastcc void @dissect_affected_destinations_parameter(ptr noundef
 
 .lr.ph:                                           ; preds = %3, %18
   %indvars.iv = phi i32 [ %indvars.iv.next, %18 ], [ 0, %3 ]
-  %.019 = phi i32 [ %19, %18 ], [ 4, %3 ]
+  %.01618 = phi i32 [ %19, %18 ], [ 4, %3 ]
   %9 = load i32, ptr @hf_affected_point_code_mask, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %.019, i32 noundef 1, i32 noundef 0) #5
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %.01618, i32 noundef 1, i32 noundef 0) #5
   %11 = load i32, ptr @hf_affected_point_code_pc, align 4
-  %12 = or disjoint i32 %.019, 1
+  %12 = or disjoint i32 %.01618, 1
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 3, i32 noundef 0) #5
   %14 = tail call i32 @mtp3_pc_structured() #5
   %.not = icmp eq i32 %14, 0
@@ -2374,7 +2374,7 @@ define internal fastcc void @dissect_affected_destinations_parameter(ptr noundef
   br label %18
 
 18:                                               ; preds = %15, %.lr.ph
-  %19 = add nuw nsw i32 %.019, 4
+  %19 = add nuw nsw i32 %.01618, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -2462,11 +2462,11 @@ define internal fastcc void @dissect_originating_point_code_list_parameter(ptr n
 
 .lr.ph:                                           ; preds = %3, %18
   %indvars.iv = phi i32 [ %indvars.iv.next, %18 ], [ 0, %3 ]
-  %.020 = phi i32 [ %19, %18 ], [ 4, %3 ]
+  %.01719 = phi i32 [ %19, %18 ], [ 4, %3 ]
   %9 = load i32, ptr @hf_opc_list_mask, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %.020, i32 noundef 1, i32 noundef 0) #5
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %.01719, i32 noundef 1, i32 noundef 0) #5
   %11 = load i32, ptr @hf_opc_list_pc, align 4
-  %12 = or disjoint i32 %.020, 1
+  %12 = or disjoint i32 %.01719, 1
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 3, i32 noundef 0) #5
   %14 = tail call i32 @mtp3_pc_structured() #5
   %.not = icmp eq i32 %14, 0
@@ -2479,7 +2479,7 @@ define internal fastcc void @dissect_originating_point_code_list_parameter(ptr n
   br label %18
 
 18:                                               ; preds = %15, %.lr.ph
-  %19 = add nuw nsw i32 %.020, 4
+  %19 = add nuw nsw i32 %.01719, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -2503,12 +2503,12 @@ define internal fastcc void @dissect_circuit_range_parameter(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %3, %20
   %indvars.iv = phi i32 [ %indvars.iv.next, %20 ], [ 0, %3 ]
-  %.038 = phi i32 [ %32, %20 ], [ 4, %3 ]
+  %.03537 = phi i32 [ %32, %20 ], [ 4, %3 ]
   %9 = load i32, ptr @ett_parameter, align 4
-  %10 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.038, i32 noundef 8, i32 noundef %9, ptr noundef nonnull %4, ptr noundef nonnull @.str.334) #5
+  %10 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %.03537, i32 noundef 8, i32 noundef %9, ptr noundef nonnull %4, ptr noundef nonnull @.str.334) #5
   %11 = load i32, ptr @hf_cic_range_mask, align 4
-  %12 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef %.038, i32 noundef 1, i32 noundef 0) #5
-  %13 = or disjoint i32 %.038, 1
+  %12 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef %.03537, i32 noundef 1, i32 noundef 0) #5
+  %13 = or disjoint i32 %.03537, 1
   %14 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %13) #5
   %15 = call ptr @mtp3_pc_to_str(i32 noundef %14) #5
   %16 = load i32, ptr @hf_cic_range_pc, align 4
@@ -2522,11 +2522,11 @@ define internal fastcc void @dissect_circuit_range_parameter(ptr noundef %0, ptr
   br label %20
 
 20:                                               ; preds = %19, %.lr.ph
-  %21 = add nuw nsw i32 %.038, 4
+  %21 = add nuw nsw i32 %.03537, 4
   %22 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %21) #5
   %23 = load i32, ptr @hf_cic_range_lower, align 4
   %24 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %23, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef 0) #5
-  %25 = add nuw nsw i32 %.038, 6
+  %25 = add nuw nsw i32 %.03537, 6
   %26 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %25) #5
   %27 = load i32, ptr @hf_cic_range_upper, align 4
   %28 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %27, ptr noundef %0, i32 noundef %25, i32 noundef 2, i32 noundef 0) #5
@@ -2534,7 +2534,7 @@ define internal fastcc void @dissect_circuit_range_parameter(ptr noundef %0, ptr
   %30 = zext i16 %22 to i32
   %31 = zext i16 %26 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.335, ptr noundef %15, i32 noundef %30, i32 noundef %31) #5
-  %32 = add nuw nsw i32 %.038, 8
+  %32 = add nuw nsw i32 %.03537, 8
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11

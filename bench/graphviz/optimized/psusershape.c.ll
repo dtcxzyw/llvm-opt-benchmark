@@ -106,11 +106,11 @@ user_init.exit.thread:                            ; preds = %19
   br label %115
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i.backedge
-  %.03248.i = phi i8 [ %.1.i, %.lr.ph.i.backedge ], [ 0, %.preheader.i ]
-  %.03347.i = phi i1 [ %spec.select.i, %.lr.ph.i.backedge ], [ false, %.preheader.i ]
+  %.03348.i = phi i8 [ %.1.i, %.lr.ph.i.backedge ], [ 0, %.preheader.i ]
+  %.03447.i = phi i1 [ %spec.select.i, %.lr.ph.i.backedge ], [ false, %.preheader.i ]
   %23 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.16, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
   %24 = icmp eq i32 %23, 4
-  %spec.select.i = select i1 %24, i1 true, i1 %.03347.i
+  %spec.select.i = select i1 %24, i1 true, i1 %.03447.i
   %25 = load i8, ptr %2, align 16
   %.not42.i = icmp eq i8 %25, 37
   br i1 %.not42.i, label %28, label %26
@@ -118,11 +118,11 @@ user_init.exit.thread:                            ; preds = %19
 26:                                               ; preds = %.lr.ph.i
   %27 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.17) #16
   %.not43.i = icmp eq ptr %27, null
-  %spec.select44.i = select i1 %.not43.i, i8 %.03248.i, i8 1
+  %spec.select44.i = select i1 %.not43.i, i8 %.03348.i, i8 1
   br label %28
 
 28:                                               ; preds = %26, %.lr.ph.i
-  %.1.i = phi i8 [ %.03248.i, %.lr.ph.i ], [ %spec.select44.i, %26 ]
+  %.1.i = phi i8 [ %.03348.i, %.lr.ph.i ], [ %spec.select44.i, %26 ]
   br i1 %spec.select.i, label %29, label %.thread
 
 29:                                               ; preds = %28
@@ -331,7 +331,7 @@ define void @cat_libfile(ptr noundef %0, ptr noundef readonly %1, ptr nocapture 
 
 .preheader45:                                     ; preds = %3, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %3 ]
-  %.03046 = phi i8 [ %spec.select, %7 ], [ 1, %3 ]
+  %.047 = phi i8 [ %spec.select, %7 ], [ 1, %3 ]
   %5 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not37 = icmp eq ptr %6, null
@@ -340,13 +340,13 @@ define void @cat_libfile(ptr noundef %0, ptr noundef readonly %1, ptr nocapture 
 7:                                                ; preds = %.preheader45
   %8 = load i8, ptr %6, align 1
   %9 = icmp eq i8 %8, 0
-  %spec.select = select i1 %9, i8 0, i8 %.03046
+  %spec.select = select i1 %9, i8 0, i8 %.047
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = trunc nuw i8 %spec.select to i1
   br i1 %10, label %.preheader45, label %.critedge
 
 .critedge:                                        ; preds = %.preheader45, %7
-  %.2.ph = phi i8 [ %.03046, %.preheader45 ], [ %spec.select, %7 ]
+  %.2.ph = phi i8 [ %.047, %.preheader45 ], [ %spec.select, %7 ]
   %11 = trunc nuw i8 %.2.ph to i1
   br i1 %11, label %.preheader43, label %.loopexit44
 
@@ -357,10 +357,10 @@ define void @cat_libfile(ptr noundef %0, ptr noundef readonly %1, ptr nocapture 
 
 .lr.ph:                                           ; preds = %.preheader43, %.lr.ph
   %13 = phi ptr [ %17, %.lr.ph ], [ %12, %.preheader43 ]
-  %.02849 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader43 ]
+  %.02949 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader43 ]
   %14 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull %13) #15
   %15 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.2) #15
-  %16 = getelementptr inbounds i8, ptr %.02849, i64 8
+  %16 = getelementptr inbounds i8, ptr %.02949, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not38 = icmp eq ptr %17, null
   br i1 %.not38, label %.loopexit44, label %.lr.ph

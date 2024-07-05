@@ -2372,15 +2372,15 @@ if.then.i.i:                                      ; preds = %for.body
 
 if.then.i.i.invoke.cont18_crit_edge:              ; preds = %if.then.i.i
   %.pre = load ptr, ptr %m_data.i.i.i.i, align 8
-  %.pre394 = lshr i32 %11, 5
-  %.pre395 = zext nneg i32 %.pre394 to i64
-  %.pre396 = and i32 %11, 31
-  %.pre397 = shl nuw i32 1, %.pre396
+  %.pre390 = lshr i32 %11, 5
+  %.pre391 = zext nneg i32 %.pre390 to i64
+  %.pre392 = and i32 %11, 31
+  %.pre393 = shl nuw i32 1, %.pre392
   br label %invoke.cont18
 
 invoke.cont18:                                    ; preds = %if.then.i.i.invoke.cont18_crit_edge, %invoke.cont16
-  %shl.i.i.i.i71.pre-phi = phi i32 [ %.pre397, %if.then.i.i.invoke.cont18_crit_edge ], [ %shl.i.i.i.i, %invoke.cont16 ]
-  %idxprom.i.i.i.i68.pre-phi = phi i64 [ %.pre395, %if.then.i.i.invoke.cont18_crit_edge ], [ %idxprom.i.i.i.i, %invoke.cont16 ]
+  %shl.i.i.i.i71.pre-phi = phi i32 [ %.pre393, %if.then.i.i.invoke.cont18_crit_edge ], [ %shl.i.i.i.i, %invoke.cont16 ]
+  %idxprom.i.i.i.i68.pre-phi = phi i64 [ %.pre391, %if.then.i.i.invoke.cont18_crit_edge ], [ %idxprom.i.i.i.i, %invoke.cont16 ]
   %15 = phi ptr [ %.pre, %if.then.i.i.invoke.cont18_crit_edge ], [ %13, %invoke.cont16 ]
   %arrayidx.i.i.i.i69 = getelementptr inbounds i32, ptr %15, i64 %idxprom.i.i.i.i68.pre-phi
   %16 = load i32, ptr %arrayidx.i.i.i.i69, align 4
@@ -2923,11 +2923,11 @@ if.then2.i.i:                                     ; preds = %if.then.i.i251
           to label %if.then2.i.i.invoke.cont.i_crit_edge unwind label %terminate.lpad.i
 
 if.then2.i.i.invoke.cont.i_crit_edge:             ; preds = %if.then2.i.i
-  %.pre393 = load ptr, ptr %ref.tmp146, align 8
+  %.pre389 = load ptr, ptr %ref.tmp146, align 8
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then2.i.i.invoke.cont.i_crit_edge, %if.then.i.i251, %invoke.cont154
-  %132 = phi ptr [ %.pre393, %if.then2.i.i.invoke.cont.i_crit_edge ], [ %129, %if.then.i.i251 ], [ %129, %invoke.cont154 ]
+  %132 = phi ptr [ %.pre389, %if.then2.i.i.invoke.cont.i_crit_edge ], [ %129, %if.then.i.i251 ], [ %129, %invoke.cont154 ]
   %133 = load ptr, ptr %m_dep.i246, align 8
   %tobool.not.i1.i = icmp eq ptr %133, null
   br i1 %tobool.not.i1.i, label %invoke.cont3.i, label %if.then.i.i.i
@@ -5937,19 +5937,19 @@ while.body.lr.ph.i:                               ; preds = %if.then8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %__len.06.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
-  %__first.addr.05.i = phi ptr [ %__middle.tr84, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
-  %shr.i = lshr i64 %__len.06.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.euf::dependent_eq", ptr %__first.addr.05.i, i64 %shr.i
+  %__first.addr.06.i = phi ptr [ %__middle.tr84, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
+  %__len.05.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
+  %shr.i = lshr i64 %__len.05.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.euf::dependent_eq", ptr %__first.addr.06.i, i64 %shr.i
   %12 = getelementptr i8, ptr %add.ptr.i.i.i, i64 8
   %.val.i = load ptr, ptr %12, align 8
   %.val.val.i = load i32, ptr %.val.i, align 4
   %cmp.i.i8.i = icmp ult i32 %.val.val.i, %__val.val.val.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 40
   %13 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.06.i, %13
-  %__first.addr.1.i = select i1 %cmp.i.i8.i, ptr %incdec.ptr.i, ptr %__first.addr.05.i
+  %sub2.i = add nsw i64 %__len.05.i, %13
   %__len.1.i = select i1 %cmp.i.i8.i, i64 %sub2.i, i64 %shr.i
+  %__first.addr.1.i = select i1 %cmp.i.i8.i, ptr %incdec.ptr.i, ptr %__first.addr.06.i
   %cmp.i = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %"_ZSt13__lower_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", !llvm.loop !33
 
@@ -5980,29 +5980,29 @@ while.body.lr.ph.i46:                             ; preds = %if.else
   br label %while.body.i49
 
 while.body.i49:                                   ; preds = %while.body.i49, %while.body.lr.ph.i46
-  %__len.06.i50 = phi i64 [ %sub.ptr.div.i.i.i47, %while.body.lr.ph.i46 ], [ %__len.1.i64, %while.body.i49 ]
-  %__first.addr.05.i51 = phi ptr [ %__first.tr83, %while.body.lr.ph.i46 ], [ %__first.addr.1.i63, %while.body.i49 ]
-  %shr.i52 = lshr i64 %__len.06.i50, 1
-  %add.ptr.i.i.i55 = getelementptr inbounds %"struct.euf::dependent_eq", ptr %__first.addr.05.i51, i64 %shr.i52
+  %__first.addr.06.i50 = phi ptr [ %__first.tr83, %while.body.lr.ph.i46 ], [ %__first.addr.1.i64, %while.body.i49 ]
+  %__len.05.i51 = phi i64 [ %sub.ptr.div.i.i.i47, %while.body.lr.ph.i46 ], [ %__len.1.i63, %while.body.i49 ]
+  %shr.i52 = lshr i64 %__len.05.i51, 1
+  %add.ptr.i.i.i55 = getelementptr inbounds %"struct.euf::dependent_eq", ptr %__first.addr.06.i50, i64 %shr.i52
   %15 = getelementptr i8, ptr %add.ptr.i.i.i55, i64 8
   %.val.i58 = load ptr, ptr %15, align 8
   %.val.val.i59 = load i32, ptr %.val.i58, align 4
   %cmp.i.i8.i60 = icmp ult i32 %__val.val.val.i48, %.val.val.i59
   %incdec.ptr.i61 = getelementptr inbounds i8, ptr %add.ptr.i.i.i55, i64 40
   %16 = xor i64 %shr.i52, -1
-  %sub2.i62 = add nsw i64 %__len.06.i50, %16
-  %__first.addr.1.i63 = select i1 %cmp.i.i8.i60, ptr %__first.addr.05.i51, ptr %incdec.ptr.i61
-  %__len.1.i64 = select i1 %cmp.i.i8.i60, i64 %shr.i52, i64 %sub2.i62
-  %cmp.i65 = icmp sgt i64 %__len.1.i64, 0
+  %sub2.i62 = add nsw i64 %__len.05.i51, %16
+  %__len.1.i63 = select i1 %cmp.i.i8.i60, i64 %shr.i52, i64 %sub2.i62
+  %__first.addr.1.i64 = select i1 %cmp.i.i8.i60, ptr %__first.addr.06.i50, ptr %incdec.ptr.i61
+  %cmp.i65 = icmp sgt i64 %__len.1.i63, 0
   br i1 %cmp.i65, label %while.body.i49, label %"_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", !llvm.loop !34
 
 "_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit": ; preds = %while.body.i49
-  %.pre90 = ptrtoint ptr %__first.addr.1.i63 to i64
+  %.pre90 = ptrtoint ptr %__first.addr.1.i64 to i64
   br label %"_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", %if.else
   %sub.ptr.lhs.cast.i.i66.pre-phi = phi i64 [ %.pre90, %"_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %sub.ptr.rhs.cast.i.i.i42, %if.else ]
-  %__first.addr.0.lcssa.i45 = phi ptr [ %__first.addr.1.i63, %"_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %__first.tr83, %if.else ]
+  %__first.addr.0.lcssa.i45 = phi ptr [ %__first.addr.1.i64, %"_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %__first.tr83, %if.else ]
   %sub.ptr.sub.i.i68 = sub i64 %sub.ptr.lhs.cast.i.i66.pre-phi, %sub.ptr.rhs.cast.i.i.i42
   %sub.ptr.div.i.i69 = sdiv exact i64 %sub.ptr.sub.i.i68, 40
   br label %if.end18
@@ -6918,19 +6918,19 @@ while.body.lr.ph.i:                               ; preds = %if.then9
   br label %while.body.i123
 
 while.body.i123:                                  ; preds = %while.body.i123, %while.body.lr.ph.i
-  %__len.06.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i123 ]
-  %__first.addr.05.i = phi ptr [ %__middle.tr201, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i123 ]
-  %shr.i = lshr i64 %__len.06.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.euf::dependent_eq", ptr %__first.addr.05.i, i64 %shr.i
+  %__first.addr.06.i = phi ptr [ %__middle.tr201, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i123 ]
+  %__len.05.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i123 ]
+  %shr.i = lshr i64 %__len.05.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.euf::dependent_eq", ptr %__first.addr.06.i, i64 %shr.i
   %69 = getelementptr i8, ptr %add.ptr.i.i.i, i64 8
   %.val.i = load ptr, ptr %69, align 8
   %.val.val.i = load i32, ptr %.val.i, align 4
   %cmp.i.i8.i = icmp ult i32 %.val.val.i, %__val.val.val.i
   %incdec.ptr.i125 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 40
   %70 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.06.i, %70
-  %__first.addr.1.i = select i1 %cmp.i.i8.i, ptr %incdec.ptr.i125, ptr %__first.addr.05.i
+  %sub2.i = add nsw i64 %__len.05.i, %70
   %__len.1.i = select i1 %cmp.i.i8.i, i64 %sub2.i, i64 %shr.i
+  %__first.addr.1.i = select i1 %cmp.i.i8.i, ptr %incdec.ptr.i125, ptr %__first.addr.06.i
   %cmp.i126 = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i126, label %while.body.i123, label %"_ZSt13__lower_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", !llvm.loop !33
 
@@ -6961,29 +6961,29 @@ while.body.lr.ph.i146:                            ; preds = %if.else14
   br label %while.body.i149
 
 while.body.i149:                                  ; preds = %while.body.i149, %while.body.lr.ph.i146
-  %__len.06.i150 = phi i64 [ %sub.ptr.div.i.i.i147, %while.body.lr.ph.i146 ], [ %__len.1.i164, %while.body.i149 ]
-  %__first.addr.05.i151 = phi ptr [ %__first.tr200, %while.body.lr.ph.i146 ], [ %__first.addr.1.i163, %while.body.i149 ]
-  %shr.i152 = lshr i64 %__len.06.i150, 1
-  %add.ptr.i.i.i155 = getelementptr inbounds %"struct.euf::dependent_eq", ptr %__first.addr.05.i151, i64 %shr.i152
+  %__first.addr.06.i150 = phi ptr [ %__first.tr200, %while.body.lr.ph.i146 ], [ %__first.addr.1.i164, %while.body.i149 ]
+  %__len.05.i151 = phi i64 [ %sub.ptr.div.i.i.i147, %while.body.lr.ph.i146 ], [ %__len.1.i163, %while.body.i149 ]
+  %shr.i152 = lshr i64 %__len.05.i151, 1
+  %add.ptr.i.i.i155 = getelementptr inbounds %"struct.euf::dependent_eq", ptr %__first.addr.06.i150, i64 %shr.i152
   %72 = getelementptr i8, ptr %add.ptr.i.i.i155, i64 8
   %.val.i158 = load ptr, ptr %72, align 8
   %.val.val.i159 = load i32, ptr %.val.i158, align 4
   %cmp.i.i8.i160 = icmp ult i32 %__val.val.val.i148, %.val.val.i159
   %incdec.ptr.i161 = getelementptr inbounds i8, ptr %add.ptr.i.i.i155, i64 40
   %73 = xor i64 %shr.i152, -1
-  %sub2.i162 = add nsw i64 %__len.06.i150, %73
-  %__first.addr.1.i163 = select i1 %cmp.i.i8.i160, ptr %__first.addr.05.i151, ptr %incdec.ptr.i161
-  %__len.1.i164 = select i1 %cmp.i.i8.i160, i64 %shr.i152, i64 %sub2.i162
-  %cmp.i165 = icmp sgt i64 %__len.1.i164, 0
+  %sub2.i162 = add nsw i64 %__len.05.i151, %73
+  %__len.1.i163 = select i1 %cmp.i.i8.i160, i64 %shr.i152, i64 %sub2.i162
+  %__first.addr.1.i164 = select i1 %cmp.i.i8.i160, ptr %__first.addr.06.i150, ptr %incdec.ptr.i161
+  %cmp.i165 = icmp sgt i64 %__len.1.i163, 0
   br i1 %cmp.i165, label %while.body.i149, label %"_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", !llvm.loop !34
 
 "_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit": ; preds = %while.body.i149
-  %.pre217 = ptrtoint ptr %__first.addr.1.i163 to i64
+  %.pre217 = ptrtoint ptr %__first.addr.1.i164 to i64
   br label %"_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", %if.else14
   %sub.ptr.lhs.cast.i.i166.pre-phi = phi i64 [ %.pre217, %"_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %sub.ptr.rhs.cast.i.i.i141, %if.else14 ]
-  %__first.addr.0.lcssa.i145 = phi ptr [ %__first.addr.1.i163, %"_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %__first.tr200, %if.else14 ]
+  %__first.addr.0.lcssa.i145 = phi ptr [ %__first.addr.1.i164, %"_ZSt13__upper_boundIPN3euf12dependent_eqES1_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_17solve_context_eqs25collect_nested_equalitiesER6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %__first.tr200, %if.else14 ]
   %sub.ptr.sub.i.i168 = sub i64 %sub.ptr.lhs.cast.i.i166.pre-phi, %sub.ptr.rhs.cast.i.i.i141
   %sub.ptr.div.i.i169 = sdiv exact i64 %sub.ptr.sub.i.i168, 40
   br label %if.end

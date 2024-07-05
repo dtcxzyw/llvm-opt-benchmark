@@ -579,14 +579,14 @@ define noundef range(i32 -255, 256) i32 @_Z19gmx_strncasecmp_minPKcS0_i(ptr noun
   br label %7
 
 7:                                                ; preds = %22, %3
-  %.020 = phi ptr [ %0, %3 ], [ %8, %22 ]
-  %.019 = phi ptr [ %1, %3 ], [ %12, %22 ]
+  %.020 = phi ptr [ %1, %3 ], [ %12, %22 ]
+  %.019 = phi ptr [ %0, %3 ], [ %8, %22 ]
   br label %.backedge31
 
 .backedge31:                                      ; preds = %.backedge31.backedge, %7
-  %.121 = phi ptr [ %.020, %7 ], [ %8, %.backedge31.backedge ]
-  %8 = getelementptr inbounds i8, ptr %.121, i64 1
-  %9 = load i8, ptr %.121, align 1
+  %.1 = phi ptr [ %.019, %7 ], [ %8, %.backedge31.backedge ]
+  %8 = getelementptr inbounds i8, ptr %.1, i64 1
+  %9 = load i8, ptr %.1, align 1
   %10 = sext i8 %9 to i32
   %11 = tail call i32 @toupper(i32 noundef %10) #21
   %sext = shl i32 %11, 24
@@ -599,9 +599,9 @@ define noundef range(i32 -255, 256) i32 @_Z19gmx_strncasecmp_minPKcS0_i(ptr noun
   br label %.backedge31
 
 .preheader:                                       ; preds = %.backedge31, %.preheader.backedge
-  %.1 = phi ptr [ %12, %.preheader.backedge ], [ %.019, %.backedge31 ]
-  %12 = getelementptr inbounds i8, ptr %.1, i64 1
-  %13 = load i8, ptr %.1, align 1
+  %.121 = phi ptr [ %12, %.preheader.backedge ], [ %.020, %.backedge31 ]
+  %12 = getelementptr inbounds i8, ptr %.121, i64 1
+  %13 = load i8, ptr %.121, align 1
   %14 = sext i8 %13 to i32
   %15 = tail call i32 @toupper(i32 noundef %14) #21
   %sext26 = shl i32 %15, 24

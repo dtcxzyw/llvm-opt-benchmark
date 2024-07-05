@@ -153,7 +153,7 @@ define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr nocaptu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %46 ]
-  %.06274 = phi i1 [ false, %.lr.ph.preheader ], [ %.1, %46 ]
+  %.06175 = phi i1 [ false, %.lr.ph.preheader ], [ %.1, %46 ]
   %7 = getelementptr i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr i32, ptr %2, i64 %indvars.iv
@@ -253,7 +253,7 @@ typeIsOfTypedTable.exit:                          ; preds = %31
   br i1 %45, label %46, label %typeIsOfTypedTable.exit.thread
 
 46:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %is_complex_array.exit.thread, %typeIsOfTypedTable.exit, %is_complex_array.exit, %23, %20, %16, %14, %.lr.ph
-  %.1 = phi i1 [ %.06274, %.lr.ph ], [ %.06274, %14 ], [ %.06274, %16 ], [ %.06274, %20 ], [ %.06274, %23 ], [ %.06274, %is_complex_array.exit ], [ %.06274, %is_complex_array.exit.thread ], [ %.06274, %typeIsOfTypedTable.exit ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ]
+  %.1 = phi i1 [ %.06175, %.lr.ph ], [ %.06175, %14 ], [ %.06175, %16 ], [ %.06175, %20 ], [ %.06175, %23 ], [ %.06175, %is_complex_array.exit ], [ %.06175, %is_complex_array.exit.thread ], [ %.06175, %typeIsOfTypedTable.exit ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -1116,15 +1116,15 @@ define internal fastcc noundef ptr @coerce_record_to_complex(ptr noundef %0, ptr
   unreachable
 
 33:                                               ; preds = %17, %10
-  %.088 = phi ptr [ %12, %10 ], [ %25, %17 ]
+  %.082 = phi ptr [ %12, %10 ], [ %25, %17 ]
   %34 = call i32 @getBaseTypeAndTypmod(i32 noundef %2, ptr noundef nonnull %8) #5
   %35 = load i32, ptr %8, align 4
   %36 = call ptr @lookup_rowtype_tupdesc(i32 noundef %34, i32 noundef %35) #5
-  %.not.i = icmp eq ptr %.088, null
+  %.not.i = icmp eq ptr %.082, null
   br i1 %.not.i, label %list_head.exit, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %.088, i64 16
+  %38 = getelementptr inbounds i8, ptr %.082, i64 16
   %39 = load ptr, ptr %38, align 8
   br label %list_head.exit
 
@@ -1136,15 +1136,15 @@ list_head.exit:                                   ; preds = %33, %37
 
 .lr.ph:                                           ; preds = %list_head.exit
   %43 = getelementptr inbounds i8, ptr %36, i64 24
-  %44 = getelementptr i8, ptr %.088, i64 4
-  %45 = getelementptr i8, ptr %.088, i64 16
+  %44 = getelementptr i8, ptr %.082, i64 4
+  %45 = getelementptr i8, ptr %.082, i64 16
   br label %46
 
 46:                                               ; preds = %.lr.ph, %92
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
-  %.082108 = phi ptr [ %40, %.lr.ph ], [ %.1, %92 ]
-  %.083107 = phi i32 [ 1, %.lr.ph ], [ %.184, %92 ]
-  %.086105 = phi ptr [ null, %.lr.ph ], [ %.187, %92 ]
+  %.083108 = phi ptr [ null, %.lr.ph ], [ %.1, %92 ]
+  %.085106 = phi i32 [ 1, %.lr.ph ], [ %.186, %92 ]
+  %.087105 = phi ptr [ %40, %.lr.ph ], [ %.188, %92 ]
   %47 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %43, i64 0, i64 %indvars.iv
   %48 = getelementptr inbounds i8, ptr %47, i64 95
   %49 = load i8, ptr %48, align 1
@@ -1153,11 +1153,11 @@ list_head.exit:                                   ; preds = %33, %37
 
 51:                                               ; preds = %46
   %52 = call ptr @makeNullConst(i32 noundef 23, i32 noundef -1, i32 noundef 0) #5
-  %53 = call ptr @lappend(ptr noundef %.086105, ptr noundef %52) #5
+  %53 = call ptr @lappend(ptr noundef %.083108, ptr noundef %52) #5
   br label %92
 
 54:                                               ; preds = %46
-  %55 = icmp eq ptr %.082108, null
+  %55 = icmp eq ptr %.087105, null
   br i1 %55, label %56, label %64
 
 56:                                               ; preds = %54
@@ -1173,7 +1173,7 @@ list_head.exit:                                   ; preds = %33, %37
   unreachable
 
 64:                                               ; preds = %54
-  %65 = load ptr, ptr %.082108, align 8
+  %65 = load ptr, ptr %.087105, align 8
   %66 = call i32 @exprType(ptr noundef %65) #5
   %67 = getelementptr inbounds i8, ptr %47, i64 68
   %68 = load i32, ptr %67, align 4
@@ -1194,27 +1194,27 @@ list_head.exit:                                   ; preds = %33, %37
   %80 = call ptr @format_type_be(i32 noundef %66) #5
   %81 = load i32, ptr %74, align 4
   %82 = call ptr @format_type_be(i32 noundef %81) #5
-  %83 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.48, ptr noundef %80, ptr noundef %82, i32 noundef %.083107) #5
+  %83 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.48, ptr noundef %80, ptr noundef %82, i32 noundef %.085106) #5
   %84 = call i32 @parser_coercion_errposition(ptr noundef %0, i32 noundef %5, ptr noundef %65)
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1113, ptr noundef nonnull @__func__.coerce_record_to_complex) #5
   unreachable
 
 85:                                               ; preds = %64
-  %86 = call ptr @lappend(ptr noundef %.086105, ptr noundef nonnull %71) #5
-  %87 = add i32 %.083107, 1
-  %.088.val = load i32, ptr %44, align 4
-  %.088.val95 = load ptr, ptr %45, align 8
-  %88 = getelementptr i8, ptr %.082108, i64 8
-  %89 = sext i32 %.088.val to i64
-  %90 = getelementptr %union.ListCell, ptr %.088.val95, i64 %89
+  %86 = call ptr @lappend(ptr noundef %.083108, ptr noundef nonnull %71) #5
+  %87 = add i32 %.085106, 1
+  %.082.val = load i32, ptr %44, align 4
+  %.082.val95 = load ptr, ptr %45, align 8
+  %88 = getelementptr i8, ptr %.087105, i64 8
+  %89 = sext i32 %.082.val to i64
+  %90 = getelementptr %union.ListCell, ptr %.082.val95, i64 %89
   %91 = icmp ult ptr %88, %90
   %..i = select i1 %91, ptr %88, ptr null
   br label %92
 
 92:                                               ; preds = %85, %51
-  %.187 = phi ptr [ %53, %51 ], [ %86, %85 ]
-  %.184 = phi i32 [ %.083107, %51 ], [ %87, %85 ]
-  %.1 = phi ptr [ %.082108, %51 ], [ %..i, %85 ]
+  %.188 = phi ptr [ %.087105, %51 ], [ %..i, %85 ]
+  %.186 = phi i32 [ %.085106, %51 ], [ %87, %85 ]
+  %.1 = phi ptr [ %53, %51 ], [ %86, %85 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %93 = load i32, ptr %36, align 8
   %94 = sext i32 %93 to i64
@@ -1222,9 +1222,9 @@ list_head.exit:                                   ; preds = %33, %37
   br i1 %95, label %46, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %92, %list_head.exit
-  %.086.lcssa = phi ptr [ null, %list_head.exit ], [ %.187, %92 ]
-  %.082.lcssa = phi ptr [ %40, %list_head.exit ], [ %.1, %92 ]
-  %.not = icmp eq ptr %.082.lcssa, null
+  %.087.lcssa = phi ptr [ %40, %list_head.exit ], [ %.188, %92 ]
+  %.083.lcssa = phi ptr [ null, %list_head.exit ], [ %.1, %92 ]
+  %.not = icmp eq ptr %.087.lcssa, null
   br i1 %.not, label %104, label %96
 
 96:                                               ; preds = %._crit_edge
@@ -1253,7 +1253,7 @@ list_head.exit:                                   ; preds = %33, %37
   %110 = call noundef ptr @palloc0(i64 noundef 40) #5
   store i32 34, ptr %110, align 4
   %111 = getelementptr inbounds i8, ptr %110, i64 8
-  store ptr %.086.lcssa, ptr %111, align 8
+  store ptr %.083.lcssa, ptr %111, align 8
   %112 = getelementptr inbounds i8, ptr %110, i64 16
   store i32 %34, ptr %112, align 8
   %113 = getelementptr inbounds i8, ptr %110, i64 20
@@ -1386,18 +1386,18 @@ define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocaptur
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
-  %.0127236 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %53 ]
-  %.0128235 = phi i1 [ false, %.lr.ph.preheader ], [ %.2130, %53 ]
-  %.0131234 = phi i1 [ false, %.lr.ph.preheader ], [ %.2133, %53 ]
-  %.0134233 = phi i1 [ false, %.lr.ph.preheader ], [ %.2136, %53 ]
-  %.0137232 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1138, %53 ]
-  %.0139231 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1140, %53 ]
-  %.0141230 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1142, %53 ]
-  %.0144229 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1145, %53 ]
-  %.0146228 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1147, %53 ]
-  %.0148227 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1149, %53 ]
-  %.0151226 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1152, %53 ]
-  %.0153225 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1154, %53 ]
+  %.0127237 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %53 ]
+  %.0128236 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1129, %53 ]
+  %.0130235 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1131, %53 ]
+  %.0133234 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1134, %53 ]
+  %.0136232 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1137, %53 ]
+  %.0139231 = phi i1 [ false, %.lr.ph.preheader ], [ %.2141, %53 ]
+  %.0142230 = phi i1 [ false, %.lr.ph.preheader ], [ %.2144, %53 ]
+  %.0145229 = phi i1 [ false, %.lr.ph.preheader ], [ %.2147, %53 ]
+  %.0148228 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1149, %53 ]
+  %.0150227 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1151, %53 ]
+  %.0152226 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1153, %53 ]
+  %.0155225 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1156, %53 ]
   %7 = getelementptr i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr i32, ptr %0, i64 %indvars.iv
@@ -1422,14 +1422,14 @@ define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocaptur
   br label %12
 
 12:                                               ; preds = %.lr.ph, %.fold.split, %11
-  %.1135 = phi i1 [ %.0134233, %11 ], [ true, %.lr.ph ], [ %.0134233, %.fold.split ]
-  %.1132 = phi i1 [ true, %11 ], [ %.0131234, %.lr.ph ], [ %.0131234, %.fold.split ]
+  %.1146 = phi i1 [ %.0145229, %11 ], [ true, %.lr.ph ], [ %.0145229, %.fold.split ]
+  %.1143 = phi i1 [ true, %11 ], [ %.0142230, %.lr.ph ], [ %.0142230, %.fold.split ]
   %13 = icmp eq i32 %10, 705
   br i1 %13, label %53, label %14
 
 14:                                               ; preds = %12
-  %.not203 = icmp eq i32 %.0153225, 0
-  %.not204 = icmp eq i32 %10, %.0153225
+  %.not203 = icmp eq i32 %.0127237, 0
+  %.not204 = icmp eq i32 %10, %.0127237
   %or.cond = select i1 %.not203, i1 true, i1 %.not204
   br i1 %or.cond, label %53, label %.loopexit
 
@@ -1439,8 +1439,8 @@ define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocaptur
 
 17:                                               ; preds = %15
   %18 = tail call i32 @getBaseType(i32 noundef %10) #5
-  %.not201 = icmp eq i32 %.0151226, 0
-  %.not202 = icmp eq i32 %18, %.0151226
+  %.not201 = icmp eq i32 %.0128236, 0
+  %.not202 = icmp eq i32 %18, %.0128236
   %or.cond205 = select i1 %.not201, i1 true, i1 %.not202
   br i1 %or.cond205, label %53, label %.loopexit
 
@@ -1450,8 +1450,8 @@ define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocaptur
 
 21:                                               ; preds = %19
   %22 = tail call i32 @getBaseType(i32 noundef %10) #5
-  %.not199 = icmp eq i32 %.0148227, 0
-  %.not200 = icmp eq i32 %22, %.0148227
+  %.not199 = icmp eq i32 %.0130235, 0
+  %.not200 = icmp eq i32 %22, %.0130235
   %or.cond206 = select i1 %.not199, i1 true, i1 %.not200
   br i1 %or.cond206, label %53, label %.loopexit
 
@@ -1461,8 +1461,8 @@ define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocaptur
 
 25:                                               ; preds = %23
   %26 = tail call i32 @getBaseType(i32 noundef %10) #5
-  %.not197 = icmp eq i32 %.0146228, 0
-  %.not198 = icmp eq i32 %26, %.0146228
+  %.not197 = icmp eq i32 %.0133234, 0
+  %.not198 = icmp eq i32 %26, %.0133234
   %or.cond207 = select i1 %.not197, i1 true, i1 %.not198
   br i1 %or.cond207, label %53, label %.loopexit
 
@@ -1470,7 +1470,7 @@ define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocaptur
   br label %28
 
 28:                                               ; preds = %.lr.ph, %27
-  %.1129 = phi i1 [ true, %27 ], [ %.0128235, %.lr.ph ]
+  %.1140 = phi i1 [ true, %27 ], [ %.0139231, %.lr.ph ]
   %29 = icmp eq i32 %10, 705
   br i1 %29, label %53, label %.sink.split
 
@@ -1490,11 +1490,11 @@ define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocaptur
 
 37:                                               ; preds = %35
   %38 = tail call i32 @getBaseType(i32 noundef %10) #5
-  %.not193 = icmp eq i32 %.0144229, 0
+  %.not193 = icmp eq i32 %.0155225, 0
   br i1 %.not193, label %40, label %39
 
 39:                                               ; preds = %37
-  %.not195 = icmp eq i32 %.0144229, %38
+  %.not195 = icmp eq i32 %.0155225, %38
   br i1 %.not195, label %53, label %.loopexit
 
 40:                                               ; preds = %37
@@ -1510,11 +1510,11 @@ define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocaptur
 
 45:                                               ; preds = %42
   %46 = tail call i32 @getBaseType(i32 noundef %10) #5
-  %.not190 = icmp eq i32 %.0139231, 0
+  %.not190 = icmp eq i32 %.0150227, 0
   br i1 %.not190, label %48, label %47
 
 47:                                               ; preds = %45
-  %.not192 = icmp eq i32 %.0139231, %46
+  %.not192 = icmp eq i32 %.0150227, %46
   br i1 %.not192, label %53, label %.loopexit
 
 48:                                               ; preds = %45
@@ -1524,63 +1524,63 @@ define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocaptur
 
 .sink.split:                                      ; preds = %40, %32, %28
   %.sink = phi i32 [ %10, %28 ], [ %34, %32 ], [ %41, %40 ]
-  %.1145.ph = phi i32 [ %.0144229, %28 ], [ %.0144229, %32 ], [ %38, %40 ]
-  %.1142.ph = phi i32 [ %.0141230, %28 ], [ %.0141230, %32 ], [ %41, %40 ]
-  %.2130.ph = phi i1 [ %.1129, %28 ], [ %.0128235, %32 ], [ %.0128235, %40 ]
-  %50 = add i32 %.0127236, 1
-  %51 = sext i32 %.0127236 to i64
+  %.1156.ph = phi i32 [ %.0155225, %28 ], [ %.0155225, %32 ], [ %38, %40 ]
+  %.1153.ph = phi i32 [ %.0152226, %28 ], [ %.0152226, %32 ], [ %41, %40 ]
+  %.2141.ph = phi i1 [ %.1140, %28 ], [ %.0139231, %32 ], [ %.0139231, %40 ]
+  %50 = add i32 %.0136232, 1
+  %51 = sext i32 %.0136232 to i64
   %52 = getelementptr [100 x i32], ptr %5, i64 0, i64 %51
   store i32 %.sink, ptr %52, align 4
   br label %53
 
 53:                                               ; preds = %.sink.split, %25, %21, %17, %14, %39, %47, %48, %42, %35, %30, %28, %23, %19, %15, %12
-  %.1154 = phi i32 [ %.0153225, %12 ], [ %.0153225, %15 ], [ %.0153225, %19 ], [ %.0153225, %23 ], [ %.0153225, %28 ], [ %.0153225, %30 ], [ %.0153225, %35 ], [ %.0153225, %39 ], [ %.0153225, %42 ], [ %.0153225, %47 ], [ %.0153225, %48 ], [ %10, %14 ], [ %.0153225, %17 ], [ %.0153225, %21 ], [ %.0153225, %25 ], [ %.0153225, %.sink.split ]
-  %.1152 = phi i32 [ %.0151226, %12 ], [ %.0151226, %15 ], [ %.0151226, %19 ], [ %.0151226, %23 ], [ %.0151226, %28 ], [ %.0151226, %30 ], [ %.0151226, %35 ], [ %.0151226, %39 ], [ %.0151226, %42 ], [ %.0151226, %47 ], [ %.0151226, %48 ], [ %.0151226, %14 ], [ %18, %17 ], [ %.0151226, %21 ], [ %.0151226, %25 ], [ %.0151226, %.sink.split ]
-  %.1149 = phi i32 [ %.0148227, %12 ], [ %.0148227, %15 ], [ %.0148227, %19 ], [ %.0148227, %23 ], [ %.0148227, %28 ], [ %.0148227, %30 ], [ %.0148227, %35 ], [ %.0148227, %39 ], [ %.0148227, %42 ], [ %.0148227, %47 ], [ %.0148227, %48 ], [ %.0148227, %14 ], [ %.0148227, %17 ], [ %22, %21 ], [ %.0148227, %25 ], [ %.0148227, %.sink.split ]
-  %.1147 = phi i32 [ %.0146228, %12 ], [ %.0146228, %15 ], [ %.0146228, %19 ], [ %.0146228, %23 ], [ %.0146228, %28 ], [ %.0146228, %30 ], [ %.0146228, %35 ], [ %.0146228, %39 ], [ %.0146228, %42 ], [ %.0146228, %47 ], [ %.0146228, %48 ], [ %.0146228, %14 ], [ %.0146228, %17 ], [ %.0146228, %21 ], [ %26, %25 ], [ %.0146228, %.sink.split ]
-  %.1145 = phi i32 [ %.0144229, %12 ], [ %.0144229, %15 ], [ %.0144229, %19 ], [ %.0144229, %23 ], [ %.0144229, %28 ], [ %.0144229, %30 ], [ %.0144229, %35 ], [ %.0144229, %39 ], [ %.0144229, %42 ], [ %.0144229, %47 ], [ %.0144229, %48 ], [ %.0144229, %14 ], [ %.0144229, %17 ], [ %.0144229, %21 ], [ %.0144229, %25 ], [ %.1145.ph, %.sink.split ]
-  %.1142 = phi i32 [ %.0141230, %12 ], [ %.0141230, %15 ], [ %.0141230, %19 ], [ %.0141230, %23 ], [ %.0141230, %28 ], [ %.0141230, %30 ], [ %.0141230, %35 ], [ %.0141230, %39 ], [ %.0141230, %42 ], [ %.0141230, %47 ], [ %.0141230, %48 ], [ %.0141230, %14 ], [ %.0141230, %17 ], [ %.0141230, %21 ], [ %.0141230, %25 ], [ %.1142.ph, %.sink.split ]
-  %.1140 = phi i32 [ %.0139231, %12 ], [ %.0139231, %15 ], [ %.0139231, %19 ], [ %.0139231, %23 ], [ %.0139231, %28 ], [ %.0139231, %30 ], [ %.0139231, %35 ], [ %.0139231, %39 ], [ %.0139231, %42 ], [ %.0139231, %47 ], [ %46, %48 ], [ %.0139231, %14 ], [ %.0139231, %17 ], [ %.0139231, %21 ], [ %.0139231, %25 ], [ %.0139231, %.sink.split ]
-  %.1138 = phi i32 [ %.0137232, %12 ], [ %.0137232, %15 ], [ %.0137232, %19 ], [ %.0137232, %23 ], [ %.0137232, %28 ], [ %.0137232, %30 ], [ %.0137232, %35 ], [ %.0137232, %39 ], [ %.0137232, %42 ], [ %.0137232, %47 ], [ %49, %48 ], [ %.0137232, %14 ], [ %.0137232, %17 ], [ %.0137232, %21 ], [ %.0137232, %25 ], [ %.0137232, %.sink.split ]
-  %.2136 = phi i1 [ %.1135, %12 ], [ %.0134233, %15 ], [ %.0134233, %19 ], [ %.0134233, %23 ], [ %.0134233, %28 ], [ %.0134233, %30 ], [ %.0134233, %35 ], [ %.0134233, %39 ], [ %.0134233, %42 ], [ %.0134233, %47 ], [ %.0134233, %48 ], [ %.1135, %14 ], [ %.0134233, %17 ], [ %.0134233, %21 ], [ %.0134233, %25 ], [ %.0134233, %.sink.split ]
-  %.2133 = phi i1 [ %.1132, %12 ], [ %.0131234, %15 ], [ %.0131234, %19 ], [ %.0131234, %23 ], [ %.0131234, %28 ], [ %.0131234, %30 ], [ %.0131234, %35 ], [ %.0131234, %39 ], [ %.0131234, %42 ], [ %.0131234, %47 ], [ %.0131234, %48 ], [ %.1132, %14 ], [ %.0131234, %17 ], [ %.0131234, %21 ], [ %.0131234, %25 ], [ %.0131234, %.sink.split ]
-  %.2130 = phi i1 [ %.0128235, %12 ], [ %.0128235, %15 ], [ %.0128235, %19 ], [ %.0128235, %23 ], [ %.1129, %28 ], [ %.0128235, %30 ], [ %.0128235, %35 ], [ %.0128235, %39 ], [ %.0128235, %42 ], [ %.0128235, %47 ], [ %.0128235, %48 ], [ %.0128235, %14 ], [ %.0128235, %17 ], [ %.0128235, %21 ], [ %.0128235, %25 ], [ %.2130.ph, %.sink.split ]
-  %.1 = phi i32 [ %.0127236, %12 ], [ %.0127236, %15 ], [ %.0127236, %19 ], [ %.0127236, %23 ], [ %.0127236, %28 ], [ %.0127236, %30 ], [ %.0127236, %35 ], [ %.0127236, %39 ], [ %.0127236, %42 ], [ %.0127236, %47 ], [ %.0127236, %48 ], [ %.0127236, %14 ], [ %.0127236, %17 ], [ %.0127236, %21 ], [ %.0127236, %25 ], [ %50, %.sink.split ]
+  %.1156 = phi i32 [ %.0155225, %12 ], [ %.0155225, %15 ], [ %.0155225, %19 ], [ %.0155225, %23 ], [ %.0155225, %28 ], [ %.0155225, %30 ], [ %.0155225, %35 ], [ %.0155225, %39 ], [ %.0155225, %42 ], [ %.0155225, %47 ], [ %.0155225, %48 ], [ %.0155225, %14 ], [ %.0155225, %17 ], [ %.0155225, %21 ], [ %.0155225, %25 ], [ %.1156.ph, %.sink.split ]
+  %.1153 = phi i32 [ %.0152226, %12 ], [ %.0152226, %15 ], [ %.0152226, %19 ], [ %.0152226, %23 ], [ %.0152226, %28 ], [ %.0152226, %30 ], [ %.0152226, %35 ], [ %.0152226, %39 ], [ %.0152226, %42 ], [ %.0152226, %47 ], [ %.0152226, %48 ], [ %.0152226, %14 ], [ %.0152226, %17 ], [ %.0152226, %21 ], [ %.0152226, %25 ], [ %.1153.ph, %.sink.split ]
+  %.1151 = phi i32 [ %.0150227, %12 ], [ %.0150227, %15 ], [ %.0150227, %19 ], [ %.0150227, %23 ], [ %.0150227, %28 ], [ %.0150227, %30 ], [ %.0150227, %35 ], [ %.0150227, %39 ], [ %.0150227, %42 ], [ %.0150227, %47 ], [ %46, %48 ], [ %.0150227, %14 ], [ %.0150227, %17 ], [ %.0150227, %21 ], [ %.0150227, %25 ], [ %.0150227, %.sink.split ]
+  %.1149 = phi i32 [ %.0148228, %12 ], [ %.0148228, %15 ], [ %.0148228, %19 ], [ %.0148228, %23 ], [ %.0148228, %28 ], [ %.0148228, %30 ], [ %.0148228, %35 ], [ %.0148228, %39 ], [ %.0148228, %42 ], [ %.0148228, %47 ], [ %49, %48 ], [ %.0148228, %14 ], [ %.0148228, %17 ], [ %.0148228, %21 ], [ %.0148228, %25 ], [ %.0148228, %.sink.split ]
+  %.2147 = phi i1 [ %.1146, %12 ], [ %.0145229, %15 ], [ %.0145229, %19 ], [ %.0145229, %23 ], [ %.0145229, %28 ], [ %.0145229, %30 ], [ %.0145229, %35 ], [ %.0145229, %39 ], [ %.0145229, %42 ], [ %.0145229, %47 ], [ %.0145229, %48 ], [ %.1146, %14 ], [ %.0145229, %17 ], [ %.0145229, %21 ], [ %.0145229, %25 ], [ %.0145229, %.sink.split ]
+  %.2144 = phi i1 [ %.1143, %12 ], [ %.0142230, %15 ], [ %.0142230, %19 ], [ %.0142230, %23 ], [ %.0142230, %28 ], [ %.0142230, %30 ], [ %.0142230, %35 ], [ %.0142230, %39 ], [ %.0142230, %42 ], [ %.0142230, %47 ], [ %.0142230, %48 ], [ %.1143, %14 ], [ %.0142230, %17 ], [ %.0142230, %21 ], [ %.0142230, %25 ], [ %.0142230, %.sink.split ]
+  %.2141 = phi i1 [ %.0139231, %12 ], [ %.0139231, %15 ], [ %.0139231, %19 ], [ %.0139231, %23 ], [ %.1140, %28 ], [ %.0139231, %30 ], [ %.0139231, %35 ], [ %.0139231, %39 ], [ %.0139231, %42 ], [ %.0139231, %47 ], [ %.0139231, %48 ], [ %.0139231, %14 ], [ %.0139231, %17 ], [ %.0139231, %21 ], [ %.0139231, %25 ], [ %.2141.ph, %.sink.split ]
+  %.1137 = phi i32 [ %.0136232, %12 ], [ %.0136232, %15 ], [ %.0136232, %19 ], [ %.0136232, %23 ], [ %.0136232, %28 ], [ %.0136232, %30 ], [ %.0136232, %35 ], [ %.0136232, %39 ], [ %.0136232, %42 ], [ %.0136232, %47 ], [ %.0136232, %48 ], [ %.0136232, %14 ], [ %.0136232, %17 ], [ %.0136232, %21 ], [ %.0136232, %25 ], [ %50, %.sink.split ]
+  %.1134 = phi i32 [ %.0133234, %12 ], [ %.0133234, %15 ], [ %.0133234, %19 ], [ %.0133234, %23 ], [ %.0133234, %28 ], [ %.0133234, %30 ], [ %.0133234, %35 ], [ %.0133234, %39 ], [ %.0133234, %42 ], [ %.0133234, %47 ], [ %.0133234, %48 ], [ %.0133234, %14 ], [ %.0133234, %17 ], [ %.0133234, %21 ], [ %26, %25 ], [ %.0133234, %.sink.split ]
+  %.1131 = phi i32 [ %.0130235, %12 ], [ %.0130235, %15 ], [ %.0130235, %19 ], [ %.0130235, %23 ], [ %.0130235, %28 ], [ %.0130235, %30 ], [ %.0130235, %35 ], [ %.0130235, %39 ], [ %.0130235, %42 ], [ %.0130235, %47 ], [ %.0130235, %48 ], [ %.0130235, %14 ], [ %.0130235, %17 ], [ %22, %21 ], [ %.0130235, %25 ], [ %.0130235, %.sink.split ]
+  %.1129 = phi i32 [ %.0128236, %12 ], [ %.0128236, %15 ], [ %.0128236, %19 ], [ %.0128236, %23 ], [ %.0128236, %28 ], [ %.0128236, %30 ], [ %.0128236, %35 ], [ %.0128236, %39 ], [ %.0128236, %42 ], [ %.0128236, %47 ], [ %.0128236, %48 ], [ %.0128236, %14 ], [ %18, %17 ], [ %.0128236, %21 ], [ %.0128236, %25 ], [ %.0128236, %.sink.split ]
+  %.1 = phi i32 [ %.0127237, %12 ], [ %.0127237, %15 ], [ %.0127237, %19 ], [ %.0127237, %23 ], [ %.0127237, %28 ], [ %.0127237, %30 ], [ %.0127237, %35 ], [ %.0127237, %39 ], [ %.0127237, %42 ], [ %.0127237, %47 ], [ %.0127237, %48 ], [ %10, %14 ], [ %.0127237, %17 ], [ %.0127237, %21 ], [ %.0127237, %25 ], [ %.0127237, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %53
-  switch i32 %.1152, label %54 [
+  switch i32 %.1129, label %54 [
     i32 2277, label %58
     i32 0, label %58
   ]
 
 54:                                               ; preds = %._crit_edge
-  %55 = tail call i32 @get_element_type(i32 noundef %.1152) #5
+  %55 = tail call i32 @get_element_type(i32 noundef %.1129) #5
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %.loopexit, label %56
 
 56:                                               ; preds = %54
-  %.not170 = icmp eq i32 %.1154, 0
+  %.not170 = icmp eq i32 %.1, 0
   br i1 %.not170, label %58, label %57
 
 57:                                               ; preds = %56
-  %.not171 = icmp eq i32 %55, %.1154
+  %.not171 = icmp eq i32 %55, %.1
   br i1 %.not171, label %58, label %.loopexit
 
 58:                                               ; preds = %56, %._crit_edge, %._crit_edge, %57
-  %.2155 = phi i32 [ %.1154, %._crit_edge ], [ %.1154, %57 ], [ %.1154, %._crit_edge ], [ %55, %56 ]
-  %.not172 = icmp eq i32 %.1147, 0
+  %.2 = phi i32 [ %.1, %._crit_edge ], [ %.1, %57 ], [ %.1, %._crit_edge ], [ %55, %56 ]
+  %.not172 = icmp eq i32 %.1134, 0
   br i1 %.not172, label %65, label %59
 
 59:                                               ; preds = %58
-  %60 = tail call i32 @get_multirange_range(i32 noundef %.1147) #5
+  %60 = tail call i32 @get_multirange_range(i32 noundef %.1134) #5
   %.not173 = icmp eq i32 %60, 0
   br i1 %.not173, label %.loopexit, label %61
 
 61:                                               ; preds = %59
-  %.not174 = icmp eq i32 %.1149, 0
+  %.not174 = icmp eq i32 %.1131, 0
   br i1 %.not174, label %62, label %64
 
 62:                                               ; preds = %61
@@ -1589,30 +1589,30 @@ define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocaptur
   br i1 %.not175, label %.loopexit, label %.thread
 
 64:                                               ; preds = %61
-  %.not176 = icmp eq i32 %60, %.1149
+  %.not176 = icmp eq i32 %60, %.1131
   br i1 %.not176, label %.thread, label %.loopexit
 
 65:                                               ; preds = %58
-  %.not177 = icmp eq i32 %.1149, 0
+  %.not177 = icmp eq i32 %.1131, 0
   br i1 %.not177, label %69, label %.thread
 
 .thread:                                          ; preds = %62, %64, %65
-  %.2150211 = phi i32 [ %.1149, %65 ], [ %60, %62 ], [ %.1149, %64 ]
-  %66 = tail call i32 @get_range_subtype(i32 noundef %.2150211) #5
+  %.2132211 = phi i32 [ %.1131, %65 ], [ %60, %62 ], [ %.1131, %64 ]
+  %66 = tail call i32 @get_range_subtype(i32 noundef %.2132211) #5
   %.not178 = icmp eq i32 %66, 0
   br i1 %.not178, label %.loopexit, label %67
 
 67:                                               ; preds = %.thread
-  %.not179 = icmp eq i32 %.2155, 0
+  %.not179 = icmp eq i32 %.2, 0
   br i1 %.not179, label %69, label %68
 
 68:                                               ; preds = %67
-  %.not180 = icmp eq i32 %66, %.2155
+  %.not180 = icmp eq i32 %66, %.2
   br i1 %.not180, label %69, label %.loopexit
 
 69:                                               ; preds = %67, %68, %65
-  %.3 = phi i32 [ %.2155, %68 ], [ %.2155, %65 ], [ %66, %67 ]
-  br i1 %.2136, label %70, label %72
+  %.3 = phi i32 [ %.2, %68 ], [ %.2, %65 ], [ %66, %67 ]
+  br i1 %.2147, label %70, label %72
 
 70:                                               ; preds = %69
   %71 = tail call i32 @get_base_element_type(i32 noundef %.3) #5
@@ -1620,51 +1620,51 @@ define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocaptur
   br i1 %.not181, label %72, label %.loopexit
 
 72:                                               ; preds = %70, %69
-  br i1 %.2133, label %73, label %75
+  br i1 %.2144, label %73, label %75
 
 73:                                               ; preds = %72
   %74 = tail call zeroext i1 @type_is_enum(i32 noundef %.3) #5
   br i1 %74, label %75, label %.loopexit
 
 75:                                               ; preds = %73, %72
-  %.not182 = icmp eq i32 %.1140, 0
+  %.not182 = icmp eq i32 %.1151, 0
   br i1 %.not182, label %84, label %76
 
 76:                                               ; preds = %75
-  %.not183 = icmp eq i32 %.1145, 0
+  %.not183 = icmp eq i32 %.1156, 0
   br i1 %.not183, label %78, label %77
 
 77:                                               ; preds = %76
-  %.not185 = icmp eq i32 %.1138, %.1145
+  %.not185 = icmp eq i32 %.1149, %.1156
   br i1 %.not185, label %84, label %.loopexit
 
 78:                                               ; preds = %76
-  %79 = tail call i32 @get_range_subtype(i32 noundef %.1138) #5
+  %79 = tail call i32 @get_range_subtype(i32 noundef %.1149) #5
   %.not184 = icmp eq i32 %79, 0
   br i1 %.not184, label %.loopexit, label %80
 
 80:                                               ; preds = %78
-  %81 = add i32 %.1, 1
-  %82 = sext i32 %.1 to i64
+  %81 = add i32 %.1137, 1
+  %82 = sext i32 %.1137 to i64
   %83 = getelementptr [100 x i32], ptr %5, i64 0, i64 %82
   store i32 %79, ptr %83, align 4
   br label %84
 
 84:                                               ; preds = %80, %77, %75
-  %.2143 = phi i32 [ %.1142, %77 ], [ %79, %80 ], [ %.1142, %75 ]
-  %.2 = phi i32 [ %.1, %77 ], [ %81, %80 ], [ %.1, %75 ]
-  %85 = icmp sgt i32 %.2, 0
+  %.2154 = phi i32 [ %.1153, %77 ], [ %79, %80 ], [ %.1153, %75 ]
+  %.2138 = phi i32 [ %.1137, %77 ], [ %81, %80 ], [ %.1137, %75 ]
+  %85 = icmp sgt i32 %.2138, 0
   br i1 %85, label %86, label %.thread377
 
 86:                                               ; preds = %84
-  %87 = call fastcc i32 @select_common_type_from_oids(i32 noundef %.2, ptr noundef nonnull %5, i1 noundef zeroext true)
+  %87 = call fastcc i32 @select_common_type_from_oids(i32 noundef %.2138, ptr noundef nonnull %5, i1 noundef zeroext true)
   %.not186 = icmp eq i32 %87, 0
   br i1 %.not186, label %.loopexit, label %.lr.ph252.preheader
 
 .lr.ph252.preheader:                              ; preds = %86
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %87, ptr %4, align 4
-  %wide.trip.count257 = zext nneg i32 %.2 to i64
+  %wide.trip.count257 = zext nneg i32 %.2138 to i64
   br label %.lr.ph252
 
 88:                                               ; preds = %.lr.ph252
@@ -1684,7 +1684,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph252
 
 ._crit_edge253:                                   ; preds = %88
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br i1 %.2130, label %91, label %93
+  br i1 %.2141, label %91, label %93
 
 91:                                               ; preds = %._crit_edge253
   %92 = tail call i32 @get_base_element_type(i32 noundef %87) #5
@@ -1692,8 +1692,8 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph252
   br i1 %.not187, label %93, label %.loopexit
 
 93:                                               ; preds = %91, %._crit_edge253
-  %.not188 = icmp eq i32 %.2143, 0
-  %.not189 = icmp eq i32 %.2143, %87
+  %.not188 = icmp eq i32 %.2154, 0
+  %.not189 = icmp eq i32 %.2154, %87
   %or.cond208 = or i1 %.not188, %.not189
   br i1 %or.cond208, label %.thread377, label %.loopexit
 
@@ -1701,8 +1701,8 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph252
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %47, %40, %39, %32, %25, %21, %17, %14, %verify_common_type_from_oids.exit, %93, %91, %86, %78, %77, %73, %70, %68, %.thread, %64, %62, %59, %57, %54, %.thread377
-  %.0156 = phi i1 [ true, %.thread377 ], [ false, %54 ], [ false, %57 ], [ false, %59 ], [ false, %62 ], [ false, %64 ], [ false, %.thread ], [ false, %68 ], [ false, %70 ], [ false, %73 ], [ false, %77 ], [ false, %78 ], [ false, %86 ], [ false, %verify_common_type_from_oids.exit ], [ false, %91 ], [ false, %93 ], [ false, %14 ], [ false, %17 ], [ false, %21 ], [ false, %25 ], [ false, %32 ], [ false, %39 ], [ false, %40 ], [ false, %47 ], [ false, %48 ]
-  ret i1 %.0156
+  %.0 = phi i1 [ true, %.thread377 ], [ false, %54 ], [ false, %57 ], [ false, %59 ], [ false, %62 ], [ false, %64 ], [ false, %.thread ], [ false, %68 ], [ false, %70 ], [ false, %73 ], [ false, %77 ], [ false, %78 ], [ false, %86 ], [ false, %verify_common_type_from_oids.exit ], [ false, %91 ], [ false, %93 ], [ false, %14 ], [ false, %17 ], [ false, %21 ], [ false, %25 ], [ false, %32 ], [ false, %39 ], [ false, %40 ], [ false, %47 ], [ false, %48 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1972,7 +1972,7 @@ for_each_cell_setup.exit60:                       ; preds = %.loopexit
 
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %78
   %indvars.iv89 = phi i64 [ %41, %.lr.ph78.preheader ], [ %indvars.iv.next90, %78 ]
-  %.03576 = phi ptr [ %11, %.lr.ph78.preheader ], [ %.1, %78 ]
+  %.03577 = phi ptr [ %11, %.lr.ph78.preheader ], [ %.1, %78 ]
   %42 = phi i32 [ %34, %.lr.ph78.preheader ], [ %79, %78 ]
   %43 = load ptr, ptr %10, align 8
   %44 = getelementptr %union.ListCell, ptr %43, i64 %indvars.iv89
@@ -2045,7 +2045,7 @@ for_each_cell_setup.exit60:                       ; preds = %.loopexit
 
 78:                                               ; preds = %.lr.ph78, %74, %72, %70, %67, %50
   %79 = phi i32 [ %47, %50 ], [ %42, %67 ], [ %42, %72 ], [ %47, %74 ], [ %42, %70 ], [ %42, %.lr.ph78 ]
-  %.1 = phi ptr [ %45, %50 ], [ %.03576, %67 ], [ %.03576, %72 ], [ %45, %74 ], [ %.03576, %70 ], [ %.03576, %.lr.ph78 ]
+  %.1 = phi ptr [ %45, %50 ], [ %.03577, %67 ], [ %.03577, %72 ], [ %45, %74 ], [ %.03577, %70 ], [ %.03577, %.lr.ph78 ]
   %indvars.iv.next90 = add nsw i64 %indvars.iv89, 1
   %80 = load i32, ptr %12, align 4
   %81 = sext i32 %80 to i64
@@ -2159,8 +2159,8 @@ define dso_local i32 @select_common_typmod(ptr nocapture noundef readnone %0, pt
 
 .lr.ph38:                                         ; preds = %.lr.ph.split, %15
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.lr.ph.split ]
-  %.0132337 = phi i1 [ false, %15 ], [ true, %.lr.ph.split ]
-  %.02436 = phi i32 [ %.1, %15 ], [ -1, %.lr.ph.split ]
+  %.0152337 = phi i1 [ false, %15 ], [ true, %.lr.ph.split ]
+  %.0142436 = phi i32 [ %.1, %15 ], [ -1, %.lr.ph.split ]
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
@@ -2170,14 +2170,14 @@ define dso_local i32 @select_common_typmod(ptr nocapture noundef readnone %0, pt
 
 12:                                               ; preds = %.lr.ph38
   %13 = tail call i32 @exprTypmod(ptr noundef %10) #5
-  br i1 %.0132337, label %15, label %14
+  br i1 %.0152337, label %15, label %14
 
 14:                                               ; preds = %12
-  %.not20 = icmp eq i32 %.02436, %13
+  %.not20 = icmp eq i32 %.0142436, %13
   br i1 %.not20, label %15, label %.thread
 
 15:                                               ; preds = %12, %14
-  %.1 = phi i32 [ %.02436, %14 ], [ %13, %12 ]
+  %.1 = phi i32 [ %.0142436, %14 ], [ %13, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %4, align 4
   %17 = sext i32 %16 to i64
@@ -2185,8 +2185,8 @@ define dso_local i32 @select_common_typmod(ptr nocapture noundef readnone %0, pt
   br i1 %18, label %.lr.ph38, label %.thread
 
 .thread:                                          ; preds = %.lr.ph38, %14, %15, %.lr.ph.split, %3
-  %.016 = phi i32 [ -1, %3 ], [ -1, %.lr.ph.split ], [ %.1, %15 ], [ -1, %14 ], [ -1, %.lr.ph38 ]
-  ret i32 %.016
+  %.0 = phi i32 [ -1, %3 ], [ -1, %.lr.ph.split ], [ %.1, %15 ], [ -1, %14 ], [ -1, %.lr.ph38 ]
+  ret i32 %.0
 }
 
 declare i32 @exprTypmod(ptr noundef) local_unnamed_addr #1
@@ -2368,25 +2368,25 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %137
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %137 ]
-  %.0343745 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %137 ]
+  %.0339746 = phi i8 [ 0, %.lr.ph.preheader ], [ %.1, %137 ]
+  %.0341745 = phi i1 [ false, %.lr.ph.preheader ], [ %.1342, %137 ]
   %.0344744 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1345, %137 ]
-  %.0346743 = phi i8 [ %13, %.lr.ph.preheader ], [ %.1347, %137 ]
-  %.0348742 = phi i8 [ %14, %.lr.ph.preheader ], [ %.1349, %137 ]
-  %.0351741 = phi i1 [ %9, %.lr.ph.preheader ], [ %.1352, %137 ]
-  %.0353740 = phi i1 [ %15, %.lr.ph.preheader ], [ %.2355, %137 ]
-  %.0356739 = phi i1 [ %8, %.lr.ph.preheader ], [ %.1357, %137 ]
-  %.0358738 = phi i1 [ %16, %.lr.ph.preheader ], [ %.2360, %137 ]
-  %.0361737 = phi i1 [ %17, %.lr.ph.preheader ], [ %.2363, %137 ]
-  %.0364736 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1365, %137 ]
-  %.0366735 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1367, %137 ]
-  %.0369734 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1370, %137 ]
-  %.0372733 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1373, %137 ]
-  %.0382732 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1383, %137 ]
-  %.0387731 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1388, %137 ]
-  %.0392730 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1393, %137 ]
-  %.0397729 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1398, %137 ]
-  %.0403728 = phi i1 [ false, %.lr.ph.preheader ], [ %.1404, %137 ]
-  %.0405727 = phi i8 [ 0, %.lr.ph.preheader ], [ %.1406, %137 ]
+  %.0346743 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1347, %137 ]
+  %.0353742 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1354, %137 ]
+  %.0358741 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1359, %137 ]
+  %.0364739 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1365, %137 ]
+  %.0367738 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1368, %137 ]
+  %.0369737 = phi i8 [ %13, %.lr.ph.preheader ], [ %.1370, %137 ]
+  %.0371736 = phi i8 [ %14, %.lr.ph.preheader ], [ %.1372, %137 ]
+  %.0374735 = phi i1 [ %9, %.lr.ph.preheader ], [ %.1375, %137 ]
+  %.0376734 = phi i1 [ %15, %.lr.ph.preheader ], [ %.2378, %137 ]
+  %.0379733 = phi i1 [ %8, %.lr.ph.preheader ], [ %.1380, %137 ]
+  %.0381732 = phi i1 [ %16, %.lr.ph.preheader ], [ %.2383, %137 ]
+  %.0384731 = phi i1 [ %17, %.lr.ph.preheader ], [ %.2386, %137 ]
+  %.0387730 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1388, %137 ]
+  %.0389729 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1390, %137 ]
+  %.0394728 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1395, %137 ]
+  %.0397727 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1398, %137 ]
   %18 = getelementptr i32, ptr %1, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr i32, ptr %0, i64 %indvars.iv
@@ -2406,7 +2406,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   ]
 
 22:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %23 = add i32 %.0344744, 1
+  %23 = add i32 %.0367738, 1
   switch i32 %19, label %.fold.split [
     i32 2776, label %25
     i32 3500, label %24
@@ -2419,8 +2419,8 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   br label %25
 
 25:                                               ; preds = %22, %.fold.split, %24
-  %.1362 = phi i1 [ %.0361737, %24 ], [ true, %22 ], [ %.0361737, %.fold.split ]
-  %.1359 = phi i1 [ true, %24 ], [ %.0358738, %22 ], [ %.0358738, %.fold.split ]
+  %.1385 = phi i1 [ %.0384731, %24 ], [ true, %22 ], [ %.0384731, %.fold.split ]
+  %.1382 = phi i1 [ true, %24 ], [ %.0381732, %22 ], [ %.0381732, %.fold.split ]
   %26 = icmp eq i32 %21, 705
   br i1 %26, label %137, label %27
 
@@ -2430,8 +2430,8 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   br i1 %or.cond, label %137, label %29
 
 29:                                               ; preds = %27
-  %.not490 = icmp eq i32 %.0397729, 0
-  %.not491 = icmp eq i32 %21, %.0397729
+  %.not490 = icmp eq i32 %.0344744, 0
+  %.not491 = icmp eq i32 %21, %.0344744
   %or.cond492 = select i1 %.not490, i1 true, i1 %.not491
   br i1 %or.cond492, label %137, label %30
 
@@ -2440,14 +2440,14 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   tail call void @llvm.assume(i1 %31)
   %32 = tail call i32 @errcode(i32 noundef 67141764) #5
   %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #5
-  %34 = tail call ptr @format_type_be(i32 noundef %.0397729) #5
+  %34 = tail call ptr @format_type_be(i32 noundef %.0344744) #5
   %35 = tail call ptr @format_type_be(i32 noundef %21) #5
   %36 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %34, ptr noundef %35) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2157, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 37:                                               ; preds = %.lr.ph
-  %38 = add i32 %.0344744, 1
+  %38 = add i32 %.0367738, 1
   %39 = icmp eq i32 %21, 705
   br i1 %39, label %137, label %40
 
@@ -2458,8 +2458,8 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
 
 42:                                               ; preds = %40
   %43 = tail call i32 @getBaseType(i32 noundef %21) #5
-  %.not488 = icmp eq i32 %.0392730, 0
-  %.not489 = icmp eq i32 %43, %.0392730
+  %.not488 = icmp eq i32 %.0346743, 0
+  %.not489 = icmp eq i32 %43, %.0346743
   %or.cond494 = select i1 %.not488, i1 true, i1 %.not489
   br i1 %or.cond494, label %137, label %44
 
@@ -2468,14 +2468,14 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   tail call void @llvm.assume(i1 %45)
   %46 = tail call i32 @errcode(i32 noundef 67141764) #5
   %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10) #5
-  %48 = tail call ptr @format_type_be(i32 noundef %.0392730) #5
+  %48 = tail call ptr @format_type_be(i32 noundef %.0346743) #5
   %49 = tail call ptr @format_type_be(i32 noundef %43) #5
   %50 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %48, ptr noundef %49) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2177, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 51:                                               ; preds = %.lr.ph
-  %52 = add i32 %.0344744, 1
+  %52 = add i32 %.0367738, 1
   %53 = icmp eq i32 %21, 705
   br i1 %53, label %137, label %54
 
@@ -2486,8 +2486,8 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
 
 56:                                               ; preds = %54
   %57 = tail call i32 @getBaseType(i32 noundef %21) #5
-  %.not486 = icmp eq i32 %.0387731, 0
-  %.not487 = icmp eq i32 %57, %.0387731
+  %.not486 = icmp eq i32 %.0353742, 0
+  %.not487 = icmp eq i32 %57, %.0353742
   %or.cond496 = select i1 %.not486, i1 true, i1 %.not487
   br i1 %or.cond496, label %137, label %58
 
@@ -2496,14 +2496,14 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   tail call void @llvm.assume(i1 %59)
   %60 = tail call i32 @errcode(i32 noundef 67141764) #5
   %61 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11) #5
-  %62 = tail call ptr @format_type_be(i32 noundef %.0387731) #5
+  %62 = tail call ptr @format_type_be(i32 noundef %.0353742) #5
   %63 = tail call ptr @format_type_be(i32 noundef %57) #5
   %64 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %62, ptr noundef %63) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2197, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 65:                                               ; preds = %.lr.ph
-  %66 = add i32 %.0344744, 1
+  %66 = add i32 %.0367738, 1
   %67 = icmp eq i32 %21, 705
   br i1 %67, label %137, label %68
 
@@ -2514,8 +2514,8 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
 
 70:                                               ; preds = %68
   %71 = tail call i32 @getBaseType(i32 noundef %21) #5
-  %.not484 = icmp eq i32 %.0382732, 0
-  %.not485 = icmp eq i32 %71, %.0382732
+  %.not484 = icmp eq i32 %.0358741, 0
+  %.not485 = icmp eq i32 %71, %.0358741
   %or.cond498 = select i1 %.not484, i1 true, i1 %.not485
   br i1 %or.cond498, label %137, label %72
 
@@ -2524,7 +2524,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   tail call void @llvm.assume(i1 %73)
   %74 = tail call i32 @errcode(i32 noundef 67141764) #5
   %75 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.12) #5
-  %76 = tail call ptr @format_type_be(i32 noundef %.0382732) #5
+  %76 = tail call ptr @format_type_be(i32 noundef %.0358741) #5
   %77 = tail call ptr @format_type_be(i32 noundef %71) #5
   %78 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %76, ptr noundef %77) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2218, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
@@ -2534,7 +2534,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   br label %80
 
 80:                                               ; preds = %.lr.ph, %79
-  %.1354 = phi i1 [ true, %79 ], [ %.0353740, %.lr.ph ]
+  %.1377 = phi i1 [ true, %79 ], [ %.0376734, %.lr.ph ]
   %81 = icmp eq i32 %21, 705
   %82 = icmp eq i32 %19, %21
   %or.cond499 = select i1 %4, i1 %82, i1 false
@@ -2572,11 +2572,11 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
 
 97:                                               ; preds = %94
   %98 = tail call i32 @getBaseType(i32 noundef %21) #5
-  %.not480 = icmp eq i32 %.0372733, 0
+  %.not480 = icmp eq i32 %.0397727, 0
   br i1 %.not480, label %107, label %99
 
 99:                                               ; preds = %97
-  %.not482 = icmp eq i32 %.0372733, %98
+  %.not482 = icmp eq i32 %.0397727, %98
   br i1 %.not482, label %137, label %100
 
 100:                                              ; preds = %99
@@ -2584,7 +2584,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   tail call void @llvm.assume(i1 %101)
   %102 = tail call i32 @errcode(i32 noundef 67141764) #5
   %103 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.15) #5
-  %104 = tail call ptr @format_type_be(i32 noundef %.0372733) #5
+  %104 = tail call ptr @format_type_be(i32 noundef %.0397727) #5
   %105 = tail call ptr @format_type_be(i32 noundef %98) #5
   %106 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %104, ptr noundef %105) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2273, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
@@ -2613,11 +2613,11 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
 
 117:                                              ; preds = %114
   %118 = tail call i32 @getBaseType(i32 noundef %21) #5
-  %.not477 = icmp eq i32 %.0366735, 0
+  %.not477 = icmp eq i32 %.0389729, 0
   br i1 %.not477, label %127, label %119
 
 119:                                              ; preds = %117
-  %.not479 = icmp eq i32 %.0366735, %118
+  %.not479 = icmp eq i32 %.0389729, %118
   br i1 %.not479, label %137, label %120
 
 120:                                              ; preds = %119
@@ -2625,7 +2625,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   tail call void @llvm.assume(i1 %121)
   %122 = tail call i32 @errcode(i32 noundef 67141764) #5
   %123 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.17) #5
-  %124 = tail call ptr @format_type_be(i32 noundef %.0366735) #5
+  %124 = tail call ptr @format_type_be(i32 noundef %.0389729) #5
   %125 = tail call ptr @format_type_be(i32 noundef %118) #5
   %126 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %124, ptr noundef %125) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2307, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
@@ -2647,57 +2647,57 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
 
 .sink.split:                                      ; preds = %107, %86, %80
   %.sink = phi i32 [ %21, %80 ], [ %88, %86 ], [ %108, %107 ]
-  %.1373.ph = phi i32 [ %.0372733, %80 ], [ %.0372733, %86 ], [ %98, %107 ]
-  %.1370.ph = phi i32 [ %.0369734, %80 ], [ %.0369734, %86 ], [ %108, %107 ]
-  %.2355.ph = phi i1 [ %.1354, %80 ], [ %.0353740, %86 ], [ %.0353740, %107 ]
-  %.1352.ph = phi i1 [ %.0351741, %80 ], [ true, %86 ], [ %.0351741, %107 ]
-  %.1349.ph = phi i8 [ %.0348742, %80 ], [ %.0348742, %86 ], [ 1, %107 ]
-  %134 = add i32 %.0343745, 1
-  %135 = sext i32 %.0343745 to i64
+  %.1398.ph = phi i32 [ %.0397727, %80 ], [ %.0397727, %86 ], [ %98, %107 ]
+  %.1395.ph = phi i32 [ %.0394728, %80 ], [ %.0394728, %86 ], [ %108, %107 ]
+  %.2378.ph = phi i1 [ %.1377, %80 ], [ %.0376734, %86 ], [ %.0376734, %107 ]
+  %.1375.ph = phi i1 [ %.0374735, %80 ], [ true, %86 ], [ %.0374735, %107 ]
+  %.1372.ph = phi i8 [ %.0371736, %80 ], [ %.0371736, %86 ], [ 1, %107 ]
+  %134 = add i32 %.0364739, 1
+  %135 = sext i32 %.0364739 to i64
   %136 = getelementptr [100 x i32], ptr %7, i64 0, i64 %135
   store i32 %.sink, ptr %136, align 4
   br label %137
 
 137:                                              ; preds = %.sink.split, %.lr.ph, %70, %68, %65, %56, %54, %51, %42, %40, %37, %29, %27, %25, %99, %119, %127, %114, %94, %83, %80
-  %.1406 = phi i8 [ 1, %80 ], [ 1, %83 ], [ 1, %94 ], [ 1, %99 ], [ 1, %114 ], [ 1, %119 ], [ 1, %127 ], [ %.0405727, %25 ], [ %.0405727, %27 ], [ %.0405727, %29 ], [ %.0405727, %37 ], [ %.0405727, %40 ], [ %.0405727, %42 ], [ %.0405727, %51 ], [ %.0405727, %54 ], [ %.0405727, %56 ], [ %.0405727, %65 ], [ %.0405727, %68 ], [ %.0405727, %70 ], [ %.0405727, %.lr.ph ], [ 1, %.sink.split ]
-  %.1404 = phi i1 [ %.0403728, %80 ], [ %.0403728, %83 ], [ %.0403728, %94 ], [ %.0403728, %99 ], [ %.0403728, %114 ], [ %.0403728, %119 ], [ %.0403728, %127 ], [ true, %25 ], [ %.0403728, %27 ], [ %.0403728, %29 ], [ true, %37 ], [ %.0403728, %40 ], [ %.0403728, %42 ], [ true, %51 ], [ %.0403728, %54 ], [ %.0403728, %56 ], [ true, %65 ], [ %.0403728, %68 ], [ %.0403728, %70 ], [ %.0403728, %.lr.ph ], [ %.0403728, %.sink.split ]
-  %.1398 = phi i32 [ %.0397729, %80 ], [ %.0397729, %83 ], [ %.0397729, %94 ], [ %.0397729, %99 ], [ %.0397729, %114 ], [ %.0397729, %119 ], [ %.0397729, %127 ], [ %.0397729, %25 ], [ %.0397729, %27 ], [ %21, %29 ], [ %.0397729, %37 ], [ %.0397729, %40 ], [ %.0397729, %42 ], [ %.0397729, %51 ], [ %.0397729, %54 ], [ %.0397729, %56 ], [ %.0397729, %65 ], [ %.0397729, %68 ], [ %.0397729, %70 ], [ %.0397729, %.lr.ph ], [ %.0397729, %.sink.split ]
-  %.1393 = phi i32 [ %.0392730, %80 ], [ %.0392730, %83 ], [ %.0392730, %94 ], [ %.0392730, %99 ], [ %.0392730, %114 ], [ %.0392730, %119 ], [ %.0392730, %127 ], [ %.0392730, %25 ], [ %.0392730, %27 ], [ %.0392730, %29 ], [ %.0392730, %37 ], [ %.0392730, %40 ], [ %43, %42 ], [ %.0392730, %51 ], [ %.0392730, %54 ], [ %.0392730, %56 ], [ %.0392730, %65 ], [ %.0392730, %68 ], [ %.0392730, %70 ], [ %.0392730, %.lr.ph ], [ %.0392730, %.sink.split ]
-  %.1388 = phi i32 [ %.0387731, %80 ], [ %.0387731, %83 ], [ %.0387731, %94 ], [ %.0387731, %99 ], [ %.0387731, %114 ], [ %.0387731, %119 ], [ %.0387731, %127 ], [ %.0387731, %25 ], [ %.0387731, %27 ], [ %.0387731, %29 ], [ %.0387731, %37 ], [ %.0387731, %40 ], [ %.0387731, %42 ], [ %.0387731, %51 ], [ %.0387731, %54 ], [ %57, %56 ], [ %.0387731, %65 ], [ %.0387731, %68 ], [ %.0387731, %70 ], [ %.0387731, %.lr.ph ], [ %.0387731, %.sink.split ]
-  %.1383 = phi i32 [ %.0382732, %80 ], [ %.0382732, %83 ], [ %.0382732, %94 ], [ %.0382732, %99 ], [ %.0382732, %114 ], [ %.0382732, %119 ], [ %.0382732, %127 ], [ %.0382732, %25 ], [ %.0382732, %27 ], [ %.0382732, %29 ], [ %.0382732, %37 ], [ %.0382732, %40 ], [ %.0382732, %42 ], [ %.0382732, %51 ], [ %.0382732, %54 ], [ %.0382732, %56 ], [ %.0382732, %65 ], [ %.0382732, %68 ], [ %71, %70 ], [ %.0382732, %.lr.ph ], [ %.0382732, %.sink.split ]
-  %.1373 = phi i32 [ %.0372733, %80 ], [ %.0372733, %83 ], [ %.0372733, %94 ], [ %.0372733, %99 ], [ %.0372733, %114 ], [ %.0372733, %119 ], [ %.0372733, %127 ], [ %.0372733, %25 ], [ %.0372733, %27 ], [ %.0372733, %29 ], [ %.0372733, %37 ], [ %.0372733, %40 ], [ %.0372733, %42 ], [ %.0372733, %51 ], [ %.0372733, %54 ], [ %.0372733, %56 ], [ %.0372733, %65 ], [ %.0372733, %68 ], [ %.0372733, %70 ], [ %.0372733, %.lr.ph ], [ %.1373.ph, %.sink.split ]
-  %.1370 = phi i32 [ %.0369734, %80 ], [ %.0369734, %83 ], [ %.0369734, %94 ], [ %.0369734, %99 ], [ %.0369734, %114 ], [ %.0369734, %119 ], [ %.0369734, %127 ], [ %.0369734, %25 ], [ %.0369734, %27 ], [ %.0369734, %29 ], [ %.0369734, %37 ], [ %.0369734, %40 ], [ %.0369734, %42 ], [ %.0369734, %51 ], [ %.0369734, %54 ], [ %.0369734, %56 ], [ %.0369734, %65 ], [ %.0369734, %68 ], [ %.0369734, %70 ], [ %.0369734, %.lr.ph ], [ %.1370.ph, %.sink.split ]
-  %.1367 = phi i32 [ %.0366735, %80 ], [ %.0366735, %83 ], [ %.0366735, %94 ], [ %.0366735, %99 ], [ %.0366735, %114 ], [ %.0366735, %119 ], [ %118, %127 ], [ %.0366735, %25 ], [ %.0366735, %27 ], [ %.0366735, %29 ], [ %.0366735, %37 ], [ %.0366735, %40 ], [ %.0366735, %42 ], [ %.0366735, %51 ], [ %.0366735, %54 ], [ %.0366735, %56 ], [ %.0366735, %65 ], [ %.0366735, %68 ], [ %.0366735, %70 ], [ %.0366735, %.lr.ph ], [ %.0366735, %.sink.split ]
-  %.1365 = phi i32 [ %.0364736, %80 ], [ %.0364736, %83 ], [ %.0364736, %94 ], [ %.0364736, %99 ], [ %.0364736, %114 ], [ %.0364736, %119 ], [ %128, %127 ], [ %.0364736, %25 ], [ %.0364736, %27 ], [ %.0364736, %29 ], [ %.0364736, %37 ], [ %.0364736, %40 ], [ %.0364736, %42 ], [ %.0364736, %51 ], [ %.0364736, %54 ], [ %.0364736, %56 ], [ %.0364736, %65 ], [ %.0364736, %68 ], [ %.0364736, %70 ], [ %.0364736, %.lr.ph ], [ %.0364736, %.sink.split ]
-  %.2363 = phi i1 [ %.0361737, %80 ], [ %.0361737, %83 ], [ %.0361737, %94 ], [ %.0361737, %99 ], [ %.0361737, %114 ], [ %.0361737, %119 ], [ %.0361737, %127 ], [ %.1362, %25 ], [ %.1362, %27 ], [ %.1362, %29 ], [ %.0361737, %37 ], [ %.0361737, %40 ], [ %.0361737, %42 ], [ %.0361737, %51 ], [ %.0361737, %54 ], [ %.0361737, %56 ], [ %.0361737, %65 ], [ %.0361737, %68 ], [ %.0361737, %70 ], [ %.0361737, %.lr.ph ], [ %.0361737, %.sink.split ]
-  %.2360 = phi i1 [ %.0358738, %80 ], [ %.0358738, %83 ], [ %.0358738, %94 ], [ %.0358738, %99 ], [ %.0358738, %114 ], [ %.0358738, %119 ], [ %.0358738, %127 ], [ %.1359, %25 ], [ %.1359, %27 ], [ %.1359, %29 ], [ %.0358738, %37 ], [ %.0358738, %40 ], [ %.0358738, %42 ], [ %.0358738, %51 ], [ %.0358738, %54 ], [ %.0358738, %56 ], [ %.0358738, %65 ], [ %.0358738, %68 ], [ %.0358738, %70 ], [ %.0358738, %.lr.ph ], [ %.0358738, %.sink.split ]
-  %.1357 = phi i1 [ %.0356739, %80 ], [ %.0356739, %83 ], [ %.0356739, %94 ], [ %.0356739, %99 ], [ %.0356739, %114 ], [ %.0356739, %119 ], [ %.0356739, %127 ], [ %.0356739, %25 ], [ %.0356739, %27 ], [ %.0356739, %29 ], [ %.0356739, %37 ], [ %.0356739, %40 ], [ %.0356739, %42 ], [ %.0356739, %51 ], [ %.0356739, %54 ], [ %.0356739, %56 ], [ true, %65 ], [ true, %68 ], [ true, %70 ], [ %.0356739, %.lr.ph ], [ %.0356739, %.sink.split ]
-  %.2355 = phi i1 [ %.1354, %80 ], [ %.0353740, %83 ], [ %.0353740, %94 ], [ %.0353740, %99 ], [ %.0353740, %114 ], [ %.0353740, %119 ], [ %.0353740, %127 ], [ %.0353740, %25 ], [ %.0353740, %27 ], [ %.0353740, %29 ], [ %.0353740, %37 ], [ %.0353740, %40 ], [ %.0353740, %42 ], [ %.0353740, %51 ], [ %.0353740, %54 ], [ %.0353740, %56 ], [ %.0353740, %65 ], [ %.0353740, %68 ], [ %.0353740, %70 ], [ %.0353740, %.lr.ph ], [ %.2355.ph, %.sink.split ]
-  %.1352 = phi i1 [ %.0351741, %80 ], [ true, %83 ], [ %.0351741, %94 ], [ %.0351741, %99 ], [ %.0351741, %114 ], [ %.0351741, %119 ], [ %.0351741, %127 ], [ %.0351741, %25 ], [ %.0351741, %27 ], [ %.0351741, %29 ], [ %.0351741, %37 ], [ %.0351741, %40 ], [ %.0351741, %42 ], [ %.0351741, %51 ], [ %.0351741, %54 ], [ %.0351741, %56 ], [ %.0351741, %65 ], [ %.0351741, %68 ], [ %.0351741, %70 ], [ %.0351741, %.lr.ph ], [ %.1352.ph, %.sink.split ]
-  %.1349 = phi i8 [ %.0348742, %80 ], [ %.0348742, %83 ], [ 1, %94 ], [ 1, %99 ], [ %.0348742, %114 ], [ %.0348742, %119 ], [ %.0348742, %127 ], [ %.0348742, %25 ], [ %.0348742, %27 ], [ %.0348742, %29 ], [ %.0348742, %37 ], [ %.0348742, %40 ], [ %.0348742, %42 ], [ %.0348742, %51 ], [ %.0348742, %54 ], [ %.0348742, %56 ], [ %.0348742, %65 ], [ %.0348742, %68 ], [ %.0348742, %70 ], [ %.0348742, %.lr.ph ], [ %.1349.ph, %.sink.split ]
-  %.1347 = phi i8 [ %.0346743, %80 ], [ %.0346743, %83 ], [ %.0346743, %94 ], [ %.0346743, %99 ], [ 1, %114 ], [ 1, %119 ], [ 1, %127 ], [ %.0346743, %25 ], [ %.0346743, %27 ], [ %.0346743, %29 ], [ %.0346743, %37 ], [ %.0346743, %40 ], [ %.0346743, %42 ], [ %.0346743, %51 ], [ %.0346743, %54 ], [ %.0346743, %56 ], [ %.0346743, %65 ], [ %.0346743, %68 ], [ %.0346743, %70 ], [ %.0346743, %.lr.ph ], [ %.0346743, %.sink.split ]
-  %.1345 = phi i32 [ %.0344744, %80 ], [ %.0344744, %83 ], [ %.0344744, %94 ], [ %.0344744, %99 ], [ %.0344744, %114 ], [ %.0344744, %119 ], [ %.0344744, %127 ], [ %23, %25 ], [ %23, %27 ], [ %23, %29 ], [ %38, %37 ], [ %38, %40 ], [ %38, %42 ], [ %52, %51 ], [ %52, %54 ], [ %52, %56 ], [ %66, %65 ], [ %66, %68 ], [ %66, %70 ], [ %.0344744, %.lr.ph ], [ %.0344744, %.sink.split ]
-  %.1 = phi i32 [ %.0343745, %80 ], [ %.0343745, %83 ], [ %.0343745, %94 ], [ %.0343745, %99 ], [ %.0343745, %114 ], [ %.0343745, %119 ], [ %.0343745, %127 ], [ %.0343745, %25 ], [ %.0343745, %27 ], [ %.0343745, %29 ], [ %.0343745, %37 ], [ %.0343745, %40 ], [ %.0343745, %42 ], [ %.0343745, %51 ], [ %.0343745, %54 ], [ %.0343745, %56 ], [ %.0343745, %65 ], [ %.0343745, %68 ], [ %.0343745, %70 ], [ %.0343745, %.lr.ph ], [ %134, %.sink.split ]
+  %.1398 = phi i32 [ %.0397727, %80 ], [ %.0397727, %83 ], [ %.0397727, %94 ], [ %.0397727, %99 ], [ %.0397727, %114 ], [ %.0397727, %119 ], [ %.0397727, %127 ], [ %.0397727, %25 ], [ %.0397727, %27 ], [ %.0397727, %29 ], [ %.0397727, %37 ], [ %.0397727, %40 ], [ %.0397727, %42 ], [ %.0397727, %51 ], [ %.0397727, %54 ], [ %.0397727, %56 ], [ %.0397727, %65 ], [ %.0397727, %68 ], [ %.0397727, %70 ], [ %.0397727, %.lr.ph ], [ %.1398.ph, %.sink.split ]
+  %.1395 = phi i32 [ %.0394728, %80 ], [ %.0394728, %83 ], [ %.0394728, %94 ], [ %.0394728, %99 ], [ %.0394728, %114 ], [ %.0394728, %119 ], [ %.0394728, %127 ], [ %.0394728, %25 ], [ %.0394728, %27 ], [ %.0394728, %29 ], [ %.0394728, %37 ], [ %.0394728, %40 ], [ %.0394728, %42 ], [ %.0394728, %51 ], [ %.0394728, %54 ], [ %.0394728, %56 ], [ %.0394728, %65 ], [ %.0394728, %68 ], [ %.0394728, %70 ], [ %.0394728, %.lr.ph ], [ %.1395.ph, %.sink.split ]
+  %.1390 = phi i32 [ %.0389729, %80 ], [ %.0389729, %83 ], [ %.0389729, %94 ], [ %.0389729, %99 ], [ %.0389729, %114 ], [ %.0389729, %119 ], [ %118, %127 ], [ %.0389729, %25 ], [ %.0389729, %27 ], [ %.0389729, %29 ], [ %.0389729, %37 ], [ %.0389729, %40 ], [ %.0389729, %42 ], [ %.0389729, %51 ], [ %.0389729, %54 ], [ %.0389729, %56 ], [ %.0389729, %65 ], [ %.0389729, %68 ], [ %.0389729, %70 ], [ %.0389729, %.lr.ph ], [ %.0389729, %.sink.split ]
+  %.1388 = phi i32 [ %.0387730, %80 ], [ %.0387730, %83 ], [ %.0387730, %94 ], [ %.0387730, %99 ], [ %.0387730, %114 ], [ %.0387730, %119 ], [ %128, %127 ], [ %.0387730, %25 ], [ %.0387730, %27 ], [ %.0387730, %29 ], [ %.0387730, %37 ], [ %.0387730, %40 ], [ %.0387730, %42 ], [ %.0387730, %51 ], [ %.0387730, %54 ], [ %.0387730, %56 ], [ %.0387730, %65 ], [ %.0387730, %68 ], [ %.0387730, %70 ], [ %.0387730, %.lr.ph ], [ %.0387730, %.sink.split ]
+  %.2386 = phi i1 [ %.0384731, %80 ], [ %.0384731, %83 ], [ %.0384731, %94 ], [ %.0384731, %99 ], [ %.0384731, %114 ], [ %.0384731, %119 ], [ %.0384731, %127 ], [ %.1385, %25 ], [ %.1385, %27 ], [ %.1385, %29 ], [ %.0384731, %37 ], [ %.0384731, %40 ], [ %.0384731, %42 ], [ %.0384731, %51 ], [ %.0384731, %54 ], [ %.0384731, %56 ], [ %.0384731, %65 ], [ %.0384731, %68 ], [ %.0384731, %70 ], [ %.0384731, %.lr.ph ], [ %.0384731, %.sink.split ]
+  %.2383 = phi i1 [ %.0381732, %80 ], [ %.0381732, %83 ], [ %.0381732, %94 ], [ %.0381732, %99 ], [ %.0381732, %114 ], [ %.0381732, %119 ], [ %.0381732, %127 ], [ %.1382, %25 ], [ %.1382, %27 ], [ %.1382, %29 ], [ %.0381732, %37 ], [ %.0381732, %40 ], [ %.0381732, %42 ], [ %.0381732, %51 ], [ %.0381732, %54 ], [ %.0381732, %56 ], [ %.0381732, %65 ], [ %.0381732, %68 ], [ %.0381732, %70 ], [ %.0381732, %.lr.ph ], [ %.0381732, %.sink.split ]
+  %.1380 = phi i1 [ %.0379733, %80 ], [ %.0379733, %83 ], [ %.0379733, %94 ], [ %.0379733, %99 ], [ %.0379733, %114 ], [ %.0379733, %119 ], [ %.0379733, %127 ], [ %.0379733, %25 ], [ %.0379733, %27 ], [ %.0379733, %29 ], [ %.0379733, %37 ], [ %.0379733, %40 ], [ %.0379733, %42 ], [ %.0379733, %51 ], [ %.0379733, %54 ], [ %.0379733, %56 ], [ true, %65 ], [ true, %68 ], [ true, %70 ], [ %.0379733, %.lr.ph ], [ %.0379733, %.sink.split ]
+  %.2378 = phi i1 [ %.1377, %80 ], [ %.0376734, %83 ], [ %.0376734, %94 ], [ %.0376734, %99 ], [ %.0376734, %114 ], [ %.0376734, %119 ], [ %.0376734, %127 ], [ %.0376734, %25 ], [ %.0376734, %27 ], [ %.0376734, %29 ], [ %.0376734, %37 ], [ %.0376734, %40 ], [ %.0376734, %42 ], [ %.0376734, %51 ], [ %.0376734, %54 ], [ %.0376734, %56 ], [ %.0376734, %65 ], [ %.0376734, %68 ], [ %.0376734, %70 ], [ %.0376734, %.lr.ph ], [ %.2378.ph, %.sink.split ]
+  %.1375 = phi i1 [ %.0374735, %80 ], [ true, %83 ], [ %.0374735, %94 ], [ %.0374735, %99 ], [ %.0374735, %114 ], [ %.0374735, %119 ], [ %.0374735, %127 ], [ %.0374735, %25 ], [ %.0374735, %27 ], [ %.0374735, %29 ], [ %.0374735, %37 ], [ %.0374735, %40 ], [ %.0374735, %42 ], [ %.0374735, %51 ], [ %.0374735, %54 ], [ %.0374735, %56 ], [ %.0374735, %65 ], [ %.0374735, %68 ], [ %.0374735, %70 ], [ %.0374735, %.lr.ph ], [ %.1375.ph, %.sink.split ]
+  %.1372 = phi i8 [ %.0371736, %80 ], [ %.0371736, %83 ], [ 1, %94 ], [ 1, %99 ], [ %.0371736, %114 ], [ %.0371736, %119 ], [ %.0371736, %127 ], [ %.0371736, %25 ], [ %.0371736, %27 ], [ %.0371736, %29 ], [ %.0371736, %37 ], [ %.0371736, %40 ], [ %.0371736, %42 ], [ %.0371736, %51 ], [ %.0371736, %54 ], [ %.0371736, %56 ], [ %.0371736, %65 ], [ %.0371736, %68 ], [ %.0371736, %70 ], [ %.0371736, %.lr.ph ], [ %.1372.ph, %.sink.split ]
+  %.1370 = phi i8 [ %.0369737, %80 ], [ %.0369737, %83 ], [ %.0369737, %94 ], [ %.0369737, %99 ], [ 1, %114 ], [ 1, %119 ], [ 1, %127 ], [ %.0369737, %25 ], [ %.0369737, %27 ], [ %.0369737, %29 ], [ %.0369737, %37 ], [ %.0369737, %40 ], [ %.0369737, %42 ], [ %.0369737, %51 ], [ %.0369737, %54 ], [ %.0369737, %56 ], [ %.0369737, %65 ], [ %.0369737, %68 ], [ %.0369737, %70 ], [ %.0369737, %.lr.ph ], [ %.0369737, %.sink.split ]
+  %.1368 = phi i32 [ %.0367738, %80 ], [ %.0367738, %83 ], [ %.0367738, %94 ], [ %.0367738, %99 ], [ %.0367738, %114 ], [ %.0367738, %119 ], [ %.0367738, %127 ], [ %23, %25 ], [ %23, %27 ], [ %23, %29 ], [ %38, %37 ], [ %38, %40 ], [ %38, %42 ], [ %52, %51 ], [ %52, %54 ], [ %52, %56 ], [ %66, %65 ], [ %66, %68 ], [ %66, %70 ], [ %.0367738, %.lr.ph ], [ %.0367738, %.sink.split ]
+  %.1365 = phi i32 [ %.0364739, %80 ], [ %.0364739, %83 ], [ %.0364739, %94 ], [ %.0364739, %99 ], [ %.0364739, %114 ], [ %.0364739, %119 ], [ %.0364739, %127 ], [ %.0364739, %25 ], [ %.0364739, %27 ], [ %.0364739, %29 ], [ %.0364739, %37 ], [ %.0364739, %40 ], [ %.0364739, %42 ], [ %.0364739, %51 ], [ %.0364739, %54 ], [ %.0364739, %56 ], [ %.0364739, %65 ], [ %.0364739, %68 ], [ %.0364739, %70 ], [ %.0364739, %.lr.ph ], [ %134, %.sink.split ]
+  %.1359 = phi i32 [ %.0358741, %80 ], [ %.0358741, %83 ], [ %.0358741, %94 ], [ %.0358741, %99 ], [ %.0358741, %114 ], [ %.0358741, %119 ], [ %.0358741, %127 ], [ %.0358741, %25 ], [ %.0358741, %27 ], [ %.0358741, %29 ], [ %.0358741, %37 ], [ %.0358741, %40 ], [ %.0358741, %42 ], [ %.0358741, %51 ], [ %.0358741, %54 ], [ %.0358741, %56 ], [ %.0358741, %65 ], [ %.0358741, %68 ], [ %71, %70 ], [ %.0358741, %.lr.ph ], [ %.0358741, %.sink.split ]
+  %.1354 = phi i32 [ %.0353742, %80 ], [ %.0353742, %83 ], [ %.0353742, %94 ], [ %.0353742, %99 ], [ %.0353742, %114 ], [ %.0353742, %119 ], [ %.0353742, %127 ], [ %.0353742, %25 ], [ %.0353742, %27 ], [ %.0353742, %29 ], [ %.0353742, %37 ], [ %.0353742, %40 ], [ %.0353742, %42 ], [ %.0353742, %51 ], [ %.0353742, %54 ], [ %57, %56 ], [ %.0353742, %65 ], [ %.0353742, %68 ], [ %.0353742, %70 ], [ %.0353742, %.lr.ph ], [ %.0353742, %.sink.split ]
+  %.1347 = phi i32 [ %.0346743, %80 ], [ %.0346743, %83 ], [ %.0346743, %94 ], [ %.0346743, %99 ], [ %.0346743, %114 ], [ %.0346743, %119 ], [ %.0346743, %127 ], [ %.0346743, %25 ], [ %.0346743, %27 ], [ %.0346743, %29 ], [ %.0346743, %37 ], [ %.0346743, %40 ], [ %43, %42 ], [ %.0346743, %51 ], [ %.0346743, %54 ], [ %.0346743, %56 ], [ %.0346743, %65 ], [ %.0346743, %68 ], [ %.0346743, %70 ], [ %.0346743, %.lr.ph ], [ %.0346743, %.sink.split ]
+  %.1345 = phi i32 [ %.0344744, %80 ], [ %.0344744, %83 ], [ %.0344744, %94 ], [ %.0344744, %99 ], [ %.0344744, %114 ], [ %.0344744, %119 ], [ %.0344744, %127 ], [ %.0344744, %25 ], [ %.0344744, %27 ], [ %21, %29 ], [ %.0344744, %37 ], [ %.0344744, %40 ], [ %.0344744, %42 ], [ %.0344744, %51 ], [ %.0344744, %54 ], [ %.0344744, %56 ], [ %.0344744, %65 ], [ %.0344744, %68 ], [ %.0344744, %70 ], [ %.0344744, %.lr.ph ], [ %.0344744, %.sink.split ]
+  %.1342 = phi i1 [ %.0341745, %80 ], [ %.0341745, %83 ], [ %.0341745, %94 ], [ %.0341745, %99 ], [ %.0341745, %114 ], [ %.0341745, %119 ], [ %.0341745, %127 ], [ true, %25 ], [ %.0341745, %27 ], [ %.0341745, %29 ], [ true, %37 ], [ %.0341745, %40 ], [ %.0341745, %42 ], [ true, %51 ], [ %.0341745, %54 ], [ %.0341745, %56 ], [ true, %65 ], [ %.0341745, %68 ], [ %.0341745, %70 ], [ %.0341745, %.lr.ph ], [ %.0341745, %.sink.split ]
+  %.1 = phi i8 [ 1, %80 ], [ 1, %83 ], [ 1, %94 ], [ 1, %99 ], [ 1, %114 ], [ 1, %119 ], [ 1, %127 ], [ %.0339746, %25 ], [ %.0339746, %27 ], [ %.0339746, %29 ], [ %.0339746, %37 ], [ %.0339746, %40 ], [ %.0339746, %42 ], [ %.0339746, %51 ], [ %.0339746, %54 ], [ %.0339746, %56 ], [ %.0339746, %65 ], [ %.0339746, %68 ], [ %.0339746, %70 ], [ %.0339746, %.lr.ph ], [ 1, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %137
-  %cond = icmp eq i32 %.1345, 0
+  %cond = icmp eq i32 %.1368, 0
   br i1 %cond, label %138, label %140
 
 138:                                              ; preds = %._crit_edge
-  %139 = trunc nuw i8 %.1406 to i1
+  %139 = trunc nuw i8 %.1 to i1
   br i1 %139, label %.thread530, label %.thread904
 
 140:                                              ; preds = %._crit_edge
-  switch i32 %.1393, label %147 [
+  switch i32 %.1347, label %147 [
     i32 0, label %163
     i32 2277, label %141
   ]
 
 141:                                              ; preds = %140
-  %.not440 = icmp eq i32 %.1345, 1
+  %.not440 = icmp eq i32 %.1368, 1
   br i1 %.not440, label %142, label %143
 
 142:                                              ; preds = %141
@@ -2718,7 +2718,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   unreachable
 
 147:                                              ; preds = %140
-  %148 = tail call i32 @get_element_type(i32 noundef %.1393) #5
+  %148 = tail call i32 @get_element_type(i32 noundef %.1347) #5
   %.not439 = icmp eq i32 %148, 0
   br i1 %.not439, label %149, label %154
 
@@ -2726,18 +2726,18 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   %150 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %150)
   %151 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %152 = tail call ptr @format_type_be(i32 noundef %.1393) #5
+  %152 = tail call ptr @format_type_be(i32 noundef %.1347) #5
   %153 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10, ptr noundef %152) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2363, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 154:                                              ; preds = %142, %147
-  %.0341 = phi i32 [ %148, %147 ], [ 2283, %142 ]
-  %.not442 = icmp eq i32 %.1398, 0
+  %.0352 = phi i32 [ %148, %147 ], [ 2283, %142 ]
+  %.not442 = icmp eq i32 %.1345, 0
   br i1 %.not442, label %163, label %155
 
 155:                                              ; preds = %154
-  %.not443 = icmp eq i32 %.0341, %.1398
+  %.not443 = icmp eq i32 %.0352, %.1345
   br i1 %.not443, label %163, label %156
 
 156:                                              ; preds = %155
@@ -2745,19 +2745,19 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   tail call void @llvm.assume(i1 %157)
   %158 = tail call i32 @errcode(i32 noundef 67141764) #5
   %159 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8) #5
-  %160 = tail call ptr @format_type_be(i32 noundef %.1393) #5
-  %161 = tail call ptr @format_type_be(i32 noundef %.1398) #5
+  %160 = tail call ptr @format_type_be(i32 noundef %.1347) #5
+  %161 = tail call ptr @format_type_be(i32 noundef %.1345) #5
   %162 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %160, ptr noundef %161) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2383, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 163:                                              ; preds = %154, %140, %155
-  %.2399 = phi i32 [ %.1398, %155 ], [ %.1398, %140 ], [ %.0341, %154 ]
-  %.not444 = icmp eq i32 %.1383, 0
+  %.2 = phi i32 [ %.1345, %155 ], [ %.1345, %140 ], [ %.0352, %154 ]
+  %.not444 = icmp eq i32 %.1359, 0
   br i1 %.not444, label %180, label %164
 
 164:                                              ; preds = %163
-  %165 = tail call i32 @get_multirange_range(i32 noundef %.1383) #5
+  %165 = tail call i32 @get_multirange_range(i32 noundef %.1359) #5
   %.not445 = icmp eq i32 %165, 0
   br i1 %.not445, label %166, label %171
 
@@ -2765,17 +2765,17 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   %167 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %167)
   %168 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %169 = tail call ptr @format_type_be(i32 noundef %.1383) #5
+  %169 = tail call ptr @format_type_be(i32 noundef %.1359) #5
   %170 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.12, ptr noundef %169) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2398, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 171:                                              ; preds = %164
-  %.not446 = icmp eq i32 %.1388, 0
+  %.not446 = icmp eq i32 %.1354, 0
   br i1 %.not446, label %.thread, label %172
 
 172:                                              ; preds = %171
-  %.not447 = icmp eq i32 %165, %.1388
+  %.not447 = icmp eq i32 %165, %.1354
   br i1 %.not447, label %.thread, label %173
 
 173:                                              ; preds = %172
@@ -2783,29 +2783,29 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   tail call void @llvm.assume(i1 %174)
   %175 = tail call i32 @errcode(i32 noundef 67141764) #5
   %176 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11) #5
-  %177 = tail call ptr @format_type_be(i32 noundef %.1383) #5
-  %178 = tail call ptr @format_type_be(i32 noundef %.1388) #5
+  %177 = tail call ptr @format_type_be(i32 noundef %.1359) #5
+  %178 = tail call ptr @format_type_be(i32 noundef %.1354) #5
   %179 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %177, ptr noundef %178) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2414, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 180:                                              ; preds = %163
-  %181 = icmp ne i32 %.1388, 0
-  %or.cond17 = select i1 %.1357, i1 %181, i1 false
+  %181 = icmp ne i32 %.1354, 0
+  %or.cond17 = select i1 %.1380, i1 %181, i1 false
   br i1 %or.cond17, label %182, label %184
 
 182:                                              ; preds = %180
-  %183 = tail call i32 @get_range_multirange(i32 noundef %.1388) #5
+  %183 = tail call i32 @get_range_multirange(i32 noundef %.1354) #5
   br label %.thread
 
 184:                                              ; preds = %180
-  %.not448 = icmp eq i32 %.1388, 0
+  %.not448 = icmp eq i32 %.1354, 0
   br i1 %.not448, label %200, label %.thread
 
 .thread:                                          ; preds = %171, %182, %172, %184
-  %.2384512 = phi i32 [ 0, %184 ], [ %.1383, %171 ], [ %183, %182 ], [ %.1383, %172 ]
-  %.2389510 = phi i32 [ %.1388, %184 ], [ %165, %171 ], [ %.1388, %182 ], [ %.1388, %172 ]
-  %185 = tail call i32 @get_range_subtype(i32 noundef %.2389510) #5
+  %.2355512 = phi i32 [ %.1354, %184 ], [ %165, %171 ], [ %.1354, %182 ], [ %.1354, %172 ]
+  %.2360510 = phi i32 [ 0, %184 ], [ %.1359, %171 ], [ %183, %182 ], [ %.1359, %172 ]
+  %185 = tail call i32 @get_range_subtype(i32 noundef %.2355512) #5
   %.not449 = icmp eq i32 %185, 0
   br i1 %.not449, label %186, label %191
 
@@ -2813,17 +2813,17 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   %187 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %187)
   %188 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %189 = tail call ptr @format_type_be(i32 noundef %.2389510) #5
+  %189 = tail call ptr @format_type_be(i32 noundef %.2355512) #5
   %190 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.11, ptr noundef %189) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2434, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 191:                                              ; preds = %.thread
-  %.not450 = icmp eq i32 %.2399, 0
+  %.not450 = icmp eq i32 %.2, 0
   br i1 %.not450, label %.thread515, label %192
 
 192:                                              ; preds = %191
-  %.not451 = icmp eq i32 %185, %.2399
+  %.not451 = icmp eq i32 %185, %.2
   br i1 %.not451, label %.thread515, label %193
 
 193:                                              ; preds = %192
@@ -2831,14 +2831,14 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   tail call void @llvm.assume(i1 %194)
   %195 = tail call i32 @errcode(i32 noundef 67141764) #5
   %196 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.8) #5
-  %197 = tail call ptr @format_type_be(i32 noundef %.2389510) #5
-  %198 = tail call ptr @format_type_be(i32 noundef %.2399) #5
+  %197 = tail call ptr @format_type_be(i32 noundef %.2355512) #5
+  %198 = tail call ptr @format_type_be(i32 noundef %.2) #5
   %199 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %197, ptr noundef %198) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2453, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 200:                                              ; preds = %184
-  %.not452 = icmp eq i32 %.2399, 0
+  %.not452 = icmp eq i32 %.2, 0
   br i1 %.not452, label %201, label %.thread515
 
 201:                                              ; preds = %200
@@ -2853,15 +2853,15 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   unreachable
 
 .thread515:                                       ; preds = %191, %192, %200
-  %.4401 = phi i32 [ %.2399, %200 ], [ %185, %191 ], [ %.2399, %192 ]
-  %.3390 = phi i32 [ 0, %200 ], [ %.2389510, %191 ], [ %.2389510, %192 ]
-  %.3385 = phi i32 [ 0, %200 ], [ %.2384512, %191 ], [ %.2384512, %192 ]
-  %206 = icmp ne i32 %.4401, 2283
-  %or.cond19 = and i1 %.2363, %206
+  %.3361 = phi i32 [ 0, %200 ], [ %.2360510, %192 ], [ %.2360510, %191 ]
+  %.3356 = phi i32 [ 0, %200 ], [ %.2355512, %192 ], [ %.2355512, %191 ]
+  %.4 = phi i32 [ %.2, %200 ], [ %.2, %192 ], [ %185, %191 ]
+  %206 = icmp ne i32 %.4, 2283
+  %or.cond19 = and i1 %.2386, %206
   br i1 %or.cond19, label %207, label %214
 
 207:                                              ; preds = %.thread515
-  %208 = tail call i32 @get_base_element_type(i32 noundef %.4401) #5
+  %208 = tail call i32 @get_base_element_type(i32 noundef %.4) #5
   %.not453 = icmp eq i32 %208, 0
   br i1 %.not453, label %214, label %209
 
@@ -2869,46 +2869,46 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   %210 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %210)
   %211 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %212 = tail call ptr @format_type_be(i32 noundef %.4401) #5
+  %212 = tail call ptr @format_type_be(i32 noundef %.4) #5
   %213 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %212) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2489, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 214:                                              ; preds = %207, %.thread515
-  %or.cond21 = and i1 %.2360, %206
+  %or.cond21 = and i1 %.2383, %206
   br i1 %or.cond21, label %215, label %.thread530
 
 215:                                              ; preds = %214
-  %216 = tail call zeroext i1 @type_is_enum(i32 noundef %.4401) #5
+  %216 = tail call zeroext i1 @type_is_enum(i32 noundef %.4) #5
   br i1 %216, label %.thread530, label %217
 
 217:                                              ; preds = %215
   %218 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %218)
   %219 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %220 = tail call ptr @format_type_be(i32 noundef %.4401) #5
+  %220 = tail call ptr @format_type_be(i32 noundef %.4) #5
   %221 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %220) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2499, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 .thread530:                                       ; preds = %201, %138, %214, %215
-  %.5402 = phi i32 [ %.4401, %215 ], [ %.4401, %214 ], [ %.1398, %138 ], [ 2283, %201 ]
-  %.3395 = phi i32 [ %.1393, %215 ], [ %.1393, %214 ], [ %.1393, %138 ], [ 2277, %201 ]
-  %.4391 = phi i32 [ %.3390, %215 ], [ %.3390, %214 ], [ %.1388, %138 ], [ 3831, %201 ]
-  %.4386 = phi i32 [ %.3385, %215 ], [ %.3385, %214 ], [ %.1383, %138 ], [ 4537, %201 ]
-  %222 = trunc nuw i8 %.1406 to i1
+  %.4362 = phi i32 [ %.3361, %215 ], [ %.3361, %214 ], [ %.1359, %138 ], [ 4537, %201 ]
+  %.4357 = phi i32 [ %.3356, %215 ], [ %.3356, %214 ], [ %.1354, %138 ], [ 3831, %201 ]
+  %.3349 = phi i32 [ %.1347, %215 ], [ %.1347, %214 ], [ %.1347, %138 ], [ 2277, %201 ]
+  %.5 = phi i32 [ %.4, %215 ], [ %.4, %214 ], [ %.1345, %138 ], [ 2283, %201 ]
+  %222 = trunc nuw i8 %.1 to i1
   br i1 %222, label %223, label %.loopexit536
 
 223:                                              ; preds = %.thread530
-  %.not454 = icmp eq i32 %.1367, 0
+  %.not454 = icmp eq i32 %.1390, 0
   br i1 %.not454, label %244, label %224
 
 224:                                              ; preds = %223
-  %.not455 = icmp eq i32 %.1373, 0
+  %.not455 = icmp eq i32 %.1398, 0
   br i1 %.not455, label %233, label %225
 
 225:                                              ; preds = %224
-  %.not457 = icmp eq i32 %.1365, %.1373
+  %.not457 = icmp eq i32 %.1388, %.1398
   br i1 %.not457, label %249, label %226
 
 226:                                              ; preds = %225
@@ -2916,14 +2916,14 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   tail call void @llvm.assume(i1 %227)
   %228 = tail call i32 @errcode(i32 noundef 67141764) #5
   %229 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.15) #5
-  %230 = tail call ptr @format_type_be(i32 noundef %.1367) #5
-  %231 = tail call ptr @format_type_be(i32 noundef %.1373) #5
+  %230 = tail call ptr @format_type_be(i32 noundef %.1390) #5
+  %231 = tail call ptr @format_type_be(i32 noundef %.1398) #5
   %232 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %230, ptr noundef %231) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2520, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 233:                                              ; preds = %224
-  %234 = tail call i32 @get_range_subtype(i32 noundef %.1365) #5
+  %234 = tail call i32 @get_range_subtype(i32 noundef %.1388) #5
   %.not456 = icmp eq i32 %234, 0
   br i1 %.not456, label %235, label %240
 
@@ -2931,42 +2931,42 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   %236 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %236)
   %237 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %238 = tail call ptr @format_type_be(i32 noundef %.1367) #5
+  %238 = tail call ptr @format_type_be(i32 noundef %.1390) #5
   %239 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.17, ptr noundef %238) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2531, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 240:                                              ; preds = %233
-  %241 = add i32 %.1, 1
-  %242 = sext i32 %.1 to i64
+  %241 = add i32 %.1365, 1
+  %242 = sext i32 %.1365 to i64
   %243 = getelementptr [100 x i32], ptr %7, i64 0, i64 %242
   store i32 %234, ptr %243, align 4
   br label %249
 
 244:                                              ; preds = %223
-  %245 = trunc nuw i8 %.1347 to i1
-  %246 = icmp ne i32 %.1373, 0
+  %245 = trunc nuw i8 %.1370 to i1
+  %246 = icmp ne i32 %.1398, 0
   %or.cond23 = select i1 %245, i1 %246, i1 false
   br i1 %or.cond23, label %247, label %249
 
 247:                                              ; preds = %244
-  %248 = tail call i32 @get_range_multirange(i32 noundef %.1373) #5
+  %248 = tail call i32 @get_range_multirange(i32 noundef %.1398) #5
   br label %249
 
 249:                                              ; preds = %244, %247, %240, %225
-  %.2374 = phi i32 [ %.1373, %225 ], [ %.1365, %240 ], [ %.1373, %247 ], [ %.1373, %244 ]
-  %.2371 = phi i32 [ %.1370, %225 ], [ %234, %240 ], [ %.1370, %247 ], [ %.1370, %244 ]
-  %.2368 = phi i32 [ %.1367, %225 ], [ %.1367, %240 ], [ %248, %247 ], [ 0, %244 ]
-  %.2350 = phi i8 [ %.1349, %225 ], [ 1, %240 ], [ %.1349, %247 ], [ %.1349, %244 ]
-  %.2 = phi i32 [ %.1, %225 ], [ %241, %240 ], [ %.1, %247 ], [ %.1, %244 ]
-  %250 = icmp sgt i32 %.2, 0
+  %.2399 = phi i32 [ %.1398, %225 ], [ %.1388, %240 ], [ %.1398, %247 ], [ %.1398, %244 ]
+  %.2396 = phi i32 [ %.1395, %225 ], [ %234, %240 ], [ %.1395, %247 ], [ %.1395, %244 ]
+  %.2391 = phi i32 [ %.1390, %225 ], [ %.1390, %240 ], [ %248, %247 ], [ 0, %244 ]
+  %.2373 = phi i8 [ %.1372, %225 ], [ 1, %240 ], [ %.1372, %247 ], [ %.1372, %244 ]
+  %.2366 = phi i32 [ %.1365, %225 ], [ %241, %240 ], [ %.1365, %247 ], [ %.1365, %244 ]
+  %250 = icmp sgt i32 %.2366, 0
   br i1 %250, label %.lr.ph.preheader.i, label %304
 
 .lr.ph.preheader.i:                               ; preds = %249
-  %251 = call fastcc i32 @select_common_type_from_oids(i32 noundef %.2, ptr noundef nonnull %7, i1 noundef zeroext false)
+  %251 = call fastcc i32 @select_common_type_from_oids(i32 noundef %.2366, ptr noundef nonnull %7, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %251, ptr %6, align 4
-  %252 = zext nneg i32 %.2 to i64
+  %252 = zext nneg i32 %.2366 to i64
   %253 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef nonnull readonly %7, ptr noundef nonnull %6, i32 noundef 0)
   br i1 %253, label %.lr.ph766, label %.critedge
 
@@ -2999,7 +2999,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   unreachable
 
 260:                                              ; preds = %verify_common_type_from_oids.exit
-  br i1 %.1352, label %261, label %268
+  br i1 %.1375, label %261, label %268
 
 261:                                              ; preds = %260
   %262 = tail call i32 @get_array_type(i32 noundef %251) #5
@@ -3016,12 +3016,12 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   unreachable
 
 268:                                              ; preds = %261, %260
-  %.0377 = phi i32 [ %262, %261 ], [ 0, %260 ]
-  %269 = trunc nuw i8 %.2350 to i1
+  %.0402 = phi i32 [ %262, %261 ], [ 0, %260 ]
+  %269 = trunc nuw i8 %.2373 to i1
   br i1 %269, label %270, label %282
 
 270:                                              ; preds = %268
-  %.not459 = icmp eq i32 %.2374, 0
+  %.not459 = icmp eq i32 %.2399, 0
   br i1 %.not459, label %271, label %275
 
 271:                                              ; preds = %270
@@ -3033,25 +3033,25 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   unreachable
 
 275:                                              ; preds = %270
-  %.not460 = icmp eq i32 %.2371, %251
+  %.not460 = icmp eq i32 %.2396, %251
   br i1 %.not460, label %282, label %276
 
 276:                                              ; preds = %275
   %277 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %277)
   %278 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %279 = tail call ptr @format_type_be(i32 noundef %.2374) #5
+  %279 = tail call ptr @format_type_be(i32 noundef %.2399) #5
   %280 = tail call ptr @format_type_be(i32 noundef %251) #5
   %281 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef %279, ptr noundef %280) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2589, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 282:                                              ; preds = %275, %268
-  %283 = trunc nuw i8 %.1347 to i1
+  %283 = trunc nuw i8 %.1370 to i1
   br i1 %283, label %284, label %296
 
 284:                                              ; preds = %282
-  %.not461 = icmp eq i32 %.2368, 0
+  %.not461 = icmp eq i32 %.2391, 0
   br i1 %.not461, label %285, label %289
 
 285:                                              ; preds = %284
@@ -3063,21 +3063,21 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   unreachable
 
 289:                                              ; preds = %284
-  %.not462 = icmp eq i32 %.2371, %251
+  %.not462 = icmp eq i32 %.2396, %251
   br i1 %.not462, label %296, label %290
 
 290:                                              ; preds = %289
   %291 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %291)
   %292 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %293 = tail call ptr @format_type_be(i32 noundef %.2368) #5
+  %293 = tail call ptr @format_type_be(i32 noundef %.2391) #5
   %294 = tail call ptr @format_type_be(i32 noundef %251) #5
   %295 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %293, ptr noundef %294) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2610, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 296:                                              ; preds = %289, %282
-  br i1 %.2355, label %297, label %317
+  br i1 %.2378, label %297, label %317
 
 297:                                              ; preds = %296
   %298 = tail call i32 @get_base_element_type(i32 noundef %251) #5
@@ -3097,7 +3097,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   br i1 %4, label %317, label %305
 
 305:                                              ; preds = %304
-  %306 = trunc nuw i8 %.2350 to i1
+  %306 = trunc nuw i8 %.2373 to i1
   br i1 %306, label %307, label %311
 
 307:                                              ; preds = %305
@@ -3109,7 +3109,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   unreachable
 
 311:                                              ; preds = %305
-  %312 = trunc nuw i8 %.1347 to i1
+  %312 = trunc nuw i8 %.1370 to i1
   br i1 %312, label %313, label %317
 
 313:                                              ; preds = %311
@@ -3121,10 +3121,10 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   unreachable
 
 317:                                              ; preds = %304, %311, %296, %297
-  %.0380 = phi i32 [ %251, %297 ], [ %251, %296 ], [ 25, %311 ], [ 5077, %304 ]
-  %.1378 = phi i32 [ %.0377, %297 ], [ %.0377, %296 ], [ 1009, %311 ], [ 5078, %304 ]
-  %.3375 = phi i32 [ %.2374, %297 ], [ %.2374, %296 ], [ %.2374, %311 ], [ 5080, %304 ]
-  %.3 = phi i32 [ %.2368, %297 ], [ %.2368, %296 ], [ %.2368, %311 ], [ 4538, %304 ]
+  %.0405 = phi i32 [ %251, %297 ], [ %251, %296 ], [ 25, %311 ], [ 5077, %304 ]
+  %.1403 = phi i32 [ %.0402, %297 ], [ %.0402, %296 ], [ 1009, %311 ], [ 5078, %304 ]
+  %.3400 = phi i32 [ %.2399, %297 ], [ %.2399, %296 ], [ %.2399, %311 ], [ 5080, %304 ]
+  %.3392 = phi i32 [ %.2391, %297 ], [ %.2391, %296 ], [ %.2391, %311 ], [ 4538, %304 ]
   br i1 %12, label %.lr.ph771.preheader, label %.loopexit
 
 .lr.ph771.preheader:                              ; preds = %317
@@ -3153,8 +3153,8 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   br label %.sink.split1002
 
 .sink.split1002:                                  ; preds = %321, %.lr.ph771, %323, %322
-  %.0380.sink = phi i32 [ %.3375, %322 ], [ %.3, %323 ], [ %.0380, %.lr.ph771 ], [ %.1378, %321 ]
-  store i32 %.0380.sink, ptr %318, align 4
+  %.0405.sink = phi i32 [ %.3400, %322 ], [ %.3392, %323 ], [ %.0405, %.lr.ph771 ], [ %.1403, %321 ]
+  store i32 %.0405.sink, ptr %318, align 4
   br label %324
 
 324:                                              ; preds = %.sink.split1002, %321
@@ -3163,22 +3163,22 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   br i1 %exitcond852.not, label %.loopexit536, label %.lr.ph771, !llvm.loop !16
 
 .loopexit536:                                     ; preds = %324, %.thread530
-  %.1381 = phi i32 [ 0, %.thread530 ], [ %.0380, %324 ]
-  %.2379 = phi i32 [ 0, %.thread530 ], [ %.1378, %324 ]
-  %.4376 = phi i32 [ %.1373, %.thread530 ], [ %.3375, %324 ]
-  %.4 = phi i32 [ %.1367, %.thread530 ], [ %.3, %324 ]
-  %or.cond776 = and i1 %.1404, %12
+  %.1406 = phi i32 [ 0, %.thread530 ], [ %.0405, %324 ]
+  %.2404 = phi i32 [ 0, %.thread530 ], [ %.1403, %324 ]
+  %.4401 = phi i32 [ %.1398, %.thread530 ], [ %.3400, %324 ]
+  %.4393 = phi i32 [ %.1390, %.thread530 ], [ %.3392, %324 ]
+  %or.cond776 = and i1 %.1342, %12
   br i1 %or.cond776, label %.lr.ph774, label %.loopexit
 
 .lr.ph774:                                        ; preds = %.loopexit536
-  %.not473 = icmp eq i32 %.4386, 0
-  %.not474 = icmp eq i32 %.4391, 0
+  %.not473 = icmp eq i32 %.4362, 0
+  %.not474 = icmp eq i32 %.4357, 0
   %wide.trip.count856 = zext nneg i32 %2 to i64
   br label %325
 
 325:                                              ; preds = %.lr.ph774, %349
   %indvars.iv853 = phi i64 [ 0, %.lr.ph774 ], [ %indvars.iv.next854, %349 ]
-  %.4396772 = phi i32 [ %.3395, %.lr.ph774 ], [ %.6, %349 ]
+  %.4350772 = phi i32 [ %.3349, %.lr.ph774 ], [ %.6, %349 ]
   %326 = getelementptr i32, ptr %1, i64 %indvars.iv853
   %327 = getelementptr i32, ptr %0, i64 %indvars.iv853
   %328 = load i32, ptr %327, align 4
@@ -3197,11 +3197,11 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   ]
 
 331:                                              ; preds = %329
-  %.not475 = icmp eq i32 %.4396772, 0
+  %.not475 = icmp eq i32 %.4350772, 0
   br i1 %.not475, label %332, label %.sink.split1003
 
 332:                                              ; preds = %331
-  %333 = tail call i32 @get_array_type(i32 noundef %.5402) #5
+  %333 = tail call i32 @get_array_type(i32 noundef %.5) #5
   %.not476 = icmp eq i32 %333, 0
   br i1 %.not476, label %334, label %.sink.split1003
 
@@ -3209,7 +3209,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   %335 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %335)
   %336 = tail call i32 @errcode(i32 noundef 67137668) #5
-  %337 = tail call ptr @format_type_be(i32 noundef %.5402) #5
+  %337 = tail call ptr @format_type_be(i32 noundef %.5) #5
   %338 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %337) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2706, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
@@ -3237,23 +3237,23 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   unreachable
 
 .sink.split1003:                                  ; preds = %344, %339, %331, %332, %329, %329, %329
-  %.5402.sink = phi i32 [ %.5402, %329 ], [ %.5402, %329 ], [ %.5402, %329 ], [ %.4396772, %331 ], [ %333, %332 ], [ %.4391, %339 ], [ %.4386, %344 ]
-  %.6.ph = phi i32 [ %.4396772, %329 ], [ %.4396772, %329 ], [ %.4396772, %329 ], [ %.4396772, %331 ], [ %333, %332 ], [ %.4396772, %339 ], [ %.4396772, %344 ]
-  store i32 %.5402.sink, ptr %326, align 4
+  %.5.sink = phi i32 [ %.5, %329 ], [ %.5, %329 ], [ %.5, %329 ], [ %.4350772, %331 ], [ %333, %332 ], [ %.4357, %339 ], [ %.4362, %344 ]
+  %.6.ph = phi i32 [ %.4350772, %329 ], [ %.4350772, %329 ], [ %.4350772, %329 ], [ %.4350772, %331 ], [ %333, %332 ], [ %.4350772, %339 ], [ %.4350772, %344 ]
+  store i32 %.5.sink, ptr %326, align 4
   br label %349
 
 349:                                              ; preds = %.sink.split1003, %329, %325
-  %.6 = phi i32 [ %.4396772, %325 ], [ %.4396772, %329 ], [ %.6.ph, %.sink.split1003 ]
+  %.6 = phi i32 [ %.4350772, %325 ], [ %.4350772, %329 ], [ %.6.ph, %.sink.split1003 ]
   %indvars.iv.next854 = add nuw nsw i64 %indvars.iv853, 1
   %exitcond857.not = icmp eq i64 %indvars.iv.next854, %wide.trip.count856
   br i1 %exitcond857.not, label %.loopexit, label %325, !llvm.loop !17
 
 .loopexit:                                        ; preds = %349, %317, %.loopexit536
-  %.4928 = phi i32 [ %.4, %.loopexit536 ], [ %.3, %317 ], [ %.4, %349 ]
-  %.4376927 = phi i32 [ %.4376, %.loopexit536 ], [ %.3375, %317 ], [ %.4376, %349 ]
-  %.2379926 = phi i32 [ %.2379, %.loopexit536 ], [ %.1378, %317 ], [ %.2379, %349 ]
-  %.1381925 = phi i32 [ %.1381, %.loopexit536 ], [ %.0380, %317 ], [ %.1381, %349 ]
-  %.7 = phi i32 [ %.3395, %.loopexit536 ], [ %.3395, %317 ], [ %.6, %349 ]
+  %.4393928 = phi i32 [ %.4393, %.loopexit536 ], [ %.3392, %317 ], [ %.4393, %349 ]
+  %.4401927 = phi i32 [ %.4401, %.loopexit536 ], [ %.3400, %317 ], [ %.4401, %349 ]
+  %.2404926 = phi i32 [ %.2404, %.loopexit536 ], [ %.1403, %317 ], [ %.2404, %349 ]
+  %.1406925 = phi i32 [ %.1406, %.loopexit536 ], [ %.0405, %317 ], [ %.1406, %349 ]
+  %.7 = phi i32 [ %.3349, %.loopexit536 ], [ %.3349, %317 ], [ %.6, %349 ]
   switch i32 %3, label %363 [
     i32 3500, label %.thread904
     i32 2776, label %.thread904
@@ -3267,7 +3267,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   br i1 %.not470, label %351, label %.thread904
 
 351:                                              ; preds = %350
-  %352 = tail call i32 @get_array_type(i32 noundef %.5402) #5
+  %352 = tail call i32 @get_array_type(i32 noundef %.5) #5
   %.not471 = icmp eq i32 %352, 0
   br i1 %.not471, label %353, label %.thread904
 
@@ -3275,13 +3275,13 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   %354 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %354)
   %355 = tail call i32 @errcode(i32 noundef 67137668) #5
-  %356 = tail call ptr @format_type_be(i32 noundef %.5402) #5
+  %356 = tail call ptr @format_type_be(i32 noundef %.5) #5
   %357 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %356) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2753, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
   unreachable
 
 358:                                              ; preds = %.loopexit
-  %.not469 = icmp eq i32 %.4391, 0
+  %.not469 = icmp eq i32 %.4357, 0
   br i1 %.not469, label %359, label %.thread904
 
 359:                                              ; preds = %358
@@ -3296,7 +3296,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   br i1 %8, label %364, label %369
 
 364:                                              ; preds = %363
-  %.not468 = icmp eq i32 %.4386, 0
+  %.not468 = icmp eq i32 %.4362, 0
   br i1 %.not468, label %365, label %.thread904
 
 365:                                              ; preds = %364
@@ -3314,7 +3314,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   ]
 
 370:                                              ; preds = %369, %369
-  %.not467 = icmp eq i32 %.1381925, 0
+  %.not467 = icmp eq i32 %.1406925, 0
   br i1 %.not467, label %371, label %.thread904
 
 371:                                              ; preds = %370
@@ -3329,7 +3329,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   br i1 %9, label %376, label %381
 
 376:                                              ; preds = %375
-  %.not466 = icmp eq i32 %.2379926, 0
+  %.not466 = icmp eq i32 %.2404926, 0
   br i1 %.not466, label %377, label %.thread904
 
 377:                                              ; preds = %376
@@ -3344,7 +3344,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   br i1 %10, label %382, label %387
 
 382:                                              ; preds = %381
-  %.not465 = icmp eq i32 %.4376927, 0
+  %.not465 = icmp eq i32 %.4401927, 0
   br i1 %.not465, label %383, label %.thread904
 
 383:                                              ; preds = %382
@@ -3359,7 +3359,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   br i1 %11, label %388, label %.thread904
 
 388:                                              ; preds = %387
-  %.not464 = icmp eq i32 %.4928, 0
+  %.not464 = icmp eq i32 %.4393928, 0
   br i1 %.not464, label %389, label %.thread904
 
 389:                                              ; preds = %388
@@ -3371,7 +3371,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   unreachable
 
 .thread904:                                       ; preds = %5, %387, %388, %382, %376, %370, %364, %358, %.loopexit, %.loopexit, %.loopexit, %350, %351, %138
-  %.0 = phi i32 [ %3, %138 ], [ %.5402, %.loopexit ], [ %.5402, %.loopexit ], [ %.5402, %.loopexit ], [ %.7, %350 ], [ %352, %351 ], [ %.4391, %358 ], [ %.4386, %364 ], [ %.1381925, %370 ], [ %.2379926, %376 ], [ %.4376927, %382 ], [ %.4928, %388 ], [ %3, %387 ], [ %3, %5 ]
+  %.0 = phi i32 [ %3, %138 ], [ %.5, %.loopexit ], [ %.5, %.loopexit ], [ %.5, %.loopexit ], [ %.7, %350 ], [ %352, %351 ], [ %.4357, %358 ], [ %.4362, %364 ], [ %.1406925, %370 ], [ %.2404926, %376 ], [ %.4401927, %382 ], [ %.4393928, %388 ], [ %3, %387 ], [ %3, %5 ]
   ret i32 %.0
 }
 

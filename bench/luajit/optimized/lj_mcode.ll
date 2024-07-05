@@ -103,13 +103,13 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %do.end.i
-  %i.024.i = phi i32 [ %inc.i, %do.end.i ], [ 0, %entry ]
-  %hint.023.i = phi i64 [ %sub18.i, %do.end.i ], [ %spec.select, %entry ]
-  %tobool2.not.i = icmp eq i64 %hint.023.i, 0
+  %hint.024.i = phi i64 [ %sub18.i, %do.end.i ], [ %spec.select, %entry ]
+  %i.023.i = phi i32 [ %inc.i, %do.end.i ], [ 0, %entry ]
+  %tobool2.not.i = icmp eq i64 %hint.024.i, 0
   br i1 %tobool2.not.i, label %do.body.i.preheader, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %3 = inttoptr i64 %hint.023.i to ptr
+  %3 = inttoptr i64 %hint.024.i to ptr
   %call.i.i = tail call ptr @mmap64(ptr noundef nonnull %3, i64 noundef %and, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #7
   %magicptr.i = ptrtoint ptr %call.i.i to i64
   switch i64 %magicptr.i, label %land.lhs.true.i [
@@ -141,7 +141,7 @@ do.body.i:                                        ; preds = %do.body.i.preheader
 
 do.end.i:                                         ; preds = %do.body.i
   %sub18.i = add i64 %add17.i, %and14.i
-  %inc.i = add nuw nsw i32 %i.024.i, 1
+  %inc.i = add nuw nsw i32 %i.023.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 31
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
 

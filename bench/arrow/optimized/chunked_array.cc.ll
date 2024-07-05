@@ -2719,16 +2719,16 @@ if.end15.i:                                       ; preds = %land.rhs.i, %if.end
   br i1 %cmp7.i.i, label %while.body.i.i, label %_ZNK5arrow8internal13ChunkResolver6BisectEl.exit.i
 
 while.body.i.i:                                   ; preds = %if.end15.i, %while.body.i.i
-  %n.09.i.i = phi i64 [ %n.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i, %if.end15.i ]
-  %lo.08.i.i = phi i64 [ %lo.1.i.i, %while.body.i.i ], [ 0, %if.end15.i ]
-  %shr.i.i = lshr i64 %n.09.i.i, 1
-  %add.i.i = add nuw nsw i64 %shr.i.i, %lo.08.i.i
+  %lo.09.i.i = phi i64 [ %lo.1.i.i, %while.body.i.i ], [ 0, %if.end15.i ]
+  %n.08.i.i = phi i64 [ %n.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i, %if.end15.i ]
+  %shr.i.i = lshr i64 %n.08.i.i, 1
+  %add.i.i = add nuw nsw i64 %shr.i.i, %lo.09.i.i
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %3, i64 %add.i.i
   %7 = load i64, ptr %add.ptr.i.i.i, align 8
   %cmp4.not.i.i = icmp sgt i64 %7, %index
-  %sub.i.i = sub nsw i64 %n.09.i.i, %shr.i.i
-  %lo.1.i.i = select i1 %cmp4.not.i.i, i64 %lo.08.i.i, i64 %add.i.i
+  %sub.i.i = sub nsw i64 %n.08.i.i, %shr.i.i
   %n.1.i.i = select i1 %cmp4.not.i.i, i64 %shr.i.i, i64 %sub.i.i
+  %lo.1.i.i = select i1 %cmp4.not.i.i, i64 %lo.09.i.i, i64 %add.i.i
   %cmp.i.i = icmp sgt i64 %n.1.i.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZNK5arrow8internal13ChunkResolver6BisectEl.exit.i, !llvm.loop !38
 
@@ -3265,11 +3265,11 @@ lpad37:                                           ; preds = %if.else.i.i
 while.body46:                                     ; preds = %while.body46.lr.ph, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit95
   %indvars.iv133 = phi i64 [ %14, %while.body46.lr.ph ], [ %indvars.iv.next134, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit95 ]
   %33 = phi ptr [ %7, %while.body46.lr.ph ], [ %51, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit95 ]
-  %length.addr.0131 = phi i64 [ %length, %while.body46.lr.ph ], [ %sub60, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit95 ]
-  %offset.addr.1130 = phi i64 [ %offset.addr.0.lcssa142, %while.body46.lr.ph ], [ 0, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit95 ]
+  %offset.addr.1131 = phi i64 [ %offset.addr.0.lcssa142, %while.body46.lr.ph ], [ 0, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit95 ]
+  %length.addr.0130 = phi i64 [ %length, %while.body46.lr.ph ], [ %sub60, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit95 ]
   %add.ptr.i.i53 = getelementptr inbounds %"class.std::shared_ptr.8", ptr %33, i64 %indvars.iv133
   %34 = load ptr, ptr %add.ptr.i.i53, align 8
-  invoke void @_ZNK5arrow5Array5SliceEll(ptr nonnull sret(%"class.std::shared_ptr.8") align 8 %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 noundef %offset.addr.1130, i64 noundef %length.addr.0131)
+  invoke void @_ZNK5arrow5Array5SliceEll(ptr nonnull sret(%"class.std::shared_ptr.8") align 8 %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 noundef %offset.addr.1131, i64 noundef %length.addr.0130)
           to label %invoke.cont51 unwind label %lpad21.loopexit
 
 invoke.cont51:                                    ; preds = %while.body46
@@ -3377,7 +3377,7 @@ _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit95:     ; preds = %invoke.cont53, %_ZN
   %53 = load ptr, ptr %data_.i98, align 8
   %length.i99 = getelementptr inbounds i8, ptr %53, i64 16
   %54 = load i64, ptr %length.i99, align 8
-  %sub59.neg = add i64 %length.addr.0131, %offset.addr.1130
+  %sub59.neg = add i64 %offset.addr.1131, %length.addr.0130
   %sub60 = sub i64 %sub59.neg, %54
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %55 = load ptr, ptr %_M_finish.i.i, align 8

@@ -346,7 +346,7 @@ define internal fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %1, i
   br label %_xlate_before.exit
 
 49:                                               ; preds = %43, %41, %39, %36
-  %.0.i = phi ptr [ @.str.8, %36 ], [ @.str.16, %39 ], [ @.str.18, %41 ], [ @.str.20, %43 ]
+  %.043.i = phi ptr [ @.str.8, %36 ], [ @.str.16, %39 ], [ @.str.18, %41 ], [ @.str.20, %43 ]
   %50 = call i32 @pthread_mutex_lock(ptr noundef nonnull @depend_mutex) #13
   %.not59.i = icmp eq i32 %50, 0
   br i1 %.not59.i, label %53, label %51
@@ -363,8 +363,8 @@ define internal fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %1, i
   br i1 %.not6076.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %53, %144
-  %.04377.i = phi ptr [ %145, %144 ], [ %54, %53 ]
-  %55 = call i32 @atoi(ptr nocapture noundef nonnull %.04377.i) #14
+  %.077.i = phi ptr [ %145, %144 ], [ %54, %53 ]
+  %55 = call i32 @atoi(ptr nocapture noundef nonnull %.077.i) #14
   %56 = call ptr @find_job_record(i32 noundef %55) #13
   %.not62.i = icmp eq ptr %56, null
   br i1 %.not62.i, label %57, label %61
@@ -375,7 +375,7 @@ define internal fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %1, i
   br i1 %59, label %60, label %144
 
 60:                                               ; preds = %57
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.24, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._xlate_before, ptr noundef nonnull @plugin_type, ptr noundef nonnull %.04377.i) #13
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.24, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._xlate_before, ptr noundef nonnull @plugin_type, ptr noundef nonnull %.077.i) #13
   br label %144
 
 61:                                               ; preds = %.lr.ph.i
@@ -431,7 +431,7 @@ define internal fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %1, i
   br label %90
 
 90:                                               ; preds = %89, %86
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.27, ptr noundef nonnull %.0.i, i32 noundef %2) #13
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.27, ptr noundef nonnull %.043.i, i32 noundef %2) #13
   %91 = load ptr, ptr %77, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 128
   call void @slurm_xfree(ptr noundef nonnull %92) #13

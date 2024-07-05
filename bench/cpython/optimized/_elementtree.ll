@@ -2140,8 +2140,8 @@ Py_DECREF.exit92:                                 ; preds = %if.end38, %if.then1
   br i1 %cmp39, label %return, label %while.body.backedge
 
 gettext42:                                        ; preds = %if.then28, %if.then14
-  %elem.1 = phi ptr [ %6, %if.then14 ], [ %elem.0, %if.then28 ]
   %text.0 = phi ptr [ %call, %if.then14 ], [ %call29, %if.then28 ]
+  %elem.1 = phi ptr [ %6, %if.then14 ], [ %elem.0, %if.then28 ]
   %tobool43.not = icmp eq ptr %text.0, null
   br i1 %tobool43.not, label %if.then44, label %if.end45
 
@@ -6247,19 +6247,19 @@ for.body149.lr.ph:                                ; preds = %if.then142
   br label %for.body149
 
 for.body149:                                      ; preds = %for.body149.lr.ph, %for.body149
-  %cur.0157 = phi i64 [ %58, %for.body149.lr.ph ], [ %add154, %for.body149 ]
-  %i15.1156 = phi i64 [ 0, %for.body149.lr.ph ], [ %inc155, %for.body149 ]
+  %i15.1157 = phi i64 [ 0, %for.body149.lr.ph ], [ %inc155, %for.body149 ]
+  %cur.0156 = phi i64 [ %58, %for.body149.lr.ph ], [ %add154, %for.body149 ]
   %60 = load ptr, ptr %extra16, align 8
   %children151 = getelementptr inbounds i8, ptr %60, i64 24
   %61 = load ptr, ptr %children151, align 8
-  %arrayidx152 = getelementptr ptr, ptr %61, i64 %cur.0157
+  %arrayidx152 = getelementptr ptr, ptr %61, i64 %cur.0156
   %62 = load ptr, ptr %arrayidx152, align 8
   %call143.val = load ptr, ptr %59, align 8
-  %arrayidx.i143 = getelementptr ptr, ptr %call143.val, i64 %i15.1156
+  %arrayidx.i143 = getelementptr ptr, ptr %call143.val, i64 %i15.1157
   store ptr %62, ptr %arrayidx.i143, align 8
   %63 = load i64, ptr %step, align 8
-  %add154 = add i64 %63, %cur.0157
-  %inc155 = add nuw nsw i64 %i15.1156, 1
+  %add154 = add i64 %63, %cur.0156
+  %inc155 = add nuw nsw i64 %i15.1157, 1
   %exitcond172.not = icmp eq i64 %inc155, %call30
   br i1 %exitcond172.not, label %if.end157, label %for.body149, !llvm.loop !13
 
@@ -6337,8 +6337,8 @@ for.body199.lr.ph:                                ; preds = %if.end196
   br label %for.body199
 
 for.body199:                                      ; preds = %for.body199.lr.ph, %_Py_NewRef.exit
-  %cur.1166 = phi i64 [ %81, %for.body199.lr.ph ], [ %add217, %_Py_NewRef.exit ]
-  %i15.4165 = phi i64 [ 0, %for.body199.lr.ph ], [ %inc218, %_Py_NewRef.exit ]
+  %i15.4166 = phi i64 [ 0, %for.body199.lr.ph ], [ %inc218, %_Py_NewRef.exit ]
+  %cur.1165 = phi i64 [ %81, %for.body199.lr.ph ], [ %add217, %_Py_NewRef.exit ]
   %call94.val = load ptr, ptr %38, align 8
   %82 = getelementptr i8, ptr %call94.val, i64 168
   %call201.val = load i64, ptr %82, align 8
@@ -6348,11 +6348,11 @@ for.body199:                                      ; preds = %for.body199.lr.ph, 
 
 cond.true204:                                     ; preds = %for.body199
   %84 = load ptr, ptr %ob_item205, align 8
-  %arrayidx206 = getelementptr ptr, ptr %84, i64 %i15.4165
+  %arrayidx206 = getelementptr ptr, ptr %84, i64 %i15.4166
   br label %cond.end210
 
 cond.false207:                                    ; preds = %for.body199
-  %arrayidx209 = getelementptr [1 x ptr], ptr %ob_item205, i64 0, i64 %i15.4165
+  %arrayidx209 = getelementptr [1 x ptr], ptr %ob_item205, i64 0, i64 %i15.4166
   br label %cond.end210
 
 cond.end210:                                      ; preds = %cond.false207, %cond.true204
@@ -6371,11 +6371,11 @@ _Py_NewRef.exit:                                  ; preds = %cond.end210, %if.en
   %86 = load ptr, ptr %extra16, align 8
   %children214 = getelementptr inbounds i8, ptr %86, i64 24
   %87 = load ptr, ptr %children214, align 8
-  %arrayidx215 = getelementptr ptr, ptr %87, i64 %cur.1166
+  %arrayidx215 = getelementptr ptr, ptr %87, i64 %cur.1165
   store ptr %cond211, ptr %arrayidx215, align 8
   %88 = load i64, ptr %step, align 8
-  %add217 = add i64 %88, %cur.1166
-  %inc218 = add nuw nsw i64 %i15.4165, 1
+  %add217 = add i64 %88, %cur.1165
+  %inc218 = add nuw nsw i64 %i15.4166, 1
   %exitcond173.not = icmp eq i64 %inc218, %cond
   br i1 %exitcond173.not, label %for.end219, label %for.body199, !llvm.loop !16
 
@@ -9197,9 +9197,9 @@ for.body.lr.ph:                                   ; preds = %PyUnicode_READ.exit
   ]
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %check.098.us = phi i32 [ %check.1.us, %for.inc.us ], [ %bf.clear, %for.body.lr.ph ]
-  %i.097.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %arrayidx.i86.us = getelementptr i8, ptr %retval.0.i, i64 %i.097.us
+  %i.098.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %check.097.us = phi i32 [ %check.1.us, %for.inc.us ], [ %bf.clear, %for.body.lr.ph ]
+  %arrayidx.i86.us = getelementptr i8, ptr %retval.0.i, i64 %i.098.us
   %20 = load i8, ptr %arrayidx.i86.us, align 1
   switch i8 %20, label %if.else21.us [
     i8 123, label %for.inc.us
@@ -9210,7 +9210,7 @@ if.then20.us:                                     ; preds = %for.body.us
   br label %for.inc.us
 
 if.else21.us:                                     ; preds = %for.body.us
-  %tobool22.not.us = icmp eq i32 %check.098.us, 0
+  %tobool22.not.us = icmp eq i32 %check.097.us, 0
   br i1 %tobool22.not.us, label %for.inc.us, label %land.lhs.true23.us
 
 land.lhs.true23.us:                               ; preds = %if.else21.us
@@ -9224,14 +9224,14 @@ land.lhs.true23.us:                               ; preds = %if.else21.us
 
 for.inc.us:                                       ; preds = %land.lhs.true23.us, %if.else21.us, %if.then20.us, %for.body.us
   %check.1.us = phi i32 [ 1, %if.then20.us ], [ 1, %land.lhs.true23.us ], [ 0, %if.else21.us ], [ 0, %for.body.us ]
-  %inc.us = add nuw nsw i64 %i.097.us, 1
+  %inc.us = add nuw nsw i64 %i.098.us, 1
   %exitcond158.not = icmp eq i64 %inc.us, %tag.val50
   br i1 %exitcond158.not, label %return, label %for.body.us, !llvm.loop !28
 
 for.body.us114:                                   ; preds = %for.body.lr.ph, %for.inc.us123
-  %check.098.us115 = phi i32 [ %check.1.us124, %for.inc.us123 ], [ 1, %for.body.lr.ph ]
-  %i.097.us116 = phi i64 [ %inc.us125, %for.inc.us123 ], [ 0, %for.body.lr.ph ]
-  %arrayidx4.i82.us = getelementptr i16, ptr %retval.0.i, i64 %i.097.us116
+  %i.098.us115 = phi i64 [ %inc.us125, %for.inc.us123 ], [ 0, %for.body.lr.ph ]
+  %check.097.us116 = phi i32 [ %check.1.us124, %for.inc.us123 ], [ 1, %for.body.lr.ph ]
+  %arrayidx4.i82.us = getelementptr i16, ptr %retval.0.i, i64 %i.098.us115
   %21 = load i16, ptr %arrayidx4.i82.us, align 2
   switch i16 %21, label %if.else21.us120 [
     i16 123, label %for.inc.us123
@@ -9242,7 +9242,7 @@ if.then20.us119:                                  ; preds = %for.body.us114
   br label %for.inc.us123
 
 if.else21.us120:                                  ; preds = %for.body.us114
-  %tobool22.not.us121 = icmp eq i32 %check.098.us115, 0
+  %tobool22.not.us121 = icmp eq i32 %check.097.us116, 0
   br i1 %tobool22.not.us121, label %for.inc.us123, label %land.lhs.true23.us122
 
 land.lhs.true23.us122:                            ; preds = %if.else21.us120
@@ -9256,14 +9256,14 @@ land.lhs.true23.us122:                            ; preds = %if.else21.us120
 
 for.inc.us123:                                    ; preds = %land.lhs.true23.us122, %if.else21.us120, %if.then20.us119, %for.body.us114
   %check.1.us124 = phi i32 [ 1, %if.then20.us119 ], [ 1, %land.lhs.true23.us122 ], [ 0, %if.else21.us120 ], [ 0, %for.body.us114 ]
-  %inc.us125 = add nuw nsw i64 %i.097.us116, 1
+  %inc.us125 = add nuw nsw i64 %i.098.us115, 1
   %exitcond.not = icmp eq i64 %inc.us125, %tag.val50
   br i1 %exitcond.not, label %return, label %for.body.us114, !llvm.loop !28
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %check.098 = phi i32 [ %check.1, %for.inc ], [ 1, %for.body.lr.ph ]
-  %i.097 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %arrayidx7.i89 = getelementptr i32, ptr %retval.0.i, i64 %i.097
+  %i.098 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
+  %check.097 = phi i32 [ %check.1, %for.inc ], [ 1, %for.body.lr.ph ]
+  %arrayidx7.i89 = getelementptr i32, ptr %retval.0.i, i64 %i.098
   %22 = load i32, ptr %arrayidx7.i89, align 4
   switch i32 %22, label %if.else21 [
     i32 123, label %for.inc
@@ -9274,7 +9274,7 @@ if.then20:                                        ; preds = %for.body
   br label %for.inc
 
 if.else21:                                        ; preds = %for.body
-  %tobool22.not = icmp eq i32 %check.098, 0
+  %tobool22.not = icmp eq i32 %check.097, 0
   br i1 %tobool22.not, label %for.inc, label %land.lhs.true23
 
 land.lhs.true23:                                  ; preds = %if.else21
@@ -9288,7 +9288,7 @@ land.lhs.true23:                                  ; preds = %if.else21
 
 for.inc:                                          ; preds = %land.lhs.true23, %for.body, %if.else21, %if.then20
   %check.1 = phi i32 [ 1, %if.then20 ], [ 1, %land.lhs.true23 ], [ 0, %if.else21 ], [ 0, %for.body ]
-  %inc = add nuw nsw i64 %i.097, 1
+  %inc = add nuw nsw i64 %i.098, 1
   %exitcond159.not = icmp eq i64 %inc, %tag.val50
   br i1 %exitcond159.not, label %return, label %for.body, !llvm.loop !28
 
@@ -9331,9 +9331,9 @@ for.body69.preheader:                             ; preds = %land.lhs.true46, %l
   br label %for.body69
 
 for.body69:                                       ; preds = %for.body69.preheader, %for.inc112
-  %check.2141 = phi i32 [ %check.3, %for.inc112 ], [ 1, %for.body69.preheader ]
-  %i.1140 = phi i64 [ %inc113, %for.inc112 ], [ 0, %for.body69.preheader ]
-  %arrayidx70 = getelementptr i8, ptr %ob_sval.i, i64 %i.1140
+  %i.1141 = phi i64 [ %inc113, %for.inc112 ], [ 0, %for.body69.preheader ]
+  %check.2140 = phi i32 [ %check.3, %for.inc112 ], [ 1, %for.body69.preheader ]
+  %arrayidx70 = getelementptr i8, ptr %ob_sval.i, i64 %i.1141
   %28 = load i8, ptr %arrayidx70, align 1
   switch i8 %28, label %if.else81 [
     i8 123, label %for.inc112
@@ -9344,7 +9344,7 @@ if.then80:                                        ; preds = %for.body69
   br label %for.inc112
 
 if.else81:                                        ; preds = %for.body69
-  %tobool82.not = icmp eq i32 %check.2141, 0
+  %tobool82.not = icmp eq i32 %check.2140, 0
   br i1 %tobool82.not, label %for.inc112, label %land.lhs.true83
 
 land.lhs.true83:                                  ; preds = %if.else81
@@ -9358,7 +9358,7 @@ land.lhs.true83:                                  ; preds = %if.else81
 
 for.inc112:                                       ; preds = %land.lhs.true83, %for.body69, %if.else81, %if.then80
   %check.3 = phi i32 [ 1, %if.then80 ], [ 0, %if.else81 ], [ 0, %for.body69 ], [ 1, %land.lhs.true83 ]
-  %inc113 = add nuw nsw i64 %i.1140, 1
+  %inc113 = add nuw nsw i64 %i.1141, 1
   %exitcond160.not = icmp eq i64 %inc113, %tag.val49
   br i1 %exitcond160.not, label %return, label %for.body69, !llvm.loop !29
 
@@ -13721,8 +13721,8 @@ if.end45:                                         ; preds = %if.then40.if.end45_
   br label %if.end50
 
 if.end50:                                         ; preds = %if.else36, %if.end45, %if.then33
-  %res.0 = phi ptr [ %call35, %if.then33 ], [ %call47, %if.end45 ], [ null, %if.else36 ]
   %attrib.2 = phi ptr [ %attrib.0, %if.then33 ], [ %attrib.1, %if.end45 ], [ %attrib.0, %if.else36 ]
+  %res.0 = phi ptr [ %call35, %if.then33 ], [ %call47, %if.end45 ], [ null, %if.else36 ]
   %34 = load i64, ptr %call1, align 8
   %35 = and i64 %34, 2147483648
   %cmp.i194.not = icmp eq i64 %35, 0

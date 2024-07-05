@@ -154,7 +154,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %47
   br label %91
 
 91:                                               ; preds = %.lr.ph, %_ZL12DllVolChangeP11CommandDataPwm.exit
-  %.085111 = phi i1 [ false, %.lr.ph ], [ true, %_ZL12DllVolChangeP11CommandDataPwm.exit ]
+  %.086111 = phi i1 [ false, %.lr.ph ], [ true, %_ZL12DllVolChangeP11CommandDataPwm.exit ]
   br i1 %.not107, label %93, label %92
 
 92:                                               ; preds = %91
@@ -162,7 +162,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %47
   br label %93
 
 93:                                               ; preds = %92, %91
-  br i1 %.085111, label %100, label %94
+  br i1 %.086111, label %100, label %94
 
 94:                                               ; preds = %93
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %14, ptr noundef nonnull %72, i64 noundef 2048)
@@ -437,8 +437,8 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit103: ; preds = %178
   br label %221
 
 221:                                              ; preds = %_ZL12DllVolNotifyP11CommandDataPw.exit.thread, %200, %214, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit
-  %.086 = phi i1 [ false, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit ], [ true, %214 ], [ true, %200 ], [ false, %_ZL12DllVolNotifyP11CommandDataPw.exit.thread ]
-  ret i1 %.086
+  %.0 = phi i1 [ false, %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit ], [ true, %214 ], [ true, %200 ], [ false, %_ZL12DllVolNotifyP11CommandDataPw.exit.thread ]
+  ret i1 %.0
 }
 
 declare noundef zeroext i1 @_ZN8DataHash3CmpEP9HashValuePh(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #1

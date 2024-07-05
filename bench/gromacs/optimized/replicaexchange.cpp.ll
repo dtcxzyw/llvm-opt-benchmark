@@ -406,7 +406,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   br label %108
 
 108:                                              ; preds = %102, %._crit_edge
-  %.0160 = phi i1 [ %107, %102 ], [ false, %._crit_edge ]
+  %.0163 = phi i1 [ %107, %102 ], [ false, %._crit_edge ]
   %109 = load i32, ptr %99, align 4
   %110 = icmp eq i32 %109, 4
   br i1 %110, label %111, label %116
@@ -427,7 +427,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   br label %508
 
 116:                                              ; preds = %108
-  %brmerge.demorgan = and i1 %100, %.0160
+  %brmerge.demorgan = and i1 %100, %.0163
   br i1 %brmerge.demorgan, label %117, label %118
 
 117:                                              ; preds = %116
@@ -479,7 +479,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   br label %508
 
 136:                                              ; preds = %124, %118
-  br i1 %.0160, label %137, label %146
+  br i1 %.0163, label %137, label %146
 
 137:                                              ; preds = %136
   %138 = load ptr, ptr %74, align 8
@@ -531,8 +531,8 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
 
 163:                                              ; preds = %.preheader253, %172
   %indvars.iv328 = phi i64 [ 0, %.preheader253 ], [ %indvars.iv.next329, %172 ]
-  %.0161268 = phi float [ 0.000000e+00, %.preheader253 ], [ %.1162, %172 ]
-  %.0164267 = phi i32 [ 0, %.preheader253 ], [ %.1165, %172 ]
+  %.0268 = phi float [ 0.000000e+00, %.preheader253 ], [ %.1, %172 ]
+  %.0167266 = phi i32 [ 0, %.preheader253 ], [ %.1168, %172 ]
   %164 = getelementptr inbounds [3 x [3 x float]], ptr %158, i64 0, i64 %indvars.iv328, i64 %indvars.iv328
   %165 = load float, ptr %164, align 4
   %166 = fcmp une float %165, 0.000000e+00
@@ -541,28 +541,28 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
 167:                                              ; preds = %163
   %168 = getelementptr inbounds [3 x [3 x float]], ptr %159, i64 0, i64 %indvars.iv328, i64 %indvars.iv328
   %169 = load float, ptr %168, align 4
-  %170 = fadd float %.0161268, %169
-  %171 = add nsw i32 %.0164267, 1
+  %170 = fadd float %.0268, %169
+  %171 = add nsw i32 %.0167266, 1
   br label %172
 
 172:                                              ; preds = %163, %167
-  %.1165 = phi i32 [ %171, %167 ], [ %.0164267, %163 ]
-  %.1162 = phi float [ %170, %167 ], [ %.0161268, %163 ]
+  %.1168 = phi i32 [ %171, %167 ], [ %.0167266, %163 ]
+  %.1 = phi float [ %170, %167 ], [ %.0268, %163 ]
   %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next329, 3
   br i1 %exitcond.not, label %173, label %163, !llvm.loop !7
 
 173:                                              ; preds = %172
-  %174 = sitofp i32 %.1165 to float
-  %175 = fdiv float %.1162, %174
+  %174 = sitofp i32 %.1168 to float
+  %175 = fdiv float %.1, %174
   br label %176
 
 176:                                              ; preds = %173, %160
-  %.2163 = phi float [ %162, %160 ], [ %175, %173 ]
+  %.2 = phi float [ %162, %160 ], [ %175, %173 ]
   %177 = load i32, ptr %48, align 8
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds float, ptr %154, i64 %178
-  store float %.2163, ptr %179, align 4
+  store float %.2, ptr %179, align 4
   %180 = load i32, ptr %52, align 4
   %181 = load ptr, ptr %151, align 8
   tail call void @_Z12gmx_sumf_simiPfPK14gmx_multisim_t(i32 noundef %180, ptr noundef %181, ptr noundef nonnull %1)
@@ -3467,7 +3467,7 @@ _ZL22compute_exchange_orderPPiS0_ii.exit.i:       ; preds = %._crit_edge70.i.i, 
 _ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit: ; preds = %1025, %1159, %._crit_edge.thread.i.i58, %1163, %_ZL22compute_exchange_orderPPiS0_ii.exit.i, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit, %24
   %1164 = phi i8 [ 0, %24 ], [ 1, %1163 ], [ 0, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i58 ], [ 0, %1159 ], [ 0, %1025 ]
   %.7 = phi i32 [ 0, %24 ], [ %.1, %1163 ], [ %.1, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i58 ], [ %.1, %1159 ], [ 0, %1025 ]
-  %.0 = phi i32 [ 0, %24 ], [ %29, %1163 ], [ %29, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ %29, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ %29, %._crit_edge.thread.i.i58 ], [ %29, %1159 ], [ %29, %1025 ]
+  %.044 = phi i32 [ 0, %24 ], [ %29, %1163 ], [ %29, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ %29, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ %29, %._crit_edge.thread.i.i58 ], [ %29, %1159 ], [ %29, %1025 ]
   %1165 = getelementptr i8, ptr %1, i64 96
   %.val = load ptr, ptr %1165, align 8
   %.not75 = icmp eq ptr %.val, null
@@ -3520,7 +3520,7 @@ _ZL17copy_state_serialPK7t_statePS_.exit:         ; preds = %1176, %1175
 
 .lr.ph:                                           ; preds = %1184
   %1186 = getelementptr inbounds i8, ptr %3, i64 144
-  %1187 = sext i32 %.0 to i64
+  %1187 = sext i32 %.044 to i64
   %1188 = getelementptr inbounds i8, ptr %4, i64 8
   %1189 = getelementptr inbounds i8, ptr %4, i64 16
   %1190 = getelementptr inbounds i8, ptr %4, i64 12
@@ -3552,7 +3552,7 @@ _ZL17copy_state_serialPK7t_statePS_.exit:         ; preds = %1176, %1175
   %1212 = load ptr, ptr %1211, align 8
   %1213 = getelementptr inbounds i32, ptr %1212, i64 %indvars.iv
   %1214 = load i32, ptr %1213, align 4
-  %.not = icmp eq i32 %1214, %.0
+  %.not = icmp eq i32 %1214, %.044
   br i1 %.not, label %1249, label %1215
 
 1215:                                             ; preds = %1209
@@ -3561,7 +3561,7 @@ _ZL17copy_state_serialPK7t_statePS_.exit:         ; preds = %1176, %1175
   br i1 %.not48, label %1219, label %1217
 
 1217:                                             ; preds = %1215
-  %1218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1216, ptr noundef nonnull @.str.69, i32 noundef %.0, i32 noundef %1214) #19
+  %1218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1216, ptr noundef nonnull @.str.69, i32 noundef %.044, i32 noundef %1214) #19
   br label %1219
 
 1219:                                             ; preds = %1217, %1215
@@ -3638,7 +3638,7 @@ _ZL17copy_state_serialPK7t_statePS_.exit:         ; preds = %1176, %1175
   %1256 = load ptr, ptr %1255, align 8
   %1257 = getelementptr inbounds i8, ptr %3, i64 16
   %1258 = load ptr, ptr %1257, align 8
-  %1259 = sext i32 %.0 to i64
+  %1259 = sext i32 %.044 to i64
   %1260 = getelementptr inbounds float, ptr %1258, i64 %1259
   %1261 = load float, ptr %1260, align 4
   %1262 = getelementptr inbounds i8, ptr %3, i64 128
@@ -4767,9 +4767,9 @@ _ZL10print_probP8_IO_FILEPKciPf.exit93:           ; preds = %129, %_ZL9print_ind
   br i1 %139, label %.lr.ph.i95, label %._crit_edge5.thread.critedge.i
 
 .lr.ph.i95:                                       ; preds = %130, %.lr.ph.i95
-  %.0341.i = phi i32 [ %141, %.lr.ph.i95 ], [ 0, %130 ]
+  %.0331.i = phi i32 [ %141, %.lr.ph.i95 ], [ 0, %130 ]
   %140 = call i64 @fwrite(ptr nonnull @.str.110, i64 4, i64 1, ptr %0)
-  %141 = add nuw nsw i32 %.0341.i, 1
+  %141 = add nuw nsw i32 %.0331.i, 1
   %exitcond.not.i96 = icmp eq i32 %141, %132
   br i1 %exitcond.not.i96, label %._crit_edge.i, label %.lr.ph.i95, !llvm.loop !63
 

@@ -584,9 +584,9 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit: ; preds = %invoke.cont
   br label %for.cond
 
 for.cond:                                         ; preds = %land.end, %_ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit
+  %jan1_weekday.0 = phi i32 [ %spec.select, %_ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit ], [ %rem, %land.end ]
   %jan1_time.0 = phi i64 [ %call45, %_ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit ], [ %add96, %land.end ]
   %leap_year.0.in = phi i1 [ %35, %_ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit ], [ %83, %land.end ]
-  %jan1_weekday.0 = phi i32 [ %spec.select, %_ZN4absl13time_internal4cctz12_GLOBAL__N_16IsLeapEl.exit ], [ %rem, %land.end ]
   %41 = load i32, ptr %dst_start.i, align 8
   switch i32 %41, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_111TransOffsetEbiRKNS1_15PosixTransitionE.exit [
     i32 0, label %sw.bb.i
@@ -3219,17 +3219,17 @@ while.body.lr.ph.i.i:                             ; preds = %if.end51
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.lr.ph.i.i
-  %__len.014.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %while.body.i.i ]
-  %__first.addr.013.i.i = phi ptr [ %1, %while.body.lr.ph.i.i ], [ %__first.addr.1.i.i, %while.body.i.i ]
-  %shr.i.i = lshr i64 %__len.014.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %__first.addr.013.i.i, i64 %shr.i.i
+  %__first.addr.014.i.i = phi ptr [ %1, %while.body.lr.ph.i.i ], [ %__first.addr.1.i.i, %while.body.i.i ]
+  %__len.013.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %while.body.i.i ]
+  %shr.i.i = lshr i64 %__len.013.i.i, 1
+  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %__first.addr.014.i.i, i64 %shr.i.i
   %58 = load i64, ptr %add.ptr.i.i.i.i, align 8
   %cmp.i.i8.i.i = icmp slt i64 %retval.sroa.0.0.copyload.i.i1.i, %58
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 48
   %59 = xor i64 %shr.i.i, -1
-  %sub2.i.i = add nsw i64 %__len.014.i.i, %59
-  %__first.addr.1.i.i = select i1 %cmp.i.i8.i.i, ptr %__first.addr.013.i.i, ptr %incdec.ptr.i.i
+  %sub2.i.i = add nsw i64 %__len.013.i.i, %59
   %__len.1.i.i = select i1 %cmp.i.i8.i.i, i64 %shr.i.i, i64 %sub2.i.i
+  %__first.addr.1.i.i = select i1 %cmp.i.i8.i.i, ptr %__first.addr.014.i.i, ptr %incdec.ptr.i.i
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_10ByUnixTimeEET_S7_S7_RKT0_T1_.exit.loopexit, !llvm.loop !53
 
@@ -3605,10 +3605,10 @@ while.body.lr.ph.i.i:                             ; preds = %if.then29
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %.thread.i.i, %while.body.lr.ph.i.i
-  %__len.030.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %while.body.lr.ph.i.i ], [ %59, %.thread.i.i ]
-  %__first.addr.029.i.i = phi ptr [ %1, %while.body.lr.ph.i.i ], [ %58, %.thread.i.i ]
-  %shr.i.i = lshr i64 %__len.030.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %__first.addr.029.i.i, i64 %shr.i.i
+  %__first.addr.030.i.i = phi ptr [ %1, %while.body.lr.ph.i.i ], [ %59, %.thread.i.i ]
+  %__len.029.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %while.body.lr.ph.i.i ], [ %58, %.thread.i.i ]
+  %shr.i.i = lshr i64 %__len.029.i.i, 1
+  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %__first.addr.030.i.i, i64 %shr.i.i
   %civil_sec2.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 16
   %49 = load i64, ptr %civil_sec2.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp slt i64 %2, %49
@@ -3661,7 +3661,7 @@ lor.rhs32.i.i.i.i.i:                              ; preds = %land.rhs28.i.i.i.i.
 .thread24.i.i:                                    ; preds = %lor.rhs32.i.i.i.i.i, %lor.rhs24.i.i.i.i.i, %lor.rhs16.i.i.i.i.i, %lor.rhs8.i.i.i.i.i, %lor.rhs.i.i.i.i.i
   %incdec.ptr18.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 48
   %54 = xor i64 %shr.i.i, -1
-  %sub219.i.i = add nsw i64 %__len.030.i.i, %54
+  %sub219.i.i = add nsw i64 %__len.029.i.i, %54
   br label %.thread.i.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN4absl13time_internal4cctz10Transition11ByCivilTimeEEclIKS5_PS9_EEbRT_T0_.exit.i.i: ; preds = %lor.rhs32.i.i.i.i.i
@@ -3673,23 +3673,23 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN4absl13time_internal4cctz10Transition11ByCi
 
 56:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4absl13time_internal4cctz10Transition11ByCivilTimeEEclIKS5_PS9_EEbRT_T0_.exit.i.i
   %57 = xor i64 %shr.i.i, -1
-  %sub2.i.i = add nsw i64 %__len.030.i.i, %57
+  %sub2.i.i = add nsw i64 %__len.029.i.i, %57
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 48
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %56, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4absl13time_internal4cctz10Transition11ByCivilTimeEEclIKS5_PS9_EEbRT_T0_.exit.i.i, %.thread24.i.i, %land.rhs28.i.i.i.i.i, %land.rhs20.i.i.i.i.i, %land.rhs12.i.i.i.i.i, %land.rhs.i.i.i.i.i, %while.body.i.i
-  %58 = phi ptr [ %incdec.ptr18.i.i, %.thread24.i.i ], [ %__first.addr.029.i.i, %land.rhs28.i.i.i.i.i ], [ %__first.addr.029.i.i, %land.rhs20.i.i.i.i.i ], [ %__first.addr.029.i.i, %land.rhs12.i.i.i.i.i ], [ %__first.addr.029.i.i, %land.rhs.i.i.i.i.i ], [ %__first.addr.029.i.i, %while.body.i.i ], [ %__first.addr.029.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4absl13time_internal4cctz10Transition11ByCivilTimeEEclIKS5_PS9_EEbRT_T0_.exit.i.i ], [ %incdec.ptr.i.i, %56 ]
-  %59 = phi i64 [ %sub219.i.i, %.thread24.i.i ], [ %shr.i.i, %land.rhs28.i.i.i.i.i ], [ %shr.i.i, %land.rhs20.i.i.i.i.i ], [ %shr.i.i, %land.rhs12.i.i.i.i.i ], [ %shr.i.i, %land.rhs.i.i.i.i.i ], [ %shr.i.i, %while.body.i.i ], [ %shr.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4absl13time_internal4cctz10Transition11ByCivilTimeEEclIKS5_PS9_EEbRT_T0_.exit.i.i ], [ %sub2.i.i, %56 ]
-  %cmp.i.i128 = icmp sgt i64 %59, 0
+  %58 = phi i64 [ %sub219.i.i, %.thread24.i.i ], [ %shr.i.i, %land.rhs28.i.i.i.i.i ], [ %shr.i.i, %land.rhs20.i.i.i.i.i ], [ %shr.i.i, %land.rhs12.i.i.i.i.i ], [ %shr.i.i, %land.rhs.i.i.i.i.i ], [ %shr.i.i, %while.body.i.i ], [ %shr.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4absl13time_internal4cctz10Transition11ByCivilTimeEEclIKS5_PS9_EEbRT_T0_.exit.i.i ], [ %sub2.i.i, %56 ]
+  %59 = phi ptr [ %incdec.ptr18.i.i, %.thread24.i.i ], [ %__first.addr.030.i.i, %land.rhs28.i.i.i.i.i ], [ %__first.addr.030.i.i, %land.rhs20.i.i.i.i.i ], [ %__first.addr.030.i.i, %land.rhs12.i.i.i.i.i ], [ %__first.addr.030.i.i, %land.rhs.i.i.i.i.i ], [ %__first.addr.030.i.i, %while.body.i.i ], [ %__first.addr.030.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4absl13time_internal4cctz10Transition11ByCivilTimeEEclIKS5_PS9_EEbRT_T0_.exit.i.i ], [ %incdec.ptr.i.i, %56 ]
+  %cmp.i.i128 = icmp sgt i64 %58, 0
   br i1 %cmp.i.i128, label %while.body.i.i, label %_ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_11ByCivilTimeEET_S7_S7_RKT0_T1_.exit.loopexit, !llvm.loop !57
 
 _ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_11ByCivilTimeEET_S7_S7_RKT0_T1_.exit.loopexit: ; preds = %.thread.i.i
-  %.pre442 = ptrtoint ptr %58 to i64
+  %.pre442 = ptrtoint ptr %59 to i64
   br label %_ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_11ByCivilTimeEET_S7_S7_RKT0_T1_.exit
 
 _ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_11ByCivilTimeEET_S7_S7_RKT0_T1_.exit: ; preds = %_ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_11ByCivilTimeEET_S7_S7_RKT0_T1_.exit.loopexit, %if.then29
   %sub.ptr.lhs.cast.pre-phi = phi i64 [ %.pre442, %_ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_11ByCivilTimeEET_S7_S7_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i, %if.then29 ]
-  %__first.addr.0.lcssa.i.i = phi ptr [ %58, %_ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_11ByCivilTimeEET_S7_S7_RKT0_T1_.exit.loopexit ], [ %1, %if.then29 ]
+  %__first.addr.0.lcssa.i.i = phi ptr [ %59, %_ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_11ByCivilTimeEET_S7_S7_RKT0_T1_.exit.loopexit ], [ %1, %if.then29 ]
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast.pre-phi, %sub.ptr.rhs.cast.i
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 48
   store atomic i64 %sub.ptr.div, ptr %time_local_hint_ monotonic, align 8
@@ -4698,17 +4698,17 @@ while.body.lr.ph.i.i:                             ; preds = %if.end
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.lr.ph.i.i
-  %__len.014.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %while.body.i.i ]
-  %__first.addr.013.i.i = phi ptr [ %spec.select, %while.body.lr.ph.i.i ], [ %__first.addr.1.i.i, %while.body.i.i ]
-  %shr.i.i = lshr i64 %__len.014.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %__first.addr.013.i.i, i64 %shr.i.i
+  %__first.addr.014.i.i = phi ptr [ %spec.select, %while.body.lr.ph.i.i ], [ %__first.addr.1.i.i, %while.body.i.i ]
+  %__len.013.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %while.body.i.i ]
+  %shr.i.i = lshr i64 %__len.013.i.i, 1
+  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %__first.addr.014.i.i, i64 %shr.i.i
   %3 = load i64, ptr %add.ptr.i.i.i.i, align 8
   %cmp.i.i8.i.i = icmp slt i64 %retval.sroa.0.0.copyload.i.i1.i, %3
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 48
   %4 = xor i64 %shr.i.i, -1
-  %sub2.i.i = add nsw i64 %__len.014.i.i, %4
-  %__first.addr.1.i.i = select i1 %cmp.i.i8.i.i, ptr %__first.addr.013.i.i, ptr %incdec.ptr.i.i
+  %sub2.i.i = add nsw i64 %__len.013.i.i, %4
   %__len.1.i.i = select i1 %cmp.i.i8.i.i, i64 %shr.i.i, i64 %sub2.i.i
+  %__first.addr.1.i.i = select i1 %cmp.i.i8.i.i, ptr %__first.addr.014.i.i, ptr %incdec.ptr.i.i
   %cmp.i.i20 = icmp sgt i64 %__len.1.i.i, 0
   br i1 %cmp.i.i20, label %while.body.i.i, label %_ZSt11upper_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_10ByUnixTimeEET_S7_S7_RKT0_T1_.exit, !llvm.loop !53
 
@@ -4826,17 +4826,17 @@ while.body.lr.ph.i.i:                             ; preds = %if.end25
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.lr.ph.i.i
-  %__len.014.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %while.body.i.i ]
-  %__first.addr.013.i.i = phi ptr [ %spec.select, %while.body.lr.ph.i.i ], [ %__first.addr.1.i.i, %while.body.i.i ]
-  %shr.i.i = lshr i64 %__len.014.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %__first.addr.013.i.i, i64 %shr.i.i
+  %__first.addr.014.i.i = phi ptr [ %spec.select, %while.body.lr.ph.i.i ], [ %__first.addr.1.i.i, %while.body.i.i ]
+  %__len.013.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %while.body.i.i ]
+  %shr.i.i = lshr i64 %__len.013.i.i, 1
+  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.absl::time_internal::cctz::Transition", ptr %__first.addr.014.i.i, i64 %shr.i.i
   %3 = load i64, ptr %add.ptr.i.i.i.i, align 8
   %cmp.i.i8.i.i = icmp slt i64 %3, %retval.sroa.0.0.copyload.i.i1.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 48
   %4 = xor i64 %shr.i.i, -1
-  %sub2.i.i = add nsw i64 %__len.014.i.i, %4
-  %__first.addr.1.i.i = select i1 %cmp.i.i8.i.i, ptr %incdec.ptr.i.i, ptr %__first.addr.013.i.i
+  %sub2.i.i = add nsw i64 %__len.013.i.i, %4
   %__len.1.i.i = select i1 %cmp.i.i8.i.i, i64 %sub2.i.i, i64 %shr.i.i
+  %__first.addr.1.i.i = select i1 %cmp.i.i8.i.i, ptr %incdec.ptr.i.i, ptr %__first.addr.014.i.i
   %cmp.i.i30 = icmp sgt i64 %__len.1.i.i, 0
   br i1 %cmp.i.i30, label %while.body.i.i, label %_ZSt11lower_boundIPKN4absl13time_internal4cctz10TransitionES3_NS3_10ByUnixTimeEET_S7_S7_RKT0_T1_.exit, !llvm.loop !83
 

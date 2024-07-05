@@ -248,7 +248,7 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %22
 
 22:                                               ; preds = %18, %11
-  %.0101 = phi ptr [ %21, %18 ], [ @.str.50, %11 ]
+  %.095 = phi ptr [ %21, %18 ], [ @.str.50, %11 ]
   %23 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 1) #2
   %.not108 = icmp eq i32 %23, 0
   br i1 %.not108, label %28, label %24
@@ -272,8 +272,8 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %34
 
 34:                                               ; preds = %30, %28
-  %.099 = phi i32 [ %32, %30 ], [ 0, %28 ]
-  %.097 = phi ptr [ %33, %30 ], [ @.str.52, %28 ]
+  %.0101 = phi ptr [ %33, %30 ], [ @.str.52, %28 ]
+  %.097 = phi i32 [ %32, %30 ], [ 0, %28 ]
   %35 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 15, i32 noundef 1) #2
   %.not110 = icmp eq i32 %35, 0
   br i1 %.not110, label %40, label %36
@@ -285,8 +285,8 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %40
 
 40:                                               ; preds = %36, %34
-  %.0100 = phi i32 [ %38, %36 ], [ 0, %34 ]
-  %.096 = phi ptr [ %39, %36 ], [ @.str.52, %34 ]
+  %.0100 = phi ptr [ %39, %36 ], [ @.str.52, %34 ]
+  %.096 = phi i32 [ %38, %36 ], [ 0, %34 ]
   %41 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %8, i32 noundef 4) #2
   %.not111 = icmp eq i32 %41, 0
   br i1 %.not111, label %45, label %42
@@ -299,7 +299,7 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %45
 
 45:                                               ; preds = %42, %40
-  %.095 = phi ptr [ @.str.50, %40 ], [ %spec.select, %42 ]
+  %.099 = phi ptr [ @.str.50, %40 ], [ %spec.select, %42 ]
   %.0 = phi i32 [ 0, %40 ], [ %44, %42 ]
   %46 = and i32 %6, 3
   %47 = icmp ne i32 %46, 0
@@ -307,7 +307,7 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   %or.cond = or i1 %47, %48
   %spec.store.select = select i1 %or.cond, ptr @.str.55, ptr @.str.50
   %49 = load i32, ptr @proto_fcoib, align 4
-  %50 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef 16, ptr noundef nonnull @.str.56, ptr noundef %.0101, ptr noundef %.096, ptr noundef %.097, i32 noundef %7, ptr noundef nonnull %.095, ptr noundef nonnull %spec.store.select) #2
+  %50 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef 16, ptr noundef nonnull @.str.56, ptr noundef %.095, ptr noundef %.0100, ptr noundef %.0101, i32 noundef %7, ptr noundef nonnull %.099, ptr noundef nonnull %spec.store.select) #2
   %51 = load i32, ptr @ett_fcoib, align 4
   %52 = tail call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51) #2
   %53 = load i32, ptr @hf_fcoib_sig, align 4
@@ -315,7 +315,7 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   %55 = load i32, ptr @hf_fcoib_ver, align 4
   %56 = tail call ptr @proto_tree_add_uint(ptr noundef %52, i32 noundef %55, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %17) #2
   %57 = load i32, ptr @hf_fcoib_sof, align 4
-  %58 = tail call ptr @proto_tree_add_uint(ptr noundef %52, i32 noundef %57, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef %.0100) #2
+  %58 = tail call ptr @proto_tree_add_uint(ptr noundef %52, i32 noundef %57, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef %.096) #2
   %59 = load i32, ptr @hf_fcoib_crc, align 4
   %60 = load i32, ptr @hf_fcoib_crc_status, align 4
   br i1 %.not111, label %64, label %61
@@ -343,7 +343,7 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
 71:                                               ; preds = %68, %66
   %72 = getelementptr inbounds i8, ptr %5, i64 4
   store i8 0, ptr %72, align 4
-  %trunc = trunc nuw i32 %.0100 to i8
+  %trunc = trunc nuw i32 %.096 to i8
   %switch.tableidx = add i8 %trunc, -40
   %73 = icmp ult i8 %switch.tableidx, 7
   br i1 %73, label %switch.hole_check, label %75
@@ -363,13 +363,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 75:                                               ; preds = %switch.hole_check, %71, %switch.lookup
   %76 = phi i8 [ 0, %71 ], [ %switch.masked, %switch.lookup ], [ 0, %switch.hole_check ]
-  %.not114 = icmp eq i32 %.099, 65
+  %.not114 = icmp eq i32 %.097, 65
   br i1 %.not114, label %81, label %77
 
 77:                                               ; preds = %75
   %78 = or disjoint i8 %76, -128
   store i8 %78, ptr %72, align 4
-  %.not115 = icmp eq i32 %.099, 66
+  %.not115 = icmp eq i32 %.097, 66
   br i1 %.not115, label %81, label %79
 
 79:                                               ; preds = %77

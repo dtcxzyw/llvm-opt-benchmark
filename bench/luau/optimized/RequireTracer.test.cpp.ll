@@ -2322,9 +2322,9 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit89.i: ;
 
 329:                                              ; preds = %335, %320
   %.pn.i.i.i = phi i64 [ %327, %320 ], [ %337, %335 ]
-  %.019.i.i.i = phi i64 [ 0, %320 ], [ %336, %335 ]
-  %.01520.i.i.i = and i64 %.pn.i.i.i, %323
-  %330 = getelementptr inbounds %"struct.std::pair", ptr %328, i64 %.01520.i.i.i
+  %.01519.i.i.i = phi i64 [ 0, %320 ], [ %336, %335 ]
+  %.01620.i.i.i = and i64 %.pn.i.i.i, %323
+  %330 = getelementptr inbounds %"struct.std::pair", ptr %328, i64 %.01620.i.i.i
   %331 = load ptr, ptr %330, align 8
   %332 = icmp eq ptr %331, %312
   br i1 %332, label %.loopexit153.i, label %333
@@ -2334,17 +2334,17 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit89.i: ;
   br i1 %334, label %.loopexit153.i, label %335
 
 335:                                              ; preds = %333
-  %336 = add i64 %.019.i.i.i, 1
-  %337 = add i64 %336, %.01520.i.i.i
+  %336 = add i64 %.01519.i.i.i, 1
+  %337 = add i64 %336, %.01620.i.i.i
   %.not.i.i.i = icmp ugt i64 %336, %323
   br i1 %.not.i.i.i, label %.loopexit153.i, label %329, !llvm.loop !13
 
 .loopexit153.i:                                   ; preds = %335, %333, %329, %316, %311
-  %.016.i.i.i = phi i64 [ 0, %311 ], [ 0, %316 ], [ 1, %329 ], [ 0, %333 ], [ 0, %335 ]
+  %.0.i.i.i = phi i64 [ 0, %311 ], [ 0, %316 ], [ 1, %329 ], [ 0, %333 ], [ 0, %335 ]
   %338 = load i32, ptr %38, align 4
   %.sroa.22.0.insert.ext.i93.i = zext i32 %338 to i64
   %.sroa.22.0.insert.shift.i94.i = shl nuw i64 %.sroa.22.0.insert.ext.i93.i, 32
-  %.sroa.0.0.insert.insert.i96.i = or disjoint i64 %.sroa.22.0.insert.shift.i94.i, %.016.i.i.i
+  %.sroa.0.0.insert.insert.i96.i = or disjoint i64 %.sroa.22.0.insert.shift.i94.i, %.0.i.i.i
   store i64 %.sroa.0.0.insert.insert.i96.i, ptr %37, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %36, ptr noundef nonnull align 4 dereferenceable(8) %37)
           to label %339 unwind label %345
@@ -2671,9 +2671,9 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EA22_cNSt7__cxx1112basic_str
 
 463:                                              ; preds = %469, %454
   %.pn.i.i102.i = phi i64 [ %461, %454 ], [ %471, %469 ]
-  %.019.i.i103.i = phi i64 [ 0, %454 ], [ %470, %469 ]
-  %.01520.i.i104.i = and i64 %.pn.i.i102.i, %457
-  %464 = getelementptr inbounds %"struct.std::pair", ptr %462, i64 %.01520.i.i104.i
+  %.01519.i.i103.i = phi i64 [ 0, %454 ], [ %470, %469 ]
+  %.01620.i.i104.i = and i64 %.pn.i.i102.i, %457
+  %464 = getelementptr inbounds %"struct.std::pair", ptr %462, i64 %.01620.i.i104.i
   %465 = load ptr, ptr %464, align 8
   %466 = icmp eq ptr %465, %446
   br i1 %466, label %.loopexit152.i, label %467
@@ -2683,17 +2683,17 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EA22_cNSt7__cxx1112basic_str
   br i1 %468, label %.loopexit152.i, label %469
 
 469:                                              ; preds = %467
-  %470 = add i64 %.019.i.i103.i, 1
-  %471 = add i64 %470, %.01520.i.i104.i
+  %470 = add i64 %.01519.i.i103.i, 1
+  %471 = add i64 %470, %.01620.i.i104.i
   %.not.i.i105.i = icmp ugt i64 %470, %457
   br i1 %.not.i.i105.i, label %.loopexit152.i, label %463, !llvm.loop !13
 
 .loopexit152.i:                                   ; preds = %469, %467, %463, %450, %445
-  %.016.i.i106.i = phi i64 [ 0, %445 ], [ 0, %450 ], [ 1, %463 ], [ 0, %467 ], [ 0, %469 ]
+  %.0.i.i106.i = phi i64 [ 0, %445 ], [ 0, %450 ], [ 1, %463 ], [ 0, %467 ], [ 0, %469 ]
   %472 = load i32, ptr %51, align 4
   %.sroa.22.0.insert.ext.i108.i = zext i32 %472 to i64
   %.sroa.22.0.insert.shift.i109.i = shl nuw i64 %.sroa.22.0.insert.ext.i108.i, 32
-  %.sroa.0.0.insert.insert.i111.i = or disjoint i64 %.sroa.22.0.insert.shift.i109.i, %.016.i.i106.i
+  %.sroa.0.0.insert.insert.i111.i = or disjoint i64 %.sroa.22.0.insert.shift.i109.i, %.0.i.i106.i
   store i64 %.sroa.0.0.insert.insert.i111.i, ptr %50, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %49, ptr noundef nonnull align 4 dereferenceable(8) %50)
           to label %473 unwind label %479
@@ -3020,9 +3020,9 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EA18_cNSt7__cxx1112basic_str
 
 597:                                              ; preds = %603, %588
   %.pn.i.i117.i = phi i64 [ %595, %588 ], [ %605, %603 ]
-  %.019.i.i118.i = phi i64 [ 0, %588 ], [ %604, %603 ]
-  %.01520.i.i119.i = and i64 %.pn.i.i117.i, %591
-  %598 = getelementptr inbounds %"struct.std::pair", ptr %596, i64 %.01520.i.i119.i
+  %.01519.i.i118.i = phi i64 [ 0, %588 ], [ %604, %603 ]
+  %.01620.i.i119.i = and i64 %.pn.i.i117.i, %591
+  %598 = getelementptr inbounds %"struct.std::pair", ptr %596, i64 %.01620.i.i119.i
   %599 = load ptr, ptr %598, align 8
   %600 = icmp eq ptr %599, %580
   br i1 %600, label %.loopexit151.i, label %601
@@ -3032,17 +3032,17 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EA18_cNSt7__cxx1112basic_str
   br i1 %602, label %.loopexit151.i, label %603
 
 603:                                              ; preds = %601
-  %604 = add i64 %.019.i.i118.i, 1
-  %605 = add i64 %604, %.01520.i.i119.i
+  %604 = add i64 %.01519.i.i118.i, 1
+  %605 = add i64 %604, %.01620.i.i119.i
   %.not.i.i120.i = icmp ugt i64 %604, %591
   br i1 %.not.i.i120.i, label %.loopexit151.i, label %597, !llvm.loop !13
 
 .loopexit151.i:                                   ; preds = %603, %601, %597, %584, %579
-  %.016.i.i121.i = phi i64 [ 0, %579 ], [ 0, %584 ], [ 1, %597 ], [ 0, %601 ], [ 0, %603 ]
+  %.0.i.i121.i = phi i64 [ 0, %579 ], [ 0, %584 ], [ 1, %597 ], [ 0, %601 ], [ 0, %603 ]
   %606 = load i32, ptr %64, align 4
   %.sroa.22.0.insert.ext.i123.i = zext i32 %606 to i64
   %.sroa.22.0.insert.shift.i124.i = shl nuw i64 %.sroa.22.0.insert.ext.i123.i, 32
-  %.sroa.0.0.insert.insert.i126.i = or disjoint i64 %.sroa.22.0.insert.shift.i124.i, %.016.i.i121.i
+  %.sroa.0.0.insert.insert.i126.i = or disjoint i64 %.sroa.22.0.insert.shift.i124.i, %.0.i.i121.i
   store i64 %.sroa.0.0.insert.insert.i126.i, ptr %63, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %62, ptr noundef nonnull align 4 dereferenceable(8) %63)
           to label %607 unwind label %613
@@ -3369,9 +3369,9 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EA14_cNSt7__cxx1112basic_str
 
 731:                                              ; preds = %737, %722
   %.pn.i.i132.i = phi i64 [ %729, %722 ], [ %739, %737 ]
-  %.019.i.i133.i = phi i64 [ 0, %722 ], [ %738, %737 ]
-  %.01520.i.i134.i = and i64 %.pn.i.i132.i, %725
-  %732 = getelementptr inbounds %"struct.std::pair", ptr %730, i64 %.01520.i.i134.i
+  %.01519.i.i133.i = phi i64 [ 0, %722 ], [ %738, %737 ]
+  %.01620.i.i134.i = and i64 %.pn.i.i132.i, %725
+  %732 = getelementptr inbounds %"struct.std::pair", ptr %730, i64 %.01620.i.i134.i
   %733 = load ptr, ptr %732, align 8
   %734 = icmp eq ptr %733, %714
   br i1 %734, label %.loopexit.i, label %735
@@ -3381,17 +3381,17 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EA14_cNSt7__cxx1112basic_str
   br i1 %736, label %.loopexit.i, label %737
 
 737:                                              ; preds = %735
-  %738 = add i64 %.019.i.i133.i, 1
-  %739 = add i64 %738, %.01520.i.i134.i
+  %738 = add i64 %.01519.i.i133.i, 1
+  %739 = add i64 %738, %.01620.i.i134.i
   %.not.i.i135.i = icmp ugt i64 %738, %725
   br i1 %.not.i.i135.i, label %.loopexit.i, label %731, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %737, %735, %731, %718, %713
-  %.016.i.i136.i = phi i64 [ 0, %713 ], [ 0, %718 ], [ 1, %731 ], [ 0, %735 ], [ 0, %737 ]
+  %.0.i.i136.i = phi i64 [ 0, %713 ], [ 0, %718 ], [ 1, %731 ], [ 0, %735 ], [ 0, %737 ]
   %740 = load i32, ptr %78, align 4
   %.sroa.22.0.insert.ext.i138.i = zext i32 %740 to i64
   %.sroa.22.0.insert.shift.i139.i = shl nuw i64 %.sroa.22.0.insert.ext.i138.i, 32
-  %.sroa.0.0.insert.insert.i141.i = or disjoint i64 %.sroa.22.0.insert.shift.i139.i, %.016.i.i136.i
+  %.sroa.0.0.insert.insert.i141.i = or disjoint i64 %.sroa.22.0.insert.shift.i139.i, %.0.i.i136.i
   store i64 %.sroa.0.0.insert.insert.i141.i, ptr %77, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %76, ptr noundef nonnull align 4 dereferenceable(8) %77)
           to label %741 unwind label %747
@@ -4290,9 +4290,9 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit38.i: ;
 
 202:                                              ; preds = %208, %193
   %.pn.i.i.i = phi i64 [ %200, %193 ], [ %210, %208 ]
-  %.019.i.i.i = phi i64 [ 0, %193 ], [ %209, %208 ]
-  %.01520.i.i.i = and i64 %.pn.i.i.i, %196
-  %203 = getelementptr inbounds %"struct.std::pair", ptr %201, i64 %.01520.i.i.i
+  %.01519.i.i.i = phi i64 [ 0, %193 ], [ %209, %208 ]
+  %.01620.i.i.i = and i64 %.pn.i.i.i, %196
+  %203 = getelementptr inbounds %"struct.std::pair", ptr %201, i64 %.01620.i.i.i
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %204, %190
   br i1 %205, label %.loopexit.i, label %206
@@ -4302,17 +4302,17 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit38.i: ;
   br i1 %207, label %.loopexit.i, label %208
 
 208:                                              ; preds = %206
-  %209 = add i64 %.019.i.i.i, 1
-  %210 = add i64 %209, %.01520.i.i.i
+  %209 = add i64 %.01519.i.i.i, 1
+  %210 = add i64 %209, %.01620.i.i.i
   %.not.i.i.i = icmp ugt i64 %209, %196
   br i1 %.not.i.i.i, label %.loopexit.i, label %202, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %208, %206, %202, %185, %181
-  %.016.i.i.i = phi i64 [ 0, %181 ], [ 0, %185 ], [ 1, %202 ], [ 0, %206 ], [ 0, %208 ]
+  %.0.i.i.i = phi i64 [ 0, %181 ], [ 0, %185 ], [ 1, %202 ], [ 0, %206 ], [ 0, %208 ]
   %211 = load i32, ptr %24, align 4
   %.sroa.22.0.insert.ext.i.i = zext i32 %211 to i64
   %.sroa.22.0.insert.shift.i.i = shl nuw i64 %.sroa.22.0.insert.ext.i.i, 32
-  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.22.0.insert.shift.i.i, %.016.i.i.i
+  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.22.0.insert.shift.i.i, %.0.i.i.i
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %23, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %22, ptr noundef nonnull align 4 dereferenceable(8) %23)
           to label %212 unwind label %218
@@ -8167,9 +8167,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(33) ptr @_
 
 23:                                               ; preds = %29, %16
   %.pn.i.i = phi i64 [ %21, %16 ], [ %31, %29 ]
-  %.019.i.i = phi i64 [ 0, %16 ], [ %30, %29 ]
-  %.01520.i.i = and i64 %.pn.i.i, %17
-  %24 = getelementptr inbounds %"struct.std::pair", ptr %22, i64 %.01520.i.i
+  %.01519.i.i = phi i64 [ 0, %16 ], [ %30, %29 ]
+  %.01620.i.i = and i64 %.pn.i.i, %17
+  %24 = getelementptr inbounds %"struct.std::pair", ptr %22, i64 %.01620.i.i
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %13
   br i1 %26, label %_ZN4Luau6detail14DenseHashTableIPKNS_7AstExprESt4pairIS4_NS_10ModuleInfoEES5_IKS4_S6_ENS0_16ItemInterfaceMapIS4_S6_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS8_.exit, label %27
@@ -8179,8 +8179,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(33) ptr @_
   br i1 %28, label %.loopexit.i, label %29
 
 29:                                               ; preds = %27
-  %30 = add i64 %.019.i.i, 1
-  %31 = add i64 %30, %.01520.i.i
+  %30 = add i64 %.01519.i.i, 1
+  %31 = add i64 %30, %.01620.i.i
   %.not.i.i = icmp ugt i64 %30, %17
   br i1 %.not.i.i, label %.loopexit.i, label %23, !llvm.loop !13
 
@@ -8200,8 +8200,8 @@ _ZN4Luau6detail14DenseHashTableIPKNS_7AstExprESt4pairIS4_NS_10ModuleInfoEES5_IKS
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
-  %.01722.i6 = and i64 %38, %33
-  %42 = getelementptr inbounds %"struct.std::pair", ptr %39, i64 %.01722.i6
+  %.01822.i6 = and i64 %38, %33
+  %42 = getelementptr inbounds %"struct.std::pair", ptr %39, i64 %.01822.i6
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, %41
   br i1 %44, label %._crit_edge, label %.lr.ph.preheader
@@ -8223,14 +8223,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_7AstExprESt4pairIS4_NS_10ModuleInfoEES5_IKS
   br i1 %48, label %_ZN4Luau6detail14DenseHashTableIPKNS_7AstExprESt4pairIS4_NS_10ModuleInfoEES5_IKS4_S6_ENS0_16ItemInterfaceMapIS4_S6_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS8_.exit, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.021.i719 = phi i64 [ %49, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01722.i818 = phi i64 [ %.01722.i, %.lr.ph ], [ %.01722.i6, %.lr.ph.preheader ]
-  %49 = add i64 %.021.i719, 1
-  %50 = add i64 %49, %.01722.i818
+  %.01721.i719 = phi i64 [ %49, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01822.i818 = phi i64 [ %.01822.i, %.lr.ph ], [ %.01822.i6, %.lr.ph.preheader ]
+  %49 = add i64 %.01721.i719, 1
+  %50 = add i64 %49, %.01822.i818
   %.not.i3 = icmp ule i64 %49, %33
   tail call void @llvm.assume(i1 %.not.i3)
-  %.01722.i = and i64 %50, %33
-  %51 = getelementptr inbounds %"struct.std::pair", ptr %39, i64 %.01722.i
+  %.01822.i = and i64 %50, %33
+  %51 = getelementptr inbounds %"struct.std::pair", ptr %39, i64 %.01822.i
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, %41
   br i1 %53, label %._crit_edge, label %.lr.ph
@@ -8811,9 +8811,9 @@ _ZN4Luau6detail14DenseHashTableIPKNS_7AstExprESt4pairIS4_NS_10ModuleInfoEES5_IKS
 
 30:                                               ; preds = %37, %25
   %.pn.i = phi i64 [ %29, %25 ], [ %39, %37 ]
-  %.021.i = phi i64 [ 0, %25 ], [ %38, %37 ]
-  %.01722.i = and i64 %.pn.i, %17
-  %31 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0, i64 %.01722.i
+  %.01721.i = phi i64 [ 0, %25 ], [ %38, %37 ]
+  %.01822.i = and i64 %.pn.i, %17
+  %31 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0, i64 %.01822.i
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %7
   br i1 %33, label %34, label %35
@@ -8828,21 +8828,21 @@ _ZN4Luau6detail14DenseHashTableIPKNS_7AstExprESt4pairIS4_NS_10ModuleInfoEES5_IKS
   br i1 %36, label %_ZN4Luau6detail14DenseHashTableIPKNS_7AstExprESt4pairIS4_NS_10ModuleInfoEES5_IKS4_S6_ENS0_16ItemInterfaceMapIS4_S6_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS8_.exit, label %37
 
 37:                                               ; preds = %35
-  %38 = add i64 %.021.i, 1
-  %39 = add i64 %38, %.01722.i
+  %38 = add i64 %.01721.i, 1
+  %39 = add i64 %38, %.01822.i
   %.not.i11 = icmp ugt i64 %38, %17
   br i1 %.not.i11, label %_ZN4Luau6detail14DenseHashTableIPKNS_7AstExprESt4pairIS4_NS_10ModuleInfoEES5_IKS4_S6_ENS0_16ItemInterfaceMapIS4_S6_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS8_.exit, label %30, !llvm.loop !83
 
 _ZN4Luau6detail14DenseHashTableIPKNS_7AstExprESt4pairIS4_NS_10ModuleInfoEES5_IKS4_S6_ENS0_16ItemInterfaceMapIS4_S6_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS8_.exit: ; preds = %37, %35, %34
   %40 = phi ptr [ %.pre23, %34 ], [ %22, %35 ], [ %22, %37 ]
-  %.018.i = phi ptr [ %31, %34 ], [ null, %37 ], [ %31, %35 ]
-  store ptr %40, ptr %.018.i, align 8
+  %.0.i = phi ptr [ %31, %34 ], [ null, %37 ], [ %31, %35 ]
+  store ptr %40, ptr %.0.i, align 8
   %41 = getelementptr inbounds i8, ptr %21, i64 8
-  %42 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %42 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %43 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %41) #18
   %44 = getelementptr inbounds i8, ptr %21, i64 40
   %45 = load i8, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.018.i, i64 40
+  %46 = getelementptr inbounds i8, ptr %.0.i, i64 40
   %47 = and i8 %45, 1
   store i8 %47, ptr %46, align 8
   %.pre24 = load i64, ptr %2, align 8

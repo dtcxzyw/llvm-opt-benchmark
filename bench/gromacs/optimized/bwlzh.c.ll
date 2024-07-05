@@ -707,24 +707,24 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   unreachable
 
 27:                                               ; preds = %281
-  %28 = add nsw i32 %43, %.0227281
+  %28 = add nsw i32 %43, %.0231279
   %.not251 = icmp eq i32 %44, 0
   br i1 %.not251, label %._crit_edge286, label %29, !llvm.loop !12
 
 29:                                               ; preds = %.lr.ph285, %27
   %.0222284 = phi ptr [ %8, %.lr.ph285 ], [ %.1, %27 ]
-  %.0223283 = phi ptr [ %8, %.lr.ph285 ], [ %.1224, %27 ]
-  %.0225282 = phi i32 [ 4, %.lr.ph285 ], [ %.4, %27 ]
-  %.0227281 = phi i32 [ 0, %.lr.ph285 ], [ %28, %27 ]
-  %.0228280 = phi i32 [ %1, %.lr.ph285 ], [ %44, %27 ]
-  %.0229279 = phi i32 [ 200000, %.lr.ph285 ], [ %.1230, %27 ]
-  %.0231278 = phi ptr [ %17, %.lr.ph285 ], [ %.1232, %27 ]
-  %.0233277 = phi ptr [ %16, %.lr.ph285 ], [ %.1234, %27 ]
-  %.0235276 = phi ptr [ %15, %.lr.ph285 ], [ %.1236, %27 ]
-  %.0238275 = phi ptr [ %18, %.lr.ph285 ], [ %.1239, %27 ]
-  %.0240274 = phi ptr [ %14, %.lr.ph285 ], [ %.1241, %27 ]
-  %.0242273 = phi ptr [ %13, %.lr.ph285 ], [ %.1243, %27 ]
-  %30 = sext i32 %.0225282 to i64
+  %.0223283 = phi ptr [ %13, %.lr.ph285 ], [ %.1224, %27 ]
+  %.0225282 = phi ptr [ %8, %.lr.ph285 ], [ %.1226, %27 ]
+  %.0227281 = phi ptr [ %14, %.lr.ph285 ], [ %.1228, %27 ]
+  %.0229280 = phi i32 [ 4, %.lr.ph285 ], [ %.4, %27 ]
+  %.0231279 = phi i32 [ 0, %.lr.ph285 ], [ %28, %27 ]
+  %.0232278 = phi ptr [ %18, %.lr.ph285 ], [ %.1233, %27 ]
+  %.0234277 = phi i32 [ %1, %.lr.ph285 ], [ %44, %27 ]
+  %.0235276 = phi i32 [ 200000, %.lr.ph285 ], [ %.1236, %27 ]
+  %.0238275 = phi ptr [ %15, %.lr.ph285 ], [ %.1239, %27 ]
+  %.0240274 = phi ptr [ %16, %.lr.ph285 ], [ %.1241, %27 ]
+  %.0242273 = phi ptr [ %17, %.lr.ph285 ], [ %.1243, %27 ]
+  %30 = sext i32 %.0229280 to i64
   %31 = getelementptr inbounds i8, ptr %0, i64 %30
   %32 = load i16, ptr %31, align 1
   %33 = zext i16 %32 to i32
@@ -738,7 +738,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %41 = zext i8 %40 to i32
   %42 = shl nuw i32 %41, 24
   %43 = or disjoint i32 %38, %42
-  %44 = sub nsw i32 %.0228280, %43
+  %44 = sub nsw i32 %.0234277, %43
   %gep269 = getelementptr i8, ptr %invariant.gep268, i64 %30
   %45 = load i8, ptr %gep269, align 1
   %46 = zext i8 %45 to i32
@@ -775,8 +775,8 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %76 = zext i8 %75 to i32
   %77 = shl nuw i32 %76, 24
   %78 = or disjoint i32 %73, %77
-  %79 = add nsw i32 %.0225282, 12
-  %80 = icmp sgt i32 %43, %.0229279
+  %79 = add nsw i32 %.0229280, 12
+  %80 = icmp sgt i32 %43, %.0235276
   br i1 %80, label %81, label %107
 
 81:                                               ; preds = %29
@@ -792,7 +792,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %87 = mul nsw i32 %43, 18
   %88 = zext nneg i32 %87 to i64
   %89 = shl nuw nsw i64 %88, 2
-  %90 = call ptr @Ptngc_warnrealloc_x(ptr noundef %.0223283, i64 noundef %89, ptr noundef nonnull @.str, i32 noundef 649) #9
+  %90 = call ptr @Ptngc_warnrealloc_x(ptr noundef %.0225282, i64 noundef %89, ptr noundef nonnull @.str, i32 noundef 649) #9
   %91 = mul nsw i32 %43, 3
   %92 = zext nneg i32 %91 to i64
   %93 = getelementptr inbounds i32, ptr %90, i64 %92
@@ -808,18 +808,18 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %103 = mul nsw i32 %43, 15
   %104 = zext nneg i32 %103 to i64
   %105 = getelementptr inbounds i32, ptr %90, i64 %104
-  %106 = call ptr @Ptngc_warnrealloc_x(ptr noundef %.0238275, i64 noundef %98, ptr noundef nonnull @.str, i32 noundef 658) #9
+  %106 = call ptr @Ptngc_warnrealloc_x(ptr noundef %.0232278, i64 noundef %98, ptr noundef nonnull @.str, i32 noundef 658) #9
   br label %107
 
 107:                                              ; preds = %86, %29
-  %.1243 = phi ptr [ %93, %86 ], [ %.0242273, %29 ]
-  %.1241 = phi ptr [ %96, %86 ], [ %.0240274, %29 ]
-  %.1239 = phi ptr [ %106, %86 ], [ %.0238275, %29 ]
-  %.1236 = phi ptr [ %99, %86 ], [ %.0235276, %29 ]
-  %.1234 = phi ptr [ %102, %86 ], [ %.0233277, %29 ]
-  %.1232 = phi ptr [ %105, %86 ], [ %.0231278, %29 ]
-  %.1230 = phi i32 [ %43, %86 ], [ %.0229279, %29 ]
-  %.1224 = phi ptr [ %90, %86 ], [ %.0223283, %29 ]
+  %.1243 = phi ptr [ %105, %86 ], [ %.0242273, %29 ]
+  %.1241 = phi ptr [ %102, %86 ], [ %.0240274, %29 ]
+  %.1239 = phi ptr [ %99, %86 ], [ %.0238275, %29 ]
+  %.1236 = phi i32 [ %43, %86 ], [ %.0235276, %29 ]
+  %.1233 = phi ptr [ %106, %86 ], [ %.0232278, %29 ]
+  %.1228 = phi ptr [ %96, %86 ], [ %.0227281, %29 ]
+  %.1226 = phi ptr [ %90, %86 ], [ %.0225282, %29 ]
+  %.1224 = phi ptr [ %93, %86 ], [ %.0223283, %29 ]
   %.1 = phi ptr [ %90, %86 ], [ %.0222284, %29 ]
   %108 = icmp sgt i32 %61, 0
   %109 = or disjoint i32 %60, %55
@@ -831,7 +831,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
 
 113:                                              ; preds = %107, %._crit_edge
   %indvars.iv301 = phi i64 [ 0, %107 ], [ %indvars.iv.next302, %._crit_edge ]
-  %.1226267 = phi i32 [ %79, %107 ], [ %.4, %._crit_edge ]
+  %.1230267 = phi i32 [ %79, %107 ], [ %.4, %._crit_edge ]
   br i1 %.not, label %118, label %114
 
 114:                                              ; preds = %113
@@ -841,7 +841,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   br label %118
 
 118:                                              ; preds = %114, %113
-  %119 = sext i32 %.1226267 to i64
+  %119 = sext i32 %.1230267 to i64
   %120 = getelementptr inbounds i8, ptr %0, i64 %119
   %121 = load i8, ptr %120, align 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %119
@@ -880,7 +880,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %153 = zext i8 %152 to i32
   %154 = shl nuw i32 %153, 24
   %155 = or disjoint i32 %150, %154
-  %156 = add nsw i32 %.1226267, 9
+  %156 = add nsw i32 %.1230267, 9
   br i1 %.not, label %160, label %157
 
 157:                                              ; preds = %118
@@ -891,7 +891,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
 160:                                              ; preds = %157, %118
   %161 = sext i32 %156 to i64
   %162 = getelementptr inbounds i8, ptr %0, i64 %161
-  call void @Ptngc_comp_huff_decompress(ptr noundef nonnull %162, i32 noundef %155, ptr noundef %.1236) #9
+  call void @Ptngc_comp_huff_decompress(ptr noundef nonnull %162, i32 noundef %155, ptr noundef %.1239) #9
   %163 = add nsw i32 %155, %156
   switch i8 %121, label %265 [
     i8 1, label %164
@@ -955,7 +955,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
 209:                                              ; preds = %206, %186
   %210 = sext i32 %205 to i64
   %211 = getelementptr inbounds i8, ptr %0, i64 %210
-  call void @Ptngc_comp_huff_decompress(ptr noundef nonnull %211, i32 noundef %204, ptr noundef %.1234) #9
+  call void @Ptngc_comp_huff_decompress(ptr noundef nonnull %211, i32 noundef %204, ptr noundef %.1241) #9
   %212 = add nsw i32 %204, %205
   br label %.loopexit
 
@@ -968,7 +968,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %213, %214
-  %217 = add i32 %.1226267, 14
+  %217 = add i32 %.1230267, 14
   %218 = add i32 %217, %154
   %219 = add i32 %218, %149
   %220 = add i32 %219, %144
@@ -983,7 +983,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %223 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv291
   %224 = load i16, ptr %223, align 1
   %225 = zext i16 %224 to i32
-  %226 = getelementptr inbounds i32, ptr %.1234, i64 %indvars.iv
+  %226 = getelementptr inbounds i32, ptr %.1241, i64 %indvars.iv
   store i32 %225, ptr %226, align 4
   %indvars.iv.next292 = add nsw i64 %indvars.iv291, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1023,7 +1023,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
 .thread:                                          ; preds = %.loopexit
   %249 = sext i32 %248 to i64
   %250 = getelementptr inbounds i8, ptr %0, i64 %249
-  call void @Ptngc_comp_huff_decompress(ptr noundef nonnull %250, i32 noundef %247, ptr noundef %.1232) #9
+  call void @Ptngc_comp_huff_decompress(ptr noundef nonnull %250, i32 noundef %247, ptr noundef %.1243) #9
   br label %258
 
 251:                                              ; preds = %.loopexit
@@ -1031,14 +1031,14 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %253 = call i64 @fwrite(ptr nonnull @.str.25, i64 36, i64 1, ptr %252) #11
   %254 = sext i32 %248 to i64
   %255 = getelementptr inbounds i8, ptr %0, i64 %254
-  call void @Ptngc_comp_huff_decompress(ptr noundef nonnull %255, i32 noundef %247, ptr noundef %.1232) #9
+  call void @Ptngc_comp_huff_decompress(ptr noundef nonnull %255, i32 noundef %247, ptr noundef %.1243) #9
   %256 = load ptr, ptr @stderr, align 8
   %257 = call i64 @fwrite(ptr nonnull @.str.26, i64 20, i64 1, ptr %256) #11
   br label %258
 
 258:                                              ; preds = %.thread, %251
   %259 = add nsw i32 %247, %248
-  call void @Ptngc_comp_from_lz77(ptr noundef %.1236, i32 noundef %138, ptr noundef %.1232, i32 noundef %230, ptr noundef %.1234, i32 noundef %178, ptr noundef %.1241, i32 noundef %61) #9
+  call void @Ptngc_comp_from_lz77(ptr noundef %.1239, i32 noundef %138, ptr noundef %.1243, i32 noundef %230, ptr noundef %.1241, i32 noundef %178, ptr noundef %.1228, i32 noundef %61) #9
   br label %265
 
 260:                                              ; preds = %160
@@ -1050,7 +1050,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   br label %264
 
 264:                                              ; preds = %261, %260
-  call void @Ptngc_comp_conv_from_rle(ptr noundef %.1236, ptr noundef %.1241, i32 noundef %61) #9
+  call void @Ptngc_comp_conv_from_rle(ptr noundef %.1239, ptr noundef %.1228, i32 noundef %61) #9
   br label %265
 
 265:                                              ; preds = %160, %264, %258
@@ -1063,11 +1063,11 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
 
 267:                                              ; preds = %.lr.ph261, %267
   %indvars.iv296 = phi i64 [ 0, %.lr.ph261 ], [ %indvars.iv.next297, %267 ]
-  %268 = getelementptr inbounds i32, ptr %.1241, i64 %indvars.iv296
+  %268 = getelementptr inbounds i32, ptr %.1228, i64 %indvars.iv296
   %269 = load i32, ptr %268, align 4
   %270 = trunc i32 %269 to i8
   %271 = add nuw nsw i64 %indvars.iv296, %266
-  %272 = getelementptr inbounds i8, ptr %.1239, i64 %271
+  %272 = getelementptr inbounds i8, ptr %.1233, i64 %271
   store i8 %270, ptr %272, align 1
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %exitcond300.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count299
@@ -1082,23 +1082,23 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   br i1 %.not, label %.thread255, label %274
 
 .thread255:                                       ; preds = %273
-  call void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef %.1239, i32 noundef %61, ptr noundef %.1243) #9
-  call void @Ptngc_comp_from_bwt(ptr noundef %.1243, i32 noundef %61, i32 noundef %78, ptr noundef %.1) #9
+  call void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef %.1233, i32 noundef %61, ptr noundef %.1224) #9
+  call void @Ptngc_comp_from_bwt(ptr noundef %.1224, i32 noundef %61, i32 noundef %78, ptr noundef %.1) #9
   br label %281
 
 274:                                              ; preds = %273
   %275 = load ptr, ptr @stderr, align 8
   %276 = call i64 @fwrite(ptr nonnull @.str.28, i64 13, i64 1, ptr %275) #11
-  call void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef %.1239, i32 noundef %61, ptr noundef %.1243) #9
+  call void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef %.1233, i32 noundef %61, ptr noundef %.1224) #9
   %277 = load ptr, ptr @stderr, align 8
   %278 = call i64 @fwrite(ptr nonnull @.str.29, i64 13, i64 1, ptr %277) #11
-  call void @Ptngc_comp_from_bwt(ptr noundef %.1243, i32 noundef %61, i32 noundef %78, ptr noundef %.1) #9
+  call void @Ptngc_comp_from_bwt(ptr noundef %.1224, i32 noundef %61, i32 noundef %78, ptr noundef %.1) #9
   %279 = load ptr, ptr @stderr, align 8
   %280 = call i64 @fwrite(ptr nonnull @.str.30, i64 28, i64 1, ptr %279) #11
   br label %281
 
 281:                                              ; preds = %.thread255, %274
-  %282 = sext i32 %.0227281 to i64
+  %282 = sext i32 %.0231279 to i64
   %283 = getelementptr inbounds i32, ptr %2, i64 %282
   call void @Ptngc_comp_conv_from_vals16(ptr noundef %.1, i32 noundef %61, ptr noundef %283, ptr noundef nonnull %5) #9
   %284 = load i32, ptr %5, align 4
@@ -1112,13 +1112,13 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   unreachable
 
 ._crit_edge286:                                   ; preds = %27, %.preheader
-  %.0238.lcssa = phi ptr [ %18, %.preheader ], [ %.1239, %27 ]
-  %.0223.lcssa = phi ptr [ %8, %.preheader ], [ %.1224, %27 ]
+  %.0232.lcssa = phi ptr [ %18, %.preheader ], [ %.1233, %27 ]
+  %.0225.lcssa = phi ptr [ %8, %.preheader ], [ %.1226, %27 ]
   call void @free(ptr noundef %7) #9
   call void @free(ptr noundef %6) #9
   call void @free(ptr noundef %12) #9
-  call void @free(ptr noundef %.0238.lcssa) #9
-  call void @free(ptr noundef %.0223.lcssa) #9
+  call void @free(ptr noundef %.0232.lcssa) #9
+  call void @free(ptr noundef %.0225.lcssa) #9
   ret void
 }
 

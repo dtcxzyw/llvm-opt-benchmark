@@ -2069,7 +2069,7 @@ for.body.lr.ph.i78:                               ; preds = %if.else1008
 
 for.body.i81:                                     ; preds = %for.inc.i90, %for.body.lr.ph.i78
   %indvars.iv.i82 = phi i64 [ 0, %for.body.lr.ph.i78 ], [ %indvars.iv.next.i92, %for.inc.i90 ]
-  %hit.039.i = phi i32 [ 0, %for.body.lr.ph.i78 ], [ %hit.1.i91, %for.inc.i90 ]
+  %hit.038.i = phi i32 [ 0, %for.body.lr.ph.i78 ], [ %hit.1.i91, %for.inc.i90 ]
   %150 = load i32, ptr @obj_read_use_lock, align 4
   %tobool.not.i.i = icmp eq i32 %150, 0
   br i1 %tobool.not.i.i, label %obj_read_lock.exit.i, label %if.then.i.i83
@@ -2290,7 +2290,7 @@ if.then30.i:                                      ; preds = %grep_object.exit.i
   br i1 %tobool31.not.i, label %for.inc.i90, label %grep_objects.exit
 
 for.inc.i90:                                      ; preds = %if.then30.i, %grep_object.exit.i
-  %hit.1.i91 = phi i32 [ 1, %if.then30.i ], [ %hit.039.i, %grep_object.exit.i ]
+  %hit.1.i91 = phi i32 [ 1, %if.then30.i ], [ %hit.038.i, %grep_object.exit.i ]
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, %wide.trip.count.i
   br i1 %exitcond.not.i93, label %grep_objects.exit, label %for.body.i81, !llvm.loop !12
@@ -2938,10 +2938,10 @@ if.then6:                                         ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %5 = phi ptr [ %3, %for.body.lr.ph ], [ %43, %for.inc ]
-  %nr.076 = phi i32 [ 0, %for.body.lr.ph ], [ %inc116, %for.inc ]
-  %hit.075 = phi i32 [ 0, %for.body.lr.ph ], [ %hit.2, %for.inc ]
+  %hit.076 = phi i32 [ 0, %for.body.lr.ph ], [ %hit.2, %for.inc ]
+  %nr.075 = phi i32 [ 0, %for.body.lr.ph ], [ %inc116, %for.inc ]
   %6 = load ptr, ptr %5, align 8
-  %idxprom = sext i32 %nr.076 to i64
+  %idxprom = sext i32 %nr.075 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
   br i1 %tobool12.not, label %land.lhs.true, label %if.end15
@@ -3125,7 +3125,7 @@ if.then80:                                        ; preds = %land.lhs.true75
 
 if.end90:                                         ; preds = %if.then80, %grep_file.exit, %grep_oid.exit, %strbuf_setlen.exit60
   %call22.pn = phi i32 [ %call22, %strbuf_setlen.exit60 ], [ %retval.0.i, %grep_oid.exit ], [ %retval.0.i71, %grep_file.exit ], [ %call85, %if.then80 ]
-  %hit.1 = or i32 %call22.pn, %hit.075
+  %hit.1 = or i32 %call22.pn, %hit.076
   %ce_flags91 = getelementptr inbounds i8, ptr %7, i64 56
   %32 = load i32, ptr %ce_flags91, align 8
   %33 = and i32 %32, 12288
@@ -3136,7 +3136,7 @@ do.body.preheader:                                ; preds = %if.end90
   %34 = load ptr, ptr %index, align 8
   %cache_nr97 = getelementptr inbounds i8, ptr %34, i64 12
   %35 = load i32, ptr %cache_nr97, align 4
-  %36 = add nuw i32 %nr.076, 1
+  %36 = add nuw i32 %nr.075, 1
   %umax = call i32 @llvm.umax.i32(i32 %35, i32 %36)
   %37 = add i32 %umax, -1
   br label %do.body
@@ -3162,7 +3162,7 @@ if.end110.loopexit.split.loop.exit79:             ; preds = %land.rhs
   br label %if.end110
 
 if.end110:                                        ; preds = %do.body, %if.end110.loopexit.split.loop.exit79, %if.end90
-  %nr.2 = phi i32 [ %nr.076, %if.end90 ], [ %41, %if.end110.loopexit.split.loop.exit79 ], [ %37, %do.body ]
+  %nr.2 = phi i32 [ %nr.075, %if.end90 ], [ %41, %if.end110.loopexit.split.loop.exit79 ], [ %37, %do.body ]
   %tobool111.not = icmp eq i32 %hit.1, 0
   br i1 %tobool111.not, label %for.inc, label %land.lhs.true112
 
@@ -3172,8 +3172,8 @@ land.lhs.true112:                                 ; preds = %if.end110
   br i1 %tobool113.not, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %if.end110, %land.lhs.true112, %if.else68, %land.lhs.true70, %land.lhs.true75, %if.then48, %land.lhs.true
-  %hit.2 = phi i32 [ %hit.1, %land.lhs.true112 ], [ 0, %if.end110 ], [ %hit.075, %if.then48 ], [ %hit.075, %land.lhs.true75 ], [ %hit.075, %land.lhs.true70 ], [ %hit.075, %if.else68 ], [ %hit.075, %land.lhs.true ]
-  %nr.3 = phi i32 [ %nr.2, %land.lhs.true112 ], [ %nr.2, %if.end110 ], [ %nr.076, %if.then48 ], [ %nr.076, %land.lhs.true75 ], [ %nr.076, %land.lhs.true70 ], [ %nr.076, %if.else68 ], [ %nr.076, %land.lhs.true ]
+  %nr.3 = phi i32 [ %nr.2, %land.lhs.true112 ], [ %nr.2, %if.end110 ], [ %nr.075, %if.then48 ], [ %nr.075, %land.lhs.true75 ], [ %nr.075, %land.lhs.true70 ], [ %nr.075, %if.else68 ], [ %nr.075, %land.lhs.true ]
+  %hit.2 = phi i32 [ %hit.1, %land.lhs.true112 ], [ 0, %if.end110 ], [ %hit.076, %if.then48 ], [ %hit.076, %land.lhs.true75 ], [ %hit.076, %land.lhs.true70 ], [ %hit.076, %if.else68 ], [ %hit.076, %land.lhs.true ]
   %inc116 = add nuw nsw i32 %nr.3, 1
   %43 = load ptr, ptr %index, align 8
   %cache_nr = getelementptr inbounds i8, ptr %43, i64 12
@@ -3642,8 +3642,8 @@ if.end:                                           ; preds = %if.then, %entry
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %if.end
-  %hit.0.ph = phi i32 [ 0, %if.end ], [ %hit.1, %while.cond.outer.backedge ]
   %match.0.ph = phi i32 [ 0, %if.end ], [ %match.1, %while.cond.outer.backedge ]
+  %hit.0.ph = phi i32 [ 0, %if.end ], [ %hit.1, %while.cond.outer.backedge ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer, %strbuf_setlen.exit

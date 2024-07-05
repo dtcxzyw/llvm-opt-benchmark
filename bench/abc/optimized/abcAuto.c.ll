@@ -282,11 +282,11 @@ Abc_Clock.exit.i:                                 ; preds = %120, %117
 
 .lr.ph.i:                                         ; preds = %144, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %144 ]
-  %.08.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %spec.select76.i, %144 ]
-  %.0627.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.163.i, %144 ]
-  %.0646.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.165.i, %144 ]
-  %.0665.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.167.i, %144 ]
-  %.0684.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.169.i, %144 ]
+  %.0627.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %spec.select76.i, %144 ]
+  %.0636.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.164.i, %144 ]
+  %.0655.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.166.i, %144 ]
+  %.0674.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.168.i, %144 ]
+  %.0693.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.170.i, %144 ]
   %124 = getelementptr inbounds ptr, ptr %.val57, i64 %indvars.iv.i
   %125 = load ptr, ptr %124, align 8
   %126 = call ptr @Extra_bddSpaceFromFunction(ptr noundef %.val53.val.val.val, ptr noundef %125, ptr noundef %125) #11
@@ -307,19 +307,19 @@ Abc_Clock.exit.i:                                 ; preds = %120, %117
   br i1 %136, label %137, label %141
 
 137:                                              ; preds = %.lr.ph.i
-  %138 = add nsw i32 %.0627.i, 1
-  %139 = add nuw nsw i32 %133, %.0684.i
-  %140 = icmp slt i32 %.0665.i, %133
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %.0665.i, i32 %133)
-  %spec.select75.i = select i1 %140, i32 %131, i32 %.0646.i
+  %138 = add nsw i32 %.0636.i, 1
+  %139 = add nuw nsw i32 %133, %.0693.i
+  %140 = icmp slt i32 %.0674.i, %133
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %.0674.i, i32 %133)
+  %spec.select75.i = select i1 %140, i32 %131, i32 %.0655.i
   br label %141
 
 141:                                              ; preds = %137, %.lr.ph.i
-  %.169.i = phi i32 [ %.0684.i, %.lr.ph.i ], [ %139, %137 ]
-  %.167.i = phi i32 [ %.0665.i, %.lr.ph.i ], [ %spec.select.i, %137 ]
-  %.165.i = phi i32 [ %.0646.i, %.lr.ph.i ], [ %spec.select75.i, %137 ]
-  %.163.i = phi i32 [ %.0627.i, %.lr.ph.i ], [ %138, %137 ]
-  %spec.select76.i = call i32 @llvm.smax.i32(i32 %.08.i, i32 %131)
+  %.170.i = phi i32 [ %.0693.i, %.lr.ph.i ], [ %139, %137 ]
+  %.168.i = phi i32 [ %.0674.i, %.lr.ph.i ], [ %spec.select.i, %137 ]
+  %.166.i = phi i32 [ %.0655.i, %.lr.ph.i ], [ %spec.select75.i, %137 ]
+  %.164.i = phi i32 [ %.0636.i, %.lr.ph.i ], [ %138, %137 ]
+  %spec.select76.i = call i32 @llvm.smax.i32(i32 %.0627.i, i32 %131)
   %142 = call ptr @Extra_bddSpaceFromMatrixPos(ptr noundef %.val53.val.val.val, ptr noundef %130) #11
   call void @Cudd_Ref(ptr noundef %142) #11
   %.not.i58 = icmp eq ptr %126, %142
@@ -340,19 +340,19 @@ Abc_Clock.exit.i:                                 ; preds = %120, %117
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %144, %Abc_Clock.exit.i
-  %.068.lcssa.i = phi i32 [ 0, %Abc_Clock.exit.i ], [ %.169.i, %144 ]
-  %.066.lcssa.i = phi i32 [ 0, %Abc_Clock.exit.i ], [ %.167.i, %144 ]
-  %.064.lcssa.i = phi i32 [ 0, %Abc_Clock.exit.i ], [ %.165.i, %144 ]
-  %.062.lcssa.i = phi i32 [ 0, %Abc_Clock.exit.i ], [ %.163.i, %144 ]
-  %.0.lcssa.i = phi i32 [ 0, %Abc_Clock.exit.i ], [ %spec.select76.i, %144 ]
+  %.069.lcssa.i = phi i32 [ 0, %Abc_Clock.exit.i ], [ %.170.i, %144 ]
+  %.067.lcssa.i = phi i32 [ 0, %Abc_Clock.exit.i ], [ %.168.i, %144 ]
+  %.065.lcssa.i = phi i32 [ 0, %Abc_Clock.exit.i ], [ %.166.i, %144 ]
+  %.063.lcssa.i = phi i32 [ 0, %Abc_Clock.exit.i ], [ %.164.i, %144 ]
+  %.062.lcssa.i = phi i32 [ 0, %Abc_Clock.exit.i ], [ %spec.select76.i, %144 ]
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %145 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.val.val)
-  %146 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.0.lcssa.i)
+  %146 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.062.lcssa.i)
   %147 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.val50.val)
-  %148 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.062.lcssa.i)
-  %149 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.068.lcssa.i)
-  %150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.066.lcssa.i)
-  %151 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.064.lcssa.i)
+  %148 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.063.lcssa.i)
+  %149 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.069.lcssa.i)
+  %150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.067.lcssa.i)
+  %151 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.065.lcssa.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %152 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #11
   %153 = icmp slt i32 %152, 0

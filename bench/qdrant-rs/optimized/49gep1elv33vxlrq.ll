@@ -1666,8 +1666,8 @@ define hidden void @_ZN12atomicwrites10AtomicFile3new17h5263b10b77bdfdd2E(ptr no
   %8 = extractvalue { ptr, i64 } %7, 0
   %9 = icmp eq ptr %8, null
   %10 = extractvalue { ptr, i64 } %7, 1
-  %.sroa.3.0 = select i1 %9, i64 1, i64 %10
   %.sroa.02.0 = select i1 %9, ptr @anon.f995eab9e051666c7337493b56022542.9.llvm.13024266015450051711, ptr %8
+  %.sroa.3.0 = select i1 %9, i64 1, i64 %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !448)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !451
   call void @_ZN3std4path4Path11to_path_buf17h244d289ac0030e02E(ptr noalias nocapture noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !454

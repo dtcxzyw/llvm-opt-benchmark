@@ -54,7 +54,7 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
 
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.loopexit
   %indvars.iv92 = phi i64 [ %29, %.lr.ph79.preheader ], [ %indvars.iv.next93, %.loopexit ]
-  %.078 = phi i32 [ %15, %.lr.ph79.preheader ], [ %.2, %.loopexit ]
+  %.05978 = phi i32 [ %15, %.lr.ph79.preheader ], [ %.2, %.loopexit ]
   %32 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv92
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, %1
@@ -73,7 +73,7 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
   br i1 %40, label %.lr.ph75.preheader, label %.loopexit
 
 .lr.ph75.preheader:                               ; preds = %.preheader69
-  %41 = sext i32 %.078 to i64
+  %41 = sext i32 %.05978 to i64
   %42 = and i64 %indvars.iv.next, 2147483647
   br label %.lr.ph75
 
@@ -81,10 +81,10 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader70 ]
   %43 = phi ptr [ %51, %.lr.ph ], [ %36, %.preheader70 ]
   %44 = phi i64 [ %50, %.lr.ph ], [ %35, %.preheader70 ]
-  %.06271 = phi i32 [ %49, %.lr.ph ], [ %33, %.preheader70 ]
+  %.05872 = phi i32 [ %49, %.lr.ph ], [ %33, %.preheader70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
-  store i32 %.06271, ptr %45, align 4
+  store i32 %.05872, ptr %45, align 4
   %46 = load i32, ptr %43, align 4
   %47 = sub i32 -2, %46
   store i32 %47, ptr %43, align 4
@@ -113,7 +113,7 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader70, %.loopexit.loopexit, %.preheader69, %.lr.ph79
-  %.2 = phi i32 [ %.078, %.lr.ph79 ], [ %.078, %.preheader69 ], [ %58, %.loopexit.loopexit ], [ %.078, %.preheader70 ]
+  %.2 = phi i32 [ %.05978, %.lr.ph79 ], [ %.05978, %.preheader69 ], [ %58, %.loopexit.loopexit ], [ %.05978, %.preheader70 ]
   %indvars.iv.next93 = add nsw i64 %indvars.iv92, 1
   %59 = load i32, ptr %26, align 4
   %60 = sext i32 %59 to i64
@@ -134,15 +134,15 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph82, %13, %.preheader
-  %.0.lcssa99 = phi i32 [ %.2, %.preheader ], [ %15, %13 ], [ %.2, %.lr.ph82 ]
+  %.059.lcssa99 = phi i32 [ %.2, %.preheader ], [ %15, %13 ], [ %.2, %.lr.ph82 ]
   %68 = load i32, ptr %21, align 4
   %69 = sub i32 -2, %68
   store i32 %69, ptr %21, align 4
   br label %70
 
 70:                                               ; preds = %5, %6, %._crit_edge
-  %.063 = phi i32 [ %.0.lcssa99, %._crit_edge ], [ -1, %6 ], [ -1, %5 ]
-  ret i32 %.063
+  %.0 = phi i32 [ %.059.lcssa99, %._crit_edge ], [ -1, %6 ], [ -1, %5 ]
+  ret i32 %.0
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

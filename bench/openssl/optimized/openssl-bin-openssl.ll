@@ -619,25 +619,25 @@ for.body.lr.ph:                                   ; preds = %if.end15
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end37
   %name14 = phi ptr [ getelementptr inbounds (i8, ptr @functions, i64 8), %for.body.lr.ph ], [ %name, %if.end37 ]
-  %tp.013 = phi i32 [ 0, %for.body.lr.ph ], [ %tp.1, %if.end37 ]
-  %i.012 = phi i32 [ 0, %for.body.lr.ph ], [ %i.1, %if.end37 ]
-  %fp.011 = phi ptr [ @functions, %for.body.lr.ph ], [ %incdec.ptr, %if.end37 ]
-  %inc = add nsw i32 %i.012, 1
+  %fp.013 = phi ptr [ @functions, %for.body.lr.ph ], [ %incdec.ptr, %if.end37 ]
+  %tp.012 = phi i32 [ 0, %for.body.lr.ph ], [ %tp.1, %if.end37 ]
+  %i.011 = phi i32 [ 0, %for.body.lr.ph ], [ %i.1, %if.end37 ]
+  %inc = add nsw i32 %i.011, 1
   %11 = load i32, ptr %dc, align 4
-  %rem = srem i32 %i.012, %11
+  %rem = srem i32 %i.011, %11
   %cmp18.not = icmp eq i32 %rem, 0
   br i1 %cmp18.not, label %if.end21, label %if.end21.thread
 
 if.end21:                                         ; preds = %for.body
   %12 = load ptr, ptr @bio_err, align 8
   %call20 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %12, ptr noundef nonnull @.str.24) #10
-  %13 = load i32, ptr %fp.011, align 8
-  %cmp22.not = icmp eq i32 %13, %tp.013
+  %13 = load i32, ptr %fp.013, align 8
+  %cmp22.not = icmp eq i32 %13, %tp.012
   br i1 %cmp22.not, label %if.end37, label %if.end28
 
 if.end21.thread:                                  ; preds = %for.body
-  %14 = load i32, ptr %fp.011, align 8
-  %cmp22.not9 = icmp eq i32 %14, %tp.013
+  %14 = load i32, ptr %fp.013, align 8
+  %cmp22.not9 = icmp eq i32 %14, %tp.012
   br i1 %cmp22.not9, label %if.end37, label %if.then26
 
 if.then26:                                        ; preds = %if.end21.thread
@@ -663,13 +663,13 @@ if.end37.sink.split:                              ; preds = %if.end28, %if.then3
 
 if.end37:                                         ; preds = %if.end37.sink.split, %if.end21.thread, %if.end28, %if.end21
   %i.1 = phi i32 [ %inc, %if.end21 ], [ %inc, %if.end28 ], [ %inc, %if.end21.thread ], [ 1, %if.end37.sink.split ]
-  %tp.1 = phi i32 [ %tp.013, %if.end21 ], [ %16, %if.end28 ], [ %tp.013, %if.end21.thread ], [ %16, %if.end37.sink.split ]
+  %tp.1 = phi i32 [ %tp.012, %if.end21 ], [ %16, %if.end28 ], [ %tp.012, %if.end21.thread ], [ %16, %if.end37.sink.split ]
   %18 = load ptr, ptr @bio_err, align 8
   %19 = load i32, ptr %width, align 4
   %20 = load ptr, ptr %name14, align 8
   %call39 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %18, ptr noundef nonnull @.str.27, i32 noundef %19, ptr noundef %20) #10
-  %incdec.ptr = getelementptr inbounds i8, ptr %fp.011, i64 48
-  %name = getelementptr inbounds i8, ptr %fp.011, i64 56
+  %incdec.ptr = getelementptr inbounds i8, ptr %fp.013, i64 48
+  %name = getelementptr inbounds i8, ptr %fp.013, i64 56
   %21 = load ptr, ptr %name, align 8
   %cmp17.not = icmp eq ptr %21, null
   br i1 %cmp17.not, label %for.end, label %for.body, !llvm.loop !8

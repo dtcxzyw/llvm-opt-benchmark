@@ -986,8 +986,8 @@ default.unreachable:                              ; preds = %if.end55
   unreachable
 
 sw.epilog:                                        ; preds = %if.end185, %if.end106, %if.end75, %for.cond171.preheader, %for.cond94.preheader, %for.cond65.preheader, %sw.bb121, %sw.bb110
-  %typecode.addr.2 = phi i32 [ %typecode, %sw.bb121 ], [ %typecode, %sw.bb110 ], [ %typecode, %for.cond65.preheader ], [ %typecode, %for.cond94.preheader ], [ %typecode.addr.1, %for.cond171.preheader ], [ %typecode, %if.end75 ], [ %typecode, %if.end106 ], [ %typecode.addr.1, %if.end185 ]
   %converted_items.0 = phi ptr [ %call128, %sw.bb121 ], [ %call116, %sw.bb110 ], [ %call60, %for.cond65.preheader ], [ %call89, %for.cond94.preheader ], [ %call166, %for.cond171.preheader ], [ %call60, %if.end75 ], [ %call89, %if.end106 ], [ %call166, %if.end185 ]
+  %typecode.addr.2 = phi i32 [ %typecode, %sw.bb121 ], [ %typecode, %sw.bb110 ], [ %typecode, %for.cond65.preheader ], [ %typecode, %for.cond94.preheader ], [ %typecode.addr.1, %for.cond171.preheader ], [ %typecode, %if.end75 ], [ %typecode, %if.end106 ], [ %typecode.addr.1, %if.end185 ]
   %conv191 = trunc i32 %typecode.addr.2 to i8
   %call192 = call fastcc ptr @make_array(ptr noundef %arraytype, i8 noundef signext %conv191, ptr noundef nonnull %converted_items.0)
   %38 = load i64, ptr %converted_items.0, align 8
@@ -3642,13 +3642,13 @@ for.body.preheader:                               ; preds = %Py_DECREF.exit
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %13 = phi i8 [ %14, %for.body ], [ 98, %for.body.preheader ]
-  %descr.039 = phi ptr [ %incdec.ptr61, %for.body ], [ @descriptors, %for.body.preheader ]
-  %p.038 = phi ptr [ %incdec.ptr, %for.body ], [ %buffer, %for.body.preheader ]
-  %incdec.ptr = getelementptr i8, ptr %p.038, i64 1
-  store i8 %13, ptr %p.038, align 1
-  %incdec.ptr61 = getelementptr i8, ptr %descr.039, i64 48
+  %p.039 = phi ptr [ %incdec.ptr, %for.body ], [ %buffer, %for.body.preheader ]
+  %descr.038 = phi ptr [ %incdec.ptr61, %for.body ], [ @descriptors, %for.body.preheader ]
+  %incdec.ptr = getelementptr i8, ptr %p.039, i64 1
+  store i8 %13, ptr %p.039, align 1
+  %incdec.ptr61 = getelementptr i8, ptr %descr.038, i64 48
   %14 = load i8, ptr %incdec.ptr61, align 8
-  %exitcond = icmp eq ptr %p.038, %scevgep
+  %exitcond = icmp eq ptr %p.039, %scevgep
   br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %for.body
@@ -4815,18 +4815,18 @@ for.body.lr.ph:                                   ; preds = %if.else41
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %cur.045 = phi i64 [ %22, %for.body.lr.ph ], [ %add59, %for.body ]
-  %i16.044 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %i16.045 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %cur.044 = phi i64 [ %22, %for.body.lr.ph ], [ %add59, %for.body ]
   %23 = load ptr, ptr %ob_item50, align 8
-  %mul52 = mul i64 %i16.044, %conv51
+  %mul52 = mul i64 %i16.045, %conv51
   %add.ptr53 = getelementptr i8, ptr %23, i64 %mul52
   %24 = load ptr, ptr %ob_item54, align 8
-  %mul56 = mul i64 %cur.045, %conv51
+  %mul56 = mul i64 %cur.044, %conv51
   %add.ptr57 = getelementptr i8, ptr %24, i64 %mul56
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr53, ptr align 1 %add.ptr57, i64 %conv51, i1 false)
   %25 = load i64, ptr %step, align 8
-  %add59 = add i64 %25, %cur.045
-  %inc = add nuw nsw i64 %i16.044, 1
+  %add59 = add i64 %25, %cur.044
+  %inc = add nuw nsw i64 %i16.045, 1
   %exitcond.not = icmp eq i64 %inc, %call23
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !29
 
@@ -5695,12 +5695,12 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.014 = phi i64 [ 0, %for.body.lr.ph ], [ %inc11, %for.inc ]
-  %count.013 = phi i64 [ 0, %for.body.lr.ph ], [ %count.1, %for.inc ]
+  %count.014 = phi i64 [ 0, %for.body.lr.ph ], [ %count.1, %for.inc ]
+  %i.013 = phi i64 [ 0, %for.body.lr.ph ], [ %inc11, %for.inc ]
   %1 = load ptr, ptr %ob_descr.i, align 8
   %getitem.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %getitem.i, align 8
-  %call.i = tail call ptr %2(ptr noundef nonnull %self, i64 noundef %i.014) #11
+  %call.i = tail call ptr %2(ptr noundef nonnull %self, i64 noundef %i.013) #11
   %cmp3 = icmp eq ptr %call.i, null
   br i1 %cmp3, label %return, label %if.end
 
@@ -5726,7 +5726,7 @@ Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %Py_DECREF.exit
-  %inc = add i64 %count.013, 1
+  %inc = add i64 %count.014, 1
   br label %for.inc
 
 if.else:                                          ; preds = %Py_DECREF.exit
@@ -5734,8 +5734,8 @@ if.else:                                          ; preds = %Py_DECREF.exit
   br i1 %cmp7, label %return, label %for.inc
 
 for.inc:                                          ; preds = %if.then6, %if.else
-  %count.1 = phi i64 [ %inc, %if.then6 ], [ %count.013, %if.else ]
-  %inc11 = add nuw nsw i64 %i.014, 1
+  %count.1 = phi i64 [ %inc, %if.then6 ], [ %count.014, %if.else ]
+  %inc11 = add nuw nsw i64 %i.013, 1
   %self.val = load i64, ptr %0, align 8
   %cmp = icmp slt i64 %inc11, %self.val
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !35

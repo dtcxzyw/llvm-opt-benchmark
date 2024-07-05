@@ -68,19 +68,19 @@ define void @_Z8do_pairsiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS4_PfN3gmx8Arr
   %44 = alloca %struct.t_pbc, align 4
   %45 = icmp eq i32 %0, 33
   %indvars.iv.i.sroa.gep = getelementptr inbounds i8, ptr %41, i64 4
-  %indvars.iv.i.sroa.gep112 = getelementptr inbounds i8, ptr %40, i64 4
-  %indvars.iv.i.sroa.gep118 = getelementptr inbounds i8, ptr %39, i64 4
-  %indvars.iv.i.sroa.gep124 = getelementptr inbounds i8, ptr %38, i64 4
-  %indvars.iv.i.sroa.gep130 = getelementptr inbounds i8, ptr %37, i64 4
-  %indvars.iv.i.sroa.gep136 = getelementptr inbounds i8, ptr %36, i64 4
-  %indvars.iv.i.sroa.gep142 = getelementptr inbounds i8, ptr %35, i64 4
-  %indvars.iv.i66.sroa.gep = getelementptr inbounds i8, ptr %30, i64 4
-  %indvars.iv.i66.sroa.gep156 = getelementptr inbounds i8, ptr %29, i64 4
-  %indvars.iv.i66.sroa.gep162 = getelementptr inbounds i8, ptr %28, i64 4
-  %indvars.iv.i66.sroa.gep168 = getelementptr inbounds i8, ptr %27, i64 4
-  %indvars.iv.i66.sroa.gep174 = getelementptr inbounds i8, ptr %26, i64 4
-  %indvars.iv.i66.sroa.gep180 = getelementptr inbounds i8, ptr %25, i64 4
-  %indvars.iv.i66.sroa.gep186 = getelementptr inbounds i8, ptr %24, i64 4
+  %indvars.iv.i.sroa.gep113 = getelementptr inbounds i8, ptr %40, i64 4
+  %indvars.iv.i.sroa.gep119 = getelementptr inbounds i8, ptr %39, i64 4
+  %indvars.iv.i.sroa.gep125 = getelementptr inbounds i8, ptr %38, i64 4
+  %indvars.iv.i.sroa.gep131 = getelementptr inbounds i8, ptr %37, i64 4
+  %indvars.iv.i.sroa.gep137 = getelementptr inbounds i8, ptr %36, i64 4
+  %indvars.iv.i.sroa.gep143 = getelementptr inbounds i8, ptr %35, i64 4
+  %indvars.iv.i67.sroa.gep = getelementptr inbounds i8, ptr %30, i64 4
+  %indvars.iv.i67.sroa.gep157 = getelementptr inbounds i8, ptr %29, i64 4
+  %indvars.iv.i67.sroa.gep163 = getelementptr inbounds i8, ptr %28, i64 4
+  %indvars.iv.i67.sroa.gep169 = getelementptr inbounds i8, ptr %27, i64 4
+  %indvars.iv.i67.sroa.gep175 = getelementptr inbounds i8, ptr %26, i64 4
+  %indvars.iv.i67.sroa.gep181 = getelementptr inbounds i8, ptr %25, i64 4
+  %indvars.iv.i67.sroa.gep187 = getelementptr inbounds i8, ptr %24, i64 4
   br i1 %45, label %46, label %_ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.exit.thread
 
 46:                                               ; preds = %20
@@ -211,8 +211,8 @@ common.resume:                                    ; preds = %454, %96
   %.sink.i = phi i64 [ 32, %93 ], [ 104, %92 ], [ 104, %92 ]
   %99 = getelementptr inbounds i8, ptr %18, i64 %.sink18.i
   %100 = getelementptr inbounds i8, ptr %18, i64 %.sink.i
-  %.0209.i = load ptr, ptr %100, align 8
-  %.0210.i = load ptr, ptr %99, align 8
+  %.0209.i = load ptr, ptr %99, align 8
+  %.0210.i = load ptr, ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %15, i64 144
   %102 = load i32, ptr %101, align 8
   %.not.i = icmp eq i32 %102, 0
@@ -233,8 +233,8 @@ common.resume:                                    ; preds = %454, %96
   %109 = load float, ptr %108, align 4
   %110 = fsub float 1.000000e+00, %109
   store float %110, ptr %36, align 4
-  store float %106, ptr %indvars.iv.i.sroa.gep142, align 4
-  store float %109, ptr %indvars.iv.i.sroa.gep136, align 4
+  store float %106, ptr %indvars.iv.i.sroa.gep143, align 4
+  store float %109, ptr %indvars.iv.i.sroa.gep137, align 4
   store <2 x float> <float -1.000000e+00, float 1.000000e+00>, ptr %37, align 8
   %111 = load ptr, ptr %15, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 144
@@ -249,25 +249,25 @@ common.resume:                                    ; preds = %454, %96
 .split.us.i:                                      ; preds = %103, %.split.us.i
   %119 = phi i1 [ false, %.split.us.i ], [ true, %103 ]
   %indvars.iv9.i.sroa.phi = phi ptr [ %indvars.iv.i.sroa.gep, %.split.us.i ], [ %41, %103 ]
-  %indvars.iv9.i.sroa.phi114 = phi ptr [ %indvars.iv.i.sroa.gep112, %.split.us.i ], [ %40, %103 ]
-  %indvars.iv9.i.sroa.phi120 = phi ptr [ %indvars.iv.i.sroa.gep118, %.split.us.i ], [ %39, %103 ]
-  %indvars.iv9.i.sroa.phi126 = phi ptr [ %indvars.iv.i.sroa.gep124, %.split.us.i ], [ %38, %103 ]
-  %indvars.iv9.i.sroa.phi132 = phi ptr [ %indvars.iv.i.sroa.gep130, %.split.us.i ], [ %37, %103 ]
-  %indvars.iv9.i.sroa.phi138 = phi ptr [ %indvars.iv.i.sroa.gep136, %.split.us.i ], [ %36, %103 ]
-  %indvars.iv9.i.sroa.phi144 = phi ptr [ %indvars.iv.i.sroa.gep142, %.split.us.i ], [ %35, %103 ]
-  %120 = load float, ptr %indvars.iv9.i.sroa.phi144, align 4
+  %indvars.iv9.i.sroa.phi115 = phi ptr [ %indvars.iv.i.sroa.gep113, %.split.us.i ], [ %40, %103 ]
+  %indvars.iv9.i.sroa.phi121 = phi ptr [ %indvars.iv.i.sroa.gep119, %.split.us.i ], [ %39, %103 ]
+  %indvars.iv9.i.sroa.phi127 = phi ptr [ %indvars.iv.i.sroa.gep125, %.split.us.i ], [ %38, %103 ]
+  %indvars.iv9.i.sroa.phi133 = phi ptr [ %indvars.iv.i.sroa.gep131, %.split.us.i ], [ %37, %103 ]
+  %indvars.iv9.i.sroa.phi139 = phi ptr [ %indvars.iv.i.sroa.gep137, %.split.us.i ], [ %36, %103 ]
+  %indvars.iv9.i.sroa.phi145 = phi ptr [ %indvars.iv.i.sroa.gep143, %.split.us.i ], [ %35, %103 ]
+  %120 = load float, ptr %indvars.iv9.i.sroa.phi145, align 4
   %121 = fsub float 1.000000e+00, %120
   %122 = fmul float %121, %121
-  store float %122, ptr %indvars.iv9.i.sroa.phi126, align 4
-  %123 = load float, ptr %indvars.iv9.i.sroa.phi132, align 4
+  store float %122, ptr %indvars.iv9.i.sroa.phi127, align 4
+  %123 = load float, ptr %indvars.iv9.i.sroa.phi133, align 4
   %124 = fmul float %123, %118
   %125 = fmul float %124, 0x3FC5555560000000
   %126 = fmul float %121, %125
-  store float %126, ptr %indvars.iv9.i.sroa.phi114, align 4
-  %127 = load float, ptr %indvars.iv9.i.sroa.phi138, align 4
+  store float %126, ptr %indvars.iv9.i.sroa.phi115, align 4
+  %127 = load float, ptr %indvars.iv9.i.sroa.phi139, align 4
   %128 = fsub float 1.000000e+00, %127
   %129 = fmul float %128, %128
-  store float %129, ptr %indvars.iv9.i.sroa.phi120, align 4
+  store float %129, ptr %indvars.iv9.i.sroa.phi121, align 4
   %130 = fmul float %125, %128
   store float %130, ptr %indvars.iv9.i.sroa.phi, align 4
   br i1 %119, label %.split.us.i, label %.loopexit.i, !llvm.loop !5
@@ -275,27 +275,27 @@ common.resume:                                    ; preds = %454, %96
 .split.i:                                         ; preds = %103, %.split.i
   %131 = phi i1 [ false, %.split.i ], [ true, %103 ]
   %indvars.iv.i.sroa.phi = phi ptr [ %indvars.iv.i.sroa.gep, %.split.i ], [ %41, %103 ]
-  %indvars.iv.i.sroa.phi111 = phi ptr [ %indvars.iv.i.sroa.gep112, %.split.i ], [ %40, %103 ]
-  %indvars.iv.i.sroa.phi117 = phi ptr [ %indvars.iv.i.sroa.gep118, %.split.i ], [ %39, %103 ]
-  %indvars.iv.i.sroa.phi123 = phi ptr [ %indvars.iv.i.sroa.gep124, %.split.i ], [ %38, %103 ]
-  %indvars.iv.i.sroa.phi129 = phi ptr [ %indvars.iv.i.sroa.gep130, %.split.i ], [ %37, %103 ]
-  %indvars.iv.i.sroa.phi135 = phi ptr [ %indvars.iv.i.sroa.gep136, %.split.i ], [ %36, %103 ]
-  %indvars.iv.i.sroa.phi141 = phi ptr [ %indvars.iv.i.sroa.gep142, %.split.i ], [ %35, %103 ]
-  %132 = load float, ptr %indvars.iv.i.sroa.phi141, align 4
+  %indvars.iv.i.sroa.phi112 = phi ptr [ %indvars.iv.i.sroa.gep113, %.split.i ], [ %40, %103 ]
+  %indvars.iv.i.sroa.phi118 = phi ptr [ %indvars.iv.i.sroa.gep119, %.split.i ], [ %39, %103 ]
+  %indvars.iv.i.sroa.phi124 = phi ptr [ %indvars.iv.i.sroa.gep125, %.split.i ], [ %38, %103 ]
+  %indvars.iv.i.sroa.phi130 = phi ptr [ %indvars.iv.i.sroa.gep131, %.split.i ], [ %37, %103 ]
+  %indvars.iv.i.sroa.phi136 = phi ptr [ %indvars.iv.i.sroa.gep137, %.split.i ], [ %36, %103 ]
+  %indvars.iv.i.sroa.phi142 = phi ptr [ %indvars.iv.i.sroa.gep143, %.split.i ], [ %35, %103 ]
+  %132 = load float, ptr %indvars.iv.i.sroa.phi142, align 4
   %133 = fsub float 1.000000e+00, %132
-  store float %133, ptr %indvars.iv.i.sroa.phi123, align 4
-  %134 = load float, ptr %indvars.iv.i.sroa.phi129, align 4
+  store float %133, ptr %indvars.iv.i.sroa.phi124, align 4
+  %134 = load float, ptr %indvars.iv.i.sroa.phi130, align 4
   %135 = fmul float %134, %117
   %136 = fmul float %135, 0x3FC5555560000000
-  store float %136, ptr %indvars.iv.i.sroa.phi111, align 4
-  %137 = load float, ptr %indvars.iv.i.sroa.phi135, align 4
+  store float %136, ptr %indvars.iv.i.sroa.phi112, align 4
+  %137 = load float, ptr %indvars.iv.i.sroa.phi136, align 4
   %138 = fsub float 1.000000e+00, %137
-  store float %138, ptr %indvars.iv.i.sroa.phi117, align 4
+  store float %138, ptr %indvars.iv.i.sroa.phi118, align 4
   store float %136, ptr %indvars.iv.i.sroa.phi, align 4
   br i1 %131, label %.split.i, label %.loopexit.i, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %.split.i, %.split.us.i, %..loopexit_crit_edge.i
-  %.sroa.0105.1 = phi ptr [ %87, %..loopexit_crit_edge.i ], [ %spec.select, %.split.us.i ], [ %spec.select, %.split.i ]
+  %.sroa.0106.1 = phi ptr [ %87, %..loopexit_crit_edge.i ], [ %spec.select, %.split.us.i ], [ %spec.select, %.split.i ]
   %139 = phi ptr [ %.pre.i, %..loopexit_crit_edge.i ], [ %111, %.split.us.i ], [ %111, %.split.i ]
   %140 = getelementptr inbounds i8, ptr %139, i64 108
   %141 = load float, ptr %140, align 4
@@ -314,7 +314,7 @@ common.resume:                                    ; preds = %454, %96
 
 150:                                              ; preds = %.backedge.i, %.lr.ph.i
   %indvars.iv12.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next13.i, %.backedge.i ]
-  %.02075.i = phi i1 [ false, %.lr.ph.i ], [ %.1208.i, %.backedge.i ]
+  %.02115.i = phi i1 [ false, %.lr.ph.i ], [ %.1212.i, %.backedge.i ]
   %151 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv12.i
   %152 = load i32, ptr %151, align 4
   %153 = getelementptr i8, ptr %151, i64 4
@@ -423,7 +423,7 @@ common.resume:                                    ; preds = %454, %96
 
 .sink.split.i:                                    ; preds = %221, %208, %195
   %.sink19.i = phi ptr [ %230, %221 ], [ %220, %208 ], [ %207, %195 ]
-  %.1208.ph.i = phi i1 [ %.02075.i, %221 ], [ %.02075.i, %208 ], [ %196, %195 ]
+  %.1212.ph.i = phi i1 [ %.02115.i, %221 ], [ %.02115.i, %208 ], [ %196, %195 ]
   %.0204.ph.in.i = phi ptr [ %229, %221 ], [ %219, %208 ], [ %206, %195 ]
   %.0.ph.i = phi float [ %228, %221 ], [ %218, %208 ], [ %204, %195 ]
   %.0204.ph.i = load float, ptr %.0204.ph.in.i, align 4
@@ -431,7 +431,7 @@ common.resume:                                    ; preds = %454, %96
   br label %232
 
 232:                                              ; preds = %.sink.split.i, %150
-  %.1208.i = phi i1 [ %.02075.i, %150 ], [ %.1208.ph.i, %.sink.split.i ]
+  %.1212.i = phi i1 [ %.02115.i, %150 ], [ %.1212.ph.i, %.sink.split.i ]
   %.0205.i = phi float [ 0.000000e+00, %150 ], [ %231, %.sink.split.i ]
   %.0204.i = phi float [ 0.000000e+00, %150 ], [ %.0204.ph.i, %.sink.split.i ]
   %.0.i = phi float [ 0.000000e+00, %150 ], [ %.0.ph.i, %.sink.split.i ]
@@ -464,7 +464,7 @@ common.resume:                                    ; preds = %454, %96
 
 251:                                              ; preds = %242, %239
   %252 = phi float [ %.pre16.i, %239 ], [ %250, %242 ]
-  %.0212.i = phi i32 [ %240, %239 ], [ 22, %242 ]
+  %.0207.i = phi i32 [ %240, %239 ], [ 22, %242 ]
   %253 = phi <2 x float> [ %241, %239 ], [ %245, %242 ]
   %254 = fmul <2 x float> %253, %253
   %255 = extractelement <2 x float> %254, i64 1
@@ -494,12 +494,12 @@ common.resume:                                    ; preds = %454, %96
   br i1 %267, label %150, label %_ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit, !llvm.loop !7
 
 268:                                              ; preds = %251
-  br i1 %.1208.i, label %269, label %329
+  br i1 %.1212.i, label %269, label %329
 
 269:                                              ; preds = %268
-  %270 = getelementptr inbounds float, ptr %.sroa.0105.1, i64 %157
+  %270 = getelementptr inbounds float, ptr %.sroa.0106.1, i64 %157
   %271 = load float, ptr %270, align 4
-  %272 = getelementptr inbounds float, ptr %.sroa.0105.1, i64 %160
+  %272 = getelementptr inbounds float, ptr %.sroa.0106.1, i64 %160
   %273 = load float, ptr %272, align 4
   %274 = fmul float %271, %273
   %275 = fmul float %141, %274
@@ -659,25 +659,25 @@ common.resume:                                    ; preds = %454, %96
   br label %410
 
 410:                                              ; preds = %329, %325, %323, %307, %305
-  %.0211.i = phi float [ %306, %305 ], [ %308, %307 ], [ %324, %323 ], [ %328, %325 ], [ %409, %329 ]
+  %.0208.i = phi float [ %306, %305 ], [ %308, %307 ], [ %324, %323 ], [ %328, %325 ], [ %409, %329 ]
   %411 = load float, ptr %33, align 4
   %412 = sext i32 %170 to i64
-  %413 = getelementptr inbounds float, ptr %.0210.i, i64 %412
+  %413 = getelementptr inbounds float, ptr %.0209.i, i64 %412
   %414 = load float, ptr %413, align 4
   %415 = fadd float %411, %414
   store float %415, ptr %413, align 4
   %416 = load float, ptr %34, align 4
-  %417 = getelementptr inbounds float, ptr %.0209.i, i64 %412
+  %417 = getelementptr inbounds float, ptr %.0210.i, i64 %412
   %418 = load float, ptr %417, align 4
   %419 = fadd float %416, %418
   store float %419, ptr %417, align 4
   %420 = load <2 x float>, ptr %32, align 8
-  %421 = insertelement <2 x float> poison, float %.0211.i, i64 0
+  %421 = insertelement <2 x float> poison, float %.0208.i, i64 0
   %422 = shufflevector <2 x float> %421, <2 x float> poison, <2 x i32> zeroinitializer
   %423 = fmul <2 x float> %422, %420
   store <2 x float> %423, ptr %32, align 8
   %424 = load float, ptr %146, align 8
-  %425 = fmul float %.0211.i, %424
+  %425 = fmul float %.0208.i, %424
   store float %425, ptr %146, align 8
   %426 = getelementptr inbounds [4 x float], ptr %5, i64 %157
   %427 = getelementptr inbounds i8, ptr %426, i64 8
@@ -695,11 +695,11 @@ common.resume:                                    ; preds = %454, %96
   %437 = fsub <2 x float> %436, %423
   store <2 x float> %437, ptr %432, align 4
   store float %435, ptr %433, align 4
-  %.not216.i = icmp eq i32 %.0212.i, 22
+  %.not216.i = icmp eq i32 %.0207.i, 22
   br i1 %.not216.i, label %.backedge.i, label %438
 
 438:                                              ; preds = %410
-  %439 = sext i32 %.0212.i to i64
+  %439 = sext i32 %.0207.i to i64
   %440 = getelementptr inbounds [3 x float], ptr %6, i64 %439
   %441 = getelementptr inbounds i8, ptr %440, i64 8
   %442 = load float, ptr %441, align 4
@@ -769,20 +769,20 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %.sink.i60 = phi i64 [ 32, %451 ], [ 104, %450 ], [ 104, %450 ]
   %457 = getelementptr inbounds i8, ptr %18, i64 %.sink18.i59
   %458 = getelementptr inbounds i8, ptr %18, i64 %.sink.i60
-  %.0205.i61 = load ptr, ptr %458, align 8
-  %.0206.i = load ptr, ptr %457, align 8
+  %.0204.i61 = load ptr, ptr %457, align 8
+  %.0205.i62 = load ptr, ptr %458, align 8
   %459 = getelementptr inbounds i8, ptr %15, i64 144
   %460 = load i32, ptr %459, align 8
-  %.not.i62 = icmp eq i32 %460, 0
-  br i1 %.not.i62, label %..loopexit_crit_edge.i84, label %461
+  %.not.i63 = icmp eq i32 %460, 0
+  br i1 %.not.i63, label %..loopexit_crit_edge.i85, label %461
 
-..loopexit_crit_edge.i84:                         ; preds = %456
-  %.pre.i85 = load ptr, ptr %15, align 8
-  br label %.loopexit.i67
+..loopexit_crit_edge.i85:                         ; preds = %456
+  %.pre.i86 = load ptr, ptr %15, align 8
+  br label %.loopexit.i68
 
 461:                                              ; preds = %456
   %462 = icmp eq ptr %88, %90
-  %spec.select192 = select i1 %462, ptr %86, ptr %87
+  %spec.select193 = select i1 %462, ptr %86, ptr %87
   %463 = getelementptr inbounds i8, ptr %8, i64 8
   %464 = load float, ptr %463, align 4
   %465 = fsub float 1.000000e+00, %464
@@ -791,8 +791,8 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %467 = load float, ptr %466, align 4
   %468 = fsub float 1.000000e+00, %467
   store float %468, ptr %25, align 4
-  store float %464, ptr %indvars.iv.i66.sroa.gep186, align 4
-  store float %467, ptr %indvars.iv.i66.sroa.gep180, align 4
+  store float %464, ptr %indvars.iv.i67.sroa.gep187, align 4
+  store float %467, ptr %indvars.iv.i67.sroa.gep181, align 4
   store <2 x float> <float -1.000000e+00, float 1.000000e+00>, ptr %26, align 8
   %469 = load ptr, ptr %15, align 8
   %470 = getelementptr inbounds i8, ptr %469, i64 144
@@ -802,65 +802,65 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %474 = icmp eq i32 %473, 2
   %475 = sitofp i32 %473 to float
   %476 = uitofp nneg i32 %473 to float
-  br i1 %474, label %.split.us.i82, label %.split.i65
+  br i1 %474, label %.split.us.i83, label %.split.i66
 
-.split.us.i82:                                    ; preds = %461, %.split.us.i82
-  %477 = phi i1 [ false, %.split.us.i82 ], [ true, %461 ]
-  %indvars.iv9.i83.sroa.phi = phi ptr [ %indvars.iv.i66.sroa.gep, %.split.us.i82 ], [ %30, %461 ]
-  %indvars.iv9.i83.sroa.phi158 = phi ptr [ %indvars.iv.i66.sroa.gep156, %.split.us.i82 ], [ %29, %461 ]
-  %indvars.iv9.i83.sroa.phi164 = phi ptr [ %indvars.iv.i66.sroa.gep162, %.split.us.i82 ], [ %28, %461 ]
-  %indvars.iv9.i83.sroa.phi170 = phi ptr [ %indvars.iv.i66.sroa.gep168, %.split.us.i82 ], [ %27, %461 ]
-  %indvars.iv9.i83.sroa.phi176 = phi ptr [ %indvars.iv.i66.sroa.gep174, %.split.us.i82 ], [ %26, %461 ]
-  %indvars.iv9.i83.sroa.phi182 = phi ptr [ %indvars.iv.i66.sroa.gep180, %.split.us.i82 ], [ %25, %461 ]
-  %indvars.iv9.i83.sroa.phi188 = phi ptr [ %indvars.iv.i66.sroa.gep186, %.split.us.i82 ], [ %24, %461 ]
-  %478 = load float, ptr %indvars.iv9.i83.sroa.phi188, align 4
+.split.us.i83:                                    ; preds = %461, %.split.us.i83
+  %477 = phi i1 [ false, %.split.us.i83 ], [ true, %461 ]
+  %indvars.iv9.i84.sroa.phi = phi ptr [ %indvars.iv.i67.sroa.gep, %.split.us.i83 ], [ %30, %461 ]
+  %indvars.iv9.i84.sroa.phi159 = phi ptr [ %indvars.iv.i67.sroa.gep157, %.split.us.i83 ], [ %29, %461 ]
+  %indvars.iv9.i84.sroa.phi165 = phi ptr [ %indvars.iv.i67.sroa.gep163, %.split.us.i83 ], [ %28, %461 ]
+  %indvars.iv9.i84.sroa.phi171 = phi ptr [ %indvars.iv.i67.sroa.gep169, %.split.us.i83 ], [ %27, %461 ]
+  %indvars.iv9.i84.sroa.phi177 = phi ptr [ %indvars.iv.i67.sroa.gep175, %.split.us.i83 ], [ %26, %461 ]
+  %indvars.iv9.i84.sroa.phi183 = phi ptr [ %indvars.iv.i67.sroa.gep181, %.split.us.i83 ], [ %25, %461 ]
+  %indvars.iv9.i84.sroa.phi189 = phi ptr [ %indvars.iv.i67.sroa.gep187, %.split.us.i83 ], [ %24, %461 ]
+  %478 = load float, ptr %indvars.iv9.i84.sroa.phi189, align 4
   %479 = fsub float 1.000000e+00, %478
   %480 = fmul float %479, %479
-  store float %480, ptr %indvars.iv9.i83.sroa.phi170, align 4
-  %481 = load float, ptr %indvars.iv9.i83.sroa.phi176, align 4
+  store float %480, ptr %indvars.iv9.i84.sroa.phi171, align 4
+  %481 = load float, ptr %indvars.iv9.i84.sroa.phi177, align 4
   %482 = fmul float %481, %476
   %483 = fmul float %482, 0x3FC5555560000000
   %484 = fmul float %479, %483
-  store float %484, ptr %indvars.iv9.i83.sroa.phi158, align 4
-  %485 = load float, ptr %indvars.iv9.i83.sroa.phi182, align 4
+  store float %484, ptr %indvars.iv9.i84.sroa.phi159, align 4
+  %485 = load float, ptr %indvars.iv9.i84.sroa.phi183, align 4
   %486 = fsub float 1.000000e+00, %485
   %487 = fmul float %486, %486
-  store float %487, ptr %indvars.iv9.i83.sroa.phi164, align 4
+  store float %487, ptr %indvars.iv9.i84.sroa.phi165, align 4
   %488 = fmul float %483, %486
-  store float %488, ptr %indvars.iv9.i83.sroa.phi, align 4
-  br i1 %477, label %.split.us.i82, label %.loopexit.i67, !llvm.loop !8
+  store float %488, ptr %indvars.iv9.i84.sroa.phi, align 4
+  br i1 %477, label %.split.us.i83, label %.loopexit.i68, !llvm.loop !8
 
-.split.i65:                                       ; preds = %461, %.split.i65
-  %489 = phi i1 [ false, %.split.i65 ], [ true, %461 ]
-  %indvars.iv.i66.sroa.phi = phi ptr [ %indvars.iv.i66.sroa.gep, %.split.i65 ], [ %30, %461 ]
-  %indvars.iv.i66.sroa.phi155 = phi ptr [ %indvars.iv.i66.sroa.gep156, %.split.i65 ], [ %29, %461 ]
-  %indvars.iv.i66.sroa.phi161 = phi ptr [ %indvars.iv.i66.sroa.gep162, %.split.i65 ], [ %28, %461 ]
-  %indvars.iv.i66.sroa.phi167 = phi ptr [ %indvars.iv.i66.sroa.gep168, %.split.i65 ], [ %27, %461 ]
-  %indvars.iv.i66.sroa.phi173 = phi ptr [ %indvars.iv.i66.sroa.gep174, %.split.i65 ], [ %26, %461 ]
-  %indvars.iv.i66.sroa.phi179 = phi ptr [ %indvars.iv.i66.sroa.gep180, %.split.i65 ], [ %25, %461 ]
-  %indvars.iv.i66.sroa.phi185 = phi ptr [ %indvars.iv.i66.sroa.gep186, %.split.i65 ], [ %24, %461 ]
-  %490 = load float, ptr %indvars.iv.i66.sroa.phi185, align 4
+.split.i66:                                       ; preds = %461, %.split.i66
+  %489 = phi i1 [ false, %.split.i66 ], [ true, %461 ]
+  %indvars.iv.i67.sroa.phi = phi ptr [ %indvars.iv.i67.sroa.gep, %.split.i66 ], [ %30, %461 ]
+  %indvars.iv.i67.sroa.phi156 = phi ptr [ %indvars.iv.i67.sroa.gep157, %.split.i66 ], [ %29, %461 ]
+  %indvars.iv.i67.sroa.phi162 = phi ptr [ %indvars.iv.i67.sroa.gep163, %.split.i66 ], [ %28, %461 ]
+  %indvars.iv.i67.sroa.phi168 = phi ptr [ %indvars.iv.i67.sroa.gep169, %.split.i66 ], [ %27, %461 ]
+  %indvars.iv.i67.sroa.phi174 = phi ptr [ %indvars.iv.i67.sroa.gep175, %.split.i66 ], [ %26, %461 ]
+  %indvars.iv.i67.sroa.phi180 = phi ptr [ %indvars.iv.i67.sroa.gep181, %.split.i66 ], [ %25, %461 ]
+  %indvars.iv.i67.sroa.phi186 = phi ptr [ %indvars.iv.i67.sroa.gep187, %.split.i66 ], [ %24, %461 ]
+  %490 = load float, ptr %indvars.iv.i67.sroa.phi186, align 4
   %491 = fsub float 1.000000e+00, %490
-  store float %491, ptr %indvars.iv.i66.sroa.phi167, align 4
-  %492 = load float, ptr %indvars.iv.i66.sroa.phi173, align 4
+  store float %491, ptr %indvars.iv.i67.sroa.phi168, align 4
+  %492 = load float, ptr %indvars.iv.i67.sroa.phi174, align 4
   %493 = fmul float %492, %475
   %494 = fmul float %493, 0x3FC5555560000000
-  store float %494, ptr %indvars.iv.i66.sroa.phi155, align 4
-  %495 = load float, ptr %indvars.iv.i66.sroa.phi179, align 4
+  store float %494, ptr %indvars.iv.i67.sroa.phi156, align 4
+  %495 = load float, ptr %indvars.iv.i67.sroa.phi180, align 4
   %496 = fsub float 1.000000e+00, %495
-  store float %496, ptr %indvars.iv.i66.sroa.phi161, align 4
-  store float %494, ptr %indvars.iv.i66.sroa.phi, align 4
-  br i1 %489, label %.split.i65, label %.loopexit.i67, !llvm.loop !8
+  store float %496, ptr %indvars.iv.i67.sroa.phi162, align 4
+  store float %494, ptr %indvars.iv.i67.sroa.phi, align 4
+  br i1 %489, label %.split.i66, label %.loopexit.i68, !llvm.loop !8
 
-.loopexit.i67:                                    ; preds = %.split.i65, %.split.us.i82, %..loopexit_crit_edge.i84
-  %.sroa.0149.1 = phi ptr [ %87, %..loopexit_crit_edge.i84 ], [ %spec.select192, %.split.us.i82 ], [ %spec.select192, %.split.i65 ]
-  %497 = phi ptr [ %.pre.i85, %..loopexit_crit_edge.i84 ], [ %469, %.split.us.i82 ], [ %469, %.split.i65 ]
+.loopexit.i68:                                    ; preds = %.split.i66, %.split.us.i83, %..loopexit_crit_edge.i85
+  %.sroa.0150.1 = phi ptr [ %87, %..loopexit_crit_edge.i85 ], [ %spec.select193, %.split.us.i83 ], [ %spec.select193, %.split.i66 ]
+  %497 = phi ptr [ %.pre.i86, %..loopexit_crit_edge.i85 ], [ %469, %.split.us.i83 ], [ %469, %.split.i66 ]
   %498 = getelementptr inbounds i8, ptr %497, i64 108
   %499 = load float, ptr %498, align 4
   %500 = icmp sgt i32 %1, 0
-  br i1 %500, label %.lr.ph.i68, label %_ZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit
+  br i1 %500, label %.lr.ph.i69, label %_ZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit
 
-.lr.ph.i68:                                       ; preds = %.loopexit.i67
+.lr.ph.i69:                                       ; preds = %.loopexit.i68
   %501 = icmp eq ptr %88, %90
   %502 = getelementptr inbounds i8, ptr %15, i64 128
   %503 = getelementptr inbounds i8, ptr %15, i64 12
@@ -868,14 +868,14 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %505 = getelementptr inbounds i8, ptr %15, i64 136
   br label %506
 
-506:                                              ; preds = %.backedge.i76, %.lr.ph.i68
-  %indvars.iv12.i69 = phi i64 [ 0, %.lr.ph.i68 ], [ %indvars.iv.next13.i70, %.backedge.i76 ]
-  %.02035.i = phi i1 [ false, %.lr.ph.i68 ], [ %.1204.i, %.backedge.i76 ]
-  %507 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv12.i69
+506:                                              ; preds = %.backedge.i77, %.lr.ph.i69
+  %indvars.iv12.i70 = phi i64 [ 0, %.lr.ph.i69 ], [ %indvars.iv.next13.i71, %.backedge.i77 ]
+  %.02065.i = phi i1 [ false, %.lr.ph.i69 ], [ %.1207.i, %.backedge.i77 ]
+  %507 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv12.i70
   %508 = load i32, ptr %507, align 4
   %509 = getelementptr i8, ptr %507, i64 4
   %510 = load i32, ptr %509, align 4
-  %indvars.iv.next13.i70 = add nuw nsw i64 %indvars.iv12.i69, 3
+  %indvars.iv.next13.i71 = add nuw nsw i64 %indvars.iv12.i70, 3
   %511 = getelementptr i8, ptr %507, i64 8
   %512 = load i32, ptr %511, align 4
   %513 = sext i32 %510 to i64
@@ -948,7 +948,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %561 = sext i32 %508 to i64
   %562 = getelementptr inbounds %union.t_iparams, ptr %3, i64 %561
   %563 = getelementptr inbounds i8, ptr %562, i64 4
-  br label %.sink.split.i71
+  br label %.sink.split.i72
 
 564:                                              ; preds = %506
   %565 = sext i32 %508 to i64
@@ -963,7 +963,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %574 = fmul float %573, %572
   %575 = getelementptr inbounds i8, ptr %566, i64 12
   %576 = getelementptr inbounds i8, ptr %566, i64 16
-  br label %.sink.split.i71
+  br label %.sink.split.i72
 
 577:                                              ; preds = %506
   %578 = sext i32 %508 to i64
@@ -975,22 +975,22 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %584 = fmul float %499, %583
   %585 = getelementptr inbounds i8, ptr %579, i64 8
   %586 = getelementptr inbounds i8, ptr %579, i64 12
-  br label %.sink.split.i71
+  br label %.sink.split.i72
 
-.sink.split.i71:                                  ; preds = %577, %564, %551
-  %.sink19.i72 = phi ptr [ %586, %577 ], [ %576, %564 ], [ %563, %551 ]
-  %.1204.ph.i = phi i1 [ %.02035.i, %577 ], [ %.02035.i, %564 ], [ %552, %551 ]
+.sink.split.i72:                                  ; preds = %577, %564, %551
+  %.sink19.i73 = phi ptr [ %586, %577 ], [ %576, %564 ], [ %563, %551 ]
+  %.1207.ph.i = phi i1 [ %.02065.i, %577 ], [ %.02065.i, %564 ], [ %552, %551 ]
   %.0200.ph.in.i = phi ptr [ %585, %577 ], [ %575, %564 ], [ %562, %551 ]
-  %.0.ph.i73 = phi float [ %584, %577 ], [ %574, %564 ], [ %560, %551 ]
+  %.0.ph.i74 = phi float [ %584, %577 ], [ %574, %564 ], [ %560, %551 ]
   %.0200.ph.i = load float, ptr %.0200.ph.in.i, align 4
-  %587 = load float, ptr %.sink19.i72, align 4
+  %587 = load float, ptr %.sink19.i73, align 4
   br label %588
 
-588:                                              ; preds = %.sink.split.i71, %506
-  %.1204.i = phi i1 [ %.02035.i, %506 ], [ %.1204.ph.i, %.sink.split.i71 ]
-  %.0201.i = phi float [ 0.000000e+00, %506 ], [ %587, %.sink.split.i71 ]
-  %.0200.i = phi float [ 0.000000e+00, %506 ], [ %.0200.ph.i, %.sink.split.i71 ]
-  %.0.i74 = phi float [ 0.000000e+00, %506 ], [ %.0.ph.i73, %.sink.split.i71 ]
+588:                                              ; preds = %.sink.split.i72, %506
+  %.1207.i = phi i1 [ %.02065.i, %506 ], [ %.1207.ph.i, %.sink.split.i72 ]
+  %.0201.i = phi float [ 0.000000e+00, %506 ], [ %587, %.sink.split.i72 ]
+  %.0200.i = phi float [ 0.000000e+00, %506 ], [ %.0200.ph.i, %.sink.split.i72 ]
+  %.0.i75 = phi float [ 0.000000e+00, %506 ], [ %.0.ph.i74, %.sink.split.i72 ]
   %589 = fmul float %.0200.i, 6.000000e+00
   %590 = fmul float %.0201.i, 1.200000e+01
   %591 = load i8, ptr %503, align 4
@@ -1002,7 +1002,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
 595:                                              ; preds = %588
   %596 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef %7, ptr noundef %593, ptr noundef %594, ptr noundef nonnull %21)
   %597 = load <2 x float>, ptr %21, align 8
-  %.pre16.i81 = load float, ptr %504, align 8
+  %.pre16.i82 = load float, ptr %504, align 8
   br label %607
 
 598:                                              ; preds = %588
@@ -1019,7 +1019,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   br label %607
 
 607:                                              ; preds = %598, %595
-  %608 = phi float [ %606, %598 ], [ %.pre16.i81, %595 ]
+  %608 = phi float [ %606, %598 ], [ %.pre16.i82, %595 ]
   %609 = phi <2 x float> [ %601, %598 ], [ %597, %595 ]
   %610 = fmul <2 x float> %609, %609
   %611 = extractelement <2 x float> %610, i64 1
@@ -1035,26 +1035,26 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
 
 620:                                              ; preds = %607
   %.b211.i = load i1, ptr @_ZZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPiE13warned_rlimit, align 1
-  br i1 %.b211.i, label %.backedge.i76, label %621
+  br i1 %.b211.i, label %.backedge.i77, label %621
 
 621:                                              ; preds = %620
-  %sqrt.i75 = call float @llvm.sqrt.f32(float %614)
-  call fastcc void @_ZL14warning_rlimitPA3_KfiiPiff(ptr noundef %4, i32 noundef %510, i32 noundef %512, ptr noundef %19, float noundef %sqrt.i75, float noundef %617)
+  %sqrt.i76 = call float @llvm.sqrt.f32(float %614)
+  call fastcc void @_ZL14warning_rlimitPA3_KfiiPiff(ptr noundef %4, i32 noundef %510, i32 noundef %512, ptr noundef %19, float noundef %sqrt.i76, float noundef %617)
   store i1 true, ptr @_ZZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPiE13warned_rlimit, align 1
-  br label %.backedge.i76
+  br label %.backedge.i77
 
-.backedge.i76:                                    ; preds = %766, %621, %620
-  %622 = trunc nuw i64 %indvars.iv.next13.i70 to i32
+.backedge.i77:                                    ; preds = %766, %621, %620
+  %622 = trunc nuw i64 %indvars.iv.next13.i71 to i32
   %623 = icmp slt i32 %622, %1
   br i1 %623, label %506, label %_ZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit, !llvm.loop !9
 
 624:                                              ; preds = %607
-  br i1 %.1204.i, label %625, label %685
+  br i1 %.1207.i, label %625, label %685
 
 625:                                              ; preds = %624
-  %626 = getelementptr inbounds float, ptr %.sroa.0149.1, i64 %513
+  %626 = getelementptr inbounds float, ptr %.sroa.0150.1, i64 %513
   %627 = load float, ptr %626, align 4
-  %628 = getelementptr inbounds float, ptr %.sroa.0149.1, i64 %516
+  %628 = getelementptr inbounds float, ptr %.sroa.0150.1, i64 %516
   %629 = load float, ptr %628, align 4
   %630 = fmul float %627, %629
   %631 = fmul float %499, %630
@@ -1082,7 +1082,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %651 = fcmp oeq float %650, 0.000000e+00
   %652 = load float, ptr %644, align 4
   %653 = fcmp oeq float %652, 0.000000e+00
-  %or.cond.i78 = select i1 %651, i1 %653, i1 false
+  %or.cond.i79 = select i1 %651, i1 %653, i1 false
   %654 = getelementptr inbounds i8, ptr %615, i64 16
   %655 = load float, ptr %654, align 8
   %656 = getelementptr inbounds i8, ptr %615, i64 24
@@ -1090,14 +1090,14 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %658 = getelementptr inbounds i8, ptr %615, i64 52
   %659 = load i32, ptr %658, align 4
   %660 = sitofp i32 %659 to float
-  br i1 %or.cond.i78, label %661, label %663
+  br i1 %or.cond.i79, label %661, label %663
 
 661:                                              ; preds = %648
-  %662 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %614, float noundef %655, ptr noundef %657, float noundef %660, float noundef %.0.i74, float noundef %589, float noundef %590, float noundef %633, float noundef %638, float noundef %641, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
+  %662 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %614, float noundef %655, ptr noundef %657, float noundef %660, float noundef %.0.i75, float noundef %589, float noundef %590, float noundef %633, float noundef %638, float noundef %641, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
   br label %766
 
 663:                                              ; preds = %648
-  %664 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType0EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %614, ptr noundef nonnull align 4 dereferenceable(36) %644, float noundef %655, ptr noundef %657, float noundef %660, float noundef %.0.i74, float noundef %589, float noundef %590, float noundef %633, float noundef %638, float noundef %641, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
+  %664 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType0EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %614, ptr noundef nonnull align 4 dereferenceable(36) %644, float noundef %655, ptr noundef %657, float noundef %660, float noundef %.0.i75, float noundef %589, float noundef %590, float noundef %633, float noundef %638, float noundef %641, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
   br label %766
 
 665:                                              ; preds = %625
@@ -1118,13 +1118,13 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   br i1 %or.cond215.i, label %679, label %681
 
 679:                                              ; preds = %665
-  %680 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %614, float noundef %673, ptr noundef %675, float noundef %678, float noundef %.0.i74, float noundef %589, float noundef %590, float noundef %633, float noundef %638, float noundef %641, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
+  %680 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %614, float noundef %673, ptr noundef %675, float noundef %678, float noundef %.0.i75, float noundef %589, float noundef %590, float noundef %633, float noundef %638, float noundef %641, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
   br label %766
 
 681:                                              ; preds = %665
   %682 = getelementptr inbounds i8, ptr %642, i64 76
   %683 = load float, ptr %682, align 4
-  %684 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType1EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %614, float noundef %683, ptr noundef nonnull align 4 dereferenceable(36) %644, float noundef %673, ptr noundef %675, float noundef %678, float noundef %.0.i74, float noundef %589, float noundef %590, float noundef %633, float noundef %638, float noundef %641, float noundef %499, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
+  %684 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType1EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %614, float noundef %683, ptr noundef nonnull align 4 dereferenceable(36) %644, float noundef %673, ptr noundef %675, float noundef %678, float noundef %.0.i75, float noundef %589, float noundef %590, float noundef %633, float noundef %638, float noundef %641, float noundef %499, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
   br label %766
 
 685:                                              ; preds = %624
@@ -1135,8 +1135,8 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %690 = getelementptr inbounds i8, ptr %615, i64 52
   %691 = load i32, ptr %690, align 4
   %692 = sitofp i32 %691 to float
-  %sqrt3.i77 = call float @llvm.sqrt.f32(float %614)
-  %693 = fdiv float 1.000000e+00, %sqrt3.i77
+  %sqrt3.i78 = call float @llvm.sqrt.f32(float %614)
+  %693 = fdiv float 1.000000e+00, %sqrt3.i78
   %694 = fmul float %614, %693
   %695 = fmul float %694, %687
   %696 = fptosi float %695 to i32
@@ -1200,13 +1200,13 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %754 = fpext float %748 to double
   %755 = call double @llvm.fmuladd.f64(double %754, double 2.000000e+00, double %753)
   %756 = fptrunc double %755 to float
-  %757 = fmul float %.0.i74, %715
+  %757 = fmul float %.0.i75, %715
   store float %757, ptr %22, align 4
   %758 = fmul float %590, %751
   %759 = call float @llvm.fmuladd.f32(float %589, float %733, float %758)
   store float %759, ptr %23, align 4
   %760 = fmul float %589, %738
-  %761 = call float @llvm.fmuladd.f32(float %.0.i74, float %720, float %760)
+  %761 = call float @llvm.fmuladd.f32(float %.0.i75, float %720, float %760)
   %762 = call float @llvm.fmuladd.f32(float %590, float %756, float %761)
   %763 = fneg float %762
   %764 = fmul float %687, %763
@@ -1214,25 +1214,25 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   br label %766
 
 766:                                              ; preds = %685, %681, %679, %663, %661
-  %.0207.i = phi float [ %662, %661 ], [ %664, %663 ], [ %680, %679 ], [ %684, %681 ], [ %765, %685 ]
+  %.0203.i = phi float [ %662, %661 ], [ %664, %663 ], [ %680, %679 ], [ %684, %681 ], [ %765, %685 ]
   %767 = load float, ptr %22, align 4
   %768 = sext i32 %526 to i64
-  %769 = getelementptr inbounds float, ptr %.0206.i, i64 %768
+  %769 = getelementptr inbounds float, ptr %.0204.i61, i64 %768
   %770 = load float, ptr %769, align 4
   %771 = fadd float %767, %770
   store float %771, ptr %769, align 4
   %772 = load float, ptr %23, align 4
-  %773 = getelementptr inbounds float, ptr %.0205.i61, i64 %768
+  %773 = getelementptr inbounds float, ptr %.0205.i62, i64 %768
   %774 = load float, ptr %773, align 4
   %775 = fadd float %772, %774
   store float %775, ptr %773, align 4
   %776 = load <2 x float>, ptr %21, align 8
-  %777 = insertelement <2 x float> poison, float %.0207.i, i64 0
+  %777 = insertelement <2 x float> poison, float %.0203.i, i64 0
   %778 = shufflevector <2 x float> %777, <2 x float> poison, <2 x i32> zeroinitializer
   %779 = fmul <2 x float> %778, %776
   store <2 x float> %779, ptr %21, align 8
   %780 = load float, ptr %504, align 8
-  %781 = fmul float %.0207.i, %780
+  %781 = fmul float %.0203.i, %780
   store float %781, ptr %504, align 8
   %782 = getelementptr inbounds [4 x float], ptr %5, i64 %513
   %783 = getelementptr inbounds i8, ptr %782, i64 8
@@ -1250,9 +1250,9 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %793 = fsub <2 x float> %792, %779
   store <2 x float> %793, ptr %788, align 4
   store float %791, ptr %789, align 4
-  br label %.backedge.i76
+  br label %.backedge.i77
 
-_ZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit: ; preds = %.backedge.i76, %.loopexit.i67
+_ZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit: ; preds = %.backedge.i77, %.loopexit.i68
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
@@ -2348,7 +2348,7 @@ cdce.end:                                         ; preds = %21, %cdce.call
   %indvars.iv228 = phi i64 [ 1, %.preheader ], [ 0, %155 ]
   %.0219 = phi float [ %170, %.preheader ], [ 0.000000e+00, %155 ]
   %.0206216 = phi float [ %161, %.preheader ], [ 0.000000e+00, %155 ]
-  %.0208214 = phi float [ %165, %.preheader ], [ 0.000000e+00, %155 ]
+  %.0207215 = phi float [ %165, %.preheader ], [ 0.000000e+00, %155 ]
   %157 = phi <2 x float> [ %195, %.preheader ], [ zeroinitializer, %155 ]
   %158 = getelementptr inbounds float, ptr %11, i64 %indvars.iv228
   %159 = load float, ptr %158, align 4
@@ -2357,7 +2357,7 @@ cdce.end:                                         ; preds = %21, %cdce.call
   %162 = getelementptr inbounds float, ptr %12, i64 %indvars.iv228
   %163 = load float, ptr %162, align 4
   %164 = load float, ptr %indvars.iv228.sroa.phi, align 4
-  %165 = tail call float @llvm.fmuladd.f32(float %163, float %164, float %.0208214)
+  %165 = tail call float @llvm.fmuladd.f32(float %163, float %164, float %.0207215)
   %166 = load float, ptr %indvars.iv228.sroa.phi18, align 4
   %167 = load float, ptr %indvars.iv228.sroa.phi24, align 4
   %168 = fmul float %163, %167
@@ -2559,7 +2559,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   br i1 %96, label %97, label %121
 
 97:                                               ; preds = %94
-  %.0297 = select i1 %95, float 0.000000e+00, float 1.000000e+00
+  %.0295 = select i1 %95, float 0.000000e+00, float 1.000000e+00
   %98 = fdiv float 1.000000e+00, %.1
   %99 = fmul float %72, %98
   %100 = fmul float %21, %99
@@ -2573,7 +2573,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %108 = tail call float @llvm.fmuladd.f32(float %107, float -3.000000e+00, float %103)
   %109 = getelementptr inbounds float, ptr %15, i64 %indvars.iv14
   %110 = load float, ptr %109, align 4
-  %111 = fmul float %.0297, %110
+  %111 = fmul float %.0295, %110
   %112 = fmul float %111, 5.000000e-01
   %113 = getelementptr inbounds float, ptr %13, i64 %indvars.iv14
   %114 = load float, ptr %113, align 4

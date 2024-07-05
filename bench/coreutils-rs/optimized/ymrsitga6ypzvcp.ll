@@ -377,23 +377,23 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   br i1 %59, label %.lr.ph.i, label %._crit_edge.i
 
 .preheader.i:                                     ; preds = %72, %64
-  %.165138.i = phi i8 [ %.2.i, %64 ], [ %.064139.i, %72 ]
-  %.sroa.025.0137.i = phi i64 [ %60, %64 ], [ 0, %72 ]
-  %60 = add nuw nsw i64 %.sroa.025.0137.i, 1
-  %61 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0137.i
+  %.sroa.025.0138.i = phi i64 [ %60, %64 ], [ 0, %72 ]
+  %.165137.i = phi i8 [ %.2.i, %64 ], [ %.064139.i, %72 ]
+  %60 = add nuw nsw i64 %.sroa.025.0138.i, 1
+  %61 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0138.i
   %62 = load i16, ptr %61, align 2, !noalias !31, !noundef !5
   %63 = icmp eq i16 %62, 0
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %65, %.preheader.i
-  %.2.i = phi i8 [ %.165138.i, %.preheader.i ], [ %71, %65 ]
+  %.2.i = phi i8 [ %.165137.i, %.preheader.i ], [ %71, %65 ]
   %exitcond155.not.i = icmp eq i64 %60, 4
   br i1 %exitcond155.not.i, label %56, label %.preheader.i
 
 65:                                               ; preds = %.preheader.i
-  %66 = shl nuw nsw i64 %.sroa.025.0137.i, 4
+  %66 = shl nuw nsw i64 %.sroa.025.0138.i, 4
   %67 = add nuw nsw i64 %66, %.062140.i
-  %68 = trunc nuw i8 %.165138.i to i1
+  %68 = trunc nuw i8 %.165137.i to i1
   %69 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hc147f1b50ae3fdf5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %67, i16 noundef %62, i1 noundef zeroext %68)
   %70 = or i1 %69, %68
   %71 = zext i1 %70 to i8
@@ -517,8 +517,8 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit: ; preds = %22
   br label %126
 
 .loopexit.i:                                      ; preds = %186, %184, %182
-  %.012.i.i = phi i64 [ 1, %182 ], [ %..i.i, %186 ], [ 2, %184 ]
-  %125 = add i64 %.012.i.i, %127
+  %.013.i.i = phi i64 [ 1, %182 ], [ %..i.i, %186 ], [ 2, %184 ]
+  %125 = add i64 %.013.i.i, %127
   br label %126
 
 126:                                              ; preds = %.loopexit.i, %.lr.ph106.i

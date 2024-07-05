@@ -896,8 +896,8 @@ invoke.cont.i.i:                                  ; preds = %if.end
   br label %if.end18
 
 if.end18:                                         ; preds = %invoke.cont.i.i, %if.end, %invoke.cont11
-  %rotation.sroa.3.0 = phi float [ 0.000000e+00, %invoke.cont11 ], [ %rotation.sroa.3.0.copyload11, %if.end ], [ %rotation.sroa.3.0.copyload11, %invoke.cont.i.i ]
   %rotation.sroa.0.0 = phi float [ 0.000000e+00, %invoke.cont11 ], [ %rotation.sroa.0.0.copyload10, %if.end ], [ %rotation.sroa.0.0.copyload10, %invoke.cont.i.i ]
+  %rotation.sroa.3.0 = phi float [ 0.000000e+00, %invoke.cont11 ], [ %rotation.sroa.3.0.copyload11, %if.end ], [ %rotation.sroa.3.0.copyload11, %invoke.cont.i.i ]
   %rotation.sroa.4.0 = phi float [ 1.000000e+00, %invoke.cont11 ], [ %rotation.sroa.4.0.copyload12, %if.end ], [ %rotation.sroa.4.0.copyload12, %invoke.cont.i.i ]
   %rotation.sroa.5.0 = phi float [ 0.000000e+00, %invoke.cont11 ], [ %rotation.sroa.5.0.copyload13, %if.end ], [ %rotation.sroa.5.0.copyload13, %invoke.cont.i.i ]
   %call20 = invoke noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper22getFloatArrayAttributeERN4pugi8xml_nodeEPKcRSt6vectorIfSaIfEE(ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(24) %tvec)

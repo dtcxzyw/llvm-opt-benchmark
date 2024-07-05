@@ -197,16 +197,16 @@ define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr nocapture nou
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.i
   %.013.i = phi ptr [ %32, %.lr.ph.i ], [ %25, %19 ]
-  %.0912.i = phi i32 [ %30, %.lr.ph.i ], [ %23, %19 ]
-  %.01011.i = phi ptr [ %31, %.lr.ph.i ], [ %16, %19 ]
-  %27 = load i8, ptr %.01011.i, align 1
+  %.0912.i = phi ptr [ %31, %.lr.ph.i ], [ %16, %19 ]
+  %.01011.i = phi i32 [ %30, %.lr.ph.i ], [ %23, %19 ]
+  %27 = load i8, ptr %.0912.i, align 1
   %28 = and i8 %27, 127
   %29 = xor i8 %28, 91
   store i8 %29, ptr %.013.i, align 1
-  %30 = add nsw i32 %.0912.i, -1
-  %31 = getelementptr i8, ptr %.01011.i, i64 1
+  %30 = add nsw i32 %.01011.i, -1
+  %31 = getelementptr i8, ptr %.0912.i, i64 1
   %32 = getelementptr i8, ptr %.013.i, i64 1
-  %33 = icmp ugt i32 %.0912.i, 1
+  %33 = icmp ugt i32 %.01011.i, 1
   br i1 %33, label %.lr.ph.i, label %pcnfsd_decode_obscure.exit, !llvm.loop !4
 
 pcnfsd_decode_obscure.exit:                       ; preds = %.lr.ph.i, %19, %17
@@ -270,16 +270,16 @@ pcnfsd_decode_obscure.exit:                       ; preds = %.lr.ph.i, %19, %17
 
 .lr.ph.i53:                                       ; preds = %57, %.lr.ph.i53
   %.013.i54 = phi ptr [ %70, %.lr.ph.i53 ], [ %63, %57 ]
-  %.0912.i55 = phi i32 [ %68, %.lr.ph.i53 ], [ %61, %57 ]
-  %.01011.i56 = phi ptr [ %69, %.lr.ph.i53 ], [ %54, %57 ]
-  %65 = load i8, ptr %.01011.i56, align 1
+  %.0912.i55 = phi ptr [ %69, %.lr.ph.i53 ], [ %54, %57 ]
+  %.01011.i56 = phi i32 [ %68, %.lr.ph.i53 ], [ %61, %57 ]
+  %65 = load i8, ptr %.0912.i55, align 1
   %66 = and i8 %65, 127
   %67 = xor i8 %66, 91
   store i8 %67, ptr %.013.i54, align 1
-  %68 = add nsw i32 %.0912.i55, -1
-  %69 = getelementptr i8, ptr %.01011.i56, i64 1
+  %68 = add nsw i32 %.01011.i56, -1
+  %69 = getelementptr i8, ptr %.0912.i55, i64 1
   %70 = getelementptr i8, ptr %.013.i54, i64 1
-  %71 = icmp ugt i32 %.0912.i55, 1
+  %71 = icmp ugt i32 %.01011.i56, 1
   br i1 %71, label %.lr.ph.i53, label %pcnfsd_decode_obscure.exit57, !llvm.loop !4
 
 pcnfsd_decode_obscure.exit57:                     ; preds = %.lr.ph.i53, %57, %55

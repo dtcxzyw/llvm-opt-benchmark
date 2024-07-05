@@ -121,12 +121,12 @@ define void @_ZN5ZXing5Aztec7Encoder6EncodeERKNSt7__cxx1112basic_stringIcSt11cha
   br label %38
 
 36:                                               ; preds = %33, %34
-  %.0177 = phi i1 [ false, %34 ], [ true, %33 ]
+  %.0185 = phi i1 [ false, %34 ], [ true, %33 ]
   %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
-  br i1 %.0177, label %38, label %_ZN5ZXing8BitArrayD2Ev.exit309
+  br i1 %.0185, label %38, label %_ZN5ZXing8BitArrayD2Ev.exit309
 
 38:                                               ; preds = %.thread, %36
   %.pn340 = phi { ptr, i32 } [ %35, %.thread ], [ %37, %36 ]
@@ -208,11 +208,11 @@ define void @_ZN5ZXing5Aztec7Encoder6EncodeERKNSt7__cxx1112basic_stringIcSt11cha
 75:                                               ; preds = %.preheader370, %99
   %.pre765770 = phi ptr [ null, %.preheader370 ], [ %.pre765771, %99 ]
   %.pre767 = phi ptr [ null, %.preheader370 ], [ %.pre768, %99 ]
-  %.0176546 = phi i32 [ 0, %.preheader370 ], [ %77, %99 ]
-  %.0184545 = phi i32 [ 0, %.preheader370 ], [ %.2186, %99 ]
-  %76 = icmp ult i32 %.0176546, 4
-  %77 = add nuw nsw i32 %.0176546, 1
-  %78 = select i1 %76, i32 %77, i32 %.0176546
+  %.0175546 = phi i32 [ 0, %.preheader370 ], [ %.2, %99 ]
+  %.0187545 = phi i32 [ 0, %.preheader370 ], [ %77, %99 ]
+  %76 = icmp ult i32 %.0187545, 4
+  %77 = add nuw nsw i32 %.0187545, 1
+  %78 = select i1 %76, i32 %77, i32 %.0187545
   %79 = select i1 %76, i32 88, i32 112
   %80 = shl nuw nsw i32 %78, 4
   %81 = add nuw nsw i32 %80, %79
@@ -224,7 +224,7 @@ define void @_ZN5ZXing5Aztec7Encoder6EncodeERKNSt7__cxx1112basic_stringIcSt11cha
   %85 = zext nneg i32 %78 to i64
   %86 = getelementptr inbounds [33 x i32], ptr @_ZN5ZXing5AztecL9WORD_SIZEE, i64 0, i64 %85
   %87 = load i32, ptr %86, align 4
-  %.not197 = icmp eq i32 %.0184545, %87
+  %.not197 = icmp eq i32 %.0175546, %87
   br i1 %.not197, label %89, label %88
 
 88:                                               ; preds = %84
@@ -239,14 +239,14 @@ define void @_ZN5ZXing5Aztec7Encoder6EncodeERKNSt7__cxx1112basic_stringIcSt11cha
 89:                                               ; preds = %._crit_edge, %84
   %.pre765 = phi ptr [ %.pre765.pre, %._crit_edge ], [ %.pre765770, %84 ]
   %.pre = phi ptr [ %.pre.pre, %._crit_edge ], [ %.pre767, %84 ]
-  %.1185 = phi i32 [ %87, %._crit_edge ], [ %.0184545, %84 ]
-  %90 = srem i32 %82, %.1185
+  %.1 = phi i32 [ %87, %._crit_edge ], [ %.0175546, %84 ]
+  %90 = srem i32 %82, %.1
   %91 = sub nsw i32 %82, %90
   %92 = ptrtoint ptr %.pre to i64
   %93 = ptrtoint ptr %.pre765 to i64
   %94 = sub i64 %92, %93
   %95 = trunc i64 %94 to i32
-  %96 = shl nsw i32 %.1185, 6
+  %96 = shl nsw i32 %.1, 6
   %97 = icmp slt i32 %96, %95
   %or.cond961 = select i1 %76, i1 %97, i1 false
   %98 = add nsw i32 %21, %95
@@ -257,7 +257,7 @@ define void @_ZN5ZXing5Aztec7Encoder6EncodeERKNSt7__cxx1112basic_stringIcSt11cha
 99:                                               ; preds = %89, %75
   %.pre765771 = phi ptr [ %.pre765770, %75 ], [ %.pre765, %89 ]
   %.pre768 = phi ptr [ %.pre767, %75 ], [ %.pre, %89 ]
-  %.2186 = phi i32 [ %.0184545, %75 ], [ %.1185, %89 ]
+  %.2 = phi i32 [ %.0175546, %75 ], [ %.1, %89 ]
   %exitcond = icmp eq i32 %77, 33
   br i1 %exitcond, label %71, label %75, !llvm.loop !4
 
@@ -526,13 +526,13 @@ _ZN5ZXing5AztecL19GenerateRuneMessageEhRNS_8BitArrayE.exit: ; preds = %170, %172
 177:                                              ; preds = %.loopexit376, %64
   %178 = phi ptr [ %52, %64 ], [ %.pre765, %.loopexit376 ]
   %179 = phi ptr [ %51, %64 ], [ %.pre, %.loopexit376 ]
-  %.0189.ph = phi i32 [ %27, %64 ], [ %78, %.loopexit376 ]
-  %.0188.ph = phi i32 [ %43, %64 ], [ %82, %.loopexit376 ]
-  %.3187.ph = phi i32 [ %46, %64 ], [ %.1185, %.loopexit376 ]
-  %.0173.ph = phi i8 [ %26, %64 ], [ %176, %.loopexit376 ]
+  %.3.ph = phi i32 [ %46, %64 ], [ %.1, %.loopexit376 ]
+  %.0174.ph = phi i32 [ %43, %64 ], [ %82, %.loopexit376 ]
+  %.0171.ph = phi i32 [ %27, %64 ], [ %78, %.loopexit376 ]
+  %.0169.ph = phi i8 [ %26, %64 ], [ %176, %.loopexit376 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN5ZXing5AztecL18GenerateCheckWordsERKNS_8BitArrayEiiRS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %.0188.ph, i32 noundef %.3187.ph, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN5ZXing5AztecL18GenerateCheckWordsERKNS_8BitArrayEiiRS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %.0174.ph, i32 noundef %.3.ph, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %180 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 180:                                              ; preds = %177
@@ -540,8 +540,8 @@ _ZN5ZXing5AztecL19GenerateRuneMessageEhRNS_8BitArrayE.exit: ; preds = %170, %172
   %182 = ptrtoint ptr %178 to i64
   %183 = sub i64 %181, %182
   %184 = trunc i64 %183 to i32
-  %185 = sdiv i32 %184, %.3187.ph
-  %186 = trunc nuw i8 %.0173.ph to i1
+  %185 = sdiv i32 %184, %.3.ph
+  %186 = trunc nuw i8 %.0169.ph to i1
   %187 = load ptr, ptr %11, align 8
   %188 = getelementptr inbounds i8, ptr %11, i64 8
   %189 = getelementptr inbounds i8, ptr %11, i64 16
@@ -556,7 +556,7 @@ _ZN5ZXing5AztecL19GenerateRuneMessageEhRNS_8BitArrayE.exit: ; preds = %170, %172
 
 _ZN5ZXing8BitArrayD2Ev.exit.i213:                 ; preds = %190, %180
   %.pre.i.i214 = phi ptr [ %.pre.i.i214.pre, %190 ], [ null, %180 ]
-  %191 = add nsw i32 %.0189.ph, -1
+  %191 = add nsw i32 %.0171.ph, -1
   br i1 %186, label %.preheader357, label %.preheader364
 
 .preheader357:                                    ; preds = %_ZN5ZXing8BitArrayD2Ev.exit.i213, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i217
@@ -857,12 +857,12 @@ _ZN5ZXing8BitArray10appendBitsEii.exit25.i:       ; preds = %_ZNSt6vectorIhSaIhE
           to label %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit: ; preds = %_ZN5ZXing8BitArray10appendBitsEii.exit25.i, %_ZN5ZXing5AztecL19GenerateRuneMessageEhRNS_8BitArrayE.exit
-  %.0173349 = phi i8 [ 1, %_ZN5ZXing5AztecL19GenerateRuneMessageEhRNS_8BitArrayE.exit ], [ %.0173.ph, %_ZN5ZXing8BitArray10appendBitsEii.exit25.i ]
-  %.0189345 = phi i32 [ 0, %_ZN5ZXing5AztecL19GenerateRuneMessageEhRNS_8BitArrayE.exit ], [ %.0189.ph, %_ZN5ZXing8BitArray10appendBitsEii.exit25.i ]
-  %.0175 = phi i32 [ 0, %_ZN5ZXing5AztecL19GenerateRuneMessageEhRNS_8BitArrayE.exit ], [ %185, %_ZN5ZXing8BitArray10appendBitsEii.exit25.i ]
-  %310 = trunc nuw i8 %.0173349 to i1
+  %.0169349 = phi i8 [ 1, %_ZN5ZXing5AztecL19GenerateRuneMessageEhRNS_8BitArrayE.exit ], [ %.0169.ph, %_ZN5ZXing8BitArray10appendBitsEii.exit25.i ]
+  %.0171347 = phi i32 [ 0, %_ZN5ZXing5AztecL19GenerateRuneMessageEhRNS_8BitArrayE.exit ], [ %.0171.ph, %_ZN5ZXing8BitArray10appendBitsEii.exit25.i ]
+  %.0189 = phi i32 [ 0, %_ZN5ZXing5AztecL19GenerateRuneMessageEhRNS_8BitArrayE.exit ], [ %185, %_ZN5ZXing8BitArray10appendBitsEii.exit25.i ]
+  %310 = trunc nuw i8 %.0169349 to i1
   %311 = select i1 %310, i32 11, i32 14
-  %312 = shl nsw i32 %.0189345, 2
+  %312 = shl nsw i32 %.0171347, 2
   %313 = add nsw i32 %311, %312
   %314 = sext i32 %313 to i64
   %315 = icmp slt i32 %313, 0
@@ -937,21 +937,21 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZN5ZXing5Azte
   br i1 %exitcond753.not, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit, label %337, !llvm.loop !8
 
 _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit: ; preds = %337, %.lr.ph.i
-  %.0174 = phi i32 [ %313, %.lr.ph.i ], [ %332, %337 ]
-  %346 = and i8 %.0173349, 1
+  %.0188 = phi i32 [ %313, %.lr.ph.i ], [ %332, %337 ]
+  %346 = and i8 %.0169349, 1
   store i8 %346, ptr %0, align 8
   %347 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.0174, ptr %347, align 4
+  store i32 %.0188, ptr %347, align 4
   %348 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.0189345, ptr %348, align 8
+  store i32 %.0171347, ptr %348, align 8
   %349 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %.0175, ptr %349, align 4
+  store i32 %.0189, ptr %349, align 4
   %350 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %350, i32 noundef %.0174, i32 noundef %.0174)
+  invoke void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %350, i32 noundef %.0188, i32 noundef %.0188)
           to label %_ZN5ZXing9BitMatrixC2Ei.exit.preheader unwind label %324
 
 _ZN5ZXing9BitMatrixC2Ei.exit.preheader:           ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit
-  %351 = icmp sgt i32 %.0189345, 0
+  %351 = icmp sgt i32 %.0171347, 0
   br i1 %351, label %.lr.ph552, label %_ZN5ZXing9BitMatrixC2Ei.exit._crit_edge
 
 .lr.ph552:                                        ; preds = %_ZN5ZXing9BitMatrixC2Ei.exit.preheader
@@ -963,14 +963,14 @@ _ZN5ZXing9BitMatrixC2Ei.exit.preheader:           ; preds = %_ZSt4iotaIN9__gnu_c
   %357 = sub i64 %355, %356
   %358 = getelementptr inbounds i8, ptr %0, i64 24
   %359 = getelementptr inbounds i8, ptr %0, i64 32
-  %360 = zext nneg i32 %.0189345 to i64
+  %360 = zext nneg i32 %.0171347 to i64
   %361 = select i1 %310, i64 9, i64 12
-  %wide.trip.count763 = zext nneg i32 %.0189345 to i64
+  %wide.trip.count763 = zext nneg i32 %.0171347 to i64
   br label %362
 
 362:                                              ; preds = %.lr.ph552, %_ZN5ZXing9BitMatrixC2Ei.exit
   %indvars.iv760 = phi i64 [ 0, %.lr.ph552 ], [ %indvars.iv.next761, %_ZN5ZXing9BitMatrixC2Ei.exit ]
-  %.0170551 = phi i32 [ 0, %.lr.ph552 ], [ %483, %_ZN5ZXing9BitMatrixC2Ei.exit ]
+  %.0172551 = phi i32 [ 0, %.lr.ph552 ], [ %483, %_ZN5ZXing9BitMatrixC2Ei.exit ]
   %363 = sub nsw i64 %360, %indvars.iv760
   %364 = shl nsw i64 %363, 2
   %365 = add nsw i64 %364, %361
@@ -980,7 +980,7 @@ _ZN5ZXing9BitMatrixC2Ei.exit.preheader:           ; preds = %_ZSt4iotaIN9__gnu_c
 .lr.ph:                                           ; preds = %362
   %367 = shl nuw nsw i64 %indvars.iv760, 1
   %368 = shl nuw nsw i64 %365, 1
-  %369 = sext i32 %.0170551 to i64
+  %369 = sext i32 %.0172551 to i64
   %370 = add nsw i64 %368, %369
   %371 = trunc nsw i64 %367 to i32
   %372 = xor i32 %371, -1
@@ -1168,13 +1168,13 @@ _ZN5ZXing9BitMatrix3setEiib.exit261:              ; preds = %464
 _ZN5ZXing9BitMatrixC2Ei.exit:                     ; preds = %480, %362
   %.tr = trunc i64 %365 to i32
   %482 = shl i32 %.tr, 3
-  %483 = add nsw i32 %482, %.0170551
+  %483 = add nsw i32 %482, %.0172551
   %indvars.iv.next761 = add nuw nsw i64 %indvars.iv760, 1
   %exitcond764.not = icmp eq i64 %indvars.iv.next761, %wide.trip.count763
   br i1 %exitcond764.not, label %_ZN5ZXing9BitMatrixC2Ei.exit._crit_edge, label %362, !llvm.loop !11
 
 _ZN5ZXing9BitMatrixC2Ei.exit._crit_edge:          ; preds = %_ZN5ZXing9BitMatrixC2Ei.exit, %_ZN5ZXing9BitMatrixC2Ei.exit.preheader
-  %484 = sdiv i32 %.0174, 2
+  %484 = sdiv i32 %.0188, 2
   %485 = getelementptr inbounds i8, ptr %11, i64 8
   %486 = getelementptr inbounds i8, ptr %0, i64 24
   %487 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1514,7 +1514,7 @@ _ZN5ZXing5AztecL15DrawModeMessageERNS_9BitMatrixEbiRKNS_8BitArrayE.exit: ; preds
 
 .lr.ph559:                                        ; preds = %.preheader
   %642 = and i32 %484, 1
-  %643 = icmp slt i32 %642, %.0174
+  %643 = icmp slt i32 %642, %.0188
   br i1 %643, label %.lr.ph555.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 .lr.ph555.us:                                     ; preds = %.lr.ph559, %._crit_edge556.us
@@ -1587,7 +1587,7 @@ _ZN5ZXing5AztecL15DrawModeMessageERNS_9BitMatrixEbiRKNS_8BitArrayE.exit: ; preds
   %690 = getelementptr inbounds i8, ptr %685, i64 %683
   store i8 -1, ptr %690, align 1
   %691 = add nuw nsw i32 %.0553.us, 2
-  %692 = icmp slt i32 %691, %.0174
+  %692 = icmp slt i32 %691, %.0188
   br i1 %692, label %646, label %._crit_edge556.us, !llvm.loop !14
 
 ._crit_edge556.us:                                ; preds = %689
@@ -1712,41 +1712,41 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.030.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %.02329.i = phi i32 [ %18, %17 ], [ %4, %2 ]
-  %6 = icmp ult i32 %.02329.i, 100
+  %.02230.i = phi i32 [ %18, %17 ], [ %4, %2 ]
+  %.02329.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %6 = icmp ult i32 %.02230.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.030.i, 1
+  %8 = add i32 %.02329.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i32 %.02329.i, 1000
+  %10 = icmp ult i32 %.02230.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.030.i, 2
+  %12 = add i32 %.02329.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %.02329.i, 10000
+  %14 = icmp ult i32 %.02230.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.030.i, 3
+  %16 = add i32 %.02329.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i32 %.02329.i, 10000
-  %19 = add i32 %.030.i, 4
-  %20 = icmp ult i32 %.02329.i, 100000
+  %18 = udiv i32 %.02230.i, 10000
+  %19 = add i32 %.02329.i, 4
+  %20 = icmp ult i32 %.02230.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !16
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
-  %21 = add i32 %.022.i, %.lobit
+  %21 = add i32 %.0.i, %.lobit
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
   %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -1777,7 +1777,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %29, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %28
-  %30 = add i32 %.022.i, -1
+  %30 = add i32 %.0.i, -1
   br label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i

@@ -1236,7 +1236,7 @@ pmix_pointer_array_get_item.exit347.thread:       ; preds = %401, %406, %pmix_po
   br label %523
 
 523:                                              ; preds = %522, %518
-  %.0175 = phi i1 [ true, %522 ], [ false, %518 ]
+  %.0 = phi i1 [ true, %522 ], [ false, %518 ]
   store i32 1, ptr %7, align 4
   %524 = call i32 @PMIx_Data_unpack(ptr noundef null, ptr noundef %2, ptr noundef nonnull %11, ptr noundef nonnull %7, i16 noundef zeroext 40) #9
   store i32 %524, ptr %14, align 4
@@ -1356,7 +1356,7 @@ pmix_pointer_array_get_item.exit350.thread:       ; preds = %542, %548, %pmix_po
   %588 = load i32, ptr %17, align 4
   %589 = getelementptr inbounds i8, ptr %555, i64 408
   store i32 %588, ptr %589, align 8
-  br i1 %.0175, label %590, label %594
+  br i1 %.0, label %590, label %594
 
 590:                                              ; preds = %587
   %591 = getelementptr inbounds i8, ptr %543, i64 512
@@ -1375,7 +1375,7 @@ pmix_pointer_array_get_item.exit350.thread:       ; preds = %542, %548, %pmix_po
   br i1 %or.cond23, label %._crit_edge408, label %.lr.ph407, !llvm.loop !9
 
 ._crit_edge408:                                   ; preds = %594, %523
-  br i1 %.0175, label %599, label %630
+  br i1 %.0, label %599, label %630
 
 599:                                              ; preds = %._crit_edge408
   %600 = load ptr, ptr %9, align 8

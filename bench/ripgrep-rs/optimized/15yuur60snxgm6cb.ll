@@ -5478,7 +5478,7 @@ _ZN9same_file4unix6Handle9from_path17hdbb0b2e2f35bce51E.exit57.i.i: ; preds = %4
           to label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$ignore..Error$GT$$GT$17h77d731d6de580529E.exit.i" unwind label %.thread129.i, !noalias !864
 
 539:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$ignore..Error$GT$$GT$17h77d731d6de580529E.exit.i", %.thread205.i, %519, %501
-  %.010.i = phi i1 [ false, %519 ], [ false, %501 ], [ %537, %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$ignore..Error$GT$$GT$17h77d731d6de580529E.exit.i" ], [ false, %.thread205.i ]
+  %.014.i = phi i1 [ false, %519 ], [ false, %501 ], [ %537, %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$ignore..Error$GT$$GT$17h77d731d6de580529E.exit.i" ], [ false, %.thread205.i ]
   %540 = load ptr, ptr %279, align 8, !alias.scope !851, !noalias !887, !noundef !4
   %.not19.i = icmp eq ptr %540, null
   br i1 %.not19.i, label %554, label %541
@@ -5501,8 +5501,8 @@ _ZN9same_file4unix6Handle9from_path17hdbb0b2e2f35bce51E.exit57.i.i: ; preds = %4
   br label %554
 
 554:                                              ; preds = %552, %539
-  %.011.i = phi i1 [ %553, %552 ], [ false, %539 ]
-  %brmerge.i = or i1 %.010.i, %.011.i
+  %.015.i = phi i1 [ %553, %552 ], [ false, %539 ]
+  %brmerge.i = or i1 %.014.i, %.015.i
   br i1 %brmerge.i, label %.critedge.i, label %555
 
 555:                                              ; preds = %554

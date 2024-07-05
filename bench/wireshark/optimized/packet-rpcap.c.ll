@@ -820,43 +820,43 @@ dissect_rpcap_auth_reply.exit:                    ; preds = %147, %149
   br label %198
 
 198:                                              ; preds = %191, %168
-  %.061.i.i = phi i32 [ %197, %191 ], [ %190, %168 ]
+  %.0.i.i = phi i32 [ %197, %191 ], [ %190, %168 ]
   %.not64.i.i = icmp eq i16 %177, 0
   br i1 %.not64.i.i, label %204, label %199
 
 199:                                              ; preds = %198
   %200 = load i32, ptr @hf_if_desc, align 4
   %201 = zext i16 %177 to i32
-  %202 = call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %200, ptr noundef %0, i32 noundef %.061.i.i, i32 noundef %201, i32 noundef 0) #6
-  %203 = add i32 %.061.i.i, %201
+  %202 = call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %200, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef %201, i32 noundef 0) #6
+  %203 = add i32 %.0.i.i, %201
   br label %204
 
 204:                                              ; preds = %199, %198
-  %.1.i.i = phi i32 [ %203, %199 ], [ %.061.i.i, %198 ]
+  %.1.i.i = phi i32 [ %203, %199 ], [ %.0.i.i, %198 ]
   %.not68.i.i = icmp eq i16 %184, 0
   br i1 %.not68.i.i, label %dissect_rpcap_findalldevs_if.exit.i, label %.lr.ph.i.i
 
 205:                                              ; preds = %.lr.ph.i.i
-  %206 = add nuw i16 %.067.i.i, 1
+  %206 = add nuw i16 %.06166.i.i, 1
   %exitcond.not.i.i = icmp eq i16 %206, %184
   br i1 %exitcond.not.i.i, label %dissect_rpcap_findalldevs_if.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 .lr.ph.i.i:                                       ; preds = %204, %205
-  %.067.i.i = phi i16 [ %206, %205 ], [ 0, %204 ]
-  %.266.i.i = phi i32 [ %218, %205 ], [ %.1.i.i, %204 ]
+  %.267.i.i = phi i32 [ %218, %205 ], [ %.1.i.i, %204 ]
+  %.06166.i.i = phi i16 [ %206, %205 ], [ 0, %204 ]
   %207 = load i32, ptr @hf_findalldevs_ifaddr, align 4
-  %208 = call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %207, ptr noundef %0, i32 noundef %.266.i.i, i32 noundef -1, i32 noundef 0) #6
+  %208 = call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %207, ptr noundef %0, i32 noundef %.267.i.i, i32 noundef -1, i32 noundef 0) #6
   %209 = load i32, ptr @ett_findalldevs_ifaddr, align 4
   %210 = call ptr @proto_item_add_subtree(ptr noundef %208, i32 noundef %209) #6
   %211 = load i32, ptr @hf_if_addr, align 4
-  %212 = call fastcc i32 @dissect_rpcap_ifaddr(ptr noundef %0, ptr noundef %1, ptr noundef %210, i32 noundef %.266.i.i, i32 noundef %211, ptr noundef %208)
+  %212 = call fastcc i32 @dissect_rpcap_ifaddr(ptr noundef %0, ptr noundef %1, ptr noundef %210, i32 noundef %.267.i.i, i32 noundef %211, ptr noundef %208)
   %213 = load i32, ptr @hf_if_netmask, align 4
   %214 = call fastcc i32 @dissect_rpcap_ifaddr(ptr noundef %0, ptr noundef %1, ptr noundef %210, i32 noundef %212, i32 noundef %213, ptr noundef null)
   %215 = load i32, ptr @hf_if_broadaddr, align 4
   %216 = call fastcc i32 @dissect_rpcap_ifaddr(ptr noundef %0, ptr noundef %1, ptr noundef %210, i32 noundef %214, i32 noundef %215, ptr noundef null)
   %217 = load i32, ptr @hf_if_dstaddr, align 4
   %218 = call fastcc i32 @dissect_rpcap_ifaddr(ptr noundef %0, ptr noundef %1, ptr noundef %210, i32 noundef %216, i32 noundef %217, ptr noundef null)
-  %219 = sub i32 %218, %.266.i.i
+  %219 = sub i32 %218, %.267.i.i
   call void @proto_item_set_len(ptr noundef %208, i32 noundef %219) #6
   %220 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %218) #6
   %221 = icmp slt i32 %220, 0

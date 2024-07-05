@@ -466,9 +466,9 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit68: ; preds = %_ZNSt3__16vect
   br label %97
 
 97:                                               ; preds = %.lr.ph165, %188
-  %.030163 = phi i64 [ 0, %.lr.ph165 ], [ %189, %188 ]
+  %.041163 = phi i64 [ 0, %.lr.ph165 ], [ %189, %188 ]
   %98 = load ptr, ptr %4, align 8
-  %99 = getelementptr inbounds %"class.std::__1::basic_string", ptr %98, i64 %.030163
+  %99 = getelementptr inbounds %"class.std::__1::basic_string", ptr %98, i64 %.041163
   %100 = invoke noundef float @_ZN7mitsuba6string4stofIfEET_RKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %99)
           to label %101 unwind label %.loopexit
 
@@ -563,7 +563,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i: ; p
   %133 = call ptr @__cxa_begin_catch(ptr %132) #26
   %134 = load ptr, ptr @_ZN7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
   %135 = load ptr, ptr %4, align 8
-  %136 = getelementptr inbounds %"class.std::__1::basic_string", ptr %135, i64 %.030163
+  %136 = getelementptr inbounds %"class.std::__1::basic_string", ptr %135, i64 %.041163
   invoke void @_ZN10tinyformat6formatIJNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEEES7_PKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %14, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(24) %136)
           to label %137 unwind label %139
 
@@ -589,7 +589,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i: ; p
   %.0.i = phi ptr [ %106, %105 ], [ %127, %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i ], [ %127, %128 ]
   store ptr %.0.i, ptr %95, align 8
   %144 = load ptr, ptr %8, align 8
-  %145 = getelementptr inbounds %"class.std::__1::basic_string", ptr %144, i64 %.030163
+  %145 = getelementptr inbounds %"class.std::__1::basic_string", ptr %144, i64 %.041163
   %146 = invoke noundef float @_ZN7mitsuba6string4stofIfEET_RKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %145)
           to label %147 unwind label %.loopexit147
 
@@ -685,7 +685,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i77: ;
   %178 = call ptr @__cxa_begin_catch(ptr %177) #26
   %179 = load ptr, ptr @_ZN7mitsuba17IrregularSpectrumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
   %180 = load ptr, ptr %8, align 8
-  %181 = getelementptr inbounds %"class.std::__1::basic_string", ptr %180, i64 %.030163
+  %181 = getelementptr inbounds %"class.std::__1::basic_string", ptr %180, i64 %.041163
   invoke void @_ZN10tinyformat6formatIJNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEEES7_PKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %15, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(24) %181)
           to label %182 unwind label %184
 
@@ -710,7 +710,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i77: ;
 188:                                              ; preds = %174, %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i77, %151
   %.0.i80 = phi ptr [ %152, %151 ], [ %173, %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i77 ], [ %173, %174 ]
   store ptr %.0.i80, ptr %96, align 8
-  %189 = add nuw i64 %.030163, 1
+  %189 = add nuw i64 %.041163, 1
   %190 = load ptr, ptr %40, align 8
   %191 = load ptr, ptr %8, align 8
   %192 = ptrtoint ptr %190 to i64
@@ -4308,23 +4308,23 @@ common.resume:                                    ; preds = %14, %122, %25, %28
 32:                                               ; preds = %.lr.ph, %81
   %33 = phi float [ %.promoted186, %.lr.ph ], [ %..i138, %81 ]
   %34 = phi float [ %29, %.lr.ph ], [ %..i, %81 ]
-  %.0121170 = phi i64 [ 0, %.lr.ph ], [ %88, %81 ]
-  %.0122169 = phi double [ 0.000000e+00, %.lr.ph ], [ %60, %81 ]
-  %.0126168 = phi ptr [ %1, %.lr.ph ], [ %38, %81 ]
-  %.0127167 = phi ptr [ %2, %.lr.ph ], [ %41, %81 ]
+  %.0121170 = phi ptr [ %1, %.lr.ph ], [ %38, %81 ]
+  %.0122169 = phi ptr [ %2, %.lr.ph ], [ %41, %81 ]
+  %.0126168 = phi i64 [ 0, %.lr.ph ], [ %88, %81 ]
+  %.0127167 = phi double [ 0.000000e+00, %.lr.ph ], [ %60, %81 ]
   %35 = phi i32 [ -1, %.lr.ph ], [ %87, %81 ]
   %36 = phi i32 [ -1, %.lr.ph ], [ %85, %81 ]
   %37 = phi <2 x float> [ %31, %.lr.ph ], [ %57, %81 ]
-  %38 = getelementptr inbounds i8, ptr %.0126168, i64 4
-  %39 = load float, ptr %.0127167, align 4
+  %38 = getelementptr inbounds i8, ptr %.0121170, i64 4
+  %39 = load float, ptr %.0122169, align 4
   %40 = fpext float %39 to double
-  %41 = getelementptr inbounds i8, ptr %.0127167, i64 4
+  %41 = getelementptr inbounds i8, ptr %.0122169, i64 4
   %42 = load float, ptr %41, align 4
   %43 = fpext float %42 to double
   %44 = fadd contract double %40, %43
   %45 = fcmp contract olt float %34, %42
   %..i = select contract i1 %45, float %42, float %34
-  %46 = load <2 x float>, ptr %.0126168, align 4
+  %46 = load <2 x float>, ptr %.0121170, align 4
   %47 = extractelement <2 x float> %46, i64 0
   %48 = fpext float %47 to double
   %49 = extractelement <2 x float> %46, i64 1
@@ -4342,9 +4342,9 @@ common.resume:                                    ; preds = %14, %122, %25, %28
   %59 = fcmp contract olt float %58, %33
   %..i138 = select contract i1 %59, float %58, float %33
   store float %..i138, ptr %17, align 8
-  %60 = fadd contract double %.0122169, %53
+  %60 = fadd contract double %.0127167, %53
   %61 = fptrunc double %60 to float
-  %62 = getelementptr inbounds float, ptr %24, i64 %.0121170
+  %62 = getelementptr inbounds float, ptr %24, i64 %.0126168
   store float %61, ptr %62, align 4
   %63 = fcmp contract ogt float %49, %47
   br i1 %63, label %72, label %64
@@ -4399,11 +4399,11 @@ common.resume:                                    ; preds = %14, %122, %25, %28
 81:                                               ; preds = %72
   %82 = fcmp contract ogt double %53, 0.000000e+00
   %83 = icmp eq i32 %35, -1
-  %84 = trunc i64 %.0121170 to i32
+  %84 = trunc i64 %.0126168 to i32
   %85 = select i1 %82, i32 %84, i32 %36
   %86 = select i1 %82, i1 %83, i1 false
   %87 = select i1 %86, i32 %84, i32 %35
-  %88 = add nuw i64 %.0121170, 1
+  %88 = add nuw i64 %.0126168, 1
   %exitcond.not = icmp eq i64 %88, %19
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !33
 

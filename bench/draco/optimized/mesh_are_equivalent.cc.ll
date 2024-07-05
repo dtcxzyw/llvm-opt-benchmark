@@ -1951,8 +1951,8 @@ define linkonce_odr ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_itera
   br label %6
 
 6:                                                ; preds = %170, %4
-  %.sroa.048.0 = phi ptr [ %0, %4 ], [ %173, %170 ]
   %.sroa.045.0 = phi ptr [ %1, %4 ], [ %.sroa.045.165, %170 ]
+  %.sroa.048.0 = phi ptr [ %0, %4 ], [ %173, %170 ]
   %.sroa.01.0.copyload.i66 = load i32, ptr %.sroa.048.0, align 4
   %.sroa.0.0.copyload.i67 = load i32, ptr %2, align 4
   %7 = icmp eq i32 %.sroa.01.0.copyload.i66, %.sroa.0.0.copyload.i67

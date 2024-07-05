@@ -2245,7 +2245,7 @@ _read_signal.exit.i:                              ; preds = %.split37.us.i.i
 .lr.ph.outer.i.i:                                 ; preds = %198, %.thread.i.i
   %.ph.i.i = phi i32 [ %.pre13.i.i, %.thread.i.i ], [ %200, %198 ]
   %indvars.iv.ph.i.i = phi i64 [ %indvars.iv.next15.i.i, %.thread.i.i ], [ 0, %198 ]
-  %.0910.ph.i.i = phi i1 [ true, %.thread.i.i ], [ false, %198 ]
+  %.011.ph.i.i = phi i1 [ true, %.thread.i.i ], [ false, %198 ]
   %.ph18.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 136), align 8
   %202 = sext i32 %.ph.i.i to i64
   br label %.lr.ph.i4.i
@@ -2290,7 +2290,7 @@ _read_signal.exit.i:                              ; preds = %.split37.us.i.i
   br i1 %214, label %.lr.ph.outer.i.i, label %_on_signal.exit.i, !llvm.loop !14
 
 ._crit_edge.i.i82:                                ; preds = %206
-  br i1 %.0910.ph.i.i, label %_on_signal.exit.i, label %.critedge.i.i
+  br i1 %.011.ph.i.i, label %_on_signal.exit.i, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %._crit_edge.i.i82, %198
   %215 = call ptr @strsignal(i32 noundef %.pre.i.i) #17
@@ -7145,7 +7145,7 @@ thread-pre-split.i:                               ; preds = %67, %64
   br label %155
 
 155:                                              ; preds = %149, %146, %143, %136
-  %.062.i = phi i32 [ %138, %136 ], [ 0, %149 ], [ 0, %146 ], [ 0, %143 ]
+  %.063.i = phi i32 [ %138, %136 ], [ 0, %149 ], [ 0, %146 ], [ 0, %143 ]
   %.0.i = phi ptr [ null, %136 ], [ %121, %149 ], [ %121, %146 ], [ %121, %143 ]
   %156 = load ptr, ptr %6, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 20
@@ -7159,7 +7159,7 @@ thread-pre-split.i:                               ; preds = %67, %64
   br label %159
 
 159:                                              ; preds = %158, %155
-  %160 = icmp eq i32 %.062.i, 0
+  %160 = icmp eq i32 %.063.i, 0
   %161 = icmp ne ptr %.0.i, null
   %or.cond.i = and i1 %160, %161
   br i1 %or.cond.i, label %174, label %_on_rpc_connection_data.exit
@@ -7259,7 +7259,7 @@ thread-pre-split.i:                               ; preds = %67, %64
   unreachable
 
 _on_rpc_connection_data.exit:                     ; preds = %212, %209, %201, %168, %165, %162, %159, %107, %104, %101, %92, %89, %86, %80, %77, %74, %31
-  %.0 = phi i32 [ %36, %31 ], [ 0, %74 ], [ 0, %77 ], [ 0, %80 ], [ 1008, %86 ], [ 1008, %89 ], [ 1008, %92 ], [ %100, %101 ], [ %100, %104 ], [ %100, %107 ], [ 0, %162 ], [ 0, %165 ], [ 0, %168 ], [ %206, %212 ], [ %206, %209 ], [ %206, %201 ], [ %.062.i, %159 ]
+  %.0 = phi i32 [ %36, %31 ], [ 0, %74 ], [ 0, %77 ], [ 0, %80 ], [ 1008, %86 ], [ 1008, %89 ], [ 1008, %92 ], [ %100, %101 ], [ %100, %104 ], [ %100, %107 ], [ 0, %162 ], [ 0, %165 ], [ 0, %168 ], [ %206, %212 ], [ %206, %209 ], [ %206, %201 ], [ %.063.i, %159 ]
   %221 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %222 = and i64 %221, 1024
   %.not51 = icmp eq i64 %222, 0
@@ -7603,15 +7603,15 @@ define internal fastcc void @_poll(ptr nocapture noundef readonly %0, ptr nounde
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %124
-  %.088 = phi i32 [ %125, %124 ], [ 0, %.lr.ph.preheader ]
-  %.04487 = phi ptr [ %126, %124 ], [ %57, %.lr.ph.preheader ]
-  %58 = getelementptr inbounds i8, ptr %.04487, i64 6
+  %.088 = phi ptr [ %126, %124 ], [ %57, %.lr.ph.preheader ]
+  %.04487 = phi i32 [ %125, %124 ], [ 0, %.lr.ph.preheader ]
+  %58 = getelementptr inbounds i8, ptr %.088, i64 6
   %59 = load i16, ptr %58, align 2
   %.not55 = icmp eq i16 %59, 0
   br i1 %.not55, label %124, label %60
 
 60:                                               ; preds = %.lr.ph
-  %61 = load i32, ptr %.04487, align 4
+  %61 = load i32, ptr %.088, align 4
   %62 = icmp eq i32 %61, %49
   br i1 %62, label %63, label %76
 
@@ -7686,7 +7686,7 @@ _handle_event_pipe.exit69:                        ; preds = %78, %89
   br label %124
 
 90:                                               ; preds = %76
-  %91 = call ptr @list_find_first(ptr noundef %1, ptr noundef nonnull @_find_by_fd, ptr noundef nonnull %.04487) #17
+  %91 = call ptr @list_find_first(ptr noundef %1, ptr noundef nonnull @_find_by_fd, ptr noundef nonnull %.088) #17
   %.not56 = icmp eq ptr %91, null
   %92 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %93 = and i64 %92, 1024
@@ -7733,7 +7733,7 @@ _handle_event_pipe.exit69:                        ; preds = %78, %89
   unreachable
 
 112:                                              ; preds = %108
-  %113 = load i32, ptr %.04487, align 4
+  %113 = load i32, ptr %.088, align 4
   %114 = load i16, ptr %58, align 2
   call void %2(i32 noundef %113, ptr noundef nonnull %91, i16 noundef signext %114) #17, !callees !22
   call fastcc void @_signal_change(i1 noundef zeroext true)
@@ -7756,13 +7756,13 @@ _handle_event_pipe.exit69:                        ; preds = %78, %89
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %119
-  %123 = load i32, ptr %.04487, align 4
+  %123 = load i32, ptr %.088, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.160, ptr noundef nonnull @__func__._poll, ptr noundef %3, i32 noundef %123) #17
   br label %124
 
 124:                                              ; preds = %_handle_event_pipe.exit, %112, %118, %119, %122, %_handle_event_pipe.exit69, %.lr.ph
-  %125 = add nuw nsw i32 %.088, 1
-  %126 = getelementptr inbounds i8, ptr %.04487, i64 8
+  %125 = add nuw nsw i32 %.04487, 1
+  %126 = getelementptr inbounds i8, ptr %.088, i64 8
   %127 = load i32, ptr %9, align 8
   %128 = icmp slt i32 %125, %127
   br i1 %128, label %.lr.ph, label %.loopexit, !llvm.loop !23

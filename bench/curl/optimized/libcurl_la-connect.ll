@@ -593,8 +593,8 @@ if.end16.i:                                       ; preds = %if.end.i
   br i1 %tobool.not4.i.i, label %addr_first_match.exit58.i, label %while.body.i.preheader.i
 
 while.body.i.preheader.i:                         ; preds = %if.end16.i, %if.end16.thread.i
-  %ai_family1.0.ph131.i = phi i32 [ %spec.select123.i, %if.end16.thread.i ], [ 0, %if.end16.i ]
-  %ai_family0.0.ph130.i = phi i32 [ %.fr.i, %if.end16.thread.i ], [ %cond15.i, %if.end16.i ]
+  %ai_family0.0.ph131.i = phi i32 [ %.fr.i, %if.end16.thread.i ], [ %cond15.i, %if.end16.i ]
+  %ai_family1.0.ph130.i = phi i32 [ %spec.select123.i, %if.end16.thread.i ], [ 0, %if.end16.i ]
   %.pr129.i = phi ptr [ %17, %if.end16.thread.i ], [ %.pr.pre.i, %if.end16.i ]
   br label %while.body.i.i
 
@@ -602,7 +602,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   %addr.addr.05.i.i = phi ptr [ %20, %if.end.i.i ], [ %.pr129.i, %while.body.i.preheader.i ]
   %ai_family.i.i = getelementptr inbounds i8, ptr %addr.addr.05.i.i, i64 4
   %19 = load i32, ptr %ai_family.i.i, align 4
-  %cmp.i48.i = icmp eq i32 %19, %ai_family0.0.ph130.i
+  %cmp.i48.i = icmp eq i32 %19, %ai_family0.0.ph131.i
   br i1 %cmp.i48.i, label %while.body.i50.preheader.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
@@ -619,7 +619,7 @@ while.body.i50.i:                                 ; preds = %if.end.i54.i, %whil
   %addr.addr.05.i51.i = phi ptr [ %22, %if.end.i54.i ], [ %.pr129.i, %while.body.i50.preheader.i ]
   %ai_family.i52.i = getelementptr inbounds i8, ptr %addr.addr.05.i51.i, i64 4
   %21 = load i32, ptr %ai_family.i52.i, align 4
-  %cmp.i53.i = icmp eq i32 %21, %ai_family1.0.ph131.i
+  %cmp.i53.i = icmp eq i32 %21, %ai_family1.0.ph130.i
   br i1 %cmp.i53.i, label %addr_first_match.exit58.i, label %if.end.i54.i
 
 if.end.i54.i:                                     ; preds = %while.body.i50.i
@@ -630,15 +630,15 @@ if.end.i54.i:                                     ; preds = %while.body.i50.i
 
 addr_first_match.exit58.i:                        ; preds = %if.end.i54.i, %while.body.i50.i, %if.end16.i, %if.then6.i
   %addr.addr.0.lcssa.i115.i = phi ptr [ null, %if.then6.i ], [ null, %if.end16.i ], [ %addr.addr.0.lcssa.i.i, %while.body.i50.i ], [ %addr.addr.0.lcssa.i.i, %if.end.i54.i ]
-  %ai_family0.0106114.i = phi i32 [ 0, %if.then6.i ], [ %cond15.i, %if.end16.i ], [ %ai_family0.0.ph130.i, %while.body.i50.i ], [ %ai_family0.0.ph130.i, %if.end.i54.i ]
-  %ai_family1.0107113.i = phi i32 [ 10, %if.then6.i ], [ 0, %if.end16.i ], [ %ai_family1.0.ph131.i, %while.body.i50.i ], [ %ai_family1.0.ph131.i, %if.end.i54.i ]
+  %ai_family1.0106114.i = phi i32 [ 10, %if.then6.i ], [ 0, %if.end16.i ], [ %ai_family1.0.ph130.i, %while.body.i50.i ], [ %ai_family1.0.ph130.i, %if.end.i54.i ]
+  %ai_family0.0107113.i = phi i32 [ 0, %if.then6.i ], [ %cond15.i, %if.end16.i ], [ %ai_family0.0.ph131.i, %while.body.i50.i ], [ %ai_family0.0.ph131.i, %if.end.i54.i ]
   %addr.addr.0.lcssa.i57.i = phi ptr [ null, %if.then6.i ], [ null, %if.end16.i ], [ null, %if.end.i54.i ], [ %addr.addr.05.i51.i, %while.body.i50.i ]
   %tobool21.i = icmp eq ptr %addr.addr.0.lcssa.i115.i, null
   %tobool22.i = icmp ne ptr %addr.addr.0.lcssa.i57.i, null
   %or.cond.i = and i1 %tobool21.i, %tobool22.i
-  %ai_family0.1.i = select i1 %or.cond.i, i32 %ai_family1.0107113.i, i32 %ai_family0.0106114.i
   %addr0.0.i = select i1 %or.cond.i, ptr %addr.addr.0.lcssa.i57.i, ptr %addr.addr.0.lcssa.i115.i
   %addr1.0.i = select i1 %tobool21.i, ptr null, ptr %addr.addr.0.lcssa.i57.i
+  %ai_family0.1.i = select i1 %or.cond.i, i32 %ai_family1.0106114.i, i32 %ai_family0.0107113.i
   %tobool25.not.i = icmp eq ptr %addr0.0.i, null
   br i1 %tobool25.not.i, label %return, label %if.end27.i
 
@@ -739,8 +739,8 @@ if.then48.i:                                      ; preds = %do.end.i
 
 if.end.i66.i:                                     ; preds = %if.then48.i
   %conv55.i = zext i32 %35 to i64
-  %cmp.i67.i = icmp eq i32 %ai_family1.0107113.i, 2
-  %cmp1.i68.i = icmp eq i32 %ai_family1.0107113.i, 10
+  %cmp.i67.i = icmp eq i32 %ai_family1.0106114.i, 2
+  %cmp1.i68.i = icmp eq i32 %ai_family1.0106114.i, 10
   %cond.i69.i = select i1 %cmp1.i68.i, ptr @.str.7, ptr @.str.8
   %cond2.i70.i = select i1 %cmp.i67.i, ptr @.str.6, ptr %cond.i69.i
   store ptr %cond2.i70.i, ptr %call.i64.i, align 8
@@ -751,7 +751,7 @@ if.end.i66.i:                                     ; preds = %if.then48.i
   %first.i73.i = getelementptr inbounds i8, ptr %call.i64.i, i64 8
   store ptr %addr1.0.i, ptr %first.i73.i, align 8
   %ai_family5.i74.i = getelementptr inbounds i8, ptr %call.i64.i, i64 24
-  store i32 %ai_family1.0107113.i, ptr %ai_family5.i74.i, align 8
+  store i32 %ai_family1.0106114.i, ptr %ai_family5.i74.i, align 8
   %primary6.i75.i = getelementptr inbounds i8, ptr %call.i64.i, i64 48
   store ptr %34, ptr %primary6.i75.i, align 8
   %delay_ms7.i76.i = getelementptr inbounds i8, ptr %call.i64.i, i64 56
@@ -768,7 +768,7 @@ land.rhs.i.i80.i:                                 ; preds = %while.body.i.i83.i,
 while.body.i.i83.i:                               ; preds = %land.rhs.i.i80.i
   %ai_family.i.i84.i = getelementptr inbounds i8, ptr %37, i64 4
   %38 = load i32, ptr %ai_family.i.i84.i, align 4
-  %cmp.i.i85.i = icmp eq i32 %38, %ai_family1.0107113.i
+  %cmp.i.i85.i = icmp eq i32 %38, %ai_family1.0106114.i
   br i1 %cmp.i.i85.i, label %do.body60.i, label %land.rhs.i.i80.i, !llvm.loop !7
 
 do.body60.i:                                      ; preds = %while.body.i.i83.i, %land.rhs.i.i80.i
@@ -845,11 +845,11 @@ evaluate.i:                                       ; preds = %for.end214.i, %sw.b
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %evaluate.i
-  %not_started.0255.i = phi i32 [ 0, %evaluate.i ], [ %not_started.1.i, %for.inc.i ]
-  %ongoing.0254.i = phi i32 [ 0, %evaluate.i ], [ %ongoing.1.i, %for.inc.i ]
   %cmp.i36 = phi i1 [ true, %evaluate.i ], [ false, %for.inc.i ]
-  %i.0253.i = phi i64 [ 0, %evaluate.i ], [ 1, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [2 x ptr], ptr %baller3.i, i64 0, i64 %i.0253.i
+  %i.0255.i = phi i64 [ 0, %evaluate.i ], [ 1, %for.inc.i ]
+  %ongoing.0254.i = phi i32 [ 0, %evaluate.i ], [ %ongoing.1.i, %for.inc.i ]
+  %not_started.0253.i = phi i32 [ 0, %evaluate.i ], [ %not_started.1.i, %for.inc.i ]
+  %arrayidx.i = getelementptr inbounds [2 x ptr], ptr %baller3.i, i64 0, i64 %i.0255.i
   %52 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i37 = icmp eq ptr %52, null
   br i1 %tobool.not.i37, label %for.inc.i, label %lor.lhs.false.i
@@ -867,7 +867,7 @@ if.end.i41:                                       ; preds = %lor.lhs.false.i
   br i1 %tobool9.not.i, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %if.end.i41
-  %inc.i = add nsw i32 %not_started.0255.i, 1
+  %inc.i = add nsw i32 %not_started.0253.i, 1
   br label %for.inc.i
 
 if.end11.i:                                       ; preds = %if.end.i41
@@ -981,7 +981,7 @@ if.then30.i:                                      ; preds = %do.end.i46
   br i1 %tobool31.i, label %for.end.i.thread, label %if.else.i
 
 for.end.i.thread:                                 ; preds = %if.then30.i
-  %arrayidx.i.le = getelementptr inbounds [2 x ptr], ptr %baller3.i, i64 0, i64 %i.0253.i
+  %arrayidx.i.le = getelementptr inbounds [2 x ptr], ptr %baller3.i, i64 0, i64 %i.0255.i
   store ptr %52, ptr %winner.i, align 8
   store ptr null, ptr %arrayidx.i.le, align 8
   br label %do.end21
@@ -1158,8 +1158,8 @@ do.end102.i:                                      ; preds = %if.then99.i, %land.
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %do.end102.i, %if.then77.i73, %land.lhs.true72.i70, %land.lhs.true62.i66, %do.body60.i65, %if.else37.i, %if.else.i, %if.then10.i, %lor.lhs.false.i, %for.body.i
+  %not_started.1.i = phi i32 [ %not_started.0253.i, %lor.lhs.false.i ], [ %not_started.0253.i, %if.else37.i ], [ %not_started.0253.i, %if.then77.i73 ], [ %not_started.0253.i, %land.lhs.true72.i70 ], [ %not_started.0253.i, %land.lhs.true62.i66 ], [ %not_started.0253.i, %do.body60.i65 ], [ %not_started.0253.i, %do.end102.i ], [ %not_started.0253.i, %if.else.i ], [ %inc.i, %if.then10.i ], [ %not_started.0253.i, %for.body.i ]
   %ongoing.1.i = phi i32 [ %ongoing.0254.i, %lor.lhs.false.i ], [ %ongoing.0254.i, %if.else37.i ], [ %ongoing.0254.i, %if.then77.i73 ], [ %ongoing.0254.i, %land.lhs.true72.i70 ], [ %ongoing.0254.i, %land.lhs.true62.i66 ], [ %ongoing.0254.i, %do.body60.i65 ], [ %inc103.i, %do.end102.i ], [ %inc35.i, %if.else.i ], [ %ongoing.0254.i, %if.then10.i ], [ %ongoing.0254.i, %for.body.i ]
-  %not_started.1.i = phi i32 [ %not_started.0255.i, %lor.lhs.false.i ], [ %not_started.0255.i, %if.else37.i ], [ %not_started.0255.i, %if.then77.i73 ], [ %not_started.0255.i, %land.lhs.true72.i70 ], [ %not_started.0255.i, %land.lhs.true62.i66 ], [ %not_started.0255.i, %do.body60.i65 ], [ %not_started.0255.i, %do.end102.i ], [ %not_started.0255.i, %if.else.i ], [ %inc.i, %if.then10.i ], [ %not_started.0255.i, %for.body.i ]
   br i1 %cmp.i36, label %for.body.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.inc.i
@@ -1220,10 +1220,10 @@ if.end121.i:                                      ; preds = %if.then19.i162.i
 
 for.body128.i:                                    ; preds = %if.end121.i, %for.inc212.i
   %added.0258.i = phi i32 [ %added.1.i, %for.inc212.i ], [ 0, %if.end121.i ]
-  %ongoing.2257.i = phi i32 [ %ongoing.3.i, %for.inc212.i ], [ %ongoing.1.i, %if.end121.i ]
   %cmp126.i = phi i1 [ false, %for.inc212.i ], [ true, %if.end121.i ]
-  %i.1256.i = phi i64 [ 1, %for.inc212.i ], [ 0, %if.end121.i ]
-  %arrayidx131.i = getelementptr inbounds [2 x ptr], ptr %baller3.i, i64 0, i64 %i.1256.i
+  %i.1257.i = phi i64 [ 1, %for.inc212.i ], [ 0, %if.end121.i ]
+  %ongoing.2256.i = phi i32 [ %ongoing.3.i, %for.inc212.i ], [ %ongoing.1.i, %if.end121.i ]
+  %arrayidx131.i = getelementptr inbounds [2 x ptr], ptr %baller3.i, i64 0, i64 %i.1257.i
   %107 = load ptr, ptr %arrayidx131.i, align 8
   %tobool132.not.i = icmp eq ptr %107, null
   br i1 %tobool132.not.i, label %for.inc212.i, label %lor.lhs.false133.i
@@ -1331,12 +1331,12 @@ if.then204.i:                                     ; preds = %land.lhs.true199.i
   br label %do.end207.i
 
 do.end207.i:                                      ; preds = %if.then204.i, %land.lhs.true199.i, %land.lhs.true189.i
-  %inc208.i = add nsw i32 %ongoing.2257.i, 1
+  %inc208.i = add nsw i32 %ongoing.2256.i, 1
   %inc209.i = add nsw i32 %added.0258.i, 1
   br label %for.inc212.i
 
 for.inc212.i:                                     ; preds = %do.end207.i, %if.then182.i, %land.lhs.true177.i, %land.lhs.true167.i, %lor.lhs.false151.i, %lor.lhs.false133.i, %for.body128.i
-  %ongoing.3.i = phi i32 [ %ongoing.2257.i, %lor.lhs.false133.i ], [ %ongoing.2257.i, %if.then182.i ], [ %ongoing.2257.i, %land.lhs.true177.i ], [ %ongoing.2257.i, %land.lhs.true167.i ], [ %inc208.i, %do.end207.i ], [ %ongoing.2257.i, %lor.lhs.false151.i ], [ %ongoing.2257.i, %for.body128.i ]
+  %ongoing.3.i = phi i32 [ %ongoing.2256.i, %lor.lhs.false133.i ], [ %ongoing.2256.i, %if.then182.i ], [ %ongoing.2256.i, %land.lhs.true177.i ], [ %ongoing.2256.i, %land.lhs.true167.i ], [ %inc208.i, %do.end207.i ], [ %ongoing.2256.i, %lor.lhs.false151.i ], [ %ongoing.2256.i, %for.body128.i ]
   %added.1.i = phi i32 [ %added.0258.i, %lor.lhs.false133.i ], [ %added.0258.i, %if.then182.i ], [ %added.0258.i, %land.lhs.true177.i ], [ %added.0258.i, %land.lhs.true167.i ], [ %inc209.i, %do.end207.i ], [ %added.0258.i, %lor.lhs.false151.i ], [ %added.0258.i, %for.body128.i ]
   br i1 %cmp126.i, label %for.body128.i, label %for.end214.i, !llvm.loop !9
 
@@ -1974,11 +1974,11 @@ sw.bb31:                                          ; preds = %if.then
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %sw.bb31
+  %retval.sroa.0.03.i = phi i64 [ 0, %sw.bb31 ], [ %retval.sroa.0.1.i, %for.inc.i ]
   %cmp.i = phi i1 [ true, %sw.bb31 ], [ false, %for.inc.i ]
-  %i.03.i = phi i64 [ 0, %sw.bb31 ], [ 1, %for.inc.i ]
-  %retval.sroa.0.02.i = phi i64 [ 0, %sw.bb31 ], [ %retval.sroa.0.1.i, %for.inc.i ]
+  %i.02.i = phi i64 [ 0, %sw.bb31 ], [ 1, %for.inc.i ]
   %retval.sroa.4.01.i = phi i32 [ 0, %sw.bb31 ], [ %retval.sroa.4.1.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [2 x ptr], ptr %baller2.i, i64 0, i64 %i.03.i
+  %arrayidx.i = getelementptr inbounds [2 x ptr], ptr %baller2.i, i64 0, i64 %i.02.i
   %10 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %t.i, i8 0, i64 16, i1 false)
   %tobool.not.i = icmp eq ptr %10, null
@@ -2007,7 +2007,7 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %or.cond.i, label %land.lhs.true12.i, label %for.inc.i
 
 land.lhs.true12.i:                                ; preds = %if.then.i
-  %call13.i = call i64 @Curl_timediff_us(i64 %14, i32 %15, i64 %retval.sroa.0.02.i, i32 %retval.sroa.4.01.i) #10
+  %call13.i = call i64 @Curl_timediff_us(i64 %14, i32 %15, i64 %retval.sroa.0.03.i, i32 %retval.sroa.4.01.i) #10
   %cmp14.i = icmp sgt i64 %call13.i, 0
   br i1 %cmp14.i, label %if.then15.i, label %for.inc.i
 
@@ -2018,7 +2018,7 @@ if.then15.i:                                      ; preds = %land.lhs.true12.i
 
 for.inc.i:                                        ; preds = %if.then15.i, %land.lhs.true12.i, %if.then.i, %land.lhs.true5.i, %land.lhs.true.i, %for.body.i
   %retval.sroa.4.1.i = phi i32 [ %retval.sroa.4.01.i, %land.lhs.true5.i ], [ %retval.sroa.4.0.copyload.i, %if.then15.i ], [ %retval.sroa.4.01.i, %land.lhs.true12.i ], [ %retval.sroa.4.01.i, %if.then.i ], [ %retval.sroa.4.01.i, %land.lhs.true.i ], [ %retval.sroa.4.01.i, %for.body.i ]
-  %retval.sroa.0.1.i = phi i64 [ %retval.sroa.0.02.i, %land.lhs.true5.i ], [ %retval.sroa.0.0.copyload.i, %if.then15.i ], [ %retval.sroa.0.02.i, %land.lhs.true12.i ], [ %retval.sroa.0.02.i, %if.then.i ], [ %retval.sroa.0.02.i, %land.lhs.true.i ], [ %retval.sroa.0.02.i, %for.body.i ]
+  %retval.sroa.0.1.i = phi i64 [ %retval.sroa.0.03.i, %land.lhs.true5.i ], [ %retval.sroa.0.0.copyload.i, %if.then15.i ], [ %retval.sroa.0.03.i, %land.lhs.true12.i ], [ %retval.sroa.0.03.i, %if.then.i ], [ %retval.sroa.0.03.i, %land.lhs.true.i ], [ %retval.sroa.0.03.i, %for.body.i ]
   br i1 %cmp.i, label %for.body.i, label %get_max_baller_time.exit, !llvm.loop !14
 
 get_max_baller_time.exit:                         ; preds = %for.inc.i
@@ -2035,11 +2035,11 @@ sw.bb33:                                          ; preds = %if.then
   br label %for.body.i38
 
 for.body.i38:                                     ; preds = %for.inc.i52, %sw.bb33
-  %cmp.i39 = phi i1 [ true, %sw.bb33 ], [ false, %for.inc.i52 ]
-  %i.03.i40 = phi i64 [ 0, %sw.bb33 ], [ 1, %for.inc.i52 ]
-  %retval.sroa.0.02.i41 = phi i64 [ 0, %sw.bb33 ], [ %retval.sroa.0.1.i54, %for.inc.i52 ]
+  %retval.sroa.0.03.i39 = phi i64 [ 0, %sw.bb33 ], [ %retval.sroa.0.1.i54, %for.inc.i52 ]
+  %cmp.i40 = phi i1 [ true, %sw.bb33 ], [ false, %for.inc.i52 ]
+  %i.02.i41 = phi i64 [ 0, %sw.bb33 ], [ 1, %for.inc.i52 ]
   %retval.sroa.4.01.i42 = phi i32 [ 0, %sw.bb33 ], [ %retval.sroa.4.1.i53, %for.inc.i52 ]
-  %arrayidx.i43 = getelementptr inbounds [2 x ptr], ptr %baller2.i36, i64 0, i64 %i.03.i40
+  %arrayidx.i43 = getelementptr inbounds [2 x ptr], ptr %baller2.i36, i64 0, i64 %i.02.i41
   %16 = load ptr, ptr %arrayidx.i43, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %t.i35, i8 0, i64 16, i1 false)
   %tobool.not.i44 = icmp eq ptr %16, null
@@ -2068,7 +2068,7 @@ if.then.i57:                                      ; preds = %land.lhs.true5.i48
   br i1 %or.cond.i60, label %land.lhs.true12.i61, label %for.inc.i52
 
 land.lhs.true12.i61:                              ; preds = %if.then.i57
-  %call13.i62 = call i64 @Curl_timediff_us(i64 %20, i32 %21, i64 %retval.sroa.0.02.i41, i32 %retval.sroa.4.01.i42) #10
+  %call13.i62 = call i64 @Curl_timediff_us(i64 %20, i32 %21, i64 %retval.sroa.0.03.i39, i32 %retval.sroa.4.01.i42) #10
   %cmp14.i63 = icmp sgt i64 %call13.i62, 0
   br i1 %cmp14.i63, label %if.then15.i64, label %for.inc.i52
 
@@ -2079,8 +2079,8 @@ if.then15.i64:                                    ; preds = %land.lhs.true12.i61
 
 for.inc.i52:                                      ; preds = %if.then15.i64, %land.lhs.true12.i61, %if.then.i57, %land.lhs.true5.i48, %land.lhs.true.i45, %for.body.i38
   %retval.sroa.4.1.i53 = phi i32 [ %retval.sroa.4.01.i42, %land.lhs.true5.i48 ], [ %retval.sroa.4.0.copyload.i66, %if.then15.i64 ], [ %retval.sroa.4.01.i42, %land.lhs.true12.i61 ], [ %retval.sroa.4.01.i42, %if.then.i57 ], [ %retval.sroa.4.01.i42, %land.lhs.true.i45 ], [ %retval.sroa.4.01.i42, %for.body.i38 ]
-  %retval.sroa.0.1.i54 = phi i64 [ %retval.sroa.0.02.i41, %land.lhs.true5.i48 ], [ %retval.sroa.0.0.copyload.i65, %if.then15.i64 ], [ %retval.sroa.0.02.i41, %land.lhs.true12.i61 ], [ %retval.sroa.0.02.i41, %if.then.i57 ], [ %retval.sroa.0.02.i41, %land.lhs.true.i45 ], [ %retval.sroa.0.02.i41, %for.body.i38 ]
-  br i1 %cmp.i39, label %for.body.i38, label %get_max_baller_time.exit67, !llvm.loop !14
+  %retval.sroa.0.1.i54 = phi i64 [ %retval.sroa.0.03.i39, %land.lhs.true5.i48 ], [ %retval.sroa.0.0.copyload.i65, %if.then15.i64 ], [ %retval.sroa.0.03.i39, %land.lhs.true12.i61 ], [ %retval.sroa.0.03.i39, %if.then.i57 ], [ %retval.sroa.0.03.i39, %land.lhs.true.i45 ], [ %retval.sroa.0.03.i39, %for.body.i38 ]
+  br i1 %cmp.i40, label %for.body.i38, label %get_max_baller_time.exit67, !llvm.loop !14
 
 get_max_baller_time.exit67:                       ; preds = %for.inc.i52
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i35)

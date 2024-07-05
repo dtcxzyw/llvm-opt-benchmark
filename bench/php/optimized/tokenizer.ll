@@ -1127,11 +1127,11 @@ define hidden void @zim_PhpToken___construct(ptr noundef %0, ptr nocapture readn
   br i1 %.fr, label %.thread230, label %.thread211
 
 .thread211:                                       ; preds = %37, %27, %19, %12, %46
-  %.0184220 = phi i32 [ 9, %46 ], [ 9, %37 ], [ 9, %27 ], [ 9, %19 ], [ 1, %12 ]
-  %.0185219 = phi i32 [ 0, %46 ], [ 0, %37 ], [ 4, %27 ], [ 0, %19 ], [ 0, %12 ]
-  %.0186218 = phi ptr [ %41, %46 ], [ %32, %37 ], [ %22, %27 ], [ %14, %19 ], [ null, %12 ]
-  %.0187217 = phi i32 [ 4, %46 ], [ 3, %37 ], [ 2, %27 ], [ 1, %19 ], [ 0, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0184220, i32 noundef %.0187217, ptr noundef null, i32 noundef %.0185219, ptr noundef %.0186218) #10
+  %.0187220 = phi i32 [ 4, %46 ], [ 3, %37 ], [ 2, %27 ], [ 1, %19 ], [ 0, %12 ]
+  %.0188219 = phi i32 [ 9, %46 ], [ 9, %37 ], [ 9, %27 ], [ 9, %19 ], [ 1, %12 ]
+  %.0189218 = phi i32 [ 0, %46 ], [ 0, %37 ], [ 4, %27 ], [ 0, %19 ], [ 0, %12 ]
+  %.0190217 = phi ptr [ %41, %46 ], [ %32, %37 ], [ %22, %27 ], [ %14, %19 ], [ null, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0188219, i32 noundef %.0187220, ptr noundef null, i32 noundef %.0189218, ptr noundef %.0190217) #10
   br label %67
 
 .thread230:                                       ; preds = %46, %.thread207, %39, %29
@@ -1309,9 +1309,9 @@ php_token_get_text.exit:                          ; preds = %27, %31
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
   %.0160 = phi ptr [ %115, %.critedge2 ], [ %64, %.lr.ph.preheader ]
-  %.094159 = phi i32 [ %116, %.critedge2 ], [ %56, %.lr.ph.preheader ]
-  %.095158 = phi ptr [ %.2, %.critedge2 ], [ null, %.lr.ph.preheader ]
-  %.097157 = phi ptr [ %.299, %.critedge2 ], [ null, %.lr.ph.preheader ]
+  %.095159 = phi i32 [ %116, %.critedge2 ], [ %56, %.lr.ph.preheader ]
+  %.096158 = phi ptr [ %.2, %.critedge2 ], [ null, %.lr.ph.preheader ]
+  %.098157 = phi ptr [ %.2100, %.critedge2 ], [ null, %.lr.ph.preheader ]
   %65 = getelementptr inbounds i8, ptr %.0160, i64 8
   %66 = load i8, ptr %65, align 8
   switch i8 %66, label %70 [
@@ -1328,14 +1328,14 @@ php_token_get_text.exit:                          ; preds = %27, %31
 
 70:                                               ; preds = %.lr.ph, %67
   %71 = phi i8 [ %.pre, %67 ], [ %66, %.lr.ph ]
-  %.096 = phi ptr [ %69, %67 ], [ %.0160, %.lr.ph ]
+  %.097 = phi ptr [ %69, %67 ], [ %.0160, %.lr.ph ]
   switch i8 %71, label %111 [
     i8 4, label %72
     i8 6, label %88
   ]
 
 72:                                               ; preds = %70
-  %.not124 = icmp eq ptr %.097157, null
+  %.not124 = icmp eq ptr %.098157, null
   br i1 %.not124, label %73, label %php_token_get_id.exit133.thread
 
 73:                                               ; preds = %72
@@ -1361,9 +1361,9 @@ php_token_get_text.exit:                          ; preds = %27, %31
   br label %122
 
 php_token_get_id.exit133.thread:                  ; preds = %73, %77, %72
-  %.198 = phi ptr [ %.097157, %72 ], [ %74, %73 ], [ %79, %77 ]
-  %83 = load i64, ptr %.198, align 8
-  %84 = load i64, ptr %.096, align 8
+  %.199 = phi ptr [ %.098157, %72 ], [ %74, %73 ], [ %79, %77 ]
+  %83 = load i64, ptr %.199, align 8
+  %84 = load i64, ptr %.097, align 8
   %85 = icmp eq i64 %83, %84
   br i1 %85, label %86, label %.critedge2
 
@@ -1373,7 +1373,7 @@ php_token_get_id.exit133.thread:                  ; preds = %73, %77, %72
   br label %122
 
 88:                                               ; preds = %70
-  %.not122 = icmp eq ptr %.095158, null
+  %.not122 = icmp eq ptr %.096158, null
   br i1 %.not122, label %89, label %99
 
 89:                                               ; preds = %88
@@ -1408,8 +1408,8 @@ php_token_get_text.exit136:                       ; preds = %89, %93
   br label %122
 
 99:                                               ; preds = %php_token_get_text.exit136, %88
-  %.1 = phi ptr [ %.095158, %88 ], [ %96, %php_token_get_text.exit136 ]
-  %100 = load ptr, ptr %.096, align 8
+  %.1 = phi ptr [ %.096158, %88 ], [ %96, %php_token_get_text.exit136 ]
+  %100 = load ptr, ptr %.097, align 8
   %101 = icmp eq ptr %.1, %100
   br i1 %101, label %.critedge, label %102
 
@@ -1431,7 +1431,7 @@ php_token_get_text.exit136:                       ; preds = %89, %93
   br label %122
 
 111:                                              ; preds = %70
-  %112 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %.096) #10
+  %112 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %.097) #10
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef %112) #10
   %113 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %114 = icmp ne ptr %113, null
@@ -1439,10 +1439,10 @@ php_token_get_text.exit136:                       ; preds = %89, %93
   br label %122
 
 .critedge2:                                       ; preds = %.lr.ph, %php_token_get_id.exit133.thread, %108, %102
-  %.299 = phi ptr [ %.097157, %.lr.ph ], [ %.198, %php_token_get_id.exit133.thread ], [ %.097157, %108 ], [ %.097157, %102 ]
-  %.2 = phi ptr [ %.095158, %.lr.ph ], [ %.095158, %php_token_get_id.exit133.thread ], [ %.1, %108 ], [ %.1, %102 ]
+  %.2100 = phi ptr [ %.098157, %.lr.ph ], [ %.199, %php_token_get_id.exit133.thread ], [ %.098157, %108 ], [ %.098157, %102 ]
+  %.2 = phi ptr [ %.096158, %.lr.ph ], [ %.096158, %php_token_get_id.exit133.thread ], [ %.1, %108 ], [ %.1, %102 ]
   %115 = getelementptr inbounds i8, ptr %.0160, i64 %62
-  %116 = add i32 %.094159, -1
+  %116 = add i32 %.095159, -1
   %.not121 = icmp eq i32 %116, 0
   br i1 %.not121, label %._crit_edge, label %.lr.ph
 
@@ -1747,9 +1747,9 @@ define hidden void @on_event(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br label %35
 
 35:                                               ; preds = %extract_token_id_to_replace.exit.thread, %18
-  %.036 = phi i32 [ %22, %18 ], [ %55, %extract_token_id_to_replace.exit.thread ]
+  %.037 = phi i32 [ %22, %18 ], [ %55, %extract_token_id_to_replace.exit.thread ]
   %.035 = phi ptr [ %33, %18 ], [ %36, %extract_token_id_to_replace.exit.thread ]
-  %.not43 = icmp ne i32 %.036, 0
+  %.not43 = icmp ne i32 %.037, 0
   tail call void @llvm.assume(i1 %.not43)
   %36 = getelementptr inbounds i8, ptr %.035, i64 %34
   %37 = getelementptr inbounds i8, ptr %36, i64 8
@@ -1790,7 +1790,7 @@ define hidden void @on_event(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr
   br i1 %or.cond, label %extract_token_id_to_replace.exit.thread, label %56
 
 extract_token_id_to_replace.exit.thread:          ; preds = %35, %48, %53
-  %55 = add i32 %.036, -1
+  %55 = add i32 %.037, -1
   br label %35
 
 56:                                               ; preds = %53
@@ -2090,10 +2090,10 @@ define hidden void @zif_token_name(ptr noundef %0, ptr nocapture noundef writeon
   br label %15
 
 14:                                               ; preds = %12, %.thread135
-  %.0116142 = phi i32 [ 1, %.thread135 ], [ 9, %12 ]
-  %.0118141 = phi ptr [ null, %.thread135 ], [ %7, %12 ]
-  %.0119140 = phi i32 [ 0, %.thread135 ], [ 1, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0116142, i32 noundef %.0119140, ptr noundef null, i32 noundef 0, ptr noundef %.0118141) #10
+  %.0116142 = phi i32 [ 0, %.thread135 ], [ 1, %12 ]
+  %.0117141 = phi ptr [ null, %.thread135 ], [ %7, %12 ]
+  %.0118140 = phi i32 [ 1, %.thread135 ], [ 9, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0118140, i32 noundef %.0116142, ptr noundef null, i32 noundef 0, ptr noundef %.0117141) #10
   br label %29
 
 15:                                               ; preds = %._crit_edge, %.thread130
@@ -2244,8 +2244,8 @@ define internal fastcc ptr @make_str(ptr noundef %0, i64 noundef %1, ptr noundef
   br label %45
 
 45:                                               ; preds = %33, %22, %14, %19, %36, %6
-  %.0 = phi ptr [ %10, %6 ], [ %39, %36 ], [ %15, %19 ], [ %15, %14 ], [ %25, %22 ], [ %25, %33 ]
-  ret ptr %.0
+  %.0142 = phi ptr [ %10, %6 ], [ %39, %36 ], [ %15, %19 ], [ %15, %14 ], [ %25, %22 ], [ %25, %33 ]
+  ret ptr %.0142
 }
 
 declare ptr @_zend_new_array_0() local_unnamed_addr #1

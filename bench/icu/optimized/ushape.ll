@@ -271,9 +271,9 @@ while.end:                                        ; preds = %if.end170.us, %whil
   br label %if.end178
 
 if.end178:                                        ; preds = %while.end, %if.then103
+  %tempsource.0 = phi ptr [ %call128, %while.end ], [ null, %if.then103 ]
   %sourceLength.addr.1 = phi i32 [ %newSourceLength.0.lcssa, %while.end ], [ %sourceLength.addr.0, %if.then103 ]
   %source.addr.0 = phi ptr [ %add.ptr177, %while.end ], [ %source, %if.then103 ]
-  %tempsource.0 = phi ptr [ %call128, %while.end ], [ null, %if.then103 ]
   %cmp183 = icmp eq i32 %and, 524288
   %or.cond248 = or i1 %cmp28.not, %cmp183
   br i1 %or.cond248, label %if.then184, label %if.end187
@@ -383,11 +383,11 @@ if.then231:                                       ; preds = %if.end225
   br label %if.end233
 
 if.end233:                                        ; preds = %if.then224, %if.then231, %if.end225
-  %shapeVars.sroa.11.0 = phi i32 [ 1, %if.then231 ], [ 0, %if.end225 ], [ 0, %if.then224 ]
-  %shapeVars.sroa.10.0 = phi i32 [ 262144, %if.then231 ], [ 393216, %if.end225 ], [ 393216, %if.then224 ]
   %shapeVars.sroa.9.0 = phi i32 [ 393216, %if.then231 ], [ 262144, %if.end225 ], [ 262144, %if.then224 ]
   %shapeVars.sroa.8.0 = phi i32 [ 3, %if.then231 ], [ 2, %if.end225 ], [ 2, %if.then224 ]
   %shapeVars.sroa.770.0 = phi i32 [ 2, %if.then231 ], [ 3, %if.end225 ], [ 3, %if.then224 ]
+  %shapeVars.sroa.10.0 = phi i32 [ 262144, %if.then231 ], [ 393216, %if.end225 ], [ 393216, %if.then224 ]
+  %shapeVars.sroa.11.0 = phi i32 [ 1, %if.then231 ], [ 0, %if.end225 ], [ 0, %if.then224 ]
   %21 = lshr exact i32 %and12, 3
   switch i32 %21, label %default.unreachable [
     i32 1, label %sw.bb
@@ -1006,22 +1006,22 @@ while.body.lr.ph:                                 ; preds = %_ZL7getLinkDs.exit
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end270
-  %nextLink.0288 = phi i16 [ 0, %while.body.lr.ph ], [ %nextLink.3, %if.end270 ]
-  %currLink.0287 = phi i16 [ %retval.0.i, %while.body.lr.ph ], [ %currLink.3, %if.end270 ]
-  %lastLink.0286 = phi i16 [ 0, %while.body.lr.ph ], [ %lastLink.3, %if.end270 ]
-  %prevLink.0284 = phi i16 [ 0, %while.body.lr.ph ], [ %prevLink.1, %if.end270 ]
-  %tashkeelFound.0283 = phi i32 [ 0, %while.body.lr.ph ], [ %tashkeelFound.1, %if.end270 ]
-  %yehhamzaFound.0282 = phi i32 [ 0, %while.body.lr.ph ], [ %yehhamzaFound.2, %if.end270 ]
-  %seenfamFound.0281 = phi i32 [ 0, %while.body.lr.ph ], [ %seenfamFound.2, %if.end270 ]
-  %lamalef_found.0280 = phi i32 [ 0, %while.body.lr.ph ], [ %lamalef_found.2, %if.end270 ]
-  %Nx.0279 = phi i32 [ -2, %while.body.lr.ph ], [ %Nx.4, %if.end270 ]
-  %lastPos.0277 = phi i32 [ %sub32, %while.body.lr.ph ], [ %lastPos.1, %if.end270 ]
-  %i.1276 = phi i32 [ %sub32, %while.body.lr.ph ], [ %add260, %if.end270 ]
-  %cmp38.not = icmp ult i16 %currLink.0287, 256
+  %i.1288 = phi i32 [ %sub32, %while.body.lr.ph ], [ %add260, %if.end270 ]
+  %lastPos.0286 = phi i32 [ %sub32, %while.body.lr.ph ], [ %lastPos.1, %if.end270 ]
+  %nextLink.0285 = phi i16 [ 0, %while.body.lr.ph ], [ %nextLink.3, %if.end270 ]
+  %currLink.0284 = phi i16 [ %retval.0.i, %while.body.lr.ph ], [ %currLink.3, %if.end270 ]
+  %lastLink.0283 = phi i16 [ 0, %while.body.lr.ph ], [ %lastLink.3, %if.end270 ]
+  %prevLink.0281 = phi i16 [ 0, %while.body.lr.ph ], [ %prevLink.1, %if.end270 ]
+  %tashkeelFound.0280 = phi i32 [ 0, %while.body.lr.ph ], [ %tashkeelFound.1, %if.end270 ]
+  %yehhamzaFound.0279 = phi i32 [ 0, %while.body.lr.ph ], [ %yehhamzaFound.2, %if.end270 ]
+  %seenfamFound.0278 = phi i32 [ 0, %while.body.lr.ph ], [ %seenfamFound.2, %if.end270 ]
+  %lamalef_found.0277 = phi i32 [ 0, %while.body.lr.ph ], [ %lamalef_found.2, %if.end270 ]
+  %Nx.0276 = phi i32 [ -2, %while.body.lr.ph ], [ %Nx.4, %if.end270 ]
+  %cmp38.not = icmp ult i16 %currLink.0284, 256
   br i1 %cmp38.not, label %lor.lhs.false, label %if.then45
 
 lor.lhs.false:                                    ; preds = %while.body
-  %idxprom39 = sext i32 %i.1276 to i64
+  %idxprom39 = sext i32 %i.1288 to i64
   %arrayidx40 = getelementptr inbounds i16, ptr %dest, i64 %idxprom39
   %13 = load i16, ptr %arrayidx40, align 2
   %conv.i127 = zext i16 %13 to i32
@@ -1078,16 +1078,16 @@ _ZL7getLinkDs.exit152:                            ; preds = %if.then.i148, %if.t
   br i1 %cmp44.not, label %if.end254, label %if.then45
 
 if.then45:                                        ; preds = %if.else7.i131, %_ZL7getLinkDs.exit152, %while.body
-  %cmp47271 = icmp slt i32 %Nx.0279, 0
+  %cmp47271 = icmp slt i32 %Nx.0276, 0
   br i1 %cmp47271, label %while.body48.preheader, label %while.end
 
 while.body48.preheader:                           ; preds = %if.then45
-  %add = add nsw i32 %i.1276, -1
+  %add = add nsw i32 %i.1288, -1
   br label %while.body48
 
 while.body48:                                     ; preds = %while.body48.preheader, %if.end62
   %Nw.0273 = phi i32 [ %Nw.1, %if.end62 ], [ %add, %while.body48.preheader ]
-  %Nx.1272 = phi i32 [ %Nx.2, %if.end62 ], [ %Nx.0279, %while.body48.preheader ]
+  %Nx.1272 = phi i32 [ %Nx.2, %if.end62 ], [ %Nx.0276, %while.body48.preheader ]
   %cmp49 = icmp eq i32 %Nw.0273, -1
   br i1 %cmp49, label %while.end, label %if.else51
 
@@ -1163,17 +1163,17 @@ if.end62:                                         ; preds = %_ZL7getLinkDs.exit1
   br i1 %cmp47, label %while.body48, label %while.end, !llvm.loop !15
 
 while.end:                                        ; preds = %while.body48, %if.end62, %if.then45
-  %Nx.1.lcssa = phi i32 [ %Nx.0279, %if.then45 ], [ 3000, %while.body48 ], [ %Nx.2, %if.end62 ]
-  %nextLink.1.lcssa = phi i16 [ %nextLink.0288, %if.then45 ], [ 0, %while.body48 ], [ %nextLink.2, %if.end62 ]
-  %31 = and i16 %currLink.0287, 32
+  %Nx.1.lcssa = phi i32 [ %Nx.0276, %if.then45 ], [ 3000, %while.body48 ], [ %Nx.2, %if.end62 ]
+  %nextLink.1.lcssa = phi i16 [ %nextLink.0285, %if.then45 ], [ 0, %while.body48 ], [ %nextLink.2, %if.end62 ]
+  %31 = and i16 %currLink.0284, 32
   %cmp65.not = icmp eq i16 %31, 0
-  %32 = and i16 %lastLink.0286, 16
+  %32 = and i16 %lastLink.0283, 16
   %cmp69.not = icmp eq i16 %32, 0
   %or.cond120 = select i1 %cmp65.not, i1 true, i1 %cmp69.not
   br i1 %or.cond120, label %if.end83, label %if.then70
 
 if.then70:                                        ; preds = %while.end
-  %idxprom71 = sext i32 %i.1276 to i64
+  %idxprom71 = sext i32 %i.1288 to i64
   %arrayidx72 = getelementptr inbounds i16, ptr %dest, i64 %idxprom71
   %33 = load i16, ptr %arrayidx72, align 2
   %switch.tableidx = add i16 %33, -1570
@@ -1191,7 +1191,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds [6 x i16], ptr @switch.table._ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables, i64 0, i64 %35
   %switch.load = load i16, ptr %switch.gep, align 2
   store i16 -1, ptr %arrayidx72, align 2
-  %idxprom79 = sext i32 %lastPos.0277 to i64
+  %idxprom79 = sext i32 %lastPos.0286 to i64
   %arrayidx80 = getelementptr inbounds i16, ptr %dest, i64 %idxprom79
   store i16 %switch.load, ptr %arrayidx80, align 2
   %narrow = add nuw nsw i16 %switch.load, 30
@@ -1202,10 +1202,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %if.end83
 
 if.end83:                                         ; preds = %switch.hole_check, %if.then70, %switch.lookup, %while.end
-  %i.3 = phi i32 [ %i.1276, %while.end ], [ %lastPos.0277, %switch.lookup ], [ %i.1276, %if.then70 ], [ %i.1276, %switch.hole_check ]
-  %lamalef_found.1 = phi i32 [ %lamalef_found.0280, %while.end ], [ 1, %switch.lookup ], [ 1, %if.then70 ], [ 1, %switch.hole_check ]
-  %lastLink.1 = phi i16 [ %lastLink.0286, %while.end ], [ %prevLink.0284, %switch.lookup ], [ %prevLink.0284, %if.then70 ], [ %prevLink.0284, %switch.hole_check ]
-  %currLink.1 = phi i16 [ %currLink.0287, %while.end ], [ %37, %switch.lookup ], [ 0, %if.then70 ], [ 0, %switch.hole_check ]
+  %lamalef_found.1 = phi i32 [ %lamalef_found.0277, %while.end ], [ 1, %switch.lookup ], [ 1, %if.then70 ], [ 1, %switch.hole_check ]
+  %lastLink.1 = phi i16 [ %lastLink.0283, %while.end ], [ %prevLink.0281, %switch.lookup ], [ %prevLink.0281, %if.then70 ], [ %prevLink.0281, %switch.hole_check ]
+  %currLink.1 = phi i16 [ %currLink.0284, %while.end ], [ %37, %switch.lookup ], [ 0, %if.then70 ], [ 0, %switch.hole_check ]
+  %i.3 = phi i32 [ %i.1288, %while.end ], [ %lastPos.0286, %switch.lookup ], [ %i.1288, %if.then70 ], [ %i.1288, %switch.hole_check ]
   %cmp84 = icmp sgt i32 %i.3, 0
   br i1 %cmp84, label %land.lhs.true85, label %if.else104
 
@@ -1225,7 +1225,7 @@ if.then91:                                        ; preds = %land.lhs.true85
 
 if.else96:                                        ; preds = %if.then91
   %cmp100 = icmp eq i16 %41, 1574
-  %spec.select = select i1 %cmp100, i32 1, i32 %yehhamzaFound.0282
+  %spec.select = select i1 %cmp100, i32 1, i32 %yehhamzaFound.0279
   br label %if.end121
 
 if.else104:                                       ; preds = %if.end83
@@ -1240,12 +1240,12 @@ if.then106:                                       ; preds = %if.else104
 
 if.else112:                                       ; preds = %if.then106
   %cmp116 = icmp eq i16 %43, 1574
-  %spec.select121 = select i1 %cmp116, i32 1, i32 %yehhamzaFound.0282
+  %spec.select121 = select i1 %cmp116, i32 1, i32 %yehhamzaFound.0279
   br label %if.end121
 
 if.end121:                                        ; preds = %land.lhs.true85, %if.else112, %if.else96, %if.then106, %if.then91, %if.else104
-  %seenfamFound.1 = phi i32 [ %seenfamFound.0281, %if.else104 ], [ 1, %if.then91 ], [ %seenfamFound.0281, %if.else96 ], [ 1, %if.then106 ], [ %seenfamFound.0281, %if.else112 ], [ %seenfamFound.0281, %land.lhs.true85 ]
-  %yehhamzaFound.1 = phi i32 [ %yehhamzaFound.0282, %if.else104 ], [ %yehhamzaFound.0282, %if.then91 ], [ %spec.select, %if.else96 ], [ %yehhamzaFound.0282, %if.then106 ], [ %spec.select121, %if.else112 ], [ %yehhamzaFound.0282, %land.lhs.true85 ]
+  %seenfamFound.1 = phi i32 [ %seenfamFound.0278, %if.else104 ], [ 1, %if.then91 ], [ %seenfamFound.0278, %if.else96 ], [ 1, %if.then106 ], [ %seenfamFound.0278, %if.else112 ], [ %seenfamFound.0278, %land.lhs.true85 ]
+  %yehhamzaFound.1 = phi i32 [ %yehhamzaFound.0279, %if.else104 ], [ %yehhamzaFound.0279, %if.then91 ], [ %spec.select, %if.else96 ], [ %yehhamzaFound.0279, %if.then106 ], [ %spec.select121, %if.else112 ], [ %yehhamzaFound.0279, %land.lhs.true85 ]
   %conv122 = zext i16 %nextLink.1.lcssa to i32
   %and123 = and i32 %conv122, 3
   %idxprom124 = zext nneg i32 %and123 to i64
@@ -1377,20 +1377,20 @@ if.then242:                                       ; preds = %if.else234
   br label %if.end254
 
 if.end254:                                        ; preds = %if.else26.i135, %if.else.i129, %if.end187, %if.then227, %if.then242, %if.else234, %if.then204, %if.else207, %_ZL7getLinkDs.exit152
-  %i.4 = phi i32 [ %i.3, %if.then204 ], [ %i.3, %if.else207 ], [ %i.3, %if.then227 ], [ %i.3, %if.then242 ], [ %i.3, %if.else234 ], [ %i.3, %if.end187 ], [ %i.1276, %_ZL7getLinkDs.exit152 ], [ %i.1276, %if.else.i129 ], [ %i.1276, %if.else26.i135 ]
-  %Nx.3 = phi i32 [ %Nx.1.lcssa, %if.then204 ], [ %Nx.1.lcssa, %if.else207 ], [ %Nx.1.lcssa, %if.then227 ], [ %Nx.1.lcssa, %if.then242 ], [ %Nx.1.lcssa, %if.else234 ], [ %Nx.1.lcssa, %if.end187 ], [ %Nx.0279, %_ZL7getLinkDs.exit152 ], [ %Nx.0279, %if.else.i129 ], [ %Nx.0279, %if.else26.i135 ]
-  %lamalef_found.2 = phi i32 [ %lamalef_found.1, %if.then204 ], [ %lamalef_found.1, %if.else207 ], [ %lamalef_found.1, %if.then227 ], [ %lamalef_found.1, %if.then242 ], [ %lamalef_found.1, %if.else234 ], [ %lamalef_found.1, %if.end187 ], [ %lamalef_found.0280, %_ZL7getLinkDs.exit152 ], [ %lamalef_found.0280, %if.else.i129 ], [ %lamalef_found.0280, %if.else26.i135 ]
-  %seenfamFound.2 = phi i32 [ %seenfamFound.1, %if.then204 ], [ %seenfamFound.1, %if.else207 ], [ %seenfamFound.1, %if.then227 ], [ %seenfamFound.1, %if.then242 ], [ %seenfamFound.1, %if.else234 ], [ %seenfamFound.1, %if.end187 ], [ %seenfamFound.0281, %_ZL7getLinkDs.exit152 ], [ %seenfamFound.0281, %if.else.i129 ], [ %seenfamFound.0281, %if.else26.i135 ]
-  %yehhamzaFound.2 = phi i32 [ %yehhamzaFound.1, %if.then204 ], [ %yehhamzaFound.1, %if.else207 ], [ %yehhamzaFound.1, %if.then227 ], [ %yehhamzaFound.1, %if.then242 ], [ %yehhamzaFound.1, %if.else234 ], [ %yehhamzaFound.1, %if.end187 ], [ %yehhamzaFound.0282, %_ZL7getLinkDs.exit152 ], [ %yehhamzaFound.0282, %if.else.i129 ], [ %yehhamzaFound.0282, %if.else26.i135 ]
-  %tashkeelFound.1 = phi i32 [ 1, %if.then204 ], [ %tashkeelFound.0283, %if.else207 ], [ %tashkeelFound.0283, %if.then227 ], [ %tashkeelFound.0283, %if.then242 ], [ %tashkeelFound.0283, %if.else234 ], [ %tashkeelFound.0283, %if.end187 ], [ %tashkeelFound.0283, %_ZL7getLinkDs.exit152 ], [ %tashkeelFound.0283, %if.else.i129 ], [ %tashkeelFound.0283, %if.else26.i135 ]
-  %lastLink.2 = phi i16 [ %lastLink.1, %if.then204 ], [ %lastLink.1, %if.else207 ], [ %lastLink.1, %if.then227 ], [ %lastLink.1, %if.then242 ], [ %lastLink.1, %if.else234 ], [ %lastLink.1, %if.end187 ], [ %lastLink.0286, %_ZL7getLinkDs.exit152 ], [ %lastLink.0286, %if.else.i129 ], [ %lastLink.0286, %if.else26.i135 ]
-  %currLink.2 = phi i16 [ %currLink.1, %if.then204 ], [ %currLink.1, %if.else207 ], [ %currLink.1, %if.then227 ], [ %currLink.1, %if.then242 ], [ %currLink.1, %if.else234 ], [ %currLink.1, %if.end187 ], [ %currLink.0287, %_ZL7getLinkDs.exit152 ], [ %currLink.0287, %if.else.i129 ], [ %currLink.0287, %if.else26.i135 ]
-  %nextLink.3 = phi i16 [ %nextLink.1.lcssa, %if.then204 ], [ %nextLink.1.lcssa, %if.else207 ], [ %nextLink.1.lcssa, %if.then227 ], [ %nextLink.1.lcssa, %if.then242 ], [ %nextLink.1.lcssa, %if.else234 ], [ %nextLink.1.lcssa, %if.end187 ], [ %nextLink.0288, %_ZL7getLinkDs.exit152 ], [ %nextLink.0288, %if.else.i129 ], [ %nextLink.0288, %if.else26.i135 ]
+  %Nx.3 = phi i32 [ %Nx.1.lcssa, %if.then204 ], [ %Nx.1.lcssa, %if.else207 ], [ %Nx.1.lcssa, %if.then227 ], [ %Nx.1.lcssa, %if.then242 ], [ %Nx.1.lcssa, %if.else234 ], [ %Nx.1.lcssa, %if.end187 ], [ %Nx.0276, %_ZL7getLinkDs.exit152 ], [ %Nx.0276, %if.else.i129 ], [ %Nx.0276, %if.else26.i135 ]
+  %lamalef_found.2 = phi i32 [ %lamalef_found.1, %if.then204 ], [ %lamalef_found.1, %if.else207 ], [ %lamalef_found.1, %if.then227 ], [ %lamalef_found.1, %if.then242 ], [ %lamalef_found.1, %if.else234 ], [ %lamalef_found.1, %if.end187 ], [ %lamalef_found.0277, %_ZL7getLinkDs.exit152 ], [ %lamalef_found.0277, %if.else.i129 ], [ %lamalef_found.0277, %if.else26.i135 ]
+  %seenfamFound.2 = phi i32 [ %seenfamFound.1, %if.then204 ], [ %seenfamFound.1, %if.else207 ], [ %seenfamFound.1, %if.then227 ], [ %seenfamFound.1, %if.then242 ], [ %seenfamFound.1, %if.else234 ], [ %seenfamFound.1, %if.end187 ], [ %seenfamFound.0278, %_ZL7getLinkDs.exit152 ], [ %seenfamFound.0278, %if.else.i129 ], [ %seenfamFound.0278, %if.else26.i135 ]
+  %yehhamzaFound.2 = phi i32 [ %yehhamzaFound.1, %if.then204 ], [ %yehhamzaFound.1, %if.else207 ], [ %yehhamzaFound.1, %if.then227 ], [ %yehhamzaFound.1, %if.then242 ], [ %yehhamzaFound.1, %if.else234 ], [ %yehhamzaFound.1, %if.end187 ], [ %yehhamzaFound.0279, %_ZL7getLinkDs.exit152 ], [ %yehhamzaFound.0279, %if.else.i129 ], [ %yehhamzaFound.0279, %if.else26.i135 ]
+  %tashkeelFound.1 = phi i32 [ 1, %if.then204 ], [ %tashkeelFound.0280, %if.else207 ], [ %tashkeelFound.0280, %if.then227 ], [ %tashkeelFound.0280, %if.then242 ], [ %tashkeelFound.0280, %if.else234 ], [ %tashkeelFound.0280, %if.end187 ], [ %tashkeelFound.0280, %_ZL7getLinkDs.exit152 ], [ %tashkeelFound.0280, %if.else.i129 ], [ %tashkeelFound.0280, %if.else26.i135 ]
+  %lastLink.2 = phi i16 [ %lastLink.1, %if.then204 ], [ %lastLink.1, %if.else207 ], [ %lastLink.1, %if.then227 ], [ %lastLink.1, %if.then242 ], [ %lastLink.1, %if.else234 ], [ %lastLink.1, %if.end187 ], [ %lastLink.0283, %_ZL7getLinkDs.exit152 ], [ %lastLink.0283, %if.else.i129 ], [ %lastLink.0283, %if.else26.i135 ]
+  %currLink.2 = phi i16 [ %currLink.1, %if.then204 ], [ %currLink.1, %if.else207 ], [ %currLink.1, %if.then227 ], [ %currLink.1, %if.then242 ], [ %currLink.1, %if.else234 ], [ %currLink.1, %if.end187 ], [ %currLink.0284, %_ZL7getLinkDs.exit152 ], [ %currLink.0284, %if.else.i129 ], [ %currLink.0284, %if.else26.i135 ]
+  %nextLink.3 = phi i16 [ %nextLink.1.lcssa, %if.then204 ], [ %nextLink.1.lcssa, %if.else207 ], [ %nextLink.1.lcssa, %if.then227 ], [ %nextLink.1.lcssa, %if.then242 ], [ %nextLink.1.lcssa, %if.else234 ], [ %nextLink.1.lcssa, %if.end187 ], [ %nextLink.0285, %_ZL7getLinkDs.exit152 ], [ %nextLink.0285, %if.else.i129 ], [ %nextLink.0285, %if.else26.i135 ]
+  %i.4 = phi i32 [ %i.3, %if.then204 ], [ %i.3, %if.else207 ], [ %i.3, %if.then227 ], [ %i.3, %if.then242 ], [ %i.3, %if.else234 ], [ %i.3, %if.end187 ], [ %i.1288, %_ZL7getLinkDs.exit152 ], [ %i.1288, %if.else.i129 ], [ %i.1288, %if.else26.i135 ]
   %56 = and i16 %currLink.2, 4
   %cmp257 = icmp eq i16 %56, 0
-  %lastPos.1 = select i1 %cmp257, i32 %i.4, i32 %lastPos.0277
-  %prevLink.1 = select i1 %cmp257, i16 %lastLink.2, i16 %prevLink.0284
+  %prevLink.1 = select i1 %cmp257, i16 %lastLink.2, i16 %prevLink.0281
   %lastLink.3 = select i1 %cmp257, i16 %currLink.2, i16 %lastLink.2
+  %lastPos.1 = select i1 %cmp257, i32 %i.4, i32 %lastPos.0286
   %add260 = add nsw i32 %i.4, -1
   %cmp261 = icmp eq i32 %add260, %Nx.3
   br i1 %cmp261, label %if.end270, label %if.else263
@@ -1874,7 +1874,7 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
 
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %if.end70.us.us
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %if.end70.us.us ], [ 0, %for.body.lr.ph.split.us ]
-  %lamalef_found.050.us.us = phi i32 [ %spec.select.us.us, %if.end70.us.us ], [ 0, %for.body.lr.ph.split.us ]
+  %lamalef_found.048.us.us = phi i32 [ %spec.select.us.us, %if.end70.us.us ], [ 0, %for.body.lr.ph.split.us ]
   %arrayidx.us.us = getelementptr inbounds i16, ptr %dest, i64 %indvars.iv98
   %1 = load i16, ptr %arrayidx.us.us, align 2
   %conv.us.us = zext i16 %1 to i32
@@ -1963,14 +1963,14 @@ if.end70.us.us:                                   ; preds = %if.then13.us.us, %i
   %11 = phi i16 [ %10, %if.then13.us.us ], [ %1, %if.then.us.us ], [ 32, %if.then48.us.us ], [ %9, %if.then57.us.us ], [ %1, %if.else51.us.us ], [ 32, %if.then28.us.us ]
   %12 = add i16 %11, 259
   %13 = icmp ult i16 %12, -8
-  %spec.select.us.us = select i1 %13, i32 %lamalef_found.050.us.us, i32 1
+  %spec.select.us.us = select i1 %13, i32 %lamalef_found.048.us.us, i32 1
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
   br i1 %exitcond102.not, label %for.end, label %for.body.us.us, !llvm.loop !24
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %if.end70.us
   %indvars.iv93 = phi i64 [ %indvars.iv.next94, %if.end70.us ], [ 0, %for.body.lr.ph.split.us ]
-  %lamalef_found.050.us = phi i32 [ %spec.select.us, %if.end70.us ], [ 0, %for.body.lr.ph.split.us ]
+  %lamalef_found.048.us = phi i32 [ %spec.select.us, %if.end70.us ], [ 0, %for.body.lr.ph.split.us ]
   %arrayidx.us = getelementptr inbounds i16, ptr %dest, i64 %indvars.iv93
   %14 = load i16, ptr %arrayidx.us, align 2
   %conv.us = zext i16 %14 to i32
@@ -2031,7 +2031,7 @@ if.end70.us:                                      ; preds = %if.end70.us.sink.sp
   %23 = phi i16 [ %14, %if.then.us ], [ %14, %if.else51.us ], [ %.sink, %if.end70.us.sink.split ]
   %24 = add i16 %23, 259
   %25 = icmp ult i16 %24, -8
-  %spec.select.us = select i1 %25, i32 %lamalef_found.050.us, i32 1
+  %spec.select.us = select i1 %25, i32 %lamalef_found.048.us, i32 1
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count101
   br i1 %exitcond97.not, label %for.end, label %for.body.us, !llvm.loop !24
@@ -2050,7 +2050,7 @@ for.body.us51.preheader:                          ; preds = %for.body.lr.ph.spli
 
 for.body.us51:                                    ; preds = %for.body.us51.preheader, %if.end70.us77
   %indvars.iv88 = phi i64 [ 0, %for.body.us51.preheader ], [ %indvars.iv.next89, %if.end70.us77 ]
-  %lamalef_found.050.us52 = phi i32 [ 0, %for.body.us51.preheader ], [ %spec.select.us78, %if.end70.us77 ]
+  %lamalef_found.048.us53 = phi i32 [ 0, %for.body.us51.preheader ], [ %spec.select.us78, %if.end70.us77 ]
   %arrayidx.us55 = getelementptr inbounds i16, ptr %dest, i64 %indvars.iv88
   %27 = load i16, ptr %arrayidx.us55, align 2
   %conv.us56 = zext i16 %27 to i32
@@ -2111,14 +2111,14 @@ if.end70.us77:                                    ; preds = %if.then13.us76, %if
   %33 = phi i16 [ %32, %if.then13.us76 ], [ %27, %if.then.us71 ], [ %31, %if.then57.us67 ], [ %27, %if.else34.us65 ], [ 32, %if.then28.us64 ]
   %34 = add i16 %33, 259
   %35 = icmp ult i16 %34, -8
-  %spec.select.us78 = select i1 %35, i32 %lamalef_found.050.us52, i32 1
+  %spec.select.us78 = select i1 %35, i32 %lamalef_found.048.us53, i32 1
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
   br i1 %exitcond92.not, label %for.end, label %for.body.us51, !llvm.loop !24
 
 for.body:                                         ; preds = %for.body.preheader, %if.end70
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end70 ]
-  %lamalef_found.050 = phi i32 [ 0, %for.body.preheader ], [ %spec.select, %if.end70 ]
+  %lamalef_found.048 = phi i32 [ 0, %for.body.preheader ], [ %spec.select, %if.end70 ]
   %arrayidx = getelementptr inbounds i16, ptr %dest, i64 %indvars.iv
   %36 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %36 to i32
@@ -2155,7 +2155,7 @@ if.end70:                                         ; preds = %if.end70.sink.split
   %41 = phi i16 [ %36, %if.else ], [ %36, %if.then ], [ %.sink109, %if.end70.sink.split ]
   %42 = add i16 %41, 259
   %43 = icmp ult i16 %42, -8
-  %spec.select = select i1 %43, i32 %lamalef_found.050, i32 1
+  %spec.select = select i1 %43, i32 %lamalef_found.048, i32 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24

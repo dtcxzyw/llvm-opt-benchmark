@@ -460,8 +460,8 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %__begin1.sroa.0.030 = phi ptr [ %__begin1.sroa.0.0, %for.inc ], [ %__begin1.sroa.0.025, %entry ]
   %handle_v.sroa.0.029 = phi ptr [ %handle_v.sroa.0.2, %for.inc ], [ null, %entry ]
-  %handle_v.sroa.11.028 = phi ptr [ %handle_v.sroa.11.2, %for.inc ], [ null, %entry ]
-  %handle_v.sroa.6.027 = phi ptr [ %handle_v.sroa.6.2, %for.inc ], [ null, %entry ]
+  %handle_v.sroa.6.028 = phi ptr [ %handle_v.sroa.6.2, %for.inc ], [ null, %entry ]
+  %handle_v.sroa.11.027 = phi ptr [ %handle_v.sroa.11.2, %for.inc ], [ null, %entry ]
   %12 = ptrtoint ptr %__begin1.sroa.0.030 to i64
   %sub.i.i.i = add i64 %12, -64
   %13 = inttoptr i64 %sub.i.i.i to ptr
@@ -490,16 +490,16 @@ _ZN4node10HandleWrap6HasRefEPKS0_.exit:           ; preds = %_ZN4node10HandleWra
 
 if.end:                                           ; preds = %_ZN4node10HandleWrap6HasRefEPKS0_.exit
   %call8 = tail call ptr @_ZN4node9AsyncWrap8GetOwnerEv(ptr noundef nonnull align 8 dereferenceable(56) %13) #25
-  %cmp.not.i = icmp eq ptr %handle_v.sroa.6.027, %handle_v.sroa.11.028
+  %cmp.not.i = icmp eq ptr %handle_v.sroa.6.028, %handle_v.sroa.11.027
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i10
 
 if.then.i10:                                      ; preds = %if.end
-  store ptr %call8, ptr %handle_v.sroa.6.027, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %handle_v.sroa.6.027, i64 8
+  store ptr %call8, ptr %handle_v.sroa.6.028, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %handle_v.sroa.6.028, i64 8
   br label %for.inc
 
 if.else.i:                                        ; preds = %if.end
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %handle_v.sroa.11.028 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %handle_v.sroa.6.028 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %handle_v.sroa.0.029 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i11 = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
@@ -528,7 +528,7 @@ _ZNSt12_Vector_baseIN2v85LocalINS0_5ValueEEESaIS3_EE11_M_allocateEm.exit.i.i: ; 
   %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"class.v8::Local", ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   store ptr %call8, ptr %add.ptr.i.i, align 8
-  %cmp.not5.i.i.i.i.i = icmp eq ptr %handle_v.sroa.0.029, %handle_v.sroa.11.028
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %handle_v.sroa.0.029, %handle_v.sroa.6.028
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN2v85LocalINS0_5ValueEEESaIS3_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i
@@ -540,7 +540,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   store i64 %18, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !5, !noalias !8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %handle_v.sroa.11.028
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %handle_v.sroa.6.028
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN2v85LocalINS0_5ValueEEESaIS3_EE11_M_allocateEm.exit.i.i
@@ -558,8 +558,8 @@ _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_6Obje
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true.i.i, %_ZN4node10HandleWrap7IsAliveEPKS0_.exit.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_6ObjectEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i10, %_ZN4node10HandleWrap6HasRefEPKS0_.exit
-  %handle_v.sroa.6.2 = phi ptr [ %handle_v.sroa.6.027, %_ZN4node10HandleWrap6HasRefEPKS0_.exit ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_6ObjectEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i10 ], [ %handle_v.sroa.6.027, %_ZN4node10HandleWrap7IsAliveEPKS0_.exit.i ], [ %handle_v.sroa.6.027, %land.lhs.true.i.i ], [ %handle_v.sroa.6.027, %for.body ]
-  %handle_v.sroa.11.2 = phi ptr [ %handle_v.sroa.11.028, %_ZN4node10HandleWrap6HasRefEPKS0_.exit ], [ %add.ptr19.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_6ObjectEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %handle_v.sroa.11.028, %if.then.i10 ], [ %handle_v.sroa.11.028, %_ZN4node10HandleWrap7IsAliveEPKS0_.exit.i ], [ %handle_v.sroa.11.028, %land.lhs.true.i.i ], [ %handle_v.sroa.11.028, %for.body ]
+  %handle_v.sroa.11.2 = phi ptr [ %handle_v.sroa.11.027, %_ZN4node10HandleWrap6HasRefEPKS0_.exit ], [ %add.ptr19.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_6ObjectEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %handle_v.sroa.11.027, %if.then.i10 ], [ %handle_v.sroa.11.027, %_ZN4node10HandleWrap7IsAliveEPKS0_.exit.i ], [ %handle_v.sroa.11.027, %land.lhs.true.i.i ], [ %handle_v.sroa.11.027, %for.body ]
+  %handle_v.sroa.6.2 = phi ptr [ %handle_v.sroa.6.028, %_ZN4node10HandleWrap6HasRefEPKS0_.exit ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_6ObjectEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i10 ], [ %handle_v.sroa.6.028, %_ZN4node10HandleWrap7IsAliveEPKS0_.exit.i ], [ %handle_v.sroa.6.028, %land.lhs.true.i.i ], [ %handle_v.sroa.6.028, %for.body ]
   %handle_v.sroa.0.2 = phi ptr [ %handle_v.sroa.0.029, %_ZN4node10HandleWrap6HasRefEPKS0_.exit ], [ %cond.i10.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_6ObjectEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %handle_v.sroa.0.029, %if.then.i10 ], [ %handle_v.sroa.0.029, %_ZN4node10HandleWrap7IsAliveEPKS0_.exit.i ], [ %handle_v.sroa.0.029, %land.lhs.true.i.i ], [ %handle_v.sroa.0.029, %for.body ]
   %next_.i12 = getelementptr inbounds i8, ptr %__begin1.sroa.0.030, i64 8
   %__begin1.sroa.0.0 = load ptr, ptr %next_.i12, align 8
@@ -4151,8 +4151,8 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %__begin1.sroa.0.030 = phi ptr [ %__begin1.sroa.0.0, %for.inc ], [ %__begin1.sroa.0.025, %entry ]
   %request_v.sroa.0.029 = phi ptr [ %request_v.sroa.0.2, %for.inc ], [ null, %entry ]
-  %request_v.sroa.11.028 = phi ptr [ %request_v.sroa.11.2, %for.inc ], [ null, %entry ]
-  %request_v.sroa.6.027 = phi ptr [ %request_v.sroa.6.2, %for.inc ], [ null, %entry ]
+  %request_v.sroa.6.028 = phi ptr [ %request_v.sroa.6.2, %for.inc ], [ null, %entry ]
+  %request_v.sroa.11.027 = phi ptr [ %request_v.sroa.11.2, %for.inc ], [ null, %entry ]
   %12 = ptrtoint ptr %__begin1.sroa.0.030 to i64
   %sub.i.i.i = add i64 %12, -8
   %13 = inttoptr i64 %sub.i.i.i to ptr
@@ -4167,16 +4167,16 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %call10 = tail call ptr @_ZN4node9AsyncWrap8GetOwnerEv(ptr noundef nonnull align 8 dereferenceable(56) %call7) #25
-  %cmp.not.i = icmp eq ptr %request_v.sroa.6.027, %request_v.sroa.11.028
+  %cmp.not.i = icmp eq ptr %request_v.sroa.6.028, %request_v.sroa.11.027
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i10
 
 if.then.i10:                                      ; preds = %if.end
-  store ptr %call10, ptr %request_v.sroa.6.027, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %request_v.sroa.6.027, i64 8
+  store ptr %call10, ptr %request_v.sroa.6.028, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %request_v.sroa.6.028, i64 8
   br label %for.inc
 
 if.else.i:                                        ; preds = %if.end
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %request_v.sroa.11.028 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %request_v.sroa.6.028 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %request_v.sroa.0.029 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i11 = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
@@ -4205,7 +4205,7 @@ _ZNSt12_Vector_baseIN2v85LocalINS0_5ValueEEESaIS3_EE11_M_allocateEm.exit.i.i: ; 
   %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"class.v8::Local", ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   store ptr %call10, ptr %add.ptr.i.i, align 8
-  %cmp.not5.i.i.i.i.i = icmp eq ptr %request_v.sroa.0.029, %request_v.sroa.11.028
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %request_v.sroa.0.029, %request_v.sroa.6.028
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN2v85LocalINS0_5ValueEEESaIS3_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i
@@ -4217,7 +4217,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   store i64 %17, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !21, !noalias !24
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %request_v.sroa.11.028
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %request_v.sroa.6.028
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN2v85LocalINS0_5ValueEEESaIS3_EE11_M_allocateEm.exit.i.i
@@ -4235,8 +4235,8 @@ _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_6Obje
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_6ObjectEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i10, %for.body
-  %request_v.sroa.6.2 = phi ptr [ %request_v.sroa.6.027, %for.body ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_6ObjectEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i10 ]
-  %request_v.sroa.11.2 = phi ptr [ %request_v.sroa.11.028, %for.body ], [ %add.ptr19.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_6ObjectEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %request_v.sroa.11.028, %if.then.i10 ]
+  %request_v.sroa.11.2 = phi ptr [ %request_v.sroa.11.027, %for.body ], [ %add.ptr19.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_6ObjectEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %request_v.sroa.11.027, %if.then.i10 ]
+  %request_v.sroa.6.2 = phi ptr [ %request_v.sroa.6.028, %for.body ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_6ObjectEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i10 ]
   %request_v.sroa.0.2 = phi ptr [ %request_v.sroa.0.029, %for.body ], [ %cond.i10.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_6ObjectEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %request_v.sroa.0.029, %if.then.i10 ]
   %next_.i12 = getelementptr inbounds i8, ptr %__begin1.sroa.0.030, i64 8
   %__begin1.sroa.0.0 = load ptr, ptr %next_.i12, align 8

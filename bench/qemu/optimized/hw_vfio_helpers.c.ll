@@ -714,9 +714,9 @@ for.body.lr.ph.i:                                 ; preds = %trace_vfio_region_s
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %23 = phi i32 [ %22, %for.body.lr.ph.i ], [ %36, %for.inc.i ]
-  %j.049.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %j.1.i, %for.inc.i ]
-  %i.047.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc36.i, %for.inc.i ]
-  %idxprom.i = sext i32 %i.047.i to i64
+  %i.048.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc36.i, %for.inc.i ]
+  %j.047.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %j.1.i, %for.inc.i ]
+  %idxprom.i = sext i32 %i.048.i to i64
   %arrayidx.i = getelementptr [0 x %struct.vfio_region_sparse_mmap_area], ptr %areas.i, i64 0, i64 %idxprom.i
   %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %24 = load i64, ptr %size.i, align 8
@@ -751,32 +751,32 @@ if.then8.i.i39.i:                                 ; preds = %if.then.i.i36.i
   %call10.i.i41.i = tail call i32 @qemu_get_thread_id() #11
   %30 = load i64, ptr %_now.i.i29.i, align 8
   %31 = load i64, ptr %tv_usec.i.i42.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i41.i, i64 noundef %30, i64 noundef %31, i32 noundef %i.047.i, i64 noundef %25, i64 noundef %sub.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i41.i, i64 noundef %30, i64 noundef %31, i32 noundef %i.048.i, i64 noundef %25, i64 noundef %sub.i) #11
   br label %trace_vfio_region_sparse_mmap_entry.exit.i
 
 if.else.i.i38.i:                                  ; preds = %if.then.i.i36.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %i.047.i, i64 noundef %25, i64 noundef %sub.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %i.048.i, i64 noundef %25, i64 noundef %sub.i) #11
   br label %trace_vfio_region_sparse_mmap_entry.exit.i
 
 trace_vfio_region_sparse_mmap_entry.exit.i:       ; preds = %if.else.i.i38.i, %if.then8.i.i39.i, %land.lhs.true5.i.i33.i, %if.then7.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i29.i)
   %32 = load i64, ptr %arrayidx.i, align 8
   %33 = load ptr, ptr %mmaps.i, align 8
-  %idxprom24.i = sext i32 %j.049.i to i64
+  %idxprom24.i = sext i32 %j.047.i to i64
   %offset26.i = getelementptr %struct.VFIOMmap, ptr %33, i64 %idxprom24.i, i32 2
   store i64 %32, ptr %offset26.i, align 8
   %34 = load i64, ptr %size.i, align 8
   %35 = load ptr, ptr %mmaps.i, align 8
   %size34.i = getelementptr %struct.VFIOMmap, ptr %35, i64 %idxprom24.i, i32 3
   store i64 %34, ptr %size34.i, align 16
-  %inc.i = add i32 %j.049.i, 1
+  %inc.i = add i32 %j.047.i, 1
   %.pre.i = load i32, ptr %nr_areas.i, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %trace_vfio_region_sparse_mmap_entry.exit.i, %for.body.i
   %36 = phi i32 [ %.pre.i, %trace_vfio_region_sparse_mmap_entry.exit.i ], [ %23, %for.body.i ]
-  %j.1.i = phi i32 [ %inc.i, %trace_vfio_region_sparse_mmap_entry.exit.i ], [ %j.049.i, %for.body.i ]
-  %inc36.i = add nuw i32 %i.047.i, 1
+  %j.1.i = phi i32 [ %inc.i, %trace_vfio_region_sparse_mmap_entry.exit.i ], [ %j.047.i, %for.body.i ]
+  %inc36.i = add nuw i32 %i.048.i, 1
   %cmp.i = icmp ult i32 %inc36.i, %36
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !7
 

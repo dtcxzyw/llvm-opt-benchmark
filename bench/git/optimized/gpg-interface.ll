@@ -398,9 +398,9 @@ entry:
   br i1 %cmp15.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %get_format_by_sig.exit
-  %match.017 = phi i64 [ %retval.0.i, %get_format_by_sig.exit ], [ %size, %entry ]
-  %len.016 = phi i64 [ %add6, %get_format_by_sig.exit ], [ 0, %entry ]
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %len.016
+  %len.017 = phi i64 [ %add6, %get_format_by_sig.exit ], [ 0, %entry ]
+  %match.016 = phi i64 [ %retval.0.i, %get_format_by_sig.exit ], [ %size, %entry ]
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %len.017
   br label %for.cond2.preheader.i
 
 for.cond2.preheader.i:                            ; preds = %for.inc12.i, %while.body
@@ -432,8 +432,8 @@ for.inc12.i:                                      ; preds = %for.cond2.i, %for.c
   br i1 %exitcond.not.i, label %get_format_by_sig.exit, label %for.cond2.preheader.i, !llvm.loop !7
 
 get_format_by_sig.exit:                           ; preds = %for.inc12.i, %for.body5.i
-  %retval.0.i = phi i64 [ %len.016, %for.body5.i ], [ %match.017, %for.inc12.i ]
-  %sub = sub i64 %size, %len.016
+  %retval.0.i = phi i64 [ %len.017, %for.body5.i ], [ %match.016, %for.inc12.i ]
+  %sub = sub i64 %size, %len.017
   %call2 = tail call ptr @memchr(ptr noundef %add.ptr, i32 noundef 10, i64 noundef %sub) #17
   %tobool3.not = icmp eq ptr %call2, null
   %sub.ptr.lhs.cast = ptrtoint ptr %call2 to i64
@@ -441,7 +441,7 @@ get_format_by_sig.exit:                           ; preds = %for.inc12.i, %for.b
   %reass.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %add = add i64 %reass.sub, 1
   %cond = select i1 %tobool3.not, i64 %sub, i64 %add
-  %add6 = add i64 %cond, %len.016
+  %add6 = add i64 %cond, %len.017
   %cmp = icmp ult i64 %add6, %size
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 
@@ -460,9 +460,9 @@ entry:
   br i1 %cmp15.not.i, label %parse_signed_buffer.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %entry, %get_format_by_sig.exit.i
-  %match.017.i = phi i64 [ %retval.0.i.i, %get_format_by_sig.exit.i ], [ %size, %entry ]
-  %len.016.i = phi i64 [ %add6.i, %get_format_by_sig.exit.i ], [ 0, %entry ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len.016.i
+  %len.017.i = phi i64 [ %add6.i, %get_format_by_sig.exit.i ], [ 0, %entry ]
+  %match.016.i = phi i64 [ %retval.0.i.i, %get_format_by_sig.exit.i ], [ %size, %entry ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len.017.i
   br label %for.cond2.preheader.i.i
 
 for.cond2.preheader.i.i:                          ; preds = %for.inc12.i.i, %while.body.i
@@ -494,8 +494,8 @@ for.inc12.i.i:                                    ; preds = %for.cond2.i.i, %for
   br i1 %exitcond.not.i.i, label %get_format_by_sig.exit.i, label %for.cond2.preheader.i.i, !llvm.loop !7
 
 get_format_by_sig.exit.i:                         ; preds = %for.inc12.i.i, %for.body5.i.i
-  %retval.0.i.i = phi i64 [ %len.016.i, %for.body5.i.i ], [ %match.017.i, %for.inc12.i.i ]
-  %sub.i = sub i64 %size, %len.016.i
+  %retval.0.i.i = phi i64 [ %len.017.i, %for.body5.i.i ], [ %match.016.i, %for.inc12.i.i ]
+  %sub.i = sub i64 %size, %len.017.i
   %call2.i = tail call ptr @memchr(ptr noundef %add.ptr.i, i32 noundef 10, i64 noundef %sub.i) #17
   %tobool3.not.i = icmp eq ptr %call2.i, null
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call2.i to i64
@@ -503,7 +503,7 @@ get_format_by_sig.exit.i:                         ; preds = %for.inc12.i.i, %for
   %reass.sub = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add.i = add i64 %reass.sub, 1
   %cond.i = select i1 %tobool3.not.i, i64 %sub.i, i64 %add.i
-  %add6.i = add i64 %cond.i, %len.016.i
+  %add6.i = add i64 %cond.i, %len.017.i
   %cmp.i = icmp ult i64 %add6.i, %size
   br i1 %cmp.i, label %while.body.i, label %parse_signed_buffer.exit, !llvm.loop !8
 

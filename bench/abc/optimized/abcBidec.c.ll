@@ -283,7 +283,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
 28:                                               ; preds = %.lr.ph, %50
   %29 = phi ptr [ %24, %.lr.ph ], [ %51, %50 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %.049 = phi i32 [ 0, %.lr.ph ], [ %.1, %50 ]
+  %.03248 = phi i32 [ 0, %.lr.ph ], [ %.1, %50 ]
   %30 = getelementptr i8, ptr %29, i64 8
   %.val37.val = load ptr, ptr %30, align 8
   %31 = getelementptr inbounds ptr, ptr %.val37.val, i64 %indvars.iv
@@ -314,14 +314,14 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   %46 = call ptr @Abc_NodeIfNodeResyn(ptr noundef %22, ptr noundef %44, ptr noundef %45, i32 noundef %.val40, ptr noundef %calloc.i, ptr noundef null, float noundef -1.000000e+00)
   store ptr %46, ptr %41, align 8
   %47 = call i32 @Hop_DagSize(ptr noundef %46) #10
-  %48 = add i32 %43, %.049
+  %48 = add i32 %43, %.03248
   %49 = sub i32 %48, %47
   %.pre = load ptr, ptr %23, align 8
   br label %50
 
 50:                                               ; preds = %40, %34, %28, %37
   %51 = phi ptr [ %29, %28 ], [ %29, %37 ], [ %.pre, %40 ], [ %29, %34 ]
-  %.1 = phi i32 [ %.049, %28 ], [ %.049, %37 ], [ %49, %40 ], [ %.049, %34 ]
+  %.1 = phi i32 [ %.03248, %28 ], [ %.03248, %37 ], [ %49, %40 ], [ %.03248, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = getelementptr i8, ptr %51, i64 4
   %.val = load i32, ptr %52, align 4
@@ -330,7 +330,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br i1 %54, label %28, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %50, %21
-  %.0.lcssa = phi i32 [ 0, %21 ], [ %.1, %50 ]
+  %.032.lcssa = phi i32 [ 0, %21 ], [ %.1, %50 ]
   call void @Bdc_ManFree(ptr noundef %22) #10
   %55 = getelementptr inbounds i8, ptr %calloc.i, i64 8
   %56 = load ptr, ptr %55, align 8
@@ -347,7 +347,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %57
   br i1 %.not35, label %72, label %58
 
 58:                                               ; preds = %Vec_IntFree.exit
-  %59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.0.lcssa)
+  %59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.032.lcssa)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %60 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #10

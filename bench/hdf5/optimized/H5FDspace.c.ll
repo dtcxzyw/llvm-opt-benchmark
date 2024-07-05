@@ -104,7 +104,7 @@ define i64 @H5FD__alloc_real(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr
   br label %40
 
 40:                                               ; preds = %30, %39, %38, %27, %23, %15
-  %.044 = phi i64 [ 0, %15 ], [ %33, %39 ], [ %33, %38 ], [ 0, %30 ], [ 0, %27 ], [ 0, %23 ]
+  %.0 = phi i64 [ 0, %15 ], [ %33, %39 ], [ %33, %38 ], [ 0, %30 ], [ 0, %27 ], [ 0, %23 ]
   %41 = load ptr, ptr %7, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 160
   %43 = load ptr, ptr %42, align 8
@@ -113,7 +113,7 @@ define i64 @H5FD__alloc_real(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr
 
 44:                                               ; preds = %40
   %45 = call i64 @H5CX_get_dxpl() #2
-  %46 = select i1 %.not53, i64 %.044, i64 0
+  %46 = select i1 %.not53, i64 %.0, i64 0
   %47 = add i64 %46, %2
   %48 = call i64 %43(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %45, i64 noundef %47) #2
   %.not60 = icmp eq i64 %48, -1
@@ -133,7 +133,7 @@ define i64 @H5FD__alloc_real(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr
   br i1 %57, label %73, label %58
 
 58:                                               ; preds = %53
-  %59 = add i64 %.044, %2
+  %59 = add i64 %.0, %2
   %60 = add i64 %59, %56
   %61 = icmp eq i64 %60, -1
   %62 = icmp ult i64 %60, %56
@@ -155,7 +155,7 @@ define i64 @H5FD__alloc_real(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr
   br i1 %72, label %73, label %.H5FD__extend.exit_crit_edge
 
 .H5FD__extend.exit_crit_edge:                     ; preds = %67
-  %.pre64 = select i1 %.not53, i64 %.044, i64 0
+  %.pre64 = select i1 %.not53, i64 %.0, i64 0
   br label %H5FD__extend.exit
 
 73:                                               ; preds = %53, %58, %63, %67
@@ -170,8 +170,8 @@ define i64 @H5FD__alloc_real(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr
 
 H5FD__extend.exit:                                ; preds = %.H5FD__extend.exit_crit_edge, %44
   %.pre-phi = phi i64 [ %.pre64, %.H5FD__extend.exit_crit_edge ], [ %46, %44 ]
-  %.0 = phi i64 [ %56, %.H5FD__extend.exit_crit_edge ], [ %48, %44 ]
-  %spec.select = add i64 %.0, %.pre-phi
+  %.044 = phi i64 [ %56, %.H5FD__extend.exit_crit_edge ], [ %48, %44 ]
+  %spec.select = add i64 %.044, %.pre-phi
   %80 = getelementptr inbounds i8, ptr %0, i64 48
   %81 = load i64, ptr %80, align 8
   %82 = sub i64 %spec.select, %81

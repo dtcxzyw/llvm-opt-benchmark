@@ -4038,26 +4038,26 @@ if.then42:                                        ; preds = %if.end39
 
 if.end49:                                         ; preds = %if.then42, %if.end39
   %sub.ptr.sub53.pre-phi = phi i64 [ %.pre214, %if.then42 ], [ %sub.ptr.sub34, %if.end39 ]
-  %ip.4 = phi ptr [ %add.ptr48, %if.then42 ], [ %incdec.ptr, %if.end39 ]
   %literal_length.0 = phi i64 [ %conv47, %if.then42 ], [ %conv30, %if.end39 ]
+  %ip.4 = phi ptr [ %add.ptr48, %if.then42 ], [ %incdec.ptr, %if.end39 ]
   %cmp54204 = icmp ult i64 %sub.ptr.sub53.pre-phi, %literal_length.0
   br i1 %cmp54204, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end49, %if.end68
-  %avail.0208 = phi i64 [ %26, %if.end68 ], [ %sub.ptr.sub53.pre-phi, %if.end49 ]
+  %ip.5208 = phi ptr [ %call63, %if.end68 ], [ %ip.4, %if.end49 ]
   %literal_length.1207 = phi i64 [ %sub58, %if.end68 ], [ %literal_length.0, %if.end49 ]
-  %ip.5206 = phi ptr [ %call63, %if.end68 ], [ %ip.4, %if.end49 ]
+  %avail.0206 = phi i64 [ %26, %if.end68 ], [ %sub.ptr.sub53.pre-phi, %if.end49 ]
   %op.3205 = phi ptr [ %add.ptr.i144, %if.end68 ], [ %op.1, %if.end49 ]
   %20 = load ptr, ptr %op_limit_.i174, align 8
   %sub.ptr.lhs.cast.i139 = ptrtoint ptr %20 to i64
   %sub.ptr.rhs.cast.i140 = ptrtoint ptr %op.3205 to i64
   %sub.ptr.sub.i141 = sub i64 %sub.ptr.lhs.cast.i139, %sub.ptr.rhs.cast.i140
-  %cmp.i142.not = icmp ult i64 %sub.ptr.sub.i141, %avail.0208
+  %cmp.i142.not = icmp ult i64 %sub.ptr.sub.i141, %avail.0206
   br i1 %cmp.i142.not, label %exit, label %if.end57
 
 if.end57:                                         ; preds = %while.body
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.3205, ptr align 1 %ip.5206, i64 %avail.0208, i1 false)
-  %add.ptr.i144 = getelementptr inbounds i8, ptr %op.3205, i64 %avail.0208
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.3205, ptr align 1 %ip.5208, i64 %avail.0206, i1 false)
+  %add.ptr.i144 = getelementptr inbounds i8, ptr %op.3205, i64 %avail.0206
   %21 = load ptr, ptr %this, align 8
   %22 = load i32, ptr %peeked_, align 8
   %conv59 = zext i32 %22 to i64
@@ -4077,7 +4077,7 @@ if.end57:                                         ; preds = %while.body
   br i1 %cmp66, label %exit, label %if.end68
 
 if.end68:                                         ; preds = %if.end57
-  %sub58 = sub i64 %literal_length.1207, %avail.0208
+  %sub58 = sub i64 %literal_length.1207, %avail.0206
   %add.ptr69 = getelementptr inbounds i8, ptr %call63, i64 %26
   store ptr %add.ptr69, ptr %ip_limit_.i, align 8
   %.sroa.speculated.i149 = call i64 @llvm.smin.i64(i64 %26, i64 4)
@@ -4097,8 +4097,8 @@ while.end.loopexit:                               ; preds = %if.end68
 while.end:                                        ; preds = %while.end.loopexit, %if.end49
   %sub.ptr.sub.i156.pre-phi = phi i64 [ %.pre217, %while.end.loopexit ], [ %sub.ptr.sub.i134, %if.end49 ]
   %op.3.lcssa = phi ptr [ %add.ptr.i144, %while.end.loopexit ], [ %op.1, %if.end49 ]
-  %ip.5.lcssa = phi ptr [ %call63, %while.end.loopexit ], [ %ip.4, %if.end49 ]
   %literal_length.1.lcssa = phi i64 [ %sub58, %while.end.loopexit ], [ %literal_length.0, %if.end49 ]
+  %ip.5.lcssa = phi ptr [ %call63, %while.end.loopexit ], [ %ip.4, %if.end49 ]
   %cmp.i157.not = icmp ult i64 %sub.ptr.sub.i156.pre-phi, %literal_length.1.lcssa
   br i1 %cmp.i157.not, label %exit, label %if.end73
 

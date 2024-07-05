@@ -283,20 +283,20 @@ while.body.preheader:                             ; preds = %if.end105
 while.body:                                       ; preds = %while.body.preheader, %if.end155
   %28 = phi i32 [ %29, %if.end155 ], [ %24, %while.body.preheader ]
   %index.176 = phi i32 [ %index.2, %if.end155 ], [ %add126, %while.body.preheader ]
-  %size.075 = phi i64 [ %sub157, %if.end155 ], [ %size_, %while.body.preheader ]
-  %buf.addr.074 = phi ptr [ %add.ptr148, %if.end155 ], [ %buf, %while.body.preheader ]
+  %buf.addr.075 = phi ptr [ %add.ptr148, %if.end155 ], [ %buf, %while.body.preheader ]
+  %size.074 = phi i64 [ %sub157, %if.end155 ], [ %size_, %while.body.preheader ]
   %cmp130.not = icmp ugt i32 %index.176, %28
   br i1 %cmp130.not, label %while.end, label %if.then132
 
 if.then132:                                       ; preds = %while.body
   %sub134 = sub i32 %28, %index.176
-  %conv137 = trunc i64 %size.075 to i32
+  %conv137 = trunc i64 %size.074 to i32
   %spec.select = tail call i32 @llvm.umin.i32(i32 %sub134, i32 %conv137)
   %idx.ext144 = zext i32 %index.176 to i64
   %add.ptr145 = getelementptr i8, ptr %mem106, i64 %idx.ext144
   %conv146 = zext i32 %spec.select to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr145, ptr align 1 %buf.addr.074, i64 %conv146, i1 false)
-  %add.ptr148 = getelementptr i8, ptr %buf.addr.074, i64 %conv146
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr145, ptr align 1 %buf.addr.075, i64 %conv146, i1 false)
+  %add.ptr148 = getelementptr i8, ptr %buf.addr.075, i64 %conv146
   %add149 = add i32 %spec.select, %index.176
   %29 = load i32, ptr %stop.i, align 8
   %cmp151 = icmp eq i32 %add149, %29
@@ -308,7 +308,7 @@ if.then153:                                       ; preds = %if.then132
 
 if.end155:                                        ; preds = %if.then153, %if.then132
   %index.2 = phi i32 [ %30, %if.then153 ], [ %add149, %if.then132 ]
-  %sub157 = sub i64 %size.075, %conv146
+  %sub157 = sub i64 %size.074, %conv146
   %cmp127.not = icmp eq i64 %sub157, 0
   br i1 %cmp127.not, label %while.end, label %while.body, !llvm.loop !7
 

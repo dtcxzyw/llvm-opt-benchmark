@@ -120,8 +120,8 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
 
 19:                                               ; preds = %11, %11, %18, %17, %16, %15, %14, %13
   %.not87 = phi i1 [ false, %18 ], [ true, %17 ], [ false, %16 ], [ false, %15 ], [ true, %14 ], [ false, %13 ], [ true, %11 ], [ true, %11 ]
-  %.081 = phi i32 [ 1, %18 ], [ 0, %17 ], [ 1, %16 ], [ 1, %15 ], [ 0, %14 ], [ 1, %13 ], [ 0, %11 ], [ 0, %11 ]
-  %.080 = phi i32 [ 1, %18 ], [ 1, %17 ], [ 7, %16 ], [ 0, %15 ], [ 0, %14 ], [ 7, %13 ], [ 7, %11 ], [ 7, %11 ]
+  %.082 = phi i32 [ 1, %18 ], [ 0, %17 ], [ 1, %16 ], [ 1, %15 ], [ 0, %14 ], [ 1, %13 ], [ 0, %11 ], [ 0, %11 ]
+  %.081 = phi i32 [ 1, %18 ], [ 1, %17 ], [ 7, %16 ], [ 0, %15 ], [ 0, %14 ], [ 7, %13 ], [ 7, %11 ], [ 7, %11 ]
   %20 = phi i1 [ false, %18 ], [ false, %17 ], [ false, %16 ], [ true, %15 ], [ true, %14 ], [ false, %13 ], [ false, %11 ], [ false, %11 ]
   %21 = load ptr, ptr %0, align 8
   %22 = call i32 @wtap_read_bytes(ptr noundef %21, ptr noundef nonnull %5, i32 noundef 20, ptr noundef %1, ptr noundef %2) #7
@@ -187,7 +187,7 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   %52 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #8
   %53 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %52, ptr %53, align 8
-  store i32 %.081, ptr %52, align 8
+  store i32 %.082, ptr %52, align 8
   %54 = load i16, ptr %5, align 4
   switch i16 %54, label %68 [
     i16 2, label %55
@@ -282,7 +282,7 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
 
 90:                                               ; preds = %.thread102, %._crit_edge
   %91 = phi ptr [ %85, %.thread102 ], [ %86, %._crit_edge ]
-  %.1105 = phi i32 [ 2, %.thread102 ], [ %.080, %._crit_edge ]
+  %.1105 = phi i32 [ 2, %.thread102 ], [ %.081, %._crit_edge ]
   %92 = phi i32 [ %.sink, %.thread102 ], [ %80, %._crit_edge ]
   %93 = and i32 %92, 65535
   %94 = call i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %93) #7
@@ -430,8 +430,8 @@ define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1,
   br label %148
 
 148:                                              ; preds = %145, %147, %122, %115, %24, %19, %11, %9, %120, %97, %88, %42
-  %.082 = phi i32 [ -1, %42 ], [ -1, %88 ], [ -1, %97 ], [ -1, %120 ], [ %., %9 ], [ 0, %11 ], [ -1, %19 ], [ -1, %24 ], [ -1, %115 ], [ -1, %122 ], [ 1, %147 ], [ 1, %145 ]
-  ret i32 %.082
+  %.080 = phi i32 [ -1, %42 ], [ -1, %88 ], [ -1, %97 ], [ -1, %120 ], [ %., %9 ], [ 0, %11 ], [ -1, %19 ], [ -1, %24 ], [ -1, %115 ], [ -1, %122 ], [ 1, %147 ], [ 1, %145 ]
+  ret i32 %.080
 }
 
 declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -573,10 +573,10 @@ libpcap_try.exit:                                 ; preds = %.preheader.i, %13
 
 30:                                               ; preds = %.lr.ph42, %37
   %.041 = phi i64 [ 0, %.lr.ph42 ], [ %38, %37 ]
-  %.03040 = phi i32 [ 2147483647, %.lr.ph42 ], [ %.1, %37 ]
+  %.03140 = phi i32 [ 2147483647, %.lr.ph42 ], [ %.1, %37 ]
   %31 = getelementptr [3 x i32], ptr %6, i64 0, i64 %.041
   %32 = load i32, ptr %31, align 4
-  %33 = icmp slt i32 %32, %.03040
+  %33 = icmp slt i32 %32, %.03140
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %30
@@ -586,14 +586,14 @@ libpcap_try.exit:                                 ; preds = %.preheader.i, %13
   br label %37
 
 37:                                               ; preds = %30, %34
-  %.1 = phi i32 [ %32, %34 ], [ %.03040, %30 ]
+  %.1 = phi i32 [ %32, %34 ], [ %.03140, %30 ]
   %38 = add nuw nsw i64 %.041, 1
   %exitcond48.not = icmp eq i64 %38, %2
   br i1 %exitcond48.not, label %.loopexit, label %30, !llvm.loop !7
 
 .loopexit:                                        ; preds = %libpcap_try.exit, %24, %37, %5, %libpcap_try.exit.thread
-  %.031 = phi i32 [ %., %libpcap_try.exit.thread ], [ 1, %5 ], [ 1, %37 ], [ 0, %24 ], [ 0, %libpcap_try.exit ]
-  ret i32 %.031
+  %.030 = phi i32 [ %., %libpcap_try.exit.thread ], [ 1, %5 ], [ 1, %37 ], [ 0, %24 ], [ 0, %libpcap_try.exit ]
+  ret i32 %.030
 }
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
@@ -852,17 +852,17 @@ define internal fastcc range(i32 0, 2) i32 @libpcap_read_packet(ptr noundef %0, 
 36:                                               ; preds = %._crit_edge, %31, %24
   %37 = phi i32 [ %.pre77, %._crit_edge ], [ %.pre78, %24 ], [ %.pre78, %31 ]
   %38 = phi i32 [ %.pre, %._crit_edge ], [ %29, %24 ], [ 2, %31 ]
-  %.065 = phi i32 [ %35, %._crit_edge ], [ %25, %24 ], [ %25, %31 ]
-  %.064 = phi i32 [ %34, %._crit_edge ], [ %27, %24 ], [ %27, %31 ]
+  %.065 = phi i32 [ %34, %._crit_edge ], [ %27, %24 ], [ %27, %31 ]
+  %.064 = phi i32 [ %35, %._crit_edge ], [ %25, %24 ], [ %25, %31 ]
   %39 = icmp eq i32 %38, 6
   %40 = zext i1 %39 to i32
-  %41 = call i32 @pcap_process_pseudo_header(ptr noundef %1, i32 noundef %40, i32 noundef %37, i32 noundef %.065, ptr noundef %2, ptr noundef %4, ptr noundef %5) #7
+  %41 = call i32 @pcap_process_pseudo_header(ptr noundef %1, i32 noundef %40, i32 noundef %37, i32 noundef %.064, ptr noundef %2, ptr noundef %4, ptr noundef %5) #7
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %83, label %43
 
 43:                                               ; preds = %36
-  %44 = sub i32 %.064, %41
-  %45 = sub i32 %.065, %41
+  %44 = sub i32 %.065, %41
+  %45 = sub i32 %.064, %41
   store i32 0, ptr %2, align 8
   %46 = call ptr @wtap_block_create(i32 noundef 5) #7
   %47 = getelementptr inbounds i8, ptr %2, i64 232

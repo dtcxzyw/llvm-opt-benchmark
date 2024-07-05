@@ -546,7 +546,7 @@ define hidden ptr @zend_shared_alloc(i64 noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i, %23 ]
+  %.0810.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i, %23 ]
   %24 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
@@ -554,7 +554,7 @@ define hidden ptr @zend_shared_alloc(i64 noundef %0) local_unnamed_addr #0 {
   %28 = getelementptr inbounds i8, ptr %25, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = sub i64 %27, %29
-  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %30, i64 %.011.i)
+  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %30, i64 %.0810.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %zend_shared_alloc_get_largest_free_block.exit, label %23
@@ -616,7 +616,7 @@ zend_shared_alloc_get_largest_free_block.exit.thread: ; preds = %17, %zend_share
 
 58:                                               ; preds = %58, %.lr.ph.i24
   %indvars.iv.i26 = phi i64 [ 0, %.lr.ph.i24 ], [ %indvars.iv.next.i29, %58 ]
-  %.011.i27 = phi i64 [ 0, %.lr.ph.i24 ], [ %spec.select.i28, %58 ]
+  %.0810.i27 = phi i64 [ 0, %.lr.ph.i24 ], [ %spec.select.i28, %58 ]
   %59 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv.i26
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 8
@@ -624,7 +624,7 @@ zend_shared_alloc_get_largest_free_block.exit.thread: ; preds = %17, %zend_share
   %63 = getelementptr inbounds i8, ptr %60, i64 16
   %64 = load i64, ptr %63, align 8
   %65 = sub i64 %62, %64
-  %spec.select.i28 = tail call i64 @llvm.umax.i64(i64 %65, i64 %.011.i27)
+  %spec.select.i28 = tail call i64 @llvm.umax.i64(i64 %65, i64 %.0810.i27)
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %wide.trip.count.i25
   br i1 %exitcond.not.i30, label %zend_shared_alloc_get_largest_free_block.exit31, label %58
@@ -818,8 +818,8 @@ define hidden ptr @zend_shared_memdup_get_put_free(ptr noundef %0, i64 noundef %
   br label %16
 
 16:                                               ; preds = %7, %9
-  %.034 = phi ptr [ %10, %9 ], [ %8, %7 ]
-  ret ptr %.034
+  %.033 = phi ptr [ %10, %9 ], [ %8, %7 ]
+  ret ptr %.033
 }
 
 ; Function Attrs: nounwind uwtable
@@ -880,8 +880,8 @@ define hidden ptr @zend_shared_memdup_get_put(ptr noundef %0, i64 noundef %1) lo
   br label %16
 
 16:                                               ; preds = %7, %9
-  %.034 = phi ptr [ %10, %9 ], [ %8, %7 ]
-  ret ptr %.034
+  %.033 = phi ptr [ %10, %9 ], [ %8, %7 ]
+  ret ptr %.033
 }
 
 ; Function Attrs: nounwind uwtable

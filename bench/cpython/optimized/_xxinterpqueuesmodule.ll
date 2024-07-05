@@ -413,9 +413,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end13
-  %i.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end13 ]
-  %cur.022 = phi ptr [ %call3.i, %for.body.lr.ph ], [ %incdec.ptr, %if.end13 ]
-  %7 = load i64, ptr %cur.022, align 8
+  %cur.023 = phi ptr [ %call3.i, %for.body.lr.ph ], [ %incdec.ptr, %if.end13 ]
+  %i.022 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end13 ]
+  %7 = load i64, ptr %cur.023, align 8
   %call10 = tail call ptr @PyLong_FromLongLong(i64 noundef %7) #4
   %cmp11 = icmp eq ptr %call10, null
   br i1 %cmp11, label %do.body, label %if.end13
@@ -438,10 +438,10 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end13:                                         ; preds = %for.body
   %call5.val = load ptr, ptr %6, align 8
-  %arrayidx.i14 = getelementptr ptr, ptr %call5.val, i64 %i.023
+  %arrayidx.i14 = getelementptr ptr, ptr %call5.val, i64 %i.022
   store ptr %call10, ptr %arrayidx.i14, align 8
-  %incdec.ptr = getelementptr i8, ptr %cur.022, i64 8
-  %inc = add nuw nsw i64 %i.023, 1
+  %incdec.ptr = getelementptr i8, ptr %cur.023, i64 8
+  %inc = add nuw nsw i64 %i.022, 1
   %exitcond.not = icmp eq i64 %inc, %4
   br i1 %exitcond.not, label %finally, label %for.body, !llvm.loop !7
 
@@ -2191,40 +2191,40 @@ while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end16.i.i, %while.body.lr.ph.i.i
-  %next.016.i.i = phi ptr [ %5, %while.body.lr.ph.i.i ], [ %6, %if.end16.i.i ]
-  %prev.015.i.i = phi ptr [ null, %while.body.lr.ph.i.i ], [ %prev.1.i.i, %if.end16.i.i ]
-  %next2.i.i = getelementptr inbounds i8, ptr %next.016.i.i, i64 8
+  %prev.016.i.i = phi ptr [ null, %while.body.lr.ph.i.i ], [ %prev.1.i.i, %if.end16.i.i ]
+  %next.015.i.i = phi ptr [ %5, %while.body.lr.ph.i.i ], [ %6, %if.end16.i.i ]
+  %next2.i.i = getelementptr inbounds i8, ptr %next.015.i.i, i64 8
   %6 = load ptr, ptr %next2.i.i, align 8
-  %7 = load ptr, ptr %next.016.i.i, align 8
+  %7 = load ptr, ptr %next.015.i.i, align 8
   %interpid3.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load i64, ptr %interpid3.i.i, align 8
   %cmp4.i.i = icmp eq i64 %8, %call
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end16.i.i
 
 if.then5.i.i:                                     ; preds = %while.body.i.i
-  %cmp6.i.i = icmp eq ptr %prev.015.i.i, null
-  %next12.i.i = getelementptr inbounds i8, ptr %prev.015.i.i, i64 8
+  %cmp6.i.i = icmp eq ptr %prev.016.i.i, null
+  %next12.i.i = getelementptr inbounds i8, ptr %prev.016.i.i, i64 8
   %next12.sink.i.i = select i1 %cmp6.i.i, ptr %first.i.i, ptr %next12.i.i
   store ptr %6, ptr %next12.sink.i.i, align 8
   store ptr null, ptr %next2.i.i, align 8
-  %9 = load ptr, ptr %next.016.i.i, align 8
+  %9 = load ptr, ptr %next.015.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i, label %_queueitem_free.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then5.i.i
   %call5.i.i.i.i.i = tail call i32 @_PyCrossInterpreterData_Release(ptr noundef nonnull %9) #4
-  store ptr null, ptr %next.016.i.i, align 8
+  store ptr null, ptr %next.015.i.i, align 8
   br label %_queueitem_free.exit.i.i
 
 _queueitem_free.exit.i.i:                         ; preds = %if.then.i.i.i.i, %if.then5.i.i
-  tail call void @PyMem_RawFree(ptr noundef nonnull %next.016.i.i) #4
+  tail call void @PyMem_RawFree(ptr noundef nonnull %next.015.i.i) #4
   %10 = load i64, ptr %count.i.i, align 8
   %sub.i.i = add i64 %10, -1
   store i64 %sub.i.i, ptr %count.i.i, align 8
   br label %if.end16.i.i
 
 if.end16.i.i:                                     ; preds = %_queueitem_free.exit.i.i, %while.body.i.i
-  %prev.1.i.i = phi ptr [ %prev.015.i.i, %_queueitem_free.exit.i.i ], [ %next.016.i.i, %while.body.i.i ]
+  %prev.1.i.i = phi ptr [ %prev.016.i.i, %_queueitem_free.exit.i.i ], [ %next.015.i.i, %while.body.i.i ]
   %cmp1.not.i.i = icmp eq ptr %6, null
   br i1 %cmp1.not.i.i, label %_queue_clear_interpreter.exit.i, label %while.body.i.i, !llvm.loop !10
 

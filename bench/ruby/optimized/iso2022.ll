@@ -508,14 +508,14 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
   %57 = getelementptr inbounds i8, ptr %.1, i64 2
   store i8 40, ptr %56, align 1
   store i8 66, ptr %57, align 1
-  %.02966.i = getelementptr inbounds i8, ptr %.1, i64 3
+  %.03066.i = getelementptr inbounds i8, ptr %.1, i64 3
   br label %.thread52.sink.split.i
 
 58:                                               ; preds = %50
   %59 = getelementptr inbounds i8, ptr %.1, i64 1
   store i8 27, ptr %.1, align 1
   %60 = getelementptr inbounds i8, ptr %.1, i64 2
-  %.02960.i = getelementptr inbounds i8, ptr %.1, i64 3
+  %.03060.i = getelementptr inbounds i8, ptr %.1, i64 3
   br i1 %52, label %61, label %62
 
 61:                                               ; preds = %58
@@ -534,7 +534,7 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
 
 .thread52.sink.split.i:                           ; preds = %61, %.thread62.i
   %.sink.i = phi i8 [ 3, %61 ], [ 0, %.thread62.i ]
-  %.157.ph.i = phi ptr [ %.02960.i, %61 ], [ %.02966.i, %.thread62.i ]
+  %.157.ph.i = phi ptr [ %.03060.i, %61 ], [ %.03066.i, %.thread62.i ]
   %.0284056.ph.i = phi ptr [ %.028.i, %61 ], [ %1, %.thread62.i ]
   store i8 %.sink.i, ptr %0, align 1
   br label %.thread52.i
@@ -549,7 +549,7 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
   br label %fun_so_cp5022x_encoder.exit
 
 67:                                               ; preds = %63, %62
-  %.159.i = phi ptr [ %.1, %63 ], [ %.02960.i, %62 ]
+  %.159.i = phi ptr [ %.1, %63 ], [ %.03060.i, %62 ]
   %68 = load i8, ptr %.028.i, align 1
   %69 = and i8 %68, 127
   %70 = getelementptr inbounds i8, ptr %.159.i, i64 1
@@ -575,7 +575,7 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
   %80 = getelementptr inbounds i8, ptr %.1, i64 1
   store i8 27, ptr %.1, align 1
   %81 = getelementptr inbounds i8, ptr %.1, i64 2
-  %.02960.i80 = getelementptr inbounds i8, ptr %.1, i64 3
+  %.03060.i80 = getelementptr inbounds i8, ptr %.1, i64 3
   store i8 36, ptr %80, align 1
   store i8 66, ptr %81, align 1
   store i8 2, ptr %0, align 1
@@ -584,7 +584,7 @@ define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapt
 
 fun_so_cp5022x_encoder.exit90:                    ; preds = %79, %.split67
   %82 = phi i8 [ %.pre, %79 ], [ %76, %.split67 ]
-  %.159.i81 = phi ptr [ %.02960.i80, %79 ], [ %.1, %.split67 ]
+  %.159.i81 = phi ptr [ %.03060.i80, %79 ], [ %.1, %.split67 ]
   %83 = and i8 %82, 127
   %84 = getelementptr inbounds i8, ptr %.159.i81, i64 1
   store i8 %83, ptr %.159.i81, align 1
@@ -749,14 +749,14 @@ define internal i64 @fun_so_cp5022x_encoder(ptr nocapture noundef %0, ptr nocapt
   %14 = getelementptr inbounds i8, ptr %3, i64 2
   store i8 40, ptr %13, align 1
   store i8 66, ptr %14, align 1
-  %.02966 = getelementptr inbounds i8, ptr %3, i64 3
+  %.03066 = getelementptr inbounds i8, ptr %3, i64 3
   br label %.thread52.sink.split
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 27, ptr %3, align 1
   %17 = getelementptr inbounds i8, ptr %3, i64 2
-  %.02960 = getelementptr inbounds i8, ptr %3, i64 3
+  %.03060 = getelementptr inbounds i8, ptr %3, i64 3
   br i1 %9, label %18, label %19
 
 18:                                               ; preds = %15
@@ -775,7 +775,7 @@ define internal i64 @fun_so_cp5022x_encoder(ptr nocapture noundef %0, ptr nocapt
 
 .thread52.sink.split:                             ; preds = %.thread62, %18
   %.sink = phi i8 [ 3, %18 ], [ 0, %.thread62 ]
-  %.157.ph = phi ptr [ %.02960, %18 ], [ %.02966, %.thread62 ]
+  %.157.ph = phi ptr [ %.03060, %18 ], [ %.03066, %.thread62 ]
   %.0284056.ph = phi ptr [ %.028, %18 ], [ %1, %.thread62 ]
   store i8 %.sink, ptr %0, align 1
   br label %.thread52
@@ -790,7 +790,7 @@ define internal i64 @fun_so_cp5022x_encoder(ptr nocapture noundef %0, ptr nocapt
   br label %32
 
 24:                                               ; preds = %19, %20
-  %.159 = phi ptr [ %3, %20 ], [ %.02960, %19 ]
+  %.159 = phi ptr [ %3, %20 ], [ %.03060, %19 ]
   %25 = load i8, ptr %.028, align 1
   %26 = and i8 %25, 127
   %27 = getelementptr inbounds i8, ptr %.159, i64 1

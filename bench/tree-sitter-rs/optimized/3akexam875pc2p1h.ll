@@ -4615,8 +4615,8 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.6082948530530484711.exit.i: ; pred
   br label %21
 
 21:                                               ; preds = %2, %19
-  %.0 = phi ptr [ %20, %19 ], [ null, %2 ]
-  ret ptr %.0
+  %.03 = phi ptr [ %20, %19 ], [ null, %2 ]
+  ret ptr %.03
 
 22:                                               ; preds = %23
   resume { ptr, i32 } %lpad.thr_comm

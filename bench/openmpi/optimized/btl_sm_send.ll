@@ -173,17 +173,17 @@ define noundef i32 @mca_btl_sm_send(ptr nocapture noundef readnone %0, ptr nound
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %82, %69
-  %.090.i.i = phi i32 [ 32, %82 ], [ %61, %69 ]
-  %.088.i.i = phi i32 [ %92, %82 ], [ %79, %69 ]
-  %.086.i.i = phi ptr [ %94, %82 ], [ %67, %69 ]
+  %.091.i.i = phi i32 [ 32, %82 ], [ %61, %69 ]
+  %.089.i.i = phi i32 [ %92, %82 ], [ %79, %69 ]
+  %.087.i.i = phi ptr [ %94, %82 ], [ %67, %69 ]
   %.0.i.i = phi i8 [ %88, %82 ], [ %56, %69 ]
-  %95 = icmp ult i32 %.088.i.i, 32
+  %95 = icmp ult i32 %.089.i.i, 32
   br i1 %95, label %96, label %102
 
 96:                                               ; preds = %.critedge.i.i
   %97 = zext nneg i8 %.0.i.i to i32
   %98 = shl nuw i32 %97, 31
-  %99 = or disjoint i32 %98, %.090.i.i
+  %99 = or disjoint i32 %98, %.091.i.i
   store i32 %99, ptr %53, align 4
   fence release
   %100 = load i8, ptr @opal_uses_threads, align 1
@@ -191,13 +191,13 @@ define noundef i32 @mca_btl_sm_send(ptr nocapture noundef readnone %0, ptr nound
   br i1 %101, label %sm_fifo_write_ep.exit, label %sm_fifo_write_ep.exit.thread25
 
 102:                                              ; preds = %.critedge.i.i, %51
-  %.191.i.i = phi i32 [ %.090.i.i, %.critedge.i.i ], [ %61, %51 ]
-  %.189.i.i = phi i32 [ %.088.i.i, %.critedge.i.i ], [ %65, %51 ]
-  %.187.i.i = phi ptr [ %.086.i.i, %.critedge.i.i ], [ %67, %51 ]
+  %.192.i.i = phi i32 [ %.091.i.i, %.critedge.i.i ], [ %61, %51 ]
+  %.190.i.i = phi i32 [ %.089.i.i, %.critedge.i.i ], [ %65, %51 ]
+  %.188.i.i = phi ptr [ %.087.i.i, %.critedge.i.i ], [ %67, %51 ]
   %.1.i.i = phi i8 [ %.0.i.i, %.critedge.i.i ], [ %56, %51 ]
-  %103 = getelementptr inbounds i8, ptr %.187.i.i, i64 8
+  %103 = getelementptr inbounds i8, ptr %.188.i.i, i64 8
   store i64 %39, ptr %103, align 1
-  %104 = add nuw i32 %.191.i.i, 32
+  %104 = add nuw i32 %.192.i.i, 32
   %105 = icmp eq i32 %43, %104
   br i1 %105, label %106, label %108
 
@@ -206,7 +206,7 @@ define noundef i32 @mca_btl_sm_send(ptr nocapture noundef readnone %0, ptr nound
   br label %114
 
 108:                                              ; preds = %102
-  %109 = icmp ugt i32 %.189.i.i, 32
+  %109 = icmp ugt i32 %.190.i.i, 32
   br i1 %109, label %110, label %114
 
 110:                                              ; preds = %108
@@ -217,16 +217,16 @@ define noundef i32 @mca_btl_sm_send(ptr nocapture noundef readnone %0, ptr nound
   br label %114
 
 114:                                              ; preds = %110, %108, %106
-  %.292.i.i = phi i32 [ 32, %106 ], [ %104, %110 ], [ %104, %108 ]
+  %.293.i.i = phi i32 [ 32, %106 ], [ %104, %110 ], [ %104, %108 ]
   %.2.i.i = phi i8 [ %107, %106 ], [ %.1.i.i, %110 ], [ %.1.i.i, %108 ]
   %115 = getelementptr inbounds i8, ptr %1, i64 88
   %116 = load i16, ptr %115, align 8
   %117 = add i16 %116, 1
   store i16 %117, ptr %115, align 8
-  %118 = getelementptr inbounds i8, ptr %.187.i.i, i64 4
+  %118 = getelementptr inbounds i8, ptr %.188.i.i, i64 4
   store i32 0, ptr %118, align 4
   fence release
-  store i32 8, ptr %.187.i.i, align 8
+  store i32 8, ptr %.188.i.i, align 8
   fence release
   %.sroa.3.4.insert.ext.i109.i.i = zext i16 %116 to i32
   %.sroa.3.4.insert.shift.i110.i.i = shl nuw i32 %.sroa.3.4.insert.ext.i109.i.i, 16
@@ -234,7 +234,7 @@ define noundef i32 @mca_btl_sm_send(ptr nocapture noundef readnone %0, ptr nound
   store i32 %.sroa.1.4.insert.insert.i111.i.i, ptr %118, align 4
   %119 = zext nneg i8 %.2.i.i to i32
   %120 = shl nuw i32 %119, 31
-  %121 = or i32 %120, %.292.i.i
+  %121 = or i32 %120, %.293.i.i
   store i32 %121, ptr %53, align 4
   fence release
   %122 = load i8, ptr @opal_uses_threads, align 1

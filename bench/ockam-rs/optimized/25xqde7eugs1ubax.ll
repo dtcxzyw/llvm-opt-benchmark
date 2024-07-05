@@ -3598,8 +3598,8 @@ default.unreachable82:                            ; preds = %556, %209, %163, %1
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %192, %191
-  %.sroa.661.sroa.6.0.i.i = phi i64 [ 0, %191 ], [ 1, %192 ]
   %.sroa.059.0.i.i = phi ptr [ inttoptr (i64 8 to ptr), %191 ], [ %184, %192 ]
+  %.sroa.661.sroa.6.0.i.i = phi i64 [ 0, %191 ], [ 1, %192 ]
   %.sroa.0.sroa.0.416..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.0.sroa.0.i.i, i64 416
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0.sroa.0.416..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(88) %45, i64 88, i1 false), !alias.scope !626, !noalias !630
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.756.i.i, ptr noundef nonnull align 8 dereferenceable(64) %44, i64 64, i1 false), !noalias !604

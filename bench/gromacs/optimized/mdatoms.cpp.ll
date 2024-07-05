@@ -2732,7 +2732,7 @@ define internal void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEE
   br label %57
 
 57:                                               ; preds = %42, %54
-  %.0153 = phi i32 [ %56, %54 ], [ %44, %42 ]
+  %.0151 = phi i32 [ %56, %54 ], [ %44, %42 ]
   %58 = load ptr, ptr %28, align 8
   %59 = load ptr, ptr %27, align 8
   %60 = ptrtoint ptr %58 to i64
@@ -2745,32 +2745,32 @@ define internal void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEE
 
 66:                                               ; preds = %75, %57
   %.sroa.0.1 = phi i32 [ %.sroa.0.0170, %57 ], [ %78, %75 ]
-  %.026.i.i = phi i32 [ -1, %57 ], [ %.127.i.i, %75 ]
-  %.0.i.i = phi i32 [ %64, %57 ], [ %.1.i.i, %75 ]
+  %.026.i.i = phi i32 [ %64, %57 ], [ %.127.i.i, %75 ]
+  %.0.i.i = phi i32 [ -1, %57 ], [ %.1.i.i, %75 ]
   %67 = sext i32 %.sroa.0.1 to i64
   %68 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %65, i64 %67
   %69 = getelementptr inbounds i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %.fr1.i.i = freeze i32 %70
-  %71 = icmp sgt i32 %.fr1.i.i, %.0153
+  %71 = icmp sgt i32 %.fr1.i.i, %.0151
   br i1 %71, label %75, label %72
 
 72:                                               ; preds = %66
   %73 = getelementptr inbounds i8, ptr %68, i64 8
   %74 = load i32, ptr %73, align 4
-  %.not.i.i = icmp sgt i32 %74, %.0153
+  %.not.i.i = icmp sgt i32 %74, %.0151
   br i1 %.not.i.i, label %79, label %75
 
 75:                                               ; preds = %72, %66
-  %.127.i.i = phi i32 [ %.026.i.i, %66 ], [ %.sroa.0.1, %72 ]
-  %.1.i.i = phi i32 [ %.sroa.0.1, %66 ], [ %.0.i.i, %72 ]
+  %.127.i.i = phi i32 [ %.sroa.0.1, %66 ], [ %.026.i.i, %72 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %66 ], [ %.sroa.0.1, %72 ]
   %76 = add i32 %.127.i.i, 1
   %77 = add i32 %76, %.1.i.i
   %78 = ashr i32 %77, 1
   br label %66, !llvm.loop !42
 
 79:                                               ; preds = %72
-  %80 = sub i32 %.0153, %.fr1.i.i
+  %80 = sub i32 %.0151, %.fr1.i.i
   %81 = load i32, ptr %68, align 4
   %82 = srem i32 %80, %81
   %83 = getelementptr inbounds %struct.gmx_molblock_t, ptr %59, i64 %67
@@ -2790,7 +2790,7 @@ define internal void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEE
   br i1 %96, label %105, label %97
 
 97:                                               ; preds = %79
-  %98 = invoke noundef i32 @_Z12getGroupTypeRK16SimulationGroups23SimulationAtomGroupTypei(ptr noundef nonnull align 8 dereferenceable(504) %6, i32 noundef 3, i32 noundef %.0153)
+  %98 = invoke noundef i32 @_Z12getGroupTypeRK16SimulationGroups23SimulationAtomGroupTypei(ptr noundef nonnull align 8 dereferenceable(504) %6, i32 noundef 3, i32 noundef %.0151)
           to label %99 unwind label %45
 
 99:                                               ; preds = %97
@@ -2838,7 +2838,7 @@ define internal void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEE
   br i1 %126, label %133, label %127
 
 127:                                              ; preds = %116
-  %128 = sext i32 %.0153 to i64
+  %128 = sext i32 %.0151 to i64
   %129 = load ptr, ptr %34, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 %128
   %131 = load i8, ptr %130, align 1
@@ -2873,8 +2873,8 @@ define internal void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEE
   br label %156
 
 156:                                              ; preds = %105, %105, %105, %152, %133, %110
+  %.0153 = phi float [ %115, %110 ], [ %151, %133 ], [ %155, %152 ], [ 1.000000e+00, %105 ], [ 1.000000e+00, %105 ], [ 1.000000e+00, %105 ]
   %.0152 = phi float [ %115, %110 ], [ %145, %133 ], [ %153, %152 ], [ 1.000000e+00, %105 ], [ 1.000000e+00, %105 ], [ 1.000000e+00, %105 ]
-  %.0151 = phi float [ %115, %110 ], [ %151, %133 ], [ %155, %152 ], [ 1.000000e+00, %105 ], [ 1.000000e+00, %105 ], [ 1.000000e+00, %105 ]
   %157 = load ptr, ptr %2, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 28
   %159 = load i32, ptr %158, align 4
@@ -2890,7 +2890,7 @@ define internal void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEE
   %165 = getelementptr inbounds i8, ptr %164, i64 72
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds float, ptr %166, i64 %indvars.iv179
-  store float %.0151, ptr %167, align 4
+  store float %.0153, ptr %167, align 4
   %.pre = load ptr, ptr %2, align 8
   br label %168
 
@@ -3215,7 +3215,7 @@ _Z9PERTURBEDRK6t_atom.exit:                       ; preds = %314, %309, %304
   br i1 %393, label %401, label %394
 
 394:                                              ; preds = %381
-  %395 = sext i32 %.0153 to i64
+  %395 = sext i32 %.0151 to i64
   %396 = load ptr, ptr %34, align 8
   %397 = getelementptr inbounds i8, ptr %396, i64 %395
   %398 = load i8, ptr %397, align 1
@@ -3225,7 +3225,7 @@ _Z9PERTURBEDRK6t_atom.exit:                       ; preds = %314, %309, %304
   br label %401
 
 401:                                              ; preds = %394, %381
-  %402 = invoke noundef i32 @_Z12getGroupTypeRK16SimulationGroups23SimulationAtomGroupTypei(ptr noundef nonnull align 8 dereferenceable(504) %6, i32 noundef 1, i32 noundef %.0153)
+  %402 = invoke noundef i32 @_Z12getGroupTypeRK16SimulationGroups23SimulationAtomGroupTypei(ptr noundef nonnull align 8 dereferenceable(504) %6, i32 noundef 1, i32 noundef %.0151)
           to label %403 unwind label %45
 
 403:                                              ; preds = %401
@@ -3244,7 +3244,7 @@ _Z9PERTURBEDRK6t_atom.exit:                       ; preds = %314, %309, %304
   br i1 %414, label %422, label %415
 
 415:                                              ; preds = %403
-  %416 = sext i32 %.0153 to i64
+  %416 = sext i32 %.0151 to i64
   %417 = load ptr, ptr %37, align 8
   %418 = getelementptr inbounds i8, ptr %417, i64 %416
   %419 = load i8, ptr %418, align 1
@@ -3264,7 +3264,7 @@ _Z9PERTURBEDRK6t_atom.exit:                       ; preds = %314, %309, %304
   br i1 %428, label %436, label %429
 
 429:                                              ; preds = %422
-  %430 = sext i32 %.0153 to i64
+  %430 = sext i32 %.0151 to i64
   %431 = load ptr, ptr %38, align 8
   %432 = getelementptr inbounds i8, ptr %431, i64 %430
   %433 = load i8, ptr %432, align 1
@@ -3284,7 +3284,7 @@ _Z9PERTURBEDRK6t_atom.exit:                       ; preds = %314, %309, %304
   br i1 %442, label %451, label %443
 
 443:                                              ; preds = %436
-  %444 = invoke noundef i32 @_Z12getGroupTypeRK16SimulationGroups23SimulationAtomGroupTypei(ptr noundef nonnull align 8 dereferenceable(504) %6, i32 noundef 8, i32 noundef %.0153)
+  %444 = invoke noundef i32 @_Z12getGroupTypeRK16SimulationGroups23SimulationAtomGroupTypei(ptr noundef nonnull align 8 dereferenceable(504) %6, i32 noundef 8, i32 noundef %.0151)
           to label %445 unwind label %45
 
 445:                                              ; preds = %443
@@ -3307,7 +3307,7 @@ _Z9PERTURBEDRK6t_atom.exit:                       ; preds = %314, %309, %304
   br i1 %457, label %465, label %458
 
 458:                                              ; preds = %451
-  %459 = sext i32 %.0153 to i64
+  %459 = sext i32 %.0151 to i64
   %460 = load ptr, ptr %39, align 8
   %461 = getelementptr inbounds i8, ptr %460, i64 %459
   %462 = load i8, ptr %461, align 1
@@ -3327,7 +3327,7 @@ _Z9PERTURBEDRK6t_atom.exit:                       ; preds = %314, %309, %304
   br i1 %471, label %479, label %472
 
 472:                                              ; preds = %465
-  %473 = sext i32 %.0153 to i64
+  %473 = sext i32 %.0151 to i64
   %474 = load ptr, ptr %40, align 8
   %475 = getelementptr inbounds i8, ptr %474, i64 %473
   %476 = load i8, ptr %475, align 1

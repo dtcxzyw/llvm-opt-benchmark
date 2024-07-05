@@ -7588,8 +7588,8 @@ define linkonce_odr hidden void @_ZN6casadi22casadi_interpn_weightsIdEEvxPKT_PKx
   br label %_ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit
 
 .preheader52.i:                                   ; preds = %.preheader52.i.outer, %55
-  %.042.i = phi i64 [ %51, %55 ], [ %.042.i.ph, %.preheader52.i.outer ]
-  %50 = add nuw nsw i64 %.042.i, %.043.i.ph
+  %.043.i = phi i64 [ %51, %55 ], [ %.043.i.ph, %.preheader52.i.outer ]
+  %50 = add nuw nsw i64 %.043.i, %.044.i.ph
   %51 = lshr i64 %50, 1
   %52 = getelementptr inbounds double, ptr %17, i64 %51
   %53 = load double, ptr %52, align 8
@@ -7597,16 +7597,16 @@ define linkonce_odr hidden void @_ZN6casadi22casadi_interpn_weightsIdEEvxPKT_PKx
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %.preheader52.i
-  %56 = icmp eq i64 %51, %.042.i
+  %56 = icmp eq i64 %51, %.043.i
   br i1 %56, label %_ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit, label %.preheader52.i, !llvm.loop !47
 
 57:                                               ; preds = %.preheader52.i
-  %58 = icmp eq i64 %51, %.043.i.ph
+  %58 = icmp eq i64 %51, %.044.i.ph
   br i1 %58, label %_ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit, label %.preheader52.i.outer, !llvm.loop !47
 
 .preheader52.i.outer:                             ; preds = %43, %57
-  %.043.i.ph = phi i64 [ %51, %57 ], [ 0, %43 ]
-  %.042.i.ph = phi i64 [ %.042.i, %57 ], [ %44, %43 ]
+  %.044.i.ph = phi i64 [ %51, %57 ], [ 0, %43 ]
+  %.043.i.ph = phi i64 [ %.043.i, %57 ], [ %44, %43 ]
   br label %.preheader52.i
 
 59:                                               ; preds = %60, %.preheader.i
@@ -7622,10 +7622,10 @@ define linkonce_odr hidden void @_ZN6casadi22casadi_interpn_weightsIdEEvxPKT_PKx
   br i1 %64, label %_ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit, label %59, !llvm.loop !48
 
 _ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit:        ; preds = %55, %57, %59, %60, %25, %37, %39, %48
-  %.046.i = phi i64 [ %49, %48 ], [ %spec.select.i, %25 ], [ 0, %39 ], [ 0, %37 ], [ %.0.i, %60 ], [ %smax.i, %59 ], [ %.042.i, %55 ], [ %.043.i.ph, %57 ]
+  %.042.i = phi i64 [ %49, %48 ], [ %spec.select.i, %25 ], [ 0, %39 ], [ 0, %37 ], [ %.0.i, %60 ], [ %smax.i, %59 ], [ %.043.i, %55 ], [ %.044.i.ph, %57 ]
   %65 = getelementptr inbounds i64, ptr %5, i64 %.031
-  store i64 %.046.i, ptr %65, align 8
-  %66 = getelementptr inbounds double, ptr %17, i64 %.046.i
+  store i64 %.042.i, ptr %65, align 8
+  %66 = getelementptr inbounds double, ptr %17, i64 %.042.i
   %67 = load double, ptr %66, align 8
   %68 = fsub double %14, %67
   %69 = getelementptr i8, ptr %66, i64 8

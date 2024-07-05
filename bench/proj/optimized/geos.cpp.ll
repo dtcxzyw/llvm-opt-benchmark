@@ -381,10 +381,10 @@ define internal { double, double } @_ZL14geos_s_inverse5PJ_XYP8PJconsts(double %
   br label %26
 
 26:                                               ; preds = %18, %10
-  %.041 = phi double [ %17, %10 ], [ %20, %18 ]
-  %.0 = phi double [ %12, %10 ], [ %25, %18 ]
-  %27 = fmul double %.0, %.0
-  %28 = tail call double @llvm.fmuladd.f64(double %.041, double %.041, double %27)
+  %.041 = phi double [ %12, %10 ], [ %25, %18 ]
+  %.0 = phi double [ %17, %10 ], [ %20, %18 ]
+  %27 = fmul double %.041, %.041
+  %28 = tail call double @llvm.fmuladd.f64(double %.0, double %.0, double %27)
   %29 = fadd double %28, 1.000000e+00
   %30 = getelementptr inbounds i8, ptr %5, i64 32
   %31 = load double, ptr %30, align 8
@@ -409,8 +409,8 @@ define internal { double, double } @_ZL14geos_s_inverse5PJ_XYP8PJconsts(double %
   %46 = fdiv double %44, %45
   %47 = load double, ptr %30, align 8
   %48 = tail call double @llvm.fmuladd.f64(double %46, double -1.000000e+00, double %47)
-  %49 = fmul double %.041, %46
-  %50 = fmul double %.0, %46
+  %49 = fmul double %.0, %46
+  %50 = fmul double %.041, %46
   %51 = tail call double @atan2(double noundef %49, double noundef %48) #9
   %52 = tail call double @cos(double noundef %51) #9
   %53 = fmul double %50, %52

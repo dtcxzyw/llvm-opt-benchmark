@@ -59,13 +59,13 @@ define void @slaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %47
 
 47:                                               ; preds = %36, %44, %23
-  %.091.in = phi double [ %31, %23 ], [ %43, %36 ], [ %46, %44 ]
-  %.091 = fptrunc double %.091.in to float
+  %.092.in = phi double [ %31, %23 ], [ %43, %36 ], [ %46, %44 ]
+  %.092 = fptrunc double %.092.in to float
   %48 = fcmp olt float %10, 0.000000e+00
   br i1 %48, label %49, label %58
 
 49:                                               ; preds = %47
-  %50 = fsub float %10, %.091
+  %50 = fsub float %10, %.092
   %51 = fmul float %50, 5.000000e-01
   store float %51, ptr %3, align 4
   %52 = fdiv float %.0, %51
@@ -81,7 +81,7 @@ define void @slaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %59, label %60, label %69
 
 60:                                               ; preds = %58
-  %61 = fadd float %10, %.091
+  %61 = fadd float %10, %.092
   %62 = fmul float %61, 5.000000e-01
   store float %62, ptr %3, align 4
   %63 = fdiv float %.0, %62
@@ -93,9 +93,9 @@ define void @slaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %72
 
 69:                                               ; preds = %58
-  %70 = fmul float %.091, 5.000000e-01
+  %70 = fmul float %.092, 5.000000e-01
   store float %70, ptr %3, align 4
-  %71 = fmul float %.091, -5.000000e-01
+  %71 = fmul float %.092, -5.000000e-01
   br label %72
 
 72:                                               ; preds = %60, %69, %49
@@ -103,18 +103,18 @@ define void @slaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %.090 = phi i32 [ 1, %60 ], [ 1, %69 ], [ -1, %49 ]
   store float %.sink, ptr %4, align 4
   %73 = fcmp ult float %11, 0.000000e+00
-  %74 = fneg float %.091
-  %.092.p = select i1 %73, float %74, float %.091
-  %.092 = fadd float %11, %.092.p
+  %74 = fneg float %.092
+  %.091.p = select i1 %73, float %74, float %.092
+  %.091 = fadd float %11, %.091.p
   %.089 = select i1 %73, i32 -1, i32 1
-  %75 = tail call noundef float @llvm.fabs.f32(float %.092)
+  %75 = tail call noundef float @llvm.fabs.f32(float %.091)
   %76 = extractelement <2 x float> %19, i64 0
   %77 = fcmp ogt float %75, %76
   br i1 %77, label %78, label %87
 
 78:                                               ; preds = %72
   %79 = fneg float %13
-  %80 = fdiv float %79, %.092
+  %80 = fdiv float %79, %.091
   %81 = fmul float %80, %80
   %82 = fpext float %81 to double
   %83 = fadd double %82, 1.000000e+00
@@ -136,7 +136,7 @@ define void @slaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %99
 
 90:                                               ; preds = %87
-  %91 = fneg float %.092
+  %91 = fneg float %.091
   %92 = fdiv float %91, %13
   %93 = fmul float %92, %92
   %94 = fpext float %93 to double

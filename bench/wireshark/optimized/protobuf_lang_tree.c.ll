@@ -380,9 +380,9 @@ define internal fastcc ptr @pbl_canonicalize_absolute_filepath(ptr nocapture nou
   br label %5
 
 5:                                                ; preds = %18, %1
-  %.024 = phi i32 [ 0, %1 ], [ %19, %18 ]
-  %.0 = phi i32 [ 0, %1 ], [ %.1, %18 ]
-  %6 = sext i32 %.024 to i64
+  %.025 = phi i32 [ 0, %1 ], [ %19, %18 ]
+  %.024 = phi i32 [ 0, %1 ], [ %.1, %18 ]
+  %6 = sext i32 %.025 to i64
   %7 = getelementptr i8, ptr %0, i64 %6
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %.sink.split [
@@ -392,11 +392,11 @@ define internal fastcc ptr @pbl_canonicalize_absolute_filepath(ptr nocapture nou
   ]
 
 9:                                                ; preds = %5, %5
-  %10 = icmp sgt i32 %.0, 0
+  %10 = icmp sgt i32 %.024, 0
   br i1 %10, label %11, label %.sink.split
 
 11:                                               ; preds = %9
-  %12 = zext nneg i32 %.0 to i64
+  %12 = zext nneg i32 %.024 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %12
   %13 = load i8, ptr %gep, align 1
   %14 = icmp eq i8 %13, 47
@@ -404,19 +404,19 @@ define internal fastcc ptr @pbl_canonicalize_absolute_filepath(ptr nocapture nou
 
 .sink.split:                                      ; preds = %5, %9, %11
   %.sink = phi i8 [ 47, %11 ], [ 47, %9 ], [ %8, %5 ]
-  %15 = add i32 %.0, 1
-  %16 = sext i32 %.0 to i64
+  %15 = add i32 %.024, 1
+  %16 = sext i32 %.024 to i64
   %17 = getelementptr i8, ptr %4, i64 %16
   store i8 %.sink, ptr %17, align 1
   br label %18
 
 18:                                               ; preds = %.sink.split, %11
-  %.1 = phi i32 [ %.0, %11 ], [ %15, %.sink.split ]
-  %19 = add i32 %.024, 1
+  %.1 = phi i32 [ %.024, %11 ], [ %15, %.sink.split ]
+  %19 = add i32 %.025, 1
   br label %5, !llvm.loop !7
 
 20:                                               ; preds = %5
-  %21 = sext i32 %.0 to i64
+  %21 = sext i32 %.024 to i64
   %22 = getelementptr i8, ptr %4, i64 %21
   store i8 0, ptr %22, align 1
   %23 = tail call i32 @g_path_is_absolute(ptr noundef %4) #14
@@ -438,8 +438,8 @@ define internal fastcc ptr @pbl_canonicalize_absolute_filepath(ptr nocapture nou
   br label %30
 
 30:                                               ; preds = %26, %29
-  %.025 = phi ptr [ null, %29 ], [ %4, %26 ]
-  ret ptr %.025
+  %.0 = phi ptr [ null, %29 ], [ %4, %26 ]
+  ret ptr %.0
 }
 
 declare ptr @g_queue_peek_head_link(ptr noundef) local_unnamed_addr #2

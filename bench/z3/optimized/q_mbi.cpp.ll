@@ -2930,9 +2930,9 @@ if.then5:                                         ; preds = %if.then.i.i.i, %if.
 for.body.i:                                       ; preds = %for.inc.i, %if.then5
   %r.addr.029.i = phi ptr [ %11, %if.then5 ], [ %r.addr.123.i, %for.inc.i ]
   %count.028.i = phi i32 [ 0, %if.then5 ], [ %count.122.i, %for.inc.i ]
-  %__begin1.sroa.0.027.i = phi ptr [ %11, %if.then5 ], [ %19, %for.inc.i ]
-  %__begin1.sroa.5.026.i = phi ptr [ null, %if.then5 ], [ %spec.select24.i, %for.inc.i ]
-  %m_generation.i12.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.027.i, i64 40
+  %__begin1.sroa.5.027.i = phi ptr [ null, %if.then5 ], [ %spec.select24.i, %for.inc.i ]
+  %__begin1.sroa.0.026.i = phi ptr [ %11, %if.then5 ], [ %19, %for.inc.i ]
+  %m_generation.i12.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.026.i, i64 40
   %13 = load i32, ptr %m_generation.i12.i, align 8, !noalias !20
   %cmp.i = icmp ult i32 %13, %add.i
   br i1 %cmp.i, label %for.inc.i, label %if.else.i
@@ -2950,7 +2950,7 @@ if.then9.i:                                       ; preds = %if.else.i
   br i1 %cmp11.i, label %land.lhs.true.i, label %if.end16.i
 
 land.lhs.true.i:                                  ; preds = %if.then9.i
-  %15 = load ptr, ptr %__begin1.sroa.0.027.i, align 8, !noalias !20
+  %15 = load ptr, ptr %__begin1.sroa.0.026.i, align 8, !noalias !20
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 4
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4, !noalias !20
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
@@ -2976,7 +2976,7 @@ cond.false.i.i:                                   ; preds = %land.lhs.true.i
 
 _Z15has_quantifiersPK4expr.exit.i:                ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i1 [ %tobool.i.i.i, %cond.true.i.i ], [ %cmp.i6.i.i, %cond.false.i.i ]
-  %spec.select.i = select i1 %cond.i.i, ptr %__begin1.sroa.0.027.i, ptr %r.addr.029.i
+  %spec.select.i = select i1 %cond.i.i, ptr %__begin1.sroa.0.026.i, ptr %r.addr.029.i
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %_Z15has_quantifiersPK4expr.exit.i, %if.then9.i, %if.else.i
@@ -2987,11 +2987,11 @@ if.end16.i:                                       ; preds = %_Z15has_quantifiers
   br i1 %cmp17.i, label %for.end.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end16.i, %for.body.i
-  %r.addr.123.i = phi ptr [ %r.addr.1.i, %if.end16.i ], [ %__begin1.sroa.0.027.i, %for.body.i ]
+  %r.addr.123.i = phi ptr [ %r.addr.1.i, %if.end16.i ], [ %__begin1.sroa.0.026.i, %for.body.i ]
   %count.122.i = phi i32 [ %count.1.i, %if.end16.i ], [ 0, %for.body.i ]
-  %tobool.not.i.i16 = icmp eq ptr %__begin1.sroa.5.026.i, null
-  %spec.select24.i = select i1 %tobool.not.i.i16, ptr %__begin1.sroa.0.027.i, ptr %__begin1.sroa.5.026.i
-  %m_next.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.027.i, i64 56
+  %tobool.not.i.i16 = icmp eq ptr %__begin1.sroa.5.027.i, null
+  %spec.select24.i = select i1 %tobool.not.i.i16, ptr %__begin1.sroa.0.026.i, ptr %__begin1.sroa.5.027.i
+  %m_next.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.026.i, i64 56
   %19 = load ptr, ptr %m_next.i.i, align 8, !noalias !20
   %cmp.i.i.i = icmp ne ptr %spec.select24.i, %11
   %cmp4.i.i.i = icmp ne ptr %19, %11
@@ -3313,9 +3313,9 @@ for.body.lr.ph:
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %r.addr.029 = phi ptr [ %r, %for.body.lr.ph ], [ %r.addr.123, %for.inc ]
   %count.028 = phi i32 [ 0, %for.body.lr.ph ], [ %count.122, %for.inc ]
-  %__begin1.sroa.0.027 = phi ptr [ %r, %for.body.lr.ph ], [ %7, %for.inc ]
-  %__begin1.sroa.5.026 = phi ptr [ null, %for.body.lr.ph ], [ %spec.select24, %for.inc ]
-  %m_generation.i12 = getelementptr inbounds i8, ptr %__begin1.sroa.0.027, i64 40
+  %__begin1.sroa.5.027 = phi ptr [ null, %for.body.lr.ph ], [ %spec.select24, %for.inc ]
+  %__begin1.sroa.0.026 = phi ptr [ %r, %for.body.lr.ph ], [ %7, %for.inc ]
+  %m_generation.i12 = getelementptr inbounds i8, ptr %__begin1.sroa.0.026, i64 40
   %1 = load i32, ptr %m_generation.i12, align 8
   %cmp = icmp ult i32 %1, %add
   br i1 %cmp, label %for.inc, label %if.else
@@ -3333,7 +3333,7 @@ if.then9:                                         ; preds = %if.else
   br i1 %cmp11, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %if.then9
-  %3 = load ptr, ptr %__begin1.sroa.0.027, align 8
+  %3 = load ptr, ptr %__begin1.sroa.0.026, align 8
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
@@ -3359,7 +3359,7 @@ cond.false.i:                                     ; preds = %land.lhs.true
 
 _Z15has_quantifiersPK4expr.exit:                  ; preds = %cond.true.i, %cond.false.i
   %cond.i = phi i1 [ %tobool.i.i, %cond.true.i ], [ %cmp.i6.i, %cond.false.i ]
-  %spec.select = select i1 %cond.i, ptr %__begin1.sroa.0.027, ptr %r.addr.029
+  %spec.select = select i1 %cond.i, ptr %__begin1.sroa.0.026, ptr %r.addr.029
   br label %if.end16
 
 if.end16:                                         ; preds = %_Z15has_quantifiersPK4expr.exit, %if.else, %if.then9
@@ -3370,11 +3370,11 @@ if.end16:                                         ; preds = %_Z15has_quantifiers
   br i1 %cmp17, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end16
-  %r.addr.123 = phi ptr [ %r.addr.1, %if.end16 ], [ %__begin1.sroa.0.027, %for.body ]
+  %r.addr.123 = phi ptr [ %r.addr.1, %if.end16 ], [ %__begin1.sroa.0.026, %for.body ]
   %count.122 = phi i32 [ %count.1, %if.end16 ], [ 0, %for.body ]
-  %tobool.not.i = icmp eq ptr %__begin1.sroa.5.026, null
-  %spec.select24 = select i1 %tobool.not.i, ptr %__begin1.sroa.0.027, ptr %__begin1.sroa.5.026
-  %m_next.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.027, i64 56
+  %tobool.not.i = icmp eq ptr %__begin1.sroa.5.027, null
+  %spec.select24 = select i1 %tobool.not.i, ptr %__begin1.sroa.0.026, ptr %__begin1.sroa.5.027
+  %m_next.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.026, i64 56
   %7 = load ptr, ptr %m_next.i, align 8
   %cmp.i.i = icmp ne ptr %spec.select24, %r
   %cmp4.i.i = icmp ne ptr %7, %r

@@ -328,11 +328,11 @@ define dso_local i32 @runenlen(ptr nocapture noundef readonly %0, i32 noundef %1
 
 .lr.ph:                                           ; preds = %2, %11
   %.in = phi i32 [ %3, %11 ], [ %1, %2 ]
-  %.014 = phi i32 [ %12, %11 ], [ 0, %2 ]
-  %.01013 = phi ptr [ %4, %11 ], [ %0, %2 ]
+  %.014 = phi ptr [ %4, %11 ], [ %0, %2 ]
+  %.0913 = phi i32 [ %12, %11 ], [ 0, %2 ]
   %3 = add nsw i32 %.in, -1
-  %4 = getelementptr inbounds i8, ptr %.01013, i64 4
-  %5 = load i32, ptr %.01013, align 4
+  %4 = getelementptr inbounds i8, ptr %.014, i64 4
+  %5 = load i32, ptr %.014, align 4
   %6 = icmp slt i32 %5, 128
   br i1 %6, label %11, label %7
 
@@ -347,13 +347,13 @@ define dso_local i32 @runenlen(ptr nocapture noundef readonly %0, i32 noundef %1
 
 11:                                               ; preds = %9, %7, %.lr.ph
   %.sink = phi i32 [ 1, %.lr.ph ], [ 2, %7 ], [ %., %9 ]
-  %12 = add nuw nsw i32 %.014, %.sink
+  %12 = add nuw nsw i32 %.0913, %.sink
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %11, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %12, %11 ]
-  ret i32 %.0.lcssa
+  %.09.lcssa = phi i32 [ 0, %2 ], [ %12, %11 ]
+  ret i32 %.09.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

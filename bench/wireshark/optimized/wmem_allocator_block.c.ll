@@ -85,8 +85,8 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
 
 25:                                               ; preds = %.preheader48, %46
   %.025.i = phi i32 [ %29, %46 ], [ 0, %.preheader48 ]
-  %.01624.i = phi ptr [ %47, %46 ], [ %12, %.preheader48 ]
-  %26 = getelementptr inbounds i8, ptr %.01624.i, i64 4
+  %.01724.i = phi ptr [ %47, %46 ], [ %12, %.preheader48 ]
+  %26 = getelementptr inbounds i8, ptr %.01724.i, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = lshr i32 %27, 3
   %29 = add i32 %28, %.025.i
@@ -99,7 +99,7 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
   br label %32
 
 32:                                               ; preds = %31, %25
-  %33 = getelementptr i8, ptr %.01624.i, i64 24
+  %33 = getelementptr i8, ptr %.01724.i, i64 24
   %34 = load ptr, ptr %33, align 8
   %.not22.i = icmp eq ptr %34, null
   br i1 %.not22.i, label %40, label %35
@@ -107,7 +107,7 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
 35:                                               ; preds = %32
   %36 = getelementptr i8, ptr %34, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, %.01624.i
+  %38 = icmp eq ptr %37, %.01724.i
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %35
@@ -116,7 +116,7 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
 
 40:                                               ; preds = %39, %35, %32
   %41 = load ptr, ptr %11, align 8
-  %.not23.i = icmp eq ptr %.01624.i, %41
+  %.not23.i = icmp eq ptr %.01724.i, %41
   br i1 %.not23.i, label %46, label %42
 
 42:                                               ; preds = %40
@@ -135,20 +135,20 @@ define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_u
   br i1 %.not20.i, label %wmem_block_verify_master_list.exit, label %25, !llvm.loop !4
 
 wmem_block_verify_master_list.exit:               ; preds = %46, %19
-  %.017.i = phi i32 [ 0, %19 ], [ %29, %46 ]
+  %.016.i = phi i32 [ 0, %19 ], [ %29, %46 ]
   %48 = getelementptr inbounds i8, ptr %8, i64 16
   %49 = load ptr, ptr %48, align 8
   %.not.i23 = icmp eq ptr %49, null
   br i1 %.not.i23, label %wmem_block_verify_recycler.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %wmem_block_verify_master_list.exit, %76
-  %.016.i = phi ptr [ %77, %76 ], [ %49, %wmem_block_verify_master_list.exit ]
+  %.017.i = phi ptr [ %77, %76 ], [ %49, %wmem_block_verify_master_list.exit ]
   %.0.i = phi i32 [ %53, %76 ], [ 0, %wmem_block_verify_master_list.exit ]
-  %50 = getelementptr inbounds i8, ptr %.016.i, i64 4
+  %50 = getelementptr inbounds i8, ptr %.017.i, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = lshr i32 %51, 3
   %53 = add i32 %52, %.0.i
-  %54 = getelementptr i8, ptr %.016.i, i64 16
+  %54 = getelementptr i8, ptr %.017.i, i64 16
   %55 = and i32 %51, 2
   %.not20.i24 = icmp eq i32 %55, 0
   br i1 %.not20.i24, label %57, label %56
@@ -167,7 +167,7 @@ wmem_block_verify_master_list.exit:               ; preds = %46, %19
   br label %60
 
 60:                                               ; preds = %59, %57
-  %61 = getelementptr i8, ptr %.016.i, i64 24
+  %61 = getelementptr i8, ptr %.017.i, i64 24
   %62 = load ptr, ptr %61, align 8
   %.not22.i26 = icmp eq ptr %62, null
   br i1 %.not22.i26, label %63, label %64
@@ -180,7 +180,7 @@ wmem_block_verify_master_list.exit:               ; preds = %46, %19
   %65 = load ptr, ptr %54, align 8
   %66 = getelementptr i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, %.016.i
+  %68 = icmp eq ptr %67, %.017.i
   br i1 %68, label %70, label %69
 
 69:                                               ; preds = %64
@@ -191,7 +191,7 @@ wmem_block_verify_master_list.exit:               ; preds = %46, %19
   %71 = load ptr, ptr %61, align 8
   %72 = getelementptr i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, %.016.i
+  %74 = icmp eq ptr %73, %.017.i
   br i1 %74, label %76, label %75
 
 75:                                               ; preds = %70
@@ -206,7 +206,7 @@ wmem_block_verify_master_list.exit:               ; preds = %46, %19
   br i1 %.not23.i27, label %wmem_block_verify_recycler.exit, label %.preheader.i, !llvm.loop !6
 
 wmem_block_verify_recycler.exit:                  ; preds = %76, %wmem_block_verify_master_list.exit
-  %.017.i28 = phi i32 [ 0, %wmem_block_verify_master_list.exit ], [ %53, %76 ]
+  %.016.i28 = phi i32 [ 0, %wmem_block_verify_master_list.exit ], [ %53, %76 ]
   %79 = load ptr, ptr %8, align 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
@@ -370,7 +370,7 @@ wmem_block_verify_block.exit:                     ; preds = %90, %143, %145
   br i1 %.not, label %148, label %83, !llvm.loop !8
 
 148:                                              ; preds = %wmem_block_verify_block.exit
-  %149 = add i32 %.017.i28, %.017.i
+  %149 = add i32 %.016.i28, %.016.i
   %150 = icmp eq i32 %146, %149
   br i1 %150, label %152, label %151
 
@@ -1505,9 +1505,9 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
 
 44:                                               ; preds = %33, %29, %23
   %45 = phi i32 [ %24, %29 ], [ %43, %33 ], [ %24, %23 ]
-  %.051 = phi ptr [ %1, %29 ], [ %28, %33 ], [ %1, %23 ]
-  %.150 = phi ptr [ null, %29 ], [ %spec.select68, %33 ], [ null, %23 ]
-  %46 = getelementptr inbounds i8, ptr %.051, i64 4
+  %.151 = phi ptr [ null, %29 ], [ %spec.select68, %33 ], [ null, %23 ]
+  %.0 = phi ptr [ %1, %29 ], [ %28, %33 ], [ %1, %23 ]
+  %46 = getelementptr inbounds i8, ptr %.0, i64 4
   %47 = and i32 %45, 1
   %.not63 = icmp eq i32 %47, 0
   br i1 %.not63, label %48, label %52
@@ -1515,7 +1515,7 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
 48:                                               ; preds = %44
   %49 = lshr i32 %45, 3
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr i8, ptr %.051, i64 %50
+  %51 = getelementptr i8, ptr %.0, i64 %50
   store i32 %49, ptr %51, align 4
   br label %52
 
@@ -1530,16 +1530,16 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
   br i1 %56, label %57, label %83
 
 57:                                               ; preds = %53
-  %.not66 = icmp eq ptr %.150, null
+  %.not66 = icmp eq ptr %.151, null
   br i1 %.not66, label %wmem_block_remove_from_recycler.exit, label %58
 
 58:                                               ; preds = %57
-  %59 = getelementptr i8, ptr %.150, i64 16
+  %59 = getelementptr i8, ptr %.151, i64 16
   %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, %.150
-  %62 = getelementptr i8, ptr %.150, i64 24
+  %61 = icmp eq ptr %60, %.151
+  %62 = getelementptr i8, ptr %.151, i64 24
   %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %.150
+  %64 = icmp eq ptr %63, %.151
   %or.cond.i = select i1 %61, i1 %64, i1 false
   br i1 %or.cond.i, label %65, label %._crit_edge.i
 
@@ -1557,7 +1557,7 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
   store ptr %68, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, %.150
+  %73 = icmp eq ptr %72, %.151
   br i1 %73, label %74, label %wmem_block_remove_from_recycler.exit
 
 74:                                               ; preds = %._crit_edge.i
@@ -1566,13 +1566,13 @@ define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr
   br label %wmem_block_remove_from_recycler.exit
 
 wmem_block_remove_from_recycler.exit:             ; preds = %74, %._crit_edge.i, %65, %57
-  %76 = getelementptr i8, ptr %.051, i64 16
+  %76 = getelementptr i8, ptr %.0, i64 16
   store ptr null, ptr %76, align 8
   %77 = getelementptr i8, ptr %.1, i64 24
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr i8, ptr %.051, i64 24
+  %79 = getelementptr i8, ptr %.0, i64 24
   store ptr %78, ptr %79, align 8
-  store ptr %.051, ptr %54, align 8
+  store ptr %.0, ptr %54, align 8
   %80 = load ptr, ptr %79, align 8
   %.not67 = icmp eq ptr %80, null
   br i1 %.not67, label %wmem_block_add_to_recycler.exit, label %81
@@ -1614,7 +1614,7 @@ wmem_block_remove_from_recycler.exit:             ; preds = %74, %._crit_edge.i,
   br label %.critedge
 
 .critedge:                                        ; preds = %99, %._crit_edge.i70, %90, %52
-  %.not65 = icmp eq ptr %.150, null
+  %.not65 = icmp eq ptr %.151, null
   br i1 %.not65, label %101, label %wmem_block_add_to_recycler.exit
 
 101:                                              ; preds = %.critedge
@@ -1624,16 +1624,16 @@ wmem_block_remove_from_recycler.exit:             ; preds = %74, %._crit_edge.i,
   br i1 %104, label %wmem_block_add_to_recycler.exit, label %105
 
 105:                                              ; preds = %101
-  %106 = getelementptr i8, ptr %.051, i64 16
+  %106 = getelementptr i8, ptr %.0, i64 16
   %107 = getelementptr inbounds i8, ptr %0, i64 16
   %108 = load ptr, ptr %107, align 8
   %.not.i = icmp eq ptr %108, null
-  %109 = getelementptr i8, ptr %.051, i64 24
+  %109 = getelementptr i8, ptr %.0, i64 24
   br i1 %.not.i, label %110, label %111
 
 110:                                              ; preds = %105
-  store ptr %.051, ptr %109, align 8
-  store ptr %.051, ptr %106, align 8
+  store ptr %.0, ptr %109, align 8
+  store ptr %.0, ptr %106, align 8
   br label %wmem_block_add_to_recycler.exit.sink.split
 
 111:                                              ; preds = %105
@@ -1643,10 +1643,10 @@ wmem_block_remove_from_recycler.exit:             ; preds = %74, %._crit_edge.i,
   %114 = load ptr, ptr %113, align 8
   store ptr %114, ptr %106, align 8
   %115 = getelementptr i8, ptr %108, i64 16
-  store ptr %.051, ptr %115, align 8
+  store ptr %.0, ptr %115, align 8
   %116 = load ptr, ptr %106, align 8
   %117 = getelementptr i8, ptr %116, i64 24
-  store ptr %.051, ptr %117, align 8
+  store ptr %.0, ptr %117, align 8
   %118 = load i32, ptr %46, align 4
   %119 = lshr i32 %118, 3
   %120 = load ptr, ptr %107, align 8
@@ -1658,7 +1658,7 @@ wmem_block_remove_from_recycler.exit:             ; preds = %74, %._crit_edge.i,
 
 wmem_block_add_to_recycler.exit.sink.split:       ; preds = %110, %111, %81
   %.sink = phi ptr [ %82, %81 ], [ %107, %111 ], [ %107, %110 ]
-  store ptr %.051, ptr %.sink, align 8
+  store ptr %.0, ptr %.sink, align 8
   br label %wmem_block_add_to_recycler.exit
 
 wmem_block_add_to_recycler.exit:                  ; preds = %wmem_block_add_to_recycler.exit.sink.split, %111, %101, %.critedge, %wmem_block_remove_from_recycler.exit

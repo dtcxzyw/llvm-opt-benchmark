@@ -245,14 +245,14 @@ pkcs5_parse_pbkdf2_params.exit:                   ; preds = %65, %60, %51, %48
   br label %117
 
 117:                                              ; preds = %110, %108, %101, %96, %114
-  %.0 = phi i32 [ %100, %96 ], [ %107, %101 ], [ %109, %108 ], [ %113, %110 ], [ %spec.store.select, %114 ]
+  %.021 = phi i32 [ %100, %96 ], [ %107, %101 ], [ %109, %108 ], [ %113, %110 ], [ %spec.store.select, %114 ]
   call void @mbedtls_md_free(ptr noundef nonnull %22) #8
   call void @mbedtls_cipher_free(ptr noundef nonnull %24) #8
   br label %.critedge
 
 .critedge:                                        ; preds = %pkcs5_parse_pbkdf2_params.exit.thread47, %7, %35, %85, %90, %81, %79, %71, %pkcs5_parse_pbkdf2_params.exit, %38, %117, %77, %33
-  %.021 = phi i32 [ %34, %33 ], [ %78, %77 ], [ %.0, %117 ], [ -11904, %38 ], [ %.0.i, %pkcs5_parse_pbkdf2_params.exit ], [ -11904, %71 ], [ -11904, %79 ], [ -11904, %81 ], [ -12032, %90 ], [ -12032, %85 ], [ -11904, %35 ], [ -12130, %7 ], [ %.0.i.ph, %pkcs5_parse_pbkdf2_params.exit.thread47 ]
-  ret i32 %.021
+  %.0 = phi i32 [ %34, %33 ], [ %78, %77 ], [ %.021, %117 ], [ -11904, %38 ], [ %.0.i, %pkcs5_parse_pbkdf2_params.exit ], [ -11904, %71 ], [ -11904, %79 ], [ -11904, %81 ], [ -12032, %90 ], [ -12032, %85 ], [ -11904, %35 ], [ -12130, %7 ], [ %.0.i.ph, %pkcs5_parse_pbkdf2_params.exit.thread47 ]
+  ret i32 %.0
 }
 
 declare i32 @mbedtls_asn1_get_alg(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -305,7 +305,7 @@ define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %31
   %.077.us.us = phi ptr [ %47, %31 ], [ %7, %.lr.ph.split.us.split.us.preheader ]
-  %.04576.us.us = phi i32 [ %46, %31 ], [ %6, %.lr.ph.split.us.split.us.preheader ]
+  %.04176.us.us = phi i32 [ %46, %31 ], [ %6, %.lr.ph.split.us.split.us.preheader ]
   %18 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef %3, i64 noundef %4) #8
   %.not58.us.us = icmp eq i32 %18, 0
   br i1 %.not58.us.us, label %19, label %.loopexit
@@ -349,7 +349,7 @@ define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64
   br i1 %.not57.us.us, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !6
 
 32:                                               ; preds = %._crit_edge.us.us.us, %.lr.ph73.us.us
-  %.04171.us.us.us = phi i32 [ 1, %.lr.ph73.us.us ], [ %43, %._crit_edge.us.us.us ]
+  %.04271.us.us.us = phi i32 [ 1, %.lr.ph73.us.us ], [ %43, %._crit_edge.us.us.us ]
   %33 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef %15) #8
   %.not64.us.us.us = icmp eq i32 %33, 0
   br i1 %.not64.us.us.us, label %34, label %.loopexit
@@ -377,21 +377,21 @@ define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64
   br i1 %exitcond.not, label %._crit_edge.us.us.us, label %.preheader.us.us.us, !llvm.loop !7
 
 ._crit_edge.us.us.us:                             ; preds = %.preheader.us.us.us
-  %43 = add nuw i32 %.04171.us.us.us, 1
+  %43 = add nuw i32 %.04271.us.us.us, 1
   %exitcond121.not = icmp eq i32 %43, %5
   br i1 %exitcond121.not, label %._crit_edge74.split.us.us.us, label %32, !llvm.loop !8
 
 ._crit_edge74.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
-  %44 = call i32 @llvm.umin.i32(i32 %.04576.us.us, i32 %17)
+  %44 = call i32 @llvm.umin.i32(i32 %.04176.us.us, i32 %17)
   %45 = zext nneg i32 %44 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.077.us.us, ptr nonnull align 16 %10, i64 %45, i1 false)
-  %46 = sub i32 %.04576.us.us, %44
+  %46 = sub i32 %.04176.us.us, %44
   %47 = getelementptr inbounds i8, ptr %.077.us.us, i64 %45
   br label %25
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %61
   %.077.us = phi ptr [ %72, %61 ], [ %7, %.lr.ph.split.us ]
-  %.04576.us = phi i32 [ %71, %61 ], [ %6, %.lr.ph.split.us ]
+  %.04176.us = phi i32 [ %71, %61 ], [ %6, %.lr.ph.split.us ]
   %48 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef %3, i64 noundef %4) #8
   %.not58.us = icmp eq i32 %48, 0
   br i1 %.not58.us, label %49, label %.loopexit
@@ -435,7 +435,7 @@ define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64
   br i1 %.not57.us, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !6
 
 62:                                               ; preds = %.lr.ph73.us, %.preheader.us90
-  %.04171.us86 = phi i32 [ 1, %.lr.ph73.us ], [ %68, %.preheader.us90 ]
+  %.04271.us86 = phi i32 [ 1, %.lr.ph73.us ], [ %68, %.preheader.us90 ]
   %63 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef %15) #8
   %.not64.us87 = icmp eq i32 %63, 0
   br i1 %.not64.us87, label %64, label %.loopexit
@@ -451,21 +451,21 @@ define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64
   br i1 %.not66.us89, label %.preheader.us90, label %.loopexit
 
 .preheader.us90:                                  ; preds = %66
-  %68 = add nuw i32 %.04171.us86, 1
+  %68 = add nuw i32 %.04271.us86, 1
   %exitcond125.not = icmp eq i32 %68, %5
   br i1 %exitcond125.not, label %._crit_edge74.split.us91, label %62, !llvm.loop !8
 
 ._crit_edge74.split.us91:                         ; preds = %.preheader.us90
-  %69 = call i32 @llvm.umin.i32(i32 %.04576.us, i32 %17)
+  %69 = call i32 @llvm.umin.i32(i32 %.04176.us, i32 %17)
   %70 = zext nneg i32 %69 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.077.us, ptr nonnull align 16 %10, i64 %70, i1 false)
-  %71 = sub nuw nsw i32 %.04576.us, %69
+  %71 = sub nuw nsw i32 %.04176.us, %69
   %72 = getelementptr inbounds i8, ptr %.077.us, i64 %70
   br label %55
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %91
   %.077 = phi ptr [ %84, %91 ], [ %7, %.lr.ph ]
-  %.04576 = phi i32 [ %83, %91 ], [ %6, %.lr.ph ]
+  %.04176 = phi i32 [ %83, %91 ], [ %6, %.lr.ph ]
   %73 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef %3, i64 noundef %4) #8
   %.not58 = icmp eq i32 %73, 0
   br i1 %.not58, label %74, label %.loopexit
@@ -487,10 +487,10 @@ define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64
 
 80:                                               ; preds = %78
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 16 %10, i64 %15, i1 false)
-  %81 = call i32 @llvm.umin.i32(i32 %.04576, i32 %17)
+  %81 = call i32 @llvm.umin.i32(i32 %.04176, i32 %17)
   %82 = zext nneg i32 %81 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.077, ptr nonnull align 16 %10, i64 %82, i1 false)
-  %83 = sub i32 %.04576, %81
+  %83 = sub i32 %.04176, %81
   %84 = getelementptr inbounds i8, ptr %.077, i64 %82
   br label %85
 

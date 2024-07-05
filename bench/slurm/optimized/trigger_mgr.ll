@@ -830,8 +830,8 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %32, label %127, label %33
 
 33:                                               ; preds = %25, %29, %19
-  %.0 = phi i32 [ %23, %19 ], [ 0, %29 ], [ 0, %25 ]
-  %.0.fr = freeze i32 %.0
+  %.029 = phi i32 [ %23, %19 ], [ 0, %29 ], [ 0, %25 ]
+  %.029.fr = freeze i32 %.029
   %34 = load ptr, ptr @trigger_list, align 8
   %35 = tail call ptr @list_iterator_create(ptr noundef %34) #14
   %36 = tail call ptr @list_next(ptr noundef %35) #14
@@ -840,7 +840,7 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
 
 .lr.ph.lr.ph:                                     ; preds = %33
   %37 = getelementptr inbounds i8, ptr %15, i64 4
-  %.not40 = icmp eq i32 %.0.fr, 0
+  %.not40 = icmp eq i32 %.029.fr, 0
   %38 = getelementptr inbounds i8, ptr %15, i64 36
   %.not64 = icmp eq i32 %0, 0
   br i1 %.not40, label %.lr.ph.lr.ph.split.us, label %.lr.ph.lr.ph.split
@@ -850,7 +850,7 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.lr.ph.split.us, %.split.us.us.us
   %39 = phi ptr [ %57, %.split.us.us.us ], [ %36, %.lr.ph.lr.ph.split.us ]
-  %.029.ph50.us.us = phi i32 [ 0, %.split.us.us.us ], [ 3, %.lr.ph.lr.ph.split.us ]
+  %.0.ph50.us.us = phi i32 [ 0, %.split.us.us.us ], [ 3, %.lr.ph.lr.ph.split.us ]
   br label %40
 
 40:                                               ; preds = %.backedge.us.us.us, %.lr.ph.us.us
@@ -895,7 +895,7 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
 
 .lr.ph.us:                                        ; preds = %.lr.ph.lr.ph.split.us, %.outer.backedge.us
   %58 = phi ptr [ %61, %.outer.backedge.us ], [ %36, %.lr.ph.lr.ph.split.us ]
-  %.029.ph50.us = phi i32 [ %.029.ph.be.us, %.outer.backedge.us ], [ 3, %.lr.ph.lr.ph.split.us ]
+  %.0.ph50.us = phi i32 [ %.0.ph.be.us, %.outer.backedge.us ], [ 3, %.lr.ph.lr.ph.split.us ]
   br label %62
 
 59:                                               ; preds = %.split.us.us
@@ -903,7 +903,7 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br label %.outer.backedge.us
 
 .outer.backedge.us:                               ; preds = %.split.us.us, %59
-  %.029.ph.be.us = phi i32 [ 2002, %.split.us.us ], [ 0, %59 ]
+  %.0.ph.be.us = phi i32 [ 2002, %.split.us.us ], [ 0, %59 ]
   %61 = tail call ptr @list_next(ptr noundef %35) #14
   %.not3746.us = icmp eq ptr %61, null
   br i1 %.not3746.us, label %.outer._crit_edge, label %.lr.ph.us, !llvm.loop !10
@@ -953,7 +953,7 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
 
 .lr.ph.us54:                                      ; preds = %.lr.ph.lr.ph.split, %.split.us
   %80 = phi ptr [ %100, %.split.us ], [ %36, %.lr.ph.lr.ph.split ]
-  %.029.ph50.us55 = phi i32 [ 0, %.split.us ], [ 3, %.lr.ph.lr.ph.split ]
+  %.0.ph50.us55 = phi i32 [ 0, %.split.us ], [ 3, %.lr.ph.lr.ph.split ]
   br label %81
 
 81:                                               ; preds = %.backedge.us, %.lr.ph.us54
@@ -971,7 +971,7 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
 87:                                               ; preds = %84, %81
   %88 = getelementptr inbounds i8, ptr %82, i64 32
   %89 = load i32, ptr %88, align 8
-  %.not41.us = icmp eq i32 %.0.fr, %89
+  %.not41.us = icmp eq i32 %.029.fr, %89
   br i1 %.not41.us, label %90, label %.backedge.us
 
 90:                                               ; preds = %87
@@ -1004,7 +1004,7 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph.split, %.outer.backedge
   %102 = phi ptr [ %126, %.outer.backedge ], [ %36, %.lr.ph.lr.ph.split ]
-  %.029.ph50 = phi i32 [ %.029.ph.be, %.outer.backedge ], [ 3, %.lr.ph.lr.ph.split ]
+  %.0.ph50 = phi i32 [ %.0.ph.be, %.outer.backedge ], [ 3, %.lr.ph.lr.ph.split ]
   br label %103
 
 103:                                              ; preds = %.lr.ph, %.backedge
@@ -1027,7 +1027,7 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
 110:                                              ; preds = %106, %103
   %111 = getelementptr inbounds i8, ptr %104, i64 32
   %112 = load i32, ptr %111, align 8
-  %.not41 = icmp eq i32 %.0.fr, %112
+  %.not41 = icmp eq i32 %.029.fr, %112
   br i1 %.not41, label %113, label %.backedge
 
 113:                                              ; preds = %110
@@ -1058,19 +1058,19 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %124, %.split
-  %.029.ph.be = phi i32 [ 2002, %.split ], [ 0, %124 ]
+  %.0.ph.be = phi i32 [ 2002, %.split ], [ 0, %124 ]
   %126 = tail call ptr @list_next(ptr noundef %35) #14
   %.not3746 = icmp eq ptr %126, null
   br i1 %.not3746, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !10
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %.backedge, %.split.us, %.backedge.us, %.outer.backedge.us, %.backedge.us.us, %.split.us.us.us, %.backedge.us.us.us, %33
-  %.029.ph.lcssa = phi i32 [ 3, %33 ], [ %.029.ph50.us.us, %.backedge.us.us.us ], [ 0, %.split.us.us.us ], [ %.029.ph50.us, %.backedge.us.us ], [ %.029.ph.be.us, %.outer.backedge.us ], [ %.029.ph50.us55, %.backedge.us ], [ 0, %.split.us ], [ %.029.ph50, %.backedge ], [ %.029.ph.be, %.outer.backedge ]
+  %.0.ph.lcssa = phi i32 [ 3, %33 ], [ %.0.ph50.us.us, %.backedge.us.us.us ], [ 0, %.split.us.us.us ], [ %.0.ph50.us, %.backedge.us.us ], [ %.0.ph.be.us, %.outer.backedge.us ], [ %.0.ph50.us55, %.backedge.us ], [ 0, %.split.us ], [ %.0.ph50, %.backedge ], [ %.0.ph.be, %.outer.backedge ]
   tail call void @list_iterator_destroy(ptr noundef %35) #14
   tail call void @schedule_trigger_save() #14
   br label %127
 
 127:                                              ; preds = %29, %19, %.outer._crit_edge, %11
-  %.1 = phi i32 [ 3, %11 ], [ %.029.ph.lcssa, %.outer._crit_edge ], [ 2017, %19 ], [ 22, %29 ]
+  %.1 = phi i32 [ 3, %11 ], [ %.0.ph.lcssa, %.outer._crit_edge ], [ 2017, %19 ], [ 22, %29 ]
   %128 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #14
   %.not44 = icmp eq i32 %128, 0
   br i1 %.not44, label %131, label %129
@@ -1165,8 +1165,8 @@ _dump_trigger_msg.exit:                           ; preds = %11, %18, %21
   br label %.outer
 
 .outer:                                           ; preds = %40, %_dump_trigger_msg.exit
-  %.033.ph = phi ptr [ %67, %40 ], [ %30, %_dump_trigger_msg.exit ]
-  %.0.ph = phi i32 [ %68, %40 ], [ 0, %_dump_trigger_msg.exit ]
+  %.033.ph = phi i32 [ %68, %40 ], [ 0, %_dump_trigger_msg.exit ]
+  %.0.ph = phi ptr [ %67, %40 ], [ %30, %_dump_trigger_msg.exit ]
   br label %31
 
 31:                                               ; preds = %.outer, %36
@@ -1181,7 +1181,7 @@ _dump_trigger_msg.exit:                           ; preds = %11, %18, %21
   br i1 %.not39, label %40, label %36
 
 36:                                               ; preds = %33
-  %37 = load i16, ptr %.033.ph, align 8
+  %37 = load i16, ptr %.0.ph, align 8
   %38 = and i16 %37, 1
   %39 = icmp eq i16 %38, 0
   br i1 %39, label %31, label %40, !llvm.loop !11
@@ -1189,40 +1189,40 @@ _dump_trigger_msg.exit:                           ; preds = %11, %18, %21
 40:                                               ; preds = %36, %33
   %41 = getelementptr inbounds i8, ptr %32, i64 4
   %42 = load i16, ptr %41, align 4
-  store i16 %42, ptr %.033.ph, align 8
+  store i16 %42, ptr %.0.ph, align 8
   %43 = getelementptr inbounds i8, ptr %32, i64 8
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %.033.ph, i64 4
+  %45 = getelementptr inbounds i8, ptr %.0.ph, i64 4
   store i32 %44, ptr %45, align 4
   %46 = getelementptr inbounds i8, ptr %32, i64 12
   %47 = load i16, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %.033.ph, i64 8
+  %48 = getelementptr inbounds i8, ptr %.0.ph, i64 8
   store i16 %47, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %32, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr @xstrdup(ptr noundef %50) #14
-  %52 = getelementptr inbounds i8, ptr %.033.ph, i64 16
+  %52 = getelementptr inbounds i8, ptr %.0.ph, i64 16
   store ptr %51, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %32, i64 36
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %.033.ph, i64 28
+  %55 = getelementptr inbounds i8, ptr %.0.ph, i64 28
   store i32 %54, ptr %55, align 4
   %56 = getelementptr inbounds i8, ptr %32, i64 40
   %57 = load i64, ptr %56, align 8
   %58 = trunc i64 %57 to i16
-  %59 = getelementptr inbounds i8, ptr %.033.ph, i64 32
+  %59 = getelementptr inbounds i8, ptr %.0.ph, i64 32
   store i16 %58, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %32, i64 48
   %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.033.ph, i64 36
+  %62 = getelementptr inbounds i8, ptr %.0.ph, i64 36
   store i32 %61, ptr %62, align 4
   %63 = getelementptr inbounds i8, ptr %32, i64 56
   %64 = load ptr, ptr %63, align 8
   %65 = tail call ptr @xstrdup(ptr noundef %64) #14
-  %66 = getelementptr inbounds i8, ptr %.033.ph, i64 40
+  %66 = getelementptr inbounds i8, ptr %.0.ph, i64 40
   store ptr %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %.033.ph, i64 48
-  %68 = add nuw nsw i32 %.0.ph, 1
+  %67 = getelementptr inbounds i8, ptr %.0.ph, i64 48
+  %68 = add nuw nsw i32 %.033.ph, 1
   br label %.outer, !llvm.loop !11
 
 69:                                               ; preds = %31
@@ -1238,7 +1238,7 @@ _dump_trigger_msg.exit:                           ; preds = %11, %18, %21
   unreachable
 
 73:                                               ; preds = %69
-  store i32 %.0.ph, ptr %22, align 8
+  store i32 %.033.ph, ptr %22, align 8
   tail call fastcc void @_dump_trigger_msg(ptr noundef nonnull @.str.5, ptr noundef nonnull %22)
   ret ptr %22
 }
@@ -1313,7 +1313,7 @@ define dso_local i32 @trigger_set(i32 noundef %0, i32 noundef %1, ptr noundef %2
 
 27:                                               ; preds = %.lr.ph, %195
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %195 ]
-  %.05583 = phi i32 [ 0, %.lr.ph ], [ %.1, %195 ]
+  %.05582 = phi i32 [ 0, %.lr.ph ], [ %.1, %195 ]
   %28 = load ptr, ptr %26, align 8
   %29 = getelementptr inbounds %struct.trigger_info, ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds i8, ptr %29, i64 8
@@ -1365,7 +1365,7 @@ define dso_local i32 @trigger_set(i32 noundef %0, i32 noundef %1, ptr noundef %2
   br label %195
 
 54:                                               ; preds = %45, %46, %48, %40
-  %.0 = phi i32 [ %37, %40 ], [ 0, %48 ], [ 0, %46 ], [ 0, %45 ]
+  %.056 = phi i32 [ %37, %40 ], [ 0, %48 ], [ 0, %46 ], [ 0, %45 ]
   %55 = load ptr, ptr %26, align 8
   %56 = getelementptr inbounds %struct.trigger_info, ptr %55, i64 %indvars.iv, i32 7
   store i32 %0, ptr %56, align 4
@@ -1499,7 +1499,7 @@ define dso_local i32 @trigger_set(i32 noundef %0, i32 noundef %1, ptr noundef %2
 133:                                              ; preds = %128, %.loopexit
   %134 = phi ptr [ %131, %128 ], [ %125, %.loopexit ]
   %135 = getelementptr inbounds i8, ptr %134, i64 32
-  store i32 %.0, ptr %135, align 8
+  store i32 %.056, ptr %135, align 8
   %136 = load ptr, ptr %26, align 8
   %137 = getelementptr inbounds %struct.trigger_info, ptr %136, i64 %indvars.iv, i32 3
   %138 = load ptr, ptr %137, align 8
@@ -1604,7 +1604,7 @@ define dso_local i32 @trigger_set(i32 noundef %0, i32 noundef %1, ptr noundef %2
   br label %195
 
 195:                                              ; preds = %40, %35, %192, %186, %110, %53
-  %.1 = phi i32 [ 2089, %110 ], [ %.05583, %192 ], [ 2002, %186 ], [ 2018, %53 ], [ 2017, %35 ], [ 2021, %40 ]
+  %.1 = phi i32 [ 2089, %110 ], [ %.05582, %192 ], [ 2002, %186 ], [ 2018, %53 ], [ 2017, %35 ], [ 2021, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %196 = load i32, ptr %2, align 8
   %197 = zext i32 %196 to i64
@@ -2531,11 +2531,11 @@ _dump_trigger_state.exit:                         ; preds = %36, %47
   br i1 %79, label %.lr.ph54, label %.loopexit
 
 .lr.ph54:                                         ; preds = %72, %93
-  %.03552 = phi i32 [ %94, %93 ], [ %74, %72 ]
-  %.03651 = phi i32 [ %95, %93 ], [ 0, %72 ]
-  %80 = sext i32 %.03651 to i64
+  %.03552 = phi i32 [ %95, %93 ], [ 0, %72 ]
+  %.03651 = phi i32 [ %94, %93 ], [ %74, %72 ]
+  %80 = sext i32 %.03552 to i64
   %81 = getelementptr inbounds i8, ptr %76, i64 %80
-  %82 = zext nneg i32 %.03552 to i64
+  %82 = zext nneg i32 %.03651 to i64
   %83 = call i64 @write(i32 noundef %65, ptr noundef %81, i64 noundef %82) #14
   %84 = trunc i64 %83 to i32
   %85 = icmp slt i32 %84, 0
@@ -2554,8 +2554,8 @@ _dump_trigger_state.exit:                         ; preds = %36, %47
   br label %.loopexit
 
 93:                                               ; preds = %86, %.lr.ph54
-  %94 = sub nsw i32 %.03552, %84
-  %95 = add nsw i32 %.03651, %84
+  %94 = sub nsw i32 %.03651, %84
+  %95 = add nsw i32 %.03552, %84
   %96 = icmp sgt i32 %94, 0
   br i1 %96, label %.lr.ph54, label %.loopexit, !llvm.loop !16
 

@@ -25,59 +25,59 @@ define i64 @denseGETRF(ptr nocapture noundef readonly %0, i64 noundef %1, i64 no
   br i1 %exitcond99.not, label %._crit_edge92, label %.lr.ph91, !llvm.loop !4
 
 .lr.ph91:                                         ; preds = %4, %.loopexit75
-  %.06789 = phi i64 [ %8, %.loopexit75 ], [ 0, %4 ]
-  %6 = getelementptr inbounds ptr, ptr %0, i64 %.06789
+  %.06889 = phi i64 [ %8, %.loopexit75 ], [ 0, %4 ]
+  %6 = getelementptr inbounds ptr, ptr %0, i64 %.06889
   %7 = load ptr, ptr %6, align 8
-  %8 = add nuw nsw i64 %.06789, 1
+  %8 = add nuw nsw i64 %.06889, 1
   %9 = icmp sge i64 %8, %1
   br i1 %9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph91, %.lr.ph
-  %.06679 = phi i64 [ %.1, %.lr.ph ], [ %.06789, %.lr.ph91 ]
-  %.06978 = phi i64 [ %17, %.lr.ph ], [ %8, %.lr.ph91 ]
-  %10 = getelementptr inbounds double, ptr %7, i64 %.06978
+  %.06679 = phi i64 [ %17, %.lr.ph ], [ %8, %.lr.ph91 ]
+  %.06978 = phi i64 [ %.170, %.lr.ph ], [ %.06889, %.lr.ph91 ]
+  %10 = getelementptr inbounds double, ptr %7, i64 %.06679
   %11 = load double, ptr %10, align 8
   %12 = tail call double @SUNRabs(double noundef %11) #6
-  %13 = getelementptr inbounds double, ptr %7, i64 %.06679
+  %13 = getelementptr inbounds double, ptr %7, i64 %.06978
   %14 = load double, ptr %13, align 8
   %15 = tail call double @SUNRabs(double noundef %14) #6
   %16 = fcmp ogt double %12, %15
-  %.1 = select i1 %16, i64 %.06978, i64 %.06679
-  %17 = add nuw nsw i64 %.06978, 1
+  %.170 = select i1 %16, i64 %.06679, i64 %.06978
+  %17 = add nuw nsw i64 %.06679, 1
   %18 = icmp slt i64 %17, %1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph91
-  %.066.lcssa = phi i64 [ %.06789, %.lr.ph91 ], [ %.1, %.lr.ph ]
-  %19 = getelementptr inbounds i64, ptr %3, i64 %.06789
-  store i64 %.066.lcssa, ptr %19, align 8
-  %20 = getelementptr inbounds double, ptr %7, i64 %.066.lcssa
+  %.069.lcssa = phi i64 [ %.06889, %.lr.ph91 ], [ %.170, %.lr.ph ]
+  %19 = getelementptr inbounds i64, ptr %3, i64 %.06889
+  store i64 %.069.lcssa, ptr %19, align 8
+  %20 = getelementptr inbounds double, ptr %7, i64 %.069.lcssa
   %21 = load double, ptr %20, align 8
   %22 = fcmp oeq double %21, 0.000000e+00
   br i1 %22, label %._crit_edge92, label %23
 
 23:                                               ; preds = %._crit_edge
-  %.not = icmp eq i64 %.066.lcssa, %.06789
+  %.not = icmp eq i64 %.069.lcssa, %.06889
   br i1 %.not, label %.loopexit77, label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %23, %.lr.ph81
-  %.17080 = phi i64 [ %32, %.lr.ph81 ], [ 0, %23 ]
-  %24 = getelementptr inbounds ptr, ptr %0, i64 %.17080
+  %.180 = phi i64 [ %32, %.lr.ph81 ], [ 0, %23 ]
+  %24 = getelementptr inbounds ptr, ptr %0, i64 %.180
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds double, ptr %25, i64 %.066.lcssa
+  %26 = getelementptr inbounds double, ptr %25, i64 %.069.lcssa
   %27 = load double, ptr %26, align 8
-  %28 = getelementptr inbounds double, ptr %25, i64 %.06789
+  %28 = getelementptr inbounds double, ptr %25, i64 %.06889
   %29 = load double, ptr %28, align 8
   store double %29, ptr %26, align 8
   %30 = load ptr, ptr %24, align 8
-  %31 = getelementptr inbounds double, ptr %30, i64 %.06789
+  %31 = getelementptr inbounds double, ptr %30, i64 %.06889
   store double %27, ptr %31, align 8
-  %32 = add nuw nsw i64 %.17080, 1
+  %32 = add nuw nsw i64 %.180, 1
   %exitcond.not = icmp eq i64 %32, %2
   br i1 %exitcond.not, label %.loopexit77, label %.lr.ph81, !llvm.loop !7
 
 .loopexit77:                                      ; preds = %.lr.ph81, %23
-  %33 = getelementptr inbounds double, ptr %7, i64 %.06789
+  %33 = getelementptr inbounds double, ptr %7, i64 %.06889
   %34 = load double, ptr %33, align 8
   %35 = fdiv double 1.000000e+00, %34
   br i1 %9, label %.loopexit75, label %.lr.ph84
@@ -88,16 +88,16 @@ define i64 @denseGETRF(ptr nocapture noundef readonly %0, i64 noundef %1, i64 no
   br i1 %brmerge, label %.loopexit75, label %.lr.ph88.split.us
 
 .lr.ph88.split.us:                                ; preds = %.preheader74, %..loopexit_crit_edge.us
-  %.06887.us = phi i64 [ %42, %..loopexit_crit_edge.us ], [ %8, %.preheader74 ]
-  %37 = getelementptr inbounds ptr, ptr %0, i64 %.06887.us
+  %.06787.us = phi i64 [ %42, %..loopexit_crit_edge.us ], [ %8, %.preheader74 ]
+  %37 = getelementptr inbounds ptr, ptr %0, i64 %.06787.us
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds double, ptr %38, i64 %.06789
+  %39 = getelementptr inbounds double, ptr %38, i64 %.06889
   %40 = load double, ptr %39, align 8
   %41 = fcmp une double %40, 0.000000e+00
   br i1 %41, label %.preheader.us, label %..loopexit_crit_edge.us
 
 ..loopexit_crit_edge.us:                          ; preds = %44, %.lr.ph88.split.us
-  %42 = add nuw nsw i64 %.06887.us, 1
+  %42 = add nuw nsw i64 %.06787.us, 1
   %43 = icmp slt i64 %42, %2
   br i1 %43, label %.lr.ph88.split.us, label %.loopexit75, !llvm.loop !8
 
@@ -1032,25 +1032,25 @@ define void @DenseCopy(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   br i1 %or.cond.i, label %.lr.ph.us.i, label %denseCopy.exit
 
 .lr.ph.us.i:                                      ; preds = %2, %._crit_edge.us.i
-  %.015.us.i = phi i64 [ %22, %._crit_edge.us.i ], [ 0, %2 ]
-  %13 = getelementptr inbounds ptr, ptr %4, i64 %.015.us.i
+  %.01315.us.i = phi i64 [ %22, %._crit_edge.us.i ], [ 0, %2 ]
+  %13 = getelementptr inbounds ptr, ptr %4, i64 %.01315.us.i
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds ptr, ptr %6, i64 %.015.us.i
+  %15 = getelementptr inbounds ptr, ptr %6, i64 %.01315.us.i
   %16 = load ptr, ptr %15, align 8
   br label %17
 
 17:                                               ; preds = %17, %.lr.ph.us.i
-  %.01314.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %21, %17 ]
-  %18 = getelementptr inbounds double, ptr %14, i64 %.01314.us.i
+  %.014.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %21, %17 ]
+  %18 = getelementptr inbounds double, ptr %14, i64 %.014.us.i
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds double, ptr %16, i64 %.01314.us.i
+  %20 = getelementptr inbounds double, ptr %16, i64 %.014.us.i
   store double %19, ptr %20, align 8
-  %21 = add nuw nsw i64 %.01314.us.i, 1
+  %21 = add nuw nsw i64 %.014.us.i, 1
   %exitcond.not.i = icmp eq i64 %21, %8
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %17, !llvm.loop !35
 
 ._crit_edge.us.i:                                 ; preds = %17
-  %22 = add nuw nsw i64 %.015.us.i, 1
+  %22 = add nuw nsw i64 %.01315.us.i, 1
   %exitcond20.not.i = icmp eq i64 %22, %10
   br i1 %exitcond20.not.i, label %denseCopy.exit, label %.lr.ph.us.i, !llvm.loop !36
 
@@ -1066,25 +1066,25 @@ define void @denseCopy(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   br i1 %or.cond, label %.lr.ph.us, label %._crit_edge18
 
 .lr.ph.us:                                        ; preds = %4, %._crit_edge.us
-  %.015.us = phi i64 [ %16, %._crit_edge.us ], [ 0, %4 ]
-  %7 = getelementptr inbounds ptr, ptr %0, i64 %.015.us
+  %.01315.us = phi i64 [ %16, %._crit_edge.us ], [ 0, %4 ]
+  %7 = getelementptr inbounds ptr, ptr %0, i64 %.01315.us
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %.015.us
+  %9 = getelementptr inbounds ptr, ptr %1, i64 %.01315.us
   %10 = load ptr, ptr %9, align 8
   br label %11
 
 11:                                               ; preds = %.lr.ph.us, %11
-  %.01314.us = phi i64 [ 0, %.lr.ph.us ], [ %15, %11 ]
-  %12 = getelementptr inbounds double, ptr %8, i64 %.01314.us
+  %.014.us = phi i64 [ 0, %.lr.ph.us ], [ %15, %11 ]
+  %12 = getelementptr inbounds double, ptr %8, i64 %.014.us
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds double, ptr %10, i64 %.01314.us
+  %14 = getelementptr inbounds double, ptr %10, i64 %.014.us
   store double %13, ptr %14, align 8
-  %15 = add nuw nsw i64 %.01314.us, 1
+  %15 = add nuw nsw i64 %.014.us, 1
   %exitcond.not = icmp eq i64 %15, %2
   br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !35
 
 ._crit_edge.us:                                   ; preds = %11
-  %16 = add nuw nsw i64 %.015.us, 1
+  %16 = add nuw nsw i64 %.01315.us, 1
   %exitcond20.not = icmp eq i64 %16, %3
   br i1 %exitcond20.not, label %._crit_edge18, label %.lr.ph.us, !llvm.loop !36
 
@@ -1106,23 +1106,23 @@ define void @DenseScale(double noundef %0, ptr nocapture noundef readonly %1) lo
   br i1 %or.cond.i, label %.lr.ph.us.i, label %denseScale.exit
 
 .lr.ph.us.i:                                      ; preds = %2, %._crit_edge.us.i
-  %.012.us.i = phi i64 [ %18, %._crit_edge.us.i ], [ 0, %2 ]
-  %11 = getelementptr inbounds ptr, ptr %4, i64 %.012.us.i
+  %.01012.us.i = phi i64 [ %18, %._crit_edge.us.i ], [ 0, %2 ]
+  %11 = getelementptr inbounds ptr, ptr %4, i64 %.01012.us.i
   %12 = load ptr, ptr %11, align 8
   br label %13
 
 13:                                               ; preds = %13, %.lr.ph.us.i
-  %.01011.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %17, %13 ]
-  %14 = getelementptr inbounds double, ptr %12, i64 %.01011.us.i
+  %.011.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %17, %13 ]
+  %14 = getelementptr inbounds double, ptr %12, i64 %.011.us.i
   %15 = load double, ptr %14, align 8
   %16 = fmul double %15, %0
   store double %16, ptr %14, align 8
-  %17 = add nuw nsw i64 %.01011.us.i, 1
+  %17 = add nuw nsw i64 %.011.us.i, 1
   %exitcond.not.i = icmp eq i64 %17, %6
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %13, !llvm.loop !37
 
 ._crit_edge.us.i:                                 ; preds = %13
-  %18 = add nuw nsw i64 %.012.us.i, 1
+  %18 = add nuw nsw i64 %.01012.us.i, 1
   %exitcond17.not.i = icmp eq i64 %18, %8
   br i1 %exitcond17.not.i, label %denseScale.exit, label %.lr.ph.us.i, !llvm.loop !38
 
@@ -1138,23 +1138,23 @@ define void @denseScale(double noundef %0, ptr nocapture noundef readonly %1, i6
   br i1 %or.cond, label %.lr.ph.us, label %._crit_edge15
 
 .lr.ph.us:                                        ; preds = %4, %._crit_edge.us
-  %.012.us = phi i64 [ %14, %._crit_edge.us ], [ 0, %4 ]
-  %7 = getelementptr inbounds ptr, ptr %1, i64 %.012.us
+  %.01012.us = phi i64 [ %14, %._crit_edge.us ], [ 0, %4 ]
+  %7 = getelementptr inbounds ptr, ptr %1, i64 %.01012.us
   %8 = load ptr, ptr %7, align 8
   br label %9
 
 9:                                                ; preds = %.lr.ph.us, %9
-  %.01011.us = phi i64 [ 0, %.lr.ph.us ], [ %13, %9 ]
-  %10 = getelementptr inbounds double, ptr %8, i64 %.01011.us
+  %.011.us = phi i64 [ 0, %.lr.ph.us ], [ %13, %9 ]
+  %10 = getelementptr inbounds double, ptr %8, i64 %.011.us
   %11 = load double, ptr %10, align 8
   %12 = fmul double %11, %0
   store double %12, ptr %10, align 8
-  %13 = add nuw nsw i64 %.01011.us, 1
+  %13 = add nuw nsw i64 %.011.us, 1
   %exitcond.not = icmp eq i64 %13, %2
   br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !37
 
 ._crit_edge.us:                                   ; preds = %9
-  %14 = add nuw nsw i64 %.012.us, 1
+  %14 = add nuw nsw i64 %.01012.us, 1
   %exitcond17.not = icmp eq i64 %14, %3
   br i1 %exitcond17.not, label %._crit_edge15, label %.lr.ph.us, !llvm.loop !38
 
@@ -1180,10 +1180,10 @@ define void @DenseMatvec(ptr nocapture noundef readonly %0, ptr nocapture nounde
   br i1 %12, label %.lr.ph22.us.i, label %denseMatvec.exit
 
 .lr.ph22.us.i:                                    ; preds = %.preheader.i, %._crit_edge.us.i
-  %.023.us.i = phi i64 [ %24, %._crit_edge.us.i ], [ 0, %.preheader.i ]
-  %13 = getelementptr inbounds ptr, ptr %5, i64 %.023.us.i
+  %.01823.us.i = phi i64 [ %24, %._crit_edge.us.i ], [ 0, %.preheader.i ]
+  %13 = getelementptr inbounds ptr, ptr %5, i64 %.01823.us.i
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds double, ptr %1, i64 %.023.us.i
+  %15 = getelementptr inbounds double, ptr %1, i64 %.01823.us.i
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph22.us.i
@@ -1200,7 +1200,7 @@ define void @DenseMatvec(ptr nocapture noundef readonly %0, ptr nocapture nounde
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %16, !llvm.loop !39
 
 ._crit_edge.us.i:                                 ; preds = %16
-  %24 = add nuw nsw i64 %.023.us.i, 1
+  %24 = add nuw nsw i64 %.01823.us.i, 1
   %exitcond27.not.i = icmp eq i64 %24, %9
   br i1 %exitcond27.not.i, label %denseMatvec.exit, label %.lr.ph22.us.i, !llvm.loop !40
 
@@ -1220,10 +1220,10 @@ define void @denseMatvec(ptr nocapture noundef readonly %0, ptr nocapture nounde
   br i1 %8, label %.lr.ph22.us, label %._crit_edge25
 
 .lr.ph22.us:                                      ; preds = %.preheader, %._crit_edge.us
-  %.023.us = phi i64 [ %20, %._crit_edge.us ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds ptr, ptr %0, i64 %.023.us
+  %.01823.us = phi i64 [ %20, %._crit_edge.us ], [ 0, %.preheader ]
+  %9 = getelementptr inbounds ptr, ptr %0, i64 %.01823.us
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds double, ptr %1, i64 %.023.us
+  %11 = getelementptr inbounds double, ptr %1, i64 %.01823.us
   br label %12
 
 12:                                               ; preds = %.lr.ph22.us, %12
@@ -1240,7 +1240,7 @@ define void @denseMatvec(ptr nocapture noundef readonly %0, ptr nocapture nounde
   br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !39
 
 ._crit_edge.us:                                   ; preds = %12
-  %20 = add nuw nsw i64 %.023.us, 1
+  %20 = add nuw nsw i64 %.01823.us, 1
   %exitcond27.not = icmp eq i64 %20, %4
   br i1 %exitcond27.not, label %._crit_edge25, label %.lr.ph22.us, !llvm.loop !40
 

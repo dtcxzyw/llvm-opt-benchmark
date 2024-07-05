@@ -348,8 +348,8 @@ if.end23:                                         ; preds = %for.body
   %56 = shufflevector <2 x float> %55, <2 x float> poison, <2 x i32> zeroinitializer
   %57 = fmul <2 x float> %46, %56
   %mul3.i.i = fmul float %50, %div.i.i
-  %ref.tmp47.sroa.6.0 = select i1 %or.cond.i, float %50, float %mul3.i.i
   %ref.tmp47.sroa.0.0 = select i1 %or.cond.i, <2 x float> %46, <2 x float> %57
+  %ref.tmp47.sroa.6.0 = select i1 %or.cond.i, float %50, float %mul3.i.i
   br label %for.body60
 
 for.body60:                                       ; preds = %if.end23, %for.body60

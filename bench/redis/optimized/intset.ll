@@ -250,8 +250,8 @@ if.else24.i:                                      ; preds = %if.then15
 
 intsetMoveTail.exit:                              ; preds = %if.then.i20, %if.then12.i, %if.else24.i
   %.sink.i = phi i32 [ 2, %if.then12.i ], [ 1, %if.else24.i ], [ 3, %if.then.i20 ]
-  %src.0.i = phi ptr [ %add.ptr16.i, %if.then12.i ], [ %add.ptr28.i, %if.else24.i ], [ %add.ptr.i, %if.then.i20 ]
   %dst.0.i = phi ptr [ %add.ptr20.i, %if.then12.i ], [ %add.ptr32.i, %if.else24.i ], [ %add.ptr6.i, %if.then.i20 ]
+  %src.0.i = phi ptr [ %add.ptr16.i, %if.then12.i ], [ %add.ptr28.i, %if.else24.i ], [ %add.ptr.i, %if.then.i20 ]
   %sub.i = sub i32 %18, %17
   %mul22.i = shl i32 %sub.i, %.sink.i
   %conv37.i = zext i32 %mul22.i to i64
@@ -571,8 +571,8 @@ if.else24.i:                                      ; preds = %if.then11
 
 intsetMoveTail.exit:                              ; preds = %if.then.i, %if.then12.i, %if.else24.i
   %.sink.i = phi i32 [ 2, %if.then12.i ], [ 1, %if.else24.i ], [ 3, %if.then.i ]
-  %src.0.i = phi ptr [ %add.ptr16.i, %if.then12.i ], [ %add.ptr28.i, %if.else24.i ], [ %add.ptr.i, %if.then.i ]
   %dst.0.i = phi ptr [ %add.ptr20.i, %if.then12.i ], [ %add.ptr32.i, %if.else24.i ], [ %add.ptr6.i, %if.then.i ]
+  %src.0.i = phi ptr [ %add.ptr16.i, %if.then12.i ], [ %add.ptr28.i, %if.else24.i ], [ %add.ptr.i, %if.then.i ]
   %sub.i = sub i32 %6, %add
   %mul22.i = shl i32 %sub.i, %.sink.i
   %conv37.i = zext i32 %mul22.i to i64

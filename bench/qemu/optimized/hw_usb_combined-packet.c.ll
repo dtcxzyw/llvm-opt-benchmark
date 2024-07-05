@@ -63,28 +63,28 @@ land.rhs.lr.ph:                                   ; preds = %land.lhs.true
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %done.046 = phi i8 [ 0, %land.rhs.lr.ph ], [ %done.2, %for.inc ]
-  %actual_length.044 = phi i32 [ %9, %land.rhs.lr.ph ], [ %actual_length.1, %for.inc ]
-  %p.addr.043 = phi ptr [ %3, %land.rhs.lr.ph ], [ %10, %for.inc ]
-  %combined_entry = getelementptr inbounds i8, ptr %p.addr.043, i64 120
+  %p.addr.045 = phi ptr [ %3, %land.rhs.lr.ph ], [ %10, %for.inc ]
+  %actual_length.043 = phi i32 [ %9, %land.rhs.lr.ph ], [ %actual_length.1, %for.inc ]
+  %combined_entry = getelementptr inbounds i8, ptr %p.addr.045, i64 120
   %10 = load ptr, ptr %combined_entry, align 8
   %tobool16 = trunc nuw i8 %done.046 to i1
   br i1 %tobool16, label %if.else41, label %if.then17
 
 if.then17:                                        ; preds = %land.rhs
-  %conv = sext i32 %actual_length.044 to i64
-  %size = getelementptr inbounds i8, ptr %p.addr.043, i64 64
+  %conv = sext i32 %actual_length.043 to i64
+  %size = getelementptr inbounds i8, ptr %p.addr.045, i64 64
   %11 = load i64, ptr %size, align 8
   %cmp18.not = icmp ugt i64 %11, %conv
   br i1 %cmp18.not, label %if.end27.thread, label %if.end27
 
 if.end27.thread:                                  ; preds = %if.then17
-  %actual_length26 = getelementptr inbounds i8, ptr %p.addr.043, i64 88
-  store i32 %actual_length.044, ptr %actual_length26, align 8
+  %actual_length26 = getelementptr inbounds i8, ptr %p.addr.045, i64 88
+  store i32 %actual_length.043, ptr %actual_length26, align 8
   br label %if.end36
 
 if.end27:                                         ; preds = %if.then17
   %conv23 = trunc i64 %11 to i32
-  %actual_length24 = getelementptr inbounds i8, ptr %p.addr.043, i64 88
+  %actual_length24 = getelementptr inbounds i8, ptr %p.addr.045, i64 88
   store i32 %conv23, ptr %actual_length24, align 8
   %cmp30 = icmp eq ptr %10, null
   %spec.select = select i1 %cmp30, i32 %4, i32 0
@@ -93,11 +93,11 @@ if.end27:                                         ; preds = %if.then17
 if.end36:                                         ; preds = %if.end27, %if.end27.thread
   %.sink = phi i32 [ %4, %if.end27.thread ], [ %spec.select, %if.end27 ]
   %done.140 = phi i8 [ 1, %if.end27.thread ], [ %done.046, %if.end27 ]
-  %status35 = getelementptr inbounds i8, ptr %p.addr.043, i64 84
+  %status35 = getelementptr inbounds i8, ptr %p.addr.045, i64 84
   store i32 %.sink, ptr %status35, align 4
-  %short_not_ok38 = getelementptr inbounds i8, ptr %p.addr.043, i64 80
+  %short_not_ok38 = getelementptr inbounds i8, ptr %p.addr.045, i64 80
   store i8 %frombool, ptr %short_not_ok38, align 8
-  %combined1.i = getelementptr inbounds i8, ptr %p.addr.043, i64 96
+  %combined1.i = getelementptr inbounds i8, ptr %p.addr.045, i64 96
   %12 = load ptr, ptr %combined1.i, align 8
   %cmp.i = icmp eq ptr %12, %0
   br i1 %cmp.i, label %if.end.i, label %if.else.i
@@ -109,7 +109,7 @@ if.else.i:                                        ; preds = %if.end36
 if.end.i:                                         ; preds = %if.end36
   store ptr null, ptr %combined1.i, align 8
   %cmp3.not.i = icmp eq ptr %10, null
-  %tql_prev11.i = getelementptr inbounds i8, ptr %p.addr.043, i64 128
+  %tql_prev11.i = getelementptr inbounds i8, ptr %p.addr.045, i64 128
   %13 = load ptr, ptr %tql_prev11.i, align 8
   %tql_prev8.i = getelementptr inbounds i8, ptr %10, i64 128
   %tql_prev12.sink.i = select i1 %cmp3.not.i, ptr %tql_prev, ptr %tql_prev8.i
@@ -127,25 +127,25 @@ if.then24.i:                                      ; preds = %if.end.i
   br label %usb_combined_packet_remove.exit
 
 usb_combined_packet_remove.exit:                  ; preds = %if.end.i, %if.then24.i
-  tail call void @usb_packet_complete_one(ptr noundef %dev, ptr noundef nonnull %p.addr.043) #5
-  %actual_length40 = getelementptr inbounds i8, ptr %p.addr.043, i64 88
+  tail call void @usb_packet_complete_one(ptr noundef %dev, ptr noundef nonnull %p.addr.045) #5
+  %actual_length40 = getelementptr inbounds i8, ptr %p.addr.045, i64 88
   %16 = load i32, ptr %actual_length40, align 8
-  %sub = sub i32 %actual_length.044, %16
+  %sub = sub i32 %actual_length.043, %16
   br label %for.inc
 
 if.else41:                                        ; preds = %land.rhs
-  %status42 = getelementptr inbounds i8, ptr %p.addr.043, i64 84
+  %status42 = getelementptr inbounds i8, ptr %p.addr.045, i64 84
   store i32 -8, ptr %status42, align 4
   %17 = load ptr, ptr %port, align 8
   %ops = getelementptr inbounds i8, ptr %17, i64 32
   %18 = load ptr, ptr %ops, align 8
   %complete = getelementptr inbounds i8, ptr %18, i64 32
   %19 = load ptr, ptr %complete, align 8
-  tail call void %19(ptr noundef %17, ptr noundef nonnull %p.addr.043) #5
+  tail call void %19(ptr noundef %17, ptr noundef nonnull %p.addr.045) #5
   br label %for.inc
 
 for.inc:                                          ; preds = %usb_combined_packet_remove.exit, %if.else41
-  %actual_length.1 = phi i32 [ %actual_length.044, %if.else41 ], [ %sub, %usb_combined_packet_remove.exit ]
+  %actual_length.1 = phi i32 [ %actual_length.043, %if.else41 ], [ %sub, %usb_combined_packet_remove.exit ]
   %done.2 = phi i8 [ %done.046, %if.else41 ], [ %done.140, %usb_combined_packet_remove.exit ]
   %tobool15.not = icmp eq ptr %10, null
   br i1 %tobool15.not, label %leave, label %land.rhs, !llvm.loop !5
@@ -200,8 +200,8 @@ land.rhs.lr.ph:                                   ; preds = %if.end5
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc82
   %p.057 = phi ptr [ %4, %land.rhs.lr.ph ], [ %5, %for.inc82 ]
-  %first.056 = phi ptr [ null, %land.rhs.lr.ph ], [ %first.2, %for.inc82 ]
-  %prev.055 = phi ptr [ null, %land.rhs.lr.ph ], [ %prev.1, %for.inc82 ]
+  %prev.056 = phi ptr [ null, %land.rhs.lr.ph ], [ %prev.1, %for.inc82 ]
+  %first.055 = phi ptr [ null, %land.rhs.lr.ph ], [ %first.2, %for.inc82 ]
   %queue7 = getelementptr inbounds i8, ptr %p.057, i64 104
   %5 = load ptr, ptr %queue7, align 8
   %6 = load i8, ptr %halted, align 1
@@ -225,17 +225,17 @@ if.end10:                                         ; preds = %land.rhs
 
 if.end14:                                         ; preds = %if.end10
   tail call void @usb_packet_check_state(ptr noundef nonnull %p.057, i32 noundef 2) #5
-  %tobool15.not = icmp eq ptr %prev.055, null
+  %tobool15.not = icmp eq ptr %prev.056, null
   br i1 %tobool15.not, label %if.end19, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end14
-  %short_not_ok = getelementptr inbounds i8, ptr %prev.055, i64 80
+  %short_not_ok = getelementptr inbounds i8, ptr %prev.056, i64 80
   %10 = load i8, ptr %short_not_ok, align 8
   %tobool16 = trunc i8 %10 to i1
   br i1 %tobool16, label %for.end83, label %if.end19
 
 if.end19:                                         ; preds = %land.lhs.true, %if.end14
-  %tobool20.not = icmp eq ptr %first.056, null
+  %tobool20.not = icmp eq ptr %first.055, null
   br i1 %tobool20.not, label %if.end19.if.end32_crit_edge, label %if.then21
 
 if.end19.if.end32_crit_edge:                      ; preds = %if.end19
@@ -244,30 +244,30 @@ if.end19.if.end32_crit_edge:                      ; preds = %if.end19
   br label %if.end32
 
 if.then21:                                        ; preds = %if.end19
-  %combined = getelementptr inbounds i8, ptr %first.056, i64 96
+  %combined = getelementptr inbounds i8, ptr %first.055, i64 96
   %11 = load ptr, ptr %combined, align 8
   %cmp22 = icmp eq ptr %11, null
   br i1 %cmp22, label %if.then24, label %if.end29
 
 if.then24:                                        ; preds = %if.then21
   %call = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #7
-  store ptr %first.056, ptr %call, align 8
+  store ptr %first.055, ptr %call, align 8
   %packets = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %packets, align 8
   %tql_prev = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %packets, ptr %tql_prev, align 8
   %iov = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @qemu_iovec_init(ptr noundef nonnull %iov, i32 noundef 2) #5
-  %iov1.i = getelementptr inbounds i8, ptr %first.056, i64 32
-  %size.i = getelementptr inbounds i8, ptr %first.056, i64 64
+  %iov1.i = getelementptr inbounds i8, ptr %first.055, i64 32
+  %size.i = getelementptr inbounds i8, ptr %first.055, i64 64
   %12 = load i64, ptr %size.i, align 8
   tail call void @qemu_iovec_concat(ptr noundef nonnull %iov, ptr noundef nonnull %iov1.i, i64 noundef 0, i64 noundef %12) #5
-  %combined_entry.i = getelementptr inbounds i8, ptr %first.056, i64 120
+  %combined_entry.i = getelementptr inbounds i8, ptr %first.055, i64 120
   store ptr null, ptr %combined_entry.i, align 8
   %13 = load ptr, ptr %tql_prev, align 8
-  %tql_prev4.i = getelementptr inbounds i8, ptr %first.056, i64 128
+  %tql_prev4.i = getelementptr inbounds i8, ptr %first.055, i64 128
   store ptr %13, ptr %tql_prev4.i, align 8
-  store ptr %first.056, ptr %13, align 8
+  store ptr %first.055, ptr %13, align 8
   store ptr %combined_entry.i, ptr %tql_prev, align 8
   store ptr %call, ptr %combined, align 8
   br label %if.end29
@@ -293,7 +293,7 @@ if.end29:                                         ; preds = %if.then24, %if.then
 
 if.end32:                                         ; preds = %if.end19.if.end32_crit_edge, %if.end29
   %17 = phi ptr [ %14, %if.end29 ], [ %.pre, %if.end19.if.end32_crit_edge ]
-  %first.1 = phi ptr [ %first.056, %if.end29 ], [ %p.057, %if.end19.if.end32_crit_edge ]
+  %first.1 = phi ptr [ %first.055, %if.end29 ], [ %p.057, %if.end19.if.end32_crit_edge ]
   %tobool34.not = icmp eq ptr %17, null
   %size = getelementptr inbounds i8, ptr %17, i64 56
   %size38 = getelementptr inbounds i8, ptr %p.057, i64 64
@@ -371,8 +371,8 @@ if.else79:                                        ; preds = %if.end70
   br label %for.inc82
 
 for.inc82:                                        ; preds = %for.body78, %if.then73, %land.lhs.true54, %if.else79, %if.end10, %lor.lhs.false57, %if.then9
-  %prev.1 = phi ptr [ %prev.055, %if.then9 ], [ %prev.055, %lor.lhs.false57 ], [ %p.057, %if.end10 ], [ %p.057, %if.else79 ], [ %prev.055, %land.lhs.true54 ], [ %p.057, %if.then73 ], [ %p.057, %for.body78 ]
-  %first.2 = phi ptr [ %first.056, %if.then9 ], [ %first.1, %lor.lhs.false57 ], [ %first.056, %if.end10 ], [ null, %if.else79 ], [ %first.1, %land.lhs.true54 ], [ null, %if.then73 ], [ null, %for.body78 ]
+  %first.2 = phi ptr [ %first.055, %if.then9 ], [ %first.1, %lor.lhs.false57 ], [ %first.055, %if.end10 ], [ null, %if.else79 ], [ %first.1, %land.lhs.true54 ], [ null, %if.then73 ], [ null, %for.body78 ]
+  %prev.1 = phi ptr [ %prev.056, %if.then9 ], [ %prev.056, %lor.lhs.false57 ], [ %p.057, %if.end10 ], [ %p.057, %if.else79 ], [ %prev.056, %land.lhs.true54 ], [ %p.057, %if.then73 ], [ %p.057, %for.body78 ]
   %tobool6.not = icmp eq ptr %5, null
   br i1 %tobool6.not, label %for.end83, label %land.rhs, !llvm.loop !8
 

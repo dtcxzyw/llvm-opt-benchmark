@@ -454,17 +454,17 @@ define internal void @timer_close_cb(ptr noundef %0) #1 {
   br label %19
 
 .preheader:                                       ; preds = %1, %.preheader
-  %.0 = phi ptr [ %.018, %.preheader ], [ %5, %1 ]
-  %.018.in = getelementptr inbounds i8, ptr %.0, i64 792
-  %.018 = load ptr, ptr %.018.in, align 8
-  %.not = icmp eq ptr %.018, %2
+  %.018 = phi ptr [ %.0, %.preheader ], [ %5, %1 ]
+  %.0.in = getelementptr inbounds i8, ptr %.018, i64 792
+  %.0 = load ptr, ptr %.0.in, align 8
+  %.not = icmp eq ptr %.0, %2
   br i1 %.not, label %16, label %.preheader, !llvm.loop !5
 
 16:                                               ; preds = %.preheader
-  %.018.in.le = getelementptr inbounds i8, ptr %.0, i64 792
+  %.0.in.le = getelementptr inbounds i8, ptr %.018, i64 792
   %17 = getelementptr inbounds i8, ptr %0, i64 752
   %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %.018.in.le, align 8
+  store ptr %18, ptr %.0.in.le, align 8
   br label %19
 
 19:                                               ; preds = %7, %11, %15, %16

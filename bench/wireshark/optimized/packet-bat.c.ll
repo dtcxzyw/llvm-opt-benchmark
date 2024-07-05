@@ -261,16 +261,16 @@ define internal i32 @dissect_bat_batman(ptr noundef %0, ptr noundef %1, ptr noun
   br label %60
 
 60:                                               ; preds = %53, %12
-  %.0104.i = phi ptr [ %59, %53 ], [ null, %12 ]
+  %.0103.i = phi ptr [ %59, %53 ], [ null, %12 ]
   %61 = load i32, ptr @hf_bat_batman_version, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %.0104.i, i32 noundef %61, ptr noundef %0, i32 noundef %.018, i32 noundef 1, i32 noundef 0) #2
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %.0103.i, i32 noundef %61, ptr noundef %0, i32 noundef %.018, i32 noundef 1, i32 noundef 0) #2
   %63 = load i32, ptr @hf_bat_batman_flags, align 4
   %64 = load i32, ptr @ett_bat_batman_flags, align 4
-  %65 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0104.i, ptr noundef %0, i32 noundef %16, i32 noundef %63, i32 noundef %64, ptr noundef nonnull @dissect_bat_batman_v5.batman_flags, i32 noundef 0) #2
+  %65 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0103.i, ptr noundef %0, i32 noundef %16, i32 noundef %63, i32 noundef %64, ptr noundef nonnull @dissect_bat_batman_v5.batman_flags, i32 noundef 0) #2
   %66 = load i32, ptr @hf_bat_batman_ttl, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %.0104.i, i32 noundef %66, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef 0) #2
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %.0103.i, i32 noundef %66, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef 0) #2
   %68 = load i32, ptr @hf_bat_batman_gwflags, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %.0104.i, i32 noundef %68, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0) #2
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %.0103.i, i32 noundef %68, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0) #2
   %70 = load i8, ptr %24, align 1
   %71 = lshr i8 %70, 3
   %72 = and i8 %71, 15
@@ -292,17 +292,17 @@ define internal i32 @dissect_bat_batman(ptr noundef %0, ptr noundef %1, ptr noun
   %87 = load i32, ptr @hf_bat_batman_gwflags_ul_speed, align 4
   %88 = tail call ptr @proto_tree_add_uint(ptr noundef %84, i32 noundef %87, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef %82) #2
   %89 = load i32, ptr @hf_bat_batman_seqno, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %.0104.i, i32 noundef %89, ptr noundef %0, i32 noundef %25, i32 noundef 2, i32 noundef 0) #2
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %.0103.i, i32 noundef %89, ptr noundef %0, i32 noundef %25, i32 noundef 2, i32 noundef 0) #2
   %91 = load i32, ptr @hf_bat_batman_gwport, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %.0104.i, i32 noundef %91, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef 0) #2
+  %92 = tail call ptr @proto_tree_add_item(ptr noundef %.0103.i, i32 noundef %91, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef 0) #2
   %93 = load i32, ptr @hf_bat_batman_orig, align 4
-  %94 = tail call ptr @proto_tree_add_ipv4(ptr noundef %.0104.i, i32 noundef %93, ptr noundef %0, i32 noundef %31, i32 noundef 4, i32 noundef %32) #2
+  %94 = tail call ptr @proto_tree_add_ipv4(ptr noundef %.0103.i, i32 noundef %93, ptr noundef %0, i32 noundef %31, i32 noundef 4, i32 noundef %32) #2
   %95 = load i32, ptr @hf_bat_batman_old_orig, align 4
-  %96 = tail call ptr @proto_tree_add_ipv4(ptr noundef %.0104.i, i32 noundef %95, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef %39) #2
+  %96 = tail call ptr @proto_tree_add_ipv4(ptr noundef %.0103.i, i32 noundef %95, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef %39) #2
   %97 = load i32, ptr @hf_bat_batman_tq, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %.0104.i, i32 noundef %97, ptr noundef %0, i32 noundef %45, i32 noundef 1, i32 noundef 0) #2
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %.0103.i, i32 noundef %97, ptr noundef %0, i32 noundef %45, i32 noundef 1, i32 noundef 0) #2
   %99 = load i32, ptr @hf_bat_batman_hna_len, align 4
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %.0104.i, i32 noundef %99, ptr noundef %0, i32 noundef %48, i32 noundef 1, i32 noundef 0) #2
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %.0103.i, i32 noundef %99, ptr noundef %0, i32 noundef %48, i32 noundef 1, i32 noundef 0) #2
   %101 = add i32 %.018, 18
   %102 = load i32, ptr @bat_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %102, ptr noundef nonnull %1, ptr noundef nonnull %14) #2
@@ -311,13 +311,13 @@ define internal i32 @dissect_bat_batman(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not109.i, label %dissect_bat_batman_v5.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %60
-  %.not.i.i = icmp eq ptr %.0104.i, null
-  %104 = getelementptr inbounds i8, ptr %.0104.i, i64 40
+  %.not.i.i = icmp eq ptr %.0103.i, null
+  %104 = getelementptr inbounds i8, ptr %.0103.i, i64 40
   br i1 %.not.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %dissect_bat_hna.exit.us.i
   %.0108.us.i = phi i32 [ %112, %dissect_bat_hna.exit.us.i ], [ %101, %.lr.ph.i ]
-  %.0103107.us.i = phi i32 [ %113, %dissect_bat_hna.exit.us.i ], [ 0, %.lr.ph.i ]
+  %.0104107.us.i = phi i32 [ %113, %dissect_bat_hna.exit.us.i ], [ 0, %.lr.ph.i ]
   %105 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0108.us.i, i32 noundef 5) #2
   %106 = load i32, ptr @bat_follow_tap, align 4
   %107 = tail call i32 @have_tap_listener(i32 noundef %106) #2
@@ -333,7 +333,7 @@ dissect_bat_hna.exit.us.i:                        ; preds = %108, %.lr.ph.split.
   %110 = tail call i32 @tvb_get_ipv4(ptr noundef %105, i32 noundef 0) #2
   %111 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %105, i32 noundef 4) #2
   %112 = add i32 %.0108.us.i, 5
-  %113 = add nuw nsw i32 %.0103107.us.i, 1
+  %113 = add nuw nsw i32 %.0104107.us.i, 1
   %114 = load i8, ptr %50, align 1
   %115 = zext i8 %114 to i32
   %116 = icmp ult i32 %113, %115
@@ -341,7 +341,7 @@ dissect_bat_hna.exit.us.i:                        ; preds = %108, %.lr.ph.split.
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %dissect_bat_hna.exit.i
   %.0108.i = phi i32 [ %142, %dissect_bat_hna.exit.i ], [ %101, %.lr.ph.i ]
-  %.0103107.i = phi i32 [ %143, %dissect_bat_hna.exit.i ], [ 0, %.lr.ph.i ]
+  %.0104107.i = phi i32 [ %143, %dissect_bat_hna.exit.i ], [ 0, %.lr.ph.i ]
   %117 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0108.i, i32 noundef 5) #2
   %118 = load i32, ptr @bat_follow_tap, align 4
   %119 = tail call i32 @have_tap_listener(i32 noundef %118) #2
@@ -367,11 +367,11 @@ dissect_bat_hna.exit.us.i:                        ; preds = %108, %.lr.ph.split.
   %130 = load ptr, ptr %11, align 8
   %131 = tail call ptr @tvb_address_to_str(ptr noundef %130, ptr noundef %117, i32 noundef 2, i32 noundef 0) #2
   %132 = zext i8 %124 to i32
-  %133 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %.0104.i, i32 noundef %128, ptr noundef %117, i32 noundef 0, i32 noundef 5, ptr noundef nonnull @.str.71, ptr noundef %131, i32 noundef %132) #2
+  %133 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %.0103.i, i32 noundef %128, ptr noundef %117, i32 noundef 0, i32 noundef 5, ptr noundef nonnull @.str.71, ptr noundef %131, i32 noundef %132) #2
   br label %dissect_bat_hna.exit.i
 
 134:                                              ; preds = %122
-  %135 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0104.i, i32 noundef %128, ptr noundef %117, i32 noundef 0, i32 noundef 5, i32 noundef 0) #2
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0103.i, i32 noundef %128, ptr noundef %117, i32 noundef 0, i32 noundef 5, i32 noundef 0) #2
   br label %dissect_bat_hna.exit.i
 
 dissect_bat_hna.exit.i:                           ; preds = %134, %129
@@ -383,7 +383,7 @@ dissect_bat_hna.exit.i:                           ; preds = %134, %129
   %140 = load i32, ptr @hf_bat_batman_hna_netmask, align 4
   %141 = tail call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %140, ptr noundef %117, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
   %142 = add i32 %.0108.i, 5
-  %143 = add nuw nsw i32 %.0103107.i, 1
+  %143 = add nuw nsw i32 %.0104107.i, 1
   %144 = load i8, ptr %50, align 1
   %145 = zext i8 %144 to i32
   %146 = icmp ult i32 %143, %145
@@ -554,7 +554,7 @@ define internal i32 @dissect_bat_vis(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %43
 
 43:                                               ; preds = %27, %8
-  %.062.i = phi i1 [ %42, %27 ], [ true, %8 ]
+  %.0.i = phi i1 [ %42, %27 ], [ true, %8 ]
   %44 = load i32, ptr @bat_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %44, ptr noundef nonnull %1, ptr noundef nonnull %11) #2
   %45 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8) #2
@@ -562,12 +562,12 @@ define internal i32 @dissect_bat_vis(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %46, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %43
-  br i1 %.062.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  br i1 %.0.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %dissect_vis_entry_v22.exit.us.i
-  %.068.us.i = phi i32 [ %52, %dissect_vis_entry_v22.exit.us.i ], [ 8, %.lr.ph.i ]
-  %.06167.us.i = phi i32 [ %53, %dissect_vis_entry_v22.exit.us.i ], [ 0, %.lr.ph.i ]
-  %47 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.068.us.i, i32 noundef 7) #2
+  %.06168.us.i = phi i32 [ %52, %dissect_vis_entry_v22.exit.us.i ], [ 8, %.lr.ph.i ]
+  %.06267.us.i = phi i32 [ %53, %dissect_vis_entry_v22.exit.us.i ], [ 0, %.lr.ph.i ]
+  %47 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.06168.us.i, i32 noundef 7) #2
   %48 = load i32, ptr @bat_follow_tap, align 4
   %49 = tail call i32 @have_tap_listener(i32 noundef %48) #2
   %.not65.us.i = icmp eq i32 %49, 0
@@ -579,8 +579,8 @@ define internal i32 @dissect_bat_vis(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %dissect_vis_entry_v22.exit.us.i
 
 dissect_vis_entry_v22.exit.us.i:                  ; preds = %50, %.lr.ph.split.us.i
-  %52 = add i32 %.068.us.i, 7
-  %53 = add i32 %.06167.us.i, 7
+  %52 = add i32 %.06168.us.i, 7
+  %53 = add i32 %.06267.us.i, 7
   %54 = icmp slt i32 %53, %45
   br i1 %54, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !7
 
@@ -588,9 +588,9 @@ dissect_vis_entry_v22.exit.us.i:                  ; preds = %50, %.lr.ph.split.u
   br i1 %.not.i, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %dissect_vis_entry_v22.exit.us72.i
-  %.068.us69.i = phi i32 [ %71, %dissect_vis_entry_v22.exit.us72.i ], [ 8, %.lr.ph.split.i ]
-  %.06167.us70.i = phi i32 [ %72, %dissect_vis_entry_v22.exit.us72.i ], [ 0, %.lr.ph.split.i ]
-  %55 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.068.us69.i, i32 noundef 7) #2
+  %.06168.us69.i = phi i32 [ %71, %dissect_vis_entry_v22.exit.us72.i ], [ 8, %.lr.ph.split.i ]
+  %.06267.us70.i = phi i32 [ %72, %dissect_vis_entry_v22.exit.us72.i ], [ 0, %.lr.ph.split.i ]
+  %55 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.06168.us69.i, i32 noundef 7) #2
   %56 = load i32, ptr @bat_follow_tap, align 4
   %57 = tail call i32 @have_tap_listener(i32 noundef %56) #2
   %.not65.us71.i = icmp eq i32 %57, 0
@@ -619,15 +619,15 @@ dissect_vis_entry_v22.exit.us72.i:                ; preds = %58, %.lr.ph.split.s
   store ptr %67, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %61, i64 24
   store ptr null, ptr %70, align 8
-  %71 = add i32 %.068.us69.i, 7
-  %72 = add i32 %.06167.us70.i, 7
+  %71 = add i32 %.06168.us69.i, 7
+  %72 = add i32 %.06267.us70.i, 7
   %73 = icmp slt i32 %72, %45
   br i1 %73, label %.lr.ph.split.split.us.i, label %._crit_edge.i, !llvm.loop !7
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %dissect_vis_entry_v22.exit.i
-  %.068.i = phi i32 [ %107, %dissect_vis_entry_v22.exit.i ], [ 8, %.lr.ph.split.i ]
-  %.06167.i = phi i32 [ %108, %dissect_vis_entry_v22.exit.i ], [ 0, %.lr.ph.split.i ]
-  %74 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.068.i, i32 noundef 7) #2
+  %.06168.i = phi i32 [ %107, %dissect_vis_entry_v22.exit.i ], [ 8, %.lr.ph.split.i ]
+  %.06267.i = phi i32 [ %108, %dissect_vis_entry_v22.exit.i ], [ 0, %.lr.ph.split.i ]
+  %74 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.06168.i, i32 noundef 7) #2
   %75 = load i32, ptr @bat_follow_tap, align 4
   %76 = tail call i32 @have_tap_listener(i32 noundef %75) #2
   %.not65.i = icmp eq i32 %76, 0
@@ -685,19 +685,19 @@ dissect_vis_entry_v22.exit.us72.i:                ; preds = %58, %.lr.ph.split.s
 dissect_vis_entry_v22.exit.i:                     ; preds = %.sink.split.i.i, %79
   %105 = load i32, ptr @hf_bat_vis_data_ip, align 4
   %106 = tail call ptr @proto_tree_add_ipv4(ptr noundef %98, i32 noundef %105, ptr noundef %74, i32 noundef 3, i32 noundef 4, i32 noundef %85) #2
-  %107 = add i32 %.068.i, 7
-  %108 = add i32 %.06167.i, 7
+  %107 = add i32 %.06168.i, 7
+  %108 = add i32 %.06267.i, 7
   %109 = icmp slt i32 %108, %45
   br i1 %109, label %.lr.ph.split.split.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %dissect_vis_entry_v22.exit.i, %dissect_vis_entry_v22.exit.us72.i, %dissect_vis_entry_v22.exit.us.i, %43
-  %.0.lcssa.i = phi i32 [ 8, %43 ], [ %52, %dissect_vis_entry_v22.exit.us.i ], [ %71, %dissect_vis_entry_v22.exit.us72.i ], [ %107, %dissect_vis_entry_v22.exit.i ]
-  %110 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.lcssa.i) #2
+  %.061.lcssa.i = phi i32 [ 8, %43 ], [ %52, %dissect_vis_entry_v22.exit.us.i ], [ %71, %dissect_vis_entry_v22.exit.us72.i ], [ %107, %dissect_vis_entry_v22.exit.i ]
+  %110 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.061.lcssa.i) #2
   %111 = icmp sgt i32 %110, 0
   br i1 %111, label %112, label %dissect_bat_vis_v22.exit
 
 112:                                              ; preds = %._crit_edge.i
-  %113 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0.lcssa.i) #2
+  %113 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.061.lcssa.i) #2
   %114 = load i32, ptr @bat_follow_tap, align 4
   %115 = tail call i32 @have_tap_listener(i32 noundef %114) #2
   %.not64.i = icmp eq i32 %115, 0
@@ -762,7 +762,7 @@ dissect_vis_entry_v22.exit.i:                     ; preds = %.sink.split.i.i, %7
   br label %155
 
 155:                                              ; preds = %139, %120
-  %.062.i15 = phi i1 [ %154, %139 ], [ true, %120 ]
+  %.0.i15 = phi i1 [ %154, %139 ], [ true, %120 ]
   %156 = load i32, ptr @bat_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %156, ptr noundef nonnull %1, ptr noundef nonnull %123) #2
   %157 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 7) #2
@@ -770,12 +770,12 @@ dissect_vis_entry_v22.exit.i:                     ; preds = %.sink.split.i.i, %7
   br i1 %158, label %.lr.ph.i19, label %._crit_edge.i16
 
 .lr.ph.i19:                                       ; preds = %155
-  br i1 %.062.i15, label %.lr.ph.split.us.i31, label %.lr.ph.split.i20
+  br i1 %.0.i15, label %.lr.ph.split.us.i31, label %.lr.ph.split.i20
 
 .lr.ph.split.us.i31:                              ; preds = %.lr.ph.i19, %dissect_vis_entry_v23.exit.us.i
-  %.068.us.i32 = phi i32 [ %164, %dissect_vis_entry_v23.exit.us.i ], [ 7, %.lr.ph.i19 ]
-  %.06167.us.i33 = phi i32 [ %165, %dissect_vis_entry_v23.exit.us.i ], [ 0, %.lr.ph.i19 ]
-  %159 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.068.us.i32, i32 noundef 6) #2
+  %.06168.us.i32 = phi i32 [ %164, %dissect_vis_entry_v23.exit.us.i ], [ 7, %.lr.ph.i19 ]
+  %.06267.us.i33 = phi i32 [ %165, %dissect_vis_entry_v23.exit.us.i ], [ 0, %.lr.ph.i19 ]
+  %159 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.06168.us.i32, i32 noundef 6) #2
   %160 = load i32, ptr @bat_follow_tap, align 4
   %161 = tail call i32 @have_tap_listener(i32 noundef %160) #2
   %.not65.us.i34 = icmp eq i32 %161, 0
@@ -787,8 +787,8 @@ dissect_vis_entry_v22.exit.i:                     ; preds = %.sink.split.i.i, %7
   br label %dissect_vis_entry_v23.exit.us.i
 
 dissect_vis_entry_v23.exit.us.i:                  ; preds = %162, %.lr.ph.split.us.i31
-  %164 = add i32 %.068.us.i32, 6
-  %165 = add i32 %.06167.us.i33, 6
+  %164 = add i32 %.06168.us.i32, 6
+  %165 = add i32 %.06267.us.i33, 6
   %166 = icmp slt i32 %165, %157
   br i1 %166, label %.lr.ph.split.us.i31, label %._crit_edge.i16, !llvm.loop !8
 
@@ -796,9 +796,9 @@ dissect_vis_entry_v23.exit.us.i:                  ; preds = %162, %.lr.ph.split.
   br i1 %.not.i14, label %.lr.ph.split.split.us.i27, label %.lr.ph.split.split.i21
 
 .lr.ph.split.split.us.i27:                        ; preds = %.lr.ph.split.i20, %dissect_vis_entry_v23.exit.us72.i
-  %.068.us69.i28 = phi i32 [ %183, %dissect_vis_entry_v23.exit.us72.i ], [ 7, %.lr.ph.split.i20 ]
-  %.06167.us70.i29 = phi i32 [ %184, %dissect_vis_entry_v23.exit.us72.i ], [ 0, %.lr.ph.split.i20 ]
-  %167 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.068.us69.i28, i32 noundef 6) #2
+  %.06168.us69.i28 = phi i32 [ %183, %dissect_vis_entry_v23.exit.us72.i ], [ 7, %.lr.ph.split.i20 ]
+  %.06267.us70.i29 = phi i32 [ %184, %dissect_vis_entry_v23.exit.us72.i ], [ 0, %.lr.ph.split.i20 ]
+  %167 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.06168.us69.i28, i32 noundef 6) #2
   %168 = load i32, ptr @bat_follow_tap, align 4
   %169 = tail call i32 @have_tap_listener(i32 noundef %168) #2
   %.not65.us71.i30 = icmp eq i32 %169, 0
@@ -827,15 +827,15 @@ dissect_vis_entry_v23.exit.us72.i:                ; preds = %170, %.lr.ph.split.
   store ptr %179, ptr %181, align 8
   %182 = getelementptr inbounds i8, ptr %173, i64 24
   store ptr null, ptr %182, align 8
-  %183 = add i32 %.068.us69.i28, 6
-  %184 = add i32 %.06167.us70.i29, 6
+  %183 = add i32 %.06168.us69.i28, 6
+  %184 = add i32 %.06267.us70.i29, 6
   %185 = icmp slt i32 %184, %157
   br i1 %185, label %.lr.ph.split.split.us.i27, label %._crit_edge.i16, !llvm.loop !8
 
 .lr.ph.split.split.i21:                           ; preds = %.lr.ph.split.i20, %dissect_vis_entry_v23.exit.i
-  %.068.i22 = phi i32 [ %219, %dissect_vis_entry_v23.exit.i ], [ 7, %.lr.ph.split.i20 ]
-  %.06167.i23 = phi i32 [ %220, %dissect_vis_entry_v23.exit.i ], [ 0, %.lr.ph.split.i20 ]
-  %186 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.068.i22, i32 noundef 6) #2
+  %.06168.i22 = phi i32 [ %219, %dissect_vis_entry_v23.exit.i ], [ 7, %.lr.ph.split.i20 ]
+  %.06267.i23 = phi i32 [ %220, %dissect_vis_entry_v23.exit.i ], [ 0, %.lr.ph.split.i20 ]
+  %186 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.06168.i22, i32 noundef 6) #2
   %187 = load i32, ptr @bat_follow_tap, align 4
   %188 = tail call i32 @have_tap_listener(i32 noundef %187) #2
   %.not65.i24 = icmp eq i32 %188, 0
@@ -892,19 +892,19 @@ dissect_vis_entry_v23.exit.us72.i:                ; preds = %170, %.lr.ph.split.
 dissect_vis_entry_v23.exit.i:                     ; preds = %.sink.split.i.i25, %191
   %217 = load i32, ptr @hf_bat_vis_data_ip, align 4
   %218 = tail call ptr @proto_tree_add_ipv4(ptr noundef %210, i32 noundef %217, ptr noundef %186, i32 noundef 2, i32 noundef 4, i32 noundef %197) #2
-  %219 = add i32 %.068.i22, 6
-  %220 = add i32 %.06167.i23, 6
+  %219 = add i32 %.06168.i22, 6
+  %220 = add i32 %.06267.i23, 6
   %221 = icmp slt i32 %220, %157
   br i1 %221, label %.lr.ph.split.split.i21, label %._crit_edge.i16, !llvm.loop !8
 
 ._crit_edge.i16:                                  ; preds = %dissect_vis_entry_v23.exit.i, %dissect_vis_entry_v23.exit.us72.i, %dissect_vis_entry_v23.exit.us.i, %155
-  %.0.lcssa.i17 = phi i32 [ 7, %155 ], [ %164, %dissect_vis_entry_v23.exit.us.i ], [ %183, %dissect_vis_entry_v23.exit.us72.i ], [ %219, %dissect_vis_entry_v23.exit.i ]
-  %222 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.lcssa.i17) #2
+  %.061.lcssa.i17 = phi i32 [ 7, %155 ], [ %164, %dissect_vis_entry_v23.exit.us.i ], [ %183, %dissect_vis_entry_v23.exit.us72.i ], [ %219, %dissect_vis_entry_v23.exit.i ]
+  %222 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.061.lcssa.i17) #2
   %223 = icmp sgt i32 %222, 0
   br i1 %223, label %224, label %dissect_bat_vis_v22.exit
 
 224:                                              ; preds = %._crit_edge.i16
-  %225 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0.lcssa.i17) #2
+  %225 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.061.lcssa.i17) #2
   %226 = load i32, ptr @bat_follow_tap, align 4
   %227 = tail call i32 @have_tap_listener(i32 noundef %226) #2
   %.not64.i18 = icmp eq i32 %227, 0

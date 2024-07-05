@@ -306,8 +306,8 @@ for.cond56.loopexit.i:                            ; preds = %for.inc125.i, %for.
   br i1 %tobool.not.i, label %pkcs12kdf_derive.exit, label %lor.lhs.false58.i
 
 lor.lhs.false58.i:                                ; preds = %for.cond56.loopexit.i, %lor.lhs.false58.lr.ph.i
-  %n.addr.0104.i = phi i64 [ %keylen, %lor.lhs.false58.lr.ph.i ], [ %sub92.i, %for.cond56.loopexit.i ]
-  %out.addr.0103.i = phi ptr [ %key, %lor.lhs.false58.lr.ph.i ], [ %add.ptr.i, %for.cond56.loopexit.i ]
+  %out.addr.0104.i = phi ptr [ %key, %lor.lhs.false58.lr.ph.i ], [ %add.ptr.i, %for.cond56.loopexit.i ]
+  %n.addr.0103.i = phi i64 [ %keylen, %lor.lhs.false58.lr.ph.i ], [ %sub92.i, %for.cond56.loopexit.i ]
   %call59.i = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call.i, ptr noundef %call8.i, i64 noundef %conv7.i) #6
   %tobool60.not.i = icmp eq i32 %call59.i, 0
   br i1 %tobool60.not.i, label %pkcs12kdf_derive.exit, label %lor.lhs.false61.i
@@ -347,14 +347,14 @@ lor.lhs.false78.i:                                ; preds = %lor.lhs.false75.i
   br i1 %tobool80.not.i, label %pkcs12kdf_derive.exit, label %for.cond69.i
 
 for.end85.i:                                      ; preds = %for.cond69.i, %for.cond69.preheader.i
-  %cond.i = tail call i64 @llvm.umin.i64(i64 %n.addr.0104.i, i64 %conv.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.0103.i, ptr align 1 %call9.i, i64 %cond.i, i1 false)
-  %cmp88.not.i = icmp ugt i64 %n.addr.0104.i, %conv.i
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %n.addr.0103.i, i64 %conv.i)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.0104.i, ptr align 1 %call9.i, i64 %cond.i, i1 false)
+  %cmp88.not.i = icmp ugt i64 %n.addr.0103.i, %conv.i
   br i1 %cmp88.not.i, label %for.body96.i, label %pkcs12kdf_derive.exit
 
 for.cond103.preheader.i:                          ; preds = %for.body96.i
-  %sub92.i = sub i64 %n.addr.0104.i, %conv.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %out.addr.0103.i, i64 %conv.i
+  %sub92.i = sub i64 %n.addr.0103.i, %conv.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %out.addr.0104.i, i64 %conv.i
   br i1 %cmp10499.not.i, label %for.cond56.loopexit.i, label %for.body106.i
 
 for.body96.i:                                     ; preds = %for.end85.i, %for.body96.i
@@ -405,11 +405,11 @@ end.sink.split.i:                                 ; preds = %if.end.i, %if.end7
   br label %pkcs12kdf_derive.exit
 
 pkcs12kdf_derive.exit:                            ; preds = %for.cond56.loopexit.i, %lor.lhs.false58.i, %lor.lhs.false61.i, %lor.lhs.false64.i, %for.end85.i, %for.body72.i, %lor.lhs.false75.i, %lor.lhs.false78.i, %if.end19.i, %for.cond56.preheader.i, %end.sink.split.i
-  %B.0.i = phi ptr [ %call10.i, %if.end19.i ], [ %call10.i, %for.cond56.preheader.i ], [ null, %end.sink.split.i ], [ %call10.i, %lor.lhs.false78.i ], [ %call10.i, %lor.lhs.false75.i ], [ %call10.i, %for.body72.i ], [ %call10.i, %for.end85.i ], [ %call10.i, %lor.lhs.false64.i ], [ %call10.i, %lor.lhs.false61.i ], [ %call10.i, %lor.lhs.false58.i ], [ %call10.i, %for.cond56.loopexit.i ]
-  %D.0.i = phi ptr [ %call8.i, %if.end19.i ], [ %call8.i, %for.cond56.preheader.i ], [ null, %end.sink.split.i ], [ %call8.i, %lor.lhs.false78.i ], [ %call8.i, %lor.lhs.false75.i ], [ %call8.i, %for.body72.i ], [ %call8.i, %for.end85.i ], [ %call8.i, %lor.lhs.false64.i ], [ %call8.i, %lor.lhs.false61.i ], [ %call8.i, %lor.lhs.false58.i ], [ %call8.i, %for.cond56.loopexit.i ]
-  %I.0.i = phi ptr [ %call21.i, %if.end19.i ], [ %call21.i, %for.cond56.preheader.i ], [ null, %end.sink.split.i ], [ %call21.i, %lor.lhs.false78.i ], [ %call21.i, %lor.lhs.false75.i ], [ %call21.i, %for.body72.i ], [ %call21.i, %for.end85.i ], [ %call21.i, %lor.lhs.false64.i ], [ %call21.i, %lor.lhs.false61.i ], [ %call21.i, %lor.lhs.false58.i ], [ %call21.i, %for.cond56.loopexit.i ]
   %Ai.0.i = phi ptr [ %call9.i, %if.end19.i ], [ %call9.i, %for.cond56.preheader.i ], [ null, %end.sink.split.i ], [ %call9.i, %lor.lhs.false78.i ], [ %call9.i, %lor.lhs.false75.i ], [ %call9.i, %for.body72.i ], [ %call9.i, %for.end85.i ], [ %call9.i, %lor.lhs.false64.i ], [ %call9.i, %lor.lhs.false61.i ], [ %call9.i, %lor.lhs.false58.i ], [ %call9.i, %for.cond56.loopexit.i ]
+  %I.0.i = phi ptr [ %call21.i, %if.end19.i ], [ %call21.i, %for.cond56.preheader.i ], [ null, %end.sink.split.i ], [ %call21.i, %lor.lhs.false78.i ], [ %call21.i, %lor.lhs.false75.i ], [ %call21.i, %for.body72.i ], [ %call21.i, %for.end85.i ], [ %call21.i, %lor.lhs.false64.i ], [ %call21.i, %lor.lhs.false61.i ], [ %call21.i, %lor.lhs.false58.i ], [ %call21.i, %for.cond56.loopexit.i ]
+  %D.0.i = phi ptr [ %call8.i, %if.end19.i ], [ %call8.i, %for.cond56.preheader.i ], [ null, %end.sink.split.i ], [ %call8.i, %lor.lhs.false78.i ], [ %call8.i, %lor.lhs.false75.i ], [ %call8.i, %for.body72.i ], [ %call8.i, %for.end85.i ], [ %call8.i, %lor.lhs.false64.i ], [ %call8.i, %lor.lhs.false61.i ], [ %call8.i, %lor.lhs.false58.i ], [ %call8.i, %for.cond56.loopexit.i ]
   %ret.0.i = phi i32 [ 0, %if.end19.i ], [ 0, %for.cond56.preheader.i ], [ 0, %end.sink.split.i ], [ 0, %lor.lhs.false78.i ], [ 0, %lor.lhs.false75.i ], [ 0, %for.body72.i ], [ 0, %for.cond56.loopexit.i ], [ 0, %lor.lhs.false58.i ], [ 0, %lor.lhs.false61.i ], [ 0, %lor.lhs.false64.i ], [ 1, %for.end85.i ]
+  %B.0.i = phi ptr [ %call10.i, %if.end19.i ], [ %call10.i, %for.cond56.preheader.i ], [ null, %end.sink.split.i ], [ %call10.i, %lor.lhs.false78.i ], [ %call10.i, %lor.lhs.false75.i ], [ %call10.i, %for.body72.i ], [ %call10.i, %for.end85.i ], [ %call10.i, %lor.lhs.false64.i ], [ %call10.i, %lor.lhs.false61.i ], [ %call10.i, %lor.lhs.false58.i ], [ %call10.i, %for.cond56.loopexit.i ]
   tail call void @CRYPTO_free(ptr noundef %Ai.0.i, ptr noundef nonnull @.str, i32 noundef 129) #6
   tail call void @CRYPTO_free(ptr noundef %B.0.i, ptr noundef nonnull @.str, i32 noundef 130) #6
   tail call void @CRYPTO_free(ptr noundef %D.0.i, ptr noundef nonnull @.str, i32 noundef 131) #6

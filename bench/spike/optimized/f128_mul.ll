@@ -92,8 +92,8 @@ define { i64, i64 } @f128_mul(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
   br label %38
 
 38:                                               ; preds = %37, %34
-  %.sroa.10.0 = phi i64 [ %13, %34 ], [ %.sroa.420.sroa.4.0.copyload41, %37 ]
   %.sroa.026.0 = phi i64 [ %2, %34 ], [ %.sroa.420.sroa.0.0.copyload39, %37 ]
+  %.sroa.10.0 = phi i64 [ %13, %34 ], [ %.sroa.420.sroa.4.0.copyload41, %37 ]
   %.087 = phi i64 [ %12, %34 ], [ %.sroa.017.0.copyload19, %37 ]
   %39 = add nsw i64 %.087, %.0
   %40 = add nsw i64 %39, -16384
@@ -130,11 +130,11 @@ define { i64, i64 } @f128_mul(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
   br label %68
 
 68:                                               ; preds = %60, %38
-  %.089 = phi i64 [ %61, %60 ], [ %40, %38 ]
-  %.088 = phi i64 [ %67, %60 ], [ %49, %38 ]
+  %.090 = phi i64 [ %61, %60 ], [ %40, %38 ]
+  %.089 = phi i64 [ %67, %60 ], [ %49, %38 ]
   %.sroa.411.0 = phi i64 [ %62, %60 ], [ %58, %38 ]
   %.sroa.09.0 = phi i64 [ %63, %60 ], [ %54, %38 ]
-  %69 = call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %14, i64 noundef %.089, i64 noundef %.sroa.411.0, i64 noundef %.sroa.09.0, i64 noundef %.088) #3
+  %69 = call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %14, i64 noundef %.090, i64 noundef %.sroa.411.0, i64 noundef %.sroa.09.0, i64 noundef %.089) #3
   %70 = extractvalue { i64, i64 } %69, 0
   %71 = extractvalue { i64, i64 } %69, 1
   br label %81
@@ -146,8 +146,8 @@ define { i64, i64 } @f128_mul(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
   br label %81
 
 76:                                               ; preds = %27, %21
-  %.090 = phi i64 [ %22, %21 ], [ %29, %27 ]
-  %.not102 = icmp eq i64 %.090, 0
+  %.088 = phi i64 [ %22, %21 ], [ %29, %27 ]
+  %.not102 = icmp eq i64 %.088, 0
   br i1 %.not102, label %77, label %78
 
 77:                                               ; preds = %76

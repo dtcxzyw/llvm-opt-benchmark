@@ -120,7 +120,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   br i1 %27, label %.lr.ph, label %.loopexit78, !llvm.loop !6
 
 .loopexit78:                                      ; preds = %_create_core_bitmap.exit, %11, %6
-  %.058 = phi ptr [ %8, %6 ], [ %12, %11 ], [ %12, %_create_core_bitmap.exit ]
+  %.059 = phi ptr [ %8, %6 ], [ %12, %11 ], [ %12, %_create_core_bitmap.exit ]
   %28 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 0, ptr %4, align 4
   %29 = load ptr, ptr %28, align 8
@@ -136,7 +136,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
 
 33:                                               ; preds = %.lr.ph90, %90
   %34 = phi ptr [ %30, %.lr.ph90 ], [ %94, %90 ]
-  %.05986 = phi i32 [ 0, %.lr.ph90 ], [ %.1, %90 ]
+  %.05886 = phi i32 [ 0, %.lr.ph90 ], [ %.1, %90 ]
   %35 = load ptr, ptr @node_record_table_ptr, align 8
   %36 = load i32, ptr %4, align 4
   %37 = sext i32 %36 to i64
@@ -145,7 +145,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   %40 = getelementptr inbounds i8, ptr %39, i64 496
   %41 = load i16, ptr %40, align 8
   %42 = zext i16 %41 to i32
-  %43 = getelementptr inbounds ptr, ptr %.058, i64 %37
+  %43 = getelementptr inbounds ptr, ptr %.059, i64 %37
   %44 = load ptr, ptr %43, align 8
   %.fr = freeze ptr %44
   %45 = load i8, ptr %31, align 2
@@ -161,7 +161,7 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
 
 .lr.ph83:                                         ; preds = %.preheader
   %.not70 = icmp eq ptr %.fr, null
-  %50 = sext i32 %.05986 to i64
+  %50 = sext i32 %.05886 to i64
   %wide.trip.count110 = zext i16 %48 to i64
   br i1 %.not70, label %.lr.ph83.split.us, label %.lr.ph83.split
 
@@ -277,14 +277,14 @@ _create_core_bitmap.exit:                         ; preds = %.lr.ph, %19
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph83.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %88, %60, %.lr.ph83.split.us.split.us, %.preheader
-  %89 = add nsw i32 %.05986, %49
+  %89 = add nsw i32 %.05886, %49
   br label %90
 
 default.unreachable:                              ; preds = %65, %81
   unreachable
 
 90:                                               ; preds = %66, %71, %76, %62, %63, %._crit_edge
-  %.1 = phi i32 [ %.05986, %76 ], [ %.05986, %71 ], [ %.05986, %66 ], [ %.05986, %63 ], [ %.05986, %62 ], [ %89, %._crit_edge ]
+  %.1 = phi i32 [ %.05886, %76 ], [ %.05886, %71 ], [ %.05886, %66 ], [ %.05886, %63 ], [ %.05886, %62 ], [ %89, %._crit_edge ]
   %91 = load i32, ptr %4, align 4
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %4, align 4

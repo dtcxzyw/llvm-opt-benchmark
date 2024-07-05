@@ -360,8 +360,8 @@ define i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   br label %143
 
 143:                                              ; preds = %7, %4, %141, %127, %99, %44, %23, %12
-  %.0108 = phi i32 [ 8, %12 ], [ %22, %23 ], [ 20, %44 ], [ 20, %99 ], [ 20, %127 ], [ 0, %141 ], [ 2, %4 ], [ 3, %7 ]
-  ret i32 %.0108
+  %.0107 = phi i32 [ 8, %12 ], [ %22, %23 ], [ 20, %44 ], [ 20, %99 ], [ 20, %127 ], [ 0, %141 ], [ 2, %4 ], [ 3, %7 ]
+  ret i32 %.0107
 }
 
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1

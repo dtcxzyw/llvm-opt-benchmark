@@ -14,19 +14,19 @@ define dso_local ptr @Curl_memrchr(ptr noundef readonly %0, i32 noundef %1, i64 
   br label %7
 
 7:                                                ; preds = %8, %4
-  %.pn = phi ptr [ %5, %4 ], [ %.0, %8 ]
-  %.0 = getelementptr inbounds i8, ptr %.pn, i64 -1
-  %.not13 = icmp ult ptr %.0, %0
+  %.pn = phi ptr [ %5, %4 ], [ %.011, %8 ]
+  %.011 = getelementptr inbounds i8, ptr %.pn, i64 -1
+  %.not13 = icmp ult ptr %.011, %0
   br i1 %.not13, label %.loopexit, label %8
 
 8:                                                ; preds = %7
-  %9 = load i8, ptr %.0, align 1
+  %9 = load i8, ptr %.011, align 1
   %10 = icmp eq i8 %9, %6
   br i1 %10, label %.loopexit, label %7, !llvm.loop !5
 
 .loopexit:                                        ; preds = %7, %8, %3
-  %.011 = phi ptr [ null, %3 ], [ null, %7 ], [ %.0, %8 ]
-  ret ptr %.011
+  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ %.011, %8 ]
+  ret ptr %.0
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

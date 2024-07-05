@@ -609,20 +609,20 @@ define internal range(i32 -8, 1) i32 @hnp_pull(ptr noundef %0, i16 noundef zeroe
   br label %24
 
 24:                                               ; preds = %21, %17
-  %.03856 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_iof_hnp_component, i64 464), align 8
-  %.not4457 = icmp eq ptr %.03856, getelementptr inbounds (i8, ptr @prte_mca_iof_hnp_component, i64 344)
+  %.03956 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_iof_hnp_component, i64 464), align 8
+  %.not4457 = icmp eq ptr %.03956, getelementptr inbounds (i8, ptr @prte_mca_iof_hnp_component, i64 344)
   br i1 %.not4457, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %27
-  %.03858 = phi ptr [ %.038, %27 ], [ %.03856, %24 ]
-  %25 = getelementptr inbounds i8, ptr %.03858, i64 144
+  %.03958 = phi ptr [ %.039, %27 ], [ %.03956, %24 ]
+  %25 = getelementptr inbounds i8, ptr %.03958, i64 144
   %26 = tail call zeroext i1 @PMIx_Check_procid(ptr noundef nonnull %25, ptr noundef %0) #11
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %.03858, i64 120
-  %.038 = load ptr, ptr %28, align 8
-  %.not44 = icmp eq ptr %.038, getelementptr inbounds (i8, ptr @prte_mca_iof_hnp_component, i64 344)
+  %28 = getelementptr inbounds i8, ptr %.03958, i64 120
+  %.039 = load ptr, ptr %28, align 8
+  %.not44 = icmp eq ptr %.039, getelementptr inbounds (i8, ptr @prte_mca_iof_hnp_component, i64 344)
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %27, %24
@@ -682,7 +682,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %34, %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %pmix_obj_new_tma.exit
-  %.1 = phi ptr [ %30, %pmix_obj_new_tma.exit ], [ %.03858, %.lr.ph ]
+  %.1 = phi ptr [ %30, %pmix_obj_new_tma.exit ], [ %.03958, %.lr.ph ]
   %53 = load i32, ptr getelementptr inbounds (i8, ptr @prte_iof_base_framework, i64 76), align 4
   %or.cond46 = icmp ult i32 %53, 64
   br i1 %or.cond46, label %54, label %60
@@ -826,8 +826,8 @@ prte_iof_base_fd_always_ready.exit:               ; preds = %83, %90, %92
   br label %130
 
 130:                                              ; preds = %128, %111, %3
-  %.039 = phi i32 [ -8, %3 ], [ 0, %111 ], [ 0, %128 ]
-  ret i32 %.039
+  %.038 = phi i32 [ -8, %3 ], [ 0, %111 ], [ 0, %128 ]
+  ret i32 %.038
 }
 
 ; Function Attrs: nounwind uwtable

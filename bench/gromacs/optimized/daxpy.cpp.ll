@@ -31,29 +31,29 @@ define void @daxpy_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %18 = icmp slt i32 %10, 0
   %19 = sub nsw i32 1, %7
   %20 = mul nsw i32 %10, %19
-  %.0 = select i1 %18, i32 %20, i32 0
+  %.058 = select i1 %18, i32 %20, i32 0
   %21 = icmp slt i32 %9, 0
   %22 = mul nsw i32 %9, %19
   %.056 = select i1 %21, i32 %22, i32 0
-  %23 = sext i32 %.0 to i64
-  %24 = sext i32 %10 to i64
-  %25 = sext i32 %.056 to i64
-  %26 = sext i32 %9 to i64
+  %23 = sext i32 %.056 to i64
+  %24 = sext i32 %9 to i64
+  %25 = sext i32 %.058 to i64
+  %26 = sext i32 %10 to i64
   br label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %.lr.ph71.preheader, %.lr.ph71
   %indvars.iv79 = phi i64 [ %25, %.lr.ph71.preheader ], [ %indvars.iv.next80, %.lr.ph71 ]
   %indvars.iv77 = phi i64 [ %23, %.lr.ph71.preheader ], [ %indvars.iv.next78, %.lr.ph71 ]
-  %.05868 = phi i32 [ 0, %.lr.ph71.preheader ], [ %32, %.lr.ph71 ]
-  %27 = getelementptr inbounds double, ptr %2, i64 %indvars.iv79
+  %.070 = phi i32 [ 0, %.lr.ph71.preheader ], [ %32, %.lr.ph71 ]
+  %27 = getelementptr inbounds double, ptr %2, i64 %indvars.iv77
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds double, ptr %4, i64 %indvars.iv77
+  %29 = getelementptr inbounds double, ptr %4, i64 %indvars.iv79
   %30 = load double, ptr %29, align 8
   %31 = tail call double @llvm.fmuladd.f64(double %8, double %28, double %30)
   store double %31, ptr %29, align 8
-  %32 = add nuw nsw i32 %.05868, 1
-  %indvars.iv.next80 = add nsw i64 %indvars.iv79, %26
+  %32 = add nuw nsw i32 %.070, 1
   %indvars.iv.next78 = add nsw i64 %indvars.iv77, %24
+  %indvars.iv.next80 = add nsw i64 %indvars.iv79, %26
   %exitcond84.not = icmp eq i32 %32, %7
   br i1 %exitcond84.not, label %.loopexit, label %.lr.ph71, !llvm.loop !4
 
@@ -62,12 +62,12 @@ define void @daxpy_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader64
-  %.159.lcssa = phi i32 [ 0, %.preheader64 ], [ %33, %.preheader.loopexit ]
-  %34 = icmp slt i32 %.159.lcssa, %7
+  %.1.lcssa = phi i32 [ 0, %.preheader64 ], [ %33, %.preheader.loopexit ]
+  %34 = icmp slt i32 %.1.lcssa, %7
   br i1 %34, label %.lr.ph67.preheader, label %.loopexit
 
 .lr.ph67.preheader:                               ; preds = %.preheader
-  %35 = zext nneg i32 %.159.lcssa to i64
+  %35 = zext nneg i32 %.1.lcssa to i64
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %.lr.ph67
 

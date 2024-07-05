@@ -120,14 +120,14 @@ define dso_local { double, i32 } @float_from_string(ptr nocapture noundef readon
   br i1 %.not72, label %.critedge10.thread, label %.lr.ph107, !llvm.loop !9
 
 .critedge4:                                       ; preds = %.lr.ph107, %.critedge
+  %.061 = phi i8 [ %5, %.critedge ], [ %16, %.lr.ph107 ]
   %.2 = phi ptr [ %6, %.critedge ], [ %17, %.lr.ph107 ]
-  %.060 = phi i8 [ %5, %.critedge ], [ %16, %.lr.ph107 ]
-  %24 = and i8 %.060, -33
+  %24 = and i8 %.061, -33
   %or.cond = icmp eq i8 %24, 69
   br i1 %or.cond, label %25, label %.critedge10
 
 25:                                               ; preds = %.critedge4
-  tail call void @scratch_buffer_append_char(i8 noundef signext %.060) #6
+  tail call void @scratch_buffer_append_char(i8 noundef signext %.061) #6
   %26 = load i8, ptr %.2, align 1
   switch i8 %26, label %31 [
     i8 45, label %27
@@ -162,9 +162,9 @@ define dso_local { double, i32 } @float_from_string(ptr nocapture noundef readon
   br i1 %41, label %.lr.ph108, label %.critedge10, !llvm.loop !10
 
 .critedge10:                                      ; preds = %.lr.ph108, %31, %.critedge4
+  %.162 = phi i8 [ %.061, %.critedge4 ], [ %33, %31 ], [ %39, %.lr.ph108 ]
   %.5 = phi ptr [ %.2, %.critedge4 ], [ %32, %31 ], [ %38, %.lr.ph108 ]
-  %.1 = phi i8 [ %.060, %.critedge4 ], [ %33, %31 ], [ %39, %.lr.ph108 ]
-  %42 = icmp eq i8 %.1, 102
+  %42 = icmp eq i8 %.162, 102
   br i1 %42, label %.preheader, label %.critedge10.thread
 
 .preheader:                                       ; preds = %.critedge10
@@ -176,8 +176,8 @@ define dso_local { double, i32 } @float_from_string(ptr nocapture noundef readon
 .lr.ph111:                                        ; preds = %.preheader, %48
   %.in = phi i8 [ %54, %48 ], [ %43, %.preheader ]
   %.pn113 = phi ptr [ %49, %48 ], [ %.5, %.preheader ]
-  %.0110 = phi i32 [ %53, %48 ], [ 0, %.preheader ]
-  %46 = icmp sgt i32 %.0110, 100
+  %.059110 = phi i32 [ %53, %48 ], [ 0, %.preheader ]
+  %46 = icmp sgt i32 %.059110, 100
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %.lr.ph111
@@ -187,7 +187,7 @@ define dso_local { double, i32 } @float_from_string(ptr nocapture noundef readon
 48:                                               ; preds = %.lr.ph111
   %49 = getelementptr inbounds i8, ptr %.pn113, i64 1
   %50 = zext nneg i8 %.in to i32
-  %51 = mul nsw i32 %.0110, 10
+  %51 = mul nsw i32 %.059110, 10
   %52 = add i32 %51, -48
   %53 = add i32 %52, %50
   %54 = load i8, ptr %49, align 1
@@ -196,8 +196,8 @@ define dso_local { double, i32 } @float_from_string(ptr nocapture noundef readon
   br i1 %56, label %.lr.ph111, label %.critedge12, !llvm.loop !11
 
 .critedge12:                                      ; preds = %48, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %53, %48 ]
-  %57 = tail call i32 @llvm.fshl.i32(i32 %.0.lcssa, i32 %.0.lcssa, i32 28)
+  %.059.lcssa = phi i32 [ 0, %.preheader ], [ %53, %48 ]
+  %57 = tail call i32 @llvm.fshl.i32(i32 %.059.lcssa, i32 %.059.lcssa, i32 28)
   %58 = icmp ult i32 %57, 9
   br i1 %58, label %switch.hole_check, label %59
 
@@ -218,7 +218,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.critedge10.thread
 
 .critedge10.thread:                               ; preds = %.backedge94, %.backedge, %switch.lookup, %2, %13, %.critedge10
-  %.059 = phi i32 [ 16, %.critedge10 ], [ 16, %13 ], [ 16, %2 ], [ %switch.load, %switch.lookup ], [ 16, %.backedge ], [ 16, %.backedge94 ]
+  %.060 = phi i32 [ 16, %.critedge10 ], [ 16, %13 ], [ 16, %2 ], [ %switch.load, %switch.lookup ], [ 16, %.backedge ], [ 16, %.backedge94 ]
   %61 = tail call ptr @scratch_buffer_to_string() #6
   store ptr null, ptr %3, align 8
   %62 = tail call ptr @__errno_location() #7
@@ -259,7 +259,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 77:                                               ; preds = %.sink.split, %69, %71, %76, %68, %59, %47
   %.sroa.0.0 = phi double [ 0.000000e+00, %47 ], [ 0.000000e+00, %59 ], [ 0.000000e+00, %68 ], [ 0.000000e+00, %76 ], [ %63, %71 ], [ %63, %69 ], [ 0.000000e+00, %.sink.split ]
-  %.sroa.6.0 = phi i32 [ 0, %47 ], [ 0, %59 ], [ 0, %68 ], [ 0, %76 ], [ %.059, %71 ], [ %.059, %69 ], [ 0, %.sink.split ]
+  %.sroa.6.0 = phi i32 [ 0, %47 ], [ 0, %59 ], [ 0, %68 ], [ 0, %76 ], [ %.060, %71 ], [ %.060, %69 ], [ 0, %.sink.split ]
   %.fca.0.insert = insertvalue { double, i32 } poison, double %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, i32 } %.fca.0.insert, i32 %.sroa.6.0, 1
   ret { double, i32 } %.fca.1.insert

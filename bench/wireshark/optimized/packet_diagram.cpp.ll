@@ -1033,16 +1033,16 @@ _ZN7QStringD2Ev.exit:                             ; preds = %64, %_ZN17QArrayDat
   br label %86
 
 86:                                               ; preds = %.lr.ph, %91
-  %.0123266 = phi i32 [ 0, %.lr.ph ], [ %92, %91 ]
+  %.0120266 = phi i32 [ 0, %.lr.ph ], [ %92, %91 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  store i32 %.0123266, ptr %13, align 4
+  store i32 %.0120266, ptr %13, align 4
   %87 = load i64, ptr %85, align 8
   invoke void @_ZN9QtPrivate12QPodArrayOpsIiE7emplaceIJRiEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %87, ptr noundef nonnull align 4 dereferenceable(4) %13)
           to label %88 unwind label %.loopexit257
 
 88:                                               ; preds = %86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  %89 = or disjoint i32 %.0123266, 15
+  %89 = or disjoint i32 %.0120266, 15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store i32 %89, ptr %12, align 4
   %90 = load i64, ptr %85, align 8
@@ -1051,7 +1051,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %64, %_ZN17QArrayDat
 
 91:                                               ; preds = %88
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  %92 = add i32 %.0123266, 16
+  %92 = add i32 %.0120266, 16
   %93 = load ptr, ptr %36, align 8
   %94 = load i32, ptr %93, align 8
   %95 = icmp slt i32 %92, %94
@@ -1401,8 +1401,8 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread: ; preds = %173, 
   %231 = fptosi double %230 to i32
   %232 = sitofp i32 %231 to double
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
-  %.0124270 = load ptr, ptr %1, align 8
-  %.not271 = icmp eq ptr %.0124270, null
+  %.0127270 = load ptr, ptr %1, align 8
+  %.not271 = icmp eq ptr %.0127270, null
   br i1 %.not271, label %._crit_edge276, label %.lr.ph275
 
 .lr.ph275:                                        ; preds = %._crit_edge269
@@ -1415,11 +1415,11 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread: ; preds = %173, 
   br label %239
 
 239:                                              ; preds = %.lr.ph275, %_ZN5QListI15DiagramItemSpanElsERKS0_.exit178
-  %.0124273 = phi ptr [ %.0124270, %.lr.ph275 ], [ %.0124, %_ZN5QListI15DiagramItemSpanElsERKS0_.exit178 ]
-  %.0126272 = phi i32 [ -1, %.lr.ph275 ], [ %.1127, %_ZN5QListI15DiagramItemSpanElsERKS0_.exit178 ]
-  %240 = getelementptr i8, ptr %.0124273, i64 32
-  %.0124.val = load ptr, ptr %240, align 8
-  %.not.i = icmp eq ptr %.0124.val, null
+  %.0127273 = phi ptr [ %.0127270, %.lr.ph275 ], [ %.0127, %_ZN5QListI15DiagramItemSpanElsERKS0_.exit178 ]
+  %.0121272 = phi i32 [ -1, %.lr.ph275 ], [ %.1122, %_ZN5QListI15DiagramItemSpanElsERKS0_.exit178 ]
+  %240 = getelementptr i8, ptr %.0127273, i64 32
+  %.0127.val = load ptr, ptr %240, align 8
+  %.not.i = icmp eq ptr %.0127.val, null
   br i1 %.not.i, label %._ZL20proto_item_is_hiddenP11_proto_node.exit.thread_crit_edge, label %_ZL23proto_item_is_generatedP11_proto_node.exit
 
 ._ZL20proto_item_is_hiddenP11_proto_node.exit.thread_crit_edge: ; preds = %239
@@ -1427,7 +1427,7 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread: ; preds = %173, 
   br label %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread
 
 _ZL23proto_item_is_generatedP11_proto_node.exit:  ; preds = %239
-  %241 = getelementptr inbounds i8, ptr %.0124.val, i64 28
+  %241 = getelementptr inbounds i8, ptr %.0127.val, i64 28
   %242 = load i32, ptr %241, align 4
   %243 = and i32 %242, 3
   %or.cond300 = icmp eq i32 %243, 0
@@ -1450,7 +1450,7 @@ _ZL23proto_item_is_generatedP11_proto_node.exit:  ; preds = %239
 
 _ZL20proto_item_is_hiddenP11_proto_node.exit.thread: ; preds = %_ZL23proto_item_is_generatedP11_proto_node.exit, %._ZL20proto_item_is_hiddenP11_proto_node.exit.thread_crit_edge
   %244 = phi i32 [ %.pre292, %._ZL20proto_item_is_hiddenP11_proto_node.exit.thread_crit_edge ], [ %242, %_ZL23proto_item_is_generatedP11_proto_node.exit ]
-  %245 = getelementptr inbounds i8, ptr %.0124.val, i64 8
+  %245 = getelementptr inbounds i8, ptr %.0127.val, i64 8
   %246 = load i32, ptr %245, align 8
   %247 = load ptr, ptr %53, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 8
@@ -1470,14 +1470,14 @@ _ZL20proto_item_is_hiddenP11_proto_node.exit.thread: ; preds = %_ZL23proto_item_
   br label %263
 
 259:                                              ; preds = %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread
-  %260 = getelementptr inbounds i8, ptr %.0124.val, i64 12
+  %260 = getelementptr inbounds i8, ptr %.0127.val, i64 12
   %261 = load i32, ptr %260, align 4
   %262 = shl i32 %261, 3
   br label %263
 
 263:                                              ; preds = %259, %256
   %264 = phi i32 [ %258, %256 ], [ %262, %259 ]
-  %265 = icmp sle i32 %254, %.0126272
+  %265 = icmp sle i32 %254, %.0121272
   %266 = icmp slt i32 %264, 1
   %or.cond = select i1 %265, i1 true, i1 %266
   br i1 %or.cond, label %_ZN5QListI15DiagramItemSpanElsERKS0_.exit178, label %267
@@ -1543,10 +1543,10 @@ _ZN5QListI15DiagramItemSpanElsERKS0_.exit:        ; preds = %._ZN5QListI15Diagra
           to label %_ZN5QListI15DiagramItemSpanElsERKS0_.exit178 unwind label %.loopexit.split-lp.loopexit
 
 _ZN5QListI15DiagramItemSpanElsERKS0_.exit178:     ; preds = %_ZN5QListI15DiagramItemSpanElsERKS0_.exit, %263, %_ZL23proto_item_is_generatedP11_proto_node.exit
-  %.1127 = phi i32 [ %.0126272, %_ZL23proto_item_is_generatedP11_proto_node.exit ], [ %.0126272, %263 ], [ %254, %_ZN5QListI15DiagramItemSpanElsERKS0_.exit ]
-  %287 = getelementptr inbounds i8, ptr %.0124273, i64 16
-  %.0124 = load ptr, ptr %287, align 8
-  %.not = icmp eq ptr %.0124, null
+  %.1122 = phi i32 [ %.0121272, %_ZL23proto_item_is_generatedP11_proto_node.exit ], [ %.0121272, %263 ], [ %254, %_ZN5QListI15DiagramItemSpanElsERKS0_.exit ]
+  %287 = getelementptr inbounds i8, ptr %.0127273, i64 16
+  %.0127 = load ptr, ptr %287, align 8
+  %.not = icmp eq ptr %.0127, null
   br i1 %.not, label %._crit_edge276, label %239, !llvm.loop !30
 
 ._crit_edge276:                                   ; preds = %_ZN5QListI15DiagramItemSpanElsERKS0_.exit178, %._crit_edge269
@@ -1568,9 +1568,9 @@ _ZN5QListI15DiagramItemSpanElsERKS0_.exit178:     ; preds = %_ZN5QListI15Diagram
 
 296:                                              ; preds = %.lr.ph280, %395
   %297 = phi i64 [ 0, %.lr.ph280 ], [ %397, %395 ]
-  %.0120279 = phi i32 [ 0, %.lr.ph280 ], [ %396, %395 ]
-  %.0121278 = phi i32 [ 0, %.lr.ph280 ], [ %331, %395 ]
-  %.0122277 = phi double [ %288, %.lr.ph280 ], [ %321, %395 ]
+  %.0123279 = phi i32 [ 0, %.lr.ph280 ], [ %396, %395 ]
+  %.0124278 = phi i32 [ 0, %.lr.ph280 ], [ %331, %395 ]
+  %.0125277 = phi double [ %288, %.lr.ph280 ], [ %321, %395 ]
   %298 = load ptr, ptr %28, align 8
   %.not.i.i.i.i = icmp eq ptr %298, null
   br i1 %.not.i.i.i.i, label %_ZN5QListI15DiagramItemSpanE6detachEv.exit.i, label %_ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.i.i.i
@@ -1615,9 +1615,9 @@ _ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i180
   %316 = fptosi double %315 to i32
   %317 = shl i32 %316, 1
   %318 = add i32 %317, %311
-  %319 = sdiv i32 %.0121278, %38
+  %319 = sdiv i32 %.0124278, %38
   %320 = mul i32 %318, %319
-  %321 = fadd double %.0122277, -1.000000e-02
+  %321 = fadd double %.0125277, -1.000000e-02
   %322 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #16
           to label %323 unwind label %.loopexit
 
@@ -1626,13 +1626,13 @@ _ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i180
   %325 = load ptr, ptr %324, align 8
   %326 = getelementptr inbounds i8, ptr %324, i64 12
   %327 = load i32, ptr %326, align 4
-  invoke void @_ZN28FieldInformationGraphicsItemC2EP10field_infoiiPK13DiagramLayoutP13QGraphicsItem(ptr noundef nonnull align 8 dereferenceable(192) %322, ptr noundef %325, i32 noundef %.0121278, i32 noundef %327, ptr noundef nonnull %306, ptr noundef null)
+  invoke void @_ZN28FieldInformationGraphicsItemC2EP10field_infoiiPK13DiagramLayoutP13QGraphicsItem(ptr noundef nonnull align 8 dereferenceable(192) %322, ptr noundef %325, i32 noundef %.0124278, i32 noundef %327, ptr noundef nonnull %306, ptr noundef null)
           to label %328 unwind label %400
 
 328:                                              ; preds = %323
   %329 = getelementptr inbounds i8, ptr %322, i64 64
   %330 = load i32, ptr %329, align 8
-  %331 = add i32 %330, %.0121278
+  %331 = add i32 %330, %.0124278
   %332 = sitofp i32 %320 to double
   %333 = fadd double %109, %332
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -1738,7 +1738,7 @@ _ZN28FieldInformationGraphicsItem6setPosEdd.exit: ; preds = %.noexc185
 
 395:                                              ; preds = %367
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %396 = add i32 %.0120279, 1
+  %396 = add i32 %.0123279, 1
   %397 = sext i32 %396 to i64
   %398 = load i64, ptr %289, align 8
   %399 = icmp sgt i64 %398, %397
@@ -1756,7 +1756,7 @@ _ZN28FieldInformationGraphicsItem6setPosEdd.exit: ; preds = %.noexc185
   br label %404
 
 404:                                              ; preds = %._crit_edge281, %.preheader
-  %.0125.lcssa = phi i32 [ %403, %._crit_edge281 ], [ %108, %.preheader ]
+  %.0126.lcssa = phi i32 [ %403, %._crit_edge281 ], [ %108, %.preheader ]
   %405 = invoke noundef ptr @_ZNK13QGraphicsView5sceneEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %406 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1766,7 +1766,7 @@ _ZN28FieldInformationGraphicsItem6setPosEdd.exit: ; preds = %.noexc185
           to label %408 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 408:                                              ; preds = %406
-  %409 = sitofp i32 %.0125.lcssa to double
+  %409 = sitofp i32 %.0126.lcssa to double
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   store double %232, ptr %4, align 8
   %410 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1806,7 +1806,7 @@ _ZN28FieldInformationGraphicsItem6setPosEdd.exit: ; preds = %.noexc185
 425:                                              ; preds = %418
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #17
-  %426 = add i32 %.0125.lcssa, %45
+  %426 = add i32 %.0126.lcssa, %45
   store i32 %426, ptr %72, align 8
   %427 = invoke noundef ptr @_ZNK13QGraphicsView5sceneEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %428 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -3616,13 +3616,13 @@ _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i83: ; preds = %59
   br label %84
 
 84:                                               ; preds = %71, %78, %82
-  %.050 = phi i32 [ %83, %82 ], [ %80, %78 ], [ 0, %71 ]
-  %.049 = phi i32 [ %79, %82 ], [ %79, %78 ], [ %3, %71 ]
-  %85 = icmp sgt i32 %.050, %73
+  %.051 = phi i32 [ %83, %82 ], [ %80, %78 ], [ 0, %71 ]
+  %.050 = phi i32 [ %79, %82 ], [ %79, %78 ], [ %3, %71 ]
+  %85 = icmp sgt i32 %.051, %73
   br i1 %85, label %86, label %91
 
 86:                                               ; preds = %84
-  %87 = sub i32 %.050, %73
+  %87 = sub i32 %.051, %73
   %88 = icmp sgt i32 %87, %73
   br i1 %88, label %89, label %91
 
@@ -3632,13 +3632,13 @@ _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i83: ; preds = %59
   br label %91
 
 91:                                               ; preds = %84, %86, %89
-  %.1 = phi i32 [ %90, %89 ], [ %87, %86 ], [ 0, %84 ]
-  %.0 = phi i32 [ %73, %89 ], [ %73, %86 ], [ %.050, %84 ]
-  %92 = add i32 %.1, %.049
-  %93 = add i32 %92, %.0
+  %.152 = phi i32 [ %90, %89 ], [ %87, %86 ], [ 0, %84 ]
+  %.049 = phi i32 [ %73, %89 ], [ %73, %86 ], [ %.051, %84 ]
+  %92 = add i32 %.152, %.050
+  %93 = add i32 %92, %.049
   store i32 %93, ptr %49, align 8
   %94 = sitofp i32 %75 to double
-  %95 = sitofp i32 %.049 to double
+  %95 = sitofp i32 %.050 to double
   store double %94, ptr %12, align 16
   %96 = getelementptr inbounds i8, ptr %12, i64 8
   store double 0.000000e+00, ptr %96, align 8
@@ -3687,11 +3687,11 @@ _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i88: ; preds = %_ZN9QPolygonFa
 
 _ZN9QPolygonFD2Ev.exit90:                         ; preds = %_ZN9QPolygonFaSEOS_.exit, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i88, %109
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 16 dereferenceable(32) %12, i64 32, i1 false)
-  %111 = icmp sgt i32 %.0, 0
+  %111 = icmp sgt i32 %.049, 0
   br i1 %111, label %112, label %185
 
 112:                                              ; preds = %_ZN9QPolygonFD2Ev.exit90
-  %113 = uitofp nneg i32 %.0 to double
+  %113 = uitofp nneg i32 %.049 to double
   store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %12, align 16
   store double %113, ptr %97, align 16
   store double 1.000000e+00, ptr %98, align 8
@@ -3753,7 +3753,7 @@ _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i100: ; preds = %_ZN9QPolygonF
   br label %_ZN9QPolygonFD2Ev.exit102
 
 _ZN9QPolygonFD2Ev.exit102:                        ; preds = %_ZN9QPolygonFD2Ev.exit98, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i100, %128
-  %130 = icmp sgt i32 %.0, %.049
+  %130 = icmp sgt i32 %.049, %.050
   br i1 %130, label %131, label %138
 
 131:                                              ; preds = %_ZN9QPolygonFD2Ev.exit102
@@ -3778,11 +3778,11 @@ _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i104: ; preds = %132
   br label %_ZN9QPolygonFD2Ev.exit106
 
 138:                                              ; preds = %131, %_ZN9QPolygonFD2Ev.exit102
-  %139 = icmp sgt i32 %.1, 0
+  %139 = icmp sgt i32 %.152, 0
   br i1 %139, label %140, label %_ZN9QPolygonFD2Ev.exit118
 
 140:                                              ; preds = %138
-  %141 = uitofp nneg i32 %.1 to double
+  %141 = uitofp nneg i32 %.152 to double
   store <2 x double> <double 0.000000e+00, double 2.000000e+00>, ptr %12, align 16
   store double %141, ptr %97, align 16
   store double 1.000000e+00, ptr %98, align 8

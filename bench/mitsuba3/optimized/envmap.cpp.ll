@@ -2217,27 +2217,27 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE3sr_ILi1EEES3_v.exit.critedge
   br label %.preheader426.us
 
 .preheader426.us:                                 ; preds = %.preheader426.us.preheader, %._crit_edge446.us
-  %.0243451.us = phi double [ %203, %._crit_edge446.us ], [ 0.000000e+00, %.preheader426.us.preheader ]
-  %.0244450.us = phi ptr [ %215, %._crit_edge446.us ], [ %182, %.preheader426.us.preheader ]
+  %.0243451.us = phi ptr [ %215, %._crit_edge446.us ], [ %182, %.preheader426.us.preheader ]
+  %.0244450.us = phi double [ %203, %._crit_edge446.us ], [ 0.000000e+00, %.preheader426.us.preheader ]
   %storemerge449.us = phi i32 [ %216, %._crit_edge446.us ], [ 0, %.preheader426.us.preheader ]
   %183 = and i32 %storemerge449.us, 1
   %184 = and i32 %storemerge449.us, -2
   br label %185
 
 185:                                              ; preds = %.preheader426.us, %185
-  %.1444.us = phi double [ %.0243451.us, %.preheader426.us ], [ %203, %185 ]
-  %.1245443.us = phi ptr [ %.0244450.us, %.preheader426.us ], [ %187, %185 ]
+  %.1444.us = phi ptr [ %.0243451.us, %.preheader426.us ], [ %187, %185 ]
+  %.1245443.us = phi double [ %.0244450.us, %.preheader426.us ], [ %203, %185 ]
   %storemerge254442.us = phi i32 [ 0, %.preheader426.us ], [ %214, %185 ]
-  %186 = load float, ptr %.1245443.us, align 4
-  %187 = getelementptr inbounds i8, ptr %.1245443.us, i64 4
+  %186 = load float, ptr %.1444.us, align 4
+  %187 = getelementptr inbounds i8, ptr %.1444.us, i64 4
   %188 = load float, ptr %187, align 4
   %189 = load i32, ptr %2, align 4
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds float, ptr %.1245443.us, i64 %190
+  %191 = getelementptr inbounds float, ptr %.1444.us, i64 %190
   %192 = load float, ptr %191, align 4
   %193 = add i32 %189, 1
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds float, ptr %.1245443.us, i64 %194
+  %195 = getelementptr inbounds float, ptr %.1444.us, i64 %194
   %196 = load float, ptr %195, align 4
   %197 = load ptr, ptr %23, align 8
   %198 = fadd contract float %186, %188
@@ -2245,7 +2245,7 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE3sr_ILi1EEES3_v.exit.critedge
   %200 = fadd contract float %199, %196
   %201 = fmul contract float %200, 2.500000e-01
   %202 = fpext float %201 to double
-  %203 = fadd contract double %.1444.us, %202
+  %203 = fadd contract double %.1245443.us, %202
   %204 = and i32 %storemerge254442.us, 1
   %205 = and i32 %storemerge254442.us, 2147483646
   %206 = or disjoint i32 %205, %183
@@ -2263,7 +2263,7 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE3sr_ILi1EEES3_v.exit.critedge
   br i1 %exitcond497.not, label %._crit_edge446.us, label %185, !llvm.loop !21
 
 ._crit_edge446.us:                                ; preds = %185
-  %215 = getelementptr inbounds i8, ptr %.1245443.us, i64 8
+  %215 = getelementptr inbounds i8, ptr %.1444.us, i64 8
   %216 = add nuw i32 %storemerge449.us, 1
   %exitcond498.not = icmp eq i32 %216, %27
   br i1 %exitcond498.not, label %._crit_edge452.loopexit487, label %.preheader426.us, !llvm.loop !22
@@ -2276,8 +2276,8 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE3sr_ILi1EEES3_v.exit.critedge
 ._crit_edge452:                                   ; preds = %.preheader426.lr.ph, %._crit_edge452.loopexit487, %173
   %217 = phi i32 [ %175, %173 ], [ %.pre514, %._crit_edge452.loopexit487 ], [ %175, %.preheader426.lr.ph ]
   %218 = phi ptr [ %174, %173 ], [ %.pre513, %._crit_edge452.loopexit487 ], [ %174, %.preheader426.lr.ph ]
-  %.0243.lcssa = phi double [ 0.000000e+00, %173 ], [ %203, %._crit_edge452.loopexit487 ], [ 0.000000e+00, %.preheader426.lr.ph ]
-  %219 = fdiv contract double %170, %.0243.lcssa
+  %.0244.lcssa = phi double [ 0.000000e+00, %173 ], [ %203, %._crit_edge452.loopexit487 ], [ 0.000000e+00, %.preheader426.lr.ph ]
+  %219 = fdiv contract double %170, %.0244.lcssa
   %220 = fptrunc double %219 to float
   %221 = select contract i1 %5, float %220, float 1.000000e+00
   %.not481 = icmp eq i32 %217, 0
@@ -2625,9 +2625,9 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit462: ; preds = %.thread516
   %36 = phi i32 [ %131, %._crit_edge ], [ %25, %.lr.ph525.preheader ]
   %37 = phi i32 [ %132, %._crit_edge ], [ %23, %.lr.ph525.preheader ]
   %.0413524 = phi ptr [ %.1414.lcssa, %._crit_edge ], [ %35, %.lr.ph525.preheader ]
-  %.0415523 = phi i64 [ %133, %._crit_edge ], [ 0, %.lr.ph525.preheader ]
-  %.0416522 = phi ptr [ %.1417.lcssa, %._crit_edge ], [ %29, %.lr.ph525.preheader ]
-  %38 = uitofp nneg i64 %.0415523 to float
+  %.0415523 = phi ptr [ %.1416.lcssa, %._crit_edge ], [ %29, %.lr.ph525.preheader ]
+  %.0417522 = phi i64 [ %133, %._crit_edge ], [ 0, %.lr.ph525.preheader ]
+  %38 = uitofp nneg i64 %.0417522 to float
   %39 = fmul contract float %33, %38
   %40 = fmul contract float %39, 0x3FF45F3060000000
   %41 = fptosi float %40 to i32
@@ -2681,9 +2681,9 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit462: ; preds = %.thread516
   br i1 %.not526, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph525, %.lr.ph
-  %.0409520 = phi i64 [ %124, %.lr.ph ], [ 0, %.lr.ph525 ]
+  %.0410520 = phi i64 [ %124, %.lr.ph ], [ 0, %.lr.ph525 ]
   %.1414519 = phi ptr [ %123, %.lr.ph ], [ %.0413524, %.lr.ph525 ]
-  %.1417518 = phi ptr [ %122, %.lr.ph ], [ %.0416522, %.lr.ph525 ]
+  %.1416518 = phi ptr [ %122, %.lr.ph ], [ %.0415523, %.lr.ph525 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %.1414519, i64 16) ]
   %81 = load <4 x float>, ptr %.1414519, align 16
   %82 = shufflevector <4 x float> %81, <4 x float> poison, <16 x i32> zeroinitializer
@@ -2730,10 +2730,10 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit462: ; preds = %.thread516
   %.sroa.0472.12.vec.extract = extractelement <4 x float> %81, i64 3
   %120 = fmul contract float %.sroa.0472.12.vec.extract, %119
   %121 = fmul contract float %120, %73
-  %122 = getelementptr inbounds i8, ptr %.1417518, i64 4
-  store float %121, ptr %.1417518, align 4
+  %122 = getelementptr inbounds i8, ptr %.1416518, i64 4
+  store float %121, ptr %.1416518, align 4
   %123 = getelementptr inbounds i8, ptr %.1414519, i64 16
-  %124 = add nuw nsw i64 %.0409520, 1
+  %124 = add nuw nsw i64 %.0410520, 1
   %125 = load i32, ptr %4, align 4
   %126 = zext i32 %125 to i64
   %127 = icmp ult i64 %124, %126
@@ -2758,9 +2758,9 @@ _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit467: ; pre
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph525
   %131 = phi i32 [ %36, %.lr.ph525 ], [ %.pre, %._crit_edge.loopexit ]
   %132 = phi i32 [ 0, %.lr.ph525 ], [ %125, %._crit_edge.loopexit ]
-  %.1417.lcssa = phi ptr [ %.0416522, %.lr.ph525 ], [ %122, %._crit_edge.loopexit ]
+  %.1416.lcssa = phi ptr [ %.0415523, %.lr.ph525 ], [ %122, %._crit_edge.loopexit ]
   %.1414.lcssa = phi ptr [ %.0413524, %.lr.ph525 ], [ %123, %._crit_edge.loopexit ]
-  %133 = add nuw nsw i64 %.0415523, 1
+  %133 = add nuw nsw i64 %.0417522, 1
   %134 = zext i32 %131 to i64
   %135 = icmp ult i64 %133, %134
   br i1 %135, label %.lr.ph525, label %.preheader517, !llvm.loop !31

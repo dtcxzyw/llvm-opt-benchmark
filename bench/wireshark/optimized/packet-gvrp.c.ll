@@ -116,36 +116,36 @@ define internal i32 @dissect_gvrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not125168, label %.loopexit132, label %.lr.ph172
 
 .lr.ph172:                                        ; preds = %26, %.loopexit
-  %.0116171 = phi i32 [ %98, %.loopexit ], [ %27, %26 ]
-  %.0117170 = phi i32 [ %97, %.loopexit ], [ 2, %26 ]
-  %.0122169 = phi i32 [ %42, %.loopexit ], [ 0, %26 ]
-  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0117170) #2
+  %.0116171 = phi i32 [ %42, %.loopexit ], [ 0, %26 ]
+  %.0117170 = phi i32 [ %98, %.loopexit ], [ %27, %26 ]
+  %.0118169 = phi i32 [ %97, %.loopexit ], [ 2, %26 ]
+  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0118169) #2
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %30, label %38
 
 30:                                               ; preds = %.lr.ph172
-  %.not131 = icmp eq i32 %.0122169, 0
+  %.not131 = icmp eq i32 %.0116171, 0
   br i1 %.not131, label %34, label %31
 
 31:                                               ; preds = %30
   %32 = load i32, ptr @hf_gvrp_end_of_mark, align 4
-  %33 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %32, ptr noundef %0, i32 noundef %.0117170, i32 noundef 1, i32 noundef 0) #2
+  %33 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %32, ptr noundef %0, i32 noundef %.0118169, i32 noundef 1, i32 noundef 0) #2
   br label %.loopexit132
 
 34:                                               ; preds = %30
-  %35 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0117170) #2
+  %35 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0118169) #2
   %36 = call i32 @call_data_dissector(ptr noundef %35, ptr noundef %1, ptr noundef %2) #2
   %37 = call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %102
 
 38:                                               ; preds = %.lr.ph172
   %39 = zext i8 %28 to i32
-  %40 = add i32 %.0117170, 1
+  %40 = add i32 %.0118169, 1
   %41 = load i32, ptr @ett_gvrp_message, align 4
-  %42 = add i32 %.0122169, 1
-  %43 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %14, ptr noundef %0, i32 noundef %.0117170, i32 noundef -1, i32 noundef %41, ptr noundef nonnull %5, ptr noundef nonnull @.str.26, i32 noundef %42) #2
+  %42 = add i32 %.0116171, 1
+  %43 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %14, ptr noundef %0, i32 noundef %.0118169, i32 noundef -1, i32 noundef %41, ptr noundef nonnull %5, ptr noundef nonnull @.str.26, i32 noundef %42) #2
   %44 = load i32, ptr @hf_gvrp_attribute_type, align 4
-  %45 = call ptr @proto_tree_add_uint(ptr noundef %43, i32 noundef %44, ptr noundef %0, i32 noundef %.0117170, i32 noundef 1, i32 noundef %39) #2
+  %45 = call ptr @proto_tree_add_uint(ptr noundef %43, i32 noundef %44, ptr noundef %0, i32 noundef %.0118169, i32 noundef 1, i32 noundef %39) #2
   %.not126 = icmp eq i8 %28, 1
   br i1 %.not126, label %50, label %46
 
@@ -156,41 +156,41 @@ define internal i32 @dissect_gvrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %102
 
 50:                                               ; preds = %38
-  %51 = add i32 %.0116171, -1
+  %51 = add i32 %.0117170, -1
   %.not127164 = icmp eq i32 %51, 0
   br i1 %.not127164, label %.loopexit132, label %.lr.ph
 
 .lr.ph:                                           ; preds = %50, %92
   %.1167 = phi i32 [ %.2, %92 ], [ %51, %50 ]
-  %.1118166 = phi i32 [ %.2119, %92 ], [ %40, %50 ]
-  %.0121165 = phi i32 [ %63, %92 ], [ 0, %50 ]
-  %52 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1118166) #2
+  %.1119166 = phi i32 [ %.2120, %92 ], [ %40, %50 ]
+  %.0122165 = phi i32 [ %63, %92 ], [ 0, %50 ]
+  %52 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1119166) #2
   %53 = icmp eq i8 %52, 0
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %.lr.ph
-  %.not130 = icmp eq i32 %.0121165, 0
+  %.not130 = icmp eq i32 %.0122165, 0
   br i1 %.not130, label %55, label %.loopexit
 
 55:                                               ; preds = %54
-  %56 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1118166) #2
+  %56 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1119166) #2
   %57 = call i32 @call_data_dissector(ptr noundef %56, ptr noundef %1, ptr noundef %2) #2
   %58 = call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %102
 
 59:                                               ; preds = %.lr.ph
   %60 = zext i8 %52 to i32
-  %61 = add i32 %.1118166, 1
+  %61 = add i32 %.1119166, 1
   %62 = load i32, ptr @ett_gvrp_attribute, align 4
-  %63 = add i32 %.0121165, 1
-  %64 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %43, ptr noundef %0, i32 noundef %.1118166, i32 noundef -1, i32 noundef %62, ptr noundef nonnull %6, ptr noundef nonnull @.str.27, i32 noundef %63) #2
+  %63 = add i32 %.0122165, 1
+  %64 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %43, ptr noundef %0, i32 noundef %.1119166, i32 noundef -1, i32 noundef %62, ptr noundef nonnull %6, ptr noundef nonnull @.str.27, i32 noundef %63) #2
   %65 = load i32, ptr @hf_gvrp_attribute_length, align 4
-  %66 = call ptr @proto_tree_add_uint(ptr noundef %64, i32 noundef %65, ptr noundef %0, i32 noundef %.1118166, i32 noundef 1, i32 noundef %60) #2
+  %66 = call ptr @proto_tree_add_uint(ptr noundef %64, i32 noundef %65, ptr noundef %0, i32 noundef %.1119166, i32 noundef 1, i32 noundef %60) #2
   %67 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %61) #2
   %68 = load i32, ptr @hf_gvrp_attribute_event, align 4
   %69 = zext i8 %67 to i32
   %70 = call ptr @proto_tree_add_uint(ptr noundef %64, i32 noundef %68, ptr noundef %0, i32 noundef %61, i32 noundef 1, i32 noundef %69) #2
-  %71 = add i32 %.1118166, 2
+  %71 = add i32 %.1119166, 2
   switch i8 %67, label %88 [
     i8 0, label %72
     i8 1, label %78
@@ -224,7 +224,7 @@ define internal i32 @dissect_gvrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 83:                                               ; preds = %78
   %84 = load i32, ptr @hf_gvrp_attribute_value, align 4
   %85 = call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %84, ptr noundef %0, i32 noundef %71, i32 noundef 2, i32 noundef 0) #2
-  %86 = add i32 %.1118166, 4
+  %86 = add i32 %.1119166, 4
   %87 = add i32 %.1167, -4
   br label %92
 
@@ -235,21 +235,21 @@ define internal i32 @dissect_gvrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %102
 
 92:                                               ; preds = %83, %72
-  %.2119 = phi i32 [ %86, %83 ], [ %71, %72 ]
+  %.2120 = phi i32 [ %86, %83 ], [ %71, %72 ]
   %.2 = phi i32 [ %87, %83 ], [ %73, %72 ]
   %93 = load ptr, ptr %6, align 8
-  %94 = sub i32 %.2119, %.1118166
+  %94 = sub i32 %.2120, %.1119166
   call void @proto_item_set_len(ptr noundef %93, i32 noundef %94) #2
   %.not127 = icmp eq i32 %.2, 0
   br i1 %.not127, label %.loopexit132, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %54
   %95 = load i32, ptr @hf_gvrp_end_of_mark, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %95, ptr noundef %0, i32 noundef %.1118166, i32 noundef 1, i32 noundef 0) #2
-  %97 = add i32 %.1118166, 1
+  %96 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %95, ptr noundef %0, i32 noundef %.1119166, i32 noundef 1, i32 noundef 0) #2
+  %97 = add i32 %.1119166, 1
   %98 = add i32 %.1167, -1
   %99 = load ptr, ptr %5, align 8
-  %100 = sub i32 %97, %.0117170
+  %100 = sub i32 %97, %.0118169
   call void @proto_item_set_len(ptr noundef %99, i32 noundef %100) #2
   %.not125 = icmp eq i32 %98, 0
   br i1 %.not125, label %.loopexit132, label %.lr.ph172, !llvm.loop !6

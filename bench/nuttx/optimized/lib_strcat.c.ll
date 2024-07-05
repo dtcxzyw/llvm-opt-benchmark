@@ -13,18 +13,18 @@ define noundef ptr @strcat(ptr noundef returned %0, ptr nocapture noundef readon
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %6 = phi i8 [ %9, %.lr.ph ], [ %5, %2 ]
-  %.011 = phi ptr [ %7, %.lr.ph ], [ %1, %2 ]
-  %.0810 = phi ptr [ %8, %.lr.ph ], [ %4, %2 ]
-  %7 = getelementptr inbounds i8, ptr %.011, i64 1
-  %8 = getelementptr inbounds i8, ptr %.0810, i64 1
-  store i8 %6, ptr %.0810, align 1
+  %.011 = phi ptr [ %8, %.lr.ph ], [ %4, %2 ]
+  %.0810 = phi ptr [ %7, %.lr.ph ], [ %1, %2 ]
+  %7 = getelementptr inbounds i8, ptr %.0810, i64 1
+  %8 = getelementptr inbounds i8, ptr %.011, i64 1
+  store i8 %6, ptr %.011, align 1
   %9 = load i8, ptr %7, align 1
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.08.lcssa = phi ptr [ %4, %2 ], [ %8, %.lr.ph ]
-  store i8 0, ptr %.08.lcssa, align 1
+  %.0.lcssa = phi ptr [ %4, %2 ], [ %8, %.lr.ph ]
+  store i8 0, ptr %.0.lcssa, align 1
   ret ptr %0
 }
 

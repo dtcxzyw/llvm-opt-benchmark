@@ -55,8 +55,8 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %sw.epilog, %entry
-  %string.addr.0 = phi ptr [ %string, %entry ], [ %string.addr.2, %sw.epilog ]
   %stringLen.addr.0 = phi i32 [ %stringLen, %entry ], [ %stringLen.addr.2, %sw.epilog ]
+  %string.addr.0 = phi ptr [ %string, %entry ], [ %string.addr.2, %sw.epilog ]
   %patternLen.addr.0 = phi i32 [ %patternLen, %entry ], [ %dec173, %sw.epilog ]
   %pattern.addr.0 = phi ptr [ %pattern, %entry ], [ %incdec.ptr172, %sw.epilog ]
   %tobool = icmp ne i32 %patternLen.addr.0, 0
@@ -105,9 +105,9 @@ while.cond12.preheader:                           ; preds = %while.body9, %while
   br label %while.body14
 
 while.body14:                                     ; preds = %while.cond12.preheader, %if.end20
-  %stringLen.addr.1114 = phi i32 [ %stringLen.addr.0, %while.cond12.preheader ], [ %dec22, %if.end20 ]
-  %string.addr.1113 = phi ptr [ %string.addr.0, %while.cond12.preheader ], [ %incdec.ptr21, %if.end20 ]
-  %call = tail call fastcc i32 @stringmatchlen_impl(ptr noundef nonnull %add.ptr, i32 noundef %sub, ptr noundef %string.addr.1113, i32 noundef %stringLen.addr.1114, i32 noundef %nocase, ptr noundef %skipLongerMatches)
+  %string.addr.1114 = phi ptr [ %string.addr.0, %while.cond12.preheader ], [ %incdec.ptr21, %if.end20 ]
+  %stringLen.addr.1113 = phi i32 [ %stringLen.addr.0, %while.cond12.preheader ], [ %dec22, %if.end20 ]
+  %call = tail call fastcc i32 @stringmatchlen_impl(ptr noundef nonnull %add.ptr, i32 noundef %sub, ptr noundef %string.addr.1114, i32 noundef %stringLen.addr.1113, i32 noundef %nocase, ptr noundef %skipLongerMatches)
   %tobool15.not = icmp eq i32 %call, 0
   br i1 %tobool15.not, label %if.end17, label %return
 
@@ -117,8 +117,8 @@ if.end17:                                         ; preds = %while.body14
   br i1 %tobool18.not, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end17
-  %incdec.ptr21 = getelementptr inbounds i8, ptr %string.addr.1113, i64 1
-  %dec22 = add nsw i32 %stringLen.addr.1114, -1
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %string.addr.1114, i64 1
+  %dec22 = add nsw i32 %stringLen.addr.1113, -1
   %tobool13.not = icmp eq i32 %dec22, 0
   br i1 %tobool13.not, label %while.end23, label %while.body14, !llvm.loop !7
 
@@ -330,8 +330,8 @@ if.else158:                                       ; preds = %sw.default
 sw.epilog:                                        ; preds = %if.then149, %if.else158, %while.end131, %while.body
   %patternLen.addr.7 = phi i32 [ %patternLen.addr.0, %while.body ], [ %patternLen.addr.5, %while.end131 ], [ %patternLen.addr.6, %if.else158 ], [ %patternLen.addr.6, %if.then149 ]
   %pattern.addr.7 = phi ptr [ %pattern.addr.0, %while.body ], [ %pattern.addr.5, %while.end131 ], [ %pattern.addr.6, %if.else158 ], [ %pattern.addr.6, %if.then149 ]
-  %stringLen.addr.2 = add nsw i32 %stringLen.addr.0, -1
   %string.addr.2 = getelementptr inbounds i8, ptr %string.addr.0, i64 1
+  %stringLen.addr.2 = add nsw i32 %stringLen.addr.0, -1
   %incdec.ptr172 = getelementptr inbounds i8, ptr %pattern.addr.7, i64 1
   %dec173 = add nsw i32 %patternLen.addr.7, -1
   %cmp174 = icmp eq i32 %stringLen.addr.2, 0
@@ -924,8 +924,8 @@ if.end5:                                          ; preds = %if.then
   br label %if.end7
 
 if.end7:                                          ; preds = %entry, %if.end5
-  %dst.addr.0 = phi ptr [ %incdec.ptr, %if.end5 ], [ %dst, %entry ]
   %dstlen.addr.0 = phi i64 [ %dec, %if.end5 ], [ %dstlen, %entry ]
+  %dst.addr.0 = phi ptr [ %incdec.ptr, %if.end5 ], [ %dst, %entry ]
   %value.1 = phi i64 [ %sub, %if.end5 ], [ %svalue, %entry ]
   %negative.0 = phi i32 [ 1, %if.end5 ], [ 0, %entry ]
   %call = tail call i32 @ull2string(ptr noundef %dst.addr.0, i64 noundef %dstlen.addr.0, i64 noundef %value.1)
@@ -1735,8 +1735,8 @@ if.end5.i:                                        ; preds = %if.then.i
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end5.i, %if.then25
-  %dst.addr.0.i = phi ptr [ %incdec.ptr.i, %if.end5.i ], [ %buf, %if.then25 ]
   %dstlen.addr.0.i = phi i64 [ %dec.i, %if.end5.i ], [ %len, %if.then25 ]
+  %dst.addr.0.i = phi ptr [ %incdec.ptr.i, %if.end5.i ], [ %buf, %if.then25 ]
   %value.1.i = phi i64 [ %sub.i, %if.end5.i ], [ %conv.i, %if.then25 ]
   %negative.0.i = phi i32 [ 1, %if.end5.i ], [ 0, %if.then25 ]
   %call.i = tail call i32 @ull2string(ptr noundef %dst.addr.0.i, i64 noundef %dstlen.addr.0.i, i64 noundef %value.1.i)
@@ -1821,9 +1821,9 @@ if.end27:                                         ; preds = %if.then19
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end14, %if.end27
-  %dstlen.addr.0 = phi i64 [ %dec, %if.end27 ], [ %dstlen, %if.end14 ]
-  %value.1 = phi i64 [ %sub, %if.end27 ], [ %call, %if.end14 ]
   %negative.0 = phi i32 [ 1, %if.end27 ], [ 0, %if.end14 ]
+  %value.1 = phi i64 [ %sub, %if.end27 ], [ %call, %if.end14 ]
+  %dstlen.addr.0 = phi i64 [ %dec, %if.end27 ], [ %dstlen, %if.end14 ]
   %dst.addr.0 = phi ptr [ %incdec.ptr, %if.end27 ], [ %dst, %if.end14 ]
   %cmp17.i = icmp ult i64 %value.1, 10
   br i1 %cmp17.i, label %digits10.exit, label %if.end.i
@@ -3177,8 +3177,8 @@ cond.true:                                        ; preds = %if.end63
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %cond.true
-  %val.addr.0.i = phi i64 [ %uval.0, %cond.true ], [ %div.i, %do.body.i ]
   %buf.pn.i = phi ptr [ %arrayidx74, %cond.true ], [ %buf.addr.0.i, %do.body.i ]
+  %val.addr.0.i = phi i64 [ %uval.0, %cond.true ], [ %div.i, %do.body.i ]
   %buf.addr.0.i = getelementptr inbounds i8, ptr %buf.pn.i, i64 -1
   %rem.i = urem i64 %val.addr.0.i, 10
   %arrayidx.i = getelementptr inbounds [17 x i8], ptr @HEX, i64 0, i64 %rem.i
@@ -3206,8 +3206,8 @@ if.end9.i:                                        ; preds = %if.then4.i, %cond.f
   br label %do.body.i40
 
 do.body.i40:                                      ; preds = %do.body.i40, %if.end9.i
-  %val.addr.2.i = phi i64 [ %val.addr.1.i, %if.end9.i ], [ %div.i43, %do.body.i40 ]
   %buf.addr.0.i41 = phi ptr [ %incdec.ptr.i39, %if.end9.i ], [ %incdec.ptr12.i, %do.body.i40 ]
+  %val.addr.2.i = phi i64 [ %val.addr.1.i, %if.end9.i ], [ %div.i43, %do.body.i40 ]
   %rem.i42 = srem i64 %val.addr.2.i, %conv10.i
   %arrayidx11.i = getelementptr inbounds [17 x i8], ptr @HEX, i64 0, i64 %rem.i42
   %24 = load i8, ptr %arrayidx11.i, align 1

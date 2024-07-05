@@ -20,14 +20,14 @@ define noundef i32 @mca_topo_base_graph_get(ptr nocapture noundef readonly %0, i
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.025 = phi ptr [ %18, %.lr.ph ], [ %13, %5 ]
-  %.01924 = phi i32 [ %17, %.lr.ph ], [ 0, %5 ]
-  %.02223 = phi ptr [ %16, %.lr.ph ], [ %3, %5 ]
-  %15 = load i32, ptr %.025, align 4
-  %16 = getelementptr inbounds i8, ptr %.02223, i64 4
-  store i32 %15, ptr %.02223, align 4
-  %17 = add nuw nsw i32 %.01924, 1
-  %18 = getelementptr inbounds i8, ptr %.025, i64 4
+  %.025 = phi ptr [ %16, %.lr.ph ], [ %3, %5 ]
+  %.01924 = phi ptr [ %18, %.lr.ph ], [ %13, %5 ]
+  %.02023 = phi i32 [ %17, %.lr.ph ], [ 0, %5 ]
+  %15 = load i32, ptr %.01924, align 4
+  %16 = getelementptr inbounds i8, ptr %.025, i64 4
+  store i32 %15, ptr %.025, align 4
+  %17 = add nuw nsw i32 %.02023, 1
+  %18 = getelementptr inbounds i8, ptr %.01924, i64 4
   %exitcond.not = icmp eq i32 %17, %invariant.smin
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
@@ -58,12 +58,12 @@ define noundef i32 @mca_topo_base_graph_get(ptr nocapture noundef readonly %0, i
 
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %.lr.ph30
   %.128 = phi ptr [ %33, %.lr.ph30 ], [ %29, %.lr.ph30.preheader ]
-  %.12027 = phi i32 [ %32, %.lr.ph30 ], [ 0, %.lr.ph30.preheader ]
-  %.02126 = phi ptr [ %31, %.lr.ph30 ], [ %4, %.lr.ph30.preheader ]
+  %.12127 = phi i32 [ %32, %.lr.ph30 ], [ 0, %.lr.ph30.preheader ]
+  %.02226 = phi ptr [ %31, %.lr.ph30 ], [ %4, %.lr.ph30.preheader ]
   %30 = load i32, ptr %.128, align 4
-  %31 = getelementptr inbounds i8, ptr %.02126, i64 4
-  store i32 %30, ptr %.02126, align 4
-  %32 = add nuw nsw i32 %.12027, 1
+  %31 = getelementptr inbounds i8, ptr %.02226, i64 4
+  store i32 %30, ptr %.02226, align 4
+  %32 = add nuw nsw i32 %.12127, 1
   %33 = getelementptr inbounds i8, ptr %.128, i64 4
   %34 = load ptr, ptr %8, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 96

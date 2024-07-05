@@ -830,8 +830,8 @@ define i32 @mriStep_Nls(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %59
 
 59:                                               ; preds = %43, %46, %38, %39, %57
-  %.0.shrunk = phi i1 [ false, %57 ], [ true, %38 ], [ %42, %39 ], [ true, %43 ], [ %56, %46 ]
-  %.0 = zext i1 %.0.shrunk to i32
+  %.048.shrunk = phi i1 [ false, %57 ], [ true, %38 ], [ %42, %39 ], [ true, %43 ], [ %56, %46 ]
+  %.048 = zext i1 %.048.shrunk to i32
   %60 = getelementptr inbounds i8, ptr %6, i64 136
   %61 = load ptr, ptr %60, align 8
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %61) #4
@@ -847,7 +847,7 @@ define i32 @mriStep_Nls(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %70 = load ptr, ptr %60, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 240
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call i32 @SUNNonlinSolSolve(ptr noundef %67, ptr noundef %69, ptr noundef %70, ptr noundef %72, double noundef %63, i32 noundef %.0, ptr noundef nonnull %0) #4
+  %73 = tail call i32 @SUNNonlinSolSolve(ptr noundef %67, ptr noundef %69, ptr noundef %70, ptr noundef %72, double noundef %63, i32 noundef %.048, ptr noundef nonnull %0) #4
   %74 = load ptr, ptr %66, align 8
   %75 = call i32 @SUNNonlinSolGetNumIters(ptr noundef %74, ptr noundef nonnull %3) #4
   %76 = load i64, ptr %3, align 8
@@ -881,8 +881,8 @@ define i32 @mriStep_Nls(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %93
 
 93:                                               ; preds = %59, %92, %86, %8
-  %.048 = phi i32 [ -21, %8 ], [ 0, %86 ], [ %73, %92 ], [ 4, %59 ]
-  ret i32 %.048
+  %.0 = phi i32 [ -21, %8 ], [ 0, %86 ], [ %73, %92 ], [ 4, %59 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

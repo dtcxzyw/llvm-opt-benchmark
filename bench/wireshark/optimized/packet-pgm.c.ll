@@ -849,9 +849,9 @@ optsstr.exit:                                     ; preds = %proto_item_set_hidd
   br i1 %.not496.i, label %dissect_pgmopts.exit, label %.lr.ph495.i
 
 .lr.ph495.i:                                      ; preds = %286, %._crit_edge.thread.i
-  %.0426493.i = phi i16 [ %758, %._crit_edge.thread.i ], [ %287, %286 ]
-  %288 = zext i16 %.0426493.i to i32
-  %289 = icmp ult i16 %.0426493.i, 4
+  %.0427492.i = phi i16 [ %758, %._crit_edge.thread.i ], [ %287, %286 ]
+  %288 = zext i16 %.0427492.i to i32
+  %289 = icmp ult i16 %.0427492.i, 4
   br i1 %289, label %290, label %292
 
 290:                                              ; preds = %.lr.ph495.i
@@ -1132,7 +1132,7 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
 .lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %483
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %483 ], [ %indvars.iv.i.ph, %.lr.ph.i.outer ]
   %.0490.i = phi i32 [ %485, %483 ], [ 0, %.lr.ph.i.outer ]
-  %.0419489.i = phi i32 [ %484, %483 ], [ 0, %.lr.ph.i.outer ]
+  %.0421489.i = phi i32 [ %484, %483 ], [ 0, %.lr.ph.i.outer ]
   %459 = sub i32 8192, %.0490.i
   %460 = sext i32 %.0490.i to i64
   %461 = getelementptr i8, ptr %458, i64 %460
@@ -1154,7 +1154,7 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
 
 474:                                              ; preds = %469, %.lr.ph.i
   %475 = phi i32 [ %473, %469 ], [ %459, %.lr.ph.i ]
-  %exitcond = icmp eq i32 %.0419489.i, 7
+  %exitcond = icmp eq i32 %.0421489.i, 7
   br i1 %exitcond, label %476, label %483
 
 476:                                              ; preds = %474
@@ -1171,7 +1171,7 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
   br label %.thread
 
 483:                                              ; preds = %474
-  %484 = add nuw nsw i32 %.0419489.i, 1
+  %484 = add nuw nsw i32 %.0421489.i, 1
   %485 = add i32 %475, %.0490.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1594,7 +1594,7 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
 
 ._crit_edge.thread.i:                             ; preds = %.thread, %756, %728, %725, %701, %698, %695, %680, %648, %645, %613, %610, %586, %583, %580, %563, %539, %536, %533, %516, %493, %438, %415, %412, %paritystr.exit.i, %354, %324, %321
   %757 = zext i8 %297 to i16
-  %758 = sub i16 %.0426493.i, %757
+  %758 = sub i16 %.0427492.i, %757
   %759 = icmp ne i16 %758, 0
   %760 = select i1 %.not461.i, i1 %759, i1 false
   br i1 %760, label %.lr.ph495.i, label %dissect_pgmopts.exit, !llvm.loop !6
@@ -1646,8 +1646,8 @@ decode_pgm_ports.exit:                            ; preds = %762, %770, %774, %7
   br label %780
 
 780:                                              ; preds = %.sink.split286, %4
-  %.0188 = phi i32 [ 0, %4 ], [ %779, %.sink.split286 ]
-  ret i32 %.0188
+  %.0 = phi i32 [ 0, %4 ], [ %779, %.sink.split286 ]
+  ret i32 %.0
 }
 
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

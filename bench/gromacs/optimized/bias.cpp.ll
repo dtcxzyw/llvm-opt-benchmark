@@ -472,7 +472,7 @@ _ZNK3gmx10BiasParams17isSampleCoordStepEl.exit.thread: ; preds = %_ZNK3gmx8BiasG
 
 138:                                              ; preds = %_ZNK3gmx10BiasParams17isSampleCoordStepEl.exit, %112, %125
   %139 = phi i1 [ %103, %125 ], [ %103, %112 ], [ %100, %_ZNK3gmx10BiasParams17isSampleCoordStepEl.exit ]
-  %.053 = phi double [ %124, %125 ], [ %124, %112 ], [ 0.000000e+00, %_ZNK3gmx10BiasParams17isSampleCoordStepEl.exit ]
+  %.052 = phi double [ %124, %125 ], [ %124, %112 ], [ 0.000000e+00, %_ZNK3gmx10BiasParams17isSampleCoordStepEl.exit ]
   store double 0.000000e+00, ptr %7, align 8
   %140 = load i8, ptr %39, align 8
   %141 = trunc i8 %140 to i1
@@ -533,7 +533,7 @@ _ZNK3gmx10BiasParams17isSampleCoordStepEl.exit.thread: ; preds = %_ZNK3gmx8BiasG
   %182 = getelementptr inbounds i8, ptr %175, i64 %181
   store ptr %182, ptr %176, align 8
   tail call void @_ZNK3gmx9BiasState18calcConvolvedForceENS_8ArrayRefIKNS_9DimParamsEEERKNS_8BiasGridENS1_IKdEES9_NS1_IdEESA_(ptr noundef nonnull align 8 dereferenceable(216) %94, ptr %143, ptr %149, ptr noundef nonnull align 8 dereferenceable(48) %95, ptr %150, ptr %156, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %16, ptr noundef nonnull byval(%"class.gmx::ArrayRef.53") align 8 %17, ptr noundef nonnull byval(%"class.gmx::ArrayRef.53") align 8 %18)
-  %183 = fneg double %.053
+  %183 = fneg double %.052
   %184 = load double, ptr %38, align 8
   %185 = fmul double %184, %183
   br label %252
@@ -630,7 +630,7 @@ _ZNK3gmx10BiasParams17isSampleCoordStepEl.exit.thread: ; preds = %_ZNK3gmx8BiasG
   br label %252
 
 252:                                              ; preds = %211, %222, %164
-  %.052 = phi double [ %185, %164 ], [ %221, %222 ], [ %221, %211 ]
+  %.053 = phi double [ %185, %164 ], [ %221, %222 ], [ %221, %211 ]
   br i1 %.not125, label %_ZNK3gmx10BiasParams22isUpdateFreeEnergyStepEl.exit.thread, label %_ZNK3gmx10BiasParams22isUpdateFreeEnergyStepEl.exit
 
 _ZNK3gmx10BiasParams22isUpdateFreeEnergyStepEl.exit: ; preds = %252
@@ -680,7 +680,7 @@ _ZNK3gmx4Bias20forceCorrelationGridEv.exit:       ; preds = %262
   %284 = fneg double %283
   %285 = load double, ptr %38, align 8
   %286 = fmul double %285, %284
-  %287 = fsub double %286, %.052
+  %287 = fsub double %286, %.053
   store double %287, ptr %7, align 8
   br label %_ZNK3gmx10BiasParams22isUpdateFreeEnergyStepEl.exit.thread
 
@@ -842,7 +842,7 @@ _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit76:        ; preds = %.lr.ph.i.i.i.i.i.i6
   br label %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit76.thread
 
 _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit76.thread: ; preds = %._crit_edge.i.i.i.i.i.i58, %342, %_ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit76, %288, %_ZNK3gmx10BiasParams22isUpdateFreeEnergyStepEl.exit.thread
-  store double %.052, ptr %6, align 8
+  store double %.053, ptr %6, align 8
   %374 = icmp eq ptr %11, null
   br i1 %374, label %_ZN3gmx4Bias25warnForHistogramAnomaliesEdlP8_IO_FILE.exit, label %375
 

@@ -210,7 +210,7 @@ define internal i32 @dissect_roofnet(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .lr.ph:                                           ; preds = %.preheader, %55
   %indvars.iv = phi i32 [ %indvars.iv.next, %55 ], [ 1, %.preheader ]
-  %.02643 = phi i8 [ %79, %55 ], [ %48, %.preheader ]
+  %.02743 = phi i8 [ %79, %55 ], [ %48, %.preheader ]
   %.03942 = phi i32 [ %76, %55 ], [ %47, %.preheader ]
   %53 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03942) #2
   %54 = icmp slt i32 %53, 24
@@ -242,7 +242,7 @@ define internal i32 @dissect_roofnet(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @ptvcursor_free(ptr noundef %67) #2
   %77 = load i32, ptr @hf_roofnet_link_dst, align 4
   %78 = tail call ptr @proto_tree_add_ipv4(ptr noundef %62, i32 noundef %77, ptr noundef %0, i32 noundef %76, i32 noundef 4, i32 noundef %58) #2
-  %79 = add i8 %.02643, -1
+  %79 = add i8 %.02743, -1
   %.not = icmp eq i8 %79, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
@@ -281,8 +281,8 @@ define internal i32 @dissect_roofnet(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split
-  %.027 = phi i32 [ %96, %.loopexit.sink.split ], [ %.03942, %.lr.ph ]
-  ret i32 %.027
+  %.0 = phi i32 [ %96, %.loopexit.sink.split ], [ %.03942, %.lr.ph ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

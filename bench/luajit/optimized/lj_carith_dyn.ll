@@ -51,9 +51,9 @@ for.body.i:                                       ; preds = %for.body.i.backedge
   %tobool.not.i = phi i1 [ true, %for.cond.preheader.i ], [ false, %for.body.i.backedge ]
   %indvars.iv.i.sroa.phi = phi ptr [ %ca, %for.cond.preheader.i ], [ %indvars.iv.i.sroa.gep94, %for.body.i.backedge ]
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ 1, %for.body.i.backedge ]
+  %o.098.i = phi ptr [ %4, %for.cond.preheader.i ], [ %o.098.i.be, %for.body.i.backedge ]
   %ok.097.i = phi i32 [ 1, %for.cond.preheader.i ], [ %ok.097.i.be, %for.body.i.backedge ]
-  %o.096.i = phi ptr [ %4, %for.cond.preheader.i ], [ %o.096.i.be, %for.body.i.backedge ]
-  %6 = load i64, ptr %o.096.i, align 8
+  %6 = load i64, ptr %o.098.i, align 8
   %shr.i = ashr i64 %6, 47
   %cmp2.i = icmp eq i64 %shr.i, -11
   br i1 %cmp2.i, label %if.then4.i, label %if.else48.i
@@ -180,7 +180,7 @@ if.else72.i:                                      ; preds = %if.else61.i
   br i1 %cmp75.i, label %if.then77.i, label %for.inc.i.sink.split
 
 if.then77.i:                                      ; preds = %if.else72.i
-  %cond85.i = getelementptr inbounds i8, ptr %o.096.i, i64 %cmp78.i
+  %cond85.i = getelementptr inbounds i8, ptr %o.098.i, i64 %cmp78.i
   %24 = load i64, ptr %cond85.i, align 8
   %and88.i = and i64 %24, 140737488355327
   %25 = inttoptr i64 %and88.i to ptr
@@ -232,7 +232,7 @@ carith_checkarg.exit.thread:                      ; preds = %if.then105.i, %land
 
 for.inc.i.sink.split:                             ; preds = %if.else72.i, %if.end35.i, %if.then53.i, %if.then64.i
   %.sink135 = phi ptr [ %arrayidx.i.i, %if.then64.i ], [ %arrayidx.i148.i, %if.then53.i ], [ %ct.1.i, %if.end35.i ], [ null, %if.else72.i ]
-  %.sink = phi ptr [ null, %if.then64.i ], [ %o.096.i, %if.then53.i ], [ %p.0.i, %if.end35.i ], [ inttoptr (i64 1 to ptr), %if.else72.i ]
+  %.sink = phi ptr [ null, %if.then64.i ], [ %o.098.i, %if.then53.i ], [ %p.0.i, %if.end35.i ], [ inttoptr (i64 1 to ptr), %if.else72.i ]
   %ok.1.i.ph = phi i32 [ %ok.097.i, %if.then64.i ], [ %ok.097.i, %if.then53.i ], [ %ok.097.i, %if.end35.i ], [ 0, %if.else72.i ]
   %arrayidx136.i = getelementptr inbounds [2 x ptr], ptr %ct134.i, i64 0, i64 %indvars.iv.i
   store ptr %.sink135, ptr %arrayidx136.i, align 8
@@ -245,7 +245,7 @@ for.inc.i:                                        ; preds = %for.inc.i.sink.spli
 
 for.body.i.backedge:                              ; preds = %for.inc.i, %for.inc.i.thread
   %ok.097.i.be = phi i32 [ %ok.1.i, %for.inc.i ], [ 1, %for.inc.i.thread ]
-  %o.096.i.be = getelementptr inbounds i8, ptr %o.096.i, i64 8
+  %o.098.i.be = getelementptr inbounds i8, ptr %o.098.i, i64 8
   br label %for.body.i, !llvm.loop !6
 
 for.inc.i.thread:                                 ; preds = %land.lhs.true.i

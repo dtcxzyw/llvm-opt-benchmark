@@ -646,7 +646,7 @@ define dso_local void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_stri
   %.073 = phi i64 [ %17, %15 ], [ 0, %3 ]
   %.04672 = phi ptr [ %.1, %15 ], [ null, %3 ]
   %.04771 = phi i64 [ %.148, %15 ], [ 0, %3 ]
-  %.05070 = phi i64 [ %.151, %15 ], [ 0, %3 ]
+  %.04970 = phi i64 [ %.150, %15 ], [ 0, %3 ]
   %.05269 = phi ptr [ %18, %15 ], [ %1, %3 ]
   %5 = getelementptr inbounds i8, ptr %.05269, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -673,7 +673,7 @@ define dso_local void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_stri
   br label %15
 
 15:                                               ; preds = %12, %8, %.lr.ph
-  %.151 = phi i64 [ %.073, %12 ], [ %.05070, %8 ], [ %.05070, %.lr.ph ]
+  %.150 = phi i64 [ %.073, %12 ], [ %.04970, %8 ], [ %.04970, %.lr.ph ]
   %.148 = phi i64 [ %14, %12 ], [ %.04771, %8 ], [ %.04771, %.lr.ph ]
   %.1 = phi ptr [ %13, %12 ], [ %.04672, %8 ], [ %.04672, %.lr.ph ]
   %16 = load i64, ptr %.05269, align 8
@@ -699,14 +699,14 @@ define dso_local void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_stri
 23:                                               ; preds = %._crit_edge.thread, %._crit_edge, %19, %21
   %.0.lcssa91 = phi i64 [ %17, %21 ], [ %17, %19 ], [ %17, %._crit_edge ], [ 0, %._crit_edge.thread ]
   %.047.lcssa90 = phi i64 [ %.148, %21 ], [ %.148, %19 ], [ %.148, %._crit_edge ], [ 0, %._crit_edge.thread ]
-  %.050.lcssa89 = phi i64 [ %.151, %21 ], [ %.151, %19 ], [ %.151, %._crit_edge ], [ 0, %._crit_edge.thread ]
+  %.049.lcssa89 = phi i64 [ %.150, %21 ], [ %.150, %19 ], [ %.150, %._crit_edge ], [ 0, %._crit_edge.thread ]
   %.2 = phi ptr [ %.1, %21 ], [ null, %19 ], [ null, %._crit_edge ], [ null, %._crit_edge.thread ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0.lcssa91)
           to label %24 unwind label %39
 
 24:                                               ; preds = %23
   %25 = icmp ne ptr %.2, null
-  %26 = icmp ne i64 %.050.lcssa89, 0
+  %26 = icmp ne i64 %.049.lcssa89, 0
   %or.cond = select i1 %25, i1 %26, i1 false
   br i1 %or.cond, label %27, label %_ZSt13copy_backwardIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ET0_T_SB_SA_.exit
 
@@ -723,7 +723,7 @@ define dso_local void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_stri
   %34 = ptrtoint ptr %28 to i64
   %35 = sub i64 %33, %34
   %.pre.i.i.i.i.i = sub i64 0, %35
-  %36 = getelementptr inbounds i8, ptr %31, i64 %.050.lcssa89
+  %36 = getelementptr inbounds i8, ptr %31, i64 %.049.lcssa89
   %37 = getelementptr inbounds i8, ptr %36, i64 %.047.lcssa90
   %38 = getelementptr inbounds i8, ptr %37, i64 %.pre.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %28, i64 %35, i1 false)
@@ -743,20 +743,20 @@ _ZSt13copy_backwardIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIc
   br i1 %25, label %.lr.ph80.split.us, label %.lr.ph80.split
 
 .lr.ph80.split.us:                                ; preds = %.lr.ph80, %_ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit.us
-  %.04979.us = phi ptr [ %53, %_ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit.us ], [ %1, %.lr.ph80 ]
+  %.05179.us = phi ptr [ %53, %_ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit.us ], [ %1, %.lr.ph80 ]
   %.sroa.059.078.us = phi ptr [ %.sroa.059.1.us, %_ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit.us ], [ %41, %.lr.ph80 ]
-  %42 = getelementptr inbounds i8, ptr %.04979.us, i64 16
+  %42 = getelementptr inbounds i8, ptr %.05179.us, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, %.2
   br i1 %44, label %51, label %45
 
 45:                                               ; preds = %.lr.ph80.split.us
-  %46 = load i64, ptr %.04979.us, align 8
+  %46 = load i64, ptr %.05179.us, align 8
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %_ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit.us, label %_ZSt8__copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_St26random_access_iterator_tag.exit.i.us
 
 _ZSt8__copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_St26random_access_iterator_tag.exit.i.us: ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %.04979.us, i64 8
+  %48 = getelementptr inbounds i8, ptr %.05179.us, i64 8
   %49 = load ptr, ptr %48, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.059.078.us, ptr align 1 %49, i64 %46, i1 false)
   %50 = getelementptr inbounds i8, ptr %.sroa.059.078.us, i64 %46
@@ -768,19 +768,19 @@ _ZSt8__copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt
 
 _ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit.us: ; preds = %51, %_ZSt8__copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_St26random_access_iterator_tag.exit.i.us, %45
   %.sroa.059.1.us = phi ptr [ %52, %51 ], [ %50, %_ZSt8__copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_St26random_access_iterator_tag.exit.i.us ], [ %.sroa.059.078.us, %45 ]
-  %53 = getelementptr inbounds i8, ptr %.04979.us, i64 24
+  %53 = getelementptr inbounds i8, ptr %.05179.us, i64 24
   %.not56.us = icmp eq ptr %53, %4
   br i1 %.not56.us, label %._crit_edge81, label %.lr.ph80.split.us
 
 .lr.ph80.split:                                   ; preds = %.lr.ph80, %_ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit
-  %.04979 = phi ptr [ %59, %_ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit ], [ %1, %.lr.ph80 ]
+  %.05179 = phi ptr [ %59, %_ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit ], [ %1, %.lr.ph80 ]
   %.sroa.059.078 = phi ptr [ %.sroa.059.1, %_ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit ], [ %41, %.lr.ph80 ]
-  %54 = load i64, ptr %.04979, align 8
+  %54 = load i64, ptr %.05179, align 8
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %_ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit, label %_ZSt8__copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_St26random_access_iterator_tag.exit.i
 
 _ZSt8__copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_St26random_access_iterator_tag.exit.i: ; preds = %.lr.ph80.split
-  %56 = getelementptr inbounds i8, ptr %.04979, i64 8
+  %56 = getelementptr inbounds i8, ptr %.05179, i64 8
   %57 = load ptr, ptr %56, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.059.078, ptr align 1 %57, i64 %54, i1 false)
   %58 = getelementptr inbounds i8, ptr %.sroa.059.078, i64 %54
@@ -788,7 +788,7 @@ _ZSt8__copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt
 
 _ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit: ; preds = %.lr.ph80.split, %_ZSt8__copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_St26random_access_iterator_tag.exit.i
   %.sroa.059.1 = phi ptr [ %58, %_ZSt8__copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_St26random_access_iterator_tag.exit.i ], [ %.sroa.059.078, %.lr.ph80.split ]
-  %59 = getelementptr inbounds i8, ptr %.04979, i64 24
+  %59 = getelementptr inbounds i8, ptr %.05179, i64 24
   %.not56 = icmp eq ptr %59, %4
   br i1 %.not56, label %._crit_edge81, label %.lr.ph80.split
 

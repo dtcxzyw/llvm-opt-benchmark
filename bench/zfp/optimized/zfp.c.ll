@@ -2655,20 +2655,20 @@ define internal void @compress_strided_int32_2(ptr noundef %0, ptr nocapture nou
   br i1 %.not52, label %.preheader, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.046.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %14 = mul nsw i64 %.046.us, %13
+  %.03846.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %14 = mul nsw i64 %.03846.us, %13
   %invariant.gep.us = getelementptr i32, ptr %4, i64 %14
-  %15 = sub i64 %8, %.046.us
+  %15 = sub i64 %8, %.03846.us
   %.fr = freeze i64 %15
   %16 = icmp ult i64 %.fr, 4
   %17 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %16, label %.lr.ph.split.us.us, label %.lr.ph.split.us51
 
 .lr.ph.split.us51:                                ; preds = %.preheader.us, %25
-  %.03845.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
-  %18 = mul nsw i64 %.03845.us48, %spec.select
+  %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
+  %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr i32, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.03845.us48
+  %19 = sub i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -2681,29 +2681,29 @@ define internal void @compress_strided_int32_2(ptr noundef %0, ptr nocapture nou
   br label %25
 
 25:                                               ; preds = %23, %21
-  %26 = add i64 %.03845.us48, 4
+  %26 = add i64 %.045.us48, 4
   %27 = icmp ult i64 %26, %6
   br i1 %27, label %.lr.ph.split.us51, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %25, %.lr.ph.split.us.us
-  %28 = add i64 %.046.us, 4
+  %28 = add i64 %.03846.us, 4
   %29 = icmp ult i64 %28, %8
   br i1 %29, label %.preheader.us, label %._crit_edge47
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us
-  %.03845.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
-  %30 = mul nsw i64 %.03845.us.us, %spec.select
+  %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
+  %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr i32, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.03845.us.us
+  %31 = sub i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_encode_partial_block_strided_int32_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
-  %34 = add i64 %.03845.us.us, 4
+  %34 = add i64 %.045.us.us, 4
   %35 = icmp ult i64 %34, %6
   br i1 %35, label %.lr.ph.split.us.us, label %._crit_edge.us
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.046 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
-  %36 = add i64 %.046, 4
+  %.03846 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
+  %36 = add i64 %.03846, 4
   %37 = icmp ult i64 %36, %8
   br i1 %37, label %.preheader, label %._crit_edge47
 
@@ -2734,20 +2734,20 @@ define internal void @compress_strided_int64_2(ptr noundef %0, ptr nocapture nou
   br i1 %.not52, label %.preheader, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.046.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %14 = mul nsw i64 %.046.us, %13
+  %.03846.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %14 = mul nsw i64 %.03846.us, %13
   %invariant.gep.us = getelementptr i64, ptr %4, i64 %14
-  %15 = sub i64 %8, %.046.us
+  %15 = sub i64 %8, %.03846.us
   %.fr = freeze i64 %15
   %16 = icmp ult i64 %.fr, 4
   %17 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %16, label %.lr.ph.split.us.us, label %.lr.ph.split.us51
 
 .lr.ph.split.us51:                                ; preds = %.preheader.us, %25
-  %.03845.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
-  %18 = mul nsw i64 %.03845.us48, %spec.select
+  %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
+  %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr i64, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.03845.us48
+  %19 = sub i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -2760,29 +2760,29 @@ define internal void @compress_strided_int64_2(ptr noundef %0, ptr nocapture nou
   br label %25
 
 25:                                               ; preds = %23, %21
-  %26 = add i64 %.03845.us48, 4
+  %26 = add i64 %.045.us48, 4
   %27 = icmp ult i64 %26, %6
   br i1 %27, label %.lr.ph.split.us51, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %25, %.lr.ph.split.us.us
-  %28 = add i64 %.046.us, 4
+  %28 = add i64 %.03846.us, 4
   %29 = icmp ult i64 %28, %8
   br i1 %29, label %.preheader.us, label %._crit_edge47
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us
-  %.03845.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
-  %30 = mul nsw i64 %.03845.us.us, %spec.select
+  %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
+  %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr i64, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.03845.us.us
+  %31 = sub i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_encode_partial_block_strided_int64_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
-  %34 = add i64 %.03845.us.us, 4
+  %34 = add i64 %.045.us.us, 4
   %35 = icmp ult i64 %34, %6
   br i1 %35, label %.lr.ph.split.us.us, label %._crit_edge.us
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.046 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
-  %36 = add i64 %.046, 4
+  %.03846 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
+  %36 = add i64 %.03846, 4
   %37 = icmp ult i64 %36, %8
   br i1 %37, label %.preheader, label %._crit_edge47
 
@@ -2813,20 +2813,20 @@ define internal void @compress_strided_float_2(ptr noundef %0, ptr nocapture nou
   br i1 %.not52, label %.preheader, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.046.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %14 = mul nsw i64 %.046.us, %13
+  %.03846.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %14 = mul nsw i64 %.03846.us, %13
   %invariant.gep.us = getelementptr float, ptr %4, i64 %14
-  %15 = sub i64 %8, %.046.us
+  %15 = sub i64 %8, %.03846.us
   %.fr = freeze i64 %15
   %16 = icmp ult i64 %.fr, 4
   %17 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %16, label %.lr.ph.split.us.us, label %.lr.ph.split.us51
 
 .lr.ph.split.us51:                                ; preds = %.preheader.us, %25
-  %.03845.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
-  %18 = mul nsw i64 %.03845.us48, %spec.select
+  %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
+  %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr float, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.03845.us48
+  %19 = sub i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -2839,29 +2839,29 @@ define internal void @compress_strided_float_2(ptr noundef %0, ptr nocapture nou
   br label %25
 
 25:                                               ; preds = %23, %21
-  %26 = add i64 %.03845.us48, 4
+  %26 = add i64 %.045.us48, 4
   %27 = icmp ult i64 %26, %6
   br i1 %27, label %.lr.ph.split.us51, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %25, %.lr.ph.split.us.us
-  %28 = add i64 %.046.us, 4
+  %28 = add i64 %.03846.us, 4
   %29 = icmp ult i64 %28, %8
   br i1 %29, label %.preheader.us, label %._crit_edge47
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us
-  %.03845.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
-  %30 = mul nsw i64 %.03845.us.us, %spec.select
+  %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
+  %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr float, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.03845.us.us
+  %31 = sub i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_encode_partial_block_strided_float_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
-  %34 = add i64 %.03845.us.us, 4
+  %34 = add i64 %.045.us.us, 4
   %35 = icmp ult i64 %34, %6
   br i1 %35, label %.lr.ph.split.us.us, label %._crit_edge.us
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.046 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
-  %36 = add i64 %.046, 4
+  %.03846 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
+  %36 = add i64 %.03846, 4
   %37 = icmp ult i64 %36, %8
   br i1 %37, label %.preheader, label %._crit_edge47
 
@@ -2892,20 +2892,20 @@ define internal void @compress_strided_double_2(ptr noundef %0, ptr nocapture no
   br i1 %.not52, label %.preheader, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.046.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %14 = mul nsw i64 %.046.us, %13
+  %.03846.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %14 = mul nsw i64 %.03846.us, %13
   %invariant.gep.us = getelementptr double, ptr %4, i64 %14
-  %15 = sub i64 %8, %.046.us
+  %15 = sub i64 %8, %.03846.us
   %.fr = freeze i64 %15
   %16 = icmp ult i64 %.fr, 4
   %17 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %16, label %.lr.ph.split.us.us, label %.lr.ph.split.us51
 
 .lr.ph.split.us51:                                ; preds = %.preheader.us, %25
-  %.03845.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
-  %18 = mul nsw i64 %.03845.us48, %spec.select
+  %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
+  %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr double, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.03845.us48
+  %19 = sub i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -2918,29 +2918,29 @@ define internal void @compress_strided_double_2(ptr noundef %0, ptr nocapture no
   br label %25
 
 25:                                               ; preds = %23, %21
-  %26 = add i64 %.03845.us48, 4
+  %26 = add i64 %.045.us48, 4
   %27 = icmp ult i64 %26, %6
   br i1 %27, label %.lr.ph.split.us51, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %25, %.lr.ph.split.us.us
-  %28 = add i64 %.046.us, 4
+  %28 = add i64 %.03846.us, 4
   %29 = icmp ult i64 %28, %8
   br i1 %29, label %.preheader.us, label %._crit_edge47
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us
-  %.03845.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
-  %30 = mul nsw i64 %.03845.us.us, %spec.select
+  %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
+  %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr double, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.03845.us.us
+  %31 = sub i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_encode_partial_block_strided_double_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
-  %34 = add i64 %.03845.us.us, 4
+  %34 = add i64 %.045.us.us, 4
   %35 = icmp ult i64 %34, %6
   br i1 %35, label %.lr.ph.split.us.us, label %._crit_edge.us
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.046 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
-  %36 = add i64 %.046, 4
+  %.03846 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
+  %36 = add i64 %.03846, 4
   %37 = icmp ult i64 %36, %8
   br i1 %37, label %.preheader, label %._crit_edge47
 
@@ -2982,54 +2982,54 @@ define internal void @compress_strided_int32_3(ptr noundef %0, ptr nocapture nou
   br i1 %.not87, label %.preheader69.us, label %.preheader69.us.us
 
 .preheader69.us.us:                               ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us.us.us
-  %.081.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
-  %20 = mul nsw i64 %.081.us.us, %19
+  %.05681.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
+  %20 = mul nsw i64 %.05681.us.us, %19
   %invariant.gep76.us.us = getelementptr i32, ptr %4, i64 %20
-  %21 = sub i64 %10, %.081.us.us
+  %21 = sub i64 %10, %.05681.us.us
   %.fr = freeze i64 %21
   %22 = icmp ult i64 %.fr, 4
   %23 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %22, label %.preheader.us.us.us.us, label %.preheader.us.us.us
 
 .preheader.us.us.us.us:                           ; preds = %.preheader69.us.us, %._crit_edge.split.us.us.us.us.us
-  %.05674.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
-  %24 = mul nsw i64 %.05674.us.us.us.us, %15
+  %.05774.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
+  %24 = mul nsw i64 %.05774.us.us.us.us, %15
   %gep.us.us.us.us = getelementptr i32, ptr %invariant.gep76.us.us, i64 %24
-  %25 = sub i64 %8, %.05674.us.us.us.us
+  %25 = sub i64 %8, %.05774.us.us.us.us
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 4)
   br label %27
 
 27:                                               ; preds = %27, %.preheader.us.us.us.us
-  %.05770.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
-  %28 = mul nsw i64 %.05770.us.us.us.us.us, %spec.select
+  %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
+  %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr i32, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.05770.us.us.us.us.us
+  %29 = sub i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_encode_partial_block_strided_int32_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %32 = add i64 %.05770.us.us.us.us.us, 4
+  %32 = add i64 %.070.us.us.us.us.us, 4
   %33 = icmp ult i64 %32, %6
   br i1 %33, label %27, label %._crit_edge.split.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us:                 ; preds = %27
-  %34 = add i64 %.05674.us.us.us.us, 4
+  %34 = add i64 %.05774.us.us.us.us, 4
   %35 = icmp ult i64 %34, %8
   br i1 %35, label %.preheader.us.us.us.us, label %._crit_edge75.split.us.us.us
 
 .preheader.us.us.us:                              ; preds = %.preheader69.us.us, %._crit_edge.us.us.us
-  %.05674.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
-  %36 = mul nsw i64 %.05674.us.us.us, %15
+  %.05774.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
+  %36 = mul nsw i64 %.05774.us.us.us, %15
   %gep.us.us.us = getelementptr i32, ptr %invariant.gep76.us.us, i64 %36
-  %37 = sub i64 %8, %.05674.us.us.us
+  %37 = sub i64 %8, %.05774.us.us.us
   %.fr88 = freeze i64 %37
   %38 = icmp ult i64 %.fr88, 4
   %39 = tail call i64 @llvm.umin.i64(i64 %.fr88, i64 4)
   br i1 %38, label %.lr.ph.split.us.us.us.us, label %.lr.ph.split.us80.us.us
 
 .lr.ph.split.us80.us.us:                          ; preds = %.preheader.us.us.us, %47
-  %.05770.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
-  %40 = mul nsw i64 %.05770.us77.us.us, %spec.select
+  %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
+  %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr i32, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.05770.us77.us.us
+  %41 = sub i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -3042,49 +3042,49 @@ define internal void @compress_strided_int32_3(ptr noundef %0, ptr nocapture nou
   br label %47
 
 47:                                               ; preds = %45, %43
-  %48 = add i64 %.05770.us77.us.us, 4
+  %48 = add i64 %.070.us77.us.us, 4
   %49 = icmp ult i64 %48, %6
   br i1 %49, label %.lr.ph.split.us80.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge.us.us.us:                             ; preds = %47, %.lr.ph.split.us.us.us.us
-  %50 = add i64 %.05674.us.us.us, 4
+  %50 = add i64 %.05774.us.us.us, 4
   %51 = icmp ult i64 %50, %8
   br i1 %51, label %.preheader.us.us.us, label %._crit_edge75.split.us.us.us
 
 .lr.ph.split.us.us.us.us:                         ; preds = %.preheader.us.us.us, %.lr.ph.split.us.us.us.us
-  %.05770.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
-  %52 = mul nsw i64 %.05770.us.us.us.us, %spec.select
+  %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
+  %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr i32, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.05770.us.us.us.us
+  %53 = sub i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_encode_partial_block_strided_int32_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %56 = add i64 %.05770.us.us.us.us, 4
+  %56 = add i64 %.070.us.us.us.us, 4
   %57 = icmp ult i64 %56, %6
   br i1 %57, label %.lr.ph.split.us.us.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge75.split.us.us.us:                     ; preds = %._crit_edge.us.us.us, %._crit_edge.split.us.us.us.us.us
-  %58 = add i64 %.081.us.us, 4
+  %58 = add i64 %.05681.us.us, 4
   %59 = icmp ult i64 %58, %10
   br i1 %59, label %.preheader69.us.us, label %._crit_edge
 
 .preheader69.us:                                  ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us84
-  %.081.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
+  %.05681.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
   br label %.preheader.us82
 
 .preheader.us82:                                  ; preds = %.preheader69.us, %.preheader.us82
-  %.05674.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
-  %60 = add i64 %.05674.us83, 4
+  %.05774.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
+  %60 = add i64 %.05774.us83, 4
   %61 = icmp ult i64 %60, %8
   br i1 %61, label %.preheader.us82, label %._crit_edge75.split.us84
 
 ._crit_edge75.split.us84:                         ; preds = %.preheader.us82
-  %62 = add i64 %.081.us, 4
+  %62 = add i64 %.05681.us, 4
   %63 = icmp ult i64 %62, %10
   br i1 %63, label %.preheader69.us, label %._crit_edge
 
 .preheader69:                                     ; preds = %.preheader69.lr.ph, %.preheader69
-  %.081 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
-  %64 = add i64 %.081, 4
+  %.05681 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
+  %64 = add i64 %.05681, 4
   %65 = icmp ult i64 %64, %10
   br i1 %65, label %.preheader69, label %._crit_edge
 
@@ -3126,54 +3126,54 @@ define internal void @compress_strided_int64_3(ptr noundef %0, ptr nocapture nou
   br i1 %.not87, label %.preheader69.us, label %.preheader69.us.us
 
 .preheader69.us.us:                               ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us.us.us
-  %.081.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
-  %20 = mul nsw i64 %.081.us.us, %19
+  %.05681.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
+  %20 = mul nsw i64 %.05681.us.us, %19
   %invariant.gep76.us.us = getelementptr i64, ptr %4, i64 %20
-  %21 = sub i64 %10, %.081.us.us
+  %21 = sub i64 %10, %.05681.us.us
   %.fr = freeze i64 %21
   %22 = icmp ult i64 %.fr, 4
   %23 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %22, label %.preheader.us.us.us.us, label %.preheader.us.us.us
 
 .preheader.us.us.us.us:                           ; preds = %.preheader69.us.us, %._crit_edge.split.us.us.us.us.us
-  %.05674.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
-  %24 = mul nsw i64 %.05674.us.us.us.us, %15
+  %.05774.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
+  %24 = mul nsw i64 %.05774.us.us.us.us, %15
   %gep.us.us.us.us = getelementptr i64, ptr %invariant.gep76.us.us, i64 %24
-  %25 = sub i64 %8, %.05674.us.us.us.us
+  %25 = sub i64 %8, %.05774.us.us.us.us
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 4)
   br label %27
 
 27:                                               ; preds = %27, %.preheader.us.us.us.us
-  %.05770.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
-  %28 = mul nsw i64 %.05770.us.us.us.us.us, %spec.select
+  %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
+  %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr i64, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.05770.us.us.us.us.us
+  %29 = sub i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_encode_partial_block_strided_int64_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %32 = add i64 %.05770.us.us.us.us.us, 4
+  %32 = add i64 %.070.us.us.us.us.us, 4
   %33 = icmp ult i64 %32, %6
   br i1 %33, label %27, label %._crit_edge.split.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us:                 ; preds = %27
-  %34 = add i64 %.05674.us.us.us.us, 4
+  %34 = add i64 %.05774.us.us.us.us, 4
   %35 = icmp ult i64 %34, %8
   br i1 %35, label %.preheader.us.us.us.us, label %._crit_edge75.split.us.us.us
 
 .preheader.us.us.us:                              ; preds = %.preheader69.us.us, %._crit_edge.us.us.us
-  %.05674.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
-  %36 = mul nsw i64 %.05674.us.us.us, %15
+  %.05774.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
+  %36 = mul nsw i64 %.05774.us.us.us, %15
   %gep.us.us.us = getelementptr i64, ptr %invariant.gep76.us.us, i64 %36
-  %37 = sub i64 %8, %.05674.us.us.us
+  %37 = sub i64 %8, %.05774.us.us.us
   %.fr88 = freeze i64 %37
   %38 = icmp ult i64 %.fr88, 4
   %39 = tail call i64 @llvm.umin.i64(i64 %.fr88, i64 4)
   br i1 %38, label %.lr.ph.split.us.us.us.us, label %.lr.ph.split.us80.us.us
 
 .lr.ph.split.us80.us.us:                          ; preds = %.preheader.us.us.us, %47
-  %.05770.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
-  %40 = mul nsw i64 %.05770.us77.us.us, %spec.select
+  %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
+  %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr i64, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.05770.us77.us.us
+  %41 = sub i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -3186,49 +3186,49 @@ define internal void @compress_strided_int64_3(ptr noundef %0, ptr nocapture nou
   br label %47
 
 47:                                               ; preds = %45, %43
-  %48 = add i64 %.05770.us77.us.us, 4
+  %48 = add i64 %.070.us77.us.us, 4
   %49 = icmp ult i64 %48, %6
   br i1 %49, label %.lr.ph.split.us80.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge.us.us.us:                             ; preds = %47, %.lr.ph.split.us.us.us.us
-  %50 = add i64 %.05674.us.us.us, 4
+  %50 = add i64 %.05774.us.us.us, 4
   %51 = icmp ult i64 %50, %8
   br i1 %51, label %.preheader.us.us.us, label %._crit_edge75.split.us.us.us
 
 .lr.ph.split.us.us.us.us:                         ; preds = %.preheader.us.us.us, %.lr.ph.split.us.us.us.us
-  %.05770.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
-  %52 = mul nsw i64 %.05770.us.us.us.us, %spec.select
+  %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
+  %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr i64, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.05770.us.us.us.us
+  %53 = sub i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_encode_partial_block_strided_int64_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %56 = add i64 %.05770.us.us.us.us, 4
+  %56 = add i64 %.070.us.us.us.us, 4
   %57 = icmp ult i64 %56, %6
   br i1 %57, label %.lr.ph.split.us.us.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge75.split.us.us.us:                     ; preds = %._crit_edge.us.us.us, %._crit_edge.split.us.us.us.us.us
-  %58 = add i64 %.081.us.us, 4
+  %58 = add i64 %.05681.us.us, 4
   %59 = icmp ult i64 %58, %10
   br i1 %59, label %.preheader69.us.us, label %._crit_edge
 
 .preheader69.us:                                  ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us84
-  %.081.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
+  %.05681.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
   br label %.preheader.us82
 
 .preheader.us82:                                  ; preds = %.preheader69.us, %.preheader.us82
-  %.05674.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
-  %60 = add i64 %.05674.us83, 4
+  %.05774.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
+  %60 = add i64 %.05774.us83, 4
   %61 = icmp ult i64 %60, %8
   br i1 %61, label %.preheader.us82, label %._crit_edge75.split.us84
 
 ._crit_edge75.split.us84:                         ; preds = %.preheader.us82
-  %62 = add i64 %.081.us, 4
+  %62 = add i64 %.05681.us, 4
   %63 = icmp ult i64 %62, %10
   br i1 %63, label %.preheader69.us, label %._crit_edge
 
 .preheader69:                                     ; preds = %.preheader69.lr.ph, %.preheader69
-  %.081 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
-  %64 = add i64 %.081, 4
+  %.05681 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
+  %64 = add i64 %.05681, 4
   %65 = icmp ult i64 %64, %10
   br i1 %65, label %.preheader69, label %._crit_edge
 
@@ -3270,54 +3270,54 @@ define internal void @compress_strided_float_3(ptr noundef %0, ptr nocapture nou
   br i1 %.not87, label %.preheader69.us, label %.preheader69.us.us
 
 .preheader69.us.us:                               ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us.us.us
-  %.081.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
-  %20 = mul nsw i64 %.081.us.us, %19
+  %.05681.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
+  %20 = mul nsw i64 %.05681.us.us, %19
   %invariant.gep76.us.us = getelementptr float, ptr %4, i64 %20
-  %21 = sub i64 %10, %.081.us.us
+  %21 = sub i64 %10, %.05681.us.us
   %.fr = freeze i64 %21
   %22 = icmp ult i64 %.fr, 4
   %23 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %22, label %.preheader.us.us.us.us, label %.preheader.us.us.us
 
 .preheader.us.us.us.us:                           ; preds = %.preheader69.us.us, %._crit_edge.split.us.us.us.us.us
-  %.05674.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
-  %24 = mul nsw i64 %.05674.us.us.us.us, %15
+  %.05774.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
+  %24 = mul nsw i64 %.05774.us.us.us.us, %15
   %gep.us.us.us.us = getelementptr float, ptr %invariant.gep76.us.us, i64 %24
-  %25 = sub i64 %8, %.05674.us.us.us.us
+  %25 = sub i64 %8, %.05774.us.us.us.us
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 4)
   br label %27
 
 27:                                               ; preds = %27, %.preheader.us.us.us.us
-  %.05770.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
-  %28 = mul nsw i64 %.05770.us.us.us.us.us, %spec.select
+  %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
+  %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr float, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.05770.us.us.us.us.us
+  %29 = sub i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_encode_partial_block_strided_float_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %32 = add i64 %.05770.us.us.us.us.us, 4
+  %32 = add i64 %.070.us.us.us.us.us, 4
   %33 = icmp ult i64 %32, %6
   br i1 %33, label %27, label %._crit_edge.split.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us:                 ; preds = %27
-  %34 = add i64 %.05674.us.us.us.us, 4
+  %34 = add i64 %.05774.us.us.us.us, 4
   %35 = icmp ult i64 %34, %8
   br i1 %35, label %.preheader.us.us.us.us, label %._crit_edge75.split.us.us.us
 
 .preheader.us.us.us:                              ; preds = %.preheader69.us.us, %._crit_edge.us.us.us
-  %.05674.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
-  %36 = mul nsw i64 %.05674.us.us.us, %15
+  %.05774.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
+  %36 = mul nsw i64 %.05774.us.us.us, %15
   %gep.us.us.us = getelementptr float, ptr %invariant.gep76.us.us, i64 %36
-  %37 = sub i64 %8, %.05674.us.us.us
+  %37 = sub i64 %8, %.05774.us.us.us
   %.fr88 = freeze i64 %37
   %38 = icmp ult i64 %.fr88, 4
   %39 = tail call i64 @llvm.umin.i64(i64 %.fr88, i64 4)
   br i1 %38, label %.lr.ph.split.us.us.us.us, label %.lr.ph.split.us80.us.us
 
 .lr.ph.split.us80.us.us:                          ; preds = %.preheader.us.us.us, %47
-  %.05770.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
-  %40 = mul nsw i64 %.05770.us77.us.us, %spec.select
+  %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
+  %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr float, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.05770.us77.us.us
+  %41 = sub i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -3330,49 +3330,49 @@ define internal void @compress_strided_float_3(ptr noundef %0, ptr nocapture nou
   br label %47
 
 47:                                               ; preds = %45, %43
-  %48 = add i64 %.05770.us77.us.us, 4
+  %48 = add i64 %.070.us77.us.us, 4
   %49 = icmp ult i64 %48, %6
   br i1 %49, label %.lr.ph.split.us80.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge.us.us.us:                             ; preds = %47, %.lr.ph.split.us.us.us.us
-  %50 = add i64 %.05674.us.us.us, 4
+  %50 = add i64 %.05774.us.us.us, 4
   %51 = icmp ult i64 %50, %8
   br i1 %51, label %.preheader.us.us.us, label %._crit_edge75.split.us.us.us
 
 .lr.ph.split.us.us.us.us:                         ; preds = %.preheader.us.us.us, %.lr.ph.split.us.us.us.us
-  %.05770.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
-  %52 = mul nsw i64 %.05770.us.us.us.us, %spec.select
+  %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
+  %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr float, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.05770.us.us.us.us
+  %53 = sub i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_encode_partial_block_strided_float_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %56 = add i64 %.05770.us.us.us.us, 4
+  %56 = add i64 %.070.us.us.us.us, 4
   %57 = icmp ult i64 %56, %6
   br i1 %57, label %.lr.ph.split.us.us.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge75.split.us.us.us:                     ; preds = %._crit_edge.us.us.us, %._crit_edge.split.us.us.us.us.us
-  %58 = add i64 %.081.us.us, 4
+  %58 = add i64 %.05681.us.us, 4
   %59 = icmp ult i64 %58, %10
   br i1 %59, label %.preheader69.us.us, label %._crit_edge
 
 .preheader69.us:                                  ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us84
-  %.081.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
+  %.05681.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
   br label %.preheader.us82
 
 .preheader.us82:                                  ; preds = %.preheader69.us, %.preheader.us82
-  %.05674.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
-  %60 = add i64 %.05674.us83, 4
+  %.05774.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
+  %60 = add i64 %.05774.us83, 4
   %61 = icmp ult i64 %60, %8
   br i1 %61, label %.preheader.us82, label %._crit_edge75.split.us84
 
 ._crit_edge75.split.us84:                         ; preds = %.preheader.us82
-  %62 = add i64 %.081.us, 4
+  %62 = add i64 %.05681.us, 4
   %63 = icmp ult i64 %62, %10
   br i1 %63, label %.preheader69.us, label %._crit_edge
 
 .preheader69:                                     ; preds = %.preheader69.lr.ph, %.preheader69
-  %.081 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
-  %64 = add i64 %.081, 4
+  %.05681 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
+  %64 = add i64 %.05681, 4
   %65 = icmp ult i64 %64, %10
   br i1 %65, label %.preheader69, label %._crit_edge
 
@@ -3414,54 +3414,54 @@ define internal void @compress_strided_double_3(ptr noundef %0, ptr nocapture no
   br i1 %.not87, label %.preheader69.us, label %.preheader69.us.us
 
 .preheader69.us.us:                               ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us.us.us
-  %.081.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
-  %20 = mul nsw i64 %.081.us.us, %19
+  %.05681.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
+  %20 = mul nsw i64 %.05681.us.us, %19
   %invariant.gep76.us.us = getelementptr double, ptr %4, i64 %20
-  %21 = sub i64 %10, %.081.us.us
+  %21 = sub i64 %10, %.05681.us.us
   %.fr = freeze i64 %21
   %22 = icmp ult i64 %.fr, 4
   %23 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %22, label %.preheader.us.us.us.us, label %.preheader.us.us.us
 
 .preheader.us.us.us.us:                           ; preds = %.preheader69.us.us, %._crit_edge.split.us.us.us.us.us
-  %.05674.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
-  %24 = mul nsw i64 %.05674.us.us.us.us, %15
+  %.05774.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
+  %24 = mul nsw i64 %.05774.us.us.us.us, %15
   %gep.us.us.us.us = getelementptr double, ptr %invariant.gep76.us.us, i64 %24
-  %25 = sub i64 %8, %.05674.us.us.us.us
+  %25 = sub i64 %8, %.05774.us.us.us.us
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 4)
   br label %27
 
 27:                                               ; preds = %27, %.preheader.us.us.us.us
-  %.05770.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
-  %28 = mul nsw i64 %.05770.us.us.us.us.us, %spec.select
+  %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
+  %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr double, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.05770.us.us.us.us.us
+  %29 = sub i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_encode_partial_block_strided_double_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %32 = add i64 %.05770.us.us.us.us.us, 4
+  %32 = add i64 %.070.us.us.us.us.us, 4
   %33 = icmp ult i64 %32, %6
   br i1 %33, label %27, label %._crit_edge.split.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us:                 ; preds = %27
-  %34 = add i64 %.05674.us.us.us.us, 4
+  %34 = add i64 %.05774.us.us.us.us, 4
   %35 = icmp ult i64 %34, %8
   br i1 %35, label %.preheader.us.us.us.us, label %._crit_edge75.split.us.us.us
 
 .preheader.us.us.us:                              ; preds = %.preheader69.us.us, %._crit_edge.us.us.us
-  %.05674.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
-  %36 = mul nsw i64 %.05674.us.us.us, %15
+  %.05774.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
+  %36 = mul nsw i64 %.05774.us.us.us, %15
   %gep.us.us.us = getelementptr double, ptr %invariant.gep76.us.us, i64 %36
-  %37 = sub i64 %8, %.05674.us.us.us
+  %37 = sub i64 %8, %.05774.us.us.us
   %.fr88 = freeze i64 %37
   %38 = icmp ult i64 %.fr88, 4
   %39 = tail call i64 @llvm.umin.i64(i64 %.fr88, i64 4)
   br i1 %38, label %.lr.ph.split.us.us.us.us, label %.lr.ph.split.us80.us.us
 
 .lr.ph.split.us80.us.us:                          ; preds = %.preheader.us.us.us, %47
-  %.05770.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
-  %40 = mul nsw i64 %.05770.us77.us.us, %spec.select
+  %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
+  %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr double, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.05770.us77.us.us
+  %41 = sub i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -3474,49 +3474,49 @@ define internal void @compress_strided_double_3(ptr noundef %0, ptr nocapture no
   br label %47
 
 47:                                               ; preds = %45, %43
-  %48 = add i64 %.05770.us77.us.us, 4
+  %48 = add i64 %.070.us77.us.us, 4
   %49 = icmp ult i64 %48, %6
   br i1 %49, label %.lr.ph.split.us80.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge.us.us.us:                             ; preds = %47, %.lr.ph.split.us.us.us.us
-  %50 = add i64 %.05674.us.us.us, 4
+  %50 = add i64 %.05774.us.us.us, 4
   %51 = icmp ult i64 %50, %8
   br i1 %51, label %.preheader.us.us.us, label %._crit_edge75.split.us.us.us
 
 .lr.ph.split.us.us.us.us:                         ; preds = %.preheader.us.us.us, %.lr.ph.split.us.us.us.us
-  %.05770.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
-  %52 = mul nsw i64 %.05770.us.us.us.us, %spec.select
+  %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
+  %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr double, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.05770.us.us.us.us
+  %53 = sub i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_encode_partial_block_strided_double_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %56 = add i64 %.05770.us.us.us.us, 4
+  %56 = add i64 %.070.us.us.us.us, 4
   %57 = icmp ult i64 %56, %6
   br i1 %57, label %.lr.ph.split.us.us.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge75.split.us.us.us:                     ; preds = %._crit_edge.us.us.us, %._crit_edge.split.us.us.us.us.us
-  %58 = add i64 %.081.us.us, 4
+  %58 = add i64 %.05681.us.us, 4
   %59 = icmp ult i64 %58, %10
   br i1 %59, label %.preheader69.us.us, label %._crit_edge
 
 .preheader69.us:                                  ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us84
-  %.081.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
+  %.05681.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
   br label %.preheader.us82
 
 .preheader.us82:                                  ; preds = %.preheader69.us, %.preheader.us82
-  %.05674.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
-  %60 = add i64 %.05674.us83, 4
+  %.05774.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
+  %60 = add i64 %.05774.us83, 4
   %61 = icmp ult i64 %60, %8
   br i1 %61, label %.preheader.us82, label %._crit_edge75.split.us84
 
 ._crit_edge75.split.us84:                         ; preds = %.preheader.us82
-  %62 = add i64 %.081.us, 4
+  %62 = add i64 %.05681.us, 4
   %63 = icmp ult i64 %62, %10
   br i1 %63, label %.preheader69.us, label %._crit_edge
 
 .preheader69:                                     ; preds = %.preheader69.lr.ph, %.preheader69
-  %.081 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
-  %64 = add i64 %.081, 4
+  %.05681 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
+  %64 = add i64 %.05681, 4
   %65 = icmp ult i64 %64, %10
   br i1 %65, label %.preheader69, label %._crit_edge
 
@@ -3569,77 +3569,77 @@ define internal void @compress_strided_int32_4(ptr noundef %0, ptr nocapture nou
   br i1 %.not137, label %.preheader95.us.us, label %.preheader95.us.us.us
 
 .preheader95.us.us.us:                            ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us.us.us.us
-  %.0117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
-  %26 = mul nsw i64 %.0117.us.us.us, %25
+  %.075117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %26 = mul nsw i64 %.075117.us.us.us, %25
   %invariant.gep112.us.us.us = getelementptr i32, ptr %4, i64 %26
-  %27 = sub i64 %12, %.0117.us.us.us
+  %27 = sub i64 %12, %.075117.us.us.us
   %.fr = freeze i64 %27
   %28 = icmp ult i64 %.fr, 4
   %29 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %28, label %.preheader94.us.us.us.us.us.us, label %.preheader94.us.us.us.us.us
 
 .preheader94.us.us.us.us.us.us:                   ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %.075111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %30 = mul nsw i64 %.075111.us.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %30 = mul nsw i64 %.076111.us.us.us.us.us.us, %21
   %gep.us.us.us.us.us.us = getelementptr i32, ptr %invariant.gep112.us.us.us, i64 %30
-  %31 = sub i64 %10, %.075111.us.us.us.us.us.us
+  %31 = sub i64 %10, %.076111.us.us.us.us.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   br label %.preheader.us.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us.us:               ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us, %.preheader94.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
-  %33 = mul nsw i64 %.076102.us.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
+  %33 = mul nsw i64 %.077102.us.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us.us = getelementptr i32, ptr %gep.us.us.us.us.us.us, i64 %33
-  %34 = sub i64 %8, %.076102.us.us.us.us.us.us.us.us
+  %34 = sub i64 %8, %.077102.us.us.us.us.us.us.us.us
   %35 = tail call i64 @llvm.umin.i64(i64 %34, i64 4)
   br label %36
 
 36:                                               ; preds = %36, %.preheader.us.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
-  %37 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
+  %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr i32, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us.us
+  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_encode_partial_block_strided_int32_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %41 = add i64 %.07796.us.us.us.us.us.us.us.us.us, 4
+  %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
   %42 = icmp ult i64 %41, %6
   br i1 %42, label %36, label %._crit_edge.split.us.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us.us:     ; preds = %36
-  %43 = add i64 %.076102.us.us.us.us.us.us.us.us, 4
+  %43 = add i64 %.077102.us.us.us.us.us.us.us.us, 4
   %44 = icmp ult i64 %43, %8
   br i1 %44, label %.preheader.us.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.split.us.us.us.us.us
 
 ._crit_edge103.split.us.us.us.split.us.us.us.us.us: ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us
-  %45 = add i64 %.075111.us.us.us.us.us.us, 4
+  %45 = add i64 %.076111.us.us.us.us.us.us, 4
   %46 = icmp ult i64 %45, %10
   br i1 %46, label %.preheader94.us.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader94.us.us.us.us.us:                      ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.us.us.us
-  %.075111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %47 = mul nsw i64 %.075111.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %47 = mul nsw i64 %.076111.us.us.us.us.us, %21
   %gep.us.us.us.us.us = getelementptr i32, ptr %invariant.gep112.us.us.us, i64 %47
-  %48 = sub i64 %10, %.075111.us.us.us.us.us
+  %48 = sub i64 %10, %.076111.us.us.us.us.us
   %.fr138 = freeze i64 %48
   %49 = icmp ult i64 %.fr138, 4
   %50 = tail call i64 @llvm.umin.i64(i64 %.fr138, i64 4)
   br i1 %49, label %.preheader.us.us.us.us.us.us.us, label %.preheader.us.us.us.us127.us.us
 
 .preheader.us.us.us.us127.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.us.us.us.us.us.us
-  %.076102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %51 = mul nsw i64 %.076102.us.us.us.us128.us.us, %17
+  %.077102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %51 = mul nsw i64 %.077102.us.us.us.us128.us.us, %17
   %gep106.us.us.us.us129.us.us = getelementptr i32, ptr %gep.us.us.us.us.us, i64 %51
-  %52 = sub i64 %8, %.076102.us.us.us.us128.us.us
+  %52 = sub i64 %8, %.077102.us.us.us.us128.us.us
   %.fr139 = freeze i64 %52
   %53 = icmp ult i64 %.fr139, 4
   %54 = tail call i64 @llvm.umin.i64(i64 %.fr139, i64 4)
   br i1 %53, label %.lr.ph.split.us.us.us.us.us.us.us, label %.lr.ph.split.us110.us.us.us.us.us
 
 .lr.ph.split.us110.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %62
-  %.07796.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %55 = mul nsw i64 %.07796.us107.us.us.us.us.us, %spec.select
+  %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr i32, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.07796.us107.us.us.us.us.us
+  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -3652,102 +3652,102 @@ define internal void @compress_strided_int32_4(ptr noundef %0, ptr nocapture nou
   br label %62
 
 62:                                               ; preds = %60, %58
-  %63 = add i64 %.07796.us107.us.us.us.us.us, 4
+  %63 = add i64 %.096.us107.us.us.us.us.us, 4
   %64 = icmp ult i64 %63, %6
   br i1 %64, label %.lr.ph.split.us110.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.us.us.us.us.us.us:                    ; preds = %62, %.lr.ph.split.us.us.us.us.us.us.us
-  %65 = add i64 %.076102.us.us.us.us128.us.us, 4
+  %65 = add i64 %.077102.us.us.us.us128.us.us, 4
   %66 = icmp ult i64 %65, %8
   br i1 %66, label %.preheader.us.us.us.us127.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .lr.ph.split.us.us.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %.lr.ph.split.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %67 = mul nsw i64 %.07796.us.us.us.us.us130.us.us, %spec.select
+  %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr i32, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.07796.us.us.us.us.us130.us.us
+  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_encode_partial_block_strided_int32_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %71 = add i64 %.07796.us.us.us.us.us130.us.us, 4
+  %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
   %72 = icmp ult i64 %71, %6
   br i1 %72, label %.lr.ph.split.us.us.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.split.us.split.us.us.us.us:           ; preds = %._crit_edge103.split.us.us.us.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %73 = add i64 %.0117.us.us.us, 4
+  %73 = add i64 %.075117.us.us.us, 4
   %74 = icmp ult i64 %73, %12
   br i1 %74, label %.preheader95.us.us.us, label %._crit_edge118
 
 ._crit_edge103.split.us.us.us.us.us.us:           ; preds = %._crit_edge.us.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %75 = add i64 %.075111.us.us.us.us.us, 4
+  %75 = add i64 %.076111.us.us.us.us.us, 4
   %76 = icmp ult i64 %75, %10
   br i1 %76, label %.preheader94.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %77 = mul nsw i64 %.076102.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %77 = mul nsw i64 %.077102.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us = getelementptr i32, ptr %gep.us.us.us.us.us, i64 %77
-  %78 = sub i64 %8, %.076102.us.us.us.us.us.us.us
+  %78 = sub i64 %8, %.077102.us.us.us.us.us.us.us
   %79 = tail call i64 @llvm.umin.i64(i64 %78, i64 4)
   br label %80
 
 80:                                               ; preds = %80, %.preheader.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
-  %81 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
+  %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr i32, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us
+  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_encode_partial_block_strided_int32_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %85 = add i64 %.07796.us.us.us.us.us.us.us.us, 4
+  %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
   %86 = icmp ult i64 %85, %6
   br i1 %86, label %80, label %._crit_edge.split.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us:        ; preds = %80
-  %87 = add i64 %.076102.us.us.us.us.us.us.us, 4
+  %87 = add i64 %.077102.us.us.us.us.us.us.us, 4
   %88 = icmp ult i64 %87, %8
   br i1 %88, label %.preheader.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .preheader95.us.us:                               ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us125.us
-  %.0117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %.075117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
   br label %.preheader94.us.us123.us
 
 .preheader94.us.us123.us:                         ; preds = %.preheader95.us.us, %._crit_edge103.split.us115.us.us
-  %.075111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
+  %.076111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
   br label %.preheader.us113.us.us
 
 .preheader.us113.us.us:                           ; preds = %.preheader.us113.us.us, %.preheader94.us.us123.us
-  %.076102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
-  %89 = add i64 %.076102.us114.us.us, 4
+  %.077102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
+  %89 = add i64 %.077102.us114.us.us, 4
   %90 = icmp ult i64 %89, %8
   br i1 %90, label %.preheader.us113.us.us, label %._crit_edge103.split.us115.us.us
 
 ._crit_edge103.split.us115.us.us:                 ; preds = %.preheader.us113.us.us
-  %91 = add i64 %.075111.us.us124.us, 4
+  %91 = add i64 %.076111.us.us124.us, 4
   %92 = icmp ult i64 %91, %10
   br i1 %92, label %.preheader94.us.us123.us, label %._crit_edge.split.us.split.us125.us
 
 ._crit_edge.split.us.split.us125.us:              ; preds = %._crit_edge103.split.us115.us.us
-  %93 = add i64 %.0117.us.us, 4
+  %93 = add i64 %.075117.us.us, 4
   %94 = icmp ult i64 %93, %12
   br i1 %94, label %.preheader95.us.us, label %._crit_edge118
 
 .preheader95.us:                                  ; preds = %.preheader95.lr.ph.split.us, %._crit_edge.split.us121
-  %.0117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
+  %.075117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
   br label %.preheader94.us119
 
 .preheader94.us119:                               ; preds = %.preheader95.us, %.preheader94.us119
-  %.075111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
-  %95 = add i64 %.075111.us120, 4
+  %.076111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
+  %95 = add i64 %.076111.us120, 4
   %96 = icmp ult i64 %95, %10
   br i1 %96, label %.preheader94.us119, label %._crit_edge.split.us121
 
 ._crit_edge.split.us121:                          ; preds = %.preheader94.us119
-  %97 = add i64 %.0117.us, 4
+  %97 = add i64 %.075117.us, 4
   %98 = icmp ult i64 %97, %12
   br i1 %98, label %.preheader95.us, label %._crit_edge118
 
 .preheader95:                                     ; preds = %.preheader95.lr.ph, %.preheader95
-  %.0117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
-  %99 = add i64 %.0117, 4
+  %.075117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
+  %99 = add i64 %.075117, 4
   %100 = icmp ult i64 %99, %12
   br i1 %100, label %.preheader95, label %._crit_edge118
 
@@ -3800,77 +3800,77 @@ define internal void @compress_strided_int64_4(ptr noundef %0, ptr nocapture nou
   br i1 %.not137, label %.preheader95.us.us, label %.preheader95.us.us.us
 
 .preheader95.us.us.us:                            ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us.us.us.us
-  %.0117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
-  %26 = mul nsw i64 %.0117.us.us.us, %25
+  %.075117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %26 = mul nsw i64 %.075117.us.us.us, %25
   %invariant.gep112.us.us.us = getelementptr i64, ptr %4, i64 %26
-  %27 = sub i64 %12, %.0117.us.us.us
+  %27 = sub i64 %12, %.075117.us.us.us
   %.fr = freeze i64 %27
   %28 = icmp ult i64 %.fr, 4
   %29 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %28, label %.preheader94.us.us.us.us.us.us, label %.preheader94.us.us.us.us.us
 
 .preheader94.us.us.us.us.us.us:                   ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %.075111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %30 = mul nsw i64 %.075111.us.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %30 = mul nsw i64 %.076111.us.us.us.us.us.us, %21
   %gep.us.us.us.us.us.us = getelementptr i64, ptr %invariant.gep112.us.us.us, i64 %30
-  %31 = sub i64 %10, %.075111.us.us.us.us.us.us
+  %31 = sub i64 %10, %.076111.us.us.us.us.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   br label %.preheader.us.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us.us:               ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us, %.preheader94.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
-  %33 = mul nsw i64 %.076102.us.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
+  %33 = mul nsw i64 %.077102.us.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us.us = getelementptr i64, ptr %gep.us.us.us.us.us.us, i64 %33
-  %34 = sub i64 %8, %.076102.us.us.us.us.us.us.us.us
+  %34 = sub i64 %8, %.077102.us.us.us.us.us.us.us.us
   %35 = tail call i64 @llvm.umin.i64(i64 %34, i64 4)
   br label %36
 
 36:                                               ; preds = %36, %.preheader.us.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
-  %37 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
+  %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr i64, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us.us
+  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_encode_partial_block_strided_int64_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %41 = add i64 %.07796.us.us.us.us.us.us.us.us.us, 4
+  %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
   %42 = icmp ult i64 %41, %6
   br i1 %42, label %36, label %._crit_edge.split.us.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us.us:     ; preds = %36
-  %43 = add i64 %.076102.us.us.us.us.us.us.us.us, 4
+  %43 = add i64 %.077102.us.us.us.us.us.us.us.us, 4
   %44 = icmp ult i64 %43, %8
   br i1 %44, label %.preheader.us.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.split.us.us.us.us.us
 
 ._crit_edge103.split.us.us.us.split.us.us.us.us.us: ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us
-  %45 = add i64 %.075111.us.us.us.us.us.us, 4
+  %45 = add i64 %.076111.us.us.us.us.us.us, 4
   %46 = icmp ult i64 %45, %10
   br i1 %46, label %.preheader94.us.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader94.us.us.us.us.us:                      ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.us.us.us
-  %.075111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %47 = mul nsw i64 %.075111.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %47 = mul nsw i64 %.076111.us.us.us.us.us, %21
   %gep.us.us.us.us.us = getelementptr i64, ptr %invariant.gep112.us.us.us, i64 %47
-  %48 = sub i64 %10, %.075111.us.us.us.us.us
+  %48 = sub i64 %10, %.076111.us.us.us.us.us
   %.fr138 = freeze i64 %48
   %49 = icmp ult i64 %.fr138, 4
   %50 = tail call i64 @llvm.umin.i64(i64 %.fr138, i64 4)
   br i1 %49, label %.preheader.us.us.us.us.us.us.us, label %.preheader.us.us.us.us127.us.us
 
 .preheader.us.us.us.us127.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.us.us.us.us.us.us
-  %.076102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %51 = mul nsw i64 %.076102.us.us.us.us128.us.us, %17
+  %.077102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %51 = mul nsw i64 %.077102.us.us.us.us128.us.us, %17
   %gep106.us.us.us.us129.us.us = getelementptr i64, ptr %gep.us.us.us.us.us, i64 %51
-  %52 = sub i64 %8, %.076102.us.us.us.us128.us.us
+  %52 = sub i64 %8, %.077102.us.us.us.us128.us.us
   %.fr139 = freeze i64 %52
   %53 = icmp ult i64 %.fr139, 4
   %54 = tail call i64 @llvm.umin.i64(i64 %.fr139, i64 4)
   br i1 %53, label %.lr.ph.split.us.us.us.us.us.us.us, label %.lr.ph.split.us110.us.us.us.us.us
 
 .lr.ph.split.us110.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %62
-  %.07796.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %55 = mul nsw i64 %.07796.us107.us.us.us.us.us, %spec.select
+  %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr i64, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.07796.us107.us.us.us.us.us
+  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -3883,102 +3883,102 @@ define internal void @compress_strided_int64_4(ptr noundef %0, ptr nocapture nou
   br label %62
 
 62:                                               ; preds = %60, %58
-  %63 = add i64 %.07796.us107.us.us.us.us.us, 4
+  %63 = add i64 %.096.us107.us.us.us.us.us, 4
   %64 = icmp ult i64 %63, %6
   br i1 %64, label %.lr.ph.split.us110.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.us.us.us.us.us.us:                    ; preds = %62, %.lr.ph.split.us.us.us.us.us.us.us
-  %65 = add i64 %.076102.us.us.us.us128.us.us, 4
+  %65 = add i64 %.077102.us.us.us.us128.us.us, 4
   %66 = icmp ult i64 %65, %8
   br i1 %66, label %.preheader.us.us.us.us127.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .lr.ph.split.us.us.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %.lr.ph.split.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %67 = mul nsw i64 %.07796.us.us.us.us.us130.us.us, %spec.select
+  %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr i64, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.07796.us.us.us.us.us130.us.us
+  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_encode_partial_block_strided_int64_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %71 = add i64 %.07796.us.us.us.us.us130.us.us, 4
+  %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
   %72 = icmp ult i64 %71, %6
   br i1 %72, label %.lr.ph.split.us.us.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.split.us.split.us.us.us.us:           ; preds = %._crit_edge103.split.us.us.us.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %73 = add i64 %.0117.us.us.us, 4
+  %73 = add i64 %.075117.us.us.us, 4
   %74 = icmp ult i64 %73, %12
   br i1 %74, label %.preheader95.us.us.us, label %._crit_edge118
 
 ._crit_edge103.split.us.us.us.us.us.us:           ; preds = %._crit_edge.us.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %75 = add i64 %.075111.us.us.us.us.us, 4
+  %75 = add i64 %.076111.us.us.us.us.us, 4
   %76 = icmp ult i64 %75, %10
   br i1 %76, label %.preheader94.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %77 = mul nsw i64 %.076102.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %77 = mul nsw i64 %.077102.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us = getelementptr i64, ptr %gep.us.us.us.us.us, i64 %77
-  %78 = sub i64 %8, %.076102.us.us.us.us.us.us.us
+  %78 = sub i64 %8, %.077102.us.us.us.us.us.us.us
   %79 = tail call i64 @llvm.umin.i64(i64 %78, i64 4)
   br label %80
 
 80:                                               ; preds = %80, %.preheader.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
-  %81 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
+  %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr i64, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us
+  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_encode_partial_block_strided_int64_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %85 = add i64 %.07796.us.us.us.us.us.us.us.us, 4
+  %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
   %86 = icmp ult i64 %85, %6
   br i1 %86, label %80, label %._crit_edge.split.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us:        ; preds = %80
-  %87 = add i64 %.076102.us.us.us.us.us.us.us, 4
+  %87 = add i64 %.077102.us.us.us.us.us.us.us, 4
   %88 = icmp ult i64 %87, %8
   br i1 %88, label %.preheader.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .preheader95.us.us:                               ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us125.us
-  %.0117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %.075117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
   br label %.preheader94.us.us123.us
 
 .preheader94.us.us123.us:                         ; preds = %.preheader95.us.us, %._crit_edge103.split.us115.us.us
-  %.075111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
+  %.076111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
   br label %.preheader.us113.us.us
 
 .preheader.us113.us.us:                           ; preds = %.preheader.us113.us.us, %.preheader94.us.us123.us
-  %.076102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
-  %89 = add i64 %.076102.us114.us.us, 4
+  %.077102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
+  %89 = add i64 %.077102.us114.us.us, 4
   %90 = icmp ult i64 %89, %8
   br i1 %90, label %.preheader.us113.us.us, label %._crit_edge103.split.us115.us.us
 
 ._crit_edge103.split.us115.us.us:                 ; preds = %.preheader.us113.us.us
-  %91 = add i64 %.075111.us.us124.us, 4
+  %91 = add i64 %.076111.us.us124.us, 4
   %92 = icmp ult i64 %91, %10
   br i1 %92, label %.preheader94.us.us123.us, label %._crit_edge.split.us.split.us125.us
 
 ._crit_edge.split.us.split.us125.us:              ; preds = %._crit_edge103.split.us115.us.us
-  %93 = add i64 %.0117.us.us, 4
+  %93 = add i64 %.075117.us.us, 4
   %94 = icmp ult i64 %93, %12
   br i1 %94, label %.preheader95.us.us, label %._crit_edge118
 
 .preheader95.us:                                  ; preds = %.preheader95.lr.ph.split.us, %._crit_edge.split.us121
-  %.0117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
+  %.075117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
   br label %.preheader94.us119
 
 .preheader94.us119:                               ; preds = %.preheader95.us, %.preheader94.us119
-  %.075111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
-  %95 = add i64 %.075111.us120, 4
+  %.076111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
+  %95 = add i64 %.076111.us120, 4
   %96 = icmp ult i64 %95, %10
   br i1 %96, label %.preheader94.us119, label %._crit_edge.split.us121
 
 ._crit_edge.split.us121:                          ; preds = %.preheader94.us119
-  %97 = add i64 %.0117.us, 4
+  %97 = add i64 %.075117.us, 4
   %98 = icmp ult i64 %97, %12
   br i1 %98, label %.preheader95.us, label %._crit_edge118
 
 .preheader95:                                     ; preds = %.preheader95.lr.ph, %.preheader95
-  %.0117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
-  %99 = add i64 %.0117, 4
+  %.075117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
+  %99 = add i64 %.075117, 4
   %100 = icmp ult i64 %99, %12
   br i1 %100, label %.preheader95, label %._crit_edge118
 
@@ -4031,77 +4031,77 @@ define internal void @compress_strided_float_4(ptr noundef %0, ptr nocapture nou
   br i1 %.not137, label %.preheader95.us.us, label %.preheader95.us.us.us
 
 .preheader95.us.us.us:                            ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us.us.us.us
-  %.0117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
-  %26 = mul nsw i64 %.0117.us.us.us, %25
+  %.075117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %26 = mul nsw i64 %.075117.us.us.us, %25
   %invariant.gep112.us.us.us = getelementptr float, ptr %4, i64 %26
-  %27 = sub i64 %12, %.0117.us.us.us
+  %27 = sub i64 %12, %.075117.us.us.us
   %.fr = freeze i64 %27
   %28 = icmp ult i64 %.fr, 4
   %29 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %28, label %.preheader94.us.us.us.us.us.us, label %.preheader94.us.us.us.us.us
 
 .preheader94.us.us.us.us.us.us:                   ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %.075111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %30 = mul nsw i64 %.075111.us.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %30 = mul nsw i64 %.076111.us.us.us.us.us.us, %21
   %gep.us.us.us.us.us.us = getelementptr float, ptr %invariant.gep112.us.us.us, i64 %30
-  %31 = sub i64 %10, %.075111.us.us.us.us.us.us
+  %31 = sub i64 %10, %.076111.us.us.us.us.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   br label %.preheader.us.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us.us:               ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us, %.preheader94.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
-  %33 = mul nsw i64 %.076102.us.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
+  %33 = mul nsw i64 %.077102.us.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep.us.us.us.us.us.us, i64 %33
-  %34 = sub i64 %8, %.076102.us.us.us.us.us.us.us.us
+  %34 = sub i64 %8, %.077102.us.us.us.us.us.us.us.us
   %35 = tail call i64 @llvm.umin.i64(i64 %34, i64 4)
   br label %36
 
 36:                                               ; preds = %36, %.preheader.us.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
-  %37 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
+  %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us.us
+  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_encode_partial_block_strided_float_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %41 = add i64 %.07796.us.us.us.us.us.us.us.us.us, 4
+  %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
   %42 = icmp ult i64 %41, %6
   br i1 %42, label %36, label %._crit_edge.split.us.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us.us:     ; preds = %36
-  %43 = add i64 %.076102.us.us.us.us.us.us.us.us, 4
+  %43 = add i64 %.077102.us.us.us.us.us.us.us.us, 4
   %44 = icmp ult i64 %43, %8
   br i1 %44, label %.preheader.us.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.split.us.us.us.us.us
 
 ._crit_edge103.split.us.us.us.split.us.us.us.us.us: ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us
-  %45 = add i64 %.075111.us.us.us.us.us.us, 4
+  %45 = add i64 %.076111.us.us.us.us.us.us, 4
   %46 = icmp ult i64 %45, %10
   br i1 %46, label %.preheader94.us.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader94.us.us.us.us.us:                      ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.us.us.us
-  %.075111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %47 = mul nsw i64 %.075111.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %47 = mul nsw i64 %.076111.us.us.us.us.us, %21
   %gep.us.us.us.us.us = getelementptr float, ptr %invariant.gep112.us.us.us, i64 %47
-  %48 = sub i64 %10, %.075111.us.us.us.us.us
+  %48 = sub i64 %10, %.076111.us.us.us.us.us
   %.fr138 = freeze i64 %48
   %49 = icmp ult i64 %.fr138, 4
   %50 = tail call i64 @llvm.umin.i64(i64 %.fr138, i64 4)
   br i1 %49, label %.preheader.us.us.us.us.us.us.us, label %.preheader.us.us.us.us127.us.us
 
 .preheader.us.us.us.us127.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.us.us.us.us.us.us
-  %.076102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %51 = mul nsw i64 %.076102.us.us.us.us128.us.us, %17
+  %.077102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %51 = mul nsw i64 %.077102.us.us.us.us128.us.us, %17
   %gep106.us.us.us.us129.us.us = getelementptr float, ptr %gep.us.us.us.us.us, i64 %51
-  %52 = sub i64 %8, %.076102.us.us.us.us128.us.us
+  %52 = sub i64 %8, %.077102.us.us.us.us128.us.us
   %.fr139 = freeze i64 %52
   %53 = icmp ult i64 %.fr139, 4
   %54 = tail call i64 @llvm.umin.i64(i64 %.fr139, i64 4)
   br i1 %53, label %.lr.ph.split.us.us.us.us.us.us.us, label %.lr.ph.split.us110.us.us.us.us.us
 
 .lr.ph.split.us110.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %62
-  %.07796.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %55 = mul nsw i64 %.07796.us107.us.us.us.us.us, %spec.select
+  %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr float, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.07796.us107.us.us.us.us.us
+  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -4114,102 +4114,102 @@ define internal void @compress_strided_float_4(ptr noundef %0, ptr nocapture nou
   br label %62
 
 62:                                               ; preds = %60, %58
-  %63 = add i64 %.07796.us107.us.us.us.us.us, 4
+  %63 = add i64 %.096.us107.us.us.us.us.us, 4
   %64 = icmp ult i64 %63, %6
   br i1 %64, label %.lr.ph.split.us110.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.us.us.us.us.us.us:                    ; preds = %62, %.lr.ph.split.us.us.us.us.us.us.us
-  %65 = add i64 %.076102.us.us.us.us128.us.us, 4
+  %65 = add i64 %.077102.us.us.us.us128.us.us, 4
   %66 = icmp ult i64 %65, %8
   br i1 %66, label %.preheader.us.us.us.us127.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .lr.ph.split.us.us.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %.lr.ph.split.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %67 = mul nsw i64 %.07796.us.us.us.us.us130.us.us, %spec.select
+  %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr float, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.07796.us.us.us.us.us130.us.us
+  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_encode_partial_block_strided_float_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %71 = add i64 %.07796.us.us.us.us.us130.us.us, 4
+  %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
   %72 = icmp ult i64 %71, %6
   br i1 %72, label %.lr.ph.split.us.us.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.split.us.split.us.us.us.us:           ; preds = %._crit_edge103.split.us.us.us.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %73 = add i64 %.0117.us.us.us, 4
+  %73 = add i64 %.075117.us.us.us, 4
   %74 = icmp ult i64 %73, %12
   br i1 %74, label %.preheader95.us.us.us, label %._crit_edge118
 
 ._crit_edge103.split.us.us.us.us.us.us:           ; preds = %._crit_edge.us.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %75 = add i64 %.075111.us.us.us.us.us, 4
+  %75 = add i64 %.076111.us.us.us.us.us, 4
   %76 = icmp ult i64 %75, %10
   br i1 %76, label %.preheader94.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %77 = mul nsw i64 %.076102.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %77 = mul nsw i64 %.077102.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us = getelementptr float, ptr %gep.us.us.us.us.us, i64 %77
-  %78 = sub i64 %8, %.076102.us.us.us.us.us.us.us
+  %78 = sub i64 %8, %.077102.us.us.us.us.us.us.us
   %79 = tail call i64 @llvm.umin.i64(i64 %78, i64 4)
   br label %80
 
 80:                                               ; preds = %80, %.preheader.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
-  %81 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
+  %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us
+  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_encode_partial_block_strided_float_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %85 = add i64 %.07796.us.us.us.us.us.us.us.us, 4
+  %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
   %86 = icmp ult i64 %85, %6
   br i1 %86, label %80, label %._crit_edge.split.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us:        ; preds = %80
-  %87 = add i64 %.076102.us.us.us.us.us.us.us, 4
+  %87 = add i64 %.077102.us.us.us.us.us.us.us, 4
   %88 = icmp ult i64 %87, %8
   br i1 %88, label %.preheader.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .preheader95.us.us:                               ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us125.us
-  %.0117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %.075117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
   br label %.preheader94.us.us123.us
 
 .preheader94.us.us123.us:                         ; preds = %.preheader95.us.us, %._crit_edge103.split.us115.us.us
-  %.075111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
+  %.076111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
   br label %.preheader.us113.us.us
 
 .preheader.us113.us.us:                           ; preds = %.preheader.us113.us.us, %.preheader94.us.us123.us
-  %.076102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
-  %89 = add i64 %.076102.us114.us.us, 4
+  %.077102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
+  %89 = add i64 %.077102.us114.us.us, 4
   %90 = icmp ult i64 %89, %8
   br i1 %90, label %.preheader.us113.us.us, label %._crit_edge103.split.us115.us.us
 
 ._crit_edge103.split.us115.us.us:                 ; preds = %.preheader.us113.us.us
-  %91 = add i64 %.075111.us.us124.us, 4
+  %91 = add i64 %.076111.us.us124.us, 4
   %92 = icmp ult i64 %91, %10
   br i1 %92, label %.preheader94.us.us123.us, label %._crit_edge.split.us.split.us125.us
 
 ._crit_edge.split.us.split.us125.us:              ; preds = %._crit_edge103.split.us115.us.us
-  %93 = add i64 %.0117.us.us, 4
+  %93 = add i64 %.075117.us.us, 4
   %94 = icmp ult i64 %93, %12
   br i1 %94, label %.preheader95.us.us, label %._crit_edge118
 
 .preheader95.us:                                  ; preds = %.preheader95.lr.ph.split.us, %._crit_edge.split.us121
-  %.0117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
+  %.075117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
   br label %.preheader94.us119
 
 .preheader94.us119:                               ; preds = %.preheader95.us, %.preheader94.us119
-  %.075111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
-  %95 = add i64 %.075111.us120, 4
+  %.076111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
+  %95 = add i64 %.076111.us120, 4
   %96 = icmp ult i64 %95, %10
   br i1 %96, label %.preheader94.us119, label %._crit_edge.split.us121
 
 ._crit_edge.split.us121:                          ; preds = %.preheader94.us119
-  %97 = add i64 %.0117.us, 4
+  %97 = add i64 %.075117.us, 4
   %98 = icmp ult i64 %97, %12
   br i1 %98, label %.preheader95.us, label %._crit_edge118
 
 .preheader95:                                     ; preds = %.preheader95.lr.ph, %.preheader95
-  %.0117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
-  %99 = add i64 %.0117, 4
+  %.075117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
+  %99 = add i64 %.075117, 4
   %100 = icmp ult i64 %99, %12
   br i1 %100, label %.preheader95, label %._crit_edge118
 
@@ -4262,77 +4262,77 @@ define internal void @compress_strided_double_4(ptr noundef %0, ptr nocapture no
   br i1 %.not137, label %.preheader95.us.us, label %.preheader95.us.us.us
 
 .preheader95.us.us.us:                            ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us.us.us.us
-  %.0117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
-  %26 = mul nsw i64 %.0117.us.us.us, %25
+  %.075117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %26 = mul nsw i64 %.075117.us.us.us, %25
   %invariant.gep112.us.us.us = getelementptr double, ptr %4, i64 %26
-  %27 = sub i64 %12, %.0117.us.us.us
+  %27 = sub i64 %12, %.075117.us.us.us
   %.fr = freeze i64 %27
   %28 = icmp ult i64 %.fr, 4
   %29 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %28, label %.preheader94.us.us.us.us.us.us, label %.preheader94.us.us.us.us.us
 
 .preheader94.us.us.us.us.us.us:                   ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %.075111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %30 = mul nsw i64 %.075111.us.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %30 = mul nsw i64 %.076111.us.us.us.us.us.us, %21
   %gep.us.us.us.us.us.us = getelementptr double, ptr %invariant.gep112.us.us.us, i64 %30
-  %31 = sub i64 %10, %.075111.us.us.us.us.us.us
+  %31 = sub i64 %10, %.076111.us.us.us.us.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   br label %.preheader.us.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us.us:               ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us, %.preheader94.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
-  %33 = mul nsw i64 %.076102.us.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
+  %33 = mul nsw i64 %.077102.us.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us.us = getelementptr double, ptr %gep.us.us.us.us.us.us, i64 %33
-  %34 = sub i64 %8, %.076102.us.us.us.us.us.us.us.us
+  %34 = sub i64 %8, %.077102.us.us.us.us.us.us.us.us
   %35 = tail call i64 @llvm.umin.i64(i64 %34, i64 4)
   br label %36
 
 36:                                               ; preds = %36, %.preheader.us.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
-  %37 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
+  %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr double, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us.us
+  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_encode_partial_block_strided_double_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %41 = add i64 %.07796.us.us.us.us.us.us.us.us.us, 4
+  %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
   %42 = icmp ult i64 %41, %6
   br i1 %42, label %36, label %._crit_edge.split.us.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us.us:     ; preds = %36
-  %43 = add i64 %.076102.us.us.us.us.us.us.us.us, 4
+  %43 = add i64 %.077102.us.us.us.us.us.us.us.us, 4
   %44 = icmp ult i64 %43, %8
   br i1 %44, label %.preheader.us.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.split.us.us.us.us.us
 
 ._crit_edge103.split.us.us.us.split.us.us.us.us.us: ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us
-  %45 = add i64 %.075111.us.us.us.us.us.us, 4
+  %45 = add i64 %.076111.us.us.us.us.us.us, 4
   %46 = icmp ult i64 %45, %10
   br i1 %46, label %.preheader94.us.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader94.us.us.us.us.us:                      ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.us.us.us
-  %.075111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %47 = mul nsw i64 %.075111.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %47 = mul nsw i64 %.076111.us.us.us.us.us, %21
   %gep.us.us.us.us.us = getelementptr double, ptr %invariant.gep112.us.us.us, i64 %47
-  %48 = sub i64 %10, %.075111.us.us.us.us.us
+  %48 = sub i64 %10, %.076111.us.us.us.us.us
   %.fr138 = freeze i64 %48
   %49 = icmp ult i64 %.fr138, 4
   %50 = tail call i64 @llvm.umin.i64(i64 %.fr138, i64 4)
   br i1 %49, label %.preheader.us.us.us.us.us.us.us, label %.preheader.us.us.us.us127.us.us
 
 .preheader.us.us.us.us127.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.us.us.us.us.us.us
-  %.076102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %51 = mul nsw i64 %.076102.us.us.us.us128.us.us, %17
+  %.077102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %51 = mul nsw i64 %.077102.us.us.us.us128.us.us, %17
   %gep106.us.us.us.us129.us.us = getelementptr double, ptr %gep.us.us.us.us.us, i64 %51
-  %52 = sub i64 %8, %.076102.us.us.us.us128.us.us
+  %52 = sub i64 %8, %.077102.us.us.us.us128.us.us
   %.fr139 = freeze i64 %52
   %53 = icmp ult i64 %.fr139, 4
   %54 = tail call i64 @llvm.umin.i64(i64 %.fr139, i64 4)
   br i1 %53, label %.lr.ph.split.us.us.us.us.us.us.us, label %.lr.ph.split.us110.us.us.us.us.us
 
 .lr.ph.split.us110.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %62
-  %.07796.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %55 = mul nsw i64 %.07796.us107.us.us.us.us.us, %spec.select
+  %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr double, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.07796.us107.us.us.us.us.us
+  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -4345,102 +4345,102 @@ define internal void @compress_strided_double_4(ptr noundef %0, ptr nocapture no
   br label %62
 
 62:                                               ; preds = %60, %58
-  %63 = add i64 %.07796.us107.us.us.us.us.us, 4
+  %63 = add i64 %.096.us107.us.us.us.us.us, 4
   %64 = icmp ult i64 %63, %6
   br i1 %64, label %.lr.ph.split.us110.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.us.us.us.us.us.us:                    ; preds = %62, %.lr.ph.split.us.us.us.us.us.us.us
-  %65 = add i64 %.076102.us.us.us.us128.us.us, 4
+  %65 = add i64 %.077102.us.us.us.us128.us.us, 4
   %66 = icmp ult i64 %65, %8
   br i1 %66, label %.preheader.us.us.us.us127.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .lr.ph.split.us.us.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %.lr.ph.split.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %67 = mul nsw i64 %.07796.us.us.us.us.us130.us.us, %spec.select
+  %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr double, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.07796.us.us.us.us.us130.us.us
+  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_encode_partial_block_strided_double_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %71 = add i64 %.07796.us.us.us.us.us130.us.us, 4
+  %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
   %72 = icmp ult i64 %71, %6
   br i1 %72, label %.lr.ph.split.us.us.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.split.us.split.us.us.us.us:           ; preds = %._crit_edge103.split.us.us.us.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %73 = add i64 %.0117.us.us.us, 4
+  %73 = add i64 %.075117.us.us.us, 4
   %74 = icmp ult i64 %73, %12
   br i1 %74, label %.preheader95.us.us.us, label %._crit_edge118
 
 ._crit_edge103.split.us.us.us.us.us.us:           ; preds = %._crit_edge.us.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %75 = add i64 %.075111.us.us.us.us.us, 4
+  %75 = add i64 %.076111.us.us.us.us.us, 4
   %76 = icmp ult i64 %75, %10
   br i1 %76, label %.preheader94.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %77 = mul nsw i64 %.076102.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %77 = mul nsw i64 %.077102.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us = getelementptr double, ptr %gep.us.us.us.us.us, i64 %77
-  %78 = sub i64 %8, %.076102.us.us.us.us.us.us.us
+  %78 = sub i64 %8, %.077102.us.us.us.us.us.us.us
   %79 = tail call i64 @llvm.umin.i64(i64 %78, i64 4)
   br label %80
 
 80:                                               ; preds = %80, %.preheader.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
-  %81 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
+  %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr double, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us
+  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_encode_partial_block_strided_double_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %85 = add i64 %.07796.us.us.us.us.us.us.us.us, 4
+  %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
   %86 = icmp ult i64 %85, %6
   br i1 %86, label %80, label %._crit_edge.split.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us:        ; preds = %80
-  %87 = add i64 %.076102.us.us.us.us.us.us.us, 4
+  %87 = add i64 %.077102.us.us.us.us.us.us.us, 4
   %88 = icmp ult i64 %87, %8
   br i1 %88, label %.preheader.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .preheader95.us.us:                               ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us125.us
-  %.0117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %.075117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
   br label %.preheader94.us.us123.us
 
 .preheader94.us.us123.us:                         ; preds = %.preheader95.us.us, %._crit_edge103.split.us115.us.us
-  %.075111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
+  %.076111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
   br label %.preheader.us113.us.us
 
 .preheader.us113.us.us:                           ; preds = %.preheader.us113.us.us, %.preheader94.us.us123.us
-  %.076102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
-  %89 = add i64 %.076102.us114.us.us, 4
+  %.077102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
+  %89 = add i64 %.077102.us114.us.us, 4
   %90 = icmp ult i64 %89, %8
   br i1 %90, label %.preheader.us113.us.us, label %._crit_edge103.split.us115.us.us
 
 ._crit_edge103.split.us115.us.us:                 ; preds = %.preheader.us113.us.us
-  %91 = add i64 %.075111.us.us124.us, 4
+  %91 = add i64 %.076111.us.us124.us, 4
   %92 = icmp ult i64 %91, %10
   br i1 %92, label %.preheader94.us.us123.us, label %._crit_edge.split.us.split.us125.us
 
 ._crit_edge.split.us.split.us125.us:              ; preds = %._crit_edge103.split.us115.us.us
-  %93 = add i64 %.0117.us.us, 4
+  %93 = add i64 %.075117.us.us, 4
   %94 = icmp ult i64 %93, %12
   br i1 %94, label %.preheader95.us.us, label %._crit_edge118
 
 .preheader95.us:                                  ; preds = %.preheader95.lr.ph.split.us, %._crit_edge.split.us121
-  %.0117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
+  %.075117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
   br label %.preheader94.us119
 
 .preheader94.us119:                               ; preds = %.preheader95.us, %.preheader94.us119
-  %.075111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
-  %95 = add i64 %.075111.us120, 4
+  %.076111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
+  %95 = add i64 %.076111.us120, 4
   %96 = icmp ult i64 %95, %10
   br i1 %96, label %.preheader94.us119, label %._crit_edge.split.us121
 
 ._crit_edge.split.us121:                          ; preds = %.preheader94.us119
-  %97 = add i64 %.0117.us, 4
+  %97 = add i64 %.075117.us, 4
   %98 = icmp ult i64 %97, %12
   br i1 %98, label %.preheader95.us, label %._crit_edge118
 
 .preheader95:                                     ; preds = %.preheader95.lr.ph, %.preheader95
-  %.0117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
-  %99 = add i64 %.0117, 4
+  %.075117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
+  %99 = add i64 %.075117, 4
   %100 = icmp ult i64 %99, %12
   br i1 %100, label %.preheader95, label %._crit_edge118
 
@@ -6988,21 +6988,21 @@ zfp_field_dimensionality.exit:                    ; preds = %18
   br i1 %46, label %.preheader62.split.us, label %.preheader62.split
 
 .preheader62.split.us:                            ; preds = %.preheader62, %51
-  %.064.us = phi i64 [ %54, %51 ], [ 0, %.preheader62 ]
+  %.04464.us = phi i64 [ %54, %51 ], [ 0, %.preheader62 ]
   %50 = tail call noalias ptr @malloc(i64 noundef %31) #23
   %.not51.us = icmp eq ptr %50, null
   br i1 %.not51.us, label %.split.us, label %51
 
 51:                                               ; preds = %.preheader62.split.us
   %52 = tail call ptr @stream_open(ptr noundef nonnull %50, i64 noundef %31) #19
-  %53 = getelementptr inbounds ptr, ptr %48, i64 %.064.us
+  %53 = getelementptr inbounds ptr, ptr %48, i64 %.04464.us
   store ptr %52, ptr %53, align 8
-  %54 = add nuw i64 %.064.us, 1
+  %54 = add nuw i64 %.04464.us, 1
   %exitcond72.not = icmp eq i64 %54, %umax71
   br i1 %exitcond72.not, label %zfp_field_dimensionality.exit.thread, label %.preheader62.split.us
 
 .preheader62.split:                               ; preds = %.preheader62, %59
-  %.064 = phi i64 [ %70, %59 ], [ 0, %.preheader62 ]
+  %.04464 = phi i64 [ %70, %59 ], [ 0, %.preheader62 ]
   %55 = load ptr, ptr %49, align 8
   %56 = tail call ptr @stream_data(ptr noundef %55) #19
   %57 = load ptr, ptr %49, align 8
@@ -7012,7 +7012,7 @@ zfp_field_dimensionality.exit:                    ; preds = %18
 
 59:                                               ; preds = %.preheader62.split
   %60 = getelementptr inbounds i8, ptr %56, i64 %58
-  %61 = mul i64 %.064, %3
+  %61 = mul i64 %.04464, %3
   %62 = udiv i64 %61, %2
   %63 = load i32, ptr %33, align 4
   %64 = lshr i32 %63, 3
@@ -7020,14 +7020,14 @@ zfp_field_dimensionality.exit:                    ; preds = %18
   %66 = mul i64 %62, %65
   %67 = getelementptr inbounds i8, ptr %60, i64 %66
   %68 = tail call ptr @stream_open(ptr noundef nonnull %67, i64 noundef %31) #19
-  %69 = getelementptr inbounds ptr, ptr %48, i64 %.064
+  %69 = getelementptr inbounds ptr, ptr %48, i64 %.04464
   store ptr %68, ptr %69, align 8
-  %70 = add nuw i64 %.064, 1
+  %70 = add nuw i64 %.04464, 1
   %exitcond.not = icmp eq i64 %70, %umax71
   br i1 %exitcond.not, label %zfp_field_dimensionality.exit.thread, label %.preheader62.split
 
 .split.us:                                        ; preds = %.preheader62.split, %.preheader62.split.us
-  %.us-phi = phi i64 [ %.064.us, %.preheader62.split.us ], [ %.064, %.preheader62.split ]
+  %.us-phi = phi i64 [ %.04464.us, %.preheader62.split.us ], [ %.04464, %.preheader62.split ]
   br i1 %46, label %.preheader, label %zfp_field_dimensionality.exit.thread
 
 .preheader:                                       ; preds = %.split.us
@@ -7050,8 +7050,8 @@ zfp_field_dimensionality.exit:                    ; preds = %18
   br label %zfp_field_dimensionality.exit.thread
 
 zfp_field_dimensionality.exit.thread:             ; preds = %59, %51, %4, %._crit_edge, %.split.us, %45
-  %.044 = phi ptr [ null, %45 ], [ null, %._crit_edge ], [ %48, %.split.us ], [ null, %4 ], [ %48, %51 ], [ %48, %59 ]
-  ret ptr %.044
+  %.0 = phi ptr [ null, %45 ], [ null, %._crit_edge ], [ %48, %.split.us ], [ null, %4 ], [ %48, %51 ], [ %48, %59 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: norecurse nounwind uwtable
@@ -7116,9 +7116,9 @@ define internal void @compress_omp_int32_1.omp_outlined(ptr noalias nocapture no
   br i1 %39, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %27, %50
-  %.031 = phi i64 [ %51, %50 ], [ %32, %27 ]
+  %.02931 = phi i64 [ %51, %50 ], [ %32, %27 ]
   %40 = load ptr, ptr %6, align 8
-  %41 = shl i64 %.031, 2
+  %41 = shl i64 %.02931, 2
   %42 = getelementptr inbounds i32, ptr %40, i64 %41
   %43 = load i64, ptr %7, align 8
   %44 = sub i64 %43, %41
@@ -7134,7 +7134,7 @@ define internal void @compress_omp_int32_1.omp_outlined(ptr noalias nocapture no
   br label %50
 
 50:                                               ; preds = %46, %48
-  %51 = add nuw i64 %.031, 1
+  %51 = add nuw i64 %.02931, 1
   %52 = icmp ult i64 %51, %34
   br i1 %52, label %.lr.ph, label %.loopexit.loopexit
 
@@ -7176,27 +7176,27 @@ define internal fastcc void @compress_finish_par(ptr %.16.val, ptr nocapture nou
   br i1 %.not.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.02.us = phi i64 [ %14, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.0271.us = phi i64 [ %10, %.lr.ph.split.us ], [ %6, %.lr.ph ]
-  %7 = getelementptr inbounds ptr, ptr %0, i64 %.02.us
+  %.02.us = phi i64 [ %10, %.lr.ph.split.us ], [ %6, %.lr.ph ]
+  %.0271.us = phi i64 [ %14, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %7 = getelementptr inbounds ptr, ptr %0, i64 %.0271.us
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @stream_wtell(ptr noundef %8) #19
-  %10 = add i64 %9, %.0271.us
+  %10 = add i64 %9, %.02.us
   %11 = load ptr, ptr %7, align 8
   %12 = tail call i64 @stream_flush(ptr noundef %11) #19
   %13 = load ptr, ptr %7, align 8
   tail call void @stream_close(ptr noundef %13) #19
-  %14 = add nuw i64 %.02.us, 1
+  %14 = add nuw i64 %.0271.us, 1
   %exitcond6.not = icmp eq i64 %14, %1
   br i1 %exitcond6.not, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.02 = phi i64 [ %26, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.0271 = phi i64 [ %18, %.lr.ph.split ], [ %6, %.lr.ph ]
-  %15 = getelementptr inbounds ptr, ptr %0, i64 %.02
+  %.02 = phi i64 [ %18, %.lr.ph.split ], [ %6, %.lr.ph ]
+  %.0271 = phi i64 [ %26, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %15 = getelementptr inbounds ptr, ptr %0, i64 %.0271
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 @stream_wtell(ptr noundef %16) #19
-  %18 = add i64 %17, %.0271
+  %18 = add i64 %17, %.02
   %19 = load ptr, ptr %15, align 8
   %20 = tail call i64 @stream_flush(ptr noundef %19) #19
   %21 = load ptr, ptr %15, align 8
@@ -7208,17 +7208,17 @@ define internal fastcc void @compress_finish_par(ptr %.16.val, ptr nocapture nou
   tail call void @free(ptr noundef %24) #19
   %25 = load ptr, ptr %15, align 8
   tail call void @stream_close(ptr noundef %25) #19
-  %26 = add nuw i64 %.02, 1
+  %26 = add nuw i64 %.0271, 1
   %exitcond.not = icmp eq i64 %26, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %2
-  %.027.lcssa = phi i64 [ %6, %2 ], [ %10, %.lr.ph.split.us ], [ %18, %.lr.ph.split ]
+  %.0.lcssa = phi i64 [ %6, %2 ], [ %10, %.lr.ph.split.us ], [ %18, %.lr.ph.split ]
   tail call void @free(ptr noundef nonnull %0) #19
   br i1 %.not.fr, label %27, label %28
 
 27:                                               ; preds = %._crit_edge
-  tail call void @stream_wseek(ptr noundef %.16.val, i64 noundef %.027.lcssa) #19
+  tail call void @stream_wseek(ptr noundef %.16.val, i64 noundef %.0.lcssa) #19
   br label %28
 
 28:                                               ; preds = %27, %._crit_edge
@@ -7302,9 +7302,9 @@ define internal void @compress_omp_int64_1.omp_outlined(ptr noalias nocapture no
   br i1 %39, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %27, %50
-  %.031 = phi i64 [ %51, %50 ], [ %32, %27 ]
+  %.02931 = phi i64 [ %51, %50 ], [ %32, %27 ]
   %40 = load ptr, ptr %6, align 8
-  %41 = shl i64 %.031, 2
+  %41 = shl i64 %.02931, 2
   %42 = getelementptr inbounds i64, ptr %40, i64 %41
   %43 = load i64, ptr %7, align 8
   %44 = sub i64 %43, %41
@@ -7320,7 +7320,7 @@ define internal void @compress_omp_int64_1.omp_outlined(ptr noalias nocapture no
   br label %50
 
 50:                                               ; preds = %46, %48
-  %51 = add nuw i64 %.031, 1
+  %51 = add nuw i64 %.02931, 1
   %52 = icmp ult i64 %51, %34
   br i1 %52, label %.lr.ph, label %.loopexit.loopexit
 
@@ -7394,9 +7394,9 @@ define internal void @compress_omp_float_1.omp_outlined(ptr noalias nocapture no
   br i1 %39, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %27, %50
-  %.031 = phi i64 [ %51, %50 ], [ %32, %27 ]
+  %.02931 = phi i64 [ %51, %50 ], [ %32, %27 ]
   %40 = load ptr, ptr %6, align 8
-  %41 = shl i64 %.031, 2
+  %41 = shl i64 %.02931, 2
   %42 = getelementptr inbounds float, ptr %40, i64 %41
   %43 = load i64, ptr %7, align 8
   %44 = sub i64 %43, %41
@@ -7412,7 +7412,7 @@ define internal void @compress_omp_float_1.omp_outlined(ptr noalias nocapture no
   br label %50
 
 50:                                               ; preds = %46, %48
-  %51 = add nuw i64 %.031, 1
+  %51 = add nuw i64 %.02931, 1
   %52 = icmp ult i64 %51, %34
   br i1 %52, label %.lr.ph, label %.loopexit.loopexit
 
@@ -7486,9 +7486,9 @@ define internal void @compress_omp_double_1.omp_outlined(ptr noalias nocapture n
   br i1 %39, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %27, %50
-  %.031 = phi i64 [ %51, %50 ], [ %32, %27 ]
+  %.02931 = phi i64 [ %51, %50 ], [ %32, %27 ]
   %40 = load ptr, ptr %6, align 8
-  %41 = shl i64 %.031, 2
+  %41 = shl i64 %.02931, 2
   %42 = getelementptr inbounds double, ptr %40, i64 %41
   %43 = load i64, ptr %7, align 8
   %44 = sub i64 %43, %41
@@ -7504,7 +7504,7 @@ define internal void @compress_omp_double_1.omp_outlined(ptr noalias nocapture n
   br label %50
 
 50:                                               ; preds = %46, %48
-  %51 = add nuw i64 %.031, 1
+  %51 = add nuw i64 %.02931, 1
   %52 = icmp ult i64 %51, %34
   br i1 %52, label %.lr.ph, label %.loopexit.loopexit
 
@@ -9102,9 +9102,9 @@ define internal void @compress_strided_omp_int32_1.omp_outlined(ptr noalias noca
   br i1 %40, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %28, %53
-  %.032 = phi i64 [ %54, %53 ], [ %33, %28 ]
+  %.03032 = phi i64 [ %54, %53 ], [ %33, %28 ]
   %41 = load ptr, ptr %6, align 8
-  %42 = shl i64 %.032, 2
+  %42 = shl i64 %.03032, 2
   %43 = load i64, ptr %7, align 8
   %44 = mul nsw i64 %43, %42
   %45 = getelementptr inbounds i32, ptr %41, i64 %44
@@ -9122,7 +9122,7 @@ define internal void @compress_strided_omp_int32_1.omp_outlined(ptr noalias noca
   br label %53
 
 53:                                               ; preds = %49, %51
-  %54 = add nuw i64 %.032, 1
+  %54 = add nuw i64 %.03032, 1
   %55 = icmp ult i64 %54, %35
   br i1 %55, label %.lr.ph, label %.loopexit.loopexit
 
@@ -9196,9 +9196,9 @@ define internal void @compress_strided_omp_int64_1.omp_outlined(ptr noalias noca
   br i1 %40, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %28, %53
-  %.032 = phi i64 [ %54, %53 ], [ %33, %28 ]
+  %.03032 = phi i64 [ %54, %53 ], [ %33, %28 ]
   %41 = load ptr, ptr %6, align 8
-  %42 = shl i64 %.032, 2
+  %42 = shl i64 %.03032, 2
   %43 = load i64, ptr %7, align 8
   %44 = mul nsw i64 %43, %42
   %45 = getelementptr inbounds i64, ptr %41, i64 %44
@@ -9216,7 +9216,7 @@ define internal void @compress_strided_omp_int64_1.omp_outlined(ptr noalias noca
   br label %53
 
 53:                                               ; preds = %49, %51
-  %54 = add nuw i64 %.032, 1
+  %54 = add nuw i64 %.03032, 1
   %55 = icmp ult i64 %54, %35
   br i1 %55, label %.lr.ph, label %.loopexit.loopexit
 
@@ -9290,9 +9290,9 @@ define internal void @compress_strided_omp_float_1.omp_outlined(ptr noalias noca
   br i1 %40, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %28, %53
-  %.032 = phi i64 [ %54, %53 ], [ %33, %28 ]
+  %.03032 = phi i64 [ %54, %53 ], [ %33, %28 ]
   %41 = load ptr, ptr %6, align 8
-  %42 = shl i64 %.032, 2
+  %42 = shl i64 %.03032, 2
   %43 = load i64, ptr %7, align 8
   %44 = mul nsw i64 %43, %42
   %45 = getelementptr inbounds float, ptr %41, i64 %44
@@ -9310,7 +9310,7 @@ define internal void @compress_strided_omp_float_1.omp_outlined(ptr noalias noca
   br label %53
 
 53:                                               ; preds = %49, %51
-  %54 = add nuw i64 %.032, 1
+  %54 = add nuw i64 %.03032, 1
   %55 = icmp ult i64 %54, %35
   br i1 %55, label %.lr.ph, label %.loopexit.loopexit
 
@@ -9384,9 +9384,9 @@ define internal void @compress_strided_omp_double_1.omp_outlined(ptr noalias noc
   br i1 %40, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %28, %53
-  %.032 = phi i64 [ %54, %53 ], [ %33, %28 ]
+  %.03032 = phi i64 [ %54, %53 ], [ %33, %28 ]
   %41 = load ptr, ptr %6, align 8
-  %42 = shl i64 %.032, 2
+  %42 = shl i64 %.03032, 2
   %43 = load i64, ptr %7, align 8
   %44 = mul nsw i64 %43, %42
   %45 = getelementptr inbounds double, ptr %41, i64 %44
@@ -9404,7 +9404,7 @@ define internal void @compress_strided_omp_double_1.omp_outlined(ptr noalias noc
   br label %53
 
 53:                                               ; preds = %49, %51
-  %54 = add nuw i64 %.032, 1
+  %54 = add nuw i64 %.03032, 1
   %55 = icmp ult i64 %54, %35
   br i1 %55, label %.lr.ph, label %.loopexit.loopexit
 
@@ -9658,20 +9658,20 @@ define internal void @decompress_strided_int32_2(ptr noundef %0, ptr nocapture n
   br i1 %.not52, label %.preheader, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.046.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %14 = mul nsw i64 %.046.us, %13
+  %.03846.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %14 = mul nsw i64 %.03846.us, %13
   %invariant.gep.us = getelementptr i32, ptr %4, i64 %14
-  %15 = sub i64 %8, %.046.us
+  %15 = sub i64 %8, %.03846.us
   %.fr = freeze i64 %15
   %16 = icmp ult i64 %.fr, 4
   %17 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %16, label %.lr.ph.split.us.us, label %.lr.ph.split.us51
 
 .lr.ph.split.us51:                                ; preds = %.preheader.us, %25
-  %.03845.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
-  %18 = mul nsw i64 %.03845.us48, %spec.select
+  %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
+  %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr i32, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.03845.us48
+  %19 = sub i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -9684,29 +9684,29 @@ define internal void @decompress_strided_int32_2(ptr noundef %0, ptr nocapture n
   br label %25
 
 25:                                               ; preds = %23, %21
-  %26 = add i64 %.03845.us48, 4
+  %26 = add i64 %.045.us48, 4
   %27 = icmp ult i64 %26, %6
   br i1 %27, label %.lr.ph.split.us51, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %25, %.lr.ph.split.us.us
-  %28 = add i64 %.046.us, 4
+  %28 = add i64 %.03846.us, 4
   %29 = icmp ult i64 %28, %8
   br i1 %29, label %.preheader.us, label %._crit_edge47
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us
-  %.03845.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
-  %30 = mul nsw i64 %.03845.us.us, %spec.select
+  %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
+  %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr i32, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.03845.us.us
+  %31 = sub i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_decode_partial_block_strided_int32_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
-  %34 = add i64 %.03845.us.us, 4
+  %34 = add i64 %.045.us.us, 4
   %35 = icmp ult i64 %34, %6
   br i1 %35, label %.lr.ph.split.us.us, label %._crit_edge.us
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.046 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
-  %36 = add i64 %.046, 4
+  %.03846 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
+  %36 = add i64 %.03846, 4
   %37 = icmp ult i64 %36, %8
   br i1 %37, label %.preheader, label %._crit_edge47
 
@@ -9737,20 +9737,20 @@ define internal void @decompress_strided_int64_2(ptr noundef %0, ptr nocapture n
   br i1 %.not52, label %.preheader, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.046.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %14 = mul nsw i64 %.046.us, %13
+  %.03846.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %14 = mul nsw i64 %.03846.us, %13
   %invariant.gep.us = getelementptr i64, ptr %4, i64 %14
-  %15 = sub i64 %8, %.046.us
+  %15 = sub i64 %8, %.03846.us
   %.fr = freeze i64 %15
   %16 = icmp ult i64 %.fr, 4
   %17 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %16, label %.lr.ph.split.us.us, label %.lr.ph.split.us51
 
 .lr.ph.split.us51:                                ; preds = %.preheader.us, %25
-  %.03845.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
-  %18 = mul nsw i64 %.03845.us48, %spec.select
+  %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
+  %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr i64, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.03845.us48
+  %19 = sub i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -9763,29 +9763,29 @@ define internal void @decompress_strided_int64_2(ptr noundef %0, ptr nocapture n
   br label %25
 
 25:                                               ; preds = %23, %21
-  %26 = add i64 %.03845.us48, 4
+  %26 = add i64 %.045.us48, 4
   %27 = icmp ult i64 %26, %6
   br i1 %27, label %.lr.ph.split.us51, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %25, %.lr.ph.split.us.us
-  %28 = add i64 %.046.us, 4
+  %28 = add i64 %.03846.us, 4
   %29 = icmp ult i64 %28, %8
   br i1 %29, label %.preheader.us, label %._crit_edge47
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us
-  %.03845.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
-  %30 = mul nsw i64 %.03845.us.us, %spec.select
+  %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
+  %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr i64, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.03845.us.us
+  %31 = sub i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_decode_partial_block_strided_int64_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
-  %34 = add i64 %.03845.us.us, 4
+  %34 = add i64 %.045.us.us, 4
   %35 = icmp ult i64 %34, %6
   br i1 %35, label %.lr.ph.split.us.us, label %._crit_edge.us
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.046 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
-  %36 = add i64 %.046, 4
+  %.03846 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
+  %36 = add i64 %.03846, 4
   %37 = icmp ult i64 %36, %8
   br i1 %37, label %.preheader, label %._crit_edge47
 
@@ -9816,20 +9816,20 @@ define internal void @decompress_strided_float_2(ptr noundef %0, ptr nocapture n
   br i1 %.not52, label %.preheader, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.046.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %14 = mul nsw i64 %.046.us, %13
+  %.03846.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %14 = mul nsw i64 %.03846.us, %13
   %invariant.gep.us = getelementptr float, ptr %4, i64 %14
-  %15 = sub i64 %8, %.046.us
+  %15 = sub i64 %8, %.03846.us
   %.fr = freeze i64 %15
   %16 = icmp ult i64 %.fr, 4
   %17 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %16, label %.lr.ph.split.us.us, label %.lr.ph.split.us51
 
 .lr.ph.split.us51:                                ; preds = %.preheader.us, %25
-  %.03845.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
-  %18 = mul nsw i64 %.03845.us48, %spec.select
+  %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
+  %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr float, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.03845.us48
+  %19 = sub i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -9842,29 +9842,29 @@ define internal void @decompress_strided_float_2(ptr noundef %0, ptr nocapture n
   br label %25
 
 25:                                               ; preds = %23, %21
-  %26 = add i64 %.03845.us48, 4
+  %26 = add i64 %.045.us48, 4
   %27 = icmp ult i64 %26, %6
   br i1 %27, label %.lr.ph.split.us51, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %25, %.lr.ph.split.us.us
-  %28 = add i64 %.046.us, 4
+  %28 = add i64 %.03846.us, 4
   %29 = icmp ult i64 %28, %8
   br i1 %29, label %.preheader.us, label %._crit_edge47
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us
-  %.03845.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
-  %30 = mul nsw i64 %.03845.us.us, %spec.select
+  %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
+  %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr float, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.03845.us.us
+  %31 = sub i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_decode_partial_block_strided_float_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
-  %34 = add i64 %.03845.us.us, 4
+  %34 = add i64 %.045.us.us, 4
   %35 = icmp ult i64 %34, %6
   br i1 %35, label %.lr.ph.split.us.us, label %._crit_edge.us
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.046 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
-  %36 = add i64 %.046, 4
+  %.03846 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
+  %36 = add i64 %.03846, 4
   %37 = icmp ult i64 %36, %8
   br i1 %37, label %.preheader, label %._crit_edge47
 
@@ -9895,20 +9895,20 @@ define internal void @decompress_strided_double_2(ptr noundef %0, ptr nocapture 
   br i1 %.not52, label %.preheader, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.046.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %14 = mul nsw i64 %.046.us, %13
+  %.03846.us = phi i64 [ %28, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %14 = mul nsw i64 %.03846.us, %13
   %invariant.gep.us = getelementptr double, ptr %4, i64 %14
-  %15 = sub i64 %8, %.046.us
+  %15 = sub i64 %8, %.03846.us
   %.fr = freeze i64 %15
   %16 = icmp ult i64 %.fr, 4
   %17 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %16, label %.lr.ph.split.us.us, label %.lr.ph.split.us51
 
 .lr.ph.split.us51:                                ; preds = %.preheader.us, %25
-  %.03845.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
-  %18 = mul nsw i64 %.03845.us48, %spec.select
+  %.045.us48 = phi i64 [ %26, %25 ], [ 0, %.preheader.us ]
+  %18 = mul nsw i64 %.045.us48, %spec.select
   %gep.us49 = getelementptr double, ptr %invariant.gep.us, i64 %18
-  %19 = sub i64 %6, %.03845.us48
+  %19 = sub i64 %6, %.045.us48
   %20 = icmp ult i64 %19, 4
   br i1 %20, label %23, label %21
 
@@ -9921,29 +9921,29 @@ define internal void @decompress_strided_double_2(ptr noundef %0, ptr nocapture 
   br label %25
 
 25:                                               ; preds = %23, %21
-  %26 = add i64 %.03845.us48, 4
+  %26 = add i64 %.045.us48, 4
   %27 = icmp ult i64 %26, %6
   br i1 %27, label %.lr.ph.split.us51, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %25, %.lr.ph.split.us.us
-  %28 = add i64 %.046.us, 4
+  %28 = add i64 %.03846.us, 4
   %29 = icmp ult i64 %28, %8
   br i1 %29, label %.preheader.us, label %._crit_edge47
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us
-  %.03845.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
-  %30 = mul nsw i64 %.03845.us.us, %spec.select
+  %.045.us.us = phi i64 [ %34, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
+  %30 = mul nsw i64 %.045.us.us, %spec.select
   %gep.us.us = getelementptr double, ptr %invariant.gep.us, i64 %30
-  %31 = sub i64 %6, %.03845.us.us
+  %31 = sub i64 %6, %.045.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   %33 = tail call i64 @zfp_decode_partial_block_strided_double_2(ptr noundef %0, ptr noundef %gep.us.us, i64 noundef %32, i64 noundef %17, i64 noundef %spec.select, i64 noundef %13) #19
-  %34 = add i64 %.03845.us.us, 4
+  %34 = add i64 %.045.us.us, 4
   %35 = icmp ult i64 %34, %6
   br i1 %35, label %.lr.ph.split.us.us, label %._crit_edge.us
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.046 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
-  %36 = add i64 %.046, 4
+  %.03846 = phi i64 [ %36, %.preheader ], [ 0, %.preheader.lr.ph ]
+  %36 = add i64 %.03846, 4
   %37 = icmp ult i64 %36, %8
   br i1 %37, label %.preheader, label %._crit_edge47
 
@@ -9985,54 +9985,54 @@ define internal void @decompress_strided_int32_3(ptr noundef %0, ptr nocapture n
   br i1 %.not87, label %.preheader69.us, label %.preheader69.us.us
 
 .preheader69.us.us:                               ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us.us.us
-  %.081.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
-  %20 = mul nsw i64 %.081.us.us, %19
+  %.05681.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
+  %20 = mul nsw i64 %.05681.us.us, %19
   %invariant.gep76.us.us = getelementptr i32, ptr %4, i64 %20
-  %21 = sub i64 %10, %.081.us.us
+  %21 = sub i64 %10, %.05681.us.us
   %.fr = freeze i64 %21
   %22 = icmp ult i64 %.fr, 4
   %23 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %22, label %.preheader.us.us.us.us, label %.preheader.us.us.us
 
 .preheader.us.us.us.us:                           ; preds = %.preheader69.us.us, %._crit_edge.split.us.us.us.us.us
-  %.05674.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
-  %24 = mul nsw i64 %.05674.us.us.us.us, %15
+  %.05774.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
+  %24 = mul nsw i64 %.05774.us.us.us.us, %15
   %gep.us.us.us.us = getelementptr i32, ptr %invariant.gep76.us.us, i64 %24
-  %25 = sub i64 %8, %.05674.us.us.us.us
+  %25 = sub i64 %8, %.05774.us.us.us.us
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 4)
   br label %27
 
 27:                                               ; preds = %27, %.preheader.us.us.us.us
-  %.05770.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
-  %28 = mul nsw i64 %.05770.us.us.us.us.us, %spec.select
+  %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
+  %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr i32, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.05770.us.us.us.us.us
+  %29 = sub i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_decode_partial_block_strided_int32_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %32 = add i64 %.05770.us.us.us.us.us, 4
+  %32 = add i64 %.070.us.us.us.us.us, 4
   %33 = icmp ult i64 %32, %6
   br i1 %33, label %27, label %._crit_edge.split.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us:                 ; preds = %27
-  %34 = add i64 %.05674.us.us.us.us, 4
+  %34 = add i64 %.05774.us.us.us.us, 4
   %35 = icmp ult i64 %34, %8
   br i1 %35, label %.preheader.us.us.us.us, label %._crit_edge75.split.us.us.us
 
 .preheader.us.us.us:                              ; preds = %.preheader69.us.us, %._crit_edge.us.us.us
-  %.05674.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
-  %36 = mul nsw i64 %.05674.us.us.us, %15
+  %.05774.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
+  %36 = mul nsw i64 %.05774.us.us.us, %15
   %gep.us.us.us = getelementptr i32, ptr %invariant.gep76.us.us, i64 %36
-  %37 = sub i64 %8, %.05674.us.us.us
+  %37 = sub i64 %8, %.05774.us.us.us
   %.fr88 = freeze i64 %37
   %38 = icmp ult i64 %.fr88, 4
   %39 = tail call i64 @llvm.umin.i64(i64 %.fr88, i64 4)
   br i1 %38, label %.lr.ph.split.us.us.us.us, label %.lr.ph.split.us80.us.us
 
 .lr.ph.split.us80.us.us:                          ; preds = %.preheader.us.us.us, %47
-  %.05770.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
-  %40 = mul nsw i64 %.05770.us77.us.us, %spec.select
+  %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
+  %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr i32, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.05770.us77.us.us
+  %41 = sub i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -10045,49 +10045,49 @@ define internal void @decompress_strided_int32_3(ptr noundef %0, ptr nocapture n
   br label %47
 
 47:                                               ; preds = %45, %43
-  %48 = add i64 %.05770.us77.us.us, 4
+  %48 = add i64 %.070.us77.us.us, 4
   %49 = icmp ult i64 %48, %6
   br i1 %49, label %.lr.ph.split.us80.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge.us.us.us:                             ; preds = %47, %.lr.ph.split.us.us.us.us
-  %50 = add i64 %.05674.us.us.us, 4
+  %50 = add i64 %.05774.us.us.us, 4
   %51 = icmp ult i64 %50, %8
   br i1 %51, label %.preheader.us.us.us, label %._crit_edge75.split.us.us.us
 
 .lr.ph.split.us.us.us.us:                         ; preds = %.preheader.us.us.us, %.lr.ph.split.us.us.us.us
-  %.05770.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
-  %52 = mul nsw i64 %.05770.us.us.us.us, %spec.select
+  %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
+  %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr i32, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.05770.us.us.us.us
+  %53 = sub i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_decode_partial_block_strided_int32_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %56 = add i64 %.05770.us.us.us.us, 4
+  %56 = add i64 %.070.us.us.us.us, 4
   %57 = icmp ult i64 %56, %6
   br i1 %57, label %.lr.ph.split.us.us.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge75.split.us.us.us:                     ; preds = %._crit_edge.us.us.us, %._crit_edge.split.us.us.us.us.us
-  %58 = add i64 %.081.us.us, 4
+  %58 = add i64 %.05681.us.us, 4
   %59 = icmp ult i64 %58, %10
   br i1 %59, label %.preheader69.us.us, label %._crit_edge
 
 .preheader69.us:                                  ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us84
-  %.081.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
+  %.05681.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
   br label %.preheader.us82
 
 .preheader.us82:                                  ; preds = %.preheader69.us, %.preheader.us82
-  %.05674.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
-  %60 = add i64 %.05674.us83, 4
+  %.05774.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
+  %60 = add i64 %.05774.us83, 4
   %61 = icmp ult i64 %60, %8
   br i1 %61, label %.preheader.us82, label %._crit_edge75.split.us84
 
 ._crit_edge75.split.us84:                         ; preds = %.preheader.us82
-  %62 = add i64 %.081.us, 4
+  %62 = add i64 %.05681.us, 4
   %63 = icmp ult i64 %62, %10
   br i1 %63, label %.preheader69.us, label %._crit_edge
 
 .preheader69:                                     ; preds = %.preheader69.lr.ph, %.preheader69
-  %.081 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
-  %64 = add i64 %.081, 4
+  %.05681 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
+  %64 = add i64 %.05681, 4
   %65 = icmp ult i64 %64, %10
   br i1 %65, label %.preheader69, label %._crit_edge
 
@@ -10129,54 +10129,54 @@ define internal void @decompress_strided_int64_3(ptr noundef %0, ptr nocapture n
   br i1 %.not87, label %.preheader69.us, label %.preheader69.us.us
 
 .preheader69.us.us:                               ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us.us.us
-  %.081.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
-  %20 = mul nsw i64 %.081.us.us, %19
+  %.05681.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
+  %20 = mul nsw i64 %.05681.us.us, %19
   %invariant.gep76.us.us = getelementptr i64, ptr %4, i64 %20
-  %21 = sub i64 %10, %.081.us.us
+  %21 = sub i64 %10, %.05681.us.us
   %.fr = freeze i64 %21
   %22 = icmp ult i64 %.fr, 4
   %23 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %22, label %.preheader.us.us.us.us, label %.preheader.us.us.us
 
 .preheader.us.us.us.us:                           ; preds = %.preheader69.us.us, %._crit_edge.split.us.us.us.us.us
-  %.05674.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
-  %24 = mul nsw i64 %.05674.us.us.us.us, %15
+  %.05774.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
+  %24 = mul nsw i64 %.05774.us.us.us.us, %15
   %gep.us.us.us.us = getelementptr i64, ptr %invariant.gep76.us.us, i64 %24
-  %25 = sub i64 %8, %.05674.us.us.us.us
+  %25 = sub i64 %8, %.05774.us.us.us.us
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 4)
   br label %27
 
 27:                                               ; preds = %27, %.preheader.us.us.us.us
-  %.05770.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
-  %28 = mul nsw i64 %.05770.us.us.us.us.us, %spec.select
+  %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
+  %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr i64, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.05770.us.us.us.us.us
+  %29 = sub i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_decode_partial_block_strided_int64_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %32 = add i64 %.05770.us.us.us.us.us, 4
+  %32 = add i64 %.070.us.us.us.us.us, 4
   %33 = icmp ult i64 %32, %6
   br i1 %33, label %27, label %._crit_edge.split.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us:                 ; preds = %27
-  %34 = add i64 %.05674.us.us.us.us, 4
+  %34 = add i64 %.05774.us.us.us.us, 4
   %35 = icmp ult i64 %34, %8
   br i1 %35, label %.preheader.us.us.us.us, label %._crit_edge75.split.us.us.us
 
 .preheader.us.us.us:                              ; preds = %.preheader69.us.us, %._crit_edge.us.us.us
-  %.05674.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
-  %36 = mul nsw i64 %.05674.us.us.us, %15
+  %.05774.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
+  %36 = mul nsw i64 %.05774.us.us.us, %15
   %gep.us.us.us = getelementptr i64, ptr %invariant.gep76.us.us, i64 %36
-  %37 = sub i64 %8, %.05674.us.us.us
+  %37 = sub i64 %8, %.05774.us.us.us
   %.fr88 = freeze i64 %37
   %38 = icmp ult i64 %.fr88, 4
   %39 = tail call i64 @llvm.umin.i64(i64 %.fr88, i64 4)
   br i1 %38, label %.lr.ph.split.us.us.us.us, label %.lr.ph.split.us80.us.us
 
 .lr.ph.split.us80.us.us:                          ; preds = %.preheader.us.us.us, %47
-  %.05770.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
-  %40 = mul nsw i64 %.05770.us77.us.us, %spec.select
+  %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
+  %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr i64, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.05770.us77.us.us
+  %41 = sub i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -10189,49 +10189,49 @@ define internal void @decompress_strided_int64_3(ptr noundef %0, ptr nocapture n
   br label %47
 
 47:                                               ; preds = %45, %43
-  %48 = add i64 %.05770.us77.us.us, 4
+  %48 = add i64 %.070.us77.us.us, 4
   %49 = icmp ult i64 %48, %6
   br i1 %49, label %.lr.ph.split.us80.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge.us.us.us:                             ; preds = %47, %.lr.ph.split.us.us.us.us
-  %50 = add i64 %.05674.us.us.us, 4
+  %50 = add i64 %.05774.us.us.us, 4
   %51 = icmp ult i64 %50, %8
   br i1 %51, label %.preheader.us.us.us, label %._crit_edge75.split.us.us.us
 
 .lr.ph.split.us.us.us.us:                         ; preds = %.preheader.us.us.us, %.lr.ph.split.us.us.us.us
-  %.05770.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
-  %52 = mul nsw i64 %.05770.us.us.us.us, %spec.select
+  %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
+  %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr i64, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.05770.us.us.us.us
+  %53 = sub i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_decode_partial_block_strided_int64_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %56 = add i64 %.05770.us.us.us.us, 4
+  %56 = add i64 %.070.us.us.us.us, 4
   %57 = icmp ult i64 %56, %6
   br i1 %57, label %.lr.ph.split.us.us.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge75.split.us.us.us:                     ; preds = %._crit_edge.us.us.us, %._crit_edge.split.us.us.us.us.us
-  %58 = add i64 %.081.us.us, 4
+  %58 = add i64 %.05681.us.us, 4
   %59 = icmp ult i64 %58, %10
   br i1 %59, label %.preheader69.us.us, label %._crit_edge
 
 .preheader69.us:                                  ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us84
-  %.081.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
+  %.05681.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
   br label %.preheader.us82
 
 .preheader.us82:                                  ; preds = %.preheader69.us, %.preheader.us82
-  %.05674.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
-  %60 = add i64 %.05674.us83, 4
+  %.05774.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
+  %60 = add i64 %.05774.us83, 4
   %61 = icmp ult i64 %60, %8
   br i1 %61, label %.preheader.us82, label %._crit_edge75.split.us84
 
 ._crit_edge75.split.us84:                         ; preds = %.preheader.us82
-  %62 = add i64 %.081.us, 4
+  %62 = add i64 %.05681.us, 4
   %63 = icmp ult i64 %62, %10
   br i1 %63, label %.preheader69.us, label %._crit_edge
 
 .preheader69:                                     ; preds = %.preheader69.lr.ph, %.preheader69
-  %.081 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
-  %64 = add i64 %.081, 4
+  %.05681 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
+  %64 = add i64 %.05681, 4
   %65 = icmp ult i64 %64, %10
   br i1 %65, label %.preheader69, label %._crit_edge
 
@@ -10273,54 +10273,54 @@ define internal void @decompress_strided_float_3(ptr noundef %0, ptr nocapture n
   br i1 %.not87, label %.preheader69.us, label %.preheader69.us.us
 
 .preheader69.us.us:                               ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us.us.us
-  %.081.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
-  %20 = mul nsw i64 %.081.us.us, %19
+  %.05681.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
+  %20 = mul nsw i64 %.05681.us.us, %19
   %invariant.gep76.us.us = getelementptr float, ptr %4, i64 %20
-  %21 = sub i64 %10, %.081.us.us
+  %21 = sub i64 %10, %.05681.us.us
   %.fr = freeze i64 %21
   %22 = icmp ult i64 %.fr, 4
   %23 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %22, label %.preheader.us.us.us.us, label %.preheader.us.us.us
 
 .preheader.us.us.us.us:                           ; preds = %.preheader69.us.us, %._crit_edge.split.us.us.us.us.us
-  %.05674.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
-  %24 = mul nsw i64 %.05674.us.us.us.us, %15
+  %.05774.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
+  %24 = mul nsw i64 %.05774.us.us.us.us, %15
   %gep.us.us.us.us = getelementptr float, ptr %invariant.gep76.us.us, i64 %24
-  %25 = sub i64 %8, %.05674.us.us.us.us
+  %25 = sub i64 %8, %.05774.us.us.us.us
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 4)
   br label %27
 
 27:                                               ; preds = %27, %.preheader.us.us.us.us
-  %.05770.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
-  %28 = mul nsw i64 %.05770.us.us.us.us.us, %spec.select
+  %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
+  %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr float, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.05770.us.us.us.us.us
+  %29 = sub i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_decode_partial_block_strided_float_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %32 = add i64 %.05770.us.us.us.us.us, 4
+  %32 = add i64 %.070.us.us.us.us.us, 4
   %33 = icmp ult i64 %32, %6
   br i1 %33, label %27, label %._crit_edge.split.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us:                 ; preds = %27
-  %34 = add i64 %.05674.us.us.us.us, 4
+  %34 = add i64 %.05774.us.us.us.us, 4
   %35 = icmp ult i64 %34, %8
   br i1 %35, label %.preheader.us.us.us.us, label %._crit_edge75.split.us.us.us
 
 .preheader.us.us.us:                              ; preds = %.preheader69.us.us, %._crit_edge.us.us.us
-  %.05674.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
-  %36 = mul nsw i64 %.05674.us.us.us, %15
+  %.05774.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
+  %36 = mul nsw i64 %.05774.us.us.us, %15
   %gep.us.us.us = getelementptr float, ptr %invariant.gep76.us.us, i64 %36
-  %37 = sub i64 %8, %.05674.us.us.us
+  %37 = sub i64 %8, %.05774.us.us.us
   %.fr88 = freeze i64 %37
   %38 = icmp ult i64 %.fr88, 4
   %39 = tail call i64 @llvm.umin.i64(i64 %.fr88, i64 4)
   br i1 %38, label %.lr.ph.split.us.us.us.us, label %.lr.ph.split.us80.us.us
 
 .lr.ph.split.us80.us.us:                          ; preds = %.preheader.us.us.us, %47
-  %.05770.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
-  %40 = mul nsw i64 %.05770.us77.us.us, %spec.select
+  %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
+  %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr float, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.05770.us77.us.us
+  %41 = sub i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -10333,49 +10333,49 @@ define internal void @decompress_strided_float_3(ptr noundef %0, ptr nocapture n
   br label %47
 
 47:                                               ; preds = %45, %43
-  %48 = add i64 %.05770.us77.us.us, 4
+  %48 = add i64 %.070.us77.us.us, 4
   %49 = icmp ult i64 %48, %6
   br i1 %49, label %.lr.ph.split.us80.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge.us.us.us:                             ; preds = %47, %.lr.ph.split.us.us.us.us
-  %50 = add i64 %.05674.us.us.us, 4
+  %50 = add i64 %.05774.us.us.us, 4
   %51 = icmp ult i64 %50, %8
   br i1 %51, label %.preheader.us.us.us, label %._crit_edge75.split.us.us.us
 
 .lr.ph.split.us.us.us.us:                         ; preds = %.preheader.us.us.us, %.lr.ph.split.us.us.us.us
-  %.05770.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
-  %52 = mul nsw i64 %.05770.us.us.us.us, %spec.select
+  %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
+  %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr float, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.05770.us.us.us.us
+  %53 = sub i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_decode_partial_block_strided_float_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %56 = add i64 %.05770.us.us.us.us, 4
+  %56 = add i64 %.070.us.us.us.us, 4
   %57 = icmp ult i64 %56, %6
   br i1 %57, label %.lr.ph.split.us.us.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge75.split.us.us.us:                     ; preds = %._crit_edge.us.us.us, %._crit_edge.split.us.us.us.us.us
-  %58 = add i64 %.081.us.us, 4
+  %58 = add i64 %.05681.us.us, 4
   %59 = icmp ult i64 %58, %10
   br i1 %59, label %.preheader69.us.us, label %._crit_edge
 
 .preheader69.us:                                  ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us84
-  %.081.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
+  %.05681.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
   br label %.preheader.us82
 
 .preheader.us82:                                  ; preds = %.preheader69.us, %.preheader.us82
-  %.05674.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
-  %60 = add i64 %.05674.us83, 4
+  %.05774.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
+  %60 = add i64 %.05774.us83, 4
   %61 = icmp ult i64 %60, %8
   br i1 %61, label %.preheader.us82, label %._crit_edge75.split.us84
 
 ._crit_edge75.split.us84:                         ; preds = %.preheader.us82
-  %62 = add i64 %.081.us, 4
+  %62 = add i64 %.05681.us, 4
   %63 = icmp ult i64 %62, %10
   br i1 %63, label %.preheader69.us, label %._crit_edge
 
 .preheader69:                                     ; preds = %.preheader69.lr.ph, %.preheader69
-  %.081 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
-  %64 = add i64 %.081, 4
+  %.05681 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
+  %64 = add i64 %.05681, 4
   %65 = icmp ult i64 %64, %10
   br i1 %65, label %.preheader69, label %._crit_edge
 
@@ -10417,54 +10417,54 @@ define internal void @decompress_strided_double_3(ptr noundef %0, ptr nocapture 
   br i1 %.not87, label %.preheader69.us, label %.preheader69.us.us
 
 .preheader69.us.us:                               ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us.us.us
-  %.081.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
-  %20 = mul nsw i64 %.081.us.us, %19
+  %.05681.us.us = phi i64 [ %58, %._crit_edge75.split.us.us.us ], [ 0, %.preheader69.lr.ph.split.us ]
+  %20 = mul nsw i64 %.05681.us.us, %19
   %invariant.gep76.us.us = getelementptr double, ptr %4, i64 %20
-  %21 = sub i64 %10, %.081.us.us
+  %21 = sub i64 %10, %.05681.us.us
   %.fr = freeze i64 %21
   %22 = icmp ult i64 %.fr, 4
   %23 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %22, label %.preheader.us.us.us.us, label %.preheader.us.us.us
 
 .preheader.us.us.us.us:                           ; preds = %.preheader69.us.us, %._crit_edge.split.us.us.us.us.us
-  %.05674.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
-  %24 = mul nsw i64 %.05674.us.us.us.us, %15
+  %.05774.us.us.us.us = phi i64 [ %34, %._crit_edge.split.us.us.us.us.us ], [ 0, %.preheader69.us.us ]
+  %24 = mul nsw i64 %.05774.us.us.us.us, %15
   %gep.us.us.us.us = getelementptr double, ptr %invariant.gep76.us.us, i64 %24
-  %25 = sub i64 %8, %.05674.us.us.us.us
+  %25 = sub i64 %8, %.05774.us.us.us.us
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 4)
   br label %27
 
 27:                                               ; preds = %27, %.preheader.us.us.us.us
-  %.05770.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
-  %28 = mul nsw i64 %.05770.us.us.us.us.us, %spec.select
+  %.070.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us ], [ %32, %27 ]
+  %28 = mul nsw i64 %.070.us.us.us.us.us, %spec.select
   %gep72.us.us.us.us.us = getelementptr double, ptr %gep.us.us.us.us, i64 %28
-  %29 = sub i64 %6, %.05770.us.us.us.us.us
+  %29 = sub i64 %6, %.070.us.us.us.us.us
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 4)
   %31 = tail call i64 @zfp_decode_partial_block_strided_double_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us.us, i64 noundef %30, i64 noundef %26, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %32 = add i64 %.05770.us.us.us.us.us, 4
+  %32 = add i64 %.070.us.us.us.us.us, 4
   %33 = icmp ult i64 %32, %6
   br i1 %33, label %27, label %._crit_edge.split.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us:                 ; preds = %27
-  %34 = add i64 %.05674.us.us.us.us, 4
+  %34 = add i64 %.05774.us.us.us.us, 4
   %35 = icmp ult i64 %34, %8
   br i1 %35, label %.preheader.us.us.us.us, label %._crit_edge75.split.us.us.us
 
 .preheader.us.us.us:                              ; preds = %.preheader69.us.us, %._crit_edge.us.us.us
-  %.05674.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
-  %36 = mul nsw i64 %.05674.us.us.us, %15
+  %.05774.us.us.us = phi i64 [ %50, %._crit_edge.us.us.us ], [ 0, %.preheader69.us.us ]
+  %36 = mul nsw i64 %.05774.us.us.us, %15
   %gep.us.us.us = getelementptr double, ptr %invariant.gep76.us.us, i64 %36
-  %37 = sub i64 %8, %.05674.us.us.us
+  %37 = sub i64 %8, %.05774.us.us.us
   %.fr88 = freeze i64 %37
   %38 = icmp ult i64 %.fr88, 4
   %39 = tail call i64 @llvm.umin.i64(i64 %.fr88, i64 4)
   br i1 %38, label %.lr.ph.split.us.us.us.us, label %.lr.ph.split.us80.us.us
 
 .lr.ph.split.us80.us.us:                          ; preds = %.preheader.us.us.us, %47
-  %.05770.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
-  %40 = mul nsw i64 %.05770.us77.us.us, %spec.select
+  %.070.us77.us.us = phi i64 [ %48, %47 ], [ 0, %.preheader.us.us.us ]
+  %40 = mul nsw i64 %.070.us77.us.us, %spec.select
   %gep72.us78.us.us = getelementptr double, ptr %gep.us.us.us, i64 %40
-  %41 = sub i64 %6, %.05770.us77.us.us
+  %41 = sub i64 %6, %.070.us77.us.us
   %42 = icmp ult i64 %41, 4
   br i1 %42, label %45, label %43
 
@@ -10477,49 +10477,49 @@ define internal void @decompress_strided_double_3(ptr noundef %0, ptr nocapture 
   br label %47
 
 47:                                               ; preds = %45, %43
-  %48 = add i64 %.05770.us77.us.us, 4
+  %48 = add i64 %.070.us77.us.us, 4
   %49 = icmp ult i64 %48, %6
   br i1 %49, label %.lr.ph.split.us80.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge.us.us.us:                             ; preds = %47, %.lr.ph.split.us.us.us.us
-  %50 = add i64 %.05674.us.us.us, 4
+  %50 = add i64 %.05774.us.us.us, 4
   %51 = icmp ult i64 %50, %8
   br i1 %51, label %.preheader.us.us.us, label %._crit_edge75.split.us.us.us
 
 .lr.ph.split.us.us.us.us:                         ; preds = %.preheader.us.us.us, %.lr.ph.split.us.us.us.us
-  %.05770.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
-  %52 = mul nsw i64 %.05770.us.us.us.us, %spec.select
+  %.070.us.us.us.us = phi i64 [ %56, %.lr.ph.split.us.us.us.us ], [ 0, %.preheader.us.us.us ]
+  %52 = mul nsw i64 %.070.us.us.us.us, %spec.select
   %gep72.us.us.us.us = getelementptr double, ptr %gep.us.us.us, i64 %52
-  %53 = sub i64 %6, %.05770.us.us.us.us
+  %53 = sub i64 %6, %.070.us.us.us.us
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 4)
   %55 = tail call i64 @zfp_decode_partial_block_strided_double_3(ptr noundef %0, ptr noundef %gep72.us.us.us.us, i64 noundef %54, i64 noundef %39, i64 noundef %23, i64 noundef %spec.select, i64 noundef %15, i64 noundef %19) #19
-  %56 = add i64 %.05770.us.us.us.us, 4
+  %56 = add i64 %.070.us.us.us.us, 4
   %57 = icmp ult i64 %56, %6
   br i1 %57, label %.lr.ph.split.us.us.us.us, label %._crit_edge.us.us.us
 
 ._crit_edge75.split.us.us.us:                     ; preds = %._crit_edge.us.us.us, %._crit_edge.split.us.us.us.us.us
-  %58 = add i64 %.081.us.us, 4
+  %58 = add i64 %.05681.us.us, 4
   %59 = icmp ult i64 %58, %10
   br i1 %59, label %.preheader69.us.us, label %._crit_edge
 
 .preheader69.us:                                  ; preds = %.preheader69.lr.ph.split.us, %._crit_edge75.split.us84
-  %.081.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
+  %.05681.us = phi i64 [ %62, %._crit_edge75.split.us84 ], [ 0, %.preheader69.lr.ph.split.us ]
   br label %.preheader.us82
 
 .preheader.us82:                                  ; preds = %.preheader69.us, %.preheader.us82
-  %.05674.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
-  %60 = add i64 %.05674.us83, 4
+  %.05774.us83 = phi i64 [ 0, %.preheader69.us ], [ %60, %.preheader.us82 ]
+  %60 = add i64 %.05774.us83, 4
   %61 = icmp ult i64 %60, %8
   br i1 %61, label %.preheader.us82, label %._crit_edge75.split.us84
 
 ._crit_edge75.split.us84:                         ; preds = %.preheader.us82
-  %62 = add i64 %.081.us, 4
+  %62 = add i64 %.05681.us, 4
   %63 = icmp ult i64 %62, %10
   br i1 %63, label %.preheader69.us, label %._crit_edge
 
 .preheader69:                                     ; preds = %.preheader69.lr.ph, %.preheader69
-  %.081 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
-  %64 = add i64 %.081, 4
+  %.05681 = phi i64 [ %64, %.preheader69 ], [ 0, %.preheader69.lr.ph ]
+  %64 = add i64 %.05681, 4
   %65 = icmp ult i64 %64, %10
   br i1 %65, label %.preheader69, label %._crit_edge
 
@@ -10572,77 +10572,77 @@ define internal void @decompress_strided_int32_4(ptr noundef %0, ptr nocapture n
   br i1 %.not137, label %.preheader95.us.us, label %.preheader95.us.us.us
 
 .preheader95.us.us.us:                            ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us.us.us.us
-  %.0117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
-  %26 = mul nsw i64 %.0117.us.us.us, %25
+  %.075117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %26 = mul nsw i64 %.075117.us.us.us, %25
   %invariant.gep112.us.us.us = getelementptr i32, ptr %4, i64 %26
-  %27 = sub i64 %12, %.0117.us.us.us
+  %27 = sub i64 %12, %.075117.us.us.us
   %.fr = freeze i64 %27
   %28 = icmp ult i64 %.fr, 4
   %29 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %28, label %.preheader94.us.us.us.us.us.us, label %.preheader94.us.us.us.us.us
 
 .preheader94.us.us.us.us.us.us:                   ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %.075111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %30 = mul nsw i64 %.075111.us.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %30 = mul nsw i64 %.076111.us.us.us.us.us.us, %21
   %gep.us.us.us.us.us.us = getelementptr i32, ptr %invariant.gep112.us.us.us, i64 %30
-  %31 = sub i64 %10, %.075111.us.us.us.us.us.us
+  %31 = sub i64 %10, %.076111.us.us.us.us.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   br label %.preheader.us.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us.us:               ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us, %.preheader94.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
-  %33 = mul nsw i64 %.076102.us.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
+  %33 = mul nsw i64 %.077102.us.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us.us = getelementptr i32, ptr %gep.us.us.us.us.us.us, i64 %33
-  %34 = sub i64 %8, %.076102.us.us.us.us.us.us.us.us
+  %34 = sub i64 %8, %.077102.us.us.us.us.us.us.us.us
   %35 = tail call i64 @llvm.umin.i64(i64 %34, i64 4)
   br label %36
 
 36:                                               ; preds = %36, %.preheader.us.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
-  %37 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
+  %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr i32, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us.us
+  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_decode_partial_block_strided_int32_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %41 = add i64 %.07796.us.us.us.us.us.us.us.us.us, 4
+  %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
   %42 = icmp ult i64 %41, %6
   br i1 %42, label %36, label %._crit_edge.split.us.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us.us:     ; preds = %36
-  %43 = add i64 %.076102.us.us.us.us.us.us.us.us, 4
+  %43 = add i64 %.077102.us.us.us.us.us.us.us.us, 4
   %44 = icmp ult i64 %43, %8
   br i1 %44, label %.preheader.us.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.split.us.us.us.us.us
 
 ._crit_edge103.split.us.us.us.split.us.us.us.us.us: ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us
-  %45 = add i64 %.075111.us.us.us.us.us.us, 4
+  %45 = add i64 %.076111.us.us.us.us.us.us, 4
   %46 = icmp ult i64 %45, %10
   br i1 %46, label %.preheader94.us.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader94.us.us.us.us.us:                      ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.us.us.us
-  %.075111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %47 = mul nsw i64 %.075111.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %47 = mul nsw i64 %.076111.us.us.us.us.us, %21
   %gep.us.us.us.us.us = getelementptr i32, ptr %invariant.gep112.us.us.us, i64 %47
-  %48 = sub i64 %10, %.075111.us.us.us.us.us
+  %48 = sub i64 %10, %.076111.us.us.us.us.us
   %.fr138 = freeze i64 %48
   %49 = icmp ult i64 %.fr138, 4
   %50 = tail call i64 @llvm.umin.i64(i64 %.fr138, i64 4)
   br i1 %49, label %.preheader.us.us.us.us.us.us.us, label %.preheader.us.us.us.us127.us.us
 
 .preheader.us.us.us.us127.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.us.us.us.us.us.us
-  %.076102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %51 = mul nsw i64 %.076102.us.us.us.us128.us.us, %17
+  %.077102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %51 = mul nsw i64 %.077102.us.us.us.us128.us.us, %17
   %gep106.us.us.us.us129.us.us = getelementptr i32, ptr %gep.us.us.us.us.us, i64 %51
-  %52 = sub i64 %8, %.076102.us.us.us.us128.us.us
+  %52 = sub i64 %8, %.077102.us.us.us.us128.us.us
   %.fr139 = freeze i64 %52
   %53 = icmp ult i64 %.fr139, 4
   %54 = tail call i64 @llvm.umin.i64(i64 %.fr139, i64 4)
   br i1 %53, label %.lr.ph.split.us.us.us.us.us.us.us, label %.lr.ph.split.us110.us.us.us.us.us
 
 .lr.ph.split.us110.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %62
-  %.07796.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %55 = mul nsw i64 %.07796.us107.us.us.us.us.us, %spec.select
+  %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr i32, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.07796.us107.us.us.us.us.us
+  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -10655,102 +10655,102 @@ define internal void @decompress_strided_int32_4(ptr noundef %0, ptr nocapture n
   br label %62
 
 62:                                               ; preds = %60, %58
-  %63 = add i64 %.07796.us107.us.us.us.us.us, 4
+  %63 = add i64 %.096.us107.us.us.us.us.us, 4
   %64 = icmp ult i64 %63, %6
   br i1 %64, label %.lr.ph.split.us110.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.us.us.us.us.us.us:                    ; preds = %62, %.lr.ph.split.us.us.us.us.us.us.us
-  %65 = add i64 %.076102.us.us.us.us128.us.us, 4
+  %65 = add i64 %.077102.us.us.us.us128.us.us, 4
   %66 = icmp ult i64 %65, %8
   br i1 %66, label %.preheader.us.us.us.us127.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .lr.ph.split.us.us.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %.lr.ph.split.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %67 = mul nsw i64 %.07796.us.us.us.us.us130.us.us, %spec.select
+  %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr i32, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.07796.us.us.us.us.us130.us.us
+  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_decode_partial_block_strided_int32_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %71 = add i64 %.07796.us.us.us.us.us130.us.us, 4
+  %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
   %72 = icmp ult i64 %71, %6
   br i1 %72, label %.lr.ph.split.us.us.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.split.us.split.us.us.us.us:           ; preds = %._crit_edge103.split.us.us.us.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %73 = add i64 %.0117.us.us.us, 4
+  %73 = add i64 %.075117.us.us.us, 4
   %74 = icmp ult i64 %73, %12
   br i1 %74, label %.preheader95.us.us.us, label %._crit_edge118
 
 ._crit_edge103.split.us.us.us.us.us.us:           ; preds = %._crit_edge.us.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %75 = add i64 %.075111.us.us.us.us.us, 4
+  %75 = add i64 %.076111.us.us.us.us.us, 4
   %76 = icmp ult i64 %75, %10
   br i1 %76, label %.preheader94.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %77 = mul nsw i64 %.076102.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %77 = mul nsw i64 %.077102.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us = getelementptr i32, ptr %gep.us.us.us.us.us, i64 %77
-  %78 = sub i64 %8, %.076102.us.us.us.us.us.us.us
+  %78 = sub i64 %8, %.077102.us.us.us.us.us.us.us
   %79 = tail call i64 @llvm.umin.i64(i64 %78, i64 4)
   br label %80
 
 80:                                               ; preds = %80, %.preheader.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
-  %81 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
+  %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr i32, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us
+  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_decode_partial_block_strided_int32_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %85 = add i64 %.07796.us.us.us.us.us.us.us.us, 4
+  %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
   %86 = icmp ult i64 %85, %6
   br i1 %86, label %80, label %._crit_edge.split.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us:        ; preds = %80
-  %87 = add i64 %.076102.us.us.us.us.us.us.us, 4
+  %87 = add i64 %.077102.us.us.us.us.us.us.us, 4
   %88 = icmp ult i64 %87, %8
   br i1 %88, label %.preheader.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .preheader95.us.us:                               ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us125.us
-  %.0117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %.075117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
   br label %.preheader94.us.us123.us
 
 .preheader94.us.us123.us:                         ; preds = %.preheader95.us.us, %._crit_edge103.split.us115.us.us
-  %.075111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
+  %.076111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
   br label %.preheader.us113.us.us
 
 .preheader.us113.us.us:                           ; preds = %.preheader.us113.us.us, %.preheader94.us.us123.us
-  %.076102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
-  %89 = add i64 %.076102.us114.us.us, 4
+  %.077102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
+  %89 = add i64 %.077102.us114.us.us, 4
   %90 = icmp ult i64 %89, %8
   br i1 %90, label %.preheader.us113.us.us, label %._crit_edge103.split.us115.us.us
 
 ._crit_edge103.split.us115.us.us:                 ; preds = %.preheader.us113.us.us
-  %91 = add i64 %.075111.us.us124.us, 4
+  %91 = add i64 %.076111.us.us124.us, 4
   %92 = icmp ult i64 %91, %10
   br i1 %92, label %.preheader94.us.us123.us, label %._crit_edge.split.us.split.us125.us
 
 ._crit_edge.split.us.split.us125.us:              ; preds = %._crit_edge103.split.us115.us.us
-  %93 = add i64 %.0117.us.us, 4
+  %93 = add i64 %.075117.us.us, 4
   %94 = icmp ult i64 %93, %12
   br i1 %94, label %.preheader95.us.us, label %._crit_edge118
 
 .preheader95.us:                                  ; preds = %.preheader95.lr.ph.split.us, %._crit_edge.split.us121
-  %.0117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
+  %.075117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
   br label %.preheader94.us119
 
 .preheader94.us119:                               ; preds = %.preheader95.us, %.preheader94.us119
-  %.075111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
-  %95 = add i64 %.075111.us120, 4
+  %.076111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
+  %95 = add i64 %.076111.us120, 4
   %96 = icmp ult i64 %95, %10
   br i1 %96, label %.preheader94.us119, label %._crit_edge.split.us121
 
 ._crit_edge.split.us121:                          ; preds = %.preheader94.us119
-  %97 = add i64 %.0117.us, 4
+  %97 = add i64 %.075117.us, 4
   %98 = icmp ult i64 %97, %12
   br i1 %98, label %.preheader95.us, label %._crit_edge118
 
 .preheader95:                                     ; preds = %.preheader95.lr.ph, %.preheader95
-  %.0117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
-  %99 = add i64 %.0117, 4
+  %.075117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
+  %99 = add i64 %.075117, 4
   %100 = icmp ult i64 %99, %12
   br i1 %100, label %.preheader95, label %._crit_edge118
 
@@ -10803,77 +10803,77 @@ define internal void @decompress_strided_int64_4(ptr noundef %0, ptr nocapture n
   br i1 %.not137, label %.preheader95.us.us, label %.preheader95.us.us.us
 
 .preheader95.us.us.us:                            ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us.us.us.us
-  %.0117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
-  %26 = mul nsw i64 %.0117.us.us.us, %25
+  %.075117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %26 = mul nsw i64 %.075117.us.us.us, %25
   %invariant.gep112.us.us.us = getelementptr i64, ptr %4, i64 %26
-  %27 = sub i64 %12, %.0117.us.us.us
+  %27 = sub i64 %12, %.075117.us.us.us
   %.fr = freeze i64 %27
   %28 = icmp ult i64 %.fr, 4
   %29 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %28, label %.preheader94.us.us.us.us.us.us, label %.preheader94.us.us.us.us.us
 
 .preheader94.us.us.us.us.us.us:                   ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %.075111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %30 = mul nsw i64 %.075111.us.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %30 = mul nsw i64 %.076111.us.us.us.us.us.us, %21
   %gep.us.us.us.us.us.us = getelementptr i64, ptr %invariant.gep112.us.us.us, i64 %30
-  %31 = sub i64 %10, %.075111.us.us.us.us.us.us
+  %31 = sub i64 %10, %.076111.us.us.us.us.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   br label %.preheader.us.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us.us:               ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us, %.preheader94.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
-  %33 = mul nsw i64 %.076102.us.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
+  %33 = mul nsw i64 %.077102.us.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us.us = getelementptr i64, ptr %gep.us.us.us.us.us.us, i64 %33
-  %34 = sub i64 %8, %.076102.us.us.us.us.us.us.us.us
+  %34 = sub i64 %8, %.077102.us.us.us.us.us.us.us.us
   %35 = tail call i64 @llvm.umin.i64(i64 %34, i64 4)
   br label %36
 
 36:                                               ; preds = %36, %.preheader.us.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
-  %37 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
+  %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr i64, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us.us
+  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_decode_partial_block_strided_int64_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %41 = add i64 %.07796.us.us.us.us.us.us.us.us.us, 4
+  %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
   %42 = icmp ult i64 %41, %6
   br i1 %42, label %36, label %._crit_edge.split.us.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us.us:     ; preds = %36
-  %43 = add i64 %.076102.us.us.us.us.us.us.us.us, 4
+  %43 = add i64 %.077102.us.us.us.us.us.us.us.us, 4
   %44 = icmp ult i64 %43, %8
   br i1 %44, label %.preheader.us.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.split.us.us.us.us.us
 
 ._crit_edge103.split.us.us.us.split.us.us.us.us.us: ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us
-  %45 = add i64 %.075111.us.us.us.us.us.us, 4
+  %45 = add i64 %.076111.us.us.us.us.us.us, 4
   %46 = icmp ult i64 %45, %10
   br i1 %46, label %.preheader94.us.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader94.us.us.us.us.us:                      ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.us.us.us
-  %.075111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %47 = mul nsw i64 %.075111.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %47 = mul nsw i64 %.076111.us.us.us.us.us, %21
   %gep.us.us.us.us.us = getelementptr i64, ptr %invariant.gep112.us.us.us, i64 %47
-  %48 = sub i64 %10, %.075111.us.us.us.us.us
+  %48 = sub i64 %10, %.076111.us.us.us.us.us
   %.fr138 = freeze i64 %48
   %49 = icmp ult i64 %.fr138, 4
   %50 = tail call i64 @llvm.umin.i64(i64 %.fr138, i64 4)
   br i1 %49, label %.preheader.us.us.us.us.us.us.us, label %.preheader.us.us.us.us127.us.us
 
 .preheader.us.us.us.us127.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.us.us.us.us.us.us
-  %.076102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %51 = mul nsw i64 %.076102.us.us.us.us128.us.us, %17
+  %.077102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %51 = mul nsw i64 %.077102.us.us.us.us128.us.us, %17
   %gep106.us.us.us.us129.us.us = getelementptr i64, ptr %gep.us.us.us.us.us, i64 %51
-  %52 = sub i64 %8, %.076102.us.us.us.us128.us.us
+  %52 = sub i64 %8, %.077102.us.us.us.us128.us.us
   %.fr139 = freeze i64 %52
   %53 = icmp ult i64 %.fr139, 4
   %54 = tail call i64 @llvm.umin.i64(i64 %.fr139, i64 4)
   br i1 %53, label %.lr.ph.split.us.us.us.us.us.us.us, label %.lr.ph.split.us110.us.us.us.us.us
 
 .lr.ph.split.us110.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %62
-  %.07796.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %55 = mul nsw i64 %.07796.us107.us.us.us.us.us, %spec.select
+  %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr i64, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.07796.us107.us.us.us.us.us
+  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -10886,102 +10886,102 @@ define internal void @decompress_strided_int64_4(ptr noundef %0, ptr nocapture n
   br label %62
 
 62:                                               ; preds = %60, %58
-  %63 = add i64 %.07796.us107.us.us.us.us.us, 4
+  %63 = add i64 %.096.us107.us.us.us.us.us, 4
   %64 = icmp ult i64 %63, %6
   br i1 %64, label %.lr.ph.split.us110.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.us.us.us.us.us.us:                    ; preds = %62, %.lr.ph.split.us.us.us.us.us.us.us
-  %65 = add i64 %.076102.us.us.us.us128.us.us, 4
+  %65 = add i64 %.077102.us.us.us.us128.us.us, 4
   %66 = icmp ult i64 %65, %8
   br i1 %66, label %.preheader.us.us.us.us127.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .lr.ph.split.us.us.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %.lr.ph.split.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %67 = mul nsw i64 %.07796.us.us.us.us.us130.us.us, %spec.select
+  %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr i64, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.07796.us.us.us.us.us130.us.us
+  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_decode_partial_block_strided_int64_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %71 = add i64 %.07796.us.us.us.us.us130.us.us, 4
+  %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
   %72 = icmp ult i64 %71, %6
   br i1 %72, label %.lr.ph.split.us.us.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.split.us.split.us.us.us.us:           ; preds = %._crit_edge103.split.us.us.us.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %73 = add i64 %.0117.us.us.us, 4
+  %73 = add i64 %.075117.us.us.us, 4
   %74 = icmp ult i64 %73, %12
   br i1 %74, label %.preheader95.us.us.us, label %._crit_edge118
 
 ._crit_edge103.split.us.us.us.us.us.us:           ; preds = %._crit_edge.us.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %75 = add i64 %.075111.us.us.us.us.us, 4
+  %75 = add i64 %.076111.us.us.us.us.us, 4
   %76 = icmp ult i64 %75, %10
   br i1 %76, label %.preheader94.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %77 = mul nsw i64 %.076102.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %77 = mul nsw i64 %.077102.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us = getelementptr i64, ptr %gep.us.us.us.us.us, i64 %77
-  %78 = sub i64 %8, %.076102.us.us.us.us.us.us.us
+  %78 = sub i64 %8, %.077102.us.us.us.us.us.us.us
   %79 = tail call i64 @llvm.umin.i64(i64 %78, i64 4)
   br label %80
 
 80:                                               ; preds = %80, %.preheader.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
-  %81 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
+  %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr i64, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us
+  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_decode_partial_block_strided_int64_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %85 = add i64 %.07796.us.us.us.us.us.us.us.us, 4
+  %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
   %86 = icmp ult i64 %85, %6
   br i1 %86, label %80, label %._crit_edge.split.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us:        ; preds = %80
-  %87 = add i64 %.076102.us.us.us.us.us.us.us, 4
+  %87 = add i64 %.077102.us.us.us.us.us.us.us, 4
   %88 = icmp ult i64 %87, %8
   br i1 %88, label %.preheader.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .preheader95.us.us:                               ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us125.us
-  %.0117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %.075117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
   br label %.preheader94.us.us123.us
 
 .preheader94.us.us123.us:                         ; preds = %.preheader95.us.us, %._crit_edge103.split.us115.us.us
-  %.075111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
+  %.076111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
   br label %.preheader.us113.us.us
 
 .preheader.us113.us.us:                           ; preds = %.preheader.us113.us.us, %.preheader94.us.us123.us
-  %.076102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
-  %89 = add i64 %.076102.us114.us.us, 4
+  %.077102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
+  %89 = add i64 %.077102.us114.us.us, 4
   %90 = icmp ult i64 %89, %8
   br i1 %90, label %.preheader.us113.us.us, label %._crit_edge103.split.us115.us.us
 
 ._crit_edge103.split.us115.us.us:                 ; preds = %.preheader.us113.us.us
-  %91 = add i64 %.075111.us.us124.us, 4
+  %91 = add i64 %.076111.us.us124.us, 4
   %92 = icmp ult i64 %91, %10
   br i1 %92, label %.preheader94.us.us123.us, label %._crit_edge.split.us.split.us125.us
 
 ._crit_edge.split.us.split.us125.us:              ; preds = %._crit_edge103.split.us115.us.us
-  %93 = add i64 %.0117.us.us, 4
+  %93 = add i64 %.075117.us.us, 4
   %94 = icmp ult i64 %93, %12
   br i1 %94, label %.preheader95.us.us, label %._crit_edge118
 
 .preheader95.us:                                  ; preds = %.preheader95.lr.ph.split.us, %._crit_edge.split.us121
-  %.0117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
+  %.075117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
   br label %.preheader94.us119
 
 .preheader94.us119:                               ; preds = %.preheader95.us, %.preheader94.us119
-  %.075111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
-  %95 = add i64 %.075111.us120, 4
+  %.076111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
+  %95 = add i64 %.076111.us120, 4
   %96 = icmp ult i64 %95, %10
   br i1 %96, label %.preheader94.us119, label %._crit_edge.split.us121
 
 ._crit_edge.split.us121:                          ; preds = %.preheader94.us119
-  %97 = add i64 %.0117.us, 4
+  %97 = add i64 %.075117.us, 4
   %98 = icmp ult i64 %97, %12
   br i1 %98, label %.preheader95.us, label %._crit_edge118
 
 .preheader95:                                     ; preds = %.preheader95.lr.ph, %.preheader95
-  %.0117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
-  %99 = add i64 %.0117, 4
+  %.075117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
+  %99 = add i64 %.075117, 4
   %100 = icmp ult i64 %99, %12
   br i1 %100, label %.preheader95, label %._crit_edge118
 
@@ -11034,77 +11034,77 @@ define internal void @decompress_strided_float_4(ptr noundef %0, ptr nocapture n
   br i1 %.not137, label %.preheader95.us.us, label %.preheader95.us.us.us
 
 .preheader95.us.us.us:                            ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us.us.us.us
-  %.0117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
-  %26 = mul nsw i64 %.0117.us.us.us, %25
+  %.075117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %26 = mul nsw i64 %.075117.us.us.us, %25
   %invariant.gep112.us.us.us = getelementptr float, ptr %4, i64 %26
-  %27 = sub i64 %12, %.0117.us.us.us
+  %27 = sub i64 %12, %.075117.us.us.us
   %.fr = freeze i64 %27
   %28 = icmp ult i64 %.fr, 4
   %29 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %28, label %.preheader94.us.us.us.us.us.us, label %.preheader94.us.us.us.us.us
 
 .preheader94.us.us.us.us.us.us:                   ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %.075111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %30 = mul nsw i64 %.075111.us.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %30 = mul nsw i64 %.076111.us.us.us.us.us.us, %21
   %gep.us.us.us.us.us.us = getelementptr float, ptr %invariant.gep112.us.us.us, i64 %30
-  %31 = sub i64 %10, %.075111.us.us.us.us.us.us
+  %31 = sub i64 %10, %.076111.us.us.us.us.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   br label %.preheader.us.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us.us:               ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us, %.preheader94.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
-  %33 = mul nsw i64 %.076102.us.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
+  %33 = mul nsw i64 %.077102.us.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep.us.us.us.us.us.us, i64 %33
-  %34 = sub i64 %8, %.076102.us.us.us.us.us.us.us.us
+  %34 = sub i64 %8, %.077102.us.us.us.us.us.us.us.us
   %35 = tail call i64 @llvm.umin.i64(i64 %34, i64 4)
   br label %36
 
 36:                                               ; preds = %36, %.preheader.us.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
-  %37 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
+  %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us.us
+  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_decode_partial_block_strided_float_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %41 = add i64 %.07796.us.us.us.us.us.us.us.us.us, 4
+  %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
   %42 = icmp ult i64 %41, %6
   br i1 %42, label %36, label %._crit_edge.split.us.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us.us:     ; preds = %36
-  %43 = add i64 %.076102.us.us.us.us.us.us.us.us, 4
+  %43 = add i64 %.077102.us.us.us.us.us.us.us.us, 4
   %44 = icmp ult i64 %43, %8
   br i1 %44, label %.preheader.us.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.split.us.us.us.us.us
 
 ._crit_edge103.split.us.us.us.split.us.us.us.us.us: ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us
-  %45 = add i64 %.075111.us.us.us.us.us.us, 4
+  %45 = add i64 %.076111.us.us.us.us.us.us, 4
   %46 = icmp ult i64 %45, %10
   br i1 %46, label %.preheader94.us.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader94.us.us.us.us.us:                      ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.us.us.us
-  %.075111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %47 = mul nsw i64 %.075111.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %47 = mul nsw i64 %.076111.us.us.us.us.us, %21
   %gep.us.us.us.us.us = getelementptr float, ptr %invariant.gep112.us.us.us, i64 %47
-  %48 = sub i64 %10, %.075111.us.us.us.us.us
+  %48 = sub i64 %10, %.076111.us.us.us.us.us
   %.fr138 = freeze i64 %48
   %49 = icmp ult i64 %.fr138, 4
   %50 = tail call i64 @llvm.umin.i64(i64 %.fr138, i64 4)
   br i1 %49, label %.preheader.us.us.us.us.us.us.us, label %.preheader.us.us.us.us127.us.us
 
 .preheader.us.us.us.us127.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.us.us.us.us.us.us
-  %.076102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %51 = mul nsw i64 %.076102.us.us.us.us128.us.us, %17
+  %.077102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %51 = mul nsw i64 %.077102.us.us.us.us128.us.us, %17
   %gep106.us.us.us.us129.us.us = getelementptr float, ptr %gep.us.us.us.us.us, i64 %51
-  %52 = sub i64 %8, %.076102.us.us.us.us128.us.us
+  %52 = sub i64 %8, %.077102.us.us.us.us128.us.us
   %.fr139 = freeze i64 %52
   %53 = icmp ult i64 %.fr139, 4
   %54 = tail call i64 @llvm.umin.i64(i64 %.fr139, i64 4)
   br i1 %53, label %.lr.ph.split.us.us.us.us.us.us.us, label %.lr.ph.split.us110.us.us.us.us.us
 
 .lr.ph.split.us110.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %62
-  %.07796.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %55 = mul nsw i64 %.07796.us107.us.us.us.us.us, %spec.select
+  %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr float, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.07796.us107.us.us.us.us.us
+  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -11117,102 +11117,102 @@ define internal void @decompress_strided_float_4(ptr noundef %0, ptr nocapture n
   br label %62
 
 62:                                               ; preds = %60, %58
-  %63 = add i64 %.07796.us107.us.us.us.us.us, 4
+  %63 = add i64 %.096.us107.us.us.us.us.us, 4
   %64 = icmp ult i64 %63, %6
   br i1 %64, label %.lr.ph.split.us110.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.us.us.us.us.us.us:                    ; preds = %62, %.lr.ph.split.us.us.us.us.us.us.us
-  %65 = add i64 %.076102.us.us.us.us128.us.us, 4
+  %65 = add i64 %.077102.us.us.us.us128.us.us, 4
   %66 = icmp ult i64 %65, %8
   br i1 %66, label %.preheader.us.us.us.us127.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .lr.ph.split.us.us.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %.lr.ph.split.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %67 = mul nsw i64 %.07796.us.us.us.us.us130.us.us, %spec.select
+  %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr float, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.07796.us.us.us.us.us130.us.us
+  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_decode_partial_block_strided_float_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %71 = add i64 %.07796.us.us.us.us.us130.us.us, 4
+  %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
   %72 = icmp ult i64 %71, %6
   br i1 %72, label %.lr.ph.split.us.us.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.split.us.split.us.us.us.us:           ; preds = %._crit_edge103.split.us.us.us.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %73 = add i64 %.0117.us.us.us, 4
+  %73 = add i64 %.075117.us.us.us, 4
   %74 = icmp ult i64 %73, %12
   br i1 %74, label %.preheader95.us.us.us, label %._crit_edge118
 
 ._crit_edge103.split.us.us.us.us.us.us:           ; preds = %._crit_edge.us.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %75 = add i64 %.075111.us.us.us.us.us, 4
+  %75 = add i64 %.076111.us.us.us.us.us, 4
   %76 = icmp ult i64 %75, %10
   br i1 %76, label %.preheader94.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %77 = mul nsw i64 %.076102.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %77 = mul nsw i64 %.077102.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us = getelementptr float, ptr %gep.us.us.us.us.us, i64 %77
-  %78 = sub i64 %8, %.076102.us.us.us.us.us.us.us
+  %78 = sub i64 %8, %.077102.us.us.us.us.us.us.us
   %79 = tail call i64 @llvm.umin.i64(i64 %78, i64 4)
   br label %80
 
 80:                                               ; preds = %80, %.preheader.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
-  %81 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
+  %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us
+  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_decode_partial_block_strided_float_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %85 = add i64 %.07796.us.us.us.us.us.us.us.us, 4
+  %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
   %86 = icmp ult i64 %85, %6
   br i1 %86, label %80, label %._crit_edge.split.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us:        ; preds = %80
-  %87 = add i64 %.076102.us.us.us.us.us.us.us, 4
+  %87 = add i64 %.077102.us.us.us.us.us.us.us, 4
   %88 = icmp ult i64 %87, %8
   br i1 %88, label %.preheader.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .preheader95.us.us:                               ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us125.us
-  %.0117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %.075117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
   br label %.preheader94.us.us123.us
 
 .preheader94.us.us123.us:                         ; preds = %.preheader95.us.us, %._crit_edge103.split.us115.us.us
-  %.075111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
+  %.076111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
   br label %.preheader.us113.us.us
 
 .preheader.us113.us.us:                           ; preds = %.preheader.us113.us.us, %.preheader94.us.us123.us
-  %.076102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
-  %89 = add i64 %.076102.us114.us.us, 4
+  %.077102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
+  %89 = add i64 %.077102.us114.us.us, 4
   %90 = icmp ult i64 %89, %8
   br i1 %90, label %.preheader.us113.us.us, label %._crit_edge103.split.us115.us.us
 
 ._crit_edge103.split.us115.us.us:                 ; preds = %.preheader.us113.us.us
-  %91 = add i64 %.075111.us.us124.us, 4
+  %91 = add i64 %.076111.us.us124.us, 4
   %92 = icmp ult i64 %91, %10
   br i1 %92, label %.preheader94.us.us123.us, label %._crit_edge.split.us.split.us125.us
 
 ._crit_edge.split.us.split.us125.us:              ; preds = %._crit_edge103.split.us115.us.us
-  %93 = add i64 %.0117.us.us, 4
+  %93 = add i64 %.075117.us.us, 4
   %94 = icmp ult i64 %93, %12
   br i1 %94, label %.preheader95.us.us, label %._crit_edge118
 
 .preheader95.us:                                  ; preds = %.preheader95.lr.ph.split.us, %._crit_edge.split.us121
-  %.0117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
+  %.075117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
   br label %.preheader94.us119
 
 .preheader94.us119:                               ; preds = %.preheader95.us, %.preheader94.us119
-  %.075111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
-  %95 = add i64 %.075111.us120, 4
+  %.076111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
+  %95 = add i64 %.076111.us120, 4
   %96 = icmp ult i64 %95, %10
   br i1 %96, label %.preheader94.us119, label %._crit_edge.split.us121
 
 ._crit_edge.split.us121:                          ; preds = %.preheader94.us119
-  %97 = add i64 %.0117.us, 4
+  %97 = add i64 %.075117.us, 4
   %98 = icmp ult i64 %97, %12
   br i1 %98, label %.preheader95.us, label %._crit_edge118
 
 .preheader95:                                     ; preds = %.preheader95.lr.ph, %.preheader95
-  %.0117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
-  %99 = add i64 %.0117, 4
+  %.075117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
+  %99 = add i64 %.075117, 4
   %100 = icmp ult i64 %99, %12
   br i1 %100, label %.preheader95, label %._crit_edge118
 
@@ -11265,77 +11265,77 @@ define internal void @decompress_strided_double_4(ptr noundef %0, ptr nocapture 
   br i1 %.not137, label %.preheader95.us.us, label %.preheader95.us.us.us
 
 .preheader95.us.us.us:                            ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us.us.us.us
-  %.0117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
-  %26 = mul nsw i64 %.0117.us.us.us, %25
+  %.075117.us.us.us = phi i64 [ %73, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %26 = mul nsw i64 %.075117.us.us.us, %25
   %invariant.gep112.us.us.us = getelementptr double, ptr %4, i64 %26
-  %27 = sub i64 %12, %.0117.us.us.us
+  %27 = sub i64 %12, %.075117.us.us.us
   %.fr = freeze i64 %27
   %28 = icmp ult i64 %.fr, 4
   %29 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 4)
   br i1 %28, label %.preheader94.us.us.us.us.us.us, label %.preheader94.us.us.us.us.us
 
 .preheader94.us.us.us.us.us.us:                   ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %.075111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %30 = mul nsw i64 %.075111.us.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us.us = phi i64 [ %45, %._crit_edge103.split.us.us.us.split.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %30 = mul nsw i64 %.076111.us.us.us.us.us.us, %21
   %gep.us.us.us.us.us.us = getelementptr double, ptr %invariant.gep112.us.us.us, i64 %30
-  %31 = sub i64 %10, %.075111.us.us.us.us.us.us
+  %31 = sub i64 %10, %.076111.us.us.us.us.us.us
   %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 4)
   br label %.preheader.us.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us.us:               ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us, %.preheader94.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
-  %33 = mul nsw i64 %.076102.us.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader94.us.us.us.us.us.us ], [ %43, %._crit_edge.split.us.us.us.us.us.us.us.us.us ]
+  %33 = mul nsw i64 %.077102.us.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us.us = getelementptr double, ptr %gep.us.us.us.us.us.us, i64 %33
-  %34 = sub i64 %8, %.076102.us.us.us.us.us.us.us.us
+  %34 = sub i64 %8, %.077102.us.us.us.us.us.us.us.us
   %35 = tail call i64 @llvm.umin.i64(i64 %34, i64 4)
   br label %36
 
 36:                                               ; preds = %36, %.preheader.us.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
-  %37 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %41, %36 ]
+  %37 = mul nsw i64 %.096.us.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us.us = getelementptr double, ptr %gep106.us.us.us.us.us.us.us.us, i64 %37
-  %38 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us.us
+  %38 = sub i64 %6, %.096.us.us.us.us.us.us.us.us.us
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 4)
   %40 = tail call i64 @zfp_decode_partial_block_strided_double_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us.us, i64 noundef %39, i64 noundef %35, i64 noundef %32, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %41 = add i64 %.07796.us.us.us.us.us.us.us.us.us, 4
+  %41 = add i64 %.096.us.us.us.us.us.us.us.us.us, 4
   %42 = icmp ult i64 %41, %6
   br i1 %42, label %36, label %._crit_edge.split.us.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us.us:     ; preds = %36
-  %43 = add i64 %.076102.us.us.us.us.us.us.us.us, 4
+  %43 = add i64 %.077102.us.us.us.us.us.us.us.us, 4
   %44 = icmp ult i64 %43, %8
   br i1 %44, label %.preheader.us.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.split.us.us.us.us.us
 
 ._crit_edge103.split.us.us.us.split.us.us.us.us.us: ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us
-  %45 = add i64 %.075111.us.us.us.us.us.us, 4
+  %45 = add i64 %.076111.us.us.us.us.us.us, 4
   %46 = icmp ult i64 %45, %10
   br i1 %46, label %.preheader94.us.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader94.us.us.us.us.us:                      ; preds = %.preheader95.us.us.us, %._crit_edge103.split.us.us.us.us.us.us
-  %.075111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
-  %47 = mul nsw i64 %.075111.us.us.us.us.us, %21
+  %.076111.us.us.us.us.us = phi i64 [ %75, %._crit_edge103.split.us.us.us.us.us.us ], [ 0, %.preheader95.us.us.us ]
+  %47 = mul nsw i64 %.076111.us.us.us.us.us, %21
   %gep.us.us.us.us.us = getelementptr double, ptr %invariant.gep112.us.us.us, i64 %47
-  %48 = sub i64 %10, %.075111.us.us.us.us.us
+  %48 = sub i64 %10, %.076111.us.us.us.us.us
   %.fr138 = freeze i64 %48
   %49 = icmp ult i64 %.fr138, 4
   %50 = tail call i64 @llvm.umin.i64(i64 %.fr138, i64 4)
   br i1 %49, label %.preheader.us.us.us.us.us.us.us, label %.preheader.us.us.us.us127.us.us
 
 .preheader.us.us.us.us127.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.us.us.us.us.us.us
-  %.076102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %51 = mul nsw i64 %.076102.us.us.us.us128.us.us, %17
+  %.077102.us.us.us.us128.us.us = phi i64 [ %65, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %51 = mul nsw i64 %.077102.us.us.us.us128.us.us, %17
   %gep106.us.us.us.us129.us.us = getelementptr double, ptr %gep.us.us.us.us.us, i64 %51
-  %52 = sub i64 %8, %.076102.us.us.us.us128.us.us
+  %52 = sub i64 %8, %.077102.us.us.us.us128.us.us
   %.fr139 = freeze i64 %52
   %53 = icmp ult i64 %.fr139, 4
   %54 = tail call i64 @llvm.umin.i64(i64 %.fr139, i64 4)
   br i1 %53, label %.lr.ph.split.us.us.us.us.us.us.us, label %.lr.ph.split.us110.us.us.us.us.us
 
 .lr.ph.split.us110.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %62
-  %.07796.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %55 = mul nsw i64 %.07796.us107.us.us.us.us.us, %spec.select
+  %.096.us107.us.us.us.us.us = phi i64 [ %63, %62 ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %55 = mul nsw i64 %.096.us107.us.us.us.us.us, %spec.select
   %gep.us108.us.us.us.us.us = getelementptr double, ptr %gep106.us.us.us.us129.us.us, i64 %55
-  %56 = sub i64 %6, %.07796.us107.us.us.us.us.us
+  %56 = sub i64 %6, %.096.us107.us.us.us.us.us
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %60, label %58
 
@@ -11348,102 +11348,102 @@ define internal void @decompress_strided_double_4(ptr noundef %0, ptr nocapture 
   br label %62
 
 62:                                               ; preds = %60, %58
-  %63 = add i64 %.07796.us107.us.us.us.us.us, 4
+  %63 = add i64 %.096.us107.us.us.us.us.us, 4
   %64 = icmp ult i64 %63, %6
   br i1 %64, label %.lr.ph.split.us110.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.us.us.us.us.us.us:                    ; preds = %62, %.lr.ph.split.us.us.us.us.us.us.us
-  %65 = add i64 %.076102.us.us.us.us128.us.us, 4
+  %65 = add i64 %.077102.us.us.us.us128.us.us, 4
   %66 = icmp ult i64 %65, %8
   br i1 %66, label %.preheader.us.us.us.us127.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .lr.ph.split.us.us.us.us.us.us.us:                ; preds = %.preheader.us.us.us.us127.us.us, %.lr.ph.split.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
-  %67 = mul nsw i64 %.07796.us.us.us.us.us130.us.us, %spec.select
+  %.096.us.us.us.us.us130.us.us = phi i64 [ %71, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us127.us.us ]
+  %67 = mul nsw i64 %.096.us.us.us.us.us130.us.us, %spec.select
   %gep.us.us.us.us.us131.us.us = getelementptr double, ptr %gep106.us.us.us.us129.us.us, i64 %67
-  %68 = sub i64 %6, %.07796.us.us.us.us.us130.us.us
+  %68 = sub i64 %6, %.096.us.us.us.us.us130.us.us
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 4)
   %70 = tail call i64 @zfp_decode_partial_block_strided_double_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us131.us.us, i64 noundef %69, i64 noundef %54, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %71 = add i64 %.07796.us.us.us.us.us130.us.us, 4
+  %71 = add i64 %.096.us.us.us.us.us130.us.us, 4
   %72 = icmp ult i64 %71, %6
   br i1 %72, label %.lr.ph.split.us.us.us.us.us.us.us, label %._crit_edge.us.us.us.us.us.us
 
 ._crit_edge.split.us.split.us.us.us.us:           ; preds = %._crit_edge103.split.us.us.us.us.us.us, %._crit_edge103.split.us.us.us.split.us.us.us.us.us
-  %73 = add i64 %.0117.us.us.us, 4
+  %73 = add i64 %.075117.us.us.us, 4
   %74 = icmp ult i64 %73, %12
   br i1 %74, label %.preheader95.us.us.us, label %._crit_edge118
 
 ._crit_edge103.split.us.us.us.us.us.us:           ; preds = %._crit_edge.us.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %75 = add i64 %.075111.us.us.us.us.us, 4
+  %75 = add i64 %.076111.us.us.us.us.us, 4
   %76 = icmp ult i64 %75, %10
   br i1 %76, label %.preheader94.us.us.us.us.us, label %._crit_edge.split.us.split.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us:                  ; preds = %.preheader94.us.us.us.us.us, %._crit_edge.split.us.us.us.us.us.us.us.us
-  %.076102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
-  %77 = mul nsw i64 %.076102.us.us.us.us.us.us.us, %17
+  %.077102.us.us.us.us.us.us.us = phi i64 [ %87, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader94.us.us.us.us.us ]
+  %77 = mul nsw i64 %.077102.us.us.us.us.us.us.us, %17
   %gep106.us.us.us.us.us.us.us = getelementptr double, ptr %gep.us.us.us.us.us, i64 %77
-  %78 = sub i64 %8, %.076102.us.us.us.us.us.us.us
+  %78 = sub i64 %8, %.077102.us.us.us.us.us.us.us
   %79 = tail call i64 @llvm.umin.i64(i64 %78, i64 4)
   br label %80
 
 80:                                               ; preds = %80, %.preheader.us.us.us.us.us.us.us
-  %.07796.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
-  %81 = mul nsw i64 %.07796.us.us.us.us.us.us.us.us, %spec.select
+  %.096.us.us.us.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us.us.us ], [ %85, %80 ]
+  %81 = mul nsw i64 %.096.us.us.us.us.us.us.us.us, %spec.select
   %gep.us.us.us.us.us.us.us.us = getelementptr double, ptr %gep106.us.us.us.us.us.us.us, i64 %81
-  %82 = sub i64 %6, %.07796.us.us.us.us.us.us.us.us
+  %82 = sub i64 %6, %.096.us.us.us.us.us.us.us.us
   %83 = tail call i64 @llvm.umin.i64(i64 %82, i64 4)
   %84 = tail call i64 @zfp_decode_partial_block_strided_double_4(ptr noundef %0, ptr noundef %gep.us.us.us.us.us.us.us.us, i64 noundef %83, i64 noundef %79, i64 noundef %50, i64 noundef %29, i64 noundef %spec.select, i64 noundef %17, i64 noundef %21, i64 noundef %25) #19
-  %85 = add i64 %.07796.us.us.us.us.us.us.us.us, 4
+  %85 = add i64 %.096.us.us.us.us.us.us.us.us, 4
   %86 = icmp ult i64 %85, %6
   br i1 %86, label %80, label %._crit_edge.split.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us:        ; preds = %80
-  %87 = add i64 %.076102.us.us.us.us.us.us.us, 4
+  %87 = add i64 %.077102.us.us.us.us.us.us.us, 4
   %88 = icmp ult i64 %87, %8
   br i1 %88, label %.preheader.us.us.us.us.us.us.us, label %._crit_edge103.split.us.us.us.us.us.us
 
 .preheader95.us.us:                               ; preds = %.preheader95.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us125.us
-  %.0117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
+  %.075117.us.us = phi i64 [ %93, %._crit_edge.split.us.split.us125.us ], [ 0, %.preheader95.lr.ph.split.us.split.us ]
   br label %.preheader94.us.us123.us
 
 .preheader94.us.us123.us:                         ; preds = %.preheader95.us.us, %._crit_edge103.split.us115.us.us
-  %.075111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
+  %.076111.us.us124.us = phi i64 [ 0, %.preheader95.us.us ], [ %91, %._crit_edge103.split.us115.us.us ]
   br label %.preheader.us113.us.us
 
 .preheader.us113.us.us:                           ; preds = %.preheader.us113.us.us, %.preheader94.us.us123.us
-  %.076102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
-  %89 = add i64 %.076102.us114.us.us, 4
+  %.077102.us114.us.us = phi i64 [ 0, %.preheader94.us.us123.us ], [ %89, %.preheader.us113.us.us ]
+  %89 = add i64 %.077102.us114.us.us, 4
   %90 = icmp ult i64 %89, %8
   br i1 %90, label %.preheader.us113.us.us, label %._crit_edge103.split.us115.us.us
 
 ._crit_edge103.split.us115.us.us:                 ; preds = %.preheader.us113.us.us
-  %91 = add i64 %.075111.us.us124.us, 4
+  %91 = add i64 %.076111.us.us124.us, 4
   %92 = icmp ult i64 %91, %10
   br i1 %92, label %.preheader94.us.us123.us, label %._crit_edge.split.us.split.us125.us
 
 ._crit_edge.split.us.split.us125.us:              ; preds = %._crit_edge103.split.us115.us.us
-  %93 = add i64 %.0117.us.us, 4
+  %93 = add i64 %.075117.us.us, 4
   %94 = icmp ult i64 %93, %12
   br i1 %94, label %.preheader95.us.us, label %._crit_edge118
 
 .preheader95.us:                                  ; preds = %.preheader95.lr.ph.split.us, %._crit_edge.split.us121
-  %.0117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
+  %.075117.us = phi i64 [ %97, %._crit_edge.split.us121 ], [ 0, %.preheader95.lr.ph.split.us ]
   br label %.preheader94.us119
 
 .preheader94.us119:                               ; preds = %.preheader95.us, %.preheader94.us119
-  %.075111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
-  %95 = add i64 %.075111.us120, 4
+  %.076111.us120 = phi i64 [ 0, %.preheader95.us ], [ %95, %.preheader94.us119 ]
+  %95 = add i64 %.076111.us120, 4
   %96 = icmp ult i64 %95, %10
   br i1 %96, label %.preheader94.us119, label %._crit_edge.split.us121
 
 ._crit_edge.split.us121:                          ; preds = %.preheader94.us119
-  %97 = add i64 %.0117.us, 4
+  %97 = add i64 %.075117.us, 4
   %98 = icmp ult i64 %97, %12
   br i1 %98, label %.preheader95.us, label %._crit_edge118
 
 .preheader95:                                     ; preds = %.preheader95.lr.ph, %.preheader95
-  %.0117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
-  %99 = add i64 %.0117, 4
+  %.075117 = phi i64 [ %99, %.preheader95 ], [ 0, %.preheader95.lr.ph ]
+  %99 = add i64 %.075117, 4
   %100 = icmp ult i64 %99, %12
   br i1 %100, label %.preheader95, label %._crit_edge118
 

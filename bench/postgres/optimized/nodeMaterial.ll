@@ -89,13 +89,13 @@ define internal ptr @ExecMaterial(ptr nocapture noundef %0) #0 {
   br i1 %25, label %.thread, label %.thread55
 
 .thread55:                                        ; preds = %4, %24
-  %.04357 = phi ptr [ %18, %24 ], [ %11, %4 ]
-  %26 = tail call zeroext i1 @tuplestore_ateof(ptr noundef nonnull %.04357) #2
+  %.04257 = phi ptr [ %18, %24 ], [ %11, %4 ]
+  %26 = tail call zeroext i1 @tuplestore_ateof(ptr noundef nonnull %.04257) #2
   br label %.thread
 
 .thread:                                          ; preds = %13, %.thread55, %24
   %27 = phi i1 [ true, %24 ], [ false, %.thread55 ], [ true, %13 ]
-  %.04354 = phi ptr [ null, %24 ], [ %.04357, %.thread55 ], [ null, %13 ]
+  %.04254 = phi ptr [ null, %24 ], [ %.04257, %.thread55 ], [ null, %13 ]
   %28 = phi i1 [ true, %24 ], [ %26, %.thread55 ], [ true, %13 ]
   %.not52 = xor i1 %28, true
   %brmerge = select i1 %9, i1 true, i1 %.not52
@@ -108,7 +108,7 @@ define internal ptr @ExecMaterial(ptr nocapture noundef %0) #0 {
   br i1 %32, label %.thread58, label %33
 
 33:                                               ; preds = %29
-  %34 = tail call zeroext i1 @tuplestore_advance(ptr noundef %.04354, i1 noundef zeroext false) #2
+  %34 = tail call zeroext i1 @tuplestore_advance(ptr noundef %.04254, i1 noundef zeroext false) #2
   br i1 %34, label %.thread58, label %76
 
 .thread58:                                        ; preds = %33, %29
@@ -123,7 +123,7 @@ define internal ptr @ExecMaterial(ptr nocapture noundef %0) #0 {
 
 40:                                               ; preds = %.thread58, %37
   %41 = phi ptr [ %36, %.thread58 ], [ %39, %37 ]
-  %42 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %.04354, i1 noundef zeroext %9, i1 noundef zeroext false, ptr noundef %41) #2
+  %42 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %.04254, i1 noundef zeroext %9, i1 noundef zeroext false, ptr noundef %41) #2
   br i1 %42, label %76, label %43
 
 43:                                               ; preds = %40
@@ -170,7 +170,7 @@ ExecProcNode.exit:                                ; preds = %48, %53
   br i1 %27, label %65, label %64
 
 64:                                               ; preds = %63
-  tail call void @tuplestore_puttupleslot(ptr noundef nonnull %.04354, ptr noundef nonnull %56) #2
+  tail call void @tuplestore_puttupleslot(ptr noundef nonnull %.04254, ptr noundef nonnull %56) #2
   br label %65
 
 65:                                               ; preds = %64, %63

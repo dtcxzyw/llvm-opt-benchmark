@@ -686,10 +686,10 @@ define internal noundef i64 @archive_write_shar_data_sed(ptr noundef %0, ptr noc
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %51
   %.in = phi i64 [ %32, %51 ], [ %2, %.lr.ph.preheader ]
   %.153 = phi ptr [ %.3, %51 ], [ %.153.ph, %.lr.ph.preheader ]
-  %.04152 = phi ptr [ %33, %51 ], [ %1, %.lr.ph.preheader ]
+  %.04352 = phi ptr [ %33, %51 ], [ %1, %.lr.ph.preheader ]
   %32 = add i64 %.in, -1
-  %33 = getelementptr inbounds i8, ptr %.04152, i64 1
-  %34 = load i8, ptr %.04152, align 1
+  %33 = getelementptr inbounds i8, ptr %.04352, i64 1
+  %34 = load i8, ptr %.04352, align 1
   %35 = getelementptr inbounds i8, ptr %.153, i64 1
   store i8 %34, ptr %.153, align 1
   %36 = icmp eq i8 %34, 10
@@ -742,8 +742,8 @@ define internal noundef i64 @archive_write_shar_data_sed(ptr noundef %0, ptr noc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %43, %19, %3, %._crit_edge, %14
-  %.043 = phi i64 [ -30, %14 ], [ %2, %._crit_edge ], [ 0, %3 ], [ -30, %19 ], [ -30, %43 ]
-  ret i64 %.043
+  %.0 = phi i64 [ -30, %14 ], [ %2, %._crit_edge ], [ 0, %3 ], [ -30, %19 ], [ -30, %43 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable

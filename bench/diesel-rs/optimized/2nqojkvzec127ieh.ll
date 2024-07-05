@@ -306,10 +306,10 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   br i1 %.not.i.i.i.i.i.i.i, label %87, label %80
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %64, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hc3d3cb8fc186ae71E.exit.backedge.i.i.i.i.i.i"
-  %.0.i12.i.i.i.i.i.i = phi i16 [ %69, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hc3d3cb8fc186ae71E.exit.backedge.i.i.i.i.i.i" ], [ %67, %64 ]
-  %68 = add i16 %.0.i12.i.i.i.i.i.i, -1
-  %69 = and i16 %68, %.0.i12.i.i.i.i.i.i
-  %70 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.i.i.i.i.i.i, i1 true)
+  %.022.i12.i.i.i.i.i.i = phi i16 [ %69, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hc3d3cb8fc186ae71E.exit.backedge.i.i.i.i.i.i" ], [ %67, %64 ]
+  %68 = add i16 %.022.i12.i.i.i.i.i.i, -1
+  %69 = and i16 %68, %.022.i12.i.i.i.i.i.i
+  %70 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.i.i.i.i.i.i, i1 true)
   %71 = zext nneg i16 %70 to i64
   %72 = add i64 %.sroa.0.021.i.i.i.i.i.i.i, %71
   %73 = and i64 %72, %.val4.i.i.i.i.i.i
@@ -3323,10 +3323,10 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb7
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h2d3fca1d8171a94aE.exit.split.us.i"
 
 .lr.ph.us.i:                                      ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h2d3fca1d8171a94aE.exit.split.us.i", %.backedge.us.us.i
-  %.0.i12.us.us.i = phi i16 [ %38, %.backedge.us.us.i ], [ %23, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h2d3fca1d8171a94aE.exit.split.us.i" ]
-  %37 = add i16 %.0.i12.us.us.i, -1
-  %38 = and i16 %37, %.0.i12.us.us.i
-  %39 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.us.us.i, i1 true)
+  %.022.i12.us.us.i = phi i16 [ %38, %.backedge.us.us.i ], [ %23, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h2d3fca1d8171a94aE.exit.split.us.i" ]
+  %37 = add i16 %.022.i12.us.us.i, -1
+  %38 = and i16 %37, %.022.i12.us.us.i
+  %39 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.us.us.i, i1 true)
   %40 = zext nneg i16 %39 to i64
   %41 = add i64 %.sroa.0.021.i.us.i, %40
   %42 = and i64 %41, %.val4.i
@@ -3375,10 +3375,10 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb7
   br i1 %.not.i.i, label %78, label %71
 
 .lr.ph.i:                                         ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h2d3fca1d8171a94aE.exit.split.i", %.backedge.i
-  %.0.i12.i = phi i16 [ %55, %.backedge.i ], [ %53, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h2d3fca1d8171a94aE.exit.split.i" ]
-  %54 = add i16 %.0.i12.i, -1
-  %55 = and i16 %54, %.0.i12.i
-  %56 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.i, i1 true)
+  %.022.i12.i = phi i16 [ %55, %.backedge.i ], [ %53, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h2d3fca1d8171a94aE.exit.split.i" ]
+  %54 = add i16 %.022.i12.i, -1
+  %55 = and i16 %54, %.022.i12.i
+  %56 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.i, i1 true)
   %57 = zext nneg i16 %56 to i64
   %58 = add i64 %.sroa.0.021.i.i, %57
   %59 = and i64 %58, %.val4.i

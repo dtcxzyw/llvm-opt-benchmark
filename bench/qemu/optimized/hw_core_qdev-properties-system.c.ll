@@ -1611,8 +1611,8 @@ if.end48.thread:                                  ; preds = %if.end39.thread
   br label %if.end51
 
 if.then42:                                        ; preds = %if.end39.thread, %if.end39
-  %blk.04757 = phi ptr [ %call20, %if.end39.thread ], [ %call29, %if.end39 ]
-  %call43 = call ptr @blk_legacy_dinfo(ptr noundef nonnull %blk.04757) #9
+  %blk.04857 = phi ptr [ %call20, %if.end39.thread ], [ %call29, %if.end39 ]
+  %call43 = call ptr @blk_legacy_dinfo(ptr noundef nonnull %blk.04857) #9
   %tobool44.not = icmp eq ptr %call43, null
   br i1 %tobool44.not, label %if.else, label %land.lhs.true
 
@@ -1642,7 +1642,7 @@ fail:                                             ; preds = %if.end35
   br i1 %tobool24.not.not, label %if.end51, label %if.then50
 
 if.then50:                                        ; preds = %if.end48, %if.else, %if.then46, %cond.end, %fail
-  %blk.152 = phi ptr [ null, %fail ], [ %call29, %cond.end ], [ %blk.04757, %if.then46 ], [ %blk.04757, %if.else ], [ %call29, %if.end48 ]
+  %blk.152 = phi ptr [ null, %fail ], [ %call29, %cond.end ], [ %blk.04857, %if.then46 ], [ %blk.04857, %if.else ], [ %call29, %if.end48 ]
   call void @blk_unref(ptr noundef %blk.152) #9
   br label %if.end51
 

@@ -24,14 +24,14 @@ define i32 @str_to_cnt(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %7, %1
   %.022 = phi ptr [ %0, %1 ], [ %spec.select, %7 ]
-  %.02031 = getelementptr inbounds i8, ptr %5, i64 -1
-  %.not2432 = icmp ult ptr %.02031, %.022
+  %.02131 = getelementptr inbounds i8, ptr %5, i64 -1
+  %.not2432 = icmp ult ptr %.02131, %.022
   br i1 %.not2432, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %13
-  %.02034 = phi ptr [ %.020, %13 ], [ %.02031, %8 ]
-  %.033 = phi i32 [ %.4, %13 ], [ 0, %8 ]
-  %9 = load i8, ptr %.02034, align 1
+  %.02134 = phi ptr [ %.021, %13 ], [ %.02131, %8 ]
+  %.02033 = phi i32 [ %.4, %13 ], [ 0, %8 ]
+  %9 = load i8, ptr %.02134, align 1
   %10 = sext i8 %9 to i32
   %11 = tail call i32 @slurm_char_to_hex(i32 noundef %10) #5
   %sext25.mask = and i32 %11, 255
@@ -40,7 +40,7 @@ define i32 @str_to_cnt(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %.lr.ph
   %14 = and i32 %11, 1
-  %spec.select30 = add i32 %14, %.033
+  %spec.select30 = add i32 %14, %.02033
   %15 = lshr i32 %11, 1
   %16 = and i32 %15, 1
   %.2 = add i32 %spec.select30, %16
@@ -50,13 +50,13 @@ define i32 @str_to_cnt(ptr noundef readonly %0) local_unnamed_addr #0 {
   %19 = lshr i32 %11, 3
   %20 = and i32 %19, 1
   %.4 = add i32 %.3, %20
-  %.020 = getelementptr inbounds i8, ptr %.02034, i64 -1
-  %.not24 = icmp ult ptr %.020, %.022
+  %.021 = getelementptr inbounds i8, ptr %.02134, i64 -1
+  %.not24 = icmp ult ptr %.021, %.022
   br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13, %8
-  %.021 = phi i32 [ 0, %8 ], [ %.4, %13 ], [ -1, %.lr.ph ]
-  ret i32 %.021
+  %.0 = phi i32 [ 0, %8 ], [ %.4, %13 ], [ -1, %.lr.ph ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

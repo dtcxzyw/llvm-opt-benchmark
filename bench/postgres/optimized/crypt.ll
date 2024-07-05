@@ -66,8 +66,8 @@ define dso_local ptr @get_role_password(ptr noundef %0, ptr nocapture noundef wr
   br label %27
 
 27:                                               ; preds = %.sink.split, %14, %21
-  %.016 = phi ptr [ %16, %21 ], [ %16, %14 ], [ null, %.sink.split ]
-  ret ptr %.016
+  %.0 = phi ptr [ %16, %21 ], [ %16, %14 ], [ null, %.sink.split ]
+  ret ptr %.0
 }
 
 declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1

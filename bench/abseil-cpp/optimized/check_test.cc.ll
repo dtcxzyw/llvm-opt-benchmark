@@ -8036,8 +8036,8 @@ cleanup.action61:                                 ; preds = %lpad42, %lpad48
 
 catch.dispatch:                                   ; preds = %lpad40, %lpad28
   %.pn4 = phi { ptr, i32 } [ %30, %lpad40 ], [ %29, %lpad28 ]
-  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn4, 1
   %exn.slot.4 = extractvalue { ptr, i32 } %.pn4, 0
+  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn4, 1
   %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %ehselector.slot.4, %33
   %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #22

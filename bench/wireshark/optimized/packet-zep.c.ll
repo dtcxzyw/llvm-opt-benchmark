@@ -149,7 +149,7 @@ sub_1:                                            ; preds = %sub_0
 
 .sink.split:                                      ; preds = %29, %23
   %.sink97 = phi i32 [ 15, %23 ], [ 31, %29 ]
-  %.087.ph = phi i32 [ 16, %23 ], [ 32, %29 ]
+  %.088.ph = phi i32 [ 16, %23 ], [ 32, %29 ]
   %.086.ph = phi i8 [ 0, %23 ], [ %27, %29 ]
   %32 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.sink97) #2
   %33 = and i8 %32, 127
@@ -157,12 +157,12 @@ sub_1:                                            ; preds = %sub_0
   br label %35
 
 35:                                               ; preds = %.sink.split, %26
-  %.088 = phi i32 [ 0, %26 ], [ %34, %.sink.split ]
-  %.087 = phi i32 [ 8, %26 ], [ %.087.ph, %.sink.split ]
+  %.089 = phi i32 [ 0, %26 ], [ %34, %.sink.split ]
+  %.088 = phi i32 [ 8, %26 ], [ %.088.ph, %.sink.split ]
   %.086 = phi i8 [ 2, %26 ], [ %.086.ph, %.sink.split ]
   %36 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %37 = sub i32 %36, %.087
-  %38 = icmp ugt i32 %37, %.088
+  %37 = sub i32 %36, %.088
+  %38 = icmp ugt i32 %37, %.089
   br i1 %38, label %.tail.thread, label %39
 
 39:                                               ; preds = %35
@@ -171,7 +171,7 @@ sub_1:                                            ; preds = %sub_0
   %42 = select i1 %22, ptr @.str.28, ptr @.str.41
   tail call void @col_set_str(ptr noundef %41, i32 noundef 34, ptr noundef nonnull %42) #2
   %43 = load i32, ptr @proto_zep, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef %.087, i32 noundef 0) #2
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef %.088, i32 noundef 0) #2
   %45 = load i32, ptr @ett_zep, align 4
   %46 = tail call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45) #2
   %47 = load i32, ptr @hf_zep_protocol_id, align 4
@@ -185,9 +185,9 @@ sub_1:                                            ; preds = %sub_0
   %53 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %46, i32 noundef %52, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #2
   %54 = load ptr, ptr %40, align 8
   %55 = load i32, ptr %5, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.42, i32 noundef %55, i32 noundef %.088) #2
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.42, i32 noundef %55, i32 noundef %.089) #2
   %56 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.43, i32 noundef %56, i32 noundef %.088) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.43, i32 noundef %56, i32 noundef %.089) #2
   %57 = load i32, ptr @hf_zep_device_id, align 4
   %58 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %57, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #2
   %59 = load i32, ptr @hf_zep_lqi_mode, align 4
@@ -234,9 +234,9 @@ sub_1:                                            ; preds = %sub_0
   %85 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %46, i32 noundef %84, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #2
   %86 = load ptr, ptr %40, align 8
   %87 = load i32, ptr %5, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.42, i32 noundef %87, i32 noundef %.088) #2
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.42, i32 noundef %87, i32 noundef %.089) #2
   %88 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.43, i32 noundef %88, i32 noundef %.088) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.43, i32 noundef %88, i32 noundef %.089) #2
   %89 = load i32, ptr @hf_zep_device_id, align 4
   %90 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %89, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef 0) #2
   %91 = load i32, ptr @hf_zep_lqi_mode, align 4
@@ -271,7 +271,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %or.cond, label %115, label %109
 
 109:                                              ; preds = %105
-  %110 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.087, i32 noundef %.088) #2
+  %110 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.088, i32 noundef %.089) #2
   %.not93 = icmp eq ptr %.0, null
   br i1 %.not93, label %113, label %111
 
@@ -288,8 +288,8 @@ sub_1:                                            ; preds = %sub_0
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %35, %29, %23, %.tail, %4, %115
-  %.089 = phi i32 [ %116, %115 ], [ 0, %4 ], [ 0, %.tail ], [ 0, %23 ], [ 0, %29 ], [ 0, %35 ], [ 0, %sub_0 ], [ 0, %sub_1 ]
-  ret i32 %.089
+  %.087 = phi i32 [ %116, %115 ], [ 0, %4 ], [ 0, %.tail ], [ 0, %23 ], [ 0, %29 ], [ 0, %35 ], [ 0, %sub_0 ], [ 0, %sub_1 ]
+  ret i32 %.087
 }
 
 ; Function Attrs: nounwind uwtable

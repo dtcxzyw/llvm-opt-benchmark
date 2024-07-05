@@ -4487,12 +4487,12 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
 .preheader92:                                     ; preds = %.preheader92.lr.ph, %86
   %31 = phi ptr [ %29, %.preheader92.lr.ph ], [ %90, %86 ]
   %32 = phi i64 [ 0, %.preheader92.lr.ph ], [ %88, %86 ]
-  %.076104 = phi i32 [ 0, %.preheader92.lr.ph ], [ %87, %86 ]
+  %.077104 = phi i32 [ 0, %.preheader92.lr.ph ], [ %87, %86 ]
   br label %33
 
 33:                                               ; preds = %.preheader92, %.critedge
-  %.074 = phi ptr [ %43, %.critedge ], [ %31, %.preheader92 ]
-  %34 = load i8, ptr %.074, align 1
+  %.075 = phi ptr [ %43, %.critedge ], [ %31, %.preheader92 ]
+  %34 = load i8, ptr %.075, align 1
   %35 = icmp eq i8 %34, 35
   br i1 %35, label %.critedge, label %36
 
@@ -4507,27 +4507,27 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
   br i1 %.not82, label %44, label %.critedge
 
 .critedge:                                        ; preds = %33, %36
-  %43 = getelementptr i8, ptr %.074, i64 1
+  %43 = getelementptr i8, ptr %.075, i64 1
   br label %33, !llvm.loop !22
 
 44:                                               ; preds = %36
-  %45 = tail call i32 @strncmp(ptr noundef nonnull %.074, ptr noundef %1, i64 noundef %30) #20
+  %45 = tail call i32 @strncmp(ptr noundef nonnull %.075, ptr noundef %1, i64 noundef %30) #20
   %.not83 = icmp eq i32 %45, 0
   br i1 %.not83, label %46, label %86
 
 46:                                               ; preds = %44
-  %47 = getelementptr i8, ptr %.074, i64 %30
+  %47 = getelementptr i8, ptr %.075, i64 %30
   br label %48
 
 48:                                               ; preds = %48, %46
-  %.175 = phi ptr [ %47, %46 ], [ %54, %48 ]
-  %49 = load i8, ptr %.175, align 1
+  %.176 = phi ptr [ %47, %46 ], [ %54, %48 ]
+  %49 = load i8, ptr %.176, align 1
   %50 = zext i8 %49 to i64
   %51 = getelementptr i16, ptr %38, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = and i16 %52, 8192
   %.not84 = icmp eq i16 %53, 0
-  %54 = getelementptr i8, ptr %.175, i64 1
+  %54 = getelementptr i8, ptr %.176, i64 1
   br i1 %.not84, label %55, label %48, !llvm.loop !23
 
 55:                                               ; preds = %48
@@ -4537,7 +4537,7 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
 56:                                               ; preds = %55
   %.lcssa117121 = ptrtoint ptr %31 to i64
   %57 = getelementptr ptr, ptr %0, i64 %32
-  %58 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.175, i32 noundef 35) #20
+  %58 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.176, i32 noundef 35) #20
   %59 = ptrtoint ptr %58 to i64
   %.not86 = icmp eq ptr %58, null
   br i1 %.not86, label %85, label %.preheader
@@ -4553,42 +4553,42 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %69
-  %.071107 = phi i32 [ %.172, %69 ], [ 0, %.lr.ph.preheader ]
-  %.073106 = phi ptr [ %70, %69 ], [ %31, %.lr.ph.preheader ]
-  %62 = load i8, ptr %.073106, align 1
+  %.072107 = phi i32 [ %.173, %69 ], [ 0, %.lr.ph.preheader ]
+  %.074106 = phi ptr [ %70, %69 ], [ %31, %.lr.ph.preheader ]
+  %62 = load i8, ptr %.074106, align 1
   %63 = icmp eq i8 %62, 9
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %.lr.ph
-  %65 = srem i32 %.071107, 8
-  %reass.sub = add i32 %.071107, 8
+  %65 = srem i32 %.072107, 8
+  %reass.sub = add i32 %.072107, 8
   %66 = sub i32 %reass.sub, %65
   br label %69
 
 67:                                               ; preds = %.lr.ph
-  %68 = add i32 %.071107, 1
+  %68 = add i32 %.072107, 1
   br label %69
 
 69:                                               ; preds = %64, %67
-  %.172 = phi i32 [ %66, %64 ], [ %68, %67 ]
-  %70 = getelementptr i8, ptr %.073106, i64 1
+  %.173 = phi i32 [ %66, %64 ], [ %68, %67 ]
+  %70 = getelementptr i8, ptr %.074106, i64 1
   %exitcond.not = icmp eq ptr %70, %scevgep122
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %69, %.preheader
-  %.071.lcssa = phi i32 [ 0, %.preheader ], [ %.172, %69 ]
+  %.072.lcssa = phi i32 [ 0, %.preheader ], [ %.173, %69 ]
   %71 = getelementptr inbounds i8, ptr %6, i64 8
   %72 = load i64, ptr %71, align 8
   %73 = trunc i64 %72 to i32
   %74 = add i32 %73, 1
-  %75 = tail call i32 @llvm.smax.i32(i32 %.071.lcssa, i32 %74)
+  %75 = tail call i32 @llvm.smax.i32(i32 %.072.lcssa, i32 %74)
   %76 = icmp sgt i32 %75, %73
   br i1 %76, label %.lr.ph111, label %._crit_edge112
 
 .lr.ph111:                                        ; preds = %._crit_edge, %83
-  %.0109 = phi i32 [ %.1, %83 ], [ %73, %._crit_edge ]
-  %77 = add i32 %.0109, 8
-  %78 = srem i32 %.0109, 8
+  %.071109 = phi i32 [ %.1, %83 ], [ %73, %._crit_edge ]
+  %77 = add i32 %.071109, 8
+  %78 = srem i32 %.071109, 8
   %79 = sub i32 %77, %78
   %.not87 = icmp sgt i32 %79, %75
   br i1 %.not87, label %81, label %80
@@ -4599,7 +4599,7 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
 
 81:                                               ; preds = %.lr.ph111
   tail call void @appendPQExpBufferChar(ptr noundef %6, i8 noundef signext 32) #18
-  %82 = add nsw i32 %.0109, 1
+  %82 = add nsw i32 %.071109, 1
   br label %83
 
 83:                                               ; preds = %81, %80
@@ -4616,7 +4616,7 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
   br label %91
 
 86:                                               ; preds = %55, %44
-  %87 = add i32 %.076104, 1
+  %87 = add i32 %.077104, 1
   %88 = sext i32 %87 to i64
   %89 = getelementptr ptr, ptr %0, i64 %88
   %90 = load ptr, ptr %89, align 8
@@ -4632,15 +4632,15 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
   br i1 %94, label %.thread, label %105
 
 .thread:                                          ; preds = %86, %28, %91
-  %.076101 = phi i32 [ %.076104, %91 ], [ 0, %28 ], [ %87, %86 ]
+  %.077101 = phi i32 [ %.077104, %91 ], [ 0, %28 ], [ %87, %86 ]
   %95 = phi i64 [ %32, %91 ], [ 0, %28 ], [ %88, %86 ]
   tail call void @appendPQExpBufferChar(ptr noundef %6, i8 noundef signext 10) #18
-  %96 = add i32 %.076101, 2
+  %96 = add i32 %.077101, 2
   %97 = sext i32 %96 to i64
   %98 = shl nsw i64 %97, 3
   %99 = tail call ptr @pg_realloc(ptr noundef nonnull %0, i64 noundef %98) #18
   %100 = load ptr, ptr %6, align 8
-  %101 = add i32 %.076101, 1
+  %101 = add i32 %.077101, 1
   %102 = getelementptr ptr, ptr %99, i64 %95
   store ptr %100, ptr %102, align 8
   %103 = sext i32 %101 to i64
@@ -4649,9 +4649,9 @@ escape_quotes.exit:                               ; preds = %guc_value_requires_
   br label %105
 
 105:                                              ; preds = %.thread, %91
-  %.077 = phi ptr [ %99, %.thread ], [ %0, %91 ]
+  %.0 = phi ptr [ %99, %.thread ], [ %0, %91 ]
   tail call void @free(ptr noundef nonnull %6) #18
-  ret ptr %.077
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

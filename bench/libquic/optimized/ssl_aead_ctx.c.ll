@@ -372,8 +372,8 @@ if.else40:                                        ; preds = %if.end22
 
 if.end45:                                         ; preds = %if.else40, %if.end30
   %conv47.pre-phi = phi i64 [ %conv44, %if.else40 ], [ %conv26, %if.end30 ]
-  %in.addr.0 = phi ptr [ %in, %if.else40 ], [ %add.ptr36, %if.end30 ]
   %in_len.addr.0 = phi i64 [ %in_len, %if.else40 ], [ %sub39, %if.end30 ]
+  %in.addr.0 = phi ptr [ %in, %if.else40 ], [ %add.ptr36, %if.end30 ]
   %add48 = add nsw i64 %nonce_len.0, %conv47.pre-phi
   br i1 %tobool10.not, label %if.end61, label %for.cond.preheader
 

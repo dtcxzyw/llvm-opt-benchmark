@@ -6043,9 +6043,9 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %.val2.i.i.i.i.i = phi ptr [ %.val2.pre.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %this.val6.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %.val1.i.i.i.i.i = phi ptr [ %.val1.pre.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %this.val7.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %retval.sroa.3.0.i9.i.i.i.i.i = phi i8 [ 1, %if.then.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.i ]
-  %retval.sroa.0.0.i7.i.i.i.i.i = phi i64 [ %target.sroa.0.0.i.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %and.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %add.ptr.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i, i64 %retval.sroa.0.0.i7.i.i.i.i.i
-  %add.ptr3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %.val2.i.i.i.i.i, i64 %retval.sroa.0.0.i7.i.i.i.i.i
+  %retval.sroa.0.0.i8.i.i.i.i.i = phi i64 [ %target.sroa.0.0.i.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %and.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+  %add.ptr.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i, i64 %retval.sroa.0.0.i8.i.i.i.i.i
+  %add.ptr3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %.val2.i.i.i.i.i, i64 %retval.sroa.0.0.i8.i.i.i.i.i
   store ptr %add.ptr.i4.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !178
   %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr3.i.i.i.i.i.i, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i.i, align 8, !alias.scope !178
@@ -30192,8 +30192,8 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   br i1 %cmp.i.i, label %if.end29, label %for.body
 
 for.body:                                         ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5beginEv.exit, %while.end.i.i
-  %__begin3.sroa.7.0 = phi ptr [ %__begin3.sroa.7.1, %while.end.i.i ], [ %retval.sroa.5.0.i, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5beginEv.exit ]
   %__begin3.sroa.0.0 = phi ptr [ %__begin3.sroa.0.1, %while.end.i.i ], [ %retval.sroa.0.0.i, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5beginEv.exit ]
+  %__begin3.sroa.7.0 = phi ptr [ %__begin3.sroa.7.1, %while.end.i.i ], [ %retval.sroa.5.0.i, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5beginEv.exit ]
   %84 = load ptr, ptr %__begin3.sroa.7.0, align 8
   %cmp22.not = icmp eq ptr %84, null
   br i1 %cmp22.not, label %for.inc, label %land.lhs.true
@@ -30256,8 +30256,8 @@ while.body.i.i:                                   ; preds = %for.inc, %while.bod
   br i1 %cmp.i.i.i27, label %while.body.i.i, label %while.end.i.i, !llvm.loop !470
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %for.inc
-  %__begin3.sroa.7.1 = phi ptr [ %incdec.ptr4.i, %for.inc ], [ %add.ptr6.i.i, %while.body.i.i ]
   %__begin3.sroa.0.1 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %add.ptr.i.i, %while.body.i.i ]
+  %__begin3.sroa.7.1 = phi ptr [ %incdec.ptr4.i, %for.inc ], [ %add.ptr6.i.i, %while.body.i.i ]
   %.lcssa.i.i = phi i8 [ %93, %for.inc ], [ %99, %while.body.i.i ]
   %cmp.i.i26 = icmp eq i8 %.lcssa.i.i, -1
   br i1 %cmp.i.i26, label %if.end29, label %for.body
@@ -30574,9 +30574,9 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp.not20.i, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end, %for.inc.i
-  %__begin2.022.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %name.coerce1, %if.end ]
-  %last_was_period.021.i = phi i8 [ %last_was_period.1.i, %for.inc.i ], [ 0, %if.end ]
-  %1 = load i8, ptr %__begin2.022.i, align 1
+  %last_was_period.022.i = phi i8 [ %last_was_period.1.i, %for.inc.i ], [ 0, %if.end ]
+  %__begin2.021.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %name.coerce1, %if.end ]
+  %1 = load i8, ptr %__begin2.021.i, align 1
   %2 = and i8 %1, -33
   %3 = add i8 %2, -65
   %or.cond15.i = icmp ult i8 %3, 26
@@ -30594,12 +30594,12 @@ if.else.i:                                        ; preds = %lor.lhs.false10.i
   br i1 %cmp20.i, label %if.then21.i, label %return
 
 if.then21.i:                                      ; preds = %if.else.i
-  %tobool.i = trunc nuw i8 %last_was_period.021.i to i1
+  %tobool.i = trunc nuw i8 %last_was_period.022.i to i1
   br i1 %tobool.i, label %return, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then21.i, %lor.lhs.false10.i, %for.body.i
   %last_was_period.1.i = phi i8 [ 0, %lor.lhs.false10.i ], [ 0, %for.body.i ], [ 1, %if.then21.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.022.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.021.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %_ZN6google8protobufL21ValidateQualifiedNameESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %for.body.i
 
@@ -36749,8 +36749,8 @@ call38.i.i.noexc:                                 ; preds = %if.then.i
 
 invoke.cont285:                                   ; preds = %for.body.i.i, %call38.i.i.noexc
   %181 = phi ptr [ %.pre20.i, %call38.i.i.noexc ], [ %173, %for.body.i.i ]
-  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i415, %call38.i.i.noexc ], [ %and.i.i.i412, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.807", ptr %181, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
+  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i415, %call38.i.i.noexc ], [ %and.i.i.i412, %for.body.i.i ]
+  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.807", ptr %181, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
   %182 = load ptr, ptr %extension_range_.i.i300, align 8
   %183 = ptrtoint ptr %182 to i64
   %and.i.i.i.i.i.i301 = and i64 %183, 1
@@ -36896,8 +36896,8 @@ call38.i.i.noexc474:                              ; preds = %if.then.i458
 
 invoke.cont320:                                   ; preds = %for.body.i.i444, %call38.i.i.noexc474
   %216 = phi ptr [ %.pre20.i463, %call38.i.i.noexc474 ], [ %208, %for.body.i.i444 ]
-  %retval.sroa.0.0.i14.i466 = phi i64 [ %call38.i.i475, %call38.i.i.noexc474 ], [ %and.i.i.i448, %for.body.i.i444 ]
-  %second.i.i324 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.807", ptr %216, i64 %retval.sroa.0.0.i14.i466, i32 0, i32 1
+  %retval.sroa.0.0.i15.i466 = phi i64 [ %call38.i.i475, %call38.i.i.noexc474 ], [ %and.i.i.i448, %for.body.i.i444 ]
+  %second.i.i324 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.807", ptr %216, i64 %retval.sroa.0.0.i15.i466, i32 0, i32 1
   %217 = load ptr, ptr %reserved_range_.i.i326, align 8
   %218 = ptrtoint ptr %217 to i64
   %and.i.i.i.i.i.i327 = and i64 %218, 1
@@ -40683,8 +40683,8 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicy
   %15 = phi i32 [ %.pre27, %if.then.i ], [ %1, %for.body.i.i ]
   %16 = phi i32 [ %.pre, %if.then.i ], [ %0, %for.body.i.i ]
   %17 = phi ptr [ %.pre20.i, %if.then.i ], [ %7, %for.body.i.i ]
-  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.807", ptr %17, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
+  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
+  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.807", ptr %17, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
   %18 = load i32, ptr %second.i.i, align 8
   %19 = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
   %20 = tail call noundef i32 @llvm.umin.i32(i32 %19, i32 536870911)
@@ -40847,8 +40847,8 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicy
   %16 = phi i32 [ %.pre22, %if.then.i ], [ %2, %for.body.i.i ]
   %17 = phi i32 [ %.pre, %if.then.i ], [ %1, %for.body.i.i ]
   %18 = phi ptr [ %.pre20.i, %if.then.i ], [ %8, %for.body.i.i ]
-  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.807", ptr %18, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
+  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
+  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.807", ptr %18, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
   %19 = load i32, ptr %second.i.i, align 8
   %20 = tail call i32 @llvm.smax.i32(i32 %16, i32 0)
   %21 = tail call noundef i32 @llvm.umin.i32(i32 %20, i32 536870911)
@@ -43007,8 +43007,8 @@ if.then.i228:                                     ; preds = %for.end.i.i
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorENS5_17DescriptorBuilder12MessageHintsEEENS1_6HashEqIS8_vE4HashENSD_2EqESaISt4pairIKS8_SA_EEE16try_emplace_implIRKPS6_JEEESG_INS1_12raw_hash_setISB_SE_SF_SJ_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i223, %if.then.i228
   %246 = phi ptr [ %.pre20.i, %if.then.i228 ], [ %238, %for.body.i.i223 ]
-  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i, %if.then.i228 ], [ %and.i.i.i225, %for.body.i.i223 ]
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.807", ptr %246, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
+  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i228 ], [ %and.i.i.i225, %for.body.i.i223 ]
+  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.807", ptr %246, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
   %247 = load i32, ptr %second.i.i, align 8
   %248 = call i32 @llvm.smax.i32(i32 %247, i32 -1)
   %249 = add nsw i32 %248, 1
@@ -43132,8 +43132,8 @@ if.then.i274:                                     ; preds = %for.end.i.i271
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorENS5_17DescriptorBuilder12MessageHintsEEENS1_6HashEqIS8_vE4HashENSD_2EqESaISt4pairIKS8_SA_EEE16try_emplace_implIRKPS6_JEEESG_INS1_12raw_hash_setISB_SE_SF_SJ_E8iteratorEbEOT_DpOT0_.exit291: ; preds = %for.body.i.i260, %if.then.i274
   %268 = phi ptr [ %.pre20.i280, %if.then.i274 ], [ %260, %for.body.i.i260 ]
-  %retval.sroa.0.0.i14.i283 = phi i64 [ %call38.i.i275, %if.then.i274 ], [ %and.i.i.i264, %for.body.i.i260 ]
-  %second.i.i186 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.807", ptr %268, i64 %retval.sroa.0.0.i14.i283, i32 0, i32 1
+  %retval.sroa.0.0.i15.i283 = phi i64 [ %call38.i.i275, %if.then.i274 ], [ %and.i.i.i264, %for.body.i.i260 ]
+  %second.i.i186 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.807", ptr %268, i64 %retval.sroa.0.0.i15.i283, i32 0, i32 1
   %269 = load i32, ptr %second.i.i186, align 8
   %270 = call i32 @llvm.smax.i32(i32 %269, i32 -1)
   %271 = add nsw i32 %270, 1
@@ -51510,8 +51510,8 @@ for.body.ithread-pre-split:                       ; preds = %for.inc.i
 
 for.body.i:                                       ; preds = %for.body.ithread-pre-split, %if.end
   %2 = phi i8 [ %.pr, %for.body.ithread-pre-split ], [ 46, %if.end ]
-  %__begin2.022.i = phi ptr [ %incdec.ptr.i, %for.body.ithread-pre-split ], [ %symbol.coerce1, %if.end ]
-  %last_was_period.021.i = phi i8 [ %last_was_period.1.i, %for.body.ithread-pre-split ], [ 0, %if.end ]
+  %last_was_period.022.i = phi i8 [ %last_was_period.1.i, %for.body.ithread-pre-split ], [ 0, %if.end ]
+  %__begin2.021.i = phi ptr [ %incdec.ptr.i, %for.body.ithread-pre-split ], [ %symbol.coerce1, %if.end ]
   %3 = and i8 %2, -33
   %4 = add i8 %3, -65
   %or.cond15.i = icmp ult i8 %4, 26
@@ -51529,12 +51529,12 @@ if.else.i:                                        ; preds = %lor.lhs.false10.i
   br i1 %cmp20.i, label %if.then21.i, label %if.then8
 
 if.then21.i:                                      ; preds = %if.else.i
-  %tobool.i = trunc nuw i8 %last_was_period.021.i to i1
+  %tobool.i = trunc nuw i8 %last_was_period.022.i to i1
   br i1 %tobool.i, label %if.then8, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then21.i, %lor.lhs.false10.i, %for.body.i
   %last_was_period.1.i = phi i8 [ 0, %lor.lhs.false10.i ], [ 0, %for.body.i ], [ 1, %if.then21.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.022.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.021.i, i64 1
   %cmp.not.i5 = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i5, label %_ZN6google8protobufL21ValidateQualifiedNameESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %for.body.ithread-pre-split
 
@@ -65345,8 +65345,8 @@ if.end36.loopexit48.split.loop.exit:              ; preds = %while.body.i.i.i22
   br label %if.end36
 
 if.end36:                                         ; preds = %land.rhs.i.i.i18, %while.cond24.i.i.i, %if.end36.loopexit48.split.loop.exit, %land.lhs.true.i.i13, %if.end
-  %retval.sroa.7.2 = phi i32 [ %11, %if.end ], [ %inc.i.i, %land.lhs.true.i.i13 ], [ %conv8.i.i.i24.le, %if.end36.loopexit48.split.loop.exit ], [ 0, %while.cond24.i.i.i ], [ %inc.i.i, %land.rhs.i.i.i18 ]
   %retval.sroa.0.2 = phi ptr [ %10, %if.end ], [ %10, %land.lhs.true.i.i13 ], [ %15, %if.end36.loopexit48.split.loop.exit ], [ %storemerge.i.i.i28, %while.cond24.i.i.i ], [ %10, %land.rhs.i.i.i18 ]
+  %retval.sroa.7.2 = phi i32 [ %11, %if.end ], [ %inc.i.i, %land.lhs.true.i.i13 ], [ %conv8.i.i.i24.le, %if.end36.loopexit48.split.loop.exit ], [ 0, %while.cond24.i.i.i ], [ %inc.i.i, %land.rhs.i.i.i18 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.7.2, 1
   ret { ptr, i32 } %.fca.1.insert

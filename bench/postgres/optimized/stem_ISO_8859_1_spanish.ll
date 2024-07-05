@@ -1043,7 +1043,7 @@ r_y_verb_suffix.exit:                             ; preds = %165, %168, %204, %2
   br label %371
 
 371:                                              ; preds = %408, %.sink.split.i79
-  %372 = phi i32 [ %.pre93, %408 ], [ %368, %.sink.split.i79 ]
+  %372 = phi i32 [ %.pre94, %408 ], [ %368, %.sink.split.i79 ]
   %373 = phi i32 [ %.pre, %408 ], [ %369, %.sink.split.i79 ]
   store i32 %373, ptr %370, align 4
   %.not.i81 = icmp slt i32 %373, %372
@@ -1055,8 +1055,8 @@ r_y_verb_suffix.exit:                             ; preds = %165, %168, %204, %2
   %377 = getelementptr i8, ptr %375, i64 %376
   %378 = load i8, ptr %377, align 1
   %379 = zext i8 %378 to i32
-  %.mask.i82 = and i32 %379, 224
-  %.not42.i = icmp eq i32 %.mask.i82, 224
+  %.mask.i83 = and i32 %379, 224
+  %.not42.i = icmp eq i32 %.mask.i83, 224
   br i1 %.not42.i, label %380, label %.thread49.i
 
 380:                                              ; preds = %374
@@ -1129,7 +1129,7 @@ r_y_verb_suffix.exit:                             ; preds = %165, %168, %204, %2
 
 408:                                              ; preds = %406, %400, %397, %394, %391, %388, %386
   %.pre = load i32, ptr %11, align 8
-  %.pre93 = load i32, ptr %2, align 4
+  %.pre94 = load i32, ptr %2, align 4
   br label %371
 
 409:                                              ; preds = %403, %384

@@ -368,7 +368,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %92
   br label %263
 
 161:                                              ; preds = %119, %115, %111, %106, %38, %122, %117, %113, %109, %36
-  %.0119 = phi ptr [ null, %36 ], [ %107, %109 ], [ %107, %113 ], [ %107, %117 ], [ %107, %122 ], [ null, %38 ], [ %107, %106 ], [ %107, %111 ], [ %107, %115 ], [ %107, %119 ]
+  %.0117 = phi ptr [ null, %36 ], [ %107, %109 ], [ %107, %113 ], [ %107, %117 ], [ %107, %122 ], [ null, %38 ], [ %107, %106 ], [ %107, %111 ], [ %107, %115 ], [ %107, %119 ]
   %162 = getelementptr inbounds i8, ptr %2, i64 156
   %163 = load i16, ptr %162, align 4
   %164 = zext i16 %163 to i32
@@ -561,11 +561,11 @@ pmix_obj_run_destructors.exit181:                 ; preds = %.lr.ph.i178, %212
   br label %261
 
 261:                                              ; preds = %259, %232, %228
-  %.not162 = icmp eq ptr %.0119, null
+  %.not162 = icmp eq ptr %.0117, null
   br i1 %.not162, label %263, label %262
 
 262:                                              ; preds = %261
-  call void @PMIx_Data_buffer_release(ptr noundef nonnull %.0119) #11
+  call void @PMIx_Data_buffer_release(ptr noundef nonnull %.0117) #11
   br label %263
 
 263:                                              ; preds = %261, %262, %150, %159, %41, %50, %32

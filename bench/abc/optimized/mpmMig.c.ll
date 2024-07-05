@@ -1069,7 +1069,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 
 15:                                               ; preds = %.lr.ph33, %._crit_edge
   %.val37 = phi i32 [ %.val30, %.lr.ph33 ], [ %.val, %._crit_edge ]
-  %.032 = phi i32 [ 0, %.lr.ph33 ], [ %.1.lcssa, %._crit_edge ]
+  %.01632 = phi i32 [ 0, %.lr.ph33 ], [ %.1.lcssa, %._crit_edge ]
   %storemerge31 = phi i32 [ 0, %.lr.ph33 ], [ %69, %._crit_edge ]
   %.val20 = load ptr, ptr %11, align 8
   %16 = sext i32 %storemerge31 to i64
@@ -1081,26 +1081,26 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 
 .preheader:                                       ; preds = %15
   %19 = getelementptr i8, ptr %18, i64 12
-  %.016.val26 = load i32, ptr %19, align 4
-  %20 = icmp ult i32 %.016.val26, -2
+  %.0.val26 = load i32, ptr %19, align 4
+  %20 = icmp ult i32 %.0.val26, -2
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %64
-  %.016.val29 = phi i32 [ %.016.val, %64 ], [ %.016.val26, %.preheader ]
+  %.0.val29 = phi i32 [ %.0.val, %64 ], [ %.0.val26, %.preheader ]
   %21 = phi ptr [ %66, %64 ], [ %19, %.preheader ]
-  %.128 = phi i32 [ %.2, %64 ], [ %.032, %.preheader ]
-  %.01627 = phi ptr [ %65, %64 ], [ %18, %.preheader ]
-  %22 = getelementptr i8, ptr %.01627, i64 4
-  %.016.val21 = load i32, ptr %22, align 4
-  %23 = icmp ugt i32 %.016.val21, -3
+  %.028 = phi ptr [ %65, %64 ], [ %18, %.preheader ]
+  %.127 = phi i32 [ %.2, %64 ], [ %.01632, %.preheader ]
+  %22 = getelementptr i8, ptr %.028, i64 4
+  %.0.val21 = load i32, ptr %22, align 4
+  %23 = icmp ugt i32 %.0.val21, -3
   br i1 %23, label %64, label %24
 
 24:                                               ; preds = %.lr.ph
-  %25 = lshr i32 %.016.val29, 1
+  %25 = lshr i32 %.0.val29, 1
   %26 = and i32 %25, 4095
   %27 = zext nneg i32 %26 to i64
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds %struct.Mig_Obj_t_, ptr %.01627, i64 %28
+  %29 = getelementptr inbounds %struct.Mig_Obj_t_, ptr %.028, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -16
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 96
@@ -1150,7 +1150,7 @@ Vec_IntFill.exit.i.i:                             ; preds = %45, %Vec_IntGrow.ex
   %.pre8.i.i = and i32 %.pre.i.i, 4095
   %.pre10.i.i = zext nneg i32 %.pre8.i.i to i64
   %.pre12.i.i = sub nsw i64 0, %.pre10.i.i
-  %.phi.trans.insert.i = getelementptr inbounds %struct.Mig_Obj_t_, ptr %.01627, i64 %.pre12.i.i
+  %.phi.trans.insert.i = getelementptr inbounds %struct.Mig_Obj_t_, ptr %.028, i64 %.pre12.i.i
   %.phi.trans.insert4.i = getelementptr inbounds i8, ptr %.phi.trans.insert.i, i64 -16
   %.pre.i = load ptr, ptr %.phi.trans.insert4.i, align 8
   br label %Mig_ManSuppSizeOne.exit
@@ -1166,21 +1166,21 @@ Mig_ManSuppSizeOne.exit:                          ; preds = %24, %Vec_IntFill.ex
   %54 = and i32 %53, 4095
   %55 = zext nneg i32 %54 to i64
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds %struct.Mig_Obj_t_, ptr %.01627, i64 %56
+  %57 = getelementptr inbounds %struct.Mig_Obj_t_, ptr %.028, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 @Mig_ManSuppSize2_rec(ptr noundef %59, i32 noundef %53)
   %61 = icmp slt i32 %60, 17
   %62 = zext i1 %61 to i32
-  %63 = add nsw i32 %.128, %62
+  %63 = add nsw i32 %.127, %62
   br label %64
 
 64:                                               ; preds = %.lr.ph, %Mig_ManSuppSizeOne.exit
-  %.2 = phi i32 [ %63, %Mig_ManSuppSizeOne.exit ], [ %.128, %.lr.ph ]
-  %65 = getelementptr inbounds i8, ptr %.01627, i64 16
-  %66 = getelementptr i8, ptr %.01627, i64 28
-  %.016.val = load i32, ptr %66, align 4
-  %67 = icmp ult i32 %.016.val, -2
+  %.2 = phi i32 [ %63, %Mig_ManSuppSizeOne.exit ], [ %.127, %.lr.ph ]
+  %65 = getelementptr inbounds i8, ptr %.028, i64 16
+  %66 = getelementptr i8, ptr %.028, i64 28
+  %.0.val = load i32, ptr %66, align 4
+  %67 = icmp ult i32 %.0.val, -2
   br i1 %67, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %64
@@ -1191,14 +1191,14 @@ Mig_ManSuppSizeOne.exit:                          ; preds = %24, %Vec_IntFill.ex
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.val = phi i32 [ %.val37, %.preheader ], [ %.val.pre, %._crit_edge.loopexit ]
   %68 = phi i32 [ %storemerge31, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i32 [ %.032, %.preheader ], [ %.2, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %.01632, %.preheader ], [ %.2, %._crit_edge.loopexit ]
   %69 = add nsw i32 %68, 1
   store i32 %69, ptr %10, align 8
   %70 = icmp slt i32 %69, %.val
   br i1 %70, label %15, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %15, %._crit_edge, %Abc_Clock.exit
-  %.0.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1.lcssa, %._crit_edge ], [ %.032, %15 ]
+  %.016.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1.lcssa, %._crit_edge ], [ %.01632, %15 ]
   %71 = getelementptr inbounds i8, ptr %0, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = getelementptr i8, ptr %0, i64 44
@@ -1208,7 +1208,7 @@ Mig_ManSuppSizeOne.exit:                          ; preds = %24, %Vec_IntFill.ex
   %75 = add i32 %.val3.i, %.val.i
   %76 = xor i32 %75, -1
   %77 = add i32 %72, %76
-  %78 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.0.lcssa, i32 noundef %77)
+  %78 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.016.lcssa, i32 noundef %77)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %79 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #16
   %80 = icmp slt i32 %79, 0
@@ -1231,7 +1231,7 @@ Abc_Clock.exit23:                                 ; preds = %.critedge, %81
   %89 = sitofp i64 %88 to double
   %90 = fdiv double %89, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, double noundef %90)
-  ret i32 %.0.lcssa
+  ret i32 %.016.lcssa
 }
 
 ; Function Attrs: nofree nounwind

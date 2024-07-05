@@ -1131,8 +1131,8 @@ define noundef i64 @_Z19fast_rv64e_amocas_qP11processor_t6insn_tm(ptr nocapture 
   br label %47
 
 47:                                               ; preds = %31, %40
-  %.071.off0 = phi i64 [ %43, %40 ], [ 0, %31 ]
-  %.071.off64 = phi i64 [ %46, %40 ], [ 0, %31 ]
+  %.070.off0 = phi i64 [ %43, %40 ], [ 0, %31 ]
+  %.070.off64 = phi i64 [ %46, %40 ], [ 0, %31 ]
   %48 = icmp eq i64 %23, 0
   br i1 %48, label %63, label %49
 
@@ -1162,8 +1162,8 @@ define noundef i64 @_Z19fast_rv64e_amocas_qP11processor_t6insn_tm(ptr nocapture 
   br label %63
 
 63:                                               ; preds = %47, %56
-  %.070.off0 = phi i64 [ %59, %56 ], [ 0, %47 ]
-  %.070.off64 = phi i64 [ %62, %56 ], [ 0, %47 ]
+  %.071.off0 = phi i64 [ %59, %56 ], [ 0, %47 ]
+  %.071.off64 = phi i64 [ %62, %56 ], [ 0, %47 ]
   %64 = lshr i64 %1, 15
   %65 = and i64 %64, 31
   %66 = icmp ugt i64 %65, 15
@@ -1187,7 +1187,7 @@ define noundef i64 @_Z19fast_rv64e_amocas_qP11processor_t6insn_tm(ptr nocapture 
   %75 = getelementptr inbounds i8, ptr %0, i64 120
   %76 = getelementptr inbounds [32 x i64], ptr %75, i64 0, i64 %65
   %77 = load i64, ptr %76, align 8
-  %78 = tail call noundef { i64, i64 } @_ZN5mmu_t20amo_compare_and_swapIoEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %74, i64 noundef %77, i64 noundef %.071.off0, i64 noundef %.071.off64, i64 noundef %.070.off0, i64 noundef %.070.off64)
+  %78 = tail call noundef { i64, i64 } @_ZN5mmu_t20amo_compare_and_swapIoEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %74, i64 noundef %77, i64 noundef %.070.off0, i64 noundef %.070.off64, i64 noundef %.071.off0, i64 noundef %.071.off64)
   br i1 %32, label %85, label %79
 
 79:                                               ; preds = %72

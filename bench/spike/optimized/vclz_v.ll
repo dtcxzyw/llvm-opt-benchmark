@@ -556,7 +556,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph201:                                        ; preds = %240, %252
   %246 = phi i64 [ %254, %252 ], [ 0, %240 ]
-  %.0128199 = phi i32 [ %253, %252 ], [ 0, %240 ]
+  %.0129199 = phi i32 [ %253, %252 ], [ 0, %240 ]
   %247 = xor i64 %246, -1
   %248 = add i64 %245, %247
   %249 = trunc i64 %248 to i32
@@ -566,14 +566,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not146, label %252, label %._crit_edge202
 
 252:                                              ; preds = %.lr.ph201
-  %253 = add i32 %.0128199, 1
+  %253 = add i32 %.0129199, 1
   %254 = zext i32 %253 to i64
   %255 = icmp ugt i64 %245, %254
   br i1 %255, label %.lr.ph201, label %._crit_edge202, !llvm.loop !7
 
 ._crit_edge202:                                   ; preds = %252, %.lr.ph201, %240
-  %.0128.lcssa = phi i32 [ 0, %240 ], [ %.0128199, %.lr.ph201 ], [ %253, %252 ]
-  %256 = trunc i32 %.0128.lcssa to i16
+  %.0129.lcssa = phi i32 [ 0, %240 ], [ %.0129199, %.lr.ph201 ], [ %253, %252 ]
+  %256 = trunc i32 %.0129.lcssa to i16
   store i16 %256, ptr %241, align 2
   br label %286
 
@@ -587,7 +587,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph194:                                        ; preds = %257, %268
   %262 = phi i64 [ %270, %268 ], [ 0, %257 ]
-  %.0126192 = phi i32 [ %269, %268 ], [ 0, %257 ]
+  %.0128192 = phi i32 [ %269, %268 ], [ 0, %257 ]
   %263 = xor i64 %262, -1
   %264 = add i64 %261, %263
   %265 = trunc i64 %264 to i32
@@ -597,14 +597,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not145, label %268, label %._crit_edge195
 
 268:                                              ; preds = %.lr.ph194
-  %269 = add i32 %.0126192, 1
+  %269 = add i32 %.0128192, 1
   %270 = zext i32 %269 to i64
   %271 = icmp ugt i64 %261, %270
   br i1 %271, label %.lr.ph194, label %._crit_edge195, !llvm.loop !8
 
 ._crit_edge195:                                   ; preds = %268, %.lr.ph194, %257
-  %.0126.lcssa = phi i32 [ 0, %257 ], [ %.0126192, %.lr.ph194 ], [ %269, %268 ]
-  store i32 %.0126.lcssa, ptr %258, align 4
+  %.0128.lcssa = phi i32 [ 0, %257 ], [ %.0128192, %.lr.ph194 ], [ %269, %268 ]
+  store i32 %.0128.lcssa, ptr %258, align 4
   br label %286
 
 272:                                              ; preds = %222
@@ -1160,7 +1160,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph201:                                        ; preds = %240, %252
   %246 = phi i64 [ %254, %252 ], [ 0, %240 ]
-  %.0128199 = phi i32 [ %253, %252 ], [ 0, %240 ]
+  %.0129199 = phi i32 [ %253, %252 ], [ 0, %240 ]
   %247 = xor i64 %246, -1
   %248 = add i64 %245, %247
   %249 = trunc i64 %248 to i32
@@ -1170,14 +1170,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not146, label %252, label %._crit_edge202
 
 252:                                              ; preds = %.lr.ph201
-  %253 = add i32 %.0128199, 1
+  %253 = add i32 %.0129199, 1
   %254 = zext i32 %253 to i64
   %255 = icmp ugt i64 %245, %254
   br i1 %255, label %.lr.ph201, label %._crit_edge202, !llvm.loop !12
 
 ._crit_edge202:                                   ; preds = %252, %.lr.ph201, %240
-  %.0128.lcssa = phi i32 [ 0, %240 ], [ %.0128199, %.lr.ph201 ], [ %253, %252 ]
-  %256 = trunc i32 %.0128.lcssa to i16
+  %.0129.lcssa = phi i32 [ 0, %240 ], [ %.0129199, %.lr.ph201 ], [ %253, %252 ]
+  %256 = trunc i32 %.0129.lcssa to i16
   store i16 %256, ptr %241, align 2
   br label %286
 
@@ -1191,7 +1191,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph194:                                        ; preds = %257, %268
   %262 = phi i64 [ %270, %268 ], [ 0, %257 ]
-  %.0126192 = phi i32 [ %269, %268 ], [ 0, %257 ]
+  %.0128192 = phi i32 [ %269, %268 ], [ 0, %257 ]
   %263 = xor i64 %262, -1
   %264 = add i64 %261, %263
   %265 = trunc i64 %264 to i32
@@ -1201,14 +1201,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not145, label %268, label %._crit_edge195
 
 268:                                              ; preds = %.lr.ph194
-  %269 = add i32 %.0126192, 1
+  %269 = add i32 %.0128192, 1
   %270 = zext i32 %269 to i64
   %271 = icmp ugt i64 %261, %270
   br i1 %271, label %.lr.ph194, label %._crit_edge195, !llvm.loop !13
 
 ._crit_edge195:                                   ; preds = %268, %.lr.ph194, %257
-  %.0126.lcssa = phi i32 [ 0, %257 ], [ %.0126192, %.lr.ph194 ], [ %269, %268 ]
-  store i32 %.0126.lcssa, ptr %258, align 4
+  %.0128.lcssa = phi i32 [ 0, %257 ], [ %.0128192, %.lr.ph194 ], [ %269, %268 ]
+  store i32 %.0128.lcssa, ptr %258, align 4
   br label %286
 
 272:                                              ; preds = %222
@@ -1733,7 +1733,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph201:                                        ; preds = %240, %252
   %246 = phi i64 [ %254, %252 ], [ 0, %240 ]
-  %.0128199 = phi i32 [ %253, %252 ], [ 0, %240 ]
+  %.0129199 = phi i32 [ %253, %252 ], [ 0, %240 ]
   %247 = xor i64 %246, -1
   %248 = add i64 %245, %247
   %249 = trunc i64 %248 to i32
@@ -1743,14 +1743,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not146, label %252, label %._crit_edge202
 
 252:                                              ; preds = %.lr.ph201
-  %253 = add i32 %.0128199, 1
+  %253 = add i32 %.0129199, 1
   %254 = zext i32 %253 to i64
   %255 = icmp ugt i64 %245, %254
   br i1 %255, label %.lr.ph201, label %._crit_edge202, !llvm.loop !17
 
 ._crit_edge202:                                   ; preds = %252, %.lr.ph201, %240
-  %.0128.lcssa = phi i32 [ 0, %240 ], [ %.0128199, %.lr.ph201 ], [ %253, %252 ]
-  %256 = trunc i32 %.0128.lcssa to i16
+  %.0129.lcssa = phi i32 [ 0, %240 ], [ %.0129199, %.lr.ph201 ], [ %253, %252 ]
+  %256 = trunc i32 %.0129.lcssa to i16
   store i16 %256, ptr %241, align 2
   br label %286
 
@@ -1764,7 +1764,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph194:                                        ; preds = %257, %268
   %262 = phi i64 [ %270, %268 ], [ 0, %257 ]
-  %.0126192 = phi i32 [ %269, %268 ], [ 0, %257 ]
+  %.0128192 = phi i32 [ %269, %268 ], [ 0, %257 ]
   %263 = xor i64 %262, -1
   %264 = add i64 %261, %263
   %265 = trunc i64 %264 to i32
@@ -1774,14 +1774,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not145, label %268, label %._crit_edge195
 
 268:                                              ; preds = %.lr.ph194
-  %269 = add i32 %.0126192, 1
+  %269 = add i32 %.0128192, 1
   %270 = zext i32 %269 to i64
   %271 = icmp ugt i64 %261, %270
   br i1 %271, label %.lr.ph194, label %._crit_edge195, !llvm.loop !18
 
 ._crit_edge195:                                   ; preds = %268, %.lr.ph194, %257
-  %.0126.lcssa = phi i32 [ 0, %257 ], [ %.0126192, %.lr.ph194 ], [ %269, %268 ]
-  store i32 %.0126.lcssa, ptr %258, align 4
+  %.0128.lcssa = phi i32 [ 0, %257 ], [ %.0128192, %.lr.ph194 ], [ %269, %268 ]
+  store i32 %.0128.lcssa, ptr %258, align 4
   br label %286
 
 272:                                              ; preds = %222
@@ -2308,7 +2308,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph201:                                        ; preds = %240, %252
   %246 = phi i64 [ %254, %252 ], [ 0, %240 ]
-  %.0128199 = phi i32 [ %253, %252 ], [ 0, %240 ]
+  %.0129199 = phi i32 [ %253, %252 ], [ 0, %240 ]
   %247 = xor i64 %246, -1
   %248 = add i64 %245, %247
   %249 = trunc i64 %248 to i32
@@ -2318,14 +2318,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not146, label %252, label %._crit_edge202
 
 252:                                              ; preds = %.lr.ph201
-  %253 = add i32 %.0128199, 1
+  %253 = add i32 %.0129199, 1
   %254 = zext i32 %253 to i64
   %255 = icmp ugt i64 %245, %254
   br i1 %255, label %.lr.ph201, label %._crit_edge202, !llvm.loop !22
 
 ._crit_edge202:                                   ; preds = %252, %.lr.ph201, %240
-  %.0128.lcssa = phi i32 [ 0, %240 ], [ %.0128199, %.lr.ph201 ], [ %253, %252 ]
-  %256 = trunc i32 %.0128.lcssa to i16
+  %.0129.lcssa = phi i32 [ 0, %240 ], [ %.0129199, %.lr.ph201 ], [ %253, %252 ]
+  %256 = trunc i32 %.0129.lcssa to i16
   store i16 %256, ptr %241, align 2
   br label %286
 
@@ -2339,7 +2339,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph194:                                        ; preds = %257, %268
   %262 = phi i64 [ %270, %268 ], [ 0, %257 ]
-  %.0126192 = phi i32 [ %269, %268 ], [ 0, %257 ]
+  %.0128192 = phi i32 [ %269, %268 ], [ 0, %257 ]
   %263 = xor i64 %262, -1
   %264 = add i64 %261, %263
   %265 = trunc i64 %264 to i32
@@ -2349,14 +2349,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not145, label %268, label %._crit_edge195
 
 268:                                              ; preds = %.lr.ph194
-  %269 = add i32 %.0126192, 1
+  %269 = add i32 %.0128192, 1
   %270 = zext i32 %269 to i64
   %271 = icmp ugt i64 %261, %270
   br i1 %271, label %.lr.ph194, label %._crit_edge195, !llvm.loop !23
 
 ._crit_edge195:                                   ; preds = %268, %.lr.ph194, %257
-  %.0126.lcssa = phi i32 [ 0, %257 ], [ %.0126192, %.lr.ph194 ], [ %269, %268 ]
-  store i32 %.0126.lcssa, ptr %258, align 4
+  %.0128.lcssa = phi i32 [ 0, %257 ], [ %.0128192, %.lr.ph194 ], [ %269, %268 ]
+  store i32 %.0128.lcssa, ptr %258, align 4
   br label %286
 
 272:                                              ; preds = %222
@@ -2881,7 +2881,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph201:                                        ; preds = %240, %252
   %246 = phi i64 [ %254, %252 ], [ 0, %240 ]
-  %.0128199 = phi i32 [ %253, %252 ], [ 0, %240 ]
+  %.0129199 = phi i32 [ %253, %252 ], [ 0, %240 ]
   %247 = xor i64 %246, -1
   %248 = add i64 %245, %247
   %249 = trunc i64 %248 to i32
@@ -2891,14 +2891,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not146, label %252, label %._crit_edge202
 
 252:                                              ; preds = %.lr.ph201
-  %253 = add i32 %.0128199, 1
+  %253 = add i32 %.0129199, 1
   %254 = zext i32 %253 to i64
   %255 = icmp ugt i64 %245, %254
   br i1 %255, label %.lr.ph201, label %._crit_edge202, !llvm.loop !27
 
 ._crit_edge202:                                   ; preds = %252, %.lr.ph201, %240
-  %.0128.lcssa = phi i32 [ 0, %240 ], [ %.0128199, %.lr.ph201 ], [ %253, %252 ]
-  %256 = trunc i32 %.0128.lcssa to i16
+  %.0129.lcssa = phi i32 [ 0, %240 ], [ %.0129199, %.lr.ph201 ], [ %253, %252 ]
+  %256 = trunc i32 %.0129.lcssa to i16
   store i16 %256, ptr %241, align 2
   br label %286
 
@@ -2912,7 +2912,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph194:                                        ; preds = %257, %268
   %262 = phi i64 [ %270, %268 ], [ 0, %257 ]
-  %.0126192 = phi i32 [ %269, %268 ], [ 0, %257 ]
+  %.0128192 = phi i32 [ %269, %268 ], [ 0, %257 ]
   %263 = xor i64 %262, -1
   %264 = add i64 %261, %263
   %265 = trunc i64 %264 to i32
@@ -2922,14 +2922,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not145, label %268, label %._crit_edge195
 
 268:                                              ; preds = %.lr.ph194
-  %269 = add i32 %.0126192, 1
+  %269 = add i32 %.0128192, 1
   %270 = zext i32 %269 to i64
   %271 = icmp ugt i64 %261, %270
   br i1 %271, label %.lr.ph194, label %._crit_edge195, !llvm.loop !28
 
 ._crit_edge195:                                   ; preds = %268, %.lr.ph194, %257
-  %.0126.lcssa = phi i32 [ 0, %257 ], [ %.0126192, %.lr.ph194 ], [ %269, %268 ]
-  store i32 %.0126.lcssa, ptr %258, align 4
+  %.0128.lcssa = phi i32 [ 0, %257 ], [ %.0128192, %.lr.ph194 ], [ %269, %268 ]
+  store i32 %.0128.lcssa, ptr %258, align 4
   br label %286
 
 272:                                              ; preds = %222
@@ -3456,7 +3456,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph201:                                        ; preds = %240, %252
   %246 = phi i64 [ %254, %252 ], [ 0, %240 ]
-  %.0128199 = phi i32 [ %253, %252 ], [ 0, %240 ]
+  %.0129199 = phi i32 [ %253, %252 ], [ 0, %240 ]
   %247 = xor i64 %246, -1
   %248 = add i64 %245, %247
   %249 = trunc i64 %248 to i32
@@ -3466,14 +3466,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not146, label %252, label %._crit_edge202
 
 252:                                              ; preds = %.lr.ph201
-  %253 = add i32 %.0128199, 1
+  %253 = add i32 %.0129199, 1
   %254 = zext i32 %253 to i64
   %255 = icmp ugt i64 %245, %254
   br i1 %255, label %.lr.ph201, label %._crit_edge202, !llvm.loop !32
 
 ._crit_edge202:                                   ; preds = %252, %.lr.ph201, %240
-  %.0128.lcssa = phi i32 [ 0, %240 ], [ %.0128199, %.lr.ph201 ], [ %253, %252 ]
-  %256 = trunc i32 %.0128.lcssa to i16
+  %.0129.lcssa = phi i32 [ 0, %240 ], [ %.0129199, %.lr.ph201 ], [ %253, %252 ]
+  %256 = trunc i32 %.0129.lcssa to i16
   store i16 %256, ptr %241, align 2
   br label %286
 
@@ -3487,7 +3487,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph194:                                        ; preds = %257, %268
   %262 = phi i64 [ %270, %268 ], [ 0, %257 ]
-  %.0126192 = phi i32 [ %269, %268 ], [ 0, %257 ]
+  %.0128192 = phi i32 [ %269, %268 ], [ 0, %257 ]
   %263 = xor i64 %262, -1
   %264 = add i64 %261, %263
   %265 = trunc i64 %264 to i32
@@ -3497,14 +3497,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not145, label %268, label %._crit_edge195
 
 268:                                              ; preds = %.lr.ph194
-  %269 = add i32 %.0126192, 1
+  %269 = add i32 %.0128192, 1
   %270 = zext i32 %269 to i64
   %271 = icmp ugt i64 %261, %270
   br i1 %271, label %.lr.ph194, label %._crit_edge195, !llvm.loop !33
 
 ._crit_edge195:                                   ; preds = %268, %.lr.ph194, %257
-  %.0126.lcssa = phi i32 [ 0, %257 ], [ %.0126192, %.lr.ph194 ], [ %269, %268 ]
-  store i32 %.0126.lcssa, ptr %258, align 4
+  %.0128.lcssa = phi i32 [ 0, %257 ], [ %.0128192, %.lr.ph194 ], [ %269, %268 ]
+  store i32 %.0128.lcssa, ptr %258, align 4
   br label %286
 
 272:                                              ; preds = %222
@@ -4029,7 +4029,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph201:                                        ; preds = %240, %252
   %246 = phi i64 [ %254, %252 ], [ 0, %240 ]
-  %.0128199 = phi i32 [ %253, %252 ], [ 0, %240 ]
+  %.0129199 = phi i32 [ %253, %252 ], [ 0, %240 ]
   %247 = xor i64 %246, -1
   %248 = add i64 %245, %247
   %249 = trunc i64 %248 to i32
@@ -4039,14 +4039,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not146, label %252, label %._crit_edge202
 
 252:                                              ; preds = %.lr.ph201
-  %253 = add i32 %.0128199, 1
+  %253 = add i32 %.0129199, 1
   %254 = zext i32 %253 to i64
   %255 = icmp ugt i64 %245, %254
   br i1 %255, label %.lr.ph201, label %._crit_edge202, !llvm.loop !37
 
 ._crit_edge202:                                   ; preds = %252, %.lr.ph201, %240
-  %.0128.lcssa = phi i32 [ 0, %240 ], [ %.0128199, %.lr.ph201 ], [ %253, %252 ]
-  %256 = trunc i32 %.0128.lcssa to i16
+  %.0129.lcssa = phi i32 [ 0, %240 ], [ %.0129199, %.lr.ph201 ], [ %253, %252 ]
+  %256 = trunc i32 %.0129.lcssa to i16
   store i16 %256, ptr %241, align 2
   br label %286
 
@@ -4060,7 +4060,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph194:                                        ; preds = %257, %268
   %262 = phi i64 [ %270, %268 ], [ 0, %257 ]
-  %.0126192 = phi i32 [ %269, %268 ], [ 0, %257 ]
+  %.0128192 = phi i32 [ %269, %268 ], [ 0, %257 ]
   %263 = xor i64 %262, -1
   %264 = add i64 %261, %263
   %265 = trunc i64 %264 to i32
@@ -4070,14 +4070,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not145, label %268, label %._crit_edge195
 
 268:                                              ; preds = %.lr.ph194
-  %269 = add i32 %.0126192, 1
+  %269 = add i32 %.0128192, 1
   %270 = zext i32 %269 to i64
   %271 = icmp ugt i64 %261, %270
   br i1 %271, label %.lr.ph194, label %._crit_edge195, !llvm.loop !38
 
 ._crit_edge195:                                   ; preds = %268, %.lr.ph194, %257
-  %.0126.lcssa = phi i32 [ 0, %257 ], [ %.0126192, %.lr.ph194 ], [ %269, %268 ]
-  store i32 %.0126.lcssa, ptr %258, align 4
+  %.0128.lcssa = phi i32 [ 0, %257 ], [ %.0128192, %.lr.ph194 ], [ %269, %268 ]
+  store i32 %.0128.lcssa, ptr %258, align 4
   br label %286
 
 272:                                              ; preds = %222
@@ -4604,7 +4604,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph201:                                        ; preds = %240, %252
   %246 = phi i64 [ %254, %252 ], [ 0, %240 ]
-  %.0128199 = phi i32 [ %253, %252 ], [ 0, %240 ]
+  %.0129199 = phi i32 [ %253, %252 ], [ 0, %240 ]
   %247 = xor i64 %246, -1
   %248 = add i64 %245, %247
   %249 = trunc i64 %248 to i32
@@ -4614,14 +4614,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not146, label %252, label %._crit_edge202
 
 252:                                              ; preds = %.lr.ph201
-  %253 = add i32 %.0128199, 1
+  %253 = add i32 %.0129199, 1
   %254 = zext i32 %253 to i64
   %255 = icmp ugt i64 %245, %254
   br i1 %255, label %.lr.ph201, label %._crit_edge202, !llvm.loop !42
 
 ._crit_edge202:                                   ; preds = %252, %.lr.ph201, %240
-  %.0128.lcssa = phi i32 [ 0, %240 ], [ %.0128199, %.lr.ph201 ], [ %253, %252 ]
-  %256 = trunc i32 %.0128.lcssa to i16
+  %.0129.lcssa = phi i32 [ 0, %240 ], [ %.0129199, %.lr.ph201 ], [ %253, %252 ]
+  %256 = trunc i32 %.0129.lcssa to i16
   store i16 %256, ptr %241, align 2
   br label %286
 
@@ -4635,7 +4635,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 .lr.ph194:                                        ; preds = %257, %268
   %262 = phi i64 [ %270, %268 ], [ 0, %257 ]
-  %.0126192 = phi i32 [ %269, %268 ], [ 0, %257 ]
+  %.0128192 = phi i32 [ %269, %268 ], [ 0, %257 ]
   %263 = xor i64 %262, -1
   %264 = add i64 %261, %263
   %265 = trunc i64 %264 to i32
@@ -4645,14 +4645,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %.not145, label %268, label %._crit_edge195
 
 268:                                              ; preds = %.lr.ph194
-  %269 = add i32 %.0126192, 1
+  %269 = add i32 %.0128192, 1
   %270 = zext i32 %269 to i64
   %271 = icmp ugt i64 %261, %270
   br i1 %271, label %.lr.ph194, label %._crit_edge195, !llvm.loop !43
 
 ._crit_edge195:                                   ; preds = %268, %.lr.ph194, %257
-  %.0126.lcssa = phi i32 [ 0, %257 ], [ %.0126192, %.lr.ph194 ], [ %269, %268 ]
-  store i32 %.0126.lcssa, ptr %258, align 4
+  %.0128.lcssa = phi i32 [ 0, %257 ], [ %.0128192, %.lr.ph194 ], [ %269, %268 ]
+  store i32 %.0128.lcssa, ptr %258, align 4
   br label %286
 
 272:                                              ; preds = %222

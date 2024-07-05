@@ -328,15 +328,15 @@ if.end12:                                         ; preds = %if.end7
   br i1 %cmp9.i, label %for.body.i, label %if.end16
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i
-  %inc.i = add nuw nsw i64 %seq_idx.010.i, 1
+  %inc.i = add nuw nsw i64 %seq_idx.011.i, 1
   %fd_sequence.val.i = load i64, ptr %0, align 8
   %cmp.i103 = icmp slt i64 %inc.i, %fd_sequence.val.i
   br i1 %cmp.i103, label %for.body.i, label %if.end16, !llvm.loop !4
 
 for.body.i:                                       ; preds = %if.end12, %for.cond.i
-  %prev_fd.011.i = phi i64 [ %call3.i, %for.cond.i ], [ -1, %if.end12 ]
-  %seq_idx.010.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end12 ]
-  %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %seq_idx.010.i
+  %seq_idx.011.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end12 ]
+  %prev_fd.010.i = phi i64 [ %call3.i, %for.cond.i ], [ -1, %if.end12 ]
+  %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %seq_idx.011.i
   %6 = load ptr, ptr %arrayidx.i, align 8
   %7 = getelementptr i8, ptr %6, i64 8
   %.val.i = load ptr, ptr %7, align 8
@@ -352,7 +352,7 @@ if.end.i102:                                      ; preds = %for.body.i
   br i1 %cmp4.i, label %if.then15, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i102
-  %cmp5.i = icmp sle i64 %call3.i, %prev_fd.011.i
+  %cmp5.i = icmp sle i64 %call3.i, %prev_fd.010.i
   %cmp7.i = icmp ugt i64 %call3.i, 2147483647
   %or.cond.i = or i1 %cmp5.i, %cmp7.i
   br i1 %or.cond.i, label %if.then15, label %for.cond.i
@@ -758,16 +758,16 @@ if.end199:                                        ; preds = %if.end193, %if.then
   br i1 %cmp200.not, label %if.end204, label %if.then201
 
 if.then201:                                       ; preds = %if.end199.thread50, %if.end199
-  %saved_errno.268 = phi i32 [ %call180, %if.end199.thread50 ], [ %saved_errno.1, %if.end199 ]
-  %pid.065 = phi i32 [ -1, %if.end199.thread50 ], [ %call185, %if.end199 ]
+  %pid.066 = phi i32 [ -1, %if.end199.thread50 ], [ %call185, %if.end199 ]
+  %saved_errno.263 = phi i32 [ %call180, %if.end199.thread50 ], [ %saved_errno.1, %if.end199 ]
   %call202 = tail call ptr @__errno_location() #12
-  store i32 %saved_errno.268, ptr %call202, align 4
+  store i32 %saved_errno.263, ptr %call202, align 4
   %46 = load ptr, ptr @PyExc_OSError, align 8
   %call203 = call ptr @PyErr_SetFromErrno(ptr noundef %46) #11
   br label %if.end204
 
 if.end204:                                        ; preds = %if.then201, %if.end199
-  %pid.01934 = phi i32 [ %pid.065, %if.then201 ], [ %call185, %if.end199 ]
+  %pid.02034 = phi i32 [ %pid.066, %if.then201 ], [ %call185, %if.end199 ]
   %cmp.not.i = icmp eq ptr %preexec_fn_args_tuple.0, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
 
@@ -788,13 +788,13 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %cond.end60, %for.body119, %if.then26, %if.end30, %if.then51, %if.then89, %if.end102, %if.then108, %if.then114, %Py_DECREF.exit232, %if.then127, %if.then1.i239, %if.end.i236, %if.then156, %if.then147, %if.then140, %if.then101, %if.then82, %do.end76, %if.end20, %if.end199.thread39, %if.end204, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %envp.1213282 = phi ptr [ %envp.0, %if.end204 ], [ %envp.0, %if.then.i ], [ %envp.0, %if.end.i.i ], [ %envp.0, %if.then1.i.i ], [ %envp.0, %if.end199.thread39 ], [ null, %if.end20 ], [ null, %do.end76 ], [ null, %if.then82 ], [ %envp.0, %if.then101 ], [ %envp.0, %if.then140 ], [ %envp.0, %if.then147 ], [ %envp.0, %if.then156 ], [ %envp.0, %if.end.i236 ], [ %envp.0, %if.then1.i239 ], [ %envp.0, %if.then127 ], [ %envp.0, %Py_DECREF.exit232 ], [ %envp.0, %if.then114 ], [ %envp.0, %if.then108 ], [ %envp.0, %if.end102 ], [ %envp.0, %if.then89 ], [ null, %if.then51 ], [ null, %if.end30 ], [ null, %if.then26 ], [ %envp.0, %for.body119 ], [ null, %cond.end60 ]
-  %argv.1203381 = phi ptr [ %argv.0, %if.end204 ], [ %argv.0, %if.then.i ], [ %argv.0, %if.end.i.i ], [ %argv.0, %if.then1.i.i ], [ %argv.0, %if.end199.thread39 ], [ null, %if.end20 ], [ null, %do.end76 ], [ %argv.0, %if.then82 ], [ %argv.0, %if.then101 ], [ %argv.0, %if.then140 ], [ %argv.0, %if.then147 ], [ %argv.0, %if.then156 ], [ %argv.0, %if.end.i236 ], [ %argv.0, %if.then1.i239 ], [ %argv.0, %if.then127 ], [ %argv.0, %Py_DECREF.exit232 ], [ %argv.0, %if.then114 ], [ %argv.0, %if.then108 ], [ %argv.0, %if.end102 ], [ %argv.0, %if.then89 ], [ null, %if.then51 ], [ null, %if.end30 ], [ null, %if.then26 ], [ %argv.0, %for.body119 ], [ null, %cond.end60 ]
-  %pid.0193480 = phi i32 [ %pid.01934, %if.end204 ], [ %pid.01934, %if.then.i ], [ %pid.01934, %if.end.i.i ], [ %pid.01934, %if.then1.i.i ], [ -1, %if.end199.thread39 ], [ -1, %if.end20 ], [ -1, %do.end76 ], [ -1, %if.then82 ], [ -1, %if.then101 ], [ -1, %if.then140 ], [ -1, %if.then147 ], [ -1, %if.then156 ], [ -1, %if.end.i236 ], [ -1, %if.then1.i239 ], [ -1, %if.then127 ], [ -1, %Py_DECREF.exit232 ], [ -1, %if.then114 ], [ -1, %if.then108 ], [ -1, %if.end102 ], [ -1, %if.then89 ], [ -1, %if.then51 ], [ -1, %if.end30 ], [ -1, %if.then26 ], [ -1, %for.body119 ], [ -1, %cond.end60 ]
-  %extra_groups.2183579 = phi ptr [ %extra_groups.1, %if.end204 ], [ %extra_groups.1, %if.then.i ], [ %extra_groups.1, %if.end.i.i ], [ %extra_groups.1, %if.then1.i.i ], [ %extra_groups.1, %if.end199.thread39 ], [ null, %if.end20 ], [ null, %do.end76 ], [ null, %if.then82 ], [ null, %if.then101 ], [ %extra_groups.1, %if.then140 ], [ %extra_groups.1, %if.then147 ], [ %extra_groups.1, %if.then156 ], [ %call112, %if.end.i236 ], [ %call112, %if.then1.i239 ], [ %call112, %if.then127 ], [ %call112, %Py_DECREF.exit232 ], [ null, %if.then114 ], [ null, %if.then108 ], [ null, %if.end102 ], [ null, %if.then89 ], [ null, %if.then51 ], [ null, %if.end30 ], [ null, %if.then26 ], [ %call112, %for.body119 ], [ null, %cond.end60 ]
+  %extra_groups.2213382 = phi ptr [ %extra_groups.1, %if.end204 ], [ %extra_groups.1, %if.then.i ], [ %extra_groups.1, %if.end.i.i ], [ %extra_groups.1, %if.then1.i.i ], [ %extra_groups.1, %if.end199.thread39 ], [ null, %if.end20 ], [ null, %do.end76 ], [ null, %if.then82 ], [ null, %if.then101 ], [ %extra_groups.1, %if.then140 ], [ %extra_groups.1, %if.then147 ], [ %extra_groups.1, %if.then156 ], [ %call112, %if.end.i236 ], [ %call112, %if.then1.i239 ], [ %call112, %if.then127 ], [ %call112, %Py_DECREF.exit232 ], [ null, %if.then114 ], [ null, %if.then108 ], [ null, %if.end102 ], [ null, %if.then89 ], [ null, %if.then51 ], [ null, %if.end30 ], [ null, %if.then26 ], [ %call112, %for.body119 ], [ null, %cond.end60 ]
+  %pid.0203481 = phi i32 [ %pid.02034, %if.end204 ], [ %pid.02034, %if.then.i ], [ %pid.02034, %if.end.i.i ], [ %pid.02034, %if.then1.i.i ], [ -1, %if.end199.thread39 ], [ -1, %if.end20 ], [ -1, %do.end76 ], [ -1, %if.then82 ], [ -1, %if.then101 ], [ -1, %if.then140 ], [ -1, %if.then147 ], [ -1, %if.then156 ], [ -1, %if.end.i236 ], [ -1, %if.then1.i239 ], [ -1, %if.then127 ], [ -1, %Py_DECREF.exit232 ], [ -1, %if.then114 ], [ -1, %if.then108 ], [ -1, %if.end102 ], [ -1, %if.then89 ], [ -1, %if.then51 ], [ -1, %if.end30 ], [ -1, %if.then26 ], [ -1, %for.body119 ], [ -1, %cond.end60 ]
+  %argv.1193580 = phi ptr [ %argv.0, %if.end204 ], [ %argv.0, %if.then.i ], [ %argv.0, %if.end.i.i ], [ %argv.0, %if.then1.i.i ], [ %argv.0, %if.end199.thread39 ], [ null, %if.end20 ], [ null, %do.end76 ], [ %argv.0, %if.then82 ], [ %argv.0, %if.then101 ], [ %argv.0, %if.then140 ], [ %argv.0, %if.then147 ], [ %argv.0, %if.then156 ], [ %argv.0, %if.end.i236 ], [ %argv.0, %if.then1.i239 ], [ %argv.0, %if.then127 ], [ %argv.0, %Py_DECREF.exit232 ], [ %argv.0, %if.then114 ], [ %argv.0, %if.then108 ], [ %argv.0, %if.end102 ], [ %argv.0, %if.then89 ], [ null, %if.then51 ], [ null, %if.end30 ], [ null, %if.then26 ], [ %argv.0, %for.body119 ], [ null, %cond.end60 ]
+  %envp.1183679 = phi ptr [ %envp.0, %if.end204 ], [ %envp.0, %if.then.i ], [ %envp.0, %if.end.i.i ], [ %envp.0, %if.then1.i.i ], [ %envp.0, %if.end199.thread39 ], [ null, %if.end20 ], [ null, %do.end76 ], [ null, %if.then82 ], [ %envp.0, %if.then101 ], [ %envp.0, %if.then140 ], [ %envp.0, %if.then147 ], [ %envp.0, %if.then156 ], [ %envp.0, %if.end.i236 ], [ %envp.0, %if.then1.i239 ], [ %envp.0, %if.then127 ], [ %envp.0, %Py_DECREF.exit232 ], [ %envp.0, %if.then114 ], [ %envp.0, %if.then108 ], [ %envp.0, %if.end102 ], [ %envp.0, %if.then89 ], [ null, %if.then51 ], [ null, %if.end30 ], [ null, %if.then26 ], [ %envp.0, %for.body119 ], [ null, %cond.end60 ]
   %converted_args.2163778 = phi ptr [ null, %if.end204 ], [ null, %if.then.i ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ null, %if.end199.thread39 ], [ null, %if.end20 ], [ null, %do.end76 ], [ null, %if.then82 ], [ null, %if.then101 ], [ null, %if.then140 ], [ null, %if.then147 ], [ null, %if.then156 ], [ null, %if.end.i236 ], [ null, %if.then1.i239 ], [ null, %if.then127 ], [ null, %Py_DECREF.exit232 ], [ null, %if.then114 ], [ null, %if.then108 ], [ null, %if.end102 ], [ null, %if.then89 ], [ %call36, %if.then51 ], [ null, %if.end30 ], [ null, %if.then26 ], [ null, %for.body119 ], [ %call36, %cond.end60 ]
   %fast_args.2153877 = phi ptr [ null, %if.end204 ], [ null, %if.then.i ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ null, %if.end199.thread39 ], [ null, %if.end20 ], [ null, %do.end76 ], [ null, %if.then82 ], [ null, %if.then101 ], [ null, %if.then140 ], [ null, %if.then147 ], [ null, %if.then156 ], [ null, %if.end.i236 ], [ null, %if.then1.i239 ], [ null, %if.then127 ], [ null, %Py_DECREF.exit232 ], [ null, %if.then114 ], [ null, %if.then108 ], [ null, %if.end102 ], [ null, %if.then89 ], [ %call27, %if.then51 ], [ %call27, %if.end30 ], [ null, %if.then26 ], [ null, %for.body119 ], [ %call27, %cond.end60 ]
-  call void @PyMem_RawFree(ptr noundef %extra_groups.2183579) #11
+  call void @PyMem_RawFree(ptr noundef %extra_groups.2213382) #11
   %49 = load ptr, ptr %cwd_obj2, align 8
   %cmp.not.i120 = icmp eq ptr %49, null
   br i1 %cmp.not.i120, label %Py_XDECREF.exit128, label %if.then.i121
@@ -816,11 +816,11 @@ if.then1.i.i127:                                  ; preds = %if.end.i.i124
   br label %Py_XDECREF.exit128
 
 Py_XDECREF.exit128:                               ; preds = %Py_XDECREF.exit, %if.then.i121, %if.end.i.i124, %if.then1.i.i127
-  %tobool205.not = icmp eq ptr %envp.1213282, null
+  %tobool205.not = icmp eq ptr %envp.1183679, null
   br i1 %tobool205.not, label %if.end207, label %if.then206
 
 if.then206:                                       ; preds = %Py_XDECREF.exit128
-  %52 = load ptr, ptr %envp.1213282, align 8
+  %52 = load ptr, ptr %envp.1183679, align 8
   %cmp.not5.i = icmp eq ptr %52, null
   br i1 %cmp.not5.i, label %_Py_FreeCharPArray.exit, label %for.body.i129
 
@@ -829,13 +829,13 @@ for.body.i129:                                    ; preds = %if.then206, %for.bo
   %i.06.i = phi i64 [ %inc.i130, %for.body.i129 ], [ 0, %if.then206 ]
   call void @PyMem_Free(ptr noundef nonnull %53) #11
   %inc.i130 = add i64 %i.06.i, 1
-  %arrayidx.i131 = getelementptr ptr, ptr %envp.1213282, i64 %inc.i130
+  %arrayidx.i131 = getelementptr ptr, ptr %envp.1183679, i64 %inc.i130
   %54 = load ptr, ptr %arrayidx.i131, align 8
   %cmp.not.i132 = icmp eq ptr %54, null
   br i1 %cmp.not.i132, label %_Py_FreeCharPArray.exit, label %for.body.i129, !llvm.loop !8
 
 _Py_FreeCharPArray.exit:                          ; preds = %for.body.i129, %if.then206
-  call void @PyMem_Free(ptr noundef nonnull %envp.1213282) #11
+  call void @PyMem_Free(ptr noundef nonnull %envp.1183679) #11
   br label %if.end207
 
 if.end207:                                        ; preds = %_Py_FreeCharPArray.exit, %Py_XDECREF.exit128
@@ -879,11 +879,11 @@ if.then1.i.i149:                                  ; preds = %if.end.i.i146
   br label %Py_XDECREF.exit150
 
 Py_XDECREF.exit150:                               ; preds = %Py_XDECREF.exit141, %if.then.i143, %if.end.i.i146, %if.then1.i.i149
-  %tobool208.not = icmp eq ptr %argv.1203381, null
+  %tobool208.not = icmp eq ptr %argv.1193580, null
   br i1 %tobool208.not, label %if.end210, label %if.then209
 
 if.then209:                                       ; preds = %Py_XDECREF.exit150
-  %59 = load ptr, ptr %argv.1203381, align 8
+  %59 = load ptr, ptr %argv.1193580, align 8
   %cmp.not5.i151 = icmp eq ptr %59, null
   br i1 %cmp.not5.i151, label %_Py_FreeCharPArray.exit157, label %for.body.i152
 
@@ -892,13 +892,13 @@ for.body.i152:                                    ; preds = %if.then209, %for.bo
   %i.06.i153 = phi i64 [ %inc.i154, %for.body.i152 ], [ 0, %if.then209 ]
   call void @PyMem_Free(ptr noundef nonnull %60) #11
   %inc.i154 = add i64 %i.06.i153, 1
-  %arrayidx.i155 = getelementptr ptr, ptr %argv.1203381, i64 %inc.i154
+  %arrayidx.i155 = getelementptr ptr, ptr %argv.1193580, i64 %inc.i154
   %61 = load ptr, ptr %arrayidx.i155, align 8
   %cmp.not.i156 = icmp eq ptr %61, null
   br i1 %cmp.not.i156, label %_Py_FreeCharPArray.exit157, label %for.body.i152, !llvm.loop !8
 
 _Py_FreeCharPArray.exit157:                       ; preds = %for.body.i152, %if.then209
-  call void @PyMem_Free(ptr noundef nonnull %argv.1203381) #11
+  call void @PyMem_Free(ptr noundef nonnull %argv.1193580) #11
   br label %if.end210
 
 if.end210:                                        ; preds = %_Py_FreeCharPArray.exit157, %Py_XDECREF.exit150
@@ -932,11 +932,11 @@ if.then215:                                       ; preds = %if.end213
   br label %if.end217
 
 if.end217:                                        ; preds = %if.then215, %if.end213
-  %cmp218 = icmp eq i32 %pid.0193480, -1
+  %cmp218 = icmp eq i32 %pid.0203481, -1
   br i1 %cmp218, label %return, label %cond.false220
 
 cond.false220:                                    ; preds = %if.end217
-  %conv = sext i32 %pid.0193480 to i64
+  %conv = sext i32 %pid.0203481 to i64
   %call221 = call ptr @PyLong_FromLong(i64 noundef %conv) #11
   br label %return
 
@@ -1885,9 +1885,9 @@ _pos_int_from_ascii.exit.i:                       ; preds = %while.body.i.i, %fo
   br i1 %or.cond13.i, label %do.body.i.i, label %for.inc.i5
 
 do.body.i.i:                                      ; preds = %_pos_int_from_ascii.exit.i, %if.end5.i.i
-  %search_min.0.i.i = phi i64 [ %search_min.1.i.i, %if.end5.i.i ], [ 0, %_pos_int_from_ascii.exit.i ]
   %search_max.0.i.i = phi i64 [ %search_max.1.i.i, %if.end5.i.i ], [ %sub.i16.i, %_pos_int_from_ascii.exit.i ]
-  %add.i17.i = add i64 %search_max.0.i.i, %search_min.0.i.i
+  %search_min.0.i.i = phi i64 [ %search_min.1.i.i, %if.end5.i.i ], [ 0, %_pos_int_from_ascii.exit.i ]
+  %add.i17.i = add i64 %search_min.0.i.i, %search_max.0.i.i
   %div.i.i = sdiv i64 %add.i17.i, 2
   %arrayidx.i18.i = getelementptr i32, ptr %fds_to_keep, i64 %div.i.i
   %15 = load i32, ptr %arrayidx.i18.i, align 4
@@ -1898,8 +1898,8 @@ if.end5.i.i:                                      ; preds = %do.body.i.i
   %cmp7.i.i = icmp slt i32 %15, %num.0..i.i
   %add10.i.i = add nsw i64 %div.i.i, 1
   %sub11.i.i = add nsw i64 %div.i.i, -1
-  %search_min.1.i.i = select i1 %cmp7.i.i, i64 %add10.i.i, i64 %search_min.0.i.i
   %search_max.1.i.i = select i1 %cmp7.i.i, i64 %search_max.0.i.i, i64 %sub11.i.i
+  %search_min.1.i.i = select i1 %cmp7.i.i, i64 %add10.i.i, i64 %search_min.0.i.i
   %cmp13.not.i.i = icmp sgt i64 %search_min.1.i.i, %search_max.1.i.i
   br i1 %cmp13.not.i.i, label %if.then20.loopexit.i, label %do.body.i.i, !llvm.loop !21
 

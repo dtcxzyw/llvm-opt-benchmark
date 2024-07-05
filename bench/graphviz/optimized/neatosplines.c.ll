@@ -202,10 +202,10 @@ define void @makeSelfArcs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
 
 35:                                               ; preds = %32, %35
   %indvars.iv = phi i64 [ 0, %32 ], [ %indvars.iv.next, %35 ]
-  %.03539 = phi ptr [ %0, %32 ], [ %40, %35 ]
+  %.040 = phi ptr [ %0, %32 ], [ %40, %35 ]
   %36 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv
-  store ptr %.03539, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.03539, i64 16
+  store ptr %.040, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %.040, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 232
   %40 = load ptr, ptr %39, align 8
@@ -949,8 +949,8 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %33 ]
-  %.051 = phi i32 [ -1111, %.lr.ph.preheader ], [ %.1, %33 ]
-  %.03950 = phi i32 [ -1111, %.lr.ph.preheader ], [ %.140, %33 ]
+  %.03950 = phi i32 [ -1111, %.lr.ph.preheader ], [ %.1, %33 ]
+  %.04049 = phi i32 [ -1111, %.lr.ph.preheader ], [ %.141, %33 ]
   %14 = icmp eq i32 %.03950, -1111
   br i1 %14, label %15, label %23
 
@@ -966,8 +966,8 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
   br label %23
 
 23:                                               ; preds = %15, %.lr.ph
-  %.140 = phi i32 [ %.03950, %.lr.ph ], [ %spec.select, %15 ]
-  %24 = icmp eq i32 %.051, -1111
+  %.1 = phi i32 [ %.03950, %.lr.ph ], [ %spec.select, %15 ]
+  %24 = icmp eq i32 %.04049, -1111
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %23
@@ -982,19 +982,19 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
   br label %33
 
 33:                                               ; preds = %25, %23
-  %.1 = phi i32 [ %.051, %23 ], [ %spec.select47, %25 ]
+  %.141 = phi i32 [ %.04049, %23 ], [ %spec.select47, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph
 
 .loopexit.loopexit:                               ; preds = %33
-  %34 = zext i32 %.1 to i64
-  %35 = zext i32 %.140 to i64
+  %34 = zext i32 %.141 to i64
+  %35 = zext i32 %.1 to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
-  %.241 = phi i64 [ 4294966185, %4 ], [ %35, %.loopexit.loopexit ]
-  %.2 = phi i64 [ 4294966185, %4 ], [ %34, %.loopexit.loopexit ]
+  %.242 = phi i64 [ 4294966185, %4 ], [ %34, %.loopexit.loopexit ]
+  %.2 = phi i64 [ 4294966185, %4 ], [ %35, %.loopexit.loopexit ]
   br i1 %13, label %.lr.ph.preheader.i, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %.loopexit
@@ -1007,9 +1007,9 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
 
 .lr.ph.i:                                         ; preds = %45, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %45 ]
-  %.04051.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.141.i, %45 ]
-  %37 = icmp eq i64 %indvars.iv.i, %.241
-  %38 = icmp eq i64 %indvars.iv.i, %.2
+  %.04250.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.143.i, %45 ]
+  %37 = icmp eq i64 %indvars.iv.i, %.2
+  %38 = icmp eq i64 %indvars.iv.i, %.242
   %or.cond.i = or i1 %37, %38
   br i1 %or.cond.i, label %45, label %39
 
@@ -1018,25 +1018,25 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8
-  %44 = add nsw i32 %43, %.04051.i
+  %44 = add nsw i32 %43, %.04250.i
   br label %45
 
 45:                                               ; preds = %39, %.lr.ph.i
-  %.141.i = phi i32 [ %.04051.i, %.lr.ph.i ], [ %44, %39 ]
+  %.143.i = phi i32 [ %.04250.i, %.lr.ph.i ], [ %44, %39 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.lr.ph59.preheader.i, label %.lr.ph.i
 
 .lr.ph59.preheader.i:                             ; preds = %45
-  %46 = sext i32 %.141.i to i64
+  %46 = sext i32 %.143.i to i64
   %47 = tail call fastcc ptr @gv_calloc(i64 noundef %46, i64 noundef 32)
   br label %.lr.ph59.i
 
 .lr.ph59.i:                                       ; preds = %.loopexit.i, %.lr.ph59.preheader.i
   %indvars.iv69.i = phi i64 [ 0, %.lr.ph59.preheader.i ], [ %indvars.iv.next70.i, %.loopexit.i ]
-  %.057.i = phi i32 [ 0, %.lr.ph59.preheader.i ], [ %.2.i, %.loopexit.i ]
-  %48 = icmp eq i64 %indvars.iv69.i, %.241
-  %49 = icmp eq i64 %indvars.iv69.i, %.2
+  %.04056.i = phi i32 [ 0, %.lr.ph59.preheader.i ], [ %.2.i, %.loopexit.i ]
+  %48 = icmp eq i64 %indvars.iv69.i, %.2
+  %49 = icmp eq i64 %indvars.iv69.i, %.242
   %or.cond49.i = or i1 %48, %49
   br i1 %or.cond49.i, label %.loopexit.i, label %.preheader.i
 
@@ -1049,7 +1049,7 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
   br i1 %54, label %.lr.ph54.preheader.i, label %.loopexit.i
 
 .lr.ph54.preheader.i:                             ; preds = %.preheader.i
-  %55 = sext i32 %.057.i to i64
+  %55 = sext i32 %.04056.i to i64
   %.pre.i = load ptr, ptr %51, align 8
   %56 = zext nneg i32 %53 to i64
   br label %.lr.ph54.i
@@ -1075,16 +1075,16 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.preheader.i, %.lr.ph59.i
-  %.2.i = phi i32 [ %.057.i, %.lr.ph59.i ], [ %.057.i, %.preheader.i ], [ %62, %.loopexit.loopexit.i ]
+  %.2.i = phi i32 [ %.04056.i, %.lr.ph59.i ], [ %.04056.i, %.preheader.i ], [ %62, %.loopexit.loopexit.i ]
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next70.i, %wide.trip.count.i
   br i1 %exitcond73.not.i, label %make_barriers.exit, label %.lr.ph59.i
 
 make_barriers.exit:                               ; preds = %.loopexit.i, %._crit_edge.thread.i
   %63 = phi ptr [ %36, %._crit_edge.thread.i ], [ %47, %.loopexit.i ]
-  %.040.lcssa75.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %.141.i, %.loopexit.i ]
+  %.042.lcssa75.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %.143.i, %.loopexit.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %64 = call i32 @Proutespline(ptr noundef %63, i32 noundef %.040.lcssa75.i, ptr nonnull %.sroa.012.0.copyload, i32 %.sroa.4.0.copyload, ptr noundef nonnull %6, ptr noundef nonnull %5) #22
+  %64 = call i32 @Proutespline(ptr noundef %63, i32 noundef %.042.lcssa75.i, ptr nonnull %.sroa.012.0.copyload, i32 %.sroa.4.0.copyload, ptr noundef nonnull %6, ptr noundef nonnull %5) #22
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %82
 
@@ -1308,10 +1308,10 @@ define range(i32 0, 2) i32 @splineEdges(ptr noundef %0, ptr nocapture noundef re
   br label %equivEdge.exit
 
 equivEdge.exit:                                   ; preds = %41, %52, %57, %65, %67, %71
-  %.sroa.15.0.i = phi ptr [ %39, %41 ], [ %35, %52 ], [ %35, %57 ], [ %35, %65 ], [ %35, %67 ], [ %35, %71 ]
-  %.sroa.033.0.i = phi ptr [ %35, %41 ], [ %39, %52 ], [ %35, %57 ], [ %35, %65 ], [ %35, %67 ], [ %35, %71 ]
-  %76 = phi <2 x double> [ %45, %41 ], [ %56, %52 ], [ %61, %57 ], [ %60, %65 ], [ %61, %67 ], [ %75, %71 ]
-  %77 = phi <2 x double> [ %47, %41 ], [ %54, %52 ], [ %60, %57 ], [ %61, %65 ], [ %60, %67 ], [ %61, %71 ]
+  %.sroa.033.0.i = phi ptr [ %35, %41 ], [ %39, %52 ], [ %35, %71 ], [ %35, %67 ], [ %35, %65 ], [ %35, %57 ]
+  %.sroa.15.0.i = phi ptr [ %39, %41 ], [ %35, %52 ], [ %35, %71 ], [ %35, %67 ], [ %35, %65 ], [ %35, %57 ]
+  %76 = phi <2 x double> [ %45, %41 ], [ %56, %52 ], [ %75, %71 ], [ %61, %67 ], [ %60, %65 ], [ %61, %57 ]
+  %77 = phi <2 x double> [ %47, %41 ], [ %54, %52 ], [ %61, %71 ], [ %60, %67 ], [ %61, %65 ], [ %60, %57 ]
   store ptr %.sroa.033.0.i, ptr %14, align 8
   store <2 x double> %76, ptr %.sroa.4.0..sroa_idx.i, align 8
   store ptr %.sroa.15.0.i, ptr %.sroa.15.0..sroa_idx.i, align 8
@@ -1479,8 +1479,8 @@ define internal noundef i32 @_spline_edges(ptr noundef %0, ptr nocapture noundef
   %.not116138 = phi i1 [ false, %31 ], [ false, %30 ], [ false, %34 ], [ false, %36 ], [ true, %._crit_edge ], [ true, %3 ]
   %.0104137 = phi ptr [ %12, %31 ], [ %12, %30 ], [ %12, %34 ], [ %12, %36 ], [ null, %._crit_edge ], [ null, %3 ]
   %.2107136 = phi i32 [ %.0105.lcssa, %31 ], [ %.0105.lcssa, %30 ], [ %.0105.lcssa, %34 ], [ %.0105.lcssa, %36 ], [ %.0105.lcssa, %._crit_edge ], [ 0, %3 ]
-  %.0110 = phi ptr [ %32, %31 ], [ null, %30 ], [ null, %34 ], [ null, %36 ], [ null, %._crit_edge ], [ null, %3 ]
   %43 = phi i1 [ true, %31 ], [ true, %30 ], [ false, %34 ], [ false, %36 ], [ false, %._crit_edge ], [ false, %3 ]
+  %.0108 = phi ptr [ %32, %31 ], [ null, %30 ], [ null, %34 ], [ null, %36 ], [ null, %._crit_edge ], [ null, %3 ]
   %44 = load i8, ptr @Verbose, align 1
   %.not119 = icmp eq i8 %44, 0
   br i1 %.not119, label %53, label %45
@@ -1489,7 +1489,7 @@ define internal noundef i32 @_spline_edges(ptr noundef %0, ptr nocapture noundef
   %46 = load ptr, ptr @stderr, align 8
   %47 = icmp eq i32 %2, 8
   %or.cond = and i1 %47, %43
-  %.not120 = icmp eq ptr %.0110, null
+  %.not120 = icmp eq ptr %.0108, null
   %48 = icmp eq i32 %2, 10
   %49 = select i1 %48, ptr @.str.10, ptr @.str.11
   %50 = select i1 %.not120, ptr @.str.12, ptr %49
@@ -1498,7 +1498,7 @@ define internal noundef i32 @_spline_edges(ptr noundef %0, ptr nocapture noundef
   br label %53
 
 53:                                               ; preds = %45, %.thread
-  %.not121 = icmp eq ptr %.0110, null
+  %.not121 = icmp eq ptr %.0108, null
   br i1 %.not121, label %101, label %54
 
 54:                                               ; preds = %53
@@ -1562,7 +1562,7 @@ define internal noundef i32 @_spline_edges(ptr noundef %0, ptr nocapture noundef
   %96 = fadd double %85, %88
   %97 = fadd double %73, %76
   %98 = fadd double %71, %74
-  call void @Pobspath(ptr noundef nonnull %.0110, double %98, double %97, i32 noundef %92, double %96, double %95, i32 noundef %94, ptr noundef nonnull %5) #22
+  call void @Pobspath(ptr noundef nonnull %.0108, double %98, double %97, i32 noundef %92, double %96, double %95, i32 noundef %94, ptr noundef nonnull %5) #22
   %.fca.0.load.i = load ptr, ptr %5, align 8
   %.fca.1.load.i = load i32, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -1869,7 +1869,7 @@ makePolyline.exit:                                ; preds = %.lr.ph155.split, %2
   br i1 %.not121, label %237, label %._crit_edge168.thread
 
 ._crit_edge168.thread:                            ; preds = %.loopexit139.thread, %._crit_edge168
-  call void @Pobsclose(ptr noundef nonnull %.0110) #22
+  call void @Pobsclose(ptr noundef nonnull %.0108) #22
   br label %237
 
 237:                                              ; preds = %._crit_edge168.thread, %._crit_edge168
@@ -1965,7 +1965,7 @@ define noundef zeroext i1 @neato_set_aspect(ptr noundef %0) local_unnamed_addr #
 
 20:                                               ; preds = %19, %15
   %21 = phi ptr [ %.pre.i, %19 ], [ %6, %15 ]
-  %.083.i = phi i1 [ true, %19 ], [ false, %15 ]
+  %.085.i = phi i1 [ true, %19 ], [ false, %15 ]
   %22 = getelementptr inbounds i8, ptr %21, i64 132
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 1
@@ -2102,8 +2102,8 @@ define noundef zeroext i1 @neato_set_aspect(ptr noundef %0) local_unnamed_addr #
   br label %111
 
 111:                                              ; preds = %._crit_edge.i, %.lr.ph113.i
-  %.084111.i = phi ptr [ %107, %.lr.ph113.i ], [ %259, %._crit_edge.i ]
-  %112 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.084111.i) #22
+  %.083111.i = phi ptr [ %107, %.lr.ph113.i ], [ %259, %._crit_edge.i ]
+  %112 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.083111.i) #22
   %.not106108.i = icmp eq ptr %112, null
   br i1 %.not106108.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2154,28 +2154,28 @@ define noundef zeroext i1 @neato_set_aspect(ptr noundef %0) local_unnamed_addr #
 
 .lr.ph89.i.i:                                     ; preds = %193, %.lr.ph89.preheader.i.i
   %.07087.i.i = phi i64 [ %195, %193 ], [ 0, %.lr.ph89.preheader.i.i ]
-  %.07186.i.i = phi ptr [ %194, %193 ], [ %144, %.lr.ph89.preheader.i.i ]
-  %145 = getelementptr inbounds i8, ptr %.07186.i.i, i64 8
+  %.07286.i.i = phi ptr [ %194, %193 ], [ %144, %.lr.ph89.preheader.i.i ]
+  %145 = getelementptr inbounds i8, ptr %.07286.i.i, i64 8
   %146 = load i64, ptr %145, align 8
   %.not92.i.i = icmp eq i64 %146, 0
   br i1 %.not92.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph89.i.i
-  %147 = load ptr, ptr %.07186.i.i, align 8
+  %147 = load ptr, ptr %.07286.i.i, align 8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %175, %.lr.ph.preheader.i.i
   %148 = phi i64 [ %178, %175 ], [ %146, %.lr.ph.preheader.i.i ]
   %.085.i.i = phi i64 [ %177, %175 ], [ 0, %.lr.ph.preheader.i.i ]
-  %.07284.i.i = phi ptr [ %176, %175 ], [ %147, %.lr.ph.preheader.i.i ]
+  %.07184.i.i = phi ptr [ %176, %175 ], [ %147, %.lr.ph.preheader.i.i ]
   %149 = or i64 %.085.i.i, %.07087.i.i
   %or.cond.i.i = icmp eq i64 %149, 0
   br i1 %or.cond.i.i, label %150, label %153
 
 150:                                              ; preds = %.lr.ph.i.i
-  %151 = load <2 x double>, ptr %.07284.i.i, align 8
+  %151 = load <2 x double>, ptr %.07184.i.i, align 8
   %152 = fadd <2 x double> %141, %151
-  store <2 x double> %152, ptr %.07284.i.i, align 8
+  store <2 x double> %152, ptr %.07184.i.i, align 8
   br label %175
 
 153:                                              ; preds = %.lr.ph.i.i
@@ -2189,8 +2189,8 @@ define noundef zeroext i1 @neato_set_aspect(ptr noundef %0) local_unnamed_addr #
   %161 = add i64 %148, -1
   %162 = icmp eq i64 %.085.i.i, %161
   %or.cond83.i.i = and i1 %162, %160
-  %163 = load double, ptr %.07284.i.i, align 8
-  %164 = getelementptr inbounds i8, ptr %.07284.i.i, i64 8
+  %163 = load double, ptr %.07184.i.i, align 8
+  %164 = getelementptr inbounds i8, ptr %.07184.i.i, i64 8
   br i1 %or.cond83.i.i, label %165, label %170
 
 165:                                              ; preds = %153
@@ -2198,7 +2198,7 @@ define noundef zeroext i1 @neato_set_aspect(ptr noundef %0) local_unnamed_addr #
   %167 = insertelement <2 x double> poison, double %163, i64 0
   %168 = insertelement <2 x double> %167, double %166, i64 1
   %169 = fadd <2 x double> %130, %168
-  store <2 x double> %169, ptr %.07284.i.i, align 8
+  store <2 x double> %169, ptr %.07184.i.i, align 8
   br label %175
 
 170:                                              ; preds = %153
@@ -2206,44 +2206,44 @@ define noundef zeroext i1 @neato_set_aspect(ptr noundef %0) local_unnamed_addr #
   %172 = insertelement <2 x double> poison, double %163, i64 0
   %173 = insertelement <2 x double> %172, double %171, i64 1
   %174 = fmul <2 x double> %103, %173
-  store <2 x double> %174, ptr %.07284.i.i, align 8
+  store <2 x double> %174, ptr %.07184.i.i, align 8
   br label %175
 
 175:                                              ; preds = %170, %165, %150
-  %176 = getelementptr inbounds i8, ptr %.07284.i.i, i64 16
+  %176 = getelementptr inbounds i8, ptr %.07184.i.i, i64 16
   %177 = add nuw i64 %.085.i.i, 1
   %178 = load i64, ptr %145, align 8
   %179 = icmp ult i64 %177, %178
   br i1 %179, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %175, %.lr.ph89.i.i
-  %180 = getelementptr inbounds i8, ptr %.07186.i.i, i64 16
+  %180 = getelementptr inbounds i8, ptr %.07286.i.i, i64 16
   %181 = load i32, ptr %180, align 8
   %.not80.i.i = icmp eq i32 %181, 0
   br i1 %.not80.i.i, label %186, label %182
 
 182:                                              ; preds = %._crit_edge.i.i
-  %183 = getelementptr inbounds i8, ptr %.07186.i.i, i64 24
+  %183 = getelementptr inbounds i8, ptr %.07286.i.i, i64 24
   %184 = load <2 x double>, ptr %183, align 8
   %185 = fadd <2 x double> %141, %184
   store <2 x double> %185, ptr %183, align 8
   br label %186
 
 186:                                              ; preds = %182, %._crit_edge.i.i
-  %187 = getelementptr inbounds i8, ptr %.07186.i.i, i64 20
+  %187 = getelementptr inbounds i8, ptr %.07286.i.i, i64 20
   %188 = load i32, ptr %187, align 4
   %.not81.i.i = icmp eq i32 %188, 0
   br i1 %.not81.i.i, label %193, label %189
 
 189:                                              ; preds = %186
-  %190 = getelementptr inbounds i8, ptr %.07186.i.i, i64 40
+  %190 = getelementptr inbounds i8, ptr %.07286.i.i, i64 40
   %191 = load <2 x double>, ptr %190, align 8
   %192 = fadd <2 x double> %130, %191
   store <2 x double> %192, ptr %190, align 8
   br label %193
 
 193:                                              ; preds = %189, %186
-  %194 = getelementptr inbounds i8, ptr %.07186.i.i, i64 56
+  %194 = getelementptr inbounds i8, ptr %.07286.i.i, i64 56
   %195 = add nuw i64 %.07087.i.i, 1
   %196 = load ptr, ptr %113, align 8
   %197 = getelementptr inbounds i8, ptr %196, i64 16
@@ -2346,7 +2346,7 @@ scaleEdge.exit.i:                                 ; preds = %246, %242, %238, %.
   br i1 %.not106.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %scaleEdge.exit.i, %111
-  %259 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.084111.i) #22
+  %259 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.083111.i) #22
   %.not104.i = icmp eq ptr %259, null
   br i1 %.not104.i, label %.loopexit.i, label %111
 
@@ -2361,8 +2361,8 @@ scaleEdge.exit.i:                                 ; preds = %246, %242, %238, %.
   br label %.lr.ph117.i
 
 .lr.ph117.i:                                      ; preds = %.lr.ph117.i.preheader, %.lr.ph117.i
-  %.185115.i = phi ptr [ %275, %.lr.ph117.i ], [ %260, %.lr.ph117.i.preheader ]
-  %263 = getelementptr inbounds i8, ptr %.185115.i, i64 16
+  %.184115.i = phi ptr [ %275, %.lr.ph117.i ], [ %260, %.lr.ph117.i.preheader ]
+  %263 = getelementptr inbounds i8, ptr %.184115.i, i64 16
   %264 = load ptr, ptr %263, align 8
   %265 = getelementptr inbounds i8, ptr %264, i64 176
   %266 = load ptr, ptr %265, align 8
@@ -2376,7 +2376,7 @@ scaleEdge.exit.i:                                 ; preds = %246, %242, %238, %.
   %273 = load double, ptr %272, align 8
   %274 = fmul double %262, %273
   store double %274, ptr %272, align 8
-  %275 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.185115.i) #22
+  %275 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.184115.i) #22
   %.not105.i = icmp eq ptr %275, null
   br i1 %.not105.i, label %._crit_edge118.i, label %.lr.ph117.i
 
@@ -2387,7 +2387,7 @@ scaleEdge.exit.i:                                 ; preds = %246, %242, %238, %.
   br label %_neato_set_aspect.exit
 
 _neato_set_aspect.exit:                           ; preds = %1, %4, %29, %35, %59, %63, %._crit_edge118.i
-  %.079.i = phi i1 [ true, %._crit_edge118.i ], [ false, %1 ], [ %.083.i, %35 ], [ %.083.i, %59 ], [ %.083.i, %63 ], [ %.083.i, %29 ], [ false, %4 ]
+  %.079.i = phi i1 [ true, %._crit_edge118.i ], [ false, %1 ], [ %.085.i, %35 ], [ %.085.i, %59 ], [ %.085.i, %63 ], [ %.085.i, %29 ], [ false, %4 ]
   %278 = tail call ptr @agfstnode(ptr noundef %0) #22
   %.not9 = icmp eq ptr %278, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -2543,8 +2543,8 @@ define void @neato_translate(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %40
-  %.03037 = phi ptr [ %41, %40 ], [ %10, %1 ]
-  %11 = getelementptr inbounds i8, ptr %.03037, i64 16
+  %.037 = phi ptr [ %41, %40 ], [ %10, %1 ]
+  %11 = getelementptr inbounds i8, ptr %.037, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 176
   %14 = load ptr, ptr %13, align 8
@@ -2585,7 +2585,7 @@ define void @neato_translate(ptr noundef %0) local_unnamed_addr #0 {
   br label %40
 
 40:                                               ; preds = %.lr.ph, %26, %30
-  %41 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.03037) #22
+  %41 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.037) #22
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2601,8 +2601,8 @@ define void @neato_translate(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not3338, label %._crit_edge42, label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %.lr.ph46, %translateE.exit
-  %.039 = phi ptr [ %153, %translateE.exit ], [ %43, %.lr.ph46 ]
-  %44 = getelementptr inbounds i8, ptr %.039, i64 16
+  %.03039 = phi ptr [ %153, %translateE.exit ], [ %43, %.lr.ph46 ]
+  %44 = getelementptr inbounds i8, ptr %.03039, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
@@ -2792,7 +2792,7 @@ define void @neato_translate(ptr noundef %0) local_unnamed_addr #0 {
   br label %translateE.exit
 
 translateE.exit:                                  ; preds = %143, %139, %135, %.lr.ph41
-  %153 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.039) #22
+  %153 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.03039) #22
   %.not33 = icmp eq ptr %153, null
   br i1 %.not33, label %._crit_edge42, label %.lr.ph41
 

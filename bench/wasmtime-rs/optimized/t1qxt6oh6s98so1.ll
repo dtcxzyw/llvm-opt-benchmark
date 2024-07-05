@@ -32678,8 +32678,8 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
   br label %"_ZN73_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2ne17h7c502abeb21a3e2aE.exit.thread"
 
 "_ZN73_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2ne17h7c502abeb21a3e2aE.exit.thread": ; preds = %44, %"_ZN73_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2ne17h7c502abeb21a3e2aE.exit", %52
-  %.0 = phi i1 [ true, %52 ], [ false, %"_ZN73_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2ne17h7c502abeb21a3e2aE.exit" ], [ false, %44 ]
-  ret i1 %.0
+  %.018 = phi i1 [ true, %52 ], [ false, %"_ZN73_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2ne17h7c502abeb21a3e2aE.exit" ], [ false, %44 ]
+  ret i1 %.018
 
 53:                                               ; preds = %select.unfold
   %54 = extractvalue { i64, ptr } %51, 0
@@ -36260,8 +36260,8 @@ default.unreachable:                              ; preds = %1077, %593
   br label %.body.thread.i
 
 "_ZN70_$LT$target_lexicon..targets..Vendor$u20$as$u20$core..clone..Clone$GT$5clone17h99bf5f5ea8217821E.llvm.15361297093319246575.exit.i": ; preds = %590, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7a26fba2d500a11dE.llvm.15361297093319246575.exit.i.i", %572
-  %.sroa.5.0.i128 = phi i64 [ undef, %572 ], [ %589, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7a26fba2d500a11dE.llvm.15361297093319246575.exit.i.i" ], [ %592, %590 ]
-  %.sroa.4.0.i = phi ptr [ undef, %572 ], [ null, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7a26fba2d500a11dE.llvm.15361297093319246575.exit.i.i" ], [ %579, %590 ]
+  %.sroa.4.0.i = phi ptr [ undef, %572 ], [ %579, %590 ], [ null, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7a26fba2d500a11dE.llvm.15361297093319246575.exit.i.i" ]
+  %.sroa.5.0.i128 = phi i64 [ undef, %572 ], [ %592, %590 ], [ %589, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7a26fba2d500a11dE.llvm.15361297093319246575.exit.i.i" ]
   %596 = getelementptr inbounds i8, ptr %75, i64 288
   %597 = load i64, ptr %596, align 8, !alias.scope !8794, !noalias !8801
   %598 = getelementptr inbounds i8, ptr %75, i64 299
@@ -37564,8 +37564,8 @@ _ZN8wasmtime6config6Config14build_compiler17hec6ec7b46840e86bE.exit.thread: ; pr
           to label %1197 unwind label %1149
 
 1051:                                             ; preds = %1033, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4c2c604937561d43E.exit.i"
-  %.sroa.6207.0.ph = phi ptr [ @anon.99edeac83e7bf69e7d9a0be5913f3128.522, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4c2c604937561d43E.exit.i" ], [ @anon.99edeac83e7bf69e7d9a0be5913f3128.521, %1033 ]
   %.sroa.0206.0.ph = phi ptr [ %1042, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4c2c604937561d43E.exit.i" ], [ %1019, %1033 ]
+  %.sroa.6207.0.ph = phi ptr [ @anon.99edeac83e7bf69e7d9a0be5913f3128.522, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4c2c604937561d43E.exit.i" ], [ @anon.99edeac83e7bf69e7d9a0be5913f3128.521, %1033 ]
   call void @llvm.lifetime.end.p0(i64 744, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %74)
   invoke void @_ZN16wasmtime_runtime2gc7enabled18default_gc_runtime17hc793f9a0e20c2a67E()

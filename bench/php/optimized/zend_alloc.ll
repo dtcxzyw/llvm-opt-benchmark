@@ -67,8 +67,8 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %.preheader, %.loopexit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.loopexit ]
   %5 = getelementptr inbounds [30 x ptr], ptr %3, i64 0, i64 %indvars.iv
-  %.0234278 = load ptr, ptr %5, align 8
-  %.not256279 = icmp eq ptr %.0234278, null
+  %.0236278 = load ptr, ptr %5, align 8
+  %.not256279 = icmp eq ptr %.0236278, null
   br i1 %.not256279, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
@@ -77,9 +77,9 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %.lr.ph, %._crit_edge308
-  %.0234281 = phi ptr [ %.0234278, %.lr.ph ], [ %.0234, %._crit_edge308 ]
-  %.0222280 = phi i1 [ false, %.lr.ph ], [ %spec.select, %._crit_edge308 ]
-  %9 = ptrtoint ptr %.0234281 to i64
+  %.0236281 = phi ptr [ %.0236278, %.lr.ph ], [ %.0236, %._crit_edge308 ]
+  %.0223280 = phi i1 [ false, %.lr.ph ], [ %spec.select, %._crit_edge308 ]
+  %9 = ptrtoint ptr %.0236281 to i64
   %10 = and i64 %9, -2097152
   %11 = inttoptr i64 %10 to ptr
   %12 = load ptr, ptr %11, align 2097152
@@ -121,24 +121,24 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge308:                                   ; preds = %14, %23
   %.pre-phi310 = phi i64 [ %28, %23 ], [ %17, %14 ]
-  %.0227 = phi i32 [ %30, %23 ], [ %20, %14 ]
-  %33 = and i32 %.0227, 31
+  %.0229 = phi i32 [ %30, %23 ], [ %20, %14 ]
+  %33 = and i32 %.0229, 31
   %34 = zext nneg i32 %33 to i64
   %35 = icmp eq i64 %indvars.iv, %34
   tail call void @llvm.assume(i1 %35)
-  %36 = lshr i32 %.0227, 16
+  %36 = lshr i32 %.0229, 16
   %37 = and i32 %36, 511
   %38 = add nuw nsw i32 %37, 1
   %39 = load i32, ptr %6, align 4
   %40 = icmp eq i32 %38, %39
-  %spec.select = select i1 %40, i1 true, i1 %.0222280
+  %spec.select = select i1 %40, i1 true, i1 %.0223280
   %41 = shl nuw nsw i32 %38, 16
   %42 = or disjoint i32 %41, %7
   %43 = or disjoint i32 %42, -2147483648
   %44 = getelementptr inbounds [512 x i32], ptr %18, i64 0, i64 %.pre-phi310
   store i32 %43, ptr %44, align 4
-  %.0234 = load ptr, ptr %.0234281, align 8
-  %.not256 = icmp eq ptr %.0234, null
+  %.0236 = load ptr, ptr %.0236281, align 8
+  %.not256 = icmp eq ptr %.0236, null
   br i1 %.not256, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %._crit_edge308
@@ -150,9 +150,9 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not257282, label %.loopexit, label %.lr.ph286
 
 .lr.ph286:                                        ; preds = %45, %80
-  %.0232284 = phi ptr [ %.1233, %80 ], [ %5, %45 ]
-  %.1235283 = phi ptr [ %78, %80 ], [ %46, %45 ]
-  %47 = ptrtoint ptr %.1235283 to i64
+  %.0234284 = phi ptr [ %.1235, %80 ], [ %5, %45 ]
+  %.1237283 = phi ptr [ %78, %80 ], [ %46, %45 ]
+  %47 = ptrtoint ptr %.1237283 to i64
   %48 = and i64 %47, -2097152
   %49 = inttoptr i64 %48 to ptr
   %50 = load ptr, ptr %49, align 2097152
@@ -193,23 +193,23 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   br label %71
 
 71:                                               ; preds = %61, %52
-  %.1228 = phi i32 [ %68, %61 ], [ %58, %52 ]
-  %72 = and i32 %.1228, 31
+  %.1230 = phi i32 [ %68, %61 ], [ %58, %52 ]
+  %72 = and i32 %.1230, 31
   %73 = zext nneg i32 %72 to i64
   %74 = icmp eq i64 %indvars.iv, %73
   tail call void @llvm.assume(i1 %74)
-  %75 = lshr i32 %.1228, 16
+  %75 = lshr i32 %.1230, 16
   %76 = and i32 %75, 511
   %77 = icmp eq i32 %76, %39
-  %78 = load ptr, ptr %.1235283, align 8
+  %78 = load ptr, ptr %.1237283, align 8
   br i1 %77, label %79, label %80
 
 79:                                               ; preds = %71
-  store ptr %78, ptr %.0232284, align 8
+  store ptr %78, ptr %.0234284, align 8
   br label %80
 
 80:                                               ; preds = %71, %79
-  %.1233 = phi ptr [ %.0232284, %79 ], [ %.1235283, %71 ]
+  %.1235 = phi ptr [ %.0234284, %79 ], [ %.1237283, %71 ]
   %.not257 = icmp eq ptr %78, null
   br i1 %.not257, label %.loopexit, label %.lr.ph286
 
@@ -232,25 +232,25 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   br label %92
 
 92:                                               ; preds = %zend_mm_chunk_free.exit, %81
-  %.0230 = phi ptr [ %83, %81 ], [ %187, %zend_mm_chunk_free.exit ]
-  %.0 = phi i64 [ 0, %81 ], [ %.1.lcssa, %zend_mm_chunk_free.exit ]
-  %93 = getelementptr inbounds i8, ptr %.0230, i64 28
+  %.0232 = phi ptr [ %83, %81 ], [ %187, %zend_mm_chunk_free.exit ]
+  %.0222 = phi i64 [ 0, %81 ], [ %.1.lcssa, %zend_mm_chunk_free.exit ]
+  %93 = getelementptr inbounds i8, ptr %.0232, i64 28
   %94 = load i32, ptr %93, align 4
   %95 = icmp ugt i32 %94, 1
   br i1 %95, label %.lr.ph299, label %._crit_edge300
 
 .lr.ph299:                                        ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %.0230, i64 456
-  %97 = getelementptr inbounds i8, ptr %.0230, i64 520
-  %98 = getelementptr inbounds i8, ptr %.0230, i64 24
-  %scevgep = getelementptr i8, ptr %.0230, i64 464
+  %96 = getelementptr inbounds i8, ptr %.0232, i64 456
+  %97 = getelementptr inbounds i8, ptr %.0232, i64 520
+  %98 = getelementptr inbounds i8, ptr %.0232, i64 24
+  %scevgep = getelementptr i8, ptr %.0232, i64 464
   br label %99
 
 99:                                               ; preds = %.lr.ph299, %180
   %100 = phi i32 [ %94, %.lr.ph299 ], [ %181, %180 ]
-  %.1297 = phi i64 [ %.0, %.lr.ph299 ], [ %.3, %180 ]
-  %.1225296 = phi i32 [ 1, %.lr.ph299 ], [ %.2226, %180 ]
-  %101 = sext i32 %.1225296 to i64
+  %.1297 = phi i64 [ %.0222, %.lr.ph299 ], [ %.3, %180 ]
+  %.1227296 = phi i32 [ 1, %.lr.ph299 ], [ %.2228, %180 ]
+  %101 = sext i32 %.1227296 to i64
   %102 = lshr i64 %101, 6
   %103 = getelementptr inbounds i64, ptr %96, i64 %102
   %104 = load i64, ptr %103, align 8
@@ -261,7 +261,7 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not251, label %180, label %108
 
 108:                                              ; preds = %99
-  %109 = zext i32 %.1225296 to i64
+  %109 = zext i32 %.1227296 to i64
   %110 = getelementptr inbounds [512 x i32], ptr %97, i64 0, i64 %109
   %111 = load i32, ptr %110, align 4
   %.not252 = icmp sgt i32 %111, -1
@@ -295,8 +295,8 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   br label %167
 
 130:                                              ; preds = %122
-  %131 = ashr i32 %.1225296, 6
-  %132 = add i32 %.1225296, -1
+  %131 = ashr i32 %.1227296, 6
+  %132 = add i32 %.1227296, -1
   %133 = add i32 %132, %116
   %134 = ashr i32 %133, 6
   %.not254 = icmp eq i32 %131, %134
@@ -310,8 +310,8 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   %139 = load i64, ptr %138, align 8
   %140 = and i64 %139, %136
   store i64 %140, ptr %138, align 8
-  %.0238289 = add nsw i32 %131, 1
-  %.not255290 = icmp eq i32 %.0238289, %134
+  %.0289 = add nsw i32 %131, 1
+  %.not255290 = icmp eq i32 %.0289, %134
   br i1 %.not255290, label %._crit_edge294, label %.lr.ph293.preheader
 
 .lr.ph293.preheader:                              ; preds = %135
@@ -356,16 +356,16 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
 167:                                              ; preds = %._crit_edge294, %155, %127
   store i32 0, ptr %110, align 4
   %168 = load i32, ptr %93, align 4
-  %169 = add i32 %116, %.1225296
+  %169 = add i32 %116, %.1227296
   %170 = icmp eq i32 %168, %169
   br i1 %170, label %171, label %172
 
 171:                                              ; preds = %167
-  store i32 %.1225296, ptr %93, align 4
+  store i32 %.1227296, ptr %93, align 4
   br label %172
 
 172:                                              ; preds = %167, %171
-  %173 = phi i32 [ %168, %167 ], [ %.1225296, %171 ]
+  %173 = phi i32 [ %168, %167 ], [ %.1227296, %171 ]
   %174 = sext i32 %116 to i64
   %175 = add i64 %.1297, %174
   br label %180
@@ -383,21 +383,21 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   %181 = phi i32 [ %100, %178 ], [ %100, %99 ], [ %100, %176 ], [ %173, %172 ]
   %.pn = phi i32 [ %179, %178 ], [ 1, %99 ], [ %116, %176 ], [ %116, %172 ]
   %.3 = phi i64 [ %.1297, %178 ], [ %.1297, %99 ], [ %.1297, %176 ], [ %175, %172 ]
-  %.2226 = add i32 %.pn, %.1225296
-  %182 = icmp ult i32 %.2226, %181
+  %.2228 = add i32 %.pn, %.1227296
+  %182 = icmp ult i32 %.2228, %181
   br i1 %182, label %99, label %._crit_edge300
 
 ._crit_edge300:                                   ; preds = %180, %92
-  %.1.lcssa = phi i64 [ %.0, %92 ], [ %.3, %180 ]
-  %183 = getelementptr inbounds i8, ptr %.0230, i64 24
+  %.1.lcssa = phi i64 [ %.0222, %92 ], [ %.3, %180 ]
+  %183 = getelementptr inbounds i8, ptr %.0232, i64 24
   %184 = load i32, ptr %183, align 8
   %185 = icmp eq i32 %184, 511
-  %186 = getelementptr inbounds i8, ptr %.0230, i64 8
+  %186 = getelementptr inbounds i8, ptr %.0232, i64 8
   %187 = load ptr, ptr %186, align 8
   br i1 %185, label %188, label %zend_mm_chunk_free.exit
 
 188:                                              ; preds = %._crit_edge300
-  %189 = getelementptr inbounds i8, ptr %.0230, i64 16
+  %189 = getelementptr inbounds i8, ptr %.0232, i64 16
   %190 = load ptr, ptr %189, align 8
   %191 = getelementptr inbounds i8, ptr %187, i64 16
   store ptr %190, ptr %191, align 8
@@ -430,7 +430,7 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %209, ptr %85, align 8
   %210 = load ptr, ptr %89, align 8
   store ptr %210, ptr %186, align 8
-  store ptr %.0230, ptr %89, align 8
+  store ptr %.0232, ptr %89, align 8
   br label %zend_mm_chunk_free.exit
 
 211:                                              ; preds = %205
@@ -459,7 +459,7 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
 
 221:                                              ; preds = %211, %.thread
   %222 = phi ptr [ %217, %.thread ], [ %214, %211 ]
-  %223 = getelementptr inbounds i8, ptr %.0230, i64 32
+  %223 = getelementptr inbounds i8, ptr %.0232, i64 32
   %224 = load i32, ptr %223, align 8
   %225 = getelementptr inbounds i8, ptr %222, i64 32
   %226 = load i32, ptr %225, align 8
@@ -479,11 +479,11 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
 228:                                              ; preds = %.thread275
   %229 = getelementptr inbounds i8, ptr %.val, i64 8
   %230 = load ptr, ptr %229, align 8
-  tail call void %230(ptr noundef nonnull %.val, ptr noundef nonnull %.0230, i64 noundef 2097152) #35
+  tail call void %230(ptr noundef nonnull %.val, ptr noundef nonnull %.0232, i64 noundef 2097152) #35
   br label %zend_mm_chunk_free.exit
 
 231:                                              ; preds = %.thread275
-  %232 = tail call i32 @munmap(ptr noundef nonnull %.0230, i64 noundef 2097152) #35
+  %232 = tail call i32 @munmap(ptr noundef nonnull %.0232, i64 noundef 2097152) #35
   %.not.i.i = icmp eq i32 %232, 0
   br i1 %.not.i.i, label %zend_mm_chunk_free.exit, label %233
 
@@ -524,7 +524,7 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   br label %zend_mm_chunk_free.exit267
 
 zend_mm_chunk_free.exit267:                       ; preds = %243, %246, %248
-  store ptr %.0230, ptr %89, align 8
+  store ptr %.0232, ptr %89, align 8
   br label %zend_mm_chunk_free.exit
 
 zend_mm_chunk_free.exit:                          ; preds = %._crit_edge300, %233, %231, %228, %208, %zend_mm_chunk_free.exit267
@@ -537,8 +537,8 @@ zend_mm_chunk_free.exit:                          ; preds = %._crit_edge300, %23
   br label %257
 
 257:                                              ; preds = %1, %255
-  %.0237 = phi i64 [ %256, %255 ], [ 0, %1 ]
-  ret i64 %.0237
+  %.0225 = phi i64 [ %256, %255 ], [ 0, %1 ]
+  ret i64 %.0225
 }
 
 ; Function Attrs: noreturn nounwind uwtable
@@ -583,31 +583,31 @@ define void @zend_mm_shutdown(ptr noundef %0, i1 noundef zeroext %1, i1 noundef 
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36, %.lr.ph.preheader.i
-  %.02230.i = phi i32 [ %37, %36 ], [ %16, %.lr.ph.preheader.i ]
-  %.02329.i = phi ptr [ %.1.i, %36 ], [ %18, %.lr.ph.preheader.i ]
-  %.02428.i = phi i32 [ %.125.i, %36 ], [ 0, %.lr.ph.preheader.i ]
+  %.02230.i = phi i32 [ %.1.i, %36 ], [ 0, %.lr.ph.preheader.i ]
+  %.02329.i = phi i32 [ %37, %36 ], [ %16, %.lr.ph.preheader.i ]
+  %.02428.i = phi ptr [ %.125.i, %36 ], [ %18, %.lr.ph.preheader.i ]
   %19 = load i32, ptr %14, align 8
   %20 = and i32 %19, 4
   %.not26.i = icmp eq i32 %20, 0
   br i1 %.not26.i, label %25, label %21
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds i8, ptr %.02329.i, i64 16
-  %23 = zext i32 %.02428.i to i64
-  %24 = add i32 %.02428.i, 1
+  %22 = getelementptr inbounds i8, ptr %.02428.i, i64 16
+  %23 = zext i32 %.02230.i to i64
+  %24 = add i32 %.02230.i, 1
   br label %29
 
 25:                                               ; preds = %.lr.ph.i
-  %26 = getelementptr inbounds i8, ptr %.02329.i, i64 32
-  %27 = getelementptr inbounds i8, ptr %.02329.i, i64 16
+  %26 = getelementptr inbounds i8, ptr %.02428.i, i64 32
+  %27 = getelementptr inbounds i8, ptr %.02428.i, i64 16
   %28 = load i64, ptr %27, align 8
   br label %29
 
 29:                                               ; preds = %25, %21
-  %.125.i = phi i32 [ %24, %21 ], [ %.02428.i, %25 ]
-  %.1.i = phi ptr [ %22, %21 ], [ %26, %25 ]
+  %.125.i = phi ptr [ %22, %21 ], [ %26, %25 ]
+  %.1.i = phi i32 [ %24, %21 ], [ %.02230.i, %25 ]
   %.0.i = phi i64 [ %23, %21 ], [ %28, %25 ]
-  %30 = getelementptr inbounds i8, ptr %.02329.i, i64 8
+  %30 = getelementptr inbounds i8, ptr %.02428.i, i64 8
   %31 = load i8, ptr %30, align 8
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %36, label %33
@@ -619,7 +619,7 @@ define void @zend_mm_shutdown(ptr noundef %0, i1 noundef zeroext %1, i1 noundef 
   br label %36
 
 36:                                               ; preds = %33, %29
-  %37 = add i32 %.02230.i, -1
+  %37 = add i32 %.02329.i, -1
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %tracked_free_all.exit, label %.lr.ph.i
 
@@ -1105,9 +1105,9 @@ define noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %1) local_unnamed
   br label %72
 
 72:                                               ; preds = %72, %.loopexit.i
-  %.033.i = phi ptr [ %70, %.loopexit.i ], [ %73, %72 ]
-  %73 = getelementptr inbounds i8, ptr %.033.i, i64 %69
-  store ptr %73, ptr %.033.i, align 8
+  %.034.i = phi ptr [ %70, %.loopexit.i ], [ %73, %72 ]
+  %73 = getelementptr inbounds i8, ptr %.034.i, i64 %69
+  store ptr %73, ptr %.034.i, align 8
   %.not37.i = icmp eq ptr %73, %68
   br i1 %.not37.i, label %74, label %72
 
@@ -1305,10 +1305,10 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br label %53
 
 53:                                               ; preds = %45, %40
-  %.0327 = phi i32 [ %44, %40 ], [ %52, %45 ]
+  %.0322 = phi i32 [ %44, %40 ], [ %52, %45 ]
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load i64, ptr %54, align 8
-  %56 = sext i32 %.0327 to i64
+  %56 = sext i32 %.0322 to i64
   %57 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = zext i32 %58 to i64
@@ -1330,12 +1330,12 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br label %70
 
 68:                                               ; preds = %53
-  %69 = tail call fastcc ptr @zend_mm_alloc_small_slow(ptr noundef nonnull %0, i32 noundef %.0327)
+  %69 = tail call fastcc ptr @zend_mm_alloc_small_slow(ptr noundef nonnull %0, i32 noundef %.0322)
   br label %70
 
 70:                                               ; preds = %68, %66
-  %.0324 = phi ptr [ %65, %66 ], [ %69, %68 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0324, ptr align 1 %1, i64 %2, i1 false)
+  %.0325 = phi ptr [ %65, %66 ], [ %69, %68 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0325, ptr align 1 %1, i64 %2, i1 false)
   %71 = load i64, ptr %54, align 8
   %72 = sub i64 %71, %29
   store i64 %72, ptr %54, align 8
@@ -1373,10 +1373,10 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br label %93
 
 93:                                               ; preds = %85, %81
-  %.0325 = phi i32 [ %84, %81 ], [ %92, %85 ]
+  %.0321 = phi i32 [ %84, %81 ], [ %92, %85 ]
   %94 = getelementptr inbounds i8, ptr %0, i64 16
   %95 = load i64, ptr %94, align 8
-  %96 = zext nneg i32 %.0325 to i64
+  %96 = zext nneg i32 %.0321 to i64
   %97 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = zext i32 %98 to i64
@@ -1409,7 +1409,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   %115 = trunc i64 %112 to i32
   %116 = lshr i32 %115, 12
   %117 = and i32 %116, 511
-  %118 = or i32 %.0325, -2147483648
+  %118 = or i32 %.0321, -2147483648
   %119 = getelementptr inbounds i8, ptr %114, i64 520
   %120 = zext nneg i32 %117 to i64
   %121 = getelementptr inbounds [512 x i32], ptr %119, i64 0, i64 %120
@@ -1428,7 +1428,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   %indvars.iv.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next.i, %124 ]
   %125 = trunc nuw i64 %indvars.iv.i to i32
   %126 = shl i32 %125, 16
-  %127 = or i32 %.0325, %126
+  %127 = or i32 %.0321, %126
   %128 = or i32 %127, -1073741824
   %129 = add i32 %117, %125
   %130 = zext i32 %129 to i64
@@ -1450,9 +1450,9 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br label %139
 
 139:                                              ; preds = %139, %.loopexit.i
-  %.033.i = phi ptr [ %138, %.loopexit.i ], [ %140, %139 ]
-  %140 = getelementptr inbounds i8, ptr %.033.i, i64 %99
-  store ptr %140, ptr %.033.i, align 8
+  %.034.i = phi ptr [ %138, %.loopexit.i ], [ %140, %139 ]
+  %140 = getelementptr inbounds i8, ptr %.034.i, i64 %99
+  store ptr %140, ptr %.034.i, align 8
   %.not37.i = icmp eq ptr %140, %137
   br i1 %.not37.i, label %141, label %139
 
@@ -1461,8 +1461,8 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %141, %106, %104
-  %.0326 = phi ptr [ %103, %104 ], [ null, %106 ], [ %109, %141 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0326, ptr align 1 %1, i64 %29, i1 false)
+  %.0324 = phi ptr [ %103, %104 ], [ null, %106 ], [ %109, %141 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0324, ptr align 1 %1, i64 %29, i1 false)
   %142 = load i64, ptr %94, align 8
   %143 = sub i64 %142, %29
   store i64 %143, ptr %94, align 8
@@ -1555,8 +1555,8 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %141, %106, %104
   %199 = load i64, ptr %198, align 8
   %200 = and i64 %199, %196
   store i64 %200, ptr %198, align 8
-  %.0328383 = add nuw nsw i32 %189, 1
-  %.not368384 = icmp eq i32 %.0328383, %192
+  %.0323383 = add nuw nsw i32 %189, 1
+  %.not368384 = icmp eq i32 %.0323383, %192
   br i1 %.not368384, label %._crit_edge388, label %.lr.ph387.preheader
 
 .lr.ph387.preheader:                              ; preds = %194
@@ -1775,14 +1775,14 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %141, %106, %104
   br label %342
 
 .critedge:                                        ; preds = %263, %266, %240, %254, %150, %274, %231, %75
-  %.0320 = phi i64 [ %29, %75 ], [ %153, %274 ], [ %153, %231 ], [ %153, %150 ], [ %153, %254 ], [ %153, %240 ], [ %153, %266 ], [ %153, %263 ]
-  %340 = tail call i64 @llvm.umin.i64(i64 %.0320, i64 %2)
+  %.0328 = phi i64 [ %29, %75 ], [ %153, %274 ], [ %153, %231 ], [ %153, %150 ], [ %153, %254 ], [ %153, %240 ], [ %153, %266 ], [ %153, %263 ]
+  %340 = tail call i64 @llvm.umin.i64(i64 %.0328, i64 %2)
   %341 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %340)
   br label %342
 
 342:                                              ; preds = %179, %218, %._crit_edge388, %155, %zend_mm_alloc_small_slow.exit, %70, %31, %30, %.critedge, %335, %11, %9
-  %.0322 = phi ptr [ %10, %9 ], [ %12, %11 ], [ %341, %.critedge ], [ %1, %335 ], [ %.0324, %70 ], [ %.0326, %zend_mm_alloc_small_slow.exit ], [ %1, %31 ], [ %1, %30 ], [ %1, %155 ], [ %1, %._crit_edge388 ], [ %1, %218 ], [ %1, %179 ]
-  ret ptr %.0322
+  %.0327 = phi ptr [ %10, %9 ], [ %12, %11 ], [ %341, %.critedge ], [ %1, %335 ], [ %.0325, %70 ], [ %.0324, %zend_mm_alloc_small_slow.exit ], [ %1, %31 ], [ %1, %30 ], [ %1, %155 ], [ %1, %._crit_edge388 ], [ %1, %218 ], [ %1, %179 ]
+  ret ptr %.0327
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1870,10 +1870,10 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   br label %54
 
 54:                                               ; preds = %46, %41
-  %.0326 = phi i32 [ %45, %41 ], [ %53, %46 ]
+  %.0322 = phi i32 [ %45, %41 ], [ %53, %46 ]
   %55 = getelementptr inbounds i8, ptr %0, i64 16
   %56 = load i64, ptr %55, align 8
-  %57 = sext i32 %.0326 to i64
+  %57 = sext i32 %.0322 to i64
   %58 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = zext i32 %59 to i64
@@ -1895,13 +1895,13 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   br label %71
 
 69:                                               ; preds = %54
-  %70 = tail call fastcc ptr @zend_mm_alloc_small_slow(ptr noundef nonnull %0, i32 noundef %.0326)
+  %70 = tail call fastcc ptr @zend_mm_alloc_small_slow(ptr noundef nonnull %0, i32 noundef %.0322)
   br label %71
 
 71:                                               ; preds = %69, %67
-  %.0324 = phi ptr [ %66, %67 ], [ %70, %69 ]
+  %.0325 = phi ptr [ %66, %67 ], [ %70, %69 ]
   %72 = tail call i64 @llvm.umin.i64(i64 %2, i64 %3)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0324, ptr align 1 %1, i64 %72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0325, ptr align 1 %1, i64 %72, i1 false)
   %73 = load i64, ptr %55, align 8
   %74 = sub i64 %73, %30
   store i64 %74, ptr %55, align 8
@@ -1939,10 +1939,10 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   br label %95
 
 95:                                               ; preds = %87, %83
-  %.0325 = phi i32 [ %86, %83 ], [ %94, %87 ]
+  %.0321 = phi i32 [ %86, %83 ], [ %94, %87 ]
   %96 = getelementptr inbounds i8, ptr %0, i64 16
   %97 = load i64, ptr %96, align 8
-  %98 = zext nneg i32 %.0325 to i64
+  %98 = zext nneg i32 %.0321 to i64
   %99 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = zext i32 %100 to i64
@@ -1975,7 +1975,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   %117 = trunc i64 %114 to i32
   %118 = lshr i32 %117, 12
   %119 = and i32 %118, 511
-  %120 = or i32 %.0325, -2147483648
+  %120 = or i32 %.0321, -2147483648
   %121 = getelementptr inbounds i8, ptr %116, i64 520
   %122 = zext nneg i32 %119 to i64
   %123 = getelementptr inbounds [512 x i32], ptr %121, i64 0, i64 %122
@@ -1994,7 +1994,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   %indvars.iv.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next.i, %126 ]
   %127 = trunc nuw i64 %indvars.iv.i to i32
   %128 = shl i32 %127, 16
-  %129 = or i32 %.0325, %128
+  %129 = or i32 %.0321, %128
   %130 = or i32 %129, -1073741824
   %131 = add i32 %119, %127
   %132 = zext i32 %131 to i64
@@ -2016,9 +2016,9 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   br label %141
 
 141:                                              ; preds = %141, %.loopexit.i
-  %.033.i = phi ptr [ %140, %.loopexit.i ], [ %142, %141 ]
-  %142 = getelementptr inbounds i8, ptr %.033.i, i64 %101
-  store ptr %142, ptr %.033.i, align 8
+  %.034.i = phi ptr [ %140, %.loopexit.i ], [ %142, %141 ]
+  %142 = getelementptr inbounds i8, ptr %.034.i, i64 %101
+  store ptr %142, ptr %.034.i, align 8
   %.not37.i = icmp eq ptr %142, %139
   br i1 %.not37.i, label %143, label %141
 
@@ -2027,9 +2027,9 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %143, %108, %106
-  %.0327 = phi ptr [ %105, %106 ], [ null, %108 ], [ %111, %143 ]
+  %.0324 = phi ptr [ %105, %106 ], [ null, %108 ], [ %111, %143 ]
   %144 = tail call i64 @llvm.umin.i64(i64 %30, i64 %3)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0327, ptr align 1 %1, i64 %144, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0324, ptr align 1 %1, i64 %144, i1 false)
   %145 = load i64, ptr %96, align 8
   %146 = sub i64 %145, %30
   store i64 %146, ptr %96, align 8
@@ -2122,8 +2122,8 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %143, %108, %106
   %202 = load i64, ptr %201, align 8
   %203 = and i64 %202, %199
   store i64 %203, ptr %201, align 8
-  %.0328383 = add nuw nsw i32 %192, 1
-  %.not368384 = icmp eq i32 %.0328383, %195
+  %.0323383 = add nuw nsw i32 %192, 1
+  %.not368384 = icmp eq i32 %.0323383, %195
   br i1 %.not368384, label %._crit_edge388, label %.lr.ph387.preheader
 
 .lr.ph387.preheader:                              ; preds = %197
@@ -2342,14 +2342,14 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %143, %108, %106
   br label %345
 
 .critedge:                                        ; preds = %266, %269, %243, %257, %153, %277, %234, %77
-  %.0320 = phi i64 [ %30, %77 ], [ %156, %277 ], [ %156, %234 ], [ %156, %153 ], [ %156, %257 ], [ %156, %243 ], [ %156, %269 ], [ %156, %266 ]
-  %343 = tail call i64 @llvm.umin.i64(i64 %.0320, i64 %3)
+  %.0328 = phi i64 [ %30, %77 ], [ %156, %277 ], [ %156, %234 ], [ %156, %153 ], [ %156, %257 ], [ %156, %243 ], [ %156, %269 ], [ %156, %266 ]
+  %343 = tail call i64 @llvm.umin.i64(i64 %.0328, i64 %3)
   %344 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %343)
   br label %345
 
 345:                                              ; preds = %182, %221, %._crit_edge388, %158, %zend_mm_alloc_small_slow.exit, %71, %32, %31, %.critedge, %338, %12, %10
-  %.0322 = phi ptr [ %11, %10 ], [ %13, %12 ], [ %344, %.critedge ], [ %1, %338 ], [ %.0324, %71 ], [ %.0327, %zend_mm_alloc_small_slow.exit ], [ %1, %32 ], [ %1, %31 ], [ %1, %158 ], [ %1, %._crit_edge388 ], [ %1, %221 ], [ %1, %182 ]
-  ret ptr %.0322
+  %.0326 = phi ptr [ %11, %10 ], [ %13, %12 ], [ %344, %.critedge ], [ %1, %338 ], [ %.0325, %71 ], [ %.0324, %zend_mm_alloc_small_slow.exit ], [ %1, %32 ], [ %1, %31 ], [ %1, %158 ], [ %1, %._crit_edge388 ], [ %1, %221 ], [ %1, %182 ]
+  ret ptr %.0326
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2583,12 +2583,12 @@ define noalias ptr @_emalloc_8() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 8, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 8
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 4088
+  %.034.i.idx = phi i64 [ 8, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 8
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 4088
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -2652,12 +2652,12 @@ define noalias ptr @_emalloc_16() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 16, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 16
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 4080
+  %.034.i.idx = phi i64 [ 16, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 16
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 4080
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -2721,12 +2721,12 @@ define noalias ptr @_emalloc_24() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 24, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 24
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 4056
+  %.034.i.idx = phi i64 [ 24, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 24
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 4056
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -2790,12 +2790,12 @@ define noalias ptr @_emalloc_32() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 32, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 32
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 4064
+  %.034.i.idx = phi i64 [ 32, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 32
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 4064
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -2859,12 +2859,12 @@ define noalias ptr @_emalloc_40() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 40, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 40
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 4040
+  %.034.i.idx = phi i64 [ 40, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 40
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 4040
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -2928,12 +2928,12 @@ define noalias ptr @_emalloc_48() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 48, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 48
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 4032
+  %.034.i.idx = phi i64 [ 48, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 48
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 4032
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -2997,12 +2997,12 @@ define noalias ptr @_emalloc_56() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 56, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 56
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 4032
+  %.034.i.idx = phi i64 [ 56, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 56
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 4032
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -3066,12 +3066,12 @@ define noalias ptr @_emalloc_64() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 64, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 64
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 4032
+  %.034.i.idx = phi i64 [ 64, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 64
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 4032
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -3135,12 +3135,12 @@ define noalias ptr @_emalloc_80() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 80, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 80
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 4000
+  %.034.i.idx = phi i64 [ 80, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 80
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 4000
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -3204,12 +3204,12 @@ define noalias ptr @_emalloc_96() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 96, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 96
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 3936
+  %.034.i.idx = phi i64 [ 96, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 96
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 3936
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -3273,12 +3273,12 @@ define noalias ptr @_emalloc_112() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 112, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 112
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 3920
+  %.034.i.idx = phi i64 [ 112, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 112
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 3920
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -3342,12 +3342,12 @@ define noalias ptr @_emalloc_128() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 128, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 128
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 3968
+  %.034.i.idx = phi i64 [ 128, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 128
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 3968
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -3411,12 +3411,12 @@ define noalias ptr @_emalloc_160() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 160, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 160
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 3840
+  %.034.i.idx = phi i64 [ 160, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 160
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 3840
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -3480,12 +3480,12 @@ define noalias ptr @_emalloc_192() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 192, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 192
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 3840
+  %.034.i.idx = phi i64 [ 192, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 192
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 3840
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -3549,12 +3549,12 @@ define noalias ptr @_emalloc_224() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 224, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 224
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 3808
+  %.034.i.idx = phi i64 [ 224, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 224
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 3808
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -3618,12 +3618,12 @@ define noalias ptr @_emalloc_256() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 256, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 256
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 3840
+  %.034.i.idx = phi i64 [ 256, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 256
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 3840
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -3705,12 +3705,12 @@ define noalias ptr @_emalloc_320() local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %37, %.loopexit.i
-  %.033.i.idx = phi i64 [ 320, %.loopexit.i ], [ %.033.i.add, %37 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 320
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 20160
+  %.034.i.idx = phi i64 [ 320, %.loopexit.i ], [ %.034.i.add, %37 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 320
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 20160
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
@@ -3792,12 +3792,12 @@ define noalias ptr @_emalloc_384() local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %37, %.loopexit.i
-  %.033.i.idx = phi i64 [ 384, %.loopexit.i ], [ %.033.i.add, %37 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 384
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 11904
+  %.034.i.idx = phi i64 [ 384, %.loopexit.i ], [ %.034.i.add, %37 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 384
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 11904
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
@@ -3861,12 +3861,12 @@ define noalias ptr @_emalloc_448() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 448, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 448
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 3584
+  %.034.i.idx = phi i64 [ 448, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 448
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 3584
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -3930,12 +3930,12 @@ define noalias ptr @_emalloc_512() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %28, %20
-  %.033.i.idx = phi i64 [ 512, %20 ], [ %.033.i.add, %28 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 512
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 3584
+  %.034.i.idx = phi i64 [ 512, %20 ], [ %.034.i.add, %28 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 512
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 3584
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
@@ -4017,12 +4017,12 @@ define noalias ptr @_emalloc_640() local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %37, %.loopexit.i
-  %.033.i.idx = phi i64 [ 640, %.loopexit.i ], [ %.033.i.add, %37 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 640
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 19840
+  %.034.i.idx = phi i64 [ 640, %.loopexit.i ], [ %.034.i.add, %37 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 640
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 19840
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
@@ -4104,12 +4104,12 @@ define noalias ptr @_emalloc_768() local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %37, %.loopexit.i
-  %.033.i.idx = phi i64 [ 768, %.loopexit.i ], [ %.033.i.add, %37 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 768
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 11520
+  %.034.i.idx = phi i64 [ 768, %.loopexit.i ], [ %.034.i.add, %37 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 768
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 11520
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
@@ -4179,12 +4179,12 @@ define noalias ptr @_emalloc_896() local_unnamed_addr #0 {
   br label %32
 
 32:                                               ; preds = %32, %.loopexit.i
-  %.033.i.idx = phi i64 [ 896, %.loopexit.i ], [ %.033.i.add, %32 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 896
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 7168
+  %.034.i.idx = phi i64 [ 896, %.loopexit.i ], [ %.034.i.add, %32 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 896
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 7168
   br i1 %.not37.i, label %33, label %32
 
 33:                                               ; preds = %32
@@ -4254,12 +4254,12 @@ define noalias ptr @_emalloc_1024() local_unnamed_addr #0 {
   br label %32
 
 32:                                               ; preds = %32, %.loopexit.i
-  %.033.i.idx = phi i64 [ 1024, %.loopexit.i ], [ %.033.i.add, %32 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 1024
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 7168
+  %.034.i.idx = phi i64 [ 1024, %.loopexit.i ], [ %.034.i.add, %32 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 1024
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 7168
   br i1 %.not37.i, label %33, label %32
 
 33:                                               ; preds = %32
@@ -4341,12 +4341,12 @@ define noalias ptr @_emalloc_1280() local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %37, %.loopexit.i
-  %.033.i.idx = phi i64 [ 1280, %.loopexit.i ], [ %.033.i.add, %37 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 1280
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 19200
+  %.034.i.idx = phi i64 [ 1280, %.loopexit.i ], [ %.034.i.add, %37 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 1280
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 19200
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
@@ -4428,12 +4428,12 @@ define noalias ptr @_emalloc_1536() local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %37, %.loopexit.i
-  %.033.i.idx = phi i64 [ 1536, %.loopexit.i ], [ %.033.i.add, %37 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 1536
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 10752
+  %.034.i.idx = phi i64 [ 1536, %.loopexit.i ], [ %.034.i.add, %37 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 1536
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 10752
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
@@ -4515,12 +4515,12 @@ define noalias ptr @_emalloc_1792() local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %37, %.loopexit.i
-  %.033.i.idx = phi i64 [ 1792, %.loopexit.i ], [ %.033.i.add, %37 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 1792
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 26880
+  %.034.i.idx = phi i64 [ 1792, %.loopexit.i ], [ %.034.i.add, %37 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 1792
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 26880
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
@@ -4602,12 +4602,12 @@ define noalias ptr @_emalloc_2048() local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %37, %.loopexit.i
-  %.033.i.idx = phi i64 [ 2048, %.loopexit.i ], [ %.033.i.add, %37 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 2048
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 14336
+  %.034.i.idx = phi i64 [ 2048, %.loopexit.i ], [ %.034.i.add, %37 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 2048
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 14336
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
@@ -4689,12 +4689,12 @@ define noalias ptr @_emalloc_2560() local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %37, %.loopexit.i
-  %.033.i.idx = phi i64 [ 2560, %.loopexit.i ], [ %.033.i.add, %37 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 2560
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 17920
+  %.034.i.idx = phi i64 [ 2560, %.loopexit.i ], [ %.034.i.add, %37 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 2560
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 17920
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
@@ -4776,12 +4776,12 @@ define noalias ptr @_emalloc_3072() local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %37, %.loopexit.i
-  %.033.i.idx = phi i64 [ 3072, %.loopexit.i ], [ %.033.i.add, %37 ]
-  %.033.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.idx
-  %.033.i.add = add nuw nsw i64 %.033.i.idx, 3072
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.033.i.add
-  store ptr %.ptr, ptr %.033.i.ptr, align 8
-  %.not37.i = icmp eq i64 %.033.i.add, 9216
+  %.034.i.idx = phi i64 [ 3072, %.loopexit.i ], [ %.034.i.add, %37 ]
+  %.034.i.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.idx
+  %.034.i.add = add nuw nsw i64 %.034.i.idx, 3072
+  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.034.i.add
+  store ptr %.ptr, ptr %.034.i.ptr, align 8
+  %.not37.i = icmp eq i64 %.034.i.add, 9216
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
@@ -4995,12 +4995,12 @@ zend_mm_chunk_alloc.exit64:                       ; preds = %45, %53
   br label %78
 
 78:                                               ; preds = %78, %68
-  %.033.i.idx.i = phi i64 [ 24, %68 ], [ %.033.i.add.i, %78 ]
-  %.033.i.ptr.i = getelementptr inbounds i8, ptr %69, i64 %.033.i.idx.i
-  %.033.i.add.i = add nuw nsw i64 %.033.i.idx.i, 24
-  %.ptr.i = getelementptr inbounds i8, ptr %69, i64 %.033.i.add.i
-  store ptr %.ptr.i, ptr %.033.i.ptr.i, align 8
-  %.not37.i.i = icmp eq i64 %.033.i.add.i, 4056
+  %.034.i.idx.i = phi i64 [ 24, %68 ], [ %.034.i.add.i, %78 ]
+  %.034.i.ptr.i = getelementptr inbounds i8, ptr %69, i64 %.034.i.idx.i
+  %.034.i.add.i = add nuw nsw i64 %.034.i.idx.i, 24
+  %.ptr.i = getelementptr inbounds i8, ptr %69, i64 %.034.i.add.i
+  store ptr %.ptr.i, ptr %.034.i.ptr.i, align 8
+  %.not37.i.i = icmp eq i64 %.034.i.add.i, 4056
   br i1 %.not37.i.i, label %79, label %78
 
 79:                                               ; preds = %78
@@ -6325,38 +6325,38 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) u
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 304
-  %.0.i12 = load ptr, ptr %7, align 8
-  %.not.i13 = icmp eq ptr %.0.i12, null
+  %.051.i12 = load ptr, ptr %7, align 8
+  %.not.i13 = icmp eq ptr %.051.i12, null
   br i1 %.not.i13, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %6
-  %8 = load ptr, ptr %.0.i12, align 8
+  %8 = load ptr, ptr %.051.i12, align 8
   %9 = icmp eq ptr %8, %1
   br i1 %9, label %.lr.ph._crit_edge, label %.lr.ph23
 
 .lr.ph:                                           ; preds = %.lr.ph23
-  %10 = load ptr, ptr %.0.i, align 8
+  %10 = load ptr, ptr %.051.i, align 8
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %.lr.ph._crit_edge, label %.lr.ph23
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.0.i15.lcssa = phi ptr [ %.0.i12, %.lr.ph.preheader ], [ %.0.i, %.lr.ph ]
-  %.051.i14.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0.i1522, %.lr.ph ]
-  %.not53.i = icmp eq ptr %.051.i14.lcssa, null
-  %12 = getelementptr inbounds i8, ptr %.0.i15.lcssa, i64 16
+  %.051.i15.lcssa = phi ptr [ %.051.i12, %.lr.ph.preheader ], [ %.051.i, %.lr.ph ]
+  %.0.i14.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.051.i1522, %.lr.ph ]
+  %.not53.i = icmp eq ptr %.0.i14.lcssa, null
+  %12 = getelementptr inbounds i8, ptr %.051.i15.lcssa, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.051.i14.lcssa, i64 16
+  %14 = getelementptr inbounds i8, ptr %.0.i14.lcssa, i64 16
   %.sink = select i1 %.not53.i, ptr %7, ptr %14
   store ptr %13, ptr %.sink, align 8
-  %15 = getelementptr inbounds i8, ptr %.0.i15.lcssa, i64 8
+  %15 = getelementptr inbounds i8, ptr %.051.i15.lcssa, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = ptrtoint ptr %.0.i15.lcssa to i64
+  %17 = ptrtoint ptr %.051.i15.lcssa to i64
   %18 = and i64 %17, 2097151
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %.lr.ph._crit_edge
-  tail call fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef nonnull %.0.i15.lcssa)
+  tail call fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef nonnull %.051.i15.lcssa)
   br label %zend_mm_del_huge_block.exit
 
 21:                                               ; preds = %.lr.ph._crit_edge
@@ -6392,8 +6392,8 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) u
   %41 = getelementptr inbounds i8, ptr %0, i64 32
   %42 = getelementptr inbounds [30 x ptr], ptr %41, i64 0, i64 %34
   %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %.0.i15.lcssa, align 8
-  store ptr %.0.i15.lcssa, ptr %42, align 8
+  store ptr %43, ptr %.051.i15.lcssa, align 8
+  store ptr %.051.i15.lcssa, ptr %42, align 8
   br label %zend_mm_del_huge_block.exit
 
 44:                                               ; preds = %31
@@ -6417,10 +6417,10 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) u
   br label %zend_mm_del_huge_block.exit
 
 .lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0.i1522 = phi ptr [ %.0.i, %.lr.ph ], [ %.0.i12, %.lr.ph.preheader ]
-  %54 = getelementptr inbounds i8, ptr %.0.i1522, i64 16
-  %.0.i = load ptr, ptr %54, align 8
-  %.not.i = icmp eq ptr %.0.i, null
+  %.051.i1522 = phi ptr [ %.051.i, %.lr.ph ], [ %.051.i12, %.lr.ph.preheader ]
+  %54 = getelementptr inbounds i8, ptr %.051.i1522, i64 16
+  %.051.i = load ptr, ptr %54, align 8
+  %.not.i = icmp eq ptr %.051.i, null
   br i1 %.not.i, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph23, %6
@@ -6589,9 +6589,9 @@ define noalias ptr @_emalloc(i64 noundef %0) local_unnamed_addr #9 {
   br label %78
 
 78:                                               ; preds = %78, %.loopexit.i
-  %.033.i = phi ptr [ %76, %.loopexit.i ], [ %79, %78 ]
-  %79 = getelementptr inbounds i8, ptr %.033.i, i64 %75
-  store ptr %79, ptr %.033.i, align 8
+  %.034.i = phi ptr [ %76, %.loopexit.i ], [ %79, %78 ]
+  %79 = getelementptr inbounds i8, ptr %.034.i, i64 %75
+  store ptr %79, ptr %.034.i, align 8
   %.not37.i = icmp eq ptr %79, %74
   br i1 %.not37.i, label %80, label %78
 
@@ -6813,10 +6813,10 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   br label %59
 
 59:                                               ; preds = %51, %46
-  %.0330 = phi i32 [ %50, %46 ], [ %58, %51 ]
+  %.0325 = phi i32 [ %50, %46 ], [ %58, %51 ]
   %60 = getelementptr inbounds i8, ptr %3, i64 16
   %61 = load i64, ptr %60, align 8
-  %62 = sext i32 %.0330 to i64
+  %62 = sext i32 %.0325 to i64
   %63 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext i32 %64 to i64
@@ -6838,12 +6838,12 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   br label %76
 
 74:                                               ; preds = %59
-  %75 = tail call fastcc ptr @zend_mm_alloc_small_slow(ptr noundef nonnull %3, i32 noundef %.0330)
+  %75 = tail call fastcc ptr @zend_mm_alloc_small_slow(ptr noundef nonnull %3, i32 noundef %.0325)
   br label %76
 
 76:                                               ; preds = %74, %72
-  %.0326 = phi ptr [ %71, %72 ], [ %75, %74 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0326, ptr align 1 %0, i64 %1, i1 false)
+  %.0329 = phi ptr [ %71, %72 ], [ %75, %74 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0329, ptr align 1 %0, i64 %1, i1 false)
   %77 = load i64, ptr %60, align 8
   %78 = sub i64 %77, %35
   store i64 %78, ptr %60, align 8
@@ -6881,10 +6881,10 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   br label %99
 
 99:                                               ; preds = %91, %87
-  %.0329 = phi i32 [ %90, %87 ], [ %98, %91 ]
+  %.0324 = phi i32 [ %90, %87 ], [ %98, %91 ]
   %100 = getelementptr inbounds i8, ptr %3, i64 16
   %101 = load i64, ptr %100, align 8
-  %102 = zext nneg i32 %.0329 to i64
+  %102 = zext nneg i32 %.0324 to i64
   %103 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %102
   %104 = load i32, ptr %103, align 4
   %105 = zext i32 %104 to i64
@@ -6904,12 +6904,12 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   br label %114
 
 112:                                              ; preds = %99
-  %113 = tail call fastcc ptr @zend_mm_alloc_small_slow(ptr noundef nonnull %3, i32 noundef %.0329)
+  %113 = tail call fastcc ptr @zend_mm_alloc_small_slow(ptr noundef nonnull %3, i32 noundef %.0324)
   br label %114
 
 114:                                              ; preds = %112, %110
-  %.0328 = phi ptr [ %109, %110 ], [ %113, %112 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0328, ptr align 1 %0, i64 %35, i1 false)
+  %.0327 = phi ptr [ %109, %110 ], [ %113, %112 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0327, ptr align 1 %0, i64 %35, i1 false)
   %115 = load i64, ptr %100, align 8
   %116 = sub i64 %115, %35
   store i64 %116, ptr %100, align 8
@@ -7002,8 +7002,8 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %172 = load i64, ptr %171, align 8
   %173 = and i64 %172, %169
   store i64 %173, ptr %171, align 8
-  %.0331387 = add nuw nsw i32 %162, 1
-  %.not372388 = icmp eq i32 %.0331387, %165
+  %.0326387 = add nuw nsw i32 %162, 1
+  %.not372388 = icmp eq i32 %.0326387, %165
   br i1 %.not372388, label %._crit_edge392, label %.lr.ph391.preheader
 
 .lr.ph391.preheader:                              ; preds = %167
@@ -7175,8 +7175,8 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %286 = load i64, ptr %285, align 8
   %287 = or i64 %286, %283
   store i64 %287, ptr %285, align 8
-  %.0321384 = add nuw nsw i32 %275, 1
-  %.not370385 = icmp eq i32 %.0321384, %279
+  %.0384 = add nuw nsw i32 %275, 1
+  %.not370385 = icmp eq i32 %.0384, %279
   br i1 %.not370385, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %281
@@ -7222,14 +7222,14 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   br label %315
 
 .critedge:                                        ; preds = %236, %239, %213, %227, %123, %247, %204, %81
-  %.0323 = phi i64 [ %35, %81 ], [ %126, %247 ], [ %126, %204 ], [ %126, %123 ], [ %126, %227 ], [ %126, %213 ], [ %126, %239 ], [ %126, %236 ]
-  %313 = tail call i64 @llvm.umin.i64(i64 %.0323, i64 %1)
+  %.0330 = phi i64 [ %35, %81 ], [ %126, %247 ], [ %126, %204 ], [ %126, %123 ], [ %126, %227 ], [ %126, %213 ], [ %126, %239 ], [ %126, %236 ]
+  %313 = tail call i64 @llvm.umin.i64(i64 %.0330, i64 %1)
   %314 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i64 noundef %313)
   br label %315
 
 315:                                              ; preds = %15, %17, %308, %.critedge, %36, %37, %76, %114, %128, %._crit_edge392, %191, %152, %5
-  %.0 = phi ptr [ %8, %5 ], [ %16, %15 ], [ %18, %17 ], [ %314, %.critedge ], [ %0, %308 ], [ %.0326, %76 ], [ %.0328, %114 ], [ %0, %37 ], [ %0, %36 ], [ %0, %128 ], [ %0, %._crit_edge392 ], [ %0, %191 ], [ %0, %152 ]
-  ret ptr %.0
+  %.0321 = phi ptr [ %8, %5 ], [ %16, %15 ], [ %18, %17 ], [ %314, %.critedge ], [ %0, %308 ], [ %.0329, %76 ], [ %.0327, %114 ], [ %0, %37 ], [ %0, %36 ], [ %0, %128 ], [ %0, %._crit_edge392 ], [ %0, %191 ], [ %0, %152 ]
+  ret ptr %.0321
 }
 
 ; Function Attrs: nounwind allocsize(1) uwtable
@@ -7329,10 +7329,10 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   br label %60
 
 60:                                               ; preds = %52, %47
-  %.0330 = phi i32 [ %51, %47 ], [ %59, %52 ]
+  %.0325 = phi i32 [ %51, %47 ], [ %59, %52 ]
   %61 = getelementptr inbounds i8, ptr %4, i64 16
   %62 = load i64, ptr %61, align 8
-  %63 = sext i32 %.0330 to i64
+  %63 = sext i32 %.0325 to i64
   %64 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = zext i32 %65 to i64
@@ -7354,13 +7354,13 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   br label %77
 
 75:                                               ; preds = %60
-  %76 = tail call fastcc ptr @zend_mm_alloc_small_slow(ptr noundef nonnull %4, i32 noundef %.0330)
+  %76 = tail call fastcc ptr @zend_mm_alloc_small_slow(ptr noundef nonnull %4, i32 noundef %.0325)
   br label %77
 
 77:                                               ; preds = %75, %73
-  %.0326 = phi ptr [ %72, %73 ], [ %76, %75 ]
+  %.0328 = phi ptr [ %72, %73 ], [ %76, %75 ]
   %78 = tail call i64 @llvm.umin.i64(i64 %1, i64 %2)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0326, ptr align 1 %0, i64 %78, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0328, ptr align 1 %0, i64 %78, i1 false)
   %79 = load i64, ptr %61, align 8
   %80 = sub i64 %79, %36
   store i64 %80, ptr %61, align 8
@@ -7398,10 +7398,10 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   br label %101
 
 101:                                              ; preds = %93, %89
-  %.0329 = phi i32 [ %92, %89 ], [ %100, %93 ]
+  %.0324 = phi i32 [ %92, %89 ], [ %100, %93 ]
   %102 = getelementptr inbounds i8, ptr %4, i64 16
   %103 = load i64, ptr %102, align 8
-  %104 = zext nneg i32 %.0329 to i64
+  %104 = zext nneg i32 %.0324 to i64
   %105 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = zext i32 %106 to i64
@@ -7421,13 +7421,13 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   br label %116
 
 114:                                              ; preds = %101
-  %115 = tail call fastcc ptr @zend_mm_alloc_small_slow(ptr noundef nonnull %4, i32 noundef %.0329)
+  %115 = tail call fastcc ptr @zend_mm_alloc_small_slow(ptr noundef nonnull %4, i32 noundef %.0324)
   br label %116
 
 116:                                              ; preds = %114, %112
-  %.0328 = phi ptr [ %111, %112 ], [ %115, %114 ]
+  %.0327 = phi ptr [ %111, %112 ], [ %115, %114 ]
   %117 = tail call i64 @llvm.umin.i64(i64 %36, i64 %2)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0328, ptr align 1 %0, i64 %117, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0327, ptr align 1 %0, i64 %117, i1 false)
   %118 = load i64, ptr %102, align 8
   %119 = sub i64 %118, %36
   store i64 %119, ptr %102, align 8
@@ -7520,8 +7520,8 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %175 = load i64, ptr %174, align 8
   %176 = and i64 %175, %172
   store i64 %176, ptr %174, align 8
-  %.0331387 = add nuw nsw i32 %165, 1
-  %.not372388 = icmp eq i32 %.0331387, %168
+  %.0326387 = add nuw nsw i32 %165, 1
+  %.not372388 = icmp eq i32 %.0326387, %168
   br i1 %.not372388, label %._crit_edge392, label %.lr.ph391.preheader
 
 .lr.ph391.preheader:                              ; preds = %170
@@ -7693,8 +7693,8 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %289 = load i64, ptr %288, align 8
   %290 = or i64 %289, %286
   store i64 %290, ptr %288, align 8
-  %.0321384 = add nuw nsw i32 %278, 1
-  %.not370385 = icmp eq i32 %.0321384, %282
+  %.0384 = add nuw nsw i32 %278, 1
+  %.not370385 = icmp eq i32 %.0384, %282
   br i1 %.not370385, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %284
@@ -7740,14 +7740,14 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   br label %318
 
 .critedge:                                        ; preds = %239, %242, %216, %230, %126, %250, %207, %83
-  %.0323 = phi i64 [ %36, %83 ], [ %129, %250 ], [ %129, %207 ], [ %129, %126 ], [ %129, %230 ], [ %129, %216 ], [ %129, %242 ], [ %129, %239 ]
-  %316 = tail call i64 @llvm.umin.i64(i64 %.0323, i64 %2)
+  %.0331 = phi i64 [ %36, %83 ], [ %129, %250 ], [ %129, %207 ], [ %129, %126 ], [ %129, %230 ], [ %129, %216 ], [ %129, %242 ], [ %129, %239 ]
+  %316 = tail call i64 @llvm.umin.i64(i64 %.0331, i64 %2)
   %317 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %1, i64 noundef %316)
   br label %318
 
 318:                                              ; preds = %16, %18, %311, %.critedge, %37, %38, %77, %116, %131, %._crit_edge392, %194, %155, %6
-  %.0 = phi ptr [ %9, %6 ], [ %17, %16 ], [ %19, %18 ], [ %317, %.critedge ], [ %0, %311 ], [ %.0326, %77 ], [ %.0328, %116 ], [ %0, %38 ], [ %0, %37 ], [ %0, %131 ], [ %0, %._crit_edge392 ], [ %0, %194 ], [ %0, %155 ]
-  ret ptr %.0
+  %.0321 = phi ptr [ %9, %6 ], [ %17, %16 ], [ %19, %18 ], [ %317, %.critedge ], [ %0, %311 ], [ %.0328, %77 ], [ %.0327, %116 ], [ %0, %38 ], [ %0, %37 ], [ %0, %131 ], [ %0, %._crit_edge392 ], [ %0, %194 ], [ %0, %155 ]
+  ret ptr %.0321
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8979,9 +8979,9 @@ define internal fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1,
   br label %74
 
 74:                                               ; preds = %74, %.loopexit.i
-  %.033.i = phi ptr [ %72, %.loopexit.i ], [ %75, %74 ]
-  %75 = getelementptr inbounds i8, ptr %.033.i, i64 %71
-  store ptr %75, ptr %.033.i, align 8
+  %.034.i = phi ptr [ %72, %.loopexit.i ], [ %75, %74 ]
+  %75 = getelementptr inbounds i8, ptr %.034.i, i64 %71
+  store ptr %75, ptr %.034.i, align 8
   %.not37.i = icmp eq ptr %75, %70
   br i1 %.not37.i, label %76, label %74
 
@@ -9186,9 +9186,9 @@ define internal fastcc ptr @zend_mm_alloc_small_slow(ptr noundef %0, i32 noundef
   br label %41
 
 41:                                               ; preds = %41, %.loopexit
-  %.033 = phi ptr [ %38, %.loopexit ], [ %42, %41 ]
-  %42 = getelementptr inbounds i8, ptr %.033, i64 %37
-  store ptr %42, ptr %.033, align 8
+  %.034 = phi ptr [ %38, %.loopexit ], [ %42, %41 ]
+  %42 = getelementptr inbounds i8, ptr %.034, i64 %37
+  store ptr %42, ptr %.034, align 8
   %.not37 = icmp eq ptr %42, %36
   br i1 %.not37, label %43, label %41
 
@@ -9208,63 +9208,63 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
 
 5:                                                ; preds = %148, %2
   %6 = phi ptr [ %4, %2 ], [ %59, %148 ]
-  %.0182 = phi ptr [ %4, %2 ], [ %61, %148 ]
-  %.0180 = phi i32 [ 0, %2 ], [ %149, %148 ]
-  %7 = getelementptr inbounds i8, ptr %.0182, i64 24
+  %.0183 = phi ptr [ %4, %2 ], [ %61, %148 ]
+  %.0181 = phi i32 [ 0, %2 ], [ %149, %148 ]
+  %7 = getelementptr inbounds i8, ptr %.0183, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = icmp ult i32 %8, %1
   br i1 %9, label %58, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.0182, i64 28
+  %11 = getelementptr inbounds i8, ptr %.0183, i64 28
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %.0182, i64 456
-  %14 = getelementptr inbounds i8, ptr %.0182, i64 464
+  %13 = getelementptr inbounds i8, ptr %.0183, i64 456
+  %14 = getelementptr inbounds i8, ptr %.0183, i64 464
   %15 = load i64, ptr %13, align 8
   br label %16
 
 16:                                               ; preds = %55, %10
-  %.0178 = phi i32 [ -1, %10 ], [ %.1179, %55 ]
-  %.0176 = phi i32 [ 512, %10 ], [ %.1177, %55 ]
-  %.0173 = phi ptr [ %14, %10 ], [ %.2175.lcssa, %55 ]
-  %.0170 = phi i64 [ %15, %10 ], [ %57, %55 ]
-  %.0 = phi i32 [ 0, %10 ], [ %.2.lcssa, %55 ]
-  %17 = icmp eq i64 %.0170, -1
+  %.0179 = phi i32 [ -1, %10 ], [ %.1180, %55 ]
+  %.0177 = phi i32 [ 512, %10 ], [ %.1178, %55 ]
+  %.0174 = phi ptr [ %14, %10 ], [ %.2176.lcssa, %55 ]
+  %.0171 = phi i64 [ %15, %10 ], [ %57, %55 ]
+  %.0170 = phi i32 [ 0, %10 ], [ %.2.lcssa, %55 ]
+  %17 = icmp eq i64 %.0171, -1
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16, %22
-  %.1249 = phi i32 [ %18, %22 ], [ %.0, %16 ]
-  %.1174248 = phi ptr [ %23, %22 ], [ %.0173, %16 ]
+  %.1249 = phi i32 [ %18, %22 ], [ %.0170, %16 ]
+  %.1175248 = phi ptr [ %23, %22 ], [ %.0174, %16 ]
   %18 = add i32 %.1249, 64
   %19 = icmp eq i32 %18, 512
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph
-  %21 = icmp sgt i32 %.0178, 0
+  %21 = icmp sgt i32 %.0179, 0
   br i1 %21, label %.loopexit214, label %58
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.1174248, i64 8
-  %24 = load i64, ptr %.1174248, align 8
+  %23 = getelementptr inbounds i8, ptr %.1175248, i64 8
+  %24 = load i64, ptr %.1175248, align 8
   %25 = icmp eq i64 %24, -1
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22, %16
-  %.1174.lcssa = phi ptr [ %.0173, %16 ], [ %23, %22 ]
-  %.1171.lcssa = phi i64 [ %.0170, %16 ], [ %24, %22 ]
-  %.1.lcssa = phi i32 [ %.0, %16 ], [ %18, %22 ]
-  %26 = xor i64 %.1171.lcssa, -1
+  %.1175.lcssa = phi ptr [ %.0174, %16 ], [ %23, %22 ]
+  %.1172.lcssa = phi i64 [ %.0171, %16 ], [ %24, %22 ]
+  %.1.lcssa = phi i32 [ %.0170, %16 ], [ %18, %22 ]
+  %26 = xor i64 %.1172.lcssa, -1
   %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %26, i1 true)
   %28 = trunc nuw nsw i64 %27 to i32
   %29 = add i32 %.1.lcssa, %28
-  %30 = add nuw i64 %.1171.lcssa, 1
-  %31 = and i64 %30, %.1171.lcssa
+  %30 = add nuw i64 %.1172.lcssa, 1
+  %31 = and i64 %30, %.1172.lcssa
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %.lr.ph255, label %._crit_edge256
 
 .lr.ph255:                                        ; preds = %._crit_edge, %43
   %.2253 = phi i32 [ %33, %43 ], [ %.1.lcssa, %._crit_edge ]
-  %.2175252 = phi ptr [ %44, %43 ], [ %.1174.lcssa, %._crit_edge ]
+  %.2176252 = phi ptr [ %44, %43 ], [ %.1175.lcssa, %._crit_edge ]
   %33 = add i32 %.2253, 64
   %34 = icmp uge i32 %33, %12
   %35 = icmp eq i32 %33, 512
@@ -9274,7 +9274,7 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
 36:                                               ; preds = %.lr.ph255
   %37 = sub i32 512, %29
   %.not200 = icmp uge i32 %37, %1
-  %38 = icmp ult i32 %37, %.0176
+  %38 = icmp ult i32 %37, %.0177
   %or.cond208 = select i1 %.not200, i1 %38, i1 false
   br i1 %or.cond208, label %39, label %41
 
@@ -9285,7 +9285,7 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
 
 41:                                               ; preds = %36
   store i32 %29, ptr %11, align 4
-  %42 = icmp sgt i32 %.0178, 0
+  %42 = icmp sgt i32 %.0179, 0
   br i1 %42, label %.loopexit214, label %._crit_edge297
 
 ._crit_edge297:                                   ; preds = %41
@@ -9293,16 +9293,16 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   br label %58
 
 43:                                               ; preds = %.lr.ph255
-  %44 = getelementptr inbounds i8, ptr %.2175252, i64 8
-  %45 = load i64, ptr %.2175252, align 8
+  %44 = getelementptr inbounds i8, ptr %.2176252, i64 8
+  %45 = load i64, ptr %.2176252, align 8
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %.lr.ph255, label %._crit_edge256
 
 ._crit_edge256:                                   ; preds = %43, %._crit_edge
-  %.2175.lcssa = phi ptr [ %.1174.lcssa, %._crit_edge ], [ %44, %43 ]
-  %.2172.lcssa = phi i64 [ %31, %._crit_edge ], [ %45, %43 ]
+  %.2176.lcssa = phi ptr [ %.1175.lcssa, %._crit_edge ], [ %44, %43 ]
+  %.2173.lcssa = phi i64 [ %31, %._crit_edge ], [ %45, %43 ]
   %.2.lcssa = phi i32 [ %.1.lcssa, %._crit_edge ], [ %33, %43 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.2172.lcssa, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.2173.lcssa, i1 true)
   %48 = trunc nuw nsw i64 %47 to i32
   %49 = sub i32 %.2.lcssa, %29
   %50 = add i32 %49, %48
@@ -9314,21 +9314,21 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   br i1 %52, label %.loopexit214, label %53
 
 53:                                               ; preds = %51
-  %54 = icmp ult i32 %50, %.0176
-  %spec.select = select i1 %54, i32 %29, i32 %.0178
-  %spec.select209 = tail call i32 @llvm.umin.i32(i32 %50, i32 %.0176)
+  %54 = icmp ult i32 %50, %.0177
+  %spec.select = select i1 %54, i32 %29, i32 %.0179
+  %spec.select209 = tail call i32 @llvm.umin.i32(i32 %50, i32 %.0177)
   br label %55
 
 55:                                               ; preds = %53, %._crit_edge256
-  %.1179 = phi i32 [ %.0178, %._crit_edge256 ], [ %spec.select, %53 ]
-  %.1177 = phi i32 [ %.0176, %._crit_edge256 ], [ %spec.select209, %53 ]
-  %56 = add i64 %.2172.lcssa, -1
-  %57 = or i64 %56, %.2172.lcssa
+  %.1180 = phi i32 [ %.0179, %._crit_edge256 ], [ %spec.select, %53 ]
+  %.1178 = phi i32 [ %.0177, %._crit_edge256 ], [ %spec.select209, %53 ]
+  %56 = add i64 %.2173.lcssa, -1
+  %57 = or i64 %56, %.2173.lcssa
   br label %16
 
 58:                                               ; preds = %._crit_edge297, %20, %5
   %59 = phi ptr [ %.pre, %._crit_edge297 ], [ %6, %20 ], [ %6, %5 ]
-  %60 = getelementptr inbounds i8, ptr %.0182, i64 8
+  %60 = getelementptr inbounds i8, ptr %.0183, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, %59
   br i1 %62, label %.preheader, label %148
@@ -9443,7 +9443,7 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
   unreachable
 
 118:                                              ; preds = %zend_mm_chunk_alloc.exit, %zend_mm_chunk_alloc.exit213
-  %.1183 = phi ptr [ %.0.i212, %zend_mm_chunk_alloc.exit213 ], [ %.0.i, %zend_mm_chunk_alloc.exit ]
+  %.1184 = phi ptr [ %.0.i212, %zend_mm_chunk_alloc.exit213 ], [ %.0.i, %zend_mm_chunk_alloc.exit ]
   %119 = load i64, ptr %65, align 8
   %120 = add i64 %119, 2097152
   %121 = getelementptr inbounds i8, ptr %0, i64 280
@@ -9454,7 +9454,7 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
   br label %123
 
 123:                                              ; preds = %118, %68
-  %.2184 = phi ptr [ %67, %68 ], [ %.1183, %118 ]
+  %.2185 = phi ptr [ %67, %68 ], [ %.1184, %118 ]
   %124 = getelementptr inbounds i8, ptr %0, i64 328
   %125 = load i32, ptr %124, align 8
   %126 = add nsw i32 %125, 1
@@ -9469,44 +9469,44 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
   br label %130
 
 130:                                              ; preds = %129, %123
-  store ptr %0, ptr %.2184, align 8
+  store ptr %0, ptr %.2185, align 8
   %131 = load ptr, ptr %3, align 8
-  %132 = getelementptr inbounds i8, ptr %.2184, i64 8
+  %132 = getelementptr inbounds i8, ptr %.2185, i64 8
   store ptr %131, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %131, i64 16
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %.2184, i64 16
+  %135 = getelementptr inbounds i8, ptr %.2185, i64 16
   store ptr %134, ptr %135, align 8
   %136 = getelementptr inbounds i8, ptr %134, i64 8
-  store ptr %.2184, ptr %136, align 8
+  store ptr %.2185, ptr %136, align 8
   %137 = load ptr, ptr %132, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 16
-  store ptr %.2184, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %.2184, i64 24
+  store ptr %.2185, ptr %138, align 8
+  %139 = getelementptr inbounds i8, ptr %.2185, i64 24
   store i32 511, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %.2184, i64 28
+  %140 = getelementptr inbounds i8, ptr %.2185, i64 28
   store i32 1, ptr %140, align 4
   %141 = load ptr, ptr %135, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 32
   %143 = load i32, ptr %142, align 8
   %144 = add i32 %143, 1
-  %145 = getelementptr inbounds i8, ptr %.2184, i64 32
+  %145 = getelementptr inbounds i8, ptr %.2185, i64 32
   store i32 %144, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %.2184, i64 456
+  %146 = getelementptr inbounds i8, ptr %.2185, i64 456
   store i64 1, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %.2184, i64 520
+  %147 = getelementptr inbounds i8, ptr %.2185, i64 520
   store i32 1073741825, ptr %147, align 8
   br label %.loopexit214
 
 148:                                              ; preds = %58
-  %149 = add nuw nsw i32 %.0180, 1
+  %149 = add nuw nsw i32 %.0181, 1
   br label %5
 
 .loopexit214:                                     ; preds = %41, %20, %51, %130, %39
   %150 = phi i32 [ 511, %130 ], [ %8, %39 ], [ %8, %51 ], [ %8, %20 ], [ %8, %41 ]
-  %.3 = phi ptr [ %.2184, %130 ], [ %.0182, %39 ], [ %.0182, %51 ], [ %.0182, %20 ], [ %.0182, %41 ]
-  %.0181 = phi i32 [ 1, %130 ], [ %29, %39 ], [ %29, %51 ], [ %.0178, %20 ], [ %.0178, %41 ]
-  %151 = icmp ugt i32 %.0180, 2
+  %.3 = phi ptr [ %.2185, %130 ], [ %.0183, %39 ], [ %.0183, %51 ], [ %.0183, %20 ], [ %.0183, %41 ]
+  %.0182 = phi i32 [ 1, %130 ], [ %29, %39 ], [ %29, %51 ], [ %.0179, %20 ], [ %.0179, %41 ]
+  %151 = icmp ugt i32 %.0181, 2
   %152 = icmp ult i32 %1, 8
   %or.cond4 = and i1 %152, %151
   br i1 %or.cond4, label %153, label %168
@@ -9546,18 +9546,18 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
   br i1 %173, label %174, label %179
 
 174:                                              ; preds = %168
-  %175 = sext i32 %.0181 to i64
+  %175 = sext i32 %.0182 to i64
   %176 = and i64 %175, 63
   %177 = shl nuw i64 1, %176
   %178 = lshr i64 %175, 6
   br label %212
 
 179:                                              ; preds = %168
-  %180 = ashr i32 %.0181, 6
+  %180 = ashr i32 %.0182, 6
   %181 = add i32 %1, -1
-  %182 = add i32 %181, %.0181
+  %182 = add i32 %181, %.0182
   %183 = ashr i32 %182, 6
-  %184 = and i32 %.0181, 63
+  %184 = and i32 %.0182, 63
   %.not206 = icmp eq i32 %180, %183
   br i1 %.not206, label %203, label %185
 
@@ -9569,8 +9569,8 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
   %190 = load i64, ptr %189, align 8
   %191 = or i64 %190, %187
   store i64 %191, ptr %189, align 8
-  %.0185260 = add nsw i32 %180, 1
-  %.not207261 = icmp eq i32 %.0185260, %183
+  %.0260 = add nsw i32 %180, 1
+  %.not207261 = icmp eq i32 %.0260, %183
   br i1 %.not207261, label %._crit_edge265, label %.lr.ph264.preheader
 
 .lr.ph264.preheader:                              ; preds = %185
@@ -9613,16 +9613,16 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
   store i64 %215, ptr %213, align 8
   %216 = or i32 %1, 1073741824
   %217 = getelementptr inbounds i8, ptr %.3, i64 520
-  %218 = zext i32 %.0181 to i64
+  %218 = zext i32 %.0182 to i64
   %219 = getelementptr inbounds [512 x i32], ptr %217, i64 0, i64 %218
   store i32 %216, ptr %219, align 4
   %220 = getelementptr inbounds i8, ptr %.3, i64 28
   %221 = load i32, ptr %220, align 4
-  %222 = icmp eq i32 %.0181, %221
+  %222 = icmp eq i32 %.0182, %221
   br i1 %222, label %223, label %225
 
 223:                                              ; preds = %212
-  %224 = add i32 %.0181, %1
+  %224 = add i32 %.0182, %1
   store i32 %224, ptr %220, align 4
   br label %225
 

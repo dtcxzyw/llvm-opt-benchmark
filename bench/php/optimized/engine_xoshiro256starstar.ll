@@ -553,10 +553,10 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
 
 .thread130:                                       ; preds = %21, %12
   %.076140 = phi i32 [ 1, %12 ], [ 9, %21 ]
-  %.078139 = phi i32 [ 0, %12 ], [ 29, %21 ]
-  %.079138 = phi ptr [ null, %12 ], [ %16, %21 ]
-  %.080137 = phi i32 [ 0, %12 ], [ 1, %21 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.076140, i32 noundef %.080137, ptr noundef null, i32 noundef %.078139, ptr noundef %.079138) #7
+  %.078139 = phi i32 [ 0, %12 ], [ 1, %21 ]
+  %.079138 = phi i32 [ 0, %12 ], [ 29, %21 ]
+  %.080137 = phi ptr [ null, %12 ], [ %16, %21 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.076140, i32 noundef %.078139, ptr noundef null, i32 noundef %.079138, ptr noundef %.080137) #7
   br label %108
 
 .thread112:                                       ; preds = %15, %13

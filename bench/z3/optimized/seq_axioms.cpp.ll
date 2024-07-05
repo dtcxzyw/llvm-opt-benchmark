@@ -1212,23 +1212,23 @@ if.end.i.i9:                                      ; preds = %_ZN10ref_vectorI4ex
   br i1 %cmp4.not5.i.i, label %if.end18.i.i, label %for.body.i.i10
 
 for.body.i.i10:                                   ; preds = %if.end.i.i9, %for.inc.i.i
-  %curr.07.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %16, %if.end.i.i9 ]
-  %overhead.06.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i9 ]
-  %18 = load ptr, ptr %curr.07.i.i, align 8
+  %overhead.07.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i9 ]
+  %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %16, %if.end.i.i9 ]
+  %18 = load ptr, ptr %curr.06.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %for.body.i.i10
-  store ptr null, ptr %curr.07.i.i, align 8
+  store ptr null, ptr %curr.06.i.i, align 8
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i10
-  %inc.i.i = add i32 %overhead.06.i.i, 1
+  %inc.i.i = add i32 %overhead.07.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then5.i.i
-  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.06.i.i, %if.then5.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.07.i.i, i64 16
+  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.07.i.i, %if.then5.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
   %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp4.not.i.i, label %for.end.i.i, label %for.body.i.i10, !llvm.loop !15
 
@@ -11169,10 +11169,10 @@ lpad:                                             ; preds = %if.end, %if.then
 
 if.end:                                           ; preds = %land.lhs.true.i, %invoke.cont4
   %_offset.1 = phi ptr [ %11, %invoke.cont4 ], [ null, %land.lhs.true.i ]
-  %_t.2.in = getelementptr inbounds i8, ptr %i, i64 32
-  %_t.2 = load ptr, ptr %_t.2.in, align 8
   %_s.2.in = getelementptr inbounds i8, ptr %i, i64 40
   %_s.2 = load ptr, ptr %_s.2.in, align 8
+  %_t.2.in = getelementptr inbounds i8, ptr %i, i64 32
+  %_t.2 = load ptr, ptr %_t.2.in, align 8
   %a = getelementptr inbounds i8, ptr %this, i64 16
   %call8 = invoke noundef ptr @_ZN10arith_util6mk_intEi(ptr noundef nonnull align 8 dereferenceable(16) %a, i32 noundef -1)
           to label %invoke.cont7 unwind label %lpad

@@ -161,7 +161,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
 
 23:                                               ; preds = %.loopexit.i, %.lr.ph33.i
   %indvars.iv38.i = phi i64 [ 0, %.lr.ph33.i ], [ %indvars.iv.next39.i, %.loopexit.i ]
-  %.02131.i = phi i32 [ 0, %.lr.ph33.i ], [ %.1.i, %.loopexit.i ]
+  %.02032.i = phi i32 [ 0, %.lr.ph33.i ], [ %.1.i, %.loopexit.i ]
   %.val.i = load ptr, ptr %20, align 8
   %24 = getelementptr inbounds ptr, ptr %.val.i, i64 %indvars.iv38.i
   %25 = load ptr, ptr %24, align 8
@@ -224,7 +224,7 @@ ompi_group_get_proc_name.exit28.i:                ; preds = %44, %40
   br i1 %.not.i54, label %52, label %ompi_group_dense_overlap.exit
 
 52:                                               ; preds = %49
-  %53 = add nsw i32 %.02131.i, 1
+  %53 = add nsw i32 %.02032.i, 1
   br label %.loopexit.i
 
 54:                                               ; preds = %ompi_group_get_proc_name.exit28.i
@@ -235,7 +235,7 @@ ompi_group_get_proc_name.exit28.i:                ; preds = %44, %40
   br i1 %57, label %.lr.ph.i53, label %.loopexit.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %54, %52, %ompi_group_get_proc_name.exit.i
-  %.1.i = phi i32 [ %53, %52 ], [ %.02131.i, %ompi_group_get_proc_name.exit.i ], [ %.02131.i, %54 ]
+  %.1.i = phi i32 [ %53, %52 ], [ %.02032.i, %ompi_group_get_proc_name.exit.i ], [ %.02032.i, %54 ]
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %58 = load i32, ptr %17, align 8
   %59 = sext i32 %58 to i64
@@ -499,7 +499,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
 
 23:                                               ; preds = %.loopexit.i, %.lr.ph33.i
   %indvars.iv38.i = phi i64 [ 0, %.lr.ph33.i ], [ %indvars.iv.next39.i, %.loopexit.i ]
-  %.02131.i = phi i32 [ 0, %.lr.ph33.i ], [ %.1.i, %.loopexit.i ]
+  %.02032.i = phi i32 [ 0, %.lr.ph33.i ], [ %.1.i, %.loopexit.i ]
   %.val.i = load ptr, ptr %20, align 8
   %24 = getelementptr inbounds ptr, ptr %.val.i, i64 %indvars.iv38.i
   %25 = load ptr, ptr %24, align 8
@@ -562,7 +562,7 @@ ompi_group_get_proc_name.exit28.i:                ; preds = %44, %40
   br i1 %.not.i41, label %52, label %ompi_group_dense_overlap.exit
 
 52:                                               ; preds = %49
-  %53 = add nsw i32 %.02131.i, 1
+  %53 = add nsw i32 %.02032.i, 1
   br label %.loopexit.i
 
 54:                                               ; preds = %ompi_group_get_proc_name.exit28.i
@@ -573,7 +573,7 @@ ompi_group_get_proc_name.exit28.i:                ; preds = %44, %40
   br i1 %57, label %.lr.ph.i40, label %.loopexit.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %54, %52, %ompi_group_get_proc_name.exit.i
-  %.1.i = phi i32 [ %53, %52 ], [ %.02131.i, %ompi_group_get_proc_name.exit.i ], [ %.02131.i, %54 ]
+  %.1.i = phi i32 [ %53, %52 ], [ %.02032.i, %ompi_group_get_proc_name.exit.i ], [ %.02032.i, %54 ]
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %58 = load i32, ptr %17, align 8
   %59 = sext i32 %58 to i64

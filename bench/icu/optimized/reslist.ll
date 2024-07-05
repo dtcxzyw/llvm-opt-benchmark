@@ -672,38 +672,38 @@ while.body:                                       ; preds = %if.then22
   br i1 %cmp21, label %if.then22, label %if.else24, !llvm.loop !7
 
 if.then22:                                        ; preds = %if.end7, %while.body
-  %current.02545 = phi ptr [ %8, %while.body ], [ %2, %if.end7 ]
-  %fNext23 = getelementptr inbounds i8, ptr %current.02545, i64 32
+  %current.02645 = phi ptr [ %8, %while.body ], [ %2, %if.end7 ]
+  %fNext23 = getelementptr inbounds i8, ptr %current.02645, i64 32
   %8 = load ptr, ptr %fNext23, align 8
   %cmp9.not = icmp eq ptr %8, null
   br i1 %cmp9.not, label %while.end, label %while.body, !llvm.loop !7
 
 if.else24:                                        ; preds = %while.body, %if.end7
-  %prev.026.lcssa = phi ptr [ null, %if.end7 ], [ %current.02545, %while.body ]
-  %current.025.lcssa = phi ptr [ %2, %if.end7 ], [ %8, %while.body ]
+  %current.026.lcssa = phi ptr [ %2, %if.end7 ], [ %8, %while.body ]
+  %prev.025.lcssa = phi ptr [ null, %if.end7 ], [ %current.02645, %while.body ]
   %add.ptr14.lcssa = phi ptr [ %add.ptr1442, %if.end7 ], [ %add.ptr14, %while.body ]
   %call18.lcssa = phi i32 [ %call1843, %if.end7 ], [ %call18, %while.body ]
   %cmp25.not = icmp eq i32 %call18.lcssa, 0
   br i1 %cmp25.not, label %if.else34, label %if.then26
 
 if.then26:                                        ; preds = %if.else24
-  %cmp27 = icmp eq ptr %prev.026.lcssa, null
-  %fNext31 = getelementptr inbounds i8, ptr %prev.026.lcssa, i64 32
+  %cmp27 = icmp eq ptr %prev.025.lcssa, null
+  %fNext31 = getelementptr inbounds i8, ptr %prev.025.lcssa, i64 32
   %fNext31.sink = select i1 %cmp27, ptr %fFirst, ptr %fNext31
   store ptr %res, ptr %fNext31.sink, align 8
   %fNext33 = getelementptr inbounds i8, ptr %res, i64 32
-  store ptr %current.025.lcssa, ptr %fNext33, align 8
+  store ptr %current.026.lcssa, ptr %fNext33, align 8
   br label %return
 
 if.else34:                                        ; preds = %if.else24
-  %line35 = getelementptr inbounds i8, ptr %current.025.lcssa, i64 28
+  %line35 = getelementptr inbounds i8, ptr %current.026.lcssa, i64 28
   %9 = load i32, ptr %line35, align 4
   tail call void (i32, ptr, ...) @error(i32 noundef %linenumber, ptr noundef nonnull @.str, ptr noundef %add.ptr14.lcssa, i32 noundef %9)
   store i32 16, ptr %errorCode, align 4
   br label %return
 
 while.end:                                        ; preds = %if.then22
-  %fNext23.le = getelementptr inbounds i8, ptr %current.02545, i64 32
+  %fNext23.le = getelementptr inbounds i8, ptr %current.02645, i64 32
   store ptr %res, ptr %fNext23.le, align 8
   %fNext38 = getelementptr inbounds i8, ptr %res, i64 32
   store ptr null, ptr %fNext38, align 8
@@ -3882,9 +3882,9 @@ for.body.preheader:                               ; preds = %if.end15
 
 for.body:                                         ; preds = %for.body.preheader, %while.end
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %while.end ]
-  %keys.0127 = phi ptr [ %22, %for.body.preheader ], [ %incdec.ptr, %while.end ]
+  %keys.0128 = phi ptr [ %22, %for.body.preheader ], [ %incdec.ptr, %while.end ]
   %23 = load ptr, ptr %fKeys, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %keys.0127 to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %keys.0128 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %23 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv22 = trunc i64 %sub.ptr.sub to i32
@@ -3896,7 +3896,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %for.body
-  %keys.1 = phi ptr [ %keys.0127, %for.body ], [ %incdec.ptr, %while.cond ]
+  %keys.1 = phi ptr [ %keys.0128, %for.body ], [ %incdec.ptr, %while.cond ]
   %24 = load i8, ptr %keys.1, align 1
   %cmp26.not = icmp eq i8 %24, 0
   %incdec.ptr = getelementptr inbounds i8, ptr %keys.1, i64 1
@@ -3937,8 +3937,8 @@ while.body31.lr.ph.split.us:                      ; preds = %while.body31.lr.ph
 
 while.body31.us:                                  ; preds = %while.end61.us, %while.body31.lr.ph.split.us
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %while.end61.us ], [ %32, %while.body31.lr.ph.split.us ]
-  %keys.2133.us = phi ptr [ %incdec.ptr60.us, %while.end61.us ], [ %add.ptr, %while.body31.lr.ph.split.us ]
-  %sub.ptr.lhs.cast33.us = ptrtoint ptr %keys.2133.us to i64
+  %keys.2134.us = phi ptr [ %incdec.ptr60.us, %while.end61.us ], [ %add.ptr, %while.body31.lr.ph.split.us ]
+  %sub.ptr.lhs.cast33.us = ptrtoint ptr %keys.2134.us to i64
   %sub.ptr.sub35.us = sub i64 %sub.ptr.lhs.cast33.us, %sub.ptr.rhs.cast34.us
   %conv36.us = trunc i64 %sub.ptr.sub35.us to i32
   %arrayidx51.us = getelementptr inbounds %struct.KeyMapEntry, ptr %call12, i64 %indvars.iv163
@@ -3948,7 +3948,7 @@ while.body31.us:                                  ; preds = %while.end61.us, %wh
   br label %while.cond56.us
 
 while.cond56.us:                                  ; preds = %while.cond56.us, %while.body31.us
-  %keys.4.us = phi ptr [ %keys.2133.us, %while.body31.us ], [ %incdec.ptr60.us, %while.cond56.us ]
+  %keys.4.us = phi ptr [ %keys.2134.us, %while.body31.us ], [ %incdec.ptr60.us, %while.cond56.us ]
   %33 = load i8, ptr %keys.4.us, align 1
   %cmp58.not.us = icmp eq i8 %33, 0
   %incdec.ptr60.us = getelementptr inbounds i8, ptr %keys.4.us, i64 1
@@ -3960,10 +3960,10 @@ while.end61.us:                                   ; preds = %while.cond56.us
   br i1 %exitcond.not, label %while.end65, label %while.body31.us, !llvm.loop !28
 
 while.body31:                                     ; preds = %while.body31.lr.ph, %if.end64
-  %i.1134 = phi i32 [ %i.2, %if.end64 ], [ %i.0.lcssa, %while.body31.lr.ph ]
-  %keys.2133 = phi ptr [ %keys.5, %if.end64 ], [ %add.ptr, %while.body31.lr.ph ]
+  %keys.2134 = phi ptr [ %keys.5, %if.end64 ], [ %add.ptr, %while.body31.lr.ph ]
+  %i.1133 = phi i32 [ %i.2, %if.end64 ], [ %i.0.lcssa, %while.body31.lr.ph ]
   %34 = load ptr, ptr %fKeys28, align 8
-  %sub.ptr.lhs.cast33 = ptrtoint ptr %keys.2133 to i64
+  %sub.ptr.lhs.cast33 = ptrtoint ptr %keys.2134 to i64
   %sub.ptr.rhs.cast34 = ptrtoint ptr %34 to i64
   %sub.ptr.sub35 = sub i64 %sub.ptr.lhs.cast33, %sub.ptr.rhs.cast34
   %conv36 = trunc i64 %sub.ptr.sub35 to i32
@@ -4001,12 +4001,12 @@ invoke.cont39:                                    ; preds = %_ZNKSt8_Rb_treeIiiS
   br i1 %cmp.i4.i.i, label %while.cond43.preheader, label %if.else
 
 while.cond43.preheader:                           ; preds = %land.lhs.true, %_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPKSt13_Rb_tree_nodeIiEPKSt18_Rb_tree_node_baseRKi.exit.i.i, %invoke.cont39
-  %39 = load i8, ptr %keys.2133, align 1
+  %39 = load i8, ptr %keys.2134, align 1
   %cmp45.not129 = icmp eq i8 %39, 0
   br i1 %cmp45.not129, label %while.end48, label %while.body46
 
 while.body46:                                     ; preds = %while.cond43.preheader, %while.body46
-  %keys.3130 = phi ptr [ %incdec.ptr47, %while.body46 ], [ %keys.2133, %while.cond43.preheader ]
+  %keys.3130 = phi ptr [ %incdec.ptr47, %while.body46 ], [ %keys.2134, %while.cond43.preheader ]
   %incdec.ptr47 = getelementptr inbounds i8, ptr %keys.3130, i64 1
   store i8 1, ptr %keys.3130, align 1
   %40 = load i8, ptr %incdec.ptr47, align 1
@@ -4014,12 +4014,12 @@ while.body46:                                     ; preds = %while.cond43.prehea
   br i1 %cmp45.not, label %while.end48, label %while.body46, !llvm.loop !30
 
 while.end48:                                      ; preds = %while.body46, %while.cond43.preheader
-  %keys.3.lcssa = phi ptr [ %keys.2133, %while.cond43.preheader ], [ %incdec.ptr47, %while.body46 ]
+  %keys.3.lcssa = phi ptr [ %keys.2134, %while.cond43.preheader ], [ %incdec.ptr47, %while.body46 ]
   store i8 1, ptr %keys.3.lcssa, align 1
   br label %if.end64
 
 if.else:                                          ; preds = %invoke.cont39, %while.body31
-  %idxprom50 = sext i32 %i.1134 to i64
+  %idxprom50 = sext i32 %i.1133 to i64
   %arrayidx51 = getelementptr inbounds %struct.KeyMapEntry, ptr %call12, i64 %idxprom50
   store i32 %conv36, ptr %arrayidx51, align 4
   %newpos55 = getelementptr inbounds i8, ptr %arrayidx51, i64 4
@@ -4027,19 +4027,19 @@ if.else:                                          ; preds = %invoke.cont39, %whi
   br label %while.cond56
 
 while.cond56:                                     ; preds = %while.cond56, %if.else
-  %keys.4 = phi ptr [ %keys.2133, %if.else ], [ %incdec.ptr60, %while.cond56 ]
+  %keys.4 = phi ptr [ %keys.2134, %if.else ], [ %incdec.ptr60, %while.cond56 ]
   %41 = load i8, ptr %keys.4, align 1
   %cmp58.not = icmp eq i8 %41, 0
   %incdec.ptr60 = getelementptr inbounds i8, ptr %keys.4, i64 1
   br i1 %cmp58.not, label %while.end61, label %while.cond56, !llvm.loop !27
 
 while.end61:                                      ; preds = %while.cond56
-  %inc63 = add nsw i32 %i.1134, 1
+  %inc63 = add nsw i32 %i.1133, 1
   br label %if.end64
 
 if.end64:                                         ; preds = %while.end61, %while.end48
+  %i.2 = phi i32 [ %inc63, %while.end61 ], [ %i.1133, %while.end48 ]
   %keys.4.pn = phi ptr [ %keys.4, %while.end61 ], [ %keys.3.lcssa, %while.end48 ]
-  %i.2 = phi i32 [ %inc63, %while.end61 ], [ %i.1134, %while.end48 ]
   %keys.5 = getelementptr inbounds i8, ptr %keys.4.pn, i64 1
   %cmp30 = icmp slt i32 %i.2, %add
   br i1 %cmp30, label %while.body31, label %while.end65.loopexit, !llvm.loop !31
@@ -4731,9 +4731,9 @@ land.rhs.lr.ph:                                   ; preds = %for.cond158.prehead
 
 invoke.cont106:                                   ; preds = %invoke.cont106.lr.ph, %for.inc125
   %indvars.iv218 = phi i64 [ 0, %invoke.cont106.lr.ph ], [ %indvars.iv.next219, %for.inc125 ]
-  %numUnitsNotSaved.0198 = phi i32 [ 0, %invoke.cont106.lr.ph ], [ %numUnitsNotSaved.1, %for.inc125 ]
-  %numUnitsSaved.0197 = phi i32 [ 0, %invoke.cont106.lr.ph ], [ %numUnitsSaved.1, %for.inc125 ]
-  %numStringsWritten.0196 = phi i32 [ 0, %invoke.cont106.lr.ph ], [ %numStringsWritten.1, %for.inc125 ]
+  %numStringsWritten.0199 = phi i32 [ 0, %invoke.cont106.lr.ph ], [ %numStringsWritten.1, %for.inc125 ]
+  %numUnitsSaved.0198 = phi i32 [ 0, %invoke.cont106.lr.ph ], [ %numUnitsSaved.1, %for.inc125 ]
+  %numUnitsNotSaved.0197 = phi i32 [ 0, %invoke.cont106.lr.ph ], [ %numUnitsNotSaved.1, %for.inc125 ]
   %arrayidx.i116 = getelementptr inbounds ptr, ptr %call3, i64 %indvars.iv218
   %45 = load ptr, ptr %arrayidx.i116, align 8
   %46 = load i16, ptr %fUnion.i.i, align 8
@@ -4767,13 +4767,13 @@ if.then113:                                       ; preds = %invoke.cont106
           to label %invoke.cont115 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont115:                                   ; preds = %if.then113
-  %inc116 = add nsw i32 %numStringsWritten.0196, 1
+  %inc116 = add nsw i32 %numStringsWritten.0199, 1
   %54 = load i32, ptr %fNumUnitsSaved110, align 8
-  %add118 = add nsw i32 %54, %numUnitsSaved.0197
+  %add118 = add nsw i32 %54, %numUnitsSaved.0198
   br label %for.inc125
 
 if.else119:                                       ; preds = %invoke.cont106
-  %add121 = add nsw i32 %53, %numUnitsNotSaved.0198
+  %add121 = add nsw i32 %53, %numUnitsNotSaved.0197
   %fRes122 = getelementptr inbounds i8, ptr %45, i64 12
   store i32 0, ptr %fRes122, align 4
   %fWritten123 = getelementptr inbounds i8, ptr %45, i64 9
@@ -4781,17 +4781,17 @@ if.else119:                                       ; preds = %invoke.cont106
   br label %for.inc125
 
 for.inc125:                                       ; preds = %invoke.cont115, %if.else119
-  %numStringsWritten.1 = phi i32 [ %inc116, %invoke.cont115 ], [ %numStringsWritten.0196, %if.else119 ]
-  %numUnitsSaved.1 = phi i32 [ %add118, %invoke.cont115 ], [ %numUnitsSaved.0197, %if.else119 ]
-  %numUnitsNotSaved.1 = phi i32 [ %numUnitsNotSaved.0198, %invoke.cont115 ], [ %add121, %if.else119 ]
+  %numUnitsNotSaved.1 = phi i32 [ %numUnitsNotSaved.0197, %invoke.cont115 ], [ %add121, %if.else119 ]
+  %numUnitsSaved.1 = phi i32 [ %add118, %invoke.cont115 ], [ %numUnitsSaved.0198, %if.else119 ]
+  %numStringsWritten.1 = phi i32 [ %inc116, %invoke.cont115 ], [ %numStringsWritten.0199, %if.else119 ]
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %exitcond222.not = icmp eq i64 %indvars.iv.next219, %wide.trip.count221
   br i1 %exitcond222.not, label %for.end127, label %invoke.cont106, !llvm.loop !45
 
 for.end127:                                       ; preds = %for.inc125, %for.cond94.preheader
-  %numStringsWritten.0.lcssa = phi i32 [ 0, %for.cond94.preheader ], [ %numStringsWritten.1, %for.inc125 ]
-  %numUnitsSaved.0.lcssa = phi i32 [ 0, %for.cond94.preheader ], [ %numUnitsSaved.1, %for.inc125 ]
   %numUnitsNotSaved.0.lcssa = phi i32 [ 0, %for.cond94.preheader ], [ %numUnitsNotSaved.1, %for.inc125 ]
+  %numUnitsSaved.0.lcssa = phi i32 [ 0, %for.cond94.preheader ], [ %numUnitsSaved.1, %for.inc125 ]
+  %numStringsWritten.0.lcssa = phi i32 [ 0, %for.cond94.preheader ], [ %numStringsWritten.1, %for.inc125 ]
   %fUnion.i = getelementptr inbounds i8, ptr %this, i64 80
   %55 = load i16, ptr %fUnion.i, align 8
   %conv2.i163 = and i16 %55, 1

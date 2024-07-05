@@ -5910,8 +5910,8 @@ _ZN3gmx12_GLOBAL__N_19printHelpEPNS_10TextWriterEP23gmx_ana_selcollection_tRKNSt
           to label %.loopexit173 unwind label %.loopexit.split-lp157.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit173:                                     ; preds = %219, %222
-  %.051 = phi i32 [ %221, %222 ], [ %.us-phi.i97, %219 ]
-  %223 = icmp eq i32 %.051, 0
+  %.057 = phi i32 [ %221, %222 ], [ %.us-phi.i97, %219 ]
+  %223 = icmp eq i32 %.057, 0
   br i1 %223, label %232, label %224
 
 224:                                              ; preds = %.loopexit173

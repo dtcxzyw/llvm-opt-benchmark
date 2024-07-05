@@ -929,8 +929,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17he5779f8075177b8bE.llvm.14982894775678554951.exit"
 
 "_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17he5779f8075177b8bE.llvm.14982894775678554951.exit": ; preds = %3, %5
-  %.sroa.3.0.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i, %3 ]
   %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
+  %.sroa.3.0.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i, %3 ]
   store i64 1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -976,8 +976,8 @@ define hidden { i64, i64 } @"_ZN3std4hash6random11RandomState3new4KEYS7__getit28
   br label %8
 
 8:                                                ; preds = %2, %4
-  %.sroa.3.0 = phi i64 [ %7, %4 ], [ %.sroa.6.0.copyload, %2 ]
   %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %2 ]
+  %.sroa.3.0 = phi i64 [ %7, %4 ], [ %.sroa.6.0.copyload, %2 ]
   %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
   ret { i64, i64 } %10
@@ -5162,7 +5162,7 @@ define hidden noundef i64 @_ZN9typst_pdf8gradient17register_gradient17h1fd4d8fd4
   br label %29
 
 29:                                               ; preds = %4, %27
-  %.val27 = phi double [ %24, %4 ], [ %28, %27 ]
+  %.val29 = phi double [ %24, %4 ], [ %28, %27 ]
   %30 = getelementptr inbounds i8, ptr %3, i64 120
   %31 = load double, ptr %30, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
@@ -5181,14 +5181,14 @@ define hidden noundef i64 @_ZN9typst_pdf8gradient17register_gradient17h1fd4d8fd4
   br label %36
 
 36:                                               ; preds = %29, %34
-  %.val29 = phi double [ %31, %29 ], [ %35, %34 ]
+  %.val27 = phi double [ %31, %29 ], [ %35, %34 ]
   %37 = call noundef zeroext i1 @_ZN5typst9visualize8gradient8Gradient15unwrap_relative17hccb4479cf3964c40E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2)
   %38 = getelementptr inbounds i8, ptr %3, i64 96
   %39 = getelementptr inbounds i8, ptr %3, i64 104
-  %.val = load double, ptr %38, align 8
-  %.sroa.05.0 = select i1 %37, double %.val, double %.val27
-  %.val28 = load double, ptr %39, align 8
-  %.sroa.6.0 = select i1 %37, double %.val28, double %.val29
+  %.val = load double, ptr %39, align 8
+  %.sroa.6.0 = select i1 %37, double %.val, double %.val27
+  %.val28 = load double, ptr %38, align 8
+  %.sroa.05.0 = select i1 %37, double %.val28, double %.val29
   %40 = load i64, ptr %1, align 8, !range !22, !noundef !4
   %41 = icmp eq i64 %40, 2
   br i1 %41, label %42, label %61
@@ -5220,7 +5220,7 @@ define hidden noundef i64 @_ZN9typst_pdf8gradient17register_gradient17h1fd4d8fd4
   br label %64
 
 64:                                               ; preds = %61, %42
-  %.020 = phi double [ %52, %42 ], [ %62, %61 ]
+  %.018 = phi double [ %52, %42 ], [ %62, %61 ]
   %.0 = phi double [ %60, %42 ], [ %63, %61 ]
   %65 = call { i64, double } @_ZN5typst9visualize8gradient8Gradient5angle17h29c09c78a66fb0e5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
   %66 = extractvalue { i64, double } %65, 0
@@ -5246,7 +5246,7 @@ define hidden noundef i64 @_ZN9typst_pdf8gradient17register_gradient17h1fd4d8fd4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18)
-  %74 = call noundef double @"_ZN76_$LT$typst..layout..abs..Abs$u20$as$u20$core..ops..arith..Mul$LT$f64$GT$$GT$3mul17h7790999d29c8b0bbE"(double noundef %.020, double noundef %.)
+  %74 = call noundef double @"_ZN76_$LT$typst..layout..abs..Abs$u20$as$u20$core..ops..arith..Mul$LT$f64$GT$$GT$3mul17h7790999d29c8b0bbE"(double noundef %.018, double noundef %.)
   %75 = call noundef double @"_ZN76_$LT$typst..layout..abs..Abs$u20$as$u20$core..ops..arith..Mul$LT$f64$GT$$GT$3mul17h7790999d29c8b0bbE"(double noundef %.0, double noundef %.)
   call void @_ZN5typst6layout9transform9Transform9translate17hb31d06de3fa3dbb6E(ptr noalias nocapture noundef nonnull sret({ double, double, double, double, double, double }) align 8 dereferenceable(48) %18, double noundef %74, double noundef %75)
   call void @_ZN5typst6layout9transform9Transform10pre_concat17h3557677b4d525acaE(ptr noalias nocapture noundef nonnull sret({ double, double, double, double, double, double }) align 8 dereferenceable(48) %20, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %19, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %18)

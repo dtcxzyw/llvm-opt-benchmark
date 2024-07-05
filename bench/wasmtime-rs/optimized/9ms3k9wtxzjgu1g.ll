@@ -156,13 +156,13 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator6reduce17h4417a1ef682b
   br label %15
 
 15:                                               ; preds = %15, %10
-  %.016.i = phi i64 [ 0, %10 ], [ %19, %15 ]
-  %.015.i = phi ptr [ %0, %10 ], [ %18, %15 ]
-  %16 = icmp ne ptr %.015.i, null
+  %.016.i = phi ptr [ %0, %10 ], [ %18, %15 ]
+  %.015.i = phi i64 [ 0, %10 ], [ %19, %15 ]
+  %16 = icmp ne ptr %.016.i, null
   call void @llvm.assume(i1 %16)
-  %17 = getelementptr inbounds { { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }, ptr %8, i64 %.016.i
-  %18 = call align 8 ptr @"_ZN4core4iter6traits8iterator8Iterator6max_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha76b6aca2a798e45E"(ptr nonnull align 1 %3, ptr nonnull align 8 %.015.i, ptr nonnull align 8 %17)
-  %19 = add nuw i64 %.016.i, 1
+  %17 = getelementptr inbounds { { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }, ptr %8, i64 %.015.i
+  %18 = call align 8 ptr @"_ZN4core4iter6traits8iterator8Iterator6max_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha76b6aca2a798e45E"(ptr nonnull align 1 %3, ptr nonnull align 8 %.016.i, ptr nonnull align 8 %17)
+  %19 = add nuw i64 %.015.i, 1
   %20 = icmp eq i64 %19, %14
   br i1 %20, label %21, label %15
 
@@ -1070,11 +1070,11 @@ define i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..t
   br label %14
 
 14:                                               ; preds = %14, %9
-  %.016 = phi i64 [ 0, %9 ], [ %17, %14 ]
-  %.015 = phi i64 [ %2, %9 ], [ %16, %14 ]
-  %15 = getelementptr inbounds i64, ptr %0, i64 %.016
-  %16 = call i64 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb580dbb321304963E"(ptr nonnull align 8 %5, i64 %.015, ptr nonnull align 8 %15)
-  %17 = add nuw i64 %.016, 1
+  %.016 = phi i64 [ %2, %9 ], [ %16, %14 ]
+  %.015 = phi i64 [ 0, %9 ], [ %17, %14 ]
+  %15 = getelementptr inbounds i64, ptr %0, i64 %.015
+  %16 = call i64 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb580dbb321304963E"(ptr nonnull align 8 %5, i64 %.016, ptr nonnull align 8 %15)
+  %17 = add nuw i64 %.015, 1
   %18 = icmp eq i64 %17, %13
   br i1 %18, label %.loopexit, label %14
 
@@ -1336,13 +1336,13 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br label %13
 
 13:                                               ; preds = %13, %8
-  %.016 = phi i64 [ 0, %8 ], [ %17, %13 ]
-  %.015 = phi ptr [ %2, %8 ], [ %16, %13 ]
-  %14 = icmp ne ptr %.015, null
+  %.016 = phi ptr [ %2, %8 ], [ %16, %13 ]
+  %.015 = phi i64 [ 0, %8 ], [ %17, %13 ]
+  %14 = icmp ne ptr %.016, null
   call void @llvm.assume(i1 %14)
-  %15 = getelementptr inbounds { { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }, ptr %0, i64 %.016
-  %16 = call align 8 ptr @"_ZN4core4iter6traits8iterator8Iterator6max_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha76b6aca2a798e45E"(ptr nonnull align 1 %4, ptr nonnull align 8 %.015, ptr nonnull align 8 %15)
-  %17 = add nuw i64 %.016, 1
+  %15 = getelementptr inbounds { { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }, ptr %0, i64 %.015
+  %16 = call align 8 ptr @"_ZN4core4iter6traits8iterator8Iterator6max_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha76b6aca2a798e45E"(ptr nonnull align 1 %4, ptr nonnull align 8 %.016, ptr nonnull align 8 %15)
+  %17 = add nuw i64 %.015, 1
   %18 = icmp eq i64 %17, %12
   br i1 %18, label %19, label %13
 

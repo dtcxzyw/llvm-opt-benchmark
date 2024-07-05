@@ -477,15 +477,15 @@ if.then12:                                        ; preds = %cond.true
   br i1 %tobool16.not32, label %for.end39, label %cond.end
 
 cond.end:                                         ; preds = %if.then12, %cond.end29
-  %counts.034 = phi ptr [ %19, %cond.end29 ], [ %call13, %if.then12 ]
-  %i.133 = phi i32 [ %inc32, %cond.end29 ], [ 0, %if.then12 ]
-  %next18 = getelementptr inbounds i8, ptr %counts.034, i64 8
+  %i.134 = phi i32 [ %inc32, %cond.end29 ], [ 0, %if.then12 ]
+  %counts.033 = phi ptr [ %19, %cond.end29 ], [ %call13, %if.then12 ]
+  %next18 = getelementptr inbounds i8, ptr %counts.033, i64 8
   %12 = load ptr, ptr %next18, align 8
   %tobool20.not = icmp eq ptr %12, null
   br i1 %tobool20.not, label %for.end39, label %for.body21
 
 for.body21:                                       ; preds = %cond.end
-  %13 = load ptr, ptr %counts.034, align 8
+  %13 = load ptr, ptr %counts.033, align 8
   %14 = load ptr, ptr %13, align 8
   %count22 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i64, ptr %count22, align 8
@@ -503,15 +503,15 @@ cond.true25:                                      ; preds = %for.body21
 cond.end29:                                       ; preds = %for.body21, %cond.true25
   %cond30 = phi ptr [ %18, %cond.true25 ], [ @.str.120, %for.body21 ]
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.119, ptr noundef %14, i64 noundef %15, i32 noundef %16, ptr noundef %cond30) #10
-  %inc32 = add nuw nsw i32 %i.133, 1
+  %inc32 = add nuw nsw i32 %i.134, 1
   %19 = load ptr, ptr %next18, align 8
-  %cmp15 = icmp ugt i32 %i.133, 48
+  %cmp15 = icmp ugt i32 %i.134, 48
   %tobool16.not = icmp eq ptr %19, null
   %or.cond = select i1 %cmp15, i1 true, i1 %tobool16.not
   br i1 %or.cond, label %for.end39, label %cond.end, !llvm.loop !10
 
 for.end39:                                        ; preds = %cond.end, %cond.end29, %if.then12
-  %counts.0.lcssa = phi ptr [ null, %if.then12 ], [ %19, %cond.end29 ], [ %counts.034, %cond.end ]
+  %counts.0.lcssa = phi ptr [ null, %if.then12 ], [ %19, %cond.end29 ], [ %counts.033, %cond.end ]
   tail call void @g_list_free(ptr noundef %counts.0.lcssa) #10
   br label %glib_autoptr_cleanup_GString.exit
 

@@ -1482,8 +1482,8 @@ if.end8:                                          ; preds = %if.end4
   br label %while.cond11.preheader
 
 while.cond11.preheader:                           ; preds = %if.end8, %do.end111
-  %cwords.0.ph = phi i32 [ %1, %if.end8 ], [ %17, %do.end111 ]
   %words.0.ph = phi i32 [ %2, %if.end8 ], [ %18, %do.end111 ]
+  %cwords.0.ph = phi i32 [ %1, %if.end8 ], [ %17, %do.end111 ]
   %.pn = phi i32 [ %3, %if.end8 ], [ %19, %do.end111 ]
   %b.0.ph = phi i64 [ %shl, %if.end8 ], [ %cond, %do.end111 ]
   %val.1.ph = phi ptr [ %vals, %if.end8 ], [ %incdec.ptr93, %do.end111 ]
@@ -1508,8 +1508,8 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   br i1 %cmp15, label %do.body, label %if.end25
 
 do.body:                                          ; preds = %while.body13, %if.end19
-  %cwords.1 = phi i32 [ %inc, %if.end19 ], [ %cwords.0108, %while.body13 ]
   %x.0 = phi i32 [ %add, %if.end19 ], [ %ucbits.0109, %while.body13 ]
+  %cwords.1 = phi i32 [ %inc, %if.end19 ], [ %cwords.0108, %while.body13 ]
   %inc = add i32 %cwords.1, 1
   %cmp17.not = icmp ult i32 %inc, %words.0.ph
   br i1 %cmp17.not, label %if.end19, label %incomplete_msbs
@@ -1526,9 +1526,9 @@ if.end19:                                         ; preds = %do.body
   br i1 %cmp24, label %do.body, label %if.end25, !llvm.loop !17
 
 if.end25:                                         ; preds = %if.end19, %while.body13
-  %cwords.2 = phi i32 [ %cwords.0108, %while.body13 ], [ %inc, %if.end19 ]
   %x.1 = phi i32 [ %cast.i.i, %while.body13 ], [ %add, %if.end19 ]
   %y.0 = phi i64 [ %6, %while.body13 ], [ %9, %if.end19 ]
+  %cwords.2 = phi i32 [ %cwords.0108, %while.body13 ], [ %inc, %if.end19 ]
   %b.1 = phi i64 [ %b.0110, %while.body13 ], [ %8, %if.end19 ]
   %shl27 = shl i64 %b.1, %y.0
   %shl28 = shl i64 %shl27, 1
@@ -1571,8 +1571,8 @@ if.end47:                                         ; preds = %if.else
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end47, %if.then39
-  %cwords.3 = phi i32 [ %cwords.2, %if.then39 ], [ %inc43, %if.end47 ]
   %x.2 = phi i32 [ %conv, %if.then39 ], [ %or, %if.end47 ]
+  %cwords.3 = phi i32 [ %cwords.2, %if.then39 ], [ %inc43, %if.end47 ]
   %ucbits.1 = phi i32 [ %sub40, %if.then39 ], [ %add52, %if.end47 ]
   %b.2 = phi i64 [ %shl42, %if.then39 ], [ %shl58, %if.end47 ]
   store i32 %x.2, ptr %lsbs, align 4
@@ -1737,8 +1737,8 @@ if.end8:                                          ; preds = %if.end4
   br label %while.cond11.preheader
 
 while.cond11.preheader:                           ; preds = %if.end8, %do.end111
-  %cwords.0.ph = phi i32 [ %1, %if.end8 ], [ %17, %do.end111 ]
   %words.0.ph = phi i32 [ %2, %if.end8 ], [ %18, %do.end111 ]
+  %cwords.0.ph = phi i32 [ %1, %if.end8 ], [ %17, %do.end111 ]
   %.pn = phi i32 [ %3, %if.end8 ], [ %19, %do.end111 ]
   %b.0.ph = phi i64 [ %shl, %if.end8 ], [ %cond, %do.end111 ]
   %val.1.ph = phi ptr [ %vals, %if.end8 ], [ %incdec.ptr93, %do.end111 ]
@@ -1763,8 +1763,8 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   br i1 %cmp15, label %do.body, label %if.end25
 
 do.body:                                          ; preds = %while.body13, %if.end19
-  %cwords.1 = phi i32 [ %inc, %if.end19 ], [ %cwords.0108, %while.body13 ]
   %x.0 = phi i32 [ %add, %if.end19 ], [ %ucbits.0109, %while.body13 ]
+  %cwords.1 = phi i32 [ %inc, %if.end19 ], [ %cwords.0108, %while.body13 ]
   %inc = add i32 %cwords.1, 1
   %cmp17.not = icmp ult i32 %inc, %words.0.ph
   br i1 %cmp17.not, label %if.end19, label %incomplete_msbs
@@ -1781,9 +1781,9 @@ if.end19:                                         ; preds = %do.body
   br i1 %cmp24, label %do.body, label %if.end25, !llvm.loop !21
 
 if.end25:                                         ; preds = %if.end19, %while.body13
-  %cwords.2 = phi i32 [ %cwords.0108, %while.body13 ], [ %inc, %if.end19 ]
   %x.1 = phi i32 [ %cast.i.i, %while.body13 ], [ %add, %if.end19 ]
   %y.0 = phi i64 [ %6, %while.body13 ], [ %9, %if.end19 ]
+  %cwords.2 = phi i32 [ %cwords.0108, %while.body13 ], [ %inc, %if.end19 ]
   %b.1 = phi i64 [ %b.0110, %while.body13 ], [ %8, %if.end19 ]
   %shl27 = shl i64 %b.1, %y.0
   %shl28 = shl i64 %shl27, 1
@@ -1826,8 +1826,8 @@ if.end47:                                         ; preds = %if.else
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end47, %if.then39
-  %cwords.3 = phi i32 [ %cwords.2, %if.then39 ], [ %inc43, %if.end47 ]
   %x.2 = phi i32 [ %conv, %if.then39 ], [ %or, %if.end47 ]
+  %cwords.3 = phi i32 [ %cwords.2, %if.then39 ], [ %inc43, %if.end47 ]
   %ucbits.1 = phi i32 [ %sub40, %if.then39 ], [ %add52, %if.end47 ]
   %b.2 = phi i64 [ %shl42, %if.then39 ], [ %shl58, %if.end47 ]
   store i32 %x.2, ptr %lsbs, align 4

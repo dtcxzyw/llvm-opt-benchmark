@@ -1899,8 +1899,8 @@ define i32 @stats_tree_tick_range(ptr nocapture noundef readonly %0, ptr noundef
   br label %26
 
 26:                                               ; preds = %22, %20
-  %.047 = phi ptr [ %21, %20 ], [ %25, %22 ]
-  %27 = icmp eq ptr %.047, null
+  %.046 = phi ptr [ %21, %20 ], [ %25, %22 ]
+  %27 = icmp eq ptr %.046, null
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %26
@@ -1909,11 +1909,11 @@ define i32 @stats_tree_tick_range(ptr nocapture noundef readonly %0, ptr noundef
 
 29:                                               ; preds = %26
   %30 = sext i32 %3 to i64
-  %31 = getelementptr inbounds i8, ptr %.047, i64 24
+  %31 = getelementptr inbounds i8, ptr %.046, i64 24
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %30
   store i64 %33, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %.047, i64 32
+  %34 = getelementptr inbounds i8, ptr %.046, i64 32
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %35, %3
   br i1 %36, label %37, label %38
@@ -1923,7 +1923,7 @@ define i32 @stats_tree_tick_range(ptr nocapture noundef readonly %0, ptr noundef
   br label %38
 
 38:                                               ; preds = %37, %29
-  %39 = getelementptr inbounds i8, ptr %.047, i64 36
+  %39 = getelementptr inbounds i8, ptr %.046, i64 36
   %40 = load i32, ptr %39, align 4
   %41 = icmp slt i32 %40, %3
   br i1 %41, label %42, label %43
@@ -1933,18 +1933,18 @@ define i32 @stats_tree_tick_range(ptr nocapture noundef readonly %0, ptr noundef
   br label %43
 
 43:                                               ; preds = %42, %38
-  %44 = getelementptr inbounds i8, ptr %.047, i64 40
+  %44 = getelementptr inbounds i8, ptr %.046, i64 40
   %45 = load i32, ptr %44, align 8
   %46 = or i32 %45, 268435456
   store i32 %46, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %.047, i64 104
-  %.04655 = load ptr, ptr %47, align 8
-  %.not5156 = icmp eq ptr %.04655, null
+  %47 = getelementptr inbounds i8, ptr %.046, i64 104
+  %.04755 = load ptr, ptr %47, align 8
+  %.not5156 = icmp eq ptr %.04755, null
   br i1 %.not5156, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %43, %74
-  %.04657 = phi ptr [ %.046, %74 ], [ %.04655, %43 ]
-  %48 = getelementptr inbounds i8, ptr %.04657, i64 120
+  %.04757 = phi ptr [ %.047, %74 ], [ %.04755, %43 ]
+  %48 = getelementptr inbounds i8, ptr %.04757, i64 120
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 4
   %.not52 = icmp sgt i32 %50, %3
@@ -1957,15 +1957,15 @@ define i32 @stats_tree_tick_range(ptr nocapture noundef readonly %0, ptr noundef
   br i1 %.not53, label %74, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %.04657, i64 16
+  %55 = getelementptr inbounds i8, ptr %.04757, i64 16
   %56 = load i32, ptr %55, align 8
   %57 = add i32 %56, 1
   store i32 %57, ptr %55, align 8
-  %58 = getelementptr inbounds i8, ptr %.04657, i64 24
+  %58 = getelementptr inbounds i8, ptr %.04757, i64 24
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, %30
   store i64 %60, ptr %58, align 8
-  %61 = getelementptr inbounds i8, ptr %.04657, i64 32
+  %61 = getelementptr inbounds i8, ptr %.04757, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = icmp sgt i32 %62, %3
   br i1 %63, label %64, label %65
@@ -1975,7 +1975,7 @@ define i32 @stats_tree_tick_range(ptr nocapture noundef readonly %0, ptr noundef
   br label %65
 
 65:                                               ; preds = %64, %54
-  %66 = getelementptr inbounds i8, ptr %.04657, i64 36
+  %66 = getelementptr inbounds i8, ptr %.04757, i64 36
   %67 = load i32, ptr %66, align 4
   %68 = icmp slt i32 %67, %3
   br i1 %68, label %69, label %70
@@ -1985,21 +1985,21 @@ define i32 @stats_tree_tick_range(ptr nocapture noundef readonly %0, ptr noundef
   br label %70
 
 70:                                               ; preds = %69, %65
-  %71 = getelementptr inbounds i8, ptr %.04657, i64 40
+  %71 = getelementptr inbounds i8, ptr %.04757, i64 40
   %72 = load i32, ptr %71, align 8
   %73 = or i32 %72, 268435456
   store i32 %73, ptr %71, align 8
-  tail call fastcc void @update_burst_calc(ptr noundef nonnull %.04657, i32 noundef 1)
+  tail call fastcc void @update_burst_calc(ptr noundef nonnull %.04757, i32 noundef 1)
   br label %.loopexit
 
 74:                                               ; preds = %.lr.ph, %51
-  %75 = getelementptr inbounds i8, ptr %.04657, i64 112
-  %.046 = load ptr, ptr %75, align 8
-  %.not51 = icmp eq ptr %.046, null
+  %75 = getelementptr inbounds i8, ptr %.04757, i64 112
+  %.047 = load ptr, ptr %75, align 8
+  %.not51 = icmp eq ptr %.047, null
   br i1 %.not51, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %74, %43, %70
-  %.0.in = getelementptr inbounds i8, ptr %.047, i64 8
+  %.0.in = getelementptr inbounds i8, ptr %.046, i64 8
   %.0 = load i32, ptr %.0.in, align 8
   ret i32 %.0
 }

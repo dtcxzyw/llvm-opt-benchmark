@@ -498,8 +498,8 @@ if.end186:                                        ; preds = %land.lhs.true181, %
   br label %if.end188
 
 if.end188:                                        ; preds = %if.end186, %if.end172, %if.end133
-  %in.0 = phi ptr [ null, %if.end133 ], [ %call135, %if.end172 ], [ %call135, %if.end186 ]
   %pkey.1 = phi ptr [ %pkey.0, %if.end133 ], [ %call173, %if.end172 ], [ %39, %if.end186 ]
+  %in.0 = phi ptr [ null, %if.end133 ], [ %call135, %if.end172 ], [ %call135, %if.end186 ]
   %tobool189.not = icmp eq i32 %text.0, 0
   br i1 %tobool189.not, label %if.end192, label %if.then190
 
@@ -566,28 +566,28 @@ if.end224:                                        ; preds = %lor.lhs.false219
   br label %if.end229
 
 if.then228:                                       ; preds = %sw.bb30, %sw.bb36, %opthelp, %if.then66, %if.end68, %if.then89, %if.then100, %if.then107, %if.end121, %if.then127, %if.then200, %if.then206, %if.then222, %if.then113, %if.then118, %if.else134, %if.then163, %if.end172, %if.then170, %if.then184, %if.end54
-  %in.1.ph = phi ptr [ null, %if.end54 ], [ %call135, %if.then184 ], [ %call135, %if.then170 ], [ %call135, %if.end172 ], [ %call135, %if.then163 ], [ null, %if.else134 ], [ null, %if.then118 ], [ null, %if.then113 ], [ %in.0, %if.then222 ], [ %in.0, %if.then206 ], [ %in.0, %if.then200 ], [ null, %if.then127 ], [ null, %if.end121 ], [ null, %if.then107 ], [ null, %if.then100 ], [ null, %if.then89 ], [ null, %if.end68 ], [ null, %if.then66 ], [ null, %opthelp ], [ null, %sw.bb36 ], [ null, %sw.bb30 ]
-  %out.0.ph = phi ptr [ null, %if.end54 ], [ %call69, %if.then184 ], [ %call69, %if.then170 ], [ %call69, %if.end172 ], [ %call69, %if.then163 ], [ %call69, %if.else134 ], [ %call69, %if.then118 ], [ %call69, %if.then113 ], [ %call69, %if.then222 ], [ %call69, %if.then206 ], [ %call69, %if.then200 ], [ %call69, %if.then127 ], [ %call69, %if.end121 ], [ %call69, %if.then107 ], [ %call69, %if.then100 ], [ %call69, %if.then89 ], [ null, %if.end68 ], [ null, %if.then66 ], [ null, %opthelp ], [ null, %sw.bb36 ], [ null, %sw.bb30 ]
   %pkey.2.ph = phi ptr [ null, %if.end54 ], [ null, %if.then184 ], [ null, %if.then170 ], [ null, %if.end172 ], [ null, %if.then163 ], [ null, %if.else134 ], [ null, %if.then118 ], [ null, %if.then113 ], [ %pkey.1, %if.then222 ], [ %pkey.1, %if.then206 ], [ %pkey.1, %if.then200 ], [ null, %if.then127 ], [ null, %if.end121 ], [ null, %if.then107 ], [ null, %if.then100 ], [ null, %if.then89 ], [ null, %if.end68 ], [ null, %if.then66 ], [ null, %opthelp ], [ null, %sw.bb36 ], [ null, %sw.bb30 ]
   %ctx.2.ph = phi ptr [ null, %if.end54 ], [ null, %if.then184 ], [ null, %if.then170 ], [ null, %if.end172 ], [ null, %if.then163 ], [ null, %if.else134 ], [ %call87, %if.then118 ], [ %call87, %if.then113 ], [ %ctx.1, %if.then222 ], [ %call197, %if.then206 ], [ null, %if.then200 ], [ null, %if.then127 ], [ %call87, %if.end121 ], [ %call87, %if.then107 ], [ %call87, %if.then100 ], [ null, %if.then89 ], [ null, %if.end68 ], [ null, %if.then66 ], [ null, %opthelp ], [ null, %sw.bb36 ], [ null, %sw.bb30 ]
+  %out.0.ph = phi ptr [ null, %if.end54 ], [ %call69, %if.then184 ], [ %call69, %if.then170 ], [ %call69, %if.end172 ], [ %call69, %if.then163 ], [ %call69, %if.else134 ], [ %call69, %if.then118 ], [ %call69, %if.then113 ], [ %call69, %if.then222 ], [ %call69, %if.then206 ], [ %call69, %if.then200 ], [ %call69, %if.then127 ], [ %call69, %if.end121 ], [ %call69, %if.then107 ], [ %call69, %if.then100 ], [ %call69, %if.then89 ], [ null, %if.end68 ], [ null, %if.then66 ], [ null, %opthelp ], [ null, %sw.bb36 ], [ null, %sw.bb30 ]
+  %in.1.ph = phi ptr [ null, %if.end54 ], [ %call135, %if.then184 ], [ %call135, %if.then170 ], [ %call135, %if.end172 ], [ %call135, %if.then163 ], [ null, %if.else134 ], [ null, %if.then118 ], [ null, %if.then113 ], [ %in.0, %if.then222 ], [ %in.0, %if.then206 ], [ %in.0, %if.then200 ], [ null, %if.then127 ], [ null, %if.end121 ], [ null, %if.then107 ], [ null, %if.then100 ], [ null, %if.then89 ], [ null, %if.end68 ], [ null, %if.then66 ], [ null, %opthelp ], [ null, %sw.bb36 ], [ null, %sw.bb30 ]
   %44 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %44) #2
   br label %if.end229
 
 if.end229:                                        ; preds = %sw.bb3, %if.end224, %if.end210, %if.then228
-  %ret.069 = phi i32 [ 1, %if.then228 ], [ 0, %sw.bb3 ], [ 0, %if.end224 ], [ 0, %if.end210 ]
-  %ctx.267 = phi ptr [ %ctx.2.ph, %if.then228 ], [ null, %sw.bb3 ], [ %ctx.1, %if.end224 ], [ %ctx.1, %if.end210 ]
-  %pkey.265 = phi ptr [ %pkey.2.ph, %if.then228 ], [ null, %sw.bb3 ], [ %pkey.1, %if.end224 ], [ %pkey.1, %if.end210 ]
-  %out.063 = phi ptr [ %out.0.ph, %if.then228 ], [ null, %sw.bb3 ], [ %call69, %if.end224 ], [ %call69, %if.end210 ]
-  %in.161 = phi ptr [ %in.1.ph, %if.then228 ], [ null, %sw.bb3 ], [ %in.0, %if.end224 ], [ %in.0, %if.end210 ]
-  %call230 = call i32 @BIO_free(ptr noundef %in.161) #2
-  call void @BIO_free_all(ptr noundef %out.063) #2
-  call void @EVP_PKEY_free(ptr noundef %pkey.265) #2
+  %in.169 = phi ptr [ %in.1.ph, %if.then228 ], [ null, %sw.bb3 ], [ %in.0, %if.end224 ], [ %in.0, %if.end210 ]
+  %ret.067 = phi i32 [ 1, %if.then228 ], [ 0, %sw.bb3 ], [ 0, %if.end224 ], [ 0, %if.end210 ]
+  %out.065 = phi ptr [ %out.0.ph, %if.then228 ], [ null, %sw.bb3 ], [ %call69, %if.end224 ], [ %call69, %if.end210 ]
+  %ctx.263 = phi ptr [ %ctx.2.ph, %if.then228 ], [ null, %sw.bb3 ], [ %ctx.1, %if.end224 ], [ %ctx.1, %if.end210 ]
+  %pkey.261 = phi ptr [ %pkey.2.ph, %if.then228 ], [ null, %sw.bb3 ], [ %pkey.1, %if.end224 ], [ %pkey.1, %if.end210 ]
+  %call230 = call i32 @BIO_free(ptr noundef %in.169) #2
+  call void @BIO_free_all(ptr noundef %out.065) #2
+  call void @EVP_PKEY_free(ptr noundef %pkey.261) #2
   %45 = load ptr, ptr %tmppkey, align 8
   call void @EVP_PKEY_free(ptr noundef %45) #2
-  call void @EVP_PKEY_CTX_free(ptr noundef %ctx.267) #2
+  call void @EVP_PKEY_CTX_free(ptr noundef %ctx.263) #2
   call void @release_engine(ptr noundef %e.0) #2
-  ret i32 %ret.069
+  ret i32 %ret.067
 }
 
 declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

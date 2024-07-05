@@ -7960,8 +7960,8 @@ define hidden void @"_ZN119_$LT$rayon..iter..unzip..UnzipReducer$LT$RA$C$RB$GT$$
           to label %.critedge unwind label %46
 
 "_ZN159_$LT$rayon..iter..collect..consumer..CollectReducer$u20$as$u20$rayon..iter..plumbing..Reducer$LT$rayon..iter..collect..consumer..CollectResult$LT$T$GT$$GT$$GT$6reduce17h9058eb5bb44d8e9fE.exit": ; preds = %.preheader, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit6.i"
-  %.sroa.7.0 = phi i64 [ %44, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit6.i" ], [ %.sroa.8.0.copyload, %.preheader ]
   %.sroa.5.0 = phi i64 [ %43, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit6.i" ], [ %.sroa.6.0.copyload, %.preheader ]
+  %.sroa.7.0 = phi i64 [ %44, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit6.i" ], [ %.sroa.8.0.copyload, %.preheader ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %45 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.0.0.copyload11, ptr %45, align 8
@@ -8063,14 +8063,14 @@ define hidden void @"_ZN119_$LT$rayon..iter..unzip..UnzipReducer$LT$RA$C$RB$GT$$
   br label %"_ZN159_$LT$rayon..iter..collect..consumer..CollectReducer$u20$as$u20$rayon..iter..plumbing..Reducer$LT$rayon..iter..collect..consumer..CollectResult$LT$T$GT$$GT$$GT$6reduce17h9058eb5bb44d8e9fE.exit"
 
 "_ZN159_$LT$rayon..iter..collect..consumer..CollectReducer$u20$as$u20$rayon..iter..plumbing..Reducer$LT$rayon..iter..collect..consumer..CollectResult$LT$T$GT$$GT$$GT$6reduce17h9058eb5bb44d8e9fE.exit": ; preds = %.preheader, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit6.i"
-  %.sroa.7.041 = phi i64 [ %21, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit6.i" ], [ %.sroa.8.0.copyload, %.preheader ]
-  %.sroa.5.040 = phi i64 [ %20, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit6.i" ], [ %.sroa.6.0.copyload, %.preheader ]
+  %.sroa.5.041 = phi i64 [ %20, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit6.i" ], [ %.sroa.6.0.copyload, %.preheader ]
+  %.sroa.7.040 = phi i64 [ %21, %"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit6.i" ], [ %.sroa.8.0.copyload, %.preheader ]
   %22 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload, i64 %.sroa.7.0.copyload
   %23 = icmp eq ptr %22, %.sroa.012.0.copyload
-  %24 = select i1 %23, i64 %.sroa.413.0.copyload, i64 0
-  %.sroa.5.0 = add i64 %24, %.sroa.5.0.copyload
-  %25 = select i1 %23, i64 %.sroa.514.0.copyload, i64 0
-  %.sroa.7.0 = add i64 %25, %.sroa.7.0.copyload
+  %24 = select i1 %23, i64 %.sroa.514.0.copyload, i64 0
+  %.sroa.7.0 = add i64 %24, %.sroa.7.0.copyload
+  %25 = select i1 %23, i64 %.sroa.413.0.copyload, i64 0
+  %.sroa.5.0 = add i64 %25, %.sroa.5.0.copyload
   store ptr %.sroa.0.0.copyload, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -8079,9 +8079,9 @@ define hidden void @"_ZN119_$LT$rayon..iter..unzip..UnzipReducer$LT$RA$C$RB$GT$$
   %26 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.0.0.copyload24, ptr %26, align 8
   %.sroa.5.0..sroa_idx36 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.5.040, ptr %.sroa.5.0..sroa_idx36, align 8
+  store i64 %.sroa.5.041, ptr %.sroa.5.0..sroa_idx36, align 8
   %.sroa.7.0..sroa_idx38 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.sroa.7.041, ptr %.sroa.7.0..sroa_idx38, align 8
+  store i64 %.sroa.7.040, ptr %.sroa.7.0..sroa_idx38, align 8
   ret void
 
 .critedge:                                        ; preds = %11
@@ -8155,10 +8155,10 @@ define hidden void @"_ZN119_$LT$rayon..iter..unzip..UnzipReducer$LT$RA$C$RB$GT$$
 "_ZN5alloc11collections11linked_list19LinkedList$LT$T$GT$6append17h39d7728fa0ccb7d0E.exit.i": ; preds = %16, %13, %10
   %26 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload, i64 %.sroa.7.0.copyload
   %27 = icmp eq ptr %26, %.sroa.013.0.copyload
-  %28 = select i1 %27, i64 %.sroa.414.0.copyload, i64 0
-  %.sroa.5.0 = add i64 %28, %.sroa.5.0.copyload
-  %29 = select i1 %27, i64 %.sroa.515.0.copyload, i64 0
-  %.sroa.7.0 = add i64 %29, %.sroa.7.0.copyload
+  %28 = select i1 %27, i64 %.sroa.515.0.copyload, i64 0
+  %.sroa.7.0 = add i64 %28, %.sroa.7.0.copyload
+  %29 = select i1 %27, i64 %.sroa.414.0.copyload, i64 0
+  %.sroa.5.0 = add i64 %29, %.sroa.5.0.copyload
   %30 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @"_ZN98_$LT$alloc..collections..linked_list..LinkedList$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h612977d2b50761b2E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
@@ -80772,8 +80772,8 @@ define void @_ZN11meilisearch9analytics17segment_analytics21MultiSearchAggregato
   br label %20
 
 20:                                               ; preds = %14, %18
-  %.sroa.45.0 = phi i32 [ %.sroa.511.0.copyload, %18 ], [ %.sroa.9.sroa.5.0.copyload, %14 ]
   %.sroa.3.0 = phi i8 [ %.sroa.410.0.copyload, %18 ], [ %.sroa.9.sroa.4.0.copyload, %14 ]
+  %.sroa.45.0 = phi i32 [ %.sroa.511.0.copyload, %18 ], [ %.sroa.9.sroa.5.0.copyload, %14 ]
   %21 = getelementptr inbounds i8, ptr %1, i64 48
   %22 = load i64, ptr %21, align 8, !noundef !9
   %23 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.4.0.copyload, i64 %22)
@@ -86830,8 +86830,8 @@ default.unreachable:                              ; preds = %30
   unreachable
 
 54:                                               ; preds = %59, %55
-  %.pn32 = phi { ptr, i32 } [ %60, %59 ], [ %56, %55 ]
   %.sroa.08.2 = phi i1 [ false, %59 ], [ true, %55 ]
+  %.pn32 = phi { ptr, i32 } [ %60, %59 ], [ %56, %55 ]
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$segment..message..User$GT$17h2c2b3ce12b3936b5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17) #57
           to label %47 unwind label %92
 
@@ -87477,8 +87477,8 @@ default.unreachable:                              ; preds = %30
   unreachable
 
 54:                                               ; preds = %59, %55
-  %.pn32 = phi { ptr, i32 } [ %60, %59 ], [ %56, %55 ]
   %.sroa.08.2 = phi i1 [ false, %59 ], [ true, %55 ]
+  %.pn32 = phi { ptr, i32 } [ %60, %59 ], [ %56, %55 ]
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$segment..message..User$GT$17h2c2b3ce12b3936b5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17) #57
           to label %47 unwind label %92
 
@@ -101925,13 +101925,13 @@ _ZN5milli6search6Search5query17h778c7e06803a9167E.exit170: ; preds = %.noexc167,
   %.not = icmp eq i64 %.sroa.0135.0, 0
   %221 = add i64 %.sroa.0135.0, -1
   %222 = mul i64 %221, %storemerge
-  %spec.select.i = select i1 %.not, i64 0, i64 %storemerge
-  %spec.select1.i = select i1 %.not, i64 0, i64 %222
+  %spec.select.i = select i1 %.not, i64 0, i64 %222
+  %spec.select1.i = select i1 %.not, i64 0, i64 %storemerge
   br label %223
 
 223:                                              ; preds = %216, %211
-  %.sroa.549.0 = phi i64 [ %spec.select.i, %216 ], [ %215, %211 ]
-  %.sroa.048.0 = phi i64 [ %spec.select1.i, %216 ], [ %213, %211 ]
+  %.sroa.549.0 = phi i64 [ %spec.select1.i, %216 ], [ %215, %211 ]
+  %.sroa.048.0 = phi i64 [ %spec.select.i, %216 ], [ %213, %211 ]
   %.sroa.0.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.048.0, i64 %.)
   %224 = invoke noundef align 8 dereferenceable(512) ptr @_ZN5milli6search6Search6offset17hb7dc73f359356ba4E(ptr noalias noundef nonnull align 8 dereferenceable(512) %37, i64 noundef %.sroa.0.0.sroa.speculated.i)
           to label %225 unwind label %39
@@ -108415,8 +108415,8 @@ _ZN5milli13score_details12ScoreDetails12global_score17h674da4f68e45a2eeE.exit: ;
   br label %1221
 
 1221:                                             ; preds = %_ZN5milli13score_details12ScoreDetails12global_score17h674da4f68e45a2eeE.exit, %1203
-  %.sroa.375.0 = phi double [ undef, %1203 ], [ %1220, %_ZN5milli13score_details12ScoreDetails12global_score17h674da4f68e45a2eeE.exit ]
   %.sroa.074.0 = phi i64 [ 0, %1203 ], [ 1, %_ZN5milli13score_details12ScoreDetails12global_score17h674da4f68e45a2eeE.exit ]
+  %.sroa.375.0 = phi double [ undef, %1203 ], [ %1220, %_ZN5milli13score_details12ScoreDetails12global_score17h674da4f68e45a2eeE.exit ]
   %1222 = load i8, ptr %812, align 2, !range !34, !noundef !9
   %1223 = trunc nuw i8 %1222 to i1
   br i1 %1223, label %1224, label %1228
@@ -112785,8 +112785,8 @@ define hidden void @_ZN11meilisearch6search18parse_filter_array17h179b794765f4e8
   br i1 %.not.not.i, label %74, label %72
 
 72:                                               ; preds = %78, %71
-  %.sroa.036.4.i = phi i8 [ 1, %71 ], [ 0, %78 ]
   %.sroa.027.0.i = phi ptr [ %67, %71 ], [ %57, %78 ]
+  %.sroa.036.4.i = phi i8 [ 1, %71 ], [ 0, %78 ]
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9), !noalias !21075
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8), !noalias !21075
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7), !noalias !21075

@@ -44,13 +44,13 @@ define hidden i32 @ssl_session_key_count() local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %.lr.ph, %15
-  %.029 = phi i32 [ 0, %.lr.ph ], [ %.6, %15 ]
+  %.01729 = phi i32 [ 0, %.lr.ph ], [ %.6, %15 ]
   %16 = load ptr, ptr %9, align 8
   %17 = load ptr, ptr %2, align 8
   %18 = call i32 @g_hash_table_contains(ptr noundef %16, ptr noundef %17) #3
   %.not22 = icmp ne i32 %18, 0
   %19 = zext i1 %.not22 to i32
-  %spec.select = add i32 %.029, %19
+  %spec.select = add i32 %.01729, %19
   %20 = load ptr, ptr %10, align 8
   %21 = load ptr, ptr %2, align 8
   %22 = call i32 @g_hash_table_contains(ptr noundef %20, ptr noundef %21) #3
@@ -86,8 +86,8 @@ define hidden i32 @ssl_session_key_count() local_unnamed_addr #0 {
   br i1 %.not21, label %.loopexit, label %15, !llvm.loop !4
 
 .loopexit:                                        ; preds = %15, %7, %0, %4
-  %.017 = phi i32 [ 0, %4 ], [ 0, %0 ], [ 0, %7 ], [ %.6, %15 ]
-  ret i32 %.017
+  %.0 = phi i32 [ 0, %4 ], [ 0, %0 ], [ 0, %7 ], [ %.6, %15 ]
+  ret i32 %.0
 }
 
 declare ptr @tls_get_master_key_map(i32 noundef) local_unnamed_addr #1

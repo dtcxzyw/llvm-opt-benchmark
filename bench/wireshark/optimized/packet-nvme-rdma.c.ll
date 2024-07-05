@@ -915,21 +915,21 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
   br i1 %.not134.i, label %.thread146.i, label %.thread151.i
 
 .thread151.i:                                     ; preds = %362, %357, %332, %311
-  %.0116156.i = phi i32 [ 0, %362 ], [ %350, %357 ], [ %336, %332 ], [ 0, %311 ]
-  %.0117155.i = phi ptr [ %365, %362 ], [ %339, %357 ], [ %331, %332 ], [ %310, %311 ]
+  %.0116156.i = phi ptr [ %365, %362 ], [ %339, %357 ], [ %331, %332 ], [ %310, %311 ]
+  %.0117155.i = phi i32 [ 0, %362 ], [ %350, %357 ], [ %336, %332 ], [ 0, %311 ]
   %366 = load i32, ptr @hf_nvmeof_write_to_host_req, align 4
   %367 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %366, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #5
   %368 = load i32, ptr @ett_data, align 4
   %369 = call ptr @proto_item_add_subtree(ptr noundef %367, i32 noundef %368) #5
   %370 = load i32, ptr @hf_nvmeof_cmd_pkt, align 4
-  call void @nvme_publish_to_cmd_link(ptr noundef %369, ptr noundef %0, i32 noundef %370, ptr noundef nonnull %.0117155.i) #5
-  %371 = add i32 %.0116156.i, -1
+  call void @nvme_publish_to_cmd_link(ptr noundef %369, ptr noundef %0, i32 noundef %370, ptr noundef nonnull %.0116156.i) #5
+  %371 = add i32 %.0117155.i, -1
   %or.cond.i39 = icmp ult i32 %371, 16
   br i1 %or.cond.i39, label %372, label %378
 
 372:                                              ; preds = %.thread151.i
   %373 = load i32, ptr @hf_nvmeof_write_to_host_prev, align 4
-  %374 = getelementptr inbounds i8, ptr %.0117155.i, i64 12
+  %374 = getelementptr inbounds i8, ptr %.0116156.i, i64 12
   %375 = zext nneg i32 %371 to i64
   %376 = getelementptr [16 x i32], ptr %374, i64 0, i64 %375
   %377 = load i32, ptr %376, align 4
@@ -937,13 +937,13 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
   br label %378
 
 378:                                              ; preds = %372, %.thread151.i
-  %379 = add i32 %.0116156.i, 1
+  %379 = add i32 %.0117155.i, 1
   %380 = icmp ult i32 %379, 16
   br i1 %380, label %381, label %387
 
 381:                                              ; preds = %378
   %382 = load i32, ptr @hf_nvmeof_write_to_host_next, align 4
-  %383 = getelementptr inbounds i8, ptr %.0117155.i, i64 12
+  %383 = getelementptr inbounds i8, ptr %.0116156.i, i64 12
   %384 = zext nneg i32 %379 to i64
   %385 = getelementptr [16 x i32], ptr %383, i64 0, i64 %384
   %386 = load i32, ptr %385, align 4
@@ -951,7 +951,7 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
   br label %387
 
 387:                                              ; preds = %381, %378
-  call void @dissect_nvme_data_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.0.i33, ptr noundef nonnull %.0117155.i, i32 noundef %7, i32 noundef 0) #5
+  call void @dissect_nvme_data_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.0.i33, ptr noundef nonnull %.0116156.i, i32 noundef %7, i32 noundef 0) #5
   %388 = getelementptr inbounds i8, ptr %1, i64 80
   %389 = load ptr, ptr %388, align 8
   %390 = getelementptr inbounds i8, ptr %389, i64 50
@@ -961,7 +961,7 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
   br i1 %.not136.i, label %393, label %dissect_nvme_to_host.exit
 
 393:                                              ; preds = %387
-  %394 = getelementptr inbounds i8, ptr %.0117155.i, i64 112
+  %394 = getelementptr inbounds i8, ptr %.0116156.i, i64 112
   %395 = load i32, ptr %394, align 8
   %396 = add i32 %395, %7
   store i32 %396, ptr %394, align 8

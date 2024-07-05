@@ -9667,7 +9667,7 @@ ehcleanup109:                                     ; preds = %lpad103
   br i1 %cmp91.not.not, label %cleanup.action111, label %cleanup.action118
 
 cleanup.action111:                                ; preds = %ehcleanup109.thread, %ehcleanup109
-  %.pn16110 = phi { ptr, i32 } [ %69, %ehcleanup109.thread ], [ %70, %ehcleanup109 ]
+  %.pn16111 = phi { ptr, i32 } [ %69, %ehcleanup109.thread ], [ %70, %ehcleanup109 ]
   %d_value.i.i85 = getelementptr inbounds i8, ptr %ref.tmp98, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i85)
           to label %ehcleanup151 unwind label %terminate.lpad.i.i.i.i86
@@ -9725,7 +9725,7 @@ terminate.lpad.i.i.i.i95:                         ; preds = %ehcleanup150
   unreachable
 
 ehcleanup151:                                     ; preds = %cleanup.action111, %lpad96, %ehcleanup150, %cleanup.action118, %ehcleanup89, %lpad71
-  %.pn19.pn = phi { ptr, i32 } [ %60, %lpad71 ], [ %.pn14, %ehcleanup89 ], [ %68, %lpad96 ], [ %.pn16.pn112, %cleanup.action118 ], [ %.pn19, %ehcleanup150 ], [ %.pn16110, %cleanup.action111 ]
+  %.pn19.pn = phi { ptr, i32 } [ %60, %lpad71 ], [ %.pn14, %ehcleanup89 ], [ %68, %lpad96 ], [ %.pn16.pn112, %cleanup.action118 ], [ %.pn19, %ehcleanup150 ], [ %.pn16111, %cleanup.action111 ]
   %d_value.i.i97 = getelementptr inbounds i8, ptr %subnormalAmount, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i97)
           to label %eh.resume unwind label %terminate.lpad.i.i.i.i98

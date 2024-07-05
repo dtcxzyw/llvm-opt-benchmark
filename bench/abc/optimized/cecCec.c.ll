@@ -740,8 +740,8 @@ Abc_Clock.exit126:                                ; preds = %178, %181
   br label %191
 
 191:                                              ; preds = %.critedge, %175, %Abc_Clock.exit126, %145, %Gia_ObjIsPi.exit123.thread, %._crit_edge166, %._crit_edge
-  %.056 = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge166 ], [ 0, %Gia_ObjIsPi.exit123.thread ], [ 0, %145 ], [ 1, %Abc_Clock.exit126 ], [ 1, %175 ], [ -1, %.critedge ]
-  ret i32 %.056
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge166 ], [ 0, %Gia_ObjIsPi.exit123.thread ], [ 0, %145 ], [ 1, %Abc_Clock.exit126 ], [ 1, %175 ], [ -1, %.critedge ]
+  ret i32 %.0
 }
 
 declare void @Gia_ManSetPhase(ptr noundef) local_unnamed_addr #1
@@ -797,8 +797,8 @@ Abc_Clock.exit:                                   ; preds = %2, %11
 
 32:                                               ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %137 ]
-  %.06196 = phi i32 [ 0, %.lr.ph ], [ %.1, %137 ]
-  %.06295 = phi i32 [ 0, %.lr.ph ], [ %.163, %137 ]
+  %.06097 = phi i32 [ 0, %.lr.ph ], [ %.1, %137 ]
+  %.06196 = phi i32 [ 0, %.lr.ph ], [ %.162, %137 ]
   %.06494 = phi i32 [ 0, %.lr.ph ], [ %.165, %137 ]
   %.06693 = phi i32 [ 0, %.lr.ph ], [ %.167, %137 ]
   %33 = trunc nuw nsw i64 %indvars.iv to i32
@@ -856,8 +856,8 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %41, %37, %32
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %Extra_ProgressBarUpdate.exit
-  %73 = add nsw i32 %.06693, 1
-  %74 = add nsw i32 %.06196, 1
+  %73 = add nsw i32 %.06097, 1
+  %74 = add nsw i32 %.06494, 1
   br label %137
 
 75:                                               ; preds = %Extra_ProgressBarUpdate.exit
@@ -895,7 +895,7 @@ Abc_Clock.exit82._crit_edge:                      ; preds = %Abc_Clock.exit82
 
 90:                                               ; preds = %Abc_Clock.exit82
   %91 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %88)
-  %92 = add i32 %.06693, %.06494
+  %92 = add i32 %.06196, %.06097
   %93 = sub i32 %22, %92
   br label %.loopexit
 
@@ -945,11 +945,11 @@ Abc_Clock.exit82._crit_edge:                      ; preds = %Abc_Clock.exit82
 
 122:                                              ; preds = %94
   %123 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %33)
-  %124 = add nsw i32 %.06494, 1
+  %124 = add nsw i32 %.06196, 1
   br label %137
 
 125:                                              ; preds = %94
-  %126 = add nsw i32 %.06295, 1
+  %126 = add nsw i32 %.06693, 1
   br label %137
 
 127:                                              ; preds = %115
@@ -957,34 +957,34 @@ Abc_Clock.exit82._crit_edge:                      ; preds = %Abc_Clock.exit82
   %129 = xor <2 x i32> %128, <i32 1, i32 1>
   store <2 x i32> %129, ptr %6, align 8
   %130 = call i32 @sat_solver_addclause(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %31) #10
-  %131 = add nsw i32 %.06693, 1
+  %131 = add nsw i32 %.06097, 1
   br label %137
 
 132:                                              ; preds = %115
   %133 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %33)
-  %134 = add nsw i32 %.06494, 1
+  %134 = add nsw i32 %.06196, 1
   br label %137
 
 135:                                              ; preds = %115
-  %136 = add nsw i32 %.06295, 1
+  %136 = add nsw i32 %.06693, 1
   br label %137
 
 137:                                              ; preds = %127, %135, %132, %125, %122, %72
-  %.167 = phi i32 [ %73, %72 ], [ %131, %127 ], [ %.06693, %132 ], [ %.06693, %135 ], [ %.06693, %122 ], [ %.06693, %125 ]
-  %.165 = phi i32 [ %.06494, %72 ], [ %.06494, %127 ], [ %134, %132 ], [ %.06494, %135 ], [ %124, %122 ], [ %.06494, %125 ]
-  %.163 = phi i32 [ %.06295, %72 ], [ %.06295, %127 ], [ %.06295, %132 ], [ %136, %135 ], [ %.06295, %122 ], [ %126, %125 ]
-  %.1 = phi i32 [ %74, %72 ], [ %.06196, %127 ], [ %.06196, %132 ], [ %.06196, %135 ], [ %.06196, %122 ], [ %.06196, %125 ]
+  %.167 = phi i32 [ %.06693, %72 ], [ %.06693, %127 ], [ %.06693, %132 ], [ %136, %135 ], [ %.06693, %122 ], [ %126, %125 ]
+  %.165 = phi i32 [ %74, %72 ], [ %.06494, %127 ], [ %.06494, %132 ], [ %.06494, %135 ], [ %.06494, %122 ], [ %.06494, %125 ]
+  %.162 = phi i32 [ %.06196, %72 ], [ %.06196, %127 ], [ %134, %132 ], [ %.06196, %135 ], [ %124, %122 ], [ %.06196, %125 ]
+  %.1 = phi i32 [ %73, %72 ], [ %131, %127 ], [ %.06097, %132 ], [ %.06097, %135 ], [ %.06097, %122 ], [ %.06097, %125 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !7
 
 .loopexit:                                        ; preds = %137, %Abc_Clock.exit, %90
-  %.06692 = phi i32 [ %.06693, %90 ], [ 0, %Abc_Clock.exit ], [ %.167, %137 ]
-  %.06490 = phi i32 [ %.06494, %90 ], [ 0, %Abc_Clock.exit ], [ %.165, %137 ]
-  %.06187 = phi i32 [ %.06196, %90 ], [ 0, %Abc_Clock.exit ], [ %.1, %137 ]
-  %.2 = phi i32 [ %93, %90 ], [ 0, %Abc_Clock.exit ], [ %.163, %137 ]
+  %.06491 = phi i32 [ %.06494, %90 ], [ 0, %Abc_Clock.exit ], [ %.165, %137 ]
+  %.06189 = phi i32 [ %.06196, %90 ], [ 0, %Abc_Clock.exit ], [ %.162, %137 ]
+  %.06087 = phi i32 [ %.06097, %90 ], [ 0, %Abc_Clock.exit ], [ %.1, %137 ]
+  %.2 = phi i32 [ %93, %90 ], [ 0, %Abc_Clock.exit ], [ %.167, %137 ]
   call void @Extra_ProgressBarStop(ptr noundef %24) #10
-  %138 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.06692, i32 noundef %.06490, i32 noundef %.2, i32 noundef %.06187)
+  %138 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.06087, i32 noundef %.06189, i32 noundef %.2, i32 noundef %.06491)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %139 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #10
   %140 = icmp slt i32 %139, 0
@@ -1009,7 +1009,7 @@ Abc_Clock.exit84:                                 ; preds = %.loopexit, %141
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.23, double noundef %150)
   call void @Cnf_DataFree(ptr noundef %7) #10
   call void @sat_solver_delete(ptr noundef %8) #10
-  %.not72 = icmp eq i32 %.06490, 0
+  %.not72 = icmp eq i32 %.06189, 0
   %.not73 = icmp eq i32 %.2, 0
   %. = select i1 %.not73, i32 1, i32 -1
   %.0 = select i1 %.not72, i32 %., i32 0
@@ -1203,8 +1203,8 @@ Vec_WrdDup.exit:                                  ; preds = %37, %42
   br label %90
 
 90:                                               ; preds = %87, %54
+  %.083 = phi ptr [ %89, %87 ], [ %69, %54 ]
   %.082 = phi ptr [ %89, %87 ], [ %0, %54 ]
-  %.0 = phi ptr [ %89, %87 ], [ %69, %54 ]
   %91 = load i32, ptr %61, align 4
   %.not92 = icmp eq i32 %91, 0
   br i1 %.not92, label %105, label %92
@@ -1266,7 +1266,7 @@ Abc_Clock.exit105:                                ; preds = %107, %110
   br i1 %.not94, label %122, label %121
 
 121:                                              ; preds = %Abc_Clock.exit105
-  call void @Gia_ManStop(ptr noundef %.0) #10
+  call void @Gia_ManStop(ptr noundef %.083) #10
   br label %139
 
 122:                                              ; preds = %Abc_Clock.exit105, %105
@@ -1283,8 +1283,8 @@ Abc_Clock.exit105:                                ; preds = %107, %110
   %127 = call i32 @fflush(ptr noundef %126)
   %128 = load i32, ptr %61, align 4
   %129 = load i32, ptr %67, align 4
-  %130 = call i32 @Cec_ManVerifyOld(ptr noundef %.0, i32 noundef %128, ptr noundef nonnull %72, i64 noundef %.0.i100, i32 noundef %129)
-  %131 = getelementptr inbounds i8, ptr %.0, i64 368
+  %130 = call i32 @Cec_ManVerifyOld(ptr noundef %.083, i32 noundef %128, ptr noundef nonnull %72, i64 noundef %.0.i100, i32 noundef %129)
+  %131 = getelementptr inbounds i8, ptr %.083, i64 368
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %.082, i64 368
   store ptr %132, ptr %133, align 8
@@ -1303,12 +1303,12 @@ Abc_Clock.exit105:                                ; preds = %107, %110
   br label %138
 
 138:                                              ; preds = %137, %135, %125
-  call void @Gia_ManStop(ptr noundef nonnull %.0) #10
+  call void @Gia_ManStop(ptr noundef nonnull %.083) #10
   br label %139
 
 139:                                              ; preds = %82, %84, %Abc_Clock.exit101, %138, %121, %32
-  %.083 = phi i32 [ %33, %32 ], [ -1, %121 ], [ %130, %138 ], [ %26, %Abc_Clock.exit101 ], [ 0, %84 ], [ 0, %82 ]
-  ret i32 %.083
+  %.0 = phi i32 [ %33, %32 ], [ -1, %121 ], [ %130, %138 ], [ %26, %Abc_Clock.exit101 ], [ 0, %84 ], [ 0, %82 ]
+  ret i32 %.0
 }
 
 declare ptr @Gia_ManDup(ptr noundef) local_unnamed_addr #1

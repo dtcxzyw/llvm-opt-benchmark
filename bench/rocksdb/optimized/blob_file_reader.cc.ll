@@ -3396,16 +3396,16 @@ for.cond63.preheader:                             ; preds = %if.else
 
 for.body66:                                       ; preds = %for.cond63.preheader, %for.body66
   %70 = phi ptr [ %71, %for.body66 ], [ %69, %for.cond63.preheader ]
-  %i62.0410 = phi i64 [ %inc74, %for.body66 ], [ 0, %for.cond63.preheader ]
-  %pos.0409 = phi i64 [ %add72, %for.body66 ], [ 0, %for.cond63.preheader ]
-  %add.ptr = getelementptr inbounds i8, ptr %call61, i64 %pos.0409
-  %scratch69 = getelementptr inbounds %"struct.rocksdb::FSReadRequest", ptr %70, i64 %i62.0410, i32 2
+  %pos.0410 = phi i64 [ %add72, %for.body66 ], [ 0, %for.cond63.preheader ]
+  %i62.0409 = phi i64 [ %inc74, %for.body66 ], [ 0, %for.cond63.preheader ]
+  %add.ptr = getelementptr inbounds i8, ptr %call61, i64 %pos.0410
+  %scratch69 = getelementptr inbounds %"struct.rocksdb::FSReadRequest", ptr %70, i64 %i62.0409, i32 2
   store ptr %add.ptr, ptr %scratch69, align 8
   %71 = load ptr, ptr %read_reqs, align 8
-  %len71 = getelementptr inbounds %"struct.rocksdb::FSReadRequest", ptr %71, i64 %i62.0410, i32 1
+  %len71 = getelementptr inbounds %"struct.rocksdb::FSReadRequest", ptr %71, i64 %i62.0409, i32 1
   %72 = load i64, ptr %len71, align 8
-  %add72 = add i64 %72, %pos.0409
-  %inc74 = add nuw i64 %i62.0410, 1
+  %add72 = add i64 %72, %pos.0410
+  %inc74 = add nuw i64 %i62.0409, 1
   %73 = load ptr, ptr %_M_finish.i119, align 8
   %sub.ptr.lhs.cast.i120 = ptrtoint ptr %73 to i64
   %sub.ptr.rhs.cast.i121 = ptrtoint ptr %71 to i64

@@ -113,25 +113,25 @@ define ptr @mca_allocator_bucket_alloc(ptr nocapture noundef readonly %0, i64 no
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.06877 = phi i64 [ %7, %.lr.ph ], [ 8, %2 ]
-  %.06976 = phi i32 [ %6, %.lr.ph ], [ 0, %2 ]
-  %6 = add nuw nsw i32 %.06976, 1
-  %7 = shl i64 %.06877, 1
+  %.06777 = phi i32 [ %6, %.lr.ph ], [ 0, %2 ]
+  %.06976 = phi i64 [ %7, %.lr.ph ], [ 8, %2 ]
+  %6 = add nuw nsw i32 %.06777, 1
+  %7 = shl i64 %.06976, 1
   %8 = icmp ugt i64 %4, %7
   br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.069.lcssa = phi i32 [ 0, %2 ], [ %6, %.lr.ph ]
-  %.068.lcssa = phi i64 [ 8, %2 ], [ %7, %.lr.ph ]
+  %.069.lcssa = phi i64 [ 8, %2 ], [ %7, %.lr.ph ]
+  %.067.lcssa = phi i32 [ 0, %2 ], [ %6, %.lr.ph ]
   %9 = load i32, ptr @max_bucket_idx, align 4
-  %10 = icmp sgt i32 %.069.lcssa, %9
+  %10 = icmp sgt i32 %.067.lcssa, %9
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %._crit_edge
   %12 = load ptr, ptr @opal_show_help, align 8
   %13 = zext nneg i32 %9 to i64
   %14 = shl i64 8, %13
-  %15 = add nuw nsw i32 %.069.lcssa, 1
+  %15 = add nuw nsw i32 %.067.lcssa, 1
   %16 = tail call i32 (ptr, ptr, i32, ...) %12(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, i64 noundef %4, i64 noundef %14, ptr noundef nonnull @.str.2, i32 noundef %15) #6
   br label %89
 
@@ -141,13 +141,13 @@ define ptr @mca_allocator_bucket_alloc(ptr nocapture noundef readonly %0, i64 no
   br i1 %19, label %20, label %._crit_edge87
 
 ._crit_edge87:                                    ; preds = %17
-  %.pre = zext nneg i32 %.069.lcssa to i64
+  %.pre = zext nneg i32 %.067.lcssa to i64
   br label %26
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
-  %23 = zext nneg i32 %.069.lcssa to i64
+  %23 = zext nneg i32 %.067.lcssa to i64
   %24 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %22, i64 %23, i32 1, i32 1
   %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %24) #6
   br label %26
@@ -165,7 +165,7 @@ define ptr @mca_allocator_bucket_alloc(ptr nocapture noundef readonly %0, i64 no
   %32 = getelementptr inbounds i8, ptr %30, i64 8
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %29, align 8
-  store i32 %.069.lcssa, ptr %32, align 8
+  store i32 %.067.lcssa, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %30, i64 16
   %35 = load i8, ptr @opal_uses_threads, align 1
   %36 = trunc i8 %35 to i1
@@ -178,7 +178,7 @@ define ptr @mca_allocator_bucket_alloc(ptr nocapture noundef readonly %0, i64 no
   br label %89
 
 41:                                               ; preds = %26
-  %42 = add i64 %.068.lcssa, 16
+  %42 = add i64 %.069.lcssa, 16
   store i64 %42, ptr %3, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 64
   %44 = load ptr, ptr %43, align 8
@@ -214,36 +214,36 @@ define ptr @mca_allocator_bucket_alloc(ptr nocapture noundef readonly %0, i64 no
   %65 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %64, i64 %.pre-phi, i32 2
   store ptr %47, ptr %65, align 8
   %66 = load i64, ptr %3, align 8
-  %.not74 = icmp ult i64 %66, %.068.lcssa
+  %.not74 = icmp ult i64 %66, %.069.lcssa
   br i1 %.not74, label %78, label %67
 
 67:                                               ; preds = %56
-  %68 = getelementptr inbounds i8, ptr %59, i64 %.068.lcssa
+  %68 = getelementptr inbounds i8, ptr %59, i64 %.069.lcssa
   %69 = load ptr, ptr %27, align 8
   %70 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %69, i64 %.pre-phi
   store ptr %68, ptr %70, align 8
   store ptr %68, ptr %59, align 8
   %71 = load i64, ptr %3, align 8
-  %.not7579 = icmp ult i64 %71, %.068.lcssa
+  %.not7579 = icmp ult i64 %71, %.069.lcssa
   br i1 %.not7579, label %._crit_edge83, label %.lr.ph82
 
 .lr.ph82:                                         ; preds = %67, %.lr.ph82
-  %.06780 = phi ptr [ %72, %.lr.ph82 ], [ %59, %67 ]
-  %72 = getelementptr inbounds i8, ptr %.06780, i64 %.068.lcssa
-  %73 = getelementptr inbounds i8, ptr %72, i64 %.068.lcssa
+  %.06880 = phi ptr [ %72, %.lr.ph82 ], [ %59, %67 ]
+  %72 = getelementptr inbounds i8, ptr %.06880, i64 %.069.lcssa
+  %73 = getelementptr inbounds i8, ptr %72, i64 %.069.lcssa
   %74 = getelementptr inbounds i8, ptr %72, i64 8
   store ptr %73, ptr %74, align 8
   store ptr %73, ptr %72, align 8
   %75 = load i64, ptr %3, align 8
-  %76 = sub i64 %75, %.068.lcssa
+  %76 = sub i64 %75, %.069.lcssa
   store i64 %76, ptr %3, align 8
-  %.not75 = icmp ult i64 %76, %.068.lcssa
+  %.not75 = icmp ult i64 %76, %.069.lcssa
   br i1 %.not75, label %._crit_edge83, label %.lr.ph82, !llvm.loop !8
 
 ._crit_edge83:                                    ; preds = %.lr.ph82, %67
-  %.067.lcssa = phi ptr [ %59, %67 ], [ %72, %.lr.ph82 ]
-  store ptr %59, ptr %.067.lcssa, align 8
-  %77 = getelementptr inbounds i8, ptr %.067.lcssa, i64 8
+  %.068.lcssa = phi ptr [ %59, %67 ], [ %72, %.lr.ph82 ]
+  store ptr %59, ptr %.068.lcssa, align 8
+  %77 = getelementptr inbounds i8, ptr %.068.lcssa, i64 8
   store ptr null, ptr %77, align 8
   br label %79
 
@@ -253,7 +253,7 @@ define ptr @mca_allocator_bucket_alloc(ptr nocapture noundef readonly %0, i64 no
 
 79:                                               ; preds = %78, %._crit_edge83
   %80 = getelementptr inbounds i8, ptr %47, i64 24
-  store i32 %.069.lcssa, ptr %80, align 8
+  store i32 %.067.lcssa, ptr %80, align 8
   %81 = load i8, ptr @opal_uses_threads, align 1
   %82 = trunc i8 %81 to i1
   br i1 %82, label %83, label %87
@@ -299,17 +299,17 @@ define ptr @mca_allocator_bucket_alloc_align(ptr nocapture noundef readonly %0, 
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
-  %.06471 = phi i32 [ %23, %.lr.ph ], [ 1, %13 ]
+  %.06371 = phi i32 [ %23, %.lr.ph ], [ 1, %13 ]
   %.06570 = phi i64 [ %22, %.lr.ph ], [ %14, %13 ]
   %22 = lshr i64 %.06570, 1
-  %23 = add nuw nsw i32 %.06471, 1
+  %23 = add nuw nsw i32 %.06371, 1
   %24 = icmp ugt i64 %.06570, 17
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
-  %.064.lcssa = phi i32 [ 1, %13 ], [ %23, %.lr.ph ]
+  %.063.lcssa = phi i32 [ 1, %13 ], [ %23, %.lr.ph ]
   %25 = load i32, ptr @max_bucket_idx, align 4
-  %26 = icmp sgt i32 %.064.lcssa, %25
+  %26 = icmp sgt i32 %.063.lcssa, %25
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %._crit_edge
@@ -317,12 +317,12 @@ define ptr @mca_allocator_bucket_alloc_align(ptr nocapture noundef readonly %0, 
   %29 = load i64, ptr %4, align 8
   %30 = zext nneg i32 %25 to i64
   %31 = shl i64 8, %30
-  %32 = add nuw nsw i32 %.064.lcssa, 1
+  %32 = add nuw nsw i32 %.063.lcssa, 1
   %33 = call i32 (ptr, ptr, i32, ...) %28(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 1, i64 noundef %29, i64 noundef %31, ptr noundef nonnull @.str.2, i32 noundef %32) #6
   br label %77
 
 34:                                               ; preds = %._crit_edge
-  %35 = add nuw nsw i32 %.064.lcssa, 3
+  %35 = add nuw nsw i32 %.063.lcssa, 3
   %36 = zext nneg i32 %35 to i64
   %37 = shl nuw i64 1, %36
   %38 = load i64, ptr %4, align 8
@@ -334,13 +334,13 @@ define ptr @mca_allocator_bucket_alloc_align(ptr nocapture noundef readonly %0, 
   br i1 %41, label %42, label %._crit_edge79
 
 ._crit_edge79:                                    ; preds = %34
-  %.pre = zext nneg i32 %.064.lcssa to i64
+  %.pre = zext nneg i32 %.063.lcssa to i64
   br label %48
 
 42:                                               ; preds = %34
   %43 = getelementptr inbounds i8, ptr %0, i64 48
   %44 = load ptr, ptr %43, align 8
-  %45 = zext nneg i32 %.064.lcssa to i64
+  %45 = zext nneg i32 %.063.lcssa to i64
   %46 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %44, i64 %45, i32 1, i32 1
   %47 = call i32 @pthread_mutex_lock(ptr noundef nonnull %46) #6
   br label %48
@@ -371,8 +371,8 @@ define ptr @mca_allocator_bucket_alloc_align(ptr nocapture noundef readonly %0, 
   br i1 %.not6972, label %._crit_edge76, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %57, %.lr.ph75
-  %.06373 = phi ptr [ %62, %.lr.ph75 ], [ %20, %57 ]
-  %62 = getelementptr inbounds i8, ptr %.06373, i64 %37
+  %.06473 = phi ptr [ %62, %.lr.ph75 ], [ %20, %57 ]
+  %62 = getelementptr inbounds i8, ptr %.06473, i64 %37
   %63 = getelementptr inbounds i8, ptr %62, i64 %37
   %64 = getelementptr inbounds i8, ptr %62, i64 8
   store ptr %63, ptr %64, align 8
@@ -384,9 +384,9 @@ define ptr @mca_allocator_bucket_alloc_align(ptr nocapture noundef readonly %0, 
   br i1 %.not69, label %._crit_edge76, label %.lr.ph75, !llvm.loop !10
 
 ._crit_edge76:                                    ; preds = %.lr.ph75, %57
-  %.063.lcssa = phi ptr [ %20, %57 ], [ %62, %.lr.ph75 ]
-  store ptr %20, ptr %.063.lcssa, align 8
-  %67 = getelementptr inbounds i8, ptr %.063.lcssa, i64 8
+  %.064.lcssa = phi ptr [ %20, %57 ], [ %62, %.lr.ph75 ]
+  store ptr %20, ptr %.064.lcssa, align 8
+  %67 = getelementptr inbounds i8, ptr %.064.lcssa, i64 8
   store ptr null, ptr %67, align 8
   br label %69
 
@@ -396,7 +396,7 @@ define ptr @mca_allocator_bucket_alloc_align(ptr nocapture noundef readonly %0, 
 
 69:                                               ; preds = %68, %._crit_edge76
   %70 = getelementptr inbounds i8, ptr %19, i64 -8
-  store i32 %.064.lcssa, ptr %70, align 8
+  store i32 %.063.lcssa, ptr %70, align 8
   %71 = load i8, ptr @opal_uses_threads, align 1
   %72 = trunc i8 %71 to i1
   br i1 %72, label %73, label %77
@@ -565,25 +565,25 @@ define noundef i32 @mca_allocator_bucket_cleanup(ptr nocapture noundef readonly 
   br label %.sink.split
 
 .preheader98:                                     ; preds = %14, %32
-  %.07299 = phi ptr [ %34, %32 ], [ %18, %14 ]
-  %25 = load ptr, ptr %.07299, align 8
+  %.07399 = phi ptr [ %34, %32 ], [ %18, %14 ]
+  %25 = load ptr, ptr %.07399, align 8
   br label %26
 
 26:                                               ; preds = %30, %.preheader98
-  %.076 = phi ptr [ %25, %.preheader98 ], [ %31, %30 ]
-  %27 = getelementptr inbounds i8, ptr %.076, i64 8
+  %.077 = phi ptr [ %25, %.preheader98 ], [ %31, %30 ]
+  %27 = getelementptr inbounds i8, ptr %.077, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
   %.not119 = icmp eq i64 %indvars.iv, %29
   br i1 %.not119, label %.lr.ph, label %30
 
 30:                                               ; preds = %26
-  %31 = load ptr, ptr %.076, align 8
+  %31 = load ptr, ptr %.077, align 8
   %.not95 = icmp eq ptr %31, %25
   br i1 %.not95, label %32, label %26, !llvm.loop !11
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %.07299, i64 8
+  %33 = getelementptr inbounds i8, ptr %.07399, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not120 = icmp eq ptr %34, null
   br i1 %.not120, label %.lr.ph105, label %.preheader98, !llvm.loop !12
@@ -599,15 +599,15 @@ define noundef i32 @mca_allocator_bucket_cleanup(ptr nocapture noundef readonly 
 
 .lr.ph105.split:                                  ; preds = %.lr.ph105, %.lr.ph105.splitthread-pre-split
   %37 = phi ptr [ %.pr, %.lr.ph105.splitthread-pre-split ], [ %35, %.lr.ph105 ]
-  %.173104 = phi ptr [ %39, %.lr.ph105.splitthread-pre-split ], [ %18, %.lr.ph105 ]
-  %38 = getelementptr inbounds i8, ptr %.173104, i64 8
+  %.174104 = phi ptr [ %39, %.lr.ph105.splitthread-pre-split ], [ %18, %.lr.ph105 ]
+  %38 = getelementptr inbounds i8, ptr %.174104, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not94 = icmp eq ptr %37, null
   br i1 %.not94, label %42, label %40
 
 40:                                               ; preds = %.lr.ph105.split
   %41 = load ptr, ptr %7, align 8
-  tail call void %37(ptr noundef %41, ptr noundef nonnull %.173104) #6
+  tail call void %37(ptr noundef %41, ptr noundef nonnull %.174104) #6
   br label %42
 
 42:                                               ; preds = %40, %.lr.ph105.split
@@ -629,17 +629,17 @@ define noundef i32 @mca_allocator_bucket_cleanup(ptr nocapture noundef readonly 
 
 .lr.ph:                                           ; preds = %26, %79
   %47 = phi ptr [ %80, %79 ], [ %18, %26 ]
-  %.074102 = phi ptr [ %.175, %79 ], [ %17, %26 ]
+  %.075102 = phi ptr [ %.176, %79 ], [ %17, %26 ]
   %48 = load ptr, ptr %47, align 8
   br label %49
 
 49:                                               ; preds = %49, %.lr.ph
-  %.177 = phi ptr [ %48, %.lr.ph ], [ %54, %49 ]
-  %50 = getelementptr inbounds i8, ptr %.177, i64 8
+  %.178 = phi ptr [ %48, %.lr.ph ], [ %54, %49 ]
+  %50 = getelementptr inbounds i8, ptr %.178, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = zext i32 %51 to i64
   %53 = icmp ne i64 %indvars.iv, %52
-  %54 = load ptr, ptr %.177, align 8
+  %54 = load ptr, ptr %.178, align 8
   %55 = icmp ne ptr %54, %48
   %56 = select i1 %53, i1 %55, i1 false
   br i1 %56, label %49, label %57, !llvm.loop !15
@@ -648,38 +648,38 @@ define noundef i32 @mca_allocator_bucket_cleanup(ptr nocapture noundef readonly 
   br i1 %53, label %.preheader96, label %77
 
 .preheader96:                                     ; preds = %57, %66
-  %.278 = phi ptr [ %69, %66 ], [ %48, %57 ]
+  %.279 = phi ptr [ %69, %66 ], [ %48, %57 ]
   %58 = load ptr, ptr %5, align 8
   %59 = getelementptr inbounds %struct.mca_allocator_bucket_bucket_t, ptr %58, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, %.278
+  %61 = icmp eq ptr %60, %.279
   br i1 %61, label %66, label %.preheader
 
 .preheader:                                       ; preds = %.preheader96, %.preheader
-  %.079 = phi ptr [ %63, %.preheader ], [ %60, %.preheader96 ]
-  %62 = getelementptr inbounds i8, ptr %.079, i64 8
+  %.080 = phi ptr [ %63, %.preheader ], [ %60, %.preheader96 ]
+  %62 = getelementptr inbounds i8, ptr %.080, i64 8
   %63 = load ptr, ptr %62, align 8
-  %.not90 = icmp eq ptr %63, %.278
+  %.not90 = icmp eq ptr %63, %.279
   br i1 %.not90, label %64, label %.preheader, !llvm.loop !16
 
 64:                                               ; preds = %.preheader
-  %65 = getelementptr inbounds i8, ptr %.079, i64 8
+  %65 = getelementptr inbounds i8, ptr %.080, i64 8
   br label %66
 
 66:                                               ; preds = %.preheader96, %64
   %.sink117 = phi ptr [ %65, %64 ], [ %59, %.preheader96 ]
-  %67 = getelementptr inbounds i8, ptr %.278, i64 8
+  %67 = getelementptr inbounds i8, ptr %.279, i64 8
   %68 = load ptr, ptr %67, align 8
   store ptr %68, ptr %.sink117, align 8
-  %69 = load ptr, ptr %.278, align 8
+  %69 = load ptr, ptr %.279, align 8
   %.not91 = icmp eq ptr %69, %48
   br i1 %.not91, label %70, label %.preheader96, !llvm.loop !17
 
 70:                                               ; preds = %66
-  %71 = load ptr, ptr %.074102, align 8
+  %71 = load ptr, ptr %.075102, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
-  store ptr %73, ptr %.074102, align 8
+  store ptr %73, ptr %.075102, align 8
   %74 = load ptr, ptr %6, align 8
   %.not92 = icmp eq ptr %74, null
   br i1 %.not92, label %79, label %75
@@ -694,13 +694,13 @@ define noundef i32 @mca_allocator_bucket_cleanup(ptr nocapture noundef readonly 
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %77, %75
-  %.175.ph = phi ptr [ %78, %77 ], [ %.074102, %75 ]
-  %.pr115 = load ptr, ptr %.175.ph, align 8
+  %.176.ph = phi ptr [ %78, %77 ], [ %.075102, %75 ]
+  %.pr115 = load ptr, ptr %.176.ph, align 8
   br label %79
 
 79:                                               ; preds = %thread-pre-split, %70
   %80 = phi ptr [ %.pr115, %thread-pre-split ], [ %73, %70 ]
-  %.175 = phi ptr [ %.175.ph, %thread-pre-split ], [ %.074102, %70 ]
+  %.176 = phi ptr [ %.176.ph, %thread-pre-split ], [ %.075102, %70 ]
   %.not = icmp eq ptr %80, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 

@@ -624,9 +624,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_rsub16P11p
   br label %46
 
 46:                                               ; preds = %43, %46
-  %.04565 = phi i64 [ 1, %43 ], [ %70, %46 ]
-  %.04664 = phi i64 [ %23, %43 ], [ %69, %46 ]
-  %47 = shl i64 %.04565, 4
+  %.04565 = phi i64 [ %23, %43 ], [ %69, %46 ]
+  %.04664 = phi i64 [ 1, %43 ], [ %70, %46 ]
+  %47 = shl i64 %.04664, 4
   %48 = and i64 %47, 4294967280
   %49 = shl i64 65535, %48
   %50 = and i64 %49, %34
@@ -646,14 +646,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_rsub16P11p
   %62 = lshr i32 %61, 1
   %63 = zext nneg i32 %62 to i64
   %64 = xor i64 %49, -1
-  %65 = and i64 %.04664, %64
+  %65 = and i64 %.04565, %64
   %sext49 = shl i64 %63, 48
   %66 = ashr exact i64 %sext49, 48
   %67 = mul i64 %66, %53
   %68 = and i64 %67, %49
   %69 = or i64 %68, %65
-  %70 = add nsw i64 %.04565, -1
-  %.not = icmp eq i64 %.04565, 0
+  %70 = add nsw i64 %.04664, -1
+  %.not = icmp eq i64 %.04664, 0
   br i1 %.not, label %71, label %46, !llvm.loop !10
 
 71:                                               ; preds = %46
@@ -758,9 +758,9 @@ define noundef i64 @_Z17fast_rv64e_rsub16P11processor_t6insn_tm(ptr nocapture no
   br label %46
 
 46:                                               ; preds = %43, %46
-  %.04565 = phi i64 [ 3, %43 ], [ %70, %46 ]
-  %.04664 = phi i64 [ %23, %43 ], [ %69, %46 ]
-  %47 = shl i64 %.04565, 4
+  %.04565 = phi i64 [ %23, %43 ], [ %69, %46 ]
+  %.04664 = phi i64 [ 3, %43 ], [ %70, %46 ]
+  %47 = shl i64 %.04664, 4
   %48 = and i64 %47, 4294967280
   %49 = shl i64 65535, %48
   %50 = and i64 %49, %34
@@ -780,14 +780,14 @@ define noundef i64 @_Z17fast_rv64e_rsub16P11processor_t6insn_tm(ptr nocapture no
   %62 = lshr i32 %61, 1
   %63 = zext nneg i32 %62 to i64
   %64 = xor i64 %49, -1
-  %65 = and i64 %.04664, %64
+  %65 = and i64 %.04565, %64
   %sext49 = shl i64 %63, 48
   %66 = ashr exact i64 %sext49, 48
   %67 = mul i64 %66, %53
   %68 = and i64 %67, %49
   %69 = or i64 %68, %65
-  %70 = add nsw i64 %.04565, -1
-  %.not = icmp eq i64 %.04565, 0
+  %70 = add nsw i64 %.04664, -1
+  %.not = icmp eq i64 %.04664, 0
   br i1 %.not, label %71, label %46, !llvm.loop !11
 
 71:                                               ; preds = %46

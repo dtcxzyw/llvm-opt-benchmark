@@ -2732,9 +2732,9 @@ common.ret:                                       ; preds = %1364, %321
   ret { i64, ptr } %common.ret.op
 
 321:                                              ; preds = %1377, %323, %318
-  %.140 = phi ptr [ %.fca.1.extract, %1377 ], [ %306, %323 ], [ %306, %318 ]
+  %.1 = phi ptr [ %.fca.1.extract, %1377 ], [ %306, %323 ], [ %306, %318 ]
   store i8 1, ptr %109, align 1
-  %322 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.140, 1
+  %322 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.1, 1
   br label %common.ret
 
 323:                                              ; preds = %318

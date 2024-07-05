@@ -3855,19 +3855,19 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %msb_sum.016.i = phi i32 [ 0, %for.body.preheader.i ], [ %add.i, %for.body.i ]
-  %sum.015.i = phi i32 [ %1, %for.body.preheader.i ], [ %op.rdx, %for.body.i ]
+  %sum.017.i = phi i32 [ %1, %for.body.preheader.i ], [ %op.rdx, %for.body.i ]
+  %msb_sum.015.i = phi i32 [ 0, %for.body.preheader.i ], [ %add.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %shr.i = lshr i32 %2, 31
-  %add.i = add i32 %shr.i, %msb_sum.016.i
+  %add.i = add i32 %shr.i, %msb_sum.015.i
   %3 = insertelement <4 x i32> poison, i32 %2, i64 0
   %4 = shufflevector <4 x i32> %3, <4 x i32> poison, <4 x i32> zeroinitializer
   %5 = icmp ugt <4 x i32> %4, <i32 127, i32 16383, i32 2097151, i32 268435455>
   %6 = bitcast <4 x i1> %5 to i4
   %7 = tail call range(i4 0, 5) i4 @llvm.ctpop.i4(i4 %6)
   %8 = zext nneg i4 %7 to i32
-  %op.rdx = add i32 %sum.015.i, %8
+  %op.rdx = add i32 %sum.017.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !16
@@ -3877,9 +3877,9 @@ for.end.loopexit.i:                               ; preds = %for.body.i
   br label %_ZN6google8protobuf8internalL10VarintSizeILb0ELb1EiEEmPKT1_i.exit
 
 _ZN6google8protobuf8internalL10VarintSizeILb0ELb1EiEEmPKT1_i.exit: ; preds = %entry, %for.end.loopexit.i
-  %sum.0.lcssa.i = phi i32 [ %1, %entry ], [ %op.rdx, %for.end.loopexit.i ]
   %msb_sum.0.lcssa.i = phi i32 [ 0, %entry ], [ %9, %for.end.loopexit.i ]
-  %add15.i = add i32 %msb_sum.0.lcssa.i, %sum.0.lcssa.i
+  %sum.0.lcssa.i = phi i32 [ %1, %entry ], [ %op.rdx, %for.end.loopexit.i ]
+  %add15.i = add i32 %sum.0.lcssa.i, %msb_sum.0.lcssa.i
   %conv.i = zext i32 %add15.i to i64
   ret i64 %conv.i
 }
@@ -3899,7 +3899,7 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %sum.012.i = phi i32 [ %1, %for.body.preheader.i ], [ %op.rdx, %for.body.i ]
+  %sum.013.i = phi i32 [ %1, %for.body.preheader.i ], [ %op.rdx, %for.body.i ]
   %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %3 = insertelement <4 x i32> poison, i32 %2, i64 0
@@ -3908,7 +3908,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %6 = bitcast <4 x i1> %5 to i4
   %7 = tail call range(i4 0, 5) i4 @llvm.ctpop.i4(i4 %6)
   %8 = zext nneg i4 %7 to i32
-  %op.rdx = add i32 %sum.012.i, %8
+  %op.rdx = add i32 %sum.013.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN6google8protobuf8internalL10VarintSizeILb0ELb0EjEEmPKT1_i.exit, label %for.body.i, !llvm.loop !17
@@ -3972,19 +3972,19 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %msb_sum.016.i = phi i32 [ 0, %for.body.preheader.i ], [ %add.i, %for.body.i ]
-  %sum.015.i = phi i32 [ %1, %for.body.preheader.i ], [ %op.rdx, %for.body.i ]
+  %sum.017.i = phi i32 [ %1, %for.body.preheader.i ], [ %op.rdx, %for.body.i ]
+  %msb_sum.015.i = phi i32 [ 0, %for.body.preheader.i ], [ %add.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %shr.i = lshr i32 %2, 31
-  %add.i = add i32 %shr.i, %msb_sum.016.i
+  %add.i = add i32 %shr.i, %msb_sum.015.i
   %3 = insertelement <4 x i32> poison, i32 %2, i64 0
   %4 = shufflevector <4 x i32> %3, <4 x i32> poison, <4 x i32> zeroinitializer
   %5 = icmp ugt <4 x i32> %4, <i32 127, i32 16383, i32 2097151, i32 268435455>
   %6 = bitcast <4 x i1> %5 to i4
   %7 = tail call range(i4 0, 5) i4 @llvm.ctpop.i4(i4 %6)
   %8 = zext nneg i4 %7 to i32
-  %op.rdx = add i32 %sum.015.i, %8
+  %op.rdx = add i32 %sum.017.i, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !16
@@ -3994,9 +3994,9 @@ for.end.loopexit.i:                               ; preds = %for.body.i
   br label %_ZN6google8protobuf8internalL10VarintSizeILb0ELb1EiEEmPKT1_i.exit
 
 _ZN6google8protobuf8internalL10VarintSizeILb0ELb1EiEEmPKT1_i.exit: ; preds = %entry, %for.end.loopexit.i
-  %sum.0.lcssa.i = phi i32 [ %1, %entry ], [ %op.rdx, %for.end.loopexit.i ]
   %msb_sum.0.lcssa.i = phi i32 [ 0, %entry ], [ %9, %for.end.loopexit.i ]
-  %add15.i = add i32 %msb_sum.0.lcssa.i, %sum.0.lcssa.i
+  %sum.0.lcssa.i = phi i32 [ %1, %entry ], [ %op.rdx, %for.end.loopexit.i ]
+  %add15.i = add i32 %sum.0.lcssa.i, %msb_sum.0.lcssa.i
   %conv.i = zext i32 %add15.i to i64
   ret i64 %conv.i
 }

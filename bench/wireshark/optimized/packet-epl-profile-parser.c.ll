@@ -472,16 +472,16 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
   br label %42
 
 6:                                                ; preds = %.preheader
-  %7 = getelementptr i8, ptr %.03979, i64 16
-  %8 = getelementptr i8, ptr %.03979, i64 24
+  %7 = getelementptr i8, ptr %.04079, i64 16
+  %8 = getelementptr i8, ptr %.04079, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not51 = icmp eq ptr %9, null
   br i1 %.not51, label %14, label %.preheader, !llvm.loop !8
 
 .preheader:                                       ; preds = %4, %6
   %10 = phi ptr [ %9, %6 ], [ @.str.41, %4 ]
-  %.03979 = phi ptr [ %7, %6 ], [ @namespaces, %4 ]
-  %11 = load ptr, ptr %.03979, align 8
+  %.04079 = phi ptr [ %7, %6 ], [ @namespaces, %4 ]
+  %11 = load ptr, ptr %.04079, align 8
   %12 = tail call i32 @xmlXPathRegisterNs(ptr noundef nonnull %5, ptr noundef %11, ptr noundef nonnull %10) #10
   %.not57 = icmp eq i32 %12, 0
   br i1 %.not57, label %6, label %13
@@ -503,7 +503,7 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
 
 21:                                               ; preds = %14, %35
   %22 = phi ptr [ @.str.44, %14 ], [ %37, %35 ]
-  %.03880 = phi ptr [ @xpaths, %14 ], [ %36, %35 ]
+  %.03980 = phi ptr [ @xpaths, %14 ], [ %36, %35 ]
   %23 = tail call ptr @xmlXPathEvalExpression(ptr noundef nonnull %22, ptr noundef nonnull %5) #10
   %.not53 = icmp eq ptr %23, null
   br i1 %.not53, label %27, label %24
@@ -520,7 +520,7 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
   br label %40
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.03880, i64 8
+  %29 = getelementptr inbounds i8, ptr %.03980, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not55 = icmp eq ptr %30, null
   br i1 %.not55, label %35, label %31
@@ -536,7 +536,7 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
 
 35:                                               ; preds = %33, %31, %28
   tail call void @xmlXPathFreeObject(ptr noundef nonnull %23) #10
-  %36 = getelementptr i8, ptr %.03880, i64 16
+  %36 = getelementptr i8, ptr %.03980, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not52 = icmp eq ptr %37, null
   br i1 %.not52, label %38, label %21, !llvm.loop !9
@@ -546,7 +546,7 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
   br label %40
 
 40:                                               ; preds = %38, %27
-  %.041 = phi ptr [ null, %27 ], [ %0, %38 ]
+  %.0 = phi ptr [ null, %27 ], [ %0, %38 ]
   %.not58 = icmp eq ptr %19, null
   br i1 %.not58, label %.thread, label %41
 
@@ -555,18 +555,18 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
   br label %.thread
 
 .thread:                                          ; preds = %40, %41, %13
-  %.04164 = phi ptr [ %.041, %41 ], [ %.041, %40 ], [ null, %13 ]
+  %.065 = phi ptr [ %.0, %41 ], [ %.0, %40 ], [ null, %13 ]
   tail call void @xmlXPathFreeContext(ptr noundef nonnull %5) #10
   br label %42
 
 42:                                               ; preds = %.thread, %.thread.thread.thread72
-  %.041646974 = phi ptr [ null, %.thread.thread.thread72 ], [ %.04164, %.thread ]
+  %.0656974 = phi ptr [ null, %.thread.thread.thread72 ], [ %.065, %.thread ]
   tail call void @xmlFreeDoc(ptr noundef nonnull %3) #10
   br label %43
 
 43:                                               ; preds = %.thread.thread.thread, %42
-  %.041646971 = phi ptr [ null, %.thread.thread.thread ], [ %.041646974, %42 ]
-  ret ptr %.041646971
+  %.0656971 = phi ptr [ null, %.thread.thread.thread ], [ %.0656974, %42 ]
+  ret ptr %.0656971
 }
 
 declare ptr @xmlParseFile(ptr noundef) local_unnamed_addr #1
@@ -788,9 +788,9 @@ define internal range(i32 -1, 1) i32 @populate_datatype_list(ptr nocapture nound
 
 9:                                                ; preds = %.lr.ph49, %._crit_edge
   %10 = phi i32 [ %6, %.lr.ph49 ], [ %52, %._crit_edge ]
-  %.03247 = phi i32 [ 0, %.lr.ph49 ], [ %53, %._crit_edge ]
+  %.03047 = phi i32 [ 0, %.lr.ph49 ], [ %53, %._crit_edge ]
   %11 = load ptr, ptr %5, align 8
-  %12 = zext nneg i32 %.03247 to i64
+  %12 = zext nneg i32 %.03047 to i64
   %13 = getelementptr ptr, ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
@@ -804,8 +804,8 @@ define internal range(i32 -1, 1) i32 @populate_datatype_list(ptr nocapture nound
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %14, i64 88
-  %.03143 = load ptr, ptr %19, align 8
-  %.not3644 = icmp eq ptr %.03143, null
+  %.03243 = load ptr, ptr %19, align 8
+  %.not3644 = icmp eq ptr %.03243, null
   br i1 %.not3644, label %._crit_edge, label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %18
@@ -813,10 +813,10 @@ define internal range(i32 -1, 1) i32 @populate_datatype_list(ptr nocapture nound
   br label %21
 
 21:                                               ; preds = %.lr.ph46, %.loopexit
-  %.03145 = phi ptr [ %.03143, %.lr.ph46 ], [ %.031, %.loopexit ]
-  %22 = getelementptr inbounds i8, ptr %.03145, i64 16
+  %.03245 = phi ptr [ %.03243, %.lr.ph46 ], [ %.032, %.loopexit ]
+  %22 = getelementptr inbounds i8, ptr %.03245, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.03145, i64 24
+  %24 = getelementptr inbounds i8, ptr %.03245, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 80
   %27 = load ptr, ptr %26, align 8
@@ -830,19 +830,19 @@ define internal range(i32 -1, 1) i32 @populate_datatype_list(ptr nocapture nound
   br i1 %30, label %31, label %.loopexit
 
 31:                                               ; preds = %29
-  %.03040 = load ptr, ptr %20, align 8
-  %.not3841 = icmp eq ptr %.03040, null
+  %.03140 = load ptr, ptr %20, align 8
+  %.not3841 = icmp eq ptr %.03140, null
   br i1 %.not3841, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31, %49
-  %.03042 = phi ptr [ %.030, %49 ], [ %.03040, %31 ]
-  %32 = getelementptr inbounds i8, ptr %.03042, i64 8
+  %.03142 = phi ptr [ %.031, %49 ], [ %.03140, %31 ]
+  %32 = getelementptr inbounds i8, ptr %.03142, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 1
   br i1 %34, label %35, label %49
 
 35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds i8, ptr %.03042, i64 16
+  %36 = getelementptr inbounds i8, ptr %.03142, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr @epl_type_to_hf(ptr noundef %37) #10
   %.not39 = icmp eq ptr %38, null
@@ -866,15 +866,15 @@ define internal range(i32 -1, 1) i32 @populate_datatype_list(ptr nocapture nound
   br label %49
 
 49:                                               ; preds = %.lr.ph, %41, %39
-  %50 = getelementptr inbounds i8, ptr %.03042, i64 48
-  %.030 = load ptr, ptr %50, align 8
-  %.not38 = icmp eq ptr %.030, null
+  %50 = getelementptr inbounds i8, ptr %.03142, i64 48
+  %.031 = load ptr, ptr %50, align 8
+  %.not38 = icmp eq ptr %.031, null
   br i1 %.not38, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %49, %31, %21, %29
-  %51 = getelementptr inbounds i8, ptr %.03145, i64 48
-  %.031 = load ptr, ptr %51, align 8
-  %.not36 = icmp eq ptr %.031, null
+  %51 = getelementptr inbounds i8, ptr %.03245, i64 48
+  %.032 = load ptr, ptr %51, align 8
+  %.not36 = icmp eq ptr %.032, null
   br i1 %.not36, label %._crit_edge.loopexit, label %21, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
@@ -883,7 +883,7 @@ define internal range(i32 -1, 1) i32 @populate_datatype_list(ptr nocapture nound
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
   %52 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %10, %18 ]
-  %53 = add nuw nsw i32 %.03247, 1
+  %53 = add nuw nsw i32 %.03047, 1
   %54 = icmp slt i32 %53, %52
   br i1 %54, label %9, label %._crit_edge50, !llvm.loop !14
 
@@ -1062,8 +1062,8 @@ define internal fastcc range(i32 0, 2) i32 @parse_obj_tag(ptr nocapture noundef 
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2
   %6 = getelementptr inbounds i8, ptr %0, i64 88
-  %.03752 = load ptr, ptr %6, align 8
-  %.not53 = icmp eq ptr %.03752, null
+  %.03552 = load ptr, ptr %6, align 8
+  %.not53 = icmp eq ptr %.03552, null
   br i1 %.not53, label %.loopexit.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -1074,12 +1074,12 @@ define internal fastcc range(i32 0, 2) i32 @parse_obj_tag(ptr nocapture noundef 
   br label %11
 
 11:                                               ; preds = %.lr.ph, %50
-  %.03756 = phi ptr [ %.03752, %.lr.ph ], [ %.037, %50 ]
-  %.055 = phi ptr [ null, %.lr.ph ], [ %.1, %50 ]
-  %.03554 = phi ptr [ null, %.lr.ph ], [ %.136, %50 ]
-  %12 = getelementptr inbounds i8, ptr %.03756, i64 16
+  %.03556 = phi ptr [ %.03552, %.lr.ph ], [ %.035, %50 ]
+  %.03655 = phi ptr [ null, %.lr.ph ], [ %.1, %50 ]
+  %.03754 = phi ptr [ null, %.lr.ph ], [ %.138, %50 ]
+  %12 = getelementptr inbounds i8, ptr %.03556, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.03756, i64 24
+  %14 = getelementptr inbounds i8, ptr %.03556, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 80
   %17 = load ptr, ptr %16, align 8
@@ -1151,28 +1151,28 @@ define internal fastcc range(i32 0, 2) i32 @parse_obj_tag(ptr nocapture noundef 
 48:                                               ; preds = %46
   %49 = call i32 @g_str_equal(ptr noundef nonnull @.str.55, ptr noundef %13) #10
   %.not48 = icmp eq i32 %49, 0
-  %spec.select = select i1 %.not48, ptr %.055, ptr %17
+  %spec.select = select i1 %.not48, ptr %.03754, ptr %17
   br label %50
 
 50:                                               ; preds = %48, %46, %19, %27, %37, %43, %35, %31, %23
-  %.136 = phi ptr [ %.03554, %19 ], [ %.03554, %23 ], [ %.03554, %27 ], [ %.03554, %31 ], [ %.03554, %43 ], [ %.03554, %37 ], [ %.03554, %35 ], [ %17, %46 ], [ %.03554, %48 ]
-  %.1 = phi ptr [ %.055, %19 ], [ %.055, %23 ], [ %.055, %27 ], [ %.055, %31 ], [ %.055, %43 ], [ %.055, %37 ], [ %.055, %35 ], [ %.055, %46 ], [ %spec.select, %48 ]
-  %51 = getelementptr inbounds i8, ptr %.03756, i64 48
-  %.037 = load ptr, ptr %51, align 8
-  %.not = icmp eq ptr %.037, null
+  %.138 = phi ptr [ %.03754, %19 ], [ %.03754, %23 ], [ %.03754, %27 ], [ %.03754, %31 ], [ %.03754, %43 ], [ %.03754, %37 ], [ %.03754, %35 ], [ %.03754, %46 ], [ %spec.select, %48 ]
+  %.1 = phi ptr [ %.03655, %19 ], [ %.03655, %23 ], [ %.03655, %27 ], [ %.03655, %31 ], [ %.03655, %43 ], [ %.03655, %37 ], [ %.03655, %35 ], [ %17, %46 ], [ %.03655, %48 ]
+  %51 = getelementptr inbounds i8, ptr %.03556, i64 48
+  %.035 = load ptr, ptr %51, align 8
+  %.not = icmp eq ptr %.035, null
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %50
-  %.not40 = icmp eq ptr %.1, null
+  %.not40 = icmp eq ptr %.138, null
   br i1 %.not40, label %52, label %.loopexit.sink.split.sink.split
 
 52:                                               ; preds = %._crit_edge
-  %.not41 = icmp eq ptr %.136, null
+  %.not41 = icmp eq ptr %.1, null
   br i1 %.not41, label %.loopexit.sink.split, label %.loopexit.sink.split.sink.split
 
 .loopexit.sink.split.sink.split:                  ; preds = %52, %._crit_edge
-  %.136.lcssa.sink = phi ptr [ %.1, %._crit_edge ], [ %.136, %52 ]
-  %53 = call i64 @g_ascii_strtoull(ptr noundef nonnull %.136.lcssa.sink, ptr noundef null, i32 noundef 0) #10
+  %.1.lcssa.sink = phi ptr [ %.138, %._crit_edge ], [ %.1, %52 ]
+  %53 = call i64 @g_ascii_strtoull(ptr noundef nonnull %.1.lcssa.sink, ptr noundef null, i32 noundef 0) #10
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %52, %3
@@ -1182,8 +1182,8 @@ define internal fastcc range(i32 0, 2) i32 @parse_obj_tag(ptr nocapture noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %19, %.loopexit.sink.split
-  %.038 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %19 ], [ 0, %23 ]
-  ret i32 %.038
+  %.0 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %19 ], [ 0, %23 ]
+  ret i32 %.0
 }
 
 declare ptr @epl_profile_object_add(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1

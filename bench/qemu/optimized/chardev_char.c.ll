@@ -1265,9 +1265,9 @@ if.then36:                                        ; preds = %if.end4.i39, %if.en
   br label %out
 
 out:                                              ; preds = %qemu_chardev_new.exit48, %qemu_chardev_new.exit.thread, %qemu_chardev_new.exit, %if.end12, %if.then36
-  %chr.0 = phi ptr [ null, %if.end12 ], [ null, %if.then36 ], [ %.call1.i, %qemu_chardev_new.exit ], [ %call1.i37, %qemu_chardev_new.exit48 ], [ null, %qemu_chardev_new.exit.thread ]
   %backend.0 = phi ptr [ %call9, %if.end12 ], [ %call29, %if.then36 ], [ %call9, %qemu_chardev_new.exit ], [ %call29, %qemu_chardev_new.exit48 ], [ %call9, %qemu_chardev_new.exit.thread ]
   %bid.1 = phi ptr [ null, %if.end12 ], [ %bid.0, %if.then36 ], [ %bid.0, %qemu_chardev_new.exit ], [ %bid.0, %qemu_chardev_new.exit48 ], [ %bid.0, %qemu_chardev_new.exit.thread ]
+  %chr.0 = phi ptr [ null, %if.end12 ], [ null, %if.then36 ], [ %.call1.i, %qemu_chardev_new.exit ], [ %call1.i37, %qemu_chardev_new.exit48 ], [ null, %qemu_chardev_new.exit.thread ]
   tail call void @qapi_free_ChardevBackend(ptr noundef nonnull %backend.0) #13
   tail call void @g_free(ptr noundef %bid.1) #13
   br label %return

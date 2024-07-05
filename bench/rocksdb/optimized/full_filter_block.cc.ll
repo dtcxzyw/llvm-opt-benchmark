@@ -1272,7 +1272,7 @@ for.end.loopexit:                                 ; preds = %_ZN7rocksdb15MultiG
   br label %for.end
 
 for.end:                                          ; preds = %while.cond.i.i53, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit, %invoke.cont20.thread, %for.end.loopexit, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit56
-  %filter_range.sroa.7.0202244 = phi i64 [ %ref.tmp15.sroa.2.1, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit56 ], [ %ref.tmp15.sroa.2.1, %for.end.loopexit ], [ %12, %invoke.cont20.thread ], [ %ref.tmp15.sroa.2.1, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ %ref.tmp15.sroa.2.1, %while.cond.i.i53 ]
+  %filter_range.sroa.7.0202243 = phi i64 [ %ref.tmp15.sroa.2.1, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit56 ], [ %ref.tmp15.sroa.2.1, %for.end.loopexit ], [ %12, %invoke.cont20.thread ], [ %ref.tmp15.sroa.2.1, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ %ref.tmp15.sroa.2.1, %while.cond.i.i53 ]
   %.sink.i203242 = phi i64 [ %14, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit56 ], [ %14, %for.end.loopexit ], [ %12, %invoke.cont20.thread ], [ %14, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ %14, %while.cond.i.i53 ]
   %skip_mask_.i204241 = phi ptr [ %skip_mask_.i, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit56 ], [ %skip_mask_.i, %for.end.loopexit ], [ %skip_mask_.i199, %invoke.cont20.thread ], [ %skip_mask_.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ %skip_mask_.i, %while.cond.i.i53 ]
   %56 = phi i64 [ %21, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit56 ], [ %21, %for.end.loopexit ], [ %19, %invoke.cont20.thread ], [ %21, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ], [ %21, %while.cond.i.i53 ]
@@ -1301,14 +1301,14 @@ while.cond.i.i112:                                ; preds = %land.rhs.i.i107
   br i1 %exitcond.not.i114, label %for.end86, label %land.rhs.i.i107, !llvm.loop !7
 
 land.rhs.i.i107:                                  ; preds = %while.cond.i.i112, %land.rhs.lr.ph.i.i101
-  %iter61.sroa.3.0 = phi i64 [ %filter_range.sroa.7.0202244, %land.rhs.lr.ph.i.i101 ], [ %inc.i.i113, %while.cond.i.i112 ]
+  %iter61.sroa.3.0 = phi i64 [ %filter_range.sroa.7.0202243, %land.rhs.lr.ph.i.i101 ], [ %inc.i.i113, %while.cond.i.i112 ]
   %shl.i.i109 = shl nuw i64 1, %iter61.sroa.3.0
   %and.i.i110 = and i64 %shl.i.i109, %or10.i.i106
   %tobool.not.i.i111 = icmp eq i64 %and.i.i110, 0
   br i1 %tobool.not.i.i111, label %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit115, label %while.cond.i.i112
 
 _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit115: ; preds = %land.rhs.i.i107, %invoke.cont60
-  %iter61.sroa.3.1 = phi i64 [ %filter_range.sroa.7.0202244, %invoke.cont60 ], [ %iter61.sroa.3.0, %land.rhs.i.i107 ]
+  %iter61.sroa.3.1 = phi i64 [ %filter_range.sroa.7.0202243, %invoke.cont60 ], [ %iter61.sroa.3.0, %land.rhs.i.i107 ]
   %cmp.i122.not219 = icmp eq i64 %iter61.sroa.3.1, %.sink.i203242
   br i1 %cmp.i122.not219, label %for.end86, label %for.body68.lr.ph
 
@@ -1361,10 +1361,10 @@ invoke.cont78:                                    ; preds = %if.else77
   br label %if.end81.sink.split
 
 if.end81.sink.split:                              ; preds = %66, %if.then75, %invoke.cont78
-  %bloom_sst_miss_count.sink254 = phi ptr [ %bloom_sst_hit_count, %invoke.cont78 ], [ %bloom_sst_miss_count, %if.then75 ], [ %bloom_sst_miss_count, %66 ]
-  %67 = load i64, ptr %bloom_sst_miss_count.sink254, align 8
+  %bloom_sst_miss_count.sink252 = phi ptr [ %bloom_sst_hit_count, %invoke.cont78 ], [ %bloom_sst_miss_count, %if.then75 ], [ %bloom_sst_miss_count, %66 ]
+  %67 = load i64, ptr %bloom_sst_miss_count.sink252, align 8
   %add = add i64 %67, 1
-  store i64 %add, ptr %bloom_sst_miss_count.sink254, align 8
+  store i64 %add, ptr %bloom_sst_miss_count.sink252, align 8
   br label %if.end81
 
 if.end81:                                         ; preds = %if.end81.sink.split, %_ZTWN7rocksdb10perf_levelE.exit

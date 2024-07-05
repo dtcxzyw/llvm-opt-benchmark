@@ -13,36 +13,36 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.0440544 = phi i32 [ %8, %.lr.ph ], [ 0, %5 ]
-  %.0452543 = phi i32 [ %7, %.lr.ph ], [ 1, %5 ]
-  %7 = mul nsw i32 %.0452543, %spec.select
-  %8 = add nuw nsw i32 %.0440544, 1
+  %.0441544 = phi i32 [ %8, %.lr.ph ], [ 0, %5 ]
+  %.0453543 = phi i32 [ %7, %.lr.ph ], [ 1, %5 ]
+  %7 = mul nsw i32 %.0453543, %spec.select
+  %8 = add nuw nsw i32 %.0441544, 1
   %9 = icmp slt i32 %7, %0
   br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %.0452.lcssa = phi i32 [ 1, %5 ], [ %7, %.lr.ph ]
-  %.0440.lcssa = phi i32 [ 0, %5 ], [ %8, %.lr.ph ]
-  %10 = icmp sgt i32 %.0452.lcssa, %0
+  %.0453.lcssa = phi i32 [ 1, %5 ], [ %7, %.lr.ph ]
+  %.0441.lcssa = phi i32 [ 0, %5 ], [ %8, %.lr.ph ]
+  %10 = icmp sgt i32 %.0453.lcssa, %0
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %._crit_edge
-  %12 = sdiv i32 %.0452.lcssa, %spec.select
-  %13 = add nsw i32 %.0440.lcssa, -1
+  %12 = sdiv i32 %.0453.lcssa, %spec.select
+  %13 = add nsw i32 %.0441.lcssa, -1
   br label %14
 
 14:                                               ; preds = %11, %._crit_edge
-  %.1453 = phi i32 [ %12, %11 ], [ %.0452.lcssa, %._crit_edge ]
-  %.1441 = phi i32 [ %13, %11 ], [ %.0440.lcssa, %._crit_edge ]
+  %.1454 = phi i32 [ %12, %11 ], [ %.0453.lcssa, %._crit_edge ]
+  %.1442 = phi i32 [ %13, %11 ], [ %.0441.lcssa, %._crit_edge ]
   %15 = getelementptr inbounds i8, ptr %4, i64 44
-  store i32 %.0440.lcssa, ptr %15, align 4
+  store i32 %.0441.lcssa, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 %.1453, ptr %16, align 8
-  %17 = zext i32 %.0440.lcssa to i64
+  store i32 %.1454, ptr %16, align 8
+  %17 = zext i32 %.0441.lcssa to i64
   %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 4) #7
   %19 = sdiv i32 %0, %spec.select
   store i32 %19, ptr %18, align 4
-  %20 = icmp ugt i32 %.0440.lcssa, 1
+  %20 = icmp ugt i32 %.0441.lcssa, 1
   br i1 %20, label %.lr.ph548.preheader, label %.preheader534
 
 .lr.ph548.preheader:                              ; preds = %14
@@ -50,7 +50,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
   br label %.lr.ph548
 
 .preheader534:                                    ; preds = %.lr.ph548, %14
-  %.not.not549.not = icmp ne i32 %.0440.lcssa, 0
+  %.not.not549.not = icmp ne i32 %.0441.lcssa, 0
   br i1 %.not.not549.not, label %.lr.ph551, label %.critedge
 
 .lr.ph548:                                        ; preds = %.lr.ph548.preheader, %.lr.ph548
@@ -80,12 +80,12 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
   br label %.critedge
 
 .critedge:                                        ; preds = %26, %.critedge.loopexit.split.loop.exit869, %.preheader534
-  %.0450.lcssa = phi i32 [ 0, %.preheader534 ], [ %27, %.critedge.loopexit.split.loop.exit869 ], [ %.0440.lcssa, %26 ]
-  %28 = zext nneg i32 %.0450.lcssa to i64
+  %.0451.lcssa = phi i32 [ 0, %.preheader534 ], [ %27, %.critedge.loopexit.split.loop.exit869 ], [ %.0441.lcssa, %26 ]
+  %28 = zext nneg i32 %.0451.lcssa to i64
   %29 = getelementptr i32, ptr %18, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -4
   %31 = load i32, ptr %30, align 4
-  %32 = mul nsw i32 %31, %.1453
+  %32 = mul nsw i32 %31, %.1454
   %33 = getelementptr inbounds i8, ptr %4, i64 56
   store i32 %32, ptr %33, align 8
   %34 = sext i32 %0 to i64
@@ -108,7 +108,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
   br label %.lr.ph556
 
 42:                                               ; preds = %.critedge
-  %43 = sub nsw i32 %32, %.1453
+  %43 = sub nsw i32 %32, %.1454
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.lr.ph559.preheader, label %._crit_edge560
 
@@ -151,8 +151,8 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
   br label %.preheader531
 
 .preheader531:                                    ; preds = %.preheader531.loopexit, %._crit_edge560
-  %.2461.lcssa = phi i32 [ %51, %._crit_edge560 ], [ %56, %.preheader531.loopexit ]
-  %57 = icmp slt i32 %.2461.lcssa, %32
+  %.2462.lcssa = phi i32 [ %51, %._crit_edge560 ], [ %56, %.preheader531.loopexit ]
+  %57 = icmp slt i32 %.2462.lcssa, %32
   br i1 %57, label %.lr.ph567.preheader, label %.preheader531.._crit_edge568_crit_edge
 
 .preheader531.._crit_edge568_crit_edge:           ; preds = %.preheader531
@@ -160,7 +160,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
   br label %._crit_edge568
 
 .lr.ph567.preheader:                              ; preds = %.preheader531
-  %58 = sext i32 %.2461.lcssa to i64
+  %58 = sext i32 %.2462.lcssa to i64
   %wide.trip.count721 = sext i32 %32 to i64
   br label %.lr.ph567
 
@@ -193,19 +193,19 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
   %69 = load ptr, ptr %37, align 8
   %70 = getelementptr inbounds i32, ptr %69, i64 %.pre-phi
   store i32 %51, ptr %70, align 4
-  %.4463569 = add nsw i32 %32, 1
-  %71 = icmp slt i32 %.4463569, %0
+  %.4464569 = add nsw i32 %32, 1
+  %71 = icmp slt i32 %.4464569, %0
   br i1 %71, label %.lr.ph573.preheader, label %.loopexit530
 
 .lr.ph573.preheader:                              ; preds = %._crit_edge568
-  %72 = sext i32 %.4463569 to i64
+  %72 = sext i32 %.4464569 to i64
   br label %.lr.ph573
 
 .lr.ph573:                                        ; preds = %.lr.ph573.preheader, %.lr.ph573
   %indvars.iv723 = phi i64 [ %72, %.lr.ph573.preheader ], [ %indvars.iv.next724, %.lr.ph573 ]
-  %.4463.in570 = phi i32 [ %32, %.lr.ph573.preheader ], [ %79, %.lr.ph573 ]
+  %.4464.in570 = phi i32 [ %32, %.lr.ph573.preheader ], [ %79, %.lr.ph573 ]
   %73 = load ptr, ptr %37, align 8
-  %74 = sext i32 %.4463.in570 to i64
+  %74 = sext i32 %.4464.in570 to i64
   %75 = getelementptr inbounds i32, ptr %73, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = add nsw i32 %76, 2
@@ -383,14 +383,14 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
   br i1 %40, label %.lr.ph591, label %.loopexit522
 
 .lr.ph591:                                        ; preds = %._crit_edge585, %155
-  %.2456589 = phi i32 [ %156, %155 ], [ %32, %._crit_edge585 ]
-  %142 = sub nsw i32 %.2456589, %.1453
+  %.2457589 = phi i32 [ %156, %155 ], [ %32, %._crit_edge585 ]
+  %142 = sub nsw i32 %.2457589, %.1454
   %143 = icmp eq i32 %.1.ph, %142
   br i1 %143, label %144, label %155
 
 144:                                              ; preds = %.lr.ph591
   %145 = load ptr, ptr %37, align 8
-  %146 = sext i32 %.2456589 to i64
+  %146 = sext i32 %.2457589 to i64
   %147 = getelementptr inbounds i32, ptr %145, i64 %146
   %148 = load i32, ptr %147, align 4
   %149 = sext i32 %148 to i64
@@ -403,7 +403,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
   br label %.loopexit522
 
 155:                                              ; preds = %.lr.ph591
-  %156 = add i32 %.2456589, 1
+  %156 = add i32 %.2457589, 1
   %exitcond753.not = icmp eq i32 %156, %0
   br i1 %exitcond753.not, label %.loopexit522, label %.lr.ph591, !llvm.loop !18
 
@@ -546,21 +546,21 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
 
 .lr.ph610:                                        ; preds = %.lr.ph610.preheader, %.lr.ph610
   %indvars.iv768 = phi i64 [ 0, %.lr.ph610.preheader ], [ %indvars.iv.next769, %.lr.ph610 ]
-  %.0446607 = phi i32 [ 0, %.lr.ph610.preheader ], [ %214, %.lr.ph610 ]
+  %.0447607 = phi i32 [ 0, %.lr.ph610.preheader ], [ %214, %.lr.ph610 ]
   %212 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv768
   %213 = load i32, ptr %212, align 4
-  %214 = add nsw i32 %213, %.0446607
+  %214 = add nsw i32 %213, %.0447607
   %indvars.iv.next769 = add nuw nsw i64 %indvars.iv768, 1
   %exitcond772.not = icmp eq i64 %indvars.iv.next769, %wide.trip.count771
   br i1 %exitcond772.not, label %._crit_edge611, label %.lr.ph610, !llvm.loop !25
 
 ._crit_edge611:                                   ; preds = %.lr.ph610, %205
-  %.0446.lcssa = phi i32 [ 0, %205 ], [ %214, %.lr.ph610 ]
+  %.0447.lcssa = phi i32 [ 0, %205 ], [ %214, %.lr.ph610 ]
   %215 = load ptr, ptr %111, align 8
   %216 = getelementptr inbounds ptr, ptr %215, i64 %indvars.iv802
   %217 = load ptr, ptr %216, align 8
   %218 = getelementptr inbounds %struct.netpatterns_payload_t, ptr %217, i64 %indvars.iv789, i32 3
-  store i32 %.0446.lcssa, ptr %218, align 4
+  store i32 %.0447.lcssa, ptr %218, align 4
   br label %219
 
 219:                                              ; preds = %._crit_edge611, %219
@@ -593,16 +593,16 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
 
 .lr.ph618:                                        ; preds = %.lr.ph618.preheader, %.lr.ph618
   %indvars.iv774 = phi i64 [ 0, %.lr.ph618.preheader ], [ %indvars.iv.next775, %.lr.ph618 ]
-  %.1447615 = phi i32 [ 0, %.lr.ph618.preheader ], [ %233, %.lr.ph618 ]
+  %.1448615 = phi i32 [ 0, %.lr.ph618.preheader ], [ %233, %.lr.ph618 ]
   %231 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv774
   %232 = load i32, ptr %231, align 4
-  %233 = add nsw i32 %232, %.1447615
+  %233 = add nsw i32 %232, %.1448615
   %indvars.iv.next775 = add nuw nsw i64 %indvars.iv774, 1
   %exitcond778.not = icmp eq i64 %indvars.iv.next775, %wide.trip.count777
   br i1 %exitcond778.not, label %._crit_edge619, label %.lr.ph618, !llvm.loop !28
 
 ._crit_edge619:                                   ; preds = %.lr.ph618, %224
-  %.1447.lcssa = phi i32 [ 0, %224 ], [ %233, %.lr.ph618 ]
+  %.1448.lcssa = phi i32 [ 0, %224 ], [ %233, %.lr.ph618 ]
   %234 = load ptr, ptr %111, align 8
   %235 = getelementptr inbounds ptr, ptr %234, i64 %indvars.iv802
   br label %251
@@ -620,43 +620,43 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
 
 .lr.ph624:                                        ; preds = %.lr.ph624.preheader, %.lr.ph624
   %indvars.iv779 = phi i64 [ 0, %.lr.ph624.preheader ], [ %indvars.iv.next780, %.lr.ph624 ]
-  %.2448621 = phi i32 [ 0, %.lr.ph624.preheader ], [ %243, %.lr.ph624 ]
+  %.2449621 = phi i32 [ 0, %.lr.ph624.preheader ], [ %243, %.lr.ph624 ]
   %241 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv779
   %242 = load i32, ptr %241, align 4
-  %243 = add nsw i32 %242, %.2448621
+  %243 = add nsw i32 %242, %.2449621
   %indvars.iv.next780 = add nuw nsw i64 %indvars.iv779, 1
   %exitcond783.not = icmp eq i64 %indvars.iv.next780, %wide.trip.count782
   br i1 %exitcond783.not, label %._crit_edge625, label %.lr.ph624, !llvm.loop !29
 
 ._crit_edge625:                                   ; preds = %.lr.ph624, %236
-  %.2448.lcssa = phi i32 [ 0, %236 ], [ %243, %.lr.ph624 ]
+  %.2449.lcssa = phi i32 [ 0, %236 ], [ %243, %.lr.ph624 ]
   %244 = load ptr, ptr %111, align 8
   %245 = load ptr, ptr %244, align 8
   %246 = getelementptr inbounds %struct.netpatterns_payload_t, ptr %245, i64 %indvars.iv789, i32 3
-  store i32 %.2448.lcssa, ptr %246, align 4
+  store i32 %.2449.lcssa, ptr %246, align 4
   br i1 %.not676, label %._crit_edge631, label %.lr.ph630
 
 .lr.ph630:                                        ; preds = %._crit_edge625, %.lr.ph630
   %indvars.iv784 = phi i64 [ %indvars.iv.next785, %.lr.ph630 ], [ 0, %._crit_edge625 ]
-  %.3449627 = phi i32 [ %249, %.lr.ph630 ], [ 0, %._crit_edge625 ]
+  %.3450627 = phi i32 [ %249, %.lr.ph630 ], [ 0, %._crit_edge625 ]
   %247 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv784
   %248 = load i32, ptr %247, align 4
-  %249 = add nsw i32 %248, %.3449627
+  %249 = add nsw i32 %248, %.3450627
   %indvars.iv.next785 = add nuw nsw i64 %indvars.iv784, 1
   %exitcond788.not = icmp eq i64 %indvars.iv.next785, %132
   br i1 %exitcond788.not, label %._crit_edge631, label %.lr.ph630, !llvm.loop !30
 
 ._crit_edge631:                                   ; preds = %.lr.ph630, %._crit_edge625
-  %.3449.lcssa = phi i32 [ 0, %._crit_edge625 ], [ %249, %.lr.ph630 ]
+  %.3450.lcssa = phi i32 [ 0, %._crit_edge625 ], [ %249, %.lr.ph630 ]
   %250 = load ptr, ptr %111, align 8
   br label %251
 
 251:                                              ; preds = %._crit_edge631, %._crit_edge619
   %.sink = phi ptr [ %250, %._crit_edge631 ], [ %235, %._crit_edge619 ]
-  %.3449.lcssa.sink = phi i32 [ %.3449.lcssa, %._crit_edge631 ], [ %.1447.lcssa, %._crit_edge619 ]
+  %.3450.lcssa.sink = phi i32 [ %.3450.lcssa, %._crit_edge631 ], [ %.1448.lcssa, %._crit_edge619 ]
   %252 = load ptr, ptr %.sink, align 8
   %253 = getelementptr inbounds %struct.netpatterns_payload_t, ptr %252, i64 %indvars.iv789, i32 2
-  store i32 %.3449.lcssa.sink, ptr %253, align 4
+  store i32 %.3450.lcssa.sink, ptr %253, align 4
   %254 = load i32, ptr %131, align 4
   %255 = load ptr, ptr %111, align 8
   %256 = getelementptr inbounds ptr, ptr %255, i64 %indvars.iv802
@@ -722,7 +722,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
 
 .lr.ph653:                                        ; preds = %278, %281
   %.11651 = phi i32 [ %282, %281 ], [ %32, %278 ]
-  %279 = sub nsw i32 %.11651, %.1453
+  %279 = sub nsw i32 %.11651, %.1454
   %280 = icmp eq i32 %275, %279
   br i1 %280, label %283, label %281
 
@@ -763,7 +763,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
 
 .thread506:                                       ; preds = %293
   %297 = load ptr, ptr %37, align 8
-  %298 = sub nsw i32 %275, %.1453
+  %298 = sub nsw i32 %275, %.1454
   %299 = sext i32 %298 to i64
   %300 = getelementptr inbounds i32, ptr %297, i64 %299
   %301 = load i32, ptr %300, align 4
@@ -775,7 +775,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
   br label %.loopexit
 
 304:                                              ; preds = %._crit_edge654, %287
-  %305 = add nsw i32 %.1441, 1
+  %305 = add nsw i32 %.1442, 1
   %306 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %305, ptr %306, align 4
   %307 = getelementptr inbounds i8, ptr %4, i64 8
@@ -789,7 +789,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
   br i1 %312, label %.loopexit513, label %.preheader512
 
 .preheader512:                                    ; preds = %304
-  %313 = icmp sgt i32 %.1441, -1
+  %313 = icmp sgt i32 %.1442, -1
   br i1 %313, label %.lr.ph657, label %.preheader508
 
 .lr.ph657:                                        ; preds = %.preheader512
@@ -940,7 +940,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
   br i1 %373, label %.preheader510, label %.preheader508, !llvm.loop !41
 
 .loopexit:                                        ; preds = %._crit_edge669.us, %.preheader508, %.thread506
-  %374 = mul nsw i32 %.1441, %spec.select
+  %374 = mul nsw i32 %.1442, %spec.select
   %375 = add nsw i32 %374, 1
   %376 = getelementptr inbounds i8, ptr %4, i64 40
   store i32 %375, ptr %376, align 8
@@ -1017,9 +1017,9 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
   br label %400
 
 400:                                              ; preds = %399, %398, %.loopexit
-  %.0451 = phi i32 [ 0, %.loopexit ], [ -1, %398 ], [ -1, %399 ]
+  %.0440 = phi i32 [ 0, %.loopexit ], [ -1, %398 ], [ -1, %399 ]
   tail call void @free(ptr noundef %18) #9
-  ret i32 %.0451
+  ret i32 %.0440
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
@@ -1127,17 +1127,17 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_tree_node(
   br label %8
 
 8:                                                ; preds = %7, %8
-  %.0111132 = phi i32 [ 0, %7 ], [ %10, %8 ]
-  %.0112131 = phi i32 [ 1, %7 ], [ %9, %8 ]
-  %9 = mul nuw nsw i32 %.0112131, %spec.select
-  %10 = add nuw nsw i32 %.0111132, 1
+  %.0112132 = phi i32 [ 0, %7 ], [ %10, %8 ]
+  %.0113131 = phi i32 [ 1, %7 ], [ %9, %8 ]
+  %9 = mul nuw nsw i32 %.0113131, %spec.select
+  %10 = add nuw nsw i32 %.0112132, 1
   %11 = icmp slt i32 %9, %0
   br i1 %11, label %8, label %12, !llvm.loop !45
 
 12:                                               ; preds = %8
   %13 = icmp sgt i32 %9, %0
-  %spec.select165 = select i1 %13, i32 %.0112131, i32 %9
-  %spec.select166 = select i1 %13, i32 %.0111132, i32 %10
+  %spec.select165 = select i1 %13, i32 %.0113131, i32 %9
+  %spec.select166 = select i1 %13, i32 %.0112132, i32 %10
   %14 = getelementptr inbounds i8, ptr %3, i64 44
   store i32 %spec.select166, ptr %14, align 4
   %15 = getelementptr inbounds i8, ptr %3, i64 48
@@ -1179,12 +1179,12 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_tree_node(
 
 .lr.ph137:                                        ; preds = %.lr.ph137.preheader, %.lr.ph137
   %indvars.iv = phi i64 [ 0, %.lr.ph137.preheader ], [ %indvars.iv.next, %.lr.ph137 ]
-  %.1115136 = phi i32 [ %21, %.lr.ph137.preheader ], [ %39, %.lr.ph137 ]
+  %.1116136 = phi i32 [ %21, %.lr.ph137.preheader ], [ %39, %.lr.ph137 ]
   %37 = load ptr, ptr %34, align 8
   %38 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv
-  store i32 %.1115136, ptr %38, align 4
+  store i32 %.1116136, ptr %38, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = add nsw i32 %.1115136, 1
+  %39 = add nsw i32 %.1116136, 1
   %40 = icmp ult i64 %indvars.iv.next, %36
   %41 = icmp slt i32 %39, %0
   %42 = select i1 %40, i1 %41, i1 false
@@ -1361,8 +1361,8 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_tree_node(
   br label %ompi_netpatterns_cleanup_recursive_knomial_tree_node.exit
 
 ompi_netpatterns_cleanup_recursive_knomial_tree_node.exit: ; preds = %._crit_edge.i, %104, %.loopexit
-  %.0119 = phi i32 [ 0, %.loopexit ], [ -1, %104 ], [ -1, %._crit_edge.i ]
-  ret i32 %.0119
+  %.0111 = phi i32 [ 0, %.loopexit ], [ -1, %104 ], [ -1, %._crit_edge.i ]
+  ret i32 %.0111
 }
 
 ; Function Attrs: nounwind uwtable

@@ -1936,8 +1936,8 @@ _ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE9push_backERKS1_.exit21: ; preds = %.n
 
 .lr.ph.i.i.i:                                     ; preds = %.loopexit14.i.i.i, %117
   %.sroa.05.019.i.i.i = phi ptr [ %.sroa.05.0.i.i.i, %117 ], [ %.sroa.05.015.i.i.i, %.loopexit14.i.i.i ]
-  %.sroa.08.0.in.sroa.speculated.i.i.pn18.i.i.i = phi ptr [ %.sroa.05.019.i.i.i, %117 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %.loopexit14.i.i.i ]
-  %.sroa.011.017.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %117 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %.loopexit14.i.i.i ]
+  %.sroa.011.018.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %117 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %.loopexit14.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.pn17.i.i.i = phi ptr [ %.sroa.05.019.i.i.i, %117 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %.loopexit14.i.i.i ]
   %110 = invoke noundef zeroext i1 @_ZN5vcpkgeqERKNS_11PackageSpecES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.05.019.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %6)
           to label %.noexc7.i.i unwind label %.loopexit.i.i
 
@@ -1945,16 +1945,16 @@ _ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE9push_backERKS1_.exit21: ; preds = %.n
   br i1 %110, label %117, label %111
 
 111:                                              ; preds = %.noexc7.i.i
-  %112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.011.017.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.019.i.i.i) #15
-  %113 = getelementptr inbounds i8, ptr %.sroa.011.017.i.i.i, i64 32
-  %114 = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.pn18.i.i.i, i64 72
+  %112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.011.018.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.019.i.i.i) #15
+  %113 = getelementptr inbounds i8, ptr %.sroa.011.018.i.i.i, i64 32
+  %114 = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.pn17.i.i.i, i64 72
   %115 = load i64, ptr %114, align 8
   store i64 %115, ptr %113, align 8
-  %116 = getelementptr inbounds i8, ptr %.sroa.011.017.i.i.i, i64 40
+  %116 = getelementptr inbounds i8, ptr %.sroa.011.018.i.i.i, i64 40
   br label %117
 
 117:                                              ; preds = %111, %.noexc7.i.i
-  %.sroa.011.1.i.i.i = phi ptr [ %.sroa.011.017.i.i.i, %.noexc7.i.i ], [ %116, %111 ]
+  %.sroa.011.1.i.i.i = phi ptr [ %.sroa.011.018.i.i.i, %.noexc7.i.i ], [ %116, %111 ]
   %.sroa.05.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.05.019.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %.sroa.05.0.i.i.i, %62
   br i1 %.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !19

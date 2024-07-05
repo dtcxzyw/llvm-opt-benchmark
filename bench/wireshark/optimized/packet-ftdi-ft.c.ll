@@ -632,8 +632,8 @@ switch.lookup226:                                 ; preds = %116
   %122 = zext nneg i8 %switch.tableidx to i64
   %switch.gep233 = getelementptr inbounds [8 x ptr], ptr @switch.table.dissect_ftdi_ft.19, i64 0, i64 %122
   %switch.load234 = load ptr, ptr %switch.gep233, align 8
-  %.0195 = load i32, ptr %switch.load234, align 4
-  %.0196 = load i32, ptr %switch.load232, align 4
+  %.0197 = load i32, ptr %switch.load234, align 4
+  %.0198 = load i32, ptr %switch.load232, align 4
   %123 = getelementptr inbounds i8, ptr %1, i64 8
   %124 = load ptr, ptr %123, align 8
   call void @col_set_str(ptr noundef %124, i32 noundef 34, ptr noundef nonnull @.str.125) #8
@@ -649,8 +649,8 @@ switch.lookup226:                                 ; preds = %116
   br label %131
 
 131:                                              ; preds = %153, %128
+  %.0196 = phi i32 [ 0, %128 ], [ %147, %153 ]
   %.2 = phi i32 [ 0, %128 ], [ %.3, %153 ]
-  %.0194 = phi i32 [ 0, %128 ], [ %147, %153 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %132 = load i32, ptr @hf_modem_status, align 4
   %133 = load i32, ptr @ett_modem_status, align 4
@@ -682,14 +682,14 @@ switch.lookup226:                                 ; preds = %116
 dissect_modem_status_bytes.exit:                  ; preds = %143, %146, %144
   %.0214 = phi i32 [ %140, %144 ], [ %spec.select.i, %143 ], [ %spec.select20.i, %146 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %147 = add i32 %.0214, %.0194
+  %147 = add i32 %.0214, %.0196
   %148 = icmp sgt i32 %.0214, 0
   br i1 %148, label %149, label %153
 
 149:                                              ; preds = %dissect_modem_status_bytes.exit
   %150 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %139, i32 noundef %.0214) #8
   call void @tvb_composite_append(ptr noundef %129, ptr noundef %150) #8
-  %151 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %.0196, ptr noundef %0, i32 noundef %139, i32 noundef %.0214, i32 noundef 0) #8
+  %151 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %.0198, ptr noundef %0, i32 noundef %139, i32 noundef %.0214, i32 noundef 0) #8
   %152 = add i32 %.0214, %139
   br label %153
 
@@ -725,7 +725,7 @@ dissect_modem_status_bytes.exit:                  ; preds = %143, %146, %144
 165:                                              ; preds = %161
   %166 = load ptr, ptr %123, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %166, i32 noundef 25, ptr noundef nonnull @.str.183, i32 noundef %163) #8
-  %167 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %.0195, ptr noundef %0, i32 noundef 0, i32 noundef %163, i32 noundef 0) #8
+  %167 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %.0197, ptr noundef %0, i32 noundef 0, i32 noundef %163, i32 noundef 0) #8
   %168 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %163) #8
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %168, ptr noundef nonnull @.str.186) #8
   call fastcc void @dissect_serial_payload(ptr noundef %168, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %33, ptr noundef nonnull %3, i32 noundef %switch.load228)
@@ -1363,7 +1363,7 @@ get_recorded_desegment_data.exit:                 ; preds = %get_recorded_interf
   unreachable
 
 125:                                              ; preds = %120, %115, %112
-  %.0143 = phi ptr [ null, %115 ], [ null, %112 ], [ %83, %120 ]
+  %.0146 = phi ptr [ null, %115 ], [ null, %112 ], [ %83, %120 ]
   %.0 = phi ptr [ %83, %115 ], [ %83, %112 ], [ %114, %120 ]
   %126 = getelementptr inbounds i8, ptr %1, i64 80
   %127 = load ptr, ptr %126, align 8
@@ -1398,14 +1398,14 @@ get_recorded_desegment_data.exit:                 ; preds = %get_recorded_interf
 
 142:                                              ; preds = %139
   %143 = call ptr @tvb_new_composite() #8
-  %.0142179 = load ptr, ptr %134, align 8
-  %.not163180 = icmp eq ptr %.0142179, null
+  %.0147179 = load ptr, ptr %134, align 8
+  %.not163180 = icmp eq ptr %.0147179, null
   br i1 %.not163180, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %142, %148
-  %.0142182 = phi ptr [ %.0142, %148 ], [ %.0142179, %142 ]
+  %.0147182 = phi ptr [ %.0147, %148 ], [ %.0147179, %142 ]
   %.0144181 = phi i32 [ %153, %148 ], [ 0, %142 ]
-  %144 = getelementptr inbounds i8, ptr %.0142182, i64 12
+  %144 = getelementptr inbounds i8, ptr %.0147182, i64 12
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %.0144181, %145
   br i1 %146, label %148, label %147
@@ -1415,14 +1415,14 @@ get_recorded_desegment_data.exit:                 ; preds = %get_recorded_interf
   unreachable
 
 148:                                              ; preds = %.lr.ph
-  %149 = getelementptr inbounds i8, ptr %.0142182, i64 24
+  %149 = getelementptr inbounds i8, ptr %.0147182, i64 24
   %150 = load ptr, ptr %149, align 8
   call void @tvb_composite_append(ptr noundef %143, ptr noundef %150) #8
-  %151 = getelementptr inbounds i8, ptr %.0142182, i64 16
+  %151 = getelementptr inbounds i8, ptr %.0147182, i64 16
   %152 = load i32, ptr %151, align 8
   %153 = add i32 %152, %.0144181
-  %.0142 = load ptr, ptr %.0142182, align 8
-  %.not163 = icmp eq ptr %.0142, null
+  %.0147 = load ptr, ptr %.0147182, align 8
+  %.not163 = icmp eq ptr %.0147, null
   br i1 %.not163, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %148, %142
@@ -1437,13 +1437,13 @@ get_recorded_desegment_data.exit:                 ; preds = %get_recorded_interf
   br label %157
 
 157:                                              ; preds = %154, %._crit_edge
-  %.0146 = phi ptr [ %156, %154 ], [ %143, %._crit_edge ]
   %.1145 = phi i32 [ 0, %154 ], [ %.0144.lcssa, %._crit_edge ]
-  %.not164 = icmp eq ptr %.0143, null
+  %.0142 = phi ptr [ %156, %154 ], [ %143, %._crit_edge ]
+  %.not164 = icmp eq ptr %.0146, null
   br i1 %.not164, label %163, label %158
 
 158:                                              ; preds = %157
-  %159 = getelementptr inbounds i8, ptr %.0143, i64 20
+  %159 = getelementptr inbounds i8, ptr %.0146, i64 20
   %160 = load i32, ptr %159, align 4
   %161 = call ptr @fragment_get_reassembled_id(ptr noundef nonnull @ftdi_reassembly_table, ptr noundef %1, i32 noundef %160) #8
   %162 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef nonnull @.str.192, ptr noundef %161, ptr noundef nonnull @ftdi_frag_items, ptr noundef null, ptr noundef %3) #8
@@ -1467,13 +1467,13 @@ get_recorded_desegment_data.exit:                 ; preds = %get_recorded_interf
   br label %174
 
 174:                                              ; preds = %get_recorded_desegment_data.exit, %163, %168, %172
-  %.1147 = phi ptr [ %173, %172 ], [ %.0146, %168 ], [ %.0146, %163 ], [ %0, %get_recorded_desegment_data.exit ]
   %.2 = phi i32 [ %.1145, %172 ], [ %.1145, %168 ], [ %.1145, %163 ], [ 0, %get_recorded_desegment_data.exit ]
+  %.1143 = phi ptr [ %173, %172 ], [ %.0142, %168 ], [ %.0142, %163 ], [ %0, %get_recorded_desegment_data.exit ]
   %.1 = phi ptr [ %.0, %172 ], [ %.0, %168 ], [ %.0, %163 ], [ null, %get_recorded_desegment_data.exit ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %17)
   %175 = load <2 x i16>, ptr %4, align 8
   %176 = zext <2 x i16> %175 to <2 x i32>
-  %.not.i174 = icmp eq ptr %.1147, null
+  %.not.i174 = icmp eq ptr %.1143, null
   br i1 %.not.i174, label %dissect_payload.exit, label %177
 
 177:                                              ; preds = %174
@@ -1524,7 +1524,7 @@ identify_chip.exit.i:                             ; preds = %179, %179, %179, %1
   %193 = zext i1 %178 to i32
   store i32 %193, ptr %192, align 8
   %194 = load ptr, ptr @ftdi_mpsse_handle, align 8
-  %195 = call i32 @call_dissector_with_data(ptr noundef %194, ptr noundef nonnull %.1147, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %17) #8
+  %195 = call i32 @call_dissector_with_data(ptr noundef %194, ptr noundef nonnull %.1143, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %17) #8
   br label %dissect_payload.exit
 
 dissect_payload.exit:                             ; preds = %174, %177, %identify_chip.exit.i

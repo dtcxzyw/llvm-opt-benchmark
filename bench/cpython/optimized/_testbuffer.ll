@@ -1054,15 +1054,15 @@ declare ptr @PyBuffer_GetPointer(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc ptr @unpack_single(ptr noundef %ptr, ptr noundef %fmt, i64 noundef %itemsize) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %fmt, null
-  %spec.select = select i1 %cmp, ptr @.str.48, ptr %fmt
+  %spec.select22 = select i1 %cmp, ptr @.str.48, ptr %fmt
   %0 = load ptr, ptr @structmodule, align 8
   %call = tail call ptr @PyObject_GetAttrString(ptr noundef %0, ptr noundef nonnull @.str.49) #14
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %entry
-  %spec.select22 = select i1 %cmp, i64 1, i64 %itemsize
-  %call4 = tail call ptr @PyMemoryView_FromMemory(ptr noundef %ptr, i64 noundef %spec.select22, i32 noundef 256) #14
+  %spec.select = select i1 %cmp, i64 1, i64 %itemsize
+  %call4 = tail call ptr @PyMemoryView_FromMemory(ptr noundef %ptr, i64 noundef %spec.select, i32 noundef 256) #14
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %if.then6, label %if.end7
 
@@ -1079,7 +1079,7 @@ if.end.i41:                                       ; preds = %if.then6
   br i1 %cmp.i43, label %return.sink.split, label %return
 
 if.end7:                                          ; preds = %if.end3
-  %call8 = tail call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef nonnull %call, ptr noundef nonnull @.str.50, ptr noundef nonnull %spec.select, ptr noundef nonnull %call4) #14
+  %call8 = tail call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef nonnull %call, ptr noundef nonnull @.str.50, ptr noundef nonnull %spec.select22, ptr noundef nonnull %call4) #14
   %3 = load i64, ptr %call, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i51.not = icmp eq i64 %4, 0
@@ -3960,7 +3960,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %do.end.thread.i
 
 do.end.thread.i:                                  ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then.i44.i, %if.end36.i
-  %lst.0917.i = phi ptr [ null, %if.end36.i ], [ %call43.i, %if.then.i44.i ], [ %call43.i, %if.end.i.i.i ], [ %call43.i, %if.then1.i.i.i ]
+  %lst.0819.i = phi ptr [ null, %if.end36.i ], [ %call43.i, %if.then.i44.i ], [ %call43.i, %if.end.i.i.i ], [ %call43.i, %if.then1.i.i.i ]
   tail call void @PyMem_Free(ptr noundef nonnull %call32.i) #14
   br label %if.then.i47.i
 
@@ -3969,7 +3969,7 @@ do.end.i:                                         ; preds = %if.end30.i
   br label %if.then.i47.i
 
 if.then.i47.i:                                    ; preds = %do.end.i, %do.end.thread.i
-  %lst.091836.i = phi ptr [ %lst.0917.i, %do.end.thread.i ], [ null, %do.end.i ]
+  %lst.082034.i = phi ptr [ %lst.0819.i, %do.end.thread.i ], [ null, %do.end.i ]
   %25 = load i64, ptr %call27.i, align 8
   %26 = and i64 %25, 2147483648
   %cmp.i2.not.i48.i = icmp eq i64 %26, 0
@@ -3986,7 +3986,7 @@ if.then1.i.i53.i:                                 ; preds = %if.end.i.i50.i
   br label %if.then.i56.i
 
 if.then.i56.i:                                    ; preds = %if.then1.i.i53.i, %if.end.i.i50.i, %if.then.i47.i, %if.end26.i
-  %lst.09183745.i = phi ptr [ null, %if.end26.i ], [ %lst.091836.i, %if.then.i47.i ], [ %lst.091836.i, %if.end.i.i50.i ], [ %lst.091836.i, %if.then1.i.i53.i ]
+  %lst.08203546.i = phi ptr [ null, %if.end26.i ], [ %lst.082034.i, %if.then.i47.i ], [ %lst.082034.i, %if.end.i.i50.i ], [ %lst.082034.i, %if.then1.i.i53.i ]
   %27 = load i64, ptr %call23.i, align 8
   %28 = and i64 %27, 2147483648
   %cmp.i2.not.i57.i = icmp eq i64 %28, 0
@@ -4003,7 +4003,7 @@ if.then1.i.i62.i:                                 ; preds = %if.end.i.i59.i
   br label %Py_XDECREF.exit63.i
 
 Py_XDECREF.exit63.i:                              ; preds = %if.then1.i.i62.i, %if.end.i.i59.i, %if.then.i56.i, %Py_DECREF.exit.i, %if.end18.i
-  %lst.09183746.i = phi ptr [ %lst.09183745.i, %if.then.i56.i ], [ %lst.09183745.i, %if.end.i.i59.i ], [ %lst.09183745.i, %if.then1.i.i62.i ], [ null, %Py_DECREF.exit.i ], [ null, %if.end18.i ]
+  %lst.08203547.i = phi ptr [ %lst.08203546.i, %if.then.i56.i ], [ %lst.08203546.i, %if.end.i.i59.i ], [ %lst.08203546.i, %if.then1.i.i62.i ], [ null, %Py_DECREF.exit.i ], [ null, %if.end18.i ]
   %29 = load ptr, ptr %strides3.i, align 8
   %cmp47.i = icmp ne ptr %strides.0.i, %29
   %cmp50.i = icmp ne ptr %strides.0.i, %simple_strides.i
@@ -4015,7 +4015,7 @@ if.then55.i:                                      ; preds = %Py_XDECREF.exit63.i
   br label %ndarray_as_list.exit
 
 ndarray_as_list.exit:                             ; preds = %if.then.i, %strides_from_shape.exit.i, %Py_XDECREF.exit63.i, %if.then55.i
-  %retval.0.i = phi ptr [ null, %if.then.i ], [ null, %strides_from_shape.exit.i ], [ %lst.09183746.i, %if.then55.i ], [ %lst.09183746.i, %Py_XDECREF.exit63.i ]
+  %retval.0.i = phi ptr [ null, %if.then.i ], [ null, %strides_from_shape.exit.i ], [ %lst.08203547.i, %if.then55.i ], [ %lst.08203547.i, %Py_XDECREF.exit63.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %simple_shape.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %simple_strides.i)
   ret ptr %retval.0.i
@@ -4428,37 +4428,37 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br i1 %tobool.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end29.us
-  %i.036.us = phi i64 [ %inc.us, %if.end29.us ], [ 0, %for.body.lr.ph ]
-  %ptr.addr.035.us = phi ptr [ %add.ptr31.us, %if.end29.us ], [ %ptr, %for.body.lr.ph ]
-  %call26.us = tail call fastcc ptr @unpack_rec(ptr noundef %unpack_from, ptr noundef %ptr.addr.035.us, ptr noundef %mview, ptr noundef %item, ptr noundef %add.ptr18, ptr noundef %add.ptr19, ptr noundef %cond25, i64 noundef %sub, i64 noundef %itemsize)
+  %ptr.addr.036.us = phi ptr [ %add.ptr31.us, %if.end29.us ], [ %ptr, %for.body.lr.ph ]
+  %i.035.us = phi i64 [ %inc.us, %if.end29.us ], [ 0, %for.body.lr.ph ]
+  %call26.us = tail call fastcc ptr @unpack_rec(ptr noundef %unpack_from, ptr noundef %ptr.addr.036.us, ptr noundef %mview, ptr noundef %item, ptr noundef %add.ptr18, ptr noundef %add.ptr19, ptr noundef %cond25, i64 noundef %sub, i64 noundef %itemsize)
   %cmp27.us = icmp eq ptr %call26.us, null
   br i1 %cmp27.us, label %if.then28, label %if.end29.us
 
 if.end29.us:                                      ; preds = %for.body.us
   %call9.val.us = load ptr, ptr %7, align 8
-  %arrayidx.i.us = getelementptr ptr, ptr %call9.val.us, i64 %i.036.us
+  %arrayidx.i.us = getelementptr ptr, ptr %call9.val.us, i64 %i.035.us
   store ptr %call26.us, ptr %arrayidx.i.us, align 8
   %8 = load i64, ptr %strides, align 8
-  %add.ptr31.us = getelementptr i8, ptr %ptr.addr.035.us, i64 %8
-  %inc.us = add nuw nsw i64 %i.036.us, 1
+  %add.ptr31.us = getelementptr i8, ptr %ptr.addr.036.us, i64 %8
+  %inc.us = add nuw nsw i64 %i.035.us, 1
   %9 = load i64, ptr %shape, align 8
   %cmp14.us = icmp slt i64 %inc.us, %9
   br i1 %cmp14.us, label %for.body.us, label %return, !llvm.loop !21
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end29
-  %i.036 = phi i64 [ %inc, %if.end29 ], [ 0, %for.body.lr.ph ]
-  %ptr.addr.035 = phi ptr [ %add.ptr31, %if.end29 ], [ %ptr, %for.body.lr.ph ]
+  %ptr.addr.036 = phi ptr [ %add.ptr31, %if.end29 ], [ %ptr, %for.body.lr.ph ]
+  %i.035 = phi i64 [ %inc, %if.end29 ], [ 0, %for.body.lr.ph ]
   %10 = load i64, ptr %suboffsets, align 8
   %cmp16 = icmp sgt i64 %10, -1
   br i1 %cmp16, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %for.body
-  %11 = load ptr, ptr %ptr.addr.035, align 8
+  %11 = load ptr, ptr %ptr.addr.036, align 8
   %add.ptr = getelementptr i8, ptr %11, i64 %10
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %ptr.addr.035, %for.body ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %ptr.addr.036, %for.body ]
   %call26 = tail call fastcc ptr @unpack_rec(ptr noundef %unpack_from, ptr noundef %cond, ptr noundef %mview, ptr noundef %item, ptr noundef %add.ptr18, ptr noundef %add.ptr19, ptr noundef %add.ptr22, i64 noundef %sub, i64 noundef %itemsize)
   %cmp27 = icmp eq ptr %call26, null
   br i1 %cmp27, label %if.then28, label %if.end29
@@ -4477,11 +4477,11 @@ if.end.i33:                                       ; preds = %if.then28
 
 if.end29:                                         ; preds = %cond.end
   %call9.val = load ptr, ptr %7, align 8
-  %arrayidx.i = getelementptr ptr, ptr %call9.val, i64 %i.036
+  %arrayidx.i = getelementptr ptr, ptr %call9.val, i64 %i.035
   store ptr %call26, ptr %arrayidx.i, align 8
   %14 = load i64, ptr %strides, align 8
-  %add.ptr31 = getelementptr i8, ptr %ptr.addr.035, i64 %14
-  %inc = add nuw nsw i64 %i.036, 1
+  %add.ptr31 = getelementptr i8, ptr %ptr.addr.036, i64 %14
+  %inc = add nuw nsw i64 %i.035, 1
   %15 = load i64, ptr %shape, align 8
   %cmp14 = icmp slt i64 %inc, %15
   br i1 %cmp14, label %for.body, label %return, !llvm.loop !21
@@ -5452,17 +5452,17 @@ if.end.i52.i.i:                                   ; preds = %if.then49.i.i
   br i1 %cmp1262.i.i.i, label %for.body.i60.i.i, label %for.end.i.i114.i
 
 for.body.i60.i.i:                                 ; preds = %if.end.i52.i.i, %for.inc.i.i.i
-  %n.065.i.i.i = phi i64 [ %inc.i62.i.i, %for.inc.i.i.i ], [ 0, %if.end.i52.i.i ]
-  %suboffset0.064.i.i.i = phi i64 [ %suboffset0.1.i.i.i, %for.inc.i.i.i ], [ 0, %if.end.i52.i.i ]
-  %imin.063.i.i.i = phi i64 [ %imin.1.i61.i.i, %for.inc.i.i.i ], [ 0, %if.end.i52.i.i ]
-  %arrayidx15.i.i.i = getelementptr i64, ptr %.pre.i.i.i, i64 %n.065.i.i.i
+  %imin.065.i.i.i = phi i64 [ %imin.1.i61.i.i, %for.inc.i.i.i ], [ 0, %if.end.i52.i.i ]
+  %n.064.i.i.i = phi i64 [ %inc.i62.i.i, %for.inc.i.i.i ], [ 0, %if.end.i52.i.i ]
+  %suboffset0.063.i.i.i = phi i64 [ %suboffset0.1.i.i.i, %for.inc.i.i.i ], [ 0, %if.end.i52.i.i ]
+  %arrayidx15.i.i.i = getelementptr i64, ptr %.pre.i.i.i, i64 %n.064.i.i.i
   %109 = load i64, ptr %arrayidx15.i.i.i, align 8
   %cmp16.i.i.i = icmp eq i64 %109, 0
   br i1 %cmp16.i.i.i, label %for.end.i.i114.i, label %if.end19.i.i.i
 
 if.end19.i.i.i:                                   ; preds = %for.body.i60.i.i
   %110 = load ptr, ptr %strides19.i162.i, align 8
-  %arrayidx20.i.i.i = getelementptr i64, ptr %110, i64 %n.065.i.i.i
+  %arrayidx20.i.i.i = getelementptr i64, ptr %110, i64 %n.064.i.i.i
   %111 = load i64, ptr %arrayidx20.i.i.i, align 8
   %cmp21.i.i.i = icmp slt i64 %111, 1
   br i1 %cmp21.i.i.i, label %if.then23.i.i.i, label %for.inc.i.i.i
@@ -5470,22 +5470,22 @@ if.end19.i.i.i:                                   ; preds = %for.body.i60.i.i
 if.then23.i.i.i:                                  ; preds = %if.end19.i.i.i
   %sub.i64.i.i = add i64 %109, -1
   %mul28.i.i.i = mul i64 %111, %sub.i64.i.i
-  %add29.i65.i.i = add i64 %mul28.i.i.i, %imin.063.i.i.i
-  %cmp30.not.i.i.i = icmp eq i64 %n.065.i.i.i, 0
+  %add29.i65.i.i = add i64 %mul28.i.i.i, %imin.065.i.i.i
+  %cmp30.not.i.i.i = icmp eq i64 %n.064.i.i.i, 0
   %112 = select i1 %cmp30.not.i.i.i, i64 0, i64 %mul28.i.i.i
-  %add3361.i.i.i = sub i64 %suboffset0.064.i.i.i, %112
+  %add3361.i.i.i = sub i64 %suboffset0.063.i.i.i, %112
   br label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %if.then23.i.i.i, %if.end19.i.i.i
-  %imin.1.i61.i.i = phi i64 [ %add29.i65.i.i, %if.then23.i.i.i ], [ %imin.063.i.i.i, %if.end19.i.i.i ]
-  %suboffset0.1.i.i.i = phi i64 [ %add3361.i.i.i, %if.then23.i.i.i ], [ %suboffset0.064.i.i.i, %if.end19.i.i.i ]
-  %inc.i62.i.i = add nuw nsw i64 %n.065.i.i.i, 1
+  %suboffset0.1.i.i.i = phi i64 [ %add3361.i.i.i, %if.then23.i.i.i ], [ %suboffset0.063.i.i.i, %if.end19.i.i.i ]
+  %imin.1.i61.i.i = phi i64 [ %add29.i65.i.i, %if.then23.i.i.i ], [ %imin.065.i.i.i, %if.end19.i.i.i ]
+  %inc.i62.i.i = add nuw nsw i64 %n.064.i.i.i, 1
   %exitcond.not.i63.i.i = icmp eq i64 %inc.i62.i.i, %conv.i54.i.i
   br i1 %exitcond.not.i63.i.i, label %for.end.i.i114.i, label %for.body.i60.i.i, !llvm.loop !29
 
 for.end.i.i114.i:                                 ; preds = %for.inc.i.i.i, %for.body.i60.i.i, %if.end.i52.i.i
-  %imin.0.lcssa.i55.i.i = phi i64 [ 0, %if.end.i52.i.i ], [ %imin.1.i61.i.i, %for.inc.i.i.i ], [ %imin.063.i.i.i, %for.body.i60.i.i ]
-  %suboffset0.0.lcssa.i.i.i = phi i64 [ 0, %if.end.i52.i.i ], [ %suboffset0.1.i.i.i, %for.inc.i.i.i ], [ %suboffset0.064.i.i.i, %for.body.i60.i.i ]
+  %suboffset0.0.lcssa.i.i.i = phi i64 [ 0, %if.end.i52.i.i ], [ %suboffset0.1.i.i.i, %for.inc.i.i.i ], [ %suboffset0.063.i.i.i, %for.body.i60.i.i ]
+  %imin.0.lcssa.i55.i.i = phi i64 [ 0, %if.end.i52.i.i ], [ %imin.1.i61.i.i, %for.inc.i.i.i ], [ %imin.065.i.i.i, %for.body.i60.i.i ]
   %113 = load i64, ptr %offset9.i.i, align 8
   %114 = load ptr, ptr %strides19.i162.i, align 8
   %115 = load i64, ptr %114, align 8

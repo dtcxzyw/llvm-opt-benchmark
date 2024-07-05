@@ -267,9 +267,9 @@ if.then24:                                        ; preds = %if.then11
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then11, %if.then24, %if.end8
-  %out.addr.0 = phi ptr [ %add.ptr, %if.then24 ], [ %add.ptr, %if.then11 ], [ %out, %if.end8 ]
-  %outl.addr.0 = phi i32 [ %sub18, %if.then24 ], [ %sub18, %if.then11 ], [ %outl, %if.end8 ]
   %ret.0 = phi i32 [ %spec.select, %if.then24 ], [ %spec.select, %if.then11 ], [ 0, %if.end8 ]
+  %outl.addr.0 = phi i32 [ %sub18, %if.then24 ], [ %sub18, %if.then11 ], [ %outl, %if.end8 ]
+  %out.addr.0 = phi ptr [ %add.ptr, %if.then24 ], [ %add.ptr, %if.then11 ], [ %out, %if.end8 ]
   %cmp29204 = icmp sgt i32 %outl.addr.0, 0
   br i1 %cmp29204, label %while.body.lr.ph.lr.ph, label %while.end
 
@@ -286,16 +286,16 @@ while.body.lr.ph.lr.ph:                           ; preds = %if.end28
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end265
-  %ret_code.0.ph209 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %ret_code.1, %if.end265 ]
-  %ret.1.ph207 = phi i32 [ %ret.0, %while.body.lr.ph.lr.ph ], [ %add256, %if.end265 ]
-  %outl.addr.1.ph206 = phi i32 [ %outl.addr.0, %while.body.lr.ph.lr.ph ], [ %sub266, %if.end265 ]
-  %out.addr.1.ph205 = phi ptr [ %out.addr.0, %while.body.lr.ph.lr.ph ], [ %add.ptr268, %if.end265 ]
+  %out.addr.1.ph209 = phi ptr [ %out.addr.0, %while.body.lr.ph.lr.ph ], [ %add.ptr268, %if.end265 ]
+  %ret_code.0.ph208 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %ret_code.1, %if.end265 ]
+  %outl.addr.1.ph207 = phi i32 [ %outl.addr.0, %while.body.lr.ph.lr.ph ], [ %sub266, %if.end265 ]
+  %ret.1.ph205 = phi i32 [ %ret.0, %while.body.lr.ph.lr.ph ], [ %add256, %if.end265 ]
   %7 = load i32, ptr %cont, align 4
   %cmp31279 = icmp slt i32 %7, 1
   br i1 %cmp31279, label %while.end, label %if.end34
 
 if.end34:                                         ; preds = %while.body.lr.ph, %while.cond.backedge
-  %ret_code.0193280 = phi i32 [ %ret_code.1, %while.cond.backedge ], [ %ret_code.0.ph209, %while.body.lr.ph ]
+  %ret_code.0193280 = phi i32 [ %ret_code.1, %while.cond.backedge ], [ %ret_code.0.ph208, %while.body.lr.ph ]
   %8 = load ptr, ptr %next_bio, align 8
   %9 = load i32, ptr %tmp_len36, align 4
   %idxprom37 = sext i32 %9 to i64
@@ -579,10 +579,10 @@ if.then243:                                       ; preds = %if.end239
 
 if.end245:                                        ; preds = %if.end239
   %30 = load i32, ptr %0, align 4
-  %outl.addr.1. = call i32 @llvm.smin.i32(i32 %30, i32 %outl.addr.1.ph206)
+  %outl.addr.1. = call i32 @llvm.smin.i32(i32 %30, i32 %outl.addr.1.ph207)
   %conv255 = sext i32 %outl.addr.1. to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.1.ph205, ptr nonnull align 4 %buf81, i64 %conv255, i1 false)
-  %add256 = add nsw i32 %outl.addr.1., %ret.1.ph207
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.1.ph209, ptr nonnull align 4 %buf81, i64 %conv255, i1 false)
+  %add256 = add nsw i32 %outl.addr.1., %ret.1.ph205
   store i32 %outl.addr.1., ptr %buf_off240, align 4
   %31 = load i32, ptr %0, align 4
   %cmp260 = icmp eq i32 %outl.addr.1., %31
@@ -594,14 +594,14 @@ if.then262:                                       ; preds = %if.end245
   br label %if.end265
 
 if.end265:                                        ; preds = %if.then262, %if.end245
-  %sub266 = sub nsw i32 %outl.addr.1.ph206, %outl.addr.1.
-  %add.ptr268 = getelementptr inbounds i8, ptr %out.addr.1.ph205, i64 %conv255
+  %sub266 = sub nsw i32 %outl.addr.1.ph207, %outl.addr.1.
+  %add.ptr268 = getelementptr inbounds i8, ptr %out.addr.1.ph209, i64 %conv255
   %cmp29 = icmp sgt i32 %sub266, 0
   br i1 %cmp29, label %while.body.lr.ph, label %while.end, !llvm.loop !14
 
 while.end:                                        ; preds = %if.end265, %while.body.lr.ph, %if.then43, %if.then46, %while.cond.backedge, %if.end28, %if.then243
-  %ret.1.ph177 = phi i32 [ %ret.1.ph207, %if.then243 ], [ %ret.0, %if.end28 ], [ %ret.1.ph207, %while.cond.backedge ], [ %ret.1.ph207, %if.then46 ], [ %ret.1.ph207, %if.then43 ], [ %add256, %if.end265 ], [ %ret.1.ph207, %while.body.lr.ph ]
-  %ret_code.2 = phi i32 [ 0, %if.then243 ], [ 0, %if.end28 ], [ %call, %if.then43 ], [ %call, %if.then46 ], [ %ret_code.1, %while.cond.backedge ], [ %ret_code.1, %if.end265 ], [ %ret_code.0.ph209, %while.body.lr.ph ]
+  %ret.1.ph177 = phi i32 [ %ret.1.ph205, %if.then243 ], [ %ret.0, %if.end28 ], [ %ret.1.ph205, %while.cond.backedge ], [ %ret.1.ph205, %if.then46 ], [ %ret.1.ph205, %if.then43 ], [ %add256, %if.end265 ], [ %ret.1.ph205, %while.body.lr.ph ]
+  %ret_code.2 = phi i32 [ 0, %if.then243 ], [ 0, %if.end28 ], [ %call, %if.then43 ], [ %call, %if.then46 ], [ %ret_code.1, %while.cond.backedge ], [ %ret_code.1, %if.end265 ], [ %ret_code.0.ph208, %while.body.lr.ph ]
   call void @BIO_copy_next_retry(ptr noundef %b) #10
   %cmp269 = icmp eq i32 %ret.1.ph177, 0
   %cond = select i1 %cmp269, i32 %ret_code.2, i32 %ret.1.ph177

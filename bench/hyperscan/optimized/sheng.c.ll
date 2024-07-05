@@ -499,8 +499,8 @@ while.body.i230.lr.ph:                            ; preds = %if.end33.i217
   br label %while.body.i230
 
 while.body.i230:                                  ; preds = %while.body.i230.lr.ph, %if.end248.i262
-  %52 = phi <16 x i8> [ %vecinit15.i2760, %while.body.i230.lr.ph ], [ %64, %if.end248.i262 ]
   %cur_buf.i172.11606 = phi ptr [ %buffer, %while.body.i230.lr.ph ], [ %add.ptr282.i265, %if.end248.i262 ]
+  %52 = phi <16 x i8> [ %vecinit15.i2760, %while.body.i230.lr.ph ], [ %64, %if.end248.i262 ]
   %cached_accept_state.111605 = phi i8 [ 0, %while.body.i230.lr.ph ], [ %cached_accept_state.20, %if.end248.i262 ]
   %cached_accept_id.111604 = phi i32 [ 0, %while.body.i230.lr.ph ], [ %cached_accept_id.20, %if.end248.i262 ]
   %add.ptr40.i231 = getelementptr inbounds i8, ptr %cur_buf.i172.11606, i64 1
@@ -887,8 +887,8 @@ while.body.i689.lr.ph:                            ; preds = %if.end11.i
   br i1 %tobool29.i698.not, label %while.body.i689.us, label %while.body.i689
 
 while.body.i689.us:                               ; preds = %while.body.i689.lr.ph, %if.end44.i.us
-  %94 = phi <16 x i8> [ %97, %if.end44.i.us ], [ %vecinit15.i2727, %while.body.i689.lr.ph ]
   %cur_buf.i676.01616.us = phi ptr [ %incdec.ptr.i.us, %if.end44.i.us ], [ %scanned.2, %while.body.i689.lr.ph ]
+  %94 = phi <16 x i8> [ %97, %if.end44.i.us ], [ %vecinit15.i2727, %while.body.i689.lr.ph ]
   %cached_accept_state.231615.us = phi i8 [ %cached_accept_state.25.us, %if.end44.i.us ], [ %cached_accept_state.22, %while.body.i689.lr.ph ]
   %cached_accept_id.231614.us = phi i32 [ %cached_accept_id.25.us, %if.end44.i.us ], [ %cached_accept_id.22, %while.body.i689.lr.ph ]
   %95 = load i8, ptr %cur_buf.i676.01616.us, align 1
@@ -963,8 +963,8 @@ for.body.i.i735.lr.ph.us:                         ; preds = %cond.false.i.i719.u
   br label %for.body.i.i735.us
 
 while.body.i689:                                  ; preds = %while.body.i689.lr.ph, %if.end44.i
-  %104 = phi <16 x i8> [ %107, %if.end44.i ], [ %vecinit15.i2727, %while.body.i689.lr.ph ]
   %cur_buf.i676.01616 = phi ptr [ %incdec.ptr.i, %if.end44.i ], [ %scanned.2, %while.body.i689.lr.ph ]
+  %104 = phi <16 x i8> [ %107, %if.end44.i ], [ %vecinit15.i2727, %while.body.i689.lr.ph ]
   %105 = load i8, ptr %cur_buf.i676.01616, align 1
   %idxprom.i690 = zext i8 %105 to i64
   %arrayidx.i691 = getelementptr inbounds <2 x i64>, ptr %add.ptr, i64 %idxprom.i690
@@ -2915,8 +2915,8 @@ while.body.i448.lr.ph:                            ; preds = %if.end33.i435
   br label %while.body.i448
 
 while.body.i448:                                  ; preds = %while.body.i448.lr.ph, %if.end248.i480
-  %133 = phi <16 x i8> [ %vecinit15.i2978, %while.body.i448.lr.ph ], [ %145, %if.end248.i480 ]
   %cur_buf.i390.12660 = phi ptr [ %add.ptr102, %while.body.i448.lr.ph ], [ %add.ptr282.i483, %if.end248.i480 ]
+  %133 = phi <16 x i8> [ %vecinit15.i2978, %while.body.i448.lr.ph ], [ %145, %if.end248.i480 ]
   %cached_accept_state.152659 = phi i8 [ %cached_accept_state.3, %while.body.i448.lr.ph ], [ %cached_accept_state.24, %if.end248.i480 ]
   %cached_accept_id.152658 = phi i32 [ %cached_accept_id.3, %while.body.i448.lr.ph ], [ %cached_accept_id.24, %if.end248.i480 ]
   %add.ptr40.i449 = getelementptr inbounds i8, ptr %cur_buf.i390.12660, i64 1
@@ -3300,8 +3300,8 @@ while.body.i907.lr.ph:                            ; preds = %if.end11.i
   br label %while.body.i907
 
 while.body.i907:                                  ; preds = %while.body.i907.lr.ph, %if.end44.i
-  %175 = phi <16 x i8> [ %vecinit15.i2945, %while.body.i907.lr.ph ], [ %178, %if.end44.i ]
   %cur_buf.i894.02670 = phi ptr [ %scanned.3, %while.body.i907.lr.ph ], [ %incdec.ptr.i, %if.end44.i ]
+  %175 = phi <16 x i8> [ %vecinit15.i2945, %while.body.i907.lr.ph ], [ %178, %if.end44.i ]
   %cached_accept_state.272669 = phi i8 [ %cached_accept_state.26, %while.body.i907.lr.ph ], [ %cached_accept_state.29, %if.end44.i ]
   %cached_accept_id.272668 = phi i32 [ %cached_accept_id.26, %while.body.i907.lr.ph ], [ %cached_accept_id.29, %if.end44.i ]
   %176 = load i8, ptr %cur_buf.i894.02670, align 1
@@ -3411,8 +3411,8 @@ if.then.i1539:                                    ; preds = %if.then16.i
   br label %if.end33.i1123
 
 if.end33.i1123:                                   ; preds = %if.then16.i, %if.then.i1539
-  %cur_buf.i1077.0 = phi ptr [ %call11.i1544, %if.then.i1539 ], [ %add.ptr102, %if.then16.i ]
   %min_accel_dist.i1078.1 = phi ptr [ %min_accel_dist.i1078.0, %if.then.i1539 ], [ %add.ptr102, %if.then16.i ]
+  %cur_buf.i1077.0 = phi ptr [ %call11.i1544, %if.then.i1539 ], [ %add.ptr102, %if.then16.i ]
   %sub.ptr.lhs.cast.i1126 = ptrtoint ptr %add.ptr103 to i64
   %sub.ptr.rhs.cast.i112726822700 = ptrtoint ptr %cur_buf.i1077.0 to i64
   %sub.ptr.sub.i112826832701 = sub i64 %sub.ptr.lhs.cast.i1126, %sub.ptr.rhs.cast.i112726822700
@@ -3426,16 +3426,16 @@ while.body.i1136.lr.ph.lr.ph:                     ; preds = %if.end33.i1123
   br label %while.body.i1136.lr.ph
 
 while.body.i1136.lr.ph:                           ; preds = %while.body.i1136.lr.ph.lr.ph, %if.then215.i1214
-  %.ph23792707 = phi <16 x i8> [ %vecinit15.i2912, %while.body.i1136.lr.ph.lr.ph ], [ %201, %if.then215.i1214 ]
+  %cur_buf.i1077.1.ph2707 = phi ptr [ %cur_buf.i1077.0, %while.body.i1136.lr.ph.lr.ph ], [ %call225.i1220, %if.then215.i1214 ]
   %min_accel_dist.i1078.2.ph2706 = phi ptr [ %min_accel_dist.i1078.1, %while.body.i1136.lr.ph.lr.ph ], [ %min_accel_dist.i1078.3, %if.then215.i1214 ]
-  %cur_buf.i1077.1.ph2705 = phi ptr [ %cur_buf.i1077.0, %while.body.i1136.lr.ph.lr.ph ], [ %call225.i1220, %if.then215.i1214 ]
+  %.ph23792705 = phi <16 x i8> [ %vecinit15.i2912, %while.body.i1136.lr.ph.lr.ph ], [ %201, %if.then215.i1214 ]
   %cached_accept_state.31.ph2704 = phi i8 [ %cached_accept_state.3, %while.body.i1136.lr.ph.lr.ph ], [ %cached_accept_state.39, %if.then215.i1214 ]
   %cached_accept_id.31.ph2703 = phi i32 [ %cached_accept_id.3, %while.body.i1136.lr.ph.lr.ph ], [ %cached_accept_id.39, %if.then215.i1214 ]
   br label %while.body.i1136
 
 while.body.i1136:                                 ; preds = %while.body.i1136.lr.ph, %if.end248.i1168
-  %189 = phi <16 x i8> [ %.ph23792707, %while.body.i1136.lr.ph ], [ %201, %if.end248.i1168 ]
-  %cur_buf.i1077.12687 = phi ptr [ %cur_buf.i1077.1.ph2705, %while.body.i1136.lr.ph ], [ %add.ptr282.i1171, %if.end248.i1168 ]
+  %cur_buf.i1077.12687 = phi ptr [ %cur_buf.i1077.1.ph2707, %while.body.i1136.lr.ph ], [ %add.ptr282.i1171, %if.end248.i1168 ]
+  %189 = phi <16 x i8> [ %.ph23792705, %while.body.i1136.lr.ph ], [ %201, %if.end248.i1168 ]
   %cached_accept_state.312686 = phi i8 [ %cached_accept_state.31.ph2704, %while.body.i1136.lr.ph ], [ %cached_accept_state.40, %if.end248.i1168 ]
   %cached_accept_id.312685 = phi i32 [ %cached_accept_id.31.ph2703, %while.body.i1136.lr.ph ], [ %cached_accept_id.40, %if.end248.i1168 ]
   %add.ptr40.i1137 = getelementptr inbounds i8, ptr %cur_buf.i1077.12687, i64 1
@@ -3836,8 +3836,8 @@ while.body.i1708.lr.ph:                           ; preds = %if.else19.i
   br label %while.body.i1708
 
 while.body.i1708:                                 ; preds = %while.body.i1708.lr.ph, %if.end248.i1740
-  %233 = phi <16 x i8> [ %vecinit15.i2879, %while.body.i1708.lr.ph ], [ %245, %if.end248.i1740 ]
   %cur_buf.i1649.12725 = phi ptr [ %add.ptr102, %while.body.i1708.lr.ph ], [ %add.ptr282.i1743, %if.end248.i1740 ]
+  %233 = phi <16 x i8> [ %vecinit15.i2879, %while.body.i1708.lr.ph ], [ %245, %if.end248.i1740 ]
   %cached_accept_state.422724 = phi i8 [ %cached_accept_state.3, %while.body.i1708.lr.ph ], [ %cached_accept_state.51, %if.end248.i1740 ]
   %cached_accept_id.422723 = phi i32 [ %cached_accept_id.3, %while.body.i1708.lr.ph ], [ %cached_accept_id.51, %if.end248.i1740 ]
   %add.ptr40.i1709 = getelementptr inbounds i8, ptr %cur_buf.i1649.12725, i64 1

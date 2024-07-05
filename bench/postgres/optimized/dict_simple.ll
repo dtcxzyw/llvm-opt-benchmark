@@ -33,8 +33,8 @@ define dso_local i64 @dsimple_init(ptr nocapture noundef readonly %0) local_unna
 
 .lr.ph38:                                         ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.lr.ph ]
-  %.0182737 = phi i1 [ %.119, %39 ], [ false, %.lr.ph ]
-  %.0172836 = phi i1 [ %.1, %39 ], [ false, %.lr.ph ]
+  %.0172836 = phi i1 [ %.118, %39 ], [ false, %.lr.ph ]
+  %.02935 = phi i1 [ %.1, %39 ], [ false, %.lr.ph ]
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr %union.ListCell, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
@@ -45,7 +45,7 @@ define dso_local i64 @dsimple_init(ptr nocapture noundef readonly %0) local_unna
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %.lr.ph38
-  br i1 %.0182737, label %.split34, label %22
+  br i1 %.02935, label %.split34, label %22
 
 .split34:                                         ; preds = %18
   %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -93,8 +93,8 @@ define dso_local i64 @dsimple_init(ptr nocapture noundef readonly %0) local_unna
   unreachable
 
 39:                                               ; preds = %22, %31
-  %.119 = phi i1 [ true, %22 ], [ %.0182737, %31 ]
-  %.1 = phi i1 [ %.0172836, %22 ], [ true, %31 ]
+  %.118 = phi i1 [ %.0172836, %22 ], [ true, %31 ]
+  %.1 = phi i1 [ true, %22 ], [ %.02935, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = load i32, ptr %7, align 4
   %41 = sext i32 %40 to i64

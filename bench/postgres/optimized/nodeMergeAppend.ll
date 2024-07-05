@@ -113,7 +113,7 @@ list_length.exit73:                               ; preds = %29, %30
 
 54:                                               ; preds = %.lr.ph, %54
   %55 = phi i32 [ %51, %.lr.ph ], [ %66, %54 ]
-  %.06674 = phi i32 [ 0, %.lr.ph ], [ %62, %54 ]
+  %.06774 = phi i32 [ 0, %.lr.ph ], [ %62, %54 ]
   %56 = load ptr, ptr %53, align 8
   %57 = getelementptr i8, ptr %56, i64 16
   %.val = load ptr, ptr %57, align 8
@@ -121,8 +121,8 @@ list_length.exit73:                               ; preds = %29, %30
   %59 = getelementptr %union.ListCell, ptr %.val, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = call ptr @ExecInitNode(ptr noundef %60, ptr noundef %1, i32 noundef %2) #2
-  %62 = add i32 %.06674, 1
-  %63 = sext i32 %.06674 to i64
+  %62 = add i32 %.06774, 1
+  %63 = sext i32 %.06774 to i64
   %64 = getelementptr ptr, ptr %41, i64 %63
   store ptr %61, ptr %64, align 8
   %65 = load ptr, ptr %4, align 8

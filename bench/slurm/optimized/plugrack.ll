@@ -743,7 +743,7 @@ plugrack_read_dir.exit:                           ; preds = %29
   br label %.thread95
 
 44:                                               ; preds = %6, %plugrack_read_dir.exit
-  %.070 = phi ptr [ %16, %plugrack_read_dir.exit ], [ %14, %6 ]
+  %.071 = phi ptr [ %16, %plugrack_read_dir.exit ], [ %14, %6 ]
   %.not79 = icmp eq ptr %3, null
   br i1 %.not79, label %53, label %45
 
@@ -753,7 +753,7 @@ plugrack_read_dir.exit:                           ; preds = %29
   br i1 %.not80, label %47, label %53
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %.070, i64 40
+  %48 = getelementptr inbounds i8, ptr %.071, i64 40
   %49 = load ptr, ptr %48, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %3, ptr %8, align 8
@@ -769,12 +769,12 @@ plugrack_read_dir.exit:                           ; preds = %29
   br i1 %.not81, label %54, label %60
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %.070, i64 40
+  %55 = getelementptr inbounds i8, ptr %.071, i64 40
   %56 = load ptr, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr @_plugrack_foreach, ptr %7, align 8
   %57 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %.070, ptr %57, align 8
+  store ptr %.071, ptr %57, align 8
   %58 = load ptr, ptr %56, align 8
   %59 = call i32 @list_for_each(ptr noundef %58, ptr noundef nonnull @_foreach_plugin, ptr noundef nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -805,16 +805,16 @@ plugrack_read_dir.exit:                           ; preds = %29
   br i1 %.not82107, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %67, %.lr.ph
-  %.069108 = phi ptr [ %75, %.lr.ph ], [ %70, %67 ]
+  %.070108 = phi ptr [ %75, %.lr.ph ], [ %70, %67 ]
   %71 = load ptr, ptr %12, align 8
   %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #11
-  %73 = call i32 @xstrncmp(ptr noundef nonnull %.069108, ptr noundef %71, i64 noundef %72) #10
+  %73 = call i32 @xstrncmp(ptr noundef nonnull %.070108, ptr noundef %71, i64 noundef %72) #10
   %.not83 = icmp eq i32 %73, 0
-  %.068.idx = select i1 %.not83, i64 %72, i64 0
-  %.068 = getelementptr inbounds i8, ptr %.069108, i64 %.068.idx
-  %74 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef %1, ptr noundef nonnull %.068) #10
+  %.069.idx = select i1 %.not83, i64 %72, i64 0
+  %.069 = getelementptr inbounds i8, ptr %.070108, i64 %.069.idx
+  %74 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef %1, ptr noundef nonnull %.069) #10
   store ptr %74, ptr %13, align 8
-  call void @_plugrack_foreach(ptr noundef %74, ptr noundef null, ptr noundef null, ptr noundef nonnull %.070)
+  call void @_plugrack_foreach(ptr noundef %74, ptr noundef null, ptr noundef null, ptr noundef nonnull %.071)
   call void @slurm_xfree(ptr noundef nonnull %13) #10
   %75 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef nonnull %10) #10
   %.not82 = icmp eq ptr %75, null
@@ -826,15 +826,15 @@ plugrack_read_dir.exit:                           ; preds = %29
   br label %76
 
 76:                                               ; preds = %._crit_edge, %66, %63, %54
-  %77 = getelementptr inbounds i8, ptr %.070, i64 32
+  %77 = getelementptr inbounds i8, ptr %.071, i64 32
   %78 = load i64, ptr %77, align 8
   %.not124 = icmp eq i64 %78, 0
   br i1 %.not124, label %.loopexit, label %.lr.ph111
 
 .lr.ph111:                                        ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %.070, i64 16
-  %80 = getelementptr inbounds i8, ptr %.070, i64 40
-  %81 = getelementptr inbounds i8, ptr %.070, i64 24
+  %79 = getelementptr inbounds i8, ptr %.071, i64 16
+  %80 = getelementptr inbounds i8, ptr %.071, i64 40
+  %81 = getelementptr inbounds i8, ptr %.071, i64 24
   %.pre = load ptr, ptr %79, align 8
   br label %82
 
@@ -884,8 +884,8 @@ plugrack_read_dir.exit:                           ; preds = %29
 .loopexit:                                        ; preds = %105, %76, %100
   %110 = phi i64 [ %.pre121, %100 ], [ 0, %76 ], [ %106, %105 ]
   %111 = phi i1 [ true, %100 ], [ false, %76 ], [ false, %105 ]
-  %.172 = phi i32 [ 8002, %100 ], [ 0, %76 ], [ 0, %105 ]
-  %112 = getelementptr inbounds i8, ptr %.070, i64 8
+  %.1 = phi i32 [ 8002, %100 ], [ 0, %76 ], [ 0, %105 ]
+  %112 = getelementptr inbounds i8, ptr %.071, i64 8
   %113 = call ptr @slurm_xrecalloc(ptr noundef nonnull %112, i64 noundef %110, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 595, ptr noundef nonnull @__func__.load_plugins) #10
   %114 = load i64, ptr %77, align 8
   %115 = icmp eq i64 %114, 0
@@ -893,7 +893,7 @@ plugrack_read_dir.exit:                           ; preds = %29
   br i1 %or.cond, label %145, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %.loopexit
-  %116 = getelementptr inbounds i8, ptr %.070, i64 16
+  %116 = getelementptr inbounds i8, ptr %.071, i64 16
   %117 = add i64 %5, 1
   %118 = trunc i64 %5 to i32
   br label %119
@@ -945,18 +945,18 @@ plugrack_read_dir.exit:                           ; preds = %29
   br i1 %111, label %.thread95, label %.thread
 
 .thread:                                          ; preds = %141, %47, %145
-  store ptr %.070, ptr %0, align 8
+  store ptr %.071, ptr %0, align 8
   br label %146
 
 .thread95:                                        ; preds = %130, %40, %145
-  %.1100 = phi ptr [ %.070, %145 ], [ %16, %40 ], [ %.070, %130 ]
-  %.299 = phi i32 [ %.172, %145 ], [ -1, %40 ], [ 8003, %130 ]
-  call void @unload_plugins(ptr noundef %.1100)
+  %.2100 = phi i32 [ %.1, %145 ], [ -1, %40 ], [ 8003, %130 ]
+  %.17299 = phi ptr [ %.071, %145 ], [ %16, %40 ], [ %.071, %130 ]
+  call void @unload_plugins(ptr noundef %.17299)
   br label %146
 
 146:                                              ; preds = %.thread95, %.thread
-  %.291 = phi i32 [ %.299, %.thread95 ], [ 0, %.thread ]
-  ret i32 %.291
+  %.292 = phi i32 [ %.2100, %.thread95 ], [ 0, %.thread ]
+  ret i32 %.292
 }
 
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1

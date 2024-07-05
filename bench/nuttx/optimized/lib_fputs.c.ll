@@ -17,7 +17,7 @@ define i32 @fputs_unlocked(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not2123, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %16
-  %.025 = phi i32 [ %17, %16 ], [ 0, %.preheader ]
+  %.01725 = phi i32 [ %17, %16 ], [ 0, %.preheader ]
   %.01824 = phi ptr [ %18, %16 ], [ %0, %.preheader ]
   %7 = tail call i64 @lib_fwrite_unlocked(ptr noundef nonnull %.01824, i64 noundef 1, ptr noundef %1) #5
   %8 = trunc i64 %7 to i32
@@ -36,7 +36,7 @@ define i32 @fputs_unlocked(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not22, label %16, label %.loopexit
 
 16:                                               ; preds = %10, %13
-  %17 = add nuw nsw i32 %.025, 1
+  %17 = add nuw nsw i32 %.01725, 1
   %18 = getelementptr inbounds i8, ptr %.01824, i64 1
   %19 = load i8, ptr %18, align 1
   %.not21 = icmp eq i8 %19, 0
@@ -57,8 +57,8 @@ define i32 @fputs_unlocked(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %16, %.preheader, %24, %20
-  %.017 = phi i32 [ 0, %20 ], [ %spec.select, %24 ], [ 0, %.preheader ], [ -1, %.lr.ph ], [ -1, %13 ], [ %17, %16 ]
-  ret i32 %.017
+  %.0 = phi i32 [ 0, %20 ], [ %spec.select, %24 ], [ 0, %.preheader ], [ -1, %.lr.ph ], [ -1, %13 ], [ %17, %16 ]
+  ret i32 %.0
 }
 
 declare i64 @lib_fwrite_unlocked(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
@@ -83,7 +83,7 @@ define i32 @fputs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not2123.i, label %fputs_unlocked.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %16
-  %.025.i = phi i32 [ %17, %16 ], [ 0, %.preheader.i ]
+  %.01725.i = phi i32 [ %17, %16 ], [ 0, %.preheader.i ]
   %.01824.i = phi ptr [ %18, %16 ], [ %0, %.preheader.i ]
   %7 = tail call i64 @lib_fwrite_unlocked(ptr noundef nonnull %.01824.i, i64 noundef 1, ptr noundef %1) #5
   %8 = trunc i64 %7 to i32
@@ -102,7 +102,7 @@ define i32 @fputs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not22.i, label %16, label %fputs_unlocked.exit
 
 16:                                               ; preds = %13, %10
-  %17 = add nuw nsw i32 %.025.i, 1
+  %17 = add nuw nsw i32 %.01725.i, 1
   %18 = getelementptr inbounds i8, ptr %.01824.i, i64 1
   %19 = load i8, ptr %18, align 1
   %.not21.i = icmp eq i8 %19, 0
@@ -123,9 +123,9 @@ define i32 @fputs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %fputs_unlocked.exit
 
 fputs_unlocked.exit:                              ; preds = %.lr.ph.i, %13, %16, %.preheader.i, %20, %24
-  %.017.i = phi i32 [ 0, %20 ], [ %spec.select.i, %24 ], [ 0, %.preheader.i ], [ %17, %16 ], [ -1, %13 ], [ -1, %.lr.ph.i ]
+  %.0.i = phi i32 [ 0, %20 ], [ %spec.select.i, %24 ], [ 0, %.preheader.i ], [ %17, %16 ], [ -1, %13 ], [ -1, %.lr.ph.i ]
   tail call void @funlockfile(ptr noundef %1)
-  ret i32 %.017.i
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nofree nounwind

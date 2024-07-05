@@ -553,19 +553,19 @@ if.then:                                          ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %for.body
-  %i.012 = phi i32 [ 0, %if.then ], [ %inc, %for.body ]
-  %ofs.011 = phi i64 [ %sub, %if.then ], [ %add, %for.body ]
-  %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef %i.012, i32 noundef 0) #13
+  %ofs.012 = phi i64 [ %sub, %if.then ], [ %add, %for.body ]
+  %i.011 = phi i32 [ 0, %if.then ], [ %inc, %for.body ]
+  %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef %i.011, i32 noundef 0) #13
   %tobool3.not.i = icmp eq ptr %call.i, null
-  %add5.i = add nuw nsw i32 %i.012, 9
+  %add5.i = add nuw nsw i32 %i.011, 9
   %cond.i = select i1 %tobool3.not.i, i32 0, i32 %add5.i
   %0 = load ptr, ptr %data, align 8
-  %add.ptr = getelementptr i8, ptr %0, i64 %ofs.011
+  %add.ptr = getelementptr i8, ptr %0, i64 %ofs.012
   %cond = select i1 %tobool3.not.i, i32 2, i32 9
   %cond4 = select i1 %tobool3.not.i, i32 0, i32 1025
-  tail call void (ptr, i64, ptr, ...) @fill(ptr noundef %add.ptr, i64 poison, ptr noundef nonnull @.str.28, i32 noundef %i.012, i32 noundef 0, i32 noundef 0, i32 noundef %cond, i32 noundef %cond4, i32 noundef %cond.i, i32 noundef %cond.i, i32 noundef 0)
-  %add = add i64 %ofs.011, 16
-  %inc = add nuw nsw i32 %i.012, 1
+  tail call void (ptr, i64, ptr, ...) @fill(ptr noundef %add.ptr, i64 poison, ptr noundef nonnull @.str.28, i32 noundef %i.011, i32 noundef 0, i32 noundef 0, i32 noundef %cond, i32 noundef %cond4, i32 noundef %cond.i, i32 noundef %cond.i, i32 noundef 0)
+  %add = add i64 %ofs.012, 16
+  %inc = add nuw nsw i32 %i.011, 1
   %exitcond.not = icmp eq i32 %inc, 8
   br i1 %exitcond.not, label %if.end8, label %for.body, !llvm.loop !8
 
@@ -586,16 +586,16 @@ if.then:                                          ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %for.body
-  %i.011 = phi i32 [ 0, %if.then ], [ %inc, %for.body ]
-  %ofs.010 = phi i64 [ %sub, %if.then ], [ %add, %for.body ]
-  %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef %i.011, i32 noundef 0) #13
+  %ofs.011 = phi i64 [ %sub, %if.then ], [ %add, %for.body ]
+  %i.010 = phi i32 [ 0, %if.then ], [ %inc, %for.body ]
+  %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef %i.010, i32 noundef 0) #13
   %0 = load ptr, ptr %data, align 8
-  %add.ptr = getelementptr i8, ptr %0, i64 %ofs.010
+  %add.ptr = getelementptr i8, ptr %0, i64 %ofs.011
   %tobool2.not = icmp eq ptr %call.i, null
   %cond = select i1 %tobool2.not, i32 0, i32 1025
-  tail call void (ptr, i64, ptr, ...) @fill(ptr noundef %add.ptr, i64 poison, ptr noundef nonnull @.str.32, i32 noundef %i.011, i32 noundef 0, i32 noundef 0, i32 noundef 152, i32 noundef %cond, i32 noundef 0, i32 noundef 0)
-  %add = add i64 %ofs.010, 12
-  %inc = add nuw nsw i32 %i.011, 1
+  tail call void (ptr, i64, ptr, ...) @fill(ptr noundef %add.ptr, i64 poison, ptr noundef nonnull @.str.32, i32 noundef %i.010, i32 noundef 0, i32 noundef 0, i32 noundef 152, i32 noundef %cond, i32 noundef 0, i32 noundef 0)
+  %add = add i64 %ofs.011, 12
+  %inc = add nuw nsw i32 %i.010, 1
   %exitcond.not = icmp eq i32 %inc, 8
   br i1 %exitcond.not, label %if.end6, label %for.body, !llvm.loop !9
 
@@ -1210,8 +1210,8 @@ entry:
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %entry
-  %ofs.0.ph = phi i64 [ 0, %entry ], [ %ofs.0.ph.be, %while.cond.outer.backedge ]
   %p.0.ph = phi ptr [ %fmt, %entry ], [ %incdec.ptr27, %while.cond.outer.backedge ]
+  %ofs.0.ph = phi i64 [ 0, %entry ], [ %ofs.0.ph.be, %while.cond.outer.backedge ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer, %sw.epilog

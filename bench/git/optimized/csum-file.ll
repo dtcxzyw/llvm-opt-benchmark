@@ -345,13 +345,13 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end23
-  %count.addr.034 = phi i32 [ %count, %while.body.lr.ph ], [ %sub24, %if.end23 ]
-  %buf.addr.032 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr26, %if.end23 ]
+  %buf.addr.033 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr26, %if.end23 ]
+  %count.addr.032 = phi i32 [ %count, %while.body.lr.ph ], [ %sub24, %if.end23 ]
   %0 = load i64, ptr %buffer_len, align 8
   %1 = load i32, ptr %offset, align 8
   %2 = trunc i64 %0 to i32
   %conv1 = sub i32 %2, %1
-  %cond = tail call i32 @llvm.umin.i32(i32 %count.addr.034, i32 %conv1)
+  %cond = tail call i32 @llvm.umin.i32(i32 %count.addr.032, i32 %conv1)
   %3 = load i32, ptr %do_crc, align 8
   %tobool3.not = icmp eq i32 %3, 0
   br i1 %tobool3.not, label %if.end, label %if.then
@@ -359,7 +359,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then:                                          ; preds = %while.body
   %4 = load i32, ptr %crc32, align 4
   %conv4 = zext i32 %4 to i64
-  %call = tail call i64 @crc32(i64 noundef %conv4, ptr noundef %buf.addr.032, i32 noundef %cond) #11
+  %call = tail call i64 @crc32(i64 noundef %conv4, ptr noundef %buf.addr.033, i32 noundef %cond) #11
   %conv5 = trunc i64 %call to i32
   store i32 %conv5, ptr %crc32, align 4
   %.pre = load i64, ptr %buffer_len, align 8
@@ -382,11 +382,11 @@ if.then13:                                        ; preds = %if.then11
   %8 = load ptr, ptr %hash_algo, align 8
   %update_fn = getelementptr inbounds i8, ptr %8, i64 56
   %9 = load ptr, ptr %update_fn, align 8
-  tail call void %9(ptr noundef nonnull %ctx.i, ptr noundef %buf.addr.032, i64 noundef %5) #11
+  tail call void %9(ptr noundef nonnull %ctx.i, ptr noundef %buf.addr.033, i64 noundef %5) #11
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %if.then11
-  tail call fastcc void @flush(ptr noundef nonnull %f, ptr noundef %buf.addr.032, i32 noundef %cond)
+  tail call fastcc void @flush(ptr noundef nonnull %f, ptr noundef %buf.addr.033, i32 noundef %cond)
   br label %if.end23
 
 if.else:                                          ; preds = %if.end
@@ -394,11 +394,11 @@ if.else:                                          ; preds = %if.end
   %11 = load i32, ptr %offset, align 8
   %idx.ext = zext i32 %11 to i64
   %add.ptr = getelementptr inbounds i8, ptr %10, i64 %idx.ext
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %buf.addr.032, i64 %conv7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %buf.addr.033, i64 %conv7, i1 false)
   %12 = load i32, ptr %offset, align 8
   %add = add i32 %12, %cond
   store i32 %add, ptr %offset, align 8
-  %tobool20.not.not = icmp ugt i32 %conv1, %count.addr.034
+  %tobool20.not.not = icmp ugt i32 %conv1, %count.addr.032
   %tobool.not.i = icmp eq i32 %add, 0
   %or.cond = select i1 %tobool20.not.not, i1 true, i1 %tobool.not.i
   br i1 %or.cond, label %if.end23, label %if.then.i
@@ -426,8 +426,8 @@ if.end.i:                                         ; preds = %if.then3.i, %if.the
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end.i, %if.else, %if.end15
-  %sub24 = sub i32 %count.addr.034, %cond
-  %add.ptr26 = getelementptr inbounds i8, ptr %buf.addr.032, i64 %conv7
+  %sub24 = sub i32 %count.addr.032, %cond
+  %add.ptr26 = getelementptr inbounds i8, ptr %buf.addr.033, i64 %conv7
   %tobool.not = icmp eq i32 %sub24, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !5
 

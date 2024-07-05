@@ -1498,10 +1498,10 @@ define internal fastcc void @dissect_uftp_done(ptr noundef %0, ptr noundef %1, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.064 = phi i16 [ %51, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.05963 = phi i32 [ %50, %.lr.ph ], [ 8, %.lr.ph.preheader ]
+  %.06063 = phi i32 [ %50, %.lr.ph ], [ 8, %.lr.ph.preheader ]
   %48 = load i32, ptr @hf_uftp_dest, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef %.05963, i32 noundef 4, i32 noundef 0) #2
-  %50 = add nuw nsw i32 %.05963, 4
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef %.06063, i32 noundef 4, i32 noundef 0) #2
+  %50 = add nuw nsw i32 %.06063, 4
   %51 = add nuw i16 %.064, 1
   %exitcond.not = icmp eq i16 %51, %10
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12

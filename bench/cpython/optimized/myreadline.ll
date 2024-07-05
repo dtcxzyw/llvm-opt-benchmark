@@ -898,8 +898,8 @@ if.end:                                           ; preds = %if.then, %entry
   br label %do.body
 
 do.body:                                          ; preds = %if.end22, %if.end
-  %n.0 = phi i64 [ 0, %if.end ], [ %add25, %if.end22 ]
   %p.0 = phi ptr [ null, %if.end ], [ %call8, %if.end22 ]
+  %n.0 = phi i64 [ 0, %if.end ], [ %add25, %if.end22 ]
   %cmp.not = icmp eq i64 %n.0, 0
   %add = add i64 %n.0, 2
   %cond = select i1 %cmp.not, i64 100, i64 %add

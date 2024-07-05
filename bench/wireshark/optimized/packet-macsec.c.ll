@@ -139,8 +139,8 @@ define internal i32 @dissect_macsec(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 23:                                               ; preds = %19, %14
   %.pre-phi = phi i32 [ %.pre, %19 ], [ %17, %14 ]
-  %.094 = phi i32 [ %22, %19 ], [ %15, %14 ]
-  %.092.neg111 = phi i32 [ 0, %19 ], [ %.neg, %14 ]
+  %.094.neg111 = phi i32 [ 0, %19 ], [ %.neg, %14 ]
+  %.093 = phi i32 [ %22, %19 ], [ %15, %14 ]
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.42) #2
@@ -193,7 +193,7 @@ define internal i32 @dissect_macsec(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %27, label %57, label %54
 
 54:                                               ; preds = %.thread117, %53
-  %55 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %., i32 noundef %.094) #2
+  %55 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %., i32 noundef %.093) #2
   %56 = tail call i32 @call_data_dissector(ptr noundef %55, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %78
 
@@ -211,14 +211,14 @@ define internal i32 @dissect_macsec(ptr noundef %0, ptr noundef %1, ptr noundef 
   %63 = getelementptr inbounds i8, ptr %5, i64 20
   store i32 0, ptr %63, align 4
   %64 = add nuw nsw i32 %., 2
-  %65 = add i32 %.094, -2
+  %65 = add i32 %.093, -2
   %66 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %64, i32 noundef %65) #2
   %67 = getelementptr inbounds i8, ptr %1, i64 80
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %.neg108 = add nsw i32 %..neg110, -18
-  %.neg109 = add i32 %.neg108, %.092.neg111
+  %.neg109 = add i32 %.neg108, %.094.neg111
   %71 = add i32 %.neg109, %70
   store i32 %71, ptr %69, align 4
   %72 = load ptr, ptr @ethertype_handle, align 8

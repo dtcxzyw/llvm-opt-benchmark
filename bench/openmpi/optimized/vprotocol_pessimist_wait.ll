@@ -231,8 +231,8 @@ define i32 @mca_vprotocol_pessimist_test_any(i64 noundef %0, ptr noundef %1, ptr
   br i1 %.not42, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %15
-  %.03238 = phi i64 [ %16, %15 ], [ 0, %9 ]
-  %10 = getelementptr inbounds ptr, ptr %1, i64 %.03238
+  %.03338 = phi i64 [ %16, %15 ], [ 0, %9 ]
+  %10 = getelementptr inbounds ptr, ptr %1, i64 %.03338
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, @ompi_request_null
   br i1 %12, label %15, label %13
@@ -243,7 +243,7 @@ define i32 @mca_vprotocol_pessimist_test_any(i64 noundef %0, ptr noundef %1, ptr
   br label %15
 
 15:                                               ; preds = %.lr.ph, %13
-  %16 = add nuw i64 %.03238, 1
+  %16 = add nuw i64 %.03338, 1
   %exitcond.not = icmp eq i64 %16, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
@@ -260,9 +260,9 @@ define i32 @mca_vprotocol_pessimist_test_any(i64 noundef %0, ptr noundef %1, ptr
   br i1 %.not45, label %40, label %vprotocol_pessimist_delivery_log.exit
 
 .lr.ph41:                                         ; preds = %._crit_edge, %38
-  %.040 = phi i64 [ %39, %38 ], [ 0, %._crit_edge ]
-  %.03339 = phi i32 [ %.1, %38 ], [ %18, %._crit_edge ]
-  %21 = getelementptr inbounds ptr, ptr %1, i64 %.040
+  %.040 = phi i32 [ %.1, %38 ], [ %18, %._crit_edge ]
+  %.03239 = phi i64 [ %39, %38 ], [ 0, %._crit_edge ]
+  %21 = getelementptr inbounds ptr, ptr %1, i64 %.03239
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, @ompi_request_null
   br i1 %23, label %38, label %24
@@ -272,7 +272,7 @@ define i32 @mca_vprotocol_pessimist_test_any(i64 noundef %0, ptr noundef %1, ptr
   store ptr @mca_vprotocol_pessimist_request_free, ptr %25, align 8
   %26 = load i32, ptr %2, align 4
   %27 = sext i32 %26 to i64
-  %28 = icmp eq i64 %.040, %27
+  %28 = icmp eq i64 %.03239, %27
   br i1 %28, label %29, label %38
 
 29:                                               ; preds = %24
@@ -290,8 +290,8 @@ define i32 @mca_vprotocol_pessimist_test_any(i64 noundef %0, ptr noundef %1, ptr
   br label %38
 
 38:                                               ; preds = %29, %24, %33, %.lr.ph41
-  %.1 = phi i32 [ %.03339, %.lr.ph41 ], [ %.03339, %33 ], [ %.03339, %24 ], [ %31, %29 ]
-  %39 = add nuw i64 %.040, 1
+  %.1 = phi i32 [ %.040, %.lr.ph41 ], [ %.040, %33 ], [ %.040, %24 ], [ %31, %29 ]
+  %39 = add nuw i64 %.03239, 1
   %exitcond44.not = icmp eq i64 %39, %0
   br i1 %exitcond44.not, label %vprotocol_pessimist_delivery_log.exit, label %.lr.ph41, !llvm.loop !6
 
@@ -375,8 +375,8 @@ define i32 @mca_vprotocol_pessimist_wait_any(i64 noundef %0, ptr noundef %1, ptr
   br label %._crit_edge40
 
 .lr.ph:                                           ; preds = %9, %17
-  %.02935 = phi i64 [ %18, %17 ], [ 0, %9 ]
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %.02935
+  %.03035 = phi i64 [ %18, %17 ], [ 0, %9 ]
+  %12 = getelementptr inbounds ptr, ptr %1, i64 %.03035
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, @ompi_request_null
   br i1 %14, label %17, label %15
@@ -387,7 +387,7 @@ define i32 @mca_vprotocol_pessimist_wait_any(i64 noundef %0, ptr noundef %1, ptr
   br label %17
 
 17:                                               ; preds = %.lr.ph, %15
-  %18 = add nuw i64 %.02935, 1
+  %18 = add nuw i64 %.03035, 1
   %exitcond.not = icmp eq i64 %18, %0
   br i1 %exitcond.not, label %.lr.ph39.preheader, label %.lr.ph, !llvm.loop !7
 
@@ -397,9 +397,9 @@ define i32 @mca_vprotocol_pessimist_wait_any(i64 noundef %0, ptr noundef %1, ptr
   br label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %38
-  %.037 = phi i64 [ %39, %38 ], [ 0, %.lr.ph39.preheader ]
-  %.03036 = phi i32 [ %.1, %38 ], [ %20, %.lr.ph39.preheader ]
-  %21 = getelementptr inbounds ptr, ptr %1, i64 %.037
+  %.037 = phi i32 [ %.1, %38 ], [ %20, %.lr.ph39.preheader ]
+  %.02936 = phi i64 [ %39, %38 ], [ 0, %.lr.ph39.preheader ]
+  %21 = getelementptr inbounds ptr, ptr %1, i64 %.02936
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, @ompi_request_null
   br i1 %23, label %38, label %24
@@ -409,7 +409,7 @@ define i32 @mca_vprotocol_pessimist_wait_any(i64 noundef %0, ptr noundef %1, ptr
   store ptr @mca_vprotocol_pessimist_request_free, ptr %25, align 8
   %26 = load i32, ptr %2, align 4
   %27 = sext i32 %26 to i64
-  %28 = icmp eq i64 %.037, %27
+  %28 = icmp eq i64 %.02936, %27
   br i1 %28, label %29, label %38
 
 29:                                               ; preds = %24
@@ -427,14 +427,14 @@ define i32 @mca_vprotocol_pessimist_wait_any(i64 noundef %0, ptr noundef %1, ptr
   br label %38
 
 38:                                               ; preds = %29, %24, %33, %.lr.ph39
-  %.1 = phi i32 [ %.03036, %.lr.ph39 ], [ %.03036, %33 ], [ %.03036, %24 ], [ %31, %29 ]
-  %39 = add nuw i64 %.037, 1
+  %.1 = phi i32 [ %.037, %.lr.ph39 ], [ %.037, %33 ], [ %.037, %24 ], [ %31, %29 ]
+  %39 = add nuw i64 %.02936, 1
   %exitcond42.not = icmp eq i64 %39, %0
   br i1 %exitcond42.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !8
 
 ._crit_edge40:                                    ; preds = %38, %._crit_edge.thread
-  %.030.lcssa = phi i32 [ %11, %._crit_edge.thread ], [ %.1, %38 ]
-  ret i32 %.030.lcssa
+  %.0.lcssa = phi i32 [ %11, %._crit_edge.thread ], [ %.1, %38 ]
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -474,8 +474,8 @@ define i32 @mca_vprotocol_pessimist_wait_some(i64 noundef %0, ptr noundef %1, pt
   br label %mca_vprotocol_pessimist_wait_any.exit
 
 .lr.ph.i:                                         ; preds = %10, %18
-  %.02935.i = phi i64 [ %19, %18 ], [ 0, %10 ]
-  %13 = getelementptr inbounds ptr, ptr %1, i64 %.02935.i
+  %.03035.i = phi i64 [ %19, %18 ], [ 0, %10 ]
+  %13 = getelementptr inbounds ptr, ptr %1, i64 %.03035.i
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, @ompi_request_null
   br i1 %15, label %18, label %16
@@ -486,7 +486,7 @@ define i32 @mca_vprotocol_pessimist_wait_some(i64 noundef %0, ptr noundef %1, pt
   br label %18
 
 18:                                               ; preds = %16, %.lr.ph.i
-  %19 = add nuw i64 %.02935.i, 1
+  %19 = add nuw i64 %.03035.i, 1
   %exitcond.not.i = icmp eq i64 %19, %0
   br i1 %exitcond.not.i, label %.lr.ph39.preheader.i, label %.lr.ph.i, !llvm.loop !7
 
@@ -496,9 +496,9 @@ define i32 @mca_vprotocol_pessimist_wait_some(i64 noundef %0, ptr noundef %1, pt
   br label %.lr.ph39.i
 
 .lr.ph39.i:                                       ; preds = %39, %.lr.ph39.preheader.i
-  %.037.i = phi i64 [ %40, %39 ], [ 0, %.lr.ph39.preheader.i ]
-  %.03036.i = phi i32 [ %.1.i, %39 ], [ %21, %.lr.ph39.preheader.i ]
-  %22 = getelementptr inbounds ptr, ptr %1, i64 %.037.i
+  %.037.i = phi i32 [ %.1.i, %39 ], [ %21, %.lr.ph39.preheader.i ]
+  %.02936.i = phi i64 [ %40, %39 ], [ 0, %.lr.ph39.preheader.i ]
+  %22 = getelementptr inbounds ptr, ptr %1, i64 %.02936.i
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, @ompi_request_null
   br i1 %24, label %39, label %25
@@ -508,7 +508,7 @@ define i32 @mca_vprotocol_pessimist_wait_some(i64 noundef %0, ptr noundef %1, pt
   store ptr @mca_vprotocol_pessimist_request_free, ptr %26, align 8
   %27 = load i32, ptr %3, align 4
   %28 = sext i32 %27 to i64
-  %29 = icmp eq i64 %.037.i, %28
+  %29 = icmp eq i64 %.02936.i, %28
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %25
@@ -526,19 +526,19 @@ define i32 @mca_vprotocol_pessimist_wait_some(i64 noundef %0, ptr noundef %1, pt
   br label %39
 
 39:                                               ; preds = %34, %30, %25, %.lr.ph39.i
-  %.1.i = phi i32 [ %.03036.i, %.lr.ph39.i ], [ %.03036.i, %34 ], [ %.03036.i, %25 ], [ %32, %30 ]
-  %40 = add nuw i64 %.037.i, 1
+  %.1.i = phi i32 [ %.037.i, %.lr.ph39.i ], [ %.037.i, %34 ], [ %.037.i, %25 ], [ %32, %30 ]
+  %40 = add nuw i64 %.02936.i, 1
   %exitcond42.not.i = icmp eq i64 %40, %0
   br i1 %exitcond42.not.i, label %mca_vprotocol_pessimist_wait_any.exit, label %.lr.ph39.i, !llvm.loop !8
 
 mca_vprotocol_pessimist_wait_any.exit:            ; preds = %39, %._crit_edge.thread.i
-  %.030.lcssa.i = phi i32 [ %12, %._crit_edge.thread.i ], [ %.1.i, %39 ]
+  %.0.lcssa.i = phi i32 [ %12, %._crit_edge.thread.i ], [ %.1.i, %39 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %41 = load i32, ptr %3, align 4
   %42 = icmp ne i32 %41, -32766
   %. = zext i1 %42 to i32
   store i32 %., ptr %2, align 4
-  ret i32 %.030.lcssa.i
+  ret i32 %.0.lcssa.i
 }
 
 ; Function Attrs: nounwind uwtable

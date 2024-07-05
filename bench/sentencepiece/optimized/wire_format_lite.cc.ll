@@ -4762,19 +4762,19 @@ define noundef range(i64 0, 4294967296) i64 @_ZN6google8protobuf8internal14WireF
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.01821.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %8, %.lr.ph.i ]
-  %.01920.i = phi i32 [ %3, %.lr.ph.preheader.i ], [ %op.rdx, %.lr.ph.i ]
+  %.022.i = phi i32 [ %3, %.lr.ph.preheader.i ], [ %op.rdx, %.lr.ph.i ]
+  %.01920.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %8, %.lr.ph.i ]
   %5 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
   %6 = load i32, ptr %5, align 4
   %7 = lshr i32 %6, 31
-  %8 = add i32 %7, %.01821.i
+  %8 = add i32 %7, %.01920.i
   %9 = insertelement <4 x i32> poison, i32 %6, i64 0
   %10 = shufflevector <4 x i32> %9, <4 x i32> poison, <4 x i32> zeroinitializer
   %11 = icmp ugt <4 x i32> %10, <i32 127, i32 16383, i32 2097151, i32 268435455>
   %12 = bitcast <4 x i1> %11 to i4
   %13 = tail call range(i4 0, 5) i4 @llvm.ctpop.i4(i4 %12)
   %14 = zext nneg i4 %13 to i32
-  %op.rdx = add i32 %.01920.i, %14
+  %op.rdx = add i32 %.022.i, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !10
@@ -4784,9 +4784,9 @@ define noundef range(i64 0, 4294967296) i64 @_ZN6google8protobuf8internal14WireF
   br label %_ZN6google8protobuf8internalL10VarintSizeILb0ELb1EiEEmPKT1_i.exit
 
 _ZN6google8protobuf8internalL10VarintSizeILb0ELb1EiEEmPKT1_i.exit: ; preds = %1, %._crit_edge.loopexit.i
-  %.019.lcssa.i = phi i32 [ %3, %1 ], [ %op.rdx, %._crit_edge.loopexit.i ]
-  %.018.lcssa.i = phi i32 [ 0, %1 ], [ %15, %._crit_edge.loopexit.i ]
-  %16 = add i32 %.018.lcssa.i, %.019.lcssa.i
+  %.019.lcssa.i = phi i32 [ 0, %1 ], [ %15, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi i32 [ %3, %1 ], [ %op.rdx, %._crit_edge.loopexit.i ]
+  %16 = add i32 %.0.lcssa.i, %.019.lcssa.i
   %17 = zext i32 %16 to i64
   ret i64 %17
 }
@@ -4808,7 +4808,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN6google8protobuf8internal14WireF
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.01415.i = phi i32 [ %3, %.lr.ph.preheader.i ], [ %op.rdx, %.lr.ph.i ]
+  %.016.i = phi i32 [ %3, %.lr.ph.preheader.i ], [ %op.rdx, %.lr.ph.i ]
   %5 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
   %6 = load i32, ptr %5, align 4
   %7 = insertelement <4 x i32> poison, i32 %6, i64 0
@@ -4817,14 +4817,14 @@ define noundef range(i64 0, 4294967296) i64 @_ZN6google8protobuf8internal14WireF
   %10 = bitcast <4 x i1> %9 to i4
   %11 = tail call range(i4 0, 5) i4 @llvm.ctpop.i4(i4 %10)
   %12 = zext nneg i4 %11 to i32
-  %op.rdx = add i32 %.01415.i, %12
+  %op.rdx = add i32 %.016.i, %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN6google8protobuf8internalL10VarintSizeILb0ELb0EjEEmPKT1_i.exit, label %.lr.ph.i, !llvm.loop !11
 
 _ZN6google8protobuf8internalL10VarintSizeILb0ELb0EjEEmPKT1_i.exit: ; preds = %.lr.ph.i, %1
-  %.014.lcssa.i = phi i32 [ %3, %1 ], [ %op.rdx, %.lr.ph.i ]
-  %13 = zext i32 %.014.lcssa.i to i64
+  %.0.lcssa.i = phi i32 [ %3, %1 ], [ %op.rdx, %.lr.ph.i ]
+  %13 = zext i32 %.0.lcssa.i to i64
   ret i64 %13
 }
 
@@ -4881,19 +4881,19 @@ define noundef range(i64 0, 4294967296) i64 @_ZN6google8protobuf8internal14WireF
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.01821.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %8, %.lr.ph.i ]
-  %.01920.i = phi i32 [ %3, %.lr.ph.preheader.i ], [ %op.rdx, %.lr.ph.i ]
+  %.022.i = phi i32 [ %3, %.lr.ph.preheader.i ], [ %op.rdx, %.lr.ph.i ]
+  %.01920.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %8, %.lr.ph.i ]
   %5 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
   %6 = load i32, ptr %5, align 4
   %7 = lshr i32 %6, 31
-  %8 = add i32 %7, %.01821.i
+  %8 = add i32 %7, %.01920.i
   %9 = insertelement <4 x i32> poison, i32 %6, i64 0
   %10 = shufflevector <4 x i32> %9, <4 x i32> poison, <4 x i32> zeroinitializer
   %11 = icmp ugt <4 x i32> %10, <i32 127, i32 16383, i32 2097151, i32 268435455>
   %12 = bitcast <4 x i1> %11 to i4
   %13 = tail call range(i4 0, 5) i4 @llvm.ctpop.i4(i4 %12)
   %14 = zext nneg i4 %13 to i32
-  %op.rdx = add i32 %.01920.i, %14
+  %op.rdx = add i32 %.022.i, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !10
@@ -4903,9 +4903,9 @@ define noundef range(i64 0, 4294967296) i64 @_ZN6google8protobuf8internal14WireF
   br label %_ZN6google8protobuf8internalL10VarintSizeILb0ELb1EiEEmPKT1_i.exit
 
 _ZN6google8protobuf8internalL10VarintSizeILb0ELb1EiEEmPKT1_i.exit: ; preds = %1, %._crit_edge.loopexit.i
-  %.019.lcssa.i = phi i32 [ %3, %1 ], [ %op.rdx, %._crit_edge.loopexit.i ]
-  %.018.lcssa.i = phi i32 [ 0, %1 ], [ %15, %._crit_edge.loopexit.i ]
-  %16 = add i32 %.018.lcssa.i, %.019.lcssa.i
+  %.019.lcssa.i = phi i32 [ 0, %1 ], [ %15, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi i32 [ %3, %1 ], [ %op.rdx, %._crit_edge.loopexit.i ]
+  %16 = add i32 %.0.lcssa.i, %.019.lcssa.i
   %17 = zext i32 %16 to i64
   ret i64 %17
 }

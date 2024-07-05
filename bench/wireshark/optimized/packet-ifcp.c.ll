@@ -321,23 +321,23 @@ define internal i32 @dissect_ifcp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %34
 
 34:                                               ; preds = %29, %19
-  %.0143 = phi i8 [ %28, %19 ], [ -128, %29 ]
-  %.0142 = phi ptr [ %26, %19 ], [ %33, %29 ]
+  %.0144 = phi i8 [ %28, %19 ], [ -128, %29 ]
+  %.0143 = phi ptr [ %26, %19 ], [ %33, %29 ]
   %35 = load i32, ptr @ett_ifcp, align 4
-  %36 = tail call ptr @proto_item_add_subtree(ptr noundef %.0142, i32 noundef %35) #2
+  %36 = tail call ptr @proto_item_add_subtree(ptr noundef %.0143, i32 noundef %35) #2
   br label %37
 
 37:                                               ; preds = %34, %8
-  %.1145 = phi i8 [ %18, %34 ], [ 0, %8 ]
-  %.1 = phi i8 [ %.0143, %34 ], [ -128, %8 ]
-  %.0141 = phi ptr [ %36, %34 ], [ null, %8 ]
+  %.1146 = phi i8 [ %18, %34 ], [ 0, %8 ]
+  %.1 = phi i8 [ %.0144, %34 ], [ -128, %8 ]
+  %.0142 = phi ptr [ %36, %34 ], [ null, %8 ]
   %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
   %39 = load i32, ptr @hf_ifcp_protocol, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %.0142, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
   %41 = load i32, ptr @ett_ifcp_protocol, align 4
   %42 = tail call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %41) #2
   %43 = load i32, ptr @hf_ifcp_version, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %43, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %.0142, i32 noundef %43, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %45 = load i32, ptr @ett_ifcp_version, align 4
   %46 = tail call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45) #2
   %47 = load i32, ptr @hf_ifcp_protocol_c, align 4
@@ -349,28 +349,28 @@ define internal i32 @dissect_ifcp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 52:                                               ; preds = %37
   %53 = load i32, ptr @hf_ifcp_ls_command_acc, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %53, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %.0142, i32 noundef %53, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
   %55 = load i32, ptr @hf_ifcp_flags, align 4
   %56 = load i32, ptr @ett_ifcp_flags, align 4
-  %57 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0141, ptr noundef %0, i32 noundef 9, i32 noundef %55, i32 noundef %56, ptr noundef nonnull @dissect_ifcpflags.flags, i32 noundef 0) #2
+  %57 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0142, ptr noundef %0, i32 noundef 9, i32 noundef %55, i32 noundef %56, ptr noundef nonnull @dissect_ifcpflags.flags, i32 noundef 0) #2
   %58 = load i32, ptr @hf_ifcp_sof, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %58, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %.0142, i32 noundef %58, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #2
   %60 = load i32, ptr @ett_ifcp_sof, align 4
   %61 = tail call ptr @proto_item_add_subtree(ptr noundef %59, i32 noundef %60) #2
   %62 = load i32, ptr @hf_ifcp_eof, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %62, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #2
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %.0142, i32 noundef %62, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #2
   %64 = load i32, ptr @ett_ifcp_eof, align 4
   %65 = tail call ptr @proto_item_add_subtree(ptr noundef %63, i32 noundef %64) #2
   br label %66
 
 66:                                               ; preds = %37, %52
-  %.0139 = phi ptr [ %61, %52 ], [ %.0141, %37 ]
-  %.0 = phi ptr [ %65, %52 ], [ %.0141, %37 ]
+  %.0139 = phi ptr [ %61, %52 ], [ %.0142, %37 ]
+  %.0 = phi ptr [ %65, %52 ], [ %.0142, %37 ]
   %67 = load i32, ptr @hf_ifcp_common_flags, align 4
   %68 = load i32, ptr @ett_ifcp_common_flags, align 4
-  %69 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0141, ptr noundef %0, i32 noundef 12, i32 noundef %67, i32 noundef %68, ptr noundef nonnull @dissect_commonflags.flags, i32 noundef 0) #2
+  %69 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0142, ptr noundef %0, i32 noundef 12, i32 noundef %67, i32 noundef %68, ptr noundef nonnull @dissect_commonflags.flags, i32 noundef 0) #2
   %70 = load i32, ptr @hf_ifcp_framelen, align 4
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %70, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0) #2
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %.0142, i32 noundef %70, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0) #2
   %72 = load i32, ptr @ett_ifcp_frame_len, align 4
   %73 = tail call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %72) #2
   %74 = load i32, ptr @hf_ifcp_encap_flags_c, align 4
@@ -378,11 +378,11 @@ define internal i32 @dissect_ifcp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %76 = load i32, ptr @hf_ifcp_framelen_c, align 4
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %76, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0) #2
   %78 = load i32, ptr @hf_ifcp_tsec, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %78, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #2
+  %79 = tail call ptr @proto_tree_add_item(ptr noundef %.0142, i32 noundef %78, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #2
   %80 = load i32, ptr @hf_ifcp_tusec, align 4
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %80, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #2
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %.0142, i32 noundef %80, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #2
   %82 = load i32, ptr @hf_ifcp_encap_crc, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %82, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0) #2
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %.0142, i32 noundef %82, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0) #2
   %84 = load i32, ptr @hf_ifcp_sof, align 4
   %85 = tail call ptr @proto_tree_add_item(ptr noundef %.0139, i32 noundef %84, ptr noundef %0, i32 noundef 28, i32 noundef 1, i32 noundef 0) #2
   %86 = load i32, ptr @hf_ifcp_sof, align 4
@@ -413,7 +413,7 @@ define internal i32 @dissect_ifcp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 106:                                              ; preds = %94, %66
   %107 = getelementptr inbounds i8, ptr %5, i64 4
   store i8 0, ptr %107, align 4
-  switch i8 %.1145, label %109 [
+  switch i8 %.1146, label %109 [
     i8 46, label %.sink.split
     i8 45, label %.sink.split
     i8 41, label %.sink.split

@@ -1857,7 +1857,7 @@ Abc_Clock.exit201:                                ; preds = %Abc_Clock.exit199, 
   br label %215
 
 215:                                              ; preds = %191, %Abc_Clock.exit229
-  %.0260 = phi i32 [ 0, %191 ], [ %417, %Abc_Clock.exit229 ]
+  %.0153260 = phi i32 [ 0, %191 ], [ %417, %Abc_Clock.exit229 ]
   store i32 0, ptr %202, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
   %216 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %19) #18
@@ -2112,7 +2112,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %331 = load ptr, ptr %161, align 8
   %332 = getelementptr i8, ptr %331, i64 4
   %.val167 = load i32, ptr %332, align 4
-  %333 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.0260, i32 noundef %.val169, i32 noundef %.val168, i32 noundef %330, i32 noundef %.val167)
+  %333 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.0153260, i32 noundef %.val169, i32 noundef %.val168, i32 noundef %330, i32 noundef %.val167)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %334 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #18
@@ -2303,7 +2303,7 @@ Abc_Clock.exit229:                                ; preds = %Vec_VecFree.exit, %
   %415 = load i64, ptr %214, align 8
   %416 = add nsw i64 %414, %415
   store i64 %416, ptr %214, align 8
-  %417 = add nuw nsw i32 %.0260, 1
+  %417 = add nuw nsw i32 %.0153260, 1
   %.pr = load i32, ptr %202, align 8
   %.not161 = icmp eq i32 %.pr, 0
   br i1 %.not161, label %418, label %215, !llvm.loop !26
@@ -2393,8 +2393,8 @@ Abc_Clock.exit235:                                ; preds = %Abc_Clock.exit233, 
   br label %463
 
 463:                                              ; preds = %Abc_Clock.exit235, %.critedge2
-  %.0254 = phi i32 [ %.0260, %.critedge2 ], [ %417, %Abc_Clock.exit235 ]
-  %.0153 = phi ptr [ null, %.critedge2 ], [ %428, %Abc_Clock.exit235 ]
+  %.0153254 = phi i32 [ %.0153260, %.critedge2 ], [ %417, %Abc_Clock.exit235 ]
+  %.0152 = phi ptr [ null, %.critedge2 ], [ %428, %Abc_Clock.exit235 ]
   %.not164 = icmp eq ptr %calloc.i194, null
   br i1 %.not164, label %465, label %464
 
@@ -2408,12 +2408,12 @@ Abc_Clock.exit235:                                ; preds = %Abc_Clock.exit233, 
   br i1 %.not165, label %467, label %466
 
 466:                                              ; preds = %465
-  store i32 %.0254, ptr %5, align 4
+  store i32 %.0153254, ptr %5, align 4
   br label %467
 
 467:                                              ; preds = %465, %466, %103, %56
-  %.0154 = phi ptr [ %59, %56 ], [ null, %103 ], [ %.0153, %466 ], [ %.0153, %465 ]
-  ret ptr %.0154
+  %.0 = phi ptr [ %59, %56 ], [ null, %103 ], [ %.0152, %466 ], [ %.0152, %465 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

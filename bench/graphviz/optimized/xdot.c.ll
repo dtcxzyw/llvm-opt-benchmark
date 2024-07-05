@@ -116,7 +116,7 @@ define noundef ptr @parseXDotFOn(ptr noundef %0, ptr noundef readonly %1, i64 no
   br i1 %26, label %27, label %41
 
 27:                                               ; preds = %.thread, %25
-  %.043107 = phi ptr [ %19, %.thread ], [ %3, %25 ]
+  %.044107 = phi ptr [ %19, %.thread ], [ %3, %25 ]
   %28 = phi i64 [ %spec.store.select, %.thread ], [ %.pre103, %25 ]
   %mul.ov.i = icmp ugt i64 %28, 184467440737095516
   br i1 %mul.ov.i, label %29, label %32
@@ -149,10 +149,10 @@ define noundef ptr @parseXDotFOn(ptr noundef %0, ptr noundef readonly %1, i64 no
   br label %gv_calloc.exit
 
 gv_calloc.exit:                                   ; preds = %32, %41
-  %.043106 = phi ptr [ %3, %41 ], [ %.043107, %32 ]
+  %.044106 = phi ptr [ %3, %41 ], [ %.044107, %32 ]
   %46 = phi i64 [ %.pre103, %41 ], [ %28, %32 ]
-  %.040 = phi ptr [ %45, %41 ], [ %33, %32 ]
-  %.0 = phi i64 [ %42, %41 ], [ 100, %32 ]
+  %.041 = phi ptr [ %45, %41 ], [ %33, %32 ]
+  %.039 = phi i64 [ %42, %41 ], [ 100, %32 ]
   %47 = getelementptr inbounds i8, ptr %16, i64 8
   %.not178.i = icmp eq ptr %1, null
   %48 = getelementptr inbounds i8, ptr %1, i64 88
@@ -175,15 +175,15 @@ gv_calloc.exit:                                   ; preds = %32, %41
   br label %65
 
 65:                                               ; preds = %205, %gv_calloc.exit
-  %.045 = phi ptr [ %0, %gv_calloc.exit ], [ %.0.i.ph, %205 ]
-  %.141 = phi ptr [ %.040, %gv_calloc.exit ], [ %.242, %205 ]
-  %.1 = phi i64 [ %.0, %gv_calloc.exit ], [ %.2, %205 ]
+  %.142 = phi ptr [ %.041, %gv_calloc.exit ], [ %.243, %205 ]
+  %.040 = phi ptr [ %0, %gv_calloc.exit ], [ %.0.i.ph, %205 ]
+  %.1 = phi i64 [ %.039, %gv_calloc.exit ], [ %.2, %205 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15)
   br label %66
 
 66:                                               ; preds = %68, %65
-  %.0155.i = phi ptr [ %.045, %65 ], [ %69, %68 ]
+  %.0155.i = phi ptr [ %.040, %65 ], [ %69, %68 ]
   %67 = load i8, ptr %.0155.i, align 1
   switch i8 %67, label %gv_isspace.exit.i [
     i8 9, label %68
@@ -586,26 +586,26 @@ parseRect.exit229.i:                              ; preds = %185
   %.0.i.ph = phi ptr [ %85, %87 ], [ %102, %104 ], [ %106, %107 ], [ %109, %110 ], [ %112, %113 ], [ %115, %116 ], [ %118, %127 ], [ %118, %125 ], [ %129, %138 ], [ %129, %136 ], [ %140, %141 ], [ %161, %162 ], [ %168, %169 ], [ %171, %172 ], [ %190, %191 ], [ %195, %197 ], [ %.0.i.ph.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15)
-  %200 = load i64, ptr %.043106, align 8
+  %200 = load i64, ptr %.044106, align 8
   %201 = icmp eq i64 %200, %.1
   br i1 %201, label %202, label %205
 
 202:                                              ; preds = %199
   %203 = shl i64 %.1, 1
-  %204 = tail call fastcc ptr @gv_recalloc(ptr noundef %.141, i64 noundef %.1, i64 noundef %203, i64 noundef %46)
-  %.pre104 = load i64, ptr %.043106, align 8
+  %204 = tail call fastcc ptr @gv_recalloc(ptr noundef %.142, i64 noundef %.1, i64 noundef %203, i64 noundef %46)
+  %.pre104 = load i64, ptr %.044106, align 8
   br label %205
 
 205:                                              ; preds = %202, %199
   %206 = phi i64 [ %.pre104, %202 ], [ %200, %199 ]
-  %.242 = phi ptr [ %204, %202 ], [ %.141, %199 ]
+  %.243 = phi ptr [ %204, %202 ], [ %.142, %199 ]
   %.2 = phi i64 [ %203, %202 ], [ %.1, %199 ]
   %207 = mul i64 %206, %46
-  %208 = getelementptr inbounds i8, ptr %.242, i64 %207
+  %208 = getelementptr inbounds i8, ptr %.243, i64 %207
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %208, ptr noundef nonnull align 8 dereferenceable(88) %16, i64 88, i1 false)
-  %209 = load i64, ptr %.043106, align 8
+  %209 = load i64, ptr %.044106, align 8
   %210 = add i64 %209, 1
-  store i64 %210, ptr %.043106, align 8
+  store i64 %210, ptr %.044106, align 8
   br label %65
 
 211:                                              ; preds = %gv_isspace.exit.i
@@ -616,31 +616,31 @@ parseRect.exit229.i:                              ; preds = %185
 .loopexit:                                        ; preds = %gv_isspace.exit.i, %parseRect.exit.i, %parseRect.exit218.i, %105, %108, %111, %114, %117, %119, %128, %130, %139, %parseReal.exit.i, %parseReal.exit221.i, %150, %parseReal.exit224.i, %160, %parseReal.exit226.i, %167, %170, %parseRect.exit229.i, %189, %192, %parseRect.exit.thread.i, %parseRect.exit218.thread.i, %parseReal.exit.thread.i, %parseReal.exit221.thread.i, %parseReal.exit224.thread.i, %parseReal.exit226.thread.i, %parseRect.exit229.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15)
-  %212 = getelementptr inbounds i8, ptr %.043106, i64 32
+  %212 = getelementptr inbounds i8, ptr %.044106, i64 32
   %213 = load i32, ptr %212, align 8
   %214 = or i32 %213, 1
   store i32 %214, ptr %212, align 8
   br label %215
 
 215:                                              ; preds = %211, %.loopexit
-  %216 = load i64, ptr %.043106, align 8
+  %216 = load i64, ptr %.044106, align 8
   %.not54 = icmp eq i64 %216, 0
   br i1 %.not54, label %220, label %217
 
 217:                                              ; preds = %215
-  %218 = tail call fastcc ptr @gv_recalloc(ptr noundef %.141, i64 noundef %.1, i64 noundef %216, i64 noundef %46)
-  %219 = getelementptr inbounds i8, ptr %.043106, i64 16
+  %218 = tail call fastcc ptr @gv_recalloc(ptr noundef %.142, i64 noundef %.1, i64 noundef %216, i64 noundef %46)
+  %219 = getelementptr inbounds i8, ptr %.044106, i64 16
   store ptr %218, ptr %219, align 8
   br label %221
 
 220:                                              ; preds = %215
-  tail call void @free(ptr noundef %.141) #20
-  tail call void @free(ptr noundef nonnull %.043106) #20
+  tail call void @free(ptr noundef %.142) #20
+  tail call void @free(ptr noundef nonnull %.044106) #20
   br label %221
 
 221:                                              ; preds = %217, %220, %4
-  %.039 = phi ptr [ %3, %4 ], [ %.043106, %217 ], [ null, %220 ]
-  ret ptr %.039
+  %.0 = phi ptr [ %3, %4 ], [ %.044106, %217 ], [ null, %220 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1209,13 +1209,13 @@ define void @fprintXDot(ptr nocapture noundef %0, ptr nocapture noundef readonly
   br label %52
 
 52:                                               ; preds = %54, %44
-  %.027.in.i.i397 = phi i64 [ %.0.i.i.i396, %44 ], [ %.027.i.i398, %54 ]
-  %53 = icmp eq i64 %.027.in.i.i397, 0
+  %.0.in.i.i397 = phi i64 [ %.0.i.i.i396, %44 ], [ %.0.i.i398, %54 ]
+  %53 = icmp eq i64 %.0.in.i.i397, 0
   br i1 %53, label %agxbuf_trim_zeros.exit.i404, label %54
 
 54:                                               ; preds = %52
-  %.027.i.i398 = add i64 %.027.in.i.i397, -1
-  %55 = getelementptr inbounds i8, ptr %51, i64 %.027.i.i398
+  %.0.i.i398 = add i64 %.0.in.i.i397, -1
+  %55 = getelementptr inbounds i8, ptr %51, i64 %.0.i.i398
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 46
   br i1 %57, label %agxblen.exit36.i.i399, label %52
@@ -1224,13 +1224,13 @@ agxblen.exit36.i.i399:                            ; preds = %54, %69
   %58 = phi i64 [ %70, %69 ], [ %50, %54 ]
   %.val.i3749.i.i400 = phi i8 [ %.val.i37.i.i487, %69 ], [ %.val.i.i.i394, %54 ]
   %.val30.i.i401 = phi i8 [ %.val3048.i.i488, %69 ], [ %.val.i.i.i394, %54 ]
-  %.0.in.i.i402 = phi i64 [ %.0.i.i403, %69 ], [ %.0.i.i.i396, %54 ]
-  %.0.i.i403 = add i64 %.0.in.i.i402, -1
-  %59 = icmp eq i64 %.0.in.i.i402, %.027.in.i.i397
+  %.027.in.i.i402 = phi i64 [ %.027.i.i403, %69 ], [ %.0.i.i.i396, %54 ]
+  %.027.i.i403 = add i64 %.027.in.i.i402, -1
+  %59 = icmp eq i64 %.027.in.i.i402, %.0.in.i.i397
   br i1 %59, label %64, label %60
 
 60:                                               ; preds = %agxblen.exit36.i.i399
-  %61 = getelementptr inbounds i8, ptr %51, i64 %.0.i.i403
+  %61 = getelementptr inbounds i8, ptr %51, i64 %.027.i.i403
   %62 = load i8, ptr %61, align 1
   %63 = icmp eq i8 %62, 48
   br i1 %63, label %64, label %agxbuf_trim_zeros.exit.i404
@@ -1323,13 +1323,13 @@ agxbuse.exit.i408:                                ; preds = %86, %agxbclear.exit
   br label %96
 
 96:                                               ; preds = %98, %agxbuse.exit.i408
-  %.027.in.i21.i412 = phi i64 [ %.0.i.i20.i411, %agxbuse.exit.i408 ], [ %.027.i22.i413, %98 ]
-  %97 = icmp eq i64 %.027.in.i21.i412, 0
+  %.0.in.i21.i412 = phi i64 [ %.0.i.i20.i411, %agxbuse.exit.i408 ], [ %.0.i22.i413, %98 ]
+  %97 = icmp eq i64 %.0.in.i21.i412, 0
   br i1 %97, label %agxbuf_trim_zeros.exit39.i419, label %98
 
 98:                                               ; preds = %96
-  %.027.i22.i413 = add i64 %.027.in.i21.i412, -1
-  %99 = getelementptr inbounds i8, ptr %95, i64 %.027.i22.i413
+  %.0.i22.i413 = add i64 %.0.in.i21.i412, -1
+  %99 = getelementptr inbounds i8, ptr %95, i64 %.0.i22.i413
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 46
   br i1 %101, label %agxblen.exit36.i23.i414, label %96
@@ -1338,13 +1338,13 @@ agxblen.exit36.i23.i414:                          ; preds = %98, %113
   %102 = phi i64 [ %114, %113 ], [ %94, %98 ]
   %.val.i3749.i25.i415 = phi i8 [ %.val.i37.i30.i477, %113 ], [ %.val.i.i16.i409, %98 ]
   %.val30.i26.i416 = phi i8 [ %.val3048.i31.i478, %113 ], [ %.val.i.i16.i409, %98 ]
-  %.0.in.i27.i417 = phi i64 [ %.0.i28.i418, %113 ], [ %.0.i.i20.i411, %98 ]
-  %.0.i28.i418 = add i64 %.0.in.i27.i417, -1
-  %103 = icmp eq i64 %.0.in.i27.i417, %.027.in.i21.i412
+  %.027.in.i27.i417 = phi i64 [ %.027.i28.i418, %113 ], [ %.0.i.i20.i411, %98 ]
+  %.027.i28.i418 = add i64 %.027.in.i27.i417, -1
+  %103 = icmp eq i64 %.027.in.i27.i417, %.0.in.i21.i412
   br i1 %103, label %108, label %104
 
 104:                                              ; preds = %agxblen.exit36.i23.i414
-  %105 = getelementptr inbounds i8, ptr %95, i64 %.0.i28.i418
+  %105 = getelementptr inbounds i8, ptr %95, i64 %.027.i28.i418
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, 48
   br i1 %107, label %108, label %agxbuf_trim_zeros.exit39.i419
@@ -1437,13 +1437,13 @@ agxbuse.exit44.i423:                              ; preds = %130, %agxbclear.exi
   br label %140
 
 140:                                              ; preds = %142, %agxbuse.exit44.i423
-  %.027.in.i50.i427 = phi i64 [ %.0.i.i49.i426, %agxbuse.exit44.i423 ], [ %.027.i51.i428, %142 ]
-  %141 = icmp eq i64 %.027.in.i50.i427, 0
+  %.0.in.i50.i427 = phi i64 [ %.0.i.i49.i426, %agxbuse.exit44.i423 ], [ %.0.i51.i428, %142 ]
+  %141 = icmp eq i64 %.0.in.i50.i427, 0
   br i1 %141, label %agxbuf_trim_zeros.exit68.i434, label %142
 
 142:                                              ; preds = %140
-  %.027.i51.i428 = add i64 %.027.in.i50.i427, -1
-  %143 = getelementptr inbounds i8, ptr %139, i64 %.027.i51.i428
+  %.0.i51.i428 = add i64 %.0.in.i50.i427, -1
+  %143 = getelementptr inbounds i8, ptr %139, i64 %.0.i51.i428
   %144 = load i8, ptr %143, align 1
   %145 = icmp eq i8 %144, 46
   br i1 %145, label %agxblen.exit36.i52.i429, label %140
@@ -1452,13 +1452,13 @@ agxblen.exit36.i52.i429:                          ; preds = %142, %157
   %146 = phi i64 [ %158, %157 ], [ %138, %142 ]
   %.val.i3749.i54.i430 = phi i8 [ %.val.i37.i59.i467, %157 ], [ %.val.i.i45.i424, %142 ]
   %.val30.i55.i431 = phi i8 [ %.val3048.i60.i468, %157 ], [ %.val.i.i45.i424, %142 ]
-  %.0.in.i56.i432 = phi i64 [ %.0.i57.i433, %157 ], [ %.0.i.i49.i426, %142 ]
-  %.0.i57.i433 = add i64 %.0.in.i56.i432, -1
-  %147 = icmp eq i64 %.0.in.i56.i432, %.027.in.i50.i427
+  %.027.in.i56.i432 = phi i64 [ %.027.i57.i433, %157 ], [ %.0.i.i49.i426, %142 ]
+  %.027.i57.i433 = add i64 %.027.in.i56.i432, -1
+  %147 = icmp eq i64 %.027.in.i56.i432, %.0.in.i50.i427
   br i1 %147, label %152, label %148
 
 148:                                              ; preds = %agxblen.exit36.i52.i429
-  %149 = getelementptr inbounds i8, ptr %139, i64 %.0.i57.i433
+  %149 = getelementptr inbounds i8, ptr %139, i64 %.027.i57.i433
   %150 = load i8, ptr %149, align 1
   %151 = icmp eq i8 %150, 48
   br i1 %151, label %152, label %agxbuf_trim_zeros.exit68.i434
@@ -1551,13 +1551,13 @@ agxbuse.exit73.i438:                              ; preds = %174, %agxbclear.exi
   br label %184
 
 184:                                              ; preds = %186, %agxbuse.exit73.i438
-  %.027.in.i79.i442 = phi i64 [ %.0.i.i78.i441, %agxbuse.exit73.i438 ], [ %.027.i80.i443, %186 ]
-  %185 = icmp eq i64 %.027.in.i79.i442, 0
+  %.0.in.i79.i442 = phi i64 [ %.0.i.i78.i441, %agxbuse.exit73.i438 ], [ %.0.i80.i443, %186 ]
+  %185 = icmp eq i64 %.0.in.i79.i442, 0
   br i1 %185, label %agxbuf_trim_zeros.exit97.i449, label %186
 
 186:                                              ; preds = %184
-  %.027.i80.i443 = add i64 %.027.in.i79.i442, -1
-  %187 = getelementptr inbounds i8, ptr %183, i64 %.027.i80.i443
+  %.0.i80.i443 = add i64 %.0.in.i79.i442, -1
+  %187 = getelementptr inbounds i8, ptr %183, i64 %.0.i80.i443
   %188 = load i8, ptr %187, align 1
   %189 = icmp eq i8 %188, 46
   br i1 %189, label %agxblen.exit36.i81.i444, label %184
@@ -1566,13 +1566,13 @@ agxblen.exit36.i81.i444:                          ; preds = %186, %201
   %190 = phi i64 [ %202, %201 ], [ %182, %186 ]
   %.val.i3749.i83.i445 = phi i8 [ %.val.i37.i88.i457, %201 ], [ %.val.i.i74.i439, %186 ]
   %.val30.i84.i446 = phi i8 [ %.val3048.i89.i458, %201 ], [ %.val.i.i74.i439, %186 ]
-  %.0.in.i85.i447 = phi i64 [ %.0.i86.i448, %201 ], [ %.0.i.i78.i441, %186 ]
-  %.0.i86.i448 = add i64 %.0.in.i85.i447, -1
-  %191 = icmp eq i64 %.0.in.i85.i447, %.027.in.i79.i442
+  %.027.in.i85.i447 = phi i64 [ %.027.i86.i448, %201 ], [ %.0.i.i78.i441, %186 ]
+  %.027.i86.i448 = add i64 %.027.in.i85.i447, -1
+  %191 = icmp eq i64 %.027.in.i85.i447, %.0.in.i79.i442
   br i1 %191, label %196, label %192
 
 192:                                              ; preds = %agxblen.exit36.i81.i444
-  %193 = getelementptr inbounds i8, ptr %183, i64 %.0.i86.i448
+  %193 = getelementptr inbounds i8, ptr %183, i64 %.027.i86.i448
   %194 = load i8, ptr %193, align 1
   %195 = icmp eq i8 %194, 48
   br i1 %195, label %196, label %agxbuf_trim_zeros.exit97.i449
@@ -1682,13 +1682,13 @@ printRect.exit496:                                ; preds = %agxbuse.exit102.i45
   br label %231
 
 231:                                              ; preds = %233, %223
-  %.027.in.i.i293 = phi i64 [ %.0.i.i.i292, %223 ], [ %.027.i.i294, %233 ]
-  %232 = icmp eq i64 %.027.in.i.i293, 0
+  %.0.in.i.i293 = phi i64 [ %.0.i.i.i292, %223 ], [ %.0.i.i294, %233 ]
+  %232 = icmp eq i64 %.0.in.i.i293, 0
   br i1 %232, label %agxbuf_trim_zeros.exit.i300, label %233
 
 233:                                              ; preds = %231
-  %.027.i.i294 = add i64 %.027.in.i.i293, -1
-  %234 = getelementptr inbounds i8, ptr %230, i64 %.027.i.i294
+  %.0.i.i294 = add i64 %.0.in.i.i293, -1
+  %234 = getelementptr inbounds i8, ptr %230, i64 %.0.i.i294
   %235 = load i8, ptr %234, align 1
   %236 = icmp eq i8 %235, 46
   br i1 %236, label %agxblen.exit36.i.i295, label %231
@@ -1697,13 +1697,13 @@ agxblen.exit36.i.i295:                            ; preds = %233, %248
   %237 = phi i64 [ %249, %248 ], [ %229, %233 ]
   %.val.i3749.i.i296 = phi i8 [ %.val.i37.i.i383, %248 ], [ %.val.i.i.i290, %233 ]
   %.val30.i.i297 = phi i8 [ %.val3048.i.i384, %248 ], [ %.val.i.i.i290, %233 ]
-  %.0.in.i.i298 = phi i64 [ %.0.i.i299, %248 ], [ %.0.i.i.i292, %233 ]
-  %.0.i.i299 = add i64 %.0.in.i.i298, -1
-  %238 = icmp eq i64 %.0.in.i.i298, %.027.in.i.i293
+  %.027.in.i.i298 = phi i64 [ %.027.i.i299, %248 ], [ %.0.i.i.i292, %233 ]
+  %.027.i.i299 = add i64 %.027.in.i.i298, -1
+  %238 = icmp eq i64 %.027.in.i.i298, %.0.in.i.i293
   br i1 %238, label %243, label %239
 
 239:                                              ; preds = %agxblen.exit36.i.i295
-  %240 = getelementptr inbounds i8, ptr %230, i64 %.0.i.i299
+  %240 = getelementptr inbounds i8, ptr %230, i64 %.027.i.i299
   %241 = load i8, ptr %240, align 1
   %242 = icmp eq i8 %241, 48
   br i1 %242, label %243, label %agxbuf_trim_zeros.exit.i300
@@ -1796,13 +1796,13 @@ agxbuse.exit.i304:                                ; preds = %265, %agxbclear.exi
   br label %275
 
 275:                                              ; preds = %277, %agxbuse.exit.i304
-  %.027.in.i21.i308 = phi i64 [ %.0.i.i20.i307, %agxbuse.exit.i304 ], [ %.027.i22.i309, %277 ]
-  %276 = icmp eq i64 %.027.in.i21.i308, 0
+  %.0.in.i21.i308 = phi i64 [ %.0.i.i20.i307, %agxbuse.exit.i304 ], [ %.0.i22.i309, %277 ]
+  %276 = icmp eq i64 %.0.in.i21.i308, 0
   br i1 %276, label %agxbuf_trim_zeros.exit39.i315, label %277
 
 277:                                              ; preds = %275
-  %.027.i22.i309 = add i64 %.027.in.i21.i308, -1
-  %278 = getelementptr inbounds i8, ptr %274, i64 %.027.i22.i309
+  %.0.i22.i309 = add i64 %.0.in.i21.i308, -1
+  %278 = getelementptr inbounds i8, ptr %274, i64 %.0.i22.i309
   %279 = load i8, ptr %278, align 1
   %280 = icmp eq i8 %279, 46
   br i1 %280, label %agxblen.exit36.i23.i310, label %275
@@ -1811,13 +1811,13 @@ agxblen.exit36.i23.i310:                          ; preds = %277, %292
   %281 = phi i64 [ %293, %292 ], [ %273, %277 ]
   %.val.i3749.i25.i311 = phi i8 [ %.val.i37.i30.i373, %292 ], [ %.val.i.i16.i305, %277 ]
   %.val30.i26.i312 = phi i8 [ %.val3048.i31.i374, %292 ], [ %.val.i.i16.i305, %277 ]
-  %.0.in.i27.i313 = phi i64 [ %.0.i28.i314, %292 ], [ %.0.i.i20.i307, %277 ]
-  %.0.i28.i314 = add i64 %.0.in.i27.i313, -1
-  %282 = icmp eq i64 %.0.in.i27.i313, %.027.in.i21.i308
+  %.027.in.i27.i313 = phi i64 [ %.027.i28.i314, %292 ], [ %.0.i.i20.i307, %277 ]
+  %.027.i28.i314 = add i64 %.027.in.i27.i313, -1
+  %282 = icmp eq i64 %.027.in.i27.i313, %.0.in.i21.i308
   br i1 %282, label %287, label %283
 
 283:                                              ; preds = %agxblen.exit36.i23.i310
-  %284 = getelementptr inbounds i8, ptr %274, i64 %.0.i28.i314
+  %284 = getelementptr inbounds i8, ptr %274, i64 %.027.i28.i314
   %285 = load i8, ptr %284, align 1
   %286 = icmp eq i8 %285, 48
   br i1 %286, label %287, label %agxbuf_trim_zeros.exit39.i315
@@ -1910,13 +1910,13 @@ agxbuse.exit44.i319:                              ; preds = %309, %agxbclear.exi
   br label %319
 
 319:                                              ; preds = %321, %agxbuse.exit44.i319
-  %.027.in.i50.i323 = phi i64 [ %.0.i.i49.i322, %agxbuse.exit44.i319 ], [ %.027.i51.i324, %321 ]
-  %320 = icmp eq i64 %.027.in.i50.i323, 0
+  %.0.in.i50.i323 = phi i64 [ %.0.i.i49.i322, %agxbuse.exit44.i319 ], [ %.0.i51.i324, %321 ]
+  %320 = icmp eq i64 %.0.in.i50.i323, 0
   br i1 %320, label %agxbuf_trim_zeros.exit68.i330, label %321
 
 321:                                              ; preds = %319
-  %.027.i51.i324 = add i64 %.027.in.i50.i323, -1
-  %322 = getelementptr inbounds i8, ptr %318, i64 %.027.i51.i324
+  %.0.i51.i324 = add i64 %.0.in.i50.i323, -1
+  %322 = getelementptr inbounds i8, ptr %318, i64 %.0.i51.i324
   %323 = load i8, ptr %322, align 1
   %324 = icmp eq i8 %323, 46
   br i1 %324, label %agxblen.exit36.i52.i325, label %319
@@ -1925,13 +1925,13 @@ agxblen.exit36.i52.i325:                          ; preds = %321, %336
   %325 = phi i64 [ %337, %336 ], [ %317, %321 ]
   %.val.i3749.i54.i326 = phi i8 [ %.val.i37.i59.i363, %336 ], [ %.val.i.i45.i320, %321 ]
   %.val30.i55.i327 = phi i8 [ %.val3048.i60.i364, %336 ], [ %.val.i.i45.i320, %321 ]
-  %.0.in.i56.i328 = phi i64 [ %.0.i57.i329, %336 ], [ %.0.i.i49.i322, %321 ]
-  %.0.i57.i329 = add i64 %.0.in.i56.i328, -1
-  %326 = icmp eq i64 %.0.in.i56.i328, %.027.in.i50.i323
+  %.027.in.i56.i328 = phi i64 [ %.027.i57.i329, %336 ], [ %.0.i.i49.i322, %321 ]
+  %.027.i57.i329 = add i64 %.027.in.i56.i328, -1
+  %326 = icmp eq i64 %.027.in.i56.i328, %.0.in.i50.i323
   br i1 %326, label %331, label %327
 
 327:                                              ; preds = %agxblen.exit36.i52.i325
-  %328 = getelementptr inbounds i8, ptr %318, i64 %.0.i57.i329
+  %328 = getelementptr inbounds i8, ptr %318, i64 %.027.i57.i329
   %329 = load i8, ptr %328, align 1
   %330 = icmp eq i8 %329, 48
   br i1 %330, label %331, label %agxbuf_trim_zeros.exit68.i330
@@ -2024,13 +2024,13 @@ agxbuse.exit73.i334:                              ; preds = %353, %agxbclear.exi
   br label %363
 
 363:                                              ; preds = %365, %agxbuse.exit73.i334
-  %.027.in.i79.i338 = phi i64 [ %.0.i.i78.i337, %agxbuse.exit73.i334 ], [ %.027.i80.i339, %365 ]
-  %364 = icmp eq i64 %.027.in.i79.i338, 0
+  %.0.in.i79.i338 = phi i64 [ %.0.i.i78.i337, %agxbuse.exit73.i334 ], [ %.0.i80.i339, %365 ]
+  %364 = icmp eq i64 %.0.in.i79.i338, 0
   br i1 %364, label %agxbuf_trim_zeros.exit97.i345, label %365
 
 365:                                              ; preds = %363
-  %.027.i80.i339 = add i64 %.027.in.i79.i338, -1
-  %366 = getelementptr inbounds i8, ptr %362, i64 %.027.i80.i339
+  %.0.i80.i339 = add i64 %.0.in.i79.i338, -1
+  %366 = getelementptr inbounds i8, ptr %362, i64 %.0.i80.i339
   %367 = load i8, ptr %366, align 1
   %368 = icmp eq i8 %367, 46
   br i1 %368, label %agxblen.exit36.i81.i340, label %363
@@ -2039,13 +2039,13 @@ agxblen.exit36.i81.i340:                          ; preds = %365, %380
   %369 = phi i64 [ %381, %380 ], [ %361, %365 ]
   %.val.i3749.i83.i341 = phi i8 [ %.val.i37.i88.i353, %380 ], [ %.val.i.i74.i335, %365 ]
   %.val30.i84.i342 = phi i8 [ %.val3048.i89.i354, %380 ], [ %.val.i.i74.i335, %365 ]
-  %.0.in.i85.i343 = phi i64 [ %.0.i86.i344, %380 ], [ %.0.i.i78.i337, %365 ]
-  %.0.i86.i344 = add i64 %.0.in.i85.i343, -1
-  %370 = icmp eq i64 %.0.in.i85.i343, %.027.in.i79.i338
+  %.027.in.i85.i343 = phi i64 [ %.027.i86.i344, %380 ], [ %.0.i.i78.i337, %365 ]
+  %.027.i86.i344 = add i64 %.027.in.i85.i343, -1
+  %370 = icmp eq i64 %.027.in.i85.i343, %.0.in.i79.i338
   br i1 %370, label %375, label %371
 
 371:                                              ; preds = %agxblen.exit36.i81.i340
-  %372 = getelementptr inbounds i8, ptr %362, i64 %.0.i86.i344
+  %372 = getelementptr inbounds i8, ptr %362, i64 %.027.i86.i344
   %373 = load i8, ptr %372, align 1
   %374 = icmp eq i8 %373, 48
   br i1 %374, label %375, label %agxbuf_trim_zeros.exit97.i345
@@ -2169,13 +2169,13 @@ agxblen.exit.i.i233:                              ; preds = %agxbuse.exit45.i264
   br label %416
 
 416:                                              ; preds = %418, %agxblen.exit.i.i233
-  %.027.in.i.i238 = phi i64 [ %.0.i.i.i237, %agxblen.exit.i.i233 ], [ %.027.i.i239, %418 ]
-  %417 = icmp eq i64 %.027.in.i.i238, 0
+  %.0.in.i.i238 = phi i64 [ %.0.i.i.i237, %agxblen.exit.i.i233 ], [ %.0.i.i239, %418 ]
+  %417 = icmp eq i64 %.0.in.i.i238, 0
   br i1 %417, label %agxbuf_trim_zeros.exit.i245, label %418
 
 418:                                              ; preds = %416
-  %.027.i.i239 = add i64 %.027.in.i.i238, -1
-  %419 = getelementptr inbounds i8, ptr %415, i64 %.027.i.i239
+  %.0.i.i239 = add i64 %.0.in.i.i238, -1
+  %419 = getelementptr inbounds i8, ptr %415, i64 %.0.i.i239
   %420 = load i8, ptr %419, align 1
   %421 = icmp eq i8 %420, 46
   br i1 %421, label %agxblen.exit36.i.i240, label %416
@@ -2184,13 +2184,13 @@ agxblen.exit36.i.i240:                            ; preds = %418, %433
   %422 = phi i64 [ %434, %433 ], [ %414, %418 ]
   %.val.i3749.i.i241 = phi i8 [ %.val.i37.i.i279, %433 ], [ %.val.i.i.i235, %418 ]
   %.val30.i.i242 = phi i8 [ %.val3048.i.i280, %433 ], [ %.val.i.i.i235, %418 ]
-  %.0.in.i.i243 = phi i64 [ %.0.i.i244, %433 ], [ %.0.i.i.i237, %418 ]
-  %.0.i.i244 = add i64 %.0.in.i.i243, -1
-  %423 = icmp eq i64 %.0.in.i.i243, %.027.in.i.i238
+  %.027.in.i.i243 = phi i64 [ %.027.i.i244, %433 ], [ %.0.i.i.i237, %418 ]
+  %.027.i.i244 = add i64 %.027.in.i.i243, -1
+  %423 = icmp eq i64 %.027.in.i.i243, %.0.in.i.i238
   br i1 %423, label %428, label %424
 
 424:                                              ; preds = %agxblen.exit36.i.i240
-  %425 = getelementptr inbounds i8, ptr %415, i64 %.0.i.i244
+  %425 = getelementptr inbounds i8, ptr %415, i64 %.027.i.i244
   %426 = load i8, ptr %425, align 1
   %427 = icmp eq i8 %426, 48
   br i1 %427, label %428, label %agxbuf_trim_zeros.exit.i245
@@ -2284,13 +2284,13 @@ agxbuse.exit.i249:                                ; preds = %450, %agxbclear.exi
   br label %461
 
 461:                                              ; preds = %463, %agxbuse.exit.i249
-  %.027.in.i22.i253 = phi i64 [ %.0.i.i21.i252, %agxbuse.exit.i249 ], [ %.027.i23.i254, %463 ]
-  %462 = icmp eq i64 %.027.in.i22.i253, 0
+  %.0.in.i22.i253 = phi i64 [ %.0.i.i21.i252, %agxbuse.exit.i249 ], [ %.0.i23.i254, %463 ]
+  %462 = icmp eq i64 %.0.in.i22.i253, 0
   br i1 %462, label %agxbuf_trim_zeros.exit40.i260, label %463
 
 463:                                              ; preds = %461
-  %.027.i23.i254 = add i64 %.027.in.i22.i253, -1
-  %464 = getelementptr inbounds i8, ptr %460, i64 %.027.i23.i254
+  %.0.i23.i254 = add i64 %.0.in.i22.i253, -1
+  %464 = getelementptr inbounds i8, ptr %460, i64 %.0.i23.i254
   %465 = load i8, ptr %464, align 1
   %466 = icmp eq i8 %465, 46
   br i1 %466, label %agxblen.exit36.i24.i255, label %461
@@ -2299,13 +2299,13 @@ agxblen.exit36.i24.i255:                          ; preds = %463, %478
   %467 = phi i64 [ %479, %478 ], [ %459, %463 ]
   %.val.i3749.i26.i256 = phi i8 [ %.val.i37.i31.i269, %478 ], [ %.val.i.i17.i250, %463 ]
   %.val30.i27.i257 = phi i8 [ %.val3048.i32.i270, %478 ], [ %.val.i.i17.i250, %463 ]
-  %.0.in.i28.i258 = phi i64 [ %.0.i29.i259, %478 ], [ %.0.i.i21.i252, %463 ]
-  %.0.i29.i259 = add i64 %.0.in.i28.i258, -1
-  %468 = icmp eq i64 %.0.in.i28.i258, %.027.in.i22.i253
+  %.027.in.i28.i258 = phi i64 [ %.027.i29.i259, %478 ], [ %.0.i.i21.i252, %463 ]
+  %.027.i29.i259 = add i64 %.027.in.i28.i258, -1
+  %468 = icmp eq i64 %.027.in.i28.i258, %.0.in.i22.i253
   br i1 %468, label %473, label %469
 
 469:                                              ; preds = %agxblen.exit36.i24.i255
-  %470 = getelementptr inbounds i8, ptr %460, i64 %.0.i29.i259
+  %470 = getelementptr inbounds i8, ptr %460, i64 %.027.i29.i259
   %471 = load i8, ptr %470, align 1
   %472 = icmp eq i8 %471, 48
   br i1 %472, label %473, label %agxbuf_trim_zeros.exit40.i260
@@ -2433,13 +2433,13 @@ agxblen.exit.i.i175:                              ; preds = %agxbuse.exit45.i206
   br label %516
 
 516:                                              ; preds = %518, %agxblen.exit.i.i175
-  %.027.in.i.i180 = phi i64 [ %.0.i.i.i179, %agxblen.exit.i.i175 ], [ %.027.i.i181, %518 ]
-  %517 = icmp eq i64 %.027.in.i.i180, 0
+  %.0.in.i.i180 = phi i64 [ %.0.i.i.i179, %agxblen.exit.i.i175 ], [ %.0.i.i181, %518 ]
+  %517 = icmp eq i64 %.0.in.i.i180, 0
   br i1 %517, label %agxbuf_trim_zeros.exit.i187, label %518
 
 518:                                              ; preds = %516
-  %.027.i.i181 = add i64 %.027.in.i.i180, -1
-  %519 = getelementptr inbounds i8, ptr %515, i64 %.027.i.i181
+  %.0.i.i181 = add i64 %.0.in.i.i180, -1
+  %519 = getelementptr inbounds i8, ptr %515, i64 %.0.i.i181
   %520 = load i8, ptr %519, align 1
   %521 = icmp eq i8 %520, 46
   br i1 %521, label %agxblen.exit36.i.i182, label %516
@@ -2448,13 +2448,13 @@ agxblen.exit36.i.i182:                            ; preds = %518, %533
   %522 = phi i64 [ %534, %533 ], [ %514, %518 ]
   %.val.i3749.i.i183 = phi i8 [ %.val.i37.i.i221, %533 ], [ %.val.i.i.i177, %518 ]
   %.val30.i.i184 = phi i8 [ %.val3048.i.i222, %533 ], [ %.val.i.i.i177, %518 ]
-  %.0.in.i.i185 = phi i64 [ %.0.i.i186, %533 ], [ %.0.i.i.i179, %518 ]
-  %.0.i.i186 = add i64 %.0.in.i.i185, -1
-  %523 = icmp eq i64 %.0.in.i.i185, %.027.in.i.i180
+  %.027.in.i.i185 = phi i64 [ %.027.i.i186, %533 ], [ %.0.i.i.i179, %518 ]
+  %.027.i.i186 = add i64 %.027.in.i.i185, -1
+  %523 = icmp eq i64 %.027.in.i.i185, %.0.in.i.i180
   br i1 %523, label %528, label %524
 
 524:                                              ; preds = %agxblen.exit36.i.i182
-  %525 = getelementptr inbounds i8, ptr %515, i64 %.0.i.i186
+  %525 = getelementptr inbounds i8, ptr %515, i64 %.027.i.i186
   %526 = load i8, ptr %525, align 1
   %527 = icmp eq i8 %526, 48
   br i1 %527, label %528, label %agxbuf_trim_zeros.exit.i187
@@ -2548,13 +2548,13 @@ agxbuse.exit.i191:                                ; preds = %550, %agxbclear.exi
   br label %561
 
 561:                                              ; preds = %563, %agxbuse.exit.i191
-  %.027.in.i22.i195 = phi i64 [ %.0.i.i21.i194, %agxbuse.exit.i191 ], [ %.027.i23.i196, %563 ]
-  %562 = icmp eq i64 %.027.in.i22.i195, 0
+  %.0.in.i22.i195 = phi i64 [ %.0.i.i21.i194, %agxbuse.exit.i191 ], [ %.0.i23.i196, %563 ]
+  %562 = icmp eq i64 %.0.in.i22.i195, 0
   br i1 %562, label %agxbuf_trim_zeros.exit40.i202, label %563
 
 563:                                              ; preds = %561
-  %.027.i23.i196 = add i64 %.027.in.i22.i195, -1
-  %564 = getelementptr inbounds i8, ptr %560, i64 %.027.i23.i196
+  %.0.i23.i196 = add i64 %.0.in.i22.i195, -1
+  %564 = getelementptr inbounds i8, ptr %560, i64 %.0.i23.i196
   %565 = load i8, ptr %564, align 1
   %566 = icmp eq i8 %565, 46
   br i1 %566, label %agxblen.exit36.i24.i197, label %561
@@ -2563,13 +2563,13 @@ agxblen.exit36.i24.i197:                          ; preds = %563, %578
   %567 = phi i64 [ %579, %578 ], [ %559, %563 ]
   %.val.i3749.i26.i198 = phi i8 [ %.val.i37.i31.i211, %578 ], [ %.val.i.i17.i192, %563 ]
   %.val30.i27.i199 = phi i8 [ %.val3048.i32.i212, %578 ], [ %.val.i.i17.i192, %563 ]
-  %.0.in.i28.i200 = phi i64 [ %.0.i29.i201, %578 ], [ %.0.i.i21.i194, %563 ]
-  %.0.i29.i201 = add i64 %.0.in.i28.i200, -1
-  %568 = icmp eq i64 %.0.in.i28.i200, %.027.in.i22.i195
+  %.027.in.i28.i200 = phi i64 [ %.027.i29.i201, %578 ], [ %.0.i.i21.i194, %563 ]
+  %.027.i29.i201 = add i64 %.027.in.i28.i200, -1
+  %568 = icmp eq i64 %.027.in.i28.i200, %.0.in.i22.i195
   br i1 %568, label %573, label %569
 
 569:                                              ; preds = %agxblen.exit36.i24.i197
-  %570 = getelementptr inbounds i8, ptr %560, i64 %.0.i29.i201
+  %570 = getelementptr inbounds i8, ptr %560, i64 %.027.i29.i201
   %571 = load i8, ptr %570, align 1
   %572 = icmp eq i8 %571, 48
   br i1 %572, label %573, label %agxbuf_trim_zeros.exit40.i202
@@ -2697,13 +2697,13 @@ agxblen.exit.i.i117:                              ; preds = %agxbuse.exit45.i148
   br label %616
 
 616:                                              ; preds = %618, %agxblen.exit.i.i117
-  %.027.in.i.i122 = phi i64 [ %.0.i.i.i121, %agxblen.exit.i.i117 ], [ %.027.i.i123, %618 ]
-  %617 = icmp eq i64 %.027.in.i.i122, 0
+  %.0.in.i.i122 = phi i64 [ %.0.i.i.i121, %agxblen.exit.i.i117 ], [ %.0.i.i123, %618 ]
+  %617 = icmp eq i64 %.0.in.i.i122, 0
   br i1 %617, label %agxbuf_trim_zeros.exit.i129, label %618
 
 618:                                              ; preds = %616
-  %.027.i.i123 = add i64 %.027.in.i.i122, -1
-  %619 = getelementptr inbounds i8, ptr %615, i64 %.027.i.i123
+  %.0.i.i123 = add i64 %.0.in.i.i122, -1
+  %619 = getelementptr inbounds i8, ptr %615, i64 %.0.i.i123
   %620 = load i8, ptr %619, align 1
   %621 = icmp eq i8 %620, 46
   br i1 %621, label %agxblen.exit36.i.i124, label %616
@@ -2712,13 +2712,13 @@ agxblen.exit36.i.i124:                            ; preds = %618, %633
   %622 = phi i64 [ %634, %633 ], [ %614, %618 ]
   %.val.i3749.i.i125 = phi i8 [ %.val.i37.i.i163, %633 ], [ %.val.i.i.i119, %618 ]
   %.val30.i.i126 = phi i8 [ %.val3048.i.i164, %633 ], [ %.val.i.i.i119, %618 ]
-  %.0.in.i.i127 = phi i64 [ %.0.i.i128, %633 ], [ %.0.i.i.i121, %618 ]
-  %.0.i.i128 = add i64 %.0.in.i.i127, -1
-  %623 = icmp eq i64 %.0.in.i.i127, %.027.in.i.i122
+  %.027.in.i.i127 = phi i64 [ %.027.i.i128, %633 ], [ %.0.i.i.i121, %618 ]
+  %.027.i.i128 = add i64 %.027.in.i.i127, -1
+  %623 = icmp eq i64 %.027.in.i.i127, %.0.in.i.i122
   br i1 %623, label %628, label %624
 
 624:                                              ; preds = %agxblen.exit36.i.i124
-  %625 = getelementptr inbounds i8, ptr %615, i64 %.0.i.i128
+  %625 = getelementptr inbounds i8, ptr %615, i64 %.027.i.i128
   %626 = load i8, ptr %625, align 1
   %627 = icmp eq i8 %626, 48
   br i1 %627, label %628, label %agxbuf_trim_zeros.exit.i129
@@ -2812,13 +2812,13 @@ agxbuse.exit.i133:                                ; preds = %650, %agxbclear.exi
   br label %661
 
 661:                                              ; preds = %663, %agxbuse.exit.i133
-  %.027.in.i22.i137 = phi i64 [ %.0.i.i21.i136, %agxbuse.exit.i133 ], [ %.027.i23.i138, %663 ]
-  %662 = icmp eq i64 %.027.in.i22.i137, 0
+  %.0.in.i22.i137 = phi i64 [ %.0.i.i21.i136, %agxbuse.exit.i133 ], [ %.0.i23.i138, %663 ]
+  %662 = icmp eq i64 %.0.in.i22.i137, 0
   br i1 %662, label %agxbuf_trim_zeros.exit40.i144, label %663
 
 663:                                              ; preds = %661
-  %.027.i23.i138 = add i64 %.027.in.i22.i137, -1
-  %664 = getelementptr inbounds i8, ptr %660, i64 %.027.i23.i138
+  %.0.i23.i138 = add i64 %.0.in.i22.i137, -1
+  %664 = getelementptr inbounds i8, ptr %660, i64 %.0.i23.i138
   %665 = load i8, ptr %664, align 1
   %666 = icmp eq i8 %665, 46
   br i1 %666, label %agxblen.exit36.i24.i139, label %661
@@ -2827,13 +2827,13 @@ agxblen.exit36.i24.i139:                          ; preds = %663, %678
   %667 = phi i64 [ %679, %678 ], [ %659, %663 ]
   %.val.i3749.i26.i140 = phi i8 [ %.val.i37.i31.i153, %678 ], [ %.val.i.i17.i134, %663 ]
   %.val30.i27.i141 = phi i8 [ %.val3048.i32.i154, %678 ], [ %.val.i.i17.i134, %663 ]
-  %.0.in.i28.i142 = phi i64 [ %.0.i29.i143, %678 ], [ %.0.i.i21.i136, %663 ]
-  %.0.i29.i143 = add i64 %.0.in.i28.i142, -1
-  %668 = icmp eq i64 %.0.in.i28.i142, %.027.in.i22.i137
+  %.027.in.i28.i142 = phi i64 [ %.027.i29.i143, %678 ], [ %.0.i.i21.i136, %663 ]
+  %.027.i29.i143 = add i64 %.027.in.i28.i142, -1
+  %668 = icmp eq i64 %.027.in.i28.i142, %.0.in.i22.i137
   br i1 %668, label %673, label %669
 
 669:                                              ; preds = %agxblen.exit36.i24.i139
-  %670 = getelementptr inbounds i8, ptr %660, i64 %.0.i29.i143
+  %670 = getelementptr inbounds i8, ptr %660, i64 %.027.i29.i143
   %671 = load i8, ptr %670, align 1
   %672 = icmp eq i8 %671, 48
   br i1 %672, label %673, label %agxbuf_trim_zeros.exit40.i144
@@ -2961,13 +2961,13 @@ agxblen.exit.i.i59:                               ; preds = %agxbuse.exit45.i90,
   br label %716
 
 716:                                              ; preds = %718, %agxblen.exit.i.i59
-  %.027.in.i.i64 = phi i64 [ %.0.i.i.i63, %agxblen.exit.i.i59 ], [ %.027.i.i65, %718 ]
-  %717 = icmp eq i64 %.027.in.i.i64, 0
+  %.0.in.i.i64 = phi i64 [ %.0.i.i.i63, %agxblen.exit.i.i59 ], [ %.0.i.i65, %718 ]
+  %717 = icmp eq i64 %.0.in.i.i64, 0
   br i1 %717, label %agxbuf_trim_zeros.exit.i71, label %718
 
 718:                                              ; preds = %716
-  %.027.i.i65 = add i64 %.027.in.i.i64, -1
-  %719 = getelementptr inbounds i8, ptr %715, i64 %.027.i.i65
+  %.0.i.i65 = add i64 %.0.in.i.i64, -1
+  %719 = getelementptr inbounds i8, ptr %715, i64 %.0.i.i65
   %720 = load i8, ptr %719, align 1
   %721 = icmp eq i8 %720, 46
   br i1 %721, label %agxblen.exit36.i.i66, label %716
@@ -2976,13 +2976,13 @@ agxblen.exit36.i.i66:                             ; preds = %718, %733
   %722 = phi i64 [ %734, %733 ], [ %714, %718 ]
   %.val.i3749.i.i67 = phi i8 [ %.val.i37.i.i105, %733 ], [ %.val.i.i.i61, %718 ]
   %.val30.i.i68 = phi i8 [ %.val3048.i.i106, %733 ], [ %.val.i.i.i61, %718 ]
-  %.0.in.i.i69 = phi i64 [ %.0.i.i70, %733 ], [ %.0.i.i.i63, %718 ]
-  %.0.i.i70 = add i64 %.0.in.i.i69, -1
-  %723 = icmp eq i64 %.0.in.i.i69, %.027.in.i.i64
+  %.027.in.i.i69 = phi i64 [ %.027.i.i70, %733 ], [ %.0.i.i.i63, %718 ]
+  %.027.i.i70 = add i64 %.027.in.i.i69, -1
+  %723 = icmp eq i64 %.027.in.i.i69, %.0.in.i.i64
   br i1 %723, label %728, label %724
 
 724:                                              ; preds = %agxblen.exit36.i.i66
-  %725 = getelementptr inbounds i8, ptr %715, i64 %.0.i.i70
+  %725 = getelementptr inbounds i8, ptr %715, i64 %.027.i.i70
   %726 = load i8, ptr %725, align 1
   %727 = icmp eq i8 %726, 48
   br i1 %727, label %728, label %agxbuf_trim_zeros.exit.i71
@@ -3076,13 +3076,13 @@ agxbuse.exit.i75:                                 ; preds = %750, %agxbclear.exi
   br label %761
 
 761:                                              ; preds = %763, %agxbuse.exit.i75
-  %.027.in.i22.i79 = phi i64 [ %.0.i.i21.i78, %agxbuse.exit.i75 ], [ %.027.i23.i80, %763 ]
-  %762 = icmp eq i64 %.027.in.i22.i79, 0
+  %.0.in.i22.i79 = phi i64 [ %.0.i.i21.i78, %agxbuse.exit.i75 ], [ %.0.i23.i80, %763 ]
+  %762 = icmp eq i64 %.0.in.i22.i79, 0
   br i1 %762, label %agxbuf_trim_zeros.exit40.i86, label %763
 
 763:                                              ; preds = %761
-  %.027.i23.i80 = add i64 %.027.in.i22.i79, -1
-  %764 = getelementptr inbounds i8, ptr %760, i64 %.027.i23.i80
+  %.0.i23.i80 = add i64 %.0.in.i22.i79, -1
+  %764 = getelementptr inbounds i8, ptr %760, i64 %.0.i23.i80
   %765 = load i8, ptr %764, align 1
   %766 = icmp eq i8 %765, 46
   br i1 %766, label %agxblen.exit36.i24.i81, label %761
@@ -3091,13 +3091,13 @@ agxblen.exit36.i24.i81:                           ; preds = %763, %778
   %767 = phi i64 [ %779, %778 ], [ %759, %763 ]
   %.val.i3749.i26.i82 = phi i8 [ %.val.i37.i31.i95, %778 ], [ %.val.i.i17.i76, %763 ]
   %.val30.i27.i83 = phi i8 [ %.val3048.i32.i96, %778 ], [ %.val.i.i17.i76, %763 ]
-  %.0.in.i28.i84 = phi i64 [ %.0.i29.i85, %778 ], [ %.0.i.i21.i78, %763 ]
-  %.0.i29.i85 = add i64 %.0.in.i28.i84, -1
-  %768 = icmp eq i64 %.0.in.i28.i84, %.027.in.i22.i79
+  %.027.in.i28.i84 = phi i64 [ %.027.i29.i85, %778 ], [ %.0.i.i21.i78, %763 ]
+  %.027.i29.i85 = add i64 %.027.in.i28.i84, -1
+  %768 = icmp eq i64 %.027.in.i28.i84, %.0.in.i22.i79
   br i1 %768, label %773, label %769
 
 769:                                              ; preds = %agxblen.exit36.i24.i81
-  %770 = getelementptr inbounds i8, ptr %760, i64 %.0.i29.i85
+  %770 = getelementptr inbounds i8, ptr %760, i64 %.027.i29.i85
   %771 = load i8, ptr %770, align 1
   %772 = icmp eq i8 %771, 48
   br i1 %772, label %773, label %agxbuf_trim_zeros.exit40.i86
@@ -3289,13 +3289,13 @@ agxblen.exit.i.i:                                 ; preds = %agxbuse.exit45.i, %
   br label %840
 
 840:                                              ; preds = %842, %agxblen.exit.i.i
-  %.027.in.i.i36 = phi i64 [ %.0.i.i.i35, %agxblen.exit.i.i ], [ %.027.i.i37, %842 ]
-  %841 = icmp eq i64 %.027.in.i.i36, 0
+  %.0.in.i.i36 = phi i64 [ %.0.i.i.i35, %agxblen.exit.i.i ], [ %.0.i.i37, %842 ]
+  %841 = icmp eq i64 %.0.in.i.i36, 0
   br i1 %841, label %agxbuf_trim_zeros.exit.i43, label %842
 
 842:                                              ; preds = %840
-  %.027.i.i37 = add i64 %.027.in.i.i36, -1
-  %843 = getelementptr inbounds i8, ptr %839, i64 %.027.i.i37
+  %.0.i.i37 = add i64 %.0.in.i.i36, -1
+  %843 = getelementptr inbounds i8, ptr %839, i64 %.0.i.i37
   %844 = load i8, ptr %843, align 1
   %845 = icmp eq i8 %844, 46
   br i1 %845, label %agxblen.exit36.i.i38, label %840
@@ -3304,13 +3304,13 @@ agxblen.exit36.i.i38:                             ; preds = %842, %857
   %846 = phi i64 [ %858, %857 ], [ %838, %842 ]
   %.val.i3749.i.i39 = phi i8 [ %.val.i37.i.i48, %857 ], [ %.val.i.i.i33, %842 ]
   %.val30.i.i40 = phi i8 [ %.val3048.i.i49, %857 ], [ %.val.i.i.i33, %842 ]
-  %.0.in.i.i41 = phi i64 [ %.0.i.i42, %857 ], [ %.0.i.i.i35, %842 ]
-  %.0.i.i42 = add i64 %.0.in.i.i41, -1
-  %847 = icmp eq i64 %.0.in.i.i41, %.027.in.i.i36
+  %.027.in.i.i41 = phi i64 [ %.027.i.i42, %857 ], [ %.0.i.i.i35, %842 ]
+  %.027.i.i42 = add i64 %.027.in.i.i41, -1
+  %847 = icmp eq i64 %.027.in.i.i41, %.0.in.i.i36
   br i1 %847, label %852, label %848
 
 848:                                              ; preds = %agxblen.exit36.i.i38
-  %849 = getelementptr inbounds i8, ptr %839, i64 %.0.i.i42
+  %849 = getelementptr inbounds i8, ptr %839, i64 %.027.i.i42
   %850 = load i8, ptr %849, align 1
   %851 = icmp eq i8 %850, 48
   br i1 %851, label %852, label %agxbuf_trim_zeros.exit.i43
@@ -3404,13 +3404,13 @@ agxbuse.exit.i45:                                 ; preds = %874, %agxbclear.exi
   br label %885
 
 885:                                              ; preds = %887, %agxbuse.exit.i45
-  %.027.in.i22.i = phi i64 [ %.0.i.i21.i, %agxbuse.exit.i45 ], [ %.027.i23.i, %887 ]
-  %886 = icmp eq i64 %.027.in.i22.i, 0
+  %.0.in.i22.i = phi i64 [ %.0.i.i21.i, %agxbuse.exit.i45 ], [ %.0.i23.i, %887 ]
+  %886 = icmp eq i64 %.0.in.i22.i, 0
   br i1 %886, label %agxbuf_trim_zeros.exit40.i, label %887
 
 887:                                              ; preds = %885
-  %.027.i23.i = add i64 %.027.in.i22.i, -1
-  %888 = getelementptr inbounds i8, ptr %884, i64 %.027.i23.i
+  %.0.i23.i = add i64 %.0.in.i22.i, -1
+  %888 = getelementptr inbounds i8, ptr %884, i64 %.0.i23.i
   %889 = load i8, ptr %888, align 1
   %890 = icmp eq i8 %889, 46
   br i1 %890, label %agxblen.exit36.i24.i, label %885
@@ -3419,13 +3419,13 @@ agxblen.exit36.i24.i:                             ; preds = %887, %902
   %891 = phi i64 [ %903, %902 ], [ %883, %887 ]
   %.val.i3749.i26.i = phi i8 [ %.val.i37.i31.i, %902 ], [ %.val.i.i17.i, %887 ]
   %.val30.i27.i = phi i8 [ %.val3048.i32.i, %902 ], [ %.val.i.i17.i, %887 ]
-  %.0.in.i28.i = phi i64 [ %.0.i29.i, %902 ], [ %.0.i.i21.i, %887 ]
-  %.0.i29.i = add i64 %.0.in.i28.i, -1
-  %892 = icmp eq i64 %.0.in.i28.i, %.027.in.i22.i
+  %.027.in.i28.i = phi i64 [ %.027.i29.i, %902 ], [ %.0.i.i21.i, %887 ]
+  %.027.i29.i = add i64 %.027.in.i28.i, -1
+  %892 = icmp eq i64 %.027.in.i28.i, %.0.in.i22.i
   br i1 %892, label %897, label %893
 
 893:                                              ; preds = %agxblen.exit36.i24.i
-  %894 = getelementptr inbounds i8, ptr %884, i64 %.0.i29.i
+  %894 = getelementptr inbounds i8, ptr %884, i64 %.027.i29.i
   %895 = load i8, ptr %894, align 1
   %896 = icmp eq i8 %895, 48
   br i1 %896, label %897, label %agxbuf_trim_zeros.exit40.i
@@ -3570,13 +3570,13 @@ switch.lookup:                                    ; preds = %926
   br label %955
 
 955:                                              ; preds = %957, %947
-  %.027.in.i.i11 = phi i64 [ %.0.i.i.i10, %947 ], [ %.027.i.i12, %957 ]
-  %956 = icmp eq i64 %.027.in.i.i11, 0
+  %.0.in.i.i11 = phi i64 [ %.0.i.i.i10, %947 ], [ %.0.i.i12, %957 ]
+  %956 = icmp eq i64 %.0.in.i.i11, 0
   br i1 %956, label %agxbuf_trim_zeros.exit.i18, label %957
 
 957:                                              ; preds = %955
-  %.027.i.i12 = add i64 %.027.in.i.i11, -1
-  %958 = getelementptr inbounds i8, ptr %954, i64 %.027.i.i12
+  %.0.i.i12 = add i64 %.0.in.i.i11, -1
+  %958 = getelementptr inbounds i8, ptr %954, i64 %.0.i.i12
   %959 = load i8, ptr %958, align 1
   %960 = icmp eq i8 %959, 46
   br i1 %960, label %agxblen.exit36.i.i13, label %955
@@ -3585,13 +3585,13 @@ agxblen.exit36.i.i13:                             ; preds = %957, %972
   %961 = phi i64 [ %973, %972 ], [ %953, %957 ]
   %.val.i3749.i.i14 = phi i8 [ %.val.i37.i.i23, %972 ], [ %.val.i.i.i8, %957 ]
   %.val30.i.i15 = phi i8 [ %.val3048.i.i24, %972 ], [ %.val.i.i.i8, %957 ]
-  %.0.in.i.i16 = phi i64 [ %.0.i.i17, %972 ], [ %.0.i.i.i10, %957 ]
-  %.0.i.i17 = add i64 %.0.in.i.i16, -1
-  %962 = icmp eq i64 %.0.in.i.i16, %.027.in.i.i11
+  %.027.in.i.i16 = phi i64 [ %.027.i.i17, %972 ], [ %.0.i.i.i10, %957 ]
+  %.027.i.i17 = add i64 %.027.in.i.i16, -1
+  %962 = icmp eq i64 %.027.in.i.i16, %.0.in.i.i11
   br i1 %962, label %967, label %963
 
 963:                                              ; preds = %agxblen.exit36.i.i13
-  %964 = getelementptr inbounds i8, ptr %954, i64 %.0.i.i17
+  %964 = getelementptr inbounds i8, ptr %954, i64 %.027.i.i17
   %965 = load i8, ptr %964, align 1
   %966 = icmp eq i8 %965, 48
   br i1 %966, label %967, label %agxbuf_trim_zeros.exit.i18
@@ -3710,13 +3710,13 @@ printFloat.exit:                                  ; preds = %agxbuse.exit.i20, %
   br label %1012
 
 1012:                                             ; preds = %1014, %1004
-  %.027.in.i.i = phi i64 [ %.0.i.i.i, %1004 ], [ %.027.i.i, %1014 ]
-  %1013 = icmp eq i64 %.027.in.i.i, 0
+  %.0.in.i.i = phi i64 [ %.0.i.i.i, %1004 ], [ %.0.i.i, %1014 ]
+  %1013 = icmp eq i64 %.0.in.i.i, 0
   br i1 %1013, label %agxbuf_trim_zeros.exit.i, label %1014
 
 1014:                                             ; preds = %1012
-  %.027.i.i = add i64 %.027.in.i.i, -1
-  %1015 = getelementptr inbounds i8, ptr %1011, i64 %.027.i.i
+  %.0.i.i = add i64 %.0.in.i.i, -1
+  %1015 = getelementptr inbounds i8, ptr %1011, i64 %.0.i.i
   %1016 = load i8, ptr %1015, align 1
   %1017 = icmp eq i8 %1016, 46
   br i1 %1017, label %agxblen.exit36.i.i, label %1012
@@ -3725,13 +3725,13 @@ agxblen.exit36.i.i:                               ; preds = %1014, %1029
   %1018 = phi i64 [ %1030, %1029 ], [ %1010, %1014 ]
   %.val.i3749.i.i = phi i8 [ %.val.i37.i.i, %1029 ], [ %.val.i.i.i3, %1014 ]
   %.val30.i.i = phi i8 [ %.val3048.i.i, %1029 ], [ %.val.i.i.i3, %1014 ]
-  %.0.in.i.i = phi i64 [ %.0.i.i, %1029 ], [ %.0.i.i.i, %1014 ]
-  %.0.i.i = add i64 %.0.in.i.i, -1
-  %1019 = icmp eq i64 %.0.in.i.i, %.027.in.i.i
+  %.027.in.i.i = phi i64 [ %.027.i.i, %1029 ], [ %.0.i.i.i, %1014 ]
+  %.027.i.i = add i64 %.027.in.i.i, -1
+  %1019 = icmp eq i64 %.027.in.i.i, %.0.in.i.i
   br i1 %1019, label %1024, label %1020
 
 1020:                                             ; preds = %agxblen.exit36.i.i
-  %1021 = getelementptr inbounds i8, ptr %1011, i64 %.0.i.i
+  %1021 = getelementptr inbounds i8, ptr %1011, i64 %.027.i.i
   %1022 = load i8, ptr %1021, align 1
   %1023 = icmp eq i8 %1022, 48
   br i1 %1023, label %1024, label %agxbuf_trim_zeros.exit.i
@@ -3824,13 +3824,13 @@ agxbuse.exit.i6:                                  ; preds = %1046, %agxbclear.ex
   br label %1056
 
 1056:                                             ; preds = %1058, %agxbuse.exit.i6
-  %.027.in.i21.i = phi i64 [ %.0.i.i20.i, %agxbuse.exit.i6 ], [ %.027.i22.i, %1058 ]
-  %1057 = icmp eq i64 %.027.in.i21.i, 0
+  %.0.in.i21.i = phi i64 [ %.0.i.i20.i, %agxbuse.exit.i6 ], [ %.0.i22.i, %1058 ]
+  %1057 = icmp eq i64 %.0.in.i21.i, 0
   br i1 %1057, label %agxbuf_trim_zeros.exit39.i, label %1058
 
 1058:                                             ; preds = %1056
-  %.027.i22.i = add i64 %.027.in.i21.i, -1
-  %1059 = getelementptr inbounds i8, ptr %1055, i64 %.027.i22.i
+  %.0.i22.i = add i64 %.0.in.i21.i, -1
+  %1059 = getelementptr inbounds i8, ptr %1055, i64 %.0.i22.i
   %1060 = load i8, ptr %1059, align 1
   %1061 = icmp eq i8 %1060, 46
   br i1 %1061, label %agxblen.exit36.i23.i, label %1056
@@ -3839,13 +3839,13 @@ agxblen.exit36.i23.i:                             ; preds = %1058, %1073
   %1062 = phi i64 [ %1074, %1073 ], [ %1054, %1058 ]
   %.val.i3749.i25.i = phi i8 [ %.val.i37.i30.i, %1073 ], [ %.val.i.i16.i, %1058 ]
   %.val30.i26.i = phi i8 [ %.val3048.i31.i, %1073 ], [ %.val.i.i16.i, %1058 ]
-  %.0.in.i27.i = phi i64 [ %.0.i28.i, %1073 ], [ %.0.i.i20.i, %1058 ]
-  %.0.i28.i = add i64 %.0.in.i27.i, -1
-  %1063 = icmp eq i64 %.0.in.i27.i, %.027.in.i21.i
+  %.027.in.i27.i = phi i64 [ %.027.i28.i, %1073 ], [ %.0.i.i20.i, %1058 ]
+  %.027.i28.i = add i64 %.027.in.i27.i, -1
+  %1063 = icmp eq i64 %.027.in.i27.i, %.0.in.i21.i
   br i1 %1063, label %1068, label %1064
 
 1064:                                             ; preds = %agxblen.exit36.i23.i
-  %1065 = getelementptr inbounds i8, ptr %1055, i64 %.0.i28.i
+  %1065 = getelementptr inbounds i8, ptr %1055, i64 %.027.i28.i
   %1066 = load i8, ptr %1065, align 1
   %1067 = icmp eq i8 %1066, 48
   br i1 %1067, label %1068, label %agxbuf_trim_zeros.exit39.i
@@ -3938,13 +3938,13 @@ agxbuse.exit44.i:                                 ; preds = %1090, %agxbclear.ex
   br label %1100
 
 1100:                                             ; preds = %1102, %agxbuse.exit44.i
-  %.027.in.i50.i = phi i64 [ %.0.i.i49.i, %agxbuse.exit44.i ], [ %.027.i51.i, %1102 ]
-  %1101 = icmp eq i64 %.027.in.i50.i, 0
+  %.0.in.i50.i = phi i64 [ %.0.i.i49.i, %agxbuse.exit44.i ], [ %.0.i51.i, %1102 ]
+  %1101 = icmp eq i64 %.0.in.i50.i, 0
   br i1 %1101, label %agxbuf_trim_zeros.exit68.i, label %1102
 
 1102:                                             ; preds = %1100
-  %.027.i51.i = add i64 %.027.in.i50.i, -1
-  %1103 = getelementptr inbounds i8, ptr %1099, i64 %.027.i51.i
+  %.0.i51.i = add i64 %.0.in.i50.i, -1
+  %1103 = getelementptr inbounds i8, ptr %1099, i64 %.0.i51.i
   %1104 = load i8, ptr %1103, align 1
   %1105 = icmp eq i8 %1104, 46
   br i1 %1105, label %agxblen.exit36.i52.i, label %1100
@@ -3953,13 +3953,13 @@ agxblen.exit36.i52.i:                             ; preds = %1102, %1117
   %1106 = phi i64 [ %1118, %1117 ], [ %1098, %1102 ]
   %.val.i3749.i54.i = phi i8 [ %.val.i37.i59.i, %1117 ], [ %.val.i.i45.i, %1102 ]
   %.val30.i55.i = phi i8 [ %.val3048.i60.i, %1117 ], [ %.val.i.i45.i, %1102 ]
-  %.0.in.i56.i = phi i64 [ %.0.i57.i, %1117 ], [ %.0.i.i49.i, %1102 ]
-  %.0.i57.i = add i64 %.0.in.i56.i, -1
-  %1107 = icmp eq i64 %.0.in.i56.i, %.027.in.i50.i
+  %.027.in.i56.i = phi i64 [ %.027.i57.i, %1117 ], [ %.0.i.i49.i, %1102 ]
+  %.027.i57.i = add i64 %.027.in.i56.i, -1
+  %1107 = icmp eq i64 %.027.in.i56.i, %.0.in.i50.i
   br i1 %1107, label %1112, label %1108
 
 1108:                                             ; preds = %agxblen.exit36.i52.i
-  %1109 = getelementptr inbounds i8, ptr %1099, i64 %.0.i57.i
+  %1109 = getelementptr inbounds i8, ptr %1099, i64 %.027.i57.i
   %1110 = load i8, ptr %1109, align 1
   %1111 = icmp eq i8 %1110, 48
   br i1 %1111, label %1112, label %agxbuf_trim_zeros.exit68.i
@@ -4052,13 +4052,13 @@ agxbuse.exit73.i:                                 ; preds = %1134, %agxbclear.ex
   br label %1144
 
 1144:                                             ; preds = %1146, %agxbuse.exit73.i
-  %.027.in.i79.i = phi i64 [ %.0.i.i78.i, %agxbuse.exit73.i ], [ %.027.i80.i, %1146 ]
-  %1145 = icmp eq i64 %.027.in.i79.i, 0
+  %.0.in.i79.i = phi i64 [ %.0.i.i78.i, %agxbuse.exit73.i ], [ %.0.i80.i, %1146 ]
+  %1145 = icmp eq i64 %.0.in.i79.i, 0
   br i1 %1145, label %agxbuf_trim_zeros.exit97.i, label %1146
 
 1146:                                             ; preds = %1144
-  %.027.i80.i = add i64 %.027.in.i79.i, -1
-  %1147 = getelementptr inbounds i8, ptr %1143, i64 %.027.i80.i
+  %.0.i80.i = add i64 %.0.in.i79.i, -1
+  %1147 = getelementptr inbounds i8, ptr %1143, i64 %.0.i80.i
   %1148 = load i8, ptr %1147, align 1
   %1149 = icmp eq i8 %1148, 46
   br i1 %1149, label %agxblen.exit36.i81.i, label %1144
@@ -4067,13 +4067,13 @@ agxblen.exit36.i81.i:                             ; preds = %1146, %1161
   %1150 = phi i64 [ %1162, %1161 ], [ %1142, %1146 ]
   %.val.i3749.i83.i = phi i8 [ %.val.i37.i88.i, %1161 ], [ %.val.i.i74.i, %1146 ]
   %.val30.i84.i = phi i8 [ %.val3048.i89.i, %1161 ], [ %.val.i.i74.i, %1146 ]
-  %.0.in.i85.i = phi i64 [ %.0.i86.i, %1161 ], [ %.0.i.i78.i, %1146 ]
-  %.0.i86.i = add i64 %.0.in.i85.i, -1
-  %1151 = icmp eq i64 %.0.in.i85.i, %.027.in.i79.i
+  %.027.in.i85.i = phi i64 [ %.027.i86.i, %1161 ], [ %.0.i.i78.i, %1146 ]
+  %.027.i86.i = add i64 %.027.in.i85.i, -1
+  %1151 = icmp eq i64 %.027.in.i85.i, %.0.in.i79.i
   br i1 %1151, label %1156, label %1152
 
 1152:                                             ; preds = %agxblen.exit36.i81.i
-  %1153 = getelementptr inbounds i8, ptr %1143, i64 %.0.i86.i
+  %1153 = getelementptr inbounds i8, ptr %1143, i64 %.027.i86.i
   %1154 = load i8, ptr %1153, align 1
   %1155 = icmp eq i8 %1154, 48
   br i1 %1155, label %1156, label %agxbuf_trim_zeros.exit97.i
@@ -4735,13 +4735,13 @@ jsonString.exit140.i:                             ; preds = %218
   br label %236
 
 236:                                              ; preds = %238, %227
-  %.027.in.i.i = phi i64 [ %.0.i.i.i, %227 ], [ %.027.i.i, %238 ]
-  %237 = icmp eq i64 %.027.in.i.i, 0
+  %.0.in.i.i = phi i64 [ %.0.i.i.i, %227 ], [ %.0.i.i7, %238 ]
+  %237 = icmp eq i64 %.0.in.i.i, 0
   br i1 %237, label %agxbuf_trim_zeros.exit.i, label %238
 
 238:                                              ; preds = %236
-  %.027.i.i = add i64 %.027.in.i.i, -1
-  %239 = getelementptr inbounds i8, ptr %235, i64 %.027.i.i
+  %.0.i.i7 = add i64 %.0.in.i.i, -1
+  %239 = getelementptr inbounds i8, ptr %235, i64 %.0.i.i7
   %240 = load i8, ptr %239, align 1
   %241 = icmp eq i8 %240, 46
   br i1 %241, label %agxblen.exit36.i.i, label %236
@@ -4750,13 +4750,13 @@ agxblen.exit36.i.i:                               ; preds = %238, %253
   %242 = phi i64 [ %254, %253 ], [ %234, %238 ]
   %.val.i3749.i.i = phi i8 [ %.val.i37.i.i, %253 ], [ %.val.i.i.i5, %238 ]
   %.val30.i.i = phi i8 [ %.val3048.i.i, %253 ], [ %.val.i.i.i5, %238 ]
-  %.0.in.i.i = phi i64 [ %.0.i.i7, %253 ], [ %.0.i.i.i, %238 ]
-  %.0.i.i7 = add i64 %.0.in.i.i, -1
-  %243 = icmp eq i64 %.0.in.i.i, %.027.in.i.i
+  %.027.in.i.i = phi i64 [ %.027.i.i, %253 ], [ %.0.i.i.i, %238 ]
+  %.027.i.i = add i64 %.027.in.i.i, -1
+  %243 = icmp eq i64 %.027.in.i.i, %.0.in.i.i
   br i1 %243, label %248, label %244
 
 244:                                              ; preds = %agxblen.exit36.i.i
-  %245 = getelementptr inbounds i8, ptr %235, i64 %.0.i.i7
+  %245 = getelementptr inbounds i8, ptr %235, i64 %.027.i.i
   %246 = load i8, ptr %245, align 1
   %247 = icmp eq i8 %246, 48
   br i1 %247, label %248, label %agxbuf_trim_zeros.exit.i
@@ -6126,13 +6126,13 @@ agxblen.exit.i:
   br label %12
 
 12:                                               ; preds = %14, %agxblen.exit.i
-  %.027.in.i = phi i64 [ %.0.i.i, %agxblen.exit.i ], [ %.027.i, %14 ]
-  %13 = icmp eq i64 %.027.in.i, 0
+  %.0.in.i = phi i64 [ %.0.i.i, %agxblen.exit.i ], [ %.0.i, %14 ]
+  %13 = icmp eq i64 %.0.in.i, 0
   br i1 %13, label %agxbuf_trim_zeros.exit, label %14
 
 14:                                               ; preds = %12
-  %.027.i = add i64 %.027.in.i, -1
-  %15 = getelementptr inbounds i8, ptr %11, i64 %.027.i
+  %.0.i = add i64 %.0.in.i, -1
+  %15 = getelementptr inbounds i8, ptr %11, i64 %.0.i
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 46
   br i1 %17, label %agxblen.exit36.i, label %12
@@ -6141,13 +6141,13 @@ agxblen.exit36.i:                                 ; preds = %14, %29
   %18 = phi i64 [ %30, %29 ], [ %10, %14 ]
   %.val.i3749.i = phi i8 [ %.val.i37.i, %29 ], [ %.val.i.i, %14 ]
   %.val30.i = phi i8 [ %.val3048.i, %29 ], [ %.val.i.i, %14 ]
-  %.0.in.i = phi i64 [ %.0.i, %29 ], [ %.0.i.i, %14 ]
-  %.0.i = add i64 %.0.in.i, -1
-  %19 = icmp eq i64 %.0.in.i, %.027.in.i
+  %.027.in.i = phi i64 [ %.027.i, %29 ], [ %.0.i.i, %14 ]
+  %.027.i = add i64 %.027.in.i, -1
+  %19 = icmp eq i64 %.027.in.i, %.0.in.i
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %agxblen.exit36.i
-  %21 = getelementptr inbounds i8, ptr %11, i64 %.0.i
+  %21 = getelementptr inbounds i8, ptr %11, i64 %.027.i
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 48
   br i1 %23, label %24, label %agxbuf_trim_zeros.exit
@@ -6240,13 +6240,13 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.i, %
   br label %57
 
 57:                                               ; preds = %59, %agxbuse.exit
-  %.027.in.i21 = phi i64 [ %.0.i.i20, %agxbuse.exit ], [ %.027.i22, %59 ]
-  %58 = icmp eq i64 %.027.in.i21, 0
+  %.0.in.i21 = phi i64 [ %.0.i.i20, %agxbuse.exit ], [ %.0.i22, %59 ]
+  %58 = icmp eq i64 %.0.in.i21, 0
   br i1 %58, label %agxbuf_trim_zeros.exit39, label %59
 
 59:                                               ; preds = %57
-  %.027.i22 = add i64 %.027.in.i21, -1
-  %60 = getelementptr inbounds i8, ptr %56, i64 %.027.i22
+  %.0.i22 = add i64 %.0.in.i21, -1
+  %60 = getelementptr inbounds i8, ptr %56, i64 %.0.i22
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 46
   br i1 %62, label %agxblen.exit36.i23, label %57
@@ -6255,13 +6255,13 @@ agxblen.exit36.i23:                               ; preds = %59, %74
   %63 = phi i64 [ %75, %74 ], [ %55, %59 ]
   %.val.i3749.i25 = phi i8 [ %.val.i37.i30, %74 ], [ %.val.i.i16, %59 ]
   %.val30.i26 = phi i8 [ %.val3048.i31, %74 ], [ %.val.i.i16, %59 ]
-  %.0.in.i27 = phi i64 [ %.0.i28, %74 ], [ %.0.i.i20, %59 ]
-  %.0.i28 = add i64 %.0.in.i27, -1
-  %64 = icmp eq i64 %.0.in.i27, %.027.in.i21
+  %.027.in.i27 = phi i64 [ %.027.i28, %74 ], [ %.0.i.i20, %59 ]
+  %.027.i28 = add i64 %.027.in.i27, -1
+  %64 = icmp eq i64 %.027.in.i27, %.0.in.i21
   br i1 %64, label %69, label %65
 
 65:                                               ; preds = %agxblen.exit36.i23
-  %66 = getelementptr inbounds i8, ptr %56, i64 %.0.i28
+  %66 = getelementptr inbounds i8, ptr %56, i64 %.027.i28
   %67 = load i8, ptr %66, align 1
   %68 = icmp eq i8 %67, 48
   br i1 %68, label %69, label %agxbuf_trim_zeros.exit39
@@ -6354,13 +6354,13 @@ agxbuse.exit44:                                   ; preds = %agxbclear.exit.i42,
   br label %102
 
 102:                                              ; preds = %104, %agxbuse.exit44
-  %.027.in.i50 = phi i64 [ %.0.i.i49, %agxbuse.exit44 ], [ %.027.i51, %104 ]
-  %103 = icmp eq i64 %.027.in.i50, 0
+  %.0.in.i50 = phi i64 [ %.0.i.i49, %agxbuse.exit44 ], [ %.0.i51, %104 ]
+  %103 = icmp eq i64 %.0.in.i50, 0
   br i1 %103, label %agxbuf_trim_zeros.exit68, label %104
 
 104:                                              ; preds = %102
-  %.027.i51 = add i64 %.027.in.i50, -1
-  %105 = getelementptr inbounds i8, ptr %101, i64 %.027.i51
+  %.0.i51 = add i64 %.0.in.i50, -1
+  %105 = getelementptr inbounds i8, ptr %101, i64 %.0.i51
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, 46
   br i1 %107, label %agxblen.exit36.i52, label %102
@@ -6369,13 +6369,13 @@ agxblen.exit36.i52:                               ; preds = %104, %119
   %108 = phi i64 [ %120, %119 ], [ %100, %104 ]
   %.val.i3749.i54 = phi i8 [ %.val.i37.i59, %119 ], [ %.val.i.i45, %104 ]
   %.val30.i55 = phi i8 [ %.val3048.i60, %119 ], [ %.val.i.i45, %104 ]
-  %.0.in.i56 = phi i64 [ %.0.i57, %119 ], [ %.0.i.i49, %104 ]
-  %.0.i57 = add i64 %.0.in.i56, -1
-  %109 = icmp eq i64 %.0.in.i56, %.027.in.i50
+  %.027.in.i56 = phi i64 [ %.027.i57, %119 ], [ %.0.i.i49, %104 ]
+  %.027.i57 = add i64 %.027.in.i56, -1
+  %109 = icmp eq i64 %.027.in.i56, %.0.in.i50
   br i1 %109, label %114, label %110
 
 110:                                              ; preds = %agxblen.exit36.i52
-  %111 = getelementptr inbounds i8, ptr %101, i64 %.0.i57
+  %111 = getelementptr inbounds i8, ptr %101, i64 %.027.i57
   %112 = load i8, ptr %111, align 1
   %113 = icmp eq i8 %112, 48
   br i1 %113, label %114, label %agxbuf_trim_zeros.exit68
@@ -6468,13 +6468,13 @@ agxbuse.exit73:                                   ; preds = %agxbclear.exit.i71,
   br label %147
 
 147:                                              ; preds = %149, %agxbuse.exit73
-  %.027.in.i79 = phi i64 [ %.0.i.i78, %agxbuse.exit73 ], [ %.027.i80, %149 ]
-  %148 = icmp eq i64 %.027.in.i79, 0
+  %.0.in.i79 = phi i64 [ %.0.i.i78, %agxbuse.exit73 ], [ %.0.i80, %149 ]
+  %148 = icmp eq i64 %.0.in.i79, 0
   br i1 %148, label %agxbuf_trim_zeros.exit97, label %149
 
 149:                                              ; preds = %147
-  %.027.i80 = add i64 %.027.in.i79, -1
-  %150 = getelementptr inbounds i8, ptr %146, i64 %.027.i80
+  %.0.i80 = add i64 %.0.in.i79, -1
+  %150 = getelementptr inbounds i8, ptr %146, i64 %.0.i80
   %151 = load i8, ptr %150, align 1
   %152 = icmp eq i8 %151, 46
   br i1 %152, label %agxblen.exit36.i81, label %147
@@ -6483,13 +6483,13 @@ agxblen.exit36.i81:                               ; preds = %149, %164
   %153 = phi i64 [ %165, %164 ], [ %145, %149 ]
   %.val.i3749.i83 = phi i8 [ %.val.i37.i88, %164 ], [ %.val.i.i74, %149 ]
   %.val30.i84 = phi i8 [ %.val3048.i89, %164 ], [ %.val.i.i74, %149 ]
-  %.0.in.i85 = phi i64 [ %.0.i86, %164 ], [ %.0.i.i78, %149 ]
-  %.0.i86 = add i64 %.0.in.i85, -1
-  %154 = icmp eq i64 %.0.in.i85, %.027.in.i79
+  %.027.in.i85 = phi i64 [ %.027.i86, %164 ], [ %.0.i.i78, %149 ]
+  %.027.i86 = add i64 %.027.in.i85, -1
+  %154 = icmp eq i64 %.027.in.i85, %.0.in.i79
   br i1 %154, label %159, label %155
 
 155:                                              ; preds = %agxblen.exit36.i81
-  %156 = getelementptr inbounds i8, ptr %146, i64 %.0.i86
+  %156 = getelementptr inbounds i8, ptr %146, i64 %.027.i86
   %157 = load i8, ptr %156, align 1
   %158 = icmp eq i8 %157, 48
   br i1 %158, label %159, label %agxbuf_trim_zeros.exit97
@@ -6614,13 +6614,13 @@ agxblen.exit.i:                                   ; preds = %agxblen.exit.i.lr.p
   br label %19
 
 19:                                               ; preds = %21, %agxblen.exit.i
-  %.027.in.i = phi i64 [ %.0.i.i, %agxblen.exit.i ], [ %.027.i, %21 ]
-  %20 = icmp eq i64 %.027.in.i, 0
+  %.0.in.i = phi i64 [ %.0.i.i, %agxblen.exit.i ], [ %.0.i, %21 ]
+  %20 = icmp eq i64 %.0.in.i, 0
   br i1 %20, label %agxbuf_trim_zeros.exit, label %21
 
 21:                                               ; preds = %19
-  %.027.i = add i64 %.027.in.i, -1
-  %22 = getelementptr inbounds i8, ptr %18, i64 %.027.i
+  %.0.i = add i64 %.0.in.i, -1
+  %22 = getelementptr inbounds i8, ptr %18, i64 %.0.i
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 46
   br i1 %24, label %agxblen.exit36.i, label %19
@@ -6629,13 +6629,13 @@ agxblen.exit36.i:                                 ; preds = %21, %36
   %25 = phi i64 [ %37, %36 ], [ %17, %21 ]
   %.val.i3749.i = phi i8 [ %.val.i37.i, %36 ], [ %.val.i.i, %21 ]
   %.val30.i = phi i8 [ %.val3048.i, %36 ], [ %.val.i.i, %21 ]
-  %.0.in.i = phi i64 [ %.0.i, %36 ], [ %.0.i.i, %21 ]
-  %.0.i = add i64 %.0.in.i, -1
-  %26 = icmp eq i64 %.0.in.i, %.027.in.i
+  %.027.in.i = phi i64 [ %.027.i, %36 ], [ %.0.i.i, %21 ]
+  %.027.i = add i64 %.027.in.i, -1
+  %26 = icmp eq i64 %.027.in.i, %.0.in.i
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %agxblen.exit36.i
-  %28 = getelementptr inbounds i8, ptr %18, i64 %.0.i
+  %28 = getelementptr inbounds i8, ptr %18, i64 %.027.i
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 48
   br i1 %30, label %31, label %agxbuf_trim_zeros.exit
@@ -6729,13 +6729,13 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.i, %
   br label %65
 
 65:                                               ; preds = %67, %agxbuse.exit
-  %.027.in.i22 = phi i64 [ %.0.i.i21, %agxbuse.exit ], [ %.027.i23, %67 ]
-  %66 = icmp eq i64 %.027.in.i22, 0
+  %.0.in.i22 = phi i64 [ %.0.i.i21, %agxbuse.exit ], [ %.0.i23, %67 ]
+  %66 = icmp eq i64 %.0.in.i22, 0
   br i1 %66, label %agxbuf_trim_zeros.exit40, label %67
 
 67:                                               ; preds = %65
-  %.027.i23 = add i64 %.027.in.i22, -1
-  %68 = getelementptr inbounds i8, ptr %64, i64 %.027.i23
+  %.0.i23 = add i64 %.0.in.i22, -1
+  %68 = getelementptr inbounds i8, ptr %64, i64 %.0.i23
   %69 = load i8, ptr %68, align 1
   %70 = icmp eq i8 %69, 46
   br i1 %70, label %agxblen.exit36.i24, label %65
@@ -6744,13 +6744,13 @@ agxblen.exit36.i24:                               ; preds = %67, %82
   %71 = phi i64 [ %83, %82 ], [ %63, %67 ]
   %.val.i3749.i26 = phi i8 [ %.val.i37.i31, %82 ], [ %.val.i.i17, %67 ]
   %.val30.i27 = phi i8 [ %.val3048.i32, %82 ], [ %.val.i.i17, %67 ]
-  %.0.in.i28 = phi i64 [ %.0.i29, %82 ], [ %.0.i.i21, %67 ]
-  %.0.i29 = add i64 %.0.in.i28, -1
-  %72 = icmp eq i64 %.0.in.i28, %.027.in.i22
+  %.027.in.i28 = phi i64 [ %.027.i29, %82 ], [ %.0.i.i21, %67 ]
+  %.027.i29 = add i64 %.027.in.i28, -1
+  %72 = icmp eq i64 %.027.in.i28, %.0.in.i22
   br i1 %72, label %77, label %73
 
 73:                                               ; preds = %agxblen.exit36.i24
-  %74 = getelementptr inbounds i8, ptr %64, i64 %.0.i29
+  %74 = getelementptr inbounds i8, ptr %64, i64 %.027.i29
   %75 = load i8, ptr %74, align 1
   %76 = icmp eq i8 %75, 48
   br i1 %76, label %77, label %agxbuf_trim_zeros.exit40
@@ -6946,13 +6946,13 @@ agxblen.exit.i:
   br label %12
 
 12:                                               ; preds = %14, %agxblen.exit.i
-  %.027.in.i = phi i64 [ %.0.i.i, %agxblen.exit.i ], [ %.027.i, %14 ]
-  %13 = icmp eq i64 %.027.in.i, 0
+  %.0.in.i = phi i64 [ %.0.i.i, %agxblen.exit.i ], [ %.0.i, %14 ]
+  %13 = icmp eq i64 %.0.in.i, 0
   br i1 %13, label %agxbuf_trim_zeros.exit, label %14
 
 14:                                               ; preds = %12
-  %.027.i = add i64 %.027.in.i, -1
-  %15 = getelementptr inbounds i8, ptr %11, i64 %.027.i
+  %.0.i = add i64 %.0.in.i, -1
+  %15 = getelementptr inbounds i8, ptr %11, i64 %.0.i
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 46
   br i1 %17, label %agxblen.exit36.i, label %12
@@ -6961,13 +6961,13 @@ agxblen.exit36.i:                                 ; preds = %14, %29
   %18 = phi i64 [ %30, %29 ], [ %10, %14 ]
   %.val.i3749.i = phi i8 [ %.val.i37.i, %29 ], [ %.val.i.i, %14 ]
   %.val30.i = phi i8 [ %.val3048.i, %29 ], [ %.val.i.i, %14 ]
-  %.0.in.i = phi i64 [ %.0.i, %29 ], [ %.0.i.i, %14 ]
-  %.0.i = add i64 %.0.in.i, -1
-  %19 = icmp eq i64 %.0.in.i, %.027.in.i
+  %.027.in.i = phi i64 [ %.027.i, %29 ], [ %.0.i.i, %14 ]
+  %.027.i = add i64 %.027.in.i, -1
+  %19 = icmp eq i64 %.027.in.i, %.0.in.i
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %agxblen.exit36.i
-  %21 = getelementptr inbounds i8, ptr %11, i64 %.0.i
+  %21 = getelementptr inbounds i8, ptr %11, i64 %.027.i
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 48
   br i1 %23, label %24, label %agxbuf_trim_zeros.exit

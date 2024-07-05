@@ -909,50 +909,50 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__copy_api_common(i64 noundef %0
 
 54:                                               ; preds = %47
   %55 = call ptr @H5I_object(i64 noundef %2) #4
-  br i1 %.not, label %.cont40, label %.else41
+  br i1 %.not, label %.cont, label %.else
 
-.else41:                                          ; preds = %54
+.else:                                            ; preds = %54
   store ptr %55, ptr %7, align 8
-  br label %.cont40
+  br label %.cont
 
-.cont40:                                          ; preds = %54, %.else41
-  %.042 = phi ptr [ null, %.else41 ], [ %55, %54 ]
+.cont:                                            ; preds = %54, %.else
+  %.042 = phi ptr [ null, %.else ], [ %55, %54 ]
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %61
 
-57:                                               ; preds = %.cont40
+57:                                               ; preds = %.cont
   %58 = load i64, ptr @H5E_ARGS_g, align 8
   %59 = load i64, ptr @H5E_BADTYPE_g, align 8
   %60 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_api_common, i32 noundef 440, i64 noundef %58, i64 noundef %59, ptr noundef nonnull @.str.21) #4
   br label %73
 
-61:                                               ; preds = %.cont40
+61:                                               ; preds = %.cont
   %62 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 0, ptr %62, align 4
   %63 = call i32 @H5I_get_type(i64 noundef %2) #4
   store i32 %63, ptr %9, align 8
   %64 = load ptr, ptr %10, align 8
-  br i1 %.not, label %.cont, label %.else
+  br i1 %.not, label %.cont40, label %.else41
 
-.else:                                            ; preds = %61
+.else41:                                          ; preds = %61
   %.else.val = load ptr, ptr %7, align 8
-  br label %.cont
+  br label %.cont40
 
-.cont:                                            ; preds = %61, %.else
-  %65 = phi ptr [ %.042, %61 ], [ %.else.val, %.else ]
+.cont40:                                          ; preds = %61, %.else41
+  %65 = phi ptr [ %.042, %61 ], [ %.else.val, %.else41 ]
   %66 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %67 = call i32 @H5VL_object_copy(ptr noundef %64, ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef %65, ptr noundef nonnull %9, ptr noundef nonnull %3, i64 noundef %.028, i64 noundef %.029, i64 noundef %66, ptr noundef %6) #4
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %69, label %73
 
-69:                                               ; preds = %.cont
+69:                                               ; preds = %.cont40
   %70 = load i64, ptr @H5E_OHDR_g, align 8
   %71 = load i64, ptr @H5E_CANTCOPY_g, align 8
   %72 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__copy_api_common, i32 noundef 447, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.100) #4
   br label %73
 
-73:                                               ; preds = %.cont, %69, %57, %50, %43, %32, %21, %14
-  %.0 = phi i32 [ -1, %50 ], [ -1, %57 ], [ -1, %69 ], [ 0, %.cont ], [ -1, %43 ], [ -1, %32 ], [ -1, %21 ], [ -1, %14 ]
+73:                                               ; preds = %.cont40, %69, %57, %50, %43, %32, %21, %14
+  %.0 = phi i32 [ -1, %50 ], [ -1, %57 ], [ -1, %69 ], [ 0, %.cont40 ], [ -1, %43 ], [ -1, %32 ], [ -1, %21 ], [ -1, %14 ]
   ret i32 %.0
 }
 

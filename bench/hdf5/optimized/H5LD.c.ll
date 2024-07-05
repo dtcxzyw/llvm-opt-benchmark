@@ -75,14 +75,14 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr nocapture noundef %1, i64 
 
 7:                                                ; preds = %H5LD_construct_info.exit, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %H5LD_construct_info.exit ], [ 0, %3 ]
-  %.070 = phi i32 [ %51, %H5LD_construct_info.exit ], [ 0, %3 ]
-  %.067 = phi i8 [ %.269113117, %H5LD_construct_info.exit ], [ 0, %3 ]
-  %.064 = phi ptr [ %.266114116, %H5LD_construct_info.exit ], [ %0, %3 ]
-  %8 = trunc nuw i8 %.067 to i1
+  %.069 = phi i8 [ %.271113117, %H5LD_construct_info.exit ], [ 0, %3 ]
+  %.066 = phi ptr [ %.268114116, %H5LD_construct_info.exit ], [ %0, %3 ]
+  %.060 = phi i32 [ %51, %H5LD_construct_info.exit ], [ 0, %3 ]
+  %8 = trunc nuw i8 %.069 to i1
   br i1 %8, label %97, label %9
 
 9:                                                ; preds = %7
-  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.064) #10
+  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.066) #10
   %11 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #11
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit.loopexit.split.loop.exit148, label %13
@@ -97,18 +97,18 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr nocapture noundef %1, i64 
   br i1 %18, label %.loopexit.loopexit.split.loop.exit146, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %13
-  store ptr %.064, ptr %16, align 8
+  store ptr %.066, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 -1, ptr %19, align 8
-  %20 = trunc nuw i8 %.067 to i1
+  %20 = trunc nuw i8 %.069 to i1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
   %.095 = phi i32 [ %.3, %46 ], [ 0, %.lr.ph.preheader ]
   %.05593 = phi i8 [ %.257, %46 ], [ 0, %.lr.ph.preheader ]
-  %.06091 = phi ptr [ %.262, %46 ], [ %.064, %.lr.ph.preheader ]
-  %.16590 = phi ptr [ %.266, %46 ], [ %.064, %.lr.ph.preheader ]
-  %21 = load i8, ptr %.16590, align 1
+  %.06291 = phi ptr [ %.264, %46 ], [ %.066, %.lr.ph.preheader ]
+  %.16790 = phi ptr [ %.268, %46 ], [ %.066, %.lr.ph.preheader ]
+  %21 = load i8, ptr %.16790, align 1
   switch i8 %21, label %43 [
     i8 0, label %22
     i8 92, label %24
@@ -121,26 +121,26 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr nocapture noundef %1, i64 
   br i1 %23, label %.thread, label %.thread.thread
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %.16590, i64 1
+  %25 = getelementptr inbounds i8, ptr %.16790, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %.thread.thread, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.16590, i64 2
-  %30 = getelementptr inbounds i8, ptr %.06091, i64 1
-  store i8 %26, ptr %.06091, align 1
+  %29 = getelementptr inbounds i8, ptr %.16790, i64 2
+  %30 = getelementptr inbounds i8, ptr %.06291, i64 1
+  store i8 %26, ptr %.06291, align 1
   br label %46
 
 31:                                               ; preds = %.lr.ph
-  store i8 0, ptr %.06091, align 1
-  store i8 0, ptr %.16590, align 1
+  store i8 0, ptr %.06291, align 1
+  store i8 0, ptr %.16790, align 1
   %32 = trunc nuw i8 %.05593 to i1
   br i1 %32, label %33, label %.thread.thread
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %.16590, i64 1
-  %35 = getelementptr inbounds i8, ptr %.06091, i64 1
+  %34 = getelementptr inbounds i8, ptr %.16790, i64 1
+  %35 = getelementptr inbounds i8, ptr %.06291, i64 1
   %36 = load ptr, ptr %17, align 8
   %37 = add nsw i32 %.095, 1
   %38 = sext i32 %37 to i64
@@ -149,32 +149,32 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr nocapture noundef %1, i64 
   br label %46
 
 40:                                               ; preds = %.lr.ph
-  store i8 0, ptr %.06091, align 1
-  %41 = getelementptr inbounds i8, ptr %.16590, i64 1
-  store i8 0, ptr %.16590, align 1
+  store i8 0, ptr %.06291, align 1
+  %41 = getelementptr inbounds i8, ptr %.16790, i64 1
+  store i8 0, ptr %.16790, align 1
   %42 = trunc nuw i8 %.05593 to i1
   br i1 %42, label %.critedge.sink.split, label %.thread.thread
 
 43:                                               ; preds = %.lr.ph
-  %44 = getelementptr inbounds i8, ptr %.16590, i64 1
-  %45 = getelementptr inbounds i8, ptr %.06091, i64 1
-  store i8 %21, ptr %.06091, align 1
+  %44 = getelementptr inbounds i8, ptr %.16790, i64 1
+  %45 = getelementptr inbounds i8, ptr %.06291, i64 1
+  store i8 %21, ptr %.06291, align 1
   br label %46
 
 .thread:                                          ; preds = %22
-  store i8 0, ptr %.06091, align 1
+  store i8 0, ptr %.06291, align 1
   br label %.critedge.sink.split
 
 46:                                               ; preds = %33, %28, %43
-  %.266 = phi ptr [ %44, %43 ], [ %34, %33 ], [ %29, %28 ]
-  %.262 = phi ptr [ %45, %43 ], [ %35, %33 ], [ %30, %28 ]
+  %.268 = phi ptr [ %44, %43 ], [ %34, %33 ], [ %29, %28 ]
+  %.264 = phi ptr [ %45, %43 ], [ %35, %33 ], [ %30, %28 ]
   %.257 = phi i8 [ 1, %43 ], [ 0, %33 ], [ 1, %28 ]
   %.3 = phi i32 [ %.095, %43 ], [ %37, %33 ], [ %.095, %28 ]
   br i1 %20, label %.critedge, label %.lr.ph
 
 .critedge.sink.split:                             ; preds = %40, %.thread
-  %.269113117.ph = phi i8 [ 1, %.thread ], [ %.067, %40 ]
-  %.266114116.ph = phi ptr [ %.16590, %.thread ], [ %41, %40 ]
+  %.271113117.ph = phi i8 [ 1, %.thread ], [ %.069, %40 ]
+  %.268114116.ph = phi ptr [ %.16790, %.thread ], [ %41, %40 ]
   %47 = load ptr, ptr %17, align 8
   %48 = sext i32 %.095 to i64
   %49 = getelementptr ptr, ptr %47, i64 %48
@@ -183,10 +183,10 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr nocapture noundef %1, i64 
   br label %.critedge
 
 .critedge:                                        ; preds = %46, %.critedge.sink.split
-  %.269113117 = phi i8 [ %.269113117.ph, %.critedge.sink.split ], [ %.067, %46 ]
-  %.266114116 = phi ptr [ %.266114116.ph, %.critedge.sink.split ], [ %.266, %46 ]
+  %.271113117 = phi i8 [ %.271113117.ph, %.critedge.sink.split ], [ %.069, %46 ]
+  %.268114116 = phi ptr [ %.268114116.ph, %.critedge.sink.split ], [ %.268, %46 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = add nuw nsw i32 %.070, 1
+  %51 = add nuw nsw i32 %.060, 1
   %52 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   store ptr %11, ptr %52, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -301,8 +301,8 @@ H5LD_construct_info.exit:                         ; preds = %91, %93
   br label %.loopexit
 
 .loopexit:                                        ; preds = %H5LD_construct_info.exit, %.loopexit.loopexit.split.loop.exit146, %.loopexit.loopexit.split.loop.exit148, %.thread.thread
-  %.171.ph = phi i32 [ %95, %.thread.thread ], [ %101, %.loopexit.loopexit.split.loop.exit146 ], [ %102, %.loopexit.loopexit.split.loop.exit148 ], [ %51, %H5LD_construct_info.exit ]
-  %103 = sext i32 %.171.ph to i64
+  %.161.ph = phi i32 [ %95, %.thread.thread ], [ %101, %.loopexit.loopexit.split.loop.exit146 ], [ %102, %.loopexit.loopexit.split.loop.exit148 ], [ %51, %H5LD_construct_info.exit ]
+  %103 = sext i32 %.161.ph to i64
   %104 = getelementptr inbounds ptr, ptr %1, i64 %103
   store ptr null, ptr %104, align 8
   %105 = load ptr, ptr %1, align 8
@@ -353,8 +353,8 @@ H5LD_construct_info.exit:                         ; preds = %91, %93
   br i1 %.not.i77, label %H5LD_clean_vector.exit, label %.lr.ph.i76
 
 H5LD_clean_vector.exit:                           ; preds = %122, %.loopexit, %97
-  %.06381 = phi i32 [ %98, %97 ], [ -1, %.loopexit ], [ -1, %122 ]
-  ret i32 %.06381
+  %.06581 = phi i32 [ %98, %97 ], [ -1, %.loopexit ], [ -1, %122 ]
+  ret i32 %.06581
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

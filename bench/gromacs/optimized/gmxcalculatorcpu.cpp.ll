@@ -2406,12 +2406,12 @@ define void @_ZN5nblib23GmxNBForceCalculatorCpu7CpuImpl14updatePairlistEN3gmx8Ar
   br label %.sink.split.sink.split
 
 25:                                               ; preds = %22, %23
-  %.019 = phi i1 [ false, %23 ], [ true, %22 ]
+  %.022 = phi i1 [ false, %23 ], [ true, %22 ]
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
-  br i1 %.019, label %.sink.split, label %120
+  br i1 %.022, label %.sink.split, label %120
 
 27:                                               ; preds = %4
   %28 = getelementptr inbounds i8, ptr %0, i64 112

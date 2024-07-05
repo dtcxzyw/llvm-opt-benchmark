@@ -969,8 +969,8 @@ define linkonce_odr hidden void @_ZN6casadi10casadi_ldlIdEEvPKxPKT_S2_PS3_S6_S2_
   br label %.lr.ph136
 
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %.loopexit105
-  %.0101120 = phi i64 [ %35, %.loopexit105 ], [ 0, %.lr.ph121.preheader ]
-  %18 = getelementptr inbounds i64, ptr %5, i64 %.0101120
+  %.0102120 = phi i64 [ %35, %.loopexit105 ], [ 0, %.lr.ph121.preheader ]
+  %18 = getelementptr inbounds i64, ptr %5, i64 %.0102120
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds i64, ptr %13, i64 %19
   %21 = load i64, ptr %20, align 8
@@ -993,9 +993,9 @@ define linkonce_odr hidden void @_ZN6casadi10casadi_ldlIdEEvPKxPKT_S2_PS3_S6_S2_
   br i1 %32, label %.lr.ph112, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph112, %.lr.ph121
-  %33 = getelementptr inbounds i64, ptr %10, i64 %.0101120
+  %33 = getelementptr inbounds i64, ptr %10, i64 %.0102120
   %34 = load i64, ptr %33, align 8
-  %35 = add nuw nsw i64 %.0101120, 1
+  %35 = add nuw nsw i64 %.0102120, 1
   %36 = getelementptr inbounds i64, ptr %10, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = icmp slt i64 %34, %37
@@ -1020,7 +1020,7 @@ define linkonce_odr hidden void @_ZN6casadi10casadi_ldlIdEEvPKxPKT_S2_PS3_S6_S2_
   %49 = load i64, ptr %18, align 8
   %50 = getelementptr inbounds double, ptr %6, i64 %49
   %51 = load double, ptr %50, align 8
-  %52 = getelementptr inbounds double, ptr %4, i64 %.0101120
+  %52 = getelementptr inbounds double, ptr %4, i64 %.0102120
   store double %51, ptr %52, align 8
   %53 = load i64, ptr %20, align 8
   %54 = load i64, ptr %22, align 8
@@ -1045,16 +1045,16 @@ define linkonce_odr hidden void @_ZN6casadi10casadi_ldlIdEEvPKxPKT_S2_PS3_S6_S2_
 
 .lr.ph136:                                        ; preds = %.lr.ph136.preheader, %.loopexit
   %63 = phi i64 [ %62, %.loopexit ], [ %.pre, %.lr.ph136.preheader ]
-  %.1102135 = phi i64 [ %65, %.loopexit ], [ 0, %.lr.ph136.preheader ]
-  %64 = getelementptr inbounds i64, ptr %10, i64 %.1102135
-  %65 = add nuw nsw i64 %.1102135, 1
+  %.1103135 = phi i64 [ %65, %.loopexit ], [ 0, %.lr.ph136.preheader ]
+  %64 = getelementptr inbounds i64, ptr %10, i64 %.1103135
+  %65 = add nuw nsw i64 %.1103135, 1
   %66 = getelementptr inbounds i64, ptr %10, i64 %65
   %67 = load i64, ptr %66, align 8
   %68 = icmp slt i64 %63, %67
   br i1 %68, label %.lr.ph129, label %._crit_edge130
 
 .lr.ph129:                                        ; preds = %.lr.ph136
-  %69 = getelementptr inbounds double, ptr %4, i64 %.1102135
+  %69 = getelementptr inbounds double, ptr %4, i64 %.1103135
   br label %70
 
 70:                                               ; preds = %.lr.ph129, %._crit_edge125
@@ -1256,19 +1256,19 @@ define linkonce_odr hidden void @_ZN6casadi16casadi_ldl_solveIdEEvPT_xPKxPKS1_S6
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge45
-  %.047 = phi i64 [ 0, %.preheader.lr.ph ], [ %74, %._crit_edge45 ]
-  %.03546 = phi ptr [ %0, %.preheader.lr.ph ], [ %73, %._crit_edge45 ]
+  %.047 = phi ptr [ %0, %.preheader.lr.ph ], [ %73, %._crit_edge45 ]
+  %.03446 = phi i64 [ 0, %.preheader.lr.ph ], [ %74, %._crit_edge45 ]
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.03439 = phi i64 [ %18, %.lr.ph ], [ 0, %.preheader ]
-  %13 = getelementptr inbounds i64, ptr %5, i64 %.03439
+  %.03539 = phi i64 [ %18, %.lr.ph ], [ 0, %.preheader ]
+  %13 = getelementptr inbounds i64, ptr %5, i64 %.03539
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds double, ptr %.03546, i64 %14
+  %15 = getelementptr inbounds double, ptr %.047, i64 %14
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds double, ptr %6, i64 %.03439
+  %17 = getelementptr inbounds double, ptr %6, i64 %.03539
   store double %16, ptr %17, align 8
-  %18 = add nuw nsw i64 %.03439, 1
+  %18 = add nuw nsw i64 %.03539, 1
   %exitcond.not = icmp eq i64 %18, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
@@ -1289,31 +1289,31 @@ define linkonce_odr hidden void @_ZN6casadi16casadi_ldl_solveIdEEvPT_xPKxPKS1_S6
 
 .lr.ph45.i:                                       ; preds = %.loopexit40.i, %.lr.ph45.preheader.i
   %22 = phi i64 [ %21, %.loopexit40.i ], [ %.pre.i, %.lr.ph45.preheader.i ]
-  %.03644.i = phi i64 [ %23, %.loopexit40.i ], [ 0, %.lr.ph45.preheader.i ]
-  %23 = add nuw nsw i64 %.03644.i, 1
+  %.044.i = phi i64 [ %23, %.loopexit40.i ], [ 0, %.lr.ph45.preheader.i ]
+  %23 = add nuw nsw i64 %.044.i, 1
   %24 = getelementptr inbounds i64, ptr %12, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = icmp slt i64 %22, %25
   br i1 %26, label %.lr.ph.i, label %.loopexit40.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph45.i
-  %27 = getelementptr inbounds double, ptr %6, i64 %.03644.i
+  %27 = getelementptr inbounds double, ptr %6, i64 %.044.i
   %.pre54.i = load double, ptr %27, align 8
   br label %28
 
 28:                                               ; preds = %28, %.lr.ph.i
   %29 = phi double [ %.pre54.i, %.lr.ph.i ], [ %37, %28 ]
-  %.043.i = phi i64 [ %22, %.lr.ph.i ], [ %38, %28 ]
-  %30 = getelementptr inbounds double, ptr %3, i64 %.043.i
+  %.03643.i = phi i64 [ %22, %.lr.ph.i ], [ %38, %28 ]
+  %30 = getelementptr inbounds double, ptr %3, i64 %.03643.i
   %31 = load double, ptr %30, align 8
-  %32 = getelementptr inbounds i64, ptr %gep, i64 %.043.i
+  %32 = getelementptr inbounds i64, ptr %gep, i64 %.03643.i
   %33 = load i64, ptr %32, align 8
   %34 = getelementptr inbounds double, ptr %6, i64 %33
   %35 = load double, ptr %34, align 8
   %36 = fneg double %31
   %37 = tail call double @llvm.fmuladd.f64(double %36, double %35, double %29)
   store double %37, ptr %27, align 8
-  %38 = add nsw i64 %.043.i, 1
+  %38 = add nsw i64 %.03643.i, 1
   %39 = load i64, ptr %24, align 8
   %40 = icmp slt i64 %38, %39
   br i1 %40, label %28, label %.loopexit40.i, !llvm.loop !15
@@ -1345,29 +1345,29 @@ _ZN6casadi14casadi_ldl_trsIdEEvPKxPKT_PS3_x.exit: ; preds = %.loopexit40.i, %._c
 
 .loopexit.i:                                      ; preds = %56, %.lr.ph52.i
   %50 = phi i64 [ %54, %.lr.ph52.i ], [ %66, %56 ]
-  %51 = icmp sgt i64 %.137.in50.i, 1
+  %51 = icmp sgt i64 %.1.in50.i, 1
   br i1 %51, label %.lr.ph52.i, label %_ZN6casadi14casadi_ldl_trsIdEEvPKxPKT_PS3_x.exit37, !llvm.loop !17
 
 .lr.ph52.i:                                       ; preds = %.loopexit.i, %.lr.ph52.preheader.i
   %52 = phi i64 [ %50, %.loopexit.i ], [ %.pre55.i, %.lr.ph52.preheader.i ]
-  %.137.in50.i = phi i64 [ %.13751.i, %.loopexit.i ], [ %47, %.lr.ph52.preheader.i ]
-  %.13751.i = add nsw i64 %.137.in50.i, -1
-  %53 = getelementptr inbounds i64, ptr %12, i64 %.13751.i
+  %.1.in50.i = phi i64 [ %.151.i, %.loopexit.i ], [ %47, %.lr.ph52.preheader.i ]
+  %.151.i = add nsw i64 %.1.in50.i, -1
+  %53 = getelementptr inbounds i64, ptr %12, i64 %.151.i
   %54 = load i64, ptr %53, align 8
   %.not38.not46.i = icmp sgt i64 %52, %54
   br i1 %.not38.not46.i, label %.lr.ph48.i, label %.loopexit.i
 
 .lr.ph48.i:                                       ; preds = %.lr.ph52.i
-  %55 = getelementptr inbounds double, ptr %6, i64 %.13751.i
+  %55 = getelementptr inbounds double, ptr %6, i64 %.151.i
   br label %56
 
 56:                                               ; preds = %56, %.lr.ph48.i
-  %.1.in47.i = phi i64 [ %52, %.lr.ph48.i ], [ %.1.i, %56 ]
-  %.1.i = add nsw i64 %.1.in47.i, -1
-  %57 = getelementptr inbounds double, ptr %3, i64 %.1.i
+  %.137.in47.i = phi i64 [ %52, %.lr.ph48.i ], [ %.137.i, %56 ]
+  %.137.i = add nsw i64 %.137.in47.i, -1
+  %57 = getelementptr inbounds double, ptr %3, i64 %.137.i
   %58 = load double, ptr %57, align 8
   %59 = load double, ptr %55, align 8
-  %60 = getelementptr i64, ptr %48, i64 %.1.in47.i
+  %60 = getelementptr i64, ptr %48, i64 %.137.in47.i
   %61 = load i64, ptr %60, align 8
   %62 = getelementptr inbounds double, ptr %6, i64 %61
   %63 = load double, ptr %62, align 8
@@ -1375,7 +1375,7 @@ _ZN6casadi14casadi_ldl_trsIdEEvPKxPKT_PS3_x.exit: ; preds = %.loopexit40.i, %._c
   %65 = tail call double @llvm.fmuladd.f64(double %64, double %59, double %63)
   store double %65, ptr %62, align 8
   %66 = load i64, ptr %53, align 8
-  %.not38.not.i = icmp sgt i64 %.1.i, %66
+  %.not38.not.i = icmp sgt i64 %.137.i, %66
   br i1 %.not38.not.i, label %56, label %.loopexit.i, !llvm.loop !18
 
 _ZN6casadi14casadi_ldl_trsIdEEvPKxPKT_PS3_x.exit37: ; preds = %.loopexit.i, %._crit_edge42
@@ -1387,15 +1387,15 @@ _ZN6casadi14casadi_ldl_trsIdEEvPKxPKT_PS3_x.exit37: ; preds = %.loopexit.i, %._c
   %68 = load double, ptr %67, align 8
   %69 = getelementptr inbounds i64, ptr %5, i64 %.243
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds double, ptr %.03546, i64 %70
+  %71 = getelementptr inbounds double, ptr %.047, i64 %70
   store double %68, ptr %71, align 8
   %72 = add nuw nsw i64 %.243, 1
   %exitcond51.not = icmp eq i64 %72, %9
   br i1 %exitcond51.not, label %._crit_edge45, label %.lr.ph44, !llvm.loop !19
 
 ._crit_edge45:                                    ; preds = %.lr.ph44, %_ZN6casadi14casadi_ldl_trsIdEEvPKxPKT_PS3_x.exit37
-  %73 = getelementptr inbounds double, ptr %.03546, i64 %9
-  %74 = add nuw nsw i64 %.047, 1
+  %73 = getelementptr inbounds double, ptr %.047, i64 %9
+  %74 = add nuw nsw i64 %.03446, 1
   %exitcond52.not = icmp eq i64 %74, %1
   br i1 %exitcond52.not, label %._crit_edge48, label %.preheader, !llvm.loop !20
 

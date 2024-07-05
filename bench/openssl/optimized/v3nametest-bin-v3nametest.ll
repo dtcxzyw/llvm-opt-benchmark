@@ -192,8 +192,8 @@ lor.lhs.false:                                    ; preds = %make_cert.exit
 
 for.body.i:                                       ; preds = %lor.lhs.false, %check_message.exit92.i
   %3 = phi ptr [ %20, %check_message.exit92.i ], [ @.str.13, %lor.lhs.false ]
-  %failed.0128.i = phi i32 [ %spec.select56.i, %check_message.exit92.i ], [ 0, %lor.lhs.false ]
-  %pname.0127.i = phi ptr [ %incdec.ptr.i, %check_message.exit92.i ], [ @names, %lor.lhs.false ]
+  %pname.0128.i = phi ptr [ %incdec.ptr.i, %check_message.exit92.i ], [ @names, %lor.lhs.false ]
+  %failed.0127.i = phi i32 [ %spec.select56.i, %check_message.exit92.i ], [ 0, %lor.lhs.false ]
   %call.i8 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull %3) #7
   %cmp1.i = icmp eq i32 %call.i8, 0
   %call2.i9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
@@ -225,7 +225,7 @@ if.else23.i:                                      ; preds = %if.else.i
   br i1 %cmp24.i, label %if.end.i.i, label %if.end29.thread.i
 
 if.end29.thread.i:                                ; preds = %if.else23.i, %if.end.i12
-  %failed.1.ph.i = phi i32 [ %failed.0128.i, %if.else23.i ], [ 1, %if.end.i12 ]
+  %failed.1.ph.i = phi i32 [ %failed.0127.i, %if.else23.i ], [ 1, %if.end.i12 ]
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %msg.i.i)
   br label %check_message.exit.i
 
@@ -266,7 +266,7 @@ if.end6.i.i:                                      ; preds = %for.cond.i.i.i
   br label %check_message.exit.i
 
 check_message.exit.i:                             ; preds = %for.body.i.i.i, %if.end6.i.i, %if.end29.i, %if.end29.thread.i
-  %failed.197.i = phi i32 [ %failed.0128.i, %if.end6.i.i ], [ %failed.0128.i, %if.end29.i ], [ %failed.1.ph.i, %if.end29.thread.i ], [ %failed.0128.i, %for.body.i.i.i ]
+  %failed.197.i = phi i32 [ %failed.0127.i, %if.end6.i.i ], [ %failed.0127.i, %if.end29.i ], [ %failed.1.ph.i, %if.end29.thread.i ], [ %failed.0127.i, %for.body.i.i.i ]
   %retval.0.i.i = phi i32 [ 0, %if.end6.i.i ], [ 1, %if.end29.i ], [ 1, %if.end29.thread.i ], [ 1, %for.body.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %msg.i.i)
   %call33.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 306, ptr noundef nonnull @.str.68, i32 noundef %retval.0.i.i) #7
@@ -396,7 +396,7 @@ check_message.exit92.i:                           ; preds = %for.body.i.i83.i, %
   %19 = select i1 %tobool97.not.i, i1 true, i1 %tobool68.not.i
   %spec.select56.i = select i1 %19, i32 1, i32 %failed.3110.i
   call void @CRYPTO_free(ptr noundef %call3.i10, ptr noundef nonnull @.str.2, i32 noundef 336) #7
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %pname.0127.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %pname.0128.i, i64 8
   %20 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %20, null
   br i1 %cmp.not.i, label %run_cert.exit, label %for.body.i, !llvm.loop !7
@@ -818,9 +818,9 @@ while.end:                                        ; preds = %vaarg.end
   br label %out
 
 out:                                              ; preds = %if.end24, %if.end20, %vaarg.end15, %while.end, %entry
-  %ret.0 = phi i32 [ 0, %entry ], [ %spec.select, %while.end ], [ 0, %vaarg.end15 ], [ 0, %if.end20 ], [ 0, %if.end24 ]
   %gen.1 = phi ptr [ null, %entry ], [ null, %while.end ], [ %call17, %if.end24 ], [ %call17, %if.end20 ], [ null, %vaarg.end15 ]
   %ia5.1 = phi ptr [ null, %entry ], [ null, %while.end ], [ %call21, %if.end24 ], [ null, %if.end20 ], [ null, %vaarg.end15 ]
+  %ret.0 = phi i32 [ 0, %entry ], [ %spec.select, %while.end ], [ 0, %vaarg.end15 ], [ 0, %if.end20 ], [ 0, %if.end24 ]
   call void @ASN1_IA5STRING_free(ptr noundef %ia5.1) #7
   call void @GENERAL_NAME_free(ptr noundef %gen.1) #7
   call void @GENERAL_NAMES_free(ptr noundef %call) #7

@@ -1746,9 +1746,9 @@ _ZN3std2fs11OpenOptions4open17h47986f17f665ad13E.llvm.10443808006054113612.exit:
   %32 = extractvalue { ptr, i32, i32 } %31, 0
   %.not.i.i.i.i = icmp sgt ptr %32, inttoptr (i64 -4096 to ptr)
   %33 = icmp slt ptr %32, null
-  %.0.i.i.i.i = and i1 %.not.i.i.i.i, %33
+  %.014.i.i.i.i = and i1 %.not.i.i.i.i, %33
   %34 = ptrtoint ptr %32 to i64
-  br i1 %.0.i.i.i.i, label %77, label %35
+  br i1 %.014.i.i.i.i, label %77, label %35
 
 35:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -3126,8 +3126,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hfef7052c942bec0cE.exit"
 
 "_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hfef7052c942bec0cE.exit": ; preds = %3, %5
-  %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
   %.sroa.0.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %3 ]
+  %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
   store i64 1, ptr %0, align 8, !noalias !373
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !373
@@ -3408,8 +3408,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hcbad7022a0460df4E.llvm.10443808006054113612.exit"
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hcbad7022a0460df4E.llvm.10443808006054113612.exit": ; preds = %6, %8
-  %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
   %.sroa.0.0.i.i.i = phi i64 [ %10, %8 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
+  %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
   store i64 1, ptr %0, align 8, !noalias !446
   store i64 %.sroa.0.0.i.i.i, ptr %4, align 8, !noalias !446
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -35924,14 +35924,14 @@ define internal fastcc void @_ZN8wasmtime7compile15FunctionIndices20link_and_app
           to label %81 unwind label %79
 
 77:                                               ; preds = %"_ZN4core3ptr79drop_in_place$LT$wasmtime_environ..compile..module_artifacts..ObjectBuilder$GT$17h557df852007026baE.exit318", %79
-  %.0141 = phi i8 [ %.1133, %79 ], [ %.2143, %"_ZN4core3ptr79drop_in_place$LT$wasmtime_environ..compile..module_artifacts..ObjectBuilder$GT$17h557df852007026baE.exit318" ]
-  %.0132 = phi i8 [ %.1133, %79 ], [ %.2134, %"_ZN4core3ptr79drop_in_place$LT$wasmtime_environ..compile..module_artifacts..ObjectBuilder$GT$17h557df852007026baE.exit318" ]
+  %.0140 = phi i8 [ %.1132, %79 ], [ %.2142, %"_ZN4core3ptr79drop_in_place$LT$wasmtime_environ..compile..module_artifacts..ObjectBuilder$GT$17h557df852007026baE.exit318" ]
+  %.0131 = phi i8 [ %.1132, %79 ], [ %.2133, %"_ZN4core3ptr79drop_in_place$LT$wasmtime_environ..compile..module_artifacts..ObjectBuilder$GT$17h557df852007026baE.exit318" ]
   %.pn172 = phi { ptr, i32 } [ %80, %79 ], [ %.pn170, %"_ZN4core3ptr79drop_in_place$LT$wasmtime_environ..compile..module_artifacts..ObjectBuilder$GT$17h557df852007026baE.exit318" ]
-  %78 = trunc nuw i8 %.0141 to i1
+  %78 = trunc nuw i8 %.0140 to i1
   br i1 %78, label %364, label %.body321
 
 79:                                               ; preds = %"_ZN4core3ptr197drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$alloc..collections..btree..map..IntoIter$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$$GT$17h29722eaf17397c74E.exit", %156, %6
-  %.1133 = phi i8 [ 1, %6 ], [ %.4136, %156 ], [ 0, %"_ZN4core3ptr197drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$alloc..collections..btree..map..IntoIter$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$$GT$17h29722eaf17397c74E.exit" ]
+  %.1132 = phi i8 [ 1, %6 ], [ %.4135, %156 ], [ 0, %"_ZN4core3ptr197drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$alloc..collections..btree..map..IntoIter$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$$GT$17h29722eaf17397c74E.exit" ]
   %80 = landingpad { ptr, i32 }
           cleanup
   br label %77
@@ -35978,8 +35978,8 @@ define internal fastcc void @_ZN8wasmtime7compile15FunctionIndices20link_and_app
           to label %167 unwind label %.loopexit.split-lp482
 
 "_ZN4core3ptr79drop_in_place$LT$wasmtime_environ..compile..module_artifacts..ObjectBuilder$GT$17h557df852007026baE.exit318": ; preds = %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.thread495, %.loopexit.split-lp, %.loopexit481, %.loopexit.split-lp482, %337, %140
-  %.2143 = phi i8 [ 1, %140 ], [ %.13467, %337 ], [ 1, %.loopexit481 ], [ %.3144.ph, %.loopexit.split-lp482 ], [ 0, %.loopexit.split-lp.loopexit.split-lp ], [ 0, %.loopexit.split-lp.thread495 ], [ %.7148, %.loopexit.split-lp ]
-  %.2134 = phi i8 [ 1, %140 ], [ 0, %337 ], [ 1, %.loopexit481 ], [ %.3135.ph, %.loopexit.split-lp482 ], [ 0, %.loopexit.split-lp.loopexit.split-lp ], [ 0, %.loopexit.split-lp.thread495 ], [ 0, %.loopexit.split-lp ]
+  %.2142 = phi i8 [ 1, %140 ], [ %.13467, %337 ], [ 1, %.loopexit481 ], [ %.3143.ph, %.loopexit.split-lp482 ], [ 0, %.loopexit.split-lp.loopexit.split-lp ], [ 0, %.loopexit.split-lp.thread495 ], [ %.7147, %.loopexit.split-lp ]
+  %.2133 = phi i8 [ 1, %140 ], [ 0, %337 ], [ 1, %.loopexit481 ], [ %.3134.ph, %.loopexit.split-lp482 ], [ 0, %.loopexit.split-lp.loopexit.split-lp ], [ 0, %.loopexit.split-lp.thread495 ], [ 0, %.loopexit.split-lp ]
   %.pn170 = phi { ptr, i32 } [ %141, %140 ], [ %.pn168468, %337 ], [ %lpad.loopexit483, %.loopexit481 ], [ %lpad.loopexit.split-lp484, %.loopexit.split-lp482 ], [ %lpad.thr_comm.split-lp, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit474, %.loopexit.split-lp.thread495 ], [ %.pn164, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr125drop_in_place$LT$alloc..vec..Vec$LT$$LP$object..write..SymbolId$C$wasmtime_environ..module_artifacts..FunctionLoc$RP$$GT$$GT$17h10e72ce3f1dd82a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %61) #45
           to label %77 unwind label %165
@@ -35990,8 +35990,8 @@ define internal fastcc void @_ZN8wasmtime7compile15FunctionIndices20link_and_app
   br label %"_ZN4core3ptr79drop_in_place$LT$wasmtime_environ..compile..module_artifacts..ObjectBuilder$GT$17h557df852007026baE.exit318"
 
 .loopexit.split-lp482:                            ; preds = %94, %144, %333
-  %.3144.ph = phi i8 [ 0, %333 ], [ 1, %144 ], [ 1, %94 ]
-  %.3135.ph = phi i8 [ 0, %333 ], [ 1, %144 ], [ 0, %94 ]
+  %.3143.ph = phi i8 [ 0, %333 ], [ 1, %144 ], [ 1, %94 ]
+  %.3134.ph = phi i8 [ 0, %333 ], [ 1, %144 ], [ 0, %94 ]
   %lpad.loopexit.split-lp484 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr79drop_in_place$LT$wasmtime_environ..compile..module_artifacts..ObjectBuilder$GT$17h557df852007026baE.exit318"
@@ -36031,8 +36031,8 @@ define internal fastcc void @_ZN8wasmtime7compile15FunctionIndices20link_and_app
   br label %107
 
 107:                                              ; preds = %154, %95
-  %.sroa.515.sroa.5.0 = phi ptr [ undef, %95 ], [ %.sroa.515.sroa.5.1, %154 ]
   %.sroa.515.sroa.0.0 = phi ptr [ undef, %95 ], [ %.sroa.515.sroa.0.1, %154 ]
+  %.sroa.515.sroa.5.0 = phi ptr [ undef, %95 ], [ %.sroa.515.sroa.5.1, %154 ]
   %108 = invoke noundef align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe1315114f288dc8E.llvm.14851531119274094909"(ptr noalias noundef nonnull align 8 dereferenceable(16) %58)
           to label %.noexc unwind label %.loopexit481
 
@@ -36073,8 +36073,8 @@ define internal fastcc void @_ZN8wasmtime7compile15FunctionIndices20link_and_app
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h9a3ec2f5ac98d687E.exit.thread"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h9a3ec2f5ac98d687E.exit.thread": ; preds = %111, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h9a3ec2f5ac98d687E.exit.thread403", %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5range17h98b2f9a9256c898dE.exit"
-  %.sroa.515.sroa.5.1 = phi ptr [ %.sroa.5358.0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5range17h98b2f9a9256c898dE.exit" ], [ %.sroa.515.sroa.5.0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h9a3ec2f5ac98d687E.exit.thread403" ], [ %.sroa.515.sroa.5.0, %111 ]
   %.sroa.515.sroa.0.1 = phi ptr [ %.sroa.0355.0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5range17h98b2f9a9256c898dE.exit" ], [ %.sroa.515.sroa.0.0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h9a3ec2f5ac98d687E.exit.thread403" ], [ %.sroa.515.sroa.0.0, %111 ]
+  %.sroa.515.sroa.5.1 = phi ptr [ %.sroa.5358.0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5range17h98b2f9a9256c898dE.exit" ], [ %.sroa.515.sroa.5.0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h9a3ec2f5ac98d687E.exit.thread403" ], [ %.sroa.515.sroa.5.0, %111 ]
   %.sroa.014.0 = phi i64 [ 1, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5range17h98b2f9a9256c898dE.exit" ], [ 0, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h9a3ec2f5ac98d687E.exit.thread403" ], [ 0, %111 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.012.sroa.7.sroa.4.sroa.4.0..sroa.012.sroa.7.sroa.4.0..sroa.012.sroa.7.0..sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.515.sroa.4, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.012.sroa.7.sroa.4.sroa.6.0..sroa.012.sroa.7.sroa.4.0..sroa.012.sroa.7.0..sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.515.sroa.6, i64 16, i1 false)
@@ -36129,8 +36129,8 @@ define internal fastcc void @_ZN8wasmtime7compile15FunctionIndices20link_and_app
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5range17h98b2f9a9256c898dE.exit"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5range17h98b2f9a9256c898dE.exit": ; preds = %.noexc193, %120
-  %.sroa.5358.0 = phi ptr [ %.sroa.5358.0.copyload359, %.noexc193 ], [ null, %120 ]
   %.sroa.0355.0 = phi ptr [ %.sroa.0355.0.copyload356, %.noexc193 ], [ null, %120 ]
+  %.sroa.5358.0 = phi ptr [ %.sroa.5358.0.copyload359, %.noexc193 ], [ null, %120 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.515.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5357, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.515.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6360, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5357)
@@ -36216,7 +36216,7 @@ define internal fastcc void @_ZN8wasmtime7compile15FunctionIndices20link_and_app
   br label %156
 
 156:                                              ; preds = %"_ZN4core3ptr79drop_in_place$LT$wasmtime_environ..compile..module_artifacts..ObjectBuilder$GT$17h557df852007026baE.exit", %155
-  %.4136 = phi i8 [ 0, %"_ZN4core3ptr79drop_in_place$LT$wasmtime_environ..compile..module_artifacts..ObjectBuilder$GT$17h557df852007026baE.exit" ], [ 1, %155 ]
+  %.4135 = phi i8 [ 0, %"_ZN4core3ptr79drop_in_place$LT$wasmtime_environ..compile..module_artifacts..ObjectBuilder$GT$17h557df852007026baE.exit" ], [ 1, %155 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33), !noalias !5351
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb16e79f2010dd470E.llvm.5456684732158232753"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %61)
           to label %.noexc198 unwind label %79
@@ -36289,7 +36289,7 @@ define internal fastcc void @_ZN8wasmtime7compile15FunctionIndices20link_and_app
   br label %"_ZN4core3ptr79drop_in_place$LT$wasmtime_environ..compile..module_artifacts..ObjectBuilder$GT$17h557df852007026baE.exit318"
 
 .loopexit.split-lp.loopexit.split-lp.thread:      ; preds = %167, %171, %"_ZN4core3ptr177drop_in_place$LT$core..option..Option$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$$GT$17h0c320b833a96db96E.exit", %324, %326, %331
-  %.6147.ph.ph.ph = phi i8 [ 0, %331 ], [ 0, %326 ], [ 0, %324 ], [ 1, %"_ZN4core3ptr177drop_in_place$LT$core..option..Option$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$$GT$17h0c320b833a96db96E.exit" ], [ 1, %171 ], [ 1, %167 ]
+  %.6146.ph.ph.ph = phi i8 [ 0, %331 ], [ 0, %326 ], [ 0, %324 ], [ 1, %"_ZN4core3ptr177drop_in_place$LT$core..option..Option$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$$GT$17h0c320b833a96db96E.exit" ], [ 1, %171 ], [ 1, %167 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %336
@@ -36377,14 +36377,14 @@ define internal fastcc void @_ZN8wasmtime7compile15FunctionIndices20link_and_app
   br i1 %trunc.i209, label %183, label %181
 
 "_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit": ; preds = %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit223", %179
-  %.7148 = phi i8 [ %.8149, %179 ], [ %.9150, %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit223" ]
+  %.7147 = phi i8 [ %.8148, %179 ], [ %.9149, %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit223" ]
   %.2 = phi i1 [ %.3, %179 ], [ %.4, %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit223" ]
   %.pn164 = phi { ptr, i32 } [ %180, %179 ], [ %.pn162, %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit223" ]
   invoke void @"_ZN4core3ptr197drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$alloc..collections..btree..map..IntoIter$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$$GT$17h29722eaf17397c74E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %51) #45
           to label %.loopexit.split-lp unwind label %165
 
 179:                                              ; preds = %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit302", %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit287", %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h651d550e6447ec57E.exit"
-  %.8149 = phi i8 [ 1, %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h651d550e6447ec57E.exit" ], [ 0, %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit287" ], [ 0, %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit302" ]
+  %.8148 = phi i8 [ 1, %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h651d550e6447ec57E.exit" ], [ 0, %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit287" ], [ 0, %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit302" ]
   %.3 = phi i1 [ true, %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h651d550e6447ec57E.exit" ], [ false, %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit287" ], [ true, %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit302" ]
   %180 = landingpad { ptr, i32 }
           cleanup
@@ -36419,7 +36419,7 @@ define internal fastcc void @_ZN8wasmtime7compile15FunctionIndices20link_and_app
   br i1 %trunc.i213, label %192, label %190
 
 "_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit223": ; preds = %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit229", %188
-  %.9150 = phi i8 [ %.10, %188 ], [ %.11, %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit229" ]
+  %.9149 = phi i8 [ %.10, %188 ], [ %.11, %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit229" ]
   %.4 = phi i1 [ %.5, %188 ], [ %.6, %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit229" ]
   %.pn162 = phi { ptr, i32 } [ %189, %188 ], [ %.pn160, %"_ZN4core3ptr149drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime..compile..CompileKey$C$wasmtime..compile..CompiledFunction$LT$usize$GT$$GT$$GT$17h727d531b912e70a4E.exit229" ]
   invoke void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h734fcc8c9bda4805E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(24) %50)
@@ -37033,13 +37033,13 @@ define internal fastcc void @_ZN8wasmtime7compile15FunctionIndices20link_and_app
           to label %320 unwind label %318
 
 316:                                              ; preds = %.body321, %318
-  %.5137 = phi i8 [ %.6138, %318 ], [ %.8140, %.body321 ]
+  %.5136 = phi i8 [ %.6137, %318 ], [ %.8139, %.body321 ]
   %.pn176 = phi { ptr, i32 } [ %319, %318 ], [ %.pn174, %.body321 ]
-  %317 = trunc nuw i8 %.5137 to i1
+  %317 = trunc nuw i8 %.5136 to i1
   br i1 %317, label %365, label %361
 
 318:                                              ; preds = %338, %315
-  %.6138 = phi i8 [ %.7139471, %338 ], [ 0, %315 ]
+  %.6137 = phi i8 [ %.7138471, %338 ], [ 0, %315 ]
   %319 = landingpad { ptr, i32 }
           cleanup
   br label %316
@@ -37142,12 +37142,12 @@ define internal fastcc void @_ZN8wasmtime7compile15FunctionIndices20link_and_app
 334:                                              ; preds = %163, %159, %.noexc198
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33), !noalias !5351
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %61)
-  %335 = trunc nuw i8 %.4136 to i1
+  %335 = trunc nuw i8 %.4135 to i1
   br i1 %335, label %340, label %338
 
 336:                                              ; preds = %.loopexit.split-lp.loopexit.split-lp.thread, %.loopexit.split-lp.thread, %.loopexit.split-lp
   %.pn166494 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit.split-lp.thread ], [ %.pn164, %.loopexit.split-lp ], [ %lpad.thr_comm, %.loopexit.split-lp.loopexit.split-lp.thread ]
-  %.5146490 = phi i8 [ 0, %.loopexit.split-lp.thread ], [ %.7148, %.loopexit.split-lp ], [ %.6147.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.thread ]
+  %.5145490 = phi i8 [ 0, %.loopexit.split-lp.thread ], [ %.7147, %.loopexit.split-lp ], [ %.6146.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.thread ]
   invoke void @"_ZN4core3ptr156drop_in_place$LT$cranelift_entity..primary..PrimaryMap$LT$wasmtime_types..StaticModuleIndex$C$wasmtime_environ..module_artifacts..CompiledModuleInfo$GT$$GT$17h63fdac4c52657572E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53) #45
           to label %.thread473 unwind label %165
 
@@ -37157,18 +37157,18 @@ define internal fastcc void @_ZN8wasmtime7compile15FunctionIndices20link_and_app
 
 337:                                              ; preds = %.thread473, %.thread463
   %.pn168468 = phi { ptr, i32 } [ %332, %.thread463 ], [ %.pn166494, %.thread473 ]
-  %.13467 = phi i8 [ 0, %.thread463 ], [ %.5146490, %.thread473 ]
+  %.13467 = phi i8 [ 0, %.thread463 ], [ %.5145490, %.thread473 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$object..write..Object$GT$17he33c017eef836595E"(ptr noalias noundef nonnull align 8 dereferenceable(272) %55)
           to label %"_ZN4core3ptr79drop_in_place$LT$wasmtime_environ..compile..module_artifacts..ObjectBuilder$GT$17h557df852007026baE.exit318" unwind label %165
 
 338:                                              ; preds = %"_ZN4core3ptr153drop_in_place$LT$cranelift_entity..primary..PrimaryMap$LT$wasmtime_types..StaticModuleIndex$C$wasmtime_environ..module_environ..ModuleTranslation$GT$$GT$17h68727cb5663c6b45E.exit", %334
   %339 = phi i1 [ true, %"_ZN4core3ptr153drop_in_place$LT$cranelift_entity..primary..PrimaryMap$LT$wasmtime_types..StaticModuleIndex$C$wasmtime_environ..module_environ..ModuleTranslation$GT$$GT$17h68727cb5663c6b45E.exit" ], [ false, %334 ]
-  %.7139471 = phi i8 [ %.7139472, %"_ZN4core3ptr153drop_in_place$LT$cranelift_entity..primary..PrimaryMap$LT$wasmtime_types..StaticModuleIndex$C$wasmtime_environ..module_environ..ModuleTranslation$GT$$GT$17h68727cb5663c6b45E.exit" ], [ %.4136, %334 ]
+  %.7138471 = phi i8 [ %.7138472, %"_ZN4core3ptr153drop_in_place$LT$cranelift_entity..primary..PrimaryMap$LT$wasmtime_types..StaticModuleIndex$C$wasmtime_environ..module_environ..ModuleTranslation$GT$$GT$17h68727cb5663c6b45E.exit" ], [ %.4135, %334 ]
   invoke void @"_ZN4core3ptr146drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$RP$$GT$$GT$17h9ef0e3ce02a993e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %359 unwind label %318
 
 340:                                              ; preds = %.thread469, %334
-  %.7139472 = phi i8 [ 1, %.thread469 ], [ %.4136, %334 ]
+  %.7138472 = phi i8 [ 1, %.thread469 ], [ %.4135, %334 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5491)
   call void @llvm.experimental.noalias.scope.decl(metadata !5494)
   %341 = getelementptr inbounds i8, ptr %5, i64 8
@@ -37217,7 +37217,7 @@ define internal fastcc void @_ZN8wasmtime7compile15FunctionIndices20link_and_app
   br label %338
 
 .body321:                                         ; preds = %357, %345, %364, %77
-  %.8140 = phi i8 [ %.0132, %364 ], [ %.0132, %77 ], [ %.7139472, %345 ], [ %.7139472, %357 ]
+  %.8139 = phi i8 [ %.0131, %364 ], [ %.0131, %77 ], [ %.7138472, %345 ], [ %.7138472, %357 ]
   %.pn174 = phi { ptr, i32 } [ %.pn172, %364 ], [ %.pn172, %77 ], [ %346, %345 ], [ %358, %357 ]
   invoke void @"_ZN4core3ptr146drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$RP$$GT$$GT$17h9ef0e3ce02a993e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #45
           to label %316 unwind label %165

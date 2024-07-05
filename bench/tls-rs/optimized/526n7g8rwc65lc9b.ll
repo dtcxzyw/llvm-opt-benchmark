@@ -6305,8 +6305,8 @@ define { ptr, ptr } @"_ZN90_$LT$rustls..crypto..aws_lc_rs..tls13..RingHkdf$u20$a
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.12014582817787848890.exit": ; preds = %10, %3
-  %.sroa.33.0 = phi i64 [ %2, %3 ], [ %12, %10 ]
   %.sroa.02.0 = phi ptr [ %1, %3 ], [ %8, %10 ]
+  %.sroa.33.0 = phi i64 [ %2, %3 ], [ %12, %10 ]
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
   call void @_ZN9aws_lc_rs4hkdf4Salt3new17h7382eb01953a17bbE(ptr noalias nocapture noundef nonnull sret({ ptr, [80 x i8], i64 }) align 8 dereferenceable(96) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.pre, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0, i64 noundef %.sroa.33.0)
@@ -6480,8 +6480,8 @@ define { ptr, ptr } @"_ZN90_$LT$rustls..crypto..aws_lc_rs..tls13..RingHkdf$u20$a
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.12014582817787848890.exit": ; preds = %12, %5
-  %.sroa.33.0 = phi i64 [ %2, %5 ], [ %14, %12 ]
   %.sroa.02.0 = phi ptr [ %1, %5 ], [ %10, %12 ]
+  %.sroa.33.0 = phi i64 [ %2, %5 ], [ %14, %12 ]
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8)
   call void @_ZN9aws_lc_rs4hkdf4Salt3new17h7382eb01953a17bbE(ptr noalias nocapture noundef nonnull sret({ ptr, [80 x i8], i64 }) align 8 dereferenceable(96) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.pre, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0, i64 noundef %.sroa.33.0)
@@ -12580,7 +12580,7 @@ _ZN6rustls4msgs9handshake17HelloRetryRequest6cookie17hcd43289147bbddcbE.exit.i: 
 147:                                              ; preds = %.critedge231.i
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br i1 %.2199.i, label %.thread349.i, label %.body.i10
+  br i1 %.2198.i, label %.thread349.i, label %.body.i10
 
 .loopexit.i:                                      ; preds = %174, %172
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -13026,7 +13026,7 @@ _ZN6rustls4msgs9handshake17HelloRetryRequest23has_duplicate_extension17h26d3b1e9
 .critedge231.i:                                   ; preds = %309, %287, %280
   %.sroa.0119.0.i = phi ptr [ %311, %309 ], [ %135, %287 ], [ %135, %280 ]
   %.sroa.3120.0.i = phi ptr [ %313, %309 ], [ %137, %287 ], [ %137, %280 ]
-  %.2199.i = phi i1 [ true, %309 ], [ false, %287 ], [ false, %280 ]
+  %.2198.i = phi i1 [ true, %309 ], [ false, %287 ], [ false, %280 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24), !noalias !2334
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false), !noalias !2334
   %316 = load ptr, ptr %32, align 8, !noalias !2334, !nonnull !4, !align !35, !noundef !4
@@ -13054,7 +13054,7 @@ _ZN6rustls4msgs9handshake17HelloRetryRequest23has_duplicate_extension17h26d3b1e9
   store ptr %322, ptr %324, align 8, !alias.scope !2325, !noalias !2337
   store i8 20, ptr %0, align 8, !alias.scope !2325, !noalias !2337
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26), !noalias !2334
-  br i1 %.2199.i, label %326, label %325
+  br i1 %.2198.i, label %326, label %325
 
 325:                                              ; preds = %326, %320
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32), !noalias !2334

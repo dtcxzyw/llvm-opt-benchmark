@@ -850,8 +850,8 @@ define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
-  %.0.lcssa = phi i8 [ %23, %22 ], [ %29, %.lr.ph ]
-  %.not198 = icmp eq i8 %.0.lcssa, 62
+  %.0175.lcssa = phi i8 [ %23, %22 ], [ %29, %.lr.ph ]
+  %.not198 = icmp eq i8 %.0175.lcssa, 62
   br i1 %.not198, label %37, label %34
 
 34:                                               ; preds = %._crit_edge
@@ -963,7 +963,7 @@ define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %95
 
 95:                                               ; preds = %79, %75
-  %.0176 = phi ptr [ %78, %75 ], [ %81, %79 ]
+  %.0178 = phi ptr [ %78, %75 ], [ %81, %79 ]
   %96 = getelementptr inbounds i8, ptr %1, i64 292
   %97 = load i32, ptr %96, align 4
   %98 = getelementptr inbounds i8, ptr %1, i64 288
@@ -973,9 +973,9 @@ define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %101
 
 101:                                              ; preds = %95, %223
-  %.0178208 = phi ptr [ %72, %95 ], [ %228, %223 ]
+  %.0174208 = phi ptr [ %72, %95 ], [ %228, %223 ]
   %102 = load ptr, ptr %64, align 8
-  %103 = call ptr @xmpp_xml_frame_to_element_t(ptr noundef %102, ptr noundef nonnull %.0178208, ptr noundef null, ptr noundef %0) #4
+  %103 = call ptr @xmpp_xml_frame_to_element_t(ptr noundef %102, ptr noundef nonnull %.0174208, ptr noundef null, ptr noundef %0) #4
   %.not192 = icmp eq ptr %103, null
   br i1 %.not192, label %104, label %sub_0
 
@@ -1012,9 +1012,9 @@ sub_2:                                            ; preds = %sub_1
   br i1 %117, label %118, label %sub_0200
 
 118:                                              ; preds = %.tail
-  call void @xmpp_iq_reqresp_track(ptr noundef nonnull %1, ptr noundef nonnull %103, ptr noundef nonnull %.0176) #4
-  call void @xmpp_jingle_session_track(ptr noundef nonnull %1, ptr noundef nonnull %103, ptr noundef nonnull %.0176) #4
-  call void @xmpp_gtalk_session_track(ptr noundef nonnull %1, ptr noundef nonnull %103, ptr noundef nonnull %.0176) #4
+  call void @xmpp_iq_reqresp_track(ptr noundef nonnull %1, ptr noundef nonnull %103, ptr noundef nonnull %.0178) #4
+  call void @xmpp_jingle_session_track(ptr noundef nonnull %1, ptr noundef nonnull %103, ptr noundef nonnull %.0178) #4
+  call void @xmpp_gtalk_session_track(ptr noundef nonnull %1, ptr noundef nonnull %103, ptr noundef nonnull %.0178) #4
   %.pre = load ptr, ptr %103, align 8
   %.pre215 = load i8, ptr %.pre, align 1
   %.pre216 = zext i8 %.pre215 to i32
@@ -1052,7 +1052,7 @@ sub_2202:                                         ; preds = %sub_1201
   br i1 %132, label %133, label %134
 
 133:                                              ; preds = %130, %.tail199
-  call void @xmpp_ibb_session_track(ptr noundef nonnull %1, ptr noundef nonnull %103, ptr noundef nonnull %.0176) #4
+  call void @xmpp_ibb_session_track(ptr noundef nonnull %1, ptr noundef nonnull %103, ptr noundef nonnull %.0178) #4
   br label %134
 
 134:                                              ; preds = %133, %130
@@ -1207,7 +1207,7 @@ proto_item_set_hidden.exit.tail:                  ; preds = %proto_item_set_hidd
   br i1 %203, label %204, label %205
 
 204:                                              ; preds = %201
-  call void @xmpp_starttls(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103, ptr noundef nonnull %.0176) #4
+  call void @xmpp_starttls(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103, ptr noundef nonnull %.0178) #4
   br label %213
 
 205:                                              ; preds = %201
@@ -1216,7 +1216,7 @@ proto_item_set_hidden.exit.tail:                  ; preds = %proto_item_set_hidd
   br i1 %207, label %208, label %209
 
 208:                                              ; preds = %205
-  call void @xmpp_proceed(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103, ptr noundef nonnull %.0176) #4
+  call void @xmpp_proceed(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %103, ptr noundef nonnull %.0178) #4
   br label %213
 
 209:                                              ; preds = %205
@@ -1256,7 +1256,7 @@ proto_item_set_hidden.exit.tail:                  ; preds = %proto_item_set_hidd
   %225 = load ptr, ptr %6, align 8
   %226 = load ptr, ptr %100, align 8
   call void %225(ptr noundef %226) #4
-  %227 = getelementptr inbounds i8, ptr %.0178208, i64 40
+  %227 = getelementptr inbounds i8, ptr %.0174208, i64 40
   %228 = load ptr, ptr %227, align 8
   %.not191 = icmp eq ptr %228, null
   br i1 %.not191, label %229, label %101, !llvm.loop !7
@@ -1266,8 +1266,8 @@ proto_item_set_hidden.exit.tail:                  ; preds = %proto_item_set_hidd
   br label %231
 
 231:                                              ; preds = %229, %73, %68, %61, %53, %45, %34
-  %.0179 = phi i32 [ %47, %45 ], [ %62, %61 ], [ %69, %68 ], [ %230, %229 ], [ %74, %73 ], [ %56, %53 ], [ %36, %34 ]
-  ret i32 %.0179
+  %.0 = phi i32 [ %47, %45 ], [ %62, %61 ], [ %69, %68 ], [ %230, %229 ], [ %74, %73 ], [ %56, %53 ], [ %36, %34 ]
+  ret i32 %.0
 }
 
 declare void @xmpp_init_parsers() local_unnamed_addr #1

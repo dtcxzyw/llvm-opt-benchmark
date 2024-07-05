@@ -19254,13 +19254,13 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZN7QStringD2Ev.exi
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !433
 
 .loopexit:                                        ; preds = %84, %.preheader, %77
-  %.023 = phi ptr [ %78, %77 ], [ %81, %.preheader ], [ %81, %84 ]
+  %.024 = phi ptr [ %78, %77 ], [ %81, %.preheader ], [ %81, %84 ]
   %92 = invoke noundef i64 @_ZN9QIODevice5writeEPKcx(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %3, i64 noundef 18)
           to label %93 unwind label %.loopexit.split-lp
 
 93:                                               ; preds = %.loopexit
   %94 = sext i32 %66 to i64
-  %95 = invoke noundef i64 @_ZN9QIODevice5writeEPKcx(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.023, i64 noundef %94)
+  %95 = invoke noundef i64 @_ZN9QIODevice5writeEPKcx(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.024, i64 noundef %94)
           to label %96 unwind label %.loopexit.split-lp
 
 96:                                               ; preds = %93

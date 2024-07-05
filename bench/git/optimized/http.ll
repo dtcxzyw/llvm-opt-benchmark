@@ -4454,8 +4454,8 @@ do.end:                                           ; preds = %do.body, %if.then56
   br label %if.end65
 
 if.end65:                                         ; preds = %do.end, %if.end48
-  %prev_read.1 = phi i1 [ %19, %do.end ], [ false, %if.end48 ]
   %prev_posn.2 = phi i64 [ %prev_posn.0, %do.end ], [ 0, %if.end48 ]
+  %prev_read.1 = phi i1 [ %19, %do.end ], [ false, %if.end48 ]
   %20 = load ptr, ptr %buf6, align 8
   %call67 = call i32 @unlink_or_warn(ptr noundef %20) #21
   call void @strbuf_release(ptr noundef nonnull %prevfile) #21

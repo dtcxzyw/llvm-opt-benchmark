@@ -384,16 +384,16 @@ define i32 @SUNQRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noc
   br label %59
 
 59:                                               ; preds = %._crit_edge163, %43, %51
-  %.0146 = phi double [ %50, %43 ], [ %56, %51 ], [ 1.000000e+00, %._crit_edge163 ]
-  %.0144 = phi double [ %48, %43 ], [ %58, %51 ], [ 0.000000e+00, %._crit_edge163 ]
+  %.0146 = phi double [ %48, %43 ], [ %58, %51 ], [ 0.000000e+00, %._crit_edge163 ]
+  %.0141 = phi double [ %50, %43 ], [ %56, %51 ], [ 1.000000e+00, %._crit_edge163 ]
   %60 = getelementptr inbounds double, ptr %2, i64 %29
-  store double %.0146, ptr %60, align 8
+  store double %.0141, ptr %60, align 8
   %61 = or disjoint i64 %29, 1
   %62 = getelementptr inbounds double, ptr %2, i64 %61
-  store double %.0144, ptr %62, align 8
-  %63 = fneg double %.0144
+  store double %.0146, ptr %62, align 8
+  %63 = fneg double %.0146
   %64 = fmul double %37, %63
-  %65 = tail call double @llvm.fmuladd.f64(double %.0146, double %33, double %64)
+  %65 = tail call double @llvm.fmuladd.f64(double %.0141, double %33, double %64)
   %66 = load ptr, ptr %30, align 8
   %67 = getelementptr inbounds double, ptr %66, i64 %indvars.iv174
   store double %65, ptr %67, align 8
@@ -490,19 +490,19 @@ define i32 @SUNQRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noc
   br label %126
 
 126:                                              ; preds = %._crit_edge, %110, %118
-  %.1147 = phi double [ %117, %110 ], [ %123, %118 ], [ 1.000000e+00, %._crit_edge ]
-  %.1145 = phi double [ %115, %110 ], [ %125, %118 ], [ 0.000000e+00, %._crit_edge ]
+  %.1147 = phi double [ %115, %110 ], [ %125, %118 ], [ 0.000000e+00, %._crit_edge ]
+  %.1142 = phi double [ %117, %110 ], [ %123, %118 ], [ 1.000000e+00, %._crit_edge ]
   %127 = shl nsw i32 %71, 1
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds double, ptr %2, i64 %128
-  store double %.1147, ptr %129, align 8
+  store double %.1142, ptr %129, align 8
   %130 = or disjoint i32 %127, 1
   %131 = sext i32 %130 to i64
   %132 = getelementptr inbounds double, ptr %2, i64 %131
-  store double %.1145, ptr %132, align 8
-  %133 = fneg double %.1145
+  store double %.1147, ptr %132, align 8
+  %133 = fneg double %.1147
   %134 = fmul double %104, %133
-  %135 = tail call double @llvm.fmuladd.f64(double %.1147, double %99, double %134)
+  %135 = tail call double @llvm.fmuladd.f64(double %.1142, double %99, double %134)
   %136 = load ptr, ptr %96, align 8
   %137 = getelementptr inbounds double, ptr %136, i64 %.pre-phi
   store double %135, ptr %137, align 8
@@ -706,29 +706,29 @@ define noundef i32 @SUNQRAdd_ICWY(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %exitcond.not, label %46, label %31
 
 31:                                               ; preds = %9, %.loopexit
-  %.081 = phi i64 [ 0, %9 ], [ %32, %.loopexit ]
-  %32 = add nuw nsw i64 %.081, 1
+  %.07481 = phi i64 [ 0, %9 ], [ %32, %.loopexit ]
+  %32 = add nuw nsw i64 %.07481, 1
   %33 = icmp ult i64 %32, %29
   br i1 %33, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %31
-  %gep80 = getelementptr double, ptr %27, i64 %.081
+  %gep80 = getelementptr double, ptr %27, i64 %.07481
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
-  %.07478 = phi i64 [ %32, %.lr.ph ], [ %44, %34 ]
+  %.078 = phi i64 [ %32, %.lr.ph ], [ %44, %34 ]
   %35 = load double, ptr %gep80, align 8
   %36 = load ptr, ptr %14, align 8
-  %37 = mul nsw i64 %.07478, %30
+  %37 = mul nsw i64 %.078, %30
   %38 = getelementptr double, ptr %36, i64 %37
-  %39 = getelementptr double, ptr %38, i64 %.081
+  %39 = getelementptr double, ptr %38, i64 %.07481
   %40 = load double, ptr %39, align 8
-  %gep = getelementptr double, ptr %27, i64 %.07478
+  %gep = getelementptr double, ptr %27, i64 %.078
   %41 = load double, ptr %gep, align 8
   %42 = fneg double %35
   %43 = tail call double @llvm.fmuladd.f64(double %42, double %40, double %41)
   store double %43, ptr %gep, align 8
-  %44 = add nuw nsw i64 %.07478, 1
+  %44 = add nuw nsw i64 %.078, 1
   %45 = icmp ult i64 %44, %29
   br i1 %45, label %34, label %.loopexit
 
@@ -804,14 +804,14 @@ define noundef i32 @SUNQRAdd_ICWY_SB(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %35
 
 35:                                               ; preds = %9, %35
-  %.097 = phi i64 [ 0, %9 ], [ %40, %35 ]
+  %.09397 = phi i64 [ 0, %9 ], [ %40, %35 ]
   %36 = load ptr, ptr %14, align 8
-  %37 = getelementptr double, ptr %36, i64 %.097
+  %37 = getelementptr double, ptr %36, i64 %.09397
   %38 = getelementptr double, ptr %37, i64 %32
   %39 = load double, ptr %38, align 8
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.097
+  %gep = getelementptr double, ptr %invariant.gep, i64 %.09397
   store double %39, ptr %gep, align 8
-  %40 = add nuw nsw i64 %.097, 1
+  %40 = add nuw nsw i64 %.09397, 1
   %exitcond.not = icmp eq i64 %40, %23
   br i1 %exitcond.not, label %41, label %35
 
@@ -839,19 +839,19 @@ define noundef i32 @SUNQRAdd_ICWY_SB(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %50
 
 50:                                               ; preds = %.lr.ph, %50
-  %.09398 = phi i64 [ %48, %.lr.ph ], [ %60, %50 ]
+  %.098 = phi i64 [ %48, %.lr.ph ], [ %60, %50 ]
   %51 = load double, ptr %gep103, align 8
   %52 = load ptr, ptr %14, align 8
-  %53 = mul nsw i64 %.09398, %46
+  %53 = mul nsw i64 %.098, %46
   %54 = getelementptr double, ptr %52, i64 %53
   %55 = getelementptr double, ptr %54, i64 %.1101
   %56 = load double, ptr %55, align 8
-  %gep100 = getelementptr double, ptr %invariant.gep, i64 %.09398
+  %gep100 = getelementptr double, ptr %invariant.gep, i64 %.098
   %57 = load double, ptr %gep100, align 8
   %58 = fneg double %51
   %59 = tail call double @llvm.fmuladd.f64(double %58, double %56, double %57)
   store double %59, ptr %gep100, align 8
-  %60 = add nuw nsw i64 %.09398, 1
+  %60 = add nuw nsw i64 %.098, 1
   %61 = icmp ult i64 %60, %23
   br i1 %61, label %50, label %.loopexit
 

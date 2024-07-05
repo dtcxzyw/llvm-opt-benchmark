@@ -872,18 +872,18 @@ define internal i32 @dissect_igmp_v3_report(ptr noundef %0, ptr noundef %1, ptr 
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.092.i = phi i16 [ %75, %.lr.ph.i ], [ %48, %.lr.ph.i.preheader ]
-  %.08291.i = phi i32 [ %82, %.lr.ph.i ], [ %56, %.lr.ph.i.preheader ]
-  %75 = add i16 %.092.i, -1
+  %.092.i = phi i32 [ %82, %.lr.ph.i ], [ %56, %.lr.ph.i.preheader ]
+  %.08291.i = phi i16 [ %75, %.lr.ph.i ], [ %48, %.lr.ph.i.preheader ]
+  %75 = add i16 %.08291.i, -1
   %76 = load ptr, ptr %28, align 8
   %77 = load ptr, ptr %27, align 8
-  %78 = call ptr @tvb_address_to_str(ptr noundef %77, ptr noundef %0, i32 noundef 2, i32 noundef %.08291.i) #4
+  %78 = call ptr @tvb_address_to_str(ptr noundef %77, ptr noundef %0, i32 noundef 2, i32 noundef %.092.i) #4
   %.not89.i = icmp eq i16 %75, 0
   %79 = select i1 %.not89.i, ptr @.str.200, ptr @.str.199
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.198, ptr noundef %78, ptr noundef nonnull %79) #4
   %80 = load i32, ptr @hf_saddr, align 4
-  %81 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %80, ptr noundef %0, i32 noundef %.08291.i, i32 noundef 4, i32 noundef 0) #4
-  %82 = add i32 %.08291.i, 4
+  %81 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %80, ptr noundef %0, i32 noundef %.092.i, i32 noundef 4, i32 noundef 0) #4
+  %82 = add i32 %.092.i, 4
   br i1 %.not89.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 switch.lookup:                                    ; preds = %58
@@ -899,19 +899,19 @@ switch.lookup:                                    ; preds = %58
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %._crit_edge.sink.split.i
-  %.082.lcssa.i = phi i32 [ %56, %._crit_edge.sink.split.i ], [ %82, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ %56, %._crit_edge.sink.split.i ], [ %82, %.lr.ph.i ]
   %.not88.i = icmp eq i8 %43, 0
   br i1 %.not88.i, label %dissect_v3_group_record.exit, label %85
 
 85:                                               ; preds = %._crit_edge.i
   %86 = load i32, ptr @hf_aux_data, align 4
   %87 = shl nuw nsw i32 %45, 2
-  %88 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %86, ptr noundef %0, i32 noundef %.082.lcssa.i, i32 noundef %87, i32 noundef 0) #4
-  %89 = add i32 %.082.lcssa.i, %87
+  %88 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %86, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef %87, i32 noundef 0) #4
+  %89 = add i32 %.0.lcssa.i, %87
   br label %dissect_v3_group_record.exit
 
 dissect_v3_group_record.exit:                     ; preds = %._crit_edge.i, %85
-  %.1.i = phi i32 [ %89, %85 ], [ %.082.lcssa.i, %._crit_edge.i ]
+  %.1.i = phi i32 [ %89, %85 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %90 = load ptr, ptr %5, align 8
   %91 = sub i32 %.1.i, %storemerge22
   call void @proto_item_set_len(ptr noundef %90, i32 noundef %91) #4
@@ -963,9 +963,9 @@ define internal noundef i32 @dissect_igmp_mtrace(ptr noundef %0, ptr noundef %1,
   br label %27
 
 27:                                               ; preds = %.thread, %19
-  %.0129134 = phi ptr [ %.str.217..str.218, %.thread ], [ @.str.145, %19 ]
+  %.0130134 = phi ptr [ %.str.217..str.218, %.thread ], [ @.str.145, %19 ]
   %28 = load i32, ptr @hf_type, align 4
-  %29 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %14, ptr noundef nonnull @.str.219, ptr noundef nonnull %.0129134, i32 noundef %14) #4
+  %29 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %14, ptr noundef nonnull @.str.219, ptr noundef nonnull %.0130134, i32 noundef %14) #4
   %30 = load i32, ptr @hf_mtrace_max_hops, align 4
   %31 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %30, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
   %32 = load i32, ptr @hf_checksum, align 4
@@ -997,47 +997,47 @@ define internal noundef i32 @dissect_igmp_mtrace(ptr noundef %0, ptr noundef %1,
   br label %51
 
 51:                                               ; preds = %.lr.ph, %51
-  %.0130135 = phi i32 [ 24, %.lr.ph ], [ %100, %51 ]
+  %.0128135 = phi i32 [ 24, %.lr.ph ], [ %100, %51 ]
   %52 = load i32, ptr @ett_mtrace_block, align 4
   %53 = load ptr, ptr %50, align 8
-  %54 = or disjoint i32 %.0130135, 4
+  %54 = or disjoint i32 %.0128135, 4
   %55 = call ptr @tvb_address_to_str(ptr noundef %53, ptr noundef %0, i32 noundef 2, i32 noundef %54) #4
   %56 = load ptr, ptr %50, align 8
-  %57 = add i32 %.0130135, 8
+  %57 = add i32 %.0128135, 8
   %58 = call ptr @tvb_address_to_str(ptr noundef %56, ptr noundef %0, i32 noundef 2, i32 noundef %57) #4
-  %59 = add i32 %.0130135, 28
+  %59 = add i32 %.0128135, 28
   %60 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %59) #4
   %61 = zext i8 %60 to i32
   %62 = call ptr @val_to_str_const(i32 noundef %61, ptr noundef nonnull @mtrace_rtg_vals, ptr noundef nonnull @.str.221) #4
-  %63 = add i32 %.0130135, 31
+  %63 = add i32 %.0128135, 31
   %64 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %63) #4
   %65 = zext i8 %64 to i32
   %66 = call ptr @val_to_str_const(i32 noundef %65, ptr noundef nonnull @mtrace_fwd_code_vals, ptr noundef nonnull @.str.221) #4
-  %67 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %9, ptr noundef %0, i32 noundef %.0130135, i32 noundef 32, i32 noundef %52, ptr noundef null, ptr noundef nonnull @.str.220, ptr noundef %55, ptr noundef %58, ptr noundef %62, ptr noundef %66) #4
+  %67 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %9, ptr noundef %0, i32 noundef %.0128135, i32 noundef 32, i32 noundef %52, ptr noundef null, ptr noundef nonnull @.str.220, ptr noundef %55, ptr noundef %58, ptr noundef %62, ptr noundef %66) #4
   %68 = load i32, ptr @hf_mtrace_q_arrival, align 4
-  %69 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %0, i32 noundef %.0130135, i32 noundef 4, i32 noundef 0) #4
+  %69 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %0, i32 noundef %.0128135, i32 noundef 4, i32 noundef 0) #4
   %70 = load i32, ptr @hf_mtrace_q_inaddr, align 4
   %71 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %70, ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef 0) #4
   %72 = load i32, ptr @hf_mtrace_q_outaddr, align 4
   %73 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %72, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef 0) #4
-  %74 = add i32 %.0130135, 12
+  %74 = add i32 %.0128135, 12
   %75 = load i32, ptr @hf_mtrace_q_prevrtr, align 4
   %76 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %75, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0) #4
-  %77 = add i32 %.0130135, 16
+  %77 = add i32 %.0128135, 16
   %78 = load i32, ptr @hf_mtrace_q_inpkt, align 4
   %79 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %78, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef 0) #4
-  %80 = add i32 %.0130135, 20
+  %80 = add i32 %.0128135, 20
   %81 = load i32, ptr @hf_mtrace_q_outpkt, align 4
   %82 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %81, ptr noundef %0, i32 noundef %80, i32 noundef 4, i32 noundef 0) #4
-  %83 = add i32 %.0130135, 24
+  %83 = add i32 %.0128135, 24
   %84 = load i32, ptr @hf_mtrace_q_total, align 4
   %85 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %84, ptr noundef %0, i32 noundef %83, i32 noundef 4, i32 noundef 0) #4
   %86 = load i32, ptr @hf_mtrace_q_rtg_proto, align 4
   %87 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %86, ptr noundef %0, i32 noundef %59, i32 noundef 1, i32 noundef 0) #4
-  %88 = add i32 %.0130135, 29
+  %88 = add i32 %.0128135, 29
   %89 = load i32, ptr @hf_mtrace_q_fwd_ttl, align 4
   %90 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %89, ptr noundef %0, i32 noundef %88, i32 noundef 1, i32 noundef 0) #4
-  %91 = add i32 %.0130135, 30
+  %91 = add i32 %.0128135, 30
   %92 = load i32, ptr @hf_mtrace_q_mbz, align 4
   %93 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef 1, i32 noundef 0) #4
   %94 = load i32, ptr @hf_mtrace_q_s, align 4
@@ -1046,7 +1046,7 @@ define internal noundef i32 @dissect_igmp_mtrace(ptr noundef %0, ptr noundef %1,
   %97 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %96, ptr noundef %0, i32 noundef %91, i32 noundef 1, i32 noundef 0) #4
   %98 = load i32, ptr @hf_mtrace_q_fwd_code, align 4
   %99 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %98, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef 0) #4
-  %100 = add i32 %.0130135, 32
+  %100 = add i32 %.0128135, 32
   %101 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %100) #4
   %102 = icmp sgt i32 %101, 31
   br i1 %102, label %51, label %.loopexit, !llvm.loop !8

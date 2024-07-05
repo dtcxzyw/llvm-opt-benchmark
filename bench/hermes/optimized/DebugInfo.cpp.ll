@@ -592,38 +592,38 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %start.053 = phi i32 [ 0, %for.body.lr.ph ], [ %start.1, %for.inc ]
   %end.052 = phi i32 [ 0, %for.body.lr.ph ], [ %end.1, %for.inc ]
-  %__begin1.051 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %foundFile.050 = phi i8 [ 0, %for.body.lr.ph ], [ %foundFile.1, %for.inc ]
-  %tobool = trunc nuw i8 %foundFile.050 to i1
+  %foundFile.051 = phi i8 [ 0, %for.body.lr.ph ], [ %foundFile.1, %for.inc ]
+  %__begin1.050 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %tobool = trunc nuw i8 %foundFile.051 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %3 = load i32, ptr %__begin1.051, align 1
+  %3 = load i32, ptr %__begin1.050, align 1
   br label %for.end
 
 if.end:                                           ; preds = %for.body
-  %filenameId3 = getelementptr inbounds i8, ptr %__begin1.051, i64 4
+  %filenameId3 = getelementptr inbounds i8, ptr %__begin1.050, i64 4
   %4 = load i32, ptr %filenameId3, align 1
   %cmp4 = icmp eq i32 %4, %filenameId
   br i1 %cmp4, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %if.end
-  %5 = load i32, ptr %__begin1.051, align 1
+  %5 = load i32, ptr %__begin1.050, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.then5
-  %foundFile.1 = phi i8 [ 1, %if.then5 ], [ %foundFile.050, %if.end ]
+  %foundFile.1 = phi i8 [ 1, %if.then5 ], [ %foundFile.051, %if.end ]
   %end.1 = phi i32 [ %2, %if.then5 ], [ %end.052, %if.end ]
   %start.1 = phi i32 [ %5, %if.then5 ], [ %start.053, %if.end ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.051, i64 12
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.050, i64 12
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.then
-  %foundFile.048 = phi i8 [ %foundFile.050, %if.then ], [ %foundFile.1, %for.inc ]
+  %foundFile.047 = phi i8 [ %foundFile.051, %if.then ], [ %foundFile.1, %for.inc ]
   %start.044 = phi i32 [ %start.053, %if.then ], [ %start.1, %for.inc ]
   %end.2 = phi i32 [ %3, %if.then ], [ %end.1, %for.inc ]
-  %tobool8 = trunc nuw i8 %foundFile.048 to i1
+  %tobool8 = trunc nuw i8 %foundFile.047 to i1
   br i1 %tobool8, label %while.cond.preheader, label %if.then9
 
 while.cond.preheader:                             ; preds = %for.end
@@ -1625,9 +1625,9 @@ if.end.i:                                         ; preds = %_ZN4llvh11raw_ostre
   %47 = phi i64 [ %78, %_ZN4llvh11raw_ostreamlsEPKc.exit344 ], [ %46, %_ZN4llvh11raw_ostreamlsEPKc.exit204 ]
   %add.i.i207458 = phi i32 [ %add.i.i207, %_ZN4llvh11raw_ostreamlsEPKc.exit344 ], [ %add.i.i207452, %_ZN4llvh11raw_ostreamlsEPKc.exit204 ]
   %count.0457 = phi i32 [ %inc68, %_ZN4llvh11raw_ostreamlsEPKc.exit344 ], [ 0, %_ZN4llvh11raw_ostreamlsEPKc.exit204 ]
-  %fdid.sroa.51.1456 = phi i32 [ %conv17.i, %_ZN4llvh11raw_ostreamlsEPKc.exit344 ], [ %conv6.i, %_ZN4llvh11raw_ostreamlsEPKc.exit204 ]
+  %fdid.sroa.41.1456 = phi i32 [ %conv9.i, %_ZN4llvh11raw_ostreamlsEPKc.exit344 ], [ 0, %_ZN4llvh11raw_ostreamlsEPKc.exit204 ]
   %fdid.sroa.46.1455 = phi i32 [ %conv13.i, %_ZN4llvh11raw_ostreamlsEPKc.exit344 ], [ %conv3.i, %_ZN4llvh11raw_ostreamlsEPKc.exit204 ]
-  %fdid.sroa.41.1454 = phi i32 [ %conv9.i, %_ZN4llvh11raw_ostreamlsEPKc.exit344 ], [ 0, %_ZN4llvh11raw_ostreamlsEPKc.exit204 ]
+  %fdid.sroa.51.1454 = phi i32 [ %conv17.i, %_ZN4llvh11raw_ostreamlsEPKc.exit344 ], [ %conv6.i, %_ZN4llvh11raw_ostreamlsEPKc.exit204 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i4.i), !noalias !29
   %call.i9.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %27, i64 %conv.i114, i32 noundef %add.i.i207458, ptr noundef nonnull %result.i4.i) #16, !noalias !29
   %add.i10.i = add i32 %call.i9.i, %add.i.i207458
@@ -1663,11 +1663,11 @@ while.body40:                                     ; preds = %if.end.i, %if.then6
   %fdid.sroa.18.1 = phi i32 [ %add.i31.i, %if.end.i ], [ %add.i38.i, %if.then6.i ]
   %shr.i = lshr i64 %48, 1
   %52 = trunc i64 %47 to i32
-  %conv9.i = add i32 %fdid.sroa.41.1454, %52
+  %conv9.i = add i32 %fdid.sroa.41.1456, %52
   %53 = trunc i64 %shr.i to i32
   %conv13.i = add i32 %fdid.sroa.46.1455, %53
   %54 = trunc i64 %49 to i32
-  %conv17.i = add i32 %fdid.sroa.51.1456, %54
+  %conv17.i = add i32 %fdid.sroa.51.1454, %54
   %55 = load ptr, ptr %OutBufEnd.i5.i, align 8
   %56 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i215 = ptrtoint ptr %55 to i64

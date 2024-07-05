@@ -1258,10 +1258,10 @@ get_callback.exit.i108:                           ; preds = %if.else.i.i134, %if
   %retval.0.i.i109 = phi ptr [ %70, %if.then130 ], [ %72, %if.else.i.i134 ]
   %73 = load i32, ptr %server.i110, align 8
   %tobool.not.i111 = icmp eq i32 %73, 0
-  %ossl_statem_client_write_transition.ossl_statem_server_write_transition.i = select i1 %tobool.not.i111, ptr @ossl_statem_client_write_transition, ptr @ossl_statem_server_write_transition
   %ossl_statem_client_pre_work.ossl_statem_server_pre_work.i = select i1 %tobool.not.i111, ptr @ossl_statem_client_pre_work, ptr @ossl_statem_server_pre_work
   %ossl_statem_client_post_work.ossl_statem_server_post_work.i = select i1 %tobool.not.i111, ptr @ossl_statem_client_post_work, ptr @ossl_statem_server_post_work
   %ossl_statem_client_construct_message.ossl_statem_server_construct_message.i = select i1 %tobool.not.i111, ptr @ossl_statem_client_construct_message, ptr @ossl_statem_server_construct_message
+  %ossl_statem_client_write_transition.ossl_statem_server_write_transition.i = select i1 %tobool.not.i111, ptr @ossl_statem_client_write_transition, ptr @ossl_statem_server_write_transition
   %cmp.not.i114 = icmp eq ptr %retval.0.i.i109, null
   br label %while.body.i115
 

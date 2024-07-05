@@ -1211,7 +1211,7 @@ define range(i32 -1, 2) i32 @Cec_ManSeqSemiformal(ptr noundef %0, ptr nocapture 
   br label %39
 
 39:                                               ; preds = %.lr.ph, %142
-  %.062109 = phi i32 [ 0, %.lr.ph ], [ %143, %142 ]
+  %.063109 = phi i32 [ 0, %.lr.ph ], [ %143, %142 ]
   %.064108 = phi i32 [ 0, %.lr.ph ], [ %.165, %142 ]
   %40 = call i32 @Cec_ManCheckNonTrivialCands(ptr noundef nonnull %0)
   %.not72 = icmp eq i32 %40, 0
@@ -1476,7 +1476,7 @@ Vec_PtrFree.exit:                                 ; preds = %Cec_ManSeqResimulat
 
 142:                                              ; preds = %135, %138
   %.165 = phi i32 [ %139, %138 ], [ 0, %135 ]
-  %143 = add nuw nsw i32 %.062109, 1
+  %143 = add nuw nsw i32 %.063109, 1
   %144 = load i32, ptr %27, align 4
   %145 = icmp slt i32 %143, %144
   br i1 %145, label %39, label %.loopexit, !llvm.loop !28
@@ -1554,8 +1554,8 @@ Cec_ManCountNonConstOutputs.exit.thread104:       ; preds = %148, %Cec_ManCountN
   br label %Cec_ManCountNonConstOutputs.exit.thread
 
 Cec_ManCountNonConstOutputs.exit.thread:          ; preds = %.lr.ph.i93, %.preheader.i91, %.loopexit, %Cec_ManCountNonConstOutputs.exit.thread104, %Cec_ManCountNonConstOutputs.exit, %14, %10
-  %.063 = phi i32 [ -1, %10 ], [ -1, %14 ], [ %.1, %Cec_ManCountNonConstOutputs.exit ], [ %.1, %Cec_ManCountNonConstOutputs.exit.thread104 ], [ %.1, %.loopexit ], [ %.1, %.preheader.i91 ], [ %.1, %.lr.ph.i93 ]
-  ret i32 %.063
+  %.0 = phi i32 [ -1, %10 ], [ -1, %14 ], [ %.1, %Cec_ManCountNonConstOutputs.exit ], [ %.1, %Cec_ManCountNonConstOutputs.exit.thread104 ], [ %.1, %.loopexit ], [ %.1, %.preheader.i91 ], [ %.1, %.lr.ph.i93 ]
+  ret i32 %.0
 }
 
 declare ptr @Abc_CexAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

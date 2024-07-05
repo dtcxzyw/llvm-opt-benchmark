@@ -14728,8 +14728,8 @@ define hidden noundef ptr @_ZN11wasi_common9snapshots9preview_15error17from_raw_
   br label %58
 
 58:                                               ; preds = %.sink.split, %3, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %3 ], [ %57, %.sink.split ]
-  ret ptr %.0
+  %.04 = phi ptr [ null, %2 ], [ null, %3 ], [ %57, %.sink.split ]
+  ret ptr %.04
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

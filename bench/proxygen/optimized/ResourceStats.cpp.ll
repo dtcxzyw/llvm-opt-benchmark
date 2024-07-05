@@ -1526,17 +1526,17 @@ if.end.lr.ph:                                     ; preds = %entry
 if.end.us:                                        ; preds = %if.end.lr.ph, %for.inc.us
   %and.i125.us = phi i32 [ %and.i.us, %for.inc.us ], [ %and.i121, %if.end.lr.ph ]
   %3 = phi i32 [ %7, %for.inc.us ], [ %1, %if.end.lr.ph ]
-  %tries.0124.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %if.end.lr.ph ]
-  %begin.0123.us = phi i64 [ %spec.select.us, %for.inc.us ], [ 0, %if.end.lr.ph ]
+  %begin.0124.us = phi i64 [ %spec.select.us, %for.inc.us ], [ 0, %if.end.lr.ph ]
+  %tries.0123.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %if.end.lr.ph ]
   %sub.us = sub i32 %shl, %and.i125.us
   %cmp6.not.us = icmp ult i32 %sub.us, 2147483647
   br i1 %cmp6.not.us, label %if.end8.us, label %return
 
 if.end8.us:                                       ; preds = %if.end.us
   %4 = tail call noundef i64 @llvm.x86.rdtsc()
-  %cmp10.us = icmp eq i32 %tries.0124.us, 0
-  %spec.select.us = select i1 %cmp10.us, i64 %4, i64 %begin.0123.us
-  %add.us = add i64 %begin.0123.us, %conv
+  %cmp10.us = icmp eq i32 %tries.0123.us, 0
+  %spec.select.us = select i1 %cmp10.us, i64 %4, i64 %begin.0124.us
+  %add.us = add i64 %begin.0124.us, %conv
   %cmp15.us = icmp ult i64 %4, %add.us
   %or.cond130 = select i1 %cmp10.us, i1 true, i1 %cmp15.us
   br i1 %or.cond130, label %if.then16.us, label %if.end18.us
@@ -1568,7 +1568,7 @@ if.then16.us:                                     ; preds = %if.end8.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then16.us, %if.end29.us, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.us
-  %inc.us = add i32 %tries.0124.us, 1
+  %inc.us = add i32 %tries.0123.us, 1
   %7 = load atomic i32, ptr %this acquire, align 4
   %and.i.us = and i32 %7, -64
   %cmp4.us = icmp eq i32 %and.i.us, %shl
@@ -1582,17 +1582,17 @@ terminate.lpad.split.us:                          ; preds = %if.end29.us
 if.end:                                           ; preds = %if.end.lr.ph, %for.inc
   %and.i125 = phi i32 [ %and.i, %for.inc ], [ %and.i121, %if.end.lr.ph ]
   %9 = phi i32 [ %13, %for.inc ], [ %1, %if.end.lr.ph ]
-  %tries.0124 = phi i32 [ %inc, %for.inc ], [ 0, %if.end.lr.ph ]
-  %begin.0123 = phi i64 [ %spec.select, %for.inc ], [ 0, %if.end.lr.ph ]
+  %begin.0124 = phi i64 [ %spec.select, %for.inc ], [ 0, %if.end.lr.ph ]
+  %tries.0123 = phi i32 [ %inc, %for.inc ], [ 0, %if.end.lr.ph ]
   %sub = sub i32 %shl, %and.i125
   %cmp6.not = icmp ult i32 %sub, 2147483647
   br i1 %cmp6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end
   %10 = call noundef i64 @llvm.x86.rdtsc()
-  %cmp10 = icmp eq i32 %tries.0124, 0
-  %spec.select = select i1 %cmp10, i64 %10, i64 %begin.0123
-  %add = add i64 %begin.0123, %conv
+  %cmp10 = icmp eq i32 %tries.0123, 0
+  %spec.select = select i1 %cmp10, i64 %10, i64 %begin.0124
+  %add = add i64 %begin.0124, %conv
   %cmp15 = icmp ult i64 %10, %add
   %or.cond131 = select i1 %cmp10, i1 true, i1 %cmp15
   br i1 %or.cond131, label %if.then16, label %if.end18
@@ -1641,15 +1641,15 @@ invoke.cont34:                                    ; preds = %cond.true.i, %cond.
   br i1 %cmp36, label %return, label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont34, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit, %if.then16
-  %inc = add i32 %tries.0124, 1
+  %inc = add i32 %tries.0123, 1
   %13 = load atomic i32, ptr %this acquire, align 4
   %and.i = and i32 %13, -64
   %cmp4 = icmp eq i32 %and.i, %shl
   br i1 %cmp4, label %for.end, label %if.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %for.inc.us
-  %begin.0.lcssa = phi i64 [ %spec.select.us, %for.inc.us ], [ %spec.select, %for.inc ]
   %tries.0.lcssa = phi i32 [ %inc.us, %for.inc.us ], [ %inc, %for.inc ]
+  %begin.0.lcssa = phi i64 [ %spec.select.us, %for.inc.us ], [ %spec.select, %for.inc ]
   br i1 %or.cond, label %if.then48, label %return
 
 for.end.thread:                                   ; preds = %entry

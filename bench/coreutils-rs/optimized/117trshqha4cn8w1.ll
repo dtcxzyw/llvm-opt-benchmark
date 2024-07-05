@@ -52,8 +52,8 @@ define hidden { i64, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   br label %17
 
 17:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h271edb3f3bb9e983E.exit.i", %12
-  %.sroa.6.0.i = phi ptr [ %2, %12 ], [ %.sroa.3.0.i.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h271edb3f3bb9e983E.exit.i" ]
   %.sroa.05.0.i = phi i64 [ %1, %12 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h271edb3f3bb9e983E.exit.i" ]
+  %.sroa.6.0.i = phi ptr [ %2, %12 ], [ %.sroa.3.0.i.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h271edb3f3bb9e983E.exit.i" ]
   %.0.i = phi i64 [ 0, %12 ], [ %24, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h271edb3f3bb9e983E.exit.i" ]
   %18 = getelementptr inbounds i64, ptr %4, i64 %.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
@@ -1171,8 +1171,8 @@ define hidden { i64, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   br label %14
 
 14:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h271edb3f3bb9e983E.exit", %9
-  %.sroa.6.0 = phi ptr [ %3, %9 ], [ %.sroa.3.0.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h271edb3f3bb9e983E.exit" ]
   %.sroa.05.0 = phi i64 [ %2, %9 ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h271edb3f3bb9e983E.exit" ]
+  %.sroa.6.0 = phi ptr [ %3, %9 ], [ %.sroa.3.0.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h271edb3f3bb9e983E.exit" ]
   %.0 = phi i64 [ 0, %9 ], [ %21, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h271edb3f3bb9e983E.exit" ]
   %15 = getelementptr inbounds i64, ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !250)

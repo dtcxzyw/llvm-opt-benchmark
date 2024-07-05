@@ -180,7 +180,7 @@ define internal i32 @dissect_imap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %24
 
 24:                                               ; preds = %18, %4
-  %.0314 = phi ptr [ %17, %4 ], [ %20, %18 ]
+  %.0315 = phi ptr [ %17, %4 ], [ %20, %18 ]
   store ptr null, ptr %11, align 8
   %25 = getelementptr inbounds i8, ptr %15, i64 24
   %26 = load i32, ptr %25, align 8
@@ -188,7 +188,7 @@ define internal i32 @dissect_imap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 %26, ptr %27, align 8
   %28 = load i32, ptr @imap_ssl_heuristic, align 4
   %.not336 = icmp eq i32 %28, 0
-  %29 = getelementptr inbounds i8, ptr %.0314, i64 4
+  %29 = getelementptr inbounds i8, ptr %.0315, i64 4
   %30 = load i32, ptr %29, align 4
   br i1 %.not336, label %34, label %31
 
@@ -198,7 +198,7 @@ define internal i32 @dissect_imap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .thread471:                                       ; preds = %31
   store i32 2, ptr %29, align 4
-  %33 = getelementptr inbounds i8, ptr %.0314, i64 4
+  %33 = getelementptr inbounds i8, ptr %.0315, i64 4
   br label %40
 
 34:                                               ; preds = %24
@@ -210,11 +210,11 @@ define internal i32 @dissect_imap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.thread
 
 .thread:                                          ; preds = %34, %36
-  %37 = getelementptr inbounds i8, ptr %.0314, i64 4
+  %37 = getelementptr inbounds i8, ptr %.0315, i64 4
   br label %check_imap_heur.exit.thread
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %.0314, i64 4
+  %39 = getelementptr inbounds i8, ptr %.0315, i64 4
   %.not478 = icmp eq i32 %30, 0
   br i1 %.not478, label %check_imap_heur.exit.thread, label %40
 
@@ -321,9 +321,9 @@ proto_item_set_hidden.exit:                       ; preds = %65, %73, %76
   br i1 %95, label %.preheader454, label %192
 
 .preheader454:                                    ; preds = %93, %110
-  %.0311 = phi i32 [ %99, %110 ], [ %.0303465, %93 ]
-  %.0309 = phi i32 [ %.1310, %110 ], [ 0, %93 ]
-  %96 = add i32 %.0311, 1
+  %.0312 = phi i32 [ %99, %110 ], [ %.0303465, %93 ]
+  %.0310 = phi i32 [ %.1311, %110 ], [ 0, %93 ]
+  %96 = add i32 %.0312, 1
   %97 = load i32, ptr %7, align 4
   %98 = sub i32 %97, %96
   %99 = call i32 @tvb_ws_mempbrk_pattern_guint8(ptr noundef %0, i32 noundef %96, i32 noundef %98, ptr noundef nonnull @pbrk_whitespace, ptr noundef null) #6
@@ -334,29 +334,29 @@ proto_item_set_hidden.exit:                       ; preds = %65, %73, %76
   %102 = load ptr, ptr %82, align 8
   %103 = sub i32 %99, %96
   %104 = call ptr @tvb_get_string_enc(ptr noundef %102, ptr noundef %0, i32 noundef %96, i32 noundef %103, i32 noundef 0) #6
-  %105 = sext i32 %.0309 to i64
+  %105 = sext i32 %.0310 to i64
   %106 = getelementptr [3 x %struct.simple_token_info], ptr %12, i64 0, i64 %105
   store ptr %104, ptr %106, align 16
   %107 = getelementptr inbounds i8, ptr %106, i64 8
   store i32 %96, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %106, i64 12
   store i32 %99, ptr %108, align 4
-  %109 = add nsw i32 %.0309, 1
+  %109 = add nsw i32 %.0310, 1
   br label %110
 
 110:                                              ; preds = %.preheader454, %101
-  %.1310 = phi i32 [ %109, %101 ], [ %.0309, %.preheader454 ]
+  %.1311 = phi i32 [ %109, %101 ], [ %.0310, %.preheader454 ]
   %111 = icmp ne i32 %99, -1
-  %112 = icmp slt i32 %.1310, 3
+  %112 = icmp slt i32 %.1311, 3
   %113 = select i1 %111, i1 %112, i1 false
   br i1 %113, label %.preheader454, label %114, !llvm.loop !4
 
 114:                                              ; preds = %110
-  %115 = icmp sgt i32 %.1310, 1
+  %115 = icmp sgt i32 %.1311, 1
   br i1 %115, label %.preheader.preheader, label %.thread406
 
 .preheader.preheader:                             ; preds = %114
-  %wide.trip.count = zext nneg i32 %.1310 to i64
+  %wide.trip.count = zext nneg i32 %.1311 to i64
   br label %.preheader
 
 116:                                              ; preds = %.preheader
@@ -646,15 +646,15 @@ proto_item_set_hidden.exit380:                    ; preds = %269, %274, %277
   br label %288
 
 288:                                              ; preds = %proto_item_set_hidden.exit380, %proto_item_set_hidden.exit377
-  %.0319 = phi i32 [ %287, %proto_item_set_hidden.exit380 ], [ %268, %proto_item_set_hidden.exit377 ]
+  %.0319 = phi i32 [ %233, %proto_item_set_hidden.exit380 ], [ %247, %proto_item_set_hidden.exit377 ]
   %.1317 = phi ptr [ %284, %proto_item_set_hidden.exit380 ], [ %265, %proto_item_set_hidden.exit377 ]
-  %.0315 = phi i32 [ %233, %proto_item_set_hidden.exit380 ], [ %247, %proto_item_set_hidden.exit377 ]
+  %.0307 = phi i32 [ %287, %proto_item_set_hidden.exit380 ], [ %268, %proto_item_set_hidden.exit377 ]
   %.0304 = phi i32 [ %285, %proto_item_set_hidden.exit380 ], [ %266, %proto_item_set_hidden.exit377 ]
-  %289 = icmp sgt i32 %.0315, 0
+  %289 = icmp sgt i32 %.0319, 0
   br i1 %289, label %290, label %proto_item_set_hidden.exit383.thread
 
 290:                                              ; preds = %288
-  %291 = zext nneg i32 %.0315 to i64
+  %291 = zext nneg i32 %.0319 to i64
   %292 = call i32 @strncmp(ptr noundef %.1317, ptr noundef nonnull @.str.67, i64 noundef %291) #7
   %293 = icmp eq i32 %292, 0
   br i1 %293, label %321, label %294
@@ -705,12 +705,12 @@ proto_item_set_hidden.exit380:                    ; preds = %269, %274, %277
   br i1 %320, label %321, label %325
 
 321:                                              ; preds = %318, %315, %312, %309, %306, %303, %300, %297, %294, %290
-  %.not360 = icmp eq i32 %.0319, 0
+  %.not360 = icmp eq i32 %.0307, 0
   br i1 %.not360, label %proto_item_set_hidden.exit383.thread, label %322
 
 322:                                              ; preds = %321
   %323 = load i32, ptr @hf_imap_request_folder, align 4
-  %324 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %323, ptr noundef %0, i32 noundef %.0304, i32 noundef %.0319, i32 noundef 0) #6
+  %324 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %323, ptr noundef %0, i32 noundef %.0304, i32 noundef %.0307, i32 noundef 0) #6
   br label %proto_item_set_hidden.exit383.thread
 
 325:                                              ; preds = %318
@@ -741,7 +741,7 @@ proto_item_set_hidden.exit380:                    ; preds = %269, %274, %277
   br i1 %339, label %340, label %341
 
 340:                                              ; preds = %337
-  store i32 1, ptr %.0314, align 4
+  store i32 1, ptr %.0315, align 4
   br label %proto_item_set_hidden.exit383.thread
 
 341:                                              ; preds = %337
@@ -816,7 +816,7 @@ proto_item_set_hidden.exit380:                    ; preds = %269, %274, %277
   br label %proto_item_set_hidden.exit383
 
 proto_item_set_hidden.exit383:                    ; preds = %385, %382, %377, %370
-  %389 = load i32, ptr %.0314, align 4
+  %389 = load i32, ptr %.0315, align 4
   %.not362 = icmp ne i32 %389, 0
   %390 = icmp ne ptr %239, null
   %or.cond369 = select i1 %.not362, i1 %390, i1 false
@@ -840,7 +840,7 @@ proto_item_set_hidden.exit383:                    ; preds = %385, %382, %377, %3
   br label %401
 
 401:                                              ; preds = %400, %394
-  store i32 0, ptr %.0314, align 4
+  store i32 0, ptr %.0315, align 4
   br label %proto_item_set_hidden.exit383.thread
 
 proto_item_set_hidden.exit383.thread:             ; preds = %288, %334, %330, %341, %344, %340, %321, %322, %242, %proto_item_set_hidden.exit383, %401, %391, %232

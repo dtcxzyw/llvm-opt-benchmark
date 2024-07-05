@@ -292,7 +292,7 @@ Abc_Clock.exit:                                   ; preds = %4, %11
   br label %.preheader203
 
 .preheader203:                                    ; preds = %.preheader203.lr.ph, %.critedge6
-  %.0136223 = phi i32 [ 0, %.preheader203.lr.ph ], [ %184, %.critedge6 ]
+  %.0137223 = phi i32 [ 0, %.preheader203.lr.ph ], [ %184, %.critedge6 ]
   %.val170204 = load i32, ptr %23, align 8
   %.val171205 = load ptr, ptr %24, align 8
   %45 = getelementptr i8, ptr %.val171205, i64 4
@@ -342,7 +342,7 @@ Abc_Clock.exit:                                   ; preds = %4, %11
 64:                                               ; preds = %56
   %65 = load i32, ptr %42, align 4
   %66 = load i32, ptr %27, align 4
-  %67 = mul nsw i32 %66, %.0136223
+  %67 = mul nsw i32 %66, %.0137223
   %68 = trunc nuw nsw i64 %indvars.iv256 to i32
   %69 = add i32 %65, %68
   %70 = add i32 %69, %67
@@ -385,16 +385,16 @@ Abc_Clock.exit:                                   ; preds = %4, %11
   br i1 %89, label %.lr.ph213, label %.critedge2
 
 .lr.ph213:                                        ; preds = %.critedge
-  %90 = icmp eq i32 %.0136223, 0
+  %90 = icmp eq i32 %.0137223, 0
   br label %91
 
 91:                                               ; preds = %.lr.ph213, %127
   %.val212 = phi i32 [ %.val210, %.lr.ph213 ], [ %.val, %127 ]
-  %.1134211 = phi i32 [ 0, %.lr.ph213 ], [ %128, %127 ]
+  %.1135211 = phi i32 [ 0, %.lr.ph213 ], [ %128, %127 ]
   %.val169 = load ptr, ptr %24, align 8
   %92 = getelementptr i8, ptr %.val169, i64 4
   %.val169.val = load i32, ptr %92, align 4
-  %93 = sub i32 %.1134211, %.val212
+  %93 = sub i32 %.1135211, %.val212
   %94 = add i32 %93, %.val169.val
   %.val180 = load ptr, ptr %35, align 8
   %95 = getelementptr i8, ptr %.val169, i64 8
@@ -446,7 +446,7 @@ Abc_Clock.exit:                                   ; preds = %4, %11
 127:                                              ; preds = %103, %106
   %storemerge = phi i64 [ %126, %106 ], [ %105, %103 ]
   store i64 %storemerge, ptr %100, align 4
-  %128 = add nuw nsw i32 %.1134211, 1
+  %128 = add nuw nsw i32 %.1135211, 1
   %.val = load i32, ptr %23, align 8
   %129 = icmp slt i32 %128, %.val
   br i1 %129, label %91, label %.critedge2, !llvm.loop !9
@@ -604,9 +604,9 @@ Gia_ObjTerSimCo.exit:                             ; preds = %Gia_ObjTerSimGet0Fa
 
 .critedge6:                                       ; preds = %Gia_ObjTerSimCo.exit, %.lr.ph220, %.critedge4
   %.val187249 = phi ptr [ %158, %.critedge4 ], [ %180, %Gia_ObjTerSimCo.exit ], [ %161, %.lr.ph220 ]
-  %184 = add nuw nsw i32 %.0136223, 1
+  %184 = add nuw nsw i32 %.0137223, 1
   %185 = load i32, ptr %39, align 4
-  %.not150.not = icmp slt i32 %.0136223, %185
+  %.not150.not = icmp slt i32 %.0137223, %185
   br i1 %.not150.not, label %.preheader203, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.critedge6, %.._crit_edge_crit_edge
@@ -770,8 +770,8 @@ Vec_IntFree.exit198:                              ; preds = %Vec_IntFree.exit, %
   br label %252
 
 252:                                              ; preds = %250, %251, %249, %29, %18
-  %.0138 = phi i32 [ -1, %18 ], [ -1, %29 ], [ 0, %249 ], [ -1, %251 ], [ -1, %250 ]
-  ret i32 %.0138
+  %.0130 = phi i32 [ -1, %18 ], [ -1, %29 ], [ 0, %249 ], [ -1, %251 ], [ -1, %250 ]
+  ret i32 %.0130
 }
 
 declare ptr @Gia_ManDupAbsGates(ptr noundef, ptr noundef) local_unnamed_addr #1

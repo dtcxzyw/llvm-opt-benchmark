@@ -1522,8 +1522,8 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %call5.i.i.i.i2.i.i1
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i37, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !11
 
 invoke.cont.i37:                                  ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i19.i.noexc, %_ZNSt6vectorIN4pbrt15MortonPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
-  %tempVector.sroa.0.0.i = phi ptr [ %call5.i.i.i.i2.i.i19.i40, %call5.i.i.i.i2.i.i19.i.noexc ], [ null, %_ZNSt6vectorIN4pbrt15MortonPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %call5.i.i.i.i2.i.i19.i40, %for.body.i.i.i.i.i.i.i.i.i.i ]
   %tempVector.sroa.13.0.i = phi ptr [ %add.ptr.i.i.i.i, %call5.i.i.i.i2.i.i19.i.noexc ], [ null, %_ZNSt6vectorIN4pbrt15MortonPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %add.ptr.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ]
+  %tempVector.sroa.0.0.i = phi ptr [ %call5.i.i.i.i2.i.i19.i40, %call5.i.i.i.i2.i.i19.i.noexc ], [ null, %_ZNSt6vectorIN4pbrt15MortonPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %call5.i.i.i.i2.i.i19.i40, %for.body.i.i.i.i.i.i.i.i.i.i ]
   %__first.addr.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %call5.i.i.i.i2.i.i19.i.noexc ], [ null, %_ZNSt6vectorIN4pbrt15MortonPrimitiveESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %add.ptr.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i22.not4754.i = icmp eq ptr %tempVector.sroa.0.0.i, %__first.addr.0.i.i.i.i.i.i
   br label %for.body.i
@@ -3579,7 +3579,7 @@ for.end147:                                       ; preds = %_ZN4pbrt6Tuple3INS_
 
 for.body151:                                      ; preds = %for.end147, %for.body151
   %indvars.iv = phi i64 [ 0, %for.end147 ], [ %indvars.iv.next, %for.body151 ]
-  %countBelow.0596 = phi i32 [ 0, %for.end147 ], [ %add159, %for.body151 ]
+  %countBelow.0597 = phi i32 [ 0, %for.end147 ], [ %add159, %for.body151 ]
   %boundBelow.sroa.15.0595 = phi float [ 0xC7EFFFFFE0000000, %for.end147 ], [ %.sroa.speculated.i10.i318, %for.body151 ]
   %boundBelow.sroa.9.0594 = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %for.end147 ], [ %136, %for.body151 ]
   %boundBelow.sroa.5.0593 = phi float [ 0x47EFFFFFE0000000, %for.end147 ], [ %.sroa.speculated.i.i300, %for.body151 ]
@@ -3598,7 +3598,7 @@ for.body151:                                      ; preds = %for.end147, %for.bo
   %cmp.i3.i9.i317 = fcmp olt float %boundBelow.sroa.15.0595, %agg.tmp6.sroa.2.0.copyload.i310
   %.sroa.speculated.i10.i318 = select i1 %cmp.i3.i9.i317, float %agg.tmp6.sroa.2.0.copyload.i310, float %boundBelow.sroa.15.0595
   %132 = load i32, ptr %arrayidx154, align 4
-  %add159 = add nsw i32 %132, %countBelow.0596
+  %add159 = add nsw i32 %132, %countBelow.0597
   %conv160 = sitofp i32 %add159 to float
   %sub6.i.i.i331 = fsub float %.sroa.speculated.i10.i318, %.sroa.speculated.i.i300
   %133 = fcmp olt <2 x float> %agg.tmp1.sroa.0.0.copyload.i290, %boundBelow.sroa.0.0592
@@ -5800,24 +5800,24 @@ for.body106:                                      ; preds = %for.cond104.prehead
   %indvars.iv501 = phi i64 [ 0, %for.cond104.preheader ], [ %indvars.iv.next502, %for.body106 ]
   %count0.0464 = phi i32 [ 0, %for.cond104.preheader ], [ %add114, %for.body106 ]
   %b0.sroa.15.0463 = phi float [ 0xC7EFFFFFE0000000, %for.cond104.preheader ], [ %.sroa.speculated.i10.i240, %for.body106 ]
-  %b0.sroa.0.1462 = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %for.cond104.preheader ], [ %44, %for.body106 ]
-  %b0.sroa.5.0461 = phi float [ 0x47EFFFFFE0000000, %for.cond104.preheader ], [ %.sroa.speculated.i.i222, %for.body106 ]
-  %b0.sroa.9.1460 = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %for.cond104.preheader ], [ %46, %for.body106 ]
+  %b0.sroa.9.1462 = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %for.cond104.preheader ], [ %46, %for.body106 ]
+  %b0.sroa.0.1461 = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %for.cond104.preheader ], [ %44, %for.body106 ]
+  %b0.sroa.5.0460 = phi float [ 0x47EFFFFFE0000000, %for.cond104.preheader ], [ %.sroa.speculated.i.i222, %for.body106 ]
   %arrayidx109 = getelementptr inbounds [12 x %struct.BVHSplitBucket], ptr %buckets, i64 0, i64 %indvars.iv501
   %bounds110 = getelementptr inbounds i8, ptr %arrayidx109, i64 4
   %agg.tmp1.sroa.0.0.copyload.i212 = load <2 x float>, ptr %bounds110, align 4, !noalias !69
   %agg.tmp1.sroa.2.0.pMin2.sroa_idx.i213 = getelementptr inbounds i8, ptr %arrayidx109, i64 12
   %agg.tmp1.sroa.2.0.copyload.i214 = load float, ptr %agg.tmp1.sroa.2.0.pMin2.sroa_idx.i213, align 4, !noalias !69
-  %cmp.i3.i.i221 = fcmp olt float %agg.tmp1.sroa.2.0.copyload.i214, %b0.sroa.5.0461
-  %.sroa.speculated.i.i222 = select i1 %cmp.i3.i.i221, float %agg.tmp1.sroa.2.0.copyload.i214, float %b0.sroa.5.0461
+  %cmp.i3.i.i221 = fcmp olt float %agg.tmp1.sroa.2.0.copyload.i214, %b0.sroa.5.0460
+  %.sroa.speculated.i.i222 = select i1 %cmp.i3.i.i221, float %agg.tmp1.sroa.2.0.copyload.i214, float %b0.sroa.5.0460
   %pMax7.i229 = getelementptr inbounds i8, ptr %arrayidx109, i64 16
   %agg.tmp6.sroa.0.0.copyload.i230 = load <2 x float>, ptr %pMax7.i229, align 4, !noalias !69
   %agg.tmp6.sroa.2.0.pMax7.sroa_idx.i231 = getelementptr inbounds i8, ptr %arrayidx109, i64 24
   %agg.tmp6.sroa.2.0.copyload.i232 = load float, ptr %agg.tmp6.sroa.2.0.pMax7.sroa_idx.i231, align 4, !noalias !69
-  %43 = fcmp olt <2 x float> %agg.tmp1.sroa.0.0.copyload.i212, %b0.sroa.0.1462
-  %44 = select <2 x i1> %43, <2 x float> %agg.tmp1.sroa.0.0.copyload.i212, <2 x float> %b0.sroa.0.1462
-  %45 = fcmp olt <2 x float> %b0.sroa.9.1460, %agg.tmp6.sroa.0.0.copyload.i230
-  %46 = select <2 x i1> %45, <2 x float> %agg.tmp6.sroa.0.0.copyload.i230, <2 x float> %b0.sroa.9.1460
+  %43 = fcmp olt <2 x float> %agg.tmp1.sroa.0.0.copyload.i212, %b0.sroa.0.1461
+  %44 = select <2 x i1> %43, <2 x float> %agg.tmp1.sroa.0.0.copyload.i212, <2 x float> %b0.sroa.0.1461
+  %45 = fcmp olt <2 x float> %b0.sroa.9.1462, %agg.tmp6.sroa.0.0.copyload.i230
+  %46 = select <2 x i1> %45, <2 x float> %agg.tmp6.sroa.0.0.copyload.i230, <2 x float> %b0.sroa.9.1462
   %cmp.i3.i9.i239 = fcmp olt float %b0.sroa.15.0463, %agg.tmp6.sroa.2.0.copyload.i232
   %.sroa.speculated.i10.i240 = select i1 %cmp.i3.i9.i239, float %agg.tmp6.sroa.2.0.copyload.i232, float %b0.sroa.15.0463
   %47 = load i32, ptr %arrayidx109, align 4
@@ -9237,8 +9237,8 @@ if.end9:                                          ; preds = %if.end9.lr.ph, %if.
   %toVisitIndex.0174 = phi i32 [ 0, %if.end9.lr.ph ], [ %toVisitIndex.1, %if.end121 ]
   %nodesVisited.0173 = phi i32 [ 0, %if.end9.lr.ph ], [ %inc, %if.end121 ]
   %node.0172 = phi ptr [ %2, %if.end9.lr.ph ], [ %node.1, %if.end121 ]
-  %tMax.1171 = phi float [ %cond18.i, %if.end9.lr.ph ], [ %tMax.2, %if.end121 ]
-  %tMin.1170 = phi float [ %cond.i, %if.end9.lr.ph ], [ %tMin.2, %if.end121 ]
+  %tMin.1171 = phi float [ %cond.i, %if.end9.lr.ph ], [ %tMin.2, %if.end121 ]
+  %tMax.1170 = phi float [ %cond18.i, %if.end9.lr.ph ], [ %tMax.2, %if.end121 ]
   %3 = phi i8 [ 0, %if.end9.lr.ph ], [ %29, %if.end121 ]
   %inc = add nuw nsw i32 %nodesVisited.0173, 1
   %flags.i = getelementptr inbounds i8, ptr %node.0172, i64 4
@@ -9340,13 +9340,13 @@ if.else:                                          ; preds = %_ZNK4pbrt6Tuple3INS
 if.end49:                                         ; preds = %if.else, %if.then38
   %firstChild.0 = phi ptr [ %add.ptr, %if.then38 ], [ %arrayidx47, %if.else ]
   %secondChild.0 = phi ptr [ %arrayidx42, %if.then38 ], [ %add.ptr48, %if.else ]
-  %cmp50 = fcmp ogt float %mul154, %tMax.1171
+  %cmp50 = fcmp ogt float %mul154, %tMax.1170
   %cmp51 = fcmp ole float %mul154, 0.000000e+00
   %or.cond = or i1 %cmp50, %cmp51
   br i1 %or.cond, label %if.end121, label %if.else53
 
 if.else53:                                        ; preds = %if.end49
-  %cmp54 = fcmp olt float %mul154, %tMin.1170
+  %cmp54 = fcmp olt float %mul154, %tMin.1171
   br i1 %cmp54, label %if.end121, label %if.else56
 
 if.else56:                                        ; preds = %if.else53
@@ -9356,7 +9356,7 @@ if.else56:                                        ; preds = %if.else53
   %tMin62 = getelementptr inbounds i8, ptr %arrayidx58, i64 8
   store float %mul154, ptr %tMin62, align 8
   %tMax65 = getelementptr inbounds i8, ptr %arrayidx58, i64 12
-  store float %tMax.1171, ptr %tMax65, align 4
+  store float %tMax.1170, ptr %tMax65, align 4
   %inc66 = add nsw i32 %toVisitIndex.0174, 1
   br label %if.end121
 
@@ -9473,8 +9473,8 @@ if.then109:                                       ; preds = %if.end107
 
 if.end121:                                        ; preds = %if.else53, %if.end49, %if.else56, %if.then109
   %29 = phi i8 [ %25, %if.then109 ], [ %3, %if.end49 ], [ %3, %if.else53 ], [ %3, %if.else56 ]
-  %tMin.2 = phi float [ %27, %if.then109 ], [ %tMin.1170, %if.end49 ], [ %tMin.1170, %if.else53 ], [ %tMin.1170, %if.else56 ]
-  %tMax.2 = phi float [ %28, %if.then109 ], [ %tMax.1171, %if.end49 ], [ %tMax.1171, %if.else53 ], [ %mul154, %if.else56 ]
+  %tMax.2 = phi float [ %28, %if.then109 ], [ %tMax.1170, %if.end49 ], [ %tMax.1170, %if.else53 ], [ %mul154, %if.else56 ]
+  %tMin.2 = phi float [ %27, %if.then109 ], [ %tMin.1171, %if.end49 ], [ %tMin.1171, %if.else53 ], [ %tMin.1171, %if.else56 ]
   %node.1 = phi ptr [ %26, %if.then109 ], [ %firstChild.0, %if.end49 ], [ %secondChild.0, %if.else53 ], [ %firstChild.0, %if.else56 ]
   %toVisitIndex.1 = phi i32 [ %dec, %if.then109 ], [ %toVisitIndex.0174, %if.end49 ], [ %toVisitIndex.0174, %if.else53 ], [ %inc66, %if.else56 ]
   %rayTMax.addr.5 = phi float [ %rayTMax.addr.4, %if.then109 ], [ %rayTMax.addr.0175, %if.end49 ], [ %rayTMax.addr.0175, %if.else53 ], [ %rayTMax.addr.0175, %if.else56 ]
@@ -9607,8 +9607,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %toVisitIndex.0111 = phi i32 [ 0, %while.body.lr.ph ], [ %toVisitIndex.1, %if.end93 ]
   %nodesVisited.0110 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %if.end93 ]
   %node.0109 = phi ptr [ %2, %while.body.lr.ph ], [ %node.1, %if.end93 ]
-  %tMax.1108 = phi float [ %cond18.i, %while.body.lr.ph ], [ %tMax.2, %if.end93 ]
-  %tMin.1107 = phi float [ %cond.i, %while.body.lr.ph ], [ %tMin.2, %if.end93 ]
+  %tMin.1108 = phi float [ %cond.i, %while.body.lr.ph ], [ %tMin.2, %if.end93 ]
+  %tMax.1107 = phi float [ %cond18.i, %while.body.lr.ph ], [ %tMax.2, %if.end93 ]
   %inc = add nuw nsw i32 %nodesVisited.0110, 1
   %flags.i = getelementptr inbounds i8, ptr %node.0109, i64 4
   %3 = load i32, ptr %flags.i, align 4
@@ -9744,13 +9744,13 @@ if.else67:                                        ; preds = %_ZNK4pbrt6Tuple3INS
 if.end73:                                         ; preds = %if.else67, %if.then62
   %firstChild.0 = phi ptr [ %add.ptr, %if.then62 ], [ %arrayidx71, %if.else67 ]
   %secondChild.0 = phi ptr [ %arrayidx66, %if.then62 ], [ %add.ptr72, %if.else67 ]
-  %cmp74 = fcmp ogt float %mul102, %tMax.1108
+  %cmp74 = fcmp ogt float %mul102, %tMax.1107
   %cmp75 = fcmp ole float %mul102, 0.000000e+00
   %or.cond = or i1 %cmp74, %cmp75
   br i1 %or.cond, label %if.end93, label %if.else77
 
 if.else77:                                        ; preds = %if.end73
-  %cmp78 = fcmp olt float %mul102, %tMin.1107
+  %cmp78 = fcmp olt float %mul102, %tMin.1108
   br i1 %cmp78, label %if.end93, label %if.else80
 
 if.else80:                                        ; preds = %if.else77
@@ -9760,13 +9760,13 @@ if.else80:                                        ; preds = %if.else77
   %tMin86 = getelementptr inbounds i8, ptr %arrayidx82, i64 8
   store float %mul102, ptr %tMin86, align 8
   %tMax89 = getelementptr inbounds i8, ptr %arrayidx82, i64 12
-  store float %tMax.1108, ptr %tMax89, align 4
+  store float %tMax.1107, ptr %tMax89, align 4
   %inc90 = add nsw i32 %toVisitIndex.0111, 1
   br label %if.end93
 
 if.end93:                                         ; preds = %if.else77, %if.end73, %if.else80, %if.then32
-  %tMin.2 = phi float [ %11, %if.then32 ], [ %tMin.1107, %if.end73 ], [ %tMin.1107, %if.else77 ], [ %tMin.1107, %if.else80 ]
-  %tMax.2 = phi float [ %12, %if.then32 ], [ %tMax.1108, %if.end73 ], [ %tMax.1108, %if.else77 ], [ %mul102, %if.else80 ]
+  %tMax.2 = phi float [ %12, %if.then32 ], [ %tMax.1107, %if.end73 ], [ %tMax.1107, %if.else77 ], [ %mul102, %if.else80 ]
+  %tMin.2 = phi float [ %11, %if.then32 ], [ %tMin.1108, %if.end73 ], [ %tMin.1108, %if.else77 ], [ %tMin.1108, %if.else80 ]
   %node.1 = phi ptr [ %10, %if.then32 ], [ %firstChild.0, %if.end73 ], [ %secondChild.0, %if.else77 ], [ %firstChild.0, %if.else80 ]
   %toVisitIndex.1 = phi i32 [ %dec, %if.then32 ], [ %toVisitIndex.0111, %if.end73 ], [ %toVisitIndex.0111, %if.else77 ], [ %inc90, %if.else80 ]
   %tobool.not = icmp eq ptr %node.1, null

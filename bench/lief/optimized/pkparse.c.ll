@@ -1049,7 +1049,7 @@ pk_group_from_specified.exit.thread8.i:           ; preds = %104
   br label %112
 
 pk_group_id_from_specified.exit.thread:           ; preds = %18, %21, %23, %28, %30, %36, %40, %71, %75, %80, %84, %88, %94, %101
-  %.040.i.ph.i = phi i32 [ -15718, %71 ], [ -15718, %36 ], [ -15616, %84 ], [ -15616, %88 ], [ -15616, %94 ], [ -15616, %101 ], [ -15616, %75 ], [ -15616, %80 ], [ %41, %40 ], [ -14720, %28 ], [ -14720, %30 ], [ %27, %23 ], [ %22, %21 ], [ -15616, %18 ]
+  %.0.i.ph.i = phi i32 [ -15718, %71 ], [ -15718, %36 ], [ -15616, %84 ], [ -15616, %88 ], [ -15616, %94 ], [ -15616, %101 ], [ -15616, %75 ], [ -15616, %80 ], [ %41, %40 ], [ -14720, %28 ], [ -14720, %30 ], [ %27, %23 ], [ %22, %21 ], [ -15616, %18 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -1058,12 +1058,12 @@ pk_group_id_from_specified.exit.thread:           ; preds = %18, %21, %23, %28, 
   br label %179
 
 pk_group_from_specified.exit.i:                   ; preds = %104, %73, %57, %52, %47, %42, %32, %13
-  %.040.i.in.i = phi i32 [ %17, %13 ], [ %35, %32 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %74, %73 ], [ %109, %104 ]
-  %.040.i.i = add nsw i32 %.040.i.in.i, -15616
+  %.0.i.in.i = phi i32 [ %17, %13 ], [ %35, %32 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %74, %73 ], [ %109, %104 ]
+  %.0.i.i = add nsw i32 %.0.i.in.i, -15616
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %.not.i = icmp eq i32 %.040.i.i, 0
+  %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %112, label %pk_group_id_from_specified.exit
 
 112:                                              ; preds = %pk_group_from_specified.exit.i, %pk_group_from_specified.exit.thread8.i
@@ -1173,7 +1173,7 @@ pk_group_id_from_group.exit.i:                    ; preds = %133, %163, %167, %1
 
 pk_group_id_from_specified.exit:                  ; preds = %pk_group_from_specified.exit.i, %pk_group_id_from_group.exit.i
   %173 = phi i32 [ undef, %pk_group_from_specified.exit.i ], [ %170, %pk_group_id_from_group.exit.i ]
-  %.0.i = phi i32 [ %.040.i.i, %pk_group_from_specified.exit.i ], [ %spec.select, %pk_group_id_from_group.exit.i ]
+  %.0.i = phi i32 [ %.0.i.i, %pk_group_from_specified.exit.i ], [ %spec.select, %pk_group_id_from_group.exit.i ]
   call void @mbedtls_ecp_group_free(ptr noundef nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %7)
   %.not = icmp eq i32 %.0.i, 0
@@ -1192,7 +1192,7 @@ pk_group_id_from_specified.exit:                  ; preds = %pk_group_from_speci
   br label %179
 
 179:                                              ; preds = %pk_group_id_from_specified.exit.thread, %177, %174, %pk_group_id_from_specified.exit, %11
-  %.0 = phi i32 [ -14848, %11 ], [ %.0.i, %pk_group_id_from_specified.exit ], [ -15616, %174 ], [ %178, %177 ], [ %.040.i.ph.i, %pk_group_id_from_specified.exit.thread ]
+  %.0 = phi i32 [ -14848, %11 ], [ %.0.i, %pk_group_id_from_specified.exit ], [ -15616, %174 ], [ %178, %177 ], [ %.0.i.ph.i, %pk_group_id_from_specified.exit.thread ]
   ret i32 %.0
 }
 
@@ -1471,7 +1471,7 @@ define internal fastcc i32 @pk_parse_key_sec1_der(ptr noundef %0, ptr noundef %1
   br i1 %.not66, label %50, label %47
 
 47:                                               ; preds = %45, %40
-  %.043 = phi i32 [ %44, %40 ], [ %46, %45 ]
+  %.044 = phi i32 [ %44, %40 ], [ %46, %45 ]
   call void @mbedtls_ecp_keypair_free(ptr noundef %0) #10
   br label %77
 
@@ -1545,8 +1545,8 @@ define internal fastcc i32 @pk_parse_key_sec1_der(ptr noundef %0, ptr noundef %1
   br label %77
 
 77:                                               ; preds = %61, %74, %65, %21, %76, %72, %67, %59, %48, %47, %32, %25, %19, %12
-  %.044 = phi i32 [ %13, %12 ], [ %20, %19 ], [ %26, %25 ], [ %33, %32 ], [ %.043, %47 ], [ %60, %59 ], [ %75, %76 ], [ %73, %72 ], [ %68, %67 ], [ %49, %48 ], [ -15744, %21 ], [ -15616, %65 ], [ 0, %74 ], [ -15718, %61 ]
-  ret i32 %.044
+  %.0 = phi i32 [ %13, %12 ], [ %20, %19 ], [ %26, %25 ], [ %33, %32 ], [ %.044, %47 ], [ %60, %59 ], [ %75, %76 ], [ %73, %72 ], [ %68, %67 ], [ %49, %48 ], [ -15744, %21 ], [ -15616, %65 ], [ 0, %74 ], [ -15718, %61 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1824,8 +1824,8 @@ define internal fastcc i32 @pk_parse_key_pkcs8_encrypted_der(ptr noundef %0, ptr
   br label %.critedge38
 
 .critedge38:                                      ; preds = %45, %42, %48, %35, %7, %.critedge, %52, %41, %29, %25, %18
-  %.024 = phi i32 [ %19, %18 ], [ %26, %25 ], [ %30, %29 ], [ %40, %41 ], [ %54, %.critedge ], [ %51, %52 ], [ -15360, %7 ], [ -15232, %35 ], [ -15232, %48 ], [ -14720, %42 ], [ -14720, %45 ]
-  ret i32 %.024
+  %.0 = phi i32 [ %19, %18 ], [ %26, %25 ], [ %30, %29 ], [ %40, %41 ], [ %54, %.critedge ], [ %51, %52 ], [ -15360, %7 ], [ -15232, %35 ], [ -15232, %48 ], [ -14720, %42 ], [ -14720, %45 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

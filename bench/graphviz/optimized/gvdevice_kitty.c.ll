@@ -92,18 +92,18 @@ gv_alloc.exit.preheader.i:                        ; preds = %5
   unreachable
 
 .lr.ph.i:                                         ; preds = %gv_alloc.exit.preheader.i, %gv_alloc.exit.i
-  %.046.i = phi i64 [ %67, %gv_alloc.exit.i ], [ 0, %gv_alloc.exit.preheader.i ]
-  %.03945.i = phi i64 [ %65, %gv_alloc.exit.i ], [ 0, %gv_alloc.exit.preheader.i ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 %.046.i
+  %.046.i = phi i64 [ %65, %gv_alloc.exit.i ], [ 0, %gv_alloc.exit.preheader.i ]
+  %.03945.i = phi i64 [ %67, %gv_alloc.exit.i ], [ 0, %gv_alloc.exit.preheader.i ]
+  %18 = getelementptr inbounds i8, ptr %0, i64 %.03945.i
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = lshr i32 %20, 2
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds [66 x i8], ptr @base64_alphabet, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %12, i64 %.03945.i
+  %25 = getelementptr inbounds i8, ptr %12, i64 %.046.i
   store i8 %24, ptr %25, align 1
-  %26 = add nuw i64 %.046.i, 1
+  %26 = add nuw i64 %.03945.i, 1
   %27 = icmp ult i64 %26, %1
   br i1 %27, label %28, label %31
 
@@ -122,13 +122,13 @@ gv_alloc.exit.preheader.i:                        ; preds = %5
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds [66 x i8], ptr @base64_alphabet, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
-  %41 = or disjoint i64 %.03945.i, 2
+  %41 = or disjoint i64 %.046.i, 2
   %42 = getelementptr i8, ptr %25, i64 1
   store i8 %40, ptr %42, align 1
   br i1 %27, label %43, label %gv_alloc.exit._crit_edge.i
 
 43:                                               ; preds = %31
-  %44 = add i64 %.046.i, 2
+  %44 = add i64 %.03945.i, 2
   %45 = icmp ult i64 %44, %1
   br i1 %45, label %46, label %49
 
@@ -147,7 +147,7 @@ gv_alloc.exit.preheader.i:                        ; preds = %5
   %56 = zext nneg i32 %55 to i64
   %57 = getelementptr inbounds [66 x i8], ptr @base64_alphabet, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1
-  %59 = or disjoint i64 %.03945.i, 3
+  %59 = or disjoint i64 %.046.i, 3
   %60 = getelementptr inbounds i8, ptr %12, i64 %41
   store i8 %58, ptr %60, align 1
   br i1 %45, label %gv_alloc.exit.i, label %gv_alloc.exit._crit_edge.i
@@ -157,10 +157,10 @@ gv_alloc.exit.i:                                  ; preds = %49
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds [66 x i8], ptr @base64_alphabet, i64 0, i64 %62
   %64 = load i8, ptr %63, align 1
-  %65 = add i64 %.03945.i, 4
+  %65 = add i64 %.046.i, 4
   %66 = getelementptr inbounds i8, ptr %12, i64 %59
   store i8 %64, ptr %66, align 1
-  %67 = add i64 %.046.i, 3
+  %67 = add i64 %.03945.i, 3
   %68 = icmp ult i64 %67, %1
   br i1 %68, label %.lr.ph.i, label %gv_alloc.exit._crit_edge.i
 

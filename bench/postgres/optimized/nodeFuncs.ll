@@ -834,8 +834,8 @@ tailrecurse.backedge:                             ; preds = %41, %43, %59, %71, 
   br label %tailrecurse.backedge
 
 exprIsLengthCoercion.exit.thread:                 ; preds = %tailrecurse.backedge, %47, %.lr.ph, %.lr.ph223, %206, %198, %.lr.ph239, %176, %168, %.lr.ph255, %146, %138, %.lr.ph271, %114, %104, %1, %192, %.lr.ph212.split, %162, %.lr.ph226.split, %129, %.lr.ph242.split, %97, %.lr.ph258.split, %18, %24, %30, %33, %list_length.exit.i, %15, %37, %65, %186, %178, %156, %148, %124, %120, %93, %91, %86, %224, %221, %218, %213, %208, %117, %81, %78, %75, %68, %12, %9, %6, %3
-  %.0116 = phi i32 [ %226, %224 ], [ %223, %221 ], [ %220, %218 ], [ %217, %213 ], [ %210, %208 ], [ %119, %117 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %70, %68 ], [ %14, %12 ], [ %11, %9 ], [ %8, %6 ], [ %5, %3 ], [ -1, %86 ], [ -1, %91 ], [ -1, %93 ], [ -1, %120 ], [ -1, %124 ], [ -1, %148 ], [ -1, %156 ], [ -1, %178 ], [ -1, %186 ], [ -1, %65 ], [ %40, %37 ], [ -1, %15 ], [ -1, %list_length.exit.i ], [ -1, %33 ], [ -1, %30 ], [ -1, %24 ], [ -1, %18 ], [ %95, %97 ], [ %95, %.lr.ph258.split ], [ %127, %129 ], [ %127, %.lr.ph242.split ], [ %160, %162 ], [ %160, %.lr.ph226.split ], [ %190, %192 ], [ %190, %.lr.ph212.split ], [ -1, %1 ], [ -1, %.lr.ph271 ], [ -1, %114 ], [ %95, %104 ], [ -1, %.lr.ph255 ], [ -1, %146 ], [ %127, %138 ], [ -1, %.lr.ph239 ], [ -1, %176 ], [ %160, %168 ], [ -1, %.lr.ph223 ], [ -1, %206 ], [ %190, %198 ], [ -1, %.lr.ph ], [ -1, %47 ], [ -1, %tailrecurse.backedge ]
-  ret i32 %.0116
+  %.0 = phi i32 [ %226, %224 ], [ %223, %221 ], [ %220, %218 ], [ %217, %213 ], [ %210, %208 ], [ %119, %117 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %70, %68 ], [ %14, %12 ], [ %11, %9 ], [ %8, %6 ], [ %5, %3 ], [ -1, %86 ], [ -1, %91 ], [ -1, %93 ], [ -1, %120 ], [ -1, %124 ], [ -1, %148 ], [ -1, %156 ], [ -1, %178 ], [ -1, %186 ], [ -1, %65 ], [ %40, %37 ], [ -1, %15 ], [ -1, %list_length.exit.i ], [ -1, %33 ], [ -1, %30 ], [ -1, %24 ], [ -1, %18 ], [ %95, %97 ], [ %95, %.lr.ph258.split ], [ %127, %129 ], [ %127, %.lr.ph242.split ], [ %160, %162 ], [ %160, %.lr.ph226.split ], [ %190, %192 ], [ %190, %.lr.ph212.split ], [ -1, %1 ], [ -1, %.lr.ph271 ], [ -1, %114 ], [ %95, %104 ], [ -1, %.lr.ph255 ], [ -1, %146 ], [ %127, %138 ], [ -1, %.lr.ph239 ], [ -1, %176 ], [ %160, %168 ], [ -1, %.lr.ph223 ], [ -1, %206 ], [ %190, %198 ], [ -1, %.lr.ph ], [ -1, %47 ], [ -1, %tailrecurse.backedge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -3752,8 +3752,8 @@ define dso_local noundef zeroext i1 @query_tree_walker_impl(ptr nocapture nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph78, %79, %83, %94, %88, %58, %54, %50, %46, %40, %36, %32, %28, %24, %20, %16, %12, %8, %4, %98
-  %.067 = phi i1 [ false, %98 ], [ true, %4 ], [ true, %8 ], [ true, %12 ], [ true, %16 ], [ true, %20 ], [ true, %24 ], [ true, %28 ], [ true, %32 ], [ true, %36 ], [ true, %40 ], [ true, %46 ], [ true, %50 ], [ true, %54 ], [ true, %58 ], [ true, %88 ], [ true, %94 ], [ true, %83 ], [ true, %79 ], [ true, %.lr.ph78 ]
-  ret i1 %.067
+  %.0 = phi i1 [ false, %98 ], [ true, %4 ], [ true, %8 ], [ true, %12 ], [ true, %16 ], [ true, %20 ], [ true, %24 ], [ true, %28 ], [ true, %32 ], [ true, %36 ], [ true, %40 ], [ true, %46 ], [ true, %50 ], [ true, %54 ], [ true, %58 ], [ true, %88 ], [ true, %94 ], [ true, %83 ], [ true, %79 ], [ true, %.lr.ph78 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5017,7 +5017,7 @@ define dso_local ptr @range_table_mutator_impl(ptr noundef readonly %0, ptr noca
   br i1 %10, label %.lr.ph59, label %._crit_edge
 
 .lr.ph59:                                         ; preds = %.lr.ph, %53
-  %.0455258 = phi ptr [ %58, %53 ], [ null, %.lr.ph ]
+  %.05358 = phi ptr [ %58, %53 ], [ null, %.lr.ph ]
   %indvars.iv57 = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph ]
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr %union.ListCell, ptr %11, i64 %indvars.iv57
@@ -5105,7 +5105,7 @@ define dso_local ptr @range_table_mutator_impl(ptr noundef readonly %0, ptr noca
   %56 = tail call ptr %1(ptr noundef %55, ptr noundef %2) #12
   %57 = getelementptr inbounds i8, ptr %14, i64 208
   store ptr %56, ptr %57, align 8
-  %58 = tail call ptr @lappend(ptr noundef %.0455258, ptr noundef nonnull %14) #12
+  %58 = tail call ptr @lappend(ptr noundef %.05358, ptr noundef nonnull %14) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv57, 1
   %59 = load i32, ptr %5, align 4
   %60 = sext i32 %59 to i64
@@ -5113,8 +5113,8 @@ define dso_local ptr @range_table_mutator_impl(ptr noundef readonly %0, ptr noca
   br i1 %61, label %.lr.ph59, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph, %4
-  %.045.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph ], [ %58, %53 ]
-  ret ptr %.045.lcssa
+  %.0.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph ], [ %58, %53 ]
+  ret ptr %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6484,8 +6484,8 @@ planstate_walk_members.exit.thread:               ; preds = %96, %89, %.lr.ph, %
   br i1 %119, label %planstate_walk_subplans.exit, label %110
 
 planstate_walk_subplans.exit:                     ; preds = %.lr.ph24.i, %.lr.ph97, %.lr.ph24.i81, %110, %.lr.ph.preheader.i71, %.lr.ph.preheader.i63, %.lr.ph.preheader.i55, %.lr.ph.preheader.i, %.lr.ph.i79, %planstate_walk_members.exit.thread, %85, %planstate_walk_members.exit77, %planstate_walk_members.exit69, %planstate_walk_members.exit61, %planstate_walk_members.exit, %29, %24
-  %.044 = phi i1 [ true, %24 ], [ true, %29 ], [ true, %planstate_walk_members.exit ], [ true, %planstate_walk_members.exit61 ], [ true, %planstate_walk_members.exit69 ], [ true, %planstate_walk_members.exit77 ], [ true, %85 ], [ false, %planstate_walk_members.exit.thread ], [ false, %.lr.ph.i79 ], [ true, %.lr.ph.preheader.i ], [ true, %.lr.ph.preheader.i55 ], [ true, %.lr.ph.preheader.i63 ], [ true, %.lr.ph.preheader.i71 ], [ %119, %110 ], [ %119, %.lr.ph24.i81 ], [ true, %.lr.ph97 ], [ true, %.lr.ph24.i ]
-  ret i1 %.044
+  %.0 = phi i1 [ true, %24 ], [ true, %29 ], [ true, %planstate_walk_members.exit ], [ true, %planstate_walk_members.exit61 ], [ true, %planstate_walk_members.exit69 ], [ true, %planstate_walk_members.exit77 ], [ true, %85 ], [ false, %planstate_walk_members.exit.thread ], [ false, %.lr.ph.i79 ], [ true, %.lr.ph.preheader.i ], [ true, %.lr.ph.preheader.i55 ], [ true, %.lr.ph.preheader.i63 ], [ true, %.lr.ph.preheader.i71 ], [ %119, %110 ], [ %119, %.lr.ph24.i81 ], [ true, %.lr.ph97 ], [ true, %.lr.ph24.i ]
+  ret i1 %.0
 }
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #2

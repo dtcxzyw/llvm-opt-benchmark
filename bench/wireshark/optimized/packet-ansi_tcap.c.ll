@@ -1170,8 +1170,8 @@ save_invoke_data.exit._crit_edge:                 ; preds = %save_invoke_data.ex
   br label %129
 
 129:                                              ; preds = %88, %124, %117, %107, %96
-  %.029 = phi i32 [ 0, %96 ], [ 1, %107 ], [ 1, %117 ], [ 0, %124 ], [ 1, %88 ]
-  ret i32 %.029
+  %.0 = phi i32 [ 0, %96 ], [ 1, %107 ], [ 1, %117 ], [ 0, %124 ], [ 1, %88 ]
+  ret i32 %.0
 }
 
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1

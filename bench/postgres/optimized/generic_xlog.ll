@@ -131,9 +131,9 @@ BufferGetPage.exit:                               ; preds = %15, %21
   unreachable
 
 34:                                               ; preds = %29, %BufferGetPage.exit
-  %.015.in = phi ptr [ %12, %BufferGetPage.exit ], [ %30, %29 ]
-  %.015 = load ptr, ptr %.015.in, align 8
-  ret ptr %.015
+  %.0.in = phi ptr [ %12, %BufferGetPage.exit ], [ %30, %29 ]
+  %.0 = load ptr, ptr %.0.in, align 8
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -225,8 +225,8 @@ BufferGetPage.exit:                               ; preds = %15, %21
 49:                                               ; preds = %95, %.lr.ph.i.i
   %50 = phi i32 [ 0, %.lr.ph.i.i ], [ %96, %95 ]
   %.16188.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.464.i.i, %95 ]
-  %.06587.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.368.lcssa.i.i, %95 ]
-  %51 = zext i32 %.06587.i.i to i64
+  %.06687.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.369.lcssa.i.i, %95 ]
+  %51 = zext i32 %.06687.i.i to i64
   %52 = getelementptr i8, ptr %.0.i.i, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = getelementptr i8, ptr %28, i64 %51
@@ -236,7 +236,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
 
 56:                                               ; preds = %49
   %57 = icmp slt i32 %.16188.i.i, 0
-  %spec.select79.i.i = select i1 %57, i32 %.06587.i.i, i32 %.16188.i.i
+  %spec.select79.i.i = select i1 %57, i32 %.06687.i.i, i32 %.16188.i.i
   br label %58
 
 58:                                               ; preds = %61, %56
@@ -260,9 +260,9 @@ BufferGetPage.exit:                               ; preds = %15, %21
 
 .critedge.thread.i.i:                             ; preds = %.critedge.thread.loopexit.i.i, %49
   %.pre-phi.i.i = phi i64 [ %.pre.i.i, %.critedge.thread.loopexit.i.i ], [ %51, %49 ]
-  %.267.i.i = phi i32 [ %59, %.critedge.thread.loopexit.i.i ], [ %.06587.i.i, %49 ]
+  %.268.i.i = phi i32 [ %59, %.critedge.thread.loopexit.i.i ], [ %.06687.i.i, %49 ]
   %.363.i.i = phi i32 [ %spec.select79.i.i, %.critedge.thread.loopexit.i.i ], [ %.16188.i.i, %49 ]
-  %66 = add nuw nsw i32 %.267.i.i, 1
+  %66 = add nuw nsw i32 %.268.i.i, 1
   %smax.i.i = tail call i32 @llvm.smax.i32(i32 %46, i32 %66)
   br label %67
 
@@ -282,18 +282,18 @@ BufferGetPage.exit:                               ; preds = %15, %21
   br i1 %75, label %67, label %.critedge2.i.i, !llvm.loop !9
 
 .critedge2.i.i:                                   ; preds = %70, %67
-  %.368.lcssa.i.i = phi i32 [ %smax.i.i, %67 ], [ %68, %70 ]
+  %.369.lcssa.i.i = phi i32 [ %smax.i.i, %67 ], [ %68, %70 ]
   %76 = icmp sgt i32 %.363.i.i, -1
   br i1 %76, label %77, label %95
 
 77:                                               ; preds = %.critedge2.i.i
-  %78 = sub nsw i32 %.368.lcssa.i.i, %.267.i.i
+  %78 = sub nsw i32 %.369.lcssa.i.i, %.268.i.i
   %79 = icmp ugt i32 %78, 4
   br i1 %79, label %80, label %95
 
 80:                                               ; preds = %77
   %81 = trunc nuw i32 %.363.i.i to i16
-  %82 = sub nsw i32 %.267.i.i, %.363.i.i
+  %82 = sub nsw i32 %.268.i.i, %.363.i.i
   %83 = trunc i32 %82 to i16
   %84 = zext nneg i32 %.363.i.i to i64
   %85 = getelementptr i8, ptr %28, i64 %84
@@ -316,8 +316,8 @@ BufferGetPage.exit:                               ; preds = %15, %21
 95:                                               ; preds = %80, %77, %.critedge2.i.i
   %96 = phi i32 [ %94, %80 ], [ %50, %77 ], [ %50, %.critedge2.i.i ]
   %.464.i.i = phi i32 [ -1, %80 ], [ %.363.i.i, %77 ], [ -1, %.critedge2.i.i ]
-  %.1.i.i = phi i32 [ -1, %80 ], [ %.267.i.i, %77 ], [ %.267.i.i, %.critedge2.i.i ]
-  %97 = icmp slt i32 %.368.lcssa.i.i, %46
+  %.1.i.i = phi i32 [ -1, %80 ], [ %.268.i.i, %77 ], [ %.268.i.i, %.critedge2.i.i ]
+  %97 = icmp slt i32 %.369.lcssa.i.i, %46
   br i1 %97, label %49, label %.critedge.i.i, !llvm.loop !10
 
 .critedge.i.i:                                    ; preds = %95, %58, %32
@@ -374,8 +374,8 @@ computeRegionDelta.exit.i:                        ; preds = %103, %.critedge.i.i
 126:                                              ; preds = %171, %.lr.ph.i21.i
   %127 = phi i32 [ %121, %.lr.ph.i21.i ], [ %172, %171 ]
   %.16188.i22.i = phi i32 [ %spec.select78.i.i, %.lr.ph.i21.i ], [ %.464.i40.i, %171 ]
-  %.06587.i23.i = phi i32 [ %spec.select.i.i, %.lr.ph.i21.i ], [ %.368.lcssa.i39.i, %171 ]
-  %128 = zext i32 %.06587.i23.i to i64
+  %.06687.i23.i = phi i32 [ %spec.select.i.i, %.lr.ph.i21.i ], [ %.369.lcssa.i39.i, %171 ]
+  %128 = zext i32 %.06687.i23.i to i64
   %129 = getelementptr i8, ptr %.0.i.i, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = getelementptr i8, ptr %28, i64 %128
@@ -385,7 +385,7 @@ computeRegionDelta.exit.i:                        ; preds = %103, %.critedge.i.i
 
 133:                                              ; preds = %126
   %134 = icmp slt i32 %.16188.i22.i, 0
-  %spec.select79.i25.i = select i1 %134, i32 %.06587.i23.i, i32 %.16188.i22.i
+  %spec.select79.i25.i = select i1 %134, i32 %.06687.i23.i, i32 %.16188.i22.i
   br label %135
 
 135:                                              ; preds = %138, %133
@@ -409,7 +409,7 @@ computeRegionDelta.exit.i:                        ; preds = %103, %.critedge.i.i
 
 .critedge.thread.i31.i:                           ; preds = %.critedge.thread.loopexit.i29.i, %126
   %.pre-phi.i32.i = phi i64 [ %.pre.i30.i, %.critedge.thread.loopexit.i29.i ], [ %128, %126 ]
-  %.267.i33.i = phi i32 [ %136, %.critedge.thread.loopexit.i29.i ], [ %.06587.i23.i, %126 ]
+  %.268.i33.i = phi i32 [ %136, %.critedge.thread.loopexit.i29.i ], [ %.06687.i23.i, %126 ]
   %.363.i34.i = phi i32 [ %spec.select79.i25.i, %.critedge.thread.loopexit.i29.i ], [ %.16188.i22.i, %126 ]
   br label %143
 
@@ -429,18 +429,18 @@ computeRegionDelta.exit.i:                        ; preds = %103, %.critedge.i.i
   br i1 %151, label %143, label %.critedge2.i38.i, !llvm.loop !9
 
 .critedge2.i38.i:                                 ; preds = %146, %143
-  %.368.lcssa.i39.i = phi i32 [ 8192, %143 ], [ %144, %146 ]
+  %.369.lcssa.i39.i = phi i32 [ 8192, %143 ], [ %144, %146 ]
   %152 = icmp sgt i32 %.363.i34.i, -1
   br i1 %152, label %153, label %171
 
 153:                                              ; preds = %.critedge2.i38.i
-  %154 = sub nsw i32 %.368.lcssa.i39.i, %.267.i33.i
+  %154 = sub nsw i32 %.369.lcssa.i39.i, %.268.i33.i
   %155 = icmp ugt i32 %154, 4
   br i1 %155, label %156, label %171
 
 156:                                              ; preds = %153
   %157 = trunc nuw i32 %.363.i34.i to i16
-  %158 = sub nsw i32 %.267.i33.i, %.363.i34.i
+  %158 = sub nsw i32 %.268.i33.i, %.363.i34.i
   %159 = trunc i32 %158 to i16
   %160 = zext nneg i32 %.363.i34.i to i64
   %161 = getelementptr i8, ptr %28, i64 %160
@@ -463,8 +463,8 @@ computeRegionDelta.exit.i:                        ; preds = %103, %.critedge.i.i
 171:                                              ; preds = %156, %153, %.critedge2.i38.i
   %172 = phi i32 [ %170, %156 ], [ %127, %153 ], [ %127, %.critedge2.i38.i ]
   %.464.i40.i = phi i32 [ -1, %156 ], [ %.363.i34.i, %153 ], [ -1, %.critedge2.i38.i ]
-  %.1.i41.i = phi i32 [ -1, %156 ], [ %.267.i33.i, %153 ], [ %.267.i33.i, %.critedge2.i38.i ]
-  %173 = icmp slt i32 %.368.lcssa.i39.i, 8192
+  %.1.i41.i = phi i32 [ -1, %156 ], [ %.268.i33.i, %153 ], [ %.268.i33.i, %.critedge2.i38.i ]
+  %173 = icmp slt i32 %.369.lcssa.i39.i, 8192
   br i1 %173, label %126, label %.critedge.i14.i, !llvm.loop !10
 
 .critedge.i14.i:                                  ; preds = %171, %135, %computeRegionDelta.exit.i
@@ -642,12 +642,12 @@ BufferGetPage.exit57:                             ; preds = %257, %263
   br i1 %exitcond.not, label %.loopexit, label %251, !llvm.loop !13
 
 .loopexit:                                        ; preds = %272, %246
-  %.049 = phi i64 [ %223, %246 ], [ 0, %272 ]
+  %.0 = phi i64 [ %223, %246 ], [ 0, %272 ]
   %273 = load volatile i32, ptr @CritSectionCount, align 4
   %274 = add i32 %273, -1
   store volatile i32 %274, ptr @CritSectionCount, align 4
   tail call void @pfree(ptr noundef nonnull %0) #7
-  ret i64 %.049
+  ret i64 %.0
 }
 
 declare void @XLogBeginInsert() local_unnamed_addr #1

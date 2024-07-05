@@ -1413,7 +1413,7 @@ for.body52.lr.ph.i:                               ; preds = %for.cond48.preheade
 
 for.body29.i:                                     ; preds = %geometry_pack_weight.exit72.i, %if.end25.i
   %indvars.iv139.i = phi i64 [ 0, %if.end25.i ], [ %indvars.iv.next140.i, %geometry_pack_weight.exit72.i ]
-  %total_size.0115.i = phi i64 [ 0, %if.end25.i ], [ %add.i119, %geometry_pack_weight.exit72.i ]
+  %total_size.0114.i = phi i64 [ 0, %if.end25.i ], [ %add.i119, %geometry_pack_weight.exit72.i ]
   %81 = load ptr, ptr %geometry, align 8
   %arrayidx32.i = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv139.i
   %82 = load ptr, ptr %arrayidx32.i, align 8
@@ -1442,14 +1442,14 @@ geometry_pack_weight.exit72.i:                    ; preds = %geometry_pack_weigh
   %num_objects.i64.i = getelementptr inbounds i8, ptr %82, i64 72
   %83 = load i32, ptr %num_objects.i64.i, align 8
   %conv44.i = zext i32 %83 to i64
-  %add.i119 = add nuw nsw i64 %total_size.0115.i, %conv44.i
+  %add.i119 = add nuw nsw i64 %total_size.0114.i, %conv44.i
   %indvars.iv.next140.i = add nuw nsw i64 %indvars.iv139.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next140.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.cond48.preheader.i, label %for.body29.i, !llvm.loop !10
 
 for.body52.i:                                     ; preds = %geometry_pack_weight.exit93.i, %for.body52.lr.ph.i
   %indvars.iv142.i = phi i64 [ %80, %for.body52.lr.ph.i ], [ %indvars.iv.next143.i, %geometry_pack_weight.exit93.i ]
-  %total_size.1119.i = phi i64 [ %total_size.0.lcssa.i, %for.body52.lr.ph.i ], [ %add91.i, %geometry_pack_weight.exit93.i ]
+  %total_size.1117.i = phi i64 [ %total_size.0.lcssa.i, %for.body52.lr.ph.i ], [ %add91.i, %geometry_pack_weight.exit93.i ]
   %84 = load ptr, ptr %geometry, align 8
   %arrayidx56.i = getelementptr inbounds ptr, ptr %84, i64 %indvars.iv142.i
   %85 = load ptr, ptr %arrayidx56.i, align 8
@@ -1460,7 +1460,7 @@ for.body52.i:                                     ; preds = %geometry_pack_weigh
 land.lhs.true59.i:                                ; preds = %for.body52.i
   %conv61.i = sext i32 %86 to i64
   %div62.i = udiv i64 4294967295, %conv61.i
-  %cmp63.i = icmp ugt i64 %total_size.1119.i, %div62.i
+  %cmp63.i = icmp ugt i64 %total_size.1117.i, %div62.i
   br i1 %cmp63.i, label %if.then65.i, label %if.end69.i
 
 if.then65.i:                                      ; preds = %land.lhs.true59.i
@@ -1486,7 +1486,7 @@ geometry_pack_weight.exit79.i:                    ; preds = %if.end69.i
   %conv71.i = zext i32 %87 to i64
   %88 = load i32, ptr %split_factor, align 4
   %conv73.i = sext i32 %88 to i64
-  %mul74.i = mul nsw i64 %total_size.1119.i, %conv73.i
+  %mul74.i = mul nsw i64 %total_size.1117.i, %conv73.i
   %cmp75.i = icmp sgt i64 %mul74.i, %conv71.i
   br i1 %cmp75.i, label %if.then77.i, label %for.end95.loopexit.i
 
@@ -1516,7 +1516,7 @@ geometry_pack_weight.exit93.i:                    ; preds = %geometry_pack_weigh
   %indvars.iv.next143.i = add nuw nsw i64 %indvars.iv142.i, 1
   %89 = load i32, ptr %num_objects.i78.i, align 8
   %conv90.i = zext i32 %89 to i64
-  %add91.i = add nuw nsw i64 %total_size.1119.i, %conv90.i
+  %add91.i = add nuw nsw i64 %total_size.1117.i, %conv90.i
   %90 = load i32, ptr %pack_nr50.i, align 8
   %91 = zext i32 %90 to i64
   %cmp50.i = icmp ult i64 %indvars.iv.next143.i, %91
@@ -3372,9 +3372,9 @@ for.body.lr.ph.i:                                 ; preds = %st_mult.exit.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %existing_cruft_nr.057.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %existing_cruft_nr.1.i, %for.inc.i ]
-  %p.056.i = phi ptr [ %call2.i, %for.body.lr.ph.i ], [ %20, %for.inc.i ]
-  %is_cruft.i = getelementptr inbounds i8, ptr %p.056.i, i64 152
+  %p.057.i = phi ptr [ %call2.i, %for.body.lr.ph.i ], [ %20, %for.inc.i ]
+  %existing_cruft_nr.056.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %existing_cruft_nr.1.i, %for.inc.i ]
+  %is_cruft.i = getelementptr inbounds i8, ptr %p.057.i, i64 152
   %bf.load.i = load i8, ptr %is_cruft.i, align 8
   %13 = and i8 %bf.load.i, -127
   %or.cond.not.i = icmp eq i8 %13, -127
@@ -3391,7 +3391,7 @@ if.then4.i.i:                                     ; preds = %if.end.i
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %if.end.i
-  %call7.i = call ptr @pack_basename(ptr noundef nonnull %p.056.i) #15
+  %call7.i = call ptr @pack_basename(ptr noundef nonnull %p.057.i) #15
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call7.i) #18
   call void @strbuf_add(ptr noundef nonnull %buf.i, ptr noundef %call7.i, i64 noundef %call.i.i) #15
   %15 = load ptr, ptr %buf.i.i, align 8
@@ -3434,8 +3434,8 @@ strbuf_strip_suffix.exit.i:                       ; preds = %if.then4.i.i.i, %if
 
 if.end14.i:                                       ; preds = %strbuf_strip_suffix.exit.i
   %19 = load i64, ptr %nr.i, align 8
-  %cmp.not.i = icmp ult i64 %existing_cruft_nr.057.i, %19
-  %inc.i = add i64 %existing_cruft_nr.057.i, 1
+  %cmp.not.i = icmp ult i64 %existing_cruft_nr.056.i, %19
+  %inc.i = add i64 %existing_cruft_nr.056.i, 1
   br i1 %cmp.not.i, label %if.end20.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.end14.i
@@ -3443,13 +3443,13 @@ if.then17.i:                                      ; preds = %if.end14.i
   unreachable
 
 if.end20.i:                                       ; preds = %if.end14.i
-  %arrayidx.i = getelementptr inbounds ptr, ptr %call1.i, i64 %existing_cruft_nr.057.i
-  store ptr %p.056.i, ptr %arrayidx.i, align 8
+  %arrayidx.i = getelementptr inbounds ptr, ptr %call1.i, i64 %existing_cruft_nr.056.i
+  store ptr %p.057.i, ptr %arrayidx.i, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end20.i, %strbuf_strip_suffix.exit.i, %for.body.i
-  %existing_cruft_nr.1.i = phi i64 [ %inc.i, %if.end20.i ], [ %existing_cruft_nr.057.i, %strbuf_strip_suffix.exit.i ], [ %existing_cruft_nr.057.i, %for.body.i ]
-  %next.i = getelementptr inbounds i8, ptr %p.056.i, i64 16
+  %existing_cruft_nr.1.i = phi i64 [ %inc.i, %if.end20.i ], [ %existing_cruft_nr.056.i, %strbuf_strip_suffix.exit.i ], [ %existing_cruft_nr.056.i, %for.body.i ]
+  %next.i = getelementptr inbounds i8, ptr %p.057.i, i64 16
   %20 = load ptr, ptr %next.i, align 8
   %tobool.not.i39 = icmp eq ptr %20, null
   br i1 %tobool.not.i39, label %for.end.i, label %for.body.i, !llvm.loop !23

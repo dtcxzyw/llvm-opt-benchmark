@@ -256,17 +256,17 @@ define internal i32 @dissect_uavcan(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %46
 
 46:                                               ; preds = %30, %21
-  %.0238 = phi i32 [ %29, %21 ], [ %45, %30 ]
+  %.0239 = phi i32 [ %29, %21 ], [ %45, %30 ]
   %47 = load ptr, ptr @fragment_info_table, align 8
-  %48 = tail call ptr @wmem_tree_lookup32(ptr noundef %47, i32 noundef %.0238) #6
+  %48 = tail call ptr @wmem_tree_lookup32(ptr noundef %47, i32 noundef %.0239) #6
   %49 = icmp sgt i8 %10, -1
   %50 = icmp eq ptr %48, null
   %or.cond = select i1 %49, i1 %50, i1 false
   br i1 %or.cond, label %376, label %51
 
 51:                                               ; preds = %46, %16
-  %.0239 = phi ptr [ %48, %46 ], [ null, %16 ]
-  %.1 = phi i32 [ %.0238, %46 ], [ 0, %16 ]
+  %.1240 = phi i32 [ %.0239, %46 ], [ 0, %16 ]
+  %.0238 = phi ptr [ %48, %46 ], [ null, %16 ]
   %52 = getelementptr inbounds i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8
   tail call void @col_set_str(ptr noundef %53, i32 noundef 34, ptr noundef nonnull @.str.50) #6
@@ -686,7 +686,7 @@ proto_item_set_generated.exit295:                 ; preds = %proto_item_set_gene
   br i1 %.not250, label %273, label %313
 
 273:                                              ; preds = %267
-  %274 = icmp eq ptr %.0239, null
+  %274 = icmp eq ptr %.0238, null
   br i1 %274, label %275, label %281
 
 275:                                              ; preds = %273
@@ -697,11 +697,11 @@ proto_item_set_generated.exit295:                 ; preds = %proto_item_set_gene
   %279 = and i32 %13, 32
   store i32 %279, ptr %277, align 4
   %280 = load ptr, ptr @fragment_info_table, align 8
-  call void @wmem_tree_insert32(ptr noundef %280, i32 noundef %.1, ptr noundef nonnull %277) #6
+  call void @wmem_tree_insert32(ptr noundef %280, i32 noundef %.1240, ptr noundef nonnull %277) #6
   br label %281
 
 281:                                              ; preds = %275, %273
-  %.1240 = phi ptr [ %277, %275 ], [ %.0239, %273 ]
+  %.1 = phi ptr [ %277, %275 ], [ %.0238, %273 ]
   %282 = call ptr @wmem_file_scope() #6
   %283 = call noalias ptr @wmem_alloc0(ptr noundef %282, i64 noundef 8) #6
   %284 = call ptr @wmem_file_scope() #6
@@ -713,10 +713,10 @@ proto_item_set_generated.exit295:                 ; preds = %proto_item_set_gene
 286:                                              ; preds = %281
   %287 = getelementptr inbounds i8, ptr %283, i64 4
   store i32 0, ptr %287, align 4
-  %288 = getelementptr inbounds i8, ptr %.1240, i64 4
+  %288 = getelementptr inbounds i8, ptr %.1, i64 4
   store i32 0, ptr %288, align 4
   %289 = load i32, ptr @uavcan_seq_id, align 4
-  %290 = getelementptr inbounds i8, ptr %.1240, i64 8
+  %290 = getelementptr inbounds i8, ptr %.1, i64 8
   store i32 %289, ptr %290, align 4
   %291 = add i32 %289, 1
   store i32 %291, ptr @uavcan_seq_id, align 4
@@ -724,30 +724,30 @@ proto_item_set_generated.exit295:                 ; preds = %proto_item_set_gene
   br label %301
 
 292:                                              ; preds = %281
-  %293 = getelementptr inbounds i8, ptr %.1240, i64 4
+  %293 = getelementptr inbounds i8, ptr %.1, i64 4
   %294 = load i32, ptr %293, align 4
   %295 = add i32 %294, 1
   store i32 %295, ptr %293, align 4
   %296 = and i32 %13, 32
-  %297 = load i32, ptr %.1240, align 4
+  %297 = load i32, ptr %.1, align 4
   %298 = icmp eq i32 %296, %297
   %299 = zext i1 %298 to i32
   %300 = getelementptr inbounds i8, ptr %283, i64 4
   store i32 %299, ptr %300, align 4
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.1240, i64 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.1, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %301
 
 301:                                              ; preds = %292, %286
   %.pre-phi = phi i32 [ %296, %292 ], [ %.pre296, %286 ]
   %302 = phi i32 [ %.pre, %292 ], [ %289, %286 ]
-  %303 = getelementptr inbounds i8, ptr %.1240, i64 8
+  %303 = getelementptr inbounds i8, ptr %.1, i64 8
   store i32 %302, ptr %283, align 4
-  store i32 %.pre-phi, ptr %.1240, align 4
+  store i32 %.pre-phi, ptr %.1, align 4
   %304 = getelementptr inbounds i8, ptr %1, i64 272
   store i32 1, ptr %304, align 8
   %305 = load i32, ptr %303, align 4
-  %306 = getelementptr inbounds i8, ptr %.1240, i64 4
+  %306 = getelementptr inbounds i8, ptr %.1, i64 4
   %307 = load i32, ptr %306, align 4
   %308 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #6
   %309 = add i32 %308, -1

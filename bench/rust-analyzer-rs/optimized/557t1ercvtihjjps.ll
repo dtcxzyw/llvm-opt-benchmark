@@ -29742,8 +29742,8 @@ thread-pre-split:                                 ; preds = %237, %.noexc236
           to label %291 unwind label %.loopexit.split-lp
 
 298:                                              ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1796459a7ad2f75cE.exit", %278, %276
-  %.sroa.429.0 = phi i8 [ 29, %276 ], [ 30, %278 ], [ 31, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1796459a7ad2f75cE.exit" ]
   %.sroa.023.0 = phi ptr [ %.sroa.032.0.copyload, %276 ], [ %.sroa.030.0.copyload, %278 ], [ %292, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1796459a7ad2f75cE.exit" ]
+  %.sroa.429.0 = phi i8 [ 29, %276 ], [ 30, %278 ], [ 31, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1796459a7ad2f75cE.exit" ]
   %.4117 = phi i8 [ 0, %276 ], [ 0, %278 ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1796459a7ad2f75cE.exit" ]
   store ptr %.sroa.023.0, ptr %17, align 8
   %.sroa.426.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8

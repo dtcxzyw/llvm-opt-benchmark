@@ -2789,19 +2789,19 @@ invoke.cont73.i.i.i.i.i.i:                        ; preds = %if.end58.i.i.i.i.i.
   %ei_end.sroa.23.0530.i.i.i.i.i.i = phi ptr [ %ei_end.sroa.23.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %70, %if.end58.i.i.i.i.i.i ]
   %ei_end.sroa.12.0529.i.i.i.i.i.i = phi i8 [ %ei_end.sroa.12.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %ei_end.sroa.12.8.copyload413.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
   %ei_end.sroa.7.0528.i.i.i.i.i.i = phi ptr [ %ei_end.sroa.7.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %ei_end.sroa.7.8.copyload411.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
-  %ei_end.sroa.0.0527.i.i.i.i.i.i = phi ptr [ %ei_end.sroa.0.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %.val.i2.i74.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
-  %ei.sroa.31.0526.i.i.i.i.i.i = phi i24 [ %ei.sroa.31.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %ei.sroa.31.8.copyload438.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
-  %ei.sroa.33.0524.i.i.i.i.i.i = phi i32 [ %ei.sroa.33.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %ei.sroa.33.8.copyload440.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
+  %ei.sroa.0.0527.i.i.i.i.i.i = phi ptr [ %ei.sroa.0.5.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %.val.i.i67.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
+  %ei.sroa.20.0526.i.i.i.i.i.i = phi ptr [ %ei.sroa.20.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %ei.sroa.20.8.copyload433.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
+  %ei.sroa.27.0525.i.i.i.i.i.i = phi i8 [ %ei.sroa.27.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %ei.sroa.27.8.copyload435.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
+  %ei.sroa.42.0524.i.i.i.i.i.i = phi ptr [ %ei.sroa.42.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %69, %if.end58.i.i.i.i.i.i ]
   %ei.sroa.40.0523.i.i.i.i.i.i = phi ptr [ %ei.sroa.40.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %ei.sroa.40.8.copyload445.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
-  %ei.sroa.42.0522.i.i.i.i.i.i = phi ptr [ %ei.sroa.42.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %69, %if.end58.i.i.i.i.i.i ]
-  %ei.sroa.27.0521.i.i.i.i.i.i = phi i8 [ %ei.sroa.27.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %ei.sroa.27.8.copyload435.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
-  %ei.sroa.20.0520.i.i.i.i.i.i = phi ptr [ %ei.sroa.20.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %ei.sroa.20.8.copyload433.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
-  %ei.sroa.0.0519.i.i.i.i.i.i = phi ptr [ %ei.sroa.0.5.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %.val.i.i67.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
+  %ei.sroa.33.0521.i.i.i.i.i.i = phi i32 [ %ei.sroa.33.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %ei.sroa.33.8.copyload440.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
+  %ei.sroa.31.0520.i.i.i.i.i.i = phi i24 [ %ei.sroa.31.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %ei.sroa.31.8.copyload438.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
+  %ei_end.sroa.0.0519.i.i.i.i.i.i = phi ptr [ %ei_end.sroa.0.1.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %.val.i2.i74.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
   %incdec.ptr.i9.i.i511518.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i9.i.i510.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
   %cond.i21.i.i.i515517.i.i.i.i.i.i = phi ptr [ %cond.i21.i.i.i513.i.i.i.i.i.i, %if.end140.i.i.i.i.i.i ], [ %stack.promoted.i.i.i.i.i.i, %if.end58.i.i.i.i.i.i ]
-  %serial2.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.0.0519.i.i.i.i.i.i, i64 48
+  %serial2.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.0.0527.i.i.i.i.i.i, i64 48
   %74 = load i64, ptr %serial2.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %target.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.0.0519.i.i.i.i.i.i, i64 40
+  %target.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.0.0527.i.i.i.i.i.i, i64 40
   %75 = load ptr, ptr %target.i.i.i.i.i.i.i.i.i, align 8
   %serial2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %75, i64 96
   %76 = load i64, ptr %serial2.i.i.i.i.i.i.i.i.i.i, align 8
@@ -2825,14 +2825,14 @@ invoke.cont73.i.i.i.i.i.i:                        ; preds = %if.end58.i.i.i.i.i.
 invoke.cont83.i.i.i.i.i.i:                        ; preds = %invoke.cont73.i.i.i.i.i.i
   %tobool.i.i.i97.i.i.i.i.i.i = trunc nuw i8 %src_e.sroa.0.2534.i.i.i.i.i.i to i1
   %spec.select.i.i.i.i.i.i = select i1 %tobool.i.i.i97.i.i.i.i.i.i, i8 %src_e.sroa.0.2534.i.i.i.i.i.i, i8 1
-  %81 = load ptr, ptr %ei.sroa.0.0519.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.not2.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %81, %ei.sroa.42.0522.i.i.i.i.i.i
+  %81 = load ptr, ptr %ei.sroa.0.0527.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.not2.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %81, %ei.sroa.42.0524.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not2.i.i.i.i.i.i.i.i.i.i, label %invoke.cont92.i.i.i.i.i.i, label %land.rhs.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 land.rhs.lr.ph.i.i.i.i.i.i.i.i.i.i:               ; preds = %invoke.cont83.i.i.i.i.i.i
-  %tobool.i.i.i.i.i.i101.i.i.i.i.i.i = trunc i8 %ei.sroa.27.0521.i.i.i.i.i.i to i1
-  %start.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.20.0520.i.i.i.i.i.i, i64 72
-  %startDs.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.20.0520.i.i.i.i.i.i, i64 88
+  %tobool.i.i.i.i.i.i101.i.i.i.i.i.i = trunc i8 %ei.sroa.27.0525.i.i.i.i.i.i to i1
+  %start.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.20.0526.i.i.i.i.i.i, i64 72
+  %startDs.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.20.0526.i.i.i.i.i.i, i64 88
   br label %land.rhs.i.i.i.i.i.i.i.i.i.i
 
 land.rhs.i.i.i.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i.i.i.i.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i.i.i.i.i.i
@@ -2887,7 +2887,7 @@ while.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %land.lhs.true22.i.i
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %__len.010.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %94, i64 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %95 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !68
-  %cmp.i.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %95, %ei.sroa.33.0524.i.i.i.i.i.i
+  %cmp.i.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %95, %ei.sroa.33.0521.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
   %96 = xor i64 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
   %sub6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %__len.010.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %96
@@ -2903,7 +2903,7 @@ _ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RK
 
 _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %99 = load i32, ptr %98, align 4, !noalias !75
-  %cmp.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %ei.sroa.33.0524.i.i.i.i.i.i, %99
+  %cmp.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %ei.sroa.33.0521.i.i.i.i.i.i, %99
   br i1 %cmp.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i, label %if.end28.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.end28.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then18.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2913,7 +2913,7 @@ if.end28.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN3ue28containsINS
 
 while.body.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.end28.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true14.i.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i.i.i.i.i.i.i
   %100 = load ptr, ptr %ei.sroa.0.1.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %100, %ei.sroa.42.0522.i.i.i.i.i.i
+  %cmp.i.i.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %100, %ei.sroa.42.0524.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not.i.i.i.i.i.i.i.i.i.i, label %invoke.cont92.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i.i.i.i.i, !llvm.loop !27
 
 invoke.cont92.i.i.i.i.i.i:                        ; preds = %while.body.i.i.i.i.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont83.i.i.i.i.i.i
@@ -2933,7 +2933,7 @@ if.then.i.i.i.i25.i.i.i.i:                        ; preds = %invoke.cont92.i.i.i
 
 invoke.cont.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %if.then.i.i.i.i25.i.i.i.i
   %m_storage.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, i64 24
-  store ptr %ei.sroa.0.0519.i.i.i.i.i.i, ptr %m_storage.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %ei.sroa.0.0527.i.i.i.i.i.i, ptr %m_storage.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %ref.tmp87.sroa.11.sroa.3.0.m_storage.i2.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, i64 32
   store i64 %74, ptr %ref.tmp87.sroa.11.sroa.3.0.m_storage.i2.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 8
   store i8 1, ptr %second.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -2943,21 +2943,21 @@ _ZNSt16allocator_traitsISaISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9u
   %second.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, i64 40
   store ptr %ei.sroa.0.2.i.i.i.i.i.i, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %m_predicate.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, i64 48
-  store ptr %ei.sroa.20.0520.i.i.i.i.i.i, ptr %m_predicate.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %ei.sroa.20.0526.i.i.i.i.i.i, ptr %m_predicate.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %ref.tmp87.sroa.17.sroa.3.0.m_predicate.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, i64 56
-  store i8 %ei.sroa.27.0521.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.3.0.m_predicate.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 8
+  store i8 %ei.sroa.27.0525.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.3.0.m_predicate.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 8
   %ref.tmp87.sroa.17.sroa.4.0.m_predicate.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, i64 57
-  store i24 %ei.sroa.31.0526.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.4.0.m_predicate.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 1
+  store i24 %ei.sroa.31.0520.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.4.0.m_predicate.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 1
   %ref.tmp87.sroa.17.sroa.5.0.m_predicate.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, i64 60
-  store i32 %ei.sroa.33.0524.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.5.0.m_predicate.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 4
+  store i32 %ei.sroa.33.0521.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.5.0.m_predicate.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 4
   %ref.tmp87.sroa.17.sroa.6.0.m_predicate.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, i64 64
   store i64 %ei.sroa.38.8.copyload443.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.6.0.m_predicate.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 8
   %ref.tmp87.sroa.17.sroa.7.0.m_predicate.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, i64 72
   store ptr %ei.sroa.40.0523.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.7.0.m_predicate.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 8
   %m_end.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, i64 80
-  store ptr %ei.sroa.42.0522.i.i.i.i.i.i, ptr %m_end.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %ei.sroa.42.0524.i.i.i.i.i.i, ptr %m_end.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, i64 88
-  store ptr %ei_end.sroa.0.0527.i.i.i.i.i.i, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %ei_end.sroa.0.0519.i.i.i.i.i.i, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %m_predicate.i3.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, i64 96
   store ptr %ei_end.sroa.7.0528.i.i.i.i.i.i, ptr %m_predicate.i3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %ref.tmp87.sroa.26.sroa.3.0.m_predicate.i3.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, i64 104
@@ -3019,7 +3019,7 @@ _ZNSt12_Vector_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_grap
 
 invoke.cont.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %_ZNSt12_Vector_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INSA_9iterators15filter_iteratorINSA_6detail18out_edge_predicateINS1_12_GLOBAL__N_117SpecialEdgeFilterENSA_8keep_allENSA_14filtered_graphIS5_SK_SL_EEEENS8_17out_edge_iteratorEEESQ_EEESaIST_EE11_M_allocateEm.exit.i.i.i.i.i.i.i.i.i
   %m_storage.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i152.i.i.i.i.i.i, i64 24
-  store ptr %ei.sroa.0.0519.i.i.i.i.i.i, ptr %m_storage.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %ei.sroa.0.0527.i.i.i.i.i.i, ptr %m_storage.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %ref.tmp87.sroa.11.sroa.3.0.m_storage.i2.i.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i152.i.i.i.i.i.i, i64 32
   store i64 %74, ptr %ref.tmp87.sroa.11.sroa.3.0.m_storage.i2.i.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 8
   store i8 1, ptr %second.i.i.i.i3.i.i.i.i.i.i.i.i, align 8
@@ -3029,21 +3029,21 @@ invoke.cont.i.i.i.i.i.i.i.i.i:                    ; preds = %invoke.cont.i.i.i.i
   %second.i.i.i.i.i5.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i152.i.i.i.i.i.i, i64 40
   store ptr %ei.sroa.0.2.i.i.i.i.i.i, ptr %second.i.i.i.i.i5.i.i.i.i.i.i.i.i, align 8
   %m_predicate.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i152.i.i.i.i.i.i, i64 48
-  store ptr %ei.sroa.20.0520.i.i.i.i.i.i, ptr %m_predicate.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %ei.sroa.20.0526.i.i.i.i.i.i, ptr %m_predicate.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %ref.tmp87.sroa.17.sroa.3.0.m_predicate.i.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i152.i.i.i.i.i.i, i64 56
-  store i8 %ei.sroa.27.0521.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.3.0.m_predicate.i.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 8
+  store i8 %ei.sroa.27.0525.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.3.0.m_predicate.i.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 8
   %ref.tmp87.sroa.17.sroa.4.0.m_predicate.i.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i152.i.i.i.i.i.i, i64 57
-  store i24 %ei.sroa.31.0526.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.4.0.m_predicate.i.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 1
+  store i24 %ei.sroa.31.0520.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.4.0.m_predicate.i.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 1
   %ref.tmp87.sroa.17.sroa.5.0.m_predicate.i.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i152.i.i.i.i.i.i, i64 60
-  store i32 %ei.sroa.33.0524.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.5.0.m_predicate.i.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 4
+  store i32 %ei.sroa.33.0521.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.5.0.m_predicate.i.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 4
   %ref.tmp87.sroa.17.sroa.6.0.m_predicate.i.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i152.i.i.i.i.i.i, i64 64
   store i64 %ei.sroa.38.8.copyload443.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.6.0.m_predicate.i.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 8
   %ref.tmp87.sroa.17.sroa.7.0.m_predicate.i.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i152.i.i.i.i.i.i, i64 72
   store ptr %ei.sroa.40.0523.i.i.i.i.i.i, ptr %ref.tmp87.sroa.17.sroa.7.0.m_predicate.i.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 8
   %m_end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i152.i.i.i.i.i.i, i64 80
-  store ptr %ei.sroa.42.0522.i.i.i.i.i.i, ptr %m_end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %ei.sroa.42.0524.i.i.i.i.i.i, ptr %m_end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i152.i.i.i.i.i.i, i64 88
-  store ptr %ei_end.sroa.0.0527.i.i.i.i.i.i, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %ei_end.sroa.0.0519.i.i.i.i.i.i, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %m_predicate.i3.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i152.i.i.i.i.i.i, i64 96
   store ptr %ei_end.sroa.7.0528.i.i.i.i.i.i, ptr %m_predicate.i3.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %ref.tmp87.sroa.26.sroa.3.0.m_predicate.i3.i.i.i.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i152.i.i.i.i.i.i, i64 104
@@ -3386,14 +3386,14 @@ lpad.i.i.i.i.i.i.i:                               ; preds = %.noexc269.i.i.i.i.i
   br label %ehcleanup147.i.i.i.i.i.i
 
 invoke.cont137.i.i.i.i.i.i:                       ; preds = %invoke.cont73.i.i.i.i.i.i
-  %140 = load ptr, ptr %ei.sroa.0.0519.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.not2.i.i.i.i277.i.i.i.i.i.i = icmp eq ptr %140, %ei.sroa.42.0522.i.i.i.i.i.i
+  %140 = load ptr, ptr %ei.sroa.0.0527.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.not2.i.i.i.i277.i.i.i.i.i.i = icmp eq ptr %140, %ei.sroa.42.0524.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not2.i.i.i.i277.i.i.i.i.i.i, label %if.end140.i.i.i.i.i.i, label %land.rhs.lr.ph.i.i.i.i278.i.i.i.i.i.i
 
 land.rhs.lr.ph.i.i.i.i278.i.i.i.i.i.i:            ; preds = %invoke.cont137.i.i.i.i.i.i
-  %tobool.i.i.i.i.i.i281.i.i.i.i.i.i = trunc i8 %ei.sroa.27.0521.i.i.i.i.i.i to i1
-  %start.i.i.i.i.i.i282.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.20.0520.i.i.i.i.i.i, i64 72
-  %startDs.i.i.i.i.i.i284.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.20.0520.i.i.i.i.i.i, i64 88
+  %tobool.i.i.i.i.i.i281.i.i.i.i.i.i = trunc i8 %ei.sroa.27.0525.i.i.i.i.i.i to i1
+  %start.i.i.i.i.i.i282.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.20.0526.i.i.i.i.i.i, i64 72
+  %startDs.i.i.i.i.i.i284.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.20.0526.i.i.i.i.i.i, i64 88
   br label %land.rhs.i.i.i.i285.i.i.i.i.i.i
 
 land.rhs.i.i.i.i285.i.i.i.i.i.i:                  ; preds = %while.body.i.i.i.i299.i.i.i.i.i.i, %land.rhs.lr.ph.i.i.i.i278.i.i.i.i.i.i
@@ -3448,7 +3448,7 @@ while.body.i.i.i.i.i.i.i.i.i.i310.i.i.i.i.i.i:    ; preds = %land.lhs.true22.i.i
   %shr.i.i.i.i.i.i.i.i.i.i312.i.i.i.i.i.i = lshr i64 %__len.010.i.i.i.i.i.i.i.i.i.i311.i.i.i.i.i.i, 1
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i315.i.i.i.i.i.i = getelementptr inbounds i32, ptr %153, i64 %shr.i.i.i.i.i.i.i.i.i.i312.i.i.i.i.i.i
   %154 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i315.i.i.i.i.i.i, align 4, !noalias !96
-  %cmp.i.i5.i.i.i.i.i.i.i.i.i.i318.i.i.i.i.i.i = icmp ult i32 %154, %ei.sroa.33.0524.i.i.i.i.i.i
+  %cmp.i.i5.i.i.i.i.i.i.i.i.i.i318.i.i.i.i.i.i = icmp ult i32 %154, %ei.sroa.33.0521.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i319.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i315.i.i.i.i.i.i, i64 4
   %155 = xor i64 %shr.i.i.i.i.i.i.i.i.i.i312.i.i.i.i.i.i, -1
   %sub6.i.i.i.i.i.i.i.i.i.i320.i.i.i.i.i.i = add nsw i64 %__len.010.i.i.i.i.i.i.i.i.i.i311.i.i.i.i.i.i, %155
@@ -3464,7 +3464,7 @@ _ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RK
 
 _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.i.i.i.i.i.i308.i.i.i.i.i.i: ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i.i.i.i.i.i306.i.i.i.i.i.i
   %158 = load i32, ptr %157, align 4, !noalias !103
-  %cmp.i4.i.i.i.i.i.i.i.i309.i.i.i.i.i.i = icmp ult i32 %ei.sroa.33.0524.i.i.i.i.i.i, %158
+  %cmp.i4.i.i.i.i.i.i.i.i309.i.i.i.i.i.i = icmp ult i32 %ei.sroa.33.0521.i.i.i.i.i.i, %158
   br i1 %cmp.i4.i.i.i.i.i.i.i.i309.i.i.i.i.i.i, label %while.body.i.i.i.i299.i.i.i.i.i.i, label %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i
 
 if.end28.i.i.i.i.i.i296.i.i.i.i.i.i:              ; preds = %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.i.i.i.i.i.i308.i.i.i.i.i.i, %if.then18.i.i.i.i.i.i293.i.i.i.i.i.i
@@ -3474,7 +3474,7 @@ if.end28.i.i.i.i.i.i296.i.i.i.i.i.i:              ; preds = %_ZN3ue28containsINS
 
 while.body.i.i.i.i299.i.i.i.i.i.i:                ; preds = %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i, %_ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.i.i.i.i.i.i308.i.i.i.i.i.i, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i.i.i.i.i.i306.i.i.i.i.i.i, %land.lhs.true14.i.i.i.i.i.i290.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i323.i.i.i.i.i.i
   %159 = load ptr, ptr %ei.sroa.0.3.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.not.i.i.i.i300.i.i.i.i.i.i = icmp eq ptr %159, %ei.sroa.42.0522.i.i.i.i.i.i
+  %cmp.i.i.i.i.not.i.i.i.i300.i.i.i.i.i.i = icmp eq ptr %159, %ei.sroa.42.0524.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not.i.i.i.i300.i.i.i.i.i.i, label %if.end140.i.i.i.i.i.i, label %land.rhs.i.i.i.i285.i.i.i.i.i.i, !llvm.loop !27
 
 if.end140.i.i.i.i.i.i:                            ; preds = %while.body.i.i.i.i299.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i
@@ -3485,14 +3485,14 @@ if.end140.i.i.i.i.i.i:                            ; preds = %while.body.i.i.i.i2
   %162 = phi i64 [ %107, %invoke.cont111.i.i.i.i.i.i ], [ %73, %invoke.cont137.i.i.i.i.i.i ], [ %73, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %73, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %73, %while.body.i.i.i.i299.i.i.i.i.i.i ]
   %cond.i21.i.i.i513.i.i.i.i.i.i = phi ptr [ %cond.i21.i.i.i514.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %cond.i21.i.i.i515517.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %cond.i21.i.i.i515517.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %cond.i21.i.i.i515517.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %cond.i21.i.i.i515517.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
   %incdec.ptr.i9.i.i510.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i9.i.i512.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %incdec.ptr.i9.i.i511518.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
-  %ei.sroa.0.5.i.i.i.i.i.i = phi ptr [ %ref.tmp4.sroa.0.1.i196.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %140, %invoke.cont137.i.i.i.i.i.i ], [ %159, %while.body.i.i.i.i299.i.i.i.i.i.i ], [ %ei.sroa.0.3.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei.sroa.0.3.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ]
-  %ei.sroa.20.1.i.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.0.0.copyload.i176.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %ei.sroa.20.0520.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei.sroa.20.0520.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei.sroa.20.0520.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei.sroa.20.0520.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
-  %ei.sroa.27.1.i.i.i.i.i.i = phi i8 [ %agg.tmp53.sroa.4.8.extract.trunc.i197.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %ei.sroa.27.0521.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei.sroa.27.0521.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei.sroa.27.0521.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei.sroa.27.0521.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
-  %ei.sroa.42.1.i.i.i.i.i.i = phi ptr [ %m_header.i.i.i.i.i179.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %ei.sroa.42.0522.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei.sroa.42.0522.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei.sroa.42.0522.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei.sroa.42.0522.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
+  %ei_end.sroa.0.1.i.i.i.i.i.i = phi ptr [ %m_header.i.i.i.i.i179.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %ei_end.sroa.0.0519.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei_end.sroa.0.0519.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei_end.sroa.0.0519.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei_end.sroa.0.0519.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
+  %ei.sroa.31.1.i.i.i.i.i.i = phi i24 [ %agg.tmp53.sroa.4.9.extract.trunc.i199.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %ei.sroa.31.0520.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei.sroa.31.0520.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei.sroa.31.0520.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei.sroa.31.0520.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
+  %ei.sroa.33.1.i.i.i.i.i.i = phi i32 [ %agg.tmp53.sroa.4.12.extract.trunc.i181.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %ei.sroa.33.0521.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei.sroa.33.0521.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei.sroa.33.0521.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei.sroa.33.0521.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
   %ei.sroa.40.1.i.i.i.i.i.i = phi ptr [ %g, %invoke.cont111.i.i.i.i.i.i ], [ %ei.sroa.40.0523.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei.sroa.40.0523.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei.sroa.40.0523.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei.sroa.40.0523.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
-  %ei.sroa.33.1.i.i.i.i.i.i = phi i32 [ %agg.tmp53.sroa.4.12.extract.trunc.i181.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %ei.sroa.33.0524.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei.sroa.33.0524.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei.sroa.33.0524.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei.sroa.33.0524.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
-  %ei.sroa.31.1.i.i.i.i.i.i = phi i24 [ %agg.tmp53.sroa.4.9.extract.trunc.i199.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %ei.sroa.31.0526.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei.sroa.31.0526.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei.sroa.31.0526.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei.sroa.31.0526.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
-  %ei_end.sroa.0.1.i.i.i.i.i.i = phi ptr [ %m_header.i.i.i.i.i179.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %ei_end.sroa.0.0527.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei_end.sroa.0.0527.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei_end.sroa.0.0527.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei_end.sroa.0.0527.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
+  %ei.sroa.42.1.i.i.i.i.i.i = phi ptr [ %m_header.i.i.i.i.i179.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %ei.sroa.42.0524.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei.sroa.42.0524.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei.sroa.42.0524.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei.sroa.42.0524.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
+  %ei.sroa.27.1.i.i.i.i.i.i = phi i8 [ %agg.tmp53.sroa.4.8.extract.trunc.i197.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %ei.sroa.27.0525.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei.sroa.27.0525.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei.sroa.27.0525.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei.sroa.27.0525.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
+  %ei.sroa.20.1.i.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.0.0.copyload.i176.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %ei.sroa.20.0526.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei.sroa.20.0526.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei.sroa.20.0526.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei.sroa.20.0526.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
+  %ei.sroa.0.5.i.i.i.i.i.i = phi ptr [ %ref.tmp4.sroa.0.1.i196.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %140, %invoke.cont137.i.i.i.i.i.i ], [ %159, %while.body.i.i.i.i299.i.i.i.i.i.i ], [ %ei.sroa.0.3.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei.sroa.0.3.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ]
   %ei_end.sroa.7.1.i.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.0.0.copyload.i176.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %ei_end.sroa.7.0528.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei_end.sroa.7.0528.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei_end.sroa.7.0528.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei_end.sroa.7.0528.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
   %ei_end.sroa.12.1.i.i.i.i.i.i = phi i8 [ %agg.tmp53.sroa.4.8.extract.trunc.i197.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %ei_end.sroa.12.0529.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei_end.sroa.12.0529.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei_end.sroa.12.0529.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei_end.sroa.12.0529.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]
   %ei_end.sroa.23.1.i.i.i.i.i.i = phi ptr [ %m_header.i.i.i.i.i179.i.i.i.i.i.i, %invoke.cont111.i.i.i.i.i.i ], [ %ei_end.sroa.23.0530.i.i.i.i.i.i, %invoke.cont137.i.i.i.i.i.i ], [ %ei_end.sroa.23.0530.i.i.i.i.i.i, %if.end.i.i.i.i.i.i292.i.i.i.i.i.i ], [ %ei_end.sroa.23.0530.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i296.i.i.i.i.i.i ], [ %ei_end.sroa.23.0530.i.i.i.i.i.i, %while.body.i.i.i.i299.i.i.i.i.i.i ]

@@ -271,15 +271,15 @@ define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %119, %.lr.ph.preheader.i
-  %.086.i = phi i32 [ %93, %119 ], [ 1, %.lr.ph.preheader.i ]
-  %.05785.i = phi i32 [ %.1.i, %119 ], [ 0, %.lr.ph.preheader.i ]
-  %.05884.i = phi i32 [ %.159.i, %119 ], [ 0, %.lr.ph.preheader.i ]
-  %.06083.i = phi i32 [ %.2.i, %119 ], [ 0, %.lr.ph.preheader.i ]
+  %.05786.i = phi i32 [ %93, %119 ], [ 1, %.lr.ph.preheader.i ]
+  %.05885.i = phi i32 [ %.1.i, %119 ], [ 0, %.lr.ph.preheader.i ]
+  %.05984.i = phi i32 [ %.160.i, %119 ], [ 0, %.lr.ph.preheader.i ]
+  %.06183.i = phi i32 [ %.2.i, %119 ], [ 0, %.lr.ph.preheader.i ]
   %.06382.i = phi i32 [ %92, %119 ], [ %89, %.lr.ph.preheader.i ]
-  %90 = add i32 %.086.i, %2
+  %90 = add i32 %.05786.i, %2
   %91 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %90) #2
   %92 = add nsw i32 %.06382.i, -1
-  %93 = add nuw nsw i32 %.086.i, 1
+  %93 = add nuw nsw i32 %.05786.i, 1
   %94 = zext i8 %91 to i32
   switch i8 %91, label %104 [
     i8 101, label %95
@@ -291,9 +291,9 @@ define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1
   br i1 %.not.i, label %dissect_bencoding_int.exit, label %96
 
 96:                                               ; preds = %95
-  %.not68.i = icmp eq i32 %.05884.i, 0
-  %97 = sub i32 0, %.06083.i
-  %spec.select.i = select i1 %.not68.i, i32 %.06083.i, i32 %97
+  %.not68.i = icmp eq i32 %.05984.i, 0
+  %97 = sub i32 0, %.06183.i
+  %spec.select.i = select i1 %.not68.i, i32 %.06183.i, i32 %97
   %98 = load i32, ptr @hf_bencode_int, align 4
   %99 = tail call ptr @proto_tree_add_int(ptr noundef nonnull %4, i32 noundef %98, ptr noundef %0, i32 noundef %2, i32 noundef %93, i32 noundef %spec.select.i) #2
   %100 = icmp eq i32 %7, 2
@@ -311,7 +311,7 @@ define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1
   %105 = icmp eq i8 %91, 48
   %106 = icmp eq i32 %93, 3
   %or.cond.i = and i1 %106, %105
-  %107 = icmp ne i32 %.05884.i, 0
+  %107 = icmp ne i32 %.05984.i, 0
   %or.cond3.i = select i1 %or.cond.i, i1 %107, i1 false
   br i1 %or.cond3.i, label %.thread73.i, label %108
 
@@ -321,14 +321,14 @@ define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1
   br i1 %or.cond5.i, label %119, label %110
 
 110:                                              ; preds = %108
-  %111 = icmp eq i32 %.05785.i, 0
+  %111 = icmp eq i32 %.05885.i, 0
   %112 = add i8 %91, -48
   %113 = icmp ult i8 %112, 10
   %or.cond11.i = and i1 %111, %113
   br i1 %or.cond11.i, label %114, label %.thread73.i
 
 114:                                              ; preds = %110
-  %115 = mul i32 %.06083.i, 10
+  %115 = mul i32 %.06183.i, 10
   %116 = add i32 %115, -48
   %117 = add i32 %116, %94
   br label %119
@@ -338,9 +338,9 @@ define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1
   br label %dissect_bencoding_int.exit
 
 119:                                              ; preds = %114, %108, %102
-  %.2.i = phi i32 [ %117, %114 ], [ %.06083.i, %102 ], [ %.06083.i, %108 ]
-  %.159.i = phi i32 [ %.05884.i, %114 ], [ 1, %102 ], [ %.05884.i, %108 ]
-  %.1.i = phi i32 [ 0, %114 ], [ %.05785.i, %102 ], [ 1, %108 ]
+  %.2.i = phi i32 [ %117, %114 ], [ %.06183.i, %102 ], [ %.06183.i, %108 ]
+  %.160.i = phi i32 [ %.05984.i, %114 ], [ 1, %102 ], [ %.05984.i, %108 ]
+  %.1.i = phi i32 [ 0, %114 ], [ %.05885.i, %102 ], [ 1, %108 ]
   %exitcond.not.i = icmp eq i32 %93, %3
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
@@ -390,7 +390,7 @@ define internal fastcc range(i32 2, 0) i32 @dissect_bencoding_str(ptr noundef %0
 
 .preheader:                                       ; preds = %7, %39
   %.082 = phi i32 [ %14, %39 ], [ %3, %7 ]
-  %.080 = phi i32 [ %44, %39 ], [ 0, %7 ]
+  %.081 = phi i32 [ %44, %39 ], [ 0, %7 ]
   %.079 = phi i32 [ %15, %39 ], [ 0, %7 ]
   %.0 = phi i32 [ %spec.select, %39 ], [ 0, %7 ]
   %exitcond.not = icmp eq i32 %.079, %3
@@ -408,7 +408,7 @@ define internal fastcc range(i32 2, 0) i32 @dissect_bencoding_str(ptr noundef %0
   br i1 %or.cond, label %19, label %35
 
 19:                                               ; preds = %11
-  %or.cond3.not = icmp ult i32 %.080, %.082
+  %or.cond3.not = icmp ult i32 %.081, %.082
   br i1 %or.cond3.not, label %22, label %20
 
 20:                                               ; preds = %19
@@ -421,10 +421,10 @@ define internal fastcc range(i32 2, 0) i32 @dissect_bencoding_str(ptr noundef %0
 
 23:                                               ; preds = %22
   %24 = load i32, ptr @hf_bencode_str_length, align 4
-  %25 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %4, i32 noundef %24, ptr noundef %0, i32 noundef %2, i32 noundef %15, i32 noundef %.080) #2
+  %25 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %4, i32 noundef %24, ptr noundef %0, i32 noundef %2, i32 noundef %15, i32 noundef %.081) #2
   %26 = load i32, ptr @hf_bencode_str, align 4
   %27 = add i32 %15, %2
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %4, i32 noundef %26, ptr noundef %0, i32 noundef %27, i32 noundef %.080, i32 noundef 0) #2
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %4, i32 noundef %26, ptr noundef %0, i32 noundef %27, i32 noundef %.081, i32 noundef 0) #2
   switch i32 %6, label %33 [
     i32 1, label %.sink.split
     i32 2, label %29
@@ -437,12 +437,12 @@ define internal fastcc range(i32 2, 0) i32 @dissect_bencoding_str(ptr noundef %0
   %.str.30.sink = phi ptr [ @.str.31, %29 ], [ @.str.30, %23 ]
   %30 = getelementptr inbounds i8, ptr %1, i64 408
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call ptr @tvb_format_text(ptr noundef %31, ptr noundef %0, i32 noundef %27, i32 noundef %.080) #2
+  %32 = tail call ptr @tvb_format_text(ptr noundef %31, ptr noundef %0, i32 noundef %27, i32 noundef %.081) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull %.str.30.sink, ptr noundef %32) #2
   br label %33
 
 33:                                               ; preds = %.sink.split, %23, %22
-  %34 = add nuw i32 %15, %.080
+  %34 = add nuw i32 %15, %.081
   br label %50
 
 35:                                               ; preds = %11
@@ -457,10 +457,10 @@ define internal fastcc range(i32 2, 0) i32 @dissect_bencoding_str(ptr noundef %0
   %41 = icmp eq i32 %.079, 0
   %or.cond11 = and i1 %40, %41
   %spec.select = zext i1 %or.cond11 to i32
-  %42 = mul i32 %.080, 10
+  %42 = mul i32 %.081, 10
   %43 = add i32 %42, -48
   %44 = add i32 %43, %16
-  %.not = icmp slt i32 %44, %.080
+  %.not = icmp slt i32 %44, %.081
   br i1 %.not, label %45, label %.preheader, !llvm.loop !8
 
 45:                                               ; preds = %39, %35
@@ -473,8 +473,8 @@ define internal fastcc range(i32 2, 0) i32 @dissect_bencoding_str(ptr noundef %0
   br label %50
 
 50:                                               ; preds = %47, %45, %33, %20, %9
-  %.081 = phi i32 [ -1, %9 ], [ -1, %20 ], [ %34, %33 ], [ -1, %45 ], [ -1, %47 ]
-  ret i32 %.081
+  %.080 = phi i32 [ -1, %9 ], [ -1, %20 ], [ %34, %33 ], [ -1, %45 ], [ -1, %47 ]
+  ret i32 %.080
 }
 
 declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1

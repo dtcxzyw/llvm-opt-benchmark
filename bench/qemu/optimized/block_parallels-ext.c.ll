@@ -128,14 +128,14 @@ if.then22.i:                                      ; preds = %parallels_load_bitm
 
 if.end23.i:                                       ; preds = %parallels_load_bitmap.exit.i, %if.end23.lr.ph.i
   %remaining.0104.i = phi i32 [ %sub.i, %if.end23.lr.ph.i ], [ %sub26.i, %parallels_load_bitmap.exit.i ]
-  %bitmaps.0103.i = phi ptr [ null, %if.end23.lr.ph.i ], [ %call51.i, %parallels_load_bitmap.exit.i ]
-  %pos.0102.i = phi ptr [ %add.ptr.i, %if.end23.lr.ph.i ], [ %add.ptr56.i, %parallels_load_bitmap.exit.i ]
-  %fh.sroa.0.0.copyload.i = load i64, ptr %pos.0102.i, align 1
-  %fh.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pos.0102.i, i64 8
+  %pos.0103.i = phi ptr [ %add.ptr.i, %if.end23.lr.ph.i ], [ %add.ptr56.i, %parallels_load_bitmap.exit.i ]
+  %bitmaps.0102.i = phi ptr [ null, %if.end23.lr.ph.i ], [ %call51.i, %parallels_load_bitmap.exit.i ]
+  %fh.sroa.0.0.copyload.i = load i64, ptr %pos.0103.i, align 1
+  %fh.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %pos.0103.i, i64 8
   %fh.sroa.5.0.copyload.i = load i64, ptr %fh.sroa.5.0..sroa_idx.i, align 1
-  %fh.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %pos.0102.i, i64 16
+  %fh.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %pos.0103.i, i64 16
   %fh.sroa.8.0.copyload.i = load i32, ptr %fh.sroa.8.0..sroa_idx.i, align 1
-  %add.ptr24.i = getelementptr i8, ptr %pos.0102.i, i64 24
+  %add.ptr24.i = getelementptr i8, ptr %pos.0103.i, i64 24
   %sub26.i = add i32 %remaining.0104.i, -24
   %tobool.not.i = icmp eq i64 %fh.sroa.5.0.copyload.i, 0
   br i1 %tobool.not.i, label %if.end37.i, label %if.then36.i
@@ -171,13 +171,13 @@ if.then.i.i:                                      ; preds = %sw.bb44.i
 
 if.end.i.i:                                       ; preds = %sw.bb44.i
   %bf.sroa.0.0.copyload.i.i = load i64, ptr %add.ptr24.i, align 1
-  %bf.sroa.5.0..sroa_idx.i.i = getelementptr i8, ptr %pos.0102.i, i64 32
-  %bf.sroa.6.0..sroa_idx.i.i = getelementptr i8, ptr %pos.0102.i, i64 48
+  %bf.sroa.5.0..sroa_idx.i.i = getelementptr i8, ptr %pos.0103.i, i64 32
+  %bf.sroa.6.0..sroa_idx.i.i = getelementptr i8, ptr %pos.0103.i, i64 48
   %bf.sroa.6.0.copyload.i.i = load i32, ptr %bf.sroa.6.0..sroa_idx.i.i, align 1
-  %bf.sroa.9.0..sroa_idx.i.i = getelementptr i8, ptr %pos.0102.i, i64 52
+  %bf.sroa.9.0..sroa_idx.i.i = getelementptr i8, ptr %pos.0103.i, i64 52
   %bf.sroa.9.0.copyload.i.i = load i32, ptr %bf.sroa.9.0..sroa_idx.i.i, align 1
   %shl.i.i = shl i32 %bf.sroa.6.0.copyload.i.i, 9
-  %add.ptr.i.i = getelementptr i8, ptr %pos.0102.i, i64 56
+  %add.ptr.i.i = getelementptr i8, ptr %pos.0103.i, i64 56
   %9 = load i64, ptr %total_sectors.i.i, align 8
   %cmp7.not.i.i = icmp eq i64 %bf.sroa.0.0.copyload.i.i, %9
   br i1 %cmp7.not.i.i, label %if.end11.i.i, label %if.then8.i.i
@@ -250,11 +250,11 @@ for.body.i.i.preheader.i:                         ; preds = %if.end.i.i.i
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.i.i.preheader.i
-  %i.034.i.i.i = phi i64 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
-  %offset.033.i.i.i = phi i64 [ %add33.i.i.i, %for.inc.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
-  %sub13.i.i.i = sub i64 %call.i.i.i, %offset.033.i.i.i
+  %offset.034.i.i.i = phi i64 [ %add33.i.i.i, %for.inc.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
+  %i.033.i.i.i = phi i64 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %for.body.i.i.preheader.i ]
+  %sub13.i.i.i = sub i64 %call.i.i.i, %offset.034.i.i.i
   %cond.i.i.i = call i64 @llvm.umin.i64(i64 %sub13.i.i.i, i64 %call10.i.i.i)
-  %arrayidx.i.i.i = getelementptr i64, ptr %call25.i.i, i64 %i.034.i.i.i
+  %arrayidx.i.i.i = getelementptr i64, ptr %call25.i.i, i64 %i.033.i.i.i
   %13 = load i64, ptr %arrayidx.i.i.i, align 8
   switch i64 %13, label %if.else.i.i.i [
     i64 0, label %for.inc.i.i.i
@@ -262,7 +262,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   ]
 
 if.then23.i.i.i:                                  ; preds = %for.body.i.i.i
-  call void @bdrv_dirty_bitmap_deserialize_ones(ptr noundef nonnull %call20.i.i, i64 noundef %offset.033.i.i.i, i64 noundef %cond.i.i.i, i1 noundef zeroext false) #8
+  call void @bdrv_dirty_bitmap_deserialize_ones(ptr noundef nonnull %call20.i.i, i64 noundef %offset.034.i.i.i, i64 noundef %cond.i.i.i, i1 noundef zeroext false) #8
   br label %for.inc.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -281,12 +281,12 @@ parallels_load_bitmap_data.exit.thread31.i.i:     ; preds = %if.else.i.i.i
   br label %if.then35.i.i
 
 if.end31.i.i.i:                                   ; preds = %if.else.i.i.i
-  call void @bdrv_dirty_bitmap_deserialize_part(ptr noundef nonnull %call20.i.i, ptr noundef %call8.i.i.i, i64 noundef %offset.033.i.i.i, i64 noundef %cond.i.i.i, i1 noundef zeroext false) #8
+  call void @bdrv_dirty_bitmap_deserialize_part(ptr noundef nonnull %call20.i.i, ptr noundef %call8.i.i.i, i64 noundef %offset.034.i.i.i, i64 noundef %cond.i.i.i, i1 noundef zeroext false) #8
   br label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %if.end31.i.i.i, %if.then23.i.i.i, %for.body.i.i.i
-  %inc.i.i.i = add nuw nsw i64 %i.034.i.i.i, 1
-  %add33.i.i.i = add i64 %offset.033.i.i.i, %call10.i.i.i
+  %inc.i.i.i = add nuw nsw i64 %i.033.i.i.i, 1
+  %add33.i.i.i = add i64 %offset.034.i.i.i, %call10.i.i.i
   %exitcond.not.i = icmp eq i64 %inc.i.i.i, %umax.i
   br i1 %exitcond.not.i, label %if.end36.i.i, label %for.body.i.i.i, !llvm.loop !7
 
@@ -318,7 +318,7 @@ parallels_load_bitmap.exit.i:                     ; preds = %if.end36.i.i
   call void @g_free(ptr noundef %call25.i.i) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i.i)
   call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %uuidstr.i.i)
-  %call51.i = call ptr @g_slist_append(ptr noundef %bitmaps.0103.i, ptr noundef nonnull %call20.i.i) #8
+  %call51.i = call ptr @g_slist_append(ptr noundef %bitmaps.0102.i, ptr noundef nonnull %call20.i.i) #8
   %add.ptr54.i = getelementptr i8, ptr %add.ptr24.i, i64 %conv46.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr54.i to i64
   %reass.sub = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -334,7 +334,7 @@ sw.default.i:                                     ; preds = %if.end42.i
   br label %fail.i
 
 fail.i:                                           ; preds = %sw.default.i, %parallels_load_bitmap.exit.thread.i, %if.then41.i, %if.then36.i, %if.then22.i
-  %bitmaps.1.i = phi ptr [ %bitmaps.0.lcssa.i, %if.then22.i ], [ %bitmaps.0103.i, %if.then36.i ], [ %bitmaps.0103.i, %if.then41.i ], [ %bitmaps.0103.i, %sw.default.i ], [ %bitmaps.0103.i, %parallels_load_bitmap.exit.thread.i ]
+  %bitmaps.1.i = phi ptr [ %bitmaps.0.lcssa.i, %if.then22.i ], [ %bitmaps.0102.i, %if.then36.i ], [ %bitmaps.0102.i, %if.then41.i ], [ %bitmaps.0102.i, %sw.default.i ], [ %bitmaps.0102.i, %parallels_load_bitmap.exit.thread.i ]
   %tobool57.not106.i = icmp eq ptr %bitmaps.1.i, null
   br i1 %tobool57.not106.i, label %for.end.i, label %for.body.i
 

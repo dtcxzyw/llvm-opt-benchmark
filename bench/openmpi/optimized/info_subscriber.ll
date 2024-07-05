@@ -876,8 +876,8 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %12, %1
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %1, i64 16
   %23 = getelementptr inbounds i8, ptr %1, i64 32
-  %.03766 = load volatile ptr, ptr %23, align 8
-  %.not4267 = icmp eq ptr %.03766, %22
+  %.03866 = load volatile ptr, ptr %23, align 8
+  %.not4267 = icmp eq ptr %.03866, %22
   br i1 %.not4267, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
@@ -886,15 +886,15 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %12, %1
   br label %27
 
 25:                                               ; preds = %116
-  %26 = getelementptr inbounds i8, ptr %.03768, i64 16
-  %.037 = load volatile ptr, ptr %26, align 8
-  %.not42 = icmp eq ptr %.037, %22
+  %26 = getelementptr inbounds i8, ptr %.03868, i64 16
+  %.038 = load volatile ptr, ptr %26, align 8
+  %.not42 = icmp eq ptr %.038, %22
   br i1 %.not42, label %.loopexit, label %27, !llvm.loop !14
 
 27:                                               ; preds = %.lr.ph, %25
   %28 = phi i8 [ %.pre71, %.lr.ph ], [ %117, %25 ]
-  %.03768 = phi ptr [ %.03766, %.lr.ph ], [ %.037, %25 ]
-  %29 = getelementptr inbounds i8, ptr %.03768, i64 40
+  %.03868 = phi ptr [ %.03866, %.lr.ph ], [ %.038, %25 ]
+  %29 = getelementptr inbounds i8, ptr %.03868, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = trunc i8 %28 to i1
@@ -902,7 +902,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %12, %1
 
 33:                                               ; preds = %27
   %34 = atomicrmw volatile add ptr %31, i32 1 monotonic, align 4
-  %35 = getelementptr inbounds i8, ptr %.03768, i64 48
+  %35 = getelementptr inbounds i8, ptr %.03868, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = atomicrmw volatile add ptr %37, i32 1 monotonic, align 4
@@ -913,7 +913,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %12, %1
   %41 = add nsw i32 %40, 1
   store volatile i32 %41, ptr %31, align 4
   %42 = load volatile i32, ptr %31, align 4
-  %43 = getelementptr inbounds i8, ptr %.03768, i64 48
+  %43 = getelementptr inbounds i8, ptr %.03868, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load volatile i32, ptr %45, align 4
@@ -1082,8 +1082,8 @@ opal_obj_run_destructors.exit59:                  ; preds = %.lr.ph.i56, %108
   br i1 %.not45, label %25, label %.loopexit
 
 .loopexit:                                        ; preds = %116, %25, %21, %20
-  %.038 = phi i32 [ 0, %20 ], [ 0, %21 ], [ %.0, %116 ], [ 0, %25 ]
-  ret i32 %.038
+  %.037 = phi i32 [ 0, %20 ], [ 0, %21 ], [ %.0, %116 ], [ 0, %25 ]
+  ret i32 %.037
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

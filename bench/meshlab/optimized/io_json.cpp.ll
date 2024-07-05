@@ -2490,9 +2490,9 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %74, %_ZN9QtPrivate8
   br label %593
 
 593:                                              ; preds = %.lr.ph328, %676
-  %.0153326 = phi i64 [ 0, %.lr.ph328 ], [ %.2155, %676 ]
-  %.0156325 = phi i64 [ 0, %.lr.ph328 ], [ %.4160, %676 ]
-  %594 = add i64 %.0153326, 10
+  %.0155326 = phi i64 [ 0, %.lr.ph328 ], [ %.2157, %676 ]
+  %.0158325 = phi i64 [ 0, %.lr.ph328 ], [ %.4162, %676 ]
+  %594 = add i64 %.0155326, 10
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %594, i64 %588)
   %.not190 = icmp eq i64 %594, 0
   br i1 %.not190, label %676, label %595
@@ -2506,13 +2506,13 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %74, %_ZN9QtPrivate8
   br label %598
 
 598:                                              ; preds = %598, %.preheader272
-  %.1157 = phi i64 [ %603, %598 ], [ %.0156325, %.preheader272 ]
-  %599 = getelementptr inbounds %class.CFaceO, ptr %597, i64 %.1157
+  %.1159 = phi i64 [ %603, %598 ], [ %.0158325, %.preheader272 ]
+  %599 = getelementptr inbounds %class.CFaceO, ptr %597, i64 %.1159
   %600 = getelementptr inbounds i8, ptr %599, i64 32
   %601 = load i32, ptr %600, align 8
   %602 = and i32 %601, 1
   %.not269 = icmp eq i32 %602, 0
-  %603 = add i64 %.1157, 1
+  %603 = add i64 %.1159, 1
   br i1 %.not269, label %604, label %598, !llvm.loop !26
 
 604:                                              ; preds = %598
@@ -2554,17 +2554,17 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %74, %_ZN9QtPrivate8
           to label %.preheader271.preheader unwind label %.loopexit.split-lp.loopexit
 
 .preheader271.preheader:                          ; preds = %624
-  %632 = add i64 %.0153326, 1
+  %632 = add i64 %.0155326, 1
   %umax = call i64 @llvm.umax.i64(i64 %.sroa.speculated, i64 %632)
   %633 = add i64 %umax, -1
   br label %.preheader271
 
 .preheader271:                                    ; preds = %.preheader271.preheader, %663
-  %.2158.in = phi i64 [ %.3159, %663 ], [ %.1157, %.preheader271.preheader ]
-  %.1154.in = phi i64 [ %.1154, %663 ], [ %.0153326, %.preheader271.preheader ]
-  %.1154 = add i64 %.1154.in, 1
-  %.2158 = add i64 %.2158.in, 1
-  %exitcond.not = icmp eq i64 %.1154.in, %633
+  %.2160.in = phi i64 [ %.3161, %663 ], [ %.1159, %.preheader271.preheader ]
+  %.1156.in = phi i64 [ %.1156, %663 ], [ %.0155326, %.preheader271.preheader ]
+  %.1156 = add i64 %.1156.in, 1
+  %.2160 = add i64 %.2160.in, 1
+  %exitcond.not = icmp eq i64 %.1156.in, %633
   br i1 %exitcond.not, label %671, label %.preheader
 
 .preheader:                                       ; preds = %.preheader271
@@ -2572,13 +2572,13 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %74, %_ZN9QtPrivate8
   br label %635
 
 635:                                              ; preds = %635, %.preheader
-  %.3159 = phi i64 [ %640, %635 ], [ %.2158, %.preheader ]
-  %636 = getelementptr inbounds %class.CFaceO, ptr %634, i64 %.3159
+  %.3161 = phi i64 [ %640, %635 ], [ %.2160, %.preheader ]
+  %636 = getelementptr inbounds %class.CFaceO, ptr %634, i64 %.3161
   %637 = getelementptr inbounds i8, ptr %636, i64 32
   %638 = load i32, ptr %637, align 8
   %639 = and i32 %638, 1
   %.not270 = icmp eq i32 %639, 0
-  %640 = add i64 %.3159, 1
+  %640 = add i64 %.3161, 1
   br i1 %.not270, label %641, label %635, !llvm.loop !27
 
 641:                                              ; preds = %635
@@ -2636,9 +2636,9 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %74, %_ZN9QtPrivate8
           to label %676 unwind label %.loopexit.split-lp.loopexit
 
 676:                                              ; preds = %674, %593
-  %.4160 = phi i64 [ %.2158, %674 ], [ %.0156325, %593 ]
-  %.2155 = phi i64 [ %umax, %674 ], [ -10, %593 ]
-  %677 = icmp ult i64 %.2155, %588
+  %.4162 = phi i64 [ %.2160, %674 ], [ %.0158325, %593 ]
+  %.2157 = phi i64 [ %umax, %674 ], [ -10, %593 ]
+  %677 = icmp ult i64 %.2157, %588
   br i1 %677, label %593, label %._crit_edge329, !llvm.loop !29
 
 ._crit_edge329:                                   ; preds = %676, %586

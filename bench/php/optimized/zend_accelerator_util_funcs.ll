@@ -630,8 +630,8 @@ define hidden void @zend_accel_build_delayed_early_binding_list(ptr nocapture no
   br label %13
 
 13:                                               ; preds = %.lr.ph, %20
-  %.07783 = phi ptr [ %7, %.lr.ph ], [ %21, %20 ]
-  %14 = getelementptr inbounds i8, ptr %.07783, i64 28
+  %.083 = phi ptr [ %7, %.lr.ph ], [ %21, %20 ]
+  %14 = getelementptr inbounds i8, ptr %.083, i64 28
   %15 = load i8, ptr %14, align 4
   %16 = icmp eq i8 %15, -111
   br i1 %16, label %17, label %20
@@ -643,7 +643,7 @@ define hidden void @zend_accel_build_delayed_early_binding_list(ptr nocapture no
   br label %20
 
 20:                                               ; preds = %13, %17
-  %21 = getelementptr inbounds i8, ptr %.07783, i64 32
+  %21 = getelementptr inbounds i8, ptr %.083, i64 32
   %22 = icmp ult ptr %21, %11
   br i1 %22, label %13, label %._crit_edge
 
@@ -660,18 +660,18 @@ define hidden void @zend_accel_build_delayed_early_binding_list(ptr nocapture no
   br i1 %30, label %.lr.ph87, label %.loopexit
 
 .lr.ph87:                                         ; preds = %._crit_edge, %72
-  %.085 = phi ptr [ %73, %72 ], [ %29, %._crit_edge ]
-  %.07684 = phi ptr [ %.1, %72 ], [ %27, %._crit_edge ]
-  %31 = getelementptr inbounds i8, ptr %.085, i64 28
+  %.07685 = phi ptr [ %73, %72 ], [ %29, %._crit_edge ]
+  %.07784 = phi ptr [ %.1, %72 ], [ %27, %._crit_edge ]
+  %31 = getelementptr inbounds i8, ptr %.07685, i64 28
   %32 = load i8, ptr %31, align 4
   %33 = icmp eq i8 %32, -111
   br i1 %33, label %34, label %72
 
 34:                                               ; preds = %.lr.ph87
-  %35 = getelementptr inbounds i8, ptr %.085, i64 8
+  %35 = getelementptr inbounds i8, ptr %.07685, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %.085, i64 %37
+  %38 = getelementptr inbounds i8, ptr %.07685, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
@@ -686,7 +686,7 @@ define hidden void @zend_accel_build_delayed_early_binding_list(ptr nocapture no
   br label %46
 
 46:                                               ; preds = %43, %34
-  store ptr %39, ptr %.07684, align 8
+  store ptr %39, ptr %.07784, align 8
   %47 = getelementptr inbounds i8, ptr %38, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 4
@@ -702,12 +702,12 @@ define hidden void @zend_accel_build_delayed_early_binding_list(ptr nocapture no
   br label %55
 
 55:                                               ; preds = %52, %46
-  %56 = getelementptr inbounds i8, ptr %.07684, i64 8
+  %56 = getelementptr inbounds i8, ptr %.07784, i64 8
   store ptr %48, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %.085, i64 12
+  %57 = getelementptr inbounds i8, ptr %.07685, i64 12
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %.085, i64 %59
+  %60 = getelementptr inbounds i8, ptr %.07685, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
@@ -722,16 +722,16 @@ define hidden void @zend_accel_build_delayed_early_binding_list(ptr nocapture no
   br label %68
 
 68:                                               ; preds = %65, %55
-  %69 = getelementptr inbounds i8, ptr %.07684, i64 16
+  %69 = getelementptr inbounds i8, ptr %.07784, i64 16
   store ptr %61, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %.07684, i64 24
+  %70 = getelementptr inbounds i8, ptr %.07784, i64 24
   store i32 -1, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %.07684, i64 32
+  %71 = getelementptr inbounds i8, ptr %.07784, i64 32
   br label %72
 
 72:                                               ; preds = %.lr.ph87, %68
-  %.1 = phi ptr [ %71, %68 ], [ %.07684, %.lr.ph87 ]
-  %73 = getelementptr inbounds i8, ptr %.085, i64 32
+  %.1 = phi ptr [ %71, %68 ], [ %.07784, %.lr.ph87 ]
+  %73 = getelementptr inbounds i8, ptr %.07685, i64 32
   %74 = icmp ult ptr %73, %11
   br i1 %74, label %.lr.ph87, label %.loopexit
 
@@ -766,25 +766,25 @@ define hidden void @zend_accel_finalize_delayed_early_binding_list(ptr nocapture
   br i1 %.not46, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %42
-  %.045 = phi ptr [ %43, %42 ], [ %10, %4 ]
-  %.03244 = phi ptr [ %.2, %42 ], [ %6, %4 ]
-  %15 = getelementptr inbounds i8, ptr %.045, i64 28
+  %.045 = phi ptr [ %.2, %42 ], [ %6, %4 ]
+  %.03244 = phi ptr [ %43, %42 ], [ %10, %4 ]
+  %15 = getelementptr inbounds i8, ptr %.03244, i64 28
   %16 = load i8, ptr %15, align 4
   %17 = icmp eq i8 %16, -111
   br i1 %17, label %18, label %42
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %.045, i64 8
+  %19 = getelementptr inbounds i8, ptr %.03244, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %.045, i64 %21
+  %22 = getelementptr inbounds i8, ptr %.03244, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   br label %26
 
 26:                                               ; preds = %.critedge41, %18
-  %.1 = phi ptr [ %.03244, %18 ], [ %37, %.critedge41 ]
+  %.1 = phi ptr [ %.045, %18 ], [ %37, %.critedge41 ]
   %27 = getelementptr inbounds i8, ptr %.1, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %24
@@ -807,7 +807,7 @@ define hidden void @zend_accel_finalize_delayed_early_binding_list(ptr nocapture
   br i1 %.not39, label %26, label %.loopexit
 
 .critedge:                                        ; preds = %26, %35
-  %38 = getelementptr inbounds i8, ptr %.045, i64 20
+  %38 = getelementptr inbounds i8, ptr %.03244, i64 20
   %39 = load i32, ptr %38, align 4
   %40 = getelementptr inbounds i8, ptr %.1, i64 24
   store i32 %39, ptr %40, align 8
@@ -816,8 +816,8 @@ define hidden void @zend_accel_finalize_delayed_early_binding_list(ptr nocapture
   br i1 %.not38, label %42, label %.loopexit
 
 42:                                               ; preds = %.lr.ph, %.critedge
-  %.2 = phi ptr [ %41, %.critedge ], [ %.03244, %.lr.ph ]
-  %43 = getelementptr inbounds i8, ptr %.045, i64 32
+  %.2 = phi ptr [ %41, %.critedge ], [ %.045, %.lr.ph ]
+  %43 = getelementptr inbounds i8, ptr %.03244, i64 32
   %44 = icmp ult ptr %43, %14
   br i1 %44, label %.lr.ph, label %.loopexit
 
@@ -1626,10 +1626,10 @@ define hidden i32 @zend_adler32(i32 noundef %0, ptr noundef readonly %1, i32 nou
 
 47:                                               ; preds = %47, %43
   %.0189 = phi i32 [ %.0202.lcssa, %43 ], [ %66, %47 ]
-  %.0188 = phi ptr [ %.0180.lcssa, %43 ], [ %67, %47 ]
   %48 = phi <4 x i32> [ zeroinitializer, %43 ], [ %57, %47 ]
-  %.0186 = phi i32 [ 0, %43 ], [ %58, %47 ]
-  %49 = load <16 x i8>, ptr %.0188, align 1
+  %.0187 = phi i32 [ 0, %43 ], [ %58, %47 ]
+  %.0186 = phi ptr [ %.0180.lcssa, %43 ], [ %67, %47 ]
+  %49 = load <16 x i8>, ptr %.0186, align 1
   %50 = shufflevector <16 x i8> %49, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %51 = shufflevector <16 x i8> %49, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %52 = bitcast <16 x i8> %50 to <8 x i16>
@@ -1638,7 +1638,7 @@ define hidden i32 @zend_adler32(i32 noundef %0, ptr noundef readonly %1, i32 nou
   %55 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %54, <8 x i16> <i16 8, i16 7, i16 6, i16 5, i16 4, i16 3, i16 2, i16 1>)
   %56 = add <4 x i32> %53, %48
   %57 = add <4 x i32> %56, %55
-  %58 = add i32 %.0186, %.0189
+  %58 = add i32 %.0187, %.0189
   %59 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %49, <16 x i8> zeroinitializer)
   %60 = bitcast <2 x i64> %59 to <4 x i32>
   %61 = extractelement <4 x i32> %60, i64 0
@@ -1647,7 +1647,7 @@ define hidden i32 @zend_adler32(i32 noundef %0, ptr noundef readonly %1, i32 nou
   %64 = zext i16 %63 to i32
   %65 = add i32 %61, %.0189
   %66 = add i32 %65, %64
-  %67 = getelementptr inbounds i8, ptr %.0188, i64 16
+  %67 = getelementptr inbounds i8, ptr %.0186, i64 16
   %.not212 = icmp eq ptr %67, %46
   br i1 %.not212, label %68, label %47
 
@@ -1788,10 +1788,10 @@ define hidden i32 @zend_accel_script_checksum(ptr noundef %0) local_unnamed_addr
 
 53:                                               ; preds = %53, %49
   %.0189.i = phi i32 [ %.0202.lcssa.i, %49 ], [ %72, %53 ]
-  %.0188.i = phi ptr [ %.0180.lcssa.i, %49 ], [ %73, %53 ]
   %54 = phi <4 x i32> [ zeroinitializer, %49 ], [ %63, %53 ]
-  %.0186.i = phi i32 [ 0, %49 ], [ %64, %53 ]
-  %55 = load <16 x i8>, ptr %.0188.i, align 1
+  %.0187.i = phi i32 [ 0, %49 ], [ %64, %53 ]
+  %.0186.i = phi ptr [ %.0180.lcssa.i, %49 ], [ %73, %53 ]
+  %55 = load <16 x i8>, ptr %.0186.i, align 1
   %56 = shufflevector <16 x i8> %55, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %57 = shufflevector <16 x i8> %55, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %58 = bitcast <16 x i8> %56 to <8 x i16>
@@ -1800,7 +1800,7 @@ define hidden i32 @zend_accel_script_checksum(ptr noundef %0) local_unnamed_addr
   %61 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %60, <8 x i16> <i16 8, i16 7, i16 6, i16 5, i16 4, i16 3, i16 2, i16 1>)
   %62 = add <4 x i32> %59, %54
   %63 = add <4 x i32> %62, %61
-  %64 = add i32 %.0186.i, %.0189.i
+  %64 = add i32 %.0187.i, %.0189.i
   %65 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %55, <16 x i8> zeroinitializer)
   %66 = bitcast <2 x i64> %65 to <4 x i32>
   %67 = extractelement <4 x i32> %66, i64 0
@@ -1809,7 +1809,7 @@ define hidden i32 @zend_accel_script_checksum(ptr noundef %0) local_unnamed_addr
   %70 = zext i16 %69 to i32
   %71 = add i32 %67, %.0189.i
   %72 = add i32 %71, %70
-  %73 = getelementptr inbounds i8, ptr %.0188.i, i64 16
+  %73 = getelementptr inbounds i8, ptr %.0186.i, i64 16
   %.not212.i = icmp eq ptr %73, %52
   br i1 %.not212.i, label %74, label %53
 
@@ -1864,17 +1864,17 @@ zend_adler32.exit:                                ; preds = %._crit_edge.i, %.lo
   br label %zend_adler32.exit55
 
 zend_adler32.exit55:                              ; preds = %zend_adler32.exit, %1
-  %.026 = phi ptr [ %97, %zend_adler32.exit ], [ %3, %1 ]
-  %.025 = phi i64 [ %96, %zend_adler32.exit ], [ %5, %1 ]
+  %.026 = phi i64 [ %96, %zend_adler32.exit ], [ %5, %1 ]
+  %.025 = phi ptr [ %97, %zend_adler32.exit ], [ %3, %1 ]
   %.0 = phi i32 [ %95, %zend_adler32.exit ], [ 1, %1 ]
-  %98 = add i64 %.025, -464
+  %98 = add i64 %.026, -464
   %.not = icmp eq i64 %98, 0
   br i1 %.not, label %188, label %99
 
 99:                                               ; preds = %zend_adler32.exit55
   %100 = lshr i32 %.0, 16
   %101 = and i32 %.0, 65535
-  %102 = getelementptr inbounds i8, ptr %.026, i64 464
+  %102 = getelementptr inbounds i8, ptr %.025, i64 464
   %103 = trunc i64 %98 to i32
   %104 = icmp ugt i32 %103, 5551
   br i1 %104, label %.lr.ph.i81, label %._crit_edge.i56
@@ -1950,10 +1950,10 @@ zend_adler32.exit55:                              ; preds = %zend_adler32.exit, 
 
 145:                                              ; preds = %145, %141
   %.0189.i76 = phi i32 [ %.0202.lcssa.i58, %141 ], [ %164, %145 ]
-  %.0188.i77 = phi ptr [ %.0180.lcssa.i59, %141 ], [ %165, %145 ]
   %146 = phi <4 x i32> [ zeroinitializer, %141 ], [ %155, %145 ]
-  %.0186.i78 = phi i32 [ 0, %141 ], [ %156, %145 ]
-  %147 = load <16 x i8>, ptr %.0188.i77, align 1
+  %.0187.i77 = phi i32 [ 0, %141 ], [ %156, %145 ]
+  %.0186.i78 = phi ptr [ %.0180.lcssa.i59, %141 ], [ %165, %145 ]
+  %147 = load <16 x i8>, ptr %.0186.i78, align 1
   %148 = shufflevector <16 x i8> %147, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %149 = shufflevector <16 x i8> %147, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %150 = bitcast <16 x i8> %148 to <8 x i16>
@@ -1962,7 +1962,7 @@ zend_adler32.exit55:                              ; preds = %zend_adler32.exit, 
   %153 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %152, <8 x i16> <i16 8, i16 7, i16 6, i16 5, i16 4, i16 3, i16 2, i16 1>)
   %154 = add <4 x i32> %151, %146
   %155 = add <4 x i32> %154, %153
-  %156 = add i32 %.0186.i78, %.0189.i76
+  %156 = add i32 %.0187.i77, %.0189.i76
   %157 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %147, <16 x i8> zeroinitializer)
   %158 = bitcast <2 x i64> %157 to <4 x i32>
   %159 = extractelement <4 x i32> %158, i64 0
@@ -1971,7 +1971,7 @@ zend_adler32.exit55:                              ; preds = %zend_adler32.exit, 
   %162 = zext i16 %161 to i32
   %163 = add i32 %159, %.0189.i76
   %164 = add i32 %163, %162
-  %165 = getelementptr inbounds i8, ptr %.0188.i77, i64 16
+  %165 = getelementptr inbounds i8, ptr %.0186.i78, i64 16
   %.not212.i79 = icmp eq ptr %165, %144
   br i1 %.not212.i79, label %166, label %145
 

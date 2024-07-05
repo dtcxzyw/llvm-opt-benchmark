@@ -23,20 +23,20 @@ define i32 @mca_coll_self_reduce_scatter_intra(ptr noundef %0, ptr noundef %1, p
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %16
-  %.01728.i = phi ptr [ %19, %16 ], [ %0, %.lr.ph.i.preheader ]
-  %.01827.i = phi ptr [ %18, %16 ], [ %1, %.lr.ph.i.preheader ]
-  %.01926.i = phi i64 [ %20, %16 ], [ %14, %.lr.ph.i.preheader ]
-  %spec.select24.i = tail call i64 @llvm.umin.i64(i64 %.01926.i, i64 2147483647)
+  %.01828.i = phi ptr [ %19, %16 ], [ %0, %.lr.ph.i.preheader ]
+  %.01927.i = phi ptr [ %18, %16 ], [ %1, %.lr.ph.i.preheader ]
+  %.02026.i = phi i64 [ %20, %16 ], [ %14, %.lr.ph.i.preheader ]
+  %spec.select24.i = tail call i64 @llvm.umin.i64(i64 %.02026.i, i64 2147483647)
   %spec.select.i = trunc nuw nsw i64 %spec.select24.i to i32
-  %15 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i, ptr noundef %.01827.i, ptr noundef %.01728.i) #3
+  %15 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i, ptr noundef %.01927.i, ptr noundef %.01828.i) #3
   %.not22.i = icmp eq i32 %15, 0
   br i1 %.not22.i, label %16, label %ompi_datatype_copy_content_same_ddt.exit
 
 16:                                               ; preds = %.lr.ph.i
   %17 = mul nsw i64 %spec.select24.i, %13
-  %18 = getelementptr inbounds i8, ptr %.01827.i, i64 %17
-  %19 = getelementptr inbounds i8, ptr %.01728.i, i64 %17
-  %20 = sub i64 %.01926.i, %spec.select24.i
+  %18 = getelementptr inbounds i8, ptr %.01927.i, i64 %17
+  %19 = getelementptr inbounds i8, ptr %.01828.i, i64 %17
+  %20 = sub i64 %.02026.i, %spec.select24.i
   %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %ompi_datatype_copy_content_same_ddt.exit, label %.lr.ph.i, !llvm.loop !4
 

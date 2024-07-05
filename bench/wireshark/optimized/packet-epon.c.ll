@@ -136,17 +136,17 @@ define internal i32 @dissect_epon(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %81
 
 17:                                               ; preds = %10, %7, %4
-  %.081 = phi i32 [ 2, %4 ], [ 1, %7 ], [ 0, %10 ]
+  %.082 = phi i32 [ 2, %4 ], [ 1, %7 ], [ 0, %10 ]
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.36) #2
   %20 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.42) #2
   %21 = load i32, ptr @proto_epon, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %.081, i32 noundef 6, i32 noundef 0) #2
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %.082, i32 noundef 6, i32 noundef 0) #2
   %23 = load i32, ptr @ett_epon, align 4
   %24 = tail call ptr @proto_item_add_subtree(ptr noundef %22, i32 noundef %23) #2
-  %25 = add nuw nsw i32 %.081, 2
+  %25 = add nuw nsw i32 %.082, 2
   %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %25) #2
   %.not = icmp eq i8 %26, 85
   br i1 %.not, label %51, label %27
@@ -197,15 +197,15 @@ define internal i32 @dissect_epon(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %51
 
 51:                                               ; preds = %43, %49, %17
-  %.0 = phi i32 [ 0, %49 ], [ %34, %43 ], [ 0, %17 ]
+  %.081 = phi i32 [ 0, %49 ], [ %34, %43 ], [ 0, %17 ]
   %52 = load i32, ptr @hf_epon_mode, align 4
-  %53 = add nuw nsw i32 %.081, 3
+  %53 = add nuw nsw i32 %.082, 3
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef 0) #2
   %55 = load i32, ptr @hf_epon_llid, align 4
   %56 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %55, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef 0) #2
-  %57 = add nuw nsw i32 %.081, 5
+  %57 = add nuw nsw i32 %.082, 5
   %58 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %57) #2
-  %59 = trunc nuw nsw i32 %.081 to i8
+  %59 = trunc nuw nsw i32 %.082 to i8
   %60 = tail call zeroext i8 @get_crc8_ieee8023_epon(ptr noundef %0, i8 noundef zeroext 5, i8 noundef zeroext %59) #2
   %61 = zext i8 %60 to i32
   %62 = load i32, ptr @hf_epon_checksum, align 4
@@ -220,12 +220,12 @@ define internal i32 @dissect_epon(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %67
 
 67:                                               ; preds = %65, %51
-  %.not88 = icmp eq i32 %.0, 0
+  %.not88 = icmp eq i32 %.081, 0
   br i1 %.not88, label %74, label %68
 
 68:                                               ; preds = %67
   %69 = load i32, ptr @hf_epon_dpoe_encrypted_data, align 4
-  %70 = add nuw nsw i32 %.081, 6
+  %70 = add nuw nsw i32 %.082, 6
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %69, ptr noundef %0, i32 noundef %70, i32 noundef -1, i32 noundef 0) #2
   %72 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %71, ptr noundef nonnull @ei_epon_dpoe_encrypted_data) #2
   %73 = load ptr, ptr %18, align 8
@@ -233,7 +233,7 @@ define internal i32 @dissect_epon(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %79
 
 74:                                               ; preds = %67
-  %75 = add nuw nsw i32 %.081, 6
+  %75 = add nuw nsw i32 %.082, 6
   %76 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %75) #2
   %77 = load ptr, ptr @eth_maybefcs_handle, align 8
   %78 = tail call i32 @call_dissector(ptr noundef %77, ptr noundef %76, ptr noundef nonnull %1, ptr noundef %2) #2
@@ -244,8 +244,8 @@ define internal i32 @dissect_epon(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %81
 
 81:                                               ; preds = %79, %13
-  %.082 = phi i32 [ %80, %79 ], [ 0, %13 ]
-  ret i32 %.082
+  %.0 = phi i32 [ %80, %79 ], [ 0, %13 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

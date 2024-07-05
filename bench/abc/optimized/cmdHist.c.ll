@@ -144,9 +144,9 @@ define void @Cmd_HistoryAddCommand(ptr nocapture noundef readonly %0, ptr nocapt
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %34
-  %.0.lcssa = phi i32 [ %39, %34 ], [ %49, %.critedge.loopexit ]
+  %.023.lcssa = phi i32 [ %39, %34 ], [ %49, %.critedge.loopexit ]
   %.1 = phi ptr [ null, %34 ], [ %46, %.critedge.loopexit ]
-  %50 = icmp eq i32 %.0.lcssa, %.val
+  %50 = icmp eq i32 %.023.lcssa, %.val
   br i1 %50, label %.critedge.thread, label %52
 
 .critedge.thread:                                 ; preds = %48, %.critedge

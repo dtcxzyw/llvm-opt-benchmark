@@ -76,7 +76,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %38, label %39, label %.thread176
 
 39:                                               ; preds = %35, %33
-  %.098 = phi ptr [ %8, %33 ], [ %0, %35 ]
+  %.093 = phi ptr [ %8, %33 ], [ %0, %35 ]
   %.pr157 = load i8, ptr %1, align 1
   %.not112144158 = icmp eq i8 %.pr157, 0
   br i1 %.not112144158, label %.loopexit141, label %.preheader
@@ -98,26 +98,26 @@ sub_1:                                            ; preds = %sub_0
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.backedge, %.preheader.us.us.preheader
   %45 = phi i8 [ %.pr157180, %.preheader.us.us.preheader ], [ %.be220, %.preheader.us.us.backedge ]
-  %.195.us.us = phi ptr [ %1, %.preheader.us.us.preheader ], [ %.195.us.us.be, %.preheader.us.us.backedge ]
+  %.197.us.us = phi ptr [ %1, %.preheader.us.us.preheader ], [ %.197.us.us.be, %.preheader.us.us.backedge ]
   switch i8 %45, label %.critedge.us.us [
     i8 9, label %.critedge2.us.us
     i8 32, label %.critedge2.us.us
   ]
 
 .critedge2.us.us:                                 ; preds = %.preheader.us.us, %.preheader.us.us
-  %46 = getelementptr inbounds i8, ptr %.195.us.us, i64 1
+  %46 = getelementptr inbounds i8, ptr %.197.us.us, i64 1
   %.pre175 = load i8, ptr %46, align 1
   br label %.preheader.us.us.backedge
 
 .preheader.us.us.backedge:                        ; preds = %72, %.critedge2.us.us, %.split.us.us
   %.be220 = phi i8 [ %.pre175, %.critedge2.us.us ], [ %.pr.us, %.split.us.us ], [ %73, %72 ]
-  %.195.us.us.be = phi ptr [ %46, %.critedge2.us.us ], [ %.3.us.us, %.split.us.us ], [ %.4.us.us, %72 ]
+  %.197.us.us.be = phi ptr [ %46, %.critedge2.us.us ], [ %.3.us.us, %.split.us.us ], [ %.4.us.us, %72 ]
   br label %.preheader.us.us, !llvm.loop !5
 
 .critedge.us.us:                                  ; preds = %.preheader.us.us, %76
   %47 = phi i8 [ %.pr126.us.us, %76 ], [ %45, %.preheader.us.us ]
-  %.296.us.us = phi ptr [ %77, %76 ], [ %.195.us.us, %.preheader.us.us ]
-  %.090.us.us = phi i64 [ %78, %76 ], [ 0, %.preheader.us.us ]
+  %.298.us.us = phi ptr [ %77, %76 ], [ %.197.us.us, %.preheader.us.us ]
+  %.091.us.us = phi i64 [ %78, %76 ], [ 0, %.preheader.us.us ]
   switch i8 %47, label %76 [
     i8 0, label %.critedge4.us.us
     i8 32, label %.critedge4.us.us
@@ -126,15 +126,15 @@ sub_1:                                            ; preds = %sub_0
   ]
 
 .critedge4.us.us:                                 ; preds = %.critedge.us.us, %.critedge.us.us, %.critedge.us.us, %.critedge.us.us
-  %.not116.us.us = icmp eq i64 %.090.us.us, 0
+  %.not116.us.us = icmp eq i64 %.091.us.us, 0
   br i1 %.not116.us.us, label %.critedge123.us.us.preheader, label %48
 
 48:                                               ; preds = %.critedge4.us.us
-  %49 = add i64 %.090.us.us, -1
-  %50 = getelementptr inbounds i8, ptr %.195.us.us, i64 %49
+  %49 = add i64 %.091.us.us, -1
+  %50 = getelementptr inbounds i8, ptr %.197.us.us, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 46
-  %spec.select121.us.us = select i1 %52, i64 %49, i64 %.090.us.us
+  %spec.select121.us.us = select i1 %52, i64 %49, i64 %.091.us.us
   %.not118.us.us = icmp eq i64 %spec.select121.us.us, 0
   br i1 %.not118.us.us, label %58, label %53
 
@@ -143,12 +143,12 @@ sub_1:                                            ; preds = %sub_0
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %.195.us.us, i64 1
+  %56 = getelementptr inbounds i8, ptr %.197.us.us, i64 1
   %57 = add i64 %spec.select121.us.us, -1
   br label %58
 
 58:                                               ; preds = %55, %53, %48
-  %.091.us.us = phi ptr [ %56, %55 ], [ %.195.us.us, %53 ], [ %.195.us.us, %48 ]
+  %.092.us.us = phi ptr [ %56, %55 ], [ %.197.us.us, %53 ], [ %.197.us.us, %48 ]
   %.2.us.us = phi i64 [ %57, %55 ], [ %spec.select121.us.us, %53 ], [ 0, %48 ]
   %59 = icmp eq i64 %.2.us.us, %spec.select
   br i1 %59, label %69, label %60
@@ -166,12 +166,12 @@ sub_1:                                            ; preds = %sub_0
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds i8, ptr %0, i64 %63
-  %68 = call i32 @curl_strnequal(ptr noundef nonnull %.091.us.us, ptr noundef nonnull %67, i64 noundef %.2.us.us) #10
+  %68 = call i32 @curl_strnequal(ptr noundef nonnull %.092.us.us, ptr noundef nonnull %67, i64 noundef %.2.us.us) #10
   %.not139.us.us = icmp eq i32 %68, 0
   br i1 %.not139.us.us, label %.critedge123.us.us.preheader, label %.loopexit141
 
 69:                                               ; preds = %58
-  %70 = call i32 @curl_strnequal(ptr noundef nonnull %.091.us.us, ptr noundef nonnull %0, i64 noundef %spec.select) #10
+  %70 = call i32 @curl_strnequal(ptr noundef nonnull %.092.us.us, ptr noundef nonnull %0, i64 noundef %spec.select) #10
   %.not140.us.us = icmp eq i32 %70, 0
   br i1 %.not140.us.us, label %.critedge123.us.us.preheader, label %.loopexit141
 
@@ -179,7 +179,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge123.us.us
 
 .critedge123.us.us:                               ; preds = %.critedge123.us.us.preheader, %.critedge6.us.us
-  %.3.us.us = phi ptr [ %75, %.critedge6.us.us ], [ %.296.us.us, %.critedge123.us.us.preheader ]
+  %.3.us.us = phi ptr [ %75, %.critedge6.us.us ], [ %.298.us.us, %.critedge123.us.us.preheader ]
   %71 = load i8, ptr %.3.us.us, align 1
   switch i8 %71, label %.split.us.us [
     i8 32, label %.critedge6.us.us
@@ -205,8 +205,8 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge123.us.us, !llvm.loop !7
 
 76:                                               ; preds = %.critedge.us.us
-  %77 = getelementptr inbounds i8, ptr %.296.us.us, i64 1
-  %78 = add i64 %.090.us.us, 1
+  %77 = getelementptr inbounds i8, ptr %.298.us.us, i64 1
+  %78 = add i64 %.091.us.us, 1
   %.pr126.us.us = load i8, ptr %77, align 1
   br label %.critedge.us.us, !llvm.loop !8
 
@@ -218,26 +218,26 @@ sub_1:                                            ; preds = %sub_0
 
 .preheader:                                       ; preds = %39, %.preheader.backedge
   %79 = phi i8 [ %.be, %.preheader.backedge ], [ %.pr157, %39 ]
-  %.195 = phi ptr [ %.195.be, %.preheader.backedge ], [ %1, %39 ]
+  %.197 = phi ptr [ %.197.be, %.preheader.backedge ], [ %1, %39 ]
   switch i8 %79, label %.critedge [
     i8 9, label %.critedge2
     i8 32, label %.critedge2
   ]
 
 .critedge2:                                       ; preds = %.preheader, %.preheader
-  %80 = getelementptr inbounds i8, ptr %.195, i64 1
+  %80 = getelementptr inbounds i8, ptr %.197, i64 1
   %.pre = load i8, ptr %80, align 1
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %141, %.critedge2, %.split
   %.be = phi i8 [ %.pre, %.critedge2 ], [ %.pr, %.split ], [ %142, %141 ]
-  %.195.be = phi ptr [ %80, %.critedge2 ], [ %.3, %.split ], [ %.4, %141 ]
+  %.197.be = phi ptr [ %80, %.critedge2 ], [ %.3, %.split ], [ %.4, %141 ]
   br label %.preheader, !llvm.loop !5
 
 .critedge:                                        ; preds = %.preheader, %82
   %81 = phi i8 [ %.pr126, %82 ], [ %79, %.preheader ]
-  %.296 = phi ptr [ %83, %82 ], [ %.195, %.preheader ]
-  %.090 = phi i64 [ %84, %82 ], [ 0, %.preheader ]
+  %.298 = phi ptr [ %83, %82 ], [ %.197, %.preheader ]
+  %.091 = phi i64 [ %84, %82 ], [ 0, %.preheader ]
   switch i8 %81, label %82 [
     i8 0, label %.critedge4
     i8 32, label %.critedge4
@@ -246,19 +246,19 @@ sub_1:                                            ; preds = %sub_0
   ]
 
 82:                                               ; preds = %.critedge
-  %83 = getelementptr inbounds i8, ptr %.296, i64 1
-  %84 = add i64 %.090, 1
+  %83 = getelementptr inbounds i8, ptr %.298, i64 1
+  %84 = add i64 %.091, 1
   %.pr126 = load i8, ptr %83, align 1
   br label %.critedge, !llvm.loop !8
 
 .critedge4:                                       ; preds = %.critedge, %.critedge, %.critedge, %.critedge
-  %85 = add i64 %.090, -128
+  %85 = add i64 %.091, -128
   %or.cond164 = icmp ult i64 %85, -127
   br i1 %or.cond164, label %.critedge123.preheader, label %86
 
 86:                                               ; preds = %.critedge4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 1 %.195, i64 %.090, i1 false)
-  %87 = getelementptr inbounds [128 x i8], ptr %10, i64 0, i64 %.090
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 1 %.197, i64 %.091, i1 false)
+  %87 = getelementptr inbounds [128 x i8], ptr %10, i64 0, i64 %.091
   store i8 0, ptr %87, align 1
   %88 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 47) #9
   %.not117 = icmp eq ptr %88, null
@@ -299,7 +299,7 @@ sub_1:                                            ; preds = %sub_0
   %95 = phi i32 [ 128, %93 ], [ %.fr, %92 ]
   %96 = lshr i32 %95, 3
   %97 = and i32 %95, 7
-  %98 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.098, ptr noundef nonnull %6) #10
+  %98 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.093, ptr noundef nonnull %6) #10
   %.not17.i = icmp eq i32 %98, 1
   br i1 %.not17.i, label %99, label %Curl_cidr6_match.exit.thread
 
@@ -363,7 +363,7 @@ Curl_cidr6_match.exit:                            ; preds = %108, %109
 
 122:                                              ; preds = %.thread130, %120
   %.0129132 = phi i32 [ 0, %.thread130 ], [ %.fr, %120 ]
-  %123 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.098, ptr noundef nonnull %4) #10
+  %123 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.093, ptr noundef nonnull %4) #10
   %.not.i124 = icmp eq i32 %123, 1
   br i1 %.not.i124, label %124, label %Curl_cidr4_match.exit.thread
 
@@ -407,7 +407,7 @@ Curl_cidr4_match.exit:                            ; preds = %126
   br label %.critedge123
 
 .critedge123:                                     ; preds = %.critedge123.preheader, %.critedge6
-  %.3 = phi ptr [ %140, %.critedge6 ], [ %.296, %.critedge123.preheader ]
+  %.3 = phi ptr [ %140, %.critedge6 ], [ %.298, %.critedge123.preheader ]
   %139 = load i8, ptr %.3, align 1
   switch i8 %139, label %.split [
     i8 32, label %.critedge6
@@ -439,8 +439,8 @@ Curl_cidr4_match.exit:                            ; preds = %126
   ]
 
 .loopexit141:                                     ; preds = %.split.us.us, %66, %69, %72, %.split, %Curl_cidr4_match.exit, %128, %141, %.thread176, %39, %Curl_cidr6_match.exit, %14, %27, %25, %.tail, %3, %11
-  %.097 = phi i1 [ false, %11 ], [ false, %3 ], [ true, %.tail ], [ false, %25 ], [ false, %27 ], [ false, %14 ], [ true, %Curl_cidr6_match.exit ], [ false, %39 ], [ false, %.thread176 ], [ false, %141 ], [ false, %.split ], [ true, %Curl_cidr4_match.exit ], [ true, %128 ], [ false, %72 ], [ false, %.split.us.us ], [ true, %66 ], [ true, %69 ]
-  ret i1 %.097
+  %.089 = phi i1 [ false, %11 ], [ false, %3 ], [ true, %.tail ], [ false, %25 ], [ false, %27 ], [ false, %14 ], [ true, %Curl_cidr6_match.exit ], [ false, %39 ], [ false, %.thread176 ], [ false, %141 ], [ false, %.split ], [ true, %Curl_cidr4_match.exit ], [ true, %128 ], [ false, %72 ], [ false, %.split.us.us ], [ true, %66 ], [ true, %69 ]
+  ret i1 %.089
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

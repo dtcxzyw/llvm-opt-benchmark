@@ -283,10 +283,10 @@ sw.bb.i:                                          ; preds = %if.end.i
 
 for.body.i:                                       ; preds = %sw.bb.i, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %sw.bb.i ]
-  %sep.16.i = phi ptr [ @.str.13, %for.body.i ], [ %sep.0.i, %sw.bb.i ]
+  %sep.17.i = phi ptr [ @.str.13, %for.body.i ], [ %sep.0.i, %sw.bb.i ]
   %arrayidx.i = getelementptr ptr, ptr %6, i64 %indvars.iv.i
   %8 = load ptr, ptr %arrayidx.i, align 8
-  %call5.i = tail call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.14, ptr noundef nonnull %sep.16.i, ptr noundef %8)
+  %call5.i = tail call i32 (ptr, ...) @error_printf(ptr noundef nonnull @.str.14, ptr noundef nonnull %sep.17.i, ptr noundef %8)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = load ptr, ptr @cur_loc, align 8
   %num.i = getelementptr inbounds i8, ptr %9, i64 4

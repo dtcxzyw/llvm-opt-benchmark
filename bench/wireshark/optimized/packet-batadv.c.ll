@@ -1497,10 +1497,10 @@ define internal fastcc void @dissect_batadv_v5(ptr noundef %0, ptr noundef %1, p
     i8 13, label %366
     i8 10, label %463
     i8 12, label %463
-    i8 14, label %.preheader109.i
+    i8 14, label %.preheader111.i
   ]
 
-.preheader109.i:                                  ; preds = %5
+.preheader111.i:                                  ; preds = %5
   %9 = getelementptr inbounds i8, ptr %1, i64 408
   %10 = getelementptr inbounds i8, ptr %1, i64 112
   %11 = getelementptr inbounds i8, ptr %1, i64 116
@@ -1537,16 +1537,16 @@ define internal fastcc void @dissect_batadv_v5(ptr noundef %0, ptr noundef %1, p
   br label %37
 
 37:                                               ; preds = %dissect_batadv_batman_v5.exit.i, %27
-  %.0121.i = phi i32 [ 0, %27 ], [ %.0108.i.i, %dissect_batadv_batman_v5.exit.i ]
-  %38 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0121.i) #4
+  %.0123.i = phi i32 [ 0, %27 ], [ %.0.i.i, %dissect_batadv_batman_v5.exit.i ]
+  %38 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0123.i) #4
   %39 = icmp sgt i32 %38, 21
   br i1 %39, label %40, label %dissect_batadv_batman.exit
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %28, align 8
   %42 = tail call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef 64) #4
-  %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0121.i) #4
-  %44 = add nuw i32 %.0121.i, 1
+  %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0123.i) #4
+  %44 = add nuw i32 %.0123.i, 1
   %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %44) #4
   %46 = getelementptr inbounds i8, ptr %42, i64 1
   store i8 %45, ptr %46, align 1
@@ -1556,28 +1556,28 @@ define internal fastcc void @dissect_batadv_v5(ptr noundef %0, ptr noundef %1, p
   br i1 %or.cond.i.i, label %dissect_batadv_batman.exit, label %49
 
 49:                                               ; preds = %40
-  %50 = add i32 %.0121.i, 2
+  %50 = add i32 %.0123.i, 2
   %51 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %50) #4
   %52 = getelementptr inbounds i8, ptr %42, i64 2
   store i8 %51, ptr %52, align 2
-  %53 = add i32 %.0121.i, 3
+  %53 = add i32 %.0123.i, 3
   %54 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %53) #4
   %55 = getelementptr inbounds i8, ptr %42, i64 3
   store i8 %54, ptr %55, align 1
-  %56 = add i32 %.0121.i, 4
+  %56 = add i32 %.0123.i, 4
   %57 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %56) #4
   %58 = getelementptr inbounds i8, ptr %42, i64 4
   store i8 %57, ptr %58, align 4
-  %59 = add i32 %.0121.i, 5
+  %59 = add i32 %.0123.i, 5
   %60 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %59) #4
   %61 = getelementptr inbounds i8, ptr %42, i64 5
   store i8 %60, ptr %61, align 1
-  %62 = add i32 %.0121.i, 6
+  %62 = add i32 %.0123.i, 6
   %63 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %62) #4
   %64 = getelementptr inbounds i8, ptr %42, i64 6
   store i16 %63, ptr %64, align 2
   %65 = getelementptr inbounds i8, ptr %42, i64 8
-  %66 = add i32 %.0121.i, 8
+  %66 = add i32 %.0123.i, 8
   %67 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %66, i32 noundef 6) #4
   store i32 1, ptr %65, align 8
   %68 = getelementptr inbounds i8, ptr %42, i64 12
@@ -1595,7 +1595,7 @@ define internal fastcc void @dissect_batadv_v5(ptr noundef %0, ptr noundef %1, p
   store ptr %67, ptr %35, align 8
   store ptr null, ptr %36, align 8
   %71 = getelementptr inbounds i8, ptr %42, i64 32
-  %72 = add i32 %.0121.i, 14
+  %72 = add i32 %.0123.i, 14
   %73 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %72, i32 noundef 6) #4
   store i32 1, ptr %71, align 8
   %74 = getelementptr inbounds i8, ptr %42, i64 36
@@ -1604,11 +1604,11 @@ define internal fastcc void @dissect_batadv_v5(ptr noundef %0, ptr noundef %1, p
   store ptr %73, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %42, i64 48
   store ptr null, ptr %76, align 8
-  %77 = add i32 %.0121.i, 20
+  %77 = add i32 %.0123.i, 20
   %78 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %77) #4
   %79 = getelementptr inbounds i8, ptr %42, i64 56
   store i8 %78, ptr %79, align 8
-  %80 = add i32 %.0121.i, 21
+  %80 = add i32 %.0123.i, 21
   %81 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %80) #4
   %82 = getelementptr inbounds i8, ptr %42, i64 57
   store i8 %81, ptr %82, align 1
@@ -1618,11 +1618,11 @@ define internal fastcc void @dissect_batadv_v5(ptr noundef %0, ptr noundef %1, p
   %85 = load i32, ptr @proto_batadv_plugin, align 4
   %86 = load ptr, ptr %28, align 8
   %87 = tail call ptr @address_with_resolution_to_str(ptr noundef %86, ptr noundef nonnull %65) #4
-  %88 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %85, ptr noundef %0, i32 noundef %.0121.i, i32 noundef 22, ptr noundef nonnull @.str.290, ptr noundef %87) #4
+  %88 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %85, ptr noundef %0, i32 noundef %.0123.i, i32 noundef 22, ptr noundef nonnull @.str.290, ptr noundef %87) #4
   %89 = load i32, ptr @ett_batadv_batman, align 4
   %90 = tail call ptr @proto_item_add_subtree(ptr noundef %88, i32 noundef %89) #4
   %91 = load i32, ptr @hf_batadv_packet_type, align 4
-  %92 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %90, i32 noundef %91, ptr noundef %0, i32 noundef %.0121.i, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292, i32 noundef 1) #4
+  %92 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %90, i32 noundef %91, ptr noundef %0, i32 noundef %.0123.i, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292, i32 noundef 1) #4
   %93 = load i32, ptr @hf_batadv_batman_version, align 4
   %94 = tail call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %93, ptr noundef %0, i32 noundef %44, i32 noundef 1, i32 noundef 0) #4
   %95 = load i32, ptr @hf_batadv_batman_flags, align 4
@@ -1671,7 +1671,7 @@ dissect_batadv_gwflags.exit.i.i:                  ; preds = %104, %49
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %129, ptr noundef %0, i32 noundef %72, i32 noundef 6, i32 noundef 0) #4
   %131 = load i32, ptr @hf_batadv_batman_num_tt, align 4
   %132 = tail call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %131, ptr noundef %0, i32 noundef %77, i32 noundef 1, i32 noundef 0) #4
-  %133 = add i32 %.0121.i, 22
+  %133 = add i32 %.0123.i, 22
   %134 = load i32, ptr @batadv_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %134, ptr noundef nonnull %1, ptr noundef nonnull %42) #4
   %135 = load i8, ptr %79, align 8
@@ -1679,7 +1679,7 @@ dissect_batadv_gwflags.exit.i.i:                  ; preds = %104, %49
   br i1 %.not112.i.i, label %dissect_batadv_batman_v5.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %dissect_batadv_gwflags.exit.i.i, %141
-  %.0111.i.i = phi i32 [ %150, %141 ], [ 0, %dissect_batadv_gwflags.exit.i.i ]
+  %.0108111.i.i = phi i32 [ %150, %141 ], [ 0, %dissect_batadv_gwflags.exit.i.i ]
   %.0109110.i.i = phi i32 [ %149, %141 ], [ %133, %dissect_batadv_gwflags.exit.i.i ]
   %136 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0109110.i.i, i32 noundef 6) #4
   %137 = load i32, ptr @batadv_follow_tap, align 4
@@ -1702,15 +1702,15 @@ dissect_batadv_gwflags.exit.i.i:                  ; preds = %104, %49
   %147 = load i32, ptr @hf_batadv_batman_tt, align 4
   %148 = tail call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %147, ptr noundef %136, i32 noundef 0, i32 noundef 6, i32 noundef 0) #4
   %149 = add i32 %.0109110.i.i, 6
-  %150 = add nuw nsw i32 %.0111.i.i, 1
+  %150 = add nuw nsw i32 %.0108111.i.i, 1
   %151 = load i8, ptr %79, align 8
   %152 = zext i8 %151 to i32
   %153 = icmp ult i32 %150, %152
   br i1 %153, label %.lr.ph.i.i, label %dissect_batadv_batman_v5.exit.i, !llvm.loop !7
 
 dissect_batadv_batman_v5.exit.i:                  ; preds = %141, %dissect_batadv_gwflags.exit.i.i
-  %.0108.i.i = phi i32 [ %133, %dissect_batadv_gwflags.exit.i.i ], [ %149, %141 ]
-  %.not63.i = icmp eq i32 %.0108.i.i, -1
+  %.0.i.i = phi i32 [ %133, %dissect_batadv_gwflags.exit.i.i ], [ %149, %141 ]
+  %.not63.i = icmp eq i32 %.0.i.i, -1
   br i1 %.not63.i, label %dissect_batadv_batman.exit, label %37, !llvm.loop !8
 
 154:                                              ; preds = %5, %5
@@ -1726,16 +1726,16 @@ dissect_batadv_batman_v5.exit.i:                  ; preds = %141, %dissect_batad
   br label %164
 
 164:                                              ; preds = %dissect_batadv_batman_v7.exit.i, %154
-  %.1120.i = phi i32 [ 0, %154 ], [ %.093.i.i, %dissect_batadv_batman_v7.exit.i ]
-  %165 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1120.i) #4
+  %.1122.i = phi i32 [ 0, %154 ], [ %.0.i68.i, %dissect_batadv_batman_v7.exit.i ]
+  %165 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1122.i) #4
   %166 = icmp sgt i32 %165, 19
   br i1 %166, label %167, label %dissect_batadv_batman.exit
 
 167:                                              ; preds = %164
   %168 = load ptr, ptr %155, align 8
   %169 = tail call noalias ptr @wmem_alloc(ptr noundef %168, i64 noundef 64) #4
-  %170 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1120.i) #4
-  %171 = add nuw i32 %.1120.i, 1
+  %170 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1122.i) #4
+  %171 = add nuw i32 %.1122.i, 1
   %172 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %171) #4
   %173 = getelementptr inbounds i8, ptr %169, i64 1
   store i8 %172, ptr %173, align 1
@@ -1745,20 +1745,20 @@ dissect_batadv_batman_v5.exit.i:                  ; preds = %141, %dissect_batad
   br i1 %or.cond.i64.i, label %dissect_batadv_batman.exit, label %176
 
 176:                                              ; preds = %167
-  %177 = add i32 %.1120.i, 2
+  %177 = add i32 %.1122.i, 2
   %178 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %177) #4
   %179 = getelementptr inbounds i8, ptr %169, i64 2
   store i8 %178, ptr %179, align 2
-  %180 = add i32 %.1120.i, 3
+  %180 = add i32 %.1122.i, 3
   %181 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %180) #4
   %182 = getelementptr inbounds i8, ptr %169, i64 3
   store i8 %181, ptr %182, align 1
-  %183 = add i32 %.1120.i, 4
+  %183 = add i32 %.1122.i, 4
   %184 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %183) #4
   %185 = getelementptr inbounds i8, ptr %169, i64 4
   store i16 %184, ptr %185, align 4
   %186 = getelementptr inbounds i8, ptr %169, i64 8
-  %187 = add i32 %.1120.i, 6
+  %187 = add i32 %.1122.i, 6
   %188 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %187, i32 noundef 6) #4
   store i32 1, ptr %186, align 8
   %189 = getelementptr inbounds i8, ptr %169, i64 12
@@ -1776,7 +1776,7 @@ dissect_batadv_batman_v5.exit.i:                  ; preds = %141, %dissect_batad
   store ptr %188, ptr %162, align 8
   store ptr null, ptr %163, align 8
   %192 = getelementptr inbounds i8, ptr %169, i64 32
-  %193 = add i32 %.1120.i, 12
+  %193 = add i32 %.1122.i, 12
   %194 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %193, i32 noundef 6) #4
   store i32 1, ptr %192, align 8
   %195 = getelementptr inbounds i8, ptr %169, i64 36
@@ -1785,11 +1785,11 @@ dissect_batadv_batman_v5.exit.i:                  ; preds = %141, %dissect_batad
   store ptr %194, ptr %196, align 8
   %197 = getelementptr inbounds i8, ptr %169, i64 48
   store ptr null, ptr %197, align 8
-  %198 = add i32 %.1120.i, 18
+  %198 = add i32 %.1122.i, 18
   %199 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %198) #4
   %200 = getelementptr inbounds i8, ptr %169, i64 56
   store i8 %199, ptr %200, align 8
-  %201 = add i32 %.1120.i, 19
+  %201 = add i32 %.1122.i, 19
   %202 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %201) #4
   %203 = getelementptr inbounds i8, ptr %169, i64 57
   store i8 %202, ptr %203, align 1
@@ -1799,11 +1799,11 @@ dissect_batadv_batman_v5.exit.i:                  ; preds = %141, %dissect_batad
   %206 = load i32, ptr @proto_batadv_plugin, align 4
   %207 = load ptr, ptr %155, align 8
   %208 = tail call ptr @address_with_resolution_to_str(ptr noundef %207, ptr noundef nonnull %186) #4
-  %209 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %206, ptr noundef %0, i32 noundef %.1120.i, i32 noundef 20, ptr noundef nonnull @.str.290, ptr noundef %208) #4
+  %209 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %206, ptr noundef %0, i32 noundef %.1122.i, i32 noundef 20, ptr noundef nonnull @.str.290, ptr noundef %208) #4
   %210 = load i32, ptr @ett_batadv_batman, align 4
   %211 = tail call ptr @proto_item_add_subtree(ptr noundef %209, i32 noundef %210) #4
   %212 = load i32, ptr @hf_batadv_packet_type, align 4
-  %213 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %211, i32 noundef %212, ptr noundef %0, i32 noundef %.1120.i, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292, i32 noundef 1) #4
+  %213 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %211, i32 noundef %212, ptr noundef %0, i32 noundef %.1122.i, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292, i32 noundef 1) #4
   %214 = load i32, ptr @hf_batadv_batman_version, align 4
   %215 = tail call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %214, ptr noundef %0, i32 noundef %171, i32 noundef 1, i32 noundef 0) #4
   %216 = load i32, ptr @hf_batadv_batman_flags, align 4
@@ -1821,7 +1821,7 @@ dissect_batadv_batman_v5.exit.i:                  ; preds = %141, %dissect_batad
   %228 = tail call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %227, ptr noundef %0, i32 noundef %198, i32 noundef 1, i32 noundef 0) #4
   %229 = load i32, ptr @hf_batadv_batman_num_tt, align 4
   %230 = tail call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %229, ptr noundef %0, i32 noundef %201, i32 noundef 1, i32 noundef 0) #4
-  %231 = add i32 %.1120.i, 20
+  %231 = add i32 %.1122.i, 20
   %232 = load i32, ptr @batadv_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %232, ptr noundef nonnull %1, ptr noundef nonnull %169) #4
   %233 = load i8, ptr %203, align 1
@@ -1829,7 +1829,7 @@ dissect_batadv_batman_v5.exit.i:                  ; preds = %141, %dissect_batad
   br i1 %.not97.i.i, label %dissect_batadv_batman_v7.exit.i, label %.lr.ph.i65.i
 
 .lr.ph.i65.i:                                     ; preds = %176, %239
-  %.096.i.i = phi i32 [ %248, %239 ], [ 0, %176 ]
+  %.09396.i.i = phi i32 [ %248, %239 ], [ 0, %176 ]
   %.09495.i.i = phi i32 [ %247, %239 ], [ %231, %176 ]
   %234 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.09495.i.i, i32 noundef 6) #4
   %235 = load i32, ptr @batadv_follow_tap, align 4
@@ -1852,51 +1852,51 @@ dissect_batadv_batman_v5.exit.i:                  ; preds = %141, %dissect_batad
   %245 = load i32, ptr @hf_batadv_batman_tt, align 4
   %246 = tail call ptr @proto_tree_add_item(ptr noundef %244, i32 noundef %245, ptr noundef %234, i32 noundef 0, i32 noundef 6, i32 noundef 0) #4
   %247 = add i32 %.09495.i.i, 6
-  %248 = add nuw nsw i32 %.096.i.i, 1
+  %248 = add nuw nsw i32 %.09396.i.i, 1
   %249 = load i8, ptr %203, align 1
   %250 = zext i8 %249 to i32
   %251 = icmp ult i32 %248, %250
   br i1 %251, label %.lr.ph.i65.i, label %dissect_batadv_batman_v7.exit.i, !llvm.loop !9
 
 dissect_batadv_batman_v7.exit.i:                  ; preds = %239, %176
-  %.093.i.i = phi i32 [ %231, %176 ], [ %247, %239 ]
-  %.not62.i = icmp eq i32 %.093.i.i, -1
+  %.0.i68.i = phi i32 [ %231, %176 ], [ %247, %239 ]
+  %.not62.i = icmp eq i32 %.0.i68.i, -1
   br i1 %.not62.i, label %dissect_batadv_batman.exit, label %164, !llvm.loop !10
 
 252:                                              ; preds = %dissect_batadv_batman_v9.exit.i, %.preheader.i
-  %.2119.i = phi i32 [ 0, %.preheader.i ], [ %.0105.i.i, %dissect_batadv_batman_v9.exit.i ]
-  %253 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2119.i) #4
+  %.2121.i = phi i32 [ 0, %.preheader.i ], [ %.0.i77.i, %dissect_batadv_batman_v9.exit.i ]
+  %253 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2121.i) #4
   %254 = icmp sgt i32 %253, 21
   br i1 %254, label %255, label %dissect_batadv_batman.exit
 
 255:                                              ; preds = %252
   %256 = load ptr, ptr %18, align 8
   %257 = tail call noalias ptr @wmem_alloc(ptr noundef %256, i64 noundef 64) #4
-  %258 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2119.i) #4
-  %259 = add nuw i32 %.2119.i, 1
+  %258 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2121.i) #4
+  %259 = add nuw i32 %.2121.i, 1
   %260 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %259) #4
   %261 = getelementptr inbounds i8, ptr %257, i64 1
   store i8 %260, ptr %261, align 1
   %262 = icmp eq i8 %260, 0
   %263 = icmp ne i8 %258, 1
-  %or.cond.i68.i = select i1 %262, i1 true, i1 %263
-  br i1 %or.cond.i68.i, label %dissect_batadv_batman.exit, label %264
+  %or.cond.i69.i = select i1 %262, i1 true, i1 %263
+  br i1 %or.cond.i69.i, label %dissect_batadv_batman.exit, label %264
 
 264:                                              ; preds = %255
-  %265 = add i32 %.2119.i, 2
+  %265 = add i32 %.2121.i, 2
   %266 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %265) #4
   %267 = getelementptr inbounds i8, ptr %257, i64 2
   store i8 %266, ptr %267, align 2
-  %268 = add i32 %.2119.i, 3
+  %268 = add i32 %.2121.i, 3
   %269 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %268) #4
   %270 = getelementptr inbounds i8, ptr %257, i64 3
   store i8 %269, ptr %270, align 1
-  %271 = add i32 %.2119.i, 4
+  %271 = add i32 %.2121.i, 4
   %272 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %271) #4
   %273 = getelementptr inbounds i8, ptr %257, i64 4
   store i16 %272, ptr %273, align 4
   %274 = getelementptr inbounds i8, ptr %257, i64 8
-  %275 = add i32 %.2119.i, 6
+  %275 = add i32 %.2121.i, 6
   %276 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %275, i32 noundef 6) #4
   store i32 1, ptr %274, align 8
   %277 = getelementptr inbounds i8, ptr %257, i64 12
@@ -1914,7 +1914,7 @@ dissect_batadv_batman_v7.exit.i:                  ; preds = %239, %176
   store ptr %276, ptr %25, align 8
   store ptr null, ptr %26, align 8
   %280 = getelementptr inbounds i8, ptr %257, i64 32
-  %281 = add i32 %.2119.i, 12
+  %281 = add i32 %.2121.i, 12
   %282 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %281, i32 noundef 6) #4
   store i32 1, ptr %280, align 8
   %283 = getelementptr inbounds i8, ptr %257, i64 36
@@ -1923,15 +1923,15 @@ dissect_batadv_batman_v7.exit.i:                  ; preds = %239, %176
   store ptr %282, ptr %284, align 8
   %285 = getelementptr inbounds i8, ptr %257, i64 48
   store ptr null, ptr %285, align 8
-  %286 = add i32 %.2119.i, 18
+  %286 = add i32 %.2121.i, 18
   %287 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %286) #4
   %288 = getelementptr inbounds i8, ptr %257, i64 56
   store i8 %287, ptr %288, align 8
-  %289 = add i32 %.2119.i, 19
+  %289 = add i32 %.2121.i, 19
   %290 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %289) #4
   %291 = getelementptr inbounds i8, ptr %257, i64 57
   store i8 %290, ptr %291, align 1
-  %292 = add i32 %.2119.i, 20
+  %292 = add i32 %.2121.i, 20
   %293 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %292) #4
   %294 = getelementptr inbounds i8, ptr %257, i64 58
   store i8 %293, ptr %294, align 2
@@ -1941,11 +1941,11 @@ dissect_batadv_batman_v7.exit.i:                  ; preds = %239, %176
   %297 = load i32, ptr @proto_batadv_plugin, align 4
   %298 = load ptr, ptr %18, align 8
   %299 = tail call ptr @address_with_resolution_to_str(ptr noundef %298, ptr noundef nonnull %274) #4
-  %300 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %297, ptr noundef %0, i32 noundef %.2119.i, i32 noundef 22, ptr noundef nonnull @.str.290, ptr noundef %299) #4
+  %300 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %297, ptr noundef %0, i32 noundef %.2121.i, i32 noundef 22, ptr noundef nonnull @.str.290, ptr noundef %299) #4
   %301 = load i32, ptr @ett_batadv_batman, align 4
   %302 = tail call ptr @proto_item_add_subtree(ptr noundef %300, i32 noundef %301) #4
   %303 = load i32, ptr @hf_batadv_packet_type, align 4
-  %304 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %302, i32 noundef %303, ptr noundef %0, i32 noundef %.2119.i, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292, i32 noundef 1) #4
+  %304 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %302, i32 noundef %303, ptr noundef %0, i32 noundef %.2121.i, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292, i32 noundef 1) #4
   %305 = load i32, ptr @hf_batadv_batman_version, align 4
   %306 = tail call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %305, ptr noundef %0, i32 noundef %259, i32 noundef 1, i32 noundef 0) #4
   %307 = load i32, ptr @hf_batadv_batman_flags, align 4
@@ -1967,7 +1967,7 @@ dissect_batadv_batman_v7.exit.i:                  ; preds = %239, %176
   %323 = tail call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %322, ptr noundef %0, i32 noundef %292, i32 noundef 1, i32 noundef 0) #4
   %324 = load i8, ptr %294, align 2
   %325 = icmp eq i8 %324, 0
-  br i1 %325, label %dissect_batadv_gwflags.exit.i70.i, label %326
+  br i1 %325, label %dissect_batadv_gwflags.exit.i71.i, label %326
 
 326:                                              ; preds = %264
   %327 = and i8 %324, 7
@@ -1979,43 +1979,43 @@ dissect_batadv_batman_v7.exit.i:                  ; preds = %239, %176
   %333 = zext nneg i8 %332 to i32
   %334 = zext nneg i8 %329 to i32
   %335 = shl nuw nsw i32 %333, %334
-  %narrow.i.i69.i = add nuw nsw i8 %327, 1
-  %336 = zext nneg i8 %narrow.i.i69.i to i32
+  %narrow.i.i70.i = add nuw nsw i8 %327, 1
+  %336 = zext nneg i8 %narrow.i.i70.i to i32
   %337 = mul nuw nsw i32 %335, %336
   %338 = lshr exact i32 %337, 3
-  br label %dissect_batadv_gwflags.exit.i70.i
+  br label %dissect_batadv_gwflags.exit.i71.i
 
-dissect_batadv_gwflags.exit.i70.i:                ; preds = %326, %264
-  %.016.i.i71.i = phi i32 [ %335, %326 ], [ 0, %264 ]
-  %.0.i.i72.i = phi i32 [ %338, %326 ], [ 0, %264 ]
+dissect_batadv_gwflags.exit.i71.i:                ; preds = %326, %264
+  %.016.i.i72.i = phi i32 [ %335, %326 ], [ 0, %264 ]
+  %.0.i.i73.i = phi i32 [ %338, %326 ], [ 0, %264 ]
   %339 = load i32, ptr @ett_batadv_batman_gwflags, align 4
   %340 = tail call ptr @proto_item_add_subtree(ptr noundef %323, i32 noundef %339) #4
   %341 = load i32, ptr @hf_batadv_batman_gwflags_dl_speed, align 4
-  %342 = tail call ptr @proto_tree_add_uint(ptr noundef %340, i32 noundef %341, ptr noundef %0, i32 noundef %292, i32 noundef 1, i32 noundef %.016.i.i71.i) #4
+  %342 = tail call ptr @proto_tree_add_uint(ptr noundef %340, i32 noundef %341, ptr noundef %0, i32 noundef %292, i32 noundef 1, i32 noundef %.016.i.i72.i) #4
   %343 = load i32, ptr @hf_batadv_batman_gwflags_ul_speed, align 4
-  %344 = tail call ptr @proto_tree_add_uint(ptr noundef %340, i32 noundef %343, ptr noundef %0, i32 noundef %292, i32 noundef 1, i32 noundef %.0.i.i72.i) #4
-  %345 = add i32 %.2119.i, 22
+  %344 = tail call ptr @proto_tree_add_uint(ptr noundef %340, i32 noundef %343, ptr noundef %0, i32 noundef %292, i32 noundef 1, i32 noundef %.0.i.i73.i) #4
+  %345 = add i32 %.2121.i, 22
   %346 = load i32, ptr @batadv_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %346, ptr noundef nonnull %1, ptr noundef nonnull %257) #4
   %347 = load i8, ptr %291, align 1
   %.not109.i.i = icmp eq i8 %347, 0
-  br i1 %.not109.i.i, label %dissect_batadv_batman_v9.exit.i, label %.lr.ph.i73.i
+  br i1 %.not109.i.i, label %dissect_batadv_batman_v9.exit.i, label %.lr.ph.i74.i
 
-.lr.ph.i73.i:                                     ; preds = %dissect_batadv_gwflags.exit.i70.i, %353
-  %.0108.i74.i = phi i32 [ %362, %353 ], [ 0, %dissect_batadv_gwflags.exit.i70.i ]
-  %.0106107.i.i = phi i32 [ %361, %353 ], [ %345, %dissect_batadv_gwflags.exit.i70.i ]
+.lr.ph.i74.i:                                     ; preds = %dissect_batadv_gwflags.exit.i71.i, %353
+  %.0105108.i.i = phi i32 [ %362, %353 ], [ 0, %dissect_batadv_gwflags.exit.i71.i ]
+  %.0106107.i.i = phi i32 [ %361, %353 ], [ %345, %dissect_batadv_gwflags.exit.i71.i ]
   %348 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0106107.i.i, i32 noundef 6) #4
   %349 = load i32, ptr @batadv_follow_tap, align 4
   %350 = tail call i32 @have_tap_listener(i32 noundef %349) #4
   %.not.i75.i = icmp eq i32 %350, 0
   br i1 %.not.i75.i, label %353, label %351
 
-351:                                              ; preds = %.lr.ph.i73.i
+351:                                              ; preds = %.lr.ph.i74.i
   %352 = load i32, ptr @batadv_follow_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %352, ptr noundef nonnull %1, ptr noundef %348) #4
   br label %353
 
-353:                                              ; preds = %351, %.lr.ph.i73.i
+353:                                              ; preds = %351, %.lr.ph.i74.i
   %.val.i76.i = load ptr, ptr %18, align 8
   %354 = load i32, ptr @proto_batadv_plugin, align 4
   %355 = tail call ptr @tvb_address_with_resolution_to_str(ptr noundef %.val.i76.i, ptr noundef %348, i32 noundef 1, i32 noundef 0) #4
@@ -2025,15 +2025,15 @@ dissect_batadv_gwflags.exit.i70.i:                ; preds = %326, %264
   %359 = load i32, ptr @hf_batadv_batman_tt, align 4
   %360 = tail call ptr @proto_tree_add_item(ptr noundef %358, i32 noundef %359, ptr noundef %348, i32 noundef 0, i32 noundef 6, i32 noundef 0) #4
   %361 = add i32 %.0106107.i.i, 6
-  %362 = add nuw nsw i32 %.0108.i74.i, 1
+  %362 = add nuw nsw i32 %.0105108.i.i, 1
   %363 = load i8, ptr %291, align 1
   %364 = zext i8 %363 to i32
   %365 = icmp ult i32 %362, %364
-  br i1 %365, label %.lr.ph.i73.i, label %dissect_batadv_batman_v9.exit.i, !llvm.loop !11
+  br i1 %365, label %.lr.ph.i74.i, label %dissect_batadv_batman_v9.exit.i, !llvm.loop !11
 
-dissect_batadv_batman_v9.exit.i:                  ; preds = %353, %dissect_batadv_gwflags.exit.i70.i
-  %.0105.i.i = phi i32 [ %345, %dissect_batadv_gwflags.exit.i70.i ], [ %361, %353 ]
-  %.not61.i = icmp eq i32 %.0105.i.i, -1
+dissect_batadv_batman_v9.exit.i:                  ; preds = %353, %dissect_batadv_gwflags.exit.i71.i
+  %.0.i77.i = phi i32 [ %345, %dissect_batadv_gwflags.exit.i71.i ], [ %361, %353 ]
+  %.not61.i = icmp eq i32 %.0.i77.i, -1
   br i1 %.not61.i, label %dissect_batadv_batman.exit, label %252, !llvm.loop !12
 
 366:                                              ; preds = %5, %5
@@ -2049,39 +2049,39 @@ dissect_batadv_batman_v9.exit.i:                  ; preds = %353, %dissect_batad
   br label %376
 
 376:                                              ; preds = %dissect_batadv_batman_v11.exit.i, %366
-  %.3118.i = phi i32 [ 0, %366 ], [ %.093.i84.i, %dissect_batadv_batman_v11.exit.i ]
-  %377 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3118.i) #4
+  %.3120.i = phi i32 [ 0, %366 ], [ %.0.i85.i, %dissect_batadv_batman_v11.exit.i ]
+  %377 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3120.i) #4
   %378 = icmp sgt i32 %377, 21
   br i1 %378, label %379, label %dissect_batadv_batman.exit
 
 379:                                              ; preds = %376
   %380 = load ptr, ptr %367, align 8
   %381 = tail call noalias ptr @wmem_alloc(ptr noundef %380, i64 noundef 64) #4
-  %382 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3118.i) #4
-  %383 = add nuw i32 %.3118.i, 1
+  %382 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3120.i) #4
+  %383 = add nuw i32 %.3120.i, 1
   %384 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %383) #4
   %385 = getelementptr inbounds i8, ptr %381, i64 1
   store i8 %384, ptr %385, align 1
   %386 = icmp eq i8 %384, 0
   %387 = icmp ne i8 %382, 1
-  %or.cond.i77.i = select i1 %386, i1 true, i1 %387
-  br i1 %or.cond.i77.i, label %dissect_batadv_batman.exit, label %388
+  %or.cond.i78.i = select i1 %386, i1 true, i1 %387
+  br i1 %or.cond.i78.i, label %dissect_batadv_batman.exit, label %388
 
 388:                                              ; preds = %379
-  %389 = add i32 %.3118.i, 2
+  %389 = add i32 %.3120.i, 2
   %390 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %389) #4
   %391 = getelementptr inbounds i8, ptr %381, i64 2
   store i8 %390, ptr %391, align 2
-  %392 = add i32 %.3118.i, 3
+  %392 = add i32 %.3120.i, 3
   %393 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %392) #4
   %394 = getelementptr inbounds i8, ptr %381, i64 3
   store i8 %393, ptr %394, align 1
-  %395 = add i32 %.3118.i, 4
+  %395 = add i32 %.3120.i, 4
   %396 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %395) #4
   %397 = getelementptr inbounds i8, ptr %381, i64 4
   store i32 %396, ptr %397, align 4
   %398 = getelementptr inbounds i8, ptr %381, i64 8
-  %399 = add i32 %.3118.i, 8
+  %399 = add i32 %.3120.i, 8
   %400 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %399, i32 noundef 6) #4
   store i32 1, ptr %398, align 8
   %401 = getelementptr inbounds i8, ptr %381, i64 12
@@ -2099,7 +2099,7 @@ dissect_batadv_batman_v9.exit.i:                  ; preds = %353, %dissect_batad
   store ptr %400, ptr %374, align 8
   store ptr null, ptr %375, align 8
   %404 = getelementptr inbounds i8, ptr %381, i64 32
-  %405 = add i32 %.3118.i, 14
+  %405 = add i32 %.3120.i, 14
   %406 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %405, i32 noundef 6) #4
   store i32 1, ptr %404, align 8
   %407 = getelementptr inbounds i8, ptr %381, i64 36
@@ -2108,11 +2108,11 @@ dissect_batadv_batman_v9.exit.i:                  ; preds = %353, %dissect_batad
   store ptr %406, ptr %408, align 8
   %409 = getelementptr inbounds i8, ptr %381, i64 48
   store ptr null, ptr %409, align 8
-  %410 = add i32 %.3118.i, 20
+  %410 = add i32 %.3120.i, 20
   %411 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %410) #4
   %412 = getelementptr inbounds i8, ptr %381, i64 56
   store i8 %411, ptr %412, align 8
-  %413 = add i32 %.3118.i, 21
+  %413 = add i32 %.3120.i, 21
   %414 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %413) #4
   %415 = getelementptr inbounds i8, ptr %381, i64 57
   store i8 %414, ptr %415, align 1
@@ -2121,11 +2121,11 @@ dissect_batadv_batman_v9.exit.i:                  ; preds = %353, %dissect_batad
   %417 = load i32, ptr @proto_batadv_plugin, align 4
   %418 = load ptr, ptr %367, align 8
   %419 = tail call ptr @address_with_resolution_to_str(ptr noundef %418, ptr noundef nonnull %398) #4
-  %420 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %417, ptr noundef %0, i32 noundef %.3118.i, i32 noundef 22, ptr noundef nonnull @.str.290, ptr noundef %419) #4
+  %420 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %417, ptr noundef %0, i32 noundef %.3120.i, i32 noundef 22, ptr noundef nonnull @.str.290, ptr noundef %419) #4
   %421 = load i32, ptr @ett_batadv_batman, align 4
   %422 = tail call ptr @proto_item_add_subtree(ptr noundef %420, i32 noundef %421) #4
   %423 = load i32, ptr @hf_batadv_packet_type, align 4
-  %424 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %422, i32 noundef %423, ptr noundef %0, i32 noundef %.3118.i, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292, i32 noundef 1) #4
+  %424 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %422, i32 noundef %423, ptr noundef %0, i32 noundef %.3120.i, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292, i32 noundef 1) #4
   %425 = load i32, ptr @hf_batadv_batman_version, align 4
   %426 = tail call ptr @proto_tree_add_item(ptr noundef %422, i32 noundef %425, ptr noundef %0, i32 noundef %383, i32 noundef 1, i32 noundef 0) #4
   %427 = load i32, ptr @hf_batadv_batman_flags, align 4
@@ -2143,46 +2143,46 @@ dissect_batadv_batman_v9.exit.i:                  ; preds = %353, %dissect_batad
   %439 = tail call ptr @proto_tree_add_item(ptr noundef %422, i32 noundef %438, ptr noundef %0, i32 noundef %410, i32 noundef 1, i32 noundef 0) #4
   %440 = load i32, ptr @hf_batadv_batman_num_tt, align 4
   %441 = tail call ptr @proto_tree_add_item(ptr noundef %422, i32 noundef %440, ptr noundef %0, i32 noundef %413, i32 noundef 1, i32 noundef 0) #4
-  %442 = add i32 %.3118.i, 22
+  %442 = add i32 %.3120.i, 22
   %443 = load i32, ptr @batadv_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %443, ptr noundef nonnull %1, ptr noundef nonnull %381) #4
   %444 = load i8, ptr %415, align 1
-  %.not97.i78.i = icmp eq i8 %444, 0
-  br i1 %.not97.i78.i, label %dissect_batadv_batman_v11.exit.i, label %.lr.ph.i79.i
+  %.not97.i79.i = icmp eq i8 %444, 0
+  br i1 %.not97.i79.i, label %dissect_batadv_batman_v11.exit.i, label %.lr.ph.i80.i
 
-.lr.ph.i79.i:                                     ; preds = %388, %450
-  %.096.i80.i = phi i32 [ %459, %450 ], [ 0, %388 ]
-  %.09495.i81.i = phi i32 [ %458, %450 ], [ %442, %388 ]
-  %445 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.09495.i81.i, i32 noundef 6) #4
+.lr.ph.i80.i:                                     ; preds = %388, %450
+  %.09396.i81.i = phi i32 [ %459, %450 ], [ 0, %388 ]
+  %.09495.i82.i = phi i32 [ %458, %450 ], [ %442, %388 ]
+  %445 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.09495.i82.i, i32 noundef 6) #4
   %446 = load i32, ptr @batadv_follow_tap, align 4
   %447 = tail call i32 @have_tap_listener(i32 noundef %446) #4
-  %.not.i82.i = icmp eq i32 %447, 0
-  br i1 %.not.i82.i, label %450, label %448
+  %.not.i83.i = icmp eq i32 %447, 0
+  br i1 %.not.i83.i, label %450, label %448
 
-448:                                              ; preds = %.lr.ph.i79.i
+448:                                              ; preds = %.lr.ph.i80.i
   %449 = load i32, ptr @batadv_follow_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %449, ptr noundef nonnull %1, ptr noundef %445) #4
   br label %450
 
-450:                                              ; preds = %448, %.lr.ph.i79.i
-  %.val.i83.i = load ptr, ptr %367, align 8
+450:                                              ; preds = %448, %.lr.ph.i80.i
+  %.val.i84.i = load ptr, ptr %367, align 8
   %451 = load i32, ptr @proto_batadv_plugin, align 4
-  %452 = tail call ptr @tvb_address_with_resolution_to_str(ptr noundef %.val.i83.i, ptr noundef %445, i32 noundef 1, i32 noundef 0) #4
+  %452 = tail call ptr @tvb_address_with_resolution_to_str(ptr noundef %.val.i84.i, ptr noundef %445, i32 noundef 1, i32 noundef 0) #4
   %453 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %422, i32 noundef %451, ptr noundef %445, i32 noundef 0, i32 noundef 6, ptr noundef nonnull @.str.293, ptr noundef %452) #4
   %454 = load i32, ptr @ett_batadv_batman_tt, align 4
   %455 = tail call ptr @proto_item_add_subtree(ptr noundef %453, i32 noundef %454) #4
   %456 = load i32, ptr @hf_batadv_batman_tt, align 4
   %457 = tail call ptr @proto_tree_add_item(ptr noundef %455, i32 noundef %456, ptr noundef %445, i32 noundef 0, i32 noundef 6, i32 noundef 0) #4
-  %458 = add i32 %.09495.i81.i, 6
-  %459 = add nuw nsw i32 %.096.i80.i, 1
+  %458 = add i32 %.09495.i82.i, 6
+  %459 = add nuw nsw i32 %.09396.i81.i, 1
   %460 = load i8, ptr %415, align 1
   %461 = zext i8 %460 to i32
   %462 = icmp ult i32 %459, %461
-  br i1 %462, label %.lr.ph.i79.i, label %dissect_batadv_batman_v11.exit.i, !llvm.loop !13
+  br i1 %462, label %.lr.ph.i80.i, label %dissect_batadv_batman_v11.exit.i, !llvm.loop !13
 
 dissect_batadv_batman_v11.exit.i:                 ; preds = %450, %388
-  %.093.i84.i = phi i32 [ %442, %388 ], [ %458, %450 ]
-  %.not60.i = icmp eq i32 %.093.i84.i, -1
+  %.0.i85.i = phi i32 [ %442, %388 ], [ %458, %450 ]
+  %.not60.i = icmp eq i32 %.0.i85.i, -1
   br i1 %.not60.i, label %dissect_batadv_batman.exit, label %376, !llvm.loop !14
 
 463:                                              ; preds = %5, %5
@@ -2198,39 +2198,39 @@ dissect_batadv_batman_v11.exit.i:                 ; preds = %450, %388
   br label %473
 
 473:                                              ; preds = %dissect_batadv_batman_v10.exit.i, %463
-  %.4117.i = phi i32 [ 0, %463 ], [ %.0105.i96.i, %dissect_batadv_batman_v10.exit.i ]
-  %474 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4117.i) #4
+  %.4119.i = phi i32 [ 0, %463 ], [ %.0.i97.i, %dissect_batadv_batman_v10.exit.i ]
+  %474 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4119.i) #4
   %475 = icmp sgt i32 %474, 23
   br i1 %475, label %476, label %dissect_batadv_batman.exit
 
 476:                                              ; preds = %473
   %477 = load ptr, ptr %464, align 8
   %478 = tail call noalias ptr @wmem_alloc(ptr noundef %477, i64 noundef 64) #4
-  %479 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4117.i) #4
-  %480 = add nuw i32 %.4117.i, 1
+  %479 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4119.i) #4
+  %480 = add nuw i32 %.4119.i, 1
   %481 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %480) #4
   %482 = getelementptr inbounds i8, ptr %478, i64 1
   store i8 %481, ptr %482, align 1
   %483 = icmp eq i8 %481, 0
   %484 = icmp ne i8 %479, 1
-  %or.cond.i85.i = select i1 %483, i1 true, i1 %484
-  br i1 %or.cond.i85.i, label %dissect_batadv_batman.exit, label %485
+  %or.cond.i86.i = select i1 %483, i1 true, i1 %484
+  br i1 %or.cond.i86.i, label %dissect_batadv_batman.exit, label %485
 
 485:                                              ; preds = %476
-  %486 = add i32 %.4117.i, 2
+  %486 = add i32 %.4119.i, 2
   %487 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %486) #4
   %488 = getelementptr inbounds i8, ptr %478, i64 2
   store i8 %487, ptr %488, align 2
-  %489 = add i32 %.4117.i, 3
+  %489 = add i32 %.4119.i, 3
   %490 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %489) #4
   %491 = getelementptr inbounds i8, ptr %478, i64 3
   store i8 %490, ptr %491, align 1
-  %492 = add i32 %.4117.i, 4
+  %492 = add i32 %.4119.i, 4
   %493 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %492) #4
   %494 = getelementptr inbounds i8, ptr %478, i64 4
   store i32 %493, ptr %494, align 4
   %495 = getelementptr inbounds i8, ptr %478, i64 8
-  %496 = add i32 %.4117.i, 8
+  %496 = add i32 %.4119.i, 8
   %497 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %496, i32 noundef 6) #4
   store i32 1, ptr %495, align 8
   %498 = getelementptr inbounds i8, ptr %478, i64 12
@@ -2248,7 +2248,7 @@ dissect_batadv_batman_v11.exit.i:                 ; preds = %450, %388
   store ptr %497, ptr %471, align 8
   store ptr null, ptr %472, align 8
   %501 = getelementptr inbounds i8, ptr %478, i64 32
-  %502 = add i32 %.4117.i, 14
+  %502 = add i32 %.4119.i, 14
   %503 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %502, i32 noundef 6) #4
   store i32 1, ptr %501, align 8
   %504 = getelementptr inbounds i8, ptr %478, i64 36
@@ -2257,15 +2257,15 @@ dissect_batadv_batman_v11.exit.i:                 ; preds = %450, %388
   store ptr %503, ptr %505, align 8
   %506 = getelementptr inbounds i8, ptr %478, i64 48
   store ptr null, ptr %506, align 8
-  %507 = add i32 %.4117.i, 20
+  %507 = add i32 %.4119.i, 20
   %508 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %507) #4
   %509 = getelementptr inbounds i8, ptr %478, i64 56
   store i8 %508, ptr %509, align 8
-  %510 = add i32 %.4117.i, 21
+  %510 = add i32 %.4119.i, 21
   %511 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %510) #4
   %512 = getelementptr inbounds i8, ptr %478, i64 57
   store i8 %511, ptr %512, align 1
-  %513 = add i32 %.4117.i, 22
+  %513 = add i32 %.4119.i, 22
   %514 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %513) #4
   %515 = getelementptr inbounds i8, ptr %478, i64 58
   store i8 %514, ptr %515, align 2
@@ -2274,11 +2274,11 @@ dissect_batadv_batman_v11.exit.i:                 ; preds = %450, %388
   %517 = load i32, ptr @proto_batadv_plugin, align 4
   %518 = load ptr, ptr %464, align 8
   %519 = tail call ptr @address_with_resolution_to_str(ptr noundef %518, ptr noundef nonnull %495) #4
-  %520 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %517, ptr noundef %0, i32 noundef %.4117.i, i32 noundef 24, ptr noundef nonnull @.str.290, ptr noundef %519) #4
+  %520 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %517, ptr noundef %0, i32 noundef %.4119.i, i32 noundef 24, ptr noundef nonnull @.str.290, ptr noundef %519) #4
   %521 = load i32, ptr @ett_batadv_batman, align 4
   %522 = tail call ptr @proto_item_add_subtree(ptr noundef %520, i32 noundef %521) #4
   %523 = load i32, ptr @hf_batadv_packet_type, align 4
-  %524 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %522, i32 noundef %523, ptr noundef %0, i32 noundef %.4117.i, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292, i32 noundef 1) #4
+  %524 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %522, i32 noundef %523, ptr noundef %0, i32 noundef %.4119.i, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292, i32 noundef 1) #4
   %525 = load i32, ptr @hf_batadv_batman_version, align 4
   %526 = tail call ptr @proto_tree_add_item(ptr noundef %522, i32 noundef %525, ptr noundef %0, i32 noundef %480, i32 noundef 1, i32 noundef 0) #4
   %527 = load i32, ptr @hf_batadv_batman_flags, align 4
@@ -2300,7 +2300,7 @@ dissect_batadv_batman_v11.exit.i:                 ; preds = %450, %388
   %543 = tail call ptr @proto_tree_add_item(ptr noundef %522, i32 noundef %542, ptr noundef %0, i32 noundef %513, i32 noundef 1, i32 noundef 0) #4
   %544 = load i8, ptr %515, align 2
   %545 = icmp eq i8 %544, 0
-  br i1 %545, label %dissect_batadv_gwflags.exit.i87.i, label %546
+  br i1 %545, label %dissect_batadv_gwflags.exit.i88.i, label %546
 
 546:                                              ; preds = %485
   %547 = and i8 %544, 7
@@ -2312,97 +2312,97 @@ dissect_batadv_batman_v11.exit.i:                 ; preds = %450, %388
   %553 = zext nneg i8 %552 to i32
   %554 = zext nneg i8 %549 to i32
   %555 = shl nuw nsw i32 %553, %554
-  %narrow.i.i86.i = add nuw nsw i8 %547, 1
-  %556 = zext nneg i8 %narrow.i.i86.i to i32
+  %narrow.i.i87.i = add nuw nsw i8 %547, 1
+  %556 = zext nneg i8 %narrow.i.i87.i to i32
   %557 = mul nuw nsw i32 %555, %556
   %558 = lshr exact i32 %557, 3
-  br label %dissect_batadv_gwflags.exit.i87.i
+  br label %dissect_batadv_gwflags.exit.i88.i
 
-dissect_batadv_gwflags.exit.i87.i:                ; preds = %546, %485
-  %.016.i.i88.i = phi i32 [ %555, %546 ], [ 0, %485 ]
-  %.0.i.i89.i = phi i32 [ %558, %546 ], [ 0, %485 ]
+dissect_batadv_gwflags.exit.i88.i:                ; preds = %546, %485
+  %.016.i.i89.i = phi i32 [ %555, %546 ], [ 0, %485 ]
+  %.0.i.i90.i = phi i32 [ %558, %546 ], [ 0, %485 ]
   %559 = load i32, ptr @ett_batadv_batman_gwflags, align 4
   %560 = tail call ptr @proto_item_add_subtree(ptr noundef %543, i32 noundef %559) #4
   %561 = load i32, ptr @hf_batadv_batman_gwflags_dl_speed, align 4
-  %562 = tail call ptr @proto_tree_add_uint(ptr noundef %560, i32 noundef %561, ptr noundef %0, i32 noundef %513, i32 noundef 1, i32 noundef %.016.i.i88.i) #4
+  %562 = tail call ptr @proto_tree_add_uint(ptr noundef %560, i32 noundef %561, ptr noundef %0, i32 noundef %513, i32 noundef 1, i32 noundef %.016.i.i89.i) #4
   %563 = load i32, ptr @hf_batadv_batman_gwflags_ul_speed, align 4
-  %564 = tail call ptr @proto_tree_add_uint(ptr noundef %560, i32 noundef %563, ptr noundef %0, i32 noundef %513, i32 noundef 1, i32 noundef %.0.i.i89.i) #4
-  %565 = add i32 %.4117.i, 24
+  %564 = tail call ptr @proto_tree_add_uint(ptr noundef %560, i32 noundef %563, ptr noundef %0, i32 noundef %513, i32 noundef 1, i32 noundef %.0.i.i90.i) #4
+  %565 = add i32 %.4119.i, 24
   %566 = load i32, ptr @batadv_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %566, ptr noundef nonnull %1, ptr noundef nonnull %478) #4
   %567 = load i8, ptr %512, align 1
-  %.not109.i90.i = icmp eq i8 %567, 0
-  br i1 %.not109.i90.i, label %dissect_batadv_batman_v10.exit.i, label %.lr.ph.i91.i
+  %.not109.i91.i = icmp eq i8 %567, 0
+  br i1 %.not109.i91.i, label %dissect_batadv_batman_v10.exit.i, label %.lr.ph.i92.i
 
-.lr.ph.i91.i:                                     ; preds = %dissect_batadv_gwflags.exit.i87.i, %573
-  %.0108.i92.i = phi i32 [ %582, %573 ], [ 0, %dissect_batadv_gwflags.exit.i87.i ]
-  %.0106107.i93.i = phi i32 [ %581, %573 ], [ %565, %dissect_batadv_gwflags.exit.i87.i ]
-  %568 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0106107.i93.i, i32 noundef 6) #4
+.lr.ph.i92.i:                                     ; preds = %dissect_batadv_gwflags.exit.i88.i, %573
+  %.0105108.i93.i = phi i32 [ %582, %573 ], [ 0, %dissect_batadv_gwflags.exit.i88.i ]
+  %.0106107.i94.i = phi i32 [ %581, %573 ], [ %565, %dissect_batadv_gwflags.exit.i88.i ]
+  %568 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0106107.i94.i, i32 noundef 6) #4
   %569 = load i32, ptr @batadv_follow_tap, align 4
   %570 = tail call i32 @have_tap_listener(i32 noundef %569) #4
-  %.not.i94.i = icmp eq i32 %570, 0
-  br i1 %.not.i94.i, label %573, label %571
+  %.not.i95.i = icmp eq i32 %570, 0
+  br i1 %.not.i95.i, label %573, label %571
 
-571:                                              ; preds = %.lr.ph.i91.i
+571:                                              ; preds = %.lr.ph.i92.i
   %572 = load i32, ptr @batadv_follow_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %572, ptr noundef nonnull %1, ptr noundef %568) #4
   br label %573
 
-573:                                              ; preds = %571, %.lr.ph.i91.i
-  %.val.i95.i = load ptr, ptr %464, align 8
+573:                                              ; preds = %571, %.lr.ph.i92.i
+  %.val.i96.i = load ptr, ptr %464, align 8
   %574 = load i32, ptr @proto_batadv_plugin, align 4
-  %575 = tail call ptr @tvb_address_with_resolution_to_str(ptr noundef %.val.i95.i, ptr noundef %568, i32 noundef 1, i32 noundef 0) #4
+  %575 = tail call ptr @tvb_address_with_resolution_to_str(ptr noundef %.val.i96.i, ptr noundef %568, i32 noundef 1, i32 noundef 0) #4
   %576 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %522, i32 noundef %574, ptr noundef %568, i32 noundef 0, i32 noundef 6, ptr noundef nonnull @.str.293, ptr noundef %575) #4
   %577 = load i32, ptr @ett_batadv_batman_tt, align 4
   %578 = tail call ptr @proto_item_add_subtree(ptr noundef %576, i32 noundef %577) #4
   %579 = load i32, ptr @hf_batadv_batman_tt, align 4
   %580 = tail call ptr @proto_tree_add_item(ptr noundef %578, i32 noundef %579, ptr noundef %568, i32 noundef 0, i32 noundef 6, i32 noundef 0) #4
-  %581 = add i32 %.0106107.i93.i, 6
-  %582 = add nuw nsw i32 %.0108.i92.i, 1
+  %581 = add i32 %.0106107.i94.i, 6
+  %582 = add nuw nsw i32 %.0105108.i93.i, 1
   %583 = load i8, ptr %512, align 1
   %584 = zext i8 %583 to i32
   %585 = icmp ult i32 %582, %584
-  br i1 %585, label %.lr.ph.i91.i, label %dissect_batadv_batman_v10.exit.i, !llvm.loop !15
+  br i1 %585, label %.lr.ph.i92.i, label %dissect_batadv_batman_v10.exit.i, !llvm.loop !15
 
-dissect_batadv_batman_v10.exit.i:                 ; preds = %573, %dissect_batadv_gwflags.exit.i87.i
-  %.0105.i96.i = phi i32 [ %565, %dissect_batadv_gwflags.exit.i87.i ], [ %581, %573 ]
-  %.not59.i = icmp eq i32 %.0105.i96.i, -1
+dissect_batadv_batman_v10.exit.i:                 ; preds = %573, %dissect_batadv_gwflags.exit.i88.i
+  %.0.i97.i = phi i32 [ %565, %dissect_batadv_gwflags.exit.i88.i ], [ %581, %573 ]
+  %.not59.i = icmp eq i32 %.0.i97.i, -1
   br i1 %.not59.i, label %dissect_batadv_batman.exit, label %473, !llvm.loop !16
 
-586:                                              ; preds = %dissect_batadv_batman_v14.exit.i, %.preheader109.i
-  %.5116.i = phi i32 [ 0, %.preheader109.i ], [ %.0127.lcssa.i.i, %dissect_batadv_batman_v14.exit.i ]
-  %587 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.5116.i) #4
+586:                                              ; preds = %dissect_batadv_batman_v14.exit.i, %.preheader111.i
+  %.5118.i = phi i32 [ 0, %.preheader111.i ], [ %.0127.lcssa.i.i, %dissect_batadv_batman_v14.exit.i ]
+  %587 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.5118.i) #4
   %588 = icmp sgt i32 %587, 25
   br i1 %588, label %589, label %dissect_batadv_batman.exit
 
 589:                                              ; preds = %586
   %590 = load ptr, ptr %9, align 8
   %591 = tail call noalias ptr @wmem_alloc(ptr noundef %590, i64 noundef 64) #4
-  %592 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5116.i) #4
-  %593 = add nuw i32 %.5116.i, 1
+  %592 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5118.i) #4
+  %593 = add nuw i32 %.5118.i, 1
   %594 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %593) #4
   %595 = getelementptr inbounds i8, ptr %591, i64 1
   store i8 %594, ptr %595, align 1
   %596 = icmp eq i8 %594, 0
   %597 = icmp ne i8 %592, 1
-  %or.cond.i97.i = select i1 %596, i1 true, i1 %597
-  br i1 %or.cond.i97.i, label %dissect_batadv_batman.exit, label %598
+  %or.cond.i98.i = select i1 %596, i1 true, i1 %597
+  br i1 %or.cond.i98.i, label %dissect_batadv_batman.exit, label %598
 
 598:                                              ; preds = %589
-  %599 = add i32 %.5116.i, 2
+  %599 = add i32 %.5118.i, 2
   %600 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %599) #4
   %601 = getelementptr inbounds i8, ptr %591, i64 2
   store i8 %600, ptr %601, align 2
-  %602 = add i32 %.5116.i, 3
+  %602 = add i32 %.5118.i, 3
   %603 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %602) #4
   %604 = getelementptr inbounds i8, ptr %591, i64 3
   store i8 %603, ptr %604, align 1
-  %605 = add i32 %.5116.i, 4
+  %605 = add i32 %.5118.i, 4
   %606 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %605) #4
   %607 = getelementptr inbounds i8, ptr %591, i64 4
   store i32 %606, ptr %607, align 4
   %608 = getelementptr inbounds i8, ptr %591, i64 8
-  %609 = add i32 %.5116.i, 8
+  %609 = add i32 %.5118.i, 8
   %610 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %609, i32 noundef 6) #4
   store i32 1, ptr %608, align 8
   %611 = getelementptr inbounds i8, ptr %591, i64 12
@@ -2420,7 +2420,7 @@ dissect_batadv_batman_v10.exit.i:                 ; preds = %573, %dissect_batad
   store ptr %610, ptr %16, align 8
   store ptr null, ptr %17, align 8
   %614 = getelementptr inbounds i8, ptr %591, i64 32
-  %615 = add i32 %.5116.i, 14
+  %615 = add i32 %.5118.i, 14
   %616 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %615, i32 noundef 6) #4
   store i32 1, ptr %614, align 8
   %617 = getelementptr inbounds i8, ptr %591, i64 36
@@ -2429,23 +2429,23 @@ dissect_batadv_batman_v10.exit.i:                 ; preds = %573, %dissect_batad
   store ptr %616, ptr %618, align 8
   %619 = getelementptr inbounds i8, ptr %591, i64 48
   store ptr null, ptr %619, align 8
-  %620 = add i32 %.5116.i, 20
+  %620 = add i32 %.5118.i, 20
   %621 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %620) #4
   %622 = getelementptr inbounds i8, ptr %591, i64 56
   store i8 %621, ptr %622, align 8
-  %623 = add i32 %.5116.i, 21
+  %623 = add i32 %.5118.i, 21
   %624 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %623) #4
   %625 = getelementptr inbounds i8, ptr %591, i64 57
   store i8 %624, ptr %625, align 1
-  %626 = add i32 %.5116.i, 22
+  %626 = add i32 %.5118.i, 22
   %627 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %626) #4
   %628 = getelementptr inbounds i8, ptr %591, i64 58
   store i8 %627, ptr %628, align 2
-  %629 = add i32 %.5116.i, 23
+  %629 = add i32 %.5118.i, 23
   %630 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %629) #4
   %631 = getelementptr inbounds i8, ptr %591, i64 59
   store i8 %630, ptr %631, align 1
-  %632 = add i32 %.5116.i, 24
+  %632 = add i32 %.5118.i, 24
   %633 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %632) #4
   %634 = getelementptr inbounds i8, ptr %591, i64 60
   store i16 %633, ptr %634, align 4
@@ -2454,11 +2454,11 @@ dissect_batadv_batman_v10.exit.i:                 ; preds = %573, %dissect_batad
   %636 = load i32, ptr @proto_batadv_plugin, align 4
   %637 = load ptr, ptr %9, align 8
   %638 = tail call ptr @address_with_resolution_to_str(ptr noundef %637, ptr noundef nonnull %608) #4
-  %639 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %636, ptr noundef %0, i32 noundef %.5116.i, i32 noundef 26, ptr noundef nonnull @.str.290, ptr noundef %638) #4
+  %639 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %636, ptr noundef %0, i32 noundef %.5118.i, i32 noundef 26, ptr noundef nonnull @.str.290, ptr noundef %638) #4
   %640 = load i32, ptr @ett_batadv_batman, align 4
   %641 = tail call ptr @proto_item_add_subtree(ptr noundef %639, i32 noundef %640) #4
   %642 = load i32, ptr @hf_batadv_packet_type, align 4
-  %643 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %641, i32 noundef %642, ptr noundef %0, i32 noundef %.5116.i, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292, i32 noundef 1) #4
+  %643 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %641, i32 noundef %642, ptr noundef %0, i32 noundef %.5118.i, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292, i32 noundef 1) #4
   %644 = load i32, ptr @hf_batadv_batman_version, align 4
   %645 = tail call ptr @proto_tree_add_item(ptr noundef %641, i32 noundef %644, ptr noundef %0, i32 noundef %593, i32 noundef 1, i32 noundef 0) #4
   %646 = load i32, ptr @hf_batadv_batman_ttl, align 4
@@ -2476,7 +2476,7 @@ dissect_batadv_batman_v10.exit.i:                 ; preds = %573, %dissect_batad
   %658 = tail call ptr @proto_tree_add_item(ptr noundef %641, i32 noundef %657, ptr noundef %0, i32 noundef %620, i32 noundef 1, i32 noundef 0) #4
   %659 = load i8, ptr %622, align 8
   %660 = icmp eq i8 %659, 0
-  br i1 %660, label %dissect_batadv_gwflags.exit.i99.i, label %661
+  br i1 %660, label %dissect_batadv_gwflags.exit.i100.i, label %661
 
 661:                                              ; preds = %598
   %662 = and i8 %659, 7
@@ -2488,21 +2488,21 @@ dissect_batadv_batman_v10.exit.i:                 ; preds = %573, %dissect_batad
   %668 = zext nneg i8 %667 to i32
   %669 = zext nneg i8 %664 to i32
   %670 = shl nuw nsw i32 %668, %669
-  %narrow.i.i98.i = add nuw nsw i8 %662, 1
-  %671 = zext nneg i8 %narrow.i.i98.i to i32
+  %narrow.i.i99.i = add nuw nsw i8 %662, 1
+  %671 = zext nneg i8 %narrow.i.i99.i to i32
   %672 = mul nuw nsw i32 %670, %671
   %673 = lshr exact i32 %672, 3
-  br label %dissect_batadv_gwflags.exit.i99.i
+  br label %dissect_batadv_gwflags.exit.i100.i
 
-dissect_batadv_gwflags.exit.i99.i:                ; preds = %661, %598
-  %.016.i.i100.i = phi i32 [ %670, %661 ], [ 0, %598 ]
-  %.0.i.i101.i = phi i32 [ %673, %661 ], [ 0, %598 ]
+dissect_batadv_gwflags.exit.i100.i:               ; preds = %661, %598
+  %.016.i.i101.i = phi i32 [ %670, %661 ], [ 0, %598 ]
+  %.0.i.i102.i = phi i32 [ %673, %661 ], [ 0, %598 ]
   %674 = load i32, ptr @ett_batadv_batman_gwflags, align 4
   %675 = tail call ptr @proto_item_add_subtree(ptr noundef %658, i32 noundef %674) #4
   %676 = load i32, ptr @hf_batadv_batman_gwflags_dl_speed, align 4
-  %677 = tail call ptr @proto_tree_add_uint(ptr noundef %675, i32 noundef %676, ptr noundef %0, i32 noundef %620, i32 noundef 1, i32 noundef %.016.i.i100.i) #4
+  %677 = tail call ptr @proto_tree_add_uint(ptr noundef %675, i32 noundef %676, ptr noundef %0, i32 noundef %620, i32 noundef 1, i32 noundef %.016.i.i101.i) #4
   %678 = load i32, ptr @hf_batadv_batman_gwflags_ul_speed, align 4
-  %679 = tail call ptr @proto_tree_add_uint(ptr noundef %675, i32 noundef %678, ptr noundef %0, i32 noundef %620, i32 noundef 1, i32 noundef %.0.i.i101.i) #4
+  %679 = tail call ptr @proto_tree_add_uint(ptr noundef %675, i32 noundef %678, ptr noundef %0, i32 noundef %620, i32 noundef 1, i32 noundef %.0.i.i102.i) #4
   %680 = load i32, ptr @hf_batadv_batman_tq, align 4
   %681 = tail call ptr @proto_tree_add_item(ptr noundef %641, i32 noundef %680, ptr noundef %0, i32 noundef %623, i32 noundef 1, i32 noundef 0) #4
   %682 = load i32, ptr @hf_batadv_batman_tt_num_changes, align 4
@@ -2511,31 +2511,31 @@ dissect_batadv_gwflags.exit.i99.i:                ; preds = %661, %598
   %685 = tail call ptr @proto_tree_add_item(ptr noundef %641, i32 noundef %684, ptr noundef %0, i32 noundef %629, i32 noundef 1, i32 noundef 0) #4
   %686 = load i32, ptr @hf_batadv_batman_tt_crc, align 4
   %687 = tail call ptr @proto_tree_add_item(ptr noundef %641, i32 noundef %686, ptr noundef %0, i32 noundef %632, i32 noundef 2, i32 noundef 0) #4
-  %688 = add i32 %.5116.i, 26
+  %688 = add i32 %.5118.i, 26
   %689 = load i32, ptr @batadv_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %689, ptr noundef nonnull %1, ptr noundef nonnull %591) #4
   %690 = load i8, ptr %628, align 2
   %.not130.i.i = icmp eq i8 %690, 0
-  br i1 %.not130.i.i, label %._crit_edge.i.i, label %.lr.ph.i102.i
+  br i1 %.not130.i.i, label %._crit_edge.i.i, label %.lr.ph.i103.i
 
-.lr.ph.i102.i:                                    ; preds = %dissect_batadv_gwflags.exit.i99.i, %696
-  %.0126129.i.i = phi i32 [ %708, %696 ], [ 0, %dissect_batadv_gwflags.exit.i99.i ]
-  %.0127128.i.i = phi i32 [ %707, %696 ], [ %688, %dissect_batadv_gwflags.exit.i99.i ]
+.lr.ph.i103.i:                                    ; preds = %dissect_batadv_gwflags.exit.i100.i, %696
+  %.0126129.i.i = phi i32 [ %708, %696 ], [ 0, %dissect_batadv_gwflags.exit.i100.i ]
+  %.0127128.i.i = phi i32 [ %707, %696 ], [ %688, %dissect_batadv_gwflags.exit.i100.i ]
   %691 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0127128.i.i, i32 noundef 7) #4
   %692 = load i32, ptr @batadv_follow_tap, align 4
   %693 = tail call i32 @have_tap_listener(i32 noundef %692) #4
-  %.not.i103.i = icmp eq i32 %693, 0
-  br i1 %.not.i103.i, label %696, label %694
+  %.not.i104.i = icmp eq i32 %693, 0
+  br i1 %.not.i104.i, label %696, label %694
 
-694:                                              ; preds = %.lr.ph.i102.i
+694:                                              ; preds = %.lr.ph.i103.i
   %695 = load i32, ptr @batadv_follow_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %695, ptr noundef nonnull %1, ptr noundef %691) #4
   br label %696
 
-696:                                              ; preds = %694, %.lr.ph.i102.i
-  %.val.i104.i = load ptr, ptr %9, align 8
+696:                                              ; preds = %694, %.lr.ph.i103.i
+  %.val.i105.i = load ptr, ptr %9, align 8
   %697 = load i32, ptr @proto_batadv_plugin, align 4
-  %698 = tail call ptr @tvb_address_with_resolution_to_str(ptr noundef %.val.i104.i, ptr noundef %691, i32 noundef 1, i32 noundef 1) #4
+  %698 = tail call ptr @tvb_address_with_resolution_to_str(ptr noundef %.val.i105.i, ptr noundef %691, i32 noundef 1, i32 noundef 1) #4
   %699 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %641, i32 noundef %697, ptr noundef %691, i32 noundef 0, i32 noundef 7, ptr noundef nonnull @.str.294, ptr noundef %698) #4
   %700 = load i32, ptr @ett_batadv_tt_entry, align 4
   %701 = tail call ptr @proto_item_add_subtree(ptr noundef %699, i32 noundef %700) #4
@@ -2549,10 +2549,10 @@ dissect_batadv_gwflags.exit.i99.i:                ; preds = %661, %598
   %709 = load i8, ptr %628, align 2
   %710 = zext i8 %709 to i32
   %711 = icmp ult i32 %708, %710
-  br i1 %711, label %.lr.ph.i102.i, label %._crit_edge.i.i, !llvm.loop !17
+  br i1 %711, label %.lr.ph.i103.i, label %._crit_edge.i.i, !llvm.loop !17
 
-._crit_edge.i.i:                                  ; preds = %696, %dissect_batadv_gwflags.exit.i99.i
-  %.0127.lcssa.i.i = phi i32 [ %688, %dissect_batadv_gwflags.exit.i99.i ], [ %707, %696 ]
+._crit_edge.i.i:                                  ; preds = %696, %dissect_batadv_gwflags.exit.i100.i
+  %.0127.lcssa.i.i = phi i32 [ %688, %dissect_batadv_gwflags.exit.i100.i ], [ %707, %696 ]
   %712 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0127.lcssa.i.i) #4
   %713 = icmp sgt i32 %712, 0
   br i1 %713, label %714, label %dissect_batadv_batman_v14.exit.i
@@ -2721,7 +2721,7 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   %..i.i = select i1 %switch.i.i, i32 7, i32 13
   %805 = load i8, ptr %740, align 4
   %.not109.i.i35 = icmp eq i8 %805, 0
-  br i1 %.not109.i.i35, label %._crit_edge.i.i39, label %.lr.ph.i.i36
+  br i1 %.not109.i.i35, label %._crit_edge.i.i38, label %.lr.ph.i.i36
 
 .lr.ph.i.i36:                                     ; preds = %729
   %.not103.i.i = icmp eq ptr %783, null
@@ -2747,10 +2747,10 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   %814 = load i8, ptr %740, align 4
   %815 = zext i8 %814 to i32
   %816 = icmp ult i32 %813, %815
-  br i1 %816, label %.lr.ph.split.us.i.i, label %._crit_edge.i.i39, !llvm.loop !19
+  br i1 %816, label %.lr.ph.split.us.i.i, label %._crit_edge.i.i38, !llvm.loop !19
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i36, %846
-  %.0108.i.i37 = phi i32 [ %848, %846 ], [ 0, %.lr.ph.i.i36 ]
+  %.0108.i.i = phi i32 [ %848, %846 ], [ 0, %.lr.ph.i.i36 ]
   %.099107.i.i = phi i32 [ %847, %846 ], [ 24, %.lr.ph.i.i36 ]
   %817 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.099107.i.i, i32 noundef %..i.i) #4
   %818 = load i32, ptr @batadv_follow_tap, align 4
@@ -2767,12 +2767,12 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   %823 = load i8, ptr %734, align 1
   %824 = and i8 %823, -2
   %switch105.i.i = icmp eq i8 %824, 6
-  %.val.i.i38 = load ptr, ptr %730, align 8
+  %.val.i.i37 = load ptr, ptr %730, align 8
   %825 = load i32, ptr @proto_batadv_plugin, align 4
   br i1 %switch105.i.i, label %826, label %835
 
 826:                                              ; preds = %822
-  %827 = tail call ptr @tvb_address_with_resolution_to_str(ptr noundef %.val.i.i38, ptr noundef %817, i32 noundef 1, i32 noundef 0) #4
+  %827 = tail call ptr @tvb_address_with_resolution_to_str(ptr noundef %.val.i.i37, ptr noundef %817, i32 noundef 1, i32 noundef 0) #4
   %828 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %783, i32 noundef %825, ptr noundef %817, i32 noundef 0, i32 noundef 7, ptr noundef nonnull @.str.317, ptr noundef %827) #4
   %829 = load i32, ptr @ett_batadv_vis_entry, align 4
   %830 = tail call ptr @proto_item_add_subtree(ptr noundef %828, i32 noundef %829) #4
@@ -2783,7 +2783,7 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   br label %846
 
 835:                                              ; preds = %822
-  %836 = tail call ptr @tvb_address_with_resolution_to_str(ptr noundef %.val.i.i38, ptr noundef %817, i32 noundef 1, i32 noundef 6) #4
+  %836 = tail call ptr @tvb_address_with_resolution_to_str(ptr noundef %.val.i.i37, ptr noundef %817, i32 noundef 1, i32 noundef 6) #4
   %837 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %783, i32 noundef %825, ptr noundef %817, i32 noundef 0, i32 noundef 13, ptr noundef nonnull @.str.317, ptr noundef %836) #4
   %838 = load i32, ptr @ett_batadv_vis_entry, align 4
   %839 = tail call ptr @proto_item_add_subtree(ptr noundef %837, i32 noundef %838) #4
@@ -2797,24 +2797,24 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
 
 846:                                              ; preds = %835, %826
   %847 = add nuw nsw i32 %.099107.i.i, %..i.i
-  %848 = add nuw nsw i32 %.0108.i.i37, 1
+  %848 = add nuw nsw i32 %.0108.i.i, 1
   %849 = load i8, ptr %740, align 4
   %850 = zext i8 %849 to i32
   %851 = icmp ult i32 %848, %850
-  br i1 %851, label %.lr.ph.split.i.i, label %._crit_edge.i.i39, !llvm.loop !19
+  br i1 %851, label %.lr.ph.split.i.i, label %._crit_edge.i.i38, !llvm.loop !19
 
-._crit_edge.i.i39:                                ; preds = %846, %811, %729
+._crit_edge.i.i38:                                ; preds = %846, %811, %729
   %.099.lcssa.i.i = phi i32 [ 24, %729 ], [ %812, %811 ], [ %847, %846 ]
   %852 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.099.lcssa.i.i) #4
   %853 = icmp sgt i32 %852, 0
   br i1 %853, label %854, label %dissect_batadv_batman.exit
 
-854:                                              ; preds = %._crit_edge.i.i39
+854:                                              ; preds = %._crit_edge.i.i38
   %855 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.099.lcssa.i.i) #4
   %856 = load i32, ptr @batadv_follow_tap, align 4
   %857 = tail call i32 @have_tap_listener(i32 noundef %856) #4
-  %.not.i.i40 = icmp eq i32 %857, 0
-  br i1 %.not.i.i40, label %860, label %858
+  %.not.i.i39 = icmp eq i32 %857, 0
+  br i1 %.not.i.i39, label %860, label %858
 
 858:                                              ; preds = %854
   %859 = load i32, ptr @batadv_follow_tap, align 4
@@ -3316,9 +3316,9 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   tail call void @tap_queue_packet(i32 noundef %1163, ptr noundef nonnull %1, ptr noundef nonnull %1087) #4
   %1164 = load i16, ptr %1123, align 2
   %.not99.i.i = icmp eq i16 %1164, 0
-  br i1 %.not99.i.i, label %.loopexit.i.i, label %.lr.ph.i.i41
+  br i1 %.not99.i.i, label %.loopexit.i.i, label %.lr.ph.i.i40
 
-.lr.ph.i.i41:                                     ; preds = %1160, %1170
+.lr.ph.i.i40:                                     ; preds = %1160, %1170
   %.098.i.i = phi i32 [ %1182, %1170 ], [ 0, %1160 ]
   %.09597.i.i = phi i32 [ %1181, %1170 ], [ 19, %1160 ]
   %1165 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.09597.i.i, i32 noundef 7) #4
@@ -3327,15 +3327,15 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   %.not96.i.i = icmp eq i32 %1167, 0
   br i1 %.not96.i.i, label %1170, label %1168
 
-1168:                                             ; preds = %.lr.ph.i.i41
+1168:                                             ; preds = %.lr.ph.i.i40
   %1169 = load i32, ptr @batadv_follow_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %1169, ptr noundef nonnull %1, ptr noundef %1165) #4
   br label %1170
 
-1170:                                             ; preds = %1168, %.lr.ph.i.i41
-  %.val.i.i42 = load ptr, ptr %1085, align 8
+1170:                                             ; preds = %1168, %.lr.ph.i.i40
+  %.val.i.i41 = load ptr, ptr %1085, align 8
   %1171 = load i32, ptr @proto_batadv_plugin, align 4
-  %1172 = tail call ptr @tvb_address_with_resolution_to_str(ptr noundef %.val.i.i42, ptr noundef %1165, i32 noundef 1, i32 noundef 1) #4
+  %1172 = tail call ptr @tvb_address_with_resolution_to_str(ptr noundef %.val.i.i41, ptr noundef %1165, i32 noundef 1, i32 noundef 1) #4
   %1173 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %1140, i32 noundef %1171, ptr noundef %1165, i32 noundef 0, i32 noundef 7, ptr noundef nonnull @.str.294, ptr noundef %1172) #4
   %1174 = load i32, ptr @ett_batadv_tt_entry, align 4
   %1175 = tail call ptr @proto_item_add_subtree(ptr noundef %1173, i32 noundef %1174) #4
@@ -3349,7 +3349,7 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   %1183 = load i16, ptr %1123, align 2
   %1184 = zext i16 %1183 to i32
   %1185 = icmp ult i32 %1182, %1184
-  br i1 %1185, label %.lr.ph.i.i41, label %.loopexit.i.i, !llvm.loop !22
+  br i1 %1185, label %.lr.ph.i.i40, label %.loopexit.i.i, !llvm.loop !22
 
 .loopexit.i.i:                                    ; preds = %1170, %1160, %.thread.i.i
   %.1.i.i = phi i32 [ 19, %.thread.i.i ], [ 19, %1160 ], [ %1181, %1170 ]
@@ -3361,8 +3361,8 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   %1189 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1.i.i) #4
   %1190 = load i32, ptr @batadv_follow_tap, align 4
   %1191 = tail call i32 @have_tap_listener(i32 noundef %1190) #4
-  %.not.i.i43 = icmp eq i32 %1191, 0
-  br i1 %.not.i.i43, label %dissect_batadv_tt_query_v14.exit.sink.split.i, label %1192
+  %.not.i.i42 = icmp eq i32 %1191, 0
+  br i1 %.not.i.i42, label %dissect_batadv_tt_query_v14.exit.sink.split.i, label %1192
 
 1192:                                             ; preds = %1188
   %1193 = load i32, ptr @batadv_follow_tap, align 4
@@ -3385,8 +3385,8 @@ dissect_batadv_tt_query_v14.exit.sink.split.i:    ; preds = %1194, %1192, %1188
   %1200 = load ptr, ptr %1199, align 8
   tail call void @col_set_str(ptr noundef %1200, i32 noundef 34, ptr noundef nonnull @.str.323) #4
   %1201 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
-  %cond.i44 = icmp eq i8 %1201, 14
-  br i1 %cond.i44, label %1202, label %1271
+  %cond.i43 = icmp eq i8 %1201, 14
+  br i1 %cond.i43, label %1202, label %1271
 
 1202:                                             ; preds = %1198
   %1203 = getelementptr inbounds i8, ptr %1, i64 408
@@ -3489,8 +3489,8 @@ dissect_batadv_tt_query_v14.exit.sink.split.i:    ; preds = %1194, %1192, %1188
   %1266 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 22) #4
   %1267 = load i32, ptr @batadv_follow_tap, align 4
   %1268 = tail call i32 @have_tap_listener(i32 noundef %1267) #4
-  %.not.i.i46 = icmp eq i32 %1268, 0
-  br i1 %.not.i.i46, label %dissect_batadv_roam_adv_v14.exit.sink.split.i, label %1269
+  %.not.i.i45 = icmp eq i32 %1268, 0
+  br i1 %.not.i.i45, label %dissect_batadv_roam_adv_v14.exit.sink.split.i, label %1269
 
 1269:                                             ; preds = %1265
   %1270 = load i32, ptr @batadv_follow_tap, align 4
@@ -3504,8 +3504,8 @@ dissect_batadv_tt_query_v14.exit.sink.split.i:    ; preds = %1194, %1192, %1188
   br label %dissect_batadv_roam_adv_v14.exit.sink.split.i
 
 dissect_batadv_roam_adv_v14.exit.sink.split.i:    ; preds = %1271, %1269, %1265
-  %.sink.i45 = phi ptr [ %0, %1271 ], [ %1266, %1269 ], [ %1266, %1265 ]
-  %1274 = tail call i32 @call_data_dissector(ptr noundef %.sink.i45, ptr noundef nonnull %1, ptr noundef %2) #4
+  %.sink.i44 = phi ptr [ %0, %1271 ], [ %1266, %1269 ], [ %1266, %1265 ]
+  %1274 = tail call i32 @call_data_dissector(ptr noundef %.sink.i44, ptr noundef nonnull %1, ptr noundef %2) #4
   br label %dissect_batadv_batman.exit
 
 1275:                                             ; preds = %3
@@ -3525,7 +3525,7 @@ dissect_batadv_roam_adv_v14.exit.sink.split.i:    ; preds = %1271, %1269, %1265
   %1283 = tail call i32 @call_data_dissector(ptr noundef %1282, ptr noundef nonnull %1, ptr noundef %2) #4
   br label %dissect_batadv_batman.exit
 
-dissect_batadv_batman.exit:                       ; preds = %dissect_batadv_batman_v14.exit.i, %589, %586, %dissect_batadv_batman_v10.exit.i, %476, %473, %dissect_batadv_batman_v11.exit.i, %379, %376, %dissect_batadv_batman_v9.exit.i, %255, %252, %dissect_batadv_batman_v7.exit.i, %167, %164, %dissect_batadv_batman_v5.exit.i, %40, %37, %dissect_batadv_roam_adv_v14.exit.sink.split.i, %1202, %dissect_batadv_tt_query_v14.exit.sink.split.i, %.loopexit.i.i, %1076, %1074, %._crit_edge.i23.i, %966, %._crit_edge.i18.i, %860, %._crit_edge.i.i39, %717, %1276, %1281, %1275, %724, %723, %722, %721
+dissect_batadv_batman.exit:                       ; preds = %dissect_batadv_batman_v14.exit.i, %589, %586, %dissect_batadv_batman_v10.exit.i, %476, %473, %dissect_batadv_batman_v11.exit.i, %379, %376, %dissect_batadv_batman_v9.exit.i, %255, %252, %dissect_batadv_batman_v7.exit.i, %167, %164, %dissect_batadv_batman_v5.exit.i, %40, %37, %dissect_batadv_roam_adv_v14.exit.sink.split.i, %1202, %dissect_batadv_tt_query_v14.exit.sink.split.i, %.loopexit.i.i, %1076, %1074, %._crit_edge.i23.i, %966, %._crit_edge.i18.i, %860, %._crit_edge.i.i38, %717, %1276, %1281, %1275, %724, %723, %722, %721
   ret void
 }
 
@@ -5470,13 +5470,13 @@ define internal fastcc void @dissect_batadv_tvlv_v15(ptr noundef %0, ptr noundef
   br i1 %.not.i.i.i, label %.lr.ph.split.us.i, label %dissect_batadv_tvlv_v15_tt_vlan.exit.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %dissect_batadv_tvlv_v15_tt_vlan.exit.us.i
-  %.04146.us.i = phi i32 [ %108, %dissect_batadv_tvlv_v15_tt_vlan.exit.us.i ], [ 0, %.lr.ph.i ]
-  %.04244.us.i = phi i32 [ %107, %dissect_batadv_tvlv_v15_tt_vlan.exit.us.i ], [ 8, %.lr.ph.i ]
-  %70 = or disjoint i32 %.04244.us.i, 4
+  %.045.us.i = phi i32 [ %107, %dissect_batadv_tvlv_v15_tt_vlan.exit.us.i ], [ 8, %.lr.ph.i ]
+  %.04144.us.i = phi i32 [ %108, %dissect_batadv_tvlv_v15_tt_vlan.exit.us.i ], [ 0, %.lr.ph.i ]
+  %70 = or disjoint i32 %.045.us.i, 4
   %71 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %16, i32 noundef %70) #4
   %72 = load i32, ptr @proto_batadv_plugin, align 4
   %73 = zext i16 %71 to i32
-  %74 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %22, i32 noundef %72, ptr noundef %16, i32 noundef %.04244.us.i, i32 noundef 8, ptr noundef nonnull @.str.339, i32 noundef %73) #4
+  %74 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %22, i32 noundef %72, ptr noundef %16, i32 noundef %.045.us.i, i32 noundef 8, ptr noundef nonnull @.str.339, i32 noundef %73) #4
   %75 = load i32, ptr @ett_batadv_tvlv_tt_vlan, align 4
   %76 = tail call ptr @proto_item_add_subtree(ptr noundef %74, i32 noundef %75) #4
   %77 = tail call i32 @tvb_reported_length_remaining(ptr noundef %16, i32 noundef %69) #4
@@ -5486,13 +5486,13 @@ define internal fastcc void @dissect_batadv_tvlv_v15(ptr noundef %0, ptr noundef
 ._crit_edge.thread.i.i.us.i:                      ; preds = %.lr.ph.split.us.i
   %79 = load i32, ptr @hf_batadv_tvlv_tt_vlan_crc, align 4
   %80 = load i32, ptr @hf_batadv_tvlv_tt_vlan_crc_status, align 4
-  %81 = tail call ptr @proto_tree_add_checksum(ptr noundef %76, ptr noundef %16, i32 noundef %.04244.us.i, i32 noundef %79, i32 noundef %80, ptr noundef nonnull @ei_batadv_tvlv_tt_vlan_crc, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 1) #4
+  %81 = tail call ptr @proto_tree_add_checksum(ptr noundef %76, ptr noundef %16, i32 noundef %.045.us.i, i32 noundef %79, i32 noundef %80, ptr noundef nonnull @ei_batadv_tvlv_tt_vlan_crc, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 1) #4
   br label %102
 
 .lr.ph.i.i.us.i:                                  ; preds = %.lr.ph.split.us.i, %94
   %.043.i.i.us.i = phi i32 [ %95, %94 ], [ %69, %.lr.ph.split.us.i ]
   %.03442.i.i.us.i = phi i32 [ %.1.i.i.us.i, %94 ], [ 0, %.lr.ph.split.us.i ]
-  %.03641.i.i.us.i = phi i32 [ %.137.i.i.us.i, %94 ], [ 0, %.lr.ph.split.us.i ]
+  %.03541.i.i.us.i = phi i32 [ %.136.i.i.us.i, %94 ], [ 0, %.lr.ph.split.us.i ]
   %82 = add i32 %.043.i.i.us.i, 10
   %83 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %16, i32 noundef %82) #4
   %.not39.i.i.us.i = icmp eq i16 %83, %71
@@ -5510,11 +5510,11 @@ define internal fastcc void @dissect_batadv_tvlv_v15(ptr noundef %0, ptr noundef
   %90 = tail call i32 @crc32c_calculate_no_swap(ptr noundef nonnull %85, i32 noundef 1, i32 noundef %89) #4
   %91 = getelementptr i8, ptr %85, i64 4
   %92 = tail call i32 @crc32c_calculate_no_swap(ptr noundef %91, i32 noundef 6, i32 noundef %90) #4
-  %93 = xor i32 %92, %.03641.i.i.us.i
+  %93 = xor i32 %92, %.03541.i.i.us.i
   br label %94
 
 94:                                               ; preds = %86, %84, %.lr.ph.i.i.us.i
-  %.137.i.i.us.i = phi i32 [ %.03641.i.i.us.i, %.lr.ph.i.i.us.i ], [ %93, %86 ], [ %.03641.i.i.us.i, %84 ]
+  %.136.i.i.us.i = phi i32 [ %.03541.i.i.us.i, %.lr.ph.i.i.us.i ], [ %93, %86 ], [ %.03541.i.i.us.i, %84 ]
   %.1.i.i.us.i = phi i32 [ %.03442.i.i.us.i, %.lr.ph.i.i.us.i ], [ %87, %86 ], [ %.03442.i.i.us.i, %84 ]
   %95 = add i32 %.043.i.i.us.i, 12
   %96 = tail call i32 @tvb_reported_length_remaining(ptr noundef %16, i32 noundef %95) #4
@@ -5525,7 +5525,7 @@ define internal fastcc void @dissect_batadv_tvlv_v15(ptr noundef %0, ptr noundef
   %98 = icmp eq i32 %.1.i.i.us.i, 0
   %99 = load i32, ptr @hf_batadv_tvlv_tt_vlan_crc, align 4
   %100 = load i32, ptr @hf_batadv_tvlv_tt_vlan_crc_status, align 4
-  %101 = tail call ptr @proto_tree_add_checksum(ptr noundef %76, ptr noundef %16, i32 noundef %.04244.us.i, i32 noundef %99, i32 noundef %100, ptr noundef nonnull @ei_batadv_tvlv_tt_vlan_crc, ptr noundef %1, i32 noundef %.137.i.i.us.i, i32 noundef 0, i32 noundef 1) #4
+  %101 = tail call ptr @proto_tree_add_checksum(ptr noundef %76, ptr noundef %16, i32 noundef %.045.us.i, i32 noundef %99, i32 noundef %100, ptr noundef nonnull @ei_batadv_tvlv_tt_vlan_crc, ptr noundef %1, i32 noundef %.136.i.i.us.i, i32 noundef 0, i32 noundef 1) #4
   br i1 %98, label %102, label %dissect_batadv_tvlv_v15_tt_vlan.exit.us.i
 
 102:                                              ; preds = %._crit_edge.i.i.us.i, %._crit_edge.thread.i.i.us.i
@@ -5536,39 +5536,39 @@ dissect_batadv_tvlv_v15_tt_vlan.exit.us.i:        ; preds = %102, %._crit_edge.i
   %104 = load i32, ptr @hf_batadv_tvlv_tt_vlan_vid, align 4
   %105 = load i32, ptr @ett_batadv_tvlv_vid, align 4
   %106 = tail call ptr @proto_tree_add_bitmask(ptr noundef %76, ptr noundef %16, i32 noundef %70, i32 noundef %104, i32 noundef %105, ptr noundef nonnull @dissect_batadv_tvlv_v15_tt_vlan.flags, i32 noundef 0) #4
-  %107 = add nuw nsw i32 %.04244.us.i, 8
-  %108 = add nuw nsw i32 %.04146.us.i, 1
+  %107 = add nuw nsw i32 %.045.us.i, 8
+  %108 = add nuw nsw i32 %.04144.us.i, 1
   %exitcond53.not.i = icmp eq i32 %108, %67
   br i1 %exitcond53.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !26
 
 dissect_batadv_tvlv_v15_tt_vlan.exit.i:           ; preds = %.lr.ph.i, %dissect_batadv_tvlv_v15_tt_vlan.exit.i
-  %.04146.i = phi i32 [ %122, %dissect_batadv_tvlv_v15_tt_vlan.exit.i ], [ 0, %.lr.ph.i ]
-  %.04244.i = phi i32 [ %121, %dissect_batadv_tvlv_v15_tt_vlan.exit.i ], [ 8, %.lr.ph.i ]
-  %109 = or disjoint i32 %.04244.i, 4
+  %.045.i = phi i32 [ %121, %dissect_batadv_tvlv_v15_tt_vlan.exit.i ], [ 8, %.lr.ph.i ]
+  %.04144.i = phi i32 [ %122, %dissect_batadv_tvlv_v15_tt_vlan.exit.i ], [ 0, %.lr.ph.i ]
+  %109 = or disjoint i32 %.045.i, 4
   %110 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %16, i32 noundef %109) #4
   %111 = load i32, ptr @proto_batadv_plugin, align 4
   %112 = zext i16 %110 to i32
-  %113 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %22, i32 noundef %111, ptr noundef %16, i32 noundef %.04244.i, i32 noundef 8, ptr noundef nonnull @.str.339, i32 noundef %112) #4
+  %113 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %22, i32 noundef %111, ptr noundef %16, i32 noundef %.045.i, i32 noundef 8, ptr noundef nonnull @.str.339, i32 noundef %112) #4
   %114 = load i32, ptr @ett_batadv_tvlv_tt_vlan, align 4
   %115 = tail call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %114) #4
   %116 = load i32, ptr @hf_batadv_tvlv_tt_vlan_crc, align 4
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %116, ptr noundef %16, i32 noundef %.04244.i, i32 noundef 4, i32 noundef 0) #4
+  %117 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %116, ptr noundef %16, i32 noundef %.045.i, i32 noundef 4, i32 noundef 0) #4
   %118 = load i32, ptr @hf_batadv_tvlv_tt_vlan_vid, align 4
   %119 = load i32, ptr @ett_batadv_tvlv_vid, align 4
   %120 = tail call ptr @proto_tree_add_bitmask(ptr noundef %115, ptr noundef %16, i32 noundef %109, i32 noundef %118, i32 noundef %119, ptr noundef nonnull @dissect_batadv_tvlv_v15_tt_vlan.flags, i32 noundef 0) #4
-  %121 = add nuw nsw i32 %.04244.i, 8
-  %122 = add nuw nsw i32 %.04146.i, 1
+  %121 = add nuw nsw i32 %.045.i, 8
+  %122 = add nuw nsw i32 %.04144.i, 1
   %exitcond.not.i = icmp eq i32 %122, %67
   br i1 %exitcond.not.i, label %._crit_edge.i, label %dissect_batadv_tvlv_v15_tt_vlan.exit.i, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %dissect_batadv_tvlv_v15_tt_vlan.exit.i, %dissect_batadv_tvlv_v15_tt_vlan.exit.us.i, %58
-  %.042.lcssa.i = phi i32 [ 8, %58 ], [ %107, %dissect_batadv_tvlv_v15_tt_vlan.exit.us.i ], [ %121, %dissect_batadv_tvlv_v15_tt_vlan.exit.i ]
-  %123 = tail call i32 @tvb_reported_length_remaining(ptr noundef %16, i32 noundef %.042.lcssa.i) #4
+  %.0.lcssa.i = phi i32 [ 8, %58 ], [ %107, %dissect_batadv_tvlv_v15_tt_vlan.exit.us.i ], [ %121, %dissect_batadv_tvlv_v15_tt_vlan.exit.i ]
+  %123 = tail call i32 @tvb_reported_length_remaining(ptr noundef %16, i32 noundef %.0.lcssa.i) #4
   %124 = icmp sgt i32 %123, 0
   br i1 %124, label %.lr.ph49.i, label %dissect_batadv_tvlv_v15_gw.exit
 
 .lr.ph49.i:                                       ; preds = %._crit_edge.i, %.lr.ph49.i
-  %.147.i = phi i32 [ %140, %.lr.ph49.i ], [ %.042.lcssa.i, %._crit_edge.i ]
+  %.147.i = phi i32 [ %140, %.lr.ph49.i ], [ %.0.lcssa.i, %._crit_edge.i ]
   %.val.i = load ptr, ptr %4, align 8
   %125 = load i32, ptr @proto_batadv_plugin, align 4
   %126 = add i32 %.147.i, 4

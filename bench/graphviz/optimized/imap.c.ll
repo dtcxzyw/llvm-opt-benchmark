@@ -233,18 +233,18 @@ define void @aginternalmapclearlocalnames(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not2223, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %aginternalmapdelete.exit
-  %.024 = phi ptr [ %15, %aginternalmapdelete.exit ], [ %12, %10 ]
+  %.02024 = phi ptr [ %15, %aginternalmapdelete.exit ], [ %12, %10 ]
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = call ptr %14(ptr noundef nonnull %13, ptr noundef nonnull %.024, i32 noundef 8) #4
-  %16 = getelementptr inbounds i8, ptr %.024, i64 40
+  %15 = call ptr %14(ptr noundef nonnull %13, ptr noundef nonnull %.02024, i32 noundef 8) #4
+  %16 = getelementptr inbounds i8, ptr %.02024, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 37
   br i1 %19, label %20, label %aginternalmapdelete.exit
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %.024, i64 32
+  %21 = getelementptr inbounds i8, ptr %.02024, i64 32
   %22 = load i64, ptr %21, align 8
   %.val.i = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)

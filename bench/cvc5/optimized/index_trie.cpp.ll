@@ -55,20 +55,20 @@ entry:
 
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %__n.014.i.i = phi i64 [ %spec.select.i.i, %for.body.i.i ], [ 0, %entry ]
-  %__first.sroa.0.013.i.i = phi ptr [ %spec.select8.i.i, %for.body.i.i ], [ %0, %entry ]
-  %__first.sroa.5.012.i.i = phi i32 [ %spec.select7.i.i, %for.body.i.i ], [ 0, %entry ]
-  %sh_prom.i.i.i.i = zext nneg i32 %__first.sroa.5.012.i.i to i64
-  %3 = load i64, ptr %__first.sroa.0.013.i.i, align 8
+  %__first.sroa.5.013.i.i = phi i32 [ %spec.select8.i.i, %for.body.i.i ], [ 0, %entry ]
+  %__first.sroa.0.012.i.i = phi ptr [ %spec.select7.i.i, %for.body.i.i ], [ %0, %entry ]
+  %sh_prom.i.i.i.i = zext nneg i32 %__first.sroa.5.013.i.i to i64
+  %3 = load i64, ptr %__first.sroa.0.012.i.i, align 8
   %4 = lshr i64 %3, %sh_prom.i.i.i.i
   %inc.i.i = and i64 %4, 1
   %spec.select.i.i = add nuw nsw i64 %inc.i.i, %__n.014.i.i
-  %inc.i.i.i.i = add i32 %__first.sroa.5.012.i.i, 1
-  %cmp.i.i3.i.i = icmp eq i32 %__first.sroa.5.012.i.i, 63
-  %spec.select7.i.i = select i1 %cmp.i.i3.i.i, i32 0, i32 %inc.i.i.i.i
-  %spec.select8.idx.i.i = select i1 %cmp.i.i3.i.i, i64 8, i64 0
-  %spec.select8.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.013.i.i, i64 %spec.select8.idx.i.i
-  %cmp.i.i.i.i = icmp ne ptr %spec.select8.i.i, %1
-  %cmp3.i.i.i.i = icmp ne i32 %spec.select7.i.i, %2
+  %inc.i.i.i.i = add i32 %__first.sroa.5.013.i.i, 1
+  %cmp.i.i3.i.i = icmp eq i32 %__first.sroa.5.013.i.i, 63
+  %spec.select7.idx.i.i = select i1 %cmp.i.i3.i.i, i64 8, i64 0
+  %spec.select7.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.012.i.i, i64 %spec.select7.idx.i.i
+  %spec.select8.i.i = select i1 %cmp.i.i3.i.i, i32 0, i32 %inc.i.i.i.i
+  %cmp.i.i.i.i = icmp ne ptr %spec.select7.i.i, %1
+  %cmp3.i.i.i.i = icmp ne i32 %spec.select8.i.i, %2
   %.not.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i
   br i1 %.not.i.i.i, label %for.body.i.i, label %_ZSt5countISt19_Bit_const_iteratorbENSt15iterator_traitsIT_E15difference_typeES2_S2_RKT0_.exit, !llvm.loop !4
 

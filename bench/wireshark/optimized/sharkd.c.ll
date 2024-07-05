@@ -841,25 +841,25 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %34
-  %.040 = phi i8 [ %.2, %34 ], [ 0, %13 ]
-  %.03039 = phi i32 [ %.131, %34 ], [ 0, %13 ]
-  %.03238 = phi i32 [ %50, %34 ], [ 1, %13 ]
+  %.03040 = phi i8 [ %.2, %34 ], [ 0, %13 ]
+  %.03139 = phi i32 [ %50, %34 ], [ 1, %13 ]
+  %.03338 = phi i32 [ %.134, %34 ], [ 0, %13 ]
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 280), align 8
-  %21 = call ptr @frame_data_sequence_find(ptr noundef %20, i32 noundef %.03238) #9
-  %22 = and i32 %.03238, 7
+  %21 = call ptr @frame_data_sequence_find(ptr noundef %20, i32 noundef %.03139) #9
+  %22 = and i32 %.03139, 7
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %.lr.ph
-  %25 = lshr exact i32 %.03238, 3
+  %25 = lshr exact i32 %.03139, 3
   %26 = add nsw i32 %25, -1
   %27 = zext i32 %26 to i64
   %28 = getelementptr i8, ptr %19, i64 %27
-  store i8 %.040, ptr %28, align 1
+  store i8 %.03040, ptr %28, align 1
   br label %29
 
 29:                                               ; preds = %24, %.lr.ph
-  %.1 = phi i8 [ 0, %24 ], [ %.040, %.lr.ph ]
+  %.1 = phi i8 [ 0, %24 ], [ %.03040, %.lr.ph ]
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
   %31 = getelementptr inbounds i8, ptr %21, i64 16
   %32 = load i64, ptr %31, align 8
@@ -874,12 +874,12 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
   %37 = load i16, ptr %36, align 2
   %38 = and i16 %37, -33
   store i16 %38, ptr %36, align 2
-  %.not36 = icmp ne i32 %.03238, 1
+  %.not36 = icmp ne i32 %.03139, 1
   %39 = zext i1 %.not36 to i32
   %40 = getelementptr inbounds i8, ptr %21, i64 88
   store i32 %39, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %21, i64 92
-  store i32 %.03039, ptr %41, align 4
+  store i32 %.03338, ptr %41, align 4
   %42 = load i16, ptr getelementptr inbounds (i8, ptr @cfile, i64 56), align 8
   %43 = zext i16 %42 to i32
   %44 = call ptr @frame_tvbuff_new_buffer(ptr noundef nonnull getelementptr inbounds (i8, ptr @cfile, i64 248), ptr noundef nonnull %21, ptr noundef nonnull %4) #9
@@ -888,22 +888,22 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
   %46 = call zeroext i1 @dfilter_apply_edt(ptr noundef %45, ptr noundef nonnull %8) #9
   %47 = shl nuw nsw i32 1, %22
   %48 = trunc nuw i32 %47 to i8
-  %.131 = select i1 %46, i32 %.03238, i32 %.03039
+  %.134 = select i1 %46, i32 %.03139, i32 %.03338
   %49 = select i1 %46, i8 %48, i8 0
   %.2 = or i8 %49, %.1
   call void @wtap_rec_reset(ptr noundef nonnull %5) #9
   call void @epan_dissect_reset(ptr noundef nonnull %8) #9
-  %50 = add i32 %.03238, 1
+  %50 = add i32 %.03139, 1
   %.not = icmp ugt i32 %50, %14
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %34, %29, %13
-  %.032.lcssa = phi i32 [ 1, %13 ], [ %.03238, %29 ], [ %50, %34 ]
+  %.031.lcssa = phi i32 [ 1, %13 ], [ %.03139, %29 ], [ %50, %34 ]
   %.3 = phi i8 [ 0, %13 ], [ %.1, %29 ], [ %.2, %34 ]
-  %51 = and i32 %.032.lcssa, 7
+  %51 = and i32 %.031.lcssa, 7
   %52 = icmp eq i32 %51, 0
   %53 = sext i1 %52 to i32
-  %spec.select = add i32 %.032.lcssa, %53
+  %spec.select = add i32 %.031.lcssa, %53
   %54 = lshr i32 %spec.select, 3
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr i8, ptr %19, i64 %55
@@ -917,13 +917,13 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
 
 .sink.split:                                      ; preds = %10, %._crit_edge
   %.sink = phi ptr [ %19, %._crit_edge ], [ null, %10 ]
-  %.034.ph = phi i32 [ %spec.select, %._crit_edge ], [ 0, %10 ]
+  %.0.ph = phi i32 [ %spec.select, %._crit_edge ], [ 0, %10 ]
   store ptr %.sink, ptr %1, align 8
   br label %58
 
 58:                                               ; preds = %.sink.split, %2
-  %.034 = phi i32 [ -1, %2 ], [ %.034.ph, %.sink.split ]
-  ret i32 %.034
+  %.0 = phi i32 [ -1, %2 ], [ %.0.ph, %.sink.split ]
+  ret i32 %.0
 }
 
 declare zeroext i1 @dfilter_compile_full(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

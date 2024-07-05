@@ -1042,8 +1042,8 @@ for.body17.lr.ph:                                 ; preds = %for.cond14.preheade
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %for.inc
-  %i4.047 = phi i32 [ 0, %for.body17.lr.ph ], [ %inc, %for.inc ]
-  %multiplier.046 = phi i8 [ %6, %for.body17.lr.ph ], [ %multiplier.1, %for.inc ]
+  %multiplier.047 = phi i8 [ %6, %for.body17.lr.ph ], [ %multiplier.1, %for.inc ]
+  %i4.046 = phi i32 [ 0, %for.body17.lr.ph ], [ %inc, %for.inc ]
   %10 = load ptr, ptr %key.addr, align 8
   %call.i = call noundef i32 @_ZN6icu_7514StandardPlural15indexFromStringEPKcR10UErrorCode(ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %11 = load i32, ptr %status, align 4
@@ -1084,7 +1084,7 @@ if.end41:                                         ; preds = %if.then40, %if.end3
   %patterns43 = getelementptr inbounds i8, ptr %16, i64 8
   %arrayidx47 = getelementptr inbounds [168 x ptr], ptr %patterns43, i64 0, i64 %idxprom26
   store ptr %patternString.0, ptr %arrayidx47, align 8
-  %cmp49 = icmp eq i8 %multiplier.046, 0
+  %cmp49 = icmp eq i8 %multiplier.047, 0
   br i1 %cmp49, label %if.then50, label %for.inc
 
 if.then50:                                        ; preds = %if.end41
@@ -1129,8 +1129,8 @@ if.then53:                                        ; preds = %if.else.i, %_ZN12_G
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then50, %if.end41, %if.then53, %_ZN12_GLOBAL__N_110countZerosEPKDsi.exit, %if.end22
-  %multiplier.1 = phi i8 [ %multiplier.046, %if.end22 ], [ %conv57, %if.then53 ], [ 0, %_ZN12_GLOBAL__N_110countZerosEPKDsi.exit ], [ %multiplier.046, %if.end41 ], [ 0, %if.then50 ]
-  %inc = add nuw nsw i32 %i4.047, 1
+  %multiplier.1 = phi i8 [ %multiplier.047, %if.end22 ], [ %conv57, %if.then53 ], [ 0, %_ZN12_GLOBAL__N_110countZerosEPKDsi.exit ], [ %multiplier.047, %if.end41 ], [ 0, %if.then50 ]
+  %inc = add nuw nsw i32 %i4.046, 1
   %call15 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %pluralVariantsTable, i32 noundef %inc, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool16.not = icmp eq i8 %call15, 0
   br i1 %tobool16.not, label %for.end, label %for.body17, !llvm.loop !7

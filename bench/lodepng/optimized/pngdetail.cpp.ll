@@ -2158,7 +2158,7 @@ for.body40:                                       ; preds = %for.body40.preheade
 
 for.body47:                                       ; preds = %for.body40, %for.body47
   %indvars.iv192 = phi i64 [ %18, %for.body40 ], [ %indvars.iv.next193, %for.body47 ]
-  %val.0158 = phi double [ 0.000000e+00, %for.body40 ], [ %30, %for.body47 ]
+  %val.0159 = phi double [ 0.000000e+00, %for.body40 ], [ %30, %for.body47 ]
   %26 = trunc nsw i64 %indvars.iv192 to i32
   %mul48112 = add i32 %25, %26
   %add51 = mul i32 %mul48112, %conv1
@@ -2172,7 +2172,7 @@ for.body47:                                       ; preds = %for.body40, %for.bo
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %conv63
   %29 = load i8, ptr %add.ptr.i, align 1
   %conv66 = uitofp i8 %29 to double
-  %30 = tail call double @llvm.fmuladd.f64(double %v.1, double %conv66, double %val.0158)
+  %30 = tail call double @llvm.fmuladd.f64(double %v.1, double %conv66, double %val.0159)
   %indvars.iv.next193 = add nsw i64 %indvars.iv192, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next193 to i32
   %exitcond196.not = icmp eq i32 %19, %lftr.wideiv
@@ -9347,7 +9347,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc256
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc256 ]
-  %options_chosen.0245 = phi i1 [ false, %for.body.lr.ph ], [ %options_chosen.3154, %for.inc256 ]
+  %options_chosen.0246 = phi i1 [ false, %for.body.lr.ph ], [ %options_chosen.3154, %for.inc256 ]
   %.lcssa186219244 = phi i8 [ 0, %for.body.lr.ph ], [ %.lcssa186217, %for.inc256 ]
   %.lcssa189236243 = phi i8 [ 0, %for.body.lr.ph ], [ %.lcssa189234, %for.inc256 ]
   %.lcssa192240242 = phi i8 [ 0, %for.body.lr.ph ], [ %.lcssa192238, %for.inc256 ]
@@ -9431,7 +9431,7 @@ land.lhs.true13:                                  ; preds = %if.then
 land.lhs.true16:                                  ; preds = %land.lhs.true13
   %call.i.i49 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull @.str.210) #22
   %cmp.i.i50.not = icmp ne i32 %call.i.i49, 0
-  %spec.select = select i1 %cmp.i.i50.not, i1 true, i1 %options_chosen.0245
+  %spec.select = select i1 %cmp.i.i50.not, i1 true, i1 %options_chosen.0246
   br label %if.end
 
 lpad:                                             ; preds = %call.i.noexc, %for.body
@@ -9477,7 +9477,7 @@ lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then1
   br label %ehcleanup255
 
 if.end:                                           ; preds = %land.lhs.true16, %land.lhs.true13, %if.then
-  %options_chosen.1 = phi i1 [ %options_chosen.0245, %land.lhs.true13 ], [ %options_chosen.0245, %if.then ], [ %spec.select, %land.lhs.true16 ]
+  %options_chosen.1 = phi i1 [ %options_chosen.0246, %land.lhs.true13 ], [ %options_chosen.0246, %if.then ], [ %spec.select, %land.lhs.true16 ]
   %call21195 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   %cmp22196 = icmp ugt i64 %call21195, 1
   br i1 %cmp22196, label %for.body23.lr.ph, label %cleanup252.thread.loopexit
@@ -9986,7 +9986,7 @@ cleanup252.thread:                                ; preds = %cleanup252.thread.l
   %.lcssa192239 = phi i8 [ %.lcssa192240242, %.noexc112 ], [ %.lcssa192240242, %if.else.i ], [ %.lcssa192, %cleanup252.thread.loopexit ]
   %.lcssa189235 = phi i8 [ %.lcssa189236243, %.noexc112 ], [ %.lcssa189236243, %if.else.i ], [ %.lcssa189, %cleanup252.thread.loopexit ]
   %.lcssa186218 = phi i8 [ %.lcssa186219244, %.noexc112 ], [ %.lcssa186219244, %if.else.i ], [ %.lcssa186, %cleanup252.thread.loopexit ]
-  %options_chosen.3.ph = phi i1 [ %options_chosen.0245, %.noexc112 ], [ %options_chosen.0245, %if.else.i ], [ %options_chosen.1, %cleanup252.thread.loopexit ]
+  %options_chosen.3.ph = phi i1 [ %options_chosen.0246, %.noexc112 ], [ %options_chosen.0246, %if.else.i ], [ %options_chosen.1, %cleanup252.thread.loopexit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #22
   br label %for.inc256
 
@@ -10007,7 +10007,7 @@ for.inc256:                                       ; preds = %cleanup252.thread, 
   %.lcssa192238 = phi i8 [ %.lcssa192239, %cleanup252.thread ], [ %.lcssa192240242, %cleanup252 ]
   %.lcssa189234 = phi i8 [ %.lcssa189235, %cleanup252.thread ], [ %.lcssa189236243, %cleanup252 ]
   %.lcssa186217 = phi i8 [ %.lcssa186218, %cleanup252.thread ], [ %.lcssa186219244, %cleanup252 ]
-  %options_chosen.3154 = phi i1 [ %options_chosen.3.ph, %cleanup252.thread ], [ %options_chosen.0245, %cleanup252 ]
+  %options_chosen.3154 = phi i1 [ %options_chosen.3.ph, %cleanup252.thread ], [ %options_chosen.0246, %cleanup252 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end258, label %for.body, !llvm.loop !80

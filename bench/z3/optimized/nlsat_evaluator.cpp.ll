@@ -1032,10 +1032,10 @@ _ZNK5nlsat9evaluator3imp10sign_table9num_cellsEv.exit: ; preds = %for.end, %if.e
 for.body15:                                       ; preds = %_ZNK5nlsat9evaluator3imp10sign_table9num_cellsEv.exit, %for.inc106
   %20 = phi ptr [ null, %_ZNK5nlsat9evaluator3imp10sign_table9num_cellsEv.exit ], [ %75, %for.inc106 ]
   %prev_sat.0177 = phi i8 [ 1, %_ZNK5nlsat9evaluator3imp10sign_table9num_cellsEv.exit ], [ %prev_sat.2, %for.inc106 ]
-  %c.0171 = phi i32 [ 0, %_ZNK5nlsat9evaluator3imp10sign_table9num_cellsEv.exit ], [ %inc107, %for.inc106 ]
-  %prev_inf.0170 = phi i8 [ 1, %_ZNK5nlsat9evaluator3imp10sign_table9num_cellsEv.exit ], [ %prev_inf.3, %for.inc106 ]
-  %prev_root_id.0169 = phi i32 [ -1, %_ZNK5nlsat9evaluator3imp10sign_table9num_cellsEv.exit ], [ %prev_root_id.3, %for.inc106 ]
-  %prev_open.0168 = phi i8 [ 1, %_ZNK5nlsat9evaluator3imp10sign_table9num_cellsEv.exit ], [ %prev_open.3, %for.inc106 ]
+  %prev_inf.0176 = phi i8 [ 1, %_ZNK5nlsat9evaluator3imp10sign_table9num_cellsEv.exit ], [ %prev_inf.3, %for.inc106 ]
+  %c.0170 = phi i32 [ 0, %_ZNK5nlsat9evaluator3imp10sign_table9num_cellsEv.exit ], [ %inc107, %for.inc106 ]
+  %prev_open.0169 = phi i8 [ 1, %_ZNK5nlsat9evaluator3imp10sign_table9num_cellsEv.exit ], [ %prev_open.3, %for.inc106 ]
+  %prev_root_id.0168 = phi i32 [ -1, %_ZNK5nlsat9evaluator3imp10sign_table9num_cellsEv.exit ], [ %prev_root_id.3, %for.inc106 ]
   %21 = load i32, ptr %m_size.i, align 8
   %cmp9.not.i = icmp eq i32 %21, 0
   br i1 %cmp9.not.i, label %land.rhs.i.i, label %for.body.lr.ph.i
@@ -1078,11 +1078,11 @@ for.body.i149:                                    ; preds = %for.inc.i154, %for.
   %30 = load i32, ptr %m_pos.i.i, align 8
   %mul.i.i.i = shl i32 %30, 1
   %add.i.i.i = or disjoint i32 %mul.i.i.i, 1
-  %cmp4.i152 = icmp eq i32 %add.i.i.i, %c.0171
+  %cmp4.i152 = icmp eq i32 %add.i.i.i, %c.0170
   br i1 %cmp4.i152, label %call2.i.noexc, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i149
-  %cmp6.not.i = icmp ult i32 %mul.i.i.i, %c.0171
+  %cmp6.not.i = icmp ult i32 %mul.i.i.i, %c.0170
   br i1 %cmp6.not.i, label %for.inc.i154, label %for.end.i153
 
 for.inc.i154:                                     ; preds = %if.else.i
@@ -1117,7 +1117,7 @@ if.end14.i:                                       ; preds = %for.body.i45
   %36 = load i32, ptr %m_pos.i55.i, align 8
   %mul.i.i56.i = shl i32 %36, 1
   %add.i.i57.i = or disjoint i32 %mul.i.i56.i, 1
-  %cmp17.not.i = icmp ult i32 %mul.i.i46.i, %c.0171
+  %cmp17.not.i = icmp ult i32 %mul.i.i46.i, %c.0170
   br i1 %cmp17.not.i, label %if.else20.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end14.i
@@ -1127,13 +1127,13 @@ if.then18.i:                                      ; preds = %if.end14.i
 
 if.else20.i:                                      ; preds = %if.end14.i
   %add.i.i47.i = or disjoint i32 %mul.i.i46.i, 1
-  %cmp21.i = icmp eq i32 %add.i.i47.i, %c.0171
-  %cmp22.i = icmp eq i32 %add.i.i57.i, %c.0171
+  %cmp21.i = icmp eq i32 %add.i.i47.i, %c.0170
+  %cmp22.i = icmp eq i32 %add.i.i57.i, %c.0170
   %or.cond.i145 = or i1 %cmp21.i, %cmp22.i
   br i1 %or.cond.i145, label %call2.i.noexc, label %if.else24.i
 
 if.else24.i:                                      ; preds = %if.else20.i
-  %cmp25.i = icmp ult i32 %add.i.i57.i, %c.0171
+  %cmp25.i = icmp ult i32 %add.i.i57.i, %c.0170
   br i1 %cmp25.i, label %if.then26.i, label %if.end36.i
 
 if.then26.i:                                      ; preds = %if.else24.i
@@ -1163,11 +1163,11 @@ if.end36.i:                                       ; preds = %if.else24.i, %if.en
   %41 = load i32, ptr %m_pos.i80.i, align 8
   %mul.i.i81.i = shl i32 %41, 1
   %add.i.i82.i = or disjoint i32 %mul.i.i81.i, 1
-  %cmp40.i = icmp eq i32 %add.i.i82.i, %c.0171
+  %cmp40.i = icmp eq i32 %add.i.i82.i, %c.0170
   br i1 %cmp40.i, label %call2.i.noexc, label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.end36.i
-  %cmp43.not.i = icmp ult i32 %mul.i.i81.i, %c.0171
+  %cmp43.not.i = icmp ult i32 %mul.i.i81.i, %c.0170
   %low.0.add38.i = select i1 %cmp43.not.i, i32 %add38.i, i32 %low.087.i
   %add38.high.0.i = select i1 %cmp43.not.i, i32 %high.088.i, i32 %add38.i
   %add.i146 = add nsw i32 %low.0.add38.i, 1
@@ -1238,18 +1238,18 @@ if.then:                                          ; preds = %invoke.cont19.thr_c
   br i1 %tobool21, label %for.inc106, label %if.then22
 
 if.then22:                                        ; preds = %if.then
-  %rem.i = and i32 %c.0171, 1
+  %rem.i = and i32 %c.0170, 1
   %cmp.i = icmp ne i32 %rem.i, 0
   %not.cmp.i = xor i1 %cmp.i, true
   %sub = sext i1 %not.cmp.i to i32
-  %sub.sink = add i32 %c.0171, %sub
+  %sub.sink = add i32 %c.0170, %sub
   %div1.i55 = lshr i32 %sub.sink, 1
   %45 = load ptr, ptr %m_sorted_sections.i, align 8
   %idxprom.i.i56 = zext nneg i32 %div1.i55 to i64
   %arrayidx.i.i57 = getelementptr inbounds i32, ptr %45, i64 %idxprom.i.i56
   %curr_root_id.0 = load i32, ptr %arrayidx.i.i57, align 4
-  %tobool31 = trunc nuw i8 %prev_open.0168 to i1
-  %tobool32 = trunc nuw i8 %prev_inf.0170 to i1
+  %tobool31 = trunc nuw i8 %prev_open.0169 to i1
+  %tobool32 = trunc nuw i8 %prev_inf.0176 to i1
   %46 = load atomic i8, ptr @_ZGVZNK5nlsat9evaluator3imp10sign_table8get_rootEjE4zero acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %46, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %invoke.cont33, !prof !15
@@ -1272,9 +1272,9 @@ init.i:                                           ; preds = %init.check.i
   br label %invoke.cont33
 
 invoke.cont33:                                    ; preds = %init.i, %init.check.i, %if.then22
-  %cmp.i58 = icmp eq i32 %prev_root_id.0169, -1
+  %cmp.i58 = icmp eq i32 %prev_root_id.0168, -1
   %49 = load ptr, ptr %m_sections.i, align 8
-  %idxprom.i.i60 = zext i32 %prev_root_id.0169 to i64
+  %idxprom.i.i60 = zext i32 %prev_root_id.0168 to i64
   %arrayidx.i.i61 = getelementptr inbounds %"struct.nlsat::evaluator::imp::sign_table::section", ptr %49, i64 %idxprom.i.i60
   %retval.0.i = select i1 %cmp.i58, ptr @_ZZNK5nlsat9evaluator3imp10sign_table8get_rootEjE4zero, ptr %arrayidx.i.i61
   %50 = load atomic i8, ptr @_ZGVZNK5nlsat9evaluator3imp10sign_table8get_rootEjE4zero acquire, align 8
@@ -1348,7 +1348,7 @@ if.else52:                                        ; preds = %invoke.cont19.thr_c
   br i1 %tobool53, label %if.then54, label %if.end80
 
 if.then54:                                        ; preds = %if.else52
-  %cmp55 = icmp eq i32 %c.0171, 0
+  %cmp55 = icmp eq i32 %c.0170, 0
   br i1 %cmp55, label %if.then56, label %if.else68
 
 if.then56:                                        ; preds = %if.then54
@@ -1381,12 +1381,12 @@ _ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96: ; 
   br label %if.end80
 
 if.else68:                                        ; preds = %if.then54
-  %rem.i97 = and i32 %c.0171, 1
+  %rem.i97 = and i32 %c.0170, 1
   %cmp.i98.not = icmp eq i32 %rem.i97, 0
   br i1 %cmp.i98.not, label %if.else74, label %if.then71
 
 if.then71:                                        ; preds = %if.else68
-  %div1.i100 = lshr i32 %c.0171, 1
+  %div1.i100 = lshr i32 %c.0170, 1
   %61 = load ptr, ptr %m_sorted_sections.i, align 8
   %idxprom.i.i101 = zext nneg i32 %div1.i100 to i64
   %arrayidx.i.i102 = getelementptr inbounds i32, ptr %61, i64 %idxprom.i.i101
@@ -1394,7 +1394,7 @@ if.then71:                                        ; preds = %if.else68
   br label %if.end80
 
 if.else74:                                        ; preds = %if.else68
-  %sub75 = add i32 %c.0171, -1
+  %sub75 = add i32 %c.0170, -1
   %div1.i104 = lshr i32 %sub75, 1
   %63 = load ptr, ptr %m_sorted_sections.i, align 8
   %idxprom.i.i105 = zext nneg i32 %div1.i104 to i64
@@ -1404,11 +1404,11 @@ if.else74:                                        ; preds = %if.else68
 
 if.end80:                                         ; preds = %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96, %if.else74, %if.then71, %if.then56, %if.else52
   %65 = phi ptr [ %20, %if.else52 ], [ %call63, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ %20, %if.then71 ], [ %20, %if.else74 ], [ %20, %if.then56 ]
-  %prev_open.2 = phi i8 [ %prev_open.0168, %if.else52 ], [ %prev_open.0168, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ 0, %if.then71 ], [ 1, %if.else74 ], [ 1, %if.then56 ]
-  %prev_root_id.2 = phi i32 [ %prev_root_id.0169, %if.else52 ], [ %prev_root_id.0169, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ %62, %if.then71 ], [ %64, %if.else74 ], [ -1, %if.then56 ]
-  %prev_inf.2 = phi i8 [ %prev_inf.0170, %if.else52 ], [ %prev_inf.0170, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ 0, %if.then71 ], [ 0, %if.else74 ], [ 1, %if.then56 ]
+  %prev_root_id.2 = phi i32 [ %prev_root_id.0168, %if.else52 ], [ %prev_root_id.0168, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ %62, %if.then71 ], [ %64, %if.else74 ], [ -1, %if.then56 ]
+  %prev_open.2 = phi i8 [ %prev_open.0169, %if.else52 ], [ %prev_open.0169, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ 0, %if.then71 ], [ 1, %if.else74 ], [ 1, %if.then56 ]
+  %prev_inf.2 = phi i8 [ %prev_inf.0176, %if.else52 ], [ %prev_inf.0176, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ 0, %if.then71 ], [ 0, %if.else74 ], [ 1, %if.then56 ]
   %prev_sat.1 = phi i8 [ %prev_sat.0177, %if.else52 ], [ 0, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ 0, %if.then71 ], [ 0, %if.else74 ], [ 0, %if.then56 ]
-  %cmp82 = icmp eq i32 %c.0171, %sub81
+  %cmp82 = icmp eq i32 %c.0170, %sub81
   br i1 %cmp82, label %if.then83, label %for.inc106
 
 if.then83:                                        ; preds = %if.end80
@@ -1482,20 +1482,20 @@ if.then.i.i132:                                   ; preds = %if.end.i130
 
 for.inc106.sink.split:                            ; preds = %if.end.i130, %if.then.i.i132, %if.end.i80, %if.then.i.i82
   %call101.sink = phi ptr [ %call48, %if.then.i.i82 ], [ %call48, %if.end.i80 ], [ %call101, %if.then.i.i132 ], [ %call101, %if.end.i130 ]
-  %prev_open.3.ph = phi i8 [ %prev_open.0168, %if.then.i.i82 ], [ %prev_open.0168, %if.end.i80 ], [ %prev_open.2, %if.then.i.i132 ], [ %prev_open.2, %if.end.i130 ]
-  %prev_root_id.3.ph = phi i32 [ %prev_root_id.0169, %if.then.i.i82 ], [ %prev_root_id.0169, %if.end.i80 ], [ %prev_root_id.2, %if.then.i.i132 ], [ %prev_root_id.2, %if.end.i130 ]
-  %prev_inf.3.ph = phi i8 [ %prev_inf.0170, %if.then.i.i82 ], [ %prev_inf.0170, %if.end.i80 ], [ %prev_inf.2, %if.then.i.i132 ], [ %prev_inf.2, %if.end.i130 ]
+  %prev_root_id.3.ph = phi i32 [ %prev_root_id.0168, %if.then.i.i82 ], [ %prev_root_id.0168, %if.end.i80 ], [ %prev_root_id.2, %if.then.i.i132 ], [ %prev_root_id.2, %if.end.i130 ]
+  %prev_open.3.ph = phi i8 [ %prev_open.0169, %if.then.i.i82 ], [ %prev_open.0169, %if.end.i80 ], [ %prev_open.2, %if.then.i.i132 ], [ %prev_open.2, %if.end.i130 ]
+  %prev_inf.3.ph = phi i8 [ %prev_inf.0176, %if.then.i.i82 ], [ %prev_inf.0176, %if.end.i80 ], [ %prev_inf.2, %if.then.i.i132 ], [ %prev_inf.2, %if.end.i130 ]
   %prev_sat.2.ph = phi i8 [ 1, %if.then.i.i82 ], [ 1, %if.end.i80 ], [ %prev_sat.1, %if.then.i.i132 ], [ %prev_sat.1, %if.end.i130 ]
   store ptr %call101.sink, ptr %agg.result, align 8
   br label %for.inc106
 
 for.inc106:                                       ; preds = %for.inc106.sink.split, %if.then, %if.end80
   %75 = phi ptr [ %20, %if.then ], [ %65, %if.end80 ], [ %call101.sink, %for.inc106.sink.split ]
-  %prev_open.3 = phi i8 [ %prev_open.0168, %if.then ], [ %prev_open.2, %if.end80 ], [ %prev_open.3.ph, %for.inc106.sink.split ]
-  %prev_root_id.3 = phi i32 [ %prev_root_id.0169, %if.then ], [ %prev_root_id.2, %if.end80 ], [ %prev_root_id.3.ph, %for.inc106.sink.split ]
-  %prev_inf.3 = phi i8 [ %prev_inf.0170, %if.then ], [ %prev_inf.2, %if.end80 ], [ %prev_inf.3.ph, %for.inc106.sink.split ]
+  %prev_root_id.3 = phi i32 [ %prev_root_id.0168, %if.then ], [ %prev_root_id.2, %if.end80 ], [ %prev_root_id.3.ph, %for.inc106.sink.split ]
+  %prev_open.3 = phi i8 [ %prev_open.0169, %if.then ], [ %prev_open.2, %if.end80 ], [ %prev_open.3.ph, %for.inc106.sink.split ]
+  %prev_inf.3 = phi i8 [ %prev_inf.0176, %if.then ], [ %prev_inf.2, %if.end80 ], [ %prev_inf.3.ph, %for.inc106.sink.split ]
   %prev_sat.2 = phi i8 [ %prev_sat.0177, %if.then ], [ %prev_sat.1, %if.end80 ], [ %prev_sat.2.ph, %for.inc106.sink.split ]
-  %inc107 = add nuw i32 %c.0171, 1
+  %inc107 = add nuw i32 %c.0170, 1
   %exitcond180.not = icmp eq i32 %inc107, %retval.0.i.i
   br i1 %exitcond180.not, label %for.end108, label %for.body15, !llvm.loop !16
 

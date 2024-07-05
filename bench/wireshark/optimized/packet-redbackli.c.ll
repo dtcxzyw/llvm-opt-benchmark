@@ -98,12 +98,12 @@ define internal i32 @redbackli_dissect(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not32, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %redbackli_dissect_avp.exit.us
+  %.035.us = phi i32 [ %22, %redbackli_dissect_avp.exit.us ], [ %11, %.lr.ph ]
   %.02934.us = phi i32 [ %21, %redbackli_dissect_avp.exit.us ], [ 0, %.lr.ph ]
-  %.03033.us = phi i32 [ %22, %redbackli_dissect_avp.exit.us ], [ %11, %.lr.ph ]
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02934.us) #2
   %14 = add i32 %.02934.us, 1
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #2
-  %16 = add nsw i32 %.03033.us, -2
+  %16 = add nsw i32 %.035.us, -2
   %17 = zext i8 %15 to i32
   %18 = icmp ult i32 %16, %17
   br i1 %18, label %._crit_edge, label %redbackli_dissect_avp.exit.us
@@ -112,18 +112,18 @@ redbackli_dissect_avp.exit.us:                    ; preds = %.lr.ph.split.us
   %19 = icmp ne i8 %13, 0
   %20 = add nuw nsw i32 %17, 2
   %21 = add i32 %20, %.02934.us
-  %22 = sub nsw i32 %.03033.us, %20
+  %22 = sub nsw i32 %.035.us, %20
   %23 = icmp sgt i32 %22, 2
   %24 = select i1 %19, i1 %23, i1 false
   br i1 %24, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %redbackli_dissect_avp.exit
+  %.035 = phi i32 [ %54, %redbackli_dissect_avp.exit ], [ %11, %.lr.ph ]
   %.02934 = phi i32 [ %53, %redbackli_dissect_avp.exit ], [ 0, %.lr.ph ]
-  %.03033 = phi i32 [ %54, %redbackli_dissect_avp.exit ], [ %11, %.lr.ph ]
   %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02934) #2
   %26 = add i32 %.02934, 1
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %26) #2
-  %28 = add nsw i32 %.03033, -2
+  %28 = add nsw i32 %.035, -2
   %29 = zext i8 %27 to i32
   %30 = icmp ult i32 %28, %29
   br i1 %30, label %._crit_edge, label %31
@@ -183,7 +183,7 @@ redbackli_dissect_avp.exit.us:                    ; preds = %.lr.ph.split.us
 redbackli_dissect_avp.exit:                       ; preds = %.sink.split.i, %31
   %52 = icmp ne i8 %25, 0
   %53 = add i32 %34, %.02934
-  %54 = sub nsw i32 %.03033, %34
+  %54 = sub nsw i32 %.035, %34
   %55 = icmp sgt i32 %54, 2
   %56 = select i1 %52, i1 %55, i1 false
   br i1 %56, label %.lr.ph.split, label %._crit_edge, !llvm.loop !4
@@ -223,10 +223,10 @@ define internal range(i32 0, 2) i32 @redbackli_dissect_heur(ptr noundef %0, ptr 
 
 .preheader:                                       ; preds = %4, %18
   %.041 = phi i32 [ %.1, %18 ], [ 0, %4 ]
-  %.02840 = phi i32 [ %21, %18 ], [ 0, %4 ]
-  %.02939 = phi i32 [ %22, %18 ], [ %5, %4 ]
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02840) #2
-  %8 = add i32 %.02840, 1
+  %.02740 = phi i32 [ %22, %18 ], [ %5, %4 ]
+  %.03039 = phi i32 [ %21, %18 ], [ 0, %4 ]
+  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.03039) #2
+  %8 = add i32 %.03039, 1
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %8) #2
   %10 = zext nneg i8 %7 to i32
   switch i8 %7, label %.loopexit [
@@ -250,7 +250,7 @@ define internal range(i32 0, 2) i32 @redbackli_dissect_heur(ptr noundef %0, ptr 
 
 15:                                               ; preds = %.preheader
   %16 = icmp ugt i8 %9, 1
-  %17 = icmp eq i32 %.02840, 0
+  %17 = icmp eq i32 %.03039, 0
   %or.cond = or i1 %16, %17
   br i1 %or.cond, label %.loopexit, label %.thread
 
@@ -258,8 +258,8 @@ define internal range(i32 0, 2) i32 @redbackli_dissect_heur(ptr noundef %0, ptr 
   %.1 = phi i32 [ %.041, %.preheader ], [ %.041, %.preheader ], [ %.041, %.preheader ], [ %14, %12 ]
   %19 = zext i8 %9 to i32
   %20 = add nuw nsw i32 %19, 2
-  %21 = add i32 %20, %.02840
-  %22 = sub nsw i32 %.02939, %20
+  %21 = add i32 %20, %.03039
+  %22 = sub nsw i32 %.02740, %20
   %23 = icmp sgt i32 %22, 2
   br i1 %23, label %.preheader, label %.thread, !llvm.loop !6
 
@@ -274,8 +274,8 @@ define internal range(i32 0, 2) i32 @redbackli_dissect_heur(ptr noundef %0, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %11, %15, %.thread, %4, %25
-  %.030 = phi i32 [ 1, %25 ], [ 0, %4 ], [ 0, %.thread ], [ 0, %15 ], [ 0, %11 ], [ 0, %.preheader ]
-  ret i32 %.030
+  %.026 = phi i32 [ 1, %25 ], [ 0, %4 ], [ 0, %.thread ], [ 0, %15 ], [ 0, %11 ], [ 0, %.preheader ]
+  ret i32 %.026
 }
 
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

@@ -2980,10 +2980,10 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
   br label %25
 
 25:                                               ; preds = %15, %._crit_edge
-  %.0151191 = phi i32 [ %23, %15 ], [ %.2.lcssa, %._crit_edge ]
-  %.0153190 = phi i32 [ 3, %15 ], [ %183, %._crit_edge ]
-  %26 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.0151191) #4
-  %27 = shl i32 %.0151191, 3
+  %.0150191 = phi i32 [ %23, %15 ], [ %.2.lcssa, %._crit_edge ]
+  %.0151190 = phi i32 [ 3, %15 ], [ %183, %._crit_edge ]
+  %26 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.0150191) #4
+  %27 = shl i32 %.0150191, 3
   %28 = add i32 %27, 21
   %29 = call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %28, i32 noundef 3) #4
   store i32 0, ptr %6, align 4
@@ -2994,14 +2994,14 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
   %34 = zext i16 %26 to i32
   %35 = add nuw nsw i32 %34, 2
   %36 = load i32, ptr @ett_availability_entry, align 4
-  %37 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %.0151191, i32 noundef %35, i32 noundef %36, ptr noundef null, ptr noundef %33) #4
+  %37 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %.0150191, i32 noundef %35, i32 noundef %36, ptr noundef null, ptr noundef %33) #4
   %38 = load i32, ptr @hf_nan_attr_availability_entry_len, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %1, i32 noundef %.0151191, i32 noundef 2, i32 noundef -2147483648) #4
-  %40 = add i32 %.0151191, 2
+  %39 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %1, i32 noundef %.0150191, i32 noundef 2, i32 noundef -2147483648) #4
+  %40 = add i32 %.0150191, 2
   %41 = load i32, ptr @hf_nan_attr_availability_entry_ctr, align 4
   %42 = load i32, ptr @ett_availability_entry_ctr, align 4
   %43 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %37, ptr noundef %1, i32 noundef %40, i32 noundef %41, i32 noundef %42, ptr noundef nonnull @dissect_attr_availability.availability_entry_ctr_fields, i32 noundef -2147483648, ptr noundef nonnull %7) #4
-  %44 = add i32 %.0151191, 4
+  %44 = add i32 %.0150191, 4
   %45 = load i64, ptr %7, align 8
   %46 = and i64 %45, 4096
   %.not = icmp eq i64 %46, 0
@@ -3016,10 +3016,10 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
   %49 = load i32, ptr @ett_time_bitmap_ctrl, align 4
   %50 = call ptr @proto_tree_add_bitmask(ptr noundef %37, ptr noundef %1, i32 noundef %44, i32 noundef %48, i32 noundef %49, ptr noundef nonnull @time_bitmap_ctr_fields, i32 noundef -2147483648) #4
   %51 = load i32, ptr @hf_nan_time_bitmap_len, align 4
-  %52 = add i32 %.0151191, 6
+  %52 = add i32 %.0150191, 6
   %53 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %37, i32 noundef %51, ptr noundef %1, i32 noundef %52, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %6) #4
   %54 = load i32, ptr @hf_nan_time_bitmap, align 4
-  %55 = add i32 %.0151191, 7
+  %55 = add i32 %.0150191, 7
   %56 = load i32, ptr %6, align 4
   %57 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %54, ptr noundef %1, i32 noundef %55, i32 noundef %56, i32 noundef 0) #4
   %58 = load i32, ptr %6, align 4
@@ -3028,9 +3028,9 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 
 60:                                               ; preds = %._crit_edge202, %47
   %61 = phi i32 [ %58, %47 ], [ %.pre, %._crit_edge202 ]
-  %.0154.neg = phi i32 [ -5, %47 ], [ -2, %._crit_edge202 ]
+  %.0152.neg = phi i32 [ -5, %47 ], [ -2, %._crit_edge202 ]
   %.1 = phi i32 [ %59, %47 ], [ %44, %._crit_edge202 ]
-  %62 = add nsw i32 %.0154.neg, %34
+  %62 = add nsw i32 %.0152.neg, %34
   %63 = sub i32 %62, %61
   %64 = load i32, ptr @ett_availability_entry_entries, align 4
   %65 = call ptr @proto_tree_add_subtree(ptr noundef %37, ptr noundef %1, i32 noundef %.1, i32 noundef %63, i32 noundef %64, ptr noundef null, ptr noundef nonnull @.str.716) #4
@@ -3050,7 +3050,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 
 .lr.ph189:                                        ; preds = %60, %178
   %.2188 = phi i32 [ %.3, %178 ], [ %75, %60 ]
-  %.0152187 = phi i8 [ %179, %178 ], [ 0, %60 ]
+  %.0153187 = phi i8 [ %179, %178 ], [ 0, %60 ]
   %77 = load i64, ptr %8, align 8
   switch i64 %77, label %178 [
     i64 0, label %78
@@ -3265,7 +3265,7 @@ channel_number_valid.exit.thread:                 ; preds = %141, %channel_numbe
 
 178:                                              ; preds = %.lr.ph189, %78, %176
   %.3 = phi i32 [ %.2188, %.lr.ph189 ], [ %177, %176 ], [ %81, %78 ]
-  %179 = add i8 %.0152187, 1
+  %179 = add i8 %.0153187, 1
   %180 = zext i8 %179 to i64
   %181 = load i64, ptr %10, align 8
   %182 = icmp ugt i64 %181, %180
@@ -3273,7 +3273,7 @@ channel_number_valid.exit.thread:                 ; preds = %141, %channel_numbe
 
 ._crit_edge:                                      ; preds = %178, %60
   %.2.lcssa = phi i32 [ %75, %60 ], [ %.3, %178 ]
-  %183 = add nuw nsw i32 %35, %.0153190
+  %183 = add nuw nsw i32 %35, %.0151190
   %184 = icmp ult i32 %183, %11
   br i1 %184, label %25, label %.loopexit180, !llvm.loop !20
 

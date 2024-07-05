@@ -2952,13 +2952,13 @@ define internal fastcc range(i32 0, 2) i32 @is_dbus_signature_valid(ptr noundef 
 
 .lr.ph:                                           ; preds = %1, %29
   %4 = phi i8 [ %30, %29 ], [ %3, %1 ]
-  %.06 = phi i8 [ %4, %29 ], [ 0, %1 ]
-  %.0185 = phi i64 [ %7, %29 ], [ 0, %1 ]
-  %.0204 = phi ptr [ %5, %29 ], [ %0, %1 ]
-  %5 = getelementptr i8, ptr %.0204, i64 1
+  %.0186 = phi ptr [ %5, %29 ], [ %0, %1 ]
+  %.0195 = phi i8 [ %4, %29 ], [ 0, %1 ]
+  %.0204 = phi i64 [ %7, %29 ], [ 0, %1 ]
+  %5 = getelementptr i8, ptr %.0186, i64 1
   %6 = sext i8 %4 to i32
-  %7 = add nuw nsw i64 %.0185, 1
-  %exitcond = icmp eq i64 %.0185, 254
+  %7 = add nuw nsw i64 %.0204, 1
+  %exitcond = icmp eq i64 %.0204, 254
   br i1 %exitcond, label %is_basic_type.exit.thread, label %8
 
 8:                                                ; preds = %.lr.ph
@@ -2998,7 +2998,7 @@ define internal fastcc range(i32 0, 2) i32 @is_dbus_signature_valid(ptr noundef 
   br i1 %13, label %is_basic_type.exit.thread, label %thread-pre-split.sink.split
 
 14:                                               ; preds = %8
-  %.not25 = icmp eq i8 %.06, 97
+  %.not25 = icmp eq i8 %.0195, 97
   br i1 %.not25, label %15, label %is_basic_type.exit.thread
 
 15:                                               ; preds = %14
@@ -3020,7 +3020,7 @@ define internal fastcc range(i32 0, 2) i32 @is_dbus_signature_valid(ptr noundef 
   ]
 
 is_basic_type.exit:                               ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15
-  %17 = getelementptr i8, ptr %.0204, i64 2
+  %17 = getelementptr i8, ptr %.0186, i64 2
   %18 = tail call fastcc ptr @skip_single_complete_type(ptr noundef %17)
   %.not27 = icmp eq ptr %18, null
   br i1 %.not27, label %is_basic_type.exit.thread, label %19
@@ -3065,8 +3065,8 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   br label %is_basic_type.exit.thread
 
 is_basic_type.exit.thread:                        ; preds = %15, %8, %21, %24, %is_basic_type.exit, %19, %14, %11, %9, %9, %9, %.lr.ph, %._crit_edge
-  %.019 = phi i32 [ %33, %._crit_edge ], [ 0, %.lr.ph ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %11 ], [ 0, %14 ], [ 0, %19 ], [ 0, %is_basic_type.exit ], [ 0, %24 ], [ 0, %21 ], [ 0, %8 ], [ 0, %15 ]
-  ret i32 %.019
+  %.0 = phi i32 [ %33, %._crit_edge ], [ 0, %.lr.ph ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %11 ], [ 0, %14 ], [ 0, %19 ], [ 0, %is_basic_type.exit ], [ 0, %24 ], [ 0, %21 ], [ 0, %8 ], [ 0, %15 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

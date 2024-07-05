@@ -170,8 +170,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %11, %ompi_comm_inva
   br i1 %.not, label %81, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %77
-  %.phi.trans.insert61 = getelementptr inbounds i8, ptr %0, i64 280
-  %.pre62 = load ptr, ptr %.phi.trans.insert61, align 8
+  %.phi.trans.insert68 = getelementptr inbounds i8, ptr %0, i64 280
+  %.pre69 = load ptr, ptr %.phi.trans.insert68, align 8
   br label %.loopexit
 
 81:                                               ; preds = %77
@@ -183,7 +183,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %11, %ompi_comm_inva
   br label %125
 
 .loopexit:                                        ; preds = %76, %42, %..loopexit_crit_edge, %54
-  %87 = phi ptr [ %.pre62, %..loopexit_crit_edge ], [ %38, %54 ], [ %38, %42 ], [ %38, %76 ]
+  %87 = phi ptr [ %.pre69, %..loopexit_crit_edge ], [ %38, %54 ], [ %38, %42 ], [ %38, %76 ]
   %88 = getelementptr inbounds i8, ptr %87, i64 72
   %89 = load ptr, ptr %88, align 8
   %90 = tail call i32 %89(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3
@@ -248,16 +248,16 @@ opal_pointer_array_get_item.exit.i:               ; preds = %112, %106, %.lr.ph.
   br label %ompi_errcode_get_mpi_code.exit
 
 ompi_errcode_get_mpi_code.exit:                   ; preds = %95, %91, %.preheader.i, %117
-  %.010.i = phi i32 [ %90, %91 ], [ %119, %117 ], [ 14, %.preheader.i ], [ 14, %95 ]
+  %.0.i61 = phi i32 [ %90, %91 ], [ %119, %117 ], [ 14, %.preheader.i ], [ 14, %95 ]
   %120 = getelementptr inbounds i8, ptr %0, i64 296
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %0, i64 304
   %123 = load i32, ptr %122, align 8
-  %124 = tail call i32 @ompi_errhandler_invoke(ptr noundef %121, ptr noundef %0, i32 noundef %123, i32 noundef %.010.i, ptr noundef nonnull @FUNC_NAME) #3
+  %124 = tail call i32 @ompi_errhandler_invoke(ptr noundef %121, ptr noundef %0, i32 noundef %123, i32 noundef %.0.i61, ptr noundef nonnull @FUNC_NAME) #3
   br label %125
 
 125:                                              ; preds = %.loopexit, %ompi_errcode_get_mpi_code.exit, %81, %70, %48, %30, %22, %ompi_comm_invalid.exit.thread
-  %.0 = phi i32 [ %19, %ompi_comm_invalid.exit.thread ], [ %27, %22 ], [ %53, %48 ], [ %75, %70 ], [ %.010.i, %ompi_errcode_get_mpi_code.exit ], [ %35, %30 ], [ %86, %81 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ %19, %ompi_comm_invalid.exit.thread ], [ %27, %22 ], [ %53, %48 ], [ %75, %70 ], [ %.0.i61, %ompi_errcode_get_mpi_code.exit ], [ %35, %30 ], [ %86, %81 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 

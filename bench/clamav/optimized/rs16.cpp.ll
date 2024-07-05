@@ -577,8 +577,8 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr nocapture noundef nonnull 
   br label %.preheader81
 
 .preheader81:                                     ; preds = %.preheader81.lr.ph, %21
-  %.07083 = phi i32 [ 0, %.preheader81.lr.ph ], [ %26, %21 ]
-  %.07482 = phi i32 [ 0, %.preheader81.lr.ph ], [ %20, %21 ]
+  %.06883 = phi i32 [ 0, %.preheader81.lr.ph ], [ %26, %21 ]
+  %.06982 = phi i32 [ 0, %.preheader81.lr.ph ], [ %20, %21 ]
   br label %15
 
 .preheader80:                                     ; preds = %21, %1
@@ -592,31 +592,31 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr nocapture noundef nonnull 
   br label %.preheader79
 
 15:                                               ; preds = %15, %.preheader81
-  %.175 = phi i32 [ %20, %15 ], [ %.07482, %.preheader81 ]
-  %16 = zext i32 %.175 to i64
+  %.1 = phi i32 [ %20, %15 ], [ %.06982, %.preheader81 ]
+  %16 = zext i32 %.1 to i64
   %17 = getelementptr inbounds i8, ptr %11, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
-  %20 = add i32 %.175, 1
+  %20 = add i32 %.1, 1
   br i1 %19, label %15, label %21, !llvm.loop !16
 
 21:                                               ; preds = %15
-  %22 = mul i32 %.07083, %5
-  %23 = add i32 %.175, %22
+  %22 = mul i32 %.06883, %5
+  %23 = add i32 %.1, %22
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds i32, ptr %9, i64 %24
   store i32 1, ptr %25, align 4
-  %26 = add nuw i32 %.07083, 1
+  %26 = add nuw i32 %.06883, 1
   %exitcond.not = icmp eq i32 %26, %3
   br i1 %exitcond.not, label %.preheader80, label %.preheader81, !llvm.loop !17
 
 .preheader79:                                     ; preds = %.preheader79.lr.ph, %._crit_edge
   %27 = phi i32 [ %5, %.preheader79.lr.ph ], [ %160, %._crit_edge ]
   %28 = phi i32 [ %3, %.preheader79.lr.ph ], [ %161, %._crit_edge ]
-  %.07294 = phi i32 [ 0, %.preheader79.lr.ph ], [ %163, %._crit_edge ]
-  %.07393 = phi i32 [ 0, %.preheader79.lr.ph ], [ %162, %._crit_edge ]
+  %.07094 = phi i32 [ 0, %.preheader79.lr.ph ], [ %162, %._crit_edge ]
+  %.07393 = phi i32 [ 0, %.preheader79.lr.ph ], [ %163, %._crit_edge ]
   %29 = load ptr, ptr %12, align 8
-  %30 = zext i32 %.07294 to i64
+  %30 = zext i32 %.07393 to i64
   %31 = getelementptr inbounds i8, ptr %29, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = trunc i8 %32 to i1
@@ -632,14 +632,14 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr nocapture noundef nonnull 
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.185.us = phi i32 [ %45, %._crit_edge.us ], [ %.07294, %.preheader.us.preheader ]
+  %.17485.us = phi i32 [ %45, %._crit_edge.us ], [ %.07393, %.preheader.us.preheader ]
   br label %35
 
 35:                                               ; preds = %.preheader.us, %35
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %35 ]
   %36 = trunc nuw i64 %indvars.iv to i32
   %37 = mul i32 %27, %36
-  %38 = add i32 %37, %.185.us
+  %38 = add i32 %37, %.17485.us
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds i32, ptr %34, i64 %39
   %41 = load i32, ptr %40, align 4
@@ -652,7 +652,7 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr nocapture noundef nonnull 
   br i1 %exitcond113.not, label %._crit_edge.us, label %35, !llvm.loop !18
 
 ._crit_edge.us:                                   ; preds = %35
-  %45 = add i32 %.185.us, 1
+  %45 = add i32 %.17485.us, 1
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %29, i64 %46
   %48 = load i8, ptr %47, align 1
@@ -662,8 +662,8 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr nocapture noundef nonnull 
   br i1 %or.cond.us, label %.preheader.us, label %.critedge, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.185 = phi i32 [ %51, %.preheader ], [ %.07294, %.preheader.lr.ph ]
-  %51 = add i32 %.185, 1
+  %.17485 = phi i32 [ %51, %.preheader ], [ %.07393, %.preheader.lr.ph ]
+  %51 = add i32 %.17485, 1
   %52 = zext i32 %51 to i64
   %53 = getelementptr inbounds i8, ptr %29, i64 %52
   %54 = load i8, ptr %53, align 1
@@ -673,14 +673,14 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr nocapture noundef nonnull 
   br i1 %or.cond, label %.preheader, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %._crit_edge.us, %.preheader, %.preheader79
-  %.1.lcssa = phi i32 [ %.07294, %.preheader79 ], [ %51, %.preheader ], [ %45, %._crit_edge.us ]
+  %.174.lcssa = phi i32 [ %.07393, %.preheader79 ], [ %51, %.preheader ], [ %45, %._crit_edge.us ]
   %.lcssa = phi i64 [ %30, %.preheader79 ], [ %52, %.preheader ], [ %46, %._crit_edge.us ]
-  %57 = icmp eq i32 %.1.lcssa, %27
+  %57 = icmp eq i32 %.174.lcssa, %27
   br i1 %57, label %.critedge._crit_edge, label %58
 
 58:                                               ; preds = %.critedge
   %59 = load ptr, ptr %13, align 8
-  %60 = mul i32 %27, %.07393
+  %60 = mul i32 %27, %.07094
   %61 = zext i32 %60 to i64
   %62 = getelementptr inbounds i32, ptr %59, i64 %61
   %63 = getelementptr inbounds i32, ptr %9, i64 %61
@@ -754,13 +754,13 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr nocapture noundef nonnull 
   %108 = phi i32 [ %155, %.loopexit ], [ %105, %.preheader78 ]
   %109 = phi i32 [ %156, %.loopexit ], [ %.pre125, %.preheader78 ]
   %110 = phi i32 [ %157, %.loopexit ], [ %105, %.preheader78 ]
-  %.06891 = phi i32 [ %158, %.loopexit ], [ 0, %.preheader78 ]
-  %.not = icmp eq i32 %.06891, %.07393
+  %.07191 = phi i32 [ %158, %.loopexit ], [ 0, %.preheader78 ]
+  %.not = icmp eq i32 %.07191, %.07094
   br i1 %.not, label %.loopexit, label %111
 
 111:                                              ; preds = %.lr.ph92
   %112 = load ptr, ptr %13, align 8
-  %113 = mul i32 %110, %.06891
+  %113 = mul i32 %110, %.07191
   %114 = zext i32 %113 to i64
   %115 = getelementptr inbounds i32, ptr %112, i64 %114
   %116 = getelementptr inbounds i32, ptr %9, i64 %114
@@ -826,15 +826,15 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr nocapture noundef nonnull 
   %155 = phi i32 [ %152, %.loopexit.loopexit ], [ %108, %111 ], [ %108, %.lr.ph92 ]
   %156 = phi i32 [ %.pre130, %.loopexit.loopexit ], [ %109, %111 ], [ %109, %.lr.ph92 ]
   %157 = phi i32 [ %152, %.loopexit.loopexit ], [ 0, %111 ], [ %110, %.lr.ph92 ]
-  %158 = add nuw i32 %.06891, 1
+  %158 = add nuw i32 %.07191, 1
   %159 = icmp ult i32 %158, %156
   br i1 %159, label %.lr.ph92, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader78
   %160 = phi i32 [ %105, %.preheader78 ], [ %155, %.loopexit ]
   %161 = phi i32 [ 0, %.preheader78 ], [ %156, %.loopexit ]
-  %162 = add i32 %.07393, 1
-  %163 = add i32 %.1.lcssa, 1
+  %162 = add i32 %.07094, 1
+  %163 = add i32 %.174.lcssa, 1
   %164 = icmp ult i32 %163, %160
   br i1 %164, label %.preheader79, label %.critedge._crit_edge, !llvm.loop !23
 

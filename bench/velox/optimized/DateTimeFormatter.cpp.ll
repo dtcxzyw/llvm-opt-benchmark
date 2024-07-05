@@ -886,9 +886,9 @@ sw.bb151:                                         ; preds = %if.else
   %23 = load i64, ptr %minRepresentDigits153, align 8
   %cmp154 = icmp ult i64 %23, 4
   %arrayidx162.arrayidx170 = select i1 %cmp154, ptr %arrayidx162, ptr %arrayidx170
+  %piece152.sroa.0.1 = load i64, ptr %arrayidx162.arrayidx170, align 16
   %piece152.sroa.5.1.in = getelementptr inbounds i8, ptr %arrayidx162.arrayidx170, i64 8
   %piece152.sroa.5.1 = load ptr, ptr %piece152.sroa.5.1.in, align 8
-  %piece152.sroa.0.1 = load i64, ptr %arrayidx162.arrayidx170, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %result.addr.0201, ptr align 1 %piece152.sroa.5.1, i64 %piece152.sroa.0.1, i1 false)
   %add.ptr175 = getelementptr inbounds i8, ptr %result.addr.0201, i64 %piece152.sroa.0.1
   br label %for.inc
@@ -1170,35 +1170,35 @@ if.end8.i73:                                      ; preds = %if.then6.i75, %if.e
   br i1 %cmp19.i.i.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end8.i73, %if.end14.i.i.i
-  %__n.021.i.i.i = phi i32 [ %add17.i.i.i, %if.end14.i.i.i ], [ 1, %if.end8.i73 ]
-  %__value.addr.020.i.i.i = phi i32 [ %1, %if.end14.i.i.i ], [ %__unsigned_val.0.i, %if.end8.i73 ]
-  %cmp3.i.i.i = icmp ult i32 %__value.addr.020.i.i.i, 100
+  %__value.addr.021.i.i.i = phi i32 [ %1, %if.end14.i.i.i ], [ %__unsigned_val.0.i, %if.end8.i73 ]
+  %__n.020.i.i.i = phi i32 [ %add17.i.i.i, %if.end14.i.i.i ], [ 1, %if.end8.i73 ]
+  %cmp3.i.i.i = icmp ult i32 %__value.addr.021.i.i.i, 100
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.end5.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
-  %add.i.i.i = add i32 %__n.021.i.i.i, 1
+  %add.i.i.i = add i32 %__n.020.i.i.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
-  %cmp6.i.i.i = icmp ult i32 %__value.addr.020.i.i.i, 1000
+  %cmp6.i.i.i = icmp ult i32 %__value.addr.021.i.i.i, 1000
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %if.end9.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end5.i.i.i
-  %add8.i.i.i = add i32 %__n.021.i.i.i, 2
+  %add8.i.i.i = add i32 %__n.020.i.i.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.end5.i.i.i
-  %cmp11.i.i.i = icmp ult i32 %__value.addr.020.i.i.i, 10000
+  %cmp11.i.i.i = icmp ult i32 %__value.addr.021.i.i.i, 10000
   br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.end14.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
-  %add13.i.i.i = add i32 %__n.021.i.i.i, 3
+  %add13.i.i.i = add i32 %__n.020.i.i.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end9.i.i.i
-  %1 = udiv i32 %__value.addr.020.i.i.i, 10000
-  %add17.i.i.i = add i32 %__n.021.i.i.i, 4
-  %cmp.i.i.i = icmp ult i32 %__value.addr.020.i.i.i, 100000
+  %1 = udiv i32 %__value.addr.021.i.i.i, 10000
+  %add17.i.i.i = add i32 %__n.020.i.i.i, 4
+  %cmp.i.i.i = icmp ult i32 %__value.addr.021.i.i.i, 100000
   br i1 %cmp.i.i.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %if.end.i.i.i, !llvm.loop !7
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %if.end14.i.i.i, %if.then12.i.i.i, %if.then7.i.i.i, %if.then4.i.i.i, %if.end8.i73
@@ -1318,35 +1318,35 @@ if.end8.i82:                                      ; preds = %if.then6.i152, %if.
   br i1 %cmp19.i.i.i85, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i97, label %if.end.i.i.i86
 
 if.end.i.i.i86:                                   ; preds = %if.end8.i82, %if.end14.i.i.i94
-  %__n.021.i.i.i87 = phi i32 [ %add17.i.i.i95, %if.end14.i.i.i94 ], [ 1, %if.end8.i82 ]
-  %__value.addr.020.i.i.i88 = phi i32 [ %8, %if.end14.i.i.i94 ], [ %__unsigned_val.0.i84, %if.end8.i82 ]
-  %cmp3.i.i.i89 = icmp ult i32 %__value.addr.020.i.i.i88, 100
+  %__value.addr.021.i.i.i87 = phi i32 [ %8, %if.end14.i.i.i94 ], [ %__unsigned_val.0.i84, %if.end8.i82 ]
+  %__n.020.i.i.i88 = phi i32 [ %add17.i.i.i95, %if.end14.i.i.i94 ], [ 1, %if.end8.i82 ]
+  %cmp3.i.i.i89 = icmp ult i32 %__value.addr.021.i.i.i87, 100
   br i1 %cmp3.i.i.i89, label %if.then4.i.i.i150, label %if.end5.i.i.i90
 
 if.then4.i.i.i150:                                ; preds = %if.end.i.i.i86
-  %add.i.i.i151 = add i32 %__n.021.i.i.i87, 1
+  %add.i.i.i151 = add i32 %__n.020.i.i.i88, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i97
 
 if.end5.i.i.i90:                                  ; preds = %if.end.i.i.i86
-  %cmp6.i.i.i91 = icmp ult i32 %__value.addr.020.i.i.i88, 1000
+  %cmp6.i.i.i91 = icmp ult i32 %__value.addr.021.i.i.i87, 1000
   br i1 %cmp6.i.i.i91, label %if.then7.i.i.i148, label %if.end9.i.i.i92
 
 if.then7.i.i.i148:                                ; preds = %if.end5.i.i.i90
-  %add8.i.i.i149 = add i32 %__n.021.i.i.i87, 2
+  %add8.i.i.i149 = add i32 %__n.020.i.i.i88, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i97
 
 if.end9.i.i.i92:                                  ; preds = %if.end5.i.i.i90
-  %cmp11.i.i.i93 = icmp ult i32 %__value.addr.020.i.i.i88, 10000
+  %cmp11.i.i.i93 = icmp ult i32 %__value.addr.021.i.i.i87, 10000
   br i1 %cmp11.i.i.i93, label %if.then12.i.i.i146, label %if.end14.i.i.i94
 
 if.then12.i.i.i146:                               ; preds = %if.end9.i.i.i92
-  %add13.i.i.i147 = add i32 %__n.021.i.i.i87, 3
+  %add13.i.i.i147 = add i32 %__n.020.i.i.i88, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i97
 
 if.end14.i.i.i94:                                 ; preds = %if.end9.i.i.i92
-  %8 = udiv i32 %__value.addr.020.i.i.i88, 10000
-  %add17.i.i.i95 = add i32 %__n.021.i.i.i87, 4
-  %cmp.i.i.i96 = icmp ult i32 %__value.addr.020.i.i.i88, 100000
+  %8 = udiv i32 %__value.addr.021.i.i.i87, 10000
+  %add17.i.i.i95 = add i32 %__n.020.i.i.i88, 4
+  %cmp.i.i.i96 = icmp ult i32 %__value.addr.021.i.i.i87, 100000
   br i1 %cmp.i.i.i96, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i97, label %if.end.i.i.i86, !llvm.loop !7
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i97: ; preds = %if.end14.i.i.i94, %if.then12.i.i.i146, %if.then7.i.i.i148, %if.then4.i.i.i150, %if.end8.i82
@@ -1453,35 +1453,35 @@ if.end8.i163:                                     ; preds = %if.then6.i233, %if.
   br i1 %cmp19.i.i.i166, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i178, label %if.end.i.i.i167
 
 if.end.i.i.i167:                                  ; preds = %if.end8.i163, %if.end14.i.i.i175
-  %__n.021.i.i.i168 = phi i32 [ %add17.i.i.i176, %if.end14.i.i.i175 ], [ 1, %if.end8.i163 ]
-  %__value.addr.020.i.i.i169 = phi i32 [ %14, %if.end14.i.i.i175 ], [ %__unsigned_val.0.i165, %if.end8.i163 ]
-  %cmp3.i.i.i170 = icmp ult i32 %__value.addr.020.i.i.i169, 100
+  %__value.addr.021.i.i.i168 = phi i32 [ %14, %if.end14.i.i.i175 ], [ %__unsigned_val.0.i165, %if.end8.i163 ]
+  %__n.020.i.i.i169 = phi i32 [ %add17.i.i.i176, %if.end14.i.i.i175 ], [ 1, %if.end8.i163 ]
+  %cmp3.i.i.i170 = icmp ult i32 %__value.addr.021.i.i.i168, 100
   br i1 %cmp3.i.i.i170, label %if.then4.i.i.i231, label %if.end5.i.i.i171
 
 if.then4.i.i.i231:                                ; preds = %if.end.i.i.i167
-  %add.i.i.i232 = add i32 %__n.021.i.i.i168, 1
+  %add.i.i.i232 = add i32 %__n.020.i.i.i169, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i178
 
 if.end5.i.i.i171:                                 ; preds = %if.end.i.i.i167
-  %cmp6.i.i.i172 = icmp ult i32 %__value.addr.020.i.i.i169, 1000
+  %cmp6.i.i.i172 = icmp ult i32 %__value.addr.021.i.i.i168, 1000
   br i1 %cmp6.i.i.i172, label %if.then7.i.i.i229, label %if.end9.i.i.i173
 
 if.then7.i.i.i229:                                ; preds = %if.end5.i.i.i171
-  %add8.i.i.i230 = add i32 %__n.021.i.i.i168, 2
+  %add8.i.i.i230 = add i32 %__n.020.i.i.i169, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i178
 
 if.end9.i.i.i173:                                 ; preds = %if.end5.i.i.i171
-  %cmp11.i.i.i174 = icmp ult i32 %__value.addr.020.i.i.i169, 10000
+  %cmp11.i.i.i174 = icmp ult i32 %__value.addr.021.i.i.i168, 10000
   br i1 %cmp11.i.i.i174, label %if.then12.i.i.i227, label %if.end14.i.i.i175
 
 if.then12.i.i.i227:                               ; preds = %if.end9.i.i.i173
-  %add13.i.i.i228 = add i32 %__n.021.i.i.i168, 3
+  %add13.i.i.i228 = add i32 %__n.020.i.i.i169, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i178
 
 if.end14.i.i.i175:                                ; preds = %if.end9.i.i.i173
-  %14 = udiv i32 %__value.addr.020.i.i.i169, 10000
-  %add17.i.i.i176 = add i32 %__n.021.i.i.i168, 4
-  %cmp.i.i.i177 = icmp ult i32 %__value.addr.020.i.i.i169, 100000
+  %14 = udiv i32 %__value.addr.021.i.i.i168, 10000
+  %add17.i.i.i176 = add i32 %__n.020.i.i.i169, 4
+  %cmp.i.i.i177 = icmp ult i32 %__value.addr.021.i.i.i168, 100000
   br i1 %cmp.i.i.i177, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i178, label %if.end.i.i.i167, !llvm.loop !7
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i178: ; preds = %if.end14.i.i.i175, %if.then12.i.i.i227, %if.then7.i.i.i229, %if.then4.i.i.i231, %if.end8.i163
@@ -1631,35 +1631,35 @@ if.end5.i:                                        ; preds = %if.end.i58
   br i1 %cmp.i142, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end5.i, %if.end14.i.i.i
-  %__n.021.i.i.i = phi i32 [ %add17.i.i.i, %if.end14.i.i.i ], [ 1, %if.end5.i ]
-  %__value.addr.020.i.i.i = phi i32 [ %1, %if.end14.i.i.i ], [ %0, %if.end5.i ]
-  %cmp3.i.i.i = icmp ult i32 %__value.addr.020.i.i.i, 100
+  %__value.addr.021.i.i.i = phi i32 [ %1, %if.end14.i.i.i ], [ %0, %if.end5.i ]
+  %__n.020.i.i.i = phi i32 [ %add17.i.i.i, %if.end14.i.i.i ], [ 1, %if.end5.i ]
+  %cmp3.i.i.i = icmp ult i32 %__value.addr.021.i.i.i, 100
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.end5.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
-  %add.i.i.i = add i32 %__n.021.i.i.i, 1
+  %add.i.i.i = add i32 %__n.020.i.i.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
-  %cmp6.i.i.i = icmp ult i32 %__value.addr.020.i.i.i, 1000
+  %cmp6.i.i.i = icmp ult i32 %__value.addr.021.i.i.i, 1000
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %if.end9.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end5.i.i.i
-  %add8.i.i.i = add i32 %__n.021.i.i.i, 2
+  %add8.i.i.i = add i32 %__n.020.i.i.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.end5.i.i.i
-  %cmp11.i.i.i = icmp ult i32 %__value.addr.020.i.i.i, 10000
+  %cmp11.i.i.i = icmp ult i32 %__value.addr.021.i.i.i, 10000
   br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.end14.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
-  %add13.i.i.i = add i32 %__n.021.i.i.i, 3
+  %add13.i.i.i = add i32 %__n.020.i.i.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end9.i.i.i
-  %1 = udiv i32 %__value.addr.020.i.i.i, 10000
-  %add17.i.i.i = add i32 %__n.021.i.i.i, 4
-  %cmp.i.i.i = icmp ult i32 %__value.addr.020.i.i.i, 100000
+  %1 = udiv i32 %__value.addr.021.i.i.i, 10000
+  %add17.i.i.i = add i32 %__n.020.i.i.i, 4
+  %cmp.i.i.i = icmp ult i32 %__value.addr.021.i.i.i, 100000
   br i1 %cmp.i.i.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %if.end.i.i.i, !llvm.loop !7
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %if.end14.i.i.i, %if.then12.i.i.i, %if.then7.i.i.i, %if.then4.i.i.i, %if.end5.i
@@ -1750,35 +1750,35 @@ if.end5.i63:                                      ; preds = %if.end.i61
   br i1 %cmp19.i.i.i64, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i76, label %if.end.i.i.i65
 
 if.end.i.i.i65:                                   ; preds = %if.end5.i63, %if.end14.i.i.i73
-  %__n.021.i.i.i66 = phi i32 [ %add17.i.i.i74, %if.end14.i.i.i73 ], [ 1, %if.end5.i63 ]
-  %__value.addr.020.i.i.i67 = phi i32 [ %8, %if.end14.i.i.i73 ], [ %7, %if.end5.i63 ]
-  %cmp3.i.i.i68 = icmp ult i32 %__value.addr.020.i.i.i67, 100
+  %__value.addr.021.i.i.i66 = phi i32 [ %8, %if.end14.i.i.i73 ], [ %7, %if.end5.i63 ]
+  %__n.020.i.i.i67 = phi i32 [ %add17.i.i.i74, %if.end14.i.i.i73 ], [ 1, %if.end5.i63 ]
+  %cmp3.i.i.i68 = icmp ult i32 %__value.addr.021.i.i.i66, 100
   br i1 %cmp3.i.i.i68, label %if.then4.i.i.i130, label %if.end5.i.i.i69
 
 if.then4.i.i.i130:                                ; preds = %if.end.i.i.i65
-  %add.i.i.i131 = add i32 %__n.021.i.i.i66, 1
+  %add.i.i.i131 = add i32 %__n.020.i.i.i67, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i76
 
 if.end5.i.i.i69:                                  ; preds = %if.end.i.i.i65
-  %cmp6.i.i.i70 = icmp ult i32 %__value.addr.020.i.i.i67, 1000
+  %cmp6.i.i.i70 = icmp ult i32 %__value.addr.021.i.i.i66, 1000
   br i1 %cmp6.i.i.i70, label %if.then7.i.i.i128, label %if.end9.i.i.i71
 
 if.then7.i.i.i128:                                ; preds = %if.end5.i.i.i69
-  %add8.i.i.i129 = add i32 %__n.021.i.i.i66, 2
+  %add8.i.i.i129 = add i32 %__n.020.i.i.i67, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i76
 
 if.end9.i.i.i71:                                  ; preds = %if.end5.i.i.i69
-  %cmp11.i.i.i72 = icmp ult i32 %__value.addr.020.i.i.i67, 10000
+  %cmp11.i.i.i72 = icmp ult i32 %__value.addr.021.i.i.i66, 10000
   br i1 %cmp11.i.i.i72, label %if.then12.i.i.i126, label %if.end14.i.i.i73
 
 if.then12.i.i.i126:                               ; preds = %if.end9.i.i.i71
-  %add13.i.i.i127 = add i32 %__n.021.i.i.i66, 3
+  %add13.i.i.i127 = add i32 %__n.020.i.i.i67, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i76
 
 if.end14.i.i.i73:                                 ; preds = %if.end9.i.i.i71
-  %8 = udiv i32 %__value.addr.020.i.i.i67, 10000
-  %add17.i.i.i74 = add i32 %__n.021.i.i.i66, 4
-  %cmp.i.i.i75 = icmp ult i32 %__value.addr.020.i.i.i67, 100000
+  %8 = udiv i32 %__value.addr.021.i.i.i66, 10000
+  %add17.i.i.i74 = add i32 %__n.020.i.i.i67, 4
+  %cmp.i.i.i75 = icmp ult i32 %__value.addr.021.i.i.i66, 100000
   br i1 %cmp.i.i.i75, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i76, label %if.end.i.i.i65, !llvm.loop !7
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i76: ; preds = %if.end14.i.i.i73, %if.then12.i.i.i126, %if.then7.i.i.i128, %if.then4.i.i.i130, %if.end5.i63
@@ -1998,35 +1998,35 @@ if.end8.i73:                                      ; preds = %if.then6.i75, %if.e
   br i1 %cmp19.i.i.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end8.i73, %if.end16.i.i.i
-  %__n.021.i.i.i = phi i32 [ %add17.i.i.i, %if.end16.i.i.i ], [ 1, %if.end8.i73 ]
-  %__value.addr.020.i.i.i = phi i64 [ %div.i.i.i, %if.end16.i.i.i ], [ %__unsigned_val.0.i, %if.end8.i73 ]
-  %cmp5.i.i.i = icmp ult i64 %__value.addr.020.i.i.i, 100
+  %__value.addr.021.i.i.i = phi i64 [ %div.i.i.i, %if.end16.i.i.i ], [ %__unsigned_val.0.i, %if.end8.i73 ]
+  %__n.020.i.i.i = phi i32 [ %add17.i.i.i, %if.end16.i.i.i ], [ 1, %if.end8.i73 ]
+  %cmp5.i.i.i = icmp ult i64 %__value.addr.021.i.i.i, 100
   br i1 %cmp5.i.i.i, label %if.then6.i.i.i, label %if.end7.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
-  %add.i.i.i = add i32 %__n.021.i.i.i, 1
+  %add.i.i.i = add i32 %__n.020.i.i.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.end.i.i.i
-  %cmp9.i.i.i = icmp ult i64 %__value.addr.020.i.i.i, 1000
+  %cmp9.i.i.i = icmp ult i64 %__value.addr.021.i.i.i, 1000
   br i1 %cmp9.i.i.i, label %if.then10.i.i.i, label %if.end12.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.end7.i.i.i
-  %add11.i.i.i = add i32 %__n.021.i.i.i, 2
+  %add11.i.i.i = add i32 %__n.020.i.i.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end7.i.i.i
-  %cmp13.i.i.i = icmp ult i64 %__value.addr.020.i.i.i, 10000
+  %cmp13.i.i.i = icmp ult i64 %__value.addr.021.i.i.i, 10000
   br i1 %cmp13.i.i.i, label %if.then14.i.i.i, label %if.end16.i.i.i
 
 if.then14.i.i.i:                                  ; preds = %if.end12.i.i.i
-  %add15.i.i.i = add i32 %__n.021.i.i.i, 3
+  %add15.i.i.i = add i32 %__n.020.i.i.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i
 
 if.end16.i.i.i:                                   ; preds = %if.end12.i.i.i
-  %div.i.i.i = udiv i64 %__value.addr.020.i.i.i, 10000
-  %add17.i.i.i = add i32 %__n.021.i.i.i, 4
-  %cmp.i.i.i = icmp ult i64 %__value.addr.020.i.i.i, 100000
+  %div.i.i.i = udiv i64 %__value.addr.021.i.i.i, 10000
+  %add17.i.i.i = add i32 %__n.020.i.i.i, 4
+  %cmp.i.i.i = icmp ult i64 %__value.addr.021.i.i.i, 100000
   br i1 %cmp.i.i.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i, label %if.end.i.i.i, !llvm.loop !9
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %if.end16.i.i.i, %if.then14.i.i.i, %if.then10.i.i.i, %if.then6.i.i.i, %if.end8.i73
@@ -2141,35 +2141,35 @@ if.end8.i82:                                      ; preds = %if.then6.i149, %if.
   br i1 %cmp19.i.i.i85, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i98, label %if.end.i.i.i86
 
 if.end.i.i.i86:                                   ; preds = %if.end8.i82, %if.end16.i.i.i94
-  %__n.021.i.i.i87 = phi i32 [ %add17.i.i.i96, %if.end16.i.i.i94 ], [ 1, %if.end8.i82 ]
-  %__value.addr.020.i.i.i88 = phi i64 [ %div.i.i.i95, %if.end16.i.i.i94 ], [ %__unsigned_val.0.i84, %if.end8.i82 ]
-  %cmp5.i.i.i89 = icmp ult i64 %__value.addr.020.i.i.i88, 100
+  %__value.addr.021.i.i.i87 = phi i64 [ %div.i.i.i95, %if.end16.i.i.i94 ], [ %__unsigned_val.0.i84, %if.end8.i82 ]
+  %__n.020.i.i.i88 = phi i32 [ %add17.i.i.i96, %if.end16.i.i.i94 ], [ 1, %if.end8.i82 ]
+  %cmp5.i.i.i89 = icmp ult i64 %__value.addr.021.i.i.i87, 100
   br i1 %cmp5.i.i.i89, label %if.then6.i.i.i147, label %if.end7.i.i.i90
 
 if.then6.i.i.i147:                                ; preds = %if.end.i.i.i86
-  %add.i.i.i148 = add i32 %__n.021.i.i.i87, 1
+  %add.i.i.i148 = add i32 %__n.020.i.i.i88, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i98
 
 if.end7.i.i.i90:                                  ; preds = %if.end.i.i.i86
-  %cmp9.i.i.i91 = icmp ult i64 %__value.addr.020.i.i.i88, 1000
+  %cmp9.i.i.i91 = icmp ult i64 %__value.addr.021.i.i.i87, 1000
   br i1 %cmp9.i.i.i91, label %if.then10.i.i.i145, label %if.end12.i.i.i92
 
 if.then10.i.i.i145:                               ; preds = %if.end7.i.i.i90
-  %add11.i.i.i146 = add i32 %__n.021.i.i.i87, 2
+  %add11.i.i.i146 = add i32 %__n.020.i.i.i88, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i98
 
 if.end12.i.i.i92:                                 ; preds = %if.end7.i.i.i90
-  %cmp13.i.i.i93 = icmp ult i64 %__value.addr.020.i.i.i88, 10000
+  %cmp13.i.i.i93 = icmp ult i64 %__value.addr.021.i.i.i87, 10000
   br i1 %cmp13.i.i.i93, label %if.then14.i.i.i143, label %if.end16.i.i.i94
 
 if.then14.i.i.i143:                               ; preds = %if.end12.i.i.i92
-  %add15.i.i.i144 = add i32 %__n.021.i.i.i87, 3
+  %add15.i.i.i144 = add i32 %__n.020.i.i.i88, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i98
 
 if.end16.i.i.i94:                                 ; preds = %if.end12.i.i.i92
-  %div.i.i.i95 = udiv i64 %__value.addr.020.i.i.i88, 10000
-  %add17.i.i.i96 = add i32 %__n.021.i.i.i87, 4
-  %cmp.i.i.i97 = icmp ult i64 %__value.addr.020.i.i.i88, 100000
+  %div.i.i.i95 = udiv i64 %__value.addr.021.i.i.i87, 10000
+  %add17.i.i.i96 = add i32 %__n.020.i.i.i88, 4
+  %cmp.i.i.i97 = icmp ult i64 %__value.addr.021.i.i.i87, 100000
   br i1 %cmp.i.i.i97, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i98, label %if.end.i.i.i86, !llvm.loop !9
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i98: ; preds = %if.end16.i.i.i94, %if.then14.i.i.i143, %if.then10.i.i.i145, %if.then6.i.i.i147, %if.end8.i82
@@ -2271,35 +2271,35 @@ if.end8.i160:                                     ; preds = %if.then6.i227, %if.
   br i1 %cmp19.i.i.i163, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i176, label %if.end.i.i.i164
 
 if.end.i.i.i164:                                  ; preds = %if.end8.i160, %if.end16.i.i.i172
-  %__n.021.i.i.i165 = phi i32 [ %add17.i.i.i174, %if.end16.i.i.i172 ], [ 1, %if.end8.i160 ]
-  %__value.addr.020.i.i.i166 = phi i64 [ %div.i.i.i173, %if.end16.i.i.i172 ], [ %__unsigned_val.0.i162, %if.end8.i160 ]
-  %cmp5.i.i.i167 = icmp ult i64 %__value.addr.020.i.i.i166, 100
+  %__value.addr.021.i.i.i165 = phi i64 [ %div.i.i.i173, %if.end16.i.i.i172 ], [ %__unsigned_val.0.i162, %if.end8.i160 ]
+  %__n.020.i.i.i166 = phi i32 [ %add17.i.i.i174, %if.end16.i.i.i172 ], [ 1, %if.end8.i160 ]
+  %cmp5.i.i.i167 = icmp ult i64 %__value.addr.021.i.i.i165, 100
   br i1 %cmp5.i.i.i167, label %if.then6.i.i.i225, label %if.end7.i.i.i168
 
 if.then6.i.i.i225:                                ; preds = %if.end.i.i.i164
-  %add.i.i.i226 = add i32 %__n.021.i.i.i165, 1
+  %add.i.i.i226 = add i32 %__n.020.i.i.i166, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i176
 
 if.end7.i.i.i168:                                 ; preds = %if.end.i.i.i164
-  %cmp9.i.i.i169 = icmp ult i64 %__value.addr.020.i.i.i166, 1000
+  %cmp9.i.i.i169 = icmp ult i64 %__value.addr.021.i.i.i165, 1000
   br i1 %cmp9.i.i.i169, label %if.then10.i.i.i223, label %if.end12.i.i.i170
 
 if.then10.i.i.i223:                               ; preds = %if.end7.i.i.i168
-  %add11.i.i.i224 = add i32 %__n.021.i.i.i165, 2
+  %add11.i.i.i224 = add i32 %__n.020.i.i.i166, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i176
 
 if.end12.i.i.i170:                                ; preds = %if.end7.i.i.i168
-  %cmp13.i.i.i171 = icmp ult i64 %__value.addr.020.i.i.i166, 10000
+  %cmp13.i.i.i171 = icmp ult i64 %__value.addr.021.i.i.i165, 10000
   br i1 %cmp13.i.i.i171, label %if.then14.i.i.i221, label %if.end16.i.i.i172
 
 if.then14.i.i.i221:                               ; preds = %if.end12.i.i.i170
-  %add15.i.i.i222 = add i32 %__n.021.i.i.i165, 3
+  %add15.i.i.i222 = add i32 %__n.020.i.i.i166, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i176
 
 if.end16.i.i.i172:                                ; preds = %if.end12.i.i.i170
-  %div.i.i.i173 = udiv i64 %__value.addr.020.i.i.i166, 10000
-  %add17.i.i.i174 = add i32 %__n.021.i.i.i165, 4
-  %cmp.i.i.i175 = icmp ult i64 %__value.addr.020.i.i.i166, 100000
+  %div.i.i.i173 = udiv i64 %__value.addr.021.i.i.i165, 10000
+  %add17.i.i.i174 = add i32 %__n.020.i.i.i166, 4
+  %cmp.i.i.i175 = icmp ult i64 %__value.addr.021.i.i.i165, 100000
   br i1 %cmp.i.i.i175, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i176, label %if.end.i.i.i164, !llvm.loop !9
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i176: ; preds = %if.end16.i.i.i172, %if.then14.i.i.i221, %if.then10.i.i.i223, %if.then6.i.i.i225, %if.end8.i160

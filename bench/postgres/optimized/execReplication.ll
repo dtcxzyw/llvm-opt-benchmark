@@ -174,7 +174,7 @@ build_replindex_scan_key.exit:                    ; preds = %68, %5
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %build_replindex_scan_key.exit
-  %.0 = phi ptr [ null, %build_replindex_scan_key.exit ], [ %.us-phi48, %.backedge.backedge ]
+  %.031 = phi ptr [ null, %build_replindex_scan_key.exit ], [ %.us-phi48, %.backedge.backedge ]
   call void @index_rescan(ptr noundef %74, ptr noundef nonnull %6, i32 noundef %.041.lcssa.i, ptr noundef null, i32 noundef 0) #5
   br i1 %11, label %.split.us, label %.split
 
@@ -183,7 +183,7 @@ build_replindex_scan_key.exit:                    ; preds = %68, %5
   br i1 %83, label %.split46.us, label %.loopexit
 
 .split:                                           ; preds = %.backedge, %93
-  %.1 = phi ptr [ %.2, %93 ], [ %.0, %.backedge ]
+  %.1 = phi ptr [ %.2, %93 ], [ %.031, %.backedge ]
   %84 = call zeroext i1 @index_getnext_slot(ptr noundef %74, i32 noundef 1, ptr noundef %4) #5
   br i1 %84, label %85, label %.loopexit
 
@@ -205,7 +205,7 @@ build_replindex_scan_key.exit:                    ; preds = %68, %5
   br i1 %94, label %.split46.us, label %.split, !llvm.loop !7
 
 .split46.us:                                      ; preds = %93, %.split.us
-  %.us-phi48 = phi ptr [ %.0, %.split.us ], [ %.2, %93 ]
+  %.us-phi48 = phi ptr [ %.031, %.split.us ], [ %.2, %93 ]
   %95 = load ptr, ptr %76, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 48
   %97 = load ptr, ptr %96, align 8

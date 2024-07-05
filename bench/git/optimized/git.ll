@@ -629,9 +629,9 @@ for.end.i:                                        ; preds = %for.inc.i
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %for.end.i, %land.lhs.true.i, %if.then.i5
-  %argc.addr.0.i = phi i32 [ %28, %land.lhs.true.i ], [ %inc11.i, %for.end.i ], [ %28, %if.then.i5 ]
   %argv.addr.0.i = phi ptr [ %29, %land.lhs.true.i ], [ %.pre.i23, %for.end.i ], [ %29, %if.then.i5 ]
   %cmd.0.i = phi ptr [ %30, %land.lhs.true.i ], [ @.str.12, %for.end.i ], [ %30, %if.then.i5 ]
+  %argc.addr.0.i = phi i32 [ %28, %land.lhs.true.i ], [ %inc11.i, %for.end.i ], [ %28, %if.then.i5 ]
   br label %for.body.i.i9
 
 for.cond.i.i14:                                   ; preds = %for.body.i.i9
@@ -1215,9 +1215,9 @@ for.end:                                          ; preds = %for.inc
   br label %if.end12
 
 if.end12:                                         ; preds = %for.end, %land.lhs.true, %entry
-  %argc.addr.0 = phi i32 [ %argc, %land.lhs.true ], [ %inc11, %for.end ], [ %argc, %entry ]
   %argv.addr.0 = phi ptr [ %argv, %land.lhs.true ], [ %.pre, %for.end ], [ %argv, %entry ]
   %cmd.0 = phi ptr [ %0, %land.lhs.true ], [ @.str.12, %for.end ], [ %0, %entry ]
+  %argc.addr.0 = phi i32 [ %argc, %land.lhs.true ], [ %inc11, %for.end ], [ %argc, %entry ]
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i

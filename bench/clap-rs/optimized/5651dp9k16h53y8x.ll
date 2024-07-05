@@ -3294,8 +3294,8 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h152500a22e08
   br label %32
 
 .loopexit.i.i:                                    ; preds = %92, %90, %88
-  %.015.i.i.i = phi i64 [ 1, %88 ], [ %..i.i.i, %92 ], [ 2, %90 ]
-  %31 = add i64 %.015.i.i.i, %34
+  %.016.i.i.i = phi i64 [ 1, %88 ], [ %..i.i.i, %92 ], [ 2, %90 ]
+  %31 = add i64 %.016.i.i.i, %34
   br label %32
 
 32:                                               ; preds = %.loopexit.i.i, %.lr.ph125.i.i
@@ -7546,8 +7546,8 @@ common.resume:                                    ; preds = %74, %.thread44.i, %
   br label %86
 
 86:                                               ; preds = %.thread.i, %80
-  %.sroa.3.sroa.3.0.i = phi i64 [ 3, %.thread.i ], [ %.sroa.4.sroa.4.0.copyload.i, %80 ]
   %.sroa.3.sroa.0.0.i = phi ptr [ %84, %.thread.i ], [ %.sroa.4.sroa.0.0.copyload.i, %80 ]
+  %.sroa.3.sroa.3.0.i = phi i64 [ 3, %.thread.i ], [ %.sroa.4.sroa.4.0.copyload.i, %80 ]
   %.sroa.05.0.i = phi i64 [ %83, %.thread.i ], [ %.sroa.0.0.copyload19.i, %80 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !1545
   store i64 %.sroa.05.0.i, ptr %12, align 8, !noalias !1545

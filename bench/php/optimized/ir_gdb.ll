@@ -91,19 +91,19 @@ define hidden zeroext i1 @ir_gdb_present() local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %.critedge, %11
-  %.0 = phi ptr [ %12, %11 ], [ %15, %.critedge ]
-  %14 = load i8, ptr %.0, align 1
+  %.013 = phi ptr [ %12, %11 ], [ %15, %.critedge ]
+  %14 = load i8, ptr %.013, align 1
   switch i8 %14, label %16 [
     i8 32, label %.critedge
     i8 9, label %.critedge
   ]
 
 .critedge:                                        ; preds = %13, %13
-  %15 = getelementptr inbounds i8, ptr %.0, i64 1
+  %15 = getelementptr inbounds i8, ptr %.013, i64 1
   br label %13
 
 16:                                               ; preds = %13
-  %17 = call i32 @atoi(ptr nocapture noundef nonnull %.0) #11
+  %17 = call i32 @atoi(ptr nocapture noundef nonnull %.013) #11
   %.not19 = icmp eq i32 %17, 0
   br i1 %.not19, label %24, label %18
 
@@ -119,12 +119,12 @@ define hidden zeroext i1 @ir_gdb_present() local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %22, %8, %18, %16, %5
-  %.013 = phi i1 [ false, %18 ], [ false, %16 ], [ false, %8 ], [ false, %5 ], [ %.not20, %22 ]
+  %.0 = phi i1 [ false, %18 ], [ false, %16 ], [ false, %8 ], [ false, %5 ], [ %.not20, %22 ]
   %25 = call i32 @close(i32 noundef %3) #10
   br label %26
 
 26:                                               ; preds = %24, %0
-  %.1 = phi i1 [ %.013, %24 ], [ false, %0 ]
+  %.1 = phi i1 [ %.0, %24 ], [ false, %0 ]
   ret i1 %.1
 }
 
@@ -277,14 +277,14 @@ ir_gdbjit_strz.exit.i.i:
   br label %64
 
 64:                                               ; preds = %64, %ir_gdbjit_strz.exit.i.i
-  %.08.i.idx.i30.i = phi i64 [ 0, %ir_gdbjit_strz.exit.i.i ], [ %.08.i.add.i33.i, %64 ]
-  %.0.i.i31.i = phi ptr [ %63, %ir_gdbjit_strz.exit.i.i ], [ %66, %64 ]
-  %.08.i.ptr.i32.i = getelementptr inbounds i8, ptr @.str.13, i64 %.08.i.idx.i30.i
-  %65 = load i8, ptr %.08.i.ptr.i32.i, align 1
-  %66 = getelementptr inbounds i8, ptr %.0.i.i31.i, i64 1
-  store i8 %65, ptr %.0.i.i31.i, align 1
-  %.08.i.add.i33.i = add nuw nsw i64 %.08.i.idx.i30.i, 1
-  %exitcond.i34.i = icmp eq i64 %.08.i.idx.i30.i, 8
+  %.08.i.i30.i = phi ptr [ %63, %ir_gdbjit_strz.exit.i.i ], [ %66, %64 ]
+  %.0.i.idx.i31.i = phi i64 [ 0, %ir_gdbjit_strz.exit.i.i ], [ %.0.i.add.i33.i, %64 ]
+  %.0.i.ptr.i32.i = getelementptr inbounds i8, ptr @.str.13, i64 %.0.i.idx.i31.i
+  %65 = load i8, ptr %.0.i.ptr.i32.i, align 1
+  %66 = getelementptr inbounds i8, ptr %.08.i.i30.i, i64 1
+  store i8 %65, ptr %.08.i.i30.i, align 1
+  %.0.i.add.i33.i = add nuw nsw i64 %.0.i.idx.i31.i, 1
+  %exitcond.i34.i = icmp eq i64 %.0.i.idx.i31.i, 8
   br i1 %exitcond.i34.i, label %ir_gdbjit_strz.exit.i35.i, label %64
 
 ir_gdbjit_strz.exit.i35.i:                        ; preds = %64
@@ -300,12 +300,12 @@ ir_gdbjit_strz.exit.i35.i:                        ; preds = %64
   br label %72
 
 72:                                               ; preds = %72, %ir_gdbjit_strz.exit.i35.i
-  %.08.i15.i.i = phi ptr [ %70, %ir_gdbjit_strz.exit.i35.i ], [ %75, %72 ]
-  %.0.i16.i.i = phi ptr [ %66, %ir_gdbjit_strz.exit.i35.i ], [ %74, %72 ]
-  %73 = load i8, ptr %.08.i15.i.i, align 1
-  %74 = getelementptr inbounds i8, ptr %.0.i16.i.i, i64 1
-  store i8 %73, ptr %.0.i16.i.i, align 1
-  %75 = getelementptr inbounds i8, ptr %.08.i15.i.i, i64 1
+  %.08.i15.i.i = phi ptr [ %66, %ir_gdbjit_strz.exit.i35.i ], [ %74, %72 ]
+  %.0.i16.i.i = phi ptr [ %70, %ir_gdbjit_strz.exit.i35.i ], [ %75, %72 ]
+  %73 = load i8, ptr %.0.i16.i.i, align 1
+  %74 = getelementptr inbounds i8, ptr %.08.i15.i.i, i64 1
+  store i8 %73, ptr %.08.i15.i.i, align 1
+  %75 = getelementptr inbounds i8, ptr %.0.i16.i.i, i64 1
   %.not.i17.i.i = icmp eq i8 %73, 0
   br i1 %.not.i17.i.i, label %ir_gdbjit_symtab.exit.i, label %72
 
@@ -336,41 +336,41 @@ ir_gdbjit_symtab.exit.i:                          ; preds = %72
   %92 = sub i64 %88, %51
   %93 = getelementptr inbounds i8, ptr %5, i64 528
   store i64 %92, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %.0.i16.i.i, i64 5
+  %94 = getelementptr inbounds i8, ptr %.08.i15.i.i, i64 5
   store i16 2, ptr %94, align 1
-  %95 = getelementptr inbounds i8, ptr %.0.i16.i.i, i64 7
+  %95 = getelementptr inbounds i8, ptr %.08.i15.i.i, i64 7
   store i32 0, ptr %95, align 1
-  %96 = getelementptr inbounds i8, ptr %.0.i16.i.i, i64 11
-  %97 = getelementptr inbounds i8, ptr %.0.i16.i.i, i64 12
+  %96 = getelementptr inbounds i8, ptr %.08.i15.i.i, i64 11
+  %97 = getelementptr inbounds i8, ptr %.08.i15.i.i, i64 12
   store i8 8, ptr %96, align 1
-  %98 = getelementptr inbounds i8, ptr %.0.i16.i.i, i64 13
+  %98 = getelementptr inbounds i8, ptr %.08.i15.i.i, i64 13
   store i8 1, ptr %97, align 1
   store ptr %98, ptr %5, align 8
   %99 = load ptr, ptr %11, align 8
   br label %100
 
 100:                                              ; preds = %100, %ir_gdbjit_symtab.exit.i
-  %.08.i.i.i = phi ptr [ %99, %ir_gdbjit_symtab.exit.i ], [ %103, %100 ]
-  %.0.i.i36.i = phi ptr [ %98, %ir_gdbjit_symtab.exit.i ], [ %102, %100 ]
-  %101 = load i8, ptr %.08.i.i.i, align 1
-  %102 = getelementptr inbounds i8, ptr %.0.i.i36.i, i64 1
-  store i8 %101, ptr %.0.i.i36.i, align 1
-  %103 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 1
+  %.08.i.i36.i = phi ptr [ %98, %ir_gdbjit_symtab.exit.i ], [ %102, %100 ]
+  %.0.i.i.i = phi ptr [ %99, %ir_gdbjit_symtab.exit.i ], [ %103, %100 ]
+  %101 = load i8, ptr %.0.i.i.i, align 1
+  %102 = getelementptr inbounds i8, ptr %.08.i.i36.i, i64 1
+  store i8 %101, ptr %.08.i.i36.i, align 1
+  %103 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
   %.not.i.i.i = icmp eq i8 %101, 0
   br i1 %.not.i.i.i, label %ir_gdbjit_debuginfo.exit.i, label %100
 
 ir_gdbjit_debuginfo.exit.i:                       ; preds = %100
   %104 = load i64, ptr %7, align 8
   store i64 %104, ptr %102, align 1
-  %105 = getelementptr inbounds i8, ptr %.0.i.i36.i, i64 9
+  %105 = getelementptr inbounds i8, ptr %.08.i.i36.i, i64 9
   %106 = load i64, ptr %7, align 8
   %107 = load i32, ptr %9, align 8
   %108 = zext i32 %107 to i64
   %109 = add i64 %106, %108
   store i64 %109, ptr %105, align 1
-  %110 = getelementptr inbounds i8, ptr %.0.i.i36.i, i64 17
+  %110 = getelementptr inbounds i8, ptr %.08.i.i36.i, i64 17
   store i32 0, ptr %110, align 1
-  %111 = getelementptr inbounds i8, ptr %.0.i.i36.i, i64 21
+  %111 = getelementptr inbounds i8, ptr %.08.i.i36.i, i64 21
   %112 = ptrtoint ptr %111 to i64
   %113 = sub i64 %112, %88
   %114 = trunc i64 %113 to i32
@@ -384,13 +384,13 @@ ir_gdbjit_debuginfo.exit.i:                       ; preds = %100
   %120 = sub i64 %112, %51
   %121 = getelementptr inbounds i8, ptr %5, i64 592
   store i64 %120, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %.0.i.i36.i, i64 29
+  %122 = getelementptr inbounds i8, ptr %.08.i.i36.i, i64 29
   store <8 x i8> <i8 1, i8 17, i8 0, i8 3, i8 8, i8 17, i8 1, i8 18>, ptr %111, align 1
-  %123 = getelementptr inbounds i8, ptr %.0.i.i36.i, i64 33
+  %123 = getelementptr inbounds i8, ptr %.08.i.i36.i, i64 33
   store <4 x i8> <i8 1, i8 16, i8 6, i8 0>, ptr %122, align 1
-  %124 = getelementptr inbounds i8, ptr %.0.i.i36.i, i64 34
+  %124 = getelementptr inbounds i8, ptr %.08.i.i36.i, i64 34
   store i8 0, ptr %123, align 1
-  %125 = getelementptr inbounds i8, ptr %.0.i.i36.i, i64 35
+  %125 = getelementptr inbounds i8, ptr %.08.i.i36.i, i64 35
   store i8 0, ptr %124, align 1
   %126 = ptrtoint ptr %125 to i64
   %127 = getelementptr inbounds i8, ptr %5, i64 600
@@ -399,30 +399,30 @@ ir_gdbjit_debuginfo.exit.i:                       ; preds = %100
   %128 = sub i64 %126, %51
   %129 = getelementptr inbounds i8, ptr %5, i64 656
   store i64 %128, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %.0.i.i36.i, i64 39
+  %130 = getelementptr inbounds i8, ptr %.08.i.i36.i, i64 39
   store i16 2, ptr %130, align 1
-  %131 = getelementptr inbounds i8, ptr %.0.i.i36.i, i64 45
-  %132 = getelementptr inbounds i8, ptr %.0.i.i36.i, i64 53
+  %131 = getelementptr inbounds i8, ptr %.08.i.i36.i, i64 45
+  %132 = getelementptr inbounds i8, ptr %.08.i.i36.i, i64 53
   store <8 x i8> <i8 1, i8 1, i8 0, i8 2, i8 4, i8 0, i8 1, i8 1>, ptr %131, align 1
-  %133 = getelementptr inbounds i8, ptr %.0.i.i36.i, i64 54
+  %133 = getelementptr inbounds i8, ptr %.08.i.i36.i, i64 54
   store i8 0, ptr %132, align 1
   store ptr %133, ptr %5, align 8
   %134 = load ptr, ptr %11, align 8
   br label %135
 
 135:                                              ; preds = %135, %ir_gdbjit_debuginfo.exit.i
-  %.08.i.i38.i = phi ptr [ %134, %ir_gdbjit_debuginfo.exit.i ], [ %138, %135 ]
-  %.0.i.i39.i = phi ptr [ %133, %ir_gdbjit_debuginfo.exit.i ], [ %137, %135 ]
-  %136 = load i8, ptr %.08.i.i38.i, align 1
-  %137 = getelementptr inbounds i8, ptr %.0.i.i39.i, i64 1
-  store i8 %136, ptr %.0.i.i39.i, align 1
-  %138 = getelementptr inbounds i8, ptr %.08.i.i38.i, i64 1
+  %.08.i.i38.i = phi ptr [ %133, %ir_gdbjit_debuginfo.exit.i ], [ %137, %135 ]
+  %.0.i.i39.i = phi ptr [ %134, %ir_gdbjit_debuginfo.exit.i ], [ %138, %135 ]
+  %136 = load i8, ptr %.0.i.i39.i, align 1
+  %137 = getelementptr inbounds i8, ptr %.08.i.i38.i, i64 1
+  store i8 %136, ptr %.08.i.i38.i, align 1
+  %138 = getelementptr inbounds i8, ptr %.0.i.i39.i, i64 1
   %.not.i.i40.i = icmp eq i8 %136, 0
   br i1 %.not.i.i40.i, label %ir_gdbjit_strz.exit.i41.i, label %135
 
 ir_gdbjit_strz.exit.i41.i:                        ; preds = %135
-  %139 = getelementptr inbounds i8, ptr %.0.i.i36.i, i64 41
-  %140 = getelementptr inbounds i8, ptr %.0.i.i39.i, i64 5
+  %139 = getelementptr inbounds i8, ptr %.08.i.i36.i, i64 41
+  %140 = getelementptr inbounds i8, ptr %.08.i.i38.i, i64 5
   %141 = ptrtoint ptr %140 to i64
   %142 = ptrtoint ptr %139 to i64
   %143 = sub i64 %141, %142
@@ -430,21 +430,21 @@ ir_gdbjit_strz.exit.i41.i:                        ; preds = %135
   %145 = add i32 %144, -4
   store i32 0, ptr %137, align 1
   store i32 %145, ptr %139, align 1
-  %146 = getelementptr inbounds i8, ptr %.0.i.i39.i, i64 6
+  %146 = getelementptr inbounds i8, ptr %.08.i.i38.i, i64 6
   store i8 0, ptr %140, align 1
-  %147 = getelementptr inbounds i8, ptr %.0.i.i39.i, i64 7
+  %147 = getelementptr inbounds i8, ptr %.08.i.i38.i, i64 7
   store i8 9, ptr %146, align 1
-  %148 = getelementptr inbounds i8, ptr %.0.i.i39.i, i64 8
+  %148 = getelementptr inbounds i8, ptr %.08.i.i38.i, i64 8
   store i8 2, ptr %147, align 1
   %149 = load i64, ptr %7, align 8
   store i64 %149, ptr %148, align 1
-  %150 = getelementptr inbounds i8, ptr %.0.i.i39.i, i64 16
+  %150 = getelementptr inbounds i8, ptr %.08.i.i38.i, i64 16
   %151 = load i32, ptr %12, align 4
   %.not.i.i = icmp eq i32 %151, 0
   br i1 %.not.i.i, label %167, label %152
 
 152:                                              ; preds = %ir_gdbjit_strz.exit.i41.i
-  %153 = getelementptr inbounds i8, ptr %.0.i.i39.i, i64 17
+  %153 = getelementptr inbounds i8, ptr %.08.i.i38.i, i64 17
   store i8 3, ptr %150, align 1
   %154 = load i32, ptr %12, align 4
   %155 = add nsw i32 %154, -1
@@ -531,22 +531,22 @@ ir_gdbjit_debugline.exit.i:                       ; preds = %.lr.ph.i74.i.i, %16
   br label %198
 
 198:                                              ; preds = %198, %ir_gdbjit_debugline.exit.i
-  %.08.i.idx.i42.i = phi i64 [ 0, %ir_gdbjit_debugline.exit.i ], [ %.08.i.add.i45.i, %198 ]
-  %.0.i.i43.i = phi ptr [ %197, %ir_gdbjit_debugline.exit.i ], [ %200, %198 ]
-  %.08.i.ptr.i44.i = getelementptr inbounds i8, ptr @.str.14, i64 %.08.i.idx.i42.i
-  %199 = load i8, ptr %.08.i.ptr.i44.i, align 1
-  %200 = getelementptr inbounds i8, ptr %.0.i.i43.i, i64 1
-  store i8 %199, ptr %.0.i.i43.i, align 1
-  %.08.i.add.i45.i = add nuw nsw i64 %.08.i.idx.i42.i, 1
-  %exitcond.i46.i = icmp eq i64 %.08.i.idx.i42.i, 2
+  %.08.i.i42.i = phi ptr [ %197, %ir_gdbjit_debugline.exit.i ], [ %200, %198 ]
+  %.0.i.idx.i43.i = phi i64 [ 0, %ir_gdbjit_debugline.exit.i ], [ %.0.i.add.i45.i, %198 ]
+  %.0.i.ptr.i44.i = getelementptr inbounds i8, ptr @.str.14, i64 %.0.i.idx.i43.i
+  %199 = load i8, ptr %.0.i.ptr.i44.i, align 1
+  %200 = getelementptr inbounds i8, ptr %.08.i.i42.i, i64 1
+  store i8 %199, ptr %.08.i.i42.i, align 1
+  %.0.i.add.i45.i = add nuw nsw i64 %.0.i.idx.i43.i, 1
+  %exitcond.i46.i = icmp eq i64 %.0.i.idx.i43.i, 2
   br i1 %exitcond.i46.i, label %ir_gdbjit_strz.exit.i47.i, label %198
 
 ir_gdbjit_strz.exit.i47.i:                        ; preds = %198
-  %201 = getelementptr inbounds i8, ptr %.0.i.i43.i, i64 9
+  %201 = getelementptr inbounds i8, ptr %.08.i.i42.i, i64 9
   store <8 x i8> <i8 1, i8 120, i8 16, i8 1, i8 35, i8 12, i8 7, i8 8>, ptr %200, align 1
-  %202 = getelementptr inbounds i8, ptr %.0.i.i43.i, i64 10
+  %202 = getelementptr inbounds i8, ptr %.08.i.i42.i, i64 10
   store i8 -112, ptr %201, align 1
-  %203 = getelementptr inbounds i8, ptr %.0.i.i43.i, i64 11
+  %203 = getelementptr inbounds i8, ptr %.08.i.i42.i, i64 11
   store i8 1, ptr %202, align 1
   store ptr %203, ptr %5, align 8
   %204 = ptrtoint ptr %203 to i64

@@ -264,10 +264,10 @@ proto_item_set_hidden.exit:                       ; preds = %54, %57, %60
   br label %81
 
 81:                                               ; preds = %31, %75, %proto_item_set_hidden.exit, %16
-  %.094 = phi i32 [ %26, %16 ], [ %34, %75 ], [ %34, %proto_item_set_hidden.exit ], [ %spec.select, %31 ]
-  %.093 = phi i32 [ %27, %16 ], [ %35, %75 ], [ %35, %proto_item_set_hidden.exit ], [ %32, %31 ]
+  %.094 = phi i32 [ %27, %16 ], [ %35, %75 ], [ %35, %proto_item_set_hidden.exit ], [ %32, %31 ]
+  %.093 = phi i32 [ %26, %16 ], [ %34, %75 ], [ %34, %proto_item_set_hidden.exit ], [ %spec.select, %31 ]
   store i32 34990, ptr %5, align 4
-  %82 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 2, i32 noundef %.094, i32 noundef %.093) #4
+  %82 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 2, i32 noundef %.093, i32 noundef %.094) #4
   %83 = load ptr, ptr @fc_dissector_handle, align 8
   %84 = call i32 @call_dissector_with_data(ptr noundef %83, ptr noundef %82, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #4
   %85 = call i32 @tvb_captured_length(ptr noundef %0) #4

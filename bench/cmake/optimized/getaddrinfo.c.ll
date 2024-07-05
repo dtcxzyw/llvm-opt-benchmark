@@ -112,7 +112,7 @@ define dso_local i32 @uv_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %12, %21
-  %.05772 = phi ptr [ %7, %21 ], [ null, %12 ]
+  %.05672 = phi ptr [ %7, %21 ], [ null, %12 ]
   %24 = phi i64 [ %23, %21 ], [ 0, %12 ]
   br i1 %11, label %28, label %25
 
@@ -156,23 +156,23 @@ define dso_local i32 @uv_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %48
 
 48:                                               ; preds = %47, %35
-  %.0 = phi i64 [ 48, %47 ], [ 0, %35 ]
+  %.057 = phi i64 [ 48, %47 ], [ 0, %35 ]
   br i1 %11, label %52, label %49
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %33, i64 %.0
+  %50 = getelementptr inbounds i8, ptr %33, i64 %.057
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 1 %4, i64 %29, i1 false)
   store ptr %50, ptr %44, align 8
-  %51 = add i64 %.0, %29
+  %51 = add i64 %.057, %29
   br label %52
 
 52:                                               ; preds = %49, %48
-  %.1 = phi i64 [ %51, %49 ], [ %.0, %48 ]
+  %.1 = phi i64 [ %51, %49 ], [ %.057, %48 ]
   br i1 %10, label %55, label %53
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %33, i64 %.1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 16 %.05772, i64 %24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 16 %.05672, i64 %24, i1 false)
   store ptr %54, ptr %45, align 8
   br label %55
 
@@ -233,8 +233,8 @@ uv__getaddrinfo_done.exit:                        ; preds = %73, %75
   br label %79
 
 79:                                               ; preds = %28, %6, %9, %uv__getaddrinfo_done.exit, %56, %19
-  %.056 = phi i32 [ %20, %19 ], [ 0, %56 ], [ %78, %uv__getaddrinfo_done.exit ], [ -22, %9 ], [ -22, %6 ], [ -12, %28 ]
-  ret i32 %.056
+  %.0 = phi i32 [ %20, %19 ], [ 0, %56 ], [ %78, %uv__getaddrinfo_done.exit ], [ -22, %9 ], [ -22, %6 ], [ -12, %28 ]
+  ret i32 %.0
 }
 
 declare i64 @uv__idna_toascii(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3

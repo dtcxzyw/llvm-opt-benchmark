@@ -255,8 +255,8 @@ define range(i32 -2147483648, 1) i32 @mm_map_remove(ptr noundef %0, ptr noundef 
   br label %24
 
 .preheader:                                       ; preds = %13, %18
-  %.024 = phi ptr [ %17, %18 ], [ %10, %13 ]
-  %17 = load ptr, ptr %.024, align 8
+  %.025 = phi ptr [ %17, %18 ], [ %10, %13 ]
+  %17 = load ptr, ptr %.025, align 8
   %.not31 = icmp eq ptr %17, null
   br i1 %.not31, label %22, label %18
 
@@ -265,7 +265,7 @@ define range(i32 -2147483648, 1) i32 @mm_map_remove(ptr noundef %0, ptr noundef 
   br i1 %19, label %20, label %.preheader, !llvm.loop !9
 
 20:                                               ; preds = %18
-  %21 = tail call ptr @sq_remafter(ptr noundef nonnull %.024, ptr noundef nonnull %0) #6
+  %21 = tail call ptr @sq_remafter(ptr noundef nonnull %.025, ptr noundef nonnull %0) #6
   br label %24
 
 22:                                               ; preds = %.preheader
@@ -273,18 +273,18 @@ define range(i32 -2147483648, 1) i32 @mm_map_remove(ptr noundef %0, ptr noundef 
   br label %29
 
 24:                                               ; preds = %15, %20
-  %.0.ph = phi ptr [ %17, %20 ], [ %10, %15 ]
+  %.024.ph = phi ptr [ %17, %20 ], [ %10, %15 ]
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, -1
   store i64 %27, ptr %25, align 8
   %28 = tail call i32 @nxrmutex_unlock(ptr noundef nonnull %6) #6
-  tail call void @free(ptr noundef nonnull %.0.ph)
+  tail call void @free(ptr noundef nonnull %.024.ph)
   br label %29
 
 29:                                               ; preds = %22, %5, %2, %24, %11
-  %.025 = phi i32 [ 0, %24 ], [ -2, %11 ], [ 0, %2 ], [ %7, %5 ], [ -2, %22 ]
-  ret i32 %.025
+  %.0 = phi i32 [ 0, %24 ], [ -2, %11 ], [ 0, %2 ], [ %7, %5 ], [ -2, %22 ]
+  ret i32 %.0
 }
 
 declare ptr @sq_remafter(ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -147,14 +147,14 @@ define internal void @cabd_close(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not7785, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
-  %.06986 = phi ptr [ %13, %.lr.ph ], [ %12, %10 ]
-  %13 = load ptr, ptr %.06986, align 8
+  %.07086 = phi ptr [ %13, %.lr.ph ], [ %12, %10 ]
+  %13 = load ptr, ptr %.07086, align 8
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %.06986, i64 8
+  %15 = getelementptr inbounds i8, ptr %.07086, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void %14(ptr noundef %16) #8
   %17 = load ptr, ptr %7, align 8
-  tail call void %17(ptr noundef nonnull %.06986) #8
+  tail call void %17(ptr noundef nonnull %.07086) #8
   %.not77 = icmp eq ptr %13, null
   br i1 %.not77, label %._crit_edge, label %.lr.ph
 
@@ -165,15 +165,15 @@ define internal void @cabd_close(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not7892, label %.preheader.preheader, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %._crit_edge, %._crit_edge91
-  %.07093 = phi ptr [ %20, %._crit_edge91 ], [ %19, %._crit_edge ]
-  %20 = load ptr, ptr %.07093, align 8
+  %.07293 = phi ptr [ %20, %._crit_edge91 ], [ %19, %._crit_edge ]
+  %20 = load ptr, ptr %.07293, align 8
   %21 = load ptr, ptr %8, align 8
   %.not82 = icmp eq ptr %21, null
   br i1 %.not82, label %54, label %22
 
 22:                                               ; preds = %.lr.ph95
   %23 = load ptr, ptr %21, align 8
-  %24 = icmp eq ptr %23, %.07093
+  %24 = icmp eq ptr %23, %.07293
   br i1 %24, label %25, label %54
 
 25:                                               ; preds = %22
@@ -248,22 +248,22 @@ cabd_free_decomp.exit:                            ; preds = %28, %.thread, %47
   br label %54
 
 54:                                               ; preds = %cabd_free_decomp.exit, %22, %.lr.ph95
-  %55 = getelementptr inbounds i8, ptr %.07093, i64 16
+  %55 = getelementptr inbounds i8, ptr %.07293, i64 16
   %56 = load ptr, ptr %55, align 8
   %.not8487 = icmp eq ptr %56, null
   br i1 %.not8487, label %._crit_edge91, label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %54, %.lr.ph90
-  %.07288 = phi ptr [ %57, %.lr.ph90 ], [ %56, %54 ]
-  %57 = load ptr, ptr %.07288, align 8
+  %.06988 = phi ptr [ %57, %.lr.ph90 ], [ %56, %54 ]
+  %57 = load ptr, ptr %.06988, align 8
   %58 = load ptr, ptr %7, align 8
-  tail call void %58(ptr noundef nonnull %.07288) #8
+  tail call void %58(ptr noundef nonnull %.06988) #8
   %.not84 = icmp eq ptr %57, null
   br i1 %.not84, label %._crit_edge91, label %.lr.ph90
 
 ._crit_edge91:                                    ; preds = %.lr.ph90, %54
   %59 = load ptr, ptr %7, align 8
-  tail call void %59(ptr noundef nonnull %.07093) #8
+  tail call void %59(ptr noundef nonnull %.07293) #8
   %.not78 = icmp eq ptr %20, null
   br i1 %.not78, label %.preheader.preheader, label %.lr.ph95
 
@@ -406,9 +406,9 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
   %.0103176.i = phi i32 [ 0, %.lr.ph179.i ], [ %.1104.lcssa.i, %._crit_edge.i ]
   %.0106175.i = phi i32 [ 0, %.lr.ph179.i ], [ %.1107.lcssa.i, %._crit_edge.i ]
   %.0109174.i = phi i8 [ 0, %.lr.ph179.i ], [ %.1110.lcssa.i, %._crit_edge.i ]
-  %.0118173.i = phi i64 [ 0, %.lr.ph179.i ], [ %136, %._crit_edge.i ]
-  %.0122172.i = phi ptr [ null, %.lr.ph179.i ], [ %.1123.lcssa.i, %._crit_edge.i ]
-  %33 = sub nsw i64 %22, %.0118173.i
+  %.0116173.i = phi ptr [ null, %.lr.ph179.i ], [ %.1117.lcssa.i, %._crit_edge.i ]
+  %.0123172.i = phi i64 [ 0, %.lr.ph179.i ], [ %136, %._crit_edge.i ]
+  %33 = sub nsw i64 %22, %.0123172.i
   %34 = load i32, ptr %9, align 4
   %35 = sext i32 %34 to i64
   %spec.select.i = call i64 @llvm.smin.i64(i64 %33, i64 %35)
@@ -419,7 +419,7 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i, label %39, label %138
 
 39:                                               ; preds = %32
-  %40 = icmp eq i64 %.0118173.i, 0
+  %40 = icmp eq i64 %.0123172.i, 0
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %39
@@ -441,7 +441,7 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
   %.1104162.i = phi i32 [ %.2105.i, %.critedge.i ], [ %.0103176.i, %46 ]
   %.1107161.i = phi i32 [ %.2108.i, %.critedge.i ], [ %.0106175.i, %46 ]
   %.1110160.i = phi i8 [ %.2111.i, %.critedge.i ], [ %.0109174.i, %46 ]
-  %.0112159.i = phi ptr [ %.2114.i, %.critedge.i ], [ %12, %46 ]
+  %.0113159.i = phi ptr [ %.2115.i, %.critedge.i ], [ %12, %46 ]
   switch i8 %.1110160.i, label %133 [
     i8 0, label %.preheader.i
     i8 1, label %54
@@ -458,92 +458,92 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
   ]
 
 .preheader.i:                                     ; preds = %.lr.ph164.i
-  %49 = icmp ult ptr %.0112159.i, %47
+  %49 = icmp ult ptr %.0113159.i, %47
   br i1 %49, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %51
-  %.1113151.i = phi ptr [ %52, %51 ], [ %.0112159.i, %.preheader.i ]
-  %50 = load i8, ptr %.1113151.i, align 1
+  %.1114151.i = phi ptr [ %52, %51 ], [ %.0113159.i, %.preheader.i ]
+  %50 = load i8, ptr %.1114151.i, align 1
   %.not140.i = icmp eq i8 %50, 77
   br i1 %.not140.i, label %.critedge.i, label %51
 
 51:                                               ; preds = %.lr.ph.i
-  %52 = getelementptr inbounds i8, ptr %.1113151.i, i64 1
+  %52 = getelementptr inbounds i8, ptr %.1114151.i, i64 1
   %53 = icmp ult ptr %52, %47
   br i1 %53, label %.lr.ph.i, label %.critedge.i
 
 54:                                               ; preds = %.lr.ph164.i
-  %55 = load i8, ptr %.0112159.i, align 1
+  %55 = load i8, ptr %.0113159.i, align 1
   %56 = icmp eq i8 %55, 83
   %57 = select i1 %56, i8 2, i8 0
   br label %.critedge.i
 
 58:                                               ; preds = %.lr.ph164.i
-  %59 = load i8, ptr %.0112159.i, align 1
+  %59 = load i8, ptr %.0113159.i, align 1
   %60 = icmp eq i8 %59, 67
   %61 = select i1 %60, i8 3, i8 0
   br label %.critedge.i
 
 62:                                               ; preds = %.lr.ph164.i
-  %63 = load i8, ptr %.0112159.i, align 1
+  %63 = load i8, ptr %.0113159.i, align 1
   %64 = icmp eq i8 %63, 70
   %65 = select i1 %64, i8 4, i8 0
   br label %.critedge.i
 
 66:                                               ; preds = %.lr.ph164.i
-  %67 = load i8, ptr %.0112159.i, align 1
+  %67 = load i8, ptr %.0113159.i, align 1
   %68 = zext i8 %67 to i32
   br label %.critedge.i
 
 69:                                               ; preds = %.lr.ph164.i
-  %70 = load i8, ptr %.0112159.i, align 1
+  %70 = load i8, ptr %.0113159.i, align 1
   %71 = zext i8 %70 to i32
   %72 = shl nuw nsw i32 %71, 8
   %73 = or i32 %72, %.1107161.i
   br label %.critedge.i
 
 74:                                               ; preds = %.lr.ph164.i
-  %75 = load i8, ptr %.0112159.i, align 1
+  %75 = load i8, ptr %.0113159.i, align 1
   %76 = zext i8 %75 to i32
   %77 = shl nuw nsw i32 %76, 16
   %78 = or i32 %77, %.1107161.i
   br label %.critedge.i
 
 79:                                               ; preds = %.lr.ph164.i
-  %80 = load i8, ptr %.0112159.i, align 1
+  %80 = load i8, ptr %.0113159.i, align 1
   %81 = zext i8 %80 to i32
   %82 = shl nuw i32 %81, 24
   %83 = or i32 %82, %.1107161.i
   br label %.critedge.i
 
 84:                                               ; preds = %.lr.ph164.i
-  %85 = load i8, ptr %.0112159.i, align 1
+  %85 = load i8, ptr %.0113159.i, align 1
   %86 = zext i8 %85 to i32
   br label %.critedge.i
 
 87:                                               ; preds = %.lr.ph164.i
-  %88 = load i8, ptr %.0112159.i, align 1
+  %88 = load i8, ptr %.0113159.i, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 8
   %91 = or i32 %90, %.1104162.i
   br label %.critedge.i
 
 92:                                               ; preds = %.lr.ph164.i
-  %93 = load i8, ptr %.0112159.i, align 1
+  %93 = load i8, ptr %.0113159.i, align 1
   %94 = zext i8 %93 to i32
   %95 = shl nuw nsw i32 %94, 16
   %96 = or i32 %95, %.1104162.i
   br label %.critedge.i
 
 97:                                               ; preds = %.lr.ph164.i
-  %98 = getelementptr inbounds i8, ptr %.0112159.i, i64 1
-  %99 = load i8, ptr %.0112159.i, align 1
+  %98 = getelementptr inbounds i8, ptr %.0113159.i, i64 1
+  %99 = load i8, ptr %.0113159.i, align 1
   %100 = zext i8 %99 to i32
   %101 = shl nuw i32 %100, 24
   %102 = or i32 %101, %.1104162.i
   %103 = ptrtoint ptr %98 to i64
   %104 = sub i64 %103, %27
-  %105 = add nsw i64 %104, %.0118173.i
+  %105 = add nsw i64 %104, %.0123172.i
   %106 = add nsw i64 %105, -20
   %107 = add nsw i64 %105, -16
   %108 = icmp eq i64 %106, 0
@@ -585,23 +585,23 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
   br label %129
 
 127:                                              ; preds = %122
-  %.not137.i = icmp eq ptr %.0122172.i, null
+  %.not137.i = icmp eq ptr %.0116173.i, null
   br i1 %.not137.i, label %129, label %128
 
 128:                                              ; preds = %127
-  store ptr %121, ptr %.0122172.i, align 8
+  store ptr %121, ptr %.0116173.i, align 8
   br label %129
 
 129:                                              ; preds = %127, %128, %126, %117, %97
   %.147 = phi ptr [ %.046, %128 ], [ %.046, %126 ], [ %.046, %117 ], [ %.046, %97 ], [ %121, %127 ]
-  %.2124.i = phi ptr [ %121, %128 ], [ %.0122172.i, %126 ], [ %.0122172.i, %117 ], [ %.0122172.i, %97 ], [ %121, %127 ]
-  %.2120.i = phi i64 [ %115, %128 ], [ %107, %126 ], [ %107, %117 ], [ %107, %97 ], [ %115, %127 ]
-  %.not138.i = icmp slt i64 %.2120.i, %22
+  %.2125.i = phi i64 [ %115, %128 ], [ %107, %126 ], [ %107, %117 ], [ %107, %97 ], [ %115, %127 ]
+  %.2118.i = phi ptr [ %121, %128 ], [ %.0116173.i, %126 ], [ %.0116173.i, %117 ], [ %.0116173.i, %97 ], [ %121, %127 ]
+  %.not138.i = icmp slt i64 %.2125.i, %22
   br i1 %.not138.i, label %130, label %138
 
 130:                                              ; preds = %129
   %131 = load ptr, ptr %31, align 8
-  %132 = call i32 %131(ptr noundef nonnull %17, i64 noundef %.2120.i, i32 noundef 0) #8
+  %132 = call i32 %131(ptr noundef nonnull %17, i64 noundef %.2125.i, i32 noundef 0) #8
   %.not139.i = icmp eq i32 %132, 0
   br i1 %.not139.i, label %._crit_edge.i, label %138
 
@@ -610,32 +610,32 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %51, %.preheader.i, %133, %92, %87, %84, %79, %74, %69, %66, %62, %58, %54
-  %.0112159.pn.i = phi ptr [ %.0112159.i, %133 ], [ %.0112159.i, %92 ], [ %.0112159.i, %87 ], [ %.0112159.i, %84 ], [ %.0112159.i, %79 ], [ %.0112159.i, %74 ], [ %.0112159.i, %69 ], [ %.0112159.i, %66 ], [ %.0112159.i, %62 ], [ %.0112159.i, %58 ], [ %.0112159.i, %54 ], [ %.0112159.i, %.preheader.i ], [ %.1113151.i, %.lr.ph.i ], [ %52, %51 ]
+  %.0113159.pn.i = phi ptr [ %.0113159.i, %133 ], [ %.0113159.i, %92 ], [ %.0113159.i, %87 ], [ %.0113159.i, %84 ], [ %.0113159.i, %79 ], [ %.0113159.i, %74 ], [ %.0113159.i, %69 ], [ %.0113159.i, %66 ], [ %.0113159.i, %62 ], [ %.0113159.i, %58 ], [ %.0113159.i, %54 ], [ %.0113159.i, %.preheader.i ], [ %.1114151.i, %.lr.ph.i ], [ %52, %51 ]
   %.2111.i = phi i8 [ %134, %133 ], [ 19, %92 ], [ 18, %87 ], [ 17, %84 ], [ 12, %79 ], [ 11, %74 ], [ 10, %69 ], [ 9, %66 ], [ %65, %62 ], [ %61, %58 ], [ %57, %54 ], [ 0, %.preheader.i ], [ 1, %.lr.ph.i ], [ 0, %51 ]
   %.2108.i = phi i32 [ %.1107161.i, %133 ], [ %.1107161.i, %92 ], [ %.1107161.i, %87 ], [ %.1107161.i, %84 ], [ %83, %79 ], [ %78, %74 ], [ %73, %69 ], [ %68, %66 ], [ %.1107161.i, %62 ], [ %.1107161.i, %58 ], [ %.1107161.i, %54 ], [ %.1107161.i, %.preheader.i ], [ %.1107161.i, %51 ], [ %.1107161.i, %.lr.ph.i ]
   %.2105.i = phi i32 [ %.1104162.i, %133 ], [ %96, %92 ], [ %91, %87 ], [ %86, %84 ], [ %.1104162.i, %79 ], [ %.1104162.i, %74 ], [ %.1104162.i, %69 ], [ %.1104162.i, %66 ], [ %.1104162.i, %62 ], [ %.1104162.i, %58 ], [ %.1104162.i, %54 ], [ %.1104162.i, %.preheader.i ], [ %.1104162.i, %51 ], [ %.1104162.i, %.lr.ph.i ]
-  %.2114.i = getelementptr inbounds i8, ptr %.0112159.pn.i, i64 1
-  %135 = icmp ult ptr %.2114.i, %47
+  %.2115.i = getelementptr inbounds i8, ptr %.0113159.pn.i, i64 1
+  %135 = icmp ult ptr %.2115.i, %47
   br i1 %135, label %.lr.ph164.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %130, %46
   %.248 = phi ptr [ %.147, %130 ], [ %.046, %46 ], [ %.046, %.critedge.i ]
   %.2 = phi i64 [ %spec.select, %130 ], [ %.045, %46 ], [ %.045, %.critedge.i ]
-  %.1123.lcssa.i = phi ptr [ %.2124.i, %130 ], [ %.0122172.i, %46 ], [ %.0122172.i, %.critedge.i ]
-  %.1119.lcssa.i = phi i64 [ %.2120.i, %130 ], [ %.0118173.i, %46 ], [ %.0118173.i, %.critedge.i ]
-  %.1116.lcssa.i = phi i64 [ 0, %130 ], [ %spec.select.i, %46 ], [ %spec.select.i, %.critedge.i ]
+  %.1124.lcssa.i = phi i64 [ %.2125.i, %130 ], [ %.0123172.i, %46 ], [ %.0123172.i, %.critedge.i ]
+  %.1121.lcssa.i = phi i64 [ 0, %130 ], [ %spec.select.i, %46 ], [ %spec.select.i, %.critedge.i ]
+  %.1117.lcssa.i = phi ptr [ %.2118.i, %130 ], [ %.0116173.i, %46 ], [ %.0116173.i, %.critedge.i ]
   %.1110.lcssa.i = phi i8 [ 0, %130 ], [ %.0109174.i, %46 ], [ %.2111.i, %.critedge.i ]
   %.1107.lcssa.i = phi i32 [ %.1107161.i, %130 ], [ %.0106175.i, %46 ], [ %.2108.i, %.critedge.i ]
   %.1104.lcssa.i = phi i32 [ %102, %130 ], [ %.0103176.i, %46 ], [ %.2105.i, %.critedge.i ]
-  %136 = add nsw i64 %.1116.lcssa.i, %.1119.lcssa.i
+  %136 = add nsw i64 %.1121.lcssa.i, %.1124.lcssa.i
   %137 = icmp slt i64 %136, %22
   br i1 %137, label %32, label %138
 
 138:                                              ; preds = %._crit_edge.i, %130, %129, %119, %32
   %.349 = phi ptr [ %.248, %._crit_edge.i ], [ %.046, %119 ], [ %.147, %130 ], [ %.147, %129 ], [ %.046, %32 ]
   %.3 = phi i64 [ %.2, %._crit_edge.i ], [ %spec.select, %119 ], [ %spec.select, %130 ], [ %spec.select, %129 ], [ %.045, %32 ]
-  %.0126.i = phi i32 [ 0, %._crit_edge.i ], [ 6, %119 ], [ 5, %130 ], [ 0, %129 ], [ 3, %32 ]
-  store i32 %.0126.i, ptr %20, align 8
+  %.0112.i = phi i32 [ 0, %._crit_edge.i ], [ 6, %119 ], [ 5, %130 ], [ 0, %129 ], [ 3, %32 ]
+  store i32 %.0112.i, ptr %20, align 8
   %.not40 = icmp eq i64 %.3, 0
   %139 = load i64, ptr %3, align 8
   %.not41 = icmp eq i64 %.3, %139
@@ -1439,8 +1439,8 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
   br label %116
 
 116:                                              ; preds = %107, %109, %113
-  %.0174.shrunk = phi i8 [ %99, %109 ], [ %99, %107 ], [ 0, %113 ]
-  %.0174.shrunk.fr = freeze i8 %.0174.shrunk
+  %.0172.shrunk = phi i8 [ %99, %109 ], [ %99, %107 ], [ 0, %113 ]
+  %.0172.shrunk.fr = freeze i8 %.0172.shrunk
   %117 = load i32, ptr %86, align 8
   %118 = and i32 %117, 1
   %.not195 = icmp eq i32 %118, 0
@@ -1485,8 +1485,8 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not200, label %134, label %.loopexit
 
 134:                                              ; preds = %131, %125
-  %.not214 = icmp eq i8 %.0174.shrunk.fr, 0
-  %135 = zext i8 %.0174.shrunk.fr to i64
+  %.not214 = icmp eq i8 %.0172.shrunk.fr, 0
+  %135 = zext i8 %.0172.shrunk.fr to i64
   %136 = getelementptr inbounds i8, ptr %0, i64 56
   %137 = getelementptr inbounds i8, ptr %8, i64 6
   %138 = getelementptr inbounds i8, ptr %8, i64 4
@@ -1494,7 +1494,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
 
 .split.us:                                        ; preds = %134, %144
   %.0170224.us = phi ptr [ %143, %144 ], [ null, %134 ]
-  %.0172223.us = phi i32 [ %158, %144 ], [ 0, %134 ]
+  %.0173223.us = phi i32 [ %158, %144 ], [ 0, %134 ]
   %139 = load ptr, ptr %21, align 8
   %140 = call i32 %139(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 8) #8
   %.not213.us = icmp eq i32 %140, 8
@@ -1530,7 +1530,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, i8 0, i64 16, i1 false)
   %..0170224.us = select i1 %.not217.us, ptr %10, ptr %.0170224.us
   store ptr %143, ptr %..0170224.us, align 8
-  %158 = add nuw nsw i32 %.0172223.us, 1
+  %158 = add nuw nsw i32 %.0173223.us, 1
   %exitcond237.not = icmp eq i32 %158, %46
   br i1 %exitcond237.not, label %.preheader, label %.split.us
 
@@ -1545,7 +1545,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
 
 .split:                                           ; preds = %134, %171
   %.0170224 = phi ptr [ %170, %171 ], [ null, %134 ]
-  %.0172223 = phi i32 [ %185, %171 ], [ 0, %134 ]
+  %.0173223 = phi i32 [ %185, %171 ], [ 0, %134 ]
   %163 = load ptr, ptr %21, align 8
   %164 = call i32 %163(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 8) #8
   %.not213 = icmp eq i32 %164, 8
@@ -1587,13 +1587,13 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, i8 0, i64 16, i1 false)
   %..0170224 = select i1 %.not217, ptr %10, ptr %.0170224
   store ptr %170, ptr %..0170224, align 8
-  %185 = add nuw nsw i32 %.0172223, 1
+  %185 = add nuw nsw i32 %.0173223, 1
   %exitcond.not = icmp eq i32 %185, %46
   br i1 %exitcond.not, label %.preheader, label %.split
 
 186:                                              ; preds = %.preheader, %278
   %.0167228 = phi ptr [ null, %.preheader ], [ %.1168, %278 ]
-  %.1173227 = phi i32 [ 0, %.preheader ], [ %279, %278 ]
+  %.1174227 = phi i32 [ 0, %.preheader ], [ %279, %278 ]
   %187 = load ptr, ptr %21, align 8
   %188 = call i32 %187(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 16) #8
   %.not201 = icmp eq i32 %188, 16
@@ -1776,7 +1776,7 @@ define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef %1, pt
 
 278:                                              ; preds = %.sink.split, %273
   %.1168 = phi ptr [ %.0167228, %273 ], [ %191, %.sink.split ]
-  %279 = add nuw nsw i32 %.1173227, 1
+  %279 = add nuw nsw i32 %.1174227, 1
   %exitcond239.not = icmp eq i32 %279, %umax238
   br i1 %exitcond239.not, label %280, label %186
 
@@ -1900,22 +1900,22 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef %0, ptr nound
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %1, i64 32
-  %.0158 = load ptr, ptr %17, align 8
-  %.not136159 = icmp eq ptr %.0158, null
+  %.0115158 = load ptr, ptr %17, align 8
+  %.not136159 = icmp eq ptr %.0115158, null
   br i1 %.not136159, label %.preheader157.preheader, label %.lr.ph
 
 .preheader157.preheader:                          ; preds = %18, %16
   br label %.preheader157
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %.0160, i64 32
-  %.0 = load ptr, ptr %19, align 8
-  %.not136 = icmp eq ptr %.0, null
+  %19 = getelementptr inbounds i8, ptr %.0115160, i64 32
+  %.0115 = load ptr, ptr %19, align 8
+  %.not136 = icmp eq ptr %.0115, null
   br i1 %.not136, label %.preheader157.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %18
-  %.0160 = phi ptr [ %.0, %18 ], [ %.0158, %16 ]
-  %20 = icmp eq ptr %.0160, %2
+  %.0115160 = phi ptr [ %.0115, %18 ], [ %.0115158, %16 ]
+  %20 = icmp eq ptr %.0115160, %2
   br i1 %20, label %.sink.split, label %18
 
 .preheader157:                                    ; preds = %.preheader157.preheader, %21
@@ -1965,13 +1965,13 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef %0, ptr nound
   br label %45
 
 45:                                               ; preds = %45, %40
-  %.0120 = phi ptr [ %42, %40 ], [ %46, %45 ]
-  %46 = load ptr, ptr %.0120, align 8
+  %.0122 = phi ptr [ %42, %40 ], [ %46, %45 ]
+  %46 = load ptr, ptr %.0122, align 8
   %.not139 = icmp eq ptr %46, null
   br i1 %.not139, label %47, label %45
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %.0120, i64 48
+  %48 = getelementptr inbounds i8, ptr %.0122, i64 48
   %49 = load ptr, ptr %48, align 8
   %.not140 = icmp eq ptr %49, null
   br i1 %.not140, label %50, label %61
@@ -1985,25 +1985,25 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef %0, ptr nound
 53:                                               ; preds = %50
   store ptr %2, ptr %11, align 8
   store ptr %1, ptr %14, align 8
-  store ptr %44, ptr %.0120, align 8
+  store ptr %44, ptr %.0122, align 8
   %54 = getelementptr inbounds i8, ptr %1, i64 80
   %55 = load ptr, ptr %54, align 8
   br label %56
 
 56:                                               ; preds = %56, %53
-  %.0117 = phi ptr [ %55, %53 ], [ %57, %56 ]
-  %57 = load ptr, ptr %.0117, align 8
+  %.0119 = phi ptr [ %55, %53 ], [ %57, %56 ]
+  %57 = load ptr, ptr %.0119, align 8
   %.not142 = icmp eq ptr %57, null
   br i1 %.not142, label %58, label %56
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds i8, ptr %2, i64 80
   %60 = load ptr, ptr %59, align 8
-  store ptr %60, ptr %.0117, align 8
+  store ptr %60, ptr %.0119, align 8
   br label %.loopexit
 
 61:                                               ; preds = %50, %47
-  %62 = tail call fastcc i32 @cabd_can_merge_folders(ptr noundef %6, ptr noundef nonnull %.0120, ptr noundef %44)
+  %62 = tail call fastcc i32 @cabd_can_merge_folders(ptr noundef %6, ptr noundef nonnull %.0122, ptr noundef %44)
   %.not143 = icmp eq i32 %62, 0
   br i1 %.not143, label %.sink.split, label %63
 
@@ -2017,24 +2017,24 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef %0, ptr nound
 67:                                               ; preds = %63
   store ptr %2, ptr %11, align 8
   store ptr %1, ptr %14, align 8
-  %68 = getelementptr inbounds i8, ptr %.0120, i64 16
+  %68 = getelementptr inbounds i8, ptr %.0122, i64 16
   br label %69
 
 69:                                               ; preds = %69, %67
-  %.0122 = phi ptr [ %68, %67 ], [ %70, %69 ]
-  %70 = load ptr, ptr %.0122, align 8
+  %.0118 = phi ptr [ %68, %67 ], [ %70, %69 ]
+  %70 = load ptr, ptr %.0118, align 8
   %.not145 = icmp eq ptr %70, null
   br i1 %.not145, label %71, label %69
 
 71:                                               ; preds = %69
-  store ptr %66, ptr %.0122, align 8
+  store ptr %66, ptr %.0118, align 8
   %72 = getelementptr inbounds i8, ptr %44, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %72, i64 24, i1 false)
   store ptr null, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %44, i64 12
   %74 = load i32, ptr %73, align 4
   %75 = add i32 %74, -1
-  %76 = getelementptr inbounds i8, ptr %.0120, i64 12
+  %76 = getelementptr inbounds i8, ptr %.0122, i64 12
   %77 = load i32, ptr %76, align 4
   %78 = add i32 %75, %77
   store i32 %78, ptr %76, align 4
@@ -2057,14 +2057,14 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef %0, ptr nound
   br label %86
 
 86:                                               ; preds = %.preheader177, %86
-  %.1121 = phi ptr [ %87, %86 ], [ %.0120, %.preheader177 ]
-  %87 = load ptr, ptr %.1121, align 8
+  %.1123 = phi ptr [ %87, %86 ], [ %.0122, %.preheader177 ]
+  %87 = load ptr, ptr %.1123, align 8
   %.not147 = icmp eq ptr %87, null
   br i1 %.not147, label %88, label %86
 
 88:                                               ; preds = %86
   %89 = load ptr, ptr %44, align 8
-  store ptr %89, ptr %.1121, align 8
+  store ptr %89, ptr %.1123, align 8
   %90 = getelementptr inbounds i8, ptr %6, i64 64
   %91 = load ptr, ptr %90, align 8
   tail call void %91(ptr noundef nonnull %44) #8
@@ -2073,42 +2073,42 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef %0, ptr nound
   br label %94
 
 94:                                               ; preds = %94, %88
-  %.1118 = phi ptr [ %93, %88 ], [ %95, %94 ]
-  %95 = load ptr, ptr %.1118, align 8
+  %.1120 = phi ptr [ %93, %88 ], [ %95, %94 ]
+  %95 = load ptr, ptr %.1120, align 8
   %.not148 = icmp eq ptr %95, null
   br i1 %.not148, label %96, label %94
 
 96:                                               ; preds = %94
   %97 = getelementptr inbounds i8, ptr %2, i64 80
   %98 = load ptr, ptr %97, align 8
-  store ptr %98, ptr %.1118, align 8
+  store ptr %98, ptr %.1120, align 8
   %99 = load ptr, ptr %92, align 8
   %.not149161 = icmp eq ptr %99, null
   br i1 %.not149161, label %.loopexit, label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %96, %109
-  %.0115163 = phi ptr [ %.1116, %109 ], [ null, %96 ]
-  %.2119162 = phi ptr [ %100, %109 ], [ %99, %96 ]
-  %100 = load ptr, ptr %.2119162, align 8
-  %101 = getelementptr inbounds i8, ptr %.2119162, i64 40
+  %.0116163 = phi ptr [ %.1117, %109 ], [ null, %96 ]
+  %.2121162 = phi ptr [ %100, %109 ], [ %99, %96 ]
+  %100 = load ptr, ptr %.2121162, align 8
+  %101 = getelementptr inbounds i8, ptr %.2121162, i64 40
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, %44
   br i1 %103, label %104, label %109
 
 104:                                              ; preds = %.lr.ph164
-  %.not152 = icmp eq ptr %.0115163, null
-  %..0115163 = select i1 %.not152, ptr %92, ptr %.0115163
-  store ptr %100, ptr %..0115163, align 8
+  %.not152 = icmp eq ptr %.0116163, null
+  %..0116163 = select i1 %.not152, ptr %92, ptr %.0116163
+  store ptr %100, ptr %..0116163, align 8
   %105 = load ptr, ptr %90, align 8
-  %106 = getelementptr inbounds i8, ptr %.2119162, i64 8
+  %106 = getelementptr inbounds i8, ptr %.2121162, i64 8
   %107 = load ptr, ptr %106, align 8
   tail call void %105(ptr noundef %107) #8
   %108 = load ptr, ptr %90, align 8
-  tail call void %108(ptr noundef nonnull %.2119162) #8
+  tail call void %108(ptr noundef nonnull %.2121162) #8
   br label %109
 
 109:                                              ; preds = %.lr.ph164, %104
-  %.1116 = phi ptr [ %.0115163, %104 ], [ %.2119162, %.lr.ph164 ]
+  %.1117 = phi ptr [ %.0116163, %104 ], [ %.2121162, %.lr.ph164 ]
   %.not149 = icmp eq ptr %100, null
   br i1 %.not149, label %.loopexit, label %.lr.ph164
 
@@ -2163,8 +2163,8 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef %0, ptr nound
   br label %125
 
 125:                                              ; preds = %.sink.split, %3
-  %.0123 = phi i32 [ 1, %3 ], [ %.sink173, %.sink.split ]
-  ret i32 %.0123
+  %.0 = phi i32 [ 1, %3 ], [ %.sink173, %.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2325,8 +2325,8 @@ define internal i32 @cabd_sys_read(ptr nocapture noundef %0, ptr noundef %1, i32
   br label %35
 
 35:                                               ; preds = %.lr.ph, %212
-  %.073 = phi i32 [ %2, %.lr.ph ], [ %.1, %212 ]
-  %.04672 = phi ptr [ %1, %.lr.ph ], [ %.147, %212 ]
+  %.04573 = phi ptr [ %1, %.lr.ph ], [ %.1, %212 ]
+  %.04672 = phi i32 [ %2, %.lr.ph ], [ %.147, %212 ]
   %36 = load ptr, ptr %21, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 176
   %38 = load ptr, ptr %37, align 8
@@ -2340,17 +2340,17 @@ define internal i32 @cabd_sys_read(ptr nocapture noundef %0, ptr noundef %1, i32
   br i1 %.not51, label %54, label %45
 
 45:                                               ; preds = %35
-  %spec.select = call i32 @llvm.smin.i32(i32 %.073, i32 %44)
+  %spec.select = call i32 @llvm.smin.i32(i32 %.04672, i32 %44)
   %46 = load ptr, ptr %22, align 8
   %47 = sext i32 %spec.select to i64
-  call void %46(ptr noundef %40, ptr noundef %.04672, i64 noundef %47) #8
+  call void %46(ptr noundef %40, ptr noundef %.04573, i64 noundef %47) #8
   %48 = load ptr, ptr %21, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 168
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 %47
   store ptr %51, ptr %49, align 8
-  %52 = getelementptr inbounds i8, ptr %.04672, i64 %47
-  %53 = sub nsw i32 %.073, %spec.select
+  %52 = getelementptr inbounds i8, ptr %.04573, i64 %47
+  %53 = sub nsw i32 %.04672, %spec.select
   br label %212
 
 54:                                               ; preds = %35
@@ -2642,19 +2642,19 @@ cabd_sys_read_block.exit.thread:                  ; preds = %174, %167, %147, %1
   br label %212
 
 212:                                              ; preds = %195, %207, %202, %45
-  %.147 = phi ptr [ %52, %45 ], [ %.04672, %207 ], [ %.04672, %202 ], [ %.04672, %195 ]
-  %.1 = phi i32 [ %53, %45 ], [ %.073, %207 ], [ %.073, %202 ], [ %.073, %195 ]
-  %213 = icmp sgt i32 %.1, 0
+  %.147 = phi i32 [ %53, %45 ], [ %.04672, %207 ], [ %.04672, %202 ], [ %.04672, %195 ]
+  %.1 = phi ptr [ %52, %45 ], [ %.04573, %207 ], [ %.04573, %202 ], [ %.04573, %195 ]
+  %213 = icmp sgt i32 %.147, 0
   br i1 %213, label %35, label %.loopexit
 
 .loopexit:                                        ; preds = %212, %19, %64, %62
-  %.068 = phi i32 [ %.073, %64 ], [ %.073, %62 ], [ %2, %19 ], [ %.1, %212 ]
-  %214 = sub nsw i32 %2, %.068
+  %.04668 = phi i32 [ %.04672, %64 ], [ %.04672, %62 ], [ %2, %19 ], [ %.147, %212 ]
+  %214 = sub nsw i32 %2, %.04668
   br label %215
 
 215:                                              ; preds = %cabd_sys_read_block.exit.thread, %.loopexit
-  %.048 = phi i32 [ %214, %.loopexit ], [ -1, %cabd_sys_read_block.exit.thread ]
-  ret i32 %.048
+  %.0 = phi i32 [ %214, %.loopexit ], [ -1, %cabd_sys_read_block.exit.thread ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2811,16 +2811,16 @@ define internal range(i32 0, 5) i32 @noned_decompress(ptr nocapture noundef read
 
 8:                                                ; preds = %24
   %9 = sext i32 %17 to i64
-  %10 = sub nsw i64 %.020, %9
+  %10 = sub nsw i64 %.01720, %9
   %11 = icmp sgt i64 %10, 0
   br i1 %11, label %12, label %._crit_edge
 
 12:                                               ; preds = %.lr.ph, %8
-  %.020 = phi i64 [ %1, %.lr.ph ], [ %10, %8 ]
+  %.01720 = phi i64 [ %1, %.lr.ph ], [ %10, %8 ]
   %13 = load i32, ptr %3, align 8
   %14 = sext i32 %13 to i64
-  %15 = icmp sgt i64 %.020, %14
-  %16 = trunc nuw nsw i64 %.020 to i32
+  %15 = icmp sgt i64 %.01720, %14
+  %16 = trunc nuw nsw i64 %.01720 to i32
   %17 = select i1 %15, i32 %13, i32 %16
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
@@ -2842,8 +2842,8 @@ define internal range(i32 0, 5) i32 @noned_decompress(ptr nocapture noundef read
   br i1 %.not19, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %24, %8, %2
-  %.017 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 4, %24 ], [ 3, %12 ]
-  ret i32 %.017
+  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 4, %24 ], [ 3, %12 ]
+  ret i32 %.0
 }
 
 declare i32 @mszipd_decompress(ptr noundef, i64 noundef) #1

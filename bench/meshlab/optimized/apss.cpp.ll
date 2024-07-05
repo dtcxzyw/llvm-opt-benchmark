@@ -2957,13 +2957,13 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls4APSSI6CMeshOE11mlsGradientERKN3
   br label %79
 
 79:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit
-  %.0191 = phi i32 [ 0, %.lr.ph ], [ %126, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
-  %.086190 = phi double [ 0.000000e+00, %.lr.ph ], [ %101, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
+  %.088189 = phi double [ 0.000000e+00, %.lr.ph ], [ %101, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
+  %.089188 = phi i32 [ 0, %.lr.ph ], [ %126, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
   %80 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %111, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
   %81 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %109, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
   %82 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %125, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
   %83 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %116, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
-  %84 = sext i32 %.0191 to i64
+  %84 = sext i32 %.089188 to i64
   %.not.i.i.i = icmp ugt i64 %70, %84
   br i1 %.not.i.i.i, label %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit, label %85
 
@@ -2972,7 +2972,7 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls4APSSI6CMeshOE11mlsGradientERKN3
   unreachable
 
 _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %79
-  %86 = zext i32 %.0191 to i64
+  %86 = zext i32 %.089188 to i64
   %.not.i.i = icmp ugt i64 %76, %86
   br i1 %.not.i.i, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit, label %87
 
@@ -2995,7 +2995,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit:  ; preds = %_ZNK7GaelMls12Neigh
   %gep = getelementptr inbounds %"class.vcg::Point3", ptr %invariant.gep, i64 %86
   %99 = load float, ptr %gep, align 4
   %100 = fpext float %99 to double
-  %101 = fadd double %.086190, %100
+  %101 = fadd double %.088189, %100
   %102 = load <2 x float>, ptr %95, align 4, !noalias !50
   %103 = fpext <2 x float> %102 to <2 x double>
   %104 = load <2 x float>, ptr %98, align 4, !noalias !53
@@ -3011,21 +3011,21 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit:  ; preds = %_ZNK7GaelMls12Neigh
   %114 = fpext <2 x float> %113 to <2 x double>
   %115 = fmul <2 x double> %107, %114
   %116 = fadd <2 x double> %83, %115
-  %117 = shufflevector <2 x double> %105, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %118 = shufflevector <2 x double> %103, <2 x double> %105, <2 x i32> <i32 1, i32 3>
+  %117 = shufflevector <2 x double> %103, <2 x double> %105, <2 x i32> <i32 1, i32 3>
+  %118 = shufflevector <2 x double> %105, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %119 = fmul <2 x double> %117, %118
-  %120 = shufflevector <2 x double> %105, <2 x double> poison, <2 x i32> zeroinitializer
-  %121 = shufflevector <2 x double> %103, <2 x double> %105, <2 x i32> <i32 0, i32 2>
+  %120 = shufflevector <2 x double> %103, <2 x double> %105, <2 x i32> <i32 0, i32 2>
+  %121 = shufflevector <2 x double> %105, <2 x double> poison, <2 x i32> zeroinitializer
   %122 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %120, <2 x double> %121, <2 x double> %119)
   %123 = shufflevector <2 x double> %114, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %124 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %123, <2 x double> %114, <2 x double> %122)
+  %124 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %114, <2 x double> %123, <2 x double> %122)
   %125 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %107, <2 x double> %124, <2 x double> %82)
-  %126 = add nuw i32 %.0191, 1
+  %126 = add nuw i32 %.089188, 1
   %exitcond.not = icmp eq i32 %126, %12
   br i1 %exitcond.not, label %._crit_edge, label %79, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit, %.preheader
-  %.086.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %101, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
+  %.088.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %101, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
   %127 = phi <2 x double> [ zeroinitializer, %.preheader ], [ %111, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
   %128 = phi <2 x double> [ zeroinitializer, %.preheader ], [ %109, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
   %129 = phi <2 x double> [ zeroinitializer, %.preheader ], [ %125, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
@@ -3047,7 +3047,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit:  ; preds = %_ZNK7GaelMls12Neigh
   %138 = extractelement <2 x double> %129, i64 1
   store double %138, ptr %137, align 8
   %139 = getelementptr inbounds [3 x double], ptr %48, i64 0, i64 %indvars.iv
-  store double %.086.lcssa, ptr %139, align 8
+  store double %.088.lcssa, ptr %139, align 8
   %140 = load double, ptr %17, align 8
   %141 = load double, ptr %14, align 8
   %142 = load double, ptr %25, align 8
@@ -3055,7 +3055,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit:  ; preds = %_ZNK7GaelMls12Neigh
   %144 = extractelement <2 x double> %128, i64 0
   %145 = load double, ptr %31, align 8
   %146 = load double, ptr %29, align 8
-  %147 = fneg double %.086.lcssa
+  %147 = fneg double %.088.lcssa
   %148 = fmul double %140, 2.000000e+00
   %149 = load float, ptr %50, align 8
   %150 = fpext float %149 to double
@@ -3063,7 +3063,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit:  ; preds = %_ZNK7GaelMls12Neigh
   %152 = load double, ptr %52, align 8
   %153 = fmul double %132, %152
   %154 = load double, ptr %54, align 8
-  %155 = fmul double %.086.lcssa, %154
+  %155 = fmul double %.088.lcssa, %154
   %156 = load double, ptr %16, align 8
   %157 = load double, ptr %55, align 8
   %158 = load float, ptr %1, align 4
@@ -3137,7 +3137,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit:  ; preds = %_ZNK7GaelMls12Neigh
   %225 = fsub <2 x double> %127, %223
   %226 = fsub double %134, %224
   %227 = load <2 x double>, ptr %53, align 8
-  %228 = insertelement <2 x double> poison, double %.086.lcssa, i64 0
+  %228 = insertelement <2 x double> poison, double %.088.lcssa, i64 0
   %229 = shufflevector <2 x double> %228, <2 x double> poison, <2 x i32> zeroinitializer
   %230 = fmul <2 x double> %229, %227
   %231 = fsub <2 x double> %225, %230
@@ -3164,7 +3164,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit:  ; preds = %_ZNK7GaelMls12Neigh
   %251 = fadd <2 x double> %250, %shift250
   %252 = extractelement <2 x double> %251, i64 0
   %253 = tail call double @llvm.fmuladd.f64(double %152, double %138, double %252)
-  %254 = tail call double @llvm.fmuladd.f64(double %.086.lcssa, double %157, double %253)
+  %254 = tail call double @llvm.fmuladd.f64(double %.088.lcssa, double %157, double %253)
   %255 = fmul double %254, %34
   %256 = fmul double %235, %161
   %257 = tail call double @llvm.fmuladd.f64(double %237, double %159, double %256)
@@ -3333,12 +3333,12 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls4APSSI6CMeshOE10mlsHessianERKN3v
   br label %127
 
 127:                                              ; preds = %.lr.ph, %174
-  %.0179320 = phi i32 [ 0, %.lr.ph ], [ %196, %174 ]
-  %.0180319 = phi double [ 0.000000e+00, %.lr.ph ], [ %175, %174 ]
+  %.0182318 = phi double [ 0.000000e+00, %.lr.ph ], [ %175, %174 ]
+  %.0184317 = phi i32 [ 0, %.lr.ph ], [ %196, %174 ]
   %128 = phi <4 x double> [ zeroinitializer, %.lr.ph ], [ %183, %174 ]
   %129 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %195, %174 ]
   %130 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %182, %174 ]
-  %131 = sext i32 %.0179320 to i64
+  %131 = sext i32 %.0184317 to i64
   %.not.i.i.i = icmp ugt i64 %109, %131
   br i1 %.not.i.i.i, label %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit, label %132
 
@@ -3370,7 +3370,7 @@ _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %127
   %151 = fpext <4 x float> %150 to <4 x double>
   %152 = extractelement <4 x double> %151, i64 3
   store double %152, ptr %55, align 16, !alias.scope !58
-  %153 = zext i32 %.0179320 to i64
+  %153 = zext i32 %.0184317 to i64
   %.not.i.i = icmp ugt i64 %117, %153
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE2atEm.exit, label %154
 
@@ -3410,12 +3410,12 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %168
   br label %174
 
 174:                                              ; preds = %_ZNSt6vectorIfSaIfEE2atEm.exit186, %_ZNSt6vectorIfSaIfEE2atEm.exit
-  %.0 = phi double [ %173, %_ZNSt6vectorIfSaIfEE2atEm.exit186 ], [ %167, %_ZNSt6vectorIfSaIfEE2atEm.exit ]
-  %175 = fadd double %.0180319, %.0
-  %176 = insertelement <2 x double> poison, double %.0, i64 0
+  %.0183 = phi double [ %173, %_ZNSt6vectorIfSaIfEE2atEm.exit186 ], [ %167, %_ZNSt6vectorIfSaIfEE2atEm.exit ]
+  %175 = fadd double %.0182318, %.0183
+  %176 = insertelement <2 x double> poison, double %.0183, i64 0
   %177 = shufflevector <2 x double> %176, <2 x double> poison, <2 x i32> zeroinitializer
   %178 = fmul <2 x double> %177, %142
-  %179 = insertelement <4 x double> poison, double %.0, i64 0
+  %179 = insertelement <4 x double> poison, double %.0183, i64 0
   %180 = shufflevector <4 x double> %179, <4 x double> poison, <4 x i32> zeroinitializer
   %181 = fmul <4 x double> %180, %151
   %182 = fadd <2 x double> %130, %178
@@ -3428,11 +3428,11 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %168
   %189 = shufflevector <2 x double> %188, <2 x double> %142, <2 x i32> <i32 0, i32 2>
   %190 = shufflevector <2 x double> %142, <2 x double> poison, <2 x i32> zeroinitializer
   %191 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %189, <2 x double> %190, <2 x double> %187)
-  %192 = shufflevector <4 x double> %151, <4 x double> poison, <2 x i32> <i32 3, i32 3>
-  %193 = shufflevector <4 x double> %151, <4 x double> poison, <2 x i32> <i32 0, i32 3>
+  %192 = shufflevector <4 x double> %151, <4 x double> poison, <2 x i32> <i32 0, i32 3>
+  %193 = shufflevector <4 x double> %151, <4 x double> poison, <2 x i32> <i32 3, i32 3>
   %194 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %192, <2 x double> %193, <2 x double> %191)
   %195 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %177, <2 x double> %194, <2 x double> %129)
-  %196 = add nuw i32 %.0179320, 1
+  %196 = add nuw i32 %.0184317, 1
   %exitcond.not = icmp eq i32 %196, %16
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %127, !llvm.loop !64
 
@@ -3444,7 +3444,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %168
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.sroa.7.2.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %197, %._crit_edge.loopexit ]
   %.sroa.0261.2.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %198, %._crit_edge.loopexit ]
-  %.0180.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %175, %._crit_edge.loopexit ]
+  %.0182.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %175, %._crit_edge.loopexit ]
   %199 = phi <4 x double> [ zeroinitializer, %.preheader ], [ %183, %._crit_edge.loopexit ]
   %200 = phi <2 x double> [ zeroinitializer, %.preheader ], [ %195, %._crit_edge.loopexit ]
   %201 = load double, ptr %21, align 8
@@ -3512,7 +3512,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %168
   %263 = fadd double %253, %262
   %264 = fmul double %201, %263
   %265 = call double @llvm.fmuladd.f64(double %204, double %224, double %264)
-  %266 = fneg double %.0180.lcssa
+  %266 = fneg double %.0182.lcssa
   %267 = call double @llvm.fmuladd.f64(double %266, double %228, double %265)
   %268 = fmul double %209, %247
   %269 = call double @llvm.fmuladd.f64(double %245, double %207, double %268)
@@ -3609,11 +3609,11 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %168
   %360 = fmul double %204, %101
   %361 = fsub double %355, %360
   %362 = load double, ptr %70, align 8
-  %363 = fmul double %.0180.lcssa, %362
+  %363 = fmul double %.0182.lcssa, %362
   %364 = load double, ptr %71, align 8
-  %365 = fmul double %.0180.lcssa, %364
+  %365 = fmul double %.0182.lcssa, %364
   %366 = load double, ptr %72, align 8
-  %367 = fmul double %.0180.lcssa, %366
+  %367 = fmul double %.0182.lcssa, %366
   %368 = fsub double %357, %363
   %369 = fsub double %359, %365
   %370 = fsub double %361, %367
@@ -3656,7 +3656,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %168
   %407 = call double @llvm.fmuladd.f64(double %406, double %327, double %405)
   %408 = call double @llvm.fmuladd.f64(double %307, double %331, double %407)
   %409 = load double, ptr %73, align 8
-  %410 = call double @llvm.fmuladd.f64(double %.0180.lcssa, double %409, double %408)
+  %410 = call double @llvm.fmuladd.f64(double %.0182.lcssa, double %409, double %408)
   %411 = getelementptr inbounds [3 x double], ptr %49, i64 0, i64 %indvars.iv
   %412 = load double, ptr %411, align 8
   %413 = call double @llvm.fmuladd.f64(double %225, double %412, double %410)

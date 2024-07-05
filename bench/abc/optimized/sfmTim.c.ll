@@ -1194,7 +1194,7 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
 
 66:                                               ; preds = %.lr.ph48, %106
   %indvars.iv50 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next51, %106 ]
-  %.047 = phi i32 [ -1, %.lr.ph48 ], [ %.1, %106 ]
+  %.03046 = phi i32 [ -1, %.lr.ph48 ], [ %.131, %106 ]
   %.val38 = load ptr, ptr %63, align 8
   %67 = getelementptr inbounds i64, ptr %.val38, i64 %indvars.iv50
   %68 = load i64, ptr %67, align 8
@@ -1262,7 +1262,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %97 = sext i32 %95 to i64
   %98 = getelementptr inbounds i32, ptr %94, i64 %97
   store i32 %70, ptr %98, align 4
-  %99 = icmp eq i32 %.047, -1
+  %99 = icmp eq i32 %.03046, -1
   br i1 %99, label %100, label %106
 
 100:                                              ; preds = %Vec_IntPush.exit
@@ -1275,7 +1275,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %106
 
 106:                                              ; preds = %100, %Vec_IntPush.exit
-  %.1 = phi i32 [ %.047, %Vec_IntPush.exit ], [ %spec.select, %100 ]
+  %.131 = phi i32 [ %.03046, %Vec_IntPush.exit ], [ %spec.select, %100 ]
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %.val37 = load i32, ptr %14, align 4
   %107 = sext i32 %.val37 to i64
@@ -1283,8 +1283,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %108, label %66, label %.critedge2, !llvm.loop !18
 
 .critedge2:                                       ; preds = %106, %.critedge
-  %.0.lcssa = phi i32 [ -1, %.critedge ], [ %.1, %106 ]
-  ret i32 %.0.lcssa
+  %.030.lcssa = phi i32 [ -1, %.critedge ], [ %.131, %106 ]
+  ret i32 %.030.lcssa
 }
 
 declare void @Abc_QuickSort3(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -1807,8 +1807,8 @@ define noundef i32 @Sfm_TimEvalRemapping(ptr nocapture noundef readonly %0, ptr 
   br label %62
 
 62:                                               ; preds = %._crit_edge40, %30
-  %.028 = phi i32 [ %34, %30 ], [ %61, %._crit_edge40 ]
-  ret i32 %.028
+  %.0 = phi i32 [ %34, %30 ], [ %61, %._crit_edge40 ]
+  ret i32 %.0
 }
 
 declare i32 @Mio_GateReadPinNum(ptr noundef) local_unnamed_addr #1

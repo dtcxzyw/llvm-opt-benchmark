@@ -240,10 +240,10 @@ psa_set_key_type.exit:                            ; preds = %15
   br label %mbedtls_pk_error_from_psa.exit
 
 mbedtls_pk_error_from_psa.exit:                   ; preds = %psa_set_key_type.exit, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %36, %39
-  %.0 = phi i32 [ %40, %39 ], [ 0, %36 ], [ -1, %35 ], [ -110, %34 ], [ -15872, %33 ], [ -112, %32 ], [ -16000, %31 ], [ -16256, %30 ], [ -14976, %29 ], [ -14720, %28 ], [ -14464, %27 ], [ -1, %26 ], [ -15616, %psa_set_key_type.exit ]
+  %.024 = phi i32 [ %40, %39 ], [ 0, %36 ], [ -1, %35 ], [ -110, %34 ], [ -15872, %33 ], [ -112, %32 ], [ -16000, %31 ], [ -16256, %30 ], [ -14976, %29 ], [ -14720, %28 ], [ -14464, %27 ], [ -1, %26 ], [ -15616, %psa_set_key_type.exit ]
   %41 = load i32, ptr %9, align 4
   %42 = call i32 @psa_destroy_key(i32 noundef %41) #10
-  %43 = icmp eq i32 %.0, 0
+  %43 = icmp eq i32 %.024, 0
   %44 = icmp ne i32 %42, 0
   %or.cond = select i1 %43, i1 %44, i1 false
   br i1 %or.cond, label %45, label %mbedtls_pk_error_from_psa.exit32
@@ -260,8 +260,8 @@ switch.lookup:                                    ; preds = %45
   br label %mbedtls_pk_error_from_psa.exit32
 
 mbedtls_pk_error_from_psa.exit32:                 ; preds = %45, %switch.lookup, %mbedtls_pk_error_from_psa.exit, %15, %7
-  %.024 = phi i32 [ -14464, %7 ], [ -16000, %15 ], [ %.0, %mbedtls_pk_error_from_psa.exit ], [ %switch.load, %switch.lookup ], [ -1, %45 ]
-  ret i32 %.024
+  %.0 = phi i32 [ -14464, %7 ], [ -16000, %15 ], [ %.024, %mbedtls_pk_error_from_psa.exit ], [ %switch.load, %switch.lookup ], [ -1, %45 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

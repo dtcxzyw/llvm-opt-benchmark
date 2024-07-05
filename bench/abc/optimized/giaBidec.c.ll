@@ -421,7 +421,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
   br label %49
 
 Vec_PtrAllocTruthTables.exit:                     ; preds = %..loopexit27_crit_edge.us.us.i, %Vec_PtrAllocSimInfo.exit.i, %30
-  %.062 = phi ptr [ null, %30 ], [ %43, %Vec_PtrAllocSimInfo.exit.i ], [ %43, %..loopexit27_crit_edge.us.us.i ]
+  %.063 = phi ptr [ null, %30 ], [ %43, %Vec_PtrAllocSimInfo.exit.i ], [ %43, %..loopexit27_crit_edge.us.us.i ]
   %60 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %60, align 4
   %61 = getelementptr inbounds i8, ptr %4, i64 4
@@ -436,8 +436,8 @@ Vec_PtrAllocTruthTables.exit:                     ; preds = %..loopexit27_crit_e
   %65 = getelementptr inbounds i8, ptr %3, i64 8
   %66 = sext i32 %10 to i64
   %67 = sub nsw i64 0, %66
-  %.not71 = icmp eq ptr %.062, null
-  %68 = getelementptr i8, ptr %.062, i64 8
+  %.not71 = icmp eq ptr %.063, null
+  %68 = getelementptr i8, ptr %.063, i64 8
   %69 = icmp sgt i32 %10, 0
   %70 = zext nneg i32 %10 to i64
   %71 = getelementptr inbounds i8, ptr %0, i64 432
@@ -475,8 +475,8 @@ Vec_IntFetch.exit88:                              ; preds = %77, %82
   br i1 %.not71, label %94, label %87
 
 87:                                               ; preds = %Vec_IntFetch.exit88
-  %.062.val = load ptr, ptr %68, align 8
-  %88 = getelementptr inbounds ptr, ptr %.062.val, i64 %indvars.iv
+  %.063.val = load ptr, ptr %68, align 8
+  %88 = getelementptr inbounds ptr, ptr %.063.val, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8
   br i1 %69, label %select.unfold.i, label %Gia_ManTruthCopy.exit
 
@@ -595,11 +595,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %143, label %72, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %72, %Vec_IntPush.exit, %Vec_PtrAllocTruthTables.exit
-  %.not68 = icmp eq ptr %.062, null
+  %.not68 = icmp eq ptr %.063, null
   br i1 %.not68, label %148, label %144
 
 144:                                              ; preds = %.critedge
-  %145 = getelementptr inbounds i8, ptr %.062, i64 8
+  %145 = getelementptr inbounds i8, ptr %.063, i64 8
   %146 = load ptr, ptr %145, align 8
   %.not.i99 = icmp eq ptr %146, null
   br i1 %.not.i99, label %Vec_PtrFree.exit, label %147
@@ -609,7 +609,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %144, %147
-  tail call void @free(ptr noundef nonnull %.062) #15
+  tail call void @free(ptr noundef nonnull %.063) #15
   br label %148
 
 148:                                              ; preds = %Vec_PtrFree.exit, %.critedge
@@ -670,8 +670,8 @@ Gia_ManTruthNot.exit:                             ; preds = %select.unfold.i102,
   br i1 %171, label %161, label %.critedge2, !llvm.loop !16
 
 .critedge2:                                       ; preds = %162, %161, %Gia_ManTruthNot.exit, %select.unfold.preheader.i85, %27, %select.unfold.preheader.i, %24
-  %.063 = phi ptr [ %.0.i, %24 ], [ %.0.i, %select.unfold.preheader.i ], [ %.0.i, %27 ], [ %.0.i, %select.unfold.preheader.i85 ], [ %149, %Gia_ManTruthNot.exit ], [ %149, %161 ], [ %149, %162 ]
-  ret ptr %.063
+  %.0 = phi ptr [ %.0.i, %24 ], [ %.0.i, %select.unfold.preheader.i ], [ %.0.i, %27 ], [ %.0.i, %select.unfold.preheader.i85 ], [ %149, %Gia_ManTruthNot.exit ], [ %149, %161 ], [ %149, %162 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

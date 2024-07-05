@@ -4204,23 +4204,23 @@ yy_syntax_error_arguments.exit:                   ; preds = %.loopexit.i.i
   br label %yy_syntax_error_arguments.exit.thread8
 
 yy_syntax_error_arguments.exit.thread8:           ; preds = %31, %.loopexit.i.i.thread, %1, %yy_syntax_error_arguments.exit, %42, %41, %40, %39
-  %.015.i7 = phi i32 [ 4, %41 ], [ 3, %40 ], [ 2, %39 ], [ 5, %42 ], [ %38, %yy_syntax_error_arguments.exit ], [ 0, %1 ], [ 1, %.loopexit.i.i.thread ], [ 1, %31 ]
+  %.0.i7 = phi i32 [ 4, %41 ], [ 3, %40 ], [ 2, %39 ], [ 5, %42 ], [ %38, %yy_syntax_error_arguments.exit ], [ 0, %1 ], [ 1, %.loopexit.i.i.thread ], [ 1, %31 ]
   %.040 = phi ptr [ @.str.69, %41 ], [ @.str.68, %40 ], [ @.str.67, %39 ], [ @.str.70, %42 ], [ @.str.42, %yy_syntax_error_arguments.exit ], [ @.str.42, %1 ], [ @.str.66, %.loopexit.i.i.thread ], [ @.str.66, %31 ]
   %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.040) #8
-  %44 = shl nsw i32 %.015.i7, 1
+  %44 = shl nsw i32 %.0.i7, 1
   %45 = sext i32 %44 to i64
   %reass.sub = sub i64 %43, %45
   %46 = add i64 %reass.sub, 1
-  %47 = icmp sgt i32 %.015.i7, 0
+  %47 = icmp sgt i32 %.0.i7, 0
   br i1 %47, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %yy_syntax_error_arguments.exit.thread8
-  %wide.trip.count = zext nneg i32 %.015.i7 to i64
+  %wide.trip.count = zext nneg i32 %.0.i7 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %yytnamerr.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %yytnamerr.exit.thread ]
-  %.03919 = phi i64 [ %46, %.lr.ph.preheader ], [ %63, %yytnamerr.exit.thread ]
+  %.04219 = phi i64 [ %46, %.lr.ph.preheader ], [ %63, %yytnamerr.exit.thread ]
   %48 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
@@ -4260,31 +4260,31 @@ yytnamerr.exit:                                   ; preds = %.preheader.split.us
 
 yytnamerr.exit.thread:                            ; preds = %.preheader.split.us.i, %yytnamerr.exit
   %.019.i14 = phi i64 [ %62, %yytnamerr.exit ], [ %.018.us.i, %.preheader.split.us.i ]
-  %63 = add nsw i64 %.019.i14, %.03919
+  %63 = add nsw i64 %.019.i14, %.04219
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %yytnamerr.exit.thread, %yy_syntax_error_arguments.exit.thread8
-  %.039.lcssa = phi i64 [ %46, %yy_syntax_error_arguments.exit.thread8 ], [ %63, %yytnamerr.exit.thread ]
+  %.042.lcssa = phi i64 [ %46, %yy_syntax_error_arguments.exit.thread8 ], [ %63, %yytnamerr.exit.thread ]
   %64 = load i64, ptr %0, align 8
-  %65 = icmp slt i64 %64, %.039.lcssa
+  %65 = icmp slt i64 %64, %.042.lcssa
   br i1 %65, label %66, label %.preheader
 
 66:                                               ; preds = %._crit_edge
-  %67 = shl nsw i64 %.039.lcssa, 1
-  %.not46 = icmp sgt i64 %.039.lcssa, %67
+  %67 = shl nsw i64 %.042.lcssa, 1
+  %.not46 = icmp sgt i64 %.042.lcssa, %67
   %spec.store.select = select i1 %.not46, i64 9223372036854775807, i64 %67
   store i64 %spec.store.select, ptr %0, align 8
   br label %yy_syntax_error_arguments.exit.thread10
 
-.preheader:                                       ; preds = %._crit_edge, %yytnamerr.exit57
-  %.141 = phi ptr [ %98, %yytnamerr.exit57 ], [ %.040, %._crit_edge ]
-  %.036 = phi ptr [ %97, %yytnamerr.exit57 ], [ %.0.val, %._crit_edge ]
-  %.0 = phi i32 [ %.1, %yytnamerr.exit57 ], [ 0, %._crit_edge ]
+.preheader:                                       ; preds = %._crit_edge, %yytnamerr.exit58
+  %.141 = phi ptr [ %98, %yytnamerr.exit58 ], [ %.040, %._crit_edge ]
+  %.036 = phi ptr [ %97, %yytnamerr.exit58 ], [ %.0.val, %._crit_edge ]
+  %.0 = phi i32 [ %.1, %yytnamerr.exit58 ], [ 0, %._crit_edge ]
   %68 = load i8, ptr %.141, align 1
   store i8 %68, ptr %.036, align 1
-  switch i8 %68, label %yytnamerr.exit57 [
+  switch i8 %68, label %yytnamerr.exit58 [
     i8 0, label %yy_syntax_error_arguments.exit.thread10
     i8 37, label %69
   ]
@@ -4293,9 +4293,9 @@ yytnamerr.exit.thread:                            ; preds = %.preheader.split.us
   %70 = getelementptr inbounds i8, ptr %.141, i64 1
   %71 = load i8, ptr %70, align 1
   %72 = icmp eq i8 %71, 115
-  %73 = icmp slt i32 %.0, %.015.i7
+  %73 = icmp slt i32 %.0, %.0.i7
   %or.cond = select i1 %72, i1 %73, i1 false
-  br i1 %or.cond, label %74, label %yytnamerr.exit57
+  br i1 %or.cond, label %74, label %yytnamerr.exit58
 
 74:                                               ; preds = %69
   %75 = add nsw i32 %.0, 1
@@ -4311,8 +4311,8 @@ yytnamerr.exit.thread:                            ; preds = %.preheader.split.us
 
 .preheader.split.i:                               ; preds = %74, %89
   %.018.i = phi i64 [ %91, %89 ], [ 0, %74 ]
-  %.0.i = phi ptr [ %.1.i, %89 ], [ %81, %74 ]
-  %84 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %.0.i51 = phi ptr [ %.1.i, %89 ], [ %81, %74 ]
+  %84 = getelementptr inbounds i8, ptr %.0.i51, i64 1
   %85 = load i8, ptr %84, align 1
   switch i8 %85, label %89 [
     i8 39, label %.loopexit.thread.i
@@ -4322,7 +4322,7 @@ yytnamerr.exit.thread:                            ; preds = %.preheader.split.us
   ]
 
 86:                                               ; preds = %.preheader.split.i
-  %87 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %87 = getelementptr inbounds i8, ptr %.0.i51, i64 2
   %88 = load i8, ptr %87, align 1
   %.not22.i = icmp eq i8 %88, 92
   br i1 %.not22.i, label %89, label %.loopexit.thread.i
@@ -4337,16 +4337,16 @@ yytnamerr.exit.thread:                            ; preds = %.preheader.split.us
 .split.us.thread.i:                               ; preds = %.preheader.split.i
   %92 = getelementptr inbounds i8, ptr %.036, i64 %.018.i
   store i8 0, ptr %92, align 1
-  br label %yytnamerr.exit57
+  br label %yytnamerr.exit58
 
 .loopexit.thread.i:                               ; preds = %86, %.preheader.split.i, %.preheader.split.i, %74
   %93 = tail call ptr @stpcpy(ptr noundef nonnull %.036, ptr noundef nonnull readonly %81) #9
   %94 = ptrtoint ptr %93 to i64
   %95 = ptrtoint ptr %.036 to i64
   %96 = sub i64 %94, %95
-  br label %yytnamerr.exit57
+  br label %yytnamerr.exit58
 
-yytnamerr.exit57:                                 ; preds = %69, %.preheader, %.loopexit.thread.i, %.split.us.thread.i
+yytnamerr.exit58:                                 ; preds = %69, %.preheader, %.loopexit.thread.i, %.split.us.thread.i
   %.sink28 = phi i64 [ %96, %.loopexit.thread.i ], [ %.018.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %69 ]
   %.sink = phi i64 [ 2, %.loopexit.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %69 ]
   %.1 = phi i32 [ %75, %.loopexit.thread.i ], [ %75, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %69 ]
@@ -4355,8 +4355,8 @@ yytnamerr.exit57:                                 ; preds = %69, %.preheader, %.
   br label %.preheader, !llvm.loop !8
 
 yy_syntax_error_arguments.exit.thread10:          ; preds = %yytnamerr.exit, %.preheader, %.loopexit.i.i, %66, %yy_syntax_error_arguments.exit
-  %.042 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %66 ], [ %.2.i.fr.i, %.loopexit.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
-  ret i32 %.042
+  %.038 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %66 ], [ %.2.i.fr.i, %.loopexit.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
+  ret i32 %.038
 }
 
 ; Function Attrs: nounwind uwtable

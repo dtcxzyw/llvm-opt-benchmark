@@ -108,7 +108,7 @@ land.lhs.true:                                    ; preds = %if.end18
   br i1 %cmp27, label %do.body.preheader, label %if.end30
 
 do.body.preheader:                                ; preds = %for.cond, %for.cond.preheader, %entry, %land.lhs.true
-  %mi.1.ph = phi i64 [ %div, %land.lhs.true ], [ 0, %entry ], [ 0, %for.cond.preheader ], [ 0, %for.cond ]
+  %mi.1.ph = phi i64 [ 0, %for.cond.preheader ], [ 0, %entry ], [ %div, %land.lhs.true ], [ 0, %for.cond ]
   br label %do.body
 
 if.end30:                                         ; preds = %land.lhs.true
@@ -116,9 +116,9 @@ if.end30:                                         ; preds = %land.lhs.true
   unreachable
 
 do.body:                                          ; preds = %do.body.preheader, %if.end39
-  %hi.0 = phi i64 [ %hi.1, %if.end39 ], [ %nr, %do.body.preheader ]
-  %lo.0 = phi i64 [ %lo.1, %if.end39 ], [ 0, %do.body.preheader ]
   %mi.1 = phi i64 [ %add47, %if.end39 ], [ %mi.1.ph, %do.body.preheader ]
+  %lo.0 = phi i64 [ %lo.1, %if.end39 ], [ 0, %do.body.preheader ]
+  %hi.0 = phi i64 [ %hi.1, %if.end39 ], [ %nr, %do.body.preheader ]
   %call34 = tail call ptr %fn(i64 noundef %mi.1, ptr noundef %table) #4
   %algo.i = getelementptr inbounds i8, ptr %call34, i64 32
   %12 = load i32, ptr %algo.i, align 4
@@ -163,8 +163,8 @@ if.then37:                                        ; preds = %oidcmp.exit
 if.end39:                                         ; preds = %oidcmp.exit
   %cmp40 = icmp sgt i32 %retval.0.i.i, 0
   %add43 = add i64 %mi.1, 1
-  %hi.1 = select i1 %cmp40, i64 %mi.1, i64 %hi.0
   %lo.1 = select i1 %cmp40, i64 %lo.0, i64 %add43
+  %hi.1 = select i1 %cmp40, i64 %mi.1, i64 %hi.0
   %sub45 = sub i64 %hi.1, %lo.1
   %div4634 = lshr i64 %sub45, 1
   %add47 = add i64 %div4634, %lo.1
@@ -226,11 +226,11 @@ while.body.lr.ph:                                 ; preds = %cond.end
   br i1 %cmp.i.i, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end14.us
-  %lo.025.us = phi i32 [ %lo.1.us, %if.end14.us ], [ %cond, %while.body.lr.ph ]
-  %hi.024.us = phi i32 [ %hi.1.us, %if.end14.us ], [ %2, %while.body.lr.ph ]
-  %sub8.us = sub i32 %hi.024.us, %lo.025.us
+  %hi.025.us = phi i32 [ %hi.1.us, %if.end14.us ], [ %2, %while.body.lr.ph ]
+  %lo.024.us = phi i32 [ %lo.1.us, %if.end14.us ], [ %cond, %while.body.lr.ph ]
+  %sub8.us = sub i32 %hi.025.us, %lo.024.us
   %div16.us = lshr i32 %sub8.us, 1
-  %add.us = add i32 %div16.us, %lo.025.us
+  %add.us = add i32 %div16.us, %lo.024.us
   %conv10.us = zext i32 %add.us to i64
   %mul.us = mul i64 %conv10.us, %stride
   %add.ptr.us = getelementptr inbounds i8, ptr %table, i64 %mul.us
@@ -241,17 +241,17 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
 if.end14.us:                                      ; preds = %while.body.us
   %cmp15.us = icmp sgt i32 %call.i.i.us, 0
   %add18.us = add i32 %add.us, 1
-  %hi.1.us = select i1 %cmp15.us, i32 %add.us, i32 %hi.024.us
-  %lo.1.us = select i1 %cmp15.us, i32 %lo.025.us, i32 %add18.us
+  %lo.1.us = select i1 %cmp15.us, i32 %lo.024.us, i32 %add18.us
+  %hi.1.us = select i1 %cmp15.us, i32 %add.us, i32 %hi.025.us
   %cmp6.us = icmp ult i32 %lo.1.us, %hi.1.us
   br i1 %cmp6.us, label %while.body.us, label %while.end, !llvm.loop !9
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end14
-  %lo.025 = phi i32 [ %lo.1, %if.end14 ], [ %cond, %while.body.lr.ph ]
-  %hi.024 = phi i32 [ %hi.1, %if.end14 ], [ %2, %while.body.lr.ph ]
-  %sub8 = sub i32 %hi.024, %lo.025
+  %hi.025 = phi i32 [ %hi.1, %if.end14 ], [ %2, %while.body.lr.ph ]
+  %lo.024 = phi i32 [ %lo.1, %if.end14 ], [ %cond, %while.body.lr.ph ]
+  %sub8 = sub i32 %hi.025, %lo.024
   %div16 = lshr i32 %sub8, 1
-  %add = add i32 %div16, %lo.025
+  %add = add i32 %div16, %lo.024
   %conv10 = zext i32 %add to i64
   %mul = mul i64 %conv10, %stride
   %add.ptr = getelementptr inbounds i8, ptr %table, i64 %mul
@@ -267,8 +267,8 @@ if.then:                                          ; preds = %while.body, %while.
 if.end14:                                         ; preds = %while.body
   %cmp15 = icmp sgt i32 %call1.i.i, 0
   %add18 = add i32 %add, 1
-  %hi.1 = select i1 %cmp15, i32 %add, i32 %hi.024
-  %lo.1 = select i1 %cmp15, i32 %lo.025, i32 %add18
+  %lo.1 = select i1 %cmp15, i32 %lo.024, i32 %add18
+  %hi.1 = select i1 %cmp15, i32 %add, i32 %hi.025
   %cmp6 = icmp ult i32 %lo.1, %hi.1
   br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !9
 

@@ -646,23 +646,23 @@ define i32 @cli_scanautoit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   br label %.lr.ph309.i
 
 .preheader268.i:                                  ; preds = %30, %.preheader268.i
-  %.0116290.i = phi i32 [ %59, %.preheader268.i ], [ 0, %30 ]
-  %.0117289.i = phi i32 [ %58, %.preheader268.i ], [ 0, %30 ]
-  %.0119288.i = phi ptr [ %55, %.preheader268.i ], [ %31, %30 ]
-  %55 = getelementptr inbounds i8, ptr %.0119288.i, i64 1
-  %56 = load i8, ptr %.0119288.i, align 1
+  %.0113290.i = phi ptr [ %55, %.preheader268.i ], [ %31, %30 ]
+  %.0119289.i = phi i32 [ %59, %.preheader268.i ], [ 0, %30 ]
+  %.0120288.i = phi i32 [ %58, %.preheader268.i ], [ 0, %30 ]
+  %55 = getelementptr inbounds i8, ptr %.0113290.i, i64 1
+  %56 = load i8, ptr %.0113290.i, align 1
   %57 = zext i8 %56 to i32
-  %58 = add i32 %.0117289.i, %57
-  %59 = add nuw nsw i32 %.0116290.i, 1
+  %58 = add i32 %.0120288.i, %57
+  %59 = add nuw nsw i32 %.0119289.i, 1
   %exitcond.not.i = icmp eq i32 %59, 16
   br i1 %exitcond.not.i, label %.preheader265.i, label %.preheader268.i
 
 60:                                               ; preds = %.lr.ph309.i, %.backedge.i
-  %.1120308.i = phi ptr [ %.1120.ph329.i, %.lr.ph309.i ], [ %.1120.be.i, %.backedge.i ]
+  %.1114308.i = phi ptr [ %.1114.ph330.i, %.lr.ph309.i ], [ %.1114.be.i, %.backedge.i ]
   %61 = load ptr, ptr %33, align 8
   %.val.i182.i = load ptr, ptr %35, align 8
   %.val4.i183.i = load i64, ptr %36, align 8
-  %62 = ptrtoint ptr %.1120308.i to i64
+  %62 = ptrtoint ptr %.1114308.i to i64
   %63 = ptrtoint ptr %.val.i182.i to i64
   %64 = add i64 %.val4.i183.i, %63
   %65 = sub i64 %62, %64
@@ -671,7 +671,7 @@ define i32 @cli_scanautoit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   br i1 %.not146.i, label %.loopexit266.i, label %67
 
 67:                                               ; preds = %60
-  %68 = load i32, ptr %.1120308.i, align 1
+  %68 = load i32, ptr %.1114308.i, align 1
   %.not147.i = icmp eq i32 %68, -827298305
   br i1 %.not147.i, label %70, label %69
 
@@ -680,14 +680,14 @@ define i32 @cli_scanautoit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   br label %.loopexit266.i
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %.1120308.i, i64 4
+  %71 = getelementptr inbounds i8, ptr %.1114308.i, i64 4
   %72 = load i32, ptr %71, align 1
   %73 = xor i32 %72, 10684
   %74 = icmp slt i32 %72, 0
   br i1 %74, label %.loopexit266.i, label %75
 
 75:                                               ; preds = %70
-  %76 = getelementptr inbounds i8, ptr %.1120308.i, i64 8
+  %76 = getelementptr inbounds i8, ptr %.1114308.i, i64 8
   %77 = load i8, ptr @cli_debug_flag, align 1
   %78 = icmp ne i8 %77, 0
   %79 = zext nneg i32 %73 to i64
@@ -801,7 +801,7 @@ define i32 @cli_scanautoit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %500, %195, %183, %158, %150, %135
-  %.1120.be.i = phi ptr [ %153, %150 ], [ %146, %158 ], [ %178, %183 ], [ %178, %195 ], [ %178, %500 ], [ %136, %135 ]
+  %.1114.be.i = phi ptr [ %153, %150 ], [ %146, %158 ], [ %178, %183 ], [ %178, %195 ], [ %178, %500 ], [ %136, %135 ]
   %137 = call i32 @cli_checklimits(ptr noundef nonnull @.str.457, ptr noundef %0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #13
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %60, label %.loopexit266.i
@@ -1536,7 +1536,7 @@ getbits.exit235.i:                                ; preds = %._crit_edge.loopexi
   br label %.backedge.i
 
 502:                                              ; preds = %497
-  %503 = add i32 %.0115.ph330.i, 1
+  %503 = add i32 %.0118.ph329.i, 1
   %504 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 1023, ptr noundef nonnull @.str.474, ptr noundef nonnull %18, i32 noundef %503) #13
   store i8 0, ptr %54, align 1
   %505 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %8, i32 noundef 578, i32 noundef 384) #13
@@ -1611,13 +1611,13 @@ getbits.exit235.i:                                ; preds = %._crit_edge.loopexi
   br i1 %537, label %.lr.ph309.i, label %.loopexit266.i
 
 .lr.ph309.i:                                      ; preds = %.outer.i, %.lr.ph309.lr.ph.i
-  %.0115.ph330.i = phi i32 [ 0, %.lr.ph309.lr.ph.i ], [ %503, %.outer.i ]
-  %.1120.ph329.i = phi ptr [ %scevgep.i, %.lr.ph309.lr.ph.i ], [ %178, %.outer.i ]
+  %.1114.ph330.i = phi ptr [ %scevgep.i, %.lr.ph309.lr.ph.i ], [ %178, %.outer.i ]
+  %.0118.ph329.i = phi i32 [ 0, %.lr.ph309.lr.ph.i ], [ %503, %.outer.i ]
   br label %60
 
 .loopexit266.i:                                   ; preds = %.outer.i, %527, %197, %159, %.backedge.i, %119, %109, %99, %91, %81, %70, %60, %526, %515, %507, %171, %133, %69, %.preheader265.i, %30
-  %.0118.i = phi i32 [ 0, %69 ], [ 0, %133 ], [ 9, %507 ], [ 14, %515 ], [ 13, %526 ], [ 0, %171 ], [ 0, %30 ], [ %42, %.preheader265.i ], [ 0, %60 ], [ 0, %70 ], [ 0, %81 ], [ 0, %91 ], [ 0, %99 ], [ 0, %109 ], [ 0, %119 ], [ %137, %.backedge.i ], [ 20, %159 ], [ 20, %197 ], [ %528, %527 ], [ %536, %.outer.i ]
-  %.1114.i = phi i32 [ -1, %69 ], [ -1, %133 ], [ %505, %507 ], [ %505, %515 ], [ %505, %526 ], [ -1, %171 ], [ -1, %30 ], [ -1, %.preheader265.i ], [ -1, %60 ], [ -1, %70 ], [ -1, %81 ], [ -1, %91 ], [ -1, %99 ], [ -1, %109 ], [ -1, %119 ], [ -1, %.backedge.i ], [ -1, %159 ], [ -1, %197 ], [ %505, %527 ], [ -1, %.outer.i ]
+  %.1117.i = phi i32 [ -1, %69 ], [ -1, %133 ], [ %505, %507 ], [ %505, %515 ], [ %505, %526 ], [ -1, %171 ], [ -1, %30 ], [ -1, %.preheader265.i ], [ -1, %60 ], [ -1, %70 ], [ -1, %81 ], [ -1, %91 ], [ -1, %99 ], [ -1, %109 ], [ -1, %119 ], [ -1, %.backedge.i ], [ -1, %159 ], [ -1, %197 ], [ %505, %527 ], [ -1, %.outer.i ]
+  %.0115.i = phi i32 [ 0, %69 ], [ 0, %133 ], [ 9, %507 ], [ 14, %515 ], [ 13, %526 ], [ 0, %171 ], [ 0, %30 ], [ %42, %.preheader265.i ], [ 20, %197 ], [ 20, %159 ], [ %137, %.backedge.i ], [ 0, %119 ], [ 0, %109 ], [ 0, %99 ], [ 0, %91 ], [ 0, %81 ], [ 0, %70 ], [ 0, %60 ], [ %528, %527 ], [ %536, %.outer.i ]
   %538 = getelementptr inbounds i8, ptr %9, i64 8
   %539 = load ptr, ptr %538, align 8
   %.not174.i = icmp eq ptr %539, null
@@ -1637,11 +1637,11 @@ getbits.exit235.i:                                ; preds = %._crit_edge.loopexi
   br label %544
 
 544:                                              ; preds = %543, %541
-  %545 = icmp sgt i32 %.1114.i, -1
+  %545 = icmp sgt i32 %.1117.i, -1
   br i1 %545, label %546, label %ea05.exit
 
 546:                                              ; preds = %544
-  %547 = call i32 @close(i32 noundef %.1114.i) #13
+  %547 = call i32 @close(i32 noundef %.1117.i) #13
   %548 = load ptr, ptr %23, align 8
   %549 = getelementptr inbounds i8, ptr %548, i64 40
   %550 = load i32, ptr %549, align 8
@@ -2799,7 +2799,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
 
 .lr.ph550.i:                                      ; preds = %1105, %1445
   %1112 = phi i32 [ %1448, %1445 ], [ %1110, %1105 ]
-  %.0204548.i = phi ptr [ %.9.i, %1445 ], [ %1102, %1105 ]
+  %.0203548.i = phi ptr [ %.9.i, %1445 ], [ %1102, %1105 ]
   %1113 = load i32, ptr %576, align 4
   %1114 = load i32, ptr %574, align 8
   %1115 = icmp ult i32 %1113, %1114
@@ -2896,7 +2896,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   %1144 = add i32 %1142, 512
   store i32 %1144, ptr %572, align 4
   %1145 = zext i32 %1144 to i64
-  %1146 = call ptr @cli_max_realloc(ptr noundef %.0204548.i, i64 noundef %1145) #13
+  %1146 = call ptr @cli_max_realloc(ptr noundef %.0203548.i, i64 noundef %1145) #13
   %.not319.i = icmp eq ptr %1146, null
   br i1 %.not319.i, label %1147, label %._crit_edge635.i
 
@@ -2910,7 +2910,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
 
 1148:                                             ; preds = %._crit_edge635.i, %1132
   %.pre632.i = phi ptr [ %1136, %1132 ], [ %.pre632.pre.i, %._crit_edge635.i ]
-  %.1.i = phi ptr [ %.0204548.i, %1132 ], [ %1146, %._crit_edge635.i ]
+  %.1.i = phi ptr [ %.0203548.i, %1132 ], [ %1146, %._crit_edge635.i ]
   %1149 = load i8, ptr @cli_debug_flag, align 1
   %.not320.i = icmp eq i8 %1149, 0
   br i1 %.not320.i, label %1155, label %1150
@@ -2982,7 +2982,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   %1187 = add i32 %1185, 512
   store i32 %1187, ptr %572, align 4
   %1188 = zext i32 %1187 to i64
-  %1189 = call ptr @cli_max_realloc(ptr noundef %.0204548.i, i64 noundef %1188) #13
+  %1189 = call ptr @cli_max_realloc(ptr noundef %.0203548.i, i64 noundef %1188) #13
   %.not315.i = icmp eq ptr %1189, null
   br i1 %.not315.i, label %1190, label %._crit_edge633.i
 
@@ -2996,7 +2996,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
 
 1191:                                             ; preds = %._crit_edge633.i, %1175
   %.pre630.i = phi ptr [ %1179, %1175 ], [ %.pre630.pre.i, %._crit_edge633.i ]
-  %.2.i = phi ptr [ %.0204548.i, %1175 ], [ %1189, %._crit_edge633.i ]
+  %.2.i = phi ptr [ %.0203548.i, %1175 ], [ %1189, %._crit_edge633.i ]
   %1192 = load i8, ptr @cli_debug_flag, align 1
   %.not316.i = icmp eq i8 %1192, 0
   br i1 %.not316.i, label %1198, label %1193
@@ -3048,7 +3048,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   %1217 = add i32 %1215, 512
   store i32 %1217, ptr %572, align 4
   %1218 = zext i32 %1217 to i64
-  %1219 = call ptr @cli_max_realloc(ptr noundef %.0204548.i, i64 noundef %1218) #13
+  %1219 = call ptr @cli_max_realloc(ptr noundef %.0203548.i, i64 noundef %1218) #13
   %.not312.i = icmp eq ptr %1219, null
   br i1 %.not312.i, label %1220, label %._crit_edge625.i
 
@@ -3066,7 +3066,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   %1222 = phi i32 [ %1118, %1212 ], [ %.pre628.i, %._crit_edge625.i ]
   %1223 = phi ptr [ %1117, %1212 ], [ %.pre627.i, %._crit_edge625.i ]
   %1224 = phi i32 [ %1213, %1212 ], [ %.pre626.i, %._crit_edge625.i ]
-  %.3.i = phi ptr [ %.0204548.i, %1212 ], [ %1219, %._crit_edge625.i ]
+  %.3.i = phi ptr [ %.0203548.i, %1212 ], [ %1219, %._crit_edge625.i ]
   %1225 = zext i32 %1224 to i64
   %1226 = getelementptr inbounds i8, ptr %.3.i, i64 %1225
   %1227 = zext i32 %1222 to i64
@@ -3101,7 +3101,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   %1242 = add i32 %1240, 512
   store i32 %1242, ptr %572, align 4
   %1243 = zext i32 %1242 to i64
-  %1244 = call ptr @cli_max_realloc(ptr noundef %.0204548.i, i64 noundef %1243) #13
+  %1244 = call ptr @cli_max_realloc(ptr noundef %.0203548.i, i64 noundef %1243) #13
   %.not309.i = icmp eq ptr %1244, null
   br i1 %.not309.i, label %1245, label %._crit_edge621.i
 
@@ -3119,7 +3119,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   %1247 = phi i32 [ %1238, %1237 ], [ %.pre624.i, %._crit_edge621.i ]
   %1248 = phi i32 [ %1118, %1237 ], [ %.pre623.i, %._crit_edge621.i ]
   %1249 = phi ptr [ %1117, %1237 ], [ %.pre622.i, %._crit_edge621.i ]
-  %.4.i = phi ptr [ %.0204548.i, %1237 ], [ %1244, %._crit_edge621.i ]
+  %.4.i = phi ptr [ %.0203548.i, %1237 ], [ %1244, %._crit_edge621.i ]
   %1250 = add i32 %1248, 4
   %1251 = zext i32 %1250 to i64
   %1252 = getelementptr inbounds i8, ptr %1249, i64 %1251
@@ -3162,7 +3162,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   %1275 = add i32 %1273, 512
   store i32 %1275, ptr %572, align 4
   %1276 = zext i32 %1275 to i64
-  %1277 = call ptr @cli_max_realloc(ptr noundef %.0204548.i, i64 noundef %1276) #13
+  %1277 = call ptr @cli_max_realloc(ptr noundef %.0203548.i, i64 noundef %1276) #13
   %.not306.i = icmp eq ptr %1277, null
   br i1 %.not306.i, label %1278, label %1279
 
@@ -3171,7 +3171,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   br label %1445
 
 1279:                                             ; preds = %1274, %1270
-  %.5.i = phi ptr [ %.0204548.i, %1270 ], [ %1277, %1274 ]
+  %.5.i = phi ptr [ %.0203548.i, %1270 ], [ %1277, %1274 ]
   %1280 = load i32, ptr @fpu_words, align 4
   %1281 = icmp eq i32 %1280, 2
   br i1 %1281, label %1284, label %.preheader.i
@@ -3280,7 +3280,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   %1345 = add i32 %1344, %1342
   store i32 %1345, ptr %572, align 4
   %1346 = zext i32 %1345 to i64
-  %1347 = call ptr @cli_max_realloc(ptr noundef %.0204548.i, i64 noundef %1346) #13
+  %1347 = call ptr @cli_max_realloc(ptr noundef %.0203548.i, i64 noundef %1346) #13
   %.not300.i = icmp eq ptr %1347, null
   br i1 %.not300.i, label %1348, label %1349
 
@@ -3289,7 +3289,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   br label %1445
 
 1349:                                             ; preds = %1343, %1338
-  %.6.i = phi ptr [ %.0204548.i, %1338 ], [ %1347, %1343 ]
+  %.6.i = phi ptr [ %.0203548.i, %1338 ], [ %1347, %1343 ]
   %1350 = add nsw i32 %1122, -48
   %1351 = zext nneg i32 %1350 to i64
   %1352 = lshr i64 147, %1351
@@ -3403,7 +3403,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   %1415 = add i32 %1413, 512
   store i32 %1415, ptr %572, align 4
   %1416 = zext i32 %1415 to i64
-  %1417 = call ptr @cli_max_realloc(ptr noundef %.0204548.i, i64 noundef %1416) #13
+  %1417 = call ptr @cli_max_realloc(ptr noundef %.0203548.i, i64 noundef %1416) #13
   %.not296.i = icmp eq ptr %1417, null
   br i1 %.not296.i, label %1418, label %._crit_edge619.i
 
@@ -3417,7 +3417,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
 
 1419:                                             ; preds = %._crit_edge619.i, %1410
   %1420 = phi i32 [ %1411, %1410 ], [ %.pre620.i, %._crit_edge619.i ]
-  %.7.i = phi ptr [ %.0204548.i, %1410 ], [ %1417, %._crit_edge619.i ]
+  %.7.i = phi ptr [ %.0203548.i, %1410 ], [ %1417, %._crit_edge619.i ]
   %1421 = zext i32 %1420 to i64
   %1422 = getelementptr inbounds i8, ptr %.7.i, i64 %1421
   %1423 = add nsw i32 %1122, -64
@@ -3443,7 +3443,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   %1436 = add i32 %1434, 512
   store i32 %1436, ptr %572, align 4
   %1437 = zext i32 %1436 to i64
-  %1438 = call ptr @cli_max_realloc(ptr noundef %.0204548.i, i64 noundef %1437) #13
+  %1438 = call ptr @cli_max_realloc(ptr noundef %.0203548.i, i64 noundef %1437) #13
   %.not294.i = icmp eq ptr %1438, null
   br i1 %.not294.i, label %1439, label %._crit_edge617.i
 
@@ -3459,7 +3459,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
 1440:                                             ; preds = %._crit_edge617.i, %1430
   %.pre-phi638.i = phi i32 [ %.pre637.i, %._crit_edge617.i ], [ %1433, %1430 ]
   %1441 = phi i32 [ %.pre618.i, %._crit_edge617.i ], [ %1432, %1430 ]
-  %.8.i = phi ptr [ %1438, %._crit_edge617.i ], [ %.0204548.i, %1430 ]
+  %.8.i = phi ptr [ %1438, %._crit_edge617.i ], [ %.0203548.i, %1430 ]
   store i32 %.pre-phi638.i, ptr %575, align 8
   %1442 = zext i32 %1441 to i64
   %1443 = getelementptr inbounds i8, ptr %.8.i, i64 %1442
@@ -3472,7 +3472,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   br label %1445
 
 1445:                                             ; preds = %1444, %1440, %1439, %1419, %1418, %1405, %1399, %1348, %1336, %1327, %1308, %1278, %1269, %1246, %1245, %1236, %1221, %1220, %1211, %1198, %1190, %1174, %1168, %1155, %1147, %1131, %1125
-  %.9.i = phi ptr [ %.0204548.i, %1444 ], [ %.8.i, %1440 ], [ %.0204548.i, %1439 ], [ %.7.i, %1419 ], [ %.0204548.i, %1418 ], [ %.0204548.i, %1327 ], [ %.0204548.i, %1336 ], [ %.6.i, %1405 ], [ %.0204548.i, %1348 ], [ %.0204548.i, %1269 ], [ %.5.i, %1308 ], [ %.0204548.i, %1278 ], [ %.0204548.i, %1236 ], [ %.4.i, %1246 ], [ %.0204548.i, %1245 ], [ %.0204548.i, %1211 ], [ %.3.i, %1221 ], [ %.0204548.i, %1220 ], [ %.0204548.i, %1168 ], [ %.0204548.i, %1174 ], [ %.2.i, %1198 ], [ %.0204548.i, %1190 ], [ %.0204548.i, %1125 ], [ %.0204548.i, %1131 ], [ %.1.i, %1155 ], [ %.0204548.i, %1147 ], [ %.6.i, %1399 ]
+  %.9.i = phi ptr [ %.0203548.i, %1444 ], [ %.8.i, %1440 ], [ %.0203548.i, %1439 ], [ %.7.i, %1419 ], [ %.0203548.i, %1418 ], [ %.0203548.i, %1327 ], [ %.0203548.i, %1336 ], [ %.6.i, %1405 ], [ %.0203548.i, %1348 ], [ %.0203548.i, %1269 ], [ %.5.i, %1308 ], [ %.0203548.i, %1278 ], [ %.0203548.i, %1236 ], [ %.4.i, %1246 ], [ %.0203548.i, %1245 ], [ %.0203548.i, %1211 ], [ %.3.i, %1221 ], [ %.0203548.i, %1220 ], [ %.0203548.i, %1168 ], [ %.0203548.i, %1174 ], [ %.2.i, %1198 ], [ %.0203548.i, %1190 ], [ %.0203548.i, %1125 ], [ %.0203548.i, %1131 ], [ %.1.i, %1155 ], [ %.0203548.i, %1147 ], [ %.6.i, %1399 ]
   %1446 = load i32, ptr %579, align 8
   %1447 = icmp eq i32 %1446, 0
   %1448 = load i32, ptr %578, align 8
@@ -3481,7 +3481,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   br i1 %or.cond19.i, label %.lr.ph550.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %1445, %1105
-  %.0204.lcssa.i = phi ptr [ %1102, %1105 ], [ %.9.i, %1445 ]
+  %.0203.lcssa.i = phi ptr [ %1102, %1105 ], [ %.9.i, %1445 ]
   %.lcssa484.i = phi i1 [ %1109, %1105 ], [ %1447, %1445 ]
   br i1 %.lcssa484.i, label %.critedge.thread.i, label %1450
 
@@ -3490,7 +3490,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %.lr.ph550.i, %1450, %.critedge.i
-  %.0204487.i = phi ptr [ %.0204.lcssa.i, %1450 ], [ %.0204.lcssa.i, %.critedge.i ], [ %.0204548.i, %.lr.ph550.i ]
+  %.0203487.i = phi ptr [ %.0203.lcssa.i, %1450 ], [ %.0203.lcssa.i, %.critedge.i ], [ %.0203548.i, %.lr.ph550.i ]
   %1451 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %1451) #13
   br label %1454
@@ -3501,7 +3501,7 @@ getbits.exit410.i:                                ; preds = %._crit_edge.loopexi
   br label %1454
 
 1454:                                             ; preds = %1452, %.critedge.thread.i
-  %.10.i = phi ptr [ %.0204487.i, %.critedge.thread.i ], [ %1453, %1452 ]
+  %.10.i = phi ptr [ %.0203487.i, %.critedge.thread.i ], [ %1453, %1452 ]
   %1455 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1023, ptr noundef nonnull @.str.474, ptr noundef nonnull %18, i32 noundef %751) #13
   store i8 0, ptr %581, align 1
   %1456 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %4, i32 noundef 578, i32 noundef 384) #13
@@ -3598,7 +3598,7 @@ ea06.exit:                                        ; preds = %749, %.outer.backed
   br label %1494
 
 1494:                                             ; preds = %561, %ea06.exit, %1493, %ea05.exit
-  %.020 = phi i32 [ 0, %1493 ], [ 0, %561 ], [ %.0.i27, %ea06.exit ], [ %.0118.i, %ea05.exit ]
+  %.020 = phi i32 [ 0, %1493 ], [ 0, %561 ], [ %.0.i27, %ea06.exit ], [ %.0115.i, %ea05.exit ]
   %1495 = load ptr, ptr %23, align 8
   %1496 = getelementptr inbounds i8, ptr %1495, i64 40
   %1497 = load i32, ptr %1496, align 8
@@ -3674,7 +3674,7 @@ define internal fastcc void @MT_decrypt(ptr nocapture noundef %0, i32 noundef %1
 
 18:                                               ; preds = %.lr.ph, %MT_getnext.exit
   %.pre.i = phi i32 [ %2, %.lr.ph ], [ %.pre.i21, %MT_getnext.exit ]
-  %.01218 = phi ptr [ %0, %.lr.ph ], [ %83, %MT_getnext.exit ]
+  %.018 = phi ptr [ %0, %.lr.ph ], [ %83, %MT_getnext.exit ]
   %.01317 = phi i32 [ %1, %.lr.ph ], [ %21, %MT_getnext.exit ]
   %19 = phi i32 [ 1, %.lr.ph ], [ %67, %MT_getnext.exit ]
   %20 = phi ptr [ %5, %.lr.ph ], [ %69, %MT_getnext.exit ]
@@ -3772,10 +3772,10 @@ MT_getnext.exit:                                  ; preds = %18, %._crit_edge.i
   %80 = lshr i32 %75, 1
   %81 = xor i32 %79, %80
   %82 = trunc i32 %81 to i8
-  %83 = getelementptr inbounds i8, ptr %.01218, i64 1
-  %84 = load i8, ptr %.01218, align 1
+  %83 = getelementptr inbounds i8, ptr %.018, i64 1
+  %84 = load i8, ptr %.018, align 1
   %85 = xor i8 %84, %82
-  store i8 %85, ptr %.01218, align 1
+  store i8 %85, ptr %.018, align 1
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %._crit_edge, label %18
 

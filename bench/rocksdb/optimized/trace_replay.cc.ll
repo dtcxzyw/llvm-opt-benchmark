@@ -909,17 +909,17 @@ if.end.i:                                         ; preds = %if.else
 
 invoke.cont6:                                     ; preds = %if.else.invoke.cont6_crit_edge, %if.end.i
   %8 = phi i64 [ %result.0.copyload.i.i, %if.end.i ], [ %.pre667, %if.else.invoke.cont6_crit_edge ]
-  %buf.sroa.8.0 = phi i64 [ %sub.i.i, %if.end.i ], [ %call2.i, %if.else.invoke.cont6_crit_edge ]
   %buf.sroa.0.0 = phi ptr [ %add.ptr.i.i, %if.end.i ], [ %call.i, %if.else.invoke.cont6_crit_edge ]
+  %buf.sroa.8.0 = phi i64 [ %sub.i.i, %if.end.i ], [ %call2.i, %if.else.invoke.cont6_crit_edge ]
   %tobool.not651 = icmp eq i64 %8, 0
   br i1 %tobool.not651, label %if.then2.invoke, label %while.body
 
 while.body:                                       ; preds = %invoke.cont6, %sw.epilog
   %payload_map7.0656 = phi i64 [ %and17, %sw.epilog ], [ %8, %invoke.cont6 ]
-  %write_batch_data.sroa.0.0655 = phi ptr [ %write_batch_data.sroa.0.2, %sw.epilog ], [ @.str.16, %invoke.cont6 ]
-  %write_batch_data.sroa.3.0654 = phi i64 [ %write_batch_data.sroa.3.2, %sw.epilog ], [ 0, %invoke.cont6 ]
-  %buf.sroa.0.1653 = phi ptr [ %buf.sroa.0.3, %sw.epilog ], [ %buf.sroa.0.0, %invoke.cont6 ]
-  %buf.sroa.8.1652 = phi i64 [ %buf.sroa.8.3, %sw.epilog ], [ %buf.sroa.8.0, %invoke.cont6 ]
+  %buf.sroa.8.1655 = phi i64 [ %buf.sroa.8.3, %sw.epilog ], [ %buf.sroa.8.0, %invoke.cont6 ]
+  %buf.sroa.0.1654 = phi ptr [ %buf.sroa.0.3, %sw.epilog ], [ %buf.sroa.0.0, %invoke.cont6 ]
+  %write_batch_data.sroa.0.0653 = phi ptr [ %write_batch_data.sroa.0.2, %sw.epilog ], [ @.str.16, %invoke.cont6 ]
+  %write_batch_data.sroa.3.0652 = phi i64 [ %write_batch_data.sroa.3.2, %sw.epilog ], [ 0, %invoke.cont6 ]
   %sub = sub nsw i64 0, %payload_map7.0656
   %and = and i64 %payload_map7.0656, %sub
   %conv10 = sitofp i64 %and to double
@@ -931,22 +931,22 @@ while.body:                                       ; preds = %invoke.cont6, %sw.e
 sw.bb13:                                          ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   store i32 0, ptr %len.i, align 4
-  %add.ptr.i.i69 = getelementptr inbounds i8, ptr %buf.sroa.0.1653, i64 %buf.sroa.8.1652
-  %cmp.i.i.i = icmp sgt i64 %buf.sroa.8.1652, 0
+  %add.ptr.i.i69 = getelementptr inbounds i8, ptr %buf.sroa.0.1654, i64 %buf.sroa.8.1655
+  %cmp.i.i.i = icmp sgt i64 %buf.sroa.8.1655, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb13
-  %9 = load i8, ptr %buf.sroa.0.1653, align 1
+  %9 = load i8, ptr %buf.sroa.0.1654, align 1
   %cmp1.i.i.i = icmp sgt i8 %9, -1
   br i1 %cmp1.i.i.i, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i.i: ; preds = %if.then.i.i.i
   %conv.i.i.i = zext nneg i8 %9 to i32
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buf.sroa.0.1653, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buf.sroa.0.1654, i64 1
   br label %land.lhs.true.i
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i:    ; preds = %if.then.i.i.i, %sw.bb13
-  %call.i.i.i71 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %buf.sroa.0.1653, ptr noundef %add.ptr.i.i69, ptr noundef nonnull %len.i)
+  %call.i.i.i71 = invoke noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef %buf.sroa.0.1654, ptr noundef %add.ptr.i.i69, ptr noundef nonnull %len.i)
           to label %call.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.noexc:                                 ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i.i
@@ -973,18 +973,18 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit
 
 _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit: ; preds = %call.i.i.i.noexc, %land.lhs.true.i, %if.then.i
-  %buf.sroa.8.2 = phi i64 [ %sub.ptr.sub.i.i, %land.lhs.true.i ], [ %sub.i.i70, %if.then.i ], [ %buf.sroa.8.1652, %call.i.i.i.noexc ]
-  %buf.sroa.0.2 = phi ptr [ %11, %land.lhs.true.i ], [ %add.ptr.i5.i, %if.then.i ], [ %buf.sroa.0.1653, %call.i.i.i.noexc ]
-  %write_batch_data.sroa.3.1 = phi i64 [ %write_batch_data.sroa.3.0654, %land.lhs.true.i ], [ %conv.i, %if.then.i ], [ %write_batch_data.sroa.3.0654, %call.i.i.i.noexc ]
-  %write_batch_data.sroa.0.1 = phi ptr [ %write_batch_data.sroa.0.0655, %land.lhs.true.i ], [ %11, %if.then.i ], [ %write_batch_data.sroa.0.0655, %call.i.i.i.noexc ]
+  %write_batch_data.sroa.3.1 = phi i64 [ %write_batch_data.sroa.3.0652, %land.lhs.true.i ], [ %conv.i, %if.then.i ], [ %write_batch_data.sroa.3.0652, %call.i.i.i.noexc ]
+  %write_batch_data.sroa.0.1 = phi ptr [ %write_batch_data.sroa.0.0653, %land.lhs.true.i ], [ %11, %if.then.i ], [ %write_batch_data.sroa.0.0653, %call.i.i.i.noexc ]
+  %buf.sroa.0.2 = phi ptr [ %11, %land.lhs.true.i ], [ %add.ptr.i5.i, %if.then.i ], [ %buf.sroa.0.1654, %call.i.i.i.noexc ]
+  %buf.sroa.8.2 = phi i64 [ %sub.ptr.sub.i.i, %land.lhs.true.i ], [ %sub.i.i70, %if.then.i ], [ %buf.sroa.8.1655, %call.i.i.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit, %while.body
-  %buf.sroa.8.3 = phi i64 [ %buf.sroa.8.2, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %buf.sroa.8.1652, %while.body ]
-  %buf.sroa.0.3 = phi ptr [ %buf.sroa.0.2, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %buf.sroa.0.1653, %while.body ]
-  %write_batch_data.sroa.3.2 = phi i64 [ %write_batch_data.sroa.3.1, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %write_batch_data.sroa.3.0654, %while.body ]
-  %write_batch_data.sroa.0.2 = phi ptr [ %write_batch_data.sroa.0.1, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %write_batch_data.sroa.0.0655, %while.body ]
+  %write_batch_data.sroa.3.2 = phi i64 [ %write_batch_data.sroa.3.1, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %write_batch_data.sroa.3.0652, %while.body ]
+  %write_batch_data.sroa.0.2 = phi ptr [ %write_batch_data.sroa.0.1, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %write_batch_data.sroa.0.0653, %while.body ]
+  %buf.sroa.0.3 = phi ptr [ %buf.sroa.0.2, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %buf.sroa.0.1654, %while.body ]
+  %buf.sroa.8.3 = phi i64 [ %buf.sroa.8.2, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit ], [ %buf.sroa.8.1655, %while.body ]
   %sub16 = add nsw i64 %payload_map7.0656, -1
   %and17 = and i64 %sub16, %payload_map7.0656
   %tobool.not = icmp eq i64 %and17, 0

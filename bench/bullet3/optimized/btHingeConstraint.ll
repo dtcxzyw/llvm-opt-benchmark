@@ -3258,8 +3258,8 @@ if.end396:                                        ; preds = %if.end294
 
 if.then401:                                       ; preds = %if.end396.thread, %if.end396
   %tobool.i827 = phi i1 [ %tobool.i821, %if.end396.thread ], [ true, %if.end396 ]
-  %limit.0826 = phi i1 [ %cmp394, %if.end396.thread ], [ false, %if.end396 ]
-  %limit_err.0825 = phi float [ %mul393, %if.end396.thread ], [ 0.000000e+00, %if.end396 ]
+  %limit_err.0826 = phi float [ %mul393, %if.end396.thread ], [ 0.000000e+00, %if.end396 ]
+  %limit.0825 = phi i1 [ %cmp394, %if.end396.thread ], [ false, %if.end396 ]
   %349 = load i32, ptr %rowskip, align 8
   %mul404 = mul nsw i32 %349, 5
   %350 = load ptr, ptr %m_J1angularAxis, align 8
@@ -3358,7 +3358,7 @@ if.then488:                                       ; preds = %if.end486
   %376 = load ptr, ptr %m_constraintError381, align 8
   %arrayidx494 = getelementptr inbounds float, ptr %376, i64 %idxprom409
   %377 = load float, ptr %arrayidx494, align 4
-  %378 = tail call float @llvm.fmuladd.f32(float %mul490, float %limit_err.0825, float %377)
+  %378 = tail call float @llvm.fmuladd.f32(float %mul490, float %limit_err.0826, float %377)
   store float %378, ptr %arrayidx494, align 4
   %379 = load i32, ptr %m_flags, align 4
   %and496 = and i32 %379, 1
@@ -3381,8 +3381,8 @@ if.end502:                                        ; preds = %if.then498, %if.the
   br i1 %cmp448, label %if.else511, label %if.end528
 
 if.else511:                                       ; preds = %if.end502
-  %. = select i1 %limit.0826, float 0.000000e+00, float 0xC7EFFFFFE0000000
-  %.907 = select i1 %limit.0826, float 0x47EFFFFFE0000000, float 0.000000e+00
+  %. = select i1 %limit.0825, float 0.000000e+00, float 0xC7EFFFFFE0000000
+  %.907 = select i1 %limit.0825, float 0x47EFFFFFE0000000, float 0.000000e+00
   br label %if.end528
 
 if.end528:                                        ; preds = %if.else511, %if.end502
@@ -3416,7 +3416,7 @@ if.then532:                                       ; preds = %if.end528
   %393 = load float, ptr %arrayidx10.i666, align 4
   %394 = tail call noundef float @llvm.fmuladd.f32(float %393, float %161, float %392)
   %sub535 = fsub float %389, %394
-  br i1 %limit.0826, label %if.then537, label %if.else552
+  br i1 %limit.0825, label %if.then537, label %if.else552
 
 if.then537:                                       ; preds = %if.then532
   %cmp538 = fcmp olt float %sub535, 0.000000e+00
@@ -3889,8 +3889,8 @@ if.end169:                                        ; preds = %if.end56
 
 if.then173:                                       ; preds = %if.end169.thread, %if.end169
   %tobool.i363 = phi i1 [ %tobool.i357, %if.end169.thread ], [ true, %if.end169 ]
-  %limit.0362 = phi i1 [ %cmp167, %if.end169.thread ], [ false, %if.end169 ]
-  %limit_err.0361 = phi float [ %mul166, %if.end169.thread ], [ 0.000000e+00, %if.end169 ]
+  %limit_err.0362 = phi float [ %mul166, %if.end169.thread ], [ 0.000000e+00, %if.end169 ]
+  %limit.0361 = phi i1 [ %cmp167, %if.end169.thread ], [ false, %if.end169 ]
   %160 = load i32, ptr %rowskip, align 8
   %mul176 = mul nsw i32 %160, 5
   %161 = load ptr, ptr %m_J1angularAxis, align 8
@@ -3987,7 +3987,7 @@ if.then259:                                       ; preds = %if.end257
   %185 = load ptr, ptr %m_constraintError154, align 8
   %arrayidx265 = getelementptr inbounds float, ptr %185, i64 %idxprom181
   %186 = load float, ptr %arrayidx265, align 4
-  %187 = tail call float @llvm.fmuladd.f32(float %mul261, float %limit_err.0361, float %186)
+  %187 = tail call float @llvm.fmuladd.f32(float %mul261, float %limit_err.0362, float %186)
   store float %187, ptr %arrayidx265, align 4
   %188 = load i32, ptr %m_flags, align 4
   %and267 = and i32 %188, 1
@@ -4010,8 +4010,8 @@ if.end273:                                        ; preds = %if.then269, %if.the
   br i1 %cmp219, label %if.else, label %if.end298
 
 if.else:                                          ; preds = %if.end273
-  %. = select i1 %limit.0362, float 0.000000e+00, float 0xC7EFFFFFE0000000
-  %.376 = select i1 %limit.0362, float 0x47EFFFFFE0000000, float 0.000000e+00
+  %. = select i1 %limit.0361, float 0.000000e+00, float 0xC7EFFFFFE0000000
+  %.376 = select i1 %limit.0361, float 0x47EFFFFFE0000000, float 0.000000e+00
   br label %if.end298
 
 if.end298:                                        ; preds = %if.else, %if.end273
@@ -4045,7 +4045,7 @@ if.then302:                                       ; preds = %if.end298
   %202 = load float, ptr %arrayidx10.i286, align 4
   %203 = tail call noundef float @llvm.fmuladd.f32(float %202, float %36, float %201)
   %sub305 = fsub float %198, %203
-  br i1 %limit.0362, label %if.then307, label %if.else322
+  br i1 %limit.0361, label %if.then307, label %if.else322
 
 if.then307:                                       ; preds = %if.then302
   %cmp308 = fcmp olt float %sub305, 0.000000e+00

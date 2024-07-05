@@ -3091,17 +3091,17 @@ _ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5value
   br i1 %tobool.not.i.i14.i, label %_ZNK5eastl8weak_ptrIiE7expiredEv.exit83.i, label %lor.rhs.i80.i
 
 lor.rhs.i80.i:                                    ; preds = %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.i, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.thread1020.i
-  %pW1.sroa.0.01025.i = phi ptr [ %203, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.thread1020.i ], [ %189, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.i ]
-  %pW1.sroa.7.01024.i = phi ptr [ %202, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.thread1020.i ], [ %call.i.i.i22.i, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.i ]
-  %mRefCount.i.i81.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01024.i, i64 8
+  %pW1.sroa.7.01025.i = phi ptr [ %202, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.thread1020.i ], [ %call.i.i.i22.i, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.i ]
+  %pW1.sroa.0.01024.i = phi ptr [ %203, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.thread1020.i ], [ %189, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.i ]
+  %mRefCount.i.i81.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01025.i, i64 8
   %205 = load atomic volatile i32, ptr %mRefCount.i.i81.i monotonic, align 4
   %cmp.i82.i = icmp eq i32 %205, 0
   br label %_ZNK5eastl8weak_ptrIiE7expiredEv.exit83.i
 
 _ZNK5eastl8weak_ptrIiE7expiredEv.exit83.i:        ; preds = %lor.rhs.i80.i, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.i, %if.end.i.i
   %tobool.not.i791019.i = phi i1 [ true, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.i ], [ false, %lor.rhs.i80.i ], [ true, %if.end.i.i ]
-  %pW1.sroa.0.01018.i = phi ptr [ %189, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.i ], [ %pW1.sroa.0.01025.i, %lor.rhs.i80.i ], [ %203, %if.end.i.i ]
-  %pW1.sroa.7.01016.i = phi ptr [ null, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.i ], [ %pW1.sroa.7.01024.i, %lor.rhs.i80.i ], [ null, %if.end.i.i ]
+  %pW1.sroa.7.01017.i = phi ptr [ null, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.i ], [ %pW1.sroa.7.01025.i, %lor.rhs.i80.i ], [ null, %if.end.i.i ]
+  %pW1.sroa.0.01016.i = phi ptr [ %189, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.i ], [ %pW1.sroa.0.01024.i, %lor.rhs.i80.i ], [ %203, %if.end.i.i ]
   %206 = phi i1 [ true, %_ZN5eastl8weak_ptrIiEaSIiEENS_9enable_ifIXsr5eastl14is_convertibleIPT_PiEE5valueERS1_E4typeERKNS_10shared_ptrIS4_EE.exit.i ], [ %cmp.i82.i, %lor.rhs.i80.i ], [ true, %if.end.i.i ]
   %cmp44.i = xor i1 %206, true
   %call46.i = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp44.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i55, ptr noundef nonnull @.str, i32 noundef 1551, ptr noundef nonnull @.str.129)
@@ -3115,7 +3115,7 @@ invoke.cont51.i:                                  ; preds = %_ZNK5eastl8weak_ptr
   br i1 %tobool.not.i791019.i, label %_ZNK5eastl8weak_ptrIiE7expiredEv.exit96.i, label %lor.rhs.i93.i
 
 lor.rhs.i93.i:                                    ; preds = %invoke.cont51.i
-  %mRefCount.i.i94.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01016.i, i64 8
+  %mRefCount.i.i94.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01017.i, i64 8
   %207 = load atomic volatile i32, ptr %mRefCount.i.i94.i monotonic, align 4
   %cmp.i95.i = icmp eq i32 %207, 0
   br label %_ZNK5eastl8weak_ptrIiE7expiredEv.exit96.i
@@ -3130,20 +3130,20 @@ invoke.cont56.i70:                                ; preds = %_ZNK5eastl8weak_ptr
   br i1 %tobool.not.i791019.i, label %_ZNK5eastl8weak_ptrIiE7expiredEv.exit109.i, label %_ZN5eastl8weak_ptrIiEaSERKS1_.exit.i
 
 _ZN5eastl8weak_ptrIiEaSERKS1_.exit.i:             ; preds = %invoke.cont56.i70
-  %mWeakRefCount.i4.i.i.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01016.i, i64 12
+  %mWeakRefCount.i4.i.i.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01017.i, i64 12
   %209 = atomicrmw volatile add ptr %mWeakRefCount.i4.i.i.i, i32 1 monotonic, align 4
-  %tobool.not.i105.i = icmp eq ptr %pW1.sroa.7.01016.i, null
+  %tobool.not.i105.i = icmp eq ptr %pW1.sroa.7.01017.i, null
   br i1 %tobool.not.i105.i, label %_ZNK5eastl8weak_ptrIiE7expiredEv.exit109.i, label %lor.rhs.i106.i
 
 lor.rhs.i106.i:                                   ; preds = %_ZN5eastl8weak_ptrIiEaSERKS1_.exit.i
-  %mRefCount.i.i107.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01016.i, i64 8
+  %mRefCount.i.i107.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01017.i, i64 8
   %210 = load atomic volatile i32, ptr %mRefCount.i.i107.i monotonic, align 4
   %cmp.i108.i = icmp eq i32 %210, 0
   br label %_ZNK5eastl8weak_ptrIiE7expiredEv.exit109.i
 
 _ZNK5eastl8weak_ptrIiE7expiredEv.exit109.i:       ; preds = %lor.rhs.i106.i, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit.i, %invoke.cont56.i70
   %tobool.not.i1051032.i = phi i1 [ true, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit.i ], [ false, %lor.rhs.i106.i ], [ true, %invoke.cont56.i70 ]
-  %pW1.sroa.7.11030.i = phi ptr [ null, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit.i ], [ %pW1.sroa.7.01016.i, %lor.rhs.i106.i ], [ null, %invoke.cont56.i70 ]
+  %pW1.sroa.7.11031.i = phi ptr [ null, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit.i ], [ %pW1.sroa.7.01017.i, %lor.rhs.i106.i ], [ null, %invoke.cont56.i70 ]
   %211 = phi i1 [ true, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit.i ], [ %cmp.i108.i, %lor.rhs.i106.i ], [ true, %invoke.cont56.i70 ]
   %cmp61.i = xor i1 %211, true
   %call63.i = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp61.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i55, ptr noundef nonnull @.str, i32 noundef 1556, ptr noundef nonnull @.str.129)
@@ -3153,20 +3153,20 @@ invoke.cont62.i:                                  ; preds = %_ZNK5eastl8weak_ptr
   br i1 %tobool.not.i1051032.i, label %_ZNK5eastl8weak_ptrIiE7expiredEv.exit131.i, label %_ZN5eastl8weak_ptrIiEaSERKS1_.exit125.i
 
 _ZN5eastl8weak_ptrIiEaSERKS1_.exit125.i:          ; preds = %invoke.cont62.i
-  %mWeakRefCount.i4.i.i121.i = getelementptr inbounds i8, ptr %pW1.sroa.7.11030.i, i64 12
+  %mWeakRefCount.i4.i.i121.i = getelementptr inbounds i8, ptr %pW1.sroa.7.11031.i, i64 12
   %212 = atomicrmw volatile add ptr %mWeakRefCount.i4.i.i121.i, i32 1 monotonic, align 4
-  %tobool.not.i127.i = icmp eq ptr %pW1.sroa.7.11030.i, null
+  %tobool.not.i127.i = icmp eq ptr %pW1.sroa.7.11031.i, null
   br i1 %tobool.not.i127.i, label %_ZNK5eastl8weak_ptrIiE7expiredEv.exit131.i, label %lor.rhs.i128.i
 
 lor.rhs.i128.i:                                   ; preds = %_ZN5eastl8weak_ptrIiEaSERKS1_.exit125.i
-  %mRefCount.i.i129.i = getelementptr inbounds i8, ptr %pW1.sroa.7.11030.i, i64 8
+  %mRefCount.i.i129.i = getelementptr inbounds i8, ptr %pW1.sroa.7.11031.i, i64 8
   %213 = load atomic volatile i32, ptr %mRefCount.i.i129.i monotonic, align 4
   %cmp.i130.i = icmp eq i32 %213, 0
   br label %_ZNK5eastl8weak_ptrIiE7expiredEv.exit131.i
 
 _ZNK5eastl8weak_ptrIiE7expiredEv.exit131.i:       ; preds = %lor.rhs.i128.i, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit125.i, %invoke.cont62.i
   %tobool.not.i1271037.i = phi i1 [ true, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit125.i ], [ false, %lor.rhs.i128.i ], [ true, %invoke.cont62.i ]
-  %pW3.sroa.8.01036.i = phi ptr [ null, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit125.i ], [ %pW1.sroa.7.11030.i, %lor.rhs.i128.i ], [ null, %invoke.cont62.i ]
+  %pW3.sroa.8.01036.i = phi ptr [ null, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit125.i ], [ %pW1.sroa.7.11031.i, %lor.rhs.i128.i ], [ null, %invoke.cont62.i ]
   %214 = phi i1 [ true, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit125.i ], [ %cmp.i130.i, %lor.rhs.i128.i ], [ true, %invoke.cont62.i ]
   %cmp67.i = xor i1 %214, true
   %call69.i = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp67.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i55, ptr noundef nonnull @.str, i32 noundef 1558, ptr noundef nonnull @.str.134)
@@ -3332,7 +3332,7 @@ invoke.cont95.i:                                  ; preds = %_ZNK5eastl8weak_ptr
   br i1 %tobool.not.i791019.i, label %cond.end.thread.i.i, label %cond.true.i209.i
 
 cond.true.i209.i:                                 ; preds = %invoke.cont95.i
-  %mRefCount.i.i210.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01016.i, i64 8
+  %mRefCount.i.i210.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01017.i, i64 8
   %231 = load atomic volatile i32, ptr %mRefCount.i.i210.i monotonic, align 4, !noalias !11
   %cmp.not3.i.i.i = icmp eq i32 %231, 0
   br i1 %cmp.not3.i.i.i, label %cond.end.thread.i.i, label %for.body.i.i.i
@@ -3355,15 +3355,15 @@ cond.end.thread.i.i:                              ; preds = %_ZN5eastl8internal1
   br label %_ZNK5eastl8weak_ptrIiE4lockEv.exit.i
 
 cond.end.i.i:                                     ; preds = %for.body.i.i.i
-  %mWeakRefCount.i.i212.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01016.i, i64 12
+  %mWeakRefCount.i.i212.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01017.i, i64 12
   %235 = atomicrmw volatile add ptr %mWeakRefCount.i.i212.i, i32 1 monotonic, align 4, !noalias !11
   %mpRefCount4.i.i = getelementptr inbounds i8, ptr %pShared2.i, i64 8
-  store ptr %pW1.sroa.7.01016.i, ptr %mpRefCount4.i.i, align 8, !alias.scope !11
-  store ptr %pW1.sroa.0.01018.i, ptr %pShared2.i, align 8, !alias.scope !11
+  store ptr %pW1.sroa.7.01017.i, ptr %mpRefCount4.i.i, align 8, !alias.scope !11
+  store ptr %pW1.sroa.0.01016.i, ptr %pShared2.i, align 8, !alias.scope !11
   br label %_ZNK5eastl8weak_ptrIiE4lockEv.exit.i
 
 _ZNK5eastl8weak_ptrIiE4lockEv.exit.i:             ; preds = %cond.end.i.i, %cond.end.thread.i.i
-  %236 = phi ptr [ %pW1.sroa.7.01016.i, %cond.end.i.i ], [ null, %cond.end.thread.i.i ]
+  %236 = phi ptr [ %pW1.sroa.7.01017.i, %cond.end.i.i ], [ null, %cond.end.thread.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pShared3.i, i8 0, i64 16, i1 false), !alias.scope !14
   br i1 %tobool.not.i168.i, label %cond.end.thread.i223.i, label %cond.true.i215.i
@@ -3450,7 +3450,7 @@ invoke.cont109.i77:                               ; preds = %_ZNK5eastl8weak_ptr
   br i1 %tobool.not.i791019.i, label %_ZNK5eastl8weak_ptrIiE9use_countEv.exit257.i, label %cond.true.i253.i
 
 cond.true.i253.i:                                 ; preds = %invoke.cont109.i77
-  %mRefCount.i.i254.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01016.i, i64 8
+  %mRefCount.i.i254.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01017.i, i64 8
   %246 = load atomic volatile i32, ptr %mRefCount.i.i254.i monotonic, align 4
   br label %_ZNK5eastl8weak_ptrIiE9use_countEv.exit257.i
 
@@ -3461,31 +3461,31 @@ _ZNK5eastl8weak_ptrIiE9use_countEv.exit257.i:     ; preds = %cond.true.i253.i, %
           to label %invoke.cont113.i80 unwind label %lpad99.i
 
 invoke.cont113.i80:                               ; preds = %_ZNK5eastl8weak_ptrIiE9use_countEv.exit257.i
-  %cmp.not.i.i260.i = icmp eq ptr %pW1.sroa.7.11030.i, %pW1.sroa.7.01016.i
+  %cmp.not.i.i260.i = icmp eq ptr %pW1.sroa.7.11031.i, %pW1.sroa.7.01017.i
   br i1 %cmp.not.i.i260.i, label %_ZN5eastl8weak_ptrIiEaSERKS1_.exit273.i, label %if.then.i.i261.i
 
 if.then.i.i261.i:                                 ; preds = %invoke.cont113.i80
   br i1 %tobool.not.i1051032.i, label %if.end.i.i266.i, label %if.then4.i.i263.i
 
 if.then4.i.i263.i:                                ; preds = %if.then.i.i261.i
-  %mWeakRefCount.i.i.i264.i = getelementptr inbounds i8, ptr %pW1.sroa.7.11030.i, i64 12
+  %mWeakRefCount.i.i.i264.i = getelementptr inbounds i8, ptr %pW1.sroa.7.11031.i, i64 12
   %247 = atomicrmw volatile sub ptr %mWeakRefCount.i.i.i264.i, i32 1 release, align 4
   %cmp.i.i.i265.i = icmp eq i32 %247, 1
   br i1 %cmp.i.i.i265.i, label %if.then.i.i.i270.i, label %if.end.i.i266.i
 
 if.then.i.i.i270.i:                               ; preds = %if.then4.i.i263.i
   fence acquire
-  %vtable.i.i.i271.i = load ptr, ptr %pW1.sroa.7.11030.i, align 8
+  %vtable.i.i.i271.i = load ptr, ptr %pW1.sroa.7.11031.i, align 8
   %vfn.i.i.i272.i = getelementptr inbounds i8, ptr %vtable.i.i.i271.i, i64 24
   %248 = load ptr, ptr %vfn.i.i.i272.i, align 8
-  call void %248(ptr noundef nonnull align 8 dereferenceable(16) %pW1.sroa.7.11030.i) #15
+  call void %248(ptr noundef nonnull align 8 dereferenceable(16) %pW1.sroa.7.11031.i) #15
   br label %if.end.i.i266.i
 
 if.end.i.i266.i:                                  ; preds = %if.then.i.i.i270.i, %if.then4.i.i263.i, %if.then.i.i261.i
   br i1 %tobool.not.i791019.i, label %_ZNK5eastl8weak_ptrIiE9use_countEv.exit280.i, label %_ZN5eastl8weak_ptrIiEaSERKS1_.exit273.thread1048.i
 
 _ZN5eastl8weak_ptrIiEaSERKS1_.exit273.thread1048.i: ; preds = %if.end.i.i266.i
-  %mWeakRefCount.i4.i.i269.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01016.i, i64 12
+  %mWeakRefCount.i4.i.i269.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01017.i, i64 12
   %249 = atomicrmw volatile add ptr %mWeakRefCount.i4.i.i269.i, i32 1 monotonic, align 4
   br label %cond.true.i276.i
 
@@ -3493,20 +3493,20 @@ _ZN5eastl8weak_ptrIiEaSERKS1_.exit273.i:          ; preds = %invoke.cont113.i80
   br i1 %tobool.not.i791019.i, label %_ZNK5eastl8weak_ptrIiE9use_countEv.exit280.i, label %cond.true.i276.i
 
 cond.true.i276.i:                                 ; preds = %_ZN5eastl8weak_ptrIiEaSERKS1_.exit273.i, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit273.thread1048.i
-  %pW1.sroa.7.21050.i = phi ptr [ %pW1.sroa.7.01016.i, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit273.thread1048.i ], [ %pW1.sroa.7.11030.i, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit273.i ]
-  %mRefCount.i.i277.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01016.i, i64 8
+  %pW1.sroa.7.21050.i = phi ptr [ %pW1.sroa.7.01017.i, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit273.thread1048.i ], [ %pW1.sroa.7.11031.i, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit273.i ]
+  %mRefCount.i.i277.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01017.i, i64 8
   %250 = load atomic volatile i32, ptr %mRefCount.i.i277.i monotonic, align 4
   br label %_ZNK5eastl8weak_ptrIiE9use_countEv.exit280.i
 
 _ZNK5eastl8weak_ptrIiE9use_countEv.exit280.i:     ; preds = %cond.true.i276.i, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit273.i, %if.end.i.i266.i
-  %pW1.sroa.7.21047.i = phi ptr [ %pW1.sroa.7.21050.i, %cond.true.i276.i ], [ %pW1.sroa.7.11030.i, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit273.i ], [ %pW1.sroa.7.01016.i, %if.end.i.i266.i ]
+  %pW1.sroa.7.21047.i = phi ptr [ %pW1.sroa.7.21050.i, %cond.true.i276.i ], [ %pW1.sroa.7.11031.i, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit273.i ], [ %pW1.sroa.7.01017.i, %if.end.i.i266.i ]
   %cond.i279.i = phi i32 [ %250, %cond.true.i276.i ], [ 0, %_ZN5eastl8weak_ptrIiEaSERKS1_.exit273.i ], [ 0, %if.end.i.i266.i ]
   %cmp117.i = icmp eq i32 %cond.i279.i, 2
   %call119.i = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp117.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i55, ptr noundef nonnull @.str, i32 noundef 1577, ptr noundef nonnull @.str.140)
           to label %invoke.cont118.i unwind label %lpad99.i
 
 invoke.cont118.i:                                 ; preds = %_ZNK5eastl8weak_ptrIiE9use_countEv.exit280.i
-  %spec.select.i = icmp ne ptr %pW1.sroa.7.01016.i, %224
+  %spec.select.i = icmp ne ptr %pW1.sroa.7.01017.i, %224
   %call125.i81 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i55, ptr noundef nonnull @.str, i32 noundef 1579, ptr noundef nonnull @.str.141)
           to label %invoke.cont124.i82 unwind label %lpad99.i
 
@@ -3619,17 +3619,17 @@ _ZN5eastl10shared_ptrIiED2Ev.exit347.i:           ; preds = %if.then.i.i.i341.i,
   br i1 %tobool.not.i791019.i, label %_ZN5eastl8weak_ptrIiED2Ev.exit.i, label %if.then.i350.i
 
 if.then.i350.i:                                   ; preds = %_ZN5eastl10shared_ptrIiED2Ev.exit347.i
-  %mWeakRefCount.i.i351.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01016.i, i64 12
+  %mWeakRefCount.i.i351.i = getelementptr inbounds i8, ptr %pW1.sroa.7.01017.i, i64 12
   %266 = atomicrmw volatile sub ptr %mWeakRefCount.i.i351.i, i32 1 release, align 4
   %cmp.i.i352.i = icmp eq i32 %266, 1
   br i1 %cmp.i.i352.i, label %if.then.i.i354.i, label %_ZN5eastl8weak_ptrIiED2Ev.exit.i
 
 if.then.i.i354.i:                                 ; preds = %if.then.i350.i
   fence acquire
-  %vtable.i.i355.i = load ptr, ptr %pW1.sroa.7.01016.i, align 8
+  %vtable.i.i355.i = load ptr, ptr %pW1.sroa.7.01017.i, align 8
   %vfn.i.i356.i = getelementptr inbounds i8, ptr %vtable.i.i355.i, i64 24
   %267 = load ptr, ptr %vfn.i.i356.i, align 8
-  call void %267(ptr noundef nonnull align 8 dereferenceable(16) %pW1.sroa.7.01016.i) #15
+  call void %267(ptr noundef nonnull align 8 dereferenceable(16) %pW1.sroa.7.01017.i) #15
   br label %_ZN5eastl8weak_ptrIiED2Ev.exit.i
 
 _ZN5eastl8weak_ptrIiED2Ev.exit.i:                 ; preds = %if.then.i.i354.i, %if.then.i350.i, %_ZN5eastl10shared_ptrIiED2Ev.exit347.i
@@ -4819,17 +4819,17 @@ ehcleanup139.thread1063.i:                        ; preds = %invoke.cont3.i, %in
   br label %common.resume
 
 lpad7.i:                                          ; preds = %_ZNK5eastl8weak_ptrIiE9use_countEv.exit206.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit194.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit172.i, %invoke.cont80.i, %invoke.cont78.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit152.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit137.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit131.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit109.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit96.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit90.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit83.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit72.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit63.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit57.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit48.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit42.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit.i
-  %pW1.sroa.7.3.i = phi ptr [ %pW1.sroa.7.11030.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit206.i ], [ %pW1.sroa.7.11030.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit194.i ], [ %pW1.sroa.7.11030.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit172.i ], [ %pW1.sroa.7.11030.i, %invoke.cont80.i ], [ %pW1.sroa.7.11030.i, %invoke.cont78.i ], [ %pW1.sroa.7.11030.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit152.i ], [ %pW1.sroa.7.11030.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit137.i ], [ %pW1.sroa.7.11030.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit131.i ], [ %pW1.sroa.7.11030.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit109.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit96.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit90.i ], [ %pW1.sroa.7.01016.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit83.i ], [ %call.i.i.i22.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit72.i ], [ %call.i.i.i22.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit63.i ], [ %call.i.i.i22.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit57.i ], [ %call.i.i.i22.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit.i ], [ %call.i.i.i22.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit48.i ], [ %call.i.i.i22.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit42.i ], [ %call.i.i.i22.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit.i ], [ %call.i.i.i22.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit.i ]
-  %pW2.sroa.8.0.i = phi ptr [ %pW1.sroa.7.01016.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit206.i ], [ %pW1.sroa.7.01016.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit194.i ], [ %pW1.sroa.7.01016.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit172.i ], [ %pW1.sroa.7.01016.i, %invoke.cont80.i ], [ %pW1.sroa.7.01016.i, %invoke.cont78.i ], [ %pW1.sroa.7.01016.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit152.i ], [ %pW1.sroa.7.01016.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit137.i ], [ %pW1.sroa.7.01016.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit131.i ], [ %pW1.sroa.7.01016.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit109.i ], [ %pW1.sroa.7.01016.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit96.i ], [ %pW1.sroa.7.01016.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit90.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit83.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit72.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit63.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit57.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit.i ], [ null, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit48.i ], [ null, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit42.i ], [ null, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit.i ], [ null, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit.i ]
+  %pW2.sroa.8.0.i = phi ptr [ %pW1.sroa.7.01017.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit206.i ], [ %pW1.sroa.7.01017.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit194.i ], [ %pW1.sroa.7.01017.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit172.i ], [ %pW1.sroa.7.01017.i, %invoke.cont80.i ], [ %pW1.sroa.7.01017.i, %invoke.cont78.i ], [ %pW1.sroa.7.01017.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit152.i ], [ %pW1.sroa.7.01017.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit137.i ], [ %pW1.sroa.7.01017.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit131.i ], [ %pW1.sroa.7.01017.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit109.i ], [ %pW1.sroa.7.01017.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit96.i ], [ %pW1.sroa.7.01017.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit90.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit83.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit72.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit63.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit57.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit.i ], [ null, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit48.i ], [ null, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit42.i ], [ null, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit.i ], [ null, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit.i ]
   %pW3.sroa.8.2.i = phi ptr [ %224, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit206.i ], [ %224, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit194.i ], [ null, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit172.i ], [ null, %invoke.cont80.i ], [ null, %invoke.cont78.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit152.i ], [ %pW3.sroa.8.01036.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit137.i ], [ %pW3.sroa.8.01036.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit131.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit109.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit96.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit90.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit83.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit72.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit63.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit57.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit.i ], [ null, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit48.i ], [ null, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit42.i ], [ null, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit.i ], [ null, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit.i ]
+  %pW1.sroa.7.3.i = phi ptr [ %pW1.sroa.7.11031.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit206.i ], [ %pW1.sroa.7.11031.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit194.i ], [ %pW1.sroa.7.11031.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit172.i ], [ %pW1.sroa.7.11031.i, %invoke.cont80.i ], [ %pW1.sroa.7.11031.i, %invoke.cont78.i ], [ %pW1.sroa.7.11031.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit152.i ], [ %pW1.sroa.7.11031.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit137.i ], [ %pW1.sroa.7.11031.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit131.i ], [ %pW1.sroa.7.11031.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit109.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit96.i ], [ null, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit90.i ], [ %pW1.sroa.7.01017.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit83.i ], [ %call.i.i.i22.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit72.i ], [ %call.i.i.i22.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit63.i ], [ %call.i.i.i22.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit57.i ], [ %call.i.i.i22.i, %_ZNK5eastl8weak_ptrIiE7expiredEv.exit.i ], [ %call.i.i.i22.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit48.i ], [ %call.i.i.i22.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit42.i ], [ %call.i.i.i22.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit.i ], [ %call.i.i.i22.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit.i ]
   %434 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i59
 
 lpad99.i:                                         ; preds = %_ZNK5eastl10shared_ptrIiE9use_countEv.exit316.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit293.i, %invoke.cont118.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit280.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit257.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit250.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit242.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit235.i
-  %pW1.sroa.7.4.i = phi ptr [ %pW1.sroa.7.21047.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit316.i ], [ %pW1.sroa.7.21047.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit293.i ], [ %pW1.sroa.7.21047.i, %invoke.cont118.i ], [ %pW1.sroa.7.21047.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit280.i ], [ %pW1.sroa.7.11030.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit257.i ], [ %pW1.sroa.7.11030.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit250.i ], [ %pW1.sroa.7.11030.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit242.i ], [ %pW1.sroa.7.11030.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit235.i ]
-  %pW2.sroa.8.1.i = phi ptr [ %224, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit316.i ], [ %224, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit293.i ], [ %224, %invoke.cont118.i ], [ %224, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit280.i ], [ %224, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit257.i ], [ %224, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit250.i ], [ %pW1.sroa.7.01016.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit242.i ], [ %pW1.sroa.7.01016.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit235.i ]
-  %pW3.sroa.8.3.i = phi ptr [ %pW1.sroa.7.01016.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit316.i ], [ %pW1.sroa.7.01016.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit293.i ], [ %pW1.sroa.7.01016.i, %invoke.cont118.i ], [ %pW1.sroa.7.01016.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit280.i ], [ %pW1.sroa.7.01016.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit257.i ], [ %pW1.sroa.7.01016.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit250.i ], [ %224, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit242.i ], [ %224, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit235.i ]
+  %pW2.sroa.8.1.i = phi ptr [ %224, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit316.i ], [ %224, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit293.i ], [ %224, %invoke.cont118.i ], [ %224, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit280.i ], [ %224, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit257.i ], [ %224, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit250.i ], [ %pW1.sroa.7.01017.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit242.i ], [ %pW1.sroa.7.01017.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit235.i ]
+  %pW3.sroa.8.3.i = phi ptr [ %pW1.sroa.7.01017.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit316.i ], [ %pW1.sroa.7.01017.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit293.i ], [ %pW1.sroa.7.01017.i, %invoke.cont118.i ], [ %pW1.sroa.7.01017.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit280.i ], [ %pW1.sroa.7.01017.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit257.i ], [ %pW1.sroa.7.01017.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit250.i ], [ %224, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit242.i ], [ %224, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit235.i ]
+  %pW1.sroa.7.4.i = phi ptr [ %pW1.sroa.7.21047.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit316.i ], [ %pW1.sroa.7.21047.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit293.i ], [ %pW1.sroa.7.21047.i, %invoke.cont118.i ], [ %pW1.sroa.7.21047.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit280.i ], [ %pW1.sroa.7.11031.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit257.i ], [ %pW1.sroa.7.11031.i, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit250.i ], [ %pW1.sroa.7.11031.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit242.i ], [ %pW1.sroa.7.11031.i, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit235.i ]
   %pW0.sroa.2.1.i = phi ptr [ %253, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit316.i ], [ null, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit293.i ], [ null, %invoke.cont118.i ], [ null, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit280.i ], [ null, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit257.i ], [ null, %_ZNK5eastl8weak_ptrIiE9use_countEv.exit250.i ], [ null, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit242.i ], [ null, %_ZNK5eastl10shared_ptrIiE9use_countEv.exit235.i ]
   %435 = landingpad { ptr, i32 }
           cleanup
@@ -4838,9 +4838,9 @@ lpad99.i:                                         ; preds = %_ZNK5eastl10shared_
   br label %ehcleanup.i59
 
 ehcleanup.i59:                                    ; preds = %lpad99.i, %lpad7.i
-  %pW1.sroa.7.5.i = phi ptr [ %pW1.sroa.7.4.i, %lpad99.i ], [ %pW1.sroa.7.3.i, %lpad7.i ]
   %pW2.sroa.8.2.i = phi ptr [ %pW2.sroa.8.1.i, %lpad99.i ], [ %pW2.sroa.8.0.i, %lpad7.i ]
   %pW3.sroa.8.4.i = phi ptr [ %pW3.sroa.8.3.i, %lpad99.i ], [ %pW3.sroa.8.2.i, %lpad7.i ]
+  %pW1.sroa.7.5.i = phi ptr [ %pW1.sroa.7.4.i, %lpad99.i ], [ %pW1.sroa.7.3.i, %lpad7.i ]
   %pW0.sroa.2.2.i = phi ptr [ %pW0.sroa.2.1.i, %lpad99.i ], [ null, %lpad7.i ]
   %.pn.i60 = phi { ptr, i32 } [ %435, %lpad99.i ], [ %434, %lpad7.i ]
   %tobool.not.i870.i = icmp eq ptr %pW3.sroa.8.4.i, null

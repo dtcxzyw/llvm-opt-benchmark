@@ -2254,8 +2254,8 @@ for.cond.i.preheader:                             ; preds = %if.end29.i
 
 for.body.i:                                       ; preds = %for.cond.i.preheader, %for.inc.i
   %indvars.iv = phi i64 [ 0, %for.cond.i.preheader ], [ %indvars.iv.next, %for.inc.i ]
+  %bitmap.0.i174 = phi i32 [ 0, %for.cond.i.preheader ], [ %bitmap.1.i, %for.inc.i ]
   %new_i.0.i172 = phi i64 [ 0, %for.cond.i.preheader ], [ %new_i.1.i, %for.inc.i ]
-  %bitmap.0.i171 = phi i32 [ 0, %for.cond.i.preheader ], [ %bitmap.1.i, %for.inc.i ]
   %cmp36.i = icmp eq i64 %indvars.iv, %idxprom.i19
   br i1 %cmp36.i, label %for.inc.i, label %if.end38.i
 
@@ -2268,7 +2268,7 @@ if.end38.i:                                       ; preds = %for.body.i
 if.end45.i:                                       ; preds = %if.end38.i
   %87 = trunc nuw nsw i64 %indvars.iv to i32
   %shl.i = shl nuw i32 1, %87
-  %or.i = or i32 %shl.i, %bitmap.0.i171
+  %or.i = or i32 %bitmap.0.i174, %shl.i
   %88 = getelementptr i8, ptr %86, i64 8
   %.val.i30 = load ptr, ptr %88, align 8
   %cmp.i144.not = icmp eq ptr %.val.i30, @_PyHamt_BitmapNode_Type
@@ -2344,8 +2344,8 @@ if.end79.i:                                       ; preds = %if.end.i.i129, %if.
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end79.i, %if.end38.i, %for.body.i
-  %bitmap.1.i = phi i32 [ %bitmap.0.i171, %for.body.i ], [ %bitmap.0.i171, %if.end38.i ], [ %or.i, %if.end79.i ]
   %new_i.1.i = phi i64 [ %new_i.0.i172, %for.body.i ], [ %new_i.0.i172, %if.end38.i ], [ %add80.i, %if.end79.i ]
+  %bitmap.1.i = phi i32 [ %bitmap.0.i174, %for.body.i ], [ %bitmap.0.i174, %if.end38.i ], [ %or.i, %if.end79.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !14

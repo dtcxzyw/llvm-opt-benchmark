@@ -610,7 +610,7 @@ define internal void @startElementHandler(ptr nocapture noundef %0, ptr noundef 
   br i1 %.not10.i, label %get_xml_attr.exit.thread.thread, label %.lr.ph.i
 
 get_xml_attr.exit.thread.thread:                  ; preds = %17
-  %.059116 = load ptr, ptr %0, align 8
+  %.060116 = load ptr, ptr %0, align 8
   br label %get_xml_attr.exit73.thread
 
 .lr.ph.i:                                         ; preds = %17, %33
@@ -657,7 +657,7 @@ get_xml_attr.exit:                                ; preds = %.lr.ph.i.tail
 
 get_xml_attr.exit.thread:                         ; preds = %33, %get_xml_attr.exit
   %39 = phi ptr [ %38, %get_xml_attr.exit ], [ %0, %33 ]
-  %.059 = load ptr, ptr %39, align 8
+  %.060 = load ptr, ptr %39, align 8
   br label %.lr.ph.i68
 
 .lr.ph.i68:                                       ; preds = %get_xml_attr.exit.thread, %43
@@ -682,19 +682,19 @@ get_xml_attr.exit73:                              ; preds = %.lr.ph.i68
   br label %get_xml_attr.exit73.thread
 
 get_xml_attr.exit73.thread:                       ; preds = %43, %get_xml_attr.exit.thread.thread, %get_xml_attr.exit73
-  %.059117 = phi ptr [ %.059, %get_xml_attr.exit73 ], [ %.059116, %get_xml_attr.exit.thread.thread ], [ %.059, %43 ]
-  %.060 = phi ptr [ %49, %get_xml_attr.exit73 ], [ @.str.16, %get_xml_attr.exit.thread.thread ], [ @.str.16, %43 ]
+  %.060117 = phi ptr [ %.060, %get_xml_attr.exit73 ], [ %.060116, %get_xml_attr.exit.thread.thread ], [ %.060, %43 ]
+  %.059 = phi ptr [ %49, %get_xml_attr.exit73 ], [ @.str.16, %get_xml_attr.exit.thread.thread ], [ @.str.16, %43 ]
   %Gstack.val = load i64, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
   %50 = icmp eq i64 %Gstack.val, 0
   br i1 %50, label %51, label %65
 
 51:                                               ; preds = %get_xml_attr.exit73.thread
-  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.060, ptr noundef nonnull dereferenceable(9) @.str.20) #19
+  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.059, ptr noundef nonnull dereferenceable(9) @.str.20) #19
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %61, label %54
 
 54:                                               ; preds = %51
-  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.060, ptr noundef nonnull dereferenceable(11) @.str.21) #19
+  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.059, ptr noundef nonnull dereferenceable(11) @.str.21) #19
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %61, label %57
 
@@ -710,7 +710,7 @@ get_xml_attr.exit73.thread:                       ; preds = %43, %get_xml_attr.e
 61:                                               ; preds = %57, %58, %54, %51
   %.sroa.0.0.in = phi ptr [ @Agdirected, %51 ], [ @Agundirected, %54 ], [ @Agdirected, %58 ], [ @Agdirected, %57 ]
   %.sroa.0.0 = load i32, ptr %.sroa.0.0.in, align 4
-  %62 = tail call ptr @agopen(ptr noundef %.059117, i32 %.sroa.0.0, ptr noundef nonnull @AgDefaultDisc) #20
+  %62 = tail call ptr @agopen(ptr noundef %.060117, i32 %.sroa.0.0, ptr noundef nonnull @AgDefaultDisc) #20
   %Gstack.val.i = load i64, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
   %63 = icmp eq i64 %Gstack.val.i, 0
   br i1 %63, label %64, label %push_subg.exit
@@ -724,12 +724,12 @@ push_subg.exit:                                   ; preds = %61, %64
   br label %79
 
 65:                                               ; preds = %get_xml_attr.exit73.thread
-  %66 = load i8, ptr %.059117, align 1
+  %66 = load i8, ptr %.060117, align 1
   %.not.i74 = icmp eq i8 %66, 37
   br i1 %.not.i74, label %.preheader.i, label %isAnonGraph.exit.thread
 
 .preheader.i:                                     ; preds = %65, %.preheader.i
-  %.pn.i = phi ptr [ %.0.i, %.preheader.i ], [ %.059117, %65 ]
+  %.pn.i = phi ptr [ %.0.i, %.preheader.i ], [ %.060117, %65 ]
   %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
   %67 = load i8, ptr %.0.i, align 1
   %68 = sext i8 %67 to i32
@@ -749,7 +749,7 @@ isAnonGraph.exit:                                 ; preds = %.preheader.i
   br label %isAnonGraph.exit.thread
 
 isAnonGraph.exit.thread:                          ; preds = %65, %71, %isAnonGraph.exit
-  %.1 = phi ptr [ %4, %71 ], [ %.059117, %isAnonGraph.exit ], [ %.059117, %65 ]
+  %.1 = phi ptr [ %4, %71 ], [ %.060117, %isAnonGraph.exit ], [ %.060117, %65 ]
   %75 = load ptr, ptr @G, align 8
   %76 = call ptr @agsubg(ptr noundef %75, ptr noundef nonnull %.1, i32 noundef 1) #20
   %Gstack.val.i75 = load i64, ptr getelementptr inbounds (i8, ptr @Gstack, i64 8), align 8
@@ -766,7 +766,7 @@ push_subg.exit76:                                 ; preds = %isAnonGraph.exit.th
 
 79:                                               ; preds = %push_subg.exit76, %push_subg.exit
   %storemerge = phi ptr [ %76, %push_subg.exit76 ], [ %62, %push_subg.exit ]
-  %.2 = phi ptr [ %.1, %push_subg.exit76 ], [ %.059117, %push_subg.exit ]
+  %.2 = phi ptr [ %.1, %push_subg.exit76 ], [ %.060117, %push_subg.exit ]
   store ptr %storemerge, ptr @G, align 8
   %80 = call noalias ptr @strdup(ptr noundef readonly %.2) #20
   %81 = icmp eq ptr %80, null

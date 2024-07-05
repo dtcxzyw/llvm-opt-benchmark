@@ -1335,10 +1335,10 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESa
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %34 ]
-  %.01018 = phi ptr [ %29, %.lr.ph.preheader ], [ %32, %34 ]
-  %31 = call float @strtof(ptr noundef %.01018, ptr noundef nonnull %6) #11
+  %.01117 = phi ptr [ %29, %.lr.ph.preheader ], [ %32, %34 ]
+  %31 = call float @strtof(ptr noundef %.01117, ptr noundef nonnull %6) #11
   %32 = load ptr, ptr %6, align 8
-  %33 = icmp eq ptr %.01018, %32
+  %33 = icmp eq ptr %.01117, %32
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %.lr.ph

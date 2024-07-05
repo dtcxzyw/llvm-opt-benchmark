@@ -755,8 +755,8 @@ define dso_local i64 @cm_zlib_gzoffset64(ptr noundef readonly %0) local_unnamed_
   br label %19
 
 19:                                               ; preds = %11, %14, %6, %3, %1
-  %.010 = phi i64 [ -1, %1 ], [ -1, %3 ], [ -1, %6 ], [ %18, %14 ], [ %9, %11 ]
-  ret i64 %.010
+  %.0 = phi i64 [ -1, %1 ], [ -1, %3 ], [ -1, %6 ], [ %18, %14 ], [ %9, %11 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -792,8 +792,8 @@ define dso_local i64 @cm_zlib_gzoffset(ptr noundef readonly %0) local_unnamed_ad
   br label %cm_zlib_gzoffset64.exit
 
 cm_zlib_gzoffset64.exit:                          ; preds = %1, %3, %6, %11, %14
-  %.010.i = phi i64 [ -1, %1 ], [ -1, %3 ], [ -1, %6 ], [ %18, %14 ], [ %9, %11 ]
-  ret i64 %.010.i
+  %.0.i = phi i64 [ -1, %1 ], [ -1, %3 ], [ -1, %6 ], [ %18, %14 ], [ %9, %11 ]
+  ret i64 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

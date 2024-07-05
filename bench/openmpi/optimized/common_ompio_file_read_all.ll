@@ -112,17 +112,17 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.07051146 = phi i64 [ 0, %.lr.ph.preheader ], [ %47, %.lr.ph ]
+  %.06211147 = phi i64 [ 0, %.lr.ph.preheader ], [ %47, %.lr.ph ]
   %45 = getelementptr inbounds i64, ptr %36, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8
-  %47 = add nsw i64 %46, %.07051146
+  %47 = add nsw i64 %46, %.06211147
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader1043
-  %.0705.lcssa = phi i64 [ 0, %.preheader1043 ], [ %47, %.lr.ph ]
-  %.0692.lcssa = phi i32 [ 0, %.preheader1043 ], [ %43, %.lr.ph ]
+  %.0693.lcssa = phi i32 [ 0, %.preheader1043 ], [ %43, %.lr.ph ]
+  %.0621.lcssa = phi i64 [ 0, %.preheader1043 ], [ %47, %.lr.ph ]
   call void @free(ptr noundef nonnull %36) #10
   %48 = getelementptr inbounds i8, ptr %0, i64 448
   %49 = load ptr, ptr %48, align 8
@@ -176,10 +176,10 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %73 = phi i32 [ %71, %.lr.ph1152.preheader ], [ %76, %.lr.ph1152 ]
   %74 = phi i32 [ 0, %.lr.ph1152.preheader ], [ %78, %.lr.ph1152 ]
   %indvars.iv1410 = phi i64 [ 1, %.lr.ph1152.preheader ], [ %indvars.iv.next1411, %.lr.ph1152 ]
-  %.06441150 = phi i32 [ %71, %.lr.ph1152.preheader ], [ %77, %.lr.ph1152 ]
+  %.06451150 = phi i32 [ %71, %.lr.ph1152.preheader ], [ %77, %.lr.ph1152 ]
   %75 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv1410
   %76 = load i32, ptr %75, align 4
-  %77 = add i32 %76, %.06441150
+  %77 = add i32 %76, %.06451150
   %78 = add nsw i32 %73, %74
   %79 = getelementptr inbounds i32, ptr %67, i64 %indvars.iv1410
   store i32 %78, ptr %79, align 4
@@ -188,13 +188,13 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %exitcond1414.not, label %._crit_edge1153, label %.lr.ph1152, !llvm.loop !6
 
 ._crit_edge1153:                                  ; preds = %.lr.ph1152, %70
-  %.1693.lcssa = phi i32 [ 1, %70 ], [ %64, %.lr.ph1152 ]
-  %.0644.lcssa = phi i32 [ %71, %70 ], [ %77, %.lr.ph1152 ]
-  %.not776 = icmp eq i32 %.0644.lcssa, 0
+  %.1694.lcssa = phi i32 [ 1, %70 ], [ %64, %.lr.ph1152 ]
+  %.0645.lcssa = phi i32 [ %71, %70 ], [ %77, %.lr.ph1152 ]
+  %.not776 = icmp eq i32 %.0645.lcssa, 0
   br i1 %.not776, label %86, label %80
 
 80:                                               ; preds = %._crit_edge1153
-  %81 = zext i32 %.0644.lcssa to i64
+  %81 = zext i32 %.0645.lcssa to i64
   %82 = shl nuw nsw i64 %81, 4
   %83 = call noalias ptr @malloc(i64 noundef %82) #11
   %84 = icmp eq ptr %83, null
@@ -205,14 +205,14 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br label %.thread.thread.thread.thread995
 
 86:                                               ; preds = %80, %._crit_edge1153
-  %.0650 = phi ptr [ %83, %80 ], [ null, %._crit_edge1153 ]
+  %.0651 = phi ptr [ %83, %80 ], [ null, %._crit_edge1153 ]
   %87 = load ptr, ptr %8, align 8
   %88 = load i32, ptr %9, align 4
   %89 = getelementptr inbounds i8, ptr %0, i64 264
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr %29, align 8
   %92 = load ptr, ptr %40, align 8
-  %93 = call i32 @ompi_fcoll_base_coll_allgatherv_array(ptr noundef %87, i32 noundef %88, ptr noundef %90, ptr noundef %.0650, ptr noundef nonnull %56, ptr noundef nonnull %67, ptr noundef %90, i32 noundef 0, ptr noundef %91, i32 noundef %64, ptr noundef %92) #10
+  %93 = call i32 @ompi_fcoll_base_coll_allgatherv_array(ptr noundef %87, i32 noundef %88, ptr noundef %90, ptr noundef %.0651, ptr noundef nonnull %56, ptr noundef nonnull %67, ptr noundef %90, i32 noundef 0, ptr noundef %91, i32 noundef %64, ptr noundef %92) #10
   %.not777 = icmp eq i32 %93, 0
   br i1 %.not777, label %94, label %.thread.thread
 
@@ -220,7 +220,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %.not776, label %103, label %95
 
 95:                                               ; preds = %94
-  %96 = zext i32 %.0644.lcssa to i64
+  %96 = zext i32 %.0645.lcssa to i64
   %97 = shl nuw nsw i64 %96, 2
   %98 = call noalias ptr @malloc(i64 noundef %97) #11
   %99 = icmp eq ptr %98, null
@@ -231,11 +231,11 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br label %.thread.thread
 
 101:                                              ; preds = %95
-  %102 = call i32 @ompi_fcoll_base_sort_iovec(ptr noundef %.0650, i32 noundef %.0644.lcssa, ptr noundef nonnull %98) #10
+  %102 = call i32 @ompi_fcoll_base_sort_iovec(ptr noundef %.0651, i32 noundef %.0645.lcssa, ptr noundef nonnull %98) #10
   br label %103
 
 103:                                              ; preds = %101, %94
-  %.0622 = phi ptr [ %98, %101 ], [ null, %94 ]
+  %.0623 = phi ptr [ %98, %101 ], [ null, %94 ]
   %104 = load ptr, ptr %8, align 8
   %.not778 = icmp eq ptr %104, null
   br i1 %.not778, label %106, label %105
@@ -249,7 +249,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %107 = getelementptr inbounds i8, ptr %0, i64 144
   %108 = load i32, ptr %107, align 8
   %109 = sext i32 %108 to i64
-  %110 = sitofp i64 %.0705.lcssa to double
+  %110 = sitofp i64 %.0621.lcssa to double
   %111 = sitofp i32 %108 to double
   %112 = fdiv double %110, %111
   %113 = call double @llvm.ceil.f64(double %112)
@@ -302,7 +302,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br label %.thread
 
 ._crit_edge1158:                                  ; preds = %.lr.ph1157.preheader, %.preheader1042
-  %.2694.lcssa = phi i32 [ 0, %.preheader1042 ], [ %119, %.lr.ph1157.preheader ]
+  %.2695.lcssa = phi i32 [ 0, %.preheader1042 ], [ %119, %.lr.ph1157.preheader ]
   %137 = call noalias ptr @malloc(i64 noundef %126) #11
   %138 = icmp eq ptr %137, null
   br i1 %138, label %139, label %140
@@ -345,11 +345,11 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %exitcond1424.not, label %.loopexit1041, label %.lr.ph1161, !llvm.loop !7
 
 .loopexit1041:                                    ; preds = %.lr.ph1161, %.preheader1040, %106
-  %.3695 = phi i32 [ %.1693.lcssa, %106 ], [ %.2694.lcssa, %.preheader1040 ], [ %.2694.lcssa, %.lr.ph1161 ]
-  %.0641 = phi ptr [ null, %106 ], [ %122, %.preheader1040 ], [ %122, %.lr.ph1161 ]
-  %.0634 = phi ptr [ null, %106 ], [ %127, %.preheader1040 ], [ %127, %.lr.ph1161 ]
-  %.0632 = phi ptr [ null, %106 ], [ %131, %.preheader1040 ], [ %131, %.lr.ph1161 ]
-  %.0630 = phi ptr [ null, %106 ], [ %141, %.preheader1040 ], [ %141, %.lr.ph1161 ]
+  %.3696 = phi i32 [ %.1694.lcssa, %106 ], [ %.2695.lcssa, %.preheader1040 ], [ %.2695.lcssa, %.lr.ph1161 ]
+  %.0642 = phi ptr [ null, %106 ], [ %122, %.preheader1040 ], [ %122, %.lr.ph1161 ]
+  %.0635 = phi ptr [ null, %106 ], [ %127, %.preheader1040 ], [ %127, %.lr.ph1161 ]
+  %.0633 = phi ptr [ null, %106 ], [ %131, %.preheader1040 ], [ %131, %.lr.ph1161 ]
+  %.0631 = phi ptr [ null, %106 ], [ %141, %.preheader1040 ], [ %141, %.lr.ph1161 ]
   %.0619 = phi ptr [ null, %106 ], [ %145, %.preheader1040 ], [ %145, %.lr.ph1161 ]
   %.0617 = phi ptr [ null, %106 ], [ %137, %.preheader1040 ], [ %137, %.lr.ph1161 ]
   %148 = icmp sgt i32 %114, 0
@@ -369,15 +369,15 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %indvars.iv1482 = phi i64 [ 0, %.lr.ph1252 ], [ %indvars.iv.next1483, %._crit_edge1198.thread ]
   %.06061248 = phi ptr [ null, %.lr.ph1252 ], [ %.5, %._crit_edge1198.thread ]
   %.06091245 = phi ptr [ null, %.lr.ph1252 ], [ %.5614, %._crit_edge1198.thread ]
-  %.06241244 = phi ptr [ null, %.lr.ph1252 ], [ %.4628, %._crit_edge1198.thread ]
-  %.06391243 = phi i32 [ 0, %.lr.ph1252 ], [ %.16401048, %._crit_edge1198.thread ]
-  %.06451242 = phi ptr [ null, %.lr.ph1252 ], [ %.3648, %._crit_edge1198.thread ]
-  %.06521241 = phi i64 [ 0, %.lr.ph1252 ], [ %.4656, %._crit_edge1198.thread ]
-  %.06571240 = phi i32 [ 0, %.lr.ph1252 ], [ %.4661, %._crit_edge1198.thread ]
-  %.06721239 = phi ptr [ null, %.lr.ph1252 ], [ %.4676, %._crit_edge1198.thread ]
-  %.06781238 = phi i64 [ 0, %.lr.ph1252 ], [ %.2680, %._crit_edge1198.thread ]
-  %.06811237 = phi i32 [ 0, %.lr.ph1252 ], [ %.3684, %._crit_edge1198.thread ]
-  %.46961236 = phi i32 [ %.3695, %.lr.ph1252 ], [ %.15, %._crit_edge1198.thread ]
+  %.06251244 = phi ptr [ null, %.lr.ph1252 ], [ %.4629, %._crit_edge1198.thread ]
+  %.06401243 = phi i32 [ 0, %.lr.ph1252 ], [ %.16411048, %._crit_edge1198.thread ]
+  %.06461242 = phi ptr [ null, %.lr.ph1252 ], [ %.3649, %._crit_edge1198.thread ]
+  %.06531241 = phi i64 [ 0, %.lr.ph1252 ], [ %.4657, %._crit_edge1198.thread ]
+  %.06581240 = phi i32 [ 0, %.lr.ph1252 ], [ %.4662, %._crit_edge1198.thread ]
+  %.06731239 = phi ptr [ null, %.lr.ph1252 ], [ %.4677, %._crit_edge1198.thread ]
+  %.06791238 = phi i64 [ 0, %.lr.ph1252 ], [ %.2681, %._crit_edge1198.thread ]
+  %.06821237 = phi i32 [ 0, %.lr.ph1252 ], [ %.3685, %._crit_edge1198.thread ]
+  %.46971236 = phi i32 [ %.3696, %.lr.ph1252 ], [ %.15, %._crit_edge1198.thread ]
   %155 = load i32, ptr %115, align 4
   %156 = icmp eq i32 %31, %155
   br i1 %156, label %157, label %199
@@ -428,7 +428,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 .loopexit1038:                                    ; preds = %.loopexit1038.loopexit, %160
   %172 = phi i32 [ %.pre1496, %160 ], [ %168, %.loopexit1038.loopexit ]
-  %.6698 = phi i32 [ %.46961236, %160 ], [ %171, %.loopexit1038.loopexit ]
+  %.6699 = phi i32 [ %.46971236, %160 ], [ %171, %.loopexit1038.loopexit ]
   %173 = icmp sgt i32 %172, 0
   br i1 %173, label %.lr.ph1167, label %._crit_edge1168
 
@@ -441,9 +441,9 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph1167:                                       ; preds = %.loopexit1038, %174
   %indvars.iv1428 = phi i64 [ %indvars.iv.next1429, %174 ], [ 0, %.loopexit1038 ]
-  %178 = getelementptr inbounds i32, ptr %.0641, i64 %indvars.iv1428
+  %178 = getelementptr inbounds i32, ptr %.0642, i64 %indvars.iv1428
   store i32 1, ptr %178, align 4
-  %179 = getelementptr inbounds ptr, ptr %.0634, i64 %indvars.iv1428
+  %179 = getelementptr inbounds ptr, ptr %.0635, i64 %indvars.iv1428
   %180 = load ptr, ptr %179, align 8
   %.not797 = icmp eq ptr %180, null
   br i1 %.not797, label %182, label %181
@@ -454,7 +454,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br label %182
 
 182:                                              ; preds = %181, %.lr.ph1167
-  %183 = getelementptr inbounds ptr, ptr %.0632, i64 %indvars.iv1428
+  %183 = getelementptr inbounds ptr, ptr %.0633, i64 %indvars.iv1428
   %184 = load ptr, ptr %183, align 8
   %.not798 = icmp eq ptr %184, null
   br i1 %.not798, label %186, label %185
@@ -485,40 +485,40 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit1032
 
 ._crit_edge1168:                                  ; preds = %174, %.preheader1037, %.loopexit1038
-  %.66981539 = phi i32 [ %.6698, %.loopexit1038 ], [ 0, %.preheader1037 ], [ %.6698, %174 ]
-  %.not781 = icmp eq ptr %.06721239, null
+  %.66991539 = phi i32 [ %.6699, %.loopexit1038 ], [ 0, %.preheader1037 ], [ %.6699, %174 ]
+  %.not781 = icmp eq ptr %.06731239, null
   br i1 %.not781, label %195, label %194
 
 194:                                              ; preds = %._crit_edge1168
-  call void @free(ptr noundef nonnull %.06721239) #10
+  call void @free(ptr noundef nonnull %.06731239) #10
   br label %195
 
 195:                                              ; preds = %194, %._crit_edge1168
-  %.not782 = icmp eq ptr %.06241244, null
+  %.not782 = icmp eq ptr %.06251244, null
   br i1 %.not782, label %197, label %196
 
 196:                                              ; preds = %195
-  call void @free(ptr noundef nonnull %.06241244) #10
+  call void @free(ptr noundef nonnull %.06251244) #10
   br label %197
 
 197:                                              ; preds = %196, %195
-  %.not783 = icmp eq ptr %.06451242, null
+  %.not783 = icmp eq ptr %.06461242, null
   br i1 %.not783, label %199, label %198
 
 198:                                              ; preds = %197
-  call void @free(ptr noundef nonnull %.06451242) #10
+  call void @free(ptr noundef nonnull %.06461242) #10
   br label %199
 
 199:                                              ; preds = %197, %198, %154
-  %.7 = phi i32 [ %.66981539, %198 ], [ %.66981539, %197 ], [ %.46961236, %154 ]
-  %.2674 = phi ptr [ null, %198 ], [ null, %197 ], [ %.06721239, %154 ]
-  %.1646 = phi ptr [ null, %198 ], [ null, %197 ], [ %.06451242, %154 ]
-  %.2626 = phi ptr [ null, %198 ], [ null, %197 ], [ %.06241244, %154 ]
+  %.7 = phi i32 [ %.66991539, %198 ], [ %.66991539, %197 ], [ %.46971236, %154 ]
+  %.2675 = phi ptr [ null, %198 ], [ null, %197 ], [ %.06731239, %154 ]
+  %.1647 = phi ptr [ null, %198 ], [ null, %197 ], [ %.06461242, %154 ]
+  %.2627 = phi ptr [ null, %198 ], [ null, %197 ], [ %.06251244, %154 ]
   %200 = icmp eq i64 %indvars.iv1482, %153
   %201 = mul nsw i64 %indvars.iv1482, %109
-  %202 = sub nsw i64 %.0705.lcssa, %201
-  %.0703 = select i1 %200, i64 %202, i64 %109
-  %.not7841178 = icmp eq i64 %.0703, 0
+  %202 = sub nsw i64 %.0621.lcssa, %201
+  %.0704 = select i1 %200, i64 %202, i64 %109
+  %.not7841178 = icmp eq i64 %.0704, 0
   br i1 %.not7841178, label %..loopexit1036_crit_edge, label %.lr.ph1186.preheader
 
 ..loopexit1036_crit_edge:                         ; preds = %199
@@ -526,23 +526,23 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit1036
 
 .lr.ph1186.preheader:                             ; preds = %199
-  %.1679.neg1177 = sub i64 0, %.06781238
-  %203 = sext i32 %.06391243 to i64
+  %.1680.neg1177 = sub i64 0, %.06791238
+  %203 = sext i32 %.06401243 to i64
   br label %.lr.ph1186
 
 .lr.ph1186:                                       ; preds = %.lr.ph1186.preheader, %.backedge
   %indvars.iv1436 = phi i64 [ %203, %.lr.ph1186.preheader ], [ %indvars.iv.next1437, %.backedge ]
-  %.1679.neg1184 = phi i64 [ %.1679.neg1177, %.lr.ph1186.preheader ], [ 0, %.backedge ]
-  %.06631182 = phi i32 [ 0, %.lr.ph1186.preheader ], [ %.0663.be, %.backedge ]
-  %.16791181 = phi i64 [ %.06781238, %.lr.ph1186.preheader ], [ 0, %.backedge ]
-  %.16821180 = phi i32 [ %.06811237, %.lr.ph1186.preheader ], [ %.2683, %.backedge ]
-  %.17041179 = phi i64 [ %.0703, %.lr.ph1186.preheader ], [ %.1704.be, %.backedge ]
+  %.1680.neg1184 = phi i64 [ %.1680.neg1177, %.lr.ph1186.preheader ], [ 0, %.backedge ]
+  %.06641182 = phi i32 [ 0, %.lr.ph1186.preheader ], [ %.0664.be, %.backedge ]
+  %.16801181 = phi i64 [ %.06791238, %.lr.ph1186.preheader ], [ 0, %.backedge ]
+  %.16831180 = phi i32 [ %.06821237, %.lr.ph1186.preheader ], [ %.2684, %.backedge ]
+  %.17051179 = phi i64 [ %.0704, %.lr.ph1186.preheader ], [ %.1705.be, %.backedge ]
   %204 = load i32, ptr %32, align 8
   %205 = icmp sgt i32 %204, 0
   br i1 %205, label %.lr.ph1172, label %._crit_edge1173
 
 .lr.ph1172:                                       ; preds = %.lr.ph1186
-  %206 = getelementptr inbounds i32, ptr %.0622, i64 %indvars.iv1436
+  %206 = getelementptr inbounds i32, ptr %.0623, i64 %indvars.iv1436
   %207 = load i32, ptr %56, align 4
   %208 = load i32, ptr %206, align 4
   %wide.trip.count1434 = zext nneg i32 %204 to i64
@@ -550,15 +550,15 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 209:                                              ; preds = %.lr.ph1172, %211
   %indvars.iv1431 = phi i64 [ 0, %.lr.ph1172 ], [ %indvars.iv.next1432, %211 ]
-  %.06621170 = phi i32 [ %207, %.lr.ph1172 ], [ %214, %211 ]
-  %210 = icmp slt i32 %208, %.06621170
+  %.06631170 = phi i32 [ %207, %.lr.ph1172 ], [ %214, %211 ]
+  %210 = icmp slt i32 %208, %.06631170
   br i1 %210, label %._crit_edge1173.loopexit.split.loop.exit, label %211
 
 211:                                              ; preds = %209
   %indvars.iv.next1432 = add nuw nsw i64 %indvars.iv1431, 1
   %212 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv.next1432
   %213 = load i32, ptr %212, align 4
-  %214 = add nsw i32 %213, %.06621170
+  %214 = add nsw i32 %213, %.06631170
   %exitcond1435.not = icmp eq i64 %indvars.iv.next1432, %wide.trip.count1434
   br i1 %exitcond1435.not, label %._crit_edge1173, label %209, !llvm.loop !10
 
@@ -567,12 +567,12 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br label %._crit_edge1173
 
 ._crit_edge1173:                                  ; preds = %211, %._crit_edge1173.loopexit.split.loop.exit, %.lr.ph1186
-  %.2683 = phi i32 [ %.16821180, %.lr.ph1186 ], [ %215, %._crit_edge1173.loopexit.split.loop.exit ], [ %.16821180, %211 ]
-  %.not785 = icmp eq i64 %.16791181, 0
+  %.2684 = phi i32 [ %.16831180, %.lr.ph1186 ], [ %215, %._crit_edge1173.loopexit.split.loop.exit ], [ %.16831180, %211 ]
+  %.not785 = icmp eq i64 %.16801181, 0
   br i1 %.not785, label %305, label %216
 
 216:                                              ; preds = %._crit_edge1173
-  %.not786 = icmp sgt i64 %.16791181, %.17041179
+  %.not786 = icmp sgt i64 %.16801181, %.17051179
   br i1 %.not786, label %268, label %217
 
 217:                                              ; preds = %216
@@ -581,32 +581,32 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %219, label %220, label %._crit_edge1519
 
 ._crit_edge1519:                                  ; preds = %217
-  %.pre1533 = sext i32 %.2683 to i64
-  %.pre1535 = trunc i64 %.16791181 to i32
+  %.pre1533 = sext i32 %.2684 to i64
+  %.pre1535 = trunc i64 %.16801181 to i32
   br label %260
 
 220:                                              ; preds = %217
-  %221 = trunc i64 %.16791181 to i32
-  %222 = sext i32 %.2683 to i64
-  %223 = getelementptr inbounds ptr, ptr %.0634, i64 %222
+  %221 = trunc i64 %.16801181 to i32
+  %222 = sext i32 %.2684 to i64
+  %223 = getelementptr inbounds ptr, ptr %.0635, i64 %222
   %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds i32, ptr %.0641, i64 %222
+  %225 = getelementptr inbounds i32, ptr %.0642, i64 %222
   %226 = load i32, ptr %225, align 4
   %227 = sext i32 %226 to i64
   %228 = getelementptr i32, ptr %224, i64 %227
   %229 = getelementptr i8, ptr %228, i64 -4
   store i32 %221, ptr %229, align 4
-  %230 = getelementptr inbounds i32, ptr %.0622, i64 %indvars.iv1436
+  %230 = getelementptr inbounds i32, ptr %.0623, i64 %indvars.iv1436
   %231 = load i32, ptr %230, align 4
   %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds %struct.iovec, ptr %.0650, i64 %232
+  %233 = getelementptr inbounds %struct.iovec, ptr %.0651, i64 %232
   %234 = load ptr, ptr %233, align 8
   %235 = ptrtoint ptr %234 to i64
   %236 = getelementptr inbounds i8, ptr %233, i64 8
   %237 = load i64, ptr %236, align 8
-  %238 = add i64 %237, %.1679.neg1184
+  %238 = add i64 %237, %.1680.neg1184
   %239 = add i64 %238, %235
-  %240 = getelementptr inbounds ptr, ptr %.0632, i64 %222
+  %240 = getelementptr inbounds ptr, ptr %.0633, i64 %222
   %241 = load ptr, ptr %240, align 8
   %242 = getelementptr i64, ptr %241, i64 %227
   %243 = getelementptr i8, ptr %242, i64 -8
@@ -644,16 +644,16 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %264 = load i32, ptr %263, align 4
   %265 = icmp eq i32 %264, %261
   %266 = select i1 %265, i32 %.pre-phi1536, i32 0
-  %.1664 = add i32 %266, %.06631182
+  %.1665 = add i32 %266, %.06641182
   br label %.backedge
 
 .backedge:                                        ; preds = %382, %391, %260
   %267 = phi i32 [ %261, %260 ], [ %383, %391 ], [ %383, %382 ]
-  %.16791181.pn = phi i64 [ %.16791181, %260 ], [ %390, %391 ], [ %390, %382 ]
-  %.0663.be = phi i32 [ %.1664, %260 ], [ %393, %391 ], [ %.06631182, %382 ]
+  %.16801181.pn = phi i64 [ %.16801181, %260 ], [ %390, %391 ], [ %390, %382 ]
+  %.0664.be = phi i32 [ %.1665, %260 ], [ %393, %391 ], [ %.06641182, %382 ]
   %indvars.iv.next1437 = add nsw i64 %indvars.iv1436, 1
-  %.1704.be = sub i64 %.17041179, %.16791181.pn
-  %.not784 = icmp eq i64 %.1704.be, 0
+  %.1705.be = sub i64 %.17051179, %.16801181.pn
+  %.not784 = icmp eq i64 %.1705.be, 0
   br i1 %.not784, label %.loopexit1036.loopexit, label %.lr.ph1186, !llvm.loop !11
 
 268:                                              ; preds = %216
@@ -663,16 +663,16 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %271, label %272, label %._crit_edge1520
 
 ._crit_edge1520:                                  ; preds = %268
-  %.pre1529 = sext i32 %.2683 to i64
-  %.pre1531 = trunc i64 %.17041179 to i32
+  %.pre1529 = sext i32 %.2684 to i64
+  %.pre1531 = trunc i64 %.17051179 to i32
   br label %297
 
 272:                                              ; preds = %268
-  %273 = trunc i64 %.17041179 to i32
-  %274 = sext i32 %.2683 to i64
-  %275 = getelementptr inbounds ptr, ptr %.0634, i64 %274
+  %273 = trunc i64 %.17051179 to i32
+  %274 = sext i32 %.2684 to i64
+  %275 = getelementptr inbounds ptr, ptr %.0635, i64 %274
   %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds i32, ptr %.0641, i64 %274
+  %277 = getelementptr inbounds i32, ptr %.0642, i64 %274
   %278 = load i32, ptr %277, align 4
   %279 = sext i32 %278 to i64
   %280 = getelementptr i32, ptr %276, i64 %279
@@ -680,17 +680,17 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   store i32 %273, ptr %281, align 4
   %sext1537 = shl i64 %indvars.iv1436, 32
   %282 = ashr exact i64 %sext1537, 32
-  %283 = getelementptr inbounds i32, ptr %.0622, i64 %282
+  %283 = getelementptr inbounds i32, ptr %.0623, i64 %282
   %284 = load i32, ptr %283, align 4
   %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds %struct.iovec, ptr %.0650, i64 %285
+  %286 = getelementptr inbounds %struct.iovec, ptr %.0651, i64 %285
   %287 = load ptr, ptr %286, align 8
   %288 = ptrtoint ptr %287 to i64
   %289 = getelementptr inbounds i8, ptr %286, i64 8
   %290 = load i64, ptr %289, align 8
-  %291 = add i64 %290, %.1679.neg1184
+  %291 = add i64 %290, %.1680.neg1184
   %292 = add i64 %291, %288
-  %293 = getelementptr inbounds ptr, ptr %.0632, i64 %274
+  %293 = getelementptr inbounds ptr, ptr %.0633, i64 %274
   %294 = load ptr, ptr %293, align 8
   %295 = getelementptr i64, ptr %294, i64 %279
   %296 = getelementptr i8, ptr %295, i64 -8
@@ -707,17 +707,17 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %301 = load i32, ptr %300, align 4
   %302 = icmp eq i32 %301, %298
   %303 = select i1 %302, i32 %.pre-phi1532, i32 0
-  %.2665 = add i32 %303, %.06631182
-  %304 = sub nsw i64 %.16791181, %.17041179
+  %.2666 = add i32 %303, %.06641182
+  %304 = sub nsw i64 %.16801181, %.17051179
   br label %.loopexit1036
 
 305:                                              ; preds = %._crit_edge1173
-  %306 = getelementptr inbounds i32, ptr %.0622, i64 %indvars.iv1436
+  %306 = getelementptr inbounds i32, ptr %.0623, i64 %indvars.iv1436
   %307 = load i32, ptr %306, align 4
   %308 = sext i32 %307 to i64
-  %309 = getelementptr inbounds %struct.iovec, ptr %.0650, i64 %308, i32 1
+  %309 = getelementptr inbounds %struct.iovec, ptr %.0651, i64 %308, i32 1
   %310 = load i64, ptr %309, align 8
-  %311 = icmp slt i64 %.17041179, %310
+  %311 = icmp slt i64 %.17051179, %310
   br i1 %311, label %312, label %344
 
 312:                                              ; preds = %305
@@ -727,16 +727,16 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %315, label %316, label %._crit_edge1522
 
 ._crit_edge1522:                                  ; preds = %312
-  %.pre1523 = sext i32 %.2683 to i64
-  %.pre1525 = trunc i64 %.17041179 to i32
+  %.pre1523 = sext i32 %.2684 to i64
+  %.pre1525 = trunc i64 %.17051179 to i32
   br label %335
 
 316:                                              ; preds = %312
-  %317 = trunc i64 %.17041179 to i32
-  %318 = sext i32 %.2683 to i64
-  %319 = getelementptr inbounds ptr, ptr %.0634, i64 %318
+  %317 = trunc i64 %.17051179 to i32
+  %318 = sext i32 %.2684 to i64
+  %319 = getelementptr inbounds ptr, ptr %.0635, i64 %318
   %320 = load ptr, ptr %319, align 8
-  %321 = getelementptr inbounds i32, ptr %.0641, i64 %318
+  %321 = getelementptr inbounds i32, ptr %.0642, i64 %318
   %322 = load i32, ptr %321, align 4
   %323 = sext i32 %322 to i64
   %324 = getelementptr i32, ptr %320, i64 %323
@@ -744,10 +744,10 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   store i32 %317, ptr %325, align 4
   %326 = load i32, ptr %306, align 4
   %327 = sext i32 %326 to i64
-  %328 = getelementptr inbounds %struct.iovec, ptr %.0650, i64 %327
+  %328 = getelementptr inbounds %struct.iovec, ptr %.0651, i64 %327
   %329 = load ptr, ptr %328, align 8
   %330 = ptrtoint ptr %329 to i64
-  %331 = getelementptr inbounds ptr, ptr %.0632, i64 %318
+  %331 = getelementptr inbounds ptr, ptr %.0633, i64 %318
   %332 = load ptr, ptr %331, align 8
   %333 = getelementptr i64, ptr %332, i64 %323
   %334 = getelementptr i8, ptr %333, i64 -8
@@ -755,7 +755,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %.pre1504 = load i32, ptr %115, align 4
   %.pre1505 = load i32, ptr %306, align 4
   %.phi.trans.insert1506 = sext i32 %.pre1505 to i64
-  %.phi.trans.insert1507 = getelementptr inbounds %struct.iovec, ptr %.0650, i64 %.phi.trans.insert1506, i32 1
+  %.phi.trans.insert1507 = getelementptr inbounds %struct.iovec, ptr %.0651, i64 %.phi.trans.insert1506, i32 1
   %.pre1508 = load i64, ptr %.phi.trans.insert1507, align 8
   br label %335
 
@@ -769,8 +769,8 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %340 = load i32, ptr %339, align 4
   %341 = icmp eq i32 %340, %337
   %342 = select i1 %341, i32 %.pre-phi1526, i32 0
-  %.3666 = add i32 %342, %.06631182
-  %343 = sub i64 %336, %.17041179
+  %.3667 = add i32 %342, %.06641182
+  %343 = sub i64 %336, %.17051179
   br label %.loopexit1036
 
 344:                                              ; preds = %305
@@ -779,15 +779,15 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %346, label %347, label %._crit_edge1521
 
 ._crit_edge1521:                                  ; preds = %344
-  %.pre1527 = sext i32 %.2683 to i64
+  %.pre1527 = sext i32 %.2684 to i64
   br label %382
 
 347:                                              ; preds = %344
   %348 = trunc i64 %310 to i32
-  %349 = sext i32 %.2683 to i64
-  %350 = getelementptr inbounds ptr, ptr %.0634, i64 %349
+  %349 = sext i32 %.2684 to i64
+  %350 = getelementptr inbounds ptr, ptr %.0635, i64 %349
   %351 = load ptr, ptr %350, align 8
-  %352 = getelementptr inbounds i32, ptr %.0641, i64 %349
+  %352 = getelementptr inbounds i32, ptr %.0642, i64 %349
   %353 = load i32, ptr %352, align 4
   %354 = sext i32 %353 to i64
   %355 = getelementptr i32, ptr %351, i64 %354
@@ -795,10 +795,10 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   store i32 %348, ptr %356, align 4
   %357 = load i32, ptr %306, align 4
   %358 = sext i32 %357 to i64
-  %359 = getelementptr inbounds %struct.iovec, ptr %.0650, i64 %358
+  %359 = getelementptr inbounds %struct.iovec, ptr %.0651, i64 %358
   %360 = load ptr, ptr %359, align 8
   %361 = ptrtoint ptr %360 to i64
-  %362 = getelementptr inbounds ptr, ptr %.0632, i64 %349
+  %362 = getelementptr inbounds ptr, ptr %.0633, i64 %349
   %363 = load ptr, ptr %362, align 8
   %364 = getelementptr i64, ptr %363, i64 %354
   %365 = getelementptr i8, ptr %364, i64 -8
@@ -837,13 +837,13 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %386 = load i32, ptr %385, align 4
   %387 = icmp eq i32 %386, %383
   %388 = sext i32 %.pre1500 to i64
-  %389 = getelementptr inbounds %struct.iovec, ptr %.0650, i64 %388, i32 1
+  %389 = getelementptr inbounds %struct.iovec, ptr %.0651, i64 %388, i32 1
   %390 = load i64, ptr %389, align 8
   br i1 %387, label %391, label %.backedge
 
 391:                                              ; preds = %382
   %392 = trunc i64 %390 to i32
-  %393 = add i32 %.06631182, %392
+  %393 = add i32 %.06641182, %392
   br label %.backedge
 
 .loopexit1036.loopexit:                           ; preds = %.backedge
@@ -852,10 +852,10 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 .loopexit1036:                                    ; preds = %..loopexit1036_crit_edge, %.loopexit1036.loopexit, %335, %297
   %395 = phi i32 [ %298, %297 ], [ %337, %335 ], [ %.pre1509, %..loopexit1036_crit_edge ], [ %267, %.loopexit1036.loopexit ]
-  %.16401048 = phi i32 [ %269, %297 ], [ %313, %335 ], [ %.06391243, %..loopexit1036_crit_edge ], [ %394, %.loopexit1036.loopexit ]
-  %.3684 = phi i32 [ %.2683, %297 ], [ %.2683, %335 ], [ %.06811237, %..loopexit1036_crit_edge ], [ %.2683, %.loopexit1036.loopexit ]
-  %.2680 = phi i64 [ %304, %297 ], [ %343, %335 ], [ %.06781238, %..loopexit1036_crit_edge ], [ 0, %.loopexit1036.loopexit ]
-  %.5668 = phi i32 [ %.2665, %297 ], [ %.3666, %335 ], [ 0, %..loopexit1036_crit_edge ], [ %.0663.be, %.loopexit1036.loopexit ]
+  %.16411048 = phi i32 [ %269, %297 ], [ %313, %335 ], [ %.06401243, %..loopexit1036_crit_edge ], [ %394, %.loopexit1036.loopexit ]
+  %.3685 = phi i32 [ %.2684, %297 ], [ %.2684, %335 ], [ %.06821237, %..loopexit1036_crit_edge ], [ %.2684, %.loopexit1036.loopexit ]
+  %.2681 = phi i64 [ %304, %297 ], [ %343, %335 ], [ %.06791238, %..loopexit1036_crit_edge ], [ 0, %.loopexit1036.loopexit ]
+  %.5669 = phi i32 [ %.2666, %297 ], [ %.3667, %335 ], [ 0, %..loopexit1036_crit_edge ], [ %.0664.be, %.loopexit1036.loopexit ]
   %396 = icmp eq i32 %31, %395
   br i1 %396, label %.preheader1035, label %.loopexit
 
@@ -870,42 +870,42 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 .preheader1030:                                   ; preds = %.preheader1030.preheader, %._crit_edge1194
   %indvars.iv1444 = phi i64 [ 0, %.preheader1030.preheader ], [ %indvars.iv.next1445, %._crit_edge1194 ]
-  %.06691197 = phi i32 [ 0, %.preheader1030.preheader ], [ %.1670.lcssa, %._crit_edge1194 ]
-  %399 = getelementptr inbounds i32, ptr %.0641, i64 %indvars.iv1444
+  %.06701197 = phi i32 [ 0, %.preheader1030.preheader ], [ %.1671.lcssa, %._crit_edge1194 ]
+  %399 = getelementptr inbounds i32, ptr %.0642, i64 %indvars.iv1444
   %400 = load i32, ptr %399, align 4
   %401 = icmp sgt i32 %400, 0
   br i1 %401, label %.lr.ph1193, label %._crit_edge1194
 
 .lr.ph1193:                                       ; preds = %.preheader1030
-  %402 = getelementptr inbounds ptr, ptr %.0634, i64 %indvars.iv1444
+  %402 = getelementptr inbounds ptr, ptr %.0635, i64 %indvars.iv1444
   %403 = load ptr, ptr %402, align 8
   %wide.trip.count1442 = zext nneg i32 %400 to i64
   br label %404
 
 404:                                              ; preds = %.lr.ph1193, %404
   %indvars.iv1439 = phi i64 [ 0, %.lr.ph1193 ], [ %indvars.iv.next1440, %404 ]
-  %.16701192 = phi i32 [ %.06691197, %.lr.ph1193 ], [ %spec.select, %404 ]
+  %.16711192 = phi i32 [ %.06701197, %.lr.ph1193 ], [ %spec.select, %404 ]
   %405 = getelementptr inbounds i32, ptr %403, i64 %indvars.iv1439
   %406 = load i32, ptr %405, align 4
   %407 = icmp sgt i32 %406, 0
   %408 = zext i1 %407 to i32
-  %spec.select = add nsw i32 %.16701192, %408
+  %spec.select = add nsw i32 %.16711192, %408
   %indvars.iv.next1440 = add nuw nsw i64 %indvars.iv1439, 1
   %exitcond1443.not = icmp eq i64 %indvars.iv.next1440, %wide.trip.count1442
   br i1 %exitcond1443.not, label %._crit_edge1194, label %404, !llvm.loop !12
 
 ._crit_edge1194:                                  ; preds = %404, %.preheader1030
-  %.1670.lcssa = phi i32 [ %.06691197, %.preheader1030 ], [ %spec.select, %404 ]
+  %.1671.lcssa = phi i32 [ %.06701197, %.preheader1030 ], [ %spec.select, %404 ]
   %indvars.iv.next1445 = add nuw nsw i64 %indvars.iv1444, 1
   %exitcond1448.not = icmp eq i64 %indvars.iv.next1445, %wide.trip.count1447
   br i1 %exitcond1448.not, label %._crit_edge1198, label %.preheader1030, !llvm.loop !13
 
 ._crit_edge1198:                                  ; preds = %._crit_edge1194
-  %409 = icmp sgt i32 %.1670.lcssa, 0
+  %409 = icmp sgt i32 %.1671.lcssa, 0
   br i1 %409, label %410, label %._crit_edge1198.thread
 
 410:                                              ; preds = %._crit_edge1198
-  %411 = zext nneg i32 %.1670.lcssa to i64
+  %411 = zext nneg i32 %.1671.lcssa to i64
   %412 = mul nuw nsw i64 %411, 24
   %413 = call noalias ptr @malloc(i64 noundef %412) #11
   %414 = icmp eq ptr %413, null
@@ -934,23 +934,23 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 .preheader1029:                                   ; preds = %.preheader1029.preheader, %._crit_edge1205
   %indvars.iv1454 = phi i64 [ 0, %.preheader1029.preheader ], [ %indvars.iv.next1455, %._crit_edge1205 ]
-  %.06361208 = phi i32 [ 0, %.preheader1029.preheader ], [ %.1637.lcssa, %._crit_edge1205 ]
-  %421 = getelementptr inbounds i32, ptr %.0641, i64 %indvars.iv1454
+  %.06371208 = phi i32 [ 0, %.preheader1029.preheader ], [ %.1638.lcssa, %._crit_edge1205 ]
+  %421 = getelementptr inbounds i32, ptr %.0642, i64 %indvars.iv1454
   %422 = load i32, ptr %421, align 4
   %423 = icmp sgt i32 %422, 0
   br i1 %423, label %.lr.ph1204, label %._crit_edge1205
 
 .lr.ph1204:                                       ; preds = %.preheader1029
-  %424 = getelementptr inbounds ptr, ptr %.0634, i64 %indvars.iv1454
+  %424 = getelementptr inbounds ptr, ptr %.0635, i64 %indvars.iv1454
   %425 = load ptr, ptr %424, align 8
-  %426 = getelementptr inbounds ptr, ptr %.0632, i64 %indvars.iv1454
+  %426 = getelementptr inbounds ptr, ptr %.0633, i64 %indvars.iv1454
   %wide.trip.count1452 = zext nneg i32 %422 to i64
   %427 = trunc nuw nsw i64 %indvars.iv1454 to i32
   br label %428
 
 428:                                              ; preds = %.lr.ph1204, %442
   %indvars.iv1449 = phi i64 [ 0, %.lr.ph1204 ], [ %indvars.iv.next1450, %442 ]
-  %.16371203 = phi i32 [ %.06361208, %.lr.ph1204 ], [ %.2638, %442 ]
+  %.16381203 = phi i32 [ %.06371208, %.lr.ph1204 ], [ %.2639, %442 ]
   %429 = getelementptr inbounds i32, ptr %425, i64 %indvars.iv1449
   %430 = load i32, ptr %429, align 4
   %431 = icmp sgt i32 %430, 0
@@ -958,7 +958,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 432:                                              ; preds = %428
   %433 = zext nneg i32 %430 to i64
-  %434 = sext i32 %.16371203 to i64
+  %434 = sext i32 %.16381203 to i64
   %435 = getelementptr inbounds %struct.mca_io_ompio_local_io_array, ptr %413, i64 %434
   %436 = getelementptr inbounds i8, ptr %435, i64 8
   store i64 %433, ptr %436, align 8
@@ -968,34 +968,34 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %439 = getelementptr inbounds i64, ptr %438, i64 %indvars.iv1449
   %440 = load i64, ptr %439, align 8
   store i64 %440, ptr %435, align 8
-  %441 = add nsw i32 %.16371203, 1
+  %441 = add nsw i32 %.16381203, 1
   br label %442
 
 442:                                              ; preds = %428, %432
-  %.2638 = phi i32 [ %441, %432 ], [ %.16371203, %428 ]
+  %.2639 = phi i32 [ %441, %432 ], [ %.16381203, %428 ]
   %indvars.iv.next1450 = add nuw nsw i64 %indvars.iv1449, 1
   %exitcond1453.not = icmp eq i64 %indvars.iv.next1450, %wide.trip.count1452
   br i1 %exitcond1453.not, label %._crit_edge1205, label %428, !llvm.loop !14
 
 ._crit_edge1205:                                  ; preds = %442, %.preheader1029
-  %.1637.lcssa = phi i32 [ %.06361208, %.preheader1029 ], [ %.2638, %442 ]
+  %.1638.lcssa = phi i32 [ %.06371208, %.preheader1029 ], [ %.2639, %442 ]
   %indvars.iv.next1455 = add nuw nsw i64 %indvars.iv1454, 1
   %exitcond1458.not = icmp eq i64 %indvars.iv.next1455, %wide.trip.count1457
   br i1 %exitcond1458.not, label %._crit_edge1209, label %.preheader1029, !llvm.loop !15
 
 ._crit_edge1209:                                  ; preds = %._crit_edge1205, %.preheader1034
-  call fastcc void @read_heap_sort(ptr noundef nonnull %413, i32 noundef %.1670.lcssa, ptr noundef nonnull %418)
+  call fastcc void @read_heap_sort(ptr noundef nonnull %413, i32 noundef %.1671.lcssa, ptr noundef nonnull %418)
   %443 = shl nuw nsw i64 %411, 3
   %444 = call noalias ptr @malloc(i64 noundef %443) #11
   %445 = load i32, ptr %418, align 4
   %446 = sext i32 %445 to i64
   %447 = getelementptr inbounds i64, ptr %444, i64 %446
   store i64 0, ptr %447, align 8
-  %.not1294 = icmp eq i32 %.1670.lcssa, 1
+  %.not1294 = icmp eq i32 %.1671.lcssa, 1
   br i1 %.not1294, label %._crit_edge1213, label %.lr.ph1212.preheader
 
 .lr.ph1212.preheader:                             ; preds = %._crit_edge1209
-  %smax = call i32 @llvm.smax.i32(i32 %.1670.lcssa, i32 2)
+  %smax = call i32 @llvm.smax.i32(i32 %.1671.lcssa, i32 2)
   %wide.trip.count1462 = zext nneg i32 %smax to i64
   br label %.lr.ph1212
 
@@ -1040,13 +1040,13 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %470 = getelementptr inbounds i8, ptr %460, i64 16
   store i64 %469, ptr %470, align 8
   %471 = load i64, ptr %447, align 8
-  %472 = getelementptr inbounds i8, ptr %.0630, i64 %471
+  %472 = getelementptr inbounds i8, ptr %.0631, i64 %471
   store ptr %472, ptr %460, align 8
   store i32 1, ptr %150, align 8
   br i1 %.not1294, label %._crit_edge1218.thread, label %.lr.ph1217.preheader
 
 .lr.ph1217.preheader:                             ; preds = %463
-  %smax1467 = call i32 @llvm.smax.i32(i32 %.1670.lcssa, i32 2)
+  %smax1467 = call i32 @llvm.smax.i32(i32 %.1671.lcssa, i32 2)
   %wide.trip.count1468 = zext nneg i32 %smax1467 to i64
   br label %.lr.ph1217
 
@@ -1101,7 +1101,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %512 = sext i32 %511 to i64
   %513 = getelementptr inbounds i64, ptr %444, i64 %512
   %514 = load i64, ptr %513, align 8
-  %515 = getelementptr inbounds i8, ptr %.0630, i64 %514
+  %515 = getelementptr inbounds i8, ptr %.0631, i64 %514
   %516 = load ptr, ptr %149, align 8
   %517 = load i32, ptr %150, align 8
   %518 = sext i32 %517 to i64
@@ -1145,7 +1145,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %534, label %535, label %.lr.ph1221.preheader
 
 .lr.ph1221.preheader:                             ; preds = %529
-  %smax1473 = call i32 @llvm.smax.i32(i32 %.1670.lcssa, i32 1)
+  %smax1473 = call i32 @llvm.smax.i32(i32 %.1671.lcssa, i32 1)
   %wide.trip.count1474 = zext nneg i32 %smax1473 to i64
   br label %.lr.ph1221
 
@@ -1163,14 +1163,14 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %541 = getelementptr inbounds i64, ptr %444, i64 %538
   %542 = load i64, ptr %541, align 8
   %543 = sext i32 %540 to i64
-  %544 = getelementptr inbounds ptr, ptr %.0632, i64 %543
+  %544 = getelementptr inbounds ptr, ptr %.0633, i64 %543
   %545 = load ptr, ptr %544, align 8
   %546 = getelementptr inbounds i32, ptr %533, i64 %543
   %547 = load i32, ptr %546, align 4
   %548 = sext i32 %547 to i64
   %549 = getelementptr inbounds i64, ptr %545, i64 %548
   store i64 %542, ptr %549, align 8
-  %550 = getelementptr inbounds i32, ptr %.0641, i64 %543
+  %550 = getelementptr inbounds i32, ptr %.0642, i64 %543
   %551 = load i32, ptr %550, align 4
   %552 = icmp slt i32 %547, %551
   br i1 %552, label %553, label %555
@@ -1199,15 +1199,15 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %indvars.iv1476 = phi i64 [ %indvars.iv.next1477, %580 ], [ 0, %._crit_edge1222 ]
   %559 = getelementptr inbounds ptr, ptr %.0617, i64 %indvars.iv1476
   store ptr @ompi_request_null, ptr %559, align 8
-  %560 = getelementptr inbounds i32, ptr %.0641, i64 %indvars.iv1476
+  %560 = getelementptr inbounds i32, ptr %.0642, i64 %indvars.iv1476
   %561 = load i32, ptr %560, align 4
   %562 = icmp sgt i32 %561, 0
   br i1 %562, label %563, label %580
 
 563:                                              ; preds = %.lr.ph1225
-  %564 = getelementptr inbounds ptr, ptr %.0634, i64 %indvars.iv1476
+  %564 = getelementptr inbounds ptr, ptr %.0635, i64 %indvars.iv1476
   %565 = load ptr, ptr %564, align 8
-  %566 = getelementptr inbounds ptr, ptr %.0632, i64 %indvars.iv1476
+  %566 = getelementptr inbounds ptr, ptr %.0633, i64 %indvars.iv1476
   %567 = load ptr, ptr %566, align 8
   %568 = getelementptr inbounds ptr, ptr %.0619, i64 %indvars.iv1476
   %569 = call i32 @ompi_datatype_create_hindexed(i32 noundef %561, ptr noundef %565, ptr noundef %567, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %568) #10
@@ -1225,7 +1225,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %576 = getelementptr inbounds i32, ptr %575, i64 %indvars.iv1476
   %577 = load i32, ptr %576, align 4
   %578 = load ptr, ptr %40, align 8
-  %579 = call i32 %574(ptr noundef %.0630, i64 noundef 1, ptr noundef nonnull %571, i32 noundef %577, i32 noundef 123, i32 noundef 4, ptr noundef %578, ptr noundef nonnull %559) #10
+  %579 = call i32 %574(ptr noundef %.0631, i64 noundef 1, ptr noundef nonnull %571, i32 noundef %577, i32 noundef 123, i32 noundef 4, ptr noundef %578, ptr noundef nonnull %559) #10
   %.not796 = icmp eq i32 %579, 0
   br i1 %.not796, label %580, label %.loopexit1032.loopexit
 
@@ -1242,10 +1242,10 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge1222, %.loopexit1036
   %.14 = phi i32 [ %.7, %.loopexit1036 ], [ 0, %._crit_edge1222 ], [ %584, %.loopexit.loopexit ]
-  %.3675 = phi ptr [ %.2674, %.loopexit1036 ], [ %418, %._crit_edge1222 ], [ %418, %.loopexit.loopexit ]
-  %.2647 = phi ptr [ %.1646, %.loopexit1036 ], [ %444, %._crit_edge1222 ], [ %444, %.loopexit.loopexit ]
-  %.3627 = phi ptr [ %.2626, %.loopexit1036 ], [ %413, %._crit_edge1222 ], [ %413, %.loopexit.loopexit ]
-  %.not788 = icmp eq i32 %.5668, 0
+  %.3676 = phi ptr [ %.2675, %.loopexit1036 ], [ %418, %._crit_edge1222 ], [ %418, %.loopexit.loopexit ]
+  %.2648 = phi ptr [ %.1647, %.loopexit1036 ], [ %444, %._crit_edge1222 ], [ %444, %.loopexit.loopexit ]
+  %.3628 = phi ptr [ %.2627, %.loopexit1036 ], [ %413, %._crit_edge1222 ], [ %413, %.loopexit.loopexit ]
+  %.not788 = icmp eq i32 %.5669, 0
   br i1 %.not788, label %644, label %585
 
 585:                                              ; preds = %.loopexit
@@ -1258,7 +1258,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond, label %591, label %.preheader1031.preheader
 
 .preheader1031.preheader:                         ; preds = %585
-  %590 = sext i32 %.5668 to i64
+  %590 = sext i32 %.5669 to i64
   br label %.preheader1031
 
 591:                                              ; preds = %585
@@ -1272,19 +1272,19 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %.06041231 = phi i64 [ %590, %.preheader1031.preheader ], [ %628, %626 ]
   %.16071230 = phi ptr [ %587, %.preheader1031.preheader ], [ %.3, %626 ]
   %.16101229 = phi ptr [ %586, %.preheader1031.preheader ], [ %.3612, %626 ]
-  %.16531228 = phi i64 [ %.06521241, %.preheader1031.preheader ], [ 0, %626 ]
-  %.16581227 = phi i32 [ %.06571240, %.preheader1031.preheader ], [ %629, %626 ]
+  %.16541228 = phi i64 [ %.06531241, %.preheader1031.preheader ], [ 0, %626 ]
+  %.16591227 = phi i32 [ %.06581240, %.preheader1031.preheader ], [ %629, %626 ]
   %indvars.iv.next1480 = add nsw i64 %indvars.iv1479, 1
   %592 = icmp eq i64 %indvars.iv.next1480, 0
   br i1 %592, label %593, label %600
 
 593:                                              ; preds = %.preheader1031
   %594 = load ptr, ptr %7, align 8
-  %595 = sext i32 %.16581227 to i64
+  %595 = sext i32 %.16591227 to i64
   %596 = getelementptr inbounds %struct.iovec, ptr %594, i64 %595
   %597 = load ptr, ptr %596, align 8
   %598 = ptrtoint ptr %597 to i64
-  %599 = add i64 %.16531228, %598
+  %599 = add i64 %.16541228, %598
   br label %619
 
 600:                                              ; preds = %.preheader1031
@@ -1307,11 +1307,11 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %.2608 = phi ptr [ %609, %603 ], [ %.16071230, %600 ]
   %.1602 = phi i32 [ %604, %603 ], [ %.06011233, %600 ]
   %611 = load ptr, ptr %7, align 8
-  %612 = sext i32 %.16581227 to i64
+  %612 = sext i32 %.16591227 to i64
   %613 = getelementptr inbounds %struct.iovec, ptr %611, i64 %612
   %614 = load ptr, ptr %613, align 8
   %615 = ptrtoint ptr %614 to i64
-  %616 = sub i64 %.16531228, %.01234
+  %616 = sub i64 %.16541228, %.01234
   %617 = add i64 %616, %615
   %618 = getelementptr inbounds i64, ptr %.2608, i64 %indvars.iv.next1480
   store i64 %617, ptr %618, align 8
@@ -1327,12 +1327,12 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %.1 = phi i64 [ %.01234, %610 ], [ %599, %593 ]
   %621 = getelementptr inbounds %struct.iovec, ptr %620, i64 %.pre-phi, i32 1
   %622 = load i64, ptr %621, align 8
-  %623 = sub i64 %622, %.16531228
+  %623 = sub i64 %622, %.16541228
   %.not794 = icmp ult i64 %.06041231, %623
   br i1 %.not794, label %.thread1546, label %626
 
 .thread1546:                                      ; preds = %619
-  %624 = add i64 %.06041231, %.16531228
+  %624 = add i64 %.06041231, %.16541228
   %.sink1551 = trunc i64 %.06041231 to i32
   %625 = getelementptr inbounds i32, ptr %.3612, i64 %indvars.iv.next1480
   store i32 %.sink1551, ptr %625, align 4
@@ -1342,7 +1342,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %sext = shl i64 %623, 32
   %627 = ashr exact i64 %sext, 32
   %628 = sub i64 %.06041231, %627
-  %629 = add nsw i32 %.16581227, 1
+  %629 = add nsw i32 %.16591227, 1
   %.sink = trunc i64 %623 to i32
   %630 = getelementptr inbounds i32, ptr %.3612, i64 %indvars.iv.next1480
   store i32 %.sink, ptr %630, align 4
@@ -1350,8 +1350,8 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %.not789, label %.loopexit1555, label %.preheader1031, !llvm.loop !20
 
 .loopexit1555:                                    ; preds = %626, %.thread1546
-  %.26541554 = phi i64 [ %624, %.thread1546 ], [ 0, %626 ]
-  %.26591553 = phi i32 [ %.16581227, %.thread1546 ], [ %629, %626 ]
+  %.26551554 = phi i64 [ %624, %.thread1546 ], [ 0, %626 ]
+  %.26601553 = phi i32 [ %.16591227, %.thread1546 ], [ %629, %626 ]
   %631 = trunc nsw i64 %indvars.iv1479 to i32
   %632 = add nsw i32 %631, 2
   %633 = call i32 @ompi_datatype_create_hindexed(i32 noundef %632, ptr noundef nonnull %.3612, ptr noundef %.3, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %12) #10
@@ -1375,8 +1375,8 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %.not791, label %644, label %.loopexit1032
 
 644:                                              ; preds = %643, %.loopexit
-  %.3660 = phi i32 [ %.26591553, %643 ], [ %.06571240, %.loopexit ]
-  %.3655 = phi i64 [ %.26541554, %643 ], [ %.06521241, %.loopexit ]
+  %.3661 = phi i32 [ %.26601553, %643 ], [ %.06581240, %.loopexit ]
+  %.3656 = phi i64 [ %.26551554, %643 ], [ %.06531241, %.loopexit ]
   %.4613 = phi ptr [ %.3612, %643 ], [ %.06091245, %.loopexit ]
   %.4 = phi ptr [ %.3, %643 ], [ %.06061248, %.loopexit ]
   %645 = load i32, ptr %115, align 4
@@ -1399,11 +1399,11 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 ._crit_edge1198.thread:                           ; preds = %.preheader1035, %652, %._crit_edge1198
   %.15 = phi i32 [ %.14, %652 ], [ %397, %._crit_edge1198 ], [ 0, %.preheader1035 ]
-  %.4676 = phi ptr [ %.3675, %652 ], [ %.2674, %._crit_edge1198 ], [ %.2674, %.preheader1035 ]
-  %.4661 = phi i32 [ %.3660, %652 ], [ %.06571240, %._crit_edge1198 ], [ %.06571240, %.preheader1035 ]
-  %.4656 = phi i64 [ %.3655, %652 ], [ %.06521241, %._crit_edge1198 ], [ %.06521241, %.preheader1035 ]
-  %.3648 = phi ptr [ %.2647, %652 ], [ %.1646, %._crit_edge1198 ], [ %.1646, %.preheader1035 ]
-  %.4628 = phi ptr [ %.3627, %652 ], [ %.2626, %._crit_edge1198 ], [ %.2626, %.preheader1035 ]
+  %.4677 = phi ptr [ %.3676, %652 ], [ %.2675, %._crit_edge1198 ], [ %.2675, %.preheader1035 ]
+  %.4662 = phi i32 [ %.3661, %652 ], [ %.06581240, %._crit_edge1198 ], [ %.06581240, %.preheader1035 ]
+  %.4657 = phi i64 [ %.3656, %652 ], [ %.06531241, %._crit_edge1198 ], [ %.06531241, %.preheader1035 ]
+  %.3649 = phi ptr [ %.2648, %652 ], [ %.1647, %._crit_edge1198 ], [ %.1647, %.preheader1035 ]
+  %.4629 = phi ptr [ %.3628, %652 ], [ %.2627, %._crit_edge1198 ], [ %.2627, %.preheader1035 ]
   %.5614 = phi ptr [ %.4613, %652 ], [ %.06091245, %._crit_edge1198 ], [ %.06091245, %.preheader1035 ]
   %.5 = phi ptr [ %.4, %652 ], [ %.06061248, %._crit_edge1198 ], [ %.06061248, %.preheader1035 ]
   %indvars.iv.next1483 = add nuw nsw i64 %indvars.iv1482, 1
@@ -1415,14 +1415,14 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit1032
 
 .loopexit1032:                                    ; preds = %643, %647, %652, %._crit_edge1198.thread, %.loopexit1032.loopexit, %.loopexit1041, %591, %535, %528, %462, %420, %415, %193, %189
-  %.2701 = phi i32 [ -2, %189 ], [ -2, %193 ], [ -2, %415 ], [ -2, %420 ], [ -2, %462 ], [ -1, %528 ], [ -2, %535 ], [ -2, %591 ], [ 0, %.loopexit1041 ], [ %579, %.loopexit1032.loopexit ], [ %639, %643 ], [ %651, %647 ], [ %654, %652 ], [ 0, %._crit_edge1198.thread ]
-  %.16 = phi i32 [ %.6698, %189 ], [ %.6698, %193 ], [ %397, %415 ], [ %397, %420 ], [ %.10.lcssa, %462 ], [ %.11.lcssa1544, %528 ], [ %.11.lcssa1545, %535 ], [ %.14, %591 ], [ %.3695, %.loopexit1041 ], [ %655, %.loopexit1032.loopexit ], [ %.14, %643 ], [ %.14, %647 ], [ %.14, %652 ], [ %.15, %._crit_edge1198.thread ]
-  %.5677 = phi ptr [ %.06721239, %189 ], [ %.06721239, %193 ], [ %.2674, %415 ], [ null, %420 ], [ %418, %462 ], [ %418, %528 ], [ %418, %535 ], [ %.3675, %591 ], [ null, %.loopexit1041 ], [ %418, %.loopexit1032.loopexit ], [ %.3675, %643 ], [ %.3675, %647 ], [ %.3675, %652 ], [ %.4676, %._crit_edge1198.thread ]
-  %.4649 = phi ptr [ %.06451242, %189 ], [ %.06451242, %193 ], [ %.1646, %415 ], [ %.1646, %420 ], [ %444, %462 ], [ %444, %528 ], [ %444, %535 ], [ %.2647, %591 ], [ null, %.loopexit1041 ], [ %444, %.loopexit1032.loopexit ], [ %.2647, %643 ], [ %.2647, %647 ], [ %.2647, %652 ], [ %.3648, %._crit_edge1198.thread ]
-  %.5629 = phi ptr [ %.06241244, %189 ], [ %.06241244, %193 ], [ null, %415 ], [ %413, %420 ], [ %413, %462 ], [ %413, %528 ], [ %413, %535 ], [ %.3627, %591 ], [ null, %.loopexit1041 ], [ %413, %.loopexit1032.loopexit ], [ %.3627, %643 ], [ %.3627, %647 ], [ %.3627, %652 ], [ %.4628, %._crit_edge1198.thread ]
+  %.2702 = phi i32 [ -2, %189 ], [ -2, %193 ], [ -2, %415 ], [ -2, %420 ], [ -2, %462 ], [ -1, %528 ], [ -2, %535 ], [ -2, %591 ], [ 0, %.loopexit1041 ], [ %579, %.loopexit1032.loopexit ], [ %639, %643 ], [ %651, %647 ], [ %654, %652 ], [ 0, %._crit_edge1198.thread ]
+  %.16 = phi i32 [ %.6699, %189 ], [ %.6699, %193 ], [ %397, %415 ], [ %397, %420 ], [ %.10.lcssa, %462 ], [ %.11.lcssa1544, %528 ], [ %.11.lcssa1545, %535 ], [ %.14, %591 ], [ %.3696, %.loopexit1041 ], [ %655, %.loopexit1032.loopexit ], [ %.14, %643 ], [ %.14, %647 ], [ %.14, %652 ], [ %.15, %._crit_edge1198.thread ]
+  %.5678 = phi ptr [ %.06731239, %189 ], [ %.06731239, %193 ], [ %.2675, %415 ], [ null, %420 ], [ %418, %462 ], [ %418, %528 ], [ %418, %535 ], [ %.3676, %591 ], [ null, %.loopexit1041 ], [ %418, %.loopexit1032.loopexit ], [ %.3676, %643 ], [ %.3676, %647 ], [ %.3676, %652 ], [ %.4677, %._crit_edge1198.thread ]
+  %.4650 = phi ptr [ %.06461242, %189 ], [ %.06461242, %193 ], [ %.1647, %415 ], [ %.1647, %420 ], [ %444, %462 ], [ %444, %528 ], [ %444, %535 ], [ %.2648, %591 ], [ null, %.loopexit1041 ], [ %444, %.loopexit1032.loopexit ], [ %.2648, %643 ], [ %.2648, %647 ], [ %.2648, %652 ], [ %.3649, %._crit_edge1198.thread ]
+  %.5630 = phi ptr [ %.06251244, %189 ], [ %.06251244, %193 ], [ null, %415 ], [ %413, %420 ], [ %413, %462 ], [ %413, %528 ], [ %413, %535 ], [ %.3628, %591 ], [ null, %.loopexit1041 ], [ %413, %.loopexit1032.loopexit ], [ %.3628, %643 ], [ %.3628, %647 ], [ %.3628, %652 ], [ %.4629, %._crit_edge1198.thread ]
   %.6615 = phi ptr [ %.06091245, %189 ], [ %.06091245, %193 ], [ %.06091245, %415 ], [ %.06091245, %420 ], [ %.06091245, %462 ], [ %.06091245, %528 ], [ %.06091245, %535 ], [ %586, %591 ], [ null, %.loopexit1041 ], [ %.06091245, %.loopexit1032.loopexit ], [ %.3612, %643 ], [ %.4613, %647 ], [ %.4613, %652 ], [ %.5614, %._crit_edge1198.thread ]
   %.6 = phi ptr [ %.06061248, %189 ], [ %.06061248, %193 ], [ %.06061248, %415 ], [ %.06061248, %420 ], [ %.06061248, %462 ], [ %.06061248, %528 ], [ %.06061248, %535 ], [ %587, %591 ], [ null, %.loopexit1041 ], [ %.06061248, %.loopexit1032.loopexit ], [ %.3, %643 ], [ %.4, %647 ], [ %.4, %652 ], [ %.5, %._crit_edge1198.thread ]
-  %.not800 = icmp eq ptr %.0630, null
+  %.not800 = icmp eq ptr %.0631, null
   br i1 %.not800, label %.thread, label %656
 
 656:                                              ; preds = %.thread858, %.loopexit1032
@@ -1430,16 +1430,16 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %.6615894 = phi ptr [ null, %.thread858 ], [ %.6615, %.loopexit1032 ]
   %.1618892 = phi ptr [ %137, %.thread858 ], [ %.0617, %.loopexit1032 ]
   %.1620891 = phi ptr [ null, %.thread858 ], [ %.0619, %.loopexit1032 ]
-  %.5629888 = phi ptr [ null, %.thread858 ], [ %.5629, %.loopexit1032 ]
-  %.1631887 = phi ptr [ %141, %.thread858 ], [ %.0630, %.loopexit1032 ]
-  %.1633886 = phi ptr [ %131, %.thread858 ], [ %.0632, %.loopexit1032 ]
-  %.1635885 = phi ptr [ %127, %.thread858 ], [ %.0634, %.loopexit1032 ]
-  %.1642884 = phi ptr [ %122, %.thread858 ], [ %.0641, %.loopexit1032 ]
-  %.4649882 = phi ptr [ null, %.thread858 ], [ %.4649, %.loopexit1032 ]
-  %.5677880 = phi ptr [ null, %.thread858 ], [ %.5677, %.loopexit1032 ]
-  %.16879 = phi i32 [ %.2694.lcssa, %.thread858 ], [ %.16, %.loopexit1032 ]
-  %.2701878 = phi i32 [ -2, %.thread858 ], [ %.2701, %.loopexit1032 ]
-  call void @free(ptr noundef nonnull %.1631887) #10
+  %.5630888 = phi ptr [ null, %.thread858 ], [ %.5630, %.loopexit1032 ]
+  %.1632887 = phi ptr [ %141, %.thread858 ], [ %.0631, %.loopexit1032 ]
+  %.1634886 = phi ptr [ %131, %.thread858 ], [ %.0633, %.loopexit1032 ]
+  %.1636885 = phi ptr [ %127, %.thread858 ], [ %.0635, %.loopexit1032 ]
+  %.1643884 = phi ptr [ %122, %.thread858 ], [ %.0642, %.loopexit1032 ]
+  %.4650882 = phi ptr [ null, %.thread858 ], [ %.4650, %.loopexit1032 ]
+  %.5678880 = phi ptr [ null, %.thread858 ], [ %.5678, %.loopexit1032 ]
+  %.16879 = phi i32 [ %.2695.lcssa, %.thread858 ], [ %.16, %.loopexit1032 ]
+  %.2702878 = phi i32 [ -2, %.thread858 ], [ %.2702, %.loopexit1032 ]
+  call void @free(ptr noundef nonnull %.1632887) #10
   br label %.thread
 
 .thread:                                          ; preds = %143, %139, %136, %129, %124, %656, %.loopexit1032
@@ -1447,51 +1447,51 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   %.6615856 = phi ptr [ %.6615894, %656 ], [ %.6615, %.loopexit1032 ], [ null, %124 ], [ null, %129 ], [ null, %136 ], [ null, %139 ], [ null, %143 ]
   %.1618854 = phi ptr [ %.1618892, %656 ], [ %.0617, %.loopexit1032 ], [ null, %124 ], [ null, %129 ], [ null, %136 ], [ null, %139 ], [ %137, %143 ]
   %.1620853 = phi ptr [ %.1620891, %656 ], [ %.0619, %.loopexit1032 ], [ null, %124 ], [ null, %129 ], [ null, %136 ], [ null, %139 ], [ null, %143 ]
-  %.5629850 = phi ptr [ %.5629888, %656 ], [ %.5629, %.loopexit1032 ], [ null, %124 ], [ null, %129 ], [ null, %136 ], [ null, %139 ], [ null, %143 ]
-  %.1633849 = phi ptr [ %.1633886, %656 ], [ %.0632, %.loopexit1032 ], [ null, %124 ], [ null, %129 ], [ null, %136 ], [ %131, %139 ], [ %131, %143 ]
-  %.1635848 = phi ptr [ %.1635885, %656 ], [ %.0634, %.loopexit1032 ], [ null, %124 ], [ null, %129 ], [ %127, %136 ], [ %127, %139 ], [ %127, %143 ]
-  %.1642847 = phi ptr [ %.1642884, %656 ], [ %.0641, %.loopexit1032 ], [ null, %124 ], [ %122, %129 ], [ %122, %136 ], [ %122, %139 ], [ %122, %143 ]
-  %.4649845 = phi ptr [ %.4649882, %656 ], [ %.4649, %.loopexit1032 ], [ null, %124 ], [ null, %129 ], [ null, %136 ], [ null, %139 ], [ null, %143 ]
-  %.5677843 = phi ptr [ %.5677880, %656 ], [ %.5677, %.loopexit1032 ], [ null, %124 ], [ null, %129 ], [ null, %136 ], [ null, %139 ], [ null, %143 ]
-  %.16842 = phi i32 [ %.16879, %656 ], [ %.16, %.loopexit1032 ], [ %.1693.lcssa, %124 ], [ %.1693.lcssa, %129 ], [ %.1693.lcssa, %136 ], [ %.2694.lcssa, %139 ], [ %.2694.lcssa, %143 ]
-  %.2701841 = phi i32 [ %.2701878, %656 ], [ %.2701, %.loopexit1032 ], [ -2, %124 ], [ -2, %129 ], [ -2, %136 ], [ -2, %139 ], [ -2, %143 ]
-  %.not801 = icmp eq ptr %.0622, null
+  %.5630850 = phi ptr [ %.5630888, %656 ], [ %.5630, %.loopexit1032 ], [ null, %124 ], [ null, %129 ], [ null, %136 ], [ null, %139 ], [ null, %143 ]
+  %.1634849 = phi ptr [ %.1634886, %656 ], [ %.0633, %.loopexit1032 ], [ null, %124 ], [ null, %129 ], [ null, %136 ], [ %131, %139 ], [ %131, %143 ]
+  %.1636848 = phi ptr [ %.1636885, %656 ], [ %.0635, %.loopexit1032 ], [ null, %124 ], [ null, %129 ], [ %127, %136 ], [ %127, %139 ], [ %127, %143 ]
+  %.1643847 = phi ptr [ %.1643884, %656 ], [ %.0642, %.loopexit1032 ], [ null, %124 ], [ %122, %129 ], [ %122, %136 ], [ %122, %139 ], [ %122, %143 ]
+  %.4650845 = phi ptr [ %.4650882, %656 ], [ %.4650, %.loopexit1032 ], [ null, %124 ], [ null, %129 ], [ null, %136 ], [ null, %139 ], [ null, %143 ]
+  %.5678843 = phi ptr [ %.5678880, %656 ], [ %.5678, %.loopexit1032 ], [ null, %124 ], [ null, %129 ], [ null, %136 ], [ null, %139 ], [ null, %143 ]
+  %.16842 = phi i32 [ %.16879, %656 ], [ %.16, %.loopexit1032 ], [ %.1694.lcssa, %124 ], [ %.1694.lcssa, %129 ], [ %.1694.lcssa, %136 ], [ %.2695.lcssa, %139 ], [ %.2695.lcssa, %143 ]
+  %.2702841 = phi i32 [ %.2702878, %656 ], [ %.2702, %.loopexit1032 ], [ -2, %124 ], [ -2, %129 ], [ -2, %136 ], [ -2, %139 ], [ -2, %143 ]
+  %.not801 = icmp eq ptr %.0623, null
   br i1 %.not801, label %.thread.thread, label %657
 
 657:                                              ; preds = %.thread
-  call void @free(ptr noundef nonnull %.0622) #10
+  call void @free(ptr noundef nonnull %.0623) #10
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %86, %100, %657, %.thread
-  %.2701841929 = phi i32 [ %.2701841, %657 ], [ %.2701841, %.thread ], [ %93, %86 ], [ -2, %100 ]
-  %.16842928 = phi i32 [ %.16842, %657 ], [ %.16842, %.thread ], [ %.1693.lcssa, %86 ], [ %.1693.lcssa, %100 ]
-  %.5677843927 = phi ptr [ %.5677843, %657 ], [ %.5677843, %.thread ], [ null, %86 ], [ null, %100 ]
-  %.4649845925 = phi ptr [ %.4649845, %657 ], [ %.4649845, %.thread ], [ null, %86 ], [ null, %100 ]
-  %.1642847923 = phi ptr [ %.1642847, %657 ], [ %.1642847, %.thread ], [ null, %86 ], [ null, %100 ]
-  %.1635848922 = phi ptr [ %.1635848, %657 ], [ %.1635848, %.thread ], [ null, %86 ], [ null, %100 ]
-  %.1633849921 = phi ptr [ %.1633849, %657 ], [ %.1633849, %.thread ], [ null, %86 ], [ null, %100 ]
-  %.5629850920 = phi ptr [ %.5629850, %657 ], [ %.5629850, %.thread ], [ null, %86 ], [ null, %100 ]
+  %.2702841929 = phi i32 [ %.2702841, %657 ], [ %.2702841, %.thread ], [ %93, %86 ], [ -2, %100 ]
+  %.16842928 = phi i32 [ %.16842, %657 ], [ %.16842, %.thread ], [ %.1694.lcssa, %86 ], [ %.1694.lcssa, %100 ]
+  %.5678843927 = phi ptr [ %.5678843, %657 ], [ %.5678843, %.thread ], [ null, %86 ], [ null, %100 ]
+  %.4650845925 = phi ptr [ %.4650845, %657 ], [ %.4650845, %.thread ], [ null, %86 ], [ null, %100 ]
+  %.1643847923 = phi ptr [ %.1643847, %657 ], [ %.1643847, %.thread ], [ null, %86 ], [ null, %100 ]
+  %.1636848922 = phi ptr [ %.1636848, %657 ], [ %.1636848, %.thread ], [ null, %86 ], [ null, %100 ]
+  %.1634849921 = phi ptr [ %.1634849, %657 ], [ %.1634849, %.thread ], [ null, %86 ], [ null, %100 ]
+  %.5630850920 = phi ptr [ %.5630850, %657 ], [ %.5630850, %.thread ], [ null, %86 ], [ null, %100 ]
   %.1620853918 = phi ptr [ %.1620853, %657 ], [ %.1620853, %.thread ], [ null, %86 ], [ null, %100 ]
   %.1618854917 = phi ptr [ %.1618854, %657 ], [ %.1618854, %.thread ], [ null, %86 ], [ null, %100 ]
   %.6615856915 = phi ptr [ %.6615856, %657 ], [ %.6615856, %.thread ], [ null, %86 ], [ null, %100 ]
   %.6857914 = phi ptr [ %.6857, %657 ], [ %.6857, %.thread ], [ null, %86 ], [ null, %100 ]
-  %.not802 = icmp eq ptr %.0650, null
+  %.not802 = icmp eq ptr %.0651, null
   br i1 %.not802, label %.thread.thread.thread.thread995, label %658
 
 658:                                              ; preds = %.thread.thread
-  call void @free(ptr noundef nonnull %.0650) #10
+  call void @free(ptr noundef nonnull %.0651) #10
   br label %.thread.thread.thread.thread995
 
 .thread.thread.thread.thread995:                  ; preds = %.thread.thread, %658, %59, %69, %85
-  %.27018419299471026 = phi i32 [ %62, %59 ], [ -2, %69 ], [ -2, %85 ], [ %.2701841929, %658 ], [ %.2701841929, %.thread.thread ]
-  %.168429289481025 = phi i32 [ %.0692.lcssa, %59 ], [ %.0692.lcssa, %69 ], [ %.1693.lcssa, %85 ], [ %.16842928, %658 ], [ %.16842928, %.thread.thread ]
-  %.56778439279491024 = phi ptr [ null, %59 ], [ null, %69 ], [ null, %85 ], [ %.5677843927, %658 ], [ %.5677843927, %.thread.thread ]
-  %.46498459259501023 = phi ptr [ null, %59 ], [ null, %69 ], [ null, %85 ], [ %.4649845925, %658 ], [ %.4649845925, %.thread.thread ]
-  %.16428479239521021 = phi ptr [ null, %59 ], [ null, %69 ], [ null, %85 ], [ %.1642847923, %658 ], [ %.1642847923, %.thread.thread ]
-  %.16358489229531020 = phi ptr [ null, %59 ], [ null, %69 ], [ null, %85 ], [ %.1635848922, %658 ], [ %.1635848922, %.thread.thread ]
-  %.16338499219541019 = phi ptr [ null, %59 ], [ null, %69 ], [ null, %85 ], [ %.1633849921, %658 ], [ %.1633849921, %.thread.thread ]
-  %.56298509209551018 = phi ptr [ null, %59 ], [ null, %69 ], [ null, %85 ], [ %.5629850920, %658 ], [ %.5629850920, %.thread.thread ]
-  %.06218529199561017 = phi ptr [ null, %59 ], [ null, %69 ], [ %67, %85 ], [ %67, %658 ], [ %67, %.thread.thread ]
+  %.27028419299471026 = phi i32 [ %62, %59 ], [ -2, %69 ], [ -2, %85 ], [ %.2702841929, %658 ], [ %.2702841929, %.thread.thread ]
+  %.168429289481025 = phi i32 [ %.0693.lcssa, %59 ], [ %.0693.lcssa, %69 ], [ %.1694.lcssa, %85 ], [ %.16842928, %658 ], [ %.16842928, %.thread.thread ]
+  %.56788439279491024 = phi ptr [ null, %59 ], [ null, %69 ], [ null, %85 ], [ %.5678843927, %658 ], [ %.5678843927, %.thread.thread ]
+  %.46508459259501023 = phi ptr [ null, %59 ], [ null, %69 ], [ null, %85 ], [ %.4650845925, %658 ], [ %.4650845925, %.thread.thread ]
+  %.16438479239521021 = phi ptr [ null, %59 ], [ null, %69 ], [ null, %85 ], [ %.1643847923, %658 ], [ %.1643847923, %.thread.thread ]
+  %.16368489229531020 = phi ptr [ null, %59 ], [ null, %69 ], [ null, %85 ], [ %.1636848922, %658 ], [ %.1636848922, %.thread.thread ]
+  %.16348499219541019 = phi ptr [ null, %59 ], [ null, %69 ], [ null, %85 ], [ %.1634849921, %658 ], [ %.1634849921, %.thread.thread ]
+  %.56308509209551018 = phi ptr [ null, %59 ], [ null, %69 ], [ null, %85 ], [ %.5630850920, %658 ], [ %.5630850920, %.thread.thread ]
+  %.06228529199561017 = phi ptr [ null, %59 ], [ null, %69 ], [ %67, %85 ], [ %67, %658 ], [ %67, %.thread.thread ]
   %.16208539189571016 = phi ptr [ null, %59 ], [ null, %69 ], [ null, %85 ], [ %.1620853918, %658 ], [ %.1620853918, %.thread.thread ]
   %.16188549179581015 = phi ptr [ null, %59 ], [ null, %69 ], [ null, %85 ], [ %.1618854917, %658 ], [ %.1618854917, %.thread.thread ]
   %.66158569159601013 = phi ptr [ null, %59 ], [ null, %69 ], [ null, %85 ], [ %.6615856915, %658 ], [ %.6615856915, %.thread.thread ]
@@ -1500,15 +1500,15 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br label %.thread.thread.thread.thread
 
 .thread.thread.thread.thread:                     ; preds = %5, %25, %38, %39, %._crit_edge, %58, %20, %.thread.thread.thread.thread995
-  %.2701841929947991 = phi i32 [ %.27018419299471026, %.thread.thread.thread.thread995 ], [ %15, %5 ], [ %27, %25 ], [ -2, %38 ], [ %42, %39 ], [ %51, %._crit_edge ], [ -2, %58 ], [ -1, %20 ]
-  %.16842928948990 = phi i32 [ %.168429289481025, %.thread.thread.thread.thread995 ], [ 0, %5 ], [ 0, %25 ], [ 0, %38 ], [ 0, %39 ], [ %.0692.lcssa, %._crit_edge ], [ %.0692.lcssa, %58 ], [ 0, %20 ]
-  %.5677843927949989 = phi ptr [ %.56778439279491024, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
-  %.4649845925950988 = phi ptr [ %.46498459259501023, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
-  %.1642847923952987 = phi ptr [ %.16428479239521021, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
-  %.1635848922953986 = phi ptr [ %.16358489229531020, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
-  %.1633849921954985 = phi ptr [ %.16338499219541019, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
-  %.5629850920955984 = phi ptr [ %.56298509209551018, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
-  %.0621852919956983 = phi ptr [ %.06218529199561017, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
+  %.2702841929947991 = phi i32 [ %.27028419299471026, %.thread.thread.thread.thread995 ], [ %15, %5 ], [ %27, %25 ], [ -2, %38 ], [ %42, %39 ], [ %51, %._crit_edge ], [ -2, %58 ], [ -1, %20 ]
+  %.16842928948990 = phi i32 [ %.168429289481025, %.thread.thread.thread.thread995 ], [ 0, %5 ], [ 0, %25 ], [ 0, %38 ], [ 0, %39 ], [ %.0693.lcssa, %._crit_edge ], [ %.0693.lcssa, %58 ], [ 0, %20 ]
+  %.5678843927949989 = phi ptr [ %.56788439279491024, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
+  %.4650845925950988 = phi ptr [ %.46508459259501023, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
+  %.1643847923952987 = phi ptr [ %.16438479239521021, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
+  %.1636848922953986 = phi ptr [ %.16368489229531020, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
+  %.1634849921954985 = phi ptr [ %.16348499219541019, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
+  %.5630850920955984 = phi ptr [ %.56308509209551018, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
+  %.0622852919956983 = phi ptr [ %.06228529199561017, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
   %.1620853918957982 = phi ptr [ %.16208539189571016, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
   %.1618854917958981 = phi ptr [ %.16188549179581015, %.thread.thread.thread.thread995 ], [ null, %5 ], [ null, %25 ], [ null, %38 ], [ null, %39 ], [ null, %._crit_edge ], [ null, %58 ], [ null, %20 ]
   %.0616855916959980 = phi i32 [ %31, %.thread.thread.thread.thread995 ], [ -1, %5 ], [ -1, %25 ], [ %31, %38 ], [ %31, %39 ], [ %31, %._crit_edge ], [ %31, %58 ], [ -1, %20 ]
@@ -1534,11 +1534,11 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br label %664
 
 664:                                              ; preds = %663, %661
-  %.not806 = icmp eq ptr %.0621852919956983, null
+  %.not806 = icmp eq ptr %.0622852919956983, null
   br i1 %.not806, label %666, label %665
 
 665:                                              ; preds = %664
-  call void @free(ptr noundef nonnull %.0621852919956983) #10
+  call void @free(ptr noundef nonnull %.0622852919956983) #10
   br label %666
 
 666:                                              ; preds = %665, %664
@@ -1564,27 +1564,27 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %673, label %674, label %721
 
 674:                                              ; preds = %670
-  %.not809 = icmp eq ptr %.5677843927949989, null
+  %.not809 = icmp eq ptr %.5678843927949989, null
   br i1 %.not809, label %676, label %675
 
 675:                                              ; preds = %674
-  call void @free(ptr noundef nonnull %.5677843927949989) #10
+  call void @free(ptr noundef nonnull %.5678843927949989) #10
   br label %676
 
 676:                                              ; preds = %675, %674
-  %.not810 = icmp eq ptr %.5629850920955984, null
+  %.not810 = icmp eq ptr %.5630850920955984, null
   br i1 %.not810, label %678, label %677
 
 677:                                              ; preds = %676
-  call void @free(ptr noundef nonnull %.5629850920955984) #10
+  call void @free(ptr noundef nonnull %.5630850920955984) #10
   br label %678
 
 678:                                              ; preds = %677, %676
-  %.not811 = icmp eq ptr %.4649845925950988, null
+  %.not811 = icmp eq ptr %.4650845925950988, null
   br i1 %.not811, label %680, label %679
 
 679:                                              ; preds = %678
-  call void @free(ptr noundef nonnull %.4649845925950988) #10
+  call void @free(ptr noundef nonnull %.4650845925950988) #10
   br label %680
 
 680:                                              ; preds = %679, %678
@@ -1628,15 +1628,15 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 
 694:                                              ; preds = %._crit_edge1286, %680
   %.18 = phi i32 [ %.17.lcssa, %._crit_edge1286 ], [ %.16842928948990, %680 ]
-  %.not813 = icmp eq ptr %.1642847923952987, null
+  %.not813 = icmp eq ptr %.1643847923952987, null
   br i1 %.not813, label %696, label %695
 
 695:                                              ; preds = %694
-  call void @free(ptr noundef nonnull %.1642847923952987) #10
+  call void @free(ptr noundef nonnull %.1643847923952987) #10
   br label %696
 
 696:                                              ; preds = %695, %694
-  %.not814 = icmp eq ptr %.1635848922953986, null
+  %.not814 = icmp eq ptr %.1636848922953986, null
   br i1 %.not814, label %708, label %.preheader1027
 
 .preheader1027:                                   ; preds = %696
@@ -1648,7 +1648,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 .lr.ph1289:                                       ; preds = %.preheader1027, %704
   %700 = phi i32 [ %705, %704 ], [ %698, %.preheader1027 ]
   %indvars.iv1490 = phi i64 [ %indvars.iv.next1491, %704 ], [ 0, %.preheader1027 ]
-  %701 = getelementptr inbounds ptr, ptr %.1635848922953986, i64 %indvars.iv1490
+  %701 = getelementptr inbounds ptr, ptr %.1636848922953986, i64 %indvars.iv1490
   %702 = load ptr, ptr %701, align 8
   %.not818 = icmp eq ptr %702, null
   br i1 %.not818, label %704, label %703
@@ -1667,11 +1667,11 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %707, label %.lr.ph1289, label %._crit_edge1290, !llvm.loop !23
 
 ._crit_edge1290:                                  ; preds = %704, %.preheader1027
-  call void @free(ptr noundef nonnull %.1635848922953986) #10
+  call void @free(ptr noundef nonnull %.1636848922953986) #10
   br label %708
 
 708:                                              ; preds = %._crit_edge1290, %696
-  %.not815 = icmp eq ptr %.1633849921954985, null
+  %.not815 = icmp eq ptr %.1634849921954985, null
   br i1 %.not815, label %719, label %.preheader
 
 .preheader:                                       ; preds = %708
@@ -1683,7 +1683,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
 .lr.ph1292:                                       ; preds = %.preheader, %716
   %712 = phi i32 [ %717, %716 ], [ %710, %.preheader ]
   %indvars.iv1493 = phi i64 [ %indvars.iv.next1494, %716 ], [ 0, %.preheader ]
-  %713 = getelementptr inbounds ptr, ptr %.1633849921954985, i64 %indvars.iv1493
+  %713 = getelementptr inbounds ptr, ptr %.1634849921954985, i64 %indvars.iv1493
   %714 = load ptr, ptr %713, align 8
   %.not817 = icmp eq ptr %714, null
   br i1 %.not817, label %716, label %715
@@ -1701,7 +1701,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %718, label %.lr.ph1292, label %._crit_edge1293, !llvm.loop !24
 
 ._crit_edge1293:                                  ; preds = %716, %.preheader
-  call void @free(ptr noundef nonnull %.1633849921954985) #10
+  call void @free(ptr noundef nonnull %.1634849921954985) #10
   br label %719
 
 719:                                              ; preds = %._crit_edge1293, %708
@@ -1713,7 +1713,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br label %721
 
 721:                                              ; preds = %719, %720, %670
-  ret i32 %.2701841929947991
+  ret i32 %.2702841929947991
 }
 
 declare i32 @mca_common_ompio_decode_datatype(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

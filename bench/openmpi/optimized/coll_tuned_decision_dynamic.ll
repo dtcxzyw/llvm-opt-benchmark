@@ -353,10 +353,10 @@ define i32 @ompi_coll_tuned_reduce_scatter_intra_dec_dynamic(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.047 = phi i32 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
+  %.03947 = phi i32 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %26 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
-  %28 = add nsw i32 %27, %.047
+  %28 = add nsw i32 %27, %.03947
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
@@ -366,10 +366,10 @@ define i32 @ompi_coll_tuned_reduce_scatter_intra_dec_dynamic(ptr noundef %0, ptr
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %22
-  %.0.lcssa = phi i64 [ 0, %22 ], [ %29, %._crit_edge.loopexit ]
+  %.039.lcssa = phi i64 [ 0, %22 ], [ %29, %._crit_edge.loopexit ]
   %30 = getelementptr i8, ptr %3, i64 24
   %.val = load i64, ptr %30, align 8
-  %31 = mul i64 %.val, %.0.lcssa
+  %31 = mul i64 %.val, %.039.lcssa
   %32 = call i32 @ompi_coll_tuned_get_target_method_params(ptr noundef nonnull %21, i64 noundef %31, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #2
   %.not44 = icmp eq i32 %32, 0
   br i1 %.not44, label %37, label %33
@@ -385,8 +385,8 @@ define i32 @ompi_coll_tuned_reduce_scatter_intra_dec_dynamic(ptr noundef %0, ptr
   br label %39
 
 39:                                               ; preds = %37, %33, %13
-  %.040 = phi i32 [ %18, %13 ], [ %36, %33 ], [ %38, %37 ]
-  ret i32 %.040
+  %.0 = phi i32 [ %18, %13 ], [ %36, %33 ], [ %38, %37 ]
+  ret i32 %.0
 }
 
 declare i32 @ompi_coll_tuned_reduce_scatter_intra_do_this(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

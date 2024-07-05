@@ -1710,9 +1710,9 @@ define void @php_libxml_ctx_error(ptr noundef %0, ptr noundef %1, ...) local_unn
   br label %php_libxml_internal_error_handler.exit
 
 php_libxml_internal_error_handler.exit:           ; preds = %2, %4, %7
-  %.012.i = phi i32 [ %9, %7 ], [ 0, %4 ], [ 0, %2 ]
-  %.0.i = phi i32 [ %11, %7 ], [ 0, %4 ], [ 0, %2 ]
-  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 1, ptr noundef %0, ptr %1, ptr noundef nonnull %3, i32 noundef %.012.i, i32 noundef %.0.i)
+  %.012.i = phi i32 [ %11, %7 ], [ 0, %4 ], [ 0, %2 ]
+  %.0.i = phi i32 [ %9, %7 ], [ 0, %4 ], [ 0, %2 ]
+  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 1, ptr noundef %0, ptr %1, ptr noundef nonnull %3, i32 noundef %.0.i, i32 noundef %.012.i)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -1738,9 +1738,9 @@ define void @php_libxml_ctx_warning(ptr noundef %0, ptr noundef %1, ...) local_u
   br label %php_libxml_internal_error_handler.exit
 
 php_libxml_internal_error_handler.exit:           ; preds = %2, %4, %7
-  %.012.i = phi i32 [ %9, %7 ], [ 0, %4 ], [ 0, %2 ]
-  %.0.i = phi i32 [ %11, %7 ], [ 0, %4 ], [ 0, %2 ]
-  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 2, ptr noundef %0, ptr %1, ptr noundef nonnull %3, i32 noundef %.012.i, i32 noundef %.0.i)
+  %.012.i = phi i32 [ %11, %7 ], [ 0, %4 ], [ 0, %2 ]
+  %.0.i = phi i32 [ %9, %7 ], [ 0, %4 ], [ 0, %2 ]
+  call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 2, ptr noundef %0, ptr %1, ptr noundef nonnull %3, i32 noundef %.0.i, i32 noundef %.012.i)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -1945,10 +1945,10 @@ define internal ptr @_php_libxml_pre_ext_ent_loader(ptr noundef %0, ptr noundef 
   br label %85
 
 85:                                               ; preds = %82, %74, %69
-  %.0197.i = phi ptr [ %75, %82 ], [ %70, %69 ], [ %75, %74 ]
+  %.0195.i = phi ptr [ %75, %82 ], [ %70, %69 ], [ %75, %74 ]
   %86 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 64), align 8
   %87 = load ptr, ptr getelementptr inbounds (i8, ptr @libxml_globals, i64 56), align 8
-  call void @zend_call_known_function(ptr noundef nonnull %.0197.i, ptr noundef %86, ptr noundef %87, ptr noundef nonnull %4, i32 noundef 3, ptr noundef nonnull %5, ptr noundef null) #17
+  call void @zend_call_known_function(ptr noundef nonnull %.0195.i, ptr noundef %86, ptr noundef %87, ptr noundef nonnull %4, i32 noundef 3, ptr noundef nonnull %5, ptr noundef null) #17
   %88 = getelementptr inbounds i8, ptr %4, i64 8
   %89 = load i8, ptr %88, align 8
   switch i8 %89, label %119 [
@@ -2040,7 +2040,7 @@ define internal ptr @_php_libxml_pre_ext_ent_loader(ptr noundef %0, ptr noundef 
   br label %_php_libxml_external_entity_loader.exit
 
 _php_libxml_external_entity_loader.exit:          ; preds = %14, %128
-  %.0198.i = phi ptr [ %.1.i, %128 ], [ %16, %14 ]
+  %.0196.i = phi ptr [ %.1.i, %128 ], [ %16, %14 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   br label %133
@@ -2051,7 +2051,7 @@ _php_libxml_external_entity_loader.exit:          ; preds = %14, %128
   br label %133
 
 133:                                              ; preds = %130, %_php_libxml_external_entity_loader.exit
-  %.0 = phi ptr [ %.0198.i, %_php_libxml_external_entity_loader.exit ], [ %132, %130 ]
+  %.0 = phi ptr [ %.0196.i, %_php_libxml_external_entity_loader.exit ], [ %132, %130 ]
   ret ptr %.0
 }
 
@@ -2134,10 +2134,10 @@ define hidden void @zif_libxml_set_streams_context(ptr noundef %0, ptr nocapture
 
 10:                                               ; preds = %5, %6
   %.051.ph = phi i32 [ 14, %6 ], [ 0, %5 ]
-  %.050.ph = phi ptr [ %7, %6 ], [ null, %5 ]
-  %.049.ph = phi i32 [ 1, %6 ], [ 0, %5 ]
-  %.048.ph = phi i32 [ 9, %6 ], [ 1, %5 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.048.ph, i32 noundef %.049.ph, ptr noundef null, i32 noundef %.051.ph, ptr noundef %.050.ph) #17
+  %.050.ph = phi i32 [ 9, %6 ], [ 1, %5 ]
+  %.049.ph = phi ptr [ %7, %6 ], [ null, %5 ]
+  %.048.ph = phi i32 [ 1, %6 ], [ 0, %5 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.050.ph, i32 noundef %.048.ph, ptr noundef null, i32 noundef %.051.ph, ptr noundef %.049.ph) #17
   br label %22
 
 11:                                               ; preds = %6
@@ -2218,10 +2218,10 @@ define hidden void @zif_libxml_use_internal_errors(ptr noundef %0, ptr nocapture
 
 .thread109:                                       ; preds = %14, %7
   %.0119 = phi i32 [ 1, %7 ], [ 9, %14 ]
-  %.064118 = phi i32 [ 0, %7 ], [ 3, %14 ]
-  %.065117 = phi ptr [ null, %7 ], [ %15, %14 ]
-  %.066116 = phi i32 [ 0, %7 ], [ 1, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0119, i32 noundef %.066116, ptr noundef null, i32 noundef %.064118, ptr noundef %.065117) #17
+  %.065118 = phi i32 [ 0, %7 ], [ 3, %14 ]
+  %.066117 = phi ptr [ null, %7 ], [ %15, %14 ]
+  %.067116 = phi i32 [ 0, %7 ], [ 1, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0119, i32 noundef %.067116, ptr noundef null, i32 noundef %.065118, ptr noundef %.066117) #17
   br label %40
 
 .thread129:                                       ; preds = %10, %13
@@ -2659,11 +2659,11 @@ define hidden void @zif_libxml_set_external_entity_loader(ptr noundef %0, ptr no
 
 .critedge:                                        ; preds = %8, %17
   %19 = phi ptr [ null, %8 ], [ %18, %17 ]
-  %.079 = phi i32 [ 0, %8 ], [ 1, %17 ]
-  %.078 = phi ptr [ null, %8 ], [ %10, %17 ]
-  %.077 = phi i32 [ 0, %8 ], [ %., %17 ]
+  %.080 = phi ptr [ null, %8 ], [ %10, %17 ]
+  %.079 = phi i32 [ 0, %8 ], [ %., %17 ]
+  %.078 = phi i32 [ 0, %8 ], [ 1, %17 ]
   %.0 = phi i32 [ 1, %8 ], [ %.95, %17 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.079, ptr noundef %19, i32 noundef %.077, ptr noundef %.078) #17
+  call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.078, ptr noundef %19, i32 noundef %.079, ptr noundef %.080) #17
   br label %72
 
 20:                                               ; preds = %14, %15
@@ -3700,8 +3700,8 @@ define internal ptr @php_libxml_input_buffer_create_filename(ptr noundef %0, i32
   br label %25
 
 25:                                               ; preds = %11, %19, %24, %13, %9
-  %.0 = phi i32 [ %spec.store.select, %13 ], [ %spec.store.select, %24 ], [ %spec.store.select, %19 ], [ 0, %11 ], [ %1, %9 ]
-  %26 = tail call ptr @xmlAllocParserInputBuffer(i32 noundef %.0) #17
+  %.026 = phi i32 [ %spec.store.select, %13 ], [ %spec.store.select, %24 ], [ %spec.store.select, %19 ], [ 0, %11 ], [ %1, %9 ]
+  %26 = tail call ptr @xmlAllocParserInputBuffer(i32 noundef %.026) #17
   %.not33 = icmp eq ptr %26, null
   br i1 %.not33, label %30, label %27
 
@@ -3718,8 +3718,8 @@ define internal ptr @php_libxml_input_buffer_create_filename(ptr noundef %0, i32
   br label %32
 
 32:                                               ; preds = %27, %30, %6, %2
-  %.026 = phi ptr [ null, %2 ], [ null, %6 ], [ null, %30 ], [ %26, %27 ]
-  ret ptr %.026
+  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ null, %30 ], [ %26, %27 ]
+  ret ptr %.0
 }
 
 declare ptr @xmlOutputBufferCreateFilenameDefault(ptr noundef) local_unnamed_addr #2
@@ -3836,19 +3836,19 @@ define internal fastcc ptr @php_libxml_streams_IO_open_wrapper(ptr noundef %0, p
   br label %18
 
 18:                                               ; preds = %13, %16
-  %.026.ph = phi ptr [ %0, %13 ], [ %17, %16 ]
+  %.027.ph = phi ptr [ %0, %13 ], [ %17, %16 ]
   %.not36.ph = phi i1 [ true, %13 ], [ false, %16 ]
   tail call void @xmlFreeURI(ptr noundef nonnull %9) #17
   br label %19
 
 19:                                               ; preds = %8, %18
   %.not3643 = phi i1 [ %.not36.ph, %18 ], [ true, %8 ]
-  %.02641 = phi ptr [ %.026.ph, %18 ], [ %0, %8 ]
-  %20 = icmp eq ptr %.02641, null
+  %.02741 = phi ptr [ %.027.ph, %18 ], [ %0, %8 ]
+  %20 = icmp eq ptr %.02741, null
   br i1 %20, label %56, label %21
 
 21:                                               ; preds = %19
-  %22 = call ptr @php_stream_locate_url_wrapper(ptr noundef nonnull %.02641, ptr noundef nonnull %5, i32 noundef 0) #17
+  %22 = call ptr @php_stream_locate_url_wrapper(ptr noundef nonnull %.02741, ptr noundef nonnull %5, i32 noundef 0) #17
   %23 = icmp ne ptr %22, null
   %24 = icmp ne i32 %2, 0
   %or.cond = and i1 %24, %23
@@ -3872,7 +3872,7 @@ define internal fastcc ptr @php_libxml_streams_IO_open_wrapper(ptr noundef %0, p
 
 34:                                               ; preds = %33
   %35 = load ptr, ptr @xmlFree, align 8
-  call void %35(ptr noundef nonnull %.02641) #17
+  call void %35(ptr noundef nonnull %.02741) #17
   br label %56
 
 36:                                               ; preds = %29, %25, %21
@@ -3914,12 +3914,12 @@ php_libxml_get_stream_context.exit:               ; preds = %39, %42, %44
 
 54:                                               ; preds = %53
   %55 = load ptr, ptr @xmlFree, align 8
-  call void %55(ptr noundef nonnull %.02641) #17
+  call void %55(ptr noundef nonnull %.02741) #17
   br label %56
 
 56:                                               ; preds = %53, %54, %33, %34, %19, %7
-  %.027 = phi ptr [ null, %7 ], [ null, %19 ], [ null, %34 ], [ null, %33 ], [ %48, %54 ], [ %48, %53 ]
-  ret ptr %.027
+  %.0 = phi ptr [ null, %7 ], [ null, %19 ], [ null, %34 ], [ null, %33 ], [ %48, %54 ], [ %48, %53 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

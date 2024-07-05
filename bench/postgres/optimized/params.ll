@@ -99,8 +99,8 @@ define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #
   br label %32
 
 32:                                               ; preds = %30, %26
-  %.0 = phi ptr [ %29, %26 ], [ %31, %30 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.0, i64 16, i1 false)
+  %.022 = phi ptr [ %29, %26 ], [ %31, %30 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.022, i64 16, i1 false)
   %33 = getelementptr inbounds i8, ptr %24, i64 8
   %34 = load i8, ptr %33, align 8
   %35 = trunc i8 %34 to i1
@@ -131,8 +131,8 @@ define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #
   br i1 %49, label %23, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %46, %10, %1, %6
-  %.023 = phi ptr [ null, %6 ], [ null, %1 ], [ %14, %10 ], [ %14, %46 ]
-  ret ptr %.023
+  %.0 = phi ptr [ null, %6 ], [ null, %1 ], [ %14, %10 ], [ %14, %46 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -162,7 +162,7 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
 
 11:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.02129 = phi i64 [ 4, %.lr.ph ], [ %36, %26 ]
+  %.02229 = phi i64 [ 4, %.lr.ph ], [ %36, %26 ]
   %12 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %13
@@ -178,10 +178,10 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
   br label %19
 
 19:                                               ; preds = %17, %13
-  %.0 = phi ptr [ %16, %13 ], [ %18, %17 ]
-  %20 = getelementptr inbounds i8, ptr %.0, i64 12
+  %.021 = phi ptr [ %16, %13 ], [ %18, %17 ]
+  %20 = getelementptr inbounds i8, ptr %.021, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = call i64 @add_size(i64 noundef %.02129, i64 noundef 4) #6
+  %22 = call i64 @add_size(i64 noundef %.02229, i64 noundef 4) #6
   %23 = call i64 @add_size(i64 noundef %22, i64 noundef 2) #6
   %.not27 = icmp eq i32 %21, 0
   br i1 %.not27, label %25, label %24
@@ -200,8 +200,8 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
 26:                                               ; preds = %25, %24
   %27 = phi i16 [ 8, %25 ], [ %.pre31, %24 ]
   %28 = phi i8 [ 1, %25 ], [ %.pre, %24 ]
-  %29 = load i64, ptr %.0, align 8
-  %30 = getelementptr inbounds i8, ptr %.0, i64 8
+  %29 = load i64, ptr %.021, align 8
+  %30 = getelementptr inbounds i8, ptr %.021, i64 8
   %31 = load i8, ptr %30, align 8
   %32 = trunc i8 %31 to i1
   %33 = trunc i8 %28 to i1
@@ -215,8 +215,8 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
   br i1 %39, label %11, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %26, %1, %6
-  %.023 = phi i64 [ 4, %6 ], [ 4, %1 ], [ %36, %26 ]
-  ret i64 %.023
+  %.0 = phi i64 [ 4, %6 ], [ 4, %1 ], [ %36, %26 ]
+  ret i64 %.0
 }
 
 declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -273,15 +273,15 @@ define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_
   br label %25
 
 25:                                               ; preds = %23, %19
-  %.0 = phi ptr [ %22, %19 ], [ %24, %23 ]
-  %26 = getelementptr inbounds i8, ptr %.0, i64 12
+  %.025 = phi ptr [ %22, %19 ], [ %24, %23 ]
+  %26 = getelementptr inbounds i8, ptr %.025, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = load ptr, ptr %1, align 8
   store i32 %27, ptr %28, align 1
   %29 = load ptr, ptr %1, align 8
   %30 = getelementptr i8, ptr %29, i64 4
   store ptr %30, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %.0, i64 10
+  %31 = getelementptr inbounds i8, ptr %.025, i64 10
   %32 = load i16, ptr %31, align 2
   store i16 %32, ptr %30, align 1
   %33 = load ptr, ptr %1, align 8
@@ -304,8 +304,8 @@ define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_
 37:                                               ; preds = %36, %35
   %38 = phi i16 [ 8, %36 ], [ %.pre35, %35 ]
   %39 = phi i8 [ 1, %36 ], [ %.pre, %35 ]
-  %40 = load i64, ptr %.0, align 8
-  %41 = getelementptr inbounds i8, ptr %.0, i64 8
+  %40 = load i64, ptr %.025, align 8
+  %41 = getelementptr inbounds i8, ptr %.025, i64 8
   %42 = load i8, ptr %41, align 8
   %43 = trunc i8 %42 to i1
   %44 = trunc i8 %39 to i1

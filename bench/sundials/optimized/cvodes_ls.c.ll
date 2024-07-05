@@ -858,7 +858,7 @@ define i32 @cvLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %46
 
 46:                                               ; preds = %23, %42
-  %.089 = phi double [ %45, %42 ], [ 0.000000e+00, %23 ]
+  %.088 = phi double [ %45, %42 ], [ 0.000000e+00, %23 ]
   %47 = getelementptr inbounds i8, ptr %8, i64 112
   store ptr %3, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %8, i64 120
@@ -894,11 +894,11 @@ define i32 @cvLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   call void @N_VConst(double noundef 1.000000e+00, ptr noundef %63) #13
   %64 = load ptr, ptr %62, align 8
   %65 = call double @N_VWrmsNorm(ptr noundef %2, ptr noundef %64) #13
-  %66 = fdiv double %.089, %65
+  %66 = fdiv double %.088, %65
   br label %67
 
 67:                                               ; preds = %59, %61, %55
-  %.1 = phi double [ %.089, %55 ], [ %66, %61 ], [ %.089, %59 ]
+  %.1 = phi double [ %.088, %55 ], [ %66, %61 ], [ %.088, %59 ]
   %68 = getelementptr inbounds i8, ptr %8, i64 104
   %69 = load ptr, ptr %68, align 8
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef %69) #13
@@ -978,10 +978,10 @@ define i32 @cvLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %114
 
 114:                                              ; preds = %105, %111, %103
-  %.0 = phi i64 [ %113, %111 ], [ 0, %105 ], [ 0, %103 ]
+  %.089 = phi i64 [ %113, %111 ], [ 0, %105 ], [ 0, %103 ]
   %115 = getelementptr inbounds i8, ptr %8, i64 168
   %116 = load i64, ptr %115, align 8
-  %117 = add nsw i64 %116, %.0
+  %117 = add nsw i64 %116, %.089
   store i64 %117, ptr %115, align 8
   %.not109 = icmp eq i32 %92, 0
   br i1 %.not109, label %.thread114, label %119
@@ -1041,8 +1041,8 @@ define i32 @cvLsSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %132
 
 132:                                              ; preds = %.thread114, %119, %124, %67, %131, %130, %129, %128, %127, %85, %57, %40, %10
-  %.088 = phi i32 [ -2, %10 ], [ 0, %40 ], [ -9, %57 ], [ %86, %85 ], [ -1, %131 ], [ -1, %130 ], [ -1, %129 ], [ -1, %128 ], [ 1, %127 ], [ -1, %67 ], [ %., %124 ], [ 0, %119 ], [ 0, %.thread114 ]
-  ret i32 %.088
+  %.0 = phi i32 [ -2, %10 ], [ 0, %40 ], [ -9, %57 ], [ %86, %85 ], [ -1, %131 ], [ -1, %130 ], [ -1, %129 ], [ -1, %128 ], [ 1, %127 ], [ -1, %67 ], [ %., %124 ], [ 0, %119 ], [ 0, %.thread114 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2779,14 +2779,14 @@ define i32 @cvLsDenseDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %48
 
 48:                                               ; preds = %.lr.ph, %85
-  %.06981 = phi i64 [ 0, %.lr.ph ], [ %88, %85 ]
-  %49 = tail call ptr @SUNDenseMatrix_Column(ptr noundef %3, i64 noundef %.06981) #13
+  %.07181 = phi i64 [ 0, %.lr.ph ], [ %88, %85 ]
+  %49 = tail call ptr @SUNDenseMatrix_Column(ptr noundef %3, i64 noundef %.07181) #13
   tail call void @N_VSetArrayPointer(ptr noundef %49, ptr noundef %10) #13
-  %50 = getelementptr inbounds double, ptr %14, i64 %.06981
+  %50 = getelementptr inbounds double, ptr %14, i64 %.07181
   %51 = load double, ptr %50, align 8
   %52 = tail call double @llvm.fabs.f64(double %51)
   %53 = fmul double %28, %52
-  %54 = getelementptr inbounds double, ptr %13, i64 %.06981
+  %54 = getelementptr inbounds double, ptr %13, i64 %.07181
   %55 = load double, ptr %54, align 8
   %56 = fdiv double %43, %55
   %57 = fcmp ogt double %53, %56
@@ -2796,7 +2796,7 @@ define i32 @cvLsDenseDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %.not79, label %78, label %59
 
 59:                                               ; preds = %48
-  %60 = getelementptr inbounds double, ptr %.070, i64 %.06981
+  %60 = getelementptr inbounds double, ptr %.070, i64 %.07181
   %61 = load double, ptr %60, align 8
   %62 = tail call double @llvm.fabs.f64(double %61)
   %63 = fcmp oeq double %62, 1.000000e+00
@@ -2827,8 +2827,8 @@ define i32 @cvLsDenseDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %78
 
 78:                                               ; preds = %68, %64, %72, %76, %70, %48
-  %.071 = phi double [ %69, %68 ], [ %., %64 ], [ %77, %76 ], [ %., %72 ], [ %., %70 ], [ %., %48 ]
-  %79 = fadd double %51, %.071
+  %.069 = phi double [ %69, %68 ], [ %., %64 ], [ %77, %76 ], [ %., %72 ], [ %., %70 ], [ %., %48 ]
+  %79 = fadd double %51, %.069
   store double %79, ptr %50, align 8
   %80 = load ptr, ptr %45, align 8
   %81 = load ptr, ptr %46, align 8
@@ -2841,10 +2841,10 @@ define i32 @cvLsDenseDQJac(double noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 85:                                               ; preds = %78
   store double %51, ptr %50, align 8
-  %86 = fdiv double 1.000000e+00, %.071
+  %86 = fdiv double 1.000000e+00, %.069
   %87 = fneg double %86
   tail call void @N_VLinearSum(double noundef %86, ptr noundef %5, double noundef %87, ptr noundef %2, ptr noundef %10) #13
-  %88 = add nuw nsw i64 %.06981, 1
+  %88 = add nuw nsw i64 %.07181, 1
   %exitcond.not = icmp eq i64 %88, %9
   br i1 %exitcond.not, label %._crit_edge, label %48
 
@@ -2881,7 +2881,7 @@ define i32 @cvLsBandDQJac(double %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %26
 
 26:                                               ; preds = %22, %7
-  %.0140 = phi ptr [ %25, %22 ], [ null, %7 ]
+  %.0138 = phi ptr [ %25, %22 ], [ null, %7 ]
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %1, ptr noundef %6) #13
   %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load double, ptr %27, align 8
@@ -2933,12 +2933,12 @@ define i32 @cvLsBandDQJac(double %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %90
-  %.0136163 = phi i64 [ %94, %90 ], [ %57, %.lr.ph.preheader ]
-  %58 = getelementptr inbounds double, ptr %18, i64 %.0136163
+  %.0141163 = phi i64 [ %94, %90 ], [ %57, %.lr.ph.preheader ]
+  %58 = getelementptr inbounds double, ptr %18, i64 %.0141163
   %59 = load double, ptr %58, align 8
   %60 = tail call double @llvm.fabs.f64(double %59)
   %61 = fmul double %33, %60
-  %62 = getelementptr inbounds double, ptr %15, i64 %.0136163
+  %62 = getelementptr inbounds double, ptr %15, i64 %.0141163
   %63 = load double, ptr %62, align 8
   %64 = fdiv double %48, %63
   %65 = fcmp ogt double %61, %64
@@ -2948,14 +2948,14 @@ define i32 @cvLsBandDQJac(double %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not160, label %90, label %67
 
 67:                                               ; preds = %.lr.ph
-  %68 = getelementptr inbounds double, ptr %.0140, i64 %.0136163
+  %68 = getelementptr inbounds double, ptr %.0138, i64 %.0141163
   %69 = load double, ptr %68, align 8
   %70 = tail call double @llvm.fabs.f64(double %69)
   %71 = fcmp oeq double %70, 1.000000e+00
   br i1 %71, label %72, label %80
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds double, ptr %19, i64 %.0136163
+  %73 = getelementptr inbounds double, ptr %19, i64 %.0141163
   %74 = load double, ptr %73, align 8
   %75 = fadd double %., %74
   %76 = fmul double %69, %75
@@ -2971,7 +2971,7 @@ define i32 @cvLsBandDQJac(double %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %81, label %82, label %90
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds double, ptr %19, i64 %.0136163
+  %83 = getelementptr inbounds double, ptr %19, i64 %.0141163
   %84 = load double, ptr %83, align 8
   %85 = fadd double %., %84
   %86 = fmul double %69, %85
@@ -2983,12 +2983,12 @@ define i32 @cvLsBandDQJac(double %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %90
 
 90:                                               ; preds = %78, %72, %82, %88, %80, %.lr.ph
-  %.0141 = phi double [ %79, %78 ], [ %., %72 ], [ %89, %88 ], [ %., %82 ], [ %., %80 ], [ %., %.lr.ph ]
-  %91 = getelementptr inbounds double, ptr %19, i64 %.0136163
+  %.0136 = phi double [ %79, %78 ], [ %., %72 ], [ %89, %88 ], [ %., %82 ], [ %., %80 ], [ %., %.lr.ph ]
+  %91 = getelementptr inbounds double, ptr %19, i64 %.0141163
   %92 = load double, ptr %91, align 8
-  %93 = fadd double %.0141, %92
+  %93 = fadd double %.0136, %92
   store double %93, ptr %91, align 8
-  %94 = add nsw i64 %.0136163, %50
+  %94 = add nsw i64 %.0141163, %50
   %95 = icmp slt i64 %94, %10
   br i1 %95, label %.lr.ph, label %._crit_edge
 
@@ -3004,16 +3004,16 @@ define i32 @cvLsBandDQJac(double %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not157, label %.lr.ph170, label %._crit_edge176
 
 .lr.ph170:                                        ; preds = %._crit_edge, %._crit_edge168
-  %.1137169 = phi i64 [ %149, %._crit_edge168 ], [ %57, %._crit_edge ]
-  %102 = getelementptr inbounds double, ptr %18, i64 %.1137169
+  %.1142169 = phi i64 [ %149, %._crit_edge168 ], [ %57, %._crit_edge ]
+  %102 = getelementptr inbounds double, ptr %18, i64 %.1142169
   %103 = load double, ptr %102, align 8
-  %104 = getelementptr inbounds double, ptr %19, i64 %.1137169
+  %104 = getelementptr inbounds double, ptr %19, i64 %.1142169
   store double %103, ptr %104, align 8
-  %105 = tail call ptr @SUNBandMatrix_Column(ptr noundef %3, i64 noundef %.1137169) #13
+  %105 = tail call ptr @SUNBandMatrix_Column(ptr noundef %3, i64 noundef %.1142169) #13
   %106 = load double, ptr %102, align 8
   %107 = tail call double @llvm.fabs.f64(double %106)
   %108 = fmul double %33, %107
-  %109 = getelementptr inbounds double, ptr %15, i64 %.1137169
+  %109 = getelementptr inbounds double, ptr %15, i64 %.1142169
   %110 = load double, ptr %109, align 8
   %111 = fdiv double %48, %110
   %112 = fcmp ogt double %108, %111
@@ -3023,7 +3023,7 @@ define i32 @cvLsBandDQJac(double %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not158, label %135, label %114
 
 114:                                              ; preds = %.lr.ph170
-  %115 = getelementptr inbounds double, ptr %.0140, i64 %.1137169
+  %115 = getelementptr inbounds double, ptr %.0138, i64 %.1142169
   %116 = load double, ptr %115, align 8
   %117 = tail call double @llvm.fabs.f64(double %116)
   %118 = fcmp oeq double %117, 1.000000e+00
@@ -3056,32 +3056,32 @@ define i32 @cvLsBandDQJac(double %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %135
 
 135:                                              ; preds = %124, %119, %128, %133, %126, %.lr.ph170
-  %.1142 = phi double [ %125, %124 ], [ %.161, %119 ], [ %134, %133 ], [ %.161, %128 ], [ %.161, %126 ], [ %.161, %.lr.ph170 ]
-  %136 = fdiv double 1.000000e+00, %.1142
-  %137 = sub nsw i64 %.1137169, %11
+  %.1137 = phi double [ %125, %124 ], [ %.161, %119 ], [ %134, %133 ], [ %.161, %128 ], [ %.161, %126 ], [ %.161, %.lr.ph170 ]
+  %136 = fdiv double 1.000000e+00, %.1137
+  %137 = sub nsw i64 %.1142169, %11
   %138 = tail call i64 @llvm.smax.i64(i64 %137, i64 0)
-  %139 = add nsw i64 %.1137169, %12
+  %139 = add nsw i64 %.1142169, %12
   %.162 = tail call i64 @llvm.smin.i64(i64 %139, i64 %56)
   %.not159164 = icmp sgt i64 %138, %.162
   br i1 %.not159164, label %._crit_edge168, label %.lr.ph167
 
 .lr.ph167:                                        ; preds = %135, %.lr.ph167
-  %.0138165 = phi i64 [ %148, %.lr.ph167 ], [ %138, %135 ]
-  %140 = getelementptr inbounds double, ptr %17, i64 %.0138165
+  %.0140165 = phi i64 [ %148, %.lr.ph167 ], [ %138, %135 ]
+  %140 = getelementptr inbounds double, ptr %17, i64 %.0140165
   %141 = load double, ptr %140, align 8
-  %142 = getelementptr inbounds double, ptr %16, i64 %.0138165
+  %142 = getelementptr inbounds double, ptr %16, i64 %.0140165
   %143 = load double, ptr %142, align 8
   %144 = fsub double %141, %143
   %145 = fmul double %136, %144
-  %146 = sub nsw i64 %.0138165, %.1137169
+  %146 = sub nsw i64 %.0140165, %.1142169
   %147 = getelementptr inbounds double, ptr %105, i64 %146
   store double %145, ptr %147, align 8
-  %148 = add nuw nsw i64 %.0138165, 1
-  %.not159.not = icmp slt i64 %.0138165, %.162
+  %148 = add nuw nsw i64 %.0140165, 1
+  %.not159.not = icmp slt i64 %.0140165, %.162
   br i1 %.not159.not, label %.lr.ph167, label %._crit_edge168
 
 ._crit_edge168:                                   ; preds = %.lr.ph167, %135
-  %149 = add nsw i64 %.1137169, %50
+  %149 = add nsw i64 %.1142169, %50
   %150 = icmp slt i64 %149, %10
   br i1 %150, label %.lr.ph170, label %._crit_edge171
 

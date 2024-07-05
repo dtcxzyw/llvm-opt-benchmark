@@ -458,14 +458,14 @@ define internal range(i32 0, 2) i32 @dissect_ctdb(ptr noundef %0, ptr noundef %1
   br label %72
 
 72:                                               ; preds = %61, %50
-  %.0119165 = phi i32 [ %57, %50 ], [ %68, %61 ]
-  %.0120148153163 = phi i32 [ %51, %50 ], [ %62, %61 ]
-  %.0118155161 = phi i32 [ %54, %50 ], [ %65, %61 ]
+  %.0119167 = phi i32 [ %57, %50 ], [ %68, %61 ]
+  %.0120150155165 = phi i32 [ %51, %50 ], [ %62, %61 ]
+  %.0118157163 = phi i32 [ %54, %50 ], [ %65, %61 ]
   %.0117 = phi i32 [ %60, %50 ], [ %71, %61 ]
   %73 = load ptr, ptr %31, align 8
-  %74 = tail call ptr @val_to_str(i32 noundef %.0120148153163, ptr noundef nonnull @ctdb_opcodes, ptr noundef nonnull @.str.250) #4
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %73, i32 noundef 25, ptr noundef nonnull @.str.249, ptr noundef %74, i32 noundef %.0119165, i32 noundef %.0118155161) #4
-  switch i32 %.0120148153163, label %363 [
+  %74 = tail call ptr @val_to_str(i32 noundef %.0120150155165, ptr noundef nonnull @ctdb_opcodes, ptr noundef nonnull @.str.250) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %73, i32 noundef 25, ptr noundef nonnull @.str.249, ptr noundef %74, i32 noundef %.0119167, i32 noundef %.0118157163) #4
+  switch i32 %.0120150155165, label %363 [
     i32 0, label %75
     i32 1, label %135
     i32 3, label %146
@@ -481,7 +481,7 @@ define internal range(i32 0, 2) i32 @dissect_ctdb(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24)
   store i32 %.0117, ptr %20, align 4
-  store i32 %.0119165, ptr %21, align 4
+  store i32 %.0119167, ptr %21, align 4
   %76 = load i32, ptr @hf_ctdb_flags_immediate, align 4
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %.0121, i32 noundef %76, ptr noundef %0, i32 noundef 32, i32 noundef 4, i32 noundef %.0) #4
   br i1 %.not124, label %80, label %78
@@ -626,7 +626,7 @@ dissect_ctdb_reply_call.exit:                     ; preds = %140, %142
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19)
   store i32 %.0117, ptr %17, align 4
-  store i32 %.0118155161, ptr %18, align 4
+  store i32 %.0118157163, ptr %18, align 4
   %147 = load i32, ptr @hf_ctdb_dbid, align 4
   %148 = tail call ptr @proto_tree_add_item(ptr noundef %.0121, i32 noundef %147, ptr noundef %0, i32 noundef 32, i32 noundef 4, i32 noundef %.0) #4
   %149 = load i32, ptr @hf_ctdb_rsn, align 4
@@ -757,8 +757,8 @@ dissect_ctdb_req_dmaster.exit:                    ; preds = %199, %208
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
   store i32 %.0117, ptr %9, align 4
-  store i32 %.0119165, ptr %10, align 4
-  store i32 %.0118155161, ptr %11, align 4
+  store i32 %.0119167, ptr %10, align 4
+  store i32 %.0118157163, ptr %11, align 4
   %210 = load i32, ptr @hf_ctdb_ctrl_opcode, align 4
   %211 = tail call ptr @proto_tree_add_item(ptr noundef %.0121, i32 noundef %210, ptr noundef %0, i32 noundef 32, i32 noundef 4, i32 noundef %.0) #4
   br i1 %.not124, label %214, label %212
@@ -772,10 +772,10 @@ dissect_ctdb_req_dmaster.exit:                    ; preds = %199, %208
   br label %216
 
 216:                                              ; preds = %214, %212
-  %.069.i = phi i32 [ %213, %212 ], [ %215, %214 ]
+  %.071.i = phi i32 [ %213, %212 ], [ %215, %214 ]
   %217 = load ptr, ptr %31, align 8
-  %218 = tail call ptr @val_to_str(i32 noundef %.069.i, ptr noundef nonnull @ctrl_opcode_vals, ptr noundef nonnull @.str.250) #4
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %217, i32 noundef 25, ptr noundef nonnull @.str.253, ptr noundef %218, i32 noundef %.0119165, i32 noundef %.0118155161) #4
+  %218 = tail call ptr @val_to_str(i32 noundef %.071.i, ptr noundef nonnull @ctrl_opcode_vals, ptr noundef nonnull @.str.250) #4
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %217, i32 noundef 25, ptr noundef nonnull @.str.253, ptr noundef %218, i32 noundef %.0119167, i32 noundef %.0118157163) #4
   %219 = load i32, ptr @hf_ctdb_srvid, align 4
   %220 = tail call ptr @proto_tree_add_item(ptr noundef %.0121, i32 noundef %219, ptr noundef %0, i32 noundef 40, i32 noundef 8, i32 noundef %.0) #4
   %221 = load i32, ptr @hf_ctdb_clientid, align 4
@@ -795,13 +795,13 @@ dissect_ctdb_req_dmaster.exit:                    ; preds = %199, %208
   br label %231
 
 231:                                              ; preds = %229, %227
-  %.070.i = phi i32 [ %228, %227 ], [ %230, %229 ]
-  %.not73.i = icmp eq i32 %.070.i, 0
+  %.069.i = phi i32 [ %228, %227 ], [ %230, %229 ]
+  %.not73.i = icmp eq i32 %.069.i, 0
   br i1 %.not73.i, label %235, label %232
 
 232:                                              ; preds = %231
   %233 = load i32, ptr @hf_ctdb_data, align 4
-  %234 = tail call ptr @proto_tree_add_item(ptr noundef %.0121, i32 noundef %233, ptr noundef %0, i32 noundef 60, i32 noundef %.070.i, i32 noundef %.0) #4
+  %234 = tail call ptr @proto_tree_add_item(ptr noundef %.0121, i32 noundef %233, ptr noundef %0, i32 noundef 60, i32 noundef %.069.i, i32 noundef %.0) #4
   br label %235
 
 235:                                              ; preds = %232, %231
@@ -816,7 +816,7 @@ dissect_ctdb_req_dmaster.exit:                    ; preds = %199, %208
 .thread.i:                                        ; preds = %235
   %241 = tail call ptr @wmem_file_scope() #4
   %242 = tail call noalias ptr @wmem_alloc(ptr noundef %241, i64 noundef 32) #4
-  store i32 %.069.i, ptr %242, align 8
+  store i32 %.071.i, ptr %242, align 8
   %243 = getelementptr inbounds i8, ptr %1, i64 20
   %244 = load i32, ptr %243, align 4
   %245 = getelementptr inbounds i8, ptr %242, i64 4
@@ -863,8 +863,8 @@ dissect_ctdb_req_dmaster.exit:                    ; preds = %199, %208
   br i1 %.not75.i, label %dissect_ctdb_req_control.exit, label %265
 
 265:                                              ; preds = %256, %.thread.i
-  %.079.i = phi ptr [ %242, %.thread.i ], [ %264, %256 ]
-  %266 = load i32, ptr %.079.i, align 8
+  %.07079.i = phi ptr [ %242, %.thread.i ], [ %264, %256 ]
+  %266 = load i32, ptr %.07079.i, align 8
   br label %267
 
 267:                                              ; preds = %277, %265
@@ -905,7 +905,7 @@ find_control_dissector.exit.i:                    ; preds = %275
   br label %find_control_dissector.exit.thread.i
 
 find_control_dissector.exit.thread.i:             ; preds = %277, %272, %281, %find_control_dissector.exit.i
-  call fastcc void @ctdb_display_control(ptr noundef %1, ptr noundef %.0121, ptr noundef %0, ptr noundef nonnull %.079.i)
+  call fastcc void @ctdb_display_control(ptr noundef %1, ptr noundef %.0121, ptr noundef %0, ptr noundef nonnull %.07079.i)
   br label %dissect_ctdb_req_control.exit
 
 dissect_ctdb_req_control.exit:                    ; preds = %256, %find_control_dissector.exit.thread.i
@@ -922,8 +922,8 @@ dissect_ctdb_req_control.exit:                    ; preds = %256, %find_control_
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   store i32 %.0117, ptr %5, align 4
-  store i32 %.0119165, ptr %6, align 4
-  store i32 %.0118155161, ptr %7, align 4
+  store i32 %.0119167, ptr %6, align 4
+  store i32 %.0118157163, ptr %7, align 4
   store i32 1, ptr %8, align 16
   %284 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %5, ptr %284, align 8
@@ -939,8 +939,8 @@ dissect_ctdb_req_control.exit:                    ; preds = %256, %find_control_
   store i32 0, ptr %289, align 16
   %290 = load ptr, ptr @ctdb_controls, align 8
   %291 = call ptr @wmem_tree_lookup32_array(ptr noundef %290, ptr noundef nonnull %8) #4
-  %.not.i134 = icmp eq ptr %291, null
-  br i1 %.not.i134, label %dissect_ctdb_reply_control.exit, label %292
+  %.not.i135 = icmp eq ptr %291, null
+  br i1 %.not.i135, label %dissect_ctdb_reply_control.exit, label %292
 
 292:                                              ; preds = %283
   %293 = getelementptr inbounds i8, ptr %1, i64 80
@@ -948,8 +948,8 @@ dissect_ctdb_req_control.exit:                    ; preds = %256, %find_control_
   %295 = getelementptr inbounds i8, ptr %294, i64 50
   %296 = load i16, ptr %295, align 2
   %297 = and i16 %296, 8
-  %.not78.i135 = icmp eq i16 %297, 0
-  br i1 %.not78.i135, label %298, label %302
+  %.not78.i136 = icmp eq i16 %297, 0
+  br i1 %.not78.i136, label %298, label %302
 
 298:                                              ; preds = %292
   %299 = getelementptr inbounds i8, ptr %1, i64 20
@@ -962,8 +962,8 @@ dissect_ctdb_req_control.exit:                    ; preds = %256, %find_control_
   %303 = load i32, ptr @hf_ctdb_ctrl_opcode, align 4
   %304 = load i32, ptr %291, align 8
   %305 = call ptr @proto_tree_add_uint(ptr noundef %.0121, i32 noundef %303, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %304) #4
-  %.not.i.i136 = icmp eq ptr %305, null
-  br i1 %.not.i.i136, label %proto_item_set_generated.exit.i, label %306
+  %.not.i.i137 = icmp eq ptr %305, null
+  br i1 %.not.i.i137, label %proto_item_set_generated.exit.i, label %306
 
 306:                                              ; preds = %302
   %307 = getelementptr inbounds i8, ptr %305, i64 32
@@ -1010,26 +1010,26 @@ proto_item_set_generated.exit.i:                  ; preds = %309, %306, %302
   br label %336
 
 336:                                              ; preds = %328, %320
-  %.07392.i = phi i32 [ %324, %320 ], [ %332, %328 ]
-  %.08590.i = phi i32 [ %321, %320 ], [ %329, %328 ]
-  %.072.i138 = phi i32 [ %327, %320 ], [ %335, %328 ]
-  %.not80.i139 = icmp eq i32 %.07392.i, 0
-  br i1 %.not80.i139, label %341, label %337
+  %.07592.i = phi i32 [ %324, %320 ], [ %332, %328 ]
+  %.0738590.i = phi i32 [ %321, %320 ], [ %329, %328 ]
+  %.074.i139 = phi i32 [ %327, %320 ], [ %335, %328 ]
+  %.not80.i140 = icmp eq i32 %.07592.i, 0
+  br i1 %.not80.i140, label %341, label %337
 
 337:                                              ; preds = %336
   %338 = load i32, ptr @hf_ctdb_data, align 4
-  %339 = call ptr @proto_tree_add_item(ptr noundef %.0121, i32 noundef %338, ptr noundef %0, i32 noundef 44, i32 noundef %.07392.i, i32 noundef %.0) #4
-  %340 = add i32 %.07392.i, 44
+  %339 = call ptr @proto_tree_add_item(ptr noundef %.0121, i32 noundef %338, ptr noundef %0, i32 noundef 44, i32 noundef %.07592.i, i32 noundef %.0) #4
+  %340 = add i32 %.07592.i, 44
   br label %341
 
 341:                                              ; preds = %337, %336
-  %.075.i = phi i32 [ %340, %337 ], [ 44, %336 ]
-  %.not81.i = icmp eq i32 %.072.i138, 0
+  %.072.i141 = phi i32 [ %340, %337 ], [ 44, %336 ]
+  %.not81.i = icmp eq i32 %.074.i139, 0
   br i1 %.not81.i, label %345, label %342
 
 342:                                              ; preds = %341
   %343 = load i32, ptr @hf_ctdb_error, align 4
-  %344 = call ptr @proto_tree_add_item(ptr noundef %.0121, i32 noundef %343, ptr noundef %0, i32 noundef %.075.i, i32 noundef %.072.i138, i32 noundef %.0) #4
+  %344 = call ptr @proto_tree_add_item(ptr noundef %.0121, i32 noundef %343, ptr noundef %0, i32 noundef %.072.i141, i32 noundef %.074.i139, i32 noundef %.0) #4
   br label %345
 
 345:                                              ; preds = %342, %341
@@ -1037,47 +1037,47 @@ proto_item_set_generated.exit.i:                  ; preds = %309, %306, %302
   br label %347
 
 347:                                              ; preds = %357, %345
-  %.016.i.i140 = phi ptr [ @control_dissectors, %345 ], [ %358, %357 ]
-  %348 = load i32, ptr %.016.i.i140, align 8
-  %.not11.i.i141 = icmp eq i32 %348, 0
-  br i1 %.not11.i.i141, label %349, label %355
+  %.016.i.i142 = phi ptr [ @control_dissectors, %345 ], [ %358, %357 ]
+  %348 = load i32, ptr %.016.i.i142, align 8
+  %.not11.i.i143 = icmp eq i32 %348, 0
+  br i1 %.not11.i.i143, label %349, label %355
 
 349:                                              ; preds = %347
-  %350 = getelementptr inbounds i8, ptr %.016.i.i140, i64 8
+  %350 = getelementptr inbounds i8, ptr %.016.i.i142, i64 8
   %351 = load ptr, ptr %350, align 8
-  %.not12.i.i145 = icmp eq ptr %351, null
-  br i1 %.not12.i.i145, label %352, label %355
+  %.not12.i.i147 = icmp eq ptr %351, null
+  br i1 %.not12.i.i147, label %352, label %355
 
 352:                                              ; preds = %349
-  %353 = getelementptr inbounds i8, ptr %.016.i.i140, i64 16
+  %353 = getelementptr inbounds i8, ptr %.016.i.i142, i64 16
   %354 = load ptr, ptr %353, align 8
-  %.not13.i.i146 = icmp eq ptr %354, null
-  br i1 %.not13.i.i146, label %find_control_dissector.exit.thread.i142, label %355
+  %.not13.i.i148 = icmp eq ptr %354, null
+  br i1 %.not13.i.i148, label %find_control_dissector.exit.thread.i144, label %355
 
 355:                                              ; preds = %352, %349, %347
   %356 = icmp eq i32 %348, %346
-  br i1 %356, label %find_control_dissector.exit.i144, label %357
+  br i1 %356, label %find_control_dissector.exit.i146, label %357
 
 357:                                              ; preds = %355
-  %358 = getelementptr i8, ptr %.016.i.i140, i64 24
+  %358 = getelementptr i8, ptr %.016.i.i142, i64 24
   %.not.i83.i = icmp eq ptr %358, null
-  br i1 %.not.i83.i, label %find_control_dissector.exit.thread.i142, label %347, !llvm.loop !4
+  br i1 %.not.i83.i, label %find_control_dissector.exit.thread.i144, label %347, !llvm.loop !4
 
-find_control_dissector.exit.i144:                 ; preds = %355
-  %359 = getelementptr inbounds i8, ptr %.016.i.i140, i64 16
+find_control_dissector.exit.i146:                 ; preds = %355
+  %359 = getelementptr inbounds i8, ptr %.016.i.i142, i64 16
   %360 = load ptr, ptr %359, align 8
   %.not82.i = icmp eq ptr %360, null
-  br i1 %.not82.i, label %find_control_dissector.exit.thread.i142, label %361
+  br i1 %.not82.i, label %find_control_dissector.exit.thread.i144, label %361
 
-361:                                              ; preds = %find_control_dissector.exit.i144
-  %362 = call i32 %360(ptr noundef %1, ptr noundef %.0121, ptr noundef %0, i32 noundef 44, i32 noundef %.08590.i, i32 noundef %.0) #4
-  br label %find_control_dissector.exit.thread.i142
+361:                                              ; preds = %find_control_dissector.exit.i146
+  %362 = call i32 %360(ptr noundef %1, ptr noundef %.0121, ptr noundef %0, i32 noundef 44, i32 noundef %.0738590.i, i32 noundef %.0) #4
+  br label %find_control_dissector.exit.thread.i144
 
-find_control_dissector.exit.thread.i142:          ; preds = %357, %352, %361, %find_control_dissector.exit.i144
+find_control_dissector.exit.thread.i144:          ; preds = %357, %352, %361, %find_control_dissector.exit.i146
   call fastcc void @ctdb_display_control(ptr noundef %1, ptr noundef %.0121, ptr noundef %0, ptr noundef nonnull %291)
   br label %dissect_ctdb_reply_control.exit
 
-dissect_ctdb_reply_control.exit:                  ; preds = %283, %find_control_dissector.exit.thread.i142
+dissect_ctdb_reply_control.exit:                  ; preds = %283, %find_control_dissector.exit.thread.i144
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -1443,21 +1443,21 @@ define internal noundef i32 @dissect_control_get_nodemap_reply(ptr noundef %0, p
   br label %13
 
 13:                                               ; preds = %11, %9
-  %.0 = phi i32 [ %10, %9 ], [ %12, %11 ]
+  %.031 = phi i32 [ %10, %9 ], [ %12, %11 ]
   %14 = add i32 %3, 4
-  %15 = icmp ugt i32 %.0, 500
+  %15 = icmp ugt i32 %.031, 500
   br i1 %15, label %16, label %.preheader
 
 .preheader:                                       ; preds = %13
-  %.not3334 = icmp eq i32 %.0, 0
+  %.not3334 = icmp eq i32 %.031, 0
   br i1 %.not3334, label %.loopexit, label %.lr.ph
 
 16:                                               ; preds = %13
-  %17 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %8, ptr noundef nonnull @ei_ctdb_too_many_nodes, ptr noundef nonnull @.str.256, i32 noundef %.0) #4
+  %17 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %8, ptr noundef nonnull @ei_ctdb_too_many_nodes, ptr noundef nonnull @.str.256, i32 noundef %.031) #4
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.136 = phi i32 [ %18, %.lr.ph ], [ %.0, %.preheader ]
+  %.136 = phi i32 [ %18, %.lr.ph ], [ %.031, %.preheader ]
   %.03235 = phi i32 [ %27, %.lr.ph ], [ %14, %.preheader ]
   %18 = add i32 %.136, -1
   %19 = load i32, ptr @hf_ctdb_vnn, align 4
@@ -1473,8 +1473,8 @@ define internal noundef i32 @dissect_control_get_nodemap_reply(ptr noundef %0, p
   br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %16
-  %.031 = phi i32 [ %14, %16 ], [ %14, %.preheader ], [ %27, %.lr.ph ]
-  ret i32 %.031
+  %.0 = phi i32 [ %14, %16 ], [ %14, %.preheader ], [ %27, %.lr.ph ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

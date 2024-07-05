@@ -1761,8 +1761,8 @@ _ZNK6casadi6MXNode3depEx.exit8:                   ; preds = %21
   br label %_ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit
 
 .preheader52.i:                                   ; preds = %.preheader52.i.outer, %63
-  %.042.i = phi i64 [ %59, %63 ], [ %.042.i.ph, %.preheader52.i.outer ]
-  %58 = add nuw nsw i64 %.042.i, %.043.i.ph
+  %.043.i = phi i64 [ %59, %63 ], [ %.043.i.ph, %.preheader52.i.outer ]
+  %58 = add nuw nsw i64 %.043.i, %.044.i.ph
   %59 = lshr i64 %58, 1
   %60 = getelementptr inbounds double, ptr %25, i64 %59
   %61 = load double, ptr %60, align 8
@@ -1770,16 +1770,16 @@ _ZNK6casadi6MXNode3depEx.exit8:                   ; preds = %21
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %.preheader52.i
-  %64 = icmp eq i64 %59, %.042.i
+  %64 = icmp eq i64 %59, %.043.i
   br i1 %64, label %_ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit, label %.preheader52.i, !llvm.loop !21
 
 65:                                               ; preds = %.preheader52.i
-  %66 = icmp eq i64 %59, %.043.i.ph
+  %66 = icmp eq i64 %59, %.044.i.ph
   br i1 %66, label %_ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit, label %.preheader52.i.outer, !llvm.loop !21
 
 .preheader52.i.outer:                             ; preds = %51, %65
-  %.043.i.ph = phi i64 [ %59, %65 ], [ 0, %51 ]
-  %.042.i.ph = phi i64 [ %.042.i, %65 ], [ %52, %51 ]
+  %.044.i.ph = phi i64 [ %59, %65 ], [ 0, %51 ]
+  %.043.i.ph = phi i64 [ %.043.i, %65 ], [ %52, %51 ]
   br label %.preheader52.i
 
 67:                                               ; preds = %68, %.preheader.i
@@ -1795,8 +1795,8 @@ _ZNK6casadi6MXNode3depEx.exit8:                   ; preds = %21
   br i1 %72, label %_ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit, label %67, !llvm.loop !22
 
 _ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit:        ; preds = %63, %65, %67, %68, %33, %45, %47, %56
-  %.046.i = phi i64 [ %57, %56 ], [ %spec.select.i, %33 ], [ 0, %47 ], [ 0, %45 ], [ %.0.i, %68 ], [ %smax.i, %67 ], [ %.042.i, %63 ], [ %.043.i.ph, %65 ]
-  %73 = sitofp i64 %.046.i to double
+  %.042.i = phi i64 [ %57, %56 ], [ %spec.select.i, %33 ], [ 0, %47 ], [ 0, %45 ], [ %.0.i, %68 ], [ %smax.i, %67 ], [ %.043.i, %63 ], [ %.044.i.ph, %65 ]
+  %73 = sitofp i64 %.042.i to double
   %74 = load ptr, ptr %2, align 8
   %75 = getelementptr inbounds double, ptr %74, i64 %.014
   store double %73, ptr %75, align 8

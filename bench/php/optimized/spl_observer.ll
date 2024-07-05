@@ -194,11 +194,11 @@ define hidden void @zim_SplObjectStorage_attach(ptr noundef %0, ptr nocapture re
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %9, %10
-  %.067.ph = phi i32 [ 1, %10 ], [ 0, %9 ]
-  %.066.ph = phi ptr [ %11, %10 ], [ null, %9 ]
-  %.065.ph = phi i32 [ 18, %10 ], [ 0, %9 ]
+  %.068.ph = phi ptr [ %11, %10 ], [ null, %9 ]
+  %.067.ph = phi i32 [ 18, %10 ], [ 0, %9 ]
+  %.066.ph = phi i32 [ 1, %10 ], [ 0, %9 ]
   %.0.ph = phi i32 [ 9, %10 ], [ 1, %9 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.067.ph, ptr noundef null, i32 noundef %.065.ph, ptr noundef %.066.ph) #10
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.066.ph, ptr noundef null, i32 noundef %.067.ph, ptr noundef %.068.ph) #10
   br label %20
 
 15:                                               ; preds = %10
@@ -487,10 +487,10 @@ define hidden void @zim_SplObjectStorage_detach(ptr noundef %0, ptr nocapture re
 
 12:                                               ; preds = %8, %.thread
   %.070 = phi i32 [ 1, %.thread ], [ 9, %8 ]
-  %.05169 = phi i32 [ 0, %.thread ], [ 18, %8 ]
-  %.05268 = phi ptr [ null, %.thread ], [ %9, %8 ]
-  %.05367 = phi i32 [ 0, %.thread ], [ 1, %8 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.070, i32 noundef %.05367, ptr noundef null, i32 noundef %.05169, ptr noundef %.05268) #10
+  %.05169 = phi i32 [ 0, %.thread ], [ 1, %8 ]
+  %.05268 = phi i32 [ 0, %.thread ], [ 18, %8 ]
+  %.05367 = phi ptr [ null, %.thread ], [ %9, %8 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.070, i32 noundef %.05169, ptr noundef null, i32 noundef %.05268, ptr noundef %.05367) #10
   br label %18
 
 13:                                               ; preds = %8
@@ -616,11 +616,11 @@ define hidden void @zim_SplObjectStorage_getHash(ptr noundef %0, ptr nocapture n
   br i1 %.not56, label %10, label %9
 
 9:                                                ; preds = %5, %.thread
-  %.069 = phi i32 [ 1, %.thread ], [ 9, %5 ]
-  %.05068 = phi i32 [ 0, %.thread ], [ 18, %5 ]
+  %.04969 = phi i32 [ 0, %.thread ], [ 1, %5 ]
+  %.05068 = phi i32 [ 1, %.thread ], [ 9, %5 ]
   %.05167 = phi ptr [ null, %.thread ], [ %6, %5 ]
-  %.05266 = phi i32 [ 0, %.thread ], [ 1, %5 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.069, i32 noundef %.05266, ptr noundef null, i32 noundef %.05068, ptr noundef %.05167) #10
+  %.05266 = phi i32 [ 0, %.thread ], [ 18, %5 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.05068, i32 noundef %.04969, ptr noundef null, i32 noundef %.05266, ptr noundef %.05167) #10
   br label %14
 
 10:                                               ; preds = %5
@@ -661,11 +661,11 @@ define hidden void @zim_SplObjectStorage_offsetGet(ptr noundef %0, ptr nocapture
   br i1 %.not81, label %15, label %14
 
 14:                                               ; preds = %10, %.thread
-  %.073101 = phi i32 [ 1, %.thread ], [ 9, %10 ]
-  %.074100 = phi i32 [ 0, %.thread ], [ 18, %10 ]
-  %.07599 = phi ptr [ null, %.thread ], [ %11, %10 ]
-  %.07698 = phi i32 [ 0, %.thread ], [ 1, %10 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.073101, i32 noundef %.07698, ptr noundef null, i32 noundef %.074100, ptr noundef %.07599) #10
+  %.072101 = phi i32 [ 0, %.thread ], [ 1, %10 ]
+  %.073100 = phi ptr [ null, %.thread ], [ %11, %10 ]
+  %.07599 = phi i32 [ 1, %.thread ], [ 9, %10 ]
+  %.07698 = phi i32 [ 0, %.thread ], [ 18, %10 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.07599, i32 noundef %.072101, ptr noundef null, i32 noundef %.07698, ptr noundef %.073100) #10
   br label %75
 
 15:                                               ; preds = %10
@@ -731,7 +731,7 @@ spl_object_storage_get.exit:                      ; preds = %35
   br label %spl_object_storage_get.exit.thread126
 
 spl_object_storage_get.exit.thread126:            ; preds = %35, %spl_object_storage_get.exit
-  %.017.i131 = phi ptr [ %39, %spl_object_storage_get.exit ], [ null, %35 ]
+  %.018.i131 = phi ptr [ %39, %spl_object_storage_get.exit ], [ null, %35 ]
   %40 = getelementptr inbounds i8, ptr %36, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 64
@@ -752,7 +752,7 @@ spl_object_storage_get.exit.thread126:            ; preds = %35, %spl_object_sto
   br label %spl_object_storage_free_hash.exit
 
 spl_object_storage_free_hash.exit:                ; preds = %spl_object_storage_get.exit.thread126, %43, %48
-  %.not83 = icmp eq ptr %.017.i131, null
+  %.not83 = icmp eq ptr %.018.i131, null
   br i1 %.not83, label %spl_object_storage_free_hash.exit.thread, label %51
 
 spl_object_storage_free_hash.exit.thread:         ; preds = %.thread110, %spl_object_storage_free_hash.exit
@@ -761,9 +761,9 @@ spl_object_storage_free_hash.exit.thread:         ; preds = %.thread110, %spl_ob
   br label %75
 
 51:                                               ; preds = %spl_object_storage_free_hash.exit.thread138, %spl_object_storage_free_hash.exit
-  %.017.i125141 = phi ptr [ %38, %spl_object_storage_free_hash.exit.thread138 ], [ %.017.i131, %spl_object_storage_free_hash.exit ]
-  %52 = getelementptr inbounds i8, ptr %.017.i125141, i64 8
-  %53 = getelementptr inbounds i8, ptr %.017.i125141, i64 16
+  %.018.i125141 = phi ptr [ %38, %spl_object_storage_free_hash.exit.thread138 ], [ %.018.i131, %spl_object_storage_free_hash.exit ]
+  %52 = getelementptr inbounds i8, ptr %.018.i125141, i64 8
+  %53 = getelementptr inbounds i8, ptr %.018.i125141, i64 16
   %54 = load i32, ptr %53, align 8
   %55 = and i32 %54, 65280
   %.not84 = icmp eq i32 %55, 0
@@ -796,9 +796,9 @@ spl_object_storage_free_hash.exit.thread:         ; preds = %.thread110, %spl_ob
   br label %70
 
 70:                                               ; preds = %.sink.split, %51, %59
-  %.072 = phi ptr [ %61, %59 ], [ %52, %51 ], [ %.sink144, %.sink.split ]
-  %71 = load ptr, ptr %.072, align 8
-  %72 = getelementptr inbounds i8, ptr %.072, i64 8
+  %.074 = phi ptr [ %61, %59 ], [ %52, %51 ], [ %.sink144, %.sink.split ]
+  %71 = load ptr, ptr %.074, align 8
+  %72 = getelementptr inbounds i8, ptr %.074, i64 8
   %73 = load i32, ptr %72, align 8
   store ptr %71, ptr %1, align 8
   %74 = getelementptr inbounds i8, ptr %1, i64 8
@@ -992,15 +992,15 @@ define hidden void @zim_SplObjectStorage_removeAllExcept(ptr nocapture noundef r
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
-  %.027 = phi ptr [ %40, %39 ], [ %28, %.lr.ph.preheader ]
-  %.02426 = phi i32 [ %41, %39 ], [ %20, %.lr.ph.preheader ]
-  %29 = getelementptr inbounds i8, ptr %.027, i64 8
+  %.027 = phi i32 [ %41, %39 ], [ %20, %.lr.ph.preheader ]
+  %.02426 = phi ptr [ %40, %39 ], [ %28, %.lr.ph.preheader ]
+  %29 = getelementptr inbounds i8, ptr %.02426, i64 8
   %30 = load i8, ptr %29, align 8
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %39, label %32
 
 32:                                               ; preds = %.lr.ph
-  %33 = load ptr, ptr %.027, align 8
+  %33 = load ptr, ptr %.02426, align 8
   %34 = load ptr, ptr %33, align 8
   %35 = call fastcc zeroext i1 @spl_object_storage_contains(ptr noundef nonnull %18, ptr noundef %34)
   br i1 %35, label %39, label %36
@@ -1011,8 +1011,8 @@ define hidden void @zim_SplObjectStorage_removeAllExcept(ptr nocapture noundef r
   br label %39
 
 39:                                               ; preds = %32, %36, %.lr.ph
-  %40 = getelementptr inbounds i8, ptr %.027, i64 %26
-  %41 = add i32 %.02426, -1
+  %40 = getelementptr inbounds i8, ptr %.02426, i64 %26
+  %41 = add i32 %.027, -1
   %.not = icmp eq i32 %41, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1131,10 +1131,10 @@ define hidden void @zim_SplObjectStorage_contains(ptr noundef %0, ptr nocapture 
 
 12:                                               ; preds = %8, %.thread
   %.068 = phi i32 [ 1, %.thread ], [ 9, %8 ]
-  %.04967 = phi i32 [ 0, %.thread ], [ 18, %8 ]
-  %.05066 = phi ptr [ null, %.thread ], [ %9, %8 ]
-  %.05165 = phi i32 [ 0, %.thread ], [ 1, %8 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.068, i32 noundef %.05165, ptr noundef null, i32 noundef %.04967, ptr noundef %.05066) #10
+  %.04967 = phi i32 [ 0, %.thread ], [ 1, %8 ]
+  %.05066 = phi i32 [ 0, %.thread ], [ 18, %8 ]
+  %.05165 = phi ptr [ null, %.thread ], [ %9, %8 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.068, i32 noundef %.04967, ptr noundef null, i32 noundef %.05066, ptr noundef %.05165) #10
   br label %18
 
 13:                                               ; preds = %8
@@ -1585,21 +1585,21 @@ define hidden void @zim_SplObjectStorage_serialize(ptr nocapture noundef readonl
   br i1 %.not265, label %60, label %59
 
 59:                                               ; preds = %50, %54
-  %.0232 = phi i64 [ 1, %50 ], [ %57, %54 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %7, i64 noundef %.0232) #10
+  %.0231 = phi i64 [ 1, %50 ], [ %57, %54 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %7, i64 noundef %.0231) #10
   %.pre274 = load ptr, ptr %7, align 8
   br label %60
 
 60:                                               ; preds = %59, %54
   %61 = phi ptr [ %.pre274, %59 ], [ %53, %54 ]
-  %.1233 = phi i64 [ %.0232, %59 ], [ %57, %54 ]
+  %.1232 = phi i64 [ %.0231, %59 ], [ %57, %54 ]
   %62 = getelementptr inbounds i8, ptr %61, i64 24
-  %63 = add i64 %.1233, -1
+  %63 = add i64 %.1232, -1
   %64 = getelementptr inbounds [1 x i8], ptr %62, i64 0, i64 %63
   store i8 44, ptr %64, align 1
   %65 = load ptr, ptr %7, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 16
-  store i64 %.1233, ptr %66, align 8
+  store i64 %.1232, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %51, i64 8
   call void @php_var_serialize(ptr noundef nonnull %7, ptr noundef nonnull %67, ptr noundef nonnull %6) #10
   %68 = load ptr, ptr %7, align 8
@@ -1615,14 +1615,14 @@ define hidden void @zim_SplObjectStorage_serialize(ptr nocapture noundef readonl
   br i1 %.not267, label %75, label %74
 
 74:                                               ; preds = %60, %69
-  %.0231 = phi i64 [ 1, %60 ], [ %72, %69 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %7, i64 noundef %.0231) #10
+  %.0230 = phi i64 [ 1, %60 ], [ %72, %69 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %7, i64 noundef %.0230) #10
   %.pre275 = load ptr, ptr %7, align 8
   br label %75
 
 75:                                               ; preds = %74, %69
   %76 = phi ptr [ %.pre275, %74 ], [ %68, %69 ]
-  %.1 = phi i64 [ %.0231, %74 ], [ %72, %69 ]
+  %.1 = phi i64 [ %.0230, %74 ], [ %72, %69 ]
   %77 = getelementptr inbounds i8, ptr %76, i64 24
   %78 = add i64 %.1, -1
   %79 = getelementptr inbounds [1 x i8], ptr %77, i64 0, i64 %78
@@ -1650,8 +1650,8 @@ define hidden void @zim_SplObjectStorage_serialize(ptr nocapture noundef readonl
   br i1 %.not257, label %92, label %91
 
 91:                                               ; preds = %._crit_edge, %85
-  %.0236 = phi i64 [ 2, %._crit_edge ], [ %88, %85 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %7, i64 noundef %.0236) #10
+  %.0235 = phi i64 [ 2, %._crit_edge ], [ %88, %85 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %7, i64 noundef %.0235) #10
   %.pre276 = load ptr, ptr %7, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre276, i64 16
   %.pre277 = load i64, ptr %.phi.trans.insert, align 8
@@ -1660,13 +1660,13 @@ define hidden void @zim_SplObjectStorage_serialize(ptr nocapture noundef readonl
 92:                                               ; preds = %91, %85
   %93 = phi i64 [ %.pre277, %91 ], [ %87, %85 ]
   %94 = phi ptr [ %.pre276, %91 ], [ %84, %85 ]
-  %.1237 = phi i64 [ %.0236, %91 ], [ %88, %85 ]
+  %.1236 = phi i64 [ %.0235, %91 ], [ %88, %85 ]
   %95 = getelementptr inbounds i8, ptr %94, i64 24
   %96 = getelementptr inbounds i8, ptr %95, i64 %93
   store i16 14957, ptr %96, align 1
   %97 = load ptr, ptr %7, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 16
-  store i64 %.1237, ptr %98, align 8
+  store i64 %.1236, ptr %98, align 8
   %99 = load ptr, ptr %9, align 8
   %100 = call ptr @zend_std_get_properties(ptr noundef %99) #10
   %101 = call ptr @zend_array_dup(ptr noundef %100) #10
@@ -1996,7 +1996,7 @@ spl_object_storage_get.exit:                      ; preds = %91
   br label %spl_object_storage_get.exit.thread79
 
 spl_object_storage_get.exit.thread79:             ; preds = %91, %spl_object_storage_get.exit
-  %.017.i86 = phi ptr [ %96, %spl_object_storage_get.exit ], [ null, %91 ]
+  %.018.i86 = phi ptr [ %96, %spl_object_storage_get.exit ], [ null, %91 ]
   %97 = getelementptr inbounds i8, ptr %90, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = and i32 %98, 64
@@ -2017,24 +2017,24 @@ spl_object_storage_get.exit.thread79:             ; preds = %91, %spl_object_sto
   br label %spl_object_storage_free_hash.exit
 
 spl_object_storage_free_hash.exit:                ; preds = %spl_object_storage_get.exit.thread79, %100, %105
-  %.not52 = icmp eq ptr %.017.i86, null
+  %.not52 = icmp eq ptr %.018.i86, null
   br i1 %.not52, label %spl_object_storage_free_hash.exit.thread, label %106
 
 106:                                              ; preds = %spl_object_storage_free_hash.exit.thread96, %spl_object_storage_free_hash.exit
   %.sroa.0.16977101 = phi i64 [ %.sroa.0.167, %spl_object_storage_free_hash.exit.thread96 ], [ %.sroa.0.0103, %spl_object_storage_free_hash.exit ]
-  %.017.i78100 = phi ptr [ %95, %spl_object_storage_free_hash.exit.thread96 ], [ %.017.i86, %spl_object_storage_free_hash.exit ]
-  %107 = getelementptr inbounds i8, ptr %.017.i78100, i64 16
+  %.018.i78100 = phi ptr [ %95, %spl_object_storage_free_hash.exit.thread96 ], [ %.018.i86, %spl_object_storage_free_hash.exit ]
+  %107 = getelementptr inbounds i8, ptr %.018.i78100, i64 16
   %108 = load i8, ptr %107, align 8
   %109 = icmp eq i8 %108, 0
   br i1 %109, label %112, label %110
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds i8, ptr %.017.i78100, i64 8
+  %111 = getelementptr inbounds i8, ptr %.018.i78100, i64 8
   call void @var_push_dtor(ptr noundef nonnull %8, ptr noundef nonnull %111) #10
   br label %112
 
 112:                                              ; preds = %106, %110
-  %113 = load ptr, ptr %.017.i78100, align 8
+  %113 = load ptr, ptr %.018.i78100, align 8
   store ptr %113, ptr %10, align 8
   store i32 776, ptr %51, align 8
   call void @var_push_dtor(ptr noundef nonnull %8, ptr noundef nonnull %10) #10
@@ -2336,19 +2336,19 @@ define hidden void @zim_SplObjectStorage___unserialize(ptr nocapture noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %73
   %.047 = phi ptr [ %74, %73 ], [ %52, %.lr.ph.preheader ]
-  %.03346 = phi i32 [ %75, %73 ], [ %44, %.lr.ph.preheader ]
-  %.03545 = phi ptr [ %.1, %73 ], [ null, %.lr.ph.preheader ]
+  %.03346 = phi ptr [ %.1, %73 ], [ null, %.lr.ph.preheader ]
+  %.03445 = phi i32 [ %75, %73 ], [ %44, %.lr.ph.preheader ]
   %53 = getelementptr inbounds i8, ptr %.047, i64 8
   %54 = load i8, ptr %53, align 8
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %73, label %56
 
 56:                                               ; preds = %.lr.ph
-  %.not42 = icmp eq ptr %.03545, null
+  %.not42 = icmp eq ptr %.03346, null
   br i1 %.not42, label %73, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %.03545, i64 8
+  %58 = getelementptr inbounds i8, ptr %.03346, i64 8
   %59 = load i8, ptr %58, align 8
   %.not43 = icmp eq i8 %59, 8
   br i1 %.not43, label %65, label %60
@@ -2371,15 +2371,15 @@ define hidden void @zim_SplObjectStorage___unserialize(ptr nocapture noundef rea
   br label %70
 
 70:                                               ; preds = %65, %67
-  %.034 = phi ptr [ %69, %67 ], [ %.047, %65 ]
-  %71 = load ptr, ptr %.03545, align 8
-  %72 = call fastcc ptr @spl_object_storage_attach(ptr noundef nonnull %6, ptr noundef %71, ptr noundef nonnull %.034)
+  %.035 = phi ptr [ %69, %67 ], [ %.047, %65 ]
+  %71 = load ptr, ptr %.03346, align 8
+  %72 = call fastcc ptr @spl_object_storage_attach(ptr noundef nonnull %6, ptr noundef %71, ptr noundef nonnull %.035)
   br label %73
 
 73:                                               ; preds = %56, %70, %.lr.ph
-  %.1 = phi ptr [ %.03545, %.lr.ph ], [ null, %70 ], [ %.047, %56 ]
+  %.1 = phi ptr [ %.03346, %.lr.ph ], [ null, %70 ], [ %.047, %56 ]
   %74 = getelementptr inbounds i8, ptr %.047, i64 %50
-  %75 = add i32 %.03346, -1
+  %75 = add i32 %.03445, -1
   %.not41 = icmp eq i32 %75, 0
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 
@@ -2727,12 +2727,12 @@ thread-pre-split:                                 ; preds = %22
   br label %.thread208
 
 .thread174:                                       ; preds = %41, %24, %26, %10
-  %.0112187 = phi i32 [ 9, %24 ], [ 3, %26 ], [ 1, %10 ], [ 9, %41 ]
-  %.0114186 = phi ptr [ null, %24 ], [ %29, %26 ], [ null, %10 ], [ null, %41 ]
-  %.0115185 = phi i32 [ 18, %24 ], [ 0, %26 ], [ 0, %10 ], [ 29, %41 ]
-  %.0116184 = phi ptr [ %12, %24 ], [ %12, %26 ], [ null, %10 ], [ %34, %41 ]
-  %.0117183 = phi i32 [ 1, %24 ], [ 1, %26 ], [ 0, %10 ], [ 2, %41 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0112187, i32 noundef %.0117183, ptr noundef %.0114186, i32 noundef %.0115185, ptr noundef %.0116184) #10
+  %.0115187 = phi i32 [ 9, %24 ], [ 3, %26 ], [ 1, %10 ], [ 9, %41 ]
+  %.0116186 = phi i32 [ 1, %24 ], [ 1, %26 ], [ 0, %10 ], [ 2, %41 ]
+  %.0117185 = phi ptr [ null, %24 ], [ %29, %26 ], [ null, %10 ], [ null, %41 ]
+  %.0118184 = phi i32 [ 18, %24 ], [ 0, %26 ], [ 0, %10 ], [ 29, %41 ]
+  %.0119183 = phi ptr [ %12, %24 ], [ %12, %26 ], [ null, %10 ], [ %34, %41 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0115187, i32 noundef %.0116186, ptr noundef %.0117185, i32 noundef %.0118184, ptr noundef %.0119183) #10
   br label %77
 
 .thread208:                                       ; preds = %..thread208_crit_edge, %37

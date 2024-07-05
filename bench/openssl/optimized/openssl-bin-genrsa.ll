@@ -92,11 +92,11 @@ if.end:                                           ; preds = %entry
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %if.end
-  %eng.0 = phi ptr [ null, %if.end ], [ %eng.0.be, %while.cond.backedge ]
   %primes.0 = phi i32 [ 2, %if.end ], [ %primes.0.be, %while.cond.backedge ]
   %f4.0 = phi i64 [ 65537, %if.end ], [ %f4.0.be, %while.cond.backedge ]
   %outfile.0 = phi ptr [ null, %if.end ], [ %outfile.0.be, %while.cond.backedge ]
   %passoutarg.0 = phi ptr [ null, %if.end ], [ %passoutarg.0.be, %while.cond.backedge ]
+  %eng.0 = phi ptr [ null, %if.end ], [ %eng.0.be, %while.cond.backedge ]
   %ciphername.0 = phi ptr [ null, %if.end ], [ %ciphername.0.be, %while.cond.backedge ]
   %traditional.0 = phi i32 [ 0, %if.end ], [ %traditional.0.be, %while.cond.backedge ]
   %call4 = tail call i32 @opt_next() #2
@@ -122,11 +122,11 @@ while.cond:                                       ; preds = %while.cond.backedge
   ]
 
 while.cond.backedge:                              ; preds = %while.cond, %sw.bb21, %sw.bb16, %sw.bb34, %sw.bb33, %sw.bb32, %sw.bb30, %sw.bb28, %sw.bb26, %sw.bb12, %sw.bb10, %sw.bb9, %sw.bb8
-  %eng.0.be = phi ptr [ %eng.0, %sw.bb28 ], [ %eng.0, %sw.bb26 ], [ %eng.0, %sw.bb21 ], [ %eng.0, %sw.bb30 ], [ %eng.0, %sw.bb32 ], [ %eng.0, %sw.bb16 ], [ %eng.0, %sw.bb33 ], [ %eng.0, %sw.bb34 ], [ %call14, %sw.bb12 ], [ %eng.0, %sw.bb10 ], [ %eng.0, %sw.bb9 ], [ %eng.0, %sw.bb8 ], [ %eng.0, %while.cond ]
   %primes.0.be = phi i32 [ %primes.0, %sw.bb28 ], [ %primes.0, %sw.bb26 ], [ %primes.0, %sw.bb21 ], [ %call31, %sw.bb30 ], [ %primes.0, %sw.bb32 ], [ %primes.0, %sw.bb16 ], [ %primes.0, %sw.bb33 ], [ %primes.0, %sw.bb34 ], [ %primes.0, %sw.bb12 ], [ %primes.0, %sw.bb10 ], [ %primes.0, %sw.bb9 ], [ %primes.0, %sw.bb8 ], [ %primes.0, %while.cond ]
   %f4.0.be = phi i64 [ %f4.0, %sw.bb28 ], [ %f4.0, %sw.bb26 ], [ %f4.0, %sw.bb21 ], [ %f4.0, %sw.bb30 ], [ %f4.0, %sw.bb32 ], [ %f4.0, %sw.bb16 ], [ %f4.0, %sw.bb33 ], [ %f4.0, %sw.bb34 ], [ %f4.0, %sw.bb12 ], [ %f4.0, %sw.bb10 ], [ 65537, %sw.bb9 ], [ 3, %sw.bb8 ], [ %f4.0, %while.cond ]
   %outfile.0.be = phi ptr [ %outfile.0, %sw.bb28 ], [ %outfile.0, %sw.bb26 ], [ %outfile.0, %sw.bb21 ], [ %outfile.0, %sw.bb30 ], [ %outfile.0, %sw.bb32 ], [ %outfile.0, %sw.bb16 ], [ %outfile.0, %sw.bb33 ], [ %outfile.0, %sw.bb34 ], [ %outfile.0, %sw.bb12 ], [ %call11, %sw.bb10 ], [ %outfile.0, %sw.bb9 ], [ %outfile.0, %sw.bb8 ], [ %outfile.0, %while.cond ]
   %passoutarg.0.be = phi ptr [ %passoutarg.0, %sw.bb28 ], [ %call27, %sw.bb26 ], [ %passoutarg.0, %sw.bb21 ], [ %passoutarg.0, %sw.bb30 ], [ %passoutarg.0, %sw.bb32 ], [ %passoutarg.0, %sw.bb16 ], [ %passoutarg.0, %sw.bb33 ], [ %passoutarg.0, %sw.bb34 ], [ %passoutarg.0, %sw.bb12 ], [ %passoutarg.0, %sw.bb10 ], [ %passoutarg.0, %sw.bb9 ], [ %passoutarg.0, %sw.bb8 ], [ %passoutarg.0, %while.cond ]
+  %eng.0.be = phi ptr [ %eng.0, %sw.bb28 ], [ %eng.0, %sw.bb26 ], [ %eng.0, %sw.bb21 ], [ %eng.0, %sw.bb30 ], [ %eng.0, %sw.bb32 ], [ %eng.0, %sw.bb16 ], [ %eng.0, %sw.bb33 ], [ %eng.0, %sw.bb34 ], [ %call14, %sw.bb12 ], [ %eng.0, %sw.bb10 ], [ %eng.0, %sw.bb9 ], [ %eng.0, %sw.bb8 ], [ %eng.0, %while.cond ]
   %ciphername.0.be = phi ptr [ %call29, %sw.bb28 ], [ %ciphername.0, %sw.bb26 ], [ %ciphername.0, %sw.bb21 ], [ %ciphername.0, %sw.bb30 ], [ %ciphername.0, %sw.bb32 ], [ %ciphername.0, %sw.bb16 ], [ %ciphername.0, %sw.bb33 ], [ %ciphername.0, %sw.bb34 ], [ %ciphername.0, %sw.bb12 ], [ %ciphername.0, %sw.bb10 ], [ %ciphername.0, %sw.bb9 ], [ %ciphername.0, %sw.bb8 ], [ %ciphername.0, %while.cond ]
   %traditional.0.be = phi i32 [ %traditional.0, %sw.bb28 ], [ %traditional.0, %sw.bb26 ], [ %traditional.0, %sw.bb21 ], [ %traditional.0, %sw.bb30 ], [ %traditional.0, %sw.bb32 ], [ %traditional.0, %sw.bb16 ], [ %traditional.0, %sw.bb33 ], [ 1, %sw.bb34 ], [ %traditional.0, %sw.bb12 ], [ %traditional.0, %sw.bb10 ], [ %traditional.0, %sw.bb9 ], [ %traditional.0, %sw.bb8 ], [ %traditional.0, %while.cond ]
   br label %while.cond, !llvm.loop !5
@@ -371,11 +371,11 @@ if.end130:                                        ; preds = %if.else125, %if.the
   br label %end
 
 end:                                              ; preds = %sw.bb21, %sw.bb16, %if.else125, %if.then120, %if.end99, %if.end70, %if.end66, %if.end57, %if.end53, %if.then38, %entry, %if.end130, %if.then108, %if.then97, %if.then92, %if.then87, %if.then82, %if.then64, %sw.bb7, %opthelp
-  %eng.2 = phi ptr [ null, %entry ], [ %eng.0, %sw.bb7 ], [ %eng.0, %opthelp ], [ %eng.0, %if.then38 ], [ %eng.0, %if.end66 ], [ %eng.0, %if.then82 ], [ %eng.0, %if.then92 ], [ %eng.0, %if.then97 ], [ %eng.0, %if.end99 ], [ %eng.0, %if.then108 ], [ %eng.0, %if.end130 ], [ %eng.0, %if.then120 ], [ %eng.0, %if.else125 ], [ %eng.0, %if.then87 ], [ %eng.0, %if.end70 ], [ %eng.0, %if.then64 ], [ %eng.0, %if.end57 ], [ %eng.0, %if.end53 ], [ %eng.0, %sw.bb16 ], [ %eng.0, %sw.bb21 ]
-  %out.0 = phi ptr [ null, %entry ], [ null, %sw.bb7 ], [ null, %opthelp ], [ null, %if.then38 ], [ null, %if.end66 ], [ %call67, %if.then82 ], [ %call67, %if.then92 ], [ %call67, %if.then97 ], [ %call67, %if.end99 ], [ %call67, %if.then108 ], [ %call67, %if.end130 ], [ %call67, %if.then120 ], [ %call67, %if.else125 ], [ %call67, %if.then87 ], [ %call67, %if.end70 ], [ null, %if.then64 ], [ null, %if.end57 ], [ null, %if.end53 ], [ null, %sw.bb16 ], [ null, %sw.bb21 ]
   %pkey.0 = phi ptr [ null, %entry ], [ null, %sw.bb7 ], [ null, %opthelp ], [ null, %if.then38 ], [ null, %if.end66 ], [ null, %if.then82 ], [ null, %if.then92 ], [ null, %if.then97 ], [ null, %if.end99 ], [ %call100, %if.then108 ], [ %call100, %if.end130 ], [ %call100, %if.then120 ], [ %call100, %if.else125 ], [ null, %if.then87 ], [ null, %if.end70 ], [ null, %if.then64 ], [ null, %if.end57 ], [ null, %if.end53 ], [ null, %sw.bb16 ], [ null, %sw.bb21 ]
   %cmp131.not = phi i1 [ false, %entry ], [ true, %sw.bb7 ], [ false, %opthelp ], [ false, %if.then38 ], [ false, %if.end66 ], [ false, %if.then82 ], [ false, %if.then92 ], [ false, %if.then97 ], [ false, %if.end99 ], [ false, %if.then108 ], [ true, %if.end130 ], [ false, %if.then120 ], [ false, %if.else125 ], [ false, %if.then87 ], [ false, %if.end70 ], [ false, %if.then64 ], [ false, %if.end57 ], [ false, %if.end53 ], [ false, %sw.bb16 ], [ false, %sw.bb21 ]
   %ret.0 = phi i32 [ 1, %entry ], [ 0, %sw.bb7 ], [ 1, %opthelp ], [ 1, %if.then38 ], [ 1, %if.end66 ], [ 1, %if.then82 ], [ 1, %if.then92 ], [ 1, %if.then97 ], [ 1, %if.end99 ], [ 1, %if.then108 ], [ 0, %if.end130 ], [ 1, %if.then120 ], [ 1, %if.else125 ], [ 1, %if.then87 ], [ 1, %if.end70 ], [ 1, %if.then64 ], [ 1, %if.end57 ], [ 1, %if.end53 ], [ 1, %sw.bb16 ], [ 1, %sw.bb21 ]
+  %out.0 = phi ptr [ null, %entry ], [ null, %sw.bb7 ], [ null, %opthelp ], [ null, %if.then38 ], [ null, %if.end66 ], [ %call67, %if.then82 ], [ %call67, %if.then92 ], [ %call67, %if.then97 ], [ %call67, %if.end99 ], [ %call67, %if.then108 ], [ %call67, %if.end130 ], [ %call67, %if.then120 ], [ %call67, %if.else125 ], [ %call67, %if.then87 ], [ %call67, %if.end70 ], [ null, %if.then64 ], [ null, %if.end57 ], [ null, %if.end53 ], [ null, %sw.bb16 ], [ null, %sw.bb21 ]
+  %eng.2 = phi ptr [ null, %entry ], [ %eng.0, %sw.bb7 ], [ %eng.0, %opthelp ], [ %eng.0, %if.then38 ], [ %eng.0, %if.end66 ], [ %eng.0, %if.then82 ], [ %eng.0, %if.then92 ], [ %eng.0, %if.then97 ], [ %eng.0, %if.end99 ], [ %eng.0, %if.then108 ], [ %eng.0, %if.end130 ], [ %eng.0, %if.then120 ], [ %eng.0, %if.else125 ], [ %eng.0, %if.then87 ], [ %eng.0, %if.end70 ], [ %eng.0, %if.then64 ], [ %eng.0, %if.end57 ], [ %eng.0, %if.end53 ], [ %eng.0, %sw.bb16 ], [ %eng.0, %sw.bb21 ]
   call void @BN_free(ptr noundef %call1) #2
   call void @BN_GENCB_free(ptr noundef %call) #2
   %26 = load ptr, ptr %ctx, align 8

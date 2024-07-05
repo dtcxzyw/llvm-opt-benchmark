@@ -509,7 +509,7 @@ opal_obj_run_constructors.exit63:                 ; preds = %.lr.ph.i60, %49
   br label %66
 
 66:                                               ; preds = %._crit_edge, %opal_obj_run_constructors.exit63
-  %.047 = phi i32 [ 0, %opal_obj_run_constructors.exit63 ], [ %.1.lcssa, %._crit_edge ]
+  %.048 = phi i32 [ 0, %opal_obj_run_constructors.exit63 ], [ %.1.lcssa, %._crit_edge ]
   store i32 32, ptr %12, align 4
   %67 = call i32 @opal_convertor_raw(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %14) #4
   %.not56 = icmp eq i32 %67, 0
@@ -518,10 +518,10 @@ opal_obj_run_constructors.exit63:                 ; preds = %.lr.ph.i60, %49
   br i1 %.not5774, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %66, %73
-  %.176 = phi i32 [ %103, %73 ], [ %.047, %66 ]
-  %.04875 = phi i32 [ %100, %73 ], [ 0, %66 ]
+  %.04776 = phi i32 [ %100, %73 ], [ 0, %66 ]
+  %.175 = phi i32 [ %103, %73 ], [ %.048, %66 ]
   %69 = load i32, ptr %13, align 4
-  %70 = icmp eq i32 %.176, %69
+  %70 = icmp eq i32 %.175, %69
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %.lr.ph
@@ -530,12 +530,12 @@ opal_obj_run_constructors.exit63:                 ; preds = %.lr.ph.i60, %49
   br label %73
 
 73:                                               ; preds = %71, %.lr.ph
-  %.2 = phi i32 [ 0, %71 ], [ %.176, %.lr.ph ]
+  %.2 = phi i32 [ 0, %71 ], [ %.175, %.lr.ph ]
   %74 = zext i32 %.2 to i64
   %75 = getelementptr inbounds [32 x %struct.iovec], ptr %11, i64 0, i64 %74
   %76 = getelementptr inbounds i8, ptr %75, i64 8
   %77 = load i64, ptr %76, align 8
-  %78 = zext i32 %.04875 to i64
+  %78 = zext i32 %.04776 to i64
   %79 = getelementptr inbounds [32 x %struct.iovec], ptr %10, i64 0, i64 %78
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   %81 = load i64, ptr %80, align 8
@@ -564,7 +564,7 @@ opal_obj_run_constructors.exit63:                 ; preds = %.lr.ph.i60, %49
   store ptr %97, ptr %79, align 16
   %98 = icmp eq i64 %88, %.
   %99 = zext i1 %98 to i32
-  %100 = add i32 %.04875, %99
+  %100 = add i32 %.04776, %99
   %101 = icmp eq i64 %86, %.
   %102 = zext i1 %101 to i32
   %103 = add i32 %.2, %102
@@ -573,7 +573,7 @@ opal_obj_run_constructors.exit63:                 ; preds = %.lr.ph.i60, %49
   br i1 %.not57, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %73, %66
-  %.1.lcssa = phi i32 [ %.047, %66 ], [ %103, %73 ]
+  %.1.lcssa = phi i32 [ %.048, %66 ], [ %103, %73 ]
   br i1 %.not56, label %66, label %105, !llvm.loop !11
 
 105:                                              ; preds = %._crit_edge
@@ -651,8 +651,8 @@ opal_convertor_cleanup.exit68:                    ; preds = %opal_obj_run_destru
   br i1 %.not.i72, label %opal_obj_run_destructors.exit73, label %.lr.ph.i70, !llvm.loop !8
 
 opal_obj_run_destructors.exit73:                  ; preds = %.lr.ph.i70, %opal_convertor_cleanup.exit68, %21, %19
-  %.046 = phi i32 [ 0, %19 ], [ -102, %21 ], [ 0, %opal_convertor_cleanup.exit68 ], [ 0, %.lr.ph.i70 ]
-  ret i32 %.046
+  %.0 = phi i32 [ 0, %19 ], [ -102, %21 ], [ 0, %opal_convertor_cleanup.exit68 ], [ 0, %.lr.ph.i70 ]
+  ret i32 %.0
 }
 
 declare i32 @opal_convertor_prepare_for_recv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1

@@ -68,7 +68,7 @@ define dso_local i32 @ArrayGetNItemsSafe(i32 noundef %0, ptr nocapture noundef r
 
 .preheader:                                       ; preds = %.preheader.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %5 ]
-  %.02429 = phi i64 [ 1, %.preheader.preheader ], [ %14, %5 ]
+  %.02330 = phi i64 [ 1, %.preheader.preheader ], [ %14, %5 ]
   %6 = getelementptr i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 0
@@ -79,7 +79,7 @@ define dso_local i32 @ArrayGetNItemsSafe(i32 noundef %0, ptr nocapture noundef r
   br i1 %10, label %.sink.split, label %25
 
 11:                                               ; preds = %.preheader
-  %sext = shl i64 %.02429, 32
+  %sext = shl i64 %.02330, 32
   %12 = ashr exact i64 %sext, 32
   %13 = zext nneg i32 %7 to i64
   %14 = mul nsw i64 %12, %13

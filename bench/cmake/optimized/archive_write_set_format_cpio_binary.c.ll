@@ -287,8 +287,8 @@ define internal i64 @archive_write_binary_data(ptr noundef %0, ptr noundef %1, i
   store i64 %9, ptr %5, align 8
   %10 = sext i32 %7 to i64
   %11 = icmp slt i32 %7, 0
-  %.012 = select i1 %11, i64 %10, i64 %spec.select
-  ret i64 %.012
+  %.0 = select i1 %11, i64 %10, i64 %spec.select
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -395,7 +395,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br label %27
 
 27:                                               ; preds = %24, %get_sconv.exit
-  %.0 = phi i32 [ -20, %24 ], [ 0, %get_sconv.exit ]
+  %.064 = phi i32 [ -20, %24 ], [ 0, %get_sconv.exit ]
   %28 = load i64, ptr %6, align 8
   %29 = trunc i64 %28 to i32
   %30 = add nsw i32 %29, 1
@@ -615,7 +615,7 @@ synthesize_ino_value.exit.thread:                 ; preds = %63, %synthesize_ino
   br label %136
 
 136:                                              ; preds = %133, %126
-  %.1 = phi i32 [ -20, %133 ], [ %.0, %126 ]
+  %.165 = phi i32 [ -20, %133 ], [ %.064, %126 ]
   %137 = load i64, ptr %6, align 8
   %138 = icmp ne i64 %137, 0
   %139 = load ptr, ptr %3, align 8
@@ -732,7 +732,7 @@ synthesize_ino_value.exit.thread:                 ; preds = %63, %synthesize_ino
   br label %.critedge87
 
 .critedge87:                                      ; preds = %181, %.thread102, %189, %166, %173, %162, %.critedge, %179, %159, %155, %146, %132, %98, %92, %85, %synthesize_ino_value.exit.thread, %23
-  %.2 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %85 ], [ -30, %92 ], [ -30, %98 ], [ -30, %132 ], [ -30, %146 ], [ %.1, %179 ], [ %.1, %.critedge ], [ -25, %155 ], [ -25, %159 ], [ -30, %162 ], [ -30, %173 ], [ -30, %166 ], [ %.1, %.thread102 ], [ -30, %189 ], [ -30, %181 ]
+  %.2 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %85 ], [ -30, %92 ], [ -30, %98 ], [ -30, %132 ], [ -30, %146 ], [ %.165, %179 ], [ %.165, %.critedge ], [ -25, %155 ], [ -25, %159 ], [ -30, %162 ], [ -30, %173 ], [ -30, %166 ], [ %.165, %.thread102 ], [ -30, %189 ], [ -30, %181 ]
   call void @archive_entry_free(ptr noundef null) #9
   ret i32 %.2
 }

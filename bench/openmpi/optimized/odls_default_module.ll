@@ -725,7 +725,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
   br label %do_parent.exit
 
 do_parent.exit:                                   ; preds = %69, %87, %103, %135, %151, %176, %197, %221, %238, %248
-  %.076.i = phi i32 [ 75, %69 ], [ 75, %87 ], [ 75, %103 ], [ 0, %135 ], [ 0, %248 ], [ %152, %151 ], [ %177, %176 ], [ %198, %197 ], [ %222, %221 ], [ 75, %238 ]
+  %.0.i = phi i32 [ 75, %69 ], [ 75, %87 ], [ 75, %103 ], [ 0, %135 ], [ 0, %248 ], [ %152, %151 ], [ %177, %176 ], [ %198, %197 ], [ %222, %221 ], [ 75, %238 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
@@ -734,7 +734,7 @@ do_parent.exit:                                   ; preds = %69, %87, %103, %135
   br label %250
 
 250:                                              ; preds = %23, %25, %12, %14, %do_parent.exit
-  %.0 = phi i32 [ %.076.i, %do_parent.exit ], [ -70, %14 ], [ -70, %12 ], [ -71, %25 ], [ -71, %23 ]
+  %.0 = phi i32 [ %.0.i, %do_parent.exit ], [ -70, %14 ], [ -70, %12 ], [ -71, %25 ], [ -71, %23 ]
   ret i32 %.0
 }
 

@@ -2126,10 +2126,10 @@ if.end42:                                         ; preds = %while.body, %iov_fr
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end42, %land.lhs.true, %if.end19
-  %vlan_special.0 = phi i16 [ %6, %if.end42 ], [ 0, %land.lhs.true ], [ 0, %if.end19 ]
-  %vlan_status.0 = phi i8 [ 9, %if.end42 ], [ 1, %land.lhs.true ], [ 1, %if.end19 ]
   %size.0 = phi i64 [ %sub43, %if.end42 ], [ %call2, %land.lhs.true ], [ %call2, %if.end19 ]
   %iov_ofs.2 = phi i64 [ %iov_ofs.1, %if.end42 ], [ 0, %land.lhs.true ], [ 0, %if.end19 ]
+  %vlan_status.0 = phi i8 [ 9, %if.end42 ], [ 1, %land.lhs.true ], [ 1, %if.end19 ]
+  %vlan_special.0 = phi i16 [ %6, %if.end42 ], [ 0, %land.lhs.true ], [ 0, %if.end19 ]
   %iov.addr.2 = phi ptr [ %iov.addr.1, %if.end42 ], [ %iov, %land.lhs.true ], [ %iov, %if.end19 ]
   %12 = load i8, ptr %filter_buf.0, align 1
   %arrayidx1.i.i = getelementptr i8, ptr %filter_buf.0, i64 1

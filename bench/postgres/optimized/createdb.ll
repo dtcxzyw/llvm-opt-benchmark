@@ -101,12 +101,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %10
 
 10:                                               ; preds = %.backedge, %2
-  %.0105 = phi ptr [ null, %2 ], [ %.0105.be, %.backedge ]
+  %.0107 = phi ptr [ null, %2 ], [ %.0107.be, %.backedge ]
+  %.0104 = phi ptr [ null, %2 ], [ %.0104.be, %.backedge ]
   %.0102 = phi ptr [ null, %2 ], [ %.0102.be, %.backedge ]
   %.0100 = phi ptr [ null, %2 ], [ %.0100.be, %.backedge ]
-  %.098 = phi ptr [ null, %2 ], [ %.098.be, %.backedge ]
-  %.096 = phi i32 [ 0, %2 ], [ %.096.be, %.backedge ]
-  %.094 = phi i1 [ false, %2 ], [ %.094.be, %.backedge ]
+  %.098 = phi i32 [ 0, %2 ], [ %.098.be, %.backedge ]
+  %.096 = phi i1 [ false, %2 ], [ %.096.be, %.backedge ]
+  %.094 = phi ptr [ null, %2 ], [ %.094.be, %.backedge ]
   %.092 = phi ptr [ null, %2 ], [ %.092.be, %.backedge ]
   %.090 = phi ptr [ null, %2 ], [ %.090.be, %.backedge ]
   %.088 = phi ptr [ null, %2 ], [ %.088.be, %.backedge ]
@@ -117,7 +118,6 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.078 = phi ptr [ null, %2 ], [ %.078.be, %.backedge ]
   %.076 = phi ptr [ null, %2 ], [ %.076.be, %.backedge ]
   %.074 = phi ptr [ null, %2 ], [ %.074.be, %.backedge ]
-  %.0 = phi ptr [ null, %2 ], [ %.0.be, %.backedge ]
   %11 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.20, ptr noundef nonnull @main.long_options, ptr noundef nonnull %3) #7
   switch i32 %11, label %59 [
     i32 -1, label %60
@@ -142,23 +142,23 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   ]
 
 .backedge:                                        ; preds = %10, %56, %53, %50, %47, %44, %41, %40, %39, %36, %33, %30, %27, %24, %21, %18, %15, %12
-  %.0105.be = phi ptr [ %.0105, %56 ], [ %.0105, %53 ], [ %.0105, %50 ], [ %49, %47 ], [ %.0105, %44 ], [ %.0105, %41 ], [ %.0105, %40 ], [ %.0105, %39 ], [ %.0105, %36 ], [ %.0105, %33 ], [ %.0105, %30 ], [ %.0105, %27 ], [ %.0105, %24 ], [ %.0105, %21 ], [ %.0105, %18 ], [ %.0105, %15 ], [ %.0105, %12 ], [ %.0105, %10 ]
-  %.0102.be = phi ptr [ %.0102, %56 ], [ %.0102, %53 ], [ %.0102, %50 ], [ %.0102, %47 ], [ %.0102, %44 ], [ %.0102, %41 ], [ %.0102, %40 ], [ %.0102, %39 ], [ %.0102, %36 ], [ %.0102, %33 ], [ %.0102, %30 ], [ %.0102, %27 ], [ %.0102, %24 ], [ %.0102, %21 ], [ %20, %18 ], [ %.0102, %15 ], [ %.0102, %12 ], [ %.0102, %10 ]
-  %.0100.be = phi ptr [ %.0100, %56 ], [ %.0100, %53 ], [ %.0100, %50 ], [ %.0100, %47 ], [ %.0100, %44 ], [ %.0100, %41 ], [ %.0100, %40 ], [ %.0100, %39 ], [ %.0100, %36 ], [ %.0100, %33 ], [ %.0100, %30 ], [ %29, %27 ], [ %.0100, %24 ], [ %.0100, %21 ], [ %.0100, %18 ], [ %.0100, %15 ], [ %.0100, %12 ], [ %.0100, %10 ]
-  %.098.be = phi ptr [ %.098, %56 ], [ %.098, %53 ], [ %.098, %50 ], [ %.098, %47 ], [ %.098, %44 ], [ %.098, %41 ], [ %.098, %40 ], [ %.098, %39 ], [ %38, %36 ], [ %.098, %33 ], [ %.098, %30 ], [ %.098, %27 ], [ %.098, %24 ], [ %.098, %21 ], [ %.098, %18 ], [ %.098, %15 ], [ %.098, %12 ], [ %.098, %10 ]
-  %.096.be = phi i32 [ %.096, %56 ], [ %.096, %53 ], [ %.096, %50 ], [ %.096, %47 ], [ %.096, %44 ], [ %.096, %41 ], [ 2, %40 ], [ 1, %39 ], [ %.096, %36 ], [ %.096, %33 ], [ %.096, %30 ], [ %.096, %27 ], [ %.096, %24 ], [ %.096, %21 ], [ %.096, %18 ], [ %.096, %15 ], [ %.096, %12 ], [ %.096, %10 ]
-  %.094.be = phi i1 [ %.094, %56 ], [ %.094, %53 ], [ %.094, %50 ], [ %.094, %47 ], [ %.094, %44 ], [ %.094, %41 ], [ %.094, %40 ], [ %.094, %39 ], [ %.094, %36 ], [ %.094, %33 ], [ %.094, %30 ], [ %.094, %27 ], [ %.094, %24 ], [ %.094, %21 ], [ %.094, %18 ], [ %.094, %15 ], [ %.094, %12 ], [ true, %10 ]
-  %.092.be = phi ptr [ %.092, %56 ], [ %.092, %53 ], [ %.092, %50 ], [ %.092, %47 ], [ %.092, %44 ], [ %.092, %41 ], [ %.092, %40 ], [ %.092, %39 ], [ %.092, %36 ], [ %.092, %33 ], [ %.092, %30 ], [ %.092, %27 ], [ %26, %24 ], [ %.092, %21 ], [ %.092, %18 ], [ %.092, %15 ], [ %.092, %12 ], [ %.092, %10 ]
-  %.090.be = phi ptr [ %.090, %56 ], [ %.090, %53 ], [ %.090, %50 ], [ %.090, %47 ], [ %.090, %44 ], [ %.090, %41 ], [ %.090, %40 ], [ %.090, %39 ], [ %.090, %36 ], [ %.090, %33 ], [ %.090, %30 ], [ %.090, %27 ], [ %.090, %24 ], [ %.090, %21 ], [ %.090, %18 ], [ %.090, %15 ], [ %14, %12 ], [ %.090, %10 ]
-  %.088.be = phi ptr [ %.088, %56 ], [ %.088, %53 ], [ %.088, %50 ], [ %.088, %47 ], [ %.088, %44 ], [ %.088, %41 ], [ %.088, %40 ], [ %.088, %39 ], [ %.088, %36 ], [ %35, %33 ], [ %.088, %30 ], [ %.088, %27 ], [ %.088, %24 ], [ %.088, %21 ], [ %.088, %18 ], [ %.088, %15 ], [ %.088, %12 ], [ %.088, %10 ]
-  %.086.be = phi ptr [ %.086, %56 ], [ %.086, %53 ], [ %.086, %50 ], [ %.086, %47 ], [ %.086, %44 ], [ %.086, %41 ], [ %.086, %40 ], [ %.086, %39 ], [ %.086, %36 ], [ %.086, %33 ], [ %.086, %30 ], [ %.086, %27 ], [ %.086, %24 ], [ %.086, %21 ], [ %.086, %18 ], [ %17, %15 ], [ %.086, %12 ], [ %.086, %10 ]
-  %.084.be = phi ptr [ %.084, %56 ], [ %.084, %53 ], [ %.084, %50 ], [ %.084, %47 ], [ %.084, %44 ], [ %.084, %41 ], [ %.084, %40 ], [ %.084, %39 ], [ %.084, %36 ], [ %.084, %33 ], [ %32, %30 ], [ %.084, %27 ], [ %.084, %24 ], [ %.084, %21 ], [ %.084, %18 ], [ %.084, %15 ], [ %.084, %12 ], [ %.084, %10 ]
-  %.082.be = phi ptr [ %.082, %56 ], [ %.082, %53 ], [ %.082, %50 ], [ %.082, %47 ], [ %.082, %44 ], [ %43, %41 ], [ %.082, %40 ], [ %.082, %39 ], [ %.082, %36 ], [ %.082, %33 ], [ %.082, %30 ], [ %.082, %27 ], [ %.082, %24 ], [ %.082, %21 ], [ %.082, %18 ], [ %.082, %15 ], [ %.082, %12 ], [ %.082, %10 ]
-  %.080.be = phi ptr [ %.080, %56 ], [ %.080, %53 ], [ %.080, %50 ], [ %.080, %47 ], [ %46, %44 ], [ %.080, %41 ], [ %.080, %40 ], [ %.080, %39 ], [ %.080, %36 ], [ %.080, %33 ], [ %.080, %30 ], [ %.080, %27 ], [ %.080, %24 ], [ %.080, %21 ], [ %.080, %18 ], [ %.080, %15 ], [ %.080, %12 ], [ %.080, %10 ]
-  %.078.be = phi ptr [ %.078, %56 ], [ %.078, %53 ], [ %.078, %50 ], [ %.078, %47 ], [ %.078, %44 ], [ %.078, %41 ], [ %.078, %40 ], [ %.078, %39 ], [ %.078, %36 ], [ %.078, %33 ], [ %.078, %30 ], [ %.078, %27 ], [ %.078, %24 ], [ %23, %21 ], [ %.078, %18 ], [ %.078, %15 ], [ %.078, %12 ], [ %.078, %10 ]
-  %.076.be = phi ptr [ %.076, %56 ], [ %.076, %53 ], [ %52, %50 ], [ %.076, %47 ], [ %.076, %44 ], [ %.076, %41 ], [ %.076, %40 ], [ %.076, %39 ], [ %.076, %36 ], [ %.076, %33 ], [ %.076, %30 ], [ %.076, %27 ], [ %.076, %24 ], [ %.076, %21 ], [ %.076, %18 ], [ %.076, %15 ], [ %.076, %12 ], [ %.076, %10 ]
-  %.074.be = phi ptr [ %.074, %56 ], [ %55, %53 ], [ %.074, %50 ], [ %.074, %47 ], [ %.074, %44 ], [ %.074, %41 ], [ %.074, %40 ], [ %.074, %39 ], [ %.074, %36 ], [ %.074, %33 ], [ %.074, %30 ], [ %.074, %27 ], [ %.074, %24 ], [ %.074, %21 ], [ %.074, %18 ], [ %.074, %15 ], [ %.074, %12 ], [ %.074, %10 ]
-  %.0.be = phi ptr [ %58, %56 ], [ %.0, %53 ], [ %.0, %50 ], [ %.0, %47 ], [ %.0, %44 ], [ %.0, %41 ], [ %.0, %40 ], [ %.0, %39 ], [ %.0, %36 ], [ %.0, %33 ], [ %.0, %30 ], [ %.0, %27 ], [ %.0, %24 ], [ %.0, %21 ], [ %.0, %18 ], [ %.0, %15 ], [ %.0, %12 ], [ %.0, %10 ]
+  %.0107.be = phi ptr [ %.0107, %56 ], [ %.0107, %53 ], [ %.0107, %50 ], [ %49, %47 ], [ %.0107, %44 ], [ %.0107, %41 ], [ %.0107, %40 ], [ %.0107, %39 ], [ %.0107, %36 ], [ %.0107, %33 ], [ %.0107, %30 ], [ %.0107, %27 ], [ %.0107, %24 ], [ %.0107, %21 ], [ %.0107, %18 ], [ %.0107, %15 ], [ %.0107, %12 ], [ %.0107, %10 ]
+  %.0104.be = phi ptr [ %.0104, %56 ], [ %.0104, %53 ], [ %.0104, %50 ], [ %.0104, %47 ], [ %.0104, %44 ], [ %.0104, %41 ], [ %.0104, %40 ], [ %.0104, %39 ], [ %.0104, %36 ], [ %.0104, %33 ], [ %.0104, %30 ], [ %.0104, %27 ], [ %.0104, %24 ], [ %.0104, %21 ], [ %20, %18 ], [ %.0104, %15 ], [ %.0104, %12 ], [ %.0104, %10 ]
+  %.0102.be = phi ptr [ %.0102, %56 ], [ %.0102, %53 ], [ %.0102, %50 ], [ %.0102, %47 ], [ %.0102, %44 ], [ %.0102, %41 ], [ %.0102, %40 ], [ %.0102, %39 ], [ %.0102, %36 ], [ %.0102, %33 ], [ %.0102, %30 ], [ %29, %27 ], [ %.0102, %24 ], [ %.0102, %21 ], [ %.0102, %18 ], [ %.0102, %15 ], [ %.0102, %12 ], [ %.0102, %10 ]
+  %.0100.be = phi ptr [ %.0100, %56 ], [ %.0100, %53 ], [ %.0100, %50 ], [ %.0100, %47 ], [ %.0100, %44 ], [ %.0100, %41 ], [ %.0100, %40 ], [ %.0100, %39 ], [ %38, %36 ], [ %.0100, %33 ], [ %.0100, %30 ], [ %.0100, %27 ], [ %.0100, %24 ], [ %.0100, %21 ], [ %.0100, %18 ], [ %.0100, %15 ], [ %.0100, %12 ], [ %.0100, %10 ]
+  %.098.be = phi i32 [ %.098, %56 ], [ %.098, %53 ], [ %.098, %50 ], [ %.098, %47 ], [ %.098, %44 ], [ %.098, %41 ], [ 2, %40 ], [ 1, %39 ], [ %.098, %36 ], [ %.098, %33 ], [ %.098, %30 ], [ %.098, %27 ], [ %.098, %24 ], [ %.098, %21 ], [ %.098, %18 ], [ %.098, %15 ], [ %.098, %12 ], [ %.098, %10 ]
+  %.096.be = phi i1 [ %.096, %56 ], [ %.096, %53 ], [ %.096, %50 ], [ %.096, %47 ], [ %.096, %44 ], [ %.096, %41 ], [ %.096, %40 ], [ %.096, %39 ], [ %.096, %36 ], [ %.096, %33 ], [ %.096, %30 ], [ %.096, %27 ], [ %.096, %24 ], [ %.096, %21 ], [ %.096, %18 ], [ %.096, %15 ], [ %.096, %12 ], [ true, %10 ]
+  %.094.be = phi ptr [ %.094, %56 ], [ %.094, %53 ], [ %.094, %50 ], [ %.094, %47 ], [ %.094, %44 ], [ %.094, %41 ], [ %.094, %40 ], [ %.094, %39 ], [ %.094, %36 ], [ %.094, %33 ], [ %.094, %30 ], [ %.094, %27 ], [ %26, %24 ], [ %.094, %21 ], [ %.094, %18 ], [ %.094, %15 ], [ %.094, %12 ], [ %.094, %10 ]
+  %.092.be = phi ptr [ %.092, %56 ], [ %.092, %53 ], [ %.092, %50 ], [ %.092, %47 ], [ %.092, %44 ], [ %.092, %41 ], [ %.092, %40 ], [ %.092, %39 ], [ %.092, %36 ], [ %.092, %33 ], [ %.092, %30 ], [ %.092, %27 ], [ %.092, %24 ], [ %.092, %21 ], [ %.092, %18 ], [ %.092, %15 ], [ %14, %12 ], [ %.092, %10 ]
+  %.090.be = phi ptr [ %.090, %56 ], [ %.090, %53 ], [ %.090, %50 ], [ %.090, %47 ], [ %.090, %44 ], [ %.090, %41 ], [ %.090, %40 ], [ %.090, %39 ], [ %.090, %36 ], [ %35, %33 ], [ %.090, %30 ], [ %.090, %27 ], [ %.090, %24 ], [ %.090, %21 ], [ %.090, %18 ], [ %.090, %15 ], [ %.090, %12 ], [ %.090, %10 ]
+  %.088.be = phi ptr [ %.088, %56 ], [ %.088, %53 ], [ %.088, %50 ], [ %.088, %47 ], [ %.088, %44 ], [ %.088, %41 ], [ %.088, %40 ], [ %.088, %39 ], [ %.088, %36 ], [ %.088, %33 ], [ %.088, %30 ], [ %.088, %27 ], [ %.088, %24 ], [ %.088, %21 ], [ %.088, %18 ], [ %17, %15 ], [ %.088, %12 ], [ %.088, %10 ]
+  %.086.be = phi ptr [ %.086, %56 ], [ %.086, %53 ], [ %.086, %50 ], [ %.086, %47 ], [ %.086, %44 ], [ %.086, %41 ], [ %.086, %40 ], [ %.086, %39 ], [ %.086, %36 ], [ %.086, %33 ], [ %32, %30 ], [ %.086, %27 ], [ %.086, %24 ], [ %.086, %21 ], [ %.086, %18 ], [ %.086, %15 ], [ %.086, %12 ], [ %.086, %10 ]
+  %.084.be = phi ptr [ %.084, %56 ], [ %.084, %53 ], [ %.084, %50 ], [ %.084, %47 ], [ %.084, %44 ], [ %43, %41 ], [ %.084, %40 ], [ %.084, %39 ], [ %.084, %36 ], [ %.084, %33 ], [ %.084, %30 ], [ %.084, %27 ], [ %.084, %24 ], [ %.084, %21 ], [ %.084, %18 ], [ %.084, %15 ], [ %.084, %12 ], [ %.084, %10 ]
+  %.082.be = phi ptr [ %.082, %56 ], [ %.082, %53 ], [ %.082, %50 ], [ %.082, %47 ], [ %46, %44 ], [ %.082, %41 ], [ %.082, %40 ], [ %.082, %39 ], [ %.082, %36 ], [ %.082, %33 ], [ %.082, %30 ], [ %.082, %27 ], [ %.082, %24 ], [ %.082, %21 ], [ %.082, %18 ], [ %.082, %15 ], [ %.082, %12 ], [ %.082, %10 ]
+  %.080.be = phi ptr [ %.080, %56 ], [ %.080, %53 ], [ %.080, %50 ], [ %.080, %47 ], [ %.080, %44 ], [ %.080, %41 ], [ %.080, %40 ], [ %.080, %39 ], [ %.080, %36 ], [ %.080, %33 ], [ %.080, %30 ], [ %.080, %27 ], [ %.080, %24 ], [ %23, %21 ], [ %.080, %18 ], [ %.080, %15 ], [ %.080, %12 ], [ %.080, %10 ]
+  %.078.be = phi ptr [ %.078, %56 ], [ %.078, %53 ], [ %52, %50 ], [ %.078, %47 ], [ %.078, %44 ], [ %.078, %41 ], [ %.078, %40 ], [ %.078, %39 ], [ %.078, %36 ], [ %.078, %33 ], [ %.078, %30 ], [ %.078, %27 ], [ %.078, %24 ], [ %.078, %21 ], [ %.078, %18 ], [ %.078, %15 ], [ %.078, %12 ], [ %.078, %10 ]
+  %.076.be = phi ptr [ %.076, %56 ], [ %55, %53 ], [ %.076, %50 ], [ %.076, %47 ], [ %.076, %44 ], [ %.076, %41 ], [ %.076, %40 ], [ %.076, %39 ], [ %.076, %36 ], [ %.076, %33 ], [ %.076, %30 ], [ %.076, %27 ], [ %.076, %24 ], [ %.076, %21 ], [ %.076, %18 ], [ %.076, %15 ], [ %.076, %12 ], [ %.076, %10 ]
+  %.074.be = phi ptr [ %58, %56 ], [ %.074, %53 ], [ %.074, %50 ], [ %.074, %47 ], [ %.074, %44 ], [ %.074, %41 ], [ %.074, %40 ], [ %.074, %39 ], [ %.074, %36 ], [ %.074, %33 ], [ %.074, %30 ], [ %.074, %27 ], [ %.074, %24 ], [ %.074, %21 ], [ %.074, %18 ], [ %.074, %15 ], [ %.074, %12 ], [ %.074, %10 ]
   br label %10, !llvm.loop !5
 
 12:                                               ; preds = %10
@@ -283,23 +283,23 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 80:                                               ; preds = %60, %67, %63
-  %.0107 = phi ptr [ %70, %67 ], [ %66, %63 ], [ null, %60 ]
-  %.0104 = phi ptr [ %74, %67 ], [ null, %63 ], [ null, %60 ]
-  %.not112 = icmp eq ptr %.086, null
+  %.0106 = phi ptr [ %74, %67 ], [ null, %63 ], [ null, %60 ]
+  %.0 = phi ptr [ %70, %67 ], [ %66, %63 ], [ null, %60 ]
+  %.not112 = icmp eq ptr %.088, null
   br i1 %.not112, label %85, label %81
 
 81:                                               ; preds = %80
-  %82 = call i32 @pg_char_to_encoding(ptr noundef nonnull %.086) #7
+  %82 = call i32 @pg_char_to_encoding(ptr noundef nonnull %.088) #7
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %81
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.23, ptr noundef nonnull %.086) #7
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.23, ptr noundef nonnull %.088) #7
   call void @exit(i32 noundef 1) #8
   unreachable
 
 85:                                               ; preds = %81, %80
-  %86 = icmp eq ptr %.0107, null
+  %86 = icmp eq ptr %.0, null
   br i1 %86, label %87, label %93
 
 87:                                               ; preds = %85
@@ -317,47 +317,47 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %93
 
 93:                                               ; preds = %89, %87, %91, %85
-  %.1108 = phi ptr [ %92, %91 ], [ %.0107, %85 ], [ %88, %87 ], [ %90, %89 ]
-  %94 = icmp eq ptr %.0105, null
+  %.1 = phi ptr [ %92, %91 ], [ %.0, %85 ], [ %88, %87 ], [ %90, %89 ]
+  %94 = icmp eq ptr %.0107, null
   br i1 %94, label %95, label %98
 
 95:                                               ; preds = %93
-  %96 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1108, ptr noundef nonnull dereferenceable(9) @.str.26) #9
+  %96 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(9) @.str.26) #9
   %97 = icmp eq i32 %96, 0
   %spec.select = select i1 %97, ptr @.str.27, ptr null
   br label %98
 
 98:                                               ; preds = %95, %93
-  %.2 = phi ptr [ %.0105, %93 ], [ %spec.select, %95 ]
+  %.2 = phi ptr [ %.0107, %93 ], [ %spec.select, %95 ]
   store ptr %.2, ptr %4, align 8
   %99 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %.0102, ptr %99, align 8
+  store ptr %.0104, ptr %99, align 8
   %100 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %.0100, ptr %100, align 8
+  store ptr %.0102, ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %.098, ptr %101, align 8
+  store ptr %.0100, ptr %101, align 8
   %102 = getelementptr inbounds i8, ptr %4, i64 32
-  store i32 %.096, ptr %102, align 8
+  store i32 %.098, ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %103, align 8
-  %104 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %8, i1 noundef zeroext %.094) #7
+  %104 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %8, i1 noundef zeroext %.096) #7
   call void @initPQExpBuffer(ptr noundef nonnull %5) #7
-  %105 = call ptr @fmtId(ptr noundef %.1108) #7
+  %105 = call ptr @fmtId(ptr noundef %.1) #7
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.28, ptr noundef %105) #7
-  %.not115 = icmp eq ptr %.092, null
+  %.not115 = icmp eq ptr %.094, null
   br i1 %.not115, label %108, label %106
 
 106:                                              ; preds = %98
-  %107 = call ptr @fmtId(ptr noundef nonnull %.092) #7
+  %107 = call ptr @fmtId(ptr noundef nonnull %.094) #7
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.29, ptr noundef %107) #7
   br label %108
 
 108:                                              ; preds = %106, %98
-  %.not116 = icmp eq ptr %.090, null
+  %.not116 = icmp eq ptr %.092, null
   br i1 %.not116, label %111, label %109
 
 109:                                              ; preds = %108
-  %110 = call ptr @fmtId(ptr noundef nonnull %.090) #7
+  %110 = call ptr @fmtId(ptr noundef nonnull %.092) #7
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.30, ptr noundef %110) #7
   br label %111
 
@@ -366,83 +366,83 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 112:                                              ; preds = %111
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.31) #7
-  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.086, ptr noundef %104) #7
+  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.088, ptr noundef %104) #7
   br label %113
 
 113:                                              ; preds = %112, %111
-  %.not117 = icmp eq ptr %.084, null
+  %.not117 = icmp eq ptr %.086, null
   br i1 %.not117, label %116, label %114
 
 114:                                              ; preds = %113
-  %115 = call ptr @fmtId(ptr noundef nonnull %.084) #7
+  %115 = call ptr @fmtId(ptr noundef nonnull %.086) #7
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.32, ptr noundef %115) #7
   br label %116
 
 116:                                              ; preds = %114, %113
-  %.not118 = icmp eq ptr %.088, null
+  %.not118 = icmp eq ptr %.090, null
   br i1 %.not118, label %119, label %117
 
 117:                                              ; preds = %116
-  %118 = call ptr @fmtId(ptr noundef nonnull %.088) #7
+  %118 = call ptr @fmtId(ptr noundef nonnull %.090) #7
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.33, ptr noundef %118) #7
   br label %119
 
 119:                                              ; preds = %117, %116
-  %.not119 = icmp eq ptr %.078, null
+  %.not119 = icmp eq ptr %.080, null
   br i1 %.not119, label %121, label %120
 
 120:                                              ; preds = %119
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.34) #7
-  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.078, ptr noundef %104) #7
+  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.080, ptr noundef %104) #7
   br label %121
 
 121:                                              ; preds = %120, %119
-  %.not120 = icmp eq ptr %.082, null
+  %.not120 = icmp eq ptr %.084, null
   br i1 %.not120, label %123, label %122
 
 122:                                              ; preds = %121
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.35) #7
-  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.082, ptr noundef %104) #7
+  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.084, ptr noundef %104) #7
   br label %123
 
 123:                                              ; preds = %122, %121
-  %.not121 = icmp eq ptr %.080, null
+  %.not121 = icmp eq ptr %.082, null
   br i1 %.not121, label %125, label %124
 
 124:                                              ; preds = %123
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.36) #7
-  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.080, ptr noundef %104) #7
+  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.082, ptr noundef %104) #7
   br label %125
 
 125:                                              ; preds = %124, %123
-  %.not122 = icmp eq ptr %.076, null
+  %.not122 = icmp eq ptr %.078, null
   br i1 %.not122, label %127, label %126
 
 126:                                              ; preds = %125
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.37, ptr noundef nonnull %.076) #7
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.37, ptr noundef nonnull %.078) #7
   br label %127
 
 127:                                              ; preds = %126, %125
-  %.not123 = icmp eq ptr %.074, null
+  %.not123 = icmp eq ptr %.076, null
   br i1 %.not123, label %129, label %128
 
 128:                                              ; preds = %127
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.38) #7
-  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.074, ptr noundef %104) #7
+  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.076, ptr noundef %104) #7
   br label %129
 
 129:                                              ; preds = %128, %127
-  %.not124 = icmp eq ptr %.0, null
+  %.not124 = icmp eq ptr %.074, null
   br i1 %.not124, label %131, label %130
 
 130:                                              ; preds = %129
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.39) #7
-  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.0, ptr noundef %104) #7
+  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.074, ptr noundef %104) #7
   br label %131
 
 131:                                              ; preds = %130, %129
   call void @appendPQExpBufferChar(ptr noundef nonnull %5, i8 noundef signext 59) #7
-  br i1 %.094, label %132, label %135
+  br i1 %.096, label %132, label %135
 
 132:                                              ; preds = %131
   %133 = load ptr, ptr %5, align 8
@@ -465,15 +465,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 141:                                              ; preds = %135
   call void @PQclear(ptr noundef %137) #7
-  %.not126 = icmp eq ptr %.0104, null
+  %.not126 = icmp eq ptr %.0106, null
   br i1 %.not126, label %154, label %142
 
 142:                                              ; preds = %141
-  %143 = call ptr @fmtId(ptr noundef %.1108) #7
+  %143 = call ptr @fmtId(ptr noundef %.1) #7
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.42, ptr noundef %143) #7
-  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.0104, ptr noundef %104) #7
+  call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %.0106, ptr noundef %104) #7
   call void @appendPQExpBufferChar(ptr noundef nonnull %5, i8 noundef signext 59) #7
-  br i1 %.094, label %144, label %147
+  br i1 %.096, label %144, label %147
 
 144:                                              ; preds = %142
   %145 = load ptr, ptr %5, align 8

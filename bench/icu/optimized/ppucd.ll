@@ -1474,9 +1474,9 @@ invoke.cont10:                                    ; preds = %if.else8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else, %invoke.cont10, %if.end
-  %v.0 = phi ptr [ null, %if.end ], [ %incdec.ptr14, %invoke.cont10 ], [ null, %if.else ]
   %cmp47 = phi i1 [ true, %if.end ], [ false, %invoke.cont10 ], [ true, %if.else ]
   %binaryValue.0 = phi i8 [ 0, %if.end ], [ -1, %invoke.cont10 ], [ 1, %if.else ]
+  %v.0 = phi ptr [ null, %if.end ], [ %incdec.ptr14, %invoke.cont10 ], [ null, %if.else ]
   %p.0 = phi ptr [ %incdec.ptr, %if.end ], [ %4, %invoke.cont10 ], [ %field, %if.else ]
   %5 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %5, align 8

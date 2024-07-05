@@ -7099,8 +7099,8 @@ _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %117 = load i8, ptr %mInvert.i, align 8
   %tobool.i = trunc i8 %117 to i1
-  %a.0 = select i1 %tobool.i, float %sub3.i, float %cond6.i.i
   %b.0 = select i1 %tobool.i, float %cond6.i.i, float %sub3.i
+  %a.0 = select i1 %tobool.i, float %sub3.i, float %cond6.i.i
   %cmp.i = fcmp ogt float %a.0, 0.000000e+00
   br i1 %cmp.i, label %if.then24, label %for.inc
 
@@ -9952,8 +9952,8 @@ _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %117 = load i8, ptr %mInvert.i, align 8
   %tobool.i = trunc i8 %117 to i1
-  %a.0 = select i1 %tobool.i, float %sub3.i, float %cond6.i.i
   %b.0 = select i1 %tobool.i, float %cond6.i.i, float %sub3.i
+  %a.0 = select i1 %tobool.i, float %sub3.i, float %cond6.i.i
   %cmp.i = fcmp ogt float %a.0, 0.000000e+00
   br i1 %cmp.i, label %if.then24, label %for.inc
 
@@ -12257,8 +12257,8 @@ _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %117 = load i8, ptr %mInvert.i, align 8
   %tobool.i = trunc i8 %117 to i1
-  %a.0 = select i1 %tobool.i, float %sub3.i, float %cond6.i.i
   %b.0 = select i1 %tobool.i, float %cond6.i.i, float %sub3.i
+  %a.0 = select i1 %tobool.i, float %sub3.i, float %cond6.i.i
   %cmp.i = fcmp ogt float %a.0, 0.000000e+00
   br i1 %cmp.i, label %if.then24, label %for.inc
 
@@ -14566,8 +14566,8 @@ _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %117 = load i8, ptr %mInvert.i, align 8
   %tobool.i = trunc i8 %117 to i1
-  %a.0 = select i1 %tobool.i, float %sub3.i, float %cond6.i.i
   %b.0 = select i1 %tobool.i, float %cond6.i.i, float %sub3.i
+  %a.0 = select i1 %tobool.i, float %sub3.i, float %cond6.i.i
   %cmp.i = fcmp ogt float %a.0, 0.000000e+00
   br i1 %cmp.i, label %if.then24, label %for.inc
 
@@ -19415,8 +19415,8 @@ _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.
   %sub3.i = fsub float 1.000000e+00, %cond6.i.i
   %117 = load i8, ptr %mInvert.i, align 8
   %tobool.i = trunc i8 %117 to i1
-  %a.0 = select i1 %tobool.i, float %sub3.i, float %cond6.i.i
   %b.0 = select i1 %tobool.i, float %cond6.i.i, float %sub3.i
+  %a.0 = select i1 %tobool.i, float %sub3.i, float %cond6.i.i
   %cmp.i = fcmp ogt float %a.0, 0.000000e+00
   br i1 %cmp.i, label %if.then24, label %for.inc
 
@@ -83469,8 +83469,8 @@ entry:
   br i1 %cmp.i.not17, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %i.sroa.0.020 = phi ptr [ %call.i, %for.inc ], [ %0, %entry ]
-  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.020, i64 48
+  %i.sroa.0.018 = phi ptr [ %call.i, %for.inc ], [ %0, %entry ]
+  %second.i = getelementptr inbounds i8, ptr %i.sroa.0.018, i64 48
   %1 = load ptr, ptr %second.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %for.inc, label %if.end
@@ -83541,7 +83541,7 @@ _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9Value
   tail call void @_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EED2Ev(ptr noundef nonnull align 8 dereferenceable(270352) %2) #13
   tail call void @_ZdlPv(ptr noundef nonnull %2) #25
   store ptr null, ptr %second.i, align 8
-  %tile.i.i = getelementptr inbounds i8, ptr %i.sroa.0.020, i64 56
+  %tile.i.i = getelementptr inbounds i8, ptr %i.sroa.0.018, i64 56
   %ref.tmp.sroa.2.0.insert.shift = select i1 %cmp.i4.i, i16 256, i16 0
   %ref.tmp.sroa.0.0.insert.ext = zext nneg i8 %frombool.i to i16
   %ref.tmp.sroa.0.0.insert.insert = or disjoint i16 %ref.tmp.sroa.2.0.insert.shift, %ref.tmp.sroa.0.0.insert.ext
@@ -83549,7 +83549,7 @@ _ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9Value
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs.i.i, %land.rhs.i5.i, %for.body.i, %lor.lhs.false.i, %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEE7setTileERKSt17_Rb_tree_iteratorISt4pairIKNS0_4math5CoordENS9_10NodeStructEEERKNS9_4TileE.exit, %for.body
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.020) #26
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.018) #26
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !1008
 
@@ -109082,8 +109082,8 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %invoke.cont22
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN7openvdb5v11_04math5CoordENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i
-  %agg.tmp.sroa.8.0.i.i.i.i = phi ptr [ %38, %for.body.lr.ph.i.i.i.i.i ], [ %agg.tmp.sroa.8.1.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN7openvdb5v11_04math5CoordENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.i.i.i.i ]
   %agg.tmp.sroa.3.0.i.i.i.i = phi i64 [ %39, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i.i20, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN7openvdb5v11_04math5CoordENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.i.i.i.i ]
+  %agg.tmp.sroa.8.0.i.i.i.i = phi ptr [ %38, %for.body.lr.ph.i.i.i.i.i ], [ %agg.tmp.sroa.8.1.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN7openvdb5v11_04math5CoordENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.i.i.i.i ]
   %__n.011.i.i.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %dec.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN7openvdb5v11_04math5CoordENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.i.i.i.i ]
   %__first.addr.010.i.i.i.i.i = phi ptr [ %.pre, %for.body.lr.ph.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN7openvdb5v11_04math5CoordENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.8.0.i.i.i.i, null
@@ -146347,8 +146347,8 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %invoke.cont22
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN7openvdb5v11_04math5CoordENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i
-  %agg.tmp.sroa.8.0.i.i.i.i = phi ptr [ %38, %for.body.lr.ph.i.i.i.i.i ], [ %agg.tmp.sroa.8.1.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN7openvdb5v11_04math5CoordENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.i.i.i.i ]
   %agg.tmp.sroa.3.0.i.i.i.i = phi i64 [ %39, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i.i20, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN7openvdb5v11_04math5CoordENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.i.i.i.i ]
+  %agg.tmp.sroa.8.0.i.i.i.i = phi ptr [ %38, %for.body.lr.ph.i.i.i.i.i ], [ %agg.tmp.sroa.8.1.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN7openvdb5v11_04math5CoordENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.i.i.i.i ]
   %__n.011.i.i.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %dec.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN7openvdb5v11_04math5CoordENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.i.i.i.i ]
   %__first.addr.010.i.i.i.i.i = phi ptr [ %.pre, %for.body.lr.ph.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN7openvdb5v11_04math5CoordENS1_23cache_aligned_allocatorIS7_EEEES7_EdeEv.exit.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.8.0.i.i.i.i, null

@@ -551,7 +551,7 @@ onas_scan_safe.exit.i:                            ; preds = %29, %30
   br label %59
 
 59:                                               ; preds = %75, %.lr.ph.i
-  %.031.i = phi i32 [ 0, %.lr.ph.i ], [ %76, %75 ]
+  %.02331.i = phi i32 [ 0, %.lr.ph.i ], [ %76, %75 ]
   %60 = load i8, ptr %18, align 1
   %61 = and i8 %60, 8
   %.not.i27.i = icmp eq i8 %61, 0
@@ -578,7 +578,7 @@ onas_scan_safe.exit29.i:                          ; preds = %62, %59
   br i1 %.not26.i, label %onas_scan.exit.thread, label %75
 
 75:                                               ; preds = %onas_scan_safe.exit29.i
-  %76 = add nuw nsw i32 %.031.i, 1
+  %76 = add nuw nsw i32 %.02331.i, 1
   %77 = load i8, ptr %58, align 1
   %78 = zext i8 %77 to i32
   %79 = icmp eq i32 %76, %78

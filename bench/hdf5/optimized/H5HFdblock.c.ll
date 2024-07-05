@@ -684,7 +684,7 @@ H5VM_log2_gen.exit:                               ; preds = %16, %22, %28, %34, 
   br label %65
 
 65:                                               ; preds = %3, %H5VM_log2_gen.exit
-  %.043 = phi i64 [ %64, %H5VM_log2_gen.exit ], [ %9, %3 ]
+  %.0 = phi i64 [ %64, %H5VM_log2_gen.exit ], [ %9, %3 ]
   %66 = getelementptr inbounds i8, ptr %0, i64 259
   %67 = load i8, ptr %66, align 1
   %68 = trunc i8 %67 to i1
@@ -698,9 +698,9 @@ H5VM_log2_gen.exit:                               ; preds = %16, %22, %28, %34, 
   %76 = add i64 %72, %1
   %77 = add i64 %76, %69
   %78 = add i64 %77, %75
-  %79 = icmp ult i64 %.043, %78
+  %79 = icmp ult i64 %.0, %78
   %80 = zext i1 %79 to i64
-  %spec.select = shl i64 %.043, %80
+  %spec.select = shl i64 %.0, %80
   %81 = getelementptr inbounds i8, ptr %0, i64 296
   %82 = load i64, ptr %81, align 8
   %.not = icmp eq i64 %82, -1
@@ -817,8 +817,8 @@ H5VM_log2_gen.exit:                               ; preds = %16, %22, %28, %34, 
   br label %154
 
 154:                                              ; preds = %99, %145, %150, %141, %132, %120, %112, %105, %87
-  %.0 = phi i32 [ -1, %112 ], [ -1, %120 ], [ -1, %132 ], [ -1, %141 ], [ -1, %150 ], [ 0, %145 ], [ -1, %87 ], [ -1, %105 ], [ 0, %99 ]
-  ret i32 %.0
+  %.043 = phi i32 [ -1, %112 ], [ -1, %120 ], [ -1, %132 ], [ -1, %141 ], [ -1, %150 ], [ 0, %145 ], [ -1, %87 ], [ -1, %105 ], [ 0, %99 ]
+  ret i32 %.043
 }
 
 declare i32 @H5HF__hdr_adjust_heap(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1

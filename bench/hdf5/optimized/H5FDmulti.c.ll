@@ -369,8 +369,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD_split_populate_config(ptr noun
   br i1 %exitcond70.not, label %.loopexit, label %85
 
 .loopexit:                                        ; preds = %103, %95, %71, %58, %42
-  %.046 = phi i32 [ -1, %42 ], [ -1, %58 ], [ -1, %71 ], [ -1, %95 ], [ 0, %103 ]
-  ret i32 %.046
+  %.044 = phi i32 [ -1, %42 ], [ -1, %58 ], [ -1, %71 ], [ -1, %95 ], [ 0, %103 ]
+  ret i32 %.044
 }
 
 declare i32 @H5Epush2(i64 noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -2540,8 +2540,8 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_set_eoa(ptr nocapture noundef r
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
   %. = tail call i32 @llvm.umax.i32(i32 %1, i32 1)
-  %.0 = select i1 %12, i32 %., i32 %11
-  %13 = icmp eq i32 %.0, 1
+  %.017 = select i1 %12, i32 %., i32 %11
+  %13 = icmp eq i32 %.017, 1
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %3
@@ -2575,14 +2575,14 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_set_eoa(ptr nocapture noundef r
 
 31:                                               ; preds = %28, %25
   %32 = getelementptr inbounds i8, ptr %0, i64 344
-  %33 = sext i32 %.0 to i64
+  %33 = sext i32 %.017 to i64
   %34 = getelementptr inbounds [7 x ptr], ptr %32, i64 0, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 224
   %37 = getelementptr inbounds [7 x i64], ptr %36, i64 0, i64 %33
   %38 = load i64, ptr %37, align 8
   %39 = sub i64 %2, %38
-  %40 = call i32 @H5FDset_eoa(ptr noundef %35, i32 noundef %.0, i64 noundef %39) #16
+  %40 = call i32 @H5FDset_eoa(ptr noundef %35, i32 noundef %.017, i64 noundef %39) #16
   %41 = load i32, ptr %4, align 4
   %.not21 = icmp eq i32 %41, 0
   %42 = load ptr, ptr %5, align 8
@@ -2612,8 +2612,8 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_set_eoa(ptr nocapture noundef r
   br label %58
 
 58:                                               ; preds = %48, %17, %50
-  %.017 = phi i32 [ -1, %50 ], [ 0, %17 ], [ 0, %48 ]
-  ret i32 %.017
+  %.0 = phi i32 [ -1, %50 ], [ 0, %17 ], [ 0, %48 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

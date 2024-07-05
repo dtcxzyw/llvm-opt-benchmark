@@ -31,10 +31,10 @@ define void @closest_pairs2graph(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %.not131.i, label %gv_sort.exit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
-  %.083118.i = phi i64 [ %15, %.lr.ph.i ], [ 0, %4 ]
-  %14 = getelementptr inbounds i64, ptr %12, i64 %.083118.i
-  store i64 %.083118.i, ptr %14, align 8
-  %15 = add nuw i64 %.083118.i, 1
+  %.0118.i = phi i64 [ %15, %.lr.ph.i ], [ 0, %4 ]
+  %14 = getelementptr inbounds i64, ptr %12, i64 %.0118.i
+  store i64 %.0118.i, ptr %14, align 8
+  %15 = add nuw i64 %.0118.i, 1
   %exitcond.not.i = icmp eq i64 %15, %9
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -63,12 +63,12 @@ gv_sort.exit.i:                                   ; preds = %4
   br label %.lr.ph120.i
 
 .lr.ph120.i:                                      ; preds = %.lr.ph120.i, %.lr.ph120.preheader.i
-  %.082119.i = phi i64 [ %25, %.lr.ph120.i ], [ 0, %.lr.ph120.preheader.i ]
-  %22 = getelementptr inbounds i64, ptr %12, i64 %.082119.i
+  %.080119.i = phi i64 [ %25, %.lr.ph120.i ], [ 0, %.lr.ph120.preheader.i ]
+  %22 = getelementptr inbounds i64, ptr %12, i64 %.080119.i
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds i64, ptr %13, i64 %23
-  store i64 %.082119.i, ptr %24, align 8
-  %25 = add nuw i64 %.082119.i, 1
+  store i64 %.080119.i, ptr %24, align 8
+  %25 = add nuw i64 %.080119.i, 1
   %exitcond133.not.i = icmp eq i64 %25, %9
   br i1 %exitcond133.not.i, label %._crit_edge121.i, label %.lr.ph120.i
 
@@ -122,8 +122,8 @@ gv_sort.exit.i:                                   ; preds = %4
   br label %42
 
 42:                                               ; preds = %74, %.lr.ph32.i.i
-  %.035.i.i.i = phi i64 [ %.030.i.i, %.lr.ph32.i.i ], [ %.1.i.i.i, %74 ]
-  %43 = shl i64 %.035.i.i.i, 1
+  %.0.i.i.i = phi i64 [ %.030.i.i, %.lr.ph32.i.i ], [ %.1.i.i.i, %74 ]
+  %43 = shl i64 %.0.i.i.i, 1
   %44 = or disjoint i64 %43, 1
   %45 = icmp ult i64 %43, %28
   br i1 %45, label %46, label %57
@@ -131,7 +131,7 @@ gv_sort.exit.i:                                   ; preds = %4
 46:                                               ; preds = %42
   %47 = getelementptr inbounds %struct.Pair, ptr %31, i64 %43, i32 2
   %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds %struct.Pair, ptr %31, i64 %.035.i.i.i, i32 2
+  %49 = getelementptr inbounds %struct.Pair, ptr %31, i64 %.0.i.i.i, i32 2
   %50 = load double, ptr %49, align 8
   %51 = fcmp olt double %48, %50
   br i1 %51, label %58, label %52
@@ -150,14 +150,14 @@ gv_sort.exit.i:                                   ; preds = %4
   br label %58
 
 58:                                               ; preds = %57, %54, %46
-  %.0.i.i.i = phi i64 [ %.035.i.i.i, %57 ], [ %43, %54 ], [ %43, %46 ]
+  %.035.i.i.i = phi i64 [ %.0.i.i.i, %57 ], [ %43, %54 ], [ %43, %46 ]
   %59 = icmp ult i64 %44, %28
   br i1 %59, label %60, label %72
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds %struct.Pair, ptr %31, i64 %44, i32 2
   %62 = load double, ptr %61, align 8
-  %63 = getelementptr inbounds %struct.Pair, ptr %31, i64 %.0.i.i.i, i32 2
+  %63 = getelementptr inbounds %struct.Pair, ptr %31, i64 %.035.i.i.i, i32 2
   %64 = load double, ptr %63, align 8
   %65 = fcmp olt double %62, %64
   br i1 %65, label %71, label %66
@@ -176,14 +176,14 @@ gv_sort.exit.i:                                   ; preds = %4
   br label %72
 
 72:                                               ; preds = %71, %68, %66, %58
-  %.1.i.i.i = phi i64 [ %44, %71 ], [ %.0.i.i.i, %68 ], [ %.0.i.i.i, %66 ], [ %.0.i.i.i, %58 ]
-  %73 = icmp eq i64 %.1.i.i.i, %.035.i.i.i
+  %.1.i.i.i = phi i64 [ %44, %71 ], [ %.035.i.i.i, %68 ], [ %.035.i.i.i, %66 ], [ %.035.i.i.i, %58 ]
+  %73 = icmp eq i64 %.1.i.i.i, %.0.i.i.i
   br i1 %73, label %heapify.exit.i.i, label %74
 
 74:                                               ; preds = %72
   %75 = getelementptr inbounds %struct.Pair, ptr %31, i64 %.1.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false)
-  %76 = getelementptr inbounds %struct.Pair, ptr %31, i64 %.035.i.i.i
+  %76 = getelementptr inbounds %struct.Pair, ptr %31, i64 %.0.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(24) %76, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %42
@@ -227,8 +227,8 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
 
 .lr.ph125.split.i:                                ; preds = %.lr.ph125.split.i, %.lr.ph125.split.preheader.i
   %87 = phi i64 [ %90, %.lr.ph125.split.i ], [ %.pre138.i, %.lr.ph125.split.preheader.i ]
-  %.080124.i = phi i64 [ %88, %.lr.ph125.split.i ], [ 0, %.lr.ph125.split.preheader.i ]
-  %88 = add nuw i64 %.080124.i, 1
+  %.082124.i = phi i64 [ %88, %.lr.ph125.split.i ], [ 0, %.lr.ph125.split.preheader.i ]
+  %88 = add nuw i64 %.082124.i, 1
   %89 = getelementptr inbounds i64, ptr %12, i64 %88
   %90 = load i64, ptr %89, align 8
   %91 = getelementptr inbounds i64, ptr %11, i64 %87
@@ -260,8 +260,8 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
   br label %98
 
 98:                                               ; preds = %130, %94
-  %.035.i.i87.i = phi i64 [ 0, %94 ], [ %.1.i.i89.i, %130 ]
-  %99 = shl i64 %.035.i.i87.i, 1
+  %.0.i.i87.i = phi i64 [ 0, %94 ], [ %.1.i.i89.i, %130 ]
+  %99 = shl i64 %.0.i.i87.i, 1
   %100 = or disjoint i64 %99, 1
   %101 = icmp ult i64 %99, %97
   br i1 %101, label %102, label %113
@@ -269,7 +269,7 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
 102:                                              ; preds = %98
   %103 = getelementptr inbounds %struct.Pair, ptr %.val.pre.pre140.i, i64 %99, i32 2
   %104 = load double, ptr %103, align 8
-  %105 = getelementptr inbounds %struct.Pair, ptr %.val.pre.pre140.i, i64 %.035.i.i87.i, i32 2
+  %105 = getelementptr inbounds %struct.Pair, ptr %.val.pre.pre140.i, i64 %.0.i.i87.i, i32 2
   %106 = load double, ptr %105, align 8
   %107 = fcmp olt double %104, %106
   br i1 %107, label %114, label %108
@@ -288,14 +288,14 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
   br label %114
 
 114:                                              ; preds = %113, %110, %102
-  %.0.i.i88.i = phi i64 [ %.035.i.i87.i, %113 ], [ %99, %110 ], [ %99, %102 ]
+  %.035.i.i88.i = phi i64 [ %.0.i.i87.i, %113 ], [ %99, %110 ], [ %99, %102 ]
   %115 = icmp ult i64 %100, %97
   br i1 %115, label %116, label %128
 
 116:                                              ; preds = %114
   %117 = getelementptr inbounds %struct.Pair, ptr %.val.pre.pre140.i, i64 %100, i32 2
   %118 = load double, ptr %117, align 8
-  %119 = getelementptr inbounds %struct.Pair, ptr %.val.pre.pre140.i, i64 %.0.i.i88.i, i32 2
+  %119 = getelementptr inbounds %struct.Pair, ptr %.val.pre.pre140.i, i64 %.035.i.i88.i, i32 2
   %120 = load double, ptr %119, align 8
   %121 = fcmp olt double %118, %120
   br i1 %121, label %127, label %122
@@ -314,14 +314,14 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
   br label %128
 
 128:                                              ; preds = %127, %124, %122, %114
-  %.1.i.i89.i = phi i64 [ %100, %127 ], [ %.0.i.i88.i, %124 ], [ %.0.i.i88.i, %122 ], [ %.0.i.i88.i, %114 ]
-  %129 = icmp eq i64 %.1.i.i89.i, %.035.i.i87.i
+  %.1.i.i89.i = phi i64 [ %100, %127 ], [ %.035.i.i88.i, %124 ], [ %.035.i.i88.i, %122 ], [ %.035.i.i88.i, %114 ]
+  %129 = icmp eq i64 %.1.i.i89.i, %.0.i.i87.i
   br i1 %129, label %extractMax.exit.i, label %130
 
 130:                                              ; preds = %128
   %131 = getelementptr inbounds %struct.Pair, ptr %.val.pre.pre140.i, i64 %.1.i.i89.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %131, i64 24, i1 false)
-  %132 = getelementptr inbounds %struct.Pair, ptr %.val.pre.pre140.i, i64 %.035.i.i87.i
+  %132 = getelementptr inbounds %struct.Pair, ptr %.val.pre.pre140.i, i64 %.0.i.i87.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, ptr noundef nonnull align 8 dereferenceable(24) %132, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   br label %98

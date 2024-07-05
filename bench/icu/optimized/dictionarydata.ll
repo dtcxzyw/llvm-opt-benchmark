@@ -633,9 +633,9 @@ for.cond.preheader:                               ; preds = %invoke.cont
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
-  %wordCount.0 = phi i32 [ %wordCount.2, %for.inc ], [ 0, %for.cond.preheader ]
-  %codePointsMatched.0 = phi i32 [ %add, %for.inc ], [ 0, %for.cond.preheader ]
   %c.0 = phi i32 [ %call43, %for.inc ], [ %call3, %for.cond.preheader ]
+  %codePointsMatched.0 = phi i32 [ %add, %for.inc ], [ 0, %for.cond.preheader ]
+  %wordCount.0 = phi i32 [ %wordCount.2, %for.inc ], [ 0, %for.cond.preheader ]
   %cmp = icmp sgt i32 %c.0, -1
   br i1 %cmp, label %for.body, label %for.end
 
@@ -789,8 +789,8 @@ for.inc:                                          ; preds = %if.end38
           to label %for.cond unwind label %lpad.loopexit, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end38, %if.else, %if.end31, %for.cond
-  %wordCount.3 = phi i32 [ %wordCount.1, %if.end31 ], [ %wordCount.2, %if.end38 ], [ %wordCount.0, %if.else ], [ %wordCount.0, %for.cond ]
   %codePointsMatched.1 = phi i32 [ %add, %if.end31 ], [ %add, %if.end38 ], [ %add, %if.else ], [ %codePointsMatched.0, %for.cond ]
+  %wordCount.3 = phi i32 [ %wordCount.1, %if.end31 ], [ %wordCount.2, %if.end38 ], [ %wordCount.0, %if.else ], [ %wordCount.0, %for.cond ]
   %cmp44.not = icmp eq ptr %prefix, null
   br i1 %cmp44.not, label %if.end46, label %if.then45
 

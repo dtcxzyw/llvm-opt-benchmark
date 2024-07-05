@@ -443,8 +443,8 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
   br label %70
 
 70:                                               ; preds = %2, %68, %._crit_edge
-  %.048 = phi i1 [ %67, %._crit_edge ], [ %69, %68 ], [ false, %2 ]
-  ret i1 %.048
+  %.0 = phi i1 [ %67, %._crit_edge ], [ %69, %68 ], [ false, %2 ]
+  ret i1 %.0
 }
 
 declare ptr @list_delete_last(ptr noundef) local_unnamed_addr #1

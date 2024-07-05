@@ -261,7 +261,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
-  %.019 = phi i32 [ %19, %17 ], [ 1, %.lr.ph.preheader ]
+  %.01119 = phi i32 [ %19, %17 ], [ 1, %.lr.ph.preheader ]
   %.118 = phi ptr [ %18, %17 ], [ %7, %.lr.ph.preheader ]
   %12 = icmp eq ptr %.118, %1
   br i1 %12, label %.loopexit15, label %13
@@ -274,7 +274,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %.118, i64 1
-  %19 = add nuw nsw i32 %.019, 1
+  %19 = add nuw nsw i32 %.01119, 1
   %exitcond.not = icmp eq i32 %19, %smax
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
@@ -284,8 +284,8 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
   br i1 %20, label %.lr.ph21, label %.loopexit15, !llvm.loop !8
 
 .loopexit15:                                      ; preds = %.lr.ph21, %.loopexit, %13, %.lr.ph, %2
-  %.011 = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %13 ], [ 0, %.lr.ph21 ], [ 1, %.loopexit ]
-  ret i32 %.011
+  %.0 = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 0, %13 ], [ 0, %.lr.ph21 ], [ 1, %.loopexit ]
+  ret i32 %.0
 }
 
 declare i32 @onigenc_unicode_mbc_case_fold(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

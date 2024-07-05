@@ -16639,14 +16639,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit204: ;
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.0101259 = phi i64 [ %239, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.sroa.14.0256 = phi double [ %238, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+  %.sroa.14.0258 = phi double [ %238, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
   %232 = phi <2 x double> [ %235, %.lr.ph ], [ zeroinitializer, %.lr.ph.preheader ]
   %233 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %195, i64 %.0101259
   %234 = load <2 x double>, ptr %233, align 8
   %235 = fadd <2 x double> %232, %234
   %236 = getelementptr inbounds i8, ptr %233, i64 16
   %237 = load double, ptr %236, align 8
-  %238 = fadd double %.sroa.14.0256, %237
+  %238 = fadd double %.sroa.14.0258, %237
   %239 = add nuw i64 %.0101259, 1
   %exitcond.not = icmp eq i64 %239, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !475

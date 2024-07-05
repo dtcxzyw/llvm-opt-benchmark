@@ -508,25 +508,25 @@ define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef %1, i
 
 35:                                               ; preds = %.lr.ph72, %46
   %indvars.iv84 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next85, %46 ]
-  %.071 = phi i32 [ 0, %.lr.ph72 ], [ %.1, %46 ]
+  %.04971 = phi i32 [ 0, %.lr.ph72 ], [ %.1, %46 ]
   %36 = icmp eq i64 %indvars.iv84, %33
   br i1 %36, label %46, label %37
 
 37:                                               ; preds = %35
   %38 = getelementptr [1 x %struct.range_admin_tag], ptr %31, i64 0, i64 %indvars.iv84
   %39 = load i32, ptr %38, align 4
-  %40 = zext i32 %.071 to i64
+  %40 = zext i32 %.04971 to i64
   %41 = getelementptr [1 x %struct.range_admin_tag], ptr %32, i64 0, i64 %40
   store i32 %39, ptr %41, align 4
   %42 = getelementptr [1 x %struct.range_admin_tag], ptr %31, i64 0, i64 %indvars.iv84, i32 1
   %43 = load i32, ptr %42, align 4
   %44 = getelementptr inbounds i8, ptr %41, i64 4
   store i32 %43, ptr %44, align 4
-  %45 = add i32 %.071, 1
+  %45 = add i32 %.04971, 1
   br label %46
 
 46:                                               ; preds = %35, %37
-  %.1 = phi i32 [ %.071, %35 ], [ %45, %37 ]
+  %.1 = phi i32 [ %.04971, %35 ], [ %45, %37 ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %47 = icmp ult i64 %indvars.iv.next85, %34
   br i1 %47, label %35, label %._crit_edge, !llvm.loop !12
@@ -556,8 +556,8 @@ define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef %1, i
   br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !13
 
 .loopexit:                                        ; preds = %12, %54, %.preheader, %3, %4, %51, %48, %._crit_edge
-  %.051 = phi i32 [ 1, %._crit_edge ], [ 1, %48 ], [ 1, %51 ], [ 0, %4 ], [ 0, %3 ], [ 1, %.preheader ], [ 1, %54 ], [ 1, %12 ]
-  ret i32 %.051
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 1, %48 ], [ 1, %51 ], [ 0, %4 ], [ 0, %3 ], [ 1, %.preheader ], [ 1, %54 ], [ 1, %12 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -676,7 +676,7 @@ define ptr @range_convert_range(ptr noundef %0, ptr noundef readonly %1) local_u
 
 6:                                                ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %.not2326 = phi ptr [ @.str, %.lr.ph ], [ @.str.2, %14 ]
+  %.not2325 = phi ptr [ @.str, %.lr.ph ], [ @.str.2, %14 ]
   %7 = getelementptr [1 x %struct.range_admin_tag], ptr %5, i64 0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %7, i64 4
@@ -685,11 +685,11 @@ define ptr @range_convert_range(ptr noundef %0, ptr noundef readonly %1) local_u
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %.not2326, i32 noundef %8) #4
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %.not2325, i32 noundef %8) #4
   br label %14
 
 13:                                               ; preds = %6
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %.not2326, i32 noundef %8, i32 noundef %10) #4
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %.not2325, i32 noundef %8, i32 noundef %10) #4
   br label %14
 
 14:                                               ; preds = %13, %12

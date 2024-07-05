@@ -1016,12 +1016,12 @@ define internal i32 @dissect_ucp_common(ptr noundef %0, ptr noundef %1, ptr noun
   br label %check_ucp.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.032.i = phi i32 [ %23, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %.02831.i = phi i32 [ %24, %.lr.ph.i ], [ 1, %.preheader.i ]
-  %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02831.i) #4
+  %.02832.i = phi i32 [ %23, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %.02931.i = phi i32 [ %24, %.lr.ph.i ], [ 1, %.preheader.i ]
+  %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02931.i) #4
   %22 = zext i8 %21 to i32
-  %23 = add i32 %.032.i, %22
-  %24 = add nuw i32 %.02831.i, 1
+  %23 = add i32 %.02832.i, %22
+  %24 = add nuw i32 %.02931.i, 1
   %exitcond.not.i = icmp eq i32 %24, %17
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !6
 
@@ -1030,10 +1030,10 @@ define internal i32 @dissect_ucp_common(ptr noundef %0, ptr noundef %1, ptr noun
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
-  %.028.lcssa.i = phi i32 [ 1, %.preheader.i ], [ %17, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %25, %._crit_edge.loopexit.i ]
-  %26 = add i32 %.028.lcssa.i, 1
-  %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.028.lcssa.i) #4
+  %.029.lcssa.i = phi i32 [ 1, %.preheader.i ], [ %17, %._crit_edge.loopexit.i ]
+  %.028.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %25, %._crit_edge.loopexit.i ]
+  %26 = add i32 %.029.lcssa.i, 1
+  %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.029.lcssa.i) #4
   %28 = zext i8 %27 to i32
   %29 = and i32 %28, 64
   %.not.i = icmp eq i32 %29, 0
@@ -1049,14 +1049,14 @@ define internal i32 @dissect_ucp_common(ptr noundef %0, ptr noundef %1, ptr noun
   %38 = add nuw nsw i32 %37, 9
   %39 = select i1 %.not30.i, i32 %37, i32 %38
   %40 = add nuw nsw i32 %35, %39
-  %41 = add i32 %.028.lcssa.i, 3
-  %42 = icmp eq i32 %.0.lcssa.i, %40
+  %41 = add i32 %.029.lcssa.i, 3
+  %42 = icmp eq i32 %.028.lcssa.i, %40
   %spec.select = select i1 %42, i32 0, i32 -2
   br label %check_ucp.exit
 
 check_ucp.exit:                                   ; preds = %._crit_edge.i, %19
-  %.0288 = phi i32 [ %20, %19 ], [ %41, %._crit_edge.i ]
-  %.029.i = phi i32 [ -1, %19 ], [ %spec.select, %._crit_edge.i ]
+  %.0289 = phi i32 [ %20, %19 ], [ %41, %._crit_edge.i ]
+  %.0.i = phi i32 [ -1, %19 ], [ %spec.select, %._crit_edge.i ]
   %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #4
   %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
   %45 = mul i8 %44, 10
@@ -1076,7 +1076,7 @@ check_ucp.exit:                                   ; preds = %._crit_edge.i, %19
   %57 = tail call ptr @val_to_str_ext_const(i32 noundef %54, ptr noundef nonnull @vals_hdr_OT_ext, ptr noundef nonnull @.str.577) #4
   %58 = tail call ptr @val_to_str(i32 noundef %51, ptr noundef nonnull @vals_hdr_O_R, ptr noundef nonnull @.str.578) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %56, i32 noundef 25, ptr noundef nonnull @.str.576, ptr noundef %57, ptr noundef %58) #4
-  %59 = icmp eq i32 %.029.i, -2
+  %59 = icmp eq i32 %.0.i, -2
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %check_ucp.exit
@@ -1105,15 +1105,15 @@ check_ucp.exit:                                   ; preds = %._crit_edge.i, %19
   br label %77
 
 77:                                               ; preds = %63, %77
-  %.0283293 = phi i32 [ 0, %63 ], [ %84, %77 ]
-  %.0284292 = phi i32 [ 0, %63 ], [ %83, %77 ]
-  %78 = mul i32 %.0284292, 10
-  %79 = add nuw nsw i32 %.0283293, 4
+  %.0283294 = phi i32 [ 0, %63 ], [ %83, %77 ]
+  %.0284293 = phi i32 [ 0, %63 ], [ %84, %77 ]
+  %78 = mul i32 %.0283294, 10
+  %79 = add nuw nsw i32 %.0284293, 4
   %80 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %79) #4
   %81 = zext i8 %80 to i32
   %82 = add i32 %78, -48
   %83 = add i32 %82, %81
-  %84 = add nuw nsw i32 %.0283293, 1
+  %84 = add nuw nsw i32 %.0284293, 1
   %exitcond.not = icmp eq i32 %84, 5
   br i1 %exitcond.not, label %85, label %77, !llvm.loop !7
 
@@ -1126,7 +1126,7 @@ check_ucp.exit:                                   ; preds = %._crit_edge.i, %19
   %91 = tail call ptr @proto_tree_add_uint(ptr noundef %67, i32 noundef %90, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef %54) #4
   %92 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 14) #4
   %93 = load i32, ptr @hf_ucp_oper_section, align 4
-  %94 = add i32 %.0288, -14
+  %94 = add i32 %.0289, -14
   %95 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %93, ptr noundef %0, i32 noundef 14, i32 noundef %94, i32 noundef 0) #4
   %96 = load i32, ptr @ett_sub, align 4
   %97 = tail call ptr @proto_item_add_subtree(ptr noundef %95, i32 noundef %96) #4
@@ -1474,8 +1474,8 @@ check_ucp.exit:                                   ; preds = %._crit_edge.i, %19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %181 = load i32, ptr @hf_ucp_parm_AdC, align 4
   %182 = tail call i32 @tvb_find_guint8(ptr noundef %92, i32 noundef 1, i32 noundef -1, i8 noundef zeroext 47) #4
-  %.not294 = icmp eq i32 %182, -1
-  br i1 %.not294, label %183, label %186
+  %.not295 = icmp eq i32 %182, -1
+  br i1 %.not295, label %183, label %186
 
 183:                                              ; preds = %180
   %184 = tail call i32 @tvb_captured_length_remaining(ptr noundef %92, i32 noundef 1) #4
@@ -1497,7 +1497,7 @@ check_ucp.exit:                                   ; preds = %._crit_edge.i, %19
   br label %ucp_handle_string.exit.i
 
 ucp_handle_string.exit.i:                         ; preds = %190, %188
-  %192 = select i1 %.not294, i32 1, i32 2
+  %192 = select i1 %.not295, i32 1, i32 2
   %spec.select.i.i = add i32 %192, %.0.i.i
   %193 = load i32, ptr @hf_ucp_parm_OAdC, align 4
   %194 = tail call i32 @tvb_find_guint8(ptr noundef %92, i32 noundef %spec.select.i.i, i32 noundef -1, i8 noundef zeroext 47) #4
@@ -2041,9 +2041,9 @@ ucp_handle_string.exit177.i:                      ; preds = %467, %465
   br label %471
 
 471:                                              ; preds = %471, %ucp_handle_string.exit177.i
-  %.0.i = phi i32 [ %spec.select.i175.i, %ucp_handle_string.exit177.i ], [ %472, %471 ]
-  %472 = add i32 %.0.i, 1
-  %473 = call zeroext i8 @tvb_get_guint8(ptr noundef %92, i32 noundef %.0.i) #4
+  %.0.i288 = phi i32 [ %spec.select.i175.i, %ucp_handle_string.exit177.i ], [ %472, %471 ]
+  %472 = add i32 %.0.i288, 1
+  %473 = call zeroext i8 @tvb_get_guint8(ptr noundef %92, i32 noundef %.0.i288) #4
   %.not101.i = icmp eq i8 %473, 47
   br i1 %.not101.i, label %474, label %471, !llvm.loop !9
 
@@ -2125,7 +2125,7 @@ ucp_handle_XSer.exit.i:                           ; preds = %.lr.ph.i.i, %477, %
   br i1 %.not.i180.i, label %530, label %527, !llvm.loop !11
 
 530:                                              ; preds = %527
-  %531 = sub i32 %.0.i179.i, %.0.i
+  %531 = sub i32 %.0.i179.i, %.0.i288
   %532 = icmp sgt i32 %531, 1
   br i1 %532, label %533, label %ucp_handle_data_string.exit.i
 
@@ -6349,16 +6349,16 @@ define internal fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %1
   br label %26
 
 26:                                               ; preds = %20, %16
-  %.042 = phi ptr [ %25, %20 ], [ null, %16 ]
+  %.043 = phi ptr [ %25, %20 ], [ null, %16 ]
   %27 = call ptr @wmem_packet_scope() #4
-  %28 = call noalias ptr @wmem_strbuf_new(ptr noundef %27, ptr noundef %.042) #4
+  %28 = call noalias ptr @wmem_strbuf_new(ptr noundef %27, ptr noundef %.043) #4
   %29 = load i32, ptr %5, align 4
   %30 = add i32 %29, 1
   %31 = icmp slt i32 %30, %7
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %26, %46
-  %.04348 = phi ptr [ %36, %46 ], [ %17, %26 ]
+  %.04248 = phi ptr [ %36, %46 ], [ %17, %26 ]
   call void @wmem_strbuf_append_unichar(ptr noundef %28, i32 noundef 65533) #4
   %32 = load i32, ptr %5, align 4
   %33 = add i32 %32, 2
@@ -6368,7 +6368,7 @@ define internal fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %1
   br i1 %.not45, label %35, label %._crit_edge
 
 35:                                               ; preds = %.lr.ph
-  %36 = call ptr @g_byte_array_set_size(ptr noundef %.04348, i32 noundef 0) #4
+  %36 = call ptr @g_byte_array_set_size(ptr noundef %.04248, i32 noundef 0) #4
   %37 = load i32, ptr %5, align 4
   %38 = sub i32 %7, %37
   %39 = call ptr @tvb_get_string_bytes(ptr noundef %1, i32 noundef %37, i32 noundef %38, i32 noundef 33619968, ptr noundef %36, ptr noundef nonnull %5) #4
@@ -6392,7 +6392,7 @@ define internal fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %1
 
 ._crit_edge:                                      ; preds = %46, %.lr.ph, %26
   %50 = phi i32 [ %29, %26 ], [ %33, %.lr.ph ], [ %47, %46 ]
-  %.043.lcssa = phi ptr [ %17, %26 ], [ %.04348, %.lr.ph ], [ %36, %46 ]
+  %.042.lcssa = phi ptr [ %17, %26 ], [ %.04248, %.lr.ph ], [ %36, %46 ]
   %51 = icmp slt i32 %50, %7
   br i1 %51, label %52, label %53
 
@@ -6401,7 +6401,7 @@ define internal fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %1
   br label %53
 
 53:                                               ; preds = %52, %._crit_edge
-  %54 = call ptr @g_byte_array_free(ptr noundef %.043.lcssa, i32 noundef 1) #4
+  %54 = call ptr @g_byte_array_free(ptr noundef %.042.lcssa, i32 noundef 1) #4
   %55 = icmp sgt i32 %.0, 0
   br i1 %55, label %56, label %60
 

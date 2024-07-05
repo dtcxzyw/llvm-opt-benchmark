@@ -1348,7 +1348,7 @@ define dso_local ptr @pg_plan_queries(ptr noundef readonly %0, ptr noundef %1, i
   br i1 %8, label %.lr.ph37, label %._crit_edge
 
 .lr.ph37:                                         ; preds = %.lr.ph, %pg_plan_query.exit
-  %.0253036 = phi ptr [ %51, %pg_plan_query.exit ], [ null, %.lr.ph ]
+  %.0243136 = phi ptr [ %51, %pg_plan_query.exit ], [ null, %.lr.ph ]
   %indvars.iv35 = phi i64 [ %indvars.iv.next, %pg_plan_query.exit ], [ 0, %.lr.ph ]
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv35
@@ -1419,7 +1419,7 @@ define dso_local ptr @pg_plan_queries(ptr noundef readonly %0, ptr noundef %1, i
 
 pg_plan_query.exit:                               ; preds = %48, %45, %15
   %.0 = phi ptr [ %16, %15 ], [ %41, %45 ], [ %41, %48 ]
-  %51 = tail call ptr @lappend(ptr noundef %.0253036, ptr noundef %.0) #25
+  %51 = tail call ptr @lappend(ptr noundef %.0243136, ptr noundef %.0) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv35, 1
   %52 = load i32, ptr %5, align 4
   %53 = sext i32 %52 to i64
@@ -1427,8 +1427,8 @@ pg_plan_query.exit:                               ; preds = %48, %45, %15
   br i1 %54, label %.lr.ph37, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %pg_plan_query.exit, %.lr.ph, %4
-  %.025.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph ], [ %51, %pg_plan_query.exit ]
-  ret ptr %.025.lcssa
+  %.024.lcssa = phi ptr [ null, %4 ], [ null, %.lr.ph ], [ %51, %pg_plan_query.exit ]
+  ret ptr %.024.lcssa
 }
 
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -2169,16 +2169,16 @@ define dso_local void @process_postgres_switches(i32 noundef %0, ptr noundef %1,
   br label %16
 
 16:                                               ; preds = %10, %4, %8
-  %.071 = phi ptr [ %1, %8 ], [ %spec.select, %10 ], [ %1, %4 ]
-  %.069 = phi i32 [ 4, %8 ], [ 4, %10 ], [ 9, %4 ]
+  %.070 = phi i32 [ 4, %8 ], [ 4, %10 ], [ 9, %4 ]
+  %.069 = phi ptr [ %1, %8 ], [ %spec.select, %10 ], [ %1, %4 ]
   %.0 = phi i32 [ %0, %8 ], [ %spec.select83, %10 ], [ %0, %4 ]
   store i32 0, ptr @opterr, align 4
-  %17 = tail call i32 @getopt(i32 noundef %.0, ptr noundef %.071, ptr noundef nonnull @.str.62) #25
+  %17 = tail call i32 @getopt(i32 noundef %.0, ptr noundef %.069, ptr noundef nonnull @.str.62) #25
   %.not101 = icmp eq i32 %17, -1
   br i1 %.not101, label %.critedge, label %.lr.ph
 
 .backedge:                                        ; preds = %87, %84, %83, %get_stats_option_name.exit.thread, %76, %74, %71, %70, %68, %67, %66, %64, %63, %61, %60, %59, %58, %56, %50, %49, %48, %47, %44, %41, %40, %36, %.lr.ph, %.lr.ph, %.lr.ph, %23, %22, %20, %switch.lookup
-  %18 = call i32 @getopt(i32 noundef %.0, ptr noundef %.071, ptr noundef nonnull @.str.62) #25
+  %18 = call i32 @getopt(i32 noundef %.0, ptr noundef %.069, ptr noundef nonnull @.str.62) #25
   %.not = icmp eq i32 %18, -1
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !8
 
@@ -2217,7 +2217,7 @@ define dso_local void @process_postgres_switches(i32 noundef %0, ptr noundef %1,
 
 20:                                               ; preds = %.lr.ph
   %21 = load ptr, ptr @optarg, align 8
-  call void @SetConfigOption(ptr noundef nonnull @.str.63, ptr noundef %21, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull @.str.63, ptr noundef %21, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 22:                                               ; preds = %.lr.ph
@@ -2254,7 +2254,7 @@ define dso_local void @process_postgres_switches(i32 noundef %0, ptr noundef %1,
 
 36:                                               ; preds = %24
   %37 = load ptr, ptr %5, align 8
-  call void @SetConfigOption(ptr noundef %37, ptr noundef nonnull %26, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef %37, ptr noundef nonnull %26, i32 noundef %2, i32 noundef %.070) #25
   %38 = load ptr, ptr %5, align 8
   call void @pfree(ptr noundef %38) #25
   %39 = load ptr, ptr %6, align 8
@@ -2273,7 +2273,7 @@ define dso_local void @process_postgres_switches(i32 noundef %0, ptr noundef %1,
 44:                                               ; preds = %.lr.ph
   %45 = load ptr, ptr @optarg, align 8
   %46 = call i32 @atoi(ptr nocapture noundef %45) #28
-  call void @set_debug_options(i32 noundef %46, i32 noundef %2, i32 noundef %.069)
+  call void @set_debug_options(i32 noundef %46, i32 noundef %2, i32 noundef %.070)
   br label %.backedge
 
 47:                                               ; preds = %.lr.ph
@@ -2284,11 +2284,11 @@ define dso_local void @process_postgres_switches(i32 noundef %0, ptr noundef %1,
   br label %.backedge
 
 49:                                               ; preds = %.lr.ph
-  call void @SetConfigOption(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 50:                                               ; preds = %.lr.ph
-  call void @SetConfigOption(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.57, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.57, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 51:                                               ; preds = %.lr.ph
@@ -2308,16 +2308,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %55 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [19 x ptr], ptr @switch.table.process_postgres_switches, i64 0, i64 %55
   %switch.load = load ptr, ptr %switch.gep, align 8
-  call void @SetConfigOption(ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.57, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.57, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 56:                                               ; preds = %.lr.ph
   %57 = load ptr, ptr @optarg, align 8
-  call void @SetConfigOption(ptr noundef nonnull @.str.69, ptr noundef %57, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull @.str.69, ptr noundef %57, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 58:                                               ; preds = %.lr.ph
-  call void @SetConfigOption(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 59:                                               ; preds = %.lr.ph
@@ -2329,29 +2329,29 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 61:                                               ; preds = %.lr.ph
   %62 = load ptr, ptr @optarg, align 8
-  call void @SetConfigOption(ptr noundef nonnull @.str.71, ptr noundef %62, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull @.str.71, ptr noundef %62, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 63:                                               ; preds = %.lr.ph
-  call void @SetConfigOption(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.42, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.42, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 64:                                               ; preds = %.lr.ph
   %65 = load ptr, ptr @optarg, align 8
-  call void @SetConfigOption(ptr noundef nonnull @.str.73, ptr noundef %65, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull @.str.73, ptr noundef %65, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 66:                                               ; preds = %.lr.ph
-  call void @SetConfigOption(ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.42, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.42, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 67:                                               ; preds = %.lr.ph
-  call void @SetConfigOption(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.42, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.42, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr @optarg, align 8
-  call void @SetConfigOption(ptr noundef nonnull @.str.76, ptr noundef %69, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull @.str.76, ptr noundef %69, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 70:                                               ; preds = %.lr.ph
@@ -2364,11 +2364,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 74:                                               ; preds = %.lr.ph
   %75 = load ptr, ptr @optarg, align 8
-  call void @SetConfigOption(ptr noundef nonnull @.str.77, ptr noundef %75, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull @.str.77, ptr noundef %75, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 76:                                               ; preds = %.lr.ph
-  call void @SetConfigOption(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.42, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.42, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 77:                                               ; preds = %.lr.ph
@@ -2392,7 +2392,7 @@ get_stats_option_name.exit.thread.fold.split:     ; preds = %80
 
 get_stats_option_name.exit.thread:                ; preds = %80, %get_stats_option_name.exit.thread.fold.split, %77
   %.0.i91 = phi ptr [ @.str.60, %77 ], [ @.str.58, %80 ], [ @.str.59, %get_stats_option_name.exit.thread.fold.split ]
-  call void @SetConfigOption(ptr noundef nonnull %.0.i91, ptr noundef nonnull @.str.42, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull %.0.i91, ptr noundef nonnull @.str.42, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 83:                                               ; preds = %.lr.ph
@@ -2406,7 +2406,7 @@ get_stats_option_name.exit.thread:                ; preds = %80, %get_stats_opti
 
 87:                                               ; preds = %.lr.ph
   %88 = load ptr, ptr @optarg, align 8
-  call void @SetConfigOption(ptr noundef nonnull @.str.79, ptr noundef %88, i32 noundef %2, i32 noundef %.069) #25
+  call void @SetConfigOption(ptr noundef nonnull @.str.79, ptr noundef %88, i32 noundef %2, i32 noundef %.070) #25
   br label %.backedge
 
 .critedge:                                        ; preds = %.backedge, %16
@@ -2428,7 +2428,7 @@ get_stats_option_name.exit.thread:                ; preds = %80, %get_stats_opti
   %97 = add i32 %93, 1
   store i32 %97, ptr @optind, align 4
   %98 = sext i32 %93 to i64
-  %99 = getelementptr ptr, ptr %.071, i64 %98
+  %99 = getelementptr ptr, ptr %.069, i64 %98
   %100 = load ptr, ptr %99, align 8
   %101 = call noalias ptr @strdup(ptr noundef %100) #25
   store ptr %101, ptr %3, align 8
@@ -2456,7 +2456,7 @@ set_plan_disabling_options.exit.thread:           ; preds = %switch.hole_check, 
 110:                                              ; preds = %.thread98
   %111 = load i32, ptr @optind, align 4
   %112 = sext i32 %111 to i64
-  %113 = getelementptr ptr, ptr %.071, i64 %112
+  %113 = getelementptr ptr, ptr %.069, i64 %112
   %114 = load ptr, ptr %113, align 8
   %115 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.80, ptr noundef %114) #25
   %116 = load ptr, ptr @progname, align 8
@@ -2468,7 +2468,7 @@ set_plan_disabling_options.exit.thread:           ; preds = %switch.hole_check, 
   %119 = load ptr, ptr @progname, align 8
   %120 = load i32, ptr @optind, align 4
   %121 = sext i32 %120 to i64
-  %122 = getelementptr ptr, ptr %.071, i64 %121
+  %122 = getelementptr ptr, ptr %.069, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.82, ptr noundef %119, ptr noundef %123) #25
   %125 = load ptr, ptr @progname, align 8
@@ -3313,12 +3313,12 @@ forbidden_in_wal_sender.exit:                     ; preds = %291
   br i1 %exitcond.not, label %.loopexit, label %306, !llvm.loop !16
 
 .loopexit:                                        ; preds = %306, %forbidden_in_wal_sender.exit
-  %.047 = phi ptr [ null, %forbidden_in_wal_sender.exit ], [ %305, %306 ]
+  %.0 = phi ptr [ null, %forbidden_in_wal_sender.exit ], [ %305, %306 ]
   call void @pq_getmsgend(ptr noundef nonnull %25) #25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
-  store ptr %.047, ptr %17, align 8
+  store ptr %.0, ptr %17, align 8
   store i32 %300, ptr %18, align 4
   %309 = load i8, ptr @log_statement_stats, align 1
   %310 = trunc i8 %309 to i1
@@ -3431,7 +3431,7 @@ drop_unnamed_stmt.exit.i:                         ; preds = %352, %350
 355:                                              ; preds = %drop_unnamed_stmt.exit.i, %348
   %storemerge.i = phi ptr [ %349, %348 ], [ %354, %drop_unnamed_stmt.exit.i ]
   %.037.i = phi ptr [ null, %348 ], [ %354, %drop_unnamed_stmt.exit.i ]
-  %.040.i = load ptr, ptr @CurrentMemoryContext, align 8
+  %.038.i = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %storemerge.i, ptr @CurrentMemoryContext, align 8
   %356 = load i8, ptr @log_parser_stats, align 1
   %357 = trunc i8 %356 to i1
@@ -3742,13 +3742,13 @@ pg_rewrite_query.exit:                            ; preds = %493, %496
   br label %pg_rewrite_query.exit144
 
 pg_rewrite_query.exit144:                         ; preds = %442, %439, %499, %pg_rewrite_query.exit
-  %.039.i = phi ptr [ %.0.i142, %pg_rewrite_query.exit ], [ null, %499 ], [ %.0.i143, %439 ], [ %.0.i143, %442 ]
-  %.038.i = phi ptr [ %390, %pg_rewrite_query.exit ], [ %500, %499 ], [ %390, %439 ], [ %390, %442 ]
+  %.040.i = phi ptr [ %.0.i142, %pg_rewrite_query.exit ], [ null, %499 ], [ %.0.i143, %439 ], [ %.0.i143, %442 ]
+  %.039.i = phi ptr [ %390, %pg_rewrite_query.exit ], [ %500, %499 ], [ %390, %439 ], [ %390, %442 ]
   %.not44.i = icmp eq ptr %.037.i, null
   br i1 %.not44.i, label %505, label %501
 
 501:                                              ; preds = %pg_rewrite_query.exit144
-  %502 = getelementptr inbounds i8, ptr %.038.i, i64 80
+  %502 = getelementptr inbounds i8, ptr %.039.i, i64 80
   %503 = load ptr, ptr %502, align 8
   %504 = load ptr, ptr @MessageContext, align 8
   call void @MemoryContextSetParent(ptr noundef %503, ptr noundef %504) #25
@@ -3757,7 +3757,7 @@ pg_rewrite_query.exit144:                         ; preds = %442, %439, %499, %p
 505:                                              ; preds = %501, %pg_rewrite_query.exit144
   %506 = load ptr, ptr %17, align 8
   %507 = load i32, ptr %18, align 4
-  call void @CompleteCachedPlan(ptr noundef %.038.i, ptr noundef %.039.i, ptr noundef %.037.i, ptr noundef %506, i32 noundef %507, ptr noundef null, ptr noundef null, i32 noundef 2048, i1 noundef zeroext true) #25
+  call void @CompleteCachedPlan(ptr noundef %.039.i, ptr noundef %.040.i, ptr noundef %.037.i, ptr noundef %506, i32 noundef %507, ptr noundef null, ptr noundef null, i32 noundef 2048, i1 noundef zeroext true) #25
   %508 = load volatile i32, ptr @InterruptPending, align 4
   %.not45.i = icmp eq i32 %508, 0
   br i1 %.not45.i, label %510, label %509
@@ -3770,16 +3770,16 @@ pg_rewrite_query.exit144:                         ; preds = %442, %439, %499, %p
   br i1 %.not42.i, label %512, label %511
 
 511:                                              ; preds = %510
-  call void @StorePreparedStatement(ptr noundef nonnull %298, ptr noundef %.038.i, i1 noundef zeroext false) #25
+  call void @StorePreparedStatement(ptr noundef nonnull %298, ptr noundef %.039.i, i1 noundef zeroext false) #25
   br label %513
 
 512:                                              ; preds = %510
-  call void @SaveCachedPlan(ptr noundef %.038.i) #25
-  store ptr %.038.i, ptr @unnamed_stmt_psrc, align 8
+  call void @SaveCachedPlan(ptr noundef %.039.i) #25
+  store ptr %.039.i, ptr @unnamed_stmt_psrc, align 8
   br label %513
 
 513:                                              ; preds = %512, %511
-  store ptr %.040.i, ptr @CurrentMemoryContext, align 8
+  store ptr %.038.i, ptr @CurrentMemoryContext, align 8
   call void @CommandCounterIncrement() #25
   %514 = load i32, ptr @whereToSendOutput, align 4
   %515 = icmp eq i32 %514, 2
@@ -3902,8 +3902,8 @@ forbidden_in_wal_sender.exit68:                   ; preds = %532
   unreachable
 
 562:                                              ; preds = %556, %552
-  %.0161.i = phi ptr [ %555, %552 ], [ %557, %556 ]
-  %563 = getelementptr inbounds i8, ptr %.0161.i, i64 16
+  %.0152.i = phi ptr [ %555, %552 ], [ %557, %556 ]
+  %563 = getelementptr inbounds i8, ptr %.0152.i, i64 16
   %564 = load ptr, ptr %563, align 8
   store ptr %564, ptr @debug_query_string, align 8
   call void @pgstat_report_activity(i32 noundef 2, ptr noundef %564) #25
@@ -4000,7 +4000,7 @@ start_xact_command.exit126:                       ; preds = %enable_statement_ti
   br i1 %exitcond.not.i, label %.loopexit212.i, label %602, !llvm.loop !17
 
 .loopexit212.i:                                   ; preds = %602, %start_xact_command.exit126
-  %.0160.i = phi ptr [ null, %start_xact_command.exit126 ], [ %601, %602 ]
+  %.0149.i = phi ptr [ null, %start_xact_command.exit126 ], [ %601, %602 ]
   %606 = call i32 @pq_getmsgint(ptr noundef nonnull %25, i32 noundef 2) #25
   %607 = icmp slt i32 %596, 2
   %.not182.i = icmp eq i32 %596, %606
@@ -4016,13 +4016,13 @@ start_xact_command.exit126:                       ; preds = %enable_statement_ti
   unreachable
 
 612:                                              ; preds = %.loopexit212.i
-  %613 = getelementptr inbounds i8, ptr %.0161.i, i64 40
+  %613 = getelementptr inbounds i8, ptr %.0152.i, i64 40
   %614 = load i32, ptr %613, align 8
   %.not183.i = icmp eq i32 %606, %614
   br i1 %.not183.i, label %621, label %615
 
 615:                                              ; preds = %612
-  %616 = getelementptr inbounds i8, ptr %.0161.i, i64 40
+  %616 = getelementptr inbounds i8, ptr %.0152.i, i64 40
   %617 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #26
   call void @llvm.assume(i1 %617)
   %618 = call i32 @errcode(i32 noundef 16908800) #25
@@ -4036,7 +4036,7 @@ start_xact_command.exit126:                       ; preds = %enable_statement_ti
   br i1 %622, label %623, label %639
 
 623:                                              ; preds = %621
-  %624 = getelementptr inbounds i8, ptr %.0161.i, i64 8
+  %624 = getelementptr inbounds i8, ptr %.0152.i, i64 8
   %625 = load ptr, ptr %624, align 8
   %.not184.i = icmp eq ptr %625, null
   br i1 %.not184.i, label %IsTransactionExitStmt.exit.thread.i74, label %626
@@ -4085,8 +4085,8 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   br label %646
 
 646:                                              ; preds = %644, %642
-  %.0159.i = phi ptr [ %643, %642 ], [ %645, %644 ]
-  %647 = getelementptr inbounds i8, ptr %.0159.i, i64 16
+  %.0155.i = phi ptr [ %643, %642 ], [ %645, %644 ]
+  %647 = getelementptr inbounds i8, ptr %.0155.i, i64 16
   %648 = load ptr, ptr %647, align 8
   %649 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %648, ptr @CurrentMemoryContext, align 8
@@ -4101,12 +4101,12 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   br label %655
 
 655:                                              ; preds = %653, %646
-  %.0158.i = phi ptr [ %654, %653 ], [ null, %646 ]
+  %.0157.i = phi ptr [ %654, %653 ], [ null, %646 ]
   %656 = icmp sgt i32 %606, 0
   br i1 %656, label %.critedge.i, label %657
 
 657:                                              ; preds = %655
-  %658 = getelementptr inbounds i8, ptr %.0161.i, i64 8
+  %658 = getelementptr inbounds i8, ptr %.0152.i, i64 8
   %659 = load ptr, ptr %658, align 8
   %.not186.i = icmp eq ptr %659, null
   br i1 %.not186.i, label %.thread.i, label %660
@@ -4123,7 +4123,7 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
 .critedge.i:                                      ; preds = %655
   %664 = call ptr @GetTransactionSnapshot() #25
   call void @PushActiveSnapshot(ptr noundef %664) #25
-  %665 = load ptr, ptr %.0159.i, align 8
+  %665 = load ptr, ptr %.0155.i, align 8
   store ptr %665, ptr %11, align 8
   store i32 -1, ptr %122, align 8
   store ptr null, ptr %123, align 8
@@ -4133,7 +4133,7 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   store ptr %11, ptr %125, align 8
   store ptr %10, ptr @error_context_stack, align 8
   %667 = call ptr @makeParamList(i32 noundef %606) #25
-  %668 = getelementptr inbounds i8, ptr %.0161.i, i64 32
+  %668 = getelementptr inbounds i8, ptr %.0152.i, i64 32
   %669 = zext nneg i32 %606 to i64
   %670 = shl nuw nsw i64 %669, 3
   %671 = getelementptr inbounds i8, ptr %667, i64 64
@@ -4141,7 +4141,7 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
 
 672:                                              ; preds = %.thread202.i, %.critedge.i
   %indvars.iv228.i = phi i64 [ 0, %.critedge.i ], [ %indvars.iv.next229.i, %.thread202.i ]
-  %.0154219.i = phi ptr [ null, %.critedge.i ], [ %.3205.i, %.thread202.i ]
+  %.0160219.i = phi ptr [ null, %.critedge.i ], [ %.3205.i, %.thread202.i ]
   %673 = load ptr, ptr %668, align 8
   %674 = getelementptr i32, ptr %673, i64 %indvars.iv228.i
   %675 = load i32, ptr %674, align 4
@@ -4166,21 +4166,21 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
 
 685:                                              ; preds = %680, %672
   %.sink.i71 = phi ptr [ %681, %680 ], [ null, %672 ]
-  %.0151.i = phi i8 [ %684, %680 ], [ 0, %672 ]
+  %.0154.i = phi i8 [ %684, %680 ], [ 0, %672 ]
   store ptr %.sink.i71, ptr %12, align 8
   br i1 %607, label %688, label %686
 
 686:                                              ; preds = %685
-  %687 = getelementptr i16, ptr %.0160.i, i64 %indvars.iv228.i
+  %687 = getelementptr i16, ptr %.0149.i, i64 %indvars.iv228.i
   br label %689
 
 688:                                              ; preds = %685
   br i1 %597, label %689, label %.thread200.i
 
 689:                                              ; preds = %688, %686
-  %.0150.in.i = phi ptr [ %687, %686 ], [ %.0160.i, %688 ]
-  %.0150.i = load i16, ptr %.0150.in.i, align 2
-  switch i16 %.0150.i, label %731 [
+  %.0153.in.i = phi ptr [ %687, %686 ], [ %.0149.i, %688 ]
+  %.0153.i = load i16, ptr %.0153.in.i, align 2
+  switch i16 %.0153.i, label %731 [
     i16 0, label %.thread200.i
     i16 1, label %719
   ]
@@ -4195,13 +4195,13 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   br label %693
 
 693:                                              ; preds = %690, %.thread200.i
-  %.0149.i = phi ptr [ %692, %690 ], [ null, %.thread200.i ]
-  store ptr %.0149.i, ptr %123, align 8
+  %.0150.i = phi ptr [ %692, %690 ], [ null, %.thread200.i ]
+  store ptr %.0150.i, ptr %123, align 8
   %694 = load i32, ptr %13, align 4
   %695 = load i32, ptr %14, align 4
-  %696 = call i64 @OidInputFunctionCall(i32 noundef %694, ptr noundef %.0149.i, i32 noundef %695, i32 noundef -1) #25
+  %696 = call i64 @OidInputFunctionCall(i32 noundef %694, ptr noundef %.0150.i, i32 noundef %695, i32 noundef -1) #25
   store ptr null, ptr %123, align 8
-  %.not191.i = icmp eq ptr %.0149.i, null
+  %.not191.i = icmp eq ptr %.0150.i, null
   br i1 %.not191.i, label %736, label %697
 
 697:                                              ; preds = %693
@@ -4213,7 +4213,7 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   %700 = load ptr, ptr @MessageContext, align 8
   %701 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %700, ptr @CurrentMemoryContext, align 8
-  %702 = icmp eq ptr %.0154219.i, null
+  %702 = icmp eq ptr %.0160219.i, null
   br i1 %702, label %703, label %705
 
 703:                                              ; preds = %699
@@ -4223,18 +4223,18 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
 
 705:                                              ; preds = %703, %699
   %706 = phi i32 [ %.pre.i, %703 ], [ %698, %699 ]
-  %.1.i = phi ptr [ %704, %703 ], [ %.0154219.i, %699 ]
+  %.1.i = phi ptr [ %704, %703 ], [ %.0160219.i, %699 ]
   %707 = icmp slt i32 %706, 0
   br i1 %707, label %708, label %710
 
 708:                                              ; preds = %705
-  %709 = call ptr @pstrdup(ptr noundef nonnull %.0149.i) #25
+  %709 = call ptr @pstrdup(ptr noundef nonnull %.0150.i) #25
   br label %714
 
 710:                                              ; preds = %705
   %711 = add nuw i32 %706, 8
   %712 = sext i32 %711 to i64
-  %713 = call ptr @pnstrdup(ptr noundef nonnull %.0149.i, i64 noundef %712) #25
+  %713 = call ptr @pnstrdup(ptr noundef nonnull %.0150.i, i64 noundef %712) #25
   br label %714
 
 714:                                              ; preds = %710, %708
@@ -4245,13 +4245,13 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   br label %716
 
 716:                                              ; preds = %714, %697
-  %.2.i = phi ptr [ %.1.i, %714 ], [ %.0154219.i, %697 ]
+  %.2.i = phi ptr [ %.1.i, %714 ], [ %.0160219.i, %697 ]
   %717 = load ptr, ptr %12, align 8
-  %.not193.i = icmp eq ptr %.0149.i, %717
+  %.not193.i = icmp eq ptr %.0150.i, %717
   br i1 %.not193.i, label %736, label %718
 
 718:                                              ; preds = %716
-  call void @pfree(ptr noundef nonnull %.0149.i) #25
+  call void @pfree(ptr noundef nonnull %.0150.i) #25
   br label %736
 
 719:                                              ; preds = %689
@@ -4278,7 +4278,7 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   unreachable
 
 731:                                              ; preds = %689
-  %732 = sext i16 %.0150.i to i32
+  %732 = sext i16 %.0153.i to i32
   %733 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #26
   call void @llvm.assume(i1 %733)
   %734 = call i32 @errcode(i32 noundef 50856066) #25
@@ -4287,23 +4287,23 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   unreachable
 
 736:                                              ; preds = %718, %716, %693
-  %.3.i = phi ptr [ %.2.i, %718 ], [ %.2.i, %716 ], [ %.0154219.i, %693 ]
+  %.3.i = phi ptr [ %.2.i, %718 ], [ %.2.i, %716 ], [ %.0160219.i, %693 ]
   br i1 %678, label %.thread202.i, label %.thread207.i
 
 .thread207.i:                                     ; preds = %736, %723
-  %.0152211.i = phi i64 [ %696, %736 ], [ %722, %723 ]
-  %.3210.i = phi ptr [ %.3.i, %736 ], [ %.0154219.i, %723 ]
+  %.0156211.i = phi i64 [ %696, %736 ], [ %722, %723 ]
+  %.3210.i = phi ptr [ %.3.i, %736 ], [ %.0160219.i, %723 ]
   %737 = load ptr, ptr %12, align 8
   %738 = sext i32 %677 to i64
   %739 = getelementptr i8, ptr %737, i64 %738
-  store i8 %.0151.i, ptr %739, align 1
+  store i8 %.0154.i, ptr %739, align 1
   br label %.thread202.i
 
 .thread202.i:                                     ; preds = %.thread207.i, %736, %719
-  %.0152206.i = phi i64 [ %.0152211.i, %.thread207.i ], [ %696, %736 ], [ %722, %719 ]
-  %.3205.i = phi ptr [ %.3210.i, %.thread207.i ], [ %.3.i, %736 ], [ %.0154219.i, %719 ]
+  %.0156206.i = phi i64 [ %.0156211.i, %.thread207.i ], [ %696, %736 ], [ %722, %719 ]
+  %.3205.i = phi ptr [ %.3210.i, %.thread207.i ], [ %.3.i, %736 ], [ %.0160219.i, %719 ]
   %740 = getelementptr [0 x %struct.ParamExternData], ptr %671, i64 0, i64 %indvars.iv228.i
-  store i64 %.0152206.i, ptr %740, align 8
+  store i64 %.0156206.i, ptr %740, align 8
   %741 = getelementptr inbounds i8, ptr %740, i64 8
   store i8 %679, ptr %741, align 8
   %742 = getelementptr inbounds i8, ptr %740, i64 10
@@ -4329,12 +4329,12 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   br label %.thread.i
 
 .thread.i:                                        ; preds = %747, %._crit_edge.i72, %662, %660, %657
-  %.0156199.i = phi i1 [ true, %747 ], [ true, %._crit_edge.i72 ], [ true, %662 ], [ false, %660 ], [ false, %657 ]
-  %.0157.i = phi ptr [ %667, %747 ], [ %667, %._crit_edge.i72 ], [ null, %662 ], [ null, %660 ], [ null, %657 ]
+  %.0162199.i = phi i1 [ true, %747 ], [ true, %._crit_edge.i72 ], [ true, %662 ], [ false, %660 ], [ false, %657 ]
+  %.0158.i = phi ptr [ %667, %747 ], [ %667, %._crit_edge.i72 ], [ null, %662 ], [ null, %660 ], [ null, %657 ]
   store ptr %649, ptr @CurrentMemoryContext, align 8
-  %750 = load ptr, ptr %.0159.i, align 8
+  %750 = load ptr, ptr %.0155.i, align 8
   store ptr %750, ptr %9, align 8
-  store ptr %.0157.i, ptr %129, align 8
+  store ptr %.0158.i, ptr %129, align 8
   %751 = load ptr, ptr @error_context_stack, align 8
   store ptr %751, ptr %10, align 8
   store ptr @ParamsErrorCallback, ptr %124, align 8
@@ -4362,23 +4362,23 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   br i1 %exitcond237.not.i, label %.loopexit.i, label %758, !llvm.loop !19
 
 .loopexit.i:                                      ; preds = %758, %.thread.i
-  %.0162.i = phi ptr [ null, %.thread.i ], [ %757, %758 ]
+  %.0151.i = phi ptr [ null, %.thread.i ], [ %757, %758 ]
   call void @pq_getmsgend(ptr noundef nonnull %25) #25
-  %762 = call ptr @GetCachedPlan(ptr noundef %.0161.i, ptr noundef %.0157.i, ptr noundef null, ptr noundef null) #25
-  %763 = getelementptr inbounds i8, ptr %.0161.i, i64 24
+  %762 = call ptr @GetCachedPlan(ptr noundef %.0152.i, ptr noundef %.0158.i, ptr noundef null, ptr noundef null) #25
+  %763 = getelementptr inbounds i8, ptr %.0152.i, i64 24
   %764 = load i32, ptr %763, align 8
   %765 = getelementptr inbounds i8, ptr %762, i64 8
   %766 = load ptr, ptr %765, align 8
-  call void @PortalDefineQuery(ptr noundef nonnull %.0159.i, ptr noundef %.0158.i, ptr noundef %651, i32 noundef %764, ptr noundef %766, ptr noundef %762) #25
-  br i1 %.0156199.i, label %767, label %768
+  call void @PortalDefineQuery(ptr noundef nonnull %.0155.i, ptr noundef %.0157.i, ptr noundef %651, i32 noundef %764, ptr noundef %766, ptr noundef %762) #25
+  br i1 %.0162199.i, label %767, label %768
 
 767:                                              ; preds = %.loopexit.i
   call void @PopActiveSnapshot() #25
   br label %768
 
 768:                                              ; preds = %767, %.loopexit.i
-  call void @PortalStart(ptr noundef nonnull %.0159.i, ptr noundef %.0157.i, i32 noundef 0, ptr noundef null) #25
-  call void @PortalSetResultFormat(ptr noundef nonnull %.0159.i, i32 noundef %752, ptr noundef %.0162.i) #25
+  call void @PortalStart(ptr noundef nonnull %.0155.i, ptr noundef %.0158.i, i32 noundef 0, ptr noundef null) #25
+  call void @PortalSetResultFormat(ptr noundef nonnull %.0155.i, i32 noundef %752, ptr noundef %.0151.i) #25
   %769 = load ptr, ptr @error_context_stack, align 8
   %770 = load ptr, ptr %769, align 8
   store ptr %770, ptr @error_context_stack, align 8
@@ -4421,11 +4421,11 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   %789 = load ptr, ptr %563, align 8
   %790 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.142, ptr noundef nonnull %8, ptr noundef nonnull %785, ptr noundef nonnull %787, ptr noundef nonnull %788, ptr noundef %789) #25
   %791 = call i32 @errhidestmt(i1 noundef zeroext true) #25
-  %.not.i195.i = icmp eq ptr %.0157.i, null
+  %.not.i195.i = icmp eq ptr %.0158.i, null
   br i1 %.not.i195.i, label %.sink.split.i70, label %792
 
 792:                                              ; preds = %783
-  %793 = getelementptr inbounds i8, ptr %.0157.i, i64 56
+  %793 = getelementptr inbounds i8, ptr %.0158.i, i64 56
   %794 = load i32, ptr %793, align 8
   %795 = icmp sgt i32 %794, 0
   %796 = load i32, ptr @log_parameter_max_length, align 4
@@ -4434,7 +4434,7 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   br i1 %or.cond.i.i, label %798, label %.sink.split.i70
 
 798:                                              ; preds = %792
-  %799 = call ptr @BuildParamLogString(ptr noundef nonnull %.0157.i, ptr noundef null, i32 noundef %796) #25
+  %799 = call ptr @BuildParamLogString(ptr noundef nonnull %.0158.i, ptr noundef null, i32 noundef %796) #25
   %.not9.i.i = icmp eq ptr %799, null
   br i1 %.not9.i.i, label %.sink.split.i70, label %800
 
@@ -4569,7 +4569,7 @@ IsTransactionStmtList.exit.i:                     ; preds = %list_length.exit.th
   br label %854
 
 854:                                              ; preds = %852, %IsTransactionStmtList.exit.i
-  %.056.i = phi ptr [ %853, %852 ], [ @.str.130, %IsTransactionStmtList.exit.i ]
+  %.055.i = phi ptr [ %853, %852 ], [ @.str.130, %IsTransactionStmtList.exit.i ]
   %855 = getelementptr inbounds i8, ptr %820, i64 104
   %856 = load ptr, ptr %855, align 8
   store ptr %849, ptr @debug_query_string, align 8
@@ -4705,7 +4705,7 @@ check_log_statement.exit.i:                       ; preds = %.lr.ph23.i.i, %star
   %.not60.i = icmp eq i8 %916, 0
   %917 = select i1 %.not60.i, ptr @.str.122, ptr @.str.143
   %918 = select i1 %.not60.i, ptr @.str.122, ptr %813
-  %919 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.151, ptr noundef nonnull %915, ptr noundef %.056.i, ptr noundef nonnull %917, ptr noundef nonnull %918, ptr noundef %849) #25
+  %919 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.151, ptr noundef nonnull %915, ptr noundef %.055.i, ptr noundef nonnull %917, ptr noundef nonnull %918, ptr noundef %849) #25
   %920 = call i32 @errhidestmt(i1 noundef zeroext true) #25
   %.not.i65.i = icmp eq ptr %856, null
   br i1 %.not.i65.i, label %errdetail_params.exit.i, label %921
@@ -4859,7 +4859,7 @@ disable_statement_timeout.exit.i.i:               ; preds = %975, %973
   br label %finish_xact_command.exit.i
 
 finish_xact_command.exit.i:                       ; preds = %981, %977, %976, %disable_statement_timeout.exit.i.i
-  %.055.i = phi ptr [ null, %disable_statement_timeout.exit.i.i ], [ null, %976 ], [ %856, %977 ], [ %856, %981 ]
+  %.056.i = phi ptr [ null, %disable_statement_timeout.exit.i.i ], [ null, %976 ], [ %856, %977 ], [ %856, %981 ]
   call void @EndCommand(ptr noundef nonnull %3, i32 noundef %spec.store.select.i, i1 noundef zeroext false) #25
   br label %989
 
@@ -4879,7 +4879,7 @@ finish_xact_command.exit.i:                       ; preds = %981, %977, %976, %d
   br label %989
 
 989:                                              ; preds = %986, %finish_xact_command.exit.i
-  %.1.i82 = phi ptr [ %.055.i, %finish_xact_command.exit.i ], [ %856, %986 ]
+  %.1.i82 = phi ptr [ %.056.i, %finish_xact_command.exit.i ], [ %856, %986 ]
   %990 = call i32 @check_log_duration(ptr noundef nonnull %4, i1 noundef zeroext %.0.i6477.i)
   switch i32 %990, label %1017 [
     i32 1, label %991
@@ -4905,7 +4905,7 @@ finish_xact_command.exit.i:                       ; preds = %981, %977, %976, %d
   %.not63.i = icmp eq i8 %1000, 0
   %1001 = select i1 %.not63.i, ptr @.str.122, ptr @.str.143
   %1002 = select i1 %.not63.i, ptr @.str.122, ptr %813
-  %1003 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.154, ptr noundef nonnull %4, ptr noundef nonnull %999, ptr noundef %.056.i, ptr noundef nonnull %1001, ptr noundef nonnull %1002, ptr noundef %849) #25
+  %1003 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.154, ptr noundef nonnull %4, ptr noundef nonnull %999, ptr noundef %.055.i, ptr noundef nonnull %1001, ptr noundef nonnull %1002, ptr noundef %849) #25
   %1004 = call i32 @errhidestmt(i1 noundef zeroext true) #25
   %.not.i71.i = icmp eq ptr %.1.i82, null
   br i1 %.not.i71.i, label %.sink.split.i83, label %1005
@@ -5886,7 +5886,7 @@ IsTransactionExitStmt.exit.thread:                ; preds = %86, %88, %IsTransac
 
 114:                                              ; preds = %106, %112
   %storemerge = phi ptr [ %113, %112 ], [ %111, %106 ]
-  %.067 = phi ptr [ %113, %112 ], [ null, %106 ]
+  %.070 = phi ptr [ %113, %112 ], [ null, %106 ]
   %.0 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %storemerge, ptr @CurrentMemoryContext, align 8
   %115 = load i8, ptr @log_parser_stats, align 1
@@ -6044,11 +6044,11 @@ disable_statement_timeout.exit.i91:               ; preds = %173, %171
 
 finish_xact_command.exit:                         ; preds = %177, %175, %174, %disable_statement_timeout.exit.i91, %166, %disable_statement_timeout.exit.i
   call void @EndCommand(ptr noundef nonnull %3, i32 noundef %6, i1 noundef zeroext false) #25
-  %.not79 = icmp eq ptr %.067, null
+  %.not79 = icmp eq ptr %.070, null
   br i1 %.not79, label %179, label %178
 
 178:                                              ; preds = %finish_xact_command.exit
-  call void @MemoryContextDelete(ptr noundef nonnull %.067) #25
+  call void @MemoryContextDelete(ptr noundef nonnull %.070) #25
   br label %179
 
 179:                                              ; preds = %finish_xact_command.exit, %178

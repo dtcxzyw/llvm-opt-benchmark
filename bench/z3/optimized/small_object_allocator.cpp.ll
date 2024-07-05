@@ -279,13 +279,13 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %r.06 = phi i64 [ 0, %entry ], [ %r.1, %for.inc ]
+  %r.07 = phi i64 [ 0, %entry ], [ %r.1, %for.inc ]
   %0 = shl nuw nsw i64 %indvars.iv, 3
   %arrayidx = getelementptr inbounds [32 x ptr], ptr %m_free_list, i64 0, i64 %indvars.iv
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %for.body
-  %r.1 = phi i64 [ %r.06, %for.body ], [ %add, %while.cond ]
+  %r.1 = phi i64 [ %r.07, %for.body ], [ %add, %while.cond ]
   %ptr.0.in = phi ptr [ %arrayidx, %for.body ], [ %ptr.0, %while.cond ]
   %ptr.0 = load ptr, ptr %ptr.0.in, align 8
   %cmp2.not = icmp eq ptr %ptr.0, null
@@ -356,13 +356,13 @@ if.then3:                                         ; preds = %if.then
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then3
   %indvars.iv.i = phi i64 [ 0, %if.then3 ], [ %indvars.iv.next.i, %for.inc.i ]
-  %r.06.i = phi i64 [ 0, %if.then3 ], [ %r.1.i, %for.inc.i ]
+  %r.07.i = phi i64 [ 0, %if.then3 ], [ %r.1.i, %for.inc.i ]
   %0 = shl nuw nsw i64 %indvars.iv.i, 3
   %arrayidx.i = getelementptr inbounds [32 x ptr], ptr %m_free_list.i, i64 0, i64 %indvars.iv.i
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %for.body.i
-  %r.1.i = phi i64 [ %r.06.i, %for.body.i ], [ %add.i, %while.cond.i ]
+  %r.1.i = phi i64 [ %r.07.i, %for.body.i ], [ %add.i, %while.cond.i ]
   %ptr.0.in.i = phi ptr [ %arrayidx.i, %for.body.i ], [ %ptr.0.i, %while.cond.i ]
   %ptr.0.i = load ptr, ptr %ptr.0.in.i, align 8
   %cmp2.not.i = icmp eq ptr %ptr.0.i, null
@@ -396,13 +396,13 @@ if.else:                                          ; preds = %if.then
 
 for.body.i26:                                     ; preds = %for.inc.i36, %if.else
   %indvars.iv.i27 = phi i64 [ 0, %if.else ], [ %indvars.iv.next.i37, %for.inc.i36 ]
-  %r.06.i28 = phi i64 [ 0, %if.else ], [ %r.1.i31, %for.inc.i36 ]
+  %r.07.i28 = phi i64 [ 0, %if.else ], [ %r.1.i31, %for.inc.i36 ]
   %1 = shl nuw nsw i64 %indvars.iv.i27, 3
   %arrayidx.i29 = getelementptr inbounds [32 x ptr], ptr %m_free_list.i25, i64 0, i64 %indvars.iv.i27
   br label %while.cond.i30
 
 while.cond.i30:                                   ; preds = %while.cond.i30, %for.body.i26
-  %r.1.i31 = phi i64 [ %r.06.i28, %for.body.i26 ], [ %add.i35, %while.cond.i30 ]
+  %r.1.i31 = phi i64 [ %r.07.i28, %for.body.i26 ], [ %add.i35, %while.cond.i30 ]
   %ptr.0.in.i32 = phi ptr [ %arrayidx.i29, %for.body.i26 ], [ %ptr.0.i33, %while.cond.i30 ]
   %ptr.0.i33 = load ptr, ptr %ptr.0.in.i32, align 8
   %cmp2.not.i34 = icmp eq ptr %ptr.0.i33, null
@@ -832,7 +832,7 @@ while.body85.lr.ph:                               ; preds = %while.body80
 
 while.body85:                                     ; preds = %while.body85.lr.ph, %if.end90
   %indvars.iv = phi i64 [ %41, %while.body85.lr.ph ], [ %indvars.iv.next, %if.end90 ]
-  %num_free_in_chunk.0184 = phi i32 [ 0, %while.body85.lr.ph ], [ %inc91, %if.end90 ]
+  %num_free_in_chunk.0183 = phi i32 [ 0, %while.body85.lr.ph ], [ %inc91, %if.end90 ]
   %arrayidx.i81 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv
   %43 = load ptr, ptr %arrayidx.i81, align 8
   %cmp88 = icmp ugt ptr %43, %add.ptr
@@ -840,7 +840,7 @@ while.body85:                                     ; preds = %while.body85.lr.ph,
 
 if.end90:                                         ; preds = %while.body85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %inc91 = add i32 %num_free_in_chunk.0184, 1
+  %inc91 = add i32 %num_free_in_chunk.0183, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %39
   br i1 %exitcond.not, label %while.end92, label %while.body85, !llvm.loop !14
 
@@ -849,8 +849,8 @@ while.end92.loopexit.split.loop.exit:             ; preds = %while.body85
   br label %while.end92
 
 while.end92:                                      ; preds = %if.end90, %while.end92.loopexit.split.loop.exit, %while.body80
+  %num_free_in_chunk.0.lcssa = phi i32 [ 0, %while.body80 ], [ %num_free_in_chunk.0183, %while.end92.loopexit.split.loop.exit ], [ %42, %if.end90 ]
   %obj_idx.1.lcssa = phi i32 [ %obj_idx.0193, %while.body80 ], [ %44, %while.end92.loopexit.split.loop.exit ], [ %retval.0.i77, %if.end90 ]
-  %num_free_in_chunk.0.lcssa = phi i32 [ 0, %while.body80 ], [ %num_free_in_chunk.0184, %while.end92.loopexit.split.loop.exit ], [ %42, %if.end90 ]
   %cmp93 = icmp eq i32 %num_free_in_chunk.0.lcssa, %div56224
   br i1 %cmp93, label %if.then94, label %if.else96
 
@@ -933,13 +933,13 @@ invoke.cont125:                                   ; preds = %invoke.cont124
 
 for.body.i88:                                     ; preds = %invoke.cont125, %for.inc.i98
   %indvars.iv.i89 = phi i64 [ %indvars.iv.next.i99, %for.inc.i98 ], [ 0, %invoke.cont125 ]
-  %r.06.i90 = phi i64 [ %r.1.i93, %for.inc.i98 ], [ 0, %invoke.cont125 ]
+  %r.07.i90 = phi i64 [ %r.1.i93, %for.inc.i98 ], [ 0, %invoke.cont125 ]
   %50 = shl nuw nsw i64 %indvars.iv.i89, 3
   %arrayidx.i91 = getelementptr inbounds [32 x ptr], ptr %m_free_list, i64 0, i64 %indvars.iv.i89
   br label %while.cond.i92
 
 while.cond.i92:                                   ; preds = %while.cond.i92, %for.body.i88
-  %r.1.i93 = phi i64 [ %r.06.i90, %for.body.i88 ], [ %add.i97, %while.cond.i92 ]
+  %r.1.i93 = phi i64 [ %r.07.i90, %for.body.i88 ], [ %add.i97, %while.cond.i92 ]
   %ptr.0.in.i94 = phi ptr [ %arrayidx.i91, %for.body.i88 ], [ %ptr.0.i95, %while.cond.i92 ]
   %ptr.0.i95 = load ptr, ptr %ptr.0.in.i94, align 8
   %cmp2.not.i96 = icmp eq ptr %ptr.0.i95, null
@@ -999,13 +999,13 @@ invoke.cont155:                                   ; preds = %if.else154
 
 for.body.i103:                                    ; preds = %invoke.cont155, %for.inc.i113
   %indvars.iv.i104 = phi i64 [ %indvars.iv.next.i114, %for.inc.i113 ], [ 0, %invoke.cont155 ]
-  %r.06.i105 = phi i64 [ %r.1.i108, %for.inc.i113 ], [ 0, %invoke.cont155 ]
+  %r.07.i105 = phi i64 [ %r.1.i108, %for.inc.i113 ], [ 0, %invoke.cont155 ]
   %51 = shl nuw nsw i64 %indvars.iv.i104, 3
   %arrayidx.i106 = getelementptr inbounds [32 x ptr], ptr %m_free_list, i64 0, i64 %indvars.iv.i104
   br label %while.cond.i107
 
 while.cond.i107:                                  ; preds = %while.cond.i107, %for.body.i103
-  %r.1.i108 = phi i64 [ %r.06.i105, %for.body.i103 ], [ %add.i112, %while.cond.i107 ]
+  %r.1.i108 = phi i64 [ %r.07.i105, %for.body.i103 ], [ %add.i112, %while.cond.i107 ]
   %ptr.0.in.i109 = phi ptr [ %arrayidx.i106, %for.body.i103 ], [ %ptr.0.i110, %while.cond.i107 ]
   %ptr.0.i110 = load ptr, ptr %ptr.0.in.i109, align 8
   %cmp2.not.i111 = icmp eq ptr %ptr.0.i110, null

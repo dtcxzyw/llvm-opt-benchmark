@@ -396,14 +396,14 @@ define dso_local i32 @onig_error_code_to_str(ptr noundef %0, i64 noundef %1, ...
   br label %31
 
 31:                                               ; preds = %89, %.preheader.i
-  %.064.i = phi i32 [ %.165.i, %89 ], [ 0, %.preheader.i ]
-  %.0.i = phi ptr [ %92, %89 ], [ %23, %.preheader.i ]
-  %32 = icmp ult ptr %.0.i, %25
+  %.064.i = phi ptr [ %92, %89 ], [ %23, %.preheader.i ]
+  %.0.i = phi i32 [ %.1.i, %89 ], [ 0, %.preheader.i ]
+  %32 = icmp ult ptr %.064.i, %25
   br i1 %32, label %33, label %to_ascii.exit
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %29, align 8
-  %35 = call i32 %34(ptr noundef %.0.i, ptr noundef nonnull %25, ptr noundef nonnull %21) #6
+  %35 = call i32 %34(ptr noundef %.064.i, ptr noundef nonnull %25, ptr noundef nonnull %21) #6
   %36 = icmp ugt i32 %35, 127
   br i1 %36, label %37, label %78
 
@@ -412,28 +412,28 @@ define dso_local i32 @onig_error_code_to_str(ptr noundef %0, i64 noundef %1, ...
   br i1 %38, label %39, label %64
 
 39:                                               ; preds = %37
-  %40 = add i32 %.064.i, 10
+  %40 = add i32 %.0.i, 10
   %41 = icmp slt i32 %40, 48
   br i1 %41, label %42, label %64
 
 42:                                               ; preds = %39
-  %43 = sext i32 %.064.i to i64
+  %43 = sext i32 %.0.i to i64
   %44 = getelementptr i8, ptr %3, i64 %43
   %45 = lshr i32 %35, 24
   %46 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %44, i64 noundef 5, ptr noundef nonnull @.str.66, i32 noundef %45) #6
-  %47 = add i32 %.064.i, 4
+  %47 = add i32 %.0.i, 4
   %48 = sext i32 %47 to i64
   %49 = getelementptr i8, ptr %3, i64 %48
   %50 = lshr i32 %35, 16
   %51 = and i32 %50, 255
   %52 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %49, i64 noundef 3, ptr noundef nonnull @.str.65, i32 noundef %51) #6
-  %53 = add i32 %.064.i, 6
+  %53 = add i32 %.0.i, 6
   %54 = sext i32 %53 to i64
   %55 = getelementptr i8, ptr %3, i64 %54
   %56 = lshr i32 %35, 8
   %57 = and i32 %56, 255
   %58 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %55, i64 noundef 3, ptr noundef nonnull @.str.65, i32 noundef %57) #6
-  %59 = add i32 %.064.i, 8
+  %59 = add i32 %.0.i, 8
   %60 = sext i32 %59 to i64
   %61 = getelementptr i8, ptr %3, i64 %60
   %62 = and i32 %35, 255
@@ -441,17 +441,17 @@ define dso_local i32 @onig_error_code_to_str(ptr noundef %0, i64 noundef %1, ...
   br label %83
 
 64:                                               ; preds = %39, %37
-  %65 = add i32 %.064.i, 6
+  %65 = add i32 %.0.i, 6
   %66 = icmp slt i32 %65, 48
   br i1 %66, label %67, label %to_ascii.exit
 
 67:                                               ; preds = %64
-  %68 = sext i32 %.064.i to i64
+  %68 = sext i32 %.0.i to i64
   %69 = getelementptr i8, ptr %3, i64 %68
   %70 = lshr i32 %35, 8
   %71 = and i32 %70, 255
   %72 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef %69, i64 noundef 5, ptr noundef nonnull @.str.66, i32 noundef %71) #6
-  %73 = add i32 %.064.i, 4
+  %73 = add i32 %.0.i, 4
   %74 = sext i32 %73 to i64
   %75 = getelementptr i8, ptr %3, i64 %74
   %76 = and i32 %35, 255
@@ -460,28 +460,28 @@ define dso_local i32 @onig_error_code_to_str(ptr noundef %0, i64 noundef %1, ...
 
 78:                                               ; preds = %33
   %79 = trunc nuw nsw i32 %35 to i8
-  %80 = add i32 %.064.i, 1
-  %81 = sext i32 %.064.i to i64
+  %80 = add i32 %.0.i, 1
+  %81 = sext i32 %.0.i to i64
   %82 = getelementptr i8, ptr %3, i64 %81
   store i8 %79, ptr %82, align 1
   br label %83
 
 83:                                               ; preds = %78, %67, %42
-  %.165.i = phi i32 [ %40, %42 ], [ %65, %67 ], [ %80, %78 ]
+  %.1.i = phi i32 [ %40, %42 ], [ %65, %67 ], [ %80, %78 ]
   %84 = load i32, ptr %30, align 8
   %85 = load i32, ptr %26, align 4
   %86 = icmp eq i32 %84, %85
   br i1 %86, label %89, label %87
 
 87:                                               ; preds = %83
-  %88 = call i32 @onigenc_mbclen(ptr noundef %.0.i, ptr noundef nonnull %25, ptr noundef nonnull %21) #6
+  %88 = call i32 @onigenc_mbclen(ptr noundef %.064.i, ptr noundef nonnull %25, ptr noundef nonnull %21) #6
   br label %89
 
 89:                                               ; preds = %87, %83
   %90 = phi i32 [ %88, %87 ], [ %84, %83 ]
   %91 = sext i32 %90 to i64
-  %92 = getelementptr i8, ptr %.0.i, i64 %91
-  %93 = icmp sgt i32 %.165.i, 46
+  %92 = getelementptr i8, ptr %.064.i, i64 %91
+  %93 = icmp sgt i32 %.1.i, 46
   br i1 %93, label %to_ascii.exit, label %31, !llvm.loop !7
 
 94:                                               ; preds = %18
@@ -500,9 +500,9 @@ define dso_local i32 @onig_error_code_to_str(ptr noundef %0, i64 noundef %1, ...
   br i1 %98, label %to_ascii.exit.split.us.preheader, label %to_ascii.exit.split.preheader
 
 to_ascii.exit:                                    ; preds = %31, %64, %89
-  %.2.i = phi i32 [ %.165.i, %89 ], [ %.064.i, %64 ], [ %.064.i, %31 ]
-  %.1.i = phi ptr [ %92, %89 ], [ %.0.i, %64 ], [ %.0.i, %31 ]
-  %103 = icmp ult ptr %.1.i, %25
+  %.165.i = phi ptr [ %92, %89 ], [ %.064.i, %64 ], [ %.064.i, %31 ]
+  %.2.i = phi i32 [ %.1.i, %89 ], [ %.0.i, %64 ], [ %.0.i, %31 ]
+  %103 = icmp ult ptr %.165.i, %25
   %104 = sext i32 %.2.i to i64
   %105 = call ptr @onig_error_code_to_format(i64 noundef %1)
   %storemerge.in.i.fr = freeze i1 %103

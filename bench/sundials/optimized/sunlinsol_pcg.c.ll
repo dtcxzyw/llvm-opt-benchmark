@@ -328,11 +328,11 @@ define i32 @SUNLinSolSolve_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
   br label %105
 
 .lr.ph209:                                        ; preds = %.lr.ph, %95
-  %.0146175208 = phi double [ %96, %95 ], [ %59, %.lr.ph ]
-  %.0176207 = phi i32 [ %98, %95 ], [ 0, %.lr.ph ]
+  %.0147175208 = phi i32 [ %98, %95 ], [ 0, %.lr.ph ]
+  %.0145176207 = phi double [ %96, %95 ], [ %59, %.lr.ph ]
   %67 = tail call double @N_VDotProd(ptr noundef %15, ptr noundef %11) #10
-  %68 = fdiv double %.0146175208, %67
-  %69 = icmp eq i32 %.0176207, 0
+  %68 = fdiv double %.0145176207, %67
+  %69 = icmp eq i32 %.0147175208, 0
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %.lr.ph209
@@ -377,7 +377,7 @@ define i32 @SUNLinSolSolve_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %85, label %86, label %102
 
 86:                                               ; preds = %83
-  %87 = icmp eq i32 %.0176207, %61
+  %87 = icmp eq i32 %.0147175208, %61
   br i1 %87, label %._crit_edge, label %88
 
 88:                                               ; preds = %86
@@ -400,9 +400,9 @@ define i32 @SUNLinSolSolve_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
 
 95:                                               ; preds = %89, %94
   %96 = tail call double @N_VDotProd(ptr noundef %9, ptr noundef %13) #10
-  %97 = fdiv double %96, %.0146175208
+  %97 = fdiv double %96, %.0145176207
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %13, double noundef %97, ptr noundef %11, ptr noundef %11) #10
-  %98 = add nuw nsw i32 %.0176207, 1
+  %98 = add nuw nsw i32 %.0147175208, 1
   %99 = load i32, ptr %29, align 4
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %29, align 4
@@ -429,8 +429,8 @@ define i32 @SUNLinSolSolve_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
   store i32 %.sink.sink, ptr %107, align 8
   %108 = load ptr, ptr %0, align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 24
-  %.0145 = load i32, ptr %109, align 8
-  ret i32 %.0145
+  %.0 = load i32, ptr %109, align 8
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

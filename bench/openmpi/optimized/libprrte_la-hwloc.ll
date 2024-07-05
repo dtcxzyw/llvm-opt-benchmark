@@ -332,7 +332,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %32
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %32 ], [ 0, %.lr.ph ]
   %13 = phi ptr [ %34, %32 ], [ %10, %.lr.ph ]
-  %.072.us = phi i16 [ %.1.us, %32 ], [ 0, %.lr.ph ]
+  %.05871.us = phi i16 [ %.1.us, %32 ], [ 0, %.lr.ph ]
   %14 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv79
   %15 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %13, ptr noundef nonnull @.str.50)
   br i1 %15, label %30, label %16
@@ -353,16 +353,16 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   br i1 %24, label %.split74.us, label %.split.us
 
 25:                                               ; preds = %19
-  %26 = and i16 %.072.us, 24319
+  %26 = and i16 %.05871.us, 24319
   %27 = or disjoint i16 %26, 256
   br label %32
 
 28:                                               ; preds = %16
-  %29 = or i16 %.072.us, 8448
+  %29 = or i16 %.05871.us, 8448
   br label %32
 
 30:                                               ; preds = %.lr.ph.split.us
-  %31 = or i16 %.072.us, 4096
+  %31 = or i16 %.05871.us, 4096
   br label %32
 
 32:                                               ; preds = %30, %28, %25
@@ -376,13 +376,13 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
 .lr.ph.split:                                     ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph ]
   %35 = phi ptr [ %61, %59 ], [ %10, %.lr.ph ]
-  %.072 = phi i16 [ %.1, %59 ], [ 0, %.lr.ph ]
+  %.05871 = phi i16 [ %.1, %59 ], [ 0, %.lr.ph ]
   %36 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %37 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %35, ptr noundef nonnull @.str.50)
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %.lr.ph.split
-  %39 = or i16 %.072, 4096
+  %39 = or i16 %.05871, 4096
   br label %59
 
 40:                                               ; preds = %.lr.ph.split
@@ -391,7 +391,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %40
-  %44 = or i16 %.072, 8448
+  %44 = or i16 %.05871, 8448
   br label %59
 
 45:                                               ; preds = %40
@@ -400,7 +400,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %45
-  %49 = and i16 %.072, 24319
+  %49 = and i16 %.05871, 24319
   %50 = or disjoint i16 %49, 256
   br label %59
 
@@ -426,7 +426,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   br label %96
 
 59:                                               ; preds = %38, %48, %54, %43
-  %.1 = phi i16 [ %39, %38 ], [ %44, %43 ], [ %50, %48 ], [ %.072, %54 ]
+  %.1 = phi i16 [ %39, %38 ], [ %44, %43 ], [ %50, %48 ], [ %.05871, %54 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next
   %61 = load ptr, ptr %60, align 8
@@ -434,9 +434,9 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %59, %32, %7
-  %.0.lcssa = phi i16 [ 0, %7 ], [ %.1.us, %32 ], [ %.1, %59 ]
+  %.058.lcssa = phi i16 [ 0, %7 ], [ %.1.us, %32 ], [ %.1, %59 ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %9) #9
-  %62 = and i16 %.0.lcssa, 16128
+  %62 = and i16 %.058.lcssa, 16128
   br label %63
 
 63:                                               ; preds = %._crit_edge, %4
@@ -511,8 +511,8 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   br label %96
 
 96:                                               ; preds = %87, %94, %2, %92, %82, %.split.us, %.split74.us
-  %.058 = phi i32 [ -43, %.split74.us ], [ -5, %.split.us ], [ -5, %92 ], [ -5, %82 ], [ 0, %2 ], [ 0, %94 ], [ 0, %87 ]
-  ret i32 %.058
+  %.0 = phi i32 [ -43, %.split74.us ], [ -5, %.split.us ], [ -5, %92 ], [ -5, %82 ], [ 0, %2 ], [ 0, %94 ], [ 0, %87 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1880,8 +1880,8 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %.preheader, %23
   %14 = phi ptr [ %26, %23 ], [ %12, %.preheader ]
-  %.04252 = phi i64 [ %24, %23 ], [ 0, %.preheader ]
-  %15 = getelementptr inbounds ptr, ptr %8, i64 %.04252
+  %.04352 = phi i64 [ %24, %23 ], [ 0, %.preheader ]
+  %15 = getelementptr inbounds ptr, ptr %8, i64 %.04352
   %16 = load ptr, ptr %15, align 8
   %.not48 = icmp eq ptr %16, null
   br i1 %.not48, label %.critedge.loopexit, label %17
@@ -1895,7 +1895,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %17
-  %24 = add i64 %.04252, 1
+  %24 = add i64 %.04352, 1
   %25 = getelementptr inbounds ptr, ptr %7, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not47 = icmp eq ptr %26, null
@@ -1907,7 +1907,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   br label %36
 
 .critedge.loopexit:                               ; preds = %23, %.lr.ph
-  %.0.lcssa.ph.in = phi i64 [ %.04252, %.lr.ph ], [ %24, %23 ]
+  %.0.lcssa.ph.in = phi i64 [ %.04352, %.lr.ph ], [ %24, %23 ]
   %.0.lcssa.ph = trunc i64 %.0.lcssa.ph.in to i32
   br label %.critedge
 
@@ -1928,8 +1928,8 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   br label %36
 
 36:                                               ; preds = %30, %.critedge, %27, %13
-  %.043 = phi i1 [ false, %13 ], [ false, %27 ], [ %29, %.critedge ], [ %35, %30 ]
-  ret i1 %.043
+  %.042 = phi i1 [ false, %13 ], [ false, %27 ], [ %29, %.critedge ], [ %35, %30 ]
+  ret i1 %.042
 }
 
 declare i32 @prte_set_attribute(ptr noundef, i16 noundef zeroext, i1 noundef zeroext, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1

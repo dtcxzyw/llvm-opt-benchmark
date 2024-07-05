@@ -1507,14 +1507,14 @@ KINFP.exit.thread:                                ; preds = %109, %26
 75:                                               ; preds = %60
   %76 = tail call i64 @llvm.smax.i64(i64 %62, i64 0)
   %77 = xor i64 %76, -1
-  %.061.i = add i64 %61, %77
+  %.062.i = add i64 %61, %77
   %78 = load ptr, ptr %37, align 8
   %79 = load ptr, ptr %41, align 8
   %80 = load ptr, ptr %14, align 8
   %81 = load ptr, ptr %42, align 8
   %82 = load ptr, ptr %43, align 8
-  tail call fastcc void @AndersonAcc(ptr noundef nonnull %0, ptr noundef %78, ptr noundef %35, ptr noundef %79, ptr noundef %80, i64 noundef %.061.i, ptr noundef %81, ptr noundef %82)
-  %83 = icmp eq i64 %.061.i, 0
+  tail call fastcc void @AndersonAcc(ptr noundef nonnull %0, ptr noundef %78, ptr noundef %35, ptr noundef %79, ptr noundef %80, i64 noundef %.062.i, ptr noundef %81, ptr noundef %82)
+  %83 = icmp eq i64 %.062.i, 0
   br i1 %83, label %84, label %88
 
 84:                                               ; preds = %75
@@ -1527,7 +1527,7 @@ KINFP.exit.thread:                                ; preds = %109, %26
   br label %88
 
 88:                                               ; preds = %86, %84, %75, %72, %65
-  %.0.i = phi double [ %71, %65 ], [ 1.000000e+00, %72 ], [ %87, %86 ], [ 1.000000e+00, %84 ], [ 1.000000e+00, %75 ]
+  %.061.i = phi double [ %71, %65 ], [ 1.000000e+00, %72 ], [ %87, %86 ], [ 1.000000e+00, %84 ], [ 1.000000e+00, %75 ]
   %89 = load ptr, ptr %41, align 8
   %90 = load ptr, ptr %14, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %89, double noundef -1.000000e+00, ptr noundef %90, ptr noundef %35) #14
@@ -1547,7 +1547,7 @@ KINFP.exit.thread:                                ; preds = %109, %26
   %.not67.i = icmp slt i64 %98, %99
   %100 = load double, ptr %47, align 8
   %101 = load double, ptr %29, align 8
-  %102 = fmul double %.0.i, %101
+  %102 = fmul double %.061.i, %101
   %103 = fcmp ugt double %100, %102
   %104 = select i1 %103, i1 %.not67.i, i1 false
   br i1 %104, label %109, label %105
@@ -1864,13 +1864,13 @@ KINFP.exit:                                       ; preds = %105, %.thread69.i
   br label %257
 
 257:                                              ; preds = %254, %251, %235
-  %.0119 = phi double [ 0.000000e+00, %251 ], [ %256, %254 ], [ 0.000000e+00, %235 ]
+  %.0120 = phi double [ 0.000000e+00, %251 ], [ %256, %254 ], [ 0.000000e+00, %235 ]
   %258 = getelementptr inbounds i8, ptr %0, i64 640
   %259 = load double, ptr %258, align 8
   %260 = fcmp oeq double %259, 0.000000e+00
-  %.sink379 = zext i1 %260 to i32
+  %.sink378 = zext i1 %260 to i32
   %261 = getelementptr inbounds i8, ptr %0, i64 632
-  store i32 %.sink379, ptr %261, align 8
+  store i32 %.sink378, ptr %261, align 8
   %262 = load i32, ptr %17, align 8
   %263 = icmp eq i32 %262, 2
   br i1 %263, label %294, label %.preheader
@@ -1940,8 +1940,8 @@ KINFP.exit:                                       ; preds = %105, %.thread69.i
   %311 = phi i32 [ %.pre, %304 ], [ %250, %294 ]
   %312 = getelementptr inbounds i8, ptr %0, i64 328
   %313 = load ptr, ptr %312, align 8
-  %.not.i148 = icmp eq i32 %311, 0
-  br i1 %.not.i148, label %320, label %314
+  %.not.i147 = icmp eq i32 %311, 0
+  br i1 %.not.i147, label %320, label %314
 
 314:                                              ; preds = %310
   %315 = getelementptr inbounds i8, ptr %0, i64 92
@@ -1955,7 +1955,7 @@ KINFP.exit:                                       ; preds = %105, %.thread69.i
   br label %320
 
 320:                                              ; preds = %317, %314, %310
-  %.0.i149 = phi double [ 0.000000e+00, %314 ], [ %319, %317 ], [ 0.000000e+00, %310 ]
+  %.0.i148 = phi double [ 0.000000e+00, %314 ], [ %319, %317 ], [ 0.000000e+00, %310 ]
   %321 = getelementptr inbounds i8, ptr %0, i64 168
   %322 = getelementptr inbounds i8, ptr %0, i64 8
   %323 = getelementptr inbounds i8, ptr %0, i64 160
@@ -1981,8 +1981,8 @@ KINFP.exit:                                       ; preds = %105, %.thread69.i
   br label %343
 
 343:                                              ; preds = %438, %320
-  %344 = phi i32 [ %.pre381, %438 ], [ %311, %320 ]
-  %345 = phi i64 [ %.pre380, %438 ], [ 0, %320 ]
+  %344 = phi i32 [ %.pre380, %438 ], [ %311, %320 ]
+  %345 = phi i64 [ %.pre379, %438 ], [ 0, %320 ]
   %346 = add nsw i64 %345, 1
   store i64 %346, ptr %201, align 8
   %.not82.i = icmp eq i32 %344, 0
@@ -2000,8 +2000,8 @@ KINFP.exit:                                       ; preds = %105, %.thread69.i
   br i1 %.not83.i, label %354, label %356
 
 354:                                              ; preds = %347
-  %355 = fcmp ogt double %.0.i149, %352
-  %.0..i = select i1 %355, double %.0.i149, double %352
+  %355 = fcmp ogt double %.0.i148, %352
+  %.0..i = select i1 %355, double %.0.i148, double %352
   store double %.0..i, ptr %323, align 8
   br label %356
 
@@ -2160,24 +2160,24 @@ KINFP.exit:                                       ; preds = %105, %.thread69.i
   br label %438
 
 438:                                              ; preds = %434, %432
-  %.pre380 = load i64, ptr %201, align 8
-  %.pre381 = load i32, ptr %185, align 8
+  %.pre379 = load i64, ptr %201, align 8
+  %.pre380 = load i32, ptr %185, align 8
   br label %343
 
 KINPicardFcnEval.exit.thread.split.loop.exit.i:   ; preds = %415
-  %spec.select.le.i151 = select i1 %.not86.i, i32 -999, i32 -6
-  %.2.le.i152 = select i1 %428, i32 %spec.select.le.i151, i32 0
+  %spec.select.le.i150 = select i1 %.not86.i, i32 -999, i32 -6
+  %.2.le.i151 = select i1 %428, i32 %spec.select.le.i150, i32 0
   br label %KINPicardAA.exit
 
 KINPicardAA.exit:                                 ; preds = %367, %374, %376, %379, %406, %KINPicardFcnEval.exit.thread.split.loop.exit.i
-  %.3.i150 = phi i32 [ %.2.le.i152, %KINPicardFcnEval.exit.thread.split.loop.exit.i ], [ -13, %406 ], [ -13, %379 ], [ -13, %376 ], [ -13, %374 ], [ -13, %367 ]
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 1, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.14, i32 noundef %.3.i150)
+  %.3.i149 = phi i32 [ %.2.le.i151, %KINPicardFcnEval.exit.thread.split.loop.exit.i ], [ -13, %406 ], [ -13, %379 ], [ -13, %376 ], [ -13, %374 ], [ -13, %367 ]
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 1, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.14, i32 noundef %.3.i149)
   br label %KINSolInit.exit.thread
 
 439:                                              ; preds = %.preheader, %KINStop.exit.thread
-  %.0204 = phi double [ %.10214, %KINStop.exit.thread ], [ -1.000000e+00, %.preheader ]
-  %.0199 = phi double [ %.10, %KINStop.exit.thread ], [ -1.000000e+00, %.preheader ]
-  %.0194 = phi i32 [ %.4198, %KINStop.exit.thread ], [ 0, %.preheader ]
+  %.0203 = phi double [ %.10213, %KINStop.exit.thread ], [ -1.000000e+00, %.preheader ]
+  %.0198 = phi double [ %.10, %KINStop.exit.thread ], [ -1.000000e+00, %.preheader ]
+  %.0193 = phi i32 [ %.4197, %KINStop.exit.thread ], [ 0, %.preheader ]
   %.0118 = phi i32 [ -999, %KINStop.exit.thread ], [ 0, %.preheader ]
   store i32 0, ptr %264, align 8
   %440 = load i64, ptr %201, align 8
@@ -2185,7 +2185,7 @@ KINPicardAA.exit:                                 ; preds = %367, %374, %376, %3
   store i64 %441, ptr %201, align 8
   %442 = load i32, ptr %185, align 8
   %.not138 = icmp eq i32 %442, 0
-  br i1 %.not138, label %.preheader520, label %443
+  br i1 %.not138, label %.preheader519, label %443
 
 443:                                              ; preds = %439
   %444 = load double, ptr %286, align 8
@@ -2196,22 +2196,22 @@ KINPicardAA.exit:                                 ; preds = %367, %374, %376, %3
   store double %448, ptr %287, align 8
   %449 = load i32, ptr %288, align 4
   %.not139 = icmp eq i32 %449, 0
-  br i1 %.not139, label %450, label %.preheader520
+  br i1 %.not139, label %450, label %.preheader519
 
 450:                                              ; preds = %443
-  %451 = fcmp ogt double %.0119, %448
-  %.0119. = select i1 %451, double %.0119, double %448
-  store double %.0119., ptr %287, align 8
-  br label %.preheader520
+  %451 = fcmp ogt double %.0120, %448
+  %.0120. = select i1 %451, double %.0120, double %448
+  store double %.0120., ptr %287, align 8
+  br label %.preheader519
 
-.preheader520:                                    ; preds = %443, %450, %439
+.preheader519:                                    ; preds = %443, %450, %439
   br label %452
 
-452:                                              ; preds = %.preheader520, %930
-  %.1205 = phi double [ %.10214, %930 ], [ %.0204, %.preheader520 ]
-  %.1200 = phi double [ %.10, %930 ], [ %.0199, %.preheader520 ]
-  %.1195 = phi i32 [ %.4198, %930 ], [ %.0194, %.preheader520 ]
-  %.1 = phi i32 [ -998, %930 ], [ %.0118, %.preheader520 ]
+452:                                              ; preds = %.preheader519, %930
+  %.1204 = phi double [ %.10213, %930 ], [ %.0203, %.preheader519 ]
+  %.1199 = phi double [ %.10, %930 ], [ %.0198, %.preheader519 ]
+  %.1194 = phi i32 [ %.4197, %930 ], [ %.0193, %.preheader519 ]
+  %.1 = phi i32 [ -998, %930 ], [ %.0118, %.preheader519 ]
   %453 = load i32, ptr %17, align 8
   switch i32 %453, label %KINFullNewton.exit.thread [
     i32 0, label %454
@@ -2223,8 +2223,8 @@ KINPicardAA.exit:                                 ; preds = %367, %374, %376, %3
   %456 = load i64, ptr %265, align 8
   %457 = sub nsw i64 %455, %456
   %458 = load i64, ptr %266, align 8
-  %.not.i153 = icmp slt i64 %457, %458
-  br i1 %.not.i153, label %._crit_edge.i, label %460
+  %.not.i152 = icmp slt i64 %457, %458
+  br i1 %.not.i152, label %._crit_edge.i, label %460
 
 ._crit_edge.i:                                    ; preds = %454
   %.pre.pre.i = load double, ptr %249, align 8
@@ -2250,7 +2250,7 @@ KINPicardAA.exit:                                 ; preds = %367, %374, %376, %3
   store i64 %465, ptr %265, align 8
   store i64 %465, ptr %270, align 8
   %.not34.i = icmp eq i32 %464, 0
-  br i1 %.not34.i, label %466, label %KINLinSolDrv.exit.thread.thread251
+  br i1 %.not34.i, label %466, label %KINLinSolDrv.exit.thread.thread250
 
 466:                                              ; preds = %._crit_edge.i, %463, %461
   %467 = load ptr, ptr %271, align 8
@@ -2264,17 +2264,17 @@ KINPicardAA.exit:                                 ; preds = %367, %374, %376, %3
 
 473:                                              ; preds = %466
   %474 = icmp slt i32 %471, 0
-  br i1 %474, label %KINLinSolDrv.exit.thread.thread255, label %475
+  br i1 %474, label %KINLinSolDrv.exit.thread.thread254, label %475
 
 475:                                              ; preds = %473
   %476 = load ptr, ptr %268, align 8
   %477 = icmp eq ptr %476, null
-  br i1 %477, label %KINLinSolDrv.exit.thread.thread247, label %478
+  br i1 %477, label %KINLinSolDrv.exit.thread.thread246, label %478
 
 478:                                              ; preds = %475
   %479 = load i32, ptr %269, align 4
   %.not35.i = icmp eq i32 %479, 0
-  br i1 %.not35.i, label %.critedge.i, label %KINLinSolDrv.exit.thread.thread247
+  br i1 %.not35.i, label %.critedge.i, label %KINLinSolDrv.exit.thread.thread246
 
 .critedge.i:                                      ; preds = %478
   store double 2.000000e+00, ptr %249, align 8
@@ -2305,17 +2305,17 @@ KINLinSolDrv.exit:                                ; preds = %466
   store double %494, ptr %276, align 8
   store double 1.000000e+00, ptr %277, align 8
   %495 = load i32, ptr %278, align 8
-  %.not.i155 = icmp eq i32 %495, 0
-  br i1 %.not.i155, label %.preheader513, label %496
+  %.not.i154 = icmp eq i32 %495, 0
+  br i1 %.not.i154, label %.preheader512, label %496
 
-.preheader513:                                    ; preds = %499, %496, %492
+.preheader512:                                    ; preds = %499, %496, %492
   %.ph = phi <2 x double> [ %493, %492 ], [ %493, %496 ], [ %505, %499 ]
   br label %513
 
 496:                                              ; preds = %492
   %497 = tail call fastcc i32 @KINConstraint(ptr noundef nonnull %0)
   %498 = icmp eq i32 %497, -996
-  br i1 %498, label %499, label %.preheader513
+  br i1 %498, label %499, label %.preheader512
 
 499:                                              ; preds = %496
   %500 = load double, ptr %277, align 8
@@ -2330,7 +2330,7 @@ KINLinSolDrv.exit:                                ; preds = %466
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 5, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.44, double noundef %506)
   %507 = load double, ptr %170, align 8
   %508 = fcmp ugt double %506, %507
-  br i1 %508, label %.preheader513, label %509
+  br i1 %508, label %.preheader512, label %509
 
 509:                                              ; preds = %499
   %510 = load ptr, ptr %14, align 8
@@ -2339,9 +2339,9 @@ KINLinSolDrv.exit:                                ; preds = %466
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %510, double noundef 1.000000e+00, ptr noundef %511, ptr noundef %512) #14
   br label %KINFullNewton.exit.thread
 
-513:                                              ; preds = %.preheader513, %528
-  %.085.i = phi i32 [ %532, %528 ], [ 1, %.preheader513 ]
-  %514 = phi <2 x double> [ %529, %528 ], [ %.ph, %.preheader513 ]
+513:                                              ; preds = %.preheader512, %528
+  %.085.i = phi i32 [ %532, %528 ], [ 1, %.preheader512 ]
+  %514 = phi <2 x double> [ %529, %528 ], [ %.ph, %.preheader512 ]
   %515 = load ptr, ptr %14, align 8
   %516 = load ptr, ptr %272, align 8
   %517 = load ptr, ptr %271, align 8
@@ -2369,7 +2369,7 @@ KINLinSolDrv.exit:                                ; preds = %466
   store double %531, ptr %276, align 8
   %532 = add nuw nsw i32 %.085.i, 1
   %exitcond.i = icmp eq i32 %532, 6
-  br i1 %exitcond.i, label %.sink.split445, label %513
+  br i1 %exitcond.i, label %.sink.split444, label %513
 
 533:                                              ; preds = %513
   %534 = load ptr, ptr %206, align 8
@@ -2396,12 +2396,12 @@ KINLinSolDrv.exit:                                ; preds = %466
   %549 = load i64, ptr %265, align 8
   %550 = sub nsw i64 %548, %549
   %551 = load i64, ptr %266, align 8
-  %.not.i157 = icmp slt i64 %550, %551
-  br i1 %.not.i157, label %._crit_edge.i165, label %553
+  %.not.i156 = icmp slt i64 %550, %551
+  br i1 %.not.i156, label %._crit_edge.i164, label %553
 
-._crit_edge.i165:                                 ; preds = %547
-  %.pre.pre.i166 = load double, ptr %249, align 8
-  %552 = fcmp ogt double %.pre.pre.i166, 1.500000e+00
+._crit_edge.i164:                                 ; preds = %547
+  %.pre.pre.i165 = load double, ptr %249, align 8
+  %552 = fcmp ogt double %.pre.pre.i165, 1.500000e+00
   store i32 0, ptr %269, align 4
   br i1 %552, label %554, label %559
 
@@ -2411,10 +2411,10 @@ KINLinSolDrv.exit:                                ; preds = %466
   store i32 0, ptr %269, align 4
   br label %554
 
-554:                                              ; preds = %553, %._crit_edge.i165, %.critedge.i162
+554:                                              ; preds = %553, %._crit_edge.i164, %.critedge.i161
   %555 = load ptr, ptr %268, align 8
-  %.not33.i163 = icmp eq ptr %555, null
-  br i1 %.not33.i163, label %559, label %556
+  %.not33.i162 = icmp eq ptr %555, null
+  br i1 %.not33.i162, label %559, label %556
 
 556:                                              ; preds = %554
   %557 = tail call i32 %555(ptr noundef nonnull %0) #14
@@ -2422,10 +2422,10 @@ KINLinSolDrv.exit:                                ; preds = %466
   %558 = load i64, ptr %201, align 8
   store i64 %558, ptr %265, align 8
   store i64 %558, ptr %270, align 8
-  %.not34.i164 = icmp eq i32 %557, 0
-  br i1 %.not34.i164, label %559, label %KINLinSolDrv.exit.thread.thread251
+  %.not34.i163 = icmp eq i32 %557, 0
+  br i1 %.not34.i163, label %559, label %KINLinSolDrv.exit.thread.thread250
 
-559:                                              ; preds = %._crit_edge.i165, %556, %554
+559:                                              ; preds = %._crit_edge.i164, %556, %554
   %560 = load ptr, ptr %271, align 8
   %561 = load ptr, ptr %272, align 8
   %562 = load ptr, ptr %206, align 8
@@ -2433,27 +2433,27 @@ KINLinSolDrv.exit:                                ; preds = %466
   %563 = load ptr, ptr %273, align 8
   %564 = tail call i32 %563(ptr noundef nonnull %0, ptr noundef %561, ptr noundef %560, ptr noundef nonnull %274, ptr noundef nonnull %275) #14
   %565 = icmp eq i32 %564, 0
-  br i1 %565, label %KINLinSolDrv.exit167, label %566
+  br i1 %565, label %KINLinSolDrv.exit166, label %566
 
 566:                                              ; preds = %559
   %567 = icmp slt i32 %564, 0
-  br i1 %567, label %KINLinSolDrv.exit.thread.thread255, label %568
+  br i1 %567, label %KINLinSolDrv.exit.thread.thread254, label %568
 
 568:                                              ; preds = %566
   %569 = load ptr, ptr %268, align 8
   %570 = icmp eq ptr %569, null
-  br i1 %570, label %KINLinSolDrv.exit.thread.thread247, label %571
+  br i1 %570, label %KINLinSolDrv.exit.thread.thread246, label %571
 
 571:                                              ; preds = %568
   %572 = load i32, ptr %269, align 4
-  %.not35.i160 = icmp eq i32 %572, 0
-  br i1 %.not35.i160, label %.critedge.i162, label %KINLinSolDrv.exit.thread.thread247
+  %.not35.i159 = icmp eq i32 %572, 0
+  br i1 %.not35.i159, label %.critedge.i161, label %KINLinSolDrv.exit.thread.thread246
 
-.critedge.i162:                                   ; preds = %571
+.critedge.i161:                                   ; preds = %571
   store double 2.000000e+00, ptr %249, align 8
   br label %554
 
-KINLinSolDrv.exit167:                             ; preds = %559
+KINLinSolDrv.exit166:                             ; preds = %559
   %573 = load ptr, ptr %272, align 8
   %574 = load ptr, ptr %15, align 8
   %575 = tail call double @N_VWL2Norm(ptr noundef %573, ptr noundef %574) #14
@@ -2463,45 +2463,45 @@ KINLinSolDrv.exit167:                             ; preds = %559
   %578 = fcmp ogt double %575, %576
   br i1 %578, label %579, label %582
 
-579:                                              ; preds = %KINLinSolDrv.exit167
+579:                                              ; preds = %KINLinSolDrv.exit166
   %580 = load ptr, ptr %272, align 8
   tail call void @N_VScale(double noundef %577, ptr noundef %580, ptr noundef %580) #14
   %581 = load double, ptr %183, align 8
   store double %581, ptr %276, align 8
   br label %582
 
-582:                                              ; preds = %579, %KINLinSolDrv.exit167
-  %.0329.i = phi double [ 1.000000e+00, %579 ], [ %577, %KINLinSolDrv.exit167 ]
-  %.0317.i = phi double [ %577, %579 ], [ 1.000000e+00, %KINLinSolDrv.exit167 ]
-  %.0313.i = phi double [ %581, %579 ], [ %575, %KINLinSolDrv.exit167 ]
+582:                                              ; preds = %579, %KINLinSolDrv.exit166
+  %.0324.i = phi double [ 1.000000e+00, %579 ], [ %577, %KINLinSolDrv.exit166 ]
+  %.0316.i = phi double [ %577, %579 ], [ 1.000000e+00, %KINLinSolDrv.exit166 ]
+  %.0313.i = phi double [ %581, %579 ], [ %575, %KINLinSolDrv.exit166 ]
   store double 1.000000e+00, ptr %277, align 8
   %583 = load i32, ptr %278, align 8
-  %.not.i168 = icmp eq i32 %583, 0
-  br i1 %.not.i168, label %.preheader517, label %584
+  %.not.i167 = icmp eq i32 %583, 0
+  br i1 %.not.i167, label %.preheader516, label %584
 
-.preheader517:                                    ; preds = %587, %584, %582
+.preheader516:                                    ; preds = %587, %584, %582
   %.2315405.i.ph = phi double [ %.0313.i, %582 ], [ %.0313.i, %584 ], [ %592, %587 ]
-  %.2319404.i.ph = phi double [ %.0317.i, %582 ], [ %.0317.i, %584 ], [ %591, %587 ]
-  %.2331403.i.ph = phi double [ %.0329.i, %582 ], [ %.0329.i, %584 ], [ 1.000000e+00, %587 ]
+  %.2318404.i.ph = phi double [ %.0316.i, %582 ], [ %.0316.i, %584 ], [ %591, %587 ]
+  %.2326403.i.ph = phi double [ %.0324.i, %582 ], [ %.0324.i, %584 ], [ 1.000000e+00, %587 ]
   br label %599
 
 584:                                              ; preds = %582
   %585 = tail call fastcc i32 @KINConstraint(ptr noundef nonnull %0)
   %586 = icmp eq i32 %585, -996
-  br i1 %586, label %587, label %.preheader517
+  br i1 %586, label %587, label %.preheader516
 
 587:                                              ; preds = %584
   %588 = load double, ptr %277, align 8
   %589 = load ptr, ptr %272, align 8
   tail call void @N_VScale(double noundef %588, ptr noundef %589, ptr noundef %589) #14
   %590 = load double, ptr %277, align 8
-  %591 = fmul double %.0317.i, %590
+  %591 = fmul double %.0316.i, %590
   %592 = fmul double %.0313.i, %590
   store double %592, ptr %276, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 6, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.47, double noundef %592)
   %593 = load double, ptr %170, align 8
   %594 = fcmp ugt double %592, %593
-  br i1 %594, label %.preheader517, label %595
+  br i1 %594, label %.preheader516, label %595
 
 595:                                              ; preds = %587
   %596 = load ptr, ptr %14, align 8
@@ -2510,11 +2510,11 @@ KINLinSolDrv.exit167:                             ; preds = %559
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %596, double noundef 1.000000e+00, ptr noundef %597, ptr noundef %598) #14
   br label %823
 
-599:                                              ; preds = %.preheader517, %613
-  %.0311406.i = phi i32 [ %617, %613 ], [ 1, %.preheader517 ]
-  %.2315405.i = phi double [ %616, %613 ], [ %.2315405.i.ph, %.preheader517 ]
-  %.2319404.i = phi double [ %615, %613 ], [ %.2319404.i.ph, %.preheader517 ]
-  %.2331403.i = phi double [ 1.000000e+00, %613 ], [ %.2331403.i.ph, %.preheader517 ]
+599:                                              ; preds = %.preheader516, %613
+  %.0311406.i = phi i32 [ %617, %613 ], [ 1, %.preheader516 ]
+  %.2315405.i = phi double [ %616, %613 ], [ %.2315405.i.ph, %.preheader516 ]
+  %.2318404.i = phi double [ %615, %613 ], [ %.2318404.i.ph, %.preheader516 ]
+  %.2326403.i = phi double [ 1.000000e+00, %613 ], [ %.2326403.i.ph, %.preheader516 ]
   %600 = load ptr, ptr %14, align 8
   %601 = load ptr, ptr %272, align 8
   %602 = load ptr, ptr %271, align 8
@@ -2537,12 +2537,12 @@ KINLinSolDrv.exit167:                             ; preds = %559
 613:                                              ; preds = %611
   %614 = load ptr, ptr %272, align 8
   tail call void @N_VScale(double noundef 5.000000e-01, ptr noundef %614, ptr noundef %614) #14
-  %615 = fmul double %.2319404.i, 5.000000e-01
+  %615 = fmul double %.2318404.i, 5.000000e-01
   %616 = fmul double %.2315405.i, 5.000000e-01
   store double %616, ptr %276, align 8
   %617 = add nuw nsw i32 %.0311406.i, 1
-  %exitcond.i169 = icmp eq i32 %617, 6
-  br i1 %exitcond.i169, label %.sink.split445, label %599
+  %exitcond.i168 = icmp eq i32 %617, 6
+  br i1 %exitcond.i168, label %.sink.split444, label %599
 
 618:                                              ; preds = %599
   %619 = load ptr, ptr %206, align 8
@@ -2551,7 +2551,7 @@ KINLinSolDrv.exit167:                             ; preds = %559
   %622 = fmul double %621, 5.000000e-01
   %623 = fmul double %621, %622
   %624 = load double, ptr %275, align 8
-  %625 = fmul double %.2319404.i, %624
+  %625 = fmul double %.2318404.i, %624
   %626 = load ptr, ptr %272, align 8
   %627 = load ptr, ptr %14, align 8
   %628 = load ptr, ptr %15, align 8
@@ -2575,22 +2575,22 @@ KINLinSolDrv.exit167:                             ; preds = %559
   br label %641
 
 641:                                              ; preds = %706, %618
-  %.3207 = phi double [ %621, %618 ], [ %710, %706 ]
-  %.3202 = phi double [ %623, %618 ], [ %712, %706 ]
-  %.0332.i = phi double [ 1.000000e+00, %618 ], [ %695, %706 ]
-  %.0323.i = phi double [ 0.000000e+00, %618 ], [ %.0332.i, %706 ]
-  %.0322.i = phi double [ 0.000000e+00, %618 ], [ %.3202, %706 ]
+  %.3206 = phi double [ %621, %618 ], [ %710, %706 ]
+  %.3201 = phi double [ %623, %618 ], [ %712, %706 ]
+  %.0334.i = phi double [ 0.000000e+00, %618 ], [ %.0320.i, %706 ]
+  %.0331.i = phi double [ 0.000000e+00, %618 ], [ %.3201, %706 ]
+  %.0320.i = phi double [ 1.000000e+00, %618 ], [ %695, %706 ]
   %.0309.i = phi i32 [ 0, %618 ], [ %707, %706 ]
   %.not353.i = phi i1 [ false, %618 ], [ true, %706 ]
   %642 = load double, ptr %242, align 8
-  %643 = tail call double @llvm.fmuladd.f64(double %639, double %.0332.i, double %642)
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 9, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.50, double noundef %.3207, double noundef %.3202, double noundef %643, double noundef %.0332.i)
-  %644 = fcmp ugt double %.3202, %643
+  %643 = tail call double @llvm.fmuladd.f64(double %639, double %.0320.i, double %642)
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 9, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.50, double noundef %.3206, double noundef %.3201, double noundef %643, double noundef %.0320.i)
+  %644 = fcmp ugt double %.3201, %643
   %645 = load double, ptr %242, align 8
   br i1 %644, label %646, label %717
 
 646:                                              ; preds = %641
-  %647 = fsub double %.3202, %645
+  %647 = fsub double %.3201, %645
   br i1 %.not353.i, label %652, label %648
 
 648:                                              ; preds = %646
@@ -2600,22 +2600,22 @@ KINLinSolDrv.exit167:                             ; preds = %559
   br label %690
 
 652:                                              ; preds = %646
-  %653 = fneg double %.0332.i
+  %653 = fneg double %.0320.i
   %654 = tail call double @llvm.fmuladd.f64(double %653, double %625, double %647)
-  %655 = fsub double %.0322.i, %645
-  %656 = fneg double %.0323.i
+  %655 = fsub double %.0331.i, %645
+  %656 = fneg double %.0334.i
   %657 = tail call double @llvm.fmuladd.f64(double %656, double %625, double %655)
-  %658 = fmul double %.0332.i, %.0332.i
+  %658 = fmul double %.0320.i, %.0320.i
   %659 = fdiv double 1.000000e+00, %658
-  %660 = fmul double %.0323.i, %.0323.i
+  %660 = fmul double %.0334.i, %.0334.i
   %661 = fdiv double -1.000000e+00, %660
   %662 = fmul double %661, %657
   %663 = tail call double @llvm.fmuladd.f64(double %659, double %654, double %662)
   %664 = fdiv double %656, %658
-  %665 = fdiv double %.0332.i, %660
+  %665 = fdiv double %.0320.i, %660
   %666 = fmul double %665, %657
   %667 = tail call double @llvm.fmuladd.f64(double %664, double %654, double %666)
-  %668 = fsub double %.0332.i, %.0323.i
+  %668 = fsub double %.0320.i, %.0334.i
   %669 = fdiv double 1.000000e+00, %668
   %670 = fmul double %669, %663
   %671 = fmul double %669, %667
@@ -2648,13 +2648,13 @@ KINLinSolDrv.exit167:                             ; preds = %559
   br label %690
 
 690:                                              ; preds = %686, %679, %648
-  %.0325.i = phi double [ %651, %648 ], [ %681, %679 ], [ %689, %686 ]
-  %691 = fmul double %.0332.i, 5.000000e-01
-  %692 = fcmp ogt double %.0325.i, %691
-  %.1326.i = select i1 %692, double %691, double %.0325.i
-  %693 = fmul double %.0332.i, 1.000000e-01
-  %694 = fcmp ogt double %693, %.1326.i
-  %695 = select i1 %694, double %693, double %.1326.i
+  %.0332.i = phi double [ %651, %648 ], [ %681, %679 ], [ %689, %686 ]
+  %691 = fmul double %.0320.i, 5.000000e-01
+  %692 = fcmp ogt double %.0332.i, %691
+  %.1333.i = select i1 %692, double %691, double %.0332.i
+  %693 = fmul double %.0320.i, 1.000000e-01
+  %694 = fcmp ogt double %693, %.1333.i
+  %695 = select i1 %694, double %693, double %.1333.i
   %696 = load ptr, ptr %14, align 8
   %697 = load ptr, ptr %272, align 8
   %698 = load ptr, ptr %271, align 8
@@ -2688,25 +2688,25 @@ KINLinSolDrv.exit167:                             ; preds = %559
 
 717:                                              ; preds = %641
   %718 = fmul double %625, 9.000000e-01
-  %719 = tail call double @llvm.fmuladd.f64(double %718, double %.0332.i, double %645)
-  %720 = fcmp olt double %.3202, %719
-  br i1 %720, label %721, label %.thread.i171
+  %719 = tail call double @llvm.fmuladd.f64(double %718, double %.0320.i, double %645)
+  %720 = fcmp olt double %.3201, %719
+  br i1 %720, label %721, label %.thread.i170
 
 721:                                              ; preds = %717
-  %722 = fcmp oeq double %.0332.i, 1.000000e+00
-  br i1 %722, label %723, label %.critedge.i172
+  %722 = fcmp oeq double %.0320.i, 1.000000e+00
+  br i1 %722, label %723, label %.critedge.i171
 
 723:                                              ; preds = %721
   %724 = load double, ptr %183, align 8
   %725 = fcmp olt double %.2315405.i, %724
-  br i1 %725, label %.preheader.i, label %.thread.i171
+  br i1 %725, label %.preheader.i, label %.thread.i170
 
 .preheader.i:                                     ; preds = %723, %739
-  %.1333.i = phi double [ %726, %739 ], [ 1.000000e+00, %723 ]
+  %.1321.i = phi double [ %726, %739 ], [ 1.000000e+00, %723 ]
   %.1310.i = phi i32 [ %740, %739 ], [ %.0309.i, %723 ]
-  %726 = fmul double %.1333.i, 2.000000e+00
-  %727 = fcmp uge double %726, %.2331403.i
-  %728 = select i1 %727, double %.2331403.i, double %726
+  %726 = fmul double %.1321.i, 2.000000e+00
+  %727 = fcmp uge double %726, %.2326403.i
+  %728 = select i1 %727, double %.2326403.i, double %726
   %729 = load ptr, ptr %14, align 8
   %730 = load ptr, ptr %272, align 8
   %731 = load ptr, ptr %271, align 8
@@ -2735,48 +2735,48 @@ KINLinSolDrv.exit167:                             ; preds = %559
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 10, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.51, double noundef %745, double noundef %748, double noundef %728)
   %749 = fcmp ugt double %745, %747
   %750 = fcmp uge double %745, %748
-  %or.cond.i.not509 = or i1 %749, %750
-  %brmerge = or i1 %or.cond.i.not509, %727
-  br i1 %brmerge, label %.critedge.i172.loopexit, label %.preheader.i
+  %or.cond.i.not508 = or i1 %749, %750
+  %brmerge = or i1 %or.cond.i.not508, %727
+  br i1 %brmerge, label %.critedge.i171.loopexit, label %.preheader.i
 
-.critedge.i172.loopexit:                          ; preds = %739
-  %.mux = select i1 %or.cond.i.not509, double %728, double %.2331403.i
-  br label %.critedge.i172
+.critedge.i171.loopexit:                          ; preds = %739
+  %.mux = select i1 %or.cond.i.not508, double %728, double %.2326403.i
+  br label %.critedge.i171
 
-.critedge.i172:                                   ; preds = %.critedge.i172.loopexit, %721
-  %.5209 = phi double [ %.3207, %721 ], [ %743, %.critedge.i172.loopexit ]
-  %.5 = phi double [ %.3202, %721 ], [ %745, %.critedge.i172.loopexit ]
-  %.2334.i = phi double [ %.0332.i, %721 ], [ %.mux, %.critedge.i172.loopexit ]
-  %.1324.i = phi double [ %.0323.i, %721 ], [ %.1333.i, %.critedge.i172.loopexit ]
-  %.0316.i = phi double [ %643, %721 ], [ %747, %.critedge.i172.loopexit ]
-  %.2.i = phi i32 [ %.0309.i, %721 ], [ %740, %.critedge.i172.loopexit ]
-  %751 = fcmp olt double %.2334.i, 1.000000e+00
+.critedge.i171:                                   ; preds = %.critedge.i171.loopexit, %721
+  %.5208 = phi double [ %.3206, %721 ], [ %743, %.critedge.i171.loopexit ]
+  %.5 = phi double [ %.3201, %721 ], [ %745, %.critedge.i171.loopexit ]
+  %.1335.i = phi double [ %.0334.i, %721 ], [ %.1321.i, %.critedge.i171.loopexit ]
+  %.2322.i = phi double [ %.0320.i, %721 ], [ %.mux, %.critedge.i171.loopexit ]
+  %.0319.i = phi double [ %643, %721 ], [ %747, %.critedge.i171.loopexit ]
+  %.2.i = phi i32 [ %.0309.i, %721 ], [ %740, %.critedge.i171.loopexit ]
+  %751 = fcmp olt double %.2322.i, 1.000000e+00
   br i1 %751, label %755, label %752
 
-752:                                              ; preds = %.critedge.i172
-  %753 = fcmp ogt double %.2334.i, 1.000000e+00
-  %754 = fcmp ogt double %.5, %.0316.i
+752:                                              ; preds = %.critedge.i171
+  %753 = fcmp ogt double %.2322.i, 1.000000e+00
+  %754 = fcmp ogt double %.5, %.0319.i
   %or.cond483.i = select i1 %753, i1 %754, i1 false
-  br i1 %or.cond483.i, label %755, label %.thread.i171
+  br i1 %or.cond483.i, label %755, label %.thread.i170
 
-755:                                              ; preds = %752, %.critedge.i172
-  %756 = fcmp olt double %.2334.i, %.1324.i
-  %757 = select i1 %756, double %.2334.i, double %.1324.i
-  %758 = fsub double %.1324.i, %.2334.i
+755:                                              ; preds = %752, %.critedge.i171
+  %756 = fcmp olt double %.2322.i, %.1335.i
+  %757 = select i1 %756, double %.2322.i, double %.1335.i
+  %758 = fsub double %.1335.i, %.2322.i
   %759 = tail call double @llvm.fabs.f64(double %758)
   br label %.critedge2.outer.i
 
 .critedge2.outer.i:                               ; preds = %783, %755
+  %.0329.ph.i = phi double [ %.1330.ph.i, %783 ], [ %757, %755 ]
   %.0327.ph.i = phi double [ %.1328.ph.i, %783 ], [ %759, %755 ]
-  %.0320.ph.i = phi double [ %.1321.ph.i, %783 ], [ %757, %755 ]
   %.3.ph.i = phi i32 [ %773, %783 ], [ %.2.i, %755 ]
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %772, %.critedge2.outer.i
   %.0327.i = phi double [ %760, %772 ], [ %.0327.ph.i, %.critedge2.outer.i ]
-  %.3.i173 = phi i32 [ %773, %772 ], [ %.3.ph.i, %.critedge2.outer.i ]
+  %.3.i172 = phi i32 [ %773, %772 ], [ %.3.ph.i, %.critedge2.outer.i ]
   %760 = fmul double %.0327.i, 5.000000e-01
-  %761 = fadd double %.0320.ph.i, %760
+  %761 = fadd double %.0329.ph.i, %760
   %762 = load ptr, ptr %14, align 8
   %763 = load ptr, ptr %272, align 8
   %764 = load ptr, ptr %271, align 8
@@ -2793,7 +2793,7 @@ KINLinSolDrv.exit167:                             ; preds = %559
   br i1 %.not356.i, label %772, label %.sink.split
 
 772:                                              ; preds = %.critedge2.i
-  %773 = add nsw i32 %.3.i173, 1
+  %773 = add nsw i32 %.3.i172, 1
   %774 = load ptr, ptr %206, align 8
   %775 = load ptr, ptr %16, align 8
   %776 = tail call double @N_VWL2Norm(ptr noundef %774, ptr noundef %775) #14
@@ -2809,14 +2809,14 @@ KINLinSolDrv.exit167:                             ; preds = %559
 783:                                              ; preds = %772
   %784 = fcmp olt double %778, %781
   %785 = fsub double %.0327.i, %760
+  %.1330.ph.i = select i1 %784, double %761, double %.0329.ph.i
   %.1328.ph.i = select i1 %784, double %785, double %.0327.i
-  %.1321.ph.i = select i1 %784, double %761, double %.0320.ph.i
   %786 = fcmp oge double %.1328.ph.i, %637
   %787 = and i1 %784, %786
   br i1 %787, label %.critedge2.outer.i, label %788
 
 788:                                              ; preds = %783
-  br i1 %784, label %789, label %.thread.i171
+  br i1 %784, label %789, label %.thread.i170
 
 789:                                              ; preds = %788
   %790 = load ptr, ptr %14, align 8
@@ -2843,12 +2843,12 @@ KINLinSolDrv.exit167:                             ; preds = %559
   %806 = load i64, ptr %282, align 8
   %807 = add nsw i64 %806, 1
   store i64 %807, ptr %282, align 8
-  br label %.thread.i171
+  br label %.thread.i170
 
-.thread.i171:                                     ; preds = %800, %788, %752, %723, %717
-  %.8212 = phi double [ %803, %800 ], [ %776, %788 ], [ %.5209, %752 ], [ %.3207, %723 ], [ %.3207, %717 ]
-  %.8 = phi double [ %805, %800 ], [ %778, %788 ], [ %.5, %752 ], [ %.3202, %723 ], [ %.3202, %717 ]
-  %.3335.i = phi double [ %761, %800 ], [ %761, %788 ], [ %.2334.i, %752 ], [ 1.000000e+00, %723 ], [ %.0332.i, %717 ]
+.thread.i170:                                     ; preds = %800, %788, %752, %723, %717
+  %.8211 = phi double [ %803, %800 ], [ %776, %788 ], [ %.5208, %752 ], [ %.3206, %723 ], [ %.3206, %717 ]
+  %.8 = phi double [ %805, %800 ], [ %778, %788 ], [ %.5, %752 ], [ %.3201, %723 ], [ %.3201, %717 ]
+  %.3323.i = phi double [ %761, %800 ], [ %761, %788 ], [ %.2322.i, %752 ], [ 1.000000e+00, %723 ], [ %.0320.i, %717 ]
   %.4.i = phi i32 [ %773, %800 ], [ %773, %788 ], [ %.2.i, %752 ], [ %.0309.i, %723 ], [ %.0309.i, %717 ]
   %808 = sext i32 %.4.i to i64
   %809 = load i64, ptr %283, align 8
@@ -2856,27 +2856,27 @@ KINLinSolDrv.exit167:                             ; preds = %559
   store i64 %810, ptr %283, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 12, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.53, i32 noundef %.4.i)
   %811 = load <2 x double>, ptr %275, align 8
-  %812 = insertelement <2 x double> poison, double %.3335.i, i64 0
+  %812 = insertelement <2 x double> poison, double %.3323.i, i64 0
   %813 = shufflevector <2 x double> %812, <2 x double> poison, <2 x i32> zeroinitializer
   %814 = fmul <2 x double> %813, %811
-  %815 = insertelement <2 x double> poison, double %.2319404.i, i64 0
+  %815 = insertelement <2 x double> poison, double %.2318404.i, i64 0
   %816 = shufflevector <2 x double> %815, <2 x double> poison, <2 x i32> zeroinitializer
   %817 = fmul <2 x double> %816, %814
   store <2 x double> %817, ptr %275, align 8
-  %818 = fmul double %.2315405.i, %.3335.i
+  %818 = fmul double %.2315405.i, %.3323.i
   %819 = load double, ptr %183, align 8
   %820 = fmul double %819, 0x3FEFAE147AE147AE
   %821 = fcmp ogt double %818, %820
   br i1 %821, label %822, label %823
 
-822:                                              ; preds = %.thread.i171
+822:                                              ; preds = %.thread.i170
   br label %823
 
-823:                                              ; preds = %822, %.thread.i171, %714, %595
-  %.9213 = phi double [ %710, %714 ], [ %.8212, %822 ], [ %.8212, %.thread.i171 ], [ %.1205, %595 ]
-  %.9 = phi double [ %712, %714 ], [ %.8, %822 ], [ %.8, %.thread.i171 ], [ %.1200, %595 ]
-  %.3197 = phi i32 [ 0, %714 ], [ 1, %822 ], [ 0, %.thread.i171 ], [ 0, %595 ]
-  %.0312.i = phi i32 [ -997, %714 ], [ 0, %822 ], [ 0, %.thread.i171 ], [ -997, %595 ]
+823:                                              ; preds = %822, %.thread.i170, %714, %595
+  %.9212 = phi double [ %710, %714 ], [ %.8211, %822 ], [ %.8211, %.thread.i170 ], [ %.1204, %595 ]
+  %.9 = phi double [ %712, %714 ], [ %.8, %822 ], [ %.8, %.thread.i170 ], [ %.1199, %595 ]
+  %.3196 = phi i32 [ 0, %714 ], [ 1, %822 ], [ 0, %.thread.i170 ], [ 0, %595 ]
+  %.0312.i = phi i32 [ -997, %714 ], [ 0, %822 ], [ 0, %.thread.i170 ], [ -997, %595 ]
   %824 = load i64, ptr %282, align 8
   %825 = load i64, ptr %284, align 8
   %826 = icmp sgt i64 %824, %825
@@ -2887,9 +2887,9 @@ KINLinSolDrv.exit167:                             ; preds = %559
   br label %942
 
 KINFullNewton.exit.thread:                        ; preds = %533, %546, %509, %452, %823
-  %.10214 = phi double [ %.1205, %452 ], [ %.9213, %823 ], [ %.1205, %509 ], [ %536, %533 ], [ %536, %546 ]
-  %.10 = phi double [ %.1200, %452 ], [ %.9, %823 ], [ %.1200, %509 ], [ %538, %533 ], [ %538, %546 ]
-  %.4198 = phi i32 [ %.1195, %452 ], [ %.3197, %823 ], [ 0, %509 ], [ 0, %533 ], [ 1, %546 ]
+  %.10213 = phi double [ %.1204, %452 ], [ %.9212, %823 ], [ %.1204, %509 ], [ %536, %533 ], [ %536, %546 ]
+  %.10 = phi double [ %.1199, %452 ], [ %.9, %823 ], [ %.1199, %509 ], [ %538, %533 ], [ %538, %546 ]
+  %.4197 = phi i32 [ %.1194, %452 ], [ %.3196, %823 ], [ 0, %509 ], [ 0, %533 ], [ 1, %546 ]
   %.2 = phi i32 [ %.1, %452 ], [ 0, %823 ], [ 0, %509 ], [ 0, %533 ], [ 0, %546 ]
   %.0 = phi i32 [ 0, %452 ], [ %.0312.i, %823 ], [ -997, %509 ], [ 0, %533 ], [ 0, %546 ]
   %827 = load i32, ptr %17, align 8
@@ -2903,23 +2903,23 @@ KINFullNewton.exit.thread:                        ; preds = %533, %546, %509, %4
   br i1 %.not144, label %832, label %831
 
 831:                                              ; preds = %829
-  tail call fastcc void @KINForcingTerm(ptr noundef nonnull %0, double noundef %.10214)
+  tail call fastcc void @KINForcingTerm(ptr noundef nonnull %0, double noundef %.10213)
   br label %832
 
 832:                                              ; preds = %831, %829
-  store double %.10214, ptr %239, align 8
+  store double %.10213, ptr %239, align 8
   %833 = icmp eq i32 %.0, -997
   br i1 %833, label %834, label %841
 
 834:                                              ; preds = %832
   %835 = load ptr, ptr %268, align 8
-  %.not86.i185 = icmp eq ptr %835, null
-  br i1 %.not86.i185, label %838, label %836
+  %.not86.i184 = icmp eq ptr %835, null
+  br i1 %.not86.i184, label %838, label %836
 
 836:                                              ; preds = %834
   %837 = load i32, ptr %269, align 4
-  %.not87.i186 = icmp eq i32 %837, 0
-  br i1 %.not87.i186, label %930, label %838
+  %.not87.i185 = icmp eq i32 %837, 0
+  br i1 %.not87.i185, label %930, label %838
 
 838:                                              ; preds = %836, %834
   %839 = load i32, ptr %17, align 8
@@ -2963,13 +2963,13 @@ KINFullNewton.exit.thread:                        ; preds = %533, %546, %509, %4
 
 864:                                              ; preds = %849
   %865 = load ptr, ptr %268, align 8
-  %.not84.i175 = icmp eq ptr %865, null
-  br i1 %.not84.i175, label %KINStop.exit.thread, label %866
+  %.not84.i174 = icmp eq ptr %865, null
+  br i1 %.not84.i174, label %KINStop.exit.thread, label %866
 
 866:                                              ; preds = %864
   %867 = load i32, ptr %269, align 4
-  %.not85.i176 = icmp eq i32 %867, 0
-  br i1 %.not85.i176, label %868, label %KINStop.exit.thread
+  %.not85.i175 = icmp eq i32 %867, 0
+  br i1 %.not85.i175, label %868, label %KINStop.exit.thread
 
 868:                                              ; preds = %866
   store double 2.000000e+00, ptr %249, align 8
@@ -2978,14 +2978,14 @@ KINFullNewton.exit.thread:                        ; preds = %533, %546, %509, %4
 869:                                              ; preds = %849
   %870 = load i64, ptr %201, align 8
   %871 = load i64, ptr %289, align 8
-  %.not.i177 = icmp slt i64 %870, %871
-  br i1 %.not.i177, label %872, label %KINStop.exit.thread
+  %.not.i176 = icmp slt i64 %870, %871
+  br i1 %.not.i176, label %872, label %KINStop.exit.thread
 
 872:                                              ; preds = %869
-  %.not74.i = icmp eq i32 %.4198, 0
-  br i1 %.not74.i, label %.thread.i184, label %873
+  %.not74.i = icmp eq i32 %.4197, 0
+  br i1 %.not74.i, label %.thread.i183, label %873
 
-.thread.i184:                                     ; preds = %872
+.thread.i183:                                     ; preds = %872
   store i64 0, ptr %246, align 8
   br label %877
 
@@ -2996,7 +2996,7 @@ KINFullNewton.exit.thread:                        ; preds = %533, %546, %509, %4
   %876 = icmp eq i64 %875, 5
   br i1 %876, label %KINStop.exit.thread, label %877
 
-877:                                              ; preds = %873, %.thread.i184
+877:                                              ; preds = %873, %.thread.i183
   %878 = load i32, ptr %185, align 8
   %.not75.i = icmp eq i32 %878, 0
   br i1 %.not75.i, label %880, label %879
@@ -3020,11 +3020,11 @@ KINFullNewton.exit.thread:                        ; preds = %533, %546, %509, %4
 886:                                              ; preds = %882
   store i64 %870, ptr %270, align 8
   %887 = load i32, ptr %261, align 8
-  %.not81.i178 = icmp eq i32 %887, 0
-  br i1 %.not81.i178, label %._crit_edge.i181, label %888
+  %.not81.i177 = icmp eq i32 %887, 0
+  br i1 %.not81.i177, label %._crit_edge.i180, label %888
 
-._crit_edge.i181:                                 ; preds = %886
-  %.pre.i183 = load double, ptr %258, align 8
+._crit_edge.i180:                                 ; preds = %886
+  %.pre.i182 = load double, ptr %258, align 8
   br label %910
 
 888:                                              ; preds = %886
@@ -3060,8 +3060,8 @@ KINFullNewton.exit.thread:                        ; preds = %533, %546, %509, %4
   store double %909, ptr %258, align 8
   br label %910
 
-910:                                              ; preds = %908, %._crit_edge.i181
-  %911 = phi double [ %.pre.i183, %._crit_edge.i181 ], [ %909, %908 ]
+910:                                              ; preds = %908, %._crit_edge.i180
+  %911 = phi double [ %.pre.i182, %._crit_edge.i180 ], [ %909, %908 ]
   %912 = load double, ptr %239, align 8
   %913 = load double, ptr %243, align 8
   %914 = fmul double %911, %913
@@ -3070,13 +3070,13 @@ KINFullNewton.exit.thread:                        ; preds = %533, %546, %509, %4
 
 916:                                              ; preds = %910
   %917 = load ptr, ptr %268, align 8
-  %.not82.i179 = icmp eq ptr %917, null
-  br i1 %.not82.i179, label %KINStop.exit.thread, label %918
+  %.not82.i178 = icmp eq ptr %917, null
+  br i1 %.not82.i178, label %KINStop.exit.thread, label %918
 
 918:                                              ; preds = %916
   %919 = load i32, ptr %269, align 4
-  %.not83.i180 = icmp eq i32 %919, 0
-  br i1 %.not83.i180, label %920, label %KINStop.exit.thread
+  %.not83.i179 = icmp eq i32 %919, 0
+  br i1 %.not83.i179, label %920, label %KINStop.exit.thread
 
 920:                                              ; preds = %918
   store double 2.000000e+00, ptr %249, align 8
@@ -3133,15 +3133,15 @@ KINStop.exit.thread:                              ; preds = %KINFullNewton.exit.
   %.not145 = icmp eq i32 %.3, -999
   br i1 %.not145, label %439, label %KINLinSolDrv.exit.thread
 
-KINLinSolDrv.exit.thread.thread247:               ; preds = %475, %478, %568, %571
+KINLinSolDrv.exit.thread.thread246:               ; preds = %475, %478, %568, %571
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 1, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.14, i32 noundef -9)
   br label %940
 
-KINLinSolDrv.exit.thread.thread251:               ; preds = %463, %556
+KINLinSolDrv.exit.thread.thread250:               ; preds = %463, %556
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 1, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.14, i32 noundef -11)
   br label %938
 
-KINLinSolDrv.exit.thread.thread255:               ; preds = %473, %566
+KINLinSolDrv.exit.thread.thread254:               ; preds = %473, %566
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr poison, i32 noundef 1, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.14, i32 noundef -12)
   br label %939
 
@@ -3167,23 +3167,23 @@ KINLinSolDrv.exit.thread:                         ; preds = %KINStop.exit.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %0, i32 noundef -13, i32 noundef 727, ptr noundef nonnull @__func__.KINSol, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11)
   br label %KINSolInit.exit.thread
 
-.sink.split445:                                   ; preds = %613, %528
+.sink.split444:                                   ; preds = %613, %528
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINPrintInfo(ptr nonnull poison, i32 noundef 1, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull @.str.14, i32 noundef -15)
   br label %937
 
-937:                                              ; preds = %.sink.split445, %KINLinSolDrv.exit.thread
+937:                                              ; preds = %.sink.split444, %KINLinSolDrv.exit.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -15, i32 noundef 731, ptr noundef nonnull @__func__.KINSol, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15)
   br label %KINSolInit.exit.thread
 
-938:                                              ; preds = %KINLinSolDrv.exit.thread.thread251, %KINLinSolDrv.exit.thread
+938:                                              ; preds = %KINLinSolDrv.exit.thread.thread250, %KINLinSolDrv.exit.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -11, i32 noundef 735, ptr noundef nonnull @__func__.KINSol, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16)
   br label %KINSolInit.exit.thread
 
-939:                                              ; preds = %KINLinSolDrv.exit.thread.thread255, %KINLinSolDrv.exit.thread
+939:                                              ; preds = %KINLinSolDrv.exit.thread.thread254, %KINLinSolDrv.exit.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %0, i32 noundef -12, i32 noundef 739, ptr noundef nonnull @__func__.KINSol, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17)
   br label %KINSolInit.exit.thread
 
-940:                                              ; preds = %KINLinSolDrv.exit.thread.thread247, %KINLinSolDrv.exit.thread
+940:                                              ; preds = %KINLinSolDrv.exit.thread.thread246, %KINLinSolDrv.exit.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -9, i32 noundef 743, ptr noundef nonnull @__func__.KINSol, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18)
   br label %KINSolInit.exit.thread
 
@@ -3204,8 +3204,8 @@ KINLinSolDrv.exit.thread:                         ; preds = %KINStop.exit.thread
   br label %KINSolInit.exit.thread
 
 KINSolInit.exit.thread:                           ; preds = %162, %168, %234, %224, %216, %214, %149, %142, %138, %134, %130, %127, %125, %KINLinSolDrv.exit.thread, %936, %937, %938, %939, %940, %941, %942, %943, %944, %KINFP.exit, %122, %123, %KINPicardAA.exit, %303, %25, %21, %12, %7
-  %.0120 = phi i32 [ -1, %7 ], [ -3, %12 ], [ -2, %21 ], [ -2, %25 ], [ -4, %303 ], [ %.3.i150, %KINPicardAA.exit ], [ -6, %123 ], [ -13, %122 ], [ %.2.le.i, %KINFP.exit ], [ -7, %944 ], [ -6, %943 ], [ -8, %942 ], [ -5, %941 ], [ -9, %940 ], [ -12, %939 ], [ -11, %938 ], [ -15, %937 ], [ -13, %936 ], [ %.3, %KINLinSolDrv.exit.thread ], [ -2, %162 ], [ -2, %168 ], [ -10, %234 ], [ 1, %224 ], [ -14, %216 ], [ -13, %214 ], [ -2, %149 ], [ -2, %142 ], [ -2, %138 ], [ -2, %134 ], [ -2, %130 ], [ -2, %127 ], [ -2, %125 ]
-  ret i32 %.0120
+  %.0119 = phi i32 [ -1, %7 ], [ -3, %12 ], [ -2, %21 ], [ -2, %25 ], [ -4, %303 ], [ %.3.i149, %KINPicardAA.exit ], [ -6, %123 ], [ -13, %122 ], [ %.2.le.i, %KINFP.exit ], [ -7, %944 ], [ -6, %943 ], [ -8, %942 ], [ -5, %941 ], [ -9, %940 ], [ -12, %939 ], [ -11, %938 ], [ -15, %937 ], [ -13, %936 ], [ %.3, %KINLinSolDrv.exit.thread ], [ -2, %162 ], [ -2, %168 ], [ -10, %234 ], [ 1, %224 ], [ -14, %216 ], [ -13, %214 ], [ -2, %149 ], [ -2, %142 ], [ -2, %138 ], [ -2, %134 ], [ -2, %130 ], [ -2, %127 ], [ -2, %125 ]
+  ret i32 %.0119
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -4019,10 +4019,10 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
   br i1 %32, label %.lr.ph, label %.loopexit332
 
 .lr.ph:                                           ; preds = %88, %.lr.ph
-  %.0302341 = phi i64 [ %104, %.lr.ph ], [ 0, %88 ]
-  %103 = getelementptr inbounds i64, ptr %27, i64 %.0302341
-  store i64 %.0302341, ptr %103, align 8
-  %104 = add nuw nsw i64 %.0302341, 1
+  %.0304341 = phi i64 [ %104, %.lr.ph ], [ 0, %88 ]
+  %103 = getelementptr inbounds i64, ptr %27, i64 %.0304341
+  store i64 %.0304341, ptr %103, align 8
+  %104 = add nuw nsw i64 %.0304341, 1
   %exitcond.not = icmp eq i64 %104, %5
   br i1 %exitcond.not, label %.loopexit332, label %.lr.ph
 
@@ -4032,11 +4032,11 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
 
 106:                                              ; preds = %.lr.ph347, %.loopexit338
   %107 = phi i64 [ %85, %.lr.ph347 ], [ %164, %.loopexit338 ]
-  %.0305346 = phi i64 [ 0, %.lr.ph347 ], [ %108, %.loopexit338 ]
-  %108 = add nuw nsw i64 %.0305346, 1
+  %.0301346 = phi i64 [ 0, %.lr.ph347 ], [ %108, %.loopexit338 ]
+  %108 = add nuw nsw i64 %.0301346, 1
   %109 = mul nsw i64 %108, %107
   %110 = getelementptr double, ptr %6, i64 %109
-  %111 = getelementptr double, ptr %110, i64 %.0305346
+  %111 = getelementptr double, ptr %110, i64 %.0301346
   %112 = load double, ptr %111, align 8
   %113 = getelementptr i8, ptr %111, i64 8
   %114 = load double, ptr %113, align 8
@@ -4051,17 +4051,17 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
   %121 = load i64, ptr %29, align 8
   %122 = mul nsw i64 %121, %108
   %123 = getelementptr double, ptr %6, i64 %122
-  %124 = getelementptr double, ptr %123, i64 %.0305346
+  %124 = getelementptr double, ptr %123, i64 %.0301346
   %125 = getelementptr i8, ptr %124, i64 8
   store double 0.000000e+00, ptr %125, align 8
   %126 = load i64, ptr %29, align 8
   %127 = add nsw i64 %126, -1
-  %128 = icmp slt i64 %.0305346, %127
+  %128 = icmp slt i64 %.0301346, %127
   br i1 %128, label %129, label %.loopexit338
 
 129:                                              ; preds = %106
-  %130 = add nuw nsw i64 %.0305346, 2
-  %invariant.gep = getelementptr double, ptr %6, i64 %.0305346
+  %130 = add nuw nsw i64 %.0301346, 2
+  %invariant.gep = getelementptr double, ptr %6, i64 %.0301346
   %131 = icmp slt i64 %130, %126
   br i1 %131, label %.lr.ph345, label %.loopexit338
 
@@ -4071,8 +4071,8 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
 
 133:                                              ; preds = %.lr.ph345, %133
   %134 = phi i64 [ %126, %.lr.ph345 ], [ %146, %133 ]
-  %.1303344 = phi i64 [ %130, %.lr.ph345 ], [ %145, %133 ]
-  %135 = mul nsw i64 %134, %.1303344
+  %.1305344 = phi i64 [ %130, %.lr.ph345 ], [ %145, %133 ]
+  %135 = mul nsw i64 %134, %.1305344
   %gep = getelementptr double, ptr %invariant.gep, i64 %135
   %136 = load double, ptr %gep, align 8
   %137 = getelementptr i8, ptr %gep, i64 8
@@ -4083,17 +4083,17 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
   %142 = tail call double @llvm.fmuladd.f64(double %132, double %136, double %141)
   store double %142, ptr %137, align 8
   %143 = load i64, ptr %29, align 8
-  %144 = mul nsw i64 %143, %.1303344
+  %144 = mul nsw i64 %143, %.1305344
   %gep343 = getelementptr double, ptr %invariant.gep, i64 %144
   store double %140, ptr %gep343, align 8
-  %145 = add nuw nsw i64 %.1303344, 1
+  %145 = add nuw nsw i64 %.1305344, 1
   %146 = load i64, ptr %29, align 8
   %147 = icmp slt i64 %145, %146
   br i1 %147, label %133, label %.loopexit338
 
 .loopexit338:                                     ; preds = %133, %129, %106
   %148 = load ptr, ptr %87, align 8
-  %149 = getelementptr inbounds ptr, ptr %148, i64 %.0305346
+  %149 = getelementptr inbounds ptr, ptr %148, i64 %.0301346
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds ptr, ptr %148, i64 %108
   %152 = load ptr, ptr %151, align 8
@@ -4101,14 +4101,14 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
   tail call void @N_VLinearSum(double noundef %119, ptr noundef %150, double noundef %120, ptr noundef %152, ptr noundef %153) #14
   %154 = fneg double %120
   %155 = load ptr, ptr %87, align 8
-  %156 = getelementptr inbounds ptr, ptr %155, i64 %.0305346
+  %156 = getelementptr inbounds ptr, ptr %155, i64 %.0301346
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds ptr, ptr %155, i64 %108
   %159 = load ptr, ptr %158, align 8
   tail call void @N_VLinearSum(double noundef %154, ptr noundef %157, double noundef %119, ptr noundef %159, ptr noundef %159) #14
   %160 = load ptr, ptr %13, align 8
   %161 = load ptr, ptr %87, align 8
-  %162 = getelementptr inbounds ptr, ptr %161, i64 %.0305346
+  %162 = getelementptr inbounds ptr, ptr %161, i64 %.0301346
   %163 = load ptr, ptr %162, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %160, ptr noundef %163) #14
   %164 = load i64, ptr %29, align 8
@@ -4118,26 +4118,26 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
 
 .preheader336:                                    ; preds = %.preheader337, %._crit_edge
   %167 = phi i64 [ %183, %._crit_edge ], [ %164, %.preheader337 ]
-  %.1306350 = phi i64 [ %184, %._crit_edge ], [ 1, %.preheader337 ]
+  %.1302350 = phi i64 [ %184, %._crit_edge ], [ 1, %.preheader337 ]
   %168 = icmp sgt i64 %167, 1
   br i1 %168, label %.lr.ph349, label %._crit_edge
 
 .lr.ph349:                                        ; preds = %.preheader336
-  %169 = add nsw i64 %.1306350, -1
+  %169 = add nsw i64 %.1302350, -1
   br label %170
 
 170:                                              ; preds = %.lr.ph349, %170
   %171 = phi i64 [ %167, %.lr.ph349 ], [ %180, %170 ]
-  %.2304348 = phi i64 [ 0, %.lr.ph349 ], [ %179, %170 ]
-  %172 = mul nsw i64 %171, %.1306350
+  %.2306348 = phi i64 [ 0, %.lr.ph349 ], [ %179, %170 ]
+  %172 = mul nsw i64 %171, %.1302350
   %173 = getelementptr double, ptr %6, i64 %172
-  %174 = getelementptr double, ptr %173, i64 %.2304348
+  %174 = getelementptr double, ptr %173, i64 %.2306348
   %175 = load double, ptr %174, align 8
   %176 = mul nsw i64 %171, %169
   %177 = getelementptr double, ptr %6, i64 %176
-  %178 = getelementptr double, ptr %177, i64 %.2304348
+  %178 = getelementptr double, ptr %177, i64 %.2306348
   store double %175, ptr %178, align 8
-  %179 = add nuw nsw i64 %.2304348, 1
+  %179 = add nuw nsw i64 %.2306348, 1
   %180 = load i64, ptr %29, align 8
   %181 = add nsw i64 %180, -1
   %182 = icmp slt i64 %179, %181
@@ -4145,7 +4145,7 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
 
 ._crit_edge:                                      ; preds = %170, %.preheader336
   %183 = phi i64 [ %167, %.preheader336 ], [ %180, %170 ]
-  %184 = add nuw nsw i64 %.1306350, 1
+  %184 = add nuw nsw i64 %.1302350, 1
   %185 = icmp slt i64 %184, %183
   br i1 %185, label %.preheader336, label %._crit_edge351, !llvm.loop !4
 
@@ -4174,29 +4174,29 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
 
 196:                                              ; preds = %.lr.ph353, %196
   %197 = phi i64 [ %187, %.lr.ph353 ], [ %208, %196 ]
-  %.2307352 = phi i64 [ 2, %.lr.ph353 ], [ %207, %196 ]
-  %198 = trunc i64 %.2307352 to i32
+  %.2303352 = phi i64 [ 2, %.lr.ph353 ], [ %207, %196 ]
+  %198 = trunc i64 %.2303352 to i32
   %199 = load ptr, ptr %194, align 8
-  %200 = add nsw i64 %.2307352, -1
+  %200 = add nsw i64 %.2303352, -1
   %201 = getelementptr inbounds ptr, ptr %199, i64 %200
   %202 = load ptr, ptr %201, align 8
   %203 = load ptr, ptr %195, align 8
   %204 = mul nsw i64 %200, %197
   %205 = getelementptr inbounds double, ptr %203, i64 %204
   %206 = tail call i32 @N_VDotProdMultiLocal(i32 noundef %198, ptr noundef %202, ptr noundef %199, ptr noundef %205) #14
-  %207 = add nuw nsw i64 %.2307352, 1
+  %207 = add nuw nsw i64 %.2303352, 1
   %208 = load i64, ptr %29, align 8
   %209 = icmp slt i64 %207, %208
   br i1 %209, label %196, label %._crit_edge354
 
 ._crit_edge354:                                   ; preds = %196, %.preheader335
-  %.2307.lcssa = phi i64 [ 2, %.preheader335 ], [ %207, %196 ]
+  %.2303.lcssa = phi i64 [ 2, %.preheader335 ], [ %207, %196 ]
   %.lcssa = phi i64 [ %187, %.preheader335 ], [ %208, %196 ]
   %210 = mul nsw i64 %.lcssa, %.lcssa
   %211 = trunc i64 %210 to i32
   %212 = getelementptr inbounds i8, ptr %0, i64 400
   %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr ptr, ptr %213, i64 %.2307.lcssa
+  %214 = getelementptr ptr, ptr %213, i64 %.2303.lcssa
   %215 = getelementptr i8, ptr %214, i64 -8
   %216 = load ptr, ptr %215, align 8
   %217 = getelementptr inbounds i8, ptr %0, i64 432
@@ -4216,14 +4216,14 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
 
 224:                                              ; preds = %.lr.ph359, %224
   %225 = phi i64 [ %221, %.lr.ph359 ], [ %232, %224 ]
-  %.3308357 = phi i64 [ 1, %.lr.ph359 ], [ %231, %224 ]
+  %.3357 = phi i64 [ 1, %.lr.ph359 ], [ %231, %224 ]
   %226 = load ptr, ptr %223, align 8
-  %227 = add nsw i64 %.3308357, -1
+  %227 = add nsw i64 %.3357, -1
   %228 = add i64 %225, 1
   %229 = mul i64 %228, %227
   %230 = getelementptr inbounds double, ptr %226, i64 %229
   store double 1.000000e+00, ptr %230, align 8
-  %231 = add nuw nsw i64 %.3308357, 1
+  %231 = add nuw nsw i64 %.3357, 1
   %232 = load i64, ptr %29, align 8
   %233 = icmp slt i64 %231, %232
   br i1 %233, label %224, label %.loopexit333
@@ -4242,11 +4242,11 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
 
 240:                                              ; preds = %.lr.ph362, %240
   %241 = phi i64 [ %237, %.lr.ph362 ], [ %258, %240 ]
-  %.4309360 = phi i64 [ 2, %.lr.ph362 ], [ %257, %240 ]
-  %242 = trunc i64 %.4309360 to i32
+  %.4360 = phi i64 [ 2, %.lr.ph362 ], [ %257, %240 ]
+  %242 = trunc i64 %.4360 to i32
   %243 = add nsw i32 %242, -1
   %244 = load ptr, ptr %239, align 8
-  %245 = add nsw i64 %.4309360, -1
+  %245 = add nsw i64 %.4360, -1
   %246 = getelementptr inbounds ptr, ptr %244, i64 %245
   %247 = load ptr, ptr %246, align 8
   %248 = load ptr, ptr %235, align 8
@@ -4259,7 +4259,7 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
   %255 = mul i64 %254, %245
   %256 = getelementptr inbounds double, ptr %252, i64 %255
   store double 1.000000e+00, ptr %256, align 8
-  %257 = add nuw nsw i64 %.4309360, 1
+  %257 = add nuw nsw i64 %.4360, 1
   %258 = load i64, ptr %29, align 8
   %259 = icmp slt i64 %257, %258
   br i1 %259, label %240, label %.loopexit333
@@ -4279,35 +4279,35 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
   %271 = getelementptr inbounds i8, ptr %0, i64 480
   %272 = load ptr, ptr %271, align 8
   %273 = tail call i32 %262(ptr noundef %264, ptr noundef %6, ptr noundef %268, i32 noundef %270, i32 noundef %269, ptr noundef %272) #14
-  %.5310363 = add nsw i64 %31, 1
+  %.5363 = add nsw i64 %31, 1
   %274 = load i64, ptr %29, align 8
-  %275 = icmp slt i64 %.5310363, %274
+  %275 = icmp slt i64 %.5363, %274
   br i1 %275, label %.lr.ph367, label %.preheader331
 
 .preheader331:                                    ; preds = %.lr.ph367, %.loopexit333
-  %.3.lcssa = phi i64 [ 0, %.loopexit333 ], [ %276, %.lr.ph367 ]
+  %.3307.lcssa = phi i64 [ 0, %.loopexit333 ], [ %276, %.lr.ph367 ]
   %.not324369 = icmp slt i64 %31, 0
   br i1 %.not324369, label %.loopexit332, label %.lr.ph372
 
 .lr.ph367:                                        ; preds = %.loopexit333, %.lr.ph367
-  %.5310365 = phi i64 [ %.5310, %.lr.ph367 ], [ %.5310363, %.loopexit333 ]
-  %.3364 = phi i64 [ %276, %.lr.ph367 ], [ 0, %.loopexit333 ]
-  %276 = add nuw nsw i64 %.3364, 1
-  %277 = getelementptr inbounds i64, ptr %27, i64 %.3364
-  store i64 %.5310365, ptr %277, align 8
-  %.5310 = add nsw i64 %.5310365, 1
+  %.5365 = phi i64 [ %.5, %.lr.ph367 ], [ %.5363, %.loopexit333 ]
+  %.3307364 = phi i64 [ %276, %.lr.ph367 ], [ 0, %.loopexit333 ]
+  %276 = add nuw nsw i64 %.3307364, 1
+  %277 = getelementptr inbounds i64, ptr %27, i64 %.3307364
+  store i64 %.5365, ptr %277, align 8
+  %.5 = add nsw i64 %.5365, 1
   %278 = load i64, ptr %29, align 8
-  %279 = icmp slt i64 %.5310, %278
+  %279 = icmp slt i64 %.5, %278
   br i1 %279, label %.lr.ph367, label %.preheader331
 
 .lr.ph372:                                        ; preds = %.preheader331, %.lr.ph372
-  %.4371 = phi i64 [ %280, %.lr.ph372 ], [ %.3.lcssa, %.preheader331 ]
-  %.6370 = phi i64 [ %282, %.lr.ph372 ], [ 0, %.preheader331 ]
-  %280 = add nuw nsw i64 %.4371, 1
-  %281 = getelementptr inbounds i64, ptr %27, i64 %.4371
-  store i64 %.6370, ptr %281, align 8
-  %282 = add nuw i64 %.6370, 1
-  %exitcond396.not = icmp eq i64 %.6370, %31
+  %.6371 = phi i64 [ %282, %.lr.ph372 ], [ 0, %.preheader331 ]
+  %.4308370 = phi i64 [ %280, %.lr.ph372 ], [ %.3307.lcssa, %.preheader331 ]
+  %280 = add nuw nsw i64 %.4308370, 1
+  %281 = getelementptr inbounds i64, ptr %27, i64 %.4308370
+  store i64 %.6371, ptr %281, align 8
+  %282 = add nuw i64 %.6371, 1
+  %exitcond396.not = icmp eq i64 %.6371, %31
   br i1 %exitcond396.not, label %.loopexit332, label %.lr.ph372
 
 .loopexit332:                                     ; preds = %.lr.ph, %.lr.ph372, %88, %.preheader331, %74
@@ -4335,26 +4335,26 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
   %indvars.iv = phi i64 [ 1, %.preheader.lr.ph ], [ %indvars.iv.next, %._crit_edge378 ]
   %.7379 = phi i64 [ %289, %.preheader.lr.ph ], [ %317, %._crit_edge378 ]
   %invariant.gep373 = getelementptr double, ptr %6, i64 %.7379
-  %.5375 = add nuw nsw i64 %.7379, 1
-  %292 = icmp slt i64 %.5375, %spec.select330
+  %.5309375 = add nuw nsw i64 %.7379, 1
+  %292 = icmp slt i64 %.5309375, %spec.select330
   %293 = getelementptr inbounds double, ptr %7, i64 %.7379
   %.pre403 = load double, ptr %293, align 8
   br i1 %292, label %.lr.ph377, label %._crit_edge378
 
 .lr.ph377:                                        ; preds = %.preheader, %.lr.ph377
   %294 = phi double [ %301, %.lr.ph377 ], [ %.pre403, %.preheader ]
-  %.5376 = phi i64 [ %.5, %.lr.ph377 ], [ %.5375, %.preheader ]
+  %.5309376 = phi i64 [ %.5309, %.lr.ph377 ], [ %.5309375, %.preheader ]
   %295 = load i64, ptr %29, align 8
-  %296 = mul nsw i64 %295, %.5376
+  %296 = mul nsw i64 %295, %.5309376
   %gep374 = getelementptr double, ptr %invariant.gep373, i64 %296
   %297 = load double, ptr %gep374, align 8
-  %298 = getelementptr inbounds double, ptr %7, i64 %.5376
+  %298 = getelementptr inbounds double, ptr %7, i64 %.5309376
   %299 = load double, ptr %298, align 8
   %300 = fneg double %297
   %301 = tail call double @llvm.fmuladd.f64(double %300, double %299, double %294)
   store double %301, ptr %293, align 8
-  %.5 = add nuw nsw i64 %.5376, 1
-  %exitcond397.not = icmp eq i64 %.5, %spec.select330
+  %.5309 = add nuw nsw i64 %.5309376, 1
+  %exitcond397.not = icmp eq i64 %.5309, %spec.select330
   br i1 %exitcond397.not, label %._crit_edge378, label %.lr.ph377
 
 ._crit_edge378:                                   ; preds = %.lr.ph377, %.preheader
@@ -4388,7 +4388,7 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
   br label %._crit_edge381
 
 ._crit_edge381:                                   ; preds = %._crit_edge381.loopexit, %288
-  %.0.lcssa = phi i32 [ 1, %288 ], [ %319, %._crit_edge381.loopexit ]
+  %.0299.lcssa = phi i32 [ 1, %288 ], [ %319, %._crit_edge381.loopexit ]
   %320 = getelementptr inbounds i8, ptr %0, i64 488
   %321 = load i32, ptr %320, align 8
   %.not326 = icmp eq i32 %321, 0
@@ -4399,12 +4399,12 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
   %324 = load double, ptr %323, align 8
   %325 = fsub double 1.000000e+00, %324
   %326 = fneg double %325
-  %327 = zext nneg i32 %.0.lcssa to i64
+  %327 = zext nneg i32 %.0299.lcssa to i64
   %328 = getelementptr inbounds double, ptr %10, i64 %327
   store double %326, ptr %328, align 8
   %329 = getelementptr inbounds ptr, ptr %12, i64 %327
   store ptr %2, ptr %329, align 8
-  %.1383 = add i32 %.0.lcssa, 1
+  %.1383 = add i32 %.0299.lcssa, 1
   br i1 %290, label %.lr.ph387, label %.loopexit
 
 .lr.ph387:                                        ; preds = %322
@@ -4437,7 +4437,7 @@ define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %322, %._crit_edge381
-  %.2 = phi i32 [ %.0.lcssa, %._crit_edge381 ], [ %.1383, %322 ], [ %344, %.loopexit.loopexit ]
+  %.2 = phi i32 [ %.0299.lcssa, %._crit_edge381 ], [ %.1383, %322 ], [ %344, %.loopexit.loopexit ]
   %345 = tail call i32 @N_VLinearCombination(i32 noundef %.2, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef %3) #14
   br label %346
 

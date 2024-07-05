@@ -8719,9 +8719,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not6, label %if.end18, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %curr.08 = phi ptr [ %incdec.ptr, %for.inc ], [ %2, %if.end ]
-  %overhead.07 = phi i32 [ %overhead.1, %for.inc ], [ 0, %if.end ]
-  %m_state.i = getelementptr inbounds i8, ptr %curr.08, i64 4
+  %overhead.08 = phi i32 [ %overhead.1, %for.inc ], [ 0, %if.end ]
+  %curr.07 = phi ptr [ %incdec.ptr, %for.inc ], [ %2, %if.end ]
+  %m_state.i = getelementptr inbounds i8, ptr %curr.07, i64 4
   %4 = load i32, ptr %m_state.i, align 4
   %cmp.i = icmp eq i32 %4, 0
   br i1 %cmp.i, label %if.else, label %if.then5
@@ -8731,12 +8731,12 @@ if.then5:                                         ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %inc = add i32 %overhead.07, 1
+  %inc = add i32 %overhead.08, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then5, %if.else
-  %overhead.1 = phi i32 [ %inc, %if.else ], [ %overhead.07, %if.then5 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %curr.08, i64 24
+  %overhead.1 = phi i32 [ %inc, %if.else ], [ %overhead.08, %if.then5 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %curr.07, i64 24
   %cmp4.not = icmp eq ptr %incdec.ptr, %add.ptr
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !41
 
@@ -8882,9 +8882,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not6, label %if.end18, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %curr.08 = phi ptr [ %incdec.ptr, %for.inc ], [ %2, %if.end ]
-  %overhead.07 = phi i32 [ %overhead.1, %for.inc ], [ 0, %if.end ]
-  %m_state.i = getelementptr inbounds i8, ptr %curr.08, i64 4
+  %overhead.08 = phi i32 [ %overhead.1, %for.inc ], [ 0, %if.end ]
+  %curr.07 = phi ptr [ %incdec.ptr, %for.inc ], [ %2, %if.end ]
+  %m_state.i = getelementptr inbounds i8, ptr %curr.07, i64 4
   %4 = load i32, ptr %m_state.i, align 4
   %cmp.i = icmp eq i32 %4, 0
   br i1 %cmp.i, label %if.else, label %if.then5
@@ -8894,12 +8894,12 @@ if.then5:                                         ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %inc = add i32 %overhead.07, 1
+  %inc = add i32 %overhead.08, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then5, %if.else
-  %overhead.1 = phi i32 [ %inc, %if.else ], [ %overhead.07, %if.then5 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %curr.08, i64 24
+  %overhead.1 = phi i32 [ %inc, %if.else ], [ %overhead.08, %if.then5 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %curr.07, i64 24
   %cmp4.not = icmp eq ptr %incdec.ptr, %add.ptr
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !42
 

@@ -1434,9 +1434,9 @@ define dso_local noundef zeroext i1 @_ZNK6Effect7is_readENSt7__cxx1112basic_stri
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %63
   %14 = phi i1 [ %65, %63 ], [ true, %.lr.ph.preheader ]
-  %.01947 = phi i64 [ %64, %63 ], [ 0, %.lr.ph.preheader ]
+  %.02147 = phi i64 [ %64, %63 ], [ 0, %.lr.ph.preheader ]
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %.01947
+  %16 = getelementptr inbounds ptr, ptr %15, i64 %.02147
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 32
   %19 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #23
@@ -1569,7 +1569,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %59, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %63
 
 63:                                               ; preds = %.thread67, %62, %45
-  %64 = add nuw i64 %.01947, 1
+  %64 = add nuw i64 %.02147, 1
   %65 = icmp ult i64 %64, %13
   %exitcond.not = icmp eq i64 %64, %umax
   br i1 %exitcond.not, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %.lr.ph, !llvm.loop !19
@@ -1629,9 +1629,9 @@ define dso_local noundef zeroext i1 @_ZNK6Effect10is_writtenENSt7__cxx1112basic_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %64
   %15 = phi i1 [ %66, %64 ], [ true, %.lr.ph.preheader ]
-  %.01947 = phi i64 [ %65, %64 ], [ 0, %.lr.ph.preheader ]
+  %.02147 = phi i64 [ %65, %64 ], [ 0, %.lr.ph.preheader ]
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %.01947
+  %17 = getelementptr inbounds ptr, ptr %16, i64 %.02147
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 32
   %20 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #23
@@ -1764,7 +1764,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %60, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %64
 
 64:                                               ; preds = %.thread67, %63, %46
-  %65 = add nuw i64 %.01947, 1
+  %65 = add nuw i64 %.02147, 1
   %66 = icmp ult i64 %65, %14
   %exitcond.not = icmp eq i64 %65, %umax
   br i1 %exitcond.not, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %.lr.ph, !llvm.loop !22
@@ -1815,13 +1815,13 @@ _ZNK8Variable12is_aggregateEv.exit:               ; preds = %2
   br label %.lr.ph
 
 15:                                               ; preds = %20
-  %16 = add nuw i64 %.010, 1
+  %16 = add nuw i64 %.0910, 1
   %exitcond.not = icmp eq i64 %16, %umax
   br i1 %exitcond.not, label %_ZNK8Variable12is_aggregateEv.exit.thread, label %.lr.ph, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
-  %.010 = phi i64 [ %16, %15 ], [ 0, %.lr.ph.preheader ]
-  %17 = getelementptr inbounds ptr, ptr %10, i64 %.010
+  %.0910 = phi i64 [ %16, %15 ], [ 0, %.lr.ph.preheader ]
+  %17 = getelementptr inbounds ptr, ptr %10, i64 %.0910
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i1 @_ZNK6Effect7is_readEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %18)
   br i1 %19, label %_ZNK8Variable12is_aggregateEv.exit.thread, label %20
@@ -1831,8 +1831,8 @@ _ZNK8Variable12is_aggregateEv.exit:               ; preds = %2
   br i1 %21, label %_ZNK8Variable12is_aggregateEv.exit.thread, label %15
 
 _ZNK8Variable12is_aggregateEv.exit.thread:        ; preds = %20, %.lr.ph, %15, %.preheader, %2, %_ZNK8Variable12is_aggregateEv.exit
-  %.09 = phi i1 [ false, %_ZNK8Variable12is_aggregateEv.exit ], [ false, %2 ], [ false, %.preheader ], [ true, %20 ], [ true, %.lr.ph ], [ false, %15 ]
-  ret i1 %.09
+  %.0 = phi i1 [ false, %_ZNK8Variable12is_aggregateEv.exit ], [ false, %2 ], [ false, %.preheader ], [ true, %20 ], [ true, %.lr.ph ], [ false, %15 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1875,18 +1875,18 @@ _ZNK8Variable12is_aggregateEv.exit:               ; preds = %2
   br i1 %.not13.i, label %.lr.ph.split.us, label %tailrecurse.us.preheader.i
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.012.us = phi i64 [ %26, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %23 = getelementptr inbounds ptr, ptr %10, i64 %.012.us
+  %.0912.us = phi i64 [ %26, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %23 = getelementptr inbounds ptr, ptr %10, i64 %.0912.us
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef zeroext i1 @_ZNK6Effect16field_is_writtenEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %24)
-  %26 = add nuw i64 %.012.us, 1
+  %26 = add nuw i64 %.0912.us, 1
   %exitcond20.not = icmp eq i64 %26, %umax19
   %or.cond = select i1 %25, i1 true, i1 %exitcond20.not
   br i1 %or.cond, label %_ZNK6Effect10is_writtenEPK8Variable.exit, label %.lr.ph.split.us, !llvm.loop !24
 
 tailrecurse.us.preheader.i:                       ; preds = %.lr.ph, %.loopexit
-  %.012 = phi i64 [ %38, %.loopexit ], [ 0, %.lr.ph ]
-  %27 = getelementptr inbounds ptr, ptr %10, i64 %.012
+  %.0912 = phi i64 [ %38, %.loopexit ], [ 0, %.lr.ph ]
+  %27 = getelementptr inbounds ptr, ptr %10, i64 %.0912
   %28 = load ptr, ptr %27, align 8
   br label %tailrecurse.us.i
 
@@ -1914,14 +1914,14 @@ tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %
 
 .loopexit:                                        ; preds = %._crit_edge.us.i
   %37 = tail call noundef zeroext i1 @_ZNK6Effect16field_is_writtenEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %28)
-  %38 = add nuw i64 %.012, 1
+  %38 = add nuw i64 %.0912, 1
   %exitcond.not = icmp eq i64 %38, %umax19
   %or.cond27 = select i1 %37, i1 true, i1 %exitcond.not
   br i1 %or.cond27, label %_ZNK6Effect10is_writtenEPK8Variable.exit, label %tailrecurse.us.preheader.i, !llvm.loop !24
 
 _ZNK6Effect10is_writtenEPK8Variable.exit:         ; preds = %.loopexit, %31, %.lr.ph.split.us, %.preheader, %2, %_ZNK8Variable12is_aggregateEv.exit
-  %.09 = phi i1 [ false, %_ZNK8Variable12is_aggregateEv.exit ], [ false, %2 ], [ false, %.preheader ], [ %25, %.lr.ph.split.us ], [ true, %31 ], [ %37, %.loopexit ]
-  ret i1 %.09
+  %.0 = phi i1 [ false, %_ZNK8Variable12is_aggregateEv.exit ], [ false, %2 ], [ false, %.preheader ], [ %25, %.lr.ph.split.us ], [ true, %31 ], [ %37, %.loopexit ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

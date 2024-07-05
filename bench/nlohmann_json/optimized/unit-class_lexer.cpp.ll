@@ -6187,9 +6187,9 @@ sw.bb13:                                          ; preds = %sw.bb3
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %sw.bb13
-  %__begin3.0.idx15.i = phi i64 [ 0, %sw.bb13 ], [ %__begin3.0.add.i, %for.inc.i ]
-  %codepoint.014.i = phi i32 [ 0, %sw.bb13 ], [ %codepoint.1.i, %for.inc.i ]
-  %__begin3.0.ptr.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 %__begin3.0.idx15.i
+  %codepoint.015.i = phi i32 [ 0, %sw.bb13 ], [ %codepoint.1.i, %for.inc.i ]
+  %__begin3.0.idx14.i = phi i64 [ 0, %sw.bb13 ], [ %__begin3.0.add.i, %for.inc.i ]
+  %__begin3.0.ptr.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 %__begin3.0.idx14.i
   %0 = load i32, ptr %__begin3.0.ptr.i, align 4
   %call5.i = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
   %1 = load i32, ptr %current.i149, align 4
@@ -6222,8 +6222,8 @@ if.then26.i:                                      ; preds = %if.else20.i
 for.inc.i:                                        ; preds = %if.then26.i, %if.then15.i, %for.body.i
   %sub.pn.i = phi i32 [ %sub17.i, %if.then15.i ], [ %sub28.i, %if.then26.i ], [ %2, %for.body.i ]
   %shl.pn.i = shl i32 %sub.pn.i, %0
-  %codepoint.1.i = add nsw i32 %shl.pn.i, %codepoint.014.i
-  %__begin3.0.add.i = add nuw nsw i64 %__begin3.0.idx15.i, 4
+  %codepoint.1.i = add nsw i32 %shl.pn.i, %codepoint.015.i
+  %__begin3.0.add.i = add nuw nsw i64 %__begin3.0.idx14.i, 4
   %cmp.not.i = icmp eq i64 %__begin3.0.add.i, 16
   br i1 %cmp.not.i, label %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE13get_codepointEv.exit, label %for.body.i
 
@@ -7426,9 +7426,9 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__begin3.0.idx15 = phi i64 [ 0, %entry ], [ %__begin3.0.add, %for.inc ]
-  %codepoint.014 = phi i32 [ 0, %entry ], [ %codepoint.1, %for.inc ]
-  %__begin3.0.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 %__begin3.0.idx15
+  %codepoint.015 = phi i32 [ 0, %entry ], [ %codepoint.1, %for.inc ]
+  %__begin3.0.idx14 = phi i64 [ 0, %entry ], [ %__begin3.0.add, %for.inc ]
+  %__begin3.0.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 %__begin3.0.idx14
   %0 = load i32, ptr %__begin3.0.ptr, align 4
   %call5 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE3getEv(ptr noundef nonnull align 8 dereferenceable(148) %this)
   %1 = load i32, ptr %current, align 4
@@ -7457,8 +7457,8 @@ if.then26:                                        ; preds = %if.else20
 for.inc:                                          ; preds = %for.body, %if.then26, %if.then15
   %sub.pn = phi i32 [ %sub17, %if.then15 ], [ %sub28, %if.then26 ], [ %2, %for.body ]
   %shl.pn = shl i32 %sub.pn, %0
-  %codepoint.1 = add nsw i32 %shl.pn, %codepoint.014
-  %__begin3.0.add = add nuw nsw i64 %__begin3.0.idx15, 4
+  %codepoint.1 = add nsw i32 %shl.pn, %codepoint.015
+  %__begin3.0.add = add nuw nsw i64 %__begin3.0.idx14, 4
   %cmp.not = icmp eq i64 %__begin3.0.add, 16
   br i1 %cmp.not, label %return, label %for.body
 

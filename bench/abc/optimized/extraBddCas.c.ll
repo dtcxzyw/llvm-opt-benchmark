@@ -171,9 +171,9 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
   br label %26
 
 26:                                               ; preds = %.lr.ph92, %81
-  %.06890 = phi ptr [ %1, %.lr.ph92 ], [ %83, %81 ]
+  %.06990 = phi ptr [ %1, %.lr.ph92 ], [ %83, %81 ]
   %27 = load ptr, ptr %16, align 8
-  %28 = load i32, ptr %.06890, align 8
+  %28 = load i32, ptr %.06990, align 8
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds ptr, ptr %27, i64 %29
   %31 = load ptr, ptr %30, align 8
@@ -294,7 +294,7 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
   br i1 %or.cond, label %.loopexit79, label %81
 
 81:                                               ; preds = %._crit_edge
-  %82 = getelementptr inbounds i8, ptr %.06890, i64 16
+  %82 = getelementptr inbounds i8, ptr %.06990, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %83, %84
@@ -839,7 +839,7 @@ define i32 @Extra_bddNodePathsUnderCutArray(ptr noundef %0, ptr nocapture nounde
   br label %._crit_edge65
 
 ._crit_edge65:                                    ; preds = %._crit_edge65.loopexit, %._crit_edge62
-  %.0.lcssa = phi i32 [ 0, %._crit_edge62 ], [ %52, %._crit_edge65.loopexit ]
+  %.052.lcssa = phi i32 [ 0, %._crit_edge62 ], [ %52, %._crit_edge65.loopexit ]
   call void @st__free_gen(ptr noundef %43) #11
   call void @st__free_table(ptr noundef %32) #11
   br label %58
@@ -859,8 +859,8 @@ define i32 @Extra_bddNodePathsUnderCutArray(ptr noundef %0, ptr nocapture nounde
   br i1 %.not56, label %._crit_edge65.loopexit, label %.critedge2, !llvm.loop !16
 
 58:                                               ; preds = %24, %27, %._crit_edge65
-  %.052 = phi i32 [ %.0.lcssa, %._crit_edge65 ], [ 1, %27 ], [ 1, %24 ]
-  ret i32 %.052
+  %.0 = phi i32 [ %.052.lcssa, %._crit_edge65 ], [ 1, %27 ], [ 1, %24 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1146,14 +1146,14 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph:                                           ; preds = %4, %21
   %17 = phi i64 [ %24, %21 ], [ %12, %4 ]
-  %.088118 = phi i32 [ %23, %21 ], [ %13, %4 ]
+  %.083118 = phi i32 [ %23, %21 ], [ %13, %4 ]
   %18 = getelementptr inbounds [51113 x %struct._HashEntry_cof], ptr @HHTable1, i64 0, i64 %17, i32 1
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %1
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = add nuw nsw i32 %.088118, 1
+  %22 = add nuw nsw i32 %.083118, 1
   %23 = urem i32 %22, 51113
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds [51113 x %struct._HashEntry_cof], ptr @HHTable1, i64 0, i64 %24
@@ -1162,7 +1162,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %21, %4
-  %.088.lcssa = phi i32 [ %13, %4 ], [ %23, %21 ]
+  %.083.lcssa = phi i32 [ %13, %4 ], [ %23, %21 ]
   %.lcssa115 = phi ptr [ %14, %4 ], [ %25, %21 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 312
   %29 = load ptr, ptr %28, align 8
@@ -1230,8 +1230,8 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   br label %71
 
 71:                                               ; preds = %50, %61, %69
-  %.087 = phi ptr [ %64, %61 ], [ %60, %69 ], [ %1, %50 ]
-  %.086 = phi ptr [ %68, %61 ], [ %70, %69 ], [ %1, %50 ]
+  %.088 = phi ptr [ %68, %61 ], [ %70, %69 ], [ %1, %50 ]
+  %.085 = phi ptr [ %64, %61 ], [ %60, %69 ], [ %1, %50 ]
   %72 = icmp eq i32 %.1, %51
   br i1 %72, label %73, label %104
 
@@ -1257,34 +1257,34 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   br label %87
 
 87:                                               ; preds = %77, %85
-  %.085.ph = phi ptr [ %76, %85 ], [ %80, %77 ]
-  %.084.ph = phi ptr [ %86, %85 ], [ %84, %77 ]
+  %.090.ph = phi ptr [ %76, %85 ], [ %80, %77 ]
+  %.089.ph = phi ptr [ %86, %85 ], [ %84, %77 ]
   %88 = getelementptr inbounds i8, ptr %0, i64 40
   %89 = load ptr, ptr %88, align 8
   %90 = ptrtoint ptr %89 to i64
   %91 = xor i64 %90, 1
   %92 = inttoptr i64 %91 to ptr
-  %93 = icmp eq ptr %.084.ph, %92
+  %93 = icmp eq ptr %.089.ph, %92
   br i1 %93, label %94, label %99
 
 94:                                               ; preds = %87
-  %.not109 = icmp eq ptr %.087, %.084.ph
+  %.not109 = icmp eq ptr %.085, %.089.ph
   br i1 %.not109, label %120, label %95
 
 95:                                               ; preds = %94
   %96 = getelementptr inbounds i8, ptr %3, i64 16
   %97 = load ptr, ptr %96, align 8
-  %98 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.087, ptr noundef %.085.ph, ptr noundef %97)
+  %98 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.085, ptr noundef %.090.ph, ptr noundef %97)
   br label %120
 
 99:                                               ; preds = %87
-  %.not108 = icmp eq ptr %.086, %92
+  %.not108 = icmp eq ptr %.088, %92
   br i1 %.not108, label %120, label %100
 
 100:                                              ; preds = %99
   %101 = getelementptr inbounds i8, ptr %3, i64 16
   %102 = load ptr, ptr %101, align 8
-  %103 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.086, ptr noundef %.084.ph, ptr noundef %102)
+  %103 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.088, ptr noundef %.089.ph, ptr noundef %102)
   br label %120
 
 104:                                              ; preds = %71
@@ -1293,13 +1293,13 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   %107 = ptrtoint ptr %106 to i64
   %108 = xor i64 %107, 1
   %109 = inttoptr i64 %108 to ptr
-  %.not106 = icmp eq ptr %.087, %109
+  %.not106 = icmp eq ptr %.085, %109
   br i1 %.not106, label %114, label %110
 
 110:                                              ; preds = %104
   %111 = getelementptr inbounds i8, ptr %3, i64 16
   %112 = load ptr, ptr %111, align 8
-  %113 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.087, ptr noundef %2, ptr noundef %112)
+  %113 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.085, ptr noundef %2, ptr noundef %112)
   %.pre = load ptr, ptr %105, align 8
   %.pre128 = ptrtoint ptr %.pre to i64
   %.pre129 = xor i64 %.pre128, 1
@@ -1308,29 +1308,29 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
 
 114:                                              ; preds = %110, %104
   %.pre-phi132 = phi ptr [ %.pre131, %110 ], [ %109, %104 ]
-  %.082 = phi i32 [ %113, %110 ], [ 0, %104 ]
-  %.not107 = icmp eq ptr %.086, %.pre-phi132
+  %.086 = phi i32 [ %113, %110 ], [ 0, %104 ]
+  %.not107 = icmp eq ptr %.088, %.pre-phi132
   br i1 %.not107, label %120, label %115
 
 115:                                              ; preds = %114
   %116 = getelementptr inbounds i8, ptr %3, i64 16
   %117 = load ptr, ptr %116, align 8
-  %118 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.086, ptr noundef %2, ptr noundef %117)
-  %119 = add i32 %118, %.082
+  %118 = tail call i32 @Extra_CountCofactorMinterms(ptr noundef nonnull %0, ptr noundef %.088, ptr noundef %2, ptr noundef %117)
+  %119 = add i32 %118, %.086
   br label %120
 
 120:                                              ; preds = %114, %115, %95, %94, %100, %99
-  %.183 = phi i32 [ %98, %95 ], [ 0, %94 ], [ %103, %100 ], [ 0, %99 ], [ %119, %115 ], [ %.082, %114 ]
+  %.187 = phi i32 [ %98, %95 ], [ 0, %94 ], [ %103, %100 ], [ 0, %99 ], [ %119, %115 ], [ %.086, %114 ]
   %121 = load i32, ptr @s_Signature, align 4
-  %122 = zext nneg i32 %.088.lcssa to i64
+  %122 = zext nneg i32 %.083.lcssa to i64
   %123 = getelementptr inbounds [51113 x %struct._HashEntry_cof], ptr @HHTable1, i64 0, i64 %122
   %124 = load i32, ptr %123, align 16
   %125 = icmp eq i32 %124, %121
   br i1 %125, label %.lr.ph122, label %._crit_edge123
 
 .lr.ph122:                                        ; preds = %120, %.lr.ph122
-  %.189120 = phi i32 [ %127, %.lr.ph122 ], [ %.088.lcssa, %120 ]
-  %126 = add nuw nsw i32 %.189120, 1
+  %.184120 = phi i32 [ %127, %.lr.ph122 ], [ %.083.lcssa, %120 ]
+  %126 = add nuw nsw i32 %.184120, 1
   %127 = urem i32 %126, 51113
   %128 = zext nneg i32 %127 to i64
   %129 = getelementptr inbounds [51113 x %struct._HashEntry_cof], ptr @HHTable1, i64 0, i64 %128
@@ -1346,8 +1346,8 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge123, %35
-  %.090 = phi i32 [ %39, %35 ], [ %.183, %._crit_edge123 ], [ 0, %.lr.ph ]
-  ret i32 %.090
+  %.082 = phi i32 [ %39, %35 ], [ %.187, %._crit_edge123 ], [ 0, %.lr.ph ]
+  ret i32 %.082
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable

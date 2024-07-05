@@ -1371,12 +1371,12 @@ common.resume:                                    ; preds = %209, %187
   br label %.loopexit
 
 .preheader213:                                    ; preds = %2, %213
-  %.sroa.0200.0.idx217 = phi i64 [ %.sroa.0200.0.add, %213 ], [ 8, %2 ]
-  %.sroa.8202.0216 = phi i64 [ %214, %213 ], [ 0, %2 ]
-  %.sroa.0200.0.ptr = getelementptr inbounds i8, ptr %1, i64 %.sroa.0200.0.idx217
+  %.sroa.8202.0217 = phi i64 [ %214, %213 ], [ 0, %2 ]
+  %.sroa.0200.0.idx216 = phi i64 [ %.sroa.0200.0.add, %213 ], [ 8, %2 ]
+  %.sroa.0200.0.ptr = getelementptr inbounds i8, ptr %1, i64 %.sroa.0200.0.idx216
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  store i64 %.sroa.8202.0216, ptr %15, align 8
-  %197 = shl i64 %.sroa.8202.0216, 6
+  store i64 %.sroa.8202.0217, ptr %15, align 8
+  %197 = shl i64 %.sroa.8202.0217, 6
   %198 = zext nneg i64 %197 to i128
   %199 = lshr i128 %0, %198
   %200 = trunc i128 %199 to i64
@@ -1418,8 +1418,8 @@ common.resume:                                    ; preds = %209, %187
   unreachable
 
 213:                                              ; preds = %.preheader213
-  %214 = add nuw nsw i64 %.sroa.8202.0216, 1
-  %.sroa.0200.0.add = add nuw nsw i64 %.sroa.0200.0.idx217, 16
+  %214 = add nuw nsw i64 %.sroa.8202.0217, 1
+  %.sroa.0200.0.add = add nuw nsw i64 %.sroa.0200.0.idx216, 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   %215 = icmp eq i64 %.sroa.0200.0.add, 40
   br i1 %215, label %.loopexit, label %.preheader213

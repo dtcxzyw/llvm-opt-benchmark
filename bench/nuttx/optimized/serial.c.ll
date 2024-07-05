@@ -230,18 +230,18 @@ define internal i32 @uart_open(ptr nocapture noundef readonly %0) #0 {
   br label %up_irq_restore.exit37
 
 up_irq_restore.exit37:                            ; preds = %52, %47, %14
-  %.0 = phi i32 [ %8, %14 ], [ %35, %47 ], [ %35, %52 ]
+  %.027 = phi i32 [ %8, %14 ], [ %35, %47 ], [ %35, %52 ]
   store i8 %12, ptr %6, align 8
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %46, %44, %29, %27, %10, %up_irq_restore.exit37
-  %.1 = phi i32 [ %.0, %up_irq_restore.exit37 ], [ -24, %10 ], [ %25, %27 ], [ %25, %29 ], [ %35, %44 ], [ %35, %46 ]
+  %.1 = phi i32 [ %.027, %up_irq_restore.exit37 ], [ -24, %10 ], [ %25, %27 ], [ %25, %29 ], [ %35, %44 ], [ %35, %46 ]
   %53 = call i32 @nxmutex_unlock(ptr noundef nonnull %7) #5
   br label %54
 
 54:                                               ; preds = %1, %up_irq_restore.exit
-  %.027 = phi i32 [ %.1, %up_irq_restore.exit ], [ %8, %1 ]
-  ret i32 %.027
+  %.0 = phi i32 [ %.1, %up_irq_restore.exit ], [ %8, %1 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -882,10 +882,10 @@ define internal i64 @uart_write(ptr nocapture noundef readonly %0, ptr nocapture
   br label %18
 
 18:                                               ; preds = %uart_putc.exit19.i, %.lr.ph.i
-  %.01222.i = phi i64 [ %2, %.lr.ph.i ], [ %46, %uart_putc.exit19.i ]
-  %.01321.i = phi ptr [ %1, %.lr.ph.i ], [ %19, %uart_putc.exit19.i ]
-  %19 = getelementptr inbounds i8, ptr %.01321.i, i64 1
-  %20 = load i8, ptr %.01321.i, align 1
+  %.01222.i = phi ptr [ %1, %.lr.ph.i ], [ %19, %uart_putc.exit19.i ]
+  %.01321.i = phi i64 [ %2, %.lr.ph.i ], [ %46, %uart_putc.exit19.i ]
+  %19 = getelementptr inbounds i8, ptr %.01222.i, i64 1
+  %20 = load i8, ptr %.01222.i, align 1
   %21 = sext i8 %20 to i32
   %22 = load i32, ptr %16, align 8
   %23 = and i32 %22, 1
@@ -936,7 +936,7 @@ uart_putc.exit19.i:                               ; preds = %38
   %44 = getelementptr inbounds i8, ptr %43, i64 64
   %45 = load ptr, ptr %44, align 8
   call void %45(ptr noundef nonnull %10, i32 noundef %.1.i) #5
-  %46 = add i64 %.01222.i, -1
+  %46 = add i64 %.01321.i, -1
   %.not.i = icmp eq i64 %46, 0
   br i1 %.not.i, label %uart_irqwrite.exit, label %18, !llvm.loop !13
 
@@ -986,10 +986,10 @@ up_irq_restore.exit:                              ; preds = %uart_irqwrite.exit,
   br label %70
 
 70:                                               ; preds = %.lr.ph, %.loopexit
-  %.04485 = phi ptr [ %1, %.lr.ph ], [ %71, %.loopexit ]
+  %.04385 = phi ptr [ %1, %.lr.ph ], [ %71, %.loopexit ]
   %.04584 = phi i64 [ %2, %.lr.ph ], [ %146, %.loopexit ]
-  %71 = getelementptr inbounds i8, ptr %.04485, i64 1
-  %72 = load i8, ptr %.04485, align 1
+  %71 = getelementptr inbounds i8, ptr %.04385, i64 1
+  %72 = load i8, ptr %.04385, align 1
   %73 = load i32, ptr %64, align 8
   %74 = and i32 %73, 1
   %.not49 = icmp eq i32 %74, 0
@@ -1158,7 +1158,7 @@ up_irq_restore.exit.us.i66:                       ; preds = %135, %133
   br i1 %.not48, label %.loopexit77, label %70, !llvm.loop !14
 
 .loopexit77:                                      ; preds = %.loopexit, %56, %.loopexit75
-  %.043 = phi i64 [ %spec.select, %.loopexit75 ], [ 0, %56 ], [ %2, %.loopexit ]
+  %.044 = phi i64 [ %spec.select, %.loopexit75 ], [ 0, %56 ], [ %2, %.loopexit ]
   %147 = getelementptr inbounds i8, ptr %10, i64 200
   %148 = load volatile i16, ptr %147, align 8
   %149 = getelementptr inbounds i8, ptr %10, i64 202
@@ -1178,7 +1178,7 @@ up_irq_restore.exit.us.i66:                       ; preds = %135, %133
   br label %157
 
 157:                                              ; preds = %155, %54, %up_irq_restore.exit
-  %.0 = phi i64 [ %49, %up_irq_restore.exit ], [ %55, %54 ], [ %.043, %155 ]
+  %.0 = phi i64 [ %49, %up_irq_restore.exit ], [ %55, %54 ], [ %.044, %155 ]
   ret i64 %.0
 }
 
@@ -1250,7 +1250,7 @@ define internal noundef i32 @uart_ioctl(ptr noundef %0, i32 noundef %1, i64 noun
   br label %41
 
 41:                                               ; preds = %32, %26
-  %.081 = phi i32 [ %31, %26 ], [ %40, %32 ]
+  %.080 = phi i32 [ %31, %26 ], [ %40, %32 ]
   %42 = and i64 %21, 512
   %.not.i = icmp eq i64 %42, 0
   br i1 %.not.i, label %up_irq_restore.exit, label %43
@@ -1261,7 +1261,7 @@ define internal noundef i32 @uart_ioctl(ptr noundef %0, i32 noundef %1, i64 noun
 
 up_irq_restore.exit:                              ; preds = %41, %43
   %44 = inttoptr i64 %2 to ptr
-  store i32 %.081, ptr %44, align 4
+  store i32 %.080, ptr %44, align 4
   br label %up_irq_restore.exit99.thread.thread
 
 45:                                               ; preds = %.thread
@@ -1298,7 +1298,7 @@ up_irq_restore.exit:                              ; preds = %41, %43
   br label %66
 
 66:                                               ; preds = %57, %51
-  %.080 = phi i32 [ %56, %51 ], [ %65, %57 ]
+  %.081 = phi i32 [ %56, %51 ], [ %65, %57 ]
   %67 = and i64 %46, 512
   %.not.i94 = icmp eq i64 %67, 0
   br i1 %.not.i94, label %up_irq_restore.exit95, label %68
@@ -1309,7 +1309,7 @@ up_irq_restore.exit:                              ; preds = %41, %43
 
 up_irq_restore.exit95:                            ; preds = %66, %68
   %69 = inttoptr i64 %2 to ptr
-  store i32 %.080, ptr %69, align 4
+  store i32 %.081, ptr %69, align 4
   br label %up_irq_restore.exit99.thread.thread
 
 70:                                               ; preds = %.thread
@@ -1348,7 +1348,7 @@ up_irq_restore.exit95:                            ; preds = %66, %68
   br label %95
 
 95:                                               ; preds = %84, %77
-  %.0 = phi i32 [ %83, %77 ], [ %94, %84 ]
+  %.082 = phi i32 [ %83, %77 ], [ %94, %84 ]
   %96 = and i64 %71, 512
   %.not.i96 = icmp eq i64 %96, 0
   br i1 %.not.i96, label %up_irq_restore.exit97, label %97
@@ -1359,7 +1359,7 @@ up_irq_restore.exit95:                            ; preds = %66, %68
 
 up_irq_restore.exit97:                            ; preds = %95, %97
   %98 = inttoptr i64 %2 to ptr
-  store i32 %.0, ptr %98, align 4
+  store i32 %.082, ptr %98, align 4
   br label %up_irq_restore.exit99.thread.thread
 
 99:                                               ; preds = %.thread
@@ -1507,14 +1507,14 @@ uart_datasent.exit:                               ; preds = %.lr.ph.i.i, %108, %
   br label %up_irq_restore.exit99
 
 up_irq_restore.exit99:                            ; preds = %178, %151, %125, %17
-  %.082 = phi i32 [ %126, %125 ], [ %18, %17 ], [ %.0.i, %151 ], [ %.0.i102, %178 ]
-  switch i32 %.082, label %up_irq_restore.exit99.thread.thread [
+  %.0 = phi i32 [ %126, %125 ], [ %18, %17 ], [ %.0.i, %151 ], [ %.0.i102, %178 ]
+  switch i32 %.0, label %up_irq_restore.exit99.thread.thread [
     i32 -25, label %up_irq_restore.exit99.thread
     i32 0, label %up_irq_restore.exit99.thread
   ]
 
 up_irq_restore.exit99.thread:                     ; preds = %124, %122, %.thread, %up_irq_restore.exit99, %up_irq_restore.exit99
-  %.082106 = phi i32 [ %.082, %up_irq_restore.exit99 ], [ %.082, %up_irq_restore.exit99 ], [ 0, %124 ], [ 0, %122 ], [ -25, %.thread ]
+  %.0106 = phi i32 [ %.0, %up_irq_restore.exit99 ], [ %.0, %up_irq_restore.exit99 ], [ 0, %124 ], [ 0, %122 ], [ -25, %.thread ]
   switch i32 %1, label %up_irq_restore.exit99.thread.thread [
     i32 257, label %180
     i32 258, label %191
@@ -1559,7 +1559,7 @@ up_irq_restore.exit99.thread:                     ; preds = %124, %122, %.thread
   br label %up_irq_restore.exit99.thread.thread
 
 up_irq_restore.exit99.thread.thread:              ; preds = %up_irq_restore.exit97, %up_irq_restore.exit95, %up_irq_restore.exit, %127, %153, %191, %180, %up_irq_restore.exit99, %up_irq_restore.exit99.thread, %181, %192
-  %.1 = phi i32 [ %.082106, %up_irq_restore.exit99.thread ], [ 0, %192 ], [ 0, %181 ], [ %.082, %up_irq_restore.exit99 ], [ -22, %180 ], [ -22, %191 ], [ 0, %up_irq_restore.exit97 ], [ 0, %up_irq_restore.exit95 ], [ 0, %up_irq_restore.exit ], [ -25, %127 ], [ -25, %153 ]
+  %.1 = phi i32 [ %.0106, %up_irq_restore.exit99.thread ], [ 0, %192 ], [ 0, %181 ], [ %.0, %up_irq_restore.exit99 ], [ -22, %180 ], [ -22, %191 ], [ 0, %up_irq_restore.exit97 ], [ 0, %up_irq_restore.exit95 ], [ 0, %up_irq_restore.exit ], [ -25, %127 ], [ -25, %153 ]
   ret i32 %.1
 }
 

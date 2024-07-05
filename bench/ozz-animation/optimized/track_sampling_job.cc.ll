@@ -96,27 +96,27 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   br i1 %24, label %_ZSt7advanceIPKflEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
 
 _ZSt7advanceIPKflEvRT_T0_.exit.i.i:               ; preds = %21, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i
-  %.017.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %17, %21 ]
-  %.01116.i.i = phi ptr [ %.112.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %15, %21 ]
-  %25 = lshr i64 %.017.i.i, 1
-  %26 = getelementptr inbounds float, ptr %.01116.i.i, i64 %25
+  %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %15, %21 ]
+  %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %17, %21 ]
+  %25 = lshr i64 %.01116.i.i, 1
+  %26 = getelementptr inbounds float, ptr %.017.i.i, i64 %25
   %27 = load float, ptr %26, align 4
   %28 = fcmp olt float %14, %27
   %29 = getelementptr inbounds i8, ptr %26, i64 4
   %30 = xor i64 %25, -1
-  %31 = add nsw i64 %.017.i.i, %30
-  %.112.i.i = select i1 %28, ptr %.01116.i.i, ptr %29
-  %.1.i.i = select i1 %28, i64 %25, i64 %31
-  %32 = icmp sgt i64 %.1.i.i, 0
+  %31 = add nsw i64 %.01116.i.i, %30
+  %.112.i.i = select i1 %28, i64 %25, i64 %31
+  %.1.i.i = select i1 %28, ptr %.017.i.i, ptr %29
+  %32 = icmp sgt i64 %.112.i.i, 0
   br i1 %32, label %_ZSt7advanceIPKflEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit, !llvm.loop !5
 
 _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit: ; preds = %_ZSt7advanceIPKflEvRT_T0_.exit.i.i
-  %.pre = ptrtoint ptr %.112.i.i to i64
+  %.pre = ptrtoint ptr %.1.i.i to i64
   br label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
 
 _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit, %21
   %.pre-phi = phi i64 [ %.pre, %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit ], [ %23, %21 ]
-  %.011.lcssa.i.i = phi ptr [ %.112.i.i, %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit ], [ %15, %21 ]
+  %.0.lcssa.i.i = phi ptr [ %.1.i.i, %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit ], [ %15, %21 ]
   %33 = sub i64 %.pre-phi, %23
   %34 = ashr exact i64 %33, 2
   %35 = add nsw i64 %34, -1
@@ -131,7 +131,7 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %44 = shl nuw nsw i32 1, %43
   %45 = and i32 %44, %41
   %.not = icmp ne i32 %45, 0
-  %46 = icmp eq ptr %.011.lcssa.i.i, %22
+  %46 = icmp eq ptr %.0.lcssa.i.i, %22
   %or.cond = or i1 %46, %.not
   br i1 %or.cond, label %47, label %50
 
@@ -221,27 +221,27 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   br i1 %25, label %_ZSt7advanceIPKflEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
 
 _ZSt7advanceIPKflEvRT_T0_.exit.i.i:               ; preds = %22, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i
-  %.017.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %17, %22 ]
-  %.01116.i.i = phi ptr [ %.112.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %15, %22 ]
-  %26 = lshr i64 %.017.i.i, 1
-  %27 = getelementptr inbounds float, ptr %.01116.i.i, i64 %26
+  %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %15, %22 ]
+  %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %17, %22 ]
+  %26 = lshr i64 %.01116.i.i, 1
+  %27 = getelementptr inbounds float, ptr %.017.i.i, i64 %26
   %28 = load float, ptr %27, align 4
   %29 = fcmp olt float %14, %28
   %30 = getelementptr inbounds i8, ptr %27, i64 4
   %31 = xor i64 %26, -1
-  %32 = add nsw i64 %.017.i.i, %31
-  %.112.i.i = select i1 %29, ptr %.01116.i.i, ptr %30
-  %.1.i.i = select i1 %29, i64 %26, i64 %32
-  %33 = icmp sgt i64 %.1.i.i, 0
+  %32 = add nsw i64 %.01116.i.i, %31
+  %.112.i.i = select i1 %29, i64 %26, i64 %32
+  %.1.i.i = select i1 %29, ptr %.017.i.i, ptr %30
+  %33 = icmp sgt i64 %.112.i.i, 0
   br i1 %33, label %_ZSt7advanceIPKflEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit, !llvm.loop !5
 
 _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit: ; preds = %_ZSt7advanceIPKflEvRT_T0_.exit.i.i
-  %.pre = ptrtoint ptr %.112.i.i to i64
+  %.pre = ptrtoint ptr %.1.i.i to i64
   br label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
 
 _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit, %22
   %.pre-phi = phi i64 [ %.pre, %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit ], [ %24, %22 ]
-  %.011.lcssa.i.i = phi ptr [ %.112.i.i, %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit ], [ %15, %22 ]
+  %.0.lcssa.i.i = phi ptr [ %.1.i.i, %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit ], [ %15, %22 ]
   %34 = sub i64 %.pre-phi, %24
   %35 = ashr exact i64 %34, 2
   %36 = add nsw i64 %35, -1
@@ -256,7 +256,7 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %45 = shl nuw nsw i32 1, %44
   %46 = and i32 %45, %42
   %.not = icmp ne i32 %46, 0
-  %47 = icmp eq ptr %.011.lcssa.i.i, %23
+  %47 = icmp eq ptr %.0.lcssa.i.i, %23
   %or.cond = or i1 %47, %.not
   br i1 %or.cond, label %48, label %51
 
@@ -350,27 +350,27 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   br i1 %25, label %_ZSt7advanceIPKflEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
 
 _ZSt7advanceIPKflEvRT_T0_.exit.i.i:               ; preds = %22, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i
-  %.017.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %17, %22 ]
-  %.01116.i.i = phi ptr [ %.112.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %15, %22 ]
-  %26 = lshr i64 %.017.i.i, 1
-  %27 = getelementptr inbounds float, ptr %.01116.i.i, i64 %26
+  %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %15, %22 ]
+  %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %17, %22 ]
+  %26 = lshr i64 %.01116.i.i, 1
+  %27 = getelementptr inbounds float, ptr %.017.i.i, i64 %26
   %28 = load float, ptr %27, align 4
   %29 = fcmp olt float %14, %28
   %30 = getelementptr inbounds i8, ptr %27, i64 4
   %31 = xor i64 %26, -1
-  %32 = add nsw i64 %.017.i.i, %31
-  %.112.i.i = select i1 %29, ptr %.01116.i.i, ptr %30
-  %.1.i.i = select i1 %29, i64 %26, i64 %32
-  %33 = icmp sgt i64 %.1.i.i, 0
+  %32 = add nsw i64 %.01116.i.i, %31
+  %.112.i.i = select i1 %29, i64 %26, i64 %32
+  %.1.i.i = select i1 %29, ptr %.017.i.i, ptr %30
+  %33 = icmp sgt i64 %.112.i.i, 0
   br i1 %33, label %_ZSt7advanceIPKflEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit, !llvm.loop !5
 
 _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit: ; preds = %_ZSt7advanceIPKflEvRT_T0_.exit.i.i
-  %.pre = ptrtoint ptr %.112.i.i to i64
+  %.pre = ptrtoint ptr %.1.i.i to i64
   br label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
 
 _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit, %22
   %.pre-phi = phi i64 [ %.pre, %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit ], [ %24, %22 ]
-  %.011.lcssa.i.i = phi ptr [ %.112.i.i, %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit ], [ %15, %22 ]
+  %.0.lcssa.i.i = phi ptr [ %.1.i.i, %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit ], [ %15, %22 ]
   %34 = sub i64 %.pre-phi, %24
   %35 = ashr exact i64 %34, 2
   %36 = add nsw i64 %35, -1
@@ -385,7 +385,7 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %45 = shl nuw nsw i32 1, %44
   %46 = and i32 %45, %42
   %.not = icmp ne i32 %46, 0
-  %47 = icmp eq ptr %.011.lcssa.i.i, %23
+  %47 = icmp eq ptr %.0.lcssa.i.i, %23
   %or.cond = or i1 %47, %.not
   br i1 %or.cond, label %48, label %50
 
@@ -481,27 +481,27 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   br i1 %25, label %_ZSt7advanceIPKflEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
 
 _ZSt7advanceIPKflEvRT_T0_.exit.i.i:               ; preds = %22, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i
-  %.017.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %17, %22 ]
-  %.01116.i.i = phi ptr [ %.112.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %15, %22 ]
-  %26 = lshr i64 %.017.i.i, 1
-  %27 = getelementptr inbounds float, ptr %.01116.i.i, i64 %26
+  %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %15, %22 ]
+  %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %17, %22 ]
+  %26 = lshr i64 %.01116.i.i, 1
+  %27 = getelementptr inbounds float, ptr %.017.i.i, i64 %26
   %28 = load float, ptr %27, align 4
   %29 = fcmp olt float %14, %28
   %30 = getelementptr inbounds i8, ptr %27, i64 4
   %31 = xor i64 %26, -1
-  %32 = add nsw i64 %.017.i.i, %31
-  %.112.i.i = select i1 %29, ptr %.01116.i.i, ptr %30
-  %.1.i.i = select i1 %29, i64 %26, i64 %32
-  %33 = icmp sgt i64 %.1.i.i, 0
+  %32 = add nsw i64 %.01116.i.i, %31
+  %.112.i.i = select i1 %29, i64 %26, i64 %32
+  %.1.i.i = select i1 %29, ptr %.017.i.i, ptr %30
+  %33 = icmp sgt i64 %.112.i.i, 0
   br i1 %33, label %_ZSt7advanceIPKflEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit, !llvm.loop !5
 
 _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit: ; preds = %_ZSt7advanceIPKflEvRT_T0_.exit.i.i
-  %.pre = ptrtoint ptr %.112.i.i to i64
+  %.pre = ptrtoint ptr %.1.i.i to i64
   br label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
 
 _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit, %22
   %.pre-phi = phi i64 [ %.pre, %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit ], [ %24, %22 ]
-  %.011.lcssa.i.i = phi ptr [ %.112.i.i, %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit ], [ %15, %22 ]
+  %.0.lcssa.i.i = phi ptr [ %.1.i.i, %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit ], [ %15, %22 ]
   %34 = sub i64 %.pre-phi, %24
   %35 = ashr exact i64 %34, 2
   %36 = add nsw i64 %35, -1
@@ -516,7 +516,7 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %45 = shl nuw nsw i32 1, %44
   %46 = and i32 %45, %42
   %.not = icmp ne i32 %46, 0
-  %47 = icmp eq ptr %.011.lcssa.i.i, %23
+  %47 = icmp eq ptr %.0.lcssa.i.i, %23
   %or.cond = or i1 %47, %.not
   br i1 %or.cond, label %48, label %50
 
@@ -614,27 +614,27 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK3ozz9animation8internal16Track
   br i1 %25, label %_ZSt7advanceIPKflEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
 
 _ZSt7advanceIPKflEvRT_T0_.exit.i.i:               ; preds = %22, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i
-  %.017.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %17, %22 ]
-  %.01116.i.i = phi ptr [ %.112.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %15, %22 ]
-  %26 = lshr i64 %.017.i.i, 1
-  %27 = getelementptr inbounds float, ptr %.01116.i.i, i64 %26
+  %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %15, %22 ]
+  %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKflEvRT_T0_.exit.i.i ], [ %17, %22 ]
+  %26 = lshr i64 %.01116.i.i, 1
+  %27 = getelementptr inbounds float, ptr %.017.i.i, i64 %26
   %28 = load float, ptr %27, align 4
   %29 = fcmp olt float %14, %28
   %30 = getelementptr inbounds i8, ptr %27, i64 4
   %31 = xor i64 %26, -1
-  %32 = add nsw i64 %.017.i.i, %31
-  %.112.i.i = select i1 %29, ptr %.01116.i.i, ptr %30
-  %.1.i.i = select i1 %29, i64 %26, i64 %32
-  %33 = icmp sgt i64 %.1.i.i, 0
+  %32 = add nsw i64 %.01116.i.i, %31
+  %.112.i.i = select i1 %29, i64 %26, i64 %32
+  %.1.i.i = select i1 %29, ptr %.017.i.i, ptr %30
+  %33 = icmp sgt i64 %.112.i.i, 0
   br i1 %33, label %_ZSt7advanceIPKflEvRT_T0_.exit.i.i, label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit, !llvm.loop !5
 
 _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit: ; preds = %_ZSt7advanceIPKflEvRT_T0_.exit.i.i
-  %.pre = ptrtoint ptr %.112.i.i to i64
+  %.pre = ptrtoint ptr %.1.i.i to i64
   br label %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit
 
 _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit, %22
   %.pre-phi = phi i64 [ %.pre, %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit ], [ %24, %22 ]
-  %.011.lcssa.i.i = phi ptr [ %.112.i.i, %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit ], [ %15, %22 ]
+  %.0.lcssa.i.i = phi ptr [ %.1.i.i, %_ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit.loopexit ], [ %15, %22 ]
   %34 = sub i64 %.pre-phi, %24
   %35 = ashr exact i64 %34, 2
   %36 = add nsw i64 %35, -1
@@ -649,7 +649,7 @@ _ZSt11upper_boundIPKffET_S2_S2_RKT0_.exit:        ; preds = %_ZSt11upper_boundIP
   %45 = shl nuw nsw i32 1, %44
   %46 = and i32 %45, %42
   %.not = icmp ne i32 %46, 0
-  %47 = icmp eq ptr %.011.lcssa.i.i, %23
+  %47 = icmp eq ptr %.0.lcssa.i.i, %23
   %or.cond = or i1 %47, %.not
   br i1 %or.cond, label %48, label %50
 

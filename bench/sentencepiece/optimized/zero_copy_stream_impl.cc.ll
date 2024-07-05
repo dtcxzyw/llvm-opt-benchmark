@@ -444,8 +444,8 @@ define noundef i32 @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStr
   br label %24
 
 24:                                               ; preds = %15, %22
-  %.08 = phi i32 [ %23, %22 ], [ %1, %15 ]
-  ret i32 %.08
+  %.0 = phi i32 [ %23, %22 ], [ %1, %15 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind
@@ -683,10 +683,10 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16FileOutputStream23CopyingFile
   br label %.preheader
 
 .preheader:                                       ; preds = %.critedge, %.preheader.lr.ph
-  %.01725 = phi i32 [ 0, %.preheader.lr.ph ], [ %28, %.critedge ]
-  %15 = zext nneg i32 %.01725 to i64
+  %.01825 = phi i32 [ 0, %.preheader.lr.ph ], [ %28, %.critedge ]
+  %15 = zext nneg i32 %.01825 to i64
   %16 = getelementptr inbounds i8, ptr %1, i64 %15
-  %17 = sub nsw i32 %2, %.01725
+  %17 = sub nsw i32 %2, %.01825
   %18 = sext i32 %17 to i64
   br label %19
 
@@ -705,7 +705,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16FileOutputStream23CopyingFile
 
 .critedge:                                        ; preds = %19
   %.not32 = icmp ne i32 %22, 0
-  %28 = add nuw nsw i32 %.01725, %22
+  %28 = add nuw nsw i32 %.01825, %22
   %.not = icmp slt i32 %28, %2
   %or.cond = select i1 %.not32, i1 %.not, i1 false
   br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !8

@@ -108,7 +108,7 @@ define dso_local noundef ptr @MultiExecBitmapAnd(ptr nocapture noundef readonly 
 
 .lr.ph:                                           ; preds = %23, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %.032 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %23 ]
+  %.02131 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %23 ]
   %11 = getelementptr ptr, ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @MultiExecProcNode(ptr noundef %12) #5
@@ -128,16 +128,16 @@ define dso_local noundef ptr @MultiExecBitmapAnd(ptr nocapture noundef readonly 
   unreachable
 
 20:                                               ; preds = %14
-  %21 = icmp eq ptr %.032, null
+  %21 = icmp eq ptr %.02131, null
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %20
-  tail call void @tbm_intersect(ptr noundef nonnull %.032, ptr noundef nonnull %13) #5
+  tail call void @tbm_intersect(ptr noundef nonnull %.02131, ptr noundef nonnull %13) #5
   tail call void @tbm_free(ptr noundef nonnull %13) #5
   br label %23
 
 23:                                               ; preds = %20, %22
-  %.1 = phi ptr [ %.032, %22 ], [ %13, %20 ]
+  %.1 = phi ptr [ %.02131, %22 ], [ %13, %20 ]
   %24 = tail call zeroext i1 @tbm_is_empty(ptr noundef nonnull %.1) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

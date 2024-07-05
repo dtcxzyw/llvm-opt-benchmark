@@ -55,20 +55,20 @@ define dso_local void @recordMultipleDependencies(ptr nocapture noundef readonly
 
 .outer:                                           ; preds = %.thread, %8
   %.06984.ph = phi i32 [ %.170, %.thread ], [ 0, %8 ]
-  %.07183.ph = phi i32 [ %95, %.thread ], [ 0, %8 ]
-  %.07382.ph = phi ptr [ %.174, %.thread ], [ null, %8 ]
-  %.07681.ph = phi ptr [ %96, %.thread ], [ %1, %8 ]
+  %.07183.ph = phi ptr [ %96, %.thread ], [ %1, %8 ]
+  %.07282.ph = phi i32 [ %95, %.thread ], [ 0, %8 ]
+  %.07481.ph = phi ptr [ %.175, %.thread ], [ null, %8 ]
   br label %19
 
 19:                                               ; preds = %.outer, %92
   %.085 = phi i32 [ %.1, %92 ], [ 0, %.outer ]
   %.06984 = phi i32 [ %.2, %92 ], [ %.06984.ph, %.outer ]
-  %.07183 = phi i32 [ %93, %92 ], [ %.07183.ph, %.outer ]
-  %.07681 = phi ptr [ %94, %92 ], [ %.07681.ph, %.outer ]
-  %.076.val = load i32, ptr %.07681, align 4
-  %20 = getelementptr i8, ptr %.07681, i64 4
-  %.076.val80 = load i32, ptr %20, align 4
-  %21 = tail call zeroext i1 @IsPinnedObject(i32 noundef %.076.val, i32 noundef %.076.val80) #6
+  %.07183 = phi ptr [ %94, %92 ], [ %.07183.ph, %.outer ]
+  %.07282 = phi i32 [ %93, %92 ], [ %.07282.ph, %.outer ]
+  %.071.val = load i32, ptr %.07183, align 4
+  %20 = getelementptr i8, ptr %.07183, i64 4
+  %.071.val80 = load i32, ptr %20, align 4
+  %21 = tail call zeroext i1 @IsPinnedObject(i32 noundef %.071.val, i32 noundef %.071.val80) #6
   br i1 %21, label %92, label %22
 
 22:                                               ; preds = %19
@@ -100,7 +100,7 @@ define dso_local void @recordMultipleDependencies(ptr nocapture noundef readonly
   %35 = getelementptr inbounds i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef %31) #6
-  %37 = load i32, ptr %.07681, align 4
+  %37 = load i32, ptr %.07183, align 4
   %38 = zext i32 %37 to i64
   %39 = load ptr, ptr %32, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 24
@@ -114,7 +114,7 @@ define dso_local void @recordMultipleDependencies(ptr nocapture noundef readonly
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr i8, ptr %47, i64 32
   store i64 %44, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %.07681, i64 8
+  %49 = getelementptr inbounds i8, ptr %.07183, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = sext i32 %50 to i64
   %52 = load ptr, ptr %32, align 8
@@ -162,7 +162,7 @@ define dso_local void @recordMultipleDependencies(ptr nocapture noundef readonly
   br i1 %87, label %88, label %92
 
 88:                                               ; preds = %30
-  %89 = icmp eq ptr %.07382.ph, null
+  %89 = icmp eq ptr %.07481.ph, null
   br i1 %89, label %90, label %.thread
 
 90:                                               ; preds = %88
@@ -172,16 +172,16 @@ define dso_local void @recordMultipleDependencies(ptr nocapture noundef readonly
 92:                                               ; preds = %30, %19
   %.2 = phi i32 [ %.06984, %19 ], [ %.170, %30 ]
   %.1 = phi i32 [ %.085, %19 ], [ %86, %30 ]
-  %93 = add nuw nsw i32 %.07183, 1
-  %94 = getelementptr i8, ptr %.07681, i64 12
+  %93 = add nuw nsw i32 %.07282, 1
+  %94 = getelementptr i8, ptr %.07183, i64 12
   %exitcond.not = icmp eq i32 %93, %2
   br i1 %exitcond.not, label %97, label %19, !llvm.loop !5
 
 .thread:                                          ; preds = %88, %90
-  %.174 = phi ptr [ %91, %90 ], [ %.07382.ph, %88 ]
-  tail call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %9, ptr noundef nonnull %13, i32 noundef %10, ptr noundef %.174) #6
-  %95 = add nuw nsw i32 %.07183, 1
-  %96 = getelementptr i8, ptr %.07681, i64 12
+  %.175 = phi ptr [ %91, %90 ], [ %.07481.ph, %88 ]
+  tail call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %9, ptr noundef nonnull %13, i32 noundef %10, ptr noundef %.175) #6
+  %95 = add nuw nsw i32 %.07282, 1
+  %96 = getelementptr i8, ptr %.07183, i64 12
   %exitcond.not94 = icmp eq i32 %95, %2
   br i1 %exitcond.not94, label %.thread98, label %.outer, !llvm.loop !5
 
@@ -190,7 +190,7 @@ define dso_local void @recordMultipleDependencies(ptr nocapture noundef readonly
   br i1 %98, label %99, label %.thread98
 
 99:                                               ; preds = %97
-  %100 = icmp eq ptr %.07382.ph, null
+  %100 = icmp eq ptr %.07481.ph, null
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %99
@@ -198,13 +198,13 @@ define dso_local void @recordMultipleDependencies(ptr nocapture noundef readonly
   br label %103
 
 103:                                              ; preds = %101, %99
-  %.3 = phi ptr [ %102, %101 ], [ %.07382.ph, %99 ]
+  %.3 = phi ptr [ %102, %101 ], [ %.07481.ph, %99 ]
   tail call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %9, ptr noundef %13, i32 noundef %.1, ptr noundef %.3) #6
   br label %.thread98
 
 .thread98:                                        ; preds = %.thread, %103, %97
   %.296102 = phi i32 [ %.2, %103 ], [ %.2, %97 ], [ %.170, %.thread ]
-  %.4 = phi ptr [ %.3, %103 ], [ %.07382.ph, %97 ], [ %.174, %.thread ]
+  %.4 = phi ptr [ %.3, %103 ], [ %.07481.ph, %97 ], [ %.175, %.thread ]
   %.not = icmp eq ptr %.4, null
   br i1 %.not, label %105, label %104
 

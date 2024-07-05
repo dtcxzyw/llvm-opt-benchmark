@@ -30,87 +30,87 @@ define void @sorml2_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 29:                                               ; preds = %26
   %sext = shl i32 %17, 24
   %30 = icmp eq i32 %sext, 1275068416
-  %sext64 = shl i32 %20, 24
-  %31 = icmp eq i32 %sext64, 1308622848
+  %sext65 = shl i32 %20, 24
+  %31 = icmp eq i32 %sext65, 1308622848
   %or.cond = select i1 %30, i1 %31, i1 false
   br i1 %or.cond, label %.lr.ph.split.us.preheader, label %32
 
 32:                                               ; preds = %29
   %33 = icmp ne i32 %sext, 1275068416
-  %34 = icmp ne i32 %sext64, 1308622848
+  %34 = icmp ne i32 %sext65, 1308622848
   %or.cond5 = select i1 %33, i1 %34, i1 false
   %35 = add nsw i32 %27, -1
-  %.062 = select i1 %or.cond5, i32 0, i32 %35
-  %.061 = select i1 %or.cond5, i32 %27, i32 -1
-  %.060 = select i1 %or.cond5, i32 1, i32 -1
-  br i1 %30, label %.thread100, label %.thread86
+  %.063 = select i1 %or.cond5, i32 0, i32 %35
+  %.062 = select i1 %or.cond5, i32 %27, i32 -1
+  %.061 = select i1 %or.cond5, i32 1, i32 -1
+  br i1 %30, label %.thread101, label %.thread87
 
-.thread100:                                       ; preds = %32
-  %36 = zext nneg i32 %.062 to i64
-  %37 = sext i32 %.060 to i64
+.thread101:                                       ; preds = %32
+  %36 = zext nneg i32 %.063 to i64
+  %37 = sext i32 %.061 to i64
   br label %.lr.ph.split.us.preheader
 
-.thread86:                                        ; preds = %32
+.thread87:                                        ; preds = %32
   store i32 %21, ptr %14, align 4
-  %38 = zext nneg i32 %.062 to i64
-  %39 = sext i32 %.060 to i64
+  %38 = zext nneg i32 %.063 to i64
+  %39 = sext i32 %.061 to i64
   br label %.lr.ph.split
 
-.lr.ph.split.us.preheader:                        ; preds = %29, %.thread100
-  %.0607591111 = phi i64 [ %37, %.thread100 ], [ 1, %29 ]
-  %.0617392110 = phi i32 [ %.061, %.thread100 ], [ %27, %29 ]
-  %.0627193109 = phi i64 [ %36, %.thread100 ], [ 0, %29 ]
+.lr.ph.split.us.preheader:                        ; preds = %29, %.thread101
+  %.0617692112 = phi i64 [ %37, %.thread101 ], [ 1, %29 ]
+  %.0627493111 = phi i32 [ %.062, %.thread101 ], [ %27, %29 ]
+  %.0637294110 = phi i64 [ %36, %.thread101 ], [ 0, %29 ]
   store i32 %24, ptr %13, align 4
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %indvars.iv83 = phi i64 [ %.0627193109, %.lr.ph.split.us.preheader ], [ %indvars.iv.next84, %.lr.ph.split.us ]
+  %indvars.iv84 = phi i64 [ %.0637294110, %.lr.ph.split.us.preheader ], [ %indvars.iv.next85, %.lr.ph.split.us ]
   %40 = load i32, ptr %2, align 4
-  %41 = trunc nsw i64 %indvars.iv83 to i32
+  %41 = trunc nsw i64 %indvars.iv84 to i32
   %42 = sub nsw i32 %40, %41
   store i32 %42, ptr %14, align 4
   %43 = load i32, ptr %6, align 4
-  %.06365.us = add i32 %43, 1
-  %44 = mul i32 %.06365.us, %41
+  %.066.us = add i32 %43, 1
+  %44 = mul i32 %.066.us, %41
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds float, ptr %5, i64 %45
   %47 = load float, ptr %46, align 4
   store float 1.000000e+00, ptr %46, align 4
   %48 = load i32, ptr %6, align 4
-  %.06366.us = add i32 %48, 1
-  %49 = mul i32 %.06366.us, %41
+  %.067.us = add i32 %48, 1
+  %49 = mul i32 %.067.us, %41
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds float, ptr %5, i64 %50
-  %52 = getelementptr inbounds float, ptr %7, i64 %indvars.iv83
-  %53 = getelementptr inbounds float, ptr %8, i64 %indvars.iv83
+  %52 = getelementptr inbounds float, ptr %7, i64 %indvars.iv84
+  %53 = getelementptr inbounds float, ptr %8, i64 %indvars.iv84
   call void @slarf_(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef %51, ptr noundef nonnull %6, ptr noundef %52, ptr noundef %53, ptr noundef nonnull %9, ptr noundef %10)
   %54 = load i32, ptr %6, align 4
-  %.06367.us = add i32 %54, 1
-  %55 = mul i32 %.06367.us, %41
+  %.068.us = add i32 %54, 1
+  %55 = mul i32 %.068.us, %41
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds float, ptr %5, i64 %56
   store float %47, ptr %57, align 4
-  %indvars.iv.next84 = add nsw i64 %indvars.iv83, %.0607591111
-  %58 = trunc nsw i64 %indvars.iv.next84 to i32
-  %.not.us = icmp eq i32 %.0617392110, %58
+  %indvars.iv.next85 = add nsw i64 %indvars.iv84, %.0617692112
+  %58 = trunc nsw i64 %indvars.iv.next85 to i32
+  %.not.us = icmp eq i32 %.0627493111, %58
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !4
 
-.lr.ph.split:                                     ; preds = %.thread86, %.lr.ph.split
-  %indvars.iv = phi i64 [ %38, %.thread86 ], [ %indvars.iv.next, %.lr.ph.split ]
+.lr.ph.split:                                     ; preds = %.thread87, %.lr.ph.split
+  %indvars.iv = phi i64 [ %38, %.thread87 ], [ %indvars.iv.next, %.lr.ph.split ]
   %59 = load i32, ptr %3, align 4
   %60 = trunc nsw i64 %indvars.iv to i32
   %61 = sub nsw i32 %59, %60
   store i32 %61, ptr %13, align 4
   %62 = load i32, ptr %6, align 4
-  %.06365 = add i32 %62, 1
-  %63 = mul i32 %.06365, %60
+  %.066 = add i32 %62, 1
+  %63 = mul i32 %.066, %60
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds float, ptr %5, i64 %64
   %66 = load float, ptr %65, align 4
   store float 1.000000e+00, ptr %65, align 4
   %67 = load i32, ptr %6, align 4
-  %.06366 = add i32 %67, 1
-  %68 = mul i32 %.06366, %60
+  %.067 = add i32 %67, 1
+  %68 = mul i32 %.067, %60
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds float, ptr %5, i64 %69
   %71 = getelementptr inbounds float, ptr %7, i64 %indvars.iv
@@ -120,14 +120,14 @@ define void @sorml2_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %75 = getelementptr inbounds float, ptr %8, i64 %74
   call void @slarf_(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef %70, ptr noundef nonnull %6, ptr noundef %71, ptr noundef %75, ptr noundef nonnull %9, ptr noundef %10)
   %76 = load i32, ptr %6, align 4
-  %.06367 = add i32 %76, 1
-  %77 = mul i32 %.06367, %60
+  %.068 = add i32 %76, 1
+  %77 = mul i32 %.068, %60
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds float, ptr %5, i64 %78
   store float %66, ptr %79, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, %39
   %80 = trunc nsw i64 %indvars.iv.next to i32
-  %.not = icmp eq i32 %.061, %80
+  %.not = icmp eq i32 %.062, %80
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %12, %23, %26

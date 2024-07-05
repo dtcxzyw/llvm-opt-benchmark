@@ -211,8 +211,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_fcvt_w_dP1
   br label %74
 
 74:                                               ; preds = %68, %67
-  %.033 = phi i32 [ %73, %68 ], [ %20, %67 ]
-  %75 = icmp sgt i32 %.033, 4
+  %.034 = phi i32 [ %73, %68 ], [ %20, %67 ]
+  %75 = icmp sgt i32 %.034, 4
   br i1 %75, label %76, label %81
 
 76:                                               ; preds = %74
@@ -228,7 +228,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_fcvt_w_dP1
   unreachable
 
 81:                                               ; preds = %74
-  %82 = trunc i32 %.033 to i8
+  %82 = trunc i32 %.034 to i8
   %83 = tail call i64 @f64_to_i32(i64 %.sroa.07.0, i8 noundef zeroext %82, i1 noundef zeroext true)
   %84 = lshr i64 %1, 7
   %85 = and i64 %84, 31
@@ -390,8 +390,8 @@ define noundef i64 @_Z19fast_rv64i_fcvt_w_dP11processor_t6insn_tm(ptr nocapture 
   br label %57
 
 57:                                               ; preds = %51, %50
-  %.029 = phi i32 [ %56, %51 ], [ %20, %50 ]
-  %58 = icmp sgt i32 %.029, 4
+  %.030 = phi i32 [ %56, %51 ], [ %20, %50 ]
+  %58 = icmp sgt i32 %.030, 4
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %57
@@ -407,7 +407,7 @@ define noundef i64 @_Z19fast_rv64i_fcvt_w_dP11processor_t6insn_tm(ptr nocapture 
   unreachable
 
 64:                                               ; preds = %57
-  %65 = trunc i32 %.029 to i8
+  %65 = trunc i32 %.030 to i8
   %66 = tail call i64 @f64_to_i32(i64 %.sroa.05.0, i8 noundef zeroext %65, i1 noundef zeroext true)
   %67 = lshr i64 %1, 7
   %68 = and i64 %67, 31
@@ -947,8 +947,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_fcvt_w_dP1
   br label %28
 
 28:                                               ; preds = %22, %.critedge
-  %.041 = phi i32 [ %27, %22 ], [ %20, %.critedge ]
-  %29 = icmp sgt i32 %.041, 4
+  %.040 = phi i32 [ %27, %22 ], [ %20, %.critedge ]
+  %29 = icmp sgt i32 %.040, 4
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %28
@@ -964,7 +964,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_fcvt_w_dP1
   unreachable
 
 35:                                               ; preds = %28
-  %36 = trunc i32 %.041 to i8
+  %36 = trunc i32 %.040 to i8
   store i8 %36, ptr @softfloat_roundingMode, align 1
   %37 = getelementptr inbounds i8, ptr %0, i64 4152
   %.sink.i46 = load i64, ptr %37, align 8
@@ -1049,8 +1049,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_fcvt_w_dP1
   br label %82
 
 82:                                               ; preds = %76, %75
-  %.039 = phi i32 [ %81, %76 ], [ %20, %75 ]
-  %83 = icmp sgt i32 %.039, 4
+  %.041 = phi i32 [ %81, %76 ], [ %20, %75 ]
+  %83 = icmp sgt i32 %.041, 4
   br i1 %83, label %84, label %89
 
 84:                                               ; preds = %82
@@ -1066,7 +1066,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_fcvt_w_dP1
   unreachable
 
 89:                                               ; preds = %82
-  %90 = trunc i32 %.039 to i8
+  %90 = trunc i32 %.041 to i8
   %91 = tail call i64 @f64_to_i32(i64 %.sroa.013.0, i8 noundef zeroext %90, i1 noundef zeroext true)
   %92 = lshr i64 %1, 7
   %93 = and i64 %92, 31
@@ -1167,8 +1167,8 @@ define noundef i64 @_Z19fast_rv64e_fcvt_w_dP11processor_t6insn_tm(ptr nocapture 
   br label %28
 
 28:                                               ; preds = %22, %.critedge
-  %.033 = phi i32 [ %27, %22 ], [ %20, %.critedge ]
-  %29 = icmp sgt i32 %.033, 4
+  %.032 = phi i32 [ %27, %22 ], [ %20, %.critedge ]
+  %29 = icmp sgt i32 %.032, 4
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %28
@@ -1184,7 +1184,7 @@ define noundef i64 @_Z19fast_rv64e_fcvt_w_dP11processor_t6insn_tm(ptr nocapture 
   unreachable
 
 35:                                               ; preds = %28
-  %36 = trunc i32 %.033 to i8
+  %36 = trunc i32 %.032 to i8
   store i8 %36, ptr @softfloat_roundingMode, align 1
   %37 = getelementptr inbounds i8, ptr %0, i64 4152
   %.sink.i37 = load i64, ptr %37, align 8
@@ -1223,8 +1223,8 @@ define noundef i64 @_Z19fast_rv64e_fcvt_w_dP11processor_t6insn_tm(ptr nocapture 
   br label %57
 
 57:                                               ; preds = %51, %50
-  %.031 = phi i32 [ %56, %51 ], [ %20, %50 ]
-  %58 = icmp sgt i32 %.031, 4
+  %.033 = phi i32 [ %56, %51 ], [ %20, %50 ]
+  %58 = icmp sgt i32 %.033, 4
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %57
@@ -1240,7 +1240,7 @@ define noundef i64 @_Z19fast_rv64e_fcvt_w_dP11processor_t6insn_tm(ptr nocapture 
   unreachable
 
 64:                                               ; preds = %57
-  %65 = trunc i32 %.031 to i8
+  %65 = trunc i32 %.033 to i8
   %66 = tail call i64 @f64_to_i32(i64 %.sroa.06.0, i8 noundef zeroext %65, i1 noundef zeroext true)
   %67 = lshr i64 %1, 7
   %68 = and i64 %67, 31

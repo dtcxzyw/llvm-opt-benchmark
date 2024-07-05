@@ -1650,18 +1650,18 @@ define void @Res_SimPadSimInfo(ptr nocapture noundef readonly %0, i32 noundef %1
 
 .critedge:                                        ; preds = %17, %..critedge_crit_edge
   %.val32 = phi i32 [ %.val2528, %..critedge_crit_edge ], [ %.val25, %17 ]
-  %.024 = phi i32 [ %6, %..critedge_crit_edge ], [ 1, %17 ]
+  %.0 = phi i32 [ %6, %..critedge_crit_edge ], [ 1, %17 ]
   %20 = getelementptr i8, ptr %0, i64 4
   %21 = icmp sgt i32 %.val32, 0
   br i1 %21, label %.lr.ph34, label %.critedge2
 
 .lr.ph34:                                         ; preds = %.critedge
   %22 = getelementptr i8, ptr %0, i64 8
-  %23 = icmp slt i32 %.024, %2
+  %23 = icmp slt i32 %.0, %2
   br i1 %23, label %.lr.ph31.us.preheader, label %.critedge2
 
 .lr.ph31.us.preheader:                            ; preds = %.lr.ph34
-  %24 = sext i32 %.024 to i64
+  %24 = sext i32 %.0 to i64
   %wide.trip.count = sext i32 %2 to i64
   br label %.lr.ph31.us
 
@@ -2630,17 +2630,17 @@ split:                                            ; preds = %38, %._crit_edge
 
 .critedge.i:                                      ; preds = %64, %..critedge_crit_edge.i
   %.val32.i = phi i32 [ %.val2528.i, %..critedge_crit_edge.i ], [ %.val25.i, %64 ]
-  %.024.i = phi i32 [ %53, %..critedge_crit_edge.i ], [ 1, %64 ]
+  %.0.i = phi i32 [ %53, %..critedge_crit_edge.i ], [ 1, %64 ]
   %67 = icmp sgt i32 %.val32.i, 0
   br i1 %67, label %.lr.ph34.i, label %Res_SimPadSimInfo.exit
 
 .lr.ph34.i:                                       ; preds = %.critedge.i
   %68 = getelementptr i8, ptr %48, i64 8
-  %69 = icmp slt i32 %.024.i, %50
+  %69 = icmp slt i32 %.0.i, %50
   br i1 %69, label %.lr.ph31.us.preheader.i, label %Res_SimPadSimInfo.exit
 
 .lr.ph31.us.preheader.i:                          ; preds = %.lr.ph34.i
-  %70 = sext i32 %.024.i to i64
+  %70 = sext i32 %.0.i to i64
   %wide.trip.count.i = sext i32 %50 to i64
   br label %.lr.ph31.us.i
 
@@ -2722,17 +2722,17 @@ Res_SimPadSimInfo.exit:                           ; preds = %._crit_edge.us.i, %
 
 .critedge.i63:                                    ; preds = %98, %..critedge_crit_edge.i62
   %.val32.i64 = phi i32 [ %.val2528.i61, %..critedge_crit_edge.i62 ], [ %.val25.i86, %98 ]
-  %.024.i65 = phi i32 [ %87, %..critedge_crit_edge.i62 ], [ 1, %98 ]
+  %.0.i65 = phi i32 [ %87, %..critedge_crit_edge.i62 ], [ 1, %98 ]
   %101 = icmp sgt i32 %.val32.i64, 0
   br i1 %101, label %.lr.ph34.i66, label %Res_SimPadSimInfo.exit88
 
 .lr.ph34.i66:                                     ; preds = %.critedge.i63
   %102 = getelementptr i8, ptr %82, i64 8
-  %103 = icmp slt i32 %.024.i65, %84
+  %103 = icmp slt i32 %.0.i65, %84
   br i1 %103, label %.lr.ph31.us.preheader.i67, label %Res_SimPadSimInfo.exit88
 
 .lr.ph31.us.preheader.i67:                        ; preds = %.lr.ph34.i66
-  %104 = sext i32 %.024.i65 to i64
+  %104 = sext i32 %.0.i65 to i64
   %wide.trip.count.i68 = sext i32 %84 to i64
   br label %.lr.ph31.us.i69
 

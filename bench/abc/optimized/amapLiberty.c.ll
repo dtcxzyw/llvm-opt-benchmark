@@ -996,7 +996,7 @@ define range(i32 0, 2) i32 @Amap_LibertyPrintGenlib(ptr nocapture noundef readon
   br label %280
 
 Amap_LibertyItem.exit:                            ; preds = %8, %6
-  %.096 = phi ptr [ %7, %6 ], [ %9, %8 ]
+  %.094 = phi ptr [ %7, %6 ], [ %9, %8 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %12 = call i64 @time(ptr noundef nonnull %4) #23
   %13 = call ptr @localtime(ptr noundef nonnull %4) #23
@@ -1007,7 +1007,7 @@ Amap_LibertyItem.exit:                            ; preds = %8, %6
   store i8 0, ptr %17, align 1
   %18 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @Amap_LibertyTimeStamp.Buffer, ptr noundef nonnull dereferenceable(1) %14) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.096, ptr noundef nonnull @.str.15, ptr noundef nonnull @Amap_LibertyTimeStamp.Buffer) #23
+  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.15, ptr noundef nonnull @Amap_LibertyTimeStamp.Buffer) #23
   %20 = getelementptr i8, ptr %0, i64 32
   %.val116 = load ptr, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %.val116, i64 16
@@ -1023,18 +1023,18 @@ Amap_LibertyItem.exit:                            ; preds = %8, %6
   %29 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %27
   store i8 0, ptr %29, align 1
   %30 = load ptr, ptr %0, align 8
-  %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.096, ptr noundef nonnull @.str.16, ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %30) #23
-  %32 = call i64 @fwrite(ptr nonnull @.str.17, i64 68, i64 1, ptr %.096)
-  %33 = call i64 @fwrite(ptr nonnull @.str.18, i64 6, i64 1, ptr %.096)
-  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.096, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #23
-  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.096, ptr noundef nonnull @.str.21, double noundef 0.000000e+00) #23
-  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.096, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #23
-  %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.096, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25) #23
-  %38 = call i64 @fwrite(ptr nonnull @.str.18, i64 6, i64 1, ptr %.096)
-  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.096, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.26) #23
-  %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.096, ptr noundef nonnull @.str.21, double noundef 0.000000e+00) #23
-  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.096, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #23
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.096, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.27) #23
+  %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.16, ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %30) #23
+  %32 = call i64 @fwrite(ptr nonnull @.str.17, i64 68, i64 1, ptr %.094)
+  %33 = call i64 @fwrite(ptr nonnull @.str.18, i64 6, i64 1, ptr %.094)
+  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #23
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.21, double noundef 0.000000e+00) #23
+  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #23
+  %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25) #23
+  %38 = call i64 @fwrite(ptr nonnull @.str.18, i64 6, i64 1, ptr %.094)
+  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.26) #23
+  %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.21, double noundef 0.000000e+00) #23
+  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #23
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.27) #23
   %.val = load ptr, ptr %20, align 8
   %43 = getelementptr inbounds i8, ptr %.val, i64 36
   %44 = load i32, ptr %43, align 4
@@ -1361,7 +1361,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   br label %.loopexit
 
 201:                                              ; preds = %Amap_LibertyPinFunction.exit
-  %202 = call i64 @fwrite(ptr nonnull @.str.18, i64 6, i64 1, ptr %.096)
+  %202 = call i64 @fwrite(ptr nonnull @.str.18, i64 6, i64 1, ptr %.094)
   %203 = load i64, ptr %157, align 4
   %204 = load ptr, ptr %23, align 8
   %sext.i167 = shl i64 %203, 32
@@ -1372,7 +1372,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %208 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %206, i64 noundef %207) #23
   %209 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %207
   store i8 0, ptr %209, align 1
-  %210 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.096, ptr noundef nonnull @.str.19, ptr noundef nonnull @Amap_LibertyGetString.Buffer) #23
+  %210 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.19, ptr noundef nonnull @Amap_LibertyGetString.Buffer) #23
   %211 = load i64, ptr %158, align 4
   %212 = load ptr, ptr %23, align 8
   %sext.i169 = shl i64 %211, 32
@@ -1384,7 +1384,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %217 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %215
   store i8 0, ptr %217, align 1
   %218 = call double @atof(ptr noundef nonnull @Amap_LibertyGetString.Buffer) #24
-  %219 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.096, ptr noundef nonnull @.str.21, double noundef %218) #23
+  %219 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.21, double noundef %218) #23
   %220 = getelementptr inbounds i8, ptr %160, i64 16
   %221 = load i64, ptr %220, align 4
   %222 = load ptr, ptr %23, align 8
@@ -1396,7 +1396,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %226 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %224, i64 noundef %225) #23
   %227 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %225
   store i8 0, ptr %227, align 1
-  %228 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.096, ptr noundef nonnull @.str.22, ptr noundef nonnull @Amap_LibertyGetString.Buffer) #23
+  %228 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.22, ptr noundef nonnull @Amap_LibertyGetString.Buffer) #23
   %229 = load i64, ptr %182, align 4
   %230 = load ptr, ptr %23, align 8
   %sext.i173 = shl i64 %229, 32
@@ -1409,7 +1409,7 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
   %235 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetStringFormula.Buffer, ptr noundef nonnull %233, i64 noundef %234) #23
   %236 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetStringFormula.Buffer, i64 0, i64 %234
   store i8 0, ptr %236, align 1
-  %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.096, ptr noundef nonnull @.str.24, ptr noundef nonnull @Amap_LibertyGetStringFormula.Buffer) #23
+  %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.24, ptr noundef nonnull @Amap_LibertyGetStringFormula.Buffer) #23
   %238 = load i32, ptr %56, align 4
   %239 = icmp slt i32 %238, 0
   br i1 %239, label %.loopexit, label %Amap_LibertyItem.exit176
@@ -1425,14 +1425,14 @@ Amap_LibertyItem.exit176:                         ; preds = %201
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Amap_LibertyItem.exit183
-  %.094213 = phi ptr [ %268, %Amap_LibertyItem.exit183 ], [ %242, %.lr.ph.preheader ]
+  %.096213 = phi ptr [ %268, %Amap_LibertyItem.exit183 ], [ %242, %.lr.ph.preheader ]
   br label %243
 
 243:                                              ; preds = %247, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %247 ]
   %244 = getelementptr inbounds ptr, ptr %.val120, i64 %indvars.iv.i
   %245 = load ptr, ptr %244, align 8
-  %246 = icmp eq ptr %245, %.094213
+  %246 = icmp eq ptr %245, %.096213
   br i1 %246, label %Vec_PtrFind.exit, label %247
 
 247:                                              ; preds = %243
@@ -1441,7 +1441,7 @@ Amap_LibertyItem.exit176:                         ; preds = %201
   br i1 %exitcond.not.i, label %Vec_PtrFind.exit.thread, label %243, !llvm.loop !15
 
 Vec_PtrFind.exit.thread:                          ; preds = %247
-  %248 = getelementptr inbounds i8, ptr %.094213, i64 8
+  %248 = getelementptr inbounds i8, ptr %.096213, i64 8
   %249 = load i64, ptr %248, align 4
   %.val117 = load ptr, ptr %23, align 8
   %sext.i179 = shl i64 %249, 32
@@ -1454,7 +1454,7 @@ Vec_PtrFind.exit.thread:                          ; preds = %247
   br i1 %.not111, label %254, label %Vec_PtrFind.exit
 
 254:                                              ; preds = %Vec_PtrFind.exit.thread
-  %255 = getelementptr inbounds i8, ptr %.094213, i64 16
+  %255 = getelementptr inbounds i8, ptr %.096213, i64 16
   %256 = load i64, ptr %255, align 4
   %sext.i181 = shl i64 %256, 32
   %257 = ashr exact i64 %sext.i181, 32
@@ -1464,11 +1464,11 @@ Vec_PtrFind.exit.thread:                          ; preds = %247
   %260 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %258, i64 noundef %259) #23
   %261 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %259
   store i8 0, ptr %261, align 1
-  %262 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.096, ptr noundef nonnull @.str.36, ptr noundef nonnull @Amap_LibertyGetString.Buffer) #23
+  %262 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.36, ptr noundef nonnull @Amap_LibertyGetString.Buffer) #23
   br label %Vec_PtrFind.exit
 
 Vec_PtrFind.exit:                                 ; preds = %243, %Vec_PtrFind.exit.thread, %254
-  %263 = getelementptr inbounds i8, ptr %.094213, i64 32
+  %263 = getelementptr inbounds i8, ptr %.096213, i64 32
   %264 = load i32, ptr %263, align 4
   %265 = icmp slt i32 %264, 0
   br i1 %265, label %.loopexit, label %Amap_LibertyItem.exit183
@@ -1512,11 +1512,11 @@ Amap_LibertyItem.exit185:                         ; preds = %270
 
 ._crit_edge:                                      ; preds = %270, %Amap_LibertyItem.exit185, %Amap_LibertyItem.exit
   %277 = load ptr, ptr @stdout, align 8
-  %.not100 = icmp eq ptr %.096, %277
+  %.not100 = icmp eq ptr %.094, %277
   br i1 %.not100, label %280, label %278
 
 278:                                              ; preds = %._crit_edge
-  %279 = call i32 @fclose(ptr noundef %.096)
+  %279 = call i32 @fclose(ptr noundef %.094)
   br label %280
 
 280:                                              ; preds = %._crit_edge, %278, %11
@@ -1557,8 +1557,8 @@ Amap_LibertyItem.exit:
   br label %14
 
 14:                                               ; preds = %.lr.ph199, %Amap_LibertyItem.exit166
-  %.083198 = phi ptr [ %12, %.lr.ph199 ], [ %238, %Amap_LibertyItem.exit166 ]
-  %15 = getelementptr inbounds i8, ptr %.083198, i64 8
+  %.0198 = phi ptr [ %12, %.lr.ph199 ], [ %238, %Amap_LibertyItem.exit166 ]
+  %15 = getelementptr inbounds i8, ptr %.0198, i64 8
   %16 = load i64, ptr %15, align 4
   %.val101 = load ptr, ptr %13, align 8
   %sext.i = shl i64 %16, 32
@@ -1571,7 +1571,7 @@ Amap_LibertyItem.exit:
   br i1 %.not85, label %21, label %232
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %.083198, i64 36
+  %22 = getelementptr inbounds i8, ptr %.0198, i64 36
   %23 = load i32, ptr %22, align 4
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %Amap_LibertyCellCountOutputs.exit.thread, label %Amap_LibertyItem.exit.i
@@ -1611,7 +1611,7 @@ Amap_LibertyCellIsFlop.exit:                      ; preds = %32, %.lr.ph.i
   br i1 %.not93, label %232, label %38
 
 38:                                               ; preds = %Amap_LibertyCellIsFlop.exit
-  %39 = getelementptr inbounds i8, ptr %.083198, i64 16
+  %39 = getelementptr inbounds i8, ptr %.0198, i64 16
   %40 = load i64, ptr %39, align 4
   %sext.i104 = shl i64 %40, 32
   %41 = ashr exact i64 %sext.i104, 32
@@ -1649,7 +1649,7 @@ Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i107
   br i1 %.not93, label %232, label %57
 
 57:                                               ; preds = %Amap_LibertyCellIsDontUse.exit
-  %58 = getelementptr inbounds i8, ptr %.083198, i64 16
+  %58 = getelementptr inbounds i8, ptr %.0198, i64 16
   %59 = load i64, ptr %58, align 4
   %sext.i112 = shl i64 %59, 32
   %60 = ashr exact i64 %sext.i112, 32
@@ -1725,7 +1725,7 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
   br i1 %.not93, label %232, label %91
 
 91:                                               ; preds = %Amap_LibertyCellCountOutputs.exit.thread
-  %92 = getelementptr inbounds i8, ptr %.083198, i64 16
+  %92 = getelementptr inbounds i8, ptr %.0198, i64 16
   %93 = load i64, ptr %92, align 4
   %sext.i121 = shl i64 %93, 32
   %94 = ashr exact i64 %sext.i121, 32
@@ -1763,7 +1763,7 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
   br i1 %.not93, label %232, label %110
 
 110:                                              ; preds = %.loopexit185
-  %111 = getelementptr inbounds i8, ptr %.083198, i64 16
+  %111 = getelementptr inbounds i8, ptr %.0198, i64 16
   %112 = load i64, ptr %111, align 4
   %sext.i131 = shl i64 %112, 32
   %113 = ashr exact i64 %sext.i131, 32
@@ -1777,7 +1777,7 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
   br label %232
 
 Amap_LibertyCellArea.exit:                        ; preds = %.lr.ph.i124
-  %119 = tail call ptr @Amap_LibertyCellOutputs(ptr noundef %0, ptr noundef nonnull %.083198)
+  %119 = tail call ptr @Amap_LibertyCellOutputs(ptr noundef %0, ptr noundef nonnull %.0198)
   %120 = getelementptr i8, ptr %119, i64 4
   %.val102 = load i32, ptr %120, align 4
   %121 = icmp sgt i32 %.val102, 0
@@ -1786,7 +1786,7 @@ Amap_LibertyCellArea.exit:                        ; preds = %.lr.ph.i124
   br i1 %121, label %Amap_LibertyItem.exit.i133.lr.ph, label %.critedge
 
 Amap_LibertyItem.exit.i133.lr.ph:                 ; preds = %Amap_LibertyCellArea.exit
-  %123 = getelementptr inbounds i8, ptr %.083198, i64 16
+  %123 = getelementptr inbounds i8, ptr %.0198, i64 16
   %124 = getelementptr inbounds i8, ptr %.013.i, i64 16
   %wide.trip.count.i = zext nneg i32 %.val102 to i64
   br label %Amap_LibertyItem.exit.i133
@@ -2013,7 +2013,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %231
   br label %232
 
 232:                                              ; preds = %.loopexit185, %110, %Amap_LibertyCellCountOutputs.exit.thread, %91, %Amap_LibertyCellIsDontUse.exit, %57, %Amap_LibertyCellIsFlop.exit, %38, %14, %Vec_PtrFree.exit
-  %233 = getelementptr inbounds i8, ptr %.083198, i64 32
+  %233 = getelementptr inbounds i8, ptr %.0198, i64 32
   %234 = load i32, ptr %233, align 4
   %235 = icmp slt i32 %234, 0
   br i1 %235, label %._crit_edge, label %Amap_LibertyItem.exit166
@@ -3638,7 +3638,7 @@ Amap_LibertyWipeOutComments.exit:                 ; preds = %Amap_LibertyWipeOut
   br label %61
 
 61:                                               ; preds = %.split23, %60
-  %.0 = phi ptr [ %53, %.split23 ], [ null, %60 ]
+  %.021 = phi ptr [ %53, %.split23 ], [ null, %60 ]
   %62 = load i32, ptr %17, align 8
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i8, ptr %12, i64 28
@@ -3674,7 +3674,7 @@ Abc_Clock.exit32:                                 ; preds = %61, %74
   br label %.thread
 
 .thread:                                          ; preds = %.split, %59, %Abc_Clock.exit32
-  %.036 = phi ptr [ %.0, %Abc_Clock.exit32 ], [ null, %59 ], [ %52, %.split ]
+  %.02136 = phi ptr [ %.021, %Abc_Clock.exit32 ], [ null, %59 ], [ %52, %.split ]
   %84 = load ptr, ptr %12, align 8
   %.not.i33 = icmp eq ptr %84, null
   br i1 %.not.i33, label %86, label %85
@@ -3720,8 +3720,8 @@ Amap_LibertyStop.exit:                            ; preds = %93, %96
   br label %97
 
 97:                                               ; preds = %Abc_Clock.exit, %Amap_LibertyStop.exit
-  %.021 = phi ptr [ %.036, %Amap_LibertyStop.exit ], [ null, %Abc_Clock.exit ]
-  ret ptr %.021
+  %.0 = phi ptr [ %.02136, %Amap_LibertyStop.exit ], [ null, %Abc_Clock.exit ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree nounwind

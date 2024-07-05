@@ -2154,8 +2154,8 @@ switch.lookup:
   %switch.i.i = icmp ne i64 %92, 0
   %93 = extractvalue { i64, i64 } %91, 1
   %94 = icmp ule i64 %93, %3
-  %.0.i.i = select i1 %switch.i.i, i1 %94, i1 false
-  br i1 %.0.i.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h57264e2c9450c8beE.exit", label %110
+  %.04.i.i = select i1 %switch.i.i, i1 %94, i1 false
+  br i1 %.04.i.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h57264e2c9450c8beE.exit", label %110
 
 95:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %58)
@@ -2164,8 +2164,8 @@ switch.lookup:
   %switch.i.i27 = icmp ne i64 %97, 0
   %98 = extractvalue { i64, i64 } %96, 1
   %99 = icmp ule i64 %98, %3
-  %.0.i.i28 = select i1 %switch.i.i27, i1 %99, i1 false
-  br i1 %.0.i.i28, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h1a2ce953202ff1e0E.exit", label %247
+  %.04.i.i28 = select i1 %switch.i.i27, i1 %99, i1 false
+  br i1 %.04.i.i28, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h1a2ce953202ff1e0E.exit", label %247
 
 100:                                              ; preds = %83
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %57)
@@ -2174,8 +2174,8 @@ switch.lookup:
   %switch.i.i33 = icmp ne i64 %102, 0
   %103 = extractvalue { i64, i64 } %101, 1
   %104 = icmp ule i64 %103, %3
-  %.0.i.i34 = select i1 %switch.i.i33, i1 %104, i1 false
-  br i1 %.0.i.i34, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h4fba5acf2977cb09E.exit", label %383
+  %.04.i.i34 = select i1 %switch.i.i33, i1 %104, i1 false
+  br i1 %.04.i.i34, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h4fba5acf2977cb09E.exit", label %383
 
 105:                                              ; preds = %83
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %56)
@@ -2184,8 +2184,8 @@ switch.lookup:
   %switch.i.i39 = icmp ne i64 %107, 0
   %108 = extractvalue { i64, i64 } %106, 1
   %109 = icmp ule i64 %108, %3
-  %.0.i.i40 = select i1 %switch.i.i39, i1 %109, i1 false
-  br i1 %.0.i.i40, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h478b9e17750a14f4E.exit", label %535
+  %.04.i.i40 = select i1 %switch.i.i39, i1 %109, i1 false
+  br i1 %.04.i.i40, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h478b9e17750a14f4E.exit", label %535
 
 110:                                              ; preds = %90
   tail call void @_ZN4core6option13unwrap_failed17hac39b9b7507453f8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7) #11

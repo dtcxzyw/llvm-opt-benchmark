@@ -1084,8 +1084,8 @@ return.fold.split:                                ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %return.fold.split, %cond.true, %land.lhs.true
-  %retval.sroa.3.0 = phi i64 [ undef, %entry ], [ %or.i.i.i, %cond.true ], [ -1688849860263936, %land.lhs.true ], [ -1688849860263936, %return.fold.split ]
-  %retval.sroa.0.0 = phi i32 [ 0, %entry ], [ 1, %cond.true ], [ 1, %land.lhs.true ], [ 1, %return.fold.split ]
+  %retval.sroa.0.0 = phi i32 [ 0, %entry ], [ 1, %land.lhs.true ], [ 1, %cond.true ], [ 1, %return.fold.split ]
+  %retval.sroa.3.0 = phi i64 [ undef, %entry ], [ -1688849860263936, %land.lhs.true ], [ %or.i.i.i, %cond.true ], [ -1688849860263936, %return.fold.split ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -1124,8 +1124,8 @@ return.fold.split:                                ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %return.fold.split, %cond.true, %land.lhs.true
-  %retval.sroa.3.0 = phi i64 [ undef, %entry ], [ %or.i.i.i, %cond.true ], [ -1688849860263936, %land.lhs.true ], [ -1688849860263936, %return.fold.split ]
-  %retval.sroa.0.0 = phi i32 [ 0, %entry ], [ 1, %cond.true ], [ 1, %land.lhs.true ], [ 1, %return.fold.split ]
+  %retval.sroa.0.0 = phi i32 [ 0, %entry ], [ 1, %land.lhs.true ], [ 1, %cond.true ], [ 1, %return.fold.split ]
+  %retval.sroa.3.0 = phi i64 [ undef, %entry ], [ -1688849860263936, %land.lhs.true ], [ %or.i.i.i, %cond.true ], [ -1688849860263936, %return.fold.split ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -1925,8 +1925,8 @@ if.end11:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit.thread, %if.end, %if.end11
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.copyload.i5, %if.end11 ], [ undef, %if.end ], [ -1688849860263936, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit.thread ], [ %agg.tmp.sroa.0.0.copyload.i, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit ]
   %retval.sroa.0.0 = phi i32 [ 1, %if.end11 ], [ 0, %if.end ], [ 1, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit.thread ], [ 1, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit ]
+  %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.copyload.i5, %if.end11 ], [ undef, %if.end ], [ -1688849860263936, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit.thread ], [ %agg.tmp.sroa.0.0.copyload.i, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -1984,8 +1984,8 @@ if.end11:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit.thread, %if.end, %if.end11
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.copyload.i5, %if.end11 ], [ undef, %if.end ], [ -1688849860263936, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit.thread ], [ %agg.tmp.sroa.0.0.copyload.i, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit ]
   %retval.sroa.0.0 = phi i32 [ 1, %if.end11 ], [ 0, %if.end ], [ 1, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit.thread ], [ 1, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit ]
+  %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.copyload.i5, %if.end11 ], [ undef, %if.end ], [ -1688849860263936, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit.thread ], [ %agg.tmp.sroa.0.0.copyload.i, %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8JSObjectEEENS0_6HandleIT_EEj.exit ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -3988,9 +3988,9 @@ if.end29:                                         ; preds = %_ZN6hermes2vm13Muta
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit, %if.end, %if.end29, %if.then
-  %retval.sroa.8.0 = phi i32 [ %retval.sroa.8.0.extract.shift, %if.end29 ], [ 0, %if.then ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit ]
   %retval.sroa.0.0 = phi i32 [ %14, %if.end29 ], [ %bf.value.i, %if.then ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit ]
-  %retval.sroa.0.0.insert.insert = or disjoint i32 %retval.sroa.0.0, %retval.sroa.8.0
+  %retval.sroa.8.0 = phi i32 [ %retval.sroa.8.0.extract.shift, %if.end29 ], [ 0, %if.then ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit ]
+  %retval.sroa.0.0.insert.insert = or disjoint i32 %retval.sroa.8.0, %retval.sroa.0.0
   ret i32 %retval.sroa.0.0.insert.insert
 }
 
@@ -4397,8 +4397,8 @@ cond.false:                                       ; preds = %if.end80
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %call.i.pn = phi { i32, i64 } [ %call.i, %cond.true ], [ %call98, %cond.false ]
-  %propRes.sroa.0.0 = extractvalue { i32, i64 } %call.i.pn, 0
   %propRes.sroa.3.0 = extractvalue { i32, i64 } %call.i.pn, 1
+  %propRes.sroa.0.0 = extractvalue { i32, i64 } %call.i.pn, 0
   %cmp.i92 = icmp eq i32 %propRes.sroa.0.0, 0
   br i1 %cmp.i92, label %cleanup, label %if.end101
 

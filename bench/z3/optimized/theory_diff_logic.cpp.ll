@@ -4913,7 +4913,7 @@ for.body.preheader.i.i:                           ; preds = %_ZNK6vectorIiLb0EjE
 
 for.body.i.i:                                     ; preds = %if.end13.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %if.end13.i.i ]
-  %min1.054.i.i = phi i32 [ -1, %for.body.preheader.i.i ], [ %min1.1.i.i, %if.end13.i.i ]
+  %min1.055.i.i = phi i32 [ -1, %for.body.preheader.i.i ], [ %min1.1.i.i, %if.end13.i.i ]
   %min2.053.i.i = phi i32 [ -1, %for.body.preheader.i.i ], [ %min2.1.i.i, %if.end13.i.i ]
   %idx2.051.i.i = phi i32 [ 0, %for.body.preheader.i.i ], [ %idx2.1.i.i, %if.end13.i.i ]
   %idx1.050.i.i = phi i32 [ 0, %for.body.preheader.i.i ], [ %idx1.1.i.i, %if.end13.i.i ]
@@ -4922,7 +4922,7 @@ for.body.i.i:                                     ; preds = %if.end13.i.i, %for.
   %idxprom.i17.i.i = zext i32 %109 to i64
   %arrayidx.i18.i.i = getelementptr inbounds i32, ptr %108, i64 %idxprom.i17.i.i
   %110 = load i32, ptr %arrayidx.i18.i.i, align 4
-  %cmp4.not.i.i = icmp ugt i32 %110, %min1.054.i.i
+  %cmp4.not.i.i = icmp ugt i32 %110, %min1.055.i.i
   %111 = trunc nuw i64 %indvars.iv.i.i to i32
   br i1 %cmp4.not.i.i, label %if.else.i.i, label %if.end13.i.i
 
@@ -4935,8 +4935,8 @@ if.else.i.i:                                      ; preds = %for.body.i.i
 if.end13.i.i:                                     ; preds = %if.else.i.i, %for.body.i.i
   %idx1.1.i.i = phi i32 [ %111, %for.body.i.i ], [ %idx1.050.i.i, %if.else.i.i ]
   %idx2.1.i.i = phi i32 [ %idx1.050.i.i, %for.body.i.i ], [ %spec.select.i.i, %if.else.i.i ]
-  %min2.1.i.i = phi i32 [ %min1.054.i.i, %for.body.i.i ], [ %spec.select43.i.i, %if.else.i.i ]
-  %min1.1.i.i = phi i32 [ %110, %for.body.i.i ], [ %min1.054.i.i, %if.else.i.i ]
+  %min2.1.i.i = phi i32 [ %min1.055.i.i, %for.body.i.i ], [ %spec.select43.i.i, %if.else.i.i ]
+  %min1.1.i.i = phi i32 [ %110, %for.body.i.i ], [ %min1.055.i.i, %if.else.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %101
   br i1 %exitcond.not.i.i, label %_ZN8dl_graphIN3smt17theory_diff_logicINS0_7idl_extEE4GExtEE16prune_edges_min2INS3_10nc_functorEEEvR7svectorIijERT_.exit.i, label %for.body.i.i, !llvm.loop !19
@@ -29479,7 +29479,7 @@ for.body.preheader.i.i:                           ; preds = %_ZNK6vectorIiLb0EjE
 
 for.body.i.i:                                     ; preds = %if.end13.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %if.end13.i.i ]
-  %min1.054.i.i = phi i32 [ -1, %for.body.preheader.i.i ], [ %min1.1.i.i, %if.end13.i.i ]
+  %min1.055.i.i = phi i32 [ -1, %for.body.preheader.i.i ], [ %min1.1.i.i, %if.end13.i.i ]
   %min2.053.i.i = phi i32 [ -1, %for.body.preheader.i.i ], [ %min2.1.i.i, %if.end13.i.i ]
   %idx2.051.i.i = phi i32 [ 0, %for.body.preheader.i.i ], [ %idx2.1.i.i, %if.end13.i.i ]
   %idx1.050.i.i = phi i32 [ 0, %for.body.preheader.i.i ], [ %idx1.1.i.i, %if.end13.i.i ]
@@ -29488,7 +29488,7 @@ for.body.i.i:                                     ; preds = %if.end13.i.i, %for.
   %idxprom.i17.i.i = zext i32 %80 to i64
   %arrayidx.i18.i.i = getelementptr inbounds i32, ptr %79, i64 %idxprom.i17.i.i
   %81 = load i32, ptr %arrayidx.i18.i.i, align 4
-  %cmp4.not.i.i = icmp ugt i32 %81, %min1.054.i.i
+  %cmp4.not.i.i = icmp ugt i32 %81, %min1.055.i.i
   %82 = trunc nuw i64 %indvars.iv.i.i to i32
   br i1 %cmp4.not.i.i, label %if.else.i.i, label %if.end13.i.i
 
@@ -29501,8 +29501,8 @@ if.else.i.i:                                      ; preds = %for.body.i.i
 if.end13.i.i:                                     ; preds = %if.else.i.i, %for.body.i.i
   %idx1.1.i.i = phi i32 [ %82, %for.body.i.i ], [ %idx1.050.i.i, %if.else.i.i ]
   %idx2.1.i.i = phi i32 [ %idx1.050.i.i, %for.body.i.i ], [ %spec.select.i.i, %if.else.i.i ]
-  %min2.1.i.i = phi i32 [ %min1.054.i.i, %for.body.i.i ], [ %spec.select43.i.i, %if.else.i.i ]
-  %min1.1.i.i = phi i32 [ %81, %for.body.i.i ], [ %min1.054.i.i, %if.else.i.i ]
+  %min2.1.i.i = phi i32 [ %min1.055.i.i, %for.body.i.i ], [ %spec.select43.i.i, %if.else.i.i ]
+  %min1.1.i.i = phi i32 [ %81, %for.body.i.i ], [ %min1.055.i.i, %if.else.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %72
   br i1 %exitcond.not.i.i, label %_ZN8dl_graphIN3smt17theory_diff_logicINS0_8sidl_extEE4GExtEE16prune_edges_min2INS3_10nc_functorEEEvR7svectorIijERT_.exit.i, label %for.body.i.i, !llvm.loop !137
@@ -46997,7 +46997,7 @@ for.body.preheader.i.i:                           ; preds = %_ZNK6vectorIiLb0EjE
 
 for.body.i.i:                                     ; preds = %if.end13.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %if.end13.i.i ]
-  %min1.054.i.i = phi i32 [ -1, %for.body.preheader.i.i ], [ %min1.1.i.i, %if.end13.i.i ]
+  %min1.055.i.i = phi i32 [ -1, %for.body.preheader.i.i ], [ %min1.1.i.i, %if.end13.i.i ]
   %min2.053.i.i = phi i32 [ -1, %for.body.preheader.i.i ], [ %min2.1.i.i, %if.end13.i.i ]
   %idx2.051.i.i = phi i32 [ 0, %for.body.preheader.i.i ], [ %idx2.1.i.i, %if.end13.i.i ]
   %idx1.050.i.i = phi i32 [ 0, %for.body.preheader.i.i ], [ %idx1.1.i.i, %if.end13.i.i ]
@@ -47006,7 +47006,7 @@ for.body.i.i:                                     ; preds = %if.end13.i.i, %for.
   %idxprom.i17.i.i = zext i32 %114 to i64
   %arrayidx.i18.i.i = getelementptr inbounds i32, ptr %113, i64 %idxprom.i17.i.i
   %115 = load i32, ptr %arrayidx.i18.i.i, align 4
-  %cmp4.not.i.i = icmp ugt i32 %115, %min1.054.i.i
+  %cmp4.not.i.i = icmp ugt i32 %115, %min1.055.i.i
   %116 = trunc nuw i64 %indvars.iv.i.i to i32
   br i1 %cmp4.not.i.i, label %if.else.i.i, label %if.end13.i.i
 
@@ -47019,8 +47019,8 @@ if.else.i.i:                                      ; preds = %for.body.i.i
 if.end13.i.i:                                     ; preds = %if.else.i.i, %for.body.i.i
   %idx1.1.i.i = phi i32 [ %116, %for.body.i.i ], [ %idx1.050.i.i, %if.else.i.i ]
   %idx2.1.i.i = phi i32 [ %idx1.050.i.i, %for.body.i.i ], [ %spec.select.i.i, %if.else.i.i ]
-  %min2.1.i.i = phi i32 [ %min1.054.i.i, %for.body.i.i ], [ %spec.select43.i.i, %if.else.i.i ]
-  %min1.1.i.i = phi i32 [ %115, %for.body.i.i ], [ %min1.054.i.i, %if.else.i.i ]
+  %min2.1.i.i = phi i32 [ %min1.055.i.i, %for.body.i.i ], [ %spec.select43.i.i, %if.else.i.i ]
+  %min1.1.i.i = phi i32 [ %115, %for.body.i.i ], [ %min1.055.i.i, %if.else.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %106
   br i1 %exitcond.not.i.i, label %_ZN8dl_graphIN3smt17theory_diff_logicINS0_7rdl_extEE4GExtEE16prune_edges_min2INS3_10nc_functorEEEvR7svectorIijERT_.exit.i, label %for.body.i.i, !llvm.loop !217
@@ -67642,7 +67642,7 @@ for.body.preheader.i.i:                           ; preds = %_ZNK6vectorIiLb0EjE
 
 for.body.i.i:                                     ; preds = %if.end13.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %if.end13.i.i ]
-  %min1.054.i.i = phi i32 [ -1, %for.body.preheader.i.i ], [ %min1.1.i.i, %if.end13.i.i ]
+  %min1.055.i.i = phi i32 [ -1, %for.body.preheader.i.i ], [ %min1.1.i.i, %if.end13.i.i ]
   %min2.053.i.i = phi i32 [ -1, %for.body.preheader.i.i ], [ %min2.1.i.i, %if.end13.i.i ]
   %idx2.051.i.i = phi i32 [ 0, %for.body.preheader.i.i ], [ %idx2.1.i.i, %if.end13.i.i ]
   %idx1.050.i.i = phi i32 [ 0, %for.body.preheader.i.i ], [ %idx1.1.i.i, %if.end13.i.i ]
@@ -67651,7 +67651,7 @@ for.body.i.i:                                     ; preds = %if.end13.i.i, %for.
   %idxprom.i17.i.i = zext i32 %114 to i64
   %arrayidx.i18.i.i = getelementptr inbounds i32, ptr %113, i64 %idxprom.i17.i.i
   %115 = load i32, ptr %arrayidx.i18.i.i, align 4
-  %cmp4.not.i.i = icmp ugt i32 %115, %min1.054.i.i
+  %cmp4.not.i.i = icmp ugt i32 %115, %min1.055.i.i
   %116 = trunc nuw i64 %indvars.iv.i.i to i32
   br i1 %cmp4.not.i.i, label %if.else.i.i, label %if.end13.i.i
 
@@ -67664,8 +67664,8 @@ if.else.i.i:                                      ; preds = %for.body.i.i
 if.end13.i.i:                                     ; preds = %if.else.i.i, %for.body.i.i
   %idx1.1.i.i = phi i32 [ %116, %for.body.i.i ], [ %idx1.050.i.i, %if.else.i.i ]
   %idx2.1.i.i = phi i32 [ %idx1.050.i.i, %for.body.i.i ], [ %spec.select.i.i, %if.else.i.i ]
-  %min2.1.i.i = phi i32 [ %min1.054.i.i, %for.body.i.i ], [ %spec.select43.i.i, %if.else.i.i ]
-  %min1.1.i.i = phi i32 [ %115, %for.body.i.i ], [ %min1.054.i.i, %if.else.i.i ]
+  %min2.1.i.i = phi i32 [ %min1.055.i.i, %for.body.i.i ], [ %spec.select43.i.i, %if.else.i.i ]
+  %min1.1.i.i = phi i32 [ %115, %for.body.i.i ], [ %min1.055.i.i, %if.else.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %106
   br i1 %exitcond.not.i.i, label %_ZN8dl_graphIN3smt17theory_diff_logicINS0_8srdl_extEE4GExtEE16prune_edges_min2INS3_10nc_functorEEEvR7svectorIijERT_.exit.i, label %for.body.i.i, !llvm.loop !340
@@ -95806,9 +95806,9 @@ _ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE3endEv.exi
   br i1 %cmp.not6, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE3endEv.exit, %if.end
-  %__begin0.08 = phi ptr [ %incdec.ptr, %if.end ], [ %0, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE3endEv.exit ]
-  %idx.07 = phi i32 [ %inc, %if.end ], [ 0, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE3endEv.exit ]
-  %m_var.i = getelementptr inbounds i8, ptr %__begin0.08, i64 32
+  %idx.08 = phi i32 [ %inc, %if.end ], [ 0, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE3endEv.exit ]
+  %__begin0.07 = phi ptr [ %incdec.ptr, %if.end ], [ %0, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE3endEv.exit ]
+  %m_var.i = getelementptr inbounds i8, ptr %__begin0.07, i64 32
   %3 = load i32, ptr %m_var.i, align 8
   %cmp.i = icmp ne i32 %3, -1
   %cmp4 = icmp eq i32 %3, %v
@@ -95816,13 +95816,13 @@ for.body:                                         ; preds = %_ZNK6vectorIN7simpl
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %inc = add nuw i32 %idx.07, 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.08, i64 40
+  %inc = add nuw i32 %idx.08, 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.07, i64 40
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %return, label %for.body
 
 return:                                           ; preds = %if.end, %for.body, %entry, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE3endEv.exit
-  %retval.0 = phi i32 [ -1, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE3endEv.exit ], [ -1, %entry ], [ %idx.07, %for.body ], [ -1, %if.end ]
+  %retval.0 = phi i32 [ -1, %_ZNK6vectorIN7simplex13sparse_matrixINS0_7mpq_extEE10_row_entryELb1EjE3endEv.exit ], [ -1, %entry ], [ %idx.08, %for.body ], [ -1, %if.end ]
   ret i32 %retval.0
 }
 

@@ -488,10 +488,10 @@ define internal fastcc void @tfuncFetchRows(ptr noundef %0, ptr noundef %1) unna
   br label %140
 
 140:                                              ; preds = %138, %135
-  %.0.i = phi ptr [ %137, %135 ], [ %139, %138 ]
+  %.057.i = phi ptr [ %137, %135 ], [ %139, %138 ]
   %141 = load ptr, ptr %114, align 8
   %142 = trunc nuw nsw i64 %indvars.iv91.i to i32
-  call void %141(ptr noundef %0, ptr noundef %.0.i, i32 noundef %142) #8
+  call void %141(ptr noundef %0, ptr noundef %.057.i, i32 noundef %142) #8
   %.pre.i = load i32, ptr %111, align 4
   br label %143
 
@@ -581,7 +581,7 @@ list_head.exit.us.i:                              ; preds = %177, %.lr.ph61.spli
 
 188:                                              ; preds = %232, %.lr.ph.us.i
   %indvars.iv.i30 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i31, %232 ]
-  %.05257.us.i = phi ptr [ %180, %.lr.ph.us.i ], [ %.1.us.i, %232 ]
+  %.059.us.i = phi ptr [ %180, %.lr.ph.us.i ], [ %.1.us.i, %232 ]
   %189 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %170, i64 0, i64 %indvars.iv.i30
   %190 = icmp eq i64 %indvars.iv.i30, %173
   br i1 %190, label %219, label %191
@@ -598,12 +598,12 @@ list_head.exit.us.i:                              ; preds = %177, %.lr.ph61.spli
   store i64 %198, ptr %199, align 8
   %200 = load i8, ptr %3, align 1
   %201 = trunc i8 %200 to i1
-  %202 = icmp ne ptr %.05257.us.i, null
+  %202 = icmp ne ptr %.059.us.i, null
   %or.cond.us.i = select i1 %201, i1 %202, i1 false
   br i1 %or.cond.us.i, label %203, label %209
 
 203:                                              ; preds = %191
-  %204 = load ptr, ptr %.05257.us.i, align 8
+  %204 = load ptr, ptr %.059.us.i, align 8
   %.not54.us.i = icmp eq ptr %204, null
   br i1 %.not54.us.i, label %209, label %205
 
@@ -647,7 +647,7 @@ list_head.exit.us.i:                              ; preds = %177, %.lr.ph61.spli
   br label %223
 
 223:                                              ; preds = %219, %215
-  %.not55.us.i = icmp eq ptr %.05257.us.i, null
+  %.not55.us.i = icmp eq ptr %.059.us.i, null
   br i1 %.not55.us.i, label %232, label %224
 
 224:                                              ; preds = %223
@@ -656,7 +656,7 @@ list_head.exit.us.i:                              ; preds = %177, %.lr.ph61.spli
   %.val.us.i = load i32, ptr %226, align 4
   %227 = getelementptr i8, ptr %225, i64 16
   %.val56.us.i = load ptr, ptr %227, align 8
-  %228 = getelementptr i8, ptr %.05257.us.i, i64 8
+  %228 = getelementptr i8, ptr %.059.us.i, i64 8
   %229 = sext i32 %.val.us.i to i64
   %230 = getelementptr %union.ListCell, ptr %.val56.us.i, i64 %229
   %231 = icmp ult ptr %228, %230

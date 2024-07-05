@@ -181,9 +181,9 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %t.0126 = phi ptr [ @ssl_cipher_table_cipher, %entry ], [ %incdec.ptr, %for.inc ]
-  %i.0125 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %nid = getelementptr inbounds i8, ptr %t.0126, i64 4
+  %i.0126 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
+  %t.0125 = phi ptr [ @ssl_cipher_table_cipher, %entry ], [ %incdec.ptr, %for.inc ]
+  %nid = getelementptr inbounds i8, ptr %t.0125, i64 4
   %0 = load i32, ptr %nid, align 4
   %cmp1.not = icmp eq i32 %0, 0
   br i1 %cmp1.not, label %for.inc, label %if.then
@@ -192,21 +192,21 @@ if.then:                                          ; preds = %for.body
   %1 = load ptr, ptr %ctx, align 8
   %2 = load ptr, ptr %propq, align 8
   %call = tail call ptr @ssl_evp_cipher_fetch(ptr noundef %1, i32 noundef %0, ptr noundef %2) #15
-  %arrayidx = getelementptr inbounds [24 x ptr], ptr %ssl_cipher_methods, i64 0, i64 %i.0125
+  %arrayidx = getelementptr inbounds [24 x ptr], ptr %ssl_cipher_methods, i64 0, i64 %i.0126
   store ptr %call, ptr %arrayidx, align 8
   %cmp3 = icmp eq ptr %call, null
   br i1 %cmp3, label %if.then4, label %for.inc
 
 if.then4:                                         ; preds = %if.then
-  %3 = load i32, ptr %t.0126, align 4
+  %3 = load i32, ptr %t.0125, align 4
   %4 = load i32, ptr %disabled_enc_mask, align 8
   %or = or i32 %4, %3
   store i32 %or, ptr %disabled_enc_mask, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then4, %if.then
-  %inc = add nuw nsw i64 %i.0125, 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %t.0126, i64 8
+  %inc = add nuw nsw i64 %i.0126, 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %t.0125, i64 8
   %exitcond.not = icmp eq i64 %inc, 24
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
@@ -218,20 +218,20 @@ for.end:                                          ; preds = %for.inc
   br label %for.body9
 
 for.body9:                                        ; preds = %for.end, %for.inc31
-  %t.1128 = phi ptr [ @ssl_cipher_table_mac, %for.end ], [ %incdec.ptr33, %for.inc31 ]
-  %i.1127 = phi i64 [ 0, %for.end ], [ %inc32, %for.inc31 ]
+  %i.1128 = phi i64 [ 0, %for.end ], [ %inc32, %for.inc31 ]
+  %t.1127 = phi ptr [ @ssl_cipher_table_mac, %for.end ], [ %incdec.ptr33, %for.inc31 ]
   %5 = load ptr, ptr %ctx, align 8
-  %nid11 = getelementptr inbounds i8, ptr %t.1128, i64 4
+  %nid11 = getelementptr inbounds i8, ptr %t.1127, i64 4
   %6 = load i32, ptr %nid11, align 4
   %7 = load ptr, ptr %propq, align 8
   %call13 = tail call ptr @ssl_evp_md_fetch(ptr noundef %5, i32 noundef %6, ptr noundef %7) #15
-  %arrayidx14 = getelementptr inbounds [14 x ptr], ptr %ssl_digest_methods, i64 0, i64 %i.1127
+  %arrayidx14 = getelementptr inbounds [14 x ptr], ptr %ssl_digest_methods, i64 0, i64 %i.1128
   store ptr %call13, ptr %arrayidx14, align 8
   %cmp15 = icmp eq ptr %call13, null
   br i1 %cmp15, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %for.body9
-  %8 = load i32, ptr %t.1128, align 4
+  %8 = load i32, ptr %t.1127, align 4
   %9 = load i32, ptr %disabled_mac_mask, align 4
   %or19 = or i32 %9, %8
   store i32 %or19, ptr %disabled_mac_mask, align 4
@@ -244,13 +244,13 @@ if.else:                                          ; preds = %for.body9
 
 if.end27:                                         ; preds = %if.else
   %conv28 = zext nneg i32 %call20 to i64
-  %arrayidx29 = getelementptr inbounds [14 x i64], ptr %ssl_mac_secret_size, i64 0, i64 %i.1127
+  %arrayidx29 = getelementptr inbounds [14 x i64], ptr %ssl_mac_secret_size, i64 0, i64 %i.1128
   store i64 %conv28, ptr %arrayidx29, align 8
   br label %for.inc31
 
 for.inc31:                                        ; preds = %if.then16, %if.end27
-  %inc32 = add nuw nsw i64 %i.1127, 1
-  %incdec.ptr33 = getelementptr inbounds i8, ptr %t.1128, i64 8
+  %inc32 = add nuw nsw i64 %i.1128, 1
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %t.1127, i64 8
   %exitcond129.not = icmp eq i64 %inc32, 14
   br i1 %exitcond129.not, label %for.end34, label %for.body9, !llvm.loop !6
 
@@ -1409,10 +1409,10 @@ for.body.lr.ph.i:                                 ; preds = %if.then8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %co_list_num.047.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %co_list_num.1.i, %for.inc.i ]
-  %i.046.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc33.i, %for.inc.i ]
+  %i.047.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc33.i, %for.inc.i ]
+  %co_list_num.046.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %co_list_num.1.i, %for.inc.i ]
   %10 = load ptr, ptr %get_cipher.i, align 8
-  %call.i61 = tail call ptr %10(i32 noundef %i.046.i) #15
+  %call.i61 = tail call ptr %10(i32 noundef %i.047.i) #15
   %cmp1.i = icmp eq ptr %call.i61, null
   br i1 %cmp1.i, label %for.inc.i, label %lor.lhs.false.i
 
@@ -1470,19 +1470,19 @@ land.lhs.true23.i:                                ; preds = %if.end13.i
   br i1 %cmp24.i, label %for.inc.i, label %if.end26.i
 
 if.end26.i:                                       ; preds = %land.lhs.true23.i, %land.lhs.true.i
-  %idxprom.i = sext i32 %co_list_num.047.i to i64
+  %idxprom.i = sext i32 %co_list_num.046.i to i64
   %arrayidx.i = getelementptr inbounds %struct.cipher_order_st, ptr %call9, i64 %idxprom.i
   store ptr %call.i61, ptr %arrayidx.i, align 8
   %next.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %active.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i32 0, ptr %active.i, align 8
-  %inc.i = add nsw i32 %co_list_num.047.i, 1
+  %inc.i = add nsw i32 %co_list_num.046.i, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end26.i, %land.lhs.true23.i, %land.lhs.true.i, %lor.lhs.false9.i, %lor.lhs.false6.i, %lor.lhs.false3.i, %if.end.i, %lor.lhs.false.i, %for.body.i
-  %co_list_num.1.i = phi i32 [ %co_list_num.047.i, %for.body.i ], [ %co_list_num.047.i, %if.end.i ], [ %co_list_num.047.i, %lor.lhs.false3.i ], [ %co_list_num.047.i, %lor.lhs.false6.i ], [ %co_list_num.047.i, %lor.lhs.false9.i ], [ %co_list_num.047.i, %land.lhs.true.i ], [ %co_list_num.047.i, %land.lhs.true23.i ], [ %inc.i, %if.end26.i ], [ %co_list_num.047.i, %lor.lhs.false.i ]
-  %inc33.i = add nuw nsw i32 %i.046.i, 1
+  %co_list_num.1.i = phi i32 [ %co_list_num.046.i, %for.body.i ], [ %co_list_num.046.i, %if.end.i ], [ %co_list_num.046.i, %lor.lhs.false3.i ], [ %co_list_num.046.i, %lor.lhs.false6.i ], [ %co_list_num.046.i, %lor.lhs.false9.i ], [ %co_list_num.046.i, %land.lhs.true.i ], [ %co_list_num.046.i, %land.lhs.true23.i ], [ %inc.i, %if.end26.i ], [ %co_list_num.046.i, %lor.lhs.false.i ]
+  %inc33.i = add nuw nsw i32 %i.047.i, 1
   %exitcond.not.i = icmp eq i32 %inc33.i, %call6
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
@@ -2802,23 +2802,23 @@ if.end26:                                         ; preds = %ssl_cipher_apply_ru
   br i1 %cmp.not23.i, label %for.body.i781.preheader, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end26, %while.body.i
-  %ca_curr.025.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %call22, %if.end26 ]
-  %ciph_curr.024.i = phi ptr [ %110, %while.body.i ], [ %head.0.lcssa.i777, %if.end26 ]
-  %109 = load ptr, ptr %ciph_curr.024.i, align 8
-  store ptr %109, ptr %ca_curr.025.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ca_curr.025.i, i64 8
-  %next.i780 = getelementptr inbounds i8, ptr %ciph_curr.024.i, i64 16
+  %ciph_curr.025.i = phi ptr [ %110, %while.body.i ], [ %head.0.lcssa.i777, %if.end26 ]
+  %ca_curr.024.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %call22, %if.end26 ]
+  %109 = load ptr, ptr %ciph_curr.025.i, align 8
+  store ptr %109, ptr %ca_curr.024.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ca_curr.024.i, i64 8
+  %next.i780 = getelementptr inbounds i8, ptr %ciph_curr.025.i, i64 16
   %110 = load ptr, ptr %next.i780, align 8
   %cmp.not.i = icmp eq ptr %110, null
   br i1 %cmp.not.i, label %for.body.i781.preheader, label %while.body.i, !llvm.loop !12
 
 for.body.i781.preheader:                          ; preds = %while.body.i, %if.end26
-  %ca_curr.126.i.ph = phi ptr [ %call22, %if.end26 ], [ %incdec.ptr.i, %while.body.i ]
+  %ca_curr.127.i.ph = phi ptr [ %call22, %if.end26 ], [ %incdec.ptr.i, %while.body.i ]
   br label %for.body.i781
 
 for.body.i781:                                    ; preds = %for.body.i781.preheader, %for.inc.i789
   %indvars.iv.i782 = phi i64 [ %indvars.iv.next.i790, %for.inc.i789 ], [ 0, %for.body.i781.preheader ]
-  %ca_curr.126.i = phi ptr [ %ca_curr.2.i, %for.inc.i789 ], [ %ca_curr.126.i.ph, %for.body.i781.preheader ]
+  %ca_curr.127.i = phi ptr [ %ca_curr.2.i, %for.inc.i789 ], [ %ca_curr.127.i.ph, %for.body.i781.preheader ]
   %arrayidx.i783 = getelementptr inbounds [79 x %struct.ssl_cipher_st], ptr @cipher_aliases, i64 0, i64 %indvars.iv.i782
   %algorithm_mkey5.i = getelementptr inbounds i8, ptr %arrayidx.i783, i64 28
   %111 = load i32, ptr %algorithm_mkey5.i, align 4
@@ -2856,12 +2856,12 @@ if.end31.i:                                       ; preds = %if.end24.i
   br i1 %or.cond22.i, label %for.inc.i789, label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.end31.i
-  store ptr %arrayidx.i783, ptr %ca_curr.126.i, align 8
-  %incdec.ptr39.i = getelementptr inbounds i8, ptr %ca_curr.126.i, i64 8
+  store ptr %arrayidx.i783, ptr %ca_curr.127.i, align 8
+  %incdec.ptr39.i = getelementptr inbounds i8, ptr %ca_curr.127.i, i64 8
   br label %for.inc.i789
 
 for.inc.i789:                                     ; preds = %if.end38.i, %if.end31.i, %if.end24.i, %if.end17.i, %for.body.i781
-  %ca_curr.2.i = phi ptr [ %incdec.ptr39.i, %if.end38.i ], [ %ca_curr.126.i, %for.body.i781 ], [ %ca_curr.126.i, %if.end17.i ], [ %ca_curr.126.i, %if.end24.i ], [ %ca_curr.126.i, %if.end31.i ]
+  %ca_curr.2.i = phi ptr [ %incdec.ptr39.i, %if.end38.i ], [ %ca_curr.127.i, %for.body.i781 ], [ %ca_curr.127.i, %if.end17.i ], [ %ca_curr.127.i, %if.end24.i ], [ %ca_curr.127.i, %if.end31.i ]
   %indvars.iv.next.i790 = add nuw nsw i64 %indvars.iv.i782, 1
   %exitcond.not.i791 = icmp eq i64 %indvars.iv.next.i790, 79
   br i1 %exitcond.not.i791, label %ssl_cipher_collect_aliases.exit, label %for.body.i781, !llvm.loop !13
@@ -3023,8 +3023,8 @@ entry:
   %or.cond.not = and i1 %cmp, %cmp1
   %0 = load ptr, ptr %head_p, align 8
   %1 = load ptr, ptr %tail_p, align 8
-  %next.0 = select i1 %or.cond.not, ptr %0, ptr %1
   %last.0 = select i1 %or.cond.not, ptr %1, ptr %0
+  %next.0 = select i1 %or.cond.not, ptr %0, ptr %1
   %cmp4145 = icmp eq ptr %last.0, null
   %cmp7146 = icmp eq ptr %next.0, null
   %or.cond147 = select i1 %cmp4145, i1 true, i1 %cmp7146
@@ -4023,8 +4023,8 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.else, %if.then
-  %buf.addr.0 = phi ptr [ %call, %if.then ], [ %buf, %if.else ]
   %len.addr.0 = phi i32 [ 128, %if.then ], [ %len, %if.else ]
+  %buf.addr.0 = phi ptr [ %call, %if.then ], [ %buf, %if.else ]
   %algorithm_mkey = getelementptr inbounds i8, ptr %cipher, i64 28
   %0 = load i32, ptr %algorithm_mkey, align 4
   %algorithm_auth = getelementptr inbounds i8, ptr %cipher, i64 32
@@ -4894,9 +4894,9 @@ if.end37:                                         ; preds = %lor.lhs.false
   br label %if.end47
 
 if.end47:                                         ; preds = %if.else5, %entry, %if.end, %if.end37
-  %in.0 = phi i64 [ 1, %if.end37 ], [ 0, %if.end ], [ 0, %entry ], [ 0, %if.else5 ]
-  %blk.0 = phi i64 [ %conv41, %if.end37 ], [ 0, %if.end ], [ 0, %entry ], [ 0, %if.else5 ]
   %out.0 = phi i64 [ %conv39, %if.end37 ], [ 0, %if.end ], [ 24, %entry ], [ 16, %if.else5 ]
+  %blk.0 = phi i64 [ %conv41, %if.end37 ], [ 0, %if.end ], [ 0, %entry ], [ 0, %if.else5 ]
+  %in.0 = phi i64 [ 1, %if.end37 ], [ 0, %if.end ], [ 0, %entry ], [ 0, %if.else5 ]
   %mac.0 = phi i64 [ %conv, %if.end37 ], [ %conv, %if.end ], [ 0, %entry ], [ 0, %if.else5 ]
   store i64 %mac.0, ptr %mac_overhead, align 8
   store i64 %in.0, ptr %int_overhead, align 8

@@ -45004,9 +45004,9 @@ call17.i.noexc:                                   ; preds = %call16.i.noexc
   br label %invoke.cont42
 
 invoke.cont42:                                    ; preds = %call17.i.noexc, %if.end4.i, %if.else9.i
-  %q_eq_0.0 = phi i32 [ %sub18.i, %call17.i.noexc ], [ 1, %if.end4.i ], [ 1, %if.else9.i ]
-  %q_gt_0.0 = phi i32 [ %div.i, %call17.i.noexc ], [ %sub.i387, %if.end4.i ], [ 0, %if.else9.i ]
   %q_lt_0.0 = phi i32 [ %div20.i, %call17.i.noexc ], [ 0, %if.end4.i ], [ %sub5.i, %if.else9.i ]
+  %q_gt_0.0 = phi i32 [ %div.i, %call17.i.noexc ], [ %sub.i387, %if.end4.i ], [ 0, %if.else9.i ]
+  %q_eq_0.0 = phi i32 [ %sub18.i, %call17.i.noexc ], [ 1, %if.end4.i ], [ 1, %if.else9.i ]
   %cmp43 = icmp sgt i32 %q_eq_0.0, 0
   %cmp45 = icmp eq i32 %q_gt_0.0, 0
   %or.cond1 = select i1 %cmp43, i1 %cmp45, i1 false

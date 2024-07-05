@@ -783,7 +783,7 @@ define hidden void @dissect_zbee_zdp_rsp_nwk_addr(ptr noundef %0, ptr noundef %1
 
 34:                                               ; preds = %25, %16
   %35 = phi i32 [ %.pre, %25 ], [ %23, %16 ]
-  %.029 = phi ptr [ %33, %25 ], [ null, %16 ]
+  %.0 = phi ptr [ %33, %25 ], [ null, %16 ]
   %.not32 = icmp eq i32 %35, 0
   br i1 %.not32, label %.loopexit, label %.lr.ph.preheader
 
@@ -793,13 +793,13 @@ define hidden void @dissect_zbee_zdp_rsp_nwk_addr(ptr noundef %0, ptr noundef %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %36 = phi i32 [ %40, %.lr.ph ], [ %.pre33, %.lr.ph.preheader ]
-  %.031 = phi i32 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.02931 = phi i32 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %37 = load i32, ptr @hf_zbee_zdp_assoc_device, align 4
-  %38 = call ptr @proto_tree_add_item(ptr noundef %.029, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 2, i32 noundef -2147483648) #2
+  %38 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 2, i32 noundef -2147483648) #2
   %39 = load i32, ptr %4, align 4
   %40 = add i32 %39, 2
   store i32 %40, ptr %4, align 4
-  %41 = add nuw i32 %.031, 1
+  %41 = add nuw i32 %.02931, 1
   %42 = load i32, ptr %6, align 4
   %43 = icmp ult i32 %41, %42
   br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !11
@@ -873,7 +873,7 @@ define hidden void @dissect_zbee_zdp_rsp_ext_addr(ptr noundef %0, ptr noundef %1
 
 34:                                               ; preds = %25, %16
   %35 = phi i32 [ %.pre, %25 ], [ %23, %16 ]
-  %.029 = phi ptr [ %33, %25 ], [ null, %16 ]
+  %.0 = phi ptr [ %33, %25 ], [ null, %16 ]
   %.not32 = icmp eq i32 %35, 0
   br i1 %.not32, label %.loopexit, label %.lr.ph.preheader
 
@@ -883,13 +883,13 @@ define hidden void @dissect_zbee_zdp_rsp_ext_addr(ptr noundef %0, ptr noundef %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %36 = phi i32 [ %40, %.lr.ph ], [ %.pre33, %.lr.ph.preheader ]
-  %.031 = phi i32 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.02931 = phi i32 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %37 = load i32, ptr @hf_zbee_zdp_assoc_device, align 4
-  %38 = call ptr @proto_tree_add_item(ptr noundef %.029, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 2, i32 noundef -2147483648) #2
+  %38 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 2, i32 noundef -2147483648) #2
   %39 = load i32, ptr %4, align 4
   %40 = add i32 %39, 2
   store i32 %40, ptr %4, align 4
-  %41 = add nuw i32 %.031, 1
+  %41 = add nuw i32 %.02931, 1
   %42 = load i32, ptr %6, align 4
   %43 = icmp ult i32 %41, %42
   br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !12
@@ -1043,7 +1043,7 @@ define hidden void @dissect_zbee_zdp_rsp_active_ep(ptr noundef %0, ptr noundef %
 
 23:                                               ; preds = %20, %3
   %24 = phi i32 [ %.pre, %20 ], [ %18, %3 ]
-  %.021 = phi ptr [ %22, %20 ], [ null, %3 ]
+  %.0 = phi ptr [ %22, %20 ], [ null, %3 ]
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1053,13 +1053,13 @@ define hidden void @dissect_zbee_zdp_rsp_active_ep(ptr noundef %0, ptr noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %25 = phi i32 [ %29, %.lr.ph ], [ %.pre25, %.lr.ph.preheader ]
-  %.024 = phi i32 [ %30, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.02124 = phi i32 [ %30, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %26 = load i32, ptr @hf_zbee_zdp_endpoint, align 4
-  %27 = call ptr @proto_tree_add_item(ptr noundef %.021, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef -2147483648) #2
+  %27 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef -2147483648) #2
   %28 = load i32, ptr %4, align 4
   %29 = add i32 %28, 1
   store i32 %29, ptr %4, align 4
-  %30 = add nuw i32 %.024, 1
+  %30 = add nuw i32 %.02124, 1
   %31 = load i32, ptr %6, align 4
   %32 = icmp ult i32 %30, %31
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !13
@@ -1106,7 +1106,7 @@ define hidden void @dissect_zbee_zdp_rsp_match_desc(ptr noundef %0, ptr noundef 
 
 23:                                               ; preds = %20, %3
   %24 = phi i32 [ %.pre, %20 ], [ %18, %3 ]
-  %.021 = phi ptr [ %22, %20 ], [ null, %3 ]
+  %.0 = phi ptr [ %22, %20 ], [ null, %3 ]
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1116,13 +1116,13 @@ define hidden void @dissect_zbee_zdp_rsp_match_desc(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %25 = phi i32 [ %29, %.lr.ph ], [ %.pre25, %.lr.ph.preheader ]
-  %.024 = phi i32 [ %30, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.02124 = phi i32 [ %30, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %26 = load i32, ptr @hf_zbee_zdp_endpoint, align 4
-  %27 = call ptr @proto_tree_add_item(ptr noundef %.021, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef -2147483648) #2
+  %27 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef -2147483648) #2
   %28 = load i32, ptr %4, align 4
   %29 = add i32 %28, 1
   store i32 %29, ptr %4, align 4
-  %30 = add nuw i32 %.024, 1
+  %30 = add nuw i32 %.02124, 1
   %31 = load i32, ptr %6, align 4
   %32 = icmp ult i32 %30, %31
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !14

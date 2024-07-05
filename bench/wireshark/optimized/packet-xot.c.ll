@@ -413,8 +413,8 @@ get_xot_pdu_len.exit:                             ; preds = %11, %14
   br label %39
 
 39:                                               ; preds = %35, %33
-  %.0 = phi i32 [ %34, %33 ], [ %38, %35 ]
-  %.not48 = icmp eq i32 %.0, 0
+  %.041 = phi i32 [ %34, %33 ], [ %38, %35 ]
+  %.not48 = icmp eq i32 %.041, 0
   br i1 %.not48, label %.loopexit, label %40
 
 40:                                               ; preds = %39, %28
@@ -431,8 +431,8 @@ get_xot_pdu_len.exit:                             ; preds = %11, %14
 
 .loopexit:                                        ; preds = %39, %22, %get_xot_pdu_len.exit, %.lr.ph, %._crit_edge
   %.pn = phi i32 [ %.043, %._crit_edge ], [ %20, %39 ], [ %20, %22 ], [ %20, %get_xot_pdu_len.exit ], [ %9, %.lr.ph ]
-  %.041 = sub i32 %.pn, %2
-  ret i32 %.041
+  %.0 = sub i32 %.pn, %2
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

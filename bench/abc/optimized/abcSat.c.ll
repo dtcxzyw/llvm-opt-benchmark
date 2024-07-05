@@ -3863,8 +3863,8 @@ Vec_IntPush.exit132:                              ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %191, %.loopexit.sink.split, %.preheader, %Vec_IntPush.exit
-  %.070 = phi i32 [ 1, %Vec_IntPush.exit ], [ 1, %.preheader ], [ 0, %.loopexit.sink.split ], [ 1, %191 ]
-  ret i32 %.070
+  %.0 = phi i32 [ 1, %Vec_IntPush.exit ], [ 1, %.preheader ], [ 0, %.loopexit.sink.split ], [ 1, %191 ]
+  ret i32 %.0
 }
 
 declare ptr @Cudd_ReadOne(ptr noundef) local_unnamed_addr #1

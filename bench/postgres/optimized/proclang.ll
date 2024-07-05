@@ -69,7 +69,7 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
   br label %33
 
 33:                                               ; preds = %28, %31
-  %.051 = phi i32 [ %32, %31 ], [ 0, %28 ]
+  %.0 = phi i32 [ %32, %31 ], [ 0, %28 ]
   %34 = getelementptr inbounds i8, ptr %0, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not54 = icmp eq ptr %35, null
@@ -81,7 +81,7 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
   br label %38
 
 38:                                               ; preds = %33, %36
-  %.050 = phi i32 [ %37, %36 ], [ 0, %33 ]
+  %.049 = phi i32 [ %37, %36 ], [ 0, %33 ]
   %39 = call ptr @table_open(i32 noundef 2612, i32 noundef 3) #5
   %40 = getelementptr inbounds i8, ptr %39, i64 64
   %41 = load ptr, ptr %40, align 8
@@ -106,10 +106,10 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
   %52 = zext i32 %20 to i64
   %53 = getelementptr inbounds i8, ptr %4, i64 40
   store i64 %52, ptr %53, align 8
-  %54 = zext i32 %.051 to i64
+  %54 = zext i32 %.0 to i64
   %55 = getelementptr inbounds i8, ptr %4, i64 48
   store i64 %54, ptr %55, align 16
-  %56 = zext i32 %.050 to i64
+  %56 = zext i32 %.049 to i64
   %57 = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %56, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %5, i64 8
@@ -183,23 +183,23 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
   %94 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 0, ptr %94, align 4
   call void @add_exact_object_address(ptr noundef nonnull %8, ptr noundef %92) #5
-  %.not56 = icmp eq i32 %.051, 0
+  %.not56 = icmp eq i32 %.0, 0
   br i1 %.not56, label %96, label %95
 
 95:                                               ; preds = %89
   store i32 1255, ptr %8, align 4
-  store i32 %.051, ptr %93, align 4
+  store i32 %.0, ptr %93, align 4
   store i32 0, ptr %94, align 4
   call void @add_exact_object_address(ptr noundef nonnull %8, ptr noundef %92) #5
   br label %96
 
 96:                                               ; preds = %95, %89
-  %.not57 = icmp eq i32 %.050, 0
+  %.not57 = icmp eq i32 %.049, 0
   br i1 %.not57, label %98, label %97
 
 97:                                               ; preds = %96
   store i32 1255, ptr %8, align 4
-  store i32 %.050, ptr %93, align 4
+  store i32 %.049, ptr %93, align 4
   store i32 0, ptr %94, align 4
   call void @add_exact_object_address(ptr noundef nonnull %8, ptr noundef %92) #5
   br label %98

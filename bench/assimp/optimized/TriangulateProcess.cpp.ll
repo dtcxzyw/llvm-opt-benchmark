@@ -701,14 +701,14 @@ _ZNK10aiVector3tIfEixEj.exit272:                  ; preds = %_ZNK10aiVector3tIfE
 
 for.cond294.preheader:                            ; preds = %for.cond294.preheader.preheader, %if.end394
   %curOut.1479 = phi ptr [ %incdec.ptr386, %if.end394 ], [ %curOut.0489, %for.cond294.preheader.preheader ]
-  %next.0478 = phi i32 [ %next.1., %if.end394 ], [ 0, %for.cond294.preheader.preheader ]
+  %num.0478 = phi i32 [ %dec, %if.end394 ], [ %13, %for.cond294.preheader.preheader ]
   %prev.0477 = phi i32 [ %prev.1, %if.end394 ], [ %sub68, %for.cond294.preheader.preheader ]
-  %num.0476 = phi i32 [ %dec, %if.end394 ], [ %13, %for.cond294.preheader.preheader ]
+  %next.0476 = phi i32 [ %next.1., %if.end394 ], [ 0, %for.cond294.preheader.preheader ]
   br label %for.cond294
 
 for.cond294:                                      ; preds = %for.cond294.backedge, %for.cond294.preheader
-  %ear.0 = phi i32 [ %next.0478, %for.cond294.preheader ], [ %next.1., %for.cond294.backedge ]
   %prev.1 = phi i32 [ %prev.0477, %for.cond294.preheader ], [ %ear.0, %for.cond294.backedge ]
+  %ear.0 = phi i32 [ %next.0476, %for.cond294.preheader ], [ %next.1., %for.cond294.backedge ]
   %num_found.0 = phi i32 [ 0, %for.cond294.preheader ], [ %num_found.1, %for.cond294.backedge ]
   br label %for.cond296
 
@@ -931,8 +931,8 @@ if.end394:                                        ; preds = %invoke.cont391, %if
   store i32 %next.1., ptr %arrayidx400, align 4
   %arrayidx.i318 = getelementptr inbounds i8, ptr %call57, i64 %conv317
   store i8 1, ptr %arrayidx.i318, align 1
-  %dec = add nsw i32 %num.0476, -1
-  %cmp293 = icmp sgt i32 %num.0476, 4
+  %dec = add nsw i32 %num.0478, -1
+  %cmp293 = icmp sgt i32 %num.0478, 4
   br i1 %cmp293, label %for.cond294.preheader, label %if.then405, !llvm.loop !15
 
 if.then405:                                       ; preds = %if.end394, %while.cond.preheader

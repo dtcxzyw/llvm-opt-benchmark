@@ -16917,9 +16917,9 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i.i: ; preds = %184
   %.sroa.1028.i.i.sroa.6.0.i.i = phi i64 [ %.sroa.1028.i.i.sroa.6.1.i.i, %718 ], [ %.sroa.822.i.sroa.11.i.sroa.8.0.i.i, %608 ], [ %.sroa.822.i.sroa.11.i.sroa.8.0.i.i, %600 ]
   %.sroa.927.sroa.6.sroa.6.i.i.sroa.0.0.i.i = phi ptr [ %.sroa.927.sroa.6.sroa.6.i.i.sroa.0.1.i.i, %718 ], [ %.sroa.822.i.sroa.10.i.sroa.0.0.i.i, %608 ], [ %.sroa.822.i.sroa.10.i.sroa.0.0.i.i, %600 ]
   %.sroa.927.sroa.6.sroa.6.i.i.sroa.6.0.i.i = phi i64 [ %.sroa.927.sroa.6.sroa.6.i.i.sroa.6.1.i.i, %718 ], [ %.sroa.822.i.sroa.10.i.sroa.8.0.i.i, %608 ], [ %.sroa.822.i.sroa.10.i.sroa.8.0.i.i, %600 ]
-  %.sroa.568.0.i.i.i = phi ptr [ %.sroa.531.0.i.i.i.i, %718 ], [ %607, %608 ], [ %607, %600 ]
-  %.sroa.367.0.i.i.i = phi i64 [ %.sroa.330.0.i.i.i.i, %718 ], [ %602, %608 ], [ %602, %600 ]
   %.sroa.066.0.i.i.i = phi i64 [ %.sroa.029.0.i.i.i.i, %718 ], [ %.sroa.025.033.i.i.i.i, %608 ], [ %.sroa.025.033.i.i.i.i, %600 ]
+  %.sroa.367.0.i.i.i = phi i64 [ %.sroa.330.0.i.i.i.i, %718 ], [ %602, %608 ], [ %602, %600 ]
+  %.sroa.568.0.i.i.i = phi ptr [ %.sroa.531.0.i.i.i.i, %718 ], [ %607, %608 ], [ %607, %600 ]
   %.sroa.769.0.i.i.i = phi i64 [ %.sroa.732.sroa.0.0.i.i.i.i, %718 ], [ %.sroa.822.i.sroa.9.0.i.i.i, %608 ], [ %.sroa.822.i.sroa.9.0.i.i.i, %600 ]
   %732 = getelementptr inbounds i8, ptr %1, i64 5281
   store i8 0, ptr %732, align 1, !noalias !1595
@@ -106550,8 +106550,8 @@ _ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView17path_or_inline
   unreachable
 
 .thread58:                                        ; preds = %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.i, %155, %286
-  %.sroa.5.sroa.5.0 = phi i32 [ %288, %286 ], [ undef, %155 ], [ undef, %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.i ]
   %.sroa.5.sroa.4.0 = phi i32 [ %287, %286 ], [ undef, %155 ], [ undef, %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.i ]
+  %.sroa.5.sroa.5.0 = phi i32 [ %288, %286 ], [ undef, %155 ], [ undef, %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.i ]
   %.sroa.5.sroa.6.0 = phi i64 [ %259, %286 ], [ undef, %155 ], [ undef, %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.i ]
   %.sroa.5.sroa.7.0 = phi i32 [ %245, %286 ], [ undef, %155 ], [ undef, %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.i ]
   %.sroa.5.sroa.8.0 = phi i8 [ %208, %286 ], [ undef, %155 ], [ undef, %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.i ]

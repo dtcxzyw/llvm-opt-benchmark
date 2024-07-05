@@ -1451,8 +1451,8 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i97:     ; preds = %62
   br label %135
 
 113:                                              ; preds = %92, %81, %108, %101
-  %.029 = phi i8 [ %110, %108 ], [ 1, %101 ], [ 0, %81 ], [ 0, %92 ]
-  %114 = trunc i8 %.029 to i1
+  %.035 = phi i8 [ %110, %108 ], [ 1, %101 ], [ 0, %81 ], [ 0, %92 ]
+  %114 = trunc i8 %.035 to i1
   invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %75, i1 noundef zeroext %114)
           to label %115 unwind label %69
 
@@ -3483,8 +3483,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i68:    ; preds = %41
 _ZN7QStringD2Ev.exit74:                           ; preds = %44, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i68, %41
   call void @_ZN9QComboBox19setSizeAdjustPolicyENS_16SizeAdjustPolicyE(ptr noundef nonnull align 8 dereferenceable(40) %37, i32 noundef 0)
   %46 = getelementptr inbounds i8, ptr %1, i64 64
-  %.027268 = load ptr, ptr %46, align 8
-  %.not269 = icmp eq ptr %.027268, null
+  %.034268 = load ptr, ptr %46, align 8
+  %.not269 = icmp eq ptr %.034268, null
   br i1 %.not269, label %._crit_edge272, label %.lr.ph271
 
 .lr.ph271:                                        ; preds = %_ZN7QStringD2Ev.exit74
@@ -3506,8 +3506,8 @@ _ZN7QStringD2Ev.exit74:                           ; preds = %44, %_ZN17QArrayDat
   br label %62
 
 62:                                               ; preds = %.lr.ph271, %_ZN7QStringD2Ev.exit189
-  %.027270 = phi ptr [ %.027268, %.lr.ph271 ], [ %.027, %_ZN7QStringD2Ev.exit189 ]
-  %63 = load ptr, ptr %.027270, align 8
+  %.034270 = phi ptr [ %.034268, %.lr.ph271 ], [ %.034, %_ZN7QStringD2Ev.exit189 ]
+  %63 = load ptr, ptr %.034270, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
   %.not.i75 = icmp eq ptr %65, null
@@ -4334,9 +4334,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i187:   ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit189
 
 _ZN7QStringD2Ev.exit189:                          ; preds = %_ZN7QStringD2Ev.exit185, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i187, %353
-  %355 = getelementptr inbounds i8, ptr %.027270, i64 8
-  %.027 = load ptr, ptr %355, align 8
-  %.not = icmp eq ptr %.027, null
+  %355 = getelementptr inbounds i8, ptr %.034270, i64 8
+  %.034 = load ptr, ptr %355, align 8
+  %.not = icmp eq ptr %.034, null
   br i1 %.not, label %._crit_edge272, label %62, !llvm.loop !72
 
 .body:                                            ; preds = %165, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i156, %161, %142, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i143, %_ZN10QByteArrayD2Ev.exit141, %120, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i203, %116, %112, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i126, %108, %176, %106, %_ZN7QStringD2Ev.exit175, %.body147
@@ -10964,7 +10964,7 @@ define void @_ZN16InterfaceToolbar12startCaptureEP7_GArray(ptr noundef nonnull a
 
 33:                                               ; preds = %.lr.ph, %_ZN7QStringD2Ev.exit42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN7QStringD2Ev.exit42 ]
-  %.01790 = phi i1 [ false, %.lr.ph ], [ %.2, %_ZN7QStringD2Ev.exit42 ]
+  %.01691 = phi i1 [ false, %.lr.ph ], [ %.2, %_ZN7QStringD2Ev.exit42 ]
   %34 = load ptr, ptr %1, align 8
   %35 = getelementptr %struct.interface_options_tag, ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
@@ -11056,7 +11056,7 @@ _ZNK4QMapI7QString16interface_valuesE8containsERKS0_.exit: ; preds = %_ZNKSt8_Rb
 67:                                               ; preds = %65, %62
   %68 = call noundef i32 @_ZNK7QString7compareERKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef 1) #22
   %69 = icmp eq i32 %68, 0
-  %spec.select = select i1 %69, i1 true, i1 %.01790
+  %spec.select = select i1 %69, i1 true, i1 %.01691
   %70 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN4QMapI7QString16interface_valuesEixERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %71 unwind label %60
 
@@ -11196,7 +11196,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36:    ; preds = %_ZN10QByteArrayD2Ev
   br label %_ZN7QStringD2Ev.exit38
 
 _ZN7QStringD2Ev.exit38:                           ; preds = %43, %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_16interface_valuesESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, %38, %116, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36, %_ZN10QByteArrayD2Ev.exit, %71, %_ZNK4QMapI7QString16interface_valuesE8containsERKS0_.exit
-  %.2 = phi i1 [ %.01790, %_ZNK4QMapI7QString16interface_valuesE8containsERKS0_.exit ], [ %spec.select, %71 ], [ %spec.select, %_ZN10QByteArrayD2Ev.exit ], [ %spec.select, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36 ], [ %spec.select, %116 ], [ %.01790, %38 ], [ %.01790, %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_16interface_valuesESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i ], [ %.01790, %43 ]
+  %.2 = phi i1 [ %.01691, %_ZNK4QMapI7QString16interface_valuesE8containsERKS0_.exit ], [ %spec.select, %71 ], [ %spec.select, %_ZN10QByteArrayD2Ev.exit ], [ %spec.select, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36 ], [ %spec.select, %116 ], [ %.01691, %38 ], [ %.01691, %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_16interface_valuesESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i ], [ %.01691, %43 ]
   %118 = load ptr, ptr %6, align 8
   %.not.i.i.i39 = icmp eq ptr %118, null
   br i1 %.not.i.i.i39, label %_ZN7QStringD2Ev.exit42, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i40
@@ -20800,9 +20800,9 @@ define linkonce_odr { ptr, ptr } @_ZSt16__remove_copy_ifISt23_Rb_tree_const_iter
   br label %9
 
 9:                                                ; preds = %.lr.ph, %33
-  %.sroa.3.08 = phi ptr [ %3, %.lr.ph ], [ %.sroa.3.1, %33 ]
-  %.sroa.03.07 = phi ptr [ %0, %.lr.ph ], [ %34, %33 ]
-  %10 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 32
+  %.sroa.03.08 = phi ptr [ %0, %.lr.ph ], [ %34, %33 ]
+  %.sroa.3.07 = phi ptr [ %3, %.lr.ph ], [ %.sroa.3.1, %33 ]
+  %10 = getelementptr inbounds i8, ptr %.sroa.03.08, i64 32
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %10, align 4
@@ -20817,7 +20817,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIi
   br label %33
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS5_EEEE21copyIfNotEquivalentToERKSC_RS9_EUlRKT_E_EclISt23_Rb_tree_const_iteratorISA_EEEbSH_.exit: ; preds = %9
-  %17 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.3.08, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %17 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.3.07, ptr noundef nonnull align 4 dereferenceable(4) %10)
   %18 = extractvalue { ptr, ptr } %17, 0
   %19 = extractvalue { ptr, ptr } %17, 1
   %.not.i.i.i.i = icmp eq ptr %19, null
@@ -20853,8 +20853,8 @@ _ZNSt15insert_iteratorISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS2_EEEE
   br label %33
 
 33:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS5_EEEE21copyIfNotEquivalentToERKSC_RS9_EUlRKT_E_EclISt23_Rb_tree_const_iteratorISA_EEEbSH_.exit.thread, %_ZNSt15insert_iteratorISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS2_EEEEaSERKS7_.exit
-  %.sroa.3.1 = phi ptr [ %32, %_ZNSt15insert_iteratorISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS2_EEEEaSERKS7_.exit ], [ %.sroa.3.08, %_ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS5_EEEE21copyIfNotEquivalentToERKSC_RS9_EUlRKT_E_EclISt23_Rb_tree_const_iteratorISA_EEEbSH_.exit.thread ]
-  %34 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.03.07) #24
+  %.sroa.3.1 = phi ptr [ %32, %_ZNSt15insert_iteratorISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS2_EEEEaSERKS7_.exit ], [ %.sroa.3.07, %_ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS5_EEEE21copyIfNotEquivalentToERKSC_RS9_EUlRKT_E_EclISt23_Rb_tree_const_iteratorISA_EEEbSH_.exit.thread ]
+  %34 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.03.08) #24
   %.not = icmp eq ptr %34, %1
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !249
 

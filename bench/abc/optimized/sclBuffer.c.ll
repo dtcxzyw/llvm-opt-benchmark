@@ -400,12 +400,12 @@ Abc_SclObjIsBufInv.exit93:                        ; preds = %58
   br label %88
 
 88:                                               ; preds = %81, %84, %69
-  %.055 = phi ptr [ %82, %81 ], [ %87, %84 ], [ %75, %69 ]
-  %.not63 = icmp eq ptr %65, %.055
+  %.0 = phi ptr [ %82, %81 ], [ %87, %84 ], [ %75, %69 ]
+  %.not63 = icmp eq ptr %65, %.0
   br i1 %.not63, label %Abc_SclObjIsBufInv.exit93.thread, label %89
 
 89:                                               ; preds = %88
-  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %49, ptr noundef nonnull %65, ptr noundef %.055) #17
+  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %49, ptr noundef nonnull %65, ptr noundef %.0) #17
   br label %Abc_SclObjIsBufInv.exit93.thread
 
 Abc_SclObjIsBufInv.exit93.thread:                 ; preds = %58, %88, %89, %Abc_SclObjIsBufInv.exit93
@@ -1723,10 +1723,10 @@ Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %57, %._crit_edge.split.loop.exit116
-  %.0.lcssa = phi i32 [ %58, %._crit_edge.split.loop.exit116 ], [ %.val74, %57 ]
-  %.0.lcssa.fr = freeze i32 %.0.lcssa
-  %59 = icmp ult i32 %.0.lcssa.fr, 2
-  %60 = icmp eq i32 %.0.lcssa.fr, %1
+  %.066.lcssa = phi i32 [ %58, %._crit_edge.split.loop.exit116 ], [ %.val74, %57 ]
+  %.066.lcssa.fr = freeze i32 %.066.lcssa
+  %59 = icmp ult i32 %.066.lcssa.fr, 2
+  %60 = icmp eq i32 %.066.lcssa.fr, %1
   %or.cond118 = or i1 %59, %60
   br i1 %or.cond118, label %.thread, label %67
 
@@ -1742,12 +1742,12 @@ Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
   br label %67
 
 67:                                               ; preds = %._crit_edge, %.thread, %63, %25
-  %.167 = phi i32 [ %66, %63 ], [ %1, %.thread ], [ %1, %25 ], [ %.0.lcssa.fr, %._crit_edge ]
-  %68 = icmp sgt i32 %.167, 0
+  %.1 = phi i32 [ %66, %63 ], [ %1, %.thread ], [ %1, %25 ], [ %.066.lcssa.fr, %._crit_edge ]
+  %68 = icmp sgt i32 %.1, 0
   br i1 %68, label %.lr.ph99.preheader, label %.critedge2
 
 .lr.ph99.preheader:                               ; preds = %67
-  %wide.trip.count108 = zext nneg i32 %.167 to i64
+  %wide.trip.count108 = zext nneg i32 %.1 to i64
   br label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %.lr.ph99
@@ -1773,7 +1773,7 @@ Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
   br i1 %74, label %.lr.ph103, label %.critedge4
 
 .lr.ph103:                                        ; preds = %71
-  %75 = add nsw i32 %.167, -1
+  %75 = add nsw i32 %.1, -1
   %76 = zext i32 %75 to i64
   br label %77
 
@@ -1969,7 +1969,7 @@ define void @Abc_SclPerformBuffering_rec(ptr noundef %0, i32 noundef %1, i32 nou
   br label %49
 
 49:                                               ; preds = %47, %45
-  %.048 = phi ptr [ %46, %45 ], [ %48, %47 ]
+  %.0 = phi ptr [ %46, %45 ], [ %48, %47 ]
   %.val58 = load i32, ptr %26, align 4
   %50 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %51 = add i32 %.val58, -1
@@ -2001,7 +2001,7 @@ Vec_PtrAlloc.exit:                                ; preds = %49, %53
   %.val54 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds ptr, ptr %.val54, i64 %indvars.iv94
   %61 = load ptr, ptr %60, align 8
-  tail call void @Abc_ObjPatchFanin(ptr noundef %61, ptr noundef nonnull %0, ptr noundef %.048) #17
+  tail call void @Abc_ObjPatchFanin(ptr noundef %61, ptr noundef nonnull %0, ptr noundef %.0) #17
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %.val = load i32, ptr %52, align 4
   %62 = sext i32 %.val to i64
@@ -2019,15 +2019,15 @@ Vec_PtrAlloc.exit:                                ; preds = %49, %53
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge2, %65
   tail call void @free(ptr noundef nonnull %50) #17
-  tail call void @Abc_ObjAddFanin(ptr noundef %.048, ptr noundef nonnull %0) #17
-  %66 = getelementptr i8, ptr %.048, i64 44
+  tail call void @Abc_ObjAddFanin(ptr noundef %.0, ptr noundef nonnull %0) #17
+  %66 = getelementptr i8, ptr %.0, i64 44
   %.val.i66 = load i32, ptr %66, align 4
   %67 = icmp sgt i32 %.val.i66, 0
   br i1 %67, label %.lr.ph.i, label %Abc_SclComputeReverseLevel.exit
 
 .lr.ph.i:                                         ; preds = %Vec_PtrFree.exit
-  %.val8.i = load ptr, ptr %.048, align 8
-  %68 = getelementptr i8, ptr %.048, i64 48
+  %.val8.i = load ptr, ptr %.0, align 8
+  %68 = getelementptr i8, ptr %.0, i64 48
   %.val9.i = load ptr, ptr %68, align 8
   %69 = getelementptr i8, ptr %.val8.i, i64 32
   %.val8.val.i = load ptr, ptr %69, align 8
@@ -2059,7 +2059,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %65
 
 Abc_SclComputeReverseLevel.exit:                  ; preds = %Vec_PtrFree.exit, %.critedge.loopexit.i
   %.0.lcssa.i = phi i32 [ 4096, %Vec_PtrFree.exit ], [ %82, %.critedge.loopexit.i ]
-  %83 = getelementptr inbounds i8, ptr %.048, i64 20
+  %83 = getelementptr inbounds i8, ptr %.0, i64 20
   %84 = load i32, ptr %83, align 4
   %85 = and i32 %84, 4095
   %86 = or disjoint i32 %85, %.0.lcssa.i
@@ -2067,7 +2067,7 @@ Abc_SclComputeReverseLevel.exit:                  ; preds = %Vec_PtrFree.exit, %
   br i1 %.not53, label %88, label %87
 
 87:                                               ; preds = %Abc_SclComputeReverseLevel.exit
-  tail call void @Abc_NodeInvUpdateFanPolarity(ptr noundef nonnull %.048)
+  tail call void @Abc_NodeInvUpdateFanPolarity(ptr noundef nonnull %.0)
   br label %88
 
 88:                                               ; preds = %Abc_SclComputeReverseLevel.exit, %87, %.critedge._crit_edge

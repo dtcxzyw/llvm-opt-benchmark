@@ -16,13 +16,13 @@ define ptr @group_findbypid(i32 noundef %0) local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %5, %1
-  %.0.in = phi ptr [ @g_grouphead, %1 ], [ %.0, %5 ]
-  %.0 = load ptr, ptr %.0.in, align 8
-  %.not = icmp eq ptr %.0, null
+  %.07.in = phi ptr [ @g_grouphead, %1 ], [ %.07, %5 ]
+  %.07 = load ptr, ptr %.07.in, align 8
+  %.not = icmp eq ptr %.07, null
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %.0, i64 8
+  %6 = getelementptr inbounds i8, ptr %.07, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %4, !llvm.loop !8
@@ -46,7 +46,7 @@ define ptr @group_findbypid(i32 noundef %0) local_unnamed_addr #0 {
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %14, %12, %11, %9
-  ret ptr %.0
+  ret ptr %.07
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

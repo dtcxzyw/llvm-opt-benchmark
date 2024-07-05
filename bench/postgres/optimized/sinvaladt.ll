@@ -308,8 +308,8 @@ define dso_local void @SIInsertDataEntries(ptr nocapture noundef readonly %0, i3
 
 12:                                               ; preds = %.lr.ph42, %._crit_edge
   %.040 = phi ptr [ %0, %.lr.ph42 ], [ %30, %._crit_edge ]
-  %.03239 = phi i32 [ %1, %.lr.ph42 ], [ %34, %._crit_edge ]
-  %13 = tail call i32 @llvm.umin.i32(i32 %.03239, i32 64)
+  %.03139 = phi i32 [ %1, %.lr.ph42 ], [ %34, %._crit_edge ]
+  %13 = tail call i32 @llvm.umin.i32(i32 %.03139, i32 64)
   %14 = load ptr, ptr @MainLWLockArray, align 8
   %15 = getelementptr i8, ptr %14, i64 768
   %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef %15, i32 noundef 0) #8
@@ -335,19 +335,19 @@ define dso_local void @SIInsertDataEntries(ptr nocapture noundef readonly %0, i3
 .preheader:                                       ; preds = %23, %.preheader
   %.137 = phi ptr [ %30, %.preheader ], [ %.040, %23 ]
   %.03036 = phi i32 [ %31, %.preheader ], [ %18, %23 ]
-  %.03135 = phi i32 [ %26, %.preheader ], [ %13, %23 ]
-  %26 = add nsw i32 %.03135, -1
+  %.03235 = phi i32 [ %26, %.preheader ], [ %13, %23 ]
+  %26 = add nsw i32 %.03235, -1
   %27 = srem i32 %.03036, 4096
   %28 = sext i32 %27 to i64
   %29 = getelementptr [4096 x %union.SharedInvalidationMessage], ptr %7, i64 0, i64 %28
   %30 = getelementptr i8, ptr %.137, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %.137, i64 16, i1 false)
   %31 = add i32 %.03036, 1
-  %32 = icmp sgt i32 %.03135, 1
+  %32 = icmp sgt i32 %.03235, 1
   br i1 %32, label %.preheader, label %33, !llvm.loop !9
 
 33:                                               ; preds = %.preheader
-  %34 = sub nsw i32 %.03239, %13
+  %34 = sub nsw i32 %.03139, %13
   %35 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #8, !srcloc !10
   %.not33 = icmp eq i8 %35, 0
   br i1 %.not33, label %38, label %36
@@ -424,9 +424,9 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
 
 23:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %.064 = phi ptr [ null, %.lr.ph ], [ %.1, %47 ]
-  %.05362 = phi i32 [ %19, %.lr.ph ], [ %.154, %47 ]
-  %.05561 = phi i32 [ %13, %.lr.ph ], [ %.2, %47 ]
+  %.064 = phi i32 [ %13, %.lr.ph ], [ %.2, %47 ]
+  %.05163 = phi i32 [ %19, %.lr.ph ], [ %.152, %47 ]
+  %.05561 = phi ptr [ null, %.lr.ph ], [ %.156, %47 ]
   %24 = load ptr, ptr %21, align 8
   %25 = getelementptr i32, ptr %24, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
@@ -454,22 +454,22 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   br label %47
 
 41:                                               ; preds = %38
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %30, i32 %.05561)
-  %42 = icmp slt i32 %30, %.05362
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %30, i32 %.064)
+  %42 = icmp slt i32 %30, %.05163
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds i8, ptr %28, i64 9
   %45 = load i8, ptr %44, align 1
   %46 = trunc i8 %45 to i1
-  %spec.select59 = select i1 %46, i32 %.05362, i32 %30
-  %spec.select60 = select i1 %46, ptr %.064, ptr %28
+  %spec.select59 = select i1 %46, ptr %.05561, ptr %28
+  %spec.select60 = select i1 %46, i32 %.05163, i32 %30
   br label %47
 
 47:                                               ; preds = %43, %41, %23, %34, %40
-  %.2 = phi i32 [ %.05561, %23 ], [ %.05561, %34 ], [ %.05561, %40 ], [ %spec.select, %41 ], [ %spec.select, %43 ]
-  %.154 = phi i32 [ %.05362, %23 ], [ %.05362, %34 ], [ %.05362, %40 ], [ %.05362, %41 ], [ %spec.select59, %43 ]
-  %.1 = phi ptr [ %.064, %23 ], [ %.064, %34 ], [ %.064, %40 ], [ %.064, %41 ], [ %spec.select60, %43 ]
+  %.156 = phi ptr [ %.05561, %23 ], [ %.05561, %34 ], [ %.05561, %40 ], [ %.05561, %41 ], [ %spec.select59, %43 ]
+  %.152 = phi i32 [ %.05163, %23 ], [ %.05163, %34 ], [ %.05163, %40 ], [ %.05163, %41 ], [ %spec.select60, %43 ]
+  %.2 = phi i32 [ %.064, %23 ], [ %.064, %34 ], [ %.064, %40 ], [ %spec.select, %41 ], [ %spec.select, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = icmp ult i64 %indvars.iv.next, %22
   br i1 %48, label %23, label %._crit_edge, !llvm.loop !14
@@ -523,7 +523,7 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %._crit_edge.thread, %.loopexit.loopexit, %53, %._crit_edge
-  %.0.lcssa77 = phi ptr [ %.1, %.loopexit.loopexit ], [ %.1, %53 ], [ %.1, %._crit_edge ], [ null, %._crit_edge.thread ], [ null, %.thread ]
+  %.055.lcssa76 = phi ptr [ %.156, %.loopexit.loopexit ], [ %.156, %53 ], [ %.156, %._crit_edge ], [ null, %._crit_edge.thread ], [ null, %.thread ]
   %67 = phi i32 [ %54, %.loopexit.loopexit ], [ %54, %53 ], [ %.2, %._crit_edge ], [ %13, %._crit_edge.thread ], [ %51, %.thread ]
   %68 = phi i32 [ %.pre73, %.loopexit.loopexit ], [ %55, %53 ], [ %13, %._crit_edge ], [ %13, %._crit_edge.thread ], [ %52, %.thread ]
   %69 = sub i32 %68, %67
@@ -533,18 +533,18 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   %.sink = select i1 %70, i32 2048, i32 %72
   %73 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %.sink, ptr %73, align 8
-  %.not = icmp eq ptr %.0.lcssa77, null
+  %.not = icmp eq ptr %.055.lcssa76, null
   br i1 %.not, label %96, label %74
 
 74:                                               ; preds = %.loopexit
-  %75 = load i32, ptr %.0.lcssa77, align 4
+  %75 = load i32, ptr %.055.lcssa76, align 4
   %76 = getelementptr inbounds i8, ptr %3, i64 65568
-  %77 = ptrtoint ptr %.0.lcssa77 to i64
+  %77 = ptrtoint ptr %.055.lcssa76 to i64
   %78 = ptrtoint ptr %76 to i64
   %79 = sub i64 %77, %78
   %80 = lshr exact i64 %79, 4
   %81 = trunc i64 %80 to i32
-  %82 = getelementptr inbounds i8, ptr %.0.lcssa77, i64 9
+  %82 = getelementptr inbounds i8, ptr %.055.lcssa76, i64 9
   store i8 1, ptr %82, align 1
   %83 = load ptr, ptr @MainLWLockArray, align 8
   %84 = getelementptr i8, ptr %83, i64 640

@@ -405,8 +405,8 @@ do.end205:                                        ; preds = %if.then187, %if.els
   br label %if.end209
 
 if.end209:                                        ; preds = %do.end205, %if.end179
-  %dest.addr.5 = phi ptr [ %add.ptr207, %do.end205 ], [ %dest.addr.4, %if.end179 ]
   %j.2 = phi i32 [ %add208, %do.end205 ], [ %srcLength.addr.9, %if.end179 ]
+  %dest.addr.5 = phi ptr [ %add.ptr207, %do.end205 ], [ %dest.addr.4, %if.end179 ]
   %cmp211119 = icmp slt i32 %j.2, %srcLength.addr.5
   br i1 %cmp211119, label %while.body212.preheader, label %do.cond218
 
@@ -417,12 +417,12 @@ while.body212.preheader:                          ; preds = %if.end209
 
 while.body212:                                    ; preds = %while.body212.preheader, %while.body212
   %indvars.iv128 = phi i64 [ %23, %while.body212.preheader ], [ %indvars.iv.next129, %while.body212 ]
-  %dest.addr.6120 = phi ptr [ %dest.addr.5, %while.body212.preheader ], [ %incdec.ptr216, %while.body212 ]
+  %dest.addr.6121 = phi ptr [ %dest.addr.5, %while.body212.preheader ], [ %incdec.ptr216, %while.body212 ]
   %indvars.iv.next129 = add nsw i64 %indvars.iv128, 1
   %arrayidx215 = getelementptr inbounds i16, ptr %src.addr.1, i64 %indvars.iv128
   %24 = load i16, ptr %arrayidx215, align 2
-  %incdec.ptr216 = getelementptr inbounds i8, ptr %dest.addr.6120, i64 2
-  store i16 %24, ptr %dest.addr.6120, align 2
+  %incdec.ptr216 = getelementptr inbounds i8, ptr %dest.addr.6121, i64 2
+  store i16 %24, ptr %dest.addr.6121, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count
   br i1 %exitcond.not, label %do.cond218, label %while.body212, !llvm.loop !11
 
@@ -562,9 +562,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end91
   %dest.addr.0229 = phi ptr [ %dest, %for.body.lr.ph ], [ %dest.addr.1, %if.end91 ]
-  %run.0228 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end91 ]
-  %destSize.addr.0227 = phi i32 [ %destSize, %for.body.lr.ph ], [ %sub, %if.end91 ]
-  %call79 = call i32 @ubidi_getVisualRun_75(ptr noundef nonnull %pBiDi, i32 noundef %run.0228, ptr noundef nonnull %logicalStart, ptr noundef nonnull %runLength)
+  %destSize.addr.0228 = phi i32 [ %destSize, %for.body.lr.ph ], [ %sub, %if.end91 ]
+  %run.0227 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end91 ]
+  %call79 = call i32 @ubidi_getVisualRun_75(ptr noundef nonnull %pBiDi, i32 noundef %run.0227, ptr noundef nonnull %logicalStart, ptr noundef nonnull %runLength)
   %cmp80 = icmp eq i32 %call79, 0
   %12 = load i32, ptr %logicalStart, align 4
   %idx.ext82 = sext i32 %12 to i64
@@ -573,11 +573,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp80, label %if.then81, label %if.else
 
 if.then81:                                        ; preds = %for.body
-  %call87 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr83, i32 noundef %13, ptr noundef %dest.addr.0229, i32 noundef %destSize.addr.0227, i16 noundef zeroext %and85, ptr noundef nonnull %pErrorCode)
+  %call87 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr83, i32 noundef %13, ptr noundef %dest.addr.0229, i32 noundef %destSize.addr.0228, i16 noundef zeroext %and85, ptr noundef nonnull %pErrorCode)
   br label %if.end91
 
 if.else:                                          ; preds = %for.body
-  %call90 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr83, i32 noundef %13, ptr noundef %dest.addr.0229, i32 noundef %destSize.addr.0227, i16 noundef zeroext %spec.select186, ptr noundef nonnull %pErrorCode)
+  %call90 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr83, i32 noundef %13, ptr noundef %dest.addr.0229, i32 noundef %destSize.addr.0228, i16 noundef zeroext %spec.select186, ptr noundef nonnull %pErrorCode)
   br label %if.end91
 
 if.end91:                                         ; preds = %if.else, %if.then81
@@ -587,8 +587,8 @@ if.end91:                                         ; preds = %if.else, %if.then81
   %idx.ext94 = sext i32 %storemerge to i64
   %add.ptr95 = getelementptr inbounds i16, ptr %dest.addr.0229, i64 %idx.ext94
   %dest.addr.1 = select i1 %cmp92.not, ptr null, ptr %add.ptr95
-  %sub = sub nsw i32 %destSize.addr.0227, %storemerge
-  %inc = add nuw nsw i32 %run.0228, 1
+  %sub = sub nsw i32 %destSize.addr.0228, %storemerge
+  %inc = add nuw nsw i32 %run.0227, 1
   %exitcond235.not = icmp eq i32 %inc, %call32
   br i1 %exitcond235.not, label %if.end368, label %for.body, !llvm.loop !13
 
@@ -609,7 +609,7 @@ for.body101.lr.ph:                                ; preds = %if.else97
 for.body101:                                      ; preds = %for.body101.lr.ph, %for.inc245
   %indvars.iv = phi i64 [ 0, %for.body101.lr.ph ], [ %indvars.iv.next, %for.inc245 ]
   %dest.addr.2224 = phi ptr [ %dest, %for.body101.lr.ph ], [ %dest.addr.11, %for.inc245 ]
-  %destSize.addr.1222 = phi i32 [ %destSize, %for.body101.lr.ph ], [ %destSize.addr.4, %for.inc245 ]
+  %destSize.addr.1223 = phi i32 [ %destSize, %for.body101.lr.ph ], [ %destSize.addr.4, %for.inc245 ]
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   %call102 = call i32 @ubidi_getVisualRun_75(ptr noundef nonnull %pBiDi, i32 noundef %15, ptr noundef nonnull %logicalStart, ptr noundef nonnull %runLength)
   %16 = load i32, ptr %logicalStart, align 4
@@ -648,7 +648,7 @@ if.end128:                                        ; preds = %if.end118
 
 if.then130:                                       ; preds = %if.end118, %if.end128
   %uc.0191 = phi i16 [ 8207, %if.end128 ], [ 8206, %if.end118 ]
-  %cmp131 = icmp sgt i32 %destSize.addr.1222, 0
+  %cmp131 = icmp sgt i32 %destSize.addr.1223, 0
   br i1 %cmp131, label %if.then132, label %if.end133
 
 if.then132:                                       ; preds = %if.then130
@@ -658,11 +658,11 @@ if.then132:                                       ; preds = %if.then130
 
 if.end133:                                        ; preds = %if.then132, %if.then130
   %dest.addr.3 = phi ptr [ %incdec.ptr, %if.then132 ], [ %dest.addr.2224, %if.then130 ]
-  %dec = add nsw i32 %destSize.addr.1222, -1
+  %dec = add nsw i32 %destSize.addr.1223, -1
   br label %if.end134
 
 if.end134:                                        ; preds = %if.end133, %if.end128
-  %destSize.addr.2 = phi i32 [ %dec, %if.end133 ], [ %destSize.addr.1222, %if.end128 ]
+  %destSize.addr.2 = phi i32 [ %dec, %if.end133 ], [ %destSize.addr.1223, %if.end128 ]
   %dest.addr.4 = phi ptr [ %dest.addr.3, %if.end133 ], [ %dest.addr.2224, %if.end128 ]
   %21 = load i32, ptr %runLength, align 4
   %call138 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr104, i32 noundef %21, ptr noundef %dest.addr.4, i32 noundef %destSize.addr.2, i16 noundef zeroext %and136, ptr noundef nonnull %pErrorCode)
@@ -743,7 +743,7 @@ if.end197:                                        ; preds = %if.end187
 
 if.then199:                                       ; preds = %if.end187, %if.end197
   %uc.2197 = phi i16 [ 8207, %if.end197 ], [ 8206, %if.end187 ]
-  %cmp200 = icmp sgt i32 %destSize.addr.1222, 0
+  %cmp200 = icmp sgt i32 %destSize.addr.1223, 0
   br i1 %cmp200, label %if.then201, label %if.end203
 
 if.then201:                                       ; preds = %if.then199
@@ -753,11 +753,11 @@ if.then201:                                       ; preds = %if.then199
 
 if.end203:                                        ; preds = %if.then201, %if.then199
   %dest.addr.7 = phi ptr [ %incdec.ptr202, %if.then201 ], [ %dest.addr.2224, %if.then199 ]
-  %dec204 = add nsw i32 %destSize.addr.1222, -1
+  %dec204 = add nsw i32 %destSize.addr.1223, -1
   br label %if.end205
 
 if.end205:                                        ; preds = %if.end203, %if.end197
-  %destSize.addr.3 = phi i32 [ %dec204, %if.end203 ], [ %destSize.addr.1222, %if.end197 ]
+  %destSize.addr.3 = phi i32 [ %dec204, %if.end203 ], [ %destSize.addr.1223, %if.end197 ]
   %dest.addr.8 = phi ptr [ %dest.addr.7, %if.end203 ], [ %dest.addr.2224, %if.end197 ]
   %29 = load i32, ptr %runLength, align 4
   %call206 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr104, i32 noundef %29, ptr noundef %dest.addr.8, i32 noundef %destSize.addr.3, i16 noundef zeroext %spec.select186, ptr noundef nonnull %pErrorCode)

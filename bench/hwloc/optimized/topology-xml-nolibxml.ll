@@ -889,9 +889,9 @@ define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_next_attr(ptr nocap
 
 17:                                               ; preds = %76, %15
   %18 = phi i8 [ %.pre, %15 ], [ %80, %76 ]
-  %.080 = phi i64 [ 0, %15 ], [ %77, %76 ]
-  %.079 = phi i64 [ 0, %15 ], [ %.1, %76 ]
-  %19 = getelementptr i8, ptr %16, i64 %.080
+  %.080 = phi i64 [ 0, %15 ], [ %.1, %76 ]
+  %.079 = phi i64 [ 0, %15 ], [ %77, %76 ]
+  %19 = getelementptr i8, ptr %16, i64 %.079
   switch i8 %18, label %76 [
     i8 34, label %82
     i8 38, label %20
@@ -899,13 +899,13 @@ define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_next_attr(ptr nocap
 
 20:                                               ; preds = %17
   %21 = getelementptr i8, ptr %19, i64 1
-  %22 = getelementptr i8, ptr %21, i64 %.079
+  %22 = getelementptr i8, ptr %21, i64 %.080
   %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(5) @.str.11, i64 noundef 4) #23
   %.not86 = icmp eq i32 %23, 0
   br i1 %.not86, label %24, label %26
 
 24:                                               ; preds = %20
-  %25 = add i64 %.079, 4
+  %25 = add i64 %.080, 4
   br label %76
 
 26:                                               ; preds = %20
@@ -914,7 +914,7 @@ define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_next_attr(ptr nocap
   br i1 %.not87, label %28, label %sub_0
 
 28:                                               ; preds = %26
-  %29 = add i64 %.079, 4
+  %29 = add i64 %.080, 4
   br label %76
 
 sub_0:                                            ; preds = %26
@@ -945,7 +945,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not88, label %42, label %44
 
 42:                                               ; preds = %.tail
-  %43 = add i64 %.079, 3
+  %43 = add i64 %.080, 3
   br label %76
 
 44:                                               ; preds = %.tail
@@ -954,7 +954,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not89, label %46, label %sub_094
 
 46:                                               ; preds = %44
-  %47 = add i64 %.079, 5
+  %47 = add i64 %.080, 5
   br label %76
 
 sub_094:                                          ; preds = %44
@@ -983,7 +983,7 @@ sub_296:                                          ; preds = %sub_195
   br i1 %.not90, label %58, label %sub_099
 
 58:                                               ; preds = %.tail93
-  %59 = add i64 %.079, 3
+  %59 = add i64 %.080, 3
   br label %76
 
 sub_099:                                          ; preds = %.tail93
@@ -1012,7 +1012,7 @@ sub_2101:                                         ; preds = %sub_1100
   br i1 %.not91, label %70, label %72
 
 70:                                               ; preds = %.tail98
-  %71 = add i64 %.079, 3
+  %71 = add i64 %.080, 3
   br label %76
 
 72:                                               ; preds = %.tail98
@@ -1021,14 +1021,14 @@ sub_2101:                                         ; preds = %sub_1100
   br i1 %.not92, label %74, label %.loopexit
 
 74:                                               ; preds = %72
-  %75 = add i64 %.079, 4
+  %75 = add i64 %.080, 4
   br label %76
 
 76:                                               ; preds = %17, %24, %42, %58, %74, %70, %46, %28
   %.sink = phi i8 [ 10, %24 ], [ 9, %42 ], [ 60, %58 ], [ 38, %74 ], [ 62, %70 ], [ 34, %46 ], [ 13, %28 ], [ %18, %17 ]
-  %.1 = phi i64 [ %25, %24 ], [ %43, %42 ], [ %59, %58 ], [ %75, %74 ], [ %71, %70 ], [ %47, %46 ], [ %29, %28 ], [ %.079, %17 ]
+  %.1 = phi i64 [ %25, %24 ], [ %43, %42 ], [ %59, %58 ], [ %75, %74 ], [ %71, %70 ], [ %47, %46 ], [ %29, %28 ], [ %.080, %17 ]
   store i8 %.sink, ptr %19, align 1
-  %77 = add i64 %.080, 1
+  %77 = add i64 %.079, 1
   %78 = getelementptr i8, ptr %16, i64 %77
   %79 = getelementptr i8, ptr %78, i64 %.1
   %80 = load i8, ptr %79, align 1
@@ -1036,7 +1036,7 @@ sub_2101:                                         ; preds = %sub_1100
   br i1 %81, label %.loopexit, label %17, !llvm.loop !7
 
 82:                                               ; preds = %17
-  %83 = getelementptr i8, ptr %19, i64 %.079
+  %83 = getelementptr i8, ptr %19, i64 %.080
   store i8 0, ptr %19, align 1
   %84 = getelementptr i8, ptr %83, i64 1
   %85 = tail call i64 @strspn(ptr noundef readonly %84, ptr noundef nonnull @.str.18) #23

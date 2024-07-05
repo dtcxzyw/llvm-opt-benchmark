@@ -2966,7 +2966,7 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
 
 .lr.ph259.split:                                  ; preds = %.lr.ph259, %245
   %indvars.iv317 = phi i64 [ %indvars.iv.next318, %245 ], [ 2, %.lr.ph259 ]
-  %.0108257 = phi i32 [ %.1109, %245 ], [ -1, %.lr.ph259 ]
+  %.0107258 = phi i32 [ %.1108, %245 ], [ -1, %.lr.ph259 ]
   %233 = getelementptr inbounds [0 x %union.anon], ptr %192, i64 0, i64 %indvars.iv317
   %.sroa.013.0.copyload = load i32, ptr %233, align 4
   %234 = ashr i32 %.sroa.013.0.copyload, 1
@@ -2987,13 +2987,13 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
   br i1 %or.cond, label %245, label %.critedge2.thread
 
 245:                                              ; preds = %241, %.lr.ph259.split
-  %.1109 = phi i32 [ %.0108257, %.lr.ph259.split ], [ %244, %241 ]
+  %.1108 = phi i32 [ %.0107258, %.lr.ph259.split ], [ %244, %241 ]
   %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next318, %wide.trip.count323
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph259.split, !llvm.loop !15
 
 .critedge2:                                       ; preds = %245
-  %.not113 = icmp eq i32 %.1109, -1
+  %.not113 = icmp eq i32 %.1108, -1
   br i1 %.not113, label %.loopexit212, label %.critedge2.thread
 
 .critedge2.thread.loopexit:                       ; preds = %.lr.ph259.split.us
@@ -3001,8 +3001,8 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %241, %.critedge2.thread.loopexit, %.critedge2
-  %.2110204 = phi i32 [ %.1109, %.critedge2 ], [ %246, %.critedge2.thread.loopexit ], [ %244, %241 ]
-  %247 = sext i32 %.2110204 to i64
+  %.2109204 = phi i32 [ %.1108, %.critedge2 ], [ %246, %.critedge2.thread.loopexit ], [ %244, %241 ]
+  %247 = sext i32 %.2109204 to i64
   %248 = getelementptr inbounds [0 x %union.anon], ptr %192, i64 0, i64 %247
   %249 = getelementptr inbounds i8, ptr %191, i64 16
   %250 = load i32, ptr %248, align 4

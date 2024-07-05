@@ -486,11 +486,11 @@ define hidden void @zim_Fiber___construct(ptr noundef %0, ptr nocapture readnone
 
 14:                                               ; preds = %9, %.critedge
   %15 = phi ptr [ %13, %.critedge ], [ null, %9 ]
-  %.055.ph = phi i32 [ 1, %.critedge ], [ 0, %9 ]
-  %.054.ph = phi ptr [ %11, %.critedge ], [ null, %9 ]
-  %.053.ph = phi i32 [ %., %.critedge ], [ 0, %9 ]
-  %.0.ph = phi i32 [ %.62, %.critedge ], [ 1, %9 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.055.ph, ptr noundef %15, i32 noundef %.053.ph, ptr noundef %.054.ph) #22
+  %.055.ph = phi ptr [ %11, %.critedge ], [ null, %9 ]
+  %.054.ph = phi i32 [ %., %.critedge ], [ 0, %9 ]
+  %.053.ph = phi i32 [ 1, %.critedge ], [ 0, %9 ]
+  %.052.ph = phi i32 [ %.62, %.critedge ], [ 1, %9 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.052.ph, i32 noundef %.053.ph, ptr noundef %15, i32 noundef %.054.ph, ptr noundef %.055.ph) #22
   br label %36
 
 16:                                               ; preds = %10
@@ -1149,12 +1149,12 @@ thread-pre-split:                                 ; preds = %20
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %24, %22
-  %.086 = phi i32 [ 0, %7 ], [ 1, %24 ], [ 1, %22 ]
-  %.085 = phi ptr [ null, %7 ], [ %9, %24 ], [ %9, %22 ]
-  %.084 = phi i32 [ 0, %7 ], [ 0, %24 ], [ 18, %22 ]
-  %.083 = phi ptr [ null, %7 ], [ %27, %24 ], [ null, %22 ]
+  %.087 = phi ptr [ null, %7 ], [ %9, %24 ], [ %9, %22 ]
+  %.086 = phi i32 [ 0, %7 ], [ 0, %24 ], [ 18, %22 ]
+  %.085 = phi ptr [ null, %7 ], [ %27, %24 ], [ null, %22 ]
+  %.084 = phi i32 [ 0, %7 ], [ 1, %24 ], [ 1, %22 ]
   %.0 = phi i32 [ 1, %7 ], [ 3, %24 ], [ 9, %22 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.086, ptr noundef %.083, i32 noundef %.084, ptr noundef %.085) #22
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.084, ptr noundef %.085, i32 noundef %.086, ptr noundef %.087) #22
   br label %79
 
 28:                                               ; preds = %14, %20, %15
@@ -1828,8 +1828,8 @@ define internal ptr @zend_fiber_object_gc(ptr nocapture noundef readonly %0, ptr
 
 54:                                               ; preds = %43
   %55 = getelementptr inbounds i8, ptr %0, i64 288
-  %.092112 = load ptr, ptr %55, align 8
-  %.not101113 = icmp eq ptr %.092112, null
+  %.094112 = load ptr, ptr %55, align 8
+  %.not101113 = icmp eq ptr %.094112, null
   br i1 %.not101113, label %._crit_edge, label %.lr.ph116
 
 .lr.ph116:                                        ; preds = %54
@@ -1837,9 +1837,9 @@ define internal ptr @zend_fiber_object_gc(ptr nocapture noundef readonly %0, ptr
   br label %57
 
 57:                                               ; preds = %.lr.ph116, %.loopexit
-  %.092115 = phi ptr [ %.092112, %.lr.ph116 ], [ %.092, %.loopexit ]
-  %.093114 = phi ptr [ null, %.lr.ph116 ], [ %.1, %.loopexit ]
-  %58 = getelementptr inbounds i8, ptr %.092115, i64 24
+  %.094115 = phi ptr [ %.094112, %.lr.ph116 ], [ %.094, %.loopexit ]
+  %.092114 = phi ptr [ null, %.lr.ph116 ], [ %.1, %.loopexit ]
+  %58 = getelementptr inbounds i8, ptr %.094115, i64 24
   %59 = load ptr, ptr %58, align 8
   %.not102 = icmp eq ptr %59, null
   br i1 %.not102, label %65, label %60
@@ -1850,24 +1850,24 @@ define internal ptr @zend_fiber_object_gc(ptr nocapture noundef readonly %0, ptr
   br i1 %.not103, label %65, label %62
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %.092115, i64 8
+  %63 = getelementptr inbounds i8, ptr %.094115, i64 8
   %64 = load ptr, ptr %63, align 8
   br label %65
 
 65:                                               ; preds = %57, %60, %62
   %66 = phi ptr [ %64, %62 ], [ null, %60 ], [ null, %57 ]
-  %67 = tail call ptr @zend_unfinished_execution_gc_ex(ptr noundef nonnull %.092115, ptr noundef %66, ptr noundef %4, i1 noundef zeroext false) #22
+  %67 = tail call ptr @zend_unfinished_execution_gc_ex(ptr noundef nonnull %.094115, ptr noundef %66, ptr noundef %4, i1 noundef zeroext false) #22
   %.not104 = icmp eq ptr %67, null
   br i1 %.not104, label %.loopexit, label %68
 
 68:                                               ; preds = %65
-  %.not105 = icmp eq ptr %.093114, null
+  %.not105 = icmp eq ptr %.092114, null
   br i1 %.not105, label %.loopexit, label %69
 
 69:                                               ; preds = %68
-  %70 = getelementptr inbounds i8, ptr %.093114, i64 24
+  %70 = getelementptr inbounds i8, ptr %.092114, i64 24
   %71 = load i32, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.093114, i64 8
+  %72 = getelementptr inbounds i8, ptr %.092114, i64 8
   %73 = load i32, ptr %72, align 8
   %74 = shl i32 %73, 2
   %75 = and i32 %74, 16
@@ -1878,13 +1878,13 @@ define internal ptr @zend_fiber_object_gc(ptr nocapture noundef readonly %0, ptr
   br i1 %.not106108, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %69
-  %78 = getelementptr inbounds i8, ptr %.093114, i64 16
+  %78 = getelementptr inbounds i8, ptr %.092114, i64 16
   %79 = load ptr, ptr %78, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %100
   %.0110 = phi ptr [ %101, %100 ], [ %79, %.lr.ph.preheader ]
-  %.090109 = phi i32 [ %102, %100 ], [ %71, %.lr.ph.preheader ]
+  %.091109 = phi i32 [ %102, %100 ], [ %71, %.lr.ph.preheader ]
   %80 = getelementptr inbounds i8, ptr %.0110, i64 8
   %81 = load i8, ptr %80, align 8
   switch i8 %81, label %84 [
@@ -1897,9 +1897,9 @@ define internal ptr @zend_fiber_object_gc(ptr nocapture noundef readonly %0, ptr
   br label %84
 
 84:                                               ; preds = %.lr.ph, %82
-  %.091 = phi ptr [ %83, %82 ], [ %.0110, %.lr.ph ]
-  %85 = getelementptr inbounds i8, ptr %.091, i64 8
-  %86 = getelementptr inbounds i8, ptr %.091, i64 9
+  %.093 = phi ptr [ %83, %82 ], [ %.0110, %.lr.ph ]
+  %85 = getelementptr inbounds i8, ptr %.093, i64 8
+  %86 = getelementptr inbounds i8, ptr %.093, i64 9
   %87 = load i8, ptr %86, align 1
   %.not107 = icmp eq i8 %87, 0
   br i1 %.not107, label %100, label %88
@@ -1917,7 +1917,7 @@ define internal ptr @zend_fiber_object_gc(ptr nocapture noundef readonly %0, ptr
 
 93:                                               ; preds = %92, %88
   %94 = phi ptr [ %.pre118, %92 ], [ %89, %88 ]
-  %95 = load ptr, ptr %.091, align 8
+  %95 = load ptr, ptr %.093, align 8
   %96 = load i32, ptr %85, align 8
   store ptr %95, ptr %94, align 8
   %97 = getelementptr inbounds i8, ptr %94, i64 8
@@ -1929,19 +1929,19 @@ define internal ptr @zend_fiber_object_gc(ptr nocapture noundef readonly %0, ptr
 
 100:                                              ; preds = %.lr.ph, %84, %93
   %101 = getelementptr inbounds i8, ptr %.0110, i64 %77
-  %102 = add i32 %.090109, -1
+  %102 = add i32 %.091109, -1
   %.not106 = icmp eq i32 %102, 0
   br i1 %.not106, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %100, %69, %68, %65
-  %.1 = phi ptr [ %.093114, %65 ], [ %67, %68 ], [ %67, %69 ], [ %67, %100 ]
-  %103 = getelementptr inbounds i8, ptr %.092115, i64 48
-  %.092 = load ptr, ptr %103, align 8
-  %.not101 = icmp eq ptr %.092, null
+  %.1 = phi ptr [ %.092114, %65 ], [ %67, %68 ], [ %67, %69 ], [ %67, %100 ]
+  %103 = getelementptr inbounds i8, ptr %.094115, i64 48
+  %.094 = load ptr, ptr %103, align 8
+  %.not101 = icmp eq ptr %.094, null
   br i1 %.not101, label %._crit_edge, label %57
 
 ._crit_edge:                                      ; preds = %.loopexit, %54
-  %.093.lcssa = phi ptr [ null, %54 ], [ %.1, %.loopexit ]
+  %.092.lcssa = phi ptr [ null, %54 ], [ %.1, %.loopexit ]
   %104 = getelementptr inbounds i8, ptr %4, i64 16
   %105 = load ptr, ptr %104, align 8
   store ptr %105, ptr %1, align 8
@@ -1954,10 +1954,10 @@ define internal ptr @zend_fiber_object_gc(ptr nocapture noundef readonly %0, ptr
 
 111:                                              ; preds = %._crit_edge, %46
   %storemerge.in = phi i64 [ %110, %._crit_edge ], [ %53, %46 ]
-  %.094 = phi ptr [ %.093.lcssa, %._crit_edge ], [ null, %46 ]
+  %.090 = phi ptr [ %.092.lcssa, %._crit_edge ], [ null, %46 ]
   %storemerge = trunc i64 %storemerge.in to i32
   store i32 %storemerge, ptr %2, align 4
-  ret ptr %.094
+  ret ptr %.090
 }
 
 ; Function Attrs: nounwind uwtable

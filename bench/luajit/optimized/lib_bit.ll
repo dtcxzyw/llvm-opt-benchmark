@@ -173,8 +173,8 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %entry
-  %o.0 = phi ptr [ %0, %entry ], [ %incdec.ptr, %do.body ]
   %i.0 = phi i32 [ 0, %entry ], [ %inc, %do.body ]
+  %o.0 = phi ptr [ %0, %entry ], [ %incdec.ptr, %do.body ]
   %inc = add nuw nsw i32 %i.0, 1
   %call = call i64 @lj_carith_check64(ptr noundef %L, i32 noundef %inc, ptr noundef nonnull %id) #4
   %incdec.ptr = getelementptr inbounds i8, ptr %o.0, i64 8

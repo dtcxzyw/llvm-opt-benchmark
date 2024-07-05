@@ -45,12 +45,12 @@ define internal i32 @mbc_to_code(ptr noundef %0, ptr noundef readnone %1) #2 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.01724 = phi ptr [ %.017, %.lr.ph ], [ %.01719, %.preheader ]
   %.023 = phi i32 [ %12, %.lr.ph ], [ %6, %.preheader ]
-  %.01522 = phi i32 [ %13, %.lr.ph ], [ 1, %.preheader ]
+  %.01622 = phi i32 [ %13, %.lr.ph ], [ 1, %.preheader ]
   %9 = load i8, ptr %.01724, align 1
   %10 = zext i8 %9 to i32
   %11 = shl i32 %.023, 8
   %12 = or disjoint i32 %11, %10
-  %13 = add nuw nsw i32 %.01522, 1
+  %13 = add nuw nsw i32 %.01622, 1
   %.017 = getelementptr inbounds i8, ptr %.01724, i64 1
   %14 = icmp slt i32 %13, %4
   %.not = icmp ult ptr %.017, %1
@@ -58,8 +58,8 @@ define internal i32 @mbc_to_code(ptr noundef %0, ptr noundef readnone %1) #2 {
   br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %2
-  %.016 = phi i32 [ %6, %2 ], [ %6, %.preheader ], [ %12, %.lr.ph ]
-  ret i32 %.016
+  %.015 = phi i32 [ %6, %2 ], [ %6, %.preheader ], [ %12, %.lr.ph ]
+  ret i32 %.015
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -142,14 +142,14 @@ define internal i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr nocaptu
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
-  %.020 = phi i32 [ %21, %.lr.ph ], [ 0, %14 ]
-  %.01419 = phi ptr [ %18, %.lr.ph ], [ %5, %14 ]
-  %.01518 = phi ptr [ %20, %.lr.ph ], [ %3, %14 ]
-  %18 = getelementptr inbounds i8, ptr %.01419, i64 1
-  %19 = load i8, ptr %.01419, align 1
-  %20 = getelementptr inbounds i8, ptr %.01518, i64 1
-  store i8 %19, ptr %.01518, align 1
-  %21 = add nuw nsw i32 %.020, 1
+  %.01420 = phi i32 [ %21, %.lr.ph ], [ 0, %14 ]
+  %.01519 = phi ptr [ %18, %.lr.ph ], [ %5, %14 ]
+  %.01618 = phi ptr [ %20, %.lr.ph ], [ %3, %14 ]
+  %18 = getelementptr inbounds i8, ptr %.01519, i64 1
+  %19 = load i8, ptr %.01519, align 1
+  %20 = getelementptr inbounds i8, ptr %.01618, i64 1
+  store i8 %19, ptr %.01618, align 1
+  %21 = add nuw nsw i32 %.01420, 1
   %exitcond.not = icmp eq i32 %21, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
@@ -161,9 +161,9 @@ define internal i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr nocaptu
 
 25:                                               ; preds = %._crit_edge, %8
   %storemerge = phi ptr [ %24, %._crit_edge ], [ %13, %8 ]
-  %.016 = phi i32 [ %16, %._crit_edge ], [ 1, %8 ]
+  %.0 = phi i32 [ %16, %._crit_edge ], [ 1, %8 ]
   store ptr %storemerge, ptr %1, align 8
-  ret i32 %.016
+  ret i32 %.0
 }
 
 declare i32 @onigenc_ascii_apply_all_case_fold(i32 noundef, ptr noundef, ptr noundef) #1
@@ -304,12 +304,12 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   br i1 %.not24, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3, %9
-  %.0 = phi ptr [ %10, %9 ], [ %1, %3 ]
-  %8 = icmp ugt ptr %.0, %0
+  %.019 = phi ptr [ %10, %9 ], [ %1, %3 ]
+  %8 = icmp ugt ptr %.019, %0
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %.0, i64 -1
+  %10 = getelementptr inbounds i8, ptr %.019, i64 -1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %12
@@ -318,7 +318,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %9, %.preheader, %3
-  %.1 = phi ptr [ %1, %3 ], [ %.0, %.preheader ], [ %.0, %9 ]
+  %.1 = phi ptr [ %1, %3 ], [ %.019, %.preheader ], [ %.019, %9 ]
   %16 = load ptr, ptr @OnigEncodingSJIS, align 8
   %17 = tail call i32 %16(ptr noundef nonnull %.1) #8
   %18 = sext i32 %17 to i64
@@ -335,8 +335,8 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   br label %27
 
 27:                                               ; preds = %.loopexit, %2, %21
-  %.019 = phi ptr [ %26, %21 ], [ %1, %2 ], [ %.1, %.loopexit ]
-  ret ptr %.019
+  %.0 = phi ptr [ %26, %21 ], [ %1, %2 ], [ %.1, %.loopexit ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

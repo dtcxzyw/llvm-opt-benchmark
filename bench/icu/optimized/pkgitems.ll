@@ -151,9 +151,9 @@ if.end26.i:                                       ; preds = %if.else.i56
   br label %_ZN6icu_7510NativeItem7setItemEPKNS_4ItemEPFiPK12UDataSwapperPKviPvP10UErrorCodeE.exit
 
 _ZN6icu_7510NativeItem7setItemEPKNS_4ItemEPFiPK12UDataSwapperPKviPvP10UErrorCodeE.exit: ; preds = %if.then12.i, %if.end26.i
-  %nrb.sroa.11.0 = phi ptr [ null, %if.then12.i ], [ %call30.i57, %if.end26.i ]
   %nrb.sroa.8.0 = phi ptr [ %add.ptr.i62, %if.then12.i ], [ %add.ptr51.i60, %if.end26.i ]
   %nrb.sroa.5.0 = phi ptr [ %call.i47, %if.then12.i ], [ %call47.i, %if.end26.i ]
+  %nrb.sroa.11.0 = phi ptr [ null, %if.then12.i ], [ %call30.i57, %if.end26.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %infoLength.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %itemHeaderLength.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %errorCode.i)
@@ -873,12 +873,12 @@ for.body.lr.ph:                                   ; preds = %sw.bb23
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.074 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %doCheckParent.073 = phi i8 [ 1, %for.body.lr.ph ], [ %and60, %for.inc ]
-  %call26 = call i32 @res_getTableItemByIndex_75(ptr noundef %pResData, i32 noundef %res, i32 noundef %i.074, ptr noundef nonnull %itemKey)
+  %doCheckParent.074 = phi i8 [ 1, %for.body.lr.ph ], [ %and60, %for.inc ]
+  %i.073 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %call26 = call i32 @res_getTableItemByIndex_75(ptr noundef %pResData, i32 noundef %res, i32 noundef %i.073, ptr noundef nonnull %itemKey)
   %3 = load ptr, ptr %itemKey, align 8
   %call27 = call fastcc noundef signext i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode(ptr noundef %itemName, ptr noundef %pResData, i32 noundef %call26, ptr noundef %3, ptr noundef %inKey, i32 noundef %add, ptr noundef %check, ptr noundef %context, ptr noundef %pErrorCode)
-  %and60 = and i8 %call27, %doCheckParent.073
+  %and60 = and i8 %call27, %doCheckParent.074
   %4 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %4, 1
   br i1 %cmp.i, label %for.inc, label %if.then31
@@ -886,11 +886,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then31:                                        ; preds = %for.body
   %5 = load ptr, ptr @stderr, align 8
   %6 = load ptr, ptr %itemKey, align 8
-  %call32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.11, ptr noundef %itemName, i32 noundef %res, i32 noundef %i.074, ptr noundef %6, i32 noundef %call26) #12
+  %call32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.11, ptr noundef %itemName, i32 noundef %res, i32 noundef %i.073, ptr noundef %6, i32 noundef %call26) #12
   br label %sw.epilog
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i32 %i.074, 1
+  %inc = add nuw nsw i32 %i.073, 1
   %exitcond81.not = icmp eq i32 %inc, %call24
   br i1 %exitcond81.not, label %sw.epilog, label %for.body, !llvm.loop !7
 

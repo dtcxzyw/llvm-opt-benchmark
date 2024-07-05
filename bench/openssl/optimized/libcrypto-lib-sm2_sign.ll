@@ -351,17 +351,17 @@ if.end33:                                         ; preds = %lor.lhs.false29
 done.sink.split:                                  ; preds = %if.end33, %if.end20, %lor.lhs.false, %lor.lhs.false26, %lor.lhs.false29, %if.end11, %if.end, %entry
   %.sink21 = phi i32 [ 157, %entry ], [ 161, %if.end ], [ 171, %if.end11 ], [ 185, %lor.lhs.false29 ], [ 185, %lor.lhs.false26 ], [ 185, %lor.lhs.false ], [ 185, %if.end20 ], [ 191, %if.end33 ]
   %.sink = phi i32 [ 102, %entry ], [ 524294, %if.end ], [ 786691, %if.end11 ], [ 524294, %lor.lhs.false29 ], [ 524294, %lor.lhs.false26 ], [ 524294, %lor.lhs.false ], [ 524294, %if.end20 ], [ 786691, %if.end33 ]
-  %z.0.ph = phi ptr [ null, %entry ], [ null, %if.end ], [ %call7, %if.end11 ], [ %call7, %lor.lhs.false29 ], [ %call7, %lor.lhs.false26 ], [ %call7, %lor.lhs.false ], [ %call7, %if.end20 ], [ %call7, %if.end33 ]
   %fetched_digest.0.ph = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end11 ], [ %call13, %lor.lhs.false29 ], [ %call13, %lor.lhs.false26 ], [ %call13, %lor.lhs.false ], [ %call13, %if.end20 ], [ %call13, %if.end33 ]
+  %z.0.ph = phi ptr [ null, %entry ], [ null, %if.end ], [ %call7, %if.end11 ], [ %call7, %lor.lhs.false29 ], [ %call7, %lor.lhs.false26 ], [ %call7, %lor.lhs.false ], [ %call7, %if.end20 ], [ %call7, %if.end33 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink21, ptr noundef nonnull @__func__.sm2_compute_msg_hash) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 53, i32 noundef %.sink, ptr noundef null) #3
   br label %done
 
 done:                                             ; preds = %done.sink.split, %if.end33, %if.end17, %if.end6
-  %z.0 = phi ptr [ null, %if.end6 ], [ %call7, %if.end33 ], [ %call7, %if.end17 ], [ %z.0.ph, %done.sink.split ]
-  %e.0 = phi ptr [ null, %if.end6 ], [ %call34, %if.end33 ], [ null, %if.end17 ], [ null, %done.sink.split ]
   %fetched_digest.0 = phi ptr [ null, %if.end6 ], [ %call13, %if.end33 ], [ %call13, %if.end17 ], [ %fetched_digest.0.ph, %done.sink.split ]
+  %e.0 = phi ptr [ null, %if.end6 ], [ %call34, %if.end33 ], [ null, %if.end17 ], [ null, %done.sink.split ]
+  %z.0 = phi ptr [ null, %if.end6 ], [ %call7, %if.end33 ], [ %call7, %if.end17 ], [ %z.0.ph, %done.sink.split ]
   tail call void @EVP_MD_free(ptr noundef %fetched_digest.0) #3
   tail call void @CRYPTO_free(ptr noundef %z.0, ptr noundef nonnull @.str, i32 noundef 195) #3
   tail call void @EVP_MD_CTX_free(ptr noundef %call) #3
@@ -495,11 +495,11 @@ if.then74:                                        ; preds = %if.end46, %lor.lhs.
   br label %if.end75
 
 if.end75:                                         ; preds = %done, %if.then74
-  %ctx.061 = phi ptr [ %ctx.0.ph, %if.then74 ], [ %call5, %done ]
-  %sig.059 = phi ptr [ null, %if.then74 ], [ %call68, %done ]
-  tail call void @BN_CTX_free(ptr noundef %ctx.061) #3
+  %sig.063 = phi ptr [ null, %if.then74 ], [ %call68, %done ]
+  %ctx.059 = phi ptr [ %ctx.0.ph, %if.then74 ], [ %call5, %done ]
+  tail call void @BN_CTX_free(ptr noundef %ctx.059) #3
   tail call void @EC_POINT_free(ptr noundef %call4) #3
-  ret ptr %sig.059
+  ret ptr %sig.063
 }
 
 declare void @BN_free(ptr noundef) local_unnamed_addr #1

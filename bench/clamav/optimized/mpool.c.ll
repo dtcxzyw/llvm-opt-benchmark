@@ -184,16 +184,16 @@ define range(i32 -1, 1) i32 @mpool_getstats(ptr noundef readonly %0, ptr nocaptu
   br label %11
 
 11:                                               ; preds = %9, %11
-  %.025 = phi ptr [ %10, %9 ], [ %18, %11 ]
-  %.01524 = phi i64 [ 0, %9 ], [ %17, %11 ]
-  %.01623 = phi i64 [ 0, %9 ], [ %14, %11 ]
-  %12 = getelementptr inbounds i8, ptr %.025, i64 16
+  %.01525 = phi ptr [ %10, %9 ], [ %18, %11 ]
+  %.01624 = phi i64 [ 0, %9 ], [ %17, %11 ]
+  %.01723 = phi i64 [ 0, %9 ], [ %14, %11 ]
+  %12 = getelementptr inbounds i8, ptr %.01525, i64 16
   %13 = load i64, ptr %12, align 8
-  %14 = add i64 %13, %.01623
-  %15 = getelementptr inbounds i8, ptr %.025, i64 8
+  %14 = add i64 %13, %.01723
+  %15 = getelementptr inbounds i8, ptr %.01525, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = add i64 %16, %.01524
-  %18 = load ptr, ptr %.025, align 8
+  %17 = add i64 %16, %.01624
+  %18 = load ptr, ptr %.01525, align 8
   %.not22 = icmp eq ptr %18, null
   br i1 %.not22, label %19, label %11
 
@@ -203,8 +203,8 @@ define range(i32 -1, 1) i32 @mpool_getstats(ptr noundef readonly %0, ptr nocaptu
   br label %20
 
 20:                                               ; preds = %6, %3, %4, %19
-  %.017 = phi i32 [ 0, %19 ], [ -1, %4 ], [ -1, %3 ], [ -1, %6 ]
-  ret i32 %.017
+  %.0 = phi i32 [ 0, %19 ], [ -1, %4 ], [ -1, %3 ], [ -1, %6 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

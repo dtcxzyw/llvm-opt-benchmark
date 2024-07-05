@@ -450,10 +450,10 @@ define i32 @SUNLinSolSolve_SPGMR(ptr nocapture noundef readonly %0, ptr nocaptur
   br label %.preheader385
 
 .preheader385:                                    ; preds = %._crit_edge431, %.preheader385.lr.ph
-  %.0436 = phi i32 [ 0, %.preheader385.lr.ph ], [ %213, %._crit_edge431 ]
-  %.0320435 = phi i32 [ 0, %.preheader385.lr.ph ], [ %.2, %._crit_edge431 ]
-  %.0330434 = phi double [ %75, %.preheader385.lr.ph ], [ %.2332, %._crit_edge431 ]
-  %.0335433 = phi double [ %75, %.preheader385.lr.ph ], [ %210, %._crit_edge431 ]
+  %.0321436 = phi double [ %75, %.preheader385.lr.ph ], [ %210, %._crit_edge431 ]
+  %.0323435 = phi double [ %75, %.preheader385.lr.ph ], [ %.2, %._crit_edge431 ]
+  %.0333434 = phi i32 [ 0, %.preheader385.lr.ph ], [ %213, %._crit_edge431 ]
+  %.0334433 = phi i32 [ 0, %.preheader385.lr.ph ], [ %.2336, %._crit_edge431 ]
   br i1 %79, label %._crit_edge397.thread, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader385, %._crit_edge.us
@@ -476,13 +476,13 @@ define i32 @SUNLinSolSolve_SPGMR(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %exitcond461.not, label %._crit_edge397, label %.preheader.us
 
 ._crit_edge397.thread:                            ; preds = %.preheader385
-  %88 = fdiv double 1.000000e+00, %.0335433
+  %88 = fdiv double 1.000000e+00, %.0321436
   %89 = load ptr, ptr %13, align 8
   tail call void @N_VScale(double noundef %88, ptr noundef %89, ptr noundef %89) #11
   br label %._crit_edge
 
 ._crit_edge397:                                   ; preds = %._crit_edge.us
-  %90 = fdiv double 1.000000e+00, %.0335433
+  %90 = fdiv double 1.000000e+00, %.0321436
   %91 = load ptr, ptr %13, align 8
   tail call void @N_VScale(double noundef %90, ptr noundef %91, ptr noundef %91) #11
   br i1 %79, label %._crit_edge, label %.lr.ph
@@ -490,13 +490,13 @@ define i32 @SUNLinSolSolve_SPGMR(ptr nocapture noundef readonly %0, ptr nocaptur
 .lr.ph:                                           ; preds = %._crit_edge397, %150
   %indvars.iv462 = phi i64 [ %indvars.iv.next463, %150 ], [ 0, %._crit_edge397 ]
   %.not373401 = phi i1 [ %.not373, %150 ], [ true, %._crit_edge397 ]
-  %.0321400 = phi i32 [ %94, %150 ], [ 0, %._crit_edge397 ]
-  %.0336399 = phi double [ %146, %150 ], [ 1.000000e+00, %._crit_edge397 ]
+  %.0320400 = phi double [ %146, %150 ], [ 1.000000e+00, %._crit_edge397 ]
+  %.0337399 = phi i32 [ %94, %150 ], [ 0, %._crit_edge397 ]
   %92 = load i32, ptr %37, align 4
   %93 = add nsw i32 %92, 1
   store i32 %93, ptr %37, align 4
   %indvars.iv.next463 = add nuw nsw i64 %indvars.iv462, 1
-  %94 = add nuw nsw i32 %.0321400, 1
+  %94 = add nuw nsw i32 %.0337399, 1
   %95 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv462
   %96 = load ptr, ptr %95, align 8
   br i1 %.not360, label %98, label %97
@@ -605,8 +605,8 @@ define i32 @SUNLinSolSolve_SPGMR(ptr nocapture noundef readonly %0, ptr nocaptur
   %143 = or disjoint i64 %142, 1
   %144 = getelementptr inbounds double, ptr %17, i64 %143
   %145 = load double, ptr %144, align 8
-  %146 = fmul double %.0336399, %145
-  %147 = fmul double %.0335433, %146
+  %146 = fmul double %.0320400, %145
+  %147 = fmul double %.0321436, %146
   %148 = tail call double @llvm.fabs.f64(double %147)
   store double %148, ptr %38, align 8
   %149 = fcmp ugt double %148, %4
@@ -630,20 +630,20 @@ define i32 @SUNLinSolSolve_SPGMR(ptr nocapture noundef readonly %0, ptr nocaptur
 
 ._crit_edge:                                      ; preds = %150, %._crit_edge.loopexit.split.loop.exit, %._crit_edge397.thread, %._crit_edge397
   %.not373.lcssa = phi i1 [ false, %._crit_edge397 ], [ false, %._crit_edge397.thread ], [ %.not373401, %._crit_edge.loopexit.split.loop.exit ], [ %.not373, %150 ]
-  %.2332 = phi double [ %.0330434, %._crit_edge397 ], [ %.0330434, %._crit_edge397.thread ], [ %148, %._crit_edge.loopexit.split.loop.exit ], [ %148, %150 ]
-  %.2 = phi i32 [ %.0320435, %._crit_edge397 ], [ %.0320435, %._crit_edge397.thread ], [ %157, %._crit_edge.loopexit.split.loop.exit ], [ %7, %150 ]
-  store double %.0335433, ptr %21, align 8
-  %.not370408 = icmp slt i32 %.2, 1
+  %.2336 = phi i32 [ %.0334433, %._crit_edge397 ], [ %.0334433, %._crit_edge397.thread ], [ %157, %._crit_edge.loopexit.split.loop.exit ], [ %7, %150 ]
+  %.2 = phi double [ %.0323435, %._crit_edge397 ], [ %.0323435, %._crit_edge397.thread ], [ %148, %._crit_edge.loopexit.split.loop.exit ], [ %148, %150 ]
+  store double %.0321436, ptr %21, align 8
+  %.not370408 = icmp slt i32 %.2336, 1
   br i1 %.not370408, label %._crit_edge412, label %.lr.ph411.preheader
 
 .lr.ph411.preheader:                              ; preds = %._crit_edge
-  %158 = zext nneg i32 %.2 to i64
+  %158 = zext nneg i32 %.2336 to i64
   %159 = shl nuw nsw i64 %158, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %159, i1 false)
   br label %._crit_edge412
 
 ._crit_edge412:                                   ; preds = %.lr.ph411.preheader, %._crit_edge
-  %160 = tail call i32 @SUNQRsol(i32 noundef %.2, ptr noundef %15, ptr noundef %17, ptr noundef nonnull %21) #11
+  %160 = tail call i32 @SUNQRsol(i32 noundef %.2336, ptr noundef %15, ptr noundef %17, ptr noundef nonnull %21) #11
   %.not371 = icmp eq i32 %160, 0
   br i1 %.not371, label %162, label %161
 
@@ -654,11 +654,11 @@ define i32 @SUNLinSolSolve_SPGMR(ptr nocapture noundef readonly %0, ptr nocaptur
 162:                                              ; preds = %._crit_edge412
   store double 1.000000e+00, ptr %40, align 8
   store ptr %19, ptr %42, align 8
-  %163 = icmp sgt i32 %.2, 0
+  %163 = icmp sgt i32 %.2336, 0
   br i1 %163, label %.lr.ph415.preheader, label %._crit_edge416
 
 .lr.ph415.preheader:                              ; preds = %162
-  %wide.trip.count474 = zext nneg i32 %.2 to i64
+  %wide.trip.count474 = zext nneg i32 %.2336 to i64
   br label %.lr.ph415
 
 .lr.ph415:                                        ; preds = %.lr.ph415.preheader, %.lr.ph415
@@ -676,7 +676,7 @@ define i32 @SUNLinSolSolve_SPGMR(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %exitcond475.not, label %._crit_edge416, label %.lr.ph415
 
 ._crit_edge416:                                   ; preds = %.lr.ph415, %162
-  %170 = add i32 %.2, 1
+  %170 = add i32 %.2336, 1
   %171 = tail call i32 @N_VLinearCombination(i32 noundef %170, ptr noundef nonnull %40, ptr noundef nonnull %42, ptr noundef %19) #11
   br i1 %.not373.lcssa, label %172, label %186
 
@@ -723,38 +723,38 @@ define i32 @SUNLinSolSolve_SPGMR(ptr nocapture noundef readonly %0, ptr nocaptur
   br label %230
 
 186:                                              ; preds = %._crit_edge416
-  %187 = icmp eq i32 %.0436, %9
+  %187 = icmp eq i32 %.0333434, %9
   br i1 %187, label %._crit_edge437, label %.preheader384
 
 .preheader384:                                    ; preds = %186
   br i1 %163, label %.lr.ph419.preheader, label %._crit_edge420
 
 .lr.ph419.preheader:                              ; preds = %.preheader384
-  %188 = zext nneg i32 %.2 to i64
+  %188 = zext nneg i32 %.2336 to i64
   br label %.lr.ph419
 
 .lr.ph419:                                        ; preds = %.lr.ph419.preheader, %.lr.ph419
   %indvars.iv476 = phi i64 [ %188, %.lr.ph419.preheader ], [ %indvars.iv.next477, %.lr.ph419 ]
-  %.0334417 = phi double [ 1.000000e+00, %.lr.ph419.preheader ], [ %196, %.lr.ph419 ]
+  %.0322418 = phi double [ 1.000000e+00, %.lr.ph419.preheader ], [ %196, %.lr.ph419 ]
   %.idx = shl i64 %indvars.iv476, 4
   %189 = getelementptr i8, ptr %17, i64 %.idx
   %190 = getelementptr i8, ptr %189, i64 -16
   %191 = load double, ptr %190, align 8
-  %192 = fmul double %.0334417, %191
+  %192 = fmul double %.0322418, %191
   %193 = getelementptr inbounds double, ptr %21, i64 %indvars.iv476
   store double %192, ptr %193, align 8
   %194 = getelementptr i8, ptr %189, i64 -8
   %195 = load double, ptr %194, align 8
-  %196 = fmul double %.0334417, %195
+  %196 = fmul double %.0322418, %195
   %indvars.iv.next477 = add nsw i64 %indvars.iv476, -1
   %197 = icmp ugt i64 %indvars.iv476, 1
   br i1 %197, label %.lr.ph419, label %._crit_edge420
 
 ._crit_edge420:                                   ; preds = %.lr.ph419, %.preheader384
-  %.0334.lcssa = phi double [ 1.000000e+00, %.preheader384 ], [ %196, %.lr.ph419 ]
-  store double %.0334.lcssa, ptr %21, align 8
-  %198 = fmul double %.0335433, %.0334.lcssa
-  %.not374422 = icmp slt i32 %.2, 0
+  %.0322.lcssa = phi double [ 1.000000e+00, %.preheader384 ], [ %196, %.lr.ph419 ]
+  store double %.0322.lcssa, ptr %21, align 8
+  %198 = fmul double %.0321436, %.0322.lcssa
+  %.not374422 = icmp slt i32 %.2336, 0
   br i1 %.not374422, label %._crit_edge426.thread, label %.lr.ph425.preheader
 
 ._crit_edge426.thread:                            ; preds = %._crit_edge420
@@ -801,11 +801,11 @@ define i32 @SUNLinSolSolve_SPGMR(ptr nocapture noundef readonly %0, ptr nocaptur
   %210 = phi double [ %199, %._crit_edge426.thread ], [ %203, %._crit_edge426 ], [ %203, %.lr.ph430 ]
   %211 = load ptr, ptr %13, align 8
   %212 = tail call i32 @N_VLinearCombination(i32 noundef %170, ptr noundef nonnull %40, ptr noundef nonnull %42, ptr noundef %211) #11
-  %213 = add nuw nsw i32 %.0436, 1
+  %213 = add nuw nsw i32 %.0333434, 1
   br label %.preheader385
 
 ._crit_edge437:                                   ; preds = %186
-  %214 = fcmp olt double %.2332, %75
+  %214 = fcmp olt double %.2, %75
   br i1 %214, label %215, label %._crit_edge437.thread
 
 215:                                              ; preds = %._crit_edge437
@@ -863,8 +863,8 @@ define i32 @SUNLinSolSolve_SPGMR(ptr nocapture noundef readonly %0, ptr nocaptur
   store i32 %.sink, ptr %232, align 8
   %233 = load ptr, ptr %0, align 8
   %234 = getelementptr inbounds i8, ptr %233, i64 32
-  %.0337 = load i32, ptr %234, align 8
-  ret i32 %.0337
+  %.0 = load i32, ptr %234, align 8
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

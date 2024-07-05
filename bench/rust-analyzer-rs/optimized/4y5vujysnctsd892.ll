@@ -592,7 +592,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hceb35ffb8cab8690E.exit: ; preds = %.
   br i1 %or.cond415.i, label %.lr.ph.i56, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h5c20f672fed34d35E.exit"
 
 .lr.ph24.i:                                       ; preds = %219, %_ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit.i64
-  %.02823.i = phi ptr [ %245, %_ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit.i64 ], [ %216, %219 ]
+  %.02723.i = phi ptr [ %245, %_ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit.i64 ], [ %216, %219 ]
   %.sroa.10.022.i = phi ptr [ %244, %_ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit.i64 ], [ %221, %219 ]
   %.sroa.18.021.i = phi ptr [ %242, %_ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit.i64 ], [ %215, %219 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
@@ -634,25 +634,25 @@ _ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit.i64: ; preds = %23
   %243 = xor i1 %.0.in.i.i.i, true
   %.neg34.i = sext i1 %243 to i64
   %244 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %.sroa.10.022.i, i64 %.neg34.i
-  %.027.i = select i1 %.0.in.i.i.i, ptr %242, ptr %244
-  %245 = getelementptr inbounds i8, ptr %.02823.i, i64 -32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %245, ptr noundef nonnull align 8 dereferenceable(32) %.027.i, i64 32, i1 false)
+  %.026.i = select i1 %.0.in.i.i.i, ptr %242, ptr %244
+  %245 = getelementptr inbounds i8, ptr %.02723.i, i64 -32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %245, ptr noundef nonnull align 8 dereferenceable(32) %.026.i, i64 32, i1 false)
   %246 = icmp ugt ptr %242, %214
   %247 = icmp ugt ptr %244, %14
   %or.cond.i65 = select i1 %246, i1 %247, i1 false
   br i1 %or.cond.i65, label %.lr.ph24.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h5c20f672fed34d35E.exit"
 
 .lr.ph.i56:                                       ; preds = %223, %_ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit43.i
-  %.02618.i = phi ptr [ %265, %_ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit43.i ], [ %215, %223 ]
+  %.02818.i = phi ptr [ %265, %_ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit43.i ], [ %215, %223 ]
   %.sroa.0.117.i = phi ptr [ %268, %_ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit43.i ], [ %14, %223 ]
   %.sroa.18.216.i = phi ptr [ %263, %_ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit43.i ], [ %214, %223 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
-  %248 = getelementptr inbounds i8, ptr %.02618.i, i64 8
+  %248 = getelementptr inbounds i8, ptr %.02818.i, i64 8
   %.val.i.i35.i = load ptr, ptr %248, align 8, !alias.scope !171, !noalias !172, !nonnull !14, !noundef !14
-  %249 = getelementptr inbounds i8, ptr %.02618.i, i64 16
+  %249 = getelementptr inbounds i8, ptr %.02818.i, i64 16
   %.val1.i.i36.i = load i64, ptr %249, align 8, !alias.scope !171, !noalias !172, !noundef !14
   %250 = getelementptr inbounds i8, ptr %.sroa.0.117.i, i64 8
   %.val2.i.i37.i = load ptr, ptr %250, align 8, !alias.scope !172, !noalias !171, !nonnull !14, !noundef !14
@@ -669,7 +669,7 @@ _ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit.i64: ; preds = %23
   br i1 %.not.i.i41.i, label %257, label %_ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit43.i
 
 257:                                              ; preds = %.lr.ph.i56
-  %258 = getelementptr inbounds i8, ptr %.02618.i, i64 24
+  %258 = getelementptr inbounds i8, ptr %.02818.i, i64 24
   %259 = getelementptr inbounds i8, ptr %.sroa.0.117.i, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
@@ -680,11 +680,11 @@ _ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit.i64: ; preds = %23
 
 _ZN4core3ops8function5FnMut8call_mut17h12dcdf31060f5df6E.exit43.i: ; preds = %257, %.lr.ph.i56
   %.0.in.i.i42.i = phi i1 [ %262, %257 ], [ %256, %.lr.ph.i56 ]
-  %.029.i = select i1 %.0.in.i.i42.i, ptr %.02618.i, ptr %.sroa.0.117.i
+  %.029.i = select i1 %.0.in.i.i42.i, ptr %.02818.i, ptr %.sroa.0.117.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.18.216.i, ptr noundef nonnull align 8 dereferenceable(32) %.029.i, i64 32, i1 false)
   %263 = getelementptr inbounds i8, ptr %.sroa.18.216.i, i64 32
   %264 = zext i1 %.0.in.i.i42.i to i64
-  %265 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %.02618.i, i64 %264
+  %265 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %.02818.i, i64 %264
   %266 = xor i1 %.0.in.i.i42.i, true
   %267 = zext i1 %266 to i64
   %268 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %.sroa.0.117.i, i64 %267

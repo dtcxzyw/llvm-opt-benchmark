@@ -1282,7 +1282,7 @@ define range(i32 -1, 1) i32 @H5A__read(ptr nocapture noundef readonly %0, ptr no
   br label %.thread77
 
 99:                                               ; preds = %92, %88
-  %.0 = phi i32 [ -1, %88 ], [ 0, %92 ]
+  %.058 = phi i32 [ -1, %88 ], [ 0, %92 ]
   %100 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_attr_buf_blk_free_list, ptr noundef nonnull %59) #13
   %.not70 = icmp eq ptr %.059, null
   br i1 %.not70, label %.thread77, label %101
@@ -1292,10 +1292,10 @@ define range(i32 -1, 1) i32 @H5A__read(ptr nocapture noundef readonly %0, ptr no
   br label %.thread77
 
 .thread77:                                        ; preds = %16, %26, %50, %94, %61, %43, %30, %.thread82, %101, %99
-  %.07681 = phi i32 [ %.0, %101 ], [ %.0, %99 ], [ -1, %.thread82 ], [ 0, %30 ], [ 0, %43 ], [ -1, %61 ], [ 0, %94 ], [ -1, %50 ], [ -1, %26 ], [ -1, %16 ]
+  %.0587681 = phi i32 [ %.058, %101 ], [ %.058, %99 ], [ -1, %.thread82 ], [ 0, %30 ], [ 0, %43 ], [ -1, %61 ], [ 0, %94 ], [ -1, %50 ], [ -1, %26 ], [ -1, %16 ]
   %103 = load i64, ptr %4, align 8
   call void @H5AC_tag(i64 noundef %103, ptr noundef null) #13
-  ret i32 %.07681
+  ret i32 %.0587681
 }
 
 declare i32 @H5T_patch_vlen_file(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -3272,7 +3272,7 @@ define ptr @H5A__attr_copy_file(ptr nocapture noundef readonly %0, ptr noundef %
 
 331:                                              ; preds = %322, %310, %156
   %.1161 = phi ptr [ %.0160, %310 ], [ null, %322 ], [ null, %156 ]
-  %.0158 = phi ptr [ %259, %310 ], [ null, %322 ], [ null, %156 ]
+  %.0156 = phi ptr [ %259, %310 ], [ null, %322 ], [ null, %156 ]
   %.0154 = phi ptr [ %266, %310 ], [ null, %322 ], [ null, %156 ]
   %.0152 = phi ptr [ %252, %310 ], [ null, %322 ], [ null, %156 ]
   %.0 = phi ptr [ %185, %310 ], [ null, %322 ], [ null, %156 ]
@@ -3305,7 +3305,7 @@ define ptr @H5A__attr_copy_file(ptr nocapture noundef readonly %0, ptr noundef %
   br label %349
 
 349:                                              ; preds = %343, %348, %339
-  %.0156 = phi ptr [ null, %339 ], [ %6, %348 ], [ %6, %343 ]
+  %.0158 = phi ptr [ null, %339 ], [ %6, %348 ], [ %6, %343 ]
   %.not190 = icmp eq ptr %.0, null
   br i1 %.not190, label %356, label %.thread
 
@@ -3313,8 +3313,8 @@ define ptr @H5A__attr_copy_file(ptr nocapture noundef readonly %0, ptr noundef %
   %.1211 = phi ptr [ %.0, %349 ], [ %185, %197 ], [ %185, %207 ], [ %185, %217 ], [ %185, %224 ], [ %185, %234 ], [ %185, %244 ], [ %185, %254 ], [ %185, %261 ], [ %185, %268 ], [ %185, %284 ], [ %185, %294 ], [ %185, %306 ], [ %185, %318 ]
   %.1153209 = phi ptr [ %.0152, %349 ], [ null, %197 ], [ null, %207 ], [ null, %217 ], [ null, %224 ], [ null, %234 ], [ null, %244 ], [ null, %254 ], [ %252, %261 ], [ %252, %268 ], [ %252, %284 ], [ %252, %294 ], [ %252, %306 ], [ %252, %318 ]
   %.1155207 = phi ptr [ %.0154, %349 ], [ null, %197 ], [ null, %207 ], [ null, %217 ], [ null, %224 ], [ null, %234 ], [ null, %244 ], [ null, %254 ], [ null, %261 ], [ null, %268 ], [ %266, %284 ], [ %266, %294 ], [ %266, %306 ], [ %266, %318 ]
-  %.0156206 = phi ptr [ %.0156, %349 ], [ null, %197 ], [ null, %207 ], [ null, %217 ], [ null, %224 ], [ null, %234 ], [ null, %244 ], [ null, %254 ], [ null, %261 ], [ null, %268 ], [ null, %284 ], [ null, %294 ], [ null, %306 ], [ null, %318 ]
-  %.1159204 = phi ptr [ %.0158, %349 ], [ null, %197 ], [ null, %207 ], [ null, %217 ], [ null, %224 ], [ null, %234 ], [ null, %244 ], [ null, %254 ], [ null, %261 ], [ %259, %268 ], [ %259, %284 ], [ %259, %294 ], [ %259, %306 ], [ %259, %318 ]
+  %.1157205 = phi ptr [ %.0156, %349 ], [ null, %197 ], [ null, %207 ], [ null, %217 ], [ null, %224 ], [ null, %234 ], [ null, %244 ], [ null, %254 ], [ null, %261 ], [ %259, %268 ], [ %259, %284 ], [ %259, %294 ], [ %259, %306 ], [ %259, %318 ]
+  %.0158204 = phi ptr [ %.0158, %349 ], [ null, %197 ], [ null, %207 ], [ null, %217 ], [ null, %224 ], [ null, %234 ], [ null, %244 ], [ null, %254 ], [ null, %261 ], [ null, %268 ], [ null, %284 ], [ null, %294 ], [ null, %306 ], [ null, %318 ]
   %.2162202 = phi ptr [ %.1161, %349 ], [ null, %197 ], [ null, %207 ], [ null, %217 ], [ null, %224 ], [ null, %234 ], [ null, %244 ], [ null, %254 ], [ null, %261 ], [ null, %268 ], [ null, %284 ], [ %.0160, %294 ], [ %.0160, %306 ], [ %.0160, %318 ]
   %350 = call i32 @H5T_close(ptr noundef nonnull %.1211) #13
   %351 = icmp slt i32 %350, 0
@@ -3329,9 +3329,9 @@ define ptr @H5A__attr_copy_file(ptr nocapture noundef readonly %0, ptr noundef %
 356:                                              ; preds = %352, %.thread, %349
   %.1153210 = phi ptr [ %.1153209, %352 ], [ %.1153209, %.thread ], [ %.0152, %349 ]
   %.1155208 = phi ptr [ %.1155207, %352 ], [ %.1155207, %.thread ], [ %.0154, %349 ]
-  %.1159205 = phi ptr [ %.1159204, %352 ], [ %.1159204, %.thread ], [ %.0158, %349 ]
+  %.1157206 = phi ptr [ %.1157205, %352 ], [ %.1157205, %.thread ], [ %.0156, %349 ]
   %.2162203 = phi ptr [ %.2162202, %352 ], [ %.2162202, %.thread ], [ %.1161, %349 ]
-  %.1157 = phi ptr [ null, %352 ], [ %.0156206, %.thread ], [ %.0156, %349 ]
+  %.1159 = phi ptr [ null, %352 ], [ %.0158204, %.thread ], [ %.0158, %349 ]
   %.not191 = icmp eq ptr %.1153210, null
   br i1 %.not191, label %364, label %357
 
@@ -3347,7 +3347,7 @@ define ptr @H5A__attr_copy_file(ptr nocapture noundef readonly %0, ptr noundef %
   br label %364
 
 364:                                              ; preds = %360, %357, %356
-  %.2 = phi ptr [ null, %360 ], [ %.1157, %357 ], [ %.1157, %356 ]
+  %.2 = phi ptr [ null, %360 ], [ %.1159, %357 ], [ %.1159, %356 ]
   %.not192 = icmp eq ptr %.1155208, null
   br i1 %.not192, label %367, label %365
 
@@ -3356,11 +3356,11 @@ define ptr @H5A__attr_copy_file(ptr nocapture noundef readonly %0, ptr noundef %
   br label %367
 
 367:                                              ; preds = %365, %364
-  %.not193 = icmp eq ptr %.1159205, null
+  %.not193 = icmp eq ptr %.1157206, null
   br i1 %.not193, label %370, label %368
 
 368:                                              ; preds = %367
-  %369 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_attr_buf_blk_free_list, ptr noundef nonnull %.1159205) #13
+  %369 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_attr_buf_blk_free_list, ptr noundef nonnull %.1157206) #13
   br label %370
 
 370:                                              ; preds = %368, %367

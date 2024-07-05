@@ -2357,8 +2357,8 @@ define internal fastcc range(i32 0, 2) i32 @dissect_header_pair(ptr noundef %0, 
   br label %42
 
 42:                                               ; preds = %6, %33, %38, %20, %25
-  %.076 = phi ptr [ null, %6 ], [ %37, %38 ], [ %37, %33 ], [ %24, %25 ], [ %24, %20 ]
-  %.075 = phi ptr [ null, %6 ], [ %35, %38 ], [ null, %33 ], [ %32, %25 ], [ null, %20 ]
+  %.077 = phi ptr [ null, %6 ], [ %35, %38 ], [ null, %33 ], [ %32, %25 ], [ null, %20 ]
+  %.075 = phi ptr [ null, %6 ], [ %37, %38 ], [ %37, %33 ], [ %24, %25 ], [ %24, %20 ]
   %43 = load ptr, ptr %1, align 8
   store ptr %43, ptr %9, align 8
   %44 = call ptr @dissector_get_custom_table_handle(ptr noundef %0, ptr noundef nonnull %9) #7
@@ -2371,18 +2371,18 @@ define internal fastcc range(i32 0, 2) i32 @dissect_header_pair(ptr noundef %0, 
   br label %47
 
 47:                                               ; preds = %45, %42
-  %.074 = phi ptr [ %44, %42 ], [ %46, %45 ]
-  %48 = call ptr @dissector_handle_get_dissector_name(ptr noundef %.074) #7
+  %.076 = phi ptr [ %44, %42 ], [ %46, %45 ]
+  %48 = call ptr @dissector_handle_get_dissector_name(ptr noundef %.076) #7
   %.not86 = icmp eq ptr %48, null
   br i1 %.not86, label %50, label %49
 
 49:                                               ; preds = %47
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %.076, ptr noundef nonnull @.str.227, ptr noundef nonnull %48, ptr noundef %.075) #7
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %.075, ptr noundef nonnull @.str.227, ptr noundef nonnull %48, ptr noundef %.077) #7
   br label %50
 
 50:                                               ; preds = %49, %47
   %51 = load i32, ptr @ett_hdr_label, align 4
-  %52 = call ptr @proto_item_add_subtree(ptr noundef %.076, i32 noundef %51) #7
+  %52 = call ptr @proto_item_add_subtree(ptr noundef %.075, i32 noundef %51) #7
   store volatile ptr %52, ptr %7, align 8
   %53 = load i32, ptr %5, align 4
   %54 = load ptr, ptr %14, align 8
@@ -2395,13 +2395,13 @@ define internal fastcc range(i32 0, 2) i32 @dissect_header_pair(ptr noundef %0, 
   %58 = sub i32 %57, %53
   %59 = call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %53, i32 noundef %58) #7
   store volatile ptr %59, ptr %8, align 8
-  %.not88 = icmp eq ptr %.074, null
+  %.not88 = icmp eq ptr %.076, null
   br i1 %.not88, label %70, label %60
 
 60:                                               ; preds = %56
   %.0..0..0..0.30 = load volatile ptr, ptr %8, align 8
   %.0..0..0..0.33 = load volatile ptr, ptr %7, align 8
-  %61 = call i32 @call_dissector_only(ptr noundef nonnull %.074, ptr noundef %.0..0..0..0.30, ptr noundef nonnull %3, ptr noundef %.0..0..0..0.33, ptr noundef nonnull %1) #7
+  %61 = call i32 @call_dissector_only(ptr noundef nonnull %.076, ptr noundef %.0..0..0..0.30, ptr noundef nonnull %3, ptr noundef %.0..0..0..0.33, ptr noundef nonnull %1) #7
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %67, label %63
 
@@ -2524,8 +2524,8 @@ define internal fastcc range(i32 0, 2) i32 @dissect_header_pair(ptr noundef %0, 
   br label %106
 
 106:                                              ; preds = %74, %102, %50
-  %.077 = phi i32 [ 0, %50 ], [ 1, %102 ], [ 1, %74 ]
-  ret i32 %.077
+  %.074 = phi i32 [ 0, %50 ], [ 1, %102 ], [ 1, %74 ]
+  ret i32 %.074
 }
 
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1

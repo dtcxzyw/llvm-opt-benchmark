@@ -187,9 +187,9 @@ sub_0:                                            ; preds = %sub_0.preheader, %h
   %.088238 = phi i32 [ %.189, %hwloc_utils_check_api_version.exit ], [ 0, %sub_0.preheader ]
   %.090237 = phi i64 [ %.191, %hwloc_utils_check_api_version.exit ], [ 0, %sub_0.preheader ]
   %.092236 = phi i64 [ %.193, %hwloc_utils_check_api_version.exit ], [ 0, %sub_0.preheader ]
-  %.094234 = phi ptr [ %220, %hwloc_utils_check_api_version.exit ], [ %14, %sub_0.preheader ]
-  %.095232 = phi i32 [ %218, %hwloc_utils_check_api_version.exit ], [ %13, %sub_0.preheader ]
-  %18 = load ptr, ptr %.094234, align 8
+  %.094234 = phi i32 [ %218, %hwloc_utils_check_api_version.exit ], [ %13, %sub_0.preheader ]
+  %.095232 = phi ptr [ %220, %hwloc_utils_check_api_version.exit ], [ %14, %sub_0.preheader ]
+  %18 = load ptr, ptr %.095232, align 8
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = add nsw i32 %20, -45
@@ -385,7 +385,7 @@ sub_2167:                                         ; preds = %sub_1166
   br i1 %.not123, label %90, label %98
 
 90:                                               ; preds = %88
-  %91 = icmp eq i32 %.095232, 1
+  %91 = icmp eq i32 %.094234, 1
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %90
@@ -395,7 +395,7 @@ sub_2167:                                         ; preds = %sub_1166
   unreachable
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %.094234, i64 8
+  %95 = getelementptr inbounds i8, ptr %.095232, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = tail call i64 @strtol(ptr nocapture noundef %96, ptr noundef null, i32 noundef 10) #15
   store i64 %97, ptr @only_pid, align 8
@@ -407,7 +407,7 @@ sub_2167:                                         ; preds = %sub_1166
   br i1 %.not124, label %100, label %108
 
 100:                                              ; preds = %98
-  %101 = icmp eq i32 %.095232, 1
+  %101 = icmp eq i32 %.094234, 1
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %100
@@ -417,7 +417,7 @@ sub_2167:                                         ; preds = %sub_1166
   unreachable
 
 104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %.094234, i64 8
+  %105 = getelementptr inbounds i8, ptr %.095232, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = tail call i64 @strtol(ptr nocapture noundef %106, ptr noundef null, i32 noundef 10) #15
   store i64 %107, ptr @children_of_pid, align 8
@@ -429,7 +429,7 @@ sub_2167:                                         ; preds = %sub_1166
   br i1 %.not125, label %110, label %117
 
 110:                                              ; preds = %108
-  %111 = icmp eq i32 %.095232, 1
+  %111 = icmp eq i32 %.094234, 1
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %110
@@ -439,7 +439,7 @@ sub_2167:                                         ; preds = %sub_1166
   unreachable
 
 114:                                              ; preds = %110
-  %115 = getelementptr inbounds i8, ptr %.094234, i64 8
+  %115 = getelementptr inbounds i8, ptr %.095232, i64 8
   %116 = load ptr, ptr %115, align 8
   store ptr %116, ptr @only_name, align 8
   br label %hwloc_utils_check_api_version.exit
@@ -450,7 +450,7 @@ sub_2167:                                         ; preds = %sub_1166
   br i1 %.not126, label %119, label %131
 
 119:                                              ; preds = %117
-  %120 = icmp eq i32 %.095232, 1
+  %120 = icmp eq i32 %.094234, 1
   br i1 %120, label %121, label %123
 
 121:                                              ; preds = %119
@@ -460,7 +460,7 @@ sub_2167:                                         ; preds = %sub_1166
   unreachable
 
 123:                                              ; preds = %119
-  %124 = getelementptr inbounds i8, ptr %.094234, i64 8
+  %124 = getelementptr inbounds i8, ptr %.095232, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %125, ptr noundef nonnull dereferenceable(4) @.str.40) #16
   %.not127 = icmp eq i32 %126, 0
@@ -492,7 +492,7 @@ sub_2167:                                         ; preds = %sub_1166
   br i1 %.not130, label %137, label %144
 
 137:                                              ; preds = %135
-  %138 = icmp eq i32 %.095232, 1
+  %138 = icmp eq i32 %.094234, 1
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %137
@@ -502,7 +502,7 @@ sub_2167:                                         ; preds = %sub_1166
   unreachable
 
 141:                                              ; preds = %137
-  %142 = getelementptr inbounds i8, ptr %.094234, i64 8
+  %142 = getelementptr inbounds i8, ptr %.095232, i64 8
   %143 = load ptr, ptr %142, align 8
   br label %hwloc_utils_check_api_version.exit
 
@@ -512,7 +512,7 @@ sub_2167:                                         ; preds = %sub_1166
   br i1 %.not131, label %146, label %172
 
 146:                                              ; preds = %144
-  %147 = icmp eq i32 %.095232, 1
+  %147 = icmp eq i32 %.094234, 1
   br i1 %147, label %148, label %sub_0170
 
 148:                                              ; preds = %146
@@ -522,7 +522,7 @@ sub_2167:                                         ; preds = %sub_1166
   unreachable
 
 sub_0170:                                         ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %.094234, i64 8
+  %150 = getelementptr inbounds i8, ptr %.095232, i64 8
   %151 = load ptr, ptr %150, align 8
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i32
@@ -556,7 +556,7 @@ sub_1171:                                         ; preds = %sub_0170
   br i1 %.not134, label %164, label %hwloc_utils_check_api_version.exit
 
 164:                                              ; preds = %163
-  %165 = getelementptr inbounds i8, ptr %.094234, i64 8
+  %165 = getelementptr inbounds i8, ptr %.095232, i64 8
   %166 = load ptr, ptr @stderr, align 8
   %167 = load ptr, ptr %165, align 8
   %168 = tail call ptr @__errno_location() #19
@@ -581,7 +581,7 @@ sub_1171:                                         ; preds = %sub_0170
   br i1 %.not136, label %177, label %sub_0174
 
 177:                                              ; preds = %175
-  %178 = icmp eq i32 %.095232, 1
+  %178 = icmp eq i32 %.094234, 1
   br i1 %178, label %179, label %181
 
 179:                                              ; preds = %177
@@ -591,7 +591,7 @@ sub_1171:                                         ; preds = %sub_0170
   unreachable
 
 181:                                              ; preds = %177
-  %182 = getelementptr inbounds i8, ptr %.094234, i64 8
+  %182 = getelementptr inbounds i8, ptr %.095232, i64 8
   %183 = load ptr, ptr %182, align 8
   %184 = tail call i32 @atoi(ptr nocapture noundef %183) #16
   store i32 %184, ptr @json_port, align 4
@@ -690,9 +690,9 @@ hwloc_utils_check_api_version.exit:               ; preds = %163, %131, %133, %.
   %.189 = phi i32 [ %.088238, %200 ], [ %.088238, %195 ], [ %.088238, %181 ], [ %.088238, %174 ], [ %.088238, %141 ], [ %.088238, %130 ], [ %.088238, %114 ], [ %.088238, %104 ], [ %.088238, %94 ], [ %.088238, %87 ], [ %.088238, %84 ], [ %.088238, %63 ], [ %.088238, %52 ], [ %.088238, %41 ], [ %.088238, %30 ], [ 1, %72 ], [ 1, %.tail159 ], [ %.088238, %133 ], [ %.088238, %131 ], [ %.088238, %163 ]
   %.187 = phi ptr [ %.086239, %200 ], [ %.086239, %195 ], [ %.086239, %181 ], [ %.086239, %174 ], [ %143, %141 ], [ %.086239, %130 ], [ %.086239, %114 ], [ %.086239, %104 ], [ %.086239, %94 ], [ %.086239, %87 ], [ %.086239, %84 ], [ %.086239, %63 ], [ %.086239, %52 ], [ %.086239, %41 ], [ %.086239, %30 ], [ %.086239, %72 ], [ %.086239, %.tail159 ], [ %.086239, %133 ], [ %.086239, %131 ], [ %.086239, %163 ]
   %.0 = phi i32 [ 1, %200 ], [ 1, %195 ], [ 2, %181 ], [ 1, %174 ], [ 2, %141 ], [ 2, %130 ], [ 2, %114 ], [ 2, %104 ], [ 2, %94 ], [ 1, %87 ], [ 1, %84 ], [ 1, %63 ], [ 1, %52 ], [ 1, %41 ], [ 1, %30 ], [ 1, %72 ], [ 1, %.tail159 ], [ 1, %133 ], [ 1, %131 ], [ 2, %163 ]
-  %218 = sub nsw i32 %.095232, %.0
+  %218 = sub nsw i32 %.094234, %.0
   %219 = zext nneg i32 %.0 to i64
-  %220 = getelementptr inbounds ptr, ptr %.094234, i64 %219
+  %220 = getelementptr inbounds ptr, ptr %.095232, i64 %219
   %221 = icmp sgt i32 %218, 0
   br i1 %221, label %sub_0, label %hwloc_utils_check_api_version.exit._crit_edge.loopexit, !llvm.loop !5
 
@@ -1325,14 +1325,14 @@ define internal fastcc void @print_process_json(ptr noundef %0, ptr noundef %1) 
   br label %14
 
 14:                                               ; preds = %17, %10
-  %.033 = phi ptr [ %13, %10 ], [ %16, %17 ]
-  %15 = getelementptr inbounds i8, ptr %.033, i64 72
+  %.0 = phi ptr [ %13, %10 ], [ %16, %17 ]
+  %15 = getelementptr inbounds i8, ptr %.0, i64 72
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %.critedge, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.033, i64 184
+  %18 = getelementptr inbounds i8, ptr %.0, i64 184
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %16, i64 184
   %21 = load ptr, ptr %20, align 8
@@ -1341,11 +1341,11 @@ define internal fastcc void @print_process_json(ptr noundef %0, ptr noundef %1) 
   br i1 %.not37, label %.critedge, label %14, !llvm.loop !9
 
 .critedge:                                        ; preds = %14, %17
-  %23 = call i32 @hwloc_obj_type_snprintf(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull %.033, i64 noundef 0) #15
+  %23 = call i32 @hwloc_obj_type_snprintf(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull %.0, i64 noundef 0) #15
   %24 = load ptr, ptr @json_output, align 8
   %25 = load i64, ptr %1, align 8
   %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = getelementptr inbounds i8, ptr %.033, i64 52
+  %27 = getelementptr inbounds i8, ptr %.0, i64 52
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds i8, ptr %1, i64 1116
   %30 = load i32, ptr %29, align 4
@@ -1562,7 +1562,7 @@ hwloc_get_child_covering_cpuset.exit.preheader:   ; preds = %4
 
 .lr.ph.i.preheader.us:                            ; preds = %.lr.ph.split.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us
   %.01.i.us26 = phi ptr [ %.01.i.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us ], [ %.01.i.us23, %.lr.ph.split.us ]
-  %.020.us25 = phi ptr [ %.03.i.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us ], [ %5, %.lr.ph.split.us ]
+  %.01120.us25 = phi ptr [ %.03.i.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us ], [ %5, %.lr.ph.split.us ]
   br label %.lr.ph.i.us
 
 hwloc_get_child_covering_cpuset.exit.loopexit.us: ; preds = %13
@@ -1572,8 +1572,8 @@ hwloc_get_child_covering_cpuset.exit.loopexit.us: ; preds = %13
   br i1 %.not112.i.us, label %hwloc_get_child_covering_cpuset.exit.thread, label %.lr.ph.i.preheader.us
 
 hwloc_get_child_covering_cpuset.exit.thread:      ; preds = %hwloc_get_child_covering_cpuset.exit.loopexit.us, %15, %hwloc_get_child_covering_cpuset.exit.preheader, %.lr.ph.split.us, %2, %4
-  %.011 = phi ptr [ null, %4 ], [ null, %2 ], [ %5, %hwloc_get_child_covering_cpuset.exit.preheader ], [ %5, %.lr.ph.split.us ], [ %.020.us25, %15 ], [ %.03.i.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us ]
-  ret ptr %.011
+  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %5, %hwloc_get_child_covering_cpuset.exit.preheader ], [ %5, %.lr.ph.split.us ], [ %.01120.us25, %15 ], [ %.03.i.us, %hwloc_get_child_covering_cpuset.exit.loopexit.us ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

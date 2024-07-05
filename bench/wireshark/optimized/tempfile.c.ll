@@ -175,9 +175,9 @@ sanitize_prefix.exit.thread:                      ; preds = %10, %sanitize_prefi
   br label %15
 
 15:                                               ; preds = %sanitize_prefix.exit.thread, %sanitize_prefix.exit
-  %.0 = phi ptr [ %14, %sanitize_prefix.exit.thread ], [ %12, %sanitize_prefix.exit ]
-  %16 = tail call noalias ptr (ptr, ptr, ...) @g_build_path(ptr noundef nonnull @.str.4, ptr noundef %.013, ptr noundef %.0, ptr noundef null) #4
-  tail call void @g_free(ptr noundef %.0) #4
+  %.012 = phi ptr [ %14, %sanitize_prefix.exit.thread ], [ %12, %sanitize_prefix.exit ]
+  %16 = tail call noalias ptr (ptr, ptr, ...) @g_build_path(ptr noundef nonnull @.str.4, ptr noundef %.013, ptr noundef %.012, ptr noundef null) #4
+  tail call void @g_free(ptr noundef %.012) #4
   %17 = tail call ptr @g_mkdtemp(ptr noundef %16) #4
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %26
@@ -194,8 +194,8 @@ sanitize_prefix.exit.thread:                      ; preds = %10, %sanitize_prefi
   br label %26
 
 26:                                               ; preds = %15, %19
-  %.012 = phi ptr [ null, %19 ], [ %16, %15 ]
-  ret ptr %.012
+  %.0 = phi ptr [ null, %19 ], [ %16, %15 ]
+  ret ptr %.0
 }
 
 declare ptr @g_get_tmp_dir() local_unnamed_addr #1

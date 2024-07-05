@@ -1957,14 +1957,14 @@ zb_direct_decryption_needed.exit.i:               ; preds = %41, %39
   br label %73
 
 73:                                               ; preds = %77, %.preheader.i
-  %.0.i = phi ptr [ %79, %77 ], [ %54, %.preheader.i ]
-  %74 = load ptr, ptr %.0.i, align 8
+  %.056.i = phi ptr [ %79, %77 ], [ %54, %.preheader.i ]
+  %74 = load ptr, ptr %.056.i, align 8
   %75 = load i32, ptr %74, align 8
   %76 = icmp ugt i32 %75, %72
   br i1 %76, label %77, label %.lr.ph.i
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %78 = getelementptr inbounds i8, ptr %.056.i, i64 8
   %79 = load ptr, ptr %78, align 8
   %.old2.not.i = icmp eq ptr %79, null
   br i1 %.old2.not.i, label %._crit_edge.i, label %73
@@ -1974,7 +1974,7 @@ zb_direct_decryption_needed.exit.i:               ; preds = %41, %39
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %73, %.critedge.i
-  %.155.i = phi ptr [ %54, %.critedge.i ], [ %.0.i, %73 ]
+  %.155.i = phi ptr [ %54, %.critedge.i ], [ %.056.i, %73 ]
   %80 = getelementptr inbounds i8, ptr %14, i64 8
   %invariant.gep.i.i.i.i.i = getelementptr i8, ptr %3, i64 16
   %81 = getelementptr inbounds i8, ptr %12, i64 16
@@ -2350,12 +2350,12 @@ default.unreachable:                              ; preds = %5
   %28 = phi ptr [ %23, %21 ], [ %17, %15 ], [ %11, %9 ]
   %29 = phi ptr [ %25, %21 ], [ %19, %15 ], [ %13, %9 ]
   %30 = phi i32 [ %22, %21 ], [ %16, %15 ], [ %10, %9 ]
-  %.032 = phi ptr [ %26, %21 ], [ %20, %15 ], [ %14, %9 ]
-  %.not.i = icmp eq ptr %.032, null
+  %.031 = phi ptr [ %26, %21 ], [ %20, %15 ], [ %14, %9 ]
+  %.not.i = icmp eq ptr %.031, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %.032, i64 32
+  %32 = getelementptr inbounds i8, ptr %.031, i64 32
   %33 = load ptr, ptr %32, align 8
   %.not5.i = icmp eq ptr %33, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %34

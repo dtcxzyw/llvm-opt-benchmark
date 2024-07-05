@@ -2688,22 +2688,22 @@ while.cond5.preheader:                            ; preds = %vaarg.end
   br i1 %cmp6.not9, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond5.preheader, %while.body8
-  %p.1.idx11 = phi i64 [ %p.1.add, %while.body8 ], [ %p.0.idx, %while.cond5.preheader ]
-  %str.010 = phi ptr [ %incdec.ptr, %while.body8 ], [ %4, %while.cond5.preheader ]
-  %5 = load i8, ptr %str.010, align 1
+  %str.011 = phi ptr [ %incdec.ptr, %while.body8 ], [ %4, %while.cond5.preheader ]
+  %p.1.idx10 = phi i64 [ %p.1.add, %while.body8 ], [ %p.0.idx, %while.cond5.preheader ]
+  %5 = load i8, ptr %str.011, align 1
   %cmp7.not = icmp eq i8 %5, 0
   br i1 %cmp7.not, label %while.end, label %while.body8
 
 while.body8:                                      ; preds = %land.rhs
-  %p.1.ptr12 = getelementptr inbounds i8, ptr %buffer, i64 %p.1.idx11
-  %incdec.ptr = getelementptr inbounds i8, ptr %str.010, i64 1
-  %p.1.add = add nsw i64 %p.1.idx11, 1
+  %p.1.ptr12 = getelementptr inbounds i8, ptr %buffer, i64 %p.1.idx10
+  %incdec.ptr = getelementptr inbounds i8, ptr %str.011, i64 1
+  %p.1.add = add nsw i64 %p.1.idx10, 1
   store i8 %5, ptr %p.1.ptr12, align 1
   %cmp6.not = icmp eq i64 %p.1.add, 156
   br i1 %cmp6.not, label %while.end, label %land.rhs, !llvm.loop !7
 
 while.end:                                        ; preds = %land.rhs, %while.body8, %while.cond5.preheader
-  %p.1.idx.lcssa = phi i64 [ 156, %while.cond5.preheader ], [ 156, %while.body8 ], [ %p.1.idx11, %land.rhs ]
+  %p.1.idx.lcssa = phi i64 [ 156, %while.cond5.preheader ], [ 156, %while.body8 ], [ %p.1.idx10, %land.rhs ]
   br label %while.cond, !llvm.loop !8
 
 while.end10:                                      ; preds = %vaarg.end

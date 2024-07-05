@@ -1151,17 +1151,17 @@ Map_CutTableRestart.exit:                         ; preds = %14, %6
 
 .preheader56:                                     ; preds = %.preheader56.lr.ph, %._crit_edge
   %.04164 = phi i32 [ %.2, %._crit_edge ], [ 0, %.preheader56.lr.ph ]
-  %.04363 = phi ptr [ %52, %._crit_edge ], [ %2, %.preheader56.lr.ph ]
-  %27 = ptrtoint ptr %.04363 to i64
+  %.04563 = phi ptr [ %52, %._crit_edge ], [ %2, %.preheader56.lr.ph ]
+  %27 = ptrtoint ptr %.04563 to i64
   %28 = xor i64 %27, %25
   %29 = inttoptr i64 %28 to ptr
   br label %30
 
 30:                                               ; preds = %.preheader56, %50
   %.161 = phi i32 [ %.04164, %.preheader56 ], [ %.2, %50 ]
-  %.04260 = phi ptr [ %3, %.preheader56 ], [ %51, %50 ]
+  %.04460 = phi ptr [ %3, %.preheader56 ], [ %51, %50 ]
   %31 = load i32, ptr %24, align 8
-  %32 = call fastcc i32 @Map_CutMergeTwo(ptr noundef nonnull %.04363, ptr noundef nonnull %.04260, ptr noundef nonnull %7, i32 noundef %31)
+  %32 = call fastcc i32 @Map_CutMergeTwo(ptr noundef nonnull %.04563, ptr noundef nonnull %.04460, ptr noundef nonnull %7, i32 noundef %31)
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %50, label %34
 
@@ -1173,7 +1173,7 @@ Map_CutTableRestart.exit:                         ; preds = %14, %6
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %29, ptr %38, align 8
-  %39 = ptrtoint ptr %.04260 to i64
+  %39 = ptrtoint ptr %.04460 to i64
   %40 = xor i64 %39, %26
   %41 = inttoptr i64 %40 to ptr
   %42 = getelementptr inbounds i8, ptr %35, i64 16
@@ -1191,12 +1191,12 @@ Map_CutTableRestart.exit:                         ; preds = %14, %6
 
 50:                                               ; preds = %37, %34, %30
   %.2 = phi i32 [ %.161, %30 ], [ %.161, %34 ], [ %48, %37 ]
-  %51 = load ptr, ptr %.04260, align 8
+  %51 = load ptr, ptr %.04460, align 8
   %.not53 = icmp eq ptr %51, null
   br i1 %.not53, label %._crit_edge, label %30, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %50
-  %52 = load ptr, ptr %.04363, align 8
+  %52 = load ptr, ptr %.04563, align 8
   %.not = icmp eq ptr %52, null
   br i1 %.not, label %.loopexit, label %.preheader56, !llvm.loop !31
 
@@ -1210,34 +1210,34 @@ Map_CutTableRestart.exit:                         ; preds = %14, %6
 .lr.ph:                                           ; preds = %.loopexit, %60
   %55 = phi i32 [ %61, %60 ], [ %54, %.loopexit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 1, %.loopexit ]
-  %.04666 = phi ptr [ %.147, %60 ], [ %8, %.loopexit ]
+  %.04266 = phi ptr [ %.143, %60 ], [ %8, %.loopexit ]
   %56 = getelementptr inbounds [7 x ptr], ptr %9, i64 0, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %60, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader
-  %.044 = phi ptr [ %.045, %.preheader ], [ %57, %.lr.ph ]
-  %.045 = load ptr, ptr %.044, align 8
-  %.not55 = icmp eq ptr %.045, null
+  %.046 = phi ptr [ %.047, %.preheader ], [ %57, %.lr.ph ]
+  %.047 = load ptr, ptr %.046, align 8
+  %.not55 = icmp eq ptr %.047, null
   br i1 %.not55, label %59, label %.preheader, !llvm.loop !32
 
 59:                                               ; preds = %.preheader
-  store ptr %57, ptr %.04666, align 8
+  store ptr %57, ptr %.04266, align 8
   %.pre = load i32, ptr %53, align 8
   br label %60
 
 60:                                               ; preds = %.lr.ph, %59
   %61 = phi i32 [ %55, %.lr.ph ], [ %.pre, %59 ]
-  %.147 = phi ptr [ %.04666, %.lr.ph ], [ %.044, %59 ]
+  %.143 = phi ptr [ %.04266, %.lr.ph ], [ %.046, %59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = sext i32 %61 to i64
   %.not54.not = icmp slt i64 %indvars.iv, %62
   br i1 %.not54.not, label %.lr.ph, label %._crit_edge69, !llvm.loop !33
 
 ._crit_edge69:                                    ; preds = %60, %.loopexit
-  %.046.lcssa = phi ptr [ %8, %.loopexit ], [ %.147, %60 ]
-  store ptr null, ptr %.046.lcssa, align 8
+  %.042.lcssa = phi ptr [ %8, %.loopexit ], [ %.143, %60 ]
+  store ptr null, ptr %.042.lcssa, align 8
   %.0..0..0..0. = load ptr, ptr %8, align 8
   %63 = tail call fastcc ptr @Map_CutSortCuts(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0..0..0..0.)
   ret ptr %63

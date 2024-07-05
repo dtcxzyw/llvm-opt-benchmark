@@ -240,9 +240,9 @@ define hidden i32 @ReadPNG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 n
   br i1 %.not71, label %.lr.ph69.split.us, label %.lr.ph69.split
 
 .lr.ph69.split.us:                                ; preds = %.lr.ph69, %.lr.ph69.split.us
-  %.05068.us = phi i32 [ %122, %.lr.ph69.split.us ], [ 0, %.lr.ph69 ]
+  %.04968.us = phi i32 [ %122, %.lr.ph69.split.us ], [ 0, %.lr.ph69 ]
   %.0..0..0..0.11.us = load volatile ptr, ptr %16, align 8
-  %122 = add nuw nsw i32 %.05068.us, 1
+  %122 = add nuw nsw i32 %.04968.us, 1
   %exitcond73.not = icmp eq i32 %122, %98
   br i1 %exitcond73.not, label %._crit_edge70.split.us, label %.lr.ph69.split.us, !llvm.loop !5
 
@@ -252,27 +252,27 @@ define hidden i32 @ReadPNG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 n
 
 .lr.ph69.split:                                   ; preds = %.lr.ph69, %._crit_edge
   %123 = phi i32 [ %130, %._crit_edge ], [ 1, %.lr.ph69 ]
-  %.05068 = phi i32 [ %131, %._crit_edge ], [ 0, %.lr.ph69 ]
+  %.04968 = phi i32 [ %131, %._crit_edge ], [ 0, %.lr.ph69 ]
   %.0..0..0..0.11 = load volatile ptr, ptr %16, align 8
   store ptr %.0..0..0..0.11, ptr %19, align 8
   %.not72 = icmp eq i32 %123, 0
   br i1 %.not72, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph69.split, %.lr.ph
-  %.04967 = phi i32 [ %127, %.lr.ph ], [ 0, %.lr.ph69.split ]
+  %.05067 = phi i32 [ %127, %.lr.ph ], [ 0, %.lr.ph69.split ]
   %124 = load volatile ptr, ptr %6, align 8
   call void @png_read_rows(ptr noundef %124, ptr noundef nonnull %19, ptr noundef null, i32 noundef 1) #15
   %125 = load ptr, ptr %19, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 %109
   store ptr %126, ptr %19, align 8
-  %127 = add nuw i32 %.04967, 1
+  %127 = add nuw i32 %.05067, 1
   %128 = load i32, ptr %15, align 4
   %129 = icmp ult i32 %127, %128
   br i1 %129, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph69.split
   %130 = phi i32 [ 0, %.lr.ph69.split ], [ %128, %.lr.ph ]
-  %131 = add nuw nsw i32 %.05068, 1
+  %131 = add nuw nsw i32 %.04968, 1
   %exitcond.not = icmp eq i32 %131, %98
   br i1 %exitcond.not, label %._crit_edge70, label %.lr.ph69.split, !llvm.loop !8
 
@@ -491,7 +491,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
   %14 = phi ptr [ %43, %.loopexit ], [ %.pre, %.preheader.preheader ]
-  %.02336 = phi i32 [ %42, %.loopexit ], [ 0, %.preheader.preheader ]
+  %.02436 = phi i32 [ %42, %.loopexit ], [ 0, %.preheader.preheader ]
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(22) @.str.6) #21
@@ -551,7 +551,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
 
 .loopexit:                                        ; preds = %.lr.ph, %29, %26
   %41 = phi ptr [ %.pre43, %29 ], [ %.pre42, %26 ], [ %14, %.lr.ph ]
-  %42 = add nuw i32 %.02336, 1
+  %42 = add nuw i32 %.02436, 1
   %43 = getelementptr inbounds i8, ptr %41, i64 56
   store ptr %43, ptr %5, align 8
   %exitcond41.not = icmp eq i32 %42, %13
@@ -582,8 +582,8 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
   br label %.loopexit31
 
 .loopexit31:                                      ; preds = %.loopexit31.loopexit.split.loop.exit, %51, %36
-  %.025 = phi i32 [ 0, %36 ], [ %.mux.le, %.loopexit31.loopexit.split.loop.exit ], [ 1, %51 ]
-  ret i32 %.025
+  %.022 = phi i32 [ 0, %36 ], [ %.mux.le, %.loopexit31.loopexit.split.loop.exit ], [ 1, %51 ]
+  ret i32 %.022
 }
 
 ; Function Attrs: nofree nounwind
@@ -641,18 +641,18 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   br label %17
 
 17:                                               ; preds = %19, %15
-  %.0 = phi ptr [ %16, %15 ], [ %20, %19 ]
-  %18 = load i8, ptr %.0, align 1
+  %.015 = phi ptr [ %16, %15 ], [ %20, %19 ]
+  %18 = load i8, ptr %.015, align 1
   %.not20 = icmp eq i8 %18, 0
   br i1 %.not20, label %.critedge, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %.0, i64 1
+  %20 = getelementptr inbounds i8, ptr %.015, i64 1
   %.not21 = icmp eq i8 %18, 10
   br i1 %.not21, label %.critedge, label %17, !llvm.loop !13
 
 .critedge:                                        ; preds = %17, %19
-  %.1 = phi ptr [ %20, %19 ], [ %.0, %17 ]
+  %.1 = phi ptr [ %20, %19 ], [ %.015, %17 ]
   %21 = call i64 @strtol(ptr noundef nonnull %.1, ptr noundef nonnull %6, i32 noundef 10) #15
   %22 = load ptr, ptr %6, align 8
   %23 = load i8, ptr %22, align 1
@@ -745,8 +745,8 @@ HexStringToBytes.exit:                            ; preds = %.critedge.i
   br label %51
 
 51:                                               ; preds = %HexStringToBytes.exit.thread, %3, %HexStringToBytes.exit, %24, %11
-  %.015 = phi i32 [ 0, %11 ], [ 0, %24 ], [ 1, %HexStringToBytes.exit ], [ 0, %3 ], [ 0, %HexStringToBytes.exit.thread ]
-  ret i32 %.015
+  %.0 = phi i32 [ 0, %11 ], [ 0, %24 ], [ 1, %HexStringToBytes.exit ], [ 0, %3 ], [ 0, %HexStringToBytes.exit.thread ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn

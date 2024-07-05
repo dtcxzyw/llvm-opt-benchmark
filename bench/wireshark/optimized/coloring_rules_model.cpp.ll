@@ -4100,8 +4100,8 @@ _ZN7QStringD2Ev.exit107:                          ; preds = %151, %_ZN17QArrayDa
   br label %179
 
 179:                                              ; preds = %343, %_ZN7QStringD2Ev.exit107
-  %.042 = phi i32 [ 0, %_ZN7QStringD2Ev.exit107 ], [ %344, %343 ]
-  %180 = sext i32 %.042 to i64
+  %.062 = phi i32 [ 0, %_ZN7QStringD2Ev.exit107 ], [ %344, %343 ]
+  %180 = sext i32 %.062 to i64
   %181 = invoke noundef i64 @_ZNK10QJsonArray4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %27)
           to label %_ZNK10QJsonArray5countEv.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -4650,7 +4650,7 @@ _ZN5QListI8QVariantE6appendEOS0_.exit:            ; preds = %341
 
 343:                                              ; preds = %_ZN7QStringD2Ev.exit122, %_ZN5QListI8QVariantE6appendEOS0_.exit
   call void @_ZN11QJsonObjectD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #18
-  %344 = add i32 %.042, 1
+  %344 = add i32 %.062, 1
   br label %179, !llvm.loop !64
 
 345:                                              ; preds = %253, %249

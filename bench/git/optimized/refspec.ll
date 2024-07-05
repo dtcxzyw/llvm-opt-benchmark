@@ -105,8 +105,8 @@ cond.false.i:                                     ; preds = %if.end28.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
   %tobool4178.i = phi i1 [ true, %cond.true.i ], [ false, %cond.false.i ]
-  %rhs.076.i = phi i1 [ false, %cond.true.i ], [ true, %cond.false.i ]
-  %is_glob.074.i = phi i32 [ %land.ext.i, %cond.true.i ], [ 0, %cond.false.i ]
+  %is_glob.076.i = phi i32 [ %land.ext.i, %cond.true.i ], [ 0, %cond.false.i ]
+  %rhs.074.i = phi i1 [ false, %cond.true.i ], [ true, %cond.false.i ]
   %cond.i = phi i64 [ %sub.i, %cond.true.i ], [ %call42.i, %cond.false.i ]
   %cmp43.not.i = icmp eq i64 %cond.i, 0
   br i1 %cmp43.not.i, label %if.else63.i, label %land.lhs.true45.i
@@ -117,8 +117,8 @@ land.lhs.true45.i:                                ; preds = %cond.end.i
   br i1 %tobool47.not.i, label %if.else63.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %land.lhs.true45.i
-  %tobool51.i = icmp ne i32 %is_glob.074.i, 0
-  %or.cond1.i = select i1 %rhs.076.i, i1 true, i1 %tobool51.i
+  %tobool51.i = icmp ne i32 %is_glob.076.i, 0
+  %or.cond1.i = select i1 %rhs.074.i, i1 true, i1 %tobool51.i
   br i1 %or.cond1.i, label %lor.lhs.false.i, label %parse_refspec.exit
 
 lor.lhs.false.i:                                  ; preds = %if.then48.i
@@ -132,7 +132,7 @@ land.lhs.true53.i:                                ; preds = %lor.lhs.false.i
   br i1 %or.cond2.i, label %parse_refspec.exit, label %if.end69.i
 
 if.else63.i:                                      ; preds = %land.lhs.true45.i, %cond.end.i
-  %tobool66.i = icmp ne i32 %is_glob.074.i, 0
+  %tobool66.i = icmp ne i32 %is_glob.076.i, 0
   %or.cond3.i = select i1 %tobool4178.i, i1 %tobool66.i, i1 false
   br i1 %or.cond3.i, label %parse_refspec.exit, label %if.else63.if.end69_crit_edge.i
 
@@ -142,7 +142,7 @@ if.else63.if.end69_crit_edge.i:                   ; preds = %if.else63.i
 
 if.end69.i:                                       ; preds = %if.else63.if.end69_crit_edge.i, %land.lhs.true53.i, %lor.lhs.false.i
   %bf.load70.i = phi i8 [ %bf.load70.pre.i, %if.else63.if.end69_crit_edge.i ], [ %bf.load70.pre81.i, %land.lhs.true53.i ], [ %bf.load70.pre81.i, %lor.lhs.false.i ]
-  %is_glob.1.i = phi i32 [ %is_glob.074.i, %if.else63.if.end69_crit_edge.i ], [ 1, %land.lhs.true53.i ], [ 1, %lor.lhs.false.i ]
+  %is_glob.1.i = phi i32 [ %is_glob.076.i, %if.else63.if.end69_crit_edge.i ], [ 1, %land.lhs.true53.i ], [ 1, %lor.lhs.false.i ]
   %6 = trunc nuw nsw i32 %is_glob.1.i to i8
   %bf.value.i = shl nuw nsw i8 %6, 1
   %bf.shl.i = and i8 %bf.value.i, 2

@@ -858,10 +858,10 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
 
 27:                                               ; preds = %.lr.ph138, %81
   %28 = phi ptr [ %24, %.lr.ph138 ], [ %82, %81 ]
-  %.095137 = phi i32 [ 128, %.lr.ph138 ], [ %.2, %81 ]
-  %.096136 = phi i32 [ 0, %.lr.ph138 ], [ %.197, %81 ]
-  %.098135 = phi ptr [ %18, %.lr.ph138 ], [ %.2100, %81 ]
-  %.0103134 = phi ptr [ null, %.lr.ph138 ], [ %.1104, %81 ]
+  %.0101137 = phi i32 [ 128, %.lr.ph138 ], [ %.2103, %81 ]
+  %.0104136 = phi i32 [ 0, %.lr.ph138 ], [ %.1105, %81 ]
+  %.0106135 = phi ptr [ %18, %.lr.ph138 ], [ %.2108, %81 ]
+  %.0111134 = phi ptr [ null, %.lr.ph138 ], [ %.1112, %81 ]
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 22
@@ -885,37 +885,37 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
   br i1 %or.cond, label %50, label %.preheader128
 
 .preheader128:                                    ; preds = %27
-  %.not117 = icmp eq ptr %.0103134, null
+  %.not117 = icmp eq ptr %.0111134, null
   br i1 %.not117, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader128
-  %45 = getelementptr inbounds i8, ptr %.0103134, i64 4
+  %45 = getelementptr inbounds i8, ptr %.0111134, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph132, label %.critedge
 
 .lr.ph132:                                        ; preds = %.lr.ph
-  %48 = getelementptr inbounds i8, ptr %.0103134, i64 16
+  %48 = getelementptr inbounds i8, ptr %.0111134, i64 16
   %49 = load ptr, ptr %48, align 8
   %wide.trip.count = zext nneg i32 %46 to i64
   br label %69
 
 50:                                               ; preds = %27
-  %.not119 = icmp slt i32 %.096136, %.095137
+  %.not119 = icmp slt i32 %.0104136, %.0101137
   br i1 %.not119, label %56, label %51
 
 51:                                               ; preds = %50
-  %52 = shl i32 %.095137, 1
+  %52 = shl i32 %.0101137, 1
   %53 = sext i32 %52 to i64
   %54 = mul nsw i64 %53, 20
-  %55 = call ptr @repalloc(ptr noundef %.098135, i64 noundef %54) #8
+  %55 = call ptr @repalloc(ptr noundef %.0106135, i64 noundef %54) #8
   br label %56
 
 56:                                               ; preds = %51, %50
-  %.199 = phi ptr [ %55, %51 ], [ %.098135, %50 ]
-  %.1 = phi i32 [ %52, %51 ], [ %.095137, %50 ]
-  %57 = sext i32 %.096136 to i64
-  %58 = getelementptr %struct.ShDependObjectInfo, ptr %.199, i64 %57
+  %.1107 = phi ptr [ %55, %51 ], [ %.0106135, %50 ]
+  %.1102 = phi i32 [ %52, %51 ], [ %.0101137, %50 ]
+  %57 = sext i32 %.0104136 to i64
+  %58 = getelementptr %struct.ShDependObjectInfo, ptr %.1107, i64 %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %58, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false)
   %59 = getelementptr inbounds i8, ptr %34, i64 24
   %60 = load i8, ptr %59, align 4
@@ -927,7 +927,7 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
   %65 = zext i1 %64 to i32
   %66 = getelementptr inbounds i8, ptr %58, i64 16
   store i32 %65, ptr %66, align 4
-  %67 = add i32 %.096136, 1
+  %67 = add i32 %.0104136, 1
   br label %81
 
 68:                                               ; preds = %69
@@ -956,49 +956,49 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
   store i32 %78, ptr %77, align 4
   %79 = getelementptr inbounds i8, ptr %77, i64 4
   store i32 1, ptr %79, align 4
-  %80 = call ptr @lappend(ptr noundef %.0103134, ptr noundef nonnull %77) #8
+  %80 = call ptr @lappend(ptr noundef %.0111134, ptr noundef nonnull %77) #8
   br label %81
 
 81:                                               ; preds = %.split, %.critedge, %56
-  %.1104 = phi ptr [ %.0103134, %56 ], [ %.0103134, %.split ], [ %80, %.critedge ]
-  %.2100 = phi ptr [ %.199, %56 ], [ %.098135, %.split ], [ %.098135, %.critedge ]
-  %.197 = phi i32 [ %67, %56 ], [ %.096136, %.split ], [ %.096136, %.critedge ]
-  %.2 = phi i32 [ %.1, %56 ], [ %.095137, %.split ], [ %.095137, %.critedge ]
+  %.1112 = phi ptr [ %.0111134, %56 ], [ %.0111134, %.split ], [ %80, %.critedge ]
+  %.2108 = phi ptr [ %.1107, %56 ], [ %.0106135, %.split ], [ %.0106135, %.critedge ]
+  %.1105 = phi i32 [ %67, %56 ], [ %.0104136, %.split ], [ %.0104136, %.critedge ]
+  %.2103 = phi i32 [ %.1102, %56 ], [ %.0101137, %.split ], [ %.0101137, %.critedge ]
   %82 = call ptr @systable_getnext(ptr noundef %23) #8
   %.not = icmp eq ptr %82, null
   br i1 %.not, label %._crit_edge, label %27, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %81, %17
-  %.0103.lcssa = phi ptr [ null, %17 ], [ %.1104, %81 ]
-  %.098.lcssa = phi ptr [ %18, %17 ], [ %.2100, %81 ]
-  %.096.lcssa = phi i32 [ 0, %17 ], [ %.197, %81 ]
+  %.0111.lcssa = phi ptr [ null, %17 ], [ %.1112, %81 ]
+  %.0106.lcssa = phi ptr [ %18, %17 ], [ %.2108, %81 ]
+  %.0104.lcssa = phi i32 [ 0, %17 ], [ %.1105, %81 ]
   call void @systable_endscan(ptr noundef %23) #8
   call void @table_close(ptr noundef %19, i32 noundef 1) #8
-  %83 = icmp sgt i32 %.096.lcssa, 1
+  %83 = icmp sgt i32 %.0104.lcssa, 1
   br i1 %83, label %.thread, label %85
 
 .thread:                                          ; preds = %._crit_edge
-  %84 = zext nneg i32 %.096.lcssa to i64
-  call void @pg_qsort(ptr noundef %.098.lcssa, i64 noundef %84, i64 noundef 20, ptr noundef nonnull @shared_dependency_comparator) #8
+  %84 = zext nneg i32 %.0104.lcssa to i64
+  call void @pg_qsort(ptr noundef %.0106.lcssa, i64 noundef %84, i64 noundef 20, ptr noundef nonnull @shared_dependency_comparator) #8
   br label %.lr.ph145.preheader
 
 85:                                               ; preds = %._crit_edge
-  %86 = icmp eq i32 %.096.lcssa, 1
+  %86 = icmp eq i32 %.0104.lcssa, 1
   br i1 %86, label %.lr.ph145.preheader, label %.preheader
 
 .lr.ph145.preheader:                              ; preds = %.thread, %85
-  %wide.trip.count161 = zext nneg i32 %.096.lcssa to i64
+  %wide.trip.count161 = zext nneg i32 %.0104.lcssa to i64
   br label %.lr.ph145
 
 .preheader:                                       ; preds = %106, %85
-  %.0109.lcssa = phi i32 [ 0, %85 ], [ %.1110, %106 ]
-  %.0107.lcssa = phi i32 [ 0, %85 ], [ %.1108, %106 ]
-  %87 = getelementptr inbounds i8, ptr %.0103.lcssa, i64 4
-  %.not115 = icmp eq ptr %.0103.lcssa, null
+  %.096.lcssa = phi i32 [ 0, %85 ], [ %.197, %106 ]
+  %.094.lcssa = phi i32 [ 0, %85 ], [ %.1, %106 ]
+  %87 = getelementptr inbounds i8, ptr %.0111.lcssa, i64 4
+  %.not115 = icmp eq ptr %.0111.lcssa, null
   br i1 %.not115, label %._crit_edge152, label %.lr.ph151
 
 .lr.ph151:                                        ; preds = %.preheader
-  %88 = getelementptr inbounds i8, ptr %.0103.lcssa, i64 16
+  %88 = getelementptr inbounds i8, ptr %.0111.lcssa, i64 16
   %89 = getelementptr inbounds i8, ptr %6, i64 4
   %90 = getelementptr inbounds i8, ptr %6, i64 8
   %91 = getelementptr inbounds i8, ptr %7, i64 8
@@ -1009,14 +1009,14 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
 
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %106
   %indvars.iv158 = phi i64 [ 0, %.lr.ph145.preheader ], [ %indvars.iv.next159, %106 ]
-  %.0107142 = phi i32 [ 0, %.lr.ph145.preheader ], [ %.1108, %106 ]
-  %.0109141 = phi i32 [ 0, %.lr.ph145.preheader ], [ %.1110, %106 ]
-  %95 = icmp slt i32 %.0109141, 100
+  %.094143 = phi i32 [ 0, %.lr.ph145.preheader ], [ %.1, %106 ]
+  %.096141 = phi i32 [ 0, %.lr.ph145.preheader ], [ %.197, %106 ]
+  %95 = icmp slt i32 %.094143, 100
   br i1 %95, label %96, label %104
 
 96:                                               ; preds = %.lr.ph145
-  %97 = add nsw i32 %.0109141, 1
-  %98 = getelementptr %struct.ShDependObjectInfo, ptr %.098.lcssa, i64 %indvars.iv158
+  %97 = add nsw i32 %.094143, 1
+  %98 = getelementptr %struct.ShDependObjectInfo, ptr %.0106.lcssa, i64 %indvars.iv158
   %99 = getelementptr inbounds i8, ptr %98, i64 16
   %100 = load i32, ptr %99, align 4
   %101 = getelementptr inbounds i8, ptr %98, i64 12
@@ -1026,13 +1026,13 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
   br label %106
 
 104:                                              ; preds = %.lr.ph145
-  %105 = add i32 %.0107142, 1
+  %105 = add i32 %.096141, 1
   br label %106
 
 106:                                              ; preds = %104, %96
-  %.1110 = phi i32 [ %97, %96 ], [ %.0109141, %104 ]
-  %.1108 = phi i32 [ %.0107142, %96 ], [ %105, %104 ]
-  %107 = getelementptr %struct.ShDependObjectInfo, ptr %.098.lcssa, i64 %indvars.iv158
+  %.197 = phi i32 [ %.096141, %96 ], [ %105, %104 ]
+  %.1 = phi i32 [ %97, %96 ], [ %.094143, %104 ]
+  %107 = getelementptr %struct.ShDependObjectInfo, ptr %.0106.lcssa, i64 %indvars.iv158
   %108 = getelementptr inbounds i8, ptr %107, i64 16
   %109 = load i32, ptr %108, align 4
   %110 = getelementptr inbounds i8, ptr %107, i64 12
@@ -1044,8 +1044,8 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
   br i1 %exitcond162.not, label %.preheader, label %.lr.ph145, !llvm.loop !14
 
 .lr.ph171:                                        ; preds = %.lr.ph151, %storeObjectDescription.exit121
-  %.2111148170 = phi i32 [ %.3, %storeObjectDescription.exit121 ], [ %.0109.lcssa, %.lr.ph151 ]
-  %.0105149169 = phi i32 [ %.1106, %storeObjectDescription.exit121 ], [ 0, %.lr.ph151 ]
+  %.099148170 = phi i32 [ %.1100, %storeObjectDescription.exit121 ], [ 0, %.lr.ph151 ]
+  %.2150169 = phi i32 [ %.3, %storeObjectDescription.exit121 ], [ %.094.lcssa, %.lr.ph151 ]
   %indvars.iv163168 = phi i64 [ %indvars.iv.next164, %storeObjectDescription.exit121 ], [ 0, %.lr.ph151 ]
   %113 = load ptr, ptr %88, align 8
   %114 = getelementptr %union.ListCell, ptr %113, i64 %indvars.iv163168
@@ -1054,11 +1054,11 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
   %116 = load i32, ptr %115, align 4
   store i32 %116, ptr %89, align 4
   store i32 0, ptr %90, align 4
-  %117 = icmp slt i32 %.2111148170, 100
+  %117 = icmp slt i32 %.2150169, 100
   br i1 %117, label %118, label %130
 
 118:                                              ; preds = %.lr.ph171
-  %119 = add nsw i32 %.2111148170, 1
+  %119 = add nsw i32 %.2150169, 1
   %120 = getelementptr inbounds i8, ptr %115, i64 4
   %121 = load i32, ptr %120, align 4
   %122 = call ptr @getObjectDescription(ptr noundef nonnull %6, i1 noundef zeroext false) #8
@@ -1082,12 +1082,12 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
   br label %storeObjectDescription.exit
 
 130:                                              ; preds = %.lr.ph171
-  %131 = add i32 %.0105149169, 1
+  %131 = add i32 %.099148170, 1
   br label %storeObjectDescription.exit
 
 storeObjectDescription.exit:                      ; preds = %127, %118, %130
-  %.3 = phi i32 [ %.2111148170, %130 ], [ %119, %118 ], [ %119, %127 ]
-  %.1106 = phi i32 [ %131, %130 ], [ %.0105149169, %118 ], [ %.0105149169, %127 ]
+  %.1100 = phi i32 [ %131, %130 ], [ %.099148170, %118 ], [ %.099148170, %127 ]
+  %.3 = phi i32 [ %.2150169, %130 ], [ %119, %118 ], [ %119, %127 ]
   %132 = getelementptr inbounds i8, ptr %115, i64 4
   %133 = load i32, ptr %132, align 4
   %134 = call ptr @getObjectDescription(ptr noundef nonnull %6, i1 noundef zeroext false) #8
@@ -1118,9 +1118,9 @@ storeObjectDescription.exit121:                   ; preds = %storeObjectDescript
   br i1 %144, label %.lr.ph171, label %._crit_edge152
 
 ._crit_edge152:                                   ; preds = %storeObjectDescription.exit121, %.lr.ph151, %.preheader
-  %.0105.lcssa = phi i32 [ 0, %.preheader ], [ 0, %.lr.ph151 ], [ %.1106, %storeObjectDescription.exit121 ]
-  call void @pfree(ptr noundef %.098.lcssa) #8
-  call void @list_free_deep(ptr noundef %.0103.lcssa) #8
+  %.099.lcssa = phi i32 [ 0, %.preheader ], [ 0, %.lr.ph151 ], [ %.1100, %storeObjectDescription.exit121 ]
+  call void @pfree(ptr noundef %.0106.lcssa) #8
+  call void @list_free_deep(ptr noundef %.0111.lcssa) #8
   %145 = getelementptr inbounds i8, ptr %7, i64 8
   %146 = load i32, ptr %145, align 8
   %147 = icmp ne i32 %146, 0
@@ -1136,23 +1136,23 @@ storeObjectDescription.exit121:                   ; preds = %storeObjectDescript
   br label %164
 
 151:                                              ; preds = %._crit_edge152
-  %152 = icmp sgt i32 %.0107.lcssa, 0
+  %152 = icmp sgt i32 %.096.lcssa, 0
   br i1 %152, label %153, label %156
 
 153:                                              ; preds = %151
-  %154 = icmp eq i32 %.0107.lcssa, 1
+  %154 = icmp eq i32 %.096.lcssa, 1
   %155 = select i1 %154, ptr @.str.2, ptr @.str.3
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %7, ptr noundef nonnull %155, i32 noundef %.0107.lcssa) #8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %7, ptr noundef nonnull %155, i32 noundef %.096.lcssa) #8
   br label %156
 
 156:                                              ; preds = %153, %151
-  %157 = icmp sgt i32 %.0105.lcssa, 0
+  %157 = icmp sgt i32 %.099.lcssa, 0
   br i1 %157, label %158, label %161
 
 158:                                              ; preds = %156
-  %159 = icmp eq i32 %.0105.lcssa, 1
+  %159 = icmp eq i32 %.099.lcssa, 1
   %160 = select i1 %159, ptr @.str.4, ptr @.str.5
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %7, ptr noundef nonnull %160, i32 noundef %.0105.lcssa) #8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %7, ptr noundef nonnull %160, i32 noundef %.099.lcssa) #8
   br label %161
 
 161:                                              ; preds = %158, %156
@@ -1353,27 +1353,27 @@ define dso_local void @copyTemplateDependencies(i32 noundef %0, i32 noundef %1) 
   %14 = phi ptr [ %11, %.lr.ph ], [ %92, %91 ]
   %.06371 = phi i32 [ 0, %.lr.ph ], [ %.1, %91 ]
   %.06470 = phi i32 [ 0, %.lr.ph ], [ %.165, %91 ]
-  %15 = icmp slt i32 %.06470, 2340
+  %15 = icmp slt i32 %.06371, 2340
   br i1 %15, label %16, label %._crit_edge78
 
 ._crit_edge78:                                    ; preds = %13
-  %.phi.trans.insert = sext i32 %.06371 to i64
+  %.phi.trans.insert = sext i32 %.06470 to i64
   %.phi.trans.insert79 = getelementptr ptr, ptr %7, i64 %.phi.trans.insert
   %.pre = load ptr, ptr %.phi.trans.insert79, align 8
   br label %21
 
 16:                                               ; preds = %13
   %17 = call ptr @MakeSingleTupleTableSlot(ptr noundef %6, ptr noundef nonnull @TTSOpsHeapTuple) #8
-  %18 = sext i32 %.06371 to i64
+  %18 = sext i32 %.06470 to i64
   %19 = getelementptr ptr, ptr %7, i64 %18
   store ptr %17, ptr %19, align 8
-  %20 = add nsw i32 %.06470, 1
+  %20 = add nsw i32 %.06371, 1
   br label %21
 
 21:                                               ; preds = %._crit_edge78, %16
   %.pre-phi = phi i64 [ %.phi.trans.insert, %._crit_edge78 ], [ %18, %16 ]
   %22 = phi ptr [ %.pre, %._crit_edge78 ], [ %17, %16 ]
-  %.165 = phi i32 [ %.06470, %._crit_edge78 ], [ %20, %16 ]
+  %.1 = phi i32 [ %.06371, %._crit_edge78 ], [ %20, %16 ]
   %23 = getelementptr ptr, ptr %7, i64 %.pre-phi
   %24 = getelementptr inbounds i8, ptr %22, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -1448,7 +1448,7 @@ define dso_local void @copyTemplateDependencies(i32 noundef %0, i32 noundef %1) 
   store i64 %81, ptr %85, align 8
   %86 = load ptr, ptr %23, align 8
   %87 = call ptr @ExecStoreVirtualTuple(ptr noundef %86) #8
-  %88 = add i32 %.06371, 1
+  %88 = add i32 %.06470, 1
   %89 = icmp eq i32 %88, 2340
   br i1 %89, label %90, label %91
 
@@ -1457,29 +1457,29 @@ define dso_local void @copyTemplateDependencies(i32 noundef %0, i32 noundef %1) 
   br label %91
 
 91:                                               ; preds = %90, %21
-  %.1 = phi i32 [ 0, %90 ], [ %88, %21 ]
+  %.165 = phi i32 [ 0, %90 ], [ %88, %21 ]
   %92 = call ptr @systable_getnext(ptr noundef %10) #8
   %.not = icmp eq ptr %92, null
   br i1 %.not, label %._crit_edge, label %13, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %91
-  %93 = icmp sgt i32 %.1, 0
+  %93 = icmp sgt i32 %.165, 0
   br i1 %93, label %94, label %._crit_edge.thread
 
 94:                                               ; preds = %._crit_edge
-  call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %4, ptr noundef nonnull %7, i32 noundef %.1, ptr noundef %8) #8
+  call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %4, ptr noundef nonnull %7, i32 noundef %.165, ptr noundef %8) #8
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %94, %._crit_edge
-  %.064.lcssa82 = phi i32 [ %.165, %94 ], [ %.165, %._crit_edge ], [ 0, %2 ]
+  %.063.lcssa82 = phi i32 [ %.1, %94 ], [ %.1, %._crit_edge ], [ 0, %2 ]
   call void @systable_endscan(ptr noundef %10) #8
   call void @CatalogCloseIndexes(ptr noundef %8) #8
   call void @table_close(ptr noundef %4, i32 noundef 3) #8
-  %95 = icmp sgt i32 %.064.lcssa82, 0
+  %95 = icmp sgt i32 %.063.lcssa82, 0
   br i1 %95, label %.lr.ph75.preheader, label %._crit_edge76
 
 .lr.ph75.preheader:                               ; preds = %._crit_edge.thread
-  %wide.trip.count = zext nneg i32 %.064.lcssa82 to i64
+  %wide.trip.count = zext nneg i32 %.063.lcssa82 to i64
   br label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %.lr.ph75

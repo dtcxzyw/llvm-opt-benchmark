@@ -568,8 +568,8 @@ define dso_local range(i32 0, -1) i32 @WaitEventSetWait(ptr nocapture noundef re
   br label %15
 
 15:                                               ; preds = %5, %10
-  %.sroa.08.0.neg61 = phi i64 [ %.neg60, %10 ], [ 0, %5 ]
   %.036 = phi i64 [ %1, %10 ], [ -1, %5 ]
+  %.sroa.08.0.neg61 = phi i64 [ %.neg60, %10 ], [ 0, %5 ]
   %16 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 %4, ptr %16, align 4
   store volatile i32 1, ptr @waiting, align 4
@@ -665,17 +665,17 @@ define dso_local range(i32 0, -1) i32 @WaitEventSetWait(ptr nocapture noundef re
 
 .lr.ph.i:                                         ; preds = %58, %.thread73.i
   %.082.i = phi ptr [ %146, %.thread73.i ], [ %59, %58 ]
-  %.05381.i = phi i32 [ %.1.i, %.thread73.i ], [ 0, %58 ]
-  %.05580.i = phi ptr [ %.156.i, %.thread73.i ], [ %2, %58 ]
+  %.05481.i = phi ptr [ %.1.i, %.thread73.i ], [ %2, %58 ]
+  %.05580.i = phi i32 [ %.156.i, %.thread73.i ], [ 0, %58 ]
   %64 = getelementptr inbounds i8, ptr %.082.i, i64 4
   %65 = load ptr, ptr %64, align 1
   %66 = load i32, ptr %65, align 8
-  store i32 %66, ptr %.05580.i, align 8
+  store i32 %66, ptr %.05481.i, align 8
   %67 = getelementptr inbounds i8, ptr %65, i64 16
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %.05580.i, i64 16
+  %69 = getelementptr inbounds i8, ptr %.05481.i, i64 16
   store ptr %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %.05580.i, i64 4
+  %70 = getelementptr inbounds i8, ptr %.05481.i, i64 4
   store i32 0, ptr %70, align 4
   %71 = getelementptr inbounds i8, ptr %65, i64 4
   %72 = load i32, ptr %71, align 4
@@ -749,11 +749,11 @@ drain.exit.i:                                     ; preds = %92, %81
   br i1 %.not71.i, label %.thread73.i, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %.05580.i, i64 8
+  %99 = getelementptr inbounds i8, ptr %.05481.i, i64 8
   store i32 -1, ptr %99, align 8
   store i32 1, ptr %70, align 4
-  %100 = getelementptr i8, ptr %.05580.i, i64 24
-  %101 = add i32 %.05381.i, 1
+  %100 = getelementptr i8, ptr %.05481.i, i64 24
+  %101 = add i32 %.05580.i, 1
   br label %.thread73.i
 
 102:                                              ; preds = %.lr.ph.i
@@ -776,11 +776,11 @@ drain.exit.i:                                     ; preds = %92, %81
   unreachable
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %.05580.i, i64 8
+  %112 = getelementptr inbounds i8, ptr %.05481.i, i64 8
   store i32 -1, ptr %112, align 8
   store i32 16, ptr %70, align 4
-  %113 = getelementptr i8, ptr %.05580.i, i64 24
-  %114 = add nsw i32 %.05381.i, 1
+  %113 = getelementptr i8, ptr %.05481.i, i64 24
+  %114 = add nsw i32 %.05580.i, 1
   br label %.thread73.i
 
 115:                                              ; preds = %.lr.ph.i
@@ -848,25 +848,25 @@ drain.exit.i:                                     ; preds = %92, %81
 140:                                              ; preds = %139, %.thread75.i
   %141 = getelementptr inbounds i8, ptr %65, i64 8
   %142 = load i32, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %.05580.i, i64 8
+  %143 = getelementptr inbounds i8, ptr %.05481.i, i64 8
   store i32 %142, ptr %143, align 8
-  %144 = getelementptr i8, ptr %.05580.i, i64 24
-  %145 = add nsw i32 %.05381.i, 1
+  %144 = getelementptr i8, ptr %.05481.i, i64 24
+  %145 = add nsw i32 %.05580.i, 1
   br label %.thread73.i
 
 .thread73.i:                                      ; preds = %140, %139, %115, %111, %105, %102, %98, %96, %drain.exit.i, %73
-  %.156.i = phi ptr [ %100, %98 ], [ %.05580.i, %96 ], [ %.05580.i, %drain.exit.i ], [ %.05580.i, %105 ], [ %113, %111 ], [ %144, %140 ], [ %.05580.i, %139 ], [ %.05580.i, %115 ], [ %.05580.i, %102 ], [ %.05580.i, %73 ]
-  %.1.i = phi i32 [ %101, %98 ], [ %.05381.i, %96 ], [ %.05381.i, %drain.exit.i ], [ %.05381.i, %105 ], [ %114, %111 ], [ %145, %140 ], [ %.05381.i, %139 ], [ %.05381.i, %115 ], [ %.05381.i, %102 ], [ %.05381.i, %73 ]
+  %.156.i = phi i32 [ %101, %98 ], [ %.05580.i, %96 ], [ %.05580.i, %drain.exit.i ], [ %.05580.i, %105 ], [ %114, %111 ], [ %145, %140 ], [ %.05580.i, %139 ], [ %.05580.i, %115 ], [ %.05580.i, %102 ], [ %.05580.i, %73 ]
+  %.1.i = phi ptr [ %100, %98 ], [ %.05481.i, %96 ], [ %.05481.i, %drain.exit.i ], [ %.05481.i, %105 ], [ %113, %111 ], [ %144, %140 ], [ %.05481.i, %139 ], [ %.05481.i, %115 ], [ %.05481.i, %102 ], [ %.05481.i, %73 ]
   %146 = getelementptr i8, ptr %.082.i, i64 12
   %147 = load ptr, ptr %19, align 8
   %148 = getelementptr %struct.epoll_event, ptr %147, i64 %60
   %149 = icmp ult ptr %146, %148
-  %150 = icmp slt i32 %.1.i, %3
+  %150 = icmp slt i32 %.156.i, %3
   %151 = select i1 %149, i1 %150, i1 false
   br i1 %151, label %.lr.ph.i, label %WaitEventSetWaitBlock.exit, !llvm.loop !6
 
 WaitEventSetWaitBlock.exit:                       ; preds = %.thread73.i, %49, %56, %58
-  %.054.i = phi i32 [ 0, %49 ], [ -1, %56 ], [ 0, %58 ], [ %.1.i, %.thread73.i ]
+  %.053.i = phi i32 [ 0, %49 ], [ -1, %56 ], [ 0, %58 ], [ %.156.i, %.thread73.i ]
   %152 = load ptr, ptr %17, align 8
   %.not48 = icmp eq ptr %152, null
   br i1 %.not48, label %155, label %153
@@ -877,11 +877,11 @@ WaitEventSetWaitBlock.exit:                       ; preds = %.thread73.i, %49, %
   br label %155
 
 155:                                              ; preds = %153, %WaitEventSetWaitBlock.exit
-  %156 = icmp eq i32 %.054.i, -1
+  %156 = icmp eq i32 %.053.i, -1
   br i1 %156, label %.loopexit, label %157
 
 157:                                              ; preds = %155
-  %158 = icmp eq i32 %.054.i, 0
+  %158 = icmp eq i32 %.053.i, 0
   %or.cond = and i1 %9, %158
   br i1 %or.cond, label %159, label %171
 
@@ -906,7 +906,7 @@ WaitEventSetWaitBlock.exit:                       ; preds = %.thread73.i, %49, %
   br i1 %158, label %24, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %159, %155, %171, %.thread53
-  %.1 = phi i32 [ 1, %.thread53 ], [ %.054.i, %171 ], [ 0, %159 ], [ 0, %155 ]
+  %.1 = phi i32 [ 1, %.thread53 ], [ %.053.i, %171 ], [ 0, %159 ], [ 0, %155 ]
   store volatile i32 0, ptr @waiting, align 4
   %172 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %172, align 4

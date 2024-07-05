@@ -617,8 +617,8 @@ sw.default.i:                                     ; preds = %if.end2
   br label %_ZN6icu_7512_GLOBAL__N_120MutableCodePointTrie11fromUCPTrieEPK7UCPTrieR10UErrorCode.exit
 
 sw.epilog.i:                                      ; preds = %sw.bb19.i, %sw.bb8.i, %sw.bb.i
-  %errorValue.0.i = phi i32 [ %conv25.i, %sw.bb19.i ], [ %12, %sw.bb8.i ], [ %conv1.i, %sw.bb.i ]
   %initialValue.0.i = phi i32 [ %conv31.i, %sw.bb19.i ], [ %13, %sw.bb8.i ], [ %conv7.i, %sw.bb.i ]
+  %errorValue.0.i = phi i32 [ %conv25.i, %sw.bb19.i ], [ %12, %sw.bb8.i ], [ %conv1.i, %sw.bb.i ]
   %call.i = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 69696) #12
   %new.isnull.i = icmp eq ptr %call.i, null
   br i1 %new.isnull.i, label %new.cont.i, label %new.notnull.i
@@ -1805,15 +1805,15 @@ for.body.lr.ph.i.i.i:                             ; preds = %for.end21.i.i
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc80.i.i.i, %for.body.lr.ph.i.i.i
-  %i.0105.i.i.i = phi i32 [ 0, %for.body.lr.ph.i.i.i ], [ %add81.i.i.i, %for.inc80.i.i.i ]
-  %inc.0104.i.i.i = phi i32 [ 4, %for.body.lr.ph.i.i.i ], [ %spec.select50.i.i.i, %for.inc80.i.i.i ]
-  %blockLength.0103.i.i.i = phi i32 [ 64, %for.body.lr.ph.i.i.i ], [ %spec.select.i.i.i, %for.inc80.i.i.i ]
-  %newDataCapacity.0102.i.i.i = phi i32 [ 148, %for.body.lr.ph.i.i.i ], [ %newDataCapacity.1.i.i.i, %for.inc80.i.i.i ]
-  %cmp3.i.i.i = icmp eq i32 %i.0105.i.i.i, %shr.i
-  %spec.select.i.i.i = select i1 %cmp3.i.i.i, i32 16, i32 %blockLength.0103.i.i.i
-  %spec.select50.i.i.i = select i1 %cmp3.i.i.i, i32 1, i32 %inc.0104.i.i.i
+  %newDataCapacity.0107.i.i.i = phi i32 [ 148, %for.body.lr.ph.i.i.i ], [ %newDataCapacity.1.i.i.i, %for.inc80.i.i.i ]
+  %i.0104.i.i.i = phi i32 [ 0, %for.body.lr.ph.i.i.i ], [ %add81.i.i.i, %for.inc80.i.i.i ]
+  %inc.0103.i.i.i = phi i32 [ 4, %for.body.lr.ph.i.i.i ], [ %spec.select50.i.i.i, %for.inc80.i.i.i ]
+  %blockLength.0102.i.i.i = phi i32 [ 64, %for.body.lr.ph.i.i.i ], [ %spec.select.i.i.i, %for.inc80.i.i.i ]
+  %cmp3.i.i.i = icmp eq i32 %i.0104.i.i.i, %shr.i
+  %spec.select.i.i.i = select i1 %cmp3.i.i.i, i32 16, i32 %blockLength.0102.i.i.i
+  %spec.select50.i.i.i = select i1 %cmp3.i.i.i, i32 1, i32 %inc.0103.i.i.i
   %48 = load ptr, ptr %trie, align 8
-  %idxprom.i66.i.i = sext i32 %i.0105.i.i.i to i64
+  %idxprom.i66.i.i = sext i32 %i.0104.i.i.i to i64
   %arrayidx.i67.i.i = getelementptr inbounds i32, ptr %48, i64 %idxprom.i66.i.i
   %49 = load i32, ptr %arrayidx.i67.i.i, align 4
   %arrayidx5.i.i.i = getelementptr inbounds [69632 x i8], ptr %flags.i48.i.i, i64 0, i64 %idxprom.i66.i.i
@@ -1856,7 +1856,7 @@ if.then9.i.i.i:                                   ; preds = %_ZN6icu_7512_GLOBAL
   br label %if.end41.i.i.i
 
 if.else.i73.i.i:                                  ; preds = %_ZN6icu_7512_GLOBAL__N_115allValuesSameAsEPKjij.exit.i.i.i
-  %add16.i.i.i = add nsw i32 %spec.select.i.i.i, %newDataCapacity.0102.i.i.i
+  %add16.i.i.i = add nsw i32 %spec.select.i.i.i, %newDataCapacity.0107.i.i.i
   br label %for.inc80.i.i.i
 
 if.else18.i.i.i:                                  ; preds = %for.body.i.i.i
@@ -1864,7 +1864,7 @@ if.else18.i.i.i:                                  ; preds = %for.body.i.i.i
   br i1 %cmp19.i.i.i, label %if.then20.i.i.i, label %if.end41.i.i.i
 
 if.then20.i.i.i:                                  ; preds = %if.else18.i.i.i
-  %add21.i.i.i = add nsw i32 %spec.select50.i.i.i, %i.0105.i.i.i
+  %add21.i.i.i = add nsw i32 %spec.select50.i.i.i, %i.0104.i.i.i
   %57 = sext i32 %add21.i.i.i to i64
   br label %for.cond23.i.i.i
 
@@ -1881,12 +1881,12 @@ for.body25.i.i.i:                                 ; preds = %for.cond23.i.i.i
   br i1 %cmp29.not.i.i.i, label %for.cond23.i.i.i, label %if.then33.i.i.i, !llvm.loop !19
 
 if.then33.i.i.i:                                  ; preds = %for.body25.i.i.i
-  %call34.i.i.i = tail call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_120MutableCodePointTrie12getDataBlockEi(ptr noundef nonnull align 8 dereferenceable(69696) %trie, i32 noundef %i.0105.i.i.i)
+  %call34.i.i.i = tail call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_120MutableCodePointTrie12getDataBlockEi(ptr noundef nonnull align 8 dereferenceable(69696) %trie, i32 noundef %i.0104.i.i.i)
   %cmp35.i.i.i = icmp slt i32 %call34.i.i.i, 0
   br i1 %cmp35.i.i.i, label %_ZN6icu_7512_GLOBAL__N_120MutableCodePointTrie11compactTrieEiR10UErrorCode.exit.thread.i, label %if.end37.i.i.i
 
 if.end37.i.i.i:                                   ; preds = %if.then33.i.i.i
-  %add38.i.i.i = add nsw i32 %spec.select.i.i.i, %newDataCapacity.0102.i.i.i
+  %add38.i.i.i = add nsw i32 %spec.select.i.i.i, %newDataCapacity.0107.i.i.i
   br label %for.inc80.i.i.i
 
 if.end41.i.i.i:                                   ; preds = %for.cond23.i.i.i, %if.else18.i.i.i, %if.then9.i.i.i
@@ -1936,7 +1936,7 @@ _ZN6icu_7512_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.thread.i.i.i: ; preds
   store i32 %61, ptr %mostRecent.i.i.i, align 4
   %idxprom33.i.i.i.i = sext i32 %61 to i64
   %arrayidx34.i.i.i.i = getelementptr inbounds [32 x i32], ptr %indexes31.i.i.i.i, i64 0, i64 %idxprom33.i.i.i.i
-  store i32 %i.0105.i.i.i, ptr %arrayidx34.i.i.i.i, align 4
+  store i32 %i.0104.i.i.i, ptr %arrayidx34.i.i.i.i, align 4
   %64 = load i32, ptr %allSameBlocks.i.i, align 4
   %idxprom37.i.i.i.i = sext i32 %64 to i64
   %arrayidx38.i.i.i.i = getelementptr inbounds [32 x i32], ptr %values.i.i.i.i, i64 0, i64 %idxprom37.i.i.i.i
@@ -1959,7 +1959,7 @@ _ZN6icu_7512_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.i.i.i: ; preds = %if.
   br i1 %cmp43.i.i.i, label %for.cond46.preheader.i.i.i, label %if.end68.i.i.i
 
 for.cond46.preheader.i.i.i:                       ; preds = %_ZN6icu_7512_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.i.i.i, %for.end.i.i.i.i
-  %cmp4798.i.i.i = icmp eq i32 %i.0105.i.i.i, 0
+  %cmp4798.i.i.i = icmp eq i32 %i.0104.i.i.i, 0
   br i1 %cmp4798.i.i.i, label %if.then48.i.i.i, label %if.end49.lr.ph.i.i.i
 
 if.end49.lr.ph.i.i.i:                             ; preds = %for.cond46.preheader.i.i.i
@@ -1994,7 +1994,7 @@ _ZN6icu_7512_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i: ; preds = %for.body.
   store i32 %least.0.lcssa.i.i.i.i, ptr %mostRecent.i.i.i, align 4
   %idxprom6.i.i.i.i = sext i32 %least.0.lcssa.i.i.i.i to i64
   %arrayidx7.i.i.i.i = getelementptr inbounds [32 x i32], ptr %indexes31.i.i.i.i, i64 0, i64 %idxprom6.i.i.i.i
-  store i32 %i.0105.i.i.i, ptr %arrayidx7.i.i.i.i, align 4
+  store i32 %i.0104.i.i.i, ptr %arrayidx7.i.i.i.i, align 4
   %arrayidx9.i57.i.i.i = getelementptr inbounds [32 x i32], ptr %values.i.i.i.i, i64 0, i64 %idxprom6.i.i.i.i
   store i32 %value.0.i.i.i, ptr %arrayidx9.i57.i.i.i, align 4
   br label %if.else77.sink.split.i.i.i
@@ -2054,7 +2054,7 @@ _ZN6icu_7512_GLOBAL__N_113AllSameBlocks3addEiij.exit91.i.i.i: ; preds = %for.bod
 
 for.inc65.i.i.i:                                  ; preds = %land.lhs.true.i.i.i, %if.end49.i.i.i
   %add66.i.i.i = add nsw i32 %spec.select51.i.i.i, %j45.0100.i.i.i
-  %cmp47.i.i.i = icmp eq i32 %add66.i.i.i, %i.0105.i.i.i
+  %cmp47.i.i.i = icmp eq i32 %add66.i.i.i, %i.0104.i.i.i
   br i1 %cmp47.i.i.i, label %if.then48.i.i.i, label %if.end49.i.i.i, !llvm.loop !22
 
 if.end68.i.i.i:                                   ; preds = %_ZN6icu_7512_GLOBAL__N_113AllSameBlocks3addEiij.exit91.i.i.i, %_ZN6icu_7512_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.i.i.i
@@ -2076,12 +2076,12 @@ if.else77.sink.split.i.i.i:                       ; preds = %_ZN6icu_7512_GLOBAL
   br label %if.else77.i.i.i
 
 if.else77.i.i.i:                                  ; preds = %if.else77.sink.split.i.i.i, %if.end68.i.i.i
-  %add78.i.i.i = add nsw i32 %spec.select.i.i.i, %newDataCapacity.0102.i.i.i
+  %add78.i.i.i = add nsw i32 %spec.select.i.i.i, %newDataCapacity.0107.i.i.i
   br label %for.inc80.i.i.i
 
 for.inc80.i.i.i:                                  ; preds = %if.else77.i.i.i, %if.then70.i.i.i, %if.end37.i.i.i, %if.else.i73.i.i
-  %newDataCapacity.1.i.i.i = phi i32 [ %newDataCapacity.0102.i.i.i, %if.then70.i.i.i ], [ %add78.i.i.i, %if.else77.i.i.i ], [ %add16.i.i.i, %if.else.i73.i.i ], [ %add38.i.i.i, %if.end37.i.i.i ]
-  %add81.i.i.i = add nsw i32 %spec.select50.i.i.i, %i.0105.i.i.i
+  %newDataCapacity.1.i.i.i = phi i32 [ %newDataCapacity.0107.i.i.i, %if.then70.i.i.i ], [ %add78.i.i.i, %if.else77.i.i.i ], [ %add16.i.i.i, %if.else.i73.i.i ], [ %add38.i.i.i, %if.end37.i.i.i ]
+  %add81.i.i.i = add nsw i32 %spec.select50.i.i.i, %i.0104.i.i.i
   %cmp.i68.i.i = icmp slt i32 %add81.i.i.i, %shr.i62.i.i
   br i1 %cmp.i68.i.i, label %for.body.i.i.i, label %_ZN6icu_7512_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.i.i, !llvm.loop !23
 
@@ -2145,10 +2145,10 @@ _ZNK6icu_7512_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %fo
 for.body.i83.i.i:                                 ; preds = %for.body.i83.i.i, %_ZNK6icu_7512_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i
   %indvars.iv.i84.i.i = phi i64 [ 0, %_ZNK6icu_7512_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i ], [ %indvars.iv.next.i87.i.i, %for.body.i83.i.i ]
   %cmp.i85.i.i = phi i1 [ true, %_ZNK6icu_7512_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i ], [ false, %for.body.i83.i.i ]
-  %newDataLength.0222.i.i.i = phi i32 [ 0, %_ZNK6icu_7512_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i ], [ 64, %for.body.i83.i.i ]
+  %newDataLength.0223.i.i.i = phi i32 [ 0, %_ZNK6icu_7512_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i ], [ 64, %for.body.i83.i.i ]
   %83 = load ptr, ptr %trie, align 8
   %arrayidx.i86.i.i = getelementptr inbounds i32, ptr %83, i64 %indvars.iv.i84.i.i
-  store i32 %newDataLength.0222.i.i.i, ptr %arrayidx.i86.i.i, align 4
+  store i32 %newDataLength.0223.i.i.i, ptr %arrayidx.i86.i.i, align 4
   %indvars.iv.next.i87.i.i = add nuw nsw i64 %indvars.iv.i84.i.i, 4
   br i1 %cmp.i85.i.i, label %for.body.i83.i.i, label %for.end.i88.i.i, !llvm.loop !25
 
@@ -2251,12 +2251,12 @@ for.body6.i.i.i:                                  ; preds = %for.inc96.i.i.i, %f
   %newLength.0.i89.i262.i.i = phi i32 [ %length.i.i.promoted.i.i, %for.body6.lr.ph.i.i.i ], [ %newLength.0.i89.i260.i.i, %for.inc96.i.i.i ]
   %.sink.i259.i.i = phi i32 [ %mask5.i83.i.promoted.i.i, %for.body6.lr.ph.i.i.i ], [ %.sink.i258.i.i, %for.inc96.i.i.i ]
   %.sink322.i257.i.i = phi i32 [ %shift9.i86.i.promoted.i.i, %for.body6.lr.ph.i.i.i ], [ %.sink322.i256.i.i, %for.inc96.i.i.i ]
-  %i3.0250.i.i.i = phi i32 [ 8, %for.body6.lr.ph.i.i.i ], [ %add97.i.i.i, %for.inc96.i.i.i ]
-  %fastLength.0249.i.i.i = phi i32 [ 0, %for.body6.lr.ph.i.i.i ], [ %fastLength.1.i.i.i, %for.inc96.i.i.i ]
+  %newDataLength.1250.i.i.i = phi i32 [ 128, %for.body6.lr.ph.i.i.i ], [ %newDataLength.4.i.i.i, %for.inc96.i.i.i ]
+  %blockLength.0249.i.i.i = phi i32 [ 64, %for.body6.lr.ph.i.i.i ], [ %blockLength.1.i.i.i, %for.inc96.i.i.i ]
   %inc.0248.i.i.i = phi i32 [ 4, %for.body6.lr.ph.i.i.i ], [ %inc.1.i.i.i, %for.inc96.i.i.i ]
-  %blockLength.0247.i.i.i = phi i32 [ 64, %for.body6.lr.ph.i.i.i ], [ %blockLength.1.i.i.i, %for.inc96.i.i.i ]
-  %newDataLength.1246.i.i.i = phi i32 [ 128, %for.body6.lr.ph.i.i.i ], [ %newDataLength.4.i.i.i, %for.inc96.i.i.i ]
-  %cmp7.i.i.i = icmp eq i32 %i3.0250.i.i.i, %shr.i
+  %i3.0247.i.i.i = phi i32 [ 8, %for.body6.lr.ph.i.i.i ], [ %add97.i.i.i, %for.inc96.i.i.i ]
+  %fastLength.0246.i.i.i = phi i32 [ 0, %for.body6.lr.ph.i.i.i ], [ %fastLength.1.i.i.i, %for.inc96.i.i.i ]
+  %cmp7.i.i.i = icmp eq i32 %i3.0247.i.i.i, %shr.i
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.end12.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %for.body6.i.i.i
@@ -2288,7 +2288,7 @@ if.end11.i.i.i:                                   ; preds = %if.end22.i106.i.i.i
   store i32 %newLength.0.i89.i.i.i, ptr %length.i.i.i.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call.i104.i113264.i.i, i8 0, i64 %.pre8.i95.i.i.i, i1 false)
   store i32 16, ptr %blockLength.i.i.i.i, align 8
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef nonnull %call26.i.i, i32 noundef 0, i32 noundef %newDataLength.1246.i.i.i)
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef nonnull %call26.i.i, i32 noundef 0, i32 noundef %newDataLength.1250.i.i.i)
   br label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end11.i.i.i, %for.body6.i.i.i
@@ -2298,10 +2298,10 @@ if.end12.i.i.i:                                   ; preds = %if.end11.i.i.i, %fo
   %newLength.0.i89.i260.i.i = phi i32 [ %newLength.0.i89.i261.i.i, %if.end11.i.i.i ], [ %newLength.0.i89.i262.i.i, %for.body6.i.i.i ]
   %.sink.i258.i.i = phi i32 [ %.sink.i.i.i, %if.end11.i.i.i ], [ %.sink.i259.i.i, %for.body6.i.i.i ]
   %.sink322.i256.i.i = phi i32 [ %.sink322.i.i.i, %if.end11.i.i.i ], [ %.sink322.i257.i.i, %for.body6.i.i.i ]
-  %blockLength.1.i.i.i = phi i32 [ 16, %if.end11.i.i.i ], [ %blockLength.0247.i.i.i, %for.body6.i.i.i ]
+  %fastLength.1.i.i.i = phi i32 [ %newDataLength.1250.i.i.i, %if.end11.i.i.i ], [ %fastLength.0246.i.i.i, %for.body6.i.i.i ]
   %inc.1.i.i.i = phi i32 [ 1, %if.end11.i.i.i ], [ %inc.0248.i.i.i, %for.body6.i.i.i ]
-  %fastLength.1.i.i.i = phi i32 [ %newDataLength.1246.i.i.i, %if.end11.i.i.i ], [ %fastLength.0249.i.i.i, %for.body6.i.i.i ]
-  %idxprom13.i.i.i = sext i32 %i3.0250.i.i.i to i64
+  %blockLength.1.i.i.i = phi i32 [ 16, %if.end11.i.i.i ], [ %blockLength.0249.i.i.i, %for.body6.i.i.i ]
+  %idxprom13.i.i.i = sext i32 %i3.0247.i.i.i to i64
   %arrayidx14.i.i.i = getelementptr inbounds [69632 x i8], ptr %flags.i48.i.i, i64 0, i64 %idxprom13.i.i.i
   %87 = load i8, ptr %arrayidx14.i.i.i, align 1
   switch i8 %87, label %if.else84.i.i.i [
@@ -2399,8 +2399,8 @@ if.then.i116.i.i.i:                               ; preds = %_ZNK6icu_7512_GLOBA
 
 _ZNK6icu_7512_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i: ; preds = %if.then.i116.i.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findEntryEPKjjj.exit.i.i.i.i
   %retval.0.i115.i.i.i = phi i32 [ %sub.i118.i.i.i, %if.then.i116.i.i.i ], [ -1, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findEntryEPKjjj.exit.i.i.i.i ]
-  %cmp22.i.i.i = icmp eq i32 %i3.0250.i.i.i, %retval.0.i76.i.i
-  %cmp24.not.i105.i.i = icmp sge i32 %i3.0250.i.i.i, %shr.i
+  %cmp22.i.i.i = icmp eq i32 %i3.0247.i.i.i, %retval.0.i76.i.i
+  %cmp24.not.i105.i.i = icmp sge i32 %i3.0247.i.i.i, %shr.i
   %.not195.i.i.i = and i1 %cmp22.i.i.i, %cmp24.not.i105.i.i
   %.not195.fr.i.i.i = freeze i1 %.not195.i.i.i
   %cmp21227.i.i.i = icmp sgt i32 %retval.0.i115.i.i.i, -1
@@ -2410,7 +2410,7 @@ _ZNK6icu_7512_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i: ; pred
   br i1 %or.cond78230.i.i.i, label %land.rhs.lr.ph.i.i.i, label %while.end.i.i.i
 
 land.rhs.lr.ph.i.i.i:                             ; preds = %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i
-  %sub.i121.i.i.i = sub nuw nsw i32 %newDataLength.1246.i.i.i, %blockLength.1.i.i.i
+  %sub.i121.i.i.i = sub nuw nsw i32 %newDataLength.1250.i.i.i, %blockLength.1.i.i.i
   %zext.i.i.i.i = zext nneg i32 %blockLength.1.i.i.i to i64
   br label %land.rhs.us.i.i.i
 
@@ -2482,13 +2482,13 @@ if.then32.i.i.i:                                  ; preds = %for.cond.i.us.i.i.i
   br label %for.inc96.i.i.i
 
 if.else.i106.i.i:                                 ; preds = %while.body.us.i.i.i, %for.inc12.i.us.i.i.i, %while.end.i.i.i
-  %sub.neg.i.i.i.i = add i32 %newDataLength.1246.i.i.i, 1
+  %sub.neg.i.i.i.i = add i32 %newDataLength.1250.i.i.i, 1
   %sub1.i.i.i.i = sub i32 %sub.neg.i.i.i.i, %blockLength.1.i.i.i
-  %cmp6.i.i.i.i = icmp slt i32 %sub1.i.i.i.i, %newDataLength.1246.i.i.i
+  %cmp6.i.i.i.i = icmp slt i32 %sub1.i.i.i.i, %newDataLength.1250.i.i.i
   br i1 %cmp6.i.i.i.i, label %land.rhs.preheader.i.i.i.i, label %_ZN6icu_7512_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i
 
 land.rhs.preheader.i.i.i.i:                       ; preds = %if.else.i106.i.i
-  %103 = sext i32 %newDataLength.1246.i.i.i to i64
+  %103 = sext i32 %newDataLength.1250.i.i.i to i64
   %104 = sext i32 %sub1.i.i.i.i to i64
   br label %land.rhs.i.i107.i.i
 
@@ -2509,23 +2509,23 @@ while.end.loopexit.split.loop.exit10.i.i.i.i:     ; preds = %land.rhs.i.i107.i.i
   br label %_ZN6icu_7512_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i
 
 _ZN6icu_7512_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i: ; preds = %while.body.i.i108.i.i, %while.end.loopexit.split.loop.exit10.i.i.i.i, %if.else.i106.i.i
-  %i.0.lcssa.i.i.i.i = phi i32 [ %newDataLength.1246.i.i.i, %if.else.i106.i.i ], [ %106, %while.end.loopexit.split.loop.exit10.i.i.i.i ], [ %sub1.i.i.i.i, %while.body.i.i108.i.i ]
-  %sub4.i.i.i.i = sub nsw i32 %newDataLength.1246.i.i.i, %i.0.lcssa.i.i.i.i
+  %i.0.lcssa.i.i.i.i = phi i32 [ %newDataLength.1250.i.i.i, %if.else.i106.i.i ], [ %106, %while.end.loopexit.split.loop.exit10.i.i.i.i ], [ %sub1.i.i.i.i, %while.body.i.i108.i.i ]
+  %sub4.i.i.i.i = sub nsw i32 %newDataLength.1250.i.i.i, %i.0.lcssa.i.i.i.i
   store i32 %i.0.lcssa.i.i.i.i, ptr %arrayidx19.i.i.i, align 4
   %cmp41241.i.i.i = icmp slt i32 %sub4.i.i.i.i, %blockLength.1.i.i.i
   br i1 %cmp41241.i.i.i, label %while.body42.preheader.i.i.i, label %while.end47.i.i.i
 
 while.body42.preheader.i.i.i:                     ; preds = %_ZN6icu_7512_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i
-  %107 = zext i32 %newDataLength.1246.i.i.i to i64
+  %107 = zext i32 %newDataLength.1250.i.i.i to i64
   br label %while.body42.i.i.i
 
 while.body42.i.i.i:                               ; preds = %while.body42.i.i.i, %while.body42.preheader.i.i.i
   %indvars.iv288.i.i.i = phi i64 [ %107, %while.body42.preheader.i.i.i ], [ %indvars.iv.next289.i.i.i, %while.body42.i.i.i ]
-  %n.1243.i.i.i = phi i32 [ %sub4.i.i.i.i, %while.body42.preheader.i.i.i ], [ %inc46.i.i.i, %while.body42.i.i.i ]
+  %n.1242.i.i.i = phi i32 [ %sub4.i.i.i.i, %while.body42.preheader.i.i.i ], [ %inc46.i.i.i, %while.body42.i.i.i ]
   %indvars.iv.next289.i.i.i = add nuw nsw i64 %indvars.iv288.i.i.i, 1
   %arrayidx45.i.i.i = getelementptr inbounds i32, ptr %call26.i.i, i64 %indvars.iv288.i.i.i
   store i32 %89, ptr %arrayidx45.i.i.i, align 4
-  %inc46.i.i.i = add nsw i32 %n.1243.i.i.i, 1
+  %inc46.i.i.i = add nsw i32 %n.1242.i.i.i, 1
   %exitcond291.not.i.i.i = icmp eq i32 %inc46.i.i.i, %blockLength.1.i.i.i
   br i1 %exitcond291.not.i.i.i, label %while.end47.loopexit.i.i.i, label %while.body42.i.i.i, !llvm.loop !33
 
@@ -2534,8 +2534,8 @@ while.end47.loopexit.i.i.i:                       ; preds = %while.body42.i.i.i
   br label %while.end47.i.i.i
 
 while.end47.i.i.i:                                ; preds = %while.end47.loopexit.i.i.i, %_ZN6icu_7512_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i
-  %newDataLength.2.lcssa.i.i.i = phi i32 [ %newDataLength.1246.i.i.i, %_ZN6icu_7512_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i ], [ %108, %while.end47.loopexit.i.i.i ]
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef nonnull %call26.i.i, i32 noundef %newDataLength.1246.i.i.i, i32 noundef %newDataLength.2.lcssa.i.i.i)
+  %newDataLength.2.lcssa.i.i.i = phi i32 [ %newDataLength.1250.i.i.i, %_ZN6icu_7512_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i ], [ %108, %while.end47.loopexit.i.i.i ]
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef nonnull %call26.i.i, i32 noundef %newDataLength.1250.i.i.i, i32 noundef %newDataLength.2.lcssa.i.i.i)
   br label %for.inc96.i.i.i
 
 if.then55.i.i.i:                                  ; preds = %if.end12.i.i.i
@@ -2639,7 +2639,7 @@ if.then62.i104.i.i:                               ; preds = %_ZNK6icu_7512_GLOBA
 
 land.rhs.preheader.i181.i.i.i:                    ; preds = %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findBlockIjjEEiPKT_PKT0_i.exit.i.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks9findEntryIjjEEiPKT_PKT0_ij.exit.i.i.i.i
   %122 = zext nneg i32 %blockLength.1.i.i.i to i64
-  %123 = sext i32 %newDataLength.1246.i.i.i to i64
+  %123 = sext i32 %newDataLength.1250.i.i.i to i64
   br label %land.rhs.i182.i.i.i
 
 while.cond.loopexit.i.i.i.i:                      ; preds = %land.rhs.i.i.i.i.i
@@ -2672,35 +2672,35 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
 
 _ZN6icu_7512_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i: ; preds = %while.cond.loopexit.i.i.i.i, %while.body.i.i.i.i.i
   %overlap.010.i.i.i.i = phi i32 [ %125, %while.body.i.i.i.i.i ], [ 0, %while.cond.loopexit.i.i.i.i ]
-  %sub68.i.i.i = sub nsw i32 %newDataLength.1246.i.i.i, %overlap.010.i.i.i.i
+  %sub68.i.i.i = sub nsw i32 %newDataLength.1250.i.i.i, %overlap.010.i.i.i.i
   store i32 %sub68.i.i.i, ptr %arrayidx58.i.i.i, align 4
   %cmp74224.i.i.i = icmp slt i32 %overlap.010.i.i.i.i, %blockLength.1.i.i.i
   br i1 %cmp74224.i.i.i, label %while.body75.preheader.i.i.i, label %while.end82.i.i.i
 
 while.body75.preheader.i.i.i:                     ; preds = %_ZN6icu_7512_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i
-  %128 = sext i32 %overlap.010.i.i.i.i to i64
-  %129 = zext i32 %newDataLength.1246.i.i.i to i64
+  %128 = zext i32 %newDataLength.1250.i.i.i to i64
+  %129 = sext i32 %overlap.010.i.i.i.i to i64
   br label %while.body75.i.i.i
 
 while.body75.i.i.i:                               ; preds = %while.body75.i.i.i, %while.body75.preheader.i.i.i
   %indvars.iv283.i.i.i = phi i64 [ %129, %while.body75.preheader.i.i.i ], [ %indvars.iv.next284.i.i.i, %while.body75.i.i.i ]
   %indvars.iv281.i.i.i = phi i64 [ %128, %while.body75.preheader.i.i.i ], [ %indvars.iv.next282.i.i.i, %while.body75.i.i.i ]
-  %indvars.iv.next282.i.i.i = add nsw i64 %indvars.iv281.i.i.i, 1
-  %arrayidx78.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i99.i.i, i64 %indvars.iv281.i.i.i
+  %indvars.iv.next284.i.i.i = add nsw i64 %indvars.iv283.i.i.i, 1
+  %arrayidx78.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i99.i.i, i64 %indvars.iv283.i.i.i
   %130 = load i32, ptr %arrayidx78.i.i.i, align 4
-  %indvars.iv.next284.i.i.i = add nuw nsw i64 %indvars.iv283.i.i.i, 1
-  %arrayidx81.i.i.i = getelementptr inbounds i32, ptr %call26.i.i, i64 %indvars.iv283.i.i.i
+  %indvars.iv.next282.i.i.i = add nuw nsw i64 %indvars.iv281.i.i.i, 1
+  %arrayidx81.i.i.i = getelementptr inbounds i32, ptr %call26.i.i, i64 %indvars.iv281.i.i.i
   store i32 %130, ptr %arrayidx81.i.i.i, align 4
-  %exitcond.not.i102.i.i = icmp eq i64 %indvars.iv.next282.i.i.i, %122
+  %exitcond.not.i102.i.i = icmp eq i64 %indvars.iv.next284.i.i.i, %122
   br i1 %exitcond.not.i102.i.i, label %while.end82.loopexit.i.i.i, label %while.body75.i.i.i, !llvm.loop !38
 
 while.end82.loopexit.i.i.i:                       ; preds = %while.body75.i.i.i
-  %131 = trunc nuw i64 %indvars.iv.next284.i.i.i to i32
+  %131 = trunc nuw i64 %indvars.iv.next282.i.i.i to i32
   br label %while.end82.i.i.i
 
 while.end82.i.i.i:                                ; preds = %while.end82.loopexit.i.i.i, %_ZN6icu_7512_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i
-  %newDataLength.3.lcssa.i.i.i = phi i32 [ %newDataLength.1246.i.i.i, %_ZN6icu_7512_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i ], [ %131, %while.end82.loopexit.i.i.i ]
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef nonnull %call26.i.i, i32 noundef %newDataLength.1246.i.i.i, i32 noundef %newDataLength.3.lcssa.i.i.i)
+  %newDataLength.3.lcssa.i.i.i = phi i32 [ %newDataLength.1250.i.i.i, %_ZN6icu_7512_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i ], [ %131, %while.end82.loopexit.i.i.i ]
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %mixedBlocks.i.i, ptr noundef nonnull %call26.i.i, i32 noundef %newDataLength.1250.i.i.i, i32 noundef %newDataLength.3.lcssa.i.i.i)
   br label %for.inc96.i.i.i
 
 if.else84.i.i.i:                                  ; preds = %if.end12.i.i.i
@@ -2714,8 +2714,8 @@ if.else84.i.i.i:                                  ; preds = %if.end12.i.i.i
   br label %for.inc96.i.i.i
 
 for.inc96.i.i.i:                                  ; preds = %if.else84.i.i.i, %while.end82.i.i.i, %if.then62.i104.i.i, %while.end47.i.i.i, %if.then32.i.i.i
-  %newDataLength.4.i.i.i = phi i32 [ %newDataLength.1246.i.i.i, %if.then32.i.i.i ], [ %newDataLength.2.lcssa.i.i.i, %while.end47.i.i.i ], [ %newDataLength.1246.i.i.i, %if.then62.i104.i.i ], [ %newDataLength.3.lcssa.i.i.i, %while.end82.i.i.i ], [ %newDataLength.1246.i.i.i, %if.else84.i.i.i ]
-  %add97.i.i.i = add nsw i32 %inc.1.i.i.i, %i3.0250.i.i.i
+  %newDataLength.4.i.i.i = phi i32 [ %newDataLength.1250.i.i.i, %if.then32.i.i.i ], [ %newDataLength.2.lcssa.i.i.i, %while.end47.i.i.i ], [ %newDataLength.1250.i.i.i, %if.then62.i104.i.i ], [ %newDataLength.3.lcssa.i.i.i, %while.end82.i.i.i ], [ %newDataLength.1250.i.i.i, %if.else84.i.i.i ]
+  %add97.i.i.i = add nsw i32 %inc.1.i.i.i, %i3.0247.i.i.i
   %cmp5.i100.i.i = icmp slt i32 %add97.i.i.i, %shr.i93.i.i
   br i1 %cmp5.i100.i.i, label %for.body6.i.i.i, label %invoke.cont.i.i, !llvm.loop !39
 
@@ -2890,15 +2890,15 @@ do.body.preheader.i.i.i:                          ; preds = %if.end86.i.i.i, %do
   %indvars.iv309.i.i = phi i64 [ %indvars.iv.next310.i.i, %if.end86.i.i.i ], [ %156, %do.body.preheader.lr.ph.i.i.i ]
   %i3FirstNull.2331.i.i.i = phi i32 [ %i3FirstNull.3.i.i.i, %if.end86.i.i.i ], [ %154, %do.body.preheader.lr.ph.i.i.i ]
   %index3Capacity.0330.i.i.i = phi i32 [ %index3Capacity.2.i.i.i, %if.end86.i.i.i ], [ 0, %do.body.preheader.lr.ph.i.i.i ]
-  %hasLongI3Blocks.0328.i.i.i = phi i1 [ %hasLongI3Blocks.2.i.i.i, %if.end86.i.i.i ], [ false, %do.body.preheader.lr.ph.i.i.i ]
+  %hasLongI3Blocks.0329.i.i.i = phi i1 [ %hasLongI3Blocks.2.i.i.i, %if.end86.i.i.i ], [ false, %do.body.preheader.lr.ph.i.i.i ]
   %158 = load ptr, ptr %trie, align 8
   %159 = load i32, ptr %142, align 8
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %do.body.preheader.i.i.i
   %indvars.iv370.i.i.i = phi i64 [ %indvars.iv311.i.i, %do.body.preheader.i.i.i ], [ %indvars.iv.next371.i.i.i, %do.body.i.i.i ]
-  %oredI3.0.i.i.i = phi i32 [ 0, %do.body.preheader.i.i.i ], [ %or.i.i.i, %do.body.i.i.i ]
   %isNull.0.i.i.i = phi i1 [ true, %do.body.preheader.i.i.i ], [ %spec.select.i165.i.i, %do.body.i.i.i ]
+  %oredI3.0.i.i.i = phi i32 [ 0, %do.body.preheader.i.i.i ], [ %or.i.i.i, %do.body.i.i.i ]
   %arrayidx41.i.i.i = getelementptr inbounds i32, ptr %158, i64 %indvars.iv370.i.i.i
   %160 = load i32, ptr %arrayidx41.i.i.i, align 4
   %or.i.i.i = or i32 %160, %oredI3.0.i.i.i
@@ -2920,7 +2920,7 @@ if.then48.i170.i.i:                               ; preds = %do.end.i.i.i
 
 if.then52.i.i.i:                                  ; preds = %if.then48.i170.i.i
   %cmp53.i.i.i = icmp ugt i32 %or.i.i.i, 65535
-  %hasLongI3Blocks.1.i.i.i = select i1 %cmp53.i.i.i, i1 true, i1 %hasLongI3Blocks.0328.i.i.i
+  %hasLongI3Blocks.1.i.i.i = select i1 %cmp53.i.i.i, i1 true, i1 %hasLongI3Blocks.0329.i.i.i
   %index3Capacity.1.v.i.i.i = select i1 %cmp53.i.i.i, i32 36, i32 32
   %index3Capacity.1.i.i.i = add nsw i32 %index3Capacity.1.v.i.i.i, %index3Capacity.0330.i.i.i
   br label %if.end86.i.i.i
@@ -2954,7 +2954,7 @@ if.else80.i.i.i:                                  ; preds = %if.else60.i.i.i
   br label %if.end86.i.i.i
 
 if.end86.i.i.i:                                   ; preds = %if.else80.i.i.i, %if.else74.i.i.i, %if.then67.i.i.i, %if.then52.i.i.i, %if.then48.i170.i.i
-  %hasLongI3Blocks.2.i.i.i = phi i1 [ %hasLongI3Blocks.1.i.i.i, %if.then52.i.i.i ], [ %hasLongI3Blocks.0328.i.i.i, %if.then48.i170.i.i ], [ %hasLongI3Blocks.0328.i.i.i, %if.then67.i.i.i ], [ %hasLongI3Blocks.0328.i.i.i, %if.else74.i.i.i ], [ true, %if.else80.i.i.i ]
+  %hasLongI3Blocks.2.i.i.i = phi i1 [ %hasLongI3Blocks.1.i.i.i, %if.then52.i.i.i ], [ %hasLongI3Blocks.0329.i.i.i, %if.then48.i170.i.i ], [ %hasLongI3Blocks.0329.i.i.i, %if.then67.i.i.i ], [ %hasLongI3Blocks.0329.i.i.i, %if.else74.i.i.i ], [ true, %if.else80.i.i.i ]
   %index3Capacity.2.i.i.i = phi i32 [ %index3Capacity.1.i.i.i, %if.then52.i.i.i ], [ %index3Capacity.0330.i.i.i, %if.then48.i170.i.i ], [ %index3Capacity.0330.i.i.i, %if.then67.i.i.i ], [ %add78.i169.i.i, %if.else74.i.i.i ], [ %add84.i.i.i, %if.else80.i.i.i ]
   %i3FirstNull.3.i.i.i = phi i32 [ 0, %if.then52.i.i.i ], [ %i3FirstNull.2331.i.i.i, %if.then48.i170.i.i ], [ %i3FirstNull.2331.i.i.i, %if.then67.i.i.i ], [ %i3FirstNull.2331.i.i.i, %if.else74.i.i.i ], [ %i3FirstNull.2331.i.i.i, %if.else80.i.i.i ]
   %cmp34.i.i.i = icmp ult i64 %indvars.iv.next312.i.i, %157
@@ -4282,18 +4282,18 @@ if.end8:                                          ; preds = %_ZN6icu_7512_GLOBAL
   %and = and i32 %i, -4
   %data = getelementptr inbounds i8, ptr %this, i64 16
   %7 = or i32 %i, 3
-  %8 = zext nneg i32 %3 to i64
-  %9 = sext i32 %and to i64
-  %10 = sext i32 %7 to i64
+  %8 = sext i32 %and to i64
+  %9 = sext i32 %7 to i64
+  %10 = zext nneg i32 %3 to i64
   br label %do.body
 
 do.body:                                          ; preds = %_ZN6icu_7512_GLOBAL__N_110writeBlockEPjj.exit, %if.end8
-  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %_ZN6icu_7512_GLOBAL__N_110writeBlockEPjj.exit ], [ %9, %if.end8 ]
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %_ZN6icu_7512_GLOBAL__N_110writeBlockEPjj.exit ], [ %10, %if.end8 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6icu_7512_GLOBAL__N_110writeBlockEPjj.exit ], [ %8, %if.end8 ]
   %11 = load ptr, ptr %data, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds i32, ptr %11, i64 %indvars.iv52
   %12 = load ptr, ptr %this, align 8
-  %arrayidx11 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv52
+  %arrayidx11 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
   %13 = load i32, ptr %arrayidx11, align 4
   br label %while.body.i
 
@@ -4306,15 +4306,15 @@ while.body.i:                                     ; preds = %while.body.i, %do.b
   br i1 %cmp.i20, label %while.body.i, label %_ZN6icu_7512_GLOBAL__N_110writeBlockEPjj.exit, !llvm.loop !59
 
 _ZN6icu_7512_GLOBAL__N_110writeBlockEPjj.exit:    ; preds = %while.body.i
-  %arrayidx14 = getelementptr inbounds [69632 x i8], ptr %flags, i64 0, i64 %indvars.iv52
+  %arrayidx14 = getelementptr inbounds [69632 x i8], ptr %flags, i64 0, i64 %indvars.iv
   store i8 1, ptr %arrayidx14, align 1
   %14 = load ptr, ptr %this, align 8
-  %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
-  %arrayidx17 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv52
-  %15 = trunc nuw i64 %indvars.iv to i32
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %arrayidx17 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
+  %15 = trunc nuw i64 %indvars.iv52 to i32
   store i32 %15, ptr %arrayidx17, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
-  %cmp19 = icmp slt i64 %indvars.iv52, %10
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 16
+  %cmp19 = icmp slt i64 %indvars.iv, %9
   br i1 %cmp19, label %do.body, label %do.end, !llvm.loop !60
 
 do.end:                                           ; preds = %_ZN6icu_7512_GLOBAL__N_110writeBlockEPjj.exit

@@ -283,8 +283,8 @@ _upb_MiniTable_CopyFieldData.exit25.i71:          ; preds = %if.end32
   br label %grpc_gcp_Identity_service_account.exit76
 
 grpc_gcp_Identity_service_account.exit76:         ; preds = %if.end32, %_upb_MiniTable_CopyFieldData.exit25.i71
-  %retval.sroa.0.2.i67 = phi ptr [ %retval.sroa.0.0.copyload32.i73, %_upb_MiniTable_CopyFieldData.exit25.i71 ], [ @.str.16, %if.end32 ]
-  %retval.sroa.9.2.i68 = phi i64 [ %retval.sroa.9.0.copyload33.i75, %_upb_MiniTable_CopyFieldData.exit25.i71 ], [ 0, %if.end32 ]
+  %retval.sroa.9.2.i67 = phi i64 [ %retval.sroa.9.0.copyload33.i75, %_upb_MiniTable_CopyFieldData.exit25.i71 ], [ 0, %if.end32 ]
+  %retval.sroa.0.2.i68 = phi ptr [ %retval.sroa.0.0.copyload32.i73, %_upb_MiniTable_CopyFieldData.exit25.i71 ], [ @.str.16, %if.end32 ]
   %call.i = tail call noundef ptr @gpr_zalloc(i64 noundef 120)
   %call35 = tail call ptr @gpr_zalloc(i64 noundef 44)
   %key_data36 = getelementptr inbounds i8, ptr %call.i, i64 16
@@ -373,9 +373,9 @@ if.end70:                                         ; preds = %invoke.cont51
   %value.sroa.5.0.add.ptr.i.i.sroa_idx.i85 = getelementptr inbounds i8, ptr %call56, i64 48
   store i64 %retval.sroa.9.0.copyload33.i, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i85, align 1
   %add.ptr.i.i.i86 = getelementptr inbounds i8, ptr %call56, i64 56
-  store ptr %retval.sroa.0.2.i67, ptr %add.ptr.i.i.i86, align 1
+  store ptr %retval.sroa.0.2.i68, ptr %add.ptr.i.i.i86, align 1
   %value.sroa.5.0.add.ptr.i.i.sroa_idx.i87 = getelementptr inbounds i8, ptr %call56, i64 64
-  store i64 %retval.sroa.9.2.i68, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i87, align 1
+  store i64 %retval.sroa.9.2.i67, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i87, align 1
   %14 = load i8, ptr %call56, align 1
   %or2.i.i.i.i.i = or i8 %14, 2
   store i8 %or2.i.i.i.i.i, ptr %call56, align 1

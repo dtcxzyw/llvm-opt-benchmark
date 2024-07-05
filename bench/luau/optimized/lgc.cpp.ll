@@ -415,7 +415,7 @@ _ZL12propagateallP12global_State.exit44.i:        ; preds = %.lr.ph.i40.i, %_ZL1
 
 .lr.ph65.i.i:                                     ; preds = %_ZL12propagateallP12global_State.exit44.i, %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i
   %.063.i.i = phi ptr [ %203, %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i ], [ %101, %_ZL12propagateallP12global_State.exit44.i ]
-  %.03762.i.i = phi i64 [ %114, %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i ], [ 0, %_ZL12propagateallP12global_State.exit44.i ]
+  %.03462.i.i = phi i64 [ %114, %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i ], [ 0, %_ZL12propagateallP12global_State.exit44.i ]
   %102 = getelementptr inbounds i8, ptr %.063.i.i, i64 8
   %103 = load i32, ptr %102, align 8
   %104 = sext i32 %103 to i64
@@ -426,7 +426,7 @@ _ZL12propagateallP12global_State.exit44.i:        ; preds = %.lr.ph.i40.i, %_ZL1
   %109 = shl nuw i32 1, %108
   %110 = sext i32 %109 to i64
   %111 = shl nsw i64 %110, 5
-  %112 = add i64 %.03762.i.i, 48
+  %112 = add i64 %.03462.i.i, 48
   %113 = add i64 %112, %105
   %114 = add i64 %113, %111
   %.not3959.i.i = icmp eq i32 %103, 0
@@ -487,7 +487,7 @@ _ZL12isobjclearedP8GCObject.exit.i.i:             ; preds = %122
 
 135:                                              ; preds = %_ZL11removeentryP7LuaNode.exit.i.i, %._crit_edge.i.i
   %indvars.iv68.i.i = phi i64 [ %134, %._crit_edge.i.i ], [ %indvars.iv.next69.i.i, %_ZL11removeentryP7LuaNode.exit.i.i ]
-  %.03460.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %.1.i.i, %_ZL11removeentryP7LuaNode.exit.i.i ]
+  %.03560.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %.1.i.i, %_ZL11removeentryP7LuaNode.exit.i.i ]
   %136 = load ptr, ptr %132, align 8
   %137 = getelementptr inbounds %struct.LuaNode, ptr %136, i64 %indvars.iv68.i.i
   %138 = getelementptr inbounds i8, ptr %137, i64 12
@@ -564,11 +564,11 @@ _ZL12isobjclearedP8GCObject.exit49.i.i:           ; preds = %158
   br label %_ZL11removeentryP7LuaNode.exit.i.i
 
 172:                                              ; preds = %_ZL12isobjclearedP8GCObject.exit49.i.i, %_ZL12isobjclearedP8GCObject.exit49.thread.i.i, %155
-  %173 = add nsw i32 %.03460.i.i, 1
+  %173 = add nsw i32 %.03560.i.i, 1
   br label %_ZL11removeentryP7LuaNode.exit.i.i
 
 _ZL11removeentryP7LuaNode.exit.i.i:               ; preds = %172, %168, %166, %135
-  %.1.i.i = phi i32 [ %.03460.i.i, %135 ], [ %173, %172 ], [ %.03460.i.i, %166 ], [ %.03460.i.i, %168 ]
+  %.1.i.i = phi i32 [ %.03560.i.i, %135 ], [ %173, %172 ], [ %.03560.i.i, %166 ], [ %.03560.i.i, %168 ]
   %indvars.iv.next69.i.i = add nsw i64 %indvars.iv68.i.i, -1
   %174 = icmp eq i64 %indvars.iv68.i.i, 0
   br i1 %174, label %175, label %135, !llvm.loop !12
@@ -626,7 +626,7 @@ _ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i: ; preds = %201, %195, %
   br i1 %.not.i48.i, label %_ZL10cleartableP9lua_StateP8GCObject.exit.i, label %.lr.ph65.i.i, !llvm.loop !13
 
 _ZL10cleartableP9lua_StateP8GCObject.exit.i:      ; preds = %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i, %_ZL12propagateallP12global_State.exit44.i
-  %.037.lcssa.i.i = phi i64 [ 0, %_ZL12propagateallP12global_State.exit44.i ], [ %114, %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i ]
+  %.034.lcssa.i.i = phi i64 [ 0, %_ZL12propagateallP12global_State.exit44.i ], [ %114, %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i ]
   store ptr null, ptr %75, align 8
   %204 = load ptr, ptr %7, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 2816
@@ -636,28 +636,28 @@ _ZL10cleartableP9lua_StateP8GCObject.exit.i:      ; preds = %_ZL12gettablemodeP1
   br i1 %.not15.i.i, label %_ZL6atomicP9lua_State.exit, label %.lr.ph.i49.i
 
 .lr.ph.i49.i:                                     ; preds = %_ZL10cleartableP9lua_StateP8GCObject.exit.i, %221
-  %.017.i.i = phi ptr [ %.1.i51.i, %221 ], [ %207, %_ZL10cleartableP9lua_StateP8GCObject.exit.i ]
-  %.01316.i.i = phi i64 [ %208, %221 ], [ 0, %_ZL10cleartableP9lua_StateP8GCObject.exit.i ]
-  %208 = add i64 %.01316.i.i, 40
-  %209 = getelementptr inbounds i8, ptr %.017.i.i, i64 3
+  %.017.i.i = phi i64 [ %208, %221 ], [ 0, %_ZL10cleartableP9lua_StateP8GCObject.exit.i ]
+  %.01316.i.i = phi ptr [ %.1.i51.i, %221 ], [ %207, %_ZL10cleartableP9lua_StateP8GCObject.exit.i ]
+  %208 = add i64 %.017.i.i, 40
+  %209 = getelementptr inbounds i8, ptr %.01316.i.i, i64 3
   %210 = load i8, ptr %209, align 1
   %.not14.i50.i = icmp eq i8 %210, 0
   br i1 %.not14.i50.i, label %214, label %211
 
 211:                                              ; preds = %.lr.ph.i49.i
   store i8 0, ptr %209, align 1
-  %212 = getelementptr inbounds i8, ptr %.017.i.i, i64 24
+  %212 = getelementptr inbounds i8, ptr %.01316.i.i, i64 24
   %213 = load ptr, ptr %212, align 8
   br label %221
 
 214:                                              ; preds = %.lr.ph.i49.i
-  %215 = getelementptr inbounds i8, ptr %.017.i.i, i64 24
+  %215 = getelementptr inbounds i8, ptr %.01316.i.i, i64 24
   %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %.017.i.i, i64 1
+  %217 = getelementptr inbounds i8, ptr %.01316.i.i, i64 1
   %218 = load i8, ptr %217, align 1
   %219 = and i8 %218, 3
   %220 = icmp ne i8 %219, 0
-  tail call void @_Z15luaF_closeupvalP9lua_StateP5UpValb(ptr noundef %0, ptr noundef nonnull %.017.i.i, i1 noundef zeroext %220)
+  tail call void @_Z15luaF_closeupvalP9lua_StateP5UpValb(ptr noundef %0, ptr noundef nonnull %.01316.i.i, i1 noundef zeroext %220)
   br label %221
 
 221:                                              ; preds = %214, %211
@@ -666,12 +666,12 @@ _ZL10cleartableP9lua_StateP8GCObject.exit.i:      ; preds = %_ZL12gettablemodeP1
   br i1 %.not.i52.i, label %_ZL6atomicP9lua_State.exit, label %.lr.ph.i49.i, !llvm.loop !14
 
 _ZL6atomicP9lua_State.exit:                       ; preds = %221, %_ZL10cleartableP9lua_StateP8GCObject.exit.i
-  %.013.lcssa.i.i = phi i64 [ 0, %_ZL10cleartableP9lua_StateP8GCObject.exit.i ], [ %208, %221 ]
+  %.0.lcssa.i54.i = phi i64 [ 0, %_ZL10cleartableP9lua_StateP8GCObject.exit.i ], [ %208, %221 ]
   %222 = add i64 %.0.lcssa.i.i, %.010.lcssa.i.i
   %223 = add i64 %222, %.0.lcssa.i37.i
   %224 = add i64 %223, %.0.lcssa.i43.i
-  %225 = add i64 %224, %.037.lcssa.i.i
-  %226 = add i64 %225, %.013.lcssa.i.i
+  %225 = add i64 %224, %.034.lcssa.i.i
+  %226 = add i64 %225, %.0.lcssa.i54.i
   %227 = getelementptr inbounds i8, ptr %49, i64 32
   %228 = load i8, ptr %227, align 8
   %229 = xor i8 %228, 3
@@ -709,13 +709,13 @@ _ZL6atomicP9lua_State.exit:                       ; preds = %221, %_ZL10cleartab
   br label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %267
-  %.023.i = phi ptr [ %270, %267 ], [ %242, %.lr.ph ]
-  %244 = load i8, ptr %.023.i, align 8
+  %.01723.i = phi ptr [ %270, %267 ], [ %242, %.lr.ph ]
+  %244 = load i8, ptr %.01723.i, align 8
   %245 = icmp eq i8 %244, 0
   br i1 %245, label %267, label %246
 
 246:                                              ; preds = %.lr.ph.i
-  %247 = getelementptr inbounds i8, ptr %.023.i, i64 1
+  %247 = getelementptr inbounds i8, ptr %.01723.i, i64 1
   %248 = load i8, ptr %247, align 1
   %249 = xor i8 %248, 3
   %250 = and i8 %249, %240
@@ -729,7 +729,7 @@ _ZL6atomicP9lua_State.exit:                       ; preds = %221, %_ZL10cleartab
   br label %267
 
 254:                                              ; preds = %246
-  call fastcc void @_ZL7freeobjP9lua_StateP8GCObjectP8lua_Page(ptr noundef %0, ptr noundef nonnull %.023.i, ptr noundef %236)
+  call fastcc void @_ZL7freeobjP9lua_StateP8GCObjectP8lua_Page(ptr noundef %0, ptr noundef nonnull %.01723.i, ptr noundef %236)
   %255 = load i32, ptr %5, align 4
   %256 = add nsw i32 %255, -1
   store i32 %256, ptr %5, align 4
@@ -738,7 +738,7 @@ _ZL6atomicP9lua_State.exit:                       ; preds = %221, %_ZL10cleartab
 
 258:                                              ; preds = %254
   %259 = load ptr, ptr %3, align 8
-  %260 = ptrtoint ptr %.023.i to i64
+  %260 = ptrtoint ptr %.01723.i to i64
   %261 = ptrtoint ptr %259 to i64
   %262 = sub i64 %260, %261
   %263 = trunc i64 %262 to i32
@@ -750,7 +750,7 @@ _ZL6atomicP9lua_State.exit:                       ; preds = %221, %_ZL10cleartab
 267:                                              ; preds = %254, %251, %.lr.ph.i
   %268 = load i32, ptr %6, align 4
   %269 = sext i32 %268 to i64
-  %270 = getelementptr inbounds i8, ptr %.023.i, i64 %269
+  %270 = getelementptr inbounds i8, ptr %.01723.i, i64 %269
   %271 = load ptr, ptr %4, align 8
   %.not.i41 = icmp eq ptr %270, %271
   br i1 %.not.i41, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !15
@@ -771,13 +771,13 @@ _ZL6atomicP9lua_State.exit:                       ; preds = %221, %_ZL10cleartab
   br label %_ZL12sweepgcopageP9lua_StateP8lua_Page.exit
 
 _ZL12sweepgcopageP9lua_StateP8lua_Page.exit:      ; preds = %258, %._crit_edge.i
-  %.017.i = phi i32 [ %266, %258 ], [ %278, %._crit_edge.i ]
+  %.0.i = phi i32 [ %266, %258 ], [ %278, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   store ptr %235, ptr %11, align 8
-  %279 = shl nsw i32 %.017.i, 4
+  %279 = shl nsw i32 %.0.i, 4
   %280 = sext i32 %279 to i64
   %281 = add i64 %.256, %280
   %282 = icmp ne ptr %235, null
@@ -1483,7 +1483,7 @@ define internal fastcc noundef range(i64 -133143986000, 133143986291) i64 @_ZL13
   br i1 %36, label %.loopexit.thread.i, label %.thread69.i
 
 .thread69.i:                                      ; preds = %40, %30, %26, %22, %.thread.i, %17, %8
-  %.049.shrunk6774.i = phi i1 [ %34, %40 ], [ false, %26 ], [ false, %22 ], [ false, %17 ], [ false, %.thread.i ], [ false, %8 ], [ false, %30 ]
+  %.050.shrunk6774.i = phi i1 [ %34, %40 ], [ false, %26 ], [ false, %22 ], [ false, %17 ], [ false, %.thread.i ], [ false, %8 ], [ false, %30 ]
   %41 = getelementptr inbounds i8, ptr %3, i64 8
   %42 = load i32, ptr %41, align 8
   %.not5576.i = icmp eq i32 %42, 0
@@ -1528,7 +1528,7 @@ define internal fastcc noundef range(i64 -133143986000, 133143986291) i64 @_ZL13
   %notmask.i = shl nsw i32 -1, %60
   %62 = xor i32 %notmask.i, -1
   %63 = zext nneg i32 %62 to i64
-  br i1 %.049.shrunk6774.i, label %.split.us.split.i, label %.split.split.i
+  br i1 %.050.shrunk6774.i, label %.split.us.split.i, label %.split.split.i
 
 .loopexit.thread.i:                               ; preds = %40
   %64 = getelementptr inbounds i8, ptr %3, i64 6
@@ -1936,21 +1936,21 @@ _ZL10clearstackP9lua_State.exit:                  ; preds = %.lr.ph.i61, %.crite
   br i1 %.not28.i62, label %._crit_edge.i, label %.lr.ph.i63
 
 .lr.ph.i63:                                       ; preds = %274, %.lr.ph.i63
-  %.030.i = phi ptr [ %284, %.lr.ph.i63 ], [ %278, %274 ]
-  %.02229.i = phi ptr [ %spec.select.i, %.lr.ph.i63 ], [ %276, %274 ]
-  %281 = getelementptr inbounds i8, ptr %.030.i, i64 16
+  %.030.i = phi ptr [ %spec.select.i, %.lr.ph.i63 ], [ %276, %274 ]
+  %.02229.i = phi ptr [ %284, %.lr.ph.i63 ], [ %278, %274 ]
+  %281 = getelementptr inbounds i8, ptr %.02229.i, i64 16
   %282 = load ptr, ptr %281, align 8
-  %283 = icmp ult ptr %.02229.i, %282
-  %spec.select.i = select i1 %283, ptr %282, ptr %.02229.i
-  %284 = getelementptr inbounds i8, ptr %.030.i, i64 40
+  %283 = icmp ult ptr %.030.i, %282
+  %spec.select.i = select i1 %283, ptr %282, ptr %.030.i
+  %284 = getelementptr inbounds i8, ptr %.02229.i, i64 40
   %.not.i64 = icmp ugt ptr %284, %280
   br i1 %.not.i64, label %._crit_edge.i, label %.lr.ph.i63, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i63, %274
-  %.022.lcssa.i = phi ptr [ %276, %274 ], [ %spec.select.i, %.lr.ph.i63 ]
+  %.0.lcssa.i = phi ptr [ %276, %274 ], [ %spec.select.i, %.lr.ph.i63 ]
   %285 = getelementptr inbounds i8, ptr %3, i64 48
   %286 = load ptr, ptr %285, align 8
-  %287 = ptrtoint ptr %.022.lcssa.i to i64
+  %287 = ptrtoint ptr %.0.lcssa.i to i64
   %288 = ptrtoint ptr %286 to i64
   %289 = sub i64 %287, %288
   %290 = lshr exact i64 %289, 4

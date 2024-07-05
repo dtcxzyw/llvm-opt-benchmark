@@ -675,8 +675,8 @@ define void @crtmgr_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @crtmgr_verify_crt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %.03445 = load ptr, ptr %0, align 8
-  %.not46 = icmp eq ptr %.03445, null
+  %.03545 = load ptr, ptr %0, align 8
+  %.not46 = icmp eq ptr %.03545, null
   br i1 %.not46, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -689,23 +689,23 @@ define ptr @crtmgr_verify_crt(ptr nocapture noundef readonly %0, ptr nocapture n
   br label %9
 
 9:                                                ; preds = %.lr.ph, %34
-  %.03450 = phi ptr [ %.03445, %.lr.ph ], [ %.034, %34 ]
-  %.049 = phi i32 [ 0, %.lr.ph ], [ %.1, %34 ]
-  %.03048 = phi i32 [ 0, %.lr.ph ], [ %.131, %34 ]
-  %.03247 = phi ptr [ null, %.lr.ph ], [ %.133, %34 ]
-  %10 = getelementptr inbounds i8, ptr %.03450, i64 372
+  %.03550 = phi ptr [ %.03545, %.lr.ph ], [ %.035, %34 ]
+  %.03049 = phi i32 [ 0, %.lr.ph ], [ %.1, %34 ]
+  %.03148 = phi i32 [ 0, %.lr.ph ], [ %.132, %34 ]
+  %.03347 = phi ptr [ null, %.lr.ph ], [ %.134, %34 ]
+  %10 = getelementptr inbounds i8, ptr %.03550, i64 372
   %11 = load i32, ptr %10, align 4
   %.not37 = icmp eq i32 %11, 0
   br i1 %.not37, label %34, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %.03450, i64 384
+  %13 = getelementptr inbounds i8, ptr %.03550, i64 384
   %14 = load i32, ptr %13, align 8
   %.not38 = icmp eq i32 %14, 0
   br i1 %.not38, label %15, label %34
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %.03450, i64 200
+  %16 = getelementptr inbounds i8, ptr %.03550, i64 200
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %16, ptr noundef nonnull dereferenceable(20) %3, i64 20)
   %.not39 = icmp eq i32 %bcmp, 0
   br i1 %.not39, label %17, label %34
@@ -713,18 +713,18 @@ define ptr @crtmgr_verify_crt(ptr nocapture noundef readonly %0, ptr nocapture n
 17:                                               ; preds = %15
   %18 = load ptr, ptr %4, align 8
   %19 = load i32, ptr %5, align 8
-  %20 = tail call fastcc i32 @crtmgr_rsa_verify(ptr noundef nonnull %.03450, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %6)
+  %20 = tail call fastcc i32 @crtmgr_rsa_verify(ptr noundef nonnull %.03550, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %6)
   %.not40 = icmp eq i32 %20, 0
   br i1 %.not40, label %21, label %34
 
 21:                                               ; preds = %17
   %22 = load i32, ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %.03450, i64 376
+  %23 = getelementptr inbounds i8, ptr %.03550, i64 376
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, %22
   %26 = icmp eq i32 %25, %22
   %.pre = load i32, ptr %8, align 4
-  %27 = getelementptr inbounds i8, ptr %.03450, i64 380
+  %27 = getelementptr inbounds i8, ptr %.03550, i64 380
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, %.pre
   %30 = icmp eq i32 %29, %.pre
@@ -732,20 +732,20 @@ define ptr @crtmgr_verify_crt(ptr nocapture noundef readonly %0, ptr nocapture n
   br i1 %or.cond, label %.loopexit, label %._crit_edge53
 
 ._crit_edge53:                                    ; preds = %21
-  %31 = add i32 %.049, 1
+  %31 = add i32 %.03049, 1
   %32 = add nsw i32 %29, %25
-  %33 = icmp sgt i32 %32, %.03048
-  %spec.select = select i1 %33, ptr %.03450, ptr %.03247
-  %spec.select41 = tail call i32 @llvm.smax.i32(i32 %32, i32 %.03048)
+  %33 = icmp sgt i32 %32, %.03148
+  %spec.select = select i1 %33, ptr %.03550, ptr %.03347
+  %spec.select41 = tail call i32 @llvm.smax.i32(i32 %32, i32 %.03148)
   br label %34
 
 34:                                               ; preds = %._crit_edge53, %9, %12, %15, %17
-  %.133 = phi ptr [ %.03247, %12 ], [ %.03247, %15 ], [ %.03247, %17 ], [ %.03247, %9 ], [ %spec.select, %._crit_edge53 ]
-  %.131 = phi i32 [ %.03048, %12 ], [ %.03048, %15 ], [ %.03048, %17 ], [ %.03048, %9 ], [ %spec.select41, %._crit_edge53 ]
-  %.1 = phi i32 [ %.049, %12 ], [ %.049, %15 ], [ %.049, %17 ], [ %.049, %9 ], [ %31, %._crit_edge53 ]
-  %35 = getelementptr inbounds i8, ptr %.03450, i64 400
-  %.034 = load ptr, ptr %35, align 8
-  %.not = icmp eq ptr %.034, null
+  %.134 = phi ptr [ %.03347, %12 ], [ %.03347, %15 ], [ %.03347, %17 ], [ %.03347, %9 ], [ %spec.select, %._crit_edge53 ]
+  %.132 = phi i32 [ %.03148, %12 ], [ %.03148, %15 ], [ %.03148, %17 ], [ %.03148, %9 ], [ %spec.select41, %._crit_edge53 ]
+  %.1 = phi i32 [ %.03049, %12 ], [ %.03049, %15 ], [ %.03049, %17 ], [ %.03049, %9 ], [ %31, %._crit_edge53 ]
+  %35 = getelementptr inbounds i8, ptr %.03550, i64 400
+  %.035 = load ptr, ptr %35, align 8
+  %.not = icmp eq ptr %.035, null
   br i1 %.not, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %34
@@ -757,8 +757,8 @@ define ptr @crtmgr_verify_crt(ptr nocapture noundef readonly %0, ptr nocapture n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %2, %._crit_edge, %37
-  %.035 = phi ptr [ %.133, %37 ], [ %.133, %._crit_edge ], [ null, %2 ], [ %.03450, %21 ]
-  ret ptr %.035
+  %.0 = phi ptr [ %.134, %37 ], [ %.134, %._crit_edge ], [ null, %2 ], [ %.03550, %21 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1125,43 +1125,43 @@ define ptr @crtmgr_verify_pkcs7(ptr nocapture noundef readonly %0, ptr nocapture
 
 13:                                               ; preds = %11
   %14 = tail call ptr @BN_bin2bn(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %12) #10
-  %.035 = load ptr, ptr %0, align 8
-  %.not2836 = icmp eq ptr %.035, null
+  %.02535 = load ptr, ptr %0, align 8
+  %.not2836 = icmp eq ptr %.02535, null
   br i1 %.not2836, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %28
-  %.037 = phi ptr [ %.0, %28 ], [ %.035, %13 ]
+  %.02537 = phi ptr [ %.025, %28 ], [ %.02535, %13 ]
   switch i32 %7, label %21 [
     i32 0, label %15
     i32 1, label %18
   ]
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %.037, i64 376
+  %16 = getelementptr inbounds i8, ptr %.02537, i64 376
   %17 = load i32, ptr %16, align 8
   %.not29 = icmp eq i32 %17, 0
   br i1 %.not29, label %28, label %21
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %.037, i64 380
+  %19 = getelementptr inbounds i8, ptr %.02537, i64 380
   %20 = load i32, ptr %19, align 4
   %.not30 = icmp eq i32 %20, 0
   br i1 %.not30, label %28, label %21
 
 21:                                               ; preds = %15, %.lr.ph, %18
-  %22 = getelementptr inbounds i8, ptr %.037, i64 220
+  %22 = getelementptr inbounds i8, ptr %.02537, i64 220
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %22, ptr noundef nonnull dereferenceable(20) %1, i64 20)
   %.not31 = icmp eq i32 %bcmp, 0
   br i1 %.not31, label %23, label %28
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %.037, i64 240
+  %24 = getelementptr inbounds i8, ptr %.02537, i64 240
   %bcmp32 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %24, ptr noundef nonnull dereferenceable(20) %2, i64 20)
   %.not33 = icmp eq i32 %bcmp32, 0
   br i1 %.not33, label %25, label %28
 
 25:                                               ; preds = %23
-  %26 = tail call fastcc i32 @crtmgr_rsa_verify(ptr noundef nonnull %.037, ptr noundef nonnull %12, i32 noundef %5, ptr noundef %6)
+  %26 = tail call fastcc i32 @crtmgr_rsa_verify(ptr noundef nonnull %.02537, ptr noundef nonnull %12, i32 noundef %5, ptr noundef %6)
   %.not34 = icmp eq i32 %26, 0
   br i1 %.not34, label %._crit_edge, label %27
 
@@ -1170,19 +1170,19 @@ define ptr @crtmgr_verify_pkcs7(ptr nocapture noundef readonly %0, ptr nocapture
   br label %28
 
 28:                                               ; preds = %21, %23, %27, %18, %15
-  %29 = getelementptr inbounds i8, ptr %.037, i64 400
-  %.0 = load ptr, ptr %29, align 8
-  %.not28 = icmp eq ptr %.0, null
+  %29 = getelementptr inbounds i8, ptr %.02537, i64 400
+  %.025 = load ptr, ptr %29, align 8
+  %.not28 = icmp eq ptr %.025, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %28, %25, %13
-  %.0.lcssa = phi ptr [ null, %13 ], [ %.037, %25 ], [ null, %28 ]
+  %.025.lcssa = phi ptr [ null, %13 ], [ %.02537, %25 ], [ null, %28 ]
   tail call void @BN_free(ptr noundef nonnull %12) #10
   br label %30
 
 30:                                               ; preds = %11, %._crit_edge, %10
-  %.025 = phi ptr [ null, %10 ], [ %.0.lcssa, %._crit_edge ], [ null, %11 ]
-  ret ptr %.025
+  %.0 = phi ptr [ null, %10 ], [ %.025.lcssa, %._crit_edge ], [ null, %11 ]
+  ret ptr %.0
 }
 
 declare ptr @BN_new() local_unnamed_addr #2

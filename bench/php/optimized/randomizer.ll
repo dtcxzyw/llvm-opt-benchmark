@@ -112,12 +112,12 @@ define hidden void @zim_Random_Randomizer___construct(ptr noundef %0, ptr nocapt
   br label %33
 
 33:                                               ; preds = %10, %29, %27
-  %.067 = phi i32 [ 0, %10 ], [ 1, %29 ], [ 1, %27 ]
-  %.066 = phi ptr [ null, %10 ], [ %14, %29 ], [ %14, %27 ]
-  %.065 = phi i32 [ 0, %10 ], [ 0, %29 ], [ 19, %27 ]
-  %.064 = phi ptr [ null, %10 ], [ %32, %29 ], [ null, %27 ]
-  %.0 = phi i32 [ 1, %10 ], [ 4, %29 ], [ 9, %27 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.067, ptr noundef %.064, i32 noundef %.065, ptr noundef %.066) #7
+  %.067 = phi ptr [ null, %10 ], [ %32, %29 ], [ null, %27 ]
+  %.066 = phi i32 [ 0, %10 ], [ 0, %29 ], [ 19, %27 ]
+  %.065 = phi i32 [ 1, %10 ], [ 4, %29 ], [ 9, %27 ]
+  %.064 = phi ptr [ null, %10 ], [ %14, %29 ], [ %14, %27 ]
+  %.063 = phi i32 [ 0, %10 ], [ 1, %29 ], [ 1, %27 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.065, i32 noundef %.063, ptr noundef %.067, i32 noundef %.066, ptr noundef %.064) #7
   br label %64
 
 34:                                               ; preds = %._crit_edge, %20, %19
@@ -429,12 +429,12 @@ thread-pre-split:                                 ; preds = %41
   br label %49
 
 49:                                               ; preds = %11, %45, %18, %26, %43
-  %.0132.ph = phi i32 [ 3, %43 ], [ 2, %26 ], [ 1, %18 ], [ 3, %45 ], [ 0, %11 ]
-  %.0131.ph = phi ptr [ %31, %43 ], [ %21, %26 ], [ %13, %18 ], [ %31, %45 ], [ null, %11 ]
-  %.0130.ph = phi i32 [ 18, %43 ], [ 20, %26 ], [ 20, %18 ], [ 0, %45 ], [ 0, %11 ]
-  %.0129.ph = phi ptr [ null, %43 ], [ null, %26 ], [ null, %18 ], [ %48, %45 ], [ null, %11 ]
-  %.0128.ph = phi i32 [ 9, %43 ], [ 9, %26 ], [ 9, %18 ], [ 3, %45 ], [ 1, %11 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0128.ph, i32 noundef %.0132.ph, ptr noundef %.0129.ph, i32 noundef %.0130.ph, ptr noundef %.0131.ph) #7
+  %.0134.ph = phi ptr [ %31, %43 ], [ %21, %26 ], [ %13, %18 ], [ %31, %45 ], [ null, %11 ]
+  %.0133.ph = phi i32 [ 18, %43 ], [ 20, %26 ], [ 20, %18 ], [ 0, %45 ], [ 0, %11 ]
+  %.0132.ph = phi ptr [ null, %43 ], [ null, %26 ], [ null, %18 ], [ %48, %45 ], [ null, %11 ]
+  %.0131.ph = phi i32 [ 9, %43 ], [ 9, %26 ], [ 9, %18 ], [ 3, %45 ], [ 1, %11 ]
+  %.0130.ph = phi i32 [ 3, %43 ], [ 2, %26 ], [ 1, %18 ], [ 3, %45 ], [ 0, %11 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0131.ph, i32 noundef %.0130.ph, ptr noundef %.0132.ph, i32 noundef %.0133.ph, ptr noundef %.0134.ph) #7
   br label %133
 
 50:                                               ; preds = %36, %37, %._crit_edge, %28
@@ -489,8 +489,8 @@ thread-pre-split:                                 ; preds = %41
   br label %82
 
 82:                                               ; preds = %65, %64
-  %.0134 = phi i32 [ %81, %65 ], [ 0, %64 ]
-  %83 = call i32 @llvm.fshl.i32(i32 %.0134, i32 %.0134, i32 31)
+  %.0129 = phi i32 [ %81, %65 ], [ 0, %64 ]
+  %83 = call i32 @llvm.fshl.i32(i32 %.0129, i32 %.0129, i32 31)
   switch i32 %83, label %132 [
     i32 0, label %84
     i32 1, label %95
@@ -718,10 +718,10 @@ define hidden void @zim_Random_Randomizer_getInt(ptr noundef %0, ptr nocapture n
   br label %.thread140
 
 .thread126:                                       ; preds = %17, %10, %25
-  %.0104133 = phi i32 [ 9, %25 ], [ 9, %17 ], [ 1, %10 ]
-  %.0107132 = phi ptr [ %20, %25 ], [ %12, %17 ], [ null, %10 ]
-  %.0108131 = phi i32 [ 2, %25 ], [ 1, %17 ], [ 0, %10 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0104133, i32 noundef %.0108131, ptr noundef null, i32 noundef 0, ptr noundef %.0107132) #7
+  %.0106133 = phi i32 [ 2, %25 ], [ 1, %17 ], [ 0, %10 ]
+  %.0107132 = phi i32 [ 9, %25 ], [ 9, %17 ], [ 1, %10 ]
+  %.0108131 = phi ptr [ %20, %25 ], [ %12, %17 ], [ null, %10 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0107132, i32 noundef %.0106133, ptr noundef null, i32 noundef 0, ptr noundef %.0108131) #7
   br label %62
 
 .thread140:                                       ; preds = %..thread140_crit_edge, %.thread122
@@ -773,13 +773,13 @@ define hidden void @zim_Random_Randomizer_getInt(ptr noundef %0, ptr nocapture n
   br label %58
 
 58:                                               ; preds = %.critedge117, %41
-  %.0109 = phi i64 [ %56, %41 ], [ %57, %.critedge117 ]
+  %.0105 = phi i64 [ %56, %41 ], [ %57, %.critedge117 ]
   %59 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not114 = icmp eq ptr %59, null
   br i1 %.not114, label %60, label %62
 
 60:                                               ; preds = %58
-  store i64 %.0109, ptr %1, align 8
+  store i64 %.0105, ptr %1, align 8
   %61 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %61, align 8
   br label %62
@@ -823,10 +823,10 @@ define hidden void @zim_Random_Randomizer_getBytes(ptr noundef %0, ptr nocapture
   br i1 %16, label %thread-pre-split, label %17
 
 17:                                               ; preds = %15, %.thread155
-  %.0127162 = phi i32 [ 1, %.thread155 ], [ 9, %15 ]
-  %.0129161 = phi ptr [ null, %.thread155 ], [ %10, %15 ]
-  %.0130160 = phi i32 [ 0, %.thread155 ], [ 1, %15 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0127162, i32 noundef %.0130160, ptr noundef null, i32 noundef 0, ptr noundef %.0129161) #7
+  %.0128162 = phi i32 [ 0, %.thread155 ], [ 1, %15 ]
+  %.0129161 = phi i32 [ 1, %.thread155 ], [ 9, %15 ]
+  %.0130160 = phi ptr [ null, %.thread155 ], [ %10, %15 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0129161, i32 noundef %.0128162, ptr noundef null, i32 noundef 0, ptr noundef %.0130160) #7
   br label %64
 
 thread-pre-split:                                 ; preds = %15
@@ -866,7 +866,7 @@ thread-pre-split:                                 ; preds = %15
   br label %34
 
 34:                                               ; preds = %.lr.ph170, %._crit_edge
-  %.0131168 = phi i64 [ 0, %.lr.ph170 ], [ %.2, %._crit_edge ]
+  %.0126168 = phi i64 [ 0, %.lr.ph170 ], [ %.2, %._crit_edge ]
   %35 = load ptr, ptr %32, align 8
   %36 = call { i64, i64 } %35(ptr noundef %.sroa.243.0.copyload) #7
   %37 = extractvalue { i64, i64 } %36, 0
@@ -907,22 +907,22 @@ thread-pre-split:                                 ; preds = %15
   br label %64
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0126165 = phi i64 [ %55, %.lr.ph ], [ 0, %.preheader ]
-  %.1164 = phi i64 [ %53, %.lr.ph ], [ %.0131168, %.preheader ]
-  %50 = shl i64 %.0126165, 3
+  %.1165 = phi i64 [ %53, %.lr.ph ], [ %.0126168, %.preheader ]
+  %.0127164 = phi i64 [ %55, %.lr.ph ], [ 0, %.preheader ]
+  %50 = shl i64 %.0127164, 3
   %51 = lshr i64 %37, %50
   %52 = trunc i64 %51 to i8
-  %53 = add nuw i64 %.1164, 1
-  %54 = getelementptr inbounds [1 x i8], ptr %33, i64 0, i64 %.1164
+  %53 = add nuw i64 %.1165, 1
+  %54 = getelementptr inbounds [1 x i8], ptr %33, i64 0, i64 %.1165
   store i8 %52, ptr %54, align 1
   %.not142 = icmp ult i64 %53, %.pre176
-  %55 = add nuw i64 %.0126165, 1
+  %55 = add nuw i64 %.0127164, 1
   %56 = icmp ult i64 %55, %38
   %or.cond = select i1 %.not142, i1 %56, i1 false
   br i1 %or.cond, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.2 = phi i64 [ %.0131168, %.preheader ], [ %53, %.lr.ph ]
+  %.2 = phi i64 [ %.0126168, %.preheader ], [ %53, %.lr.ph ]
   %57 = icmp ult i64 %.2, %.pre176
   br i1 %57, label %34, label %._crit_edge171
 
@@ -966,11 +966,11 @@ define hidden void @zim_Random_Randomizer_shuffleArray(ptr noundef %0, ptr nound
   br i1 %.not67, label %14, label %13
 
 13:                                               ; preds = %8, %9
-  %.063.ph = phi i32 [ 6, %9 ], [ 0, %8 ]
-  %.062.ph = phi ptr [ %10, %9 ], [ null, %8 ]
-  %.061.ph = phi i32 [ 1, %9 ], [ 0, %8 ]
-  %.060.ph = phi i32 [ 9, %9 ], [ 1, %8 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.060.ph, i32 noundef %.061.ph, ptr noundef null, i32 noundef %.063.ph, ptr noundef %.062.ph) #7
+  %.063.ph = phi i32 [ 9, %9 ], [ 1, %8 ]
+  %.062.ph = phi i32 [ 6, %9 ], [ 0, %8 ]
+  %.061.ph = phi ptr [ %10, %9 ], [ null, %8 ]
+  %.060.ph = phi i32 [ 1, %9 ], [ 0, %8 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.063.ph, i32 noundef %.060.ph, ptr noundef null, i32 noundef %.062.ph, ptr noundef %.061.ph) #7
   br label %35
 
 14:                                               ; preds = %9
@@ -1058,11 +1058,11 @@ define hidden void @zim_Random_Randomizer_shuffleBytes(ptr noundef %0, ptr nocap
   br label %18
 
 17:                                               ; preds = %15, %.thread144
-  %.0121153 = phi i32 [ 1, %.thread144 ], [ 9, %15 ]
-  %.0122152 = phi i32 [ 0, %.thread144 ], [ 4, %15 ]
-  %.0123151 = phi ptr [ null, %.thread144 ], [ %10, %15 ]
-  %.0124150 = phi i32 [ 0, %.thread144 ], [ 1, %15 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0121153, i32 noundef %.0124150, ptr noundef null, i32 noundef %.0122152, ptr noundef %.0123151) #7
+  %.0121153 = phi i32 [ 0, %.thread144 ], [ 1, %15 ]
+  %.0122152 = phi ptr [ null, %.thread144 ], [ %10, %15 ]
+  %.0123151 = phi i32 [ 1, %.thread144 ], [ 9, %15 ]
+  %.0124150 = phi i32 [ 0, %.thread144 ], [ 4, %15 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0123151, i32 noundef %.0121153, ptr noundef null, i32 noundef %.0124150, ptr noundef %.0122152) #7
   br label %52
 
 18:                                               ; preds = %._crit_edge, %.thread154
@@ -1176,11 +1176,11 @@ define hidden void @zim_Random_Randomizer_pickArrayKeys(ptr noundef %0, ptr noun
   br label %.thread137
 
 .thread117:                                       ; preds = %11, %10, %21
-  %.096127 = phi i32 [ 9, %21 ], [ 9, %11 ], [ 1, %10 ]
-  %.098126 = phi i32 [ 0, %21 ], [ 6, %11 ], [ 0, %10 ]
-  %.099125 = phi ptr [ %16, %21 ], [ %12, %11 ], [ null, %10 ]
-  %.0100124 = phi i32 [ 2, %21 ], [ 1, %11 ], [ 0, %10 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.096127, i32 noundef %.0100124, ptr noundef null, i32 noundef %.098126, ptr noundef %.099125) #7
+  %.097127 = phi i32 [ 2, %21 ], [ 1, %11 ], [ 0, %10 ]
+  %.098126 = phi ptr [ %16, %21 ], [ %12, %11 ], [ null, %10 ]
+  %.099125 = phi i32 [ 0, %21 ], [ 6, %11 ], [ 0, %10 ]
+  %.0100124 = phi i32 [ 9, %21 ], [ 9, %11 ], [ 1, %10 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0100124, i32 noundef %.097127, ptr noundef null, i32 noundef %.099125, ptr noundef %.098126) #7
   br label %40
 
 .thread137:                                       ; preds = %..thread137_crit_edge, %.thread113
@@ -1277,11 +1277,11 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   br i1 %26, label %27, label %.thread232
 
 .thread232:                                       ; preds = %25, %17, %10
-  %.0197241 = phi i32 [ 9, %17 ], [ 1, %10 ], [ 9, %25 ]
-  %.0198240 = phi i32 [ 4, %17 ], [ 0, %10 ], [ 0, %25 ]
-  %.0199239 = phi ptr [ %12, %17 ], [ null, %10 ], [ %20, %25 ]
-  %.0200238 = phi i32 [ 1, %17 ], [ 0, %10 ], [ 2, %25 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0197241, i32 noundef %.0200238, ptr noundef null, i32 noundef %.0198240, ptr noundef %.0199239) #7
+  %.0198241 = phi i32 [ 1, %17 ], [ 0, %10 ], [ 2, %25 ]
+  %.0203240 = phi ptr [ %12, %17 ], [ null, %10 ], [ %20, %25 ]
+  %.0204239 = phi i32 [ 4, %17 ], [ 0, %10 ], [ 0, %25 ]
+  %.0205238 = phi i32 [ 9, %17 ], [ 1, %10 ], [ 9, %25 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0205238, i32 noundef %.0198241, ptr noundef null, i32 noundef %.0204239, ptr noundef %.0203240) #7
   br label %138
 
 27:                                               ; preds = %25, %.thread242
@@ -1336,7 +1336,7 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   br label %53
 
 53:                                               ; preds = %.lr.ph262, %67
-  %.0202261 = phi i64 [ 0, %.lr.ph262 ], [ %72, %67 ]
+  %.0196261 = phi i64 [ 0, %.lr.ph262 ], [ %72, %67 ]
   %54 = load ptr, ptr %51, align 8
   %55 = call i64 %54(ptr noundef %.sroa.3.0.copyload, i64 noundef 0, i64 noundef %31) #7
   %56 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -1374,8 +1374,8 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   %69 = getelementptr inbounds i8, ptr %68, i64 24
   %70 = getelementptr inbounds [1 x i8], ptr %69, i64 0, i64 %55
   %71 = load i8, ptr %70, align 1
-  %72 = add nuw i64 %.0202261, 1
-  %73 = getelementptr inbounds [1 x i8], ptr %52, i64 0, i64 %.0202261
+  %72 = add nuw i64 %.0196261, 1
+  %73 = getelementptr inbounds [1 x i8], ptr %52, i64 0, i64 %.0196261
   store i8 %71, ptr %73, align 1
   %74 = load i64, ptr %3, align 8
   %75 = icmp ult i64 %72, %74
@@ -1398,8 +1398,8 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   br label %86
 
 86:                                               ; preds = %.lr.ph260, %._crit_edge
-  %.0196258 = phi i32 [ 0, %.lr.ph260 ], [ %.3, %._crit_edge ]
-  %.1203257 = phi i64 [ 0, %.lr.ph260 ], [ %.4, %._crit_edge ]
+  %.1258 = phi i64 [ 0, %.lr.ph260 ], [ %.4, %._crit_edge ]
+  %.0199257 = phi i32 [ 0, %.lr.ph260 ], [ %.3202, %._crit_edge ]
   %87 = load ptr, ptr %84, align 8
   %88 = call { i64, i64 } %87(ptr noundef %.sroa.3.0.copyload) #7
   %89 = extractvalue { i64, i64 } %88, 0
@@ -1445,18 +1445,18 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   br label %138
 
 104:                                              ; preds = %.lr.ph, %128
-  %.0195252 = phi i64 [ 0, %.lr.ph ], [ %129, %128 ]
-  %.1251 = phi i32 [ %.0196258, %.lr.ph ], [ %.2, %128 ]
-  %.2204250 = phi i64 [ %.1203257, %.lr.ph ], [ %.3205, %128 ]
-  %105 = shl i64 %.0195252, 3
+  %.2252 = phi i64 [ %.1258, %.lr.ph ], [ %.3, %128 ]
+  %.0197251 = phi i64 [ 0, %.lr.ph ], [ %129, %128 ]
+  %.1200250 = phi i32 [ %.0199257, %.lr.ph ], [ %.2201, %128 ]
+  %105 = shl i64 %.0197251, 3
   %106 = lshr i64 %89, %105
   %107 = and i64 %106, %82
   %108 = icmp ugt i64 %107, %31
   br i1 %108, label %109, label %123
 
 109:                                              ; preds = %104
-  %110 = add nsw i32 %.1251, 1
-  %111 = icmp sgt i32 %.1251, 49
+  %110 = add nsw i32 %.1200250, 1
+  %111 = icmp sgt i32 %.1200250, 49
   br i1 %111, label %112, label %128
 
 112:                                              ; preds = %109
@@ -1489,22 +1489,22 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
 123:                                              ; preds = %104
   %124 = getelementptr inbounds [1 x i8], ptr %93, i64 0, i64 %107
   %125 = load i8, ptr %124, align 1
-  %126 = add i64 %.2204250, 1
-  %127 = getelementptr inbounds [1 x i8], ptr %85, i64 0, i64 %.2204250
+  %126 = add i64 %.2252, 1
+  %127 = getelementptr inbounds [1 x i8], ptr %85, i64 0, i64 %.2252
   store i8 %125, ptr %127, align 1
   %.not218 = icmp ult i64 %126, %.pre267
   br i1 %.not218, label %128, label %._crit_edge
 
 128:                                              ; preds = %123, %109
-  %.3205 = phi i64 [ %.2204250, %109 ], [ %126, %123 ]
-  %.2 = phi i32 [ %110, %109 ], [ 0, %123 ]
-  %129 = add nuw i64 %.0195252, 1
+  %.2201 = phi i32 [ %110, %109 ], [ 0, %123 ]
+  %.3 = phi i64 [ %.2252, %109 ], [ %126, %123 ]
+  %129 = add nuw i64 %.0197251, 1
   %exitcond.not = icmp eq i64 %129, %90
   br i1 %exitcond.not, label %._crit_edge, label %104
 
 ._crit_edge:                                      ; preds = %128, %123, %.preheader248
-  %.4 = phi i64 [ %.1203257, %.preheader248 ], [ %126, %123 ], [ %.3205, %128 ]
-  %.3 = phi i32 [ %.0196258, %.preheader248 ], [ 0, %123 ], [ %.2, %128 ]
+  %.3202 = phi i32 [ %.0199257, %.preheader248 ], [ 0, %123 ], [ %.2201, %128 ]
+  %.4 = phi i64 [ %.1258, %.preheader248 ], [ %126, %123 ], [ %.3, %128 ]
   %130 = icmp ult i64 %.4, %.pre267
   br i1 %130, label %86, label %.loopexit
 
@@ -1587,10 +1587,10 @@ define hidden void @zim_Random_Randomizer___unserialize(ptr noundef %0, ptr noca
 
 12:                                               ; preds = %8, %.thread
   %.0105 = phi i32 [ 1, %.thread ], [ 9, %8 ]
-  %.075104 = phi i32 [ 0, %.thread ], [ 6, %8 ]
-  %.076103 = phi ptr [ null, %.thread ], [ %9, %8 ]
-  %.077102 = phi i32 [ 0, %.thread ], [ 1, %8 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0105, i32 noundef %.077102, ptr noundef null, i32 noundef %.075104, ptr noundef %.076103) #7
+  %.075104 = phi i32 [ 0, %.thread ], [ 1, %8 ]
+  %.076103 = phi i32 [ 0, %.thread ], [ 6, %8 ]
+  %.077102 = phi ptr [ null, %.thread ], [ %9, %8 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0105, i32 noundef %.075104, ptr noundef null, i32 noundef %.076103, ptr noundef %.077102) #7
   br label %56
 
 13:                                               ; preds = %8

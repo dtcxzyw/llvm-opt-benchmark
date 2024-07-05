@@ -88,13 +88,13 @@ define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr nocapture nound
   br label %25
 
 20:                                               ; preds = %9, %16
-  %.0 = phi ptr [ %8, %9 ], [ %15, %16 ]
+  %.059 = phi ptr [ %8, %9 ], [ %15, %16 ]
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
-  tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull %.0) #3
+  tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull %.059) #3
   %23 = load i32, ptr @proto_urlencoded, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.13, ptr noundef nonnull %.0) #3
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.13, ptr noundef nonnull %.059) #3
   br label %25
 
 25:                                               ; preds = %.thread74, %20
@@ -110,8 +110,8 @@ define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr nocapture nound
   br label %32
 
 32:                                               ; preds = %.lr.ph, %61
-  %.05977 = phi i32 [ 0, %.lr.ph ], [ %73, %61 ]
-  %33 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.05977, i32 noundef -1, i8 noundef zeroext 38) #3
+  %.077 = phi i32 [ 0, %.lr.ph ], [ %73, %61 ]
+  %33 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.077, i32 noundef -1, i8 noundef zeroext 38) #3
   %34 = icmp eq i32 %33, -1
   br i1 %34, label %35, label %37
 
@@ -121,12 +121,12 @@ define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr nocapture nound
 
 37:                                               ; preds = %35, %32
   %.058 = phi i32 [ %36, %35 ], [ %33, %32 ]
-  %38 = sub i32 %.058, %.05977
+  %38 = sub i32 %.058, %.077
   %39 = load i32, ptr @ett_form_keyvalue, align 4
-  %40 = tail call ptr @proto_tree_add_subtree(ptr noundef %28, ptr noundef %0, i32 noundef %.05977, i32 noundef %38, i32 noundef %39, ptr noundef null, ptr noundef nonnull @.str.14) #3
+  %40 = tail call ptr @proto_tree_add_subtree(ptr noundef %28, ptr noundef %0, i32 noundef %.077, i32 noundef %38, i32 noundef %39, ptr noundef null, ptr noundef nonnull @.str.14) #3
   %41 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %.058) #3
   %42 = load ptr, ptr %31, align 8
-  %43 = call fastcc i32 @get_form_key_value(ptr noundef %42, ptr noundef %41, ptr noundef nonnull %5, i32 noundef %.05977, ptr noundef nonnull @pbrk_key)
+  %43 = call fastcc i32 @get_form_key_value(ptr noundef %42, ptr noundef %41, ptr noundef nonnull %5, i32 noundef %.077, ptr noundef nonnull @pbrk_key)
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %._crit_edge, label %45
 
@@ -137,8 +137,8 @@ define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr nocapture nound
   %49 = trunc i64 %48 to i32
   %50 = tail call ptr @get_utf_8_string(ptr noundef %46, ptr noundef %47, i32 noundef %49) #3
   %51 = load i32, ptr @hf_form_key, align 4
-  %52 = sub i32 %43, %.05977
-  %53 = tail call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %51, ptr noundef %0, i32 noundef %.05977, i32 noundef %52, ptr noundef %50) #3
+  %52 = sub i32 %43, %.077
+  %53 = tail call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %51, ptr noundef %0, i32 noundef %.077, i32 noundef %52, ptr noundef %50) #3
   %54 = load ptr, ptr %31, align 8
   %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #4
   %56 = tail call ptr @format_text(ptr noundef %54, ptr noundef %47, i64 noundef %55) #3

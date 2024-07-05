@@ -4404,22 +4404,22 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$3new17h66
   br label %325
 
 319:                                              ; preds = %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9176807c006d730fE.exit.i", %.noexc148, %303, %294
-  %.sroa.0193.0512 = phi ptr [ %304, %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9176807c006d730fE.exit.i" ], [ %304, %.noexc148 ], [ %304, %303 ], [ %295, %294 ]
-  %.sroa.6195.0508 = phi i64 [ %306, %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9176807c006d730fE.exit.i" ], [ %306, %.noexc148 ], [ %306, %303 ], [ %297, %294 ]
+  %.sroa.6195.0512 = phi i64 [ %306, %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9176807c006d730fE.exit.i" ], [ %306, %.noexc148 ], [ %306, %303 ], [ %297, %294 ]
+  %.sroa.0193.0508 = phi ptr [ %304, %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9176807c006d730fE.exit.i" ], [ %304, %.noexc148 ], [ %304, %303 ], [ %295, %294 ]
   %320 = landingpad { ptr, i32 }
           cleanup
   br label %.body150
 
 .body150:                                         ; preds = %312, %319
-  %.sroa.0193.0511 = phi ptr [ %.sroa.0193.0512, %319 ], [ %304, %312 ]
-  %.sroa.6195.0507 = phi i64 [ %.sroa.6195.0508, %319 ], [ %306, %312 ]
+  %.sroa.6195.0511 = phi i64 [ %.sroa.6195.0512, %319 ], [ %306, %312 ]
+  %.sroa.0193.0507 = phi ptr [ %.sroa.0193.0508, %319 ], [ %304, %312 ]
   %eh.lpad-body151 = phi { ptr, i32 } [ %320, %319 ], [ %313, %312 ]
-  %321 = icmp eq i64 %.sroa.6195.0507, 0
+  %321 = icmp eq i64 %.sroa.6195.0511, 0
   br i1 %321, label %.body143, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i153"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i153": ; preds = %.body150
-  %322 = shl nsw i64 %.sroa.6195.0507, 5
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0193.0511, i64 noundef %322, i64 noundef 2) #22, !noalias !470
+  %322 = shl nsw i64 %.sroa.6195.0511, 5
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0193.0507, i64 noundef %322, i64 noundef 2) #22, !noalias !470
   br label %.body143
 
 323:                                              ; preds = %359, %356, %353, %350, %348, %347, %346, %325
@@ -4430,8 +4430,8 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$3new17h66
 
 325:                                              ; preds = %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17haccde75442df4474E.exit", %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17hfebc8536893db7daE.exit"
   %.sroa.09.0.pre-phi = phi ptr [ %301, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17haccde75442df4474E.exit" ], [ %317, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17hfebc8536893db7daE.exit" ]
-  %.sroa.0193.0509 = phi ptr [ %295, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17haccde75442df4474E.exit" ], [ %304, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17hfebc8536893db7daE.exit" ]
-  %.sroa.6195.0505 = phi i64 [ %297, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17haccde75442df4474E.exit" ], [ %306, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17hfebc8536893db7daE.exit" ]
+  %.sroa.6195.0509 = phi i64 [ %297, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17haccde75442df4474E.exit" ], [ %306, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17hfebc8536893db7daE.exit" ]
+  %.sroa.0193.0505 = phi ptr [ %295, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17haccde75442df4474E.exit" ], [ %304, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17hfebc8536893db7daE.exit" ]
   %.pn30 = phi { ptr, i64 } [ %300, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17haccde75442df4474E.exit" ], [ %316, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17hfebc8536893db7daE.exit" ]
   %.sroa.510.0 = extractvalue { ptr, i64 } %.pn30, 1
   %.sroa.18.0.insert.ext = zext i16 %.sroa.18.1 to i64
@@ -4480,9 +4480,9 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$3new17h66
   %337 = getelementptr inbounds i8, ptr %46, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %337, ptr noundef nonnull align 8 dereferenceable(64) %44, i64 64, i1 false)
   %338 = getelementptr inbounds i8, ptr %46, i64 224
-  store ptr %.sroa.0193.0509, ptr %338, align 8
+  store ptr %.sroa.0193.0505, ptr %338, align 8
   %339 = getelementptr inbounds i8, ptr %46, i64 232
-  store i64 %.sroa.6195.0505, ptr %339, align 8
+  store i64 %.sroa.6195.0509, ptr %339, align 8
   %340 = getelementptr inbounds i8, ptr %46, i64 264
   store i64 %3, ptr %340, align 8
   %341 = getelementptr inbounds i8, ptr %46, i64 240

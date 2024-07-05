@@ -14717,8 +14717,8 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h22
   br label %166
 
 .loopexit.i.i.i.i.i.i:                            ; preds = %221, %219, %217
-  %.0.i.i.i.i.i.i.i = phi i64 [ 1, %217 ], [ %..i.i.i.i.i.i.i, %221 ], [ 2, %219 ]
-  %165 = add i64 %.0.i.i.i.i.i.i.i, %.sroa.4.1.i.i.i.i
+  %.011.i.i.i.i.i.i.i = phi i64 [ 1, %217 ], [ %..i.i.i.i.i.i.i, %221 ], [ 2, %219 ]
+  %165 = add i64 %.011.i.i.i.i.i.i.i, %.sroa.4.1.i.i.i.i
   br label %166
 
 166:                                              ; preds = %.loopexit.i.i.i.i.i.i, %.lr.ph105.i.i.i.i.i.i
@@ -15341,14 +15341,14 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2e
 
 63:                                               ; preds = %74, %.lr.ph.i.i
   %.sroa.0.07.i.i = phi ptr [ %.val.i.i, %.lr.ph.i.i ], [ %76, %74 ]
-  %.sroa.7.06.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %75, %74 ]
-  %.sroa.10.05.i.i = phi i64 [ %59, %.lr.ph.i.i ], [ %64, %74 ]
-  %64 = add i64 %.sroa.10.05.i.i, -1
+  %.sroa.10.06.i.i = phi i64 [ %59, %.lr.ph.i.i ], [ %64, %74 ]
+  %.sroa.7.05.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %75, %74 ]
+  %64 = add i64 %.sroa.10.06.i.i, -1
   %65 = icmp eq ptr %.sroa.0.07.i.i, %57
   br i1 %65, label %.thread.i.i, label %70
 
 .thread.i.i:                                      ; preds = %74, %70, %63, %56
-  %.031.lcssa.i.i = phi i64 [ 0, %56 ], [ %62, %63 ], [ %.sroa.7.06.i.i, %70 ], [ %59, %74 ]
+  %.031.lcssa.i.i = phi i64 [ 0, %56 ], [ %62, %63 ], [ %.sroa.7.05.i.i, %70 ], [ %59, %74 ]
   %66 = getelementptr inbounds i8, ptr %58, i64 8
   %67 = load i64, ptr %66, align 8, !noalias !4795, !noundef !14
   %.not.i.i = icmp eq i64 %67, 0
@@ -15366,7 +15366,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2e
   br i1 %73, label %74, label %.thread.i.i
 
 74:                                               ; preds = %70
-  %75 = add nuw nsw i64 %.sroa.7.06.i.i, 1
+  %75 = add nuw nsw i64 %.sroa.7.05.i.i, 1
   %76 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i, i64 4
   %77 = icmp eq i64 %64, 0
   br i1 %77, label %.thread.i.i, label %63

@@ -2775,21 +2775,21 @@ invoke.cont68:                                    ; preds = %for.body60.lr.ph, %
   br i1 %cmp14.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %invoke.cont68, %while.body.i.i
-  %src_byte.017.i.i = phi ptr [ %add.ptr.i.i48, %while.body.i.i ], [ %34, %invoke.cont68 ]
-  %size.addr.016.i.i = phi i64 [ %sub.i.i, %while.body.i.i ], [ %conv71, %invoke.cont68 ]
-  %dst.addr.015.i.i = phi ptr [ %incdec.ptr.i.i49, %while.body.i.i ], [ %35, %invoke.cont68 ]
-  %word.0.copyload.i.i = load i64, ptr %src_byte.017.i.i, align 1
-  store atomic i64 %word.0.copyload.i.i, ptr %dst.addr.015.i.i monotonic, align 8
-  %add.ptr.i.i48 = getelementptr inbounds i8, ptr %src_byte.017.i.i, i64 8
-  %incdec.ptr.i.i49 = getelementptr inbounds i8, ptr %dst.addr.015.i.i, i64 8
-  %sub.i.i = add i64 %size.addr.016.i.i, -8
+  %dst.addr.017.i.i = phi ptr [ %incdec.ptr.i.i49, %while.body.i.i ], [ %35, %invoke.cont68 ]
+  %src_byte.016.i.i = phi ptr [ %add.ptr.i.i48, %while.body.i.i ], [ %34, %invoke.cont68 ]
+  %size.addr.015.i.i = phi i64 [ %sub.i.i, %while.body.i.i ], [ %conv71, %invoke.cont68 ]
+  %word.0.copyload.i.i = load i64, ptr %src_byte.016.i.i, align 1
+  store atomic i64 %word.0.copyload.i.i, ptr %dst.addr.017.i.i monotonic, align 8
+  %add.ptr.i.i48 = getelementptr inbounds i8, ptr %src_byte.016.i.i, i64 8
+  %incdec.ptr.i.i49 = getelementptr inbounds i8, ptr %dst.addr.017.i.i, i64 8
+  %sub.i.i = add i64 %size.addr.015.i.i, -8
   %cmp.i.i = icmp ugt i64 %sub.i.i, 7
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !43
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %invoke.cont68
-  %dst.addr.0.lcssa.i.i = phi ptr [ %35, %invoke.cont68 ], [ %incdec.ptr.i.i49, %while.body.i.i ]
   %size.addr.0.lcssa.i.i = phi i64 [ %conv71, %invoke.cont68 ], [ %sub.i.i, %while.body.i.i ]
   %src_byte.0.lcssa.i.i = phi ptr [ %34, %invoke.cont68 ], [ %add.ptr.i.i48, %while.body.i.i ]
+  %dst.addr.0.lcssa.i.i = phi ptr [ %35, %invoke.cont68 ], [ %incdec.ptr.i.i49, %while.body.i.i ]
   %cmp1.not.i.i = icmp eq i64 %size.addr.0.lcssa.i.i, 0
   br i1 %cmp1.not.i.i, label %invoke.cont72, label %if.then.i.i
 
@@ -7071,21 +7071,21 @@ invoke.cont11:                                    ; preds = %_ZNSt12_Vector_base
   br i1 %cmp14.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %invoke.cont11, %while.body.i.i
-  %src_byte.017.i.i = phi ptr [ %add.ptr.i.i, %while.body.i.i ], [ %3, %invoke.cont11 ]
-  %size.addr.016.i.i = phi i64 [ %sub.i.i, %while.body.i.i ], [ %conv, %invoke.cont11 ]
-  %dst.addr.015.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %2, %invoke.cont11 ]
-  %word.0.copyload.i.i = load i64, ptr %src_byte.017.i.i, align 1
-  store atomic i64 %word.0.copyload.i.i, ptr %dst.addr.015.i.i monotonic, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %src_byte.017.i.i, i64 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %dst.addr.015.i.i, i64 8
-  %sub.i.i = add i64 %size.addr.016.i.i, -8
+  %dst.addr.017.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %2, %invoke.cont11 ]
+  %src_byte.016.i.i = phi ptr [ %add.ptr.i.i, %while.body.i.i ], [ %3, %invoke.cont11 ]
+  %size.addr.015.i.i = phi i64 [ %sub.i.i, %while.body.i.i ], [ %conv, %invoke.cont11 ]
+  %word.0.copyload.i.i = load i64, ptr %src_byte.016.i.i, align 1
+  store atomic i64 %word.0.copyload.i.i, ptr %dst.addr.017.i.i monotonic, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %src_byte.016.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %dst.addr.017.i.i, i64 8
+  %sub.i.i = add i64 %size.addr.015.i.i, -8
   %cmp.i.i23 = icmp ugt i64 %sub.i.i, 7
   br i1 %cmp.i.i23, label %while.body.i.i, label %while.end.i.i, !llvm.loop !43
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %invoke.cont11
-  %dst.addr.0.lcssa.i.i = phi ptr [ %2, %invoke.cont11 ], [ %incdec.ptr.i.i, %while.body.i.i ]
   %size.addr.0.lcssa.i.i = phi i64 [ %conv, %invoke.cont11 ], [ %sub.i.i, %while.body.i.i ]
   %src_byte.0.lcssa.i.i = phi ptr [ %3, %invoke.cont11 ], [ %add.ptr.i.i, %while.body.i.i ]
+  %dst.addr.0.lcssa.i.i = phi ptr [ %2, %invoke.cont11 ], [ %incdec.ptr.i.i, %while.body.i.i ]
   %cmp1.not.i.i = icmp eq i64 %size.addr.0.lcssa.i.i, 0
   br i1 %cmp1.not.i.i, label %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i26, label %if.then.i.i22
 

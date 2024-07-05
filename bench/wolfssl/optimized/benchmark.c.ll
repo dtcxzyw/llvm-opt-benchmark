@@ -5572,8 +5572,8 @@ bench_stats_check.exit:                           ; preds = %do.cond60
   br i1 %cmp.i31, label %exit_hmac, label %do.body, !llvm.loop !61
 
 exit_hmac:                                        ; preds = %do.body33, %bench_stats_check.exit, %for.body17
-  %ret.0 = phi i32 [ %call23, %for.body17 ], [ %call47, %bench_stats_check.exit ], [ %call47, %do.body33 ]
   %count.1 = phi i32 [ %count.0, %for.body17 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body33 ]
+  %ret.0 = phi i32 [ %call23, %for.body17 ], [ %call47, %bench_stats_check.exit ], [ %call47, %do.body33 ]
   %15 = load i32, ptr @bench_size, align 4
   call fastcc void @bench_stats_sym_finish(ptr noundef %label, i32 noundef %count.1, i32 noundef %15, double noundef %add.i.i, i32 noundef %ret.0)
   br label %exit

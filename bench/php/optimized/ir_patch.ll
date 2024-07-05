@@ -51,18 +51,18 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   br label %24
 
 24:                                               ; preds = %_asm_x86_inslen.exit.i, %.lr.ph.i
-  %.058.i = phi ptr [ %0, %.lr.ph.i ], [ %131, %_asm_x86_inslen.exit.i ]
-  %.02657.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %_asm_x86_inslen.exit.i ]
-  %25 = load i16, ptr %.058.i, align 1
+  %.058.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %_asm_x86_inslen.exit.i ]
+  %.02657.i = phi ptr [ %0, %.lr.ph.i ], [ %131, %_asm_x86_inslen.exit.i ]
+  %25 = load i16, ptr %.02657.i, align 1
   %26 = and i16 %25, -3841
   %27 = icmp eq i16 %26, -32753
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.058.i, i64 2
+  %29 = getelementptr inbounds i8, ptr %.02657.i, i64 2
   %30 = load i32, ptr %29, align 1
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i8, ptr %.058.i, i64 %31
+  %32 = getelementptr inbounds i8, ptr %.02657.i, i64 %31
   %33 = icmp eq ptr %32, %21
   br i1 %33, label %.sink.split.i, label %34
 
@@ -72,10 +72,10 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   br i1 %36, label %37, label %48
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %.058.i, i64 1
+  %38 = getelementptr inbounds i8, ptr %.02657.i, i64 1
   %39 = load i32, ptr %38, align 1
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %.058.i, i64 %40
+  %41 = getelementptr inbounds i8, ptr %.02657.i, i64 %40
   %42 = icmp eq ptr %41, %22
   br i1 %42, label %.sink.split.i, label %48
 
@@ -83,22 +83,22 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   %.pre.pre-phi = phi i16 [ 233, %37 ], [ 15, %28 ]
   %.sink.i = phi i64 [ 5, %37 ], [ 6, %28 ]
   %.sink122.i = phi ptr [ %38, %37 ], [ %29, %28 ]
-  %43 = getelementptr inbounds i8, ptr %.058.i, i64 %.sink.i
+  %43 = getelementptr inbounds i8, ptr %.02657.i, i64 %.sink.i
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %23, %44
   %46 = trunc i64 %45 to i32
   store i32 %46, ptr %.sink122.i, align 1
-  %47 = add nsw i32 %.02657.i, 1
+  %47 = add nsw i32 %.058.i, 1
   br label %48
 
 48:                                               ; preds = %.sink.split.i, %37, %34
   %.mask.i.pre-phi = phi i16 [ %.pre.pre-phi, %.sink.split.i ], [ 233, %37 ], [ %35, %34 ]
-  %.1.i = phi i32 [ %47, %.sink.split.i ], [ %.02657.i, %37 ], [ %.02657.i, %34 ]
+  %.1.i = phi i32 [ %47, %.sink.split.i ], [ %.058.i, %37 ], [ %.058.i, %34 ]
   %49 = zext nneg i16 %.mask.i.pre-phi to i64
   br label %.outer.outer.outer
 
 .outer.outer.outer:                               ; preds = %56, %48
-  %.050.i.i.ph.ph.ph = phi ptr [ %58, %56 ], [ %.058.i, %48 ]
+  %.050.i.i.ph.ph.ph = phi ptr [ %58, %56 ], [ %.02657.i, %48 ]
   %.047.i.i.ph.ph.ph = phi i32 [ %61, %56 ], [ 0, %48 ]
   %.045.i.i.ph.ph.ph = phi i32 [ %57, %56 ], [ 0, %48 ]
   %.pn = phi i64 [ %60, %56 ], [ %49, %48 ]
@@ -277,7 +277,7 @@ default.unreachable:                              ; preds = %.loopexit56.i.i
 _asm_x86_inslen.exit.i:                           ; preds = %124, %121, %118, %112, %.loopexit56.i.i, %.loopexit.i.i, %52
   %.054.i.i = phi i32 [ %113, %112 ], [ %73, %.loopexit.i.i ], [ %55, %52 ], [ %104, %.loopexit56.i.i ], [ %122, %121 ], [ %.4.i.i, %118 ], [ %spec.select.i.i, %124 ]
   %130 = zext i32 %.054.i.i to i64
-  %131 = getelementptr inbounds i8, ptr %.058.i, i64 %130
+  %131 = getelementptr inbounds i8, ptr %.02657.i, i64 %130
   %132 = icmp ult ptr %131, %19
   br i1 %132, label %24, label %._crit_edge.i
 
@@ -290,8 +290,8 @@ _asm_x86_inslen.exit.i:                           ; preds = %124, %121, %118, %1
   br label %ir_patch_code.exit
 
 ir_patch_code.exit:                               ; preds = %.loopexit, %._crit_edge.i, %133
-  %.026.lcssa91.i = phi i32 [ %.1.i, %133 ], [ 0, %._crit_edge.i ], [ 0, %.loopexit ]
-  %135 = add nsw i32 %.026.lcssa91.i, %.2
+  %.0.lcssa91.i = phi i32 [ %.1.i, %133 ], [ 0, %._crit_edge.i ], [ 0, %.loopexit ]
+  %135 = add nsw i32 %.0.lcssa91.i, %.2
   ret i32 %135
 }
 

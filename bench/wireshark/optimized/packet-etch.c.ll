@@ -1026,16 +1026,16 @@ get_byte_length.exit:                             ; preds = %8, %8
   br label %23
 
 23:                                               ; preds = %16, %19, %get_byte_length.exit, %6
-  %.031 = phi i32 [ %7, %6 ], [ %22, %get_byte_length.exit ], [ %21, %19 ], [ %18, %16 ]
-  %.030 = phi i32 [ 1, %6 ], [ 4, %get_byte_length.exit ], [ 2, %19 ], [ 1, %16 ]
+  %.031 = phi i32 [ 1, %6 ], [ 4, %get_byte_length.exit ], [ 2, %19 ], [ 1, %16 ]
+  %.030 = phi i32 [ %7, %6 ], [ %22, %get_byte_length.exit ], [ %21, %19 ], [ %18, %16 ]
   %24 = load i32, ptr @hf_etch_length, align 4
   %25 = load i32, ptr %0, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %1, i32 noundef %25, i32 noundef %.030, i32 noundef 0) #8
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %1, i32 noundef %25, i32 noundef %.031, i32 noundef 0) #8
   %27 = load i32, ptr %0, align 4
-  %28 = add i32 %27, %.030
+  %28 = add i32 %27, %.031
   store i32 %28, ptr %0, align 4
   %29 = xor i32 %28, -1
-  %30 = icmp ugt i32 %.031, %29
+  %30 = icmp ugt i32 %.030, %29
   br i1 %30, label %31, label %get_byte_length.exit.thread
 
 31:                                               ; preds = %23
@@ -1043,7 +1043,7 @@ get_byte_length.exit:                             ; preds = %8, %8
   br label %get_byte_length.exit.thread
 
 get_byte_length.exit.thread:                      ; preds = %8, %23, %31
-  %.0 = phi i32 [ %32, %31 ], [ %.031, %23 ], [ 0, %8 ]
+  %.0 = phi i32 [ %32, %31 ], [ %.030, %23 ], [ 0, %8 ]
   ret i32 %.0
 }
 

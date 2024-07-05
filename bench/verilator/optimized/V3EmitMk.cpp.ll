@@ -1624,12 +1624,12 @@ _ZNK9V3Options8coverageEv.exit.thread:            ; preds = %107, %110, %_ZNK9V3
   br label %150
 
 150:                                              ; preds = %.preheader, %498
-  %.052302 = phi i32 [ 0, %.preheader ], [ %499, %498 ]
+  %.051302 = phi i32 [ 0, %.preheader ], [ %499, %498 ]
   store i8 0, ptr %48, align 1
   store i8 1, ptr %149, align 1
-  %151 = icmp eq i32 %.052302, 2
-  %.not62 = icmp eq i32 %.052302, 0
-  %152 = icmp eq i32 %.052302, 1
+  %151 = icmp eq i32 %.051302, 2
+  %.not62 = icmp eq i32 %.051302, 0
+  %152 = icmp eq i32 %.051302, 1
   %.str.38..str.39 = select i1 %152, ptr @.str.38, ptr @.str.39
   %153 = select i1 %151, ptr @.str.37, ptr %.str.38..str.39
   %154 = select i1 %151, i64 9, i64 10
@@ -1637,8 +1637,8 @@ _ZNK9V3Options8coverageEv.exit.thread:            ; preds = %107, %110, %_ZNK9V3
   br label %156
 
 156:                                              ; preds = %150, %497
-  %.051.idx300 = phi i64 [ 0, %150 ], [ %.051.add, %497 ]
-  %.051.ptr301 = getelementptr inbounds i8, ptr %48, i64 %.051.idx300
+  %.052.idx300 = phi i64 [ 0, %150 ], [ %.052.add, %497 ]
+  %.052.ptr301 = getelementptr inbounds i8, ptr %48, i64 %.052.idx300
   br i1 %151, label %157, label %197
 
 157:                                              ; preds = %156
@@ -1994,7 +1994,7 @@ _ZN11V3OutMkFile4putsEPKc.exit119:                ; preds = %_ZNSt7__cxx1112basi
   br label %228
 
 228:                                              ; preds = %_ZN11V3OutMkFile4putsEPKc.exit119, %_ZN11V3OutMkFile4putsEPKc.exit111, %_ZN11V3OutMkFile4putsEPKc.exit
-  %229 = load i8, ptr %.051.ptr301, align 1
+  %229 = load i8, ptr %.052.ptr301, align 1
   %230 = trunc i8 %229 to i1
   br i1 %230, label %231, label %246
 
@@ -2233,7 +2233,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i140:
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27)
-  %275 = load i8, ptr %.051.ptr301, align 1
+  %275 = load i8, ptr %.052.ptr301, align 1
   %276 = trunc i8 %275 to i1
   %.str.40..str.41 = select i1 %276, ptr @.str.40, ptr @.str.41
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
@@ -2913,7 +2913,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit207: ;
   br i1 %.not292, label %469, label %444
 
 444:                                              ; preds = %440
-  %445 = load i8, ptr %.051.ptr301, align 1
+  %445 = load i8, ptr %.052.ptr301, align 1
   %446 = xor i8 %445, %442
   %447 = trunc i8 %446 to i1
   br i1 %447, label %469, label %448
@@ -3108,12 +3108,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i226:
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
-  %.051.add = add nuw nsw i64 %.051.idx300, 1
-  %.not = icmp eq i64 %.051.add, 2
+  %.052.add = add nuw nsw i64 %.052.idx300, 1
+  %.not = icmp eq i64 %.052.add, 2
   br i1 %.not, label %498, label %156
 
 498:                                              ; preds = %497
-  %499 = add nuw nsw i32 %.052302, 1
+  %499 = add nuw nsw i32 %.051302, 1
   %exitcond.not = icmp eq i32 %499, 3
   br i1 %exitcond.not, label %500, label %150, !llvm.loop !11
 

@@ -6275,10 +6275,10 @@ entry:
   %lm165 = alloca %struct.LagrangeMultiplier, align 4
   %m_softBodies = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_softBodies, align 8
-  %m_size.i341 = getelementptr inbounds i8, ptr %0, i64 4
-  %1 = load i32, ptr %m_size.i341, align 4
-  %cmp342 = icmp sgt i32 %1, 0
-  br i1 %cmp342, label %for.body.lr.ph, label %for.end233
+  %m_size.i349 = getelementptr inbounds i8, ptr %0, i64 4
+  %1 = load i32, ptr %m_size.i349, align 4
+  %cmp350 = icmp sgt i32 %1, 0
+  br i1 %cmp350, label %for.body.lr.ph, label %for.end233
 
 for.body.lr.ph:                                   ; preds = %entry
   %m_data.i48 = getelementptr inbounds i8, ptr %this, i64 224
@@ -6300,11 +6300,11 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc231
-  %indvars.iv361 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next362, %for.inc231 ]
+  %indvars.iv373 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next374, %for.inc231 ]
   %2 = phi ptr [ %0, %for.body.lr.ph ], [ %94, %for.inc231 ]
   %m_data.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv361
+  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv373
   %4 = load ptr, ptr %arrayidx.i, align 8
   %m_activationState1.i.i = getelementptr inbounds i8, ptr %4, i64 240
   %5 = load i32, ptr %m_activationState1.i.i, align 8
@@ -6316,14 +6316,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.cond5.preheader:                              ; preds = %for.body
   %6 = load ptr, ptr %m_data.i48, align 8
-  %m_size.i51314 = getelementptr inbounds %class.btAlignedObjectArray.168, ptr %6, i64 %indvars.iv361, i32 2
+  %m_size.i51314 = getelementptr inbounds %class.btAlignedObjectArray.168, ptr %6, i64 %indvars.iv373, i32 2
   %7 = load i32, ptr %m_size.i51314, align 4
   %cmp8315 = icmp sgt i32 %7, 0
   br i1 %cmp8315, label %for.body9, label %for.cond36.preheader
 
 for.cond36.preheader:                             ; preds = %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit, %for.cond5.preheader
   %8 = load ptr, ptr %m_data.i73, align 8
-  %m_size.i76319 = getelementptr inbounds %class.btAlignedObjectArray.156, ptr %8, i64 %indvars.iv361, i32 2
+  %m_size.i76319 = getelementptr inbounds %class.btAlignedObjectArray.156, ptr %8, i64 %indvars.iv373, i32 2
   %9 = load i32, ptr %m_size.i76319, align 4
   %cmp39320 = icmp sgt i32 %9, 0
   br i1 %cmp39320, label %for.body40, label %for.cond83.preheader
@@ -6331,7 +6331,7 @@ for.cond36.preheader:                             ; preds = %_ZN20btAlignedObjec
 for.body9:                                        ; preds = %for.cond5.preheader, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit ], [ 0, %for.cond5.preheader ]
   %10 = phi ptr [ %23, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit ], [ %6, %for.cond5.preheader ]
-  %m_data.i55 = getelementptr inbounds %class.btAlignedObjectArray.168, ptr %10, i64 %indvars.iv361, i32 5
+  %m_data.i55 = getelementptr inbounds %class.btAlignedObjectArray.168, ptr %10, i64 %indvars.iv373, i32 5
   %11 = load ptr, ptr %m_data.i55, align 8
   %m_node = getelementptr inbounds %class.btDeformableStaticConstraint, ptr %11, i64 %indvars.iv, i32 1
   %12 = load ptr, ptr %m_node, align 8
@@ -6430,7 +6430,7 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit: ; preds = 
   store i32 %inc.i, ptr %m_size.i.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load ptr, ptr %m_data.i48, align 8
-  %m_size.i51 = getelementptr inbounds %class.btAlignedObjectArray.168, ptr %23, i64 %indvars.iv361, i32 2
+  %m_size.i51 = getelementptr inbounds %class.btAlignedObjectArray.168, ptr %23, i64 %indvars.iv373, i32 2
   %24 = load i32, ptr %m_size.i51, align 4
   %25 = sext i32 %24 to i64
   %cmp8 = icmp slt i64 %indvars.iv.next, %25
@@ -6438,17 +6438,17 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit: ; preds = 
 
 for.cond83.preheader:                             ; preds = %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit139, %for.cond36.preheader
   %26 = load ptr, ptr %m_data.i140, align 8
-  %m_size.i143324 = getelementptr inbounds %class.btAlignedObjectArray.152, ptr %26, i64 %indvars.iv361, i32 2
+  %m_size.i143324 = getelementptr inbounds %class.btAlignedObjectArray.152, ptr %26, i64 %indvars.iv373, i32 2
   %27 = load i32, ptr %m_size.i143324, align 4
   %cmp86325 = icmp sgt i32 %27, 0
   br i1 %cmp86325, label %for.body87, label %for.cond146.preheader
 
 for.body40:                                       ; preds = %for.cond36.preheader, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit139
-  %indvars.iv349 = phi i64 [ %indvars.iv.next350, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit139 ], [ 0, %for.cond36.preheader ]
+  %indvars.iv361 = phi i64 [ %indvars.iv.next362, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit139 ], [ 0, %for.cond36.preheader ]
   %28 = phi ptr [ %42, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit139 ], [ %8, %for.cond36.preheader ]
-  %m_data.i80 = getelementptr inbounds %class.btAlignedObjectArray.156, ptr %28, i64 %indvars.iv361, i32 5
+  %m_data.i80 = getelementptr inbounds %class.btAlignedObjectArray.156, ptr %28, i64 %indvars.iv373, i32 5
   %29 = load ptr, ptr %m_data.i80, align 8
-  %m_anchor = getelementptr inbounds %class.btDeformableNodeAnchorConstraint, ptr %29, i64 %indvars.iv349, i32 1
+  %m_anchor = getelementptr inbounds %class.btDeformableNodeAnchorConstraint, ptr %29, i64 %indvars.iv361, i32 1
   %30 = load ptr, ptr %m_anchor, align 8
   %m_node45 = getelementptr inbounds i8, ptr %30, i64 848
   %31 = load ptr, ptr %m_node45, align 8
@@ -6545,27 +6545,27 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit139: ; preds
   %41 = load i32, ptr %m_size.i.i, align 4
   %inc.i104 = add nsw i32 %41, 1
   store i32 %inc.i104, ptr %m_size.i.i, align 4
-  %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
+  %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
   %42 = load ptr, ptr %m_data.i73, align 8
-  %m_size.i76 = getelementptr inbounds %class.btAlignedObjectArray.156, ptr %42, i64 %indvars.iv361, i32 2
+  %m_size.i76 = getelementptr inbounds %class.btAlignedObjectArray.156, ptr %42, i64 %indvars.iv373, i32 2
   %43 = load i32, ptr %m_size.i76, align 4
   %44 = sext i32 %43 to i64
-  %cmp39 = icmp slt i64 %indvars.iv.next350, %44
+  %cmp39 = icmp slt i64 %indvars.iv.next362, %44
   br i1 %cmp39, label %for.body40, label %for.cond83.preheader, !llvm.loop !67
 
 for.cond146.preheader:                            ; preds = %for.inc142, %for.cond83.preheader
   %45 = load ptr, ptr %m_data.i225, align 8
-  %m_size.i228337 = getelementptr inbounds %class.btAlignedObjectArray.160, ptr %45, i64 %indvars.iv361, i32 2
-  %46 = load i32, ptr %m_size.i228337, align 4
-  %cmp149338 = icmp sgt i32 %46, 0
-  br i1 %cmp149338, label %for.body150, label %for.inc231
+  %m_size.i228345 = getelementptr inbounds %class.btAlignedObjectArray.160, ptr %45, i64 %indvars.iv373, i32 2
+  %46 = load i32, ptr %m_size.i228345, align 4
+  %cmp149346 = icmp sgt i32 %46, 0
+  br i1 %cmp149346, label %for.body150, label %for.inc231
 
 for.body87:                                       ; preds = %for.cond83.preheader, %for.inc142
   %47 = phi ptr [ %66, %for.inc142 ], [ %26, %for.cond83.preheader ]
-  %indvars.iv352 = phi i64 [ %indvars.iv.next353, %for.inc142 ], [ 0, %for.cond83.preheader ]
-  %m_data.i147 = getelementptr inbounds %class.btAlignedObjectArray.152, ptr %47, i64 %indvars.iv361, i32 5
+  %indvars.iv364 = phi i64 [ %indvars.iv.next365, %for.inc142 ], [ 0, %for.cond83.preheader ]
+  %m_data.i147 = getelementptr inbounds %class.btAlignedObjectArray.152, ptr %47, i64 %indvars.iv373, i32 5
   %48 = load ptr, ptr %m_data.i147, align 8
-  %arrayidx.i149 = getelementptr inbounds %class.btDeformableNodeRigidContactConstraint, ptr %48, i64 %indvars.iv352
+  %arrayidx.i149 = getelementptr inbounds %class.btDeformableNodeRigidContactConstraint, ptr %48, i64 %indvars.iv364
   %m_binding = getelementptr inbounds i8, ptr %arrayidx.i149, i64 80
   %49 = load i8, ptr %m_binding, align 8
   %tobool = trunc i8 %49 to i1
@@ -6579,9 +6579,9 @@ if.end92:                                         ; preds = %for.body87
   %m_constrained103 = getelementptr inbounds i8, ptr %50, i64 128
   store i32 1, ptr %m_constrained103, align 8
   %52 = load ptr, ptr %m_data.i140, align 8
-  %m_data.i165 = getelementptr inbounds %class.btAlignedObjectArray.152, ptr %52, i64 %indvars.iv361, i32 5
+  %m_data.i165 = getelementptr inbounds %class.btAlignedObjectArray.152, ptr %52, i64 %indvars.iv373, i32 5
   %53 = load ptr, ptr %m_data.i165, align 8
-  %arrayidx.i167 = getelementptr inbounds %class.btDeformableNodeRigidContactConstraint, ptr %53, i64 %indvars.iv352
+  %arrayidx.i167 = getelementptr inbounds %class.btDeformableNodeRigidContactConstraint, ptr %53, i64 %indvars.iv364
   %m_static = getelementptr inbounds i8, ptr %arrayidx.i167, i64 8
   %54 = load i8, ptr %m_static, align 8
   %tobool113 = trunc i8 %54 to i1
@@ -6687,19 +6687,19 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit224: ; preds
 
 for.inc142:                                       ; preds = %for.body87, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit224
   %66 = phi ptr [ %.pre, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit224 ], [ %47, %for.body87 ]
-  %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
-  %m_size.i143 = getelementptr inbounds %class.btAlignedObjectArray.152, ptr %66, i64 %indvars.iv361, i32 2
+  %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
+  %m_size.i143 = getelementptr inbounds %class.btAlignedObjectArray.152, ptr %66, i64 %indvars.iv373, i32 2
   %67 = load i32, ptr %m_size.i143, align 4
   %68 = sext i32 %67 to i64
-  %cmp86 = icmp slt i64 %indvars.iv.next353, %68
+  %cmp86 = icmp slt i64 %indvars.iv.next365, %68
   br i1 %cmp86, label %for.body87, label %for.cond146.preheader, !llvm.loop !68
 
 for.body150:                                      ; preds = %for.cond146.preheader, %for.inc228
   %69 = phi ptr [ %91, %for.inc228 ], [ %45, %for.cond146.preheader ]
-  %indvars.iv358 = phi i64 [ %indvars.iv.next359, %for.inc228 ], [ 0, %for.cond146.preheader ]
-  %m_data.i232 = getelementptr inbounds %class.btAlignedObjectArray.160, ptr %69, i64 %indvars.iv361, i32 5
+  %indvars.iv370 = phi i64 [ %indvars.iv.next371, %for.inc228 ], [ 0, %for.cond146.preheader ]
+  %m_data.i232 = getelementptr inbounds %class.btAlignedObjectArray.160, ptr %69, i64 %indvars.iv373, i32 5
   %70 = load ptr, ptr %m_data.i232, align 8
-  %arrayidx.i234 = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %70, i64 %indvars.iv358
+  %arrayidx.i234 = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %70, i64 %indvars.iv370
   %m_binding154 = getelementptr inbounds i8, ptr %arrayidx.i234, i64 80
   %71 = load i8, ptr %m_binding154, align 8
   %tobool155 = trunc i8 %71 to i1
@@ -6717,25 +6717,25 @@ if.end157:                                        ; preds = %for.body150
   br label %for.body169
 
 for.body169:                                      ; preds = %if.end157, %for.body169
-  %indvars.iv355 = phi i64 [ 0, %if.end157 ], [ %indvars.iv.next356, %for.body169 ]
-  %arrayidx170 = getelementptr inbounds [3 x ptr], ptr %m_n, i64 0, i64 %indvars.iv355
+  %indvars.iv367 = phi i64 [ 0, %if.end157 ], [ %indvars.iv.next368, %for.body169 ]
+  %arrayidx170 = getelementptr inbounds [3 x ptr], ptr %m_n, i64 0, i64 %indvars.iv367
   %74 = load ptr, ptr %arrayidx170, align 8
   %m_constrained171 = getelementptr inbounds i8, ptr %74, i64 128
   store i32 1, ptr %m_constrained171, align 8
   %75 = load ptr, ptr %arrayidx170, align 8
   %index175 = getelementptr inbounds i8, ptr %75, i64 136
   %76 = load i32, ptr %index175, align 8
-  %arrayidx178 = getelementptr inbounds [3 x i32], ptr %m_indices176, i64 0, i64 %indvars.iv355
+  %arrayidx178 = getelementptr inbounds [3 x i32], ptr %m_indices176, i64 0, i64 %indvars.iv367
   store i32 %76, ptr %arrayidx178, align 4
-  %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next356, 3
+  %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next368, 3
   br i1 %exitcond.not, label %for.end187, label %for.body169, !llvm.loop !69
 
 for.end187:                                       ; preds = %for.body169
   %77 = load ptr, ptr %m_data.i225, align 8
-  %m_data.i250 = getelementptr inbounds %class.btAlignedObjectArray.160, ptr %77, i64 %indvars.iv361, i32 5
+  %m_data.i250 = getelementptr inbounds %class.btAlignedObjectArray.160, ptr %77, i64 %indvars.iv373, i32 5
   %78 = load ptr, ptr %m_data.i250, align 8
-  %m_static191 = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %78, i64 %indvars.iv358, i32 0, i32 0, i32 1
+  %m_static191 = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %78, i64 %indvars.iv370, i32 0, i32 0, i32 1
   %79 = load i8, ptr %m_static191, align 8
   %tobool192 = trunc i8 %79 to i1
   %arrayidx195 = getelementptr inbounds i8, ptr %72, i64 84
@@ -6753,9 +6753,9 @@ if.then193:                                       ; preds = %for.end187
 if.else215:                                       ; preds = %for.end187
   store float 0.000000e+00, ptr %arrayidx195, align 4
   %80 = load ptr, ptr %m_data.i225, align 8
-  %m_data.i265 = getelementptr inbounds %class.btAlignedObjectArray.160, ptr %80, i64 %indvars.iv361, i32 5
+  %m_data.i265 = getelementptr inbounds %class.btAlignedObjectArray.160, ptr %80, i64 %indvars.iv373, i32 5
   %81 = load ptr, ptr %m_data.i265, align 8
-  %m_normal223 = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %81, i64 %indvars.iv358, i32 0, i32 0, i32 3
+  %m_normal223 = getelementptr inbounds %class.btDeformableFaceRigidContactConstraint, ptr %81, i64 %indvars.iv370, i32 0, i32 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_dirs224, ptr noundef nonnull align 8 dereferenceable(16) %m_normal223, i64 16, i1 false)
   br label %if.end226
 
@@ -6835,25 +6835,25 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit309: ; preds
   %90 = load i32, ptr %m_size.i.i, align 4
   %inc.i274 = add nsw i32 %90, 1
   store i32 %inc.i274, ptr %m_size.i.i, align 4
-  %.pre364 = load ptr, ptr %m_data.i225, align 8
+  %.pre376 = load ptr, ptr %m_data.i225, align 8
   br label %for.inc228
 
 for.inc228:                                       ; preds = %for.body150, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit309
-  %91 = phi ptr [ %69, %for.body150 ], [ %.pre364, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit309 ]
-  %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
-  %m_size.i228 = getelementptr inbounds %class.btAlignedObjectArray.160, ptr %91, i64 %indvars.iv361, i32 2
+  %91 = phi ptr [ %69, %for.body150 ], [ %.pre376, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit309 ]
+  %indvars.iv.next371 = add nuw nsw i64 %indvars.iv370, 1
+  %m_size.i228 = getelementptr inbounds %class.btAlignedObjectArray.160, ptr %91, i64 %indvars.iv373, i32 2
   %92 = load i32, ptr %m_size.i228, align 4
   %93 = sext i32 %92 to i64
-  %cmp149 = icmp slt i64 %indvars.iv.next359, %93
+  %cmp149 = icmp slt i64 %indvars.iv.next371, %93
   br i1 %cmp149, label %for.body150, label %for.inc231, !llvm.loop !70
 
 for.inc231:                                       ; preds = %for.inc228, %for.cond146.preheader, %for.body, %for.body, %for.body
-  %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
+  %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
   %94 = load ptr, ptr %m_softBodies, align 8
   %m_size.i = getelementptr inbounds i8, ptr %94, i64 4
   %95 = load i32, ptr %m_size.i, align 4
   %96 = sext i32 %95 to i64
-  %cmp = icmp slt i64 %indvars.iv.next362, %96
+  %cmp = icmp slt i64 %indvars.iv.next374, %96
   br i1 %cmp, label %for.body, label %for.end233, !llvm.loop !71
 
 for.end233:                                       ; preds = %for.inc231, %entry

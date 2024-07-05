@@ -341,14 +341,14 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
 
 .lr.ph:                                           ; preds = %1, %64
   %3 = phi i8 [ %65, %64 ], [ %2, %1 ]
-  %.06195 = phi ptr [ %.162, %64 ], [ %0, %1 ]
-  %.06394 = phi ptr [ %.4, %64 ], [ %0, %1 ]
-  %4 = getelementptr i8, ptr %.06394, i64 1
+  %.06295 = phi ptr [ %.163, %64 ], [ %0, %1 ]
+  %.06494 = phi ptr [ %.4, %64 ], [ %0, %1 ]
+  %4 = getelementptr i8, ptr %.06494, i64 1
   %5 = icmp eq i8 %3, 92
   br i1 %5, label %6, label %62
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr i8, ptr %.06394, i64 2
+  %7 = getelementptr i8, ptr %.06494, i64 2
   %8 = load i8, ptr %4, align 1
   switch i8 %8, label %.loopexit [
     i8 34, label %9
@@ -363,49 +363,49 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
   ]
 
 9:                                                ; preds = %6, %6, %6
-  %10 = getelementptr i8, ptr %.06195, i64 1
-  store i8 %8, ptr %.06195, align 1
+  %10 = getelementptr i8, ptr %.06295, i64 1
+  store i8 %8, ptr %.06295, align 1
   br label %64
 
 11:                                               ; preds = %6
-  %12 = getelementptr i8, ptr %.06195, i64 1
-  store i8 8, ptr %.06195, align 1
+  %12 = getelementptr i8, ptr %.06295, i64 1
+  store i8 8, ptr %.06295, align 1
   br label %64
 
 13:                                               ; preds = %6
-  %14 = getelementptr i8, ptr %.06195, i64 1
-  store i8 12, ptr %.06195, align 1
+  %14 = getelementptr i8, ptr %.06295, i64 1
+  store i8 12, ptr %.06295, align 1
   br label %64
 
 15:                                               ; preds = %6
-  %16 = getelementptr i8, ptr %.06195, i64 1
-  store i8 10, ptr %.06195, align 1
+  %16 = getelementptr i8, ptr %.06295, i64 1
+  store i8 10, ptr %.06295, align 1
   br label %64
 
 17:                                               ; preds = %6
-  %18 = getelementptr i8, ptr %.06195, i64 1
-  store i8 13, ptr %.06195, align 1
+  %18 = getelementptr i8, ptr %.06295, i64 1
+  store i8 13, ptr %.06295, align 1
   br label %64
 
 19:                                               ; preds = %6
-  %20 = getelementptr i8, ptr %.06195, i64 1
-  store i8 9, ptr %.06195, align 1
+  %20 = getelementptr i8, ptr %.06295, i64 1
+  store i8 9, ptr %.06295, align 1
   br label %64
 
 .preheader:                                       ; preds = %6, %24
-  %.05889 = phi i32 [ %28, %24 ], [ 0, %6 ]
-  %.05988 = phi i32 [ %27, %24 ], [ 0, %6 ]
-  %.16487 = phi ptr [ %25, %24 ], [ %7, %6 ]
-  %21 = load i8, ptr %.16487, align 1
+  %.05989 = phi i32 [ %28, %24 ], [ 0, %6 ]
+  %.06088 = phi i32 [ %27, %24 ], [ 0, %6 ]
+  %.16587 = phi ptr [ %25, %24 ], [ %7, %6 ]
+  %21 = load i8, ptr %.16587, align 1
   %22 = tail call i32 @ws_xton(i8 noundef signext %21) #10
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %.preheader
-  %25 = getelementptr i8, ptr %.16487, i64 1
-  %26 = shl i32 %.05988, 4
+  %25 = getelementptr i8, ptr %.16587, i64 1
+  %26 = shl i32 %.06088, 4
   %27 = or i32 %22, %26
-  %28 = add nuw nsw i32 %.05889, 1
+  %28 = add nuw nsw i32 %.05989, 1
   %exitcond.not = icmp eq i32 %28, 4
   br i1 %exitcond.not, label %29, label %.preheader, !llvm.loop !10
 
@@ -422,13 +422,13 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
   br i1 %.not70, label %33, label %.loopexit
 
 33:                                               ; preds = %31
-  %34 = getelementptr i8, ptr %.16487, i64 2
+  %34 = getelementptr i8, ptr %.16587, i64 2
   %35 = load i8, ptr %34, align 1
   %.not71 = icmp eq i8 %35, 117
   br i1 %.not71, label %36, label %.loopexit
 
 36:                                               ; preds = %33
-  %37 = getelementptr i8, ptr %.16487, i64 3
+  %37 = getelementptr i8, ptr %.16587, i64 3
   br label %38
 
 38:                                               ; preds = %36, %42
@@ -463,34 +463,34 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
 
 55:                                               ; preds = %29, %50
   %.3 = phi ptr [ %43, %50 ], [ %25, %29 ]
-  %.160 = phi i32 [ %54, %50 ], [ %27, %29 ]
-  %56 = tail call i32 @g_unichar_validate(i32 noundef %.160) #12
+  %.161 = phi i32 [ %54, %50 ], [ %27, %29 ]
+  %56 = tail call i32 @g_unichar_validate(i32 noundef %.161) #12
   %.not72 = icmp eq i32 %56, 0
-  %57 = icmp eq i32 %.160, 0
+  %57 = icmp eq i32 %.161, 0
   %or.cond73 = or i1 %57, %.not72
   br i1 %or.cond73, label %.loopexit, label %58
 
 58:                                               ; preds = %55
-  %59 = tail call i32 @g_unichar_to_utf8(i32 noundef %.160, ptr noundef %.06195) #10
+  %59 = tail call i32 @g_unichar_to_utf8(i32 noundef %.161, ptr noundef %.06295) #10
   %60 = sext i32 %59 to i64
-  %61 = getelementptr i8, ptr %.06195, i64 %60
+  %61 = getelementptr i8, ptr %.06295, i64 %60
   br label %64
 
 62:                                               ; preds = %.lr.ph
-  store i8 %3, ptr %.06195, align 1
-  %63 = getelementptr i8, ptr %.06195, i64 1
+  store i8 %3, ptr %.06295, align 1
+  %63 = getelementptr i8, ptr %.06295, i64 1
   br label %64
 
 64:                                               ; preds = %9, %11, %13, %15, %17, %19, %58, %62
   %.4 = phi ptr [ %.3, %58 ], [ %7, %19 ], [ %7, %17 ], [ %7, %15 ], [ %7, %13 ], [ %7, %11 ], [ %7, %9 ], [ %4, %62 ]
-  %.162 = phi ptr [ %61, %58 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %63, %62 ]
+  %.163 = phi ptr [ %61, %58 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %63, %62 ]
   %65 = load i8, ptr %.4, align 1
   %.not = icmp eq i8 %65, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %64, %1
-  %.061.lcssa = phi ptr [ %0, %1 ], [ %.162, %64 ]
-  store i8 0, ptr %.061.lcssa, align 1
+  %.062.lcssa = phi ptr [ %0, %1 ], [ %.163, %64 ]
+  store i8 0, ptr %.062.lcssa, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %6, %55, %48, %31, %33, %.preheader, %38, %._crit_edge
@@ -592,7 +592,7 @@ define noundef zeroext i1 @json_get_boolean(ptr nocapture noundef readonly %0, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %51
   %.035 = phi ptr [ %52, %51 ], [ %8, %.lr.ph.preheader ]
-  %.03034 = phi i32 [ %53, %51 ], [ 0, %.lr.ph.preheader ]
+  %.03134 = phi i32 [ %53, %51 ], [ 0, %.lr.ph.preheader ]
   %9 = load i32, ptr %.035, align 4
   %10 = icmp eq i32 %9, 3
   br i1 %10, label %11, label %51
@@ -661,7 +661,7 @@ define noundef zeroext i1 @json_get_boolean(ptr nocapture noundef readonly %0, p
 
 51:                                               ; preds = %28, %24, %21, %11, %.lr.ph
   %52 = tail call fastcc ptr @json_get_next_object(ptr noundef nonnull %.035)
-  %53 = add nuw nsw i32 %.03034, 1
+  %53 = add nuw nsw i32 %.03134, 1
   %exitcond.not = icmp eq i32 %53, %6
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
@@ -671,8 +671,8 @@ define noundef zeroext i1 @json_get_boolean(ptr nocapture noundef readonly %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %.loopexit.sink.split, %4, %32, %46, %48, %41, %43
-  %.031 = phi i1 [ false, %43 ], [ false, %41 ], [ false, %48 ], [ false, %46 ], [ false, %32 ], [ false, %4 ], [ true, %.loopexit.sink.split ], [ false, %51 ]
-  ret i1 %.031
+  %.030 = phi i1 [ false, %43 ], [ false, %41 ], [ false, %48 ], [ false, %46 ], [ false, %32 ], [ false, %4 ], [ true, %.loopexit.sink.split ], [ false, %51 ]
+  ret i1 %.030
 }
 
 declare i32 @ws_xton(i8 noundef signext) local_unnamed_addr #2

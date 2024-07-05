@@ -51,7 +51,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br label %20
 
 20:                                               ; preds = %17, %16
-  %.0234 = phi ptr [ %2, %16 ], [ %18, %17 ]
+  %.0229 = phi ptr [ %2, %16 ], [ %18, %17 ]
   br i1 %3, label %23, label %21
 
 21:                                               ; preds = %20
@@ -60,7 +60,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br label %23
 
 23:                                               ; preds = %21, %20
-  %.0239 = phi ptr [ null, %20 ], [ %22, %21 ]
+  %.0240 = phi ptr [ null, %20 ], [ %22, %21 ]
   %24 = getelementptr inbounds i8, ptr %.0, i64 48
   %25 = load i32, ptr %24, align 8
   %26 = or i32 %25, 1
@@ -71,7 +71,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br i1 %3, label %30, label %29
 
 29:                                               ; preds = %23
-  store ptr %.0239, ptr %.0, align 8
+  store ptr %.0240, ptr %.0, align 8
   br label %30
 
 30:                                               ; preds = %29, %23
@@ -84,8 +84,8 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br label %313
 
 33:                                               ; preds = %30
-  %34 = tail call ptr @list_iterator_create(ptr noundef %.0234) #9
-  %35 = tail call i32 @list_count(ptr noundef %.0234) #9
+  %34 = tail call ptr @list_iterator_create(ptr noundef %.0229) #9
+  %35 = tail call i32 @list_count(ptr noundef %.0229) #9
   %.not280 = icmp eq i32 %35, 0
   br i1 %.not280, label %36, label %57
 
@@ -127,7 +127,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br i1 %.not284, label %54, label %49, !llvm.loop !6
 
 .critedge:                                        ; preds = %49
-  call void @list_append(ptr noundef %.0234, ptr noundef %51) #9
+  call void @list_append(ptr noundef %.0229, ptr noundef %51) #9
   br label %55
 
 54:                                               ; preds = %52
@@ -145,7 +145,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 ._crit_edge:                                      ; preds = %.backedge379, %36
   call void @list_iterator_destroy(ptr noundef %37) #9
-  call void @list_sort(ptr noundef %.0234, ptr noundef nonnull @_sort_group_asc) #9
+  call void @list_sort(ptr noundef %.0229, ptr noundef nonnull @_sort_group_asc) #9
   br label %57
 
 57:                                               ; preds = %._crit_edge, %33
@@ -226,7 +226,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br i1 %4, label %86, label %.thread340.thread
 
 86:                                               ; preds = %.thread366, %84
-  %.0242369 = phi ptr [ null, %.thread366 ], [ %85, %84 ]
+  %.0243369 = phi ptr [ null, %.thread366 ], [ %85, %84 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
   %87 = getelementptr inbounds i8, ptr %.0, i64 184
   %88 = load ptr, ptr %87, align 8
@@ -236,8 +236,8 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   %91 = load ptr, ptr %90, align 8
   store ptr %91, ptr %10, align 8
   %92 = call ptr @acct_storage_g_get_wckeys(ptr noundef %0, i32 noundef %13, ptr noundef nonnull %10) #9
-  %.not290 = icmp eq ptr %.0242369, null
-  %spec.select = select i1 %.not290, ptr %92, ptr %.0242369
+  %.not290 = icmp eq ptr %.0243369, null
+  %spec.select = select i1 %.not290, ptr %92, ptr %.0243369
   %spec.select327 = select i1 %.not290, ptr null, ptr %92
   %.not291 = icmp eq ptr %spec.select, null
   br i1 %.not291, label %.thread340.thread, label %97
@@ -251,7 +251,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br label %101
 
 .thread340.thread:                                ; preds = %.thread366, %.thread340, %86
-  %.0240346 = phi ptr [ null, %.thread340 ], [ %spec.select327, %86 ], [ null, %.thread366 ]
+  %.0241346 = phi ptr [ null, %.thread340 ], [ %spec.select327, %86 ], [ null, %.thread366 ]
   %94 = call i32 @get_log_level() #9
   %95 = icmp sgt i32 %94, 5
   br i1 %95, label %96, label %147
@@ -271,15 +271,15 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 101:                                              ; preds = %.thread347, %99, %97
   %102 = phi ptr [ %98, %99 ], [ %98, %97 ], [ %93, %.thread347 ]
-  %.1243344352 = phi ptr [ %spec.select, %99 ], [ %spec.select, %97 ], [ %85, %.thread347 ]
-  %.0240345351 = phi ptr [ %92, %99 ], [ null, %97 ], [ null, %.thread347 ]
-  %.0249 = phi ptr [ %100, %99 ], [ null, %97 ], [ null, %.thread347 ]
+  %.1244344352 = phi ptr [ %spec.select, %99 ], [ %spec.select, %97 ], [ %85, %.thread347 ]
+  %.0241345351 = phi ptr [ %92, %99 ], [ null, %97 ], [ null, %.thread347 ]
+  %.0236 = phi ptr [ %100, %99 ], [ null, %97 ], [ null, %.thread347 ]
   %103 = call ptr @list_next(ptr noundef %102) #9
   %.not293386 = icmp eq ptr %103, null
   br i1 %.not293386, label %._crit_edge389, label %.lr.ph388
 
 .lr.ph388:                                        ; preds = %101
-  %.not295 = icmp eq ptr %.0249, null
+  %.not295 = icmp eq ptr %.0236, null
   br i1 %.not295, label %.lr.ph388.split.us, label %.lr.ph388.split
 
 .lr.ph388.split.us:                               ; preds = %.lr.ph388
@@ -289,9 +289,9 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   %104 = phi ptr [ %107, %.backedge378.us.us ], [ %103, %.lr.ph388.split.us ]
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = getelementptr inbounds i8, ptr %104, i64 32
-  %.0232.us.us = load ptr, ptr %106, align 8
-  %.0233.us.us = load ptr, ptr %105, align 8
-  call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %.0233.us.us, ptr noundef %.0232.us.us, ptr noundef nonnull %104, i1 noundef zeroext %.not280, i1 noundef zeroext true)
+  %.0234.us.us = load ptr, ptr %106, align 8
+  %.0235.us.us = load ptr, ptr %105, align 8
+  call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %.0235.us.us, ptr noundef %.0234.us.us, ptr noundef nonnull %104, i1 noundef zeroext %.not280, i1 noundef zeroext true)
   %107 = call ptr @list_next(ptr noundef %102) #9
   %.not293.us.us = icmp eq ptr %107, null
   br i1 %.not293.us.us, label %._crit_edge389, label %.backedge378.us.us, !llvm.loop !9
@@ -300,9 +300,9 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   %108 = phi ptr [ %111, %.backedge378.us ], [ %103, %.lr.ph388.split.us ]
   %109 = getelementptr inbounds i8, ptr %108, i64 8
   %110 = getelementptr inbounds i8, ptr %108, i64 40
-  %.0232.us = load ptr, ptr %109, align 8
-  %.0233.us = load ptr, ptr %110, align 8
-  call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %.0233.us, ptr noundef %.0232.us, ptr noundef nonnull %108, i1 noundef zeroext %.not280, i1 noundef zeroext false)
+  %.0234.us = load ptr, ptr %109, align 8
+  %.0235.us = load ptr, ptr %110, align 8
+  call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %.0235.us, ptr noundef %.0234.us, ptr noundef nonnull %108, i1 noundef zeroext %.not280, i1 noundef zeroext false)
   %111 = call ptr @list_next(ptr noundef %102) #9
   %.not293.us = icmp eq ptr %111, null
   br i1 %.not293.us, label %._crit_edge389, label %.backedge378.us, !llvm.loop !9
@@ -312,12 +312,12 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 .preheader.us:                                    ; preds = %.lr.ph388.split, %.backedge378.us390
   %112 = phi ptr [ %114, %.backedge378.us390 ], [ %103, %.lr.ph388.split ]
-  %113 = call ptr @list_next(ptr noundef nonnull %.0249) #9
+  %113 = call ptr @list_next(ptr noundef nonnull %.0236) #9
   %.not296383.us = icmp eq ptr %113, null
   br i1 %.not296383.us, label %.backedge378.us390, label %.lr.ph384.us
 
 .backedge378.us390:                               ; preds = %.backedge377.us.us, %.preheader.us
-  call void @list_iterator_reset(ptr noundef nonnull %.0249) #9
+  call void @list_iterator_reset(ptr noundef nonnull %.0236) #9
   %114 = call ptr @list_next(ptr noundef %102) #9
   %.not293.us391 = icmp eq ptr %114, null
   br i1 %.not293.us391, label %._crit_edge389, label %.preheader.us, !llvm.loop !9
@@ -344,13 +344,13 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br label %.backedge377.us.us
 
 .backedge377.us.us:                               ; preds = %122, %116
-  %127 = call ptr @list_next(ptr noundef nonnull %.0249) #9
+  %127 = call ptr @list_next(ptr noundef nonnull %.0236) #9
   %.not296.us.us = icmp eq ptr %127, null
   br i1 %.not296.us.us, label %.backedge378.us390, label %116, !llvm.loop !10
 
 .preheader:                                       ; preds = %.lr.ph388.split, %.backedge378
   %128 = phi ptr [ %145, %.backedge378 ], [ %103, %.lr.ph388.split ]
-  %129 = call ptr @list_next(ptr noundef nonnull %.0249) #9
+  %129 = call ptr @list_next(ptr noundef nonnull %.0236) #9
   %.not296383 = icmp eq ptr %129, null
   br i1 %.not296383, label %.backedge378, label %.lr.ph384
 
@@ -378,28 +378,28 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br label %.backedge377
 
 .backedge377:                                     ; preds = %138, %132
-  %144 = call ptr @list_next(ptr noundef nonnull %.0249) #9
+  %144 = call ptr @list_next(ptr noundef nonnull %.0236) #9
   %.not296 = icmp eq ptr %144, null
   br i1 %.not296, label %.backedge378, label %132, !llvm.loop !10
 
 .backedge378:                                     ; preds = %.backedge377, %.preheader
-  call void @list_iterator_reset(ptr noundef nonnull %.0249) #9
+  call void @list_iterator_reset(ptr noundef nonnull %.0236) #9
   %145 = call ptr @list_next(ptr noundef %102) #9
   %.not293 = icmp eq ptr %145, null
   br i1 %.not293, label %._crit_edge389, label %.preheader, !llvm.loop !9
 
 ._crit_edge389:                                   ; preds = %.backedge378, %.backedge378.us390, %.backedge378.us, %.backedge378.us.us, %101
   call void @list_iterator_destroy(ptr noundef %102) #9
-  %.not294 = icmp eq ptr %.0249, null
+  %.not294 = icmp eq ptr %.0236, null
   br i1 %.not294, label %147, label %146
 
 146:                                              ; preds = %._crit_edge389
-  call void @list_iterator_destroy(ptr noundef nonnull %.0249) #9
+  call void @list_iterator_destroy(ptr noundef nonnull %.0236) #9
   br label %147
 
 147:                                              ; preds = %._crit_edge389, %146, %.thread340.thread, %96, %57
-  %.2244 = phi ptr [ null, %57 ], [ %.1243344352, %146 ], [ %.1243344352, %._crit_edge389 ], [ null, %96 ], [ null, %.thread340.thread ]
-  %.1241 = phi ptr [ null, %57 ], [ %.0240345351, %146 ], [ %.0240345351, %._crit_edge389 ], [ %.0240346, %96 ], [ %.0240346, %.thread340.thread ]
+  %.2245 = phi ptr [ null, %57 ], [ %.1244344352, %146 ], [ %.1244344352, %._crit_edge389 ], [ null, %96 ], [ null, %.thread340.thread ]
+  %.1242 = phi ptr [ null, %57 ], [ %.0241345351, %146 ], [ %.0241345351, %._crit_edge389 ], [ %.0241346, %96 ], [ %.0241346, %.thread340.thread ]
   %148 = call ptr @list_iterator_create(ptr noundef nonnull %28) #9
   %149 = call ptr @list_next(ptr noundef %148) #9
   %.not299406 = icmp eq ptr %149, null
@@ -488,8 +488,8 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %180, %184
-  %.0248 = phi ptr [ %185, %184 ], [ %179, %180 ]
-  %189 = load ptr, ptr %.0248, align 8
+  %.0249 = phi ptr [ %185, %184 ], [ %179, %180 ]
+  %189 = load ptr, ptr %.0249, align 8
   %190 = call ptr @list_iterator_create(ptr noundef %189) #9
   %191 = call ptr @list_next(ptr noundef %190) #9
   %.not315392 = icmp eq ptr %191, null
@@ -540,10 +540,10 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br label %209
 
 209:                                              ; preds = %207, %205
-  %.0230 = phi ptr [ null, %205 ], [ %spec.select331, %207 ]
+  %.0231 = phi ptr [ null, %205 ], [ %spec.select331, %207 ]
   %210 = load ptr, ptr %193, align 8
   %211 = icmp ne ptr %210, null
-  %212 = icmp ne ptr %.0230, null
+  %212 = icmp ne ptr %.0231, null
   %or.cond = select i1 %211, i1 true, i1 %212
   br i1 %or.cond, label %213, label %.split.us
 
@@ -552,7 +552,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br i1 %brmerge334.demorgan, label %214, label %.backedge375
 
 214:                                              ; preds = %213
-  %215 = call i32 @xstrcmp(ptr noundef nonnull %.0230, ptr noundef nonnull %210) #9
+  %215 = call i32 @xstrcmp(ptr noundef nonnull %.0231, ptr noundef nonnull %210) #9
   %.not319 = icmp eq i32 %215, 0
   br i1 %.not319, label %.split.us, label %.backedge375
 
@@ -583,7 +583,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   %223 = call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_report_job_grouping) #9
   %224 = getelementptr inbounds i8, ptr %221, i64 16
   store ptr %223, ptr %224, align 8
-  %225 = load ptr, ptr %.0248, align 8
+  %225 = load ptr, ptr %.0249, align 8
   call void @list_append(ptr noundef %225, ptr noundef nonnull %221) #9
   %226 = call ptr @list_next(ptr noundef %34) #9
   %.not322397 = icmp eq ptr %226, null
@@ -591,7 +591,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 .lr.ph400:                                        ; preds = %220, %238
   %227 = phi ptr [ %242, %238 ], [ %226, %220 ]
-  %.0229398 = phi i32 [ %239, %238 ], [ 0, %220 ]
+  %.0230398 = phi i32 [ %239, %238 ], [ 0, %220 ]
   %228 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 452, ptr noundef nonnull @__func__._process_grouped_report) #9
   %229 = call ptr @list_create(ptr noundef null) #9
   %230 = getelementptr inbounds i8, ptr %228, i64 8
@@ -600,7 +600,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 231:                                              ; preds = %.lr.ph400
   %232 = getelementptr inbounds i8, ptr %228, i64 16
-  store i32 %.0229398, ptr %232, align 8
+  store i32 %.0230398, ptr %232, align 8
   %233 = call i32 @atoi(ptr nocapture noundef nonnull %227) #11
   %234 = add i32 %233, -1
   br label %238
@@ -645,8 +645,8 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br label %250
 
 250:                                              ; preds = %.split.us, %._crit_edge401.thread
-  %.0247 = phi ptr [ %.us-phi, %.split.us ], [ %221, %._crit_edge401.thread ]
-  %251 = getelementptr inbounds i8, ptr %.0247, i64 16
+  %.0248 = phi ptr [ %.us-phi, %.split.us ], [ %221, %._crit_edge401.thread ]
+  %251 = getelementptr inbounds i8, ptr %.0248, i64 16
   %252 = load ptr, ptr %251, align 8
   %253 = call ptr @list_iterator_create(ptr noundef %252) #9
   %254 = call ptr @list_next(ptr noundef %253) #9
@@ -655,10 +655,10 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 .lr.ph404:                                        ; preds = %250
   %255 = getelementptr inbounds i8, ptr %150, i64 400
-  %256 = getelementptr inbounds i8, ptr %.0247, i64 8
-  %257 = getelementptr inbounds i8, ptr %.0248, i64 16
-  %258 = getelementptr inbounds i8, ptr %.0247, i64 32
-  %259 = getelementptr inbounds i8, ptr %.0248, i64 24
+  %256 = getelementptr inbounds i8, ptr %.0248, i64 8
+  %257 = getelementptr inbounds i8, ptr %.0249, i64 16
+  %258 = getelementptr inbounds i8, ptr %.0248, i64 32
+  %259 = getelementptr inbounds i8, ptr %.0249, i64 24
   br label %260
 
 260:                                              ; preds = %.lr.ph404, %.backedge374
@@ -774,23 +774,23 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 ._crit_edge417:                                   ; preds = %.backedge373, %._crit_edge409
   call void @list_iterator_destroy(ptr noundef %59) #9
-  %.not301 = icmp eq ptr %.2244, null
+  %.not301 = icmp eq ptr %.2245, null
   br i1 %.not301, label %311, label %310
 
 310:                                              ; preds = %._crit_edge417
-  call void @list_destroy(ptr noundef nonnull %.2244) #9
+  call void @list_destroy(ptr noundef nonnull %.2245) #9
   br label %311
 
 311:                                              ; preds = %310, %._crit_edge417
-  %.not302 = icmp eq ptr %.1241, null
+  %.not302 = icmp eq ptr %.1242, null
   br i1 %.not302, label %313, label %312
 
 312:                                              ; preds = %311
-  call void @list_destroy(ptr noundef nonnull %.1241) #9
+  call void @list_destroy(ptr noundef nonnull %.1242) #9
   br label %313
 
 313:                                              ; preds = %.thread361, %312, %311
-  %.0245359365 = phi ptr [ null, %.thread361 ], [ %58, %312 ], [ %58, %311 ]
+  %.0246359365 = phi ptr [ null, %.thread361 ], [ %58, %312 ], [ %58, %311 ]
   br i1 %.not, label %314, label %315
 
 314:                                              ; preds = %313
@@ -798,28 +798,28 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br label %315
 
 315:                                              ; preds = %314, %313
-  %.not303 = icmp eq ptr %.0234, null
+  %.not303 = icmp eq ptr %.0229, null
   %or.cond338 = or i1 %.not278, %.not303
   br i1 %or.cond338, label %317, label %316
 
 316:                                              ; preds = %315
-  call void @list_destroy(ptr noundef nonnull %.0234) #9
+  call void @list_destroy(ptr noundef nonnull %.0229) #9
   br label %317
 
 317:                                              ; preds = %316, %315
   br i1 %.not279.not, label %318, label %320
 
 318:                                              ; preds = %317
-  %.not305 = icmp eq ptr %.0245359365, null
+  %.not305 = icmp eq ptr %.0246359365, null
   br i1 %.not305, label %320, label %319
 
 319:                                              ; preds = %318
-  call void @list_destroy(ptr noundef nonnull %.0245359365) #9
+  call void @list_destroy(ptr noundef nonnull %.0246359365) #9
   br label %320
 
 320:                                              ; preds = %318, %319, %317
-  %.1246 = phi ptr [ %.0245359365, %317 ], [ null, %319 ], [ null, %318 ]
-  ret ptr %.1246
+  %.1247 = phi ptr [ %.0246359365, %317 ], [ null, %319 ], [ null, %318 ]
+  ret ptr %.1247
 }
 
 ; Function Attrs: nounwind uwtable

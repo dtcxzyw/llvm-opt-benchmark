@@ -225,12 +225,12 @@ _my_sleep.exit:                                   ; preds = %30
 
 .outer.outer.i:                                   ; preds = %122, %43
   %50 = phi ptr [ %48, %43 ], [ %119, %122 ]
-  %.046.ph.ph.i = phi i32 [ 0, %43 ], [ %61, %122 ]
+  %.045.ph.ph.i = phi i32 [ 0, %43 ], [ %61, %122 ]
   %.0.ph.ph.i = phi i64 [ %45, %43 ], [ %.1.i, %122 ]
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.outer.i.backedge, %.outer.outer.i
-  %.046.ph.i = phi i32 [ %.046.ph.ph.i, %.outer.outer.i ], [ %61, %.outer.i.backedge ]
+  %.045.ph.i = phi i32 [ %.045.ph.ph.i, %.outer.outer.i ], [ %61, %.outer.i.backedge ]
   br label %51
 
 51:                                               ; preds = %53, %.outer.i
@@ -251,9 +251,9 @@ _my_sleep.exit:                                   ; preds = %30
   br i1 %.not59.i, label %60, label %51, !llvm.loop !6
 
 60:                                               ; preds = %53
-  %61 = add nsw i32 %.046.ph.i, 1
+  %61 = add nsw i32 %.045.ph.i, 1
   %62 = load i32, ptr @max_sched_job_cnt, align 4
-  %63 = icmp sgt i32 %.046.ph.i, %62
+  %63 = icmp sgt i32 %.045.ph.i, %62
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %60
@@ -275,8 +275,8 @@ _my_sleep.exit:                                   ; preds = %30
   %77 = getelementptr inbounds i8, ptr %57, i64 200
   %78 = load i32, ptr %77, align 8
   %.72.i = call i32 @llvm.umin.i32(i32 %75, i32 %78)
-  %.045.i = select i1 %76, i32 %78, i32 %.72.i
-  %79 = call i32 @llvm.umin.i32(i32 %.045.i, i32 500000)
+  %.046.i = select i1 %76, i32 %78, i32 %.72.i
+  %79 = call i32 @llvm.umin.i32(i32 %.046.i, i32 500000)
   %80 = icmp ugt i32 %..i, %79
   br i1 %80, label %.outer.i.backedge, label %81
 

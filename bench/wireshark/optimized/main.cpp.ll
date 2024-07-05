@@ -855,7 +855,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i55:    ; preds = %100
           to label %142 unwind label %62
 
 142:                                              ; preds = %140, %136
-  %.024 = phi i32 [ 0, %136 ], [ %141, %140 ]
+  %.025 = phi i32 [ 0, %136 ], [ %141, %140 ]
   invoke void @_Z13splash_update17register_action_ePKcPv(i32 noundef 10, ptr noundef null, ptr noundef null)
           to label %143 unwind label %62
 
@@ -1187,7 +1187,7 @@ _ZN7QStringC2ERKS_.exit88:                        ; preds = %256, %259
   br label %_ZN7QStringC2ERKS_.exit90
 
 _ZN7QStringC2ERKS_.exit90:                        ; preds = %_ZN7QStringC2ERKS_.exit88, %263
-  %265 = invoke noundef zeroext i1 @_ZN19WiresharkMainWindow15openCaptureFileE7QStringS0_ji(ptr noundef nonnull align 8 dereferenceable(520) %86, ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef %.024, i32 noundef 0)
+  %265 = invoke noundef zeroext i1 @_ZN19WiresharkMainWindow15openCaptureFileE7QStringS0_ji(ptr noundef nonnull align 8 dereferenceable(520) %86, ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef %.025, i32 noundef 0)
           to label %266 unwind label %283
 
 266:                                              ; preds = %_ZN7QStringC2ERKS_.exit90

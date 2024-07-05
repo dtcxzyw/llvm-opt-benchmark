@@ -125,13 +125,13 @@ find_reconstructed_block_length.exit:             ; preds = %33, %13
   br i1 %59, label %46, label %.preheader177, !llvm.loop !7
 
 .loopexit:                                        ; preds = %132, %.preheader
-  %.2.lcssa = phi i1 [ %.1211, %.preheader ], [ %.3, %132 ]
+  %.2131.lcssa = phi i1 [ %.1130210, %.preheader ], [ %.3, %132 ]
   %.wide = icmp eq i64 %60, 0
   br i1 %.wide, label %.sink.split, label %.lr.ph212
 
 .lr.ph212:                                        ; preds = %.lr.ph212.preheader, %.loopexit
   %indvars.iv257 = phi i64 [ %45, %.lr.ph212.preheader ], [ %60, %.loopexit ]
-  %.1211 = phi i1 [ %.not217, %.lr.ph212.preheader ], [ %.2.lcssa, %.loopexit ]
+  %.1130210 = phi i1 [ %.not217, %.lr.ph212.preheader ], [ %.2131.lcssa, %.loopexit ]
   %60 = add nsw i64 %indvars.iv257, -1
   %61 = getelementptr ptr, ptr %5, i64 %60
   %62 = load ptr, ptr %61, align 8
@@ -164,33 +164,33 @@ find_reconstructed_block_length.exit:             ; preds = %33, %13
   br label %make_rfile.exit
 
 make_rfile.exit:                                  ; preds = %.lr.ph212, %74
-  %.0128 = phi ptr [ %77, %74 ], [ %64, %.lr.ph212 ]
+  %.0134 = phi ptr [ %77, %74 ], [ %64, %.lr.ph212 ]
   %78 = getelementptr ptr, ptr %23, i64 %60
-  store ptr %.0128, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %.0128, i64 16
+  store ptr %.0134, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %.0134, i64 16
   %80 = load i64, ptr %79, align 8
   %81 = icmp eq i64 %80, 0
   br i1 %81, label %85, label %.preheader
 
 .preheader:                                       ; preds = %make_rfile.exit
-  %82 = getelementptr inbounds i8, ptr %.0128, i64 24
+  %82 = getelementptr inbounds i8, ptr %.0134, i64 24
   %83 = load i32, ptr %82, align 8
   %.not218 = icmp eq i32 %83, 0
   br i1 %.not218, label %.loopexit, label %.lr.ph208
 
 .lr.ph208:                                        ; preds = %.preheader
-  %84 = getelementptr inbounds i8, ptr %.0128, i64 32
+  %84 = getelementptr inbounds i8, ptr %.0134, i64 32
   br label %114
 
 85:                                               ; preds = %make_rfile.exit
-  %86 = getelementptr inbounds i8, ptr %.0128, i64 8
+  %86 = getelementptr inbounds i8, ptr %.0134, i64 8
   %87 = load i32, ptr %86, align 8
   %88 = call i32 @fstat(i32 noundef %87, ptr noundef nonnull %19) #10
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %85
-  %91 = load ptr, ptr %.0128, align 8
+  %91 = load ptr, ptr %.0134, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %91) #10
   call void @exit(i32 noundef 1) #12
   unreachable
@@ -218,7 +218,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   br i1 %or.cond148, label %103, label %107
 
 103:                                              ; preds = %.lr.ph214
-  store ptr %.0128, ptr %99, align 8
+  store ptr %.0134, ptr %99, align 8
   %104 = shl nuw nsw i64 %indvars.iv259, 13
   %105 = and i64 %104, 4294959104
   %106 = getelementptr i64, ptr %40, i64 %indvars.iv259
@@ -238,13 +238,13 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   %111 = zext i32 %.lcssa200 to i64
   %112 = shl nuw nsw i64 %111, 13
   %113 = icmp eq i64 %112, %94
-  %or.cond303 = select i1 %.1211, i1 %113, i1 false
+  %or.cond303 = select i1 %.1130210, i1 %113, i1 false
   br i1 %or.cond303, label %136, label %.sink.split
 
 114:                                              ; preds = %.lr.ph208, %132
   %115 = phi i32 [ %83, %.lr.ph208 ], [ %133, %132 ]
   %indvars.iv255 = phi i64 [ 0, %.lr.ph208 ], [ %indvars.iv.next256, %132 ]
-  %.2207 = phi i1 [ %.1211, %.lr.ph208 ], [ %.3, %132 ]
+  %.2131206 = phi i1 [ %.1130210, %.lr.ph208 ], [ %.3, %132 ]
   %116 = load ptr, ptr %84, align 8
   %117 = getelementptr i32, ptr %116, i64 %indvars.iv255
   %118 = load i32, ptr %117, align 4
@@ -260,7 +260,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   br i1 %125, label %126, label %132
 
 126:                                              ; preds = %121
-  store ptr %.0128, ptr %123, align 8
+  store ptr %.0134, ptr %123, align 8
   %127 = load i64, ptr %79, align 8
   %128 = shl nuw nsw i64 %indvars.iv255, 13
   %129 = and i64 %128, 4294959104
@@ -272,7 +272,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
 
 132:                                              ; preds = %114, %121, %126
   %133 = phi i32 [ %.pre, %126 ], [ %115, %121 ], [ %115, %114 ]
-  %.3 = phi i1 [ false, %126 ], [ %.2207, %121 ], [ %.2207, %114 ]
+  %.3 = phi i1 [ false, %126 ], [ %.2131206, %121 ], [ %.2131206, %114 ]
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %134 = zext i32 %133 to i64
   %135 = icmp ult i64 %indvars.iv.next256, %134
@@ -329,11 +329,11 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
 .thread:                                          ; preds = %149, %157, %153, %139, %136
   %.0 = phi i32 [ %8, %149 ], [ 0, %157 ], [ %8, %153 ], [ %8, %139 ], [ %8, %136 ]
   %166 = call i32 @pg_checksum_init(ptr noundef nonnull %17, i32 noundef %.0) #10
-  %.not = icmp eq ptr %.0128, null
+  %.not = icmp eq ptr %.0134, null
   br i1 %.not, label %170, label %167
 
 167:                                              ; preds = %.thread
-  %168 = load ptr, ptr %.0128, align 8
+  %168 = load ptr, ptr %.0134, align 8
   call void @copy_file(ptr noundef %168, ptr noundef %1, ptr noundef nonnull %17, i1 noundef zeroext %12) #10
   br label %319
 
@@ -365,9 +365,9 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.outer.i.backedge, %176
-  %.085.ph.i = phi i32 [ 0, %176 ], [ %.lcssa43.i, %.outer.i.backedge ]
-  %178 = zext i32 %.085.ph.i to i64
-  %179 = add i32 %.085.ph.i, 1
+  %.086.ph.i = phi i32 [ 0, %176 ], [ %.lcssa43.i, %.outer.i.backedge ]
+  %178 = zext i32 %.086.ph.i to i64
+  %179 = add i32 %.086.ph.i, 1
   %umax.i = call i32 @llvm.umax.i32(i32 %.09.lcssa.i, i32 %179)
   %180 = add i32 %umax.i, -1
   %181 = add nuw nsw i64 %178, 1
@@ -401,20 +401,20 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
 .split.loop.exit83.i:                             ; preds = %185, %.split.loop.exit.i
   %indvars.iv.i154243 = phi i64 [ %indvars.iv.i154, %.split.loop.exit.i ], [ %182, %185 ]
   %.lcssa43.i = phi i32 [ %194, %.split.loop.exit.i ], [ %umax.i, %185 ]
-  %.084.lcssa42.i = phi i32 [ %193, %.split.loop.exit.i ], [ %180, %185 ]
+  %.086.lcssa42.i = phi i32 [ %193, %.split.loop.exit.i ], [ %180, %185 ]
   %195 = icmp eq ptr %187, null
-  %196 = icmp eq i32 %.084.lcssa42.i, %.085.ph.i
+  %196 = icmp eq i32 %.086.lcssa42.i, %.086.ph.i
   br i1 %195, label %197, label %200
 
 197:                                              ; preds = %.split.loop.exit83.i
   br i1 %196, label %198, label %199
 
 198:                                              ; preds = %197
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %15, ptr noundef nonnull @.str.17, i32 noundef %.085.ph.i) #10
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %15, ptr noundef nonnull @.str.17, i32 noundef %.086.ph.i) #10
   br label %206
 
 199:                                              ; preds = %197
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %15, ptr noundef nonnull @.str.18, i32 noundef %.085.ph.i, i32 noundef %.084.lcssa42.i) #10
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %15, ptr noundef nonnull @.str.18, i32 noundef %.086.ph.i, i32 noundef %.086.lcssa42.i) #10
   br label %206
 
 200:                                              ; preds = %.split.loop.exit83.i
@@ -424,11 +424,11 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   br i1 %196, label %204, label %205
 
 204:                                              ; preds = %200
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %15, ptr noundef nonnull @.str.19, i32 noundef %.085.ph.i, ptr noundef %201, i64 noundef %203) #10
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %15, ptr noundef nonnull @.str.19, i32 noundef %.086.ph.i, ptr noundef %201, i64 noundef %203) #10
   br label %206
 
 205:                                              ; preds = %200
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %15, ptr noundef nonnull @.str.20, i32 noundef %.085.ph.i, i32 noundef %.084.lcssa42.i, ptr noundef %201, i64 noundef %203) #10
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %15, ptr noundef nonnull @.str.20, i32 noundef %.086.ph.i, i32 noundef %.086.lcssa42.i, ptr noundef %201, i64 noundef %203) #10
   br label %206
 
 206:                                              ; preds = %205, %204, %199, %198
@@ -484,7 +484,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
 
 .lr.ph.split.us.split.i:                          ; preds = %224, %238
   %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %238 ], [ 0, %224 ]
-  %.08622.us.i = phi i32 [ %.13.us.i, %238 ], [ 0, %224 ]
+  %.08422.us.i = phi i32 [ %.13.us.i, %238 ], [ 0, %224 ]
   %225 = getelementptr ptr, ptr %39, i64 %indvars.iv50.i
   %226 = load ptr, ptr %225, align 8
   %227 = icmp eq ptr %226, null
@@ -505,25 +505,25 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   br label %238
 
 236:                                              ; preds = %.lr.ph.split.us.split.i
-  %237 = add i32 %.08622.us.i, 1
+  %237 = add i32 %.08422.us.i, 1
   br label %238
 
 238:                                              ; preds = %236, %.thread.us.i
-  %.13.us.i = phi i32 [ %.08622.us.i, %.thread.us.i ], [ %237, %236 ]
+  %.13.us.i = phi i32 [ %.08422.us.i, %.thread.us.i ], [ %237, %236 ]
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next51.i, %37
   br i1 %exitcond54.not.i, label %._crit_edge.i, label %.lr.ph.split.us.split.i, !llvm.loop !11
 
 .lr.ph.split.i:                                   ; preds = %.thread55.i, %273
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %273 ], [ 0, %.thread55.i ]
-  %.08622.i = phi i32 [ %.126.i, %273 ], [ 0, %.thread55.i ]
+  %.08422.i = phi i32 [ %.126.i, %273 ], [ 0, %.thread55.i ]
   %239 = getelementptr ptr, ptr %39, i64 %indvars.iv47.i
   %240 = load ptr, ptr %239, align 8
   %241 = icmp eq ptr %240, null
   br i1 %241, label %242, label %.thread.i
 
 242:                                              ; preds = %.lr.ph.split.i
-  %243 = add i32 %.08622.i, 1
+  %243 = add i32 %.08422.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %16, i8 0, i64 8192, i1 false)
   br label %264
 
@@ -565,7 +565,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   unreachable
 
 264:                                              ; preds = %.thread.i, %242
-  %.126.i = phi i32 [ %.08622.i, %.thread.i ], [ %243, %242 ]
+  %.126.i = phi i32 [ %.08422.i, %.thread.i ], [ %243, %242 ]
   %265 = call i64 @write(i32 noundef %221, ptr noundef nonnull %16, i64 noundef 8192) #10
   %266 = trunc i64 %265 to i32
   %.not99.i = icmp eq i32 %266, 8192
@@ -602,8 +602,8 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
 
 ._crit_edge.i:                                    ; preds = %273, %238
   %.059.i = phi i32 [ -1, %238 ], [ %221, %273 ]
-  %.086.lcssa.i = phi i32 [ %.13.us.i, %238 ], [ %.126.i, %273 ]
-  %.not.i152 = icmp ne i32 %.086.lcssa.i, 0
+  %.084.lcssa.i = phi i32 [ %.13.us.i, %238 ], [ %.126.i, %273 ]
+  %.not.i152 = icmp ne i32 %.084.lcssa.i, 0
   %274 = load i32, ptr @__pg_log_level, align 4
   %275 = icmp ult i32 %274, 2
   %or.cond174 = select i1 %.not.i152, i1 %275, i1 false
@@ -611,7 +611,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
 
 ._crit_edge.thread.sink.split.i:                  ; preds = %._crit_edge.i
   %.str.26..str.27.i = select i1 %12, ptr @.str.26, ptr @.str.27
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull %.str.26..str.27.i, i32 noundef %.086.lcssa.i) #10
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull %.str.26..str.27.i, i32 noundef %.084.lcssa.i) #10
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.thread.sink.split.i, %._crit_edge.i
@@ -758,8 +758,8 @@ debug_reconstruction.exit:                        ; preds = %318, %304, %write_r
   br label %323
 
 323:                                              ; preds = %.preheader337, %340
-  %.2135216 = phi i32 [ %341, %340 ], [ 0, %.preheader337 ]
-  %324 = zext i32 %.2135216 to i64
+  %.2216 = phi i32 [ %341, %340 ], [ 0, %.preheader337 ]
+  %324 = zext i32 %.2216 to i64
   %325 = getelementptr ptr, ptr %23, i64 %324
   %326 = load ptr, ptr %325, align 8
   %327 = icmp eq ptr %326, null
@@ -794,7 +794,7 @@ debug_reconstruction.exit:                        ; preds = %318, %304, %write_r
   br label %340
 
 340:                                              ; preds = %323, %338
-  %341 = add i32 %.2135216, 1
+  %341 = add i32 %.2216, 1
   %.not145 = icmp ugt i32 %341, %4
   br i1 %.not145, label %342, label %323, !llvm.loop !13
 

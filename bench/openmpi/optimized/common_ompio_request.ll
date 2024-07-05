@@ -271,7 +271,7 @@ define i32 @mca_common_ompio_progress() #0 {
 
 .lr.ph:                                           ; preds = %6, %ompi_request_complete.exit
   %.055 = phi ptr [ %.0, %ompi_request_complete.exit ], [ %.052, %6 ]
-  %.01854 = phi i32 [ %.119, %ompi_request_complete.exit ], [ 0, %6 ]
+  %.01954 = phi i32 [ %.120, %ompi_request_complete.exit ], [ 0, %6 ]
   %7 = getelementptr inbounds i8, ptr %.055, i64 -176
   store ptr %7, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %.055, i64 -88
@@ -400,7 +400,7 @@ opal_thread_add_fetch_32.exit.i.i:                ; preds = %44, %41
   br label %ompi_request_complete.exit
 
 71:                                               ; preds = %16
-  %72 = add nsw i32 %.01854, 1
+  %72 = add nsw i32 %.01954, 1
   %73 = getelementptr inbounds i8, ptr %.055, i64 -40
   %74 = load ptr, ptr %73, align 8
   %.not.i30 = icmp eq ptr %74, null
@@ -491,7 +491,7 @@ opal_thread_add_fetch_32.exit.i.i35:              ; preds = %94, %91
   br i1 %116, label %117, label %ompi_request_complete.exit
 
 117:                                              ; preds = %111
-  %118 = add nsw i32 %.01854, 1
+  %118 = add nsw i32 %.01954, 1
   %119 = getelementptr inbounds i8, ptr %.055, i64 -40
   %120 = load ptr, ptr %119, align 8
   %.not.i39 = icmp eq ptr %120, null
@@ -573,23 +573,23 @@ opal_thread_add_fetch_32.exit.i.i44:              ; preds = %139, %136
   br label %ompi_request_complete.exit
 
 ompi_request_complete.exit:                       ; preds = %149, %146, %opal_thread_add_fetch_32.exit.i.i44, %opal_thread_swap_ptr.exit.i41, %121, %104, %101, %opal_thread_add_fetch_32.exit.i.i35, %opal_thread_swap_ptr.exit.i32, %75, %54, %51, %opal_thread_add_fetch_32.exit.i.i, %opal_thread_swap_ptr.exit.i, %26, %61, %14, %111, %.lr.ph
-  %.119 = phi i32 [ %.01854, %.lr.ph ], [ %.01854, %61 ], [ %.01854, %14 ], [ %.01854, %111 ], [ %.01854, %26 ], [ %.01854, %opal_thread_swap_ptr.exit.i ], [ %.01854, %opal_thread_add_fetch_32.exit.i.i ], [ %.01854, %51 ], [ %.01854, %54 ], [ %72, %75 ], [ %72, %opal_thread_swap_ptr.exit.i32 ], [ %72, %opal_thread_add_fetch_32.exit.i.i35 ], [ %72, %101 ], [ %72, %104 ], [ %118, %121 ], [ %118, %opal_thread_swap_ptr.exit.i41 ], [ %118, %opal_thread_add_fetch_32.exit.i.i44 ], [ %118, %146 ], [ %118, %149 ]
+  %.120 = phi i32 [ %.01954, %.lr.ph ], [ %.01954, %61 ], [ %.01954, %14 ], [ %.01954, %111 ], [ %.01954, %26 ], [ %.01954, %opal_thread_swap_ptr.exit.i ], [ %.01954, %opal_thread_add_fetch_32.exit.i.i ], [ %.01954, %51 ], [ %.01954, %54 ], [ %72, %75 ], [ %72, %opal_thread_swap_ptr.exit.i32 ], [ %72, %opal_thread_add_fetch_32.exit.i.i35 ], [ %72, %101 ], [ %72, %104 ], [ %118, %121 ], [ %118, %opal_thread_swap_ptr.exit.i41 ], [ %118, %opal_thread_add_fetch_32.exit.i.i44 ], [ %118, %146 ], [ %118, %149 ]
   %156 = getelementptr inbounds i8, ptr %.055, i64 16
   %.0 = load volatile ptr, ptr %156, align 8
   %.not24 = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @mca_common_ompio_pending_requests, i64 16)
   br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %ompi_request_complete.exit, %6
-  %.018.lcssa = phi i32 [ 0, %6 ], [ %.119, %ompi_request_complete.exit ]
+  %.019.lcssa = phi i32 [ 0, %6 ], [ %.120, %ompi_request_complete.exit ]
   %157 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_common_ompio_pending_requests, i64 32), align 8
-  %.020.in56 = getelementptr inbounds i8, ptr %157, i64 16
-  %.02057 = load volatile ptr, ptr %.020.in56, align 8
+  %.018.in56 = getelementptr inbounds i8, ptr %157, i64 16
+  %.01857 = load volatile ptr, ptr %.018.in56, align 8
   %.not2558 = icmp eq ptr %157, getelementptr inbounds (i8, ptr @mca_common_ompio_pending_requests, i64 16)
   br i1 %.not2558, label %._crit_edge63, label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %._crit_edge, %202
-  %.02060 = phi ptr [ %.020, %202 ], [ %.02057, %._crit_edge ]
-  %.159 = phi ptr [ %.02060, %202 ], [ %157, %._crit_edge ]
+  %.01860 = phi ptr [ %.018, %202 ], [ %.01857, %._crit_edge ]
+  %.159 = phi ptr [ %.01860, %202 ], [ %157, %._crit_edge ]
   %158 = getelementptr inbounds i8, ptr %.159, i64 -176
   store ptr %158, ptr %1, align 8
   %159 = getelementptr inbounds i8, ptr %.159, i64 400
@@ -665,9 +665,9 @@ ompi_request_complete.exit50:                     ; preds = %194, %.critedge.i49
   br label %202
 
 202:                                              ; preds = %.lr.ph62, %ompi_request_complete.exit50, %165
-  %.020.in = getelementptr inbounds i8, ptr %.02060, i64 16
-  %.020 = load volatile ptr, ptr %.020.in, align 8
-  %.not25 = icmp eq ptr %.02060, getelementptr inbounds (i8, ptr @mca_common_ompio_pending_requests, i64 16)
+  %.018.in = getelementptr inbounds i8, ptr %.01860, i64 16
+  %.018 = load volatile ptr, ptr %.018.in, align 8
+  %.not25 = icmp eq ptr %.01860, getelementptr inbounds (i8, ptr @mca_common_ompio_pending_requests, i64 16)
   br i1 %.not25, label %._crit_edge63, label %.lr.ph62, !llvm.loop !8
 
 ._crit_edge63:                                    ; preds = %202, %._crit_edge
@@ -680,7 +680,7 @@ ompi_request_complete.exit50:                     ; preds = %194, %.critedge.i49
   br label %207
 
 207:                                              ; preds = %205, %._crit_edge63, %4
-  %.2 = phi i32 [ 0, %4 ], [ %.018.lcssa, %205 ], [ %.018.lcssa, %._crit_edge63 ]
+  %.2 = phi i32 [ 0, %4 ], [ %.019.lcssa, %205 ], [ %.019.lcssa, %._crit_edge63 ]
   ret i32 %.2
 }
 

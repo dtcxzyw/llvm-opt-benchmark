@@ -937,10 +937,10 @@ define void @sequence_analysis_dump_to_file(ptr nocapture noundef %0, ptr nounde
   br label %.outer237
 
 .outer237:                                        ; preds = %.outer237.preheader, %17
-  %.0159.ph = phi i32 [ %18, %17 ], [ 0, %.outer237.preheader ]
-  %.0153.ph = phi i16 [ %.1154, %17 ], [ 0, %.outer237.preheader ]
-  %.0151.ph = phi i32 [ %.1152, %17 ], [ 0, %.outer237.preheader ]
+  %.0159.ph = phi i16 [ %.1160, %17 ], [ 0, %.outer237.preheader ]
+  %.0157.ph = phi i32 [ %.1158, %17 ], [ 0, %.outer237.preheader ]
   %.not184 = phi i1 [ true, %17 ], [ false, %.outer237.preheader ]
+  %.0151.ph = phi i32 [ %18, %17 ], [ 0, %.outer237.preheader ]
   %.1.ph = phi ptr [ %14, %17 ], [ %.1.ph.ph, %.outer237.preheader ]
   br label %10
 
@@ -959,17 +959,17 @@ define void @sequence_analysis_dump_to_file(ptr nocapture noundef %0, ptr nounde
   br i1 %.not183, label %10, label %17, !llvm.loop !7
 
 17:                                               ; preds = %11
-  %18 = add i32 %.0159.ph, 1
+  %18 = add i32 %.0151.ph, 1
   %19 = getelementptr inbounds i8, ptr %12, i64 96
   %20 = load i16, ptr %19, align 8
-  %.not185 = icmp eq i16 %20, %.0153.ph
-  %spec.select = select i1 %.not185, i32 %.0151.ph, i32 1
-  %.1154 = select i1 %.not184, i16 %.0153.ph, i16 %20
-  %.1152 = select i1 %.not184, i32 %spec.select, i32 %.0151.ph
+  %.not185 = icmp eq i16 %20, %.0159.ph
+  %spec.select = select i1 %.not185, i32 %.0157.ph, i32 1
+  %.1160 = select i1 %.not184, i16 %.0159.ph, i16 %20
+  %.1158 = select i1 %.not184, i32 %spec.select, i32 %.0157.ph
   br label %.outer237, !llvm.loop !7
 
 21:                                               ; preds = %10
-  %22 = icmp eq i32 %.0159.ph, 0
+  %22 = icmp eq i32 %.0151.ph, 0
   br i1 %22, label %357, label %23
 
 23:                                               ; preds = %21
@@ -980,7 +980,7 @@ define void @sequence_analysis_dump_to_file(ptr nocapture noundef %0, ptr nounde
   %28 = tail call ptr @g_string_new(ptr noundef nonnull @.str.4) #14
   %29 = getelementptr inbounds i8, ptr %1, i64 992
   %30 = load i32, ptr %29, align 8
-  %.not172 = icmp eq i32 %.0151.ph, 0
+  %.not172 = icmp eq i32 %.0157.ph, 0
   br i1 %.not172, label %33, label %31
 
 31:                                               ; preds = %23
@@ -992,7 +992,7 @@ define void @sequence_analysis_dump_to_file(ptr nocapture noundef %0, ptr nounde
   br label %35
 
 35:                                               ; preds = %33, %31
-  %.0156 = phi i64 [ 16, %31 ], [ 10, %33 ]
+  %.0154 = phi i64 [ 16, %31 ], [ 10, %33 ]
   %.0148 = phi ptr [ @.str.6, %31 ], [ @.str.8, %33 ]
   %.not245 = icmp eq i32 %30, 0
   br i1 %.not245, label %._crit_edge, label %.lr.ph
@@ -1004,8 +1004,8 @@ define void @sequence_analysis_dump_to_file(ptr nocapture noundef %0, ptr nounde
   br label %39
 
 39:                                               ; preds = %.lr.ph, %enlarge_string.exit190
-  %.0160241 = phi i32 [ 0, %.lr.ph ], [ %77, %enlarge_string.exit190 ]
-  %40 = add i32 %.0160241, %2
+  %.0149241 = phi i32 [ 0, %.lr.ph ], [ %77, %enlarge_string.exit190 ]
+  %40 = add i32 %.0149241, %2
   %41 = zext i32 %40 to i64
   %42 = getelementptr [40 x %struct._address], ptr %36, i64 0, i64 %41
   %43 = tail call ptr @address_to_display(ptr noundef null, ptr noundef %42) #14
@@ -1082,7 +1082,7 @@ g_string_append_c_inline.exit.i188:               ; preds = %72, %66
 enlarge_string.exit190:                           ; preds = %g_string_append_c_inline.exit.i188, %enlarge_string.exit
   %75 = load ptr, ptr %24, align 8
   %76 = tail call ptr @g_string_append(ptr noundef %25, ptr noundef %75) #14
-  %77 = add i32 %.0160241, 2
+  %77 = add i32 %.0149241, 2
   %78 = icmp ult i32 %77, %30
   br i1 %78, label %39, label %._crit_edge, !llvm.loop !9
 
@@ -1138,8 +1138,8 @@ enlarge_string.exit195:                           ; preds = %g_string_append_c_i
   br label %102
 
 102:                                              ; preds = %.lr.ph243, %enlarge_string.exit210
-  %.1161242 = phi i32 [ 1, %.lr.ph243 ], [ %157, %enlarge_string.exit210 ]
-  %103 = add i32 %.1161242, %2
+  %.1150242 = phi i32 [ 1, %.lr.ph243 ], [ %157, %enlarge_string.exit210 ]
+  %103 = add i32 %.1150242, %2
   %104 = zext i32 %103 to i64
   %105 = getelementptr [40 x %struct._address], ptr %100, i64 0, i64 %104
   %106 = tail call ptr @address_to_display(ptr noundef null, ptr noundef %105) #14
@@ -1254,7 +1254,7 @@ g_string_append_c_inline.exit.i208:               ; preds = %152, %146
 enlarge_string.exit210:                           ; preds = %g_string_append_c_inline.exit.i208, %enlarge_string.exit205
   %155 = load ptr, ptr %24, align 8
   %156 = tail call ptr @g_string_append(ptr noundef %25, ptr noundef %155) #14
-  %157 = add i32 %.1161242, 2
+  %157 = add i32 %.1150242, 2
   %158 = icmp ult i32 %157, %30
   br i1 %158, label %102, label %._crit_edge244, !llvm.loop !10
 
@@ -1285,7 +1285,7 @@ enlarge_string.exit210:                           ; preds = %g_string_append_c_i
 
 g_string_append_c_inline.exit:                    ; preds = %165, %171
   %173 = load i64, ptr %159, align 8
-  %174 = add i64 %173, %.0156
+  %174 = add i64 %173, %.0154
   %175 = getelementptr inbounds i8, ptr %26, i64 8
   %176 = load i64, ptr %175, align 8
   %177 = and i64 %174, 4294967295
@@ -1333,7 +1333,7 @@ enlarge_string.exit215:                           ; preds = %g_string_append_c_i
   br label %.outer
 
 .outer:                                           ; preds = %345, %enlarge_string.exit215
-  %.2155.ph = phi i16 [ %234, %345 ], [ %.0153.ph, %enlarge_string.exit215 ]
+  %.2161.ph = phi i16 [ %234, %345 ], [ %.0159.ph, %enlarge_string.exit215 ]
   %.2.ph = phi ptr [ %203, %345 ], [ %195, %enlarge_string.exit215 ]
   br label %199
 
@@ -1382,11 +1382,11 @@ enlarge_string.exit215:                           ; preds = %g_string_append_c_i
   br label %226
 
 226:                                              ; preds = %222, %224, %218
-  %.0158 = phi i32 [ %216, %218 ], [ %216, %222 ], [ %225, %224 ]
-  %.0157 = phi i32 [ %219, %218 ], [ %223, %222 ], [ 20, %224 ]
+  %.0153 = phi i32 [ %219, %218 ], [ %223, %222 ], [ 20, %224 ]
+  %.0152 = phi i32 [ %216, %218 ], [ %216, %222 ], [ %225, %224 ]
   %227 = getelementptr inbounds i8, ptr %201, i64 96
   %228 = load i16, ptr %227, align 8
-  %.not175 = icmp eq i16 %228, %.2155.ph
+  %.not175 = icmp eq i16 %228, %.2161.ph
   br i1 %.not175, label %233, label %229
 
 229:                                              ; preds = %226
@@ -1396,7 +1396,7 @@ enlarge_string.exit215:                           ; preds = %g_string_append_c_i
   br label %233
 
 233:                                              ; preds = %229, %226
-  %234 = phi i16 [ %232, %229 ], [ %.2155.ph, %226 ]
+  %234 = phi i16 [ %232, %229 ], [ %.2161.ph, %226 ]
   br i1 %.not172, label %253, label %235
 
 235:                                              ; preds = %233
@@ -1489,7 +1489,7 @@ enlarge_string.exit225:                           ; preds = %g_string_append_c_i
   call void (ptr, ptr, ...) @g_string_printf(ptr noundef %27, ptr noundef nonnull @.str.10, ptr noundef %274) #14
   %275 = getelementptr inbounds i8, ptr %201, i64 72
   %276 = load ptr, ptr %275, align 8
-  call fastcc void @overwrite(ptr noundef %27, ptr noundef %276, i32 noundef %211, i32 noundef %.0158)
+  call fastcc void @overwrite(ptr noundef %27, ptr noundef %276, i32 noundef %211, i32 noundef %.0152)
   %277 = load ptr, ptr %27, align 8
   %fputs179 = call i32 @fputs(ptr %277, ptr %0)
   %278 = getelementptr inbounds i8, ptr %201, i64 88
@@ -1499,11 +1499,11 @@ enlarge_string.exit225:                           ; preds = %g_string_append_c_i
   %281 = load ptr, ptr %25, align 8
   call void (ptr, ptr, ...) @g_string_printf(ptr noundef nonnull %27, ptr noundef nonnull @.str.10, ptr noundef %281) #14
   %282 = call ptr @g_string_truncate(ptr noundef %28, i64 noundef 0) #14
-  %283 = icmp ult i32 %211, %.0158
+  %283 = icmp ult i32 %211, %.0152
   br i1 %283, label %284, label %314
 
 284:                                              ; preds = %273
-  %285 = add i32 %.0157, -2
+  %285 = add i32 %.0153, -2
   %286 = load i64, ptr %197, align 8
   %287 = zext i32 %285 to i64
   %288 = icmp ult i64 %286, %287
@@ -1565,7 +1565,7 @@ enlarge_string.exit230:                           ; preds = %enlarge_string.exit
 
 314:                                              ; preds = %273
   call void (ptr, ptr, ...) @g_string_printf(ptr noundef %28, ptr noundef nonnull @.str.17) #14
-  %315 = add i32 %.0157, -1
+  %315 = add i32 %.0153, -1
   %316 = load i64, ptr %197, align 8
   %317 = zext i32 %315 to i64
   %318 = icmp ult i64 %316, %317
@@ -1601,7 +1601,7 @@ g_string_append_c_inline.exit.i234:               ; preds = %329, %323
 
 g_string_append_c_inline.exit231:                 ; preds = %g_string_append_c_inline.exit.i234, %314, %312, %306
   %332 = load ptr, ptr %28, align 8
-  call fastcc void @overwrite(ptr noundef nonnull %27, ptr noundef %332, i32 noundef %211, i32 noundef %.0158)
+  call fastcc void @overwrite(ptr noundef nonnull %27, ptr noundef %332, i32 noundef %211, i32 noundef %.0152)
   %333 = getelementptr inbounds i8, ptr %201, i64 32
   %334 = load i16, ptr %333, align 8
   %335 = zext i16 %334 to i32
@@ -1627,8 +1627,8 @@ g_string_append_c_inline.exit231:                 ; preds = %g_string_append_c_i
   %.sink253 = phi i32 [ 1, %343 ], [ 9, %341 ]
   %346 = add i32 %210, %.sink256
   call fastcc void @overwrite(ptr noundef nonnull %27, ptr noundef nonnull %4, i32 noundef %.sink, i32 noundef %346)
-  %347 = add i32 %.0158, %.sink254
-  %348 = add i32 %.0158, %.sink253
+  %347 = add i32 %.0152, %.sink254
+  %348 = add i32 %.0152, %.sink253
   call fastcc void @overwrite(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef %347, i32 noundef %348)
   %349 = load ptr, ptr %27, align 8
   %350 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef %349) #14

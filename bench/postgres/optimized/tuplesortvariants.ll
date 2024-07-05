@@ -356,8 +356,8 @@ ApplySortAbbrevFullComparator.exit.thread44:      ; preds = %34, %ApplySortAbbre
 
 .lr.ph:                                           ; preds = %ApplySortAbbrevFullComparator.exit.thread44, %ApplySortComparator.exit.thread50
   %.057 = phi i32 [ %86, %ApplySortComparator.exit.thread50 ], [ 1, %ApplySortAbbrevFullComparator.exit.thread44 ]
-  %.pn56 = phi ptr [ %.03358, %ApplySortComparator.exit.thread50 ], [ %9, %ApplySortAbbrevFullComparator.exit.thread44 ]
-  %.03358 = getelementptr i8, ptr %.pn56, i64 64
+  %.pn56 = phi ptr [ %.03458, %ApplySortComparator.exit.thread50 ], [ %9, %ApplySortAbbrevFullComparator.exit.thread44 ]
+  %.03458 = getelementptr i8, ptr %.pn56, i64 64
   %57 = getelementptr i8, ptr %.pn56, i64 78
   %58 = load i16, ptr %57, align 2
   %59 = sext i16 %58 to i32
@@ -392,7 +392,7 @@ ApplySortAbbrevFullComparator.exit.thread44:      ; preds = %34, %ApplySortAbbre
 76:                                               ; preds = %71
   %77 = getelementptr i8, ptr %.pn56, i64 88
   %78 = load ptr, ptr %77, align 8
-  %79 = call i32 %78(i64 noundef %60, i64 noundef %61, ptr noundef %.03358) #9
+  %79 = call i32 %78(i64 noundef %60, i64 noundef %61, ptr noundef %.03458) #9
   %80 = getelementptr i8, ptr %.pn56, i64 76
   %81 = load i8, ptr %80, align 4
   %82 = trunc i8 %81 to i1
@@ -415,8 +415,8 @@ ApplySortComparator.exit.thread50:                ; preds = %66, %ApplySortCompa
   br i1 %88, label %.lr.ph, label %ApplySortAbbrevFullComparator.exit.thread, !llvm.loop !8
 
 ApplySortAbbrevFullComparator.exit.thread:        ; preds = %ApplySortComparator.exit, %ApplySortComparator.exit.thread50, %83, %ApplySortAbbrevFullComparator.exit.thread44, %72, %67, %51, %40, %35, %ApplySortAbbrevFullComparator.exit
-  %.034 = phi i32 [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ %.12.i, %40 ], [ %..i, %35 ], [ 1, %51 ], [ %.12.i40, %72 ], [ %..i41, %67 ], [ 0, %ApplySortAbbrevFullComparator.exit.thread44 ], [ %.0.i39, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread50 ], [ 1, %83 ]
-  ret i32 %.034
+  %.033 = phi i32 [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ %.12.i, %40 ], [ %..i, %35 ], [ 1, %51 ], [ %.12.i40, %72 ], [ %..i41, %67 ], [ 0, %ApplySortAbbrevFullComparator.exit.thread44 ], [ %.0.i39, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread50 ], [ 1, %83 ]
+  ret i32 %.033
 }
 
 ; Function Attrs: nounwind uwtable
@@ -844,8 +844,8 @@ define internal i32 @comparetup_cluster_tiebreak(ptr nocapture noundef readonly 
   br i1 %53, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortAbbrevFullComparator.exit
 
 ApplySortAbbrevFullComparator.exit:               ; preds = %52, %45
-  %.067 = phi i32 [ %54, %52 ], [ %48, %45 ]
-  %.not75 = icmp eq i32 %.067, 0
+  %.070 = phi i32 [ %54, %52 ], [ %48, %45 ]
+  %.not75 = icmp eq i32 %.070, 0
   br i1 %.not75, label %ApplySortAbbrevFullComparator.exit.thread90, label %ApplySortAbbrevFullComparator.exit.thread
 
 ApplySortAbbrevFullComparator.exit.thread90:      ; preds = %35, %20, %ApplySortAbbrevFullComparator.exit
@@ -859,7 +859,7 @@ ApplySortAbbrevFullComparator.exit.thread90:      ; preds = %35, %20, %ApplySort
   br label %60
 
 60:                                               ; preds = %3, %58
-  %.068 = phi i32 [ 1, %58 ], [ 0, %3 ]
+  %.067 = phi i32 [ 1, %58 ], [ 0, %3 ]
   %.066 = phi ptr [ %59, %58 ], [ %13, %3 ]
   %61 = getelementptr inbounds i8, ptr %11, i64 8
   %62 = load ptr, ptr %61, align 8
@@ -871,11 +871,11 @@ ApplySortAbbrevFullComparator.exit.thread90:      ; preds = %35, %20, %ApplySort
 .preheader:                                       ; preds = %60
   %66 = getelementptr inbounds i8, ptr %2, i64 76
   %67 = load i32, ptr %66, align 4
-  %68 = icmp slt i32 %.068, %67
+  %68 = icmp slt i32 %.067, %67
   br i1 %68, label %.lr.ph119.preheader, label %ApplySortAbbrevFullComparator.exit.thread
 
 .lr.ph119.preheader:                              ; preds = %.preheader
-  %69 = zext nneg i32 %.068 to i64
+  %69 = zext nneg i32 %.067 to i64
   br label %.lr.ph119
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %ApplySortComparator.exit.thread97
@@ -978,11 +978,11 @@ ApplySortComparator.exit.thread97:                ; preds = %81, %ApplySortCompa
   call void @FormIndexDatum(ptr noundef %123, ptr noundef %118, ptr noundef %124, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
   %125 = getelementptr inbounds i8, ptr %2, i64 76
   %126 = load i32, ptr %125, align 4
-  %127 = icmp slt i32 %.068, %126
+  %127 = icmp slt i32 %.067, %126
   br i1 %127, label %.lr.ph.preheader, label %ApplySortAbbrevFullComparator.exit.thread
 
 .lr.ph.preheader:                                 ; preds = %115
-  %128 = zext nneg i32 %.068 to i64
+  %128 = zext nneg i32 %.067 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %ApplySortComparator.exit86.thread103
@@ -1053,7 +1053,7 @@ ApplySortComparator.exit86.thread103:             ; preds = %ApplySortComparator
   br i1 %163, label %.lr.ph, label %ApplySortAbbrevFullComparator.exit.thread, !llvm.loop !12
 
 ApplySortAbbrevFullComparator.exit.thread:        ; preds = %ApplySortComparator.exit86, %ApplySortComparator.exit86.thread103, %157, %ApplySortComparator.exit, %ApplySortComparator.exit.thread97, %98, %115, %.preheader, %146, %141, %87, %82, %52, %41, %36, %ApplySortAbbrevFullComparator.exit, %ApplySortAbbrevFullComparator.exit.thread90
-  %.0 = phi i32 [ 0, %ApplySortAbbrevFullComparator.exit.thread90 ], [ %.067, %ApplySortAbbrevFullComparator.exit ], [ %.12.i, %41 ], [ %..i, %36 ], [ 1, %52 ], [ %.12.i81, %87 ], [ %..i82, %82 ], [ %.12.i84, %146 ], [ %..i85, %141 ], [ 0, %.preheader ], [ 0, %115 ], [ %.0.i80, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread97 ], [ 1, %98 ], [ %.0.i83, %ApplySortComparator.exit86 ], [ 0, %ApplySortComparator.exit86.thread103 ], [ 1, %157 ]
+  %.0 = phi i32 [ 0, %ApplySortAbbrevFullComparator.exit.thread90 ], [ %.070, %ApplySortAbbrevFullComparator.exit ], [ %.12.i, %41 ], [ %..i, %36 ], [ 1, %52 ], [ %.12.i81, %87 ], [ %..i82, %82 ], [ %.12.i84, %146 ], [ %..i85, %141 ], [ 0, %.preheader ], [ 0, %115 ], [ %.0.i80, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread97 ], [ 1, %98 ], [ %.0.i83, %ApplySortComparator.exit86 ], [ 0, %ApplySortComparator.exit86.thread103 ], [ 1, %157 ]
   ret i32 %.0
 }
 
@@ -1515,12 +1515,12 @@ ApplySortAbbrevFullComparator.exit.thread84:      ; preds = %29, %ApplySortAbbre
   br i1 %.not68100, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %ApplySortAbbrevFullComparator.exit.thread84, %ApplySortComparator.exit.thread90
-  %.0103 = phi i32 [ %77, %ApplySortComparator.exit.thread90 ], [ 2, %ApplySortAbbrevFullComparator.exit.thread84 ]
+  %.pn103 = phi ptr [ %.057104, %ApplySortComparator.exit.thread90 ], [ %11, %ApplySortAbbrevFullComparator.exit.thread84 ]
   %.1102 = phi i8 [ %spec.select73, %ApplySortComparator.exit.thread90 ], [ %50, %ApplySortAbbrevFullComparator.exit.thread84 ]
-  %.pn101 = phi ptr [ %.058104, %ApplySortComparator.exit.thread90 ], [ %11, %ApplySortAbbrevFullComparator.exit.thread84 ]
-  %.058104 = getelementptr i8, ptr %.pn101, i64 64
-  %51 = call fastcc i64 @index_getattr(ptr noundef %12, i32 noundef %.0103, ptr noundef %19, ptr noundef nonnull %4)
-  %52 = call fastcc i64 @index_getattr(ptr noundef %13, i32 noundef %.0103, ptr noundef %19, ptr noundef nonnull %5)
+  %.059101 = phi i32 [ %77, %ApplySortComparator.exit.thread90 ], [ 2, %ApplySortAbbrevFullComparator.exit.thread84 ]
+  %.057104 = getelementptr i8, ptr %.pn103, i64 64
+  %51 = call fastcc i64 @index_getattr(ptr noundef %12, i32 noundef %.059101, ptr noundef %19, ptr noundef nonnull %4)
+  %52 = call fastcc i64 @index_getattr(ptr noundef %13, i32 noundef %.059101, ptr noundef %19, ptr noundef nonnull %5)
   %53 = load i8, ptr %4, align 1
   %54 = trunc i8 %53 to i1
   %55 = load i8, ptr %5, align 1
@@ -1531,7 +1531,7 @@ ApplySortAbbrevFullComparator.exit.thread84:      ; preds = %29, %ApplySortAbbre
   br i1 %56, label %ApplySortComparator.exit.thread90, label %58
 
 58:                                               ; preds = %57
-  %59 = getelementptr i8, ptr %.pn101, i64 77
+  %59 = getelementptr i8, ptr %.pn103, i64 77
   %60 = load i8, ptr %59, align 1
   %61 = trunc i8 %60 to i1
   %..i81 = select i1 %61, i32 -1, i32 1
@@ -1541,17 +1541,17 @@ ApplySortAbbrevFullComparator.exit.thread84:      ; preds = %29, %ApplySortAbbre
   br i1 %56, label %63, label %67
 
 63:                                               ; preds = %62
-  %64 = getelementptr i8, ptr %.pn101, i64 77
+  %64 = getelementptr i8, ptr %.pn103, i64 77
   %65 = load i8, ptr %64, align 1
   %66 = trunc i8 %65 to i1
   %.12.i80 = select i1 %66, i32 1, i32 -1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 67:                                               ; preds = %62
-  %68 = getelementptr i8, ptr %.pn101, i64 88
+  %68 = getelementptr i8, ptr %.pn103, i64 88
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call i32 %69(i64 noundef %51, i64 noundef %52, ptr noundef %.058104) #9
-  %71 = getelementptr i8, ptr %.pn101, i64 76
+  %70 = tail call i32 %69(i64 noundef %51, i64 noundef %52, ptr noundef %.057104) #9
+  %71 = getelementptr i8, ptr %.pn103, i64 76
   %72 = load i8, ptr %71, align 4
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %ApplySortComparator.exit
@@ -1568,7 +1568,7 @@ ApplySortComparator.exit:                         ; preds = %74, %67
 
 ApplySortComparator.exit.thread90:                ; preds = %57, %ApplySortComparator.exit
   %spec.select73 = phi i8 [ 1, %57 ], [ %.1102, %ApplySortComparator.exit ]
-  %77 = add i32 %.0103, 1
+  %77 = add i32 %.059101, 1
   %.not68 = icmp sgt i32 %77, %15
   br i1 %.not68, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
@@ -1659,8 +1659,8 @@ ApplySortComparator.exit.thread90:                ; preds = %57, %ApplySortCompa
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 ApplySortAbbrevFullComparator.exit.thread:        ; preds = %74, %ApplySortComparator.exit, %63, %58, %46, %35, %30, %122, %ApplySortAbbrevFullComparator.exit, %125, %119
-  %.059 = phi i32 [ %121, %119 ], [ %127, %125 ], [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ 0, %122 ], [ %.12.i, %35 ], [ %..i, %30 ], [ 1, %46 ], [ %.12.i80, %63 ], [ %..i81, %58 ], [ 1, %74 ], [ %.0.i79, %ApplySortComparator.exit ]
-  ret i32 %.059
+  %.0 = phi i32 [ %121, %119 ], [ %127, %125 ], [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ 0, %122 ], [ %.12.i, %35 ], [ %..i, %30 ], [ 1, %46 ], [ %.12.i80, %63 ], [ %..i81, %58 ], [ 1, %74 ], [ %.0.i79, %ApplySortComparator.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

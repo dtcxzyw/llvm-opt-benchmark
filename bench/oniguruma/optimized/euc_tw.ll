@@ -98,20 +98,20 @@ define internal ptr @euctw_left_adjust_char_head(ptr noundef readnone %0, ptr no
   br i1 %.not, label %.preheader, label %21
 
 .preheader:                                       ; preds = %2, %.preheader
-  %.0 = phi ptr [ %8, %.preheader ], [ %1, %2 ]
-  %3 = load i8, ptr %.0, align 1
+  %.018 = phi ptr [ %8, %.preheader ], [ %1, %2 ]
+  %3 = load i8, ptr %.018, align 1
   %4 = add i8 %3, 95
   %5 = icmp ult i8 %4, 94
-  %6 = icmp ugt ptr %.0, %0
+  %6 = icmp ugt ptr %.018, %0
   %7 = and i1 %6, %5
-  %8 = getelementptr inbounds i8, ptr %.0, i64 -1
+  %8 = getelementptr inbounds i8, ptr %.018, i64 -1
   br i1 %7, label %.preheader, label %9, !llvm.loop !4
 
 9:                                                ; preds = %.preheader
   %10 = load ptr, ptr @OnigEncodingEUC_TW, align 8
-  %11 = tail call i32 %10(ptr noundef nonnull %.0) #5
+  %11 = tail call i32 %10(ptr noundef nonnull %.018) #5
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %.0, i64 %12
+  %13 = getelementptr inbounds i8, ptr %.018, i64 %12
   %14 = icmp ugt ptr %13, %1
   br i1 %14, label %21, label %15
 
@@ -124,8 +124,8 @@ define internal ptr @euctw_left_adjust_char_head(ptr noundef readnone %0, ptr no
   br label %21
 
 21:                                               ; preds = %9, %2, %15
-  %.018 = phi ptr [ %20, %15 ], [ %1, %2 ], [ %.0, %9 ]
-  ret ptr %.018
+  %.0 = phi ptr [ %20, %15 ], [ %1, %2 ], [ %.018, %9 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

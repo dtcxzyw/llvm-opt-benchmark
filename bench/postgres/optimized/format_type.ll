@@ -191,16 +191,16 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br label %60
 
 60:                                               ; preds = %24, %33, %37, %53
-  %.078 = phi i32 [ %32, %53 ], [ %0, %37 ], [ %0, %33 ], [ %0, %24 ]
+  %.078 = phi ptr [ %59, %53 ], [ %30, %37 ], [ %30, %33 ], [ %30, %24 ]
   %.077 = phi ptr [ %42, %53 ], [ %13, %37 ], [ %13, %33 ], [ %13, %24 ]
-  %.076 = phi ptr [ %59, %53 ], [ %30, %37 ], [ %30, %33 ], [ %30, %24 ]
-  %.075 = phi i1 [ true, %53 ], [ false, %37 ], [ false, %33 ], [ false, %24 ]
+  %.076 = phi i1 [ true, %53 ], [ false, %37 ], [ false, %33 ], [ false, %24 ]
+  %.074 = phi i32 [ %32, %53 ], [ %0, %37 ], [ %0, %33 ], [ %0, %24 ]
   %61 = zext i16 %2 to i32
   %62 = and i32 %61, 1
   %63 = icmp ne i32 %62, 0
   %64 = icmp sgt i32 %1, -1
   %65 = and i1 %64, %63
-  switch i32 %.078, label %.thread [
+  switch i32 %.074, label %.thread [
     i32 1560, label %66
     i32 16, label %74
     i32 1042, label %76
@@ -224,7 +224,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %67, label %71
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %.076, i64 120
+  %68 = getelementptr inbounds i8, ptr %.078, i64 120
   %69 = load i32, ptr %68, align 4
   %70 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.5, i32 noundef %1, i32 noundef %69)
   br label %152
@@ -244,7 +244,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %77, label %81
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %.076, i64 120
+  %78 = getelementptr inbounds i8, ptr %.078, i64 120
   %79 = load i32, ptr %78, align 4
   %80 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.7, i32 noundef %1, i32 noundef %79)
   br label %152
@@ -280,7 +280,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %95, label %99
 
 95:                                               ; preds = %94
-  %96 = getelementptr inbounds i8, ptr %.076, i64 120
+  %96 = getelementptr inbounds i8, ptr %.078, i64 120
   %97 = load i32, ptr %96, align 4
   %98 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.13, i32 noundef %1, i32 noundef %97)
   br label %152
@@ -293,7 +293,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %102, label %106
 
 102:                                              ; preds = %101
-  %103 = getelementptr inbounds i8, ptr %.076, i64 120
+  %103 = getelementptr inbounds i8, ptr %.078, i64 120
   %104 = load i32, ptr %103, align 4
   %105 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.14, i32 noundef %1, i32 noundef %104)
   br label %152
@@ -306,7 +306,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %109, label %113
 
 109:                                              ; preds = %108
-  %110 = getelementptr inbounds i8, ptr %.076, i64 120
+  %110 = getelementptr inbounds i8, ptr %.078, i64 120
   %111 = load i32, ptr %110, align 4
   %112 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.15, i32 noundef %1, i32 noundef %111)
   br label %152
@@ -319,7 +319,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %116, label %120
 
 116:                                              ; preds = %115
-  %117 = getelementptr inbounds i8, ptr %.076, i64 120
+  %117 = getelementptr inbounds i8, ptr %.078, i64 120
   %118 = load i32, ptr %117, align 4
   %119 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.15, i32 noundef %1, i32 noundef %118)
   br label %152
@@ -332,7 +332,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %123, label %127
 
 123:                                              ; preds = %122
-  %124 = getelementptr inbounds i8, ptr %.076, i64 120
+  %124 = getelementptr inbounds i8, ptr %.078, i64 120
   %125 = load i32, ptr %124, align 4
   %126 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.18, i32 noundef %1, i32 noundef %125)
   br label %152
@@ -345,7 +345,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %130, label %134
 
 130:                                              ; preds = %129
-  %131 = getelementptr inbounds i8, ptr %.076, i64 120
+  %131 = getelementptr inbounds i8, ptr %.078, i64 120
   %132 = load i32, ptr %131, align 4
   %133 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.18, i32 noundef %1, i32 noundef %132)
   br label %152
@@ -358,7 +358,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %137, label %141
 
 137:                                              ; preds = %136
-  %138 = getelementptr inbounds i8, ptr %.076, i64 120
+  %138 = getelementptr inbounds i8, ptr %.078, i64 120
   %139 = load i32, ptr %138, align 4
   %140 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.21, i32 noundef %1, i32 noundef %139)
   br label %152
@@ -371,7 +371,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %144, label %148
 
 144:                                              ; preds = %143
-  %145 = getelementptr inbounds i8, ptr %.076, i64 120
+  %145 = getelementptr inbounds i8, ptr %.078, i64 120
   %146 = load i32, ptr %145, align 4
   %147 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.22, i32 noundef %1, i32 noundef %146)
   br label %152
@@ -385,8 +385,8 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br label %152
 
 152:                                              ; preds = %144, %148, %137, %141, %130, %134, %123, %127, %116, %120, %109, %113, %102, %106, %95, %99, %77, %82, %67, %72, %150, %92, %90, %88, %86, %84, %74
-  %.074 = phi ptr [ %151, %150 ], [ %147, %144 ], [ %149, %148 ], [ %140, %137 ], [ %142, %141 ], [ %133, %130 ], [ %135, %134 ], [ %126, %123 ], [ %128, %127 ], [ %119, %116 ], [ %121, %120 ], [ %112, %109 ], [ %114, %113 ], [ %105, %102 ], [ %107, %106 ], [ %98, %95 ], [ %100, %99 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %80, %77 ], [ %83, %82 ], [ %75, %74 ], [ %70, %67 ], [ %73, %72 ]
-  %153 = icmp eq ptr %.074, null
+  %.075 = phi ptr [ %151, %150 ], [ %147, %144 ], [ %149, %148 ], [ %140, %137 ], [ %142, %141 ], [ %133, %130 ], [ %135, %134 ], [ %126, %123 ], [ %128, %127 ], [ %119, %116 ], [ %121, %120 ], [ %112, %109 ], [ %114, %113 ], [ %105, %102 ], [ %107, %106 ], [ %98, %95 ], [ %100, %99 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %80, %77 ], [ %83, %82 ], [ %75, %74 ], [ %70, %67 ], [ %73, %72 ]
+  %153 = icmp eq ptr %.075, null
   br i1 %153, label %.thread, label %printTypmod.exit
 
 .thread:                                          ; preds = %71, %81, %60, %152
@@ -395,23 +395,23 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %155, label %156, label %158
 
 156:                                              ; preds = %.thread
-  %157 = tail call zeroext i1 @TypeIsVisible(i32 noundef %.078) #7
+  %157 = tail call zeroext i1 @TypeIsVisible(i32 noundef %.074) #7
   br i1 %157, label %162, label %158
 
 158:                                              ; preds = %156, %.thread
-  %159 = getelementptr inbounds i8, ptr %.076, i64 68
+  %159 = getelementptr inbounds i8, ptr %.078, i64 68
   %160 = load i32, ptr %159, align 4
   %161 = tail call ptr @get_namespace_name_or_temp(i32 noundef %160) #7
   br label %162
 
 162:                                              ; preds = %156, %158
   %.073 = phi ptr [ %161, %158 ], [ null, %156 ]
-  %163 = getelementptr inbounds i8, ptr %.076, i64 4
+  %163 = getelementptr inbounds i8, ptr %.078, i64 4
   %164 = tail call ptr @quote_qualified_identifier(ptr noundef %.073, ptr noundef nonnull %163) #7
   br i1 %65, label %165, label %printTypmod.exit
 
 165:                                              ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %.076, i64 120
+  %166 = getelementptr inbounds i8, ptr %.078, i64 120
   %167 = load i32, ptr %166, align 4
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %171
@@ -428,8 +428,8 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br label %printTypmod.exit
 
 printTypmod.exit:                                 ; preds = %171, %169, %162, %152
-  %.1 = phi ptr [ %164, %162 ], [ %.074, %152 ], [ %170, %169 ], [ %175, %171 ]
-  br i1 %.075, label %176, label %178
+  %.1 = phi ptr [ %164, %162 ], [ %.075, %152 ], [ %170, %169 ], [ %175, %171 ]
+  br i1 %.076, label %176, label %178
 
 176:                                              ; preds = %printTypmod.exit
   %177 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.24, ptr noundef %.1) #7
@@ -573,48 +573,48 @@ define dso_local i64 @oidvectortypes(ptr nocapture noundef readonly %0) local_un
 
 14:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %.036 = phi i64 [ %12, %.lr.ph ], [ %30, %28 ]
-  %.02735 = phi i64 [ %9, %.lr.ph ], [ %.128, %28 ]
-  %.03033 = phi ptr [ %10, %.lr.ph ], [ %.131, %28 ]
+  %.036 = phi ptr [ %10, %.lr.ph ], [ %.1, %28 ]
+  %.02834 = phi i64 [ %12, %.lr.ph ], [ %30, %28 ]
+  %.03033 = phi i64 [ %9, %.lr.ph ], [ %.131, %28 ]
   %15 = getelementptr [0 x i32], ptr %13, i64 0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = tail call ptr @format_type_extended(i32 noundef %16, i32 noundef -1, i16 noundef zeroext 2)
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #9
   %19 = add i64 %18, 2
-  %20 = icmp ult i64 %.036, %19
+  %20 = icmp ult i64 %.02834, %19
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %14
-  %22 = add i64 %19, %.02735
-  %23 = tail call ptr @repalloc(ptr noundef %.03033, i64 noundef %22) #7
-  %24 = add i64 %19, %.036
+  %22 = add i64 %19, %.03033
+  %23 = tail call ptr @repalloc(ptr noundef %.036, i64 noundef %22) #7
+  %24 = add i64 %19, %.02834
   br label %25
 
 25:                                               ; preds = %21, %14
-  %.131 = phi ptr [ %23, %21 ], [ %.03033, %14 ]
-  %.128 = phi i64 [ %22, %21 ], [ %.02735, %14 ]
-  %.1 = phi i64 [ %24, %21 ], [ %.036, %14 ]
+  %.131 = phi i64 [ %22, %21 ], [ %.03033, %14 ]
+  %.129 = phi i64 [ %24, %21 ], [ %.02834, %14 ]
+  %.1 = phi ptr [ %23, %21 ], [ %.036, %14 ]
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %28, label %26
 
 26:                                               ; preds = %25
-  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.131)
-  %endptr = getelementptr inbounds i8, ptr %.131, i64 %strlen
+  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.1)
+  %endptr = getelementptr inbounds i8, ptr %.1, i64 %strlen
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr, ptr noundef nonnull align 1 dereferenceable(3) @.str.25, i64 3, i1 false)
-  %27 = add i64 %.1, -2
+  %27 = add i64 %.129, -2
   br label %28
 
 28:                                               ; preds = %26, %25
-  %.2 = phi i64 [ %27, %26 ], [ %.1, %25 ]
-  %29 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.131, ptr noundef nonnull dereferenceable(1) %17) #7
+  %.2 = phi i64 [ %27, %26 ], [ %.129, %25 ]
+  %29 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(1) %17) #7
   %30 = sub i64 %.2, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %28, %1
-  %.030.lcssa = phi ptr [ %10, %1 ], [ %.131, %28 ]
-  %31 = tail call ptr @cstring_to_text(ptr noundef %.030.lcssa) #7
+  %.0.lcssa = phi ptr [ %10, %1 ], [ %.1, %28 ]
+  %31 = tail call ptr @cstring_to_text(ptr noundef %.0.lcssa) #7
   %32 = ptrtoint ptr %31 to i64
   ret i64 %32
 }

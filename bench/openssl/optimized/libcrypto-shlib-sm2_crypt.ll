@@ -440,14 +440,14 @@ if.end139:                                        ; preds = %if.end134
   br label %done
 
 done:                                             ; preds = %if.end67, %if.end31, %if.end139, %if.then138, %if.then133, %if.then123, %if.then110, %if.then88, %if.then76, %if.then66, %if.then55, %if.then42, %if.then30, %if.then22, %if.then18, %if.then11, %if.then
-  %rc.0 = phi i32 [ 0, %if.then ], [ 0, %if.then11 ], [ 0, %if.then18 ], [ 0, %if.then22 ], [ 0, %if.then30 ], [ 0, %if.end31 ], [ 0, %if.then66 ], [ 0, %if.end67 ], [ 0, %if.then88 ], [ 0, %if.then110 ], [ 0, %if.then123 ], [ 0, %if.then138 ], [ 1, %if.end139 ], [ 0, %if.then133 ], [ 0, %if.then76 ], [ 0, %if.then55 ], [ 0, %if.then42 ]
-  %ctx.0 = phi ptr [ null, %if.then ], [ null, %if.then11 ], [ null, %if.then18 ], [ null, %if.then22 ], [ %call20, %if.then30 ], [ %call20, %if.end31 ], [ %call20, %if.then66 ], [ %call20, %if.end67 ], [ %call20, %if.then88 ], [ %call20, %if.then110 ], [ %call20, %if.then123 ], [ %call20, %if.then138 ], [ %call20, %if.end139 ], [ %call20, %if.then133 ], [ %call20, %if.then76 ], [ %call20, %if.then55 ], [ %call20, %if.then42 ]
   %kG.0 = phi ptr [ null, %if.then ], [ null, %if.then11 ], [ %call13, %if.then18 ], [ %call13, %if.then22 ], [ %call13, %if.then30 ], [ %call13, %if.end31 ], [ %call13, %if.then66 ], [ %call13, %if.end67 ], [ %call13, %if.then88 ], [ %call13, %if.then110 ], [ %call13, %if.then123 ], [ %call13, %if.then138 ], [ %call13, %if.end139 ], [ %call13, %if.then133 ], [ %call13, %if.then76 ], [ %call13, %if.then55 ], [ %call13, %if.then42 ]
   %kP.0 = phi ptr [ null, %if.then ], [ null, %if.then11 ], [ %call14, %if.then18 ], [ %call14, %if.then22 ], [ %call14, %if.then30 ], [ %call14, %if.end31 ], [ %call14, %if.then66 ], [ %call14, %if.end67 ], [ %call14, %if.then88 ], [ %call14, %if.then110 ], [ %call14, %if.then123 ], [ %call14, %if.then138 ], [ %call14, %if.end139 ], [ %call14, %if.then133 ], [ %call14, %if.then76 ], [ %call14, %if.then55 ], [ %call14, %if.then42 ]
   %msg_mask.0 = phi ptr [ null, %if.then ], [ null, %if.then11 ], [ null, %if.then18 ], [ null, %if.then22 ], [ null, %if.then30 ], [ null, %if.end31 ], [ null, %if.then66 ], [ null, %if.end67 ], [ %call68, %if.then88 ], [ %call68, %if.then110 ], [ %call68, %if.then123 ], [ %call68, %if.then138 ], [ %call68, %if.end139 ], [ %call68, %if.then133 ], [ %call68, %if.then76 ], [ null, %if.then55 ], [ null, %if.then42 ]
   %x2y2.0 = phi ptr [ null, %if.then ], [ null, %if.then11 ], [ null, %if.then18 ], [ null, %if.then22 ], [ null, %if.then30 ], [ %call32, %if.end31 ], [ %call32, %if.then66 ], [ %call32, %if.end67 ], [ %call32, %if.then88 ], [ %call32, %if.then110 ], [ %call32, %if.then123 ], [ %call32, %if.then138 ], [ %call32, %if.end139 ], [ %call32, %if.then133 ], [ %call32, %if.then76 ], [ %call32, %if.then55 ], [ %call32, %if.then42 ]
   %C3.0 = phi ptr [ null, %if.then ], [ null, %if.then11 ], [ null, %if.then18 ], [ null, %if.then22 ], [ null, %if.then30 ], [ %call33, %if.end31 ], [ %call33, %if.then66 ], [ %call33, %if.end67 ], [ %call33, %if.then88 ], [ %call33, %if.then110 ], [ %call33, %if.then123 ], [ %call33, %if.then138 ], [ %call33, %if.end139 ], [ %call33, %if.then133 ], [ %call33, %if.then76 ], [ %call33, %if.then55 ], [ %call33, %if.then42 ]
+  %ctx.0 = phi ptr [ null, %if.then ], [ null, %if.then11 ], [ null, %if.then18 ], [ null, %if.then22 ], [ %call20, %if.then30 ], [ %call20, %if.end31 ], [ %call20, %if.then66 ], [ %call20, %if.end67 ], [ %call20, %if.then88 ], [ %call20, %if.then110 ], [ %call20, %if.then123 ], [ %call20, %if.then138 ], [ %call20, %if.end139 ], [ %call20, %if.then133 ], [ %call20, %if.then76 ], [ %call20, %if.then55 ], [ %call20, %if.then42 ]
   %fetched_digest.0 = phi ptr [ null, %if.then ], [ null, %if.then11 ], [ null, %if.then18 ], [ null, %if.then22 ], [ null, %if.then30 ], [ null, %if.end31 ], [ null, %if.then66 ], [ null, %if.end67 ], [ null, %if.then88 ], [ %call85, %if.then110 ], [ %call85, %if.then123 ], [ %call85, %if.then138 ], [ %call85, %if.end139 ], [ %call85, %if.then133 ], [ null, %if.then76 ], [ null, %if.then55 ], [ null, %if.then42 ]
+  %rc.0 = phi i32 [ 0, %if.then ], [ 0, %if.then11 ], [ 0, %if.then18 ], [ 0, %if.then22 ], [ 0, %if.then30 ], [ 0, %if.end31 ], [ 0, %if.then66 ], [ 0, %if.end67 ], [ 0, %if.then88 ], [ 0, %if.then110 ], [ 0, %if.then123 ], [ 0, %if.then138 ], [ 1, %if.end139 ], [ 0, %if.then133 ], [ 0, %if.then76 ], [ 0, %if.then55 ], [ 0, %if.then42 ]
   call void @EVP_MD_free(ptr noundef %fetched_digest.0) #4
   %3 = load ptr, ptr %C2, align 8
   call void @ASN1_OCTET_STRING_free(ptr noundef %3) #4
@@ -693,11 +693,11 @@ done:                                             ; preds = %if.end111
 if.then121.sink.split:                            ; preds = %if.end111, %if.end93, %lor.lhs.false96, %lor.lhs.false99, %lor.lhs.false103, %lor.lhs.false107, %for.end, %if.end63, %lor.lhs.false68, %lor.lhs.false73, %if.end53, %lor.lhs.false55, %lor.lhs.false59, %if.end48, %if.end27, %if.end22, %if.end13, %if.end9, %if.end
   %.sink109 = phi i32 [ 303, %if.end ], [ 308, %if.end9 ], [ 316, %if.end13 ], [ 322, %if.end22 ], [ 331, %if.end27 ], [ 344, %if.end48 ], [ 353, %lor.lhs.false59 ], [ 353, %lor.lhs.false55 ], [ 353, %if.end53 ], [ 361, %lor.lhs.false73 ], [ 361, %lor.lhs.false68 ], [ 361, %if.end63 ], [ 370, %for.end ], [ 379, %lor.lhs.false107 ], [ 379, %lor.lhs.false103 ], [ 379, %lor.lhs.false99 ], [ 379, %lor.lhs.false96 ], [ 379, %if.end93 ], [ 384, %if.end111 ]
   %.sink = phi i32 [ 100, %if.end ], [ 104, %if.end9 ], [ 107, %if.end13 ], [ 524291, %if.end22 ], [ 524291, %if.end27 ], [ 524304, %if.end48 ], [ 524304, %lor.lhs.false59 ], [ 524304, %lor.lhs.false55 ], [ 524304, %if.end53 ], [ 786691, %lor.lhs.false73 ], [ 786691, %lor.lhs.false68 ], [ 786691, %if.end63 ], [ 524294, %for.end ], [ 524294, %lor.lhs.false107 ], [ 524294, %lor.lhs.false103 ], [ 524294, %lor.lhs.false99 ], [ 524294, %lor.lhs.false96 ], [ 524294, %if.end93 ], [ 102, %if.end111 ]
-  %ctx.0.ph.ph = phi ptr [ null, %if.end ], [ null, %if.end9 ], [ null, %if.end13 ], [ null, %if.end22 ], [ %call23, %if.end27 ], [ %call23, %if.end48 ], [ %call23, %lor.lhs.false59 ], [ %call23, %lor.lhs.false55 ], [ %call23, %if.end53 ], [ %call23, %lor.lhs.false73 ], [ %call23, %lor.lhs.false68 ], [ %call23, %if.end63 ], [ %call23, %for.end ], [ %call23, %lor.lhs.false107 ], [ %call23, %lor.lhs.false103 ], [ %call23, %lor.lhs.false99 ], [ %call23, %lor.lhs.false96 ], [ %call23, %if.end93 ], [ %call23, %if.end111 ]
-  %C1.0.ph.ph = phi ptr [ null, %if.end ], [ null, %if.end9 ], [ null, %if.end13 ], [ null, %if.end22 ], [ null, %if.end27 ], [ null, %if.end48 ], [ %call49, %lor.lhs.false59 ], [ %call49, %lor.lhs.false55 ], [ %call49, %if.end53 ], [ %call49, %lor.lhs.false73 ], [ %call49, %lor.lhs.false68 ], [ %call49, %if.end63 ], [ %call49, %for.end ], [ %call49, %lor.lhs.false107 ], [ %call49, %lor.lhs.false103 ], [ %call49, %lor.lhs.false99 ], [ %call49, %lor.lhs.false96 ], [ %call49, %if.end93 ], [ %call49, %if.end111 ]
   %sm2_ctext.0.ph.ph = phi ptr [ null, %if.end ], [ %call1.i, %if.end9 ], [ %call1.i, %if.end13 ], [ %call1.i, %if.end22 ], [ %call1.i, %if.end27 ], [ %call1.i, %if.end48 ], [ %call1.i, %lor.lhs.false59 ], [ %call1.i, %lor.lhs.false55 ], [ %call1.i, %if.end53 ], [ %call1.i, %lor.lhs.false73 ], [ %call1.i, %lor.lhs.false68 ], [ %call1.i, %if.end63 ], [ %call1.i, %for.end ], [ %call1.i, %lor.lhs.false107 ], [ %call1.i, %lor.lhs.false103 ], [ %call1.i, %lor.lhs.false99 ], [ %call1.i, %lor.lhs.false96 ], [ %call1.i, %if.end93 ], [ %call1.i, %if.end111 ]
   %x2y2.0.ph.ph = phi ptr [ null, %if.end ], [ null, %if.end9 ], [ null, %if.end13 ], [ null, %if.end22 ], [ null, %if.end27 ], [ %call36, %if.end48 ], [ %call36, %lor.lhs.false59 ], [ %call36, %lor.lhs.false55 ], [ %call36, %if.end53 ], [ %call36, %lor.lhs.false73 ], [ %call36, %lor.lhs.false68 ], [ %call36, %if.end63 ], [ %call36, %for.end ], [ %call36, %lor.lhs.false107 ], [ %call36, %lor.lhs.false103 ], [ %call36, %lor.lhs.false99 ], [ %call36, %lor.lhs.false96 ], [ %call36, %if.end93 ], [ %call36, %if.end111 ]
   %computed_C3.0.ph.ph = phi ptr [ null, %if.end ], [ null, %if.end9 ], [ null, %if.end13 ], [ null, %if.end22 ], [ null, %if.end27 ], [ %call38, %if.end48 ], [ %call38, %lor.lhs.false59 ], [ %call38, %lor.lhs.false55 ], [ %call38, %if.end53 ], [ %call38, %lor.lhs.false73 ], [ %call38, %lor.lhs.false68 ], [ %call38, %if.end63 ], [ %call38, %for.end ], [ %call38, %lor.lhs.false107 ], [ %call38, %lor.lhs.false103 ], [ %call38, %lor.lhs.false99 ], [ %call38, %lor.lhs.false96 ], [ %call38, %if.end93 ], [ %call38, %if.end111 ]
+  %C1.0.ph.ph = phi ptr [ null, %if.end ], [ null, %if.end9 ], [ null, %if.end13 ], [ null, %if.end22 ], [ null, %if.end27 ], [ null, %if.end48 ], [ %call49, %lor.lhs.false59 ], [ %call49, %lor.lhs.false55 ], [ %call49, %if.end53 ], [ %call49, %lor.lhs.false73 ], [ %call49, %lor.lhs.false68 ], [ %call49, %if.end63 ], [ %call49, %for.end ], [ %call49, %lor.lhs.false107 ], [ %call49, %lor.lhs.false103 ], [ %call49, %lor.lhs.false99 ], [ %call49, %lor.lhs.false96 ], [ %call49, %if.end93 ], [ %call49, %if.end111 ]
+  %ctx.0.ph.ph = phi ptr [ null, %if.end ], [ null, %if.end9 ], [ null, %if.end13 ], [ null, %if.end22 ], [ %call23, %if.end27 ], [ %call23, %if.end48 ], [ %call23, %lor.lhs.false59 ], [ %call23, %lor.lhs.false55 ], [ %call23, %if.end53 ], [ %call23, %lor.lhs.false73 ], [ %call23, %lor.lhs.false68 ], [ %call23, %if.end63 ], [ %call23, %for.end ], [ %call23, %lor.lhs.false107 ], [ %call23, %lor.lhs.false103 ], [ %call23, %lor.lhs.false99 ], [ %call23, %lor.lhs.false96 ], [ %call23, %if.end93 ], [ %call23, %if.end111 ]
   %msg_mask.0.ph.ph = phi ptr [ null, %if.end ], [ null, %if.end9 ], [ null, %if.end13 ], [ null, %if.end22 ], [ null, %if.end27 ], [ %call35, %if.end48 ], [ %call35, %lor.lhs.false59 ], [ %call35, %lor.lhs.false55 ], [ %call35, %if.end53 ], [ %call35, %lor.lhs.false73 ], [ %call35, %lor.lhs.false68 ], [ %call35, %if.end63 ], [ %call35, %for.end ], [ %call35, %lor.lhs.false107 ], [ %call35, %lor.lhs.false103 ], [ %call35, %lor.lhs.false99 ], [ %call35, %lor.lhs.false96 ], [ %call35, %if.end93 ], [ %call35, %if.end111 ]
   %hash.0.ph.ph = phi ptr [ null, %if.end ], [ null, %if.end9 ], [ null, %if.end13 ], [ null, %if.end22 ], [ null, %if.end27 ], [ null, %if.end48 ], [ null, %lor.lhs.false59 ], [ null, %lor.lhs.false55 ], [ null, %if.end53 ], [ null, %lor.lhs.false73 ], [ null, %lor.lhs.false68 ], [ null, %if.end63 ], [ null, %for.end ], [ %call89, %lor.lhs.false107 ], [ %call89, %lor.lhs.false103 ], [ %call89, %lor.lhs.false99 ], [ %call89, %lor.lhs.false96 ], [ %call89, %if.end93 ], [ %call89, %if.end111 ]
   call void @ERR_new() #4
@@ -706,11 +706,11 @@ if.then121.sink.split:                            ; preds = %if.end111, %if.end9
   br label %if.then121
 
 if.then121:                                       ; preds = %if.then121.sink.split, %entry, %if.end33
-  %ctx.0.ph = phi ptr [ %call23, %if.end33 ], [ null, %entry ], [ %ctx.0.ph.ph, %if.then121.sink.split ]
-  %C1.0.ph = phi ptr [ null, %if.end33 ], [ null, %entry ], [ %C1.0.ph.ph, %if.then121.sink.split ]
   %sm2_ctext.0.ph = phi ptr [ %call1.i, %if.end33 ], [ null, %entry ], [ %sm2_ctext.0.ph.ph, %if.then121.sink.split ]
   %x2y2.0.ph = phi ptr [ %call36, %if.end33 ], [ null, %entry ], [ %x2y2.0.ph.ph, %if.then121.sink.split ]
   %computed_C3.0.ph = phi ptr [ %call38, %if.end33 ], [ null, %entry ], [ %computed_C3.0.ph.ph, %if.then121.sink.split ]
+  %C1.0.ph = phi ptr [ null, %if.end33 ], [ null, %entry ], [ %C1.0.ph.ph, %if.then121.sink.split ]
+  %ctx.0.ph = phi ptr [ %call23, %if.end33 ], [ null, %entry ], [ %ctx.0.ph.ph, %if.then121.sink.split ]
   %msg_mask.0.ph = phi ptr [ %call35, %if.end33 ], [ null, %entry ], [ %msg_mask.0.ph.ph, %if.then121.sink.split ]
   %hash.0.ph = phi ptr [ null, %if.end33 ], [ null, %entry ], [ %hash.0.ph.ph, %if.then121.sink.split ]
   %13 = load i64, ptr %ptext_len, align 8
@@ -718,22 +718,22 @@ if.then121:                                       ; preds = %if.then121.sink.spl
   br label %if.end122
 
 if.end122:                                        ; preds = %done, %if.then121
-  %hash.0104 = phi ptr [ %hash.0.ph, %if.then121 ], [ %call89, %done ]
-  %msg_mask.0102 = phi ptr [ %msg_mask.0.ph, %if.then121 ], [ %call35, %done ]
-  %computed_C3.0100 = phi ptr [ %computed_C3.0.ph, %if.then121 ], [ %call38, %done ]
-  %x2y2.098 = phi ptr [ %x2y2.0.ph, %if.then121 ], [ %call36, %done ]
-  %sm2_ctext.096 = phi ptr [ %sm2_ctext.0.ph, %if.then121 ], [ %call1.i, %done ]
-  %C1.094 = phi ptr [ %C1.0.ph, %if.then121 ], [ %call49, %done ]
-  %ctx.092 = phi ptr [ %ctx.0.ph, %if.then121 ], [ %call23, %done ]
-  %rc.090 = phi i32 [ 0, %if.then121 ], [ 1, %done ]
-  call void @CRYPTO_free(ptr noundef %msg_mask.0102, ptr noundef nonnull @.str.1, i32 noundef 395) #4
-  call void @CRYPTO_free(ptr noundef %x2y2.098, ptr noundef nonnull @.str.1, i32 noundef 396) #4
-  call void @CRYPTO_free(ptr noundef %computed_C3.0100, ptr noundef nonnull @.str.1, i32 noundef 397) #4
-  call void @EC_POINT_free(ptr noundef %C1.094) #4
-  call void @BN_CTX_free(ptr noundef %ctx.092) #4
-  call void @ASN1_item_free(ptr noundef %sm2_ctext.096, ptr noundef nonnull @SM2_Ciphertext_it.local_it) #4
-  call void @EVP_MD_CTX_free(ptr noundef %hash.0104) #4
-  ret i32 %rc.090
+  %rc.0104 = phi i32 [ 0, %if.then121 ], [ 1, %done ]
+  %hash.0102 = phi ptr [ %hash.0.ph, %if.then121 ], [ %call89, %done ]
+  %msg_mask.0100 = phi ptr [ %msg_mask.0.ph, %if.then121 ], [ %call35, %done ]
+  %ctx.098 = phi ptr [ %ctx.0.ph, %if.then121 ], [ %call23, %done ]
+  %C1.096 = phi ptr [ %C1.0.ph, %if.then121 ], [ %call49, %done ]
+  %computed_C3.094 = phi ptr [ %computed_C3.0.ph, %if.then121 ], [ %call38, %done ]
+  %x2y2.092 = phi ptr [ %x2y2.0.ph, %if.then121 ], [ %call36, %done ]
+  %sm2_ctext.090 = phi ptr [ %sm2_ctext.0.ph, %if.then121 ], [ %call1.i, %done ]
+  call void @CRYPTO_free(ptr noundef %msg_mask.0100, ptr noundef nonnull @.str.1, i32 noundef 395) #4
+  call void @CRYPTO_free(ptr noundef %x2y2.092, ptr noundef nonnull @.str.1, i32 noundef 396) #4
+  call void @CRYPTO_free(ptr noundef %computed_C3.094, ptr noundef nonnull @.str.1, i32 noundef 397) #4
+  call void @EC_POINT_free(ptr noundef %C1.096) #4
+  call void @BN_CTX_free(ptr noundef %ctx.098) #4
+  call void @ASN1_item_free(ptr noundef %sm2_ctext.090, ptr noundef nonnull @SM2_Ciphertext_it.local_it) #4
+  call void @EVP_MD_CTX_free(ptr noundef %hash.0102) #4
+  ret i32 %rc.0104
 }
 
 declare i32 @EC_POINT_set_affine_coordinates(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

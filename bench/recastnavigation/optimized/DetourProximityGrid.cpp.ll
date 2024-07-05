@@ -235,16 +235,16 @@ define void @_ZN15dtProximityGrid7addItemEtffff(ptr nocapture noundef nonnull al
   br i1 %37, label %.preheader, label %._crit_edge35
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %._crit_edge
-  %.02934 = phi i32 [ %69, %._crit_edge ], [ %27, %.preheader.lr.ph.split ]
-  %38 = mul nsw i32 %.02934, 19349663
-  %39 = trunc i32 %.02934 to i16
+  %.034 = phi i32 [ %69, %._crit_edge ], [ %27, %.preheader.lr.ph.split ]
+  %38 = mul nsw i32 %.034, 19349663
+  %39 = trunc i32 %.034 to i16
   %40 = load i32, ptr %30, align 8
   %41 = load i32, ptr %31, align 4
   %42 = icmp slt i32 %40, %41
   br i1 %42, label %.lr.ph.split, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.preheader, %67
-  %.032 = phi i32 [ %68, %67 ], [ %29, %.preheader ]
+  %.02932 = phi i32 [ %68, %67 ], [ %29, %.preheader ]
   %43 = load i32, ptr %30, align 8
   %44 = load i32, ptr %31, align 4
   %45 = icmp slt i32 %43, %44
@@ -252,7 +252,7 @@ define void @_ZN15dtProximityGrid7addItemEtffff(ptr nocapture noundef nonnull al
 
 46:                                               ; preds = %.lr.ph.split
   %47 = load i32, ptr %32, align 8
-  %48 = mul nsw i32 %.032, 73856093
+  %48 = mul nsw i32 %.02932, 73856093
   %49 = xor i32 %48, %38
   %50 = add nsw i32 %47, -1
   %51 = and i32 %50, %49
@@ -263,7 +263,7 @@ define void @_ZN15dtProximityGrid7addItemEtffff(ptr nocapture noundef nonnull al
   %.mask = and i32 %43, 65535
   %55 = zext nneg i32 %.mask to i64
   %56 = getelementptr inbounds %"struct.dtProximityGrid::Item", ptr %54, i64 %55
-  %57 = trunc i32 %.032 to i16
+  %57 = trunc i32 %.02932 to i16
   %58 = getelementptr inbounds i8, ptr %56, i64 2
   store i16 %57, ptr %58, align 2
   %59 = getelementptr inbounds i8, ptr %56, i64 4
@@ -281,13 +281,13 @@ define void @_ZN15dtProximityGrid7addItemEtffff(ptr nocapture noundef nonnull al
   br label %67
 
 67:                                               ; preds = %.lr.ph.split, %46
-  %68 = add i32 %.032, 1
-  %exitcond.not = icmp eq i32 %.032, %28
+  %68 = add i32 %.02932, 1
+  %exitcond.not = icmp eq i32 %.02932, %28
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %67, %.preheader
-  %69 = add i32 %.02934, 1
-  %exitcond42.not = icmp eq i32 %.02934, %26
+  %69 = add i32 %.034, 1
+  %exitcond42.not = icmp eq i32 %.034, %26
   br i1 %exitcond42.not, label %._crit_edge35, label %.preheader, !llvm.loop !7
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %.preheader.lr.ph.split, %.preheader.lr.ph, %6
@@ -321,43 +321,43 @@ define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr nocapture noun
   br i1 %.not4664, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge68
-  %.04372 = phi i32 [ %60, %._crit_edge68 ], [ %15, %.preheader.lr.ph ]
-  %.04471 = phi i32 [ %.2.lcssa, %._crit_edge68 ], [ 0, %.preheader.lr.ph ]
-  %25 = mul nsw i32 %.04372, 19349663
+  %.04172 = phi i32 [ %.2.lcssa, %._crit_edge68 ], [ 0, %.preheader.lr.ph ]
+  %.04371 = phi i32 [ %60, %._crit_edge68 ], [ %15, %.preheader.lr.ph ]
+  %25 = mul nsw i32 %.04371, 19349663
   br label %26
 
 26:                                               ; preds = %.preheader, %._crit_edge63
-  %.04266 = phi i32 [ %12, %.preheader ], [ %59, %._crit_edge63 ]
-  %.165 = phi i32 [ %.04471, %.preheader ], [ %.2.lcssa, %._crit_edge63 ]
+  %.166 = phi i32 [ %.04172, %.preheader ], [ %.2.lcssa, %._crit_edge63 ]
+  %.04465 = phi i32 [ %12, %.preheader ], [ %59, %._crit_edge63 ]
   %27 = load i32, ptr %22, align 8
-  %28 = mul nsw i32 %.04266, 73856093
+  %28 = mul nsw i32 %.04465, 73856093
   %29 = xor i32 %28, %25
   %30 = add nsw i32 %27, -1
   %31 = and i32 %30, %29
   %32 = load ptr, ptr %23, align 8
   %33 = sext i32 %31 to i64
   %34 = getelementptr inbounds i16, ptr %32, i64 %33
-  %.04057 = load i16, ptr %34, align 2
-  %.not4758 = icmp eq i16 %.04057, -1
+  %.04257 = load i16, ptr %34, align 2
+  %.not4758 = icmp eq i16 %.04257, -1
   br i1 %.not4758, label %._crit_edge63, label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %26, %.critedge
-  %.04060 = phi i16 [ %.040, %.critedge ], [ %.04057, %26 ]
-  %.259 = phi i32 [ %.3, %.critedge ], [ %.165, %26 ]
+  %.04260 = phi i16 [ %.042, %.critedge ], [ %.04257, %26 ]
+  %.259 = phi i32 [ %.3, %.critedge ], [ %.166, %26 ]
   %35 = load ptr, ptr %24, align 8
-  %36 = zext i16 %.04060 to i64
+  %36 = zext i16 %.04260 to i64
   %37 = getelementptr inbounds %"struct.dtProximityGrid::Item", ptr %35, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 2
   %39 = load i16, ptr %38, align 2
   %40 = sext i16 %39 to i32
-  %41 = icmp eq i32 %.04266, %40
+  %41 = icmp eq i32 %.04465, %40
   br i1 %41, label %42, label %.critedge
 
 42:                                               ; preds = %.lr.ph62
   %43 = getelementptr inbounds i8, ptr %37, i64 4
   %44 = load i16, ptr %43, align 2
   %45 = sext i16 %44 to i32
-  %46 = icmp eq i32 %.04372, %45
+  %46 = icmp eq i32 %.04371, %45
   br i1 %46, label %47, label %.critedge
 
 47:                                               ; preds = %42
@@ -394,24 +394,24 @@ define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr nocapture noun
 .critedge:                                        ; preds = %53, %55, %42, %.lr.ph62
   %.3 = phi i32 [ %57, %55 ], [ %.259, %42 ], [ %.259, %.lr.ph62 ], [ %.259, %53 ]
   %58 = getelementptr inbounds i8, ptr %37, i64 6
-  %.040 = load i16, ptr %58, align 2
-  %.not47 = icmp eq i16 %.040, -1
+  %.042 = load i16, ptr %58, align 2
+  %.not47 = icmp eq i16 %.042, -1
   br i1 %.not47, label %._crit_edge63, label %.lr.ph62, !llvm.loop !9
 
 ._crit_edge63:                                    ; preds = %.critedge, %26
-  %.2.lcssa = phi i32 [ %.165, %26 ], [ %.3, %.critedge ]
-  %59 = add i32 %.04266, 1
-  %exitcond.not = icmp eq i32 %.04266, %18
+  %.2.lcssa = phi i32 [ %.166, %26 ], [ %.3, %.critedge ]
+  %59 = add i32 %.04465, 1
+  %exitcond.not = icmp eq i32 %.04465, %18
   br i1 %exitcond.not, label %._crit_edge68, label %26, !llvm.loop !10
 
 ._crit_edge68:                                    ; preds = %._crit_edge63
-  %60 = add i32 %.04372, 1
-  %exitcond77.not = icmp eq i32 %.04372, %21
+  %60 = add i32 %.04371, 1
+  %exitcond77.not = icmp eq i32 %.04371, %21
   br i1 %exitcond77.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %._crit_edge68, %._crit_edge, %.preheader.lr.ph, %7
-  %.041 = phi i32 [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ %.259, %._crit_edge ], [ %.2.lcssa, %._crit_edge68 ]
-  ret i32 %.041
+  %.040 = phi i32 [ 0, %7 ], [ 0, %.preheader.lr.ph ], [ %.259, %._crit_edge ], [ %.2.lcssa, %._crit_edge68 ]
+  ret i32 %.040
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -427,8 +427,8 @@ define noundef i32 @_ZNK15dtProximityGrid14getItemCountAtEii(ptr nocapture nound
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %10 to i64
   %14 = getelementptr inbounds i16, ptr %12, i64 %13
-  %.013 = load i16, ptr %14, align 2
-  %.not14 = icmp eq i16 %.013, -1
+  %.01213 = load i16, ptr %14, align 2
+  %.not14 = icmp eq i16 %.01213, -1
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -437,9 +437,9 @@ define noundef i32 @_ZNK15dtProximityGrid14getItemCountAtEii(ptr nocapture nound
   br label %17
 
 17:                                               ; preds = %.lr.ph, %30
-  %.016 = phi i16 [ %.013, %.lr.ph ], [ %.0, %30 ]
-  %.01215 = phi i32 [ 0, %.lr.ph ], [ %.1, %30 ]
-  %18 = zext i16 %.016 to i64
+  %.01216 = phi i16 [ %.01213, %.lr.ph ], [ %.012, %30 ]
+  %.015 = phi i32 [ 0, %.lr.ph ], [ %.1, %30 ]
+  %18 = zext i16 %.01216 to i64
   %19 = getelementptr inbounds %"struct.dtProximityGrid::Item", ptr %16, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 2
   %21 = load i16, ptr %20, align 2
@@ -453,19 +453,19 @@ define noundef i32 @_ZNK15dtProximityGrid14getItemCountAtEii(ptr nocapture nound
   %27 = sext i16 %26 to i32
   %28 = icmp eq i32 %27, %2
   %29 = zext i1 %28 to i32
-  %spec.select = add nsw i32 %.01215, %29
+  %spec.select = add nsw i32 %.015, %29
   br label %30
 
 30:                                               ; preds = %24, %17
-  %.1 = phi i32 [ %.01215, %17 ], [ %spec.select, %24 ]
+  %.1 = phi i32 [ %.015, %17 ], [ %spec.select, %24 ]
   %31 = getelementptr inbounds i8, ptr %19, i64 6
-  %.0 = load i16, ptr %31, align 2
-  %.not = icmp eq i16 %.0, -1
+  %.012 = load i16, ptr %31, align 2
+  %.not = icmp eq i16 %.012, -1
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %30, %3
-  %.012.lcssa = phi i32 [ 0, %3 ], [ %.1, %30 ]
-  ret i32 %.012.lcssa
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %30 ]
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

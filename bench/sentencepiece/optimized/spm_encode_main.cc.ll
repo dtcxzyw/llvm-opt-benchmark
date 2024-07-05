@@ -2670,20 +2670,20 @@ define linkonce_odr void @_ZN13sentencepiece11string_util10SimpleItoaIiEENSt7__c
   br i1 %.not22.i, label %14, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %8, %.thread.i
-  %.01729.i = phi ptr [ %6, %.thread.i ], [ %3, %8 ]
-  %.01828.i = phi i32 [ %7, %.thread.i ], [ %1, %8 ]
+  %.01730.i = phi i32 [ %7, %.thread.i ], [ %1, %8 ]
+  %.01928.i = phi ptr [ %6, %.thread.i ], [ %3, %8 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.024.i = phi ptr [ %12, %.lr.ph.i ], [ %.01729.i, %.lr.ph.preheader.i ]
-  %.11923.i = phi i32 [ %13, %.lr.ph.i ], [ %.01828.i, %.lr.ph.preheader.i ]
-  %9 = urem i32 %.11923.i, 10
+  %.024.i = phi ptr [ %12, %.lr.ph.i ], [ %.01928.i, %.lr.ph.preheader.i ]
+  %.11823.i = phi i32 [ %13, %.lr.ph.i ], [ %.01730.i, %.lr.ph.preheader.i ]
+  %9 = urem i32 %.11823.i, 10
   %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, 48
   %12 = getelementptr inbounds i8, ptr %.024.i, i64 1
   store i8 %11, ptr %.024.i, align 1
-  %13 = udiv i32 %.11923.i, 10
-  %.not.i = icmp ult i32 %.11923.i, 10
+  %13 = udiv i32 %.11823.i, 10
+  %.not.i = icmp ult i32 %.11823.i, 10
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 14:                                               ; preds = %8
@@ -2692,18 +2692,18 @@ define linkonce_odr void @_ZN13sentencepiece11string_util10SimpleItoaIiEENSt7__c
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %14
-  %.0173033.i = phi ptr [ %3, %14 ], [ %.01729.i, %.lr.ph.i ]
+  %.0192933.i = phi ptr [ %3, %14 ], [ %.01928.i, %.lr.ph.i ]
   %.1.i = phi ptr [ %15, %14 ], [ %12, %.lr.ph.i ]
   store i8 0, ptr %.1.i, align 1
-  %16 = icmp ne ptr %.0173033.i, %.1.i
+  %16 = icmp ne ptr %.0192933.i, %.1.i
   %.012.i.i.i = getelementptr inbounds i8, ptr %.1.i, i64 -1
-  %17 = icmp ugt ptr %.012.i.i.i, %.0173033.i
+  %17 = icmp ugt ptr %.012.i.i.i, %.0192933.i
   %or.cond.i.i.i = select i1 %16, i1 %17, i1 false
   br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %_ZN13sentencepiece11string_util4ItoaIiEEmT_Pc.exit
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge.i, %.lr.ph.i.i.i
   %.014.i.i.i = phi ptr [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %.012.i.i.i, %._crit_edge.i ]
-  %.0913.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i ], [ %.0173033.i, %._crit_edge.i ]
+  %.0913.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i ], [ %.0192933.i, %._crit_edge.i ]
   %18 = load i8, ptr %.0913.i.i.i, align 1
   %19 = load i8, ptr %.014.i.i.i, align 1
   store i8 %19, ptr %.0913.i.i.i, align 1
@@ -4399,20 +4399,20 @@ define linkonce_odr void @_ZN4absl7StrJoinB5cxx11ERKSt6vectorIiSaIiEESt17basic_s
   br i1 %.not22.i, label %21, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %15, %.thread.i
-  %.01729.i = phi ptr [ %13, %.thread.i ], [ %5, %15 ]
-  %.01828.i = phi i32 [ %14, %.thread.i ], [ %11, %15 ]
+  %.01730.i = phi i32 [ %14, %.thread.i ], [ %11, %15 ]
+  %.01928.i = phi ptr [ %13, %.thread.i ], [ %5, %15 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.024.i = phi ptr [ %19, %.lr.ph.i ], [ %.01729.i, %.lr.ph.preheader.i ]
-  %.11923.i = phi i32 [ %20, %.lr.ph.i ], [ %.01828.i, %.lr.ph.preheader.i ]
-  %16 = urem i32 %.11923.i, 10
+  %.024.i = phi ptr [ %19, %.lr.ph.i ], [ %.01928.i, %.lr.ph.preheader.i ]
+  %.11823.i = phi i32 [ %20, %.lr.ph.i ], [ %.01730.i, %.lr.ph.preheader.i ]
+  %16 = urem i32 %.11823.i, 10
   %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, 48
   %19 = getelementptr inbounds i8, ptr %.024.i, i64 1
   store i8 %18, ptr %.024.i, align 1
-  %20 = udiv i32 %.11923.i, 10
-  %.not.i = icmp ult i32 %.11923.i, 10
+  %20 = udiv i32 %.11823.i, 10
+  %.not.i = icmp ult i32 %.11823.i, 10
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 21:                                               ; preds = %15
@@ -4421,18 +4421,18 @@ define linkonce_odr void @_ZN4absl7StrJoinB5cxx11ERKSt6vectorIiSaIiEESt17basic_s
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %21
-  %.0173033.i = phi ptr [ %5, %21 ], [ %.01729.i, %.lr.ph.i ]
+  %.0192933.i = phi ptr [ %5, %21 ], [ %.01928.i, %.lr.ph.i ]
   %.1.i = phi ptr [ %22, %21 ], [ %19, %.lr.ph.i ]
   store i8 0, ptr %.1.i, align 1
-  %23 = icmp ne ptr %.0173033.i, %.1.i
+  %23 = icmp ne ptr %.0192933.i, %.1.i
   %.012.i.i.i = getelementptr inbounds i8, ptr %.1.i, i64 -1
-  %24 = icmp ugt ptr %.012.i.i.i, %.0173033.i
+  %24 = icmp ugt ptr %.012.i.i.i, %.0192933.i
   %or.cond.i.i.i = select i1 %23, i1 %24, i1 false
   br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %.loopexit31
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge.i, %.lr.ph.i.i.i
   %.014.i.i.i = phi ptr [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %.012.i.i.i, %._crit_edge.i ]
-  %.0913.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i ], [ %.0173033.i, %._crit_edge.i ]
+  %.0913.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i ], [ %.0192933.i, %._crit_edge.i ]
   %25 = load i8, ptr %.0913.i.i.i, align 1
   %26 = load i8, ptr %.014.i.i.i, align 1
   store i8 %26, ptr %.0913.i.i.i, align 1
@@ -4505,20 +4505,20 @@ define linkonce_odr void @_ZN4absl7StrJoinB5cxx11ERKSt6vectorIiSaIiEESt17basic_s
   br i1 %.not22.i11, label %57, label %.lr.ph.preheader.i12
 
 .lr.ph.preheader.i12:                             ; preds = %51, %.thread.i28
-  %.01729.i13 = phi ptr [ %41, %.thread.i28 ], [ %5, %51 ]
-  %.01828.i14 = phi i32 [ %50, %.thread.i28 ], [ %48, %51 ]
+  %.01730.i13 = phi i32 [ %50, %.thread.i28 ], [ %48, %51 ]
+  %.01928.i14 = phi ptr [ %41, %.thread.i28 ], [ %5, %51 ]
   br label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %.lr.ph.i15, %.lr.ph.preheader.i12
-  %.024.i16 = phi ptr [ %55, %.lr.ph.i15 ], [ %.01729.i13, %.lr.ph.preheader.i12 ]
-  %.11923.i17 = phi i32 [ %56, %.lr.ph.i15 ], [ %.01828.i14, %.lr.ph.preheader.i12 ]
-  %52 = urem i32 %.11923.i17, 10
+  %.024.i16 = phi ptr [ %55, %.lr.ph.i15 ], [ %.01928.i14, %.lr.ph.preheader.i12 ]
+  %.11823.i17 = phi i32 [ %56, %.lr.ph.i15 ], [ %.01730.i13, %.lr.ph.preheader.i12 ]
+  %52 = urem i32 %.11823.i17, 10
   %53 = trunc nuw nsw i32 %52 to i8
   %54 = or disjoint i8 %53, 48
   %55 = getelementptr inbounds i8, ptr %.024.i16, i64 1
   store i8 %54, ptr %.024.i16, align 1
-  %56 = udiv i32 %.11923.i17, 10
-  %.not.i18 = icmp ult i32 %.11923.i17, 10
+  %56 = udiv i32 %.11823.i17, 10
+  %.not.i18 = icmp ult i32 %.11823.i17, 10
   br i1 %.not.i18, label %._crit_edge.i19, label %.lr.ph.i15, !llvm.loop !20
 
 57:                                               ; preds = %51
@@ -4526,18 +4526,18 @@ define linkonce_odr void @_ZN4absl7StrJoinB5cxx11ERKSt6vectorIiSaIiEESt17basic_s
   br label %._crit_edge.i19
 
 ._crit_edge.i19:                                  ; preds = %.lr.ph.i15, %57
-  %.0173033.i20 = phi ptr [ %5, %57 ], [ %.01729.i13, %.lr.ph.i15 ]
+  %.0192933.i20 = phi ptr [ %5, %57 ], [ %.01928.i14, %.lr.ph.i15 ]
   %.1.i21 = phi ptr [ %41, %57 ], [ %55, %.lr.ph.i15 ]
   store i8 0, ptr %.1.i21, align 1
-  %58 = icmp ne ptr %.0173033.i20, %.1.i21
+  %58 = icmp ne ptr %.0192933.i20, %.1.i21
   %.012.i.i.i22 = getelementptr inbounds i8, ptr %.1.i21, i64 -1
-  %59 = icmp ugt ptr %.012.i.i.i22, %.0173033.i20
+  %59 = icmp ugt ptr %.012.i.i.i22, %.0192933.i20
   %or.cond.i.i.i23 = select i1 %58, i1 %59, i1 false
   br i1 %or.cond.i.i.i23, label %.lr.ph.i.i.i24, label %.loopexit
 
 .lr.ph.i.i.i24:                                   ; preds = %._crit_edge.i19, %.lr.ph.i.i.i24
   %.014.i.i.i25 = phi ptr [ %.0.i.i.i27, %.lr.ph.i.i.i24 ], [ %.012.i.i.i22, %._crit_edge.i19 ]
-  %.0913.i.i.i26 = phi ptr [ %62, %.lr.ph.i.i.i24 ], [ %.0173033.i20, %._crit_edge.i19 ]
+  %.0913.i.i.i26 = phi ptr [ %62, %.lr.ph.i.i.i24 ], [ %.0192933.i20, %._crit_edge.i19 ]
   %60 = load i8, ptr %.0913.i.i.i26, align 1
   %61 = load i8, ptr %.014.i.i.i25, align 1
   store i8 %61, ptr %.0913.i.i.i26, align 1

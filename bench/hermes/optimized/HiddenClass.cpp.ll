@@ -4203,9 +4203,9 @@ if.end8:                                          ; preds = %if.then5
   br label %for.body
 
 for.body:                                         ; preds = %if.end8, %if.end23
-  %P.0.idx39 = phi i64 [ 0, %if.end8 ], [ %P.0.add, %if.end23 ]
-  %TmpEnd.038 = phi ptr [ %TmpStorage, %if.end8 ], [ %TmpEnd.1, %if.end23 ]
-  %P.0.ptr40 = getelementptr inbounds i8, ptr %storage.i.i.i, i64 %P.0.idx39
+  %TmpEnd.039 = phi ptr [ %TmpStorage, %if.end8 ], [ %TmpEnd.1, %if.end23 ]
+  %P.0.idx38 = phi i64 [ 0, %if.end8 ], [ %P.0.add, %if.end23 ]
+  %P.0.ptr40 = getelementptr inbounds i8, ptr %storage.i.i.i, i64 %P.0.idx38
   %1 = load i32, ptr %P.0.ptr40, align 8
   %propertyFlags.i.i = getelementptr inbounds i8, ptr %P.0.ptr40, i64 4
   %2 = load i16, ptr %propertyFlags.i.i, align 4
@@ -4217,17 +4217,17 @@ for.body:                                         ; preds = %if.end8, %if.end23
 
 if.then17:                                        ; preds = %for.body
   %5 = load i64, ptr %P.0.ptr40, align 8
-  store i64 %5, ptr %TmpEnd.038, align 4
-  %second.i = getelementptr inbounds i8, ptr %TmpEnd.038, i64 8
+  store i64 %5, ptr %TmpEnd.039, align 4
+  %second.i = getelementptr inbounds i8, ptr %TmpEnd.039, i64 8
   %second.i26 = getelementptr inbounds i8, ptr %P.0.ptr40, i64 8
   %6 = load i64, ptr %second.i26, align 8
   store i64 %6, ptr %second.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %TmpEnd.038, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %TmpEnd.039, i64 16
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then17, %for.body
-  %TmpEnd.1 = phi ptr [ %TmpEnd.038, %for.body ], [ %incdec.ptr, %if.then17 ]
-  %P.0.add = add nuw nsw i64 %P.0.idx39, 16
+  %TmpEnd.1 = phi ptr [ %TmpEnd.039, %for.body ], [ %incdec.ptr, %if.then17 ]
+  %P.0.add = add nuw nsw i64 %P.0.idx38, 16
   %cmp12.not = icmp eq i64 %P.0.add, 128
   br i1 %cmp12.not, label %for.end, label %for.body, !llvm.loop !29
 

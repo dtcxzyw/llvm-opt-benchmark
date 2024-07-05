@@ -3438,19 +3438,19 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %44, %_ZNSt6vectorIi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt14_Bit_referenceaSEb.exit
   %indvars.iv266 = phi i64 [ %49, %.lr.ph.preheader ], [ %indvars.iv.next267, %_ZNSt14_Bit_referenceaSEb.exit ]
-  %.080254 = phi i32 [ 0, %.lr.ph.preheader ], [ %74, %_ZNSt14_Bit_referenceaSEb.exit ]
-  %.081253 = phi i32 [ 1, %.lr.ph.preheader ], [ %75, %_ZNSt14_Bit_referenceaSEb.exit ]
+  %.067254 = phi i32 [ 1, %.lr.ph.preheader ], [ %75, %_ZNSt14_Bit_referenceaSEb.exit ]
+  %.081253 = phi i32 [ 0, %.lr.ph.preheader ], [ %74, %_ZNSt14_Bit_referenceaSEb.exit ]
   %indvars.iv.next267 = add nsw i64 %indvars.iv266, -1
   %50 = mul nsw i64 %.sroa.1191.8.copyload, %indvars.iv.next267
   %51 = getelementptr inbounds double, ptr %22, i64 %50
   %52 = load double, ptr %51, align 8
-  %53 = zext nneg i32 %.081253 to i64
+  %53 = zext nneg i32 %.067254 to i64
   br label %54
 
 54:                                               ; preds = %62, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %.lr.ph ]
-  %.067 = phi i32 [ %55, %62 ], [ 0, %.lr.ph ]
-  %55 = add nuw nsw i32 %.067, 1
+  %.068 = phi i32 [ %55, %62 ], [ 0, %.lr.ph ]
+  %55 = add nuw nsw i32 %.068, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %53
   %56 = trunc nuw i64 %indvars.iv.next to i32
   %57 = icmp slt i32 %56, %2
@@ -3477,9 +3477,9 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %44, %_ZNSt6vectorIi
   %70 = getelementptr inbounds i64, ptr %.sroa.0175.0, i64 %.zext
   %71 = and i64 %indvars.iv.next267, 63
   %72 = shl nuw i64 1, %71
-  %73 = tail call i32 @llvm.umax.i32(i32 %.080254, i32 1)
+  %73 = tail call i32 @llvm.umax.i32(i32 %.081253, i32 1)
   %74 = mul nsw i32 %55, %73
-  %75 = mul nuw nsw i32 %55, %.081253
+  %75 = mul nuw nsw i32 %55, %.067254
   br i1 %68, label %76, label %79
 
 76:                                               ; preds = %63
@@ -3511,8 +3511,8 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %76, %79
 
 ._crit_edge:                                      ; preds = %_ZNSt14_Bit_referenceaSEb.exit, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit
   %84 = phi ptr [ %26, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit ], [ %65, %_ZNSt14_Bit_referenceaSEb.exit ]
-  %.080.lcssa = phi i32 [ 0, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit ], [ %74, %_ZNSt14_Bit_referenceaSEb.exit ]
-  %.not = icmp eq i32 %.080.lcssa, %2
+  %.081.lcssa = phi i32 [ 0, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit ], [ %74, %_ZNSt14_Bit_referenceaSEb.exit ]
+  %.not = icmp eq i32 %.081.lcssa, %2
   br i1 %.not, label %101, label %85
 
 85:                                               ; preds = %._crit_edge

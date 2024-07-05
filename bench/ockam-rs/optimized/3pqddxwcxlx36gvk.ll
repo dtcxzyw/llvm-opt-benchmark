@@ -279,9 +279,9 @@ _ZN13opentelemetry6common22InstrumentationLibrary3new17haacb791776d0298dE.llvm.5
   %.sroa.56.sroa.4.0.copyload.i = load i64, ptr %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !18, !noalias !24
   %.sroa.56.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
   %.sroa.56.sroa.0.0.copyload.i = load i64, ptr %.sroa.56.0..sroa_idx.i, align 8, !alias.scope !18, !noalias !24
-  %.sroa.510.0.i = select i1 %10, i64 0, i64 %.sroa.56.sroa.4.0.copyload.i
   %.sroa.3.0.i = select i1 %10, i64 0, i64 %.sroa.56.sroa.0.0.copyload.i
   %.sroa.09.0.i = select i1 %10, ptr inttoptr (i64 8 to ptr), ptr %.sroa.04.0.copyload.i
+  %.sroa.510.0.i = select i1 %10, i64 0, i64 %.sroa.56.sroa.4.0.copyload.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6), !noalias !25
   store i64 1, ptr %6, align 8, !noalias !25
   %11 = getelementptr inbounds i8, ptr %6, i64 8
@@ -442,9 +442,9 @@ define hidden void @_ZN13opentelemetry6common22InstrumentationLibrary3new17haacb
   %.sroa.56.sroa.4.0.copyload = load i64, ptr %.sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   %.sroa.56.sroa.0.0.copyload = load i64, ptr %.sroa.56.0..sroa_idx, align 8
-  %.sroa.510.0 = select i1 %9, i64 0, i64 %.sroa.56.sroa.4.0.copyload
   %.sroa.3.0 = select i1 %9, i64 0, i64 %.sroa.56.sroa.0.0.copyload
   %.sroa.09.0 = select i1 %9, ptr inttoptr (i64 8 to ptr), ptr %.sroa.04.0.copyload
+  %.sroa.510.0 = select i1 %9, i64 0, i64 %.sroa.56.sroa.4.0.copyload
   %10 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i64 %.sroa.018.0, ptr %0, align 8

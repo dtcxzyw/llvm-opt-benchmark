@@ -15,11 +15,11 @@ define void @softfloat_add256M(ptr nocapture noundef readonly %0, ptr nocapture 
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %7 ]
   %8 = phi i64 [ %6, %3 ], [ %18, %7 ]
   %9 = phi i64 [ %4, %3 ], [ %13, %7 ]
-  %.018 = phi i8 [ 0, %3 ], [ %.1, %7 ]
+  %.01417 = phi i8 [ 0, %3 ], [ %.1, %7 ]
   %.not = icmp eq i64 %8, %9
   %10 = icmp ult i64 %8, %9
   %11 = zext i1 %10 to i8
-  %.1 = select i1 %.not, i8 %.018, i8 %11
+  %.1 = select i1 %.not, i8 %.01417, i8 %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next
   %13 = load i64, ptr %12, align 8

@@ -914,11 +914,11 @@ define dso_local noundef i32 @dump_all_part_state() local_unnamed_addr #0 {
   br i1 %35, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %28, %49
-  %.02737 = phi i32 [ %50, %49 ], [ %30, %28 ]
-  %.02836 = phi i32 [ %51, %49 ], [ 0, %28 ]
-  %36 = sext i32 %.02836 to i64
+  %.02737 = phi i32 [ %51, %49 ], [ 0, %28 ]
+  %.02836 = phi i32 [ %50, %49 ], [ %30, %28 ]
+  %36 = sext i32 %.02737 to i64
   %37 = getelementptr inbounds i8, ptr %32, i64 %36
-  %38 = zext nneg i32 %.02737 to i64
+  %38 = zext nneg i32 %.02836 to i64
   %39 = call i64 @write(i32 noundef %21, ptr noundef %37, i64 noundef %38) #17
   %40 = trunc i64 %39 to i32
   %41 = icmp slt i32 %40, 0
@@ -937,8 +937,8 @@ define dso_local noundef i32 @dump_all_part_state() local_unnamed_addr #0 {
   br label %.loopexit
 
 49:                                               ; preds = %42, %.lr.ph
-  %50 = sub nsw i32 %.02737, %40
-  %51 = add nsw i32 %.02836, %40
+  %50 = sub nsw i32 %.02836, %40
+  %51 = add nsw i32 %.02737, %40
   %52 = icmp sgt i32 %50, 0
   br i1 %52, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
@@ -2959,7 +2959,7 @@ define dso_local i32 @update_part(ptr noundef %0, i1 noundef zeroext %1) local_u
   br label %892
 
 43:                                               ; preds = %37, %34
-  %.0385 = phi ptr [ %36, %34 ], [ %23, %37 ]
+  %.0380 = phi ptr [ %36, %34 ], [ %23, %37 ]
   %44 = tail call i64 @time(ptr noundef null) #17
   store i64 %44, ptr @last_part_update, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2973,9 +2973,9 @@ define dso_local i32 @update_part(ptr noundef %0, i1 noundef zeroext %1) local_u
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %.0385, i64 96
+  %51 = getelementptr inbounds i8, ptr %.0380, i64 96
   tail call void @slurm_xfree(ptr noundef nonnull %51) #17
-  %52 = getelementptr inbounds i8, ptr %.0385, i64 88
+  %52 = getelementptr inbounds i8, ptr %.0380, i64 88
   tail call void @slurm_xfree(ptr noundef nonnull %52) #17
   br label %set_partition_billing_weights.exit.thread
 
@@ -2986,9 +2986,9 @@ define dso_local i32 @update_part(ptr noundef %0, i1 noundef zeroext %1) local_u
   br i1 %.not14.i, label %set_partition_billing_weights.exit.thread506, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %.0385, i64 96
+  %57 = getelementptr inbounds i8, ptr %.0380, i64 96
   tail call void @slurm_xfree(ptr noundef nonnull %57) #17
-  %58 = getelementptr inbounds i8, ptr %.0385, i64 88
+  %58 = getelementptr inbounds i8, ptr %.0380, i64 88
   tail call void @slurm_xfree(ptr noundef nonnull %58) #17
   %59 = tail call ptr @xstrdup(ptr noundef nonnull %46) #17
   store ptr %59, ptr %57, align 8
@@ -3015,7 +3015,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 .sink.split:                                      ; preds = %65, %62
   %67 = load i32, ptr %60, align 4
   %68 = icmp eq i32 %67, 524288
-  %69 = getelementptr inbounds i8, ptr %.0385, i64 104
+  %69 = getelementptr inbounds i8, ptr %.0380, i64 104
   %. = select i1 %68, i32 0, i32 %67
   store i32 %., ptr %69, align 8
   br label %70
@@ -3039,7 +3039,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 79:                                               ; preds = %76, %73
   %80 = load i32, ptr %71, align 8
-  %81 = getelementptr inbounds i8, ptr %.0385, i64 184
+  %81 = getelementptr inbounds i8, ptr %.0380, i64 184
   store i32 %80, ptr %81, align 8
   br label %82
 
@@ -3062,7 +3062,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 91:                                               ; preds = %88, %85
   %92 = load i32, ptr %83, align 4
-  %93 = getelementptr inbounds i8, ptr %.0385, i64 188
+  %93 = getelementptr inbounds i8, ptr %.0380, i64 188
   store i32 %92, ptr %93, align 4
   br label %94
 
@@ -3085,7 +3085,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 103:                                              ; preds = %100, %97
   %104 = load i32, ptr %95, align 8
-  %105 = getelementptr inbounds i8, ptr %.0385, i64 212
+  %105 = getelementptr inbounds i8, ptr %.0380, i64 212
   store i32 %104, ptr %105, align 4
   br label %106
 
@@ -3096,7 +3096,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br i1 %.not422, label %.thread, label %109
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %.0385, i64 212
+  %110 = getelementptr inbounds i8, ptr %.0380, i64 212
   %111 = load i32, ptr %110, align 4
   %112 = icmp ugt i32 %108, %111
   %113 = call i32 @get_log_level() #17
@@ -3122,7 +3122,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 122:                                              ; preds = %119, %118
   %123 = load i32, ptr %107, align 8
-  %124 = getelementptr inbounds i8, ptr %.0385, i64 120
+  %124 = getelementptr inbounds i8, ptr %.0380, i64 120
   store i32 %123, ptr %124, align 8
   br label %.thread
 
@@ -3145,9 +3145,9 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 133:                                              ; preds = %130, %127
   %134 = load i32, ptr %125, align 8
-  %135 = getelementptr inbounds i8, ptr %.0385, i64 200
+  %135 = getelementptr inbounds i8, ptr %.0380, i64 200
   store i32 %134, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %.0385, i64 204
+  %136 = getelementptr inbounds i8, ptr %.0380, i64 204
   store i32 %134, ptr %136, align 4
   br label %137
 
@@ -3170,9 +3170,9 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 146:                                              ; preds = %143, %140
   %147 = load i32, ptr %138, align 4
-  %148 = getelementptr inbounds i8, ptr %.0385, i64 216
+  %148 = getelementptr inbounds i8, ptr %.0380, i64 216
   store i32 %147, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %.0385, i64 220
+  %149 = getelementptr inbounds i8, ptr %.0380, i64 220
   store i32 %147, ptr %149, align 4
   br label %150
 
@@ -3195,7 +3195,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 159:                                              ; preds = %156, %153
   %160 = load i32, ptr %151, align 4
-  %161 = getelementptr inbounds i8, ptr %.0385, i64 172
+  %161 = getelementptr inbounds i8, ptr %.0380, i64 172
   store i32 %160, ptr %161, align 4
   br label %162
 
@@ -3218,7 +3218,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %172
 
 172:                                              ; preds = %170, %167
-  %173 = getelementptr inbounds i8, ptr %.0385, i64 168
+  %173 = getelementptr inbounds i8, ptr %.0380, i64 168
   %174 = load i16, ptr %173, align 8
   %175 = or i16 %174, 2
   store i16 %175, ptr %173, align 8
@@ -3240,7 +3240,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %183
 
 183:                                              ; preds = %181, %178
-  %184 = getelementptr inbounds i8, ptr %.0385, i64 168
+  %184 = getelementptr inbounds i8, ptr %.0380, i64 168
   %185 = load i16, ptr %184, align 8
   %186 = and i16 %185, -3
   store i16 %186, ptr %184, align 8
@@ -3264,7 +3264,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %196
 
 196:                                              ; preds = %194, %191
-  %197 = getelementptr inbounds i8, ptr %.0385, i64 168
+  %197 = getelementptr inbounds i8, ptr %.0380, i64 168
   %198 = load i16, ptr %197, align 8
   %199 = or i16 %198, 16
   store i16 %199, ptr %197, align 8
@@ -3286,7 +3286,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %207
 
 207:                                              ; preds = %205, %202
-  %208 = getelementptr inbounds i8, ptr %.0385, i64 168
+  %208 = getelementptr inbounds i8, ptr %.0380, i64 168
   %209 = load i16, ptr %208, align 8
   %210 = and i16 %209, -17
   store i16 %210, ptr %208, align 8
@@ -3310,7 +3310,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %220
 
 220:                                              ; preds = %218, %215
-  %221 = getelementptr inbounds i8, ptr %.0385, i64 168
+  %221 = getelementptr inbounds i8, ptr %.0380, i64 168
   %222 = load i16, ptr %221, align 8
   %223 = or i16 %222, 8
   store i16 %223, ptr %221, align 8
@@ -3332,7 +3332,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %231
 
 231:                                              ; preds = %229, %226
-  %232 = getelementptr inbounds i8, ptr %.0385, i64 168
+  %232 = getelementptr inbounds i8, ptr %.0380, i64 168
   %233 = load i16, ptr %232, align 8
   %234 = and i16 %233, -9
   store i16 %234, ptr %232, align 8
@@ -3356,7 +3356,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %244
 
 244:                                              ; preds = %242, %239
-  %245 = getelementptr inbounds i8, ptr %.0385, i64 168
+  %245 = getelementptr inbounds i8, ptr %.0380, i64 168
   %246 = load i16, ptr %245, align 8
   %247 = or i16 %246, 4
   store i16 %247, ptr %245, align 8
@@ -3378,7 +3378,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %255
 
 255:                                              ; preds = %253, %250
-  %256 = getelementptr inbounds i8, ptr %.0385, i64 168
+  %256 = getelementptr inbounds i8, ptr %.0380, i64 168
   %257 = load i16, ptr %256, align 8
   %258 = and i16 %257, -5
   store i16 %258, ptr %256, align 8
@@ -3401,7 +3401,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %267
 
 267:                                              ; preds = %265, %262
-  %268 = getelementptr inbounds i8, ptr %.0385, i64 168
+  %268 = getelementptr inbounds i8, ptr %.0380, i64 168
   %269 = load i16, ptr %268, align 8
   %270 = or i16 %269, 128
   store i16 %270, ptr %268, align 8
@@ -3422,7 +3422,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %277
 
 277:                                              ; preds = %275, %272
-  %278 = getelementptr inbounds i8, ptr %.0385, i64 168
+  %278 = getelementptr inbounds i8, ptr %.0380, i64 168
   %279 = load i16, ptr %278, align 8
   %280 = and i16 %279, -129
   store i16 %280, ptr %278, align 8
@@ -3446,7 +3446,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %290
 
 290:                                              ; preds = %288, %285
-  %291 = getelementptr inbounds i8, ptr %.0385, i64 168
+  %291 = getelementptr inbounds i8, ptr %.0380, i64 168
   %292 = load i16, ptr %291, align 8
   %293 = or i16 %292, 64
   store i16 %293, ptr %291, align 8
@@ -3468,7 +3468,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %301
 
 301:                                              ; preds = %299, %296
-  %302 = getelementptr inbounds i8, ptr %.0385, i64 168
+  %302 = getelementptr inbounds i8, ptr %.0380, i64 168
   %303 = load i16, ptr %302, align 8
   %304 = and i16 %303, -65
   store i16 %304, ptr %302, align 8
@@ -3518,8 +3518,8 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   %327 = load ptr, ptr %14, align 8
   %328 = call ptr @xstrdup(ptr noundef %327) #17
   store ptr %328, ptr @default_part_name, align 8
-  store ptr %.0385, ptr @default_part_loc, align 8
-  %329 = getelementptr inbounds i8, ptr %.0385, i64 168
+  store ptr %.0380, ptr @default_part_loc, align 8
+  %329 = getelementptr inbounds i8, ptr %.0380, i64 168
   %330 = load i16, ptr %329, align 8
   %331 = or i16 %330, 1
   store i16 %331, ptr %329, align 8
@@ -3529,7 +3529,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   %333 = and i64 %307, 256
   %.not440 = icmp ne i64 %333, 0
   %334 = load ptr, ptr @default_part_loc, align 8
-  %335 = icmp eq ptr %334, %.0385
+  %335 = icmp eq ptr %334, %.0380
   %or.cond = select i1 %.not440, i1 %335, i1 false
   br i1 %or.cond, label %336, label %345
 
@@ -3546,7 +3546,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 341:                                              ; preds = %339, %336
   call void @slurm_xfree(ptr noundef nonnull @default_part_name) #17
   store ptr null, ptr @default_part_loc, align 8
-  %342 = getelementptr inbounds i8, ptr %.0385, i64 168
+  %342 = getelementptr inbounds i8, ptr %.0380, i64 168
   %343 = load i16, ptr %342, align 8
   %344 = and i16 %343, -2
   store i16 %344, ptr %342, align 8
@@ -3570,7 +3570,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %354
 
 354:                                              ; preds = %352, %349
-  %355 = getelementptr inbounds i8, ptr %.0385, i64 168
+  %355 = getelementptr inbounds i8, ptr %.0380, i64 168
   %356 = load i16, ptr %355, align 8
   %357 = or i16 %356, 32
   store i16 %357, ptr %355, align 8
@@ -3592,7 +3592,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %365
 
 365:                                              ; preds = %363, %360
-  %366 = getelementptr inbounds i8, ptr %.0385, i64 168
+  %366 = getelementptr inbounds i8, ptr %.0380, i64 168
   %367 = load i16, ptr %366, align 8
   %368 = and i16 %367, -33
   store i16 %368, ptr %366, align 8
@@ -3618,7 +3618,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 379:                                              ; preds = %375, %372
   %380 = load i16, ptr %370, align 2
-  %381 = getelementptr inbounds i8, ptr %.0385, i64 298
+  %381 = getelementptr inbounds i8, ptr %.0380, i64 298
   store i16 %380, ptr %381, align 2
   br label %382
 
@@ -3670,7 +3670,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 403:                                              ; preds = %401, %398
   %404 = load i16, ptr %383, align 4
-  %405 = getelementptr inbounds i8, ptr %.0385, i64 208
+  %405 = getelementptr inbounds i8, ptr %.0380, i64 208
   store i16 %404, ptr %405, align 8
   br label %406
 
@@ -3694,7 +3694,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 416:                                              ; preds = %412, %409
   %417 = load i16, ptr %407, align 8
-  %418 = getelementptr inbounds i8, ptr %.0385, i64 272
+  %418 = getelementptr inbounds i8, ptr %.0380, i64 272
   store i16 %417, ptr %418, align 8
   br label %419
 
@@ -3722,7 +3722,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %432
 
 432:                                              ; preds = %429, %428
-  %433 = getelementptr inbounds i8, ptr %.0385, i64 274
+  %433 = getelementptr inbounds i8, ptr %.0380, i64 274
   store i16 %423, ptr %433, align 2
   br label %436
 
@@ -3753,7 +3753,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 446:                                              ; preds = %442, %439
   %447 = load i16, ptr %437, align 2
-  %448 = getelementptr inbounds i8, ptr %.0385, i64 278
+  %448 = getelementptr inbounds i8, ptr %.0380, i64 278
   store i16 %447, ptr %448, align 2
   br label %449
 
@@ -3776,7 +3776,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %459
 
 459:                                              ; preds = %455, %452
-  %460 = getelementptr inbounds i8, ptr %.0385, i64 276
+  %460 = getelementptr inbounds i8, ptr %.0380, i64 276
   %461 = load i16, ptr %460, align 4
   %462 = load i16, ptr @part_max_priority, align 2
   %463 = icmp eq i16 %461, %462
@@ -3855,7 +3855,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   %495 = uitofp i16 %.pre to double
   %496 = uitofp i16 %462 to double
   %497 = fdiv double %495, %496
-  %498 = getelementptr inbounds i8, ptr %.0385, i64 264
+  %498 = getelementptr inbounds i8, ptr %.0380, i64 264
   store double %497, ptr %498, align 8
   br label %499
 
@@ -3866,7 +3866,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br i1 %.not454, label %529, label %502
 
 502:                                              ; preds = %499
-  %503 = getelementptr inbounds i8, ptr %.0385, i64 16
+  %503 = getelementptr inbounds i8, ptr %.0380, i64 16
   call void @slurm_xfree(ptr noundef nonnull %503) #17
   %504 = load ptr, ptr %500, align 8
   %505 = call i32 @xstrcasecmp(ptr noundef %504, ptr noundef nonnull @.str.70) #17
@@ -3903,7 +3903,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %522
 
 522:                                              ; preds = %514, %511, %519, %516
-  %523 = getelementptr inbounds i8, ptr %.0385, i64 8
+  %523 = getelementptr inbounds i8, ptr %.0380, i64 8
   %524 = load ptr, ptr %523, align 8
   %.not455 = icmp eq ptr %524, null
   br i1 %.not455, label %526, label %525
@@ -3926,11 +3926,11 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br i1 %.not456, label %557, label %532
 
 532:                                              ; preds = %529
-  %533 = getelementptr inbounds i8, ptr %.0385, i64 40
+  %533 = getelementptr inbounds i8, ptr %.0380, i64 40
   call void @slurm_xfree(ptr noundef nonnull %533) #17
-  %534 = getelementptr inbounds i8, ptr %.0385, i64 48
+  %534 = getelementptr inbounds i8, ptr %.0380, i64 48
   call void @slurm_xfree(ptr noundef nonnull %534) #17
-  %535 = getelementptr inbounds i8, ptr %.0385, i64 56
+  %535 = getelementptr inbounds i8, ptr %.0380, i64 56
   store i32 0, ptr %535, align 8
   %536 = load ptr, ptr %530, align 8
   %537 = call i32 @xstrcasecmp(ptr noundef %536, ptr noundef nonnull @.str.70) #17
@@ -3980,7 +3980,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br i1 %.not457, label %583, label %560
 
 560:                                              ; preds = %557
-  %561 = getelementptr inbounds i8, ptr %.0385, i64 64
+  %561 = getelementptr inbounds i8, ptr %.0380, i64 64
   call void @slurm_xfree(ptr noundef nonnull %561) #17
   %562 = load ptr, ptr %558, align 8
   %563 = call i32 @xstrcasecmp(ptr noundef %562, ptr noundef nonnull @.str.70) #17
@@ -4018,7 +4018,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 580:                                              ; preds = %574, %577, %569, %572
   %581 = load ptr, ptr %561, align 8
-  %582 = getelementptr inbounds i8, ptr %.0385, i64 72
+  %582 = getelementptr inbounds i8, ptr %.0380, i64 72
   call void @qos_list_build(ptr noundef %581, ptr noundef nonnull %582) #17
   br label %583
 
@@ -4034,9 +4034,9 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br i1 %588, label %589, label %613
 
 589:                                              ; preds = %586
-  %590 = getelementptr inbounds i8, ptr %.0385, i64 288
+  %590 = getelementptr inbounds i8, ptr %.0380, i64 288
   %591 = load ptr, ptr %590, align 8
-  %592 = getelementptr inbounds i8, ptr %.0385, i64 280
+  %592 = getelementptr inbounds i8, ptr %.0380, i64 280
   call void @slurm_xfree(ptr noundef nonnull %592) #17
   store ptr null, ptr %590, align 8
   %.not468 = icmp eq ptr %591, null
@@ -4052,7 +4052,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 596:                                              ; preds = %593
   %597 = getelementptr inbounds i8, ptr %591, i64 256
   %598 = load ptr, ptr %597, align 8
-  %599 = getelementptr inbounds i8, ptr %.0385, i64 224
+  %599 = getelementptr inbounds i8, ptr %.0380, i64 224
   %600 = load ptr, ptr %599, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.77, ptr noundef nonnull @__func__.update_part, ptr noundef %598, ptr noundef %600) #17
   br label %601
@@ -4085,7 +4085,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 613:                                              ; preds = %586
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) @__const.update_part.assoc_tres_read_lock, i64 28, i1 false)
-  %614 = getelementptr inbounds i8, ptr %.0385, i64 288
+  %614 = getelementptr inbounds i8, ptr %.0380, i64 288
   %615 = load ptr, ptr %614, align 8
   store ptr null, ptr %8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %7, i8 0, i64 336, i1 false)
@@ -4134,16 +4134,16 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br i1 %640, label %641, label %647
 
 641:                                              ; preds = %638
-  %642 = getelementptr inbounds i8, ptr %.0385, i64 280
+  %642 = getelementptr inbounds i8, ptr %.0380, i64 280
   %643 = load ptr, ptr %642, align 8
   %644 = load ptr, ptr %584, align 8
-  %645 = getelementptr inbounds i8, ptr %.0385, i64 224
+  %645 = getelementptr inbounds i8, ptr %.0380, i64 224
   %646 = load ptr, ptr %645, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.81, ptr noundef nonnull @__func__.update_part, ptr noundef %643, ptr noundef %644, ptr noundef %646) #17
   br label %647
 
 647:                                              ; preds = %641, %638
-  %648 = getelementptr inbounds i8, ptr %.0385, i64 280
+  %648 = getelementptr inbounds i8, ptr %.0380, i64 280
   call void @slurm_xfree(ptr noundef nonnull %648) #17
   %649 = load ptr, ptr %584, align 8
   %650 = call ptr @xstrdup(ptr noundef %649) #17
@@ -4161,7 +4161,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 656:                                              ; preds = %647
   %657 = and i32 %654, -2049
   store i32 %657, ptr %652, align 4
-  %658 = getelementptr inbounds i8, ptr %.0385, i64 328
+  %658 = getelementptr inbounds i8, ptr %.0380, i64 328
   %659 = load ptr, ptr %658, align 8
   call void @assoc_mgr_set_qos_tres_relative_cnt(ptr noundef nonnull %651, ptr noundef %659) #17
   br label %660
@@ -4209,7 +4209,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br i1 %.not472, label %694, label %674
 
 674:                                              ; preds = %.thread504
-  %675 = getelementptr inbounds i8, ptr %.0385, i64 32
+  %675 = getelementptr inbounds i8, ptr %.0380, i64 32
   call void @slurm_xfree(ptr noundef nonnull %675) #17
   %676 = load ptr, ptr %0, align 8
   %677 = load i8, ptr %676, align 1
@@ -4253,7 +4253,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br i1 %.not473, label %714, label %697
 
 697:                                              ; preds = %694
-  %698 = getelementptr inbounds i8, ptr %.0385, i64 80
+  %698 = getelementptr inbounds i8, ptr %.0380, i64 80
   call void @slurm_xfree(ptr noundef nonnull %698) #17
   %699 = load ptr, ptr %695, align 8
   %700 = call i32 @xstrcasecmp(ptr noundef %699, ptr noundef nonnull @.str.84) #17
@@ -4298,14 +4298,14 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 720:                                              ; preds = %717
   %.not475 = icmp sgt i64 %716, -1
   %.str.87..str.86 = select i1 %.not475, ptr @.str.87, ptr @.str.86
-  %.0382 = trunc i64 %716 to i32
+  %.0383 = trunc i64 %716 to i32
   %721 = load ptr, ptr %14, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.88, ptr noundef nonnull @__func__.update_part, ptr noundef nonnull %.str.87..str.86, i32 noundef %.0382, ptr noundef %721) #17
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.88, ptr noundef nonnull @__func__.update_part, ptr noundef nonnull %.str.87..str.86, i32 noundef %.0383, ptr noundef %721) #17
   br label %722
 
 722:                                              ; preds = %720, %717
   %723 = load i64, ptr %715, align 8
-  %724 = getelementptr inbounds i8, ptr %.0385, i64 112
+  %724 = getelementptr inbounds i8, ptr %.0380, i64 112
   store i64 %723, ptr %724, align 8
   br label %725
 
@@ -4316,7 +4316,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br i1 %.not476, label %748, label %728
 
 728:                                              ; preds = %725
-  %729 = getelementptr inbounds i8, ptr %.0385, i64 128
+  %729 = getelementptr inbounds i8, ptr %.0380, i64 128
   call void @slurm_xfree(ptr noundef nonnull %729) #17
   %730 = load ptr, ptr %726, align 8
   %731 = load i8, ptr %730, align 1
@@ -4343,7 +4343,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %741
 
 741:                                              ; preds = %734, %738
-  %742 = getelementptr inbounds i8, ptr %.0385, i64 136
+  %742 = getelementptr inbounds i8, ptr %.0380, i64 136
   %743 = load ptr, ptr %742, align 8
   %.not477 = icmp eq ptr %743, null
   br i1 %.not477, label %745, label %744
@@ -4380,7 +4380,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br i1 %.not480, label %773, label %757
 
 757:                                              ; preds = %754
-  %758 = getelementptr inbounds i8, ptr %.0385, i64 152
+  %758 = getelementptr inbounds i8, ptr %.0380, i64 152
   call void @slurm_xfree(ptr noundef nonnull %758) #17
   %759 = load ptr, ptr %755, align 8
   %760 = load i8, ptr %759, align 1
@@ -4408,7 +4408,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 770:                                              ; preds = %767, %763
   %771 = load ptr, ptr %758, align 8
-  %772 = getelementptr inbounds i8, ptr %.0385, i64 160
+  %772 = getelementptr inbounds i8, ptr %.0380, i64 160
   call void @qos_list_build(ptr noundef %771, ptr noundef nonnull %772) #17
   br label %773
 
@@ -4440,14 +4440,14 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 785:                                              ; preds = %782
   %.not484 = icmp sgt i64 %781, -1
   %.str.94..str.93 = select i1 %.not484, ptr @.str.94, ptr @.str.93
-  %.0380 = trunc i64 %781 to i32
+  %.0381 = trunc i64 %781 to i32
   %786 = load ptr, ptr %14, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.88, ptr noundef nonnull @__func__.update_part, ptr noundef nonnull %.str.94..str.93, i32 noundef %.0380, ptr noundef %786) #17
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.88, ptr noundef nonnull @__func__.update_part, ptr noundef nonnull %.str.94..str.93, i32 noundef %.0381, ptr noundef %786) #17
   br label %787
 
 787:                                              ; preds = %785, %782
   %788 = load i64, ptr %780, align 8
-  %789 = getelementptr inbounds i8, ptr %.0385, i64 192
+  %789 = getelementptr inbounds i8, ptr %.0380, i64 192
   store i64 %788, ptr %789, align 8
   br label %790
 
@@ -4464,7 +4464,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br i1 %795, label %796, label %801
 
 796:                                              ; preds = %793
-  %797 = getelementptr inbounds i8, ptr %.0385, i64 176
+  %797 = getelementptr inbounds i8, ptr %.0380, i64 176
   %798 = load ptr, ptr %797, align 8
   %.not488 = icmp eq ptr %798, null
   br i1 %.not488, label %800, label %799
@@ -4488,7 +4488,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %817
 
 806:                                              ; preds = %801
-  %807 = getelementptr inbounds i8, ptr %.0385, i64 176
+  %807 = getelementptr inbounds i8, ptr %.0380, i64 176
   %808 = load ptr, ptr %807, align 8
   %.not487 = icmp eq ptr %808, null
   br i1 %.not487, label %810, label %809
@@ -4519,7 +4519,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 820:                                              ; preds = %817
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, ptr noundef nonnull align 4 dereferenceable(28) @__const.update_part.assoc_tres_read_lock, i64 28, i1 false)
-  %821 = getelementptr inbounds i8, ptr %.0385, i64 248
+  %821 = getelementptr inbounds i8, ptr %.0380, i64 248
   %822 = load ptr, ptr %821, align 8
   %823 = call ptr @xstrdup(ptr noundef %822) #17
   store ptr %823, ptr %11, align 8
@@ -4532,12 +4532,12 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   ]
 
 826:                                              ; preds = %820
-  %827 = getelementptr inbounds i8, ptr %.0385, i64 240
+  %827 = getelementptr inbounds i8, ptr %.0380, i64 240
   store ptr null, ptr %827, align 8
   br label %854
 
 828:                                              ; preds = %820
-  %829 = getelementptr inbounds i8, ptr %.0385, i64 240
+  %829 = getelementptr inbounds i8, ptr %.0380, i64 240
   call void @slurm_xfree(ptr noundef nonnull %829) #17
   %830 = load ptr, ptr %818, align 8
   %831 = call ptr @xstrdup(ptr noundef %830) #17
@@ -4546,7 +4546,7 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 832:                                              ; preds = %820, %820
   store ptr null, ptr %13, align 8
-  %833 = getelementptr inbounds i8, ptr %.0385, i64 240
+  %833 = getelementptr inbounds i8, ptr %.0380, i64 240
   %834 = load ptr, ptr %833, align 8
   %835 = call ptr @hostset_create(ptr noundef %834) #17
   %836 = load ptr, ptr %818, align 8
@@ -4557,8 +4557,8 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
   br label %839
 
 839:                                              ; preds = %.critedge, %832
-  %.0378 = phi ptr [ %837, %832 ], [ null, %.critedge ]
-  %840 = call ptr @node_conf_nodestr_tokenize(ptr noundef %.0378, ptr noundef nonnull %13) #17
+  %.0379 = phi ptr [ %837, %832 ], [ null, %.critedge ]
+  %840 = call ptr @node_conf_nodestr_tokenize(ptr noundef %.0379, ptr noundef nonnull %13) #17
   %.not492 = icmp eq ptr %840, null
   br i1 %.not492, label %852, label %841
 
@@ -4599,11 +4599,11 @@ set_partition_billing_weights.exit.thread:        ; preds = %50, %56, %43
 
 854:                                              ; preds = %828, %852, %826
   call void @slurm_xfree(ptr noundef nonnull %821) #17
-  %855 = getelementptr inbounds i8, ptr %.0385, i64 240
+  %855 = getelementptr inbounds i8, ptr %.0380, i64 240
   %856 = load ptr, ptr %855, align 8
   %857 = call ptr @xstrdup(ptr noundef %856) #17
   store ptr %857, ptr %821, align 8
-  %858 = call i32 @build_part_bitmap(ptr noundef nonnull %.0385)
+  %858 = call i32 @build_part_bitmap(ptr noundef nonnull %.0380)
   %.not494 = icmp eq i32 %858, 0
   br i1 %.not494, label %862, label %859
 
@@ -4614,7 +4614,7 @@ set_partition_billing_weights.exit.thread506.thread511: ; preds = %859
   call void @slurm_xfree(ptr noundef nonnull %821) #17
   %860 = load ptr, ptr %11, align 8
   store ptr %860, ptr %821, align 8
-  %861 = call i32 @build_part_bitmap(ptr noundef nonnull %.0385)
+  %861 = call i32 @build_part_bitmap(ptr noundef nonnull %.0380)
   br label %892
 
 set_partition_billing_weights.exit.thread506.thread: ; preds = %859
@@ -4634,10 +4634,10 @@ set_partition_billing_weights.exit.thread506.thread: ; preds = %859
 
 868:                                              ; preds = %865, %862
   call void @slurm_xfree(ptr noundef nonnull %11) #17
-  call void @update_part_nodes_in_resv(ptr noundef nonnull %.0385) #17
+  call void @update_part_nodes_in_resv(ptr noundef nonnull %.0380) #17
   call void @power_save_set_timeouts(ptr noundef null) #17
   call void @assoc_mgr_lock(ptr noundef nonnull %10) #17
-  %869 = getelementptr inbounds i8, ptr %.0385, i64 288
+  %869 = getelementptr inbounds i8, ptr %.0380, i64 288
   %870 = load ptr, ptr %869, align 8
   %.not495 = icmp eq ptr %870, null
   br i1 %.not495, label %875, label %871
@@ -4650,12 +4650,12 @@ set_partition_billing_weights.exit.thread506.thread: ; preds = %859
   br label %875
 
 875:                                              ; preds = %871, %868
-  %876 = call i32 @_calc_part_tres(ptr noundef nonnull %.0385, ptr poison)
+  %876 = call i32 @_calc_part_tres(ptr noundef nonnull %.0380, ptr poison)
   call void @assoc_mgr_unlock(ptr noundef nonnull %10) #17
   br label %set_partition_billing_weights.exit
 
 877:                                              ; preds = %817
-  %878 = getelementptr inbounds i8, ptr %.0385, i64 232
+  %878 = getelementptr inbounds i8, ptr %.0380, i64 232
   %879 = load ptr, ptr %878, align 8
   %880 = icmp eq ptr %879, null
   br i1 %880, label %881, label %set_partition_billing_weights.exit

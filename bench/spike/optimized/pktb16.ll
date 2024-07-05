@@ -174,13 +174,13 @@ define noundef i64 @_Z17fast_rv64i_pktb16P11processor_t6insn_tm(ptr nocapture no
   br label %21
 
 21:                                               ; preds = %11, %21
+  %.043 = phi i64 [ 0, %11 ], [ %49, %21 ]
   %22 = phi i1 [ true, %11 ], [ false, %21 ]
-  %.043 = phi i32 [ 0, %11 ], [ 32, %21 ]
-  %.03442 = phi i64 [ 0, %11 ], [ %49, %21 ]
-  %23 = zext nneg i32 %.043 to i64
+  %.03442 = phi i32 [ 0, %11 ], [ 32, %21 ]
+  %23 = zext nneg i32 %.03442 to i64
   %24 = shl nuw nsw i64 65535, %23
   %25 = xor i64 %24, -1
-  %26 = and i64 %.03442, %25
+  %26 = and i64 %.043, %25
   %27 = and i64 %18, %24
   %28 = shl nuw nsw i64 131070, %23
   %29 = xor i64 %28, -1
@@ -190,7 +190,7 @@ define noundef i64 @_Z17fast_rv64i_pktb16P11processor_t6insn_tm(ptr nocapture no
   %33 = mul nuw i64 %32, %30
   %34 = and i64 %33, %24
   %35 = or disjoint i64 %34, %26
-  %36 = or disjoint i32 %.043, 16
+  %36 = or disjoint i32 %.03442, 16
   %37 = zext nneg i32 %36 to i64
   %38 = shl nuw i64 65535, %37
   %39 = xor i64 %38, -1
@@ -634,16 +634,16 @@ define noundef i64 @_Z17fast_rv64e_pktb16P11processor_t6insn_tm(ptr nocapture no
   unreachable
 
 34:                                               ; preds = %.preheader, %34
+  %.04566 = phi i64 [ 0, %.preheader ], [ %62, %34 ]
   %35 = phi i1 [ true, %.preheader ], [ false, %34 ]
-  %.04466 = phi i32 [ 0, %.preheader ], [ 32, %34 ]
-  %.04665 = phi i64 [ 0, %.preheader ], [ %62, %34 ]
-  %36 = zext nneg i32 %.04466 to i64
+  %.04665 = phi i32 [ 0, %.preheader ], [ 32, %34 ]
+  %36 = zext nneg i32 %.04665 to i64
   %37 = shl nuw nsw i64 65535, %36
-  %38 = or disjoint i32 %.04466, 16
+  %38 = or disjoint i32 %.04665, 16
   %39 = zext nneg i32 %38 to i64
   %40 = shl nuw i64 65535, %39
   %41 = xor i64 %37, -1
-  %42 = and i64 %.04665, %41
+  %42 = and i64 %.04566, %41
   %43 = and i64 %26, %37
   %44 = shl nuw nsw i64 131070, %36
   %45 = xor i64 %44, -1

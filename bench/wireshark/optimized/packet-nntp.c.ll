@@ -136,17 +136,17 @@ define internal i32 @dissect_nntp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .sink.split:                                      ; preds = %44, %45, %48, %37
   %.sink = phi i32 [ 1, %37 ], [ 0, %48 ], [ 0, %45 ], [ 0, %44 ]
-  %.049.ph = phi ptr [ %36, %37 ], [ %42, %48 ], [ %42, %45 ], [ %42, %44 ]
+  %.048.ph = phi ptr [ %36, %37 ], [ %42, %48 ], [ %42, %45 ], [ %42, %44 ]
   store i32 %.sink, ptr %.0, align 4
   br label %52
 
 52:                                               ; preds = %.sink.split, %40, %34, %37
-  %.049 = phi ptr [ %36, %37 ], [ %36, %34 ], [ %42, %40 ], [ %.049.ph, %.sink.split ]
-  %.not.i = icmp eq ptr %.049, null
+  %.048 = phi ptr [ %36, %37 ], [ %36, %34 ], [ %42, %40 ], [ %.048.ph, %.sink.split ]
+  %.not.i = icmp eq ptr %.048, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %53
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %.049, i64 32
+  %54 = getelementptr inbounds i8, ptr %.048, i64 32
   %55 = load ptr, ptr %54, align 8
   %.not5.i = icmp eq ptr %55, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %56
@@ -164,11 +164,11 @@ proto_item_set_hidden.exit:                       ; preds = %52, %53, %56
   br i1 %.not5556, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %proto_item_set_hidden.exit, %.lr.ph
-  %.04857 = phi i32 [ %65, %.lr.ph ], [ 0, %proto_item_set_hidden.exit ]
-  %61 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.04857, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #2
+  %.04957 = phi i32 [ %65, %.lr.ph ], [ 0, %proto_item_set_hidden.exit ]
+  %61 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.04957, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #2
   %62 = load i32, ptr %5, align 4
-  %63 = sub i32 %62, %.04857
-  %64 = call ptr @proto_tree_add_format_text(ptr noundef %30, ptr noundef %0, i32 noundef %.04857, i32 noundef %63) #2
+  %63 = sub i32 %62, %.04957
+  %64 = call ptr @proto_tree_add_format_text(ptr noundef %30, ptr noundef %0, i32 noundef %.04957, i32 noundef %63) #2
   %65 = load i32, ptr %5, align 4
   %66 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %65) #2
   %.not55 = icmp eq i32 %66, 0

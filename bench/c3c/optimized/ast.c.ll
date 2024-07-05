@@ -916,7 +916,7 @@ define dso_local i32 @decl_count_elements(ptr nocapture noundef readonly %0) loc
 
 14:                                               ; preds = %8, %27
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %27 ]
-  %.02027 = phi i32 [ 0, %8 ], [ %.1, %27 ]
+  %.02227 = phi i32 [ 0, %8 ], [ %.1, %27 ]
   %15 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 24
@@ -932,11 +932,11 @@ define dso_local i32 @decl_count_elements(ptr nocapture noundef readonly %0) loc
 
 22:                                               ; preds = %20
   %23 = tail call i32 @decl_count_elements(ptr noundef nonnull %16)
-  %24 = add nsw i32 %23, %.02027
+  %24 = add nsw i32 %23, %.02227
   br label %27
 
 25:                                               ; preds = %20, %14
-  %26 = add nsw i32 %.02027, 1
+  %26 = add nsw i32 %.02227, 1
   br label %27
 
 27:                                               ; preds = %25, %22
@@ -947,8 +947,8 @@ define dso_local i32 @decl_count_elements(ptr nocapture noundef readonly %0) loc
   br i1 %29, label %14, label %.thread, !llvm.loop !14
 
 .thread:                                          ; preds = %27, %1, %4
-  %.022 = phi i32 [ 0, %4 ], [ 0, %1 ], [ %.1, %27 ]
-  ret i32 %.022
+  %.021 = phi i32 [ 0, %4 ], [ 0, %1 ], [ %.1, %27 ]
+  ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1105,8 +1105,8 @@ define dso_local noundef ptr @decl_find_enum_constant(ptr nocapture noundef read
   br i1 %12, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8, %2, %5
-  %.014 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %8 ], [ %10, %.lr.ph ]
-  ret ptr %.014
+  %.013 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %8 ], [ %10, %.lr.ph ]
+  ret ptr %.013
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -1136,13 +1136,13 @@ define dso_local i32 @decl_find_member_offset(ptr nocapture noundef readonly %0,
   br label %3, !llvm.loop !17
 
 15:                                               ; preds = %3, %3, %3
-  %.024.in = getelementptr inbounds i8, ptr %.026, i64 104
-  %.024 = load ptr, ptr %.024.in, align 8
-  %.not = icmp eq ptr %.024, null
+  %.027.in = getelementptr inbounds i8, ptr %.026, i64 104
+  %.027 = load ptr, ptr %.027.in, align 8
+  %.not = icmp eq ptr %.027, null
   br i1 %.not, label %.loopexit, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %.024, i64 -8
+  %17 = getelementptr inbounds i8, ptr %.027, i64 -8
   %18 = load i32, ptr %17, align 4
   %.not39 = icmp eq i32 %18, 0
   br i1 %.not39, label %.loopexit, label %.lr.ph.preheader
@@ -1153,7 +1153,7 @@ define dso_local i32 @decl_find_member_offset(ptr nocapture noundef readonly %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %19 = getelementptr inbounds ptr, ptr %.024, i64 %indvars.iv
+  %19 = getelementptr inbounds ptr, ptr %.027, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %1
   br i1 %21, label %22, label %26
@@ -1189,8 +1189,8 @@ define dso_local i32 @decl_find_member_offset(ptr nocapture noundef readonly %0,
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %3, %37, %15, %16, %32, %22
-  %.027 = phi i32 [ %25, %22 ], [ %36, %32 ], [ -1, %16 ], [ -1, %15 ], [ -1, %37 ], [ -1, %3 ]
-  ret i32 %.027
+  %.024 = phi i32 [ %25, %22 ], [ %36, %32 ], [ -1, %16 ], [ -1, %15 ], [ -1, %37 ], [ -1, %3 ]
+  ret i32 %.024
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

@@ -2703,8 +2703,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br label %166
 
 165:                                              ; preds = %107, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit, %_ZN10cmCPackLog3LogEiPKciS1_.exit
-  %.021 = phi i1 [ true, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit ], [ false, %_ZN10cmCPackLog3LogEiPKciS1_.exit ], [ false, %107 ]
-  ret i1 %.021
+  %.0 = phi i1 [ true, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit ], [ false, %_ZN10cmCPackLog3LogEiPKciS1_.exit ], [ false, %107 ]
+  ret i1 %.0
 
 166:                                              ; preds = %99, %.body34, %.body
   %.merged = phi { ptr, i32 } [ %.pn25.pn.pn.pn, %.body34 ], [ %.pn.pn, %99 ], [ %eh.lpad-body, %.body ]

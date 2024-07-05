@@ -102,13 +102,13 @@ define internal i32 @connect_to_peer(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %.not218, label %.loopexit, label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
-  %22 = add nuw i64 %.0109205, 1
+  %22 = add nuw i64 %.0112205, 1
   %exitcond.not = icmp eq i64 %22, %2
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %20, %21
-  %.0109205 = phi i64 [ %22, %21 ], [ 0, %20 ]
-  %23 = getelementptr inbounds %struct.pmix_info, ptr %1, i64 %.0109205
+  %.0112205 = phi i64 [ %22, %21 ], [ 0, %20 ]
+  %23 = getelementptr inbounds %struct.pmix_info, ptr %1, i64 %.0112205
   %24 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %23, ptr noundef nonnull @.str.2) #10
   br i1 %24, label %25, label %21
 
@@ -131,7 +131,7 @@ define internal i32 @connect_to_peer(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %.not206, label %._crit_edge, label %.lr.ph208
 
 35:                                               ; preds = %.lr.ph208
-  %36 = add i64 %.0110207, 1
+  %36 = add i64 %.0109207, 1
   %37 = getelementptr inbounds ptr, ptr %33, i64 %36
   %38 = load ptr, ptr %37, align 8
   %.not = icmp eq ptr %38, null
@@ -139,13 +139,13 @@ define internal i32 @connect_to_peer(ptr noundef %0, ptr noundef %1, i64 noundef
 
 .lr.ph208:                                        ; preds = %30, %35
   %39 = phi ptr [ %38, %35 ], [ %34, %30 ]
-  %.0110207 = phi i64 [ %36, %35 ], [ 0, %30 ]
+  %.0109207 = phi i64 [ %36, %35 ], [ 0, %30 ]
   %40 = tail call i32 @pmix_ptl_base_set_peer(ptr noundef %0, ptr noundef nonnull %39) #10
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %thread-pre-split, label %35
 
 ._crit_edge:                                      ; preds = %35, %30
-  %.0111.lcssa = phi i32 [ -27, %30 ], [ %40, %35 ]
+  %.0108.lcssa = phi i32 [ -27, %30 ], [ %40, %35 ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %33) #10
   br label %pmix_obj_run_destructors.exit168
 
@@ -380,8 +380,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i160, %125
   br label %154
 
 154:                                              ; preds = %99, %149
-  %.0108 = phi ptr [ %151, %149 ], [ null, %99 ]
-  %.0107 = phi i64 [ %153, %149 ], [ 0, %99 ]
+  %.0111 = phi ptr [ %151, %149 ], [ null, %99 ]
+  %.0110 = phi i64 [ %153, %149 ], [ 0, %99 ]
   call void @PMIx_Info_list_release(ptr noundef %93) #10
   %155 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 144
@@ -427,7 +427,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i160, %125
 179:                                              ; preds = %160, %176
   %180 = getelementptr inbounds i8, ptr %.val, i64 168
   %181 = load ptr, ptr %180, align 8
-  %182 = call i32 @pmix_ptl_base_make_connection(ptr noundef nonnull %0, ptr noundef %181, ptr noundef %.0108, i64 noundef %.0107) #10
+  %182 = call i32 @pmix_ptl_base_make_connection(ptr noundef nonnull %0, ptr noundef %181, ptr noundef %.0111, i64 noundef %.0110) #10
   %183 = icmp eq i32 %182, 0
   br i1 %183, label %184, label %235
 
@@ -727,8 +727,8 @@ pmix_obj_run_destructors.exit181:                 ; preds = %.lr.ph.i178, %._cri
   br label %pmix_obj_run_destructors.exit168
 
 pmix_obj_run_destructors.exit168:                 ; preds = %.lr.ph.i165, %.lr.ph.i191, %._crit_edge217, %._crit_edge214, %._crit_edge, %327, %329, %292, %43, %25, %309
-  %.0112 = phi i32 [ %308, %309 ], [ -27, %25 ], [ %.0111.lcssa, %._crit_edge ], [ -32, %43 ], [ %294, %292 ], [ 0, %329 ], [ 0, %327 ], [ %100, %._crit_edge214 ], [ -25, %._crit_edge217 ], [ -25, %.lr.ph.i191 ], [ %100, %.lr.ph.i165 ]
-  ret i32 %.0112
+  %.0 = phi i32 [ %308, %309 ], [ -27, %25 ], [ %.0108.lcssa, %._crit_edge ], [ -32, %43 ], [ %294, %292 ], [ 0, %329 ], [ 0, %327 ], [ %100, %._crit_edge214 ], [ -25, %._crit_edge217 ], [ -25, %.lr.ph.i191 ], [ %100, %.lr.ph.i165 ]
+  ret i32 %.0
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

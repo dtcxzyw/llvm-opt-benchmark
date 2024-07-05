@@ -78,7 +78,7 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
 
 37:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
-  %.04347.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %49 ]
+  %.048.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %49 ]
   %38 = load ptr, ptr %17, align 8
   %39 = getelementptr i16, ptr %38, i64 %indvars.iv.i
   %40 = load i16, ptr %39, align 2
@@ -89,8 +89,8 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
 43:                                               ; preds = %37
   store i16 0, ptr %42, align 2
   %44 = trunc i64 %indvars.iv.i to i16
-  %45 = add i32 %.04347.i, 1
-  %46 = sext i32 %.04347.i to i64
+  %45 = add i32 %.048.i, 1
+  %46 = sext i32 %.048.i to i64
   %47 = getelementptr i16, ptr %33, i64 %46
   store i16 %44, ptr %47, align 2
   br label %49
@@ -100,14 +100,14 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
   br label %49
 
 49:                                               ; preds = %48, %43
-  %.1.i = phi i32 [ %45, %43 ], [ %.04347.i, %48 ]
+  %.1.i = phi i32 [ %45, %43 ], [ %.048.i, %48 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.i, label %.preheader.i, label %37, !llvm.loop !5
 
 .lr.ph55.i:                                       ; preds = %.preheader.i, %.loopexit.i
   %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %.loopexit.i ], [ 0, %.preheader.i ]
-  %.253.i = phi i32 [ %.5.i, %.loopexit.i ], [ %.1.i, %.preheader.i ]
+  %.254.i = phi i32 [ %.5.i, %.loopexit.i ], [ %.1.i, %.preheader.i ]
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %50 = getelementptr i16, ptr %33, i64 %indvars.iv60.i
   %51 = load i16, ptr %50, align 2
@@ -136,7 +136,7 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
 
 .lr.ph51.i:                                       ; preds = %81, %.lr.ph51.preheader.i
   %indvars.iv57.i = phi i64 [ %64, %.lr.ph51.preheader.i ], [ %indvars.iv.next58.i, %81 ]
-  %.349.i = phi i32 [ %.253.i, %.lr.ph51.preheader.i ], [ %.4.i, %81 ]
+  %.350.i = phi i32 [ %.254.i, %.lr.ph51.preheader.i ], [ %.4.i, %81 ]
   %65 = load ptr, ptr %22, align 8
   %66 = getelementptr i16, ptr %60, i64 %indvars.iv57.i
   %67 = load i16, ptr %66, align 2
@@ -153,20 +153,20 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
   %76 = load i16, ptr %53, align 2
   %77 = add i16 %76, 1
   store i16 %77, ptr %72, align 2
-  %78 = add i32 %.349.i, 1
-  %79 = sext i32 %.349.i to i64
+  %78 = add i32 %.350.i, 1
+  %79 = sext i32 %.350.i to i64
   %80 = getelementptr i16, ptr %33, i64 %79
   store i16 %70, ptr %80, align 2
   br label %81
 
 81:                                               ; preds = %75, %.lr.ph51.i
-  %.4.i = phi i32 [ %78, %75 ], [ %.349.i, %.lr.ph51.i ]
+  %.4.i = phi i32 [ %78, %75 ], [ %.350.i, %.lr.ph51.i ]
   %indvars.iv.next58.i = add nsw i64 %indvars.iv57.i, -1
   %82 = icmp sgt i64 %indvars.iv57.i, 1
   br i1 %82, label %.lr.ph51.i, label %.loopexit.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %81, %61, %57, %.lr.ph55.i
-  %.5.i = phi i32 [ %.253.i, %.lr.ph55.i ], [ %.253.i, %61 ], [ %.253.i, %57 ], [ %.4.i, %81 ]
+  %.5.i = phi i32 [ %.254.i, %.lr.ph55.i ], [ %.254.i, %61 ], [ %.254.i, %57 ], [ %.4.i, %81 ]
   %83 = sext i32 %.5.i to i64
   %84 = icmp slt i64 %indvars.iv.next61.i, %83
   br i1 %84, label %.lr.ph55.i, label %hk_breadth_search.exit, !llvm.loop !8
@@ -313,8 +313,8 @@ define internal fastcc noundef zeroext i1 @hk_depth_search(ptr nocapture noundef
   br label %46
 
 46:                                               ; preds = %20, %17, %._crit_edge, %40
-  %.031 = phi i1 [ true, %40 ], [ false, %._crit_edge ], [ true, %17 ], [ false, %20 ]
-  ret i1 %.031
+  %.0 = phi i1 [ true, %40 ], [ false, %._crit_edge ], [ true, %17 ], [ false, %20 ]
+  ret i1 %.0
 }
 
 declare void @ProcessInterrupts() local_unnamed_addr #1

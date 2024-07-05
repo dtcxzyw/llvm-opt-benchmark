@@ -1217,8 +1217,8 @@ Gia_ManOutputAsserted.exit.thread.us:             ; preds = %31, %Gia_ManOutputA
   br label %46
 
 46:                                               ; preds = %.lr.ph202, %.critedge99
-  %.0 = phi i32 [ 0, %.lr.ph202 ], [ %.1, %.critedge99 ]
-  %.0199 = phi i32 [ 0, %.lr.ph202 ], [ %372, %.critedge99 ]
+  %.0221 = phi i32 [ 0, %.lr.ph202 ], [ %.1, %.critedge99 ]
+  %.084199 = phi i32 [ 0, %.lr.ph202 ], [ %372, %.critedge99 ]
   %47 = load ptr, ptr %38, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %51
@@ -1243,9 +1243,9 @@ Gia_ManOutputAsserted.exit.thread.us:             ; preds = %31, %Gia_ManOutputA
   br i1 %60, label %.lr.ph184, label %.critedge2
 
 .lr.ph184:                                        ; preds = %51
-  %61 = lshr i32 %.0199, 5
+  %61 = lshr i32 %.084199, 5
   %62 = zext nneg i32 %61 to i64
-  %63 = and i32 %.0199, 31
+  %63 = and i32 %.084199, 31
   br label %64
 
 64:                                               ; preds = %.lr.ph184, %95
@@ -1294,11 +1294,11 @@ Gia_ManOutputAsserted.exit.thread.us:             ; preds = %31, %Gia_ManOutputA
   %93 = shl nuw i32 1, %85
   %94 = xor i32 %84, %93
   store i32 %94, ptr %83, align 4
-  %.pre222 = load ptr, ptr %0, align 8
+  %.pre223 = load ptr, ptr %0, align 8
   br label %95
 
 95:                                               ; preds = %67, %92
-  %96 = phi ptr [ %65, %67 ], [ %.pre222, %92 ]
+  %96 = phi ptr [ %65, %67 ], [ %.pre223, %92 ]
   %97 = add nuw nsw i32 %.1182, 1
   %98 = getelementptr i8, ptr %96, i64 16
   %.val103 = load i32, ptr %98, align 8
@@ -1322,12 +1322,12 @@ Gia_ManOutputAsserted.exit.thread.us:             ; preds = %31, %Gia_ManOutputA
   %104 = getelementptr i8, ptr %.lcssa, i64 32
   %.val121 = load ptr, ptr %104, align 8
   %.not94 = icmp eq ptr %.val121, null
-  %105 = and i32 %.0199, 31
+  %105 = and i32 %.084199, 31
   %106 = shl nuw i32 1, %105
   br i1 %.not94, label %.critedge4, label %.lr.ph194.split
 
 .lr.ph194.split:                                  ; preds = %.lr.ph194
-  %107 = lshr i32 %.0199, 5
+  %107 = lshr i32 %.084199, 5
   %108 = zext nneg i32 %107 to i64
   %.val107 = load i32, ptr %40, align 8
   %.val108 = load ptr, ptr %41, align 8
@@ -1335,8 +1335,8 @@ Gia_ManOutputAsserted.exit.thread.us:             ; preds = %31, %Gia_ManOutputA
   %109 = sub nsw i32 %.val116.val191, %.val103.lcssa
   %smax = tail call i32 @llvm.smax.i32(i32 %109, i32 1)
   %wide.trip.count216 = zext nneg i32 %smax to i64
-  %.phi.trans.insert223 = getelementptr i8, ptr %.val116190, i64 8
-  %.val122.val.pre = load ptr, ptr %.phi.trans.insert223, align 8
+  %.phi.trans.insert224 = getelementptr i8, ptr %.val116190, i64 8
+  %.val122.val.pre = load ptr, ptr %.phi.trans.insert224, align 8
   br label %110
 
 110:                                              ; preds = %.lr.ph194.split, %110
@@ -1361,7 +1361,7 @@ Gia_ManOutputAsserted.exit.thread.us:             ; preds = %31, %Gia_ManOutputA
   br i1 %exitcond217.not, label %.critedge4, label %110, !llvm.loop !31
 
 .critedge4:                                       ; preds = %110, %100, %.lr.ph194, %.critedge2
-  %.1 = phi i32 [ %.0, %.critedge2 ], [ 0, %100 ], [ 0, %.lr.ph194 ], [ %123, %110 ]
+  %.1 = phi i32 [ %.0221, %.critedge2 ], [ 0, %100 ], [ 0, %.lr.ph194 ], [ %123, %110 ]
   %124 = load ptr, ptr %38, align 8
   %125 = load ptr, ptr %42, align 8
   %126 = getelementptr inbounds i8, ptr %124, i64 16
@@ -1513,7 +1513,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %189, ptr %161, align 4
   %190 = sext i32 %188 to i64
   %191 = getelementptr inbounds i32, ptr %187, i64 %190
-  store i32 %.0199, ptr %191, align 4
+  store i32 %.084199, ptr %191, align 4
   %192 = load ptr, ptr %45, align 8
   %193 = load i32, ptr %1, align 4
   %194 = getelementptr inbounds i8, ptr %192, i64 4
@@ -1858,17 +1858,17 @@ Vec_IntPush.exit161:                              ; preds = %.Vec_IntGrow.exit10
   %355 = sext i32 %353 to i64
   %356 = getelementptr inbounds i32, ptr %352, i64 %355
   store i32 %.1, ptr %356, align 4
-  %.pre224 = load ptr, ptr %38, align 8
+  %.pre225 = load ptr, ptr %38, align 8
   br label %.critedge101
 
 .critedge101:                                     ; preds = %Gia_ManEraHashFind.exit, %Vec_IntPush.exit161
-  %357 = phi ptr [ %.pre224, %Vec_IntPush.exit161 ], [ %124, %Gia_ManEraHashFind.exit ]
+  %357 = phi ptr [ %.pre225, %Vec_IntPush.exit161 ], [ %124, %Gia_ManEraHashFind.exit ]
   %.023.ph.i167 = phi ptr [ %.023.ph.i168, %Vec_IntPush.exit161 ], [ %.023.ph.i, %Gia_ManEraHashFind.exit ]
   %358 = load i32, ptr %357, align 4
   store i32 %358, ptr %.023.ph.i167, align 4
   %359 = load ptr, ptr %38, align 8
   %360 = getelementptr inbounds i8, ptr %359, i64 4
-  store i32 %.0199, ptr %360, align 4
+  store i32 %.084199, ptr %360, align 4
   %361 = load i32, ptr %1, align 4
   %362 = load ptr, ptr %38, align 8
   %363 = getelementptr inbounds i8, ptr %362, i64 8
@@ -1890,13 +1890,13 @@ Vec_IntPush.exit161:                              ; preds = %.Vec_IntGrow.exit10
   br label %.critedge99
 
 .critedge99:                                      ; preds = %Gia_ManEraHashFind.exit.thread, %.critedge101, %371, %Vec_IntPush.exit147
-  %372 = add nuw nsw i32 %.0199, 1
+  %372 = add nuw nsw i32 %.084199, 1
   %exitcond219.not = icmp eq i32 %372, %37
   br i1 %exitcond219.not, label %.loopexit, label %46, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.critedge99, %.critedge, %.split.us
-  %.085 = phi i32 [ 1, %.split.us ], [ 0, %.critedge ], [ 0, %.critedge99 ]
-  ret i32 %.085
+  %.0 = phi i32 [ 1, %.split.us ], [ 0, %.critedge ], [ 0, %.critedge99 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

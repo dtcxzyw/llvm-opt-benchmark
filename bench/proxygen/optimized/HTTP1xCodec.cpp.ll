@@ -5078,14 +5078,14 @@ while.cond.preheader.i.i:                         ; preds = %do.body.i.i
   br i1 %cmp314.i.i, label %while.body.i.i, label %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit
 
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %while.body.i.i
-  %start.016.i.i = phi ptr [ %incdec.ptr5.i.i, %while.body.i.i ], [ %buf.i, %while.cond.preheader.i.i ]
-  %next.115.i.i = phi ptr [ %incdec.ptr4.i.i, %while.body.i.i ], [ %next.0.i.i, %while.cond.preheader.i.i ]
-  %38 = load i8, ptr %next.115.i.i, align 1
-  %39 = load i8, ptr %start.016.i.i, align 1
-  store i8 %39, ptr %next.115.i.i, align 1
-  store i8 %38, ptr %start.016.i.i, align 1
-  %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %next.115.i.i, i64 -1
-  %incdec.ptr5.i.i = getelementptr inbounds i8, ptr %start.016.i.i, i64 1
+  %next.116.i.i = phi ptr [ %incdec.ptr4.i.i, %while.body.i.i ], [ %next.0.i.i, %while.cond.preheader.i.i ]
+  %start.015.i.i = phi ptr [ %incdec.ptr5.i.i, %while.body.i.i ], [ %buf.i, %while.cond.preheader.i.i ]
+  %38 = load i8, ptr %next.116.i.i, align 1
+  %39 = load i8, ptr %start.015.i.i, align 1
+  store i8 %39, ptr %next.116.i.i, align 1
+  store i8 %38, ptr %start.015.i.i, align 1
+  %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %next.116.i.i, i64 -1
+  %incdec.ptr5.i.i = getelementptr inbounds i8, ptr %start.015.i.i, i64 1
   %cmp3.i.i = icmp ugt ptr %incdec.ptr4.i.i, %incdec.ptr5.i.i
   br i1 %cmp3.i.i, label %while.body.i.i, label %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit, !llvm.loop !38
 
@@ -5122,14 +5122,14 @@ while.cond.preheader.i.i116:                      ; preds = %do.body.i.i108
   br i1 %cmp314.i.i117, label %while.body.i.i123, label %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit129
 
 while.body.i.i123:                                ; preds = %while.cond.preheader.i.i116, %while.body.i.i123
-  %start.016.i.i124 = phi ptr [ %incdec.ptr5.i.i127, %while.body.i.i123 ], [ %buf.i107, %while.cond.preheader.i.i116 ]
-  %next.115.i.i125 = phi ptr [ %incdec.ptr4.i.i126, %while.body.i.i123 ], [ %next.0.i.i109, %while.cond.preheader.i.i116 ]
-  %42 = load i8, ptr %next.115.i.i125, align 1
-  %43 = load i8, ptr %start.016.i.i124, align 1
-  store i8 %43, ptr %next.115.i.i125, align 1
-  store i8 %42, ptr %start.016.i.i124, align 1
-  %incdec.ptr4.i.i126 = getelementptr inbounds i8, ptr %next.115.i.i125, i64 -1
-  %incdec.ptr5.i.i127 = getelementptr inbounds i8, ptr %start.016.i.i124, i64 1
+  %next.116.i.i124 = phi ptr [ %incdec.ptr4.i.i126, %while.body.i.i123 ], [ %next.0.i.i109, %while.cond.preheader.i.i116 ]
+  %start.015.i.i125 = phi ptr [ %incdec.ptr5.i.i127, %while.body.i.i123 ], [ %buf.i107, %while.cond.preheader.i.i116 ]
+  %42 = load i8, ptr %next.116.i.i124, align 1
+  %43 = load i8, ptr %start.015.i.i125, align 1
+  store i8 %43, ptr %next.116.i.i124, align 1
+  store i8 %42, ptr %start.015.i.i125, align 1
+  %incdec.ptr4.i.i126 = getelementptr inbounds i8, ptr %next.116.i.i124, i64 -1
+  %incdec.ptr5.i.i127 = getelementptr inbounds i8, ptr %start.015.i.i125, i64 1
   %cmp3.i.i128 = icmp ugt ptr %incdec.ptr4.i.i126, %incdec.ptr5.i.i127
   br i1 %cmp3.i.i128, label %while.body.i.i123, label %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit129, !llvm.loop !38
 
@@ -5166,14 +5166,14 @@ while.cond.preheader.i.i139:                      ; preds = %do.body.i.i131
   br i1 %cmp314.i.i140, label %while.body.i.i146, label %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit152
 
 while.body.i.i146:                                ; preds = %while.cond.preheader.i.i139, %while.body.i.i146
-  %start.016.i.i147 = phi ptr [ %incdec.ptr5.i.i150, %while.body.i.i146 ], [ %buf.i130, %while.cond.preheader.i.i139 ]
-  %next.115.i.i148 = phi ptr [ %incdec.ptr4.i.i149, %while.body.i.i146 ], [ %next.0.i.i132, %while.cond.preheader.i.i139 ]
-  %46 = load i8, ptr %next.115.i.i148, align 1
-  %47 = load i8, ptr %start.016.i.i147, align 1
-  store i8 %47, ptr %next.115.i.i148, align 1
-  store i8 %46, ptr %start.016.i.i147, align 1
-  %incdec.ptr4.i.i149 = getelementptr inbounds i8, ptr %next.115.i.i148, i64 -1
-  %incdec.ptr5.i.i150 = getelementptr inbounds i8, ptr %start.016.i.i147, i64 1
+  %next.116.i.i147 = phi ptr [ %incdec.ptr4.i.i149, %while.body.i.i146 ], [ %next.0.i.i132, %while.cond.preheader.i.i139 ]
+  %start.015.i.i148 = phi ptr [ %incdec.ptr5.i.i150, %while.body.i.i146 ], [ %buf.i130, %while.cond.preheader.i.i139 ]
+  %46 = load i8, ptr %next.116.i.i147, align 1
+  %47 = load i8, ptr %start.015.i.i148, align 1
+  store i8 %47, ptr %next.116.i.i147, align 1
+  store i8 %46, ptr %start.015.i.i148, align 1
+  %incdec.ptr4.i.i149 = getelementptr inbounds i8, ptr %next.116.i.i147, i64 -1
+  %incdec.ptr5.i.i150 = getelementptr inbounds i8, ptr %start.015.i.i148, i64 1
   %cmp3.i.i151 = icmp ugt ptr %incdec.ptr4.i.i149, %incdec.ptr5.i.i150
   br i1 %cmp3.i.i151, label %while.body.i.i146, label %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit152, !llvm.loop !38
 
@@ -5350,14 +5350,14 @@ while.cond.preheader.i.i217:                      ; preds = %do.body.i.i209
   br i1 %cmp314.i.i218, label %while.body.i.i224, label %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit230
 
 while.body.i.i224:                                ; preds = %while.cond.preheader.i.i217, %while.body.i.i224
-  %start.016.i.i225 = phi ptr [ %incdec.ptr5.i.i228, %while.body.i.i224 ], [ %buf.i208, %while.cond.preheader.i.i217 ]
-  %next.115.i.i226 = phi ptr [ %incdec.ptr4.i.i227, %while.body.i.i224 ], [ %next.0.i.i210, %while.cond.preheader.i.i217 ]
-  %63 = load i8, ptr %next.115.i.i226, align 1
-  %64 = load i8, ptr %start.016.i.i225, align 1
-  store i8 %64, ptr %next.115.i.i226, align 1
-  store i8 %63, ptr %start.016.i.i225, align 1
-  %incdec.ptr4.i.i227 = getelementptr inbounds i8, ptr %next.115.i.i226, i64 -1
-  %incdec.ptr5.i.i228 = getelementptr inbounds i8, ptr %start.016.i.i225, i64 1
+  %next.116.i.i225 = phi ptr [ %incdec.ptr4.i.i227, %while.body.i.i224 ], [ %next.0.i.i210, %while.cond.preheader.i.i217 ]
+  %start.015.i.i226 = phi ptr [ %incdec.ptr5.i.i228, %while.body.i.i224 ], [ %buf.i208, %while.cond.preheader.i.i217 ]
+  %63 = load i8, ptr %next.116.i.i225, align 1
+  %64 = load i8, ptr %start.015.i.i226, align 1
+  store i8 %64, ptr %next.116.i.i225, align 1
+  store i8 %63, ptr %start.015.i.i226, align 1
+  %incdec.ptr4.i.i227 = getelementptr inbounds i8, ptr %next.116.i.i225, i64 -1
+  %incdec.ptr5.i.i228 = getelementptr inbounds i8, ptr %start.015.i.i226, i64 1
   %cmp3.i.i229 = icmp ugt ptr %incdec.ptr4.i.i227, %incdec.ptr5.i.i228
   br i1 %cmp3.i.i229, label %while.body.i.i224, label %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit230, !llvm.loop !38
 
@@ -5394,14 +5394,14 @@ while.cond.preheader.i.i240:                      ; preds = %do.body.i.i232
   br i1 %cmp314.i.i241, label %while.body.i.i247, label %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit253
 
 while.body.i.i247:                                ; preds = %while.cond.preheader.i.i240, %while.body.i.i247
-  %start.016.i.i248 = phi ptr [ %incdec.ptr5.i.i251, %while.body.i.i247 ], [ %buf.i231, %while.cond.preheader.i.i240 ]
-  %next.115.i.i249 = phi ptr [ %incdec.ptr4.i.i250, %while.body.i.i247 ], [ %next.0.i.i233, %while.cond.preheader.i.i240 ]
-  %67 = load i8, ptr %next.115.i.i249, align 1
-  %68 = load i8, ptr %start.016.i.i248, align 1
-  store i8 %68, ptr %next.115.i.i249, align 1
-  store i8 %67, ptr %start.016.i.i248, align 1
-  %incdec.ptr4.i.i250 = getelementptr inbounds i8, ptr %next.115.i.i249, i64 -1
-  %incdec.ptr5.i.i251 = getelementptr inbounds i8, ptr %start.016.i.i248, i64 1
+  %next.116.i.i248 = phi ptr [ %incdec.ptr4.i.i250, %while.body.i.i247 ], [ %next.0.i.i233, %while.cond.preheader.i.i240 ]
+  %start.015.i.i249 = phi ptr [ %incdec.ptr5.i.i251, %while.body.i.i247 ], [ %buf.i231, %while.cond.preheader.i.i240 ]
+  %67 = load i8, ptr %next.116.i.i248, align 1
+  %68 = load i8, ptr %start.015.i.i249, align 1
+  store i8 %68, ptr %next.116.i.i248, align 1
+  store i8 %67, ptr %start.015.i.i249, align 1
+  %incdec.ptr4.i.i250 = getelementptr inbounds i8, ptr %next.116.i.i248, i64 -1
+  %incdec.ptr5.i.i251 = getelementptr inbounds i8, ptr %start.015.i.i249, i64 1
   %cmp3.i.i252 = icmp ugt ptr %incdec.ptr4.i.i250, %incdec.ptr5.i.i251
   br i1 %cmp3.i.i252, label %while.body.i.i247, label %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit253, !llvm.loop !38
 
